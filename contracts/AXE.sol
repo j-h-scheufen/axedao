@@ -14,14 +14,13 @@ import {Governable} from './Governable.sol';
 contract AXE is Ownable, Governable, ERC20Capped {
 
   uint256 internal constant _MAX_SUPPLY = 10_000_000_000;
-  uint256 internal constant _DECIMALS = 10 ** 18;
   string internal constant _TOKEN_NAME = unicode"Axé";
   string internal constant _TOKEN_TICKER = unicode"AXÉ";
 
   /**
    * @dev Constructor
    */
-  constructor() Ownable(msg.sender) Governable(msg.sender) ERC20(_TOKEN_NAME, _TOKEN_TICKER) ERC20Capped(_MAX_SUPPLY * _DECIMALS) {
+  constructor() Ownable(msg.sender) Governable(msg.sender) ERC20(_TOKEN_NAME, _TOKEN_TICKER) ERC20Capped(_MAX_SUPPLY) {
   }
 
   /**
