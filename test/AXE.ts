@@ -1,12 +1,9 @@
-import {
-  time,
-  loadFixture,
-} from "@nomicfoundation/hardhat-toolbox/network-helpers";
+import { loadFixture } from "@nomicfoundation/hardhat-toolbox/network-helpers";
 import { anyValue } from "@nomicfoundation/hardhat-chai-matchers/withArgs";
 import { expect } from "chai";
 import { ethers } from "hardhat";
 
-const MAX_SUPPLY = 10000000000;
+const MAX_SUPPLY = 9911238945;
 
 describe("AXÉ Tests", function () {
 
@@ -27,7 +24,7 @@ describe("AXÉ Tests", function () {
     it("Should have no initial supply and max cap", async function () {
       const { token, owner } = await loadFixture(deployAxeTokenFixture);
       expect(await token.totalSupply()).to.equal(0);
-      expect(await token.cap()).to.equal(MAX_SUPPLY);
+      expect(await token.cap()).to.equal(ethers.parseUnits(MAX_SUPPLY.toString()));
     });
     it("Should have owner and governor initialized", async function () {
       const { token, owner } = await loadFixture(deployAxeTokenFixture);
@@ -44,18 +41,18 @@ describe("AXÉ Tests", function () {
   describe("Issuance", function () {
     it("Only Governor should be able to issue", async function () {
       const { token, owner, addr1 } = await loadFixture(deployAxeTokenFixture);
-      await expect(token.connect(addr1).issue(1000)).to.be.revertedWithCustomError(token, "GovernableUnauthorizedAccount").withArgs(addr1.address);
+      await expect(token.connect(addr1).issue(ethers.parseUnits("1000"))).to.be.revertedWithCustomError(token, "GovernableUnauthorizedAccount").withArgs(addr1.address);
     });
     it("Governor should be able to issue multiple times", async function () {
       const { token, owner } = await loadFixture(deployAxeTokenFixture);
-      await token.issue(1000)
-      expect(await token.balanceOf(owner)).to.equal(1000);
-      await token.issue(5005)
-      expect(await token.balanceOf(owner)).to.equal(6005);
+      await token.issue(ethers.parseUnits("1000"))
+      expect(await token.balanceOf(owner)).to.equal(ethers.parseUnits("1000"));
+      await token.issue(ethers.parseUnits("5005"))
+      expect(await token.balanceOf(owner)).to.equal(ethers.parseUnits("6005"));
     });
     it("Issuance should not exceed MAX SUPPLY", async function () {
       const { token, owner } = await loadFixture(deployAxeTokenFixture);
-      await token.issue(MAX_SUPPLY);
+      await token.issue(ethers.parseUnits(MAX_SUPPLY.toString()));
       await expect(token.issue(1)).to.be.revertedWithCustomError(token, "ERC20ExceededCap");
     });
   });

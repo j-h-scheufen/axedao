@@ -66,17 +66,6 @@ abstract contract Governable is Context {
     }
 
     /**
-     * @dev Leaves the contract without governor. It will not be possible to call
-     * `onlyGovernor` functions. Can only be called by the current governor.
-     *
-     * NOTE: Renouncing governorship will leave the contract without an governor,
-     * thereby disabling any functionality that is only available to the governor.
-     */
-    // function renounceGovernorship() public virtual onlyGovernor {
-    //     _transferGovernorship(address(0));
-    // }
-
-    /**
      * @dev Transfers governorship of the contract to a new account (`newGovernor`).
      * Can only be called by the current governor.
      */
