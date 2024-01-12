@@ -1,9 +1,12 @@
-import { loadFixture } from "@nomicfoundation/hardhat-toolbox/network-helpers";
-import { anyValue } from "@nomicfoundation/hardhat-chai-matchers/withArgs";
+
+const vwJson = require("@openzeppelin/contracts/build/contracts/VestingWallet.json");
+
+import { loadFixture, time, takeSnapshot } from "@nomicfoundation/hardhat-toolbox/network-helpers";
 import { expect } from "chai";
+import { Typed } from "ethers";
 import { ethers } from "hardhat";
 
-const MAX_SUPPLY = 9911238945;
+import { AXE } from "./constants";
 
 describe("AXÉ Tests", function () {
 
@@ -17,14 +20,17 @@ describe("AXÉ Tests", function () {
     const factory = await ethers.getContractFactory("AXE");
     const token = await factory.deploy();
 
-    return { token, owner, addr1, addr2 };
+    const vAddress = await token.vestingWallet();
+    const vestingWallet = new ethers.Contract(vAddress, vwJson.abi, owner);
+
+    return { token, vestingWallet, owner, addr1, addr2 };
   }
 
   describe("Deployment", function () {
-    it("Should have no initial supply and max cap", async function () {
+    it("Should have only vesting amount as initial supply and max cap", async function () {
       const { token, owner } = await loadFixture(deployAxeTokenFixture);
-      expect(await token.totalSupply()).to.equal(0);
-      expect(await token.cap()).to.equal(ethers.parseUnits(MAX_SUPPLY.toString()));
+      expect(await token.totalSupply()).to.equal(ethers.parseUnits(AXE.VESTING_AMOUNT.toString()));
+      expect(await token.cap()).to.equal(ethers.parseUnits(AXE.MAX_SUPPLY.toString()));
     });
     it("Should have owner and governor initialized", async function () {
       const { token, owner } = await loadFixture(deployAxeTokenFixture);
@@ -52,8 +58,29 @@ describe("AXÉ Tests", function () {
     });
     it("Issuance should not exceed MAX SUPPLY", async function () {
       const { token, owner } = await loadFixture(deployAxeTokenFixture);
-      await token.issue(ethers.parseUnits(MAX_SUPPLY.toString()));
+      await token.issue(ethers.parseUnits((AXE.MAX_SUPPLY - AXE.VESTING_AMOUNT).toString()));
       await expect(token.issue(1)).to.be.revertedWithCustomError(token, "ERC20ExceededCap");
+    });
+  });
+
+  describe("Vesting", function () {
+    it("Initial amount should be locked", async function () {
+      const { token, vestingWallet, owner } = await loadFixture(deployAxeTokenFixture);
+      expect(await token.balanceOf(vestingWallet)).to.be.equal(ethers.parseUnits(AXE.VESTING_AMOUNT.toString()));
+    });
+    it("Vesting schedule should be working", async function () {
+      const { token, vestingWallet, owner } = await loadFixture(deployAxeTokenFixture);
+      // use a snapshot to roll back the time jumps
+      const snapshot = await takeSnapshot();
+      let releasable = await vestingWallet.releasable(Typed.address(token));
+      expect(releasable).to.be.equal(0, "Vesting should not have started yet");
+      await time.increase(72000)
+      await vestingWallet.release(Typed.address(token))
+      expect(await token.balanceOf(owner)).to.be.greaterThan(0, "Vesting should have started");
+      time.increase(AXE.VESTING_DURATION);
+      await vestingWallet.release(Typed.address(token))
+      expect(await token.balanceOf(owner)).to.be.equal(ethers.parseUnits(AXE.VESTING_AMOUNT.toString()), "Should have fully vested");
+      await snapshot.restore();
     });
   });
 
