@@ -2,16 +2,19 @@
 
 pragma solidity ^0.8.20;
 
-import {ERC20, ERC20Capped} from '@openzeppelin/contracts/token/ERC20/extensions/ERC20Capped.sol';
-import {Ownable} from '@openzeppelin/contracts/access/Ownable.sol';
+import { ERC20, ERC20Capped } from '@openzeppelin/contracts/token/ERC20/extensions/ERC20Capped.sol';
+import { SafeERC20 } from '@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol';
+import { Ownable } from '@openzeppelin/contracts/access/Ownable.sol';
 
-import {Governable} from './Governable.sol';
+import { Governable } from './Governable.sol';
 
 /**
  * @title Axé Token
  * @dev xERC20 Token
  */
 contract AXE is Ownable, Governable, ERC20Capped {
+
+  using SafeERC20 for IERC20;
 
   // MAX SUPPLY encodes and honors Mestre Pastinha's and Mestre Bimba's birthdays.
   // Even though M. Pastinha was born 10 years before M. Bimba, the reverse order of their birthdays gets us closer to a target of 10 billion tokens:
