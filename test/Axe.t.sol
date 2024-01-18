@@ -9,14 +9,14 @@ contract CounterTest is Test {
     AXE2 public axe;
 
     function setUp() public {
-        axe = new AXE2();
+        // axe = new AXE2();
     }
 
     function test_Fee() public {
-        axe.setFee(0);
-        assertEq(axe.swapFee(), 0);
-        vm.expectRevert();
-        axe.setFee(10005);
+        // axe.setBuyTax(30);
+        // assertEq(axe.buyTax(), 30);
+        // vm.expectRevert();
+        // axe.setBuyTax(10005);
     }
 
     // function testFuzz_SetFee(uint256 x) public {

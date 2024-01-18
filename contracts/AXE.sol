@@ -16,7 +16,7 @@ import { Governable } from './Governable.sol';
  */
 contract AXE is Ownable, Governable, ERC20Capped {
 
-  using SafeERC20 for IERC20;
+  using SafeERC20 for IERC20; // TODO not sure this is of much use?
 
   // MAX SUPPLY encodes and honors Mestre Pastinha's and Mestre Bimba's birthdays.
   // Even though M. Pastinha was born 10 years before M. Bimba, the reverse order of their birthdays gets us closer to a target of 10 billion tokens:

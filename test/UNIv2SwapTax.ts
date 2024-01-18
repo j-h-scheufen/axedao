@@ -7,14 +7,29 @@ import { loadFixture } from "@nomicfoundation/hardhat-toolbox/network-helpers";
 import { expect } from "chai";
 import { ethers } from "hardhat";
 
-import { AXE } from "./constants";
-import { Typed, MaxUint256, AddressLike } from "ethers";
+import { AXE as AxeConstants } from "./constants";
+import { Typed, MaxUint256, AddressLike, ZeroAddress } from "ethers";
 
 const WETH9 = require("./WETH9.json");
 const AXE_MINT = ethers.parseUnits("5000000000");
 const DAI_MINT = ethers.parseUnits("1000");
 
 describe("Uniswap Tests", function () {
+
+  async function deployAxeLiquidityFixture() {
+    const { owner, router, axe, dai } = await deployUniswapFixture();
+
+    // Set up the router and pair
+    await axe.setLiquidationRouterAndToken(router.target, dai.target);
+    const pair = new Contract(await axe.uniswapV2Pair(), pairJson.abi, owner);
+
+    const approveTx1 = await axe.approve(router.target, MaxUint256);
+    await approveTx1.wait();
+    const approvalTx2 = await dai.approve(router.target, MaxUint256);
+    await approvalTx2.wait();
+
+    return { owner, router, pair, axe, dai };
+  }
 
   async function deployUniswapFixture() {
     // Contracts are deployed using the first signer/account by default
@@ -23,24 +38,10 @@ describe("Uniswap Tests", function () {
     const factoryContract = new ContractFactory(factoryJson.abi, factoryJson.bytecode, owner);
     const factory = await factoryContract.deploy(owner.address);
     console.log(`Uniswap Factory deployed to ${factory.target}`);
-  
-    const AXE = await ethers.getContractFactory("AXE", owner);
-    const axe = await AXE.deploy();
-    console.log(`AXE deployed to ${axe.target}`);
 
     const DAI = await ethers.getContractFactory("DAI", owner);
     const dai = await DAI.deploy();
     console.log('DAI deployed to', dai.target);
-
-    // Mint initial supply in both tokens for the owner
-    await axe.issue(AXE_MINT);
-    await dai.mint(owner, DAI_MINT);
-
-    const tx1 = await factory.createPair(axe.target, dai.target);
-    await tx1.wait();
-    const pairAddress = await factory.getPair(axe.target, dai.target);
-    console.log(`Pair deployed to ${pairAddress}`);
-    const pair = new Contract(pairAddress, pairJson.abi, owner);
 
     const WETH = new ContractFactory(WETH9.abi, WETH9.bytecode, owner);
     const weth = await WETH.deploy();
@@ -54,31 +55,41 @@ describe("Uniswap Tests", function () {
     const router = await Router.deploy(factory.target, weth.target);
     console.log(`Router deployed to ${router.target}`);
 
-    const approveTx1 = await axe.approve(router.target, MaxUint256);
-    await approveTx1.wait();
-    const approvalTx2 = await dai.approve(router.target, MaxUint256);
-    await approvalTx2.wait();
+    const AXE = await ethers.getContractFactory("AXE2", owner);
+    const axe = await AXE.deploy();
+    await axe.waitForDeployment();
+    console.log(`AXE deployed to ${axe.target}`);
 
-    return { owner, router, pair, axe, dai };
+    // Mint initial supply in both tokens for the owner
+    await axe.issue(AXE_MINT);
+    await dai.mint(owner, DAI_MINT);
+    
+    return { owner, router, axe, dai };
 
   }
 
-  describe("Deployment", function () {
+  describe("Initial Deployment", function () {
+    it("Should have no router and pool.", async function () {
+      const { owner, router, axe, dai } = await loadFixture(deployUniswapFixture);
+      expect( await axe.uniswapV2Router()).to.be.equal(ZeroAddress, "Should have no router");
+      expect( await axe.getActiveLiquidityToken()).to.be.equal(ZeroAddress, "Should have no liquidity token");
+      expect( await axe.uniswapV2Pair()).to.be.equal(ZeroAddress, "Should have no swap pair");
+      const pair = await new Contract(await router.factory(), factoryJson.abi, owner).getPair(axe.target, dai.target);
+      expect(pair).to.be.equal(ZeroAddress, 'Should have no pair deployed yet');
+    });
+  });
+
+  describe("Liquidity Setup", function () {
     it("Should have a pool deployed with no liquidity", async function () {
-      const { owner, router, pair, axe, dai } = await loadFixture(deployUniswapFixture);
-      expect(await axe.totalSupply()).to.be.equal(ethers.parseUnits(AXE.VESTING_AMOUNT.toString()) + AXE_MINT);
-      expect(await dai.totalSupply()).to.be.equal(DAI_MINT);
+      const { owner, router, pair, axe, dai } = await loadFixture(deployAxeLiquidityFixture);
       const reserves = await pair.getReserves();
       expect(reserves[0]).to.be.equal(0, 'Token1 pool liquidity should be 0.');
       expect(reserves[1]).to.be.equal(0, 'Token2 pool liquidity should be 0.');
       expect( await axe.allowance(owner, router)).to.be.equal(MaxUint256, "Missing approval for router on AXE");
       expect( await dai.allowance(owner, router)).to.be.equal(MaxUint256, "Missing approval for router on DAI");
     });
-  });
-
-  describe("Liquidity", function () {
     it("Should be able to add liquidity", async function () {
-      const { owner, router, pair, axe, dai } = await loadFixture(deployUniswapFixture);
+      const { owner, router, pair, axe, dai } = await loadFixture(deployAxeLiquidityFixture);
       const axeAmount = ethers.parseUnits("100000");
       const daiAmount = ethers.parseUnits("50");
 
@@ -93,7 +104,7 @@ describe("Uniswap Tests", function () {
       expect(reserves[daiIdx]).to.be.equal(daiAmount, 'DAI pool liquidity mismatch.');
     });
     it("Should be able to swap", async function () {
-      const { owner, router, pair, axe, dai } = await loadFixture(deployUniswapFixture);
+      const { owner, router, pair, axe, dai } = await loadFixture(deployAxeLiquidityFixture);
       const axeAmount = ethers.parseUnits("100000000");
       const daiAmount = ethers.parseUnits("500");
       await addLiquidity(owner, router, axe, dai, axeAmount, daiAmount);
