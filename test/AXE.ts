@@ -18,7 +18,7 @@ describe("AXÉ Tests", function () {
     const [owner, addr1, addr2] = await ethers.getSigners();
 
     const factory = await ethers.getContractFactory("AXE");
-    const token = await factory.deploy();
+    const token = await factory.deploy(owner, owner);
 
     const vAddress = await token.vestingWallet();
     const vestingWallet = new ethers.Contract(vAddress, vwJson.abi, owner);

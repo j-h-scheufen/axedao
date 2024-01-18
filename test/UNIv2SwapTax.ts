@@ -55,16 +55,18 @@ describe("Uniswap Tests", function () {
     const router = await Router.deploy(factory.target, weth.target);
     console.log(`Router deployed to ${router.target}`);
 
-    const AXE = await ethers.getContractFactory("AXE2", owner);
-    const axe = await AXE.deploy();
+    const AXE = await ethers.getContractFactory("AXE", owner);
+    const axe = await AXE.deploy(owner, owner);
     await axe.waitForDeployment();
     console.log(`AXE deployed to ${axe.target}`);
 
     // Mint initial supply in both tokens for the owner
     await axe.issue(AXE_MINT);
     await dai.mint(owner, DAI_MINT);
+    await dai.mint(addr1, ethers.parseUnits("1000"));
+    await dai.mint(addr2, ethers.parseUnits("1000"));
     
-    return { owner, router, axe, dai };
+    return { owner, router, axe, dai, addr1, addr2 };
 
   }
 
@@ -100,7 +102,7 @@ describe("Uniswap Tests", function () {
       const {axeIdx, daiIdx} = await getTokenReserveIndex(pair, axe.target);
       expect( await pair.balanceOf(owner.address)).to.be.greaterThan(0, "Owner should have LP tokens")
       const reserves = await pair.getReserves();
-      expect(reserves[axeIdx]).to.be.equal(axeAmount, 'AXE pool liquidity mismatch.');
+      expect(reserves[axeIdx]).to.be.equal(axeAmount, 'AXE pool liquidity mismatch. Governor should not be taxed.');
       expect(reserves[daiIdx]).to.be.equal(daiAmount, 'DAI pool liquidity mismatch.');
     });
     it("Should be able to swap", async function () {
@@ -121,6 +123,11 @@ describe("Uniswap Tests", function () {
       reservesAfter = await pair.getReserves();
       expect(reservesBefore[daiIdx]).to.be.greaterThan(reservesAfter[daiIdx]);
       expect(reservesBefore[axeIdx]).to.be.lessThan(reservesAfter[axeIdx]);
+
+      const daiFees = await dai.balanceOf(axe.target);
+      console.log('DAI fees:', daiFees);
+      const axeFees = await axe.balanceOf(axe.target);
+      console.log('AXE fees:', axeFees);
     });
 
   });
@@ -163,5 +170,9 @@ const getTokenReserveIndex = async (pair: { token0: () => any; token1: () => any
   const token0Addr = await pair.token0();
   const token1Addr = await pair.token1();
   return token0Addr == axeAddress ? {axeIdx: 0, daiIdx: 1} : {axeIdx: 1, daiIdx: 0};
+}
+
+const calculateAfterTaxAmount = (amount: bigint, tax: bigint): bigint => {
+  return  amount - (amount * tax / BigInt(10**4));
 
 }
