@@ -23,7 +23,7 @@ contract AXE is Ownable, Governable, ERC20Capped {
   using SafeERC20 for IERC20; // TODO not sure this is of much use?
 
   // MAX SUPPLY encodes and honors Mestre Pastinha's and Mestre Bimba's birthdays.
-  // Even though M. Pastinha was born 10 years before M. Bimba, the reverse order of their birthdays gets us closer to a target of 10 billion tokens:
+  // M. Pastinha was born 10 years before M. Bimba, so going backwards in order of their birthdays gets us close to a target of 10 billion tokens:
   // 18[99]/[11]/[23], 18[89]/0[4]/0[5]
   uint256 internal constant _MAX_SUPPLY = 9_911_238_945;
   uint256 internal constant _VESTING_AMOUNT = 25_000_000; // .05 % of total supply
@@ -50,7 +50,7 @@ contract AXE is Ownable, Governable, ERC20Capped {
     _;
   }
 
-  //TODO add events for stuff
+  //TODO add events
 
   /**
    * @dev Constructor - Mints the vesting amount for the governor into the governor's treasury.
@@ -145,7 +145,7 @@ contract AXE is Ownable, Governable, ERC20Capped {
   /**
    * @dev Withdraws accumulated AXE, liquidityTokens (from history), and native tokens, for any existing balances to the governor.
    */
-  function withdrawFees() external onlyGovernor {
+  function withdrawAll() external onlyGovernor {
     // Native token
     uint256 balance = address(this).balance;
     if (balance > 0) payable(governorTreasury).transfer(balance);
@@ -160,6 +160,15 @@ contract AXE is Ownable, Governable, ERC20Capped {
       balance = token.balanceOf(address(this));
       if (balance > 0) token.transfer(governorTreasury, balance);
     }
+  }
+
+  /**
+   * @dev Fallback function to withdraw an ERC20 token that might've been sent to this contract, but is not in the tokenHistory.
+   * @param _token the ERC20 to rescue
+   */
+  function rescueBalance(address _token) external onlyGovernor {
+    uint256 balance = IERC20(_token).balanceOf(address(this));
+    if (balance > 0) IERC20(_token).transfer(governorTreasury, balance);
   }
 
   /**
@@ -191,13 +200,18 @@ contract AXE is Ownable, Governable, ERC20Capped {
   }
 
   /**
-   * @dev Overrides ERC20.transferFrom to impose buy/sell fees
+   * @dev Overrides ERC20._update to impose buy/sell fees
    */
-  function transferFrom(address from, address to, uint256 value) public override returns (bool) {
-    address spender = _msgSender();
-    console.log("Spender transferring from %s to %s %s tokens", from, to, value);
+  function _update(address from, address to, uint256 value) internal override {
+    // Don't intervene on minting/burning
+    if (from == address(0) || to == address(0)) {
+      return super._update(from, to, value);
+    }
 
-    _spendAllowance(from, spender, value);
+    address spender = _msgSender();
+    console.log("Spender:", spender);
+    console.log("... transferring from %s to %s %s tokens", from, to, value);
+
     uint256 fee = 0;
     uint256 adjustedValue = value;
     if (!excluded[from] && !excluded[to]) {
@@ -205,20 +219,18 @@ contract AXE is Ownable, Governable, ERC20Capped {
       if (taxablePairs[from] && buyTax > 0) {
         fee = _calculateFee(buyTax, value);
         console.log("Tax on BUY from pair %s to %s: %s tokens", from, to, fee);
-        _transfer(from, address(this), fee);
+        super._update(from, address(this), fee);
         adjustedValue -= fee;
       }
       // SELL
       else if (taxablePairs[to] && sellTax > 0) {
         fee = _calculateFee(sellTax, value);
         console.log("Tax on SELL to pair %s from %s: %s tokens", to, from, fee);
-        _transfer(from, address(this), fee);
+        super._update(from, address(this), fee);
         adjustedValue -= fee;
       }
     }
-    _transfer(from, to, adjustedValue);
-
-    return true;
+    super._update(from, to, adjustedValue);
   }
 
   /**
