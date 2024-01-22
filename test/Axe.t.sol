@@ -3,13 +3,13 @@ pragma solidity ^0.8.20;
 
 import {Test, console2} from "forge-std/Test.sol";
 
-import {AXE2} from "../contracts/AXE2.sol";
+import {AXE} from "../contracts/AXE.sol";
 
 contract CounterTest is Test {
-    AXE2 public axe;
+    AXE public axe;
 
     function setUp() public {
-        // axe = new AXE2();
+        axe = new AXE(address(this), address(this));
     }
 
     function test_Fee() public {
