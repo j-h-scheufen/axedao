@@ -24,5 +24,8 @@ node_modules
 /coverage
 /coverage.json
 
+# Typescript
+/dist
+
 # custom
 /temp
