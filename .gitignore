@@ -1,6 +1,6 @@
 # Compiler files
-cache/
-out/
+/cache*/
+/out/
 
 # Ignores development broadcast logs
 !/broadcast
@@ -17,12 +17,14 @@ node_modules
 /artifacts
 
 # TypeChain files
-/typechain
-/typechain-types
+/typechain*/
 
 # solidity-coverage files
 /coverage
 /coverage.json
 
+# Typescript
+/dist/
+
 # custom
-/temp
+/temp/

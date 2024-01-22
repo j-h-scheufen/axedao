@@ -6,6 +6,17 @@
   "author": "Jan Hendrik Scheufen <j.h.scheufen@gmail.com>",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "prepare": "husky install",
+    "build": "tsc",
+    "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx",
+    "format": "prettier --write ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
+  },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
     "@nomicfoundation/hardhat-ethers": "^3.0.0",
@@ -21,10 +32,18 @@
     "@types/chai-as-promised": "^7.1.6",
     "@types/mocha": "^10.0.6",
     "@types/node": "^20.11.5",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
     "chai": "^4.2.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.33.2",
     "ethers": "^6.9.2",
     "hardhat": "^2.19.4",
     "hardhat-gas-reporter": "^1.0.8",
+    "husky": "^8.0.3",
+    "pre-commit": "^1.2.2",
+    "prettier": "^3.2.4",
     "solidity-coverage": "^0.8.0",
     "ts-node": "^10.9.2",
     "typechain": "^8.3.0",
