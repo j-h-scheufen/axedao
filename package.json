@@ -7,9 +7,10 @@
   "license": "MIT",
   "private": false,
   "scripts": {
+    "prepare": "husky install",
     "build": "tsc",
-    "lint": "eslint --ignore-path .gitignore --ext .js,.ts",
-    "format": "prettier --write \"**/*.+(js|ts|json)\""
+    "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx",
+    "format": "prettier --write ."
   },
   "husky": {
     "hooks": {
