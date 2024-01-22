@@ -1,34 +1,37 @@
-name: test
+name: Test
 
-on: workflow_dispatch
-
-env:
-  FOUNDRY_PROFILE: ci
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
 
 jobs:
-  check:
-    strategy:
-      fail-fast: true
-
-    name: Foundry project
+  tests:
+    name: Hardhat
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
         with:
-          submodules: recursive
+          node-version: 16
+          registry-url: https://registry.npmjs.org
+          cache: 'yarn'
 
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
         with:
           version: nightly
 
-      - name: Run Forge build
-        run: |
-          forge --version
-          forge build --sizes
-        id: build
+      - run: yarn install --frozen-lockfile
 
-      - name: Run Forge tests
-        run: |
-          forge test -vvv
-        id: test
+      - run: yarn lint
+      
+      - run: npx hardhat test
+      #   env:
+      #     JSON_RPC_PROVIDER: ${{ secrets.JSON_RPC_PROVIDER }}
