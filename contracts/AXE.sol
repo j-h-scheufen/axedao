@@ -26,7 +26,7 @@ contract AXE is Ownable, Governable, ERC20Capped {
   // M. Pastinha was born 10 years before M. Bimba, so going backwards in order of their birthdays gets us close to a target of 10 billion tokens:
   // 18[99]/[11]/[23], 18[89]/0[4]/0[5]
   uint256 internal constant _MAX_SUPPLY = 9_911_238_945;
-  uint256 internal constant _VESTING_AMOUNT = 25_000_000; // .05 % of total supply
+  uint256 internal constant _VESTING_AMOUNT = 25_000_000; // .05 % of total supply, 5% of initial supply
   uint64 internal constant _VESTING_DURATION = 94_608_000; // 3 years
   string internal constant _NAME = unicode"Axé";
   string internal constant _TICKER = unicode"AXÉ";
@@ -54,13 +54,15 @@ contract AXE is Ownable, Governable, ERC20Capped {
 
   /**
    * @dev Constructor - Mints the vesting amount for the governor into the governor's treasury.
+   * @param _founder - the founder's address for vesting
    * @param _governor - the DAO's multisig
    * @param _governorTreasury - the DAO's treasury
    */
-  constructor(address _governor, address _governorTreasury) Ownable(_governor) Governable(_governor) ERC20(_NAME, _TICKER) ERC20Capped(_MAX_SUPPLY * (10 ** decimals())) {
+  constructor(address _founder, address _governor, address _governorTreasury) Ownable(_governor) Governable(_governor) ERC20(_NAME, _TICKER) ERC20Capped(_MAX_SUPPLY * (10 ** decimals())) {
+    require(_founder != address(0), "AXE requires a founder");
     require(_governor != address(0), "AXE requires a governor");
     require(_governorTreasury != address(0), "AXE requires a governor's treasury");
-    founder = _msgSender();
+    founder = _founder;
     governorTreasury = _governorTreasury;
     //exclude treasury and this contract from fees
     excluded[governorTreasury] = true;

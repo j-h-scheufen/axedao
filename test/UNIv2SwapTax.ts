@@ -21,6 +21,9 @@ import {
 const AXE_MINT = ethers.parseUnits('5000000000');
 const DAI_MINT = ethers.parseUnits('1000');
 
+// TODO
+// test router setting with and without prior pool
+
 describe('Uniswap Tests', function () {
   async function deployAxeLiquidityFixture() {
     const { owner, router, axe, dai, addr1, addr2 } = await deployUniswapFixture();
@@ -58,7 +61,7 @@ describe('Uniswap Tests', function () {
     const router = IUniswapV2Router02__factory.connect(routerContract.target as string, owner);
     console.log(`Router deployed to ${routerContract.target}`);
 
-    const axe = await ethers.deployContract('AXE', [owner, owner]);
+    const axe = await ethers.deployContract('AXE', [owner, owner, owner]);
     await axe.waitForDeployment();
     console.log(`AXE deployed to ${axe.target}`);
 
