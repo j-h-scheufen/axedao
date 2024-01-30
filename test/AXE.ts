@@ -5,13 +5,15 @@ import { expect } from 'chai';
 import { Typed } from 'ethers';
 import { ethers } from 'hardhat';
 
-import { AXE as CONST } from './constants';
+import * as TEST from './constants';
+
+// TODO full test coverage of all functions and attributes
 
 describe('AXÉ Tests', function () {
   async function deployAxeTokenFixture() {
     const [owner, addr1, addr2] = await ethers.getSigners();
 
-    const token = await ethers.deployContract('AXE', [owner, owner]);
+    const token = await ethers.deployContract('AXE', [owner, owner, owner]);
 
     const vAddress = await token.vestingWallet();
     const vestingWallet = new ethers.Contract(vAddress, vwJson.abi, owner);
@@ -22,8 +24,8 @@ describe('AXÉ Tests', function () {
   describe('Deployment', function () {
     it('Should have only vesting amount as initial supply and max cap', async function () {
       const { token } = await loadFixture(deployAxeTokenFixture);
-      expect(await token.totalSupply()).to.equal(ethers.parseUnits(CONST.VESTING_AMOUNT.toString()));
-      expect(await token.cap()).to.equal(ethers.parseUnits(CONST.MAX_SUPPLY.toString()));
+      expect(await token.totalSupply()).to.equal(ethers.parseUnits(TEST.AXE.VESTING_AMOUNT.toString()));
+      expect(await token.cap()).to.equal(ethers.parseUnits(TEST.AXE.MAX_SUPPLY.toString()));
     });
     it('Should have owner and governor initialized', async function () {
       const { token, owner } = await loadFixture(deployAxeTokenFixture);
@@ -53,7 +55,7 @@ describe('AXÉ Tests', function () {
     });
     it('Issuance should not exceed MAX SUPPLY', async function () {
       const { token } = await loadFixture(deployAxeTokenFixture);
-      await token.issue(ethers.parseUnits((CONST.MAX_SUPPLY - CONST.VESTING_AMOUNT).toString()));
+      await token.issue(ethers.parseUnits((TEST.AXE.MAX_SUPPLY - TEST.AXE.VESTING_AMOUNT).toString()));
       await expect(token.issue(1)).to.be.revertedWithCustomError(token, 'ERC20ExceededCap');
     });
   });
@@ -61,7 +63,7 @@ describe('AXÉ Tests', function () {
   describe('Vesting', function () {
     it('Initial amount should be locked', async function () {
       const { token, vestingWallet } = await loadFixture(deployAxeTokenFixture);
-      expect(await token.balanceOf(vestingWallet)).to.be.equal(ethers.parseUnits(CONST.VESTING_AMOUNT.toString()));
+      expect(await token.balanceOf(vestingWallet)).to.be.equal(ethers.parseUnits(TEST.AXE.VESTING_AMOUNT.toString()));
     });
     it('Vesting schedule should be working', async function () {
       const { token, vestingWallet, owner } = await loadFixture(deployAxeTokenFixture);
@@ -72,10 +74,10 @@ describe('AXÉ Tests', function () {
       await time.increase(72000);
       await vestingWallet.release(Typed.address(token));
       expect(await token.balanceOf(owner)).to.be.greaterThan(0, 'Vesting should have started');
-      time.increase(CONST.VESTING_DURATION);
+      time.increase(TEST.AXE.VESTING_DURATION);
       await vestingWallet.release(Typed.address(token));
       expect(await token.balanceOf(owner)).to.be.equal(
-        ethers.parseUnits(CONST.VESTING_AMOUNT.toString()),
+        ethers.parseUnits(TEST.AXE.VESTING_AMOUNT.toString()),
         'Should have fully vested',
       );
       await snapshot.restore();

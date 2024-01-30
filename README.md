@@ -1,66 +1,43 @@
-## Foundry
+## Axé DAO & Token Project
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+**Smart Contracts and apps for the Axé DAO Community**
 
-Foundry consists of:
+## Prerequisites
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+- **Package Manager**: Yarn (preferred) or NPM
+- **Foundry** (not fully used yet, currently optional). See also [here](./Foundry.md).
 
-## Documentation
+```shell
+$ curl -L https://foundry.paradigm.xyz | bash
+$ foundryup
+```
 
-https://book.getfoundry.sh/
+## Installation
+
+```shell
+$ yarn install
+```
 
 ## Usage
 
-### Build
+By default this project uses the Hardhat local network to perform tests or run scripts. A _forking_ network has been
+pre-configured (Goerli) that can be activated by prefixing hardhat commands with `FORK=true`.
+
+Example that runs the tests againts the configured forking Hardhat network:
 
 ```shell
-$ forge build
+$ FORK=true npx hardhat test
 ```
 
 ### Test
 
 ```shell
+$ npx hardhat test
 $ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
 ```
 
 ### Deploy
 
 ```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
+TODO
 ```

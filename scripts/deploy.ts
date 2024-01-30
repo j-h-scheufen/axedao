@@ -1,21 +1,37 @@
-import { ethers } from 'hardhat';
+import { ethers, network } from 'hardhat';
+
+import { getEnvironmentVariable, vars } from '../config';
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const unlockTime = currentTimestampInSeconds + 60;
+  const daoAddress = getEnvironmentVariable(vars.DAO_ADDRESS);
+  const treasuryAddress = getEnvironmentVariable(vars.TREASURY_ADDRESS);
+  const founderAddress = getEnvironmentVariable(vars.FOUNDER_ADDRESS);
+  let deployer;
+  if (network.name == 'localhost') {
+    console.log('LOCALHOST Deployment');
+    [deployer] = await ethers.getSigners();
+  } else {
+    console.log('Network Deployment:', network.name);
+    deployer = await new ethers.Wallet(getEnvironmentVariable(vars.DEPLOYER_KEY), ethers.provider);
+  }
 
-  const lockedAmount = ethers.parseEther('0.001');
+  const deployerBalance = await ethers.provider.getBalance(deployer.address);
+  if (deployerBalance === BigInt(0)) {
+    throw new Error(`Deployer account ${deployer.address} has a zero balance. Make sure you\'re on the right network!`);
+  }
 
-  const lock = await ethers.deployContract('Lock', [unlockTime], {
-    value: lockedAmount,
+  const axe = await ethers.deployContract('AXE', [founderAddress, daoAddress, treasuryAddress], {
+    signer: deployer,
   });
 
-  await lock.waitForDeployment();
+  await axe.waitForDeployment();
 
-  console.log(
-    `Lock with ${ethers.formatEther(lockedAmount)}ETH and unlock timestamp ${unlockTime} deployed to ${lock.target}`,
-  );
+  console.log(`AXE deployed to address: ${axe.target}`);
 }
+
+// TODO
+// set up a deployer wallet and finance it
+// deployer is one-time use of private key to deploy and transfer governor/owner to real address
 
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.
