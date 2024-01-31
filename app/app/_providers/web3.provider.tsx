@@ -5,12 +5,12 @@ import { RainbowKitProvider, getDefaultWallets, connectorsForWallets } from '@ra
 import { argentWallet, trustWallet, ledgerWallet } from '@rainbow-me/rainbowkit/wallets';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { publicProvider } from 'wagmi/providers/public';
-import { optimism, gnosis, goerli } from 'wagmi/chains';
+import { optimism, gnosis, goerli, localhost } from 'wagmi/chains';
 
 import '@rainbow-me/rainbowkit/styles.css';
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [optimism, gnosis, ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [goerli] : [])],
+  [optimism, gnosis, ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [goerli, localhost] : [])],
   [publicProvider()],
 );
 
