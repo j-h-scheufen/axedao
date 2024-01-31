@@ -6,12 +6,12 @@ import { useRouter } from 'next/navigation';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { ThemeProviderProps } from 'next-themes/dist/types';
 
-export type ProvidersProps = {
+export type ProviderProps = {
   children: React.ReactNode;
   themeProps?: ThemeProviderProps;
 };
 
-export function Providers({ children, themeProps }: ProvidersProps) {
+export function Provider({ children, themeProps }: ProviderProps) {
   const router = useRouter();
 
   return (

@@ -5,6 +5,7 @@ import { button as buttonStyles } from '@nextui-org/theme';
 import { siteConfig } from '@/config/site';
 import { title, subtitle } from '@/components/primitives';
 import { GithubIcon } from '@/components/icons';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 export default function Home() {
   return (
@@ -18,13 +19,13 @@ export default function Home() {
       </div>
 
       <div className="flex gap-3">
-        <Link
+        {/* <Link
           isExternal
           href={siteConfig.links.docs}
           className={buttonStyles({ color: 'primary', radius: 'full', variant: 'shadow' })}
         >
           Documentation
-        </Link>
+        </Link> */}
         <Link
           isExternal
           className={buttonStyles({ variant: 'bordered', radius: 'full' })}
@@ -33,6 +34,10 @@ export default function Home() {
           <GithubIcon size={20} />
           GitHub
         </Link>
+      </div>
+
+      <div>
+        <ConnectButton />
       </div>
 
       <div className="mt-8">

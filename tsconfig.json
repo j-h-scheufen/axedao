@@ -11,7 +11,6 @@
     "sourceMap": true,
   },
   "include": ["./test/**/*.ts", "./scripts/**/*.ts", "./typechain-types"],
-
   "exclude": ["node_modules"],
   "files": ["hardhat.config.ts"],
 }

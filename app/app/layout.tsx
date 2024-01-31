@@ -2,9 +2,9 @@ import '@/styles/globals.css';
 import { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
 import { fontSans } from '@/config/fonts';
-import { Providers } from './providers';
+import { Provider as ThemeProvider } from './_providers/nextUI.provider';
+import { Provider as Web3Provider } from './_providers/web3.provider';
 import { Navbar } from '@/components/navbar';
-import { Link } from '@nextui-org/link';
 import clsx from 'clsx';
 
 export const metadata: Metadata = {
@@ -29,23 +29,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <head />
       <body className={clsx('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
-        <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
-          <div className="relative flex flex-col h-screen">
-            <Navbar />
-            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">{children}</main>
-            <footer className="w-full flex items-center justify-center py-3">
-              <Link
-                isExternal
-                className="flex items-center gap-1 text-current"
-                href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
-                title="nextui.org homepage"
-              >
+        <ThemeProvider themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
+          <Web3Provider>
+            <div className="relative flex flex-col h-screen">
+              <Navbar />
+              <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">{children}</main>
+              <footer className="w-full flex items-center justify-center py-3">
                 <span className="text-default-600">Powered by</span>
-                <p className="text-primary">NextUI</p>
-              </Link>
-            </footer>
-          </div>
-        </Providers>
+                <p className="text-primary">AXÉ DAO</p>
+              </footer>
+            </div>
+          </Web3Provider>
+        </ThemeProvider>
       </body>
     </html>
   );
