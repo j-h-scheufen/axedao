@@ -1,8 +1,16 @@
 'use client';
 
 import * as React from 'react';
-import { RainbowKitProvider, getDefaultWallets, connectorsForWallets } from '@rainbow-me/rainbowkit';
-import { argentWallet, trustWallet, ledgerWallet } from '@rainbow-me/rainbowkit/wallets';
+import {
+  RainbowKitProvider,
+  getDefaultWallets,
+  connectorsForWallets,
+} from '@rainbow-me/rainbowkit';
+import {
+  argentWallet,
+  trustWallet,
+  ledgerWallet,
+} from '@rainbow-me/rainbowkit/wallets';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { publicProvider } from 'wagmi/providers/public';
 import { optimism, gnosis, goerli, localhost } from 'wagmi/chains';
@@ -10,8 +18,14 @@ import { optimism, gnosis, goerli, localhost } from 'wagmi/chains';
 import '@rainbow-me/rainbowkit/styles.css';
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [optimism, gnosis, ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [goerli, localhost] : [])],
-  [publicProvider()],
+  [
+    optimism,
+    gnosis,
+    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true'
+      ? [goerli, localhost]
+      : []),
+  ],
+  [publicProvider()]
 );
 
 const projectId = '70bb36a1bbcf34efdf103a1c5cf0edfe';

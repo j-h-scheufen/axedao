@@ -36,7 +36,9 @@ export const Navbar = () => {
       }
       labelPlacement="outside"
       placeholder="Search..."
-      startContent={<SearchIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />}
+      startContent={
+        <SearchIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
+      }
       type="search"
     />
   );
@@ -56,7 +58,7 @@ export const Navbar = () => {
               <NextLink
                 className={clsx(
                   linkStyles({ color: 'foreground' }),
-                  'data-[active=true]:text-primary data-[active=true]:font-medium',
+                  'data-[active=true]:text-primary data-[active=true]:font-medium'
                 )}
                 color="foreground"
                 href={item.href}
@@ -68,7 +70,10 @@ export const Navbar = () => {
         </ul>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex basis-1/5 sm:basis-full" justify="end">
+      <NavbarContent
+        className="hidden sm:flex basis-1/5 sm:basis-full"
+        justify="end"
+      >
         <NavbarItem className="hidden sm:flex gap-2">
           {/* <Link isExternal href={siteConfig.links.twitter} aria-label="Twitter">
             <TwitterIcon className="text-default-500" />
@@ -96,7 +101,13 @@ export const Navbar = () => {
           {siteConfig.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link
-                color={index === 2 ? 'primary' : index === siteConfig.navMenuItems.length - 1 ? 'danger' : 'foreground'}
+                color={
+                  index === 2
+                    ? 'primary'
+                    : index === siteConfig.navMenuItems.length - 1
+                      ? 'danger'
+                      : 'foreground'
+                }
                 href="#"
                 size="lg"
               >
