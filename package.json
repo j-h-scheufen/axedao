@@ -1,14 +1,15 @@
 {
   "name": "axe-monorepo",
   "version": "0.0.1",
+  "private": true,
   "description": "Axé DAO & Token Project Monorepo",
   "author": "Jan Hendrik Scheufen <j.h.scheufen@gmail.com>",
   "repository": "git@github.com:j-h-scheufen/axedao.git",
   "license": "MIT",
-  "private": true,
   "workspaces": [
     "contracts",
-    "app"
+    "app",
+    "www"
   ],
   "scripts": {
     "prepare": "husky install",
@@ -16,7 +17,11 @@
     "app:build": "yarn workspace quilombo build",
     "app:start": "yarn workspace quilombo start",
     "app:lint": "yarn workspace quilombo lint",
-    "app:format": "yarn workspace quilombo format",
+    "app:format": "yarn workspace www format",
+    "www:build": "yarn workspace www build",
+    "www:start": "yarn workspace www start",
+    "www:lint": "yarn workspace www lint",
+    "www:format": "yarn workspace quilombo format",
     "contracts:build": "yarn workspace contracts build",
     "contracts:lint": "yarn workspace contracts lint",
     "contracts:format": "yarn workspace contracts format",
