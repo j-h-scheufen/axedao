@@ -3,14 +3,16 @@
 import { PropsWithChildren } from 'react';
 import { motion } from 'framer-motion';
 
-type RevealSectionProps = PropsWithChildren & {
+type RevealProps = PropsWithChildren & {
   initialScale?: number;
   delay?: number;
+  className?: string;
 };
 
-const RevealSection: React.FC<RevealSectionProps> = ({
+const Reveal: React.FC<RevealProps> = ({
   initialScale = 0.8,
   delay = 0.5,
+  className = '',
   children,
 }) => {
   return (
@@ -27,10 +29,11 @@ const RevealSection: React.FC<RevealSectionProps> = ({
           duration: 1.8,
         },
       }}
+      className={className}
     >
       {children}
     </motion.div>
   );
 };
 
-export default RevealSection;
+export default Reveal;
