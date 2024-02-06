@@ -1,13 +1,21 @@
 'use client';
 
 import { useRef } from 'react';
-import { Card, CardBody, CardHeader } from '@nextui-org/react';
+import {
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Link,
+} from '@nextui-org/react';
 import { useTransform, useScroll, motion } from 'framer-motion';
 
 type TopicProps = {
   title: string;
   bgImg: string;
   text: string;
+  url?: string;
   imgEntryFrom?: 'left' | 'right';
   imgClasses?: string;
   imgMotionClasses?: string;
@@ -24,6 +32,7 @@ const Topic: React.FC<TopicProps> = ({
   title,
   bgImg,
   text,
+  url,
   imgEntryFrom = 'left',
   cardClasses = '',
   cardMotionClasses = '',
@@ -69,12 +78,25 @@ const Topic: React.FC<TopicProps> = ({
             className={`absolute right-9 top-10 origin-top ${cardMotionClasses}`}
           >
             <Card
-              className={`z-20 bg-gradient-to-tl from-green-100 to-green-300 ${cardClasses}`}
+              className={`z-20 border-2 bg-gradient-to-br from-amber-200 to-stone-300 ${cardClasses}`}
             >
-              <CardHeader className="text-center">{title}</CardHeader>
+              <CardHeader className=" text-center text-lg font-bold">
+                {title}
+              </CardHeader>
               <CardBody>
                 <p>{text}</p>
               </CardBody>
+              {url && (
+                <CardFooter className=" justify-center">
+                  <Button
+                    as={Link}
+                    href={url}
+                    className="border-1 border-neutral-500 bg-yellow-100 text-large"
+                  >
+                    Read more ...
+                  </Button>
+                </CardFooter>
+              )}
             </Card>
           </motion.div>
         </div>
