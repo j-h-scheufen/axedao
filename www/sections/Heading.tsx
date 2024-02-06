@@ -15,16 +15,16 @@ const Heading = () => {
   const targetRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ['end end', 'end start'],
+    offset: ['start -300px', 'end 0.4'],
   });
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
   const position = useTransform(scrollYProgress, (pos) =>
-    pos >= 0.6 ? 'relative' : 'fixed'
+    pos >= 1 ? 'relative' : 'fixed'
   );
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    console.log('Page scroll: ', latest);
+    console.log('Heading scroll: ', latest);
   });
 
   return (
@@ -32,7 +32,7 @@ const Heading = () => {
       id="HeadingSection"
       style={{ opacity }}
       ref={targetRef}
-      className="relative mb-[8rem] h-screen before:pointer-events-none before:fixed before:inset-0 before:z-0 before:bg-[radial-gradient(circle_farthest-side_at_var(--x,_100px)_var(--y,_100px),_var(--color-secondary)_0%,_transparent_100%)] before:opacity-40"
+      className="relative h-[70vh]"
     >
       <motion.div
         style={{ position, scale, x: '-50%' }}

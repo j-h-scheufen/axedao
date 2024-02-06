@@ -10,23 +10,21 @@ export default function Home() {
         title="Creating Axé"
         bgImg="/images/Chamada-Street.jpg"
         text="Coming together and creating Axé"
+        card={{
+          width: '600px',
+          height: '450px',
+          xOffset: '50%',
+          yOffset: '-20%',
+        }}
       />
-      {/* <div className="my-8">
-        <Image src="/images/Chamada-Street.jpg" alt="Street Roda Chamada" />
-      </div> */}
 
       <Topic
         title="Creating Axé II"
         bgImg="/images/Roda-PedestrianZone.jpg"
         text="Coming together and creating Axé"
         animateFrom="right"
+        card={{ width: '400px', height: '250px' }}
       />
-      {/* <div className="my-8">
-        <Image
-          src="/images/Roda-PedestrianZone.jpg"
-          alt="Street Roda Pedestrian Zone"
-        />
-      </div> */}
     </div>
   );
 }
