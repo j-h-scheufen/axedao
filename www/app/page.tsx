@@ -10,20 +10,27 @@ export default function Home() {
         title="Creating Axé"
         bgImg="/images/Chamada-Street.jpg"
         text="Coming together and creating Axé"
-        card={{
-          width: '600px',
-          height: '450px',
-          xOffset: '50%',
-          yOffset: '-20%',
-        }}
+        cardClasses="w-[40vw] h-[300px]"
+        cardMotionClasses="top-[60%] right-[8%]"
       />
 
       <Topic
         title="Creating Axé II"
         bgImg="/images/Roda-PedestrianZone.jpg"
         text="Coming together and creating Axé"
-        animateFrom="right"
-        card={{ width: '400px', height: '250px' }}
+        imgEntryFrom="right"
+        cardClasses="w-[40vw] h-[300px]"
+        cardMotionClasses="top-[-10%] right-[8%]"
+        imgClasses="w-[90vw]"
+      />
+
+      <Topic
+        title="Music"
+        bgImg="/images/Berimbaus-Street.jpg"
+        text="Music we share"
+        cardClasses="w-[35vw] h-[500px]"
+        cardMotionClasses="top-[-3%] left-[-3%]"
+        imgClasses="w-[90vw]"
       />
     </div>
   );
