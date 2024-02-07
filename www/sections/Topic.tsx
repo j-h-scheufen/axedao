@@ -89,9 +89,10 @@ const Topic: React.FC<TopicProps> = ({
               {url && (
                 <CardFooter className=" justify-center">
                   <Button
+                    color="primary"
                     as={Link}
                     href={url}
-                    className="border-1 border-neutral-500 bg-yellow-100 text-large"
+                    className="border-1 border-neutral-500 text-large"
                   >
                     Read more ...
                   </Button>

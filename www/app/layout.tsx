@@ -44,7 +44,7 @@ export default function RootLayout({
         <Providers
           themeProps={{
             attribute: 'class',
-            defaultTheme: 'dark',
+            defaultTheme: 'light',
           }}
         >
           <div className="relative flex h-screen flex-col">

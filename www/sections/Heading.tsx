@@ -30,7 +30,7 @@ const Heading = () => {
         className="relative left-1/2 z-10 flex flex-col items-center"
       >
         <Reveal delay={0.2} className="text-center">
-          <h1 className={title()}>Axé DAO</h1>
+          <h1 className={title()}>AXÉ&nbsp;DAO</h1>
         </Reveal>
         <br />
         <Reveal delay={0.6} className="text-center">
