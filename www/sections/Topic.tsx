@@ -58,11 +58,15 @@ const Topic: React.FC<TopicProps> = ({
     imgEntryFrom === 'left' ? ['90vw', '0vw'] : ['-90vw', '0vw']
   );
 
-  // const opacity = useTransform(scrollYProgress, [0.4, 0.8], [1, 0]);
+  // const position = useTransform(scrollYProgress, (pos) =>
+  //   pos >= 1 ? 'relative' : 'sticky'
+  // );
+
+  // style={{ position, top: '10vh' }}
 
   return (
     <section ref={targetRef} className="relative z-10 my-[10%] h-[70vh]">
-      <div className="sticky top-[10vh]">
+      <motion.div className="sticky top-[10vh]">
         <div className="relative flex">
           <motion.div
             style={{ x: xImg }}
@@ -101,7 +105,7 @@ const Topic: React.FC<TopicProps> = ({
             </Card>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
