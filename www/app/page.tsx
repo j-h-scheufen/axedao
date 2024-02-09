@@ -39,7 +39,7 @@ export default function Home() {
       - internationalization
       - color palette
       - Cards and background
-      - Navbar (theme switch, Page links, App link). Contact or Impressum separate or on About?
+      - Page: Contact (with Impressum?)
       */}
     </div>
   );

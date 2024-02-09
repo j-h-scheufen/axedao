@@ -9,6 +9,7 @@ import NextLink from 'next/link';
 import { Card } from '@nextui-org/react';
 import { link as linkStyles } from '@nextui-org/theme';
 import clsx from 'clsx';
+import { ThemeSwitch } from './theme-switch';
 
 const Navbar: React.FC = () => {
   return (
@@ -41,6 +42,7 @@ const Navbar: React.FC = () => {
             </NextLink>
           </NavbarItem>
         ))}
+        <ThemeSwitch className="" />
       </NavbarContent>
     </NextUINavbar>
   );
