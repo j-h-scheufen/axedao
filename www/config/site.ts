@@ -1,59 +1,25 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: 'Axé',
-  description: 'Axé Community Public Website',
+  name: 'AXÉ DAO',
+  description: 'AXÉ DAO Community Public Website',
   navItems: [
-    {
-      label: 'Home',
-      href: '/',
-    },
-    {
-      label: 'Docs',
-      href: '/docs',
-    },
     {
       label: 'About',
       href: '/about',
     },
-  ],
-  navMenuItems: [
     {
-      label: 'Profile',
-      href: '/profile',
+      label: 'DAO',
+      href: '/dao',
     },
     {
-      label: 'Dashboard',
-      href: '/dashboard',
-    },
-    {
-      label: 'Projects',
-      href: '/projects',
-    },
-    {
-      label: 'Team',
-      href: '/team',
-    },
-    {
-      label: 'Calendar',
-      href: '/calendar',
-    },
-    {
-      label: 'Settings',
-      href: '/settings',
-    },
-    {
-      label: 'Help & Feedback',
-      href: '/help-feedback',
-    },
-    {
-      label: 'Logout',
-      href: '/logout',
+      label: 'Fair Launch',
+      href: '/token',
     },
   ],
   links: {
-    github: 'https://github.com/nextui-org/nextui',
-    twitter: 'https://twitter.com/getnextui',
-    discord: 'https://discord.gg/9b6yyZKmH4',
+    github: 'https://github.com/j-h-scheufen/axedao',
+    // twitter: 'https://twitter.com/getnextui',
+    // discord: 'https://discord.gg/9b6yyZKmH4',
   },
 };

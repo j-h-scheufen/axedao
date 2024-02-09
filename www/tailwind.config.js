@@ -15,5 +15,18 @@ module.exports = {
     extend: {},
   },
   darkMode: 'class',
-  plugins: [nextui()],
+  plugins: [
+    nextui({
+      themes: {
+        dark: { colors: { primary: '#E9EDC9ff', secondary: '#CCD5AEff' } },
+        light: { colors: { primary: '#E9EDC9ff', secondary: '#CCD5AEff' } },
+      },
+    }),
+  ],
 };
+
+// --beige: #E9EDC9ff;
+// --tea-green: #CCD5AEff;
+// --cornsilk: #FEFAE0ff;
+// --buff: #D4A373ff;
+// --papaya-whip: #FAEDCDff;

@@ -1,3 +1,4 @@
+import { PropsWithChildren } from 'react';
 import { tv } from 'tailwind-variants';
 
 export const title = tv({
@@ -16,6 +17,7 @@ export const title = tv({
       sm: 'text-3xl lg:text-4xl',
       md: 'text-[2.3rem] lg:text-5xl leading-9',
       lg: 'text-4xl lg:text-6xl',
+      xl: 'text-6xl lg:text-7xl xl:8xl',
     },
     fullWidth: {
       true: 'w-full block',
@@ -51,3 +53,15 @@ export const subtitle = tv({
     fullWidth: true,
   },
 });
+
+export const TextSection: React.FC<PropsWithChildren> = ({ children }) => (
+  <p className="mx-3 my-5 text-left text-lg lg:text-xl">{children}</p>
+);
+
+export const PageLayout: React.FC<PropsWithChildren> = ({ children }) => (
+  <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+    <div className="inline-block max-w-4xl justify-center text-center">
+      {children}
+    </div>
+  </section>
+);

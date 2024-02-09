@@ -1,10 +1,12 @@
 import { Metadata, Viewport } from 'next';
-import { siteConfig } from '@/config/site';
-import { fontSans } from '@/config/fonts';
-import { Providers } from './providers';
+import { Analytics } from '@vercel/analytics/react';
 import clsx from 'clsx';
 
 import '@/styles/globals.css';
+import { siteConfig } from '@/config/site';
+import { fontSans } from '@/config/fonts';
+import { Providers } from './providers';
+import Navbar from '@/components/Navbar';
 
 export const metadata: Metadata = {
   title: {
@@ -43,11 +45,12 @@ export default function RootLayout({
         <Providers
           themeProps={{
             attribute: 'class',
-            defaultTheme: 'dark',
+            defaultTheme: 'light',
           }}
         >
           <div className="relative flex h-screen flex-col">
-            <main className="container mx-auto max-w-7xl flex-grow light">
+            <Navbar />
+            <main className="max-w-8xl container mx-auto flex-grow px-3 light">
               {children}
             </main>
             <footer className="flex w-full items-center justify-center py-3">
@@ -56,6 +59,7 @@ export default function RootLayout({
             </footer>
           </div>
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
