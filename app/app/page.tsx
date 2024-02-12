@@ -1,55 +1,50 @@
-import { Link } from '@nextui-org/link';
-import { Snippet } from '@nextui-org/snippet';
-import { Code } from '@nextui-org/code';
-import { button as buttonStyles } from '@nextui-org/theme';
-import { siteConfig } from '@/config/site';
-import { title, subtitle } from '@/components/primitives';
-import { GithubIcon } from '@/components/icons';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
+'use client';
+
+// import { useEffect } from 'react';
+import { useReadContract, useAccount } from 'wagmi';
+import { switchChain } from '@wagmi/core';
+import { localhost } from 'wagmi/chains';
+
+import { config as env } from '../config/environment';
+import { abi } from '../../contracts/artifacts/contracts/AXE.sol/AXE.json';
+import wagmiConfig from '@/config/wagmi';
+import { Button } from '@nextui-org/button';
+
+const switchNetwork = async () => {
+  await switchChain(wagmiConfig, { chainId: localhost.id });
+};
 
 export default function Home() {
+  const account = useAccount();
+  // useEffect(() => {
+  //   (async () => {
+  //     await switchNetwork();
+  //   })();
+  // }, []);
+
+  const axeBalance = useReadContract({
+    address: env.axeTokenAddress as `0x${string}`,
+    abi: abi,
+    functionName: 'balanceOf',
+    // args: [account.address],
+    args: ['0x6EF543d0Cce1171F696f82cB6f698133037d5b32'],
+    account: account.address,
+  });
+
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <div className="inline-block max-w-lg justify-center text-center">
-        <h1 className={title()}>Make&nbsp;</h1>
-        <h1 className={title({ color: 'violet' })}>beautiful&nbsp;</h1>
-        <br />
-        <h1 className={title()}>
-          websites regardless of your design experience.
-        </h1>
-        <h2 className={subtitle({ class: 'mt-4' })}>
-          Beautiful, fast and modern React UI library.
-        </h2>
-      </div>
-
-      <div className="flex gap-3">
-        {/* <Link
-          isExternal
-          href={siteConfig.links.docs}
-          className={buttonStyles({ color: 'primary', radius: 'full', variant: 'shadow' })}
-        >
-          Documentation
-        </Link> */}
-        <Link
-          isExternal
-          className={buttonStyles({ variant: 'bordered', radius: 'full' })}
-          href={siteConfig.links.github}
-        >
-          <GithubIcon size={20} />
-          GitHub
-        </Link>
-      </div>
-
-      <div>
-        <ConnectButton />
-      </div>
-
-      <div className="mt-8">
-        <Snippet hideSymbol hideCopyButton variant="flat">
-          <span>
-            Get started by editing <Code color="primary">app/page.tsx</Code>
-          </span>
-        </Snippet>
+        {/* <div>AXÉ address: {env.axeTokenAddress}</div> */}
+        {/* <div>ABI: {JSON.stringify(abi)}</div> */}
+        <div>Chain: {account.chain?.name}</div>
+        <div>Balance: {JSON.stringify(axeBalance)}</div>
+        <div className="my-8 flex flex-col">
+          <div className="flex">
+            <div>Balance: </div>
+            <div>{axeBalance.data || '0'} $AXÉ</div>
+          </div>
+        </div>
+        <Button onClick={() => switchNetwork()}>Network</Button>
       </div>
     </section>
   );

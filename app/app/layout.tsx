@@ -1,11 +1,12 @@
+import { Metadata, Viewport } from 'next';
+import clsx from 'clsx';
+
 import '@/styles/globals.css';
-import { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
 import { fontSans } from '@/config/fonts';
 import { Provider as ThemeProvider } from './_providers/nextUI.provider';
 import { Provider as Web3Provider } from './_providers/web3.provider';
-import { Navbar } from '@/components/navbar';
-import clsx from 'clsx';
+import Navbar from '@/components/Navbar';
 
 export const metadata: Metadata = {
   title: {
@@ -13,15 +14,18 @@ export const metadata: Metadata = {
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
+};
+
+export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: 'white' },
     { media: '(prefers-color-scheme: dark)', color: 'black' },
   ],
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
-  },
 };
 
 export default function RootLayout({

@@ -12,6 +12,13 @@
       "sourceMaps": true
     },
     {
+      "name": "APP debug server-side",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "yarn app:start",
+      "sourceMaps": true
+    },
+    {
       "name": "Next.js: debug client-side",
       "type": "chrome",
       "request": "launch",
@@ -19,6 +26,18 @@
     },
     {
       "name": "WWW debug full stack",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "yarn www:start",
+      "sourceMaps": true,
+      "serverReadyAction": {
+        "pattern": "- Local:.+(https?://.+)",
+        "uriFormat": "%s",
+        "action": "debugWithChrome"
+      }
+    },
+    {
+      "name": "APP debug full stack",
       "type": "node-terminal",
       "request": "launch",
       "command": "yarn www:start",

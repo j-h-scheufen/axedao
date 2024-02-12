@@ -18,8 +18,8 @@ module.exports = {
   plugins: [
     nextui({
       themes: {
-        dark: { colors: { primary: '#E9EDC9ff', secondary: '#CCD5AEff' } },
-        light: { colors: { primary: '#E9EDC9ff', secondary: '#CCD5AEff' } },
+        dark: { colors: { primary: '#CCD5AEff', secondary: '#D4A373ff' } },
+        light: { colors: { primary: '#E9EDC9ff', secondary: '#FAEDCDff' } },
       },
     }),
   ],
