@@ -1,6 +1,5 @@
 'use client';
 
-// import { useEffect } from 'react';
 import { useReadContract, useAccount } from 'wagmi';
 import { switchChain } from '@wagmi/core';
 import { localhost } from 'wagmi/chains';
@@ -41,7 +40,7 @@ export default function Home() {
         <div className="my-8 flex flex-col">
           <div className="flex">
             <div>Balance: </div>
-            <div>{axeBalance.data || '0'} $AXÉ</div>
+            <div>{(axeBalance.data as string) || '0'} $AXÉ</div>
           </div>
         </div>
         <Button onClick={() => switchNetwork()}>Network</Button>
