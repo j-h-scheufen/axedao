@@ -1,29 +1,30 @@
 'use client';
 
-import { PropsWithChildren, useEffect } from 'react';
+import * as React from 'react';
+import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { WagmiProvider } from 'wagmi';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { initSilk } from '@silk-wallet/silk-wallet-sdk';
+import { localhost } from 'wagmi/chains';
+
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+
+import '@rainbow-me/rainbowkit/styles.css';
 
 import wagmiConfig from '@/config/wagmi';
 
+const appInfo = {
+  appName: 'Quilombo',
+};
+
 const queryClient = new QueryClient();
 
-export function Provider({ children }: PropsWithChildren) {
-  useEffect(() => {
-    try {
-      setTimeout(() => {
-        const provider = initSilk();
-        window.ethereum = provider;
-      }, 1000);
-    } catch (err) {
-      console.error(err);
-    }
-  }, []);
-
+export function Provider({ children }: React.PropsWithChildren) {
   return (
     <WagmiProvider config={wagmiConfig}>
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider appInfo={appInfo} initialChain={localhost}>
+          {children}
+        </RainbowKitProvider>
+      </QueryClientProvider>
     </WagmiProvider>
   );
 }

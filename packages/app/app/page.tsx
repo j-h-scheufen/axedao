@@ -1,49 +1,46 @@
 'use client';
 
-import { useReadContract, useAccount } from 'wagmi';
-import { switchChain } from '@wagmi/core';
-import { localhost } from 'wagmi/chains';
+import { useAccount } from 'wagmi';
 
-import { config as env } from '../config/environment';
-import { abi } from '../../contracts/artifacts/contracts/AXE.sol/AXE.json';
-import wagmiConfig from '@/config/wagmi';
-import { Button } from '@nextui-org/button';
+// import { Button } from '@nextui-org/button';
 
-const switchNetwork = async () => {
-  await switchChain(wagmiConfig, { chainId: localhost.id });
-};
+import { useReadErc20BalanceOf } from '@/generated';
+import { config as env } from '@/config/environment';
+import { formatAxeUnits } from './_utils/contract.utils';
 
 export default function Home() {
   const account = useAccount();
-  // useEffect(() => {
-  //   (async () => {
-  //     await switchNetwork();
-  //   })();
-  // }, []);
 
-  const axeBalance = useReadContract({
-    address: env.axeTokenAddress as `0x${string}`,
-    abi: abi,
-    functionName: 'balanceOf',
-    // args: [account.address],
-    args: ['0x6EF543d0Cce1171F696f82cB6f698133037d5b32'],
-    account: account.address,
+  const { data: userBalance } = useReadErc20BalanceOf({
+    address: env.axeTokenAddress,
+    args: [account.address || '0x0'],
+  });
+
+  const { data: userDaoShares } = useReadErc20BalanceOf({
+    address: env.axeDaoSharesAddress,
+    args: [account.address || '0x0'],
+  });
+
+  const { data: treasuryBalance } = useReadErc20BalanceOf({
+    address: env.axeTokenAddress,
+    args: [env.axeTreasuryAddress],
   });
 
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <div className="inline-block max-w-lg justify-center text-center">
-        {/* <div>AXÉ address: {env.axeTokenAddress}</div> */}
-        {/* <div>ABI: {JSON.stringify(abi)}</div> */}
-        <div>Chain: {account.chain?.name}</div>
-        <div>Balance: {JSON.stringify(axeBalance)}</div>
+        <div>Chain: {account.chain?.id}</div>
+        <div>AXÉ in Treasury: {formatAxeUnits(treasuryBalance)} $AXÉ</div>
         <div className="my-8 flex flex-col">
-          <div className="flex">
-            <div>Balance: </div>
-            <div>{(axeBalance.data as string) || '0'} $AXÉ</div>
+          <div className="flex gap-2">
+            <div>User Balance:</div>
+            <div>{formatAxeUnits(userBalance)} $AXÉ</div>
+          </div>
+          <div className="flex gap-2">
+            <div>DAO Member:</div>
+            <div>{userDaoShares && userDaoShares > 0 ? 'Yes' : 'No'}</div>
           </div>
         </div>
-        <Button onClick={() => switchNetwork()}>Network</Button>
       </div>
     </section>
   );

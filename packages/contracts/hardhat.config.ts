@@ -11,12 +11,14 @@ const config: HardhatUserConfig = {
   solidity: '0.8.23',
   networks: {
     hardhat: {
-      forking: !process.env.FORK
-        ? undefined
-        : {
-            url: `${process.env.HTTPS_PROVIDER_URL_GOERLI}`,
-            blockNumber: 10447855,
-          },
+      chainId: 1337,
+      forking:
+        process.env.FORK?.toLowerCase() === 'true'
+          ? {
+              url: `${process.env.HTTPS_PROVIDER_URL_GOERLI}`,
+              blockNumber: 10542207,
+            }
+          : undefined,
     },
     goerli: {
       url: `${process.env.HTTPS_PROVIDER_URL_GOERLI}`,

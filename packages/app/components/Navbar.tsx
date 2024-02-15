@@ -6,10 +6,12 @@ import {
   NavbarBrand,
 } from '@nextui-org/navbar';
 import NextLink from 'next/link';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+
 import { Card } from '@nextui-org/react';
 
 import { ThemeSwitch } from './theme-switch';
-import Account from './web3/Account';
+// import Account from './web3/Account';
 
 const Navbar: React.FC = () => {
   return (
@@ -23,7 +25,8 @@ const Navbar: React.FC = () => {
           </NextLink>
         </NavbarBrand>
         <ThemeSwitch />
-        <Account />
+        {/* <Account /> */}
+        <ConnectButton />
       </NavbarContent>
     </NextUINavbar>
   );

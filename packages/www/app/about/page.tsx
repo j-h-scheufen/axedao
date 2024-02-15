@@ -70,7 +70,9 @@ export default function AboutPage() {
         Liberation (https://www.amazon.com/-/en/J-Lowell-Lewis/dp/0226476839)
         and some Street-Smartness
         (https://www.amazon.com/Street-Smart-Song-Capoeira-Philosophy-Inner/dp/158394155X/ref=sr_1_1)
-        sprinkled in later. which explains the mindset
+        sprinkled in later. A culture steeped in defiance and resistance matches
+        well with the crypto&quot;s origins and ethos: digital & economic
+        autonomy.
       </TextSection>
       <TextSection>
         AXÉ DAO exists to build digital community infrastructure for Capeira by

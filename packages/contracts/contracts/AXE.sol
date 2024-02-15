@@ -65,6 +65,9 @@ contract AXE is Ownable, Governable, ERC20Capped {
         require(_founder != address(0), "AXE requires a founder");
         require(_governor != address(0), "AXE requires a governor");
         require(_governorTreasury != address(0), "AXE requires a governor's treasury");
+
+        //TODO need a flag to prevent any issuance by the governor on other networks!
+
         founder = _founder;
         governorTreasury = _governorTreasury;
         //exclude treasury and this contract from fees
@@ -81,7 +84,9 @@ contract AXE is Ownable, Governable, ERC20Capped {
      * @param _amount - amount of AXE to issue
      */
     function issue(uint256 _amount) public onlyGovernor {
+        // TODO use modifier with flag to prevent governor from issuing on other networks
         _mint(governorTreasury, _amount);
+        // TODO IssueEvent
     }
 
     /**
@@ -98,6 +103,7 @@ contract AXE is Ownable, Governable, ERC20Capped {
      */
     function setSellTax(uint256 basisPoints) external onlyGovernor onlyBasisPoints(basisPoints) {
         sellTax = basisPoints;
+        // TODO TaxChangeEvent
     }
 
     /**
@@ -107,6 +113,7 @@ contract AXE is Ownable, Governable, ERC20Capped {
     function addTaxablePair(address pair) public onlyGovernor {
         require(pair != address(0), "Cannot add zero address");
         taxablePairs[pair] = true;
+        // TODO event
     }
 
     /**
@@ -116,6 +123,7 @@ contract AXE is Ownable, Governable, ERC20Capped {
     function removeTaxablePair(address pair) public onlyGovernor {
         require(pair != uniswapV2Pair, "Cannot remove the pair which is used for liquidation");
         taxablePairs[pair] = false;
+        // TODO event
     }
 
     /**
@@ -142,6 +150,7 @@ contract AXE is Ownable, Governable, ERC20Capped {
         path[0] = address(this);
         path[1] = getActiveLiquidityToken();
         IUniswapV2Router02(uniswapV2Router).swapExactTokensForTokens(amount, 0, path, address(this), deadline);
+        // TODO event
     }
 
     /**
@@ -162,6 +171,7 @@ contract AXE is Ownable, Governable, ERC20Capped {
             balance = token.balanceOf(address(this));
             if (balance > 0) token.transfer(governorTreasury, balance);
         }
+        // TODO event
     }
 
     /**
@@ -171,6 +181,7 @@ contract AXE is Ownable, Governable, ERC20Capped {
     function rescueBalance(address _token) external onlyGovernor {
         uint256 balance = IERC20(_token).balanceOf(address(this));
         if (balance > 0) IERC20(_token).transfer(governorTreasury, balance);
+        // TODO event
     }
 
     /**
@@ -201,10 +212,12 @@ contract AXE is Ownable, Governable, ERC20Capped {
             uniswapV2Pair = existingPair;
         }
         // Keep a reference to the liquidity token to access any accumulated balance in the future
-        tokenHistory.push(_liquidityToken); // Note: does not check if the same token has been used in the past and would store a duplicate
+        tokenHistory.push(_liquidityToken); // TODO: does not check if the same token has been used in the past and would store a duplicate. Should manipulate array to move existing token to the top
         // Add pair to be taxed
         taxablePairs[uniswapV2Pair] = true;
         pairAddress = uniswapV2Pair;
+
+        // TODO event
     }
 
     /**
@@ -229,6 +242,7 @@ contract AXE is Ownable, Governable, ERC20Capped {
                 console.log("Tax on BUY from pair %s to %s: %s tokens", from, to, fee);
                 super._update(from, address(this), fee);
                 adjustedValue -= fee;
+                // TODO FeeEvent
             }
             // SELL
             else if (taxablePairs[to] && sellTax > 0) {
@@ -236,6 +250,7 @@ contract AXE is Ownable, Governable, ERC20Capped {
                 console.log("Tax on SELL to pair %s from %s: %s tokens", to, from, fee);
                 super._update(from, address(this), fee);
                 adjustedValue -= fee;
+                // TODO FeeEvent
             }
         }
         super._update(from, to, adjustedValue);

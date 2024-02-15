@@ -7,8 +7,8 @@ async function main() {
   const treasuryAddress = getEnvironmentVariable(vars.TREASURY_ADDRESS);
   const founderAddress = getEnvironmentVariable(vars.FOUNDER_ADDRESS);
   let deployer;
-  if (network.name == 'localhost') {
-    console.log('LOCALHOST Deployment');
+  if (network.name == 'hardhat') {
+    console.log('HARDHAT Deployment');
     [deployer] = await ethers.getSigners();
   } else {
     console.log('Network Deployment:', network.name);
@@ -28,10 +28,6 @@ async function main() {
 
   console.log(`AXE deployed to address: ${axe.target}`);
 }
-
-// TODO
-// set up a deployer wallet and finance it
-// deployer is one-time use of private key to deploy and transfer governor/owner to real address
 
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.
