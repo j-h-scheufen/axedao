@@ -10,7 +10,7 @@
     "format": "prettier --write .",
     "test": "npx hardhat test",
     "coverage": "hardhat coverage",
-    "deploy": "npx hardhat run scripts/deploy.ts"
+    "deploy": "npx hardhat run --network localhost scripts/deploy.ts"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.4",
@@ -38,7 +38,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.33.2",
     "ethers": "^6.11.0",
-    "hardhat": "^2.19.5",
+    "hardhat": "^2.20.1",
     "hardhat-gas-reporter": "^1.0.10",
     "husky": "^9.0.10",
     "pre-commit": "^1.2.2",

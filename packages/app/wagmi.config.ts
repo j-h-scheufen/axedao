@@ -1,15 +1,13 @@
 import { defineConfig } from '@wagmi/cli';
-import { react } from '@wagmi/cli/plugins';
-import { erc20Abi } from 'viem';
+import { hardhat, react } from '@wagmi/cli/plugins';
 // import { gnosis, goerli } from 'wagmi/chains';
 
 export default defineConfig({
   out: 'generated/index.ts',
-  contracts: [
-    {
-      name: 'erc20',
-      abi: erc20Abi,
-    },
+  plugins: [
+    hardhat({
+      project: '../contracts',
+    }),
+    react(),
   ],
-  plugins: [react()],
 });

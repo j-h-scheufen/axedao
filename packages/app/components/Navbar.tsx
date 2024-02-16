@@ -1,10 +1,6 @@
 'use client';
 
-import {
-  Navbar as NextUINavbar,
-  NavbarContent,
-  NavbarBrand,
-} from '@nextui-org/navbar';
+import { Navbar as NextUINavbar, NavbarContent, NavbarBrand } from '@nextui-org/navbar';
 import NextLink from 'next/link';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 

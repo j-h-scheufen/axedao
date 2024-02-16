@@ -7,7 +7,7 @@ async function main() {
   const treasuryAddress = getEnvironmentVariable(vars.TREASURY_ADDRESS);
   const founderAddress = getEnvironmentVariable(vars.FOUNDER_ADDRESS);
   let deployer;
-  if (network.name == 'hardhat') {
+  if (network.name == 'hardhat' || network.name == 'localhost') {
     console.log('HARDHAT Deployment');
     [deployer] = await ethers.getSigners();
   } else {
@@ -17,7 +17,7 @@ async function main() {
 
   const deployerBalance = await ethers.provider.getBalance(deployer.address);
   if (deployerBalance === BigInt(0)) {
-    throw new Error(`Deployer account ${deployer.address} has a zero balance. Make sure you\'re on the right network!`);
+    throw new Error(`Deployer account ${deployer.address} has a zero balance. Make sure you're on the right network!`);
   }
 
   const axe = await ethers.deployContract('AXE', [founderAddress, daoAddress, treasuryAddress], {

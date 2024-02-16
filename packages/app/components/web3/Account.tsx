@@ -1,18 +1,10 @@
 'use client';
 
-import {
-  useAccount,
-  useAccountEffect,
-  useConnect,
-  useDisconnect,
-  useEnsAvatar,
-  useEnsName,
-} from 'wagmi';
+import { useAccount, useAccountEffect, useConnect, useDisconnect, useEnsAvatar, useEnsName } from 'wagmi';
 import { localhost } from 'wagmi/chains';
 import { injected } from 'wagmi/connectors';
 import { Image } from '@nextui-org/image';
 import { Button } from '@nextui-org/button';
-
 
 // import { config as env } from '@/config/environment';
 
@@ -35,22 +27,14 @@ const Account: React.FC = () => {
   return account?.isConnected && account.address ? (
     <div>
       {ensAvatar && <Image alt="ENS Avatar" src={ensAvatar} />}
-      {account.address && (
-        <div>
-          {ensName ? `${ensName} (${account.address})` : account.address}
-        </div>
-      )}
+      {account.address && <div>{ensName ? `${ensName} (${account.address})` : account.address}</div>}
       <button onClick={() => disconnect()}>Disconnect</button>
     </div>
   ) : (
     <Button
       onClick={() => {
         try {
-          window.ethereum
-            .login()
-            .then(() =>
-              connect({ connector: injected(), chainId: localhost.id })
-            );
+          window.ethereum.login().then(() => connect({ connector: injected(), chainId: localhost.id }));
         } catch (error) {
           console.warn('Login aborted.', error);
         }

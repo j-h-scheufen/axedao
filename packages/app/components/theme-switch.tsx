@@ -13,10 +13,7 @@ export type ThemeSwitchProps = {
   classNames?: SwitchProps['classNames'];
 };
 
-export const ThemeSwitch: FC<ThemeSwitchProps> = ({
-  className,
-  classNames,
-}): JSX.Element => {
+export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className, classNames }): JSX.Element => {
   const { theme, setTheme } = useTheme();
   const isSSR = useIsSSR();
 
@@ -32,11 +29,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
       startContent={<SunFilledIcon size={16} />}
       endContent={<MoonFilledIcon size={16} />}
       onChange={onChange}
-      className={clsx(
-        'transition-opacity hover:opacity-80',
-        className,
-        classNames?.base
-      )}
+      className={clsx('transition-opacity hover:opacity-80', className, classNames?.base)}
     />
   );
 };

@@ -4,7 +4,7 @@ import { formatUnits } from 'viem';
 
 // TODO put all contract interaction and error handling here
 
-export function formatAxeUnits(value: bigint | undefined): string {
-  if (value) return formatUnits(value, 18); // truncating all decimals for AXÉ
+export function formatAxeUnits(value: bigint | undefined, decimals?: number): string {
+  if (value) return formatUnits(value, decimals || 18);
   return '0';
 }
