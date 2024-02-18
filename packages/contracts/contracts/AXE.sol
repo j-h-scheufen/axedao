@@ -41,7 +41,7 @@ contract AXE is Ownable, Governable, ERC20Capped {
     mapping(address => bool) private taxablePairs;
     mapping(address => bool) private excluded;
     
-    /// @dev Stores the history of liquidityTokens that were used to swap AXE. Can contain duplicates
+    /// @dev Stores the history of liquidityTokens that were used to swap AXÉ. Can contain duplicates!
     address[] private tokenHistory;
 
     /** EVENTS */
@@ -50,12 +50,13 @@ contract AXE is Ownable, Governable, ERC20Capped {
     event BuyTaxChanged(uint256 value);
     event TaxablePairAdded(address pair);
     event TaxablePairRemoved(address pair);
-    event AxeLiquidated(uint256 amount, address swapToken);
-    event AllWithdrawn(uint256 native, uint256 axe, address[] tokens);
+    event AxeLiquidated(address swapToken, uint256 axeAmount, uint256 outputAmount);
     event BalanceRescued(address token, uint256 amount);
     event LiquidationSettingsChanged(address router, address swapToken, address pair);
     event BuyTaxApplied(uint256 tradeAmount, uint256 basisPoints, uint256 feeAmount, address indexed spender);
     event SellTaxApplied(uint256 tradeAmount, uint256 basisPoints, uint256 feeAmount, address indexed spender);
+    event NativeWithdrawn(uint256 amount);
+    event TokenWithdrawn(address indexed token, uint256 amount);
 
     modifier onlyBasisPoints(uint256 value) {
         require(value <= 10000, "Value must be in basis points (0-10000): E.g. 50 = 0.5%, 9990 = 99.9%");
@@ -63,7 +64,7 @@ contract AXE is Ownable, Governable, ERC20Capped {
     }
 
     /**
-     * @dev Constructor - Mints the vesting amount for the governor into the governor's treasury.
+     * @dev Constructor - Mints the vesting amount for the founder into a VestingWallet and gives control to the governor.
      * @param _founder - the founder's address for vesting
      * @param _governor - the DAO's multisig
      * @param _governorTreasury - the DAO's treasury
@@ -143,64 +144,6 @@ contract AXE is Ownable, Governable, ERC20Capped {
     }
 
     /**
-     * @dev Attempts to swap the given amount of AXE for the liquidity token.
-     * @param amount how much AXE to swap
-     */
-    function liquidate(uint256 amount) public onlyGovernor {
-        require(_hasRouter(), "Invoking this function requires a router and a liquidity pair to be set up!");
-        require(
-            amount > 0 && amount <= balanceOf(address(this)),
-            "Liquidation amount must be between 0 and max balance."
-        );
-        // Grant allowance for swapping
-        _approve(address(this), uniswapV2Router, amount);
-        uint deadline = block.timestamp + (10 * 60); // 10 min
-        address[] memory path;
-        path[0] = address(this);
-        path[1] = getLiquidationToken();
-        IUniswapV2Router02(uniswapV2Router).swapExactTokensForTokens(amount, 0, path, address(this), deadline);
-        emit AxeLiquidated(amount, path[1]);
-    }
-
-    /**
-     * @dev Withdraws accumulated AXE, liquidityTokens (from history), and native tokens, for any existing balances to the treasury.
-     */
-    function withdrawAll() external onlyGovernor {
-        // Native token
-        uint256 nativeBalance = address(this).balance;
-        if (nativeBalance > 0) payable(governorTreasury).transfer(nativeBalance);
-        // AXE
-        uint256 axeBalance = balanceOf(address(this));
-        if (axeBalance > 0) _transfer(address(this), governorTreasury, axeBalance);
-        // Other tokens from history
-        uint256 numTokens = tokenHistory.length;
-        IERC20 token;
-        uint256 tokenBalance;
-        address[] memory tokens;
-        for (uint256 i = 0; i < numTokens; i++) {
-            token = IERC20(tokenHistory[i]);
-            tokenBalance = token.balanceOf(address(this));
-            if (tokenBalance > 0) {
-                token.transfer(governorTreasury, tokenBalance);
-                tokens[tokens.length] = address(token);
-            }
-        }
-        emit AllWithdrawn(nativeBalance, axeBalance, tokens);
-    }
-
-    // TODO need individual functions to withdraw eth, axe, or a specific token! withdrawAll is kind of too broad a sweep
-
-    /**
-     * @dev Fallback function to withdraw an ERC20 token that might've been sent to this contract, but is not in the tokenHistory.
-     * @param _token the ERC20 to rescue
-     */
-    function rescueBalance(address _token) external onlyGovernor {
-        uint256 balance = IERC20(_token).balanceOf(address(this));
-        if (balance > 0) IERC20(_token).transfer(governorTreasury, balance);
-        emit BalanceRescued(_token, balance);
-    }
-
-    /**
      * Sets a new router and liquidity token. If the router does not have an existing pair of AXE <-> liquidityToken,
      * a pair will be automatically created. The liquidityToken is added to the tokenHistory to be able to withdraw it later.
      * @param _router the UniswapV2Router to use
@@ -236,6 +179,65 @@ contract AXE is Ownable, Governable, ERC20Capped {
 
         emit LiquidationSettingsChanged(_router, _swapToken, uniswapV2Pair);
         return uniswapV2Pair;
+    }
+
+    /**
+     * @dev Attempts to swap the given amount of AXE for the liquidity token and deposits the output into
+     * the #governorTreasury (since UniswapV2Router02 does not allow the recipient to be part of the pair).
+     * @param amount how much AXE to swap
+     */
+    function liquidate(uint256 amount) external onlyGovernor {
+        require(_hasRouter(), "Invoking this function requires a router and a liquidity pair to be set up!");
+        require(
+            amount > 0 && amount <= balanceOf(address(this)),
+            "Liquidation amount must be between 0 and max balance."
+        );
+        // Approve router spending AXÉ
+        _approve(address(this), uniswapV2Router, amount);
+        uint deadline = block.timestamp + (10 * 60); // 10 min
+        address[] memory path = new address[](2);
+        path[0] = address(this);
+        path[1] = getLiquidationToken();
+        // TODO must calculate slippage and set accordingly to avoid being frontrun
+        uint[] memory amounts = IUniswapV2Router02(uniswapV2Router).swapExactTokensForTokens(amount, 0, path, governorTreasury, deadline);
+        emit AxeLiquidated(path[1], amount, amounts[0]);
+    }
+
+    /**
+     * Withdraws the specified amount of native currency to the treasury. If the amount exceeds the balance,
+     * the available balance is transfered.
+     * This function is only needed in case anyone sent native tokens by accident to this contract.
+     * @param _amount The amount to withdraw
+     */
+    function withdraw(uint256 _amount) external onlyGovernor returns (uint256 transferAmount) {
+        transferAmount = address(this).balance;
+        if (transferAmount > 0 && _amount > 0) {
+            if (_amount < transferAmount ) {
+                transferAmount = _amount;
+            }
+            payable(governorTreasury).transfer(transferAmount);
+            emit NativeWithdrawn(transferAmount);
+        }
+    }
+
+    /**
+     * Withdraws the specified amount of the given token to the treasury. If the amount exceeds the balance,
+     * the available balance is transfered.
+     * This function is used to withdraw accumulated AXÉ fees, but can also be used to rescue any ERC20 token
+     * accidentally sent to this contract.
+     * @param _token the token to withdraw from
+     * @param _amount the amount to withdraw
+     */
+    function withdraw(address _token, uint256 _amount) external onlyGovernor returns (uint256 transferAmount) {
+        IERC20 token = IERC20(_token);
+        transferAmount = token.balanceOf(address(this));
+        if (transferAmount > 0 && _amount > 0) {
+            if (_amount < transferAmount ) {
+                transferAmount = _amount;
+            }
+            token.transfer(governorTreasury, transferAmount);
+            emit TokenWithdrawn(_token, transferAmount);
+        }
     }
 
     /**

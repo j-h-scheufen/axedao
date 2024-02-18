@@ -19,8 +19,8 @@ import {
 } from '../typechain-types';
 
 const AXE_MINT = ethers.parseUnits('5000000000');
-const DAI_MINT = ethers.parseUnits('1000');
-const USDC_MINT = ethers.parseUnits('2000');
+const DAI_MINT = ethers.parseUnits('10000');
+const USDC_MINT = ethers.parseUnits('20000');
 
 type UniswapFixture = {
   router: IUniswapV2Router02;
@@ -69,13 +69,14 @@ describe('Uniswap Tests', function () {
     const router = IUniswapV2Router02__factory.connect(routerContract.target as string, owner);
     console.log(`Router deployed to ${routerContract.target}`);
 
+    // for testing, Owner is governor, treasury, and founder!
     const axe = await ethers.deployContract('AXE', [owner, owner, owner]);
     await axe.waitForDeployment();
     console.log(`AXE deployed to ${axe.target}`);
 
     // Mint/Distribute initial supply in both tokens for the owner and other users
     await axe.issue(AXE_MINT);
-    await axe.transfer(addr1, ethers.parseUnits('10000000'));
+    await axe.connect(owner).transfer(addr1, ethers.parseUnits('10000000'));
     await axe.transfer(addr2, ethers.parseUnits('10000000'));
     await dai.mint(owner, DAI_MINT);
     await dai.mint(addr1, DAI_MINT);
@@ -135,6 +136,33 @@ describe('Uniswap Tests', function () {
     return { router, axe, dai, usdc, owner, addr1, addr2, axeDai, axeUsdc, daiUsdc };
   }
 
+  /**
+   * Adds to the TokenPairsFixture and sets up a liquid situation with taxation for all pairs.
+   * @returns { router, axe, dai, usdc, owner, addr1, addr2, axeDai, axeUsdc, daiUsdc }
+   */
+  async function deployLiquidAxeFixture(): Promise<TokenPairsFixture> {
+    const { router, axe, dai, usdc, owner, addr1, addr2, axeDai, axeUsdc, daiUsdc } = await deployTokenPairsFixture();
+
+    const axeAmount = ethers.parseUnits('1000000');
+    const daiAmount = ethers.parseUnits('700');
+    const usdcAmount = ethers.parseUnits('1000');
+
+    // governor provides the initial liquidity
+    await addLiquidity(owner, router, axe, dai, axeAmount, daiAmount);
+    await addLiquidity(owner, router, axe, usdc, axeAmount, usdcAmount);
+    await axe.addTaxablePair(axeDai);
+    await axe.addTaxablePair(axeUsdc);
+    await swapTokens(addr1, router, dai, axe, ethers.parseUnits('30'));
+    await swapTokens(addr1, router, usdc, axe, ethers.parseUnits('40'));
+    await swapTokens(addr2, router, dai, axe, ethers.parseUnits('20'));
+    await swapTokens(addr1, router, axe, dai, ethers.parseUnits('10'));
+    await swapTokens(addr2, router, usdc, axe, ethers.parseUnits('120'));
+    await swapTokens(addr1, router, axe, usdc, ethers.parseUnits('40'));
+    await swapTokens(addr2, router, axe, usdc, ethers.parseUnits('35'));
+
+    return { router, axe, dai, usdc, owner, addr1, addr2, axeDai, axeUsdc, daiUsdc };
+  }
+
   describe('Initial Deployment', function () {
     it('Should have no router and pool.', async function () {
       const { owner, router, axe, dai } = await loadFixture(deployUniswapFixture);
@@ -167,16 +195,16 @@ describe('Uniswap Tests', function () {
     });
   });
 
-  describe('Liquidity', function () {
+  describe('Liquidity Configuration', function () {
     it('Should be able to set up liquidity', async function () {
       const { owner, addr1, router, axe, dai, axeDai } = await loadFixture(deployTokenPairsFixture);
-      // check pair condition
+      // check pre conditions
       const reserves = await axeDai.getReserves();
       expect(reserves[0]).to.be.equal(0, 'Token1 pool liquidity should be 0.');
       expect(reserves[1]).to.be.equal(0, 'Token2 pool liquidity should be 0.');
       expect(await axe.allowance(owner, router)).to.be.equal(MaxUint256, 'Missing approval for router on AXE');
       expect(await dai.allowance(owner, router)).to.be.equal(MaxUint256, 'Missing approval for router on DAI');
-      //
+      // check function
       expect(await axe.getLiquidationToken()).to.be.equal(ZeroAddress);
       await expect(axe.connect(addr1).setLiquidationRouterAndToken(router, dai))
         .to.be.revertedWithCustomError(axe, 'GovernableUnauthorizedAccount')
@@ -184,9 +212,12 @@ describe('Uniswap Tests', function () {
       expect(await axe.setLiquidationRouterAndToken(router, dai))
         .to.emit(axe, 'LiquidationSettingsChanged')
         .withArgs([router, dai, axeDai]);
+      expect(await axe.getLiquidationToken()).to.be.equal(dai);
     });
+  });
 
-    it('Should be able to add/remove liquidity', async function () {
+  describe('Taxation', function () {
+    it('Should be able to tax adding/removing liquidity', async function () {
       const { owner, router, axe, dai, addr1, axeDai } = await loadFixture(deployTokenPairsFixture);
       const axeAmount = ethers.parseUnits('100000');
       const daiAmount = ethers.parseUnits('50');
@@ -218,7 +249,7 @@ describe('Uniswap Tests', function () {
       expect(axeFees).to.be.greaterThan(priorFees, "User1's removeLiquidity should have been taxed");
     });
 
-    it('Should be able to swap', async function () {
+    it('Should be able to tax swapping', async function () {
       const { owner, router, axe, dai, addr1, axeDai } = await loadFixture(deployTokenPairsFixture);
       const axeAmount = ethers.parseUnits('100000000');
       const daiAmount = ethers.parseUnits('500');
@@ -263,6 +294,49 @@ describe('Uniswap Tests', function () {
       axeFees = await axe.balanceOf(axe.target);
       console.log('AXE fees 2:', axeFees);
       expect(axeFees).to.be.greaterThan(0, 'User2 buying AXE should have raised fees');
+    });
+  });
+
+  describe('Liquidation & Withdrawal', function () {
+    it('Should be able to liquidate AXE for DAI and USDC', async function () {
+      const { owner, router, axe, dai, usdc, addr1 } = await loadFixture(deployLiquidAxeFixture);
+      let axeBalance = await axe.balanceOf(axe);
+      let daiInTreasury = await dai.balanceOf(owner);
+      let usdcInTreasury = await usdc.balanceOf(owner);
+      expect(axeBalance).to.be.greaterThan(0, 'There should be fees accumulated');
+
+      // governor sells AXE 50/50 into DAI and USDC
+      const sellAmount = axeBalance / BigInt(2);
+      console.log('Liquidating 50% AXE: ', ethers.formatUnits(sellAmount));
+
+      await axe.setLiquidationRouterAndToken(router, dai);
+      await expect(axe.connect(addr1).liquidate(sellAmount))
+        .to.be.revertedWithCustomError(axe, 'GovernableUnauthorizedAccount')
+        .withArgs(addr1.address);
+      expect(await axe.liquidate(sellAmount))
+        .to.emit(axe, 'AxeLiquidated')
+        .withArgs([sellAmount, dai]);
+      const previousDaiBalance = daiInTreasury;
+      daiInTreasury = await dai.balanceOf(owner);
+      expect(daiInTreasury).to.be.greaterThan(previousDaiBalance, 'AXE to DAI liquidation should be in treasury');
+
+      axeBalance = await axe.balanceOf(axe);
+      expect(axeBalance).to.equal(sellAmount, '50% of AXE should have been liquidated');
+
+      await axe.setLiquidationRouterAndToken(router, usdc);
+      expect(await axe.liquidate(axeBalance))
+        .to.emit(axe, 'AxeLiquidated')
+        .withArgs([axeBalance, dai]);
+
+      const previousUsdcBalance = usdcInTreasury;
+      usdcInTreasury = await usdc.balanceOf(owner);
+      expect(usdcInTreasury).to.be.greaterThan(previousUsdcBalance, 'AXE to USDC liquidation should be in treasury');
+
+      axeBalance = await axe.balanceOf(axe);
+      expect(axeBalance).to.equal(0, 'All AXE should have been liquidated');
+
+      console.log('DAI from liquidating AXE: ', ethers.formatUnits(daiInTreasury - previousDaiBalance));
+      console.log('USDC from liquidating AXE: ', ethers.formatUnits(usdcInTreasury - previousUsdcBalance));
     });
   });
 });
