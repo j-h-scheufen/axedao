@@ -1,8 +1,8 @@
 import { createConfig, http } from 'wagmi';
-import { optimism, gnosis, goerli, localhost, Chain } from 'wagmi/chains';
-import { injected, safe, walletConnect } from 'wagmi/connectors';
+import { localhost, Chain } from 'wagmi/chains';
+import { injected, walletConnect } from 'wagmi/connectors';
 
-import { config as env } from '@/config/environment';
+import ENV from '@/config/environment';
 
 const configureChains = (): [Chain, ...Chain[]] => {
   const chains: [Chain, ...Chain[]] = [localhost];
@@ -17,7 +17,7 @@ const wagmiConfig = createConfig({
   chains: configureChains(),
   connectors: [
     injected(),
-    // walletConnect({ projectId: env.walletConnectProjectId }),
+    walletConnect({ projectId: ENV.walletConnectProjectId }),
     // safe(),
   ],
   transports: {

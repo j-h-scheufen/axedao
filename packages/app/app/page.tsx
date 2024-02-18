@@ -11,30 +11,30 @@ import {
   useWriteAxeIssue,
   useWriteVestingWalletRelease,
 } from '@/generated';
-import { config as env } from '@/config/environment';
+import ENV from '@/config/environment';
 import { formatAxeUnits } from './_utils/contract.utils';
-import { Address, parseUnits } from 'viem';
+import { Address, BaseError, parseUnits } from 'viem';
 
 export default function Home() {
   const account = useAccount();
 
   const { data: userBalance } = useReadErc20BalanceOf({
-    address: env.axeTokenAddress,
+    address: ENV.axeTokenAddress,
     args: [account.address as Address],
   });
 
   const { data: userDaoShares } = useReadErc20BalanceOf({
-    address: env.axeDaoSharesAddress,
+    address: ENV.axeDaoSharesAddress,
     args: [account.address as Address],
   });
 
   const { data: treasuryBalance } = useReadErc20BalanceOf({
-    address: env.axeTokenAddress,
-    args: [env.axeTreasuryAddress],
+    address: ENV.axeTokenAddress,
+    args: [ENV.axeTreasuryAddress],
   });
 
   const { data: vestingWallet } = useReadAxeVestingWallet({
-    address: env.axeTokenAddress,
+    address: ENV.axeTokenAddress,
   });
 
   const { data: beneficiary } = useReadVestingWalletOwner({
@@ -43,15 +43,15 @@ export default function Home() {
 
   const { data: releasable } = useReadVestingWalletReleasable({
     address: vestingWallet,
-    args: [env.axeTokenAddress],
+    args: [ENV.axeTokenAddress],
   });
 
   const { data: totalVested } = useReadErc20BalanceOf({
-    address: env.axeTokenAddress,
+    address: ENV.axeTokenAddress,
     args: [vestingWallet as Address],
   });
 
-  const { data: issueHash, isPending: isIssuePending, writeContract: issueAxe } = useWriteAxeIssue();
+  const { data: issueHash, isPending: isIssuePending, writeContract: issueAxe, error: issueError } = useWriteAxeIssue();
 
   const {
     data: releaseHash,
@@ -59,11 +59,7 @@ export default function Home() {
     writeContract: releaseVesting,
   } = useWriteVestingWalletRelease();
 
-  const {
-    isLoading: issueLoading,
-    isSuccess: issueSuccess,
-    error: issueError,
-  } = useWaitForTransactionReceipt({
+  const { isLoading: issueLoading, isSuccess: issueSuccess } = useWaitForTransactionReceipt({
     hash: issueHash,
   });
 
@@ -108,7 +104,7 @@ export default function Home() {
             disabled={isIssuePending}
             onClick={() => {
               issueAxe({
-                address: env.axeTokenAddress,
+                address: ENV.axeTokenAddress,
                 args: [parseUnits('10000', 18)],
               });
             }}
@@ -121,7 +117,7 @@ export default function Home() {
             onClick={() => {
               releaseVesting({
                 address: vestingWallet as Address,
-                args: [env.axeTokenAddress],
+                args: [ENV.axeTokenAddress],
               });
             }}
           >
@@ -130,7 +126,7 @@ export default function Home() {
           {issueHash && <div className="mt-4">TX Receipt: {issueHash}</div>}
           {issueLoading && <div className="mt-4">Waiting for confirmation...</div>}
           {issueSuccess && <div className="mt-4">Transaction confirmed.</div>}
-          {issueError && <div className="mt-4">Transaction failed: {issueError.message}</div>}
+          {issueError && <div>Error: {(issueError as BaseError).shortMessage || issueError.message}</div>}{' '}
           {releaseHash && <div className="mt-4">TX Receipt: {releaseHash}</div>}
           {releaseLoading && <div className="mt-4">Waiting for confirmation...</div>}
           {releaseSuccess && <div className="mt-4">Transaction confirmed.</div>}

@@ -21,7 +21,12 @@ describe('AXÉ Tests', function () {
     return { token, vestingWallet, owner, addr1, addr2 };
   }
 
-  describe('Deployment', function () {
+  describe('Deployment and get/set functionality', function () {
+    it('Should have name and symbol set correctly', async function () {
+      const { token } = await loadFixture(deployAxeTokenFixture);
+      expect(await token.name()).to.equal('Axé');
+      expect(await token.symbol()).to.equal('AXÉ');
+    });
     it('Should have only vesting amount as initial supply and max cap', async function () {
       const { token } = await loadFixture(deployAxeTokenFixture);
       expect(await token.totalSupply()).to.equal(ethers.parseUnits(TEST.AXE.VESTING_AMOUNT.toString()));
@@ -32,10 +37,24 @@ describe('AXÉ Tests', function () {
       expect(await token.owner()).to.equal(owner);
       expect(await token.governor()).to.equal(owner);
     });
-    it('Should have name and symbol set correctly', async function () {
-      const { token } = await loadFixture(deployAxeTokenFixture);
-      expect(await token.name()).to.equal('Axé');
-      expect(await token.symbol()).to.equal('AXÉ');
+    it('Should allow tax control', async function () {
+      const { token, owner, addr1 } = await loadFixture(deployAxeTokenFixture);
+      await expect(token.connect(addr1).setBuyTax(700))
+        .to.be.revertedWithCustomError(token, 'GovernableUnauthorizedAccount')
+        .withArgs(addr1.address);
+      await expect(token.connect(addr1).setSellTax(900))
+        .to.be.revertedWithCustomError(token, 'GovernableUnauthorizedAccount')
+        .withArgs(addr1.address);
+      await expect(token.connect(owner).setBuyTax(10001)).to.be.reverted;
+      await expect(token.connect(owner).setSellTax(10001)).to.be.reverted;
+      expect(await token.connect(owner).setBuyTax(900))
+        .to.emit(token, 'BuyTaxChanged')
+        .withArgs(900);
+      expect(await token.buyTax()).to.equal(900);
+      expect(await token.connect(owner).setSellTax(3450))
+        .to.emit(token, 'SellTaxChanged')
+        .withArgs(3450);
+      expect(await token.sellTax()).to.equal(3450);
     });
   });
 
@@ -48,9 +67,13 @@ describe('AXÉ Tests', function () {
     });
     it('Governor should be able to issue multiple times', async function () {
       const { token, owner } = await loadFixture(deployAxeTokenFixture);
-      await token.issue(ethers.parseUnits('1000'));
+
+      let issueAmount = ethers.parseUnits('1000');
+      await expect(token.issue(issueAmount)).to.emit(token, 'AxeIssued').withArgs(issueAmount);
       expect(await token.balanceOf(owner)).to.equal(ethers.parseUnits('1000'));
-      await token.issue(ethers.parseUnits('5005'));
+
+      issueAmount = ethers.parseUnits('5005');
+      await expect(token.issue(issueAmount)).to.emit(token, 'AxeIssued').withArgs(issueAmount);
       expect(await token.balanceOf(owner)).to.equal(ethers.parseUnits('6005'));
     });
     it('Issuance should not exceed MAX SUPPLY', async function () {
