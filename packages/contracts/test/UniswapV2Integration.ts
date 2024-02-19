@@ -307,10 +307,10 @@ describe('Uniswap Tests', function () {
       console.log('Liquidating 50% AXE: ', ethers.formatUnits(sellAmount));
 
       await axe.setLiquidationRouterAndToken(router, dai);
-      await expect(axe.connect(addr1).liquidate(sellAmount))
+      await expect(axe.connect(addr1).liquidate(sellAmount, 100))
         .to.be.revertedWithCustomError(axe, 'GovernableUnauthorizedAccount')
         .withArgs(addr1.address);
-      await expect(axe.liquidate(sellAmount)).to.emit(axe, 'AxeLiquidated').withArgs(dai, sellAmount, anyUint);
+      await expect(axe.liquidate(sellAmount, 0)).to.emit(axe, 'AxeLiquidated').withArgs(dai, sellAmount, anyUint);
       const previousDaiBalance = daiInTreasury;
       daiInTreasury = await dai.balanceOf(owner);
       expect(daiInTreasury).to.be.greaterThan(previousDaiBalance, 'AXE to DAI liquidation should be in treasury');
@@ -319,7 +319,7 @@ describe('Uniswap Tests', function () {
       expect(axeBalance).to.equal(sellAmount, '50% of AXE should have been liquidated');
 
       await axe.setLiquidationRouterAndToken(router, usdc);
-      await expect(axe.liquidate(axeBalance)).to.emit(axe, 'AxeLiquidated').withArgs(usdc, axeBalance, anyUint);
+      await expect(axe.liquidate(axeBalance, 100)).to.emit(axe, 'AxeLiquidated').withArgs(usdc, axeBalance, anyUint);
 
       const previousUsdcBalance = usdcInTreasury;
       usdcInTreasury = await usdc.balanceOf(owner);

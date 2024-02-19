@@ -13,6 +13,8 @@ import {IUniswapV2Router02} from "@uniswap/v2-periphery/contracts/interfaces/IUn
 
 import {Governable} from "./Governable.sol";
 
+import "hardhat/console.sol";
+
 /**
  * @title Axé Token
  * @dev A XERC20 token that can collect a tax on trade activity in a configurable Uniswap v2 pool. 
@@ -173,23 +175,31 @@ contract AXE is Ownable, Governable, ERC20Capped {
     /**
      * @dev Attempts to swap the given amount of AXE for the liquidity token and deposits the output into
      * the #governorTreasury (since UniswapV2Router02 does not allow the recipient to be part of the pair).
-     * @param amount how much AXE to swap
+     * @param _amount how much AXE to swap
+     * @param _slippage how much slippage to set for the swap to the liquidityToken
      */
-    function liquidate(uint256 amount) external onlyGovernor {
+    function liquidate(uint256 _amount, uint256 _slippage) external onlyGovernor onlyBasisPoints(_slippage) {
         require(_canLiquidate(), "Invoking this function requires a router and a liquidity pair to be set up!");
         require(
-            amount > 0 && amount <= balanceOf(address(this)),
+            _amount > 0 && _amount <= balanceOf(address(this)),
             "Liquidation amount must be between 0 and max balance."
         );
         // Approve router spending AXÉ
-        _approve(address(this), uniswapV2Router, amount);
+        _approve(address(this), uniswapV2Router, _amount);
         uint deadline = block.timestamp + (10 * 60); // 10 min
         address[] memory path = new address[](2);
         path[0] = address(this);
         path[1] = liquidationToken;
-        // TODO must calculate slippage and set accordingly to avoid being frontrun
-        uint[] memory amounts = IUniswapV2Router02(uniswapV2Router).swapExactTokensForTokens(amount, 0, path, governorTreasury, deadline);
-        emit AxeLiquidated(path[1], amount, amounts[0]);
+
+        // calculate slippage and set amountOut accordingly
+        uint256 amountOut = 0;
+        IUniswapV2Router02 router = IUniswapV2Router02(uniswapV2Router);
+        (uint112 axeReserve, uint112 tokenReserve) = _getLiquidationReserves();
+        amountOut = router.getAmountOut(_amount, axeReserve, tokenReserve);
+        amountOut = amountOut - _applyBasisPoints(_slippage, amountOut);
+
+        uint[] memory amounts = router.swapExactTokensForTokens(_amount, amountOut, path, governorTreasury, deadline);
+        emit AxeLiquidated(path[1], _amount, amounts[0]);
     }
 
     /**
@@ -242,14 +252,14 @@ contract AXE is Ownable, Governable, ERC20Capped {
         if (!excluded[from] && !excluded[to]) {
             // BUY
             if (taxablePairs[from] && buyTax > 0) {
-                fee = _calculateFee(buyTax, value);
+                fee = _applyBasisPoints(buyTax, value);
                 super._update(from, address(this), fee);
                 adjustedValue -= fee;
                 emit BuyTaxApplied(value, buyTax, fee, to);
             }
             // SELL
             else if (taxablePairs[to] && sellTax > 0) {
-                fee = _calculateFee(sellTax, value);
+                fee = _applyBasisPoints(sellTax, value);
                 super._update(from, address(this), fee);
                 adjustedValue -= fee;
                 emit SellTaxApplied(value, buyTax, fee, from);
@@ -259,16 +269,22 @@ contract AXE is Ownable, Governable, ERC20Capped {
     }
 
     /**
-     * Applies the given tax to the given amount and returns the result.
-     * @param basisPoints the tax in basis points
-     * @param amount the amount on which to apply the tax
+     * Applies the speciied percentage in basis points to the given amount and returns the result.
+     * @param basisPoints a fee/tax in basis points
+     * @param amount the amount on which to apply the percentage
      */
-    function _calculateFee(uint256 basisPoints, uint256 amount) internal pure returns (uint256) {
-        return amount == 0 ? 0 : (amount * basisPoints) / 10 ** 4;
+    function _applyBasisPoints(uint256 basisPoints, uint256 amount) internal pure returns (uint256 result) {
+        result = (amount * basisPoints) / (10 ** 4);
     }
 
     function _canLiquidate() internal view returns (bool success) {
         return uniswapV2Router != address(0) && liquidationPair != address(0) && liquidationToken != address(0);
+    }
+
+    /// @dev Sorts the liquidationPair reserves to return AXÉ reserves first.
+    function _getLiquidationReserves() internal view returns (uint112, uint112) {
+        (uint112 reserve0, uint112 reserve1, ) = IUniswapV2Pair(liquidationPair).getReserves();
+        return IUniswapV2Pair(liquidationPair).token0() == address(this) ? (reserve0, reserve1) : (reserve1, reserve0);
     }
 
     //to receive native tokens
