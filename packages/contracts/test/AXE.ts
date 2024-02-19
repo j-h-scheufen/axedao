@@ -47,13 +47,9 @@ describe('AXÉ Tests', function () {
         .withArgs(addr1.address);
       await expect(token.connect(owner).setBuyTax(10001)).to.be.reverted;
       await expect(token.connect(owner).setSellTax(10001)).to.be.reverted;
-      expect(await token.connect(owner).setBuyTax(900))
-        .to.emit(token, 'BuyTaxChanged')
-        .withArgs(900);
+      await expect(token.connect(owner).setBuyTax(900)).to.emit(token, 'BuyTaxChanged').withArgs(900);
       expect(await token.buyTax()).to.equal(900);
-      expect(await token.connect(owner).setSellTax(3450))
-        .to.emit(token, 'SellTaxChanged')
-        .withArgs(3450);
+      await expect(token.connect(owner).setSellTax(3450)).to.emit(token, 'SellTaxChanged').withArgs(3450);
       expect(await token.sellTax()).to.equal(3450);
     });
   });

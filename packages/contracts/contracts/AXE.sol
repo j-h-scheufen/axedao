@@ -37,13 +37,11 @@ contract AXE is Ownable, Governable, ERC20Capped {
     uint256 public buyTax = 300;
     uint256 public sellTax = 500;
     address public uniswapV2Router;
-    address public uniswapV2Pair;
+    address public liquidationPair;
+    address public liquidationToken;
     mapping(address => bool) private taxablePairs;
     mapping(address => bool) private excluded;
     
-    /// @dev Stores the history of liquidityTokens that were used to swap AXÉ. Can contain duplicates!
-    address[] private tokenHistory;
-
     /** EVENTS */
     event AxeIssued(uint256 amount);
     event SellTaxChanged(uint256 value);
@@ -58,8 +56,9 @@ contract AXE is Ownable, Governable, ERC20Capped {
     event NativeWithdrawn(uint256 amount);
     event TokenWithdrawn(address indexed token, uint256 amount);
 
+    /// @dev Value between 0-10000: E.g. 50 = 0.5%, 9990 = 99.9%
     modifier onlyBasisPoints(uint256 value) {
-        require(value <= 10000, "Value must be in basis points (0-10000): E.g. 50 = 0.5%, 9990 = 99.9%");
+        require(value <= 10000, "Value must be in basis points");
         _;
     }
 
@@ -126,27 +125,18 @@ contract AXE is Ownable, Governable, ERC20Capped {
     }
 
     /**
-     * @dev Removes the given pair from the list of taxable pools
-     * @param pair - a UniswapV2Pair, but not the current {uniswapV2Pair} used for swapping
+     * @dev Removes the given pair from the list of taxable pairs
+     * @param pair - a UniswapV2Pair
      */
     function removeTaxablePair(address pair) external onlyGovernor {
-        require(pair != uniswapV2Pair, "Cannot remove the pair currently used for liquidation");
         taxablePairs[pair] = false;
         emit TaxablePairRemoved(pair);
     }
 
     /**
-     * @dev Returns the top of the {tokenHistory} list which corresponds to the token currently used for Axé liquidation.
-     * Returns 0x0 if no token has been set, yet, via #setLiquidationRouterAndToken(address,address).
-     */
-    function getLiquidationToken() public view returns (address swapToken) {
-        swapToken = tokenHistory.length > 0 ? tokenHistory[tokenHistory.length - 1] : address(0);
-    }
-
-    /**
      * Sets a new router and liquidity token. If the router does not have an existing pair of AXE <-> liquidityToken,
-     * a pair will be automatically created. The liquidityToken is added to the tokenHistory to be able to withdraw it later.
-     * @param _router the UniswapV2Router to use
+     * a pair will be automatically created.
+     * @param _router the UniswapV2Router
      * @param _swapToken an IERC20 token used to liquidate AXE
      */
     function setLiquidationRouterAndToken(
@@ -156,8 +146,9 @@ contract AXE is Ownable, Governable, ERC20Capped {
         require(_router != address(0), "Router cannot be zero address");
         require(_swapToken != address(0), "Liquidity token cannot be zero address");
         //  IUniswapV2Router02(uniswapV2Router).
-        // set router for swapping
+        // set router and token for swapping
         uniswapV2Router = _router;
+        liquidationToken = _swapToken;
         // Check for existing pair or create a new one
         address existingPair = IUniswapV2Factory(IUniswapV2Router02(uniswapV2Router).factory()).getPair(
             address(this),
@@ -165,20 +156,18 @@ contract AXE is Ownable, Governable, ERC20Capped {
         );
         if (address(0) == existingPair) {
             // Create a uniswap pair for the new token
-            uniswapV2Pair = IUniswapV2Factory(IUniswapV2Router02(uniswapV2Router).factory()).createPair(
+            liquidationPair = IUniswapV2Factory(IUniswapV2Router02(uniswapV2Router).factory()).createPair(
                 address(this),
                 _swapToken
             );
         } else {
-            uniswapV2Pair = existingPair;
+            liquidationPair = existingPair;
         }
-        // Keep a reference to the liquidity token to access any accumulated balance in the future
-        tokenHistory.push(_swapToken); // TODO: does not check if the same token has been used in the past and would store a duplicate. Should manipulate array to move existing token to the top
         // Add pair to be taxed
-        taxablePairs[uniswapV2Pair] = true;
+        taxablePairs[liquidationPair] = true;
 
-        emit LiquidationSettingsChanged(_router, _swapToken, uniswapV2Pair);
-        return uniswapV2Pair;
+        emit LiquidationSettingsChanged(_router, _swapToken, liquidationPair);
+        return liquidationPair;
     }
 
     /**
@@ -187,7 +176,7 @@ contract AXE is Ownable, Governable, ERC20Capped {
      * @param amount how much AXE to swap
      */
     function liquidate(uint256 amount) external onlyGovernor {
-        require(_hasRouter(), "Invoking this function requires a router and a liquidity pair to be set up!");
+        require(_canLiquidate(), "Invoking this function requires a router and a liquidity pair to be set up!");
         require(
             amount > 0 && amount <= balanceOf(address(this)),
             "Liquidation amount must be between 0 and max balance."
@@ -197,7 +186,7 @@ contract AXE is Ownable, Governable, ERC20Capped {
         uint deadline = block.timestamp + (10 * 60); // 10 min
         address[] memory path = new address[](2);
         path[0] = address(this);
-        path[1] = getLiquidationToken();
+        path[1] = liquidationToken;
         // TODO must calculate slippage and set accordingly to avoid being frontrun
         uint[] memory amounts = IUniswapV2Router02(uniswapV2Router).swapExactTokensForTokens(amount, 0, path, governorTreasury, deadline);
         emit AxeLiquidated(path[1], amount, amounts[0]);
@@ -228,7 +217,7 @@ contract AXE is Ownable, Governable, ERC20Capped {
      * @param _token the token to withdraw from
      * @param _amount the amount to withdraw
      */
-    function withdraw(address _token, uint256 _amount) external onlyGovernor returns (uint256 transferAmount) {
+    function withdrawToken(address _token, uint256 _amount) external onlyGovernor returns (uint256 transferAmount) {
         IERC20 token = IERC20(_token);
         transferAmount = token.balanceOf(address(this));
         if (transferAmount > 0 && _amount > 0) {
@@ -278,8 +267,8 @@ contract AXE is Ownable, Governable, ERC20Capped {
         return amount == 0 ? 0 : (amount * basisPoints) / 10 ** 4;
     }
 
-    function _hasRouter() internal view returns (bool success) {
-        return uniswapV2Router != address(0) && uniswapV2Pair != address(0);
+    function _canLiquidate() internal view returns (bool success) {
+        return uniswapV2Router != address(0) && liquidationPair != address(0) && liquidationToken != address(0);
     }
 
     //to receive native tokens

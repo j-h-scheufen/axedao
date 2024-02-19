@@ -6,6 +6,7 @@ import { expect } from 'chai';
 import { ethers } from 'hardhat';
 import { MaxUint256, AddressLike, ZeroAddress } from 'ethers';
 import { HardhatEthersSigner, SignerWithAddress } from '@nomicfoundation/hardhat-ethers/signers';
+import { anyUint } from '@nomicfoundation/hardhat-chai-matchers/withArgs';
 
 import WETH9 from './WETH9.json';
 import {
@@ -167,8 +168,8 @@ describe('Uniswap Tests', function () {
     it('Should have no router and pool.', async function () {
       const { owner, router, axe, dai } = await loadFixture(deployUniswapFixture);
       expect(await axe.uniswapV2Router()).to.be.equal(ZeroAddress, 'Should have no router');
-      expect(await axe.getLiquidationToken()).to.be.equal(ZeroAddress, 'Should have no liquidity token');
-      expect(await axe.uniswapV2Pair()).to.be.equal(ZeroAddress, 'Should have no swap pair');
+      expect(await axe.liquidationToken()).to.be.equal(ZeroAddress, 'Should have no liquidation token');
+      expect(await axe.liquidationPair()).to.be.equal(ZeroAddress, 'Should have no liquidation pair');
       const pair = await new ethers.Contract(await router.factory(), factoryJson.abi, owner).getPair(
         axe.target,
         dai.target,
@@ -182,16 +183,12 @@ describe('Uniswap Tests', function () {
       await expect(axe.connect(addr1).addTaxablePair(axeUsdc))
         .to.be.revertedWithCustomError(axe, 'GovernableUnauthorizedAccount')
         .withArgs(addr1.address);
-      expect(await axe.addTaxablePair(axeUsdc))
-        .to.emit(axe, 'TaxablePairAdded')
-        .withArgs([axeUsdc.target]);
+      await expect(axe.addTaxablePair(axeUsdc)).to.emit(axe, 'TaxablePairAdded').withArgs(axeUsdc.target);
 
       await expect(axe.connect(addr1).removeTaxablePair(axeUsdc))
         .to.be.revertedWithCustomError(axe, 'GovernableUnauthorizedAccount')
         .withArgs(addr1.address);
-      expect(await axe.removeTaxablePair(axeUsdc))
-        .to.emit(axe, 'TaxablePairRemoved')
-        .withArgs([axeUsdc.target]);
+      await expect(axe.removeTaxablePair(axeUsdc)).to.emit(axe, 'TaxablePairRemoved').withArgs(axeUsdc.target);
     });
   });
 
@@ -205,14 +202,14 @@ describe('Uniswap Tests', function () {
       expect(await axe.allowance(owner, router)).to.be.equal(MaxUint256, 'Missing approval for router on AXE');
       expect(await dai.allowance(owner, router)).to.be.equal(MaxUint256, 'Missing approval for router on DAI');
       // check function
-      expect(await axe.getLiquidationToken()).to.be.equal(ZeroAddress);
+      expect(await axe.liquidationToken()).to.be.equal(ZeroAddress);
       await expect(axe.connect(addr1).setLiquidationRouterAndToken(router, dai))
         .to.be.revertedWithCustomError(axe, 'GovernableUnauthorizedAccount')
         .withArgs(addr1.address);
-      expect(await axe.setLiquidationRouterAndToken(router, dai))
+      await expect(axe.setLiquidationRouterAndToken(router, dai))
         .to.emit(axe, 'LiquidationSettingsChanged')
-        .withArgs([router, dai, axeDai]);
-      expect(await axe.getLiquidationToken()).to.be.equal(dai);
+        .withArgs(router, dai, axeDai);
+      expect(await axe.liquidationToken()).to.be.equal(dai);
     });
   });
 
@@ -297,7 +294,7 @@ describe('Uniswap Tests', function () {
     });
   });
 
-  describe('Liquidation & Withdrawal', function () {
+  describe('Liquidation', function () {
     it('Should be able to liquidate AXE for DAI and USDC', async function () {
       const { owner, router, axe, dai, usdc, addr1 } = await loadFixture(deployLiquidAxeFixture);
       let axeBalance = await axe.balanceOf(axe);
@@ -305,7 +302,7 @@ describe('Uniswap Tests', function () {
       let usdcInTreasury = await usdc.balanceOf(owner);
       expect(axeBalance).to.be.greaterThan(0, 'There should be fees accumulated');
 
-      // governor sells AXE 50/50 into DAI and USDC
+      // governor liquidates AXE 50/50 into DAI and USDC
       const sellAmount = axeBalance / BigInt(2);
       console.log('Liquidating 50% AXE: ', ethers.formatUnits(sellAmount));
 
@@ -313,9 +310,7 @@ describe('Uniswap Tests', function () {
       await expect(axe.connect(addr1).liquidate(sellAmount))
         .to.be.revertedWithCustomError(axe, 'GovernableUnauthorizedAccount')
         .withArgs(addr1.address);
-      expect(await axe.liquidate(sellAmount))
-        .to.emit(axe, 'AxeLiquidated')
-        .withArgs([sellAmount, dai]);
+      await expect(axe.liquidate(sellAmount)).to.emit(axe, 'AxeLiquidated').withArgs(dai, sellAmount, anyUint);
       const previousDaiBalance = daiInTreasury;
       daiInTreasury = await dai.balanceOf(owner);
       expect(daiInTreasury).to.be.greaterThan(previousDaiBalance, 'AXE to DAI liquidation should be in treasury');
@@ -324,9 +319,7 @@ describe('Uniswap Tests', function () {
       expect(axeBalance).to.equal(sellAmount, '50% of AXE should have been liquidated');
 
       await axe.setLiquidationRouterAndToken(router, usdc);
-      expect(await axe.liquidate(axeBalance))
-        .to.emit(axe, 'AxeLiquidated')
-        .withArgs([axeBalance, dai]);
+      await expect(axe.liquidate(axeBalance)).to.emit(axe, 'AxeLiquidated').withArgs(usdc, axeBalance, anyUint);
 
       const previousUsdcBalance = usdcInTreasury;
       usdcInTreasury = await usdc.balanceOf(owner);
@@ -337,6 +330,67 @@ describe('Uniswap Tests', function () {
 
       console.log('DAI from liquidating AXE: ', ethers.formatUnits(daiInTreasury - previousDaiBalance));
       console.log('USDC from liquidating AXE: ', ethers.formatUnits(usdcInTreasury - previousUsdcBalance));
+    });
+  });
+
+  describe('Withdrawal', function () {
+    it('Should be able to withdraw AXE and other assets', async function () {
+      const { owner, axe, usdc, addr1 } = await loadFixture(deployLiquidAxeFixture);
+      const ethAmount = ethers.parseEther('0.00173');
+      const usdcAmount = ethers.parseUnits('38.739');
+      const ethPartial = ethers.parseEther('0.0004');
+      const axePartial = ethers.parseUnits('500');
+      await owner.sendTransaction({ to: axe.target, value: ethAmount });
+      usdc.transfer(axe, usdcAmount);
+      const axeBalance = await axe.balanceOf(axe);
+      const usdcBalance = await usdc.balanceOf(axe);
+      let ethBalance = await ethers.provider.getBalance(axe);
+      let axeInTreasury = await axe.balanceOf(owner);
+      let usdcInTreasury = await usdc.balanceOf(owner);
+      let ethInTreasury = await ethers.provider.getBalance(owner);
+
+      expect(axeBalance).to.be.greaterThan(0, 'There should be fees accumulated in AXE');
+      expect(usdcBalance).to.be.greaterThan(0, 'There should be USDC in AXE');
+      expect(ethBalance).to.be.greaterThan(0, 'There should be ETH/Native in AXE');
+
+      await expect(axe.connect(addr1).withdraw(MaxUint256))
+        .to.be.revertedWithCustomError(axe, 'GovernableUnauthorizedAccount')
+        .withArgs(addr1.address);
+
+      await expect(axe.connect(addr1).withdrawToken(axe, MaxUint256))
+        .to.be.revertedWithCustomError(axe, 'GovernableUnauthorizedAccount')
+        .withArgs(addr1.address);
+
+      await expect(axe.withdraw(ethPartial)).to.emit(axe, 'NativeWithdrawn').withArgs(ethPartial);
+      await expect(axe.withdrawToken(axe, axePartial)).to.emit(axe, 'TokenWithdrawn').withArgs(axe, axePartial);
+      await expect(axe.withdrawToken(usdc, MaxUint256)).to.emit(axe, 'TokenWithdrawn').withArgs(usdc, usdcBalance);
+
+      // Refresh balances
+      const previousTreasuryAxe = axeInTreasury;
+      const previousTreasuryUsdc = usdcInTreasury;
+      let previousTreasuryEth = ethInTreasury;
+      axeInTreasury = await axe.balanceOf(owner);
+      usdcInTreasury = await usdc.balanceOf(owner);
+      ethInTreasury = await ethers.provider.getBalance(owner);
+
+      expect(previousTreasuryEth + ethPartial - ethInTreasury).to.be.lessThan(
+        // account for gas cost
+        ethers.parseUnits('0.02'),
+        'Partial ETH withdrawal to treasury mismatch',
+      );
+      expect(axeInTreasury).to.be.equal(previousTreasuryAxe + axePartial, 'AXE withdrawal to treasury mismatch');
+      expect(usdcInTreasury).to.be.equal(previousTreasuryUsdc + usdcBalance, 'USDC withdrawal to treasury mismatch');
+
+      ethBalance = await ethers.provider.getBalance(axe);
+      await expect(axe.withdraw(MaxUint256)).to.emit(axe, 'NativeWithdrawn').withArgs(ethBalance);
+
+      previousTreasuryEth = ethInTreasury;
+      ethInTreasury = await ethers.provider.getBalance(owner);
+      expect(previousTreasuryEth + ethPartial - ethInTreasury).to.be.lessThan(
+        // account for gas cost
+        ethers.parseUnits('0.02'),
+        'Full balance ETH withdrawal to treasury mismatch',
+      );
     });
   });
 });
