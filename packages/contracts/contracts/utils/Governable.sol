@@ -5,7 +5,11 @@ pragma solidity ^0.8.20;
 import {Context} from "@openzeppelin/contracts/utils/Context.sol";
 
 /**
- * @dev Contract module which provides a basic access control mechanism, where
+ * @dev Adaptation of the OpenZeppelin Contract "access/Ownable.sol" with the
+ * #renounceOwnership() function removed and the state variables / functions
+ * renamed from "Ownable" and "owner" to "Governable" and "governor"
+ * 
+ *  Contract module which provides a basic access control mechanism, where
  * there is an account (an governor) that can be granted exclusive access to
  * specific functions.
  *

@@ -12,17 +12,16 @@ Notes:
   - Create revenue streams via NFT - AXÉ integration
   - Create revenue streams via services (group management, payments, events, tickets / admission), services could be free in bundle for certain level of yearly DAO contribution (again, something the DAO can set via proposal).
 
-- Deploy contracts on Goerli via proposal (need to learn how to do that anyways)
+- Deploy contracts on Goerli via create3 factory and proposal (need to learn how to do that anyways)
 - Keep building base app (start proper coding: utils, state, contract function helpers, errors -> UI)
-- Ask Renee about building registry and op costs
 - Launch website
 - Start asking around for more supporters? Dial up outreach
 - dao voting functions might be a huge incentive to join (power, inclusion, participation), but really only needed when there's money to spend
 
 Don't Forget:
 
-- Make contract deployment use create2
 - Implement XERC20
+- Make contract deployment use create3
 - Verify deployment step https://hardhat.org/hardhat-runner/docs/guides/verifying
 
 ## Local Development
