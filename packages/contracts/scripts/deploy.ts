@@ -20,13 +20,19 @@ async function main() {
     throw new Error(`Deployer account ${deployer.address} has a zero balance. Make sure you're on the right network!`);
   }
 
-  const axe = await ethers.deployContract('AXE', [founderAddress, daoAddress, treasuryAddress], {
-    signer: deployer,
-  });
+  const factory = await ethers.deployContract(
+    'MainAXESingleUseFactory',
+    [founderAddress, daoAddress, treasuryAddress],
+    {
+      signer: deployer,
+    },
+  );
 
-  await axe.waitForDeployment();
+  await factory.waitForDeployment();
 
-  console.log(`AXE deployed to address: ${axe.target}`);
+  const axeAddress = await factory.instance();
+
+  console.log(`AXE deployed to address: ${axeAddress}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

@@ -73,7 +73,8 @@ describe('AXÉ Tests', function () {
     });
     it('Issuance should not exceed MAX SUPPLY', async function () {
       const { token } = await loadFixture(deployAxeTokenFixture);
-      await token.issue(ethers.parseUnits((TEST.AXE.MAX_SUPPLY - TEST.AXE.VESTING_AMOUNT).toString()));
+      const maxIssuance = TEST.AXE.MAX_SUPPLY - TEST.AXE.VESTING_AMOUNT;
+      await token.issue(ethers.parseUnits(maxIssuance.toString()));
       await expect(token.issue(1)).to.be.revertedWithCustomError(token, 'ERC20ExceededCap');
     });
   });

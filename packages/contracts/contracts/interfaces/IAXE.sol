@@ -3,7 +3,7 @@
 pragma solidity ^0.8.20;
 
 interface IAXE {
-  /**
+/**
    * @dev Total supply cap has been exceeded.
    */
   error ERC20ExceededCap(uint256 increasedSupply, uint256 cap);

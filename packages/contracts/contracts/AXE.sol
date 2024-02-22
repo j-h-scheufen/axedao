@@ -221,7 +221,13 @@ contract AXE is IAXE, AXERC20 {
   function _update(address from, address to, uint256 value) internal override {
     // Don't intervene on minting/burning
     if (from == address(0) || to == address(0)) {
-      return super._update(from, to, value);
+      super._update(from, to, value);
+      // Checking ERC20ExceededCap
+      uint256 supply = totalSupply();
+      if (supply > MAX_SUPPLY) {
+        revert ERC20ExceededCap(supply, MAX_SUPPLY);
+      }
+      return;
     }
     uint256 fee;
     uint256 adjustedValue = value;
@@ -242,11 +248,6 @@ contract AXE is IAXE, AXERC20 {
       }
     }
     super._update(from, to, adjustedValue);
-    // Implement ERC20ExceededCap check when minting
-    uint256 supply = totalSupply();
-    if (supply > MAX_SUPPLY) {
-      revert ERC20ExceededCap(supply, MAX_SUPPLY);
-    }
   }
 
   /**
