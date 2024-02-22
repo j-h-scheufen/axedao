@@ -15,6 +15,8 @@ async function main() {
     deployer = await new ethers.Wallet(getEnvironmentVariable(vars.DEPLOYER_KEY), ethers.provider);
   }
 
+  console.log('Using deployer:', deployer.address);
+
   const deployerBalance = await ethers.provider.getBalance(deployer.address);
   if (deployerBalance === BigInt(0)) {
     throw new Error(`Deployer account ${deployer.address} has a zero balance. Make sure you're on the right network!`);
