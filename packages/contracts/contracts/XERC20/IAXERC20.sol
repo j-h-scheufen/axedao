@@ -1,14 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.8.4 <0.9.0;
 
-interface IXERC20 {
-    /**
-     * @notice Emits when a lockbox is set
-     *
-     * @param _lockbox The address of the lockbox
-     */
-
-    event LockboxSet(address _lockbox);
+interface IAXERC20 {
 
     /**
      * @notice Emits when a limit is set
@@ -22,14 +15,7 @@ interface IXERC20 {
     /**
      * @notice Reverts when a user with too low of a limit tries to call mint/burn
      */
-
     error IXERC20_NotHighEnoughLimits();
-
-    /**
-     * @notice Reverts when caller is not the factory
-     */
-
-    error IXERC20_NotFactory();
 
     struct Bridge {
         BridgeParameters minterParams;
@@ -42,14 +28,6 @@ interface IXERC20 {
         uint256 maxLimit;
         uint256 currentLimit;
     }
-
-    /**
-     * @notice Sets the lockbox address
-     *
-     * @param _lockbox The address of the lockbox
-     */
-
-    function setLockbox(address _lockbox) external;
 
     /**
      * @notice Updates the limits of any bridge

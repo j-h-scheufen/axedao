@@ -2,8 +2,7 @@
 
 pragma solidity ^0.8.20;
 
-import { IERC20, ERC20 } from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import { ERC20Capped } from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Capped.sol";
+import { IERC20 } from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import { SafeERC20 } from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import { IUniswapV2Factory } from "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol";
 import { IUniswapV2Pair } from "@uniswap/v2-core/contracts/interfaces/IUniswapV2Pair.sol";
@@ -11,6 +10,7 @@ import { IUniswapV2Router02 } from "@uniswap/v2-periphery/contracts/interfaces/I
 
 import { Governable } from "./utils/Governable.sol";
 import { IAXE } from "./interfaces/IAXE.sol";
+import { AXERC20 } from "./XERC20/AXERC20.sol";
 
 /**
  * @title Axé Token
@@ -19,15 +19,15 @@ import { IAXE } from "./interfaces/IAXE.sol";
  * a treasury.
  * This token symbolizes positive energy in reference to the term and concept of "Axé" in Capoeira and Candomblé.
  */
-contract AXE is IAXE, Governable, ERC20Capped {
+contract AXE is IAXE, AXERC20 {
   using SafeERC20 for IERC20;
 
   /// @dev MAX SUPPLY honors Mestre Pastinha and Mestre Bimba by encoding their birthdays.
   /// M. Pastinha was born 10 years before M. Bimba, so going backwards in order of their birthdays gets us
   /// close to a target of 10 billion tokens: 18[99]/[11]/[23], 18[89]/0[4]/0[5]
-  uint256 internal constant _MAX_SUPPLY = 9_911_238_945;
+  uint256 public constant MAX_SUPPLY = 9_911_238_945 * (10 ** 18);
   string internal constant _NAME = unicode"Axé";
-  string internal constant _TICKER = unicode"AXÉ";
+  string internal constant _SYMBOL = unicode"AXÉ";
 
   address internal governorTreasury;
   uint256 public buyTax = 300;
@@ -52,7 +52,7 @@ contract AXE is IAXE, Governable, ERC20Capped {
   constructor(
     address _governor,
     address _governorTreasury
-  ) Governable(_governor) ERC20(_NAME, _TICKER) ERC20Capped(_MAX_SUPPLY * (10 ** decimals())) {
+  ) Governable(_governor) AXERC20(_NAME, _SYMBOL) {
     require(_governor != address(0), "AXE requires a governor");
     require(_governorTreasury != address(0), "AXE requires a governor's treasury");
     governorTreasury = _governorTreasury;
@@ -242,6 +242,11 @@ contract AXE is IAXE, Governable, ERC20Capped {
       }
     }
     super._update(from, to, adjustedValue);
+    // Implement ERC20ExceededCap check when minting
+    uint256 supply = totalSupply();
+    if (supply > MAX_SUPPLY) {
+      revert ERC20ExceededCap(supply, MAX_SUPPLY);
+    }
   }
 
   /**

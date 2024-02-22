@@ -16,7 +16,7 @@ import { AXE } from "./AXE.sol";
  * issue new tokens.
  */
 contract MainAXE is IMainAXE, AXE {
-  uint256 internal constant _VESTING_AMOUNT = 25_000_000; // ~0.05% of total supply
+  uint256 internal constant _VESTING_AMOUNT = 50_000_000; // ~0.5% of total supply
   uint64 internal constant _VESTING_DURATION = 94_608_000; // 3 years
 
   address public vestingWallet;

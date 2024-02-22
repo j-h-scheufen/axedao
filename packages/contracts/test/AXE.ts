@@ -13,7 +13,7 @@ describe('AXÉ Tests', function () {
   async function deployAxeTokenFixture() {
     const [owner, addr1, addr2] = await ethers.getSigners();
 
-    const token = await ethers.deployContract('AXE', [owner, owner, owner]);
+    const token = await ethers.deployContract('MainAXE', [owner, owner, owner]);
 
     const vAddress = await token.vestingWallet();
     const vestingWallet = new ethers.Contract(vAddress, vwJson.abi, owner);
@@ -30,11 +30,10 @@ describe('AXÉ Tests', function () {
     it('Should have only vesting amount as initial supply and max cap', async function () {
       const { token } = await loadFixture(deployAxeTokenFixture);
       expect(await token.totalSupply()).to.equal(ethers.parseUnits(TEST.AXE.VESTING_AMOUNT.toString()));
-      expect(await token.cap()).to.equal(ethers.parseUnits(TEST.AXE.MAX_SUPPLY.toString()));
+      expect(await token.MAX_SUPPLY()).to.equal(ethers.parseUnits(TEST.AXE.MAX_SUPPLY.toString()));
     });
     it('Should have owner and governor initialized', async function () {
       const { token, owner } = await loadFixture(deployAxeTokenFixture);
-      expect(await token.owner()).to.equal(owner);
       expect(await token.governor()).to.equal(owner);
     });
     it('Should allow tax control', async function () {
