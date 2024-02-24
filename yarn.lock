@@ -3022,17 +3022,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nomicfoundation/hardhat-foundry@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "@nomicfoundation/hardhat-foundry@npm:1.1.1"
-  dependencies:
-    chalk: "npm:^2.4.2"
-  peerDependencies:
-    hardhat: ^2.17.2
-  checksum: 10c0/e1f914bd705b93c9efc9f0b30eb178288504aede202ec00a9b03d3fa494baf175d0218ee678a328179b1ecfe18e16184888f671e8a03488e4ebfba0daf93a603
-  languageName: node
-  linkType: hard
-
 "@nomicfoundation/hardhat-network-helpers@npm:^1.0.10":
   version: 1.0.10
   resolution: "@nomicfoundation/hardhat-network-helpers@npm:1.0.10"
@@ -7429,7 +7418,6 @@ __metadata:
   dependencies:
     "@nomicfoundation/hardhat-chai-matchers": "npm:^2.0.4"
     "@nomicfoundation/hardhat-ethers": "npm:^3.0.5"
-    "@nomicfoundation/hardhat-foundry": "npm:^1.1.1"
     "@nomicfoundation/hardhat-network-helpers": "npm:^1.0.10"
     "@nomicfoundation/hardhat-toolbox": "npm:^4.0.0"
     "@nomicfoundation/hardhat-toolbox-viem": "npm:2.0.0"
@@ -7459,7 +7447,6 @@ __metadata:
     prettier: "npm:^3.2.5"
     prettier-plugin-solidity: "npm:^1.3.1"
     solidity-coverage: "npm:^0.8.7"
-    solmate: "npm:6.2.0"
     ts-node: "npm:^10.9.2"
     typechain: "npm:^8.3.1"
     typescript: "npm:^5.3.3"
@@ -14608,13 +14595,6 @@ __metadata:
   bin:
     solidity-coverage: plugins/bin.js
   checksum: 10c0/31ea638bd4f6a6154c3403021a18cc7bd4022136a32c1cf81350953998392f3958df58b726a87faa28d8e99f8c1922c94521fa4ad4d11a59329dba03d44063c3
-  languageName: node
-  linkType: hard
-
-"solmate@npm:6.2.0":
-  version: 6.2.0
-  resolution: "solmate@npm:6.2.0"
-  checksum: 10c0/0d718123ae621aec4fdae932173f6a569a3b618daa9ea481d428bd29faac40048428f21f2e39a3d814545698aac507ca32d45e76d45aeda12750b2030330ef2e
   languageName: node
   linkType: hard
 
