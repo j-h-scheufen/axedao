@@ -15,11 +15,11 @@ const config: HardhatUserConfig = {
         process.env.FORK?.toLowerCase() === 'true'
           ? {
               url: `${process.env.HTTPS_PROVIDER_URL_SEPOLIA}`,
-              blockNumber: 5337009,
+              blockNumber: 5355418,
             }
           : undefined,
     },
-    goerli: {
+    sepolia: {
       url: `${process.env.HTTPS_PROVIDER_URL_SEPOLIA}`,
     },
   },

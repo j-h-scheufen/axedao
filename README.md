@@ -72,14 +72,43 @@ cast wallet import axe-deployer --interactive
 The UX around key-management in Foundry is lacking. For the time being, you MUST specify the public address of the wallet to use via `--sender 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B`, otherwise the Forge deploy script ignores the `--account` and uses the default
 account to `startBroadcast()`! (See https://github.com/foundry-rs/foundry/issues/6034)
 
-Example of deploying Axé to Sepolia:
+#### Requirements
+
+ENV vars need to be available and can be set in front of the command in the commandline or exported:
 
 ```shell
 export ETHERSCAN_API_KEY=XXXXXXXXXX
 export HTTPS_PROVIDER_URL_SEPOLIA=XXXXXXXXXXX
+```
+
+Hint: Alternatively to settings ENV vars like `ETHERSCAN_API_KEY` in the shell, set them in your local `.env.local` and export them into a shell session with `export $(grep -v '^#' .env.local | xargs)`. Make sure there is no whitespace in the declarations in the file (`ETHERSCAN_API_KEY=XXX`).
+
+Example of deploying Axé to Sepolia:
+
+Run/Simulate with a forked network:
+
+```shell
 forge script scripts/deploy.s.sol:Deploy --fork-url $HTTPS_PROVIDER_URL_SEPOLIA --fork-block-number 5352114 --account axe-deployer --sender 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B --broadcast -vvv
 ```
 
-Note: Password is only prompted when using `--broadcast`!
+Run/Simulate with a localhost (Hardhat or Anvil node):
 
-Hint: Alternatively to settings ENV vars like `ETHERSCAN_API_KEY` in the shell, set them in your local `.env.local` and export them into a shell session with `export $(grep -v '^#' .env.local | xargs)`.
+```shell
+forge script scripts/deploy.s.sol:Deploy --rpc-url http://localhost:8545 --account axe-deployer --sender 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B --broadcast -vvv
+```
+
+Note: The password for the keystore is only prompted when using `--broadcast`!
+
+### Contract verification
+
+```shell
+forge verify-contract \
+--chain-id 11155111 \
+--num-of-optimizations 200 \
+--constructor-args $(cast abi-encode "constructor(address,address,address)" 0x1c3ac998b698206cd2fb22bb422bf14367470866 0xee2ac838c83e5d6bf6eb1c8a425c007345ace39e 0x6EF543d0Cce1171F696f82cB6f698133037d5b32) \
+--etherscan-api-key $ETHERSCAN_API_KEY \
+--compiler-version v0.8.23+commit.f704f362 \
+--watch \
+0x6F03d8D0c9c2660A1D228f1f33cD34a6c47457E3 \
+contracts/MainAXE.sol:MainAXE
+```

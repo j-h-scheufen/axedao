@@ -24,7 +24,7 @@ contract Deploy is Script {
     console.log("AXE Deployer: %s", msg.sender);
     require(msg.sender == axeDeployer, "Wrong AXE deployer account!");
 
-    bool main = block.chainid == 100; // Gnosis
+    bool main = block.chainid == 100 || block.chainid == 11155111; // Gnosis + Sepolia
     // The creation of AXE is salted with a ladainha and the msg.sender
     bytes32 _salt = keccak256(abi.encodePacked(_LADAINHA, msg.sender));
     bytes memory _creation = main ? type(MainAXE).creationCode : type(AXE).creationCode;
