@@ -1,15 +1,15 @@
 import { createConfig, http } from 'wagmi';
-import { localhost, Chain } from 'wagmi/chains';
+import { localhost, sepolia, optimism, gnosis, Chain } from 'wagmi/chains';
 import { injected, walletConnect } from 'wagmi/connectors';
 
 import ENV from '@/config/environment';
 
 const configureChains = (): [Chain, ...Chain[]] => {
-  const chains: [Chain, ...Chain[]] = [localhost];
-  // if (process.env.NEXT_PUBLIC_CHAINS_ENABLE_TESTNETS?.toLowerCase() === 'true')
-  //   chains.concat([goerli]);
-  // if (process.env.NEXT_PUBLIC_CHAINS_ENABLE_LOCALHOST?.toLowerCase() === 'true')
-  //   chains.concat([localhost]);
+  let chains: [Chain, ...Chain[]] = [gnosis];
+  const appEnv = process.env.NEXT_PUBLIC_APP_ENV?.toLowerCase();
+  if (appEnv === 'local') chains = [localhost];
+  else if (appEnv === 'test') chains = [sepolia];
+  console.log(`Chains configured for '${appEnv}' mode.`);
   return chains;
 };
 
@@ -21,9 +21,9 @@ const wagmiConfig = createConfig({
     // safe(),
   ],
   transports: {
-    // [optimism.id]: http(),
-    // [gnosis.id]: http(),
-    // [goerli.id]: http(),
+    [optimism.id]: http(),
+    [gnosis.id]: http(),
+    [sepolia.id]: http(),
     [localhost.id]: http(),
   },
   ssr: true,

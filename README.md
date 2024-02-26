@@ -21,8 +21,12 @@ Notes:
 Don't Forget:
 
 - Test XERC20
-- Verify deployment step https://hardhat.org/hardhat-runner/docs/guides/verifying
+- Fork sepolia and make proposal / vote for testing
+  - Fork block deployment
+  - Make proposals, forward time, process proposal and debug
+  -
 - use "forge doc" to generate documentation
+- check all dependency licenses!!
 
 ## Local Development
 
