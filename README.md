@@ -147,3 +147,9 @@ Read the state of proposal no. 3 from the DAO:
 ```shell
 cast call 0x1c3ac998b698206cd2fb22bb422bf14367470866 "state(uint32)" 3 --rpc-url http://localhost:8545
 ```
+
+Read the Axé balance of an account:
+
+```shell
+cast balance --erc20 0xaE8F6454fa13EbA1Be4ea60019d1bd34F9D04895 --rpc-url http://localhost:8545 0xee2ac838c83e5d6bf6eb1c8a425c007345ace39e
+```

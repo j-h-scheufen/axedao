@@ -3,6 +3,7 @@ pragma solidity ^0.8.23;
 
 import "forge-std/Test.sol";
 import { IBaal } from "@daohaus/baal-contracts/contracts/interfaces/IBaal.sol";
+import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 /**
  * @title
@@ -12,8 +13,10 @@ import { IBaal } from "@daohaus/baal-contracts/contracts/interfaces/IBaal.sol";
 contract ProposalTest is Test {
   event AxeIssued(uint256 _amount);
 
+  address axeToken = 0xaE8F6454fa13EbA1Be4ea60019d1bd34F9D04895;
   address shareholder = 0x6EF543d0Cce1171F696f82cB6f698133037d5b32;
   address dao = 0x1c3ac998b698206CD2fb22bb422Bf14367470866;
+  address treasury = 0xEE2ac838C83e5d6bf6Eb1C8A425C007345ACe39E;
   // Multisend encoded bytes to issue 500 mil on AXESource at 0xaE8F6454fa13EbA1Be4ea60019d1bd34F9D04895
   bytes proposalData =
     hex"8d80ff0a0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000007900aE8F6454fa13EbA1Be4ea60019d1bd34F9D0489500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000024cc872b660000000000000000000000000000000000000000019d971e4fe8401e7400000000000000000000";
@@ -57,6 +60,8 @@ contract ProposalTest is Test {
 
     console.log("State of prop #%s: %s", propId, decodedState);
 
+    uint256 balanceBefore = IERC20(axeToken).balanceOf(treasury);
+
     vm.expectEmit(true, false, false, false);
 
     emit AxeIssued(500000000000000000000000000);
@@ -65,6 +70,13 @@ contract ProposalTest is Test {
 
     propStatus = baal.getProposalStatus(propId);
     assertTrue(propStatus[1]);
+
+    uint256 balanceAfter = IERC20(axeToken).balanceOf(treasury);
+    assertEq(
+      balanceAfter,
+      balanceBefore + 500_000_000 * (10 ** 18),
+      "Issued amount not in treasury"
+    );
 
     vm.stopPrank();
   }
