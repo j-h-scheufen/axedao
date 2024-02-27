@@ -3,10 +3,15 @@
 pragma solidity ^0.8.20;
 
 interface IAXE {
-/**
+  /**
    * @dev Total supply cap has been exceeded.
    */
   error ERC20ExceededCap(uint256 increasedSupply, uint256 cap);
+  /**
+   * @notice Emits when the treasury address is changed
+   * @param value - the new treasury address
+   */
+  event TreasuryChanged(address value);
   /**
    * @notice Emits when the sell tax is changed
    * @param value - the new sell tax
@@ -75,6 +80,12 @@ interface IAXE {
    * @param amount - the amount withdrawn
    */
   event TokenWithdrawn(address indexed token, uint256 amount);
+
+  /**
+   * @notice Sets a new treasury address
+   * @param _treasury - the new treasury address
+   */
+  function setTreasury(address _treasury) external;
 
   /**
    * @notice Sets a new buy tax in basis points.

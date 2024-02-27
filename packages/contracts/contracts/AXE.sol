@@ -28,7 +28,9 @@ contract AXE is IAXE, AXERC20 {
   uint256 public constant MAX_SUPPLY = 9_911_238_945 * (10 ** 18);
   string internal constant _NAME = unicode"Axé";
   string internal constant _SYMBOL = unicode"AXÉ";
-
+  /// @dev the governor treasury by default is set to the governor address which is the typical setup for a
+  /// Gnosis Safe-based multi-sig. However, the treasury is treated as a separate address in case it becomes
+  /// necessary to change in the future.
   address internal governorTreasury;
   uint256 public buyTax = 300;
   uint256 public sellTax = 500;
@@ -47,60 +49,65 @@ contract AXE is IAXE, AXERC20 {
   /**
    * @dev Constructor - Mints the vesting amount for the founder into a VestingWallet and gives control to the governor.
    * @param _governor - the DAO's multisig
-   * @param _governorTreasury - the DAO's treasury
    */
-  constructor(
-    address _governor,
-    address _governorTreasury
-  ) Governable(_governor) AXERC20(_NAME, _SYMBOL) {
+  constructor(address _governor) Governable(_governor) AXERC20(_NAME, _SYMBOL) {
     require(_governor != address(0), "AXE requires a governor");
-    require(_governorTreasury != address(0), "AXE requires a governor's treasury");
-    governorTreasury = _governorTreasury;
+    governorTreasury = _governor; // The default
     //exclude treasury and this contract from fees
     excluded[governorTreasury] = true;
     excluded[address(this)] = true;
   }
 
   /**
-   * Sets a new buy tax in basis points.
-   * @param basisPoints must be between 0 and 10000d
+   * @notice Sets a new treasury address
+   * @param _treasury - the new treasury address
    */
-  function setBuyTax(uint256 basisPoints) external onlyGovernor onlyBasisPoints(basisPoints) {
-    buyTax = basisPoints;
-    emit BuyTaxChanged(buyTax);
+  function setTreasury(address _treasury) external onlyGovernor {
+    require(_treasury != address(0), "Treasury cannot be zero address");
+    governorTreasury = _treasury;
+    emit TreasuryChanged(_treasury);
+  }
+
+  /**
+   * Sets a new buy tax in basis points.
+   * @param _basisPoints must be between 0 and 10000d
+   */
+  function setBuyTax(uint256 _basisPoints) external onlyGovernor onlyBasisPoints(_basisPoints) {
+    buyTax = _basisPoints;
+    emit BuyTaxChanged(_basisPoints);
   }
 
   /**
    * Sets a new sell tax in basis points.
-   * @param basisPoints must be between 0 and 10000
+   * @param _basisPoints must be between 0 and 10000
    */
-  function setSellTax(uint256 basisPoints) external onlyGovernor onlyBasisPoints(basisPoints) {
-    sellTax = basisPoints;
-    emit SellTaxChanged(sellTax);
+  function setSellTax(uint256 _basisPoints) external onlyGovernor onlyBasisPoints(_basisPoints) {
+    sellTax = _basisPoints;
+    emit SellTaxChanged(_basisPoints);
   }
 
   /**
    * @dev Adds the given pair to the list of taxable pools
-   * @param pair - a UniswapV2Pair
+   * @param _pair - a UniswapV2Pair
    */
-  function addTaxablePair(address pair) external onlyGovernor {
-    require(pair != address(0), "Cannot add zero address");
+  function addTaxablePair(address _pair) external onlyGovernor {
+    require(_pair != address(0), "Cannot add zero address");
     require(
-      IUniswapV2Pair(pair).token0() == address(this) ||
-        IUniswapV2Pair(pair).token1() == address(this),
+      IUniswapV2Pair(_pair).token0() == address(this) ||
+        IUniswapV2Pair(_pair).token1() == address(this),
       "Pair must contain this token"
     );
-    taxablePairs[pair] = true;
-    emit TaxablePairAdded(pair);
+    taxablePairs[_pair] = true;
+    emit TaxablePairAdded(_pair);
   }
 
   /**
    * @dev Removes the given pair from the list of taxable pairs
-   * @param pair - a UniswapV2Pair
+   * @param _pair - a UniswapV2Pair
    */
-  function removeTaxablePair(address pair) external onlyGovernor {
-    taxablePairs[pair] = false;
-    emit TaxablePairRemoved(pair);
+  function removeTaxablePair(address _pair) external onlyGovernor {
+    taxablePairs[_pair] = false;
+    emit TaxablePairRemoved(_pair);
   }
 
   /**
@@ -216,12 +223,13 @@ contract AXE is IAXE, AXERC20 {
   }
 
   /**
-   * @dev Overrides ERC20#_update(address,address,uint256) to impose buy/sell fees
+   * @dev Overrides ERC20#_update(address,address,uint256) to impose buy/sell fees.
+   * Also enforces the MAX_SUPPLY when minting.
    */
-  function _update(address from, address to, uint256 value) internal override {
+  function _update(address _from, address _to, uint256 _value) internal override {
     // Don't intervene on minting/burning
-    if (from == address(0) || to == address(0)) {
-      super._update(from, to, value);
+    if (_from == address(0) || _to == address(0)) {
+      super._update(_from, _to, _value);
       // Checking ERC20ExceededCap
       uint256 supply = totalSupply();
       if (supply > MAX_SUPPLY) {
@@ -230,38 +238,39 @@ contract AXE is IAXE, AXERC20 {
       return;
     }
     uint256 fee;
-    uint256 adjustedValue = value;
-    if (!excluded[from] && !excluded[to]) {
+    uint256 adjustedValue = _value;
+    if (!excluded[_from] && !excluded[_to]) {
       // BUY
-      if (taxablePairs[from] && buyTax > 0) {
-        fee = _applyBasisPoints(buyTax, value);
-        super._update(from, address(this), fee);
+      if (taxablePairs[_from] && buyTax > 0) {
+        fee = _applyBasisPoints(buyTax, _value);
+        super._update(_from, address(this), fee);
         adjustedValue -= fee;
-        emit BuyTaxApplied(value, buyTax, fee, to);
+        emit BuyTaxApplied(_value, buyTax, fee, _to);
       }
       // SELL
-      else if (taxablePairs[to] && sellTax > 0) {
-        fee = _applyBasisPoints(sellTax, value);
-        super._update(from, address(this), fee);
+      else if (taxablePairs[_to] && sellTax > 0) {
+        fee = _applyBasisPoints(sellTax, _value);
+        super._update(_from, address(this), fee);
         adjustedValue -= fee;
-        emit SellTaxApplied(value, buyTax, fee, from);
+        emit SellTaxApplied(_value, buyTax, fee, _from);
       }
     }
-    super._update(from, to, adjustedValue);
+    super._update(_from, _to, adjustedValue);
   }
 
   /**
    * Applies the speciied percentage in basis points to the given amount and returns the result.
-   * @param basisPoints a fee/tax in basis points
-   * @param amount the amount on which to apply the percentage
+   * @param _basisPoints a fee/tax in basis points
+   * @param _amount the amount on which to apply the percentage
    */
   function _applyBasisPoints(
-    uint256 basisPoints,
-    uint256 amount
+    uint256 _basisPoints,
+    uint256 _amount
   ) internal pure returns (uint256 result) {
-    result = (amount * basisPoints) / (10 ** 4);
+    result = (_amount * _basisPoints) / (10 ** 4);
   }
 
+  /// @dev Returns true if a router, liquidation pair, and liquidation token are set
   function _canLiquidate() internal view returns (bool success) {
     return
       uniswapV2Router != address(0) &&

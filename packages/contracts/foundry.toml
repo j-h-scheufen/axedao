@@ -12,6 +12,6 @@ cache_path = 'cache_forge'
 sepolia = "${HTTPS_PROVIDER_URL_SEPOLIA}"
 
 # [etherscan]
-# sepolia = { key = "${ETHERSCAN_API_KEY}" }
+# sepolia = { key = "${ETHERSCAN_API_KEY}" } # WARNING: this causes forge to make additional calls to etherscan which fail when testing locally
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options

@@ -13,6 +13,7 @@
     "deploy": "npx hardhat run --network localhost scripts/deploy.ts"
   },
   "devDependencies": {
+    "@daohaus/baal-contracts": "^1.2.17",
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.4",
     "@nomicfoundation/hardhat-ethers": "^3.0.5",
     "@nomicfoundation/hardhat-network-helpers": "^1.0.10",

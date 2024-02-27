@@ -71,7 +71,7 @@ describe('Uniswap Tests', function () {
     console.log(`Router deployed to ${routerContract.target}`);
 
     // for testing, Owner is governor, treasury, and founder!
-    const axe = await ethers.deployContract('MainAXE', [owner, owner, owner]);
+    const axe = await ethers.deployContract('AXESource', [owner, owner]);
     await axe.waitForDeployment();
     console.log(`AXE deployed to ${axe.target}`);
 

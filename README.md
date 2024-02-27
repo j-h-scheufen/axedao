@@ -12,7 +12,6 @@ Notes:
   - Create revenue streams via NFT - AXÉ integration
   - Create revenue streams via services (group management, payments, events, tickets / admission), services could be free in bundle for certain level of yearly DAO contribution (again, something the DAO can set via proposal).
 
-- Deploy contracts on Goerli via create3 factory and proposal (need to learn how to do that anyways)
 - Keep building base app (start proper coding: utils, state, contract function helpers, errors -> UI)
 - Launch website
 - Start asking around for more supporters? Dial up outreach
@@ -20,10 +19,9 @@ Notes:
 
 Don't Forget:
 
-- Test XERC20
-- Fork sepolia and make proposal / vote for testing
-  - Fork block deployment
-  - Make proposals, forward time, process proposal and debug
+- Test XERC20.
+- Make test for deployed AXE + DAO
+  - Make proposals, forward time, process proposal
   -
 - use "forge doc" to generate documentation
 - check all dependency licenses!!
@@ -87,21 +85,34 @@ export HTTPS_PROVIDER_URL_SEPOLIA=XXXXXXXXXXX
 
 Hint: Alternatively to settings ENV vars like `ETHERSCAN_API_KEY` in the shell, set them in your local `.env.local` and export them into a shell session with `export $(grep -v '^#' .env.local | xargs)`. Make sure there is no whitespace in the declarations in the file (`ETHERSCAN_API_KEY=XXX`).
 
-Example of deploying Axé to Sepolia:
+Example how Axé is deployed to a network like Sepolia, if it doesn't exist there, yet:
 
-Run/Simulate with a forked network:
+1. Start a local node that is forked from Sepolia.
+   The Axé DAO on Sepolia was created in block 5327951 ([TxReceipt](https://sepolia.etherscan.io/tx/0xc69d904e77106520193ac9821087bb628b923fb3beb0788a70ed444c3f7d61ad))
 
 ```shell
-forge script scripts/deploy.s.sol:Deploy --fork-url $HTTPS_PROVIDER_URL_SEPOLIA --fork-block-number 5352114 --account axe-deployer --sender 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B --broadcast -vvv
+anvil --fork-url $HTTPS_PROVIDER_URL_SEPOLIA --fork-block-number 5352114
 ```
 
-Run/Simulate with a localhost (Hardhat or Anvil node):
+History:
+
+- Broken AXE version deployed in block 5355124
+
+1. Run the the deploy script against the local node
 
 ```shell
 forge script scripts/deploy.s.sol:Deploy --rpc-url http://localhost:8545 --account axe-deployer --sender 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B --broadcast -vvv
 ```
 
-Note: The password for the keystore is only prompted when using `--broadcast`!
+TODO: need a test for deployed Axe verification, e.g. can the DAO make a proposal
+
+3. After verifying local deployment, repeat the deployment against the target network:
+
+```shell
+forge script scripts/deploy.s.sol:Deploy --fork-url $HTTPS_PROVIDER_URL_SEPOLIA --account axe-deployer --sender 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B -vvv
+```
+
+When all looks good, add the `--broadcast` flag and run for final deployment.
 
 ### Contract verification
 
@@ -114,5 +125,25 @@ forge verify-contract \
 --compiler-version v0.8.23+commit.f704f362 \
 --watch \
 0x6F03d8D0c9c2660A1D228f1f33cD34a6c47457E3 \
-contracts/MainAXE.sol:MainAXE
+contracts/AXESource.sol:AXESource
+```
+
+Forge run script with impersonated account: `--unlocked --from 0x238472397`
+
+```shell
+forge test --fork-url $HTTPS_PROVIDER_URL_SEPOLIA --fork-block-number 5360605 --match-test test_IssueProposal
+```
+
+## Useful commands
+
+On a local Anvil node, give the Axé Deployer account some funds from one of the default accounts:
+
+```shell
+cast send --rpc-url http://localhost:8545 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B --value 0.5ether --unlocked --from 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+```
+
+Read the state of proposal no. 3 from the DAO:
+
+```shell
+cast call 0x1c3ac998b698206cd2fb22bb422bf14367470866 "state(uint32)" 3 --rpc-url http://localhost:8545
 ```

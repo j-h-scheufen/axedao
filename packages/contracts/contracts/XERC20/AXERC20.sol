@@ -1,13 +1,18 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.8.4 <0.9.0;
 
-import { IAXERC20 } from "./IAXERC20.sol";
+import { IXERC20 } from "./IXERC20.sol";
 import { ERC20 } from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import { ERC20Permit } from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
 
 import { Governable } from "../utils/Governable.sol";
 
-abstract contract AXERC20 is ERC20, Governable, IAXERC20, ERC20Permit {
+abstract contract AXERC20 is ERC20, Governable, IXERC20, ERC20Permit {
+  /**
+   * @dev Function or operation not supported.
+   */
+  error FunctionNotSupported();
+
   /**
    * @notice The duration it takes for the limits to fully replenish
    */
@@ -54,6 +59,16 @@ abstract contract AXERC20 is ERC20, Governable, IAXERC20, ERC20Permit {
     }
 
     _burnWithCaller(msg.sender, _user, _amount);
+  }
+
+  /**
+   * @notice Sets the lockbox address.
+   * @dev throws FunctionNotSupported
+   * @param _lockbox The address of the lockbox
+   */
+  function setLockbox(address _lockbox) external pure {
+    _lockbox = address(0); // to silence compiler warning for unused var
+    revert FunctionNotSupported();
   }
 
   /**

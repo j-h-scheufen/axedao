@@ -2,7 +2,7 @@ import vwJson from '@openzeppelin/contracts/build/contracts/VestingWallet.json';
 
 import { loadFixture, time, takeSnapshot } from '@nomicfoundation/hardhat-toolbox/network-helpers';
 import { expect } from 'chai';
-import { Typed } from 'ethers';
+import { Typed, ZeroAddress } from 'ethers';
 import { ethers } from 'hardhat';
 
 import * as TEST from './constants';
@@ -13,7 +13,7 @@ describe('AXÉ Tests', function () {
   async function deployAxeTokenFixture() {
     const [owner, addr1, addr2] = await ethers.getSigners();
 
-    const token = await ethers.deployContract('MainAXE', [owner, owner, owner]);
+    const token = await ethers.deployContract('AXESource', [owner, owner]);
 
     const vAddress = await token.vestingWallet();
     const vestingWallet = new ethers.Contract(vAddress, vwJson.abi, owner);
@@ -50,6 +50,14 @@ describe('AXÉ Tests', function () {
       expect(await token.buyTax()).to.equal(900);
       await expect(token.connect(owner).setSellTax(3450)).to.emit(token, 'SellTaxChanged').withArgs(3450);
       expect(await token.sellTax()).to.equal(3450);
+    });
+    it('Should allow to set treasury', async function () {
+      const { token, owner, addr1 } = await loadFixture(deployAxeTokenFixture);
+      await expect(token.connect(addr1).setTreasury(addr1))
+        .to.be.revertedWithCustomError(token, 'GovernableUnauthorizedAccount')
+        .withArgs(addr1.address);
+      await expect(token.connect(owner).setTreasury(ZeroAddress)).to.be.revertedWith('Treasury cannot be zero address');
+      await expect(token.connect(owner).setTreasury(addr1)).to.emit(token, 'TreasuryChanged').withArgs(addr1);
     });
   });
 
