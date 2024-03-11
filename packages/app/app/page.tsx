@@ -4,11 +4,11 @@ import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 import { Button } from '@nextui-org/button';
 
 import {
-  useReadAxeVestingWallet,
+  useReadAxeSourceVestingWallet,
   useReadErc20BalanceOf,
   useReadVestingWalletOwner,
   useReadVestingWalletReleasable,
-  useWriteAxeIssue,
+  useWriteAxeSourceIssue,
   useWriteVestingWalletRelease,
 } from '@/generated';
 import ENV from '@/config/environment';
@@ -33,7 +33,7 @@ export default function Home() {
     args: [ENV.axeTreasuryAddress],
   });
 
-  const { data: vestingWallet } = useReadAxeVestingWallet({
+  const { data: vestingWallet } = useReadAxeSourceVestingWallet({
     address: ENV.axeTokenAddress,
   });
 
@@ -51,7 +51,12 @@ export default function Home() {
     args: [vestingWallet as Address],
   });
 
-  const { data: issueHash, isPending: isIssuePending, writeContract: issueAxe, error: issueError } = useWriteAxeIssue();
+  const {
+    data: issueHash,
+    isPending: isIssuePending,
+    writeContract: issueAxe,
+    error: issueError,
+  } = useWriteAxeSourceIssue();
 
   const {
     data: releaseHash,

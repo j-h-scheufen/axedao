@@ -141,7 +141,10 @@ contract AXE is IAXE, AXERC20 {
       liquidationPair = existingPair;
     }
     // Add pair to be taxed
-    taxablePairs[liquidationPair] = true;
+    if (!taxablePairs[liquidationPair]) {
+      taxablePairs[liquidationPair] = true;
+      emit TaxablePairAdded(liquidationPair);
+    }
 
     emit LiquidationSettingsChanged(_router, _swapToken, liquidationPair);
     return liquidationPair;
