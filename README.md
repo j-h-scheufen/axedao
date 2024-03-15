@@ -100,12 +100,14 @@ forge script scripts/deploy.s.sol:Deploy --rpc-url http://localhost:8545 --accou
 3. After verifying local deployment, simulate the deployment against the target network:
 
 ```shell
-forge script scripts/deploy.s.sol:Deploy --fork-url $HTTPS_PROVIDER_URL_SEPOLIA --account axe-deployer --sender 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B -vvv
+forge script scripts/deploy.s.sol:Deploy --fork-url $HTTPS_PROVIDER_URL_SEPOLIA --account axe-deployer --sender 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B -vvv --verify
 ```
 
 When all looks good, add the `--broadcast` flag and run for final deployment.
 
 ### Contract verification
+
+If you're not using the `--verify` parameter when deploying (see above) you can manually verify the contract:
 
 ```shell
 forge verify-contract \
@@ -149,6 +151,12 @@ Read the Axé balance of an account:
 
 ```shell
 cast balance --erc20 0xaE8F6454fa13EbA1Be4ea60019d1bd34F9D04895 --rpc-url http://localhost:8545 0xEE2ac838C83e5d6bf6Eb1C8A425C007345ACe39E
+```
+
+Read the ETH balance of the AxeDeployer:
+
+```shell
+cast balance -e --rpc-url http://localhost:8545 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B
 ```
 
 Contracts on Sepolia:
