@@ -21,10 +21,10 @@ const wagmiConfig = createConfig({
     // safe(),
   ],
   transports: {
-    [optimism.id]: http(),
-    [gnosis.id]: http(),
-    [sepolia.id]: http(),
-    [localhost.id]: http(),
+    [optimism.id]: http(ENV.optimismProviderUrl),
+    [gnosis.id]: http(ENV.gnosisProviderUrl),
+    [sepolia.id]: http(ENV.sepoliaProviderUrl),
+    [localhost.id]: http('http://127.0.0.1:8545'),
   },
   ssr: true,
 });

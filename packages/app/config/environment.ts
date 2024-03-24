@@ -2,11 +2,17 @@ import { Address } from 'viem';
 
 type ConfigType = {
   walletConnectProjectId: string;
+  sepoliaProviderUrl: string;
+  gnosisProviderUrl: string;
+  optimismProviderUrl: string;
   axeTokenAddress: Address;
   axeDaoAddress: Address;
   axeTreasuryAddress: Address;
   axeDaoSharesAddress: Address;
   axeDaoLootAddress: Address;
+  axeSwapTokenAddress: Address;
+  uniswapV2PairAddress: Address;
+  uniswapV2RouterAddress: Address;
 };
 
 const ENV: ConfigType = {
@@ -14,6 +20,9 @@ const ENV: ConfigType = {
     process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID,
     'NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID',
   ),
+  sepoliaProviderUrl: required(process.env.NEXT_PUBLIC_SEPOLIA_PROVIDER, 'NEXT_PUBLIC_SEPOLIA_PROVIDER'),
+  gnosisProviderUrl: required(process.env.NEXT_PUBLIC_GNOSIS_PROVIDER, 'NEXT_PUBLIC_GNOSIS_PROVIDER'),
+  optimismProviderUrl: required(process.env.NEXT_PUBLIC_OP_PROVIDER, 'NEXT_PUBLIC_OP_PROVIDER'),
   axeTokenAddress: required(process.env.NEXT_PUBLIC_AXE_TOKEN_ADDRESS, 'NEXT_PUBLIC_AXE_TOKEN_ADDRESS') as Address,
   axeDaoAddress: required(process.env.NEXT_PUBLIC_AXE_DAO_ADDRESS, 'NEXT_PUBLIC_AXE_DAO_ADDRESS') as Address,
   axeTreasuryAddress: required(
@@ -27,6 +36,18 @@ const ENV: ConfigType = {
   axeDaoLootAddress: required(
     process.env.NEXT_PUBLIC_AXE_DAO_LOOT_ADDRESS,
     'NEXT_PUBLIC_AXE_DAO_LOOT_ADDRESS',
+  ) as Address,
+  axeSwapTokenAddress: required(
+    process.env.NEXT_PUBLIC_AXE_SWAP_TOKEN_ADDRESS,
+    'NEXT_PUBLIC_AXE_SWAP_TOKEN_ADDRESS',
+  ) as Address,
+  uniswapV2PairAddress: required(
+    process.env.NEXT_PUBLIC_UNISWAPV2PAIR_ADDRESS,
+    'NEXT_PUBLIC_UNISWAPV2PAIR_ADDRESS',
+  ) as Address,
+  uniswapV2RouterAddress: required(
+    process.env.NEXT_PUBLIC_UNISWAPV2ROUTER_ADDRESS,
+    'NEXT_PUBLIC_UNISWAPV2ROUTER_ADDRESS',
   ) as Address,
 };
 

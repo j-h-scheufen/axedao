@@ -28,7 +28,7 @@
       "name": "WWW debug full stack",
       "type": "node-terminal",
       "request": "launch",
-      "command": "yarn www:start",
+      "command": "yarn workspace www start",
       "sourceMaps": true,
       "serverReadyAction": {
         "pattern": "- Local:.+(https?://.+)",
@@ -40,7 +40,7 @@
       "name": "APP debug full stack",
       "type": "node-terminal",
       "request": "launch",
-      "command": "yarn www:start",
+      "command": "yarn workspace quilombo start",
       "sourceMaps": true,
       "serverReadyAction": {
         "pattern": "- Local:.+(https?://.+)",
