@@ -15,14 +15,25 @@ type ConfigType = {
   uniswapV2RouterAddress: Address;
 };
 
+const envMode = process.env.NEXT_PUBLIC_APP_ENV?.toLowerCase();
+
 const ENV: ConfigType = {
   walletConnectProjectId: required(
     process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID,
     'NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID',
   ),
-  sepoliaProviderUrl: required(process.env.NEXT_PUBLIC_SEPOLIA_PROVIDER, 'NEXT_PUBLIC_SEPOLIA_PROVIDER'),
-  gnosisProviderUrl: required(process.env.NEXT_PUBLIC_GNOSIS_PROVIDER, 'NEXT_PUBLIC_GNOSIS_PROVIDER'),
-  optimismProviderUrl: required(process.env.NEXT_PUBLIC_OP_PROVIDER, 'NEXT_PUBLIC_OP_PROVIDER'),
+  sepoliaProviderUrl:
+    envMode === 'test'
+      ? required(process.env.NEXT_PUBLIC_SEPOLIA_PROVIDER, 'NEXT_PUBLIC_SEPOLIA_PROVIDER')
+      : process.env.NEXT_PUBLIC_SEPOLIA_PROVIDER || '',
+  gnosisProviderUrl:
+    envMode === 'prod'
+      ? required(process.env.NEXT_PUBLIC_GNOSIS_PROVIDER, 'NEXT_PUBLIC_GNOSIS_PROVIDER')
+      : process.env.NEXT_PUBLIC_GNOSIS_PROVIDER || '',
+  optimismProviderUrl:
+    envMode === 'prod'
+      ? required(process.env.NEXT_PUBLIC_OP_PROVIDER, 'NEXT_PUBLIC_OP_PROVIDER')
+      : process.env.NEXT_PUBLIC_OP_PROVIDER || '',
   axeTokenAddress: required(process.env.NEXT_PUBLIC_AXE_TOKEN_ADDRESS, 'NEXT_PUBLIC_AXE_TOKEN_ADDRESS') as Address,
   axeDaoAddress: required(process.env.NEXT_PUBLIC_AXE_DAO_ADDRESS, 'NEXT_PUBLIC_AXE_DAO_ADDRESS') as Address,
   axeTreasuryAddress: required(
