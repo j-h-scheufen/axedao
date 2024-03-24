@@ -19,10 +19,7 @@ Notes:
 
 Don't Forget:
 
-- Test XERC20.
-- Make test for deployed AXE + DAO
-  - Make proposals, forward time, process proposal
-  -
+- Test XERC20
 - use "forge doc" to generate documentation
 - check all dependency licenses!!
 
@@ -94,47 +91,49 @@ Example how Axé is deployed to a network like Sepolia, if it doesn't exist ther
 anvil --fork-url $HTTPS_PROVIDER_URL_SEPOLIA --fork-block-number 5352114
 ```
 
-History:
-
-- Broken AXE version deployed in block 5355124
-
-1. Run the the deploy script against the local node
+2. Run the the deploy script against the local node
 
 ```shell
 forge script scripts/deploy.s.sol:Deploy --rpc-url http://localhost:8545 --account axe-deployer --sender 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B --broadcast -vvv
 ```
 
-TODO: need a test for deployed Axe verification, e.g. can the DAO make a proposal
-
-3. After verifying local deployment, repeat the deployment against the target network:
+3. After verifying local deployment, simulate the deployment against the target network:
 
 ```shell
-forge script scripts/deploy.s.sol:Deploy --fork-url $HTTPS_PROVIDER_URL_SEPOLIA --account axe-deployer --sender 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B -vvv
+forge script scripts/deploy.s.sol:Deploy --fork-url $HTTPS_PROVIDER_URL_SEPOLIA --account axe-deployer --sender 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B -vvv --verify
 ```
 
 When all looks good, add the `--broadcast` flag and run for final deployment.
 
 ### Contract verification
 
+If you're not using the `--verify` parameter when deploying (see above) you can manually verify the contract:
+
 ```shell
 forge verify-contract \
 --chain-id 11155111 \
 --num-of-optimizations 200 \
---constructor-args $(cast abi-encode "constructor(address,address,address)" 0x1c3ac998b698206cd2fb22bb422bf14367470866 0xee2ac838c83e5d6bf6eb1c8a425c007345ace39e 0x6EF543d0Cce1171F696f82cB6f698133037d5b32) \
+--constructor-args $(cast abi-encode "constructor(address,address)" 0xee2ac838c83e5d6bf6eb1c8a425c007345ace39e 0x6EF543d0Cce1171F696f82cB6f698133037d5b32) \
 --etherscan-api-key $ETHERSCAN_API_KEY \
 --compiler-version v0.8.23+commit.f704f362 \
 --watch \
-0x6F03d8D0c9c2660A1D228f1f33cD34a6c47457E3 \
+0xaE8F6454fa13EbA1Be4ea60019d1bd34F9D04895 \
 contracts/AXESource.sol:AXESource
 ```
 
-Forge run script with impersonated account: `--unlocked --from 0x238472397`
+Forge tests are currently not run automatically. We're using them for targeted testing, example:
 
 ```shell
-forge test --fork-url $HTTPS_PROVIDER_URL_SEPOLIA --fork-block-number 5360605 --match-test test_IssueProposal
+forge test --fork-url $HTTPS_PROVIDER_URL_SEPOLIA --fork-block-number 5360605 --match-test test_IssuanceProposal
+```
+
+```shell
+forge test --fork-url $HTTPS_PROVIDER_URL_SEPOLIA --fork-block-number 5411000 --match-test test_LiquidityProposal
 ```
 
 ## Useful commands
+
+Forge run test with impersonated account: `--unlocked --from 0x238472397`
 
 On a local Anvil node, give the Axé Deployer account some funds from one of the default accounts:
 
@@ -151,5 +150,31 @@ cast call 0x1c3ac998b698206cd2fb22bb422bf14367470866 "state(uint32)" 3 --rpc-url
 Read the Axé balance of an account:
 
 ```shell
-cast balance --erc20 0xaE8F6454fa13EbA1Be4ea60019d1bd34F9D04895 --rpc-url http://localhost:8545 0xee2ac838c83e5d6bf6eb1c8a425c007345ace39e
+cast balance --erc20 0xaE8F6454fa13EbA1Be4ea60019d1bd34F9D04895 --rpc-url http://localhost:8545 0xEE2ac838C83e5d6bf6Eb1C8A425C007345ACe39E
 ```
+
+Read the ETH balance of the AxeDeployer:
+
+```shell
+cast balance -e --rpc-url http://localhost:8545 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B
+```
+
+Contracts on Sepolia:
+v2 Router: 0xB26B2De65D07eBB5E54C7F6282424D3be670E1f0
+
+Deploy MockERC20 and mint into treasury:
+
+```shell
+forge create --rpc-url $HTTPS_PROVIDER_URL_SEPOLIA --account axe-deployer --constructor-args "AxeUSD" "AXEUSD" --etherscan-api-key $ETHERSCAN_API_KEY contracts/test/MockERC20.sol:MockERC20
+
+cast send 0xD44Eb94380bff68a827604fDb2dA7b0A3Ec6Ad0B "mint(address,uint256)" 0xEE2ac838C83e5d6bf6Eb1C8A425C007345ACe39E 10000000000000000000000 --rpc-url $HTTPS_PROVIDER_URL_SEPOLIA --account axe-deployer
+```
+
+## Deployments
+
+### Sepolia
+
+AXESource: 0xaE8F6454fa13EbA1Be4ea60019d1bd34F9D04895
+MockERC20: 0xD44Eb94380bff68a827604fDb2dA7b0A3Ec6Ad0B
+UniswapV2Factory: 0xAB5db096E5d2d79434ADC48B8D34f878dD7Fa0b0
+UniswapV2Router02: 0xEF5aC450A41A39ef8A652C154318b3c8902ed86E
