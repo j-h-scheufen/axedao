@@ -6,6 +6,7 @@ import { parseUnits, formatUnits, Address } from 'viem';
 import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 import { Button } from '@nextui-org/button';
 import { Input } from '@nextui-org/input';
+import { enqueueSnackbar, closeSnackbar, SnackbarKey } from 'notistack';
 
 import ENV from '@/config/environment';
 import {
@@ -31,9 +32,10 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
   const [isUpdating, setIsUpdating] = useState<boolean>(false);
   const [exceedsAllowance, setExceedsAllowance] = useState<boolean>(false);
   const [exceedsBalance, setExceedsBalance] = useState<boolean>(false);
+  const [showOutput, setShowOutput] = useState<boolean>(false);
   const [usdInput, setUsdInput] = useState<string>('');
   const [axeOutput, setAxeOutput] = useState<AxeOutput>({ axeReceived: 0, axeDonated: 0 });
-  const [showOutput, setShowOutput] = useState<boolean>(false);
+  const [txNotificationKey, setTxNotificationKey] = useState<SnackbarKey | null>(null);
 
   /// WAGMI
   const { data: buyTax } = useReadAxeBuyTax({ address: ENV.axeTokenAddress });
@@ -50,9 +52,17 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
     isPending: swapPending,
     writeContract: swap,
   } = useWriteIUniswapV2Router01SwapExactTokensForTokens();
-  const { isSuccess: swapSuccess, error: swapError } = useWaitForTransactionReceipt({ hash: swapHash });
   const { data: approveHash, isPending: approvePending, writeContract: approve } = useWriteErc20Approve();
-  const { isSuccess: approveSuccess, error: approveError } = useWaitForTransactionReceipt({ hash: approveHash });
+  const {
+    isSuccess: swapSuccess,
+    error: swapError,
+    isLoading: swapLoading,
+  } = useWaitForTransactionReceipt({ hash: swapHash });
+  const {
+    isSuccess: approveSuccess,
+    error: approveError,
+    isLoading: approveLoading,
+  } = useWaitForTransactionReceipt({ hash: approveHash });
 
   useEffect(() => {
     if (amountOut && amountOut.length > 1 && amountOut[1] > 0) {
@@ -65,13 +75,45 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
     } else setShowOutput(false);
   }, [amountOut, buyTax]);
 
+  // reactions to swap receipt outcome
   useEffect(() => {
-    if (swapSuccess) onUpdate();
-  }, [swapSuccess, onUpdate]);
+    if (swapLoading) {
+      setTxNotificationKey(
+        enqueueSnackbar('Swap submitted. Please allow some time to confirm ...', {
+          autoHideDuration: 12000,
+        }),
+      );
+    } else if (swapSuccess) {
+      if (txNotificationKey) {
+        closeSnackbar(txNotificationKey);
+        setTxNotificationKey(null);
+      }
+      enqueueSnackbar('Swap confirmed!');
+      onUpdate();
+    } else if (swapError) {
+      enqueueSnackbar(`The Swap has failed: ${swapError.message}`);
+    }
+  }, [swapLoading, swapSuccess, swapError]);
 
+  // reactions to approve receipt outcome
   useEffect(() => {
-    if (approveSuccess) updateAllowance();
-  }, [approveSuccess, updateAllowance]);
+    if (approveLoading) {
+      setTxNotificationKey(
+        enqueueSnackbar('Approval submitted. Please allow some time to confirm ...', {
+          autoHideDuration: 12000,
+        }),
+      );
+    } else if (approveSuccess) {
+      if (txNotificationKey) {
+        closeSnackbar(txNotificationKey);
+        setTxNotificationKey(null);
+      }
+      enqueueSnackbar('Approval confirmed!');
+      updateAllowance();
+    } else if (approveError) {
+      enqueueSnackbar(`The Approval has failed: ${approveError.message}`);
+    }
+  }, [approveLoading, approveSuccess, approveError, updateAllowance]);
 
   useEffect(() => {
     if (allowance && allowance < parseUnits(usdInput, 18)) {
@@ -177,12 +219,6 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
       >
         {swapPending ? 'Confirming...' : isUpdating ? 'Updating ...' : exceedsAllowance ? 'Approve' : 'Buy'}
       </Button>
-      <div>
-        {approveSuccess && <div className="mt-4">Approval confirmed.</div>}
-        {approveError && <div className="mt-4">Approval failed: {approveError.message}</div>}
-        {swapSuccess && <div className="mt-4">Swap confirmed.</div>}
-        {swapError && <div className="mt-4">Swap failed: {swapError.message}</div>}
-      </div>
     </div>
   );
 };
