@@ -6,6 +6,7 @@ import { siteConfig } from '@/config/site';
 import { fontSans } from '@/config/fonts';
 import { Provider as ThemeProvider } from './_providers/nextUI.provider';
 import { Provider as Web3Provider } from './_providers/web3.provider';
+import { Provider as SnackbarProvider } from './_providers/snackbar.provider';
 import Navbar from '@/components/Navbar';
 
 export const metadata: Metadata = {
@@ -34,16 +35,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head />
       <body className={clsx('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
         <ThemeProvider themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
-          <Web3Provider>
-            <div className="relative flex h-screen flex-col">
-              <Navbar />
-              <main className="container mx-auto max-w-7xl flex-grow px-6 pt-16">{children}</main>
-              <footer className="flex w-full items-center justify-center py-3">
-                <span className="text-default-600">Powered by</span>
-                <p className="text-primary">AXÉ DAO</p>
-              </footer>
-            </div>
-          </Web3Provider>
+          <SnackbarProvider>
+            <Web3Provider>
+              <div className="relative flex h-screen flex-col">
+                <Navbar />
+                <main className="container mx-auto max-w-7xl flex-grow px-6 pt-16">{children}</main>
+                <footer className="flex w-full items-center justify-center py-3">
+                  <span className="text-default-600">Powered by</span>
+                  <p className="text-primary">AXÉ DAO</p>
+                </footer>
+              </div>
+            </Web3Provider>
+          </SnackbarProvider>
         </ThemeProvider>
       </body>
     </html>

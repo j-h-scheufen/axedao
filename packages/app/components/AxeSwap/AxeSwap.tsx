@@ -1,14 +1,15 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useAccount } from 'wagmi';
 import { Card, CardBody } from '@nextui-org/card';
 import { Tabs, Tab } from '@nextui-org/tabs';
 import { Address } from 'viem';
 
 import ENV from '@/config/environment';
-import Buy from '@/components/AxeSwap/Buy';
 import { useReadIUniswapV2PairGetReserves, useReadIUniswapV2PairToken0, useReadErc20BalanceOf } from '@/generated';
+import Buy from './Buy';
+import Sell from './Sell';
 
 export type Reserves = { axe: bigint; swap: bigint; rate: number };
 
@@ -23,10 +24,17 @@ const AxeSwap: React.FC = () => {
   const account = useAccount();
 
   const { data: token0 } = useReadIUniswapV2PairToken0({ address: ENV.uniswapV2PairAddress });
-  const { data: reservesResult } = useReadIUniswapV2PairGetReserves({ address: ENV.uniswapV2PairAddress });
+  const { data: reservesResult, refetch: updateReserves } = useReadIUniswapV2PairGetReserves({
+    address: ENV.uniswapV2PairAddress,
+  });
 
-  const [reserves, setReserves] = useState<Reserves>({ axe: BigInt(0), swap: BigInt(0), rate: 0 });
+  const [reserves, setReserves] = useState<Reserves>({
+    axe: BigInt(0),
+    swap: BigInt(0),
+    rate: 0,
+  });
 
+  // set reserves and swap rate and determine token indexes
   useEffect(() => {
     if (reservesResult) {
       const reserves: Reserves =
@@ -48,10 +56,9 @@ const AxeSwap: React.FC = () => {
     args: [account.address as Address],
   });
 
-  const update = () => {
-    updateAxeBalance();
-    updateSwapBalance();
-  };
+  const update = useCallback(async () => {
+    return Promise.all([updateAxeBalance(), updateSwapBalance(), updateReserves()]);
+  }, [updateAxeBalance, updateSwapBalance, updateReserves]);
 
   return (
     <div className="inline-block w-full max-w-lg">
@@ -63,7 +70,13 @@ const AxeSwap: React.FC = () => {
             </CardBody>
           </Card>
         </Tab>
-        <Tab key="sell" title="Sell"></Tab>
+        <Tab key="sell" title="Sell">
+          <Card>
+            <CardBody>
+              <Sell reserves={reserves} axeBalance={axeBalance} swapBalance={swapBalance} onUpdate={update} />
+            </CardBody>
+          </Card>
+        </Tab>
       </Tabs>
     </div>
   );

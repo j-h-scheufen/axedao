@@ -1,9 +1,8 @@
 'use client';
 
-import * as React from 'react';
+import { PropsWithChildren } from 'react';
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { WagmiProvider } from 'wagmi';
-import { localhost } from 'wagmi/chains';
 
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 
@@ -17,13 +16,11 @@ const appInfo = {
 
 const queryClient = new QueryClient();
 
-export function Provider({ children }: React.PropsWithChildren) {
+export function Provider({ children }: PropsWithChildren) {
   return (
     <WagmiProvider config={wagmiConfig}>
       <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider appInfo={appInfo} initialChain={localhost}>
-          {children}
-        </RainbowKitProvider>
+        <RainbowKitProvider appInfo={appInfo}>{children}</RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
   );
