@@ -9,7 +9,7 @@ const configureChains = (): [Chain, ...Chain[]] => {
   const appEnv = process.env.NEXT_PUBLIC_APP_ENV?.toLowerCase();
   if (appEnv === 'local') chains = [localhost];
   else if (appEnv === 'test') chains = [sepolia];
-  console.log(`Chains configured for '${appEnv}' mode.`);
+  console.info(`Chains configured for '${appEnv}' mode.`);
   return chains;
 };
 

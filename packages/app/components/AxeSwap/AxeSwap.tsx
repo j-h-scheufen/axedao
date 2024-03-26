@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useAccount } from 'wagmi';
 import { Card, CardBody } from '@nextui-org/card';
 import { Tabs, Tab } from '@nextui-org/tabs';
@@ -56,11 +56,9 @@ const AxeSwap: React.FC = () => {
     args: [account.address as Address],
   });
 
-  const update = () => {
-    updateAxeBalance();
-    updateSwapBalance();
-    updateReserves();
-  };
+  const update = useCallback(async () => {
+    return Promise.all([updateAxeBalance(), updateSwapBalance(), updateReserves()]);
+  }, [updateAxeBalance, updateSwapBalance, updateReserves]);
 
   return (
     <div className="inline-block w-full max-w-lg">

@@ -6,7 +6,7 @@ import { parseUnits, formatUnits, Address } from 'viem';
 import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 import { Button } from '@nextui-org/button';
 import { Input } from '@nextui-org/input';
-import { enqueueSnackbar, closeSnackbar, SnackbarKey } from 'notistack';
+import { enqueueSnackbar } from 'notistack';
 import { useFormik, FormikErrors, FormikHelpers } from 'formik';
 
 import ENV from '@/config/environment';
@@ -15,26 +15,20 @@ import {
   useReadErc20Allowance,
   useReadAxeBuyTax,
   useWriteErc20Approve,
-  useWriteIUniswapV2Router01SwapExactTokensForTokens,
+  useWriteIUniswapV2Router02SwapExactTokensForTokensSupportingFeeOnTransferTokens,
 } from '@/generated';
 import { formatAxeUnits, formatStableUnits } from '@/utils/contract.utils';
 import { TradeFormProps } from './AxeSwap';
 
-type AxeOutput = {
-  axeReceived: number;
-  axeDonated: number;
-};
-
-const slippageTolerance = 100; //basispoints
+const slippageTolerance = 100n; //basispoints
 
 const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUpdate }) => {
   const account = useAccount();
   const [isUpdating, setIsUpdating] = useState<boolean>(false);
   const [exceedsAllowance, setExceedsAllowance] = useState<boolean>(false);
-  const [showOutput, setShowOutput] = useState<boolean>(false);
-  const [usdInput, setUsdInput] = useState<string>('');
-  const [axeOutput, setAxeOutput] = useState<AxeOutput>({ axeReceived: 0, axeDonated: 0 });
-  const [txNotificationKey, setTxNotificationKey] = useState<SnackbarKey | null>(null);
+  const [amountIn, setAmountIn] = useState<bigint>(0n);
+  const [taxedOutput, setTaxedOutput] = useState<bigint>(0n);
+  const [axeDonation, setAxeDonation] = useState<string>('0');
 
   /// WAGMI
   const { data: buyTax } = useReadAxeBuyTax({ address: ENV.axeTokenAddress });
@@ -44,13 +38,13 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
   });
   const { data: amountOut } = useReadIUniswapV2Router02GetAmountOut({
     address: ENV.uniswapV2RouterAddress,
-    args: [parseUnits(usdInput, 18), reserves.swap, reserves.axe],
+    args: [amountIn, reserves.swap, reserves.axe],
   });
   const {
     data: swapHash,
     isPending: swapPending,
     writeContract: swap,
-  } = useWriteIUniswapV2Router01SwapExactTokensForTokens();
+  } = useWriteIUniswapV2Router02SwapExactTokensForTokensSupportingFeeOnTransferTokens();
   const { data: approveHash, isPending: approvePending, writeContract: approve } = useWriteErc20Approve();
   const {
     isSuccess: swapSuccess,
@@ -65,29 +59,26 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
 
   // apply buyTax on getAmountsOut estimate as the Axé donation is taken from the swap output
   useEffect(() => {
-    if (amountOut && amountOut > 0n) {
-      const axeOut = Number(formatUnits(amountOut, 18));
-      setAxeOutput({
-        axeReceived: buyTax && buyTax > 0 ? axeOut - (axeOut / 10000) * Number(buyTax.toString()) : axeOut,
-        axeDonated: buyTax && buyTax > 0 ? (axeOut / 10000) * Number(buyTax.toString()) : 0,
-      });
-      setShowOutput(true);
-    } else setShowOutput(false);
+    if (amountOut) {
+      const taxedOutput = buyTax && buyTax > 0 ? amountOut - (amountOut / 10000n) * buyTax : amountOut;
+      const donation = buyTax && buyTax > 0 ? (amountOut / 10000n) * buyTax : 0n;
+      formik.setFieldValue(
+        'amountOut',
+        taxedOutput && taxedOutput > 0n ? Number(formatUnits(taxedOutput, 18)).toFixed(4).toLocaleString() : '',
+      );
+      setTaxedOutput(taxedOutput);
+      setAxeDonation(formatAxeUnits(donation));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amountOut, buyTax]);
 
   // reactions to approve receipt outcome
   useEffect(() => {
     if (approveLoading) {
-      setTxNotificationKey(
-        enqueueSnackbar('Approval submitted. Please allow some time to confirm ...', {
-          autoHideDuration: 12000,
-        }),
-      );
+      enqueueSnackbar('Approval submitted. Please allow some time to confirm ...', {
+        autoHideDuration: 10000,
+      });
     } else if (approveSuccess) {
-      if (txNotificationKey) {
-        closeSnackbar(txNotificationKey);
-        setTxNotificationKey(null);
-      }
       enqueueSnackbar('Approval confirmed!');
       updateAllowance();
     } else if (approveError) {
@@ -98,31 +89,34 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
   // reactions to swap receipt outcome
   useEffect(() => {
     if (swapLoading) {
-      setTxNotificationKey(
-        enqueueSnackbar('Swap submitted. Please allow some time to confirm ...', {
-          autoHideDuration: 12000,
-        }),
-      );
+      enqueueSnackbar('Swap submitted. Please allow some time to confirm ...', {
+        autoHideDuration: 12000,
+      });
+      // after swap is submitted, we clear out the form and swap-related state (resetForm does not trigger onChange!)
+      formik.resetForm();
+      setAmountIn(0n);
     } else if (swapSuccess) {
-      if (txNotificationKey) {
-        closeSnackbar(txNotificationKey);
-        setTxNotificationKey(null);
-      }
       enqueueSnackbar('Swap confirmed!');
       onUpdate();
     } else if (swapError) {
       enqueueSnackbar(`The Swap has failed: ${swapError.message}`);
     }
-  }, [swapLoading, swapSuccess, swapError]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [swapLoading, swapSuccess, swapError, onUpdate]);
 
   useEffect(() => {
-    if (allowance && allowance < parseUnits(usdInput, 18)) {
+    if (allowance && allowance < amountIn) {
       setExceedsAllowance(true);
     } else setExceedsAllowance(false);
-  }, [usdInput, allowance]);
+  }, [amountIn, allowance]);
 
   // TODO use simulate contract to prepare and only then enable the Buy / Approve button
   // TODO calculate price impact to show % price move and warn (https://stackoverflow.com/questions/74282316/uniswap-v2-pool-priceimpact#:~:text=You%20can%20calculate%20the%20price,is%20ETH%2C%20k%20is%202%2C000%2C000%2C000.)
+
+  interface FormValues {
+    amountIn: string;
+    amountOut: string;
+  }
 
   const handleSubmit = (values: FormValues, { setSubmitting }: FormikHelpers<FormValues>) => {
     try {
@@ -132,17 +126,19 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
       } else {
         const deadline = Math.floor(Date.now() / 1000) + 60 * 20; // 20 minutes from the current Unix time
         //TODO check for slippage and warn / adjust tolerance or block
-        swap({
-          address: ENV.uniswapV2RouterAddress,
-          args: [
-            bigInput,
-            parseUnits((axeOutput.axeReceived - (axeOutput.axeReceived / 10000) * slippageTolerance).toString(), 18),
-            [ENV.axeSwapTokenAddress, ENV.axeTokenAddress],
-            account.address!,
-            BigInt(deadline),
-          ],
-        });
-        formik.resetForm();
+        //TODO modal for user to review the TX before sending. That's also where the TX prep can be done best.
+        if (taxedOutput) {
+          swap({
+            address: ENV.uniswapV2RouterAddress,
+            args: [
+              bigInput,
+              taxedOutput - (taxedOutput / 10000n) * slippageTolerance,
+              [ENV.axeSwapTokenAddress, ENV.axeTokenAddress],
+              account.address!,
+              BigInt(deadline),
+            ],
+          });
+        }
       }
     } catch (error) {
       console.error('Error during swap.', error);
@@ -151,10 +147,6 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
       setSubmitting(false);
     }
   };
-
-  interface FormValues {
-    amountIn: string;
-  }
 
   const validateForm = useCallback(
     async (values: FormValues): Promise<FormikErrors<FormValues>> => {
@@ -171,6 +163,7 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
   const formik = useFormik<FormValues>({
     initialValues: {
       amountIn: '',
+      amountOut: '',
     },
     onSubmit: handleSubmit,
     validate: validateForm,
@@ -178,7 +171,7 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
 
   // debounce the input that leads to recalculations
   const handleChange = debounce((value: string) => {
-    setUsdInput(value);
+    setAmountIn(parseUnits(value, 18));
     setIsUpdating(false);
   }, 1000);
 
@@ -213,6 +206,7 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
           label="You receive"
           type="number"
           size="lg"
+          placeholder="0"
           disabled
           classNames={{ label: 'py-1', input: 'text-large' }}
           startContent={
@@ -220,19 +214,14 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
               <span className="text-large text-default-400">Axé</span>
             </div>
           }
-          value={axeOutput.axeReceived > 0 ? axeOutput.axeReceived.toFixed(4).toLocaleString() : '0'}
+          value={formik.values.amountOut}
           description={
-            showOutput ? (
-              <span>
-                You are donating {Number(buyTax) / 100}% (
-                {axeOutput.axeDonated < 1 ? '< 1' : Math.trunc(axeOutput.axeDonated)} Axé) to the{' '}
-                <a href="https://axe.to.hns" className=" underline">
-                  Axé DAO
-                </a>
-              </span>
-            ) : (
-              ''
-            )
+            <span>
+              You are donating {Number(buyTax) / 100}% ({axeDonation} Axé) to the{' '}
+              <a href="https://axe.to.hns" className=" underline">
+                Axé DAO
+              </a>
+            </span>
           }
         />
         <div>Your Balance: {formatAxeUnits(axeBalance)} Axé</div>
