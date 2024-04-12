@@ -1,7 +1,8 @@
 import { nextui } from '@nextui-org/theme';
+import { withTV } from 'tailwind-variants/transformer';
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+module.exports = withTV({
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './sections/**/*.{js,ts,jsx,tsx,mdx}',
@@ -18,12 +19,17 @@ module.exports = {
   plugins: [
     nextui({
       themes: {
-        dark: { colors: { primary: '#CCD5AEff', secondary: '#D4A373ff' } },
-        light: { colors: { primary: '#E9EDC9ff', secondary: '#FAEDCDff' } },
+        dark: {
+          colors: { primary: '#CCD5AEff', secondary: '#D4A373ff' },
+        },
+        light: {
+          colors: { primary: '#8abc6b', secondary: '#FAEDCDff' },
+        },
       },
+      textColors: { primary: '#000000' },
     }),
   ],
-};
+});
 
 // --beige: #E9EDC9ff;
 // --tea-green: #CCD5AEff;

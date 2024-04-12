@@ -41,8 +41,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Navbar />
                 <main className="container mx-auto max-w-7xl flex-grow px-6 pt-16">{children}</main>
                 <footer className="flex w-full items-center justify-center py-3">
-                  <span className="text-default-600">Powered by</span>
-                  <p className="text-primary">AXÉ DAO</p>
+                  <span className="text-default-600">Powered by </span>
+                  <span className="text-primary">AXÉ DAO</span>
                 </footer>
               </div>
             </Web3Provider>
