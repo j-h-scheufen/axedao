@@ -11,7 +11,7 @@ import { ThemeSwitch } from './theme-switch';
 const Navbar: React.FC = () => {
   return (
     <NextUINavbar maxWidth="full" position="sticky" shouldHideOnScroll={false}>
-      <NavbarContent className="basis-1/5 sm:basis-full" justify="center">
+      <NavbarContent className="basis-1/5 sm:basis-full" justify="end">
         {/* <NavbarBrand className="mr-auto max-w-fit gap-3">
           <NextLink className="flex items-center justify-start gap-1" href="/">
             <Card className="flex flex-row gap-1 bg-white p-2">
