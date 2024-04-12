@@ -20,7 +20,7 @@ export const siteConfig = {
   links: {
     github: 'https://github.com/j-h-scheufen/axedao',
     // twitter: '',
-    discord: 'https://discord.gg/9b6yyZKmH4',
+    discord: 'https://discord.gg/79HKsQgfD4',
     email: 'axe-dao@protonmail.com',
   },
 };
