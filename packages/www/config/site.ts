@@ -19,7 +19,8 @@ export const siteConfig = {
   ],
   links: {
     github: 'https://github.com/j-h-scheufen/axedao',
-    // twitter: 'https://twitter.com/getnextui',
-    // discord: 'https://discord.gg/9b6yyZKmH4',
+    // twitter: '',
+    discord: 'https://discord.gg/9b6yyZKmH4',
+    email: 'axe-dao@protonmail.com',
   },
 };

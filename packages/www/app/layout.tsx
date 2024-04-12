@@ -50,12 +50,12 @@ export default function RootLayout({
         >
           <div className="relative flex h-screen flex-col">
             <Navbar />
-            <main className="max-w-8xl container mx-auto flex-grow px-3 light">
+            <main className="container mx-auto max-w-6xl flex-grow px-2 sm:px-3">
               {children}
             </main>
-            <footer className="flex w-full items-center justify-center py-3">
+            <footer className="flex w-full items-center justify-center py-2 sm:py-3">
               <span className="text-default-600">Powered by </span>
-              <p className="text-primary">Axé DAO</p>
+              <span className="text-primary">AXÉ DAO</span>
             </footer>
           </div>
         </Providers>

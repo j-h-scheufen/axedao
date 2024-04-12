@@ -1,7 +1,8 @@
 import { nextui } from '@nextui-org/theme';
+import { withTV } from 'tailwind-variants/transformer';
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+module.exports = withTV({
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -22,4 +23,4 @@ module.exports = {
       },
     }),
   ],
-};
+});

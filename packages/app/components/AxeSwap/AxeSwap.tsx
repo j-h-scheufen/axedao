@@ -41,7 +41,7 @@ const AxeSwap: React.FC = () => {
         ENV.axeTokenAddress == token0
           ? { axe: reservesResult[0], swap: reservesResult[1], rate: 0 }
           : { axe: reservesResult[1], swap: reservesResult[0], rate: 0 };
-      reserves.rate = reserves.axe > 0 ? Number((reserves.swap * 10000n) / reserves.axe) / 10000 : 0;
+      reserves.rate = reserves.axe > 0 ? Number((reserves.swap * 1000000n) / reserves.axe) / 1000000 : 0; // the multiplier determines the decimal precision!
       setReserves(reserves);
     }
   }, [reservesResult, token0]);

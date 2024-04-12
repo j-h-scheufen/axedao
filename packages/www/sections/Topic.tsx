@@ -14,7 +14,7 @@ import { useTransform, useScroll, motion } from 'framer-motion';
 type TopicProps = {
   title: string;
   bgImg: string;
-  text: string;
+  content: JSX.Element | string;
   url?: string;
   imgEntryFrom?: 'left' | 'right';
   imgClasses?: string;
@@ -31,7 +31,7 @@ type TopicProps = {
 const Topic: React.FC<TopicProps> = ({
   title,
   bgImg,
-  text,
+  content,
   url,
   imgEntryFrom = 'left',
   cardClasses = '',
@@ -87,9 +87,7 @@ const Topic: React.FC<TopicProps> = ({
               <CardHeader className=" text-center text-lg font-bold">
                 {title}
               </CardHeader>
-              <CardBody>
-                <p>{text}</p>
-              </CardBody>
+              <CardBody>{content}</CardBody>
               {url && (
                 <CardFooter className=" justify-center">
                   <Button

@@ -1,29 +1,26 @@
-import {
-  Navbar as NextUINavbar,
-  NavbarContent,
-  NavbarBrand,
-  NavbarItem,
-} from '@nextui-org/navbar';
-import { siteConfig } from '@/config/site';
-import NextLink from 'next/link';
-import { Card } from '@nextui-org/react';
-import { link as linkStyles } from '@nextui-org/theme';
-import clsx from 'clsx';
+import { Navbar as NextUINavbar, NavbarContent } from '@nextui-org/navbar';
+// import { siteConfig } from '@/config/site';
+// import NextLink from 'next/link';
+import { Button, Link } from '@nextui-org/react';
+// import { link as linkStyles } from '@nextui-org/theme';
+// import clsx from 'clsx';
+
+import ENV from '@/config/environment';
 import { ThemeSwitch } from './theme-switch';
 
 const Navbar: React.FC = () => {
   return (
-    <NextUINavbar maxWidth="xl" position="sticky" shouldHideOnScroll={false}>
+    <NextUINavbar maxWidth="full" position="sticky" shouldHideOnScroll={false}>
       <NavbarContent className="basis-1/5 sm:basis-full" justify="center">
-        <NavbarBrand className="mr-auto max-w-fit gap-3">
+        {/* <NavbarBrand className="mr-auto max-w-fit gap-3">
           <NextLink className="flex items-center justify-start gap-1" href="/">
             <Card className="flex flex-row gap-1 bg-white p-2">
-              {/* <Image
+              <Image
                 alt="AXÉ Logo"
                 src="/logos/axe.png"
                 height="30px"
                 width="30px"
-              /> */}
+              />
               <p className="text-lg font-bold text-inherit">AXÉ DAO</p>
             </Card>
           </NextLink>
@@ -41,8 +38,11 @@ const Navbar: React.FC = () => {
               {item.label}
             </NextLink>
           </NavbarItem>
-        ))}
-        <ThemeSwitch className="" />
+        ))} */}
+        <ThemeSwitch className="ml-auto" />
+        <Button as={Link} className="flex flex-row p-2" href={ENV.appUrl}>
+          <p className="text-lg text-inherit">APP</p>
+        </Button>
       </NavbarContent>
     </NextUINavbar>
   );
