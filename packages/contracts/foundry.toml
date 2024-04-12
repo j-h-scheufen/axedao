@@ -1,0 +1,19 @@
+
+[profile.default]
+solc = "0.8.23"
+src = 'contracts'
+out = 'out'
+libs = ['lib', 'node_modules', '../../node_modules']
+test = 'test'
+script = 'scripts'
+cache_path = 'cache_forge'
+
+[rpc_endpoints]
+sepolia = "${HTTPS_PROVIDER_URL_SEPOLIA}"
+
+[etherscan]
+sepolia = { key = "${ETHERSCAN_API_KEY}", url = "https://api-sepolia.etherscan.io/api" }
+
+#sepolia = { key = "${ETHERSCAN_API_KEY}" } # WARNING: this causes forge to make additional calls to etherscan which fail when testing locally
+
+# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options

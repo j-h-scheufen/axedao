@@ -1,0 +1,52 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "WWW debug server-side",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "yarn www:start",
+      "sourceMaps": true
+    },
+    {
+      "name": "APP debug server-side",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "yarn app:start",
+      "sourceMaps": true
+    },
+    {
+      "name": "Next.js: debug client-side",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000"
+    },
+    {
+      "name": "WWW debug full stack",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "yarn workspace www start",
+      "sourceMaps": true,
+      "serverReadyAction": {
+        "pattern": "- Local:.+(https?://.+)",
+        "uriFormat": "%s",
+        "action": "debugWithChrome"
+      }
+    },
+    {
+      "name": "APP debug full stack",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "yarn workspace quilombo start",
+      "sourceMaps": true,
+      "serverReadyAction": {
+        "pattern": "- Local:.+(https?://.+)",
+        "uriFormat": "%s",
+        "action": "debugWithChrome"
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+const AXE = {
+  MAX_SUPPLY: 9911238945,
+  VESTING_DURATION: 94608000, // 3 years
+  VESTING_AMOUNT: 50000000,
+  DECIMALS: 18,
+};
+
+export { AXE };
