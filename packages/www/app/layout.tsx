@@ -1,12 +1,13 @@
 import { Metadata, Viewport } from 'next';
+import { PropsWithChildren } from 'react';
 import { Analytics } from '@vercel/analytics/react';
+import { dir } from 'i18next';
 import clsx from 'clsx';
 
 import '@/styles/globals.css';
 import { siteConfig } from '@/config/site';
 import { fontSans } from '@/config/fonts';
 import { Providers } from './providers';
-import Navbar from '@/components/Navbar';
 
 export const metadata: Metadata = {
   title: {
@@ -28,13 +29,13 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export type I18nProps = PropsWithChildren & {
+  lang: string;
+};
+
+export default function RootLayout({ children, lang }: I18nProps) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={lang} dir={dir(lang)} suppressHydrationWarning>
       <head />
       <body
         className={clsx(
@@ -48,16 +49,7 @@ export default function RootLayout({
             defaultTheme: 'light',
           }}
         >
-          <div className="relative flex h-screen flex-col">
-            <Navbar />
-            <main className="container mx-auto max-w-6xl flex-grow px-2 sm:px-3">
-              {children}
-            </main>
-            <footer className="flex w-full items-center justify-center py-2 sm:py-3">
-              <span className="text-default-600">Powered by </span>
-              <span className="text-primary">AXÉ DAO</span>
-            </footer>
-          </div>
+          {children}
         </Providers>
         <Analytics />
       </body>

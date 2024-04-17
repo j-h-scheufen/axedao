@@ -1,14 +1,19 @@
 'use client';
 
 import { useRef } from 'react';
+import { useParams } from 'next/navigation';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { Card, CardBody, Link } from '@nextui-org/react';
 
 import Reveal from '@/components/motion/Reveal';
 import { subtitle, title } from '@/components/primitives';
 import { siteConfig } from '@/config/site';
+import { useTranslation } from '../app/i18n/client';
+import type { LocaleTypes } from '../app/i18n/settings';
 
 const Heading = () => {
+  const locale = useParams()?.locale as LocaleTypes;
+  const { t } = useTranslation(locale, 'home');
   const targetRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -33,7 +38,7 @@ const Heading = () => {
       className="relative z-10 flex w-full max-w-6xl flex-col items-center"
     >
       <Reveal delay={0.2} className="text-center">
-        <h1 className={title()}>Welcome to AXÉ&nbsp;DAO</h1>
+        <h1 className={title()}>{t('title')}</h1>
       </Reveal>
       <br />
       <Reveal delay={0.6}>
