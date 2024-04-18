@@ -1,14 +1,19 @@
 'use client';
 
-import { useState, ChangeEvent } from 'react';
+import { ChangeEvent } from 'react';
 import {
   useRouter,
   useParams,
   useSelectedLayoutSegments,
 } from 'next/navigation';
 import { Select, SelectItem } from '@nextui-org/react';
+import { useAtom } from 'jotai';
 
-import { fallbackLng } from '../app/i18n/settings';
+import {
+  localeAtom,
+  isSupportedLanguage,
+  SupportedLanguage,
+} from '../app/i18n/settings';
 
 function getFlagEmoji(countryCode: string) {
   const codePoints = countryCode
@@ -22,19 +27,22 @@ const LocaleSwitch = () => {
   const router = useRouter();
   const params = useParams();
   const urlSegments = useSelectedLayoutSegments();
-  const [locale, setLocale] = useState<string>(
-    params.locale ? (params.locale as string) : fallbackLng
-  );
+  const [locale, setLocale] = useAtom(localeAtom);
+  if (params.locale && isSupportedLanguage(params.locale as string)) {
+    setLocale(params.locale as SupportedLanguage);
+  }
 
   const handleLocaleChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const newLocale = event.target.value;
-    setLocale(newLocale);
-    // NOTE:
-    // This component is used by the Header component which sits in `app/[locale]/layout.tsx` file,
-    // Therefore, urlSegments will contain the segments after the locale.
-    // We replace the URL with the new locale and the rest of the segments.
-    // This only works so simply due to the location of the layout in the path.
-    router.push(`/${newLocale}/${urlSegments.join('/')}`);
+    if (isSupportedLanguage(newLocale)) {
+      setLocale(newLocale as SupportedLanguage);
+      // NOTE:
+      // This component is used by the Header component which sits in `app/[locale]/layout.tsx` file,
+      // Therefore, urlSegments will contain the segments after the locale.
+      // We replace the URL with the new locale and the rest of the segments.
+      // This only works so simply due to the location of the layout in the path.
+      router.push(`/${newLocale}/${urlSegments.join('/')}`);
+    }
   };
 
   return (

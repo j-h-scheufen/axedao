@@ -1,18 +1,18 @@
 'use client';
 
 import { useRef } from 'react';
-import { useParams } from 'next/navigation';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { Card, CardBody, Link } from '@nextui-org/react';
+import { useAtomValue } from 'jotai';
 
 import Reveal from '@/components/motion/Reveal';
 import { subtitle, title } from '@/components/primitives';
 import { siteConfig } from '@/config/site';
 import { useTranslation } from '../app/i18n/client';
-import type { LocaleTypes } from '../app/i18n/settings';
+import { localeAtom } from '../app/i18n/settings';
 
 const Heading = () => {
-  const locale = useParams()?.locale as LocaleTypes;
+  const locale = useAtomValue(localeAtom);
   const { t } = useTranslation(locale, 'home');
   const targetRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
@@ -43,7 +43,7 @@ const Heading = () => {
       <br />
       <Reveal delay={0.6}>
         <h2 className={subtitle({ class: 'mt-4 text-center' })}>
-          A digital organization for the global Capoeira Community
+          A digital organization for the global Capoeira Community : {locale}
         </h2>
         <p className="mt-7 p-3 text-xl">
           The advent of <i>crypto/web3</i> has given the world a new set of

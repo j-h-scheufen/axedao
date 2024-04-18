@@ -8,7 +8,7 @@ import {
 } from 'react-i18next';
 import resourcesToBackend from 'i18next-resources-to-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import { type LocaleTypes, getOptions, locales } from './settings';
+import { type SupportedLanguage, getOptions, ALL_LOCALES } from './settings';
 
 const runsOnServerSide = typeof window === 'undefined';
 
@@ -18,7 +18,7 @@ i18next
   .use(LanguageDetector)
   .use(
     resourcesToBackend(
-      (language: LocaleTypes, namespace: string) =>
+      (language: SupportedLanguage, namespace: string) =>
         import(`./locales/${language}/${namespace}.json`)
     )
   )
@@ -28,10 +28,10 @@ i18next
     detection: {
       order: ['path'],
     },
-    preload: runsOnServerSide ? locales : [],
+    preload: runsOnServerSide ? ALL_LOCALES : [],
   });
 
-export function useTranslation(lng: LocaleTypes, ns: string) {
+export function useTranslation(lng: SupportedLanguage, ns: string) {
   const translator = useTransAlias(ns);
   const { i18n } = translator;
 
@@ -46,7 +46,7 @@ export function useTranslation(lng: LocaleTypes, ns: string) {
   return translator;
 }
 
-function useCustomTranslationImpl(i18n: i18n, lng: LocaleTypes) {
+function useCustomTranslationImpl(i18n: i18n, lng: SupportedLanguage) {
   // This effect changes the language of the application when the lng prop changes.
   useEffect(() => {
     if (!lng || i18n.resolvedLanguage === lng) return;
