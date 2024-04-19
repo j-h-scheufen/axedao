@@ -8,6 +8,14 @@ import '@/styles/globals.css';
 import { siteConfig } from '@/config/site';
 import { fontSans } from '@/config/fonts';
 import { Providers } from './providers';
+import { fallbackLng, isSupportedLanguage } from './i18n/settings';
+
+// NEXTJS provides these params as page props to server components, but no official interface exists, yet.
+// https://github.com/vercel/next.js/discussions/46131
+export interface NextPageProps<ParamType = string> {
+  params: { locale: ParamType };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
 
 export const metadata: Metadata = {
   title: {
@@ -34,8 +42,9 @@ export type I18nProps = PropsWithChildren & {
 };
 
 export default function RootLayout({ children, lang }: I18nProps) {
+  const locale = isSupportedLanguage(lang) ? lang : fallbackLng;
   return (
-    <html lang={lang} dir={dir(lang)} suppressHydrationWarning>
+    <html lang={locale} dir={dir(locale)} suppressHydrationWarning>
       <head />
       <body
         className={clsx(

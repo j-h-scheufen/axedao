@@ -1,3 +1,7 @@
 {
-  "title": "Welcome to Axé DAO"
+  "heading": {
+    "title": "Welcome to Axé DAO",
+    "subtitle": "A digital organization for the global Capoeira Community",
+    "introduction": "The advent of <i>web3</i> has given the world a new set of tools. We are Capoeiristas from different corners of the world bringing these tools to the Capoeira community to create shared value. It is time for Capoeira to build its own open infrastructure and participate in the digital asset economy while giving every member a voice in shaping the future of this art form we love.<br /><br />Like Capoeira, the cypherpunk culture from which <i>crypto/web3</i> originates is rooted in the spirit of autonomy, resistance, freedom and self-determination. Axé DAO is a pioneering effort by Capoeiristas for Capoeiristas to channel collective resources into efforts that benefit Capoeira guided by the principles of decentralization and collective action."
+  }
 }

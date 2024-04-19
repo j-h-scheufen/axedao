@@ -1,11 +1,19 @@
 import type { InitOptions } from 'i18next';
-import { atom } from 'jotai';
+import { useParams } from 'next/navigation';
 
 export const ALL_LOCALES = ['en', 'pt', 'de'] as const;
 export type SupportedLanguage = (typeof ALL_LOCALES)[number];
+export const cookieName = 'i18n';
 
 export function isSupportedLanguage(value: string): value is SupportedLanguage {
   return ALL_LOCALES.includes(value as SupportedLanguage);
+}
+
+export function useLocale(): SupportedLanguage {
+  const params = useParams();
+  return isSupportedLanguage(params.locale as string)
+    ? (params.locale as SupportedLanguage)
+    : fallbackLng;
 }
 
 export const fallbackLng: SupportedLanguage = 'en';
@@ -22,5 +30,3 @@ export function getOptions(lang = fallbackLng, ns = defaultNS): InitOptions {
     ns,
   };
 }
-
-export const localeAtom = atom<SupportedLanguage>(fallbackLng);

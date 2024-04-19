@@ -1,8 +1,10 @@
 import { createConfig, http } from 'wagmi';
 import { localhost, sepolia, optimism, gnosis, Chain } from 'wagmi/chains';
-import { injected, walletConnect } from 'wagmi/connectors';
+import { injected } from 'wagmi/connectors';
+import { metaMaskWallet, walletConnectWallet } from '@rainbow-me/rainbowkit/wallets';
 
 import ENV from '@/config/environment';
+import { connectorsForWallets } from '@rainbow-me/rainbowkit';
 
 const configureChains = (): [Chain, ...Chain[]] => {
   let chains: [Chain, ...Chain[]] = [gnosis];
@@ -17,7 +19,18 @@ const wagmiConfig = createConfig({
   chains: configureChains(),
   connectors: [
     injected(),
-    walletConnect({ projectId: ENV.walletConnectProjectId }),
+    ...connectorsForWallets(
+      [
+        {
+          groupName: 'Recommended',
+          wallets: [metaMaskWallet, walletConnectWallet],
+        },
+      ],
+      {
+        appName: 'Quilombo',
+        projectId: ENV.walletConnectProjectId,
+      },
+    ),
     // safe(),
   ],
   transports: {

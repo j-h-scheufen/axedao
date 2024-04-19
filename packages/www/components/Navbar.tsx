@@ -11,12 +11,7 @@ import LocaleSwitch from './LocaleSwitch';
 
 const Navbar: React.FC = () => {
   return (
-    <NextUINavbar
-      maxWidth="full"
-      position="sticky"
-      shouldHideOnScroll={false}
-      dir="ltr" // TODO why is this not the default?
-    >
+    <NextUINavbar maxWidth="full" position="sticky" shouldHideOnScroll={false}>
       <NavbarContent justify="end">
         {/* <NavbarBrand className="mr-auto max-w-fit gap-3">
           <NextLink className="flex items-center justify-start gap-1" href="/">

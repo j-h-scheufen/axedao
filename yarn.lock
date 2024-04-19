@@ -6192,6 +6192,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"accept-language@npm:^3.0.18":
+  version: 3.0.18
+  resolution: "accept-language@npm:3.0.18"
+  dependencies:
+    bcp47: "npm:^1.1.2"
+    stable: "npm:^0.1.6"
+  checksum: 10c0/5c9b59981e54016e946f882c1d3d4410cb0983fbb9274c64c71e9c781bb33ce5359ffac084d3bc29d4006e64f736fe6414649cfa1947a49b9ae22a8567c89560
+  languageName: node
+  linkType: hard
+
 "acorn-jsx@npm:^5.3.2":
   version: 5.3.2
   resolution: "acorn-jsx@npm:5.3.2"
@@ -6741,6 +6751,13 @@ __metadata:
   version: 1.5.1
   resolution: "base64-js@npm:1.5.1"
   checksum: 10c0/f23823513b63173a001030fae4f2dabe283b99a9d324ade3ad3d148e218134676f1ee8568c877cd79ec1c53158dcf2d2ba527a97c606618928ba99dd930102bf
+  languageName: node
+  linkType: hard
+
+"bcp47@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "bcp47@npm:1.1.2"
+  checksum: 10c0/f079e69fe3a5d0e33462bf0d8d5da92e9518023470db69e8dcc828f80a3398071821530bd8aeef1725fe9c1f638fd940c43f5aab8231cd02351a369999642f78
   languageName: node
   linkType: hard
 
@@ -11097,21 +11114,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jotai@npm:^2.8.0":
-  version: 2.8.0
-  resolution: "jotai@npm:2.8.0"
-  peerDependencies:
-    "@types/react": ">=17.0.0"
-    react: ">=17.0.0"
-  peerDependenciesMeta:
-    "@types/react":
-      optional: true
-    react:
-      optional: true
-  checksum: 10c0/6b2f59749530478163e41b8b1260b99cdab533541a5b9b2dcd885f2ab440391c5ee7855d627cbe28e043b9bcd736d44837b4a8ab20a2761176bba92e623a284e
-  languageName: node
-  linkType: hard
-
 "joycon@npm:^3.1.1":
   version: 3.1.1
   resolution: "joycon@npm:3.1.1"
@@ -15047,6 +15049,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"stable@npm:^0.1.6":
+  version: 0.1.8
+  resolution: "stable@npm:0.1.8"
+  checksum: 10c0/df74b5883075076e78f8e365e4068ecd977af6c09da510cfc3148a303d4b87bc9aa8f7c48feb67ed4ef970b6140bd9eabba2129e28024aa88df5ea0114cba39d
+  languageName: node
+  linkType: hard
+
 "stacktrace-parser@npm:^0.1.10":
   version: 0.1.10
   resolution: "stacktrace-parser@npm:0.1.10"
@@ -16753,6 +16762,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
     "@typescript-eslint/parser": "npm:^6.21.0"
     "@vercel/analytics": "npm:^1.1.3"
+    accept-language: "npm:^3.0.18"
     autoprefixer: "npm:10.4.17"
     chai: "npm:^4.4.1"
     clsx: "npm:^2.1.0"
@@ -16766,7 +16776,6 @@ __metadata:
     i18next-browser-languagedetector: "npm:^7.2.1"
     i18next-resources-to-backend: "npm:^1.2.1"
     intl-messageformat: "npm:^10.5.11"
-    jotai: "npm:^2.8.0"
     next: "npm:14.1.0"
     next-themes: "npm:^0.2.1"
     postcss: "npm:8.4.35"

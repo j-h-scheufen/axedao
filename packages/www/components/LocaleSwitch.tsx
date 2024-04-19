@@ -1,18 +1,13 @@
 'use client';
 
-import { ChangeEvent } from 'react';
-import {
-  useRouter,
-  useParams,
-  useSelectedLayoutSegments,
-} from 'next/navigation';
+import { ChangeEvent, useState } from 'react';
+import { useRouter, useSelectedLayoutSegments } from 'next/navigation';
 import { Select, SelectItem } from '@nextui-org/react';
-import { useAtom } from 'jotai';
 
 import {
-  localeAtom,
   isSupportedLanguage,
   SupportedLanguage,
+  useLocale,
 } from '../app/i18n/settings';
 
 function getFlagEmoji(countryCode: string) {
@@ -25,12 +20,9 @@ function getFlagEmoji(countryCode: string) {
 
 const LocaleSwitch = () => {
   const router = useRouter();
-  const params = useParams();
+  const initLocale = useLocale();
   const urlSegments = useSelectedLayoutSegments();
-  const [locale, setLocale] = useAtom(localeAtom);
-  if (params.locale && isSupportedLanguage(params.locale as string)) {
-    setLocale(params.locale as SupportedLanguage);
-  }
+  const [locale, setLocale] = useState<SupportedLanguage>(initLocale);
 
   const handleLocaleChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const newLocale = event.target.value;
