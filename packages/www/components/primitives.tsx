@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react';
 import { tv } from 'tailwind-variants';
 
-export const title = tv({
+export const Title = tv({
   base: 'tracking-tight inline font-semibold',
   variants: {
     color: {
@@ -42,7 +42,7 @@ export const title = tv({
   ],
 });
 
-export const subtitle = tv({
+export const Subtitle = tv({
   base: 'w-full my-2 text-lg lg:text-xl text-default-500 dark:text-default-600 block max-w-full',
   variants: {
     fullWidth: {

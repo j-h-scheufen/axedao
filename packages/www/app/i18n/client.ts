@@ -26,7 +26,7 @@ i18next
     ...getOptions(),
     lng: undefined, // detect the language on the client
     detection: {
-      order: ['path'],
+      order: ['path'], // only using the path option. TODO: This would need to be changed to include cookies or others
     },
     preload: runsOnServerSide ? ALL_LOCALES : [],
   });

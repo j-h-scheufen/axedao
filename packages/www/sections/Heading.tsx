@@ -6,13 +6,17 @@ import { motion } from 'framer-motion';
 import { Card, CardBody, Link } from '@nextui-org/react';
 
 import Reveal from '@/components/motion/Reveal';
-import { subtitle, title } from '@/components/primitives';
+import { Subtitle, Title } from '@/components/primitives';
 import { siteConfig } from '@/config/site';
 import { useTranslation } from '../app/i18n/client';
 import { SupportedLanguage } from '@/app/i18n/settings';
 import { Trans } from 'react-i18next';
 
-const Heading = ({ locale }: { locale: SupportedLanguage }) => {
+type HeadingProps = {
+  locale: SupportedLanguage;
+};
+
+const Heading = ({ locale }: HeadingProps) => {
   const { t } = useTranslation(locale, 'home');
   // const targetRef = useRef<HTMLDivElement | null>(null);
   // const { scrollYProgress } = useScroll({
@@ -37,11 +41,11 @@ const Heading = ({ locale }: { locale: SupportedLanguage }) => {
       className="relative z-10 flex w-full max-w-6xl flex-col items-center"
     >
       <Reveal delay={0.2} className="text-center">
-        <h1 className={title()}>{t('heading.title')}</h1>
+        <h1 className={Title()}>{t('heading.title')}</h1>
       </Reveal>
       <br />
       <Reveal delay={0.6}>
-        <h2 className={subtitle({ class: 'mt-4 text-center' })}>
+        <h2 className={Subtitle({ class: 'mt-4 text-center' })}>
           {t('heading.subtitle')}
         </h2>
         <p className="mt-7 p-3 text-xl">
