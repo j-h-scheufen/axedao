@@ -58,7 +58,7 @@ export const TextSection: React.FC<PropsWithChildren> = ({ children }) => (
   <p className="mx-3 my-5 text-left text-lg lg:text-xl">{children}</p>
 );
 
-export const PageLayout: React.FC<PropsWithChildren> = ({ children }) => (
+export const PageContainer: React.FC<PropsWithChildren> = ({ children }) => (
   <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
     <div className="inline-block justify-center text-center">{children}</div>
   </section>
