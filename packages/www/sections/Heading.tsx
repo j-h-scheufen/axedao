@@ -40,11 +40,9 @@ const Heading = ({ locale }: HeadingProps) => {
       // style={{ scale, x: '-50%' }}
       className="relative z-10 flex w-full max-w-6xl flex-col items-center"
     >
-      <Reveal delay={0.2} className="text-center">
-        <h1 className={Title()}>{t('heading.title')}</h1>
-      </Reveal>
+      <h1 className={Title()}>{t('heading.title')}</h1>
       <br />
-      <Reveal delay={0.6}>
+      <Reveal delay={0.5}>
         <h2 className={Subtitle({ class: 'mt-4 text-center' })}>
           {t('heading.subtitle')}
         </h2>

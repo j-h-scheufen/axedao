@@ -15,7 +15,7 @@ export default async function Home({ params: { locale } }: NextPageProps) {
   const { t } = await createTranslation(lang, 'home');
   return (
     <div className="relative flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <Heading locale={lang as SupportedLanguage} />
+      <Heading locale={lang} />
       <div className="my-6">{t('heading.title')}</div>
 
       {/* web3 allowing people to share in ownershipt and governance */}

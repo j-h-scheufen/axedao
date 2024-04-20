@@ -37,14 +37,14 @@ export const viewport: Viewport = {
   ],
 };
 
-export type I18nProps = PropsWithChildren & {
-  lang: string;
-};
-
-export default function RootLayout({ children, lang }: I18nProps) {
-  const locale = isSupportedLanguage(lang) ? lang : fallbackLng;
+export default async function RootLayout({
+  params: { locale },
+  children,
+}: NextPageProps & PropsWithChildren) {
+  console.log('LOCALE: ', locale);
+  const lang = isSupportedLanguage(locale) ? locale : fallbackLng;
   return (
-    <html lang={locale} dir={dir(locale)} suppressHydrationWarning>
+    <html lang={lang} dir={dir(lang)} suppressHydrationWarning>
       <head />
       <body
         className={clsx(
