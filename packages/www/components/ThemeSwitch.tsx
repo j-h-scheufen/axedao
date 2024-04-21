@@ -13,7 +13,7 @@ export type ThemeSwitchProps = {
   classNames?: SwitchProps['classNames'];
 };
 
-export const ThemeSwitch: FC<ThemeSwitchProps> = ({
+const ThemeSwitch: FC<ThemeSwitchProps> = ({
   className,
   classNames,
 }): JSX.Element => {
@@ -40,3 +40,5 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
     />
   );
 };
+
+export default ThemeSwitch;

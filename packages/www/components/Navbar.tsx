@@ -6,12 +6,13 @@ import { Button, Link } from '@nextui-org/react';
 // import clsx from 'clsx';
 
 import ENV from '@/config/environment';
-import { ThemeSwitch } from './theme-switch';
+import ThemeSwitch from './ThemeSwitch';
+import LocaleSwitch from './LocaleSwitch';
 
 const Navbar: React.FC = () => {
   return (
     <NextUINavbar maxWidth="full" position="sticky" shouldHideOnScroll={false}>
-      <NavbarContent className="basis-1/5 sm:basis-full" justify="end">
+      <NavbarContent justify="end">
         {/* <NavbarBrand className="mr-auto max-w-fit gap-3">
           <NextLink className="flex items-center justify-start gap-1" href="/">
             <Card className="flex flex-row gap-1 bg-white p-2">
@@ -39,7 +40,8 @@ const Navbar: React.FC = () => {
             </NextLink>
           </NavbarItem>
         ))} */}
-        <ThemeSwitch className="ml-auto" />
+        <ThemeSwitch />
+        <LocaleSwitch />
         <Button as={Link} className="flex flex-row p-2" href={ENV.appUrl}>
           <p className="text-lg text-inherit">APP</p>
         </Button>
