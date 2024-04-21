@@ -3,7 +3,7 @@ import { button as buttonStyles } from '@nextui-org/theme';
 import { siteConfig } from '@/config/site';
 import { GithubIcon } from '@/components/icons';
 
-import { TextSection, title } from '@/components/primitives';
+import { TextSection, Title } from '@/components/primitives';
 import { Card, Image } from '@nextui-org/react';
 
 export default function AboutPage() {
@@ -16,7 +16,7 @@ export default function AboutPage() {
           className="w-full lg:w-[80%]"
         />
         <Card className="absolute bottom-[5%] right-[5%] z-20 p-4 lg:p-5">
-          <h1 className={title({ size: 'xl' })}>About</h1>
+          <h1 className={Title({ size: 'xl' })}>About</h1>
         </Card>
       </div>
       <TextSection>

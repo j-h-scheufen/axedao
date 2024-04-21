@@ -1,10 +1,27 @@
 import Heading from '@/sections/Heading';
 
-export default function Home() {
+import {
+  SupportedLanguage,
+  fallbackLng,
+  isSupportedLanguage,
+} from '../i18n/settings';
+import { createTranslation } from '../i18n/server';
+import { NextPageProps } from './layout';
+
+export default async function Home({ params: { locale } }: NextPageProps) {
+  const lang = isSupportedLanguage(locale)
+    ? (locale as SupportedLanguage)
+    : fallbackLng;
+  const { t } = await createTranslation(lang, 'home');
   return (
     <div className="relative flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <Heading />
-      {/* <h3>What is this about?</h3>
+      <Heading locale={lang} />
+
+      {/* web3 allowing people to share in ownershipt and governance */}
+
+      <h3>{t('about.title')}</h3>
+
+      {/* 
       <p>
         Quilombo is not just a platform; it&apos;s a movement towards digitally
         empowering the Capoeira community.

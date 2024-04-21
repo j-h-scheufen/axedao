@@ -1,4 +1,4 @@
-import { TextSection, title } from '@/components/primitives';
+import { TextSection, Title } from '@/components/primitives';
 import { Card, Image } from '@nextui-org/react';
 
 export default function AboutPage() {
@@ -11,7 +11,7 @@ export default function AboutPage() {
           className="w-full lg:w-[80%]"
         />
         <Card className="absolute bottom-[5%] right-[5%] z-20 p-4 lg:p-5">
-          <h1 className={title({ size: 'xl' })}>AXÉ Token Fair Launch</h1>
+          <h1 className={Title({ size: 'xl' })}>AXÉ Token Fair Launch</h1>
         </Card>
       </div>
 
