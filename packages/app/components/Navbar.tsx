@@ -4,7 +4,7 @@ import { Navbar as NextUINavbar, NavbarContent, NavbarBrand } from '@nextui-org/
 import NextLink from 'next/link';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 
-import { Card } from '@nextui-org/react';
+import { Card } from '@nextui-org/card';
 
 import { ThemeSwitch } from './theme-switch';
 // import Account from './web3/Account';

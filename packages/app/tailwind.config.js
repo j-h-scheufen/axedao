@@ -17,6 +17,18 @@ module.exports = withTV({
   darkMode: 'class',
   plugins: [
     nextui({
+      layout: {
+        // radius: {
+        //   small: '2px', // rounded-small
+        //   medium: '4px', // rounded-medium
+        //   large: '6px', // rounded-large
+        // },
+        height: {
+          small: '10px',
+          medium: '12px',
+          large: '14px',
+        },
+      },
       themes: {
         dark: { colors: { primary: '#CCD5AEff', secondary: '#D4A373ff' } },
         light: { colors: { primary: '#E9EDC9ff', secondary: '#FAEDCDff' } },

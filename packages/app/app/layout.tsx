@@ -37,10 +37,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
           <SnackbarProvider>
             <Web3Provider>
-              <div className="relative flex h-screen flex-col">
+              <div className="relative flex min-h-screen flex-col">
                 <Navbar />
-                <main className="container mx-auto max-w-7xl flex-grow px-6 pt-16">{children}</main>
-                <footer className="flex w-full items-center justify-center py-3">
+                {children}
+                <footer className="mt-auto flex w-full items-center justify-center gap-1 py-10">
                   <span className="text-default-600">Powered by </span>
                   <span className="text-primary">AXÉ DAO</span>
                 </footer>
