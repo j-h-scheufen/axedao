@@ -2,7 +2,7 @@
 
 import { Card, CardBody, CardFooter, CardHeader } from '@nextui-org/card';
 import { Button } from '@nextui-org/button';
-import { Avatar, AvatarGroup } from '@nextui-org/avatar';
+import { Avatar, AvatarGroup } from '@nextui-org/react';
 import { MapPin } from 'lucide-react';
 import { Link } from '@nextui-org/link';
 

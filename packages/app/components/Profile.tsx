@@ -1,4 +1,4 @@
-import { Avatar } from '@nextui-org/avatar';
+import { Avatar } from '@nextui-org/react';
 import { Button } from '@nextui-org/button';
 import { Camera, Edit } from 'lucide-react';
 import Links from './Links';
