@@ -9,7 +9,7 @@ import GroupMembers from '@/components/GroupMembers';
 type Props = { params: { groupId: string } };
 const page = ({ params: { groupId = '' } }: Props) => {
   const group = groups.find((g) => g.id.toString() === groupId);
-  const { banner, email, description, logo } = group || {};
+  const { description, logo } = group || {};
   const links = [
     'https://www.example3.com',
     'https://www.example1.com',
@@ -20,7 +20,7 @@ const page = ({ params: { groupId = '' } }: Props) => {
   return (
     <div className="relative">
       <PageHeading back="/dashboard/groups">Group name</PageHeading>
-      <GroupBanner banner={banner} email={email} phone="+606 772 038 739" />
+      <GroupBanner />
       <GroupDetails description={description} links={links} logo={logo} />
       <SectionHeading>Members</SectionHeading>
       <GroupMembers />
