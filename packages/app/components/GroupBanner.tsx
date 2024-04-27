@@ -1,10 +1,8 @@
 'use client';
 import { Button } from '@nextui-org/button';
-import { Link } from '@nextui-org/link';
-import { Mail, Phone, Edit } from 'lucide-react';
+import { Edit } from 'lucide-react';
 
-type Props = { banner?: string; email?: string; phone?: string };
-const GroupBanner = ({ banner = '', email, phone }: Props) => {
+const GroupBanner = () => {
   return (
     <div className="relative bottom-5 h-[200px] w-full rounded-xl bg-gradient-to-t from-neutral-900">
       <Button

@@ -1,8 +1,7 @@
 import PageHeading from '@/components/PageHeading';
 import Groups from '@/components/Groups';
 
-type Props = {};
-const page = (props: Props) => {
+const page = () => {
   return (
     <div>
       <PageHeading>Groups</PageHeading>

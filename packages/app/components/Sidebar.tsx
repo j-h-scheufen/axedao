@@ -2,16 +2,14 @@
 import { usePathname } from 'next/navigation';
 import pages from '@/constants/pages';
 import { Listbox, ListboxItem } from '@nextui-org/listbox';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 
-type Props = {};
-
-const Sidebar = (props: Props) => {
+const Sidebar = () => {
   const [selectedKeys, setSelectedKeys] = useState<any>(new Set([pages[0].href]));
 
   const pathname = usePathname();
 
-  const selectedValue = useMemo(() => Array.from(selectedKeys).join(', '), [selectedKeys]);
+  // const selectedValue = useMemo(() => Array.from(selectedKeys).join(', '), [selectedKeys]);
 
   return (
     <div className="fixed left-0 top-0 h-screen w-64 p-6 py-20">

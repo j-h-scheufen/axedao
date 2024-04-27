@@ -1,88 +1,3 @@
-// 'use client';
-// import { useRouter } from 'next/navigation';
-// import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from '@nextui-org/table';
-// import { Avatar } from '@nextui-org/avatar';
-// import { Link } from '@nextui-org/link';
-// import { User } from '@nextui-org/user';
-
-// const admins = [...Array(10)].map((_, i) => {
-//   let description;
-//   switch (i) {
-//     case 0:
-//       description = 'Founder';
-//       break;
-//     case 1:
-//       description = 'Leader';
-//       break;
-//     case 2:
-//       description = 'Admin';
-//       break;
-//     case 3:
-//       description = 'Admin';
-//       break;
-//     case 4:
-//       description = 'Admin';
-//       break;
-//     default:
-//       description = 'Member';
-//       break;
-//   }
-//   return {
-//     name: 'John Doe',
-//     id: i,
-//     email: 'example@example.com',
-//     pfp: 'http://dummyimage.com/100x100.png/171717/ffffff',
-//     description,
-//   };
-// });
-
-// type Props = {};
-// const GroupMembers = (props: Props) => {
-//   return (
-//     <Table
-//       isHeaderSticky
-//       color="default"
-//       selectionMode="single"
-//       aria-label="Example static collection table"
-//       classNames={{
-//         base: 'max-h-[520px]',
-//         table: 'min-h-[420px]',
-//       }}
-//     >
-//       <TableHeader>
-//         <TableColumn>Name</TableColumn>
-//         <TableColumn>Leader</TableColumn>
-//         <TableColumn>Email</TableColumn>
-//         <TableColumn>Phone</TableColumn>
-//       </TableHeader>
-//       <TableBody>
-//         {admins.map((admin) => {
-//           const { id, name, email, pfp, description } = admin;
-//           return (
-//             <TableRow key={id} className="cursor-pointer">
-//               <TableCell>
-//                 <User name={name} avatarProps={{ src: pfp }} description={description} />
-//               </TableCell>
-//               <TableCell>John Doe</TableCell>
-//               <TableCell>
-//                 <Link showAnchorIcon href={`mailto:${email}`} onClick={(e) => e.preventDefault()}>
-//                   {email}
-//                 </Link>
-//               </TableCell>
-//               <TableCell>
-//                 <Link showAnchorIcon href={`tel:${email}`} onClick={(e) => e.preventDefault()}>
-//                   +606 772 038 739
-//                 </Link>
-//               </TableCell>
-//             </TableRow>
-//           );
-//         })}
-//       </TableBody>
-//     </Table>
-//   );
-// };
-// export default GroupMembers;
-
 'use client';
 
 import React from 'react';
@@ -326,10 +241,6 @@ const users = [
   },
 ];
 
-const capitalize = (str: string) => {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-};
-
 const statusColorMap: Record<string, ChipProps['color']> = {
   active: 'success',
   paused: 'danger',
@@ -343,8 +254,8 @@ type User = (typeof users)[0];
 export default function App() {
   const [filterValue, setFilterValue] = React.useState('');
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(new Set([]));
-  const [visibleColumns, setVisibleColumns] = React.useState<Selection>(new Set(INITIAL_VISIBLE_COLUMNS));
-  const [statusFilter, setStatusFilter] = React.useState<Selection>('all');
+  const [visibleColumns] = React.useState<Selection>(new Set(INITIAL_VISIBLE_COLUMNS));
+  const [statusFilter] = React.useState<Selection>('all');
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [sortDescriptor, setSortDescriptor] = React.useState<SortDescriptor>({
     column: 'age',
@@ -374,7 +285,7 @@ export default function App() {
     }
 
     return filteredUsers;
-  }, [users, filterValue, statusFilter]);
+  }, [users, filterValue, statusFilter, hasSearchFilter]);
 
   const pages = Math.ceil(filteredItems.length / rowsPerPage);
 
@@ -383,7 +294,7 @@ export default function App() {
     const end = start + rowsPerPage;
 
     return filteredItems.slice(start, end);
-  }, [page, filteredItems, rowsPerPage]);
+  }, [page, filteredItems, rowsPerPage, filteredItems.length]);
 
   const sortedItems = React.useMemo(() => {
     return [...items].sort((a: User, b: User) => {
@@ -395,55 +306,58 @@ export default function App() {
     });
   }, [sortDescriptor, items]);
 
-  const renderCell = React.useCallback((user: User, columnKey: React.Key) => {
-    const cellValue = user[columnKey as keyof User];
+  const renderCell = React.useCallback(
+    (user: User, columnKey: React.Key) => {
+      const cellValue = user[columnKey as keyof User];
 
-    switch (columnKey) {
-      case 'name':
-        return (
-          <User
-            avatarProps={{ src: user.avatar }}
-            description={user.email}
-            name={cellValue}
-            onClick={() => router.push('/dashboard/groups/1/users/1')}
-            className="cursor-pointer"
-          >
-            {user.email}
-          </User>
-        );
-      case 'role':
-        return (
-          <div className="flex flex-col">
-            <p className="text-bold text-small capitalize">{cellValue}</p>
-            {/* <p className="text-bold text-tiny capitalize text-default-400">{user.team}</p> */}
-          </div>
-        );
-      case 'status':
-        return (
-          <Chip className="capitalize" color={statusColorMap[user.status]} size="sm" variant="flat">
-            {cellValue}
-          </Chip>
-        );
-      case 'actions':
-        return (
-          <div className="relative flex items-center justify-end gap-2">
-            <Dropdown>
-              <DropdownTrigger>
-                <Button isIconOnly size="sm" variant="light">
-                  <EllipsisVertical className="text-default-300" />
-                </Button>
-              </DropdownTrigger>
-              <DropdownMenu>
-                <DropdownItem>View</DropdownItem>
-                <DropdownItem>Delete</DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
-          </div>
-        );
-      default:
-        return cellValue;
-    }
-  }, []);
+      switch (columnKey) {
+        case 'name':
+          return (
+            <User
+              avatarProps={{ src: user.avatar }}
+              description={user.email}
+              name={cellValue}
+              onClick={() => router.push('/dashboard/groups/1/users/1')}
+              className="cursor-pointer"
+            >
+              {user.email}
+            </User>
+          );
+        case 'role':
+          return (
+            <div className="flex flex-col">
+              <p className="text-bold text-small capitalize">{cellValue}</p>
+              {/* <p className="text-bold text-tiny capitalize text-default-400">{user.team}</p> */}
+            </div>
+          );
+        case 'status':
+          return (
+            <Chip className="capitalize" color={statusColorMap[user.status]} size="sm" variant="flat">
+              {cellValue}
+            </Chip>
+          );
+        case 'actions':
+          return (
+            <div className="relative flex items-center justify-end gap-2">
+              <Dropdown>
+                <DropdownTrigger>
+                  <Button isIconOnly size="sm" variant="light">
+                    <EllipsisVertical className="text-default-300" />
+                  </Button>
+                </DropdownTrigger>
+                <DropdownMenu>
+                  <DropdownItem>View</DropdownItem>
+                  <DropdownItem>Delete</DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            </div>
+          );
+        default:
+          return cellValue;
+      }
+    },
+    [router],
+  );
 
   const onNextPage = React.useCallback(() => {
     if (page < pages) {
@@ -503,7 +417,16 @@ export default function App() {
         </div>
       </div>
     );
-  }, [filterValue, statusFilter, visibleColumns, onSearchChange, onRowsPerPageChange, users.length, hasSearchFilter]);
+  }, [
+    filterValue,
+    statusFilter,
+    visibleColumns,
+    onSearchChange,
+    onRowsPerPageChange,
+    users.length,
+    hasSearchFilter,
+    onClear,
+  ]);
 
   const bottomContent = React.useMemo(() => {
     return (
@@ -522,7 +445,7 @@ export default function App() {
         </div>
       </div>
     );
-  }, [selectedKeys, items.length, page, pages, hasSearchFilter]);
+  }, [selectedKeys, filteredItems.length, items.length, page, pages, hasSearchFilter, onNextPage]);
 
   return (
     <Table

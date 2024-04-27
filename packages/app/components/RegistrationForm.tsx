@@ -8,13 +8,7 @@ import { useState } from 'react';
 import JoinGroup from './JoinGroup';
 import clsx from 'clsx';
 
-const groups = [...Array(10)].map((_, i) => ({
-  name: `Group ${i + 1}`,
-  id: i,
-}));
-
-type Props = {};
-const RegistrationForm = (props: Props) => {
+const RegistrationForm = () => {
   const [step, setStep] = useState<0 | 1>(0);
   const router = useRouter();
 

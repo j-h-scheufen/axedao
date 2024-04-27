@@ -16,8 +16,7 @@ const users = [...Array(100)].map((_, i) => ({
   id: i,
 }));
 
-type Props = {};
-const UsersTable = (props: Props) => {
+const UsersTable = () => {
   const router = useRouter();
 
   const goToGroup = (id: string | number) => router.push(`/groups/${id}`);

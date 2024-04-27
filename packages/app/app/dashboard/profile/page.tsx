@@ -3,8 +3,7 @@ import PageHeading from '@/components/PageHeading';
 import Profile from '@/components/Profile';
 import SectionHeading from '@/components/SectionHeading';
 
-type Props = {};
-const page = (props: Props) => {
+const page = () => {
   return (
     <>
       <PageHeading>Profile</PageHeading>

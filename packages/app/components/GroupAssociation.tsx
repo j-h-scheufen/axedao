@@ -5,8 +5,7 @@ import GroupCard from './GroupCard';
 import JoinGroup from './JoinGroup';
 import { Button } from '@nextui-org/button';
 
-type Props = {};
-const GroupAssociation = (props: Props) => {
+const GroupAssociation = () => {
   const [editing, setEditing] = useState<boolean>(false);
 
   return (

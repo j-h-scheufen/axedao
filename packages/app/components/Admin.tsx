@@ -4,8 +4,7 @@ import { Tabs, Tab } from '@nextui-org/tabs';
 import GroupsTable from './GroupsTable';
 import UsersTable from './UsersTable';
 
-type Props = {};
-const Admin = (props: Props) => {
+const Admin = () => {
   return (
     <div>
       <Tabs variant="bordered" aria-label="Options" className="mb-3">

@@ -1,7 +1,6 @@
 import RegistrationForm from '@/components/RegistrationForm';
 
-type Props = {};
-const page = (props: Props) => {
+const page = () => {
   return (
     <div className="flex min-h-[calc(100vh-100px)] flex-col text-center">
       <div className="mb-5">

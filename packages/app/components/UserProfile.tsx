@@ -1,11 +1,8 @@
 import { Avatar } from '@nextui-org/avatar';
-import { Button } from '@nextui-org/button';
-import { Camera, Edit } from 'lucide-react';
+import { Camera } from 'lucide-react';
 import Links from './Links';
-import Link from 'next/link';
 
-type Props = {};
-const UserProfile = (props: Props) => {
+const UserProfile = () => {
   return (
     <div className="flex items-center gap-5">
       <Avatar

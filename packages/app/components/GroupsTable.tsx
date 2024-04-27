@@ -5,8 +5,7 @@ import { Avatar } from '@nextui-org/avatar';
 import { Link } from '@nextui-org/link';
 import groups from '@/data/groups.json';
 
-type Props = {};
-const GroupsTable = (props: Props) => {
+const GroupsTable = () => {
   const router = useRouter();
 
   const goToGroup = (id: string | number) => router.push(`/dashboard/groups/${id}`);

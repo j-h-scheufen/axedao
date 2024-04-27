@@ -2,9 +2,8 @@ import clsx from 'clsx';
 
 interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
   children: React.ReactNode;
-  back?: boolean | string;
 }
-const SectionHeading = ({ children, className = '', back = false, ...props }: Props) => {
+const SectionHeading = ({ children, className = '', ...props }: Props) => {
   return (
     <h2 className={clsx('mb-5 mt-8 text-xl font-semibold', className)} {...props}>
       {children}

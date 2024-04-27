@@ -1,7 +1,6 @@
 import { Facebook, Globe, Instagram, Mail, Phone, Twitter } from 'lucide-react';
 
-type Props = {};
-const Links = (props: Props) => {
+const Links = () => {
   return (
     <div className="grid h-fit w-fit grid-cols-2 gap-x-4 gap-y-2 text-small text-default-500">
       <div className="flex items-center gap-1">

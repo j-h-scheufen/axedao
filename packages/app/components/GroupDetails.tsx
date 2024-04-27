@@ -3,7 +3,7 @@ import { Camera } from 'lucide-react';
 import Links from './Links';
 
 type Props = { description?: string; logo?: string; links?: string[] };
-const GroupDetails = ({ description, logo, links }: Props) => {
+const GroupDetails = ({ description }: Props) => {
   return (
     <>
       <div className="mt-5 flex gap-5">

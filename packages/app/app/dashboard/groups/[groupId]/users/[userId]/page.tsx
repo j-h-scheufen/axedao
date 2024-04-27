@@ -1,8 +1,7 @@
 import PageHeading from '@/components/PageHeading';
 import UserProfile from '@/components/UserProfile';
 
-type Props = {};
-const page = (props: Props) => {
+const page = () => {
   return (
     <div>
       <PageHeading back="/dashboard/groups/1">Jane Doe</PageHeading>

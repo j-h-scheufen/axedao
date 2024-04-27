@@ -52,8 +52,7 @@ const titles = [
   },
 ];
 
-type Props = {};
-const ProfileForm = (props: Props) => {
+const ProfileForm = () => {
   return (
     <div className="max-w-lg">
       <SubsectionHeading>General Information</SubsectionHeading>

@@ -1,8 +1,7 @@
 import { Input } from '@nextui-org/input';
-import { Facebook, Globe, Instagram, Mail, Phone, Twitter } from 'lucide-react';
+import { Facebook, Instagram, Mail, Phone, Twitter } from 'lucide-react';
 
-type Props = {};
-const LinkInputs = (props: Props) => {
+const LinkInputs = () => {
   return (
     <div className="grid h-fit w-full max-w-lg grid-cols-2 gap-x-4 gap-y-2 text-small text-default-500">
       <Input

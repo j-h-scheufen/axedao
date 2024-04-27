@@ -2,11 +2,10 @@
 
 import { Input } from '@nextui-org/input';
 import { Button, ButtonGroup } from '@nextui-org/button';
-import { Search, ChevronDown, Plus, Table, LayoutGrid } from 'lucide-react';
+import { Search, Table, LayoutGrid } from 'lucide-react';
 import GroupCard from './GroupCard';
 
-type Props = {};
-const Groups = (props: Props) => {
+const Groups = () => {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex h-fit items-center justify-between gap-3">
