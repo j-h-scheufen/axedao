@@ -285,7 +285,7 @@ export default function App() {
     }
 
     return filteredUsers;
-  }, [users, filterValue, statusFilter, hasSearchFilter]);
+  }, [filterValue, statusFilter, hasSearchFilter]);
 
   const pages = Math.ceil(filteredItems.length / rowsPerPage);
 
@@ -294,7 +294,7 @@ export default function App() {
     const end = start + rowsPerPage;
 
     return filteredItems.slice(start, end);
-  }, [page, filteredItems, rowsPerPage, filteredItems.length]);
+  }, [page, filteredItems, rowsPerPage]);
 
   const sortedItems = React.useMemo(() => {
     return [...items].sort((a: User, b: User) => {
@@ -417,16 +417,7 @@ export default function App() {
         </div>
       </div>
     );
-  }, [
-    filterValue,
-    statusFilter,
-    visibleColumns,
-    onSearchChange,
-    onRowsPerPageChange,
-    users.length,
-    hasSearchFilter,
-    onClear,
-  ]);
+  }, [filterValue, onSearchChange, onRowsPerPageChange, onClear]);
 
   const bottomContent = React.useMemo(() => {
     return (
@@ -445,7 +436,7 @@ export default function App() {
         </div>
       </div>
     );
-  }, [selectedKeys, filteredItems.length, items.length, page, pages, hasSearchFilter, onNextPage]);
+  }, [selectedKeys, filteredItems.length, page, pages, onNextPage, onPreviousPage]);
 
   return (
     <Table

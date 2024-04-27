@@ -2,10 +2,10 @@
 import { usePathname } from 'next/navigation';
 import pages from '@/constants/pages';
 import { Listbox, ListboxItem } from '@nextui-org/listbox';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 const Sidebar = () => {
-  const [selectedKeys, setSelectedKeys] = useState<any>(new Set([pages[0].href]));
+  // const [selectedKeys, setSelectedKeys] = useState<string[]>([pages[0].href]);
 
   const pathname = usePathname();
 
@@ -18,8 +18,8 @@ const Sidebar = () => {
         variant="solid"
         disallowEmptySelection
         selectionMode="single"
-        selectedKeys={selectedKeys}
-        onSelectionChange={setSelectedKeys}
+        // selectedKeys={selectedKeys}
+        // onSelectionChange={setSelectedKeys}
         hideSelectedIcon
       >
         {pages.map(({ href, name }) => {
