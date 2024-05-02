@@ -8,7 +8,6 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 import { ThemeSwitch } from './theme-switch';
 // import Account from './web3/Account';
-import PageHeading from './PageHeading';
 
 const Navbar: React.FC = () => {
   return (
