@@ -2,8 +2,6 @@
 import { useRouter } from 'next/navigation';
 import { User } from '@nextui-org/user';
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from '@nextui-org/table';
-import { Avatar } from '@nextui-org/avatar';
-import { Link } from '@nextui-org/link';
 import groups from '@/data/groups.json';
 
 const GroupsTable = () => {
@@ -28,7 +26,7 @@ const GroupsTable = () => {
       </TableHeader>
       <TableBody>
         {groups.map((group) => {
-          const { id, name, email, logo } = group;
+          const { id, name, logo } = group;
           return (
             <TableRow key={id} className="cursor-pointer" onClick={() => goToGroup(id)}>
               <TableCell>

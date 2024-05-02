@@ -3,8 +3,7 @@ import { usePathname } from 'next/navigation';
 import { Tabs, Tab } from '@nextui-org/tabs';
 import pages from '@/constants/pages';
 
-type Props = {};
-const BottomBar = (props: Props) => {
+const BottomBar = () => {
   const pathname = usePathname();
   const selectedPage = pathname.split('/').slice(0, 3).join('/');
 

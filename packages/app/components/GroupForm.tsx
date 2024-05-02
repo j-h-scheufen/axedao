@@ -7,8 +7,7 @@ import SubsectionHeading from './SubsectionHeading';
 import { Button } from '@nextui-org/button';
 import Link from 'next/link';
 
-type Props = {};
-const GroupForm = (props: Props) => {
+const GroupForm = () => {
   return (
     <div className="max-w-xl">
       <SubsectionHeading>Images</SubsectionHeading>

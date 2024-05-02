@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation';
 import PageHeading from '@/components/PageHeading';
 import UserProfile from '@/components/UserProfile';
 
-const page = () => {
+const Page = () => {
   const searchParams = useSearchParams();
   const groupId = searchParams.get('groupId');
 
@@ -15,4 +15,4 @@ const page = () => {
     </div>
   );
 };
-export default page;
+export default Page;
