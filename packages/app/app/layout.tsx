@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
           <SnackbarProvider>
             <Web3Provider>
-              <div className="relative flex min-h-screen flex-col">
+              <div className="relative mb-12 flex min-h-screen flex-col">
                 <Navbar />
                 {children}
                 <footer className="mt-auto flex w-full items-center justify-center gap-1 py-10">

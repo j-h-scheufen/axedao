@@ -1,15 +1,16 @@
 'use client';
 
+import clsx from 'clsx';
 import { Card, CardBody, CardFooter, CardHeader } from '@nextui-org/card';
 import { Button } from '@nextui-org/button';
 import { Avatar, AvatarGroup } from '@nextui-org/react';
 import { MapPin } from 'lucide-react';
 import { Link } from '@nextui-org/link';
 
-type Props = { change?: () => null | void };
-const GroupCard = ({ change }: Props) => {
+type Props = { change?: () => null | void; className?: string };
+const GroupCard = ({ change, className = '' }: Props) => {
   return (
-    <Card className="w-fit min-w-56">
+    <Card className={clsx('w-full', className)}>
       <CardHeader className="flex gap-3">
         <Avatar src="http://dummyimage.com/100x100.png/888/ffffff" />
         <div className="flex flex-col">

@@ -1,36 +1,36 @@
 'use client';
+
 import { usePathname } from 'next/navigation';
+import clsx from 'clsx';
 import pages from '@/constants/pages';
 import { Listbox, ListboxItem } from '@nextui-org/listbox';
-// import { useState } from 'react';
 
 const Sidebar = () => {
-  // const [selectedKeys, setSelectedKeys] = useState<string[]>([pages[0].href]);
-
   const pathname = usePathname();
-
-  // const selectedValue = useMemo(() => Array.from(selectedKeys).join(', '), [selectedKeys]);
+  const selectedPage = pathname.split('/').slice(0, 3).join('/');
 
   return (
-    <div className="fixed left-0 top-0 h-screen w-64 p-6 py-20">
+    <div className="fixed left-0 top-0 hidden h-screen w-56 p-6 py-16 md:block">
       <Listbox
         aria-label="Dashboard pages"
-        variant="solid"
+        variant="light"
         disallowEmptySelection
         selectionMode="single"
-        // selectedKeys={selectedKeys}
-        // onSelectionChange={setSelectedKeys}
+        selectedKeys={[selectedPage]}
         hideSelectedIcon
       >
-        {pages.map(({ href, name }) => {
-          const active = href.split('/')[2] === pathname.split('/')[2];
+        {pages.map(({ href, name, icon: Icon }) => {
+          const active = href === selectedPage;
           return (
             <ListboxItem
               key={href}
               href={href}
               classNames={{
-                base: active ? 'text-default-foreground bg-default' : '',
+                base: clsx({ 'text-primary': active, 'hover:!text-primary focus:!text-primary': !active }),
               }}
+              startContent={
+                <Icon className="mr-1 h-4 w-4" fill={active ? 'currentColor' : 'none'} strokeWidth={1.25} />
+              }
             >
               {name}
             </ListboxItem>

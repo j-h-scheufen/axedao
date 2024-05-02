@@ -2,17 +2,18 @@
 
 import { useSearchParams } from 'next/navigation';
 import PageHeading from '@/components/PageHeading';
-import UserProfile from '@/components/UserProfile';
+import GroupForm from '@/components/GroupForm';
 
-const page = () => {
+type Props = {};
+const page = (props: Props) => {
   const searchParams = useSearchParams();
   const groupId = searchParams.get('groupId');
 
   return (
-    <div>
-      <PageHeading back={`/dashboard/groups/${groupId}`}>John Doe</PageHeading>
-      <UserProfile />
-    </div>
+    <>
+      <PageHeading back={`/dashboard/groups/${groupId}`}>Edit group</PageHeading>
+      <GroupForm />
+    </>
   );
 };
 export default page;

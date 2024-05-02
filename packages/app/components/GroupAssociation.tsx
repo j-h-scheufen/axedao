@@ -20,7 +20,7 @@ const GroupAssociation = () => {
           }
         />
       ) : (
-        <GroupCard change={() => setEditing(true)} />
+        <GroupCard className="max-w-72" change={() => setEditing(true)} />
       )}
     </div>
   );

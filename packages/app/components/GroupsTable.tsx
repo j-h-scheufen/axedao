@@ -1,5 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
+import { User } from '@nextui-org/user';
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from '@nextui-org/table';
 import { Avatar } from '@nextui-org/avatar';
 import { Link } from '@nextui-org/link';
@@ -22,10 +23,8 @@ const GroupsTable = () => {
       }}
     >
       <TableHeader>
-        <TableColumn>Name</TableColumn>
-        <TableColumn>Leader</TableColumn>
-        <TableColumn>Email</TableColumn>
-        <TableColumn>Phone</TableColumn>
+        <TableColumn>Group</TableColumn>
+        <TableColumn>Founder</TableColumn>
       </TableHeader>
       <TableBody>
         {groups.map((group) => {
@@ -33,20 +32,18 @@ const GroupsTable = () => {
           return (
             <TableRow key={id} className="cursor-pointer" onClick={() => goToGroup(id)}>
               <TableCell>
-                <span className="flex items-center gap-2">
-                  <Avatar src={logo} size="sm" /> <span>{name}</span>
-                </span>
+                <User avatarProps={{ src: logo }} description="75 members" name={name}>
+                  {name}
+                </User>
               </TableCell>
-              <TableCell>John Doe</TableCell>
-              <TableCell>
-                <Link showAnchorIcon href={`mailto:${email}`} onClick={(e) => e.preventDefault()}>
-                  {email}
-                </Link>
-              </TableCell>
-              <TableCell>
-                <Link showAnchorIcon href={`tel:${email}`} onClick={(e) => e.preventDefault()}>
-                  +606 772 038 739
-                </Link>
+              <TableCell className="text-small">
+                <User
+                  avatarProps={{ src: 'http://dummyimage.com/100x100.png/555/ffffff' }}
+                  description="johndoe@email.com"
+                  name="John Doe"
+                >
+                  John Doe
+                </User>
               </TableCell>
             </TableRow>
           );

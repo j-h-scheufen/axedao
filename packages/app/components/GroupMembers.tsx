@@ -461,6 +461,7 @@ export default function App() {
             key={column.uid}
             align={column.uid === 'actions' ? 'center' : 'start'}
             allowsSorting={column.sortable}
+            className="last:text-right"
           >
             {column.name}
           </TableColumn>

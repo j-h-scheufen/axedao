@@ -3,7 +3,7 @@ import { Facebook, Instagram, Mail, Phone, Twitter } from 'lucide-react';
 
 const LinkInputs = () => {
   return (
-    <div className="grid h-fit w-full max-w-lg grid-cols-2 gap-x-4 gap-y-2 text-small text-default-500">
+    <div className="grid h-fit w-full grid-cols-1 gap-x-4 gap-y-2 text-small text-default-500 sm:grid-cols-2">
       <Input
         type="url"
         label="Website"

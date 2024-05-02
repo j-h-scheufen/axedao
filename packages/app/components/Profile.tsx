@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const Profile = () => {
   return (
-    <div className="flex items-center gap-5">
+    <div className="flex flex-col items-center gap-5 sm:flex-row">
       <Avatar
         showFallback
         src="https://images.unsplash.com/broken"
@@ -14,12 +14,12 @@ const Profile = () => {
         className="aspect-square h-full max-h-32 w-full max-w-32"
       />
       <div className="flex flex-1 flex-col gap-3">
-        <div className="flex gap-10">
-          <div>
-            <h2 className="text-lg font-medium">John Doe</h2>
+        <div className="xs:flex-row flex flex-col items-center justify-center gap-10">
+          <div className="xs:text-left text-center">
+            <h3 className="text-lg font-medium">John Doe</h3>
             <div className="text-small text-default-500">Mestre</div>
           </div>
-          <div className="mb-auto ml-auto">
+          <div className="xs:mb-auto xs:ml-auto">
             <Button
               as={Link}
               href="/dashboard/profile/edit"
@@ -31,7 +31,7 @@ const Profile = () => {
             </Button>
           </div>
         </div>
-        <Links />
+        <Links className="mt-3" />
       </div>
     </div>
   );
