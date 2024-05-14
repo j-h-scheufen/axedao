@@ -14,8 +14,8 @@ import {
   fallbackLng,
   isSupportedLanguage,
 } from '../i18n/settings';
-import { PageContainer } from '@/components/primitives';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 // NEXTJS provides these params to pages (layouts do NOT receive searchParams!), but no official interface exists, yet.
 // https://github.com/vercel/next.js/discussions/46131
@@ -75,15 +75,14 @@ export default function RootLayout({
         >
           <div className="relative flex h-screen flex-col">
             <Navbar />
-            <main className="container mx-auto max-w-6xl flex-grow px-2 sm:px-3">
+            <main className="container mx-auto max-w-6xl flex-grow">
               <Suspense fallback={<Spinner size="lg" />}>
-                <PageContainer>{children}</PageContainer>
+                <div className="flex flex-col items-center justify-center">
+                  {children}
+                </div>
               </Suspense>
             </main>
-            <footer className="flex w-full items-center justify-center py-2 sm:py-3">
-              <span className="text-default-600">Powered by </span>
-              <span className="text-primary">AXÉ DAO</span>
-            </footer>
+            <Footer />
           </div>
         </Providers>
         <Analytics />
