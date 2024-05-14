@@ -13,6 +13,7 @@ type ConfigType = {
   axeSwapTokenAddress: Address;
   uniswapV2PairAddress: Address;
   uniswapV2RouterAddress: Address;
+  databaseUrl: string;
 };
 
 const envMode = process.env.NEXT_PUBLIC_APP_ENV?.toLowerCase();
@@ -60,6 +61,7 @@ const ENV: ConfigType = {
     process.env.NEXT_PUBLIC_UNISWAPV2ROUTER_ADDRESS,
     'NEXT_PUBLIC_UNISWAPV2ROUTER_ADDRESS',
   ) as Address,
+  databaseUrl: required(process.env.NEXT_PUBLIC_DATABASE_URL, 'NEXT_PUBLIC_DATABASE_URL'),
 };
 
 function required(value: string | undefined, name: string): string {
