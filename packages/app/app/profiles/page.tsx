@@ -1,4 +1,4 @@
-import { fetchUsers } from '@/db/db';
+import { fetchUsers } from '@/db';
 
 export default async function UsersPage() {
   const users = await fetchUsers();

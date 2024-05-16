@@ -6,7 +6,12 @@ import ENV from '@/config/environment';
 import * as schema from '@/db/schema';
 import { GroupProfile, UserProfile } from '../types/model';
 
-// TODO: error handling and validity conditions (e.g. to make sure a group admin cannot remove themselves) are missing!
+/**
+ * NOTE: All DB functions in this file can only be run server-side. If you need to retrieve DB data from a client
+ * component, use the api/ route handlers which wrap the DB calls.
+ */
+
+// TODO: error handling and safety checks (e.g. to make sure a group admin cannot remove themselves) are missing!
 
 // Disable prefetch as it is not supported for "Transaction" pool mode
 export const client = postgres(ENV.databaseUrl, { prepare: false });
