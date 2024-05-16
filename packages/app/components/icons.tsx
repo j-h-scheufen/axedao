@@ -1,5 +1,7 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
 import { IconSvgProps } from '@/types';
+import { LayoutPanelTop, LucideIcon, LucideProps } from 'lucide-react';
+import { cn } from '@/utils/tailwind';
 
 export const Logo: React.FC<IconSvgProps> = ({ size = 36, width, height, ...props }) => (
   <svg fill="none" height={size || height} viewBox="0 0 32 32" width={size || width} {...props}>
@@ -143,3 +145,7 @@ export const NextUILogo: React.FC<IconSvgProps> = (props) => {
     </svg>
   );
 };
+
+export const OverviewLayout: LucideIcon = forwardRef(({ className, ...props }, ref) => {
+  return <LayoutPanelTop ref={ref} {...props} className={cn(className, 'rotate-180')} />;
+});

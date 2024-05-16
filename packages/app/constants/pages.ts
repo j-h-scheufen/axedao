@@ -1,19 +1,18 @@
-import { LucideIcon } from 'lucide-react';
+import { LucideIcon, User } from 'lucide-react';
+import { OverviewLayout } from '@/components/icons';
 
-const pages: { href: string; name: string; icon?: LucideIcon }[] = [
+export type PageType = { href: string; name: string; icon?: LucideIcon };
+const pages: PageType[] = [
   {
     href: '/dashboard/profile',
     name: 'Profile',
+    icon: User,
   },
   {
     href: '/dashboard/overview',
     name: 'Overview',
+    icon: OverviewLayout,
   },
-  // {
-  //   href: '/dashboard/groups',
-  //   name: 'Groups',
-  //   icon: Users,
-  // },
 ];
 
 export default pages;

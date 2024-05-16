@@ -18,7 +18,7 @@ const BottomBar = () => {
   if (isLargeScreen) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 z-20 block h-12 w-full bg-black px-5 md:hidden">
+    <div className="fixed bottom-0 left-0 z-20 block h-12 w-full bg-background px-5 md:hidden">
       <Tabs
         size="sm"
         variant="underlined"

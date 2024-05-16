@@ -24,7 +24,7 @@ const PageHeading = ({ children, className = '', back, ...props }: Props) => {
     );
   } else if (back === true && typeof window !== 'undefined' && window?.history && window.history.length > 1) {
     backButton = (
-      <Button variant="light" isIconOnly onPress={() => router.back()}>
+      <Button variant="light" isIconOnly onPress={() => router.back()} className="p-0">
         <ArrowLeft className="h-5 w-5" />
       </Button>
     );

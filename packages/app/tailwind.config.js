@@ -37,6 +37,8 @@ module.exports = withTV({
       themes: {
         dark: { colors: { primary: '#CCD5AEff', secondary: '#D4A373ff' } },
         light: { colors: { primary: '#E9EDC9ff', secondary: '#FAEDCDff' } },
+        // dark: { colors: { primary: '#c485fb', secondary: '#e8e340' } },
+        // light: { colors: { primary: '#9a40e8', secondary: '#e8e340' } },
       },
     }),
   ],
