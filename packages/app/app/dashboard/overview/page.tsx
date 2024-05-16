@@ -1,11 +1,11 @@
-import Admin from '@/components/Admin';
 import PageHeading from '@/components/PageHeading';
+import Overview from '@/components/Overview';
 
 const page = () => {
   return (
     <div>
-      <PageHeading>Admin</PageHeading>
-      <Admin />
+      <PageHeading>Overview</PageHeading>
+      <Overview />
     </div>
   );
 };

@@ -19,7 +19,7 @@ const page = ({ params: { groupId = '' } }: Props) => {
 
   return (
     <div className="relative">
-      <PageHeading back="/dashboard/groups">Group name</PageHeading>
+      <PageHeading back="/dashboard/overview?tab=groups">Group name</PageHeading>
       <GroupBanner />
       <GroupDetails description={description} links={links} logo={logo} />
       <SectionHeading>Members</SectionHeading>

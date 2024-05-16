@@ -7,8 +7,8 @@ const useScreenSize = () => {
     width: number;
     height: number;
   }>({
-    width: window?.innerWidth || 390,
-    height: window?.innerHeight || 844,
+    width: typeof window !== 'undefined' ? window.innerWidth : 390,
+    height: typeof window !== 'undefined' ? window.innerHeight : 844,
   });
 
   useEffect(() => {
@@ -19,6 +19,7 @@ const useScreenSize = () => {
       });
     };
 
+    handleResize();
     window.addEventListener('resize', handleResize);
 
     return () => {

@@ -1,21 +1,19 @@
-import { User, Users, Shield } from 'lucide-react';
+import { LucideIcon } from 'lucide-react';
 
-const pages = [
+const pages: { href: string; name: string; icon?: LucideIcon }[] = [
   {
     href: '/dashboard/profile',
     name: 'Profile',
-    icon: User,
   },
   {
-    href: '/dashboard/groups',
-    name: 'Groups',
-    icon: Users,
+    href: '/dashboard/overview',
+    name: 'Overview',
   },
-  {
-    href: '/dashboard/admin',
-    name: 'Admin',
-    icon: Shield,
-  },
+  // {
+  //   href: '/dashboard/groups',
+  //   name: 'Groups',
+  //   icon: Users,
+  // },
 ];
 
 export default pages;

@@ -23,6 +23,7 @@ import {
 } from '@nextui-org/react'; // use individual imports
 import { EllipsisVertical, Search } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { Link } from '@nextui-org/link';
 
 const columns = [
   { name: 'ID', uid: 'id', sortable: true },
@@ -317,8 +318,8 @@ export default function App() {
               avatarProps={{ src: user.avatar }}
               description={user.email}
               name={cellValue}
-              onClick={() => router.push('/dashboard/groups/1/users/1')}
-              className="cursor-pointer"
+              as={Link}
+              href="/dashboard/overview/users/1"
             >
               {user.email}
             </User>

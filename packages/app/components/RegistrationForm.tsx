@@ -22,7 +22,7 @@ const RegistrationForm = () => {
               <ArrowLeft className="h-5 w-5 text-default-500" />
             </Button>
           }
-          onSubmit={() => router.push('/dashboard/profile')}
+          // onSubmit={() => router.push('/dashboard/profile')}
         />
       )}
       <div className="mt-5 flex justify-center gap-2">

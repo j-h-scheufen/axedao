@@ -36,7 +36,7 @@ const GroupCard = ({ change, className = '' }: Props) => {
             Change
           </Button>
         )}
-        <Button as={Link} href="/dashboard/groups/1" variant="bordered" size="sm" className="ml-auto w-fit">
+        <Button as={Link} href="/dashboard/overview/groups/1" variant="bordered" size="sm" className="ml-auto w-fit">
           View group
         </Button>
       </CardFooter>
