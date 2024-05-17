@@ -7,8 +7,8 @@ import { Tabs, Tab } from '@nextui-org/tabs';
 import useScreenSize from '@/hooks/useScreenSize';
 import { cn } from '@/utils/tailwind';
 
-type LinksListProps = { pages: PageType[]; selectedPage?: string };
-const Links = ({ pages, selectedPage }: LinksListProps) => {
+type SidebarListProps = { pages: PageType[]; selectedPage?: string };
+const SidebarList = ({ pages, selectedPage }: SidebarListProps) => {
   const router = useRouter();
   return (
     <Tabs
@@ -73,7 +73,7 @@ const Sidebar = () => {
 
   return (
     <div className={cn('fixed left-0 top-0 h-screen w-56 p-6 pb-6 pt-16 md:flex md:flex-col', { hidden })}>
-      <Links pages={pages} selectedPage={selectedPage} />
+      <SidebarList pages={pages} selectedPage={selectedPage} />
     </div>
   );
 };

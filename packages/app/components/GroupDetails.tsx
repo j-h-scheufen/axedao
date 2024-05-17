@@ -1,21 +1,27 @@
 import { Avatar } from '@nextui-org/avatar';
-import { Camera } from 'lucide-react';
+import { Camera, Mail, Phone } from 'lucide-react';
 import Links from './Links';
 
 type Props = { description?: string; logo?: string; links?: string[] };
 const GroupDetails = ({ description }: Props) => {
   return (
     <>
-      <div className="xs:flex xs:gap-5 mt-5">
+      <div className="mt-5 xs:flex xs:gap-5">
         <Avatar
           showFallback
           src="https://images.unsplash.com/broken"
           fallback={<Camera className="h-8 w-8 animate-pulse text-default-500" strokeWidth={1} size={20} />}
-          className="xs:mx-0 xs:mb-0 xs:inline-block mx-auto mb-5 block aspect-square h-full max-h-20 w-full max-w-20"
+          className="mx-auto mb-5 block aspect-square h-full max-h-20 w-full max-w-20 xs:mx-0 xs:mb-0 xs:inline-block"
         />
+        <div className="mx-auto flex items-center gap-1 xs:mx-0">
+          <Mail className="h-4 w-4" strokeWidth={1.4} /> example@example.com
+        </div>
+        <div className="mx-auto flex items-center gap-1 xs:mx-0">
+          <Phone className="h-4 w-4" strokeWidth={1.4} /> +XXX XXX XXX
+        </div>
         <Links />
       </div>
-      <p className="xs:text-left mt-5 text-center text-small">{description}</p>
+      <p className="mt-5 text-center text-small xs:text-left">{description}</p>
     </>
   );
 };

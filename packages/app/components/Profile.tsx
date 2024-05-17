@@ -1,6 +1,6 @@
 import { Avatar } from '@nextui-org/react';
 import { Button } from '@nextui-org/button';
-import { Camera, Edit } from 'lucide-react';
+import { Camera, Edit, Mail, Phone } from 'lucide-react';
 import Links from './Links';
 import Link from 'next/link';
 
@@ -14,8 +14,8 @@ const Profile = () => {
         className="aspect-square h-full max-h-32 w-full max-w-32"
       />
       <div className="flex flex-1 flex-col gap-3">
-        <div className="xs:flex-row flex flex-col items-center justify-center gap-10">
-          <div className="xs:text-left text-center">
+        <div className="flex flex-col items-center justify-center gap-10 xs:flex-row">
+          <div className="text-center xs:text-left">
             <h3 className="text-lg font-medium">John Doe</h3>
             <div className="text-small text-default-500">Mestre</div>
           </div>
@@ -30,6 +30,12 @@ const Profile = () => {
               Edit profile
             </Button>
           </div>
+        </div>
+        <div className="mx-auto flex items-center gap-1 xs:mx-0">
+          <Mail className="h-4 w-4" strokeWidth={1.4} /> example@example.com
+        </div>
+        <div className="mx-auto flex items-center gap-1 xs:mx-0">
+          <Phone className="h-4 w-4" strokeWidth={1.4} /> +XXX XXX XXX
         </div>
         <Links className="mt-3" />
       </div>
