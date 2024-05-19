@@ -1,5 +1,5 @@
 import { Input } from '@nextui-org/input';
-import { Facebook, Instagram, Twitter } from 'lucide-react';
+import { Facebook, Instagram, Mail, Phone, Twitter } from 'lucide-react';
 import { ReactNode } from 'react';
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
 
@@ -23,43 +23,69 @@ const links: {
     linkType: 'instagram',
     startContent: <Instagram className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />,
     label: 'Instagram',
-    placeholder: 'profile url',
+    placeholder: 'Instagram username',
   },
   {
     linkType: 'facebook',
     startContent: <Facebook className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />,
     label: 'Facebook',
-    placeholder: 'profile url',
+    placeholder: 'Facebook username',
   },
   {
     linkType: 'twitter',
     startContent: <Twitter className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />,
-    label: 'Instagram',
-    placeholder: 'profile url',
+    label: 'Twitter',
+    placeholder: 'Twitter username',
   },
 ];
 
-type LinksType = { links: { website: string; instagram: string; facebook: string; twitter: string } };
-type Props = {
-  register: UseFormRegister<LinksType>;
-  errors: FieldErrors<LinksType>;
+type Fields = {
+  email: string;
+  phone: string;
+  links: { website: string; instagram: string; facebook: string; twitter: string };
 };
-const LinkInputs = ({ register, errors }: Props) => {
+type Props = {
+  register: UseFormRegister<Fields>;
+  errors: FieldErrors<Fields>;
+};
+const ContactInfoInputs = ({ register, errors }: Props) => {
   return (
-    <div className="grid h-fit w-full grid-cols-1 gap-x-4 gap-y-2 text-small text-default-500 sm:grid-cols-2">
-      {links.map(({ linkType, startContent, label, placeholder }) => {
+    <div className="grid h-fit w-full grid-cols-1 gap-x-3 gap-y-3 text-small text-default-500 sm:grid-cols-2">
+      <Input
+        {...register('email')}
+        size="sm"
+        classNames={{ inputWrapper: 'h-10' }}
+        isInvalid={!!errors?.email}
+        color={errors?.email ? 'danger' : undefined}
+        type="email"
+        placeholder="you@example.com"
+        startContent={<Mail className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />}
+        errorMessage={errors?.email?.message}
+      />
+      <Input
+        {...register('phone')}
+        size="sm"
+        classNames={{ inputWrapper: 'h-10' }}
+        isInvalid={!!errors?.phone}
+        color={errors?.phone ? 'danger' : undefined}
+        type="phone"
+        placeholder="+XXXX XXX XXXX"
+        startContent={<Phone className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />}
+        errorMessage={errors?.phone?.message}
+      />
+      {links.map(({ linkType, startContent, placeholder }) => {
         const name = `links.${linkType}` as any;
         const isInvalid = errors?.links ? !!(errors as any).links[linkType] : false;
         return (
           <Input
             key={linkType}
             {...register(name)}
+            size="sm"
+            classNames={{ inputWrapper: 'h-10' }}
             isInvalid={isInvalid}
             color={isInvalid ? 'danger' : undefined}
             type="url"
-            label={label}
             placeholder={placeholder}
-            labelPlacement="outside"
             startContent={startContent}
             errorMessage={errors?.links && (errors.links as any)[linkType].message}
           />
@@ -68,4 +94,4 @@ const LinkInputs = ({ register, errors }: Props) => {
     </div>
   );
 };
-export default LinkInputs;
+export default ContactInfoInputs;

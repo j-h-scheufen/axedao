@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import GroupCard from './GroupCard';
-import JoinGroup from './JoinGroup';
+import CreateGroupAssociation from './CreateGroupAssociation';
 import { Button } from '@nextui-org/button';
 
 const GroupAssociation = () => {
@@ -11,7 +11,7 @@ const GroupAssociation = () => {
   return (
     <div>
       {editing ? (
-        <JoinGroup
+        <CreateGroupAssociation
           onSubmit={() => setEditing(false)}
           secondaryButton={
             <Button variant="bordered" onClick={() => setEditing(false)}>

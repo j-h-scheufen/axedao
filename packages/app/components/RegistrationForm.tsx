@@ -1,15 +1,11 @@
 'use client';
 
-import { MutationFunction, useMutation } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@nextui-org/button';
 import { Input } from '@nextui-org/input';
-import { ArrowLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-import JoinGroup from './JoinGroup';
-import clsx from 'clsx';
 import axios from 'axios';
 import { RegistrationFormType, registrationFormSchema } from '@/constants/schemas';
 import { Spinner } from '@nextui-org/react';

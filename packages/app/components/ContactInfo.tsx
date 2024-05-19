@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import { Facebook, Globe, Instagram, Twitter } from 'lucide-react';
+import { Facebook, Globe, Instagram, Mail, Phone, Twitter } from 'lucide-react';
 
 type Props = { className?: string };
-const Links = ({ className = '' }: Props) => {
+const ContactInfo = ({ className = '' }: Props) => {
   return (
     <div
       className={clsx(
@@ -12,6 +12,12 @@ const Links = ({ className = '' }: Props) => {
     >
       <div className="mx-auto flex items-center gap-1 xs:mx-0">
         <Globe className="h-4 w-4" strokeWidth={1.4} /> www.johndoe.com
+      </div>
+      <div className="mx-auto flex items-center gap-1 xs:mx-0">
+        <Mail className="h-4 w-4" strokeWidth={1.4} /> example@example.com
+      </div>
+      <div className="mx-auto flex items-center gap-1 xs:mx-0">
+        <Phone className="h-4 w-4" strokeWidth={1.4} /> +XXX XXX XXX
       </div>
       <div className="mx-auto flex items-center gap-1 xs:mx-0">
         <Instagram className="h-4 w-4" strokeWidth={1.4} /> RealJohnDoe
@@ -25,4 +31,4 @@ const Links = ({ className = '' }: Props) => {
     </div>
   );
 };
-export default Links;
+export default ContactInfo;

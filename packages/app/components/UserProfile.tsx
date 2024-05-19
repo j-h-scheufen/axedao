@@ -1,6 +1,6 @@
 import { Avatar } from '@nextui-org/avatar';
-import { Camera, Mail, Phone } from 'lucide-react';
-import Links from './Links';
+import { Camera } from 'lucide-react';
+import ContactInfo from './ContactInfo';
 
 const UserProfile = () => {
   return (
@@ -18,13 +18,7 @@ const UserProfile = () => {
             <div className="text-small text-default-500">Contra Mestre</div>
           </div>
         </div>
-        <div className="mx-auto flex items-center gap-1 xs:mx-0">
-          <Mail className="h-4 w-4" strokeWidth={1.4} /> example@example.com
-        </div>
-        <div className="mx-auto flex items-center gap-1 xs:mx-0">
-          <Phone className="h-4 w-4" strokeWidth={1.4} /> +XXX XXX XXX
-        </div>
-        <Links />
+        <ContactInfo />
       </div>
     </div>
   );

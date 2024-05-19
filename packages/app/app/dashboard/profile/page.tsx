@@ -8,7 +8,7 @@ const page = () => {
     <>
       <PageHeading>Profile</PageHeading>
       <Profile />
-      <SectionHeading>Group</SectionHeading>
+      <SectionHeading>Group association</SectionHeading>
       <GroupAssociation />
     </>
   );

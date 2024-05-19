@@ -1,7 +1,7 @@
 import { Avatar } from '@nextui-org/react';
 import { Button } from '@nextui-org/button';
-import { Camera, Edit, Mail, Phone } from 'lucide-react';
-import Links from './Links';
+import { Camera, Edit } from 'lucide-react';
+import ContactInfo from './ContactInfo';
 import Link from 'next/link';
 
 const Profile = () => {
@@ -31,13 +31,7 @@ const Profile = () => {
             </Button>
           </div>
         </div>
-        <div className="mx-auto flex items-center gap-1 xs:mx-0">
-          <Mail className="h-4 w-4" strokeWidth={1.4} /> example@example.com
-        </div>
-        <div className="mx-auto flex items-center gap-1 xs:mx-0">
-          <Phone className="h-4 w-4" strokeWidth={1.4} /> +XXX XXX XXX
-        </div>
-        <Links className="mt-3" />
+        <ContactInfo className="mt-3" />
       </div>
     </div>
   );
