@@ -3,12 +3,14 @@
 import ContactInfoInputs from './ContactInfoInputs';
 import SubsectionHeading from './SubsectionHeading';
 import { Button } from '@nextui-org/button';
-import { Controller, FieldErrors, UseFormRegister, useForm } from 'react-hook-form';
+import { Controller, FieldErrors, UseFormRegister, useForm, useFieldArray } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { groupSchema } from '@/constants/schemas';
 import ImageUpload from './ImageUpload';
 import { Input, Textarea } from '@nextui-org/input';
 import SelectUser from './SelectUser';
+import UserCard from './UserCard';
+import SelectMultipleUsers from './SelectMultipleUsers';
 
 const GroupForm = () => {
   const {
@@ -18,6 +20,11 @@ const GroupForm = () => {
     watch,
     formState: { errors },
   } = useForm({ resolver: yupResolver(groupSchema) });
+
+  const adminsField = useFieldArray({
+    control,
+    name: 'admins',
+  });
 
   const description = watch('description') || '';
   const descriptionCharsLeft = 200 - description.length;
@@ -89,22 +96,69 @@ const GroupForm = () => {
         isInvalid={!!errors.description}
         errorMessage={errors.description?.message}
       />
+      <div className="mb-5 max-w-xs">
+        <label className="mb-2 inline-block text-sm">Founder</label>
+        <UserCard />
+      </div>
       <Controller
         control={control}
         name="leader"
         render={({ field: { value, onChange, onBlur, ref }, fieldState: { error } }) => {
-          console.log(value);
           return (
             <SelectUser
               ref={ref}
+              label="Leader"
+              placeholder="Search group members"
               userId={value?.id}
-              onChange={(userId: string) => onChange({ id: userId })}
+              onChange={(adminId: string) => onChange({ id: adminId })}
               onBlur={onBlur}
               errorMessage={error?.message}
+              className="mb-5"
             />
           );
         }}
       />
+      <div className="mb-5">
+        <label className="mb-2 inline-block text-sm">Admins</label>
+        <Controller
+          control={control}
+          name="admins"
+          render={({ field: { onBlur, ref, name, value }, fieldState: { error } }) => {
+            return (
+              <SelectMultipleUsers
+                ref={ref}
+                control={control}
+                name={name}
+                placeholder="Search group members"
+                errorMessage={error?.message}
+                onBlur={onBlur}
+                selectedUsers={value}
+                fields={adminsField.fields}
+                onChange={(adminId) => {
+                  if (!adminId) return;
+                  // const selected = !!value?.length && value.find((admin) => admin.id === adminId.toString());
+                  let selected, selectedIndex;
+                  if (value?.length) {
+                    for (let i = 0; i < value.length; i++) {
+                      const admin = value[i];
+                      if (admin.id === adminId.toString()) {
+                        selected = true;
+                        selectedIndex = i;
+                      }
+                    }
+                  }
+                  if (selected) {
+                    adminsField.remove(selectedIndex);
+                  } else {
+                    adminsField.append({ id: adminId });
+                  }
+                }}
+                onRemove={adminsField.remove}
+              />
+            );
+          }}
+        />
+      </div>
       <SubsectionHeading>Links</SubsectionHeading>
       <ContactInfoInputs register={register as UseFormRegister<any>} errors={errors as FieldErrors<any>} />
       <Button type="submit" className="mt-8 flex w-full items-center">
