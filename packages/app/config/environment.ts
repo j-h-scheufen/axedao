@@ -61,7 +61,7 @@ const ENV: ConfigType = {
     process.env.NEXT_PUBLIC_UNISWAPV2ROUTER_ADDRESS,
     'NEXT_PUBLIC_UNISWAPV2ROUTER_ADDRESS',
   ) as Address,
-  databaseUrl: required(process.env.NEXT_PUBLIC_DATABASE_URL, 'NEXT_PUBLIC_DATABASE_URL'),
+  databaseUrl: required(process.env.DATABASE_URL, 'DATABASE_URL'),
 };
 
 function required(value: string | undefined, name: string): string {
