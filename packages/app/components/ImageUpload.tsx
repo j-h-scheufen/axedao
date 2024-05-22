@@ -15,7 +15,7 @@ type Props = {
   avatarProps?: Omit<AvatarProps, 'onClick' | 'onBlur' | 'ref'>;
 };
 const ImageUpload = (
-  { value, onChange, onBlur = (e) => null, isInvalid, errorMessage, hideButton = false, avatarProps = {} }: Props,
+  { value, onChange, onBlur = () => null, isInvalid, errorMessage, hideButton = false, avatarProps = {} }: Props,
   ref: ForwardedRef<any>,
 ) => {
   const [imagePreview, setImagePreview] = useState<string>('https://images.unsplash.com/broken');

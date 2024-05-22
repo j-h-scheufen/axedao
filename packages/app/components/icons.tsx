@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { IconSvgProps } from '@/types';
-import { LayoutPanelTop, LucideIcon, LucideProps } from 'lucide-react';
+import { LayoutPanelTop, LucideIcon } from 'lucide-react';
 import { cn } from '@/utils/tailwind';
 
 export const Logo: React.FC<IconSvgProps> = ({ size = 36, width, height, ...props }) => (

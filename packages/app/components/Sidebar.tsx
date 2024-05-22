@@ -67,7 +67,7 @@ const Sidebar = () => {
     const currentPage = pathname.split('/').slice(0, 3).join('/');
     if (selectedPage === currentPage || isSmallScreen) return;
     router.push(selectedPage);
-  }, [pathname, selectedPage, isSmallScreen, width]);
+  }, [pathname, selectedPage, isSmallScreen, width, router]);
 
   if (hidden) return null;
 

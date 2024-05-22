@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 import { Link } from '@nextui-org/link';
-import { CardProps } from '@nextui-org/card';
 import UserCard, { UserCardProps } from './UserCard';
 import { cn } from '@/utils/tailwind';
 

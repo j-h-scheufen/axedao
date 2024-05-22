@@ -57,7 +57,7 @@ const SelectMultipleUsers = (
               key={index}
               control={control}
               name={`${name}.${index}`}
-              render={({ field: { value, ref } }) => {
+              render={({ field: { ref } }) => {
                 return (
                   <UserCard
                     ref={ref}

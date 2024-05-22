@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { Tabs, Tab } from '@nextui-org/tabs';
 import pages from '@/constants/pages';

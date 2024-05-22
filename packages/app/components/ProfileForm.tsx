@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { Input } from '@nextui-org/input';
 import { Select, SelectItem } from '@nextui-org/select';
 import ContactInfoInputs from './ContactInfoInputs';
@@ -26,7 +25,6 @@ const ProfileForm = ({ create = false }: Props) => {
     register,
     control,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(profileSchema),
