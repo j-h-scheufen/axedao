@@ -45,7 +45,7 @@ const ConfirmationForm = () => {
         label="OTP"
         placeholder="Enter your OTP"
         className="w-full"
-        classNames={{ inputWrapper: 'min-h-14', errorMessage: 'text-left' }}
+        classNames={{ inputWrapper: '!min-h-14', errorMessage: 'text-left' }}
         color={isInvalid ? 'danger' : undefined}
         isInvalid={isInvalid}
         errorMessage={errors.otp?.message}

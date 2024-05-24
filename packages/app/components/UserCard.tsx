@@ -4,7 +4,10 @@ import { Card, CardBody, CardProps } from '@nextui-org/card';
 import { Avatar, AvatarProps } from '@nextui-org/react';
 
 export type UserCardProps = CardProps & { endContent?: ReactNode | null; avatarProps?: AvatarProps };
-const UserCard = ({ endContent = null, avatarProps, ...props }: UserCardProps, ref: ForwardedRef<HTMLDivElement>) => {
+const UserCard = (
+  { endContent = null, avatarProps, ...props }: UserCardProps,
+  ref: ForwardedRef<HTMLDivElement | null>,
+) => {
   return (
     <Card ref={ref} {...props}>
       <CardBody className="justify-between">

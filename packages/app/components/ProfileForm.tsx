@@ -64,7 +64,9 @@ const ProfileForm = ({ create = false }: Props) => {
                 label="Title"
                 placeholder="Select title"
                 defaultSelectedKeys={value ? [value] : undefined}
-                onSelectionChange={(value) => value && onChange((value as any)?.anchorKey)}
+                onChange={(e) => {
+                  onChange && onChange(e.target.value);
+                }}
                 onBlur={onBlur}
                 isInvalid={isInvalid}
                 color={isInvalid ? 'danger' : undefined}
@@ -97,7 +99,10 @@ const ProfileForm = ({ create = false }: Props) => {
         />
       </div>
       <SubsectionHeading>Links</SubsectionHeading>
-      <ContactInfoInputs register={register as UseFormRegister<any>} errors={errors as FieldErrors<any>} />
+      <ContactInfoInputs
+        register={register as UseFormRegister<ProfileType>}
+        errors={errors as FieldErrors<ProfileType>}
+      />
       <Button
         type="submit"
         isLoading={mutation.isPending}

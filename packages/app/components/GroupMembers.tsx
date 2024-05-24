@@ -22,7 +22,6 @@ import {
   SortDescriptor,
 } from '@nextui-org/react'; // use individual imports
 import { EllipsisVertical, Search } from 'lucide-react';
-import { useRouter } from 'next/navigation';
 import { Link } from '@nextui-org/link';
 
 const columns = [
@@ -264,8 +263,6 @@ export default function App() {
   });
 
   const [page, setPage] = React.useState(1);
-
-  const router = useRouter();
 
   const hasSearchFilter = Boolean(filterValue);
 

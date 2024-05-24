@@ -10,7 +10,7 @@ const UsersGrid = ({ users, emptyContent, className = '', userCardProps = {} }: 
       {users?.length ? (
         users.map((_, i) => (
           <Link key={i} href="/dashboard/overview/users/1" className="inline-block">
-            <UserCard {...(userCardProps as any)} />
+            <UserCard {...(userCardProps as UserCardProps)} />
           </Link>
         ))
       ) : (
