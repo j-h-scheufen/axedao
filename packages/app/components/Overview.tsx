@@ -5,8 +5,7 @@ import Users from './Users';
 import Groups from './Groups';
 import useUpdateSearchParams from '@/hooks/useUpdateSearchParams';
 
-type Props = {};
-const Overview = (props: Props) => {
+const Overview = () => {
   const searchParams = useSearchParams();
   const updateSearchParams = useUpdateSearchParams(searchParams);
   const tab = searchParams.get('tab');

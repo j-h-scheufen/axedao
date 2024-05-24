@@ -3,6 +3,26 @@ import { Facebook, Instagram, Mail, Phone, Twitter } from 'lucide-react';
 import { ReactNode } from 'react';
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
 
+type ContactInfoFieldKeyType =
+  | 'email'
+  | 'phone'
+  | 'links'
+  | 'links.website'
+  | 'links.instagram'
+  | 'links.twitter'
+  | 'links.facebook';
+
+export type ContactInfoField = {
+  email: string;
+  phone: string;
+  links: {
+    website?: string | undefined;
+    instagram?: string | undefined;
+    facebook?: string | undefined;
+    twitter?: string | undefined;
+  };
+};
+
 const links: {
   linkType: 'website' | 'instagram' | 'twitter' | 'facebook';
   startContent: ReactNode;
@@ -39,14 +59,9 @@ const links: {
   },
 ];
 
-type Fields = {
-  email: string;
-  phone: string;
-  links: { website: string; instagram: string; facebook: string; twitter: string };
-};
 type Props = {
-  register: UseFormRegister<Fields>;
-  errors: FieldErrors<Fields>;
+  register: UseFormRegister<ContactInfoField & { [key: string]: unknown }>;
+  errors: FieldErrors<ContactInfoField & { [key: string]: unknown }>;
 };
 const ContactInfoInputs = ({ register, errors }: Props) => {
   return (
@@ -74,8 +89,8 @@ const ContactInfoInputs = ({ register, errors }: Props) => {
         errorMessage={errors?.phone?.message}
       />
       {links.map(({ linkType, startContent, placeholder }) => {
-        const name = `links.${linkType}` as any;
-        const isInvalid = errors?.links ? !!(errors as any).links[linkType] : false;
+        const name = `links.${linkType}` as ContactInfoFieldKeyType;
+        const isInvalid = errors?.links ? !!errors.links[linkType] : false;
         return (
           <Input
             key={linkType}
@@ -87,7 +102,7 @@ const ContactInfoInputs = ({ register, errors }: Props) => {
             type="url"
             placeholder={placeholder}
             startContent={startContent}
-            errorMessage={errors?.links && (errors.links as any)[linkType].message}
+            errorMessage={errors?.links && errors.links[linkType]?.message}
           />
         );
       })}

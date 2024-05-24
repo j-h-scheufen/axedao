@@ -1,20 +1,10 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import {
-  Breadcrumbs,
-  BreadcrumbItem,
-  Dropdown,
-  DropdownMenu,
-  DropdownItem,
-  DropdownTrigger,
-  Button,
-} from '@nextui-org/react';
-import { ChevronDownIcon } from 'lucide-react';
+import { Breadcrumbs, BreadcrumbItem } from '@nextui-org/react';
 import { useMemo } from 'react';
 
-type Props = {};
-const DashboardBreadcrumb = (props: Props) => {
+const DashboardBreadcrumb = () => {
   const pathname = usePathname();
   const routes = useMemo(() => pathname.replace('/dashboard/', '').split('/'), [pathname]);
   if (routes?.length || routes.length === 1) return null;

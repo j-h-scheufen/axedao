@@ -22,7 +22,6 @@ import {
   SortDescriptor,
 } from '@nextui-org/react'; // use individual imports
 import { EllipsisVertical, Search } from 'lucide-react';
-import { useRouter } from 'next/navigation';
 import { Link } from '@nextui-org/link';
 
 const columns = [
@@ -265,8 +264,6 @@ export default function App() {
 
   const [page, setPage] = React.useState(1);
 
-  const router = useRouter();
-
   const hasSearchFilter = Boolean(filterValue);
 
   const headerColumns = React.useMemo(() => {
@@ -307,58 +304,55 @@ export default function App() {
     });
   }, [sortDescriptor, items]);
 
-  const renderCell = React.useCallback(
-    (user: User, columnKey: React.Key) => {
-      const cellValue = user[columnKey as keyof User];
+  const renderCell = React.useCallback((user: User, columnKey: React.Key) => {
+    const cellValue = user[columnKey as keyof User];
 
-      switch (columnKey) {
-        case 'name':
-          return (
-            <User
-              avatarProps={{ src: user.avatar }}
-              description={user.email}
-              name={cellValue}
-              as={Link}
-              href="/dashboard/overview/users/1"
-            >
-              {user.email}
-            </User>
-          );
-        case 'role':
-          return (
-            <div className="flex flex-col">
-              <p className="text-bold text-small capitalize">{cellValue}</p>
-              {/* <p className="text-bold text-tiny capitalize text-default-400">{user.team}</p> */}
-            </div>
-          );
-        case 'status':
-          return (
-            <Chip className="capitalize" color={statusColorMap[user.status]} size="sm" variant="flat">
-              {cellValue}
-            </Chip>
-          );
-        case 'actions':
-          return (
-            <div className="relative flex items-center justify-end gap-2">
-              <Dropdown>
-                <DropdownTrigger>
-                  <Button isIconOnly size="sm" variant="light">
-                    <EllipsisVertical className="text-default-300" />
-                  </Button>
-                </DropdownTrigger>
-                <DropdownMenu>
-                  <DropdownItem>View</DropdownItem>
-                  <DropdownItem>Delete</DropdownItem>
-                </DropdownMenu>
-              </Dropdown>
-            </div>
-          );
-        default:
-          return cellValue;
-      }
-    },
-    [router],
-  );
+    switch (columnKey) {
+      case 'name':
+        return (
+          <User
+            avatarProps={{ src: user.avatar }}
+            description={user.email}
+            name={cellValue}
+            as={Link}
+            href="/dashboard/overview/users/1"
+          >
+            {user.email}
+          </User>
+        );
+      case 'role':
+        return (
+          <div className="flex flex-col">
+            <p className="text-bold text-small capitalize">{cellValue}</p>
+            {/* <p className="text-bold text-tiny capitalize text-default-400">{user.team}</p> */}
+          </div>
+        );
+      case 'status':
+        return (
+          <Chip className="capitalize" color={statusColorMap[user.status]} size="sm" variant="flat">
+            {cellValue}
+          </Chip>
+        );
+      case 'actions':
+        return (
+          <div className="relative flex items-center justify-end gap-2">
+            <Dropdown>
+              <DropdownTrigger>
+                <Button isIconOnly size="sm" variant="light">
+                  <EllipsisVertical className="text-default-300" />
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu>
+                <DropdownItem>View</DropdownItem>
+                <DropdownItem>Delete</DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          </div>
+        );
+      default:
+        return cellValue;
+    }
+  }, []);
 
   const onNextPage = React.useCallback(() => {
     if (page < pages) {

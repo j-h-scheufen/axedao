@@ -1,21 +1,13 @@
 import { ReactNode } from 'react';
-import { Tabs, Tab } from '@nextui-org/tabs';
-import { Input } from '@nextui-org/input';
 import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
 import { Button } from '@nextui-org/button';
 import { Circle, MapPin, Search } from 'lucide-react';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import {
-  CreateNewGroupFormType,
-  JoinGroupFormType,
-  createNewGroupFormSchema,
-  joinGroupFormSchema,
-} from '@/constants/schemas';
+import { JoinGroupFormType, joinGroupFormSchema } from '@/constants/schemas';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import { Spinner } from '@nextui-org/react';
-import CreateNewGroupForm from './CreateNewGroupForm';
 
 const groups = [...Array(10)].map((_, i) => ({
   name: `Group ${i + 1}`,

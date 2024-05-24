@@ -1,6 +1,6 @@
 'use client';
 
-import { ForwardedRef, Key, forwardRef, useRef } from 'react';
+import { FocusEvent, ForwardedRef, forwardRef, useRef } from 'react';
 import { Autocomplete, AutocompleteItem, User } from '@nextui-org/react';
 import { SearchIcon } from 'lucide-react';
 import UserCard from './UserCard';
@@ -12,19 +12,19 @@ const users = [...Array(10)].map((_, i) => ({ id: i, name: `John Doe ${i}`, nick
 type Props = {
   placeholder?: string;
   label?: string;
-  onChange?: (...event: any[]) => void;
-  onBlur?: (...event: any[]) => void;
+  onChange?: (value: string | undefined) => void;
+  onBlur?: (event: FocusEvent<Element, Element>) => void;
   userId?: string;
   errorMessage?: string;
   className?: string;
 };
 const SelectUser = (
   { placeholder = 'Search users', label, onChange, onBlur, userId, errorMessage, className = '' }: Props,
-  ref: ForwardedRef<any>,
+  ref: ForwardedRef<HTMLDivElement>,
 ) => {
-  const inputRef = useRef<any>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const onSelectionChange = (selectedValue: string) => {
+  const changeHandler = (selectedValue: string | undefined) => {
     onChange && onChange(selectedValue);
   };
 
@@ -33,7 +33,7 @@ const SelectUser = (
       <div className={cn('max-w-xs', className)}>
         {label && <label className="mb-2 block text-sm">{label}</label>}
         <UserCard />
-        <Button size="sm" className="ml-auto mt-3 block w-fit" onPress={() => onChange && onChange(undefined)}>
+        <Button size="sm" className="ml-auto mt-3 block w-fit" onPress={() => changeHandler(undefined)}>
           Change
         </Button>
       </div>
@@ -51,7 +51,9 @@ const SelectUser = (
         className="max-w-xs"
         defaultItems={users}
         listboxProps={{ hideSelectedIcon: true }}
-        onSelectionChange={(selectedValue: Key) => onSelectionChange(selectedValue as string)}
+        onChange={(e) => {
+          changeHandler(e.target.value);
+        }}
         onBlur={onBlur}
         errorMessage={errorMessage}
         isInvalid={!!errorMessage}

@@ -162,7 +162,7 @@ export const groupSchema = object({
       id: string().required(),
     }),
   ),
-  verfied: boolean(),
+  verified: boolean(),
 });
 
 export type GroupType = InferType<typeof groupSchema>;

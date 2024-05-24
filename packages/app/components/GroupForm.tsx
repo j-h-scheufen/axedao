@@ -1,6 +1,6 @@
 'use client';
 
-import ContactInfoInputs from './ContactInfoInputs';
+import ContactInfoInputs, { ContactInfoField } from './ContactInfoInputs';
 import SubsectionHeading from './SubsectionHeading';
 import { Button } from '@nextui-org/button';
 import { Controller, FieldErrors, UseFormRegister, useForm, useFieldArray } from 'react-hook-form';
@@ -110,7 +110,7 @@ const GroupForm = () => {
               label="Leader"
               placeholder="Search group members"
               userId={value?.id}
-              onChange={(adminId: string) => onChange({ id: adminId })}
+              onChange={(adminId: string | undefined) => (adminId ? onChange({ id: adminId }) : null)}
               onBlur={onBlur}
               errorMessage={error?.message}
               className="mb-5"
@@ -160,7 +160,10 @@ const GroupForm = () => {
         />
       </div>
       <SubsectionHeading>Links</SubsectionHeading>
-      <ContactInfoInputs register={register as UseFormRegister<any>} errors={errors as FieldErrors<any>} />
+      <ContactInfoInputs
+        register={register as UseFormRegister<ContactInfoField>}
+        errors={errors as FieldErrors<ContactInfoField>}
+      />
       <Button type="submit" className="mt-8 flex w-full items-center">
         Update group
       </Button>

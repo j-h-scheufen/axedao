@@ -1,25 +1,44 @@
 'use client';
 
-import { ForwardedRef, Key, forwardRef, useRef } from 'react';
+import { FocusEvent, ForwardedRef, forwardRef, useRef } from 'react';
 import { Autocomplete, AutocompleteItem, User } from '@nextui-org/react';
 import { PlusIcon, SearchIcon, XIcon } from 'lucide-react';
 import UserCard from './UserCard';
 import { Button } from '@nextui-org/button';
 import { cn } from '@/utils/tailwind';
-import { Control, Controller } from 'react-hook-form';
+import { Control, Controller, FieldArrayWithId, UseFieldArrayRemove } from 'react-hook-form';
+import { GroupType } from '@/constants/schemas';
 
 const users = [...Array(10)].map((_, i) => ({ id: i, name: `John Doe ${i}`, nickname: `J_Doe ${i}` }));
 
+type FormFieldType =
+  | 'name'
+  | 'email'
+  | 'phone'
+  | 'links'
+  | 'links.website'
+  | 'links.instagram'
+  | 'links.twitter'
+  | 'links.facebook'
+  | 'description'
+  | 'logo'
+  | 'banner'
+  | 'admins'
+  | 'leader'
+  | 'founder'
+  | `members.${number}.id`
+  | 'banner'
+  | 'verified';
 type Props = {
-  control: Control<any>;
+  control: Control<GroupType>;
   name: string;
   placeholder?: string;
   label?: string;
-  onChange?: (...event: any[]) => void;
-  onRemove?: (...event: any[]) => void;
-  onBlur?: (...event: any[]) => void;
+  onChange?: (value: string) => void;
+  onRemove?: UseFieldArrayRemove;
+  onBlur?: (event: FocusEvent<Element, Element>) => void;
   selectedUsers?: { id: string }[];
-  fields?: { id: string; [key: string]: any }[];
+  fields?: FieldArrayWithId<GroupType, 'admins', 'id'>[];
   errorMessage?: string;
   className?: string;
 };
@@ -37,13 +56,15 @@ const SelectMultipleUsers = (
     errorMessage,
     className = '',
   }: Props,
-  ref: ForwardedRef<any>,
+  ref: ForwardedRef<HTMLDivElement>,
 ) => {
-  const inputRef = useRef<any>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const onSelectionChange = (selectedValue: string) => {
+  const changeHandler = (selectedValue: string) => {
     onChange && onChange(selectedValue);
-    inputRef.current?.clear && inputRef.current.clear();
+    if (inputRef.current) {
+      inputRef.current.value = '';
+    }
     inputRef.current?.blur && inputRef.current.blur();
   };
 
@@ -56,8 +77,8 @@ const SelectMultipleUsers = (
             <Controller
               key={index}
               control={control}
-              name={`${name}.${index}`}
-              render={({ field: { value, ref } }) => {
+              name={`${name}.${index}` as FormFieldType}
+              render={({ field: { ref } }) => {
                 return (
                   <UserCard
                     ref={ref}
@@ -72,7 +93,7 @@ const SelectMultipleUsers = (
                           e.stopPropagation();
                         }}
                         onPress={() => {
-                          onRemove && onRemove(field.id);
+                          onRemove && onRemove(+field.id);
                         }}
                       >
                         <XIcon className="h-4 w-4 text-default-900" />
@@ -96,7 +117,9 @@ const SelectMultipleUsers = (
         defaultItems={users}
         listboxProps={{ hideSelectedIcon: true }}
         selectedKey=""
-        onSelectionChange={(selectedValue: Key) => onSelectionChange(selectedValue as string)}
+        onChange={(e) => {
+          changeHandler(e.target.value);
+        }}
         onBlur={onBlur}
         errorMessage={errorMessage}
         isInvalid={!!errorMessage}

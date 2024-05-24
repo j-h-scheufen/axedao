@@ -5,13 +5,12 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@nextui-org/button';
 import { Input } from '@nextui-org/input';
-import { useRouter } from 'next/navigation';
-import axios from 'axios';
 import { RegistrationFormType, registrationFormSchema } from '@/constants/schemas';
-import { Spinner } from '@nextui-org/react';
+import { Link, Spinner } from '@nextui-org/react';
+import useSilk from '@/hooks/useSilk';
 
 const RegistrationForm = () => {
-  const router = useRouter();
+  const silk = useSilk();
 
   const {
     register,
@@ -25,14 +24,16 @@ const RegistrationForm = () => {
   });
 
   const submit = async (data: RegistrationFormType) => {
-    await axios.post('/register/api', data);
+    console.log(data);
+    // await axios.post('/register/api', data);
+    silk.login();
   };
 
   const registrationMutation = useMutation({
     mutationKey: ['register'],
     mutationFn: submit,
     onSuccess: () => {
-      router.push('/register/confirm');
+      // router.push('/register/confirm');
     },
   });
 
@@ -49,7 +50,7 @@ const RegistrationForm = () => {
         type="email"
         placeholder="Enter your email"
         className="w-full"
-        classNames={{ inputWrapper: 'min-h-14', errorMessage: 'text-left' }}
+        classNames={{ inputWrapper: '!min-h-14', errorMessage: 'text-left' }}
         color={isInvalid ? 'danger' : undefined}
         isInvalid={isInvalid}
         errorMessage={errors.email?.message}
@@ -57,12 +58,18 @@ const RegistrationForm = () => {
       <Button
         type="submit"
         className="mt-5 w-full"
-        isLoading={registrationMutation.isPending}
+        isLoading={registrationMutation.isPending || !silk.isInitialized}
         spinner={<Spinner size="sm" />}
         // onPress={next}
       >
         Register
       </Button>
+      <div className="mt-3 flex items-center justify-center gap-2 text-sm">
+        <span>Already registered?</span>
+        <Link href="/sign-in" className="text-sm font-medium">
+          Sign in
+        </Link>
+      </div>
     </form>
   );
 };

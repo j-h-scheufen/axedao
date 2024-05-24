@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 import { Link } from '@nextui-org/link';
-import { CardProps } from '@nextui-org/card';
 import UserCard, { UserCardProps } from './UserCard';
 import { cn } from '@/utils/tailwind';
 
@@ -11,7 +10,7 @@ const UsersGrid = ({ users, emptyContent, className = '', userCardProps = {} }: 
       {users?.length ? (
         users.map((_, i) => (
           <Link key={i} href="/dashboard/overview/users/1" className="inline-block">
-            <UserCard {...(userCardProps as any)} />
+            <UserCard {...(userCardProps as UserCardProps)} />
           </Link>
         ))
       ) : (

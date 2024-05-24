@@ -1,22 +1,22 @@
 'use client';
 
-import { ForwardedRef, forwardRef, useEffect, useRef, useState } from 'react';
+import { FocusEvent, ForwardedRef, forwardRef, useEffect, useRef, useState } from 'react';
 import { Avatar, AvatarProps } from '@nextui-org/react';
 import { Camera } from 'lucide-react';
 import { Button } from '@nextui-org/button';
 
 type Props = {
   value?: File;
-  onChange: (...event: any[]) => void;
-  onBlur: (...event: any[]) => void;
+  onChange: (file: File) => void;
+  onBlur: (event: FocusEvent<Element, Element>) => void;
   isInvalid?: boolean;
   errorMessage?: string;
   hideButton?: boolean;
   avatarProps?: Omit<AvatarProps, 'onClick' | 'onBlur' | 'ref'>;
 };
 const ImageUpload = (
-  { value, onChange, onBlur = (e) => null, isInvalid, errorMessage, hideButton = false, avatarProps = {} }: Props,
-  ref: ForwardedRef<any>,
+  { value, onChange, onBlur = () => null, isInvalid, errorMessage, hideButton = false, avatarProps = {} }: Props,
+  ref: ForwardedRef<HTMLInputElement>,
 ) => {
   const [imagePreview, setImagePreview] = useState<string>('https://images.unsplash.com/broken');
   const imageInputRef = useRef<HTMLInputElement | null>(null);
