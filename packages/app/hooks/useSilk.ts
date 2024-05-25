@@ -4,7 +4,9 @@ import { useCallback, useEffect, useState } from 'react';
 import { initSilk } from '@silk-wallet/silk-wallet-sdk';
 
 const useSilk = () => {
-  const [isInitialized, setIsInitialized] = useState(window.ethereum?.login === 'function');
+  const [isInitialized, setIsInitialized] = useState(
+    typeof window !== 'undefined' && window?.ethereum?.login === 'function',
+  );
 
   useEffect(() => {
     if (isInitialized) return;

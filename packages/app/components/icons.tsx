@@ -160,7 +160,7 @@ const OverviewLayout: LucideIcon = forwardRef(({ className, ...props }, ref) => 
 });
 OverviewLayout.displayName = 'OverviewLayout';
 
-export default {
+export {
   Logo,
   DiscordIcon,
   TwitterIcon,
