@@ -18,9 +18,5 @@
   "engines": {
     "node": ">=18.17.0"
   },
-  "packageManager": "yarn@4.1.1",
-  "dependencies": {
-    "@nextui-org/avatar": "^2.0.27",
-    "@nextui-org/table": "^2.0.33"
-  }
+  "packageManager": "yarn@4.1.1"
 }
