@@ -40,11 +40,23 @@ export async function fetchUserProfile(userId: string): Promise<UserProfile> {
   return { ...user[0], links };
 }
 
+export async function fetchUserProfileByEmail(email: string): Promise<UserProfile> {
+  const users = await db.select().from(schema.users).where(eq(schema.users.email, email));
+  const user = users.length ? users[0] : null;
+  if (!user) throw new Error('User not found');
+  const links = await db.select().from(schema.links).where(eq(schema.links.ownerId, user.id));
+  return { ...user, links };
+}
+
 export async function fetchGroupProfile(groupId: string): Promise<GroupProfile> {
   const group = await db.select().from(schema.groups).where(eq(schema.groups.id, groupId));
   const links = await db.select().from(schema.links).where(eq(schema.links.ownerId, groupId));
   if (group.length == 0) throw new Error('Group not found');
   return { ...group[0], links };
+}
+
+export async function fetchGroupMembers(groupId: string, limit: number = 20, offset: number = 0) {
+  return await db.select().from(schema.users).where(eq(schema.users.group_id, groupId)).limit(limit).offset(offset);
 }
 
 export async function insertUser(user: schema.InsertUser) {

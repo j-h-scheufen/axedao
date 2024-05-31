@@ -15,8 +15,6 @@ const Groups = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(groups);
-
   return (
     <div className="flex flex-col gap-4">
       <div className="flex h-fit items-center justify-between gap-3">
@@ -31,7 +29,7 @@ const Groups = () => {
       <div className="flex items-center justify-between">
         <span className="ml-auto text-small text-default-400">75 total groups</span>
       </div>
-      <GroupsGrid />
+      <GroupsGrid groups={groups} />
     </div>
   );
 };

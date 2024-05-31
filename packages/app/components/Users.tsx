@@ -4,6 +4,8 @@ import { Input } from '@nextui-org/input';
 import { Select, SelectItem } from '@nextui-org/react';
 import { Search } from 'lucide-react';
 import UsersGrid from './UsersGrid';
+import { useUsers, useUsersActions } from '@/store/users.store';
+import { useEffect } from 'react';
 
 const searchOptions = [
   {
@@ -17,6 +19,14 @@ const searchOptions = [
 ];
 
 const Users = () => {
+  const usersActions = useUsersActions();
+  const users = useUsers();
+
+  useEffect(() => {
+    usersActions.initialize();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="flex flex-col gap-4">
       <div className="flex h-fit flex-col items-start justify-start gap-3 md:flex-row md:items-end">
@@ -50,7 +60,7 @@ const Users = () => {
       <div className="flex items-center justify-between">
         <span className="ml-auto text-small text-default-400">75 total Users</span>
       </div>
-      <UsersGrid />
+      <UsersGrid users={users} />
     </div>
   );
 };

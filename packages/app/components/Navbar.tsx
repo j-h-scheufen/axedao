@@ -7,7 +7,7 @@ import NextLink from 'next/link';
 // import { Card } from '@nextui-org/card';
 
 import { ThemeSwitch } from './theme-switch';
-import AuthButton from './AuthButton';
+import SignOutButton from './SignOutButton';
 // import Account from './web3/Account';
 
 const Navbar: React.FC = () => {
@@ -21,8 +21,7 @@ const Navbar: React.FC = () => {
         </NavbarBrand>
         <ThemeSwitch />
         {/* <Account /> */}
-        {/* <ConnectButton /> */}
-        <AuthButton />
+        <SignOutButton />
       </NavbarContent>
     </NextUINavbar>
   );

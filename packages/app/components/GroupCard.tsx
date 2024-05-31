@@ -6,15 +6,17 @@ import { Button } from '@nextui-org/button';
 import { Avatar, AvatarGroup } from '@nextui-org/react';
 import { MapPin } from 'lucide-react';
 import { Link } from '@nextui-org/link';
+import { Group } from '@/types/model';
 
-type Props = { change?: () => null | void; className?: string };
-const GroupCard = ({ change, className = '' }: Props) => {
+type Props = { group: Group; change?: () => null | void; className?: string };
+const GroupCard = ({ group, change, className = '' }: Props) => {
+  const { name, id } = group;
   return (
     <Card className={clsx('w-full', className)}>
       <CardHeader className="flex gap-3">
         <Avatar src="http://dummyimage.com/100x100.png/888/ffffff" />
         <div className="flex flex-col">
-          <p className="text-md">Lorem Ipsum Group</p>
+          <p className="text-md">{name}</p>
           <div className="flex items-center gap-1 text-small text-default-500">
             <MapPin className="h-3 w-3" /> SP, São Paulo
           </div>
@@ -36,7 +38,13 @@ const GroupCard = ({ change, className = '' }: Props) => {
             Change
           </Button>
         )}
-        <Button as={Link} href="/dashboard/overview/groups/1" variant="bordered" size="sm" className="ml-auto w-fit">
+        <Button
+          as={Link}
+          href={`/dashboard/overview/groups/${id}`}
+          variant="bordered"
+          size="sm"
+          className="ml-auto w-fit"
+        >
           View group
         </Button>
       </CardFooter>

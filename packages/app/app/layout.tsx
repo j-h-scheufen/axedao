@@ -8,6 +8,9 @@ import { Provider as ThemeProvider } from './_providers/nextUI.provider';
 import { Provider as Web3Provider } from './_providers/web3.provider';
 import { Provider as SnackbarProvider } from './_providers/snackbar.provider';
 import Navbar from '@/components/Navbar';
+import SessionProvider from '@/components/SessionProvider';
+import { getServerSession } from 'next-auth';
+import AuthProvider from '@/components/AuthProvider';
 
 export const metadata: Metadata = {
   title: {
@@ -29,25 +32,30 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const session = await getServerSession();
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
       <body className={clsx('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
-        <ThemeProvider themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
-          <SnackbarProvider>
-            <Web3Provider>
-              <div className="relative mb-12 flex min-h-screen flex-col">
-                <Navbar />
-                {children}
-                <footer className="mt-auto flex w-full items-center justify-center gap-1 py-10">
-                  <span className="text-default-600">Powered by </span>
-                  <span className="text-primary">AXÉ DAO</span>
-                </footer>
-              </div>
-            </Web3Provider>
-          </SnackbarProvider>
-        </ThemeProvider>
+        <SessionProvider session={session}>
+          <ThemeProvider themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
+            <SnackbarProvider>
+              <AuthProvider>
+                <Web3Provider>
+                  <div className="relative mb-12 flex min-h-screen flex-col">
+                    <Navbar />
+                    {children}
+                    <footer className="mt-auto flex w-full items-center justify-center gap-1 py-10">
+                      <span className="text-default-600">Powered by </span>
+                      <span className="text-primary">AXÉ DAO</span>
+                    </footer>
+                  </div>
+                </Web3Provider>
+              </AuthProvider>
+            </SnackbarProvider>
+          </ThemeProvider>
+        </SessionProvider>
       </body>
     </html>
   );

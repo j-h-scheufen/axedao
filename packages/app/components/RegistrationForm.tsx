@@ -1,16 +1,15 @@
 'use client';
 
-import { useMutation } from '@tanstack/react-query';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Spinner } from '@nextui-org/react';
 import { Button } from '@nextui-org/button';
 import { Input } from '@nextui-org/input';
 import { RegistrationFormType, registrationFormSchema } from '@/constants/schemas';
-import { Link, Spinner } from '@nextui-org/react';
-import useSilk from '@/hooks/useSilk';
+import useAuth from '@/hooks/useAuth';
 
 const RegistrationForm = () => {
-  const silk = useSilk();
+  const { isSilkInitialized, actions, isAuthenticating, isAuthenticated } = useAuth();
 
   const {
     register,
@@ -23,53 +22,33 @@ const RegistrationForm = () => {
     },
   });
 
-  const submit = async (data: RegistrationFormType) => {
-    console.log(data);
-    // await axios.post('/register/api', data);
-    silk.login();
-  };
-
-  const registrationMutation = useMutation({
-    mutationKey: ['register'],
-    mutationFn: submit,
-    onSuccess: () => {
-      // router.push('/register/confirm');
-    },
-  });
-
-  const isInvalid = !!errors.email?.message;
+  const emailErrorMessage = errors.email?.message;
 
   return (
     <form
-      className="m-auto h-fit w-full max-w-sm"
-      onSubmit={handleSubmit(registrationMutation.mutate as SubmitHandler<RegistrationFormType>)}
+      className="m-auto flex h-fit w-full max-w-sm flex-col gap-3"
+      onSubmit={handleSubmit(actions.register as SubmitHandler<RegistrationFormType>)}
     >
       <Input
         {...register('email')}
         label="Email"
         type="email"
-        placeholder="Enter your email"
         className="w-full"
         classNames={{ inputWrapper: '!min-h-14', errorMessage: 'text-left' }}
-        color={isInvalid ? 'danger' : undefined}
-        isInvalid={isInvalid}
-        errorMessage={errors.email?.message}
+        color={emailErrorMessage ? 'danger' : undefined}
+        isInvalid={!!emailErrorMessage}
+        errorMessage={emailErrorMessage}
       />
       <Button
+        key="register-button"
         type="submit"
         className="mt-5 w-full"
-        isLoading={registrationMutation.isPending || !silk.isInitialized}
+        isLoading={isAuthenticating}
         spinner={<Spinner size="sm" />}
-        // onPress={next}
+        disabled={!isSilkInitialized || isAuthenticated}
       >
         Register
       </Button>
-      <div className="mt-3 flex items-center justify-center gap-2 text-sm">
-        <span>Already registered?</span>
-        <Link href="/sign-in" className="text-sm font-medium">
-          Sign in
-        </Link>
-      </div>
     </form>
   );
 };

@@ -1,14 +1,17 @@
 'use client';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 import { Button } from '@nextui-org/button';
 import { Edit } from 'lucide-react';
 import Link from 'next/link';
 
-const GroupBanner = () => {
+type Props = { banner: string | null };
+const GroupBanner = ({ banner }: Props) => {
   const pathname = usePathname();
 
   return (
     <div className="relative bottom-5 h-[200px] w-full rounded-xl bg-gradient-to-t from-neutral-900">
+      {banner && <Image src={banner} objectFit="cover" className="h-full w-full" alt="Group banner" />}
       <Button
         href={`${pathname}/edit`}
         as={Link}

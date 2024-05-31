@@ -1,5 +1,8 @@
-import { InferType, TestFunction, array, boolean, mixed, object, string } from 'yup';
+import * as Yup from 'yup';
+import { InferType, array, boolean, mixed, object, string, ref } from 'yup';
+import YupPassword from 'yup-password';
 import titles from './titles';
+YupPassword(Yup);
 
 const validFileExtensions = { image: ['jpg', 'gif', 'png', 'jpeg', 'svg', 'webp'] } as const;
 type ValidFileExtensionsType = keyof typeof validFileExtensions;
@@ -55,6 +58,12 @@ export const registrationFormSchema = object({
 });
 
 export type RegistrationFormType = InferType<typeof registrationFormSchema>;
+
+export const signInFormSchema = object({
+  email: string().email('Not a valid email').required('Email is required'),
+});
+
+export type SignInFormType = InferType<typeof signInFormSchema>;
 
 export const confirmationFormSchema = object({
   otp: string().required('Please input your OTP.'),

@@ -1,10 +1,15 @@
+'use client';
+
 import { Avatar } from '@nextui-org/react';
 import { Button } from '@nextui-org/button';
 import { Camera, Edit } from 'lucide-react';
 import ContactInfo from './ContactInfo';
 import Link from 'next/link';
+import useAuth from '@/hooks/useAuth';
 
 const Profile = () => {
+  const { userProfile } = useAuth();
+  const { name, title } = userProfile;
   return (
     <div className="flex flex-col items-center gap-5 sm:flex-row">
       <Avatar
@@ -16,8 +21,8 @@ const Profile = () => {
       <div className="flex flex-1 flex-col gap-3">
         <div className="flex flex-col items-center justify-center gap-10 xs:flex-row">
           <div className="text-center xs:text-left">
-            <h3 className="text-lg font-medium">John Doe</h3>
-            <div className="text-small text-default-500">Mestre</div>
+            <h3 className="text-lg font-medium">{name}</h3>
+            <div className="text-small capitalize text-default-500">{title}</div>
           </div>
           <div className="xs:mb-auto xs:ml-auto">
             <Button
