@@ -2,9 +2,31 @@
   "heading": {
     "title": "Willkommen bei Axé DAO",
     "subtitle": "Eine digitale Organisation für die globale Capoeira Community",
-    "introduction": "Wir sind Capoeiristas aus unterschiedlichen Ecken der Welt, die die Innovationen und Werkzeuge des <i>web3</> der Capoeira Community näher bringen, um Gemeinwohl zu erzeugen. Es ist Zeit für Capoeira, ihre eigene, offene Infrastruktur aufzubauen inklusive demokratischer Entscheidungsprozeese, um die Zukunft dieser Kunstform mitzugestalen, die wir so lieben.<br /><br />Ähnlich der Capoeira ist die Cypherpunk-Kultur, aus der <i>web3</i> entsprang, verwurzelt im Geiste von Autonomie, Widerstand, Freiheit und Selbstbestimmung. Axé DAO ist ein wegweisendes Projekt von Capoeiristas für Capoeiristas, um gemeinsame Resourcen und Anstrengungen zu bündeln, die zum Wohle der Capoeira beitragen und von Prinzipien der Dezentralisation und kollektiven Handelns geleitet sind."
+    "introduction": {
+      "p1": "We are Capoeiristas from different schools and different corners of the world who want to give back to Capoeira by creating open and community-owned digital infrastructure for the benefit of all of Capoeira.",
+      "p2": "To do this we use software that enables autonomy, freedom, and self-determination - in the digital world - via self-governed and shared apps and platforms.",
+      "p3": "Axé DAO is a pioneering effort by Capoeiristas for Capoeiristas to coordinate collective actions that help grow the Capoeira ecosystem and support those who live and breathe this art form."
+    }
   },
   "about": {
-    "title": "Worum geht's?"
+    "title": "Warum?",
+    "content": {
+      "p1": "In today's digital and online world, Capoeira groups are scattered across many websites and free social and messaging platforms. There is no easy way to understand how many groups even exist across the globe.<br/>But we now have the opportunity to create a digital platform for Capoeira that is community-owned, governed democratically, and which enables better global collaboration for anyone who loves and wants to contribute to this art form. Imagine a space where every member of the Capoeira community has a voice and a stake in decision-making and together we can build a free and open platform that is truly <i>ours</i>.",
+      "p2": "Our mission at Axé DAO is to serve and benefit the Capoeira community through digital tools. That’s why our first app is a registry specific for Capeira groups and individuals to create profiles and populate the “genealogy tree” of Capoeira."
+    }
+  },
+  "dao": {
+    "title": "Axé DAO",
+    "content": {
+      "p1": "DAO stands for <i>Digital Autonomous Organization</i>. It is our model of governance that facilitates transparent, equitable decision-making processes among its members to collectively hold funds and decide how to use them.<br/>The primary goal for funding is the creation of common digital tools for Capoeira, like an open-source app, digital identity, and a registry. Long-term, it is an explicit goal to fund individual Capoeira projects and events and to direct financial support into the community where it's needed.",
+      "p2": "The DAO members may vote to launch the <i>Axé</i> token, a digital unit symbolizing the positive energy of Axé that can be transferred between users as a token of appreciation. It would be distributed in a fair launch via the app and registry. It may also play a role in delegating governance power in the organization."
+    }
+  },
+  "goals": {
+    "title": "Goals",
+    "content": {
+      "p1": "Our approach is straightforward: use technology to support, preserve, and enrich the practice of Capoeira. In 2024 we plan to<ul><li>Launch a digital identity app for the Capoeira community</li><li>Open a registry for groups and individuals to start creating the social graph and lineage tree of Capoeira groups worldwide</li><li>Decide on the launch of the Axé token and its fair distribution parameters</li></ul>",
+      "p2": "On a longer time-scale, we plan to<ul><li>Create functionality for Capoeira groups to access digital assets like NFTs that can be used for badges, digital art, memberships, etc.</li><li>Explore reducing costs for Capoeira groups by offering common services, e.g. for event scheduling, group management, membership fees, etc.</li><li>Explore the creation of a fly-wheel of digital economic activity to sustain Capoeira in general and its community members into the future.</li></ul>"
+    }
   }
 }

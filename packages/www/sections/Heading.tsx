@@ -3,12 +3,12 @@
 // import { useRef } from 'react';
 // import { useScroll, useTransform, motion } from 'framer-motion';
 import { motion } from 'framer-motion';
+import { Trans } from 'react-i18next';
 
 import Reveal from '@/components/motion/Reveal';
 import { Subtitle, Title } from '@/components/primitives';
-import { useTranslation } from '../app/i18n/client';
+import { useTranslation } from '@/app/i18n/client';
 import { SupportedLanguage } from '@/app/i18n/settings';
-import { Trans } from 'react-i18next';
 
 type HeadingProps = {
   locale: SupportedLanguage;
