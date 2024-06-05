@@ -1,5 +1,5 @@
 'use client';
-import { GroupProfile } from '@/types/model';
+import { Group } from '@/types/model';
 import { Button } from '@nextui-org/button';
 import { Card, CardFooter, CardHeader } from '@nextui-org/card';
 import { Link } from '@nextui-org/link';
@@ -9,7 +9,7 @@ import { MapPin } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { ReactNode } from 'react';
 
-type Props = { group: GroupProfile; className?: string; startFooter?: ReactNode };
+type Props = { group: Group; className?: string; startFooter?: ReactNode };
 const GroupCard = ({ group, className = '', startFooter = null }: Props) => {
   const router = useRouter();
   const { name, id } = group;

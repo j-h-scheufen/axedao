@@ -45,6 +45,7 @@ export async function PATCH(request: NextRequest) {
 
   const { links, ...profileData } = body as ProfileFormType;
   const user = await fetchUserProfileByEmail(session.user.email);
+  if (!user) throw new Error();
   const { id, links: existingLinks } = user;
 
   for (const link of links) {

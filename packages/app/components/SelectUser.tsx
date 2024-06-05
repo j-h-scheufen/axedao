@@ -1,11 +1,11 @@
 'use client';
 
-import { FocusEvent, ForwardedRef, forwardRef, useRef } from 'react';
 import { Autocomplete, AutocompleteItem, User } from '@nextui-org/react';
 import { SearchIcon } from 'lucide-react';
-import UserCard from './UserCard';
-import { Button } from '@nextui-org/button';
+import { FocusEvent, ForwardedRef, forwardRef, useRef } from 'react';
+// import UserCard from './UserCard';
 import { cn } from '@/utils/tailwind';
+import { Button } from '@nextui-org/button';
 
 const users = [...Array(10)].map((_, i) => ({ id: i, name: `John Doe ${i}`, nickname: `J_Doe ${i}` }));
 
@@ -32,7 +32,7 @@ const SelectUser = (
     return (
       <div className={cn('max-w-xs', className)}>
         {label && <label className="mb-2 block text-sm">{label}</label>}
-        <UserCard />
+        {/* <UserCard /> */}
         <Button size="sm" className="ml-auto mt-3 block w-fit" onPress={() => changeHandler(undefined)}>
           Change
         </Button>
