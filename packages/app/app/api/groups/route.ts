@@ -48,7 +48,11 @@ export async function POST(request: NextRequest) {
     );
   }
   try {
-    const { id: userId, group_id }: UserProfile = await fetchUserProfileByEmail(session.user.email);
+    const userProfile = await fetchUserProfileByEmail(session.user.email);
+    if (!userProfile) {
+      throw new Error();
+    }
+    const { id: userId, group_id } = userProfile;
     if (group_id) {
       return Response.json(
         { error: true, message: 'You cannot create a new group while being a member of an existing group' },

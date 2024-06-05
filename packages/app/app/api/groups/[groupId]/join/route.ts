@@ -17,7 +17,11 @@ export async function POST(request: NextRequest, { params }: { params: { groupId
 
   try {
     const { groupId } = params;
-    const { id } = await fetchUserProfileByEmail(session.user.email);
+    const userProfile = await fetchUserProfileByEmail(session.user.email);
+    if (!userProfile) {
+      throw new Error();
+    }
+    const { id } = userProfile;
     await updateUser({ id, group_id: groupId });
     return Response.json({ success: true });
   } catch (error) {
