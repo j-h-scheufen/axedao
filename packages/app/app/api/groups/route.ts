@@ -7,7 +7,6 @@ import {
   insertGroup,
   updateUser,
 } from '@/db';
-import { UserProfile } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
 import { getServerSession } from 'next-auth';
 import { NextRequest } from 'next/server';
