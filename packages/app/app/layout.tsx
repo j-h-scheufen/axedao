@@ -1,16 +1,15 @@
-import { Metadata, Viewport } from 'next';
 import clsx from 'clsx';
+import { Metadata, Viewport } from 'next';
 
-import '@/styles/globals.css';
-import { siteConfig } from '@/config/site';
-import { fontSans } from '@/config/fonts';
-import { Provider as ThemeProvider } from './_providers/nextUI.provider';
-import { Provider as Web3Provider } from './_providers/web3.provider';
-import { Provider as SnackbarProvider } from './_providers/snackbar.provider';
 import Navbar from '@/components/Navbar';
 import SessionProvider from '@/components/SessionProvider';
+import { fontSans } from '@/config/fonts';
+import { siteConfig } from '@/config/site';
+import '@/styles/globals.css';
 import { getServerSession } from 'next-auth';
-import AuthProvider from '@/components/AuthProvider';
+import { Provider as ThemeProvider } from './_providers/nextUI.provider';
+import { Provider as SnackbarProvider } from './_providers/snackbar.provider';
+import { Provider as Web3Provider } from './_providers/web3.provider';
 
 export const metadata: Metadata = {
   title: {
@@ -41,18 +40,16 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <SessionProvider session={session}>
           <ThemeProvider themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
             <SnackbarProvider>
-              <AuthProvider>
-                <Web3Provider>
-                  <div className="relative mb-12 flex min-h-screen flex-col">
-                    <Navbar />
-                    {children}
-                    <footer className="mt-auto flex w-full items-center justify-center gap-1 py-10">
-                      <span className="text-default-600">Powered by </span>
-                      <span className="text-primary">AXÉ DAO</span>
-                    </footer>
-                  </div>
-                </Web3Provider>
-              </AuthProvider>
+              <Web3Provider>
+                <div className="relative mb-12 flex min-h-screen flex-col">
+                  <Navbar />
+                  {children}
+                  <footer className="mt-auto flex w-full items-center justify-center gap-1 py-10">
+                    <span className="text-default-600">Powered by </span>
+                    <span className="text-primary">AXÉ DAO</span>
+                  </footer>
+                </div>
+              </Web3Provider>
             </SnackbarProvider>
           </ThemeProvider>
         </SessionProvider>

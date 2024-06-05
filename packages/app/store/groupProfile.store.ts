@@ -1,15 +1,18 @@
-import { create } from 'zustand';
 import { GroupProfile } from '@/types/model';
+import { generateErrorMessage } from '@/utils';
+import axios from 'axios';
+import { create } from 'zustand';
 
 export type GroupProfileState = {
   groupProfile: GroupProfile;
-  initialized: boolean;
-  isLoading: boolean;
+  isGroupAdmin: boolean;
+  isInitializingGroupProfile: boolean;
+  isGroupProfileInitialized: boolean;
+  initializeGroupError?: string;
 };
 
 type GroupProfileActions = {
   initialize: (id: string) => Promise<void>;
-  load: (id: string) => Promise<void>;
 };
 
 export type GroupStore = GroupProfileState & { actions: GroupProfileActions };
@@ -29,24 +32,29 @@ const DEFAULT_PROPS: GroupProfileState = {
     verified: false,
     links: [],
   },
-  initialized: false,
-  isLoading: false,
+  isGroupAdmin: false,
+  isGroupProfileInitialized: false,
+  isInitializingGroupProfile: false,
 };
 
 const useGroupProfileStore = create<GroupStore>()((set, get) => ({
   ...DEFAULT_PROPS,
   actions: {
-    initialize: async (id: string): Promise<void> => {
-      if (!get().initialized) {
-        get().actions.load(id);
-        set({ initialized: true });
+    initialize: async (id: string) => {
+      const { isInitializingGroupProfile } = get();
+      if (isInitializingGroupProfile) return;
+      set({ isInitializingGroupProfile: true });
+      try {
+        const { data } = await axios.get(`/api/groups/${id}`);
+        if (!data?.groupProfile) throw new Error();
+        const { groupProfile, isAdmin } = data || {};
+        set({ groupProfile, isGroupAdmin: isAdmin, isGroupProfileInitialized: true });
+      } catch (error: unknown) {
+        console.log(error);
+        const message = generateErrorMessage(error, 'An error occured while fetching group');
+        set({ initializeGroupError: message });
       }
-    },
-    load: async (id: string) => {
-      set({ isLoading: true });
-      const response = await fetch(`/api/groups/${id}`);
-      const groupProfile = await response.json();
-      set({ isLoading: false, groupProfile });
+      set({ isInitializingGroupProfile: false });
     },
   },
 }));
@@ -57,6 +65,13 @@ export const useGroupProfileActions = (): GroupProfileActions => useGroupProfile
 
 export const useGroupProfile = (): GroupProfile => useGroupProfileStore((state) => state.groupProfile);
 
-export const useGroupProfileIsLoading = (): boolean => useGroupProfileStore((state) => state.isLoading);
+export const useIsInitializingGroupProfile = (): boolean =>
+  useGroupProfileStore((state) => state.isInitializingGroupProfile);
 
-export const useGroupProfileIsInitialized = (): boolean => useGroupProfileStore((state) => state.initialized);
+export const useIsGroupProfileInitialized = (): boolean =>
+  useGroupProfileStore((state) => state.isGroupProfileInitialized);
+
+export const useInitializeGroupError = (): string | undefined =>
+  useGroupProfileStore((state) => state.initializeGroupError);
+
+export const useIsGroupAdmin = (): boolean => useGroupProfileStore((state) => state.isGroupAdmin);

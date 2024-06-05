@@ -1,28 +1,63 @@
 'use client';
-
-import { useState } from 'react';
-// import GroupCard from './GroupCard';
-import CreateGroupAssociation from './CreateGroupAssociation';
+import { useGroupProfile, useGroupProfileActions, useIsInitializingGroupProfile } from '@/store/groupProfile.store';
+import { useIsExitingGroup, useIsInitializingProfile, useProfile, useProfileActions } from '@/store/profile.store';
 import { Button } from '@nextui-org/button';
+import { Spinner } from '@nextui-org/react';
+import { useEffect, useState } from 'react';
+import CreateGroupAssociation from './CreateGroupAssociation';
+import GroupCard from './GroupCard';
 
 const GroupAssociation = () => {
   const [editing, setEditing] = useState<boolean>(false);
+  const profile = useProfile();
+  const profileActions = useProfileActions();
+  const isExitingGroup = useIsExitingGroup();
+
+  const { group_id } = profile;
+  const isInitializingProfile = useIsInitializingProfile();
+  const groupProfile = useGroupProfile();
+  const groupProfileActions = useGroupProfileActions();
+  const isInitializingGroupProfile = useIsInitializingGroupProfile();
+
+  useEffect(() => {
+    if (!group_id) return;
+    groupProfileActions.initialize(group_id);
+  }, [groupProfileActions, group_id]);
+
+  if (isInitializingProfile || isInitializingGroupProfile) return 'Is loading...';
+
+  if (!group_id || editing)
+    return (
+      <CreateGroupAssociation
+        onSubmit={() => console.log('creating group assocition')}
+        secondaryButton={
+          group_id && (
+            <Button variant="bordered" onClick={() => setEditing(false)}>
+              Cancel
+            </Button>
+          )
+        }
+      />
+    );
 
   return (
     <div>
-      {
-        editing ? (
-          <CreateGroupAssociation
-            onSubmit={() => setEditing(false)}
-            secondaryButton={
-              <Button variant="bordered" onClick={() => setEditing(false)}>
-                Cancel
-              </Button>
-            }
-          />
-        ) : null
-        // <GroupCard className="mx-auto sm:mx-0 md:max-w-80" change={() => setEditing(true)} />
-      }
+      <GroupCard
+        group={groupProfile}
+        className="mx-auto sm:mx-0 md:max-w-80"
+        startFooter={
+          <Button
+            variant="light"
+            size="sm"
+            color="danger"
+            onPress={profileActions.exitGroup}
+            spinner={<Spinner size="sm" color="danger" />}
+            isLoading={isExitingGroup}
+          >
+            Exit group
+          </Button>
+        }
+      />
     </div>
   );
 };

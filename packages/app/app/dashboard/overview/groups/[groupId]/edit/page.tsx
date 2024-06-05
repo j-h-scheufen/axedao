@@ -1,18 +1,13 @@
-'use client';
-
-import { useSearchParams } from 'next/navigation';
-import PageHeading from '@/components/PageHeading';
 import GroupForm from '@/components/GroupForm';
+import PageHeading from '@/components/PageHeading';
 
-const Page = () => {
-  const searchParams = useSearchParams();
-  const groupId = searchParams.get('groupId');
-
+type Props = { params: { groupId: string } };
+const page = ({ params: { groupId = '' } }: Props) => {
   return (
     <>
       <PageHeading back={`/dashboard/overview/groups/${groupId}`}>Edit group</PageHeading>
-      <GroupForm />
+      <GroupForm id={groupId} />
     </>
   );
 };
-export default Page;
+export default page;

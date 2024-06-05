@@ -1,21 +1,24 @@
-import { create } from 'zustand';
-import { UserProfile } from '@/types/model';
-import { initSilk } from '@silk-wallet/silk-wallet-sdk';
 import { RegistrationFormType, SignInFormType } from '@/constants/schemas';
-import { signIn, signOut } from 'next-auth/react';
+import { initSilk } from '@silk-wallet/silk-wallet-sdk';
+import { SilkEthereumProviderInterface } from '@silk-wallet/silk-wallet-sdk/dist/lib/provider/types';
 import axios from 'axios';
+import { signIn, signOut } from 'next-auth/react';
+import { create } from 'zustand';
 
 export type AuthState = {
-  userProfile: UserProfile;
-  isSilkInitialized: boolean;
+  silk: SilkEthereumProviderInterface | null;
+  silkInitializationError?: string;
+  isRegistering: boolean;
+  registrationError?: string;
   isAuthenticating: boolean;
   isAuthenticated: boolean;
+  authenticationError?: string;
   isSigningOut: boolean;
+  signOutError?: string;
 };
 
 type AuthActions = {
   initializeSilk: () => Promise<void>;
-  initializeUser: () => Promise<void>;
   register: (credentials: RegistrationFormType) => Promise<void>;
   signIn: (credentials: SignInFormType) => Promise<void>;
   signOut: () => Promise<void>;
@@ -23,21 +26,9 @@ type AuthActions = {
 
 export type AuthStore = AuthState & { actions: AuthActions };
 
-const now = new Date();
 const DEFAULT_PROPS: AuthState = {
-  userProfile: {
-    id: '',
-    createdAt: now,
-    name: null,
-    updatedAt: now,
-    nickname: null,
-    title: null,
-    avatar: null,
-    email: '',
-    group_id: null,
-    links: [],
-  },
-  isSilkInitialized: typeof window !== 'undefined' ? window.ethereum?.isSilk : false,
+  silk: null,
+  isRegistering: false,
   isAuthenticating: false,
   isAuthenticated: false,
   isSigningOut: false,
@@ -46,43 +37,61 @@ const DEFAULT_PROPS: AuthState = {
 const useAuthStore = create<AuthStore>()((set, get) => ({
   ...DEFAULT_PROPS,
   actions: {
-    initializeSilk: async (): Promise<void> => {
-      if (!get().isSilkInitialized) {
+    initializeSilk: async () => {
+      const { silk } = get();
+      if (!silk) {
         const silk = initSilk();
         window.ethereum = silk;
-        set({ isSilkInitialized: true });
+        set({ silk });
       }
     },
-    initializeUser: async () => {
-      const res = await axios.get('/api/profile');
-      // TODO handle error from above request
-      set({ isAuthenticating: false, isAuthenticated: true, userProfile: res.data });
-    },
-    register: async (credentials: RegistrationFormType): Promise<void> => {
-      set({ isAuthenticating: true });
-      await axios.post('/api/auth/register', credentials);
-      // TODO handle error from above request
+    register: async (credentials: RegistrationFormType) => {
+      const { isRegistering, isAuthenticating } = get();
+      if (isRegistering || isAuthenticating) return;
+      set({ isRegistering: true });
+      try {
+        await axios.post('/api/auth/register', credentials);
+      } catch (error) {
+        const message =
+          error instanceof Error && error.message ? error.message : 'An error occured during registration';
+        set({ registrationError: message });
+      }
+      set({ isRegistering: false });
       await get().actions.signIn({ email: credentials.email });
     },
-    signIn: async (credentials: SignInFormType): Promise<void> => {
-      if (!get().isAuthenticating) set({ isAuthenticating: true });
-      if (!get().isSilkInitialized) return;
-      await window.ethereum.login();
-      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-      const walletAddress = accounts?.length ? accounts[0] : null;
-      if (!walletAddress) {
-        // TODO handle error
+    signIn: async (credentials: SignInFormType) => {
+      const { isRegistering, isAuthenticating, silk } = get();
+      if (isRegistering || isAuthenticating || !silk) return;
+      set({ isAuthenticating: true });
+      try {
+        await silk.login();
+        const accounts = (await silk.request({ method: 'eth_requestAccounts' })) as string[] | undefined;
+        // const email = await silk.requestEmail();
+        console.log('Accounts: ', accounts);
+        const walletAddress = accounts?.length ? accounts[0] : null;
+        if (!walletAddress) {
+          throw new Error('Silk authentication was unsuccessful');
+        }
+
+        const res = await signIn('credentials', { ...credentials, walletAddress, redirect: false });
+        const error = res?.error;
+        if (error) throw new Error(error);
+      } catch (error) {
+        console.log(error);
+        const message = error instanceof Error && error.message ? error.message : 'An error occured while signing in';
+        set({ authenticationError: message });
       }
-      const res = await signIn('credentials', { ...credentials, walletAddress, redirect: false });
-      if (res?.error) {
-        // TODO handle error
-      }
-      await get().actions.initializeUser();
+      set({ isAuthenticating: false });
     },
-    signOut: async (): Promise<void> => {
+    signOut: async () => {
       set({ isSigningOut: true });
-      await signOut({ redirect: false });
-      set(DEFAULT_PROPS);
+      try {
+        await signOut({ redirect: false });
+        set(DEFAULT_PROPS);
+      } catch (error) {
+        const message = error instanceof Error && error.message ? error.message : 'An error occured while signing out';
+        set({ signOutError: message, isSigningOut: false });
+      }
     },
   },
 }));
@@ -91,11 +100,13 @@ export default useAuthStore;
 
 export const useAuthActions = (): AuthActions => useAuthStore((state) => state.actions);
 
-export const useUserProfile = (): UserProfile => useAuthStore((state) => state.userProfile);
+export const useSilk = (): SilkEthereumProviderInterface | null => useAuthStore((state) => state.silk);
+
+export const useIsRegistering = (): boolean => useAuthStore((state) => state.isRegistering);
+
+export const useRegistrationError = (): string | undefined => useAuthStore((state) => state.registrationError);
 
 export const useIsAuthenticating = (): boolean => useAuthStore((state) => state.isAuthenticating);
-
-export const useIsSilkInitialized = (): boolean => useAuthStore((state) => state.isSilkInitialized);
 
 export const useIsAuthenticated = (): boolean => useAuthStore((state) => state.isAuthenticated);
 

@@ -1,15 +1,27 @@
 'use client';
 
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { RegistrationFormType, registrationFormSchema } from '@/constants/schemas';
+import {
+  useAuthActions,
+  useIsAuthenticated,
+  useIsAuthenticating,
+  useIsRegistering,
+  useRegistrationError,
+  useSilk,
+} from '@/store/auth.store';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Spinner } from '@nextui-org/react';
 import { Button } from '@nextui-org/button';
 import { Input } from '@nextui-org/input';
-import { RegistrationFormType, registrationFormSchema } from '@/constants/schemas';
-import useAuth from '@/hooks/useAuth';
+import { Spinner } from '@nextui-org/react';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 const RegistrationForm = () => {
-  const { isSilkInitialized, actions, isAuthenticating, isAuthenticated } = useAuth();
+  const silk = useSilk();
+  const authActions = useAuthActions();
+  const isRegistering = useIsRegistering();
+  const registrationError = useRegistrationError();
+  const isAuthenticating = useIsAuthenticating();
+  const isAuthenticated = useIsAuthenticated();
 
   const {
     register,
@@ -27,7 +39,7 @@ const RegistrationForm = () => {
   return (
     <form
       className="m-auto flex h-fit w-full max-w-sm flex-col gap-3"
-      onSubmit={handleSubmit(actions.register as SubmitHandler<RegistrationFormType>)}
+      onSubmit={handleSubmit(authActions.register as SubmitHandler<RegistrationFormType>)}
     >
       <Input
         {...register('email')}
@@ -39,13 +51,14 @@ const RegistrationForm = () => {
         isInvalid={!!emailErrorMessage}
         errorMessage={emailErrorMessage}
       />
+      {registrationError && <div className="my-2 text-center text-small text-danger">{registrationError}</div>}
       <Button
         key="register-button"
         type="submit"
         className="mt-5 w-full"
-        isLoading={isAuthenticating}
+        isLoading={isRegistering || isAuthenticating}
         spinner={<Spinner size="sm" />}
-        disabled={!isSilkInitialized || isAuthenticated}
+        disabled={!silk || isAuthenticated}
       >
         Register
       </Button>

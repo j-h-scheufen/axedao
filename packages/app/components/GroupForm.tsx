@@ -1,33 +1,69 @@
 'use client';
 
-import ContactInfoInputs, { ContactInfoField } from './ContactInfoInputs';
-import SubsectionHeading from './SubsectionHeading';
-import { Button } from '@nextui-org/button';
-import { Controller, FieldErrors, UseFormRegister, useForm, useFieldArray } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { groupSchema } from '@/constants/schemas';
-import ImageUpload from './ImageUpload';
+import {
+  useGroupProfile,
+  useGroupProfileActions,
+  useIsGroupProfileInitialized,
+  useIsInitializingGroupProfile,
+} from '@/store/groupProfile.store';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Button } from '@nextui-org/button';
 import { Input, Textarea } from '@nextui-org/input';
+import { useEffect } from 'react';
+import { Controller, /*useFieldArray,*/ useForm } from 'react-hook-form';
+import ImageUpload from './ImageUpload';
 import SelectUser from './SelectUser';
-import UserCard from './UserCard';
-import SelectMultipleUsers from './SelectMultipleUsers';
+import SubsectionHeading from './SubsectionHeading';
 
-const GroupForm = () => {
+type Props = { id: string };
+const GroupForm = ({ id }: Props) => {
+  const groupProfileActions = useGroupProfileActions();
+  const groupProfile = useGroupProfile();
+  const isInitialilzingGroupProfile = useIsInitializingGroupProfile();
+  const isGroupProfileInitialized = useIsGroupProfileInitialized();
+
+  useEffect(() => {
+    groupProfileActions.initialize(id);
+  }, [id, groupProfileActions]);
+
   const {
     control,
-    register,
+    // register,
     handleSubmit,
     watch,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(groupSchema) });
-
-  const adminsField = useFieldArray({
-    control,
-    name: 'admins',
+    // formState: { errors },
+    setValue,
+  } = useForm({
+    resolver: yupResolver(groupSchema),
   });
 
+  useEffect(() => {
+    if (!groupProfile?.id) return;
+    const { name, description, logo, banner, leader, founder, verified, links, admins } = groupProfile;
+    if (name) setValue('name', name);
+    if (description) setValue('description', description);
+    if (logo) setValue('logo', logo);
+    if (banner) setValue('banner', banner);
+    if (leader) setValue('leader', leader);
+    if (founder) setValue('founder', founder);
+    if (verified) setValue('verified', verified);
+    if (links) setValue('links', links);
+    if (admins?.length) setValue('admins', admins);
+  }, [setValue, groupProfile]);
+
+  // const adminsField = useFieldArray({
+  //   control,
+  //   name: 'admins',
+  // });
+
+  if (isInitialilzingGroupProfile) return 'Loading...';
+  if (!isGroupProfileInitialized) return null;
+
   const description = watch('description') || '';
-  const descriptionCharsLeft = 200 - description.length;
+  const descriptionCharsLeft = 300 - description.length;
+
+  // console.log(groupProfile.founder);
 
   return (
     <form className="max-w-xl" onSubmit={handleSubmit(console.log)}>
@@ -75,30 +111,53 @@ const GroupForm = () => {
           </div>
         </div>
       </div>
-      <Input
-        {...register('name')}
-        isInvalid={!!errors?.name}
-        color={errors?.name ? 'danger' : undefined}
-        label="Name"
-        placeholder="Enter the group's name"
-        className="mb-5"
-        classNames={{ inputWrapper: 'min-h-14' }}
-        errorMessage={errors?.name?.message}
+      <Controller
+        control={control}
+        name="name"
+        render={({ field: { onChange, value, onBlur, ref }, fieldState: { error } }) => {
+          const errorMessage = error?.message;
+          return (
+            <Input
+              ref={ref}
+              value={value || ''}
+              onBlur={onBlur}
+              onChange={onChange}
+              label="Name"
+              placeholder="Enter your group's name"
+              className="mb-5"
+              errorMessage={errorMessage}
+              isInvalid={!!errorMessage}
+              color={!!errorMessage ? 'danger' : undefined}
+            />
+          );
+        }}
       />
-      <Textarea
-        {...register('description')}
-        label="Description"
-        placeholder="Enter a short description of your group"
-        description={`${descriptionCharsLeft} characters left`}
-        className="mb-5 w-full"
-        classNames={{ description: 'w-fit ml-auto' }}
-        color={errors.description ? 'danger' : undefined}
-        isInvalid={!!errors.description}
-        errorMessage={errors.description?.message}
+      <Controller
+        control={control}
+        name="description"
+        render={({ field: { onChange, value, onBlur, ref }, fieldState: { error } }) => {
+          const errorMessage = error?.message;
+          return (
+            <Textarea
+              ref={ref}
+              value={value || ''}
+              onBlur={onBlur}
+              onChange={onChange}
+              label="Description"
+              placeholder="Enter a short description of your group"
+              description={`${descriptionCharsLeft} characters left`}
+              className="mb-5 w-full"
+              classNames={{ description: 'w-fit ml-auto' }}
+              errorMessage={errorMessage}
+              isInvalid={!!errorMessage}
+              color={!!errorMessage ? 'danger' : undefined}
+            />
+          );
+        }}
       />
       <div className="mb-5 max-w-xs">
         <label className="mb-2 inline-block text-sm">Founder</label>
-        <UserCard />
+        {/* <UserCard /> */}
       </div>
       <Controller
         control={control}
@@ -109,7 +168,7 @@ const GroupForm = () => {
               ref={ref}
               label="Leader"
               placeholder="Search group members"
-              userId={value?.id}
+              userId={value}
               onChange={(adminId: string | undefined) => (adminId ? onChange({ id: adminId }) : null)}
               onBlur={onBlur}
               errorMessage={error?.message}
@@ -120,7 +179,7 @@ const GroupForm = () => {
       />
       <div className="mb-5">
         <label className="mb-2 inline-block text-sm">Admins</label>
-        <Controller
+        {/* <Controller
           control={control}
           name="admins"
           render={({ field: { onBlur, ref, name, value }, fieldState: { error } }) => {
@@ -157,13 +216,13 @@ const GroupForm = () => {
               />
             );
           }}
-        />
+        /> */}
       </div>
       <SubsectionHeading>Links</SubsectionHeading>
-      <ContactInfoInputs
+      {/* <ContactInfoInputs
         register={register as UseFormRegister<ContactInfoField>}
         errors={errors as FieldErrors<ContactInfoField>}
-      />
+      /> */}
       <Button type="submit" className="mt-8 flex w-full items-center">
         Update group
       </Button>

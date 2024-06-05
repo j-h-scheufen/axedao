@@ -1,10 +1,10 @@
-import * as Yup from 'yup';
-import { InferType, array, boolean, mixed, object, string, ref } from 'yup';
-import YupPassword from 'yup-password';
+import { InferType, array, boolean, mixed, number, object, string } from 'yup';
 import titles from './titles';
-YupPassword(Yup);
 
-const validFileExtensions = { image: ['jpg', 'gif', 'png', 'jpeg', 'svg', 'webp'] } as const;
+export const linkTypes = ['twitter', 'facebook', 'instagram', 'linkedin'] as const;
+export type LinkType = (typeof linkTypes)[number];
+
+export const validFileExtensions = { image: ['jpg', 'gif', 'png', 'jpeg', 'svg', 'webp'] } as const;
 type ValidFileExtensionsType = keyof typeof validFileExtensions;
 type ValidImageExtensionsType = (typeof validFileExtensions.image)[number];
 
@@ -53,6 +53,17 @@ const isValidProfileTwitterUrl = (url: string | undefined): boolean => {
 
 const megabytesToBytes = (mb: number) => 1024 * 1024 * mb; //3MB
 
+const linksSchema = array()
+  .of(
+    object({
+      id: number(),
+      url: string().required(),
+      type: mixed().oneOf(linkTypes).nullable(),
+      ownerId: string().required(),
+    }),
+  )
+  .default([]);
+
 export const registrationFormSchema = object({
   email: string().email('Not a valid email').required('Email is required'),
 });
@@ -71,7 +82,7 @@ export const confirmationFormSchema = object({
 
 export type ConfirmationFormType = InferType<typeof confirmationFormSchema>;
 
-export const profileSchema = object({
+export const profileFormSchema = object({
   image: mixed()
     .test('is-valid-type', 'Not a valid image type', (value: any) => {
       if (!value) return true;
@@ -81,26 +92,15 @@ export const profileSchema = object({
       if (!value) return true;
       return value.size <= megabytesToBytes(3);
     }),
-  title: string().required('Please select a title').oneOf(titles, 'Not a valid title'),
-  fullName: string().required('Full name is required'),
-  nickname: string(),
+  title: string().nullable().oneOf(titles, 'Not a valid title'),
+  name: string().nullable(),
+  nickname: string().nullable(),
   email: string().email('Not a valid email').required('Email is required'),
-  phone: string().required('Phone number is required'),
-  links: object({
-    website: string().test('is-valid-url', 'Not a valid url', (value) => (value ? isValidUrl(value) : true)),
-    instagram: string().test('is-valid-instagram-url', 'Not a valid instagram url', (value) =>
-      value ? isValidProfileInstagramUrl(value) : true,
-    ),
-    facebook: string().test('is-valid-facebook-url', 'Not a valid facebook url', (value) =>
-      value ? isValidFacebookProfileUrl(value) : true,
-    ),
-    twitter: string().test('is-valid-twitter-url', 'Not a valid twitter url', (value) =>
-      value ? isValidProfileTwitterUrl(value) : true,
-    ),
-  }),
+  phone: string(),
+  links: linksSchema,
 });
 
-export type ProfileType = InferType<typeof profileSchema>;
+export type ProfileFormType = InferType<typeof profileFormSchema>;
 
 export const joinGroupFormSchema = object({
   id: string().required('Please select a group'),
@@ -110,7 +110,8 @@ export type JoinGroupFormType = InferType<typeof joinGroupFormSchema>;
 
 export const createNewGroupFormSchema = object({
   name: string().required('Group name is required'),
-  location: mixed(),
+  // location: mixed(),
+  verified: boolean().default(false),
 });
 
 export type CreateNewGroupFormType = InferType<typeof createNewGroupFormSchema>;
@@ -119,53 +120,42 @@ export const groupSchema = object({
   name: string().required('Group name is required'),
   description: string().test(
     'max-chars',
-    'Description cannot exceed 200 characters',
-    (value: string | undefined) => !!value && value.length <= 200,
+    'Description cannot exceed 300 characters',
+    (value: string | undefined) => !!value && value.length <= 300,
   ),
-  email: string().email('Not a valid email').required('Group email is required'),
-  phone: string().required('Phone number is required'),
   logo: mixed()
     .test('is-valid-type', 'Not a valid image type', (value: any) => {
-      if (!value) return true;
-      return isValidFileType(value && value.name?.toLowerCase(), 'image');
+      if (!value || typeof value === 'string') return true;
+      if (value instanceof File) {
+        return isValidFileType(value && value.name?.toLowerCase(), 'image');
+      }
+      return false;
     })
     .test('is-valid-size', 'Max image size allowed is 3MB', (value: any) => {
-      if (!value) return true;
+      if (!value || typeof value === 'string') return true;
       return value.size <= megabytesToBytes(3);
     }),
   banner: mixed()
     .test('is-valid-type', 'Not a valid image type', (value: any) => {
       if (!value) return true;
-      return isValidFileType(value && value.name?.toLowerCase(), 'image');
+      if (value instanceof File) {
+        return isValidFileType(value && value.name?.toLowerCase(), 'image');
+      }
+      return false;
     })
     .test('is-valid-size', 'Max image size allowed is 5MB', (value: any) => {
-      if (!value) return true;
+      if (!value || typeof value === 'string') return true;
       return value.size <= megabytesToBytes(5);
     }),
-  links: object({
-    website: string().test('is-valid-url', 'Not a valid url', (value) => (value ? isValidUrl(value) : true)),
-    instagram: string().test('is-valid-instagram-url', 'Not a valid instagram url', (value) =>
-      value ? isValidProfileInstagramUrl(value) : true,
-    ),
-    facebook: string().test('is-valid-facebook-url', 'Not a valid facebook url', (value) =>
-      value ? isValidFacebookProfileUrl(value) : true,
-    ),
-    twitter: string().test('is-valid-twitter-url', 'Not a valid twitter url', (value) =>
-      value ? isValidProfileTwitterUrl(value) : true,
-    ),
-  }),
+  links: linksSchema,
   admins: array().of(
     object({
       id: string().required(),
     }),
   ),
-  leader: object({
-    id: string().required(),
-  }),
-  founder: object({
-    id: string().required(),
-  }),
-  locations: array().of(mixed()),
+  leader: string(),
+  founder: string(),
+  // locations: array().of(mixed()),
   members: array().of(
     object({
       id: string().required(),

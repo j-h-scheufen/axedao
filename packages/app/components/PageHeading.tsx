@@ -1,10 +1,10 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
 import { Button } from '@nextui-org/button';
 import clsx from 'clsx';
 import { ArrowLeft } from 'lucide-react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
   children: React.ReactNode;
@@ -17,14 +17,14 @@ const PageHeading = ({ children, className = '', back, ...props }: Props) => {
   if (typeof back === 'string') {
     backButton = (
       <Link href={back} replace>
-        <Button variant="light" isIconOnly>
+        <Button variant="light" className="!min-w-[unset] !px-0" isIconOnly>
           <ArrowLeft className="h-5 w-5" />
         </Button>
       </Link>
     );
-  } else if (back === true && typeof window !== 'undefined' && window?.history && window.history.length > 1) {
+  } else if (back === true && /* typeof window !== 'undefined' && */ window?.history && window.history.length > 1) {
     backButton = (
-      <Button variant="light" isIconOnly onPress={() => router.back()} className="p-0">
+      <Button variant="light" onPress={() => router.back()} className="!min-w-[unset] !px-0" isIconOnly>
         <ArrowLeft className="h-5 w-5" />
       </Button>
     );

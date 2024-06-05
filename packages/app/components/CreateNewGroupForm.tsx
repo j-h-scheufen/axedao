@@ -1,16 +1,20 @@
-import { ReactNode } from 'react';
-import { Input } from '@nextui-org/input';
-import { useForm } from 'react-hook-form';
+import { createNewGroupFormSchema } from '@/constants/schemas';
+import { useCreateGroupError, useIsCreatingGroup, useProfileActions } from '@/store/profile.store';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { CreateNewGroupFormType, createNewGroupFormSchema } from '@/constants/schemas';
-import { useMutation } from '@tanstack/react-query';
-import axios from 'axios';
-import { Spinner } from '@nextui-org/react';
 import { Button } from '@nextui-org/button';
+import { Input } from '@nextui-org/input';
+import { Spinner } from '@nextui-org/react';
+import { ReactNode } from 'react';
+import { useForm } from 'react-hook-form';
+import ErrorText from './ErrorText';
 
 type Props = { secondaryButton?: ReactNode; onSubmit?: () => void | null };
 
-const CreateNewGroupForm = ({ secondaryButton, onSubmit }: Props) => {
+const CreateNewGroupForm = ({ secondaryButton }: Props) => {
+  const profileActions = useProfileActions();
+  const isCreatingGroup = useIsCreatingGroup();
+  const createGroupError = useCreateGroupError();
+
   const {
     register,
     handleSubmit,
@@ -19,23 +23,8 @@ const CreateNewGroupForm = ({ secondaryButton, onSubmit }: Props) => {
     resolver: yupResolver(createNewGroupFormSchema),
   });
 
-  const { mutate, isPending } = useMutation({
-    mutationKey: ['create-new-group' /*{ userId }*/],
-    mutationFn: async (gropuData: CreateNewGroupFormType) => {
-      const { data } = await axios.post('/dashboard/profile/api/group-association', gropuData);
-      return data;
-    },
-    onSuccess: (data) => {
-      onSubmit && onSubmit();
-      if (!data?.id) return;
-      // optimistically update profile
-    },
-  });
-
-  const submit = (data: CreateNewGroupFormType) => mutate(data);
-
   return (
-    <form className="flex flex-col gap-5" onSubmit={handleSubmit(submit)}>
+    <form onSubmit={handleSubmit(profileActions.createGroup)}>
       <Input
         {...register('name')}
         label="Name"
@@ -43,17 +32,18 @@ const CreateNewGroupForm = ({ secondaryButton, onSubmit }: Props) => {
         errorMessage={errors?.name?.message}
         color={!!errors?.name ? 'danger' : undefined}
       />
-      <Input
+      {/* <Input
         {...register('location')}
         label="Location"
         placeholder="Enter group's location"
         // errorMessage={errors?.location?.message}
         color={!!errors?.location ? 'danger' : undefined}
-      />
+      /> */}
+      <ErrorText message={createGroupError} />
       <div className="mt-5 flex justify-between gap-3">
         {secondaryButton && secondaryButton}
-        <Button type="submit" className="w-full flex-1" isLoading={isPending} spinner={<Spinner size="sm" />}>
-          Submit
+        <Button type="submit" className="w-full flex-1" isLoading={isCreatingGroup} spinner={<Spinner size="sm" />}>
+          Create group
         </Button>
       </div>
     </form>

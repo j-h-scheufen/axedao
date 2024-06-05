@@ -1,14 +1,13 @@
 const titles = [
-  'None',
-  'Mestre',
-  'Contra-Mestre',
-  'Mestrando',
-  'Professor',
-  'Instructor',
-  'Monitor',
-  'Aluno Graduado',
-  'Aluno',
-  'Iniciante',
+  'mestre',
+  'contra-mestre',
+  'mestrando',
+  'professor',
+  'instrutor',
+  'monitor',
+  'aluno-graduado',
+  'aluno',
+  'iniciante',
 ] as const;
 
 export type TitleType = (typeof titles)[number];

@@ -1,5 +1,5 @@
+import { and, count, eq, ilike } from 'drizzle-orm';
 import { drizzle } from 'drizzle-orm/postgres-js';
-import { and, count, eq } from 'drizzle-orm';
 import postgres from 'postgres';
 
 import ENV from '@/config/environment';
@@ -21,7 +21,15 @@ export async function fetchUsers(limit: number = 20, offset: number = 0) {
   return await db.select().from(schema.users).limit(limit).offset(offset);
 }
 
-export async function fetchGroups(limit: number = 20, offset: number = 0) {
+export async function fetchGroups(limit: number = 20, offset: number = 0, searchTerm?: string) {
+  if (searchTerm) {
+    return await db
+      .select()
+      .from(schema.groups)
+      .where(ilike(schema.groups.name, `%${searchTerm}%`))
+      .limit(limit)
+      .offset(offset);
+  }
   return await db.select().from(schema.groups).limit(limit).offset(offset);
 }
 
@@ -40,12 +48,20 @@ export async function fetchUserProfile(userId: string): Promise<UserProfile> {
   return { ...user[0], links };
 }
 
-export async function fetchUserProfileByEmail(email: string): Promise<UserProfile> {
+export async function fetchUserProfileByEmail(email: string): Promise<UserProfile | undefined> {
   const users = await db.select().from(schema.users).where(eq(schema.users.email, email));
   const user = users.length ? users[0] : null;
-  if (!user) throw new Error('User not found');
+  if (!user) {
+    return undefined;
+  }
   const links = await db.select().from(schema.links).where(eq(schema.links.ownerId, user.id));
   return { ...user, links };
+}
+
+export async function fetchUserIdFromEmail(email: string): Promise<string | undefined> {
+  const users = await db.select({ id: schema.users.id }).from(schema.users).where(eq(schema.users.email, email));
+  if (users.length === 0) return undefined;
+  return users[0].id;
 }
 
 export async function fetchGroupProfile(groupId: string): Promise<GroupProfile> {
@@ -55,8 +71,21 @@ export async function fetchGroupProfile(groupId: string): Promise<GroupProfile> 
   return { ...group[0], links };
 }
 
-export async function fetchGroupMembers(groupId: string, limit: number = 20, offset: number = 0) {
-  return await db.select().from(schema.users).where(eq(schema.users.group_id, groupId)).limit(limit).offset(offset);
+export async function fetchGroupIdFromName(name: string): Promise<string | undefined> {
+  const groups = await db.select({ id: schema.groups.id }).from(schema.groups).where(eq(schema.groups.name, name));
+  if (groups.length === 0) return undefined;
+  return groups[0].id;
+}
+
+export async function fetchGroupMembers(groupId: string, limit: number = 20, offset: number = 0, searchTerm?: string) {
+  return await db
+    .select()
+    .from(schema.users)
+    .where(
+      and(eq(schema.users.group_id, groupId), searchTerm ? ilike(schema.users.name, `%${searchTerm}%`) : undefined),
+    )
+    .limit(limit)
+    .offset(offset);
 }
 
 export async function insertUser(user: schema.InsertUser) {
@@ -64,19 +93,30 @@ export async function insertUser(user: schema.InsertUser) {
 }
 
 export async function insertGroup(group: schema.InsertGroup) {
-  await db.insert(schema.groups).values(group);
+  const groups = await db.insert(schema.groups).values(group).returning();
+  return groups[0];
 }
 
 export async function addLink(link: schema.InsertLink) {
-  db.insert(schema.links).values(link);
+  const links = await db.insert(schema.links).values(link).returning();
+  return links[0];
+}
+
+export async function updateLink(link: schema.InsertLink & { id: number }) {
+  await db.update(schema.links).set(link).where(eq(schema.links.id, link.id));
 }
 
 export async function removeLink(linkId: number) {
-  db.delete(schema.links).where(eq(schema.links.id, linkId));
+  await db.delete(schema.links).where(eq(schema.links.id, linkId));
 }
 
-export async function updateUser(user: schema.InsertUser) {
-  await db.update(schema.users).set(user).where(eq(schema.users.id, user.id));
+export async function fetchUserLinks(userId: string) {
+  return await db.select().from(schema.links).where(eq(schema.links.ownerId, userId));
+}
+
+export async function updateUser(user: Omit<schema.InsertUser, 'email'>) {
+  const users = await db.update(schema.users).set(user).where(eq(schema.users.id, user.id)).returning();
+  return users[0];
 }
 
 export async function updateGroup(group: schema.InsertGroup) {
@@ -85,6 +125,25 @@ export async function updateGroup(group: schema.InsertGroup) {
 
 export async function addGroupAdmin(entry: schema.InsertGroupAdmin) {
   await db.insert(schema.groupAdmins).values(entry);
+}
+
+export async function fetchGroupAdmins(groupId: string, limit: number = 20, offset: number = 0) {
+  return await db
+    .select({
+      id: schema.users.id,
+      name: schema.users.name,
+      nickname: schema.users.nickname,
+      email: schema.users.email,
+      avatar: schema.users.avatar,
+      title: schema.users.title,
+      createdAt: schema.users.createdAt,
+      group_id: schema.users.group_id,
+    })
+    .from(schema.groupAdmins)
+    .innerJoin(schema.users, eq(schema.groupAdmins.userId, schema.users.id))
+    .where(eq(schema.groupAdmins.groupId, groupId))
+    .limit(limit)
+    .offset(offset);
 }
 
 export async function removeGroupAdmin(entry: schema.InsertGroupAdmin) {

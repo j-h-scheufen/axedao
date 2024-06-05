@@ -1,40 +1,65 @@
 'use client';
 
-import { useGroupMembers, useGroupMembersActions } from '@/store/groupMembers.store';
-import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue } from '@nextui-org/react';
-import { useEffect } from 'react';
-
-const columns = [
-  {
-    key: 'id',
-    label: 'MEMBER',
-  },
-  {
-    key: 'role',
-    label: 'ROLE',
-  },
-];
+import {
+  GroupMember,
+  useGroupFounder,
+  useGroupLeader,
+  useGroupMembers,
+  useGroupMembersActions,
+  useGroupMembersHasMoreResults,
+} from '@/store/groupMembers.store';
+import { useInfiniteScroll } from '@nextui-org/use-infinite-scroll';
+import { useEffect, useMemo } from 'react';
+import SubsectionHeading from './SubsectionHeading';
+import UsersGrid from './UsersGrid';
 
 type Props = { id: string };
 const GroupMembers = ({ id }: Props) => {
   const groupMembersActions = useGroupMembersActions();
   const groupMembers = useGroupMembers();
+  const founder = useGroupFounder();
+  const leader = useGroupLeader();
+  const hasMoreMembers = useGroupMembersHasMoreResults();
 
   useEffect(() => {
     groupMembersActions.initialize(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id]);
+  }, [id, groupMembersActions]);
+
+  const { admins, members } = useMemo(() => {
+    const admins: GroupMember[] = [];
+    const members: GroupMember[] = [];
+    if (groupMembers?.length) {
+      groupMembers.forEach((member) => {
+        if (member.role === 'member') members.push(member);
+        if (member.role === 'admin') admins.push(member);
+      });
+    }
+    return { admins, members };
+  }, [groupMembers]);
+
+  const [, scrollerRef] = useInfiniteScroll({
+    hasMore: hasMoreMembers,
+    isEnabled: true,
+    shouldUseLoader: true,
+    onLoadMore: () => groupMembersActions.loadNextPage(),
+  });
+
   return (
-    <Table aria-label="Example table with dynamic content">
-      <TableHeader columns={columns}>
-        {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
-      </TableHeader>
-      <TableBody items={groupMembers} emptyContent="This group has no members">
-        {(member) => (
-          <TableRow key={member.id}>{(columnKey) => <TableCell>{getKeyValue(member, columnKey)}</TableCell>}</TableRow>
-        )}
-      </TableBody>
-    </Table>
+    <>
+      <SubsectionHeading>Founder</SubsectionHeading>
+      <UsersGrid users={[founder]} />
+      {leader?.id && (
+        <>
+          <SubsectionHeading>Leader</SubsectionHeading>
+          <UsersGrid users={[leader]} />
+        </>
+      )}
+      <SubsectionHeading>Admins</SubsectionHeading>
+      <UsersGrid users={admins} emptyContent="No admins found" />
+      {/* <AddAdmin groupId={id} /> */}
+      <SubsectionHeading>Members</SubsectionHeading>
+      <UsersGrid scrollerRef={scrollerRef} users={members} emptyContent="No members found" />
+    </>
   );
 };
 export default GroupMembers;

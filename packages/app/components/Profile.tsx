@@ -1,15 +1,16 @@
 'use client';
 
-import { Avatar } from '@nextui-org/react';
+import { useProfile } from '@/store/profile.store';
 import { Button } from '@nextui-org/button';
+import { Avatar } from '@nextui-org/react';
 import { Camera, Edit } from 'lucide-react';
-import ContactInfo from './ContactInfo';
 import Link from 'next/link';
-import useAuth from '@/hooks/useAuth';
+import ContactInfo from './ContactInfo';
 
 const Profile = () => {
-  const { userProfile } = useAuth();
-  const { name, title } = userProfile;
+  const profile = useProfile();
+  const { name, title } = profile;
+
   return (
     <div className="flex flex-col items-center gap-5 sm:flex-row">
       <Avatar

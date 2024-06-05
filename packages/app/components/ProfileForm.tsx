@@ -1,41 +1,68 @@
 'use client';
-
-import { Input } from '@nextui-org/input';
-import { Select, SelectItem } from '@nextui-org/select';
-import ContactInfoInputs from './ContactInfoInputs';
-import SubsectionHeading from './SubsectionHeading';
-import { Button } from '@nextui-org/button';
+import { ProfileFormType, profileFormSchema } from '@/constants/schemas';
 import titles from '@/constants/titles';
-import { SubmitHandler, useForm, Controller, UseFormRegister, FieldErrors } from 'react-hook-form';
+import {
+  useIsInitializingProfile,
+  useIsProfileInitialized,
+  useIsUpdatingProfile,
+  useProfile,
+  useProfileActions,
+} from '@/store/profile.store';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { ProfileType, profileSchema } from '@/constants/schemas';
-import useUser from '@/hooks/useUser';
+import { Button } from '@nextui-org/button';
+import { Input } from '@nextui-org/input';
 import { Spinner } from '@nextui-org/react';
+import { Select, SelectItem } from '@nextui-org/select';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import ContactInfoInputs from './ContactInfoInputs';
 import ImageUpload from './ImageUpload';
+import SubsectionHeading from './SubsectionHeading';
 
-type Props = { create?: boolean };
-const ProfileForm = ({ create = false }: Props) => {
-  const {
-    createProfileMutation,
-    updateProfileMutation,
-    // profile
-  } = useUser();
+const ProfileForm = () => {
+  const router = useRouter();
+
+  const profile = useProfile();
+  const isInitializingProfile = useIsInitializingProfile();
+  const isProfileInitialized = useIsProfileInitialized();
+  const profileActions = useProfileActions();
+  const isUpdatingProfile = useIsUpdatingProfile();
 
   const {
-    register,
     control,
     handleSubmit,
-    formState: { errors },
+    setValue,
+    watch,
+    formState: { dirtyFields },
   } = useForm({
-    resolver: yupResolver(profileSchema),
-    // defaultValues: create ? undefined : profile
+    resolver: yupResolver(profileFormSchema),
+    defaultValues: {
+      email: profile.email,
+    },
   });
 
-  const mutation = create ? createProfileMutation : updateProfileMutation;
-  const submit = mutation.mutate as SubmitHandler<ProfileType>;
+  useEffect(() => {
+    if (!profile.id) return;
+    const { name, email, nickname, title, links = [] } = profile;
+    setValue('email', email);
+    if (name) setValue('name', name);
+    if (nickname) setValue('nickname', nickname);
+    if (title) setValue('title', title);
+    if (links) setValue('links', links);
+  }, [profile, setValue]);
+
+  const onSubmit = async (profileData: ProfileFormType) => {
+    await profileActions.updateProfile(profileData);
+    router.push('/dashboard/profile');
+  };
+
+  const isFormDirty = !!Object.keys(dirtyFields).length;
+
+  if (isInitializingProfile) return 'Loading...';
 
   return (
-    <form className="max-w-lg" onSubmit={handleSubmit(submit)}>
+    <form className="max-w-lg" onSubmit={handleSubmit(onSubmit)}>
       <SubsectionHeading>General Information</SubsectionHeading>
       <div className="flex flex-col gap-5">
         <Controller
@@ -63,7 +90,7 @@ const ProfileForm = ({ create = false }: Props) => {
                 ref={ref}
                 label="Title"
                 placeholder="Select title"
-                defaultSelectedKeys={value ? [value] : undefined}
+                selectedKeys={value ? [value] : []}
                 onChange={(e) => {
                   onChange && onChange(e.target.value);
                 }}
@@ -71,6 +98,7 @@ const ProfileForm = ({ create = false }: Props) => {
                 isInvalid={isInvalid}
                 color={isInvalid ? 'danger' : undefined}
                 errorMessage={error?.message}
+                classNames={{ value: 'capitalize' }}
               >
                 {titles.map((title) => (
                   <SelectItem key={title} value={title} className="capitalize">
@@ -81,33 +109,55 @@ const ProfileForm = ({ create = false }: Props) => {
             );
           }}
         />
-        <Input
-          {...register('fullName')}
-          isInvalid={!!errors?.fullName}
-          color={errors?.fullName ? 'danger' : undefined}
-          label="Full name"
-          placeholder="Enter your full name"
-          errorMessage={errors?.fullName?.message}
+        <Controller
+          control={control}
+          name="name"
+          render={({ field: { onChange, value, onBlur, ref }, fieldState: { error } }) => {
+            const errorMessage = error?.message;
+            return (
+              <Input
+                ref={ref}
+                value={value || ''}
+                onBlur={onBlur}
+                onChange={onChange}
+                label="Full name"
+                placeholder="Enter your full name"
+                errorMessage={errorMessage}
+                isInvalid={!!errorMessage}
+                color={!!errorMessage ? 'danger' : undefined}
+              />
+            );
+          }}
         />
-        <Input
-          {...register('nickname')}
-          isInvalid={!!errors?.nickname}
-          color={errors?.nickname ? 'danger' : undefined}
-          label="Nickname"
-          placeholder="Enter your nick name"
-          errorMessage={errors?.nickname?.message}
+        <Controller
+          control={control}
+          name="nickname"
+          render={({ field: { onChange, value, onBlur, ref }, fieldState: { error } }) => {
+            const errorMessage = error?.message;
+            return (
+              <Input
+                ref={ref}
+                value={value || ''}
+                onBlur={onBlur}
+                onChange={onChange}
+                label="Nickname"
+                placeholder="Enter your nickname"
+                errorMessage={errorMessage}
+                isInvalid={!!errorMessage}
+                color={!!errorMessage ? 'danger' : undefined}
+              />
+            );
+          }}
         />
       </div>
       <SubsectionHeading>Links</SubsectionHeading>
-      <ContactInfoInputs
-        register={register as UseFormRegister<ProfileType>}
-        errors={errors as FieldErrors<ProfileType>}
-      />
+      <ContactInfoInputs control={control} setValue={setValue} watch={watch} />
       <Button
         type="submit"
-        isLoading={mutation.isPending}
+        isLoading={isUpdatingProfile}
         spinner={<Spinner size="sm" />}
         className="mt-8 flex w-full items-center"
+        disabled={!isProfileInitialized || !isFormDirty}
       >
         Update profile
       </Button>

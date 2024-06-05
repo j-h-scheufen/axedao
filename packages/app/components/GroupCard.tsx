@@ -1,15 +1,17 @@
 'use client';
-
-import clsx from 'clsx';
-import { Card, CardBody, CardFooter, CardHeader } from '@nextui-org/card';
+import { GroupProfile } from '@/types/model';
 import { Button } from '@nextui-org/button';
-import { Avatar, AvatarGroup } from '@nextui-org/react';
-import { MapPin } from 'lucide-react';
+import { Card, CardFooter, CardHeader } from '@nextui-org/card';
 import { Link } from '@nextui-org/link';
-import { Group } from '@/types/model';
+import { Avatar } from '@nextui-org/react';
+import clsx from 'clsx';
+import { MapPin } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { ReactNode } from 'react';
 
-type Props = { group: Group; change?: () => null | void; className?: string };
-const GroupCard = ({ group, change, className = '' }: Props) => {
+type Props = { group: GroupProfile; className?: string; startFooter?: ReactNode };
+const GroupCard = ({ group, className = '', startFooter = null }: Props) => {
+  const router = useRouter();
   const { name, id } = group;
   return (
     <Card className={clsx('w-full', className)}>
@@ -22,27 +24,13 @@ const GroupCard = ({ group, change, className = '' }: Props) => {
           </div>
         </div>
       </CardHeader>
-      <CardBody>
-        <AvatarGroup isBordered max={3} className="justify-start" size="sm">
-          <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
-          <Avatar src="https://i.pravatar.cc/150?u=a04258a2462d826712d" />
-          <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026704d" />
-          <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026302d" />
-          <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026702d" />
-          <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026708c" />
-        </AvatarGroup>
-      </CardBody>
       <CardFooter className="flex-row justify-between">
-        {change && (
-          <Button variant="light" size="sm" className="block w-fit" onPress={change}>
-            Change
-          </Button>
-        )}
+        {startFooter}
         <Button
           as={Link}
-          href={`/dashboard/overview/groups/${id}`}
           variant="bordered"
           size="sm"
+          onPress={() => router.push(`/dashboard/overview/groups/${id}`)}
           className="ml-auto w-fit"
         >
           View group

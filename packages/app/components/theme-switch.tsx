@@ -29,7 +29,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className, classNames }): JS
       startContent={<SunFilledIcon size={16} />}
       endContent={<MoonFilledIcon size={16} />}
       onChange={onChange}
-      className={clsx('transition-opacity hover:opacity-80', className, classNames?.base)}
+      className={clsx('transition-opacity hover:opacity-80 [&>span]:mr-0', className, classNames?.base)}
     />
   );
 };

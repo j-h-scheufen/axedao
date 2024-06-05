@@ -8,10 +8,13 @@ export type Group = SelectGroup;
 
 export type User = SelectUser;
 
+export type Link = SelectLink;
+
 export type UserProfile = SelectUser & {
   links: Array<SelectLink>;
 };
 
 export type GroupProfile = SelectGroup & {
   links: Array<SelectLink>;
+  admins?: Array<UserProfile>;
 };

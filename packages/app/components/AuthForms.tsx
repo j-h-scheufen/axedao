@@ -1,29 +1,29 @@
 'use client';
 
 import SignInForm from '@/components/SignInForm';
-import { Tab, Tabs } from '@nextui-org/tabs';
-import RegistrationForm from './RegistrationForm';
-import { useSearchParams } from 'next/navigation';
 import useUpdateSearchParams from '@/hooks/useUpdateSearchParams';
-import useAuth from '@/hooks/useAuth';
+import { useAuthActions, useSilk } from '@/store/auth.store';
 import { Spinner } from '@nextui-org/react';
+import { Tab, Tabs } from '@nextui-org/tabs';
+import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
+import RegistrationForm from './RegistrationForm';
 
 const AuthForms = () => {
   const searchParams = useSearchParams();
   const updateSearchParams = useUpdateSearchParams(searchParams);
   const tab = searchParams.get('tab');
 
-  const { isSilkInitialized, actions } = useAuth();
+  const silk = useSilk();
+  const authActions = useAuthActions();
 
   useEffect(() => {
-    actions.initializeSilk();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    authActions.initializeSilk();
+  }, [authActions]);
 
   return (
     <>
-      {!isSilkInitialized && (
+      {!silk && (
         <div className="absolute left-0 top-0 z-20 flex h-full w-full items-center justify-center bg-background/60 backdrop-blur-sm">
           <Spinner />
         </div>

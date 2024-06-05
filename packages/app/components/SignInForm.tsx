@@ -1,16 +1,16 @@
 'use client';
 
-import { Spinner } from '@nextui-org/react';
-import { Button } from '@nextui-org/button';
-import { Input } from '@nextui-org/input';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { SignInFormType, signInFormSchema } from '@/constants/schemas';
 import useAuth from '@/hooks/useAuth';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Button } from '@nextui-org/button';
+import { Input } from '@nextui-org/input';
+import { Spinner } from '@nextui-org/react';
+import { useForm } from 'react-hook-form';
 
 const SignInForm = () => {
   const {
-    isSilkInitialized,
+    silk,
     actions: { signIn },
     isAuthenticating,
   } = useAuth();
@@ -43,7 +43,7 @@ const SignInForm = () => {
         className="mt-5 w-full"
         isLoading={isAuthenticating}
         spinner={<Spinner size="sm" />}
-        disabled={!isSilkInitialized}
+        disabled={!silk}
       >
         Sign in
       </Button>

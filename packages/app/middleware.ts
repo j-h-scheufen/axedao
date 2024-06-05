@@ -1,15 +1,15 @@
-import { NextResponse, NextRequest } from 'next/server';
 import { NextRequestWithAuth, withAuth } from 'next-auth/middleware';
+import { NextResponse } from 'next/server';
 
 export default withAuth(
   // `withAuth` augments your `Request` with the user's token.
-  function middleware(request: NextRequestWithAuth) {
+  async function middleware(request: NextRequestWithAuth) {
     const pathname = request.nextUrl.pathname || '';
     const token = request.nextauth.token;
-    if (pathname.startsWith('/dashboard') && !token) {
+    if (pathname?.startsWith('/dashboard') && !token) {
       return Response.redirect(new URL('/auth?tab=sign-in', request.url));
     }
-    if (pathname.startsWith('api')) {
+    if (pathname?.startsWith('api')) {
       // TODO check authenticated session
       // TODO protect api routes PUT/POST/DELETE to require global admin rights
     }

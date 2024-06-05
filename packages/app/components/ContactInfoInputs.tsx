@@ -1,111 +1,176 @@
+'use client';
+import { ProfileFormType } from '@/constants/schemas';
+import { useProfile } from '@/store/profile.store';
+import { SiX } from '@icons-pack/react-simple-icons';
+import { Button } from '@nextui-org/button';
 import { Input } from '@nextui-org/input';
-import { Facebook, Instagram, Mail, Phone, Twitter } from 'lucide-react';
-import { ReactNode } from 'react';
-import { FieldErrors, UseFormRegister } from 'react-hook-form';
+import { Facebook, Instagram, LinkIcon, LinkedinIcon, Mail, Phone, PlusIcon, XIcon } from 'lucide-react';
+import { useCallback } from 'react';
+import { Control, Controller, UseFormSetValue, UseFormWatch, useFieldArray } from 'react-hook-form';
 
-type ContactInfoFieldKeyType =
-  | 'email'
-  | 'phone'
-  | 'links'
-  | 'links.website'
-  | 'links.instagram'
-  | 'links.twitter'
-  | 'links.facebook';
-
-export type ContactInfoField = {
-  email: string;
-  phone: string;
-  links: {
-    website?: string | undefined;
-    instagram?: string | undefined;
-    facebook?: string | undefined;
-    twitter?: string | undefined;
-  };
-};
-
-const links: {
-  linkType: 'website' | 'instagram' | 'twitter' | 'facebook';
-  startContent: ReactNode;
-  label: string;
-  placeholder: string;
-}[] = [
+const linkBaseUrls = [
   {
-    linkType: 'website',
-    startContent: (
-      <div className="pointer-events-none flex items-center">
-        <span className="text-small text-default-400">https://</span>
-      </div>
-    ),
-    label: 'Website',
-    placeholder: 'personalwebsite.com',
+    type: 'twitter',
+    baseUrls: ['twitter.com', 'twitter.co', 'x.com', 'twitterinc.com'],
   },
   {
-    linkType: 'instagram',
-    startContent: <Instagram className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />,
-    label: 'Instagram',
-    placeholder: 'Instagram username',
+    type: 'facebook',
+    baseUrls: ['facebook.com', 'facebook.co', 'facebook.net', 'fb.com', 'fb.me'],
   },
   {
-    linkType: 'facebook',
-    startContent: <Facebook className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />,
-    label: 'Facebook',
-    placeholder: 'Facebook username',
+    type: 'instagram',
+    baseUrls: ['instagram.com', 'ig.me'],
   },
   {
-    linkType: 'twitter',
-    startContent: <Twitter className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />,
-    label: 'Twitter',
-    placeholder: 'Twitter username',
+    type: 'linkedin',
+    baseUrls: ['linkedin.com', 'linkedin.cn'],
   },
 ];
 
 type Props = {
-  register: UseFormRegister<ContactInfoField & { [key: string]: unknown }>;
-  errors: FieldErrors<ContactInfoField & { [key: string]: unknown }>;
+  control: Control<ProfileFormType>;
+  setValue: UseFormSetValue<ProfileFormType>;
+  watch: UseFormWatch<ProfileFormType>;
 };
-const ContactInfoInputs = ({ register, errors }: Props) => {
+const ContactInfoInputs = ({ control, setValue, watch }: Props) => {
+  const { id: userId } = useProfile();
+  const { fields, append, remove } = useFieldArray({ control, name: 'links' });
+
+  const getLinkIcon = useCallback(
+    (index: number) => {
+      const type = watch(`links.${index}.type`);
+      switch (type) {
+        case 'facebook':
+          return <Facebook className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />;
+        case 'instagram':
+          return <Instagram className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />;
+        case 'linkedin':
+          return <LinkedinIcon className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />;
+        case 'twitter':
+          return <SiX className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />;
+        default:
+          return <LinkIcon className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />;
+      }
+    },
+    [watch],
+  );
+
+  const getLinkType = useCallback((url: string) => {
+    const baseUrl = url.replace('https://', '').replace('http://', '').replace('www.', '').split('/')[0];
+    let type = null;
+    for (let i = 0; i < linkBaseUrls.length; i++) {
+      const { type: linkType, baseUrls } = linkBaseUrls[i];
+      let match = false;
+      for (let j = 0; j < baseUrls.length; j++) {
+        const url = baseUrls[j];
+        if (url === baseUrl) {
+          match = true;
+          type = linkType;
+          break;
+        }
+      }
+      if (match) break;
+    }
+    return type;
+  }, []);
+
   return (
-    <div className="grid h-fit w-full grid-cols-1 gap-x-3 gap-y-3 text-small text-default-500 sm:grid-cols-2">
-      <Input
-        {...register('email')}
-        size="sm"
-        classNames={{ inputWrapper: 'h-10' }}
-        isInvalid={!!errors?.email}
-        color={errors?.email ? 'danger' : undefined}
-        type="email"
-        placeholder="you@example.com"
-        startContent={<Mail className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />}
-        errorMessage={errors?.email?.message}
-      />
-      <Input
-        {...register('phone')}
-        size="sm"
-        classNames={{ inputWrapper: 'h-10' }}
-        isInvalid={!!errors?.phone}
-        color={errors?.phone ? 'danger' : undefined}
-        type="phone"
-        placeholder="+XXXX XXX XXXX"
-        startContent={<Phone className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />}
-        errorMessage={errors?.phone?.message}
-      />
-      {links.map(({ linkType, startContent, placeholder }) => {
-        const name = `links.${linkType}` as ContactInfoFieldKeyType;
-        const isInvalid = errors?.links ? !!errors.links[linkType] : false;
-        return (
-          <Input
-            key={linkType}
-            {...register(name)}
-            size="sm"
-            classNames={{ inputWrapper: 'h-10' }}
-            isInvalid={isInvalid}
-            color={isInvalid ? 'danger' : undefined}
-            type="url"
-            placeholder={placeholder}
-            startContent={startContent}
-            errorMessage={errors?.links && errors.links[linkType]?.message}
-          />
-        );
-      })}
+    <div>
+      <div className="grid h-fit w-full grid-cols-1 gap-x-3 gap-y-3 text-small text-default-500 sm:grid-cols-2">
+        <Controller
+          control={control}
+          name="email"
+          render={({ field: { onChange, value, onBlur, ref }, fieldState: { error } }) => {
+            const errorMessage = error?.message;
+            return (
+              <Input
+                ref={ref}
+                type="email"
+                size="sm"
+                placeholder="you@example.com"
+                value={value || ''}
+                onBlur={onBlur}
+                onChange={onChange}
+                classNames={{ inputWrapper: 'h-10' }}
+                errorMessage={errorMessage}
+                isInvalid={!!errorMessage}
+                color={!!errorMessage ? 'danger' : undefined}
+                startContent={<Mail className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />}
+                disabled
+              />
+            );
+          }}
+        />
+        <Controller
+          control={control}
+          name="phone"
+          render={({ field: { onChange, value, onBlur, ref }, fieldState: { error } }) => {
+            const errorMessage = error?.message;
+            return (
+              <Input
+                ref={ref}
+                type="phone"
+                size="sm"
+                placeholder="+xxx xxxx xxxx"
+                value={value || ''}
+                onBlur={onBlur}
+                onChange={onChange}
+                classNames={{ inputWrapper: 'h-10' }}
+                errorMessage={errorMessage}
+                isInvalid={!!errorMessage}
+                color={!!errorMessage ? 'danger' : undefined}
+                startContent={<Phone className="pointer-events-none h-4 w-4 min-w-4 flex-shrink-0 text-default-400" />}
+              />
+            );
+          }}
+        />
+        {fields.map((field, index) => {
+          return (
+            <Controller
+              key={field.id}
+              control={control}
+              name={`links.${index}.url`}
+              render={({ field: { onChange, value, onBlur, ref }, fieldState: { error } }) => {
+                const errorMessage = error?.message;
+                return (
+                  <Input
+                    ref={ref}
+                    type="phone"
+                    size="sm"
+                    value={value || ''}
+                    onBlur={onBlur}
+                    onChange={(e) => {
+                      const linkType = getLinkType(e.target.value);
+                      if (linkType !== watch(`links.${index}.type` as const)) setValue(`links.${index}.type`, linkType);
+                      onChange(e);
+                    }}
+                    classNames={{ inputWrapper: 'h-10' }}
+                    errorMessage={errorMessage}
+                    isInvalid={!!errorMessage}
+                    color={!!errorMessage ? 'danger' : undefined}
+                    startContent={getLinkIcon(index)}
+                    endContent={
+                      <Button size="sm" variant="light" className="mt-0.5" onPress={() => remove(index)} isIconOnly>
+                        <XIcon className="h-4 w-4" strokeWidth={1} />
+                      </Button>
+                    }
+                  />
+                );
+              }}
+            />
+          );
+        })}
+      </div>
+      <div className="mt-3 flex justify-end gap-3">
+        <Button
+          variant="bordered"
+          size="sm"
+          className="ml-auto w-fit"
+          onPress={() => append({ url: '', ownerId: userId, type: null })}
+        >
+          <PlusIcon className="h-4 w-4" strokeWidth={1.25} /> Add link
+        </Button>
+      </div>
     </div>
   );
 };

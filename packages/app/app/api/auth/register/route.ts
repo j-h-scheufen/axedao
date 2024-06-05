@@ -1,21 +1,49 @@
+import { fetchUserProfileByEmail, insertUser } from '@/db';
 import { NextResponse } from 'next/server';
-// import { hash } from 'bcrypt';
-// import { v4 as uuidv4 } from 'uuid';
-import { fetchUsers /*, insertUser */ } from '@/db';
+import { v4 as uuidv4 } from 'uuid';
+import { InferType, object, string } from 'yup';
 
-export async function POST(/* request: Request */) {
+const bodySchema = object({
+  email: string().email().required(),
+  // walletAddress: string().required(),
+});
+type Body = InferType<typeof bodySchema>;
+
+export async function POST(request: Request) {
   try {
-    // const { email, password } = (await request.json()) as { email: string; password: string };
-    // // TODO validate
+    const body = await request.json();
+    const valid = await bodySchema.validate(body);
 
-    // const hashedPassword = await hash(password, 10);
-    // const user = await insertUser({ email, id: uuidv4(), password: hashedPassword });
+    if (valid) {
+      const { email /* walletAddress*/ } = body as Body;
 
-    // mock
-    const users = await fetchUsers();
-    return NextResponse.json(users[0]);
+      const userExists = await fetchUserProfileByEmail(email);
+      if (userExists) {
+        return Response.json(
+          { error: true, message: 'Email is already registered' },
+          {
+            status: 400,
+          },
+        );
+      }
+
+      // const hashedWalletAddress = await hash(walletAddress, 10);
+      const user = await insertUser({ email, id: uuidv4() /*, wallet_address: hashedWalletAddress*/ });
+      return NextResponse.json(user);
+    }
+
+    return Response.json(
+      { error: true, message: 'Invalid credentials' },
+      {
+        status: 401,
+      },
+    );
   } catch (e) {
-    console.log({ e });
-    return NextResponse.json({});
+    return Response.json(
+      { error: true, message: 'An unexpected server error occurred' },
+      {
+        status: 500,
+      },
+    );
   }
 }
