@@ -4,8 +4,7 @@ import ContactInfoInputsSkeleton from './ContactInfoInputsSkeleton';
 import ImageUploadSkeleton from './ImageUploadSkeleton';
 import UserCardSkeleton from './UserCardSkeleton';
 
-type Props = {};
-const GroupFormSkeleton = (props: Props) => {
+const GroupFormSkeleton = () => {
   return (
     <div className="max-w-xl">
       <SubsectionHeading>Images</SubsectionHeading>

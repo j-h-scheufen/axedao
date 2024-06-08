@@ -4,8 +4,7 @@ import { Avatar, Skeleton } from '@nextui-org/react';
 import { Camera } from 'lucide-react';
 import ContactInfoSkeleton from './ContactInfoSkeleton';
 
-type Props = {};
-const ProfileSkeleton = (props: Props) => {
+const ProfileSkeleton = () => {
   return (
     <div className="flex flex-col items-center gap-5 sm:flex-row">
       <Avatar

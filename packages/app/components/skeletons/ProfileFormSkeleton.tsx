@@ -4,8 +4,7 @@ import SubsectionHeading from '../SubsectionHeading';
 import ContactInfoInputsSkeleton from './ContactInfoInputsSkeleton';
 import ImageUploadSkeleton from './ImageUploadSkeleton';
 
-type Props = {};
-const ProfileFormSkeleton = (props: Props) => {
+const ProfileFormSkeleton = () => {
   return (
     <div className="max-w-lg">
       <SubsectionHeading>General Information</SubsectionHeading>

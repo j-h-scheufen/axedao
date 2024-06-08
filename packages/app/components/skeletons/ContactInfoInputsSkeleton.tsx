@@ -1,7 +1,6 @@
 import { Skeleton } from '@nextui-org/react';
 
-type Props = {};
-const ContactInfoInputsSkeleton = (props: Props) => {
+const ContactInfoInputsSkeleton = () => {
   return (
     <div>
       <div className="grid h-fit w-full grid-cols-1 gap-x-3 gap-y-3 text-small text-default-500 sm:grid-cols-2">

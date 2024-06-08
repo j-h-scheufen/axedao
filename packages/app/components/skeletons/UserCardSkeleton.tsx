@@ -1,19 +1,10 @@
 'use client';
-import { User } from '@/types/model';
 import { Card, CardBody, CardProps } from '@nextui-org/card';
-import { AvatarProps, Skeleton } from '@nextui-org/react';
-import { ForwardedRef, ReactNode, forwardRef } from 'react';
+import { Skeleton } from '@nextui-org/react';
+import { ForwardedRef, forwardRef } from 'react';
 
-export type UserCardProps = CardProps & {
-  user?: User;
-  endContent?: ReactNode | null;
-  avatarProps?: AvatarProps;
-  isLoading?: boolean;
-};
-const UserCardSkeleton = (
-  { user, endContent = null, avatarProps, isLoading, ...props }: UserCardProps,
-  ref: ForwardedRef<HTMLDivElement | null>,
-) => {
+export type UserCardProps = CardProps;
+const UserCardSkeleton = (props: UserCardProps, ref: ForwardedRef<HTMLDivElement | null>) => {
   return (
     <Card ref={ref} {...props}>
       <CardBody className="justify-between">
