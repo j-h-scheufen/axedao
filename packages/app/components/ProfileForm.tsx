@@ -19,6 +19,7 @@ import { Controller, useForm } from 'react-hook-form';
 import ContactInfoInputs from './ContactInfoInputs';
 import ImageUpload from './ImageUpload';
 import SubsectionHeading from './SubsectionHeading';
+import ProfileFormSkeleton from './skeletons/ProfileFormSkeleton';
 
 const ProfileForm = () => {
   const router = useRouter();
@@ -59,7 +60,7 @@ const ProfileForm = () => {
 
   const isFormDirty = !!Object.keys(dirtyFields).length;
 
-  if (isInitializingProfile) return 'Loading...';
+  if (isInitializingProfile || !isProfileInitialized) return <ProfileFormSkeleton />;
 
   return (
     <form className="max-w-lg" onSubmit={handleSubmit(onSubmit)}>

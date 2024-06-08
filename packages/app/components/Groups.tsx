@@ -1,14 +1,16 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useGroups, useGroupsActions, useGroupsIsInitialized, useIsLoadingGroups } from '@/store/groups.store';
 import { Input } from '@nextui-org/input';
 import { Search } from 'lucide-react';
+import { useEffect } from 'react';
 import GroupsGrid from './GroupsGrid';
-import { useGroups, useGroupsActions } from '@/store/groups.store';
 
 const Groups = () => {
   const groupsActions = useGroupsActions();
   const groups = useGroups();
+  const isLoading = useIsLoadingGroups();
+  const isInitialized = useGroupsIsInitialized();
 
   useEffect(() => {
     groupsActions.initialize();
@@ -16,7 +18,7 @@ const Groups = () => {
   }, []);
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 pt-5">
       <div className="flex h-fit items-center justify-between gap-3">
         <Input
           isClearable
@@ -29,7 +31,7 @@ const Groups = () => {
       <div className="flex items-center justify-between">
         <span className="ml-auto text-small text-default-400">75 total groups</span>
       </div>
-      <GroupsGrid groups={groups} />
+      <GroupsGrid groups={groups} isLoading={isLoading || !isInitialized} />
     </div>
   );
 };

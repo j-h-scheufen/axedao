@@ -1,6 +1,6 @@
 'use client';
 
-import { useGroupProfile, useGroupProfileActions } from '@/store/groupProfile.store';
+import { useGroupProfile, useGroupProfileActions, useIsInitializingGroupProfile } from '@/store/groupProfile.store';
 import { useProfile } from '@/store/profile.store';
 import { Avatar } from '@nextui-org/avatar';
 import { Camera } from 'lucide-react';
@@ -16,19 +16,19 @@ const GroupProfile = ({ id }: Props) => {
   const { id: userId } = useProfile();
   const groupProfileActions = useGroupProfileActions();
   const groupProfile = useGroupProfile();
+  const isLoading = useIsInitializingGroupProfile();
 
   useEffect(() => {
     groupProfileActions.initialize(id);
   }, [id, groupProfileActions]);
 
   const { name, banner, logo, links, description, founder } = groupProfile;
-
   const isFounder = userId === founder;
 
   return (
     <>
       <PageHeading back="/dashboard/overview?tab=groups">{name}</PageHeading>
-      <GroupBanner banner={banner} isFounder={isFounder} />
+      <GroupBanner banner={banner} isFounder={isFounder} isLoading={isLoading} />
       <div className="mt-5 xs:flex xs:gap-5">
         <Avatar
           showFallback
@@ -36,7 +36,7 @@ const GroupProfile = ({ id }: Props) => {
           fallback={<Camera className="h-8 w-8 animate-pulse text-default-500" strokeWidth={1} size={20} />}
           className="mx-auto mb-5 block aspect-square h-full max-h-20 w-full max-w-20 xs:mx-0 xs:mb-0 xs:inline-block"
         />
-        <ContactInfo links={links} />
+        <ContactInfo links={links} isLoading={isLoading} />
       </div>
       <p className="mt-5 text-center text-small xs:text-left">{description}</p>
       <SectionHeading>Members</SectionHeading>

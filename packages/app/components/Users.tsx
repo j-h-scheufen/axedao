@@ -1,11 +1,11 @@
 'use client';
 
+import { useIsLoadingUsers, useUsers, useUsersActions, useUsersIsInitialized } from '@/store/users.store';
 import { Input } from '@nextui-org/input';
 import { Select, SelectItem } from '@nextui-org/react';
 import { Search } from 'lucide-react';
-import UsersGrid from './UsersGrid';
-import { useUsers, useUsersActions } from '@/store/users.store';
 import { useEffect } from 'react';
+import UsersGrid from './UsersGrid';
 
 const searchOptions = [
   {
@@ -21,6 +21,8 @@ const searchOptions = [
 const Users = () => {
   const usersActions = useUsersActions();
   const users = useUsers();
+  const isLoading = useIsLoadingUsers();
+  const isInitialized = useUsersIsInitialized();
 
   useEffect(() => {
     usersActions.initialize();
@@ -28,7 +30,7 @@ const Users = () => {
   }, []);
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 -mt-5">
       <div className="flex h-fit flex-col items-start justify-start gap-3 md:flex-row md:items-end">
         <Input
           isClearable
@@ -60,7 +62,7 @@ const Users = () => {
       <div className="flex items-center justify-between">
         <span className="ml-auto text-small text-default-400">75 total Users</span>
       </div>
-      <UsersGrid users={users} />
+      <UsersGrid users={users} isLoading={isLoading || !isInitialized} />
     </div>
   );
 };

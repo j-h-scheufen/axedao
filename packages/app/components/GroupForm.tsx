@@ -1,6 +1,7 @@
 'use client';
 
 import { groupSchema } from '@/constants/schemas';
+import { useGroupFounder } from '@/store/groupMembers.store';
 import {
   useGroupProfile,
   useGroupProfileActions,
@@ -15,11 +16,14 @@ import { Controller, /*useFieldArray,*/ useForm } from 'react-hook-form';
 import ImageUpload from './ImageUpload';
 import SelectUser from './SelectUser';
 import SubsectionHeading from './SubsectionHeading';
+import UserCard from './UserCard';
+import GroupFormSkeleton from './skeletons/GroupFormSkeleton';
 
 type Props = { id: string };
 const GroupForm = ({ id }: Props) => {
   const groupProfileActions = useGroupProfileActions();
   const groupProfile = useGroupProfile();
+  const founder = useGroupFounder();
   const isInitialilzingGroupProfile = useIsInitializingGroupProfile();
   const isGroupProfileInitialized = useIsGroupProfileInitialized();
 
@@ -57,7 +61,9 @@ const GroupForm = ({ id }: Props) => {
   //   name: 'admins',
   // });
 
-  if (isInitialilzingGroupProfile) return 'Loading...';
+  if (isInitialilzingGroupProfile) {
+    return <GroupFormSkeleton />;
+  }
   if (!isGroupProfileInitialized) return null;
 
   const description = watch('description') || '';
@@ -125,6 +131,7 @@ const GroupForm = ({ id }: Props) => {
               label="Name"
               placeholder="Enter your group's name"
               className="mb-5"
+              classNames={{ inputWrapper: 'min-h-12' }}
               errorMessage={errorMessage}
               isInvalid={!!errorMessage}
               color={!!errorMessage ? 'danger' : undefined}
@@ -157,7 +164,7 @@ const GroupForm = ({ id }: Props) => {
       />
       <div className="mb-5 max-w-xs">
         <label className="mb-2 inline-block text-sm">Founder</label>
-        {/* <UserCard /> */}
+        <UserCard isLoading={true} user={founder} />
       </div>
       <Controller
         control={control}

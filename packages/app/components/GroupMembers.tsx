@@ -7,10 +7,14 @@ import {
   useGroupMembers,
   useGroupMembersActions,
   useGroupMembersHasMoreResults,
+  useIsInitializingGroupAdmins,
+  useIsLoadingGroupMembers,
 } from '@/store/groupMembers.store';
+import { cn } from '@/utils/tailwind';
 import { useInfiniteScroll } from '@nextui-org/use-infinite-scroll';
 import { useEffect, useMemo } from 'react';
 import SubsectionHeading from './SubsectionHeading';
+import UserCard from './UserCard';
 import UsersGrid from './UsersGrid';
 
 type Props = { id: string };
@@ -19,7 +23,9 @@ const GroupMembers = ({ id }: Props) => {
   const groupMembers = useGroupMembers();
   const founder = useGroupFounder();
   const leader = useGroupLeader();
+  const isInitializingAdmins = useIsInitializingGroupAdmins() || !founder.id;
   const hasMoreMembers = useGroupMembersHasMoreResults();
+  const isLoading = useIsLoadingGroupMembers();
 
   useEffect(() => {
     groupMembersActions.initialize(id);
@@ -47,18 +53,26 @@ const GroupMembers = ({ id }: Props) => {
   return (
     <>
       <SubsectionHeading>Founder</SubsectionHeading>
-      <UsersGrid users={[founder]} />
+      <UserCard
+        className={cn('w-full', { 'sm:w-60': isInitializingAdmins, 'sm:w-fit': !isInitializingAdmins })}
+        user={founder}
+        isLoading={isInitializingAdmins}
+      />
       {leader?.id && (
         <>
           <SubsectionHeading>Leader</SubsectionHeading>
-          <UsersGrid users={[leader]} />
+          <UserCard
+            className={cn('w-full', { 'sm:w-60': isInitializingAdmins, 'sm:w-fit': !isInitializingAdmins })}
+            user={leader}
+            isLoading={isInitializingAdmins}
+          />
         </>
       )}
       <SubsectionHeading>Admins</SubsectionHeading>
-      <UsersGrid users={admins} emptyContent="No admins found" />
+      <UsersGrid users={admins} emptyContent="No admins found" isLoading={isInitializingAdmins} numSkeletons={4} />
       {/* <AddAdmin groupId={id} /> */}
       <SubsectionHeading>Members</SubsectionHeading>
-      <UsersGrid scrollerRef={scrollerRef} users={members} emptyContent="No members found" />
+      <UsersGrid scrollerRef={scrollerRef} users={members} emptyContent="No members found" isLoading={isLoading} />
     </>
   );
 };

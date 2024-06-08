@@ -24,9 +24,7 @@ const GroupAssociation = () => {
     groupProfileActions.initialize(group_id);
   }, [groupProfileActions, group_id]);
 
-  if (isInitializingProfile || isInitializingGroupProfile) return 'Is loading...';
-
-  if (!group_id || editing)
+  if (editing)
     return (
       <CreateGroupAssociation
         onSubmit={() => console.log('creating group assocition')}
@@ -41,24 +39,23 @@ const GroupAssociation = () => {
     );
 
   return (
-    <div>
-      <GroupCard
-        group={groupProfile}
-        className="mx-auto sm:mx-0 md:max-w-80"
-        startFooter={
-          <Button
-            variant="light"
-            size="sm"
-            color="danger"
-            onPress={profileActions.exitGroup}
-            spinner={<Spinner size="sm" color="danger" />}
-            isLoading={isExitingGroup}
-          >
-            Exit group
-          </Button>
-        }
-      />
-    </div>
+    <GroupCard
+      group={groupProfile}
+      className="mx-auto sm:mx-0 md:max-w-80"
+      startFooter={
+        <Button
+          variant="light"
+          size="sm"
+          color="danger"
+          onPress={profileActions.exitGroup}
+          spinner={<Spinner size="sm" color="danger" />}
+          isLoading={isExitingGroup}
+        >
+          Exit group
+        </Button>
+      }
+      isLoading={!group_id|| isInitializingProfile || isInitializingGroupProfile}
+    />
   );
 };
 export default GroupAssociation;

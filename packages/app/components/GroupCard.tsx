@@ -8,11 +8,13 @@ import clsx from 'clsx';
 import { MapPin } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { ReactNode } from 'react';
+import GroupCardSkeleton from './skeletons/GroupCardSkeleton';
 
-type Props = { group: Group; className?: string; startFooter?: ReactNode };
-const GroupCard = ({ group, className = '', startFooter = null }: Props) => {
+type Props = { group: Group; className?: string; startFooter?: ReactNode; isLoading?: boolean };
+const GroupCard = ({ group, className = '', startFooter = null, isLoading = false }: Props) => {
   const router = useRouter();
   const { name, id } = group;
+  if (isLoading) return <GroupCardSkeleton className={className} />;
   return (
     <Card className={clsx('w-full', className)}>
       <CardHeader className="flex gap-3">

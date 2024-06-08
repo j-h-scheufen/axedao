@@ -88,7 +88,7 @@ export const useGroupsPageSize = (): number => useSearchStore((state) => state.p
 
 export const useGroupsSearchTerm = (): string | undefined => useSearchStore((state) => state.searchTerm);
 
-export const useIsGroupsInitialized = (): boolean => useSearchStore((state) => state.isInitialized);
+export const useGroupsIsInitialized = (): boolean => useSearchStore((state) => state.isInitialized);
 
 export const useIsLoadingGroups = (): boolean => useSearchStore((state) => state.isLoading);
 

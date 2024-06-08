@@ -8,9 +8,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import ErrorText from './ErrorText';
+import GroupBannerSkeleton from './skeletons/GroupBannerSkeleton';
 
-type Props = { banner: string | null; isFounder?: boolean };
-const GroupBanner = ({ banner }: Props) => {
+type Props = { banner: string | null; isFounder?: boolean; isLoading?: boolean };
+const GroupBanner = ({ banner, isLoading }: Props) => {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -24,6 +25,8 @@ const GroupBanner = ({ banner }: Props) => {
     await profileActions.exitGroup();
     router.push('/dashboard/profile');
   };
+
+  if (isLoading) return <GroupBannerSkeleton />;
 
   return (
     <>

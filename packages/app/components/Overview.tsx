@@ -1,9 +1,9 @@
 'use client';
-import { useSearchParams } from 'next/navigation';
-import { Tabs, Tab } from '@nextui-org/tabs';
-import Users from './Users';
-import Groups from './Groups';
 import useUpdateSearchParams from '@/hooks/useUpdateSearchParams';
+import { Tab, Tabs } from '@nextui-org/tabs';
+import { useSearchParams } from 'next/navigation';
+import Groups from './Groups';
+import Users from './Users';
 
 const Overview = () => {
   const searchParams = useSearchParams();
@@ -16,6 +16,7 @@ const Overview = () => {
         variant="bordered"
         aria-label="Options"
         className="mb-3"
+        classNames={{ base: 'sticky top-16 left-0 z-20 bg-background' }}
         defaultSelectedKey={tab || undefined}
         onSelectionChange={(key) => updateSearchParams('tab', key.toString())}
       >

@@ -142,7 +142,7 @@ export const useGroupMembersHasMoreResults = (): boolean => useGroupMembersStore
 
 export const useGroupMembersPageSize = (): number => useGroupMembersStore((state) => state.pageSize);
 
-export const useoadGroupMembersError = (): string | undefined =>
+export const useLoadGroupMembersError = (): string | undefined =>
   useGroupMembersStore((state) => state.loadGroupMembersError);
 
 export const useInitializeGroupAdminsError = (): string | undefined =>

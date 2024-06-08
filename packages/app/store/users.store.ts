@@ -6,7 +6,8 @@ export type UsersState = {
   searchResults: User[];
   pageSize: number;
   hasMoreResults: boolean; // flag indicating there are more search results that can be retrieved for the current filter settings
-  initialized: boolean;
+  isInitialized: boolean;
+  isLoading: boolean;
 };
 
 type UsersActions = {
@@ -20,19 +21,22 @@ const DEFAULT_PROPS: UsersState = {
   searchResults: [],
   pageSize: 20,
   hasMoreResults: false,
-  initialized: false,
+  isInitialized: false,
+  isLoading: false,
 };
 
 const useUsersStore = create<UsersStore>()((set, get) => ({
   ...DEFAULT_PROPS,
   actions: {
     initialize: async (): Promise<void> => {
-      if (!get().initialized) {
+      if (!get().isInitialized) {
         get().actions.loadNextPage();
-        set(() => ({ initialized: true }));
+        set(() => ({ isInitialized: true }));
       }
     },
     loadNextPage: async (): Promise<void> => {
+      const { isInitialized } = get();
+      set({ isLoading: true });
       try {
         const pageSize = get().pageSize;
         const offset = get().searchResults.length;
@@ -49,10 +53,14 @@ const useUsersStore = create<UsersStore>()((set, get) => ({
         set((state) => ({
           hasMoreResults: results.length === state.pageSize,
         }));
+        if (!isInitialized) {
+          set({ isInitialized: true });
+        }
       } catch (error) {
         console.error('Error fetching next page results: ', error);
         throw error;
       }
+      set({ isLoading: false });
     },
   },
 }));
@@ -66,3 +74,7 @@ export const useUsers = (): User[] => useUsersStore((state) => state.searchResul
 export const useHasMoreResults = (): boolean => useUsersStore((state) => state.hasMoreResults);
 
 export const usePageSize = (): number => useUsersStore((state) => state.pageSize);
+
+export const useIsLoadingUsers = (): boolean => useUsersStore((state) => state.isLoading);
+
+export const useUsersIsInitialized = (): boolean => useUsersStore((state) => state.isInitialized);
