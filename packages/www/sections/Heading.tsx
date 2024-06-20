@@ -3,11 +3,9 @@
 // import { useRef } from 'react';
 // import { useScroll, useTransform, motion } from 'framer-motion';
 import { motion } from 'framer-motion';
-import { Card, CardBody, Link } from '@nextui-org/react';
 
 import Reveal from '@/components/motion/Reveal';
 import { Subtitle, Title } from '@/components/primitives';
-import { siteConfig } from '@/config/site';
 import { useTranslation } from '../app/i18n/client';
 import { SupportedLanguage } from '@/app/i18n/settings';
 import { Trans } from 'react-i18next';
@@ -38,7 +36,7 @@ const Heading = ({ locale }: HeadingProps) => {
     // >
     <motion.div
       // style={{ scale, x: '-50%' }}
-      className="relative z-10 flex w-full max-w-6xl flex-col items-center"
+      className="relative z-10 flex w-full flex-col items-center px-3 sm:px-4 md:px-5"
     >
       <h1 className={Title()}>{t('heading.title')}</h1>
       <br />
@@ -46,23 +44,16 @@ const Heading = ({ locale }: HeadingProps) => {
         <h2 className={Subtitle({ class: 'mt-4 text-center' })}>
           {t('heading.subtitle')}
         </h2>
-        <p className="mt-7 p-3 text-xl">
-          <Trans t={t} i18nKey="heading.introduction" />
-        </p>
-        <div className="flex w-full flex-col items-center p-2">
-          <Card className="mt-6 max-w-[400px] sm:mt-14">
-            <CardBody className=" items-center text-lg">
-              Stay tuned for updates ...
-            </CardBody>
-          </Card>
-          <div className="mt-6 text-center sm:mt-14">
-            To get involved, email us at{' '}
-            <Link href={`mailto:${siteConfig.links.email}`}>
-              axe-dao (at) protonmail.com
-            </Link>{' '}
-            or join our <Link href={siteConfig.links.discord}>discord</Link>{' '}
-            server.
-          </div>
+        <div className="text-l mt-4 flex flex-col gap-4 md:text-center md:text-xl">
+          <p>
+            <Trans t={t} i18nKey="heading.introduction.p1" />
+          </p>
+          <p>
+            <Trans t={t} i18nKey="heading.introduction.p2" />
+          </p>
+          <p>
+            <Trans t={t} i18nKey="heading.introduction.p3" />
+          </p>
         </div>
       </Reveal>
     </motion.div>
