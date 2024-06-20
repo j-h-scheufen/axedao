@@ -13,13 +13,12 @@ const AddAdmin = ({ groupId }: Props) => {
 
   useEffect(() => {
     actions.initialize(groupId);
-  }, [actions, groupId]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     actions.search(debouncedSearchTerm);
   }, [actions, debouncedSearchTerm]);
-
-  // console.log(isLoadingGroupMembers);
 
   return (
     <Autocomplete
@@ -30,14 +29,16 @@ const AddAdmin = ({ groupId }: Props) => {
       inputValue={searchTerm}
       onInputChange={setSearchTerm}
       onSelectionChange={console.log}
-      className="max-w-xs"
+      className="max-w-xs mt-5"
     >
-      {searchResults.map(({ name, id, email }) => (
-        <AutocompleteItem key={id} value={id} textValue={name || ''}>
-          <div className="mb-1">{name}</div>
-          <div className="text-small text-default-500">{email}</div>
-        </AutocompleteItem>
-      ))}
+      {searchResults
+        .filter((member) => member.role === 'member')
+        .map(({ name, id, email }) => (
+          <AutocompleteItem key={id} value={id} textValue={name || ''}>
+            <div className="mb-1">{name}</div>
+            <div className="text-small text-default-500">{email}</div>
+          </AutocompleteItem>
+        ))}
     </Autocomplete>
   );
 };

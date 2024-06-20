@@ -10,8 +10,8 @@ const GroupCardSkeleton = ({ className = '' }: Props) => {
       <CardHeader className="flex gap-3">
         <Skeleton className="flex rounded-full min-w-10 w-10 h-10" />
         <div className="flex-1 flex flex-col items-start justify-center gap-2">
-          <Skeleton className="h-2 mb-2 w-4/5 rounded-lg" />
-          <Skeleton className="h-2 block w-3/5 rounded-lg" />
+          <Skeleton className="h-3 mb-2 w-4/5 rounded-lg" />
+          <Skeleton className="h-3 block w-3/5 rounded-lg" />
         </div>
       </CardHeader>
       <CardFooter className="flex-row justify-between">

@@ -20,7 +20,8 @@ const GroupProfile = ({ id }: Props) => {
 
   useEffect(() => {
     groupProfileActions.initialize(id);
-  }, [id, groupProfileActions]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const { name, banner, logo, links, description, founder } = groupProfile;
   const isFounder = userId === founder;

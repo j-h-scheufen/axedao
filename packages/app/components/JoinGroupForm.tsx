@@ -36,7 +36,8 @@ const JoinGroupForm = ({ secondaryButton, onSubmit }: Props) => {
 
   useEffect(() => {
     groupActions.initialize();
-  }, [groupActions]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     groupActions.search(debouncedSearchTerm);

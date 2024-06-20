@@ -1,6 +1,12 @@
 'use client';
 import { useGroupProfile, useGroupProfileActions, useIsInitializingGroupProfile } from '@/store/groupProfile.store';
-import { useIsExitingGroup, useIsInitializingProfile, useProfile, useProfileActions } from '@/store/profile.store';
+import {
+  useIsExitingGroup,
+  useIsInitializingProfile,
+  useIsProfileInitialized,
+  useProfile,
+  useProfileActions,
+} from '@/store/profile.store';
 import { Button } from '@nextui-org/button';
 import { Spinner } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
@@ -15,6 +21,7 @@ const GroupAssociation = () => {
 
   const { group_id } = profile;
   const isInitializingProfile = useIsInitializingProfile();
+  const isProfileInitialized = useIsProfileInitialized();
   const groupProfile = useGroupProfile();
   const groupProfileActions = useGroupProfileActions();
   const isInitializingGroupProfile = useIsInitializingGroupProfile();
@@ -22,9 +29,10 @@ const GroupAssociation = () => {
   useEffect(() => {
     if (!group_id) return;
     groupProfileActions.initialize(group_id);
-  }, [groupProfileActions, group_id]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [group_id]);
 
-  if (editing)
+  if (editing || !(group_id && !isInitializingProfile))
     return (
       <CreateGroupAssociation
         onSubmit={() => console.log('creating group assocition')}
@@ -54,7 +62,7 @@ const GroupAssociation = () => {
           Exit group
         </Button>
       }
-      isLoading={!group_id|| isInitializingProfile || isInitializingGroupProfile}
+      isLoading={(!group_id && !isProfileInitialized) || isInitializingProfile || isInitializingGroupProfile}
     />
   );
 };

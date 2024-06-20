@@ -17,7 +17,7 @@ const ProfileSkeleton = () => {
         <div className="flex flex-col items-center justify-center gap-10 xs:flex-row">
           <div className="text-center xs:text-left">
             <Skeleton className="h-3 mb-3 w-32 rounded-lg" />
-            <Skeleton className="h-2 w-3/5 rounded-lg" />
+            <Skeleton className="h-3 w-3/5 rounded-lg" />
           </div>
           <div className="xs:mb-auto xs:ml-auto">
             <Skeleton className="h-8 w-28 rounded-md" />

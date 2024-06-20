@@ -67,7 +67,7 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
     },
     loadNextPage: async (): Promise<void> => {
       const { groupId } = get();
-      if (!groupId) return;
+      if (!groupId || get().isLoadingGroupMembers) return;
       set({ isLoadingGroupMembers: true });
       const {
         pageSize,
@@ -76,11 +76,9 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
         adminsInitialized,
         actions: { initializeAdmins },
       } = get();
-      // console.log({ adminsInitialized });
       if (!adminsInitialized) await initializeAdmins();
       const offset = searchResults?.length;
       try {
-        // console.log({ searchTerm });
         const res = await axios.get(
           `/api/groups/${groupId}/members/?searchTerm=${searchTerm}&offset=${offset}&limit=${pageSize}`,
         );

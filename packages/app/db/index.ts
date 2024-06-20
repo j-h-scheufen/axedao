@@ -97,6 +97,14 @@ export async function insertGroup(group: schema.InsertGroup) {
   return groups[0];
 }
 
+export async function deleteGroup(groupId: string) {
+  // TODO delete group associations
+  await db.update(schema.users).set({ group_id: null }).where(eq(schema.users.group_id, groupId));
+  await db.delete(schema.groupAdmins).where(eq(schema.groupAdmins.groupId, groupId));
+  await db.delete(schema.links).where(eq(schema.links.ownerId, groupId));
+  await db.delete(schema.groups).where(eq(schema.groups.id, groupId));
+}
+
 export async function addLink(link: schema.InsertLink) {
   const links = await db.insert(schema.links).values(link).returning();
   return links[0];

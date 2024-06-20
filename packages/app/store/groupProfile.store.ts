@@ -9,10 +9,12 @@ export type GroupProfileState = {
   isInitializingGroupProfile: boolean;
   isGroupProfileInitialized: boolean;
   initializeGroupError?: string;
+  isDeleting: boolean;
 };
 
 type GroupProfileActions = {
   initialize: (id: string) => Promise<void>;
+  delete: () => Promise<void>;
 };
 
 export type GroupStore = GroupProfileState & { actions: GroupProfileActions };
@@ -35,6 +37,7 @@ const DEFAULT_PROPS: GroupProfileState = {
   isGroupAdmin: false,
   isGroupProfileInitialized: false,
   isInitializingGroupProfile: false,
+  isDeleting: false,
 };
 
 const useGroupProfileStore = create<GroupStore>()((set, get) => ({
@@ -56,6 +59,20 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
       }
       set({ isInitializingGroupProfile: false });
     },
+    delete: async () => {
+      const { groupProfile, isDeleting } = get();
+      const groupId = groupProfile.id;
+      if (!groupId || isDeleting) return;
+      set({ isDeleting: true });
+      try {
+        const { data } = await axios.delete(`/api/groups/${groupId}`);
+        if (!data.success) throw new Error('An error occurred while deleting group');
+        set({ ...DEFAULT_PROPS });
+      } catch (error) {
+        console.error(error);
+      }
+      set({ isDeleting: false });
+    },
   },
 }));
 
@@ -75,3 +92,5 @@ export const useInitializeGroupError = (): string | undefined =>
   useGroupProfileStore((state) => state.initializeGroupError);
 
 export const useIsGroupAdmin = (): boolean => useGroupProfileStore((state) => state.isGroupAdmin);
+
+export const useIsDeletingGroup = (): boolean => useGroupProfileStore((state) => state.isDeleting);

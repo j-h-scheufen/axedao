@@ -25,6 +25,7 @@ type ProfileActions = {
   joinGroup: (groupId: string) => Promise<void>;
   exitGroup: () => Promise<void>;
   createGroup: (groupProfileData: CreateNewGroupFormType) => Promise<void>;
+  removeGroupAssociation: () => void;
 };
 
 type ProfileStore = ProfileState & { actions: ProfileActions };
@@ -123,6 +124,10 @@ const useProfileStore = create<ProfileStore>()((set, get) => ({
         set({ createGroupError: message });
       }
       set({ isCreatingGroup: false });
+    },
+    removeGroupAssociation: async () => {
+      const { profile } = get();
+      set({ profile: { ...profile, group_id: null } });
     },
   },
 }));
