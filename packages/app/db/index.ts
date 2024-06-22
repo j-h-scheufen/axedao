@@ -21,6 +21,11 @@ export async function fetchUsers(limit: number = 20, offset: number = 0) {
   return await db.select().from(schema.users).limit(limit).offset(offset);
 }
 
+export async function countUsers() {
+  const result = await db.select({ count: count() }).from(schema.users);
+  return result.length ? result[0].count : null;
+}
+
 export async function fetchGroups(limit: number = 20, offset: number = 0, searchTerm?: string) {
   if (searchTerm) {
     return await db
@@ -31,6 +36,11 @@ export async function fetchGroups(limit: number = 20, offset: number = 0, search
       .offset(offset);
   }
   return await db.select().from(schema.groups).limit(limit).offset(offset);
+}
+
+export async function countGroups() {
+  const result = await db.select({ count: count() }).from(schema.groups);
+  return result.length ? result[0].count : null;
 }
 
 export async function isGroupAdmin(groupId: string, userId: string): Promise<boolean> {

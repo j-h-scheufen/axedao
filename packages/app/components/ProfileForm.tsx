@@ -68,7 +68,7 @@ const ProfileForm = () => {
       <div className="flex flex-col gap-5">
         <Controller
           control={control}
-          name="image"
+          name="avatar"
           render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => {
             return (
               <ImageUpload

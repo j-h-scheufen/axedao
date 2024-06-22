@@ -5,7 +5,6 @@ import { InferType, object, string } from 'yup';
 
 const bodySchema = object({
   email: string().email().required(),
-  // walletAddress: string().required(),
 });
 type Body = InferType<typeof bodySchema>;
 
@@ -15,7 +14,7 @@ export async function POST(request: Request) {
     const valid = await bodySchema.validate(body);
 
     if (valid) {
-      const { email /* walletAddress*/ } = body as Body;
+      const { email } = body as Body;
 
       const userExists = await fetchUserProfileByEmail(email);
       if (userExists) {
@@ -27,8 +26,7 @@ export async function POST(request: Request) {
         );
       }
 
-      // const hashedWalletAddress = await hash(walletAddress, 10);
-      const user = await insertUser({ email, id: uuidv4() /*, wallet_address: hashedWalletAddress*/ });
+      const user = await insertUser({ email, id: uuidv4() });
       return NextResponse.json(user);
     }
 

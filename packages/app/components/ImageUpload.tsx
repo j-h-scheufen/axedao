@@ -1,9 +1,9 @@
 'use client';
 
-import { FocusEvent, ForwardedRef, forwardRef, useEffect, useRef, useState } from 'react';
+import { Button } from '@nextui-org/button';
 import { Avatar, AvatarProps } from '@nextui-org/react';
 import { Camera } from 'lucide-react';
-import { Button } from '@nextui-org/button';
+import { FocusEvent, ForwardedRef, forwardRef, useEffect, useRef, useState } from 'react';
 
 type Props = {
   value?: File;
@@ -40,7 +40,10 @@ const ImageUpload = (
         ref={imageInputRef}
         type="file"
         accept="image/*"
-        onChange={(e) => e.target.files?.length && onChange(e.target.files[0])}
+        onChange={(e) => {
+          e.target.files?.length && onChange(e.target.files[0]);
+          e.target.value = '';
+        }}
         className="hidden"
         hidden
       />

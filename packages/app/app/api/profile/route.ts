@@ -1,7 +1,7 @@
 import { authOptions } from '@/app/auth';
 import { LinkType, ProfileFormType, profileFormSchema } from '@/constants/schemas';
 import { addLink, fetchUserProfileByEmail, removeLink, updateLink, updateUser } from '@/db';
-import { Link } from '@/types/model';
+import { Link, UserProfile } from '@/types/model';
 import { getServerSession } from 'next-auth/next';
 import { NextRequest } from 'next/server';
 
@@ -88,6 +88,6 @@ export async function PATCH(request: NextRequest) {
     }
   }
 
-  const updatedUser = await updateUser({ ...profileData, id });
+  const updatedUser = await updateUser({ ...(profileData as UserProfile), id });
   return Response.json({ ...user, ...updatedUser, links });
 }

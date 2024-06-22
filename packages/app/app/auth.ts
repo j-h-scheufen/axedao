@@ -12,16 +12,12 @@ export const authOptions: AuthOptions = {
       name: 'Credentials',
       credentials: {
         email: { label: 'Email', type: 'email' },
-        walletAddress: { label: 'Wallet address', type: 'walletAddress' },
       },
       async authorize(credentials) {
-        const { email, walletAddress } = credentials || {};
-
-        if (email && emailSchema.validateSync(email) && walletAddress) {
+        const { email } = credentials || {};
+        if (email && emailSchema.validateSync(email)) {
           const user = await fetchUserProfileByEmail(email);
           if (user) {
-            // const walletAddressMatches = await compare(walletAddress, user.wallet_address);
-            // if (walletAddressMatches) return user;
             return user;
           }
         }

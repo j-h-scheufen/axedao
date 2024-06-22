@@ -17,9 +17,11 @@ type ProfileState = {
   joinGroupError?: string;
   isCreatingGroup: boolean;
   createGroupError?: string;
+  isUploadingProfileImage?: boolean;
 };
 
 type ProfileActions = {
+  uploadProfileImage: (file: File, name?: string) => Promise<string | void>;
   initializeProfile: () => Promise<void>;
   updateProfile: (profileData: ProfileFormType) => Promise<void>;
   joinGroup: (groupId: string) => Promise<void>;
@@ -70,11 +72,32 @@ const useProfileStore = create<ProfileStore>()((set, get) => ({
       }
       set({ isInitializingProfile: false });
     },
-    updateProfile: async (profileData: ProfileFormType) => {
-      const { isUpdatingProfile } = get();
+    uploadProfileImage: async (imageFile: File, name?: string) => {
+      const data = new FormData();
+      data.set('file', imageFile);
+      if (name) data.set('name', name);
+      const res = await axios.post('/api/images', data, { headers: { 'Content-Type': 'multipart/form-data' } });
+      const url: string = res.data?.url;
+      if (url) return url;
+    },
+    updateProfile: async (_profileData: ProfileFormType) => {
+      const {
+        profile: { id },
+        isUpdatingProfile,
+        actions: { uploadProfileImage },
+      } = get();
       if (isUpdatingProfile) return;
       set({ isUpdatingProfile: true });
       try {
+        const profileData = _profileData;
+        if (profileData.avatar && profileData.avatar instanceof File) {
+          const imageUrl = await uploadProfileImage(profileData.avatar, id ? `user-${id}` : undefined);
+          if (imageUrl) {
+            profileData.avatar = imageUrl;
+          } else {
+            delete profileData.avatar;
+          }
+        }
         const { data: profile } = await axios.patch('/api/profile', profileData);
         set({ profile });
       } catch (error: unknown) {

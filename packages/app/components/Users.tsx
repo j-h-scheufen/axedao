@@ -1,6 +1,12 @@
 'use client';
 
-import { useIsLoadingUsers, useUsers, useUsersActions, useUsersIsInitialized } from '@/store/users.store';
+import {
+  useIsLoadingUsers,
+  useTotalUsers,
+  useUsers,
+  useUsersActions,
+  useUsersIsInitialized,
+} from '@/store/users.store';
 import { Input } from '@nextui-org/input';
 import { Select, SelectItem } from '@nextui-org/react';
 import { Search } from 'lucide-react';
@@ -21,6 +27,7 @@ const searchOptions = [
 const Users = () => {
   const usersActions = useUsersActions();
   const users = useUsers();
+  const totalUsers = useTotalUsers();
   const isLoading = useIsLoadingUsers();
   const isInitialized = useUsersIsInitialized();
 
@@ -60,7 +67,9 @@ const Users = () => {
         </Select>
       </div>
       <div className="flex items-center justify-between">
-        <span className="ml-auto text-small text-default-400">75 total Users</span>
+        {typeof totalUsers === 'number' && (
+          <span className="ml-auto text-small text-default-400">{totalUsers} total users</span>
+        )}
       </div>
       <UsersGrid users={users} isLoading={isLoading || !isInitialized} />
     </div>

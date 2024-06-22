@@ -5,6 +5,7 @@ import { create } from 'zustand';
 
 export type GroupsState = {
   searchResults: Group[];
+  totalGroups: number | null;
   searchTerm?: string;
   pageSize: number;
   hasMoreResults: boolean; // flag indicating there are more search results that can be retrieved for the current filter settings
@@ -23,6 +24,7 @@ export type SearchStore = GroupsState & { actions: GroupsActions };
 
 const DEFAULT_PROPS: GroupsState = {
   searchResults: [],
+  totalGroups: null,
   pageSize: 20,
   hasMoreResults: false,
   isInitialized: false,
@@ -53,12 +55,12 @@ const useSearchStore = create<SearchStore>()((set, get) => ({
         const offset = searchResults.length;
         const { data } = await axios.get(`/api/groups?searchTerm=${searchTerm}&offset=${offset}&limit=${pageSize}`);
         if (data.error) {
-          console.log('returned data', data);
           throw new Error(data.message);
         }
-        if (data.length > 0) {
+        if (Array.isArray(data.groups)) {
           set((state) => ({
-            searchResults: [...state.searchResults, ...data],
+            searchResults: [...state.searchResults, ...data.groups],
+            totalGroups: data.count,
           }));
         }
         // If a full pageSize of results was retrieved, there are likely more results, so setting true.
@@ -81,6 +83,8 @@ export default useSearchStore;
 export const useGroupsActions = (): GroupsActions => useSearchStore((state) => state.actions);
 
 export const useGroups = (): Group[] => useSearchStore((state) => state.searchResults);
+
+export const useTotalGroups = (): number | null => useSearchStore((state) => state.totalGroups);
 
 export const useGroupsHasMoreResults = (): boolean => useSearchStore((state) => state.hasMoreResults);
 

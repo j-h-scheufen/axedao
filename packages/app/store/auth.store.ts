@@ -65,19 +65,16 @@ const useAuthStore = create<AuthStore>()((set, get) => ({
       set({ isAuthenticating: true });
       try {
         await silk.login();
-        const accounts = (await silk.request({ method: 'eth_requestAccounts' })) as string[] | undefined;
-        // const email = await silk.requestEmail();
-        console.log('Accounts: ', accounts);
-        const walletAddress = accounts?.length ? accounts[0] : null;
-        if (!walletAddress) {
+        const email = (await (silk as any).requestEmail()) as string | undefined;
+        if (!email) {
           throw new Error('Silk authentication was unsuccessful');
         }
 
-        const res = await signIn('credentials', { ...credentials, walletAddress, redirect: false });
+        const res = await signIn('credentials', { ...credentials, email, redirect: false });
         const error = res?.error;
         if (error) throw new Error(error);
       } catch (error) {
-        console.log(error);
+        console.error(error);
         const message = error instanceof Error && error.message ? error.message : 'An error occured while signing in';
         set({ authenticationError: message });
       }

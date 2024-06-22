@@ -1,6 +1,7 @@
 import { CreateNewGroupFormType, createNewGroupFormSchema } from '@/constants/schemas';
 import {
   addGroupAdmin,
+  countGroups,
   fetchGroupIdFromName,
   fetchGroups,
   fetchUserProfileByEmail,
@@ -25,7 +26,8 @@ export async function GET(request: NextRequest) {
       offset ? Number(offset) : undefined,
       searchTerm || undefined,
     );
-    return Response.json(groups);
+    const count = await countGroups();
+    return Response.json({ groups, count });
   } catch (error) {
     return Response.json(
       { error: true, message: 'An unexpected error occured while fetching groups' },

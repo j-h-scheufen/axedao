@@ -11,7 +11,7 @@ import ProfileSkeleton from './skeletons/ProfileSkeleton';
 const Profile = () => {
   const profile = useProfile();
   const isLoading = useIsInitializingProfile();
-  const { name, title, links } = profile;
+  const { name, title, links, avatar } = profile;
 
   if (isLoading || !profile.id) return <ProfileSkeleton />;
 
@@ -19,7 +19,7 @@ const Profile = () => {
     <div className="flex flex-col items-center gap-5 sm:flex-row">
       <Avatar
         showFallback
-        src="https://images.unsplash.com/broken"
+        src={avatar || undefined}
         fallback={<Camera className="h-10 w-10 animate-pulse text-default-500" strokeWidth={1} size={20} />}
         className="aspect-square h-full max-h-32 w-full max-w-32"
       />

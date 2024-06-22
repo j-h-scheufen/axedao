@@ -83,14 +83,18 @@ export const confirmationFormSchema = object({
 export type ConfirmationFormType = InferType<typeof confirmationFormSchema>;
 
 export const profileFormSchema = object({
-  image: mixed()
+  avatar: mixed()
     .test('is-valid-type', 'Not a valid image type', (value: any) => {
-      if (!value) return true;
-      return isValidFileType(value && value.name?.toLowerCase(), 'image');
+      if (value instanceof File) {
+        return isValidFileType(value && value.name?.toLowerCase(), 'image');
+      }
+      return true;
     })
     .test('is-valid-size', 'Maximum image size allowed is 3MB', (value: any) => {
-      if (!value) return true;
-      return value.size <= megabytesToBytes(3);
+      if (value instanceof File) {
+        return value.size <= megabytesToBytes(3);
+      }
+      return true;
     }),
   title: string().nullable().oneOf(titles, 'Not a valid title'),
   name: string().nullable(),
@@ -125,27 +129,29 @@ export const groupSchema = object({
   ),
   logo: mixed()
     .test('is-valid-type', 'Not a valid image type', (value: any) => {
-      if (!value || typeof value === 'string') return true;
       if (value instanceof File) {
         return isValidFileType(value && value.name?.toLowerCase(), 'image');
       }
-      return false;
+      return true;
     })
     .test('is-valid-size', 'Max image size allowed is 3MB', (value: any) => {
-      if (!value || typeof value === 'string') return true;
-      return value.size <= megabytesToBytes(3);
+      if (value instanceof File) {
+        return value.size <= megabytesToBytes(3);
+      }
+      return true;
     }),
   banner: mixed()
     .test('is-valid-type', 'Not a valid image type', (value: any) => {
-      if (!value) return true;
       if (value instanceof File) {
         return isValidFileType(value && value.name?.toLowerCase(), 'image');
       }
-      return false;
+      return true;
     })
     .test('is-valid-size', 'Max image size allowed is 5MB', (value: any) => {
-      if (!value || typeof value === 'string') return true;
-      return value.size <= megabytesToBytes(5);
+      if (value instanceof File) {
+        return value.size <= megabytesToBytes(3);
+      }
+      return true;
     }),
   links: linksSchema,
   admins: array().of(
