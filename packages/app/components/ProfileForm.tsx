@@ -45,12 +45,13 @@ const ProfileForm = () => {
 
   useEffect(() => {
     if (!profile.id) return;
-    const { name, email, nickname, title, links = [] } = profile;
+    const { name, email, nickname, title, links = [], avatar } = profile;
     setValue('email', email);
     if (name) setValue('name', name);
     if (nickname) setValue('nickname', nickname);
     if (title) setValue('title', title);
     if (links) setValue('links', links);
+    if (avatar) setValue('avatar', avatar);
   }, [profile, setValue]);
 
   const onSubmit = async (profileData: ProfileFormType) => {

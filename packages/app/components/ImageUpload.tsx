@@ -6,7 +6,7 @@ import { Camera } from 'lucide-react';
 import { FocusEvent, ForwardedRef, forwardRef, useEffect, useRef, useState } from 'react';
 
 type Props = {
-  value?: File;
+  value?: File | string;
   onChange: (file: File) => void;
   onBlur: (event: FocusEvent<Element, Element>) => void;
   isInvalid?: boolean;
@@ -18,16 +18,20 @@ const ImageUpload = (
   { value, onChange, onBlur = () => null, isInvalid, errorMessage, hideButton = false, avatarProps = {} }: Props,
   ref: ForwardedRef<HTMLInputElement>,
 ) => {
-  const [imagePreview, setImagePreview] = useState<string>('https://images.unsplash.com/broken');
+  const [imagePreview, setImagePreview] = useState<string | undefined>(typeof value === 'string' ? value : undefined);
   const imageInputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     if (!value) return;
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setImagePreview(reader.result as string);
-    };
-    reader.readAsDataURL(value as File);
+    if (typeof value === 'string') {
+      setImagePreview(value);
+    } else if (value instanceof File) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result as string);
+      };
+      reader.readAsDataURL(value);
+    }
   }, [value]);
 
   const selectImageFile = () => {
