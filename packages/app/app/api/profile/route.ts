@@ -58,7 +58,7 @@ export async function PATCH(request: NextRequest) {
         type: link.type as LinkType,
         ownerId: id,
       });
-      link.id = addedLink.id;
+      link.id = addedLink?.id;
     } else {
       for (const existingLink of existingLinks) {
         if (link.id === existingLink.id && link.url !== existingLink.url) {

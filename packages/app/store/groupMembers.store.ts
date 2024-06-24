@@ -154,3 +154,5 @@ export const useIsInitializingGroupAdmins = (): boolean =>
 export const useGroupFounder = (): User => useGroupMembersStore((state) => state.founder);
 
 export const useGroupLeader = (): User => useGroupMembersStore((state) => state.leader);
+
+export const useGroupAdmins = (): User[] => useGroupMembersStore((state) => state.admins);

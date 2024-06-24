@@ -10,7 +10,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import ErrorText from './ErrorText';
 import GroupBannerSkeleton from './skeletons/GroupBannerSkeleton';
 
-type Props = { banner: string | null; isFounder?: boolean; isLoading?: boolean };
+type Props = { banner: string | null; isLoading?: boolean };
 const GroupBanner = ({ banner, isLoading }: Props) => {
   const router = useRouter();
   const pathname = usePathname();

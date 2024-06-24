@@ -1,7 +1,7 @@
 'use client';
 
-import { groupSchema } from '@/constants/schemas';
-// import { useGroupFounder } from '@/store/groupMembers.store';
+import { groupFormSchema } from '@/constants/schemas';
+import { useGroupAdmins, useGroupMembersActions, useIsInitializingGroupAdmins } from '@/store/groupMembers.store';
 import {
   useGroupProfile,
   useGroupProfileActions,
@@ -9,7 +9,7 @@ import {
   useIsGroupProfileInitialized,
   useIsInitializingGroupProfile,
 } from '@/store/groupProfile.store';
-import { useProfileActions } from '@/store/profile.store';
+import { useProfile, useProfileActions } from '@/store/profile.store';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@nextui-org/button';
 import { Input, Textarea } from '@nextui-org/input';
@@ -25,40 +25,37 @@ type Props = { id: string };
 const GroupForm = ({ id }: Props) => {
   const router = useRouter();
 
+  const user = useProfile();
+
   const profileActions = useProfileActions();
   const groupProfileActions = useGroupProfileActions();
   const groupProfile = useGroupProfile();
-  // const founder = useGroupFounder();
   const isInitialilzingGroupProfile = useIsInitializingGroupProfile();
   const isGroupProfileInitialized = useIsGroupProfileInitialized();
   const isDeleting = useIsDeletingGroup();
+  const groupAdmins = useGroupAdmins();
+  const groupMembersActions = useGroupMembersActions();
+  const isInitializingGroupAdmins = useIsInitializingGroupAdmins();
+  const isGroupLeader = user.id === groupProfile.leader;
 
   useEffect(() => {
     groupProfileActions.initialize(id);
+    groupMembersActions.initialize(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const {
-    control,
-    // register,
-    handleSubmit,
-    watch,
-    // formState: { errors },
-    setValue,
-  } = useForm({
-    resolver: yupResolver(groupSchema),
+  const { control, handleSubmit, watch, setValue } = useForm({
+    resolver: yupResolver(groupFormSchema),
   });
 
   useEffect(() => {
     if (!groupProfile?.id) return;
-    const { name, description, logo, banner, leader, founder, verified, links, admins } = groupProfile;
+    const { name, description, logo, banner, leader, links, admins } = groupProfile;
     if (name) setValue('name', name);
     if (description) setValue('description', description);
     if (logo) setValue('logo', logo);
     if (banner) setValue('banner', banner);
     if (leader) setValue('leader', leader);
-    if (founder) setValue('founder', founder);
-    if (verified) setValue('verified', verified);
     if (links) setValue('links', links);
     if (admins?.length) setValue('admins', admins);
   }, [setValue, groupProfile]);
@@ -75,8 +72,7 @@ const GroupForm = ({ id }: Props) => {
 
   const description = watch('description') || '';
   const descriptionCharsLeft = 300 - description.length;
-
-  // console.log(groupProfile.founder);
+  console.log(groupAdmins);
 
   return (
     <>
@@ -170,24 +166,28 @@ const GroupForm = ({ id }: Props) => {
             );
           }}
         />
-        <Controller
-          control={control}
-          name="leader"
-          render={({ field: { value, onChange, onBlur, ref }, fieldState: { error } }) => {
-            return (
-              <SelectUser
-                ref={ref}
-                label="Leader"
-                placeholder="Search group members"
-                userId={value}
-                onChange={(adminId: string | undefined) => (adminId ? onChange({ id: adminId }) : null)}
-                onBlur={onBlur}
-                errorMessage={error?.message}
-                className="mb-5"
-              />
-            );
-          }}
-        />
+        <SubsectionHeading>Leader</SubsectionHeading>
+        {isGroupLeader && (
+          <Controller
+            control={control}
+            name="leader"
+            render={({ field: { value, onChange, onBlur, ref }, fieldState: { error } }) => {
+              return (
+                <SelectUser
+                  ref={ref}
+                  label="Search group admins"
+                  userId={value}
+                  users={groupAdmins}
+                  onChange={(adminId: string | undefined) => (adminId ? onChange({ id: adminId }) : null)}
+                  onBlur={onBlur}
+                  errorMessage={error?.message}
+                  className="mb-5"
+                  isLoading={isInitializingGroupAdmins}
+                />
+              );
+            }}
+          />
+        )}
         <div className="mb-5">
           <label className="mb-2 inline-block text-sm">Admins</label>
           {/* <Controller
@@ -238,6 +238,7 @@ const GroupForm = ({ id }: Props) => {
           Update group
         </Button>
         <Button
+          variant="bordered"
           type="button"
           color="danger"
           className="mt-8 flex w-full items-center"

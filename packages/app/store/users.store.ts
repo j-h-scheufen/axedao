@@ -1,8 +1,11 @@
 import { create } from 'zustand';
 
 import { User } from '@/types/model';
+import axios from 'axios';
 
-export type UsersState = {
+export type SearchUsersQuery = { searchTerm?: string; searchBy?: string };
+
+export type UsersState = SearchUsersQuery & {
   searchResults: User[];
   totalUsers: number | null;
   pageSize: number;
@@ -14,6 +17,7 @@ export type UsersState = {
 type UsersActions = {
   initialize: () => Promise<void>;
   loadNextPage: () => Promise<void>;
+  search: (query: SearchUsersQuery) => Promise<void>;
 };
 
 export type UsersStore = UsersState & { actions: UsersActions };
@@ -36,28 +40,47 @@ const useUsersStore = create<UsersStore>()((set, get) => ({
         set(() => ({ isInitialized: true }));
       }
     },
+    search: async (query: SearchUsersQuery): Promise<void> => {
+      const { actions } = get();
+      set({
+        ...query,
+        searchResults: [],
+        isLoading: false, // Ensures the search goes through
+      });
+      actions.loadNextPage();
+    },
     loadNextPage: async (): Promise<void> => {
-      const { isInitialized } = get();
+      const { isLoading } = get();
+      if (isLoading) return;
       set({ isLoading: true });
       try {
-        const pageSize = get().pageSize;
-        const offset = get().searchResults.length;
-        const response = await fetch(`/api/users?offset=${offset}&limit=${pageSize}`);
-        const { count = null, users = [] } = (await response.json()) || {};
+        const { pageSize, searchResults, searchTerm = '', searchBy } = get();
+        const offset = searchResults.length;
+        const params = JSON.parse(
+          JSON.stringify({
+            searchTerm: searchTerm || undefined,
+            searchBy: searchBy || undefined,
+            offset: isNaN(offset) ? offset : undefined,
+            limit: isNaN(pageSize) ? pageSize : undefined,
+          }),
+        );
+
+        const { data } = await axios.get('/api/users', { params });
+        if (data.error) {
+          throw new Error(data.message);
+        }
+
+        const { count = null, users = [] } = data || {};
         if (Array.isArray(users)) {
           set((state) => ({
+            // If a full pageSize of results was retrieved, there are likely more results, so setting true.
+            // The exception is if the total result size % pageSize === 0
+            // in which case the user receives the correct feedback on the next invocation of this function.
             searchResults: [...state.searchResults, ...users],
             totalUsers: count,
+            hasMoreResults: data.length === state.pageSize,
+            isInitialized: true,
           }));
-        }
-        // If a full pageSize of results was retrieved, there are likely more results, so setting true.
-        // The exception is if the total result size % pageSize === 0
-        // in which case the user receives the correct feedback on the next invocation of this function.
-        set((state) => ({
-          hasMoreResults: users.length === state.pageSize,
-        }));
-        if (!isInitialized) {
-          set({ isInitialized: true });
         }
       } catch (error) {
         console.error('Error fetching next page results: ', error);

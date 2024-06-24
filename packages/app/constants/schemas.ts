@@ -120,7 +120,7 @@ export const createNewGroupFormSchema = object({
 
 export type CreateNewGroupFormType = InferType<typeof createNewGroupFormSchema>;
 
-export const groupSchema = object({
+export const groupFormSchema = object({
   name: string().required('Group name is required'),
   description: string().test(
     'max-chars',
@@ -160,14 +160,6 @@ export const groupSchema = object({
     }),
   ),
   leader: string(),
-  founder: string(),
-  // locations: array().of(mixed()),
-  members: array().of(
-    object({
-      id: string().required(),
-    }),
-  ),
-  verified: boolean(),
 });
 
-export type GroupType = InferType<typeof groupSchema>;
+export type GroupFormType = InferType<typeof groupFormSchema>;

@@ -13048,6 +13048,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mitt@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "mitt@npm:3.0.1"
+  checksum: 10c0/3ab4fdecf3be8c5255536faa07064d05caa3dd332bd318ff02e04621f7b3069ca1de9106cfe8e7ced675abfc2bec2ce4c4ef321c4a1bb1fb29df8ae090741913
+  languageName: node
+  linkType: hard
+
 "mkdirp@npm:0.5.x":
   version: 0.5.6
   resolution: "mkdirp@npm:0.5.6"
@@ -13531,6 +13538,17 @@ __metadata:
     bn.js: "npm:4.11.6"
     strip-hex-prefix: "npm:1.0.0"
   checksum: 10c0/83d1540173c4fc60ef4e91e88ed17f2c38418c8e5e62f469d62404527efba48d9c40f364da5c5e6857234a6c1154ff32b3642d80f873ba6cb8d2dd05fb6bc303
+  languageName: node
+  linkType: hard
+
+"nuqs@npm:^1.17.4":
+  version: 1.17.4
+  resolution: "nuqs@npm:1.17.4"
+  dependencies:
+    mitt: "npm:^3.0.1"
+  peerDependencies:
+    next: ">=13.4 <14.0.2 || ^14.0.3"
+  checksum: 10c0/16d98776dfd9933411f7effabb71b48eb9e7e9412c4b8735721a198b8722f8fa3be0c0e3a42456b42f84aecbae7d2e36b2f136317d1b4dfa7d4e111af5383e23
   languageName: node
   linkType: hard
 
@@ -15036,6 +15054,7 @@ __metadata:
     next-auth: "npm:^4.24.7"
     next-themes: "npm:^0.2.1"
     notistack: "npm:^3.0.1"
+    nuqs: "npm:^1.17.4"
     pino-pretty: "npm:^10.3.1"
     postcss: "npm:8.4.35"
     postgres: "npm:^3.4.4"

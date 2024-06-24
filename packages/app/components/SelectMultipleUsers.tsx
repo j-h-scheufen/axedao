@@ -7,7 +7,7 @@
 // import { Button } from '@nextui-org/button';
 // import { cn } from '@/utils/tailwind';
 // import { Control, Controller, FieldArrayWithId, UseFieldArrayRemove } from 'react-hook-form';
-// import { GroupType } from '@/constants/schemas';
+// import { GroupFormType } from '@/constants/schemas';
 
 // const users = [...Array(10)].map((_, i) => ({ id: i, name: `John Doe ${i}`, nickname: `J_Doe ${i}` }));
 
@@ -30,7 +30,7 @@
 //   | 'banner'
 //   | 'verified';
 // type Props = {
-//   control: Control<GroupType>;
+//   control: Control<GroupFormType>;
 //   name: string;
 //   placeholder?: string;
 //   label?: string;
@@ -38,7 +38,7 @@
 //   onRemove?: UseFieldArrayRemove;
 //   onBlur?: (event: FocusEvent<Element, Element>) => void;
 //   selectedUsers?: { id: string }[];
-//   fields?: FieldArrayWithId<GroupType, 'admins', 'id'>[];
+//   fields?: FieldArrayWithId<GroupFormType, 'admins', 'id'>[];
 //   errorMessage?: string;
 //   className?: string;
 // };

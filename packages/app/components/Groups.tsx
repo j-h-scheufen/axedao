@@ -1,5 +1,6 @@
 'use client';
 
+import useOverview from '@/hooks/useOverview';
 import {
   useGroups,
   useGroupsActions,
@@ -8,11 +9,18 @@ import {
   useTotalGroups,
 } from '@/store/groups.store';
 import { Input } from '@nextui-org/input';
+import { isEqual } from 'lodash';
 import { Search } from 'lucide-react';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import { useDebounce } from 'use-debounce';
 import GroupsGrid from './GroupsGrid';
 
 const Groups = () => {
+  const [query, setQuery] = useOverview();
+  const [debouncedQuery] = useDebounce(query, 500);
+
+  const lastQueryRef = useRef<typeof query | null>(null);
+
   const groupsActions = useGroupsActions();
   const groups = useGroups();
   const totalGroups = useTotalGroups();
@@ -20,19 +28,30 @@ const Groups = () => {
   const isInitialized = useGroupsIsInitialized();
 
   useEffect(() => {
-    groupsActions.initialize();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    if (isEqual(lastQueryRef.current, debouncedQuery)) return;
+    console.log('useEffect searching groups');
+    groupsActions.search(debouncedQuery.searchTerm || '');
+    lastQueryRef.current = debouncedQuery;
+  }, [debouncedQuery, groupsActions, lastQueryRef]);
+
+  const setSearchTerm = (searchTerm: string) => {
+    setQuery({ ...query, searchTerm });
+  };
+
+  const { searchTerm } = query;
 
   return (
     <div className="flex flex-col gap-4 pt-5">
       <div className="flex h-fit items-center justify-between gap-3">
         <Input
           isClearable
+          onClear={() => setSearchTerm('')}
           className="w-full md:max-w-sm"
           placeholder="Search by name"
           startContent={<Search className="h-4 w-4" />}
           labelPlacement="outside"
+          value={searchTerm || ''}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
       <div className="flex items-center justify-between">

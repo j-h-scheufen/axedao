@@ -1,3 +1,5 @@
+'use client';
+
 import useContactInfo from '@/hooks/useContactInfo';
 import { GroupProfile } from '@/types/model';
 import clsx from 'clsx';

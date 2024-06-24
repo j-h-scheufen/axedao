@@ -1,6 +1,6 @@
 import { CreateNewGroupFormType, ProfileFormType } from '@/constants/schemas';
 import { UserProfile } from '@/types/model';
-import { generateErrorMessage } from '@/utils';
+import { generateErrorMessage, uploadImage } from '@/utils';
 import axios from 'axios';
 import { create } from 'zustand';
 
@@ -17,12 +17,12 @@ type ProfileState = {
   joinGroupError?: string;
   isCreatingGroup: boolean;
   createGroupError?: string;
-  isUploadingProfileImage?: boolean;
+  isUploadingAvatar?: boolean;
 };
 
 type ProfileActions = {
-  uploadProfileImage: (file: File, name?: string) => Promise<string | void>;
   initializeProfile: () => Promise<void>;
+  uploadAvatar: (file: File, name?: string) => Promise<string | void>;
   updateProfile: (profileData: ProfileFormType) => Promise<void>;
   joinGroup: (groupId: string) => Promise<void>;
   exitGroup: () => Promise<void>;
@@ -72,28 +72,26 @@ const useProfileStore = create<ProfileStore>()((set, get) => ({
       }
       set({ isInitializingProfile: false });
     },
-    uploadProfileImage: async (imageFile: File, name?: string) => {
-      const data = new FormData();
-      data.set('file', imageFile);
-      if (name) data.set('name', name);
-      const res = await axios.post('/api/images', data, { headers: { 'Content-Type': 'multipart/form-data' } });
-      const url: string = res.data?.url;
-      if (url) return url;
+    uploadAvatar: async (file: File, name?: string) => {
+      set({ isUploadingAvatar: true });
+      const url = await uploadImage(file, name);
+      set({ isUploadingAvatar: false });
+      return url;
     },
     updateProfile: async (_profileData: ProfileFormType) => {
       const {
         profile: { id },
         isUpdatingProfile,
-        actions: { uploadProfileImage },
+        actions: { uploadAvatar },
       } = get();
-      if (isUpdatingProfile) return;
+      if (isUpdatingProfile || !id) return;
       set({ isUpdatingProfile: true });
       try {
         const profileData = _profileData;
         if (profileData.avatar && profileData.avatar instanceof File) {
-          const imageUrl = await uploadProfileImage(profileData.avatar, id ? `user-${id}` : undefined);
-          if (imageUrl) {
-            profileData.avatar = imageUrl;
+          const avatar = await uploadAvatar(profileData.avatar, id ? `user-${id}` : undefined);
+          if (avatar) {
+            profileData.avatar = avatar;
           } else {
             delete profileData.avatar;
           }

@@ -17,8 +17,18 @@ import { GroupProfile, UserProfile } from '../types/model';
 export const client = postgres(ENV.databaseUrl, { prepare: false });
 export const db = drizzle(client, { schema });
 
-export async function fetchUsers(limit: number = 20, offset: number = 0) {
-  return await db.select().from(schema.users).limit(limit).offset(offset);
+export async function fetchUsers(
+  limit: number = 20,
+  offset: number = 0,
+  searchTerm?: string,
+  searchBy?: 'name' | 'nickname',
+) {
+  const baseQuery = db.select().from(schema.users);
+  if (!searchTerm) return await baseQuery.limit(limit).offset(offset);
+  return await baseQuery
+    .where(ilike(schema.users[searchBy || 'name'], `%${searchTerm}%`))
+    .limit(limit)
+    .offset(offset);
 }
 
 export async function countUsers() {
@@ -104,7 +114,7 @@ export async function insertUser(user: schema.InsertUser) {
 
 export async function insertGroup(group: schema.InsertGroup) {
   const groups = await db.insert(schema.groups).values(group).returning();
-  return groups[0];
+  return groups.length ? groups[0] : undefined;
 }
 
 export async function deleteGroup(groupId: string) {
@@ -117,7 +127,7 @@ export async function deleteGroup(groupId: string) {
 
 export async function addLink(link: schema.InsertLink) {
   const links = await db.insert(schema.links).values(link).returning();
-  return links[0];
+  return links.length ? links[0] : undefined;
 }
 
 export async function updateLink(link: schema.InsertLink & { id: number }) {
@@ -134,11 +144,12 @@ export async function fetchUserLinks(userId: string) {
 
 export async function updateUser(user: Omit<schema.InsertUser, 'email'>) {
   const users = await db.update(schema.users).set(user).where(eq(schema.users.id, user.id)).returning();
-  return users[0];
+  return users.length ? users[0] : undefined;
 }
 
 export async function updateGroup(group: schema.InsertGroup) {
-  await db.update(schema.groups).set(group).where(eq(schema.groups.id, group.id));
+  const groups = await db.update(schema.groups).set(group).where(eq(schema.groups.id, group.id));
+  return groups.length ? groups[0] : undefined;
 }
 
 export async function addGroupAdmin(entry: schema.InsertGroupAdmin) {

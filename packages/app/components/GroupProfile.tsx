@@ -1,7 +1,6 @@
 'use client';
 
 import { useGroupProfile, useGroupProfileActions, useIsInitializingGroupProfile } from '@/store/groupProfile.store';
-import { useProfile } from '@/store/profile.store';
 import { Avatar } from '@nextui-org/avatar';
 import { Camera } from 'lucide-react';
 import { useEffect } from 'react';
@@ -13,7 +12,6 @@ import SectionHeading from './SectionHeading';
 
 type Props = { id: string };
 const GroupProfile = ({ id }: Props) => {
-  const { id: userId } = useProfile();
   const groupProfileActions = useGroupProfileActions();
   const groupProfile = useGroupProfile();
   const isLoading = useIsInitializingGroupProfile();
@@ -23,13 +21,12 @@ const GroupProfile = ({ id }: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const { name, banner, logo, links, description, founder } = groupProfile;
-  const isFounder = userId === founder;
+  const { name, banner, logo, links, description } = groupProfile;
 
   return (
     <>
       <PageHeading back="/dashboard/overview?tab=groups">{name}</PageHeading>
-      <GroupBanner banner={banner} isFounder={isFounder} isLoading={isLoading} />
+      <GroupBanner banner={banner} isLoading={isLoading} />
       <div className="mt-5 xs:flex xs:gap-5">
         <Avatar
           showFallback

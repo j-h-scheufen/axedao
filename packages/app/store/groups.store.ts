@@ -38,12 +38,15 @@ const useSearchStore = create<SearchStore>()((set, get) => ({
       const { isInitialized, actions } = get();
       if (!isInitialized) {
         actions.loadNextPage();
-        set({ isInitialized: true });
       }
     },
     search: async (searchTerm: string): Promise<void> => {
       const { actions } = get();
-      set({ searchTerm, searchResults: [] });
+      set({
+        searchTerm,
+        searchResults: [],
+        isLoading: false, // Ensures the search goes through
+      });
       actions.loadNextPage();
     },
     loadNextPage: async (): Promise<void> => {
@@ -53,22 +56,30 @@ const useSearchStore = create<SearchStore>()((set, get) => ({
       try {
         const { pageSize, searchResults, searchTerm = '' } = get();
         const offset = searchResults.length;
-        const { data } = await axios.get(`/api/groups?searchTerm=${searchTerm}&offset=${offset}&limit=${pageSize}`);
-        if (data.error) {
-          throw new Error(data.message);
+        const params = JSON.parse(
+          JSON.stringify({
+            searchTerm: searchTerm || undefined,
+            offset: isNaN(offset) ? offset : undefined,
+            limit: isNaN(pageSize) ? pageSize : undefined,
+          }),
+        );
+
+        const { data } = await axios.get('/api/groups', { params });
+        if (data?.error) {
+          throw new Error(data?.message);
         }
-        if (Array.isArray(data.groups)) {
+
+        if (Array.isArray(data?.groups)) {
+          // If a full pageSize of results was retrieved, there are likely more results, so setting true.
+          // The exception is if the total result size % pageSize === 0
+          // in which case the user receives the correct feedback on the next invocation of this function.
           set((state) => ({
             searchResults: [...state.searchResults, ...data.groups],
             totalGroups: data.count,
+            hasMoreResults: data.length === state.pageSize,
+            isInitialized: true,
           }));
         }
-        // If a full pageSize of results was retrieved, there are likely more results, so setting true.
-        // The exception is if the total result size % pageSize === 0
-        // in which case the user receives the correct feedback on the next invocation of this function.
-        set((state) => ({
-          hasMoreResults: data.length === state.pageSize,
-        }));
       } catch (error) {
         const message = generateErrorMessage(error, 'An error occured while fetching groups');
         set({ loadGroupsError: message });

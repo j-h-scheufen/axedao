@@ -1,7 +1,18 @@
 import { NextRequest } from 'next/server';
 
-import { deleteGroup, fetchGroupProfile, fetchUserIdFromEmail, fetchUserProfileByEmail, isGroupAdmin } from '@/db';
-import { Group } from '@/types/model';
+import { GroupFormType, LinkType, groupFormSchema } from '@/constants/schemas';
+import {
+  addLink,
+  deleteGroup,
+  fetchGroupProfile,
+  fetchUserIdFromEmail,
+  fetchUserProfileByEmail,
+  isGroupAdmin,
+  removeLink,
+  updateGroup,
+  updateLink,
+} from '@/db';
+import { Group, Link } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
 import { getServerSession } from 'next-auth';
 
@@ -43,6 +54,105 @@ export async function GET(request: NextRequest, { params }: { params: { groupId:
       },
     );
   }
+}
+
+export async function PATCH(request: NextRequest, { params }: { params: { groupId: string } }) {
+  const session = await getServerSession();
+  if (!session?.user?.email) {
+    return Response.json(
+      { error: true, message: 'Not authorized' },
+      {
+        status: 401,
+      },
+    );
+  }
+
+  const user = await fetchUserProfileByEmail(session.user.email);
+  if (!user?.id) throw new Error();
+
+  const { groupId } = params;
+  const isAdmin = await isGroupAdmin(groupId, user.id);
+
+  if (!isAdmin)
+    return Response.json(
+      { error: true, message: 'Unauthorized! Only group admins can update a group' },
+      {
+        status: 401,
+      },
+    );
+
+  const body = await request.json();
+  const isValid = await groupFormSchema.validate(body);
+  if (!isValid) {
+    return Response.json(
+      { error: true, message: 'Invalid profile data' },
+      {
+        status: 400,
+      },
+    );
+  }
+
+  const { banner, logo, links } = body as GroupFormType;
+
+  const groupProfileData = JSON.parse(
+    JSON.stringify({
+      name: body.name || undefined,
+      description: body.description || undefined,
+      links: body.links || undefined,
+      admins: body.admins || undefined,
+      leader: body.leader || undefined,
+      banner: banner || undefined,
+      logo: logo || undefined,
+    }),
+  );
+
+  const group = await fetchGroupProfile(groupId);
+  if (!group?.id) throw new Error('Unable to update group, please confirm that the group still exists');
+
+  const { id, links: existingLinks } = group;
+
+  for (const link of links) {
+    const isNewLink = !link.id;
+    let isUpdatedLink = false;
+
+    if (isNewLink) {
+      const addedLink = await addLink({
+        ...link,
+        type: link.type as LinkType,
+        ownerId: id,
+      });
+      link.id = addedLink?.id;
+    } else {
+      for (const existingLink of existingLinks) {
+        if (link.id === existingLink.id && link.url !== existingLink.url) {
+          isUpdatedLink = true;
+          break;
+        }
+      }
+    }
+
+    if (isUpdatedLink) {
+      await updateLink(link as Link);
+    }
+  }
+
+  const deletedLinkIds: number[] = [];
+  for (const existingLink of existingLinks) {
+    let isDeletedLink = true;
+    for (const link of links) {
+      if (link.id === existingLink.id) {
+        isDeletedLink = false;
+        break;
+      }
+    }
+    if (isDeletedLink) {
+      await removeLink(existingLink.id);
+      deletedLinkIds.push(existingLink.id);
+    }
+  }
+
+  const updatedGroup = await updateGroup({ ...groupProfileData, id });
+  return Response.json({ ...user, ...(updatedGroup || {}), links });
 }
 
 export async function DELETE(request: NextRequest, { params }: { params: { groupId: string } }) {
