@@ -1,20 +1,18 @@
+import { registrationFormSchema } from '@/constants/schemas';
 import { fetchUserProfileByEmail, insertUser } from '@/db';
 import { NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
-import { InferType, object, string } from 'yup';
+import { InferType } from 'yup';
 
-const bodySchema = object({
-  email: string().email().required(),
-});
-type Body = InferType<typeof bodySchema>;
+type Body = InferType<typeof registrationFormSchema>;
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const valid = await bodySchema.validate(body);
+    const valid = await registrationFormSchema.validate(body);
 
     if (valid) {
-      const { email } = body as Body;
+      const { email, name } = body as Body;
 
       const userExists = await fetchUserProfileByEmail(email);
       if (userExists) {
@@ -26,7 +24,7 @@ export async function POST(request: Request) {
         );
       }
 
-      const user = await insertUser({ email, id: uuidv4() });
+      const user = await insertUser({ id: uuidv4(), email, name });
       return NextResponse.json(user);
     }
 

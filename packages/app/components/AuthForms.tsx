@@ -1,5 +1,6 @@
 'use client';
 
+import RegistrationForm from '@/components/RegistrationForm';
 import SignInForm from '@/components/SignInForm';
 import useUpdateSearchParams from '@/hooks/useUpdateSearchParams';
 import { useAuthActions, useSilk } from '@/store/auth.store';
@@ -7,7 +8,6 @@ import { Spinner } from '@nextui-org/react';
 import { Tab, Tabs } from '@nextui-org/tabs';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
-import RegistrationForm from './RegistrationForm';
 
 const AuthForms = () => {
   const searchParams = useSearchParams();

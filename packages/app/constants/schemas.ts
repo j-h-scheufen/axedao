@@ -66,6 +66,7 @@ const linksSchema = array()
 
 export const registrationFormSchema = object({
   email: string().email('Not a valid email').required('Email is required'),
+  name: string().required('Please enter your name'),
 });
 
 export type RegistrationFormType = InferType<typeof registrationFormSchema>;
