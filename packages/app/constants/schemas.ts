@@ -66,6 +66,7 @@ const linksSchema = array()
 
 export const registrationFormSchema = object({
   email: string().email('Not a valid email').required('Email is required'),
+  name: string().required('Please enter your name'),
 });
 
 export type RegistrationFormType = InferType<typeof registrationFormSchema>;
@@ -122,10 +123,8 @@ export type CreateNewGroupFormType = InferType<typeof createNewGroupFormSchema>;
 
 export const groupFormSchema = object({
   name: string().required('Group name is required'),
-  description: string().test(
-    'max-chars',
-    'Description cannot exceed 300 characters',
-    (value: string | undefined) => !!value && value.length <= 300,
+  description: string().test('max-chars', 'Description cannot exceed 300 characters', (value: string | undefined) =>
+    value ? value.length <= 300 : true,
   ),
   logo: mixed()
     .test('is-valid-type', 'Not a valid image type', (value: any) => {

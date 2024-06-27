@@ -1,5 +1,5 @@
-import { LucideIcon, User } from 'lucide-react';
 import { OverviewLayout } from '@/components/icons';
+import { LucideIcon, Shield, User } from 'lucide-react';
 
 export type PageType = { href: string; name: string; icon?: LucideIcon };
 const pages: PageType[] = [
@@ -12,6 +12,11 @@ const pages: PageType[] = [
     href: '/dashboard/overview',
     name: 'Overview',
     icon: OverviewLayout,
+  },
+  {
+    href: '/dashboard/super-admin',
+    name: 'Super Admin',
+    icon: Shield,
   },
 ];
 

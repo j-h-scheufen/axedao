@@ -36,7 +36,7 @@ const SelectUser = (
   ref: ForwardedRef<HTMLDivElement>,
 ) => {
   const [isChangingUser, setIsChangingUser] = useState<boolean>(false);
-  console.log(users);
+  // console.log(users);
 
   const userActions = useUserActions();
   const user = useUserProfile();

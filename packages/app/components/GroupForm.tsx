@@ -1,6 +1,6 @@
 'use client';
 
-import { groupFormSchema } from '@/constants/schemas';
+import { GroupFormType, groupFormSchema } from '@/constants/schemas';
 import { useGroupAdmins, useGroupMembersActions, useIsInitializingGroupAdmins } from '@/store/groupMembers.store';
 import {
   useGroupProfile,
@@ -8,6 +8,7 @@ import {
   useIsDeletingGroup,
   useIsGroupProfileInitialized,
   useIsInitializingGroupProfile,
+  useIsUpdatingGroupProfile,
 } from '@/store/groupProfile.store';
 import { useProfile, useProfileActions } from '@/store/profile.store';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -29,6 +30,7 @@ const GroupForm = ({ id }: Props) => {
 
   const profileActions = useProfileActions();
   const groupProfileActions = useGroupProfileActions();
+  const isUpdating = useIsUpdatingGroupProfile();
   const groupProfile = useGroupProfile();
   const isInitialilzingGroupProfile = useIsInitializingGroupProfile();
   const isGroupProfileInitialized = useIsGroupProfileInitialized();
@@ -70,13 +72,23 @@ const GroupForm = ({ id }: Props) => {
   }
   if (!isGroupProfileInitialized) return null;
 
+  const submit = async (values: GroupFormType) => {
+    await groupProfileActions.updateGroupProfile(values);
+    router.push(`/dashboard/overview/groups/${id}`);
+  };
+
+  const deleteGroup = async () => {
+    await groupProfileActions.delete();
+    profileActions.removeGroupAssociation();
+    router.push('/dashboard/overview?tab=groups');
+  };
+
   const description = watch('description') || '';
   const descriptionCharsLeft = 300 - description.length;
-  console.log(groupAdmins);
 
   return (
     <>
-      <form className="max-w-xl" onSubmit={handleSubmit(console.log)}>
+      <form className="max-w-xl" onSubmit={handleSubmit(submit)}>
         <SubsectionHeading>Images</SubsectionHeading>
         <div className="mb-5 md:flex md:gap-5">
           <div className="flex min-w-24 flex-col justify-start gap-2">
@@ -234,7 +246,7 @@ const GroupForm = ({ id }: Props) => {
         register={register as UseFormRegister<ContactInfoField>}
         errors={errors as FieldErrors<ContactInfoField>}
       /> */}
-        <Button type="submit" className="mt-8 flex w-full items-center">
+        <Button type="submit" className="mt-8 flex w-full items-center" isLoading={isUpdating}>
           Update group
         </Button>
         <Button
@@ -242,11 +254,7 @@ const GroupForm = ({ id }: Props) => {
           type="button"
           color="danger"
           className="mt-8 flex w-full items-center"
-          onPress={async () => {
-            await groupProfileActions.delete();
-            profileActions.removeGroupAssociation();
-            router.push('/dashboard/overview?tab=groups');
-          }}
+          onPress={deleteGroup}
           isLoading={isDeleting}
         >
           Delete group

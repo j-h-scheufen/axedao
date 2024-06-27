@@ -17,6 +17,7 @@ export async function GET(/* request: NextRequest */) {
       },
     );
   }
+
   const user = await fetchUserProfileByEmail(session?.user?.email);
   return Response.json(user);
 }

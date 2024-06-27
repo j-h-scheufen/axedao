@@ -29,7 +29,6 @@ const Groups = () => {
 
   useEffect(() => {
     if (isEqual(lastQueryRef.current, debouncedQuery)) return;
-    console.log('useEffect searching groups');
     groupsActions.search(debouncedQuery.searchTerm || '');
     lastQueryRef.current = debouncedQuery;
   }, [debouncedQuery, groupsActions, lastQueryRef]);

@@ -106,7 +106,8 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
             delete groupGrofileData.banner;
           }
         }
-        // const { data: profile } = await axios.patch('/api/profile', groupGrofileData);
+        const { data: profile } = await axios.patch('/api/profile', groupGrofileData);
+        console.log(profile);
         // set({ profile });
       } catch (error: unknown) {
         const message = error instanceof Error ? error.message : 'An error occured while updating your profile';
@@ -134,6 +135,8 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
 export default useGroupProfileStore;
 
 export const useGroupProfileActions = (): GroupProfileActions => useGroupProfileStore((state) => state.actions);
+
+export const useIsUpdatingGroupProfile = (): boolean => useGroupProfileStore((state) => state.isUpdatingGroupProfile);
 
 export const useGroupProfile = (): GroupProfile => useGroupProfileStore((state) => state.groupProfile);
 
