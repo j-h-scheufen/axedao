@@ -35,12 +35,22 @@ const RegistrationForm = () => {
   });
 
   const emailErrorMessage = errors.email?.message;
+  const nameErrorMessage = errors.name?.message;
 
   return (
     <form
       className="m-auto flex h-fit w-full max-w-sm flex-col gap-3"
       onSubmit={handleSubmit(authActions.register as SubmitHandler<RegistrationFormType>)}
     >
+      <Input
+        {...register('name')}
+        label="Full name"
+        className="w-full"
+        classNames={{ inputWrapper: '!min-h-14', errorMessage: 'text-left' }}
+        color={nameErrorMessage ? 'danger' : undefined}
+        isInvalid={!!nameErrorMessage}
+        errorMessage={nameErrorMessage}
+      />
       <Input
         {...register('email')}
         label="Email"

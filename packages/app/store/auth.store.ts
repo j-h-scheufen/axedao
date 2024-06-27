@@ -1,4 +1,5 @@
 import { RegistrationFormType, SignInFormType } from '@/constants/schemas';
+import { generateErrorMessage } from '@/utils';
 import { initSilk } from '@silk-wallet/silk-wallet-sdk';
 import { SilkEthereumProviderInterface } from '@silk-wallet/silk-wallet-sdk/dist/lib/provider/types';
 import axios from 'axios';
@@ -51,13 +52,12 @@ const useAuthStore = create<AuthStore>()((set, get) => ({
       set({ isRegistering: true });
       try {
         await axios.post('/api/auth/register', credentials);
+        await get().actions.signIn({ email: credentials.email });
       } catch (error) {
-        const message =
-          error instanceof Error && error.message ? error.message : 'An error occured during registration';
+        const message = generateErrorMessage(error as Error, 'An error occured during registration');
         set({ registrationError: message });
       }
       set({ isRegistering: false });
-      await get().actions.signIn({ email: credentials.email });
     },
     signIn: async (credentials: SignInFormType) => {
       const { isRegistering, isAuthenticating, silk } = get();
