@@ -1,8 +1,8 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { RegistrationFormType, SignInFormType } from '@/constants/schemas';
 import useAuthStore from '@/store/auth.store';
-import { SignInFormType } from '@/constants/schemas';
+import { useRouter } from 'next/navigation';
 
 const useAuth = () => {
   const router = useRouter();
@@ -13,7 +13,7 @@ const useAuth = () => {
     actions: {
       ...actions,
       // Redirects after authentication or sign out
-      register: async (credentials: SignInFormType): Promise<void> => {
+      register: async (credentials: RegistrationFormType): Promise<void> => {
         await actions.register(credentials);
         router.push('/dashboard/profile');
       },
