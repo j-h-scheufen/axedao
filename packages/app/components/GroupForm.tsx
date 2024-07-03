@@ -1,7 +1,7 @@
 'use client';
 
 import { GroupFormType, groupFormSchema } from '@/constants/schemas';
-import { useGroupAdmins, useGroupMembersActions, useIsInitializingGroupAdmins } from '@/store/groupMembers.store';
+import { useGroupMembersActions } from '@/store/groupMembers.store';
 import {
   useGroupProfile,
   useGroupProfileActions,
@@ -17,8 +17,8 @@ import { Input, Textarea } from '@nextui-org/input';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { Controller, /*useFieldArray,*/ useForm } from 'react-hook-form';
+import GroupFormLinkInputs from './GroupFormLinkInputs';
 import ImageUpload from './ImageUpload';
-import SelectUser from './SelectUser';
 import SubsectionHeading from './SubsectionHeading';
 import GroupFormSkeleton from './skeletons/GroupFormSkeleton';
 
@@ -26,7 +26,7 @@ type Props = { id: string };
 const GroupForm = ({ id }: Props) => {
   const router = useRouter();
 
-  const user = useProfile();
+  const profile = useProfile();
 
   const profileActions = useProfileActions();
   const groupProfileActions = useGroupProfileActions();
@@ -35,10 +35,7 @@ const GroupForm = ({ id }: Props) => {
   const isInitialilzingGroupProfile = useIsInitializingGroupProfile();
   const isGroupProfileInitialized = useIsGroupProfileInitialized();
   const isDeleting = useIsDeletingGroup();
-  const groupAdmins = useGroupAdmins();
   const groupMembersActions = useGroupMembersActions();
-  const isInitializingGroupAdmins = useIsInitializingGroupAdmins();
-  const isGroupLeader = user.id === groupProfile.leader;
 
   useEffect(() => {
     groupProfileActions.initialize(id);
@@ -51,8 +48,9 @@ const GroupForm = ({ id }: Props) => {
   });
 
   useEffect(() => {
-    if (!groupProfile?.id) return;
+    if (!groupProfile?.id || !profile.id) return;
     const { name, description, logo, banner, leader, links, admins } = groupProfile;
+    setValue('email', profile.email);
     if (name) setValue('name', name);
     if (description) setValue('description', description);
     if (logo) setValue('logo', logo);
@@ -60,12 +58,7 @@ const GroupForm = ({ id }: Props) => {
     if (leader) setValue('leader', leader);
     if (links) setValue('links', links);
     if (admins?.length) setValue('admins', admins);
-  }, [setValue, groupProfile]);
-
-  // const adminsField = useFieldArray({
-  //   control,
-  //   name: 'admins',
-  // });
+  }, [setValue, groupProfile, profile]);
 
   if (isInitialilzingGroupProfile) {
     return <GroupFormSkeleton />;
@@ -89,7 +82,6 @@ const GroupForm = ({ id }: Props) => {
   return (
     <>
       <form className="max-w-xl" onSubmit={handleSubmit(submit)}>
-        <SubsectionHeading>Images</SubsectionHeading>
         <div className="mb-5 md:flex md:gap-5">
           <div className="flex min-w-24 flex-col justify-start gap-2">
             <h4>Logo</h4>
@@ -98,21 +90,23 @@ const GroupForm = ({ id }: Props) => {
               name="logo"
               render={({ field: { value, onChange, onBlur, ref }, fieldState: { error } }) => {
                 return (
-                  <ImageUpload
-                    ref={ref}
-                    value={value as File}
-                    onChange={onChange}
-                    onBlur={onBlur}
-                    errorMessage={error?.message}
-                    hideButton
-                  />
+                  <div className="h-28 w-28">
+                    <ImageUpload
+                      ref={ref}
+                      value={value as File}
+                      onChange={onChange}
+                      onBlur={onBlur}
+                      errorMessage={error?.message}
+                      hideButton
+                    />
+                  </div>
                 );
               }}
             />
           </div>
           <div className="flex flex-1 flex-col gap-2">
             <h4>Banner</h4>
-            <div className="aspect-[4] max-h-24 w-full max-w-sm">
+            <div className="h-full">
               <Controller
                 control={control}
                 name="banner"
@@ -125,7 +119,7 @@ const GroupForm = ({ id }: Props) => {
                       onBlur={onBlur}
                       errorMessage={error?.message}
                       hideButton
-                      avatarProps={{ className: 'block h-24 w-full cursor-pointer', radius: 'md' }}
+                      avatarProps={{ className: 'block h-28 w-full cursor-pointer', radius: 'md' }}
                     />
                   );
                 }}
@@ -147,7 +141,7 @@ const GroupForm = ({ id }: Props) => {
                 label="Name"
                 placeholder="Enter your group's name"
                 className="mb-5"
-                classNames={{ inputWrapper: 'min-h-12' }}
+                classNames={{ inputWrapper: '!min-h-12' }}
                 errorMessage={errorMessage}
                 isInvalid={!!errorMessage}
                 color={!!errorMessage ? 'danger' : undefined}
@@ -178,87 +172,23 @@ const GroupForm = ({ id }: Props) => {
             );
           }}
         />
-        <SubsectionHeading>Leader</SubsectionHeading>
-        {isGroupLeader && (
-          <Controller
-            control={control}
-            name="leader"
-            render={({ field: { value, onChange, onBlur, ref }, fieldState: { error } }) => {
-              return (
-                <SelectUser
-                  ref={ref}
-                  label="Search group admins"
-                  userId={value}
-                  users={groupAdmins}
-                  onChange={(adminId: string | undefined) => (adminId ? onChange({ id: adminId }) : null)}
-                  onBlur={onBlur}
-                  errorMessage={error?.message}
-                  className="mb-5"
-                  isLoading={isInitializingGroupAdmins}
-                />
-              );
-            }}
-          />
-        )}
-        <div className="mb-5">
-          <label className="mb-2 inline-block text-sm">Admins</label>
-          {/* <Controller
-          control={control}
-          name="admins"
-          render={({ field: { onBlur, ref, name, value }, fieldState: { error } }) => {
-            return (
-              <SelectMultipleUsers
-                ref={ref}
-                control={control}
-                name={name}
-                placeholder="Search group members"
-                errorMessage={error?.message}
-                onBlur={onBlur}
-                selectedUsers={value}
-                fields={adminsField.fields}
-                onChange={(adminId) => {
-                  if (!adminId) return;
-                  // const selected = !!value?.length && value.find((admin) => admin.id === adminId.toString());
-                  let selected, selectedIndex;
-                  if (value?.length) {
-                    for (let i = 0; i < value.length; i++) {
-                      const admin = value[i];
-                      if (admin.id === adminId.toString()) {
-                        selected = true;
-                        selectedIndex = i;
-                      }
-                    }
-                  }
-                  if (selected) {
-                    adminsField.remove(selectedIndex);
-                  } else {
-                    adminsField.append({ id: adminId });
-                  }
-                }}
-                onRemove={adminsField.remove}
-              />
-            );
-          }}
-        /> */}
-        </div>
         <SubsectionHeading>Links</SubsectionHeading>
-        {/* <ContactInfoInputs
-        register={register as UseFormRegister<ContactInfoField>}
-        errors={errors as FieldErrors<ContactInfoField>}
-      /> */}
-        <Button type="submit" className="mt-8 flex w-full items-center" isLoading={isUpdating}>
-          Update group
-        </Button>
-        <Button
-          variant="bordered"
-          type="button"
-          color="danger"
-          className="mt-8 flex w-full items-center"
-          onPress={deleteGroup}
-          isLoading={isDeleting}
-        >
-          Delete group
-        </Button>
+        <GroupFormLinkInputs control={control} setValue={setValue} watch={watch} />
+        <div className="flex flex-col mt-8 md:flex-row items-center gap-5">
+          <Button
+            variant="bordered"
+            type="button"
+            color="danger"
+            className="flex w-full items-center"
+            onPress={deleteGroup}
+            isLoading={isDeleting}
+          >
+            Delete group
+          </Button>
+          <Button type="submit" className="flex w-full items-center" isLoading={isUpdating}>
+            Update group
+          </Button>
+        </div>
       </form>
     </>
   );

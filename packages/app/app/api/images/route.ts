@@ -8,6 +8,7 @@ export async function POST(request: NextRequest) {
     const data = await request.formData();
     const file: File | null = data.get('file') as unknown as File;
     const name: string = (data.get('name') as unknown as string) || uuidv4();
+    console.log(name, file);
     if (file) {
       const uploadData = new FormData();
       uploadData.append('file', file);

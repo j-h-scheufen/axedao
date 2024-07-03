@@ -1,10 +1,13 @@
 import { User } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
 import axios from 'axios';
+import { produce } from 'immer';
 import { create } from 'zustand';
 import { DEFAULT_PROFILE } from './profile.store';
 
-export type GroupMemberRole = 'member' | 'admin' | 'founder' | 'leader';
+const ROLE_ORDER = ['founder', 'leader', 'admin', 'member'] as const;
+
+export type GroupMemberRole = (typeof ROLE_ORDER)[number];
 
 export type GroupMember = User & { role: GroupMemberRole };
 
@@ -22,6 +25,9 @@ export type GroupMembersState = {
   isInitializingGroupAdmins: boolean;
   adminsInitialized: boolean;
   initializeAdminError?: string;
+  memberBeingPromotedToAdmin?: string | undefined; // id of member being promoted
+  adminBeingDemotedToMember?: string | undefined; // id of admin being demoted
+  adminBeingPromotedToLeader?: string | undefined; // id of admin being promoted
 };
 
 type GroupMembersActions = {
@@ -29,6 +35,9 @@ type GroupMembersActions = {
   loadNextPage: () => Promise<void>;
   initializeAdmins: () => Promise<void>;
   search: (searchTerm: string) => Promise<void>;
+  promoteToAdmin: (memberId: string) => Promise<void>;
+  demoteToMember: (adminId: string) => Promise<void>;
+  promoteToLeader: (adminId: string, onSuccess?: () => void) => Promise<void>;
 };
 
 export type GroupMembersStore = GroupMembersState & { actions: GroupMembersActions };
@@ -84,22 +93,30 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
         );
         const data: User[] = res.data;
         if (data?.length && data.length > 0) {
-          const adminIds = get().admins.map((admin) => admin.id);
+          const { admins, founder, leader } = get();
+          const adminIds = admins.map((admin) => admin.id);
           const groupMembers: GroupMember[] = data.map((user) => {
             const userId = user.id;
+            console.log(adminIds, user.id, adminIds.includes(user.id));
             let role: GroupMemberRole = 'member';
-            if (userId === get().founder?.id) {
+            if (userId === founder?.id) {
               role = 'founder';
-            } else if (userId === get().leader?.id) {
+            } else if (userId === leader?.id) {
               role = 'leader';
             } else if (adminIds.includes(userId)) {
               role = 'admin';
             }
             return { ...user, role };
           });
-          set((state) => ({
-            searchResults: [...state.searchResults, ...groupMembers],
-          }));
+          set((state) => {
+            // sort by role as shown in ROLE_ORDER
+            const newSearchResults = [...state.searchResults, ...groupMembers].sort((a, b) => {
+              return ROLE_ORDER.indexOf(a.role) - ROLE_ORDER.indexOf(b.role);
+            });
+            return {
+              searchResults: newSearchResults,
+            };
+          });
         }
         set((state) => ({
           hasMoreResults: data.length === state.pageSize,
@@ -126,6 +143,60 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
         set({ initializeAdminError: message });
       }
       set({ isInitializingGroupAdmins: false });
+    },
+    promoteToAdmin: async (memberId: string) => {
+      const { memberBeingPromotedToAdmin, groupId } = get();
+      if (memberBeingPromotedToAdmin || !groupId) return;
+      set({ memberBeingPromotedToAdmin: memberId });
+      try {
+        const { data } = await axios.post(`/api/groups/${groupId}/members/${memberId}/promote-to-admin`);
+        if (data.success) {
+          set(
+            produce((state: GroupMembersState) => {
+              const promotedMember = state.searchResults.find((member) => member.id === memberId);
+              if (promotedMember) promotedMember.role = 'admin';
+            }),
+          );
+        }
+      } catch (error) {}
+      set({ memberBeingPromotedToAdmin: undefined });
+    },
+    demoteToMember: async (adminId: string) => {
+      const { adminBeingDemotedToMember, groupId } = get();
+      if (adminBeingDemotedToMember || !groupId) return;
+      set({ adminBeingDemotedToMember: adminId });
+      try {
+        const { data } = await axios.post(`/api/groups/${groupId}/admins/${adminId}/demote-to-member`);
+        if (data.success) {
+          set(
+            produce((state: GroupMembersState) => {
+              const demotedAdmin = state.searchResults.find((member) => member.id === adminId);
+              if (demotedAdmin) demotedAdmin.role = 'member';
+              state.admins = state.admins.filter((admin) => admin.id !== adminId);
+            }),
+          );
+        }
+      } catch (error) {}
+      set({ adminBeingDemotedToMember: undefined });
+    },
+    promoteToLeader: async (adminId: string, onSuccess?: () => void) => {
+      const { adminBeingPromotedToLeader, groupId } = get();
+      if (adminBeingPromotedToLeader || !groupId) return;
+      set({ adminBeingPromotedToLeader: adminId });
+      try {
+        const { data } = await axios.post(`/api/groups/${groupId}/admins/${adminId}/promote-to-leader`);
+        if (data.success) {
+          set(
+            produce((state: GroupMembersState) => {
+              const demotedAdmin = state.searchResults.find((member) => member.id === adminId);
+              if (demotedAdmin) demotedAdmin.role = 'leader';
+              state.admins = state.admins.filter((admin) => admin.id !== adminId);
+            }),
+          );
+          onSuccess && onSuccess();
+        }
+      } catch (error) {}
+      set({ adminBeingPromotedToLeader: undefined });
     },
   },
 }));
@@ -156,3 +227,12 @@ export const useGroupFounder = (): User => useGroupMembersStore((state) => state
 export const useGroupLeader = (): User => useGroupMembersStore((state) => state.leader);
 
 export const useGroupAdmins = (): User[] => useGroupMembersStore((state) => state.admins);
+
+export const useMemberBeingPromotedToAdmin = (): string | undefined =>
+  useGroupMembersStore((state) => state.memberBeingPromotedToAdmin);
+
+export const useAdminBeingDemotedToMember = (): string | undefined =>
+  useGroupMembersStore((state) => state.adminBeingDemotedToMember);
+
+export const useAdminBeingPromotedToLeader = (): string | undefined =>
+  useGroupMembersStore((state) => state.adminBeingPromotedToLeader);

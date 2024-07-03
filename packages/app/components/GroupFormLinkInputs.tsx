@@ -1,10 +1,10 @@
 'use client';
-import { ProfileFormType } from '@/constants/schemas';
+import { GroupFormType } from '@/constants/schemas';
 import { useProfile } from '@/store/profile.store';
 import { SiX } from '@icons-pack/react-simple-icons';
 import { Button } from '@nextui-org/button';
 import { Input } from '@nextui-org/input';
-import { Facebook, Instagram, LinkIcon, LinkedinIcon, Mail, Phone, PlusIcon, XIcon } from 'lucide-react';
+import { Facebook, Instagram, LinkIcon, LinkedinIcon, Mail, PlusIcon, XIcon } from 'lucide-react';
 import { useCallback } from 'react';
 import { Control, Controller, UseFormSetValue, UseFormWatch, useFieldArray } from 'react-hook-form';
 
@@ -28,11 +28,11 @@ const linkBaseUrls = [
 ];
 
 type Props = {
-  control: Control<ProfileFormType>;
-  setValue: UseFormSetValue<ProfileFormType>;
-  watch: UseFormWatch<ProfileFormType>;
+  control: Control<GroupFormType>;
+  setValue: UseFormSetValue<GroupFormType>;
+  watch: UseFormWatch<GroupFormType>;
 };
-const ContactInfoInputs = ({ control, setValue, watch }: Props) => {
+const GroupFormLinkInputs = ({ control, setValue, watch }: Props) => {
   const { id: userId } = useProfile();
   const { fields, append, remove } = useFieldArray({ control, name: 'links' });
 
@@ -101,29 +101,6 @@ const ContactInfoInputs = ({ control, setValue, watch }: Props) => {
             );
           }}
         />
-        <Controller
-          control={control}
-          name="phone"
-          render={({ field: { onChange, value, onBlur, ref }, fieldState: { error } }) => {
-            const errorMessage = error?.message;
-            return (
-              <Input
-                ref={ref}
-                type="phone"
-                size="sm"
-                placeholder="+xxx xxxx xxxx"
-                value={value || ''}
-                onBlur={onBlur}
-                onChange={onChange}
-                classNames={{ inputWrapper: 'h-10' }}
-                errorMessage={errorMessage}
-                isInvalid={!!errorMessage}
-                color={!!errorMessage ? 'danger' : undefined}
-                startContent={<Phone className="pointer-events-none h-4 w-4 min-w-4 flex-shrink-0 text-default-400" />}
-              />
-            );
-          }}
-        />
         {fields.map((field, index) => {
           return (
             <Controller
@@ -149,8 +126,14 @@ const ContactInfoInputs = ({ control, setValue, watch }: Props) => {
                     color={!!errorMessage ? 'danger' : undefined}
                     startContent={getLinkIcon(index)}
                     endContent={
-                      <Button size="sm" variant="light" className="mt-0.5" onPress={() => remove(index)} isIconOnly>
-                        <XIcon className="h-4 w-4" strokeWidth={1} />
+                      <Button
+                        size="sm"
+                        variant="light"
+                        className="mt-0.5 !px-1 text-default-500"
+                        onPress={() => remove(index)}
+                        isIconOnly
+                      >
+                        <XIcon size={16} strokeWidth={1} />
                       </Button>
                     }
                   />
@@ -173,4 +156,4 @@ const ContactInfoInputs = ({ control, setValue, watch }: Props) => {
     </div>
   );
 };
-export default ContactInfoInputs;
+export default GroupFormLinkInputs;

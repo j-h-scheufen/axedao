@@ -87,16 +87,6 @@ const JoinGroupForm = ({ secondaryButton, onSubmit }: Props) => {
               {groups.map(({ name, id }) => (
                 <AutocompleteItem key={id} value={id} textValue={name}>
                   <div className="mb-1">{name}</div>
-                  {/* <div className="flex items-center gap-2 text-xs text-neutral-400">
-                    <span className="flex items-center gap-1">
-                      <MapPin className="h-3 w-3" />
-                      SP, São Paulo
-                    </span>
-                    <Circle className="relative top-[2px] h-[5px] w-[5px] fill-neutral-500 stroke-none" />
-                    <span>75 members</span>
-                    <Circle className="relative top-[2px] h-[5px] w-[5px] fill-neutral-500 stroke-none" />
-                    <span>Founded by John Doe</span>
-                  </div> */}
                 </AutocompleteItem>
               ))}
             </Autocomplete>

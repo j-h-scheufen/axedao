@@ -1,4 +1,4 @@
-import { and, count, eq, ilike } from 'drizzle-orm';
+import { and, count, eq, ilike, ne, notExists } from 'drizzle-orm';
 import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 
@@ -51,6 +51,30 @@ export async function fetchGroups(limit: number = 20, offset: number = 0, search
 export async function countGroups() {
   const result = await db.select({ count: count() }).from(schema.groups);
   return result.length ? result[0].count : null;
+}
+
+// export async function isGroupLeader(groupId): Promise<boolean> {}
+
+export async function isGroupMember(groupId: string, userId: string): Promise<boolean> {
+  const result = await db
+    .select()
+    .from(schema.users)
+    .fullJoin(schema.groups, eq(schema.groups.id, groupId))
+    .where(
+      and(
+        eq(schema.users.id, userId),
+        eq(schema.users.group_id, groupId),
+        ne(schema.groups.leader, userId),
+        notExists(
+          db
+            .select()
+            .from(schema.groupAdmins)
+            .where(and(eq(schema.groupAdmins.userId, userId), eq(schema.groupAdmins.groupId, groupId))),
+        ),
+      ),
+    );
+  // console.log(result);
+  return !!result.length;
 }
 
 export async function isGroupAdmin(groupId: string, userId: string): Promise<boolean> {
@@ -125,6 +149,11 @@ export async function deleteGroup(groupId: string) {
   await db.delete(schema.groups).where(eq(schema.groups.id, groupId));
 }
 
+// TODO: remove
+// export async function DANGEROUS_deleteAllGroupAdmins() {
+//   await db.delete(schema.groupAdmins);
+// }
+
 export async function addLink(link: schema.InsertLink) {
   const links = await db.insert(schema.links).values(link).returning();
   return links.length ? links[0] : undefined;
@@ -157,22 +186,11 @@ export async function addGroupAdmin(entry: schema.InsertGroupAdmin) {
 }
 
 export async function fetchGroupAdmins(groupId: string, limit: number = 20, offset: number = 0) {
-  return await db
-    .select({
-      id: schema.users.id,
-      name: schema.users.name,
-      nickname: schema.users.nickname,
-      email: schema.users.email,
-      avatar: schema.users.avatar,
-      title: schema.users.title,
-      createdAt: schema.users.createdAt,
-      group_id: schema.users.group_id,
-    })
-    .from(schema.groupAdmins)
-    .innerJoin(schema.users, eq(schema.groupAdmins.userId, schema.users.id))
-    .where(eq(schema.groupAdmins.groupId, groupId))
-    .limit(limit)
-    .offset(offset);
+  return await db.select().from(schema.groupAdmins);
+  // .innerJoin(schema.users, eq(schema.groupAdmins.userId, schema.users.id))
+  // .where(eq(schema.groupAdmins.groupId, groupId))
+  // .limit(limit)
+  // .offset(offset);
 }
 
 export async function removeGroupAdmin(entry: schema.InsertGroupAdmin) {

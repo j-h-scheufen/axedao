@@ -8291,6 +8291,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"country-state-city@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "country-state-city@npm:3.2.1"
+  checksum: 10c0/2545a000c207345514de31c20ed8a331bba9796f36ab1e6e4019ebb319bca37894180e4ade40eef9d7f2443aa60045ec3f317bfdb3f4c7b99b9c711e4688d8cb
+  languageName: node
+  linkType: hard
+
 "crc-32@npm:^1.2.0":
   version: 1.2.2
   resolution: "crc-32@npm:1.2.2"
@@ -11489,6 +11496,13 @@ __metadata:
   version: 5.3.1
   resolution: "ignore@npm:5.3.1"
   checksum: 10c0/703f7f45ffb2a27fb2c5a8db0c32e7dee66b33a225d28e8db4e1be6474795f606686a6e3bcc50e1aa12f2042db4c9d4a7d60af3250511de74620fbed052ea4cd
+  languageName: node
+  linkType: hard
+
+"immer@npm:^10.1.1":
+  version: 10.1.1
+  resolution: "immer@npm:10.1.1"
+  checksum: 10c0/b749e10d137ccae91788f41bd57e9387f32ea6d6ea8fd7eb47b23fd7766681575efc7f86ceef7fe24c3bc9d61e38ff5d2f49c2663b2b0c056e280a4510923653
   languageName: node
   linkType: hard
 
@@ -15039,6 +15053,7 @@ __metadata:
     bcrypt: "npm:^5.1.1"
     chai: "npm:^4.4.1"
     clsx: "npm:^2.1.0"
+    country-state-city: "npm:^3.2.1"
     drizzle-kit: "npm:^0.21.1"
     drizzle-orm: "npm:^0.30.10"
     eslint: "npm:^8.56.0"
@@ -15047,6 +15062,7 @@ __metadata:
     eslint-plugin-react: "npm:^7.33.2"
     formik: "npm:^2.4.5"
     framer-motion: "npm:^10.18.0"
+    immer: "npm:^10.1.1"
     intl-messageformat: "npm:^10.5.11"
     lodash: "npm:^4.17.21"
     lucide-react: "npm:^0.372.0"

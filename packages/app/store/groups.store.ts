@@ -6,7 +6,6 @@ import { create } from 'zustand';
 export type GroupsState = {
   searchResults: Group[];
   totalGroups: number | null;
-  searchTerm?: string;
   pageSize: number;
   hasMoreResults: boolean; // flag indicating there are more search results that can be retrieved for the current filter settings
   isInitialized: boolean;
@@ -41,24 +40,49 @@ const useSearchStore = create<SearchStore>()((set, get) => ({
       }
     },
     search: async (searchTerm: string): Promise<void> => {
-      const { actions } = get();
-      set({
-        searchTerm,
-        searchResults: [],
-        isLoading: false, // Ensures the search goes through
-      });
-      actions.loadNextPage();
+      set({ isLoading: true });
+      try {
+        const { pageSize, searchResults } = get();
+        const offset = searchResults.length;
+        const params = JSON.parse(
+          JSON.stringify({
+            searchTerm: searchTerm || undefined,
+            offset: isNaN(offset) ? offset : undefined,
+            limit: isNaN(pageSize) ? pageSize : undefined,
+          }),
+        );
+
+        const { data } = await axios.get('/api/groups', { params });
+        if (data?.error) {
+          throw new Error(data?.message);
+        }
+
+        if (Array.isArray(data?.groups)) {
+          // If a full pageSize of results was retrieved, there are likely more results, so setting true.
+          // The exception is if the total result size % pageSize === 0
+          // in which case the user receives the correct feedback on the next invocation of this function.
+          set((state) => ({
+            searchResults: [...data.groups],
+            totalGroups: data.count,
+            hasMoreResults: data.length === state.pageSize,
+            isInitialized: true,
+          }));
+        }
+      } catch (error) {
+        const message = generateErrorMessage(error, 'An error occured while fetching groups');
+        set({ loadGroupsError: message });
+      }
+      set({ isLoading: false });
     },
     loadNextPage: async (): Promise<void> => {
       const { isLoading } = get();
       if (isLoading) return;
       set({ isLoading: true });
       try {
-        const { pageSize, searchResults, searchTerm = '' } = get();
+        const { pageSize, searchResults } = get();
         const offset = searchResults.length;
         const params = JSON.parse(
           JSON.stringify({
-            searchTerm: searchTerm || undefined,
             offset: isNaN(offset) ? offset : undefined,
             limit: isNaN(pageSize) ? pageSize : undefined,
           }),
@@ -100,8 +124,6 @@ export const useTotalGroups = (): number | null => useSearchStore((state) => sta
 export const useGroupsHasMoreResults = (): boolean => useSearchStore((state) => state.hasMoreResults);
 
 export const useGroupsPageSize = (): number => useSearchStore((state) => state.pageSize);
-
-export const useGroupsSearchTerm = (): string | undefined => useSearchStore((state) => state.searchTerm);
 
 export const useGroupsIsInitialized = (): boolean => useSearchStore((state) => state.isInitialized);
 

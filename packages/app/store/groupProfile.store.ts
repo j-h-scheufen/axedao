@@ -23,6 +23,7 @@ type GroupProfileActions = {
   uploadBanner: (file: File, name?: string) => Promise<string | void>;
   updateGroupProfile: (groupProfileData: GroupFormType) => Promise<void>;
   delete: () => Promise<void>;
+  setGroupProfileFields: (groupProfileData: Partial<GroupProfile>) => void;
 };
 
 export type GroupStore = GroupProfileState & { actions: GroupProfileActions };
@@ -62,7 +63,7 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
         const { groupProfile, isAdmin } = data || {};
         set({ groupProfile, isGroupAdmin: isAdmin, isGroupProfileInitialized: true });
       } catch (error: unknown) {
-        console.log(error);
+        // console.log(error);
         const message = generateErrorMessage(error, 'An error occured while fetching group');
         set({ initializeGroupError: message });
       }
@@ -89,26 +90,25 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
       if (isUpdatingGroupProfile || !id) return;
       set({ isUpdatingGroupProfile: true });
       try {
-        const groupGrofileData = _groupProfileData;
-        if (groupGrofileData.logo && groupGrofileData.logo instanceof File) {
-          const logo = await uploadLogo(groupGrofileData.logo, id ? `user-${id}` : undefined);
+        const groupProfileData = _groupProfileData;
+        if (groupProfileData.logo && groupProfileData.logo instanceof File) {
+          const logo = await uploadLogo(groupProfileData.logo, id ? `user-${id}` : undefined);
           if (logo) {
-            groupGrofileData.logo = logo;
+            groupProfileData.logo = logo;
           } else {
-            delete groupGrofileData.logo;
+            delete groupProfileData.logo;
           }
         }
-        if (groupGrofileData.banner && groupGrofileData.banner instanceof File) {
-          const banner = await uploadBanner(groupGrofileData.banner, id ? `user-${id}` : undefined);
+        if (groupProfileData.banner && groupProfileData.banner instanceof File) {
+          const banner = await uploadBanner(groupProfileData.banner, id ? `user-${id}` : undefined);
           if (banner) {
-            groupGrofileData.banner = banner;
+            groupProfileData.banner = banner;
           } else {
-            delete groupGrofileData.banner;
+            delete groupProfileData.banner;
           }
         }
-        const { data: profile } = await axios.patch('/api/profile', groupGrofileData);
-        console.log(profile);
-        // set({ profile });
+        const { data: profile } = await axios.patch(`/api/groups/${id}`, groupProfileData);
+        set({ groupProfile: profile });
       } catch (error: unknown) {
         const message = error instanceof Error ? error.message : 'An error occured while updating your profile';
         set({ groupProfileUpdateError: message });
@@ -128,6 +128,10 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
         console.error(error);
       }
       set({ isDeleting: false });
+    },
+    setGroupProfileFields: (groupProfileData: Partial<GroupProfile>) => {
+      const { groupProfile } = get();
+      set({ groupProfile: { ...groupProfile, ...groupProfileData } });
     },
   },
 }));

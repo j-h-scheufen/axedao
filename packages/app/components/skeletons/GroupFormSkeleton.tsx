@@ -1,7 +1,6 @@
 import { Skeleton } from '@nextui-org/react';
 import SubsectionHeading from '../SubsectionHeading';
 import ContactInfoInputsSkeleton from './ContactInfoInputsSkeleton';
-import ImageUploadSkeleton from './ImageUploadSkeleton';
 import UserCardSkeleton from './UserCardSkeleton';
 
 const GroupFormSkeleton = () => {
@@ -11,12 +10,12 @@ const GroupFormSkeleton = () => {
       <div className="mb-5 md:flex md:gap-5">
         <div className="flex min-w-24 flex-col justify-start gap-2">
           <h4>Logo</h4>
-          <ImageUploadSkeleton hideButton />
+          <Skeleton className="aspect-square h-28 rounded-full" />
         </div>
         <div className="flex flex-1 flex-col gap-2">
           <h4>Banner</h4>
-          <div className="aspect-[4] max-h-24 w-full max-w-sm">
-            <Skeleton className="block h-24 w-full cursor-pointer rounded-xl" />
+          <div className="h-28 w-full">
+            <Skeleton className="block h-28 w-full cursor-pointer rounded-xl" />
           </div>
         </div>
       </div>

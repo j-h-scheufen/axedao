@@ -123,6 +123,7 @@ export type CreateNewGroupFormType = InferType<typeof createNewGroupFormSchema>;
 
 export const groupFormSchema = object({
   name: string().required('Group name is required'),
+  email: string().email().required('Email is required'),
   description: string().test('max-chars', 'Description cannot exceed 300 characters', (value: string | undefined) =>
     value ? value.length <= 300 : true,
   ),

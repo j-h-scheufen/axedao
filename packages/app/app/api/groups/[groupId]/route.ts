@@ -105,6 +105,7 @@ export async function PATCH(request: NextRequest, { params }: { params: { groupI
       logo: logo || undefined,
     }),
   );
+  console.log(groupProfileData);
 
   const group = await fetchGroupProfile(groupId);
   if (!group?.id) throw new Error('Unable to update group, please confirm that the group still exists');
