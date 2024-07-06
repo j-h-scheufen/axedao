@@ -97,7 +97,6 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
           const adminIds = admins.map((admin) => admin.id);
           const groupMembers: GroupMember[] = data.map((user) => {
             const userId = user.id;
-            console.log(adminIds, user.id, adminIds.includes(user.id));
             let role: GroupMemberRole = 'member';
             if (userId === founder?.id) {
               role = 'founder';

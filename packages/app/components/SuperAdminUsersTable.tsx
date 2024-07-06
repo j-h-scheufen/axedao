@@ -1,85 +1,34 @@
 'use client';
 
-import useOverview from '@/hooks/useOverview';
-import { useUsers, useUsersActions } from '@/store/users.store';
-import { User } from '@/types/model';
+import useSuperAdminUsersTable from '@/hooks/useSuperAdminUsersTable';
 import { Input } from '@nextui-org/input';
 import {
   Select,
   SelectItem,
+  Spinner,
   Table,
   TableBody,
   TableCell,
   TableColumn,
   TableHeader,
   TableRow,
-  getKeyValue,
 } from '@nextui-org/react';
-import { isEqual } from 'lodash';
 import { Search } from 'lucide-react';
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { useDebounce } from 'use-debounce';
-
-const searchOptions = [
-  {
-    value: 'name',
-    label: 'Name',
-  },
-  {
-    value: 'nickname',
-    label: 'Nickname',
-  },
-];
-
-const columns = [
-  {
-    key: 'name',
-    label: 'NAME',
-  },
-  {
-    key: 'nickname',
-    label: 'NICKNAME',
-  },
-  {
-    key: 'title',
-    label: 'TITLE',
-  },
-];
 
 const SuperAdminUsersTable = () => {
-  const [selectedKeys, setSelectedKeys] = useState<Set<string>>(new Set([]));
-  const [query, setQuery] = useOverview();
-  const [debouncedQuery] = useDebounce(query, 500);
-
-  const lastQueryRef = useRef<typeof query | null>(null);
-
-  const usersActions = useUsersActions();
-  const users = useUsers();
-  // const totalUsers = useTotalUsers();
-  // const isLoading = useIsLoadingUsers();
-  // const isInitialized = useUsersIsInitialized();
-
-  const rows = users;
-
-  useEffect(() => {
-    if (isEqual(lastQueryRef.current, debouncedQuery)) return;
-    usersActions.search({ searchTerm: debouncedQuery.searchTerm || '', searchBy: debouncedQuery.searchBy || '' });
-    lastQueryRef.current = debouncedQuery;
-  }, [debouncedQuery, usersActions, lastQueryRef]);
-
-  const getCellValue = useCallback(({ item, key }: { item: User; key: string }) => {
-    return getKeyValue(item, key) || 'N/A';
-  }, []);
-
-  const setSearchTerm = (searchTerm: string) => {
-    setQuery({ ...query, searchTerm });
-  };
-
-  const setSearchBy = (searchBy: string) => {
-    setQuery({ ...query, searchBy });
-  };
-
-  const { searchTerm, searchBy } = query;
+  const {
+    searchTerm,
+    setSearchTerm,
+    searchBy,
+    setSearchBy,
+    users,
+    isLoading,
+    selectedRows,
+    setSelectedRows,
+    searchOptions,
+    columns,
+    getCellValue,
+  } = useSuperAdminUsersTable();
 
   return (
     <div className="flex flex-col gap-4 -mt-5">
@@ -119,13 +68,20 @@ const SuperAdminUsersTable = () => {
         <Table
           aria-label="Controlled table example with dynamic content"
           selectionMode="multiple"
-          selectedKeys={selectedKeys}
-          onSelectionChange={(key) => setSelectedKeys(key as Set<string>)}
+          selectedKeys={selectedRows}
+          onSelectionChange={(key) => setSelectedRows(key as Set<string>)}
+          bottomContent={
+            isLoading ? (
+              <div className="py-5 flex items-center justify-center">
+                <Spinner size="sm" />
+              </div>
+            ) : null
+          }
         >
           <TableHeader columns={columns}>
             {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
           </TableHeader>
-          <TableBody items={rows}>
+          <TableBody items={users}>
             {(item) => (
               <TableRow key={item.id}>
                 {(columnKey) => <TableCell>{getCellValue({ item, key: columnKey as string })}</TableCell>}

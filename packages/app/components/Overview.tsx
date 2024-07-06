@@ -1,12 +1,12 @@
 'use client';
 
-import useOverview from '@/hooks/useOverview';
+import useOverviewQueries from '@/hooks/useOverviewQueries';
 import { Tab, Tabs } from '@nextui-org/tabs';
 import Groups from './Groups';
 import Users from './Users';
 
 const Overview = () => {
-  const [query, setQuery] = useOverview();
+  const [query, setQuery] = useOverviewQueries();
 
   const { tab } = query;
 

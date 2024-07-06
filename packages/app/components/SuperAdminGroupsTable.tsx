@@ -1,20 +1,28 @@
 'use client';
 
-import useOverview from '@/hooks/useOverview';
-import { useGroups, useGroupsActions } from '@/store/groups.store';
+import useGroups from '@/hooks/useGroups';
 import { Group } from '@/types/model';
-import { cn } from '@/utils/tailwind';
 import { Input } from '@nextui-org/input';
-import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, getKeyValue } from '@nextui-org/react';
-import { isEqual } from 'lodash';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableColumn,
+  TableColumnProps,
+  TableHeader,
+  TableRow,
+  getKeyValue,
+} from '@nextui-org/react';
 import { Search } from 'lucide-react';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { useDebounce } from 'use-debounce';
+import React, { useCallback, useState } from 'react';
+import SuperAdminGroupsTableActions from './SuperAdminGroupsTableActions';
+import Tag from './Tag';
 
 type Column<T> = {
   key: keyof T;
   label: string;
   cell?: React.FC<{ item: T }>;
+  columnProps?: Omit<TableColumnProps<T>, 'children'>;
 };
 
 const columns: Column<Group>[] = [
@@ -24,62 +32,36 @@ const columns: Column<Group>[] = [
   },
   {
     key: 'verified',
-    label: 'VERIFIED',
+    label: 'VERIFICATION',
     cell: ({ item }) => {
       const { verified } = item;
-      return (
-        <span
-          className={cn('inline-block rounded-lg px-2 py-1 text-xs', {
-            'bg-green-800': verified,
-            'bg-orange-800': !verified,
-          })}
-        >
-          {verified ? 'Verified' : 'Unverified'}
-        </span>
-      );
+      return <Tag color={verified ? 'success' : 'danger'}>{verified ? 'Verified' : 'Unverified'}</Tag>;
+    },
+  },
+  {
+    key: 'id',
+    label: '',
+    cell: ({ item }) => {
+      return <SuperAdminGroupsTableActions />;
+    },
+    columnProps: {
+      className: 'w-6',
     },
   },
 ];
 
 const SuperAdminGroupsTable = () => {
   const [selectedKeys, setSelectedKeys] = useState<Set<string>>(new Set([]));
-  const [query, setQuery] = useOverview();
-  const [debouncedQuery] = useDebounce(query, 500);
 
-  const lastQueryRef = useRef<typeof query | null>(null);
+  const { searchTerm, setSearchTerm, groups } = useGroups();
 
-  const groupsActions = useGroupsActions();
-  const groups = useGroups();
-  // const totalGroups = useTotalGroups();
-  // const isLoading = useIsLoadingGroupMembers();
-  // const isInitialized = useUsersIsInitialized();
-
-  const rows = groups;
-
-  useEffect(() => {
-    if (isEqual(lastQueryRef.current, debouncedQuery)) return;
-    groupsActions.initialize();
-    // groupsActions.search({ searchTerm: debouncedQuery.searchTerm || '', searchBy: debouncedQuery.searchBy || '' });
-    lastQueryRef.current = debouncedQuery;
-  }, [debouncedQuery, groupsActions, lastQueryRef]);
-
-  const getCellValue = useCallback(({ item, key }: { item: Group; key: keyof Group }) => {
+  const getCellValue = useCallback((item: Group, key: keyof Group) => {
     const cell = columns.find((col) => col.key === key)?.cell;
     if (cell) {
       return cell({ item });
     }
     return getKeyValue(item, key) || 'N/A';
   }, []);
-
-  const setSearchTerm = (searchTerm: string) => {
-    setQuery({ ...query, searchTerm });
-  };
-
-  // const setSearchBy = (searchBy: string) => {
-  //   setQuery({ ...query, searchBy });
-  // };
-
-  const { searchTerm /*searchBy*/ } = query;
 
   return (
     <div className="flex flex-col gap-4 -mt-5">
@@ -104,14 +86,16 @@ const SuperAdminGroupsTable = () => {
           onSelectionChange={(key) => setSelectedKeys(key as Set<string>)}
         >
           <TableHeader columns={columns}>
-            {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
+            {(column) => (
+              <TableColumn key={column.key} {...(column.columnProps || {})}>
+                {column.label}
+              </TableColumn>
+            )}
           </TableHeader>
-          <TableBody items={rows}>
+          <TableBody items={groups}>
             {(item) => (
               <TableRow key={item.id}>
-                {(columnKey) => (
-                  <TableCell>{getCellValue({ item, key: columnKey as unknown as keyof Group })}</TableCell>
-                )}
+                {(columnKey) => <TableCell>{getCellValue(item, columnKey as unknown as keyof Group)}</TableCell>}
               </TableRow>
             )}
           </TableBody>

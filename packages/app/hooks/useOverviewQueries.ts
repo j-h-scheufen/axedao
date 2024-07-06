@@ -6,8 +6,8 @@ const params = {
   tab: parseAsString.withDefault('users'),
 };
 
-const useOverview = () => {
+const useOverviewQueries = () => {
   return useQueryStates(params);
 };
 
-export default useOverview;
+export default useOverviewQueries;

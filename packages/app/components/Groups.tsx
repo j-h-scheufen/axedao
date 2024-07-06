@@ -1,6 +1,6 @@
 'use client';
 
-import useOverview from '@/hooks/useOverview';
+import useOverviewQueries from '@/hooks/useOverviewQueries';
 import {
   useGroups,
   useGroupsActions,
@@ -16,7 +16,7 @@ import { useDebounce } from 'use-debounce';
 import GroupsGrid from './GroupsGrid';
 
 const Groups = () => {
-  const [query, setQuery] = useOverview();
+  const [query, setQuery] = useOverviewQueries();
   const [debouncedQuery] = useDebounce(query, 500);
 
   const lastQueryRef = useRef<typeof query | null>(null);
