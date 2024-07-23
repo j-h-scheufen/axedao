@@ -32,7 +32,7 @@ const columns: Column<Group>[] = [
   },
   {
     key: 'verified',
-    label: 'VERIFICATION',
+    label: 'VERIFICATION STATUS',
     cell: ({ item }) => {
       const { verified } = item;
       return <Tag color={verified ? 'success' : 'danger'}>{verified ? 'Verified' : 'Unverified'}</Tag>;
@@ -40,9 +40,13 @@ const columns: Column<Group>[] = [
   },
   {
     key: 'id',
-    label: '',
+    label: 'ACTIONS',
     cell: ({ item }) => {
-      return <SuperAdminGroupsTableActions />;
+      return (
+        <div className="flex items-center justify-end">
+          <SuperAdminGroupsTableActions group={item} />
+        </div>
+      );
     },
     columnProps: {
       className: 'w-6',
@@ -70,7 +74,7 @@ const SuperAdminGroupsTable = () => {
           isClearable
           onClear={() => setSearchTerm('')}
           className="w-full"
-          placeholder="Search"
+          placeholder="Search groups by name"
           startContent={<Search className="h-4 w-4" />}
           labelPlacement="outside"
           value={searchTerm || ''}

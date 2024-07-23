@@ -20,6 +20,7 @@ const SignInForm = () => {
       <Button
         key="sign-in-button"
         type="submit"
+        color="primary"
         className="mt-5 w-full"
         isLoading={isAuthenticating}
         spinner={<Spinner size="sm" />}

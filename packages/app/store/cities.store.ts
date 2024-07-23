@@ -10,8 +10,10 @@ type CitiesState = {
   loadingCitiesError?: Error | string;
 };
 
+export type SearchCitiesQuery = { countryCode: string; searchTerm?: string };
+
 type CitiesActions = {
-  load: (countryCode: string) => Promise<void>;
+  search: (query: SearchCitiesQuery) => Promise<void>;
 };
 
 type CitiesStore = CitiesState & { actions: CitiesActions };
@@ -24,12 +26,13 @@ const DEFAULT_PROPS: CitiesState = {
 const useCitiesStore = create<CitiesStore>((set, get) => ({
   ...DEFAULT_PROPS,
   actions: {
-    load: async (countryCode: string) => {
+    search: async (query: SearchCitiesQuery) => {
       const { isLoading } = get();
-      if (isLoading || !countryCode) return;
+      if (isLoading || !query.countryCode) return;
       set({ isLoading: true });
       try {
-        const { data: cities } = await axios.post('/api/location/cities', { countryCode });
+        const queryParams = new URLSearchParams(query);
+        const { data: cities } = await axios.get(`/api/location/cities?${queryParams}`);
         set({ cities });
       } catch (error) {
         const errorMessage = generateErrorMessage(error, 'An error occurred while fetching cities');

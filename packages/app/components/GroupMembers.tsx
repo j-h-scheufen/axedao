@@ -1,12 +1,9 @@
 'use client';
 
 import {
-  // useGroupFounder,
-  // useGroupLeader,
   useGroupMembers,
   useGroupMembersActions,
   useGroupMembersHasMoreResults,
-  // useIsInitializingGroupAdmins,
   useIsLoadingGroupMembers,
 } from '@/store/groupMembers.store';
 import { useInfiniteScroll } from '@nextui-org/use-infinite-scroll';
@@ -18,16 +15,12 @@ type Props = { id: string };
 const GroupMembers = ({ id }: Props) => {
   const groupMembersActions = useGroupMembersActions();
   const groupMembers = useGroupMembers();
-  // const founder = useGroupFounder();
-  // const leader = useGroupLeader();
-  // const isInitializingAdmins = useIsInitializingGroupAdmins() || !founder?.id;
   const hasMoreMembers = useGroupMembersHasMoreResults();
   const isLoading = useIsLoadingGroupMembers();
 
   useEffect(() => {
     groupMembersActions.initialize(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [groupMembersActions, id]);
 
   const [, scrollerRef] = useInfiniteScroll({
     hasMore: hasMoreMembers,

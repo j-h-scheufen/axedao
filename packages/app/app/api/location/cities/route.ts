@@ -3,7 +3,7 @@ import { City } from 'country-state-city';
 import { getServerSession } from 'next-auth';
 import { NextRequest } from 'next/server';
 
-export async function POST(request: NextRequest) {
+export async function GET(request: NextRequest) {
   const session = await getServerSession(authOptions);
   if (!session?.user?.email) {
     return Response.json(
@@ -14,8 +14,11 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const body = await request.json();
-  if (!body.countryCode) {
+  const { searchParams } = new URL(request.url);
+  const countryCode = searchParams.get('countryCode');
+  const searchTerm = searchParams.get('searchTerm') || '';
+
+  if (!countryCode) {
     return Response.json(
       { error: true, message: 'No country code received' },
       {
@@ -24,7 +27,9 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const countryCode: string = body.countryCode;
   const cities = City.getCitiesOfCountry(countryCode);
-  return Response.json(cities);
+  const searchResults = cities
+    ?.filter((city) => city.name.toLowerCase().startsWith(searchTerm.toLowerCase()))
+    .slice(0, 50);
+  return Response.json(searchResults);
 }

@@ -19,7 +19,7 @@ type GroupsActions = {
   search: (searchTerm: string) => Promise<void>;
 };
 
-export type SearchStore = GroupsState & { actions: GroupsActions };
+export type GroupsStore = GroupsState & { actions: GroupsActions };
 
 const DEFAULT_PROPS: GroupsState = {
   searchResults: [],
@@ -30,7 +30,7 @@ const DEFAULT_PROPS: GroupsState = {
   isLoading: false,
 };
 
-const useSearchStore = create<SearchStore>()((set, get) => ({
+const useGroupsStore = create<GroupsStore>()((set, get) => ({
   ...DEFAULT_PROPS,
   actions: {
     initialize: async (): Promise<void> => {
@@ -113,20 +113,20 @@ const useSearchStore = create<SearchStore>()((set, get) => ({
   },
 }));
 
-export default useSearchStore;
+export default useGroupsStore;
 
-export const useGroupsActions = (): GroupsActions => useSearchStore((state) => state.actions);
+export const useGroupsActions = (): GroupsActions => useGroupsStore((state) => state.actions);
 
-export const useGroups = (): Group[] => useSearchStore((state) => state.searchResults);
+export const useGroups = (): Group[] => useGroupsStore((state) => state.searchResults);
 
-export const useTotalGroups = (): number | null => useSearchStore((state) => state.totalGroups);
+export const useTotalGroups = (): number | null => useGroupsStore((state) => state.totalGroups);
 
-export const useGroupsHasMoreResults = (): boolean => useSearchStore((state) => state.hasMoreResults);
+export const useGroupsHasMoreResults = (): boolean => useGroupsStore((state) => state.hasMoreResults);
 
-export const useGroupsPageSize = (): number => useSearchStore((state) => state.pageSize);
+export const useGroupsPageSize = (): number => useGroupsStore((state) => state.pageSize);
 
-export const useGroupsIsInitialized = (): boolean => useSearchStore((state) => state.isInitialized);
+export const useGroupsIsInitialized = (): boolean => useGroupsStore((state) => state.isInitialized);
 
-export const useIsLoadingGroups = (): boolean => useSearchStore((state) => state.isLoading);
+export const useIsLoadingGroups = (): boolean => useGroupsStore((state) => state.isLoading);
 
-export const useLoadGroupsError = (): string | undefined => useSearchStore((state) => state.loadGroupsError);
+export const useLoadGroupsError = (): string | undefined => useGroupsStore((state) => state.loadGroupsError);

@@ -11,9 +11,14 @@ export type GroupMemberRole = (typeof ROLE_ORDER)[number];
 
 export type GroupMember = User & { role: GroupMemberRole };
 
+export type GroupAdmin = {
+  groupId: string;
+  userId: string;
+};
+
 export type GroupMembersState = {
   groupId?: string;
-  admins: User[];
+  admins: GroupAdmin[];
   founder: User;
   leader: User;
   searchTerm: string;
@@ -94,7 +99,7 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
         const data: User[] = res.data;
         if (data?.length && data.length > 0) {
           const { admins, founder, leader } = get();
-          const adminIds = admins.map((admin) => admin.id);
+          const adminIds = admins.map((admin) => admin.userId);
           const groupMembers: GroupMember[] = data.map((user) => {
             const userId = user.id;
             let role: GroupMemberRole = 'member';
@@ -171,7 +176,7 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
             produce((state: GroupMembersState) => {
               const demotedAdmin = state.searchResults.find((member) => member.id === adminId);
               if (demotedAdmin) demotedAdmin.role = 'member';
-              state.admins = state.admins.filter((admin) => admin.id !== adminId);
+              state.admins = state.admins.filter((admin) => admin.userId !== adminId);
             }),
           );
         }
@@ -189,7 +194,7 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
             produce((state: GroupMembersState) => {
               const demotedAdmin = state.searchResults.find((member) => member.id === adminId);
               if (demotedAdmin) demotedAdmin.role = 'leader';
-              state.admins = state.admins.filter((admin) => admin.id !== adminId);
+              state.admins = state.admins.filter((admin) => admin.userId !== adminId);
             }),
           );
           onSuccess && onSuccess();
@@ -225,7 +230,7 @@ export const useGroupFounder = (): User => useGroupMembersStore((state) => state
 
 export const useGroupLeader = (): User => useGroupMembersStore((state) => state.leader);
 
-export const useGroupAdmins = (): User[] => useGroupMembersStore((state) => state.admins);
+export const useGroupAdmins = (): GroupAdmin[] => useGroupMembersStore((state) => state.admins);
 
 export const useMemberBeingPromotedToAdmin = (): string | undefined =>
   useGroupMembersStore((state) => state.memberBeingPromotedToAdmin);

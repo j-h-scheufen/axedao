@@ -23,11 +23,6 @@ module.exports = withTV({
   plugins: [
     nextui({
       layout: {
-        // radius: {
-        //   small: '2px', // rounded-small
-        //   medium: '4px', // rounded-medium
-        //   large: '6px', // rounded-large
-        // },
         height: {
           small: '10px',
           medium: '12px',
@@ -35,10 +30,8 @@ module.exports = withTV({
         },
       },
       themes: {
-        dark: { colors: { primary: '#CCD5AEff', secondary: '#D4A373ff' } },
-        light: { colors: { primary: '#E9EDC9ff', secondary: '#FAEDCDff' } },
-        // dark: { colors: { primary: '#c485fb', secondary: '#e8e340' } },
-        // light: { colors: { primary: '#9a40e8', secondary: '#e8e340' } },
+        dark: { colors: { primary: '#BF36BA', secondary: '#D4A373ff' } },
+        light: { colors: { primary: '#BF36BA', secondary: '#FAEDCDff' } },
       },
     }),
   ],

@@ -27,6 +27,10 @@ const GroupFormSkeleton = () => {
       </div>
       <SubsectionHeading>Links</SubsectionHeading>
       <ContactInfoInputsSkeleton />
+      <div className="flex flex-col mt-8 md:flex-row items-center gap-5">
+        <Skeleton className="h-12 w-full rounded-lg" />
+        <Skeleton className="h-12 w-full rounded-lg" />
+      </div>
     </div>
   );
 };

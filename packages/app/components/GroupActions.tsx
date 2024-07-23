@@ -1,6 +1,6 @@
 'use client';
 
-import { useIsGroupAdmin } from '@/store/groupProfile.store';
+import { useIsGroupAdmin, useIsInitializingGroupProfile } from '@/store/groupProfile.store';
 import { useIsExitingGroup, useProfileActions } from '@/store/profile.store';
 import { Button } from '@nextui-org/button';
 import { Spinner } from '@nextui-org/react';
@@ -14,6 +14,7 @@ const GroupActions = () => {
   const pathname = usePathname();
 
   const isGroupAdmin = useIsGroupAdmin();
+  const isLoading = useIsInitializingGroupProfile();
 
   const profileActions = useProfileActions();
   const isExitingGroup = useIsExitingGroup();
@@ -25,26 +26,30 @@ const GroupActions = () => {
 
   return (
     <div className="flex gap-3 justify-end">
-      <Button
-        variant="light"
-        size="sm"
-        color="danger"
-        onPress={exitGroupHandler}
-        spinner={<Spinner size="sm" color="danger" />}
-        isLoading={isExitingGroup}
-      >
-        Leave group
-      </Button>
-      {isGroupAdmin && (
-        <Button
-          href={`${pathname}/edit`}
-          as={Link}
-          startContent={<EditIcon className="h-4 w-4" />}
-          size="sm"
-          variant="bordered"
-        >
-          Edit group
-        </Button>
+      {!isLoading && (
+        <>
+          <Button
+            variant="light"
+            size="sm"
+            color="danger"
+            onPress={exitGroupHandler}
+            spinner={<Spinner size="sm" color="danger" />}
+            isLoading={isExitingGroup}
+          >
+            Leave group
+          </Button>
+          {isGroupAdmin && (
+            <Button
+              href={`${pathname}/edit`}
+              as={Link}
+              startContent={<EditIcon className="h-4 w-4" />}
+              size="sm"
+              variant="bordered"
+            >
+              Edit group
+            </Button>
+          )}
+        </>
       )}
     </div>
   );

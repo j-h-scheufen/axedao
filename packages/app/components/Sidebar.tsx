@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
 import pages, { PageType } from '@/constants/pages';
-import { Tabs, Tab } from '@nextui-org/tabs';
 import useScreenSize from '@/hooks/useScreenSize';
 import { cn } from '@/utils/tailwind';
+import { Tab, Tabs } from '@nextui-org/tabs';
+import { usePathname, useRouter } from 'next/navigation';
+import { useEffect, useMemo, useState } from 'react';
 
 type SidebarListProps = { pages: PageType[]; selectedPage?: string };
 const SidebarList = ({ pages, selectedPage }: SidebarListProps) => {
@@ -33,7 +33,7 @@ const SidebarList = ({ pages, selectedPage }: SidebarListProps) => {
             title={
               <div
                 className={cn('flex items-center gap-2 hover:text-primary hover:opacity-100', {
-                  'text-primary': active,
+                  'text-primary font-medium': active,
                 })}
               >
                 {Icon && <Icon className="h-4 w-4" fill={active ? 'currentColor' : 'none'} strokeWidth={1.25} />}

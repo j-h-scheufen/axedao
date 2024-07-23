@@ -1,16 +1,13 @@
-import { cn } from '@/utils/tailwind';
+import { Button } from '@nextui-org/react';
 import { ReactNode } from 'react';
 
-type Props = { children: ReactNode; color?: string };
+type Props = { children: ReactNode; color?: 'primary' | 'default' | 'secondary' | 'success' | 'warning' | 'danger' };
 const Tag = ({ children, color = 'primary' }: Props) => {
   return (
-    <div
-      className={cn(
-        `relative max-w-fit min-w-min inline-flex px-2 items-center justify-between box-border whitespace-nowrap h-6 rounded-full bg-${color}/20 text-${color} ml-1 py-1 text-tiny`,
-      )}
-    >
+    <Button size="sm" variant="flat" color={color} className="rounded-full h-7 cursor-default text-sm">
+      <span className={`bg-${color} inline-block h-2 w-2 rounded-full`}></span>
       {children}
-    </div>
+    </Button>
   );
 };
 export default Tag;

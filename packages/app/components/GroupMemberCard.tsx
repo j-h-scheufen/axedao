@@ -1,4 +1,5 @@
 'use client';
+
 import {
   useAdminBeingDemotedToMember,
   useAdminBeingPromotedToLeader,
@@ -21,7 +22,6 @@ import {
 } from '@nextui-org/react';
 import { ArrowDownIcon, ArrowUpIcon, EllipsisVerticalIcon, UserRoundIcon } from 'lucide-react';
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
 import { ForwardedRef, ReactNode, forwardRef, useState } from 'react';
 import ConfirmPromotionToLeaderModal from './ConfirmPromotionToLeaderModal';
 import UserCardSkeleton from './skeletons/UserCardSkeleton';
@@ -40,7 +40,6 @@ const GroupMemberCard = (
   const [isOpen, setIsOpen] = useState(false);
   const leaderPromotionDisclosure = useDisclosure();
 
-  const router = useRouter();
   const session = useSession();
   const groupProfileActions = useGroupProfileActions();
   const groupMembersActions = useGroupMembersActions();
@@ -149,15 +148,15 @@ const GroupMemberCard = (
         </CardBody>
         <CardFooter className="flex-row justify-between pt-0">
           {role && (
-            <span className="capitalize inline-block bg-default-100 border border-default-200 px-2 py-1 rounded-md text-xs">
+            <span className="capitalize inline-block bg-primary/10 text-primary/70 font-medium px-2 py-1 rounded-md text-xs">
               {role}
             </span>
           )}
           <Button
             as={Link}
+            href={isLoggedInUser ? '/dashboard/profile' : `/dashboard/overview/users/${id}`}
             variant="bordered"
             size="sm"
-            onPress={() => router.push(`/dashboard/overview/users/${id}`)}
             className="ml-auto w-fit"
           >
             View user

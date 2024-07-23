@@ -1,51 +1,34 @@
-import { createNewGroupFormSchema } from '@/constants/schemas';
-import { useCities, useCitiesActions, useIsLoadingCities } from '@/store/cities.store';
-import { useCountries, useCountriesActions, useIsLoadingCountries } from '@/store/countries.store';
-import { useCreateGroupError, useIsCreatingGroup, useProfileActions } from '@/store/profile.store';
+import useNewGroupForm from '@/hooks/useNewGroupForm';
 import { cn } from '@/utils/tailwind';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@nextui-org/button';
 import { Input } from '@nextui-org/input';
 import { Autocomplete, AutocompleteItem, Avatar, Spinner } from '@nextui-org/react';
-import { ReactNode, useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { SearchIcon } from 'lucide-react';
+import { ReactNode } from 'react';
 import ErrorText from './ErrorText';
 
 type Props = { secondaryButton?: ReactNode; onSubmit?: () => void | null };
 
 const CreateNewGroupForm = ({ secondaryButton }: Props) => {
-  const [selectedCountryCode, setSelectedCountryCode] = useState<string>('');
-
-  const profileActions = useProfileActions();
-  const isCreatingGroup = useIsCreatingGroup();
-  const createGroupError = useCreateGroupError();
-
-  const countries = useCountries();
-  const countriesActions = useCountriesActions();
-  const isLoadingCountries = useIsLoadingCountries();
-
-  const cities = useCities();
-  const citiesActions = useCitiesActions();
-  const isLoadingCities = useIsLoadingCities();
-  console.log(cities);
-
-  useEffect(() => {
-    countriesActions.initialize();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    if (!selectedCountryCode) return;
-    citiesActions.load(selectedCountryCode);
-  }, [selectedCountryCode, citiesActions]);
-
   const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(createNewGroupFormSchema),
-  });
+    form: {
+      register,
+      handleSubmit,
+      formState: { errors },
+    },
+    selectedCountryCode,
+    setSelectedCountryCode,
+    setCitySearchTerm,
+    // selectedCity,
+    setSelectedCity,
+    profileActions,
+    isCreatingGroup,
+    createGroupError,
+    countries,
+    isLoadingCountries,
+    cities,
+    isLoadingCities,
+  } = useNewGroupForm();
 
   return (
     <form onSubmit={handleSubmit(profileActions.createGroup)}>
@@ -62,9 +45,10 @@ const CreateNewGroupForm = ({ secondaryButton }: Props) => {
         <Autocomplete
           size="sm"
           className="max-w-xs"
-          label="Select country"
+          label="Search country"
           isLoading={isLoadingCountries}
           onSelectionChange={(isoCode) => setSelectedCountryCode(isoCode?.toString() || '')}
+          startContent={<SearchIcon className="h-4 w-4" />}
         >
           {countries.map((country) => {
             const { name, isoCode } = country;
@@ -83,14 +67,17 @@ const CreateNewGroupForm = ({ secondaryButton }: Props) => {
         <Autocomplete
           size="sm"
           className="max-w-xs"
-          label="Select city"
+          label="Search cities"
           isLoading={isLoadingCities}
-          disabled={!cities.length}
+          disabled={!selectedCountryCode}
           classNames={{ base: cn({ 'pointer-events-none opacity-50': !cities.length }) }}
+          onInputChange={setCitySearchTerm}
+          onSelectionChange={(city) => setSelectedCity(city?.toString() || '')}
+          startContent={<SearchIcon className="h-4 w-4" />}
         >
-          {cities.map((city, i) => {
+          {cities.map((city) => {
             const { name } = city;
-            return <AutocompleteItem key={i}>{name}</AutocompleteItem>;
+            return <AutocompleteItem key={name}>{name}</AutocompleteItem>;
           })}
         </Autocomplete>
       </div>

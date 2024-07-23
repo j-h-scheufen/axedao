@@ -176,7 +176,7 @@ export async function updateUser(user: Omit<schema.InsertUser, 'email'>) {
   return users.length ? users[0] : undefined;
 }
 
-export async function updateGroup(group: schema.InsertGroup) {
+export async function updateGroup(group: Partial<schema.InsertGroup> & { id: string }) {
   const groups = await db.update(schema.groups).set(group).where(eq(schema.groups.id, group.id));
   return groups.length ? groups[0] : undefined;
 }

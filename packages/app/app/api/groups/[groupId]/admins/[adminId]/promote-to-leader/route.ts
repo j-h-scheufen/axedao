@@ -1,14 +1,7 @@
 import { getServerSession } from 'next-auth';
 import { NextRequest } from 'next/server';
 
-import {
-  addGroupAdmin,
-  fetchGroupAdmins,
-  fetchGroupProfile,
-  fetchUserProfileByEmail,
-  isGroupAdmin,
-  updateGroup,
-} from '@/db';
+import { addGroupAdmin, fetchGroupProfile, fetchUserProfileByEmail, isGroupAdmin, updateGroup } from '@/db';
 import { generateErrorMessage } from '@/utils';
 
 export async function POST(request: NextRequest, { params }: { params: { groupId: string; adminId: string } }) {
@@ -22,9 +15,6 @@ export async function POST(request: NextRequest, { params }: { params: { groupId
     );
   }
   const { groupId, adminId } = params;
-
-  const admins = await fetchGroupAdmins(groupId);
-  console.log({ admins });
 
   // Check if user is the group's leader
   const user = await fetchUserProfileByEmail(session.user.email);
