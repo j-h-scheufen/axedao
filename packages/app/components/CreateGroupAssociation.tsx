@@ -1,13 +1,15 @@
 'use client';
 
+import { Tab, Tabs } from '@nextui-org/tabs';
 import { ReactNode } from 'react';
-import { Tabs, Tab } from '@nextui-org/tabs';
 import CreateNewGroupForm from './CreateNewGroupForm';
 import JoinGroupForm from './JoinGroupForm';
+import CreateGroupAssociationSkeleton from './skeletons/CreateGroupAssociationSkeleton';
 
-type Props = { secondaryButton?: ReactNode; onSubmit?: () => void | null };
+type Props = { secondaryButton?: ReactNode; onSubmit?: () => void | null; isLoading?: boolean };
 
-const CreateGroupAssociation = ({ secondaryButton, onSubmit }: Props) => {
+const CreateGroupAssociation = ({ secondaryButton, onSubmit, isLoading = false }: Props) => {
+  if (isLoading) return <CreateGroupAssociationSkeleton />;
   return (
     <div className="max-w-lg">
       <Tabs variant="bordered" aria-label="Options">

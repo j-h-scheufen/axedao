@@ -5,6 +5,7 @@ import postgres from 'postgres';
 import ENV from '@/config/environment';
 import * as schema from '@/db/schema';
 import { GroupProfile, UserProfile } from '../types/model';
+import { getFields } from './utils';
 
 /**
  * NOTE: All DB functions in this file can only be run server-side. If you need to retrieve DB data from a client
@@ -37,15 +38,16 @@ export async function countUsers() {
 }
 
 export async function fetchGroups(limit: number = 20, offset: number = 0, searchTerm?: string) {
+  const groupFields = getFields(schema.groups);
   if (searchTerm) {
     return await db
-      .select()
+      .select(groupFields)
       .from(schema.groups)
       .where(ilike(schema.groups.name, `%${searchTerm}%`))
       .limit(limit)
       .offset(offset);
   }
-  return await db.select().from(schema.groups).limit(limit).offset(offset);
+  return await db.select(groupFields).from(schema.groups).limit(limit).offset(offset);
 }
 
 export async function countGroups() {

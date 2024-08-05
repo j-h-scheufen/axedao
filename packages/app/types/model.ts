@@ -15,6 +15,6 @@ export type UserProfile = SelectUser & {
 };
 
 export type GroupProfile = SelectGroup & {
-  links: Array<SelectLink>;
+  links?: Array<SelectLink>;
   admins?: Array<UserProfile>;
 };

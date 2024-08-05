@@ -19,6 +19,12 @@ export async function GET(/* request: NextRequest */) {
   }
 
   const user = await fetchUserProfileByEmail(session?.user?.email);
+
+  // if (user?.id) {
+  //   const _user = await fetchUserProfile(user.id);
+  //   console.log(_user);
+  // }
+
   return Response.json(user);
 }
 

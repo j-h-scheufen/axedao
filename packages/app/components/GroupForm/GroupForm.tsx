@@ -16,11 +16,12 @@ import { Button } from '@nextui-org/button';
 import { Input, Textarea } from '@nextui-org/input';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
-import { Controller, /*useFieldArray,*/ useForm } from 'react-hook-form';
-import GroupFormLinkInputs from './GroupFormLinkInputs';
-import ImageUpload from './ImageUpload';
-import SubsectionHeading from './SubsectionHeading';
-import GroupFormSkeleton from './skeletons/GroupFormSkeleton';
+import { Controller, useForm } from 'react-hook-form';
+import ImageUpload from '../ImageUpload';
+import SubsectionHeading from '../SubsectionHeading';
+import GroupFormSkeleton from '../skeletons/GroupFormSkeleton';
+import DeleteGroup from './DeleteGroup';
+import LinkInputs from './LinkInputs';
 
 type Props = { id: string };
 const GroupForm = ({ id }: Props) => {
@@ -173,18 +174,9 @@ const GroupForm = ({ id }: Props) => {
           }}
         />
         <SubsectionHeading>Links</SubsectionHeading>
-        <GroupFormLinkInputs control={control} setValue={setValue} watch={watch} />
+        <LinkInputs control={control} setValue={setValue} watch={watch} />
         <div className="flex flex-col mt-8 md:flex-row items-center gap-5">
-          <Button
-            variant="bordered"
-            type="button"
-            color="danger"
-            className="flex w-full items-center"
-            onPress={deleteGroup}
-            isLoading={isDeleting}
-          >
-            Delete group
-          </Button>
+          <DeleteGroup deleteGroup={deleteGroup} isDeleting={isDeleting} />
           <Button type="submit" className="flex w-full items-center" isLoading={isUpdating}>
             Update group
           </Button>

@@ -1,4 +1,4 @@
-import GroupForm from '@/components/GroupForm';
+import GroupForm from '@/components/GroupForm/GroupForm';
 import PageHeading from '@/components/PageHeading';
 
 type Props = { params: { groupId: string } };

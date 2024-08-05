@@ -2,6 +2,7 @@
 
 import { useGroupProfile, useGroupProfileActions, useIsInitializingGroupProfile } from '@/store/groupProfile.store';
 import { Avatar } from '@nextui-org/avatar';
+import { Tab, Tabs } from '@nextui-org/tabs';
 import { Camera } from 'lucide-react';
 import { useEffect } from 'react';
 import ContactInfo from './ContactInfo';
@@ -9,8 +10,8 @@ import GroupActions from './GroupActions';
 import GroupBanner from './GroupBanner';
 import GroupDescription from './GroupDescription';
 import GroupMembers from './GroupMembers';
+import GroupMembershipRequests from './GroupMembershipRequests';
 import PageHeading from './PageHeading';
-import SectionHeading from './SectionHeading';
 import SubsectionHeading from './SubsectionHeading';
 
 type Props = { id: string };
@@ -43,8 +44,14 @@ const GroupProfile = ({ id }: Props) => {
           <ContactInfo links={links} isLoading={isLoading} />
         </div>
       </div>
-      <SectionHeading>Members</SectionHeading>
-      <GroupMembers id={id} />
+      <Tabs variant="bordered" aria-label="Options" classNames={{ tabList: 'mb-3 mt-8' }}>
+        <Tab key="members" title="Members">
+          <GroupMembers id={id} />
+        </Tab>
+        <Tab key="membership-requests" title="Membership requests">
+          <GroupMembershipRequests />
+        </Tab>
+      </Tabs>
     </>
   );
 };

@@ -6,6 +6,7 @@ import { Avatar } from '@nextui-org/react';
 import { Camera, Edit } from 'lucide-react';
 import Link from 'next/link';
 import ContactInfo from './ContactInfo';
+import VerificationChip from './VerificationChip';
 import ProfileSkeleton from './skeletons/ProfileSkeleton';
 
 const Profile = () => {
@@ -14,6 +15,8 @@ const Profile = () => {
   const { name, title, links, avatar } = profile;
 
   if (isLoading || !profile.id) return <ProfileSkeleton />;
+
+  const verified = true;
 
   return (
     <div className="flex flex-col items-center gap-5 sm:flex-row">
@@ -27,7 +30,10 @@ const Profile = () => {
         <div className="flex flex-col items-center justify-center gap-10 xs:flex-row">
           <div className="text-center xs:text-left">
             <h3 className="text-lg font-medium">{name}</h3>
-            <div className="text-small capitalize text-default-500">{title}</div>
+            <div className="text-small capitalize text-default-500 flex items-center gap-2 mt-2">
+              {title}
+              <VerificationChip verified={verified} />
+            </div>
           </div>
           <div className="xs:mb-auto xs:ml-auto">
             <Button

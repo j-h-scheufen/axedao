@@ -1,23 +1,17 @@
 'use client';
 import { useGroupProfile, useGroupProfileActions, useIsInitializingGroupProfile } from '@/store/groupProfile.store';
-import {
-  useIsExitingGroup,
-  useIsInitializingProfile,
-  useIsProfileInitialized,
-  useProfile,
-  useProfileActions,
-} from '@/store/profile.store';
+import { useIsInitializingProfile, useIsProfileInitialized, useProfile } from '@/store/profile.store';
+import { getGroupMemberRole } from '@/utils';
 import { Button } from '@nextui-org/button';
-import { Spinner } from '@nextui-org/react';
+import { capitalize } from 'lodash';
 import { useEffect, useState } from 'react';
 import CreateGroupAssociation from './CreateGroupAssociation';
 import GroupCard from './GroupCard';
+import GroupRequestCard from './GroupRequestCard';
 
 const GroupAssociation = () => {
   const [editing, setEditing] = useState<boolean>(false);
   const profile = useProfile();
-  const profileActions = useProfileActions();
-  const isExitingGroup = useIsExitingGroup();
 
   const { group_id } = profile;
   const isInitializingProfile = useIsInitializingProfile();
@@ -29,13 +23,18 @@ const GroupAssociation = () => {
   useEffect(() => {
     if (!group_id) return;
     groupProfileActions.initialize(group_id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [group_id]);
+  }, [group_id, groupProfileActions]);
 
-  if (editing || !(group_id && !isInitializingProfile))
+  const isLoading = (!group_id && !isProfileInitialized) || isInitializingProfile || isInitializingGroupProfile;
+  const hasNoGroup = editing || !(group_id && !isInitializingProfile);
+  const hasPendingGroupRequest = false;
+
+  if (hasPendingGroupRequest) return <GroupRequestCard />;
+
+  if (hasNoGroup)
     return (
       <CreateGroupAssociation
-        onSubmit={() => console.log('creating group assocition')}
+        // onSubmit={() => console.log('creating group assocition')}
         secondaryButton={
           group_id && (
             <Button variant="bordered" onClick={() => setEditing(false)}>
@@ -43,26 +42,22 @@ const GroupAssociation = () => {
             </Button>
           )
         }
+        isLoading={isLoading}
       />
     );
+
+  const groupMemberRole = getGroupMemberRole(profile.id, groupProfile);
 
   return (
     <GroupCard
       group={groupProfile}
       className="mx-auto sm:mx-0 md:max-w-80"
       startFooter={
-        <Button
-          variant="light"
-          size="sm"
-          color="danger"
-          onPress={profileActions.exitGroup}
-          spinner={<Spinner size="sm" color="danger" />}
-          isLoading={isExitingGroup}
-        >
-          Exit group
+        <Button size="sm" variant="light" color="secondary" className="pointer-events-none">
+          {capitalize(groupMemberRole)}
         </Button>
       }
-      isLoading={(!group_id && !isProfileInitialized) || isInitializingProfile || isInitializingGroupProfile}
+      isLoading={isLoading}
     />
   );
 };

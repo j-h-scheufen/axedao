@@ -3,12 +3,14 @@
 import { useIsGroupAdmin, useIsInitializingGroupProfile } from '@/store/groupProfile.store';
 import { useIsExitingGroup, useProfileActions } from '@/store/profile.store';
 import { Button } from '@nextui-org/button';
-import { Spinner } from '@nextui-org/react';
-import { EditIcon } from 'lucide-react';
+import { useDisclosure } from '@nextui-org/react';
+import { SettingsIcon } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import LeaveGroupConfirmationModal from './LeaveGroupConfirmationModal';
 
 const GroupActions = () => {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const router = useRouter();
 
   const pathname = usePathname();
@@ -28,25 +30,25 @@ const GroupActions = () => {
     <div className="flex gap-3 justify-end">
       {!isLoading && (
         <>
-          <Button
-            variant="light"
-            size="sm"
-            color="danger"
-            onPress={exitGroupHandler}
-            spinner={<Spinner size="sm" color="danger" />}
-            isLoading={isExitingGroup}
-          >
+          <LeaveGroupConfirmationModal
+            isOpen={isOpen}
+            onOpenChange={onOpenChange}
+            onDelete={exitGroupHandler}
+            isDeleting={isExitingGroup}
+          />
+          <Button variant="light" size="sm" color="danger" onPress={onOpen} isLoading={isExitingGroup}>
             Leave group
           </Button>
           {isGroupAdmin && (
             <Button
-              href={`${pathname}/edit`}
               as={Link}
-              startContent={<EditIcon className="h-4 w-4" />}
+              href={`${pathname}/edit`}
               size="sm"
-              variant="bordered"
+              variant="light"
+              color="primary"
+              startContent={<SettingsIcon className="h-4 w-4" />}
             >
-              Edit group
+              Settings
             </Button>
           )}
         </>

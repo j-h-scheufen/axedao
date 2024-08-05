@@ -32,7 +32,7 @@ type Props = {
   setValue: UseFormSetValue<GroupFormType>;
   watch: UseFormWatch<GroupFormType>;
 };
-const GroupFormLinkInputs = ({ control, setValue, watch }: Props) => {
+const LinkInputs = ({ control, setValue, watch }: Props) => {
   const { id: userId } = useProfile();
   const { fields, append, remove } = useFieldArray({ control, name: 'links' });
 
@@ -156,4 +156,4 @@ const GroupFormLinkInputs = ({ control, setValue, watch }: Props) => {
     </div>
   );
 };
-export default GroupFormLinkInputs;
+export default LinkInputs;

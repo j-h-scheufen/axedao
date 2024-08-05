@@ -149,6 +149,7 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
       set({ isInitializingGroupAdmins: false });
     },
     promoteToAdmin: async (memberId: string) => {
+      console.log('Promoting tot admin: ', memberId);
       const { memberBeingPromotedToAdmin, groupId } = get();
       if (memberBeingPromotedToAdmin || !groupId) return;
       set({ memberBeingPromotedToAdmin: memberId });

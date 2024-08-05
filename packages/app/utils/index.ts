@@ -1,3 +1,5 @@
+import { GroupMemberRole } from '@/store/groupMembers.store';
+import { GroupProfile } from '@/types/model';
 import axios, { AxiosError } from 'axios';
 
 export const generateErrorMessage = (error: unknown, defaultMessage: string) => {
@@ -20,4 +22,18 @@ export const uploadImage = async (imageFile: File, name?: string) => {
   const res = await axios.post('/api/images', data, { headers: { 'Content-Type': 'multipart/form-data' } });
   const url: string = res.data?.url;
   if (url) return url;
+};
+
+export const getGroupMemberRole = (userId: string, group: GroupProfile) => {
+  const { founder, leader, admins } = group;
+  const adminIds = admins?.map((admin) => admin.id) || [];
+  let role = 'member';
+  if (userId === founder) {
+    role = 'founder';
+  } else if (userId === leader) {
+    role = 'leader';
+  } else if (adminIds.includes(userId)) {
+    role = 'admin';
+  }
+  return role as GroupMemberRole;
 };

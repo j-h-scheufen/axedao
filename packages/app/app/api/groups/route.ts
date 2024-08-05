@@ -29,6 +29,7 @@ export async function GET(request: NextRequest) {
     const count = await countGroups();
     return Response.json({ groups, count });
   } catch (error) {
+    console.error(error);
     return Response.json(
       { error: true, message: 'An unexpected error occured while fetching groups' },
       {

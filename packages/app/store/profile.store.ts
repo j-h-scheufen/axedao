@@ -56,7 +56,7 @@ const DEFAULT_PROPS: ProfileState = {
   isCreatingGroup: false,
 };
 
-const useProfileStore = create<ProfileStore>()((set, get) => ({
+export const useProfileStore = create<ProfileStore>()((set, get) => ({
   ...DEFAULT_PROPS,
   actions: {
     initializeProfile: async () => {

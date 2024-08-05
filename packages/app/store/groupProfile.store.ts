@@ -54,8 +54,8 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
   ...DEFAULT_PROPS,
   actions: {
     initialize: async (id: string) => {
-      const { isInitializingGroupProfile } = get();
-      if (isInitializingGroupProfile) return;
+      const { isInitializingGroupProfile, groupProfile } = get();
+      if (isInitializingGroupProfile || groupProfile.id === id) return;
       set({ isInitializingGroupProfile: true });
       try {
         const { data } = await axios.get(`/api/groups/${id}`);
