@@ -109,7 +109,7 @@ export async function PATCH(request: NextRequest, { params }: { params: { groupI
   const group = await fetchGroupProfile(groupId);
   if (!group?.id) throw new Error('Unable to update group, please confirm that the group still exists');
 
-  const { id, links: existingLinks } = group;
+  const { id, links: existingLinks = [] } = group;
 
   for (const link of links) {
     const isNewLink = !link.id;
