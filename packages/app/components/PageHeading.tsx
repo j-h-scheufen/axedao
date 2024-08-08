@@ -3,7 +3,6 @@
 import { Button } from '@nextui-org/button';
 import clsx from 'clsx';
 import { ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
@@ -14,13 +13,11 @@ const PageHeading = ({ children, className = '', back, ...props }: Props) => {
   const router = useRouter();
 
   let backButton = null;
-  if (typeof back === 'string') {
+  if (back && typeof back === 'string') {
     backButton = (
-      <Link href={back} replace>
-        <Button variant="light" className="!min-w-[unset] !px-0" isIconOnly>
-          <ArrowLeft className="h-5 w-5" />
-        </Button>
-      </Link>
+      <Button variant="light" className="!min-w-[unset] !px-0" onClick={() => router.push(back)} isIconOnly>
+        <ArrowLeft className="h-5 w-5" />
+      </Button>
     );
   } else if (back === true && /* typeof window !== 'undefined' && */ window?.history && window.history.length > 1) {
     backButton = (
