@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { produce } from 'immer';
 import { create } from 'zustand';
+import useGroupProfileStore, { GroupProfileState } from './groupProfile.store';
 import useGroupsStore, { GroupsState } from './groups.store';
 
 type SuperAdminState = {};
@@ -15,20 +16,25 @@ const useSuperAdminStore = create<SuperAdminStore>()((set, get) => ({
   actions: {
     updateGroupVerification: async (groupId, verified) => {
       if (!groupId) return;
-      console.log(groupId, verified);
       const { data } = await axios.post('/api/super-admin/actions/groups/update-verification', {
         id: groupId,
         verified,
       });
-      console.log(data);
       if (data.success) {
         useGroupsStore.setState(
           produce((state: GroupsState) => {
             const staleGroup = state.searchResults.find((group) => group.id === groupId);
-            console.log(staleGroup);
-            if (staleGroup) Object.assign(staleGroup, { id: groupId, verified });
+            if (staleGroup) Object.assign(staleGroup, { verified });
           }),
         );
+        const { groupProfile } = useGroupProfileStore.getState();
+        if (groupProfile?.id === groupId) {
+          useGroupProfileStore.setState(
+            produce((state: GroupProfileState) => {
+              Object.assign(state.groupProfile, { verified });
+            }),
+          );
+        }
       }
       return data;
     },
