@@ -32,6 +32,17 @@ export async function fetchUsers(
     .offset(offset);
 }
 
+export async function fetchUserByWalletAddress(walletAddress: string) {
+  const rows = await db.query.users.findMany({
+    where: (users, { eq }) => eq(users.walletAddress, walletAddress),
+    with: {
+      links: true,
+      groupId: true,
+    },
+  });
+  console.log('User rows by walletAddress: ', rows);
+}
+
 export async function countUsers() {
   const result = await db.select({ count: count() }).from(schema.users);
   return result.length ? result[0].count : null;
@@ -132,8 +143,13 @@ export async function fetchGroupMembers(groupId: string, limit: number = 20, off
     .offset(offset);
 }
 
-export async function insertUser(user: schema.InsertUser) {
-  await db.insert(schema.users).values(user);
+export async function insertUser(userValues: schema.InsertUser) {
+  const rows = await db
+    .insert(schema.users)
+    .values(userValues)
+    .returning({ id: schema.users.id, createdAt: schema.users.createdAt, updatedAt: schema.users.updatedAt });
+  const user = { ...userValues, ...rows[0] };
+  return user;
 }
 
 export async function insertGroup(group: schema.InsertGroup) {

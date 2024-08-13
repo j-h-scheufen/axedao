@@ -1,4 +1,3 @@
-import { authOptions } from '@/app/auth';
 import { LinkType, ProfileFormType, profileFormSchema } from '@/constants/schemas';
 import { addLink, fetchUserProfileByEmail, removeLink, updateLink, updateUser } from '@/db';
 import { Link, UserProfile } from '@/types/model';
@@ -8,7 +7,7 @@ import { NextRequest } from 'next/server';
 // TODO everything under the api/route must be protected via middleware.ts to check for user session
 
 export async function GET(/* request: NextRequest */) {
-  const session = await getServerSession(authOptions);
+  const session = await getServerSession();
   if (!session?.user?.email) {
     return Response.json(
       { error: true, message: 'User not authenticated' },

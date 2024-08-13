@@ -42,6 +42,7 @@ export const users = pgTable(
     email: text('email').notNull().unique(),
     groupId: uuid('group_id').references((): AnyPgColumn => groups.id, { onDelete: 'set null' }),
     phone: varchar('phone'),
+    walletAddress: varchar('wallet_address'),
   },
   (table) => {
     return {

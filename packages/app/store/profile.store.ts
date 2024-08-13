@@ -1,11 +1,11 @@
 import { CreateNewGroupFormType, ProfileFormType } from '@/constants/schemas';
-import { UserProfile } from '@/types/model';
+import { User } from '@/types/model';
 import { uploadImage } from '@/utils';
 import axios from 'axios';
 import { create } from 'zustand';
 
 type ProfileState = {
-  profile: UserProfile;
+  profile: User;
   isInitializingProfile: boolean;
   isProfileInitialized: boolean;
   initializeProfileError?: string;
@@ -33,7 +33,7 @@ type ProfileActions = {
 type ProfileStore = ProfileState & { actions: ProfileActions };
 
 const now = new Date();
-export const DEFAULT_PROFILE = {
+export const DEFAULT_PROFILE: User = {
   id: '',
   createdAt: now,
   name: null,
@@ -42,8 +42,10 @@ export const DEFAULT_PROFILE = {
   title: null,
   avatar: null,
   email: '',
-  group_id: null,
-  links: [],
+  groupId: null,
+  // links: [],
+  walletAddress: '',
+  phone: '',
 };
 
 const DEFAULT_PROPS: ProfileState = {
@@ -111,7 +113,7 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
       try {
         const { data } = await axios.post(`/api/groups/${groupId}/join`);
         if (!data.success) throw new Error();
-        set({ profile: { ...profile, group_id: groupId } });
+        set({ profile: { ...profile, groupId: groupId } });
       } catch (error) {
         const message = error instanceof Error ? error.message : 'An error occured while joining group';
         set({ joinGroupError: message });
@@ -120,13 +122,13 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
     },
     exitGroup: async () => {
       const { isExitingGroup, profile } = get();
-      const { group_id } = profile;
-      if (isExitingGroup || !group_id) return;
+      const { groupId } = profile;
+      if (isExitingGroup || !groupId) return;
       set({ isExitingGroup: true });
       try {
-        const { data } = await axios.post(`/api/groups/${group_id}/exit`);
+        const { data } = await axios.post(`/api/groups/${groupId}/exit`);
         if (!data.success) throw new Error();
-        set({ profile: { ...profile, group_id: null } });
+        set({ profile: { ...profile, groupId: null } });
       } catch (error) {
         const message = error instanceof Error ? error.message : 'An error occured while exiting group';
         set({ exitGroupError: message });
@@ -140,7 +142,7 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
       console.log(groupProfileData);
       // try {
       //   const { data } = await axios.post(`/api/groups`, groupProfileData);
-      //   set({ profile: { ...profile, group_id: data.id } });
+      //   set({ profile: { ...profile, groupId: data.id } });
       // } catch (error: unknown) {
       //   const message = generateErrorMessage(error, 'An error occured while creating group');
       //   set({ createGroupError: message });
@@ -149,14 +151,14 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
     },
     removeGroupAssociation: async () => {
       const { profile } = get();
-      set({ profile: { ...profile, group_id: null } });
+      set({ profile: { ...profile, groupId: null } });
     },
   },
 }));
 
 export const useProfileActions = (): ProfileActions => useProfileStore((state) => state.actions);
 
-export const useProfile = (): UserProfile => useProfileStore((state) => state.profile);
+export const useProfile = (): User => useProfileStore((state) => state.profile);
 
 export const useIsInitializingProfile = (): boolean => useProfileStore((state) => state.isInitializingProfile);
 

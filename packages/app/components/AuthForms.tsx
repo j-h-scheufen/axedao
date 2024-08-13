@@ -1,29 +1,22 @@
 'use client';
 
 import RegistrationForm from '@/components/RegistrationForm';
-import SignInForm from '@/components/SignInForm';
+import SignInButton from '@/components/SignInButton';
 import useUpdateSearchParams from '@/hooks/useUpdateSearchParams';
-import { useAuthActions, useSilk } from '@/store/auth.store';
 import { Spinner } from '@nextui-org/react';
 import { Tab, Tabs } from '@nextui-org/tabs';
 import { useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
 
 const AuthForms = () => {
   const searchParams = useSearchParams();
   const updateSearchParams = useUpdateSearchParams(searchParams);
   const tab = searchParams.get('tab');
 
-  const silk = useSilk();
-  const authActions = useAuthActions();
-
-  useEffect(() => {
-    authActions.initializeSilk();
-  }, [authActions]);
+  const loading = false;
 
   return (
     <>
-      {!silk && (
+      {loading && (
         <div className="absolute left-0 top-0 z-20 flex h-full w-full items-center justify-center bg-background/60 backdrop-blur-sm">
           <Spinner />
         </div>
@@ -41,7 +34,7 @@ const AuthForms = () => {
         </Tab>
         <Tab key="sign-in" title={<h1>Sign in</h1>} className="pt-0">
           <p className="mb-8 mt-2 text-neutral-500">Sign in to your account.</p>
-          <SignInForm />
+          <SignInButton className="max-w-sm mx-auto" />
         </Tab>
       </Tabs>
     </>

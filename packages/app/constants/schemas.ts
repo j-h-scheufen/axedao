@@ -67,15 +67,16 @@ const linksSchema = array()
 export const registrationFormSchema = object({
   email: string().email('Not a valid email').required('Email is required'),
   name: string().required('Please enter your name'),
+  walletAddress: string().required('Please connect your MetaMask wallet'),
 });
 
 export type RegistrationFormType = InferType<typeof registrationFormSchema>;
 
-export const signInFormSchema = object({
+export const SignInButtonSchema = object({
   email: string().email('Not a valid email').required('Email is required'),
 });
 
-export type SignInFormType = InferType<typeof signInFormSchema>;
+export type SignInButtonType = InferType<typeof SignInButtonSchema>;
 
 export const confirmationFormSchema = object({
   otp: string().required('Please input your OTP.'),

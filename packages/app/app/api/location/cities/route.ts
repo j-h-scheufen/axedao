@@ -1,10 +1,9 @@
-import { authOptions } from '@/app/auth';
 import { City } from 'country-state-city';
 import { getServerSession } from 'next-auth';
 import { NextRequest } from 'next/server';
 
 export async function GET(request: NextRequest) {
-  const session = await getServerSession(authOptions);
+  const session = await getServerSession();
   if (!session?.user?.email) {
     return Response.json(
       { error: true, message: 'User not authenticated' },

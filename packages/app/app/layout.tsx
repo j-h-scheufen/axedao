@@ -9,7 +9,7 @@ import '@/styles/globals.css';
 import { getServerSession } from 'next-auth';
 import { Provider as ThemeProvider } from './_providers/nextUI.provider';
 import { Provider as SnackbarProvider } from './_providers/snackbar.provider';
-import { Provider as Web3SilkProvider } from './_providers/web3silk.provider';
+import { Provider as Web3Provider } from './_providers/web3.provider';
 
 export const metadata: Metadata = {
   title: {
@@ -40,7 +40,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <SessionProvider session={session}>
           <ThemeProvider themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
             <SnackbarProvider>
-              <Web3SilkProvider>
+              <Web3Provider>
                 <div className="relative mb-12 flex min-h-screen flex-col">
                   <Navbar />
                   {children}
@@ -49,7 +49,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                     <span className="text-primary">AXÉ DAO</span>
                   </footer>
                 </div>
-              </Web3SilkProvider>
+              </Web3Provider>
             </SnackbarProvider>
           </ThemeProvider>
         </SessionProvider>
