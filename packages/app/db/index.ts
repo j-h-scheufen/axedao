@@ -16,7 +16,7 @@ import { getFields } from './utils';
 
 // Disable prefetch as it is not supported for "Transaction" pool mode
 export const client = postgres(ENV.databaseUrl, { prepare: false });
-export const db = drizzle(client, { schema });
+export const db = drizzle(client, { schema, logger: process.env.NEXT_PUBLIC_APP_ENV !== 'prod' });
 
 export async function fetchUsers(
   limit: number = 20,
@@ -65,7 +65,7 @@ export async function isGroupMember(groupId: string, userId: string): Promise<bo
     .where(
       and(
         eq(schema.users.id, userId),
-        eq(schema.users.group_id, groupId),
+        eq(schema.users.groupId, groupId),
         ne(schema.groups.leader, userId),
         notExists(
           db
@@ -127,9 +127,7 @@ export async function fetchGroupMembers(groupId: string, limit: number = 20, off
   return await db
     .select()
     .from(schema.users)
-    .where(
-      and(eq(schema.users.group_id, groupId), searchTerm ? ilike(schema.users.name, `%${searchTerm}%`) : undefined),
-    )
+    .where(and(eq(schema.users.groupId, groupId), searchTerm ? ilike(schema.users.name, `%${searchTerm}%`) : undefined))
     .limit(limit)
     .offset(offset);
 }
@@ -145,7 +143,7 @@ export async function insertGroup(group: schema.InsertGroup) {
 
 export async function deleteGroup(groupId: string) {
   // TODO delete group associations
-  await db.update(schema.users).set({ group_id: null }).where(eq(schema.users.group_id, groupId));
+  await db.update(schema.users).set({ groupId: null }).where(eq(schema.users.groupId, groupId));
   await db.delete(schema.groupAdmins).where(eq(schema.groupAdmins.groupId, groupId));
   await db.delete(schema.links).where(eq(schema.links.ownerId, groupId));
   await db.delete(schema.groups).where(eq(schema.groups.id, groupId));

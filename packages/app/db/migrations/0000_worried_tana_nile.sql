@@ -26,7 +26,9 @@ CREATE TABLE IF NOT EXISTS "groups" (
 	"banner" varchar,
 	"leader_id" uuid,
 	"founder" varchar,
-	"verified" boolean DEFAULT false NOT NULL
+	"verified" boolean DEFAULT false NOT NULL,
+	"city" varchar,
+	"country" varchar
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "links" (
@@ -46,6 +48,7 @@ CREATE TABLE IF NOT EXISTS "users" (
 	"avatar" varchar,
 	"email" text NOT NULL,
 	"group_id" uuid,
+	"phone" varchar,
 	CONSTRAINT "users_email_unique" UNIQUE("email")
 );
 --> statement-breakpoint
@@ -73,9 +76,9 @@ EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
 --> statement-breakpoint
-CREATE UNIQUE INDEX IF NOT EXISTS "name_idx" ON "groups" ("name");--> statement-breakpoint
-CREATE INDEX IF NOT EXISTS "owner_idx" ON "links" ("owner_id");--> statement-breakpoint
-CREATE INDEX IF NOT EXISTS "nickname_idx" ON "users" ("nickname");--> statement-breakpoint
-CREATE INDEX IF NOT EXISTS "title_idx" ON "users" ("title");--> statement-breakpoint
-CREATE INDEX IF NOT EXISTS "group_idx" ON "users" ("group_id");--> statement-breakpoint
-CREATE UNIQUE INDEX IF NOT EXISTS "email_idx" ON "users" ("email");
+CREATE UNIQUE INDEX IF NOT EXISTS "name_idx" ON "groups" USING btree ("name");--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "owner_idx" ON "links" USING btree ("owner_id");--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "nickname_idx" ON "users" USING btree ("nickname");--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "title_idx" ON "users" USING btree ("title");--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "group_idx" ON "users" USING btree ("group_id");--> statement-breakpoint
+CREATE UNIQUE INDEX IF NOT EXISTS "email_idx" ON "users" USING btree ("email");

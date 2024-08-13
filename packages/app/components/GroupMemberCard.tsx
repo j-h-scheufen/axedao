@@ -95,7 +95,7 @@ const GroupMemberCard = (
                 </PopoverTrigger>
                 <PopoverContent className="p-1" onClick={() => setIsOpen(false)}>
                   <div className="flex flex-col gap-2 p-0">
-                    {role?.toLowerCase() === 'leader' && (
+                    {/* {role?.toLowerCase() === 'leader' && (
                       <Button
                         size="sm"
                         variant="light"
@@ -104,7 +104,7 @@ const GroupMemberCard = (
                       >
                         Demote to admin
                       </Button>
-                    )}
+                    )} */}
                     {role === 'admin' && (
                       <>
                         {/* <Button

@@ -1,6 +1,6 @@
 import { CreateNewGroupFormType, ProfileFormType } from '@/constants/schemas';
 import { UserProfile } from '@/types/model';
-import { generateErrorMessage, uploadImage } from '@/utils';
+import { uploadImage } from '@/utils';
 import axios from 'axios';
 import { create } from 'zustand';
 
@@ -137,13 +137,14 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
       const { isCreatingGroup, profile } = get();
       if (isCreatingGroup) return;
       set({ isCreatingGroup: true });
-      try {
-        const { data } = await axios.post(`/api/groups`, groupProfileData);
-        set({ profile: { ...profile, group_id: data.id } });
-      } catch (error: unknown) {
-        const message = generateErrorMessage(error, 'An error occured while creating group');
-        set({ createGroupError: message });
-      }
+      console.log(groupProfileData);
+      // try {
+      //   const { data } = await axios.post(`/api/groups`, groupProfileData);
+      //   set({ profile: { ...profile, group_id: data.id } });
+      // } catch (error: unknown) {
+      //   const message = generateErrorMessage(error, 'An error occured while creating group');
+      //   set({ createGroupError: message });
+      // }
       set({ isCreatingGroup: false });
     },
     removeGroupAssociation: async () => {

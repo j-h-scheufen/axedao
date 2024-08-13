@@ -15,6 +15,7 @@ export const authOptions: AuthOptions = {
       },
       async authorize(credentials) {
         const { email } = credentials || {};
+        // console.log('Authorizing: ', email);
         if (email && emailSchema.validateSync(email)) {
           const user = await fetchUserProfileByEmail(email);
           if (user) {

@@ -47,7 +47,7 @@ const GroupMembers = ({ id }: Props) => {
         items={groupMembers}
         isLoading={isLoading}
         loadingContent={<Spinner label="Loading..." size="sm" />}
-        emptyContent="No membership requests"
+        emptyContent="No members found"
       >
         {(item) => (
           <TableRow key={item.id}>

@@ -99,6 +99,7 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
         const data: User[] = res.data;
         if (data?.length && data.length > 0) {
           const { admins, founder, leader } = get();
+          console.log(admins);
           const adminIds = admins.map((admin) => admin.userId);
           const groupMembers: GroupMember[] = data.map((user) => {
             const userId = user.id;

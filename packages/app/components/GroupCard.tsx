@@ -16,7 +16,6 @@ const GroupCard = ({ group, className = '', startFooter = null, isLoading = fals
   const router = useRouter();
   const { name, id, logo, verified } = group;
   if (isLoading) return <GroupCardSkeleton className={className} />;
-  console.log(JSON.stringify(group));
   return (
     <Card className={clsx('w-full', className)}>
       <CardHeader className="flex gap-3">

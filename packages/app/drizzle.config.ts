@@ -9,4 +9,6 @@ export default {
   dbCredentials: {
     url: ENV.databaseUrl,
   },
+  verbose: true,
+  strict: true,
 } satisfies Config;

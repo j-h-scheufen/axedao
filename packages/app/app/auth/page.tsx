@@ -1,6 +1,6 @@
-import { redirect } from 'next/navigation';
 import AuthForms from '@/components/AuthForms';
 import { getServerSession } from 'next-auth';
+import { redirect } from 'next/navigation';
 
 const page = async () => {
   const session = await getServerSession();
