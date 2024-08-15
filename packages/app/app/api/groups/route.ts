@@ -1,19 +1,17 @@
-import { CreateNewGroupFormType, createNewGroupFormSchema } from '@/constants/schemas';
+import { createNewGroupFormSchema, CreateNewGroupFormType } from '@/app/dashboard/profile/schema';
 import {
   addGroupAdmin,
   countGroups,
   fetchGroupIdFromName,
   fetchGroups,
-  fetchUserProfileByEmail,
+  fetchProfile,
   insertGroup,
   updateUser,
 } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import { getServerSession } from 'next-auth';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
-
-// TODO everything under the api/ route must be protected via middleware.ts to check for user session
 
 export async function GET(request: NextRequest) {
   try {
@@ -30,67 +28,47 @@ export async function GET(request: NextRequest) {
     return Response.json({ groups, count });
   } catch (error) {
     console.error(error);
-    return Response.json(
-      { error: true, message: 'An unexpected error occured while fetching groups' },
-      {
-        status: 500,
-      },
-    );
+    return NextResponse.json({ error: 'An unexpected error occured while fetching groups' }, { status: 500 });
   }
 }
 
 export async function POST(request: NextRequest) {
   const session = await getServerSession();
-  if (!session?.user?.email) {
-    return Response.json(
-      { error: true, message: 'Not authenticated' },
-      {
-        status: 401,
-      },
-    );
+  const email = session?.user?.email;
+  if (!email) {
+    return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
+
   try {
-    const userProfile = await fetchUserProfileByEmail(session.user.email);
-    if (!userProfile) {
+    const profile = await fetchProfile(email);
+    if (!profile) {
       throw new Error();
     }
-    const { id: userId, group_id } = userProfile;
-    if (group_id) {
-      return Response.json(
-        { error: true, message: 'You cannot create a new group while being a member of an existing group' },
-        {
-          status: 403,
-        },
+    const { id: userId, groupId } = profile;
+    if (groupId) {
+      return NextResponse.json(
+        { error: 'You cannot create a new group while being a member of an existing group' },
+        { status: 403 },
       );
     }
 
     const body = await request.json();
     const isValid = await createNewGroupFormSchema.validate(body);
     if (!isValid) {
-      return Response.json(
-        { error: true, message: 'Invalid group data' },
-        {
-          status: 400,
-        },
-      );
+      return NextResponse.json({ error: 'Invalid group data' }, { status: 400 });
     }
     const groupData = body as CreateNewGroupFormType;
     const { name } = groupData;
 
     const groupExists = await fetchGroupIdFromName(name);
     if (groupExists) {
-      return Response.json(
-        { error: true, message: `A group with the name "${name}" already exists` },
-        {
-          status: 403,
-        },
-      );
+      return NextResponse.json({ error: `A group with the name "${name}" already exists` }, { status: 403 });
     }
 
-    const groupId = uuidv4();
-    const group = await insertGroup({ ...groupData, id: groupId, founder: userId, leader: userId, verified: false });
-    await updateUser({ id: userId, group_id: groupId });
-    await addGroupAdmin({ groupId, userId });
+    const newGroupId = uuidv4();
+    const group = await insertGroup({ ...groupData, id: newGroupId, founder: userId, leader: userId, verified: false });
+    await updateUser({ id: userId, groupId: newGroupId });
+    await addGroupAdmin({ groupId: newGroupId, userId });
 
     return Response.json(group);
   } catch (error) {

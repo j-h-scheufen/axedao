@@ -12,7 +12,7 @@ const useRegister = () => {
 
   const handleRegistration = async (values: RegistrationFormType) => {
     const { data } = await axios.post<User>('/api/auth/register', values);
-    await signInMutation.mutateAsync(undefined);
+    await signInMutation.mutateAsync();
     return data;
   };
 

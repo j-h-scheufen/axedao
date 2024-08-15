@@ -1,6 +1,6 @@
+import { fetchSessionData } from '@/db';
 import { NextApiRequest, NextApiResponse } from 'next';
-import NextAuth, { Session } from 'next-auth';
-import { JWT } from 'next-auth/jwt';
+import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { getCsrfToken } from 'next-auth/react';
 import { SiweMessage } from 'siwe';
@@ -33,11 +33,19 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
             domain: nextAuthUrl.host,
             nonce: await getCsrfToken({ req }),
           });
+          const address = siwe.address;
 
           if (result.success) {
-            return {
-              id: siwe.address,
-            };
+            const user = await fetchSessionData(address);
+            if (user) {
+              const { name, email, avatar } = user;
+              return {
+                id: siwe.address,
+                name,
+                email,
+                image: avatar,
+              };
+            }
           }
           return null;
         } catch (e) {
@@ -61,16 +69,17 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       strategy: 'jwt',
     },
     secret: process.env.NEXTAUTH_SECRET,
-    callbacks: {
-      async session({ session, token }: { session: Session; token: JWT }) {
-        console.log('Session: ', session);
-        console.log('Token: ', token);
-        // session.address = token.sub;
-        // session.user.name = token.sub;
-        // session.user.image = 'https://www.fillmurray.com/128/128';
-        return session;
-      },
-    },
+    // callbacks: {
+    // async jwt(args) {
+    //   console.log('jwt args: ', args);
+    //   const { token, account, profile } = args;
+    //   return token;
+    // },
+    // async session({ session, token }: { session: Session; token: JWT }) {
+    //   const address = token.sub;
+    //   return session;
+    // },
+    // },
   });
 };
 

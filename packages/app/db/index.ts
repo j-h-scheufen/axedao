@@ -1,7 +1,8 @@
-import { and, count, eq, ilike, ne, notExists } from 'drizzle-orm';
+import { and, count, eq, ilike, inArray, ne, notExists } from 'drizzle-orm';
 import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 
+import { Profile } from '@/app/dashboard/profile/types';
 import ENV from '@/config/environment';
 import * as schema from '@/db/schema';
 import { GroupProfile, UserProfile } from '../types/model';
@@ -32,15 +33,23 @@ export async function fetchUsers(
     .offset(offset);
 }
 
-export async function fetchUserByWalletAddress(walletAddress: string) {
-  const rows = await db.query.users.findMany({
+// Keep
+export async function fetchSessionData(walletAddress: string) {
+  return await db.query.users.findFirst({
     where: (users, { eq }) => eq(users.walletAddress, walletAddress),
+    columns: { email: true, name: true, avatar: true },
+  });
+}
+
+// Keep
+export async function fetchProfile(email: string) {
+  return (await db.query.users.findFirst({
+    where: (users, { eq }) => eq(users.email, email),
     with: {
       links: true,
-      groupId: true,
+      group: true,
     },
-  });
-  console.log('User rows by walletAddress: ', rows);
+  })) as Profile | undefined;
 }
 
 export async function countUsers() {
@@ -175,8 +184,19 @@ export async function addLink(link: schema.InsertLink) {
   return links.length ? links[0] : undefined;
 }
 
-export async function updateLink(link: schema.InsertLink & { id: number }) {
-  await db.update(schema.links).set(link).where(eq(schema.links.id, link.id));
+// Keep
+export async function createLinks(links: schema.InsertLink[]) {
+  return await db.insert(schema.links).values(links).returning();
+}
+
+// Keep
+export async function removeLinks(linkIds: number[]) {
+  return await db.delete(schema.links).where(inArray(schema.links.id, linkIds));
+}
+
+// Keep
+export async function updateLink(link: Omit<schema.InsertLink, 'id'> & { id: number }) {
+  return await db.update(schema.links).set(link).where(eq(schema.links.id, link.id));
 }
 
 export async function removeLink(linkId: number) {

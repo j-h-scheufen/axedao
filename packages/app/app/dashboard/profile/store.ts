@@ -1,39 +1,11 @@
-import { CreateNewGroupFormType, ProfileFormType } from '@/constants/schemas';
-import { User } from '@/types/model';
-import { uploadImage } from '@/utils';
+import { generateErrorMessage, uploadImage } from '@/utils';
 import axios from 'axios';
 import { create } from 'zustand';
-
-type ProfileState = {
-  profile: User;
-  isInitializingProfile: boolean;
-  isProfileInitialized: boolean;
-  initializeProfileError?: string;
-  isUpdatingProfile: boolean;
-  profileUpdateError?: string;
-  isExitingGroup: boolean;
-  exitGroupError?: string;
-  isJoiningGroup: boolean;
-  joinGroupError?: string;
-  isCreatingGroup: boolean;
-  createGroupError?: string;
-  isUploadingAvatar?: boolean;
-};
-
-type ProfileActions = {
-  initializeProfile: () => Promise<void>;
-  uploadAvatar: (file: File, name?: string) => Promise<string | void>;
-  updateProfile: (profileData: ProfileFormType) => Promise<void>;
-  joinGroup: (groupId: string) => Promise<void>;
-  exitGroup: () => Promise<void>;
-  createGroup: (groupProfileData: CreateNewGroupFormType) => Promise<void>;
-  removeGroupAssociation: () => void;
-};
-
-type ProfileStore = ProfileState & { actions: ProfileActions };
+import { CreateNewGroupFormType, ProfileFormType } from './schema';
+import { Profile, ProfileActions, ProfileState, ProfileStore } from './types';
 
 const now = new Date();
-export const DEFAULT_PROFILE: User = {
+export const DEFAULT_PROFILE: Profile = {
   id: '',
   createdAt: now,
   name: null,
@@ -43,7 +15,8 @@ export const DEFAULT_PROFILE: User = {
   avatar: null,
   email: '',
   groupId: null,
-  // links: [],
+  links: [],
+  group: null,
   walletAddress: '',
   phone: '',
 };
@@ -80,7 +53,7 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
       set({ isUploadingAvatar: false });
       return url;
     },
-    updateProfile: async (_profileData: ProfileFormType) => {
+    updateProfile: async (profileData: ProfileFormType) => {
       const {
         profile: { id },
         isUpdatingProfile,
@@ -89,7 +62,6 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
       if (isUpdatingProfile || !id) return;
       set({ isUpdatingProfile: true });
       try {
-        const profileData = _profileData;
         if (profileData.avatar && profileData.avatar instanceof File) {
           const avatar = await uploadAvatar(profileData.avatar, id ? `user-${id}` : undefined);
           if (avatar) {
@@ -139,14 +111,13 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
       const { isCreatingGroup, profile } = get();
       if (isCreatingGroup) return;
       set({ isCreatingGroup: true });
-      console.log(groupProfileData);
-      // try {
-      //   const { data } = await axios.post(`/api/groups`, groupProfileData);
-      //   set({ profile: { ...profile, groupId: data.id } });
-      // } catch (error: unknown) {
-      //   const message = generateErrorMessage(error, 'An error occured while creating group');
-      //   set({ createGroupError: message });
-      // }
+      try {
+        const { data } = await axios.post(`/api/groups`, groupProfileData);
+        set({ profile: { ...profile, groupId: data.id } });
+      } catch (error: unknown) {
+        const message = generateErrorMessage(error, 'An error occured while creating group');
+        set({ createGroupError: message });
+      }
       set({ isCreatingGroup: false });
     },
     removeGroupAssociation: async () => {
@@ -158,7 +129,7 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
 
 export const useProfileActions = (): ProfileActions => useProfileStore((state) => state.actions);
 
-export const useProfile = (): User => useProfileStore((state) => state.profile);
+export const useProfile = (): Profile => useProfileStore((state) => state.profile);
 
 export const useIsInitializingProfile = (): boolean => useProfileStore((state) => state.isInitializingProfile);
 

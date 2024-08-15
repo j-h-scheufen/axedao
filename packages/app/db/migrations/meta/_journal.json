@@ -15,6 +15,13 @@
       "when": 1723561238124,
       "tag": "0001_nervous_lilith",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1723709999248,
+      "tag": "0002_plain_hiroim",
+      "breakpoints": true
     }
   ]
 }

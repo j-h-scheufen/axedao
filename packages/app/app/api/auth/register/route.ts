@@ -8,38 +8,21 @@ type Body = InferType<typeof registrationFormSchema>;
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
+    const body: Body = await request.json();
     const valid = await registrationFormSchema.validate(body);
 
     if (valid) {
-      const { email, name } = body as Body;
-
-      const userExists = await fetchUserProfileByEmail(email);
+      const userExists = await fetchUserProfileByEmail(body.email);
       if (userExists) {
-        return Response.json(
-          { error: true, message: 'Email is already registered' },
-          {
-            status: 400,
-          },
-        );
+        return NextResponse.json({ error: 'Email is already registered' }, { status: 400 });
       }
 
-      const user = await insertUser({ id: uuidv4(), email, name });
+      const user = await insertUser({ id: uuidv4(), ...body });
       return NextResponse.json(user);
     }
 
-    return Response.json(
-      { error: true, message: 'Invalid credentials' },
-      {
-        status: 401,
-      },
-    );
+    return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
   } catch (e) {
-    return Response.json(
-      { error: true, message: 'An unexpected server error occurred' },
-      {
-        status: 500,
-      },
-    );
+    return NextResponse.json({ error: 'An unexpected server error occurred' }, { status: 500 });
   }
 }

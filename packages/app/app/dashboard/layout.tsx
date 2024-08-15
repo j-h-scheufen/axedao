@@ -1,9 +1,10 @@
 'use client';
+
 import BottomBar from '@/components/BottomBar';
 import Sidebar from '@/components/Sidebar';
-import { useIsProfileInitialized, useProfileActions } from '@/store/profile.store';
 import { useSession } from 'next-auth/react';
 import { ReactNode, useEffect } from 'react';
+import { useIsProfileInitialized, useProfileActions } from './profile/store';
 
 type Props = { children: ReactNode };
 const DashboardLayout = ({ children }: Props) => {
@@ -12,7 +13,7 @@ const DashboardLayout = ({ children }: Props) => {
   const profileActions = useProfileActions();
 
   useEffect(() => {
-    if (!isProfileInitialized && session.data?.user?.email) profileActions.initializeProfile();
+    if (!isProfileInitialized && session.data?.user?.name) profileActions.initializeProfile();
   }, [isProfileInitialized, session, profileActions]);
 
   return (

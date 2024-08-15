@@ -1,17 +1,17 @@
 'use client';
 
-import { useIsInitializingProfile, useProfile } from '@/store/profile.store';
+import ContactInfo from '@/components/ContactInfo';
 import { Button } from '@nextui-org/button';
 import { Avatar } from '@nextui-org/react';
 import { Camera, Edit } from 'lucide-react';
 import Link from 'next/link';
-import ContactInfo from './ContactInfo';
-import ProfileSkeleton from './skeletons/ProfileSkeleton';
+import { useIsInitializingProfile, useProfile } from '../store';
+import { ProfileSkeleton } from './skeletons';
 
 const Profile = () => {
   const profile = useProfile();
   const isLoading = useIsInitializingProfile();
-  const { name, title, links, avatar } = profile;
+  const { name, title, avatar, links } = profile;
 
   if (isLoading || !profile.id) return <ProfileSkeleton />;
 
@@ -41,7 +41,7 @@ const Profile = () => {
             </Button>
           </div>
         </div>
-        <ContactInfo className="mt-3" links={links} />
+        <ContactInfo links={links} />
       </div>
     </div>
   );

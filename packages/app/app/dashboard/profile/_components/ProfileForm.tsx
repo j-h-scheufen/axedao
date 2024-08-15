@@ -1,25 +1,25 @@
 'use client';
-import { ProfileFormType, profileFormSchema } from '@/constants/schemas';
-import titles from '@/constants/titles';
+
+import ContactInfoInputs from '@/components/ContactInfoInputs';
+import ImageUpload from '@/components/ImageUpload';
+import SubsectionHeading from '@/components/SubsectionHeading';
+import ProfileFormSkeleton from '@/components/skeletons/ProfileFormSkeleton';
+import { titles } from '@/constants';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Button } from '@nextui-org/button';
+import { Input } from '@nextui-org/input';
+import { Select, SelectItem } from '@nextui-org/select';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import { ProfileFormType, profileFormSchema } from '../schema';
 import {
   useIsInitializingProfile,
   useIsProfileInitialized,
   useIsUpdatingProfile,
   useProfile,
   useProfileActions,
-} from '@/store/profile.store';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { Button } from '@nextui-org/button';
-import { Input } from '@nextui-org/input';
-import { Spinner } from '@nextui-org/react';
-import { Select, SelectItem } from '@nextui-org/select';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
-import { Controller, useForm } from 'react-hook-form';
-import ContactInfoInputs from './ContactInfoInputs';
-import ImageUpload from './ImageUpload';
-import SubsectionHeading from './SubsectionHeading';
-import ProfileFormSkeleton from './skeletons/ProfileFormSkeleton';
+} from '../store';
 
 const ProfileForm = () => {
   const router = useRouter();
@@ -30,6 +30,7 @@ const ProfileForm = () => {
   const profileActions = useProfileActions();
   const isUpdatingProfile = useIsUpdatingProfile();
 
+  const { email } = profile;
   const {
     control,
     handleSubmit,
@@ -39,19 +40,20 @@ const ProfileForm = () => {
   } = useForm({
     resolver: yupResolver(profileFormSchema),
     defaultValues: {
-      email: profile.email,
+      email,
     },
   });
 
   useEffect(() => {
     if (!profile.id) return;
-    const { name, email, nickname, title, links = [], avatar } = profile;
+    const { name, email, nickname, title, links = [], avatar, phone } = profile;
     setValue('email', email);
     if (name) setValue('name', name);
     if (nickname) setValue('nickname', nickname);
     if (title) setValue('title', title);
     if (links) setValue('links', links);
     if (avatar) setValue('avatar', avatar);
+    if (phone) setValue('phone', phone);
   }, [profile, setValue]);
 
   const onSubmit = async (profileData: ProfileFormType) => {
@@ -157,7 +159,6 @@ const ProfileForm = () => {
       <Button
         type="submit"
         isLoading={isUpdatingProfile}
-        spinner={<Spinner size="sm" />}
         className="mt-8 flex w-full items-center"
         disabled={!isProfileInitialized || !isFormDirty}
       >

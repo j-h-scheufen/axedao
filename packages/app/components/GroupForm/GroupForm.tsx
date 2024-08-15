@@ -1,5 +1,6 @@
 'use client';
 
+import { useProfile, useProfileActions } from '@/app/dashboard/profile/store';
 import { GroupFormType, groupFormSchema } from '@/constants/schemas';
 import { useGroupMembersActions } from '@/store/groupMembers.store';
 import {
@@ -10,7 +11,6 @@ import {
   useIsInitializingGroupProfile,
   useIsUpdatingGroupProfile,
 } from '@/store/groupProfile.store';
-import { useProfile, useProfileActions } from '@/store/profile.store';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@nextui-org/button';
 import { Input, Textarea } from '@nextui-org/input';

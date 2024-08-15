@@ -1,4 +1,4 @@
-const titles = [
+export const titles = [
   'mestre',
   'contra-mestre',
   'mestrando',
@@ -11,5 +11,3 @@ const titles = [
 ] as const;
 
 export type TitleType = (typeof titles)[number];
-
-export default titles;

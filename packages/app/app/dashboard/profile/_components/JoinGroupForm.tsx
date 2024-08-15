@@ -1,5 +1,7 @@
 'use client';
-import { JoinGroupFormType, joinGroupFormSchema } from '@/constants/schemas';
+
+import { useIsJoiningGroup, useProfileActions } from '@/app/dashboard/profile/store';
+import ErrorText from '@/components/ErrorText';
 import {
   useGroups,
   useGroupsActions,
@@ -7,20 +9,19 @@ import {
   useIsLoadingGroups,
   useLoadGroupsError,
 } from '@/store/groups.store';
-import { useIsJoiningGroup, useProfileActions } from '@/store/profile.store';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
 import { Button } from '@nextui-org/button';
 import { Spinner } from '@nextui-org/react';
 import { useInfiniteScroll } from '@nextui-org/use-infinite-scroll';
 import { Search } from 'lucide-react';
-import { ReactNode, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useDebounce } from 'use-debounce';
-import ErrorText from './ErrorText';
+import { JoinGroupFormType, joinGroupFormSchema } from '../schema';
 
-type Props = { secondaryButton?: ReactNode; onSubmit?: (values: JoinGroupFormType) => void | null };
-const JoinGroupForm = ({ secondaryButton, onSubmit }: Props) => {
+type Props = { onSubmit?: (values: JoinGroupFormType) => void | null };
+const JoinGroupForm = ({ onSubmit }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [debouncedSearchTerm] = useDebounce(searchTerm, 500);
@@ -71,6 +72,7 @@ const JoinGroupForm = ({ secondaryButton, onSubmit }: Props) => {
               ref={ref}
               label="Join a group"
               placeholder="Search groups by name"
+              inputProps={{ classNames: { inputWrapper: 'min-h-12' } }}
               startContent={<Search className="h-4 w-4" strokeWidth={1.4} />}
               isLoading={isLoadingGroups}
               inputValue={searchTerm}
@@ -95,7 +97,6 @@ const JoinGroupForm = ({ secondaryButton, onSubmit }: Props) => {
       />
       <ErrorText message={loadGroupsError} />
       <div className="mt-5 flex justify-between gap-3">
-        {secondaryButton && secondaryButton}
         <Button type="submit" className="w-full flex-1" isLoading={isJoiningGroup} spinner={<Spinner size="sm" />}>
           Join group
         </Button>

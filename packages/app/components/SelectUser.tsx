@@ -1,6 +1,6 @@
 'use client';
 
-import { useIsInitializingProfile } from '@/store/profile.store';
+import { useIsInitializingProfile } from '@/app/dashboard/profile/store';
 import { useIsInitializingUser, useUserActions, useUserProfile } from '@/store/user.store';
 import { User as UserType } from '@/types/model';
 import { cn } from '@/utils/tailwind';

@@ -1,5 +1,4 @@
-import { InferType, array, boolean, mixed, number, object, string } from 'yup';
-import titles from './titles';
+import { InferType, array, mixed, number, object, string } from 'yup';
 
 export const linkTypes = ['twitter', 'facebook', 'instagram', 'linkedin'] as const;
 export type LinkType = (typeof linkTypes)[number];
@@ -8,13 +7,13 @@ export const validFileExtensions = { image: ['jpg', 'gif', 'png', 'jpeg', 'svg',
 type ValidFileExtensionsType = keyof typeof validFileExtensions;
 type ValidImageExtensionsType = (typeof validFileExtensions.image)[number];
 
-const isValidFileType = (fileName: string, fileType: ValidFileExtensionsType) => {
+export const isValidFileType = (fileName: string, fileType: ValidFileExtensionsType) => {
   return (
     !!fileName && validFileExtensions[fileType].indexOf(fileName.split('.').pop() as ValidImageExtensionsType) > -1
   );
 };
 
-const isValidUrl = (url: string | undefined, validHostnames?: string[], regex?: RegExp): boolean => {
+export const isValidUrl = (url: string | undefined, validHostnames?: string[], regex?: RegExp): boolean => {
   if (!url) return false;
   let valid = false;
   try {
@@ -51,9 +50,9 @@ const isValidProfileTwitterUrl = (url: string | undefined): boolean => {
   return isValidUrl(url, validHostnames, profilePathRegex);
 };
 
-const megabytesToBytes = (mb: number) => 1024 * 1024 * mb; //3MB
+export const megabytesToBytes = (mb: number) => 1024 * 1024 * mb; //3MB
 
-const linksSchema = array()
+export const linksSchema = array()
   .of(
     object({
       id: number(),
@@ -83,44 +82,6 @@ export const confirmationFormSchema = object({
 });
 
 export type ConfirmationFormType = InferType<typeof confirmationFormSchema>;
-
-export const profileFormSchema = object({
-  avatar: mixed()
-    .test('is-valid-type', 'Not a valid image type', (value: any) => {
-      if (value instanceof File) {
-        return isValidFileType(value && value.name?.toLowerCase(), 'image');
-      }
-      return true;
-    })
-    .test('is-valid-size', 'Maximum image size allowed is 3MB', (value: any) => {
-      if (value instanceof File) {
-        return value.size <= megabytesToBytes(3);
-      }
-      return true;
-    }),
-  title: string().nullable().oneOf(titles, 'Not a valid title'),
-  name: string().nullable(),
-  nickname: string().nullable(),
-  email: string().email('Not a valid email').required('Email is required'),
-  phone: string(),
-  links: linksSchema,
-});
-
-export type ProfileFormType = InferType<typeof profileFormSchema>;
-
-export const joinGroupFormSchema = object({
-  id: string().required('Please select a group'),
-});
-
-export type JoinGroupFormType = InferType<typeof joinGroupFormSchema>;
-
-export const createNewGroupFormSchema = object({
-  name: string().required('Group name is required'),
-  // location: mixed(),
-  verified: boolean().default(false),
-});
-
-export type CreateNewGroupFormType = InferType<typeof createNewGroupFormSchema>;
 
 export const groupFormSchema = object({
   name: string().required('Group name is required'),

@@ -1,37 +1,36 @@
-import { NextRequestWithAuth, withAuth } from 'next-auth/middleware';
-import { NextResponse } from 'next/server';
+import { getToken } from 'next-auth/jwt';
+import { NextRequest, NextResponse } from 'next/server';
 
-export default withAuth(
-  // `withAuth` augments your `Request` with the user's token.
-  async function middleware(request: NextRequestWithAuth) {
-    const pathname = request.nextUrl.pathname || '';
-    const token = request.nextauth.token;
-    if (pathname?.startsWith('/dashboard') && !token) {
-      return Response.redirect(new URL('/auth?tab=sign-in', request.url));
-    }
-    if (pathname?.startsWith('api')) {
-      // TODO check authenticated session
-      // TODO protect api routes PUT/POST/DELETE to require global admin rights
-    }
-    return NextResponse.next();
-  },
-  {
-    callbacks: {
-      authorized: ({ token }) => {
-        return true;
-      },
-    },
-  },
-);
+export async function middleware(request: NextRequest) {
+  const token = await getToken({ req: request });
+  const authenticated = !!token;
+  const isGlobalAdmin = false; // TODO
 
-// export async function middleware(request: NextRequest) {
-//   const pathname = request.nextUrl.pathname || '';
-//   if (pathname.startsWith('api')) {
-//     // TODO check authenticated session
-//     // TODO protect api routes PUT/POST/DELETE to require global admin rights
-//   }
-//   return NextResponse.next();
-// }
+  const {
+    method,
+    nextUrl: { pathname },
+  } = request;
+
+  const isRead = method === 'GET';
+  const isWrite = !isRead;
+
+  let allowAccess = true;
+
+  if (pathname.startsWith('/api') && !pathname.startsWith('/api/auth')) {
+    if (pathname.startsWith('/api/global-admin')) {
+      // Allow only global admins access to global-admin routes
+      allowAccess = authenticated && isGlobalAdmin;
+    } else if (pathname.startsWith('/api/profile') && isWrite) {
+      // Allow only authenticated users to write to their profile
+      allowAccess = authenticated;
+    } else if (pathname.startsWith('/api/group/admin')) {
+      // Allow only group admins to access group admin api routes
+      const isGroupAdmin = false; // TODO
+      allowAccess = authenticated && isGroupAdmin;
+    }
+  }
+  return allowAccess ? NextResponse.next() : NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+}
 
 export const config = {
   // Do not run the middleware on the following paths

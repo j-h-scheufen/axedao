@@ -10,7 +10,7 @@ const ContactInfo = ({ className = '', links = [], isLoading }: Props) => {
   const { getLinkIcon } = useContactInfo();
   if (isLoading) return <ContactInfoSkeleton />;
   return (
-    <div className={clsx('flex flex-wrap gap-3 h-fit w-full text-small text-default-500', className)}>
+    <div className={clsx('flex flex-wrap gap-2 h-fit w-full text-small text-default-500', className)}>
       {links.map((link) => {
         const { type, url, id } = link;
         const Icon = getLinkIcon(type);

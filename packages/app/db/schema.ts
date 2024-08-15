@@ -1,3 +1,4 @@
+import { titles } from '@/constants';
 import { relations } from 'drizzle-orm';
 import {
   AnyPgColumn,
@@ -14,17 +15,7 @@ import {
   varchar,
 } from 'drizzle-orm/pg-core';
 
-export const titleEnum = pgEnum('title', [
-  'mestre',
-  'contra-mestre',
-  'mestrando',
-  'professor',
-  'instrutor',
-  'monitor',
-  'aluno-graduado',
-  'aluno',
-  'iniciante',
-]);
+export const titleEnum = pgEnum('title', titles);
 export const linkTypeEnum = pgEnum('link_type', ['twitter', 'facebook', 'instagram', 'linkedin']);
 
 export const users = pgTable(
@@ -69,8 +60,8 @@ export const groups = pgTable(
     leader: uuid('leader_id').references((): AnyPgColumn => users.id, { onDelete: 'set null' }),
     founder: varchar('founder'),
     verified: boolean('verified').notNull().default(false),
-    city: varchar('city'),
-    country: varchar('country'),
+    city: varchar('city').notNull(),
+    country: varchar('country').notNull(),
   },
   (table) => {
     return {

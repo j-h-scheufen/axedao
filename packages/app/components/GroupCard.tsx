@@ -14,7 +14,7 @@ import GroupCardSkeleton from './skeletons/GroupCardSkeleton';
 type Props = { group: Group; className?: string; startFooter?: ReactNode; isLoading?: boolean };
 const GroupCard = ({ group, className = '', startFooter = null, isLoading = false }: Props) => {
   const router = useRouter();
-  const { name, id, logo, verified } = group;
+  const { name, id, logo, verified, country, city } = group;
   if (isLoading) return <GroupCardSkeleton className={className} />;
   return (
     <Card className={clsx('w-full', className)}>
@@ -27,7 +27,7 @@ const GroupCard = ({ group, className = '', startFooter = null, isLoading = fals
           </div>
           <div className="flex items-center gap-2">
             <span className="flex items-center gap-1 text-small text-default-500">
-              <MapPinIcon className="h-3 w-3" /> City, Country
+              <MapPinIcon className="h-3 w-3" /> {city}, {country}
             </span>
           </div>
         </div>

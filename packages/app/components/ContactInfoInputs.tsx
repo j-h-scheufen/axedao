@@ -1,6 +1,7 @@
 'use client';
-import { ProfileFormType } from '@/constants/schemas';
-import { useProfile } from '@/store/profile.store';
+
+import { ProfileFormType } from '@/app/dashboard/profile/schema';
+import { useProfile } from '@/app/dashboard/profile/store';
 import { SiX } from '@icons-pack/react-simple-icons';
 import { Button } from '@nextui-org/button';
 import { Input } from '@nextui-org/input';

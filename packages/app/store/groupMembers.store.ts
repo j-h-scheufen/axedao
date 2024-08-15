@@ -3,7 +3,7 @@ import { generateErrorMessage } from '@/utils';
 import axios from 'axios';
 import { produce } from 'immer';
 import { create } from 'zustand';
-import { DEFAULT_PROFILE } from './profile.store';
+import { DEFAULT_PROFILE } from '../app/dashboard/profile/store';
 
 const ROLE_ORDER = ['founder', 'leader', 'admin', 'member'] as const;
 

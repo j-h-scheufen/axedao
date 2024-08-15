@@ -1,7 +1,7 @@
 'use client';
 
+import { useIsExitingGroup, useProfileActions } from '@/app/dashboard/profile/store';
 import { useIsGroupAdmin, useIsInitializingGroupProfile } from '@/store/groupProfile.store';
-import { useIsExitingGroup, useProfileActions } from '@/store/profile.store';
 import { Button } from '@nextui-org/button';
 import { useDisclosure } from '@nextui-org/react';
 import { SettingsIcon } from 'lucide-react';

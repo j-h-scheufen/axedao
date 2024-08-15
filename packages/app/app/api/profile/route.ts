@@ -1,99 +1,79 @@
-import { LinkType, ProfileFormType, profileFormSchema } from '@/constants/schemas';
-import { addLink, fetchUserProfileByEmail, removeLink, updateLink, updateUser } from '@/db';
-import { Link, UserProfile } from '@/types/model';
+import { profileFormSchema, ProfileFormType } from '@/app/dashboard/profile/schema';
+import { createLinks, fetchProfile, removeLinks, updateLink, updateUser } from '@/db';
+import { Link } from '@/types/model';
+import { isEqual, isNil } from 'lodash';
 import { getServerSession } from 'next-auth/next';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-// TODO everything under the api/route must be protected via middleware.ts to check for user session
-
-export async function GET(/* request: NextRequest */) {
+export async function GET() {
   const session = await getServerSession();
-  if (!session?.user?.email) {
-    return Response.json(
-      { error: true, message: 'User not authenticated' },
-      {
-        status: 401,
-      },
-    );
+  const email = session?.user?.email;
+  if (!email) {
+    return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
-  const user = await fetchUserProfileByEmail(session?.user?.email);
+  const profile = await fetchProfile(email);
+  if (!profile) {
+    return NextResponse.json({ error: 'Profile was not found' }, { status: 404 });
+  }
 
-  // if (user?.id) {
-  //   const _user = await fetchUserProfile(user.id);
-  //   console.log(_user);
-  // }
-
-  return Response.json(user);
+  return Response.json(profile);
 }
 
 export async function PATCH(request: NextRequest) {
   const session = await getServerSession();
-  if (!session?.user?.email) {
-    return Response.json(
-      { error: true, message: 'Not authorized' },
-      {
-        status: 401,
-      },
-    );
+  const email = session?.user?.email;
+  if (!email) {
+    return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
   const body = await request.json();
   const isValid = await profileFormSchema.validate(body);
   if (!isValid) {
-    return Response.json(
-      { error: true, message: 'Invalid profile data' },
-      {
-        status: 400,
-      },
-    );
+    return NextResponse.json({ error: 'Invalid profile data' }, { status: 400 });
   }
 
-  const { links, ...profileData } = body as ProfileFormType;
-  const user = await fetchUserProfileByEmail(session.user.email);
-  if (!user) throw new Error();
-  const { id, links: existingLinks = [] } = user;
+  const { links: links, ...profileData } = body as Omit<ProfileFormType, 'links' | 'avatar'> & {
+    links: Link[];
+    avatar: string | null | undefined;
+  };
+  const profile = await fetchProfile(email);
+  if (!profile) {
+    return NextResponse.json({ error: 'Could not find user data' }, { status: 404 });
+  }
+  const { id, links: currentLinks = [] } = profile;
 
-  for (const link of links) {
-    const isNewLink = !link.id;
-    let isUpdatedLink = false;
+  const linkIds = links.map((link) => link.id);
+  const currentLinkIds = currentLinks.map((link) => link.id);
+  const removedLinkIds = currentLinkIds.filter((linkId) => !linkIds.includes(linkId));
 
-    if (isNewLink) {
-      const addedLink = await addLink({
-        ...link,
-        type: link.type as LinkType,
-        ownerId: id,
-      });
-      link.id = addedLink?.id;
-    } else {
-      for (const existingLink of existingLinks) {
-        if (link.id === existingLink.id && link.url !== existingLink.url) {
-          isUpdatedLink = true;
-          break;
-        }
-      }
-    }
-
-    if (isUpdatedLink) {
-      await updateLink(link as Link);
-    }
+  if (removedLinkIds.length) {
+    await removeLinks(removedLinkIds);
   }
 
-  const deletedLinkIds: number[] = [];
-  for (const existingLink of existingLinks) {
-    let isDeletedLink = true;
-    for (const link of links) {
-      if (link.id === existingLink.id) {
-        isDeletedLink = false;
-        break;
-      }
-    }
-    if (isDeletedLink) {
-      await removeLink(existingLink.id);
-      deletedLinkIds.push(existingLink.id);
+  const unChangedLinks: Link[] = [];
+  const newLinks: Link[] = [];
+  const updatedLinks = links.filter((link) => {
+    const currentLink = link?.id && currentLinks.find((currentLink) => currentLink.id === link.id);
+    const isUnChanged = currentLink && isEqual(currentLink, link);
+    if (isUnChanged) unChangedLinks.push(link);
+    const isUpdated = currentLink && !isUnChanged;
+    if (!isUpdated && isNil(link?.id)) newLinks.push(link);
+    return isUpdated;
+  });
+
+  if (updatedLinks.length) {
+    for (const updatedLink of updatedLinks) {
+      await updateLink(updatedLink);
     }
   }
 
-  const updatedUser = await updateUser({ ...(profileData as UserProfile), id });
-  return Response.json({ ...user, ...updatedUser, links });
+  let createdLinks: Link[] = [];
+  if (newLinks.length) {
+    createdLinks = await createLinks(newLinks);
+  }
+
+  const updatedProfile = await updateUser({ id, ...profileData });
+  const responseData = { ...updatedProfile, links: [...unChangedLinks, ...updatedLinks, ...createdLinks] };
+  return Response.json(responseData);
 }
