@@ -1,47 +1,29 @@
-import { getServerSession } from 'next-auth';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-import { addGroupAdmin, fetchGroupProfile, fetchUserProfileByEmail, isGroupMember } from '@/db';
+import { addGroupAdmin, isGroupAdmin, isGroupMember } from '@/db';
 import { generateErrorMessage } from '@/utils';
+import { getToken } from 'next-auth/jwt';
 
 // TODO everything under the api/ route must be protected via middleware.ts to check for user session
 
-export async function POST(request: NextRequest, { params }: { params: { groupId: string; memberId: string } }) {
-  const session = await getServerSession();
-  if (!session?.user?.email) {
-    return Response.json(
-      { error: true, message: 'Not authenticated' },
-      {
-        status: 401,
-      },
-    );
+export async function POST(req: NextRequest, { params }: { params: { groupId: string; memberId: string } }) {
+  const token = await getToken({ req });
+  if (!token?.sub) {
+    return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
+
+  const userId = token.sub;
   const { groupId, memberId } = params;
-
-  // Check if user is the group's leader
-  const user = await fetchUserProfileByEmail(session.user.email);
-  const group = await fetchGroupProfile(groupId);
-
-  if (user?.id !== group?.leader) {
-    return Response.json(
-      { error: true, message: "Only a leader of a group can promote it's members to admin" },
-      {
-        status: 401,
-      },
-    );
+  const isAdmin = await isGroupAdmin(groupId, userId);
+  if (!isAdmin) {
+    return NextResponse.json({ error: 'Unauthorized, only admins can demote admins' }, { status: 401 });
   }
 
   const isMember = await isGroupMember(groupId, memberId);
-
   if (!isMember) {
-    return Response.json(
-      {
-        error: true,
-        message: 'Only group members can be upgraded to admin, this user might be a group admin or leader',
-      },
-      {
-        status: 401,
-      },
+    return NextResponse.json(
+      { error: 'Only group members can be upgraded to admin, this user might be a group admin or leader' },
+      { status: 400 },
     );
   }
 
@@ -50,14 +32,9 @@ export async function POST(request: NextRequest, { params }: { params: { groupId
       groupId,
       userId: memberId,
     });
-    return Response.json({ success: true });
+    return NextResponse.json({ success: true });
   } catch (error) {
     const message = generateErrorMessage(error, 'An unexpected server error occurred while fetching group members');
-    return Response.json(
-      { error: true, message },
-      {
-        status: 400,
-      },
-    );
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

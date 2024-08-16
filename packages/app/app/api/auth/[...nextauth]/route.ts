@@ -37,15 +37,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
           if (result.success) {
             const user = await fetchSessionData(address);
-            if (user) {
-              const { name, email, avatar } = user;
-              return {
-                id: siwe.address,
-                name,
-                email,
-                image: avatar,
-              };
-            }
+            if (user) return user;
           }
           return null;
         } catch (e) {

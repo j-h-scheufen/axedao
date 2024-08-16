@@ -1,36 +1,21 @@
-import { fetchUserProfileByEmail, updateUser } from '@/db';
-import { getServerSession } from 'next-auth';
-import { NextRequest } from 'next/server';
+import { fetchGroup, updateUser } from '@/db';
+import { getToken } from 'next-auth/jwt';
+import { NextRequest, NextResponse } from 'next/server';
 
-// TODO everything under the api/ route must be protected via middleware.ts to check for user session
-
-export async function POST(request: NextRequest, { params }: { params: { groupId: string } }) {
-  const session = await getServerSession();
-  if (!session?.user?.email) {
-    return Response.json(
-      { error: true, message: 'Not authorized' },
-      {
-        status: 401,
-      },
-    );
+export async function POST(req: NextRequest, { params }: { params: { groupId: string } }) {
+  const token = await getToken({ req });
+  if (!token?.sub) {
+    return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
+  const userId = token.sub;
 
   try {
     const { groupId } = params;
-    const userProfile = await fetchUserProfileByEmail(session.user.email);
-    if (!userProfile) {
-      throw new Error();
-    }
-    const { id } = userProfile;
-    await updateUser({ id, group_id: groupId });
-    return Response.json({ success: true });
+    await updateUser({ id: userId, groupId });
+    const group = await fetchGroup(groupId);
+    return NextResponse.json({ group });
   } catch (error) {
     const message = error instanceof Error ? error.message : 'An unexpected server error occurred while joining group';
-    return Response.json(
-      { error: true, message },
-      {
-        status: 500,
-      },
-    );
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

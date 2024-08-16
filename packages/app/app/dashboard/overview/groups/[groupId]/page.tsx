@@ -1,4 +1,4 @@
-import GroupProfile from '@/components/GroupProfile';
+import GroupProfile from './_components/GroupProfile';
 
 type Props = { params: { groupId: string } };
 const page = ({ params: { groupId = '' } }: Props) => {

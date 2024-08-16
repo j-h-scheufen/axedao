@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
       searchTerm || undefined,
     );
     const count = await countGroups();
-    return Response.json({ groups, count });
+    return NextResponse.json({ groups, count });
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: 'An unexpected error occured while fetching groups' }, { status: 500 });
@@ -70,9 +70,9 @@ export async function POST(request: NextRequest) {
     await updateUser({ id: userId, groupId: newGroupId });
     await addGroupAdmin({ groupId: newGroupId, userId });
 
-    return Response.json(group);
+    return NextResponse.json({ group });
   } catch (error) {
-    return Response.json(
+    return NextResponse.json(
       { error: true, message: generateErrorMessage(error, 'An unexpected error occurred while creating group') },
       {
         status: 403,

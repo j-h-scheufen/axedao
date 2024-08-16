@@ -1,5 +1,5 @@
-import { GroupMemberRole } from '@/store/groupMembers.store';
 import { Chip, ChipProps } from '@nextui-org/react';
+import { GroupMemberRole } from '../../store/groupMembers.store';
 
 const roleColorMap: Record<string, ChipProps['color']> = {
   member: 'default',
@@ -9,11 +9,11 @@ const roleColorMap: Record<string, ChipProps['color']> = {
 };
 
 type Props = { role: GroupMemberRole };
-const GroupMemberRoleChip = ({ role }: Props) => {
+const RoleChip = ({ role }: Props) => {
   return (
     <Chip className="capitalize" color={roleColorMap[role]} size="sm" variant="flat">
       {role}
     </Chip>
   );
 };
-export default GroupMemberRoleChip;
+export default RoleChip;

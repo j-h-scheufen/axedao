@@ -23,10 +23,6 @@ export async function middleware(request: NextRequest) {
     } else if (pathname.startsWith('/api/profile') && isWrite) {
       // Allow only authenticated users to write to their profile
       allowAccess = authenticated;
-    } else if (pathname.startsWith('/api/group/admin')) {
-      // Allow only group admins to access group admin api routes
-      const isGroupAdmin = false; // TODO
-      allowAccess = authenticated && isGroupAdmin;
     }
   }
   return allowAccess ? NextResponse.next() : NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

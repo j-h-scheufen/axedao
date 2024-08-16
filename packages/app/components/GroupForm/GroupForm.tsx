@@ -1,8 +1,6 @@
 'use client';
 
-import { useProfile, useProfileActions } from '@/app/dashboard/profile/store';
-import { GroupFormType, groupFormSchema } from '@/constants/schemas';
-import { useGroupMembersActions } from '@/store/groupMembers.store';
+import { useGroupMembersActions } from '@/app/dashboard/overview/groups/[groupId]/store/groupMembers.store';
 import {
   useGroupProfile,
   useGroupProfileActions,
@@ -10,7 +8,9 @@ import {
   useIsGroupProfileInitialized,
   useIsInitializingGroupProfile,
   useIsUpdatingGroupProfile,
-} from '@/store/groupProfile.store';
+} from '@/app/dashboard/overview/groups/[groupId]/store/groupProfile.store';
+import { useProfile, useProfileActions } from '@/app/dashboard/profile/store';
+import { GroupFormType, groupFormSchema } from '@/constants/schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@nextui-org/button';
 import { Input, Textarea } from '@nextui-org/input';

@@ -17,13 +17,7 @@ const GroupAssociation = () => {
   const groupCardClassName = 'mx-auto sm:mx-0 md:max-w-80';
   if (isInitializingProfile) return <GroupCardSkeleton className={groupCardClassName} />;
 
-  if (isProfileInitialized && !group)
-    return (
-      <CreateGroupAssociation
-        // onSubmit={() => console.log('creating group assocition')}
-        isLoading={isLoading}
-      />
-    );
+  if (isProfileInitialized && !group) return <CreateGroupAssociation isLoading={isLoading} />;
 
   return group ? (
     <GroupCard className={groupCardClassName} group={group} isLoading={isLoading} />

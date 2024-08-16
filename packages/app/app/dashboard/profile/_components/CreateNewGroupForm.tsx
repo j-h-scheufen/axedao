@@ -7,9 +7,7 @@ import { SearchIcon } from 'lucide-react';
 import { Controller } from 'react-hook-form';
 import useNewGroupForm from '../hooks/useNewGroupForm';
 
-type Props = { onSubmit?: () => void | null };
-
-const CreateNewGroupForm = ({ onSubmit }: Props) => {
+const CreateNewGroupForm = () => {
   const {
     form: {
       register,
@@ -34,7 +32,6 @@ const CreateNewGroupForm = ({ onSubmit }: Props) => {
   return (
     <form
       onSubmit={handleSubmit((values) => {
-        onSubmit && onSubmit();
         return profileActions.createGroup({
           ...values,
           country: countries.find((country) => country.isoCode === values.country)!.name,
@@ -48,7 +45,7 @@ const CreateNewGroupForm = ({ onSubmit }: Props) => {
           placeholder="Enter group's name"
           errorMessage={errors?.name?.message?.toString()}
           color={!!errors?.name ? 'danger' : undefined}
-          classNames={{ inputWrapper: 'min-h-12' }}
+          classNames={{ inputWrapper: '!min-h-12' }}
         />
       </div>
       <div className="flex gap-3">
@@ -64,6 +61,7 @@ const CreateNewGroupForm = ({ onSubmit }: Props) => {
                 className="max-w-xs"
                 label="Search country"
                 isLoading={isLoadingCountries}
+                listboxProps={{ emptyContent: isLoadingCountries ? 'Loading...' : 'No countries found' }}
                 onSelectionChange={(isoCode) => {
                   console.log(isoCode);
                   onChange(isoCode);
@@ -108,6 +106,7 @@ const CreateNewGroupForm = ({ onSubmit }: Props) => {
                 className="max-w-xs"
                 label="Search cities"
                 isLoading={isLoadingCities}
+                listboxProps={{ emptyContent: isLoadingCities ? 'Loading...' : 'No cities found' }}
                 disabled={!selectedCountryCode}
                 classNames={{ base: cn({ 'pointer-events-none opacity-50': !cities.length }) }}
                 onInputChange={setCitySearchTerm}

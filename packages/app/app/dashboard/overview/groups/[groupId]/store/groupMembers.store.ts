@@ -1,9 +1,9 @@
+import { DEFAULT_PROFILE } from '@/app/dashboard/profile/store';
 import { User } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
 import axios from 'axios';
 import { produce } from 'immer';
 import { create } from 'zustand';
-import { DEFAULT_PROFILE } from '../app/dashboard/profile/store';
 
 const ROLE_ORDER = ['founder', 'leader', 'admin', 'member'] as const;
 
@@ -30,9 +30,9 @@ export type GroupMembersState = {
   isInitializingGroupAdmins: boolean;
   adminsInitialized: boolean;
   initializeAdminError?: string;
-  memberBeingPromotedToAdmin?: string | undefined; // id of member being promoted
-  adminBeingDemotedToMember?: string | undefined; // id of admin being demoted
-  adminBeingPromotedToLeader?: string | undefined; // id of admin being promoted
+  memberBeingPromotedToAdmin?: string; // id of member being promoted
+  adminBeingDemotedToMember?: string; // id of admin being demoted
+  memberBeingRemoved?: string; // id of member being removed
 };
 
 type GroupMembersActions = {
@@ -42,7 +42,7 @@ type GroupMembersActions = {
   search: (searchTerm: string) => Promise<void>;
   promoteToAdmin: (memberId: string) => Promise<void>;
   demoteToMember: (adminId: string) => Promise<void>;
-  promoteToLeader: (adminId: string, onSuccess?: () => void) => Promise<void>;
+  removeMember: (memberId: string) => Promise<void>;
 };
 
 export type GroupMembersStore = GroupMembersState & { actions: GroupMembersActions };
@@ -99,7 +99,6 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
         const data: User[] = res.data;
         if (data?.length && data.length > 0) {
           const { admins, founder, leader } = get();
-          console.log(admins);
           const adminIds = admins.map((admin) => admin.userId);
           const groupMembers: GroupMember[] = data.map((user) => {
             const userId = user.id;
@@ -185,24 +184,24 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
       } catch (error) {}
       set({ adminBeingDemotedToMember: undefined });
     },
-    promoteToLeader: async (adminId: string, onSuccess?: () => void) => {
-      const { adminBeingPromotedToLeader, groupId } = get();
-      if (adminBeingPromotedToLeader || !groupId) return;
-      set({ adminBeingPromotedToLeader: adminId });
+    removeMember: async (memberId: string) => {
+      const { memberBeingRemoved, groupId } = get();
+      if (memberBeingRemoved || !groupId) return;
+      set({ memberBeingRemoved: memberId });
       try {
-        const { data } = await axios.post(`/api/groups/${groupId}/admins/${adminId}/promote-to-leader`);
-        if (data.success) {
+        const { data } = await axios.post(`/api/groups/${groupId}/members/${memberId}/remove`);
+        if (data?.success) {
           set(
             produce((state: GroupMembersState) => {
-              const demotedAdmin = state.searchResults.find((member) => member.id === adminId);
-              if (demotedAdmin) demotedAdmin.role = 'leader';
-              state.admins = state.admins.filter((admin) => admin.userId !== adminId);
+              const removedUser = state.searchResults.find((member) => member.id === memberId);
+              if (removedUser) state.searchResults = state.searchResults.filter((member) => member.id !== memberId);
             }),
           );
-          onSuccess && onSuccess();
         }
-      } catch (error) {}
-      set({ adminBeingPromotedToLeader: undefined });
+      } catch (error) {
+        // TODO handle error
+      }
+      set({ memberBeingRemoved: undefined });
     },
   },
 }));
@@ -240,5 +239,5 @@ export const useMemberBeingPromotedToAdmin = (): string | undefined =>
 export const useAdminBeingDemotedToMember = (): string | undefined =>
   useGroupMembersStore((state) => state.adminBeingDemotedToMember);
 
-export const useAdminBeingPromotedToLeader = (): string | undefined =>
-  useGroupMembersStore((state) => state.adminBeingPromotedToLeader);
+export const useMemberBeingRemoved = (): string | undefined =>
+  useGroupMembersStore((state) => state.memberBeingRemoved);

@@ -20,7 +20,7 @@ export async function POST() {
       throw new Error();
     }
     const { id } = userProfile;
-    await updateUser({ id, group_id: null });
+    await updateUser({ id, groupId: null });
     return Response.json({ success: true });
   } catch (error) {
     const message = error instanceof Error ? error.message : 'An unexpected server error occurred while exiting group';

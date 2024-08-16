@@ -12,16 +12,14 @@ import {
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
 import { Button } from '@nextui-org/button';
-import { Spinner } from '@nextui-org/react';
 import { useInfiniteScroll } from '@nextui-org/use-infinite-scroll';
 import { Search } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useDebounce } from 'use-debounce';
-import { JoinGroupFormType, joinGroupFormSchema } from '../schema';
+import { joinGroupFormSchema } from '../schema';
 
-type Props = { onSubmit?: (values: JoinGroupFormType) => void | null };
-const JoinGroupForm = ({ onSubmit }: Props) => {
+const JoinGroupForm = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [debouncedSearchTerm] = useDebounce(searchTerm, 500);
@@ -59,7 +57,6 @@ const JoinGroupForm = ({ onSubmit }: Props) => {
     <form
       onSubmit={handleSubmit(({ id }) => {
         profileActions.joinGroup(id);
-        onSubmit && onSubmit({ id });
       })}
     >
       <Controller
@@ -72,7 +69,8 @@ const JoinGroupForm = ({ onSubmit }: Props) => {
               ref={ref}
               label="Join a group"
               placeholder="Search groups by name"
-              inputProps={{ classNames: { inputWrapper: 'min-h-12' } }}
+              inputProps={{ classNames: { inputWrapper: '!min-h-12' } }}
+              listboxProps={{ emptyContent: isLoadingGroups ? 'Loading...' : 'No groups found' }}
               startContent={<Search className="h-4 w-4" strokeWidth={1.4} />}
               isLoading={isLoadingGroups}
               inputValue={searchTerm}
@@ -97,7 +95,7 @@ const JoinGroupForm = ({ onSubmit }: Props) => {
       />
       <ErrorText message={loadGroupsError} />
       <div className="mt-5 flex justify-between gap-3">
-        <Button type="submit" className="w-full flex-1" isLoading={isJoiningGroup} spinner={<Spinner size="sm" />}>
+        <Button type="submit" className="w-full flex-1" isLoading={isJoiningGroup}>
           Join group
         </Button>
       </div>

@@ -42,6 +42,8 @@ const DEFAULT_PROPS: GroupProfileState = {
     founder: null,
     verified: false,
     links: [],
+    city: '',
+    country: '',
   },
   isGroupAdmin: false,
   isGroupProfileInitialized: false,

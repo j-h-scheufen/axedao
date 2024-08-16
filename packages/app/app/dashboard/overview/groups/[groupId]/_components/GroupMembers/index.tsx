@@ -1,20 +1,25 @@
 'use client';
 
+import { Spinner, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@nextui-org/react';
+import { useInfiniteScroll } from '@nextui-org/use-infinite-scroll';
+import { useEffect } from 'react';
 import {
   useGroupMembers,
   useGroupMembersActions,
   useGroupMembersHasMoreResults,
   useIsLoadingGroupMembers,
-} from '@/store/groupMembers.store';
-import { Spinner, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@nextui-org/react';
-import { useInfiniteScroll } from '@nextui-org/use-infinite-scroll';
-import { useEffect } from 'react';
+} from '../../store/groupMembers.store';
+import { useGroupProfile, useIsGroupAdmin, useIsInitializingGroupProfile } from '../../store/groupProfile.store';
+import { GroupMembersSkeleton } from '../skeletons';
 import TableCellValue from './TableCellValue';
 import { GroupMemberTableColumnKey, columns } from './utils';
 
 type Props = { id: string };
 const GroupMembers = ({ id }: Props) => {
+  const isInitializingGroupProfile = useIsInitializingGroupProfile();
+  const groupProfile = useGroupProfile();
   const { initialize, loadNextPage } = useGroupMembersActions();
+  const isGroupAdmin = useIsGroupAdmin();
   const groupMembers = useGroupMembers();
   const hasMoreMembers = useGroupMembersHasMoreResults();
   const isLoading = useIsLoadingGroupMembers();
@@ -30,9 +35,13 @@ const GroupMembers = ({ id }: Props) => {
     onLoadMore: () => loadNextPage(),
   });
 
+  if (isInitializingGroupProfile || !groupProfile.id) return <GroupMembersSkeleton />;
+
+  const filteredColumns = [...columns].filter((column) => (isGroupAdmin ? true : column.name !== 'ACTIONS'));
+
   return (
     <Table baseRef={scrollerRef} aria-label="Group members table">
-      <TableHeader columns={[...columns]}>
+      <TableHeader columns={filteredColumns}>
         {(column) => (
           <TableColumn
             key={column.uid}
@@ -46,7 +55,7 @@ const GroupMembers = ({ id }: Props) => {
       <TableBody
         items={groupMembers}
         isLoading={isLoading}
-        loadingContent={<Spinner label="Loading..." size="sm" />}
+        loadingContent={<Spinner label="Loading..." size="sm" color="default" />}
         emptyContent="No members found"
       >
         {(item) => (

@@ -35,9 +35,10 @@ export async function fetchUsers(
 
 // Keep
 export async function fetchSessionData(walletAddress: string) {
+  if (!walletAddress) return undefined;
   return await db.query.users.findFirst({
     where: (users, { eq }) => eq(users.walletAddress, walletAddress),
-    columns: { email: true, name: true, avatar: true },
+    columns: { email: true, name: true, avatar: true, id: true },
   });
 }
 
@@ -130,6 +131,12 @@ export async function fetchUserIdFromEmail(email: string): Promise<string | unde
   return users[0].id;
 }
 
+export async function fetchGroup(groupId: string) {
+  return await db.query.groups.findFirst({
+    where: (groups, { eq }) => eq(groups.id, groupId),
+  });
+}
+
 export async function fetchGroupProfile(groupId: string): Promise<GroupProfile> {
   const group = await db.select().from(schema.groups).where(eq(schema.groups.id, groupId));
   const links = await db.select().from(schema.links).where(eq(schema.links.ownerId, groupId));
@@ -167,11 +174,14 @@ export async function insertGroup(group: schema.InsertGroup) {
 }
 
 export async function deleteGroup(groupId: string) {
-  // TODO delete group associations
   await db.update(schema.users).set({ groupId: null }).where(eq(schema.users.groupId, groupId));
   await db.delete(schema.groupAdmins).where(eq(schema.groupAdmins.groupId, groupId));
   await db.delete(schema.links).where(eq(schema.links.ownerId, groupId));
   await db.delete(schema.groups).where(eq(schema.groups.id, groupId));
+}
+
+export async function removeGroupMember(memberId: string) {
+  await db.update(schema.users).set({ groupId: null }).where(eq(schema.users.id, memberId));
 }
 
 // TODO: remove
@@ -229,8 +239,8 @@ export async function fetchGroupAdmins(groupId: string, limit: number = 20, offs
   // .offset(offset);
 }
 
-export async function removeGroupAdmin(entry: schema.InsertGroupAdmin) {
+export async function removeGroupAdmin(groupId: string, adminId: string) {
   await db
     .delete(schema.groupAdmins)
-    .where(and(eq(schema.groupAdmins.groupId, entry.groupId), eq(schema.groupAdmins.userId, entry.userId)));
+    .where(and(eq(schema.groupAdmins.groupId, groupId), eq(schema.groupAdmins.userId, adminId)));
 }

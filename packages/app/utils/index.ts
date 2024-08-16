@@ -1,4 +1,4 @@
-import { GroupMemberRole } from '@/store/groupMembers.store';
+import { GroupMemberRole } from '@/app/dashboard/overview/groups/[groupId]/store/groupMembers.store';
 import { GroupProfile } from '@/types/model';
 import axios, { AxiosError } from 'axios';
 
@@ -36,4 +36,33 @@ export const getGroupMemberRole = (userId: string, group: GroupProfile) => {
     role = 'admin';
   }
   return role as GroupMemberRole;
+};
+
+export const removeTrailingSlash = (val: string) => (val.endsWith('/') ? val.substring(0, val.length - 1) : val);
+
+/**
+ * Adds two numbers and returns the result.
+ *
+ * @param pathname - The literal pathname e.g /api/groups/76848.
+ * @param path - The path of the route.ts file according to Nextjs conventions e.g /api/groups/[groupId].
+ * @returns A boolean of whether pathname is handled by the file in path match.
+ */
+export const matchesPathname = (pathname: string, path: string) => {
+  if (pathname === path) {
+    return true;
+  }
+  const basePathname = removeTrailingSlash(pathname.split('?')[0] as string);
+  const basePath = removeTrailingSlash(path.split('?')[0] as string);
+  if (basePathname === basePath) {
+    return true;
+  }
+  const basePathRegex = new RegExp(
+    `^${basePath.replace(/(\[[a-zA-Z0-9-]+\])+/g, '[a-zA-Z0-9-]+')}$`
+      .replace(/\[\[\.\.\.[a-zA-Z0-9-]+\]\]/g, '?.*')
+      .replace(/\[\.\.\.[a-zA-Z0-9-]+\]/g, '.*'),
+  );
+  if (basePathRegex.test(basePathname)) {
+    return true;
+  }
+  return false;
 };

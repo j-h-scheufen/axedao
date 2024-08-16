@@ -30,7 +30,7 @@ const SignOutButton = () => {
         signOut({ redirect: false });
       }}
     >
-      {isLoading ? <Spinner size="sm" /> : <LogOutIcon className="h-4 w-4 text-default-500" />}
+      {isLoading ? <Spinner size="sm" color="default" /> : <LogOutIcon className="h-4 w-4 text-default-500" />}
     </Button>
   );
 };

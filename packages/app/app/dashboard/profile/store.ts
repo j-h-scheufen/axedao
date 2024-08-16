@@ -84,8 +84,9 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
       set({ isJoiningGroup: true });
       try {
         const { data } = await axios.post(`/api/groups/${groupId}/join`);
-        if (!data.success) throw new Error();
-        set({ profile: { ...profile, groupId: groupId } });
+        if (!data.group) throw new Error('An error occurred while joining group');
+        const { group } = data;
+        set({ profile: { ...profile, group, groupId: group.id } });
       } catch (error) {
         const message = error instanceof Error ? error.message : 'An error occured while joining group';
         set({ joinGroupError: message });
@@ -113,7 +114,9 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
       set({ isCreatingGroup: true });
       try {
         const { data } = await axios.post(`/api/groups`, groupProfileData);
-        set({ profile: { ...profile, groupId: data.id } });
+        if (!data.group) throw new Error('An error occurred while creating group');
+        const { group } = data;
+        set({ profile: { ...profile, group, groupId: group.id } });
       } catch (error: unknown) {
         const message = generateErrorMessage(error, 'An error occured while creating group');
         set({ createGroupError: message });

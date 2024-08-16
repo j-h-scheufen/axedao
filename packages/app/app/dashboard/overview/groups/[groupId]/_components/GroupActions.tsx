@@ -1,12 +1,12 @@
 'use client';
 
-import { useIsExitingGroup, useProfileActions } from '@/app/dashboard/profile/store';
-import { useIsGroupAdmin, useIsInitializingGroupProfile } from '@/store/groupProfile.store';
+import { useIsExitingGroup, useProfile, useProfileActions } from '@/app/dashboard/profile/store';
 import { Button } from '@nextui-org/button';
 import { useDisclosure } from '@nextui-org/react';
 import { SettingsIcon } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import { useGroupProfile, useIsGroupAdmin, useIsInitializingGroupProfile } from '../store/groupProfile.store';
 import LeaveGroupConfirmationModal from './LeaveGroupConfirmationModal';
 
 const GroupActions = () => {
@@ -15,6 +15,9 @@ const GroupActions = () => {
 
   const pathname = usePathname();
 
+  const profile = useProfile();
+  const groupProfile = useGroupProfile();
+  const isGroupMember = profile.groupId === groupProfile.id;
   const isGroupAdmin = useIsGroupAdmin();
   const isLoading = useIsInitializingGroupProfile();
 
@@ -36,16 +39,17 @@ const GroupActions = () => {
             onDelete={exitGroupHandler}
             isDeleting={isExitingGroup}
           />
-          <Button variant="light" size="sm" color="danger" onPress={onOpen} isLoading={isExitingGroup}>
-            Leave group
-          </Button>
+          {isGroupMember && !isGroupAdmin && (
+            <Button variant="light" size="sm" color="danger" onPress={onOpen} isLoading={isExitingGroup}>
+              Leave group
+            </Button>
+          )}
           {isGroupAdmin && (
             <Button
               as={Link}
               href={`${pathname}/edit`}
               size="sm"
               variant="light"
-              color="primary"
               startContent={<SettingsIcon className="h-4 w-4" />}
             >
               Settings

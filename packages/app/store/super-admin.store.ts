@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { produce } from 'immer';
 import { create } from 'zustand';
-import useGroupProfileStore, { GroupProfileState } from './groupProfile.store';
+import useGroupProfileStore, {
+  GroupProfileState,
+} from '../app/dashboard/overview/groups/[groupId]/store/groupProfile.store';
 import useGroupsStore, { GroupsState } from './groups.store';
 
 type SuperAdminState = {};

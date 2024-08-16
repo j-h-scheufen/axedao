@@ -1,61 +1,35 @@
-import { getServerSession } from 'next-auth';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-import { fetchGroupProfile, fetchUserProfileByEmail, isGroupAdmin, removeGroupAdmin } from '@/db';
+import { isGroupAdmin, removeGroupAdmin } from '@/db';
 import { generateErrorMessage } from '@/utils';
+import { getToken } from 'next-auth/jwt';
 
-export async function POST(request: NextRequest, { params }: { params: { groupId: string; adminId: string } }) {
-  const session = await getServerSession();
-  if (!session?.user?.email) {
-    return Response.json(
-      { error: true, message: 'Not authenticated' },
-      {
-        status: 401,
-      },
-    );
+export async function POST(req: NextRequest, { params }: { params: { groupId: string; adminId: string } }) {
+  const token = await getToken({ req });
+  if (!token?.sub) {
+    return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
+
+  const userId = token.sub;
   const { groupId, adminId } = params;
-
-  // Check if user is the group's leader
-  const user = await fetchUserProfileByEmail(session.user.email);
-  const group = await fetchGroupProfile(groupId);
-
-  if (user?.id !== group?.leader) {
-    return Response.json(
-      { error: true, message: "Only a leader of a group can demote it's admins to members" },
-      {
-        status: 401,
-      },
-    );
+  const isAdmin = await isGroupAdmin(groupId, userId);
+  if (!isAdmin) {
+    return NextResponse.json({ error: 'Unauthorized, only admins can demote admins' }, { status: 401 });
   }
 
-  const isAdmin = await isGroupAdmin(groupId, adminId);
-
-  if (!isAdmin) {
-    return Response.json(
-      {
-        error: true,
-        message: 'Only group admins can be demoted to members, this user is not an admin of this group',
-      },
-      {
-        status: 401,
-      },
+  const isTargetAdmin = await isGroupAdmin(groupId, adminId);
+  if (!isTargetAdmin) {
+    return NextResponse.json(
+      { error: 'Only group admins can be demoted to members, this user is not an admin of this group' },
+      { status: 400 },
     );
   }
 
   try {
-    await removeGroupAdmin({
-      groupId,
-      userId: adminId,
-    });
-    return Response.json({ success: true });
+    await removeGroupAdmin(groupId, adminId);
+    return NextResponse.json({ success: true });
   } catch (error) {
     const message = generateErrorMessage(error, 'An unexpected server error occurred while fetching group members');
-    return Response.json(
-      { error: true, message },
-      {
-        status: 400,
-      },
-    );
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
