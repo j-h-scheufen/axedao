@@ -66,17 +66,16 @@ const handler = async (req: NextRequest, context: RouteHandlerContext) => {
       strategy: 'jwt',
     },
     secret: process.env.NEXTAUTH_SECRET,
-    // callbacks: {
-    // async jwt(args) {
-    //   console.log('jwt args: ', args);
-    //   const { token, account, profile } = args;
-    //   return token;
-    // },
-    // async session({ session, token }: { session: Session; token: JWT }) {
-    //   const address = token.sub;
-    //   return session;
-    // },
-    // },
+    callbacks: {
+      async jwt(args) {
+        const { token, user } = args;
+        return { ...token, user };
+      },
+      // async session({ session, token }: { session: Session; token: JWT }) {
+      //   const address = token.sub;
+      //   return session;
+      // },
+    },
   });
 };
 

@@ -28,7 +28,6 @@ const AddAdmin = ({ groupId }: Props) => {
       isLoading={isLoadingGroupMembers}
       inputValue={searchTerm}
       onInputChange={setSearchTerm}
-      onSelectionChange={console.log}
       className="max-w-xs mt-5"
     >
       {searchResults

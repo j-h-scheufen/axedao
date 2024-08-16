@@ -2,19 +2,25 @@
 
 import BottomBar from '@/components/BottomBar';
 import Sidebar from '@/components/Sidebar';
-import { useSession } from 'next-auth/react';
+import { usePathname, useRouter } from 'next/navigation';
 import { ReactNode, useEffect } from 'react';
-import { useIsProfileInitialized, useProfileActions } from './profile/store';
+import { useIsProfileInitialized, useIsSignedIn, useProfileActions } from './profile/store';
 
 type Props = { children: ReactNode };
 const DashboardLayout = ({ children }: Props) => {
-  const session = useSession();
+  const router = useRouter();
+  const pathname = usePathname();
   const isProfileInitialized = useIsProfileInitialized();
   const profileActions = useProfileActions();
+  const isSignedIn = useIsSignedIn();
 
   useEffect(() => {
-    if (!isProfileInitialized && session.data?.user?.name) profileActions.initializeProfile();
-  }, [isProfileInitialized, session, profileActions]);
+    if (isSignedIn) {
+      if (!isProfileInitialized) profileActions.initializeProfile();
+    } else if (!pathname.startsWith('/auth')) {
+      router.push('/auth?tab=sign-in');
+    }
+  }, [isProfileInitialized, profileActions, pathname, router, isSignedIn]);
 
   return (
     <>

@@ -20,7 +20,6 @@ const useRegister = () => {
     mutationKey: ['registration'],
     mutationFn: handleRegistration,
     onSuccess: (user) => {
-      console.log('Successful registration');
       // useProfileStore.setState({ profile: user });
       router.push('/dashboard/profile');
     },

@@ -1,15 +1,19 @@
 'use client';
-import { useMemo } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
-import { Tabs, Tab } from '@nextui-org/tabs';
+import { useProfile } from '@/app/dashboard/profile/store';
 import pages from '@/constants/pages';
 import useScreenSize from '@/hooks/useScreenSize';
+import { Tab, Tabs } from '@nextui-org/tabs';
+import { usePathname, useRouter } from 'next/navigation';
+import { useMemo } from 'react';
 
 const BottomBar = () => {
   const router = useRouter();
   const pathname = usePathname();
   const { width } = useScreenSize();
   const isLargeScreen = width >= 768;
+
+  const profile = useProfile();
+  const { isGlobalAdmin } = profile;
 
   const selectedPage = useMemo(() => {
     return pathname.split('/').slice(0, 3).join('/');
@@ -28,8 +32,9 @@ const BottomBar = () => {
         selectedKey={selectedPage}
         onSelectionChange={(href) => router.push(href as string)}
       >
-        {pages.map(({ name, href, icon: Icon }) => {
+        {pages.map(({ name, href, icon: Icon, forGlobalAdminOnly }) => {
           const active = href === selectedPage;
+          if (forGlobalAdminOnly && !isGlobalAdmin) return null;
           return (
             <Tab
               key={href}

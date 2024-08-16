@@ -22,6 +22,13 @@
       "when": 1723709999248,
       "tag": "0002_plain_hiroim",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1723780538168,
+      "tag": "0003_fancy_proudstar",
+      "breakpoints": true
     }
   ]
 }

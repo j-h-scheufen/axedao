@@ -2,7 +2,7 @@ import { generateErrorMessage } from '@/utils';
 import axios from 'axios';
 import { create } from 'zustand';
 
-type Country = { name: string; isoCode: string };
+export type Country = { name: string; isoCode: string };
 
 type CountriesState = {
   countries: Country[];

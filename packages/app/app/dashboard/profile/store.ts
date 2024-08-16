@@ -19,6 +19,7 @@ export const DEFAULT_PROFILE: Profile = {
   group: null,
   walletAddress: '',
   phone: '',
+  isGlobalAdmin: false,
 };
 
 const DEFAULT_PROPS: ProfileState = {
@@ -29,6 +30,7 @@ const DEFAULT_PROPS: ProfileState = {
   isExitingGroup: false,
   isJoiningGroup: false,
   isCreatingGroup: false,
+  isSignedIn: false,
 };
 
 export const useProfileStore = create<ProfileStore>()((set, get) => ({
@@ -127,6 +129,9 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
       const { profile } = get();
       set({ profile: { ...profile, groupId: null } });
     },
+    setIsSignedIn: (isSignedIn) => {
+      set({ isSignedIn });
+    },
   },
 }));
 
@@ -147,3 +152,5 @@ export const useIsExitingGroup = (): boolean => useProfileStore((state) => state
 export const useIsCreatingGroup = (): boolean => useProfileStore((state) => state.isCreatingGroup);
 
 export const useCreateGroupError = (): string | undefined => useProfileStore((state) => state.createGroupError);
+
+export const useIsSignedIn = () => useProfileStore((state) => state.isSignedIn);

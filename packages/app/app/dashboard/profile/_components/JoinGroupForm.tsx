@@ -39,7 +39,7 @@ const JoinGroupForm = () => {
   }, []);
 
   useEffect(() => {
-    groupActions.search(debouncedSearchTerm);
+    groupActions.initialize({ searchTerm: debouncedSearchTerm });
   }, [debouncedSearchTerm, groupActions]);
 
   const [, scrollerRef] = useInfiniteScroll({

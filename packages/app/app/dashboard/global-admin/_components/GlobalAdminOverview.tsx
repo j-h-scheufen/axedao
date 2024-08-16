@@ -1,12 +1,12 @@
 'use client';
 
-import useSuperAdminOverview from '@/hooks/useSuperAdminOverview';
 import { Tab, Tabs } from '@nextui-org/tabs';
-import SuperAdminGroupsTable from './SuperAdminGroupsTable';
-import SuperAdminUsersTable from './SuperAdminUsersTable';
+import useGlobalAdminOverview from '../_hooks/useGlobalAdminOverview';
+import GlobalAdminUsersTable from './GlobalAdminUsersTable';
+import GroupsTable from './GroupsTable';
 
-const SuperAdminOverview = () => {
-  const [query, setQuery] = useSuperAdminOverview();
+const GlobalAdminOverview = () => {
+  const [query, setQuery] = useGlobalAdminOverview();
 
   const { tab } = query;
 
@@ -24,13 +24,13 @@ const SuperAdminOverview = () => {
         }}
       >
         <Tab key="users" title="Users">
-          <SuperAdminUsersTable />
+          <GlobalAdminUsersTable />
         </Tab>
         <Tab key="groups" title="Groups">
-          <SuperAdminGroupsTable />
+          <GroupsTable />
         </Tab>
       </Tabs>
     </div>
   );
 };
-export default SuperAdminOverview;
+export default GlobalAdminOverview;

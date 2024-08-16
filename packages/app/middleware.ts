@@ -1,10 +1,9 @@
-import { getToken } from 'next-auth/jwt';
+import { getToken, JWT } from 'next-auth/jwt';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function middleware(request: NextRequest) {
-  const token = await getToken({ req: request });
+  const token = (await getToken({ req: request })) as (JWT & { user: { isGlobalAdmin: boolean } }) | null;
   const authenticated = !!token;
-  const isGlobalAdmin = false; // TODO
 
   const {
     method,
@@ -17,10 +16,7 @@ export async function middleware(request: NextRequest) {
   let allowAccess = true;
 
   if (pathname.startsWith('/api') && !pathname.startsWith('/api/auth')) {
-    if (pathname.startsWith('/api/global-admin')) {
-      // Allow only global admins access to global-admin routes
-      allowAccess = authenticated && isGlobalAdmin;
-    } else if (pathname.startsWith('/api/profile') && isWrite) {
+    if (pathname.startsWith('/api/profile') && isWrite) {
       // Allow only authenticated users to write to their profile
       allowAccess = authenticated;
     }

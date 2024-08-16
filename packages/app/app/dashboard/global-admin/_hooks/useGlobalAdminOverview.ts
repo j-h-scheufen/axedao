@@ -6,8 +6,8 @@ const params = {
   tab: parseAsString.withDefault('users'),
 };
 
-const useSuperAdminOverview = () => {
+const useGlobalAdminOverview = () => {
   return useQueryStates(params);
 };
 
-export default useSuperAdminOverview;
+export default useGlobalAdminOverview;

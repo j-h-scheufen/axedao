@@ -1,4 +1,4 @@
-import { and, count, eq, ilike, inArray, ne, notExists } from 'drizzle-orm';
+import { and, count, eq, ilike, inArray, ne, notExists, SQLWrapper } from 'drizzle-orm';
 import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 
@@ -6,7 +6,6 @@ import { Profile } from '@/app/dashboard/profile/types';
 import ENV from '@/config/environment';
 import * as schema from '@/db/schema';
 import { GroupProfile, UserProfile } from '../types/model';
-import { getFields } from './utils';
 
 /**
  * NOTE: All DB functions in this file can only be run server-side. If you need to retrieve DB data from a client
@@ -18,6 +17,14 @@ import { getFields } from './utils';
 // Disable prefetch as it is not supported for "Transaction" pool mode
 export const client = postgres(ENV.databaseUrl, { prepare: false });
 export const db = drizzle(client, { schema, logger: process.env.NEXT_PUBLIC_APP_ENV !== 'prod' });
+
+export async function isGlobalAdmin(userId: string) {
+  const res = await db.query.users.findFirst({
+    where: eq(schema.users.id, userId),
+    columns: { isGlobalAdmin: true },
+  });
+  return res?.isGlobalAdmin;
+}
 
 export async function fetchUsers(
   limit: number = 20,
@@ -33,16 +40,14 @@ export async function fetchUsers(
     .offset(offset);
 }
 
-// Keep
 export async function fetchSessionData(walletAddress: string) {
   if (!walletAddress) return undefined;
   return await db.query.users.findFirst({
     where: (users, { eq }) => eq(users.walletAddress, walletAddress),
-    columns: { email: true, name: true, avatar: true, id: true },
+    columns: { email: true, name: true, avatar: true, id: true, isGlobalAdmin: true },
   });
 }
 
-// Keep
 export async function fetchProfile(email: string) {
   return (await db.query.users.findFirst({
     where: (users, { eq }) => eq(users.email, email),
@@ -58,25 +63,34 @@ export async function countUsers() {
   return result.length ? result[0].count : null;
 }
 
-export async function fetchGroups(limit: number = 20, offset: number = 0, searchTerm?: string) {
-  const groupFields = getFields(schema.groups);
-  if (searchTerm) {
-    return await db
-      .select(groupFields)
-      .from(schema.groups)
-      .where(ilike(schema.groups.name, `%${searchTerm}%`))
-      .limit(limit)
-      .offset(offset);
-  }
-  return await db.select(groupFields).from(schema.groups).limit(limit).offset(offset);
+type FetchGroupsOptions = {
+  limit: number;
+  offset: number;
+  searchTerm?: string;
+  city?: string;
+  country?: string;
+  verified?: boolean;
+};
+export async function fetchGroups(options: FetchGroupsOptions) {
+  const { limit = 20, offset = 0, searchTerm, city, country, verified } = options;
+
+  const filters: (SQLWrapper | undefined)[] = [];
+  if (searchTerm) filters.push(ilike(schema.groups.name, `%${searchTerm}%`));
+  if (city) filters.push(eq(schema.groups.city, city));
+  if (country) filters.push(eq(schema.groups.country, country));
+  if (typeof verified === 'boolean') filters.push(eq(schema.groups.verified, verified));
+
+  return await db.query.groups.findMany({
+    limit,
+    offset,
+    where: filters.length ? and(...filters) : undefined,
+  });
 }
 
 export async function countGroups() {
   const result = await db.select({ count: count() }).from(schema.groups);
   return result.length ? result[0].count : null;
 }
-
-// export async function isGroupLeader(groupId): Promise<boolean> {}
 
 export async function isGroupMember(groupId: string, userId: string): Promise<boolean> {
   const result = await db
@@ -96,7 +110,6 @@ export async function isGroupMember(groupId: string, userId: string): Promise<bo
         ),
       ),
     );
-  // console.log(result);
   return !!result.length;
 }
 
@@ -184,27 +197,19 @@ export async function removeGroupMember(memberId: string) {
   await db.update(schema.users).set({ groupId: null }).where(eq(schema.users.id, memberId));
 }
 
-// TODO: remove
-// export async function DANGEROUS_deleteAllGroupAdmins() {
-//   await db.delete(schema.groupAdmins);
-// }
-
 export async function addLink(link: schema.InsertLink) {
   const links = await db.insert(schema.links).values(link).returning();
   return links.length ? links[0] : undefined;
 }
 
-// Keep
 export async function createLinks(links: schema.InsertLink[]) {
   return await db.insert(schema.links).values(links).returning();
 }
 
-// Keep
 export async function removeLinks(linkIds: number[]) {
   return await db.delete(schema.links).where(inArray(schema.links.id, linkIds));
 }
 
-// Keep
 export async function updateLink(link: Omit<schema.InsertLink, 'id'> & { id: number }) {
   return await db.update(schema.links).set(link).where(eq(schema.links.id, link.id));
 }

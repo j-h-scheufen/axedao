@@ -5,7 +5,7 @@ import { Input } from '@nextui-org/input';
 import { Autocomplete, AutocompleteItem, Avatar } from '@nextui-org/react';
 import { SearchIcon } from 'lucide-react';
 import { Controller } from 'react-hook-form';
-import useNewGroupForm from '../hooks/useNewGroupForm';
+import useNewGroupForm from '../_hooks/useNewGroupForm';
 
 const CreateNewGroupForm = () => {
   const {
@@ -19,7 +19,7 @@ const CreateNewGroupForm = () => {
     setSelectedCountryCode,
     setCitySearchTerm,
     // selectedCity,
-    setSelectedCity,
+    setSelectedCityName,
     profileActions,
     isCreatingGroup,
     createGroupError,
@@ -63,7 +63,6 @@ const CreateNewGroupForm = () => {
                 isLoading={isLoadingCountries}
                 listboxProps={{ emptyContent: isLoadingCountries ? 'Loading...' : 'No countries found' }}
                 onSelectionChange={(isoCode) => {
-                  console.log(isoCode);
                   onChange(isoCode);
                   setSelectedCountryCode(isoCode?.toString() || '');
                 }}
@@ -110,10 +109,9 @@ const CreateNewGroupForm = () => {
                 disabled={!selectedCountryCode}
                 classNames={{ base: cn({ 'pointer-events-none opacity-50': !cities.length }) }}
                 onInputChange={setCitySearchTerm}
-                onSelectionChange={(city) => {
-                  console.log(city);
-                  onChange(city);
-                  setSelectedCity(city?.toString() || '');
+                onSelectionChange={(cityName) => {
+                  onChange(cityName);
+                  setSelectedCityName(cityName?.toString() || '');
                 }}
                 startContent={<SearchIcon className="h-4 w-4" />}
                 inputProps={{

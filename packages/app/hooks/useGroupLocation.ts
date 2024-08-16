@@ -1,29 +1,20 @@
-import { createNewGroupFormSchema } from '@/app/dashboard/profile/schema';
-import { useCreateGroupError, useIsCreatingGroup, useProfileActions } from '@/app/dashboard/profile/store';
 import { SearchCitiesQuery, useCities, useCitiesActions, useIsLoadingCities } from '@/store/cities.store';
 import { useCountries, useCountriesActions, useIsLoadingCountries } from '@/store/countries.store';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { isEqual } from 'lodash';
 import { useEffect, useRef, useState } from 'react';
-import { useForm } from 'react-hook-form';
 import { useDebounce } from 'use-debounce';
 
-const useNewGroupForm = () => {
+const useGroupLocation = () => {
   const [selectedCountryCode, setSelectedCountryCode] = useState<string>('');
-  const [selectedCity, setSelectedCity] = useState<string>('');
+  const [selectedCityName, setSelectedCityName] = useState<string>('');
   const [citySearchTerm, setCitySearchTerm] = useState<string>('');
   const [debouncedCitySearchTerm] = useDebounce(citySearchTerm, 500);
-
-  const lastQueryRef = useRef<SearchCitiesQuery | null>(null);
-
-  const profileActions = useProfileActions();
-
-  const isCreatingGroup = useIsCreatingGroup();
-  const createGroupError = useCreateGroupError();
 
   const countries = useCountries();
   const countriesActions = useCountriesActions();
   const isLoadingCountries = useIsLoadingCountries();
+
+  const lastQueryRef = useRef<SearchCitiesQuery | null>(null);
 
   const cities = useCities();
   const citiesActions = useCitiesActions();
@@ -41,27 +32,23 @@ const useNewGroupForm = () => {
         searchTerm: debouncedCitySearchTerm || undefined,
       }),
     );
-    if (!selectedCountryCode || isEqual(lastQuery, query) || (selectedCity && debouncedCitySearchTerm === selectedCity))
+    if (
+      !selectedCountryCode ||
+      isEqual(lastQuery, query) ||
+      (selectedCityName && debouncedCitySearchTerm === selectedCityName)
+    )
       return;
     citiesActions.search(query);
     lastQueryRef.current = query;
-  }, [selectedCountryCode, citiesActions, debouncedCitySearchTerm, lastQueryRef, selectedCity]);
-
-  const form = useForm({
-    resolver: yupResolver(createNewGroupFormSchema),
-  });
+  }, [selectedCountryCode, citiesActions, debouncedCitySearchTerm, lastQueryRef, selectedCityName]);
 
   return {
-    form,
     selectedCountryCode,
     setSelectedCountryCode,
     citySearchTerm,
     setCitySearchTerm,
-    selectedCity,
-    setSelectedCity,
-    profileActions,
-    isCreatingGroup,
-    createGroupError,
+    selectedCityName,
+    setSelectedCityName,
     countries,
     countriesActions,
     isLoadingCountries,
@@ -71,4 +58,4 @@ const useNewGroupForm = () => {
   };
 };
 
-export default useNewGroupForm;
+export default useGroupLocation;

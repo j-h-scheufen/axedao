@@ -34,7 +34,7 @@ const columns = [
   },
 ];
 
-const useSuperAdminUsersTable = () => {
+const useGlobalAdminUsersTable = () => {
   const [selectedRows, setSelectedRows] = useState<Set<string>>(new Set([]));
   const [query, setQuery] = useOverviewQueries();
   const [debouncedQuery] = useDebounce(query, 500);
@@ -80,4 +80,4 @@ const useSuperAdminUsersTable = () => {
   };
 };
 
-export default useSuperAdminUsersTable;
+export default useGlobalAdminUsersTable;

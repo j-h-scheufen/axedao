@@ -2,7 +2,7 @@ import { generateErrorMessage } from '@/utils';
 import axios from 'axios';
 import { create } from 'zustand';
 
-type City = { name: string };
+export type City = { name: string };
 
 type CitiesState = {
   cities: City[];

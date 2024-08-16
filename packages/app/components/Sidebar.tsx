@@ -1,5 +1,6 @@
 'use client';
 
+import { useProfile } from '@/app/dashboard/profile/store';
 import pages, { PageType } from '@/constants/pages';
 import useScreenSize from '@/hooks/useScreenSize';
 import { cn } from '@/utils/tailwind';
@@ -10,6 +11,9 @@ import { useEffect, useMemo, useState } from 'react';
 type SidebarListProps = { pages: PageType[]; selectedPage?: string };
 const SidebarList = ({ pages, selectedPage }: SidebarListProps) => {
   const router = useRouter();
+  const profile = useProfile();
+  const { isGlobalAdmin } = profile;
+
   return (
     <Tabs
       size="sm"
@@ -25,8 +29,9 @@ const SidebarList = ({ pages, selectedPage }: SidebarListProps) => {
       selectedKey={selectedPage}
       onSelectionChange={(href) => router.push(href as string)}
     >
-      {pages.map(({ name, href, icon: Icon }) => {
+      {pages.map(({ name, href, icon: Icon, forGlobalAdminOnly }) => {
         const active = href === selectedPage;
+        if (forGlobalAdminOnly && !isGlobalAdmin) return null;
         return (
           <Tab
             key={href}

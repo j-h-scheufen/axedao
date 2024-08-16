@@ -17,7 +17,7 @@ const ContactInfo = ({ className = '', links = [], isLoading }: Props) => {
         return (
           <div key={id} className="mx-auto flex items-center gap-1 text-default-400 hover:text-primary xs:mx-0">
             <Icon className="pointer-events-none h-4 w-4 flex-shrink-0" strokeWidth={1.4} />
-            <a href={url} target="_blank" className="link">
+            <a href={url.startsWith('https://') ? url : `https://${url}`} target="_blank" className="link">
               {url}
             </a>
           </div>

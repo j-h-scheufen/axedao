@@ -1,8 +1,5 @@
-import { NextRequest } from 'next/server';
-
 import { countUsers, fetchUsers } from '@/db';
-
-// TODO everything under the api/route must be protected via middleware.ts to check for user session
+import { NextRequest } from 'next/server';
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
@@ -17,6 +14,5 @@ export async function GET(request: NextRequest) {
     searchBy || undefined,
   );
   const count = await countUsers();
-  // console.log(users, count);
   return Response.json({ users, count });
 }

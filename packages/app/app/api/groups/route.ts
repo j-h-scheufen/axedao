@@ -9,9 +9,20 @@ import {
   updateUser,
 } from '@/db';
 import { generateErrorMessage } from '@/utils';
+import { isNil, omitBy } from 'lodash';
 import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
+import { boolean, number, object, string } from 'yup';
+
+const groupOptionsSchema = object({
+  limit: number().required().nonNullable(),
+  offset: number().required().nonNullable(),
+  searchTerm: string().nonNullable(),
+  city: string().nonNullable(),
+  country: string().nonNullable(),
+  verified: boolean().nonNullable(),
+});
 
 export async function GET(request: NextRequest) {
   try {
@@ -19,11 +30,22 @@ export async function GET(request: NextRequest) {
     const limit = searchParams.get('limit');
     const offset = searchParams.get('offset');
     const searchTerm = searchParams.get('searchTerm');
-    const groups = await fetchGroups(
-      limit ? Number(limit) : undefined,
-      offset ? Number(offset) : undefined,
-      searchTerm || undefined,
-    );
+    const city = searchParams.get('city');
+    const country = searchParams.get('country');
+    let verified: string | null | boolean | undefined = searchParams.get('verified');
+    verified = verified === 'false' ? false : verified === 'true' || undefined;
+
+    const options = await groupOptionsSchema.validate({
+      limit: Number(limit),
+      offset: Number(offset),
+      ...omitBy({ searchTerm, city, country, verified }, isNil),
+    });
+
+    if (!options) {
+      return NextResponse.json({ error: 'Invalid data' }, { status: 400 });
+    }
+
+    const groups = await fetchGroups(options);
     const count = await countGroups();
     return NextResponse.json({ groups, count });
   } catch (error) {

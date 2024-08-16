@@ -1,22 +1,36 @@
 'use client';
 
+import { useProfileActions } from '@/app/dashboard/profile/store';
 import RegistrationForm from '@/components/RegistrationForm';
 import SignInButton from '@/components/SignInButton';
 import useUpdateSearchParams from '@/hooks/useUpdateSearchParams';
 import { Spinner } from '@nextui-org/react';
 import { Tab, Tabs } from '@nextui-org/tabs';
-import { useSearchParams } from 'next/navigation';
+import { useSession } from 'next-auth/react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
 
 const AuthForms = () => {
-  const searchParams = useSearchParams();
-  const updateSearchParams = useUpdateSearchParams(searchParams);
-  const tab = searchParams.get('tab');
+  const router = useRouter();
 
-  const loading = false;
+  const { setIsSignedIn } = useProfileActions();
+  const session = useSession();
+  const searchParams = useSearchParams();
+  const tab = searchParams.get('tab');
+  const updateSearchParams = useUpdateSearchParams(searchParams);
+
+  useEffect(() => {
+    if (session.status === 'authenticated') {
+      setIsSignedIn(true);
+      router.push('/dashboard/profile');
+    }
+  }, [session.status, setIsSignedIn, router]);
+
+  const isLoading = session.status === 'loading';
 
   return (
     <>
-      {loading && (
+      {isLoading && (
         <div className="absolute left-0 top-0 z-20 flex h-full w-full items-center justify-center bg-background/60 backdrop-blur-sm">
           <Spinner />
         </div>

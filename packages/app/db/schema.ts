@@ -34,6 +34,7 @@ export const users = pgTable(
     groupId: uuid('group_id').references((): AnyPgColumn => groups.id, { onDelete: 'set null' }),
     phone: varchar('phone'),
     walletAddress: varchar('wallet_address'),
+    isGlobalAdmin: boolean('is_global_admin').default(false),
   },
   (table) => {
     return {

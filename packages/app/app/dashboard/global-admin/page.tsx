@@ -1,11 +1,11 @@
 import PageHeading from '@/components/PageHeading';
-import SuperAdminOverview from '@/components/SuperAdminOverview';
+import GlobalAdminOverview from './_components/GlobalAdminOverview';
 
 const SuperAdminPage = () => {
   return (
     <>
-      <PageHeading>Super Admin</PageHeading>
-      <SuperAdminOverview />
+      <PageHeading>Global Admin</PageHeading>
+      <GlobalAdminOverview />
     </>
   );
 };

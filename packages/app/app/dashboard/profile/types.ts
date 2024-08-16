@@ -17,6 +17,7 @@ export type ProfileState = {
   isCreatingGroup: boolean;
   createGroupError?: string;
   isUploadingAvatar?: boolean;
+  isSignedIn?: boolean;
 };
 
 export type ProfileActions = {
@@ -27,6 +28,7 @@ export type ProfileActions = {
   exitGroup: () => Promise<void>;
   createGroup: (groupProfileData: CreateNewGroupFormType) => Promise<void>;
   removeGroupAssociation: () => void;
+  setIsSignedIn: (isSignedIn: boolean) => void;
 };
 
 export type ProfileStore = ProfileState & { actions: ProfileActions };
