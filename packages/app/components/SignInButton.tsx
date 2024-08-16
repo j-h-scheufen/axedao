@@ -23,7 +23,7 @@ const SignInButton = ({ className }: Props) => {
       className={cn('mt-5 w-full', className)}
       isLoading={isSigningIn}
       spinner={<Spinner size="sm" />}
-      onPress={signInMutation.mutate}
+      onPress={() => signInMutation.mutate()}
       disabled={isLoading || isSigningIn}
     >
       Sign in

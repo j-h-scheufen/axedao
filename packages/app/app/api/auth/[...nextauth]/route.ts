@@ -1,13 +1,18 @@
 import { fetchSessionData } from '@/db';
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextApiRequest } from 'next';
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { getCsrfToken } from 'next-auth/react';
+import { NextRequest } from 'next/server';
 import { SiweMessage } from 'siwe';
+
+interface RouteHandlerContext {
+  params: { nextauth: string[] };
+}
 
 // For more information on each option (and a full list of options) go to
 // https://next-auth.js.org/configuration/options
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextRequest, context: RouteHandlerContext) => {
   const providers = [
     CredentialsProvider({
       name: 'Ethereum',
@@ -31,7 +36,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
           const result = await siwe.verify({
             signature: credentials?.signature || '',
             domain: nextAuthUrl.host,
-            nonce: await getCsrfToken({ req }),
+            nonce: await getCsrfToken({ req: req as NextRequest & NextApiRequest }),
           });
           const address = siwe.address;
 
@@ -54,7 +59,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   //   providers.pop();
   // }
 
-  return await NextAuth(req, res, {
+  return await NextAuth(req, context, {
     // https://next-auth.js.org/configuration/providers/oauth
     providers,
     session: {
