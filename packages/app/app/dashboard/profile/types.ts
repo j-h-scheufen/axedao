@@ -29,6 +29,7 @@ export type ProfileActions = {
   createGroup: (groupProfileData: CreateNewGroupFormType) => Promise<void>;
   removeGroupAssociation: () => void;
   setIsSignedIn: (isSignedIn: boolean) => void;
+  clearProfile: () => void;
 };
 
 export type ProfileStore = ProfileState & { actions: ProfileActions };

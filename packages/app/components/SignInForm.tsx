@@ -1,80 +1,46 @@
 'use client';
 
-import { RegistrationFormType, registrationFormSchema } from '@/constants/schemas';
-import useRegister from '@/hooks/useRegister';
+import { signInFormSchema, SignInFormType } from '@/constants/schemas';
+import useSignIn from '@/hooks/useSignIn';
+import { cn } from '@/utils/tailwind';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@nextui-org/button';
-import { Input } from '@nextui-org/input';
+import { Input } from '@nextui-org/react';
 import { useSession } from 'next-auth/react';
 import { useEffect } from 'react';
-import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { useAccount, useConnect } from 'wagmi';
 import { injected } from 'wagmi/connectors';
 
-const RegistrationForm = () => {
+type Props = { className?: string };
+const SignInForm = ({ className }: Props) => {
   const { address, isConnected } = useAccount();
   const session = useSession();
   const { connect } = useConnect();
 
-  const { control, handleSubmit, setValue, watch } = useForm<RegistrationFormType>({
-    resolver: yupResolver(registrationFormSchema),
+  const { control, handleSubmit, setValue, watch, trigger } = useForm<SignInFormType>({
+    resolver: yupResolver(signInFormSchema),
     defaultValues: {
-      name: '',
-      email: '',
       walletAddress: address,
     },
   });
 
   useEffect(() => {
     setValue('walletAddress', address || '');
-  }, [address, isConnected, setValue]);
+    if (address) trigger();
+  }, [address, isConnected, setValue, trigger]);
 
-  const { registrationMutation } = useRegister();
+  const { signInMutation } = useSignIn();
 
-  const isSubmitting = registrationMutation.isPending;
   const isLoading = session.status === 'loading';
-  const submitError = registrationMutation.error;
+  const isSigningIn = signInMutation.isPending;
+  const submitError = signInMutation.error;
 
   return (
     <form
       className="m-auto flex h-fit w-full max-w-sm flex-col gap-3"
-      onSubmit={handleSubmit(registrationMutation.mutate as SubmitHandler<RegistrationFormType>)}
+      onSubmit={handleSubmit(() => signInMutation.mutate())}
     >
-      <Controller
-        control={control}
-        name="name"
-        render={({ field, fieldState: { error } }) => {
-          return (
-            <Input
-              {...field}
-              label="Full name"
-              className="w-full"
-              classNames={{ inputWrapper: '!min-h-14', errorMessage: 'text-left' }}
-              color={error ? 'danger' : undefined}
-              isInvalid={!!error}
-              errorMessage={error?.message}
-            />
-          );
-        }}
-      />
-      <Controller
-        control={control}
-        name="email"
-        render={({ field, fieldState: { error } }) => {
-          return (
-            <Input
-              {...field}
-              type="email"
-              label="Email"
-              className="w-full"
-              classNames={{ inputWrapper: '!min-h-14', errorMessage: 'text-left' }}
-              color={error ? 'danger' : undefined}
-              isInvalid={!!error}
-              errorMessage={error?.message}
-            />
-          );
-        }}
-      />
       <div className="flex flex-col items-end">
         <Controller
           control={control}
@@ -111,17 +77,16 @@ const RegistrationForm = () => {
       </div>
       {submitError && <div className="my-2 text-center text-small text-danger">{submitError.message}</div>}
       <Button
-        key="register-button"
+        key="sign-in-button"
         type="submit"
         color="primary"
-        className="mt-5 w-full"
-        isLoading={isSubmitting}
-        disabled={isLoading || isSubmitting}
+        className={cn('mt-5 w-full', className)}
+        isLoading={isSigningIn}
+        disabled={isLoading || isSigningIn}
       >
-        Register
+        Sign in
       </Button>
     </form>
   );
 };
-
-export default RegistrationForm;
+export default SignInForm;

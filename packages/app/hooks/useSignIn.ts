@@ -1,13 +1,10 @@
 import { useMutation } from '@tanstack/react-query';
 import { getCsrfToken, signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
 import { SiweMessage } from 'siwe';
 import { useAccount, useConnect, useSignMessage } from 'wagmi';
 import { injected } from 'wagmi/connectors';
 
 const useSignIn = () => {
-  const router = useRouter();
-
   const { signMessageAsync } = useSignMessage();
   const { address, isConnected, chain } = useAccount();
   const { connect } = useConnect();
@@ -27,20 +24,24 @@ const useSignIn = () => {
     const signature = await signMessageAsync({
       message: message.prepareMessage(),
     });
-    signIn('credentials', {
+    const res = await signIn('credentials', {
       message: JSON.stringify(message),
       redirect: false,
       signature,
       callbackUrl,
     });
+    if (res?.error) {
+      throw new Error(
+        res.status === 401
+          ? 'No account was found associated with this wallet address. Register if you have not done so yet or change the wallet address.'
+          : 'An error occurred while signin in',
+      );
+    }
   };
 
   const signInMutation = useMutation({
     mutationKey: ['sign-in'],
     mutationFn: handleSignIn,
-    onSuccess: () => {
-      router.push('/dashboard/profile');
-    },
     onError: (error) => {
       console.error(error);
       // TODO show alert here

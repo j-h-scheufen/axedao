@@ -2,13 +2,13 @@
 
 import { useProfileActions } from '@/app/dashboard/profile/store';
 import RegistrationForm from '@/components/RegistrationForm';
-import SignInButton from '@/components/SignInButton';
 import useUpdateSearchParams from '@/hooks/useUpdateSearchParams';
 import { Spinner } from '@nextui-org/react';
 import { Tab, Tabs } from '@nextui-org/tabs';
 import { useSession } from 'next-auth/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
+import SignInForm from './SignInForm';
 
 const AuthForms = () => {
   const router = useRouter();
@@ -48,7 +48,7 @@ const AuthForms = () => {
         </Tab>
         <Tab key="sign-in" title={<h1>Sign in</h1>} className="pt-0">
           <p className="mb-8 mt-2 text-neutral-500">Sign in to your account.</p>
-          <SignInButton className="max-w-sm mx-auto" />
+          <SignInForm className="max-w-sm mx-auto" />
         </Tab>
       </Tabs>
     </>

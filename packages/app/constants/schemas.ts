@@ -71,11 +71,11 @@ export const registrationFormSchema = object({
 
 export type RegistrationFormType = InferType<typeof registrationFormSchema>;
 
-export const SignInButtonSchema = object({
-  email: string().email('Not a valid email').required('Email is required'),
+export const signInFormSchema = object({
+  walletAddress: string().required('Please connect your MetaMask wallet'),
 });
 
-export type SignInButtonType = InferType<typeof SignInButtonSchema>;
+export type SignInFormType = InferType<typeof signInFormSchema>;
 
 export const confirmationFormSchema = object({
   otp: string().required('Please input your OTP.'),
