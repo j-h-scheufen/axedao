@@ -22,7 +22,7 @@ export const DEFAULT_PROFILE: Profile = {
   isGlobalAdmin: false,
 };
 
-const DEFAULT_PROPS: ProfileState = {
+const DEFAULT_STATE: ProfileState = {
   profile: DEFAULT_PROFILE,
   isInitializingProfile: false,
   isProfileInitialized: false,
@@ -34,7 +34,7 @@ const DEFAULT_PROPS: ProfileState = {
 };
 
 export const useProfileStore = create<ProfileStore>()((set, get) => ({
-  ...DEFAULT_PROPS,
+  ...DEFAULT_STATE,
   actions: {
     initializeProfile: async () => {
       const { isInitializingProfile } = get();
@@ -131,6 +131,9 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
     },
     setIsSignedIn: (isSignedIn) => {
       set({ isSignedIn });
+    },
+    clearProfile: () => {
+      set({ ...DEFAULT_STATE });
     },
   },
 }));

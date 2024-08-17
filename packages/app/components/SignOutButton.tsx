@@ -13,7 +13,7 @@ const SignOutButton = () => {
   const session = useSession();
   const { status } = session;
   const { disconnect } = useDisconnect();
-  const { setIsSignedIn } = useProfileActions();
+  const { clearProfile } = useProfileActions();
   const isSignedIn = useIsSignedIn();
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const SignOutButton = () => {
         setIsLoading(true);
         disconnect();
         await signOut({ redirect: false });
-        setIsSignedIn(false);
+        clearProfile();
       }}
     >
       {isLoading ? <Spinner size="sm" color="default" /> : <LogOutIcon className="h-4 w-4 text-default-500" />}
