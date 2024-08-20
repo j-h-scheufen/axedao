@@ -30,11 +30,11 @@ const HomeSection = ({
     );
   }
   return (
-    <section className="mx-2 sm:mx-3">
-      <h2 className="mb-2 text-center text-xl md:text-3xl">
+    <section className="flex flex-col gap-3 px-2 sm:gap-5 sm:px-3">
+      <h2 className="text-center text-4xl sm:text-5xl">
         {t(`${contentKey}.title`)}
       </h2>
-      <div className="flex flex-col gap-3">{paragraphs}</div>
+      <div className="flex flex-col gap-3 sm:gap-4">{paragraphs}</div>
     </section>
   );
 };

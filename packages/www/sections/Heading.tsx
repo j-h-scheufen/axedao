@@ -36,12 +36,20 @@ const Heading = ({ locale }: HeadingProps) => {
     // >
     <motion.div
       // style={{ scale, x: '-50%' }}
-      className="relative z-10 flex w-full flex-col items-center px-3 sm:px-4 md:px-5"
+      className="relative z-10 flex w-full flex-col items-center px-2 sm:px-3"
     >
-      <h1 className={Title()}>{t('heading.title')}</h1>
-      <br />
-      <Reveal delay={0.5}>
-        <h2 className={Subtitle({ class: 'mt-4 text-center' })}>
+      <h1
+        className={Title({
+          color: 'green',
+          size: 'lg',
+          className: 'font-inter',
+        })}
+      >
+        {t('heading.title')}
+      </h1>
+
+      <Reveal delay={0.5} className="mt-3 sm:mt-4 md:mt-5">
+        <h2 className={Subtitle({ class: 'text-center' })}>
           {t('heading.subtitle')}
         </h2>
         <div className="text-l mt-4 flex flex-col gap-4 md:text-center md:text-xl">

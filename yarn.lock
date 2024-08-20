@@ -1136,6 +1136,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource/lato@npm:^5.0.22":
+  version: 5.0.22
+  resolution: "@fontsource/lato@npm:5.0.22"
+  checksum: 10c0/eec6c0f0a9a30150d6366911d94e4018921508709a62ccb7558df69b24ed6805e97fddda0afeb55c47629b3ed841d8e188cfdacf36f74f23a4f199a6e6b4f17b
+  languageName: node
+  linkType: hard
+
+"@fontsource/nunito@npm:^5.0.19":
+  version: 5.0.19
+  resolution: "@fontsource/nunito@npm:5.0.19"
+  checksum: 10c0/bac58be96042672915bd09e18e071958633caaf776f453c142054f85a513e084287b3091b9d8d27e299de06a61b345f55250b521387611e2ca44a5e1924ed8ce
+  languageName: node
+  linkType: hard
+
+"@fontsource/roboto@npm:^5.0.14":
+  version: 5.0.14
+  resolution: "@fontsource/roboto@npm:5.0.14"
+  checksum: 10c0/9a15fdeb53ba6e3533dde870499376d10408c3b46ed0023e0c128171f4134dffad5c3e675494e05b503b1e34b11bcf6e1e05f05714b91691f8fe83b676b47c78
+  languageName: node
+  linkType: hard
+
 "@formatjs/ecma402-abstract@npm:1.18.2":
   version: 1.18.2
   resolution: "@formatjs/ecma402-abstract@npm:1.18.2"
@@ -17343,6 +17364,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "www@workspace:packages/www"
   dependencies:
+    "@fontsource/lato": "npm:^5.0.22"
+    "@fontsource/nunito": "npm:^5.0.19"
+    "@fontsource/roboto": "npm:^5.0.14"
     "@nextui-org/button": "npm:2.0.26"
     "@nextui-org/code": "npm:2.0.24"
     "@nextui-org/input": "npm:2.1.16"

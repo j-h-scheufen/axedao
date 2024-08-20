@@ -34,11 +34,11 @@ const ListSection = ({
     );
   }
   return (
-    <section className="mx-2 sm:mx-3">
-      <h2 className="mb-2 text-center text-xl md:text-3xl">
+    <section className="flex flex-col gap-3 px-2 sm:gap-4 sm:px-3">
+      <h2 className="text-center text-3xl md:text-5xl">
         {t(`${contentKey}.title`)}
       </h2>
-      <div className="flex flex-col gap-3">{paragraphs}</div>
+      <div className="flex flex-col gap-6 sm:gap-8">{paragraphs}</div>
     </section>
   );
 };

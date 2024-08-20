@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Image, Link } from '@nextui-org/react';
+import { Divider, Link } from '@nextui-org/react';
 
 import {
   SupportedLanguage,
@@ -9,46 +9,43 @@ import {
 import { NextPageProps } from './layout';
 import { siteConfig } from '@/config/site';
 import Heading from '@/sections/Heading';
-import HomeSection from '@/components/home';
+import HomeSection from '@/components/home/HomeSection';
 import ListSection from '@/components/home/ListSection';
+import ImageSection from '@/components/home/ImageSection';
 
 export default async function Home({ params: { locale } }: NextPageProps) {
   const lang = isSupportedLanguage(locale)
     ? (locale as SupportedLanguage)
     : fallbackLng;
+
   return (
-    <div className="relative flex flex-col items-center justify-center gap-4 text-xl">
+    <div className="relative flex flex-col items-center justify-center p-2 text-xl sm:p-6 md:p-8">
       <Head>
         <title>Axé DAO Homepage</title>
       </Head>
-      <main className="mt-2 md:mt-3">
+      <main className="mt-2 flex w-full flex-col gap-5 sm:gap-7 md:mt-3">
         <Heading locale={lang} />
-        <div className="flex items-center justify-center">
-          <Image
-            src="/images/pandeiro-agogo-lawn.jpg"
-            alt="Pandeiry and Agogo"
-            className="centerrounded-none my-4 max-w-3xl md:rounded-3xl"
-          />
-        </div>
+        <Divider />
+
+        <ImageSection
+          src="/images/pandeiro-agogo-lawn.jpg"
+          alt="Pandeiro and Agogo"
+        />
+        <Divider />
         <HomeSection contentKey="about" numParagraphs={2} locale={lang} />
-        <div className="flex items-center justify-center">
-          <Image
-            src="/images/Berimbaus-Street.jpg"
-            alt="Berimbaus"
-            className="mb-4 mt-6 max-w-3xl rounded-none md:mx-4 md:rounded-3xl"
-          />
-        </div>
+        <Divider />
+        <ImageSection
+          src="/images/capoeira-painting.jpg"
+          alt="Capoeira Painting"
+        />
+        <Divider />
         <HomeSection contentKey="dao" numParagraphs={1} locale={lang} />
-        <div className="flex items-center justify-center">
-          <Image
-            src="/images/capoeira-painting.jpg"
-            alt="Pandeiry and Agogo"
-            className="my-4 max-w-3xl rounded-none md:mx-4 md:rounded-3xl"
-          />
-        </div>
+        <Divider />
+        <ImageSection src="/images/Berimbaus-Street.jpg" alt="Berimbaus" />
+        <Divider />
         <ListSection contentKey="goals" numParagraphs={2} locale={lang} />
-        <div className="flex w-full flex-col items-center p-2">
-          <div className="mt-6 text-center sm:mt-14">
+        <div className="flex w-full flex-col items-center p-4 text-center">
+          <div className="mt-6 text-sm sm:mt-14 sm:text-base">
             To support or join our efforts, please email us at{' '}
             <Link href={`mailto:${siteConfig.links.email}`}>
               axe-dao (at) protonmail.com
