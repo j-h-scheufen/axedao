@@ -42,10 +42,16 @@ const Heading = ({ locale }: HeadingProps) => {
         className={Title({
           color: 'green',
           size: 'lg',
-          className: 'font-inter',
+          className: 'font-inter text-center',
         })}
       >
-        {t('heading.title')}
+        <Trans
+          t={t}
+          i18nKey="heading.title"
+          components={{
+            nbsp: <span className="text-nowrap" />,
+          }}
+        />
       </h1>
 
       <Reveal delay={0.5} className="mt-3 sm:mt-4 md:mt-5">
