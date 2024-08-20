@@ -16,7 +16,7 @@ import { GroupProfile, UserProfile } from '../types/model';
 
 // Disable prefetch as it is not supported for "Transaction" pool mode
 export const client = postgres(ENV.databaseUrl, { prepare: false });
-export const db = drizzle(client, { schema, logger: process.env.NEXT_PUBLIC_APP_ENV !== 'prod' });
+export const db = drizzle(client, { schema, logger: false });
 
 export async function isGlobalAdmin(userId: string) {
   const res = await db.query.users.findFirst({
