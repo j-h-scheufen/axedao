@@ -20,14 +20,14 @@
     "title": "Organization",
     "content": {
       "p1": "DAO stands for <i>Digital Autonomous Organization</i>. It is our model of governance that facilitates transparent, equitable decision-making processes among its members to collectively hold funds and decide how to use them.",
-      "p2": "In the beginning, our primary objective is to create digital tools for Capoeira like an open-source app, digital identity, and a registry. Long-term, we want to fund individual Capoeira projects and events and direct financial support into the community where it's needed."
+      "p2": "In the beginning, our primary objective is to create digital tools for Capoeira such as an open-source app, digital identity, and a registry. Long-term, we want to fund individual Capoeira projects and events and direct financial support into the community where it's needed."
     }
   },
   "goals": {
     "title": "Goals",
     "content": {
-      "p1": "We want to support, preserve, and enrich the practice of Capoeira and in 2024 we plan to<br/><br/><ul><li>Launch a digital identity app for the Capoeira community</li><li>Open a registry for groups and individuals to start creating the social graph and lineage tree of Capoeira groups worldwide</li><li>Decide on the launch of the Axé token and its fair distribution parameters</li></ul>",
-      "p2": "On a longer time-scale our goals are<br/><br/><ul><li>Create functionality for Capoeira groups to access digital assets like NFTs that can be used for badges, digital art, memberships, etc.</li><li>Explore reducing costs for Capoeira groups by offering common services, e.g. for event scheduling, group management, membership fees, etc.</li><li>Explore the creation of a fly-wheel of digital economic activity to sustain Capoeira in general and its community members into the future.</li></ul>"
+      "p1": "We want to support, preserve, and enrich the practice of Capoeira and in 2024 we plan to:<br/><br/><ul><li>Launch a digital identity app for the Capoeira community</li><li>Open a registry for groups and individuals to start creating the social graph and lineage tree of Capoeira groups worldwide</li><li>Decide on the launch of the Axé token and its fair distribution parameters</li></ul>",
+      "p2": "On a longer time-scale our goals are:<br/><br/><ul><li>Create functionality for Capoeira groups to access digital assets like NFTs that can be used for badges, digital art, memberships, etc.</li><li>Explore reducing costs for Capoeira groups by offering common services, e.g. for event scheduling, group management, membership fees, etc.</li><li>Explore the creation of a circular digital economy to sustain Capoeira in general and its community members into the future.</li></ul>"
     }
   }
 }
