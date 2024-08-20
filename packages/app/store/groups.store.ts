@@ -21,6 +21,7 @@ export type GroupsState = {
 
 type GroupsActions = {
   initialize: (query?: FetchGroupsQuery) => Promise<void>;
+  search: (query?: FetchGroupsQuery) => Promise<void>;
   loadNextPage: () => Promise<void>;
 };
 
@@ -41,6 +42,12 @@ const useGroupsStore = create<GroupsStore>()((set, get) => ({
     initialize: async (query): Promise<void> => {
       const { actions, isInitialized, isLoading } = get();
       if (isInitialized || isLoading) return;
+      set({ ...DEFAULT_PROPS, query });
+      actions.loadNextPage();
+    },
+    search: async (query): Promise<void> => {
+      const { actions, isLoading } = get();
+      if (isLoading) return;
       set({ ...DEFAULT_PROPS, query });
       actions.loadNextPage();
     },

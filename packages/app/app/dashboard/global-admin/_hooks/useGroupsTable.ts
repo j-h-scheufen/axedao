@@ -29,7 +29,7 @@ const useGroupsTable = () => {
 
   useEffect(() => {
     if (isEqual(lastQueryRef.current, debouncedQuery)) return;
-    actions.initialize(debouncedQuery);
+    actions.search(debouncedQuery);
     lastQueryRef.current = debouncedQuery;
   }, [debouncedQuery, actions, lastQueryRef]);
 

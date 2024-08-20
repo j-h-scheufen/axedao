@@ -17,10 +17,20 @@ const Filters = ({ query, setQuery }: Props) => {
 
   const setSearchTerm = (searchTerm: string) => setQuery({ searchTerm });
   const setCountry = (country: Country | null) => setQuery({ country: country?.name || null });
-  const setCity = (city: City | null) => setQuery({ city: city?.name || null });
+  const setCity = (city: City | null) => {
+    if (city) {
+      const { name, stateCode } = city
+      let cityName = name;
+      if (stateCode) cityName += `, ${stateCode}`;
+      setQuery({ city: cityName });
+    } else {
+      setQuery({ city: null });
+    }
+  };
 
   const locationProps: Omit<AutocompleteProps, 'children'> = {
-    labelPlacement: 'inside' as const,
+    labelPlacement: 'outside' as const,
+    className: 'w-min min-w-48',
   };
 
   return (
