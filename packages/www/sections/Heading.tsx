@@ -52,7 +52,7 @@ const Heading = ({ locale }: HeadingProps) => {
         <h2 className={Subtitle({ class: 'text-center' })}>
           {t('heading.subtitle')}
         </h2>
-        <div className="text-l mt-4 flex flex-col gap-4 md:text-center md:text-xl">
+        <div className="text-l mt-4 flex flex-col gap-4 sm:text-center sm:text-xl">
           <p>
             <Trans t={t} i18nKey="heading.introduction.p1" />
           </p>

@@ -1,25 +1,26 @@
 {
   "heading": {
     "title": "Welcome to Axé DAO",
-    "subtitle": "A digital organization for the global Capoeira Community",
+    "subtitle": "A digital organization for the Capoeira Community",
     "introduction": {
-      "p1": "We are Capoeiristas from different schools and different corners of the world who want to give back to Capoeira by creating open and community-owned digital infrastructure for the benefit of all of Capoeira.",
-      "p2": "To do this we use software that enables autonomy, freedom, and self-determination - in the digital world - via self-governed and shared apps and platforms.",
+      "p1": "We are Capoeiristas from different schools and different corners of the world who want to give back to Capoeira by creating open and community-owned digital tools for the benefit of all of Capoeira.",
+      "p2": "We value autonomy, freedom, and self-determination and apply these to the digital world to create shared apps and platforms for the Capoeira subculture and its ecosystem.",
       "p3": "Axé DAO is a pioneering effort by Capoeiristas for Capoeiristas to coordinate collective actions that help grow the Capoeira ecosystem and support those who live and breathe this art form."
     }
   },
   "about": {
-    "title": "Motivation",
+    "title": "Mission",
     "content": {
-      "p1": "In today's digital and online world, Capoeira groups are scattered across many websites and free social and messaging platforms. There is no easy way to understand how many groups even exist across the globe.<br/>But we now have the opportunity to create a digital platform for Capoeira that is community-owned, governed democratically, and which enables better global collaboration for anyone who loves and wants to contribute to this art form. Imagine a space where every member of the Capoeira community has a voice and a stake in decision-making and together we can build a free and open platform that is truly <i>ours</i>.",
-      "p2": "Our mission at Axé DAO is to serve and benefit the Capoeira community through digital tools. That’s why our first app is a registry specific for Capeira groups and individuals to create profiles and populate the “genealogy tree” of Capoeira."
+      "p1": "In today's digital and online world, Capoeira groups are scattered across many websites and free social and messaging platforms. There is no easy way to understand how many groups even exist across the globe.",
+      "p2": "A digital platform for Capoeira that is community-owned and governed democratically enables global collaboration for anyone who loves and wants to contribute to this art form. Imagine a space where every member of the Capoeira community has a voice in decision-making and together we build a platform that is truly <i>ours</i>.",
+      "p3": "Our mission at Axé DAO is to serve and benefit the Capoeira community through digital tools. The first app being created is a registry specific for Capoeira groups and individuals to populate the <i>genealogy tree</i> of Capoeira."
     }
   },
   "dao": {
-    "title": "Axé DAO",
+    "title": "Organization",
     "content": {
-      "p1": "DAO stands for <i>Digital Autonomous Organization</i>. It is our model of governance that facilitates transparent, equitable decision-making processes among its members to collectively hold funds and decide how to use them.<br/>In the beginning, our primary objective for funding is to create digital tools for Capoeira like an open-source app, digital identity, and a registry. Long-term, it is an explicit goal to fund individual Capoeira projects and events and to direct financial support into the community where it's needed.",
-      "p2": "The DAO members may vote to launch the <i>Axé</i> token, a digital unit symbolizing the positive energy of Axé that can be transferred between users as a token of appreciation. It would be distributed in a fair launch via the app and registry. It may also play a role in delegating governance power in the organization."
+      "p1": "DAO stands for <i>Digital Autonomous Organization</i>. It is our model of governance that facilitates transparent, equitable decision-making processes among its members to collectively hold funds and decide how to use them.",
+      "p2": "In the beginning, our primary objective is to create digital tools for Capoeira like an open-source app, digital identity, and a registry. Long-term, we want to fund individual Capoeira projects and events and direct financial support into the community where it's needed."
     }
   },
   "goals": {

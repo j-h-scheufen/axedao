@@ -4,6 +4,7 @@ import { Trans } from 'react-i18next';
 
 import { useTranslation } from '@/app/i18n/client';
 import { SupportedLanguage } from '@/app/i18n/settings';
+import BaseSection from './BaseSection';
 
 interface ListSectionProps {
   contentKey: string;
@@ -34,12 +35,9 @@ const ListSection = ({
     );
   }
   return (
-    <section className="flex flex-col gap-3 px-2 sm:gap-4 sm:px-3">
-      <h2 className="text-center text-3xl md:text-5xl">
-        {t(`${contentKey}.title`)}
-      </h2>
+    <BaseSection title={t(`${contentKey}.title`)}>
       <div className="flex flex-col gap-6 sm:gap-8">{paragraphs}</div>
-    </section>
+    </BaseSection>
   );
 };
 

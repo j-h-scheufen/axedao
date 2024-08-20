@@ -4,6 +4,7 @@ import { Trans } from 'react-i18next';
 
 import { useTranslation } from '@/app/i18n/client';
 import { SupportedLanguage } from '@/app/i18n/settings';
+import BaseSection from './BaseSection';
 
 interface HomeSectionProps {
   contentKey: string;
@@ -30,12 +31,11 @@ const HomeSection = ({
     );
   }
   return (
-    <section className="flex flex-col gap-3 px-2 sm:gap-5 sm:px-3">
-      <h2 className="text-center text-4xl sm:text-5xl">
-        {t(`${contentKey}.title`)}
-      </h2>
-      <div className="flex flex-col gap-3 sm:gap-4">{paragraphs}</div>
-    </section>
+    <BaseSection title={t(`${contentKey}.title`)}>
+      <div className="flex flex-col gap-3 sm:gap-4 sm:text-center">
+        {paragraphs}
+      </div>
+    </BaseSection>
   );
 };
 

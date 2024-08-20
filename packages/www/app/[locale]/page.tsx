@@ -32,14 +32,14 @@ export default async function Home({ params: { locale } }: NextPageProps) {
           alt="Pandeiro and Agogo"
         />
         <Divider />
-        <HomeSection contentKey="about" numParagraphs={2} locale={lang} />
+        <HomeSection contentKey="about" numParagraphs={3} locale={lang} />
         <Divider />
         <ImageSection
           src="/images/capoeira-painting.jpg"
           alt="Capoeira Painting"
         />
         <Divider />
-        <HomeSection contentKey="dao" numParagraphs={1} locale={lang} />
+        <HomeSection contentKey="dao" numParagraphs={2} locale={lang} />
         <Divider />
         <ImageSection src="/images/Berimbaus-Street.jpg" alt="Berimbaus" />
         <Divider />
