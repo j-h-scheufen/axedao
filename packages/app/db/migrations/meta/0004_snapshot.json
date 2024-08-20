@@ -1,6 +1,6 @@
 {
-  "id": "afbf36a7-c4e4-40e5-bac3-4bd0d59ca101",
-  "prevId": "d7004fa7-75a0-43b6-9f17-941eea68eade",
+  "id": "cc1b8c2f-8c32-46db-b4e1-c5bffac27398",
+  "prevId": "afbf36a7-c4e4-40e5-bac3-4bd0d59ca101",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -131,7 +131,7 @@
           "name": "city",
           "type": "varchar",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "country": {
           "name": "country",

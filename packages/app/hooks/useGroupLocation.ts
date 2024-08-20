@@ -29,7 +29,7 @@ const useGroupLocation = () => {
     const query: SearchCitiesQuery = JSON.parse(
       JSON.stringify({
         countryCode: selectedCountryCode,
-        searchTerm: debouncedCitySearchTerm || undefined,
+        searchTerm: debouncedCitySearchTerm ? debouncedCitySearchTerm.split(',')[0] : undefined,
       }),
     );
     if (

@@ -20,8 +20,7 @@ const Filters = ({ query, setQuery }: Props) => {
   const setCity = (city: City | null) => setQuery({ city: city?.name || null });
 
   const locationProps: Omit<AutocompleteProps, 'children'> = {
-    labelPlacement: 'outside' as const,
-    className: 'w-min min-w-48',
+    labelPlacement: 'inside' as const,
   };
 
   return (

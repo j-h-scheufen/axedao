@@ -1,41 +1,62 @@
 import ErrorText from '@/components/ErrorText';
-import { cn } from '@/utils/tailwind';
 import { Button } from '@nextui-org/button';
 import { Input } from '@nextui-org/input';
-import { Autocomplete, AutocompleteItem, Avatar } from '@nextui-org/react';
-import { SearchIcon } from 'lucide-react';
-import { Controller } from 'react-hook-form';
+import { AutocompleteProps } from '@nextui-org/react';
+import { useController } from 'react-hook-form';
 import useNewGroupForm from '../_hooks/useNewGroupForm';
+import GroupLocation from '@/components/GroupLocation';
 
 const CreateNewGroupForm = () => {
   const {
     form: {
-      register,
       control,
+      register,
       handleSubmit,
       formState: { errors },
     },
-    selectedCountryCode,
-    setSelectedCountryCode,
-    setCitySearchTerm,
-    // selectedCity,
-    setSelectedCityName,
     profileActions,
     isCreatingGroup,
     createGroupError,
-    countries,
-    isLoadingCountries,
-    cities,
-    isLoadingCities,
   } = useNewGroupForm();
+
+  const locationProps = {
+    labelPlacement: 'inside' as const,
+    className: 'w-full',
+  };
+
+  const { field: countriesField } = useController({
+    control,
+    name: 'country'
+  })
+  const countriesProps: Omit<AutocompleteProps, 'children'> = {
+    ref: countriesField.ref,
+    name: countriesField.name,
+    onBlur: countriesField.onBlur,
+    label: 'Countries',
+    placeholder: 'Search...',
+    ...locationProps
+  }
+  const countriesError = errors.country;
+
+  const { field: citiesField } = useController({
+    control,
+    name: 'city'
+  })
+  const citiesProps: Omit<AutocompleteProps, 'children'> = {
+    ref: citiesField.ref,
+    name: citiesField.name,
+    onBlur: citiesField.onBlur,
+    label: 'Cities',
+    placeholder: 'Search...',
+    disabled: !countriesField.value,
+    ...locationProps
+  };
+  const citiesError = errors.city;
 
   return (
     <form
       onSubmit={handleSubmit((values) => {
-        return profileActions.createGroup({
-          ...values,
-          country: countries.find((country) => country.isoCode === values.country)!.name,
-        });
+        return profileActions.createGroup(values);
       })}
     >
       <div className="mb-5">
@@ -49,83 +70,24 @@ const CreateNewGroupForm = () => {
         />
       </div>
       <div className="flex gap-3">
-        <Controller
-          name="country"
-          control={control}
-          render={({ field, fieldState: { error } }) => {
-            const { ref, onChange } = field;
-            return (
-              <Autocomplete
-                ref={ref}
-                size="sm"
-                className="max-w-xs"
-                label="Search country"
-                isLoading={isLoadingCountries}
-                listboxProps={{ emptyContent: isLoadingCountries ? 'Loading...' : 'No countries found' }}
-                onSelectionChange={(isoCode) => {
-                  onChange(isoCode);
-                  setSelectedCountryCode(isoCode?.toString() || '');
-                }}
-                startContent={<SearchIcon className="h-4 w-4" />}
-                inputProps={{
-                  color: error?.message ? 'danger' : undefined,
-                  description: error?.message ? <span className="text-danger">{error.message}</span> : undefined,
-                }}
-              >
-                {countries.map((country) => {
-                  const { name, isoCode } = country;
-                  return (
-                    <AutocompleteItem
-                      key={isoCode}
-                      startContent={
-                        <Avatar
-                          alt={name}
-                          className="w-6 h-6"
-                          src={`https://flagcdn.com/${isoCode.toLowerCase()}.svg`}
-                        />
-                      }
-                    >
-                      {name}
-                    </AutocompleteItem>
-                  );
-                })}
-              </Autocomplete>
-            );
+        <GroupLocation
+          onCountryChange={country => {
+            countriesField.onChange(country ? country.name : undefined);
           }}
-        />
-        <Controller
-          name="city"
-          control={control}
-          render={({ field, fieldState: { error } }) => {
-            const { ref, onChange } = field;
-            return (
-              <Autocomplete
-                ref={ref}
-                size="sm"
-                className="max-w-xs"
-                label="Search cities"
-                isLoading={isLoadingCities}
-                listboxProps={{ emptyContent: isLoadingCities ? 'Loading...' : 'No cities found' }}
-                disabled={!selectedCountryCode}
-                classNames={{ base: cn({ 'pointer-events-none opacity-50': !cities.length }) }}
-                onInputChange={setCitySearchTerm}
-                onSelectionChange={(cityName) => {
-                  onChange(cityName);
-                  setSelectedCityName(cityName?.toString() || '');
-                }}
-                startContent={<SearchIcon className="h-4 w-4" />}
-                inputProps={{
-                  color: error?.message ? 'danger' : undefined,
-                  description: error?.message ? <span className="text-danger">{error.message}</span> : undefined,
-                }}
-              >
-                {cities.map((city) => {
-                  const { name } = city;
-                  return <AutocompleteItem key={name}>{name}</AutocompleteItem>;
-                })}
-              </Autocomplete>
-            );
+          onCityChange={city => {
+            if (city) {
+              const { name, stateCode } = city
+              let cityName = name;
+              if (stateCode) cityName += `, ${stateCode}`
+              citiesField.onChange(cityName);
+            } else {
+              citiesField.onChange(undefined);
+            }
           }}
+          countriesProps={countriesProps}
+          countriesError={countriesError}
+          citiesProps={citiesProps}
+          citiesError={citiesError}
         />
       </div>
       <ErrorText message={createGroupError} />

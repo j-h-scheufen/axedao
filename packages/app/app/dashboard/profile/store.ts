@@ -103,7 +103,7 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
       try {
         const { data } = await axios.post(`/api/groups/${groupId}/exit`);
         if (!data.success) throw new Error();
-        set({ profile: { ...profile, groupId: null } });
+        set({ profile: { ...profile, groupId: null, group: null } });
       } catch (error) {
         const message = error instanceof Error ? error.message : 'An error occured while exiting group';
         set({ exitGroupError: message });
@@ -127,7 +127,7 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
     },
     removeGroupAssociation: async () => {
       const { profile } = get();
-      set({ profile: { ...profile, groupId: null } });
+      set({ profile: { ...profile, groupId: null, group: null } });
     },
     setIsSignedIn: (isSignedIn) => {
       set({ isSignedIn });

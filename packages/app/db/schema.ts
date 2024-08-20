@@ -61,7 +61,7 @@ export const groups = pgTable(
     leader: uuid('leader_id').references((): AnyPgColumn => users.id, { onDelete: 'set null' }),
     founder: varchar('founder'),
     verified: boolean('verified').notNull().default(false),
-    city: varchar('city').notNull(),
+    city: varchar('city'),
     country: varchar('country').notNull(),
   },
   (table) => {

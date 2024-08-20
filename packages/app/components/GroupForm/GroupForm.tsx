@@ -74,7 +74,7 @@ const GroupForm = ({ id }: Props) => {
   const deleteGroup = async () => {
     await groupProfileActions.delete();
     profileActions.removeGroupAssociation();
-    router.push('/dashboard/overview?tab=groups');
+    router.push('/dashboard/profile');
   };
 
   const description = watch('description') || '';

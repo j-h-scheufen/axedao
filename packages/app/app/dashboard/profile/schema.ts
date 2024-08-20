@@ -30,7 +30,7 @@ export type ProfileFormType = InferType<typeof profileFormSchema>;
 export const createNewGroupFormSchema = object({
   name: string().required('Group name is required'),
   verified: boolean().default(false),
-  city: string().required('Group city is required'),
+  city: string(),
   country: string().required('Group country is required'),
 });
 

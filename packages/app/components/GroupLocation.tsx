@@ -1,6 +1,7 @@
 import useGroupLocation from '@/hooks/useGroupLocation';
 import { City } from '@/store/cities.store';
 import { Country } from '@/store/countries.store';
+import { cn } from '@/utils/tailwind';
 import { Autocomplete, AutocompleteItem, AutocompleteProps, Avatar } from '@nextui-org/react';
 import { isNil } from 'lodash';
 import { FieldError } from 'react-hook-form';
@@ -69,6 +70,9 @@ const GroupLocation = ({
       </Autocomplete>
       <Autocomplete
         {...citiesProps}
+        className={cn(citiesProps?.className, {
+          'opacity-70 pointer-events-none': !selectedCountryCode
+        })}
         isLoading={isLoadingCities}
         listboxProps={{ emptyContent: isLoadingCities ? 'Loading...' : 'No cities found' }}
         disabled={!selectedCountryCode}
@@ -93,8 +97,16 @@ const GroupLocation = ({
         }}
       >
         {cities.map((city, index) => {
-          const { name } = city;
-          return <AutocompleteItem key={index}>{name}</AutocompleteItem>;
+          const { name, stateCode } = city
+          let cityName = name;
+          if (stateCode) cityName += `, ${stateCode}`;
+          return (
+            <AutocompleteItem
+              key={index}
+            >
+              {cityName}
+            </AutocompleteItem>
+          );
         })}
       </Autocomplete>
     </>

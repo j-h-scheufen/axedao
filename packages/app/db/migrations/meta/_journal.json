@@ -29,6 +29,13 @@
       "when": 1723780538168,
       "tag": "0003_fancy_proudstar",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1724151095907,
+      "tag": "0004_red_prism",
+      "breakpoints": true
     }
   ]
 }

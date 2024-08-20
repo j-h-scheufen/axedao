@@ -28,25 +28,20 @@ const JoinGroupForm = () => {
   const loadGroupsError = useLoadGroupsError();
   const isLoadingGroups = useIsLoadingGroups();
   const hasMoreGroups = useGroupsHasMoreResults();
-  const groupActions = useGroupsActions();
+  const groupsActions = useGroupsActions();
 
   const isJoiningGroup = useIsJoiningGroup();
   const profileActions = useProfileActions();
 
   useEffect(() => {
-    groupActions.initialize();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    groupActions.initialize({ searchTerm: debouncedSearchTerm });
-  }, [debouncedSearchTerm, groupActions]);
+    groupsActions.initialize({ searchTerm: debouncedSearchTerm });
+  }, [debouncedSearchTerm, groupsActions]);
 
   const [, scrollerRef] = useInfiniteScroll({
     hasMore: hasMoreGroups,
     isEnabled: isOpen,
     shouldUseLoader: true,
-    onLoadMore: groupActions.loadNextPage,
+    onLoadMore: groupsActions.loadNextPage,
   });
 
   const { control, handleSubmit } = useForm({

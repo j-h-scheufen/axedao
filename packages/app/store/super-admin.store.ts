@@ -1,3 +1,5 @@
+import { useProfileStore } from '@/app/dashboard/profile/store';
+import { ProfileState } from '@/app/dashboard/profile/types';
 import axios from 'axios';
 import { produce } from 'immer';
 import { create } from 'zustand';
@@ -34,6 +36,14 @@ const useSuperAdminStore = create<SuperAdminStore>()((set, get) => ({
           useGroupProfileStore.setState(
             produce((state: GroupProfileState) => {
               Object.assign(state.groupProfile, { verified });
+            }),
+          );
+        }
+        const { profile } = useProfileStore.getState();
+        if (profile.group && profile.group.id === groupId) {
+          useProfileStore.setState(
+            produce((state: ProfileState) => {
+              if (state.profile.group) Object.assign(state.profile.group, { verified });
             }),
           );
         }

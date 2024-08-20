@@ -152,7 +152,7 @@ export async function PATCH(request: NextRequest, { params }: { params: { groupI
   }
 
   const updatedGroup = await updateGroup({ ...groupProfileData, id });
-  return Response.json({ ...user, ...(updatedGroup || {}), links });
+  return Response.json({ ...(updatedGroup || {}), links });
 }
 
 export async function DELETE(request: NextRequest, { params }: { params: { groupId: string } }) {

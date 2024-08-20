@@ -1,7 +1,11 @@
+import { useProfileStore } from '@/app/dashboard/profile/store';
+import { ProfileState } from '@/app/dashboard/profile/types';
 import { GroupFormType } from '@/constants/schemas';
 import { GroupProfile } from '@/types/model';
 import { generateErrorMessage, uploadImage } from '@/utils';
 import axios from 'axios';
+import { produce } from 'immer';
+import { omit } from 'lodash';
 import { create } from 'zustand';
 
 export type GroupProfileState = {
@@ -109,8 +113,14 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
             delete groupProfileData.banner;
           }
         }
-        const { data: profile } = await axios.patch(`/api/groups/${id}`, groupProfileData);
-        set({ groupProfile: profile });
+        const { data } = await axios.patch<Omit<GroupProfile, 'admins'>>(`/api/groups/${id}`, groupProfileData);
+        const groupProfile = { ...data, admins: get().groupProfile?.admins };
+        set({ groupProfile });
+        useProfileStore.setState(
+          produce((state: ProfileState) => {
+            state.profile.group = omit(data, ['links']);
+          }),
+        );
       } catch (error: unknown) {
         const message = error instanceof Error ? error.message : 'An error occured while updating your profile';
         set({ groupProfileUpdateError: message });

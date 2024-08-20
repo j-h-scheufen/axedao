@@ -228,7 +228,7 @@ export async function updateUser(user: Omit<schema.InsertUser, 'email'>) {
 }
 
 export async function updateGroup(group: Partial<schema.InsertGroup> & { id: string }) {
-  const groups = await db.update(schema.groups).set(group).where(eq(schema.groups.id, group.id));
+  const groups = await db.update(schema.groups).set(group).where(eq(schema.groups.id, group.id)).returning();
   return groups.length ? groups[0] : undefined;
 }
 
