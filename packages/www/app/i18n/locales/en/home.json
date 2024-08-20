@@ -1,23 +1,33 @@
 {
   "heading": {
-    "title": "Welcome to Axé DAO",
-    "subtitle": "A digital organization for the global Capoeira Community",
+    "title": "Welcome to <nbsp>Axé DAO</nbsp>",
+    "subtitle": "A digital organization for the Capoeira Community",
     "introduction": {
-      "p1": "We are Capoeiristas from different corners of the world using technology to give back to Capoeira. It is time for Capoeira to have a community-owned digital platform that generates value and benefits for everyone.",
-      "p2": "To do this we use tools from “crypto” that enable autonomy, freedom, and self-determination … in the digital world.",
-      "p3": "Axé DAO is a pioneering effort by Capoeiristas for Capoeiristas to channel collective resources into actions that help the Capoeira ecosystem and support those who live and breathe this art form."
+      "p1": "We are Capoeiristas from different schools and different corners of the world who want to give back to Capoeira by creating open and community-owned digital tools for the benefit of all of Capoeira.",
+      "p2": "We value autonomy, freedom, and self-determination and apply these to the digital world to create shared apps and platforms for the Capoeira subculture and its ecosystem.",
+      "p3": "Axé DAO is a pioneering effort by Capoeiristas for Capoeiristas to coordinate collective actions that help grow the Capoeira ecosystem and support those who live and breathe this art form."
     }
   },
   "about": {
-    "title": "What is this about?",
-    "content": "It is possible to establish digital organizations - with democratic decision-making, collective ownership, global coordination - to act in line with the direction of its members (they’re called <i>DAO</i> - Digital Autonomous Organization). Additionally, the digital asset economy with tokens, digital art, and NFTs is an exciting opportunity for a community with a strong cultural identity like Capoeira. Our mission is to apply these innovations to Capoeira’s microcosm to add value and services that directly benefit the community itself."
+    "title": "Mission",
+    "content": {
+      "p1": "In today's digital and online world, Capoeira groups are scattered across many websites and free social and messaging platforms. There is no easy way to understand how many groups even exist across the globe.",
+      "p2": "A digital platform for Capoeira that is community-owned and governed democratically enables global collaboration for anyone who loves and wants to contribute to this art form. Imagine a space where every member of the Capoeira community has a voice in decision-making and together we build a platform that is truly <i>ours</i>.",
+      "p3": "Our mission at Axé DAO is to serve and benefit the Capoeira community through digital tools. The first app being created is a registry specific for Capoeira groups and individuals to populate the <i>genealogy tree</i> of Capoeira."
+    }
   },
   "dao": {
-    "title": "Axé DAO",
-    "content": "Axé DAO is the name of our model of governance. It facilitates transparent, equitable decision-making processes among its members to collectively hold funds and decide how to use them. One of the primary goals for funding is the creation of common digital tools for Capoeira, like an open-source app, digital identity, and a registry. Long-term, it is an explicit goal to be able to fund individual projects and events and direct financial support into the community where it’s needed.<br/><br/>The DAO may decide to launch the Axé token, a digital unit symbolizing the positive energy of Axé. Its main use is to be passed around as a meme in the community to signal appreciation (for someone’s work or a jogo or the organizers of an event) and it would be distributed in a fair launch via the app and registry. It may also play a role in the governance of the organization."
+    "title": "Organization",
+    "content": {
+      "p1": "DAO stands for <i>Digital Autonomous Organization</i>. It is our model of governance that facilitates transparent, equitable decision-making processes among its members to collectively hold funds and decide how to use them.",
+      "p2": "In the beginning, our primary objective is to create digital tools for Capoeira such as an open-source app, digital identity, and a registry. Long-term, we want to fund individual Capoeira projects and events and direct financial support into the community where it's needed."
+    }
   },
   "goals": {
     "title": "Goals",
-    "content": "Our aim is straightforward: to use technology to support, preserve, and enrich the practice of Capoeira. In the near future, we plan to<ul><li>Launch an app with digital identity for Capoeira profiles</li><li>Open a registry to create the social graph and legacy tree of Capoeira groups worldwide.</li><li>Decide on the launch of the Axé token and its fair distribution</li></ul>On a longer time-scale, we plan to<ul><li>Create functionality for Capoeira groups to access digital assets like NFTs that can be used for badges, digital art, membership, etc.</li><li>Explore the creation of a fly-wheel of digital economic activity to sustain Capoeira and its community members</li></ul>"
+    "content": {
+      "p1": "We want to support, preserve, and enrich the practice of Capoeira and in 2024 we plan to:<br/><br/><ul><li>Launch a digital identity app for the Capoeira community</li><li>Open a registry for groups and individuals to start creating the social graph and lineage tree of Capoeira groups worldwide</li><li>Decide on the launch of the Axé token and its fair distribution parameters</li></ul>",
+      "p2": "On a longer time-scale our goals are:<br/><br/><ul><li>Create functionality for Capoeira groups to access digital assets like NFTs that can be used for badges, digital art, memberships, etc.</li><li>Explore reducing costs for Capoeira groups by offering common services, e.g. for event scheduling, group management, membership fees, etc.</li><li>Explore the creation of a circular digital economy to sustain Capoeira in general and its community members into the future.</li></ul>"
+    }
   }
 }

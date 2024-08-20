@@ -7,7 +7,7 @@ import clsx from 'clsx';
 
 import '@/styles/globals.css';
 import { siteConfig } from '@/config/site';
-import { fontSans } from '@/config/fonts';
+import { fontInter, fontFiraCode, fontOpenSans } from '@/config/fonts';
 import { Providers } from '../providers';
 import {
   ALL_LOCALES,
@@ -64,7 +64,9 @@ export default function RootLayout({
       <body
         className={clsx(
           'min-h-screen bg-background font-sans antialiased',
-          fontSans.variable
+          fontInter.variable,
+          fontFiraCode.variable,
+          fontOpenSans.variable
         )}
       >
         <Providers

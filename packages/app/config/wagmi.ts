@@ -1,6 +1,6 @@
 import { createConfig, http } from 'wagmi';
 import { localhost, sepolia, optimism, gnosis, Chain } from 'wagmi/chains';
-import { injected } from 'wagmi/connectors';
+import { injected, metaMask } from 'wagmi/connectors';
 import { metaMaskWallet, walletConnectWallet } from '@rainbow-me/rainbowkit/wallets';
 
 import ENV from '@/config/environment';
@@ -19,6 +19,7 @@ const wagmiConfig = createConfig({
   chains: configureChains(),
   connectors: [
     injected(),
+    metaMask(),
     ...connectorsForWallets(
       [
         {
