@@ -50,6 +50,7 @@ const SignInForm = ({ className }: Props) => {
             return (
               <Input
                 {...field}
+                value={value || ''}
                 label="Wallet address (MetaMask)"
                 className="w-full"
                 classNames={{

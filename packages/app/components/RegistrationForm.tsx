@@ -84,6 +84,7 @@ const RegistrationForm = () => {
             return (
               <Input
                 {...field}
+                value={value || ''}
                 label="Wallet address (MetaMask)"
                 className="w-full"
                 classNames={{

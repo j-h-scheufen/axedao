@@ -1,8 +1,6 @@
 import { fetchSessionData } from '@/db';
-import { NextApiRequest } from 'next';
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { getCsrfToken } from 'next-auth/react';
 import { NextRequest } from 'next/server';
 import { SiweMessage } from 'siwe';
 
@@ -27,16 +25,23 @@ const handler = async (req: NextRequest, context: RouteHandlerContext) => {
           type: 'text',
           placeholder: '0x0',
         },
+        nonce: {
+          label: 'Nonce',
+          type: 'text',
+          placeholder: '',
+        },
       },
       async authorize(credentials) {
         try {
           const siwe = new SiweMessage(JSON.parse(credentials?.message || '{}'));
           const nextAuthUrl = new URL(process.env.NEXTAUTH_URL!);
 
+          const nonce = credentials?.nonce;
           const result = await siwe.verify({
             signature: credentials?.signature || '',
             domain: nextAuthUrl.host,
-            nonce: await getCsrfToken({ req: req as NextRequest & NextApiRequest }),
+            // nonce: await getCsrfToken({ req: { headers: req as NextRequest & NextApiRequest } }),
+            nonce,
           });
           const address = siwe.address;
 
@@ -46,6 +51,7 @@ const handler = async (req: NextRequest, context: RouteHandlerContext) => {
           }
           return null;
         } catch (e) {
+          console.error(e);
           return null;
         }
       },

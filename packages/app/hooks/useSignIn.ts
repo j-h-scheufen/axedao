@@ -12,6 +12,7 @@ const useSignIn = () => {
   const handleSignIn = async () => {
     if (!isConnected) connect({ connector: injected() });
     const callbackUrl = '/protected';
+    const nonce = await getCsrfToken();
     const message = new SiweMessage({
       domain: window.location.host,
       address: address,
@@ -19,12 +20,13 @@ const useSignIn = () => {
       uri: window.location.origin,
       version: '1',
       chainId: chain?.id,
-      nonce: await getCsrfToken(),
+      nonce,
     });
     const signature = await signMessageAsync({
       message: message.prepareMessage(),
     });
     const res = await signIn('credentials', {
+      nonce,
       message: JSON.stringify(message),
       redirect: false,
       signature,
