@@ -9,20 +9,34 @@ import { useEffect } from 'react';
 import { useGroupProfile, useGroupProfileActions, useIsInitializingGroupProfile } from '../store/groupProfile.store';
 import GroupActions from './GroupActions';
 import GroupBanner from './GroupBanner';
+
+import UserCard from '@/components/UserCard';
+import { isUUID } from '@/utils';
+import { useIsInitializingUser, useUser, useUserActions } from '../../../users/[userId]/store';
 import GroupDescription from './GroupDescription';
 import GroupMembers from './GroupMembers';
 
 type Props = { id: string };
 const GroupProfile = ({ id }: Props) => {
+  const isLoading = useIsInitializingGroupProfile();
   const groupProfileActions = useGroupProfileActions();
   const groupProfile = useGroupProfile();
-  const isLoading = useIsInitializingGroupProfile();
+
+  const { name, logo, links, founder } = groupProfile;
+  const isFounderUUID = founder && isUUID(founder);
+
+  const userActions = useUserActions();
+  const founderProfile = useUser();
+  const isFetchingFounderProfile = useIsInitializingUser();
+
+  useEffect(() => {
+    if (!founder || !isFounderUUID) return;
+    userActions.initializeUser(founder);
+  }, [userActions, founder, isFounderUUID]);
 
   useEffect(() => {
     groupProfileActions.initialize(id);
   }, [groupProfileActions, id]);
-
-  const { name, logo, links } = groupProfile;
 
   return (
     <>
@@ -40,6 +54,10 @@ const GroupProfile = ({ id }: Props) => {
           <GroupDescription />
           <ContactInfo links={links} isLoading={isLoading} />
         </div>
+      </div>
+      <SubsectionHeading>Founder</SubsectionHeading>
+      <div className="text-default-500">
+        {isFounderUUID ? <UserCard user={founderProfile} isLoading={isFetchingFounderProfile} /> : founder}
       </div>
       <SubsectionHeading>Members</SubsectionHeading>
       <GroupMembers id={id} />

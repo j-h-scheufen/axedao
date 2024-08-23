@@ -14,6 +14,7 @@ import {
 } from '@/db';
 import { Link } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
+import { isNil, omitBy } from 'lodash';
 import { getServerSession } from 'next-auth';
 
 // TODO everything under the api/ route must be protected via middleware.ts to check for user session
@@ -96,16 +97,18 @@ export async function PATCH(request: NextRequest, { params }: { params: { groupI
 
   const { banner, logo, links } = body as GroupFormType;
 
-  const groupProfileData = JSON.parse(
-    JSON.stringify({
-      name: body.name || undefined,
-      description: body.description || undefined,
-      links: body.links || undefined,
-      admins: body.admins || undefined,
-      leader: body.leader || undefined,
-      banner: banner || undefined,
-      logo: logo || undefined,
-    }),
+  const groupProfileData = omitBy(
+    {
+      name: body.name,
+      description: body.description,
+      links: body.links,
+      admins: body.admins,
+      leader: body.leader,
+      founder: body.founder,
+      banner: banner,
+      logo: logo,
+    },
+    isNil,
   );
 
   const group = await fetchGroupProfile(groupId);

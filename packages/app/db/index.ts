@@ -26,18 +26,34 @@ export async function isGlobalAdmin(userId: string) {
   return res?.isGlobalAdmin;
 }
 
+type FetchUsersOptions = {
+  limit?: number;
+  offset?: number;
+  searchTerm?: string;
+  searchBy?: 'name' | 'nickname';
+};
 export async function fetchUsers(
-  limit: number = 20,
-  offset: number = 0,
-  searchTerm?: string,
-  searchBy?: 'name' | 'nickname',
+  options: FetchUsersOptions,
+  // limit: number = 20,
+  // offset: number = 0,
+  // searchTerm?: string,
+  // searchBy?: 'name' | 'nickname',
 ) {
-  const baseQuery = db.select().from(schema.users);
-  if (!searchTerm) return await baseQuery.limit(limit).offset(offset);
-  return await baseQuery
-    .where(ilike(schema.users[searchBy || 'name'], `%${searchTerm}%`))
-    .limit(limit)
-    .offset(offset);
+  const { limit = 20, offset = 0, searchTerm, searchBy = 'name' } = options;
+  console.log('Fetching users with options: ', options);
+  const filters: (SQLWrapper | undefined)[] = [];
+  if (searchTerm) filters.push(ilike(schema.users[searchBy], `%${searchTerm}%`));
+  return await db.query.users.findMany({
+    limit,
+    offset,
+    where: filters.length ? and(...filters) : undefined,
+  });
+  // const baseQuery = db.select().from(schema.users);
+  // if (!searchTerm) return await baseQuery.limit(limit).offset(offset);
+  // return await baseQuery
+  //   .where(ilike(schema.users[searchBy || 'name'], `%${searchTerm}%`))
+  //   .limit(limit)
+  //   .offset(offset);
 }
 
 export async function fetchSessionData(walletAddress: string) {

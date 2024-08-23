@@ -8,7 +8,7 @@ import { ForwardedRef, ReactNode, forwardRef } from 'react';
 import UserCardSkeleton from './skeletons/UserCardSkeleton';
 
 export type UserCardProps = CardProps & {
-  user?: User;
+  user?: User | null;
   endContent?: ReactNode | null;
   avatarProps?: AvatarProps;
   isLoading?: boolean;

@@ -88,7 +88,7 @@ export async function POST(request: NextRequest) {
     }
 
     const newGroupId = uuidv4();
-    const group = await insertGroup({ ...groupData, id: newGroupId, founder: userId, leader: userId, verified: false });
+    const group = await insertGroup({ ...groupData, id: newGroupId, leader: userId, verified: false });
     await updateUser({ id: userId, groupId: newGroupId });
     await addGroupAdmin({ groupId: newGroupId, userId });
 

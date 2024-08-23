@@ -10,17 +10,18 @@ import {
   useIsUpdatingGroupProfile,
 } from '@/app/dashboard/overview/groups/[groupId]/store/groupProfile.store';
 import { useProfile, useProfileActions } from '@/app/dashboard/profile/store';
+import ImageUpload from '@/components/ImageUpload';
+import SubsectionHeading from '@/components/SubsectionHeading';
 import { GroupFormType, groupFormSchema } from '@/constants/schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@nextui-org/button';
 import { Input, Textarea } from '@nextui-org/input';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
-import { Controller, useForm } from 'react-hook-form';
-import ImageUpload from '../ImageUpload';
-import SubsectionHeading from '../SubsectionHeading';
-import GroupFormSkeleton from '../skeletons/GroupFormSkeleton';
+import { Controller, FormProvider, useForm } from 'react-hook-form';
+import GroupFormSkeleton from '../skeletons';
 import DeleteGroup from './DeleteGroup';
+import FounderField from './FounderField';
 import LinkInputs from './LinkInputs';
 
 type Props = { id: string };
@@ -44,9 +45,10 @@ const GroupForm = ({ id }: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const { control, handleSubmit, watch, setValue } = useForm({
+  const form = useForm({
     resolver: yupResolver(groupFormSchema),
   });
+  const { control, handleSubmit, watch, setValue } = form;
 
   useEffect(() => {
     if (!groupProfile?.id || !profile.id) return;
@@ -81,7 +83,7 @@ const GroupForm = ({ id }: Props) => {
   const descriptionCharsLeft = 300 - description.length;
 
   return (
-    <>
+    <FormProvider {...form}>
       <form className="max-w-xl" onSubmit={handleSubmit(submit)}>
         <div className="mb-5 md:flex md:gap-5">
           <div className="flex min-w-24 flex-col justify-start gap-2">
@@ -150,6 +152,7 @@ const GroupForm = ({ id }: Props) => {
             );
           }}
         />
+        <FounderField />
         <Controller
           control={control}
           name="description"
@@ -182,7 +185,7 @@ const GroupForm = ({ id }: Props) => {
           </Button>
         </div>
       </form>
-    </>
+    </FormProvider>
   );
 };
 export default GroupForm;

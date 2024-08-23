@@ -1,17 +1,21 @@
 import { create } from 'zustand';
 
 import { User } from '@/types/model';
+import { generateErrorMessage } from '@/utils';
 import axios from 'axios';
+import { isNil, omitBy } from 'lodash';
 
 export type SearchUsersQuery = { searchTerm?: string; searchBy?: string };
 
-export type UsersState = SearchUsersQuery & {
+export type UsersState = {
   searchResults: User[];
   totalUsers: number | null;
   pageSize: number;
   hasMoreResults: boolean; // flag indicating there are more search results that can be retrieved for the current filter settings
   isInitialized: boolean;
   isLoading: boolean;
+  loadUsersError?: string;
+  query?: SearchUsersQuery;
 };
 
 type UsersActions = {
@@ -41,11 +45,11 @@ const useUsersStore = create<UsersStore>()((set, get) => ({
       }
     },
     search: async (query: SearchUsersQuery): Promise<void> => {
-      const { actions } = get();
+      const { actions, isLoading } = get();
+      if (isLoading) return;
       set({
-        ...query,
-        searchResults: [],
-        isLoading: false, // Ensures the search goes through
+        ...DEFAULT_PROPS,
+        query,
       });
       actions.loadNextPage();
     },
@@ -54,17 +58,9 @@ const useUsersStore = create<UsersStore>()((set, get) => ({
       if (isLoading) return;
       set({ isLoading: true });
       try {
-        const { pageSize, searchResults, searchTerm = '', searchBy } = get();
+        const { pageSize, searchResults, query } = get();
         const offset = searchResults.length;
-        const params = JSON.parse(
-          JSON.stringify({
-            searchTerm: searchTerm || undefined,
-            searchBy: searchBy || undefined,
-            offset: isNaN(offset) ? offset : undefined,
-            limit: isNaN(pageSize) ? pageSize : undefined,
-          }),
-        );
-
+        const params = omitBy({ limit: pageSize || 20, offset, ...query }, isNil);
         const { data } = await axios.get('/api/users', { params });
         if (data.error) {
           throw new Error(data.message);
@@ -83,8 +79,8 @@ const useUsersStore = create<UsersStore>()((set, get) => ({
           }));
         }
       } catch (error) {
-        console.error('Error fetching next page results: ', error);
-        throw error;
+        const message = generateErrorMessage(error, 'An error occured while fetching users');
+        set({ loadUsersError: message });
       }
       set({ isLoading: false });
     },
@@ -99,10 +95,12 @@ export const useUsers = (): User[] => useUsersStore((state) => state.searchResul
 
 export const useTotalUsers = (): number | null => useUsersStore((state) => state.totalUsers);
 
-export const useHasMoreResults = (): boolean => useUsersStore((state) => state.hasMoreResults);
+export const useHasMoreUsers = (): boolean => useUsersStore((state) => state.hasMoreResults);
 
 export const usePageSize = (): number => useUsersStore((state) => state.pageSize);
 
 export const useIsLoadingUsers = (): boolean => useUsersStore((state) => state.isLoading);
 
 export const useUsersIsInitialized = (): boolean => useUsersStore((state) => state.isInitialized);
+
+export const useLoadUsersError = () => useUsersStore((state) => state.loadUsersError);
