@@ -1,7 +1,6 @@
 'use client';
 import { useProfile } from '@/app/dashboard/profile/store';
 import pages from '@/constants/pages';
-import useScreenSize from '@/hooks/useScreenSize';
 import { Tab, Tabs } from '@nextui-org/tabs';
 import { usePathname, useRouter } from 'next/navigation';
 import { useMemo } from 'react';
@@ -9,8 +8,6 @@ import { useMemo } from 'react';
 const BottomBar = () => {
   const router = useRouter();
   const pathname = usePathname();
-  const { width } = useScreenSize();
-  const isLargeScreen = width >= 768;
 
   const profile = useProfile();
   const { isGlobalAdmin } = profile;
@@ -18,8 +15,6 @@ const BottomBar = () => {
   const selectedPage = useMemo(() => {
     return pathname.split('/').slice(0, 3).join('/');
   }, [pathname]);
-
-  if (isLargeScreen) return null;
 
   return (
     <div className="fixed bottom-0 left-0 z-20 block h-12 w-full bg-background px-5 md:hidden">

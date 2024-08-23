@@ -6,7 +6,7 @@ import useScreenSize from '@/hooks/useScreenSize';
 import { cn } from '@/utils/tailwind';
 import { Tab, Tabs } from '@nextui-org/tabs';
 import { usePathname, useRouter } from 'next/navigation';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 
 type SidebarListProps = { pages: PageType[]; selectedPage?: string };
 const SidebarList = ({ pages, selectedPage }: SidebarListProps) => {
@@ -53,16 +53,10 @@ const SidebarList = ({ pages, selectedPage }: SidebarListProps) => {
 };
 
 const Sidebar = () => {
-  const [hidden, setHidden] = useState(false);
-
   const router = useRouter();
   const pathname = usePathname();
   const { width } = useScreenSize();
   const isSmallScreen = width < 768;
-
-  useEffect(() => {
-    setHidden(isSmallScreen);
-  }, [isSmallScreen]);
 
   const selectedPage = useMemo(() => {
     return pathname.split('/').slice(0, 3).join('/');
@@ -74,10 +68,8 @@ const Sidebar = () => {
     router.push(selectedPage);
   }, [pathname, selectedPage, isSmallScreen, width, router]);
 
-  if (hidden) return null;
-
   return (
-    <div className={cn('fixed left-0 top-0 h-screen w-56 p-6 pb-6 pt-16 md:flex md:flex-col', { hidden })}>
+    <div className="fixed left-0 top-0 h-screen w-56 p-6 pb-6 pt-16 hidden md:flex md:flex-col">
       <SidebarList pages={pages} selectedPage={selectedPage} />
     </div>
   );
