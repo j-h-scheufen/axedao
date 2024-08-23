@@ -1,26 +1,21 @@
-import { getServerSession } from 'next-auth';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-import { addGroupAdmin, fetchGroupProfile, fetchUserProfileByEmail, isGroupAdmin, updateGroup } from '@/db';
+import { addGroupAdmin, fetchGroupProfile, isGroupAdmin, updateGroup } from '@/db';
 import { generateErrorMessage } from '@/utils';
+import { getToken } from 'next-auth/jwt';
 
-export async function POST(request: NextRequest, { params }: { params: { groupId: string; adminId: string } }) {
-  const session = await getServerSession();
-  if (!session?.user?.email) {
-    return Response.json(
-      { error: true, message: 'Not authenticated' },
-      {
-        status: 401,
-      },
-    );
+export async function POST(req: NextRequest, { params }: { params: { groupId: string; adminId: string } }) {
+  const token = await getToken({ req });
+  if (!token?.sub) {
+    return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
+  const userId = token.sub;
+
   const { groupId, adminId } = params;
 
-  // Check if user is the group's leader
-  const user = await fetchUserProfileByEmail(session.user.email);
   const group = await fetchGroupProfile(groupId);
 
-  if (user?.id !== group?.leader) {
+  if (userId !== group?.leader) {
     return Response.json(
       { error: true, message: "Only a leader of a group can promote it's admins to leader" },
       {
@@ -47,7 +42,7 @@ export async function POST(request: NextRequest, { params }: { params: { groupId
     // demote user to admin
     await addGroupAdmin({
       groupId,
-      userId: user.id,
+      userId,
     });
     await updateGroup({ id: groupId, leader: adminId, name: group.name });
     return Response.json({ success: true });

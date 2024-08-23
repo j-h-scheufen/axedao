@@ -30,8 +30,7 @@ const GlobalAdminUsersTable = () => {
       />
       <div className="flex flex-col gap-3">
         <Table
-          aria-label="Controlled table example with dynamic content"
-          selectionMode="multiple"
+          aria-label="Global admin users table"
           selectedKeys={selectedRows}
           onSelectionChange={(key) => setSelectedRows(key as Set<string>)}
           bottomContent={

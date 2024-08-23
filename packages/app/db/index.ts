@@ -5,7 +5,7 @@ import postgres from 'postgres';
 import { Profile } from '@/app/dashboard/profile/types';
 import ENV from '@/config/environment';
 import * as schema from '@/db/schema';
-import { GroupProfile, UserProfile } from '../types/model';
+import { GroupProfile } from '../types/model';
 
 /**
  * NOTE: All DB functions in this file can only be run server-side. If you need to retrieve DB data from a client
@@ -49,6 +49,26 @@ export async function fetchSessionData(walletAddress: string) {
 }
 
 export async function fetchProfile(email: string) {
+  return (await db.query.users.findFirst({
+    where: (users, { eq }) => eq(users.email, email),
+    with: {
+      links: true,
+      group: true,
+    },
+  })) as Profile | undefined;
+}
+
+export async function fetchUserProfile(userId: string): Promise<Profile | undefined> {
+  return (await db.query.users.findFirst({
+    where: (users, { eq }) => eq(users.id, userId),
+    with: {
+      links: true,
+      group: true,
+    },
+  })) as Profile | undefined;
+}
+
+export async function fetchUserProfileByEmail(email: string): Promise<Profile | undefined> {
   return (await db.query.users.findFirst({
     where: (users, { eq }) => eq(users.email, email),
     with: {
@@ -121,23 +141,6 @@ export async function isGroupAdmin(groupId: string, userId: string): Promise<boo
   return result.length > 0 && result[0].value > 0;
 }
 
-export async function fetchUserProfile(userId: string): Promise<UserProfile> {
-  const user = await db.select().from(schema.users).where(eq(schema.users.id, userId));
-  const links = await db.select().from(schema.links).where(eq(schema.links.ownerId, userId));
-  if (user.length == 0) throw new Error('User not found');
-  return { ...user[0], links };
-}
-
-export async function fetchUserProfileByEmail(email: string): Promise<UserProfile | undefined> {
-  const users = await db.select().from(schema.users).where(eq(schema.users.email, email));
-  const user = users.length ? users[0] : null;
-  if (!user) {
-    return undefined;
-  }
-  const links = await db.select().from(schema.links).where(eq(schema.links.ownerId, user.id));
-  return { ...user, links };
-}
-
 export async function fetchUserIdFromEmail(email: string): Promise<string | undefined> {
   const users = await db.select({ id: schema.users.id }).from(schema.users).where(eq(schema.users.email, email));
   if (users.length === 0) return undefined;
@@ -150,7 +153,7 @@ export async function fetchGroup(groupId: string) {
   });
 }
 
-export async function fetchGroupProfile(groupId: string): Promise<GroupProfile> {
+export async function fetchGroupProfile(groupId: string): Promise<GroupProfile | undefined> {
   const group = await db.select().from(schema.groups).where(eq(schema.groups.id, groupId));
   const links = await db.select().from(schema.links).where(eq(schema.links.ownerId, groupId));
   if (group.length == 0) throw new Error('Group not found');

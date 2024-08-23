@@ -4,6 +4,7 @@ import VerificationChip from '@/components/VerificationChip';
 import { Group } from '@/types/model';
 import {
   Avatar,
+  Link,
   Spinner,
   Table,
   TableBody,
@@ -32,17 +33,19 @@ const columns: Column<Group>[] = [
     key: 'name',
     label: 'NAME',
     cell: ({ item }) => {
-      const { logo = '', name, city, country } = item;
+      const { logo = '', name, city, country, id } = item;
       return (
-        <div className="flex items-center gap-2">
-          <Avatar size="sm" src={logo || ''} radius="full" />
-          <div className="flex justify-center flex-col">
-            <div>{name}</div>
-            <span className="flex items-center gap-1 text-small text-default-500">
-              <MapPinIcon className="h-3 w-3" /> {city}, {country}
-            </span>
+        <Link href={`/dashboard/overview/groups/${id}`} className="inline-block text-[unset]">
+          <div className="flex items-center gap-2">
+            <Avatar size="sm" src={logo || ''} radius="full" />
+            <div className="flex justify-center flex-col">
+              <div className="text-sm">{name}</div>
+              <span className="flex items-center gap-1 text-xs text-default-500">
+                <MapPinIcon className="h-3 w-3" /> {city}, {country}
+              </span>
+            </div>
           </div>
-        </div>
+        </Link>
       );
     },
     columnProps: { allowsSorting: true },
@@ -95,8 +98,7 @@ const GlobalAdminGroupsTable = () => {
       <Filters query={query} setQuery={setQuery} />
       <div className="flex flex-col gap-3">
         <Table
-          aria-label="Controlled table example with dynamic content"
-          selectionMode="multiple"
+          aria-label="Global admin groups table"
           selectedKeys={selectedKeys}
           onSelectionChange={(key) => setSelectedKeys(key as Set<string>)}
         >

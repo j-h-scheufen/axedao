@@ -1,14 +1,14 @@
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 import { fetchGroupAdmins, fetchGroupProfile, fetchUserProfile } from '@/db';
 import { generateErrorMessage } from '@/utils';
-
-// TODO everything under the api/ route must be protected via middleware.ts to check for user session
 
 export async function GET(request: NextRequest, { params }: { params: { groupId: string } }) {
   try {
     const { groupId } = params;
     const groupProfile = await fetchGroupProfile(groupId);
+    if (!groupProfile) return NextResponse.json({ error: 'Unable to fetch group profile' }, { status: 404 });
+
     let founder = undefined,
       leader = undefined;
     if (groupProfile.founder) founder = await fetchUserProfile(groupProfile.founder);

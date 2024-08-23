@@ -2,8 +2,8 @@
 
 import { Tab, Tabs } from '@nextui-org/tabs';
 import useGlobalAdminOverview from '../_hooks/useGlobalAdminOverview';
+import GlobalAdminGroupsTable from './GlobalAdminGroupsTable';
 import GlobalAdminUsersTable from './GlobalAdminUsersTable';
-import GroupsTable from './GroupsTable';
 
 const GlobalAdminOverview = () => {
   const [query, setQuery] = useGlobalAdminOverview();
@@ -27,7 +27,7 @@ const GlobalAdminOverview = () => {
           <GlobalAdminUsersTable />
         </Tab>
         <Tab key="groups" title="Groups">
-          <GroupsTable />
+          <GlobalAdminGroupsTable />
         </Tab>
       </Tabs>
     </div>

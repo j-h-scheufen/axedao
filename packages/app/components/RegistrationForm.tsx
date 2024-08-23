@@ -5,6 +5,7 @@ import useRegister from '@/hooks/useRegister';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@nextui-org/button';
 import { Input } from '@nextui-org/input';
+import { AxiosError } from 'axios';
 import { useSession } from 'next-auth/react';
 import { useEffect } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
@@ -33,7 +34,7 @@ const RegistrationForm = () => {
 
   const isSubmitting = registrationMutation.isPending;
   const isLoading = session.status === 'loading';
-  const submitError = registrationMutation.error;
+  const submitError: AxiosError | Error | null = registrationMutation.error;
 
   return (
     <form
@@ -110,7 +111,11 @@ const RegistrationForm = () => {
           {watch('walletAddress') ? 'Change' : 'Connect'}
         </Button>
       </div>
-      {submitError && <div className="my-2 text-center text-small text-danger">{submitError.message}</div>}
+      {submitError && (
+        <div className="my-2 text-center text-small text-danger">
+          {(submitError as AxiosError<{ error: string }>).response?.data?.error || submitError.message}
+        </div>
+      )}
       <Button
         key="register-button"
         type="submit"

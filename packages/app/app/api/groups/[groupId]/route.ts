@@ -1,4 +1,4 @@
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 import { GroupFormType, LinkType, groupFormSchema } from '@/constants/schemas';
 import {
@@ -12,7 +12,7 @@ import {
   updateGroup,
   updateLink,
 } from '@/db';
-import { Group, Link } from '@/types/model';
+import { Link } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
 import { getServerSession } from 'next-auth';
 
@@ -41,7 +41,9 @@ export async function GET(request: NextRequest, { params }: { params: { groupId:
     }
 
     const { groupId } = params;
-    const groupProfile: Group | null = await fetchGroupProfile(groupId);
+    const groupProfile = await fetchGroupProfile(groupId);
+    if (!groupProfile) return NextResponse.json({ error: 'Unable to fetch group profile' }, { status: 404 });
+
     const isAdmin = await isGroupAdmin(groupId, userId);
 
     return Response.json({ groupProfile, isAdmin });
@@ -179,6 +181,8 @@ export async function DELETE(request: NextRequest, { params }: { params: { group
 
     const { groupId } = params;
     const group = await fetchGroupProfile(groupId);
+    if (!group) return NextResponse.json({ error: 'Unable to fetch group profile' }, { status: 404 });
+
     if (group.leader !== user?.id) {
       return Response.json(
         { error: true, message: "Only a group's leader can delete it." },

@@ -1,8 +1,8 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
+import UserProfile from '@/app/dashboard/overview/users/[userId]/_components/UserProfile';
 import PageHeading from '@/components/PageHeading';
-import UserProfile from '@/components/UserProfile';
+import { useSearchParams } from 'next/navigation';
 
 const Page = () => {
   const searchParams = useSearchParams();

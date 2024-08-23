@@ -2,11 +2,12 @@
 
 import useOverviewQueries from '@/hooks/useOverviewQueries';
 import { useIsLoadingUsers, useUsers, useUsersActions } from '@/store/users.store';
-import { User } from '@/types/model';
-import { getKeyValue } from '@nextui-org/react';
+import { User as UserType } from '@/types/model';
+import { Link, User, getKeyValue } from '@nextui-org/react';
 import { isEqual } from 'lodash';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDebounce } from 'use-debounce';
+import { useProfile } from '../../profile/store';
 
 const searchOptions = [
   {
@@ -21,8 +22,8 @@ const searchOptions = [
 
 const columns = [
   {
-    key: 'name',
-    label: 'NAME',
+    key: 'user',
+    label: 'USER',
   },
   {
     key: 'nickname',
@@ -43,6 +44,7 @@ const useGlobalAdminUsersTable = () => {
 
   const lastQueryRef = useRef<typeof query | null>(null);
 
+  const profile = useProfile();
   const usersActions = useUsersActions();
   const users = useUsers();
   const isLoading = useIsLoadingUsers();
@@ -53,9 +55,28 @@ const useGlobalAdminUsersTable = () => {
     lastQueryRef.current = debouncedQuery;
   }, [debouncedQuery, usersActions, lastQueryRef]);
 
-  const getCellValue = useCallback(({ item, key }: { item: User; key: string }) => {
-    return getKeyValue(item, key) || 'N/A';
-  }, []);
+  const getCellValue = useCallback(
+    ({ item, key }: { item: UserType; key: string }) => {
+      if (key === 'user') {
+        const { id, email, avatar, name } = item as UserType;
+        const isLoggedInUser = id === profile.id;
+        return (
+          <Link href={`/dashboard/overview/users/${id}`} className="text-[unset]">
+            <User
+              avatarProps={{ radius: 'full', src: avatar || '' }}
+              description={email}
+              name={`${name} ${isLoggedInUser ? '(You)' : ''}`}
+              className="cursor-pointer"
+            >
+              {email}
+            </User>
+          </Link>
+        );
+      }
+      return getKeyValue(item, key) || 'N/A';
+    },
+    [profile.id],
+  );
 
   const setSearchTerm = (searchTerm: string) => {
     setQuery({ ...query, searchTerm });
