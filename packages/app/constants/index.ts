@@ -10,4 +10,6 @@ export const titles = [
   'iniciante',
 ] as const;
 
-export type TitleType = (typeof titles)[number];
+export const linkTypes = ['twitter', 'facebook', 'instagram', 'linkedin'] as const;
+
+export const validFileExtensions = { image: ['jpg', 'gif', 'png', 'jpeg', 'svg', 'webp'] } as const;

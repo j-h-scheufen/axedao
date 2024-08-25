@@ -9,10 +9,10 @@ import {
   useIsInitializingGroupProfile,
   useIsUpdatingGroupProfile,
 } from '@/app/dashboard/overview/groups/[groupId]/store/groupProfile.store';
-import { useProfile, useProfileActions } from '@/app/dashboard/profile/store';
 import ImageUpload from '@/components/ImageUpload';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import { GroupFormType, groupFormSchema } from '@/constants/schemas';
+import { useProfile, useProfileActions } from '@/store/profile.store';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@nextui-org/button';
 import { Input, Textarea } from '@nextui-org/input';

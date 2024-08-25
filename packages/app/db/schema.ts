@@ -1,4 +1,4 @@
-import { titles } from '@/constants';
+import { linkTypes, titles } from '@/constants';
 import { relations } from 'drizzle-orm';
 import {
   AnyPgColumn,
@@ -16,7 +16,7 @@ import {
 } from 'drizzle-orm/pg-core';
 
 export const titleEnum = pgEnum('title', titles);
-export const linkTypeEnum = pgEnum('link_type', ['twitter', 'facebook', 'instagram', 'linkedin']);
+export const linkTypeEnum = pgEnum('link_type', linkTypes);
 
 export const users = pgTable(
   'users',

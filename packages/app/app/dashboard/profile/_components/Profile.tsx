@@ -5,7 +5,7 @@ import { Button } from '@nextui-org/button';
 import { Avatar } from '@nextui-org/react';
 import { Camera, Edit } from 'lucide-react';
 import Link from 'next/link';
-import { useIsInitializingProfile, useProfile } from '../store';
+import { useIsInitializingProfile, useProfile } from '../../../../store/profile.store';
 import { ProfileSkeleton } from './skeletons';
 
 const Profile = () => {

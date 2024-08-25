@@ -1,8 +1,8 @@
 'use client';
 
-import { useProfile } from '@/app/dashboard/profile/store';
 import pages, { PageType } from '@/constants/pages';
 import useScreenSize from '@/hooks/useScreenSize';
+import { useProfile } from '@/store/profile.store';
 import { cn } from '@/utils/tailwind';
 import { Tab, Tabs } from '@nextui-org/tabs';
 import { usePathname, useRouter } from 'next/navigation';

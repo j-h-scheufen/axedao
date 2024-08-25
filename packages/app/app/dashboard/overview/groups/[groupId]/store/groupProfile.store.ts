@@ -1,6 +1,6 @@
-import { useProfileStore } from '@/app/dashboard/profile/store';
 import { ProfileState } from '@/app/dashboard/profile/types';
 import { GroupFormType } from '@/constants/schemas';
+import { useProfileStore } from '@/store/profile.store';
 import { GroupProfile } from '@/types/model';
 import { generateErrorMessage, uploadImage } from '@/utils';
 import axios from 'axios';

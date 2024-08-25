@@ -1,13 +1,14 @@
 'use client';
 
-import { useProfileActions } from '@/app/dashboard/profile/store';
-import RegistrationForm from '@/components/RegistrationForm';
-import useUpdateSearchParams from '@/hooks/useUpdateSearchParams';
 import { Spinner } from '@nextui-org/react';
 import { Tab, Tabs } from '@nextui-org/tabs';
 import { useSession } from 'next-auth/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
+
+import useUpdateSearchParams from '@/hooks/useUpdateSearchParams';
+import { useProfileActions } from '@/store/profile.store';
+import RegistrationForm from './RegistrationForm';
 import SignInForm from './SignInForm';
 
 const AuthForms = () => {

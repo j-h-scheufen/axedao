@@ -1,6 +1,5 @@
 'use client';
 
-import { useIsJoiningGroup, useProfileActions } from '@/app/dashboard/profile/store';
 import ErrorText from '@/components/ErrorText';
 import {
   useGroups,
@@ -9,6 +8,7 @@ import {
   useIsLoadingGroups,
   useLoadGroupsError,
 } from '@/store/groups.store';
+import { useIsJoiningGroup, useProfileActions } from '@/store/profile.store';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
 import { Button } from '@nextui-org/button';

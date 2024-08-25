@@ -1,5 +1,5 @@
-import { useProfileStore } from '@/app/dashboard/profile/store';
 import { ProfileState } from '@/app/dashboard/profile/types';
+import { useProfileStore } from '@/store/profile.store';
 import axios from 'axios';
 import { produce } from 'immer';
 import { create } from 'zustand';

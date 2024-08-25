@@ -1,6 +1,6 @@
 'use client';
 
-import { useIsSignedIn, useProfileActions } from '@/app/dashboard/profile/store';
+import { useIsSignedIn, useProfileActions } from '@/store/profile.store';
 import { Button } from '@nextui-org/button';
 import { Spinner } from '@nextui-org/react';
 import { LogOutIcon } from 'lucide-react';

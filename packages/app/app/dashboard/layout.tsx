@@ -4,7 +4,7 @@ import BottomBar from '@/components/BottomBar';
 import Sidebar from '@/components/Sidebar';
 import { usePathname, useRouter } from 'next/navigation';
 import { ReactNode, useEffect } from 'react';
-import { useIsProfileInitialized, useIsSignedIn, useProfileActions } from './profile/store';
+import { useIsProfileInitialized, useIsSignedIn, useProfileActions } from '../../store/profile.store';
 
 type Props = { children: ReactNode };
 const DashboardLayout = ({ children }: Props) => {

@@ -1,4 +1,4 @@
-import { useProfile } from '@/app/dashboard/profile/store';
+import { useProfile } from '@/store/profile.store';
 import { Button, Link, Tooltip, User } from '@nextui-org/react';
 import { has } from 'lodash';
 import { ArrowDownIcon, ArrowUpIcon, UserXIcon } from 'lucide-react';

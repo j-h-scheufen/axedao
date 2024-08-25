@@ -1,8 +1,8 @@
 import { generateErrorMessage, uploadImage } from '@/utils';
 import axios from 'axios';
 import { create } from 'zustand';
-import { CreateNewGroupFormType, ProfileFormType } from './schema';
-import { Profile, ProfileActions, ProfileState, ProfileStore } from './types';
+import { CreateNewGroupFormType, ProfileFormType } from '../app/dashboard/profile/schema';
+import { Profile, ProfileActions, ProfileState, ProfileStore } from '../app/dashboard/profile/types';
 
 const now = new Date();
 export const DEFAULT_PROFILE: Profile = {

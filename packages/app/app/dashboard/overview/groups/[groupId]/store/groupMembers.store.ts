@@ -1,4 +1,4 @@
-import { DEFAULT_PROFILE } from '@/app/dashboard/profile/store';
+import { DEFAULT_PROFILE } from '@/store/profile.store';
 import { User } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
 import axios from 'axios';

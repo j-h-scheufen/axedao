@@ -3,7 +3,7 @@
 import CreateGroupAssociation from '@/app/dashboard/profile/_components/CreateGroupAssociation';
 import GroupCard from '@/components/GroupCard';
 import GroupCardSkeleton from '@/components/skeletons/GroupCardSkeleton';
-import { useIsInitializingProfile, useIsProfileInitialized, useProfile } from '../store';
+import { useIsInitializingProfile, useIsProfileInitialized, useProfile } from '../../../../store/profile.store';
 
 const GroupAssociation = () => {
   const profile = useProfile();

@@ -1,6 +1,6 @@
 'use client';
-import { useProfile } from '@/app/dashboard/profile/store';
 import pages from '@/constants/pages';
+import { useProfile } from '@/store/profile.store';
 import { Tab, Tabs } from '@nextui-org/tabs';
 import { usePathname, useRouter } from 'next/navigation';
 import { useMemo } from 'react';

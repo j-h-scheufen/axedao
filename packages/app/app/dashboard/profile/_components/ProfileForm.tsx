@@ -12,14 +12,14 @@ import { Select, SelectItem } from '@nextui-org/select';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { ProfileFormType, profileFormSchema } from '../schema';
 import {
   useIsInitializingProfile,
   useIsProfileInitialized,
   useIsUpdatingProfile,
   useProfile,
   useProfileActions,
-} from '../store';
+} from '../../../../store/profile.store';
+import { ProfileFormType, profileFormSchema } from '../schema';
 
 const ProfileForm = () => {
   const router = useRouter();

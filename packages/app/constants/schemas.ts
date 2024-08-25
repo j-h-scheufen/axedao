@@ -1,9 +1,9 @@
 import { InferType, array, mixed, number, object, string } from 'yup';
+import { linkTypes, titles, validFileExtensions } from '.';
 
-export const linkTypes = ['twitter', 'facebook', 'instagram', 'linkedin'] as const;
+export type TitleType = (typeof titles)[number];
 export type LinkType = (typeof linkTypes)[number];
 
-export const validFileExtensions = { image: ['jpg', 'gif', 'png', 'jpeg', 'svg', 'webp'] } as const;
 type ValidFileExtensionsType = keyof typeof validFileExtensions;
 type ValidImageExtensionsType = (typeof validFileExtensions.image)[number];
 
@@ -91,12 +91,14 @@ export const groupFormSchema = object({
     value ? value.length <= 300 : true,
   ),
   logo: mixed()
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .test('is-valid-type', 'Not a valid image type', (value: any) => {
       if (value instanceof File) {
         return isValidFileType(value && value.name?.toLowerCase(), 'image');
       }
       return true;
     })
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .test('is-valid-size', 'Max image size allowed is 3MB', (value: any) => {
       if (value instanceof File) {
         return value.size <= megabytesToBytes(3);
@@ -104,12 +106,14 @@ export const groupFormSchema = object({
       return true;
     }),
   banner: mixed()
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .test('is-valid-type', 'Not a valid image type', (value: any) => {
       if (value instanceof File) {
         return isValidFileType(value && value.name?.toLowerCase(), 'image');
       }
       return true;
     })
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .test('is-valid-size', 'Max image size allowed is 5MB', (value: any) => {
       if (value instanceof File) {
         return value.size <= megabytesToBytes(3);

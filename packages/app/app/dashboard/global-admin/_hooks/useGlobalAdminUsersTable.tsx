@@ -7,7 +7,7 @@ import { Link, User, getKeyValue } from '@nextui-org/react';
 import { isEqual } from 'lodash';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDebounce } from 'use-debounce';
-import { useProfile } from '../../profile/store';
+import { useProfile } from '../../../../store/profile.store';
 
 const searchOptions = [
   {
