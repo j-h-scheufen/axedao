@@ -1,13 +1,13 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
-import { useAccount } from 'wagmi';
 import { Card, CardBody } from '@nextui-org/card';
-import { Tabs, Tab } from '@nextui-org/tabs';
+import { Tab, Tabs } from '@nextui-org/tabs';
+import { useCallback, useEffect, useState } from 'react';
 import { Address } from 'viem';
+import { useAccount } from 'wagmi';
 
 import ENV from '@/config/environment';
-import { useReadIUniswapV2PairGetReserves, useReadIUniswapV2PairToken0, useReadErc20BalanceOf } from '@/generated';
+import { useReadErc20BalanceOf, useReadIUniswapV2PairGetReserves, useReadIUniswapV2PairToken0 } from '@/generated';
 import Buy from './Buy';
 import Sell from './Sell';
 
