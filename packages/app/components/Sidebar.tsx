@@ -38,7 +38,7 @@ const SidebarList = ({ pages, selectedPage }: SidebarListProps) => {
             title={
               <div
                 className={cn('flex items-center gap-2 hover:text-primary hover:opacity-100', {
-                  'text-primary font-medium': active,
+                  'text-primary-400 dark:text-primary font-medium': active,
                 })}
               >
                 {Icon && <Icon className="h-4 w-4" fill={active ? 'currentColor' : 'none'} strokeWidth={1.25} />}

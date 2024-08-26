@@ -15,6 +15,7 @@ const DashboardLayout = ({ children }: Props) => {
   const isSignedIn = useIsSignedIn();
 
   useEffect(() => {
+    // TODO move this to middleware
     if (isSignedIn) {
       if (!isProfileInitialized) profileActions.initializeProfile();
     } else if (!pathname.startsWith('/auth')) {

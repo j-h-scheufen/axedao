@@ -3,7 +3,7 @@ import { Metadata, Viewport } from 'next';
 
 import Navbar from '@/components/Navbar';
 import SessionProvider from '@/components/SessionProvider';
-import { fontSans } from '@/config/fonts';
+import { fontFiraCode, fontInter, fontOpenSans } from '@/config/fonts';
 import { siteConfig } from '@/config/site';
 import '@/styles/globals.css';
 import { getServerSession } from 'next-auth';
@@ -36,7 +36,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={clsx('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
+      <body
+        className={clsx(
+          'min-h-screen bg-background font-sans antialiased',
+          fontInter.variable,
+          fontFiraCode.variable,
+          fontOpenSans.variable,
+        )}
+      >
         <SessionProvider session={session}>
           <ThemeProvider themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
             <SnackbarProvider>
