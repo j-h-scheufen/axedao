@@ -1,8 +1,10 @@
-import { fetchSessionData } from '@/db';
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { NextRequest } from 'next/server';
 import { SiweMessage } from 'siwe';
+
+import ENV from '@/config/environment';
+import { fetchSessionData } from '@/db';
 
 interface RouteHandlerContext {
   params: { nextauth: string[] };
@@ -34,7 +36,7 @@ const handler = async (req: NextRequest, context: RouteHandlerContext) => {
       async authorize(credentials) {
         try {
           const siwe = new SiweMessage(JSON.parse(credentials?.message || '{}'));
-          const nextAuthUrl = new URL(process.env.NEXTAUTH_URL!);
+          const nextAuthUrl = new URL(ENV.nextAuthUrl);
 
           const nonce = credentials?.nonce;
           const result = await siwe.verify({
@@ -71,7 +73,7 @@ const handler = async (req: NextRequest, context: RouteHandlerContext) => {
     session: {
       strategy: 'jwt',
     },
-    secret: process.env.NEXTAUTH_SECRET,
+    secret: ENV.nextAuthSecret,
     callbacks: {
       async jwt(args) {
         const { token, user } = args;
