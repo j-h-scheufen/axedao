@@ -15,7 +15,6 @@ type ConfigType = {
   uniswapV2RouterAddress: Address;
   databaseUrl: string;
   nextAuthSecret: string;
-  nextAuthUrl: string;
 };
 
 const envMode = process.env.NEXT_PUBLIC_APP_ENV?.toLowerCase();
@@ -67,7 +66,6 @@ const ENV: ConfigType = {
   ) as Address,
   databaseUrl: isServer ? required(process.env.DATABASE_URL, 'DATABASE_URL') : '',
   nextAuthSecret: isServer ? required(process.env.NEXTAUTH_SECRET, 'NEXTAUTH_SECRET') : '',
-  nextAuthUrl: isServer ? required(process.env.NEXTAUTH_URL, 'NEXTAUTH_URL') : '',
 };
 
 function required(value: string | undefined, name: string): string {

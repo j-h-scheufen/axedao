@@ -36,7 +36,7 @@ const handler = async (req: NextRequest, context: RouteHandlerContext) => {
       async authorize(credentials) {
         try {
           const siwe = new SiweMessage(JSON.parse(credentials?.message || '{}'));
-          const nextAuthUrl = new URL(ENV.nextAuthUrl);
+          const nextAuthUrl = new URL(process.env.NEXTAUTH_URL || '');
 
           const nonce = credentials?.nonce;
           const result = await siwe.verify({
