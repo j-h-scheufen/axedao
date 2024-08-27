@@ -1,10 +1,8 @@
 import { createConfig, http } from 'wagmi';
-import { localhost, sepolia, optimism, gnosis, Chain } from 'wagmi/chains';
-import { injected, metaMask } from 'wagmi/connectors';
-import { metaMaskWallet, walletConnectWallet } from '@rainbow-me/rainbowkit/wallets';
+import { Chain, gnosis, localhost, optimism, sepolia } from 'wagmi/chains';
+import { MetaMaskParameters, injected, metaMask } from 'wagmi/connectors';
 
 import ENV from '@/config/environment';
-import { connectorsForWallets } from '@rainbow-me/rainbowkit';
 
 const configureChains = (): [Chain, ...Chain[]] => {
   let chains: [Chain, ...Chain[]] = [gnosis];
@@ -15,23 +13,18 @@ const configureChains = (): [Chain, ...Chain[]] => {
   return chains;
 };
 
+const metaMaskConfig: MetaMaskParameters = {
+  dappMetadata: {
+    name: 'Axé DAO',
+  },
+  // infuraAPIKey: "YOUR-API-KEY",
+};
+
 const wagmiConfig = createConfig({
   chains: configureChains(),
   connectors: [
     injected(),
-    metaMask(),
-    ...connectorsForWallets(
-      [
-        {
-          groupName: 'Recommended',
-          wallets: [metaMaskWallet, walletConnectWallet],
-        },
-      ],
-      {
-        appName: 'Quilombo',
-        projectId: ENV.walletConnectProjectId,
-      },
-    ),
+    metaMask(metaMaskConfig),
     // safe(),
   ],
   transports: {

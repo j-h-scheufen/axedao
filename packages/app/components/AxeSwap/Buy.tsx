@@ -1,19 +1,19 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
-import { debounce } from 'lodash';
-import { parseUnits, formatUnits, Address } from 'viem';
-import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 import { Button } from '@nextui-org/button';
 import { Input } from '@nextui-org/input';
+import { FormikErrors, FormikHelpers, useFormik } from 'formik';
+import { debounce } from 'lodash';
 import { enqueueSnackbar } from 'notistack';
-import { useFormik, FormikErrors, FormikHelpers } from 'formik';
+import { useCallback, useEffect, useState } from 'react';
+import { Address, formatUnits, parseUnits } from 'viem';
+import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 
 import ENV from '@/config/environment';
 import {
-  useReadIUniswapV2Router02GetAmountOut,
-  useReadErc20Allowance,
   useReadAxeBuyTax,
+  useReadErc20Allowance,
+  useReadIUniswapV2Router02GetAmountOut,
   useWriteErc20Approve,
   useWriteIUniswapV2Router02SwapExactTokensForTokensSupportingFeeOnTransferTokens,
 } from '@/generated';
@@ -228,7 +228,8 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
 
         <Button
           type="submit"
-          className="mt-2 size-unit-lg w-full bg-green-500 text-large dark:bg-green-700"
+          color="primary"
+          className="mt-2 size-unit-lg w-full text-large"
           isDisabled={!formik.isValid || !formik.dirty || isUpdating || approvePending || swapPending}
           isLoading={formik.isSubmitting}
         >

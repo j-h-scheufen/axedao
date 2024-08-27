@@ -1,3 +1,4 @@
+import { linkTypes, titles } from '@/constants';
 import { relations } from 'drizzle-orm';
 import {
   AnyPgColumn,
@@ -14,18 +15,8 @@ import {
   varchar,
 } from 'drizzle-orm/pg-core';
 
-export const titleEnum = pgEnum('title', [
-  'mestre',
-  'contra-mestre',
-  'mestrando',
-  'professor',
-  'instrutor',
-  'monitor',
-  'aluno-graduado',
-  'aluno',
-  'iniciante',
-]);
-export const linkTypeEnum = pgEnum('link_type', ['twitter', 'facebook', 'instagram', 'linkedin']);
+export const titleEnum = pgEnum('title', titles);
+export const linkTypeEnum = pgEnum('link_type', linkTypes);
 
 export const users = pgTable(
   'users',
@@ -40,13 +31,16 @@ export const users = pgTable(
     title: titleEnum('title'),
     avatar: varchar('avatar'),
     email: text('email').notNull().unique(),
-    group_id: uuid('group_id').references((): AnyPgColumn => groups.id, { onDelete: 'set null' }),
+    groupId: uuid('group_id').references((): AnyPgColumn => groups.id, { onDelete: 'set null' }),
+    phone: varchar('phone'),
+    walletAddress: varchar('wallet_address'),
+    isGlobalAdmin: boolean('is_global_admin').default(false),
   },
   (table) => {
     return {
       nicknameIdx: index('nickname_idx').on(table.nickname),
       titleIdx: index('title_idx').on(table.title),
-      groupIdx: index('group_idx').on(table.group_id),
+      groupIdx: index('group_idx').on(table.groupId),
       emailIdx: uniqueIndex('email_idx').on(table.email),
     };
   },
@@ -67,6 +61,8 @@ export const groups = pgTable(
     leader: uuid('leader_id').references((): AnyPgColumn => users.id, { onDelete: 'set null' }),
     founder: varchar('founder'),
     verified: boolean('verified').notNull().default(false),
+    city: varchar('city'),
+    country: varchar('country').notNull(),
   },
   (table) => {
     return {
@@ -135,7 +131,7 @@ export const linkGroupRelations = relations(links, ({ one }) => ({
 
 export const userGroupRelations = relations(users, ({ one }) => ({
   group: one(groups, {
-    fields: [users.group_id],
+    fields: [users.groupId],
     references: [groups.id],
   }),
 }));

@@ -73,6 +73,7 @@ export default function RootLayout({
           themeProps={{
             attribute: 'class',
             defaultTheme: 'light',
+            children: null,
           }}
         >
           <div className="relative flex h-screen flex-col">

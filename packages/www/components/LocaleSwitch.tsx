@@ -12,11 +12,8 @@ import {
   // SelectItem,
 } from '@nextui-org/react';
 
-import {
-  isSupportedLanguage,
-  SupportedLanguage,
-  useLocale,
-} from '../app/i18n/settings';
+import { isSupportedLanguage, SupportedLanguage } from '../app/i18n/settings';
+import { useLocale } from '@/hooks/useLocale';
 
 function getFlagEmoji(countryCode: string) {
   const codePoints = countryCode

@@ -14,9 +14,12 @@ type ConfigType = {
   uniswapV2PairAddress: Address;
   uniswapV2RouterAddress: Address;
   databaseUrl: string;
+  nextAuthSecret: string;
 };
 
 const envMode = process.env.NEXT_PUBLIC_APP_ENV?.toLowerCase();
+
+const isServer = typeof window === 'undefined';
 
 const ENV: ConfigType = {
   walletConnectProjectId: required(
@@ -61,7 +64,8 @@ const ENV: ConfigType = {
     process.env.NEXT_PUBLIC_UNISWAPV2ROUTER_ADDRESS,
     'NEXT_PUBLIC_UNISWAPV2ROUTER_ADDRESS',
   ) as Address,
-  databaseUrl: required(process.env.DATABASE_URL, 'DATABASE_URL'),
+  databaseUrl: isServer ? required(process.env.DATABASE_URL, 'DATABASE_URL') : '',
+  nextAuthSecret: isServer ? required(process.env.NEXTAUTH_SECRET, 'NEXTAUTH_SECRET') : '',
 };
 
 function required(value: string | undefined, name: string): string {
