@@ -16,7 +16,7 @@ const useSignIn = () => {
     const message = new SiweMessage({
       domain: window.location.host,
       address: address,
-      statement: 'Sign in with Ethereum to the app.',
+      statement: 'Axé DAO Sign-In - Please sign this message to log into the Axé DAO app.',
       uri: window.location.origin,
       version: '1',
       chainId: chain?.id,
