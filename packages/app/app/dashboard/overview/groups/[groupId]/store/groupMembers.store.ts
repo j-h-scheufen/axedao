@@ -162,7 +162,9 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
             }),
           );
         }
-      } catch (error) {}
+      } catch (error) {
+        console.error(error);
+      }
       set({ memberBeingPromotedToAdmin: undefined });
     },
     demoteToMember: async (adminId: string) => {
@@ -180,7 +182,9 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
             }),
           );
         }
-      } catch (error) {}
+      } catch (error) {
+        console.error(error);
+      }
       set({ adminBeingDemotedToMember: undefined });
     },
     removeMember: async (memberId: string) => {
@@ -198,7 +202,7 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
           );
         }
       } catch (error) {
-        // TODO handle error
+        console.error(error);
       }
       set({ memberBeingRemoved: undefined });
     },

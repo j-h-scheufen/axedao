@@ -35,7 +35,7 @@ const ImageUpload = (
   }, [value]);
 
   const selectImageFile = () => {
-    imageInputRef.current && imageInputRef.current.click();
+    imageInputRef.current?.click();
   };
 
   return (
@@ -45,7 +45,7 @@ const ImageUpload = (
         type="file"
         accept="image/*"
         onChange={(e) => {
-          e.target.files?.length && onChange(e.target.files[0]);
+          if (!!e.target.files?.length) onChange(e.target.files[0]);
           e.target.value = '';
         }}
         className="hidden"

@@ -95,9 +95,7 @@ const ProfileForm = () => {
                 label="Title"
                 placeholder="Select title"
                 selectedKeys={value ? [value] : []}
-                onChange={(e) => {
-                  onChange && onChange(e.target.value);
-                }}
+                onChange={(e) => onChange(e.target.value)}
                 onBlur={onBlur}
                 isInvalid={isInvalid}
                 color={isInvalid ? 'danger' : undefined}

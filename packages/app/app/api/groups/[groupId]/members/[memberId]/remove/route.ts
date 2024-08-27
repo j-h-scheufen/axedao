@@ -27,6 +27,7 @@ export async function POST(req: NextRequest, { params }: { params: { groupId: st
     await removeGroupMember(memberId);
     return NextResponse.json({ success: true });
   } catch (error) {
+    console.error(error);
     return NextResponse.json(
       { error: 'An internal server error occurred while removing group member' },
       { status: 500 },

@@ -1,12 +1,12 @@
 'use client';
 
-import { FC } from 'react';
 import { Switch, SwitchProps } from '@nextui-org/switch';
-import { useTheme } from 'next-themes';
 import { useIsSSR } from '@react-aria/ssr';
 import clsx from 'clsx';
+import { useTheme } from 'next-themes';
+import { FC } from 'react';
 
-import { SunFilledIcon, MoonFilledIcon } from '@/components/icons';
+import { MoonFilledIcon, SunFilledIcon } from '@/components/icons';
 
 export type ThemeSwitchProps = {
   className?: string;
@@ -18,7 +18,8 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className, classNames }): JS
   const isSSR = useIsSSR();
 
   const onChange = () => {
-    theme === 'light' ? setTheme('dark') : setTheme('light');
+    if (theme === 'light') setTheme('dark');
+    else setTheme('light');
   };
 
   return (
