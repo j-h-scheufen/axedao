@@ -36,12 +36,11 @@ const handler = async (req: NextRequest, context: RouteHandlerContext) => {
       async authorize(credentials) {
         try {
           const siwe = new SiweMessage(JSON.parse(credentials?.message || '{}'));
-          const nextAuthUrl = new URL(process.env.NEXTAUTH_URL || '');
 
           const nonce = credentials?.nonce;
           const result = await siwe.verify({
             signature: credentials?.signature || '',
-            domain: nextAuthUrl.host,
+            domain: getNextAuthHost(),
             // nonce: await getCsrfToken({ req: { headers: req as NextRequest & NextApiRequest } }),
             nonce,
           });
@@ -85,6 +84,19 @@ const handler = async (req: NextRequest, context: RouteHandlerContext) => {
       // },
     },
   });
+};
+
+const getNextAuthHost = (): string => {
+  if (process.env.NEXTAUTH_URL) {
+    console.log('Using NEXTAUTH_URL:', process.env.NEXTAUTH_URL);
+    return new URL(process.env.NEXTAUTH_URL).host;
+  } else if (process.env.VERCEL_URL) {
+    console.log('Using VERCEL_URL:', process.env.VERCEL_URL);
+    return process.env.VERCEL_URL;
+  } else {
+    console.log('No AuthHost found, using localhost');
+    return 'localhost';
+  }
 };
 
 export { handler as GET, handler as POST };
