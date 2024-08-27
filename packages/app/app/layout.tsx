@@ -45,7 +45,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         )}
       >
         <SessionProvider session={session}>
-          <ThemeProvider themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
+          <ThemeProvider themeProps={{ attribute: 'class', defaultTheme: 'dark', children: null }}>
             <SnackbarProvider>
               <Web3Provider>
                 <div className="relative flex min-h-screen flex-col">
