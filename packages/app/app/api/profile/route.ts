@@ -1,5 +1,5 @@
 import { profileFormSchema, ProfileFormType } from '@/app/dashboard/profile/schema';
-import { createLinks, fetchProfile, removeLinks, updateLink, updateUser } from '@/db';
+import { createLinks, fetchUserProfileByEmail, removeLinks, updateLink, updateUser } from '@/db';
 import { Link } from '@/types/model';
 import { isEqual, isNil } from 'lodash';
 import { getServerSession } from 'next-auth/next';
@@ -12,7 +12,7 @@ export async function GET() {
     return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
-  const profile = await fetchProfile(email);
+  const profile = await fetchUserProfileByEmail(email);
   if (!profile) {
     return NextResponse.json({ error: 'Profile was not found' }, { status: 404 });
   }
@@ -37,7 +37,7 @@ export async function PATCH(request: NextRequest) {
     links: Link[];
     avatar: string | null | undefined;
   };
-  const profile = await fetchProfile(email);
+  const profile = await fetchUserProfileByEmail(email);
   if (!profile) {
     return NextResponse.json({ error: 'Could not find user data' }, { status: 404 });
   }

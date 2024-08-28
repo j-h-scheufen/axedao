@@ -4,7 +4,7 @@ import {
   countGroups,
   fetchGroupIdFromName,
   fetchGroups,
-  fetchProfile,
+  fetchUserProfileByEmail,
   insertGroup,
   updateUser,
 } from '@/db';
@@ -62,7 +62,7 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const profile = await fetchProfile(email);
+    const profile = await fetchUserProfileByEmail(email);
     if (!profile) {
       throw new Error();
     }

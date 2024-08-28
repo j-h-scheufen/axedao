@@ -16,6 +16,10 @@ export async function POST(request: Request) {
       if (userExists) {
         return NextResponse.json({ error: 'Email is already registered' }, { status: 400 });
       }
+      const walletRegistered = await fetchSessionData(body.walletAddress);
+      if (walletRegistered) {
+        return NextResponse.json({ error: 'Wallet address is already registered' }, { status: 400 });
+      }
 
       const walletExists = await fetchSessionData(body.walletAddress);
       if (walletExists) {

@@ -11,16 +11,26 @@ const useRegister = () => {
   const { signInMutation } = useSignIn();
 
   const handleRegistration = async (values: RegistrationFormType) => {
-    const { data } = await axios.post<User>('/api/auth/register', values);
-    await signInMutation.mutateAsync();
-    return data;
+    try {
+      const { data } = await axios.post<User>('/api/auth/register', values);
+      await signInMutation.mutateAsync();
+      return data;
+    } catch (error) {
+      // Email or wallet address already registered, but we don't want to reveal which exactly.
+      if (axios.isAxiosError(error) && error.response?.status === 400) {
+        throw new Error(
+          "Registration failed. Please check your email and wallet address. If you're already registered, please go to Sign-In.",
+        );
+      }
+      throw error;
+    }
   };
 
   const registrationMutation = useMutation({
     mutationKey: ['registration'],
     mutationFn: handleRegistration,
     onSuccess: (user) => {
-      // useProfileStore.setState({ profile: user });
+      // TODO useProfileStore.setState({ profile: user });
       router.push('/dashboard/profile');
     },
   });
