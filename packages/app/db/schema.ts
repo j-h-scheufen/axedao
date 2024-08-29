@@ -33,8 +33,8 @@ export const users = pgTable(
     email: text('email').notNull().unique(),
     groupId: uuid('group_id').references((): AnyPgColumn => groups.id, { onDelete: 'set null' }),
     phone: varchar('phone'),
-    walletAddress: varchar('wallet_address'),
-    isGlobalAdmin: boolean('is_global_admin').default(false),
+    walletAddress: varchar('wallet_address').notNull(),
+    isGlobalAdmin: boolean('is_global_admin').default(false).notNull(),
   },
   (table) => {
     return {

@@ -1,4 +1,4 @@
-import { Profile } from '@/app/dashboard/profile/types';
+import { Profile } from '@/types/model';
 import axios, { AxiosError } from 'axios';
 import { create } from 'zustand';
 import { UserDetailsState, UserDetailsStore } from './types';

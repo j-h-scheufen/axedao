@@ -20,8 +20,7 @@ export default function Home() {
   });
 
   const session = useSession();
-
-  const isLoggedIn = !!session?.data?.user?.email;
+  const isLoggedIn = session?.status === 'authenticated';
 
   return (
     <>

@@ -1,12 +1,12 @@
-import { ProfileState } from '@/app/dashboard/profile/types';
-import { GroupFormType } from '@/constants/schemas';
-import { useProfileStore } from '@/store/profile.store';
-import { GroupProfile } from '@/types/model';
-import { generateErrorMessage, uploadImage } from '@/utils';
 import axios from 'axios';
 import { produce } from 'immer';
 import { omit } from 'lodash';
 import { create } from 'zustand';
+
+import { GroupFormType } from '@/constants/schemas';
+import { ProfileState, useProfileStore } from '@/store/profile.store';
+import { GroupProfile } from '@/types/model';
+import { generateErrorMessage, uploadImage } from '@/utils';
 
 export type GroupProfileState = {
   groupProfile: GroupProfile;
@@ -21,7 +21,7 @@ export type GroupProfileState = {
   isUploadingBanner?: boolean;
 };
 
-type GroupProfileActions = {
+export type GroupProfileActions = {
   initialize: (id: string) => Promise<void>;
   uploadLogo: (file: File, name?: string) => Promise<string | void>;
   uploadBanner: (file: File, name?: string) => Promise<string | void>;

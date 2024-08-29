@@ -18,3 +18,15 @@ export type GroupProfile = SelectGroup & {
     }
   >;
 };
+
+// TODO, used in the JWT session and should only contain minimal user data and the full object should live in the profile.store.ts
+export type UserSession = {
+  email: string;
+  name: string | null;
+  avatar: string | null;
+  id: string;
+  isGlobalAdmin: boolean;
+  walletAddress: string;
+};
+
+export type Profile = User & { links: Link[]; group: Group | null };

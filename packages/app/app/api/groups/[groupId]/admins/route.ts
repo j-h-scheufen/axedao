@@ -9,10 +9,8 @@ export async function GET(request: NextRequest, { params }: { params: { groupId:
     const groupProfile = await fetchGroupProfile(groupId);
     if (!groupProfile) return NextResponse.json({ error: 'Unable to fetch group profile' }, { status: 404 });
 
-    let founder = undefined,
-      leader = undefined;
-    if (groupProfile.founder) founder = await fetchUserProfile(groupProfile.founder);
-    if (groupProfile.leader) leader = await fetchUserProfile(groupProfile.leader);
+    const founder = groupProfile.founder ? await fetchUserProfile(groupProfile.founder) : undefined;
+    const leader = groupProfile.leader ? await fetchUserProfile(groupProfile.leader) : undefined;
 
     const admins = await fetchGroupAdmins(groupId);
     return Response.json({ admins, founder, leader });

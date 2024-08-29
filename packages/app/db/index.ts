@@ -2,10 +2,10 @@ import { and, count, eq, ilike, inArray, ne, notExists, SQLWrapper } from 'drizz
 import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 
-import { Profile } from '@/app/dashboard/profile/types';
 import ENV from '@/config/environment';
 import * as schema from '@/db/schema';
-import { GroupProfile } from '../types/model';
+import { Profile } from '@/types/model';
+import { GroupProfile, UserSession } from '../types/model';
 
 /**
  * NOTE: All DB functions in this file can only be run server-side. If you need to retrieve DB data from a client
@@ -56,22 +56,12 @@ export async function fetchUsers(
   //   .offset(offset);
 }
 
-export async function fetchSessionData(walletAddress: string) {
+export async function fetchSessionData(walletAddress: string): Promise<UserSession | undefined> {
   if (!walletAddress) return undefined;
   return await db.query.users.findFirst({
     where: (users, { eq }) => eq(users.walletAddress, walletAddress),
-    columns: { email: true, name: true, avatar: true, id: true, isGlobalAdmin: true },
+    columns: { email: true, name: true, avatar: true, id: true, isGlobalAdmin: true, walletAddress: true },
   });
-}
-
-export async function fetchProfile(email: string) {
-  return (await db.query.users.findFirst({
-    where: (users, { eq }) => eq(users.email, email),
-    with: {
-      links: true,
-      group: true,
-    },
-  })) as Profile | undefined;
 }
 
 export async function fetchUserProfile(userId: string): Promise<Profile | undefined> {
@@ -241,7 +231,7 @@ export async function fetchUserLinks(userId: string) {
   return await db.select().from(schema.links).where(eq(schema.links.ownerId, userId));
 }
 
-export async function updateUser(user: Omit<schema.InsertUser, 'email'>) {
+export async function updateUser(user: Omit<schema.InsertUser, 'email' | 'walletAddress'>) {
   const users = await db.update(schema.users).set(user).where(eq(schema.users.id, user.id)).returning();
   return users.length ? users[0] : undefined;
 }
@@ -255,6 +245,7 @@ export async function addGroupAdmin(entry: schema.InsertGroupAdmin) {
   await db.insert(schema.groupAdmins).values(entry);
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function fetchGroupAdmins(groupId: string, limit: number = 20, offset: number = 0) {
   return await db.select().from(schema.groupAdmins);
   // .innerJoin(schema.users, eq(schema.groupAdmins.userId, schema.users.id))
