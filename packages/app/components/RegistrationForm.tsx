@@ -34,6 +34,7 @@ const RegistrationForm = () => {
   const session = useSession();
   const { connect } = useConnect();
   const { registrationMutation } = useRegister();
+  const resetSubmitMutation = registrationMutation.reset;
   const isSubmitting = registrationMutation.isPending;
   const isLoading = session.status === 'loading';
   const submitError: AxiosError | Error | null = registrationMutation.error;
@@ -41,7 +42,10 @@ const RegistrationForm = () => {
   const FormikForm = ({ setFieldValue, dirty, isValid }: FormikProps<RegistrationFormType>) => {
     const { address, isConnected } = useAccount();
     useEffect(() => {
-      if (isConnected && address) setFieldValue('walletAddress', address);
+      if (isConnected && address) {
+        setFieldValue('walletAddress', address);
+        resetSubmitMutation();
+      }
     }, [address, isConnected, setFieldValue]);
 
     return (
