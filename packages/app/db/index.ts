@@ -245,6 +245,7 @@ export async function addGroupAdmin(entry: schema.InsertGroupAdmin) {
   await db.insert(schema.groupAdmins).values(entry);
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function fetchGroupAdmins(groupId: string, limit: number = 20, offset: number = 0) {
   return await db.select().from(schema.groupAdmins);
   // .innerJoin(schema.users, eq(schema.groupAdmins.userId, schema.users.id))
