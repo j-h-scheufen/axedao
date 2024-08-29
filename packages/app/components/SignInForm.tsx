@@ -25,12 +25,16 @@ const SignInForm = ({ className }: Props) => {
     },
   });
 
+  const { signInMutation } = useSignIn();
+  const resetSubmitMutation = signInMutation.reset;
+
   useEffect(() => {
     setValue('walletAddress', address || '');
-    if (address) trigger();
-  }, [address, isConnected, setValue, trigger]);
-
-  const { signInMutation } = useSignIn();
+    resetSubmitMutation();
+    if (address) {
+      trigger();
+    }
+  }, [address, isConnected, setValue, trigger, resetSubmitMutation]);
 
   const isLoading = session.status === 'loading';
   const isSigningIn = signInMutation.isPending;
