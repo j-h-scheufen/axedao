@@ -5,7 +5,6 @@ export type Profile = User & { links: Link[]; group: Group | null };
 
 export type ProfileState = {
   profile: Profile;
-  isInitializingProfile: boolean;
   isProfileInitialized: boolean;
   initializeProfileError?: string;
   isUpdatingProfile: boolean;

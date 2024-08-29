@@ -24,7 +24,6 @@ export const DEFAULT_PROFILE: Profile = {
 
 const DEFAULT_STATE: ProfileState = {
   profile: DEFAULT_PROFILE,
-  isInitializingProfile: false,
   isProfileInitialized: false,
   isUpdatingProfile: false,
   isExitingGroup: false,
@@ -37,17 +36,17 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
   ...DEFAULT_STATE,
   actions: {
     initializeProfile: async () => {
-      const { isInitializingProfile } = get();
-      if (isInitializingProfile) return;
-      set({ isInitializingProfile: true });
+      if (get().isProfileInitialized) return;
       try {
         const { data: profile } = await axios.get('/api/profile');
         set({ profile, isProfileInitialized: true });
       } catch (error: unknown) {
-        const message = error instanceof Error ? error.message : 'An error occured while fetching your profile';
+        const message =
+          error instanceof Error
+            ? error.message
+            : 'An error occured while fetching the user profile durint profile.store initialization';
         set({ initializeProfileError: message });
       }
-      set({ isInitializingProfile: false });
     },
     uploadAvatar: async (file: File, name?: string) => {
       set({ isUploadingAvatar: true });
@@ -141,8 +140,6 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
 export const useProfileActions = (): ProfileActions => useProfileStore((state) => state.actions);
 
 export const useProfile = (): Profile => useProfileStore((state) => state.profile);
-
-export const useIsInitializingProfile = (): boolean => useProfileStore((state) => state.isInitializingProfile);
 
 export const useIsProfileInitialized = (): boolean => useProfileStore((state) => state.isProfileInitialized);
 

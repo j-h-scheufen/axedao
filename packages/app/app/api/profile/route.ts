@@ -1,18 +1,25 @@
-import { profileFormSchema, ProfileFormType } from '@/app/dashboard/profile/schema';
-import { createLinks, fetchUserProfileByEmail, removeLinks, updateLink, updateUser } from '@/db';
-import { Link } from '@/types/model';
 import { isEqual, isNil } from 'lodash';
 import { getServerSession } from 'next-auth/next';
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET() {
-  const session = await getServerSession();
-  const email = session?.user?.email;
-  if (!email) {
+import { profileFormSchema, ProfileFormType } from '@/app/dashboard/profile/schema';
+import { createLinks, fetchUserProfile, fetchUserProfileByEmail, removeLinks, updateLink, updateUser } from '@/db';
+import { Link, UserSession } from '@/types/model';
+import { getToken, JWT } from 'next-auth/jwt';
+
+/**
+ * Returns the Profile of the logged-in user, i.e. the user whose JWT token is passed in the request.
+ * @param req
+ * @returns a Profile object
+ * @throws 401 if the user is not logged in, 404 if the profile is not found
+ */
+export async function GET(req: NextRequest) {
+  const token = (await getToken({ req })) as (JWT & { user: UserSession }) | null;
+  if (!token?.user.id) {
     return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
-  const profile = await fetchUserProfileByEmail(email);
+  const profile = await fetchUserProfile(token?.user.id);
   if (!profile) {
     return NextResponse.json({ error: 'Profile was not found' }, { status: 404 });
   }
