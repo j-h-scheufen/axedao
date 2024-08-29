@@ -28,3 +28,5 @@ export type UserSession = {
   isGlobalAdmin: boolean;
   walletAddress: string;
 };
+
+export type Profile = User & { links: Link[]; group: Group | null };

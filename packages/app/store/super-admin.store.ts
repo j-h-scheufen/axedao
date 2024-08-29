@@ -1,22 +1,20 @@
-import { ProfileState } from '@/app/dashboard/profile/types';
-import { useProfileStore } from '@/store/profile.store';
 import axios from 'axios';
 import { produce } from 'immer';
 import { create } from 'zustand';
+
+import { ProfileState, useProfileStore } from '@/store/profile.store';
 import useGroupProfileStore, {
   GroupProfileState,
 } from '../app/dashboard/overview/groups/[groupId]/store/groupProfile.store';
 import useGroupsStore, { GroupsState } from './groups.store';
 
-type SuperAdminState = {};
-
 type SuperAdminActions = {
   updateGroupVerification: (groupId: string, verification: boolean) => Promise<void | { success: boolean }>;
 };
 
-type SuperAdminStore = SuperAdminState & { actions: SuperAdminActions };
+type SuperAdminStore = { actions: SuperAdminActions };
 
-const useSuperAdminStore = create<SuperAdminStore>()((set, get) => ({
+const useSuperAdminStore = create<SuperAdminStore>()(() => ({
   actions: {
     updateGroupVerification: async (groupId, verified) => {
       if (!groupId) return;

@@ -1,4 +1,4 @@
-import { Profile } from '@/app/dashboard/profile/types';
+import { Profile } from '@/types/model';
 
 export type UserDetailsState = {
   user: Profile | null;

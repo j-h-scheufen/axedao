@@ -4,9 +4,9 @@ import { Avatar } from '@nextui-org/react';
 import { Camera } from 'lucide-react';
 import { Suspense } from 'react';
 
-import { Profile } from '@/app/dashboard/profile/types';
 import ContactInfo from '@/components/ContactInfo';
 import ProfileSkeleton from '@/components/skeletons/ProfileSkeleton';
+import { Profile } from '@/types/model';
 
 type Props = {
   profile: Profile;

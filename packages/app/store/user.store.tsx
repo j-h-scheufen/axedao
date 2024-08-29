@@ -2,7 +2,7 @@ import { PropsWithChildren, createContext, useContext, useRef } from 'react';
 import { createStore } from 'zustand';
 import { useStoreWithEqualityFn } from 'zustand/traditional';
 
-import { Profile } from '@/app/dashboard/profile/types';
+import { Profile } from '@/types/model';
 
 /**
  * NOTE: this store is currently not in use, but can be used to manage user profile data per component in the future.

@@ -2,9 +2,9 @@ import { and, count, eq, ilike, inArray, ne, notExists, SQLWrapper } from 'drizz
 import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 
-import { Profile } from '@/app/dashboard/profile/types';
 import ENV from '@/config/environment';
 import * as schema from '@/db/schema';
+import { Profile } from '@/types/model';
 import { GroupProfile, UserSession } from '../types/model';
 
 /**
