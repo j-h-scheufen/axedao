@@ -13,7 +13,7 @@ const useRegister = () => {
   const handleRegistration = async (values: RegistrationFormType) => {
     try {
       const { data } = await axios.post<User>('/api/auth/register', values);
-      await signInMutation.mutateAsync();
+      await signInMutation.mutateAsync(); // TODO this should talk to the profile store which then calls the sign-in mutation
       return data;
     } catch (error) {
       // Email or wallet address already registered, but we don't want to reveal which exactly.
@@ -29,8 +29,7 @@ const useRegister = () => {
   const registrationMutation = useMutation({
     mutationKey: ['registration'],
     mutationFn: handleRegistration,
-    onSuccess: (user) => {
-      // TODO useProfileStore.setState({ profile: user });
+    onSuccess: () => {
       router.push('/dashboard/profile');
     },
   });
