@@ -3,14 +3,23 @@ import { withAuth } from 'next-auth/middleware';
 export { withAuth } from 'next-auth/middleware';
 
 import { NextRequest, NextResponse } from 'next/server';
+import { UserSession } from './types/model';
 
 export default withAuth(
   async function middleware(req: NextRequest) {
-    const token = (await getToken({ req })) as (JWT & { user: { isGlobalAdmin: boolean } }) | null;
+    const token = (await getToken({ req })) as (JWT & { user: UserSession }) | null;
 
     const pathname = req.nextUrl.pathname;
 
-    return true ? NextResponse.next() : NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    // Protect super-admin pages
+    if (pathname.startsWith('/api/super-admin') || pathname.startsWith('/dashboard/global-admin')) {
+      // TODO: this should strictly be a DB fetch to avoid stale session data
+      if (!token?.user.isGlobalAdmin) {
+        return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      }
+    }
+
+    return NextResponse.next();
   },
   {
     callbacks: {
