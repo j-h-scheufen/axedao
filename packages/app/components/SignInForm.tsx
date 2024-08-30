@@ -1,75 +1,50 @@
 'use client';
 
-import { signInFormSchema, SignInFormType } from '@/constants/schemas';
-import useSignIn from '@/hooks/useSignIn';
 import { cn } from '@/utils/tailwind';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@nextui-org/button';
-import { Input } from '@nextui-org/react';
+import { AxiosError } from 'axios';
+import { Field, Form, Formik, FormikHelpers, FormikProps } from 'formik';
 import { useSession } from 'next-auth/react';
 import { useEffect } from 'react';
-import { Controller, useForm } from 'react-hook-form';
 import { useAccount, useConnect } from 'wagmi';
 import { injected } from 'wagmi/connectors';
 
+import { signInFormSchema, SignInFormType } from '@/constants/schemas';
+import useSignIn from '@/hooks/useSignIn';
+import { FieldInput } from './forms';
+
 type Props = { className?: string };
+
 const SignInForm = ({ className }: Props) => {
-  const { address, isConnected } = useAccount();
   const session = useSession();
   const { connect } = useConnect();
-
-  const { control, handleSubmit, setValue, watch, trigger } = useForm<SignInFormType>({
-    resolver: yupResolver(signInFormSchema),
-    defaultValues: {
-      walletAddress: address,
-    },
-  });
-
   const { signInMutation } = useSignIn();
   const resetSubmitMutation = signInMutation.reset;
-
-  useEffect(() => {
-    setValue('walletAddress', address || '');
-    resetSubmitMutation();
-    if (address) {
-      trigger();
-    }
-  }, [address, isConnected, setValue, trigger, resetSubmitMutation]);
-
   const isLoading = session.status === 'loading';
-  const isSigningIn = signInMutation.isPending;
-  const submitError = signInMutation.error;
+  const isSubmitting = signInMutation.isPending;
+  const submitError: AxiosError | Error | null = signInMutation.error;
 
-  return (
-    <form
-      className="m-auto flex h-fit w-full max-w-sm flex-col gap-3"
-      onSubmit={handleSubmit(() => signInMutation.mutate())}
-    >
-      <div className="flex flex-col items-end">
-        <Controller
-          control={control}
+  const FormikForm = ({ setFieldValue, dirty, isValid }: FormikProps<SignInFormType>) => {
+    const { address, isConnected } = useAccount();
+    useEffect(() => {
+      if (isConnected && address) {
+        setFieldValue('walletAddress', address);
+        resetSubmitMutation();
+      }
+    }, [address, isConnected, setFieldValue]);
+
+    return (
+      <Form className="m-auto flex h-fit w-full max-w-sm flex-col gap-3">
+        <Field
           name="walletAddress"
-          render={({ field, fieldState: { error } }) => {
-            const { value } = field;
-            return (
-              <Input
-                {...field}
-                value={value || ''}
-                label="Wallet address (MetaMask)"
-                className="w-full"
-                classNames={{
-                  inputWrapper: '!min-h-14 data-[hover=true]:bg-initial',
-                  input: 'text-sm !text-default-500',
-                  errorMessage: 'text-left',
-                }}
-                color={error ? 'danger' : undefined}
-                isInvalid={!!error}
-                errorMessage={error?.message}
-                placeholder={!value ? 'No wallet connected' : undefined}
-                readOnly
-              />
-            );
+          label="Wallet address (MetaMask)"
+          as={FieldInput}
+          classNames={{
+            inputWrapper: '!min-h-14 data-[hover=true]:bg-initial',
+            input: 'text-sm !text-default-500',
+            errorMessage: 'text-left',
           }}
+          readOnly
         />
         <Button
           size="sm"
@@ -77,21 +52,48 @@ const SignInForm = ({ className }: Props) => {
           className="ml-auto w-fit mt-2"
           onPress={() => connect({ connector: injected() })}
         >
-          {watch('walletAddress') ? 'Change' : 'Connect'}
+          {address ? 'Change' : 'Connect'}
         </Button>
-      </div>
-      {submitError && <div className="my-2 text-center text-small text-danger">{submitError.message}</div>}
-      <Button
-        key="sign-in-button"
-        type="submit"
-        color="primary"
-        className={cn('mt-5 w-full', className)}
-        isLoading={isSigningIn}
-        disabled={isLoading || isSigningIn}
-      >
-        Sign in
-      </Button>
-    </form>
+        {submitError && (
+          <div className="my-2 text-center text-small text-danger">
+            {(submitError as AxiosError<{ error: string }>).response?.data?.error || submitError.message}
+          </div>
+        )}
+        <Button
+          key="sign-in-button"
+          type="submit"
+          color="primary"
+          className={cn('mt-5 w-full', className)}
+          isLoading={isSubmitting}
+          disabled={isLoading || isSubmitting || !dirty || !isValid}
+        >
+          Sign in
+        </Button>
+      </Form>
+    );
+  };
+
+  const handleSubmit = (values: SignInFormType, { setSubmitting }: FormikHelpers<SignInFormType>) => {
+    try {
+      signInMutation.mutate();
+    } catch (error) {
+      console.error('Error during registration.', error);
+      throw error;
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  // NOTE: The initial form values MUST BE declared outside of the JSX code, otherwise it can lead to hydration errors.
+  const initValues: SignInFormType = {
+    walletAddress: '',
+  };
+
+  return (
+    <Formik<SignInFormType> initialValues={initValues} onSubmit={handleSubmit} validationSchema={signInFormSchema}>
+      {(props) => FormikForm(props)}
+    </Formik>
   );
 };
+
 export default SignInForm;

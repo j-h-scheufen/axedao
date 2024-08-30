@@ -1,9 +1,8 @@
 'use client';
 
 import { Button } from '@nextui-org/button';
-import { Input } from '@nextui-org/input';
 import { AxiosError } from 'axios';
-import { Field, FieldProps, Form, Formik, FormikHelpers, FormikProps, useField } from 'formik';
+import { Field, Form, Formik, FormikHelpers, FormikProps } from 'formik';
 import { useSession } from 'next-auth/react';
 import { useEffect } from 'react';
 import { useAccount, useConnect } from 'wagmi';
@@ -11,24 +10,7 @@ import { injected } from 'wagmi/connectors';
 
 import { registrationFormSchema, RegistrationFormType } from '@/constants/schemas';
 import useRegister from '@/hooks/useRegister';
-
-/**
- * A simple text-based input field for Formik Field components.
- */
-const TextInput = (props: FieldProps['field']) => {
-  const [field, meta] = useField(props);
-  return (
-    <Input
-      {...field}
-      className="w-full"
-      classNames={{ inputWrapper: '!min-h-14', errorMessage: 'text-left' }}
-      color={meta.touched && meta.error ? 'danger' : undefined}
-      isInvalid={meta.touched && !!meta.error}
-      errorMessage={meta.touched && meta.error ? meta.error : undefined}
-      {...props}
-    />
-  );
-};
+import { FieldInput } from './forms';
 
 const RegistrationForm = () => {
   const session = useSession();
@@ -50,12 +32,12 @@ const RegistrationForm = () => {
 
     return (
       <Form className="m-auto flex h-fit w-full max-w-sm flex-col gap-3">
-        <Field name="name" label="Name" as={TextInput} />
-        <Field name="email" label="Email" type="email" as={TextInput} />
+        <Field name="name" label="Name" as={FieldInput} />
+        <Field name="email" label="Email" type="email" as={FieldInput} />
         <Field
           name="walletAddress"
           label="Wallet address (MetaMask)"
-          as={TextInput}
+          as={FieldInput}
           classNames={{
             inputWrapper: '!min-h-14 data-[hover=true]:bg-initial',
             input: 'text-sm !text-default-500',
