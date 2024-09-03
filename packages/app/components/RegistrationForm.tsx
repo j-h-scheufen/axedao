@@ -17,11 +17,10 @@ const RegistrationForm = () => {
   const { connect } = useConnect();
   const { registrationMutation } = useRegister();
   const resetSubmitMutation = registrationMutation.reset;
-  const isSubmitting = registrationMutation.isPending;
   const isLoading = session.status === 'loading';
   const submitError: AxiosError | Error | null = registrationMutation.error;
 
-  const FormikForm = ({ setFieldValue, dirty, isValid }: FormikProps<RegistrationFormType>) => {
+  const FormikForm = ({ setFieldValue, dirty, isValid, isSubmitting }: FormikProps<RegistrationFormType>) => {
     const { address, isConnected } = useAccount();
     useEffect(() => {
       if (isConnected && address) {
@@ -64,7 +63,7 @@ const RegistrationForm = () => {
           color="primary"
           className="mt-5 w-full"
           isLoading={isSubmitting}
-          disabled={isLoading || isSubmitting || !dirty || !isValid}
+          disabled={isLoading || !dirty || !isValid}
         >
           Register
         </Button>

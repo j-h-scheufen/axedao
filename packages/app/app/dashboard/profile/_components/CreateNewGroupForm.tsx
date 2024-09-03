@@ -1,102 +1,77 @@
-import ErrorText from '@/components/ErrorText';
 import { Button } from '@nextui-org/button';
-import { Input } from '@nextui-org/input';
-import { AutocompleteProps } from '@nextui-org/react';
-import { useController } from 'react-hook-form';
-import useNewGroupForm from '../_hooks/useNewGroupForm';
-import GroupLocation from '@/components/GroupLocation';
+import { Field, Form, Formik, FormikHelpers, FormikProps } from 'formik';
+
+import { CitySelect, CountrySelect, FieldInput } from '@/components/forms';
+import useCountriesAndCities from '@/hooks/useCountriesAndCities';
+import { useProfileActions } from '@/store/profile.store';
+import { createNewGroupFormSchema, CreateNewGroupFormType } from '../schema';
 
 const CreateNewGroupForm = () => {
-  const {
-    form: {
-      control,
-      register,
-      handleSubmit,
-      formState: { errors },
-    },
-    profileActions,
-    isCreatingGroup,
-    createGroupError,
-  } = useNewGroupForm();
+  const { createGroup } = useProfileActions();
+  const { selectedCountryCode, setSelectedCountryCode, cities, setCitySearch, isLoading } = useCountriesAndCities();
 
-  const locationProps = {
-    labelPlacement: 'inside' as const,
-    className: 'w-full',
+  const handleSubmit = (values: CreateNewGroupFormType, { setSubmitting }: FormikHelpers<CreateNewGroupFormType>) => {
+    try {
+      setSubmitting(true);
+      console.log('Creating group with values:', values);
+      return createGroup(values);
+    } catch (error) {
+      console.error('Error during group creation.', error);
+      throw error;
+    } finally {
+      setSubmitting(false);
+    }
   };
 
-  const { field: countriesField } = useController({
-    control,
-    name: 'country'
-  })
-  const countriesProps: Omit<AutocompleteProps, 'children'> = {
-    ref: countriesField.ref,
-    name: countriesField.name,
-    onBlur: countriesField.onBlur,
-    label: 'Countries',
-    placeholder: 'Search...',
-    ...locationProps
-  }
-  const countriesError = errors.country;
-
-  const { field: citiesField } = useController({
-    control,
-    name: 'city'
-  })
-  const citiesProps: Omit<AutocompleteProps, 'children'> = {
-    ref: citiesField.ref,
-    name: citiesField.name,
-    onBlur: citiesField.onBlur,
-    label: 'Cities',
-    placeholder: 'Search...',
-    disabled: !countriesField.value,
-    ...locationProps
+  // NOTE: The initial form values MUST BE declared outside of JSX, otherwise it can lead to hydration errors.
+  const initValues: CreateNewGroupFormType = {
+    name: '',
+    country: '',
+    city: '',
+    verified: false,
   };
-  const citiesError = errors.city;
 
   return (
-    <form
-      onSubmit={handleSubmit((values) => {
-        return profileActions.createGroup(values);
-      })}
+    <Formik<CreateNewGroupFormType>
+      initialValues={initValues}
+      onSubmit={handleSubmit}
+      validationSchema={createNewGroupFormSchema}
     >
-      <div className="mb-5">
-        <Input
-          {...register('name')}
-          label="Name"
-          placeholder="Enter group's name"
-          errorMessage={errors?.name?.message?.toString()}
-          color={!!errors?.name ? 'danger' : undefined}
-          classNames={{ inputWrapper: '!min-h-12' }}
-        />
-      </div>
-      <div className="flex gap-3">
-        <GroupLocation
-          onCountryChange={country => {
-            countriesField.onChange(country ? country.name : undefined);
-          }}
-          onCityChange={city => {
-            if (city) {
-              const { name, stateCode } = city
-              let cityName = name;
-              if (stateCode) cityName += `, ${stateCode}`
-              citiesField.onChange(cityName);
-            } else {
-              citiesField.onChange(undefined);
-            }
-          }}
-          countriesProps={countriesProps}
-          countriesError={countriesError}
-          citiesProps={citiesProps}
-          citiesError={citiesError}
-        />
-      </div>
-      <ErrorText message={createGroupError} />
-      <div className="mt-5 flex justify-between gap-3">
-        <Button type="submit" className="w-full flex-1" isLoading={isCreatingGroup}>
-          Create group
-        </Button>
-      </div>
-    </form>
+      {({ dirty, isValid, isSubmitting }: FormikProps<CreateNewGroupFormType>) => {
+        return (
+          <Form className="flex flex-col gap-3 mb-5">
+            <Field name="name" label="Name" as={FieldInput} />
+            <Field
+              name="country"
+              label="Country"
+              as={CountrySelect}
+              onSelect={(value: string) => setSelectedCountryCode(value)}
+            />
+            <Field
+              name="city"
+              label="City"
+              as={CitySelect}
+              cities={cities}
+              onInputChange={setCitySearch}
+              isDisabled={!selectedCountryCode || isLoading}
+              isLoading={isLoading}
+            />
+            <div className="mt-5 flex justify-between gap-3">
+              <Button
+                type="submit"
+                className="w-full flex-1"
+                color="primary"
+                isLoading={isSubmitting}
+                disabled={!dirty || !isValid}
+              >
+                Create group
+              </Button>
+            </div>
+          </Form>
+        );
+      }}
+    </Formik>
   );
 };
+
 export default CreateNewGroupForm;

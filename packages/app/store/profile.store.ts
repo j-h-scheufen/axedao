@@ -14,8 +14,6 @@ export type ProfileState = {
   exitGroupError?: string;
   isJoiningGroup: boolean;
   joinGroupError?: string;
-  isCreatingGroup: boolean;
-  createGroupError?: string;
   isUploadingAvatar?: boolean;
   isSignedIn?: boolean;
 };
@@ -58,7 +56,6 @@ const DEFAULT_STATE: ProfileState = {
   isUpdatingProfile: false,
   isExitingGroup: false,
   isJoiningGroup: false,
-  isCreatingGroup: false,
   isSignedIn: false,
 };
 
@@ -140,9 +137,7 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
       set({ isExitingGroup: false });
     },
     createGroup: async (groupProfileData: CreateNewGroupFormType) => {
-      const { isCreatingGroup, profile } = get();
-      if (isCreatingGroup) return;
-      set({ isCreatingGroup: true });
+      const { profile } = get();
       try {
         const { data } = await axios.post(`/api/groups`, groupProfileData);
         if (!data.group) throw new Error('An error occurred while creating group');
@@ -150,9 +145,8 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
         set({ profile: { ...profile, group, groupId: group.id } });
       } catch (error: unknown) {
         const message = generateErrorMessage(error, 'An error occured while creating group');
-        set({ createGroupError: message });
+        throw new Error(message);
       }
-      set({ isCreatingGroup: false });
     },
     removeGroupAssociation: async () => {
       const { profile } = get();
@@ -178,9 +172,5 @@ export const useIsUpdatingProfile = (): boolean => useProfileStore((state) => st
 export const useIsJoiningGroup = (): boolean => useProfileStore((state) => state.isJoiningGroup);
 
 export const useIsExitingGroup = (): boolean => useProfileStore((state) => state.isExitingGroup);
-
-export const useIsCreatingGroup = (): boolean => useProfileStore((state) => state.isCreatingGroup);
-
-export const useCreateGroupError = (): string | undefined => useProfileStore((state) => state.createGroupError);
 
 export const useIsSignedIn = () => useProfileStore((state) => state.isSignedIn);

@@ -1,7 +1,6 @@
 import GroupLocation from '@/components/GroupLocation';
 import { GroupsQueryParams, verificationStatuses } from '@/hooks/useGroupList';
-import { City } from '@/store/cities.store';
-import { Country } from '@/store/countries.store';
+import { City, Country } from '@/types/model';
 import { Input } from '@nextui-org/input';
 import { AutocompleteProps, Select, SelectItem } from '@nextui-org/react';
 import { capitalize } from 'lodash';

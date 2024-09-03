@@ -1,113 +1,83 @@
-import useGroupLocation from '@/hooks/useGroupLocation';
-import { City } from '@/store/cities.store';
-import { Country } from '@/store/countries.store';
+import useCountriesAndCities from '@/hooks/useCountriesAndCities';
+import { useCountries } from '@/store/countries.store';
+import { City, Country } from '@/types/model';
 import { cn } from '@/utils/tailwind';
 import { Autocomplete, AutocompleteItem, AutocompleteProps, Avatar } from '@nextui-org/react';
-import { isNil } from 'lodash';
-import { FieldError } from 'react-hook-form';
 
 type Props = {
   onCountryChange: (country: Country | null) => void;
   onCityChange: (city: City | null) => void;
-  countriesError?: FieldError;
-  citiesError?: FieldError;
   countriesProps?: Omit<AutocompleteProps, 'children'>;
   citiesProps?: Omit<AutocompleteProps, 'children'>;
 };
-const GroupLocation = ({
-  onCountryChange,
-  onCityChange,
-  countriesError,
-  citiesError,
-  countriesProps,
-  citiesProps,
-}: Props) => {
-  const {
-    selectedCountryCode,
-    setSelectedCountryCode,
-    setCitySearchTerm,
-    setSelectedCityName,
-    countries,
-    isLoadingCountries,
-    cities,
-    isLoadingCities,
-  } = useGroupLocation();
-
+const GroupLocation = ({ onCountryChange, onCityChange, countriesProps, citiesProps }: Props) => {
+  const { selectedCountryCode, setSelectedCountryCode, setCitySearch, cities } = useCountriesAndCities();
+  const countries = useCountries();
   return (
     <>
       <Autocomplete
         {...countriesProps}
-        isLoading={isLoadingCountries}
-        listboxProps={{ emptyContent: isLoadingCountries ? 'Loading...' : 'No countries found' }}
         inputProps={{
-          color: countriesError?.message ? 'danger' : undefined,
-          description: countriesError?.message ? (
-            <span className="text-danger">{countriesError.message}</span>
-          ) : undefined,
           classNames: { input: 'truncate' },
         }}
         popoverProps={{
           placement: 'bottom',
         }}
         onSelectionChange={(isoCode) => {
-          onCountryChange(isoCode ? countries.find((c) => c.isoCode === isoCode)! : null);
+          onCountryChange(isoCode && countries ? countries.find((c) => c.isoCode === isoCode)! : null);
           setSelectedCountryCode(isoCode?.toString() || '');
         }}
       >
-        {countries.map((country) => {
-          const { name, isoCode } = country;
-          return (
-            <AutocompleteItem
-              key={isoCode}
-              startContent={
-                <Avatar alt={name} className="w-6 h-6" src={`https://flagcdn.com/${isoCode.toLowerCase()}.svg`} />
-              }
-            >
-              {name}
-            </AutocompleteItem>
-          );
-        })}
+        {countries !== undefined ? (
+          countries.map((country) => {
+            const { name, isoCode } = country;
+            return (
+              <AutocompleteItem
+                key={isoCode}
+                startContent={
+                  <Avatar alt={name} className="w-6 h-6" src={`https://flagcdn.com/${isoCode.toLowerCase()}.svg`} />
+                }
+              >
+                {name}
+              </AutocompleteItem>
+            );
+          })
+        ) : (
+          <></>
+        )}
       </Autocomplete>
       <Autocomplete
         {...citiesProps}
         className={cn(citiesProps?.className, {
-          'opacity-70 pointer-events-none': !selectedCountryCode
+          'opacity-70 pointer-events-none': !selectedCountryCode,
         })}
-        isLoading={isLoadingCities}
-        listboxProps={{ emptyContent: isLoadingCities ? 'Loading...' : 'No cities found' }}
         disabled={!selectedCountryCode}
-        onInputChange={setCitySearchTerm}
+        onInputChange={setCitySearch}
         inputProps={{
-          color: citiesError?.message ? 'danger' : undefined,
-          description: citiesError?.message ? <span className="text-danger">{citiesError.message}</span> : undefined,
           classNames: { input: 'truncate' },
         }}
         popoverProps={{
           placement: 'bottom',
         }}
         onSelectionChange={(index) => {
-          if (!isNil(index)) {
-            const city = cities[Number(index)];
+          if (index) {
+            const city = cities![Number(index)];
             onCityChange(city);
-            setSelectedCityName(city.name);
           } else {
             onCityChange(null);
-            setSelectedCityName('');
           }
         }}
       >
-        {cities.map((city, index) => {
-          const { name, stateCode } = city
-          let cityName = name;
-          if (stateCode) cityName += `, ${stateCode}`;
-          return (
-            <AutocompleteItem
-              key={index}
-            >
-              {cityName}
-            </AutocompleteItem>
-          );
-        })}
+        {cities !== undefined ? (
+          cities.map((city, index) => {
+            const { name, stateCode } = city;
+            let cityName = name;
+            if (stateCode) cityName += `, ${stateCode}`;
+            return <AutocompleteItem key={index}>{cityName}</AutocompleteItem>;
+          })
+        ) : (
+          <></>
+        )}
       </Autocomplete>
     </>
   );

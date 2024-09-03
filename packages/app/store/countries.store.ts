@@ -1,13 +1,12 @@
-import { generateErrorMessage } from '@/utils';
 import axios from 'axios';
 import { create } from 'zustand';
 
-export type Country = { name: string; isoCode: string };
+import { Country } from '@/types/model';
 
 type CountriesState = {
   countries: Country[];
-  isLoading: boolean;
-  loadingCountriesError?: Error | string;
+  error: string | undefined;
+  initialized: boolean;
 };
 
 type CountriesActions = {
@@ -18,30 +17,36 @@ type CountriesStore = CountriesState & { actions: CountriesActions };
 
 const DEFAULT_PROPS: CountriesState = {
   countries: [],
-  isLoading: false,
+  error: undefined,
+  initialized: false,
 };
 
+/**
+ * A store to manage general, application-wide data. Put anything here that is needed in multiple places and
+ * should be initialized when the application starts or the user logs in.
+ */
 const useCountriesStore = create<CountriesStore>((set, get) => ({
   ...DEFAULT_PROPS,
   actions: {
     initialize: async () => {
-      const { isLoading } = get();
-      if (isLoading) return;
-      set({ isLoading: true });
+      if (get().initialized) return;
       try {
-        const { data: countries } = await axios.get('/api/location/countries');
-        set({ countries });
+        const response = await axios.get('/api/location/countries');
+        const { data: countries, status } = response;
+        set({ countries, error: undefined, initialized: true });
       } catch (error) {
-        const errorMessage = generateErrorMessage(error, 'An error occurred while fetching countries');
-        set({ loadingCountriesError: errorMessage });
+        const errorMessage = 'Unable to load countries from server';
+        console.error(errorMessage, error);
+        set({ error: errorMessage });
       }
-      set({ isLoading: false });
     },
   },
 }));
 
-export const useCountriesActions = (): CountriesActions => useCountriesStore((state) => state.actions);
-
 export const useCountries = (): Country[] => useCountriesStore((state) => state.countries);
 
-export const useIsLoadingCountries = (): boolean => useCountriesStore((state) => state.isLoading);
+export const useCountriesActions = (): CountriesActions => useCountriesStore((state) => state.actions);
+
+export const useIsCountriesInitialized = (): boolean => useCountriesStore((state) => state.initialized);
+
+export const useCountriesError = (): string | undefined => useCountriesStore((state) => state.error);

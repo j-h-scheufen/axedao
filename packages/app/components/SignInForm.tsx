@@ -21,10 +21,9 @@ const SignInForm = ({ className }: Props) => {
   const { signInMutation } = useSignIn();
   const resetSubmitMutation = signInMutation.reset;
   const isLoading = session.status === 'loading';
-  const isSubmitting = signInMutation.isPending;
   const submitError: AxiosError | Error | null = signInMutation.error;
 
-  const FormikForm = ({ setFieldValue, dirty, isValid }: FormikProps<SignInFormType>) => {
+  const FormikForm = ({ setFieldValue, dirty, isValid, isSubmitting }: FormikProps<SignInFormType>) => {
     const { address, isConnected } = useAccount();
     useEffect(() => {
       if (isConnected && address) {
@@ -65,7 +64,7 @@ const SignInForm = ({ className }: Props) => {
           color="primary"
           className={cn('mt-5 w-full', className)}
           isLoading={isSubmitting}
-          disabled={isLoading || isSubmitting || !dirty || !isValid}
+          disabled={isLoading || !dirty || !isValid}
         >
           Sign in
         </Button>
