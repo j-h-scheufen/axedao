@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { Metadata, Viewport } from 'next';
 
+import ClientInitializer from '@/components/ClientInitializer';
 import Navbar from '@/components/Navbar';
 import SessionProvider from '@/components/SessionProvider';
 import { fontFiraCode, fontInter, fontOpenSans } from '@/config/fonts';
@@ -48,6 +49,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <ThemeProvider themeProps={{ attribute: 'class', defaultTheme: 'dark', children: null }}>
             <SnackbarProvider>
               <Web3Provider>
+                <ClientInitializer />
                 <div className="relative flex min-h-screen flex-col">
                   <Navbar />
                   {children}
