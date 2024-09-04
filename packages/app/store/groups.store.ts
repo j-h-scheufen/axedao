@@ -1,10 +1,11 @@
-import { GroupsQueryParams } from '@/hooks/useGroupList';
-import { Group } from '@/types/model';
-import { generateErrorMessage } from '@/utils';
 import axios from 'axios';
 import { isNil, omitBy } from 'lodash';
 import { Values } from 'nuqs';
 import { create } from 'zustand';
+
+import { GroupsQueryParams } from '@/hooks/useGroupList';
+import { Group } from '@/types/model';
+import { generateErrorMessage } from '@/utils';
 
 type FetchGroupsQuery = Partial<Values<GroupsQueryParams>>;
 
@@ -40,10 +41,10 @@ const useGroupsStore = create<GroupsStore>()((set, get) => ({
   ...DEFAULT_PROPS,
   actions: {
     initialize: async (query): Promise<void> => {
-      const { actions, isInitialized, isLoading } = get();
+      const { isInitialized, isLoading } = get();
       if (isInitialized || isLoading) return;
-      set({ ...DEFAULT_PROPS, query });
-      actions.loadNextPage();
+      set({ ...DEFAULT_PROPS, query, isInitialized: true });
+      get().actions.loadNextPage();
     },
     search: async (query): Promise<void> => {
       const { actions, isLoading } = get();

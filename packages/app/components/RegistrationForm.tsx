@@ -72,6 +72,7 @@ const RegistrationForm = () => {
   };
 
   const handleSubmit = (values: RegistrationFormType, { setSubmitting }: FormikHelpers<RegistrationFormType>) => {
+    setSubmitting(true);
     try {
       registrationMutation.mutate(values);
     } catch (error) {

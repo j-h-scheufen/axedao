@@ -14,6 +14,7 @@ const FieldInput = (props: FieldProps['field']) => {
       {...field}
       className="w-full"
       classNames={{ inputWrapper: '!min-h-14', errorMessage: 'text-left' }}
+      // TODO are the three props below really needed or is that the default behavior?
       color={meta.touched && meta.error ? 'danger' : undefined}
       isInvalid={meta.touched && !!meta.error}
       errorMessage={meta.touched && meta.error ? meta.error : undefined}

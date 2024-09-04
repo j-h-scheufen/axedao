@@ -19,7 +19,7 @@ export default function ClientInitializer() {
     if (!isProfileInitialized && session.data) {
       initializeProfile();
     }
-  }, [session]);
+  });
 
   return null;
 }

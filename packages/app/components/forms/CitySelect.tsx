@@ -44,9 +44,8 @@ const CountrySelect = ({ cities, onInputChange, ...props }: CityProps) => {
         startContent={<SearchIcon className="text-default-400" strokeWidth={2.5} size={20} />}
         onInputChange={onInputChange}
         onSelectionChange={(key) => {
-          if (key) {
-            form.setValue(getDisplayName(cities[key as number]));
-          }
+          if (key) form.setValue(getDisplayName(cities[key as number]));
+          else form.setValue(undefined);
         }}
         {...props}
       >
