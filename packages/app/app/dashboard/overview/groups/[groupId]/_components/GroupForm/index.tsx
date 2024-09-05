@@ -91,17 +91,10 @@ const GroupForm = ({ id }: Props) => {
             <Controller
               control={control}
               name="logo"
-              render={({ field: { value, onChange, onBlur, ref }, fieldState: { error } }) => {
+              render={({ field: { value, onChange }, fieldState: { error } }) => {
                 return (
                   <div className="h-28 w-28">
-                    <ImageUpload
-                      ref={ref}
-                      value={value as File}
-                      onChange={onChange}
-                      onBlur={onBlur}
-                      errorMessage={error?.message}
-                      hideButton
-                    />
+                    <ImageUpload value={value as File} onChange={onChange} errorMessage={error?.message} hideButton />
                   </div>
                 );
               }}
@@ -113,13 +106,11 @@ const GroupForm = ({ id }: Props) => {
               <Controller
                 control={control}
                 name="banner"
-                render={({ field: { value, onChange, onBlur, ref }, fieldState: { error } }) => {
+                render={({ field: { value, onChange }, fieldState: { error } }) => {
                   return (
                     <ImageUpload
-                      ref={ref}
                       value={value as File}
                       onChange={onChange}
-                      onBlur={onBlur}
                       errorMessage={error?.message}
                       hideButton
                       avatarProps={{ className: 'block h-28 w-full cursor-pointer', radius: 'md' }}
@@ -144,7 +135,7 @@ const GroupForm = ({ id }: Props) => {
                 label="Name"
                 placeholder="Enter your group's name"
                 className="mb-5"
-                classNames={{ inputWrapper: '!min-h-12' }}
+                // classnames={{ inputWrapper: '!min-h-12' }}
                 errorMessage={errorMessage}
                 isInvalid={!!errorMessage}
                 color={!!errorMessage ? 'danger' : undefined}
