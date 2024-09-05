@@ -44,7 +44,6 @@ const JoinGroupForm = () => {
   });
 
   const handleSubmit = (values: JoinGroupFormType, { setSubmitting }: FormikHelpers<JoinGroupFormType>) => {
-    setSubmitting(true);
     try {
       return joinGroup(values.id);
     } catch (error) {

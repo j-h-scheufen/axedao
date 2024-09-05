@@ -73,7 +73,6 @@ const SignInForm = ({ className }: Props) => {
   };
 
   const handleSubmit = (values: SignInFormType, { setSubmitting }: FormikHelpers<SignInFormType>) => {
-    setSubmitting(true);
     try {
       signInMutation.mutate();
     } catch (error) {

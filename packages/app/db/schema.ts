@@ -56,6 +56,7 @@ export const groups = pgTable(
       .$onUpdate(() => new Date()),
     name: varchar('name').notNull(),
     description: text('description'),
+    email: text('email'),
     logo: varchar('logo'),
     banner: varchar('banner'),
     leader: uuid('leader_id').references((): AnyPgColumn => users.id, { onDelete: 'set null' }),

@@ -6,11 +6,12 @@ import { ArrayHelpers, Field, FieldArray, FieldProps, Form, Formik, FormikHelper
 import { useRouter } from 'next/navigation';
 import { ChangeEvent, Suspense } from 'react';
 
+import { getLinkIcon } from '@/components/_utils';
 import { FieldInput } from '@/components/forms';
 import ImageUpload from '@/components/ImageUpload';
 import ProfileFormSkeleton from '@/components/skeletons/ProfileFormSkeleton';
 import SubsectionHeading from '@/components/SubsectionHeading';
-import { getLinkIcon, linkTypes, titles } from '@/constants';
+import { linkTypes, titles } from '@/constants';
 import { Input } from '@nextui-org/input';
 import { Mail, Phone, PlusIcon, XIcon } from 'lucide-react';
 import { useProfile, useProfileActions } from '../../../../store/profile.store';
@@ -42,7 +43,6 @@ const ProfileForm = () => {
   const { updateProfile } = useProfileActions();
 
   const handleSubmit = (values: ProfileFormType, { setSubmitting }: FormikHelpers<ProfileFormType>) => {
-    setSubmitting(true);
     try {
       /**
        * TODO: We should really only update the profile fields that have changed in order to avoid future

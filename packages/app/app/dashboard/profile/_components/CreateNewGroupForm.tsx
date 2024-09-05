@@ -11,7 +11,6 @@ const CreateNewGroupForm = () => {
   const { selectedCountryCode, setSelectedCountryCode, cities, setCitySearch, isLoading } = useCountriesAndCities();
 
   const handleSubmit = (values: CreateNewGroupFormType, { setSubmitting }: FormikHelpers<CreateNewGroupFormType>) => {
-    setSubmitting(true);
     try {
       console.log('Creating group with values:', values);
       return createGroup(values);

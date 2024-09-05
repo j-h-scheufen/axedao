@@ -5,8 +5,8 @@ import PageHeading from '@/components/PageHeading';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import { Avatar } from '@nextui-org/avatar';
 import { Camera } from 'lucide-react';
-import { useEffect } from 'react';
-import { useGroupProfile, useGroupProfileActions, useIsInitializingGroupProfile } from '../store/groupProfile.store';
+import { Suspense, useEffect } from 'react';
+import { useGroupProfile, useGroupProfileActions } from '../store/groupProfile.store';
 import GroupActions from './GroupActions';
 import GroupBanner from './GroupBanner';
 
@@ -18,7 +18,6 @@ import GroupMembers from './GroupMembers';
 
 type Props = { id: string };
 const GroupProfile = ({ id }: Props) => {
-  const isLoading = useIsInitializingGroupProfile();
   const groupProfileActions = useGroupProfileActions();
   const groupProfile = useGroupProfile();
 
@@ -39,7 +38,7 @@ const GroupProfile = ({ id }: Props) => {
   }, [groupProfileActions, id]);
 
   return (
-    <>
+    <Suspense>
       <PageHeading back="/dashboard/overview?tab=groups">{name}</PageHeading>
       <GroupActions />
       <GroupBanner />
@@ -52,7 +51,7 @@ const GroupProfile = ({ id }: Props) => {
         />
         <div className="flex-1">
           <GroupDescription />
-          <ContactInfo links={links} isLoading={isLoading} />
+          <ContactInfo links={links} />
         </div>
       </div>
       <SubsectionHeading>Founder</SubsectionHeading>
@@ -61,7 +60,7 @@ const GroupProfile = ({ id }: Props) => {
       </div>
       <SubsectionHeading>Members</SubsectionHeading>
       <GroupMembers id={id} />
-    </>
+    </Suspense>
   );
 };
 export default GroupProfile;

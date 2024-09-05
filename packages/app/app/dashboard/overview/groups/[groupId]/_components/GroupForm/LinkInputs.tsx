@@ -1,4 +1,5 @@
 'use client';
+import { linkBaseUrls } from '@/constants';
 import { GroupFormType } from '@/constants/schemas';
 import { useProfile } from '@/store/profile.store';
 import { SiX } from '@icons-pack/react-simple-icons';
@@ -7,25 +8,6 @@ import { Input } from '@nextui-org/input';
 import { Facebook, Instagram, LinkIcon, LinkedinIcon, Mail, PlusIcon, XIcon } from 'lucide-react';
 import { useCallback } from 'react';
 import { Control, Controller, UseFormSetValue, UseFormWatch, useFieldArray } from 'react-hook-form';
-
-const linkBaseUrls = [
-  {
-    type: 'twitter',
-    baseUrls: ['twitter.com', 'twitter.co', 'x.com', 'twitterinc.com'],
-  },
-  {
-    type: 'facebook',
-    baseUrls: ['facebook.com', 'facebook.co', 'facebook.net', 'fb.com', 'fb.me'],
-  },
-  {
-    type: 'instagram',
-    baseUrls: ['instagram.com', 'ig.me'],
-  },
-  {
-    type: 'linkedin',
-    baseUrls: ['linkedin.com', 'linkedin.cn'],
-  },
-];
 
 type Props = {
   control: Control<GroupFormType>;

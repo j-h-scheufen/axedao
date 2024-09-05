@@ -11,11 +11,8 @@ import { generateErrorMessage, uploadImage } from '@/utils';
 export type GroupProfileState = {
   groupProfile: GroupProfile;
   isGroupAdmin: boolean;
-  isInitializingGroupProfile: boolean;
-  isGroupProfileInitialized: boolean;
   initializeGroupError?: string;
   isDeleting: boolean;
-  isUpdatingGroupProfile: boolean;
   groupProfileUpdateError?: string;
   isUploadingLogo?: boolean;
   isUploadingBanner?: boolean;
@@ -36,6 +33,7 @@ const now = new Date();
 const DEFAULT_PROPS: GroupProfileState = {
   groupProfile: {
     id: '',
+    email: '',
     createdAt: now,
     name: '',
     updatedAt: now,
@@ -50,9 +48,6 @@ const DEFAULT_PROPS: GroupProfileState = {
     country: '',
   },
   isGroupAdmin: false,
-  isGroupProfileInitialized: false,
-  isInitializingGroupProfile: false,
-  isUpdatingGroupProfile: false,
   isDeleting: false,
 };
 
@@ -60,20 +55,16 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
   ...DEFAULT_PROPS,
   actions: {
     initialize: async (id: string) => {
-      const { isInitializingGroupProfile, groupProfile } = get();
-      if (isInitializingGroupProfile || groupProfile.id === id) return;
-      set({ isInitializingGroupProfile: true });
       try {
         const { data } = await axios.get(`/api/groups/${id}`);
         if (!data?.groupProfile) throw new Error();
         const { groupProfile, isAdmin } = data || {};
-        set({ groupProfile, isGroupAdmin: isAdmin, isGroupProfileInitialized: true });
+        set({ groupProfile, isGroupAdmin: isAdmin });
       } catch (error: unknown) {
         console.log(error);
         const message = generateErrorMessage(error, 'An error occured while fetching group');
         set({ initializeGroupError: message });
       }
-      set({ isInitializingGroupProfile: false });
     },
     uploadLogo: async (file: File, name?: string) => {
       set({ isUploadingLogo: true });
@@ -90,11 +81,8 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
     updateGroupProfile: async (_groupProfileData: GroupFormType) => {
       const {
         groupProfile: { id },
-        isUpdatingGroupProfile,
         actions: { uploadBanner, uploadLogo },
       } = get();
-      if (isUpdatingGroupProfile || !id) return;
-      set({ isUpdatingGroupProfile: true });
       try {
         const groupProfileData = _groupProfileData;
         if (groupProfileData.logo && groupProfileData.logo instanceof File) {
@@ -125,7 +113,6 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
         const message = error instanceof Error ? error.message : 'An error occured while updating your profile';
         set({ groupProfileUpdateError: message });
       }
-      set({ isUpdatingGroupProfile: false });
     },
     delete: async () => {
       const { groupProfile, isDeleting } = get();
@@ -152,15 +139,7 @@ export default useGroupProfileStore;
 
 export const useGroupProfileActions = (): GroupProfileActions => useGroupProfileStore((state) => state.actions);
 
-export const useIsUpdatingGroupProfile = (): boolean => useGroupProfileStore((state) => state.isUpdatingGroupProfile);
-
 export const useGroupProfile = (): GroupProfile => useGroupProfileStore((state) => state.groupProfile);
-
-export const useIsInitializingGroupProfile = (): boolean =>
-  useGroupProfileStore((state) => state.isInitializingGroupProfile);
-
-export const useIsGroupProfileInitialized = (): boolean =>
-  useGroupProfileStore((state) => state.isGroupProfileInitialized);
 
 export const useInitializeGroupError = (): string | undefined =>
   useGroupProfileStore((state) => state.initializeGroupError);
