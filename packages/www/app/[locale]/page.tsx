@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import { Divider, Link } from '@nextui-org/react';
+import { Divider } from '@nextui-org/divider';
+import { Link } from '@nextui-org/link';
 
 import {
   SupportedLanguage,

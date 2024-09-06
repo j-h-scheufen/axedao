@@ -1,5 +1,12 @@
 'use client';
 
+import { Input } from '@nextui-org/input';
+import { Select, SelectItem } from '@nextui-org/select';
+import { isEqual } from 'lodash';
+import { Search } from 'lucide-react';
+import { useEffect, useRef } from 'react';
+import { useDebounce } from 'use-debounce';
+
 import useOverviewQueries from '@/hooks/useOverviewQueries';
 import {
   useIsLoadingUsers,
@@ -8,12 +15,6 @@ import {
   useUsersActions,
   useUsersIsInitialized,
 } from '@/store/users.store';
-import { Input } from '@nextui-org/input';
-import { Select, SelectItem } from '@nextui-org/react';
-import { isEqual } from 'lodash';
-import { Search } from 'lucide-react';
-import { useEffect, useRef } from 'react';
-import { useDebounce } from 'use-debounce';
 import UsersGrid from './UsersGrid';
 
 const searchOptions = [

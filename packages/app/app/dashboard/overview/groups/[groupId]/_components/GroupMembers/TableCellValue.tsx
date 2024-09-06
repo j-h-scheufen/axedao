@@ -1,7 +1,11 @@
-import { useProfile } from '@/store/profile.store';
-import { Button, Link, Tooltip, User } from '@nextui-org/react';
+import { Button } from '@nextui-org/button';
+import { Link } from '@nextui-org/link';
+import { Tooltip } from '@nextui-org/tooltip';
+import { User } from '@nextui-org/user';
 import { has } from 'lodash';
 import { ArrowDownIcon, ArrowUpIcon, UserXIcon } from 'lucide-react';
+
+import { useProfile } from '@/store/profile.store';
 import {
   GroupMember,
   useAdminBeingDemotedToMember,

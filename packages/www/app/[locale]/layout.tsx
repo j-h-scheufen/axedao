@@ -1,7 +1,7 @@
 import { Metadata, Viewport } from 'next';
 import { Suspense } from 'react';
 import { Analytics } from '@vercel/analytics/react';
-import { Spinner } from '@nextui-org/react';
+import { Spinner } from '@nextui-org/spinner';
 import { dir } from 'i18next';
 import clsx from 'clsx';
 

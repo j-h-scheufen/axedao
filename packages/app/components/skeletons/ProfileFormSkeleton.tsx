@@ -1,5 +1,7 @@
 'use client';
-import { Skeleton } from '@nextui-org/react';
+
+import { Skeleton } from '@nextui-org/skeleton';
+
 import SubsectionHeading from '../SubsectionHeading';
 import ContactInfoInputsSkeleton from './ContactInfoInputsSkeleton';
 

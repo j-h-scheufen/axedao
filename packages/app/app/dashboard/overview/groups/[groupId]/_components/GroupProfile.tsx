@@ -1,24 +1,24 @@
 'use client';
 
+import { Avatar } from '@nextui-org/avatar';
+import { Link } from '@nextui-org/link';
+import { Camera } from 'lucide-react';
+import { Suspense, useEffect } from 'react';
+
 import ContactInfo from '@/components/ContactInfo';
 import PageHeading from '@/components/PageHeading';
 import SubsectionHeading from '@/components/SubsectionHeading';
-import { Avatar } from '@nextui-org/avatar';
-import { Camera } from 'lucide-react';
-import { useEffect } from 'react';
-import { useGroupProfile, useGroupProfileActions, useIsInitializingGroupProfile } from '../store/groupProfile.store';
-import GroupActions from './GroupActions';
-import GroupBanner from './GroupBanner';
-
 import UserCard from '@/components/UserCard';
 import { isUUID } from '@/utils';
 import { useIsInitializingUser, useUser, useUserActions } from '../../../users/[userId]/store';
+import { useGroupProfile, useGroupProfileActions } from '../store/groupProfile.store';
+import GroupActions from './GroupActions';
+import GroupBanner from './GroupBanner';
 import GroupDescription from './GroupDescription';
 import GroupMembers from './GroupMembers';
 
 type Props = { id: string };
 const GroupProfile = ({ id }: Props) => {
-  const isLoading = useIsInitializingGroupProfile();
   const groupProfileActions = useGroupProfileActions();
   const groupProfile = useGroupProfile();
 
@@ -39,7 +39,7 @@ const GroupProfile = ({ id }: Props) => {
   }, [groupProfileActions, id]);
 
   return (
-    <>
+    <Suspense>
       <PageHeading back="/dashboard/overview?tab=groups">{name}</PageHeading>
       <GroupActions />
       <GroupBanner />
@@ -52,7 +52,12 @@ const GroupProfile = ({ id }: Props) => {
         />
         <div className="flex-1">
           <GroupDescription />
-          <ContactInfo links={links} isLoading={isLoading} />
+          {groupProfile.email && (
+            <Link href={`mailto:${groupProfile.email}`} className="text-small tracking-tight text-default-400">
+              {groupProfile.email}
+            </Link>
+          )}
+          <ContactInfo links={links} />
         </div>
       </div>
       <SubsectionHeading>Founder</SubsectionHeading>
@@ -61,7 +66,7 @@ const GroupProfile = ({ id }: Props) => {
       </div>
       <SubsectionHeading>Members</SubsectionHeading>
       <GroupMembers id={id} />
-    </>
+    </Suspense>
   );
 };
 export default GroupProfile;

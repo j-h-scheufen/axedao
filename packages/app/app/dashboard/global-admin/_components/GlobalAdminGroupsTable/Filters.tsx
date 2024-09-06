@@ -1,12 +1,13 @@
-import GroupLocation from '@/components/GroupLocation';
-import { GroupsQueryParams, verificationStatuses } from '@/hooks/useGroupList';
-import { City } from '@/store/cities.store';
-import { Country } from '@/store/countries.store';
+import { AutocompleteProps } from '@nextui-org/autocomplete';
 import { Input } from '@nextui-org/input';
-import { AutocompleteProps, Select, SelectItem } from '@nextui-org/react';
+import { Select, SelectItem } from '@nextui-org/select';
 import { capitalize } from 'lodash';
 import { Search } from 'lucide-react';
 import { SetValues, Values } from 'nuqs';
+
+import GroupLocation from '@/components/GroupLocation';
+import { GroupsQueryParams, verificationStatuses } from '@/hooks/useGroupList';
+import { City, Country } from '@/types/model';
 
 type Props = {
   query: Values<GroupsQueryParams>;

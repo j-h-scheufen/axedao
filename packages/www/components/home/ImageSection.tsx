@@ -1,4 +1,4 @@
-import { Image } from '@nextui-org/react';
+import { Image } from '@nextui-org/image';
 
 interface ImageSectionProps {
   src: string;
@@ -14,7 +14,7 @@ export default function ImageSection({
       <Image
         src={src}
         alt={alt}
-        className=" w-full max-w-[800px] md:rounded-3xl"
+        className="w-full max-w-[800px] md:rounded-3xl"
       />
     </div>
   );

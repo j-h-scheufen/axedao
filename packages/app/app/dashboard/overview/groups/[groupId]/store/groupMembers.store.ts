@@ -70,8 +70,7 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
       } = get();
       if (!isInitialized) {
         set({ groupId });
-        await initializeAdmins();
-        loadNextPage();
+        return initializeAdmins().then(loadNextPage);
       }
     },
     search: async (searchTerm: string): Promise<void> => {

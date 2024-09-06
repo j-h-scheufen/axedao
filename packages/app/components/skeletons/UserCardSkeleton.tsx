@@ -1,6 +1,7 @@
 'use client';
+
 import { Card, CardBody, CardProps } from '@nextui-org/card';
-import { Skeleton } from '@nextui-org/react';
+import { Skeleton } from '@nextui-org/skeleton';
 import { ForwardedRef, forwardRef } from 'react';
 
 export type UserCardProps = CardProps;

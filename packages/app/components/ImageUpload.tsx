@@ -1,23 +1,28 @@
 'use client';
 
+import { Avatar, AvatarProps } from '@nextui-org/avatar';
 import { Button } from '@nextui-org/button';
-import { Avatar, AvatarProps } from '@nextui-org/react';
 import { Camera } from 'lucide-react';
-import { FocusEvent, ForwardedRef, forwardRef, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 type Props = {
   value?: File | string;
   onChange: (file: File) => void;
-  onBlur: (event: FocusEvent<Element, Element>) => void;
   isInvalid?: boolean;
   errorMessage?: string;
   hideButton?: boolean;
   avatarProps?: Omit<AvatarProps, 'onClick' | 'onBlur' | 'ref'>;
 };
-const ImageUpload = (
-  { value, onChange, onBlur = () => null, isInvalid, errorMessage, hideButton = false, avatarProps = {} }: Props,
-  ref: ForwardedRef<HTMLInputElement>,
-) => {
+
+const ImageUpload = ({
+  value,
+  onChange,
+  isInvalid,
+  errorMessage,
+  hideButton = false,
+  avatarProps = {},
+  ...props
+}: Props) => {
   const [imagePreview, setImagePreview] = useState<string | undefined>(typeof value === 'string' ? value : undefined);
   const imageInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -50,10 +55,10 @@ const ImageUpload = (
         }}
         className="hidden"
         hidden
+        {...props}
       />
       <div className="flex items-end gap-3">
         <Avatar
-          ref={ref}
           isFocusable
           showFallback
           isBordered
@@ -62,11 +67,10 @@ const ImageUpload = (
           fallback={<Camera className="h-10 w-10 animate-pulse text-default-500" strokeWidth={1} size={20} />}
           className="aspect-square h-full max-h-32 w-full max-w-32 cursor-pointer"
           onClick={selectImageFile}
-          onBlur={onBlur}
           {...avatarProps}
         />
         {!hideButton && (
-          <Button type="button" size="sm" className="w-fit" onPress={selectImageFile} onBlur={onBlur}>
+          <Button type="button" size="sm" className="w-fit" onPress={selectImageFile}>
             {value ? 'Change' : 'Upload'} image
           </Button>
         )}
@@ -75,4 +79,5 @@ const ImageUpload = (
     </div>
   );
 };
-export default forwardRef(ImageUpload);
+
+export default ImageUpload;

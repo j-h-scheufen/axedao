@@ -3,6 +3,7 @@ import { CircleAlertIcon } from 'lucide-react';
 import { HTMLAttributes, ReactNode } from 'react';
 
 type Props = HTMLAttributes<HTMLDivElement> & { message: ReactNode };
+
 const ErrorText = ({ message, className = '', ...props }: Props) => {
   if (!message) return null;
   return (

@@ -30,3 +30,10 @@ export type UserSession = {
 };
 
 export type Profile = User & { links: Link[]; group: Group | null };
+
+export type Country = { name: string; isoCode: string };
+
+export type City = {
+  name: string;
+  stateCode?: string;
+};

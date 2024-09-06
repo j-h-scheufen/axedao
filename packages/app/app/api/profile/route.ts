@@ -1,9 +1,8 @@
 import { isEqual, isNil } from 'lodash';
-import { getServerSession } from 'next-auth/next';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { profileFormSchema, ProfileFormType } from '@/app/dashboard/profile/schema';
-import { createLinks, fetchUserProfile, fetchUserProfileByEmail, removeLinks, updateLink, updateUser } from '@/db';
+import { createLinks, fetchUserProfile, removeLinks, updateLink, updateUser } from '@/db';
 import { Link, UserSession } from '@/types/model';
 import { getToken, JWT } from 'next-auth/jwt';
 
@@ -19,7 +18,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
-  const profile = await fetchUserProfile(token?.user.id);
+  const profile = await fetchUserProfile(token.user.id);
   if (!profile) {
     return NextResponse.json({ error: 'Profile was not found' }, { status: 404 });
   }
@@ -27,14 +26,13 @@ export async function GET(req: NextRequest) {
   return Response.json(profile);
 }
 
-export async function PATCH(request: NextRequest) {
-  const session = await getServerSession();
-  const email = session?.user?.email;
-  if (!email) {
+export async function PATCH(req: NextRequest) {
+  const token = (await getToken({ req })) as (JWT & { user: UserSession }) | null;
+  if (!token?.user.id) {
     return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
-  const body = await request.json();
+  const body = await req.json();
   const isValid = await profileFormSchema.validate(body);
   if (!isValid) {
     return NextResponse.json({ error: 'Invalid profile data' }, { status: 400 });
@@ -44,7 +42,7 @@ export async function PATCH(request: NextRequest) {
     links: Link[];
     avatar: string | null | undefined;
   };
-  const profile = await fetchUserProfileByEmail(email);
+  const profile = await fetchUserProfile(token.user.id);
   if (!profile) {
     return NextResponse.json({ error: 'Could not find user data' }, { status: 404 });
   }

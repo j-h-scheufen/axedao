@@ -1,5 +1,7 @@
+import { Card } from '@nextui-org/card';
+import { Image } from '@nextui-org/image';
+
 import { TextSection, Title } from '@/components/primitives';
-import { Card, Image } from '@nextui-org/react';
 
 export default function AboutPage() {
   return (

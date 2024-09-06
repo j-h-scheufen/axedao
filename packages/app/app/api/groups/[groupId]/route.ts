@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-import { GroupFormType, LinkType, groupFormSchema } from '@/constants/schemas';
+import { GroupFormType, LinkTypes, groupFormSchema } from '@/constants/schemas';
 import {
   addLink,
   deleteGroup,
@@ -100,6 +100,7 @@ export async function PATCH(request: NextRequest, { params }: { params: { groupI
   const groupProfileData = omitBy(
     {
       name: body.name,
+      email: body.email,
       description: body.description,
       links: body.links,
       admins: body.admins,
@@ -123,7 +124,7 @@ export async function PATCH(request: NextRequest, { params }: { params: { groupI
     if (isNewLink) {
       const addedLink = await addLink({
         ...link,
-        type: link.type as LinkType,
+        type: link.type as LinkTypes,
         ownerId: id,
       });
       link.id = addedLink?.id;

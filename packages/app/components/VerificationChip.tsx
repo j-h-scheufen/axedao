@@ -1,4 +1,4 @@
-import { Chip, ChipProps } from '@nextui-org/react';
+import { Chip, ChipProps } from '@nextui-org/chip';
 import { CircleCheckIcon } from 'lucide-react';
 
 type Props = { verified: boolean } & ChipProps;

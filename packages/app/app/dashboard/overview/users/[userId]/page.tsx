@@ -5,7 +5,13 @@ import UserGroupAssociation from './_components/UserGroupAssociation';
 import UserProfile from './_components/UserProfile';
 
 const Page = async ({ params }: { params: { userId: string } }) => {
-  const userProfile = await fetchUserProfile(params.userId);
+  let userProfile;
+  try {
+    userProfile = await fetchUserProfile(params.userId);
+  } catch (error) {
+    console.error('Error fetching user profile', error);
+    // TODO need to handle 404
+  }
   if (!userProfile) throw new Error('No user found for the given ID');
   return (
     <>

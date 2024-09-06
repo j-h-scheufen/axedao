@@ -1188,15 +1188,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hookform/resolvers@npm:^3.4.0":
-  version: 3.4.2
-  resolution: "@hookform/resolvers@npm:3.4.2"
-  peerDependencies:
-    react-hook-form: ^7.0.0
-  checksum: 10c0/cb8a3e0cc1c9aeaf2adad585f29badf342a96da9cfdf4efa1168aadb7ef52f440cac5cc6fedf0fda6a52effd27a5c859692c89bb99ed5c76d03064aea1f0d684
-  languageName: node
-  linkType: hard
-
 "@humanwhocodes/config-array@npm:^0.11.14":
   version: 0.11.14
   resolution: "@humanwhocodes/config-array@npm:0.11.14"
@@ -1887,7 +1878,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nextui-org/breadcrumbs@npm:2.0.12":
+"@nextui-org/breadcrumbs@npm:2.0.12, @nextui-org/breadcrumbs@npm:^2.0.12":
   version: 2.0.12
   resolution: "@nextui-org/breadcrumbs@npm:2.0.12"
   dependencies:
@@ -2016,7 +2007,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nextui-org/chip@npm:2.0.32":
+"@nextui-org/chip@npm:2.0.32, @nextui-org/chip@npm:^2.0.32":
   version: 2.0.32
   resolution: "@nextui-org/chip@npm:2.0.32"
   dependencies:
@@ -2236,7 +2227,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nextui-org/listbox@npm:2.1.25, @nextui-org/listbox@npm:^2.1.25":
+"@nextui-org/listbox@npm:2.1.25":
   version: 2.1.25
   resolution: "@nextui-org/listbox@npm:2.1.25"
   dependencies:
@@ -2591,7 +2582,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nextui-org/skeleton@npm:2.0.31":
+"@nextui-org/skeleton@npm:2.0.31, @nextui-org/skeleton@npm:^2.0.31":
   version: 2.0.31
   resolution: "@nextui-org/skeleton@npm:2.0.31"
   dependencies:
@@ -2666,7 +2657,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nextui-org/spinner@npm:2.0.33":
+"@nextui-org/spinner@npm:2.0.33, @nextui-org/spinner@npm:^2.0.33":
   version: 2.0.33
   resolution: "@nextui-org/spinner@npm:2.0.33"
   dependencies:
@@ -2736,7 +2727,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nextui-org/table@npm:2.0.39":
+"@nextui-org/table@npm:2.0.39, @nextui-org/table@npm:^2.0.39":
   version: 2.0.39
   resolution: "@nextui-org/table@npm:2.0.39"
   dependencies:
@@ -2813,7 +2804,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nextui-org/tooltip@npm:2.0.39":
+"@nextui-org/tooltip@npm:2.0.39, @nextui-org/tooltip@npm:^2.0.39":
   version: 2.0.39
   resolution: "@nextui-org/tooltip@npm:2.0.39"
   dependencies:
@@ -2992,7 +2983,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nextui-org/use-disclosure@npm:2.0.10":
+"@nextui-org/use-disclosure@npm:2.0.10, @nextui-org/use-disclosure@npm:^2.0.10":
   version: 2.0.10
   resolution: "@nextui-org/use-disclosure@npm:2.0.10"
   dependencies:
@@ -5714,25 +5705,6 @@ __metadata:
   peerDependencies:
     react: ^18 || ^19
   checksum: 10c0/936ecc8d4fbd2f89b5569ae9a2fe6e3c0af6ea02561de5f882b910662f1db1b0d73d7a9cbd94fd4d569a2c0773b5e629da4752dc62d4f3ebcf165f5b56d80c0e
-  languageName: node
-  linkType: hard
-
-"@tanstack/react-table@npm:^8.20.5":
-  version: 8.20.5
-  resolution: "@tanstack/react-table@npm:8.20.5"
-  dependencies:
-    "@tanstack/table-core": "npm:8.20.5"
-  peerDependencies:
-    react: ">=16.8"
-    react-dom: ">=16.8"
-  checksum: 10c0/574fa62fc6868a3b1113dbd043323f8b73aeb60555609caa164d5137a14636d4502784a961191afde2ec46f33f8c2bbfc4561d27a701c3d084e899a632dda3c8
-  languageName: node
-  linkType: hard
-
-"@tanstack/table-core@npm:8.20.5":
-  version: 8.20.5
-  resolution: "@tanstack/table-core@npm:8.20.5"
-  checksum: 10c0/3c27b5debd61b6bd9bfbb40bfc7c5d5af90873ae1a566b20e3bf2d2f4f2e9a78061c081aacc5259a00e256f8df506ec250eb5472f5c01ff04baf9918b554982b
   languageName: node
   linkType: hard
 
@@ -15081,27 +15053,29 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "quilombo@workspace:packages/app"
   dependencies:
-    "@hookform/resolvers": "npm:^3.4.0"
     "@icons-pack/react-simple-icons": "npm:^10.0.0"
     "@nextui-org/autocomplete": "npm:^2.1.5"
     "@nextui-org/avatar": "npm:^2.0.32"
+    "@nextui-org/breadcrumbs": "npm:^2.0.12"
     "@nextui-org/button": "npm:2.0.37"
     "@nextui-org/card": "npm:^2.0.33"
-    "@nextui-org/code": "npm:2.0.32"
+    "@nextui-org/chip": "npm:^2.0.32"
     "@nextui-org/image": "npm:^2.0.31"
     "@nextui-org/input": "npm:2.2.4"
-    "@nextui-org/kbd": "npm:2.0.33"
     "@nextui-org/link": "npm:^2.0.34"
-    "@nextui-org/listbox": "npm:^2.1.25"
     "@nextui-org/modal": "npm:^2.0.39"
     "@nextui-org/navbar": "npm:2.0.36"
     "@nextui-org/react": "npm:^2.4.6"
     "@nextui-org/select": "npm:^2.2.5"
-    "@nextui-org/snippet": "npm:2.0.41"
+    "@nextui-org/skeleton": "npm:^2.0.31"
+    "@nextui-org/spinner": "npm:^2.0.33"
     "@nextui-org/switch": "npm:2.0.33"
     "@nextui-org/system": "npm:2.2.5"
+    "@nextui-org/table": "npm:^2.0.39"
     "@nextui-org/tabs": "npm:^2.0.35"
     "@nextui-org/theme": "npm:2.2.9"
+    "@nextui-org/tooltip": "npm:^2.0.39"
+    "@nextui-org/use-disclosure": "npm:^2.0.10"
     "@nextui-org/use-infinite-scroll": "npm:^2.1.5"
     "@nextui-org/user": "npm:^2.0.33"
     "@rainbow-me/rainbowkit": "npm:^2.1.5"
@@ -15110,7 +15084,6 @@ __metadata:
     "@tailwindcss/typography": "npm:^0.5.14"
     "@tanstack/eslint-plugin-query": "npm:^5.52.0"
     "@tanstack/react-query": "npm:^5.52.2"
-    "@tanstack/react-table": "npm:^8.20.5"
     "@types/bcrypt": "npm:^5.0.2"
     "@types/lodash": "npm:^4.17.7"
     "@types/node": "npm:22.5.0"
@@ -15126,6 +15099,7 @@ __metadata:
     chai: "npm:^4.5.0"
     clsx: "npm:^2.1.1"
     country-state-city: "npm:^3.2.1"
+    dotenv: "npm:^16.4.5"
     drizzle-kit: "npm:^0.24.2"
     drizzle-orm: "npm:^0.33.0"
     eslint: "npm:^8.57.0"
@@ -15152,8 +15126,8 @@ __metadata:
     prettier-plugin-tailwindcss: "npm:^0.6.6"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
-    react-hook-form: "npm:^7.53.0"
     siwe: "npm:^2.3.2"
+    tailwind-merge: "npm:^2.5.2"
     tailwind-variants: "npm:^0.2.1"
     tailwindcss: "npm:3.4.10"
     tsx: "npm:^4.19.0"
@@ -15211,15 +15185,6 @@ __metadata:
   version: 2.0.4
   resolution: "react-fast-compare@npm:2.0.4"
   checksum: 10c0/f0300c677e95198b5f993cbb8a983dab09586157dc678f9e2b5b29ff941b6677a8776fbbdc425ce102fad86937e36bb45cfcfd797f006270b97ccf287ebfb885
-  languageName: node
-  linkType: hard
-
-"react-hook-form@npm:^7.53.0":
-  version: 7.53.0
-  resolution: "react-hook-form@npm:7.53.0"
-  peerDependencies:
-    react: ^16.8.0 || ^17 || ^18 || ^19
-  checksum: 10c0/6d62b150618a833c17d59e669b707661499e2bb516a8d340ca37699f99eb448bbba7b5b78324938c8948014e21efaa32e3510c2ba246fd5e97a96fca0cfa7c98
   languageName: node
   linkType: hard
 
@@ -16700,7 +16665,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwind-merge@npm:^2.2.0":
+"tailwind-merge@npm:^2.2.0, tailwind-merge@npm:^2.5.2":
   version: 2.5.2
   resolution: "tailwind-merge@npm:2.5.2"
   checksum: 10c0/e43a9a468f7ba4ed5b4a399558d96d6270a3d8131dca111cccc803e71cc23885060d18d721f312a24fff0a75c567dbb30b2a87c18aba25eb4255df197d8170ab

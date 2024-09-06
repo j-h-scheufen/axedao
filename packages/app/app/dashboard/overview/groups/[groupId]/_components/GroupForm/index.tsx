@@ -1,191 +1,161 @@
 'use client';
 
+import { Button } from '@nextui-org/button';
+import { Textarea } from '@nextui-org/input';
+import { Field, FieldArray, FieldProps, Form, Formik, FormikHelpers, FormikProps } from 'formik';
+import { useRouter } from 'next/navigation';
+import { Suspense, useEffect, useState } from 'react';
+
 import { useGroupMembersActions } from '@/app/dashboard/overview/groups/[groupId]/store/groupMembers.store';
 import {
   useGroupProfile,
   useGroupProfileActions,
   useIsDeletingGroup,
-  useIsGroupProfileInitialized,
-  useIsInitializingGroupProfile,
-  useIsUpdatingGroupProfile,
 } from '@/app/dashboard/overview/groups/[groupId]/store/groupProfile.store';
+import { FieldInput, FounderField, LinksArray } from '@/components/forms';
 import ImageUpload from '@/components/ImageUpload';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import { GroupFormType, groupFormSchema } from '@/constants/schemas';
-import { useProfile, useProfileActions } from '@/store/profile.store';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { Button } from '@nextui-org/button';
-import { Input, Textarea } from '@nextui-org/input';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
-import { Controller, FormProvider, useForm } from 'react-hook-form';
+import { useProfileActions } from '@/store/profile.store';
 import GroupFormSkeleton from '../skeletons';
 import DeleteGroup from './DeleteGroup';
-import FounderField from './FounderField';
-import LinkInputs from './LinkInputs';
 
 type Props = { id: string };
 const GroupForm = ({ id }: Props) => {
   const router = useRouter();
 
-  const profile = useProfile();
-
-  const profileActions = useProfileActions();
-  const groupProfileActions = useGroupProfileActions();
-  const isUpdating = useIsUpdatingGroupProfile();
+  const { removeGroupAssociation } = useProfileActions();
+  const { initialize: initGroupProfile, delete: deleteGroup, updateGroupProfile } = useGroupProfileActions();
+  const { initialize: initGroupMembers } = useGroupMembersActions();
   const groupProfile = useGroupProfile();
-  const isInitialilzingGroupProfile = useIsInitializingGroupProfile();
-  const isGroupProfileInitialized = useIsGroupProfileInitialized();
   const isDeleting = useIsDeletingGroup();
-  const groupMembersActions = useGroupMembersActions();
+  const [charsLeft, setCharsLeft] = useState<number>(300 - (groupProfile.description?.length || 0));
 
   useEffect(() => {
-    groupProfileActions.initialize(id);
-    groupMembersActions.initialize(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    initGroupProfile(id);
+    initGroupMembers(id);
+  }, [id, initGroupProfile, initGroupMembers]);
 
-  const form = useForm({
-    resolver: yupResolver(groupFormSchema),
-  });
-  const { control, handleSubmit, watch, setValue } = form;
-
-  useEffect(() => {
-    if (!groupProfile?.id || !profile.id) return;
-    const { name, description, logo, banner, leader, links, admins } = groupProfile;
-    setValue('email', profile.email);
-    if (name) setValue('name', name);
-    if (description) setValue('description', description);
-    if (logo) setValue('logo', logo);
-    if (banner) setValue('banner', banner);
-    if (leader) setValue('leader', leader);
-    if (links) setValue('links', links);
-    if (admins?.length) setValue('admins', admins);
-  }, [setValue, groupProfile, profile]);
-
-  if (isInitialilzingGroupProfile) {
-    return <GroupFormSkeleton />;
-  }
-  if (!isGroupProfileInitialized) return null;
-
-  const submit = async (values: GroupFormType) => {
-    await groupProfileActions.updateGroupProfile(values);
-    router.push(`/dashboard/overview/groups/${id}`);
-  };
-
-  const deleteGroup = async () => {
-    await groupProfileActions.delete();
-    profileActions.removeGroupAssociation();
+  // TODO: Deleting the group will have consequences for any logged-in user belonging to that group as their state will be out of sync.
+  const handleDeleteGroup = async () => {
+    await deleteGroup().then(removeGroupAssociation);
     router.push('/dashboard/profile');
   };
 
-  const description = watch('description') || '';
-  const descriptionCharsLeft = 300 - description.length;
+  const handleSubmit = (values: GroupFormType, { setSubmitting }: FormikHelpers<GroupFormType>) => {
+    try {
+      return updateGroupProfile(values).then(() => router.push(`/dashboard/overview/groups/${id}`));
+    } catch (error) {
+      console.error('Error during group profile update.', error);
+      throw error;
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const initValues: GroupFormType = {
+    name: groupProfile.name || '',
+    email: groupProfile.email || '',
+    founder: groupProfile.founder || '',
+    description: groupProfile.description || '',
+    logo: groupProfile.logo || '',
+    banner: groupProfile.banner || '',
+    leader: groupProfile.leader || '',
+    admins: groupProfile.admins || [],
+    links: groupProfile.links || [],
+  };
 
   return (
-    <FormProvider {...form}>
-      <form className="max-w-xl" onSubmit={handleSubmit(submit)}>
-        <div className="mb-5 md:flex md:gap-5">
-          <div className="flex min-w-24 flex-col justify-start gap-2">
-            <h4>Logo</h4>
-            <Controller
-              control={control}
-              name="logo"
-              render={({ field: { value, onChange, onBlur, ref }, fieldState: { error } }) => {
-                return (
-                  <div className="h-28 w-28">
+    <Formik<GroupFormType>
+      initialValues={initValues}
+      validationSchema={groupFormSchema}
+      onSubmit={handleSubmit}
+      enableReinitialize
+    >
+      {({ values, dirty, isValid, isSubmitting, setFieldValue }: FormikProps<GroupFormType>) => (
+        <Suspense fallback={<GroupFormSkeleton />}>
+          <Form className="max-w-xl flex flex-col gap-2 sm:gap-5">
+            <div className="md:flex md:gap-5">
+              <div className="flex min-w-24 flex-col justify-start gap-2">
+                <h4>Logo</h4>
+                <Field name="logo">
+                  {({ field, meta }: FieldProps) => (
                     <ImageUpload
-                      ref={ref}
-                      value={value as File}
-                      onChange={onChange}
-                      onBlur={onBlur}
-                      errorMessage={error?.message}
+                      {...field}
+                      errorMessage={meta.error}
+                      isInvalid={meta.touched && !!meta.error}
+                      onChange={(file: File) => {
+                        setFieldValue('logo', file);
+                      }}
                       hideButton
                     />
-                  </div>
+                  )}
+                </Field>
+              </div>
+              <div className="flex flex-1 flex-col gap-2">
+                <h4>Banner</h4>
+                <div className="h-full">
+                  <Field name="banner">
+                    {({ field, meta }: FieldProps) => (
+                      <ImageUpload
+                        {...field}
+                        errorMessage={meta.error}
+                        isInvalid={meta.touched && !!meta.error}
+                        onChange={(file: File) => {
+                          setFieldValue('banner', file);
+                        }}
+                        hideButton
+                        avatarProps={{ className: 'block h-28 w-full cursor-pointer', radius: 'md' }}
+                      />
+                    )}
+                  </Field>
+                </div>
+              </div>
+            </div>
+            <Field name="name" label="Name" placeholder="Enter your group's name" as={FieldInput} />
+            <Field name="email" label="Email" type="email" placeholder="Enter your group's email" as={FieldInput} />
+            <Field name="founder" label="Founder" placeholder="Enter the founder's name" as={FounderField} />
+            <Field name="description" label="Description" placeholder="Enter a short description of your group">
+              {({ field, meta }: FieldProps) => {
+                return (
+                  <Textarea
+                    {...field}
+                    errorMessage={meta.error}
+                    isInvalid={meta.touched && !!meta.error}
+                    label="Description"
+                    placeholder="Enter a short description of your group"
+                    description={`${charsLeft} characters left`}
+                    onInput={(e) => setCharsLeft(300 - (e.target as HTMLTextAreaElement).value.length)}
+                    className="mb-5 w-full"
+                    classNames={{ description: 'w-fit ml-auto' }}
+                  />
                 );
               }}
-            />
-          </div>
-          <div className="flex flex-1 flex-col gap-2">
-            <h4>Banner</h4>
-            <div className="h-full">
-              <Controller
-                control={control}
-                name="banner"
-                render={({ field: { value, onChange, onBlur, ref }, fieldState: { error } }) => {
-                  return (
-                    <ImageUpload
-                      ref={ref}
-                      value={value as File}
-                      onChange={onChange}
-                      onBlur={onBlur}
-                      errorMessage={error?.message}
-                      hideButton
-                      avatarProps={{ className: 'block h-28 w-full cursor-pointer', radius: 'md' }}
-                    />
-                  );
-                }}
-              />
+            </Field>
+            <SubsectionHeading>Links</SubsectionHeading>
+            <FieldArray name="links">
+              {(helpers) => (
+                <LinksArray {...helpers} links={values.links} ownerId={groupProfile.id} setFieldValue={setFieldValue} />
+              )}
+            </FieldArray>
+
+            <div className="flex flex-col mt-8 md:flex-row items-center gap-5">
+              <DeleteGroup deleteGroup={handleDeleteGroup} isDeleting={isDeleting} />
+              <Button
+                type="submit"
+                className="flex w-full items-center"
+                color="primary"
+                isLoading={isSubmitting}
+                disabled={!dirty || !isValid}
+              >
+                Update group
+              </Button>
             </div>
-          </div>
-        </div>
-        <Controller
-          control={control}
-          name="name"
-          render={({ field: { onChange, value, onBlur, ref }, fieldState: { error } }) => {
-            const errorMessage = error?.message;
-            return (
-              <Input
-                ref={ref}
-                value={value || ''}
-                onBlur={onBlur}
-                onChange={onChange}
-                label="Name"
-                placeholder="Enter your group's name"
-                className="mb-5"
-                classNames={{ inputWrapper: '!min-h-12' }}
-                errorMessage={errorMessage}
-                isInvalid={!!errorMessage}
-                color={!!errorMessage ? 'danger' : undefined}
-              />
-            );
-          }}
-        />
-        <FounderField />
-        <Controller
-          control={control}
-          name="description"
-          render={({ field: { onChange, value, onBlur, ref }, fieldState: { error } }) => {
-            const errorMessage = error?.message;
-            return (
-              <Textarea
-                ref={ref}
-                value={value || ''}
-                onBlur={onBlur}
-                onChange={onChange}
-                label="Description"
-                placeholder="Enter a short description of your group"
-                description={`${descriptionCharsLeft} characters left`}
-                className="mb-5 w-full"
-                classNames={{ description: 'w-fit ml-auto' }}
-                errorMessage={errorMessage}
-                isInvalid={!!errorMessage}
-                color={!!errorMessage ? 'danger' : undefined}
-              />
-            );
-          }}
-        />
-        <SubsectionHeading>Links</SubsectionHeading>
-        <LinkInputs control={control} setValue={setValue} watch={watch} />
-        <div className="flex flex-col mt-8 md:flex-row items-center gap-5">
-          <DeleteGroup deleteGroup={deleteGroup} isDeleting={isDeleting} />
-          <Button type="submit" className="flex w-full items-center" isLoading={isUpdating}>
-            Update group
-          </Button>
-        </div>
-      </form>
-    </FormProvider>
+          </Form>
+        </Suspense>
+      )}
+    </Formik>
   );
 };
+
 export default GroupForm;

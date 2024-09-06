@@ -1,4 +1,4 @@
-import { Skeleton } from '@nextui-org/react';
+import { Skeleton } from '@nextui-org/skeleton';
 
 type Props = { hideButton?: boolean };
 const ImageUploadSkeleton = ({ hideButton = false }: Props) => {

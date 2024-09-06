@@ -2,15 +2,13 @@
 
 import { Key, useMemo, useState } from 'react';
 import { useRouter, useSelectedLayoutSegments } from 'next/navigation';
+import { Button } from '@nextui-org/button';
 import {
-  Button,
   Dropdown,
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
-  // Select,
-  // SelectItem,
-} from '@nextui-org/react';
+} from '@nextui-org/dropdown';
 
 import { isSupportedLanguage, SupportedLanguage } from '../app/i18n/settings';
 import { useLocale } from '@/hooks/useLocale';

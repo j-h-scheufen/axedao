@@ -31,7 +31,7 @@ export const createNewGroupFormSchema = object({
   name: string().required('Group name is required'),
   verified: boolean().default(false),
   city: string(),
-  country: string().required('Group country is required'),
+  country: string().required('Country is required'),
 });
 
 export type CreateNewGroupFormType = InferType<typeof createNewGroupFormSchema>;

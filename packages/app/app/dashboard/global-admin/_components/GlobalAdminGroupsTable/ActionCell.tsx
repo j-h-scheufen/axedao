@@ -1,10 +1,12 @@
 'use client';
 
-import { useSuperAdminActions } from '@/store/super-admin.store';
-import { Group } from '@/types/model';
-import { Button, Tooltip } from '@nextui-org/react';
+import { Button } from '@nextui-org/button';
+import { Tooltip } from '@nextui-org/tooltip';
 import { ShieldCheckIcon, ShieldOffIcon } from 'lucide-react';
 import { useState } from 'react';
+
+import { useSuperAdminActions } from '@/store/super-admin.store';
+import { Group } from '@/types/model';
 
 type Props = { group: Group };
 const ActionCell = ({ group }: Props) => {

@@ -1,4 +1,5 @@
-import { Chip, ChipProps } from '@nextui-org/react';
+import { Chip, ChipProps } from '@nextui-org/chip';
+
 import { GroupMemberRole } from '../../store/groupMembers.store';
 
 const roleColorMap: Record<string, ChipProps['color']> = {

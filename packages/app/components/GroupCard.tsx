@@ -1,13 +1,15 @@
 'use client';
-import { Group } from '@/types/model';
+
+import { Avatar } from '@nextui-org/avatar';
 import { Button } from '@nextui-org/button';
 import { Card, CardFooter, CardHeader } from '@nextui-org/card';
 import { Link } from '@nextui-org/link';
-import { Avatar } from '@nextui-org/react';
 import clsx from 'clsx';
 import { MapPinIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { ReactNode, Suspense } from 'react';
+
+import { Group } from '@/types/model';
 import VerificationChip from './VerificationChip';
 import GroupCardSkeleton from './skeletons/GroupCardSkeleton';
 

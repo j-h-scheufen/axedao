@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { Breadcrumbs, BreadcrumbItem } from '@nextui-org/react';
+import { Breadcrumbs, BreadcrumbItem } from '@nextui-org/breadcrumbs';
 import { useMemo } from 'react';
 
 const DashboardBreadcrumb = () => {
