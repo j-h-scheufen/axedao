@@ -1,6 +1,6 @@
 'use client';
 
-import { Spinner } from '@nextui-org/react';
+import { Spinner } from '@nextui-org/spinner';
 import { Tab, Tabs } from '@nextui-org/tabs';
 import { useSession } from 'next-auth/react';
 import { useRouter, useSearchParams } from 'next/navigation';

@@ -1,4 +1,4 @@
-import { ChipProps } from '@nextui-org/react';
+import { ChipProps } from '@nextui-org/chip';
 
 export const columns = [
   { name: 'USER', uid: 'name', sortable: true },

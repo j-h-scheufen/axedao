@@ -1,12 +1,15 @@
 'use client';
 
-import useOverviewQueries from '@/hooks/useOverviewQueries';
-import { useIsLoadingUsers, useUsers, useUsersActions } from '@/store/users.store';
-import { User as UserType } from '@/types/model';
-import { Link, User, getKeyValue } from '@nextui-org/react';
+import { Link } from '@nextui-org/link';
+import { getKeyValue } from '@nextui-org/react';
+import { User } from '@nextui-org/user';
 import { isEqual } from 'lodash';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDebounce } from 'use-debounce';
+
+import useOverviewQueries from '@/hooks/useOverviewQueries';
+import { useIsLoadingUsers, useUsers, useUsersActions } from '@/store/users.store';
+import { User as UserType } from '@/types/model';
 import { useProfile } from '../../../../store/profile.store';
 
 const searchOptions = [

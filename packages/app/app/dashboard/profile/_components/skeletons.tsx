@@ -1,5 +1,6 @@
+import { Skeleton } from '@nextui-org/skeleton';
+
 import ContactInfoSkeleton from '@/components/skeletons/ContactInfoSkeleton';
-import { Skeleton } from '@nextui-org/react';
 
 export const ProfileSkeleton = () => {
   return (

@@ -1,4 +1,6 @@
-import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Spinner } from '@nextui-org/react';
+import { Button } from '@nextui-org/button';
+import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from '@nextui-org/modal';
+import { Spinner } from '@nextui-org/spinner';
 
 type Props = { isOpen: boolean; onOpenChange: () => void; onProceed: () => void; isLoading: boolean };
 const ConfirmPromotionToLeaderModal = ({ isOpen, onOpenChange, onProceed, isLoading }: Props) => {

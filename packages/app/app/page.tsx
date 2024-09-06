@@ -1,15 +1,15 @@
 'use client';
 
+import { Button } from '@nextui-org/button';
+import { useSession } from 'next-auth/react';
+import Link from 'next/link';
+import { Address } from 'viem';
 import { useAccount } from 'wagmi';
 
 import AxeSwap from '@/components/AxeSwap/AxeSwap';
 import RippleBackground from '@/components/RippleBackground';
 import ENV from '@/config/environment';
 import { useReadErc20BalanceOf } from '@/generated';
-import { Button } from '@nextui-org/react';
-import { useSession } from 'next-auth/react';
-import Link from 'next/link';
-import { Address } from 'viem';
 
 export default function Home() {
   const account = useAccount();

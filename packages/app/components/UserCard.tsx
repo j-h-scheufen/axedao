@@ -1,10 +1,13 @@
 'use client';
-import { User } from '@/types/model';
+
+import { Avatar, AvatarProps } from '@nextui-org/avatar';
 import { Card, CardBody, CardProps } from '@nextui-org/card';
-import { Avatar, AvatarProps, Link } from '@nextui-org/react';
+import { Link } from '@nextui-org/link';
 import { UserRoundIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { ForwardedRef, ReactNode, forwardRef } from 'react';
+
+import { User } from '@/types/model';
 import UserCardSkeleton from './skeletons/UserCardSkeleton';
 
 export type UserCardProps = CardProps & {

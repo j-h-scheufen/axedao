@@ -1,4 +1,4 @@
-import { Button } from '@nextui-org/react';
+import { Button } from '@nextui-org/button';
 import { ReactNode } from 'react';
 
 type Props = { children: ReactNode; color?: 'primary' | 'default' | 'secondary' | 'success' | 'warning' | 'danger' };

@@ -1,8 +1,10 @@
 'use client';
 
-import { Spinner, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@nextui-org/react';
+import { Spinner } from '@nextui-org/spinner';
+import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@nextui-org/table';
 import { useInfiniteScroll } from '@nextui-org/use-infinite-scroll';
 import { Suspense, useEffect } from 'react';
+
 import {
   useGroupMembers,
   useGroupMembersActions,

@@ -1,15 +1,7 @@
-import {
-  Chip,
-  ChipProps,
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableHeader,
-  TableRow,
-  Tooltip,
-  User,
-} from '@nextui-org/react';
+import { Chip, ChipProps } from '@nextui-org/chip';
+import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@nextui-org/table';
+import { Tooltip } from '@nextui-org/tooltip';
+import { User } from '@nextui-org/user';
 import { ThumbsDownIcon, ThumbsUpIcon } from 'lucide-react';
 import { Key, useCallback } from 'react';
 

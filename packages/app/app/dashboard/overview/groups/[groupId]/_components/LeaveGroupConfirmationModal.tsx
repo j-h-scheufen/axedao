@@ -1,13 +1,7 @@
-import {
-  Button,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalProps,
-  Spinner,
-} from '@nextui-org/react';
+import { Button } from '@nextui-org/button';
+import { Spinner } from '@nextui-org/spinner';
+
+import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalProps } from '@nextui-org/modal';
 
 type Props = Omit<ModalProps, 'children'> & { onDelete: () => Promise<void>; isDeleting: boolean };
 const LeaveGroupConfirmationModal = ({ isOpen, onOpenChange, onDelete, isDeleting, ...rest }: Props) => {

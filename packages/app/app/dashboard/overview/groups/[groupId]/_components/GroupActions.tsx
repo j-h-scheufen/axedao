@@ -1,11 +1,12 @@
 'use client';
 
-import { useIsExitingGroup, useProfile, useProfileActions } from '@/store/profile.store';
 import { Button } from '@nextui-org/button';
-import { useDisclosure } from '@nextui-org/react';
+import { useDisclosure } from '@nextui-org/use-disclosure';
 import { SettingsIcon } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+
+import { useIsExitingGroup, useProfile, useProfileActions } from '@/store/profile.store';
 import { useGroupProfile, useIsGroupAdmin } from '../store/groupProfile.store';
 import LeaveGroupConfirmationModal from './LeaveGroupConfirmationModal';
 

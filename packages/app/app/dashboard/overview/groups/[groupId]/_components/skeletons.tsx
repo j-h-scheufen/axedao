@@ -1,7 +1,8 @@
+import { Skeleton } from '@nextui-org/skeleton';
+
 import SubsectionHeading from '@/components/SubsectionHeading';
 import ContactInfoInputsSkeleton from '@/components/skeletons/ContactInfoInputsSkeleton';
 import UserCardSkeleton from '@/components/skeletons/UserCardSkeleton';
-import { Skeleton } from '@nextui-org/react';
 
 export const GroupBannerSkeleton = () => {
   return <Skeleton className="h-[200px] w-full rounded-xl"></Skeleton>;

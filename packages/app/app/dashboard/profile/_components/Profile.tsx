@@ -1,11 +1,12 @@
 'use client';
 
-import ContactInfo from '@/components/ContactInfo';
+import { Avatar } from '@nextui-org/avatar';
 import { Button } from '@nextui-org/button';
-import { Avatar } from '@nextui-org/react';
 import { Camera, Edit } from 'lucide-react';
 import Link from 'next/link';
 import { Suspense } from 'react';
+
+import ContactInfo from '@/components/ContactInfo';
 import { useProfile } from '../../../../store/profile.store';
 import { ProfileSkeleton } from './skeletons';
 

@@ -1,6 +1,6 @@
 'use client';
 import { Card, CardFooter, CardHeader } from '@nextui-org/card';
-import { Skeleton } from '@nextui-org/react';
+import { Skeleton } from '@nextui-org/skeleton';
 import clsx from 'clsx';
 
 type Props = { className?: string };

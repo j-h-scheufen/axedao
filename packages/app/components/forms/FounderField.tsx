@@ -1,5 +1,5 @@
 import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
-import { Input } from '@nextui-org/react';
+import { Input } from '@nextui-org/input';
 import { Tab, Tabs } from '@nextui-org/tabs';
 import { useInfiniteScroll } from '@nextui-org/use-infinite-scroll';
 import { FieldProps, useField } from 'formik';

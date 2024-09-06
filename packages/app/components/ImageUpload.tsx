@@ -1,7 +1,7 @@
 'use client';
 
+import { Avatar, AvatarProps } from '@nextui-org/avatar';
 import { Button } from '@nextui-org/button';
-import { Avatar, AvatarProps } from '@nextui-org/react';
 import { Camera } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 

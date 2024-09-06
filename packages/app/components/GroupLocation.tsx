@@ -1,8 +1,10 @@
+import { Autocomplete, AutocompleteItem, AutocompleteProps } from '@nextui-org/autocomplete';
+import { Avatar } from '@nextui-org/avatar';
+
 import useCountriesAndCities from '@/hooks/useCountriesAndCities';
 import { useCountries } from '@/store/countries.store';
 import { City, Country } from '@/types/model';
 import { cn } from '@/utils/tailwind';
-import { Autocomplete, AutocompleteItem, AutocompleteProps, Avatar } from '@nextui-org/react';
 
 type Props = {
   onCountryChange: (country: Country | null) => void;

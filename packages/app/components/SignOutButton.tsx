@@ -1,12 +1,13 @@
 'use client';
 
-import { useIsSignedIn, useProfileActions } from '@/store/profile.store';
 import { Button } from '@nextui-org/button';
-import { Spinner } from '@nextui-org/react';
+import { Spinner } from '@nextui-org/spinner';
 import { LogOutIcon } from 'lucide-react';
 import { signOut, useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { useDisconnect } from 'wagmi';
+
+import { useIsSignedIn, useProfileActions } from '@/store/profile.store';
 
 const SignOutButton = () => {
   const [isLoading, setIsLoading] = useState(false);

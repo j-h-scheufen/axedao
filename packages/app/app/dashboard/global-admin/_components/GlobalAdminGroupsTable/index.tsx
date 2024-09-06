@@ -1,12 +1,9 @@
 'use client';
 
-import VerificationChip from '@/components/VerificationChip';
-import useGroupsList from '@/hooks/useGroupList';
-import { Group } from '@/types/model';
+import { Avatar } from '@nextui-org/avatar';
+import { Link } from '@nextui-org/link';
+import { Spinner } from '@nextui-org/spinner';
 import {
-  Avatar,
-  Link,
-  Spinner,
   Table,
   TableBody,
   TableCell,
@@ -15,9 +12,13 @@ import {
   TableHeader,
   TableRow,
   getKeyValue,
-} from '@nextui-org/react';
+} from '@nextui-org/table';
 import { MapPinIcon } from 'lucide-react';
 import React, { useCallback, useState } from 'react';
+
+import VerificationChip from '@/components/VerificationChip';
+import useGroupsList from '@/hooks/useGroupList';
+import { Group } from '@/types/model';
 import ActionCell from './ActionCell';
 import Filters from './Filters';
 

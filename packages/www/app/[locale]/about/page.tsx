@@ -1,10 +1,11 @@
 import { Link } from '@nextui-org/link';
+import { Card } from '@nextui-org/card';
+import { Image } from '@nextui-org/image';
 import { button as buttonStyles } from '@nextui-org/theme';
+
 import { siteConfig } from '@/config/site';
 import { GithubIcon } from '@/components/icons';
-
 import { TextSection, Title } from '@/components/primitives';
-import { Card, Image } from '@nextui-org/react';
 
 export default function AboutPage() {
   return (
