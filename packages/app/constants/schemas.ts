@@ -1,8 +1,10 @@
 import { InferType, array, mixed, number, object, string } from 'yup';
 import { linkTypes, titles, validFileExtensions } from '.';
 
-export type TitleType = (typeof titles)[number];
-export type LinkType = (typeof linkTypes)[number];
+export type Title = (typeof titles)[number];
+export type LinkTypes = (typeof linkTypes)[number];
+export type Link = InferType<typeof linkSchema>;
+export type LinksCollection = InferType<typeof linksSchema>;
 
 type ValidFileExtensionsType = keyof typeof validFileExtensions;
 type ValidImageExtensionsType = (typeof validFileExtensions.image)[number];
@@ -52,16 +54,14 @@ const isValidProfileTwitterUrl = (url: string | undefined): boolean => {
 
 export const megabytesToBytes = (mb: number) => 1024 * 1024 * mb; //3MB
 
-export const linksSchema = array()
-  .of(
-    object({
-      id: number(),
-      url: string().required(),
-      type: mixed().oneOf(linkTypes).nullable(),
-      ownerId: string().required(),
-    }),
-  )
-  .default([]);
+export const linkSchema = object({
+  id: number(),
+  url: string().required(),
+  type: mixed().oneOf(linkTypes).nullable(),
+  ownerId: string().required(),
+});
+
+export const linksSchema = array().of(linkSchema).default([]);
 
 export const registrationFormSchema = object({
   email: string().email('Not a valid email').required('Email is required'),
@@ -86,7 +86,7 @@ export type ConfirmationFormType = InferType<typeof confirmationFormSchema>;
 export const groupFormSchema = object({
   name: string().required('Group name is required'),
   founder: string().optional().nullable(),
-  email: string().email().required('Email is required'),
+  email: string().email(),
   description: string().test('max-chars', 'Description cannot exceed 300 characters', (value: string | undefined) =>
     value ? value.length <= 300 : true,
   ),

@@ -6,24 +6,31 @@ import {
   useGroupProfileActions,
   useIsDeletingGroup,
 } from '@/app/dashboard/overview/groups/[groupId]/store/groupProfile.store';
+import { FieldInput } from '@/components/forms';
+import LinksArray from '@/components/forms/LinksArray';
 import ImageUpload from '@/components/ImageUpload';
+import SubsectionHeading from '@/components/SubsectionHeading';
 import { GroupFormType, groupFormSchema } from '@/constants/schemas';
+import { useProfileActions } from '@/store/profile.store';
 import { Button } from '@nextui-org/button';
-import { Field, FieldProps, Form, Formik, FormikHelpers, FormikProps } from 'formik';
+import { Textarea } from '@nextui-org/input';
+import { Field, FieldArray, FieldProps, Form, Formik, FormikHelpers, FormikProps } from 'formik';
 import { useRouter } from 'next/navigation';
-import { Suspense, useEffect } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import GroupFormSkeleton from '../skeletons';
 import DeleteGroup from './DeleteGroup';
+import FounderField from './FounderField';
 
 type Props = { id: string };
 const GroupForm = ({ id }: Props) => {
   const router = useRouter();
 
-  // const { removeGroupAssociation } = useProfileActions();
+  const { removeGroupAssociation } = useProfileActions();
   const { initialize: initGroupProfile, delete: deleteGroup, updateGroupProfile } = useGroupProfileActions();
   const { initialize: initGroupMembers } = useGroupMembersActions();
   const groupProfile = useGroupProfile();
   const isDeleting = useIsDeletingGroup();
+  const [charsLeft, setCharsLeft] = useState<number>(300 - (groupProfile.description?.length || 0));
 
   useEffect(() => {
     initGroupProfile(id);
@@ -31,10 +38,10 @@ const GroupForm = ({ id }: Props) => {
   }, [id, initGroupProfile, initGroupMembers]);
 
   // TODO: Deleting the group will have consequences for any logged-in user belonging to that group as their state will be out of sync.
-  // const handleDeleteGroup = async () => {
-  //   await deleteGroup().then(removeGroupAssociation);
-  //   router.push('/dashboard/profile');
-  // };
+  const handleDeleteGroup = async () => {
+    await deleteGroup().then(removeGroupAssociation);
+    router.push('/dashboard/profile');
+  };
 
   const handleSubmit = (values: GroupFormType, { setSubmitting }: FormikHelpers<GroupFormType>) => {
     try {
@@ -50,6 +57,7 @@ const GroupForm = ({ id }: Props) => {
   const initValues: GroupFormType = {
     name: groupProfile.name || '',
     email: groupProfile.email || '',
+    founder: groupProfile.founder || '',
     description: groupProfile.description || '',
     logo: groupProfile.logo || '',
     banner: groupProfile.banner || '',
@@ -58,9 +66,6 @@ const GroupForm = ({ id }: Props) => {
     links: groupProfile.links || [],
   };
 
-  // const description = watch('description') || '';
-  // const descriptionCharsLeft = 300 - description.length;
-
   return (
     <Formik<GroupFormType>
       initialValues={initValues}
@@ -68,10 +73,10 @@ const GroupForm = ({ id }: Props) => {
       onSubmit={handleSubmit}
       enableReinitialize
     >
-      {({ dirty, isValid, isSubmitting, setFieldValue }: FormikProps<GroupFormType>) => (
+      {({ values, dirty, isValid, isSubmitting, setFieldValue }: FormikProps<GroupFormType>) => (
         <Suspense fallback={<GroupFormSkeleton />}>
-          <Form className="max-w-xl">
-            <div className="mb-5 md:flex md:gap-5">
+          <Form className="max-w-xl flex flex-col gap-2 sm:gap-5">
+            <div className="md:flex md:gap-5">
               <div className="flex min-w-24 flex-col justify-start gap-2">
                 <h4>Logo</h4>
                 <Field name="logo">
@@ -108,8 +113,35 @@ const GroupForm = ({ id }: Props) => {
                 </div>
               </div>
             </div>
+            <Field name="name" label="Name" placeholder="Enter your group's name" as={FieldInput} />
+            <Field name="email" label="Email" type="email" placeholder="Enter your group's email" as={FieldInput} />
+            <Field name="founder" label="Founder" placeholder="Enter the founder's name" as={FounderField} />
+            <Field name="description" label="Description" placeholder="Enter a short description of your group">
+              {({ field, meta }: FieldProps) => {
+                return (
+                  <Textarea
+                    {...field}
+                    errorMessage={meta.error}
+                    isInvalid={meta.touched && !!meta.error}
+                    label="Description"
+                    placeholder="Enter a short description of your group"
+                    description={`${charsLeft} characters left`}
+                    onInput={(e) => setCharsLeft(300 - (e.target as HTMLTextAreaElement).value.length)}
+                    className="mb-5 w-full"
+                    classNames={{ description: 'w-fit ml-auto' }}
+                  />
+                );
+              }}
+            </Field>
+            <SubsectionHeading>Links</SubsectionHeading>
+            <FieldArray name="links">
+              {(helpers) => (
+                <LinksArray {...helpers} links={values.links} ownerId={groupProfile.id} setFieldValue={setFieldValue} />
+              )}
+            </FieldArray>
+
             <div className="flex flex-col mt-8 md:flex-row items-center gap-5">
-              <DeleteGroup deleteGroup={deleteGroup} isDeleting={isDeleting} />
+              <DeleteGroup deleteGroup={handleDeleteGroup} isDeleting={isDeleting} />
               <Button
                 type="submit"
                 className="flex w-full items-center"
@@ -126,100 +158,5 @@ const GroupForm = ({ id }: Props) => {
     </Formik>
   );
 };
-
-// <FormProvider {...form}>
-//   <form className="max-w-xl" onSubmit={handleSubmit(submit)}>
-//     <div className="mb-5 md:flex md:gap-5">
-//       <div className="flex min-w-24 flex-col justify-start gap-2">
-//         <h4>Logo</h4>
-//         <Controller
-//           control={control}
-//           name="logo"
-//           render={({ field: { value, onChange }, fieldState: { error } }) => {
-//             return (
-//               <div className="h-28 w-28">
-//                 <ImageUpload value={value as File} onChange={onChange} errorMessage={error?.message} hideButton />
-//               </div>
-//             );
-//           }}
-//         />
-//       </div>
-//       <div className="flex flex-1 flex-col gap-2">
-//         <h4>Banner</h4>
-//         <div className="h-full">
-//           <Controller
-//             control={control}
-//             name="banner"
-//             render={({ field: { value, onChange }, fieldState: { error } }) => {
-//               return (
-//                 <ImageUpload
-//                   value={value as File}
-//                   onChange={onChange}
-//                   errorMessage={error?.message}
-//                   hideButton
-//                   avatarProps={{ className: 'block h-28 w-full cursor-pointer', radius: 'md' }}
-//                 />
-//               );
-//             }}
-//           />
-//         </div>
-//       </div>
-//     </div>
-//     <Controller
-//       control={control}
-//       name="name"
-//       render={({ field: { onChange, value, onBlur, ref }, fieldState: { error } }) => {
-//         const errorMessage = error?.message;
-//         return (
-//           <Input
-//             ref={ref}
-//             value={value || ''}
-//             onBlur={onBlur}
-//             onChange={onChange}
-//             label="Name"
-//             placeholder="Enter your group's name"
-//             className="mb-5"
-//             // classnames={{ inputWrapper: '!min-h-12' }}
-//             errorMessage={errorMessage}
-//             isInvalid={!!errorMessage}
-//             color={!!errorMessage ? 'danger' : undefined}
-//           />
-//         );
-//       }}
-//     />
-//     <FounderField />
-//     <Controller
-//       control={control}
-//       name="description"
-//       render={({ field: { onChange, value, onBlur, ref }, fieldState: { error } }) => {
-//         const errorMessage = error?.message;
-//         return (
-//           <Textarea
-//             ref={ref}
-//             value={value || ''}
-//             onBlur={onBlur}
-//             onChange={onChange}
-//             label="Description"
-//             placeholder="Enter a short description of your group"
-//             description={`${descriptionCharsLeft} characters left`}
-//             className="mb-5 w-full"
-//             classNames={{ description: 'w-fit ml-auto' }}
-//             errorMessage={errorMessage}
-//             isInvalid={!!errorMessage}
-//             color={!!errorMessage ? 'danger' : undefined}
-//           />
-//         );
-//       }}
-//     />
-//     <SubsectionHeading>Links</SubsectionHeading>
-//     <LinkInputs control={control} setValue={setValue} watch={watch} />
-//     <div className="flex flex-col mt-8 md:flex-row items-center gap-5">
-//       <DeleteGroup deleteGroup={deleteGroup} isDeleting={isDeleting} />
-//       <Button type="submit" className="flex w-full items-center" isLoading={isUpdating}>
-//         Update group
-//       </Button>
-//     </div>
-//   </form>
-// </FormProvider>
 
 export default GroupForm;

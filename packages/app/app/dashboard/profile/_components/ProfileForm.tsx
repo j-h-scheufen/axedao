@@ -2,40 +2,19 @@
 
 import { Button } from '@nextui-org/button';
 import { Select, SelectItem } from '@nextui-org/select';
-import { ArrayHelpers, Field, FieldArray, FieldProps, Form, Formik, FormikHelpers, FormikProps } from 'formik';
+import { Field, FieldArray, FieldProps, Form, Formik, FormikHelpers, FormikProps } from 'formik';
 import { useRouter } from 'next/navigation';
-import { ChangeEvent, Suspense } from 'react';
+import { Suspense } from 'react';
 
-import { getLinkIcon } from '@/components/_utils';
 import { FieldInput } from '@/components/forms';
+import LinksArray from '@/components/forms/LinksArray';
 import ImageUpload from '@/components/ImageUpload';
 import ProfileFormSkeleton from '@/components/skeletons/ProfileFormSkeleton';
 import SubsectionHeading from '@/components/SubsectionHeading';
-import { linkTypes, titles } from '@/constants';
-import { Input } from '@nextui-org/input';
-import { Mail, Phone, PlusIcon, XIcon } from 'lucide-react';
+import { titles } from '@/constants';
+import { Mail, Phone } from 'lucide-react';
 import { useProfile, useProfileActions } from '../../../../store/profile.store';
 import { ProfileFormType, profileFormSchema } from '../schema';
-
-/**
- * Extracts the hostname out of a URL
- * @param url
- * @returns the hostname
- * @throws MalformedUrlError
- */
-const getHostname = (url: string): string | undefined => {
-  try {
-    // Add a protocol if missing
-    if (url.indexOf('//:') === -1) {
-      url = `https://${url}`;
-    }
-    const host = new URL(url).hostname;
-    const domain = host.replace('www.', '');
-    return domain.split('.')[0];
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  } catch (error) {}
-  return undefined;
-};
 
 const ProfileForm = () => {
   const router = useRouter();
@@ -135,57 +114,8 @@ const ProfileForm = () => {
             </div>
             <SubsectionHeading>Social Links</SubsectionHeading>
             <FieldArray name="links">
-              {({ remove, push }: ArrayHelpers) => (
-                <div>
-                  <div className="grid h-fit w-full grid-cols-1 gap-x-3 gap-y-3 text-small text-default-500 sm:grid-cols-2">
-                    {values.links.length > 0 ? (
-                      values.links.map((link, index) => (
-                        <Field
-                          name={`links.${index}`}
-                          key={index}
-                          as={Input}
-                          size="sm"
-                          value={link.url}
-                          onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                            const domain = getHostname(e.target.value);
-                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                            if (domain && linkTypes.includes(domain as any)) {
-                              setFieldValue(`links.${index}.type`, domain);
-                            }
-                            setFieldValue(`links.${index}.url`, e.target.value);
-                          }}
-                          classNames={{ inputWrapper: 'h-10' }}
-                          startContent={getLinkIcon(link.type?.toString())}
-                          endContent={
-                            <Button
-                              size="sm"
-                              variant="light"
-                              className="mt-0.5"
-                              onPress={() => remove(index)}
-                              isIconOnly
-                            >
-                              <XIcon className="h-4 w-4" strokeWidth={1} />
-                            </Button>
-                          }
-                        />
-                      ))
-                    ) : (
-                      <></>
-                    )}
-                  </div>
-                  <div className="mt-3 flex justify-end gap-3">
-                    <Button
-                      variant="bordered"
-                      size="sm"
-                      className="ml-auto w-fit"
-                      onPress={() => {
-                        push({ url: '', ownerId: profile.id, type: null });
-                      }}
-                    >
-                      <PlusIcon className="h-4 w-4" strokeWidth={1.25} /> Add link
-                    </Button>
-                  </div>
-                </div>
+              {(helpers) => (
+                <LinksArray {...helpers} links={values.links} ownerId={profile.id} setFieldValue={setFieldValue} />
               )}
             </FieldArray>
 
