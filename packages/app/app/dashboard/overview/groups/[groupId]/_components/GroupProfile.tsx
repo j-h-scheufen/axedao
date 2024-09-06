@@ -1,18 +1,19 @@
 'use client';
 
+import { Avatar } from '@nextui-org/avatar';
+import { Link } from '@nextui-org/link';
+import { Camera } from 'lucide-react';
+import { Suspense, useEffect } from 'react';
+
 import ContactInfo from '@/components/ContactInfo';
 import PageHeading from '@/components/PageHeading';
 import SubsectionHeading from '@/components/SubsectionHeading';
-import { Avatar } from '@nextui-org/avatar';
-import { Camera } from 'lucide-react';
-import { Suspense, useEffect } from 'react';
-import { useGroupProfile, useGroupProfileActions } from '../store/groupProfile.store';
-import GroupActions from './GroupActions';
-import GroupBanner from './GroupBanner';
-
 import UserCard from '@/components/UserCard';
 import { isUUID } from '@/utils';
 import { useIsInitializingUser, useUser, useUserActions } from '../../../users/[userId]/store';
+import { useGroupProfile, useGroupProfileActions } from '../store/groupProfile.store';
+import GroupActions from './GroupActions';
+import GroupBanner from './GroupBanner';
 import GroupDescription from './GroupDescription';
 import GroupMembers from './GroupMembers';
 
@@ -51,6 +52,11 @@ const GroupProfile = ({ id }: Props) => {
         />
         <div className="flex-1">
           <GroupDescription />
+          {groupProfile.email && (
+            <Link href={`mailto:${groupProfile.email}`} className="text-small tracking-tight text-default-400">
+              {groupProfile.email}
+            </Link>
+          )}
           <ContactInfo links={links} />
         </div>
       </div>
