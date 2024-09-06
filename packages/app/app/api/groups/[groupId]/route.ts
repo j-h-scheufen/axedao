@@ -100,6 +100,7 @@ export async function PATCH(request: NextRequest, { params }: { params: { groupI
   const groupProfileData = omitBy(
     {
       name: body.name,
+      email: body.email,
       description: body.description,
       links: body.links,
       admins: body.admins,

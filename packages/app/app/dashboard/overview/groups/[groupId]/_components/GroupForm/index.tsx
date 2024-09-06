@@ -1,25 +1,24 @@
 'use client';
 
+import { Button } from '@nextui-org/button';
+import { Textarea } from '@nextui-org/input';
+import { Field, FieldArray, FieldProps, Form, Formik, FormikHelpers, FormikProps } from 'formik';
+import { useRouter } from 'next/navigation';
+import { Suspense, useEffect, useState } from 'react';
+
 import { useGroupMembersActions } from '@/app/dashboard/overview/groups/[groupId]/store/groupMembers.store';
 import {
   useGroupProfile,
   useGroupProfileActions,
   useIsDeletingGroup,
 } from '@/app/dashboard/overview/groups/[groupId]/store/groupProfile.store';
-import { FieldInput } from '@/components/forms';
-import LinksArray from '@/components/forms/LinksArray';
+import { FieldInput, FounderField, LinksArray } from '@/components/forms';
 import ImageUpload from '@/components/ImageUpload';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import { GroupFormType, groupFormSchema } from '@/constants/schemas';
 import { useProfileActions } from '@/store/profile.store';
-import { Button } from '@nextui-org/button';
-import { Textarea } from '@nextui-org/input';
-import { Field, FieldArray, FieldProps, Form, Formik, FormikHelpers, FormikProps } from 'formik';
-import { useRouter } from 'next/navigation';
-import { Suspense, useEffect, useState } from 'react';
 import GroupFormSkeleton from '../skeletons';
 import DeleteGroup from './DeleteGroup';
-import FounderField from './FounderField';
 
 type Props = { id: string };
 const GroupForm = ({ id }: Props) => {

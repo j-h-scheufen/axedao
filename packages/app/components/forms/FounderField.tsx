@@ -1,6 +1,3 @@
-import ErrorText from '@/components/ErrorText';
-import { useHasMoreUsers, useIsLoadingUsers, useLoadUsersError, useUsers, useUsersActions } from '@/store/users.store';
-import { isUUID } from '@/utils';
 import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
 import { Input } from '@nextui-org/react';
 import { Tab, Tabs } from '@nextui-org/tabs';
@@ -9,6 +6,10 @@ import { FieldProps, useField } from 'formik';
 import { SearchIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useDebounce } from 'use-debounce';
+
+import ErrorText from '@/components/ErrorText';
+import { useHasMoreUsers, useIsLoadingUsers, useLoadUsersError, useUsers, useUsersActions } from '@/store/users.store';
+import { isUUID } from '@/utils';
 
 const FounderField = (props: FieldProps['field']) => {
   const [field, , form] = useField(props);
