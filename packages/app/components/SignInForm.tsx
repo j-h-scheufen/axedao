@@ -1,97 +1,54 @@
 'use client';
 
-import { cn } from '@/utils/tailwind';
 import { Button } from '@nextui-org/button';
-import { AxiosError } from 'axios';
-import { Field, Form, Formik, FormikHelpers, FormikProps } from 'formik';
 import { useSession } from 'next-auth/react';
-import { useEffect } from 'react';
-import { useAccount, useConnect } from 'wagmi';
-import { injected } from 'wagmi/connectors';
+import { Suspense } from 'react';
 
-import { signInFormSchema, SignInFormType } from '@/constants/schemas';
-import useSignIn from '@/hooks/useSignIn';
-import { FieldInput } from './forms';
+import useAuth from '@/hooks/useAuth';
+import ErrorText from './ErrorText';
+import { useWallet } from './WalletContext';
 
-type Props = { className?: string };
-
-const SignInForm = ({ className }: Props) => {
+const SignInForm = () => {
   const session = useSession();
-  const { connect } = useConnect();
-  const { signInMutation } = useSignIn();
-  const resetSubmitMutation = signInMutation.reset;
+  const { connected, userAddress } = useWallet();
+  const { login, signIn, logout, loginError, signInError } = useAuth();
   const isLoading = session.status === 'loading';
-  const submitError: AxiosError | Error | null = signInMutation.error;
-
-  const FormikForm = ({ setFieldValue, dirty, isValid, isSubmitting }: FormikProps<SignInFormType>) => {
-    const { address, isConnected } = useAccount();
-    useEffect(() => {
-      if (isConnected && address) {
-        setFieldValue('walletAddress', address);
-        resetSubmitMutation();
-      }
-    }, [address, isConnected, setFieldValue]);
-
-    return (
-      <Form className="m-auto flex h-fit w-full max-w-sm flex-col gap-3">
-        <Field
-          name="walletAddress"
-          label="Wallet address (MetaMask)"
-          as={FieldInput}
-          classNames={{
-            inputWrapper: '!min-h-14 data-[hover=true]:bg-initial',
-            input: 'text-sm !text-default-500',
-            errorMessage: 'text-left',
-          }}
-          readOnly
-        />
-        <Button
-          size="sm"
-          variant="ghost"
-          className="ml-auto w-fit mt-2"
-          onPress={() => connect({ connector: injected() })}
-        >
-          {address ? 'Change' : 'Connect'}
-        </Button>
-        {submitError && (
-          <div className="my-2 text-center text-small text-danger">
-            {(submitError as AxiosError<{ error: string }>).response?.data?.error || submitError.message}
-          </div>
-        )}
-        <Button
-          key="sign-in-button"
-          type="submit"
-          color="primary"
-          className={cn('mt-5 w-full', className)}
-          isLoading={isSubmitting}
-          disabled={isLoading || !dirty || !isValid}
-        >
-          Sign in
-        </Button>
-      </Form>
-    );
-  };
-
-  const handleSubmit = (values: SignInFormType, { setSubmitting }: FormikHelpers<SignInFormType>) => {
-    try {
-      signInMutation.mutate();
-    } catch (error) {
-      console.error('Error during registration.', error);
-      throw error;
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
-  // NOTE: The initial form values MUST BE declared outside of the JSX code, otherwise it can lead to hydration errors.
-  const initValues: SignInFormType = {
-    walletAddress: '',
-  };
 
   return (
-    <Formik<SignInFormType> initialValues={initValues} onSubmit={handleSubmit} validationSchema={signInFormSchema}>
-      {(props) => FormikForm(props)}
-    </Formik>
+    <Suspense fallback={<div>Loading...</div>}>
+      {isLoading ? (
+        <div>Loading ...</div>
+      ) : (
+        <div className="flex flex-col gap-2 sm:gap-3 max-w-sm mx-auto">
+          <div>
+            <h4>Account: {userAddress || 'Not logged in'}</h4>
+            <h4>Session: {session.status}</h4>
+          </div>
+          {!connected && (
+            <div>
+              <Button size="sm" variant="ghost" className="ml-auto w-fit mt-2" onPress={() => login()}>
+                Connect with Silk
+              </Button>
+              {loginError && <ErrorText message={loginError} />}
+            </div>
+          )}
+          {connected && userAddress && session.status === 'unauthenticated' ? (
+            <div>
+              <Button size="sm" variant="solid" className="ml-auto w-fit mt-2" onPress={() => signIn()}>
+                Sign In
+              </Button>
+              {signInError && <ErrorText message={signInError} />}
+            </div>
+          ) : (
+            <div>
+              <Button size="sm" variant="ghost" className="ml-auto w-fit mt-2" onPress={() => logout()}>
+                Logout
+              </Button>
+            </div>
+          )}
+        </div>
+      )}
+    </Suspense>
   );
 };
 

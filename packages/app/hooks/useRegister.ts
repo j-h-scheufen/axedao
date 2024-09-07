@@ -3,17 +3,13 @@ import { User } from '@/types/model';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
-import useSignIn from './useSignIn';
 
 const useRegister = () => {
   const router = useRouter();
 
-  const { signInMutation } = useSignIn();
-
   const handleRegistration = async (values: RegistrationFormType) => {
     try {
       const { data } = await axios.post<User>('/api/auth/register', values);
-      await signInMutation.mutateAsync(); // TODO this should talk to the profile store which then calls the sign-in mutation
       return data;
     } catch (error) {
       // Email or wallet address already registered, but we don't want to reveal which exactly.

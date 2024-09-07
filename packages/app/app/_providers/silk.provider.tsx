@@ -12,27 +12,30 @@ import wagmiConfig from '@/config/wagmi';
 
 const queryClient = new QueryClient();
 
+export function getNetwork(name: string) {
+  let network = null;
+  switch (name) {
+    case 'gnosis':
+      network = gnosis;
+      break;
+    case 'sepolia':
+      network = sepolia;
+      break;
+    default:
+      network = sepolia;
+      break;
+  }
+  return network;
+}
 export default function Provider({ children }: PropsWithChildren) {
   const [connected, setConnected] = useState<boolean | undefined>(undefined);
   const [walletClient, setWalletClient] = useState<WalletClient | undefined>(undefined);
-  const [userAddress, setUserAddress] = useState('');
-  const [currentNetwork, setCurrentNetwork] = useState('mainnet');
+  const [userAddress, setUserAddress] = useState<string>('');
+  const [currentNetwork, setCurrentNetwork] = useState<string>('');
 
   const initializeWalletClient = useCallback(() => {
-    let network = null;
-    switch (currentNetwork) {
-      case 'gnosis':
-        network = gnosis;
-        break;
-      case 'sepolia':
-        network = sepolia;
-        break;
-      default:
-        network = sepolia;
-        break;
-    }
     const newWalletClient = createWalletClient({
-      chain: network,
+      chain: getNetwork(currentNetwork),
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       transport: custom((window as any).silk as any),
     });

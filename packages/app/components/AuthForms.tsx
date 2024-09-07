@@ -49,7 +49,7 @@ const AuthForms = () => {
         </Tab>
         <Tab key="sign-in" title={<h1>Sign in</h1>} className="pt-0">
           <p className="mb-8 mt-2 text-neutral-500">Sign in to your account.</p>
-          <SignInForm className="max-w-sm mx-auto" />
+          <SignInForm />
         </Tab>
       </Tabs>
     </>

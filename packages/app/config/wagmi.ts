@@ -1,6 +1,5 @@
 import { createConfig, http } from 'wagmi';
 import { Chain, gnosis, localhost, optimism, sepolia } from 'wagmi/chains';
-import { MetaMaskParameters, injected, metaMask } from 'wagmi/connectors';
 
 import ENV from '@/config/environment';
 
@@ -13,18 +12,18 @@ const configureChains = (): [Chain, ...Chain[]] => {
   return chains;
 };
 
-const metaMaskConfig: MetaMaskParameters = {
-  dappMetadata: {
-    name: 'Axé DAO',
-  },
-  // infuraAPIKey: "YOUR-API-KEY",
-};
+// const metaMaskConfig: MetaMaskParameters = {
+//   dappMetadata: {
+//     name: 'Axé DAO',
+//   },
+// infuraAPIKey: "YOUR-API-KEY",
+// };
 
 const wagmiConfig = createConfig({
   chains: configureChains(),
   connectors: [
-    injected(),
-    metaMask(metaMaskConfig),
+    // injected(),
+    // metaMask(metaMaskConfig),
     // safe(),
   ],
   transports: {
