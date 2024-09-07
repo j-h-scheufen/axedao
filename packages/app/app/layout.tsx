@@ -3,14 +3,14 @@ import { Metadata, Viewport } from 'next';
 
 import ClientInitializer from '@/components/ClientInitializer';
 import Navbar from '@/components/Navbar';
-import SessionProvider from '@/components/SessionProvider';
 import { fontFiraCode, fontInter, fontOpenSans } from '@/config/fonts';
 import { siteConfig } from '@/config/site';
 import '@/styles/globals.css';
 import { getServerSession } from 'next-auth';
-import { Provider as ThemeProvider } from './_providers/nextUI.provider';
-import { Provider as SnackbarProvider } from './_providers/snackbar.provider';
-import { Provider as Web3Provider } from './_providers/web3.provider';
+import ThemeProvider from './_providers/nextUI.provider';
+import Web3Provider from './_providers/silk.provider';
+import SnackbarProvider from './_providers/snackbar.provider';
+import SessionProvider from '@/components/SessionProvider';
 
 export const metadata: Metadata = {
   title: {
