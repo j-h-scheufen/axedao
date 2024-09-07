@@ -1,8 +1,8 @@
 import { getToken, JWT } from 'next-auth/jwt';
 import { withAuth } from 'next-auth/middleware';
-export { withAuth } from 'next-auth/middleware';
 
 import { NextRequest, NextResponse } from 'next/server';
+import { PATHS } from './constants';
 import { UserSession } from './types/model';
 
 export default withAuth(
@@ -28,7 +28,7 @@ export default withAuth(
       },
     },
     pages: {
-      signIn: '/auth',
+      signIn: PATHS.login,
     },
   },
 );

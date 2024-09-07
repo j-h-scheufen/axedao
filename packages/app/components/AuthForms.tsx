@@ -3,29 +3,27 @@
 import { Spinner } from '@nextui-org/spinner';
 import { Tab, Tabs } from '@nextui-org/tabs';
 import { useSession } from 'next-auth/react';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 import useUpdateSearchParams from '@/hooks/useUpdateSearchParams';
-import { useProfileActions } from '@/store/profile.store';
 import RegistrationForm from './RegistrationForm';
 import SignInForm from './SignInForm';
 
 const AuthForms = () => {
-  const router = useRouter();
+  // const router = useRouter();
 
-  const { setIsSignedIn } = useProfileActions();
+  // const { setIsSignedIn } = useProfileActions();
   const session = useSession();
   const searchParams = useSearchParams();
   const tab = searchParams.get('tab');
   const updateSearchParams = useUpdateSearchParams(searchParams);
 
-  useEffect(() => {
-    if (session.status === 'authenticated') {
-      setIsSignedIn(true);
-      router.push('/dashboard/profile');
-    }
-  }, [session.status, setIsSignedIn, router]);
+  // useEffect(() => {
+  //   if (session.status === 'authenticated') {
+  //     setIsSignedIn(true);
+  //     router.push('/dashboard/profile');
+  //   }
+  // }, [session.status, setIsSignedIn, router]);
 
   const isLoading = session.status === 'loading';
 

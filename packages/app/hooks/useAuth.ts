@@ -1,11 +1,11 @@
 import { getCsrfToken, signIn as nextAuthSignIn, signOut as nextAuthSignOut } from 'next-auth/react';
 import { useState } from 'react';
 import { SiweMessage } from 'siwe';
+import { Address, createWalletClient, custom } from 'viem';
 
 import { getNetwork } from '@/app/_providers/silk.provider';
 import { useWallet } from '@/components/WalletContext';
 import { useProfileActions } from '@/store/profile.store';
-import { Address, createWalletClient, custom } from 'viem';
 
 const useAuth = () => {
   const [loginError, setLoginError] = useState<string | null>(null);

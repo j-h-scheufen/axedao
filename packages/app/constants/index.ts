@@ -32,3 +32,8 @@ export const linkBaseUrls = [
     baseUrls: ['linkedin.com', 'linkedin.cn'],
   },
 ];
+
+export const PATHS = {
+  login: '/auth/login',
+  dashboard: '/dashboard',
+};

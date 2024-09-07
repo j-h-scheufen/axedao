@@ -12,13 +12,6 @@ const configureChains = (): [Chain, ...Chain[]] => {
   return chains;
 };
 
-// const metaMaskConfig: MetaMaskParameters = {
-//   dappMetadata: {
-//     name: 'Axé DAO',
-//   },
-// infuraAPIKey: "YOUR-API-KEY",
-// };
-
 const wagmiConfig = createConfig({
   chains: configureChains(),
   connectors: [
