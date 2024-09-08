@@ -129,7 +129,7 @@ export const profileFormSchema = object({
   title: string().nullable().oneOf(titles, 'Not a valid title'),
   name: string().nullable(),
   nickname: string().nullable(),
-  email: string().email('Not a valid email').required('Email is required'),
+  email: string().email('Not a valid email'),
   phone: string(),
   links: linksSchema,
 });
