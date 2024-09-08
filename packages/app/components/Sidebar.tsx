@@ -1,6 +1,6 @@
 'use client';
 
-import pages, { PageType } from '@/constants/pages';
+import pages, { PageType } from '@/config/pages';
 import useScreenSize from '@/hooks/useScreenSize';
 import { useProfile } from '@/store/profile.store';
 import { cn } from '@/utils/tailwind';

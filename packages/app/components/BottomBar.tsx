@@ -1,5 +1,5 @@
 'use client';
-import pages from '@/constants/pages';
+import pages from '@/config/pages';
 import { useProfile } from '@/store/profile.store';
 import { Tab, Tabs } from '@nextui-org/tabs';
 import { usePathname, useRouter } from 'next/navigation';

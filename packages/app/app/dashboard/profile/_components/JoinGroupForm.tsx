@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import { useDebounce } from 'use-debounce';
 
 import ErrorText from '@/components/ErrorText';
+import { joinGroupFormSchema, JoinGroupFormType } from '@/config/validation-schema';
 import {
   useGroups,
   useGroupsActions,
@@ -17,7 +18,6 @@ import {
   useLoadGroupsError,
 } from '@/store/groups.store';
 import { useProfileActions } from '@/store/profile.store';
-import { joinGroupFormSchema, JoinGroupFormType } from '../schema';
 
 const JoinGroupForm = () => {
   const [isOpen, setIsOpen] = useState(false);

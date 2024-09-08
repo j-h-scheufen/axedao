@@ -1,9 +1,9 @@
 'use client';
 
-import { PropsWithChildren } from 'react';
 import { SnackbarProvider } from 'notistack';
+import { PropsWithChildren } from 'react';
 
-export function Provider({ children }: PropsWithChildren) {
+export default function Provider({ children }: PropsWithChildren) {
   return (
     <SnackbarProvider autoHideDuration={5000} anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}>
       {children}

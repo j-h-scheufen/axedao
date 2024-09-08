@@ -60,23 +60,13 @@ export async function fetchSessionData(walletAddress: string): Promise<UserSessi
   if (!walletAddress) return undefined;
   return await db.query.users.findFirst({
     where: (users, { eq }) => eq(users.walletAddress, walletAddress),
-    columns: { email: true, name: true, avatar: true, id: true, isGlobalAdmin: true, walletAddress: true },
+    columns: { id: true, email: true, walletAddress: true, isGlobalAdmin: true },
   });
 }
 
 export async function fetchUserProfile(userId: string): Promise<Profile | undefined> {
   return (await db.query.users.findFirst({
     where: (users, { eq }) => eq(users.id, userId),
-    with: {
-      links: true,
-      group: true,
-    },
-  })) as Profile | undefined;
-}
-
-export async function fetchUserProfileByEmail(email: string): Promise<Profile | undefined> {
-  return (await db.query.users.findFirst({
-    where: (users, { eq }) => eq(users.email, email),
     with: {
       links: true,
       group: true,

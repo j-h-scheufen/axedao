@@ -1,4 +1,4 @@
-import { linkTypes, titles } from '@/constants';
+import { linkTypes, titles } from '@/config/constants';
 import { relations } from 'drizzle-orm';
 import {
   AnyPgColumn,
@@ -30,7 +30,7 @@ export const users = pgTable(
     nickname: varchar('nickname'),
     title: titleEnum('title'),
     avatar: varchar('avatar'),
-    email: text('email').notNull().unique(),
+    email: text('email'),
     groupId: uuid('group_id').references((): AnyPgColumn => groups.id, { onDelete: 'set null' }),
     phone: varchar('phone'),
     walletAddress: varchar('wallet_address').notNull(),

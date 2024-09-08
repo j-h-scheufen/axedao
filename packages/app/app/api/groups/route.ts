@@ -1,19 +1,21 @@
-import { createNewGroupFormSchema, CreateNewGroupFormType } from '@/app/dashboard/profile/schema';
-import {
-  addGroupAdmin,
-  countGroups,
-  fetchGroupIdFromName,
-  fetchGroups,
-  fetchUserProfileByEmail,
-  insertGroup,
-  updateUser,
-} from '@/db';
-import { generateErrorMessage } from '@/utils';
 import { isNil, omitBy } from 'lodash';
 import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
 import { boolean, number, object, string } from 'yup';
+
+import { nextAuthOptions } from '@/config/next-auth-options';
+import { createNewGroupFormSchema, CreateNewGroupFormType } from '@/config/validation-schema';
+import {
+  addGroupAdmin,
+  countGroups,
+  fetchGroupIdFromName,
+  fetchGroups,
+  fetchUserProfile,
+  insertGroup,
+  updateUser,
+} from '@/db';
+import { generateErrorMessage } from '@/utils';
 
 const groupOptionsSchema = object({
   limit: number().required().nonNullable(),
@@ -55,14 +57,14 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  const session = await getServerSession();
-  const email = session?.user?.email;
-  if (!email) {
+  const session = await getServerSession(nextAuthOptions);
+
+  if (!session?.user.id) {
     return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
   try {
-    const profile = await fetchUserProfileByEmail(email);
+    const profile = await fetchUserProfile(session.user.id);
     if (!profile) {
       throw new Error();
     }

@@ -1,7 +1,7 @@
 import { isEqual, isNil } from 'lodash';
 import { NextRequest, NextResponse } from 'next/server';
 
-import { profileFormSchema, ProfileFormType } from '@/app/dashboard/profile/schema';
+import { profileFormSchema, ProfileFormType } from '@/config/validation-schema';
 import { createLinks, fetchUserProfile, removeLinks, updateLink, updateUser } from '@/db';
 import { Link, UserSession } from '@/types/model';
 import { getToken, JWT } from 'next-auth/jwt';

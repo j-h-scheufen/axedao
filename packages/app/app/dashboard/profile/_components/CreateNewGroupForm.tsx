@@ -1,14 +1,15 @@
 import { Button } from '@nextui-org/button';
 import { Field, Form, Formik, FormikHelpers, FormikProps } from 'formik';
 
-import { CitySelect, CountrySelect, FieldInput } from '@/components/forms';
+import { CountrySelect, FieldInput } from '@/components/forms';
+import { createNewGroupFormSchema, CreateNewGroupFormType } from '@/config/validation-schema';
 import useCountriesAndCities from '@/hooks/useCountriesAndCities';
 import { useProfileActions } from '@/store/profile.store';
-import { createNewGroupFormSchema, CreateNewGroupFormType } from '../schema';
 
 const CreateNewGroupForm = () => {
   const { createGroup } = useProfileActions();
-  const { selectedCountryCode, setSelectedCountryCode, cities, setCitySearch, isLoading } = useCountriesAndCities();
+  // const { selectedCountryCode, setSelectedCountryCode, cities, setCitySearch, isLoading } = useCountriesAndCities();
+  const { setSelectedCountryCode } = useCountriesAndCities();
 
   const handleSubmit = (values: CreateNewGroupFormType, { setSubmitting }: FormikHelpers<CreateNewGroupFormType>) => {
     try {
@@ -46,7 +47,8 @@ const CreateNewGroupForm = () => {
               as={CountrySelect}
               onSelect={(value: string) => setSelectedCountryCode(value)}
             />
-            <Field
+            {/* NOTE: CitySelect component has performance problems. Not using right now */}
+            {/* <Field
               name="city"
               label="City"
               as={CitySelect}
@@ -54,7 +56,7 @@ const CreateNewGroupForm = () => {
               onInputChange={setCitySearch}
               isDisabled={!selectedCountryCode || isLoading}
               isLoading={isLoading}
-            />
+            /> */}
             <div className="mt-5 flex justify-between gap-3">
               <Button
                 type="submit"

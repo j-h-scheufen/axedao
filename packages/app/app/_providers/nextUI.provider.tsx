@@ -11,7 +11,7 @@ export type ProviderProps = {
   themeProps?: ThemeProviderProps;
 };
 
-export function Provider({ children, themeProps }: ProviderProps) {
+export default function Provider({ children, themeProps }: ProviderProps) {
   const router = useRouter();
 
   return (
