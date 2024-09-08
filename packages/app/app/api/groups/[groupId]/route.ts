@@ -2,13 +2,13 @@ import { isNil, omitBy } from 'lodash';
 import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
 
+import { nextAuthOptions } from '@/config/next-auth-options';
 import { GroupFormType, LinkTypes, groupFormSchema } from '@/config/validation-schema';
 import {
   addLink,
   deleteGroup,
   fetchGroupProfile,
-  fetchUserIdFromEmail,
-  fetchUserProfileByEmail,
+  fetchUserProfile,
   isGroupAdmin,
   removeLink,
   updateGroup,
@@ -20,32 +20,18 @@ import { generateErrorMessage } from '@/utils';
 // TODO everything under the api/ route must be protected via middleware.ts to check for user session
 
 export async function GET(request: NextRequest, { params }: { params: { groupId: string } }) {
-  const session = await getServerSession();
-  if (!session?.user?.email) {
-    return Response.json(
-      { error: true, message: 'Not authenticated' },
-      {
-        status: 401,
-      },
-    );
+  const session = await getServerSession(nextAuthOptions);
+
+  if (!session?.user.id) {
+    return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
   try {
-    const userId = await fetchUserIdFromEmail(session.user.email);
-    if (!userId) {
-      return Response.json(
-        { error: true, message: 'User not found' },
-        {
-          status: 400,
-        },
-      );
-    }
-
     const { groupId } = params;
     const groupProfile = await fetchGroupProfile(groupId);
     if (!groupProfile) return NextResponse.json({ error: 'Unable to fetch group profile' }, { status: 404 });
 
-    const isAdmin = await isGroupAdmin(groupId, userId);
+    const isAdmin = await isGroupAdmin(groupId, session.user.id);
 
     return Response.json({ groupProfile, isAdmin });
   } catch (error) {
@@ -60,17 +46,13 @@ export async function GET(request: NextRequest, { params }: { params: { groupId:
 }
 
 export async function PATCH(request: NextRequest, { params }: { params: { groupId: string } }) {
-  const session = await getServerSession();
-  if (!session?.user?.email) {
-    return Response.json(
-      { error: true, message: 'Not authorized' },
-      {
-        status: 401,
-      },
-    );
+  const session = await getServerSession(nextAuthOptions);
+
+  if (!session?.user.id) {
+    return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
-  const user = await fetchUserProfileByEmail(session.user.email);
+  const user = await fetchUserProfile(session.user.id);
   if (!user?.id) throw new Error();
 
   const { groupId } = params;
@@ -162,18 +144,14 @@ export async function PATCH(request: NextRequest, { params }: { params: { groupI
 }
 
 export async function DELETE(request: NextRequest, { params }: { params: { groupId: string } }) {
-  const session = await getServerSession();
-  if (!session?.user?.email) {
-    return Response.json(
-      { error: true, message: 'Not authenticated' },
-      {
-        status: 401,
-      },
-    );
+  const session = await getServerSession(nextAuthOptions);
+
+  if (!session?.user.id) {
+    return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
   try {
-    const user = await fetchUserProfileByEmail(session.user.email);
+    const user = await fetchUserProfile(session.user.id);
     if (!user) {
       return Response.json(
         { error: true, message: 'User not found' },

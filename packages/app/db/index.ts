@@ -74,16 +74,6 @@ export async function fetchUserProfile(userId: string): Promise<Profile | undefi
   })) as Profile | undefined;
 }
 
-export async function fetchUserProfileByEmail(email: string): Promise<Profile | undefined> {
-  return (await db.query.users.findFirst({
-    where: (users, { eq }) => eq(users.email, email),
-    with: {
-      links: true,
-      group: true,
-    },
-  })) as Profile | undefined;
-}
-
 export async function countUsers() {
   const result = await db.select({ count: count() }).from(schema.users);
   return result.length ? result[0].count : null;

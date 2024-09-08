@@ -1,16 +1,18 @@
 import clsx from 'clsx';
 import { Metadata, Viewport } from 'next';
+import { getServerSession } from 'next-auth';
 
 import ClientInitializer from '@/components/ClientInitializer';
 import Navbar from '@/components/Navbar';
+import SessionProvider from '@/components/SessionProvider';
 import { fontFiraCode, fontInter, fontOpenSans } from '@/config/fonts';
+import { nextAuthOptions } from '@/config/next-auth-options';
 import { siteConfig } from '@/config/site';
-import '@/styles/globals.css';
-import { getServerSession } from 'next-auth';
 import ThemeProvider from './_providers/nextUI.provider';
 import Web3Provider from './_providers/silk.provider';
 import SnackbarProvider from './_providers/snackbar.provider';
-import SessionProvider from '@/components/SessionProvider';
+
+import '@/styles/globals.css';
 
 export const metadata: Metadata = {
   title: {
@@ -33,7 +35,7 @@ export const viewport: Viewport = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const session = await getServerSession();
+  const session = await getServerSession(nextAuthOptions);
   return (
     <html lang="en" suppressHydrationWarning>
       <head />

@@ -1,21 +1,20 @@
-import { fetchUserProfileByEmail, updateUser } from '@/db';
 import { getServerSession } from 'next-auth';
+import { NextResponse } from 'next/server';
+
+import { nextAuthOptions } from '@/config/next-auth-options';
+import { fetchUserProfile, updateUser } from '@/db';
 
 // TODO everything under the api/ route must be protected via middleware.ts to check for user session
 
 export async function POST() {
-  const session = await getServerSession();
-  if (!session?.user?.email) {
-    return Response.json(
-      { error: true, message: 'Not authorized' },
-      {
-        status: 401,
-      },
-    );
+  const session = await getServerSession(nextAuthOptions);
+
+  if (!session?.user.id) {
+    return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
   try {
-    const userProfile = await fetchUserProfileByEmail(session.user.email);
+    const userProfile = await fetchUserProfile(session.user.id);
     if (!userProfile) {
       throw new Error();
     }

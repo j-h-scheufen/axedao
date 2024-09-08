@@ -8,19 +8,18 @@ import { useAccount } from 'wagmi';
 
 import AxeSwap from '@/components/AxeSwap/AxeSwap';
 import RippleBackground from '@/components/RippleBackground';
+import { PATHS } from '@/config/constants';
 import ENV from '@/config/environment';
 import { useReadErc20BalanceOf } from '@/generated';
 
 export default function Home() {
   const account = useAccount();
-
   const { data: userDaoShares } = useReadErc20BalanceOf({
     address: ENV.axeDaoSharesAddress,
     args: [account.address as Address],
   });
 
-  const session = useSession();
-  const isLoggedIn = session?.status === 'authenticated';
+  const { data: session } = useSession();
 
   return (
     <>
@@ -42,35 +41,20 @@ export default function Home() {
               of decentralization and collective action.
             </p>
           </div>
-          <div className="pt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            {isLoggedIn ? (
+          <div className="pt-5">
+            {session ? (
               <Button
                 as={Link}
-                href="/dashboard/profile"
+                href={PATHS.dashboard}
                 color="primary"
                 className="w-full font-medium sm:flex-1 sm:max-w-40"
               >
-                Go to dashboard
+                Go to Dashboard
               </Button>
             ) : (
-              <>
-                <Button
-                  as={Link}
-                  href="/auth?tab=sign-up"
-                  variant="bordered"
-                  className="w-full font-medium sm:flex-1 sm:max-w-40"
-                >
-                  Sign up
-                </Button>
-                <Button
-                  as={Link}
-                  href="/auth?tab=sign-in"
-                  color="primary"
-                  className="w-full font-medium sm:flex-1 sm:max-w-40"
-                >
-                  Sign in
-                </Button>
-              </>
+              <Button as={Link} href={PATHS.login} color="primary" className="w-full font-medium sm:flex-1 sm:max-w-40">
+                Log In
+              </Button>
             )}
           </div>
         </div>
