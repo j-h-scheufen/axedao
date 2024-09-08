@@ -11,10 +11,10 @@ import LinksArray from '@/components/forms/LinksArray';
 import ImageUpload from '@/components/ImageUpload';
 import ProfileFormSkeleton from '@/components/skeletons/ProfileFormSkeleton';
 import SubsectionHeading from '@/components/SubsectionHeading';
-import { titles } from '@/constants';
+import { titles } from '@/config/constants';
+import { ProfileFormType, profileFormSchema } from '@/config/validation-schema';
 import { Mail, Phone } from 'lucide-react';
 import { useProfile, useProfileActions } from '../../../../store/profile.store';
-import { ProfileFormType, profileFormSchema } from '../schema';
 
 const ProfileForm = () => {
   const router = useRouter();

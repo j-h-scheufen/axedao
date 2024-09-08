@@ -1,4 +1,4 @@
-import { linkTypes, titles } from '@/constants';
+import { linkTypes, titles } from '@/config/constants';
 import { relations } from 'drizzle-orm';
 import {
   AnyPgColumn,

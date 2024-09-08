@@ -2,9 +2,9 @@ import { Button } from '@nextui-org/button';
 import { Field, Form, Formik, FormikHelpers, FormikProps } from 'formik';
 
 import { CitySelect, CountrySelect, FieldInput } from '@/components/forms';
+import { createNewGroupFormSchema, CreateNewGroupFormType } from '@/config/validation-schema';
 import useCountriesAndCities from '@/hooks/useCountriesAndCities';
 import { useProfileActions } from '@/store/profile.store';
-import { createNewGroupFormSchema, CreateNewGroupFormType } from '../schema';
 
 const CreateNewGroupForm = () => {
   const { createGroup } = useProfileActions();

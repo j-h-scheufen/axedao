@@ -2,7 +2,7 @@ import { getToken, JWT } from 'next-auth/jwt';
 import { withAuth } from 'next-auth/middleware';
 
 import { NextRequest, NextResponse } from 'next/server';
-import { PATHS } from './constants';
+import { PATHS } from './config/constants';
 import { UserSession } from './types/model';
 
 export default withAuth(

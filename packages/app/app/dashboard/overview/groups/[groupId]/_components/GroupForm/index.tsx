@@ -15,7 +15,7 @@ import {
 import { FieldInput, FounderField, LinksArray } from '@/components/forms';
 import ImageUpload from '@/components/ImageUpload';
 import SubsectionHeading from '@/components/SubsectionHeading';
-import { GroupFormType, groupFormSchema } from '@/constants/schemas';
+import { GroupFormType, groupFormSchema } from '@/config/validation-schema';
 import { useProfileActions } from '@/store/profile.store';
 import GroupFormSkeleton from '../skeletons';
 import DeleteGroup from './DeleteGroup';

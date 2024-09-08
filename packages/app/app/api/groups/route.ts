@@ -1,4 +1,10 @@
-import { createNewGroupFormSchema, CreateNewGroupFormType } from '@/app/dashboard/profile/schema';
+import { isNil, omitBy } from 'lodash';
+import { getServerSession } from 'next-auth';
+import { NextRequest, NextResponse } from 'next/server';
+import { v4 as uuidv4 } from 'uuid';
+import { boolean, number, object, string } from 'yup';
+
+import { createNewGroupFormSchema, CreateNewGroupFormType } from '@/config/validation-schema';
 import {
   addGroupAdmin,
   countGroups,
@@ -9,11 +15,6 @@ import {
   updateUser,
 } from '@/db';
 import { generateErrorMessage } from '@/utils';
-import { isNil, omitBy } from 'lodash';
-import { getServerSession } from 'next-auth';
-import { NextRequest, NextResponse } from 'next/server';
-import { v4 as uuidv4 } from 'uuid';
-import { boolean, number, object, string } from 'yup';
 
 const groupOptionsSchema = object({
   limit: number().required().nonNullable(),

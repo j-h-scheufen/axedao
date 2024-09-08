@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import { useAccount, useConnect } from 'wagmi';
 import { injected } from 'wagmi/connectors';
 
-import { registrationFormSchema, RegistrationFormType } from '@/constants/schemas';
+import { registrationFormSchema, RegistrationFormType } from '@/config/validation-schema';
 import useRegister from '@/hooks/useRegister';
 import { FieldInput } from './forms';
 

@@ -6,7 +6,7 @@ import { Address, createWalletClient, custom } from 'viem';
 
 import { getNetwork } from '@/app/_providers/silk.provider';
 import { useWallet } from '@/components/WalletContext';
-import { PATHS } from '@/constants';
+import { PATHS } from '@/config/constants';
 import { useProfileActions } from '@/store/profile.store';
 
 /**

@@ -1,8 +1,9 @@
-import { registrationFormSchema } from '@/constants/schemas';
-import { fetchSessionData, fetchUserProfileByEmail, insertUser } from '@/db';
 import { NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
 import { InferType } from 'yup';
+
+import { registrationFormSchema } from '@/config/validation-schema';
+import { fetchSessionData, fetchUserProfileByEmail, insertUser } from '@/db';
 
 type Body = InferType<typeof registrationFormSchema>;
 

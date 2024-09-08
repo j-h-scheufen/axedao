@@ -4,8 +4,8 @@ import { cookies } from 'next/headers';
 import { SiweMessage } from 'siwe';
 import { v4 as uuidv4 } from 'uuid';
 
+import { PATHS } from '@/config/constants';
 import ENV from '@/config/environment';
-import { PATHS } from '@/constants';
 import { fetchSessionData, insertUser } from '@/db';
 
 const nextAuthUrl = process.env.NEXTAUTH_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null);

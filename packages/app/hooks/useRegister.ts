@@ -1,8 +1,9 @@
-import { RegistrationFormType } from '@/constants/schemas';
-import { User } from '@/types/model';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+
+import { RegistrationFormType } from '@/config/validation-schema';
+import { User } from '@/types/model';
 
 const useRegister = () => {
   const router = useRouter();

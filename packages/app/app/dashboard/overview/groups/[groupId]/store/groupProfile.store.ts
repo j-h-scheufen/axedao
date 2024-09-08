@@ -3,7 +3,7 @@ import { produce } from 'immer';
 import { omit } from 'lodash';
 import { create } from 'zustand';
 
-import { GroupFormType } from '@/constants/schemas';
+import { GroupFormType } from '@/config/validation-schema';
 import { ProfileState, useProfileStore } from '@/store/profile.store';
 import { GroupProfile } from '@/types/model';
 import { generateErrorMessage, uploadImage } from '@/utils';

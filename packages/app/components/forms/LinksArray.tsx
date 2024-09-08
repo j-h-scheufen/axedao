@@ -1,11 +1,12 @@
-import { linkTypes } from '@/constants';
-import { LinksCollection } from '@/constants/schemas';
-import { getHostname } from '@/utils';
 import { Button } from '@nextui-org/button';
 import { Input } from '@nextui-org/input';
 import { ArrayHelpers, Field } from 'formik';
 import { PlusIcon, XIcon } from 'lucide-react';
 import { ChangeEvent } from 'react';
+
+import { linkTypes } from '@/config/constants';
+import { LinksCollection } from '@/config/validation-schema';
+import { getHostname } from '@/utils';
 import { getLinkIcon } from '../_utils';
 
 type Props = ArrayHelpers & {

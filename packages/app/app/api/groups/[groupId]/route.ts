@@ -1,6 +1,8 @@
+import { isNil, omitBy } from 'lodash';
+import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
 
-import { GroupFormType, LinkTypes, groupFormSchema } from '@/constants/schemas';
+import { GroupFormType, LinkTypes, groupFormSchema } from '@/config/validation-schema';
 import {
   addLink,
   deleteGroup,
@@ -14,8 +16,6 @@ import {
 } from '@/db';
 import { Link } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
-import { isNil, omitBy } from 'lodash';
-import { getServerSession } from 'next-auth';
 
 // TODO everything under the api/ route must be protected via middleware.ts to check for user session
 

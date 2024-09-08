@@ -1,8 +1,9 @@
-import { Profile } from '@/types/model';
-import { generateErrorMessage, uploadImage } from '@/utils';
 import axios from 'axios';
 import { create } from 'zustand';
-import { CreateNewGroupFormType, ProfileFormType } from '../app/dashboard/profile/schema';
+
+import { CreateNewGroupFormType, ProfileFormType } from '@/config/validation-schema';
+import { Profile } from '@/types/model';
+import { generateErrorMessage, uploadImage } from '@/utils';
 
 export type ProfileState = {
   profile: Profile;
