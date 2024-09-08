@@ -60,7 +60,7 @@ export async function fetchSessionData(walletAddress: string): Promise<UserSessi
   if (!walletAddress) return undefined;
   return await db.query.users.findFirst({
     where: (users, { eq }) => eq(users.walletAddress, walletAddress),
-    columns: { email: true, name: true, avatar: true, id: true, isGlobalAdmin: true, walletAddress: true },
+    columns: { id: true, email: true, walletAddress: true, isGlobalAdmin: true },
   });
 }
 

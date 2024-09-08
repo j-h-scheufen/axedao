@@ -3,25 +3,17 @@
 import { Button } from '@nextui-org/button';
 import { Spinner } from '@nextui-org/spinner';
 import { LogOutIcon } from 'lucide-react';
-import { signOut, useSession } from 'next-auth/react';
-import { useEffect, useState } from 'react';
-import { useDisconnect } from 'wagmi';
+import { useSession } from 'next-auth/react';
+import { useState } from 'react';
 
-import { useIsSignedIn, useProfileActions } from '@/store/profile.store';
+import useAuth from '@/hooks/useAuth';
 
 const SignOutButton = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const session = useSession();
-  const { status } = session;
-  const { disconnect } = useDisconnect();
-  const { clearProfile } = useProfileActions();
-  const isSignedIn = useIsSignedIn();
+  const [isLoading, setIsLoading] = useState(false);
+  const { logout } = useAuth();
 
-  useEffect(() => {
-    if (status === 'unauthenticated') setIsLoading(false);
-  }, [status, setIsLoading]);
-
-  if (status === 'unauthenticated' || !isSignedIn) return null;
+  if (session.status === 'unauthenticated') return null;
 
   return (
     <Button
@@ -30,9 +22,8 @@ const SignOutButton = () => {
       className="w-10 max-w-10 !min-w-[unset] !px-0"
       onPress={async () => {
         setIsLoading(true);
-        disconnect();
-        await signOut({ redirect: false });
-        clearProfile();
+        await logout();
+        setIsLoading(false);
       }}
     >
       {isLoading ? <Spinner size="sm" color="default" /> : <LogOutIcon className="h-4 w-4 text-default-500" />}
