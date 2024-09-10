@@ -105,7 +105,7 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
   }, [swapLoading, swapSuccess, swapError, onUpdate]);
 
   useEffect(() => {
-    if (allowance && allowance < amountIn) {
+    if (allowance !== undefined && allowance < amountIn) {
       setExceedsAllowance(true);
     } else setExceedsAllowance(false);
   }, [amountIn, allowance]);

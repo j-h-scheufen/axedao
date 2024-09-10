@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { SiweMessage } from 'siwe';
 import { Address, createWalletClient, custom } from 'viem';
 
-import { getNetwork } from '@/app/_providers/silk.provider';
 import { useWallet } from '@/components/WalletContext';
 import { PATHS } from '@/config/constants';
 import { useProfileActions } from '@/store/profile.store';
@@ -16,8 +15,8 @@ import { useProfileActions } from '@/store/profile.store';
 const useAuth = () => {
   const [loginError, setLoginError] = useState<string | null>(null);
   const [signInError, setSignInError] = useState<string | null>(null);
-  const [silkEmail, setSilkEmail] = useState<string | null>(null);
-  const { connected, setConnected, walletClient, setWalletClient, userAddress, setUserAddress, currentNetwork } =
+  // const [silkEmail, setSilkEmail] = useState<string | null>(null);
+  const { connected, setConnected, walletClient, setWalletClient, userAddress, setUserAddress, verifyConnection } =
     useWallet();
   const router = useRouter();
   const { initializeProfile, clearProfile } = useProfileActions();
@@ -72,16 +71,7 @@ const useAuth = () => {
       //   return;
       // }
       // setSilkEmail(email);
-
-      const newWalletClient = createWalletClient({
-        chain: getNetwork(currentNetwork),
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        transport: custom((window as any).silk as any),
-      });
-      setWalletClient(newWalletClient);
-      setConnected(true);
-      const [address] = await newWalletClient.requestAddresses();
-      setUserAddress(address);
+      return verifyConnection();
     } catch (error) {
       console.error(error);
       setLoginError('Error during login: ' + error);

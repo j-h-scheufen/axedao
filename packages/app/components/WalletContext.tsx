@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext } from 'react';
-import { WalletClient } from 'viem';
+import { Address, WalletClient } from 'viem';
 
 type WalletContextType = {
   connected: boolean | undefined;
@@ -12,7 +12,8 @@ type WalletContextType = {
   setUserAddress: React.Dispatch<React.SetStateAction<string>>;
   currentNetwork: string;
   setCurrentNetwork: React.Dispatch<React.SetStateAction<string>>;
-  initializeWalletClient: () => void;
+  initializeWalletClient: (account: Address) => void;
+  verifyConnection: () => Promise<void>;
 };
 
 const WalletContext = createContext<WalletContextType | undefined>(undefined);
@@ -20,7 +21,7 @@ const WalletContext = createContext<WalletContextType | undefined>(undefined);
 export const useWallet = () => {
   const context = useContext(WalletContext);
   if (context === undefined) {
-    throw new Error('useWallet must be used within a WagmiProvider');
+    throw new Error('useWallet must be used within a WalletContext.Provider');
   }
   return context;
 };
