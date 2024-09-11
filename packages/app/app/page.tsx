@@ -3,22 +3,11 @@
 import { Button } from '@nextui-org/button';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import { Address } from 'viem';
-import { useAccount } from 'wagmi';
 
-import AxeSwap from '@/components/AxeSwap/AxeSwap';
 import RippleBackground from '@/components/RippleBackground';
 import { PATHS } from '@/config/constants';
-import ENV from '@/config/environment';
-import { useReadErc20BalanceOf } from '@/generated';
 
 export default function Home() {
-  const account = useAccount();
-  const { data: userDaoShares } = useReadErc20BalanceOf({
-    address: ENV.axeDaoSharesAddress,
-    args: [account.address as Address],
-  });
-
   const { data: session } = useSession();
 
   return (
@@ -59,17 +48,6 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <section className="mx-5 flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-        <div className="inline-block max-w-lg justify-center text-center">
-          <div className="my-8 flex flex-col">
-            <div className="flex gap-2">
-              <div>DAO Member:</div>
-              <div>{userDaoShares && userDaoShares > 0 ? 'Yes' : 'No'}</div>
-            </div>
-          </div>
-        </div>
-        <AxeSwap />
-      </section>
     </>
   );
 }

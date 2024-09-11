@@ -1,24 +1,24 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
-import { debounce } from 'lodash';
-import { parseUnits, formatUnits, Address } from 'viem';
-import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 import { Button } from '@nextui-org/button';
 import { Input } from '@nextui-org/input';
+import { FormikErrors, useFormik } from 'formik';
+import { debounce } from 'lodash';
 import { enqueueSnackbar } from 'notistack';
-import { useFormik, FormikErrors, FormikHelpers } from 'formik';
+import { useCallback, useEffect, useState } from 'react';
+import { Address, formatUnits, parseUnits } from 'viem';
+import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 
 import ENV from '@/config/environment';
 import {
-  useReadIUniswapV2Router02GetAmountOut,
-  useReadErc20Allowance,
   useReadAxeSellTax,
+  useReadErc20Allowance,
+  useReadIUniswapV2Router02GetAmountOut,
   useWriteErc20Approve,
   useWriteIUniswapV2Router02SwapExactTokensForTokensSupportingFeeOnTransferTokens,
 } from '@/generated';
 import { formatAxeUnits, formatStableUnits } from '@/utils/contract.utils';
-import { TradeFormProps } from './AxeSwap';
+import { TradeFormProps } from './Swap';
 
 const slippageTolerance = 100n; //basispoints
 
@@ -114,7 +114,7 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
     amountOut: string;
   }
 
-  const handleSubmit = (values: FormValues, { setSubmitting }: FormikHelpers<FormValues>) => {
+  const handleSubmit = (values: FormValues) => {
     try {
       const bigInput = parseUnits(values.amountIn.toString(), 18);
       if (exceedsAllowance) {
@@ -139,8 +139,6 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
     } catch (error) {
       console.error('Error during swap.', error);
       throw error;
-    } finally {
-      setSubmitting(false);
     }
   };
 

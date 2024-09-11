@@ -4,6 +4,7 @@ import { FieldProps, useField } from 'formik';
 import { useState } from 'react';
 
 import { useCountries, useCountriesError } from '@/store/countries.store';
+import { Country } from '@/types/model';
 import { SearchIcon } from '../icons';
 
 type CountrySelectProps = FieldProps['field'] & {
@@ -51,20 +52,17 @@ const CountrySelect = ({ onSelect, ...props }: CountrySelectProps) => {
       }}
       {...props}
     >
-      {(country) => {
-        const { name, isoCode } = country;
-        return (
-          <AutocompleteItem
-            key={isoCode}
-            aria-label={`Country Option Code ${isoCode}`}
-            startContent={
-              <Avatar alt={name} className="w-6 h-6" src={`https://flagcdn.com/${isoCode.toLowerCase()}.svg`} />
-            }
-          >
-            {name}
-          </AutocompleteItem>
-        );
-      }}
+      {({ name, isoCode }: Country) => (
+        <AutocompleteItem
+          key={isoCode}
+          aria-label={`Country Option Code ${isoCode}`}
+          startContent={
+            <Avatar alt={name} className="w-6 h-6" src={`https://flagcdn.com/${isoCode.toLowerCase()}.svg`} />
+          }
+        >
+          {name}
+        </AutocompleteItem>
+      )}
     </Autocomplete>
   );
 };

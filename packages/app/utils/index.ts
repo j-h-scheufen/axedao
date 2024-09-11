@@ -1,5 +1,5 @@
 import { GroupMemberRole } from '@/app/dashboard/overview/groups/[groupId]/store/groupMembers.store';
-import { GroupProfile } from '@/types/model';
+import { GroupProfile, User } from '@/types/model';
 import axios, { AxiosError } from 'axios';
 
 export const generateErrorMessage = (error: unknown, defaultMessage: string) => {
@@ -90,4 +90,15 @@ export const getHostname = (url: string): string | undefined => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {}
   return undefined;
+};
+
+export const getUserDisplayName = (user: User): string => {
+  let displayName = '';
+  if (user.nickname) {
+    displayName = user.nickname;
+  }
+  if (user.name) {
+    displayName += displayName === '' ? user.name : ` (${user.name})`;
+  }
+  return displayName || `Anonymous (${user.walletAddress})`;
 };

@@ -32,13 +32,12 @@ type FetchUsersOptions = {
   searchTerm?: string;
   searchBy?: 'name' | 'nickname';
 };
-export async function fetchUsers(
-  options: FetchUsersOptions,
-  // limit: number = 20,
-  // offset: number = 0,
-  // searchTerm?: string,
-  // searchBy?: 'name' | 'nickname',
-) {
+
+export async function fetchUsers() {
+  return await db.select().from(schema.users);
+}
+
+export async function searchUsers(options: FetchUsersOptions) {
   const { limit = 20, offset = 0, searchTerm, searchBy = 'name' } = options;
   console.log('Fetching users with options: ', options);
   const filters: (SQLWrapper | undefined)[] = [];

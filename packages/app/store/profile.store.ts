@@ -7,7 +7,8 @@ import { generateErrorMessage, uploadImage } from '@/utils';
 
 export type ProfileState = {
   profile: Profile;
-  isProfileInitialized: boolean;
+  isInitialized: boolean;
+  isInitializing: boolean;
   initializeProfileError?: string;
   isUpdatingProfile: boolean;
   profileUpdateError?: string;
@@ -53,7 +54,8 @@ export const DEFAULT_PROFILE: Profile = {
 
 const DEFAULT_STATE: ProfileState = {
   profile: DEFAULT_PROFILE,
-  isProfileInitialized: false,
+  isInitialized: false,
+  isInitializing: false,
   isUpdatingProfile: false,
   isExitingGroup: false,
   isJoiningGroup: false,
@@ -64,16 +66,19 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
   ...DEFAULT_STATE,
   actions: {
     initializeProfile: async () => {
-      if (get().isProfileInitialized) return;
+      if (get().isInitialized || get().isInitializing) return;
+      set({ isInitializing: true });
       try {
         const { data: profile } = await axios.get('/api/profile');
-        set({ profile, isProfileInitialized: true });
+        set({ profile, isInitialized: true });
       } catch (error: unknown) {
         const message =
           error instanceof Error
             ? error.message
             : 'An error occured while fetching the user profile durint profile.store initialization';
         set({ initializeProfileError: message });
+      } finally {
+        set({ isInitializing: false });
       }
     },
     uploadAvatar: async (file: File, name?: string) => {
@@ -166,12 +171,24 @@ export const useProfileActions = (): ProfileActions => useProfileStore((state) =
 
 export const useProfile = (): Profile => useProfileStore((state) => state.profile);
 
-export const useIsProfileInitialized = (): boolean => useProfileStore((state) => state.isProfileInitialized);
-
 export const useIsUpdatingProfile = (): boolean => useProfileStore((state) => state.isUpdatingProfile);
 
 export const useIsJoiningGroup = (): boolean => useProfileStore((state) => state.isJoiningGroup);
 
 export const useIsExitingGroup = (): boolean => useProfileStore((state) => state.isExitingGroup);
 
-export const useIsSignedIn = () => useProfileStore((state) => state.isSignedIn);
+export const useIsSignedIn = (): boolean => useProfileStore((state) => state.isSignedIn || false);
+
+export const useProfileInitStatus = () =>
+  useProfileStore((state) => ({
+    isProfileInitializing: state.isInitializing,
+    isProfileInitialized: state.isInitialized,
+  }));
+
+export const useProfilErrors = () =>
+  useProfileStore((state) => ({
+    initializeProfileError: state.initializeProfileError,
+    profileUpdateError: state.profileUpdateError,
+    joinGroupError: state.joinGroupError,
+    exitGroupError: state.exitGroupError,
+  }));

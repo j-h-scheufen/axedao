@@ -2,7 +2,7 @@
 
 import { Button } from '@nextui-org/button';
 import { Select, SelectItem } from '@nextui-org/select';
-import { Field, FieldArray, FieldProps, Form, Formik, FormikHelpers, FormikProps } from 'formik';
+import { Field, FieldArray, FieldProps, Form, Formik, FormikProps } from 'formik';
 import { useRouter } from 'next/navigation';
 import { Suspense } from 'react';
 
@@ -21,7 +21,7 @@ const ProfileForm = () => {
   const profile = useProfile();
   const { updateProfile } = useProfileActions();
 
-  const handleSubmit = (values: ProfileFormType, { setSubmitting }: FormikHelpers<ProfileFormType>) => {
+  const handleSubmit = (values: ProfileFormType) => {
     try {
       /**
        * TODO: We should really only update the profile fields that have changed in order to avoid future
@@ -31,8 +31,6 @@ const ProfileForm = () => {
     } catch (error) {
       console.error('Error during profile update.', error);
       throw error;
-    } finally {
-      setSubmitting(false);
     }
   };
 

@@ -8,7 +8,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDebounce } from 'use-debounce';
 
 import useOverviewQueries from '@/hooks/useOverviewQueries';
-import { useIsLoadingUsers, useUsers, useUsersActions } from '@/store/users.store';
+import { useIsLoadingUsers, useSearchResults, useUserSearchActions } from '@/store/user-search.store';
 import { User as UserType } from '@/types/model';
 import { useProfile } from '../../../../store/profile.store';
 
@@ -48,8 +48,8 @@ const useGlobalAdminUsersTable = () => {
   const lastQueryRef = useRef<typeof query | null>(null);
 
   const profile = useProfile();
-  const usersActions = useUsersActions();
-  const users = useUsers();
+  const usersActions = useUserSearchActions();
+  const users = useSearchResults();
   const isLoading = useIsLoadingUsers();
 
   useEffect(() => {

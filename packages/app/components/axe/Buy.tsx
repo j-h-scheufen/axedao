@@ -2,7 +2,7 @@
 
 import { Button } from '@nextui-org/button';
 import { Input } from '@nextui-org/input';
-import { FormikErrors, FormikHelpers, useFormik } from 'formik';
+import { FormikErrors, useFormik } from 'formik';
 import { debounce } from 'lodash';
 import { enqueueSnackbar } from 'notistack';
 import { useCallback, useEffect, useState } from 'react';
@@ -18,7 +18,7 @@ import {
   useWriteIUniswapV2Router02SwapExactTokensForTokensSupportingFeeOnTransferTokens,
 } from '@/generated';
 import { formatAxeUnits, formatStableUnits } from '@/utils/contract.utils';
-import { TradeFormProps } from './AxeSwap';
+import { TradeFormProps } from './Swap';
 
 const slippageTolerance = 100n; //basispoints
 
@@ -118,7 +118,7 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
     amountOut: string;
   }
 
-  const handleSubmit = (values: FormValues, { setSubmitting }: FormikHelpers<FormValues>) => {
+  const handleSubmit = (values: FormValues) => {
     try {
       const bigInput = parseUnits(values.amountIn.toString(), 18);
       if (exceedsAllowance) {
@@ -143,8 +143,6 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
     } catch (error) {
       console.error('Error during swap.', error);
       throw error;
-    } finally {
-      setSubmitting(false);
     }
   };
 
