@@ -40,17 +40,19 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
     address: ENV.uniswapV2RouterAddress,
     args: [amountIn, reserves.swap, reserves.axe],
   });
+  // SWAP
   const {
     data: swapHash,
     isPending: swapPending,
     writeContract: swap,
   } = useWriteIUniswapV2Router02SwapExactTokensForTokensSupportingFeeOnTransferTokens();
-  const { data: approveHash, isPending: approvePending, writeContract: approve } = useWriteErc20Approve();
   const {
     isSuccess: swapSuccess,
     error: swapError,
     isLoading: swapLoading,
   } = useWaitForTransactionReceipt({ hash: swapHash });
+  // APPROVE
+  const { data: approveHash, isPending: approvePending, writeContract: approve } = useWriteErc20Approve();
   const {
     isSuccess: approveSuccess,
     error: approveError,
