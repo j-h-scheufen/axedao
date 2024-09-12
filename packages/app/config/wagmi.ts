@@ -14,8 +14,8 @@ export const configureChains = (): [Chain, ...Chain[]] => {
   return chains;
 };
 
-export const getTransport = (chain: Chain): Transport => {
-  switch (chain.id) {
+export const getTransport = (chain: Chain | undefined): Transport => {
+  switch (chain?.id) {
     case gnosis.id:
       return http(ENV.gnosisProviderUrl);
     case optimism.id:

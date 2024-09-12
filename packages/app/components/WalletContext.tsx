@@ -1,7 +1,8 @@
 'use client';
 
+import { getTransport } from '@/config/wagmi';
 import { createContext, useContext } from 'react';
-import { Address, WalletClient } from 'viem';
+import { Address, createPublicClient, WalletClient } from 'viem';
 
 type WalletContextType = {
   connected: boolean | undefined;
@@ -24,6 +25,18 @@ export const useWallet = () => {
     throw new Error('useWallet must be used within a WalletContext.Provider');
   }
   return context;
+};
+
+export const usePublicClient = () => {
+  const { walletClient } = useWallet();
+  if (!walletClient || walletClient.chain === undefined) {
+    return null;
+  }
+
+  return createPublicClient({
+    chain: walletClient.chain,
+    transport: getTransport(walletClient.chain),
+  });
 };
 
 export default WalletContext;

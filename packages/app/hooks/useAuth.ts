@@ -2,11 +2,12 @@ import { getCsrfToken, signIn as nextAuthSignIn, signOut as nextAuthSignOut } fr
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { SiweMessage } from 'siwe';
-import { Address, createWalletClient, custom } from 'viem';
+import { Address } from 'viem';
 
 import { useWallet } from '@/components/WalletContext';
 import { PATHS } from '@/config/constants';
 import { useProfileActions } from '@/store/profile.store';
+import { useUsersActions } from '@/store/users.store';
 
 /**
  * Hook for handling Silk authentication and sign-in
@@ -20,6 +21,7 @@ const useAuth = () => {
     useWallet();
   const router = useRouter();
   const { initializeProfile, clearProfile } = useProfileActions();
+  const { initializeUsers } = useUsersActions();
   const params = useSearchParams();
   const callbackUrl = params.get('callbackUrl') || PATHS.profile;
 
@@ -50,6 +52,7 @@ const useAuth = () => {
 
     if (res?.ok && !res.error) {
       initializeProfile();
+      initializeUsers();
       if (callbackUrl) {
         router.push(callbackUrl);
       }

@@ -8,10 +8,12 @@ import { useAccount } from 'wagmi';
 import ENV from '@/config/environment';
 import { AxeTransferForm, axeTransferForm } from '@/config/validation-schema';
 import { useReadErc20BalanceOf } from '@/generated';
+import useAxe from '@/hooks/useAxe';
 import { AmountInput, UserSelect } from '../forms';
 
 const Transfer: React.FC = () => {
   const account = useAccount();
+  const { executeTransfer, transferError } = useAxe();
 
   const { data: axeBalance } = useReadErc20BalanceOf({
     address: ENV.axeTokenAddress,
@@ -33,6 +35,8 @@ const Transfer: React.FC = () => {
     console.log('Submit');
     const bigAmount = parseUnits(amount, 18);
     console.log(`Transfering ${bigAmount} to ${to}`);
+    const hash = await executeTransfer(to as Address, bigAmount);
+    console.log('Approval hash: ', hash);
     try {
     } catch (error) {
       console.error('Error during transfer.', error);
@@ -43,11 +47,9 @@ const Transfer: React.FC = () => {
   return (
     <div className="inline-block w-full max-w-lg">
       <Formik<AxeTransferForm> initialValues={initialValues} validationSchema={axeTransferForm} onSubmit={handleSubmit}>
-        {({ dirty, isValid, isSubmitting, errors }: FormikProps<AxeTransferForm>) => (
+        {({ dirty, isValid, isSubmitting }: FormikProps<AxeTransferForm>) => (
           <Form className="flex flex-col gap-2 sm:gap-4">
-            <div>
-              Errors: {JSON.stringify(errors)}, Valid {isValid ? 'Yes' : 'No'}
-            </div>
+            <div>Errors: {transferError}</div>
             <div className="flex flex-col gap-1">
               <Field
                 name="amount"
