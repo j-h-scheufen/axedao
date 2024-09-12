@@ -54,6 +54,7 @@ export const createSilkConfig = (): Config => {
       [sepolia.id]: http(ENV.sepoliaProviderUrl),
       [localhost.id]: http('http://127.0.0.1:8545'),
     },
+    ssr: true,
   });
 };
 
