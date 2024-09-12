@@ -46,6 +46,10 @@ export default function Home() {
               </Button>
             )}
           </div>
+          <footer className="mt-auto flex w-full items-center justify-center gap-1 pb-20 md:pb-10 py-10">
+            <span className="text-default-600">Powered by </span>
+            <span className="text-primary">AXÉ DAO</span>
+          </footer>
         </div>
       </header>
     </>

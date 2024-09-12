@@ -1,5 +1,6 @@
 import { Button } from '@nextui-org/button';
 import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalProps } from '@nextui-org/modal';
+import { useEffect, useRef } from 'react';
 
 import { useUsersActions } from '@/store/users.store';
 import { getUserDisplayName } from '@/utils';
@@ -14,6 +15,11 @@ const TransferConfirm: React.FC<Props> = ({ to, amount, onConfirm, ...props }) =
   const { findUser } = useUsersActions();
   const { isOpen, onOpenChange } = props;
   const user = findUser({ walletAddress: to });
+  const nextButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (isOpen) nextButtonRef.current?.focus();
+  }, [isOpen]);
 
   return (
     <div>
@@ -37,6 +43,7 @@ const TransferConfirm: React.FC<Props> = ({ to, amount, onConfirm, ...props }) =
                   Cancel
                 </Button>
                 <Button
+                  ref={nextButtonRef}
                   color="primary"
                   onPress={() => {
                     onConfirm();

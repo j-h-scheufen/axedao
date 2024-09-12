@@ -10,9 +10,7 @@ const DashboardLayout = ({ children }: Props) => {
     <>
       <Sidebar />
       <BottomBar />
-      <div className="flex h-full flex-col md:pl-56">
-        <main className="container mx-auto max-w-7xl flex-grow px-6">{children}</main>
-      </div>
+      <main className="container mx-auto max-w-5xl flex-grow px-2 sm:px-4">{children}</main>
     </>
   );
 };

@@ -8,17 +8,15 @@ import { PATHS } from '@/config/constants';
 
 export default function SwapPage() {
   return (
-    <section className="mx-5 flex flex-col items-center justify-center gap-2 sm:gap-4 py-8 sm:py-10">
+    <section className="flex flex-col items-center justify-center gap-2 sm:gap-4 p-2 sm:p-4 max-w-lg w-full mx-auto">
       <Transfer />
-      <div className="inline-block w-full max-w-lg">
-        <div className="my-8 flex flex-col gap-2">
-          <Button as={Link} href={PATHS.dao}>
-            Axé DAO
-          </Button>
-          <Button as={Link} href={PATHS.swap}>
-            Buy/Sell Axé
-          </Button>
-        </div>
+      <div className="w-full my-8 flex flex-col gap-2">
+        <Button as={Link} href={PATHS.dao}>
+          Axé DAO
+        </Button>
+        <Button as={Link} href={PATHS.swap}>
+          Buy/Sell Axé
+        </Button>
       </div>
     </section>
   );

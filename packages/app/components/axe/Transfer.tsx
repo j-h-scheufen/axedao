@@ -11,6 +11,7 @@ import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 import ENV from '@/config/environment';
 import { AxeTransferForm, axeTransferForm } from '@/config/validation-schema';
 import { useReadErc20BalanceOf, useWriteErc20Transfer } from '@/generated';
+import ErrorText from '../ErrorText';
 import { AmountInput, UserSelect } from '../forms';
 import TransferConfirm from './TransferConfirm';
 
@@ -48,8 +49,6 @@ const Transfer: React.FC = () => {
     to: '',
   };
 
-  // const handleConfirm = () => {};
-
   const handleSubmit = async ({ amount, to }: AxeTransferForm) => {
     try {
       const bigInput = parseUnits(amount, 18);
@@ -62,11 +61,11 @@ const Transfer: React.FC = () => {
   };
 
   return (
-    <div className="inline-block w-full max-w-lg">
+    <div className="inline-block w-full">
       <Formik<AxeTransferForm> initialValues={initialValues} validationSchema={axeTransferForm} onSubmit={handleSubmit}>
         {({ dirty, isValid, isSubmitting, submitForm, values }: FormikProps<AxeTransferForm>) => (
-          <Form className="flex flex-col gap-2 sm:gap-4">
-            <div>Errors: {transferError?.message}</div>
+          <Form className="flex flex-col gap-3 sm:gap-5">
+            <h2 className="text-3xl font-bold text-center my-2">Send Axé</h2>
             <div className="flex flex-col gap-1">
               <Field
                 name="amount"
@@ -84,12 +83,15 @@ const Transfer: React.FC = () => {
 
             <Button
               color="primary"
+              className="mt-4"
               isLoading={isSubmitting}
               disabled={!dirty || !isValid || transferPending}
               onPress={openConfirmation}
             >
-              Transfer
+              Send
             </Button>
+
+            <ErrorText message={transferError?.message} />
 
             <TransferConfirm
               isOpen={isValid && isOpen}
