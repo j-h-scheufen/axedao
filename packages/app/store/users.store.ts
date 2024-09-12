@@ -22,6 +22,7 @@ export type UsersState = {
 type UsersActions = {
   initializeUsers: () => Promise<void>;
   setFilter: (filter: string) => void;
+  findUser: ({ id, walletAddress }: { id?: string; walletAddress?: string }) => User | undefined;
 };
 
 export type UsersStore = UsersState & { actions: UsersActions };
@@ -65,6 +66,11 @@ const useUsersStore = create<UsersStore>()((set, get) => ({
       const { users } = get();
       if (filter) set({ filter, filteredUsers: filterUsers(users, filter) });
       else set({ filter: '', filteredUsers: users });
+    },
+    findUser: ({ id, walletAddress }: { id?: string; walletAddress?: string }): User | undefined => {
+      return get().users.find(
+        (user) => (user.id !== undefined && user.id === id) || user.walletAddress === walletAddress,
+      );
     },
   },
 }));

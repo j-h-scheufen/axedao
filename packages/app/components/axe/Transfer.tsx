@@ -1,7 +1,9 @@
 'use client';
 
 import { Button } from '@nextui-org/button';
+import { useDisclosure } from '@nextui-org/modal';
 import { Field, Form, Formik, FormikProps } from 'formik';
+import { enqueueSnackbar } from 'notistack';
 import { useEffect } from 'react';
 import { Address, formatUnits, parseUnits } from 'viem';
 import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
@@ -9,11 +11,12 @@ import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 import ENV from '@/config/environment';
 import { AxeTransferForm, axeTransferForm } from '@/config/validation-schema';
 import { useReadErc20BalanceOf, useWriteErc20Transfer } from '@/generated';
-import { enqueueSnackbar } from 'notistack';
 import { AmountInput, UserSelect } from '../forms';
+import TransferConfirm from './TransferConfirm';
 
 const Transfer: React.FC = () => {
   const account = useAccount();
+  const { isOpen, onOpen: openConfirmation, onOpenChange } = useDisclosure();
 
   const { data: axeBalance, refetch: updateAxeBalance } = useReadErc20BalanceOf({
     address: ENV.axeTokenAddress,
@@ -27,17 +30,16 @@ const Transfer: React.FC = () => {
     isLoading: transferLoading,
   } = useWaitForTransactionReceipt({ hash: transferHash });
 
-  // reactions to approve receipt outcome
+  // reactions to transfer receipt outcome
   useEffect(() => {
     if (transferLoading) {
       enqueueSnackbar('Axé transfer pending. Please allow some time to confirm ...', {
-        autoHideDuration: 10000,
+        autoHideDuration: 3000,
       });
     } else if (transferSuccess) {
-      enqueueSnackbar('Axé transfer confirmed!');
-      updateAxeBalance();
+      updateAxeBalance().then(() => enqueueSnackbar('Axé transfer confirmed!'));
     } else if (transferError) {
-      enqueueSnackbar(`Axé transfer has failed: ${transferError.message}`);
+      enqueueSnackbar(`Axé transfer failed: ${transferError.message}`);
     }
   }, [transferLoading, transferSuccess, transferError, updateAxeBalance]);
 
@@ -51,10 +53,8 @@ const Transfer: React.FC = () => {
   const handleSubmit = async ({ amount, to }: AxeTransferForm) => {
     try {
       const bigInput = parseUnits(amount, 18);
-      if (true) {
-        // TODO check balance one more and check for confirmation modal approval given
-        transfer({ address: ENV.axeSwapTokenAddress, args: [to as Address, bigInput] });
-      }
+      // TODO check balance once more?
+      transfer({ address: ENV.axeTokenAddress, args: [to as Address, bigInput] });
     } catch (error) {
       console.error('Error during swap.', error);
       throw error;
@@ -64,7 +64,7 @@ const Transfer: React.FC = () => {
   return (
     <div className="inline-block w-full max-w-lg">
       <Formik<AxeTransferForm> initialValues={initialValues} validationSchema={axeTransferForm} onSubmit={handleSubmit}>
-        {({ dirty, isValid, isSubmitting }: FormikProps<AxeTransferForm>) => (
+        {({ dirty, isValid, isSubmitting, submitForm, values }: FormikProps<AxeTransferForm>) => (
           <Form className="flex flex-col gap-2 sm:gap-4">
             <div>Errors: {transferError?.message}</div>
             <div className="flex flex-col gap-1">
@@ -84,12 +84,20 @@ const Transfer: React.FC = () => {
 
             <Button
               color="primary"
-              type="submit"
               isLoading={isSubmitting}
               disabled={!dirty || !isValid || transferPending}
+              onPress={openConfirmation}
             >
               Transfer
             </Button>
+
+            <TransferConfirm
+              isOpen={isValid && isOpen}
+              onOpenChange={onOpenChange}
+              to={values.to}
+              amount={values.amount}
+              onConfirm={submitForm}
+            />
           </Form>
         )}
       </Formik>

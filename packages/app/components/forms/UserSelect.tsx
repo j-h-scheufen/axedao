@@ -5,13 +5,19 @@ import { SearchIcon } from 'lucide-react';
 import { useFilteredUsers, useUsersActions, useUsersInitStatus } from '@/store/users.store';
 import { User } from '@/types/model';
 import { getUserDisplayName } from '@/utils';
+import { useSession } from 'next-auth/react';
+
+type Props = FieldProps['field'] & {
+  disableCurrentUser?: boolean;
+};
 
 /**
  * AutomCompolete component for selecting a user by their wallet address.
  * @param props
  * @returns
  */
-const UserSelect = (props: FieldProps['field']) => {
+const UserSelect = ({ disableCurrentUser = true, ...props }: Props) => {
+  const { data: session } = useSession();
   const [field, , form] = useField(props);
   const { setFilter } = useUsersActions();
   const filteredUsers = useFilteredUsers();
@@ -27,6 +33,7 @@ const UserSelect = (props: FieldProps['field']) => {
       listboxProps={{ emptyContent: 'No users found' }}
       startContent={<SearchIcon className="h-4 w-4" strokeWidth={1.4} />}
       selectedKey={field.value}
+      disabledKeys={disableCurrentUser && session?.user?.walletAddress ? [session.user.walletAddress] : []}
       onInputChange={(value) => {
         if (!field.value) setFilter(value);
       }}
