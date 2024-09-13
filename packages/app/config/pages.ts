@@ -20,7 +20,7 @@ const pages: PageType[] = [
   },
   {
     href: '/dashboard/global-admin',
-    name: 'Global Admin',
+    name: 'Admin',
     icon: Shield,
     forGlobalAdminOnly: true,
   },

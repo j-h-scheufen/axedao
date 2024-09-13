@@ -65,7 +65,6 @@ const Transfer: React.FC = () => {
       <Formik<AxeTransferForm> initialValues={initialValues} validationSchema={axeTransferForm} onSubmit={handleSubmit}>
         {({ dirty, isValid, isSubmitting, submitForm, values }: FormikProps<AxeTransferForm>) => (
           <Form className="flex flex-col gap-3 sm:gap-5">
-            <h2 className="text-3xl font-bold text-center my-2">Send Axé</h2>
             <div className="flex flex-col gap-1">
               <Field
                 name="amount"
