@@ -22,7 +22,7 @@ import { TradeFormProps } from './Swap';
 
 const slippageTolerance = 100n; //basispoints
 
-const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUpdate }) => {
+const Sell: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUpdate }) => {
   const account = useAccount();
   const [isUpdating, setIsUpdating] = useState<boolean>(false);
   const [exceedsAllowance, setExceedsAllowance] = useState<boolean>(false);
@@ -225,7 +225,8 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
 
         <Button
           type="submit"
-          className="mt-2 size-unit-lg w-full bg-orange-200 text-large dark:bg-orange-700"
+          size="lg"
+          className="mt-2 w-full bg-orange-200 dark:bg-orange-700"
           isDisabled={!formik.isValid || !formik.dirty || isUpdating || approvePending || swapPending}
           isLoading={formik.isSubmitting}
         >
@@ -236,4 +237,4 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
   );
 };
 
-export default Buy;
+export default Sell;

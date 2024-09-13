@@ -1,9 +1,9 @@
 'use client';
 
-import { Swap, Transfer } from '@/components/axe';
-import { MemberBadge } from '@/components/axe/dao';
-import Treasury from '@/components/axe/dao/Treasury';
 import { Tab, Tabs } from '@nextui-org/tabs';
+
+import { Swap, Transfer } from '@/components/axe';
+import { DaoMembership, Treasury } from '@/components/axe/dao';
 
 const AxePage = () => {
   return (
@@ -11,27 +11,24 @@ const AxePage = () => {
       <Tabs aria-label="Options" color="primary" size="lg" fullWidth>
         <Tab key="axe" title="Axé" className="w-full">
           <div className="flex w-full flex-col gap-2 sm:gap-4 items-center">
-            <h2 className="text-3xl font-bold text-center my-2">Send Axé</h2>
+            <h2 className="text-3xl font-bold text-center mb-1">Send Axé</h2>
             <p className="text-center">Send Axé to members of the community</p>
             <Transfer />
           </div>
         </Tab>
-        <Tab key="trade" title="Trade">
+        <Tab key="trade" title="Trade" className="w-full">
           <div className="flex w-full flex-col gap-2 sm:gap-4 items-center">
-            <h2 className="text-3xl font-bold text-center my-2">Buy / Sell Axé</h2>
-            <p className="text-center">
-              In case you need to, you can buy and sell Axé here. The liquidity for swapping is provided by the Axé DAO
-              and other community members.
-            </p>
+            <h2 className="text-3xl font-bold text-center mb-1">Buy / Sell Axé</h2>
+            <p className="text-center">Buy and sell Axé with USD.</p>
             <Swap />
           </div>
         </Tab>
-        <Tab key="dao" title="DAO">
+        <Tab key="dao" title="DAO" className="w-full">
           <div className="flex w-full flex-col gap-2 sm:gap-4 items-center">
-            <h2 className="text-3xl font-bold text-center my-2">Axé DAO</h2>
-            <MemberBadge />
-            <p className="text-center">The Axé DAO governs the treasury which currently holds the following assets.</p>
+            <h2 className="text-3xl font-bold text-center mb-1">Axé DAO</h2>
+            <p className="text-center">The Axé DAO governs the community treasury and the Axé Safe.</p>
             <Treasury />
+            <DaoMembership />
           </div>
         </Tab>
       </Tabs>

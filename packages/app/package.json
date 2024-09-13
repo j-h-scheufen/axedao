@@ -52,6 +52,7 @@
     "bcrypt": "^5.1.1",
     "clsx": "^2.1.1",
     "country-state-city": "^3.2.1",
+    "dnum": "^2.13.1",
     "drizzle-orm": "^0.33.0",
     "ethers": "^6.13.2",
     "formik": "^2.4.6",
@@ -82,6 +83,7 @@
     "zustand": "^4.5.5"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@tailwindcss/typography": "^0.5.14",
     "@tanstack/eslint-plugin-query": "^5.52.0",
     "@types/bcrypt": "^5.0.2",

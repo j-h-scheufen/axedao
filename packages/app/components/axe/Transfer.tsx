@@ -82,6 +82,7 @@ const Transfer: React.FC = () => {
 
             <Button
               color="primary"
+              size="lg"
               className="mt-4"
               isLoading={isSubmitting}
               disabled={!dirty || !isValid || transferPending}

@@ -8,6 +8,7 @@ type ConfigType = {
   axeTokenAddress: Address;
   axeDaoAddress: Address;
   axeTreasuryAddress: Address;
+  axeDaoTreasuryAddress: Address;
   axeDaoSharesAddress: Address;
   axeDaoLootAddress: Address;
   axeSwapTokenAddress: Address;
@@ -43,6 +44,10 @@ const ENV: ConfigType = {
   axeTreasuryAddress: required(
     process.env.NEXT_PUBLIC_AXE_TREASURY_ADDRESS,
     'NEXT_PUBLIC_AXE_TREASURY_ADDRESS',
+  ) as Address,
+  axeDaoTreasuryAddress: required(
+    process.env.NEXT_PUBLIC_AXE_DAO_TREASURY_ADDRESS,
+    'NEXT_PUBLIC_AXE_DAO_TREASURY_ADDRESS',
   ) as Address,
   axeDaoSharesAddress: required(
     process.env.NEXT_PUBLIC_AXE_DAO_SHARES_ADDRESS,

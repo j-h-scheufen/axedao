@@ -228,8 +228,9 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
 
         <Button
           type="submit"
+          size="lg"
           color="primary"
-          className="mt-2 size-unit-lg w-full text-large"
+          className="mt-2 w-full"
           isDisabled={!formik.isValid || !formik.dirty || isUpdating || approvePending || swapPending}
           isLoading={formik.isSubmitting}
         >
