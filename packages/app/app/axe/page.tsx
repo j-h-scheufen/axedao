@@ -8,7 +8,7 @@ const AxePage = () => {
   return (
     <section className="flex flex-col items-center justify-center max-w-lg pt-2 sm:pt-4 w-full mx-auto">
       <Tabs aria-label="Options" color="primary" size="lg" fullWidth>
-        <Tab key="axe" title="Axé" className="w-full">
+        <Tab key="axe" title="Send" className="w-full">
           <div className="flex w-full flex-col gap-2 sm:gap-4 items-center">
             <h2 className="text-3xl font-bold text-center mb-1">Send Axé</h2>
             <p className="text-center">Send Axé to members of the community</p>

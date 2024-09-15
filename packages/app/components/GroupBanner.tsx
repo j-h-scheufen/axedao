@@ -16,6 +16,7 @@ const GroupBanner = () => {
         {banner ? (
           <Image
             src={banner || ''}
+            priority
             className="h-full w-full object-cover"
             width={800}
             height={400}

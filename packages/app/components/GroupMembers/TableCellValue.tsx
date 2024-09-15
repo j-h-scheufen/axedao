@@ -6,6 +6,7 @@ import { has } from 'lodash';
 import { ArrowDownIcon, ArrowUpIcon, UserXIcon } from 'lucide-react';
 
 import { useProfileUser } from '@/store/profile.store';
+import { getUserDisplayName } from '@/utils';
 import {
   GroupMember,
   useAdminBeingDemotedToMember,
@@ -26,7 +27,7 @@ const TableCellValue = ({ groupMember, columnKey }: Props) => {
   const adminBeingDemotedToMember = useAdminBeingDemotedToMember();
   const memberBeingRemoved = useMemberBeingRemoved();
 
-  const { avatar, name, email, role, id } = groupMember;
+  const { avatar, email, role, id } = groupMember;
   const isLoggedInUser = id === profile.id;
   const cellValue = has(groupMember, columnKey) ? groupMember[columnKey]?.toString() : null;
 
@@ -37,7 +38,7 @@ const TableCellValue = ({ groupMember, columnKey }: Props) => {
           <User
             avatarProps={{ radius: 'full', src: avatar || '' }}
             description={email}
-            name={`${name} ${isLoggedInUser ? '(You)' : ''}`}
+            name={`${getUserDisplayName(groupMember)} ${isLoggedInUser ? '(You)' : ''}`}
             className="cursor-pointer"
           >
             {email}

@@ -83,6 +83,7 @@ const useAuth = () => {
 
   const logout = async () => {
     await nextAuthSignOut();
+    await (window as any).silk.logout();
     clearProfile();
     setConnected(false);
     setWalletClient(undefined);

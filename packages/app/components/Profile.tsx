@@ -10,30 +10,32 @@ import ContactInfo from '@/components/ContactInfo';
 import { ProfileSkeleton } from '@/components/skeletons/ProfileSkeletons';
 import { PATHS } from '@/config/constants';
 import { useProfile } from '@/store/profile.store';
+import { getUserDisplayName } from '@/utils';
+import { useAccount } from 'wagmi';
 
 const Profile = () => {
+  const account = useAccount();
   const profile = useProfile();
-  const {
-    user: { name, title, avatar },
-    links,
-  } = profile;
+  const { user, links } = profile;
 
   return (
     <Suspense fallback={<ProfileSkeleton />}>
       <div className="flex flex-col items-center gap-5 sm:flex-row">
         <Avatar
           showFallback
-          src={avatar || undefined}
+          src={user.avatar || undefined}
           fallback={<Camera className="h-10 w-10 animate-pulse text-default-500" strokeWidth={1} size={20} />}
           className="aspect-square h-full max-h-32 w-full max-w-32"
         />
         <div className="flex flex-1 flex-col gap-3">
           <div className="flex flex-col items-center justify-center gap-5 md:gap-10 xs:flex-row">
             <div className="text-center xs:text-left">
-              <h3 className="text-lg font-medium">{name}</h3>
+              <h3 className="text-lg font-medium">{getUserDisplayName(user)}</h3>
               <div className="text-small capitalize text-default-500 flex justify-center xs:justify-start gap-2 mt-2">
-                {title}
+                {user.title}
               </div>
+              <div>Wagmi Account: {account.address}</div>
+              <div>Silk Account: {user.walletAddress}</div>
             </div>
             <div className="xs:mb-auto xs:ml-auto">
               <Button

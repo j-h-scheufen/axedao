@@ -15,7 +15,7 @@ import {
   useSearchResults,
   useUserSearchActions,
 } from '@/store/user-search.store';
-import { isUUID } from '@/utils';
+import { getUserDisplayName, isUUID } from '@/utils';
 
 const FounderField = (props: FieldProps['field']) => {
   const [field, , form] = useField(props);
@@ -69,11 +69,14 @@ const FounderField = (props: FieldProps['field']) => {
             scrollRef={scrollerRef}
             onOpenChange={setIsOpen}
           >
-            {users.map(({ name, id }) => (
-              <AutocompleteItem key={id} value={id} textValue={name || ''}>
-                <div className="mb-1">{name}</div>
-              </AutocompleteItem>
-            ))}
+            {users.map((user) => {
+              const name = getUserDisplayName(user);
+              return (
+                <AutocompleteItem key={user.id} value={user.id} textValue={name}>
+                  <div className="mb-1">{name}</div>
+                </AutocompleteItem>
+              );
+            })}
           </Autocomplete>
         </Tab>
       </Tabs>

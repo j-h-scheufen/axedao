@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useDebounce } from 'use-debounce';
 
 import useGroupMembersStore from '@/store/groupMembers.store';
+import { getUserDisplayName } from '@/utils';
 import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
 
 type Props = { groupId: string };
@@ -33,12 +34,15 @@ const AddAdmin = ({ groupId }: Props) => {
     >
       {searchResults
         .filter((member) => member.role === 'member')
-        .map(({ name, id, email }) => (
-          <AutocompleteItem key={id} value={id} textValue={name || ''}>
-            <div className="mb-1">{name}</div>
-            <div className="text-small text-default-500">{email}</div>
-          </AutocompleteItem>
-        ))}
+        .map((member) => {
+          const name = getUserDisplayName(member);
+          return (
+            <AutocompleteItem key={member.id} value={member.id} textValue={name}>
+              <div className="mb-1">{name}</div>
+              <div className="text-small text-default-500">{member.email}</div>
+            </AutocompleteItem>
+          );
+        })}
     </Autocomplete>
   );
 };
