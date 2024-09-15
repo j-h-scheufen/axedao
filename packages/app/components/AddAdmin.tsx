@@ -6,6 +6,8 @@ import useGroupMembersStore from '@/store/groupMembers.store';
 import { getUserDisplayName } from '@/utils';
 import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
 
+// TODO: the members of the group are known and can be injected into the store for faster searching.
+
 type Props = { groupId: string };
 const AddAdmin = ({ groupId }: Props) => {
   const [searchTerm, setSearchTerm] = useState<string>('');

@@ -116,7 +116,7 @@ const GlobalAdminGroupsTable = () => {
             loadingContent={<Spinner size="sm" color="default" />}
             emptyContent="No group found"
           >
-            {(item) => (
+            {(item: Group) => (
               <TableRow key={item.id}>
                 {(columnKey) => <TableCell>{getCellValue(item, columnKey as unknown as keyof Group)}</TableCell>}
               </TableRow>
