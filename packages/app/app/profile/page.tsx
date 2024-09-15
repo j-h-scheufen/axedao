@@ -1,7 +1,7 @@
+import GroupAssociation from '@/components/GroupAssociation';
 import PageHeading from '@/components/PageHeading';
+import Profile from '@/components/Profile';
 import SectionHeading from '@/components/SectionHeading';
-import GroupAssociation from './_components/GroupAssociation';
-import Profile from './_components/Profile';
 
 const page = () => {
   return (

@@ -34,7 +34,7 @@ export default function Home() {
             {session ? (
               <Button
                 as={Link}
-                href={PATHS.dashboard}
+                href={PATHS.search}
                 color="primary"
                 className="w-full font-medium sm:flex-1 sm:max-w-40"
               >

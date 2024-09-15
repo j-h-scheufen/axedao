@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
   const { logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const isPathDashboard = pathname === PATHS.dashboard;
+  const isPathDashboard = pathname === PATHS.search;
   const isPathAxe = pathname === PATHS.axe;
   const isPathDao = pathname === PATHS.dao;
 
@@ -57,7 +57,7 @@ const Navbar: React.FC = () => {
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem isActive={isPathDashboard}>
-          <Link color="foreground" href={PATHS.dashboard} size="lg" className="text-inherit">
+          <Link color="foreground" href={PATHS.search} size="lg" className="text-inherit">
             Search
           </Link>
         </NavbarItem>
@@ -96,7 +96,7 @@ const Navbar: React.FC = () => {
               <DropdownItem key="my-profile" href={PATHS.profile}>
                 My Profile
               </DropdownItem>
-              {user.isGlobalAdmin ? <DropdownItem key="admin">Admin</DropdownItem> : <></>}
+              {user.isGlobalAdmin ? <DropdownItem key="admin" href={PATHS.admin}>Admin</DropdownItem> : <></>}
               <DropdownItem key="logout" color="danger" onPress={logout}>
                 Log out
               </DropdownItem>
@@ -109,7 +109,7 @@ const Navbar: React.FC = () => {
           <Link
             color="foreground"
             className="w-full text-inherit"
-            href={PATHS.dashboard}
+            href={PATHS.search}
             size="lg"
             onPress={() => setIsMenuOpen(false)}
           >

@@ -6,7 +6,7 @@ import { Swap, Transfer } from '@/components/axe';
 
 const AxePage = () => {
   return (
-    <section className="flex flex-col items-center justify-center max-w-lg p-2 sm:p-4 w-full mx-auto">
+    <section className="flex flex-col items-center justify-center max-w-lg pt-2 sm:pt-4 w-full mx-auto">
       <Tabs aria-label="Options" color="primary" size="lg" fullWidth>
         <Tab key="axe" title="Axé" className="w-full">
           <div className="flex w-full flex-col gap-2 sm:gap-4 items-center">

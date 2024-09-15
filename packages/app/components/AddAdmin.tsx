@@ -1,8 +1,9 @@
-import useGroupMembersStore from '@/app/dashboard/overview/groups/[groupId]/store/groupMembers.store';
-import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
 import { PlusIcon } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useDebounce } from 'use-debounce';
+
+import useGroupMembersStore from '@/store/groupMembers.store';
+import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
 
 type Props = { groupId: string };
 const AddAdmin = ({ groupId }: Props) => {
