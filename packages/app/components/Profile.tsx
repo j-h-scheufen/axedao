@@ -8,6 +8,7 @@ import { Suspense } from 'react';
 
 import ContactInfo from '@/components/ContactInfo';
 import { ProfileSkeleton } from '@/components/skeletons/ProfileSkeletons';
+import { PATHS } from '@/config/constants';
 import { useProfile } from '@/store/profile.store';
 
 const Profile = () => {
@@ -37,7 +38,7 @@ const Profile = () => {
             <div className="xs:mb-auto xs:ml-auto">
               <Button
                 as={Link}
-                href="/dashboard/profile/edit"
+                href={`${PATHS.profile}/edit`}
                 startContent={<Edit className="h-4 w-4" />}
                 size="sm"
                 variant="bordered"

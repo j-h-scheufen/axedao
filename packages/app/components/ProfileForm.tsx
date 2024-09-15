@@ -11,7 +11,7 @@ import { FieldInput, LinksArray } from '@/components/forms';
 import ImageUpload from '@/components/ImageUpload';
 import ProfileFormSkeleton from '@/components/skeletons/ProfileFormSkeleton';
 import SubsectionHeading from '@/components/SubsectionHeading';
-import { titles } from '@/config/constants';
+import { PATHS, titles } from '@/config/constants';
 import { ProfileFormType, profileFormSchema } from '@/config/validation-schema';
 import { useProfile, useProfileActions } from '@/store/profile.store';
 
@@ -26,7 +26,7 @@ const ProfileForm = () => {
        * TODO: We should really only update the profile fields that have changed in order to avoid future
        * API validation conflicts. See https://medium.com/@tonyeder11/formik-enablereinitialize-example-fixing-backend-validation-errors-76d26031d5f7
        */
-      return updateProfile(values).then(() => router.push('/dashboard/profile'));
+      return updateProfile(values).then(() => router.push(PATHS.profile));
     } catch (error) {
       console.error('Error during profile update.', error);
       throw error;

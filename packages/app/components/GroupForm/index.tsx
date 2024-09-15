@@ -10,6 +10,7 @@ import { FieldInput, FounderField, LinksArray } from '@/components/forms';
 import ImageUpload from '@/components/ImageUpload';
 import GroupFormSkeleton from '@/components/skeletons/GroupSkeletons';
 import SubsectionHeading from '@/components/SubsectionHeading';
+import { PATHS } from '@/config/constants';
 import { GroupFormType, groupFormSchema } from '@/config/validation-schema';
 import { useGroupMembersActions } from '@/store/groupMembers.store';
 import { useGroupProfile, useGroupProfileActions, useIsDeletingGroup } from '@/store/groupProfile.store';
@@ -35,7 +36,7 @@ const GroupForm = ({ id }: Props) => {
   // TODO: Deleting the group will have consequences for any logged-in user belonging to that group as their state will be out of sync.
   const handleDeleteGroup = async () => {
     await deleteGroup().then(removeGroupAssociation);
-    router.push('/dashboard/profile');
+    router.push(PATHS.profile);
   };
 
   const handleSubmit = (values: GroupFormType) => {
