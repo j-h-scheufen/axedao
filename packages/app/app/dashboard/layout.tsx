@@ -1,17 +1,6 @@
-'use client';
+import { PropsWithChildren } from 'react';
 
-import BottomBar from '@/components/BottomBar';
-import Sidebar from '@/components/Sidebar';
-import { ReactNode } from 'react';
-
-type Props = { children: ReactNode };
-const DashboardLayout = ({ children }: Props) => {
-  return (
-    <>
-      <Sidebar />
-      <BottomBar />
-      <main className="container mx-auto max-w-5xl flex-grow px-2 sm:px-4">{children}</main>
-    </>
-  );
+const DashboardLayout = ({ children }: PropsWithChildren) => {
+  return <main className="container flex-grow w-full">{children}</main>;
 };
 export default DashboardLayout;

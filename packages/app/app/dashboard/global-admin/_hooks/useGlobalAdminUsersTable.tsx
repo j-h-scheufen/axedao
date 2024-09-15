@@ -10,7 +10,7 @@ import { useDebounce } from 'use-debounce';
 import useOverviewQueries from '@/hooks/useOverviewQueries';
 import { useIsLoadingUsers, useSearchResults, useUserSearchActions } from '@/store/user-search.store';
 import { User as UserType } from '@/types/model';
-import { useProfile } from '../../../../store/profile.store';
+import { useProfileUser } from '../../../../store/profile.store';
 
 const searchOptions = [
   {
@@ -47,7 +47,7 @@ const useGlobalAdminUsersTable = () => {
 
   const lastQueryRef = useRef<typeof query | null>(null);
 
-  const profile = useProfile();
+  const user = useProfileUser();
   const usersActions = useUserSearchActions();
   const users = useSearchResults();
   const isLoading = useIsLoadingUsers();
@@ -62,7 +62,7 @@ const useGlobalAdminUsersTable = () => {
     ({ item, key }: { item: UserType; key: string }) => {
       if (key === 'user') {
         const { id, email, avatar, name } = item as UserType;
-        const isLoggedInUser = id === profile.id;
+        const isLoggedInUser = id === user.id;
         return (
           <Link href={`/dashboard/overview/users/${id}`} className="text-[unset]">
             <User
@@ -78,7 +78,7 @@ const useGlobalAdminUsersTable = () => {
       }
       return getKeyValue(item, key) || 'N/A';
     },
-    [profile.id],
+    [user.id],
   );
 
   const setSearchTerm = (searchTerm: string) => {

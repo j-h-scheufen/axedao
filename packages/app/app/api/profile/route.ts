@@ -1,10 +1,11 @@
 import { isEqual, isNil } from 'lodash';
 import { NextRequest, NextResponse } from 'next/server';
 
+import { nextAuthOptions } from '@/config/next-auth-options';
 import { profileFormSchema, ProfileFormType } from '@/config/validation-schema';
 import { createLinks, fetchUserProfile, removeLinks, updateLink, updateUser } from '@/db';
-import { Link, UserSession } from '@/types/model';
-import { getToken, JWT } from 'next-auth/jwt';
+import { Link } from '@/types/model';
+import { getServerSession } from 'next-auth';
 
 /**
  * Returns the Profile of the logged-in user, i.e. the user whose JWT token is passed in the request.
@@ -12,13 +13,14 @@ import { getToken, JWT } from 'next-auth/jwt';
  * @returns a Profile object
  * @throws 401 if the user is not logged in, 404 if the profile is not found
  */
-export async function GET(req: NextRequest) {
-  const token = (await getToken({ req })) as (JWT & { user: UserSession }) | null;
-  if (!token?.user.id) {
+export async function GET() {
+  const session = await getServerSession(nextAuthOptions);
+
+  if (!session?.user.id) {
     return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
-  const profile = await fetchUserProfile(token.user.id);
+  const profile = await fetchUserProfile(session.user.id);
   if (!profile) {
     return NextResponse.json({ error: 'Profile was not found' }, { status: 404 });
   }
@@ -27,8 +29,9 @@ export async function GET(req: NextRequest) {
 }
 
 export async function PATCH(req: NextRequest) {
-  const token = (await getToken({ req })) as (JWT & { user: UserSession }) | null;
-  if (!token?.user.id) {
+  const session = await getServerSession(nextAuthOptions);
+
+  if (!session?.user.id) {
     return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
@@ -42,11 +45,11 @@ export async function PATCH(req: NextRequest) {
     links: Link[];
     avatar: string | null | undefined;
   };
-  const profile = await fetchUserProfile(token.user.id);
+  const profile = await fetchUserProfile(session.user.id);
   if (!profile) {
     return NextResponse.json({ error: 'Could not find user data' }, { status: 404 });
   }
-  const { id, links: currentLinks = [] } = profile;
+  const { links: currentLinks = [] } = profile;
 
   const linkIds = links.map((link) => link.id);
   const currentLinkIds = currentLinks.map((link) => link.id);
@@ -78,7 +81,7 @@ export async function PATCH(req: NextRequest) {
     createdLinks = await createLinks(newLinks);
   }
 
-  const updatedProfile = await updateUser({ id, ...profileData });
+  const updatedProfile = await updateUser({ id: session.user.id, ...profileData });
   const responseData = { ...updatedProfile, links: [...unChangedLinks, ...updatedLinks, ...createdLinks] };
   return Response.json(responseData);
 }

@@ -37,11 +37,11 @@ const useSuperAdminStore = create<SuperAdminStore>()(() => ({
             }),
           );
         }
-        const { profile } = useProfileStore.getState();
-        if (profile.group && profile.group.id === groupId) {
+        const { user, group } = useProfileStore.getState();
+        if (group && user.groupId === groupId) {
           useProfileStore.setState(
             produce((state: ProfileState) => {
-              if (state.profile.group) Object.assign(state.profile.group, { verified });
+              if (state.group) Object.assign(state.group, { verified });
             }),
           );
         }

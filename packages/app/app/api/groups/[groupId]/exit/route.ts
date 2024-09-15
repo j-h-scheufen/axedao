@@ -2,7 +2,7 @@ import { getServerSession } from 'next-auth';
 import { NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { fetchUserProfile, updateUser } from '@/db';
+import { updateUser } from '@/db';
 
 // TODO everything under the api/ route must be protected via middleware.ts to check for user session
 
@@ -14,12 +14,7 @@ export async function POST() {
   }
 
   try {
-    const userProfile = await fetchUserProfile(session.user.id);
-    if (!userProfile) {
-      throw new Error();
-    }
-    const { id } = userProfile;
-    await updateUser({ id, groupId: null });
+    await updateUser({ id: session.user.id, groupId: null });
     return Response.json({ success: true });
   } catch (error) {
     const message = error instanceof Error ? error.message : 'An unexpected server error occurred while exiting group';

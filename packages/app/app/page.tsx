@@ -12,11 +12,11 @@ export default function Home() {
 
   return (
     <>
-      <header className="mx-5 py-8 md:py-10">
-        <div className="relative text-center max-w-[500px] mx-auto">
+      <header className="mx-5 mt-8 md:mt-16">
+        <div className="relative text-center mx-auto">
           <RippleBackground />
           <div className="relative z-[1]">
-            <h1 className="font-bold text-xl mb-6">Welcome to AXE DAO</h1>
+            <h1 className="font-bold text-xl mb-6">Welcome to Quilombo</h1>
             <p className="my-3 text-default-600 text-sm">
               The advent of crypto/web3 has given the world a new set of tools. We are Capoeiristas from different
               corners of the world bringing these tools to the Capoeira community to create shared value. It is time for

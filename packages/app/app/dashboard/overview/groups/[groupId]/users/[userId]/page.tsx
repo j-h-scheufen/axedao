@@ -8,7 +8,7 @@ const Page = async ({ params }: { params: { userId: string } }) => {
 
   return (
     <div>
-      <PageHeading back={`/dashboard/overview/groups/${userProfile.groupId}`}>John Doe</PageHeading>
+      <PageHeading back={`/dashboard/overview/groups/${userProfile.user.groupId}`}>John Doe</PageHeading>
       <UserProfile profile={userProfile} />
     </div>
   );

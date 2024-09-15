@@ -1,6 +1,6 @@
 'use client';
 
-import { useProfileActions, useProfileInitStatus, useProfilErrors } from '@/store/profile.store';
+import { useIsProfileInitialized, useProfileActions, useProfileErrors } from '@/store/profile.store';
 import { useUsersActions, useUsersErrors, useUsersInitStatus } from '@/store/users.store';
 import { useSession } from 'next-auth/react';
 import { useEffect } from 'react';
@@ -14,9 +14,9 @@ import { useEffect } from 'react';
 export default function ClientInitializer() {
   const { initializeProfile } = useProfileActions();
   const { initializeUsers } = useUsersActions();
-  const { isProfileInitialized } = useProfileInitStatus();
+  const { initializeProfileError } = useProfileErrors();
+  const isProfileInitialized = useIsProfileInitialized();
   const { isUsersInitialized } = useUsersInitStatus();
-  const { initializeProfileError } = useProfilErrors();
   const { initializeUsersError } = useUsersErrors();
   const session = useSession();
 

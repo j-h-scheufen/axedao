@@ -11,12 +11,8 @@ export type User = SelectUser;
 export type Link = SelectLink;
 
 export type GroupProfile = SelectGroup & {
-  links?: Array<SelectLink>;
-  admins?: Array<
-    SelectUser & {
-      links: Array<SelectLink>;
-    }
-  >;
+  links: Array<Link>;
+  admins: Array<User>;
 };
 
 export type UserSession = {
@@ -25,7 +21,7 @@ export type UserSession = {
   isGlobalAdmin: boolean;
 };
 
-export type Profile = User & { links: Link[]; group: Group | null };
+export type Profile = { user: User; links: Link[]; group: Group | null };
 
 export type Country = { name: string; isoCode: string };
 

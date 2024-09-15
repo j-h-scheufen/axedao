@@ -62,7 +62,7 @@ const GroupProfile = ({ id }: Props) => {
       </div>
       <SubsectionHeading>Founder</SubsectionHeading>
       <div className="text-default-500">
-        {isFounderUUID ? <UserCard user={founderProfile} isLoading={isFetchingFounderProfile} /> : founder}
+        {isFounderUUID ? <UserCard user={founderProfile?.user} isLoading={isFetchingFounderProfile} /> : founder}
       </div>
       <SubsectionHeading>Members</SubsectionHeading>
       <GroupMembers id={id} />

@@ -1,6 +1,6 @@
 'use client';
 import pages from '@/config/pages';
-import { useProfile } from '@/store/profile.store';
+import { useProfileUser } from '@/store/profile.store';
 import { Tab, Tabs } from '@nextui-org/tabs';
 import { usePathname, useRouter } from 'next/navigation';
 import { useMemo } from 'react';
@@ -9,8 +9,8 @@ const BottomBar = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const profile = useProfile();
-  const { isGlobalAdmin } = profile;
+  const user = useProfileUser();
+  const { isGlobalAdmin } = user;
 
   const selectedPage = useMemo(() => {
     return pathname.split('/').slice(0, 3).join('/');

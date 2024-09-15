@@ -36,7 +36,7 @@ export const linkBaseUrls = [
 export const PATHS = {
   login: '/auth/login',
   dashboard: '/dashboard/overview',
-  profile: '/dashboard/profile',
-  swap: '/dashboard/axe/swap',
-  dao: '/dashboard/axe/dao',
+  profile: '/profile',
+  axe: '/axe',
+  dao: '/dao',
 };

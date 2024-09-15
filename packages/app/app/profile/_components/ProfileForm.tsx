@@ -3,18 +3,17 @@
 import { Button } from '@nextui-org/button';
 import { Select, SelectItem } from '@nextui-org/select';
 import { Field, FieldArray, FieldProps, Form, Formik, FormikProps } from 'formik';
+import { Mail, Phone } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { Suspense } from 'react';
 
-import { FieldInput } from '@/components/forms';
-import LinksArray from '@/components/forms/LinksArray';
+import { FieldInput, LinksArray } from '@/components/forms';
 import ImageUpload from '@/components/ImageUpload';
 import ProfileFormSkeleton from '@/components/skeletons/ProfileFormSkeleton';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import { titles } from '@/config/constants';
 import { ProfileFormType, profileFormSchema } from '@/config/validation-schema';
-import { Mail, Phone } from 'lucide-react';
-import { useProfile, useProfileActions } from '../../../../store/profile.store';
+import { useProfile, useProfileActions } from '@/store/profile.store';
 
 const ProfileForm = () => {
   const router = useRouter();
@@ -36,12 +35,12 @@ const ProfileForm = () => {
 
   // NOTE: The initial form values MUST BE declared outside of the JSX code, otherwise it can lead to hydration errors.
   const initValues: ProfileFormType = {
-    name: profile.name || '',
-    nickname: profile.nickname || '',
-    title: profile.title || undefined,
-    email: profile.email || '',
-    phone: profile.phone || '',
-    avatar: profile.avatar || undefined,
+    name: profile.user.name || '',
+    nickname: profile.user.nickname || '',
+    title: profile.user.title || undefined,
+    email: profile.user.email || '',
+    phone: profile.user.phone || '',
+    avatar: profile.user.avatar || undefined,
     links: profile.links || [],
   };
 
@@ -113,7 +112,7 @@ const ProfileForm = () => {
             <SubsectionHeading>Social Links</SubsectionHeading>
             <FieldArray name="links">
               {(helpers) => (
-                <LinksArray {...helpers} links={values.links} ownerId={profile.id} setFieldValue={setFieldValue} />
+                <LinksArray {...helpers} links={values.links} ownerId={profile.user.id} setFieldValue={setFieldValue} />
               )}
             </FieldArray>
 

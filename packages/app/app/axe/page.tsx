@@ -3,7 +3,6 @@
 import { Tab, Tabs } from '@nextui-org/tabs';
 
 import { Swap, Transfer } from '@/components/axe';
-import { DaoMembership, Treasury } from '@/components/axe/dao';
 
 const AxePage = () => {
   return (
@@ -21,14 +20,6 @@ const AxePage = () => {
             <h2 className="text-3xl font-bold text-center mb-1">Buy / Sell Axé</h2>
             <p className="text-center">Buy and sell Axé with USD.</p>
             <Swap />
-          </div>
-        </Tab>
-        <Tab key="dao" title="DAO" className="w-full">
-          <div className="flex w-full flex-col gap-2 sm:gap-4 items-center">
-            <h2 className="text-3xl font-bold text-center mb-1">Axé DAO</h2>
-            <p className="text-center">The Axé DAO governs the community treasury and the Axé Safe.</p>
-            <Treasury />
-            <DaoMembership />
           </div>
         </Tab>
       </Tabs>

@@ -2,11 +2,10 @@ import axios from 'axios';
 import { create } from 'zustand';
 
 import { CreateNewGroupFormType, ProfileFormType } from '@/config/validation-schema';
-import { Profile } from '@/types/model';
+import { Profile, User } from '@/types/model';
 import { generateErrorMessage, uploadImage } from '@/utils';
 
-export type ProfileState = {
-  profile: Profile;
+export type ProfileState = Profile & {
   isInitialized: boolean;
   isInitializing: boolean;
   initializeProfileError?: string;
@@ -17,7 +16,7 @@ export type ProfileState = {
   isJoiningGroup: boolean;
   joinGroupError?: string;
   isUploadingAvatar?: boolean;
-  isSignedIn?: boolean;
+  isSignedIn: boolean;
 };
 
 export type ProfileActions = {
@@ -36,24 +35,26 @@ export type ProfileStore = ProfileState & { actions: ProfileActions };
 
 const now = new Date();
 export const DEFAULT_PROFILE: Profile = {
-  id: '',
-  createdAt: now,
-  name: null,
-  updatedAt: now,
-  nickname: null,
-  title: null,
-  avatar: null,
-  email: '',
-  groupId: null,
+  user: {
+    id: '',
+    createdAt: now,
+    name: null,
+    updatedAt: now,
+    nickname: null,
+    title: null,
+    avatar: null,
+    email: '',
+    groupId: null,
+    walletAddress: '',
+    phone: '',
+    isGlobalAdmin: false,
+  },
   links: [],
   group: null,
-  walletAddress: '',
-  phone: '',
-  isGlobalAdmin: false,
 };
 
 const DEFAULT_STATE: ProfileState = {
-  profile: DEFAULT_PROFILE,
+  ...DEFAULT_PROFILE,
   isInitialized: false,
   isInitializing: false,
   isUpdatingProfile: false,
@@ -66,11 +67,12 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
   ...DEFAULT_STATE,
   actions: {
     initializeProfile: async () => {
-      if (get().isInitialized || get().isInitializing) return;
+      const { isInitialized, isInitializing } = get();
+      if (isInitialized || isInitializing) return;
       set({ isInitializing: true });
       try {
         const { data: profile } = await axios.get('/api/profile');
-        set({ profile, isInitialized: true });
+        set({ ...profile, isInitialized: true });
       } catch (error: unknown) {
         const message =
           error instanceof Error
@@ -89,7 +91,7 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
     },
     updateProfile: async (profileData: ProfileFormType) => {
       const {
-        profile: { id },
+        user: { id },
         isUpdatingProfile,
         actions: { uploadAvatar },
       } = get();
@@ -105,7 +107,7 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
           }
         }
         const { data: profile } = await axios.patch('/api/profile', profileData);
-        set({ profile });
+        set({ ...profile });
       } catch (error: unknown) {
         const message = error instanceof Error ? error.message : 'An error occured while updating your profile';
         set({ profileUpdateError: message });
@@ -113,14 +115,14 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
       set({ isUpdatingProfile: false });
     },
     joinGroup: async (groupId: string) => {
-      const { isJoiningGroup, profile } = get();
+      const { isJoiningGroup } = get();
       if (isJoiningGroup) return;
       set({ isJoiningGroup: true });
       try {
         const { data } = await axios.post(`/api/groups/${groupId}/join`);
         if (!data.group) throw new Error('An error occurred while joining group');
         const { group } = data;
-        set({ profile: { ...profile, group, groupId: group.id } });
+        set((state) => ({ ...state, user: { ...state.user, groupId: group.id }, group }));
       } catch (error) {
         const message = error instanceof Error ? error.message : 'An error occured while joining group';
         set({ joinGroupError: message });
@@ -128,14 +130,16 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
       set({ isJoiningGroup: false });
     },
     exitGroup: async () => {
-      const { isExitingGroup, profile } = get();
-      const { groupId } = profile;
+      const {
+        isExitingGroup,
+        user: { groupId },
+      } = get();
       if (isExitingGroup || !groupId) return;
       set({ isExitingGroup: true });
       try {
         const { data } = await axios.post(`/api/groups/${groupId}/exit`);
-        if (!data.success) throw new Error();
-        set({ profile: { ...profile, groupId: null, group: null } });
+        if (!data.success) throw new Error(data.message || 'An error occurred while exiting group');
+        set((state) => ({ ...state, user: { ...state.user, groupId: null }, group: null }));
       } catch (error) {
         const message = error instanceof Error ? error.message : 'An error occured while exiting group';
         set({ exitGroupError: message });
@@ -143,20 +147,18 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
       set({ isExitingGroup: false });
     },
     createGroup: async (groupProfileData: CreateNewGroupFormType) => {
-      const { profile } = get();
       try {
         const { data } = await axios.post(`/api/groups`, groupProfileData);
         if (!data.group) throw new Error('An error occurred while creating group');
         const { group } = data;
-        set({ profile: { ...profile, group, groupId: group.id } });
+        set((state) => ({ ...state, user: { ...state.user, groupId: group.id }, group }));
       } catch (error: unknown) {
         const message = generateErrorMessage(error, 'An error occured while creating group');
         throw new Error(message);
       }
     },
     removeGroupAssociation: async () => {
-      const { profile } = get();
-      set({ profile: { ...profile, groupId: null, group: null } });
+      set((state) => ({ ...state, user: { ...state.user, groupId: null }, group: null }));
     },
     setIsSignedIn: (isSignedIn) => {
       set({ isSignedIn });
@@ -169,23 +171,18 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
 
 export const useProfileActions = (): ProfileActions => useProfileStore((state) => state.actions);
 
-export const useProfile = (): Profile => useProfileStore((state) => state.profile);
+export const useProfile = (): Profile =>
+  useProfileStore((state) => ({ user: state.user, links: state.links, group: state.group }));
 
-export const useIsUpdatingProfile = (): boolean => useProfileStore((state) => state.isUpdatingProfile);
+export const useProfileUser = (): User => useProfileStore((state) => state.user);
 
-export const useIsJoiningGroup = (): boolean => useProfileStore((state) => state.isJoiningGroup);
+export const useIsSignedIn = (): boolean => useProfileStore((state) => state.isSignedIn);
+
+export const useIsProfileInitialized = (): boolean => useProfileStore((state) => state.isInitialized);
 
 export const useIsExitingGroup = (): boolean => useProfileStore((state) => state.isExitingGroup);
 
-export const useIsSignedIn = (): boolean => useProfileStore((state) => state.isSignedIn || false);
-
-export const useProfileInitStatus = () =>
-  useProfileStore((state) => ({
-    isProfileInitializing: state.isInitializing,
-    isProfileInitialized: state.isInitialized,
-  }));
-
-export const useProfilErrors = () =>
+export const useProfileErrors = () =>
   useProfileStore((state) => ({
     initializeProfileError: state.initializeProfileError,
     profileUpdateError: state.profileUpdateError,

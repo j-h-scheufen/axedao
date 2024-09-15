@@ -1,8 +1,9 @@
 'use client';
 
-import CreateNewGroupForm from '@/app/dashboard/profile/_components/CreateNewGroupForm';
-import JoinGroupForm from '@/app/dashboard/profile/_components/JoinGroupForm';
 import { Tab, Tabs } from '@nextui-org/tabs';
+
+import CreateNewGroupForm from './CreateNewGroupForm';
+import JoinGroupForm from './JoinGroupForm';
 import CreateGroupAssociationSkeleton from './skeletons';
 
 type Props = { isLoading?: boolean };

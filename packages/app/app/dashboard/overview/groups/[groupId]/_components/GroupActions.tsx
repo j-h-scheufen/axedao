@@ -6,7 +6,7 @@ import { SettingsIcon } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 
-import { useIsExitingGroup, useProfile, useProfileActions } from '@/store/profile.store';
+import { useIsExitingGroup, useProfileActions, useProfileUser } from '@/store/profile.store';
 import { useGroupProfile, useIsGroupAdmin } from '../store/groupProfile.store';
 import LeaveGroupConfirmationModal from './LeaveGroupConfirmationModal';
 
@@ -16,16 +16,16 @@ const GroupActions = () => {
 
   const pathname = usePathname();
 
-  const profile = useProfile();
+  const user = useProfileUser();
   const groupProfile = useGroupProfile();
-  const isGroupMember = profile.groupId === groupProfile.id;
+  const isGroupMember = user.groupId === groupProfile.id;
   const isGroupAdmin = useIsGroupAdmin();
 
-  const profileActions = useProfileActions();
+  const { exitGroup } = useProfileActions();
   const isExitingGroup = useIsExitingGroup();
 
   const exitGroupHandler = async () => {
-    await profileActions.exitGroup();
+    await exitGroup();
     router.push('/dashboard/profile');
   };
 

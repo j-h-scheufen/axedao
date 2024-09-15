@@ -13,7 +13,10 @@ type Props = {
 };
 
 const UserProfile = ({ profile }: Props) => {
-  const { name, title, avatar, links } = profile;
+  const {
+    user: { name, title, avatar },
+    links,
+  } = profile;
 
   return (
     <Suspense fallback={<ProfileSkeleton />}>

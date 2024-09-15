@@ -64,13 +64,20 @@ export async function fetchSessionData(walletAddress: string): Promise<UserSessi
 }
 
 export async function fetchUserProfile(userId: string): Promise<Profile | undefined> {
-  return (await db.query.users.findFirst({
+  const result = await db.query.users.findFirst({
     where: (users, { eq }) => eq(users.id, userId),
     with: {
       links: true,
       group: true,
     },
-  })) as Profile | undefined;
+  });
+  if (!result) return undefined;
+  // Have to do this because the result is not typed as Profile due to the 'with' clause
+  const { links, group, ...user } = result as schema.SelectUser & {
+    links: schema.SelectLink[];
+    group: schema.SelectGroup;
+  };
+  return { user, links, group };
 }
 
 export async function countUsers() {
@@ -152,7 +159,7 @@ export async function fetchGroupProfile(groupId: string): Promise<GroupProfile |
   const group = await db.select().from(schema.groups).where(eq(schema.groups.id, groupId));
   const links = await db.select().from(schema.links).where(eq(schema.links.ownerId, groupId));
   if (group.length == 0) throw new Error('Group not found');
-  return { ...group[0], links };
+  return { ...group[0], links, admins: [] }; // TODO why are admins not fetched here? Check in page if fetched async
 }
 
 export async function fetchGroupIdFromName(name: string): Promise<string | undefined> {

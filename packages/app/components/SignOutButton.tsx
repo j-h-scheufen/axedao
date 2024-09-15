@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@nextui-org/button';
+import { Button, ButtonProps } from '@nextui-org/button';
 import { Spinner } from '@nextui-org/spinner';
 import { LogOutIcon } from 'lucide-react';
 import { useSession } from 'next-auth/react';
@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 import useAuth from '@/hooks/useAuth';
 
-const SignOutButton = () => {
+const SignOutButton = (props: ButtonProps) => {
   const session = useSession();
   const [isLoading, setIsLoading] = useState(false);
   const { logout } = useAuth();
@@ -25,9 +25,11 @@ const SignOutButton = () => {
         await logout();
         setIsLoading(false);
       }}
+      {...props}
     >
       {isLoading ? <Spinner size="sm" color="default" /> : <LogOutIcon className="h-4 w-4 text-default-500" />}
     </Button>
   );
 };
+
 export default SignOutButton;

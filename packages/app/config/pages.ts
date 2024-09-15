@@ -1,3 +1,6 @@
+/**
+ * DEPRECATED not in use after Navbar refactoring
+ */
 import { OverviewLayout } from '@/components/icons';
 import { LucideIcon, Shield, User, Wallet2 } from 'lucide-react';
 
