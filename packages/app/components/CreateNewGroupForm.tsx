@@ -13,7 +13,6 @@ const CreateNewGroupForm = () => {
 
   const handleSubmit = (values: CreateNewGroupFormType) => {
     try {
-      console.log('Creating group with values:', values);
       return createGroup(values);
     } catch (error) {
       console.error('Error during group creation.', error);

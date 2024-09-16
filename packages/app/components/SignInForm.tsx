@@ -11,7 +11,7 @@ import ErrorText from './ErrorText';
 
 const SignInForm = () => {
   const { data: session } = useSession();
-  const { address, chainId } = useAccount();
+  const { address } = useAccount();
   const { connect, error: connectError } = useConnect();
   const {
     signIn,
@@ -37,7 +37,7 @@ const SignInForm = () => {
             color="primary"
             variant="ghost"
             className="w-full mt-2"
-            onPress={() => connect({ chainId: sepolia.id, connector: silk() })}
+            onPress={() => connect({ chainId: sepolia.id, connector: silk() })} // TODO the current network is hardcoded
           >
             Connect with Silk
           </Button>
@@ -52,9 +52,6 @@ const SignInForm = () => {
             <br />
             In order to complete Login we ask you to sign a message. By doing so you accept the Terms and Conditions of
             the app. Click the below button to proceed.
-            <br />
-            <br />
-            Chain: {chainId}
           </p>
           <Button
             size="lg"

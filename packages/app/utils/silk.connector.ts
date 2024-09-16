@@ -123,7 +123,6 @@ export default function silk(referralCode?: string) {
 
     async disconnect(): Promise<void> {
       const provider = await this.getProvider();
-      console.log('Disconnecting');
       // TODO: Silk does not have a logout method
       provider.uiMessageManager.removeListener('accountsChanged', this.onAccountsChanged);
       provider.uiMessageManager.removeListener('chainChanged', this.onChainChanged);

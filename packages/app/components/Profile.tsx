@@ -11,10 +11,8 @@ import { ProfileSkeleton } from '@/components/skeletons/ProfileSkeletons';
 import { PATHS } from '@/config/constants';
 import { useProfile } from '@/store/profile.store';
 import { getUserDisplayName } from '@/utils';
-import { useAccount } from 'wagmi';
 
 const Profile = () => {
-  const account = useAccount();
   const profile = useProfile();
   const { user, links } = profile;
 
@@ -34,8 +32,6 @@ const Profile = () => {
               <div className="text-small capitalize text-default-500 flex justify-center xs:justify-start gap-2 mt-2">
                 {user.title}
               </div>
-              <div>Wagmi Account: {account.address}</div>
-              <div>Silk Account: {user.walletAddress}</div>
             </div>
             <div className="xs:mb-auto xs:ml-auto">
               <Button

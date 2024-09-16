@@ -21,7 +21,7 @@ const ActionCell = ({ group }: Props) => {
     try {
       await updateGroupVerification(group.id, !verified);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
     setIsUpdating(false);
   };

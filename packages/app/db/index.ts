@@ -39,7 +39,6 @@ export async function fetchUsers() {
 
 export async function searchUsers(options: FetchUsersOptions) {
   const { limit = 20, offset = 0, searchTerm, searchBy = 'name' } = options;
-  console.log('Fetching users with options: ', options);
   const filters: (SQLWrapper | undefined)[] = [];
   if (searchTerm) filters.push(ilike(schema.users[searchBy], `%${searchTerm}%`));
   return await db.query.users.findMany({

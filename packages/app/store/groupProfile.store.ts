@@ -62,7 +62,7 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
         const { groupProfile, isAdmin } = data || {};
         set({ groupProfile, isGroupAdmin: isAdmin });
       } catch (error: unknown) {
-        console.log(error);
+        console.error(error);
         const message = generateErrorMessage(error, 'An error occured while fetching group');
         set({ initializeGroupError: message });
       }
