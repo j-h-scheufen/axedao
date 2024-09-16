@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { produce } from 'immer';
-import { omit } from 'lodash';
 import { create } from 'zustand';
 
 import { GroupFormType } from '@/config/validation-schema';
@@ -32,21 +31,23 @@ export type GroupStore = GroupProfileState & { actions: GroupProfileActions };
 const now = new Date();
 const DEFAULT_PROPS: GroupProfileState = {
   groupProfile: {
-    id: '',
-    email: '',
-    createdAt: now,
-    name: '',
-    updatedAt: now,
-    description: null,
-    logo: null,
-    banner: null,
-    leader: null,
-    founder: null,
-    verified: false,
+    group: {
+      id: '',
+      email: '',
+      createdAt: now,
+      name: '',
+      updatedAt: now,
+      description: null,
+      logo: null,
+      banner: null,
+      leader: null,
+      founder: null,
+      verified: false,
+      city: '',
+      country: '',
+    },
     links: [],
-    admins: [],
-    city: '',
-    country: '',
+    adminIds: [],
   },
   isGroupAdmin: false,
   isDeleting: false,
@@ -81,7 +82,9 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
     },
     updateGroupProfile: async (_groupProfileData: GroupFormType) => {
       const {
-        groupProfile: { id },
+        groupProfile: {
+          group: { id },
+        },
         actions: { uploadBanner, uploadLogo },
       } = get();
       try {
@@ -102,12 +105,13 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
             delete groupProfileData.banner;
           }
         }
-        const { data } = await axios.patch<Omit<GroupProfile, 'admins'>>(`/api/groups/${id}`, groupProfileData);
-        const groupProfile = { ...data, admins: get().groupProfile?.admins };
+        const { data } = await axios.patch<Omit<GroupProfile, 'adminIds'>>(`/api/groups/${id}`, groupProfileData);
+        const groupProfile = { ...data, adminIds: get().groupProfile?.adminIds };
         set({ groupProfile });
+        // update the user's group in profile store
         useProfileStore.setState(
           produce((state: ProfileState) => {
-            state.group = omit(data, ['links']);
+            state.group = data.group;
           }),
         );
       } catch (error: unknown) {
@@ -117,7 +121,7 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
     },
     delete: async () => {
       const { groupProfile, isDeleting } = get();
-      const groupId = groupProfile.id;
+      const groupId = groupProfile.group.id;
       if (!groupId || isDeleting) return;
       set({ isDeleting: true });
       try {
@@ -146,5 +150,7 @@ export const useInitializeGroupError = (): string | undefined =>
   useGroupProfileStore((state) => state.initializeGroupError);
 
 export const useIsGroupAdmin = (): boolean => useGroupProfileStore((state) => state.isGroupAdmin);
+
+export const useGroupBanner = (): string | null => useGroupProfileStore((state) => state.groupProfile.group.banner);
 
 export const useIsDeletingGroup = (): boolean => useGroupProfileStore((state) => state.isDeleting);

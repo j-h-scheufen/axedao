@@ -10,9 +10,10 @@ export type User = SelectUser;
 
 export type Link = SelectLink;
 
-export type GroupProfile = SelectGroup & {
+export type GroupProfile = {
+  group: Group;
   links: Array<Link>;
-  admins: Array<User>;
+  adminIds: Array<string>;
 };
 
 export type UserSession = {

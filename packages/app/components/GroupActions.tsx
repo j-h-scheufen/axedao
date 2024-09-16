@@ -19,7 +19,7 @@ const GroupActions = () => {
 
   const user = useProfileUser();
   const groupProfile = useGroupProfile();
-  const isGroupMember = user.groupId === groupProfile.id;
+  const isGroupMember = user.groupId === groupProfile.group.id;
   const isGroupAdmin = useIsGroupAdmin();
 
   const { exitGroup } = useProfileActions();

@@ -28,7 +28,7 @@ const useSuperAdminStore = create<SuperAdminStore>()(() => ({
           }),
         );
         const { groupProfile } = useGroupProfileStore.getState();
-        if (groupProfile?.id === groupId) {
+        if (groupProfile?.group.id === groupId) {
           useGroupProfileStore.setState(
             produce((state: GroupProfileState) => {
               Object.assign(state.groupProfile, { verified });

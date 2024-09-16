@@ -6,15 +6,7 @@ import { boolean, number, object, string } from 'yup';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { createNewGroupFormSchema, CreateNewGroupFormType } from '@/config/validation-schema';
-import {
-  addGroupAdmin,
-  countGroups,
-  fetchGroupIdFromName,
-  fetchGroups,
-  fetchUserProfile,
-  insertGroup,
-  updateUser,
-} from '@/db';
+import { addGroupAdmin, countGroups, fetchGroups, fetchUserProfile, insertGroup, updateUser } from '@/db';
 import { generateErrorMessage } from '@/utils';
 
 const groupOptionsSchema = object({
@@ -86,12 +78,6 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Invalid group data' }, { status: 400 });
     }
     const groupData = body as CreateNewGroupFormType;
-    const { name } = groupData;
-
-    const groupExists = await fetchGroupIdFromName(name);
-    if (groupExists) {
-      return NextResponse.json({ error: `A group with the name "${name}" already exists` }, { status: 403 });
-    }
 
     const newGroupId = uuidv4();
     const group = await insertGroup({ ...groupData, id: newGroupId, verified: false });

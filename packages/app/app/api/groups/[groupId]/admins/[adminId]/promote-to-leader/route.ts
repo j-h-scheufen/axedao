@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-import { addGroupAdmin, fetchGroupProfile, isGroupAdmin, updateGroup } from '@/db';
+import { addGroupAdmin, fetchGroup, isGroupAdmin, updateGroup } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import { getToken } from 'next-auth/jwt';
 
@@ -13,7 +13,7 @@ export async function POST(req: NextRequest, { params }: { params: { groupId: st
 
   const { groupId, adminId } = params;
 
-  const group = await fetchGroupProfile(groupId);
+  const group = await fetchGroup(groupId);
 
   if (userId !== group?.leader) {
     return Response.json(

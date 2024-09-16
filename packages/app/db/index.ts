@@ -142,12 +142,6 @@ export async function isGroupAdmin(groupId: string, userId: string): Promise<boo
   return result.length > 0 && result[0].value > 0;
 }
 
-export async function fetchUserIdFromEmail(email: string): Promise<string | undefined> {
-  const users = await db.select({ id: schema.users.id }).from(schema.users).where(eq(schema.users.email, email));
-  if (users.length === 0) return undefined;
-  return users[0].id;
-}
-
 export async function fetchGroup(groupId: string) {
   return await db.query.groups.findFirst({
     where: (groups, { eq }) => eq(groups.id, groupId),
@@ -157,15 +151,14 @@ export async function fetchGroup(groupId: string) {
 export async function fetchGroupProfile(groupId: string): Promise<GroupProfile | undefined> {
   const group = await db.select().from(schema.groups).where(eq(schema.groups.id, groupId));
   const links = await db.select().from(schema.links).where(eq(schema.links.ownerId, groupId));
+  const adminIds = await fetchGroupAdminIds(groupId);
   if (group.length == 0) throw new Error('Group not found');
-  return { ...group[0], links, admins: [] }; // TODO why are admins not fetched here? Check in page if fetched async
+  return { group: group[0], links, adminIds };
 }
 
-export async function fetchGroupIdFromName(name: string): Promise<string | undefined> {
-  const groups = await db.select({ id: schema.groups.id }).from(schema.groups).where(eq(schema.groups.name, name));
-  if (groups.length === 0) return undefined;
-  return groups[0].id;
-}
+export async function isGroupExists(groupId: string) {}
+
+export async function isUserExists(userId: string) {}
 
 export async function fetchGroupMembers(groupId: string, limit: number = 20, offset: number = 0, searchTerm?: string) {
   return await db
@@ -240,13 +233,12 @@ export async function addGroupAdmin(entry: schema.InsertGroupAdmin) {
   await db.insert(schema.groupAdmins).values(entry);
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export async function fetchGroupAdmins(groupId: string, limit: number = 20, offset: number = 0) {
-  return await db.select().from(schema.groupAdmins);
-  // .innerJoin(schema.users, eq(schema.groupAdmins.userId, schema.users.id))
-  // .where(eq(schema.groupAdmins.groupId, groupId))
-  // .limit(limit)
-  // .offset(offset);
+export async function fetchGroupAdminIds(groupId: string): Promise<string[]> {
+  const result = await db
+    .select({ id: schema.groupAdmins.userId })
+    .from(schema.groupAdmins)
+    .where(eq(schema.groupAdmins.groupId, groupId));
+  return result.map((entry) => entry.id);
 }
 
 export async function removeGroupAdmin(groupId: string, adminId: string) {

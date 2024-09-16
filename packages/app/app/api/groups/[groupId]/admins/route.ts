@@ -1,19 +1,30 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-import { fetchGroupAdmins, fetchGroupProfile, fetchUserProfile } from '@/db';
+import { fetchGroup, fetchGroupAdminIds } from '@/db';
 import { generateErrorMessage } from '@/utils';
 
-export async function GET(request: NextRequest, { params }: { params: { groupId: string } }) {
+export type GroupRolesResponse = {
+  adminIds: string[];
+  founder: string;
+  leader: string;
+};
+
+/**
+ * Returns the admin IDs, founder, and leader ID of a group
+ * @returns GroupRolesResponse
+ */
+export async function GET(
+  req: NextRequest,
+  res: NextResponse<GroupRolesResponse>,
+  { params }: { params: { groupId: string } },
+) {
   try {
     const { groupId } = params;
-    const groupProfile = await fetchGroupProfile(groupId);
-    if (!groupProfile) return NextResponse.json({ error: 'Unable to fetch group profile' }, { status: 404 });
+    const group = await fetchGroup(groupId);
+    if (!group) return NextResponse.json({ error: `Group ID ${groupId} does not exist` }, { status: 404 });
 
-    const founder = groupProfile.founder ? await fetchUserProfile(groupProfile.founder) : undefined;
-    const leader = groupProfile.leader ? await fetchUserProfile(groupProfile.leader) : undefined;
-
-    const admins = await fetchGroupAdmins(groupId);
-    return Response.json({ admins, founder, leader });
+    const adminIds = await fetchGroupAdminIds(groupId);
+    return NextResponse.json({ adminIds, founder: group.founder, leader: group.leader });
   } catch (error) {
     const message = generateErrorMessage(error, 'An unexpected server error occurred while fetching group admins');
     return Response.json(

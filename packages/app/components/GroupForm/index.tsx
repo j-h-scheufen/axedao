@@ -24,9 +24,9 @@ const GroupForm = ({ id }: Props) => {
   const { removeGroupAssociation } = useProfileActions();
   const { initialize: initGroupProfile, delete: deleteGroup, updateGroupProfile } = useGroupProfileActions();
   const { initialize: initGroupMembers } = useGroupMembersActions();
-  const groupProfile = useGroupProfile();
+  const { group, links, adminIds } = useGroupProfile();
   const isDeleting = useIsDeletingGroup();
-  const [charsLeft, setCharsLeft] = useState<number>(300 - (groupProfile.description?.length || 0));
+  const [charsLeft, setCharsLeft] = useState<number>(300 - (group.description?.length || 0));
 
   useEffect(() => {
     initGroupProfile(id);
@@ -49,15 +49,14 @@ const GroupForm = ({ id }: Props) => {
   };
 
   const initValues: GroupFormType = {
-    name: groupProfile.name || '',
-    email: groupProfile.email || '',
-    founder: groupProfile.founder || '',
-    description: groupProfile.description || '',
-    logo: groupProfile.logo || '',
-    banner: groupProfile.banner || '',
-    leader: groupProfile.leader || '',
-    admins: groupProfile.admins || [],
-    links: groupProfile.links || [],
+    name: group.name || '',
+    email: group.email || '',
+    founder: group.founder || '',
+    description: group.description || '',
+    logo: group.logo || '',
+    banner: group.banner || '',
+    adminIds: adminIds || [],
+    links: links || [],
   };
 
   return (
@@ -130,7 +129,7 @@ const GroupForm = ({ id }: Props) => {
             <SubsectionHeading>Links</SubsectionHeading>
             <FieldArray name="links">
               {(helpers) => (
-                <LinksArray {...helpers} links={values.links} ownerId={groupProfile.id} setFieldValue={setFieldValue} />
+                <LinksArray {...helpers} links={values.links} ownerId={group.id} setFieldValue={setFieldValue} />
               )}
             </FieldArray>
 

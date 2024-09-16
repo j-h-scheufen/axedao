@@ -101,12 +101,7 @@ export const groupFormSchema = object({
       return true;
     }),
   links: linksSchema,
-  admins: array().of(
-    object({
-      id: string().required(),
-    }),
-  ),
-  leader: string(),
+  adminIds: array().of(string()),
 });
 
 export type GroupFormType = InferType<typeof groupFormSchema>;

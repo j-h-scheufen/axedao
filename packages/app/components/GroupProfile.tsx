@@ -22,7 +22,10 @@ const GroupProfile = ({ id }: Props) => {
   const groupProfileActions = useGroupProfileActions();
   const groupProfile = useGroupProfile();
 
-  const { name, logo, links, founder } = groupProfile;
+  const {
+    group: { name, logo, founder, email, description },
+    links,
+  } = groupProfile;
   const isFounderUUID = !!founder && isUUID(founder);
 
   const userActions = useUserActions();
@@ -51,10 +54,10 @@ const GroupProfile = ({ id }: Props) => {
           className="mx-auto mb-5 block aspect-square h-full max-h-20 w-full max-w-20 xs:mx-0 xs:mb-0 xs:inline-block"
         />
         <div className="flex-1">
-          <GroupDescription />
-          {groupProfile.email && (
-            <Link href={`mailto:${groupProfile.email}`} className="text-small tracking-tight text-default-400">
-              {groupProfile.email}
+          <GroupDescription description={description}/>
+          {email && (
+            <Link href={`mailto:${email}`} className="text-small tracking-tight text-default-400">
+              {email}
             </Link>
           )}
           <ContactInfo links={links} />

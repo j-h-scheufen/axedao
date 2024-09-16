@@ -1,7 +1,7 @@
 import axios, { AxiosError } from 'axios';
 
 import { GroupMemberRole } from '@/store/groupMembers.store';
-import { GroupProfile, User } from '@/types/model';
+import { User } from '@/types/model';
 
 export const generateErrorMessage = (error: unknown, defaultMessage: string) => {
   let message = defaultMessage;
@@ -25,15 +25,13 @@ export const uploadImage = async (imageFile: File, name?: string) => {
   if (url) return url;
 };
 
-export const getGroupMemberRole = (userId: string, group: GroupProfile) => {
-  const { founder, leader, admins } = group;
-  const adminIds = admins?.map((admin) => admin.id) || [];
+export const getGroupMemberRole = (userId: string, founder?: string, leader?: string, adminIds?: string[]) => {
   let role = 'member';
   if (userId === founder) {
     role = 'founder';
   } else if (userId === leader) {
     role = 'leader';
-  } else if (adminIds.includes(userId)) {
+  } else if (adminIds?.includes(userId)) {
     role = 'admin';
   }
   return role as GroupMemberRole;
