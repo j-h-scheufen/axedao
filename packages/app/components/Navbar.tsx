@@ -96,7 +96,13 @@ const Navbar: React.FC = () => {
               <DropdownItem key="my-profile" href={PATHS.profile}>
                 My Profile
               </DropdownItem>
-              {user.isGlobalAdmin ? <DropdownItem key="admin" href={PATHS.admin}>Admin</DropdownItem> : <></>}
+              {user.isGlobalAdmin ? (
+                <DropdownItem key="admin" href={PATHS.admin}>
+                  Admin
+                </DropdownItem>
+              ) : (
+                <></>
+              )}
               <DropdownItem key="logout" color="danger" onPress={logout}>
                 Log out
               </DropdownItem>

@@ -8,8 +8,8 @@ import { fontFiraCode, fontInter, fontOpenSans } from '@/config/fonts';
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { siteConfig } from '@/config/site';
 import ThemeProvider from './_providers/nextUI.provider';
-import Web3Provider from './_providers/silk.provider';
 import SnackbarProvider from './_providers/snackbar.provider';
+import Web3Provider from './_providers/wagmi.provider';
 
 import ClientInitializer from '@/components/ClientInitializer';
 import '@/styles/globals.css';
