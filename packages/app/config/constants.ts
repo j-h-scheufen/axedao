@@ -40,4 +40,6 @@ export const PATHS = {
   admin: '/admin',
   axe: '/axe',
   dao: '/dao',
+  users: '/search/users',
+  groups: '/search/groups',
 };

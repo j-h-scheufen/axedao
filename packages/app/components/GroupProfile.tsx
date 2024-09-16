@@ -23,7 +23,7 @@ const GroupProfile = ({ id }: Props) => {
   const groupProfile = useGroupProfile();
 
   const { name, logo, links, founder } = groupProfile;
-  const isFounderUUID = founder && isUUID(founder);
+  const isFounderUUID = !!founder && isUUID(founder);
 
   const userActions = useUserActions();
   const founderProfile = useUser();

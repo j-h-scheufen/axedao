@@ -96,6 +96,13 @@ const Navbar: React.FC = () => {
               <DropdownItem key="my-profile" href={PATHS.profile}>
                 My Profile
               </DropdownItem>
+              {user.groupId ? (
+                <DropdownItem key="my-group" href={`${PATHS.groups}/${user.groupId}`}>
+                  My Group
+                </DropdownItem>
+              ) : (
+                <></>
+              )}
               {user.isGlobalAdmin ? (
                 <DropdownItem key="admin" href={PATHS.admin}>
                   Admin
