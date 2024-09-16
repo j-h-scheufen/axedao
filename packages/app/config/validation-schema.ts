@@ -150,3 +150,19 @@ export const joinGroupFormSchema = object({
 });
 
 export type JoinGroupFormType = InferType<typeof joinGroupFormSchema>;
+
+export const axeTransferForm = object({
+  amount: string()
+    .required('Amount is required')
+    .test('is-numeric', 'Amount must be a positive number greater zero', (value) => {
+      return /^(?=.*[1-9])\d*(?:\.\d*)?$/.test(value || '');
+    }),
+  to: string()
+    .required('Recipient is required')
+    .test('is-address', 'Invalid address', (value) => {
+      // basic address validation, not checksummed
+      return /^(0x)?[0-9a-f]{40}$/i.test(value || '');
+    }),
+});
+
+export type AxeTransferForm = InferType<typeof axeTransferForm>;

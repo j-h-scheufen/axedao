@@ -1,5 +1,5 @@
-import ProfileForm from '@/app/dashboard/profile/_components/ProfileForm';
 import PageHeading from '@/components/PageHeading';
+import ProfileForm from '../_components/ProfileForm';
 
 const page = () => {
   return (

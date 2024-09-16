@@ -16,10 +16,10 @@ export async function GET(request: NextRequest, { params }: { params: { userId: 
     const { userId } = params;
     if (!userId) throw new Error('Invalid user id');
 
-    const user = await fetchUserProfile(userId);
-    if (!user?.id) throw new Error('Unable to fetch user profile');
+    const profile = await fetchUserProfile(userId);
+    if (!profile) return NextResponse.json({ error: 'User profile not found' }, { status: 404 });
 
-    return Response.json(user);
+    return Response.json(profile);
   } catch (error) {
     const message = generateErrorMessage(error as Error, 'An unexpected error occured whild fetching user');
     return Response.json(

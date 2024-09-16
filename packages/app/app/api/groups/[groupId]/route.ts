@@ -4,16 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { GroupFormType, LinkTypes, groupFormSchema } from '@/config/validation-schema';
-import {
-  addLink,
-  deleteGroup,
-  fetchGroupProfile,
-  fetchUserProfile,
-  isGroupAdmin,
-  removeLink,
-  updateGroup,
-  updateLink,
-} from '@/db';
+import { addLink, deleteGroup, fetchGroupProfile, isGroupAdmin, removeLink, updateGroup, updateLink } from '@/db';
 import { Link } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
 
@@ -52,11 +43,8 @@ export async function PATCH(request: NextRequest, { params }: { params: { groupI
     return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
-  const user = await fetchUserProfile(session.user.id);
-  if (!user?.id) throw new Error();
-
   const { groupId } = params;
-  const isAdmin = await isGroupAdmin(groupId, user.id);
+  const isAdmin = await isGroupAdmin(groupId, session.user.id);
 
   if (!isAdmin)
     return Response.json(
@@ -151,23 +139,13 @@ export async function DELETE(request: NextRequest, { params }: { params: { group
   }
 
   try {
-    const user = await fetchUserProfile(session.user.id);
-    if (!user) {
-      return Response.json(
-        { error: true, message: 'User not found' },
-        {
-          status: 400,
-        },
-      );
-    }
-
     const { groupId } = params;
     const group = await fetchGroupProfile(groupId);
     if (!group) return NextResponse.json({ error: 'Unable to fetch group profile' }, { status: 404 });
 
-    if (group.leader !== user?.id) {
+    if (!group.admins.some((user) => user.id === session.user.id)) {
       return Response.json(
-        { error: true, message: "Only a group's leader can delete it." },
+        { error: true, message: 'Only a group admin can delete the group.' },
         {
           status: 500,
         },

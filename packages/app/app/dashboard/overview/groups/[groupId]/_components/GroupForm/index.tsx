@@ -2,7 +2,7 @@
 
 import { Button } from '@nextui-org/button';
 import { Textarea } from '@nextui-org/input';
-import { Field, FieldArray, FieldProps, Form, Formik, FormikHelpers, FormikProps } from 'formik';
+import { Field, FieldArray, FieldProps, Form, Formik, FormikProps } from 'formik';
 import { useRouter } from 'next/navigation';
 import { Suspense, useEffect, useState } from 'react';
 
@@ -42,14 +42,12 @@ const GroupForm = ({ id }: Props) => {
     router.push('/dashboard/profile');
   };
 
-  const handleSubmit = (values: GroupFormType, { setSubmitting }: FormikHelpers<GroupFormType>) => {
+  const handleSubmit = (values: GroupFormType) => {
     try {
       return updateGroupProfile(values).then(() => router.push(`/dashboard/overview/groups/${id}`));
     } catch (error) {
       console.error('Error during group profile update.', error);
       throw error;
-    } finally {
-      setSubmitting(false);
     }
   };
 

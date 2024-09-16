@@ -66,9 +66,13 @@ export async function POST(request: NextRequest) {
   try {
     const profile = await fetchUserProfile(session.user.id);
     if (!profile) {
-      throw new Error();
+      throw new Error('No profile for logged-in user. This should not be possible.');
     }
-    const { id: userId, groupId } = profile;
+
+    const {
+      user: { groupId },
+    } = profile;
+
     if (groupId) {
       return NextResponse.json(
         { error: 'You cannot create a new group while being a member of an existing group' },
@@ -90,9 +94,9 @@ export async function POST(request: NextRequest) {
     }
 
     const newGroupId = uuidv4();
-    const group = await insertGroup({ ...groupData, id: newGroupId, leader: userId, verified: false });
-    await updateUser({ id: userId, groupId: newGroupId });
-    await addGroupAdmin({ groupId: newGroupId, userId });
+    const group = await insertGroup({ ...groupData, id: newGroupId, verified: false });
+    await updateUser({ id: session.user.id, groupId: newGroupId });
+    await addGroupAdmin({ groupId: newGroupId, userId: session.user.id });
 
     return NextResponse.json({ group });
   } catch (error) {

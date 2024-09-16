@@ -20,7 +20,7 @@ export type TradeFormProps = {
   onUpdate: () => void;
 };
 
-const AxeSwap: React.FC = () => {
+const Swap: React.FC = () => {
   const account = useAccount();
 
   const { data: token0 } = useReadIUniswapV2PairToken0({ address: ENV.uniswapV2PairAddress });
@@ -82,4 +82,4 @@ const AxeSwap: React.FC = () => {
   );
 };
 
-export default AxeSwap;
+export default Swap;

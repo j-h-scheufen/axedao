@@ -5,7 +5,7 @@ import { SilkEthereumProviderInterface } from '@silk-wallet/silk-wallet-sdk/dist
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { PropsWithChildren, useCallback, useEffect, useState } from 'react';
 import { Address, createWalletClient, custom, WalletClient } from 'viem';
-import { gnosis, sepolia } from 'viem/chains';
+import { gnosis, optimism, sepolia } from 'viem/chains';
 import { Config, WagmiProvider } from 'wagmi';
 
 import WalletContext from '@/components/WalletContext';
@@ -21,6 +21,9 @@ export function getNetwork(name: string) {
       break;
     case 'sepolia':
       network = sepolia;
+      break;
+    case 'optimism':
+      network = optimism;
       break;
     default:
       network = sepolia;

@@ -44,6 +44,7 @@ const DEFAULT_PROPS: GroupProfileState = {
     founder: null,
     verified: false,
     links: [],
+    admins: [],
     city: '',
     country: '',
   },
@@ -106,7 +107,7 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
         set({ groupProfile });
         useProfileStore.setState(
           produce((state: ProfileState) => {
-            state.profile.group = omit(data, ['links']);
+            state.group = omit(data, ['links']);
           }),
         );
       } catch (error: unknown) {

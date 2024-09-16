@@ -3,7 +3,7 @@
 import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
 import { Button } from '@nextui-org/button';
 import { useInfiniteScroll } from '@nextui-org/use-infinite-scroll';
-import { Field, FieldProps, Form, Formik, FormikHelpers, FormikProps } from 'formik';
+import { Field, FieldProps, Form, Formik, FormikProps } from 'formik';
 import { Search } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useDebounce } from 'use-debounce';
@@ -43,14 +43,12 @@ const JoinGroupForm = () => {
     onLoadMore: loadNextPage,
   });
 
-  const handleSubmit = (values: JoinGroupFormType, { setSubmitting }: FormikHelpers<JoinGroupFormType>) => {
+  const handleSubmit = async (values: JoinGroupFormType) => {
     try {
       return joinGroup(values.id);
     } catch (error) {
       console.error('Error during registration.', error);
       throw error;
-    } finally {
-      setSubmitting(false);
     }
   };
 

@@ -14,8 +14,8 @@ export const configureChains = (): [Chain, ...Chain[]] => {
   return chains;
 };
 
-export const getTransport = (chain: Chain): Transport => {
-  switch (chain.id) {
+export const getTransport = (chain: Chain | undefined): Transport => {
+  switch (chain?.id) {
     case gnosis.id:
       return http(ENV.gnosisProviderUrl);
     case optimism.id:
@@ -54,6 +54,7 @@ export const createSilkConfig = (): Config => {
       [sepolia.id]: http(ENV.sepoliaProviderUrl),
       [localhost.id]: http('http://127.0.0.1:8545'),
     },
+    // ssr: true, //TODO wagmi hooks don't work with SSR when using injected silk
   });
 };
 

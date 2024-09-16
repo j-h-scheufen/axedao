@@ -1,7 +1,7 @@
 import { Profile } from '@/types/model';
 
 export type UserDetailsState = {
-  user: Profile | null;
+  profile: Profile | null;
   isUserInitialized: boolean;
   isInitializingUser: boolean;
   initializeError?: string;

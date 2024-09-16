@@ -5,7 +5,7 @@ import { User } from '@nextui-org/user';
 import { has } from 'lodash';
 import { ArrowDownIcon, ArrowUpIcon, UserXIcon } from 'lucide-react';
 
-import { useProfile } from '@/store/profile.store';
+import { useProfileUser } from '@/store/profile.store';
 import {
   GroupMember,
   useAdminBeingDemotedToMember,
@@ -19,7 +19,7 @@ import { GroupMemberTableColumnKey } from './utils';
 
 type Props = { groupMember: GroupMember; columnKey: GroupMemberTableColumnKey };
 const TableCellValue = ({ groupMember, columnKey }: Props) => {
-  const profile = useProfile();
+  const profile = useProfileUser();
   const isGroupAdmin = useIsGroupAdmin();
   const { promoteToAdmin, demoteToMember, removeMember } = useGroupMembersActions();
   const memberBeingPromotedToAdmin = useMemberBeingPromotedToAdmin();

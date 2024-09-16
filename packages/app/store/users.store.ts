@@ -1,106 +1,104 @@
+import axios from 'axios';
 import { create } from 'zustand';
 
 import { User } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
-import axios from 'axios';
-import { isNil, omitBy } from 'lodash';
 
-export type SearchUsersQuery = { searchTerm?: string; searchBy?: string };
+/**
+ * A store for loading all users and filtering them by name or nickname.
+ * As long as user numbers are low, we can afford to keep all users in state
+ * for simplicity and filter performance.
+ */
 
 export type UsersState = {
-  searchResults: User[];
-  totalUsers: number | null;
-  pageSize: number;
-  hasMoreResults: boolean; // flag indicating there are more search results that can be retrieved for the current filter settings
+  users: User[];
+  filteredUsers: User[];
   isInitialized: boolean;
-  isLoading: boolean;
-  loadUsersError?: string;
-  query?: SearchUsersQuery;
+  isInitializing: boolean;
+  initializeUsersError: string;
+  filter?: string;
 };
 
 type UsersActions = {
-  initialize: () => Promise<void>;
-  loadNextPage: () => Promise<void>;
-  search: (query: SearchUsersQuery) => Promise<void>;
+  initializeUsers: () => Promise<void>;
+  setFilter: (filter: string) => void;
+  findUser: ({ id, walletAddress }: { id?: string; walletAddress?: string }) => User | undefined;
 };
 
 export type UsersStore = UsersState & { actions: UsersActions };
 
 const DEFAULT_PROPS: UsersState = {
-  searchResults: [],
-  totalUsers: null,
-  pageSize: 20,
-  hasMoreResults: false,
+  users: [],
+  filteredUsers: [],
   isInitialized: false,
-  isLoading: false,
+  isInitializing: false,
+  initializeUsersError: '',
 };
 
 const useUsersStore = create<UsersStore>()((set, get) => ({
   ...DEFAULT_PROPS,
   actions: {
-    initialize: async (): Promise<void> => {
-      if (!get().isInitialized) {
-        get().actions.loadNextPage();
-        set(() => ({ isInitialized: true }));
-      }
-    },
-    search: async (query: SearchUsersQuery): Promise<void> => {
-      const { actions, isLoading } = get();
-      if (isLoading) return;
-      set({
-        ...DEFAULT_PROPS,
-        query,
-      });
-      actions.loadNextPage();
-    },
-    loadNextPage: async (): Promise<void> => {
-      const { isLoading } = get();
-      if (isLoading) return;
-      set({ isLoading: true });
+    initializeUsers: async (): Promise<void> => {
+      if (get().isInitialized || get().isInitializing) return;
+      set({ isInitializing: true });
       try {
-        const { pageSize, searchResults, query } = get();
-        const offset = searchResults.length;
-        const params = omitBy({ limit: pageSize || 20, offset, ...query }, isNil);
-        const { data } = await axios.get('/api/users', { params });
+        const { data } = await axios.get('/api/users');
         if (data.error) {
           throw new Error(data.message);
         }
-
         const { count = null, users = [] } = data || {};
         if (Array.isArray(users)) {
-          set((state) => ({
-            // If a full pageSize of results was retrieved, there are likely more results, so setting true.
-            // The exception is if the total result size % pageSize === 0
-            // in which case the user receives the correct feedback on the next invocation of this function.
-            searchResults: [...state.searchResults, ...users],
-            totalUsers: count,
-            hasMoreResults: data.length === state.pageSize,
-            isInitialized: true,
-          }));
+          set(() => ({ users, filteredUsers: users, isInitialized: true }));
         }
       } catch (error) {
-        const message = generateErrorMessage(error, 'An error occured while fetching users');
-        set({ loadUsersError: message });
+        const message = generateErrorMessage(
+          error,
+          'An error occured while fetching users during initialization of users.store',
+        );
+        console.error(message);
+        set({ initializeUsersError: message });
+      } finally {
+        set({ isInitializing: false });
       }
-      set({ isLoading: false });
+    },
+    setFilter: (filter: string): void => {
+      if (filter === get().filter) return;
+      const { users } = get();
+      if (filter) set({ filter, filteredUsers: filterUsers(users, filter) });
+      else set({ filter: '', filteredUsers: users });
+    },
+    findUser: ({ id, walletAddress }: { id?: string; walletAddress?: string }): User | undefined => {
+      return get().users.find(
+        (user) => (user.id !== undefined && user.id === id) || user.walletAddress === walletAddress,
+      );
     },
   },
 }));
+
+/**
+ * Returns users containining the filter string in their name or nickname.
+ * @param users
+ * @param filter
+ * @returns
+ */
+const filterUsers = (users: User[], filter: string): User[] => {
+  const result = users.filter(
+    (user) =>
+      user.name?.toLowerCase().includes(filter.toLowerCase()) ||
+      user.nickname?.toLowerCase().includes(filter.toLowerCase()),
+  );
+  return result;
+};
 
 export default useUsersStore;
 
 export const useUsersActions = (): UsersActions => useUsersStore((state) => state.actions);
 
-export const useUsers = (): User[] => useUsersStore((state) => state.searchResults);
+export const useUsers = (): User[] => useUsersStore((state) => state.users);
 
-export const useTotalUsers = (): number | null => useUsersStore((state) => state.totalUsers);
+export const useFilteredUsers = (): User[] => useUsersStore((state) => state.filteredUsers);
 
-export const useHasMoreUsers = (): boolean => useUsersStore((state) => state.hasMoreResults);
+export const useUsersInitStatus = () =>
+  useUsersStore((state) => ({ isUsersInitializing: state.isInitializing, isUsersInitialized: state.isInitialized }));
 
-export const usePageSize = (): number => useUsersStore((state) => state.pageSize);
-
-export const useIsLoadingUsers = (): boolean => useUsersStore((state) => state.isLoading);
-
-export const useUsersIsInitialized = (): boolean => useUsersStore((state) => state.isInitialized);
-
-export const useLoadUsersError = () => useUsersStore((state) => state.loadUsersError);
+export const useUsersErrors = () => useUsersStore((state) => ({ initializeUsersError: state.initializeUsersError }));

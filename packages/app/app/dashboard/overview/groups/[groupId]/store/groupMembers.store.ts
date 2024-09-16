@@ -49,8 +49,8 @@ export type GroupMembersStore = GroupMembersState & { actions: GroupMembersActio
 
 const DEFAULT_PROPS: GroupMembersState = {
   admins: [],
-  founder: DEFAULT_PROFILE,
-  leader: DEFAULT_PROFILE,
+  founder: DEFAULT_PROFILE.user,
+  leader: DEFAULT_PROFILE.user,
   searchTerm: '',
   searchResults: [],
   pageSize: 20,

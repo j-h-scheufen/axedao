@@ -8,7 +8,13 @@ import { useEffect, useState } from 'react';
 import { useDebounce } from 'use-debounce';
 
 import ErrorText from '@/components/ErrorText';
-import { useHasMoreUsers, useIsLoadingUsers, useLoadUsersError, useUsers, useUsersActions } from '@/store/users.store';
+import {
+  useHasMoreUsers,
+  useIsLoadingUsers,
+  useLoadUsersError,
+  useSearchResults,
+  useUserSearchActions,
+} from '@/store/user-search.store';
 import { isUUID } from '@/utils';
 
 const FounderField = (props: FieldProps['field']) => {
@@ -17,10 +23,10 @@ const FounderField = (props: FieldProps['field']) => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [debouncedSearchTerm] = useDebounce(searchTerm, 500);
 
-  const users = useUsers();
+  const users = useSearchResults();
   const loadUsersError = useLoadUsersError();
   const isLoadingUsers = useIsLoadingUsers();
-  const { search, loadNextPage } = useUsersActions();
+  const { search, loadNextPage } = useUserSearchActions();
   const hasMoreUsers = useHasMoreUsers();
 
   const isFounderUUID = field.value && isUUID(field.value);

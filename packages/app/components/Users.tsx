@@ -11,10 +11,10 @@ import useOverviewQueries from '@/hooks/useOverviewQueries';
 import {
   useIsLoadingUsers,
   useTotalUsers,
-  useUsers,
-  useUsersActions,
-  useUsersIsInitialized,
-} from '@/store/users.store';
+  useSearchResults,
+  useUserSearchActions,
+  useIsInitialized,
+} from '@/store/user-search.store';
 import UsersGrid from './UsersGrid';
 
 const searchOptions = [
@@ -34,11 +34,11 @@ const Users = () => {
 
   const lastQueryRef = useRef<typeof query | null>(null);
 
-  const usersActions = useUsersActions();
-  const users = useUsers();
+  const usersActions = useUserSearchActions();
+  const users = useSearchResults();
   const totalUsers = useTotalUsers();
   const isLoading = useIsLoadingUsers();
-  const isInitialized = useUsersIsInitialized();
+  const isInitialized = useIsInitialized();
 
   useEffect(() => {
     if (isEqual(lastQueryRef.current, debouncedQuery)) return;

@@ -3,31 +3,20 @@
 import { Button } from '@nextui-org/button';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import { Address } from 'viem';
-import { useAccount } from 'wagmi';
 
-import AxeSwap from '@/components/AxeSwap/AxeSwap';
 import RippleBackground from '@/components/RippleBackground';
 import { PATHS } from '@/config/constants';
-import ENV from '@/config/environment';
-import { useReadErc20BalanceOf } from '@/generated';
 
 export default function Home() {
-  const account = useAccount();
-  const { data: userDaoShares } = useReadErc20BalanceOf({
-    address: ENV.axeDaoSharesAddress,
-    args: [account.address as Address],
-  });
-
   const { data: session } = useSession();
 
   return (
     <>
-      <header className="mx-5 py-8 md:py-10">
-        <div className="relative text-center max-w-[500px] mx-auto">
+      <header className="mx-5 mt-8 md:mt-16">
+        <div className="relative text-center mx-auto">
           <RippleBackground />
           <div className="relative z-[1]">
-            <h1 className="font-bold text-xl mb-6">Welcome to AXE DAO</h1>
+            <h1 className="font-bold text-xl mb-6">Welcome to Quilombo</h1>
             <p className="my-3 text-default-600 text-sm">
               The advent of crypto/web3 has given the world a new set of tools. We are Capoeiristas from different
               corners of the world bringing these tools to the Capoeira community to create shared value. It is time for
@@ -57,19 +46,12 @@ export default function Home() {
               </Button>
             )}
           </div>
+          <footer className="mt-auto flex w-full items-center justify-center gap-1 pb-20 md:pb-10 py-10">
+            <span className="text-default-600">Powered by </span>
+            <span className="text-primary">AXÉ DAO</span>
+          </footer>
         </div>
       </header>
-      <section className="mx-5 flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-        <div className="inline-block max-w-lg justify-center text-center">
-          <div className="my-8 flex flex-col">
-            <div className="flex gap-2">
-              <div>DAO Member:</div>
-              <div>{userDaoShares && userDaoShares > 0 ? 'Yes' : 'No'}</div>
-            </div>
-          </div>
-        </div>
-        <AxeSwap />
-      </section>
     </>
   );
 }

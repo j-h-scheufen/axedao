@@ -7,12 +7,15 @@ import Link from 'next/link';
 import { Suspense } from 'react';
 
 import ContactInfo from '@/components/ContactInfo';
-import { useProfile } from '../../../../store/profile.store';
+import { useProfile } from '@/store/profile.store';
 import { ProfileSkeleton } from './skeletons';
 
 const Profile = () => {
   const profile = useProfile();
-  const { name, title, avatar, links } = profile;
+  const {
+    user: { name, title, avatar },
+    links,
+  } = profile;
 
   return (
     <Suspense fallback={<ProfileSkeleton />}>

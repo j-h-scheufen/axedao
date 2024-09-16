@@ -1,5 +1,5 @@
 import { Button } from '@nextui-org/button';
-import { Field, Form, Formik, FormikHelpers, FormikProps } from 'formik';
+import { Field, Form, Formik, FormikProps } from 'formik';
 
 import { CountrySelect, FieldInput } from '@/components/forms';
 import { createNewGroupFormSchema, CreateNewGroupFormType } from '@/config/validation-schema';
@@ -11,15 +11,13 @@ const CreateNewGroupForm = () => {
   // const { selectedCountryCode, setSelectedCountryCode, cities, setCitySearch, isLoading } = useCountriesAndCities();
   const { setSelectedCountryCode } = useCountriesAndCities();
 
-  const handleSubmit = (values: CreateNewGroupFormType, { setSubmitting }: FormikHelpers<CreateNewGroupFormType>) => {
+  const handleSubmit = (values: CreateNewGroupFormType) => {
     try {
       console.log('Creating group with values:', values);
       return createGroup(values);
     } catch (error) {
       console.error('Error during group creation.', error);
       throw error;
-    } finally {
-      setSubmitting(false);
     }
   };
 

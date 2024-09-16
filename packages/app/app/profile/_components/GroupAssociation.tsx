@@ -1,8 +1,8 @@
 'use client';
 
-import CreateGroupAssociation from '@/app/dashboard/profile/_components/CreateGroupAssociation';
 import GroupCard from '@/components/GroupCard';
-import { useProfile } from '../../../../store/profile.store';
+import { useProfile } from '@/store/profile.store';
+import CreateGroupAssociation from './CreateGroupAssociation';
 
 const GroupAssociation = () => {
   const profile = useProfile();

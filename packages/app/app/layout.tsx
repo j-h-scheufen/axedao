@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import { Metadata, Viewport } from 'next';
 import { getServerSession } from 'next-auth';
 
-import ClientInitializer from '@/components/ClientInitializer';
 import Navbar from '@/components/Navbar';
 import SessionProvider from '@/components/SessionProvider';
 import { fontFiraCode, fontInter, fontOpenSans } from '@/config/fonts';
@@ -12,6 +11,7 @@ import ThemeProvider from './_providers/nextUI.provider';
 import Web3Provider from './_providers/silk.provider';
 import SnackbarProvider from './_providers/snackbar.provider';
 
+import ClientInitializer from '@/components/ClientInitializer';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
@@ -54,11 +54,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 <ClientInitializer />
                 <div className="relative flex min-h-screen flex-col">
                   <Navbar />
-                  {children}
-                  <footer className="mt-auto flex w-full items-center justify-center gap-1 pb-20 md:pb-10 py-10">
-                    <span className="text-default-600">Powered by </span>
-                    <span className="text-primary">AXÉ DAO</span>
-                  </footer>
+                  <main className="container mx-auto max-w-3xl flex-grow">{children}</main>
                 </div>
               </Web3Provider>
             </SnackbarProvider>
