@@ -26,7 +26,7 @@ export async function GET(request: NextRequest, { params }: { params: { groupId:
 
     return Response.json({ groupProfile, isAdmin });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return Response.json(
       { error: true, message: generateErrorMessage(error, 'An unexpected error occurred while fetching group') },
       {

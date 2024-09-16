@@ -1,83 +1,60 @@
-import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
 import { Input } from '@nextui-org/input';
-import { Tab, Tabs } from '@nextui-org/tabs';
-import { useInfiniteScroll } from '@nextui-org/use-infinite-scroll';
+import { Radio, RadioGroup, RadioProps } from '@nextui-org/radio';
 import { FieldProps, useField } from 'formik';
-import { SearchIcon } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { useDebounce } from 'use-debounce';
+import { useState } from 'react';
 
-import ErrorText from '@/components/ErrorText';
-import {
-  useHasMoreUsers,
-  useIsLoadingUsers,
-  useLoadUsersError,
-  useSearchResults,
-  useUserSearchActions,
-} from '@/store/user-search.store';
 import { isUUID } from '@/utils';
+import UserSelect from './UserSelect';
+
+const FounderRadioBox = (props: RadioProps) => {
+  const { children, ...otherProps } = props;
+
+  return (
+    <Radio
+      {...otherProps}
+      // classNames={{
+      //   base: cn(
+      //     'inline-flex m-0 bg-content1 hover:opacity-98 active:opacity-95 items-center tap-highlight-transparent',
+      //     'flex-row max-w-[500px] cursor-pointer rounded-lg gap-4 p-2 border-1 border-transparent',
+      //     'data-[selected=true]:border-primary',
+      //   ),
+      // }}
+    >
+      {children}
+    </Radio>
+  );
+};
 
 const FounderField = (props: FieldProps['field']) => {
   const [field, , form] = useField(props);
-  const [isOpen, setIsOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState<string>('');
-  const [debouncedSearchTerm] = useDebounce(searchTerm, 500);
+  const isSelectedUuid = field.value && isUUID(field.value);
+  const [selected, setSelected] = useState<string>(isSelectedUuid ? 'user' : 'name');
 
-  const users = useSearchResults();
-  const loadUsersError = useLoadUsersError();
-  const isLoadingUsers = useIsLoadingUsers();
-  const { search, loadNextPage } = useUserSearchActions();
-  const hasMoreUsers = useHasMoreUsers();
-
-  const isFounderUUID = field.value && isUUID(field.value);
-
-  useEffect(() => {
-    search({ searchTerm: debouncedSearchTerm });
-  }, [debouncedSearchTerm, search]);
-
-  const [, scrollerRef] = useInfiniteScroll({
-    hasMore: hasMoreUsers,
-    isEnabled: isOpen,
-    shouldUseLoader: true,
-    onLoadMore: loadNextPage,
-  });
+  const handleChange = (value: string) => {
+    // Delete the form value when switching over from the UserSelect to Input to avoid showing the user's wallet address
+    if (value === 'name' && isSelectedUuid) {
+      form.setValue('');
+    }
+    setSelected(value);
+  };
 
   return (
-    <div>
-      <Tabs variant="bordered" aria-label="Options" selectedKey={isFounderUUID ? 'select' : 'input'}>
-        <Tab key="input" title="Input founder name">
-          <Input
-            {...field}
-            className="mb-3"
-            classNames={{ inputWrapper: '!min-h-12' }}
-            value={isFounderUUID ? '' : field.value}
-          />
-        </Tab>
-        <Tab key="select" title="Select a user">
-          <Autocomplete
-            className="mb-3"
-            inputProps={{ classNames: { inputWrapper: '!min-h-12' } }}
-            listboxProps={{ emptyContent: isLoadingUsers ? 'Loading...' : 'No users found' }}
-            startContent={<SearchIcon className="h-4 w-4" strokeWidth={1.4} />}
-            selectedKey={field.value}
-            isLoading={isLoadingUsers}
-            inputValue={searchTerm}
-            onInputChange={setSearchTerm}
-            onSelectionChange={(key) => {
-              form.setValue(key?.toString() || undefined);
-            }}
-            scrollRef={scrollerRef}
-            onOpenChange={setIsOpen}
-          >
-            {users.map(({ name, id }) => (
-              <AutocompleteItem key={id} value={id} textValue={name || ''}>
-                <div className="mb-1">{name}</div>
-              </AutocompleteItem>
-            ))}
-          </Autocomplete>
-        </Tab>
-      </Tabs>
-      <ErrorText message={loadUsersError} />
+    <div className="flex flex-col gap-2 w-full">
+      <h4 className="">Who is the founder of this group?</h4>
+      <RadioGroup value={selected} onValueChange={handleChange} orientation="horizontal">
+        <FounderRadioBox value="name">Type the name:</FounderRadioBox>
+        <FounderRadioBox value="user">Select a user:</FounderRadioBox>
+      </RadioGroup>
+      {selected === 'name' && (
+        <Input
+          {...field}
+          className="mb-3"
+          classNames={{ inputWrapper: '!min-h-12' }}
+          {...props}
+          value={!isSelectedUuid ? field.value : ''}
+        />
+      )}
+      {selected === 'user' && <UserSelect {...props} disableCurrentUser={false} />}
     </div>
   );
 };

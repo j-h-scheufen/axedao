@@ -1,95 +1,99 @@
 import { getCsrfToken, signIn as nextAuthSignIn, signOut as nextAuthSignOut } from 'next-auth/react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SiweMessage } from 'siwe';
-import { Address } from 'viem';
+import { useAccount, useDisconnect, useSignMessage } from 'wagmi';
 
-import { useWallet } from '@/components/WalletContext';
 import { PATHS } from '@/config/constants';
+import { useGroupsActions } from '@/store/groups.store';
 import { useProfileActions } from '@/store/profile.store';
 import { useUsersActions } from '@/store/users.store';
 
-/**
- * Hook for handling Silk authentication and sign-in
- * @returns {Object}  Object containing login, logout, signIn, loginError, and signInError
- */
-const useAuth = () => {
-  const [loginError, setLoginError] = useState<string | null>(null);
-  const [signInError, setSignInError] = useState<string | null>(null);
-  // const [silkEmail, setSilkEmail] = useState<string | null>(null);
-  const { connected, setConnected, walletClient, setWalletClient, userAddress, setUserAddress, verifyConnection } =
-    useWallet();
-  const router = useRouter();
+const useSignIn = () => {
+  const [state, setState] = useState<{
+    loading?: boolean;
+    nonce?: string;
+    error?: Error;
+  }>({});
+  const { address, chainId } = useAccount();
+  const { disconnect } = useDisconnect();
+  const { signMessageAsync } = useSignMessage();
   const { initializeProfile, clearProfile } = useProfileActions();
   const { initializeUsers } = useUsersActions();
+  const { initializeGroups } = useGroupsActions();
+  const router = useRouter();
   const params = useSearchParams();
   const callbackUrl = params.get('callbackUrl') || PATHS.profile;
 
-  const signIn = async () => {
-    if (!connected || !walletClient) return;
-    const nonce = await getCsrfToken();
-    const message = new SiweMessage({
-      domain: window.location.host,
-      address: userAddress,
-      statement: 'Axé DAO Sign-In - Please sign this message to log into the Axé DAO app.',
-      uri: window.location.origin,
-      version: '1',
-      chainId: walletClient.chain?.id,
-      nonce,
-    });
-
-    // Get the user's signature
-    const signature = await walletClient?.signMessage({
-      account: userAddress as Address,
-      message: await message.prepareMessage(),
-    });
-
-    const res = await nextAuthSignIn('credentials', {
-      message: JSON.stringify(message),
-      redirect: false,
-      signature,
-    });
-
-    if (res?.ok && !res.error) {
-      initializeProfile();
-      initializeUsers();
-      if (callbackUrl) {
-        router.push(callbackUrl);
-      }
-    } else if (res?.error) {
-      const msg = `An error occurred while signin in. Code: ${res.status} - ${res.error}`;
-      console.error(msg);
-      setSignInError(msg);
+  const fetchNonce = async () => {
+    try {
+      const nonce = await getCsrfToken();
+      setState((x) => ({ ...x, nonce }));
+    } catch (error) {
+      setState((x) => ({ ...x, error: error as Error }));
     }
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const login = async () => {
+  // Pre-fetch random nonce when component using the hook is rendered
+  useEffect(() => {
+    fetchNonce();
+  }, []);
+
+  const signIn = async () => {
     try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      await (window as any).silk.login();
-      // const email = (await (window as any).silk.requestEmail()) as string | undefined;
-      // if (!email) {
-      //   setLoginError('Please allow access to your email address in Silk to continue.');
-      //   return;
-      // }
-      // setSilkEmail(email);
-      return verifyConnection();
+      if (!address || !chainId) return;
+
+      setState((x) => ({ ...x, loading: true }));
+      // Create SIWE message with pre-fetched nonce and sign with wallet
+      const message = new SiweMessage({
+        domain: window.location.host,
+        address,
+        statement: 'Quilombo Login - Please sign this message to log in to the app.',
+        uri: window.location.origin,
+        version: '1',
+        chainId,
+        nonce: state.nonce,
+      });
+
+      const signature = await signMessageAsync({
+        message: message.prepareMessage(),
+      });
+
+      const res = await nextAuthSignIn('credentials', {
+        message: JSON.stringify(message),
+        redirect: false,
+        signature,
+      });
+
+      if (res?.ok && !res.error) {
+        initializeProfile();
+        initializeUsers();
+        initializeGroups();
+        if (callbackUrl) {
+          router.replace(callbackUrl);
+        }
+      } else if (res?.error) {
+        const msg = `An error occurred while signin in. Code: ${res.status} - ${res.error}`;
+        console.error(msg);
+        setState((x) => ({ ...x, error: new Error(res.error || 'Unable to authenticate the message') }));
+      }
+
+      setState((x) => ({ ...x, loading: false }));
     } catch (error) {
-      console.error(error);
-      setLoginError('Error during login: ' + error);
+      setState((x) => ({ ...x, loading: false, error: error as Error, nonce: undefined }));
+      fetchNonce();
     }
   };
 
   const logout = async () => {
     await nextAuthSignOut();
+    // TODO how to logout from Silk?
+    disconnect();
     clearProfile();
-    setConnected(false);
-    setWalletClient(undefined);
-    setUserAddress('');
+    setState({});
   };
 
-  return { login, logout, signIn, loginError, signInError };
+  return { signIn, logout, state };
 };
 
-export default useAuth;
+export default useSignIn;

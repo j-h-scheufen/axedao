@@ -12,7 +12,7 @@ const pages: PageType[] = [
     icon: User,
   },
   {
-    href: '/dashboard/overview',
+    href: '/search',
     name: 'Overview',
     icon: OverviewLayout,
   },

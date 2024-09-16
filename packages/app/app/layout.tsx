@@ -8,8 +8,8 @@ import { fontFiraCode, fontInter, fontOpenSans } from '@/config/fonts';
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { siteConfig } from '@/config/site';
 import ThemeProvider from './_providers/nextUI.provider';
-import Web3Provider from './_providers/silk.provider';
 import SnackbarProvider from './_providers/snackbar.provider';
+import Web3Provider from './_providers/wagmi.provider';
 
 import ClientInitializer from '@/components/ClientInitializer';
 import '@/styles/globals.css';
@@ -54,7 +54,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 <ClientInitializer />
                 <div className="relative flex min-h-screen flex-col">
                   <Navbar />
-                  <main className="container mx-auto max-w-3xl flex-grow">{children}</main>
+                  <main className="container mx-auto max-w-3xl flex-grow px-2 sm:px-4">{children}</main>
                 </div>
               </Web3Provider>
             </SnackbarProvider>

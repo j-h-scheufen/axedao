@@ -11,7 +11,6 @@ export async function POST(req: NextRequest, { params }: { params: { groupId: st
 
   try {
     const { groupId } = params;
-    console.log('Updating group', userId, groupId);
     await updateUser({ id: userId, groupId });
     const group = await fetchGroup(groupId);
     return NextResponse.json({ group });

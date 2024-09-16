@@ -1,112 +1,99 @@
 import axios from 'axios';
-import { isNil, omitBy } from 'lodash';
-import { Values } from 'nuqs';
 import { create } from 'zustand';
 
-import { GroupsQueryParams } from '@/hooks/useGroupList';
 import { Group } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
 
-type FetchGroupsQuery = Partial<Values<GroupsQueryParams>>;
+/**
+ * A store for loading all groups and filtering them by name.
+ * As long as user numbers are low, we can afford to keep all users in state
+ * for simplicity and filter performance.
+ */
 
-export type GroupsState = {
-  searchResults: Group[];
-  totalGroups: number | null;
-  pageSize: number;
-  hasMoreResults: boolean; // flag indicating there are more search results that can be retrieved for the current filter settings
+export type UsersState = {
+  groups: Group[];
+  filteredGroups: Group[];
   isInitialized: boolean;
-  isLoading: boolean;
-  loadGroupsError?: string;
-  query?: FetchGroupsQuery;
+  isInitializing: boolean;
+  initializeGroupsError: string;
+  filter?: string;
 };
 
-type GroupsActions = {
-  initialize: (query?: FetchGroupsQuery) => Promise<void>;
-  search: (query?: FetchGroupsQuery) => Promise<void>;
-  loadNextPage: () => Promise<void>;
+type UsersActions = {
+  initializeGroups: () => Promise<void>;
+  setFilter: (filter: string) => void;
+  findGroup: ({ id }: { id?: string }) => Group | undefined;
 };
 
-export type GroupsStore = GroupsState & { actions: GroupsActions };
+export type UsersStore = UsersState & { actions: UsersActions };
 
-const DEFAULT_PROPS: GroupsState = {
-  searchResults: [],
-  totalGroups: null,
-  pageSize: 20,
-  hasMoreResults: false,
+const DEFAULT_PROPS: UsersState = {
+  groups: [],
+  filteredGroups: [],
   isInitialized: false,
-  isLoading: false,
+  isInitializing: false,
+  initializeGroupsError: '',
 };
 
-const useGroupsStore = create<GroupsStore>()((set, get) => ({
+const useGroupsStore = create<UsersStore>()((set, get) => ({
   ...DEFAULT_PROPS,
   actions: {
-    initialize: async (query): Promise<void> => {
-      const { isInitialized, isLoading } = get();
-      if (isInitialized || isLoading) return;
-      set({ ...DEFAULT_PROPS, query, isInitialized: true });
-      get().actions.loadNextPage();
-    },
-    search: async (query): Promise<void> => {
-      const { actions, isLoading } = get();
-      if (isLoading) return;
-      set({ ...DEFAULT_PROPS, query });
-      actions.loadNextPage();
-    },
-    loadNextPage: async (): Promise<void> => {
-      const { isLoading } = get();
-      if (isLoading) return;
-      set({ isLoading: true });
+    initializeGroups: async (): Promise<void> => {
+      if (get().isInitialized || get().isInitializing) return;
+      set({ isInitializing: true });
       try {
-        const { pageSize, searchResults, query } = get();
-        const offset = searchResults.length;
-        const params = omitBy(
-          {
-            offset: offset,
-            limit: pageSize,
-            ...query,
-          },
-          isNil,
-        );
-
-        const { data } = await axios.get('/api/groups', { params });
-        if (data?.error) {
-          throw new Error(data?.message);
+        const { data } = await axios.get('/api/groups');
+        if (data.error) {
+          throw new Error(data.message);
         }
-
-        if (Array.isArray(data?.groups)) {
-          // If a full pageSize of results was retrieved, there are likely more results, so setting true.
-          // The exception is if the total result size % pageSize === 0
-          // in which case the user receives the correct feedback on the next invocation of this function.
-          set((state) => ({
-            searchResults: [...state.searchResults, ...data.groups],
-            totalGroups: data.count,
-            hasMoreResults: data.length === state.pageSize,
-            isInitialized: true,
-          }));
+        const { count = null, groups = [] } = data || {};
+        if (Array.isArray(groups)) {
+          set(() => ({ groups, filteredGroups: groups, isInitialized: true }));
         }
       } catch (error) {
-        const message = generateErrorMessage(error, 'An error occured while fetching groups');
-        set({ loadGroupsError: message });
+        const message = generateErrorMessage(
+          error,
+          'An error occured while fetching groups during initialization of groups.store',
+        );
+        console.error(message);
+        set({ initializeGroupsError: message });
+      } finally {
+        set({ isInitializing: false });
       }
-      set({ isLoading: false });
+    },
+    setFilter: (filter: string): void => {
+      if (filter === get().filter) return;
+      const { groups } = get();
+      if (filter) set({ filter, filteredGroups: filterGroups(groups, filter) });
+      else set({ filter: '', filteredGroups: groups });
+    },
+    findGroup: ({ id }: { id?: string }): Group | undefined => {
+      return get().groups.find((group) => group.id !== undefined && group.id === id);
     },
   },
 }));
 
+/**
+ * Returns groups containining the filter string in their name.
+ * @param groups
+ * @param filter
+ * @returns
+ */
+const filterGroups = (groups: Group[], filter: string): Group[] => {
+  const result = groups.filter((group) => group.name?.toLowerCase().includes(filter.toLowerCase()));
+  return result;
+};
+
 export default useGroupsStore;
 
-export const useGroupsActions = (): GroupsActions => useGroupsStore((state) => state.actions);
+export const useGroupsActions = (): UsersActions => useGroupsStore((state) => state.actions);
 
-export const useGroups = (): Group[] => useGroupsStore((state) => state.searchResults);
+export const useGroups = (): Group[] => useGroupsStore((state) => state.groups);
 
-export const useTotalGroups = (): number | null => useGroupsStore((state) => state.totalGroups);
+export const useFilteredGroups = (): Group[] => useGroupsStore((state) => state.filteredGroups);
 
-export const useGroupsHasMoreResults = (): boolean => useGroupsStore((state) => state.hasMoreResults);
+export const useGroupsInitStatus = () =>
+  useGroupsStore((state) => ({ isGroupsInitializing: state.isInitializing, isGroupsInitialized: state.isInitialized }));
 
-export const useGroupsPageSize = (): number => useGroupsStore((state) => state.pageSize);
-
-export const useGroupsIsInitialized = (): boolean => useGroupsStore((state) => state.isInitialized);
-
-export const useIsLoadingGroups = (): boolean => useGroupsStore((state) => state.isLoading);
-
-export const useLoadGroupsError = (): string | undefined => useGroupsStore((state) => state.loadGroupsError);
+export const useGroupsErrors = () =>
+  useGroupsStore((state) => ({ initializeGroupsError: state.initializeGroupsError }));

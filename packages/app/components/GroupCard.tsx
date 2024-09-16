@@ -20,11 +20,7 @@ const GroupCard = ({ group, className = '', startFooter = null }: Props) => {
   const { name, id, logo, verified, country, city } = group;
   return (
     <Suspense fallback={<GroupCardSkeleton className={className} />}>
-      <Link
-        as="div"
-        onPress={() => router.push(`/dashboard/overview/groups/${id}`)}
-        className="inline-block cursor-pointer"
-      >
+      <Link as="div" onPress={() => router.push(`/search/groups/${id}`)} className="inline-block cursor-pointer">
         <Card className={clsx('w-full', className)}>
           <CardHeader className="flex gap-3">
             <Avatar src={logo || ''} />
@@ -46,7 +42,7 @@ const GroupCard = ({ group, className = '', startFooter = null }: Props) => {
               as={Link}
               variant="bordered"
               size="sm"
-              onPress={() => router.push(`/dashboard/overview/groups/${id}`)}
+              onPress={() => router.push(`/search/groups/${id}`)}
               className="ml-auto w-fit"
             >
               View group

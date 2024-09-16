@@ -23,11 +23,7 @@ const UserCard = (
   const router = useRouter();
   if (!user || isLoading) return <UserCardSkeleton ref={ref} {...props} />;
   return (
-    <Link
-      as="div"
-      onPress={() => router.push(`/dashboard/overview/users/${user.id}`)}
-      className="inline-block cursor-pointer"
-    >
+    <Link as="div" onPress={() => router.push(`/search/users/${user.id}`)} className="inline-block cursor-pointer">
       <Card ref={ref} {...props}>
         <CardBody className="justify-between">
           <div className="flex gap-3">

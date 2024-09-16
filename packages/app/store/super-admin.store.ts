@@ -2,11 +2,9 @@ import axios from 'axios';
 import { produce } from 'immer';
 import { create } from 'zustand';
 
+import useGroupProfileStore, { GroupProfileState } from '@/store/groupProfile.store';
 import { ProfileState, useProfileStore } from '@/store/profile.store';
-import useGroupProfileStore, {
-  GroupProfileState,
-} from '../app/dashboard/overview/groups/[groupId]/store/groupProfile.store';
-import useGroupsStore, { GroupsState } from './groups.store';
+import useGroupsStore, { GroupsState } from './group-search.store';
 
 type SuperAdminActions = {
   updateGroupVerification: (groupId: string, verification: boolean) => Promise<void | { success: boolean }>;

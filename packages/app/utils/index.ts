@@ -1,6 +1,7 @@
-import { GroupMemberRole } from '@/app/dashboard/overview/groups/[groupId]/store/groupMembers.store';
-import { GroupProfile, User } from '@/types/model';
 import axios, { AxiosError } from 'axios';
+
+import { GroupMemberRole } from '@/store/groupMembers.store';
+import { GroupProfile, User } from '@/types/model';
 
 export const generateErrorMessage = (error: unknown, defaultMessage: string) => {
   let message = defaultMessage;
