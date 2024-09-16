@@ -21,7 +21,7 @@ import { PATHS } from '@/config/constants';
 import useAuth from '@/hooks/useAuth';
 import { useProfileUser } from '@/store/profile.store';
 import { getUserDisplayName } from '@/utils';
-import { ThemeSwitch } from './theme-switch';
+import { ThemeSwitch } from './ThemeSwitch';
 
 const Navbar: React.FC = () => {
   const { data: session } = useSession();
