@@ -1,8 +1,7 @@
 import axios, { AxiosError } from 'axios';
 import { getSession } from 'next-auth/react';
 
-import { GroupMemberRole } from '@/store/groupMembers.store';
-import { User } from '@/types/model';
+import { GroupMemberRole, User } from '@/types/model';
 
 export const generateErrorMessage = (error: unknown, defaultMessage: string) => {
   let message = defaultMessage;
@@ -26,16 +25,34 @@ export const uploadImage = async (imageFile: File, name?: string) => {
   if (url) return url;
 };
 
-export const getGroupMemberRole = (userId: string, founder?: string, leader?: string, adminIds?: string[]) => {
-  let role = 'member';
+/**
+ * Returns an array of roles for a user in a group by comparing the user id with the various
+ * fields in the group.
+ * Note: The 'member' role not returned, because it is implied that the user is a member of the group.
+ * @param userId
+ * @param founder
+ * @param leader
+ * @param adminIds
+ * @returns
+ */
+export const getGroupMemberRoles = (
+  userId: string,
+  founder?: string,
+  leader?: string,
+  adminIds?: string[],
+): GroupMemberRole[] => {
+  const roles: GroupMemberRole[] = [];
   if (userId === founder) {
-    role = 'founder';
-  } else if (userId === leader) {
-    role = 'leader';
-  } else if (adminIds?.includes(userId)) {
-    role = 'admin';
+    roles.push('founder');
   }
-  return role as GroupMemberRole;
+  if (userId === leader) {
+    roles.push('leader');
+  }
+  if (adminIds?.includes(userId)) {
+    roles.push('admin');
+  }
+  // roles.push('member');
+  return roles;
 };
 
 export const removeTrailingSlash = (val: string) => (val.endsWith('/') ? val.substring(0, val.length - 1) : val);

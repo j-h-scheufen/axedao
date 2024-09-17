@@ -2,7 +2,7 @@ import { ChipProps } from '@nextui-org/chip';
 
 export const columns = [
   { name: 'USER', uid: 'name', sortable: true },
-  { name: 'ROLE', uid: 'role' },
+  { name: 'ROLES', uid: 'roles' },
   { name: 'ACTIONS', uid: 'actions' },
 ] as const;
 

@@ -2,18 +2,8 @@ import axios from 'axios';
 import { produce } from 'immer';
 import { create } from 'zustand';
 
-import { GROUP_ROLES } from '@/config/constants';
-import { User } from '@/types/model';
-import { generateErrorMessage, getGroupMemberRole } from '@/utils';
-
-export type GroupMemberRole = (typeof GROUP_ROLES)[number];
-
-export type GroupMember = User & { role: GroupMemberRole };
-
-export type GroupAdmin = {
-  groupId: string;
-  userId: string;
-};
+import { GroupMember, User } from '@/types/model';
+import { generateErrorMessage, getGroupMemberRoles } from '@/utils';
 
 export type GroupMembersState = {
   groupId?: string;
@@ -31,7 +21,7 @@ export type GroupMembersState = {
   initializeAdminError?: string;
   memberBeingPromotedToAdmin?: string; // id of member being promoted
   adminBeingDemotedToMember?: string; // id of admin being demoted
-  memberBeingRemoved?: string; // id of member being removed
+  memberBeingRemoved?: string; // id of member being removed // TODO this state should be kept on the component and transmitted to the store
 };
 
 type GroupMembersActions = {
@@ -99,14 +89,14 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
           const { adminIds, founder, leader } = get();
           const groupMembers: GroupMember[] = data.map((user) => {
             const userId = user.id;
-            const role: GroupMemberRole = getGroupMemberRole(userId, founder, leader, adminIds);
-            return { ...user, role };
+            const roles = getGroupMemberRoles(userId, founder, leader, adminIds);
+            return { ...user, roles };
           });
           set((state) => {
-            // sort by role as shown in GROUP_ROLES
-            const newSearchResults = [...state.searchResults, ...groupMembers].sort((a, b) => {
-              return GROUP_ROLES.indexOf(a.role) - GROUP_ROLES.indexOf(b.role);
-            });
+            // sort by number of roles
+            const newSearchResults = [...state.searchResults, ...groupMembers].sort(
+              (a, b) => b.roles.length - a.roles.length,
+            );
             return {
               searchResults: newSearchResults,
             };
@@ -148,7 +138,8 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
           set(
             produce((state: GroupMembersState) => {
               const promotedMember = state.searchResults.find((member) => member.id === memberId);
-              if (promotedMember) promotedMember.role = 'admin';
+              if (promotedMember && !promotedMember.roles.includes('admin')) promotedMember.roles.push('admin');
+              if (!state.adminIds.includes(memberId)) state.adminIds.push(memberId);
             }),
           );
         }
@@ -167,7 +158,7 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
           set(
             produce((state: GroupMembersState) => {
               const demotedAdmin = state.searchResults.find((member) => member.id === adminId);
-              if (demotedAdmin) demotedAdmin.role = 'member';
+              if (demotedAdmin) demotedAdmin.roles = demotedAdmin.roles.filter((role) => role !== 'admin');
               state.adminIds = state.adminIds.filter((id) => id !== adminId);
             }),
           );

@@ -1,3 +1,4 @@
+import { GROUP_ROLES } from '@/config/constants';
 import { SelectGroup, SelectLink, SelectUser } from '../db/schema';
 
 /**
@@ -30,3 +31,7 @@ export type City = {
   name: string;
   stateCode?: string;
 };
+
+export type GroupMemberRole = (typeof GROUP_ROLES)[number];
+
+export type GroupMember = User & { roles: GroupMemberRole[] };
