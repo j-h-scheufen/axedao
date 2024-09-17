@@ -1,5 +1,5 @@
 import { and, count, eq, ilike, inArray, ne, notExists, SQLWrapper } from 'drizzle-orm';
-import { drizzle } from 'drizzle-orm/postgres-js';
+import { drizzle, PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 
 import ENV from '@/config/environment';
@@ -12,11 +12,18 @@ import { GroupProfile, UserSession } from '../types/model';
  * component, use the api/ route handlers which wrap the DB calls.
  */
 
-// TODO: error handling and safety checks (e.g. to make sure a group admin cannot remove themselves) are missing!
-
 // Disable prefetch as it is not supported for "Transaction" pool mode
+// The below setup is based on: https://github.com/orgs/supabase/discussions/21789
+// due to CONNECT_TIMEOUT issues with Supabase.
 export const client = postgres(ENV.databaseUrl, { prepare: false });
-export const db = drizzle(client, { schema, logger: false });
+export const drizzleClient = drizzle(client, { schema, logger: false });
+declare global {
+  var database: PostgresJsDatabase<typeof schema> | undefined;
+}
+export const db = global.database || drizzleClient;
+if (process.env.NODE_ENV !== 'production') global.database = db;
+
+////////////////////////////////////////////////////////////////////
 
 export async function isGlobalAdmin(userId: string) {
   const res = await db.query.users.findFirst({

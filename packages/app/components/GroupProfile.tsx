@@ -10,6 +10,7 @@ import PageHeading from '@/components/PageHeading';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import UserCard from '@/components/UserCard';
 import { useIsInitializingUser, useUser, useUserActions } from '@/store/userDetails.store';
+import { GroupProfile as GroupProfileType } from '@/types/model';
 import { isUUID } from '@/utils';
 import { useGroupProfile, useGroupProfileActions } from '../store/groupProfile.store';
 import GroupActions from './GroupActions';
@@ -17,9 +18,10 @@ import GroupBanner from './GroupBanner';
 import GroupDescription from './GroupDescription';
 import GroupMembers from './GroupMembers';
 
-type Props = { id: string };
-const GroupProfile = ({ id }: Props) => {
-  const groupProfileActions = useGroupProfileActions();
+type Props = { profile: GroupProfileType };
+
+const GroupProfile = ({ profile }: Props) => {
+  const { setGroupProfile } = useGroupProfileActions();
   const groupProfile = useGroupProfile();
 
   const {
@@ -28,18 +30,19 @@ const GroupProfile = ({ id }: Props) => {
   } = groupProfile;
   const isFounderUUID = !!founder && isUUID(founder);
 
-  const userActions = useUserActions();
+  const { initializeUser } = useUserActions();
   const founderProfile = useUser();
   const isFetchingFounderProfile = useIsInitializingUser();
 
   useEffect(() => {
-    if (!founder || !isFounderUUID) return;
-    userActions.initializeUser(founder);
-  }, [userActions, founder, isFounderUUID]);
+    setGroupProfile(profile);
+  });
 
   useEffect(() => {
-    groupProfileActions.initialize(id);
-  }, [groupProfileActions, id]);
+    if (founder && isFounderUUID && (!founderProfile || founderProfile.user.id !== founder)) {
+      initializeUser(founder);
+    }
+  }, [founder, isFounderUUID, initializeUser, founderProfile]);
 
   return (
     <Suspense>
@@ -54,7 +57,7 @@ const GroupProfile = ({ id }: Props) => {
           className="mx-auto mb-5 block aspect-square h-full max-h-20 w-full max-w-20 xs:mx-0 xs:mb-0 xs:inline-block"
         />
         <div className="flex-1">
-          <GroupDescription description={description}/>
+          <GroupDescription description={description} />
           {email && (
             <Link href={`mailto:${email}`} className="text-small tracking-tight text-default-400">
               {email}
@@ -68,7 +71,7 @@ const GroupProfile = ({ id }: Props) => {
         {isFounderUUID ? <UserCard user={founderProfile?.user} isLoading={isFetchingFounderProfile} /> : founder}
       </div>
       <SubsectionHeading>Members</SubsectionHeading>
-      <GroupMembers id={id} />
+      <GroupMembers id={profile.group.id} />
     </Suspense>
   );
 };

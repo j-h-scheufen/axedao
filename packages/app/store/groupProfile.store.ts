@@ -7,23 +7,28 @@ import { ProfileState, useProfileStore } from '@/store/profile.store';
 import { GroupProfile } from '@/types/model';
 import { generateErrorMessage, uploadImage } from '@/utils';
 
+/**
+ * This store holds the state of a GroupProfile and provides functions to update it.
+ * The profile is either loaded via the group ID or set directly.
+ */
+
 export type GroupProfileState = {
   groupProfile: GroupProfile;
   isGroupAdmin: boolean;
-  initializeGroupError?: string;
+  loadError?: string;
   isDeleting: boolean;
-  groupProfileUpdateError?: string;
+  updateError?: string;
   isUploadingLogo?: boolean;
   isUploadingBanner?: boolean;
 };
 
 export type GroupProfileActions = {
-  initialize: (id: string) => Promise<void>;
+  loadGroupProfile: (id: string) => Promise<void>;
+  setGroupProfile(profile: GroupProfile): void;
   uploadLogo: (file: File, name?: string) => Promise<string | void>;
   uploadBanner: (file: File, name?: string) => Promise<string | void>;
-  updateGroupProfile: (groupProfileData: GroupFormType) => Promise<void>;
+  updateGroupProfile: (profileData: GroupFormType) => Promise<void>;
   delete: () => Promise<void>;
-  setGroupProfileFields: (groupProfileData: Partial<GroupProfile>) => void;
 };
 
 export type GroupStore = GroupProfileState & { actions: GroupProfileActions };
@@ -56,17 +61,21 @@ const DEFAULT_PROPS: GroupProfileState = {
 const useGroupProfileStore = create<GroupStore>()((set, get) => ({
   ...DEFAULT_PROPS,
   actions: {
-    initialize: async (id: string) => {
+    loadGroupProfile: async (id: string) => {
       try {
         const { data } = await axios.get(`/api/groups/${id}`);
-        if (!data?.groupProfile) throw new Error();
         const { groupProfile, isAdmin } = data || {};
-        set({ groupProfile, isGroupAdmin: isAdmin });
+        set({ groupProfile, isGroupAdmin: isAdmin, loadError: undefined });
       } catch (error: unknown) {
         console.error(error);
         const message = generateErrorMessage(error, 'An error occured while fetching group');
-        set({ initializeGroupError: message });
+        set({ loadError: message });
       }
+    },
+    setGroupProfile: (profile: GroupProfile) => {
+      const { user } = useProfileStore.getState();
+      const isGroupAdmin = profile.adminIds.includes(user.id);
+      set({ groupProfile: profile, isGroupAdmin, loadError: undefined });
     },
     uploadLogo: async (file: File, name?: string) => {
       set({ isUploadingLogo: true });
@@ -116,7 +125,7 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
         );
       } catch (error: unknown) {
         const message = error instanceof Error ? error.message : 'An error occured while updating your profile';
-        set({ groupProfileUpdateError: message });
+        set({ updateError: message });
       }
     },
     delete: async () => {
@@ -133,10 +142,6 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
       }
       set({ isDeleting: false });
     },
-    setGroupProfileFields: (groupProfileData: Partial<GroupProfile>) => {
-      const { groupProfile } = get();
-      set({ groupProfile: { ...groupProfile, ...groupProfileData } });
-    },
   },
 }));
 
@@ -146,8 +151,7 @@ export const useGroupProfileActions = (): GroupProfileActions => useGroupProfile
 
 export const useGroupProfile = (): GroupProfile => useGroupProfileStore((state) => state.groupProfile);
 
-export const useInitializeGroupError = (): string | undefined =>
-  useGroupProfileStore((state) => state.initializeGroupError);
+export const useInitializeGroupError = (): string | undefined => useGroupProfileStore((state) => state.loadError);
 
 export const useIsGroupAdmin = (): boolean => useGroupProfileStore((state) => state.isGroupAdmin);
 

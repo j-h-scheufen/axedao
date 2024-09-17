@@ -1,9 +1,9 @@
 import { Transport } from 'viem';
 import { Config, createConfig, http } from 'wagmi';
 import { Chain, gnosis, localhost, optimism, sepolia } from 'wagmi/chains';
-import { injected } from 'wagmi/connectors';
 
 import ENV from '@/config/environment';
+import silk from '@/utils/silk.connector';
 
 export const configureChains = (): [Chain, ...Chain[]] => {
   let chains: [Chain, ...Chain[]] = [gnosis];
@@ -12,6 +12,17 @@ export const configureChains = (): [Chain, ...Chain[]] => {
   else if (appEnv === 'test') chains = [sepolia];
   console.info(`Chains configured for '${appEnv}' mode.`);
   return chains;
+};
+
+export const getDefaultChain = (): Chain => {
+  switch (process.env.NEXT_PUBLIC_APP_ENV?.toLowerCase()) {
+    case 'local':
+      return localhost;
+    case 'test':
+      return sepolia;
+    default:
+      return gnosis;
+  }
 };
 
 export const getTransport = (chain: Chain | undefined): Transport => {
@@ -29,41 +40,12 @@ export const getTransport = (chain: Chain | undefined): Transport => {
   }
 };
 
-export const createSilkConfig = (): Config => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const isSilkAvailable = typeof window !== 'undefined' && typeof (window as any).silk !== 'undefined';
-  return createConfig({
-    chains: configureChains(),
-    connectors: isSilkAvailable
-      ? [
-          injected({
-            target() {
-              return {
-                id: 'silkProvider',
-                name: 'Silk Secure Provider',
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                provider: (window as any).silk,
-              };
-            },
-          }),
-        ]
-      : [],
-    transports: {
-      [optimism.id]: http(ENV.optimismProviderUrl),
-      [gnosis.id]: http(ENV.gnosisProviderUrl),
-      [sepolia.id]: http(ENV.sepoliaProviderUrl),
-      [localhost.id]: http('http://127.0.0.1:8545'),
-    },
-    // ssr: true, //TODO wagmi hooks don't work with SSR when using injected silk
-  });
-};
-
 /**
  * Default wagmi configuration
  */
 const wagmiConfig: Config = createConfig({
   chains: configureChains(),
-  connectors: [],
+  connectors: [silk()],
   transports: {
     [optimism.id]: http(ENV.optimismProviderUrl),
     [gnosis.id]: http(ENV.gnosisProviderUrl),

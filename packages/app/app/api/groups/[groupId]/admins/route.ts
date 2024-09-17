@@ -13,11 +13,7 @@ export type GroupRolesResponse = {
  * Returns the admin IDs, founder, and leader ID of a group
  * @returns GroupRolesResponse
  */
-export async function GET(
-  req: NextRequest,
-  res: NextResponse<GroupRolesResponse>,
-  { params }: { params: { groupId: string } },
-) {
+export async function GET(req: NextRequest, { params }: { params: { groupId: string } }) {
   try {
     const { groupId } = params;
     const group = await fetchGroup(groupId);

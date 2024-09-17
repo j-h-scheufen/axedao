@@ -2,13 +2,21 @@ import { getCsrfToken, signIn as nextAuthSignIn, signOut as nextAuthSignOut } fr
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { SiweMessage } from 'siwe';
-import { useAccount, useDisconnect, useSignMessage } from 'wagmi';
+import { useAccount, useConnect, useDisconnect, useSignMessage } from 'wagmi';
 
 import { PATHS } from '@/config/constants';
+import { getDefaultChain } from '@/config/wagmi';
 import { useGroupsActions } from '@/store/groups.store';
 import { useProfileActions } from '@/store/profile.store';
 import { useUsersActions } from '@/store/users.store';
+import silk from '@/utils/silk.connector';
 
+/**
+ * Handles wagmi connect, signMessage, and logout using the Silk wallet.
+ * Only a single 'loading' and 'error' field are stored in state and used across
+ * all functions.
+ * @returns
+ */
 const useSignIn = () => {
   const [state, setState] = useState<{
     loading?: boolean;
@@ -16,6 +24,7 @@ const useSignIn = () => {
     error?: Error;
   }>({});
   const { address, chainId } = useAccount();
+  const { connect: wagmiConnect, error: connectError, connectors } = useConnect();
   const { disconnect } = useDisconnect();
   const { signMessageAsync } = useSignMessage();
   const { initializeProfile, clearProfile } = useProfileActions();
@@ -43,7 +52,7 @@ const useSignIn = () => {
     try {
       if (!address || !chainId) return;
 
-      setState((x) => ({ ...x, loading: true }));
+      setState((x) => ({ ...x, loading: true, error: undefined }));
       // Create SIWE message with pre-fetched nonce and sign with wallet
       const message = new SiweMessage({
         domain: window.location.host,
@@ -93,7 +102,27 @@ const useSignIn = () => {
     setState({});
   };
 
-  return { signIn, logout, state };
+  const connect = async () => {
+    setState((x) => ({ ...x, loading: true, error: undefined }));
+    const silkConnector = connectors.find((connector) => connector.id === 'silk');
+    const defaultChain = getDefaultChain();
+    try {
+      // There should already be a silk connector in the wagmi config which also
+      // enables automatic reconnect on page refresh, but just in case, we can also create
+      // the connector here.
+      if (!silkConnector) {
+        wagmiConnect({ chainId: defaultChain.id, connector: silk() }); // TODO referral code ENV var
+      } else {
+        wagmiConnect({ chainId: defaultChain.id, connector: silkConnector });
+      }
+      setState((x) => ({ ...x, loading: false }));
+    } catch (error) {
+      console.error('Error connecting to Silk:', error);
+      setState((x) => ({ ...x, loading: false, error: error as Error }));
+    }
+  };
+
+  return { signIn, logout, connect, state };
 };
 
 export default useSignIn;

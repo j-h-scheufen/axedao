@@ -22,7 +22,7 @@ const GroupForm = ({ id }: Props) => {
   const router = useRouter();
 
   const { removeGroupAssociation } = useProfileActions();
-  const { initialize: initGroupProfile, delete: deleteGroup, updateGroupProfile } = useGroupProfileActions();
+  const { loadGroupProfile: initGroupProfile, delete: deleteGroup, updateGroupProfile } = useGroupProfileActions();
   const { initialize: initGroupMembers } = useGroupMembersActions();
   const { group, links, adminIds } = useGroupProfile();
   const isDeleting = useIsDeletingGroup();

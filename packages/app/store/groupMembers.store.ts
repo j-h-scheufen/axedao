@@ -1,12 +1,12 @@
-import { User } from '@/types/model';
-import { generateErrorMessage, getGroupMemberRole } from '@/utils';
 import axios from 'axios';
 import { produce } from 'immer';
 import { create } from 'zustand';
 
-const ROLE_ORDER = ['founder', 'leader', 'admin', 'member'] as const;
+import { GROUP_ROLES } from '@/config/constants';
+import { User } from '@/types/model';
+import { generateErrorMessage, getGroupMemberRole } from '@/utils';
 
-export type GroupMemberRole = (typeof ROLE_ORDER)[number];
+export type GroupMemberRole = (typeof GROUP_ROLES)[number];
 
 export type GroupMember = User & { role: GroupMemberRole };
 
@@ -103,9 +103,9 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
             return { ...user, role };
           });
           set((state) => {
-            // sort by role as shown in ROLE_ORDER
+            // sort by role as shown in GROUP_ROLES
             const newSearchResults = [...state.searchResults, ...groupMembers].sort((a, b) => {
-              return ROLE_ORDER.indexOf(a.role) - ROLE_ORDER.indexOf(b.role);
+              return GROUP_ROLES.indexOf(a.role) - GROUP_ROLES.indexOf(b.role);
             });
             return {
               searchResults: newSearchResults,
