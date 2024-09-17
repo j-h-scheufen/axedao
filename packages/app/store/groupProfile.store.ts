@@ -5,7 +5,7 @@ import { create } from 'zustand';
 import { GroupFormType } from '@/config/validation-schema';
 import { ProfileState, useProfileStore } from '@/store/profile.store';
 import { GroupProfile } from '@/types/model';
-import { generateErrorMessage, uploadImage } from '@/utils';
+import { generateErrorMessage, isCurrentUserGroupAdmin, uploadImage } from '@/utils';
 
 /**
  * This store holds the state of a GroupProfile and provides functions to update it.
@@ -24,7 +24,7 @@ export type GroupProfileState = {
 
 export type GroupProfileActions = {
   loadGroupProfile: (id: string) => Promise<void>;
-  setGroupProfile(profile: GroupProfile): void;
+  setGroupProfile(profile: GroupProfile): Promise<void>;
   uploadLogo: (file: File, name?: string) => Promise<string | void>;
   uploadBanner: (file: File, name?: string) => Promise<string | void>;
   updateGroupProfile: (profileData: GroupFormType) => Promise<void>;
@@ -64,17 +64,17 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
     loadGroupProfile: async (id: string) => {
       try {
         const { data } = await axios.get(`/api/groups/${id}`);
-        const { groupProfile, isAdmin } = data || {};
-        set({ groupProfile, isGroupAdmin: isAdmin, loadError: undefined });
+        const { groupProfile } = data || {}; // TODO the response contains a isAdmin flag that should be removed
+        const isGroupAdmin = await isCurrentUserGroupAdmin(groupProfile.adminIds);
+        set({ groupProfile, isGroupAdmin, loadError: undefined });
       } catch (error: unknown) {
         console.error(error);
         const message = generateErrorMessage(error, 'An error occured while fetching group');
         set({ loadError: message });
       }
     },
-    setGroupProfile: (profile: GroupProfile) => {
-      const { user } = useProfileStore.getState();
-      const isGroupAdmin = profile.adminIds.includes(user.id);
+    setGroupProfile: async (profile: GroupProfile) => {
+      const isGroupAdmin = await isCurrentUserGroupAdmin(profile.adminIds);
       set({ groupProfile: profile, isGroupAdmin, loadError: undefined });
     },
     uploadLogo: async (file: File, name?: string) => {

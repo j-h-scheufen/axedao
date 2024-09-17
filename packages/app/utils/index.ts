@@ -1,4 +1,5 @@
 import axios, { AxiosError } from 'axios';
+import { getSession } from 'next-auth/react';
 
 import { GroupMemberRole } from '@/store/groupMembers.store';
 import { User } from '@/types/model';
@@ -100,4 +101,14 @@ export const getUserDisplayName = (user: User): string => {
     displayName += displayName === '' ? user.name : ` (${user.name})`;
   }
   return displayName || `Anonymous (${user.walletAddress})`;
+};
+
+export const isCurrentUserGroupAdmin = async (adminIds: string[]) => {
+  const session = await getSession();
+  if (!session) {
+    console.warn('No session found while setting group profile');
+  } else {
+    return adminIds.includes(session.user.id);
+  }
+  return false;
 };

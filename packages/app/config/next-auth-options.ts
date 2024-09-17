@@ -82,7 +82,7 @@ export const nextAuthOptions: AuthOptions = {
   secret: ENV.nextAuthSecret,
   callbacks: {
     async jwt({ token, user }) {
-      // Initial sign in persists the user object in the token
+      // Initial sign in persists the UserSession in the token
       if (user) return { ...token, user };
       return token;
     },
