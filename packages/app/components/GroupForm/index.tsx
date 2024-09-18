@@ -11,7 +11,7 @@ import ImageUpload from '@/components/ImageUpload';
 import GroupFormSkeleton from '@/components/skeletons/GroupSkeletons';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import { PATHS } from '@/config/constants';
-import { GroupFormType, groupFormSchema } from '@/config/validation-schema';
+import { UpdateGroupProfileForm, updateGroupProfileSchema } from '@/config/validation-schema';
 import { useGroupMembersActions } from '@/store/groupMembers.store';
 import { useGroupProfile, useGroupProfileActions, useIsDeletingGroup } from '@/store/groupProfile.store';
 import { useProfileActions } from '@/store/profile.store';
@@ -40,7 +40,7 @@ const GroupForm = ({ id }: Props) => {
     router.push(PATHS.profile);
   };
 
-  const handleSubmit = (values: GroupFormType) => {
+  const handleSubmit = (values: UpdateGroupProfileForm) => {
     try {
       return updateGroupProfile(values).then(() => router.push(`/search/groups/${id}`));
     } catch (error) {
@@ -49,7 +49,7 @@ const GroupForm = ({ id }: Props) => {
     }
   };
 
-  const initValues: GroupFormType = {
+  const initValues: UpdateGroupProfileForm = {
     name: group.name || '',
     email: group.email || '',
     founder: group.founder || '',
@@ -61,13 +61,13 @@ const GroupForm = ({ id }: Props) => {
   };
 
   return (
-    <Formik<GroupFormType>
+    <Formik<UpdateGroupProfileForm>
       initialValues={initValues}
-      validationSchema={groupFormSchema}
+      validationSchema={updateGroupProfileSchema}
       onSubmit={handleSubmit}
       enableReinitialize
     >
-      {({ values, dirty, isValid, isSubmitting, setFieldValue }: FormikProps<GroupFormType>) => (
+      {({ values, dirty, isValid, isSubmitting, setFieldValue }: FormikProps<UpdateGroupProfileForm>) => (
         <Suspense fallback={<GroupFormSkeleton />}>
           <Form className="flex flex-col gap-2 sm:gap-4">
             <div className="md:flex sm:gap-5">

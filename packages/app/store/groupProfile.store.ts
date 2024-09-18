@@ -2,7 +2,7 @@ import axios from 'axios';
 import { produce } from 'immer';
 import { create } from 'zustand';
 
-import { GroupFormType } from '@/config/validation-schema';
+import { UpdateGroupProfileForm } from '@/config/validation-schema';
 import { ProfileState, useProfileStore } from '@/store/profile.store';
 import { GroupProfile } from '@/types/model';
 import { generateErrorMessage, isCurrentUserGroupAdmin, uploadImage } from '@/utils';
@@ -27,7 +27,7 @@ export type GroupProfileActions = {
   setGroupProfile(profile: GroupProfile): Promise<void>;
   uploadLogo: (file: File, name?: string) => Promise<string | void>;
   uploadBanner: (file: File, name?: string) => Promise<string | void>;
-  updateGroupProfile: (profileData: GroupFormType) => Promise<void>;
+  updateGroupProfile: (profileData: UpdateGroupProfileForm) => Promise<void>;
   delete: () => Promise<void>;
 };
 
@@ -63,7 +63,7 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
   actions: {
     loadGroupProfile: async (id: string) => {
       try {
-        const { data: groupProfile } = await axios.get(`/api/groups/${id}`);
+        const { data: groupProfile } = await axios.get(`/api/groups/${id}/profile`);
         const isGroupAdmin = await isCurrentUserGroupAdmin(groupProfile.adminIds);
         set({ groupProfile, isGroupAdmin, loadError: undefined });
       } catch (error: unknown) {
@@ -88,7 +88,7 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
       set({ isUploadingBanner: false });
       return url;
     },
-    updateGroupProfile: async (groupProfileData: GroupFormType) => {
+    updateGroupProfile: async (groupProfileData: UpdateGroupProfileForm) => {
       const {
         groupProfile: {
           group: { id },
@@ -113,7 +113,10 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
           }
         }
         // Update the core group data
-        const { data } = await axios.patch<Omit<GroupProfile, 'adminIds'>>(`/api/groups/${id}`, groupProfileData);
+        const { data } = await axios.patch<Omit<GroupProfile, 'adminIds'>>(
+          `/api/groups/${id}/profile`,
+          groupProfileData,
+        );
         const groupProfile = { ...data, adminIds: get().groupProfile?.adminIds };
         set({ groupProfile });
         // update the user's group in profile store
@@ -133,7 +136,7 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
       if (!groupId || isDeleting) return;
       set({ isDeleting: true });
       try {
-        const { data } = await axios.delete(`/api/groups/${groupId}`);
+        const { data } = await axios.delete(`/api/groups/${groupId}/profile`);
         if (!data.success) throw new Error('An error occurred while deleting group');
         set({ ...DEFAULT_PROPS });
       } catch (error) {

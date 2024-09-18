@@ -4,7 +4,7 @@ import postgres from 'postgres';
 
 import ENV from '@/config/environment';
 import * as schema from '@/db/schema';
-import { Profile } from '@/types/model';
+import { Group, Profile } from '@/types/model';
 import { GroupProfile, UserSession } from '../types/model';
 
 /**
@@ -69,6 +69,12 @@ export async function fetchSessionData(walletAddress: string): Promise<UserSessi
   });
 }
 
+export async function fetchUser(userId: string): Promise<schema.SelectUser | undefined> {
+  return db.query.users.findFirst({
+    where: (users, { eq }) => eq(users.id, userId),
+  });
+}
+
 export async function fetchUserProfile(userId: string): Promise<Profile | undefined> {
   const result = await db.query.users.findFirst({
     where: (users, { eq }) => eq(users.id, userId),
@@ -99,7 +105,7 @@ type FetchGroupsOptions = {
   country?: string;
   verified?: boolean;
 };
-export async function fetchGroups(options: FetchGroupsOptions) {
+export async function fetchGroups(options: FetchGroupsOptions): Promise<Group[]> {
   const { limit = 20, offset = 0, searchTerm, city, country, verified } = options;
 
   const filters: (SQLWrapper | undefined)[] = [];
@@ -149,8 +155,8 @@ export async function isGroupAdmin(groupId: string, userId: string): Promise<boo
   return result.length > 0 && result[0].value > 0;
 }
 
-export async function fetchGroup(groupId: string) {
-  return await db.query.groups.findFirst({
+export async function fetchGroup(groupId: string): Promise<schema.SelectGroup | undefined> {
+  return db.query.groups.findFirst({
     where: (groups, { eq }) => eq(groups.id, groupId),
   });
 }

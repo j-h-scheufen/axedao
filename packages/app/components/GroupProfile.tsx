@@ -8,15 +8,15 @@ import { Suspense, useEffect } from 'react';
 import ContactInfo from '@/components/ContactInfo';
 import PageHeading from '@/components/PageHeading';
 import SubsectionHeading from '@/components/SubsectionHeading';
-import UserCard from '@/components/UserCard';
-import { useIsInitializingUser, useUser, useUserActions } from '@/store/userDetails.store';
 import { GroupProfile as GroupProfileType } from '@/types/model';
 import { isUUID } from '@/utils';
+import { Spinner } from '@nextui-org/spinner';
 import { useGroupProfile, useGroupProfileActions } from '../store/groupProfile.store';
 import GroupActions from './GroupActions';
 import GroupBanner from './GroupBanner';
 import GroupDescription from './GroupDescription';
 import GroupMembers from './GroupMembers';
+import UserCardWithFetch from './UserCardDynamic';
 
 type Props = { profile: GroupProfileType };
 
@@ -30,22 +30,12 @@ const GroupProfile = ({ profile }: Props) => {
   } = groupProfile;
   const isFounderUUID = !!founder && isUUID(founder);
 
-  const { initializeUser } = useUserActions();
-  const founderProfile = useUser();
-  const isFetchingFounderProfile = useIsInitializingUser();
-
   useEffect(() => {
     if (!groupProfile || groupProfile.group.id !== profile.group.id) setGroupProfile(profile);
   }, [groupProfile, profile, setGroupProfile]);
 
-  useEffect(() => {
-    if (founder && isFounderUUID && (!founderProfile || founderProfile.user.id !== founder)) {
-      initializeUser(founder);
-    }
-  }, [founder, isFounderUUID, initializeUser, founderProfile]);
-
   return (
-    <Suspense>
+    <Suspense fallback={<Spinner />}>
       <PageHeading back="/search?tab=groups">{name}</PageHeading>
       <GroupActions />
       <GroupBanner />
@@ -67,9 +57,13 @@ const GroupProfile = ({ profile }: Props) => {
         </div>
       </div>
       <SubsectionHeading>Founder</SubsectionHeading>
-      <div className="text-default-500">
-        {isFounderUUID ? <UserCard user={founderProfile?.user} isLoading={isFetchingFounderProfile} /> : founder}
-      </div>
+      {isFounderUUID ? (
+        <Suspense fallback="Loading Founder Info ...">
+          <UserCardWithFetch userId={founder} />
+        </Suspense>
+      ) : (
+        <div className="text-default-500">founder</div>
+      )}
       <SubsectionHeading>Members</SubsectionHeading>
       <GroupMembers id={profile.group.id} />
     </Suspense>

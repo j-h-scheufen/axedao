@@ -63,49 +63,6 @@ export const linkSchema = object({
 
 export const linksSchema = array().of(linkSchema).default([]);
 
-export const groupFormSchema = object({
-  name: string().required('Group name is required'),
-  founder: string().optional().nullable(),
-  email: string().email(),
-  description: string().test('max-chars', 'Description cannot exceed 300 characters', (value: string | undefined) =>
-    value ? value.length <= 300 : true,
-  ),
-  logo: mixed()
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    .test('is-valid-type', 'Not a valid image type', (value: any) => {
-      if (value instanceof File) {
-        return isValidFileType(value && value.name?.toLowerCase(), 'image');
-      }
-      return true;
-    })
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    .test('is-valid-size', 'Max image size allowed is 3MB', (value: any) => {
-      if (value instanceof File) {
-        return value.size <= megabytesToBytes(3);
-      }
-      return true;
-    }),
-  banner: mixed()
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    .test('is-valid-type', 'Not a valid image type', (value: any) => {
-      if (value instanceof File) {
-        return isValidFileType(value && value.name?.toLowerCase(), 'image');
-      }
-      return true;
-    })
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    .test('is-valid-size', 'Max image size allowed is 5MB', (value: any) => {
-      if (value instanceof File) {
-        return value.size <= megabytesToBytes(3);
-      }
-      return true;
-    }),
-  links: linksSchema,
-  adminIds: array().of(string()),
-});
-
-export type GroupFormType = InferType<typeof groupFormSchema>;
-
 export const profileFormSchema = object({
   avatar: mixed()
     .test('is-valid-type', 'Not a valid image type', (value: unknown) => {
@@ -161,3 +118,52 @@ export const axeTransferForm = object({
 });
 
 export type AxeTransferForm = InferType<typeof axeTransferForm>;
+
+/***************************
+ * Schemas for API routes and forms
+ ***************************/
+export const updateGroupSchema = object({
+  name: string().required('Group name is required'),
+  founder: string().optional().nullable(),
+  email: string().email().optional().nullable(),
+  description: string().test('max-chars', 'Description cannot exceed 500 characters', (value: string | undefined) =>
+    value ? value.length <= 500 : true,
+  ),
+  logo: mixed()
+    .test('is-valid-type', 'Not a valid image type', (value) => {
+      if (value instanceof File) {
+        return isValidFileType(value && value.name?.toLowerCase(), 'image');
+      }
+      return true;
+    })
+    .test('is-valid-size', 'Max image size allowed is 3MB', (value) => {
+      if (value instanceof File) {
+        return value.size <= megabytesToBytes(3);
+      }
+      return true;
+    }),
+  banner: mixed()
+    .test('is-valid-type', 'Not a valid image type', (value) => {
+      if (value instanceof File) {
+        return isValidFileType(value && value.name?.toLowerCase(), 'image');
+      }
+      return true;
+    })
+    .test('is-valid-size', 'Max image size allowed is 5MB', (value: any) => {
+      if (value instanceof File) {
+        return value.size <= megabytesToBytes(5);
+      }
+      return true;
+    }),
+});
+
+export const updateGroupProfileSchema = updateGroupSchema.concat(
+  object({
+    links: linksSchema,
+    adminIds: array().of(string()),
+  }),
+);
+
+export type UpdateGroupForm = InferType<typeof updateGroupSchema>;
+
+export type UpdateGroupProfileForm = InferType<typeof updateGroupProfileSchema>;

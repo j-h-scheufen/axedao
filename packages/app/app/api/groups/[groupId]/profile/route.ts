@@ -1,25 +1,36 @@
 import { isNil, omitBy } from 'lodash';
 import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
-import { InferType } from 'yup';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { updateGroupSchema } from '@/config/validation-schema';
-import { deleteGroup, fetchGroup, fetchGroupAdminIds, isGroupAdmin, updateGroup } from '@/db';
+import { LinkTypes, UpdateGroupProfileForm, updateGroupProfileSchema } from '@/config/validation-schema';
+import {
+  addLink,
+  deleteGroup,
+  fetchGroup,
+  fetchGroupAdminIds,
+  fetchGroupProfile,
+  isGroupAdmin,
+  removeLink,
+  updateGroup,
+  updateLink,
+} from '@/db';
+import { Link } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
 
 /**
- * Returns a Group object for a given group ID.
+ * Returns a GroupProfile object for a given group ID.
  * @param req
- * @returns a Group
+ * @param param1
+ * @returns
  */
 export async function GET(req: NextRequest, { params }: { params: { groupId: string } }) {
   try {
     const { groupId } = params;
-    const group = await fetchGroup(groupId);
-    if (!group) return NextResponse.json({ error: `Group ID '${groupId}' does not exist` }, { status: 404 });
+    const groupProfile = await fetchGroupProfile(groupId);
+    if (!groupProfile) return NextResponse.json({ error: `Group ID ${groupId} does not exist` }, { status: 404 });
 
-    return Response.json(group);
+    return Response.json(groupProfile);
   } catch (error) {
     console.error(error);
     return Response.json(
@@ -32,8 +43,8 @@ export async function GET(req: NextRequest, { params }: { params: { groupId: str
 }
 
 /**
- * Updates a group
- * @param req Partial<Group>
+ * Updates a group profile including its links.
+ * @param req GroupFormType
  * @param groupId
  * @returns
  */
@@ -56,7 +67,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { groupId: s
     );
 
   const body = await req.json();
-  const isValid = await updateGroupSchema.validate(body);
+  const isValid = await updateGroupProfileSchema.validate(body);
   if (!isValid) {
     return Response.json(
       { error: true, message: 'Invalid profile data' },
@@ -66,27 +77,76 @@ export async function PATCH(req: NextRequest, { params }: { params: { groupId: s
     );
   }
 
-  const groupData = body as InferType<typeof updateGroupSchema>;
+  const { banner, logo, links } = body as UpdateGroupProfileForm;
 
-  const groupDataClean = omitBy(groupData, isNil);
+  const groupProfileData = omitBy(
+    {
+      name: body.name,
+      email: body.email,
+      description: body.description,
+      links: body.links,
+      adminIds: body.adminIds,
+      leader: body.leader,
+      founder: body.founder,
+      banner: banner,
+      logo: logo,
+    },
+    isNil,
+  );
 
-  const oldGroup = await fetchGroup(groupId);
-  if (!oldGroup)
+  const groupProfile = await fetchGroupProfile(groupId); // TODO why fetch the whole profile to get the links?
+  if (!groupProfile)
     return NextResponse.json(
       { error: 'Unable to locate the group to update. Please confirm that the group still exists.' },
       { status: 404 },
     );
 
-  const updatedGroup = await updateGroup({ ...groupDataClean, id: oldGroup.id });
-  return Response.json(updatedGroup);
+  const { group, links: existingLinks = [] } = groupProfile;
+
+  for (const link of links) {
+    const isNewLink = !link.id;
+    let isUpdatedLink = false;
+
+    if (isNewLink) {
+      const addedLink = await addLink({
+        ...link,
+        type: link.type as LinkTypes,
+        ownerId: group.id,
+      });
+      link.id = addedLink?.id;
+    } else {
+      for (const existingLink of existingLinks) {
+        if (link.id === existingLink.id && link.url !== existingLink.url) {
+          isUpdatedLink = true;
+          break;
+        }
+      }
+    }
+
+    if (isUpdatedLink) {
+      await updateLink(link as Link);
+    }
+  }
+
+  const deletedLinkIds: number[] = [];
+  for (const existingLink of existingLinks) {
+    let isDeletedLink = true;
+    for (const link of links) {
+      if (link.id === existingLink.id) {
+        isDeletedLink = false;
+        break;
+      }
+    }
+    if (isDeletedLink) {
+      await removeLink(existingLink.id);
+      deletedLinkIds.push(existingLink.id);
+    }
+  }
+
+  const updatedGroup = await updateGroup({ ...groupProfileData, id: group.id });
+  return Response.json({ group: updatedGroup || {}, links });
 }
 
-/**
- * Deletes the group with the specified ID.
- * @param request
- * @param param1
- * @returns
- */
 export async function DELETE(request: NextRequest, { params }: { params: { groupId: string } }) {
   const session = await getServerSession(nextAuthOptions);
 

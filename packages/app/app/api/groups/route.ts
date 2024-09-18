@@ -18,6 +18,11 @@ const groupOptionsSchema = object({
   verified: boolean().nonNullable(),
 });
 
+/**
+ * Returns a list of groups based on the query parameters.
+ * @param request
+ * @returns Group[]
+ */
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams;
@@ -48,6 +53,12 @@ export async function GET(request: NextRequest) {
   }
 }
 
+/**
+ * Creates a new group and assigns the logged-in user as the admin of the group.
+ * The user must not be a member of any other group.
+ * @param request
+ * @returns
+ */
 export async function POST(request: NextRequest) {
   const session = await getServerSession(nextAuthOptions);
 

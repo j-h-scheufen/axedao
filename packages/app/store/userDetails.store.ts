@@ -49,7 +49,7 @@ export const useUserDetailsStore = create<UserDetailsStore>()((set, get) => ({
       if (isInitializingUser) return;
       set({ isInitializingUser: true });
       try {
-        const { data: profile } = await axios.get<Profile>(`/api/users/${userId}`);
+        const { data: profile } = await axios.get<Profile>(`/api/users/${userId}/profile`);
         if (profile) set({ profile, isUserInitialized: true });
       } catch (error) {
         const fetchError = error as Error | AxiosError;

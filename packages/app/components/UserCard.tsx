@@ -7,43 +7,43 @@ import { UserRoundIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { ForwardedRef, ReactNode, forwardRef } from 'react';
 
+import { PATHS } from '@/config/constants';
 import { User } from '@/types/model';
-import UserCardSkeleton from './skeletons/UserCardSkeleton';
 
 export type UserCardProps = CardProps & {
   user?: User | null;
   endContent?: ReactNode | null;
   avatarProps?: AvatarProps;
-  isLoading?: boolean;
 };
+
 const UserCard = (
-  { user, endContent = null, avatarProps, isLoading, ...props }: UserCardProps,
+  { user, endContent = null, avatarProps, ...props }: UserCardProps,
   ref: ForwardedRef<HTMLDivElement | null>,
 ) => {
   const router = useRouter();
-  if (!user || isLoading) return <UserCardSkeleton ref={ref} {...props} />;
+  if (!user) return 'Missing User';
+
   return (
-    <Link as="div" onPress={() => router.push(`/search/users/${user.id}`)} className="inline-block cursor-pointer">
+    <Link as="div" onPress={() => router.push(`${PATHS.users}/${user.id}`)} className="inline-block cursor-pointer">
       <Card ref={ref} {...props}>
-        <CardBody className="justify-between">
-          <div className="flex gap-3">
-            <Avatar
-              radius="full"
-              size="md"
-              src={user?.avatar || ''}
-              fallback={<UserRoundIcon className="w-5 h-5 text-default-400" strokeWidth={1.25} />}
-              className="min-w-10"
-              {...avatarProps}
-            />
-            <div className="flex-1 flex flex-col items-start justify-center gap-1">
-              <h4 className="text-small font-semibold leading-none text-default-600">{user?.name}</h4>
-              <h5 className="text-small tracking-tight text-default-400">{user?.email}</h5>
-            </div>
-            {endContent}
+        <CardBody className="flex gap-3 justify-between">
+          <Avatar
+            radius="full"
+            size="md"
+            src={user.avatar || ''}
+            fallback={<UserRoundIcon className="w-5 h-5 text-default-400" strokeWidth={1.25} />}
+            className="min-w-10"
+            {...avatarProps}
+          />
+          <div className="flex-1 flex flex-col items-start justify-center gap-1">
+            <h4 className="text-small font-semibold leading-none text-default-600">{user.name}</h4>
+            <h5 className="text-small tracking-tight text-default-400">{user.email}</h5>
           </div>
+          {endContent}
         </CardBody>
       </Card>
     </Link>
   );
 };
+
 export default forwardRef(UserCard);
