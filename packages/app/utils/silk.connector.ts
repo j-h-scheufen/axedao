@@ -5,14 +5,36 @@ import { Chain, getAddress, SwitchChainError, UserRejectedRequestError } from 'v
 
 import { SILK_METHOD } from '@silk-wallet/silk-interface-core';
 
+// For reference: WAGMI connector event map: wagmi/packages/core/src/connectors/createConnector.ts
+// type ConnectorEventMap = {
+//   change: {
+//     accounts?: readonly Address[] | undefined
+//     chainId?: number | undefined
+//   }
+//   connect: { accounts: readonly Address[]; chainId: number }
+//   disconnect: never
+//   error: { error: Error }
+//   message: { type: string; data?: unknown | undefined }
+// }
+
+/**
+ * Creates a WAGMI connecoctor for the Silk Wallet SDK
+ * @param referralCode Optional referral code for the Silk points system
+ * @returns
+ */
 export default function silk(referralCode?: string) {
   let silkProvider: SilkEthereumProviderInterface | null = null;
 
   return createConnector<SilkEthereumProviderInterface>((config) => ({
     id: 'silk',
+    // icon: '', // TODO only needed for UIs like RainbowKit. Is there a file to use here?
     name: 'Silk Security Connector',
     type: 'Silk',
+    chains: config.chains,
+    supportsSimulation: false, // TODO does it?
+
     async connect({ chainId } = {}) {
+      // TODO isReconnecting in params useful for Silk?
       try {
         config.emitter.emit('message', {
           type: 'connecting',
@@ -27,7 +49,7 @@ export default function silk(referralCode?: string) {
           try {
             provider.login();
           } catch (error) {
-            console.error('Unable to login', error);
+            console.warn('Unable to login', error);
             throw new UserRejectedRequestError('User rejected login' as unknown as Error);
           }
         }
@@ -45,11 +67,12 @@ export default function silk(referralCode?: string) {
 
         return { accounts, chainId: currentChainId };
       } catch (error) {
-        console.error('error while connecting', error);
+        console.error('Error while connecting', error);
         this.onDisconnect();
-        throw new UserRejectedRequestError('Something went wrong' as unknown as Error);
+        throw error;
       }
     },
+
     async getAccounts() {
       const provider = await this.getProvider();
       const accounts = await provider.request({
@@ -59,6 +82,7 @@ export default function silk(referralCode?: string) {
       if (accounts && Array.isArray(accounts)) return accounts.map((x: string) => getAddress(x));
       return [];
     },
+
     async getChainId() {
       const provider = await this.getProvider();
       const chainId = await provider.request({ method: SILK_METHOD.eth_chainId });
@@ -66,11 +90,10 @@ export default function silk(referralCode?: string) {
     },
 
     async getProvider(): Promise<SilkEthereumProviderInterface> {
-      if (silkProvider) {
-        return silkProvider;
+      if (!silkProvider) {
+        silkProvider = initSilk(referralCode);
       }
 
-      silkProvider = initSilk(referralCode);
       return silkProvider;
     },
 
@@ -116,7 +139,7 @@ export default function silk(referralCode?: string) {
         });
         return chain;
       } catch (error: unknown) {
-        console.error('Error: Cannot change chain', error);
+        console.error('Error: Unable to switch chain', error);
         throw new SwitchChainError(error as Error);
       }
     },
