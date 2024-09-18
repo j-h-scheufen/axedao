@@ -16,16 +16,11 @@ export type UserCardDynamicProps = CardProps & {
 
 const DynamicUserCard = ({ userId, ...props }: UserCardDynamicProps) => {
   const { data: user } = useFetchUser(userId);
-  return (
-    <>
-      <UserCard user={user} {...props} />, Name: {user ? user.name : 'No user'}
-    </>
-  );
+  return <UserCard user={user} {...props} />;
 };
 
 const UserCardWithFetch = (props: UserCardDynamicProps) => (
   <Suspense fallback={<UserCardSkeleton {...props} />}>
-    <div>ID: {props.userId}</div>
     <DynamicUserCard {...props} />
   </Suspense>
 );

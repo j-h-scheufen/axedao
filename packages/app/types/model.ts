@@ -35,3 +35,16 @@ export type City = {
 export type GroupMemberRole = (typeof GROUP_ROLES)[number];
 
 export type GroupMember = User & { roles: GroupMemberRole[] };
+
+/**
+ * Search types used in the search routes
+ */
+export type UserSearchParams = {
+  offset: number;
+  pageSize?: number;
+  searchTerm?: string;
+};
+export type UserSearchResult = {
+  data: User[];
+  nextOffset: number | null;
+};

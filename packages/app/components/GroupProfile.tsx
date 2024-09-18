@@ -57,16 +57,11 @@ const GroupProfile = ({ profile }: Props) => {
         </div>
       </div>
       <SubsectionHeading>Founder</SubsectionHeading>
-      {isFounderUUID ? (
-        <Suspense fallback="Loading Founder Info ...">
-          <UserCardWithFetch userId={founder} />
-        </Suspense>
-      ) : (
-        <div className="text-default-500">founder</div>
-      )}
+      {isFounderUUID ? <UserCardWithFetch userId={founder} /> : <div className="text-default-500">founder</div>}
       <SubsectionHeading>Members</SubsectionHeading>
       <GroupMembers id={profile.group.id} />
     </Suspense>
   );
 };
+
 export default GroupProfile;

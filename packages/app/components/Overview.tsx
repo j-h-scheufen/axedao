@@ -20,7 +20,7 @@ const Overview = () => {
         defaultSelectedKey={tab || undefined}
         onSelectionChange={(key) => {
           const tab = key.toString() as 'users' | 'groups';
-          setQuery({ tab, searchBy: tab === 'users' ? 'name' : null, searchTerm: null });
+          setQuery({ tab, searchTerm: null });
         }}
       >
         <Tab key="users" title="Users">

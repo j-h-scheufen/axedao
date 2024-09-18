@@ -13,17 +13,6 @@ import { User as UserType } from '@/types/model';
 import { getUserDisplayName } from '@/utils';
 import { useProfileUser } from '../store/profile.store';
 
-const searchOptions = [
-  {
-    value: 'name',
-    label: 'Name',
-  },
-  {
-    value: 'nickname',
-    label: 'Nickname',
-  },
-];
-
 const columns = [
   {
     key: 'user',
@@ -44,7 +33,7 @@ const useGlobalAdminUsersTable = () => {
   const [query, setQuery] = useOverviewQueries();
   const [debouncedQuery] = useDebounce(query, 500);
 
-  const { searchTerm, searchBy } = query;
+  const { searchTerm } = query;
 
   const lastQueryRef = useRef<typeof query | null>(null);
 
@@ -55,7 +44,7 @@ const useGlobalAdminUsersTable = () => {
 
   useEffect(() => {
     if (isEqual(lastQueryRef.current, debouncedQuery)) return;
-    usersActions.search({ searchTerm: debouncedQuery.searchTerm || '', searchBy: debouncedQuery.searchBy || '' });
+    usersActions.search({ searchTerm: debouncedQuery.searchTerm || '' });
     lastQueryRef.current = debouncedQuery;
   }, [debouncedQuery, usersActions, lastQueryRef]);
 
@@ -86,20 +75,13 @@ const useGlobalAdminUsersTable = () => {
     setQuery({ ...query, searchTerm });
   };
 
-  const setSearchBy = (searchBy: string) => {
-    setQuery({ ...query, searchBy });
-  };
-
   return {
     searchTerm,
     setSearchTerm,
-    searchBy,
-    setSearchBy,
     users,
     isLoading,
     selectedRows,
     setSelectedRows,
-    searchOptions,
     columns,
     getCellValue,
   };

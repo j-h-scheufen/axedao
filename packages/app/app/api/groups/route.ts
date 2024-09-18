@@ -6,7 +6,7 @@ import { boolean, number, object, string } from 'yup';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { createNewGroupFormSchema, CreateNewGroupFormType } from '@/config/validation-schema';
-import { addGroupAdmin, countGroups, fetchGroups, fetchUserProfile, insertGroup, updateUser } from '@/db';
+import { addGroupAdmin, countGroups, fetchGroups, fetchUser, insertGroup, updateUser } from '@/db';
 import { generateErrorMessage } from '@/utils';
 
 const groupOptionsSchema = object({
@@ -67,16 +67,12 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const profile = await fetchUserProfile(session.user.id);
-    if (!profile) {
-      throw new Error('No profile for logged-in user. This should not be possible.');
+    const user = await fetchUser(session.user.id);
+    if (!user) {
+      throw new Error('No entry for logged-in user in DB. This should not be possible.');
     }
 
-    const {
-      user: { groupId },
-    } = profile;
-
-    if (groupId) {
+    if (user.groupId) {
       return NextResponse.json(
         { error: 'You cannot create a new group while being a member of an existing group' },
         { status: 403 },

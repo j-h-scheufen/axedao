@@ -1,4 +1,4 @@
-import { and, count, eq, ilike, inArray, ne, notExists, SQLWrapper } from 'drizzle-orm';
+import { and, count, eq, ilike, inArray, ne, notExists, or, SQLWrapper } from 'drizzle-orm';
 import { drizzle, PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 
@@ -9,7 +9,7 @@ import { GroupProfile, UserSession } from '../types/model';
 
 /**
  * NOTE: All DB functions in this file can only be run server-side. If you need to retrieve DB data from a client
- * component, use the api/ route handlers which wrap the DB calls.
+ * component, use the API route handlers provide access to the DB.
  */
 
 // Disable prefetch as it is not supported for "Transaction" pool mode
@@ -33,32 +33,30 @@ export async function isGlobalAdmin(userId: string) {
   return res?.isGlobalAdmin;
 }
 
-type FetchUsersOptions = {
+type SearchUsersOptions = {
   limit?: number;
   offset?: number;
   searchTerm?: string;
-  searchBy?: 'name' | 'nickname';
 };
 
 export async function fetchUsers() {
   return await db.select().from(schema.users);
 }
 
-export async function searchUsers(options: FetchUsersOptions) {
-  const { limit = 20, offset = 0, searchTerm, searchBy = 'name' } = options;
-  const filters: (SQLWrapper | undefined)[] = [];
-  if (searchTerm) filters.push(ilike(schema.users[searchBy], `%${searchTerm}%`));
+export async function searchUsers(options: SearchUsersOptions) {
+  const { limit = 20, offset = 0, searchTerm } = options;
+  const orFilters: (SQLWrapper | undefined)[] = [];
+
+  if (searchTerm) {
+    orFilters.push(ilike(schema.users.name, `%${searchTerm}%`));
+    orFilters.push(ilike(schema.users.nickname, `%${searchTerm}%`));
+  }
+
   return await db.query.users.findMany({
     limit,
     offset,
-    where: filters.length ? and(...filters) : undefined,
+    where: orFilters.length ? or(...orFilters) : undefined,
   });
-  // const baseQuery = db.select().from(schema.users);
-  // if (!searchTerm) return await baseQuery.limit(limit).offset(offset);
-  // return await baseQuery
-  //   .where(ilike(schema.users[searchBy || 'name'], `%${searchTerm}%`))
-  //   .limit(limit)
-  //   .offset(offset);
 }
 
 export async function fetchSessionData(walletAddress: string): Promise<UserSession | undefined> {

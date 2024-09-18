@@ -1,7 +1,6 @@
 'use client';
 
 import { Input } from '@nextui-org/input';
-import { Select, SelectItem } from '@nextui-org/select';
 import { isEqual } from 'lodash';
 import { Search } from 'lucide-react';
 import { useEffect, useRef } from 'react';
@@ -9,24 +8,13 @@ import { useDebounce } from 'use-debounce';
 
 import useOverviewQueries from '@/hooks/useOverviewQueries';
 import {
-  useIsLoadingUsers,
-  useTotalUsers,
-  useSearchResults,
-  useUserSearchActions,
   useIsInitialized,
+  useIsLoadingUsers,
+  useSearchResults,
+  useTotalUsers,
+  useUserSearchActions,
 } from '@/store/user-search.store';
 import UsersGrid from './UsersGrid';
-
-const searchOptions = [
-  {
-    value: 'name',
-    label: 'Name',
-  },
-  {
-    value: 'nickname',
-    label: 'Nickname',
-  },
-];
 
 const Users = () => {
   const [query, setQuery] = useOverviewQueries();
@@ -42,7 +30,7 @@ const Users = () => {
 
   useEffect(() => {
     if (isEqual(lastQueryRef.current, debouncedQuery)) return;
-    usersActions.search({ searchTerm: debouncedQuery.searchTerm || '', searchBy: debouncedQuery.searchBy || '' });
+    usersActions.search({ searchTerm: debouncedQuery.searchTerm || '' });
     lastQueryRef.current = debouncedQuery;
   }, [debouncedQuery, usersActions, lastQueryRef]);
 
@@ -50,11 +38,7 @@ const Users = () => {
     setQuery({ ...query, searchTerm });
   };
 
-  const setSearchBy = (searchBy: string) => {
-    setQuery({ ...query, searchBy });
-  };
-
-  const { searchTerm, searchBy } = query;
+  const { searchTerm } = query;
 
   return (
     <div className="flex flex-col gap-4 -mt-5">
@@ -69,25 +53,6 @@ const Users = () => {
           value={searchTerm || ''}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <Select
-          label={
-            <span className="inline-block h-10 whitespace-nowrap text-small leading-10 text-default-500">
-              Search by
-            </span>
-          }
-          labelPlacement="outside-left"
-          value={searchBy || 'name'}
-          className="ml-auto w-48 md:ml-0 md:flex-col"
-          classNames={{ value: '!text-default-500', listbox: '!text-default-500' }}
-          defaultSelectedKeys={['name']}
-          onChange={(e) => setSearchBy(e.target.value)}
-        >
-          {searchOptions.map(({ value, label }) => (
-            <SelectItem key={value} value={value}>
-              {label}
-            </SelectItem>
-          ))}
-        </Select>
       </div>
       <div className="flex items-center justify-between">
         {typeof totalUsers === 'number' && (

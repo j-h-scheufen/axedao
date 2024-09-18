@@ -10,13 +10,10 @@ const GlobalAdminUsersTable = () => {
   const {
     searchTerm,
     setSearchTerm,
-    searchBy,
-    setSearchBy,
     users,
     isLoading,
     selectedRows,
     setSelectedRows,
-    searchOptions,
     columns,
     getCellValue,
   } = useGlobalAdminUsersTable();
@@ -26,9 +23,6 @@ const GlobalAdminUsersTable = () => {
       <GlobalAdminUsersTableFilters
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
-        searchBy={searchBy}
-        setSearchBy={setSearchBy}
-        searchOptions={searchOptions}
       />
       <div className="flex flex-col gap-3">
         <Table
