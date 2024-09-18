@@ -18,21 +18,19 @@ import {
 import { Link } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
 
-export async function GET(request: NextRequest, { params }: { params: { groupId: string } }) {
-  const session = await getServerSession(nextAuthOptions);
-
-  if (!session?.user.id) {
-    return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
-  }
-
+/**
+ * Returns a GroupProfile object for a given group ID.
+ * @param req
+ * @param param1
+ * @returns
+ */
+export async function GET(req: NextRequest, { params }: { params: { groupId: string } }) {
   try {
     const { groupId } = params;
     const groupProfile = await fetchGroupProfile(groupId);
     if (!groupProfile) return NextResponse.json({ error: `Group ID ${groupId} does not exist` }, { status: 404 });
 
-    const isAdmin = await isGroupAdmin(groupId, session.user.id);
-
-    return Response.json({ groupProfile, isAdmin }); // TODO, the group contains the adminIds, there really is no need to check here, if the client can
+    return Response.json(groupProfile);
   } catch (error) {
     console.error(error);
     return Response.json(
@@ -44,6 +42,12 @@ export async function GET(request: NextRequest, { params }: { params: { groupId:
   }
 }
 
+/**
+ * Updates a group profile including its links.
+ * @param req GroupFormType
+ * @param groupId
+ * @returns
+ */
 export async function PATCH(req: NextRequest, { params }: { params: { groupId: string } }) {
   const session = await getServerSession(nextAuthOptions);
 
@@ -140,7 +144,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { groupId: s
   }
 
   const updatedGroup = await updateGroup({ ...groupProfileData, id: group.id });
-  return Response.json({ ...(updatedGroup || {}), links });
+  return Response.json({ group: updatedGroup || {}, links });
 }
 
 export async function DELETE(request: NextRequest, { params }: { params: { groupId: string } }) {

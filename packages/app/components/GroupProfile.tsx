@@ -35,8 +35,8 @@ const GroupProfile = ({ profile }: Props) => {
   const isFetchingFounderProfile = useIsInitializingUser();
 
   useEffect(() => {
-    setGroupProfile(profile);
-  });
+    if (!groupProfile || groupProfile.group.id !== profile.group.id) setGroupProfile(profile);
+  }, [groupProfile, profile, setGroupProfile]);
 
   useEffect(() => {
     if (founder && isFounderUUID && (!founderProfile || founderProfile.user.id !== founder)) {

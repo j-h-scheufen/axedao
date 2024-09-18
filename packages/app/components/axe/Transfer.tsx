@@ -2,7 +2,7 @@
 
 import { Button } from '@nextui-org/button';
 import { useDisclosure } from '@nextui-org/modal';
-import { Field, Form, Formik, FormikProps } from 'formik';
+import { Field, FieldProps, Form, Formik, FormikProps } from 'formik';
 import { enqueueSnackbar } from 'notistack';
 import { useEffect } from 'react';
 import { Address, formatUnits, parseUnits } from 'viem';
@@ -78,8 +78,9 @@ const Transfer: React.FC = () => {
                 Available: {formatUnits(axeBalance || BigInt(0), 18)} Axé
               </div>
             </div>
-            <Field name="to" label="Recipient" as={UserSelect} />
-
+            <Field name="to" label="Recipient">
+              {({ field }: FieldProps) => <UserSelect {...field} keyMode="walletAddress" />}
+            </Field>
             <Button
               color="primary"
               size="lg"
@@ -90,9 +91,7 @@ const Transfer: React.FC = () => {
             >
               Send
             </Button>
-
             <ErrorText message={transferError?.message} />
-
             <TransferConfirm
               isOpen={isValid && isOpen}
               onOpenChange={onOpenChange}

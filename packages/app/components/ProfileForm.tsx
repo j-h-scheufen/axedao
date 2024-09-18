@@ -53,7 +53,7 @@ const ProfileForm = () => {
     >
       {({ dirty, isValid, isSubmitting, setFieldValue, values }: FormikProps<ProfileFormType>) => (
         <Suspense fallback={<ProfileFormSkeleton />}>
-          <Form className="max-w-lg">
+          <Form className="">
             <Field name="avatar">
               {({ field, meta }: FieldProps) => (
                 <ImageUpload
@@ -67,7 +67,7 @@ const ProfileForm = () => {
               )}
             </Field>
             <SubsectionHeading>General Information</SubsectionHeading>
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-2 sm:gap-4">
               <Field name="name" label="Name" as={FieldInput} />
               <Field name="nickname" label="Nickname" as={FieldInput} />
               <Field name="title">

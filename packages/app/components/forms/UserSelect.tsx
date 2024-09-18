@@ -9,19 +9,31 @@ import { useSession } from 'next-auth/react';
 
 type Props = FieldProps['field'] & {
   disableCurrentUser?: boolean;
+  keyMode?: 'walletAddress' | 'id';
 };
 
 /**
- * AutomCompolete component for selecting a user by their wallet address.
+ * AutomCompolete component for selecting a user and storing either the user's ID or walletAddress
+ * in the form.
  * @param props
  * @returns
  */
-const UserSelect = ({ disableCurrentUser = true, ...props }: Props) => {
+const UserSelect = ({ disableCurrentUser = true, keyMode = 'id', ...props }: Props) => {
   const { data: session } = useSession();
   const [field, , form] = useField(props);
   const { setFilter } = useUsersActions();
   const filteredUsers = useFilteredUsers();
   const { isUsersInitializing } = useUsersInitStatus();
+
+  function getUserDisabledKeys(): string[] {
+    switch (keyMode) {
+      case 'walletAddress':
+        return session?.user?.walletAddress ? [session.user.walletAddress] : [];
+      case 'id':
+        return session?.user?.id ? [session.user.id] : [];
+    }
+    return [];
+  }
 
   return (
     <Autocomplete
@@ -33,7 +45,7 @@ const UserSelect = ({ disableCurrentUser = true, ...props }: Props) => {
       listboxProps={{ emptyContent: 'No users found' }}
       startContent={<SearchIcon className="h-4 w-4" strokeWidth={1.4} />}
       selectedKey={field.value}
-      disabledKeys={disableCurrentUser && session?.user?.walletAddress ? [session.user.walletAddress] : []}
+      disabledKeys={disableCurrentUser ? getUserDisabledKeys() : []}
       onInputChange={(value) => {
         if (!field.value) setFilter(value);
       }}
@@ -46,7 +58,7 @@ const UserSelect = ({ disableCurrentUser = true, ...props }: Props) => {
       {(user: User) => {
         const displayName = getUserDisplayName(user);
         return (
-          <AutocompleteItem key={user.walletAddress} aria-label={`User ${displayName}`} textValue={displayName}>
+          <AutocompleteItem key={user[keyMode]} aria-label={`User ${displayName}`} textValue={displayName}>
             {displayName}
           </AutocompleteItem>
         );

@@ -226,7 +226,7 @@ export async function fetchUserLinks(userId: string) {
   return await db.select().from(schema.links).where(eq(schema.links.ownerId, userId));
 }
 
-export async function updateUser(user: Omit<schema.InsertUser, 'email' | 'walletAddress'>) {
+export async function updateUser(user: Omit<schema.InsertUser, 'walletAddress'>) {
   const users = await db.update(schema.users).set(user).where(eq(schema.users.id, user.id)).returning();
   return users.length ? users[0] : undefined;
 }

@@ -63,8 +63,7 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
   actions: {
     loadGroupProfile: async (id: string) => {
       try {
-        const { data } = await axios.get(`/api/groups/${id}`);
-        const { groupProfile } = data || {}; // TODO the response contains a isAdmin flag that should be removed
+        const { data: groupProfile } = await axios.get(`/api/groups/${id}`);
         const isGroupAdmin = await isCurrentUserGroupAdmin(groupProfile.adminIds);
         set({ groupProfile, isGroupAdmin, loadError: undefined });
       } catch (error: unknown) {
@@ -89,7 +88,7 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
       set({ isUploadingBanner: false });
       return url;
     },
-    updateGroupProfile: async (_groupProfileData: GroupFormType) => {
+    updateGroupProfile: async (groupProfileData: GroupFormType) => {
       const {
         groupProfile: {
           group: { id },
@@ -97,7 +96,6 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
         actions: { uploadBanner, uploadLogo },
       } = get();
       try {
-        const groupProfileData = _groupProfileData;
         if (groupProfileData.logo && groupProfileData.logo instanceof File) {
           const logo = await uploadLogo(groupProfileData.logo, id ? `user-${id}` : undefined);
           if (logo) {
@@ -114,6 +112,7 @@ const useGroupProfileStore = create<GroupStore>()((set, get) => ({
             delete groupProfileData.banner;
           }
         }
+        // Update the core group data
         const { data } = await axios.patch<Omit<GroupProfile, 'adminIds'>>(`/api/groups/${id}`, groupProfileData);
         const groupProfile = { ...data, adminIds: get().groupProfile?.adminIds };
         set({ groupProfile });

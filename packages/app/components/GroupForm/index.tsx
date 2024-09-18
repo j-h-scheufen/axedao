@@ -18,6 +18,7 @@ import { useProfileActions } from '@/store/profile.store';
 import DeleteGroup from './DeleteGroup';
 
 type Props = { id: string };
+
 const GroupForm = ({ id }: Props) => {
   const router = useRouter();
 
@@ -68,8 +69,8 @@ const GroupForm = ({ id }: Props) => {
     >
       {({ values, dirty, isValid, isSubmitting, setFieldValue }: FormikProps<GroupFormType>) => (
         <Suspense fallback={<GroupFormSkeleton />}>
-          <Form className="max-w-xl flex flex-col gap-2 sm:gap-5">
-            <div className="md:flex md:gap-5">
+          <Form className="flex flex-col gap-2 sm:gap-4">
+            <div className="md:flex sm:gap-5">
               <div className="flex min-w-24 flex-col justify-start gap-2">
                 <h4>Logo</h4>
                 <Field name="logo">
