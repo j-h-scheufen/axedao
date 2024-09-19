@@ -11,6 +11,8 @@ export type User = SelectUser;
 
 export type Link = SelectLink;
 
+export type UserProfile = { user: User; links: Link[]; group: Group | null };
+
 export type GroupProfile = {
   group: Group;
   links: Array<Link>;
@@ -22,8 +24,6 @@ export type UserSession = {
   walletAddress: string;
   isGlobalAdmin: boolean;
 };
-
-export type Profile = { user: User; links: Link[]; group: Group | null };
 
 export type Country = { name: string; isoCode: string };
 

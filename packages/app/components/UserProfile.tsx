@@ -6,11 +6,11 @@ import { Suspense } from 'react';
 
 import ContactInfo from '@/components/ContactInfo';
 import ProfileSkeleton from '@/components/skeletons/ProfileSkeleton';
-import { Profile } from '@/types/model';
+import { UserProfile as ProfileType } from '@/types/model';
 import { getUserDisplayName } from '@/utils';
 
 type Props = {
-  profile: Profile;
+  profile: ProfileType;
 };
 
 const UserProfile = ({ profile }: Props) => {

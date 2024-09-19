@@ -8,7 +8,7 @@ import { Suspense, useEffect } from 'react';
 import ContactInfo from '@/components/ContactInfo';
 import PageHeading from '@/components/PageHeading';
 import SubsectionHeading from '@/components/SubsectionHeading';
-import { GroupProfile as GroupProfileType } from '@/types/model';
+import { GroupProfile as ProfileType } from '@/types/model';
 import { isUUID } from '@/utils';
 import { Spinner } from '@nextui-org/spinner';
 import { useGroupProfile, useGroupProfileActions } from '../store/groupProfile.store';
@@ -16,9 +16,9 @@ import GroupActions from './GroupActions';
 import GroupBanner from './GroupBanner';
 import GroupDescription from './GroupDescription';
 import GroupMembers from './GroupMembers';
-import UserCardWithFetch from './UserCardDynamic';
+import UserCardWithFetch from './UserCardWithFetch';
 
-type Props = { profile: GroupProfileType };
+type Props = { profile: ProfileType };
 
 const GroupProfile = ({ profile }: Props) => {
   const { setGroupProfile } = useGroupProfileActions();

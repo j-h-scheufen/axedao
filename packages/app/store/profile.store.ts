@@ -2,10 +2,10 @@ import axios from 'axios';
 import { create } from 'zustand';
 
 import { CreateNewGroupFormType, ProfileFormType } from '@/config/validation-schema';
-import { Profile, User } from '@/types/model';
+import { User, UserProfile } from '@/types/model';
 import { generateErrorMessage, uploadImage } from '@/utils';
 
-export type ProfileState = Profile & {
+export type ProfileState = UserProfile & {
   isInitialized: boolean;
   isInitializing: boolean;
   initializeProfileError?: string;
@@ -34,7 +34,7 @@ export type ProfileActions = {
 export type ProfileStore = ProfileState & { actions: ProfileActions };
 
 const now = new Date();
-export const DEFAULT_PROFILE: Profile = {
+export const DEFAULT_PROFILE: UserProfile = {
   user: {
     id: '',
     createdAt: now,
@@ -171,7 +171,7 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
 
 export const useProfileActions = (): ProfileActions => useProfileStore((state) => state.actions);
 
-export const useProfile = (): Profile =>
+export const useProfile = (): UserProfile =>
   useProfileStore((state) => ({ user: state.user, links: state.links, group: state.group }));
 
 export const useProfileUser = (): User => useProfileStore((state) => state.user);

@@ -4,7 +4,7 @@ import postgres from 'postgres';
 
 import ENV from '@/config/environment';
 import * as schema from '@/db/schema';
-import { Group, Profile } from '@/types/model';
+import { Group, UserProfile } from '@/types/model';
 import { GroupProfile, UserSession } from '../types/model';
 
 /**
@@ -73,7 +73,7 @@ export async function fetchUser(userId: string): Promise<schema.SelectUser | und
   });
 }
 
-export async function fetchUserProfile(userId: string): Promise<Profile | undefined> {
+export async function fetchUserProfile(userId: string): Promise<UserProfile | undefined> {
   const result = await db.query.users.findFirst({
     where: (users, { eq }) => eq(users.id, userId),
     with: {
