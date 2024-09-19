@@ -1,12 +1,10 @@
-import axios from 'axios';
 import { debounce } from 'lodash';
 import { useEffect, useState } from 'react';
 
+import { useFetchCities } from '@/query/location';
 import { useCountriesActions } from '@/store/countries.store';
 import { City } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
-
-export type SearchCitiesQuery = { countryCode?: string; searchTerm?: string };
 
 const useCountriesAndCities = () => {
   const [selectedCountryCode, setSelectedCountryCode] = useState<string | undefined>(undefined);
@@ -19,10 +17,9 @@ const useCountriesAndCities = () => {
   const loadCities = async (countryCode: string) => {
     try {
       setIsLoading(true);
-      const query: SearchCitiesQuery = { countryCode: countryCode || '', searchTerm: citySearchTerm || '' };
-      const queryParams = new URLSearchParams(query);
-      const { data: cities } = await axios.get(`/api/location/cities?${queryParams}`);
-      setCities(cities);
+      const { data: cities, error } = useFetchCities(countryCode, citySearchTerm);
+      if (error) setCitiesError(error.message);
+      else setCities(cities || []);
     } catch (error) {
       const message = generateErrorMessage(error, 'An error occurred while fetching cities');
       console.error(message, error);

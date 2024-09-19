@@ -48,3 +48,5 @@ export type UserSearchResult = {
   data: User[];
   nextOffset: number | null;
 };
+
+export type SearchCitiesQuery = { countryCode: string; searchTerm?: string };

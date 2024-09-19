@@ -77,7 +77,7 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
         const message =
           error instanceof Error
             ? error.message
-            : 'An error occured while fetching the user profile durint profile.store initialization';
+            : 'An error occured while fetching the user profile during profile.store initialization';
         set({ initializeProfileError: message });
       } finally {
         set({ isInitializing: false });

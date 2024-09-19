@@ -44,4 +44,4 @@ export const useSearchUsers = ({ pageSize, searchTerm }: Omit<UserSearchParams, 
   return useInfiniteQuery(searchUsersOptions(pageSize, searchTerm));
 };
 
-// Todo profile, groupmembers, test infinite query
+// Todo groupmembers, test infinite query
