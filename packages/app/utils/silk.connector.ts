@@ -1,9 +1,9 @@
-import { initSilk } from '@silk-wallet/silk-wallet-sdk';
-import { SilkEthereumProviderInterface } from '@silk-wallet/silk-wallet-sdk/dist/lib/provider/types';
 import { ChainNotConfiguredError, createConnector } from '@wagmi/core';
 import { Chain, getAddress, SwitchChainError, UserRejectedRequestError } from 'viem';
 
 import { SILK_METHOD } from '@silk-wallet/silk-interface-core';
+import { initSilk } from '@silk-wallet/silk-wallet-sdk';
+import { SilkEthereumProviderInterface } from '@silk-wallet/silk-wallet-sdk/dist/lib/provider/types';
 
 // For reference: WAGMI connector event map: wagmi/packages/core/src/connectors/createConnector.ts
 // type ConnectorEventMap = {
@@ -18,7 +18,7 @@ import { SILK_METHOD } from '@silk-wallet/silk-interface-core';
 // }
 
 /**
- * Creates a WAGMI connecoctor for the Silk Wallet SDK
+ * Creates a WAGMI connector for the Silk Wallet SDK
  * @param referralCode Optional referral code for the Silk points system
  * @returns
  */
@@ -27,14 +27,12 @@ export default function silk(referralCode?: string) {
 
   return createConnector<SilkEthereumProviderInterface>((config) => ({
     id: 'silk',
-    // icon: '', // TODO only needed for UIs like RainbowKit. Is there a file to use here?
     name: 'Silk Security Connector',
     type: 'Silk',
     chains: config.chains,
-    supportsSimulation: false, // TODO does it?
+    supportsSimulation: false,
 
     async connect({ chainId } = {}) {
-      // TODO isReconnecting in params useful for Silk?
       try {
         config.emitter.emit('message', {
           type: 'connecting',
@@ -105,30 +103,32 @@ export default function silk(referralCode?: string) {
         return false;
       }
     },
+
     async switchChain({ chainId }): Promise<Chain> {
       try {
         const chain = config.chains.find((x) => x.id === chainId);
         if (!chain) throw new SwitchChainError(new ChainNotConfiguredError());
 
         const provider = await this.getProvider();
-        await provider.request({
-          method: SILK_METHOD.wallet_addEthereumChain,
-          params: [
-            {
-              chainId: `0x${chain.id.toString(16)}`,
-              chainName: chain.name,
-              rpcTarget: chain.rpcUrls.default.http[0],
-              nativeCurrency: chain.nativeCurrency,
-              logo: chain.nativeCurrency?.symbol,
-              decimals: chain.nativeCurrency?.decimals || 18,
-              ticker: chain.nativeCurrency?.symbol || 'ETH',
-              tickerName: chain.nativeCurrency?.name || 'Ethereum',
-              rpcUrls: chain.rpcUrls,
-              blockExplorerUrls: chain.blockExplorers,
-            },
-          ],
-        });
-        console.info('Chain Added: ', chain.name);
+        // Silk currently does not support adding chains. Leaving this here for future reference.
+        // await provider.request({
+        //   method: SILK_METHOD.wallet_addEthereumChain,
+        //   params: [
+        //     {
+        //       chainId: `0x${chain.id.toString(16)}`,
+        //       chainName: chain.name,
+        //       rpcTarget: chain.rpcUrls.default.http[0],
+        //       nativeCurrency: chain.nativeCurrency,
+        //       logo: chain.nativeCurrency?.symbol,
+        //       decimals: chain.nativeCurrency?.decimals || 18,
+        //       ticker: chain.nativeCurrency?.symbol || 'ETH',
+        //       tickerName: chain.nativeCurrency?.name || 'Ethereum',
+        //       rpcUrls: chain.rpcUrls,
+        //       blockExplorerUrls: chain.blockExplorers,
+        //     },
+        //   ],
+        // });
+        // console.info('Chain Added: ', chain.name);
         await provider.request({
           method: SILK_METHOD.wallet_switchEthereumChain,
           params: [`0x${chain.id.toString(16)}`],
@@ -146,10 +146,9 @@ export default function silk(referralCode?: string) {
 
     async disconnect(): Promise<void> {
       const provider = await this.getProvider();
-      // TODO: Silk does not have a logout method?
-      // TODO: Were these event listeners added beforehand?
       provider.uiMessageManager.removeListener('accountsChanged', this.onAccountsChanged);
       provider.uiMessageManager.removeListener('chainChanged', this.onChainChanged);
+      provider.uiMessageManager.removeListener('disconnect', this.onDisconnect);
     },
 
     onAccountsChanged(accounts) {
