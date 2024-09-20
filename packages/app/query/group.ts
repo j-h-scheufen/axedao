@@ -1,50 +1,60 @@
-import { queryOptions, useQuery } from '@tanstack/react-query';
+import { queryOptions, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 import { QUERY_DEFAULT_STALE_TIME_MINUTES } from '@/config/constants';
-import { Group, User } from '@/types/model';
+import { CreateNewGroupForm } from '@/config/validation-schema';
+import { Group, GroupProfile, User } from '@/types/model';
 import axios from 'axios';
-
-export const QUERY_KEYS = {
-  getGroup: 'getGroup',
-  updateGroup: 'updateGroup',
-  getGroupMembers: 'getGroupMembers',
-} as const;
+import { QUERY_KEYS } from '.';
 
 const fetchGroup = (id: string): Promise<Group> => axios.get(`/api/groups/${id}`).then((response) => response.data);
-
-const fetchGroupMembers = (id: string): Promise<User[]> =>
-  axios.get(`/api/groups/${id}/members`).then((response) => response.data);
-
 function fetchGroupOptions(id: string) {
   return queryOptions({
-    queryKey: [QUERY_KEYS.getGroup, id],
+    queryKey: [QUERY_KEYS.group.getGroup, id],
     queryFn: () => fetchGroup(id),
     staleTime: 1000 * 60 * QUERY_DEFAULT_STALE_TIME_MINUTES,
   });
 }
 
+const fetchGroupProfile = (id: string): Promise<GroupProfile> =>
+  axios.get(`/api/groups/${id}/profile`).then((response) => response.data);
+function fetchGroupProfileOptions(id: string) {
+  return queryOptions({
+    queryKey: [QUERY_KEYS.group.getGroupProfile, id],
+    queryFn: () => fetchGroup(id),
+    staleTime: 1000 * 60 * QUERY_DEFAULT_STALE_TIME_MINUTES,
+  });
+}
+
+const fetchGroupMembers = (id: string): Promise<User[]> =>
+  axios.get(`/api/groups/${id}/members`).then((response) => response.data);
 function fetchGroupMembersOptions(id: string) {
   return queryOptions({
-    queryKey: [QUERY_KEYS.getGroupMembers, id],
+    queryKey: [QUERY_KEYS.group.getGroupMembers, id],
     queryFn: () => fetchGroupMembers(id),
     staleTime: 1000 * 60 * QUERY_DEFAULT_STALE_TIME_MINUTES,
   });
 }
 
-export const useFetchGroup = (id: string) => {
-  return useQuery(fetchGroupOptions(id));
-};
+const createGroup = (newGroup: CreateNewGroupForm): Promise<Group> =>
+  axios.post('/api/groups', newGroup).then((response) => response.data);
 
-export const useFetchGroupMembers = (id: string) => {
-  return useQuery(fetchGroupOptions(id));
-};
+export const useFetchGroup = (id: string) => useQuery(fetchGroupOptions(id));
 
-// export const useUpdateGroup = () => {
-//   return useQuery({
-//     queryKey: QUERY_KEYS.updateGroup,
-//     queryFn: () => axios.patch(`/api/groups/${id}`).then((response) => response.data),
-//   });
-// };
+export const useFetchGroupProfile = (id: string) => useQuery(fetchGroupProfileOptions(id));
+
+export const useFetchGroupMembers = (id: string) => useQuery(fetchGroupOptions(id));
+
+export const useCreateGroup = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (newGroup: CreateNewGroupForm) => createGroup(newGroup),
+    onSuccess: (data) => {
+      queryClient.setQueryData([QUERY_KEYS.group.getGroup, { id: data.id }], data);
+      // The current user's groupId has changed as part of creating a new group
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.profile.getProfile] });
+    },
+  });
+};
 
 // add / remove members
 

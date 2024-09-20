@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { fetchUserProfile } from '@/db';
 import { generateErrorMessage } from '@/utils';
+import { notFound } from 'next/navigation';
 
 export async function GET(request: NextRequest, { params }: { params: { userId: string } }) {
   const session = await getServerSession(nextAuthOptions);
@@ -17,7 +18,7 @@ export async function GET(request: NextRequest, { params }: { params: { userId: 
     if (!userId) throw new Error('Invalid user id');
 
     const profile = await fetchUserProfile(userId);
-    if (!profile) return NextResponse.json({ error: 'User profile not found' }, { status: 404 });
+    if (!profile) return notFound();
 
     return Response.json(profile);
   } catch (error) {

@@ -1,7 +1,8 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
 
 import { fetchUser } from '@/db';
 import { generateErrorMessage } from '@/utils';
+import { notFound } from 'next/navigation';
 
 /**
  * Returns a User object for a given user ID.
@@ -14,7 +15,7 @@ export async function GET(request: NextRequest, { params }: { params: { userId: 
 
   try {
     const profile = await fetchUser(userId);
-    if (!profile) return NextResponse.json({ error: `User ID '${userId}' not found` }, { status: 404 });
+    if (!profile) return notFound();
 
     return Response.json(profile);
   } catch (error) {

@@ -2,17 +2,13 @@ import { queryOptions, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
 import { UserProfile } from '@/types/model';
-
-export const QUERY_KEYS = {
-  getProfile: 'getProfile',
-  updateProfile: 'updateProfile',
-} as const;
+import { QUERY_KEYS } from '.';
 
 const fetchProfile = (): Promise<UserProfile> => axios.get('/api/profile').then((response) => response.data);
 
 function fetchProfileOptions() {
   return queryOptions({
-    queryKey: [QUERY_KEYS.getProfile],
+    queryKey: [QUERY_KEYS.profile.getProfile],
     queryFn: () => fetchProfile(),
   });
 }

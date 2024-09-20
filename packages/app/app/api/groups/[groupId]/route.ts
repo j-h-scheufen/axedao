@@ -7,6 +7,7 @@ import { nextAuthOptions } from '@/config/next-auth-options';
 import { updateGroupSchema } from '@/config/validation-schema';
 import { deleteGroup, fetchGroup, fetchGroupAdminIds, isGroupAdmin, updateGroup } from '@/db';
 import { generateErrorMessage } from '@/utils';
+import { notFound } from 'next/navigation';
 
 /**
  * Returns a Group object for a given group ID.
@@ -17,7 +18,7 @@ export async function GET(req: NextRequest, { params }: { params: { groupId: str
   try {
     const { groupId } = params;
     const group = await fetchGroup(groupId);
-    if (!group) return NextResponse.json({ error: `Group ID '${groupId}' does not exist` }, { status: 404 });
+    if (!group) return notFound();
 
     return Response.json(group);
   } catch (error) {
@@ -71,11 +72,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { groupId: s
   const groupDataClean = omitBy(groupData, isNil);
 
   const oldGroup = await fetchGroup(groupId);
-  if (!oldGroup)
-    return NextResponse.json(
-      { error: 'Unable to locate the group to update. Please confirm that the group still exists.' },
-      { status: 404 },
-    );
+  if (!oldGroup) return notFound();
 
   const updatedGroup = await updateGroup({ ...groupDataClean, id: oldGroup.id });
   return Response.json(updatedGroup);
@@ -97,7 +94,7 @@ export async function DELETE(request: NextRequest, { params }: { params: { group
   try {
     const { groupId } = params;
     const group = await fetchGroup(groupId);
-    if (!group) return NextResponse.json({ error: `Group ID ${groupId} does not exist` }, { status: 404 });
+    if (!group) notFound();
 
     const adminIds = await fetchGroupAdminIds(groupId);
 

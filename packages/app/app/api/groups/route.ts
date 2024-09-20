@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { boolean, number, object, string } from 'yup';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { createNewGroupFormSchema, CreateNewGroupFormType } from '@/config/validation-schema';
+import { CreateNewGroupForm, createNewGroupFormSchema } from '@/config/validation-schema';
 import { addGroupAdmin, countGroups, fetchGroups, fetchUser, insertGroup, updateUser } from '@/db';
 import { generateErrorMessage } from '@/utils';
 
@@ -84,14 +84,14 @@ export async function POST(request: NextRequest) {
     if (!isValid) {
       return NextResponse.json({ error: 'Invalid group data' }, { status: 400 });
     }
-    const groupData = body as CreateNewGroupFormType;
+    const groupData = body as CreateNewGroupForm;
 
     const newGroupId = uuidv4();
     const group = await insertGroup({ ...groupData, id: newGroupId, verified: false });
     await updateUser({ id: session.user.id, groupId: newGroupId });
     await addGroupAdmin({ groupId: newGroupId, userId: session.user.id });
 
-    return NextResponse.json({ group });
+    return NextResponse.json(group);
   } catch (error) {
     return NextResponse.json(
       { error: true, message: generateErrorMessage(error, 'An unexpected error occurred while creating group') },

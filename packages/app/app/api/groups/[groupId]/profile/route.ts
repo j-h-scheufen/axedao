@@ -17,6 +17,7 @@ import {
 } from '@/db';
 import { Link } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
+import { notFound } from 'next/navigation';
 
 /**
  * Returns a GroupProfile object for a given group ID.
@@ -28,7 +29,7 @@ export async function GET(req: NextRequest, { params }: { params: { groupId: str
   try {
     const { groupId } = params;
     const groupProfile = await fetchGroupProfile(groupId);
-    if (!groupProfile) return NextResponse.json({ error: `Group ID ${groupId} does not exist` }, { status: 404 });
+    if (!groupProfile) return notFound();
 
     return Response.json(groupProfile);
   } catch (error) {
@@ -95,11 +96,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { groupId: s
   );
 
   const groupProfile = await fetchGroupProfile(groupId); // TODO why fetch the whole profile to get the links?
-  if (!groupProfile)
-    return NextResponse.json(
-      { error: 'Unable to locate the group to update. Please confirm that the group still exists.' },
-      { status: 404 },
-    );
+  if (!groupProfile) return notFound();
 
   const { group, links: existingLinks = [] } = groupProfile;
 
@@ -157,7 +154,7 @@ export async function DELETE(request: NextRequest, { params }: { params: { group
   try {
     const { groupId } = params;
     const group = await fetchGroup(groupId);
-    if (!group) return NextResponse.json({ error: `Group ID ${groupId} does not exist` }, { status: 404 });
+    if (!group) return notFound();
 
     const adminIds = await fetchGroupAdminIds(groupId);
 

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 import { fetchGroup, fetchGroupAdminIds } from '@/db';
 import { generateErrorMessage } from '@/utils';
+import { notFound } from 'next/navigation';
 
 export type GroupRolesResponse = {
   adminIds: string[];
@@ -17,7 +18,7 @@ export async function GET(req: NextRequest, { params }: { params: { groupId: str
   try {
     const { groupId } = params;
     const group = await fetchGroup(groupId);
-    if (!group) return NextResponse.json({ error: `Group ID ${groupId} does not exist` }, { status: 404 });
+    if (!group) return notFound();
 
     const adminIds = await fetchGroupAdminIds(groupId);
     return NextResponse.json({ adminIds, founder: group.founder, leader: group.leader });

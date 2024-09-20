@@ -2,11 +2,7 @@ import { queryOptions, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
 import { City, Country, SearchCitiesQuery } from '@/types/model';
-
-export const QUERY_KEYS = {
-  getCountries: 'getCountries',
-  getCities: 'getCities',
-} as const;
+import { QUERY_KEYS } from '.';
 
 const fetchCountries = (): Promise<Country[]> => {
   return axios.get('/api/location/countries').then((response) => response.data);
@@ -19,14 +15,14 @@ const fetchCities = (countryCode: string, citySearchTerm?: string): Promise<City
 
 function fetchCountriesOptions() {
   return queryOptions({
-    queryKey: [QUERY_KEYS.getCountries],
+    queryKey: [QUERY_KEYS.location.getCountries],
     queryFn: () => fetchCountries(),
     staleTime: 1000 * 60 * 60 * 72,
   });
 }
 function fetchCitiesOptions(countryCode: string, citySearchTerm?: string) {
   return queryOptions({
-    queryKey: [QUERY_KEYS.getCities, countryCode, citySearchTerm],
+    queryKey: [QUERY_KEYS.location.getCities, countryCode, citySearchTerm],
     queryFn: () => fetchCities(countryCode, citySearchTerm),
     enabled: !!countryCode,
   });

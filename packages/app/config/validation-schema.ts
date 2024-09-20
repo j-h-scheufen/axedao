@@ -86,7 +86,7 @@ export const profileFormSchema = object({
   links: linksSchema,
 });
 
-export type ProfileFormType = InferType<typeof profileFormSchema>;
+export type ProfileForm = InferType<typeof profileFormSchema>;
 
 export const createNewGroupFormSchema = object({
   name: string().required('Group name is required'),
@@ -95,13 +95,13 @@ export const createNewGroupFormSchema = object({
   country: string().required('Country is required'),
 });
 
-export type CreateNewGroupFormType = InferType<typeof createNewGroupFormSchema>;
+export type CreateNewGroupForm = InferType<typeof createNewGroupFormSchema>;
 
 export const joinGroupFormSchema = object({
   id: string().required('Please select a group'),
 });
 
-export type JoinGroupFormType = InferType<typeof joinGroupFormSchema>;
+export type JoinGroupForm = InferType<typeof joinGroupFormSchema>;
 
 export const axeTransferForm = object({
   amount: string()

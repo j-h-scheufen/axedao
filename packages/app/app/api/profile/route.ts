@@ -2,10 +2,11 @@ import { isEqual, isNil } from 'lodash';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { profileFormSchema, ProfileFormType } from '@/config/validation-schema';
+import { ProfileForm, profileFormSchema } from '@/config/validation-schema';
 import { createLinks, fetchUserProfile, removeLinks, updateLink, updateUser } from '@/db';
 import { Link } from '@/types/model';
 import { getServerSession } from 'next-auth';
+import { notFound } from 'next/navigation';
 
 /**
  * Returns the Profile of the logged-in user, i.e. the user whose JWT token is passed in the request.
@@ -21,9 +22,7 @@ export async function GET() {
   }
 
   const profile = await fetchUserProfile(session.user.id);
-  if (!profile) {
-    return NextResponse.json({ error: 'Profile was not found' }, { status: 404 });
-  }
+  if (!profile) return notFound();
 
   return Response.json(profile);
 }
@@ -41,14 +40,14 @@ export async function PATCH(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid profile data' }, { status: 400 });
   }
 
-  const { links: links, ...profileData } = body as Omit<ProfileFormType, 'links' | 'avatar'> & {
+  const { links: links, ...profileData } = body as Omit<ProfileForm, 'links' | 'avatar'> & {
     links: Link[];
     avatar: string | null | undefined;
   };
+
   const profile = await fetchUserProfile(session.user.id);
-  if (!profile) {
-    return NextResponse.json({ error: 'Could not find user data' }, { status: 404 });
-  }
+  if (!profile) return notFound();
+
   const { links: currentLinks = [] } = profile;
 
   const linkIds = links.map((link) => link.id);

@@ -12,7 +12,7 @@ import ImageUpload from '@/components/ImageUpload';
 import ProfileFormSkeleton from '@/components/skeletons/ProfileFormSkeleton';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import { PATHS, titles } from '@/config/constants';
-import { ProfileFormType, profileFormSchema } from '@/config/validation-schema';
+import { ProfileForm as FormType, profileFormSchema } from '@/config/validation-schema';
 import { useProfile, useProfileActions } from '@/store/profile.store';
 
 const ProfileForm = () => {
@@ -20,7 +20,7 @@ const ProfileForm = () => {
   const profile = useProfile();
   const { updateProfile } = useProfileActions();
 
-  const handleSubmit = (values: ProfileFormType) => {
+  const handleSubmit = (values: FormType) => {
     try {
       /**
        * TODO: We should really only update the profile fields that have changed in order to avoid future
@@ -34,7 +34,7 @@ const ProfileForm = () => {
   };
 
   // NOTE: The initial form values MUST BE declared outside of the JSX code, otherwise it can lead to hydration errors.
-  const initValues: ProfileFormType = {
+  const initValues: FormType = {
     name: profile.user.name || '',
     nickname: profile.user.nickname || '',
     title: profile.user.title || undefined,
@@ -45,13 +45,13 @@ const ProfileForm = () => {
   };
 
   return (
-    <Formik<ProfileFormType>
+    <Formik<FormType>
       initialValues={initValues}
       validationSchema={profileFormSchema}
       onSubmit={handleSubmit}
       enableReinitialize
     >
-      {({ dirty, isValid, isSubmitting, setFieldValue, values }: FormikProps<ProfileFormType>) => (
+      {({ dirty, isValid, isSubmitting, setFieldValue, values }: FormikProps<FormType>) => (
         <Suspense fallback={<ProfileFormSkeleton />}>
           <Form className="">
             <Field name="avatar">
