@@ -2,7 +2,6 @@ import { Autocomplete, AutocompleteItem, AutocompleteProps } from '@nextui-org/a
 import { Avatar } from '@nextui-org/avatar';
 
 import useCountriesAndCities from '@/hooks/useCountriesAndCities';
-import { useCountries } from '@/store/countries.store';
 import { City, Country } from '@/types/model';
 import { cn } from '@/utils/tailwind';
 
@@ -13,8 +12,7 @@ type Props = {
   citiesProps?: Omit<AutocompleteProps, 'children'>;
 };
 const GroupLocation = ({ onCountryChange, onCityChange, countriesProps, citiesProps }: Props) => {
-  const { selectedCountryCode, setSelectedCountryCode, setCitySearch, cities } = useCountriesAndCities();
-  const countries = useCountries();
+  const { countries, selectedCountryCode, setSelectedCountryCode, setCitySearch, cities } = useCountriesAndCities();
   return (
     <>
       <Autocomplete

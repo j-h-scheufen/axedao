@@ -41,7 +41,7 @@ export default function silk(referralCode?: string) {
 
         provider.on('accountsChanged', this.onAccountsChanged);
         provider.on('chainChanged', this.onChainChanged);
-        provider.on('disconnect', this.onDisconnect.bind(this));
+        provider.on('disconnect', this.onDisconnect);
 
         if (!provider.connected) {
           try {

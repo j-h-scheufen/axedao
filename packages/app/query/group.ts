@@ -1,7 +1,7 @@
 import { queryOptions, useQuery } from '@tanstack/react-query';
 
 import { QUERY_DEFAULT_STALE_TIME_MINUTES } from '@/config/constants';
-import { Group } from '@/types/model';
+import { Group, User } from '@/types/model';
 import axios from 'axios';
 
 export const QUERY_KEYS = {
@@ -12,7 +12,7 @@ export const QUERY_KEYS = {
 
 const fetchGroup = (id: string): Promise<Group> => axios.get(`/api/groups/${id}`).then((response) => response.data);
 
-const fetchGroupMembers = (id: string): Promise<Group> =>
+const fetchGroupMembers = (id: string): Promise<User[]> =>
   axios.get(`/api/groups/${id}/members`).then((response) => response.data);
 
 function fetchGroupOptions(id: string) {

@@ -3,7 +3,7 @@ import { Avatar } from '@nextui-org/avatar';
 import { FieldProps, useField } from 'formik';
 import { useState } from 'react';
 
-import { useCountries, useCountriesError } from '@/store/countries.store';
+import useCountriesAndCities from '@/hooks/useCountriesAndCities';
 import { Country } from '@/types/model';
 import { SearchIcon } from '../icons';
 
@@ -20,14 +20,13 @@ type CountrySelectProps = FieldProps['field'] & {
 const CountrySelect = ({ onSelect, ...props }: CountrySelectProps) => {
   const [field, , form] = useField(props);
   const [selectedValue, setSelectedValue] = useState<string | undefined>(undefined);
-  const countries = useCountries();
-  const countriesError = useCountriesError();
+  const { countries, countriesError } = useCountriesAndCities();
   return countriesError ? (
-    <div className="text-warning-500">{countriesError}</div>
+    <div className="text-warning-500">{countriesError.message}</div>
   ) : (
     <Autocomplete
       {...field}
-      defaultItems={countries}
+      defaultItems={countries || []}
       variant="bordered"
       labelPlacement="outside"
       className="w-full"

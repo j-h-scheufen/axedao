@@ -96,20 +96,16 @@ const Navbar: React.FC = () => {
               <DropdownItem key="my-profile" href={PATHS.profile}>
                 My Profile
               </DropdownItem>
-              {user.groupId ? (
-                <DropdownItem key="my-group" href={`${PATHS.groups}/${user.groupId}`}>
-                  My Group
-                </DropdownItem>
-              ) : (
-                <></>
-              )}
-              {user.isGlobalAdmin ? (
-                <DropdownItem key="admin" href={PATHS.admin}>
-                  Admin
-                </DropdownItem>
-              ) : (
-                <></>
-              )}
+              <DropdownItem
+                key="my-group"
+                href={`${PATHS.groups}/${user.groupId || ''}`}
+                className={!!user.groupId ? '' : 'hidden'}
+              >
+                My Group
+              </DropdownItem>
+              <DropdownItem key="admin" href={PATHS.admin} className={user.isGlobalAdmin ? '' : 'hidden'}>
+                Admin
+              </DropdownItem>
               <DropdownItem key="logout" color="danger" onPress={logout}>
                 Log out
               </DropdownItem>
