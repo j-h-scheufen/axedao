@@ -1,12 +1,12 @@
 'use client';
 
-import useGroupsList from '@/hooks/useGroupList';
+import useGroupSearch from '@/hooks/useGroupSearch';
 import { Input } from '@nextui-org/input';
 import { Search } from 'lucide-react';
 import GroupsGrid from './GroupsGrid';
 
 const Groups = () => {
-  const { groups, isLoading, searchTerm, setSearchTerm } = useGroupsList();
+  const { groups, isLoading, searchTerm, setSearchTerm } = useGroupSearch();
 
   return (
     <div className="flex flex-col gap-4 pt-5">
@@ -15,7 +15,7 @@ const Groups = () => {
           isClearable
           onClear={() => setSearchTerm('')}
           className="w-full md:max-w-sm"
-          placeholder="Search by name"
+          placeholder="Search by name or nickname"
           startContent={<Search className="h-4 w-4" />}
           labelPlacement="outside"
           value={searchTerm || ''}

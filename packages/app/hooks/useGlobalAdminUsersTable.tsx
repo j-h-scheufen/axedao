@@ -12,6 +12,7 @@ import { useSearchUsers } from '@/query/user';
 import { User as UserType } from '@/types/model';
 import { getUserDisplayName } from '@/utils';
 import { useProfileUser } from '../store/profile.store';
+import useUserSearch from './useUserSearch';
 
 const columns = [
   {
@@ -31,12 +32,7 @@ const columns = [
 const useGlobalAdminUsersTable = () => {
   const user = useProfileUser();
   const [selectedRows, setSelectedRows] = useState<Set<string>>(new Set([]));
-  const [searchTerm, setSearchTerm] = useState<string | undefined>();
-  const [debouncedSearchTerm] = useDebounce(searchTerm, 500);
-  const { data, error, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage, status } = useSearchUsers({
-    searchTerm: debouncedSearchTerm,
-  });
-  const [loaderRef, scrollerRef] = useInfiniteScroll({ hasMore: hasNextPage, onLoadMore: fetchNextPage });
+  const { searchTerm, setSearchTerm, users, isLoading, loaderRef, scrollerRef} = useUserSearch();
 
   const getCellValue = useCallback(
     ({ item, key }: { item: UserType; key: string }) => {
@@ -64,8 +60,8 @@ const useGlobalAdminUsersTable = () => {
   return {
     searchTerm,
     setSearchTerm,
-    users: data?.pages.flatMap((page) => page.data) || [],
-    isLoading: isFetching || isFetchingNextPage,
+    users,
+    isLoading,
     selectedRows,
     setSelectedRows,
     columns,

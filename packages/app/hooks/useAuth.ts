@@ -6,9 +6,7 @@ import { useAccount, useConnect, useDisconnect, useSignMessage } from 'wagmi';
 
 import { PATHS } from '@/config/constants';
 import { getDefaultChain } from '@/config/wagmi';
-import { useGroupsActions } from '@/store/groups.store';
 import { useProfileActions } from '@/store/profile.store';
-import { useUsersActions } from '@/store/users.store';
 import silk from '@/utils/silk.connector';
 
 /**
@@ -28,8 +26,6 @@ const useSignIn = () => {
   const { disconnect } = useDisconnect();
   const { signMessageAsync } = useSignMessage();
   const { initializeProfile, clearProfile } = useProfileActions();
-  const { initializeUsers } = useUsersActions();
-  const { initializeGroups } = useGroupsActions();
   const router = useRouter();
   const params = useSearchParams();
   const callbackUrl = params.get('callbackUrl') || PATHS.profile;
@@ -75,9 +71,8 @@ const useSignIn = () => {
       });
 
       if (res?.ok && !res.error) {
+        // TODO: Retrieve the profile and inject it to use react-query here
         initializeProfile();
-        initializeUsers();
-        initializeGroups();
         if (callbackUrl) {
           router.replace(callbackUrl);
         }

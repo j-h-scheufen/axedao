@@ -2,39 +2,40 @@ import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
 import { FieldProps, useField } from 'formik';
 import { SearchIcon } from 'lucide-react';
 
-import { useFilteredGroups, useGroupsActions, useGroupsInitStatus } from '@/store/groups.store';
+import useGroupSearch from '@/hooks/useGroupSearch';
 import { Group } from '@/types/model';
 import { Avatar } from '@nextui-org/avatar';
 
-type Props = FieldProps['field'];
+type Props = FieldProps['field'] & {
+  onSelect?: (user: Group | null) => void;
+};
 
 /**
- * AutomCompolete component for selecting a user by their wallet address.
+ * AutoComplete component for selecting groups
  * @param props
  * @returns
  */
-const UserSelect = (props: Props) => {
+const GroupSelect = ({ onSelect, ...props }: Props) => {
   const [field, , form] = useField(props);
-  const { setFilter } = useGroupsActions();
-  const filteredGroups = useFilteredGroups();
-  const { isGroupsInitializing } = useGroupsInitStatus();
+  const { groups, isLoading, setSearchTerm } = useGroupSearch();
 
   return (
     <Autocomplete
       {...field}
-      items={filteredGroups}
+      items={groups}
       className="mb-3"
-      isLoading={isGroupsInitializing}
+      isLoading={isLoading}
       inputProps={{ classNames: { inputWrapper: '!min-h-12' } }}
-      listboxProps={{ emptyContent: 'No users found' }}
+      listboxProps={{ emptyContent: 'No groups found' }}
       startContent={<SearchIcon className="h-4 w-4" strokeWidth={1.4} />}
       selectedKey={field.value}
       onInputChange={(value) => {
-        if (!field.value) setFilter(value);
+        if (!field.value) setSearchTerm(value);
       }}
       onSelectionChange={(key) => {
         form.setValue(key?.toString() || '');
-        setFilter('');
+        setSearchTerm(undefined);
+        onSelect?.(!key ? null : groups.find((g) => g.id === key) || null);
       }}
       {...props}
     >
@@ -57,4 +58,4 @@ const UserSelect = (props: Props) => {
     </Autocomplete>
   );
 };
-export default UserSelect;
+export default GroupSelect;

@@ -55,6 +55,7 @@ function searchGroupsOptions(offset?: number, pageSize?: number, searchTerm?: st
       searchGroups({ offset: Number(pageParam), pageSize, searchTerm }),
     initialPageParam: offset || 0,
     getNextPageParam: (lastPage, pages) => lastPage.nextOffset,
+    staleTime: 1000 * 60 * 15, // 15 minutes
   });
 }
 

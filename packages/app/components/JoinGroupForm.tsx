@@ -6,14 +6,12 @@ import { Field, Form, Formik, FormikProps } from 'formik';
 import ErrorText from '@/components/ErrorText';
 import { JoinGroupForm as FormType, joinGroupFormSchema } from '@/config/validation-schema';
 import { useJoinGroup } from '@/query/profile';
-import { useGroupsErrors } from '@/store/groups.store';
 import { useProfileActions } from '@/store/profile.store';
 import GroupSelect from './forms/GroupSelect';
 
 const JoinGroupForm = () => {
-  const { mutateAsync: joinGroup } = useJoinGroup();
+  const { mutateAsync: joinGroup, error: joinGroupError } = useJoinGroup();
   const { updateGroup } = useProfileActions();
-  const { initializeGroupsError } = useGroupsErrors();
 
   const handleSubmit = async (values: FormType) => {
     return joinGroup(values.id).then((data) => updateGroup(data.group));
@@ -29,7 +27,7 @@ const JoinGroupForm = () => {
       {({ dirty, isValid, isSubmitting }: FormikProps<FormType>) => (
         <Form>
           <Field name="id" label="Join a group" as={GroupSelect} placeholder="Search groups by name" />
-          <ErrorText message={initializeGroupsError} />
+          <ErrorText message={joinGroupError?.message} />
           <div className="mt-5 flex justify-between gap-3">
             <Button
               type="submit"

@@ -6,11 +6,9 @@ import { useDebounce } from 'use-debounce';
 
 import { useSearchGroups } from '@/query/group';
 
-export const verificationStatuses = ['all', 'verified', 'unverified'];
-
-const useGroupsList = () => {
+const useUserSearch = () => {
   const [searchTerm, setSearchTerm] = useState<string | undefined>();
-  const [debouncedSearchTerm] = useDebounce(searchTerm, 500);
+  const [debouncedSearchTerm] = useDebounce(searchTerm, 750);
   const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } = useSearchGroups({
     searchTerm: debouncedSearchTerm,
   });
@@ -26,4 +24,4 @@ const useGroupsList = () => {
   };
 };
 
-export default useGroupsList;
+export default useUserSearch;

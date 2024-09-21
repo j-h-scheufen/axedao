@@ -17,7 +17,7 @@ import { MapPinIcon } from 'lucide-react';
 import React, { useCallback, useState } from 'react';
 
 import VerificationChip from '@/components/VerificationChip';
-import useGroupsList from '@/hooks/useGroupList';
+import useGroupSearch from '@/hooks/useGroupSearch';
 import { Group } from '@/types/model';
 import ActionCell from './ActionCell';
 
@@ -83,7 +83,7 @@ const columns: Column<Group>[] = [
 const GlobalAdminGroupsTable = () => {
   const [selectedKeys, setSelectedKeys] = useState<Set<string>>(new Set([]));
 
-  const { groups, isLoading } = useGroupsList();
+  const { groups, isLoading } = useGroupSearch();
 
   const getCellValue = useCallback((item: Group, key: keyof Group) => {
     const cell = columns.find((col) => col.key === key)?.cell;
