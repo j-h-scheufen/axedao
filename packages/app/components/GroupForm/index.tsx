@@ -22,7 +22,7 @@ type Props = { id: string };
 const GroupForm = ({ id }: Props) => {
   const router = useRouter();
 
-  const { removeGroupAssociation } = useProfileActions();
+  const { updateGroup } = useProfileActions();
   const { loadGroupProfile: initGroupProfile, delete: deleteGroup, updateGroupProfile } = useGroupProfileActions();
   const { initialize: initGroupMembers } = useGroupMembersActions();
   const { group, links, adminIds } = useGroupProfile();
@@ -36,7 +36,7 @@ const GroupForm = ({ id }: Props) => {
 
   // TODO: Deleting the group will have consequences for any logged-in user belonging to that group as their state will be out of sync.
   const handleDeleteGroup = async () => {
-    await deleteGroup().then(removeGroupAssociation);
+    await deleteGroup().then(() => updateGroup(null));
     router.push(PATHS.profile);
   };
 

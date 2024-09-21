@@ -35,7 +35,7 @@ export async function GET(request: NextRequest) {
     verified = verified === 'false' ? false : verified === 'true' || undefined;
 
     const options = await groupOptionsSchema.validate({
-      limit: Number(limit),
+      limit: Number(limit) || 100, // TODO temp solution while API is not fleshed out and groups.store needs all groups
       offset: Number(offset),
       ...omitBy({ searchTerm, city, country, verified }, isNil),
     });

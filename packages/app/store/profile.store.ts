@@ -11,10 +11,6 @@ export type ProfileState = UserProfile & {
   initializeProfileError?: string;
   isUpdatingProfile: boolean;
   profileUpdateError?: string;
-  isExitingGroup: boolean;
-  exitGroupError?: string;
-  isJoiningGroup: boolean;
-  joinGroupError?: string;
   isUploadingAvatar?: boolean;
   isSignedIn: boolean;
 };
@@ -23,12 +19,9 @@ export type ProfileActions = {
   initializeProfile: () => Promise<void>;
   uploadAvatar: (file: File, name?: string) => Promise<string | void>;
   updateProfile: (profileData: ProfileForm) => Promise<void>;
-  joinGroup: (groupId: string) => Promise<void>;
-  exitGroup: () => Promise<void>;
-  removeGroupAssociation: () => void;
   setIsSignedIn: (isSignedIn: boolean) => void;
   clearProfile: () => void;
-  updateGroup: (group: Group) => void;
+  updateGroup: (group: Group | null) => void;
 };
 
 export type ProfileStore = ProfileState & { actions: ProfileActions };
@@ -58,8 +51,6 @@ const DEFAULT_STATE: ProfileState = {
   isInitialized: false,
   isInitializing: false,
   isUpdatingProfile: false,
-  isExitingGroup: false,
-  isJoiningGroup: false,
   isSignedIn: false,
 };
 
@@ -114,41 +105,6 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
       }
       set({ isUpdatingProfile: false });
     },
-    joinGroup: async (groupId: string) => {
-      const { isJoiningGroup } = get();
-      if (isJoiningGroup) return;
-      set({ isJoiningGroup: true });
-      try {
-        const { data } = await axios.post(`/api/groups/${groupId}/join`);
-        if (!data.group) throw new Error('An error occurred while joining group');
-        const { group } = data;
-        set((state) => ({ ...state, user: { ...state.user, groupId: group.id }, group }));
-      } catch (error) {
-        const message = error instanceof Error ? error.message : 'An error occured while joining group';
-        set({ joinGroupError: message });
-      }
-      set({ isJoiningGroup: false });
-    },
-    exitGroup: async () => {
-      const {
-        isExitingGroup,
-        user: { groupId },
-      } = get();
-      if (isExitingGroup || !groupId) return;
-      set({ isExitingGroup: true });
-      try {
-        const { data } = await axios.post(`/api/groups/${groupId}/exit`);
-        if (!data.success) throw new Error(data.message || 'An error occurred while exiting group');
-        set((state) => ({ ...state, user: { ...state.user, groupId: null }, group: null }));
-      } catch (error) {
-        const message = error instanceof Error ? error.message : 'An error occured while exiting group';
-        set({ exitGroupError: message });
-      }
-      set({ isExitingGroup: false });
-    },
-    removeGroupAssociation: async () => {
-      set((state) => ({ ...state, user: { ...state.user, groupId: null }, group: null }));
-    },
     setIsSignedIn: (isSignedIn) => {
       set({ isSignedIn });
     },
@@ -156,7 +112,7 @@ export const useProfileStore = create<ProfileStore>()((set, get) => ({
       set({ ...DEFAULT_STATE });
     },
     updateGroup: (group) => {
-      set((state) => ({ ...state, user: { ...state.user, groupId: group.id }, group }));
+      set((state) => ({ ...state, user: { ...state.user, groupId: group?.id || null }, group }));
     },
   },
 }));
@@ -174,12 +130,8 @@ export const useIsSignedIn = (): boolean => useProfileStore((state) => state.isS
 
 export const useIsProfileInitialized = (): boolean => useProfileStore((state) => state.isInitialized);
 
-export const useIsExitingGroup = (): boolean => useProfileStore((state) => state.isExitingGroup);
-
 export const useProfileErrors = () =>
   useProfileStore((state) => ({
     initializeProfileError: state.initializeProfileError,
     profileUpdateError: state.profileUpdateError,
-    joinGroupError: state.joinGroupError,
-    exitGroupError: state.exitGroupError,
   }));

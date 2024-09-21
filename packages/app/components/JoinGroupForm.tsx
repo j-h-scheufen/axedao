@@ -5,22 +5,18 @@ import { Field, Form, Formik, FormikProps } from 'formik';
 
 import ErrorText from '@/components/ErrorText';
 import { JoinGroupForm as FormType, joinGroupFormSchema } from '@/config/validation-schema';
+import { useJoinGroup } from '@/query/profile';
 import { useGroupsErrors } from '@/store/groups.store';
 import { useProfileActions } from '@/store/profile.store';
 import GroupSelect from './forms/GroupSelect';
 
 const JoinGroupForm = () => {
+  const { mutateAsync: joinGroup } = useJoinGroup();
+  const { updateGroup } = useProfileActions();
   const { initializeGroupsError } = useGroupsErrors();
 
-  const { joinGroup } = useProfileActions();
-
   const handleSubmit = async (values: FormType) => {
-    try {
-      return joinGroup(values.id);
-    } catch (error) {
-      console.error('Error during registration.', error);
-      throw error;
-    }
+    return joinGroup(values.id).then((data) => updateGroup(data.group));
   };
 
   // NOTE: The initial form values MUST BE declared outside of the JSX code, otherwise it can lead to hydration errors.

@@ -7,27 +7,28 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 
 import { PATHS } from '@/config/constants';
-import { useIsExitingGroup, useProfileActions, useProfileUser } from '@/store/profile.store';
+import { useLeaveGroup } from '@/query/profile';
+import { useProfileActions, useProfileUser } from '@/store/profile.store';
 import { useGroupProfile, useIsGroupAdmin } from '../store/groupProfile.store';
 import LeaveGroupConfirmationModal from './LeaveGroupConfirmationModal';
 
 const GroupActions = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const router = useRouter();
-
   const pathname = usePathname();
-
+  const { mutateAsync: leaveGroup, isPending } = useLeaveGroup();
+  const { updateGroup: updateUserProfileGroup } = useProfileActions();
   const user = useProfileUser();
   const groupProfile = useGroupProfile();
-  const isGroupMember = user.groupId === groupProfile.group.id;
   const isGroupAdmin = useIsGroupAdmin();
 
-  const { exitGroup } = useProfileActions();
-  const isExitingGroup = useIsExitingGroup();
+  const isGroupMember = user.groupId === groupProfile.group.id;
 
   const exitGroupHandler = async () => {
-    await exitGroup();
-    router.push(PATHS.profile);
+    return leaveGroup(groupProfile.group.id).then(() => {
+      updateUserProfileGroup(null);
+      router.push(PATHS.profile);
+    });
   };
 
   return (
@@ -36,10 +37,10 @@ const GroupActions = () => {
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         onDelete={exitGroupHandler}
-        isDeleting={isExitingGroup}
+        isDeleting={isPending}
       />
       {isGroupMember && !isGroupAdmin && (
-        <Button variant="light" size="sm" color="danger" onPress={onOpen} isLoading={isExitingGroup}>
+        <Button variant="light" size="sm" color="danger" onPress={onOpen} isLoading={isPending}>
           Leave group
         </Button>
       )}
