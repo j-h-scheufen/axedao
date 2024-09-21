@@ -30,12 +30,12 @@ const searchUsers = async ({ offset, pageSize, searchTerm }: UserSearchParams): 
   queryParams += pageSize ? `&limit=${pageSize}` : '';
   return axios.get('/api/users/search?offset=' + queryParams).then((response) => response.data);
 };
-function searchUsersOptions(pageSize?: number, searchTerm?: string) {
+function searchUsersOptions(offset?: number, pageSize?: number, searchTerm?: string) {
   return infiniteQueryOptions({
     queryKey: [QUERY_KEYS.user.searchUsers, searchTerm],
     queryFn: ({ pageParam }: { pageParam: number | string }) =>
       searchUsers({ offset: Number(pageParam), pageSize, searchTerm }),
-    initialPageParam: 0,
+    initialPageParam: offset || 0,
     getNextPageParam: (lastPage, pages) => lastPage.nextOffset,
   });
 }
@@ -48,6 +48,6 @@ export const useFetchUserProfile = (id: string) => {
   return useQuery(fetchUserProfileOptions(id));
 };
 
-export const useSearchUsers = ({ pageSize, searchTerm }: Omit<UserSearchParams, 'offset'>) => {
-  return useInfiniteQuery(searchUsersOptions(pageSize, searchTerm));
+export const useSearchUsers = ({ offset, pageSize, searchTerm }: UserSearchParams) => {
+  return useInfiniteQuery(searchUsersOptions(offset, pageSize, searchTerm));
 };

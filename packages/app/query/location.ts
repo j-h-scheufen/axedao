@@ -17,7 +17,7 @@ function fetchCountriesOptions() {
   return queryOptions({
     queryKey: [QUERY_KEYS.location.getCountries],
     queryFn: () => fetchCountries(),
-    staleTime: 1000 * 60 * 60 * 72,
+    staleTime: Infinity,
   });
 }
 function fetchCitiesOptions(countryCode: string, citySearchTerm?: string) {

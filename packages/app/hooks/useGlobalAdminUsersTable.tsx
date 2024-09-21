@@ -2,13 +2,13 @@
 
 import { Link } from '@nextui-org/link';
 import { getKeyValue } from '@nextui-org/react';
+import { useInfiniteScroll } from '@nextui-org/use-infinite-scroll';
 import { User } from '@nextui-org/user';
-import { isEqual } from 'lodash';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useDebounce } from 'use-debounce';
 
-import useOverviewQueries from '@/hooks/useOverviewQueries';
-import { useIsLoadingUsers, useSearchResults, useUserSearchActions } from '@/store/user-search.store';
+import { PATHS } from '@/config/constants';
+import { useSearchUsers } from '@/query/user';
 import { User as UserType } from '@/types/model';
 import { getUserDisplayName } from '@/utils';
 import { useProfileUser } from '../store/profile.store';
@@ -29,24 +29,14 @@ const columns = [
 ];
 
 const useGlobalAdminUsersTable = () => {
-  const [selectedRows, setSelectedRows] = useState<Set<string>>(new Set([]));
-  const [query, setQuery] = useOverviewQueries();
-  const [debouncedQuery] = useDebounce(query, 500);
-
-  const { searchTerm } = query;
-
-  const lastQueryRef = useRef<typeof query | null>(null);
-
   const user = useProfileUser();
-  const usersActions = useUserSearchActions();
-  const users = useSearchResults();
-  const isLoading = useIsLoadingUsers();
-
-  useEffect(() => {
-    if (isEqual(lastQueryRef.current, debouncedQuery)) return;
-    usersActions.search({ searchTerm: debouncedQuery.searchTerm || '' });
-    lastQueryRef.current = debouncedQuery;
-  }, [debouncedQuery, usersActions, lastQueryRef]);
+  const [selectedRows, setSelectedRows] = useState<Set<string>>(new Set([]));
+  const [searchTerm, setSearchTerm] = useState<string | undefined>();
+  const [debouncedSearchTerm] = useDebounce(searchTerm, 500);
+  const { data, error, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage, status } = useSearchUsers({
+    searchTerm: debouncedSearchTerm,
+  });
+  const [loaderRef, scrollerRef] = useInfiniteScroll({ hasMore: hasNextPage, onLoadMore: fetchNextPage });
 
   const getCellValue = useCallback(
     ({ item, key }: { item: UserType; key: string }) => {
@@ -54,7 +44,7 @@ const useGlobalAdminUsersTable = () => {
         const user = item as UserType;
         const isLoggedInUser = user.id === user.id;
         return (
-          <Link href={`/search/users/${user.id}`} className="text-[unset]">
+          <Link href={`${PATHS.users}/${user.id}`} className="text-[unset]">
             <User
               avatarProps={{ radius: 'full', src: user.avatar || '' }}
               description={user.email}
@@ -71,19 +61,17 @@ const useGlobalAdminUsersTable = () => {
     [user.id],
   );
 
-  const setSearchTerm = (searchTerm: string) => {
-    setQuery({ ...query, searchTerm });
-  };
-
   return {
     searchTerm,
     setSearchTerm,
-    users,
-    isLoading,
+    users: data?.pages.flatMap((page) => page.data) || [],
+    isLoading: isFetching || isFetchingNextPage,
     selectedRows,
     setSelectedRows,
     columns,
     getCellValue,
+    loaderRef,
+    scrollerRef,
   };
 };
 

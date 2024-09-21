@@ -40,7 +40,7 @@ export type GroupMember = User & { roles: GroupMemberRole[] };
  * Search types used in the search routes
  */
 export type UserSearchParams = {
-  offset: number;
+  offset?: number;
   pageSize?: number;
   searchTerm?: string;
 };
