@@ -39,14 +39,13 @@ export type GroupMember = User & { roles: GroupMemberRole[] };
 /**
  * Search types used in the search routes
  */
-export type UserSearchParams = {
-  offset?: number;
-  pageSize?: number;
-  searchTerm?: string;
-};
 export type UserSearchResult = {
   data: User[];
   nextOffset: number | null;
 };
+export type GroupSearchResult = {
+  data: Group[];
+  nextOffset: number | null;
+};
 
-export type SearchCitiesQuery = { countryCode: string; searchTerm?: string };
+export type SearchCitiesParams = { countryCode: string; searchTerm?: string };

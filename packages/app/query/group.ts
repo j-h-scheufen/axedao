@@ -1,9 +1,16 @@
-import { queryOptions, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import {
+  infiniteQueryOptions,
+  queryOptions,
+  useInfiniteQuery,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from '@tanstack/react-query';
+import axios from 'axios';
 
 import { QUERY_DEFAULT_STALE_TIME_MINUTES } from '@/config/constants';
-import { CreateNewGroupForm } from '@/config/validation-schema';
-import { Group, GroupProfile, User } from '@/types/model';
-import axios from 'axios';
+import { CreateNewGroupForm, SearchParams } from '@/config/validation-schema';
+import { Group, GroupProfile, GroupSearchResult, User } from '@/types/model';
 import { QUERY_KEYS } from '.';
 
 const fetchGroup = (id: string): Promise<Group> => axios.get(`/api/groups/${id}`).then((response) => response.data);
@@ -35,6 +42,22 @@ function fetchGroupMembersOptions(id: string) {
   });
 }
 
+const searchGroups = async ({ offset, pageSize, searchTerm }: SearchParams): Promise<GroupSearchResult> => {
+  let queryParams = `?offset=${offset}`;
+  queryParams += searchTerm ? `&searchTerm=${searchTerm}` : '';
+  queryParams += pageSize ? `&pageSize=${pageSize}` : '';
+  return axios.get(`/api/groups${queryParams}`).then((response) => response.data);
+};
+function searchGroupsOptions(offset?: number, pageSize?: number, searchTerm?: string) {
+  return infiniteQueryOptions({
+    queryKey: [QUERY_KEYS.group.searchGroups, searchTerm],
+    queryFn: ({ pageParam }: { pageParam: number | string }) =>
+      searchGroups({ offset: Number(pageParam), pageSize, searchTerm }),
+    initialPageParam: offset || 0,
+    getNextPageParam: (lastPage, pages) => lastPage.nextOffset,
+  });
+}
+
 const createGroup = (newGroup: CreateNewGroupForm): Promise<Group> =>
   axios.post('/api/groups', newGroup).then((response) => response.data);
 
@@ -43,6 +66,10 @@ export const useFetchGroup = (id: string) => useQuery(fetchGroupOptions(id));
 export const useFetchGroupProfile = (id: string) => useQuery(fetchGroupProfileOptions(id));
 
 export const useFetchGroupMembers = (id: string) => useQuery(fetchGroupOptions(id));
+
+export const useSearchGroups = ({ offset, pageSize, searchTerm }: SearchParams) => {
+  return useInfiniteQuery(searchGroupsOptions(offset, pageSize, searchTerm));
+};
 
 export const useCreateGroup = () => {
   const queryClient = useQueryClient();

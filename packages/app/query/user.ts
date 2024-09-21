@@ -2,7 +2,8 @@ import { infiniteQueryOptions, queryOptions, useInfiniteQuery, useQuery } from '
 import axios from 'axios';
 
 import { QUERY_DEFAULT_STALE_TIME_MINUTES } from '@/config/constants';
-import { User, UserProfile, UserSearchParams, UserSearchResult } from '@/types/model';
+import { SearchParams } from '@/config/validation-schema';
+import { User, UserProfile, UserSearchResult } from '@/types/model';
 import { QUERY_KEYS } from '.';
 
 const fetchUser = async (id: string): Promise<User> => axios.get(`/api/users/${id}`).then((response) => response.data);
@@ -24,11 +25,11 @@ function fetchUserProfileOptions(id: string) {
   });
 }
 
-const searchUsers = async ({ offset, pageSize, searchTerm }: UserSearchParams): Promise<UserSearchResult> => {
+const searchUsers = async ({ offset, pageSize, searchTerm }: SearchParams): Promise<UserSearchResult> => {
   let queryParams = `?offset=${offset}`;
   queryParams += searchTerm ? `&searchTerm=${searchTerm}` : '';
   queryParams += pageSize ? `&limit=${pageSize}` : '';
-  return axios.get('/api/users/search?offset=' + queryParams).then((response) => response.data);
+  return axios.get(`/api/users${queryParams}`).then((response) => response.data);
 };
 function searchUsersOptions(offset?: number, pageSize?: number, searchTerm?: string) {
   return infiniteQueryOptions({
@@ -48,6 +49,6 @@ export const useFetchUserProfile = (id: string) => {
   return useQuery(fetchUserProfileOptions(id));
 };
 
-export const useSearchUsers = ({ offset, pageSize, searchTerm }: UserSearchParams) => {
+export const useSearchUsers = ({ offset, pageSize, searchTerm }: SearchParams) => {
   return useInfiniteQuery(searchUsersOptions(offset, pageSize, searchTerm));
 };

@@ -1,14 +1,14 @@
 import { queryOptions, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
-import { City, Country, SearchCitiesQuery } from '@/types/model';
+import { City, Country, SearchCitiesParams } from '@/types/model';
 import { QUERY_KEYS } from '.';
 
 const fetchCountries = (): Promise<Country[]> => {
   return axios.get('/api/location/countries').then((response) => response.data);
 };
 const fetchCities = (countryCode: string, citySearchTerm?: string): Promise<City[]> => {
-  const query: SearchCitiesQuery = { countryCode: countryCode || '', searchTerm: citySearchTerm || '' };
+  const query: SearchCitiesParams = { countryCode: countryCode || '', searchTerm: citySearchTerm || '' };
   const queryParams = new URLSearchParams(query);
   return axios.get(`/api/location/cities?${queryParams}`).then((response) => response.data);
 };

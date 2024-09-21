@@ -6,9 +6,7 @@ import { Search } from 'lucide-react';
 import GroupsGrid from './GroupsGrid';
 
 const Groups = () => {
-  const { groups, isLoading, query, setQuery, totalGroups, isInitialized } = useGroupsList();
-  const { searchTerm } = query;
-  const setSearchTerm = (searchTerm: string) => setQuery({ searchTerm });
+  const { groups, isLoading, searchTerm, setSearchTerm } = useGroupsList();
 
   return (
     <div className="flex flex-col gap-4 pt-5">
@@ -24,12 +22,7 @@ const Groups = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
-      <div className="flex items-center justify-between">
-        {typeof totalGroups === 'number' && (
-          <span className="ml-auto text-small text-default-400">Total number of groups: {totalGroups}</span>
-        )}
-      </div>
-      <GroupsGrid groups={groups} isLoading={isLoading || !isInitialized} />
+      <GroupsGrid groups={groups} isLoading={isLoading} />
     </div>
   );
 };

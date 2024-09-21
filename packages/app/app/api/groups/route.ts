@@ -2,55 +2,56 @@ import { isNil, omitBy } from 'lodash';
 import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
-import { boolean, number, object, string } from 'yup';
 
+import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { CreateNewGroupForm, createNewGroupFormSchema } from '@/config/validation-schema';
-import { addGroupAdmin, countGroups, fetchGroups, fetchUser, insertGroup, updateUser } from '@/db';
+import {
+  CreateNewGroupForm,
+  createNewGroupFormSchema,
+  GroupSearchParams,
+  groupSearchSchema,
+} from '@/config/validation-schema';
+import { addGroupAdmin, fetchUser, insertGroup, searchGroups, updateUser } from '@/db';
+import { GroupSearchResult } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
 
-const groupOptionsSchema = object({
-  limit: number().required().nonNullable(),
-  offset: number().required().nonNullable(),
-  searchTerm: string().nonNullable(),
-  city: string().nonNullable(),
-  country: string().nonNullable(),
-  verified: boolean().nonNullable(),
-});
-
 /**
- * Returns a list of groups based on the query parameters.
+ * Route handler for inite user search
  * @param request
- * @returns Group[]
+ * @returns { data: User[], nextOffset: number }
  */
 export async function GET(request: NextRequest) {
-  try {
-    const searchParams = request.nextUrl.searchParams;
-    const limit = searchParams.get('limit');
-    const offset = searchParams.get('offset');
-    const searchTerm = searchParams.get('searchTerm');
-    const city = searchParams.get('city');
-    const country = searchParams.get('country');
-    let verified: string | null | boolean | undefined = searchParams.get('verified');
-    verified = verified === 'false' ? false : verified === 'true' || undefined;
+  const searchParams = request.nextUrl.searchParams;
+  const pageSize = Number(searchParams.get('pageSize')) || QUERY_DEFAULT_PAGE_SIZE;
+  const offset = Number(searchParams.get('offset'));
+  const searchTerm = searchParams.get('searchTerm');
+  const city = searchParams.get('city');
+  const country = searchParams.get('country');
+  let verified: string | null | boolean | undefined = searchParams.get('verified');
+  verified = verified === 'false' ? false : verified === 'true' || undefined;
+  let nextOffset = null;
 
-    const options = await groupOptionsSchema.validate({
-      limit: Number(limit) || 100, // TODO temp solution while API is not fleshed out and groups.store needs all groups
-      offset: Number(offset),
+  let searchOptions: GroupSearchParams;
+  try {
+    searchOptions = groupSearchSchema.validateSync({
+      pageSize,
+      offset,
       ...omitBy({ searchTerm, city, country, verified }, isNil),
     });
-
-    if (!options) {
-      return NextResponse.json({ error: 'Invalid data' }, { status: 400 });
-    }
-
-    const groups = await fetchGroups(options);
-    const count = await countGroups();
-    return NextResponse.json({ groups, count });
   } catch (error) {
-    console.error(error);
-    return NextResponse.json({ error: 'An unexpected error occured while fetching groups' }, { status: 500 });
+    console.error('Unable to validate input data', error);
+    return NextResponse.json({ error: `Invalid input data` }, { status: 400 });
   }
+
+  const groups = await searchGroups(searchOptions);
+  // we retrieve one more than the pageSize to determine if there are more results
+  if (groups.length > pageSize) {
+    nextOffset = offset + pageSize;
+    groups.pop();
+  }
+
+  const result: GroupSearchResult = { data: groups, nextOffset };
+  return Response.json(result);
 }
 
 /**

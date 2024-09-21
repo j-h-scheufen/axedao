@@ -167,3 +167,21 @@ export const updateGroupProfileSchema = updateGroupSchema.concat(
 export type UpdateGroupForm = InferType<typeof updateGroupSchema>;
 
 export type UpdateGroupProfileForm = InferType<typeof updateGroupProfileSchema>;
+
+export const searchParamsSchema = object({
+  offset: number().optional(),
+  pageSize: number().optional(),
+  searchTerm: string().optional(),
+});
+
+export type SearchParams = InferType<typeof searchParamsSchema>;
+
+export const groupSearchSchema = searchParamsSchema.concat(
+  object({
+    city: string().optional(),
+    country: string().optional(),
+    verified: boolean().optional(),
+  }),
+);
+
+export type GroupSearchParams = InferType<typeof groupSearchSchema>;

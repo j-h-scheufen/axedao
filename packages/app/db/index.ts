@@ -3,6 +3,7 @@ import { drizzle, PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 
 import ENV from '@/config/environment';
+import { GroupSearchParams, SearchParams } from '@/config/validation-schema';
 import * as schema from '@/db/schema';
 import { Group, UserProfile } from '@/types/model';
 import { GroupProfile, UserSession } from '../types/model';
@@ -33,18 +34,12 @@ export async function isGlobalAdmin(userId: string) {
   return res?.isGlobalAdmin;
 }
 
-type SearchUsersOptions = {
-  limit?: number;
-  offset?: number;
-  searchTerm?: string;
-};
-
 export async function fetchUsers() {
   return await db.select().from(schema.users);
 }
 
-export async function searchUsers(options: SearchUsersOptions) {
-  const { limit = 20, offset = 0, searchTerm } = options;
+export async function searchUsers(options: SearchParams) {
+  const { pageSize = 20, offset = 0, searchTerm } = options;
   const orFilters: (SQLWrapper | undefined)[] = [];
 
   if (searchTerm) {
@@ -53,7 +48,7 @@ export async function searchUsers(options: SearchUsersOptions) {
   }
 
   return await db.query.users.findMany({
-    limit,
+    limit: pageSize,
     offset,
     where: orFilters.length ? or(...orFilters) : undefined,
   });
@@ -95,16 +90,12 @@ export async function countUsers() {
   return result.length ? result[0].count : null;
 }
 
-type FetchGroupsOptions = {
-  limit: number;
-  offset: number;
-  searchTerm?: string;
-  city?: string;
-  country?: string;
-  verified?: boolean;
-};
-export async function fetchGroups(options: FetchGroupsOptions): Promise<Group[]> {
-  const { limit = 20, offset = 0, searchTerm, city, country, verified } = options;
+export async function fetchGroups() {
+  return await db.select().from(schema.users);
+}
+
+export async function searchGroups(options: GroupSearchParams): Promise<Group[]> {
+  const { pageSize = 20, offset = 0, searchTerm, city, country, verified } = options;
 
   const filters: (SQLWrapper | undefined)[] = [];
   if (searchTerm) filters.push(ilike(schema.groups.name, `%${searchTerm}%`));
@@ -113,7 +104,7 @@ export async function fetchGroups(options: FetchGroupsOptions): Promise<Group[]>
   if (typeof verified === 'boolean') filters.push(eq(schema.groups.verified, verified));
 
   return await db.query.groups.findMany({
-    limit,
+    limit: pageSize,
     offset,
     where: filters.length ? and(...filters) : undefined,
   });
@@ -167,17 +158,11 @@ export async function fetchGroupProfile(groupId: string): Promise<GroupProfile |
   return { group: group[0], links, adminIds };
 }
 
-export async function isGroupExists(groupId: string) {}
-
-export async function isUserExists(userId: string) {}
-
-export async function fetchGroupMembers(groupId: string, limit: number = 20, offset: number = 0, searchTerm?: string) {
+export async function fetchGroupMembers(groupId: string): Promise<schema.SelectUser[]> {
   return await db
     .select()
     .from(schema.users)
-    .where(and(eq(schema.users.groupId, groupId), searchTerm ? ilike(schema.users.name, `%${searchTerm}%`) : undefined))
-    .limit(limit)
-    .offset(offset);
+    .where(and(eq(schema.users.groupId, groupId)));
 }
 
 export async function insertUser(userValues: schema.InsertUser) {

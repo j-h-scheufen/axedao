@@ -34,13 +34,15 @@ export async function PATCH(req: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
-  const body = await req.json();
-  const isValid = await profileFormSchema.validate(body);
-  if (!isValid) {
-    return NextResponse.json({ error: 'Invalid profile data' }, { status: 400 });
+  let formData: ProfileForm;
+  try {
+    formData = profileFormSchema.validateSync(await req.json());
+  } catch (error) {
+    console.error('Unable to validate input data', error);
+    return NextResponse.json({ error: `Invalid input data` }, { status: 400 });
   }
 
-  const { links: links, ...profileData } = body as Omit<ProfileForm, 'links' | 'avatar'> & {
+  const { links: links, ...profileData } = formData as Omit<ProfileForm, 'links' | 'avatar'> & {
     links: Link[];
     avatar: string | null | undefined;
   };
