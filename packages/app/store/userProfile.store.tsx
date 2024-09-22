@@ -1,46 +1,40 @@
+'use client';
+
 import { PropsWithChildren, createContext, useContext, useRef } from 'react';
 import { createStore } from 'zustand';
 import { useStoreWithEqualityFn } from 'zustand/traditional';
 
-import { useFetchUser } from '@/query/user';
-import { Link, UserProfile } from '@/types/model';
+import { Group, Link, User, UserProfile } from '@/types/model';
 
 /**
  * This is a store for the user profile to be used within a React Context to
  * provide a user profile to children components.
  * This enables the use of react-query hooks to sync the profile with the server.
  */
-export interface UserProfileState {
-  profile?: UserProfile;
-}
+export type UserProfileState = UserProfile;
 
-export interface UserProfileActions {
-  initialize: () => Promise<void>;
-}
+export interface UserProfileActions {}
 
 export type UserProfileStore = UserProfileState;
 
-// Vanilla profile store that can be initialized with props
-const createUserStore = (initProps?: Partial<UserProfileState>) => {
+// Vanilla profile store that can be initialized with state
+const createUserStore = (profile: UserProfile) => {
   return createStore<UserProfileStore>()(() => ({
-    ...initProps,
-    initialize: async () => {
-      const user = useFetchUser('me');
-    },
+    ...profile,
   }));
 };
 
 type VanillaProfileStore = ReturnType<typeof createUserStore>;
 
-type UserProfileProviderProps = PropsWithChildren & Partial<UserProfileState>;
+type UserProfileProviderProps = PropsWithChildren & { profile: UserProfile };
 
 const UserProfileContext = createContext<VanillaProfileStore | null>(null);
 
-// wraps the ProfileContext.Provider for the vanilla store
-export function UserProvider({ children, ...props }: UserProfileProviderProps) {
+// wraps the Provider for the vanilla store
+export default function UserProfileProvider({ children, profile }: UserProfileProviderProps) {
   const storeRef = useRef<VanillaProfileStore>();
   if (!storeRef.current) {
-    storeRef.current = createUserStore(props);
+    storeRef.current = createUserStore(profile);
   }
   return <UserProfileContext.Provider value={storeRef.current}>{children}</UserProfileContext.Provider>;
 }
@@ -55,6 +49,8 @@ export function useUserProfileContext<T>(
   return useStoreWithEqualityFn(store, selector, equalityFn);
 }
 
-export const useUserProfile = (): UserProfile | undefined => useUserProfileContext((state) => state.profile);
+export const useUser = (): User => useUserProfileContext((state) => state.user);
 
-export const useLinks = (): Link[] => useUserProfileContext((state) => state.profile?.links ?? []);
+export const useLinks = (): Link[] => useUserProfileContext((state) => state.links);
+
+export const useGroup = (): Group | null => useUserProfileContext((state) => state.group);
