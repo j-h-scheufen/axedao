@@ -19,7 +19,7 @@ export async function GET(request: NextRequest, { params }: { params: { groupId:
     return Response.json(
       { error: true, message },
       {
-        status: 400,
+        status: 500,
       },
     );
   }

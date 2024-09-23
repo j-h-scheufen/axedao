@@ -12,6 +12,7 @@ function fetchUserOptions(id: string) {
     queryKey: [QUERY_KEYS.user.getUser, id],
     queryFn: () => fetchUser(id),
     staleTime: 1000 * 60 * QUERY_DEFAULT_STALE_TIME_MINUTES,
+    enabled: !!id,
   });
 }
 
@@ -22,6 +23,7 @@ function fetchUserProfileOptions(id: string) {
     queryKey: [QUERY_KEYS.user.getUserProfile, id],
     queryFn: () => fetchUserProfile(id),
     staleTime: 1000 * 60 * QUERY_DEFAULT_STALE_TIME_MINUTES,
+    enabled: !!id,
   });
 }
 

@@ -2,44 +2,36 @@
 
 import { Spinner } from '@nextui-org/spinner';
 import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@nextui-org/table';
-import { useInfiniteScroll } from '@nextui-org/use-infinite-scroll';
-import { Suspense, useEffect } from 'react';
+import { useAtomValue } from 'jotai';
+import { Suspense, useCallback } from 'react';
 
 import { GroupMembersSkeleton } from '@/components/skeletons/GroupSkeletons';
-import {
-  useGroupMembers,
-  useGroupMembersActions,
-  useGroupMembersHasMoreResults,
-  useIsLoadingGroupMembers,
-} from '../../store/groupMembers.store';
-import { useIsGroupAdmin } from '../../store/groupProfile.store';
+import { groupAdminIdsAtom, groupFounderAtom, groupLeaderAtom, isCurrentUserGroupAdminAtom } from '@/hooks/state/group';
+import { useGroupMembers } from '@/hooks/useGroup';
+import { GroupMemberRole } from '@/types/model';
+import { getGroupMemberRoles } from '@/utils';
 import TableCellValue from './TableCellValue';
 import { GroupMemberTableColumnKey, columns } from './utils';
 
-type Props = { id: string };
-const GroupMembers = ({ id }: Props) => {
-  const { initialize, loadNextPage } = useGroupMembersActions();
-  const isGroupAdmin = useIsGroupAdmin();
-  const groupMembers = useGroupMembers();
-  const hasMoreMembers = useGroupMembersHasMoreResults();
-  const isLoading = useIsLoadingGroupMembers();
-
-  useEffect(() => {
-    initialize(id);
-  }, [initialize, id]);
-
-  const [, scrollerRef] = useInfiniteScroll({
-    hasMore: hasMoreMembers,
-    isEnabled: true,
-    shouldUseLoader: true,
-    onLoadMore: () => loadNextPage(),
-  });
+const GroupMembers = () => {
+  const { groupMembers, isPending } = useGroupMembers();
+  const groupFounder = useAtomValue(groupFounderAtom);
+  const groupLeader = useAtomValue(groupLeaderAtom);
+  const groupAdminIds = useAtomValue(groupAdminIdsAtom);
+  const isGroupAdmin = useAtomValue(isCurrentUserGroupAdminAtom);
+  const getMemberRoles = useCallback(
+    (userId: string): GroupMemberRole[] => {
+      if (groupFounder && groupLeader) return getGroupMemberRoles(userId, groupFounder, groupLeader, groupAdminIds);
+      return [];
+    },
+    [groupFounder, groupLeader, groupAdminIds],
+  );
 
   const filteredColumns = [...columns].filter((column) => (isGroupAdmin ? true : column.name !== 'ACTIONS'));
 
   return (
     <Suspense fallback={<GroupMembersSkeleton />}>
-      <Table baseRef={scrollerRef} aria-label="Group members table">
+      <Table aria-label="Group members table">
         <TableHeader columns={filteredColumns}>
           {(column) => (
             <TableColumn key={column.uid} className="last:text-end text-left">
@@ -49,7 +41,7 @@ const GroupMembers = ({ id }: Props) => {
         </TableHeader>
         <TableBody
           items={groupMembers}
-          isLoading={isLoading}
+          isLoading={isPending}
           loadingContent={<Spinner label="Loading..." size="sm" color="default" />}
           emptyContent="No members found"
         >
@@ -57,7 +49,10 @@ const GroupMembers = ({ id }: Props) => {
             <TableRow key={item.id}>
               {(columnKey) => (
                 <TableCell className="last:text-end first:text-left text-center">
-                  <TableCellValue groupMember={item} columnKey={columnKey as GroupMemberTableColumnKey} />
+                  <TableCellValue
+                    groupMember={{ ...item, roles: getMemberRoles(item.id) }}
+                    columnKey={columnKey as GroupMemberTableColumnKey}
+                  />
                 </TableCell>
               )}
             </TableRow>

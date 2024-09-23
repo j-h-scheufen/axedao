@@ -11,7 +11,7 @@ import axios from 'axios';
 import { QUERY_DEFAULT_STALE_TIME_MINUTES } from '@/config/constants';
 import { CreateNewGroupForm, SearchParams, UpdateGroupForm } from '@/config/validation-schema';
 import { Group, GroupProfile, GroupSearchResult, User } from '@/types/model';
-import { QUERY_KEYS } from '.';
+import { GroupAndUserParams, QUERY_KEYS } from '.';
 
 const fetchGroup = (id: string): Promise<Group> => axios.get(`/api/groups/${id}`).then((response) => response.data);
 function fetchGroupOptions(id: string) {
@@ -19,6 +19,7 @@ function fetchGroupOptions(id: string) {
     queryKey: [QUERY_KEYS.group.getGroup, id],
     queryFn: () => fetchGroup(id),
     staleTime: 1000 * 60 * QUERY_DEFAULT_STALE_TIME_MINUTES,
+    enabled: !!id,
   });
 }
 
@@ -29,6 +30,7 @@ function fetchGroupProfileOptions(id: string) {
     queryKey: [QUERY_KEYS.group.getGroupProfile, id],
     queryFn: () => fetchGroupProfile(id),
     staleTime: 1000 * 60 * QUERY_DEFAULT_STALE_TIME_MINUTES,
+    enabled: !!id,
   });
 }
 
@@ -39,6 +41,7 @@ function fetchGroupMembersOptions(id: string) {
     queryKey: [QUERY_KEYS.group.getGroupMembers, id],
     queryFn: () => fetchGroupMembers(id),
     staleTime: 1000 * 60 * QUERY_DEFAULT_STALE_TIME_MINUTES,
+    enabled: !!id,
   });
 }
 
@@ -49,6 +52,7 @@ function fetchGroupAdminsOptions(id: string) {
     queryKey: [QUERY_KEYS.group.getGroupAdmins, id],
     queryFn: () => fetchGroupAdmins(id),
     staleTime: 1000 * 60 * QUERY_DEFAULT_STALE_TIME_MINUTES,
+    enabled: !!id,
   });
 }
 
@@ -75,23 +79,23 @@ const createGroup = async (newGroup: CreateNewGroupForm): Promise<Group> =>
 const deleteGroup = async (groupId: string): Promise<void> => axios.delete(`/api/groups/${groupId}`);
 
 const updateGroup = async (groupId: string, data: UpdateGroupForm): Promise<Group> =>
-  axios.patch(`/api/groups/${groupId}`, data);
+  axios.patch(`/api/groups/${groupId}`, data).then((response) => response.data);
 
-const removeMember = async (groupId: string, userId: string): Promise<void> =>
-  axios.delete(`/api/groups/${groupId}/members/${userId}`);
+const removeMember = async (groupId: string, userId: string): Promise<User[]> =>
+  axios.delete(`/api/groups/${groupId}/members/${userId}`).then((response) => response.data);
 
 const addAdmin = async (groupId: string, userId: string): Promise<string[]> =>
-  axios.put(`/api/groups/${groupId}/admins/${userId}`);
+  axios.put(`/api/groups/${groupId}/admins/${userId}`).then((response) => response.data);
 
 const removeAdmin = async (groupId: string, userId: string): Promise<string[]> =>
-  axios.delete(`/api/groups/${groupId}/admins/${userId}`);
+  axios.delete(`/api/groups/${groupId}/admins/${userId}`).then((response) => response.data);
 
 // HOOKS
 export const useFetchGroup = (id: string) => useQuery(fetchGroupOptions(id));
 
 export const useFetchGroupProfile = (id: string) => useQuery(fetchGroupProfileOptions(id));
 
-export const useFetchGroupMembers = (id: string) => useQuery(fetchGroupOptions(id));
+export const useFetchGroupMembers = (id: string) => useQuery(fetchGroupMembersOptions(id));
 
 export const useSearchGroups = ({ offset, pageSize, searchTerm }: SearchParams) => {
   return useInfiniteQuery(searchGroupsOptions(offset, pageSize, searchTerm));
@@ -137,7 +141,7 @@ export const useUpdateGroupMutation = () => {
 export const useRemoveMemberMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({ groupId, userId }: { groupId: string; userId: string }) => removeMember(groupId, userId),
+    mutationFn: ({ groupId, userId }: GroupAndUserParams) => removeMember(groupId, userId),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroupMembers] });
     },
@@ -147,7 +151,7 @@ export const useRemoveMemberMutation = () => {
 export const useAddAdminMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({ groupId, userId }: { groupId: string; userId: string }) => addAdmin(groupId, userId),
+    mutationFn: ({ groupId, userId }: GroupAndUserParams) => addAdmin(groupId, userId),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroupAdmins] });
     },
@@ -157,7 +161,7 @@ export const useAddAdminMutation = () => {
 export const useRemoveAdminMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({ groupId, userId }: { groupId: string; userId: string }) => removeMember(groupId, userId),
+    mutationFn: ({ groupId, userId }: GroupAndUserParams) => removeAdmin(groupId, userId),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroupAdmins] });
     },

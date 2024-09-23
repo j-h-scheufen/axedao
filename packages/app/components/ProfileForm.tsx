@@ -3,6 +3,7 @@
 import { Button } from '@nextui-org/button';
 import { Select, SelectItem } from '@nextui-org/select';
 import { Field, FieldArray, FieldProps, Form, Formik, FormikProps } from 'formik';
+import { useAtomValue } from 'jotai';
 import { Mail, Phone } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { Suspense } from 'react';
@@ -13,12 +14,16 @@ import ProfileFormSkeleton from '@/components/skeletons/ProfileFormSkeleton';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import { PATHS, titles } from '@/config/constants';
 import { ProfileForm as FormType, profileFormSchema } from '@/config/validation-schema';
-import { useProfile, useProfileActions } from '@/store/profile.store';
+import { currentUserAtom } from '@/hooks/state/currentUser';
+import { useUpdateProfile } from '@/hooks/useCurrentUser';
+import { Spinner } from '@nextui-org/spinner';
 
 const ProfileForm = () => {
   const router = useRouter();
-  const profile = useProfile();
-  const { updateProfile } = useProfileActions();
+  const user = useAtomValue(currentUserAtom);
+  const { updateProfile } = useUpdateProfile();
+
+  if (!user) return <Spinner />;
 
   const handleSubmit = (values: FormType) => {
     try {
@@ -35,13 +40,13 @@ const ProfileForm = () => {
 
   // NOTE: The initial form values MUST BE declared outside of the JSX code, otherwise it can lead to hydration errors.
   const initValues: FormType = {
-    name: profile.user.name || '',
-    nickname: profile.user.nickname || '',
-    title: profile.user.title || undefined,
-    email: profile.user.email || '',
-    phone: profile.user.phone || '',
-    avatar: profile.user.avatar || undefined,
-    links: profile.links || [],
+    name: user.name || '',
+    nickname: user.nickname || '',
+    title: user.title || undefined,
+    email: user.email || '',
+    phone: user.phone || '',
+    avatar: user.avatar || undefined,
+    links: user.links || [],
   };
 
   return (
@@ -112,7 +117,7 @@ const ProfileForm = () => {
             <SubsectionHeading>Social Links</SubsectionHeading>
             <FieldArray name="links">
               {(helpers) => (
-                <LinksArray {...helpers} links={values.links} ownerId={profile.user.id} setFieldValue={setFieldValue} />
+                <LinksArray {...helpers} links={values.links} ownerId={user.id} setFieldValue={setFieldValue} />
               )}
             </FieldArray>
 

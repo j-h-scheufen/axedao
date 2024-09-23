@@ -1,10 +1,9 @@
-import { isEqual, isNil } from 'lodash';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { ProfileForm, profileFormSchema } from '@/config/validation-schema';
-import { createLinks, fetchUserProfile, removeLinks, updateLink, updateUser } from '@/db';
-import { Link } from '@/types/model';
+import { fetchUserProfile, updateUser } from '@/db';
+import { UserProfile } from '@/types/model';
 import { getServerSession } from 'next-auth';
 import { notFound } from 'next/navigation';
 
@@ -27,6 +26,11 @@ export async function GET() {
   return Response.json(profile);
 }
 
+/**
+ *
+ * @param req
+ * @returns The updated Profile
+ */
 export async function PATCH(req: NextRequest) {
   const session = await getServerSession(nextAuthOptions);
 
@@ -42,47 +46,18 @@ export async function PATCH(req: NextRequest) {
     return NextResponse.json({ error: `Invalid input data` }, { status: 400 });
   }
 
-  const { links: links, ...profileData } = formData as Omit<ProfileForm, 'links' | 'avatar'> & {
-    links: Link[];
-    avatar: string | null | undefined;
-  };
-
   const profile = await fetchUserProfile(session.user.id);
   if (!profile) return notFound();
+  try {
+    const profileData = formData as Omit<ProfileForm, 'avatar'> & {
+      avatar: string | null | undefined;
+    };
 
-  const { links: currentLinks = [] } = profile;
-
-  const linkIds = links.map((link) => link.id);
-  const currentLinkIds = currentLinks.map((link) => link.id);
-  const removedLinkIds = currentLinkIds.filter((linkId) => !linkIds.includes(linkId));
-
-  if (removedLinkIds.length) {
-    await removeLinks(removedLinkIds);
+    const updatedUser = await updateUser({ id: session.user.id, ...profileData });
+    const responseData: UserProfile = { user: updatedUser!, group: profile.group };
+    return Response.json(responseData);
+  } catch (error) {
+    console.error('Error updating user profile', error);
+    return NextResponse.json({ error: 'Error updating user profile' }, { status: 500 });
   }
-
-  const unChangedLinks: Link[] = [];
-  const newLinks: Link[] = [];
-  const updatedLinks = links.filter((link) => {
-    const currentLink = link?.id && currentLinks.find((currentLink) => currentLink.id === link.id);
-    const isUnChanged = currentLink && isEqual(currentLink, link);
-    if (isUnChanged) unChangedLinks.push(link);
-    const isUpdated = currentLink && !isUnChanged;
-    if (!isUpdated && isNil(link?.id)) newLinks.push(link);
-    return isUpdated;
-  });
-
-  if (updatedLinks.length) {
-    for (const updatedLink of updatedLinks) {
-      await updateLink(updatedLink);
-    }
-  }
-
-  let createdLinks: Link[] = [];
-  if (newLinks.length) {
-    createdLinks = await createLinks(newLinks);
-  }
-
-  const updatedProfile = await updateUser({ id: session.user.id, ...profileData });
-  const responseData = { ...updatedProfile, links: [...unChangedLinks, ...updatedLinks, ...createdLinks] };
-  return Response.json(responseData);
 }

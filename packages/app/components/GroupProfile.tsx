@@ -2,37 +2,31 @@
 
 import { Avatar } from '@nextui-org/avatar';
 import { Link } from '@nextui-org/link';
+import { Spinner } from '@nextui-org/spinner';
+import { useAtomValue } from 'jotai';
 import { Camera } from 'lucide-react';
-import { Suspense, useEffect } from 'react';
+import { Suspense } from 'react';
 
 import ContactInfo from '@/components/ContactInfo';
 import PageHeading from '@/components/PageHeading';
 import SubsectionHeading from '@/components/SubsectionHeading';
-import { GroupProfile as ProfileType } from '@/types/model';
-import { isUUID } from '@/utils';
-import { Spinner } from '@nextui-org/spinner';
-import { useGroupProfile, useGroupProfileActions } from '../store/groupProfile.store';
+import { isFounderUuidAtom } from '@/hooks/state/group';
+import { initGroup } from '@/hooks/useGroup';
 import GroupActions from './GroupActions';
 import GroupBanner from './GroupBanner';
 import GroupDescription from './GroupDescription';
 import GroupMembers from './GroupMembers';
 import UserCardWithFetch from './UserCardWithFetch';
 
-type Props = { profile: ProfileType };
+type Props = { groupId: string };
 
-const GroupProfile = ({ profile }: Props) => {
-  const { setGroupProfile } = useGroupProfileActions();
-  const groupProfile = useGroupProfile();
-
+const GroupProfile = ({ groupId }: Props) => {
+  const { groupProfile } = initGroup(groupId);
+  const isFounderUUID = useAtomValue(isFounderUuidAtom);
+  if (!groupProfile) return <Spinner />;
   const {
-    group: { name, logo, founder, email, description },
-    links,
+    group: { name, logo, founder, email, description, links },
   } = groupProfile;
-  const isFounderUUID = !!founder && isUUID(founder);
-
-  useEffect(() => {
-    if (!groupProfile || groupProfile.group.id !== profile.group.id) setGroupProfile(profile);
-  }, [groupProfile, profile, setGroupProfile]);
 
   return (
     <Suspense fallback={<Spinner />}>
@@ -57,9 +51,9 @@ const GroupProfile = ({ profile }: Props) => {
         </div>
       </div>
       <SubsectionHeading>Founder</SubsectionHeading>
-      {isFounderUUID ? <UserCardWithFetch userId={founder} /> : <div className="text-default-500">founder</div>}
+      {isFounderUUID ? <UserCardWithFetch userId={founder!} /> : <div className="text-default-500">founder</div>}
       <SubsectionHeading>Members</SubsectionHeading>
-      <GroupMembers id={profile.group.id} />
+      <GroupMembers />
     </Suspense>
   );
 };

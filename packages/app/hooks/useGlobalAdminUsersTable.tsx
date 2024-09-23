@@ -2,16 +2,14 @@
 
 import { Link } from '@nextui-org/link';
 import { getKeyValue } from '@nextui-org/react';
-import { useInfiniteScroll } from '@nextui-org/use-infinite-scroll';
 import { User } from '@nextui-org/user';
 import { useCallback, useState } from 'react';
-import { useDebounce } from 'use-debounce';
 
 import { PATHS } from '@/config/constants';
-import { useSearchUsers } from '@/query/user';
 import { User as UserType } from '@/types/model';
 import { getUserDisplayName } from '@/utils';
-import { useProfileUser } from '../store/profile.store';
+import { useAtomValue } from 'jotai';
+import { currentUserAtom } from './state/currentUser';
 import useUserSearch from './useUserSearch';
 
 const columns = [
@@ -30,9 +28,9 @@ const columns = [
 ];
 
 const useGlobalAdminUsersTable = () => {
-  const user = useProfileUser();
+  const user = useAtomValue(currentUserAtom);
   const [selectedRows, setSelectedRows] = useState<Set<string>>(new Set([]));
-  const { searchTerm, setSearchTerm, users, isLoading, loaderRef, scrollerRef} = useUserSearch();
+  const { searchTerm, setSearchTerm, users, isLoading, loaderRef, scrollerRef } = useUserSearch();
 
   const getCellValue = useCallback(
     ({ item, key }: { item: UserType; key: string }) => {
@@ -54,7 +52,7 @@ const useGlobalAdminUsersTable = () => {
       }
       return getKeyValue(item, key) || 'N/A';
     },
-    [user.id],
+    [user?.id],
   );
 
   return {

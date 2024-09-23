@@ -2,34 +2,50 @@ import { Button } from '@nextui-org/button';
 import { Link } from '@nextui-org/link';
 import { Tooltip } from '@nextui-org/tooltip';
 import { User } from '@nextui-org/user';
+import { useAtomValue } from 'jotai';
 import { has } from 'lodash';
 import { ArrowDownIcon, ArrowUpIcon, UserXIcon } from 'lucide-react';
 
-import { useProfileUser } from '@/store/profile.store';
+import { currentUserIdAtom } from '@/hooks/state/currentUser';
+import { groupIdAtom, isCurrentUserGroupAdminAtom } from '@/hooks/state/group';
+import { useAddAdmin, useRemoveAdmin, useRemoveMember } from '@/hooks/useGroup';
 import { GroupMember } from '@/types/model';
 import { getUserDisplayName } from '@/utils';
-import {
-  useAdminBeingDemotedToMember,
-  useGroupMembersActions,
-  useMemberBeingPromotedToAdmin,
-  useMemberBeingRemoved,
-} from '../../store/groupMembers.store';
-import { useIsGroupAdmin } from '../../store/groupProfile.store';
+import { useCallback } from 'react';
 import RoleChips from './RoleChips';
 import { GroupMemberTableColumnKey } from './utils';
 
 type Props = { groupMember: GroupMember; columnKey: GroupMemberTableColumnKey };
 
 const TableCellValue = ({ groupMember, columnKey }: Props) => {
-  const profile = useProfileUser();
-  const isGroupAdmin = useIsGroupAdmin();
-  const { promoteToAdmin, demoteToMember, removeMember } = useGroupMembersActions();
-  const memberBeingPromotedToAdmin = useMemberBeingPromotedToAdmin();
-  const adminBeingDemotedToMember = useAdminBeingDemotedToMember();
-  const memberBeingRemoved = useMemberBeingRemoved();
+  const currentUserId = useAtomValue(currentUserIdAtom);
+  const isCurrentUserGroupAdmin = useAtomValue(isCurrentUserGroupAdminAtom);
+  const groupId = useAtomValue(groupIdAtom);
+  const { addAdmin, isPending: isAddAdminPending } = useAddAdmin();
+  const { removeAdmin, isPending: isRemoveAdminPending } = useRemoveAdmin();
+  const { removeMember, isPending: isRemoveMemberPending } = useRemoveMember();
+
+  const handleAddAdmin = useCallback(
+    async (userId: string) => {
+      return groupId ? addAdmin({ groupId, userId }) : null;
+    },
+    [addAdmin, groupId],
+  );
+  const handleRemoveAdmin = useCallback(
+    async (userId: string) => {
+      return groupId ? removeAdmin({ groupId, userId }) : null;
+    },
+    [removeAdmin, groupId],
+  );
+  const handleRemoveMember = useCallback(
+    async (userId: string) => {
+      return groupId ? removeMember({ groupId, userId }) : null;
+    },
+    [removeMember, groupId],
+  );
 
   const { avatar, email, roles, id } = groupMember;
-  const isLoggedInUser = id === profile.id;
+  const isLoggedInUser = id === currentUserId;
   const cellValue = has(groupMember, columnKey) ? groupMember[columnKey]?.toString() : null;
 
   switch (columnKey) {
@@ -49,44 +65,31 @@ const TableCellValue = ({ groupMember, columnKey }: Props) => {
     case 'roles':
       return <RoleChips roles={roles} />;
     case 'actions':
-      if (isGroupAdmin) {
-        let promoteTooltipContent, demoteTooltipContent, promote, demote, isPromoting, isDemoting;
-        if (roles.includes('admin')) {
-          demoteTooltipContent = 'Demote to member';
-          demote = demoteToMember;
-          isDemoting = adminBeingDemotedToMember ? adminBeingDemotedToMember === id : false;
-        } else {
-          promoteTooltipContent = 'Promote to admin';
-          promote = promoteToAdmin;
-          isPromoting = memberBeingPromotedToAdmin === id;
-        }
-        const isRemoving = memberBeingRemoved === id;
+      if (isCurrentUserGroupAdmin) {
+        const isAdmin = roles.includes('admin');
         return (
           <div className="relative flex items-center justify-end gap-2">
-            {promote && (
-              <Tooltip content={promoteTooltipContent}>
+            {!isAdmin ? (
+              <Tooltip content="Make Admin">
                 <Button
                   variant="ghost"
                   size="sm"
                   className="text-default-400 h-7 w-7 min-w-7 cursor-pointer active:opacity-50"
-                  onPress={() => promote(id)}
-                  isLoading={isPromoting}
-                  disabled={!!memberBeingPromotedToAdmin}
+                  onPress={() => handleAddAdmin(id)}
+                  isLoading={isAddAdminPending}
                   isIconOnly
                 >
                   <ArrowUpIcon className="w-4" />
                 </Button>
               </Tooltip>
-            )}
-            {demote && (
-              <Tooltip content={demoteTooltipContent}>
+            ) : (
+              <Tooltip content="Remove Admin">
                 <Button
                   variant="ghost"
                   size="sm"
                   className="text-default-400 h-7 w-7 min-w-7 cursor-pointer active:opacity-50"
-                  onPress={() => demote(id)}
-                  isLoading={isDemoting}
-                  disabled={!!adminBeingDemotedToMember}
+                  onPress={() => handleRemoveAdmin(id)}
+                  isLoading={isRemoveAdminPending}
                   isIconOnly
                 >
                   <ArrowDownIcon className="w-4" />
@@ -98,9 +101,8 @@ const TableCellValue = ({ groupMember, columnKey }: Props) => {
                 variant="ghost"
                 size="sm"
                 className="text-default-400 h-7 w-7 min-w-7 cursor-pointer active:opacity-50"
-                onPress={() => removeMember(id)}
-                isLoading={isRemoving}
-                disabled={!!memberBeingRemoved}
+                onPress={() => handleRemoveMember(id)}
+                isLoading={isRemoveMemberPending}
                 isIconOnly
               >
                 <UserXIcon className="w-4" />

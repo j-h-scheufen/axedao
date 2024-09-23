@@ -183,7 +183,7 @@ export async function removeGroupMember(memberId: string) {
   await db.update(schema.users).set({ groupId: null }).where(eq(schema.users.id, memberId));
 }
 
-export async function updateUser(user: Omit<schema.InsertUser, 'walletAddress'>) {
+export async function updateUser(user: Omit<schema.InsertUser, 'walletAddress' | 'updatedAt'>) {
   const users = await db.update(schema.users).set(user).where(eq(schema.users.id, user.id)).returning();
   return users.length ? users[0] : undefined;
 }
@@ -194,7 +194,7 @@ export async function updateGroup(group: Partial<schema.InsertGroup> & { id: str
 }
 
 export async function addGroupAdmin(entry: schema.InsertGroupAdmin) {
-  await db.insert(schema.groupAdmins).values(entry);
+  await db.insert(schema.groupAdmins).values(entry).onConflictDoNothing(); // Ignore if already exists
 }
 
 export async function fetchGroupAdminIds(groupId: string): Promise<string[]> {

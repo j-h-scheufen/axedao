@@ -173,21 +173,21 @@ UniswapV2Router02: 0xEF5aC450A41A39ef8A652C154318b3c8902ed86E
 | Method | Path (api/)                       | Request Body                        | Response        | Details      |
 | ------ | --------------------------------- | ----------------------------------- | --------------- | ------------ |
 | GET    | groups/                           |                                     | Groups[]        | Group Search |
-| POST   | groups/                           | createNewGroupFormSchema            | Group           |              |
+| POST   | groups/                           | CreateNewGroupFormSchema            | Group           |              |
 | GET    | groups/[groupId]                  |                                     | Group           |              |
-| PATCH  | groups/[groupId]                  | updateGroupSchema                   | Group           |              |
+| PATCH  | groups/[groupId]                  | UpdateGroupSchema                   | Group           |              |
 | DELETE | groups/[groupId]                  |                                     | null, 204       |              |
 | GET    | groups/[groupId]/profile          |                                     | GroupProfile    |              |
 | GET    | groups/[groupId]/members          |                                     | User[]          |              |
-| DELETE | groups/[groupId]/members/[userId] |                                     | null, 200       |              |
+| DELETE | groups/[groupId]/members/[userId] |                                     | User[]          |              |
 | GET    | groups/[groupId]/admins           |                                     | string[]        |              |
 | PUT    | groups/[groupId]/admins/[userId]  |                                     | string[]        |              |
-| DELETE | groups/[groupId]/admins/[userId]  |                                     | null, 200       |              |
+| DELETE | groups/[groupId]/admins/[userId]  |                                     | string[]        |              |
 | GET    | users/                            |                                     | User[]          | User Search  |
 | GET    | users/[userId]                    |                                     | User            |              |
 | GET    | users/[userId]/profile            |                                     | UserProfile     |              |
 | GET    | profile                           |                                     | UserProfile     |              |
-| PATCH  | profile                           | profileFormSchema                   | UserProfile     |              |
+| PATCH  | profile                           | ProfileFormSchema                   | UserProfile     |              |
 | PUT    | profile/group/[groupId]           |                                     | UserProfile     |              |
 | DELETE | profile/group/[groupId]           |                                     | UserProfile     |              |
 | POST   | images/                           | FormData {file: File, name: string} | { url: string } |              |

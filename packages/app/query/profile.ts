@@ -1,6 +1,7 @@
 import { queryOptions, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 
+import { ProfileForm } from '@/config/validation-schema';
 import { UserProfile } from '@/types/model';
 import { QUERY_KEYS } from '.';
 
@@ -12,6 +13,9 @@ function fetchProfileOptions() {
   });
 }
 
+const updateProfile = async (data: ProfileForm): Promise<UserProfile> =>
+  axios.patch(`/api/profile`, data).then((response) => response.data);
+
 const joinGroup = (groupId: string): Promise<UserProfile> =>
   axios.put(`/api/profile/group/${groupId}`).then((response) => response.data);
 
@@ -20,6 +24,16 @@ const leaveGroup = (groupId: string): Promise<UserProfile> =>
 
 export const useFetchProfile = () => {
   return useQuery(fetchProfileOptions());
+};
+
+export const useUpdateProfileMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (data: ProfileForm) => updateProfile(data),
+    onSuccess: (data) => {
+      queryClient.setQueryData([QUERY_KEYS.profile.getProfile], data);
+    },
+  });
 };
 
 export const useJoinGroupMutation = () => {

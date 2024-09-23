@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { Provider as JotaiProvider } from 'jotai';
 import { Metadata, Viewport } from 'next';
 import { getServerSession } from 'next-auth';
 
@@ -11,7 +12,6 @@ import ThemeProvider from './_providers/nextUI.provider';
 import SnackbarProvider from './_providers/snackbar.provider';
 import Web3Provider from './_providers/wagmi.provider';
 
-import ClientInitializer from '@/components/ClientInitializer';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
@@ -50,13 +50,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <SessionProvider session={session}>
           <ThemeProvider themeProps={{ attribute: 'class', defaultTheme: 'dark', children: null }}>
             <SnackbarProvider>
-              <Web3Provider>
-                <ClientInitializer />
-                <div className="relative flex min-h-screen flex-col">
-                  <Navbar />
-                  <main className="container mx-auto max-w-3xl flex-grow px-2 sm:px-4">{children}</main>
-                </div>
-              </Web3Provider>
+              <JotaiProvider>
+                <Web3Provider>
+                  <div className="relative flex min-h-screen flex-col">
+                    <Navbar />
+                    <main className="container mx-auto max-w-3xl flex-grow px-2 sm:px-4">{children}</main>
+                  </div>
+                </Web3Provider>
+              </JotaiProvider>
             </SnackbarProvider>
           </ThemeProvider>
         </SessionProvider>

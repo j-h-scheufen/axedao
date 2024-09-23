@@ -19,14 +19,14 @@ import { useState } from 'react';
 
 import { PATHS } from '@/config/constants';
 import useAuth from '@/hooks/useAuth';
-import { useProfileUser } from '@/store/profile.store';
+import { initProfile } from '@/hooks/useCurrentUser';
 import { getUserDisplayName } from '@/utils';
 import { ThemeSwitch } from './ThemeSwitch';
 
 const Navbar: React.FC = () => {
   const { data: session } = useSession();
   const pathname = usePathname();
-  const user = useProfileUser();
+  const { profile } = initProfile();
   const { logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -83,27 +83,29 @@ const Navbar: React.FC = () => {
                 as="button"
                 className="transition-transform"
                 color="primary"
-                name={user.name || undefined}
+                name={profile?.user.name || undefined}
                 size="sm"
-                src={user.avatar || undefined}
+                src={profile?.user.avatar || undefined}
               />
             </DropdownTrigger>
             <DropdownMenu aria-label="Profile Actions" variant="flat">
               <DropdownItem key="profile" className="h-14 gap-2">
                 <p className="font-semibold">Signed in as</p>
-                <p className="font-semibold">{user.email || getUserDisplayName(user)}</p>
+                <p className="font-semibold">
+                  {profile?.user ? getUserDisplayName(profile.user) : profile?.user.email}
+                </p>
               </DropdownItem>
               <DropdownItem key="my-profile" href={PATHS.profile}>
                 My Profile
               </DropdownItem>
               <DropdownItem
                 key="my-group"
-                href={`${PATHS.groups}/${user.groupId || ''}`}
-                className={!!user.groupId ? '' : 'hidden'}
+                href={`${PATHS.groups}/${profile?.user.groupId || ''}`}
+                className={!!profile?.user.groupId ? '' : 'hidden'}
               >
                 My Group
               </DropdownItem>
-              <DropdownItem key="admin" href={PATHS.admin} className={user.isGlobalAdmin ? '' : 'hidden'}>
+              <DropdownItem key="admin" href={PATHS.admin} className={profile?.user.isGlobalAdmin ? '' : 'hidden'}>
                 Admin
               </DropdownItem>
               <DropdownItem key="logout" color="danger" onPress={logout}>

@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 import { fetchUserProfile, updateUser } from '@/db';
 
-export async function POST(req: NextRequest, { params }: { params: { groupId: string } }) {
+export async function PUT(req: NextRequest, { params }: { params: { groupId: string } }) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {

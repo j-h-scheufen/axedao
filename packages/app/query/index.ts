@@ -25,3 +25,5 @@ export const QUERY_KEYS = {
     getCities: 'location.getCities',
   },
 } as const;
+
+export type GroupAndUserParams = { groupId: string; userId: string };

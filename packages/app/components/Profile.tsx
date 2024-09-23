@@ -9,12 +9,14 @@ import { Suspense } from 'react';
 import ContactInfo from '@/components/ContactInfo';
 import { ProfileSkeleton } from '@/components/skeletons/ProfileSkeletons';
 import { PATHS } from '@/config/constants';
-import { useProfile } from '@/store/profile.store';
+import { initProfile } from '@/hooks/useCurrentUser';
 import { getUserDisplayName } from '@/utils';
+import { Spinner } from '@nextui-org/spinner';
 
 const Profile = () => {
-  const { user, links } = useProfile();
-
+  const { profile } = initProfile();
+  if (!profile) return <Spinner />;
+  const { user } = profile;
   return (
     <Suspense fallback={<ProfileSkeleton />}>
       <div className="flex flex-col items-center gap-5 sm:flex-row">
@@ -44,7 +46,7 @@ const Profile = () => {
               </Button>
             </div>
           </div>
-          <ContactInfo links={links} />
+          <ContactInfo links={user.links} />
         </div>
       </div>
     </Suspense>

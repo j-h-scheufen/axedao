@@ -56,7 +56,7 @@ export const megabytesToBytes = (mb: number) => 1024 * 1024 * mb; //3MB
 
 export const linkSchema = object({
   url: string().required(),
-  type: mixed().oneOf(linkTypes).nullable(),
+  type: string().oneOf(linkTypes).optional(),
 });
 
 export const linksSchema = array().of(linkSchema).default([]);
@@ -79,8 +79,8 @@ export const profileFormSchema = object({
   title: string().nullable().oneOf(titles, 'Not a valid title'),
   name: string().nullable(),
   nickname: string().nullable(),
-  email: string().email('Not a valid email'),
-  phone: string(),
+  email: string().email('Not a valid email').optional(),
+  phone: string().optional(),
   links: linksSchema,
 });
 

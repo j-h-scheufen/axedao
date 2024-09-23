@@ -20,10 +20,10 @@ export async function GET(req: NextRequest, { params }: { params: { groupId: str
     const group = await fetchGroup(groupId);
     if (!group) return notFound();
 
-    return Response.json(group);
+    return NextResponse.json(group);
   } catch (error) {
     console.error(error);
-    return Response.json(
+    return NextResponse.json(
       { error: true, message: generateErrorMessage(error, 'An unexpected error occurred while fetching group') },
       {
         status: 500,
@@ -74,7 +74,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { groupId: s
   const oldGroup = await fetchGroup(groupId);
   if (!oldGroup) return notFound();
 
-  const updatedGroup = await updateGroup({ ...groupDataClean, id: oldGroup.id });
+  const updatedGroup = await updateGroup({ ...groupDataClean, id: groupId });
   return Response.json(updatedGroup);
 }
 
@@ -109,7 +109,7 @@ export async function DELETE(request: NextRequest, { params }: { params: { group
 
     await deleteGroup(groupId);
 
-    return Response.json({ success: true });
+    return new NextResponse(null, { status: 204 });
   } catch (error) {
     console.error(error);
     return Response.json(

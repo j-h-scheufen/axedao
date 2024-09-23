@@ -1,13 +1,14 @@
 'use client';
 
+import { useAtomValue } from 'jotai';
 import Image, { ImageProps } from 'next/image';
 import { Suspense } from 'react';
 
 import { GroupBannerSkeleton } from '@/components/skeletons/GroupSkeletons';
-import { useGroupBanner } from '@/store/groupProfile.store';
+import { groupBannerAtom } from '@/hooks/state/group';
 
 const GroupBanner = (props: Omit<ImageProps, 'src' | 'alt'>) => {
-  const banner = useGroupBanner();
+  const banner = useAtomValue(groupBannerAtom);
 
   return (
     <Suspense fallback={<GroupBannerSkeleton />}>

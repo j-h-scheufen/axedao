@@ -3,10 +3,10 @@
 import { useAtomValue } from 'jotai';
 
 import GroupCard from '@/components/GroupCard';
-import { groupAtom } from '@/hooks/state/group';
+import { currentUserGroupAtom } from '@/hooks/state/currentUser';
 
 const UserGroupAssociation = () => {
-  const group = useAtomValue(groupAtom);
+  const group = useAtomValue(currentUserGroupAtom);
   return group ? (
     <GroupCard className="mx-auto sm:mx-0 md:max-w-80" group={group} />
   ) : (

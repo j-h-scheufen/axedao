@@ -5,38 +5,34 @@ import { useDisclosure } from '@nextui-org/use-disclosure';
 import { SettingsIcon } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import { useCallback } from 'react';
 
 import { PATHS } from '@/config/constants';
-import { useLeaveGroup } from '@/query/profile';
-import { useProfileActions, useProfileUser } from '@/store/profile.store';
-import { useGroupProfile, useIsGroupAdmin } from '../store/groupProfile.store';
+import { groupIdAtom, isCurrentUserGroupAdminAtom, isCurrentUserGroupMemberAtom } from '@/hooks/state/group';
+import { useLeaveGroup } from '@/hooks/useCurrentUser';
+import { useAtomValue } from 'jotai';
 import LeaveGroupConfirmationModal from './LeaveGroupConfirmationModal';
 
 const GroupActions = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const router = useRouter();
   const pathname = usePathname();
-  const { mutateAsync: leaveGroup, isPending } = useLeaveGroup();
-  const { updateGroup: updateUserProfileGroup } = useProfileActions();
-  const user = useProfileUser();
-  const groupProfile = useGroupProfile();
-  const isGroupAdmin = useIsGroupAdmin();
+  const { leaveGroup, isPending } = useLeaveGroup();
+  const groupId = useAtomValue(groupIdAtom);
+  const isGroupAdmin = useAtomValue(isCurrentUserGroupAdminAtom);
+  const isGroupMember = useAtomValue(isCurrentUserGroupMemberAtom);
 
-  const isGroupMember = user.groupId === groupProfile.group.id;
-
-  const exitGroupHandler = async () => {
-    return leaveGroup(groupProfile.group.id).then(() => {
-      updateUserProfileGroup(null);
-      router.push(PATHS.profile);
-    });
-  };
+  const handleGroupExit = useCallback(async () => {
+    if (!groupId) return;
+    return leaveGroup(groupId).then(() => router.push(PATHS.profile));
+  }, [leaveGroup, groupId, router]);
 
   return (
     <div className="flex gap-3 justify-end">
       <LeaveGroupConfirmationModal
         isOpen={isOpen}
         onOpenChange={onOpenChange}
-        onDelete={exitGroupHandler}
+        onDelete={handleGroupExit}
         isDeleting={isPending}
       />
       {isGroupMember && !isGroupAdmin && (

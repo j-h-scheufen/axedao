@@ -19,7 +19,7 @@ export const titleEnum = pgEnum('title', titles);
 export const linkTypeEnum = pgEnum('link_type', linkTypes);
 
 export type LinkType = (typeof linkTypes)[number];
-export type SocialLink = { type: LinkType; url: string };
+export type SocialLink = { type?: LinkType; url: string };
 
 export const users = pgTable(
   'users',
