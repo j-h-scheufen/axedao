@@ -57,6 +57,13 @@
       "when": 1725799046148,
       "tag": "0007_sad_gressill",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1727054115714,
+      "tag": "0008_nice_franklin_storm",
+      "breakpoints": true
     }
   ]
 }
