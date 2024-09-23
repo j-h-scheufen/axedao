@@ -9,7 +9,7 @@ import {
 import axios from 'axios';
 
 import { QUERY_DEFAULT_STALE_TIME_MINUTES } from '@/config/constants';
-import { CreateNewGroupForm, SearchParams } from '@/config/validation-schema';
+import { CreateNewGroupForm, SearchParams, UpdateGroupForm } from '@/config/validation-schema';
 import { Group, GroupProfile, GroupSearchResult, User } from '@/types/model';
 import { QUERY_KEYS } from '.';
 
@@ -27,7 +27,7 @@ const fetchGroupProfile = (id: string): Promise<GroupProfile> =>
 function fetchGroupProfileOptions(id: string) {
   return queryOptions({
     queryKey: [QUERY_KEYS.group.getGroupProfile, id],
-    queryFn: () => fetchGroup(id),
+    queryFn: () => fetchGroupProfile(id),
     staleTime: 1000 * 60 * QUERY_DEFAULT_STALE_TIME_MINUTES,
   });
 }
@@ -38,6 +38,16 @@ function fetchGroupMembersOptions(id: string) {
   return queryOptions({
     queryKey: [QUERY_KEYS.group.getGroupMembers, id],
     queryFn: () => fetchGroupMembers(id),
+    staleTime: 1000 * 60 * QUERY_DEFAULT_STALE_TIME_MINUTES,
+  });
+}
+
+const fetchGroupAdmins = (id: string): Promise<User[]> =>
+  axios.get(`/api/groups/${id}/admins`).then((response) => response.data);
+function fetchGroupAdminsOptions(id: string) {
+  return queryOptions({
+    queryKey: [QUERY_KEYS.group.getGroupAdmins, id],
+    queryFn: () => fetchGroupAdmins(id),
     staleTime: 1000 * 60 * QUERY_DEFAULT_STALE_TIME_MINUTES,
   });
 }
@@ -59,9 +69,24 @@ function searchGroupsOptions(offset?: number, pageSize?: number, searchTerm?: st
   });
 }
 
-const createGroup = (newGroup: CreateNewGroupForm): Promise<Group> =>
+const createGroup = async (newGroup: CreateNewGroupForm): Promise<Group> =>
   axios.post('/api/groups', newGroup).then((response) => response.data);
 
+const deleteGroup = async (groupId: string): Promise<void> => axios.delete(`/api/groups/${groupId}`);
+
+const updateGroup = async (groupId: string, data: UpdateGroupForm): Promise<Group> =>
+  axios.patch(`/api/groups/${groupId}`, data);
+
+const removeMember = async (groupId: string, userId: string): Promise<void> =>
+  axios.delete(`/api/groups/${groupId}/members/${userId}`);
+
+const addAdmin = async (groupId: string, userId: string): Promise<string[]> =>
+  axios.put(`/api/groups/${groupId}/admins/${userId}`);
+
+const removeAdmin = async (groupId: string, userId: string): Promise<string[]> =>
+  axios.delete(`/api/groups/${groupId}/admins/${userId}`);
+
+// HOOKS
 export const useFetchGroup = (id: string) => useQuery(fetchGroupOptions(id));
 
 export const useFetchGroupProfile = (id: string) => useQuery(fetchGroupProfileOptions(id));
@@ -72,7 +97,7 @@ export const useSearchGroups = ({ offset, pageSize, searchTerm }: SearchParams) 
   return useInfiniteQuery(searchGroupsOptions(offset, pageSize, searchTerm));
 };
 
-export const useCreateGroup = () => {
+export const useCreateGroupMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (newGroup: CreateNewGroupForm) => createGroup(newGroup),
@@ -80,12 +105,61 @@ export const useCreateGroup = () => {
       queryClient.setQueryData([QUERY_KEYS.group.getGroup, { id: data.id }], data);
       // The current user's groupId has changed as part of creating a new group
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.profile.getProfile] });
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.searchGroups] });
     },
   });
 };
 
-// add / remove members
+export const useDeleteGroupMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (groupId: string) => deleteGroup(groupId),
+    onSuccess: () => {
+      // The current user's groupId has changed as part of deleting the group
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.profile.getProfile] });
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.searchGroups] });
+    },
+  });
+};
 
-// add / remove admins
+export const useUpdateGroupMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ groupId, data }: { groupId: string; data: UpdateGroupForm }) => updateGroup(groupId, data),
+    onSuccess: (data) => {
+      queryClient.setQueryData([QUERY_KEYS.group.getGroup, { id: data.id }], data);
+      // The current user's group in the profile has changed
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.profile.getProfile] });
+    },
+  });
+};
 
-// invalidate queries accordingly
+export const useRemoveMemberMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ groupId, userId }: { groupId: string; userId: string }) => removeMember(groupId, userId),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroupMembers] });
+    },
+  });
+};
+
+export const useAddAdminMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ groupId, userId }: { groupId: string; userId: string }) => addAdmin(groupId, userId),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroupAdmins] });
+    },
+  });
+};
+
+export const useRemoveAdminMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ groupId, userId }: { groupId: string; userId: string }) => removeMember(groupId, userId),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroupAdmins] });
+    },
+  });
+};

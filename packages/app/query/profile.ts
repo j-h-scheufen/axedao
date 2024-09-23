@@ -13,7 +13,7 @@ function fetchProfileOptions() {
 }
 
 const joinGroup = (groupId: string): Promise<UserProfile> =>
-  axios.post(`/api/profile/group/${groupId}`).then((response) => response.data);
+  axios.put(`/api/profile/group/${groupId}`).then((response) => response.data);
 
 const leaveGroup = (groupId: string): Promise<UserProfile> =>
   axios.delete(`/api/profile/group/${groupId}`).then((response) => response.data);
@@ -22,7 +22,7 @@ export const useFetchProfile = () => {
   return useQuery(fetchProfileOptions());
 };
 
-export const useJoinGroup = () => {
+export const useJoinGroupMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (groupId: string) => joinGroup(groupId),
@@ -32,7 +32,7 @@ export const useJoinGroup = () => {
   });
 };
 
-export const useLeaveGroup = () => {
+export const useLeaveGroupMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (groupId: string) => leaveGroup(groupId),

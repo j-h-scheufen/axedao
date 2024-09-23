@@ -55,10 +55,8 @@ const isValidProfileTwitterUrl = (url: string | undefined): boolean => {
 export const megabytesToBytes = (mb: number) => 1024 * 1024 * mb; //3MB
 
 export const linkSchema = object({
-  id: number(),
   url: string().required(),
   type: mixed().oneOf(linkTypes).nullable(),
-  ownerId: string().required(),
 });
 
 export const linksSchema = array().of(linkSchema).default([]);
@@ -155,18 +153,10 @@ export const updateGroupSchema = object({
       }
       return true;
     }),
+  links: linksSchema,
 });
 
-export const updateGroupProfileSchema = updateGroupSchema.concat(
-  object({
-    links: linksSchema,
-    adminIds: array().of(string()),
-  }),
-);
-
 export type UpdateGroupForm = InferType<typeof updateGroupSchema>;
-
-export type UpdateGroupProfileForm = InferType<typeof updateGroupProfileSchema>;
 
 export const searchParamsSchema = object({
   offset: number().optional(),

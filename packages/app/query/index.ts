@@ -14,6 +14,7 @@ export const QUERY_KEYS = {
     getGroup: 'group.getGroup',
     getGroupProfile: 'group.getGroupProfile',
     getGroupMembers: 'group.getGroupMembers',
+    getGroupAdmins: 'group.getGroupAdmins',
     searchGroups: 'groups.search',
   },
   profile: {

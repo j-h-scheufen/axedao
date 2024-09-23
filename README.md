@@ -1,27 +1,11 @@
 # axedao
 
-Notes:
+Roadmap:
 
-- Consider a FAQ on www
-- Make a long-term roadmap:
-
-  - Build open registry and app for Capoeira groups and their members for fair token distribution.
-  - Build DAO capabilities to govern together for the good of Capoeira
-  - Build badge / NFT system for roles (graduados), events, collections
-  - Create revenue streams via liquidity provision
-  - Create revenue streams via NFT - AXÉ integration
-  - Create revenue streams via services (group management, payments, events, tickets / admission), services could be free in bundle for certain level of yearly DAO contribution (again, something the DAO can set via proposal).
-
-- Keep building base app (start proper coding: utils, state, contract function helpers, errors -> UI)
-- Launch website
-- Start asking around for more supporters? Dial up outreach
-- dao voting functions might be a huge incentive to join (power, inclusion, participation), but really only needed when there's money to spend
-
-Don't Forget:
-
-- Test XERC20
-- use "forge doc" to generate documentation
-- check all dependency licenses!!
+- Build badge / NFT system for roles (graduados), events, collections
+- Create revenue streams via liquidity provision
+- Create revenue streams via NFT - AXÉ integration
+- Create revenue streams via services (group management, payments, events, tickets / admission), services could be free in bundle for certain level of yearly DAO contribution (again, something the DAO can set via proposal).
 
 ## Local Development
 
@@ -175,6 +159,37 @@ cast send 0xD44Eb94380bff68a827604fDb2dA7b0A3Ec6Ad0B "mint(address,uint256)" 0xE
 ### Sepolia
 
 AXESource: 0xaE8F6454fa13EbA1Be4ea60019d1bd34F9D04895
-MockERC20: 0xD44Eb94380bff68a827604fDb2dA7b0A3Ec6Ad0B
+axeUSD: 0xD44Eb94380bff68a827604fDb2dA7b0A3Ec6Ad0B
 UniswapV2Factory: 0xAB5db096E5d2d79434ADC48B8D34f878dD7Fa0b0
 UniswapV2Router02: 0xEF5aC450A41A39ef8A652C154318b3c8902ed86E
+
+- put the links into a column and save yourself API calls
+- change types accordingly and adapt API
+- finish all mutations
+- start adding hook functions to replace zustand.
+
+## API Overview
+
+| Method | Path (api/)                       | Request Body                        | Response        | Details      |
+| ------ | --------------------------------- | ----------------------------------- | --------------- | ------------ |
+| GET    | groups/                           |                                     | Groups[]        | Group Search |
+| POST   | groups/                           | createNewGroupFormSchema            | Group           |              |
+| GET    | groups/[groupId]                  |                                     | Group           |              |
+| PATCH  | groups/[groupId]                  | updateGroupSchema                   | Group           |              |
+| DELETE | groups/[groupId]                  |                                     | null, 204       |              |
+| GET    | groups/[groupId]/profile          |                                     | GroupProfile    |              |
+| GET    | groups/[groupId]/members          |                                     | User[]          |              |
+| DELETE | groups/[groupId]/members/[userId] |                                     | null, 200       |              |
+| GET    | groups/[groupId]/admins           |                                     | string[]        |              |
+| PUT    | groups/[groupId]/admins/[userId]  |                                     | string[]        |              |
+| DELETE | groups/[groupId]/admins/[userId]  |                                     | null, 200       |              |
+| GET    | users/                            |                                     | User[]          | User Search  |
+| GET    | users/[userId]                    |                                     | User            |              |
+| GET    | users/[userId]/profile            |                                     | UserProfile     |              |
+| GET    | profile                           |                                     | UserProfile     |              |
+| PATCH  | profile                           | profileFormSchema                   | UserProfile     |              |
+| PUT    | profile/group/[groupId]           |                                     | UserProfile     |              |
+| DELETE | profile/group/[groupId]           |                                     | UserProfile     |              |
+| POST   | images/                           | FormData {file: File, name: string} | { url: string } |              |
+| GET    | location/countries                |                                     | Country[]       |              |
+| GET    | location/cities                   | URL params: countryCode, searchTerm | City[]          |              |
