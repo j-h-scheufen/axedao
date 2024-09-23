@@ -6,6 +6,12 @@ import { fetchUserProfile } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import { notFound } from 'next/navigation';
 
+/**
+ * Returns a UserProfile for a the specified user ID.
+ * @param request - The request object
+ * @param userId - PATH parameter. The id of the user
+ * @returns a GroupProfile or 404 if not found
+ */
 export async function GET(request: NextRequest, { params }: { params: { userId: string } }) {
   const session = await getServerSession(nextAuthOptions);
 

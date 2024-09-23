@@ -17,6 +17,7 @@ import { MapPinIcon } from 'lucide-react';
 import React, { useCallback, useState } from 'react';
 
 import VerificationChip from '@/components/VerificationChip';
+import { PATHS } from '@/config/constants';
 import useGroupSearch from '@/hooks/useGroupSearch';
 import { Group } from '@/types/model';
 import ActionCell from './ActionCell';
@@ -35,7 +36,7 @@ const columns: Column<Group>[] = [
     cell: ({ item }) => {
       const { logo = '', name, city, country, id } = item;
       return (
-        <Link href={`/search/groups/${id}`} className="inline-block text-[unset]">
+        <Link href={`${PATHS.groups}/${id}`} className="inline-block text-[unset]">
           <div className="flex items-center gap-2">
             <Avatar size="sm" src={logo || ''} radius="full" />
             <div className="flex justify-center flex-col">

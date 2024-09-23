@@ -3,8 +3,16 @@ import { NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { fetchGroupMembers, isGroupAdmin, isGroupMember, removeGroupMember } from '@/db';
+import { User } from '@/types/model';
 
-export async function DELETE(req: NextRequest, { params }: { params: { groupId: string; userId: string } }) {
+/**
+ * Removes the specified user from the group
+ * @param request - The request object
+ * @param groupId - PATH parameter. The id of the group
+ * @param userId - PATH parameter. The id of the user to remove
+ * @returns the updated list of group members as User[]
+ */
+export async function DELETE(request: NextRequest, { params }: { params: { groupId: string; userId: string } }) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {
@@ -27,7 +35,7 @@ export async function DELETE(req: NextRequest, { params }: { params: { groupId: 
 
   try {
     await removeGroupMember(memberId);
-    const groupMembers = await fetchGroupMembers(groupId);
+    const groupMembers: User[] = await fetchGroupMembers(groupId);
     return NextResponse.json(groupMembers);
   } catch (error) {
     console.error(error);

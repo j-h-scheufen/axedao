@@ -6,6 +6,7 @@ import { useAtomValue } from 'jotai';
 import { has } from 'lodash';
 import { ArrowDownIcon, ArrowUpIcon, UserXIcon } from 'lucide-react';
 
+import { PATHS } from '@/config/constants';
 import { currentUserIdAtom } from '@/hooks/state/currentUser';
 import { groupIdAtom, isCurrentUserGroupAdminAtom } from '@/hooks/state/group';
 import { useAddAdmin, useRemoveAdmin, useRemoveMember } from '@/hooks/useGroup';
@@ -51,7 +52,7 @@ const TableCellValue = ({ groupMember, columnKey }: Props) => {
   switch (columnKey) {
     case 'name':
       return (
-        <Link href={`/search/users/${id}`} className="text-[unset]">
+        <Link href={`${PATHS.users}/${id}`} className="text-[unset]">
           <User
             avatarProps={{ radius: 'full', src: avatar || '' }}
             description={email}

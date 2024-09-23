@@ -4,24 +4,20 @@ import { fetchGroup, fetchGroupAdminIds } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import { notFound } from 'next/navigation';
 
-export type GroupRolesResponse = {
-  adminIds: string[];
-  founder: string;
-  leader: string;
-};
-
 /**
- * Returns the admin IDs, founder, and leader ID of a group
- * @returns GroupRolesResponse
+ * Returns the admin IDs of the specified group.
+ * @param request - The request object
+ * @param groupId - PATH parameter. The id of the group
+ * @returns the admin IDs of the group as string[]
  */
-export async function GET(req: NextRequest, { params }: { params: { groupId: string } }) {
+export async function GET(request: NextRequest, { params }: { params: { groupId: string } }) {
   try {
     const { groupId } = params;
     const group = await fetchGroup(groupId);
     if (!group) return notFound();
 
     const adminIds = await fetchGroupAdminIds(groupId);
-    return NextResponse.json({ adminIds, founder: group.founder, leader: group.leader });
+    return NextResponse.json(adminIds);
   } catch (error) {
     const message = generateErrorMessage(error, 'An unexpected server error occurred while fetching group admins');
     return Response.json(

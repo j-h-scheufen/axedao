@@ -8,9 +8,8 @@ import { getServerSession } from 'next-auth';
 import { notFound } from 'next/navigation';
 
 /**
- * Returns the Profile of the logged-in user, i.e. the user whose JWT token is passed in the request.
- * @param req
- * @returns a Profile object
+ * Returns the UserProfile of the logged-in user, i.e. the user whose session token is passed in the request.
+ * @returns the UserProfile of the logged-in user
  * @throws 401 if the user is not logged in, 404 if the profile is not found
  */
 export async function GET() {
@@ -27,11 +26,12 @@ export async function GET() {
 }
 
 /**
- *
- * @param req
- * @returns The updated Profile
+ * Updates the current user's profile with the data in the request body.
+ * @param request - ProfileForm
+ * @returns The updated UserProfile
+ * @throws 400 if the input data is invalid, 401 if the user is not logged in, 404 if the profile is not found, 500 if an unexpected error occurs.
  */
-export async function PATCH(req: NextRequest) {
+export async function PATCH(request: NextRequest) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {
@@ -40,7 +40,7 @@ export async function PATCH(req: NextRequest) {
 
   let formData: ProfileForm;
   try {
-    formData = profileFormSchema.validateSync(await req.json());
+    formData = profileFormSchema.validateSync(await request.json());
   } catch (error) {
     console.error('Unable to validate input data', error);
     return NextResponse.json({ error: `Invalid input data` }, { status: 400 });
@@ -54,6 +54,7 @@ export async function PATCH(req: NextRequest) {
     };
 
     const updatedUser = await updateUser({ id: session.user.id, ...profileData });
+    // we're re-using the user's group from the profile since it wasn't affected by the update
     const responseData: UserProfile = { user: updatedUser!, group: profile.group };
     return Response.json(responseData);
   } catch (error) {

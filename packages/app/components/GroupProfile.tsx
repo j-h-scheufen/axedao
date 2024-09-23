@@ -10,6 +10,7 @@ import { Suspense } from 'react';
 import ContactInfo from '@/components/ContactInfo';
 import PageHeading from '@/components/PageHeading';
 import SubsectionHeading from '@/components/SubsectionHeading';
+import { PATHS } from '@/config/constants';
 import { isFounderUuidAtom } from '@/hooks/state/group';
 import { initGroup } from '@/hooks/useGroup';
 import GroupActions from './GroupActions';
@@ -30,7 +31,7 @@ const GroupProfile = ({ groupId }: Props) => {
 
   return (
     <Suspense fallback={<Spinner />}>
-      <PageHeading back="/search?tab=groups">{name}</PageHeading>
+      <PageHeading back={`${PATHS.search}?tab=groups`}>{name}</PageHeading>
       <GroupActions />
       <GroupBanner />
       <div className="mt-5 xs:flex xs:gap-5">

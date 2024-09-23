@@ -1,14 +1,22 @@
-import { generateErrorMessage } from '@/utils';
 import axios from 'axios';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
 
+import { generateErrorMessage } from '@/utils';
+
+/**
+ * Stores the image contained in the request body to IPFS using Pinata.
+ * @param request - Multi-part FormData containing the image file and an optional name
+ * @returns on object containing the URL of the uploaded image: {url: string}
+ */
 export async function POST(request: NextRequest) {
   try {
     const data = await request.formData();
     const file: File | null = data.get('file') as unknown as File;
     const name: string = (data.get('name') as unknown as string) || uuidv4();
-    if (file) {
+    if (!file) {
+      return NextResponse.json({ error: `Invalid input data. No file found.` }, { status: 400 });
+    } else {
       const uploadData = new FormData();
       uploadData.append('file', file);
       if (name) uploadData.append('pinataMetadata', JSON.stringify({ name }));
@@ -18,16 +26,14 @@ export async function POST(request: NextRequest) {
         },
       });
       const { IpfsHash } = res.data;
-      return Response.json({ url: `https://${process.env.NEXT_PUBLIC_PINATA_GATEWAY_URL}/ipfs/${IpfsHash}` });
-    } else {
-      throw new Error('No image file received.');
+      return NextResponse.json({ url: `https://${process.env.NEXT_PUBLIC_PINATA_GATEWAY_URL}/ipfs/${IpfsHash}` });
     }
   } catch (error) {
     const message = generateErrorMessage(error, 'An unknown error occurred while uploading image');
-    return Response.json(
+    return NextResponse.json(
       { error: true, message },
       {
-        status: 403,
+        status: 500,
       },
     );
   }

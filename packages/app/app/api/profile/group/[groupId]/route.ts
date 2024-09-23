@@ -3,8 +3,15 @@ import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { fetchUserProfile, updateUser } from '@/db';
+import { UserProfile } from '@/types/model';
 
-export async function PUT(req: NextRequest, { params }: { params: { groupId: string } }) {
+/**
+ * Let's the current user join the specified group by setting the user's groupId to the specified groupId.
+ * @param request - The request object
+ * @param groupId - PATH parameter. The id of the group to join
+ * @returns the updated UserProfile of the logged-in user
+ */
+export async function PUT(request: NextRequest, { params }: { params: { groupId: string } }) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {
@@ -13,8 +20,6 @@ export async function PUT(req: NextRequest, { params }: { params: { groupId: str
 
   try {
     const { groupId } = params;
-    console.log('groupId', groupId);
-    console.log('session.user.id', session.user.id);
     await updateUser({ id: session.user.id, groupId });
     const profile = await fetchUserProfile(session.user.id);
     return NextResponse.json(profile);
@@ -24,6 +29,12 @@ export async function PUT(req: NextRequest, { params }: { params: { groupId: str
   }
 }
 
+/**
+ * Let's the current user leave the specified group by setting the user's groupId to empty.
+ * @param request - The request object
+ * @param groupId - PATH parameter. The id of the group to join
+ * @returns the updated UserProfile of the logged-in user
+ */
 export async function DELETE() {
   const session = await getServerSession(nextAuthOptions);
 
@@ -32,9 +43,9 @@ export async function DELETE() {
   }
 
   try {
-    await updateUser({ id: session.user.id, groupId: null });
-    const profile = await fetchUserProfile(session.user.id);
-    return NextResponse.json(profile);
+    const updatedUser = await updateUser({ id: session.user.id, groupId: null });
+    const updatedProfile: UserProfile = { user: updatedUser!, group: null };
+    return NextResponse.json(updatedProfile);
   } catch (error) {
     const message = error instanceof Error ? error.message : 'An unexpected server error occurred while exiting group';
     return Response.json(

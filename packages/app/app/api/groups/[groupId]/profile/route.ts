@@ -6,11 +6,11 @@ import { notFound } from 'next/navigation';
 
 /**
  * Returns a GroupProfile object for a given group ID.
- * @param req
- * @param param1
- * @returns
+ * @param request - The request object
+ * @param groupId - PATH parameter. The id of the group
+ * @returns the GroupProfile or 404 if not found
  */
-export async function GET(req: NextRequest, { params }: { params: { groupId: string } }) {
+export async function GET(request: NextRequest, { params }: { params: { groupId: string } }) {
   try {
     const { groupId } = params;
     const groupProfile = await fetchGroupProfile(groupId);

@@ -3,9 +3,7 @@ import PageHeading from '@/components/PageHeading';
 import Profile from '@/components/Profile';
 import SectionHeading from '@/components/SectionHeading';
 
-// TODO GroupAssociation needs 
-
-const page = () => {
+const ProfilePage = () => {
   return (
     <>
       <PageHeading>Profile</PageHeading>
@@ -15,4 +13,4 @@ const page = () => {
     </>
   );
 };
-export default page;
+export default ProfilePage;

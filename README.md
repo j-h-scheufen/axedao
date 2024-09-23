@@ -163,33 +163,32 @@ axeUSD: 0xD44Eb94380bff68a827604fDb2dA7b0A3Ec6Ad0B
 UniswapV2Factory: 0xAB5db096E5d2d79434ADC48B8D34f878dD7Fa0b0
 UniswapV2Router02: 0xEF5aC450A41A39ef8A652C154318b3c8902ed86E
 
-- put the links into a column and save yourself API calls
-- change types accordingly and adapt API
-- finish all mutations
-- start adding hook functions to replace zustand.
+# Documentation
 
 ## API Overview
 
-| Method | Path (api/)                       | Request Body                        | Response        | Details      |
-| ------ | --------------------------------- | ----------------------------------- | --------------- | ------------ |
-| GET    | groups/                           |                                     | Groups[]        | Group Search |
-| POST   | groups/                           | CreateNewGroupFormSchema            | Group           |              |
-| GET    | groups/[groupId]                  |                                     | Group           |              |
-| PATCH  | groups/[groupId]                  | UpdateGroupSchema                   | Group           |              |
-| DELETE | groups/[groupId]                  |                                     | null, 204       |              |
-| GET    | groups/[groupId]/profile          |                                     | GroupProfile    |              |
-| GET    | groups/[groupId]/members          |                                     | User[]          |              |
-| DELETE | groups/[groupId]/members/[userId] |                                     | User[]          |              |
-| GET    | groups/[groupId]/admins           |                                     | string[]        |              |
-| PUT    | groups/[groupId]/admins/[userId]  |                                     | string[]        |              |
-| DELETE | groups/[groupId]/admins/[userId]  |                                     | string[]        |              |
-| GET    | users/                            |                                     | User[]          | User Search  |
-| GET    | users/[userId]                    |                                     | User            |              |
-| GET    | users/[userId]/profile            |                                     | UserProfile     |              |
-| GET    | profile                           |                                     | UserProfile     |              |
-| PATCH  | profile                           | ProfileFormSchema                   | UserProfile     |              |
-| PUT    | profile/group/[groupId]           |                                     | UserProfile     |              |
-| DELETE | profile/group/[groupId]           |                                     | UserProfile     |              |
-| POST   | images/                           | FormData {file: File, name: string} | { url: string } |              |
-| GET    | location/countries                |                                     | Country[]       |              |
-| GET    | location/cities                   | URL params: countryCode, searchTerm | City[]          |              |
+| Method | Path (api/)                         | Request Body                        | Response        | Details      |
+| ------ | ----------------------------------- | ----------------------------------- | --------------- | ------------ |
+| GET    | groups/                             |                                     | Groups[]        | Group Search |
+| POST   | groups/                             | CreateNewGroupForm                  | Group           |              |
+| GET    | groups/[groupId]                    |                                     | Group           |              |
+| PATCH  | groups/[groupId]                    | UpdateGroupForm                     | Group           |              |
+| DELETE | groups/[groupId]                    |                                     | null, 204       |              |
+| GET    | groups/[groupId]/profile            |                                     | GroupProfile    |              |
+| GET    | groups/[groupId]/members            |                                     | User[]          |              |
+| DELETE | groups/[groupId]/members/[userId]   |                                     | User[]          |              |
+| GET    | groups/[groupId]/admins             |                                     | string[]        |              |
+| PUT    | groups/[groupId]/admins/[userId]    |                                     | string[]        |              |
+| DELETE | groups/[groupId]/admins/[userId]    |                                     | string[]        |              |
+| GET    | users/                              |                                     | User[]          | User Search  |
+| GET    | users/[userId]                      |                                     | User            |              |
+| GET    | users/[userId]/profile              |                                     | UserProfile     |              |
+| GET    | profile                             |                                     | UserProfile     |              |
+| PATCH  | profile                             | ProfileForm                         | UserProfile     |              |
+| PUT    | profile/group/[groupId]             |                                     | UserProfile     |              |
+| DELETE | profile/group/[groupId]             |                                     | UserProfile     |              |
+| POST   | images/                             | FormData {file: File, name: string} | { url: string } |              |
+| GET    | location/countries                  |                                     | Country[]       |              |
+| GET    | location/cities                     | URL params: countryCode, searchTerm | City[]          |              |
+| PUT    | admin/groups/[groupId]/verification |                                     | Group           |              |
+| DELETE | admin/groups/[groupId]/verification |                                     | Group           |              |

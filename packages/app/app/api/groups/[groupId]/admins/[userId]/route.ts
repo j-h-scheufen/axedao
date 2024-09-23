@@ -5,7 +5,14 @@ import { addGroupAdmin, fetchGroupAdminIds, isGroupAdmin, removeGroupAdmin } fro
 import { generateErrorMessage } from '@/utils';
 import { getServerSession } from 'next-auth';
 
-export async function PUT(req: NextRequest, { params }: { params: { groupId: string; userId: string } }) {
+/**
+ * Adds the specified user as an admin of the group.
+ * @param request - The request object
+ * @param groupId - PATH parameter. The id of the group
+ * @param userId - PATH parameter. The id of the user to add as admin
+ * @returns the updated list of group admin IDs as string[]
+ */
+export async function PUT(request: NextRequest, { params }: { params: { groupId: string; userId: string } }) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {
@@ -28,7 +35,14 @@ export async function PUT(req: NextRequest, { params }: { params: { groupId: str
   }
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: { groupId: string; userId: string } }) {
+/**
+ * Removes the specified user as an admin of the group.
+ * @param request - The request object
+ * @param groupId - PATH parameter. The id of the group
+ * @param userId - PATH parameter. The id of the user to add as admin
+ * @returns the updated list of group admin IDs as string[]
+ */
+export async function DELETE(request: NextRequest, { params }: { params: { groupId: string; userId: string } }) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {

@@ -5,10 +5,10 @@ import { nextAuthOptions } from '@/config/next-auth-options';
 import { isGlobalAdmin, updateGroup } from '@/db';
 
 /**
- * Set group to verified
- * @param request
- * @param param1
- * @returns
+ * Marks the specified group as verified
+ * @param request - The request object
+ * @param groupId - PATH parameter. The id of the group
+ * @returns Group - the updated Group
  */
 export async function PUT(request: NextRequest, { params }: { params: { groupId: string } }) {
   const session = await getServerSession(nextAuthOptions);
@@ -27,6 +27,12 @@ export async function PUT(request: NextRequest, { params }: { params: { groupId:
   return NextResponse.json(group);
 }
 
+/**
+ * Marks the specified group as unverified
+ * @param request - The request object
+ * @param groupId - PATH parameter. The id of the group
+ * @returns Group - the updated Group
+ */
 export async function DELETE(request: NextRequest, { params }: { params: { groupId: string } }) {
   const session = await getServerSession(nextAuthOptions);
 

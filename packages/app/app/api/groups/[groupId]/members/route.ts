@@ -4,10 +4,10 @@ import { fetchGroupMembers } from '@/db';
 import { generateErrorMessage } from '@/utils';
 
 /**
- *
- * @param request
- * @param param1
- * @returns User[]
+ * Returns the members of the specified group
+ * @param request - The request object
+ * @param groupId - PATH parameter. The id of the group
+ * @returns the members of the group as User[]
  */
 export async function GET(request: NextRequest, { params }: { params: { groupId: string } }) {
   try {
