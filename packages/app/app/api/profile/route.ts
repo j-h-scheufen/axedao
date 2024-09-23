@@ -38,9 +38,10 @@ export async function PATCH(request: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
+  const body = await request.json();
   let formData: ProfileForm;
   try {
-    formData = profileFormSchema.validateSync(await request.json());
+    formData = profileFormSchema.validateSync(body);
   } catch (error) {
     console.error('Unable to validate input data', error);
     return NextResponse.json({ error: `Invalid input data` }, { status: 400 });

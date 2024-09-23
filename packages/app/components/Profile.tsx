@@ -2,6 +2,7 @@
 
 import { Avatar } from '@nextui-org/avatar';
 import { Button } from '@nextui-org/button';
+import { useAtomValue } from 'jotai';
 import { Camera, Edit } from 'lucide-react';
 import Link from 'next/link';
 import { Suspense } from 'react';
@@ -9,12 +10,14 @@ import { Suspense } from 'react';
 import ContactInfo from '@/components/ContactInfo';
 import { ProfileSkeleton } from '@/components/skeletons/ProfileSkeletons';
 import { PATHS } from '@/config/constants';
-import { initProfile } from '@/hooks/useCurrentUser';
+import { currentUserAvatarUrlAtom } from '@/hooks/state/currentUser';
+import { useInitProfile } from '@/hooks/useCurrentUser';
 import { getUserDisplayName } from '@/utils';
 import { Spinner } from '@nextui-org/spinner';
 
 const Profile = () => {
-  const { profile } = initProfile();
+  const { profile } = useInitProfile();
+  const avatarUrl = useAtomValue(currentUserAvatarUrlAtom);
   if (!profile) return <Spinner />;
   const { user } = profile;
   return (
@@ -22,7 +25,7 @@ const Profile = () => {
       <div className="flex flex-col items-center gap-5 sm:flex-row">
         <Avatar
           showFallback
-          src={user.avatar || undefined}
+          src={avatarUrl}
           fallback={<Camera className="h-10 w-10 animate-pulse text-default-500" strokeWidth={1} size={20} />}
           className="aspect-square h-full max-h-32 w-full max-w-32"
         />

@@ -22,6 +22,7 @@ const joinGroup = (groupId: string): Promise<UserProfile> =>
 const leaveGroup = (groupId: string): Promise<UserProfile> =>
   axios.delete(`/api/profile/group/${groupId}`).then((response) => response.data);
 
+// HOOKS
 export const useFetchProfile = () => {
   return useQuery(fetchProfileOptions());
 };

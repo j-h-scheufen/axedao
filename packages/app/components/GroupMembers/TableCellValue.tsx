@@ -11,7 +11,7 @@ import { currentUserIdAtom } from '@/hooks/state/currentUser';
 import { groupIdAtom, isCurrentUserGroupAdminAtom } from '@/hooks/state/group';
 import { useAddAdmin, useRemoveAdmin, useRemoveMember } from '@/hooks/useGroup';
 import { GroupMember } from '@/types/model';
-import { getUserDisplayName } from '@/utils';
+import { getImageUrl, getUserDisplayName } from '@/utils';
 import { useCallback } from 'react';
 import RoleChips from './RoleChips';
 import { GroupMemberTableColumnKey } from './utils';
@@ -54,7 +54,7 @@ const TableCellValue = ({ groupMember, columnKey }: Props) => {
       return (
         <Link href={`${PATHS.users}/${id}`} className="text-[unset]">
           <User
-            avatarProps={{ radius: 'full', src: avatar || '' }}
+            avatarProps={{ radius: 'full', src: getImageUrl(avatar) }}
             description={email}
             name={`${getUserDisplayName(groupMember)} ${isLoggedInUser ? '(You)' : ''}`}
             className="cursor-pointer"

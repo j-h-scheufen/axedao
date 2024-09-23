@@ -4,6 +4,7 @@ import { SearchIcon } from 'lucide-react';
 
 import useGroupSearch from '@/hooks/useGroupSearch';
 import { Group } from '@/types/model';
+import { getImageUrl } from '@/utils';
 import { Avatar } from '@nextui-org/avatar';
 
 type Props = FieldProps['field'] & {
@@ -47,7 +48,7 @@ const GroupSelect = ({ onSelect, ...props }: Props) => {
             textValue={group.name}
             startContent={
               group.logo ? (
-                <Avatar alt={`Logo of group ${group.name}`} className="w-6 h-6" src={group.logo} />
+                <Avatar alt={`Logo of group ${group.name}`} className="w-6 h-6" src={getImageUrl(group.logo)} />
               ) : undefined
             }
           >

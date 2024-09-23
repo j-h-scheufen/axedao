@@ -20,6 +20,7 @@ import VerificationChip from '@/components/VerificationChip';
 import { PATHS } from '@/config/constants';
 import useGroupSearch from '@/hooks/useGroupSearch';
 import { Group } from '@/types/model';
+import { getImageUrl } from '@/utils';
 import ActionCell from './ActionCell';
 
 type Column<T> = {
@@ -34,11 +35,11 @@ const columns: Column<Group>[] = [
     key: 'name',
     label: 'NAME',
     cell: ({ item }) => {
-      const { logo = '', name, city, country, id } = item;
+      const { logo, name, city, country, id } = item;
       return (
         <Link href={`${PATHS.groups}/${id}`} className="inline-block text-[unset]">
           <div className="flex items-center gap-2">
-            <Avatar size="sm" src={logo || ''} radius="full" />
+            <Avatar size="sm" src={getImageUrl(logo)} radius="full" />
             <div className="flex justify-center flex-col">
               <div className="text-sm">{name}</div>
               <span className="flex items-center gap-1 text-xs text-default-500">

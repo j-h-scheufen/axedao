@@ -1,5 +1,6 @@
 'use client';
 
+import { getImageUrl } from '@/utils';
 import { Avatar, AvatarProps } from '@nextui-org/avatar';
 import { Button } from '@nextui-org/button';
 import { Camera } from 'lucide-react';
@@ -23,13 +24,15 @@ const ImageUpload = ({
   avatarProps = {},
   ...props
 }: Props) => {
-  const [imagePreview, setImagePreview] = useState<string | undefined>(typeof value === 'string' ? value : undefined);
+  const [imagePreview, setImagePreview] = useState<string | undefined>(
+    typeof value === 'string' ? getImageUrl(value) : undefined,
+  );
   const imageInputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     if (!value) return;
     if (typeof value === 'string') {
-      setImagePreview(value);
+      setImagePreview(getImageUrl(value));
     } else if (value instanceof File) {
       const reader = new FileReader();
       reader.onloadend = () => {

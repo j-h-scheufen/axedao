@@ -1,5 +1,6 @@
-import axios, { AxiosError } from 'axios';
+import { AxiosError } from 'axios';
 
+import ENV from '@/config/environment';
 import { GroupMemberRole, User } from '@/types/model';
 
 export const generateErrorMessage = (error: unknown, defaultMessage: string) => {
@@ -13,15 +14,6 @@ export const generateErrorMessage = (error: unknown, defaultMessage: string) => 
   }
 
   return message;
-};
-
-export const uploadImage = async (imageFile: File, name?: string) => {
-  const data = new FormData();
-  data.set('file', imageFile);
-  if (name) data.set('name', name);
-  const res = await axios.post('/api/images', data, { headers: { 'Content-Type': 'multipart/form-data' } });
-  const url: string = res.data?.url;
-  if (url) return url;
 };
 
 /**
@@ -91,3 +83,6 @@ export const getUserDisplayName = (user: User): string => {
   }
   return displayName || `Anonymous (${user.walletAddress})`;
 };
+
+export const getImageUrl = (hash: string | null | undefined): string | undefined =>
+  hash ? `${ENV.pinataGatewayUrl}/ipfs/${hash}` : undefined;

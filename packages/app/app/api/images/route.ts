@@ -7,7 +7,7 @@ import { generateErrorMessage } from '@/utils';
 /**
  * Stores the image contained in the request body to IPFS using Pinata.
  * @param request - Multi-part FormData containing the image file and an optional name
- * @returns on object containing the URL of the uploaded image: {url: string}
+ * @returns the IPFS hash of the uploaded image
  */
 export async function POST(request: NextRequest) {
   try {
@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
         },
       });
       const { IpfsHash } = res.data;
-      return NextResponse.json({ url: `https://${process.env.NEXT_PUBLIC_PINATA_GATEWAY_URL}/ipfs/${IpfsHash}` });
+      return NextResponse.json(IpfsHash);
     }
   } catch (error) {
     const message = generateErrorMessage(error, 'An unknown error occurred while uploading image');

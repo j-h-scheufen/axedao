@@ -14,6 +14,7 @@ type ConfigType = {
   axeSwapTokenAddress: Address;
   uniswapV2PairAddress: Address;
   uniswapV2RouterAddress: Address;
+  pinataGatewayUrl: string;
   databaseUrl: string;
   nextAuthSecret: string;
 };
@@ -69,6 +70,7 @@ const ENV: ConfigType = {
     process.env.NEXT_PUBLIC_UNISWAPV2ROUTER_ADDRESS,
     'NEXT_PUBLIC_UNISWAPV2ROUTER_ADDRESS',
   ) as Address,
+  pinataGatewayUrl: required(process.env.NEXT_PUBLIC_PINATA_GATEWAY_URL, 'NEXT_PUBLIC_PINATA_GATEWAY_URL'),
   databaseUrl: isServer ? required(process.env.DATABASE_URL, 'DATABASE_URL') : '',
   nextAuthSecret: isServer ? required(process.env.NEXTAUTH_SECRET, 'NEXTAUTH_SECRET') : '',
 };

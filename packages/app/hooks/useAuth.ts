@@ -6,7 +6,7 @@ import { useAccount, useConnect, useDisconnect, useSignMessage } from 'wagmi';
 
 import { PATHS } from '@/config/constants';
 import { getDefaultChain } from '@/config/wagmi';
-import { clearProfile, initProfile } from '@/hooks/useCurrentUser';
+import { clearProfile, useInitProfile } from '@/hooks/useCurrentUser';
 import silk from '@/utils/silk.connector';
 
 /**
@@ -70,8 +70,7 @@ const useSignIn = () => {
       });
 
       if (res?.ok && !res.error) {
-        // TODO: Retrieve the profile and inject it to use react-query here
-        initProfile();
+        useInitProfile();
         if (callbackUrl) {
           router.replace(callbackUrl);
         }

@@ -12,14 +12,14 @@ import GroupFormSkeleton from '@/components/skeletons/GroupSkeletons';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import { GROUP_DESCRIPTION_MAX_LENGTH, PATHS } from '@/config/constants';
 import { UpdateGroupForm, updateGroupSchema } from '@/config/validation-schema';
-import { initGroup, useDeleteGroup, useUpdateGroup } from '@/hooks/useGroup';
+import { useDeleteGroup, useInitGroup, useUpdateGroup } from '@/hooks/useGroup';
 import DeleteGroup from './DeleteGroup';
 
 type Props = { id: string };
 
 const GroupForm = ({ id }: Props) => {
   const router = useRouter();
-  const { groupProfile, isPending: isLoadingGroup } = initGroup(id);
+  const { groupProfile, isPending: isLoadingGroup } = useInitGroup(id);
   const { deleteGroup, isPending: isPendingDelete } = useDeleteGroup();
   const { updateGroup } = useUpdateGroup();
   const [charsLeft, setCharsLeft] = useState<number>(
@@ -33,7 +33,12 @@ const GroupForm = ({ id }: Props) => {
   }, [id, deleteGroup, router]);
 
   const handleSubmit = useCallback(
-    (values: UpdateGroupForm) => {
+    async (values: UpdateGroupForm) => {
+      /**
+       * TODO: We should really only update the profile fields that have changed in order to avoid future
+       * API validation conflicts. See https://medium.com/@tonyeder11/formik-enablereinitialize-example-fixing-backend-validation-errors-76d26031d5f7
+       * At least the images can be updated separately from the rest of the profile.
+       */
       return updateGroup({ groupId: id, data: values }).then(() => router.push(`${PATHS.groups}/${id}`));
     },
     [router, updateGroup, id],

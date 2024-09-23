@@ -66,9 +66,11 @@ export const profileFormSchema = object({
     .test('is-valid-type', 'Not a valid image type', (value: unknown) => {
       if (value instanceof File) {
         return isValidFileType(value && value.name?.toLowerCase(), 'image');
+      } else if (typeof value === 'string') {
+        // TODO check if its an IPFS hash
+        return true;
       }
-      // TODO check if its a url
-      return true;
+      return false;
     })
     .test('is-valid-size', 'Maximum image size allowed is 3MB', (value: unknown) => {
       if (value instanceof File) {

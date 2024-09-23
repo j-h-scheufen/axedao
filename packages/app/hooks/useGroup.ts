@@ -8,21 +8,22 @@ import {
   useAddAdminMutation,
   useCreateGroupMutation,
   useDeleteGroupMutation,
-  useFetchGroup,
   useFetchGroupMembers,
+  useFetchGroupProfile,
   useRemoveAdminMutation,
   useRemoveMemberMutation,
   useUpdateGroupMutation,
 } from '@/query/group';
+import { FileUploadParams, useUploadImageMutation } from '@/query/image';
 import { currentUserProfileAtom } from './state/currentUser';
 import { groupIdAtom, groupMembersAtom, groupProfileAtom } from './state/group';
 
-export const initGroup = (groupId: string) => {
+export const useInitGroup = (groupId: string) => {
   const [groupProfile, setGroupProfile] = useAtom(groupProfileAtom);
-  const { data: group, error, isPending } = useFetchGroup(groupId);
+  const { data, error, isPending } = useFetchGroupProfile(groupId);
   useEffect(() => {
-    if (group) setGroupProfile(groupProfile);
-  }, [group, setGroupProfile]);
+    if (data) setGroupProfile(data);
+  }, [data, setGroupProfile]);
 
   return { groupProfile, error, isPending };
 };
@@ -73,8 +74,35 @@ export const useDeleteGroup = () => {
 export const useUpdateGroup = () => {
   const [currentUserProfile, setCurrentUserProfile] = useAtom(currentUserProfileAtom);
   const { mutateAsync, error, isPending } = useUpdateGroupMutation();
-  const updateGroup = async (params: { groupId: string; data: UpdateGroupForm }) =>
-    mutateAsync(params, {
+  const { mutateAsync: mutateImage } = useUploadImageMutation();
+  const updateGroup = async (params: { groupId: string; data: UpdateGroupForm }) => {
+    if (params.data.logo && params.data.logo instanceof File) {
+      const uploadParams: FileUploadParams = {
+        file: params.data.logo,
+        name: params.groupId ? `group-logo-${params.groupId}` : undefined,
+      };
+      const hash = await mutateImage(uploadParams);
+      if (hash) params.data.logo = hash;
+      else {
+        console.warn('Logo upload successful, but no hash returned.');
+        delete params.data.logo;
+      }
+    }
+
+    if (params.data.banner && params.data.banner instanceof File) {
+      const uploadParams: FileUploadParams = {
+        file: params.data.banner,
+        name: params.groupId ? `group-logo-${params.groupId}` : undefined,
+      };
+      const hash = await mutateImage(uploadParams);
+      if (hash) params.data.banner = hash;
+      else {
+        console.warn('Logo upload successful, but no hash returned.');
+        delete params.data.banner;
+      }
+    }
+
+    return mutateAsync(params, {
       onError: (error) => enqueueSnackbar(`An error occured trying to update the group: ${error.message}`),
     }).then((groupUpdate) => {
       if (currentUserProfile) {
@@ -84,6 +112,7 @@ export const useUpdateGroup = () => {
         setCurrentUserProfile(currentUserProfile);
       }
     });
+  };
   return { updateGroup, error, isPending };
 };
 

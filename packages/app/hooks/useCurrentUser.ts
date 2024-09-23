@@ -1,17 +1,18 @@
-import { useAtom } from 'jotai';
+import { useAtom, useAtomValue } from 'jotai';
 import { enqueueSnackbar } from 'notistack';
 import { useEffect } from 'react';
 
 import { ProfileForm } from '@/config/validation-schema';
+import { FileUploadParams, useUploadImageMutation } from '@/query/image';
 import {
   useFetchProfile,
   useJoinGroupMutation,
   useLeaveGroupMutation,
   useUpdateProfileMutation,
 } from '@/query/profile';
-import { currentUserProfileAtom } from './state/currentUser';
+import { currentUserIdAtom, currentUserProfileAtom } from './state/currentUser';
 
-export const initProfile = () => {
+export const useInitProfile = () => {
   const [currentProfile, setCurrentProfile] = useAtom(currentUserProfileAtom);
   const { data: profile, error } = useFetchProfile();
   useEffect(() => {
@@ -23,13 +24,26 @@ export const initProfile = () => {
 
 export const useUpdateProfile = () => {
   const [, setCurrentUserProfile] = useAtom(currentUserProfileAtom);
-  const { mutateAsync, error, isPending } = useUpdateProfileMutation();
-  const updateProfile = async (data: ProfileForm) =>
-    mutateAsync(data, {
+  const userId = useAtomValue(currentUserIdAtom);
+  const { mutateAsync: mutateProfile, error, isPending } = useUpdateProfileMutation();
+  const { mutateAsync: mutateImage } = useUploadImageMutation();
+  const updateProfile = async (data: ProfileForm) => {
+    if (data.avatar && data.avatar instanceof File) {
+      const params: FileUploadParams = { file: data.avatar, name: userId ? `user-avatar-${userId}` : undefined };
+      const avatar = await mutateImage(params);
+      if (avatar) data.avatar = avatar;
+      else {
+        console.warn('Avatar upload successful, but no hash returned.');
+        delete data.avatar;
+      }
+    }
+
+    return mutateProfile(data, {
       onError: (error) => enqueueSnackbar(`An error occured trying to update the group: ${error.message}`),
     }).then((profileUpdate) => {
       setCurrentUserProfile(profileUpdate);
     });
+  };
   return { updateProfile, error, isPending };
 };
 

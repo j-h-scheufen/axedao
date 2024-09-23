@@ -12,21 +12,24 @@ import {
   NavbarMenuToggle,
   Navbar as NextUINavbar,
 } from '@nextui-org/navbar';
+import { useAtomValue } from 'jotai';
 import { useSession } from 'next-auth/react';
 import NextLink from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 import { PATHS } from '@/config/constants';
+import { currentUserAvatarUrlAtom } from '@/hooks/state/currentUser';
 import useAuth from '@/hooks/useAuth';
-import { initProfile } from '@/hooks/useCurrentUser';
+import { useInitProfile } from '@/hooks/useCurrentUser';
 import { getUserDisplayName } from '@/utils';
 import { ThemeSwitch } from './ThemeSwitch';
 
 const Navbar: React.FC = () => {
   const { data: session } = useSession();
   const pathname = usePathname();
-  const { profile } = initProfile();
+  const { profile } = useInitProfile();
+  const avatarUrl = useAtomValue(currentUserAvatarUrlAtom);
   const { logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -85,7 +88,7 @@ const Navbar: React.FC = () => {
                 color="primary"
                 name={profile?.user.name || undefined}
                 size="sm"
-                src={profile?.user.avatar || undefined}
+                src={avatarUrl}
               />
             </DropdownTrigger>
             <DropdownMenu aria-label="Profile Actions" variant="flat">

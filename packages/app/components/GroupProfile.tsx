@@ -5,14 +5,13 @@ import { Link } from '@nextui-org/link';
 import { Spinner } from '@nextui-org/spinner';
 import { useAtomValue } from 'jotai';
 import { Camera } from 'lucide-react';
-import { Suspense } from 'react';
 
 import ContactInfo from '@/components/ContactInfo';
 import PageHeading from '@/components/PageHeading';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import { PATHS } from '@/config/constants';
-import { isFounderUuidAtom } from '@/hooks/state/group';
-import { initGroup } from '@/hooks/useGroup';
+import { groupAtom, groupLogoUrlAtom, isFounderUuidAtom } from '@/hooks/state/group';
+import { useInitGroup } from '@/hooks/useGroup';
 import GroupActions from './GroupActions';
 import GroupBanner from './GroupBanner';
 import GroupDescription from './GroupDescription';
@@ -22,22 +21,22 @@ import UserCardWithFetch from './UserCardWithFetch';
 type Props = { groupId: string };
 
 const GroupProfile = ({ groupId }: Props) => {
-  const { groupProfile } = initGroup(groupId);
+  useInitGroup(groupId); // TODO the init needs either hydrateAtoms or a Jotai Provider in the layout
+  const group = useAtomValue(groupAtom);
   const isFounderUUID = useAtomValue(isFounderUuidAtom);
-  if (!groupProfile) return <Spinner />;
-  const {
-    group: { name, logo, founder, email, description, links },
-  } = groupProfile;
+  const logoUrl = useAtomValue(groupLogoUrlAtom);
+  if (!group) return <Spinner />;
+  const { name, founder, email, description, links } = group;
 
   return (
-    <Suspense fallback={<Spinner />}>
+    <>
       <PageHeading back={`${PATHS.search}?tab=groups`}>{name}</PageHeading>
       <GroupActions />
       <GroupBanner />
       <div className="mt-5 xs:flex xs:gap-5">
         <Avatar
           showFallback
-          src={logo || undefined}
+          src={logoUrl || undefined}
           fallback={<Camera className="h-8 w-8 animate-pulse text-default-500" strokeWidth={1} size={20} />}
           className="mx-auto mb-5 block aspect-square h-full max-h-20 w-full max-w-20 xs:mx-0 xs:mb-0 xs:inline-block"
         />
@@ -55,7 +54,7 @@ const GroupProfile = ({ groupId }: Props) => {
       {isFounderUUID ? <UserCardWithFetch userId={founder!} /> : <div className="text-default-500">founder</div>}
       <SubsectionHeading>Members</SubsectionHeading>
       <GroupMembers />
-    </Suspense>
+    </>
   );
 };
 

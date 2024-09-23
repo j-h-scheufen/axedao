@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useFetchUserProfile } from '@/query/user';
 import { userProfileAtom } from './state/user';
 
-export const initUser = (userId: string) => {
+export const useInitUser = (userId: string) => {
   const [userProfile, setUserProfile] = useAtom(userProfileAtom);
   const { data: profile, error, isPending } = useFetchUserProfile(userId);
   useEffect(() => {
@@ -13,3 +13,4 @@ export const initUser = (userId: string) => {
 
   return { userProfile, error, isPending };
 };
+  
