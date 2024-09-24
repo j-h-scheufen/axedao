@@ -74,6 +74,7 @@ export const getHostname = (url: string): string | undefined => {
 };
 
 export const getUserDisplayName = (user: User): string => {
+  if (!user) return '';
   let displayName = '';
   if (user.nickname) {
     displayName = user.nickname;

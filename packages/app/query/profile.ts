@@ -3,13 +3,19 @@ import axios from 'axios';
 
 import { ProfileForm } from '@/config/validation-schema';
 import { UserProfile } from '@/types/model';
+import { useSession } from 'next-auth/react';
 import { QUERY_KEYS } from '.';
 
 const fetchProfile = (): Promise<UserProfile> => axios.get('/api/profile').then((response) => response.data);
-function fetchProfileOptions() {
+// The enable flag is to prevent calling the endpoint too early, because it's used in populating
+// the JotaiProvider's store. Calling the endpoint without a user session would result in the server
+// redirecting to the login page and returning that as a valid response.
+// TODO needs a better solution in middleware to return the error status code instead of redirecting.
+function fetchProfileOptions(enabled: boolean) {
   return queryOptions({
     queryKey: [QUERY_KEYS.profile.getProfile],
     queryFn: () => fetchProfile(),
+    enabled,
   });
 }
 
@@ -24,7 +30,8 @@ const leaveGroup = (groupId: string): Promise<UserProfile> =>
 
 // HOOKS
 export const useFetchProfile = () => {
-  return useQuery(fetchProfileOptions());
+  const { data: session } = useSession();
+  return useQuery(fetchProfileOptions(!!session?.user.id));
 };
 
 export const useUpdateProfileMutation = () => {

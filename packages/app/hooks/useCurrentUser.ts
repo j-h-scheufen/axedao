@@ -1,26 +1,10 @@
 import { useAtom, useAtomValue } from 'jotai';
 import { enqueueSnackbar } from 'notistack';
-import { useEffect } from 'react';
 
 import { ProfileForm } from '@/config/validation-schema';
 import { FileUploadParams, useUploadImageMutation } from '@/query/image';
-import {
-  useFetchProfile,
-  useJoinGroupMutation,
-  useLeaveGroupMutation,
-  useUpdateProfileMutation,
-} from '@/query/profile';
+import { useJoinGroupMutation, useLeaveGroupMutation, useUpdateProfileMutation } from '@/query/profile';
 import { currentUserIdAtom, currentUserProfileAtom } from './state/currentUser';
-
-export const useInitProfile = () => {
-  const [currentProfile, setCurrentProfile] = useAtom(currentUserProfileAtom);
-  const { data: profile, error } = useFetchProfile();
-  useEffect(() => {
-    if (!currentProfile && profile) setCurrentProfile(profile);
-  }, [profile, currentProfile, setCurrentProfile]);
-
-  return { profile: currentProfile, error };
-};
 
 export const useUpdateProfile = () => {
   const [, setCurrentUserProfile] = useAtom(currentUserProfileAtom);

@@ -19,16 +19,15 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 import { PATHS } from '@/config/constants';
-import { currentUserAvatarUrlAtom } from '@/hooks/state/currentUser';
+import { currentUserAvatarUrlAtom, currentUserProfileAtom } from '@/hooks/state/currentUser';
 import useAuth from '@/hooks/useAuth';
-import { useInitProfile } from '@/hooks/useCurrentUser';
 import { getUserDisplayName } from '@/utils';
 import { ThemeSwitch } from './ThemeSwitch';
 
 const Navbar: React.FC = () => {
   const { data: session } = useSession();
   const pathname = usePathname();
-  const { profile } = useInitProfile();
+  const profile = useAtomValue(currentUserProfileAtom);
   const avatarUrl = useAtomValue(currentUserAvatarUrlAtom);
   const { logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -78,7 +77,7 @@ const Navbar: React.FC = () => {
 
       <NavbarContent as="div" justify="end">
         <ThemeSwitch />
-        {session && (
+        {session && !!profile && (
           <Dropdown placement="bottom-end">
             <DropdownTrigger>
               <Avatar
@@ -86,7 +85,7 @@ const Navbar: React.FC = () => {
                 as="button"
                 className="transition-transform"
                 color="primary"
-                name={profile?.user.name || undefined}
+                name={profile.user.name || undefined}
                 size="sm"
                 src={avatarUrl}
               />
@@ -94,9 +93,7 @@ const Navbar: React.FC = () => {
             <DropdownMenu aria-label="Profile Actions" variant="flat">
               <DropdownItem key="profile" className="h-14 gap-2">
                 <p className="font-semibold">Signed in as</p>
-                <p className="font-semibold">
-                  {profile?.user ? getUserDisplayName(profile.user) : profile?.user.email}
-                </p>
+                <p className="font-semibold">{getUserDisplayName(profile.user)}</p>
               </DropdownItem>
               <DropdownItem key="my-profile" href={PATHS.profile}>
                 My Profile

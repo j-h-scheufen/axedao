@@ -6,7 +6,7 @@ import { useAccount, useConnect, useDisconnect, useSignMessage } from 'wagmi';
 
 import { PATHS } from '@/config/constants';
 import { getDefaultChain } from '@/config/wagmi';
-import { clearProfile, useInitProfile } from '@/hooks/useCurrentUser';
+import { clearProfile } from '@/hooks/useCurrentUser';
 import silk from '@/utils/silk.connector';
 
 /**
@@ -70,7 +70,6 @@ const useSignIn = () => {
       });
 
       if (res?.ok && !res.error) {
-        useInitProfile();
         if (callbackUrl) {
           router.replace(callbackUrl);
         }
