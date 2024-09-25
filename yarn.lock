@@ -7563,21 +7563,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:5.52.2":
-  version: 5.52.2
-  resolution: "@tanstack/query-core@npm:5.52.2"
-  checksum: 10c0/34bc28f492272642159e6eb41cc45d05669a91a7a9124dcfa4a9b721696b921c0909234373035c9f51159069d71ee449459f0d528de500cfb07e6eb8fdd8857c
+"@tanstack/query-core@npm:5.56.2, @tanstack/query-core@npm:^5.56.2":
+  version: 5.56.2
+  resolution: "@tanstack/query-core@npm:5.56.2"
+  checksum: 10c0/54ff55f02b01f6ba089f4965bfd46f430c18ce7e11d874de04c4d58cc8f698598b41e1c017ba029d08ae75e321e546b26f1ea7f788474db265eeba46e780f2f6
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:^5.52.2":
-  version: 5.52.2
-  resolution: "@tanstack/react-query@npm:5.52.2"
+"@tanstack/react-query@npm:^5.56.2":
+  version: 5.56.2
+  resolution: "@tanstack/react-query@npm:5.56.2"
   dependencies:
-    "@tanstack/query-core": "npm:5.52.2"
+    "@tanstack/query-core": "npm:5.56.2"
   peerDependencies:
     react: ^18 || ^19
-  checksum: 10c0/936ecc8d4fbd2f89b5569ae9a2fe6e3c0af6ea02561de5f882b910662f1db1b0d73d7a9cbd94fd4d569a2c0773b5e629da4752dc62d4f3ebcf165f5b56d80c0e
+  checksum: 10c0/6e883b4ca1948f990215b7bce194251faf13a79c6ecf3f3c660af6c6788ed113ab629cefdafb496dfb04866f12dd48d7314e936b75c881b6749127b6496ac8fd
   languageName: node
   linkType: hard
 
@@ -14156,6 +14156,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jotai-tanstack-query@npm:^0.8.8":
+  version: 0.8.8
+  resolution: "jotai-tanstack-query@npm:0.8.8"
+  peerDependencies:
+    "@tanstack/query-core": "*"
+    jotai: ">=2.0.0"
+  checksum: 10c0/a4f60b433abd7f63a80576c90f3a66a956ee1dd33033c0e3703d77be9f62ff64218825e2f051407775b58495b21cd1e6d80a1422bbc4024139a8888f8ad643ea
+  languageName: node
+  linkType: hard
+
 "jotai@npm:^2.10.0":
   version: 2.10.0
   resolution: "jotai@npm:2.10.0"
@@ -17103,7 +17113,8 @@ __metadata:
     "@svgr/webpack": "npm:^8.1.0"
     "@tailwindcss/typography": "npm:^0.5.14"
     "@tanstack/eslint-plugin-query": "npm:^5.52.0"
-    "@tanstack/react-query": "npm:^5.52.2"
+    "@tanstack/query-core": "npm:^5.56.2"
+    "@tanstack/react-query": "npm:^5.56.2"
     "@types/bcrypt": "npm:^5.0.2"
     "@types/lodash": "npm:^4.17.7"
     "@types/node": "npm:22.5.0"
@@ -17133,6 +17144,7 @@ __metadata:
     immer: "npm:^10.1.1"
     intl-messageformat: "npm:^10.5.14"
     jotai: "npm:^2.10.0"
+    jotai-tanstack-query: "npm:^0.8.8"
     lodash: "npm:^4.17.21"
     lucide-react: "npm:^0.436.0"
     next: "npm:14.2.8"

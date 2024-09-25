@@ -9,6 +9,7 @@ import { ForwardedRef, ReactNode, forwardRef } from 'react';
 
 import { PATHS } from '@/config/constants';
 import { User } from '@/types/model';
+import { getImageUrl } from '@/utils';
 
 export type UserCardProps = CardProps & {
   user?: User | null;
@@ -30,7 +31,7 @@ const UserCard = (
           <Avatar
             radius="full"
             size="md"
-            src={user.avatar || ''}
+            src={getImageUrl(user.avatar)}
             fallback={<UserRoundIcon className="w-5 h-5 text-default-400" strokeWidth={1.25} />}
             className="min-w-10"
             {...avatarProps}

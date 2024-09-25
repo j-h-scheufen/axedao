@@ -4,28 +4,26 @@ import { Button } from '@nextui-org/button';
 import { useDisclosure } from '@nextui-org/use-disclosure';
 import { SettingsIcon } from 'lucide-react';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useCallback } from 'react';
 
-import { PATHS } from '@/config/constants';
 import { groupIdAtom, isCurrentUserGroupAdminAtom, isCurrentUserGroupMemberAtom } from '@/hooks/state/group';
 import { useLeaveGroup } from '@/hooks/useCurrentUser';
 import { useAtomValue } from 'jotai';
 import LeaveGroupConfirmationModal from './LeaveGroupConfirmationModal';
 
 const GroupActions = () => {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const router = useRouter();
-  const pathname = usePathname();
-  const { leaveGroup, isPending } = useLeaveGroup();
   const groupId = useAtomValue(groupIdAtom);
   const isGroupAdmin = useAtomValue(isCurrentUserGroupAdminAtom);
   const isGroupMember = useAtomValue(isCurrentUserGroupMemberAtom);
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const pathname = usePathname();
+  const { leaveGroup, isPending } = useLeaveGroup();
 
   const handleGroupExit = useCallback(async () => {
     if (!groupId) return;
-    return leaveGroup(groupId).then(() => router.push(PATHS.profile));
-  }, [leaveGroup, groupId, router]);
+    return leaveGroup(groupId);
+  }, [leaveGroup, groupId]);
 
   return (
     <div className="flex gap-3 justify-end">

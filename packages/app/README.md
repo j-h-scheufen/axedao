@@ -1,6 +1,4 @@
-# Next.js & NextUI Template
-
-This is a template for creating applications using Next.js 13 (app directory) and NextUI (v2).
+# Quilombo
 
 ## Technologies Used
 
@@ -12,28 +10,12 @@ This is a template for creating applications using Next.js 13 (app directory) an
 - [Framer Motion](https://www.framer.com/motion/)
 - [next-themes](https://github.com/pacocoursey/next-themes)
 
-## How to Use
+## Data Fetching and State Management
 
-### Use the template with create-next-app
+This app uses a very opinionated approach to data fetching and state management:
 
-To create a new project based on this template using `create-next-app`, run the following command:
-
-```bash
-npx create-next-app -e https://github.com/nextui-org/next-app-template
-```
-
-### Install dependencies
-
-```bash
-npm install
-```
-
-### Run the development server
-
-```bash
-npm run dev
-```
-
-## License
-
-Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).
+- records that are the result of react-query fetches are sent from the server to hydrate the QueryClient
+- The records are available for SSR in the page to have initial content to render AS WELL AS via react hooks without the need for additional API calls
+- This is achieved by pre-populating the queries (as mentioned above) and using Jotai atoms that use the queries to fetch their state.
+- This way, any client component that requires the record accesses atoms which result in a query for which the result is already available client-side
+- Updates to a record via react-query update the query cache accordingly, so that the atoms always automatically represent the latest cached server state until the queries go stale.

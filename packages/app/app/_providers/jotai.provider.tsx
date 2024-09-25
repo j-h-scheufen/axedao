@@ -10,7 +10,8 @@ import { useFetchProfile } from '@/query/profile';
 type Props = PropsWithChildren & {};
 
 /**
- * Injects the current user's profile into the Jotai store, once the user is logged in.
+ * Injects the current user's profile into the Jotai store, when the user is logged in.
+ * TODO - This should be refactored to use jotai-query atoms. No need to initiate the jotai state here.
  */
 export default function Provider({ children }: Props) {
   const { data: session } = useSession();

@@ -25,25 +25,27 @@ function fetchGroupOptions(id: string) {
 
 const fetchGroupProfile = (id: string): Promise<GroupProfile> =>
   axios.get(`/api/groups/${id}/profile`).then((response) => response.data);
-function fetchGroupProfileOptions(id: string) {
-  return queryOptions({
+export const groupProfileOptions = (id: string | undefined) => {
+  return {
     queryKey: [QUERY_KEYS.group.getGroupProfile, id],
-    queryFn: () => fetchGroupProfile(id),
+    queryFn: () => fetchGroupProfile(id ?? ''),
     staleTime: 1000 * 60 * QUERY_DEFAULT_STALE_TIME_MINUTES,
     enabled: !!id,
-  });
-}
+  } as const;
+};
+const groupProfileTypedOptions = (id: string) => queryOptions(groupProfileOptions(id));
 
 const fetchGroupMembers = (id: string): Promise<User[]> =>
   axios.get(`/api/groups/${id}/members`).then((response) => response.data);
-function fetchGroupMembersOptions(id: string) {
-  return queryOptions({
+export const groupMembersOptions = (id: string | undefined) => {
+  return {
     queryKey: [QUERY_KEYS.group.getGroupMembers, id],
-    queryFn: () => fetchGroupMembers(id),
+    queryFn: () => fetchGroupMembers(id ?? ''),
     staleTime: 1000 * 60 * QUERY_DEFAULT_STALE_TIME_MINUTES,
     enabled: !!id,
-  });
-}
+  } as const;
+};
+const fetchGroupMembersOptions = (id: string) => queryOptions(groupMembersOptions(id));
 
 const fetchGroupAdmins = (id: string): Promise<User[]> =>
   axios.get(`/api/groups/${id}/admins`).then((response) => response.data);
@@ -93,7 +95,7 @@ const removeAdmin = async (groupId: string, userId: string): Promise<string[]> =
 // HOOKS
 export const useFetchGroup = (id: string) => useQuery(fetchGroupOptions(id));
 
-export const useFetchGroupProfile = (id: string) => useQuery(fetchGroupProfileOptions(id));
+export const useFetchGroupProfile = (id: string) => useQuery(groupProfileTypedOptions(id));
 
 export const useFetchGroupMembers = (id: string) => useQuery(fetchGroupMembersOptions(id));
 

@@ -1,7 +1,9 @@
 import { AxiosError } from 'axios';
+import { QueryClient } from '@tanstack/react-query';
 
 import ENV from '@/config/environment';
 import { GroupMemberRole, User } from '@/types/model';
+import { QUERY_CLIENT_DEFAULT_STALE_TIME_SECONDS } from '@/config/constants';
 
 export const generateErrorMessage = (error: unknown, defaultMessage: string) => {
   let message = defaultMessage;
@@ -87,3 +89,13 @@ export const getUserDisplayName = (user: User): string => {
 
 export const getImageUrl = (hash: string | null | undefined): string | undefined =>
   hash ? `${ENV.pinataGatewayUrl}/ipfs/${hash}` : undefined;
+
+export const createDefaultQueryClient = () => {
+  return new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 1000 * QUERY_CLIENT_DEFAULT_STALE_TIME_SECONDS
+      },
+    },
+  });
+}

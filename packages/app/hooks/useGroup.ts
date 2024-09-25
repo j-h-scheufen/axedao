@@ -1,6 +1,5 @@
-import { useAtom, useAtomValue } from 'jotai';
+import { useAtom } from 'jotai';
 import { enqueueSnackbar } from 'notistack';
-import { useEffect } from 'react';
 
 import { CreateNewGroupForm, UpdateGroupForm } from '@/config/validation-schema';
 import { GroupAndUserParams } from '@/query';
@@ -8,36 +7,15 @@ import {
   useAddAdminMutation,
   useCreateGroupMutation,
   useDeleteGroupMutation,
-  useFetchGroupMembers,
-  useFetchGroupProfile,
   useRemoveAdminMutation,
   useRemoveMemberMutation,
   useUpdateGroupMutation,
 } from '@/query/group';
 import { FileUploadParams, useUploadImageMutation } from '@/query/image';
 import { currentUserProfileAtom } from './state/currentUser';
-import { groupIdAtom, groupMembersAtom, groupProfileAtom } from './state/group';
+import { groupMembersAtom } from './state/group';
 
-export const useInitGroup = (groupId: string) => {
-  const [groupProfile, setGroupProfile] = useAtom(groupProfileAtom);
-  const { data, error, isPending } = useFetchGroupProfile(groupId);
-  useEffect(() => {
-    if (data) setGroupProfile(data);
-  }, [data, setGroupProfile]);
-
-  return { groupProfile, error, isPending };
-};
-
-export const useGroupMembers = () => {
-  const groupId = useAtomValue(groupIdAtom);
-  const [groupMembers, setGroupMembers] = useAtom(groupMembersAtom);
-  const { data: members, error, isPending } = useFetchGroupMembers(groupId ?? '');
-  useEffect(() => {
-    if (members) setGroupMembers(members);
-  }, [members, setGroupMembers]);
-
-  return { groupMembers, error, isPending };
-};
+// TODO change add/remove admins API to return a GroupProfile and update the query
 
 export const useCreateGroup = () => {
   const [currentUserProfile, setCurrentUserProfile] = useAtom(currentUserProfileAtom);
@@ -117,32 +95,20 @@ export const useUpdateGroup = () => {
 };
 
 export const useAddAdmin = () => {
-  const [groupProfile, setGroupProfile] = useAtom(groupProfileAtom);
   const { mutateAsync, error, isPending } = useAddAdminMutation();
   const addAdmin = async (params: GroupAndUserParams) =>
     mutateAsync(params, {
       onError: (error) => enqueueSnackbar(`An error occured trying to add the admin to the group: ${error.message}`),
-    }).then((newAdminList) => {
-      if (groupProfile) {
-        groupProfile.adminIds = newAdminList;
-        setGroupProfile(groupProfile);
-      }
     });
   return { addAdmin, error, isPending };
 };
 
 export const useRemoveAdmin = () => {
-  const [groupProfile, setGroupProfile] = useAtom(groupProfileAtom);
   const { mutateAsync, error, isPending } = useRemoveAdminMutation();
   const removeAdmin = async (params: GroupAndUserParams) =>
     mutateAsync(params, {
       onError: (error) =>
         enqueueSnackbar(`An error occured trying to remove the admin from the group: ${error.message}`),
-    }).then((newAdminList) => {
-      if (groupProfile) {
-        groupProfile.adminIds = newAdminList;
-        setGroupProfile(groupProfile);
-      }
     });
   return { removeAdmin, error, isPending };
 };
@@ -153,6 +119,6 @@ export const useRemoveMember = () => {
   const removeMember = async (params: GroupAndUserParams) =>
     mutateAsync(params, {
       onError: (error) => enqueueSnackbar(`An error occured trying to remove the group member: ${error.message}`),
-    }).then((updatedMembers) => setGroupMembers(updatedMembers));
+    });
   return { removeMember, error, isPending };
 };

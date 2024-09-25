@@ -3,28 +3,27 @@
 import { Button } from '@nextui-org/button';
 import { Textarea } from '@nextui-org/input';
 import { Field, FieldArray, FieldProps, Form, Formik, FormikProps } from 'formik';
+import { useAtomValue } from 'jotai';
 import { useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
 
 import { FieldInput, FounderField, LinksArray } from '@/components/forms';
 import ImageUpload from '@/components/ImageUpload';
-import GroupFormSkeleton from '@/components/skeletons/GroupSkeletons';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import { GROUP_DESCRIPTION_MAX_LENGTH, PATHS } from '@/config/constants';
 import { UpdateGroupForm, updateGroupSchema } from '@/config/validation-schema';
-import { useDeleteGroup, useInitGroup, useUpdateGroup } from '@/hooks/useGroup';
+import { groupAtom } from '@/hooks/state/group';
+import { useDeleteGroup, useUpdateGroup } from '@/hooks/useGroup';
 import DeleteGroup from './DeleteGroup';
 
 type Props = { id: string };
 
 const GroupForm = ({ id }: Props) => {
+  const group = useAtomValue(groupAtom);
   const router = useRouter();
-  const { groupProfile, isPending: isLoadingGroup } = useInitGroup(id);
   const { deleteGroup, isPending: isPendingDelete } = useDeleteGroup();
   const { updateGroup } = useUpdateGroup();
-  const [charsLeft, setCharsLeft] = useState<number>(
-    GROUP_DESCRIPTION_MAX_LENGTH - (groupProfile?.group.description?.length || 0),
-  );
+  const [charsLeft, setCharsLeft] = useState<number>(GROUP_DESCRIPTION_MAX_LENGTH - (group?.description?.length || 0));
 
   // TODO: Deleting the group will have consequences for any logged-in user belonging to that group as their state will be out of sync.
   // TODO: the whole concept of a user belonging to only one group and having to be a member in order to be admin is not mature!
@@ -44,18 +43,16 @@ const GroupForm = ({ id }: Props) => {
     [router, updateGroup, id],
   );
 
-  if (!groupProfile || isLoadingGroup) return <GroupFormSkeleton />;
-
-  const { group } = groupProfile || {};
+  // if (!groupProfile || isLoadingGroup) return <GroupFormSkeleton />;
 
   const initValues: UpdateGroupForm = {
-    name: group.name || '',
-    email: group.email || '',
-    founder: group.founder || '',
-    description: group.description || '',
-    logo: group.logo || '',
-    banner: group.banner || '',
-    links: group.links || [],
+    name: group?.name || '',
+    email: group?.email || '',
+    founder: group?.founder || '',
+    description: group?.description || '',
+    logo: group?.logo || '',
+    banner: group?.banner || '',
+    links: group?.links || [],
   };
 
   return (
