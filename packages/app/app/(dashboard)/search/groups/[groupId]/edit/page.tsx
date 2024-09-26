@@ -1,13 +1,15 @@
 import GroupForm from '@/components/GroupForm';
+import { GroupProfileClientState } from '@/components/GroupProfile';
 import PageHeading from '@/components/PageHeading';
 import { PATHS } from '@/config/constants';
 
-type Props = { params: { groupId: string } };
-const page = ({ params: { groupId = '' } }: Props) => {
+const page = ({ params: { groupId } }: { params: { groupId: string } }) => {
   return (
     <>
       <PageHeading back={`${PATHS.groups}/${groupId}`}>Edit group</PageHeading>
-      <GroupForm id={groupId} />
+      <GroupProfileClientState groupId={groupId}>
+        <GroupForm />
+      </GroupProfileClientState>
     </>
   );
 };

@@ -99,6 +99,8 @@ export const useFetchGroupProfile = (id: string) => useQuery(groupProfileTypedOp
 
 export const useFetchGroupMembers = (id: string) => useQuery(fetchGroupMembersOptions(id));
 
+export const useFetchGroupAdmins = (id: string) => useQuery(fetchGroupAdminsOptions(id));
+
 export const useSearchGroups = ({ offset, pageSize, searchTerm }: SearchParams) => {
   return useInfiniteQuery(searchGroupsOptions(offset, pageSize, searchTerm));
 };
@@ -144,8 +146,8 @@ export const useRemoveMemberMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: ({ groupId, userId }: GroupAndUserParams) => removeMember(groupId, userId),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroupMembers] });
+    onSuccess: (data) => {
+      queryClient.setQueryData([QUERY_KEYS.group.getGroupMembers], data);
     },
   });
 };
@@ -154,8 +156,8 @@ export const useAddAdminMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: ({ groupId, userId }: GroupAndUserParams) => addAdmin(groupId, userId),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroupAdmins] });
+    onSuccess: (data) => {
+      queryClient.setQueryData([QUERY_KEYS.group.getGroupAdmins], data);
     },
   });
 };
@@ -164,8 +166,8 @@ export const useRemoveAdminMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: ({ groupId, userId }: GroupAndUserParams) => removeAdmin(groupId, userId),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroupAdmins] });
+    onSuccess: (data) => {
+      queryClient.setQueryData([QUERY_KEYS.group.getGroupAdmins], data);
     },
   });
 };

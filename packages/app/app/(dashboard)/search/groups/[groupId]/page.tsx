@@ -3,6 +3,7 @@ import { Link } from 'lucide-react';
 import { notFound } from 'next/navigation';
 
 import ContactInfo from '@/components/ContactInfo';
+import GroupMembers from '@/components/GroupMembers';
 import {
   GroupActions,
   GroupBanner,
@@ -17,7 +18,6 @@ import { PATHS } from '@/config/constants';
 import { fetchGroupProfile } from '@/db';
 import { QUERY_KEYS } from '@/query';
 import { getImageUrl, isUUID } from '@/utils';
-import GroupMembers from '@/components/GroupMembers';
 
 type Props = { params: { groupId: string } };
 
@@ -30,7 +30,7 @@ const GroupProfilePage = async ({ params: { groupId } }: Props) => {
   queryClient.setQueryData([QUERY_KEYS.group.getGroup, groupId], profile.group);
   queryClient.setQueryData([QUERY_KEYS.group.getGroupProfile, groupId], profile);
   const dehydratedState = dehydrate(queryClient);
-  // queryClient.clear();
+  queryClient.clear(); // should help with memory usage
 
   const { name, founder, email, description, links, logo } = profile.group;
 
@@ -57,7 +57,7 @@ const GroupProfilePage = async ({ params: { groupId } }: Props) => {
           {founder && isUUID(founder) ? (
             <UserCardWithFetch userId={founder!} />
           ) : (
-            <div className="text-default-500">founder</div>
+            <div className="text-default-500">{founder}</div>
           )}
           <SubsectionHeading>Members</SubsectionHeading>
           <GroupMembers />

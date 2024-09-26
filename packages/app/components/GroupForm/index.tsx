@@ -14,11 +14,10 @@ import { GROUP_DESCRIPTION_MAX_LENGTH, PATHS } from '@/config/constants';
 import { UpdateGroupForm, updateGroupSchema } from '@/config/validation-schema';
 import { groupAtom } from '@/hooks/state/group';
 import { useDeleteGroup, useUpdateGroup } from '@/hooks/useGroup';
+import GroupFormSkeleton from '../skeletons/GroupSkeletons';
 import DeleteGroup from './DeleteGroup';
 
-type Props = { id: string };
-
-const GroupForm = ({ id }: Props) => {
+const GroupForm = () => {
   const group = useAtomValue(groupAtom);
   const router = useRouter();
   const { deleteGroup, isPending: isPendingDelete } = useDeleteGroup();
@@ -28,22 +27,24 @@ const GroupForm = ({ id }: Props) => {
   // TODO: Deleting the group will have consequences for any logged-in user belonging to that group as their state will be out of sync.
   // TODO: the whole concept of a user belonging to only one group and having to be a member in order to be admin is not mature!
   const handleDeleteGroup = useCallback(async () => {
-    return deleteGroup(id).then(() => router.push(PATHS.profile));
-  }, [id, deleteGroup, router]);
+    if (!group) return;
+    return deleteGroup(group.id).then(() => router.push(PATHS.profile));
+  }, [group, deleteGroup, router]);
 
   const handleSubmit = useCallback(
     async (values: UpdateGroupForm) => {
+      if (!group) return;
       /**
        * TODO: We should really only update the profile fields that have changed in order to avoid future
        * API validation conflicts. See https://medium.com/@tonyeder11/formik-enablereinitialize-example-fixing-backend-validation-errors-76d26031d5f7
        * At least the images can be updated separately from the rest of the profile.
        */
-      return updateGroup({ groupId: id, data: values }).then(() => router.push(`${PATHS.groups}/${id}`));
+      return updateGroup({ groupId: group.id, data: values }).then(() => router.push(`${PATHS.groups}/${group.id}`));
     },
-    [router, updateGroup, id],
+    [router, updateGroup, group],
   );
 
-  // if (!groupProfile || isLoadingGroup) return <GroupFormSkeleton />;
+  if (!group) return <GroupFormSkeleton />;
 
   const initValues: UpdateGroupForm = {
     name: group?.name || '',
@@ -123,7 +124,9 @@ const GroupForm = ({ id }: Props) => {
           </Field>
           <SubsectionHeading>Links</SubsectionHeading>
           <FieldArray name="links">
-            {(helpers) => <LinksArray {...helpers} links={values.links} ownerId={id} setFieldValue={setFieldValue} />}
+            {(helpers) => (
+              <LinksArray {...helpers} links={values.links} ownerId={group.id} setFieldValue={setFieldValue} />
+            )}
           </FieldArray>
 
           <div className="flex flex-col mt-8 md:flex-row items-center gap-5">
