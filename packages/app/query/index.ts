@@ -1,6 +1,6 @@
+export * as profile from './currentUser';
 export * as group from './group';
 export * as location from './location';
-export * as profile from './profile';
 export * as user from './user';
 
 /**
@@ -16,8 +16,8 @@ export const QUERY_KEYS = {
     getGroupAdmins: 'group.getGroupAdmins',
     searchGroups: 'groups.search',
   },
-  profile: {
-    getProfile: 'profile.getProfile',
+  currentUser: {
+    getUser: 'currentUser.getUser',
   },
   location: {
     getCountries: 'location.getCountries',

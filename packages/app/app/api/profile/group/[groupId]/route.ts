@@ -2,8 +2,7 @@ import { nextAuthOptions } from '@/config/next-auth-options';
 import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
 
-import { fetchUserProfile, updateUser } from '@/db';
-import { UserProfile } from '@/types/model';
+import { updateUser } from '@/db';
 
 /**
  * Let's the current user join the specified group by setting the user's groupId to the specified groupId.
@@ -20,9 +19,8 @@ export async function PUT(request: NextRequest, { params }: { params: { groupId:
 
   try {
     const { groupId } = params;
-    await updateUser({ id: session.user.id, groupId });
-    const profile = await fetchUserProfile(session.user.id);
-    return NextResponse.json(profile);
+    const updatedUser = await updateUser({ id: session.user.id, groupId });
+    return NextResponse.json(updatedUser);
   } catch (error) {
     const message = error instanceof Error ? error.message : 'An unexpected server error occurred while joining group';
     return NextResponse.json({ error: message }, { status: 500 });
@@ -44,8 +42,7 @@ export async function DELETE() {
 
   try {
     const updatedUser = await updateUser({ id: session.user.id, groupId: null });
-    const updatedProfile: UserProfile = { user: updatedUser!, group: null };
-    return NextResponse.json(updatedProfile);
+    return NextResponse.json(updatedUser);
   } catch (error) {
     const message = error instanceof Error ? error.message : 'An unexpected server error occurred while exiting group';
     return Response.json(

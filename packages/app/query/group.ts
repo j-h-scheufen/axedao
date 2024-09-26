@@ -103,7 +103,7 @@ export const useCreateGroupMutation = () => {
     onSuccess: (data) => {
       queryClient.setQueryData([QUERY_KEYS.group.getGroup, data.id], data);
       // The current user's groupId has changed as part of creating a new group
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.profile.getProfile] });
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.currentUser.getUser] });
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.searchGroups] });
     },
   });
@@ -115,7 +115,7 @@ export const useDeleteGroupMutation = () => {
     mutationFn: (groupId: string) => deleteGroup(groupId),
     onSuccess: (data, variables) => {
       // The current user's groupId has changed as part of deleting the group
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.profile.getProfile] });
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.currentUser.getUser] });
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroup, variables] });
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.searchGroups] });
     },
@@ -127,9 +127,8 @@ export const useUpdateGroupMutation = () => {
   return useMutation({
     mutationFn: ({ groupId, data }: { groupId: string; data: UpdateGroupForm }) => updateGroup(groupId, data),
     onSuccess: (data, variables) => {
+      console.log('updating query cache for group', variables.groupId, data);
       queryClient.setQueryData([QUERY_KEYS.group.getGroup, variables.groupId], data);
-      // The current user's group's attributes in the profile have changed
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.profile.getProfile] });
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.searchGroups] });
     },
   });

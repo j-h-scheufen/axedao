@@ -28,7 +28,7 @@ const columns = [
 ];
 
 const useGlobalAdminUsersTable = () => {
-  const user = useAtomValue(currentUserAtom);
+  const { data: user } = useAtomValue(currentUserAtom);
   const [selectedRows, setSelectedRows] = useState<Set<string>>(new Set([]));
   const { searchTerm, setSearchTerm, users, isLoading, loaderRef, scrollerRef } = useUserSearch();
 

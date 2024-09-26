@@ -1,17 +1,30 @@
 import { atom } from 'jotai';
+import { atomWithQuery } from 'jotai-tanstack-query';
 
 import { SocialLink } from '@/db/schema';
-import { Group, User, UserProfile } from '@/types/model';
+import { fetchCurrentUserOptions } from '@/query/currentUser';
+import { fetchGroupOptions } from '@/query/group';
+import { Group, User } from '@/types/model';
 import { getImageUrl } from '@/utils';
 
-export const currentUserProfileAtom = atom<UserProfile | undefined>();
+export const triggerCurrentUserIdAtom = atom<string | undefined>();
 
-export const currentUserIdAtom = atom<string | undefined>((get) => get(currentUserProfileAtom)?.user.id);
+export const currentUserAtom = atomWithQuery<User | undefined>((get) =>
+  fetchCurrentUserOptions(get(triggerCurrentUserIdAtom)),
+);
 
-export const currentUserAtom = atom<User | undefined>((get) => get(currentUserProfileAtom)?.user);
+export const currentUserGroupAtom = atomWithQuery<Group | undefined>((get) =>
+  fetchGroupOptions(get(currentUserGroupIdAtom)),
+);
 
-export const currentUserLinksAtom = atom<SocialLink[] | undefined>((get) => get(currentUserProfileAtom)?.user.links);
+export const currentUserIdAtom = atom<string | undefined>((get) => get(currentUserAtom).data?.id);
 
-export const currentUserGroupAtom = atom<Group | undefined>((get) => get(currentUserProfileAtom)?.group ?? undefined);
+export const currentUserGroupIdAtom = atom<string | undefined>(
+  (get) => get(currentUserAtom).data?.groupId ?? undefined,
+);
 
-export const currentUserAvatarUrlAtom = atom<string | undefined>((get) => getImageUrl(get(currentUserAtom)?.avatar));
+export const currentUserLinksAtom = atom<SocialLink[] | undefined>((get) => get(currentUserAtom).data?.links);
+
+export const currentUserAvatarUrlAtom = atom<string | undefined>((get) =>
+  getImageUrl(get(currentUserAtom).data?.avatar),
+);

@@ -12,43 +12,27 @@ import {
   useUpdateGroupMutation,
 } from '@/query/group';
 import { FileUploadParams, useUploadImageMutation } from '@/query/image';
-import { currentUserProfileAtom } from './state/currentUser';
 import { groupMembersAtom } from './state/group';
 
 export const useCreateGroup = () => {
-  const [currentUserProfile, setCurrentUserProfile] = useAtom(currentUserProfileAtom);
   const { mutateAsync, error, isPending } = useCreateGroupMutation();
   const createGroup = async (data: CreateNewGroupForm) =>
     mutateAsync(data, {
       onError: (error) => enqueueSnackbar(`An error occured trying to create the group: ${error.message}`),
-    }).then((newGroup) => {
-      if (currentUserProfile) {
-        currentUserProfile.user.groupId = newGroup.id;
-        currentUserProfile.group = newGroup;
-        setCurrentUserProfile(currentUserProfile);
-      }
     });
   return { createGroup, error, isPending };
 };
 
 export const useDeleteGroup = () => {
-  const [currentUserProfile, setCurrentUserProfile] = useAtom(currentUserProfileAtom);
   const { mutateAsync, error, isPending } = useDeleteGroupMutation();
   const deleteGroup = async (groupId: string) =>
     mutateAsync(groupId, {
       onError: (error) => enqueueSnackbar(`An error occured trying to delete the group: ${error.message}`),
-    }).then(() => {
-      if (currentUserProfile) {
-        currentUserProfile.user.groupId = null;
-        currentUserProfile.group = null;
-        setCurrentUserProfile(currentUserProfile);
-      }
     });
   return { deleteGroup, error, isPending };
 };
 
 export const useUpdateGroup = () => {
-  const [currentUserProfile, setCurrentUserProfile] = useAtom(currentUserProfileAtom);
   const { mutateAsync, error, isPending } = useUpdateGroupMutation();
   const { mutateAsync: mutateImage } = useUploadImageMutation();
   const updateGroup = async (params: { groupId: string; data: UpdateGroupForm }) => {
@@ -80,13 +64,6 @@ export const useUpdateGroup = () => {
 
     return mutateAsync(params, {
       onError: (error) => enqueueSnackbar(`An error occured trying to update the group: ${error.message}`),
-    }).then((groupUpdate) => {
-      if (currentUserProfile) {
-        // TODO The data model currently enforces that an admin user is also a member of the group
-        // and we therefore update the current user. This might change in the future.
-        currentUserProfile.group = groupUpdate;
-        setCurrentUserProfile(currentUserProfile);
-      }
     });
   };
   return { updateGroup, error, isPending };

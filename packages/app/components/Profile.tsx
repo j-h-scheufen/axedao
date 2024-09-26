@@ -9,19 +9,19 @@ import Link from 'next/link';
 import ContactInfo from '@/components/ContactInfo';
 import { ProfileSkeleton } from '@/components/skeletons/ProfileSkeletons';
 import { PATHS } from '@/config/constants';
-import { currentUserAvatarUrlAtom, currentUserProfileAtom } from '@/hooks/state/currentUser';
-import { getUserDisplayName } from '@/utils';
+import { currentUserAtom } from '@/hooks/state/currentUser';
+import { getImageUrl, getUserDisplayName } from '@/utils';
 
 const Profile = () => {
-  const profile = useAtomValue(currentUserProfileAtom);
-  const avatarUrl = useAtomValue(currentUserAvatarUrlAtom);
-  if (!profile) return <ProfileSkeleton />;
-  const { user } = profile;
+  const { data: user, isFetching } = useAtomValue(currentUserAtom);
+
+  if (!user || isFetching) return <ProfileSkeleton />;
+
   return (
     <div className="flex flex-col items-center gap-5 sm:flex-row">
       <Avatar
         showFallback
-        src={avatarUrl}
+        src={getImageUrl(user.avatar)}
         fallback={<Camera className="h-10 w-10 animate-pulse text-default-500" strokeWidth={1} size={20} />}
         className="aspect-square h-full max-h-32 w-full max-w-32"
       />

@@ -2,8 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { ProfileForm, profileFormSchema } from '@/config/validation-schema';
-import { fetchUserProfile, updateUser } from '@/db';
-import { UserProfile } from '@/types/model';
+import { fetchUser, updateUser } from '@/db';
 import { getServerSession } from 'next-auth';
 import { notFound } from 'next/navigation';
 
@@ -19,10 +18,10 @@ export async function GET() {
     return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
-  const profile = await fetchUserProfile(session.user.id);
-  if (!profile) return notFound();
+  const user = await fetchUser(session.user.id);
+  if (!user) return notFound();
 
-  return Response.json(profile);
+  return Response.json(user);
 }
 
 /**
@@ -47,17 +46,15 @@ export async function PATCH(request: NextRequest) {
     return NextResponse.json({ error: `Invalid input data` }, { status: 400 });
   }
 
-  const profile = await fetchUserProfile(session.user.id);
-  if (!profile) return notFound();
+  const existingUser = await fetchUser(session.user.id);
+  if (!existingUser) return notFound();
   try {
     const profileData = formData as Omit<ProfileForm, 'avatar'> & {
       avatar: string | null | undefined;
     };
 
     const updatedUser = await updateUser({ id: session.user.id, ...profileData });
-    // we're re-using the user's group from the profile since it wasn't affected by the update
-    const responseData: UserProfile = { user: updatedUser!, group: profile.group };
-    return Response.json(responseData);
+    return Response.json(updatedUser);
   } catch (error) {
     console.error('Error updating user profile', error);
     return NextResponse.json({ error: 'Error updating user profile' }, { status: 500 });

@@ -5,7 +5,7 @@ import { SocialLink } from '@/db/schema';
 import { fetchGroupAdminsOptions, fetchGroupMembersOptions, fetchGroupOptions } from '@/query/group';
 import { Group, User } from '@/types/model';
 import { getImageUrl, isUUID } from '@/utils';
-import { currentUserGroupAtom, currentUserIdAtom } from './currentUser';
+import { currentUserGroupIdAtom, currentUserIdAtom } from './currentUser';
 
 // This atom is special because it's used to trigger the loading of a group profile
 export const triggerGroupIdAtom = atom<string | undefined>();
@@ -32,6 +32,6 @@ export const isCurrentUserGroupAdminAtom = atom<boolean>(
   (get) => get(groupAdminIdsAtom)?.data?.includes(get(currentUserIdAtom) ?? '') ?? false,
 );
 
-export const isCurrentUserGroupMemberAtom = atom<boolean>((get) => get(groupIdAtom) === get(currentUserGroupAtom)?.id);
+export const isCurrentUserGroupMemberAtom = atom<boolean>((get) => get(groupIdAtom) === get(currentUserGroupIdAtom));
 
 export const isFounderUuidAtom = atom<boolean>((get) => isUUID(get(groupFounderAtom) ?? ''));

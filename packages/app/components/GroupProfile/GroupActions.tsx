@@ -22,7 +22,7 @@ const GroupActions = () => {
 
   const handleGroupExit = useCallback(async () => {
     if (!groupId) return;
-    return leaveGroup(groupId);
+    await leaveGroup(groupId);
   }, [leaveGroup, groupId]);
 
   return (

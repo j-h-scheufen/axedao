@@ -3,8 +3,9 @@
 import { triggerGroupIdAtom } from '@/hooks/state/group';
 import { useAtomValue } from 'jotai';
 import { useHydrateAtoms } from 'jotai/react/utils';
+import { PropsWithChildren } from 'react';
 
-type Props = { groupId: string };
+type Props = PropsWithChildren & { groupId: string };
 
 /**
  * This component makes sure that the triggerGroupIdAtom is set to the specified groupId
@@ -14,10 +15,10 @@ type Props = { groupId: string };
  * @param groupId the ID of the group to load into state
  * @returns
  */
-const GroupProfileClientState = ({ groupId }: Props) => {
+const GroupProfileClientState = ({ groupId, children }: Props) => {
   const triggerId = useAtomValue(triggerGroupIdAtom);
   useHydrateAtoms(!triggerId || triggerId !== groupId ? new Map([[triggerGroupIdAtom, groupId]]) : new Map());
-  return null;
+  return children;
 };
 
 export default GroupProfileClientState;

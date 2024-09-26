@@ -1,27 +1,36 @@
 'use client';
 
-import { createStore, Provider as JotaiProvider } from 'jotai';
+import { Provider as JotaiProvider } from 'jotai';
+import { queryClientAtom } from 'jotai-tanstack-query';
+import { useHydrateAtoms } from 'jotai/react/utils';
 import { useSession } from 'next-auth/react';
-import { PropsWithChildren, useMemo } from 'react';
+import { PropsWithChildren } from 'react';
 
-import { currentUserProfileAtom } from '@/hooks/state/currentUser';
-import { useFetchProfile } from '@/query/profile';
+import { triggerCurrentUserIdAtom } from '@/hooks/state/currentUser';
+import { useQueryClient } from '@tanstack/react-query';
 
 /**
  * Injects the current user's profile into the Jotai store, when the user is logged in.
- * TODO - This should be refactored to use jotai-query atoms. No need to initiate the jotai state here.
  */
-export default function Provider({ children }: PropsWithChildren) {
+const CurrentUserProvider = ({ children }: PropsWithChildren) => {
   const { data: session } = useSession();
-  const { data: profile } = useFetchProfile();
+  const queryClient = useQueryClient();
+  // Hydrate currentUser on first page load and refresh
+  useHydrateAtoms([
+    [queryClientAtom, queryClient], // This ensures that React Query and Jotai Query atoms are using the same client
+    [triggerCurrentUserIdAtom, session?.user?.id],
+  ] as const);
 
-  const store = useMemo(() => {
-    const store = createStore();
-    if (session && profile) {
-      store.set(currentUserProfileAtom, profile);
-    }
-    return store;
-  }, [session, profile]);
+  // useEffect(() => {
+  //   if (session && (!triggerId || triggerId !== session.user?.id)) setTriggerId(session?.user?.id);
+  // }, [session, triggerId, setTriggerId]);
+  return children;
+};
 
-  return <JotaiProvider store={store}>{children}</JotaiProvider>;
-}
+const Provider = ({ children }: PropsWithChildren) => (
+  <JotaiProvider>
+    <CurrentUserProvider>{children}</CurrentUserProvider>
+  </JotaiProvider>
+);
+
+export default Provider;

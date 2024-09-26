@@ -20,7 +20,7 @@ import { Spinner } from '@nextui-org/spinner';
 
 const ProfileForm = () => {
   const router = useRouter();
-  const user = useAtomValue(currentUserAtom);
+  const { data: user } = useAtomValue(currentUserAtom);
   const { updateProfile } = useUpdateProfile();
 
   const handleSubmit = useCallback(

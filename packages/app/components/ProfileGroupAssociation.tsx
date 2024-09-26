@@ -6,7 +6,7 @@ import GroupCard from '@/components/GroupCard';
 import { currentUserGroupAtom } from '@/hooks/state/currentUser';
 
 const UserGroupAssociation = () => {
-  const group = useAtomValue(currentUserGroupAtom);
+  const { data: group } = useAtomValue(currentUserGroupAtom);
   return group ? (
     <GroupCard className="mx-auto sm:mx-0 md:max-w-80" group={group} />
   ) : (
