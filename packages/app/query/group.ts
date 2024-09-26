@@ -10,34 +10,28 @@ import axios from 'axios';
 
 import { QUERY_DEFAULT_STALE_TIME_MINUTES } from '@/config/constants';
 import { CreateNewGroupForm, SearchParams, UpdateGroupForm } from '@/config/validation-schema';
-import { Group, GroupProfile, GroupSearchResult, User } from '@/types/model';
+import { Group, GroupSearchResult, User } from '@/types/model';
 import { GroupAndUserParams, QUERY_KEYS } from '.';
 
-const fetchGroup = (id: string): Promise<Group> => axios.get(`/api/groups/${id}`).then((response) => response.data);
-function fetchGroupOptions(id: string) {
-  return queryOptions({
-    queryKey: [QUERY_KEYS.group.getGroup, id],
-    queryFn: () => fetchGroup(id),
-    staleTime: 1000 * 60 * QUERY_DEFAULT_STALE_TIME_MINUTES,
-    enabled: !!id,
-  });
-}
+/**
+ * Note that the various fetch options are exported as read-only objects in order to be used by atomWithQuery.
+ * When used in useQuery hooks (e.g. useQuery, useInfiniteQuery), the options should be wrappped
+ * into the queryOptions() function in order to take advantage of the added type safety and inference.
+ */
 
-const fetchGroupProfile = (id: string): Promise<GroupProfile> =>
-  axios.get(`/api/groups/${id}/profile`).then((response) => response.data);
-export const groupProfileOptions = (id: string | undefined) => {
+const fetchGroup = (id: string): Promise<Group> => axios.get(`/api/groups/${id}`).then((response) => response.data);
+export const fetchGroupOptions = (id: string | undefined) => {
   return {
-    queryKey: [QUERY_KEYS.group.getGroupProfile, id],
-    queryFn: () => fetchGroupProfile(id ?? ''),
+    queryKey: [QUERY_KEYS.group.getGroup, id],
+    queryFn: () => fetchGroup(id ?? ''),
     staleTime: 1000 * 60 * QUERY_DEFAULT_STALE_TIME_MINUTES,
     enabled: !!id,
   } as const;
 };
-const groupProfileTypedOptions = (id: string) => queryOptions(groupProfileOptions(id));
 
 const fetchGroupMembers = (id: string): Promise<User[]> =>
   axios.get(`/api/groups/${id}/members`).then((response) => response.data);
-export const groupMembersOptions = (id: string | undefined) => {
+export const fetchGroupMembersOptions = (id: string | undefined) => {
   return {
     queryKey: [QUERY_KEYS.group.getGroupMembers, id],
     queryFn: () => fetchGroupMembers(id ?? ''),
@@ -45,18 +39,17 @@ export const groupMembersOptions = (id: string | undefined) => {
     enabled: !!id,
   } as const;
 };
-const fetchGroupMembersOptions = (id: string) => queryOptions(groupMembersOptions(id));
 
-const fetchGroupAdmins = (id: string): Promise<User[]> =>
+const fetchGroupAdmins = (id: string): Promise<string[]> =>
   axios.get(`/api/groups/${id}/admins`).then((response) => response.data);
-function fetchGroupAdminsOptions(id: string) {
-  return queryOptions({
+export const fetchGroupAdminsOptions = (id: string | undefined) => {
+  return {
     queryKey: [QUERY_KEYS.group.getGroupAdmins, id],
-    queryFn: () => fetchGroupAdmins(id),
+    queryFn: () => fetchGroupAdmins(id ?? ''),
     staleTime: 1000 * 60 * QUERY_DEFAULT_STALE_TIME_MINUTES,
     enabled: !!id,
-  });
-}
+  } as const;
+};
 
 const searchGroups = async ({ offset, pageSize, searchTerm }: SearchParams): Promise<GroupSearchResult> => {
   let queryParams = `?offset=${offset}`;
@@ -93,13 +86,11 @@ const removeAdmin = async (groupId: string, userId: string): Promise<string[]> =
   axios.delete(`/api/groups/${groupId}/admins/${userId}`).then((response) => response.data);
 
 // HOOKS
-export const useFetchGroup = (id: string) => useQuery(fetchGroupOptions(id));
+export const useFetchGroup = (id: string) => useQuery(queryOptions(fetchGroupOptions(id)));
 
-export const useFetchGroupProfile = (id: string) => useQuery(groupProfileTypedOptions(id));
+export const useFetchGroupMembers = (id: string) => useQuery(queryOptions(fetchGroupMembersOptions(id)));
 
-export const useFetchGroupMembers = (id: string) => useQuery(fetchGroupMembersOptions(id));
-
-export const useFetchGroupAdmins = (id: string) => useQuery(fetchGroupAdminsOptions(id));
+export const useFetchGroupAdmins = (id: string) => useQuery(queryOptions(fetchGroupAdminsOptions(id)));
 
 export const useSearchGroups = ({ offset, pageSize, searchTerm }: SearchParams) => {
   return useInfiniteQuery(searchGroupsOptions(offset, pageSize, searchTerm));
@@ -110,7 +101,7 @@ export const useCreateGroupMutation = () => {
   return useMutation({
     mutationFn: (newGroup: CreateNewGroupForm) => createGroup(newGroup),
     onSuccess: (data) => {
-      queryClient.setQueryData([QUERY_KEYS.group.getGroup, { id: data.id }], data);
+      queryClient.setQueryData([QUERY_KEYS.group.getGroup, data.id], data);
       // The current user's groupId has changed as part of creating a new group
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.profile.getProfile] });
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.searchGroups] });
@@ -122,9 +113,10 @@ export const useDeleteGroupMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (groupId: string) => deleteGroup(groupId),
-    onSuccess: () => {
+    onSuccess: (data, variables) => {
       // The current user's groupId has changed as part of deleting the group
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.profile.getProfile] });
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroup, variables] });
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.searchGroups] });
     },
   });
@@ -134,10 +126,11 @@ export const useUpdateGroupMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: ({ groupId, data }: { groupId: string; data: UpdateGroupForm }) => updateGroup(groupId, data),
-    onSuccess: (data) => {
-      queryClient.setQueryData([QUERY_KEYS.group.getGroup, { id: data.id }], data);
-      // The current user's group in the profile has changed
+    onSuccess: (data, variables) => {
+      queryClient.setQueryData([QUERY_KEYS.group.getGroup, variables.groupId], data);
+      // The current user's group's attributes in the profile have changed
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.profile.getProfile] });
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.searchGroups] });
     },
   });
 };
@@ -146,8 +139,8 @@ export const useRemoveMemberMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: ({ groupId, userId }: GroupAndUserParams) => removeMember(groupId, userId),
-    onSuccess: (data) => {
-      queryClient.setQueryData([QUERY_KEYS.group.getGroupMembers], data);
+    onSuccess: (data, variables) => {
+      queryClient.setQueryData([QUERY_KEYS.group.getGroupMembers, variables.groupId], data);
     },
   });
 };
@@ -156,8 +149,8 @@ export const useAddAdminMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: ({ groupId, userId }: GroupAndUserParams) => addAdmin(groupId, userId),
-    onSuccess: (data) => {
-      queryClient.setQueryData([QUERY_KEYS.group.getGroupAdmins], data);
+    onSuccess: (data, variables) => {
+      queryClient.setQueryData([QUERY_KEYS.group.getGroupAdmins, variables.groupId], data);
     },
   });
 };
@@ -166,8 +159,8 @@ export const useRemoveAdminMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: ({ groupId, userId }: GroupAndUserParams) => removeAdmin(groupId, userId),
-    onSuccess: (data) => {
-      queryClient.setQueryData([QUERY_KEYS.group.getGroupAdmins], data);
+    onSuccess: (data, variables) => {
+      queryClient.setQueryData([QUERY_KEYS.group.getGroupAdmins, variables.groupId], data);
     },
   });
 };

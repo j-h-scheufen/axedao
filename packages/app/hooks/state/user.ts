@@ -1,10 +1,12 @@
 import { atom } from 'jotai';
 
 import { SocialLink } from '@/db/schema';
-import { User, UserProfile } from '@/types/model';
+import { Group, User, UserProfile } from '@/types/model';
 import { getImageUrl } from '@/utils';
 
 export const userProfileAtom = atom<UserProfile | undefined>();
+
+export const userProfileGroupAtom = atom<Group | undefined>((get) => get(userProfileAtom)?.group ?? undefined);
 
 export const userAtom = atom<User | undefined>((get) => get(userProfileAtom)?.user);
 

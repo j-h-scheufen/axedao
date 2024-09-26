@@ -22,7 +22,7 @@ const GroupMembers = () => {
   const { data: groupMembers, isPending } = useAtomValue(groupMembersAtom);
   const groupFounder = useAtomValue(groupFounderAtom);
   const groupLeader = useAtomValue(groupLeaderAtom);
-  const groupAdminIds = useAtomValue(groupAdminIdsAtom);
+  const { data: groupAdminIds } = useAtomValue(groupAdminIdsAtom);
   const isGroupAdmin = useAtomValue(isCurrentUserGroupAdminAtom);
   const getMemberRoles = useCallback(
     (userId: string): GroupMemberRole[] => {

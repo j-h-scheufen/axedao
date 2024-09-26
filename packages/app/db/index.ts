@@ -5,7 +5,7 @@ import postgres from 'postgres';
 import ENV from '@/config/environment';
 import { GroupSearchParams, SearchParams } from '@/config/validation-schema';
 import * as schema from '@/db/schema';
-import { Group, GroupProfile, UserProfile, UserSession } from '@/types/model';
+import { Group, UserProfile, UserSession } from '@/types/model';
 
 /**
  * NOTE: All DB functions in this file can only be run server-side. If you need to retrieve DB data from a client
@@ -147,18 +147,19 @@ export async function fetchGroup(groupId: string): Promise<schema.SelectGroup | 
   });
 }
 
-export async function fetchGroupProfile(groupId: string): Promise<GroupProfile | undefined> {
-  const group = await db.select().from(schema.groups).where(eq(schema.groups.id, groupId));
-  const adminIds = await fetchGroupAdminIds(groupId);
-  if (group.length == 0) throw new Error('Group not found');
-  return { group: group[0], adminIds };
-}
-
 export async function fetchGroupMembers(groupId: string): Promise<schema.SelectUser[]> {
   return await db
     .select()
     .from(schema.users)
     .where(and(eq(schema.users.groupId, groupId)));
+}
+
+export async function fetchGroupAdminIds(groupId: string): Promise<string[]> {
+  const result = await db
+    .select({ id: schema.groupAdmins.userId })
+    .from(schema.groupAdmins)
+    .where(eq(schema.groupAdmins.groupId, groupId));
+  return result.map((entry) => entry.id);
 }
 
 export async function insertUser(userValues: schema.InsertUser) {
@@ -195,14 +196,6 @@ export async function updateGroup(group: Partial<schema.InsertGroup> & { id: str
 
 export async function addGroupAdmin(entry: schema.InsertGroupAdmin) {
   await db.insert(schema.groupAdmins).values(entry).onConflictDoNothing(); // Ignore if already exists
-}
-
-export async function fetchGroupAdminIds(groupId: string): Promise<string[]> {
-  const result = await db
-    .select({ id: schema.groupAdmins.userId })
-    .from(schema.groupAdmins)
-    .where(eq(schema.groupAdmins.groupId, groupId));
-  return result.map((entry) => entry.id);
 }
 
 export async function removeGroupAdmin(groupId: string, adminId: string) {

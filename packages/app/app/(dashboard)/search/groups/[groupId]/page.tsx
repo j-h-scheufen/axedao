@@ -15,7 +15,7 @@ import PageHeading from '@/components/PageHeading';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import UserCardWithFetch from '@/components/UserCardWithFetch';
 import { PATHS } from '@/config/constants';
-import { fetchGroupProfile } from '@/db';
+import { fetchGroup, fetchGroupAdminIds, fetchGroupMembers } from '@/db';
 import { QUERY_KEYS } from '@/query';
 import { getImageUrl, isUUID } from '@/utils';
 
@@ -23,19 +23,24 @@ type Props = { params: { groupId: string } };
 
 const GroupProfilePage = async ({ params: { groupId } }: Props) => {
   if (!groupId) throw Error('This page must be placed on a dynamic path containing [groupId]');
-  const profile = await fetchGroupProfile(groupId);
-  if (!profile) throw notFound();
+  const group = await fetchGroup(groupId);
+  const adminIds = await fetchGroupAdminIds(groupId);
+  const groupMembers = await fetchGroupMembers(groupId);
+  if (!group) throw notFound();
 
   const queryClient = new QueryClient();
-  queryClient.setQueryData([QUERY_KEYS.group.getGroup, groupId], profile.group);
-  queryClient.setQueryData([QUERY_KEYS.group.getGroupProfile, groupId], profile);
+  queryClient.setQueryData([QUERY_KEYS.group.getGroup, groupId], group);
+  queryClient.setQueryData([QUERY_KEYS.group.getGroupAdmins], adminIds);
+  queryClient.setQueryData([QUERY_KEYS.group.getGroupMembers], groupMembers);
   const dehydratedState = dehydrate(queryClient);
   queryClient.clear(); // should help with memory usage
 
-  const { name, founder, email, description, links, logo } = profile.group;
+  const { name, founder, email, description, links, logo } = group;
 
   return (
     <HydrationBoundary state={dehydratedState}>
+      <GroupProfileClientState groupId={groupId} />
+
       <div className="relative">
         <PageHeading back={`${PATHS.search}?tab=groups`}>{name}</PageHeading>
         <GroupBanner />
@@ -51,17 +56,15 @@ const GroupProfilePage = async ({ params: { groupId } }: Props) => {
             <ContactInfo links={links} />
           </div>
         </div>
-        <GroupProfileClientState groupId={groupId}>
-          <GroupActions />
-          <SubsectionHeading>Founder</SubsectionHeading>
-          {founder && isUUID(founder) ? (
-            <UserCardWithFetch userId={founder!} />
-          ) : (
-            <div className="text-default-500">{founder}</div>
-          )}
-          <SubsectionHeading>Members</SubsectionHeading>
-          <GroupMembers />
-        </GroupProfileClientState>
+        <GroupActions />
+        <SubsectionHeading>Founder</SubsectionHeading>
+        {founder && isUUID(founder) ? (
+          <UserCardWithFetch userId={founder!} />
+        ) : (
+          <div className="text-default-500">{founder}</div>
+        )}
+        <SubsectionHeading>Members</SubsectionHeading>
+        <GroupMembers />
       </div>
     </HydrationBoundary>
   );

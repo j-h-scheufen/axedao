@@ -18,7 +18,7 @@ import GroupFormSkeleton from '../skeletons/GroupSkeletons';
 import DeleteGroup from './DeleteGroup';
 
 const GroupForm = () => {
-  const group = useAtomValue(groupAtom);
+  const { data: group, isFetching } = useAtomValue(groupAtom);
   const router = useRouter();
   const { deleteGroup, isPending: isPendingDelete } = useDeleteGroup();
   const { updateGroup } = useUpdateGroup();
@@ -44,7 +44,7 @@ const GroupForm = () => {
     [router, updateGroup, group],
   );
 
-  if (!group) return <GroupFormSkeleton />;
+  if (!group || isFetching) return <GroupFormSkeleton />;
 
   const initValues: UpdateGroupForm = {
     name: group?.name || '',

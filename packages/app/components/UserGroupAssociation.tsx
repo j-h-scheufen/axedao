@@ -3,10 +3,10 @@
 import { useAtomValue } from 'jotai';
 
 import GroupCard from '@/components/GroupCard';
-import { groupAtom } from '@/hooks/state/group';
+import { userProfileGroupAtom } from '@/hooks/state/user';
 
 const UserGroupAssociation = () => {
-  const group = useAtomValue(groupAtom);
+  const group = useAtomValue(userProfileGroupAtom); // TODO this is likely wrong. This component is used on the UserProfile page
   return group ? (
     <GroupCard className="mx-auto sm:mx-0 md:max-w-80" group={group} />
   ) : (

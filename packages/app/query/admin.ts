@@ -20,7 +20,6 @@ export const useGroupVerificationMutation = () => {
     mutationFn: (params: GroupVerificationParams) => setGroupVerification(params),
     onSuccess: (data, variables) => {
       queryClient.setQueryData([QUERY_KEYS.group.getGroup, variables.groupId], data);
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroupProfile, variables.groupId] });
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.searchGroups] });
     },
   });

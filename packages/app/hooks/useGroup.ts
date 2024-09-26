@@ -15,8 +15,6 @@ import { FileUploadParams, useUploadImageMutation } from '@/query/image';
 import { currentUserProfileAtom } from './state/currentUser';
 import { groupMembersAtom } from './state/group';
 
-// TODO change add/remove admins API to return a GroupProfile and update the query
-
 export const useCreateGroup = () => {
   const [currentUserProfile, setCurrentUserProfile] = useAtom(currentUserProfileAtom);
   const { mutateAsync, error, isPending } = useCreateGroupMutation();

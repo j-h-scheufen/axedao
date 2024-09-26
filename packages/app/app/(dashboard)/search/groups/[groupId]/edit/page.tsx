@@ -7,9 +7,8 @@ const page = ({ params: { groupId } }: { params: { groupId: string } }) => {
   return (
     <>
       <PageHeading back={`${PATHS.groups}/${groupId}`}>Edit group</PageHeading>
-      <GroupProfileClientState groupId={groupId}>
-        <GroupForm />
-      </GroupProfileClientState>
+      <GroupProfileClientState groupId={groupId} />
+      <GroupForm />
     </>
   );
 };
