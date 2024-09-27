@@ -1,10 +1,27 @@
-import { initSilk } from '@silk-wallet/silk-wallet-sdk';
-import { SilkEthereumProviderInterface } from '@silk-wallet/silk-wallet-sdk/dist/lib/provider/types';
 import { ChainNotConfiguredError, createConnector } from '@wagmi/core';
 import { Chain, getAddress, SwitchChainError, UserRejectedRequestError } from 'viem';
 
 import { SILK_METHOD } from '@silk-wallet/silk-interface-core';
+import { initSilk } from '@silk-wallet/silk-wallet-sdk';
+import { SilkEthereumProviderInterface } from '@silk-wallet/silk-wallet-sdk/dist/lib/provider/types';
 
+// For reference: WAGMI connector event map: wagmi/packages/core/src/connectors/createConnector.ts
+// type ConnectorEventMap = {
+//   change: {
+//     accounts?: readonly Address[] | undefined
+//     chainId?: number | undefined
+//   }
+//   connect: { accounts: readonly Address[]; chainId: number }
+//   disconnect: never
+//   error: { error: Error }
+//   message: { type: string; data?: unknown | undefined }
+// }
+
+/**
+ * Creates a WAGMI connector for the Silk Wallet SDK
+ * @param referralCode Optional referral code for the Silk points system
+ * @returns
+ */
 export default function silk(referralCode?: string) {
   let silkProvider: SilkEthereumProviderInterface | null = null;
 
@@ -12,6 +29,9 @@ export default function silk(referralCode?: string) {
     id: 'silk',
     name: 'Silk Security Connector',
     type: 'Silk',
+    chains: config.chains,
+    supportsSimulation: false,
+
     async connect({ chainId } = {}) {
       try {
         config.emitter.emit('message', {
@@ -21,13 +41,13 @@ export default function silk(referralCode?: string) {
 
         provider.on('accountsChanged', this.onAccountsChanged);
         provider.on('chainChanged', this.onChainChanged);
-        provider.on('disconnect', this.onDisconnect.bind(this));
+        provider.on('disconnect', this.onDisconnect);
 
         if (!provider.connected) {
           try {
             provider.login();
           } catch (error) {
-            console.error('Unable to login', error);
+            console.warn('Unable to login', error);
             throw new UserRejectedRequestError('User rejected login' as unknown as Error);
           }
         }
@@ -45,11 +65,12 @@ export default function silk(referralCode?: string) {
 
         return { accounts, chainId: currentChainId };
       } catch (error) {
-        console.error('error while connecting', error);
+        console.error('Error while connecting', error);
         this.onDisconnect();
-        throw new UserRejectedRequestError('Something went wrong' as unknown as Error);
+        throw error;
       }
     },
+
     async getAccounts() {
       const provider = await this.getProvider();
       const accounts = await provider.request({
@@ -59,6 +80,7 @@ export default function silk(referralCode?: string) {
       if (accounts && Array.isArray(accounts)) return accounts.map((x: string) => getAddress(x));
       return [];
     },
+
     async getChainId() {
       const provider = await this.getProvider();
       const chainId = await provider.request({ method: SILK_METHOD.eth_chainId });
@@ -66,11 +88,10 @@ export default function silk(referralCode?: string) {
     },
 
     async getProvider(): Promise<SilkEthereumProviderInterface> {
-      if (silkProvider) {
-        return silkProvider;
+      if (!silkProvider) {
+        silkProvider = initSilk(referralCode);
       }
 
-      silkProvider = initSilk(referralCode);
       return silkProvider;
     },
 
@@ -82,30 +103,32 @@ export default function silk(referralCode?: string) {
         return false;
       }
     },
+
     async switchChain({ chainId }): Promise<Chain> {
       try {
         const chain = config.chains.find((x) => x.id === chainId);
         if (!chain) throw new SwitchChainError(new ChainNotConfiguredError());
 
         const provider = await this.getProvider();
-        await provider.request({
-          method: SILK_METHOD.wallet_addEthereumChain,
-          params: [
-            {
-              chainId: `0x${chain.id.toString(16)}`,
-              chainName: chain.name,
-              rpcTarget: chain.rpcUrls.default.http[0],
-              nativeCurrency: chain.nativeCurrency,
-              logo: chain.nativeCurrency?.symbol,
-              decimals: chain.nativeCurrency?.decimals || 18,
-              ticker: chain.nativeCurrency?.symbol || 'ETH',
-              tickerName: chain.nativeCurrency?.name || 'Ethereum',
-              rpcUrls: chain.rpcUrls,
-              blockExplorerUrls: chain.blockExplorers,
-            },
-          ],
-        });
-        console.info('Chain Added: ', chain.name);
+        // Silk currently does not support adding chains. Leaving this here for future reference.
+        // await provider.request({
+        //   method: SILK_METHOD.wallet_addEthereumChain,
+        //   params: [
+        //     {
+        //       chainId: `0x${chain.id.toString(16)}`,
+        //       chainName: chain.name,
+        //       rpcTarget: chain.rpcUrls.default.http[0],
+        //       nativeCurrency: chain.nativeCurrency,
+        //       logo: chain.nativeCurrency?.symbol,
+        //       decimals: chain.nativeCurrency?.decimals || 18,
+        //       ticker: chain.nativeCurrency?.symbol || 'ETH',
+        //       tickerName: chain.nativeCurrency?.name || 'Ethereum',
+        //       rpcUrls: chain.rpcUrls,
+        //       blockExplorerUrls: chain.blockExplorers,
+        //     },
+        //   ],
+        // });
+        // console.info('Chain Added: ', chain.name);
         await provider.request({
           method: SILK_METHOD.wallet_switchEthereumChain,
           params: [`0x${chain.id.toString(16)}`],
@@ -116,16 +139,16 @@ export default function silk(referralCode?: string) {
         });
         return chain;
       } catch (error: unknown) {
-        console.error('Error: Cannot change chain', error);
+        console.error('Error: Unable to switch chain', error);
         throw new SwitchChainError(error as Error);
       }
     },
 
     async disconnect(): Promise<void> {
       const provider = await this.getProvider();
-      // TODO: Silk does not have a logout method
       provider.uiMessageManager.removeListener('accountsChanged', this.onAccountsChanged);
       provider.uiMessageManager.removeListener('chainChanged', this.onChainChanged);
+      provider.uiMessageManager.removeListener('disconnect', this.onDisconnect);
     },
 
     onAccountsChanged(accounts) {

@@ -1,22 +1,30 @@
-import { and, count, eq, ilike, inArray, ne, notExists, SQLWrapper } from 'drizzle-orm';
-import { drizzle } from 'drizzle-orm/postgres-js';
+import { and, count, eq, ilike, inArray, ne, notExists, or, SQLWrapper } from 'drizzle-orm';
+import { drizzle, PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 
 import ENV from '@/config/environment';
+import { GroupSearchParams, SearchParams } from '@/config/validation-schema';
 import * as schema from '@/db/schema';
-import { Profile } from '@/types/model';
+import { Group, UserProfile } from '@/types/model';
 import { GroupProfile, UserSession } from '../types/model';
 
 /**
  * NOTE: All DB functions in this file can only be run server-side. If you need to retrieve DB data from a client
- * component, use the api/ route handlers which wrap the DB calls.
+ * component, use the API route handlers provide access to the DB.
  */
 
-// TODO: error handling and safety checks (e.g. to make sure a group admin cannot remove themselves) are missing!
-
 // Disable prefetch as it is not supported for "Transaction" pool mode
+// The below setup is based on: https://github.com/orgs/supabase/discussions/21789
+// due to CONNECT_TIMEOUT issues with Supabase.
 export const client = postgres(ENV.databaseUrl, { prepare: false });
-export const db = drizzle(client, { schema, logger: false });
+export const drizzleClient = drizzle(client, { schema, logger: false });
+declare global {
+  var database: PostgresJsDatabase<typeof schema> | undefined;
+}
+export const db = global.database || drizzleClient;
+if (process.env.NODE_ENV !== 'production') global.database = db;
+
+////////////////////////////////////////////////////////////////////
 
 export async function isGlobalAdmin(userId: string) {
   const res = await db.query.users.findFirst({
@@ -26,32 +34,24 @@ export async function isGlobalAdmin(userId: string) {
   return res?.isGlobalAdmin;
 }
 
-type FetchUsersOptions = {
-  limit?: number;
-  offset?: number;
-  searchTerm?: string;
-  searchBy?: 'name' | 'nickname';
-};
-
 export async function fetchUsers() {
   return await db.select().from(schema.users);
 }
 
-export async function searchUsers(options: FetchUsersOptions) {
-  const { limit = 20, offset = 0, searchTerm, searchBy = 'name' } = options;
-  const filters: (SQLWrapper | undefined)[] = [];
-  if (searchTerm) filters.push(ilike(schema.users[searchBy], `%${searchTerm}%`));
+export async function searchUsers(options: SearchParams) {
+  const { pageSize = 20, offset = 0, searchTerm } = options;
+  const orFilters: (SQLWrapper | undefined)[] = [];
+
+  if (searchTerm) {
+    orFilters.push(ilike(schema.users.name, `%${searchTerm}%`));
+    orFilters.push(ilike(schema.users.nickname, `%${searchTerm}%`));
+  }
+
   return await db.query.users.findMany({
-    limit,
+    limit: pageSize,
     offset,
-    where: filters.length ? and(...filters) : undefined,
+    where: orFilters.length ? or(...orFilters) : undefined,
   });
-  // const baseQuery = db.select().from(schema.users);
-  // if (!searchTerm) return await baseQuery.limit(limit).offset(offset);
-  // return await baseQuery
-  //   .where(ilike(schema.users[searchBy || 'name'], `%${searchTerm}%`))
-  //   .limit(limit)
-  //   .offset(offset);
 }
 
 export async function fetchSessionData(walletAddress: string): Promise<UserSession | undefined> {
@@ -62,7 +62,13 @@ export async function fetchSessionData(walletAddress: string): Promise<UserSessi
   });
 }
 
-export async function fetchUserProfile(userId: string): Promise<Profile | undefined> {
+export async function fetchUser(userId: string): Promise<schema.SelectUser | undefined> {
+  return db.query.users.findFirst({
+    where: (users, { eq }) => eq(users.id, userId),
+  });
+}
+
+export async function fetchUserProfile(userId: string): Promise<UserProfile | undefined> {
   const result = await db.query.users.findFirst({
     where: (users, { eq }) => eq(users.id, userId),
     with: {
@@ -84,16 +90,12 @@ export async function countUsers() {
   return result.length ? result[0].count : null;
 }
 
-type FetchGroupsOptions = {
-  limit: number;
-  offset: number;
-  searchTerm?: string;
-  city?: string;
-  country?: string;
-  verified?: boolean;
-};
-export async function fetchGroups(options: FetchGroupsOptions) {
-  const { limit = 20, offset = 0, searchTerm, city, country, verified } = options;
+export async function fetchGroups() {
+  return await db.select().from(schema.users);
+}
+
+export async function searchGroups(options: GroupSearchParams): Promise<Group[]> {
+  const { pageSize = 20, offset = 0, searchTerm, city, country, verified } = options;
 
   const filters: (SQLWrapper | undefined)[] = [];
   if (searchTerm) filters.push(ilike(schema.groups.name, `%${searchTerm}%`));
@@ -102,7 +104,7 @@ export async function fetchGroups(options: FetchGroupsOptions) {
   if (typeof verified === 'boolean') filters.push(eq(schema.groups.verified, verified));
 
   return await db.query.groups.findMany({
-    limit,
+    limit: pageSize,
     offset,
     where: filters.length ? and(...filters) : undefined,
   });
@@ -142,14 +144,8 @@ export async function isGroupAdmin(groupId: string, userId: string): Promise<boo
   return result.length > 0 && result[0].value > 0;
 }
 
-export async function fetchUserIdFromEmail(email: string): Promise<string | undefined> {
-  const users = await db.select({ id: schema.users.id }).from(schema.users).where(eq(schema.users.email, email));
-  if (users.length === 0) return undefined;
-  return users[0].id;
-}
-
-export async function fetchGroup(groupId: string) {
-  return await db.query.groups.findFirst({
+export async function fetchGroup(groupId: string): Promise<schema.SelectGroup | undefined> {
+  return db.query.groups.findFirst({
     where: (groups, { eq }) => eq(groups.id, groupId),
   });
 }
@@ -157,23 +153,16 @@ export async function fetchGroup(groupId: string) {
 export async function fetchGroupProfile(groupId: string): Promise<GroupProfile | undefined> {
   const group = await db.select().from(schema.groups).where(eq(schema.groups.id, groupId));
   const links = await db.select().from(schema.links).where(eq(schema.links.ownerId, groupId));
+  const adminIds = await fetchGroupAdminIds(groupId);
   if (group.length == 0) throw new Error('Group not found');
-  return { ...group[0], links, admins: [] }; // TODO why are admins not fetched here? Check in page if fetched async
+  return { group: group[0], links, adminIds };
 }
 
-export async function fetchGroupIdFromName(name: string): Promise<string | undefined> {
-  const groups = await db.select({ id: schema.groups.id }).from(schema.groups).where(eq(schema.groups.name, name));
-  if (groups.length === 0) return undefined;
-  return groups[0].id;
-}
-
-export async function fetchGroupMembers(groupId: string, limit: number = 20, offset: number = 0, searchTerm?: string) {
+export async function fetchGroupMembers(groupId: string): Promise<schema.SelectUser[]> {
   return await db
     .select()
     .from(schema.users)
-    .where(and(eq(schema.users.groupId, groupId), searchTerm ? ilike(schema.users.name, `%${searchTerm}%`) : undefined))
-    .limit(limit)
-    .offset(offset);
+    .where(and(eq(schema.users.groupId, groupId)));
 }
 
 export async function insertUser(userValues: schema.InsertUser) {
@@ -226,7 +215,7 @@ export async function fetchUserLinks(userId: string) {
   return await db.select().from(schema.links).where(eq(schema.links.ownerId, userId));
 }
 
-export async function updateUser(user: Omit<schema.InsertUser, 'email' | 'walletAddress'>) {
+export async function updateUser(user: Omit<schema.InsertUser, 'walletAddress'>) {
   const users = await db.update(schema.users).set(user).where(eq(schema.users.id, user.id)).returning();
   return users.length ? users[0] : undefined;
 }
@@ -240,13 +229,12 @@ export async function addGroupAdmin(entry: schema.InsertGroupAdmin) {
   await db.insert(schema.groupAdmins).values(entry);
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export async function fetchGroupAdmins(groupId: string, limit: number = 20, offset: number = 0) {
-  return await db.select().from(schema.groupAdmins);
-  // .innerJoin(schema.users, eq(schema.groupAdmins.userId, schema.users.id))
-  // .where(eq(schema.groupAdmins.groupId, groupId))
-  // .limit(limit)
-  // .offset(offset);
+export async function fetchGroupAdminIds(groupId: string): Promise<string[]> {
+  const result = await db
+    .select({ id: schema.groupAdmins.userId })
+    .from(schema.groupAdmins)
+    .where(eq(schema.groupAdmins.groupId, groupId));
+  return result.map((entry) => entry.id);
 }
 
 export async function removeGroupAdmin(groupId: string, adminId: string) {

@@ -2,60 +2,64 @@ import { isNil, omitBy } from 'lodash';
 import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
-import { boolean, number, object, string } from 'yup';
 
+import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { createNewGroupFormSchema, CreateNewGroupFormType } from '@/config/validation-schema';
 import {
-  addGroupAdmin,
-  countGroups,
-  fetchGroupIdFromName,
-  fetchGroups,
-  fetchUserProfile,
-  insertGroup,
-  updateUser,
-} from '@/db';
+  CreateNewGroupForm,
+  createNewGroupFormSchema,
+  GroupSearchParams,
+  groupSearchSchema,
+} from '@/config/validation-schema';
+import { addGroupAdmin, fetchUser, insertGroup, searchGroups, updateUser } from '@/db';
+import { GroupSearchResult } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
 
-const groupOptionsSchema = object({
-  limit: number().required().nonNullable(),
-  offset: number().required().nonNullable(),
-  searchTerm: string().nonNullable(),
-  city: string().nonNullable(),
-  country: string().nonNullable(),
-  verified: boolean().nonNullable(),
-});
-
+/**
+ * Route handler for inite user search
+ * @param request
+ * @returns { data: User[], nextOffset: number }
+ */
 export async function GET(request: NextRequest) {
-  try {
-    const searchParams = request.nextUrl.searchParams;
-    const limit = searchParams.get('limit');
-    const offset = searchParams.get('offset');
-    const searchTerm = searchParams.get('searchTerm');
-    const city = searchParams.get('city');
-    const country = searchParams.get('country');
-    let verified: string | null | boolean | undefined = searchParams.get('verified');
-    verified = verified === 'false' ? false : verified === 'true' || undefined;
+  const searchParams = request.nextUrl.searchParams;
+  const pageSize = Number(searchParams.get('pageSize')) || QUERY_DEFAULT_PAGE_SIZE;
+  const offset = Number(searchParams.get('offset'));
+  const searchTerm = searchParams.get('searchTerm');
+  const city = searchParams.get('city');
+  const country = searchParams.get('country');
+  let verified: string | null | boolean | undefined = searchParams.get('verified');
+  verified = verified === 'false' ? false : verified === 'true' || undefined;
+  let nextOffset = null;
 
-    const options = await groupOptionsSchema.validate({
-      limit: Number(limit),
-      offset: Number(offset),
+  let searchOptions: GroupSearchParams;
+  try {
+    searchOptions = groupSearchSchema.validateSync({
+      pageSize,
+      offset,
       ...omitBy({ searchTerm, city, country, verified }, isNil),
     });
-
-    if (!options) {
-      return NextResponse.json({ error: 'Invalid data' }, { status: 400 });
-    }
-
-    const groups = await fetchGroups(options);
-    const count = await countGroups();
-    return NextResponse.json({ groups, count });
   } catch (error) {
-    console.error(error);
-    return NextResponse.json({ error: 'An unexpected error occured while fetching groups' }, { status: 500 });
+    console.error('Unable to validate input data', error);
+    return NextResponse.json({ error: `Invalid input data` }, { status: 400 });
   }
+
+  const groups = await searchGroups(searchOptions);
+  // we retrieve one more than the pageSize to determine if there are more results
+  if (groups.length > pageSize) {
+    nextOffset = offset + pageSize;
+    groups.pop();
+  }
+
+  const result: GroupSearchResult = { data: groups, nextOffset };
+  return Response.json(result);
 }
 
+/**
+ * Creates a new group and assigns the logged-in user as the admin of the group.
+ * The user must not be a member of any other group.
+ * @param request
+ * @returns
+ */
 export async function POST(request: NextRequest) {
   const session = await getServerSession(nextAuthOptions);
 
@@ -64,16 +68,12 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const profile = await fetchUserProfile(session.user.id);
-    if (!profile) {
-      throw new Error('No profile for logged-in user. This should not be possible.');
+    const user = await fetchUser(session.user.id);
+    if (!user) {
+      throw new Error('No entry for logged-in user in DB. This should not be possible.');
     }
 
-    const {
-      user: { groupId },
-    } = profile;
-
-    if (groupId) {
+    if (user.groupId) {
       return NextResponse.json(
         { error: 'You cannot create a new group while being a member of an existing group' },
         { status: 403 },
@@ -85,20 +85,14 @@ export async function POST(request: NextRequest) {
     if (!isValid) {
       return NextResponse.json({ error: 'Invalid group data' }, { status: 400 });
     }
-    const groupData = body as CreateNewGroupFormType;
-    const { name } = groupData;
-
-    const groupExists = await fetchGroupIdFromName(name);
-    if (groupExists) {
-      return NextResponse.json({ error: `A group with the name "${name}" already exists` }, { status: 403 });
-    }
+    const groupData = body as CreateNewGroupForm;
 
     const newGroupId = uuidv4();
     const group = await insertGroup({ ...groupData, id: newGroupId, verified: false });
     await updateUser({ id: session.user.id, groupId: newGroupId });
     await addGroupAdmin({ groupId: newGroupId, userId: session.user.id });
 
-    return NextResponse.json({ group });
+    return NextResponse.json(group);
   } catch (error) {
     return NextResponse.json(
       { error: true, message: generateErrorMessage(error, 'An unexpected error occurred while creating group') },

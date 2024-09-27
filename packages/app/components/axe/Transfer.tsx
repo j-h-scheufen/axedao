@@ -2,21 +2,23 @@
 
 import { Button } from '@nextui-org/button';
 import { useDisclosure } from '@nextui-org/modal';
-import { Field, Form, Formik, FormikProps } from 'formik';
+import { Field, FieldProps, Form, Formik, FormikProps } from 'formik';
 import { enqueueSnackbar } from 'notistack';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Address, formatUnits, parseUnits } from 'viem';
 import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 
 import ENV from '@/config/environment';
 import { AxeTransferForm, axeTransferForm } from '@/config/validation-schema';
 import { useReadErc20BalanceOf, useWriteErc20Transfer } from '@/generated';
+import { User } from '@/types/model';
 import ErrorText from '../ErrorText';
 import { AmountInput, UserSelect } from '../forms';
 import TransferConfirm from './TransferConfirm';
 
 const Transfer: React.FC = () => {
   const account = useAccount();
+  const [selectedRecipient, setSelectedRecipient] = useState<User | null>(null);
   const { isOpen, onOpen: openConfirmation, onOpenChange } = useDisclosure();
 
   const { data: axeBalance, refetch: updateAxeBalance } = useReadErc20BalanceOf({
@@ -78,8 +80,11 @@ const Transfer: React.FC = () => {
                 Available: {formatUnits(axeBalance || BigInt(0), 18)} Axé
               </div>
             </div>
-            <Field name="to" label="Recipient" as={UserSelect} />
-
+            <Field name="to" label="Recipient">
+              {({ field }: FieldProps) => (
+                <UserSelect {...field} keyMode="walletAddress" onSelect={setSelectedRecipient} />
+              )}
+            </Field>
             <Button
               color="primary"
               size="lg"
@@ -90,13 +95,11 @@ const Transfer: React.FC = () => {
             >
               Send
             </Button>
-
             <ErrorText message={transferError?.message} />
-
             <TransferConfirm
               isOpen={isValid && isOpen}
               onOpenChange={onOpenChange}
-              to={values.to}
+              to={selectedRecipient}
               amount={values.amount}
               onConfirm={submitForm}
             />

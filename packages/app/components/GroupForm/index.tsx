@@ -11,22 +11,23 @@ import ImageUpload from '@/components/ImageUpload';
 import GroupFormSkeleton from '@/components/skeletons/GroupSkeletons';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import { PATHS } from '@/config/constants';
-import { GroupFormType, groupFormSchema } from '@/config/validation-schema';
+import { UpdateGroupProfileForm, updateGroupProfileSchema } from '@/config/validation-schema';
 import { useGroupMembersActions } from '@/store/groupMembers.store';
 import { useGroupProfile, useGroupProfileActions, useIsDeletingGroup } from '@/store/groupProfile.store';
 import { useProfileActions } from '@/store/profile.store';
 import DeleteGroup from './DeleteGroup';
 
 type Props = { id: string };
+
 const GroupForm = ({ id }: Props) => {
   const router = useRouter();
 
-  const { removeGroupAssociation } = useProfileActions();
-  const { initialize: initGroupProfile, delete: deleteGroup, updateGroupProfile } = useGroupProfileActions();
+  const { updateGroup } = useProfileActions();
+  const { loadGroupProfile: initGroupProfile, delete: deleteGroup, updateGroupProfile } = useGroupProfileActions();
   const { initialize: initGroupMembers } = useGroupMembersActions();
-  const groupProfile = useGroupProfile();
+  const { group, links, adminIds } = useGroupProfile();
   const isDeleting = useIsDeletingGroup();
-  const [charsLeft, setCharsLeft] = useState<number>(300 - (groupProfile.description?.length || 0));
+  const [charsLeft, setCharsLeft] = useState<number>(300 - (group.description?.length || 0));
 
   useEffect(() => {
     initGroupProfile(id);
@@ -35,11 +36,11 @@ const GroupForm = ({ id }: Props) => {
 
   // TODO: Deleting the group will have consequences for any logged-in user belonging to that group as their state will be out of sync.
   const handleDeleteGroup = async () => {
-    await deleteGroup().then(removeGroupAssociation);
+    await deleteGroup().then(() => updateGroup(null));
     router.push(PATHS.profile);
   };
 
-  const handleSubmit = (values: GroupFormType) => {
+  const handleSubmit = (values: UpdateGroupProfileForm) => {
     try {
       return updateGroupProfile(values).then(() => router.push(`/search/groups/${id}`));
     } catch (error) {
@@ -48,29 +49,28 @@ const GroupForm = ({ id }: Props) => {
     }
   };
 
-  const initValues: GroupFormType = {
-    name: groupProfile.name || '',
-    email: groupProfile.email || '',
-    founder: groupProfile.founder || '',
-    description: groupProfile.description || '',
-    logo: groupProfile.logo || '',
-    banner: groupProfile.banner || '',
-    leader: groupProfile.leader || '',
-    admins: groupProfile.admins || [],
-    links: groupProfile.links || [],
+  const initValues: UpdateGroupProfileForm = {
+    name: group.name || '',
+    email: group.email || '',
+    founder: group.founder || '',
+    description: group.description || '',
+    logo: group.logo || '',
+    banner: group.banner || '',
+    adminIds: adminIds || [],
+    links: links || [],
   };
 
   return (
-    <Formik<GroupFormType>
+    <Formik<UpdateGroupProfileForm>
       initialValues={initValues}
-      validationSchema={groupFormSchema}
+      validationSchema={updateGroupProfileSchema}
       onSubmit={handleSubmit}
       enableReinitialize
     >
-      {({ values, dirty, isValid, isSubmitting, setFieldValue }: FormikProps<GroupFormType>) => (
+      {({ values, dirty, isValid, isSubmitting, setFieldValue }: FormikProps<UpdateGroupProfileForm>) => (
         <Suspense fallback={<GroupFormSkeleton />}>
-          <Form className="max-w-xl flex flex-col gap-2 sm:gap-5">
-            <div className="md:flex md:gap-5">
+          <Form className="flex flex-col gap-2 sm:gap-4">
+            <div className="md:flex sm:gap-5">
               <div className="flex min-w-24 flex-col justify-start gap-2">
                 <h4>Logo</h4>
                 <Field name="logo">
@@ -130,7 +130,7 @@ const GroupForm = ({ id }: Props) => {
             <SubsectionHeading>Links</SubsectionHeading>
             <FieldArray name="links">
               {(helpers) => (
-                <LinksArray {...helpers} links={values.links} ownerId={groupProfile.id} setFieldValue={setFieldValue} />
+                <LinksArray {...helpers} links={values.links} ownerId={group.id} setFieldValue={setFieldValue} />
               )}
             </FieldArray>
 

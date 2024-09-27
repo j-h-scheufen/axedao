@@ -2,24 +2,24 @@ import { Button } from '@nextui-org/button';
 import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalProps } from '@nextui-org/modal';
 import { useEffect, useRef } from 'react';
 
-import { useUsersActions } from '@/store/users.store';
+import { User } from '@/types/model';
 import { getUserDisplayName } from '@/utils';
 
 type Props = Omit<ModalProps, 'children'> & {
-  to: string;
+  to: User | null;
   amount: string;
   onConfirm: () => Promise<void>;
 };
 
 const TransferConfirm: React.FC<Props> = ({ to, amount, onConfirm, ...props }) => {
-  const { findUser } = useUsersActions();
   const { isOpen, onOpenChange } = props;
-  const user = findUser({ walletAddress: to });
   const nextButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (isOpen) nextButtonRef.current?.focus();
   }, [isOpen]);
+
+  if (!to) return null;
 
   return (
     <div>
@@ -30,7 +30,7 @@ const TransferConfirm: React.FC<Props> = ({ to, amount, onConfirm, ...props }) =
               <ModalHeader className="flex flex-col gap-1">Send Axé</ModalHeader>
               <ModalBody>
                 <p>
-                  You are about to send {amount} Axé to user {user ? getUserDisplayName(user) : to}.
+                  You are about to send {amount} Axé to {getUserDisplayName(to)}.
                 </p>
                 <p>
                   Please confirm you&apos;d like to move ahead by clicking the button below. This will take you to your

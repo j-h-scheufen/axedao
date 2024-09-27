@@ -1,3 +1,4 @@
+import { GROUP_ROLES } from '@/config/constants';
 import { SelectGroup, SelectLink, SelectUser } from '../db/schema';
 
 /**
@@ -10,9 +11,12 @@ export type User = SelectUser;
 
 export type Link = SelectLink;
 
-export type GroupProfile = SelectGroup & {
+export type UserProfile = { user: User; links: Link[]; group: Group | null };
+
+export type GroupProfile = {
+  group: Group;
   links: Array<Link>;
-  admins: Array<User>;
+  adminIds: Array<string>;
 };
 
 export type UserSession = {
@@ -21,11 +25,27 @@ export type UserSession = {
   isGlobalAdmin: boolean;
 };
 
-export type Profile = { user: User; links: Link[]; group: Group | null };
-
 export type Country = { name: string; isoCode: string };
 
 export type City = {
   name: string;
   stateCode?: string;
 };
+
+export type GroupMemberRole = (typeof GROUP_ROLES)[number];
+
+export type GroupMember = User & { roles: GroupMemberRole[] };
+
+/**
+ * Search types used in the search routes
+ */
+export type UserSearchResult = {
+  data: User[];
+  nextOffset: number | null;
+};
+export type GroupSearchResult = {
+  data: Group[];
+  nextOffset: number | null;
+};
+
+export type SearchCitiesParams = { countryCode: string; searchTerm?: string };

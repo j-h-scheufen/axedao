@@ -42,11 +42,7 @@ const GroupMembers = ({ id }: Props) => {
       <Table baseRef={scrollerRef} aria-label="Group members table">
         <TableHeader columns={filteredColumns}>
           {(column) => (
-            <TableColumn
-              key={column.uid}
-              align={column.uid === 'actions' ? 'center' : 'start'}
-              className="last:text-end first:text-left text-center"
-            >
+            <TableColumn key={column.uid} className="last:text-end text-left">
               {column.name}
             </TableColumn>
           )}

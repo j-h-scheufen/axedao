@@ -1,30 +1,26 @@
 import { isNil, omitBy } from 'lodash';
 import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
+import { InferType } from 'yup';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { GroupFormType, LinkTypes, groupFormSchema } from '@/config/validation-schema';
-import { addLink, deleteGroup, fetchGroupProfile, isGroupAdmin, removeLink, updateGroup, updateLink } from '@/db';
-import { Link } from '@/types/model';
+import { updateGroupSchema } from '@/config/validation-schema';
+import { deleteGroup, fetchGroup, fetchGroupAdminIds, isGroupAdmin, updateGroup } from '@/db';
 import { generateErrorMessage } from '@/utils';
+import { notFound } from 'next/navigation';
 
-// TODO everything under the api/ route must be protected via middleware.ts to check for user session
-
-export async function GET(request: NextRequest, { params }: { params: { groupId: string } }) {
-  const session = await getServerSession(nextAuthOptions);
-
-  if (!session?.user.id) {
-    return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
-  }
-
+/**
+ * Returns a Group object for a given group ID.
+ * @param req
+ * @returns a Group
+ */
+export async function GET(req: NextRequest, { params }: { params: { groupId: string } }) {
   try {
     const { groupId } = params;
-    const groupProfile = await fetchGroupProfile(groupId);
-    if (!groupProfile) return NextResponse.json({ error: 'Unable to fetch group profile' }, { status: 404 });
+    const group = await fetchGroup(groupId);
+    if (!group) return notFound();
 
-    const isAdmin = await isGroupAdmin(groupId, session.user.id);
-
-    return Response.json({ groupProfile, isAdmin });
+    return Response.json(group);
   } catch (error) {
     console.error(error);
     return Response.json(
@@ -36,7 +32,13 @@ export async function GET(request: NextRequest, { params }: { params: { groupId:
   }
 }
 
-export async function PATCH(request: NextRequest, { params }: { params: { groupId: string } }) {
+/**
+ * Updates a group
+ * @param req Partial<Group>
+ * @param groupId
+ * @returns
+ */
+export async function PATCH(req: NextRequest, { params }: { params: { groupId: string } }) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {
@@ -54,8 +56,8 @@ export async function PATCH(request: NextRequest, { params }: { params: { groupI
       },
     );
 
-  const body = await request.json();
-  const isValid = await groupFormSchema.validate(body);
+  const body = await req.json();
+  const isValid = await updateGroupSchema.validate(body);
   if (!isValid) {
     return Response.json(
       { error: true, message: 'Invalid profile data' },
@@ -65,72 +67,23 @@ export async function PATCH(request: NextRequest, { params }: { params: { groupI
     );
   }
 
-  const { banner, logo, links } = body as GroupFormType;
+  const groupData = body as InferType<typeof updateGroupSchema>;
 
-  const groupProfileData = omitBy(
-    {
-      name: body.name,
-      email: body.email,
-      description: body.description,
-      links: body.links,
-      admins: body.admins,
-      leader: body.leader,
-      founder: body.founder,
-      banner: banner,
-      logo: logo,
-    },
-    isNil,
-  );
+  const groupDataClean = omitBy(groupData, isNil);
 
-  const group = await fetchGroupProfile(groupId);
-  if (!group?.id) throw new Error('Unable to update group, please confirm that the group still exists');
+  const oldGroup = await fetchGroup(groupId);
+  if (!oldGroup) return notFound();
 
-  const { id, links: existingLinks = [] } = group;
-
-  for (const link of links) {
-    const isNewLink = !link.id;
-    let isUpdatedLink = false;
-
-    if (isNewLink) {
-      const addedLink = await addLink({
-        ...link,
-        type: link.type as LinkTypes,
-        ownerId: id,
-      });
-      link.id = addedLink?.id;
-    } else {
-      for (const existingLink of existingLinks) {
-        if (link.id === existingLink.id && link.url !== existingLink.url) {
-          isUpdatedLink = true;
-          break;
-        }
-      }
-    }
-
-    if (isUpdatedLink) {
-      await updateLink(link as Link);
-    }
-  }
-
-  const deletedLinkIds: number[] = [];
-  for (const existingLink of existingLinks) {
-    let isDeletedLink = true;
-    for (const link of links) {
-      if (link.id === existingLink.id) {
-        isDeletedLink = false;
-        break;
-      }
-    }
-    if (isDeletedLink) {
-      await removeLink(existingLink.id);
-      deletedLinkIds.push(existingLink.id);
-    }
-  }
-
-  const updatedGroup = await updateGroup({ ...groupProfileData, id });
-  return Response.json({ ...(updatedGroup || {}), links });
+  const updatedGroup = await updateGroup({ ...groupDataClean, id: oldGroup.id });
+  return Response.json(updatedGroup);
 }
 
+/**
+ * Deletes the group with the specified ID.
+ * @param request
+ * @param param1
+ * @returns
+ */
 export async function DELETE(request: NextRequest, { params }: { params: { groupId: string } }) {
   const session = await getServerSession(nextAuthOptions);
 
@@ -140,14 +93,16 @@ export async function DELETE(request: NextRequest, { params }: { params: { group
 
   try {
     const { groupId } = params;
-    const group = await fetchGroupProfile(groupId);
-    if (!group) return NextResponse.json({ error: 'Unable to fetch group profile' }, { status: 404 });
+    const group = await fetchGroup(groupId);
+    if (!group) notFound();
 
-    if (!group.admins.some((user) => user.id === session.user.id)) {
+    const adminIds = await fetchGroupAdminIds(groupId);
+
+    if (!adminIds.some((id) => id === session.user.id)) {
       return Response.json(
-        { error: true, message: 'Only a group admin can delete the group.' },
+        { error: true, message: 'Unauthorized to delete the group. Missing admin privileges.' },
         {
-          status: 500,
+          status: 403,
         },
       );
     }

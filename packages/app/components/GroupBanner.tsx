@@ -1,17 +1,16 @@
-import Image from 'next/image';
+'use client';
+
+import Image, { ImageProps } from 'next/image';
 import { Suspense } from 'react';
 
-import ErrorText from '@/components/ErrorText';
 import { GroupBannerSkeleton } from '@/components/skeletons/GroupSkeletons';
-import { useGroupProfile, useInitializeGroupError } from '@/store/groupProfile.store';
+import { useGroupBanner } from '@/store/groupProfile.store';
 
-const GroupBanner = () => {
-  const initializeGroupError = useInitializeGroupError();
-  const { banner } = useGroupProfile();
+const GroupBanner = (props: Omit<ImageProps, 'src' | 'alt'>) => {
+  const banner = useGroupBanner();
 
   return (
     <Suspense fallback={<GroupBannerSkeleton />}>
-      <ErrorText message={initializeGroupError} />
       <div className="relative bottom-5 flex flex-col h-[200px] w-full mt-8 rounded-xl overflow-hidden bg-default-100">
         {banner ? (
           <Image
@@ -21,6 +20,7 @@ const GroupBanner = () => {
             width={800}
             height={400}
             alt="Group banner"
+            {...props}
           />
         ) : (
           <span className="text-sm inline-block w-fit m-auto text-default-500">No banner</span>

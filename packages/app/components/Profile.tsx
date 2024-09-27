@@ -13,8 +13,7 @@ import { useProfile } from '@/store/profile.store';
 import { getUserDisplayName } from '@/utils';
 
 const Profile = () => {
-  const profile = useProfile();
-  const { user, links } = profile;
+  const { user, links } = useProfile();
 
   return (
     <Suspense fallback={<ProfileSkeleton />}>

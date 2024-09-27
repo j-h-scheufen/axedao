@@ -17,10 +17,9 @@ import { MapPinIcon } from 'lucide-react';
 import React, { useCallback, useState } from 'react';
 
 import VerificationChip from '@/components/VerificationChip';
-import useGroupsList from '@/hooks/useGroupList';
+import useGroupSearch from '@/hooks/useGroupSearch';
 import { Group } from '@/types/model';
 import ActionCell from './ActionCell';
-import Filters from './Filters';
 
 type Column<T> = {
   key: keyof T;
@@ -84,7 +83,7 @@ const columns: Column<Group>[] = [
 const GlobalAdminGroupsTable = () => {
   const [selectedKeys, setSelectedKeys] = useState<Set<string>>(new Set([]));
 
-  const { groups, isLoading, query, setQuery } = useGroupsList();
+  const { groups, isLoading } = useGroupSearch();
 
   const getCellValue = useCallback((item: Group, key: keyof Group) => {
     const cell = columns.find((col) => col.key === key)?.cell;
@@ -94,9 +93,11 @@ const GlobalAdminGroupsTable = () => {
     return getKeyValue(item, key) || 'N/A';
   }, []);
 
+  // TODO need to replace the filters. Probably use example from NextUI: https://nextui.org/docs/components/table#use-case-example
+
   return (
     <div className="flex flex-col gap-4 -mt-5">
-      <Filters query={query} setQuery={setQuery} />
+      {/* <Filters query={{ searchTerm }} setQuery={(query) => setSearchTerm(query.searchTerm)} /> */}
       <div className="flex flex-col gap-3">
         <Table
           aria-label="Global admin groups table"

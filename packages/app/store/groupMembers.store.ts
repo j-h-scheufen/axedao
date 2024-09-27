@@ -1,26 +1,15 @@
-import { DEFAULT_PROFILE } from '@/store/profile.store';
-import { User } from '@/types/model';
-import { generateErrorMessage } from '@/utils';
 import axios from 'axios';
 import { produce } from 'immer';
 import { create } from 'zustand';
 
-const ROLE_ORDER = ['founder', 'leader', 'admin', 'member'] as const;
-
-export type GroupMemberRole = (typeof ROLE_ORDER)[number];
-
-export type GroupMember = User & { role: GroupMemberRole };
-
-export type GroupAdmin = {
-  groupId: string;
-  userId: string;
-};
+import { GroupMember, User } from '@/types/model';
+import { generateErrorMessage, getGroupMemberRoles } from '@/utils';
 
 export type GroupMembersState = {
   groupId?: string;
-  admins: GroupAdmin[];
-  founder: User;
-  leader: User;
+  adminIds: string[];
+  founder: string;
+  leader: string;
   searchTerm: string;
   searchResults: GroupMember[];
   pageSize: number;
@@ -32,7 +21,7 @@ export type GroupMembersState = {
   initializeAdminError?: string;
   memberBeingPromotedToAdmin?: string; // id of member being promoted
   adminBeingDemotedToMember?: string; // id of admin being demoted
-  memberBeingRemoved?: string; // id of member being removed
+  memberBeingRemoved?: string; // id of member being removed // TODO this state should be kept on the component and transmitted to the store
 };
 
 type GroupMembersActions = {
@@ -48,9 +37,9 @@ type GroupMembersActions = {
 export type GroupMembersStore = GroupMembersState & { actions: GroupMembersActions };
 
 const DEFAULT_PROPS: GroupMembersState = {
-  admins: [],
-  founder: DEFAULT_PROFILE.user,
-  leader: DEFAULT_PROFILE.user,
+  adminIds: [],
+  founder: '',
+  leader: '',
   searchTerm: '',
   searchResults: [],
   pageSize: 20,
@@ -97,25 +86,17 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
         );
         const data: User[] = res.data;
         if (data?.length && data.length > 0) {
-          const { admins, founder, leader } = get();
-          const adminIds = admins.map((admin) => admin.userId);
+          const { adminIds, founder, leader } = get();
           const groupMembers: GroupMember[] = data.map((user) => {
             const userId = user.id;
-            let role: GroupMemberRole = 'member';
-            if (userId === founder?.id) {
-              role = 'founder';
-            } else if (userId === leader?.id) {
-              role = 'leader';
-            } else if (adminIds.includes(userId)) {
-              role = 'admin';
-            }
-            return { ...user, role };
+            const roles = getGroupMemberRoles(userId, founder, leader, adminIds);
+            return { ...user, roles };
           });
           set((state) => {
-            // sort by role as shown in ROLE_ORDER
-            const newSearchResults = [...state.searchResults, ...groupMembers].sort((a, b) => {
-              return ROLE_ORDER.indexOf(a.role) - ROLE_ORDER.indexOf(b.role);
-            });
+            // sort by number of roles
+            const newSearchResults = [...state.searchResults, ...groupMembers].sort(
+              (a, b) => b.roles.length - a.roles.length,
+            );
             return {
               searchResults: newSearchResults,
             };
@@ -137,9 +118,9 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
       set({ isInitializingGroupAdmins: true });
       try {
         const {
-          data: { admins, leader, founder },
+          data: { adminIds, leader, founder },
         } = await axios.get(`/api/groups/${groupId}/admins`);
-        set({ admins, leader, founder, adminsInitialized: true });
+        set({ adminIds, leader, founder, adminsInitialized: true });
       } catch (error) {
         console.error(error);
         const message = generateErrorMessage(error, 'An error occured while fetching group admins');
@@ -157,7 +138,8 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
           set(
             produce((state: GroupMembersState) => {
               const promotedMember = state.searchResults.find((member) => member.id === memberId);
-              if (promotedMember) promotedMember.role = 'admin';
+              if (promotedMember && !promotedMember.roles.includes('admin')) promotedMember.roles.push('admin');
+              if (!state.adminIds.includes(memberId)) state.adminIds.push(memberId);
             }),
           );
         }
@@ -176,8 +158,8 @@ const useGroupMembersStore = create<GroupMembersStore>()((set, get) => ({
           set(
             produce((state: GroupMembersState) => {
               const demotedAdmin = state.searchResults.find((member) => member.id === adminId);
-              if (demotedAdmin) demotedAdmin.role = 'member';
-              state.admins = state.admins.filter((admin) => admin.userId !== adminId);
+              if (demotedAdmin) demotedAdmin.roles = demotedAdmin.roles.filter((role) => role !== 'admin');
+              state.adminIds = state.adminIds.filter((id) => id !== adminId);
             }),
           );
         }
@@ -228,12 +210,6 @@ export const useIsLoadingGroupMembers = (): boolean => useGroupMembersStore((sta
 
 export const useIsInitializingGroupAdmins = (): boolean =>
   useGroupMembersStore((state) => state.isInitializingGroupAdmins);
-
-export const useGroupFounder = (): User => useGroupMembersStore((state) => state.founder);
-
-export const useGroupLeader = (): User => useGroupMembersStore((state) => state.leader);
-
-export const useGroupAdmins = (): GroupAdmin[] => useGroupMembersStore((state) => state.admins);
 
 export const useMemberBeingPromotedToAdmin = (): string | undefined =>
   useGroupMembersStore((state) => state.memberBeingPromotedToAdmin);

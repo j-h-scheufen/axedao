@@ -2,26 +2,22 @@ import { Button } from '@nextui-org/button';
 import { Field, Form, Formik, FormikProps } from 'formik';
 
 import { CountrySelect, FieldInput } from '@/components/forms';
-import { createNewGroupFormSchema, CreateNewGroupFormType } from '@/config/validation-schema';
+import { CreateNewGroupForm as FormType, createNewGroupFormSchema } from '@/config/validation-schema';
 import useCountriesAndCities from '@/hooks/useCountriesAndCities';
+import { useCreateGroup } from '@/query/group';
 import { useProfileActions } from '@/store/profile.store';
 
 const CreateNewGroupForm = () => {
-  const { createGroup } = useProfileActions();
-  // const { selectedCountryCode, setSelectedCountryCode, cities, setCitySearch, isLoading } = useCountriesAndCities();
+  const { mutateAsync: createGroup, error } = useCreateGroup();
   const { setSelectedCountryCode } = useCountriesAndCities();
+  const { updateGroup } = useProfileActions();
 
-  const handleSubmit = (values: CreateNewGroupFormType) => {
-    try {
-      return createGroup(values);
-    } catch (error) {
-      console.error('Error during group creation.', error);
-      throw error;
-    }
+  const handleSubmit = async (values: FormType) => {
+    return createGroup(values).then((data) => updateGroup(data));
   };
 
   // NOTE: The initial form values MUST BE declared outside of JSX, otherwise it can lead to hydration errors.
-  const initValues: CreateNewGroupFormType = {
+  const initValues: FormType = {
     name: '',
     country: '',
     city: '',
@@ -29,12 +25,8 @@ const CreateNewGroupForm = () => {
   };
 
   return (
-    <Formik<CreateNewGroupFormType>
-      initialValues={initValues}
-      onSubmit={handleSubmit}
-      validationSchema={createNewGroupFormSchema}
-    >
-      {({ dirty, isValid, isSubmitting }: FormikProps<CreateNewGroupFormType>) => {
+    <Formik<FormType> initialValues={initValues} onSubmit={handleSubmit} validationSchema={createNewGroupFormSchema}>
+      {({ dirty, isValid, isSubmitting }: FormikProps<FormType>) => {
         return (
           <Form className="flex flex-col gap-3 mb-5">
             <Field name="name" label="Name" as={FieldInput} />
@@ -44,6 +36,7 @@ const CreateNewGroupForm = () => {
               as={CountrySelect}
               onSelect={(value: string) => setSelectedCountryCode(value)}
             />
+            {error && <div className="text-danger">{error.message}</div>}
             {/* NOTE: CitySelect component has performance problems. Not using right now */}
             {/* <Field
               name="city"

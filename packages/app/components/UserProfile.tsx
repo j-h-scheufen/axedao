@@ -6,15 +6,12 @@ import { Suspense } from 'react';
 
 import ContactInfo from '@/components/ContactInfo';
 import ProfileSkeleton from '@/components/skeletons/ProfileSkeleton';
-import { Profile } from '@/types/model';
+import { useLinks, useUser } from '@/store/userProfile.store';
 import { getUserDisplayName } from '@/utils';
 
-type Props = {
-  profile: Profile;
-};
-
-const UserProfile = ({ profile }: Props) => {
-  const { user, links } = profile;
+const UserProfile = () => {
+  const links = useLinks();
+  const user = useUser();
 
   return (
     <Suspense fallback={<ProfileSkeleton />}>

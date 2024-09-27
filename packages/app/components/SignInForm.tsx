@@ -2,24 +2,22 @@
 
 import { Button } from '@nextui-org/button';
 import { useSession } from 'next-auth/react';
-import { sepolia } from 'viem/chains';
-import { useAccount, useConnect } from 'wagmi';
+import { useAccount } from 'wagmi';
 
 import useAuth from '@/hooks/useAuth';
-import silk from '@/utils/silk.connector';
 import ErrorText from './ErrorText';
 
 const SignInForm = () => {
   const { data: session } = useSession();
   const { address } = useAccount();
-  const { connect, error: connectError } = useConnect();
   const {
     signIn,
-    state: { loading, error: signInError },
+    connect,
+    state: { loading, error },
   } = useAuth();
 
   return (
-    <div className="flex flex-col gap-2 sm:gap-3 max-w-sm mx-auto">
+    <div className="flex flex-col gap-2 sm:gap-3 max-w-sm mx-auto items-center">
       <h2 className="text-xl sm:text-3xl text-default-500 sm:text-default-800 mb-2 sm:mb-4">
         Login to the Quilombo App
       </h2>
@@ -32,16 +30,9 @@ const SignInForm = () => {
             is a digital identity app that allows you to securely use the Quilombo App. Please click the below button
             and follow the instructions to create a Silk account or log into an existing one.
           </p>
-          <Button
-            size="lg"
-            color="primary"
-            variant="ghost"
-            className="w-full mt-2"
-            onPress={() => connect({ chainId: sepolia.id, connector: silk() })} // TODO the current network is hardcoded
-          >
+          <Button size="lg" color="primary" variant="ghost" className="w-full mt-2" onPress={connect}>
             Connect with Silk
           </Button>
-          {connectError && <ErrorText message={connectError.message} />}
         </div>
       )}
       {address && !session && (
@@ -63,9 +54,9 @@ const SignInForm = () => {
           >
             Sign In
           </Button>
-          {signInError && <ErrorText message={signInError.message} />}
         </div>
       )}
+      {error && <ErrorText message={error.message} />}
     </div>
   );
 };

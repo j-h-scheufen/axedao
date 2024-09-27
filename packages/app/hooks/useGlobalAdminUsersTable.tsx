@@ -2,27 +2,17 @@
 
 import { Link } from '@nextui-org/link';
 import { getKeyValue } from '@nextui-org/react';
+import { useInfiniteScroll } from '@nextui-org/use-infinite-scroll';
 import { User } from '@nextui-org/user';
-import { isEqual } from 'lodash';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useDebounce } from 'use-debounce';
 
-import useOverviewQueries from '@/hooks/useOverviewQueries';
-import { useIsLoadingUsers, useSearchResults, useUserSearchActions } from '@/store/user-search.store';
+import { PATHS } from '@/config/constants';
+import { useSearchUsers } from '@/query/user';
 import { User as UserType } from '@/types/model';
 import { getUserDisplayName } from '@/utils';
 import { useProfileUser } from '../store/profile.store';
-
-const searchOptions = [
-  {
-    value: 'name',
-    label: 'Name',
-  },
-  {
-    value: 'nickname',
-    label: 'Nickname',
-  },
-];
+import useUserSearch from './useUserSearch';
 
 const columns = [
   {
@@ -40,24 +30,9 @@ const columns = [
 ];
 
 const useGlobalAdminUsersTable = () => {
-  const [selectedRows, setSelectedRows] = useState<Set<string>>(new Set([]));
-  const [query, setQuery] = useOverviewQueries();
-  const [debouncedQuery] = useDebounce(query, 500);
-
-  const { searchTerm, searchBy } = query;
-
-  const lastQueryRef = useRef<typeof query | null>(null);
-
   const user = useProfileUser();
-  const usersActions = useUserSearchActions();
-  const users = useSearchResults();
-  const isLoading = useIsLoadingUsers();
-
-  useEffect(() => {
-    if (isEqual(lastQueryRef.current, debouncedQuery)) return;
-    usersActions.search({ searchTerm: debouncedQuery.searchTerm || '', searchBy: debouncedQuery.searchBy || '' });
-    lastQueryRef.current = debouncedQuery;
-  }, [debouncedQuery, usersActions, lastQueryRef]);
+  const [selectedRows, setSelectedRows] = useState<Set<string>>(new Set([]));
+  const { searchTerm, setSearchTerm, users, isLoading, loaderRef, scrollerRef} = useUserSearch();
 
   const getCellValue = useCallback(
     ({ item, key }: { item: UserType; key: string }) => {
@@ -65,7 +40,7 @@ const useGlobalAdminUsersTable = () => {
         const user = item as UserType;
         const isLoggedInUser = user.id === user.id;
         return (
-          <Link href={`/search/users/${user.id}`} className="text-[unset]">
+          <Link href={`${PATHS.users}/${user.id}`} className="text-[unset]">
             <User
               avatarProps={{ radius: 'full', src: user.avatar || '' }}
               description={user.email}
@@ -82,26 +57,17 @@ const useGlobalAdminUsersTable = () => {
     [user.id],
   );
 
-  const setSearchTerm = (searchTerm: string) => {
-    setQuery({ ...query, searchTerm });
-  };
-
-  const setSearchBy = (searchBy: string) => {
-    setQuery({ ...query, searchBy });
-  };
-
   return {
     searchTerm,
     setSearchTerm,
-    searchBy,
-    setSearchBy,
     users,
     isLoading,
     selectedRows,
     setSelectedRows,
-    searchOptions,
     columns,
     getCellValue,
+    loaderRef,
+    scrollerRef,
   };
 };
 

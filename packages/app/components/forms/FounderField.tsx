@@ -28,33 +28,27 @@ const FounderRadioBox = (props: RadioProps) => {
 const FounderField = (props: FieldProps['field']) => {
   const [field, , form] = useField(props);
   const isSelectedUuid = field.value && isUUID(field.value);
-  const [selected, setSelected] = useState<string>(isSelectedUuid ? 'user' : 'name');
+  const [selectedRadio, setSelectedRadio] = useState<string>(isSelectedUuid ? 'user' : 'name');
 
-  const handleChange = (value: string) => {
+  const handleRadioChange = (value: string) => {
     // Delete the form value when switching over from the UserSelect to Input to avoid showing the user's wallet address
     if (value === 'name' && isSelectedUuid) {
       form.setValue('');
     }
-    setSelected(value);
+    setSelectedRadio(value);
   };
 
   return (
     <div className="flex flex-col gap-2 w-full">
       <h4 className="">Who is the founder of this group?</h4>
-      <RadioGroup value={selected} onValueChange={handleChange} orientation="horizontal">
+      <RadioGroup value={selectedRadio} onValueChange={handleRadioChange} orientation="horizontal">
         <FounderRadioBox value="name">Type the name:</FounderRadioBox>
         <FounderRadioBox value="user">Select a user:</FounderRadioBox>
       </RadioGroup>
-      {selected === 'name' && (
-        <Input
-          {...field}
-          className="mb-3"
-          classNames={{ inputWrapper: '!min-h-12' }}
-          {...props}
-          value={!isSelectedUuid ? field.value : ''}
-        />
+      {selectedRadio === 'name' && (
+        <Input {...field} className="mb-3" classNames={{ inputWrapper: '!min-h-12' }} {...props} value={field.value} />
       )}
-      {selected === 'user' && <UserSelect {...props} disableCurrentUser={false} />}
+      {selectedRadio === 'user' && <UserSelect {...props} disableCurrentUser={false} />}
     </div>
   );
 };

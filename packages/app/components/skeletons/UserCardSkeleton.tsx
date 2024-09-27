@@ -1,13 +1,11 @@
-'use client';
-
 import { Card, CardBody, CardProps } from '@nextui-org/card';
 import { Skeleton } from '@nextui-org/skeleton';
-import { ForwardedRef, forwardRef } from 'react';
 
 export type UserCardProps = CardProps;
-const UserCardSkeleton = (props: UserCardProps, ref: ForwardedRef<HTMLDivElement | null>) => {
+
+const UserCardSkeleton = (props: UserCardProps) => {
   return (
-    <Card ref={ref} {...props}>
+    <Card {...props}>
       <CardBody className="justify-between">
         <div className="flex gap-3">
           <Skeleton className="flex rounded-full min-w-10 w-10 h-10" />
@@ -20,4 +18,5 @@ const UserCardSkeleton = (props: UserCardProps, ref: ForwardedRef<HTMLDivElement
     </Card>
   );
 };
-export default forwardRef(UserCardSkeleton);
+
+export default UserCardSkeleton;
