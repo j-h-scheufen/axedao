@@ -4,18 +4,15 @@ import { Link } from '@nextui-org/link';
 import { Spinner } from '@nextui-org/spinner';
 import { useAtomValue } from 'jotai';
 
+import ContactInfo from '@/components/ContactInfo';
+import GroupMembers from '@/components/GroupMembers';
+import PageHeading from '@/components/PageHeading';
+import SubsectionHeading from '@/components/SubsectionHeading';
+import UserCardWithFetch from '@/components/UserCardWithFetch';
 import { PATHS } from '@/config/constants';
 import { groupAtom, isFounderUuidAtom } from '@/hooks/state/group';
 import { getImageUrl } from '@/utils';
-import ContactInfo from '../ContactInfo';
-import GroupMembers from '../GroupMembers';
-import PageHeading from '../PageHeading';
-import SubsectionHeading from '../SubsectionHeading';
-import UserCardWithFetch from '../UserCardWithFetch';
-import GroupActions from './GroupActions';
-import GroupBanner from './GroupBanner';
-import GroupDescription from './GroupDescription';
-import GroupLogo from './GroupLogo';
+import { GroupActions, GroupBanner, GroupDescription, GroupLogo } from '.';
 
 const GroupView = () => {
   const { data: group, isFetching } = useAtomValue(groupAtom);

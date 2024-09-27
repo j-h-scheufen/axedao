@@ -36,7 +36,6 @@ This app uses a very opinionated approach to data fetching and state management:
 | DELETE | groups/[groupId]/admins/[userId]    |                                     | string[]        |              |
 | GET    | users/                              |                                     | User[]          | User Search  |
 | GET    | users/[userId]                      |                                     | User            |              |
-| GET    | users/[userId]/profile              |                                     | UserProfile     |              |
 | GET    | profile                             |                                     | User            |              |
 | PATCH  | profile                             | ProfileForm                         | User            |              |
 | PUT    | profile/group/[groupId]             |                                     | User            |              |

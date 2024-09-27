@@ -6,18 +6,15 @@ import { useAtomValue } from 'jotai';
 import { Camera } from 'lucide-react';
 
 import ContactInfo from '@/components/ContactInfo';
-import { userAvatarUrlAtom } from '@/hooks/state/user';
-import { useInitUser } from '@/hooks/useUser';
+import { userAtom, userAvatarUrlAtom } from '@/hooks/state/user';
 import { getUserDisplayName } from '@/utils';
 
-type Props = { userId: string };
-
-const UserProfile = ({ userId }: Props) => {
-  const { userProfile } = useInitUser(userId);
+const UserProfile = () => {
+  const { data: user, isFetching } = useAtomValue(userAtom);
   const avatarUrl = useAtomValue(userAvatarUrlAtom);
-  if (!userProfile) return <Spinner />;
 
-  const { user } = userProfile;
+  if (!user || isFetching) return <Spinner />;
+
   return (
     <div className="flex flex-col items-center gap-5 sm:flex-row">
       <Avatar

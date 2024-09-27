@@ -7,8 +7,8 @@ import { getServerSession } from 'next-auth';
 import { notFound } from 'next/navigation';
 
 /**
- * Returns the UserProfile of the logged-in user, i.e. the user whose session token is passed in the request.
- * @returns the UserProfile of the logged-in user
+ * Returns the User object of the logged-in user, i.e. the user whose session token is passed in the request.
+ * @returns the logged-in user
  * @throws 401 if the user is not logged in, 404 if the profile is not found
  */
 export async function GET() {
@@ -25,9 +25,9 @@ export async function GET() {
 }
 
 /**
- * Updates the current user's profile with the data in the request body.
+ * Updates the current user's record with the data in the request body.
  * @param request - ProfileForm
- * @returns The updated UserProfile
+ * @returns The updated User
  * @throws 400 if the input data is invalid, 401 if the user is not logged in, 404 if the profile is not found, 500 if an unexpected error occurs.
  */
 export async function PATCH(request: NextRequest) {

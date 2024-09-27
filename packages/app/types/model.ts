@@ -9,8 +9,6 @@ export type Group = Omit<SelectGroup, 'updatedAt'>;
 
 export type User = Omit<SelectUser, 'updatedAt'>;
 
-export type UserProfile = { user: User; group: Group | null };
-
 export type UserSession = {
   id: string;
   walletAddress: string;

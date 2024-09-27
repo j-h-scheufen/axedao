@@ -1,12 +1,16 @@
 'use client';
 
+import { Spinner } from '@nextui-org/spinner';
 import { useAtomValue } from 'jotai';
 
 import GroupCard from '@/components/GroupCard';
 import { currentUserGroupAtom } from '@/hooks/state/currentUser';
 
-const UserGroupAssociation = () => {
-  const { data: group } = useAtomValue(currentUserGroupAtom);
+const ProfileGroupAssociation = () => {
+  const { data: group, isFetching } = useAtomValue(currentUserGroupAtom);
+
+  if (isFetching) return <Spinner />;
+
   return group ? (
     <GroupCard className="mx-auto sm:mx-0 md:max-w-80" group={group} />
   ) : (
@@ -14,4 +18,4 @@ const UserGroupAssociation = () => {
   );
 };
 
-export default UserGroupAssociation;
+export default ProfileGroupAssociation;

@@ -1,6 +1,5 @@
-import GroupAssociation from '@/components/GroupAssociation';
 import PageHeading from '@/components/PageHeading';
-import Profile from '@/components/Profile';
+import { Profile, ProfileGroupAssociation } from '@/components/Profile';
 import SectionHeading from '@/components/SectionHeading';
 
 const ProfilePage = () => {
@@ -9,7 +8,7 @@ const ProfilePage = () => {
       <PageHeading>Profile</PageHeading>
       <Profile />
       <SectionHeading>Group association</SectionHeading>
-      <GroupAssociation />
+      <ProfileGroupAssociation />
     </>
   );
 };

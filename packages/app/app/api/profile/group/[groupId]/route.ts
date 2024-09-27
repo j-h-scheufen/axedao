@@ -8,7 +8,7 @@ import { updateUser } from '@/db';
  * Let's the current user join the specified group by setting the user's groupId to the specified groupId.
  * @param request - The request object
  * @param groupId - PATH parameter. The id of the group to join
- * @returns the updated UserProfile of the logged-in user
+ * @returns the updated User of the logged-in user
  */
 export async function PUT(request: NextRequest, { params }: { params: { groupId: string } }) {
   const session = await getServerSession(nextAuthOptions);
@@ -31,7 +31,7 @@ export async function PUT(request: NextRequest, { params }: { params: { groupId:
  * Let's the current user leave the specified group by setting the user's groupId to empty.
  * @param request - The request object
  * @param groupId - PATH parameter. The id of the group to join
- * @returns the updated UserProfile of the logged-in user
+ * @returns the updated User of the logged-in user
  */
 export async function DELETE() {
   const session = await getServerSession(nextAuthOptions);

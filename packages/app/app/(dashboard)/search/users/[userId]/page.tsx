@@ -1,21 +1,37 @@
+import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
+import { notFound } from 'next/navigation';
+
 import PageHeading from '@/components/PageHeading';
 import SectionHeading from '@/components/SectionHeading';
-import UserGroupAssociation from '@/components/UserGroupAssociation';
-import UserProfile from '@/components/UserProfile';
+import { UserGroupAssociation, UserProfile, UserProfileClientState } from '@/components/UserProfile';
 import { PATHS } from '@/config/constants';
+import { fetchGroup, fetchUser } from '@/db';
+import { QUERY_KEYS } from '@/query';
+import { createDefaultQueryClient } from '@/utils';
 
 type Props = { params: { userId: string } };
 
 const UserProfilePage = async ({ params: { userId } }: Props) => {
-  if (!userId) return null;
+  if (!userId) throw Error('This page must be placed on a dynamic path containing [userId]');
+  const user = await fetchUser(userId);
+  const group = user?.groupId ? await fetchGroup(user.groupId) : undefined;
+  if (!user) throw notFound();
+
+  const queryClient = createDefaultQueryClient();
+  queryClient.setQueryData([QUERY_KEYS.user.getUser, userId], user);
+  if (group) queryClient.setQueryData([QUERY_KEYS.group.getGroup], group);
+  const dehydratedState = dehydrate(queryClient);
+  queryClient.clear(); // should help with memory usage
 
   return (
-    <>
-      <PageHeading back={`${PATHS.search}?tab=users`}>User profile</PageHeading>
-      <UserProfile userId={userId} />
-      <SectionHeading>Group association</SectionHeading>
-      <UserGroupAssociation />
-    </>
+    <HydrationBoundary state={dehydratedState}>
+      <UserProfileClientState userId={userId}>
+        <PageHeading back={`${PATHS.search}?tab=users`}>User profile</PageHeading>
+        <UserProfile />
+        <SectionHeading>Group association</SectionHeading>
+        <UserGroupAssociation />
+      </UserProfileClientState>
+    </HydrationBoundary>
   );
 };
 

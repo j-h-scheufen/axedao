@@ -5,7 +5,7 @@ import postgres from 'postgres';
 import ENV from '@/config/environment';
 import { GroupSearchParams, SearchParams } from '@/config/validation-schema';
 import * as schema from '@/db/schema';
-import { Group, UserProfile, UserSession } from '@/types/model';
+import { Group, UserSession } from '@/types/model';
 
 /**
  * NOTE: All DB functions in this file can only be run server-side. If you need to retrieve DB data from a client
@@ -65,21 +65,6 @@ export async function fetchUser(userId: string): Promise<schema.SelectUser | und
   return db.query.users.findFirst({
     where: (users, { eq }) => eq(users.id, userId),
   });
-}
-
-export async function fetchUserProfile(userId: string): Promise<UserProfile | undefined> {
-  const result = await db.query.users.findFirst({
-    where: (users, { eq }) => eq(users.id, userId),
-    with: {
-      group: true,
-    },
-  });
-  if (!result) return undefined;
-  // Have to do this because the result is not typed as Profile due to the 'with' clause
-  const { group, ...user } = result as schema.SelectUser & {
-    group: schema.SelectGroup;
-  };
-  return { user, group };
 }
 
 export async function countUsers() {
