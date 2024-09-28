@@ -1,7 +1,7 @@
 import { QueryClient } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 
-import { QUERY_CLIENT_DEFAULT_STALE_TIME_SECONDS } from '@/config/constants';
+import { QueryConfig } from '@/config/constants';
 import ENV from '@/config/environment';
 import { GroupMemberRole, User } from '@/types/model';
 
@@ -94,11 +94,11 @@ export const getImageUrl = (hash: string | null | undefined): string | undefined
  * Use this function instead of 'new QueryClient()' to create a QueryClient with
  * the same default options across the app.
  */
-export const createDefaultQueryClient = () => {
+export const createDefaultQueryClient = (staleTime?: number) => {
   return new QueryClient({
     defaultOptions: {
       queries: {
-        staleTime: 1000 * QUERY_CLIENT_DEFAULT_STALE_TIME_SECONDS,
+        staleTime: staleTime ?? QueryConfig.staleTimeDefault,
       },
     },
   });

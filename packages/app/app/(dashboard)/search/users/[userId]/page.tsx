@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import PageHeading from '@/components/PageHeading';
 import SectionHeading from '@/components/SectionHeading';
 import { UserGroupAssociation, UserProfile, UserProfileClientState } from '@/components/UserProfile';
-import { PATHS } from '@/config/constants';
+import { PATHS, QueryConfig } from '@/config/constants';
 import { fetchGroup, fetchUser } from '@/db';
 import { QUERY_KEYS } from '@/query';
 import { createDefaultQueryClient } from '@/utils';
@@ -17,7 +17,7 @@ const UserProfilePage = async ({ params: { userId } }: Props) => {
   const group = user?.groupId ? await fetchGroup(user.groupId) : undefined;
   if (!user) throw notFound();
 
-  const queryClient = createDefaultQueryClient();
+  const queryClient = createDefaultQueryClient(QueryConfig.staleTimeUser);
   queryClient.setQueryData([QUERY_KEYS.user.getUser, userId], user);
   if (group) queryClient.setQueryData([QUERY_KEYS.group.getGroup], group);
   const dehydratedState = dehydrate(queryClient);

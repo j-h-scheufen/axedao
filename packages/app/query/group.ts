@@ -8,7 +8,7 @@ import {
 } from '@tanstack/react-query';
 import axios from 'axios';
 
-import { QUERY_DEFAULT_STALE_TIME_MINUTES } from '@/config/constants';
+import { QueryConfig } from '@/config/constants';
 import { CreateNewGroupForm, SearchParams, UpdateGroupForm } from '@/config/validation-schema';
 import { Group, GroupSearchResult, User } from '@/types/model';
 import { GroupAndUserParams, QUERY_KEYS } from '.';
@@ -24,7 +24,7 @@ export const fetchGroupOptions = (id: string | undefined) => {
   return {
     queryKey: [QUERY_KEYS.group.getGroup, id],
     queryFn: () => fetchGroup(id ?? ''),
-    staleTime: 1000 * 60 * QUERY_DEFAULT_STALE_TIME_MINUTES,
+    staleTime: QueryConfig.staleTimeGroup,
     enabled: !!id,
   } as const;
 };
@@ -35,7 +35,7 @@ export const fetchGroupMembersOptions = (id: string | undefined) => {
   return {
     queryKey: [QUERY_KEYS.group.getGroupMembers, id],
     queryFn: () => fetchGroupMembers(id ?? ''),
-    staleTime: 1000 * 60 * QUERY_DEFAULT_STALE_TIME_MINUTES,
+    staleTime: QueryConfig.staleTimeGroupMembers,
     enabled: !!id,
   } as const;
 };
@@ -46,7 +46,7 @@ export const fetchGroupAdminsOptions = (id: string | undefined) => {
   return {
     queryKey: [QUERY_KEYS.group.getGroupAdmins, id],
     queryFn: () => fetchGroupAdmins(id ?? ''),
-    staleTime: 1000 * 60 * QUERY_DEFAULT_STALE_TIME_MINUTES,
+    staleTime: QueryConfig.staleTimeDefault,
     enabled: !!id,
   } as const;
 };
@@ -63,6 +63,7 @@ function searchGroupsOptions(offset?: number, pageSize?: number, searchTerm?: st
     queryFn: ({ pageParam }: { pageParam: number | string }) =>
       searchGroups({ offset: Number(pageParam), pageSize, searchTerm }),
     initialPageParam: offset || 0,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     getNextPageParam: (lastPage, pages) => lastPage.nextOffset,
     staleTime: 1000 * 60 * 15, // 15 minutes
   });

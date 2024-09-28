@@ -6,7 +6,7 @@ export * as user from './user';
 /**
  * Query keys for react-query
  * The keys are prefixed with the different categories (e.g. user, group, profile, location)
- * in order to be able to invalidate all queries for a specific entity category.
+ * in order to be able to invalidate all queries for a specific entity category, if needed.
  */
 export const QUERY_KEYS = {
   user: { getUser: 'user.getUser', getUserProfile: 'user.getUserProfile', searchUsers: 'users.search' },

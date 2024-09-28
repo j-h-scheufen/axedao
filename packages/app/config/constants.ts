@@ -51,8 +51,13 @@ export type IconDictionary = Record<LinkType, JSX.Element>; // TODO not used
 // Note: The order of these roles in the array is used to sort group members by role in the UI
 export const GROUP_ROLES = ['founder', 'leader', 'admin', 'member'] as const;
 
-export const QUERY_CLIENT_DEFAULT_STALE_TIME_SECONDS = 300;
-export const QUERY_DEFAULT_STALE_TIME_MINUTES = 30;
 export const QUERY_DEFAULT_PAGE_SIZE = 25;
+
+export const QueryConfig = {
+  staleTimeDefault: 1000 * 60 * 15, // 15 minutes
+  staleTimeGroup: 1000 * 60 * 60 * 24, // 24 hours
+  staleTimeGroupMembers: 1000 * 60 * 60, // 1 hour
+  staleTimeUser: 1000 * 60 * 60 * 24, // 24 hours
+};
 
 export const GROUP_DESCRIPTION_MAX_LENGTH = 500;

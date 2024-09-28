@@ -2,6 +2,7 @@ import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 import { notFound } from 'next/navigation';
 
 import { GroupProfileClientState, GroupView } from '@/components/GroupProfile';
+import { QueryConfig } from '@/config/constants';
 import { fetchGroup, fetchGroupAdminIds, fetchGroupMembers } from '@/db';
 import { QUERY_KEYS } from '@/query';
 import { createDefaultQueryClient } from '@/utils';
@@ -15,7 +16,7 @@ const GroupProfilePage = async ({ params: { groupId } }: Props) => {
   const groupMembers = await fetchGroupMembers(groupId);
   if (!group) throw notFound();
 
-  const queryClient = createDefaultQueryClient();
+  const queryClient = createDefaultQueryClient(QueryConfig.staleTimeGroup);
   queryClient.setQueryData([QUERY_KEYS.group.getGroup, groupId], group);
   queryClient.setQueryData([QUERY_KEYS.group.getGroupAdmins], adminIds);
   queryClient.setQueryData([QUERY_KEYS.group.getGroupMembers], groupMembers);

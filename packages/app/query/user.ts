@@ -1,7 +1,7 @@
 import { infiniteQueryOptions, queryOptions, useInfiniteQuery, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
-import { QUERY_DEFAULT_STALE_TIME_MINUTES } from '@/config/constants';
+import { QueryConfig } from '@/config/constants';
 import { SearchParams } from '@/config/validation-schema';
 import { User, UserSearchResult } from '@/types/model';
 import { QUERY_KEYS } from '.';
@@ -11,7 +11,7 @@ export const fetchUserOptions = (id: string | undefined) => {
   return {
     queryKey: [QUERY_KEYS.user.getUser, id],
     queryFn: () => fetchUser(id ?? ''),
-    staleTime: 1000 * 60 * QUERY_DEFAULT_STALE_TIME_MINUTES,
+    staleTime: QueryConfig.staleTimeUser,
     enabled: !!id,
   } as const;
 };
@@ -28,8 +28,9 @@ function searchUsersOptions(offset?: number, pageSize?: number, searchTerm?: str
     queryFn: ({ pageParam }: { pageParam: number | string }) =>
       searchUsers({ offset: Number(pageParam), pageSize, searchTerm }),
     initialPageParam: offset || 0,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     getNextPageParam: (lastPage, pages) => lastPage.nextOffset,
-    staleTime: 1000 * 60 * 15, // 15 minutes
+    staleTime: QueryConfig.staleTimeDefault,
   });
 }
 
