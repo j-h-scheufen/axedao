@@ -120,9 +120,7 @@ const ProfileForm = () => {
             </div>
             <SubsectionHeading>Social Links</SubsectionHeading>
             <FieldArray name="links">
-              {(helpers) => (
-                <LinksArray {...helpers} links={values.links} ownerId={user.id} setFieldValue={setFieldValue} />
-              )}
+              {(helpers) => <LinksArray links={values.links} actions={{ remove: helpers.remove, add: helpers.push }} />}
             </FieldArray>
 
             <Button

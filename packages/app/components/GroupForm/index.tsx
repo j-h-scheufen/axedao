@@ -7,13 +7,14 @@ import { useAtomValue } from 'jotai';
 import { useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
 
-import { FieldInput, FounderField, LinksArray } from '@/components/forms';
+import { FieldInput, FounderField } from '@/components/forms';
 import ImageUpload from '@/components/ImageUpload';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import { GROUP_DESCRIPTION_MAX_LENGTH, PATHS } from '@/config/constants';
 import { UpdateGroupForm, updateGroupSchema } from '@/config/validation-schema';
 import { groupAtom } from '@/hooks/state/group';
 import { useDeleteGroup, useUpdateGroup } from '@/hooks/useGroup';
+import LinksArray from '../forms/LinksArray';
 import GroupFormSkeleton from '../skeletons/GroupSkeletons';
 import DeleteGroup from './DeleteGroup';
 
@@ -21,7 +22,7 @@ const GroupForm = () => {
   const { data: group, isFetching } = useAtomValue(groupAtom);
   const router = useRouter();
   const { deleteGroup, isPending: isPendingDelete } = useDeleteGroup();
-  const { updateGroup } = useUpdateGroup();
+  const { updateGroup, isPending: isPendingUpdate } = useUpdateGroup();
   const [charsLeft, setCharsLeft] = useState<number>(GROUP_DESCRIPTION_MAX_LENGTH - (group?.description?.length || 0));
 
   // TODO: Deleting the group will have consequences for any logged-in user belonging to that group as their state will be out of sync.
@@ -124,9 +125,7 @@ const GroupForm = () => {
           </Field>
           <SubsectionHeading>Links</SubsectionHeading>
           <FieldArray name="links">
-            {(helpers) => (
-              <LinksArray {...helpers} links={values.links} ownerId={group.id} setFieldValue={setFieldValue} />
-            )}
+            {(helpers) => <LinksArray links={values.links} actions={{ remove: helpers.remove, add: helpers.push }} />}
           </FieldArray>
 
           <div className="flex flex-col mt-8 md:flex-row items-center gap-5">
@@ -135,7 +134,7 @@ const GroupForm = () => {
               type="submit"
               className="flex w-full items-center"
               color="primary"
-              isLoading={isSubmitting}
+              isLoading={isSubmitting || isPendingUpdate}
               disabled={!dirty || !isValid}
             >
               Update group

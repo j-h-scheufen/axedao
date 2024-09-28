@@ -17,7 +17,9 @@ type Props = PropsWithChildren & { userId: string };
  */
 const UserProfileClientState = ({ userId, children }: Props) => {
   const triggerId = useAtomValue(triggerUserIdAtom);
-  useHydrateAtoms(!triggerId || triggerId !== userId ? new Map([[triggerUserIdAtom, userId]]) : new Map());
+  useHydrateAtoms(!triggerId || triggerId !== userId ? new Map([[triggerUserIdAtom, userId]]) : new Map(), {
+    dangerouslyForceHydrate: true, // REQUIRED to force the correct trigger ID also on next page navigation
+  });
   return children;
 };
 

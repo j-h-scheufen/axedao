@@ -124,7 +124,7 @@ const Navbar: React.FC = () => {
             size="lg"
             onPress={() => setIsMenuOpen(false)}
           >
-            Dashboard
+            Search
           </Link>
         </NavbarMenuItem>
         <NavbarMenuItem isActive={isPathAxe}>

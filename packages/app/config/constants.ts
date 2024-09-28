@@ -1,3 +1,5 @@
+import { LinkType } from '@/db/schema';
+
 export const titles = [
   'mestre',
   'contra-mestre',
@@ -43,6 +45,8 @@ export const PATHS = {
   users: '/search/users',
   groups: '/search/groups',
 };
+
+export type IconDictionary = Record<LinkType, JSX.Element>; // TODO not used
 
 // Note: The order of these roles in the array is used to sort group members by role in the UI
 export const GROUP_ROLES = ['founder', 'leader', 'admin', 'member'] as const;

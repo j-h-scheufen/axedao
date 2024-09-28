@@ -28,35 +28,38 @@ export const isValidUrl = (url: string | undefined, validHostnames?: string[], r
     if (regex) {
       valid = regex.test(parsedUrl.pathname);
     }
-  } catch (_) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (error) {
     valid = false;
   }
   return valid;
 };
 
-const isValidFacebookProfileUrl = (url: string | undefined): boolean => {
-  const profilePathRegex = /^\/[a-zA-Z0-9.]+\/?$/;
-  const validHostnames = ['www.facebook.com', 'facebook.com', 'm.facebook.com', 'fb.com'];
-  return isValidUrl(url, validHostnames, profilePathRegex);
-};
+// const isValidFacebookProfileUrl = (url: string | undefined): boolean => {
+//   const profilePathRegex = /^\/[a-zA-Z0-9.]+\/?$/;
+//   const validHostnames = ['www.facebook.com', 'facebook.com', 'm.facebook.com', 'fb.com'];
+//   return isValidUrl(url, validHostnames, profilePathRegex);
+// };
 
-const isValidProfileInstagramUrl = (url: string | undefined): boolean => {
-  const validHostnames = ['www.instagram.com', 'instagram.com'];
-  const profilePathRegex = /^\/[a-zA-Z0-9._]+\/?$/;
-  return isValidUrl(url, validHostnames, profilePathRegex);
-};
+// const isValidProfileInstagramUrl = (url: string | undefined): boolean => {
+//   const validHostnames = ['www.instagram.com', 'instagram.com'];
+//   const profilePathRegex = /^\/[a-zA-Z0-9._]+\/?$/;
+//   return isValidUrl(url, validHostnames, profilePathRegex);
+// };
 
-const isValidProfileTwitterUrl = (url: string | undefined): boolean => {
-  const validHostnames = ['www.twitter.com', 'twitter.com', 'www.x.com', 'x.com'];
-  const profilePathRegex = /^\/[a-zA-Z0-9_]+\/?$/;
-  return isValidUrl(url, validHostnames, profilePathRegex);
-};
+// const isValidProfileTwitterUrl = (url: string | undefined): boolean => {
+//   const validHostnames = ['www.twitter.com', 'twitter.com', 'www.x.com', 'x.com'];
+//   const profilePathRegex = /^\/[a-zA-Z0-9_]+\/?$/;
+//   return isValidUrl(url, validHostnames, profilePathRegex);
+// };
 
 export const megabytesToBytes = (mb: number) => 1024 * 1024 * mb; //3MB
 
 export const linkSchema = object({
-  url: string().required(),
-  type: string().oneOf(linkTypes).optional(),
+  url: string()
+    .required()
+    .test('is-valid-url', 'Enter a valid URL incl. https://', (value) => isValidUrl(value)),
+  type: string().optional().oneOf(linkTypes),
 });
 
 export const linksSchema = array().of(linkSchema).default([]);
@@ -149,6 +152,7 @@ export const updateGroupSchema = object({
       }
       return true;
     })
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .test('is-valid-size', 'Max image size allowed is 5MB', (value: any) => {
       if (value instanceof File) {
         return value.size <= megabytesToBytes(5);
