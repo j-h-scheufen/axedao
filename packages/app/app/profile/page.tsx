@@ -1,16 +1,15 @@
-import GroupAssociation from '@/components/GroupAssociation';
 import PageHeading from '@/components/PageHeading';
-import Profile from '@/components/Profile';
+import { Profile, ProfileGroupAssociation } from '@/components/Profile';
 import SectionHeading from '@/components/SectionHeading';
 
-const page = () => {
+const ProfilePage = () => {
   return (
     <>
       <PageHeading>Profile</PageHeading>
       <Profile />
       <SectionHeading>Group association</SectionHeading>
-      <GroupAssociation />
+      <ProfileGroupAssociation />
     </>
   );
 };
-export default page;
+export default ProfilePage;

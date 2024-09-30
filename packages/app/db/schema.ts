@@ -2,9 +2,9 @@ import { linkTypes, titles } from '@/config/constants';
 import { relations } from 'drizzle-orm';
 import {
   AnyPgColumn,
-  bigserial,
   boolean,
   index,
+  json,
   pgEnum,
   pgTable,
   primaryKey,
@@ -17,6 +17,9 @@ import {
 
 export const titleEnum = pgEnum('title', titles);
 export const linkTypeEnum = pgEnum('link_type', linkTypes);
+
+export type LinkType = (typeof linkTypes)[number];
+export type SocialLink = { type?: LinkType; url: string };
 
 export const users = pgTable(
   'users',
@@ -35,6 +38,7 @@ export const users = pgTable(
     phone: varchar('phone'),
     walletAddress: varchar('wallet_address').notNull(),
     isGlobalAdmin: boolean('is_global_admin').default(false).notNull(),
+    links: json('links').$type<SocialLink[]>().notNull().default([]),
   },
   (table) => {
     return {
@@ -64,6 +68,7 @@ export const groups = pgTable(
     verified: boolean('verified').notNull().default(false),
     city: varchar('city'),
     country: varchar('country').notNull(),
+    links: json('links').$type<SocialLink[]>().notNull().default([]),
   },
   (table) => {
     return {
@@ -89,47 +94,6 @@ export const groupAdmins = pgTable(
   },
 );
 
-export const links = pgTable(
-  'links',
-  {
-    id: bigserial('id', { mode: 'number' }).primaryKey(),
-    url: varchar('url').notNull(),
-    type: linkTypeEnum('type'),
-    ownerId: uuid('owner_id').notNull(),
-  },
-  (table) => {
-    return {
-      ownerIdx: index('owner_idx').on(table.ownerId),
-    };
-  },
-);
-
-/**
- * RELATIONS (app-level constraint declarations that help with the query API)
- */
-
-export const userLinkRelations = relations(users, ({ many }) => ({
-  links: many(links),
-}));
-
-export const groupLinkRelations = relations(groups, ({ many }) => ({
-  links: many(links),
-}));
-
-export const linkUserRelations = relations(links, ({ one }) => ({
-  owner: one(users, {
-    fields: [links.ownerId],
-    references: [users.id],
-  }),
-}));
-
-export const linkGroupRelations = relations(links, ({ one }) => ({
-  owner: one(groups, {
-    fields: [links.ownerId],
-    references: [groups.id],
-  }),
-}));
-
 export const userGroupRelations = relations(users, ({ one }) => ({
   group: one(groups, {
     fields: [users.groupId],
@@ -145,6 +109,3 @@ export type SelectGroup = typeof groups.$inferSelect;
 
 export type InsertGroupAdmin = typeof groupAdmins.$inferInsert;
 export type SelectGroupAdmin = typeof groupAdmins.$inferSelect;
-
-export type InsertLink = typeof links.$inferInsert;
-export type SelectLink = typeof links.$inferSelect;

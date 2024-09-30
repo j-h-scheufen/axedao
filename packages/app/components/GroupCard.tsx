@@ -9,7 +9,9 @@ import { MapPinIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { ReactNode, Suspense } from 'react';
 
+import { PATHS } from '@/config/constants';
 import { Group } from '@/types/model';
+import { getImageUrl } from '@/utils';
 import VerificationChip from './VerificationChip';
 import GroupCardSkeleton from './skeletons/GroupCardSkeleton';
 
@@ -20,10 +22,10 @@ const GroupCard = ({ group, className = '', startFooter = null }: Props) => {
   const { name, id, logo, verified, country, city } = group;
   return (
     <Suspense fallback={<GroupCardSkeleton className={className} />}>
-      <Link as="div" onPress={() => router.push(`/search/groups/${id}`)} className="inline-block cursor-pointer">
+      <Link as="div" onPress={() => router.push(`${PATHS.groups}/${id}`)} className="inline-block cursor-pointer">
         <Card className={clsx('w-full', className)}>
           <CardHeader className="flex gap-3">
-            <Avatar src={logo || ''} />
+            <Avatar src={getImageUrl(logo)} />
             <div className="flex-1 flex flex-col">
               <div className="flex items-start justify-between gap-3">
                 <h3 className="flex items-center gap-2 text-md">{name}</h3>
@@ -42,7 +44,7 @@ const GroupCard = ({ group, className = '', startFooter = null }: Props) => {
               as={Link}
               variant="bordered"
               size="sm"
-              onPress={() => router.push(`/search/groups/${id}`)}
+              onPress={() => router.push(`${PATHS.groups}/${id}`)}
               className="ml-auto w-fit"
             >
               View group

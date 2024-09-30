@@ -16,9 +16,10 @@ import { GroupSearchResult } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
 
 /**
- * Route handler for inite user search
- * @param request
- * @returns { data: User[], nextOffset: number }
+ * Route handler for infinite (paginated) group search.
+ * @param request - The request object
+ * @param URLparams - pageSize, offset, searchTerm, city, country, verified
+ * @returns { data: Group[], nextOffset: number }
  */
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
@@ -45,6 +46,7 @@ export async function GET(request: NextRequest) {
 
   const groups = await searchGroups(searchOptions);
   // we retrieve one more than the pageSize to determine if there are more results
+  // TODO: better solution: https://github.com/drizzle-team/drizzle-orm/discussions/610
   if (groups.length > pageSize) {
     nextOffset = offset + pageSize;
     groups.pop();
@@ -57,7 +59,7 @@ export async function GET(request: NextRequest) {
 /**
  * Creates a new group and assigns the logged-in user as the admin of the group.
  * The user must not be a member of any other group.
- * @param request
+ * @param request - CreateNewGroupForm
  * @returns
  */
 export async function POST(request: NextRequest) {

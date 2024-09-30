@@ -3,28 +3,20 @@
 import { Button } from '@nextui-org/button';
 import { Tooltip } from '@nextui-org/tooltip';
 import { ShieldCheckIcon, ShieldOffIcon } from 'lucide-react';
-import { useState } from 'react';
+import { useCallback } from 'react';
 
-import { useSuperAdminActions } from '@/store/super-admin.store';
+import { useGroupVerification } from '@/hooks/useAdmin';
 import { Group } from '@/types/model';
 
 type Props = { group: Group };
+
 const ActionCell = ({ group }: Props) => {
-  const [isUpdating, setIsUpdating] = useState(false);
+  const { setGroupVerification, isPending } = useGroupVerification();
+  const { id: groupId, verified } = group;
 
-  const { updateGroupVerification } = useSuperAdminActions();
-
-  const { verified } = group;
-
-  const updateVerification = async () => {
-    setIsUpdating(true);
-    try {
-      await updateGroupVerification(group.id, !verified);
-    } catch (error) {
-      console.error(error);
-    }
-    setIsUpdating(false);
-  };
+  const updateVerification = useCallback(async () => {
+    return setGroupVerification({ groupId, verified: !verified });
+  }, [groupId, verified, setGroupVerification]);
 
   return (
     <Tooltip content={verified ? 'Unverify group' : 'Verify group'}>
@@ -33,7 +25,7 @@ const ActionCell = ({ group }: Props) => {
         size="sm"
         className="text-default-400 h-7 w-7 min-w-7 cursor-pointer active:opacity-50"
         onPress={updateVerification}
-        isLoading={isUpdating}
+        isLoading={isPending}
         isIconOnly
       >
         {verified ? <ShieldOffIcon className="w-4" /> : <ShieldCheckIcon className="w-4" />}

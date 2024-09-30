@@ -7,8 +7,9 @@ import { searchUsers } from '@/db';
 import { UserSearchResult } from '@/types/model';
 
 /**
- * Route handler for inite user search
- * @param request
+ * Route handler for infinite (paginated) user search
+ * @param request - The request object
+ * @param URLparams - pageSize, offset, searchTerm
  * @returns { data: User[], nextOffset: number }
  */
 export async function GET(request: NextRequest) {

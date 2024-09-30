@@ -1,17 +1,14 @@
-import { isEqual, isNil } from 'lodash';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { ProfileForm, profileFormSchema } from '@/config/validation-schema';
-import { createLinks, fetchUserProfile, removeLinks, updateLink, updateUser } from '@/db';
-import { Link } from '@/types/model';
+import { fetchUser, updateUser } from '@/db';
 import { getServerSession } from 'next-auth';
 import { notFound } from 'next/navigation';
 
 /**
- * Returns the Profile of the logged-in user, i.e. the user whose JWT token is passed in the request.
- * @param req
- * @returns a Profile object
+ * Returns the User object of the logged-in user, i.e. the user whose session token is passed in the request.
+ * @returns the logged-in user
  * @throws 401 if the user is not logged in, 404 if the profile is not found
  */
 export async function GET() {
@@ -21,68 +18,45 @@ export async function GET() {
     return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
-  const profile = await fetchUserProfile(session.user.id);
-  if (!profile) return notFound();
+  const user = await fetchUser(session.user.id);
+  if (!user) return notFound();
 
-  return Response.json(profile);
+  return Response.json(user);
 }
 
-export async function PATCH(req: NextRequest) {
+/**
+ * Updates the current user's record with the data in the request body.
+ * @param request - ProfileForm
+ * @returns The updated User
+ * @throws 400 if the input data is invalid, 401 if the user is not logged in, 404 if the profile is not found, 500 if an unexpected error occurs.
+ */
+export async function PATCH(request: NextRequest) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {
     return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
+  const body = await request.json();
   let formData: ProfileForm;
   try {
-    formData = profileFormSchema.validateSync(await req.json());
+    formData = profileFormSchema.validateSync(body);
   } catch (error) {
     console.error('Unable to validate input data', error);
     return NextResponse.json({ error: `Invalid input data` }, { status: 400 });
   }
 
-  const { links: links, ...profileData } = formData as Omit<ProfileForm, 'links' | 'avatar'> & {
-    links: Link[];
-    avatar: string | null | undefined;
-  };
+  const existingUser = await fetchUser(session.user.id);
+  if (!existingUser) return notFound();
+  try {
+    const profileData = formData as Omit<ProfileForm, 'avatar'> & {
+      avatar: string | null | undefined;
+    };
 
-  const profile = await fetchUserProfile(session.user.id);
-  if (!profile) return notFound();
-
-  const { links: currentLinks = [] } = profile;
-
-  const linkIds = links.map((link) => link.id);
-  const currentLinkIds = currentLinks.map((link) => link.id);
-  const removedLinkIds = currentLinkIds.filter((linkId) => !linkIds.includes(linkId));
-
-  if (removedLinkIds.length) {
-    await removeLinks(removedLinkIds);
+    const updatedUser = await updateUser({ id: session.user.id, ...profileData });
+    return Response.json(updatedUser);
+  } catch (error) {
+    console.error('Error updating user profile', error);
+    return NextResponse.json({ error: 'Error updating user profile' }, { status: 500 });
   }
-
-  const unChangedLinks: Link[] = [];
-  const newLinks: Link[] = [];
-  const updatedLinks = links.filter((link) => {
-    const currentLink = link?.id && currentLinks.find((currentLink) => currentLink.id === link.id);
-    const isUnChanged = currentLink && isEqual(currentLink, link);
-    if (isUnChanged) unChangedLinks.push(link);
-    const isUpdated = currentLink && !isUnChanged;
-    if (!isUpdated && isNil(link?.id)) newLinks.push(link);
-    return isUpdated;
-  });
-
-  if (updatedLinks.length) {
-    for (const updatedLink of updatedLinks) {
-      await updateLink(updatedLink);
-    }
-  }
-
-  let createdLinks: Link[] = [];
-  if (newLinks.length) {
-    createdLinks = await createLinks(newLinks);
-  }
-
-  const updatedProfile = await updateUser({ id: session.user.id, ...profileData });
-  const responseData = { ...updatedProfile, links: [...unChangedLinks, ...updatedLinks, ...createdLinks] };
-  return Response.json(responseData);
 }

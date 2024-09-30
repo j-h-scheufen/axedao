@@ -3,9 +3,10 @@
 import { Button } from '@nextui-org/button';
 import { Select, SelectItem } from '@nextui-org/select';
 import { Field, FieldArray, FieldProps, Form, Formik, FormikProps } from 'formik';
+import { useAtomValue } from 'jotai';
 import { Mail, Phone } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { Suspense } from 'react';
+import { Suspense, useCallback } from 'react';
 
 import { FieldInput, LinksArray } from '@/components/forms';
 import ImageUpload from '@/components/ImageUpload';
@@ -13,35 +14,43 @@ import ProfileFormSkeleton from '@/components/skeletons/ProfileFormSkeleton';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import { PATHS, titles } from '@/config/constants';
 import { ProfileForm as FormType, profileFormSchema } from '@/config/validation-schema';
-import { useProfile, useProfileActions } from '@/store/profile.store';
+import { currentUserAtom } from '@/hooks/state/currentUser';
+import { useUpdateProfile } from '@/hooks/useCurrentUser';
+import { Spinner } from '@nextui-org/spinner';
 
 const ProfileForm = () => {
   const router = useRouter();
-  const profile = useProfile();
-  const { updateProfile } = useProfileActions();
+  const { data: user } = useAtomValue(currentUserAtom);
+  const { updateProfile } = useUpdateProfile();
 
-  const handleSubmit = (values: FormType) => {
-    try {
-      /**
-       * TODO: We should really only update the profile fields that have changed in order to avoid future
-       * API validation conflicts. See https://medium.com/@tonyeder11/formik-enablereinitialize-example-fixing-backend-validation-errors-76d26031d5f7
-       */
-      return updateProfile(values).then(() => router.push(PATHS.profile));
-    } catch (error) {
-      console.error('Error during profile update.', error);
-      throw error;
-    }
-  };
+  const handleSubmit = useCallback(
+    async (values: FormType) => {
+      try {
+        /**
+         * TODO: We should really only update the profile fields that have changed in order to avoid future
+         * API validation conflicts. See https://medium.com/@tonyeder11/formik-enablereinitialize-example-fixing-backend-validation-errors-76d26031d5f7
+         * At least the images can be updated separately from the rest of the profile.
+         */
+        return updateProfile(values).then(() => router.push(PATHS.profile));
+      } catch (error) {
+        console.error('Error during profile update.', error);
+        throw error;
+      }
+    },
+    [updateProfile, router],
+  );
+
+  if (!user) return <Spinner />;
 
   // NOTE: The initial form values MUST BE declared outside of the JSX code, otherwise it can lead to hydration errors.
   const initValues: FormType = {
-    name: profile.user.name || '',
-    nickname: profile.user.nickname || '',
-    title: profile.user.title || undefined,
-    email: profile.user.email || '',
-    phone: profile.user.phone || '',
-    avatar: profile.user.avatar || undefined,
-    links: profile.links || [],
+    name: user.name || '',
+    nickname: user.nickname || '',
+    title: user.title || undefined,
+    email: user.email || '',
+    phone: user.phone || '',
+    avatar: user.avatar || undefined,
+    links: user.links || [],
   };
 
   return (
@@ -111,9 +120,7 @@ const ProfileForm = () => {
             </div>
             <SubsectionHeading>Social Links</SubsectionHeading>
             <FieldArray name="links">
-              {(helpers) => (
-                <LinksArray {...helpers} links={values.links} ownerId={profile.user.id} setFieldValue={setFieldValue} />
-              )}
+              {(helpers) => <LinksArray links={values.links} actions={{ remove: helpers.remove, add: helpers.push }} />}
             </FieldArray>
 
             <Button

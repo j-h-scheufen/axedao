@@ -1,20 +1,22 @@
 import { Button } from '@nextui-org/button';
 import { Field, Form, Formik, FormikProps } from 'formik';
+import { useCallback } from 'react';
 
 import { CountrySelect, FieldInput } from '@/components/forms';
 import { CreateNewGroupForm as FormType, createNewGroupFormSchema } from '@/config/validation-schema';
 import useCountriesAndCities from '@/hooks/useCountriesAndCities';
-import { useCreateGroup } from '@/query/group';
-import { useProfileActions } from '@/store/profile.store';
+import { useCreateGroup } from '@/hooks/useGroup';
 
 const CreateNewGroupForm = () => {
-  const { mutateAsync: createGroup, error } = useCreateGroup();
+  const { createGroup, error } = useCreateGroup();
   const { setSelectedCountryCode } = useCountriesAndCities();
-  const { updateGroup } = useProfileActions();
 
-  const handleSubmit = async (values: FormType) => {
-    return createGroup(values).then((data) => updateGroup(data));
-  };
+  const handleSubmit = useCallback(
+    async (values: FormType) => {
+      return createGroup(values);
+    },
+    [createGroup],
+  );
 
   // NOTE: The initial form values MUST BE declared outside of JSX, otherwise it can lead to hydration errors.
   const initValues: FormType = {

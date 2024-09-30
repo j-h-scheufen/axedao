@@ -1,6 +1,8 @@
-import axios, { AxiosError } from 'axios';
-import { getSession } from 'next-auth/react';
+import { QueryClient } from '@tanstack/react-query';
+import { AxiosError } from 'axios';
 
+import { QueryConfig } from '@/config/constants';
+import ENV from '@/config/environment';
 import { GroupMemberRole, User } from '@/types/model';
 
 export const generateErrorMessage = (error: unknown, defaultMessage: string) => {
@@ -14,15 +16,6 @@ export const generateErrorMessage = (error: unknown, defaultMessage: string) => 
   }
 
   return message;
-};
-
-export const uploadImage = async (imageFile: File, name?: string) => {
-  const data = new FormData();
-  data.set('file', imageFile);
-  if (name) data.set('name', name);
-  const res = await axios.post('/api/images', data, { headers: { 'Content-Type': 'multipart/form-data' } });
-  const url: string = res.data?.url;
-  if (url) return url;
 };
 
 /**
@@ -83,6 +76,7 @@ export const getHostname = (url: string): string | undefined => {
 };
 
 export const getUserDisplayName = (user: User): string => {
+  if (!user) return '';
   let displayName = '';
   if (user.nickname) {
     displayName = user.nickname;
@@ -93,12 +87,19 @@ export const getUserDisplayName = (user: User): string => {
   return displayName || `Anonymous (${user.walletAddress})`;
 };
 
-export const isCurrentUserGroupAdmin = async (adminIds: string[]) => {
-  const session = await getSession();
-  if (!session) {
-    console.warn('No session found while setting group profile');
-  } else {
-    return adminIds.includes(session.user.id);
-  }
-  return false;
+export const getImageUrl = (hash: string | null | undefined): string | undefined =>
+  hash ? `${ENV.pinataGatewayUrl}/ipfs/${hash}` : undefined;
+
+/**
+ * Use this function instead of 'new QueryClient()' to create a QueryClient with
+ * the same default options across the app.
+ */
+export const createDefaultQueryClient = (staleTime?: number) => {
+  return new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: staleTime ?? QueryConfig.staleTimeDefault,
+      },
+    },
+  });
 };

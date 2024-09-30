@@ -2,20 +2,22 @@
 
 import { Button } from '@nextui-org/button';
 import { Field, Form, Formik, FormikProps } from 'formik';
+import { useCallback } from 'react';
 
 import ErrorText from '@/components/ErrorText';
 import { JoinGroupForm as FormType, joinGroupFormSchema } from '@/config/validation-schema';
-import { useJoinGroup } from '@/query/profile';
-import { useProfileActions } from '@/store/profile.store';
+import { useJoinGroup } from '@/hooks/useCurrentUser';
 import GroupSelect from './forms/GroupSelect';
 
 const JoinGroupForm = () => {
-  const { mutateAsync: joinGroup, error: joinGroupError } = useJoinGroup();
-  const { updateGroup } = useProfileActions();
+  const { joinGroup, error: joinGroupError } = useJoinGroup();
 
-  const handleSubmit = async (values: FormType) => {
-    return joinGroup(values.id).then((data) => updateGroup(data.group));
-  };
+  const handleSubmit = useCallback(
+    async (values: FormType) => {
+      return joinGroup(values.id);
+    },
+    [joinGroup],
+  );
 
   // NOTE: The initial form values MUST BE declared outside of the JSX code, otherwise it can lead to hydration errors.
   const initValues: FormType = {

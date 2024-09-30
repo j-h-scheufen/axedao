@@ -12,21 +12,23 @@ import {
   NavbarMenuToggle,
   Navbar as NextUINavbar,
 } from '@nextui-org/navbar';
+import { useAtomValue } from 'jotai';
 import { useSession } from 'next-auth/react';
 import NextLink from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 import { PATHS } from '@/config/constants';
+import { currentUserAtom, currentUserAvatarUrlAtom } from '@/hooks/state/currentUser';
 import useAuth from '@/hooks/useAuth';
-import { useProfileUser } from '@/store/profile.store';
 import { getUserDisplayName } from '@/utils';
 import { ThemeSwitch } from './ThemeSwitch';
 
 const Navbar: React.FC = () => {
   const { data: session } = useSession();
   const pathname = usePathname();
-  const user = useProfileUser();
+  const { data: user } = useAtomValue(currentUserAtom);
+  const avatarUrl = useAtomValue(currentUserAvatarUrlAtom);
   const { logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -75,7 +77,7 @@ const Navbar: React.FC = () => {
 
       <NavbarContent as="div" justify="end">
         <ThemeSwitch />
-        {session && (
+        {session && !!user && (
           <Dropdown placement="bottom-end">
             <DropdownTrigger>
               <Avatar
@@ -85,13 +87,13 @@ const Navbar: React.FC = () => {
                 color="primary"
                 name={user.name || undefined}
                 size="sm"
-                src={user.avatar || undefined}
+                src={avatarUrl}
               />
             </DropdownTrigger>
             <DropdownMenu aria-label="Profile Actions" variant="flat">
               <DropdownItem key="profile" className="h-14 gap-2">
                 <p className="font-semibold">Signed in as</p>
-                <p className="font-semibold">{user.email || getUserDisplayName(user)}</p>
+                <p className="font-semibold">{getUserDisplayName(user)}</p>
               </DropdownItem>
               <DropdownItem key="my-profile" href={PATHS.profile}>
                 My Profile
@@ -122,7 +124,7 @@ const Navbar: React.FC = () => {
             size="lg"
             onPress={() => setIsMenuOpen(false)}
           >
-            Dashboard
+            Search
           </Link>
         </NavbarMenuItem>
         <NavbarMenuItem isActive={isPathAxe}>

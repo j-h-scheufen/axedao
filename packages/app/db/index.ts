@@ -1,12 +1,11 @@
-import { and, count, eq, ilike, inArray, ne, notExists, or, SQLWrapper } from 'drizzle-orm';
+import { and, count, eq, ilike, ne, notExists, or, SQLWrapper } from 'drizzle-orm';
 import { drizzle, PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 
 import ENV from '@/config/environment';
 import { GroupSearchParams, SearchParams } from '@/config/validation-schema';
 import * as schema from '@/db/schema';
-import { Group, UserProfile } from '@/types/model';
-import { GroupProfile, UserSession } from '../types/model';
+import { Group, UserSession } from '@/types/model';
 
 /**
  * NOTE: All DB functions in this file can only be run server-side. If you need to retrieve DB data from a client
@@ -66,23 +65,6 @@ export async function fetchUser(userId: string): Promise<schema.SelectUser | und
   return db.query.users.findFirst({
     where: (users, { eq }) => eq(users.id, userId),
   });
-}
-
-export async function fetchUserProfile(userId: string): Promise<UserProfile | undefined> {
-  const result = await db.query.users.findFirst({
-    where: (users, { eq }) => eq(users.id, userId),
-    with: {
-      links: true,
-      group: true,
-    },
-  });
-  if (!result) return undefined;
-  // Have to do this because the result is not typed as Profile due to the 'with' clause
-  const { links, group, ...user } = result as schema.SelectUser & {
-    links: schema.SelectLink[];
-    group: schema.SelectGroup;
-  };
-  return { user, links, group };
 }
 
 export async function countUsers() {
@@ -150,19 +132,19 @@ export async function fetchGroup(groupId: string): Promise<schema.SelectGroup | 
   });
 }
 
-export async function fetchGroupProfile(groupId: string): Promise<GroupProfile | undefined> {
-  const group = await db.select().from(schema.groups).where(eq(schema.groups.id, groupId));
-  const links = await db.select().from(schema.links).where(eq(schema.links.ownerId, groupId));
-  const adminIds = await fetchGroupAdminIds(groupId);
-  if (group.length == 0) throw new Error('Group not found');
-  return { group: group[0], links, adminIds };
-}
-
 export async function fetchGroupMembers(groupId: string): Promise<schema.SelectUser[]> {
   return await db
     .select()
     .from(schema.users)
     .where(and(eq(schema.users.groupId, groupId)));
+}
+
+export async function fetchGroupAdminIds(groupId: string): Promise<string[]> {
+  const result = await db
+    .select({ id: schema.groupAdmins.userId })
+    .from(schema.groupAdmins)
+    .where(eq(schema.groupAdmins.groupId, groupId));
+  return result.map((entry) => entry.id);
 }
 
 export async function insertUser(userValues: schema.InsertUser) {
@@ -180,9 +162,6 @@ export async function insertGroup(group: schema.InsertGroup) {
 }
 
 export async function deleteGroup(groupId: string) {
-  await db.update(schema.users).set({ groupId: null }).where(eq(schema.users.groupId, groupId));
-  await db.delete(schema.groupAdmins).where(eq(schema.groupAdmins.groupId, groupId));
-  await db.delete(schema.links).where(eq(schema.links.ownerId, groupId));
   await db.delete(schema.groups).where(eq(schema.groups.id, groupId));
 }
 
@@ -190,32 +169,7 @@ export async function removeGroupMember(memberId: string) {
   await db.update(schema.users).set({ groupId: null }).where(eq(schema.users.id, memberId));
 }
 
-export async function addLink(link: schema.InsertLink) {
-  const links = await db.insert(schema.links).values(link).returning();
-  return links.length ? links[0] : undefined;
-}
-
-export async function createLinks(links: schema.InsertLink[]) {
-  return await db.insert(schema.links).values(links).returning();
-}
-
-export async function removeLinks(linkIds: number[]) {
-  return await db.delete(schema.links).where(inArray(schema.links.id, linkIds));
-}
-
-export async function updateLink(link: Omit<schema.InsertLink, 'id'> & { id: number }) {
-  return await db.update(schema.links).set(link).where(eq(schema.links.id, link.id));
-}
-
-export async function removeLink(linkId: number) {
-  await db.delete(schema.links).where(eq(schema.links.id, linkId));
-}
-
-export async function fetchUserLinks(userId: string) {
-  return await db.select().from(schema.links).where(eq(schema.links.ownerId, userId));
-}
-
-export async function updateUser(user: Omit<schema.InsertUser, 'walletAddress'>) {
+export async function updateUser(user: Omit<schema.InsertUser, 'walletAddress' | 'updatedAt'>) {
   const users = await db.update(schema.users).set(user).where(eq(schema.users.id, user.id)).returning();
   return users.length ? users[0] : undefined;
 }
@@ -226,15 +180,7 @@ export async function updateGroup(group: Partial<schema.InsertGroup> & { id: str
 }
 
 export async function addGroupAdmin(entry: schema.InsertGroupAdmin) {
-  await db.insert(schema.groupAdmins).values(entry);
-}
-
-export async function fetchGroupAdminIds(groupId: string): Promise<string[]> {
-  const result = await db
-    .select({ id: schema.groupAdmins.userId })
-    .from(schema.groupAdmins)
-    .where(eq(schema.groupAdmins.groupId, groupId));
-  return result.map((entry) => entry.id);
+  await db.insert(schema.groupAdmins).values(entry).onConflictDoNothing(); // Ignore if already exists
 }
 
 export async function removeGroupAdmin(groupId: string, adminId: string) {

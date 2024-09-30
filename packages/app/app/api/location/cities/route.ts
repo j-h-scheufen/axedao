@@ -1,14 +1,21 @@
 import { City } from 'country-state-city';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
+/**
+ * Returns a list of cities in the specified country and optionally filtered by name
+ * @param request - The request object
+ * @param countryCode - URL param (required)
+ * @param searchTerm - URL param (optional)
+ * @returns the list of filtered cities as City[]
+ */
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const countryCode = searchParams.get('countryCode');
   const searchTerm = searchParams.get('searchTerm');
 
   if (!countryCode) {
-    return Response.json(
-      { error: true, message: 'No country code received' },
+    return NextResponse.json(
+      { error: true, message: 'Missing countryCode' },
       {
         status: 400,
       },
@@ -21,5 +28,5 @@ export async function GET(request: NextRequest) {
     results = results.filter((city) => city.name.toLowerCase().includes(searchTerm.toLowerCase()));
   }
 
-  return Response.json(results);
+  return NextResponse.json(results);
 }

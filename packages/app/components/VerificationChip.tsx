@@ -8,10 +8,10 @@ const VerificationChip = ({ verified, ...props }: Props) => {
       {...props}
       size="sm"
       startContent={
-        verified ? <CircleCheckIcon size={18} className="[&>circle]:fill-success stroke-default-100" /> : null
+        verified ? <CircleCheckIcon size={18} className="[&>circle]:fill-primary stroke-default-100" /> : null
       }
       variant="light"
-      color={verified ? 'success' : 'secondary'}
+      color={verified ? 'primary' : 'secondary'}
     >
       {verified ? 'Verified' : 'Unverified'}
     </Chip>

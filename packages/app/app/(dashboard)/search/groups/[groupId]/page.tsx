@@ -1,20 +1,35 @@
+import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 import { notFound } from 'next/navigation';
 
-import GroupProfile from '@/components/GroupProfile';
-import { fetchGroupProfile } from '@/db';
+import { GroupProfileClientState, GroupView } from '@/components/GroupProfile';
+import { QueryConfig } from '@/config/constants';
+import { fetchGroup, fetchGroupAdminIds, fetchGroupMembers } from '@/db';
+import { QUERY_KEYS } from '@/query';
+import { createDefaultQueryClient } from '@/utils';
 
 type Props = { params: { groupId: string } };
 
-const GroupPage = async ({ params: { groupId = '' } }: Props) => {
-  if (!groupId) return null;
-  const groupProfile = await fetchGroupProfile(groupId);
-  if (!groupProfile) return notFound();
+const GroupProfilePage = async ({ params: { groupId } }: Props) => {
+  if (!groupId) throw Error('This page must be placed on a dynamic path containing [groupId]');
+  const group = await fetchGroup(groupId);
+  const adminIds = await fetchGroupAdminIds(groupId);
+  const groupMembers = await fetchGroupMembers(groupId);
+  if (!group) throw notFound();
+
+  const queryClient = createDefaultQueryClient(QueryConfig.staleTimeGroup);
+  queryClient.setQueryData([QUERY_KEYS.group.getGroup, groupId], group);
+  queryClient.setQueryData([QUERY_KEYS.group.getGroupAdmins], adminIds);
+  queryClient.setQueryData([QUERY_KEYS.group.getGroupMembers], groupMembers);
+  const dehydratedState = dehydrate(queryClient);
+  queryClient.clear(); // should help with memory usage
 
   return (
-    <div className="relative">
-      <GroupProfile profile={groupProfile} />
-    </div>
+    <HydrationBoundary state={dehydratedState}>
+      <GroupProfileClientState groupId={groupId}>
+        <GroupView />
+      </GroupProfileClientState>
+    </HydrationBoundary>
   );
 };
 
-export default GroupPage;
+export default GroupProfilePage;

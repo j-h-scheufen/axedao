@@ -1,13 +1,14 @@
-import { getCsrfToken, signIn as nextAuthSignIn, signOut as nextAuthSignOut } from 'next-auth/react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSetAtom } from 'jotai';
+import { getCsrfToken, getSession, signIn as nextAuthSignIn, signOut as nextAuthSignOut } from 'next-auth/react';
+import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { SiweMessage } from 'siwe';
 import { useAccount, useConnect, useDisconnect, useSignMessage } from 'wagmi';
 
 import { PATHS } from '@/config/constants';
 import { getDefaultChain } from '@/config/wagmi';
-import { useProfileActions } from '@/store/profile.store';
 import silk from '@/utils/silk.connector';
+import { triggerCurrentUserIdAtom } from './state/currentUser';
 
 /**
  * Handles wagmi connect, signMessage, and logout using the Silk wallet.
@@ -21,12 +22,11 @@ const useSignIn = () => {
     nonce?: string;
     error?: Error;
   }>({});
+  const setCurrentUserId = useSetAtom(triggerCurrentUserIdAtom);
   const { address, chainId } = useAccount();
   const { connect: wagmiConnect, error: connectError, connectors } = useConnect();
   const { disconnect } = useDisconnect();
   const { signMessageAsync } = useSignMessage();
-  const { initializeProfile, clearProfile } = useProfileActions();
-  const router = useRouter();
   const params = useSearchParams();
   const callbackUrl = params.get('callbackUrl') || PATHS.profile;
 
@@ -66,16 +66,15 @@ const useSignIn = () => {
 
       const res = await nextAuthSignIn('credentials', {
         message: JSON.stringify(message),
-        redirect: false,
         signature,
+        callbackUrl,
       });
 
       if (res?.ok && !res.error) {
-        // TODO: Retrieve the profile and inject it to use react-query here
-        initializeProfile();
-        if (callbackUrl) {
-          router.replace(callbackUrl);
-        }
+        const session = await getSession();
+        console.info('User signed in:', session?.user?.id);
+        setCurrentUserId(session?.user?.id);
+        // TODO somehow not redirecting to callbackUrl. Need router manually after all?
       } else if (res?.error) {
         const msg = `An error occurred while signin in. Code: ${res.status} - ${res.error}`;
         console.error(msg);
@@ -90,11 +89,11 @@ const useSignIn = () => {
   };
 
   const logout = async () => {
-    await nextAuthSignOut();
-    // TODO how to logout from Silk?
-    disconnect();
-    clearProfile();
-    setState({});
+    return nextAuthSignOut().then(() => {
+      disconnect();
+      setCurrentUserId(undefined);
+      setState({});
+    });
   };
 
   const connect = async () => {

@@ -1,23 +1,13 @@
 import { GROUP_ROLES } from '@/config/constants';
-import { SelectGroup, SelectLink, SelectUser } from '../db/schema';
+import { SelectGroup, SelectUser } from '../db/schema';
 
 /**
- * This file defines app-level types that are wrapping the DB schema types in order to create a layer of separation
+ * This file defines API and app-level types that are wrapping the DB schema types in order to create a layer of separation
  */
 
-export type Group = SelectGroup;
+export type Group = Omit<SelectGroup, 'updatedAt'>;
 
-export type User = SelectUser;
-
-export type Link = SelectLink;
-
-export type UserProfile = { user: User; links: Link[]; group: Group | null };
-
-export type GroupProfile = {
-  group: Group;
-  links: Array<Link>;
-  adminIds: Array<string>;
-};
+export type User = Omit<SelectUser, 'updatedAt'>;
 
 export type UserSession = {
   id: string;

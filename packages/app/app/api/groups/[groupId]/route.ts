@@ -1,29 +1,28 @@
 import { isNil, omitBy } from 'lodash';
 import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
-import { InferType } from 'yup';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { updateGroupSchema } from '@/config/validation-schema';
+import { UpdateGroupForm, updateGroupSchema } from '@/config/validation-schema';
 import { deleteGroup, fetchGroup, fetchGroupAdminIds, isGroupAdmin, updateGroup } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import { notFound } from 'next/navigation';
 
 /**
  * Returns a Group object for a given group ID.
- * @param req
- * @returns a Group
+ * @param request - The request object
+ * @returns a Group or 404 if not found
  */
-export async function GET(req: NextRequest, { params }: { params: { groupId: string } }) {
+export async function GET(request: NextRequest, { params }: { params: { groupId: string } }) {
   try {
     const { groupId } = params;
     const group = await fetchGroup(groupId);
     if (!group) return notFound();
 
-    return Response.json(group);
+    return NextResponse.json(group);
   } catch (error) {
     console.error(error);
-    return Response.json(
+    return NextResponse.json(
       { error: true, message: generateErrorMessage(error, 'An unexpected error occurred while fetching group') },
       {
         status: 500,
@@ -33,12 +32,12 @@ export async function GET(req: NextRequest, { params }: { params: { groupId: str
 }
 
 /**
- * Updates a group
- * @param req Partial<Group>
- * @param groupId
- * @returns
+ * Updates the group with the specified ID.
+ * @param request - UpdateGroupForm
+ * @param groupId - PATH parameter. The id of the group
+ * @returns the updated Group or 404 if not found
  */
-export async function PATCH(req: NextRequest, { params }: { params: { groupId: string } }) {
+export async function PATCH(request: NextRequest, { params }: { params: { groupId: string } }) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {
@@ -56,7 +55,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { groupId: s
       },
     );
 
-  const body = await req.json();
+  const body = await request.json();
   const isValid = await updateGroupSchema.validate(body);
   if (!isValid) {
     return Response.json(
@@ -67,22 +66,31 @@ export async function PATCH(req: NextRequest, { params }: { params: { groupId: s
     );
   }
 
-  const groupData = body as InferType<typeof updateGroupSchema>;
+  try {
+    const oldGroup = await fetchGroup(groupId);
+    if (!oldGroup) return notFound();
 
-  const groupDataClean = omitBy(groupData, isNil);
+    const groupData = body as UpdateGroupForm;
+    const groupDataClean = omitBy(groupData, isNil);
 
-  const oldGroup = await fetchGroup(groupId);
-  if (!oldGroup) return notFound();
-
-  const updatedGroup = await updateGroup({ ...groupDataClean, id: oldGroup.id });
-  return Response.json(updatedGroup);
+    const updatedGroup = await updateGroup({ ...groupDataClean, id: groupId });
+    return Response.json(updatedGroup);
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json(
+      { error: true, message: generateErrorMessage(error, 'An unexpected error occurred while updating the group') },
+      {
+        status: 500,
+      },
+    );
+  }
 }
 
 /**
  * Deletes the group with the specified ID.
- * @param request
- * @param param1
- * @returns
+ * @param request - The request object
+ * @param groupId - PATH parameter. The id of the group
+ * @returns 204 if successful, 404 if not found
  */
 export async function DELETE(request: NextRequest, { params }: { params: { groupId: string } }) {
   const session = await getServerSession(nextAuthOptions);
@@ -109,7 +117,7 @@ export async function DELETE(request: NextRequest, { params }: { params: { group
 
     await deleteGroup(groupId);
 
-    return Response.json({ success: true });
+    return new NextResponse(null, { status: 204 });
   } catch (error) {
     console.error(error);
     return Response.json(

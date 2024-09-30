@@ -7,23 +7,12 @@ import useGlobalAdminUsersTable from '@/hooks/useGlobalAdminUsersTable';
 import GlobalAdminUsersTableFilters from './GlobalAdminUsersTableFilters';
 
 const GlobalAdminUsersTable = () => {
-  const {
-    searchTerm,
-    setSearchTerm,
-    users,
-    isLoading,
-    selectedRows,
-    setSelectedRows,
-    columns,
-    getCellValue,
-  } = useGlobalAdminUsersTable();
+  const { searchTerm, setSearchTerm, users, isLoading, selectedRows, setSelectedRows, columns, getCellValue } =
+    useGlobalAdminUsersTable();
 
   return (
     <div className="flex flex-col gap-4 -mt-5">
-      <GlobalAdminUsersTableFilters
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-      />
+      <GlobalAdminUsersTableFilters searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <div className="flex flex-col gap-3">
         <Table
           aria-label="Global admin users table"
@@ -43,7 +32,7 @@ const GlobalAdminUsersTable = () => {
           <TableBody items={users}>
             {(item) => (
               <TableRow key={item.id}>
-                {(columnKey) => <TableCell>{getCellValue({ item, key: columnKey as string })}</TableCell>}
+                {(columnKey) => <TableCell>{getCellValue({ user: item, key: columnKey as string })}</TableCell>}
               </TableRow>
             )}
           </TableBody>

@@ -1,28 +1,38 @@
-import PageHeading from '@/components/PageHeading';
-import SectionHeading from '@/components/SectionHeading';
-import UserGroupAssociation from '@/components/UserGroupAssociation';
-import UserProfile from '@/components/UserProfile';
-import { fetchUserProfile } from '@/db';
-import UserProfileProvider from '@/store/userProfile.store';
+import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 import { notFound } from 'next/navigation';
 
-const Page = async ({ params }: { params: { userId: string } }) => {
-  let userProfile;
-  try {
-    userProfile = await fetchUserProfile(params.userId);
-  } catch (error) {
-    console.error('Error fetching user profile:', error);
-    return notFound();
-  }
-  if (!userProfile) return notFound();
+import PageHeading from '@/components/PageHeading';
+import SectionHeading from '@/components/SectionHeading';
+import { UserGroupAssociation, UserProfile, UserProfileClientState } from '@/components/UserProfile';
+import { PATHS, QueryConfig } from '@/config/constants';
+import { fetchGroup, fetchUser } from '@/db';
+import { QUERY_KEYS } from '@/query';
+import { createDefaultQueryClient } from '@/utils';
+
+type Props = { params: { userId: string } };
+
+const UserProfilePage = async ({ params: { userId } }: Props) => {
+  if (!userId) throw Error('This page must be placed on a dynamic path containing [userId]');
+  const user = await fetchUser(userId);
+  const group = user?.groupId ? await fetchGroup(user.groupId) : undefined;
+  if (!user) throw notFound();
+
+  const queryClient = createDefaultQueryClient(QueryConfig.staleTimeUser);
+  queryClient.setQueryData([QUERY_KEYS.user.getUser, userId], user);
+  if (group) queryClient.setQueryData([QUERY_KEYS.group.getGroup], group);
+  const dehydratedState = dehydrate(queryClient);
+  queryClient.clear(); // should help with memory usage
+
   return (
-    <UserProfileProvider profile={userProfile}>
-      <PageHeading back="/search?tab=users">User profile</PageHeading>
-      <UserProfile />
-      <SectionHeading>Group association</SectionHeading>
-      <UserGroupAssociation />
-    </UserProfileProvider>
+    <HydrationBoundary state={dehydratedState}>
+      <UserProfileClientState userId={userId}>
+        <PageHeading back={`${PATHS.search}?tab=users`}>User profile</PageHeading>
+        <UserProfile />
+        <SectionHeading>Group association</SectionHeading>
+        <UserGroupAssociation />
+      </UserProfileClientState>
+    </HydrationBoundary>
   );
 };
 
-export default Page;
+export default UserProfilePage;
