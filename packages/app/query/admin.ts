@@ -8,9 +8,9 @@ export type GroupVerificationParams = { groupId: string; verified: boolean };
 
 const setGroupVerification = ({ groupId, verified }: GroupVerificationParams): Promise<Group> => {
   if (verified) {
-    return axios.put(`/admin/group/${groupId}/verification`).then((response) => response.data);
+    return axios.put(`/api/admin/groups/${groupId}/verification`).then((response) => response.data);
   } else {
-    return axios.delete(`/admin/group/${groupId}/verification`).then((response) => response.data);
+    return axios.delete(`/api/admin/groups/${groupId}/verification`).then((response) => response.data);
   }
 };
 

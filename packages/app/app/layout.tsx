@@ -57,7 +57,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                   <StateProvider>
                     <div className="relative flex min-h-screen flex-col">
                       <Navbar />
-                      <main className="container mx-auto max-w-3xl flex-grow px-2 sm:px-4">{children}</main>
+                      <main className="container mx-auto max-w-3xl flex-grow px-2 sm:px-4 mb-[40px] sm:mb-[10px]">
+                        {children}
+                      </main>
                     </div>
                   </StateProvider>
                 </Web3Provider>

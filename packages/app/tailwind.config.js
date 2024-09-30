@@ -70,7 +70,7 @@ module.exports = withTV({
               900: '#D3FAAE',
               foreground: '#000000',
             },
-            secondary: '#FAEDCDff',
+            secondary: '#D4A373ff',
           },
         },
       },

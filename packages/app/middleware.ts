@@ -16,8 +16,9 @@ export default withAuth(
 
     const pathname = request.nextUrl.pathname;
 
-    // Protect super-admin pages
-    if (pathname.startsWith('/admin') || pathname.startsWith('/admin')) {
+    // Protect admin pages and API (directories starting with /admin)
+    const adminPathRegex = /\/admin/;
+    if (adminPathRegex.test(pathname)) {
       // TODO: this should strictly be a DB fetch to avoid stale session data.
       // However, accessing the DB directly from here causes build problems (webpack) due to the middleware being
       // deployed on Edge infrastructure and some DB dependencies don't support that, yet.

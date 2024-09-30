@@ -7,9 +7,9 @@ import { useCallback, useState } from 'react';
 
 import { PATHS } from '@/config/constants';
 import { User as UserType } from '@/types/model';
-import { getUserDisplayName } from '@/utils';
+import { getImageUrl, getUserDisplayName } from '@/utils';
 import { useAtomValue } from 'jotai';
-import { currentUserAtom } from './state/currentUser';
+import { currentUserIdAtom } from './state/currentUser';
 import useUserSearch from './useUserSearch';
 
 const columns = [
@@ -28,32 +28,28 @@ const columns = [
 ];
 
 const useGlobalAdminUsersTable = () => {
-  const { data: user } = useAtomValue(currentUserAtom);
+  const currentUserId = useAtomValue(currentUserIdAtom);
   const [selectedRows, setSelectedRows] = useState<Set<string>>(new Set([]));
   const { searchTerm, setSearchTerm, users, isLoading, loaderRef, scrollerRef } = useUserSearch();
 
-  const getCellValue = useCallback(
-    ({ item, key }: { item: UserType; key: string }) => {
-      if (key === 'user') {
-        const user = item as UserType;
-        const isLoggedInUser = user.id === user.id;
-        return (
-          <Link href={`${PATHS.users}/${user.id}`} className="text-[unset]">
-            <User
-              avatarProps={{ radius: 'full', src: user.avatar || '' }}
-              description={user.email}
-              name={`${getUserDisplayName(user)} ${isLoggedInUser ? '(You)' : ''}`}
-              className="cursor-pointer"
-            >
-              {user.email}
-            </User>
-          </Link>
-        );
-      }
-      return getKeyValue(item, key) || 'N/A';
-    },
-    [user?.id],
-  );
+  const getCellValue = useCallback(({ user, key }: { user: UserType; key: string }) => {
+    if (key === 'user') {
+      const isLoggedInUser = user.id === currentUserId;
+      return (
+        <Link href={`${PATHS.users}/${user.id}`} className="text-[unset]">
+          <User
+            avatarProps={{ radius: 'full', src: getImageUrl(user.avatar) || '' }}
+            description={user.email}
+            name={`${getUserDisplayName(user)} ${isLoggedInUser ? '(You)' : ''}`}
+            className="cursor-pointer"
+          >
+            {user.email}
+          </User>
+        </Link>
+      );
+    }
+    return getKeyValue(user, key) || 'N/A';
+  }, []);
 
   return {
     searchTerm,
