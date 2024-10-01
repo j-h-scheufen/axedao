@@ -16,7 +16,7 @@ type Props = FieldProps['field'] & {
 };
 
 /**
- * AutomCompolete component for selecting a user and storing either the user's ID or walletAddress
+ * AutomComplete component for selecting a user and storing either the user's ID or walletAddress
  * in the form.
  * The keyMode prop controls what is stored in the form:
  * - 'id': user ID as key and stored in form
