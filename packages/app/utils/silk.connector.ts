@@ -54,6 +54,7 @@ export default function silk(referralCode?: string) {
 
         let currentChainId = await this.getChainId();
         if (chainId && currentChainId !== chainId) {
+          console.warn('CHAIN IDS MISMATCH current/desired ... switching ...', currentChainId, chainId);
           const chain = await this.switchChain!({ chainId }).catch((error) => {
             if (error.code === UserRejectedRequestError.code) throw error;
             return { id: currentChainId };

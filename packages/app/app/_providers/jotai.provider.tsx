@@ -21,9 +21,6 @@ const CurrentUserProvider = ({ children }: PropsWithChildren) => {
     [triggerCurrentUserIdAtom, session?.user?.id],
   ] as const);
 
-  // useEffect(() => {
-  //   if (session && (!triggerId || triggerId !== session.user?.id)) setTriggerId(session?.user?.id);
-  // }, [session, triggerId, setTriggerId]);
   return children;
 };
 
