@@ -1,7 +1,9 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
 import { IconSvgProps } from '@/types';
+import { LayoutPanelTop, LucideIcon } from 'lucide-react';
+import { cn } from '@/utils/tailwind';
 
-export const Logo: React.FC<IconSvgProps> = ({ size = 36, width, height, ...props }) => (
+const Logo: React.FC<IconSvgProps> = ({ size = 36, width, height, ...props }) => (
   <svg fill="none" height={size || height} viewBox="0 0 32 32" width={size || width} {...props}>
     <path
       clipRule="evenodd"
@@ -11,8 +13,9 @@ export const Logo: React.FC<IconSvgProps> = ({ size = 36, width, height, ...prop
     />
   </svg>
 );
+Logo.displayName = 'Logo';
 
-export const DiscordIcon: React.FC<IconSvgProps> = ({ size = 24, width, height, ...props }) => {
+const DiscordIcon: React.FC<IconSvgProps> = ({ size = 24, width, height, ...props }) => {
   return (
     <svg height={size || height} viewBox="0 0 24 24" width={size || width} {...props}>
       <path
@@ -22,8 +25,9 @@ export const DiscordIcon: React.FC<IconSvgProps> = ({ size = 24, width, height, 
     </svg>
   );
 };
+DiscordIcon.displayName = 'DiscordIcon';
 
-export const TwitterIcon: React.FC<IconSvgProps> = ({ size = 24, width, height, ...props }) => {
+const TwitterIcon: React.FC<IconSvgProps> = ({ size = 24, width, height, ...props }) => {
   return (
     <svg height={size || height} viewBox="0 0 24 24" width={size || width} {...props}>
       <path
@@ -33,8 +37,9 @@ export const TwitterIcon: React.FC<IconSvgProps> = ({ size = 24, width, height, 
     </svg>
   );
 };
+TwitterIcon.displayName = 'TwitterIcon';
 
-export const GithubIcon: React.FC<IconSvgProps> = ({ size = 24, width, height, ...props }) => {
+const GithubIcon: React.FC<IconSvgProps> = ({ size = 24, width, height, ...props }) => {
   return (
     <svg height={size || height} viewBox="0 0 24 24" width={size || width} {...props}>
       <path
@@ -46,8 +51,9 @@ export const GithubIcon: React.FC<IconSvgProps> = ({ size = 24, width, height, .
     </svg>
   );
 };
+GithubIcon.displayName = 'GithubIcon';
 
-export const MoonFilledIcon = ({ size = 24, width, height, ...props }: IconSvgProps) => (
+const MoonFilledIcon = ({ size = 24, width, height, ...props }: IconSvgProps) => (
   <svg
     aria-hidden="true"
     focusable="false"
@@ -63,8 +69,9 @@ export const MoonFilledIcon = ({ size = 24, width, height, ...props }: IconSvgPr
     />
   </svg>
 );
+MoonFilledIcon.displayName = 'MoonFilledIcon';
 
-export const SunFilledIcon = ({ size = 24, width, height, ...props }: IconSvgProps) => (
+const SunFilledIcon = ({ size = 24, width, height, ...props }: IconSvgProps) => (
   <svg
     aria-hidden="true"
     focusable="false"
@@ -80,8 +87,9 @@ export const SunFilledIcon = ({ size = 24, width, height, ...props }: IconSvgPro
     </g>
   </svg>
 );
+SunFilledIcon.displayName = 'SunFilledIcon';
 
-export const HeartFilledIcon = ({ size = 24, width, height, ...props }: IconSvgProps) => (
+const HeartFilledIcon = ({ size = 24, width, height, ...props }: IconSvgProps) => (
   <svg
     aria-hidden="true"
     focusable="false"
@@ -100,8 +108,9 @@ export const HeartFilledIcon = ({ size = 24, width, height, ...props }: IconSvgP
     />
   </svg>
 );
+HeartFilledIcon.displayName = 'HeartFilledIcon';
 
-export const SearchIcon = (props: IconSvgProps) => (
+const SearchIcon = (props: IconSvgProps) => (
   <svg
     aria-hidden="true"
     fill="none"
@@ -122,8 +131,9 @@ export const SearchIcon = (props: IconSvgProps) => (
     <path d="M22 22L20 20" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
   </svg>
 );
+SearchIcon.displayName = 'SearchIcon';
 
-export const NextUILogo: React.FC<IconSvgProps> = (props) => {
+const NextUILogo: React.FC<IconSvgProps> = (props) => {
   const { width, height = 40 } = props;
 
   return (
@@ -142,4 +152,23 @@ export const NextUILogo: React.FC<IconSvgProps> = (props) => {
       />
     </svg>
   );
+};
+NextUILogo.displayName = 'NextUILogo';
+
+const OverviewLayout: LucideIcon = forwardRef(({ className, ...props }, ref) => {
+  return <LayoutPanelTop ref={ref} {...props} className={cn(className, 'rotate-180')} />;
+});
+OverviewLayout.displayName = 'OverviewLayout';
+
+export {
+  Logo,
+  DiscordIcon,
+  TwitterIcon,
+  GithubIcon,
+  MoonFilledIcon,
+  SunFilledIcon,
+  HeartFilledIcon,
+  SearchIcon,
+  NextUILogo,
+  OverviewLayout,
 };

@@ -13,7 +13,12 @@ module.exports = withTV({
     '../../node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: 'var(--font-open-sans)',
+        inter: 'var(--font-inter)',
+      },
+    },
   },
   darkMode: 'class',
   plugins: [
@@ -30,9 +35,3 @@ module.exports = withTV({
     }),
   ],
 });
-
-// --beige: #E9EDC9ff;
-// --tea-green: #CCD5AEff;
-// --cornsilk: #FEFAE0ff;
-// --buff: #D4A373ff;
-// --papaya-whip: #FAEDCDff;

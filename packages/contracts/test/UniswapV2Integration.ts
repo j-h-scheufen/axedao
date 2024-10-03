@@ -403,7 +403,7 @@ const addLiquidity = async (
   axeAmount: bigint,
   daiAmount: bigint,
 ): Promise<void> => {
-  const deadline = Math.floor(Date.now() / 1000) + 10 * 60; // 10 min
+  const deadline = Math.floor(Date.now() / 1000) + 3600; // 1 hr
   const tx = await router.connect(owner).addLiquidity(axe, token, axeAmount, daiAmount, 0, 0, owner.address, deadline);
   await tx.wait();
 };
@@ -415,7 +415,7 @@ const removeLiquidity = async (
   token: IERC20,
   liquidity: bigint,
 ): Promise<void> => {
-  const deadline = Math.floor(Date.now() / 1000) + 10 * 60; // 10 min
+  const deadline = Math.floor(Date.now() / 1000) + 3600; // 1 hr
   const tx = await router.connect(owner).removeLiquidity(axe, token, liquidity, 0, 0, owner.address, deadline);
   await tx.wait();
 };
@@ -427,7 +427,7 @@ const swapTokens = async (
   tokenOut: IERC20,
   amount: bigint,
 ): Promise<void> => {
-  const deadline = Math.floor(Date.now() / 1000) + 10 * 60; // 10 min
+  const deadline = Math.floor(Date.now() / 1000) + 3600; // 1 hr
   const tx = await router
     .connect(spender)
     .swapExactTokensForTokensSupportingFeeOnTransferTokens(amount, 0, [tokenIn, tokenOut], spender.address, deadline);

@@ -1,14 +1,9 @@
 'use client';
 
 import { useRef } from 'react';
-import {
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Link,
-} from '@nextui-org/react';
+import { Button } from '@nextui-org/button';
+import { Card, CardBody, CardFooter, CardHeader } from '@nextui-org/card';
+import { Link } from '@nextui-org/link';
 import { useTransform, useScroll, motion } from 'framer-motion';
 
 type TopicProps = {
@@ -84,12 +79,12 @@ const Topic: React.FC<TopicProps> = ({
             <Card
               className={`z-20 border-2 bg-gradient-to-br from-amber-200 to-stone-300 ${cardClasses}`}
             >
-              <CardHeader className=" text-center text-lg font-bold">
+              <CardHeader className="text-center text-lg font-bold">
                 {title}
               </CardHeader>
               <CardBody>{content}</CardBody>
               {url && (
-                <CardFooter className=" justify-center">
+                <CardFooter className="justify-center">
                   <Button
                     color="primary"
                     as={Link}

@@ -8,14 +8,20 @@ type ConfigType = {
   axeTokenAddress: Address;
   axeDaoAddress: Address;
   axeTreasuryAddress: Address;
+  axeDaoTreasuryAddress: Address;
   axeDaoSharesAddress: Address;
   axeDaoLootAddress: Address;
   axeSwapTokenAddress: Address;
   uniswapV2PairAddress: Address;
   uniswapV2RouterAddress: Address;
+  pinataGatewayUrl: string;
+  databaseUrl: string;
+  nextAuthSecret: string;
 };
 
 const envMode = process.env.NEXT_PUBLIC_APP_ENV?.toLowerCase();
+
+const isServer = typeof window === 'undefined';
 
 const ENV: ConfigType = {
   walletConnectProjectId: required(
@@ -40,6 +46,10 @@ const ENV: ConfigType = {
     process.env.NEXT_PUBLIC_AXE_TREASURY_ADDRESS,
     'NEXT_PUBLIC_AXE_TREASURY_ADDRESS',
   ) as Address,
+  axeDaoTreasuryAddress: required(
+    process.env.NEXT_PUBLIC_AXE_DAO_TREASURY_ADDRESS,
+    'NEXT_PUBLIC_AXE_DAO_TREASURY_ADDRESS',
+  ) as Address,
   axeDaoSharesAddress: required(
     process.env.NEXT_PUBLIC_AXE_DAO_SHARES_ADDRESS,
     'NEXT_PUBLIC_AXE_DAO_SHARES_ADDRESS',
@@ -60,6 +70,9 @@ const ENV: ConfigType = {
     process.env.NEXT_PUBLIC_UNISWAPV2ROUTER_ADDRESS,
     'NEXT_PUBLIC_UNISWAPV2ROUTER_ADDRESS',
   ) as Address,
+  pinataGatewayUrl: required(process.env.NEXT_PUBLIC_PINATA_GATEWAY_URL, 'NEXT_PUBLIC_PINATA_GATEWAY_URL'),
+  databaseUrl: isServer ? required(process.env.DATABASE_URL, 'DATABASE_URL') : '',
+  nextAuthSecret: isServer ? required(process.env.NEXTAUTH_SECRET, 'NEXTAUTH_SECRET') : '',
 };
 
 function required(value: string | undefined, name: string): string {

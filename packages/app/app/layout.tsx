@@ -1,13 +1,19 @@
-import { Metadata, Viewport } from 'next';
 import clsx from 'clsx';
+import { Metadata, Viewport } from 'next';
+import { getServerSession } from 'next-auth';
+
+import Navbar from '@/components/Navbar';
+import SessionProvider from '@/components/SessionProvider';
+import { fontFiraCode, fontInter, fontOpenSans } from '@/config/fonts';
+import { nextAuthOptions } from '@/config/next-auth-options';
+import { siteConfig } from '@/config/site';
+import StateProvider from './_providers/jotai.provider';
+import ThemeProvider from './_providers/nextUI.provider';
+import QueryProvider from './_providers/query.provider';
+import SnackbarProvider from './_providers/snackbar.provider';
+import Web3Provider from './_providers/wagmi.provider';
 
 import '@/styles/globals.css';
-import { siteConfig } from '@/config/site';
-import { fontSans } from '@/config/fonts';
-import { Provider as ThemeProvider } from './_providers/nextUI.provider';
-import { Provider as Web3Provider } from './_providers/web3.provider';
-import { Provider as SnackbarProvider } from './_providers/snackbar.provider';
-import Navbar from '@/components/Navbar';
 
 export const metadata: Metadata = {
   title: {
@@ -29,25 +35,38 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const session = await getServerSession(nextAuthOptions);
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={clsx('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
-        <ThemeProvider themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
-          <SnackbarProvider>
-            <Web3Provider>
-              <div className="relative flex h-screen flex-col">
-                <Navbar />
-                <main className="container mx-auto max-w-7xl flex-grow px-6 pt-16">{children}</main>
-                <footer className="flex w-full items-center justify-center py-3">
-                  <span className="text-default-600">Powered by </span>
-                  <span className="text-primary">AXÉ DAO</span>
-                </footer>
-              </div>
-            </Web3Provider>
-          </SnackbarProvider>
-        </ThemeProvider>
+      <body
+        className={clsx(
+          'min-h-screen bg-background font-sans antialiased',
+          fontInter.variable,
+          fontFiraCode.variable,
+          fontOpenSans.variable,
+        )}
+      >
+        <SessionProvider session={session}>
+          <ThemeProvider themeProps={{ attribute: 'class', defaultTheme: 'dark', children: null }}>
+            <SnackbarProvider>
+              <QueryProvider>
+                {/* Note: Web3Provider and StateProvider rely on @tanstack/react-query. Make sure they are always nested inside the QueryProvider */}
+                <Web3Provider>
+                  <StateProvider>
+                    <div className="relative flex min-h-screen flex-col">
+                      <Navbar />
+                      <main className="container mx-auto max-w-3xl flex-grow px-2 sm:px-4 mb-[40px] sm:mb-[10px]">
+                        {children}
+                      </main>
+                    </div>
+                  </StateProvider>
+                </Web3Provider>
+              </QueryProvider>
+            </SnackbarProvider>
+          </ThemeProvider>
+        </SessionProvider>
       </body>
     </html>
   );

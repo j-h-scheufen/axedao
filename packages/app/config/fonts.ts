@@ -1,11 +1,28 @@
-import { Fira_Code as FontMono, Inter as FontSans } from 'next/font/google';
+import { Fira_Code, Inter, Open_Sans } from 'next/font/google';
 
-export const fontSans = FontSans({
+export const fontInter = Inter({
   subsets: ['latin'],
-  variable: '--font-sans',
+  variable: '--font-inter',
 });
 
-export const fontMono = FontMono({
+// monospace
+export const fontFiraCode = Fira_Code({
   subsets: ['latin'],
-  variable: '--font-mono',
+  variable: '--font-fira_code',
+});
+
+// export const fontNunito = Nunito({
+//   subsets: ['latin'],
+//   variable: '--font-nunito',
+// });
+
+// export const fontLato = Lato({
+//   weight: '400',
+//   subsets: ['latin'],
+//   variable: '--font-lato',
+// });
+
+export const fontOpenSans = Open_Sans({
+  subsets: ['latin'],
+  variable: '--font-open-sans',
 });

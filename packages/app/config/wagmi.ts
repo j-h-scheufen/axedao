@@ -1,12 +1,11 @@
-import { createConfig, http } from 'wagmi';
-import { localhost, sepolia, optimism, gnosis, Chain } from 'wagmi/chains';
-import { injected } from 'wagmi/connectors';
-import { metaMaskWallet, walletConnectWallet } from '@rainbow-me/rainbowkit/wallets';
+import { Transport } from 'viem';
+import { Config, createConfig, http } from 'wagmi';
+import { Chain, gnosis, localhost, optimism, sepolia } from 'wagmi/chains';
 
 import ENV from '@/config/environment';
-import { connectorsForWallets } from '@rainbow-me/rainbowkit';
+import silk from '@/utils/silk.connector';
 
-const configureChains = (): [Chain, ...Chain[]] => {
+export const configureChains = (): [Chain, ...Chain[]] => {
   let chains: [Chain, ...Chain[]] = [gnosis];
   const appEnv = process.env.NEXT_PUBLIC_APP_ENV?.toLowerCase();
   if (appEnv === 'local') chains = [localhost];
@@ -15,24 +14,38 @@ const configureChains = (): [Chain, ...Chain[]] => {
   return chains;
 };
 
-const wagmiConfig = createConfig({
+export const getDefaultChain = (): Chain => {
+  switch (process.env.NEXT_PUBLIC_APP_ENV?.toLowerCase()) {
+    case 'local':
+      return localhost;
+    case 'test':
+      return sepolia;
+    default:
+      return gnosis;
+  }
+};
+
+export const getTransport = (chain: Chain | undefined): Transport => {
+  switch (chain?.id) {
+    case gnosis.id:
+      return http(ENV.gnosisProviderUrl);
+    case optimism.id:
+      return http(ENV.optimismProviderUrl);
+    case sepolia.id:
+      return http(ENV.sepoliaProviderUrl);
+    case localhost.id:
+      return http('http://127.0.0.1:8545');
+    default:
+      return http();
+  }
+};
+
+/**
+ * Default wagmi configuration
+ */
+const wagmiConfig: Config = createConfig({
   chains: configureChains(),
-  connectors: [
-    injected(),
-    ...connectorsForWallets(
-      [
-        {
-          groupName: 'Recommended',
-          wallets: [metaMaskWallet, walletConnectWallet],
-        },
-      ],
-      {
-        appName: 'Quilombo',
-        projectId: ENV.walletConnectProjectId,
-      },
-    ),
-    // safe(),
-  ],
+  connectors: [silk({ config: { appName: 'Quilombo', darkMode: true } })],
   transports: {
     [optimism.id]: http(ENV.optimismProviderUrl),
     [gnosis.id]: http(ENV.gnosisProviderUrl),
