@@ -2,13 +2,19 @@ import { LinkType } from '@/db/schema';
 
 export const titles = [
   'mestre',
+  'mestra',
   'contra-mestre',
+  'contra-mestra',
   'mestrando',
+  'mestranda',
   'professor',
+  'professora',
   'instrutor',
+  'instrutora',
   'monitor',
-  'aluno-graduado',
+  'monitora',
   'aluno',
+  'aluna',
   'iniciante',
 ] as const;
 

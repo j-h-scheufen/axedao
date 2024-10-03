@@ -45,7 +45,7 @@ export const getTransport = (chain: Chain | undefined): Transport => {
  */
 const wagmiConfig: Config = createConfig({
   chains: configureChains(),
-  connectors: [silk()],
+  connectors: [silk({ config: { appName: 'Quilombo', darkMode: true } })],
   transports: {
     [optimism.id]: http(ENV.optimismProviderUrl),
     [gnosis.id]: http(ENV.gnosisProviderUrl),

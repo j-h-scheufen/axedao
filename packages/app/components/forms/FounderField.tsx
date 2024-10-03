@@ -9,20 +9,7 @@ import UserSelect from './UserSelect';
 const FounderRadioBox = (props: RadioProps) => {
   const { children, ...otherProps } = props;
 
-  return (
-    <Radio
-      {...otherProps}
-      // classNames={{
-      //   base: cn(
-      //     'inline-flex m-0 bg-content1 hover:opacity-98 active:opacity-95 items-center tap-highlight-transparent',
-      //     'flex-row max-w-[500px] cursor-pointer rounded-lg gap-4 p-2 border-1 border-transparent',
-      //     'data-[selected=true]:border-primary',
-      //   ),
-      // }}
-    >
-      {children}
-    </Radio>
-  );
+  return <Radio {...otherProps}>{children}</Radio>;
 };
 
 const FounderField = (props: FieldProps['field']) => {
@@ -48,7 +35,7 @@ const FounderField = (props: FieldProps['field']) => {
       {selectedRadio === 'name' && (
         <Input {...field} className="mb-3" classNames={{ inputWrapper: '!min-h-12' }} {...props} value={field.value} />
       )}
-      {selectedRadio === 'user' && <UserSelect {...props} disableCurrentUser={false} />}
+      {selectedRadio === 'user' && <UserSelect {...field} {...props} disableCurrentUser={false} />}
     </div>
   );
 };
