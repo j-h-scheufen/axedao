@@ -13,7 +13,7 @@ import SignInHelpModal from './SignInHelpModal';
 const SignInForm = () => {
   const { data: session } = useSession();
   const { isOpen, onOpenChange } = useDisclosure();
-  const { address } = useAccount();
+  const { address, isConnecting, isConnected } = useAccount();
   const {
     signIn,
     connect,
@@ -22,7 +22,6 @@ const SignInForm = () => {
 
   return (
     <div className="flex flex-col gap-2 sm:gap-3 max-w-sm mx-auto items-center">
-      <SignInHelpModal isOpen={isOpen} onOpenChange={onOpenChange} />
       <h2 className="text-3xl text-default-700 sm:text-default-800 mb-2 sm:mb-4">Quilombo Login</h2>
       {!address && (
         <div className="flex flex-col gap-4 sm:gap-5">
@@ -36,12 +35,19 @@ const SignInForm = () => {
             first!
           </div>
           <p>Click the button to create a Silk account or log into an existing one.</p>
-          <Button size="lg" color="primary" variant="ghost" className="w-full mt-2" onPress={connect}>
+          <Button
+            size="lg"
+            color="primary"
+            variant="ghost"
+            className="w-full mt-2"
+            onPress={connect}
+            isLoading={loading || isConnecting}
+          >
             Connect with Silk
           </Button>
         </div>
       )}
-      {address && !session && (
+      {address && isConnected && !session && (
         <div className="flex flex-col gap-2 sm:gap-3 align-center">
           <p className="text-center">
             Your Silk account is connected. <i>Fantastic!</i>
@@ -63,6 +69,7 @@ const SignInForm = () => {
         </div>
       )}
       {error && <ErrorText message={error.message} />}
+      <SignInHelpModal isOpen={isOpen} onOpenChange={onOpenChange} />
     </div>
   );
 };

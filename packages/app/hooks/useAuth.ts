@@ -8,6 +8,9 @@ import { useAccount, useConnect, useDisconnect, useSignMessage } from 'wagmi';
 import { PATHS } from '@/config/constants';
 import { getDefaultChain } from '@/config/wagmi';
 import silk from '@/utils/silk.connector';
+import { setCookie } from 'cookies-next';
+import { enqueueSnackbar } from 'notistack';
+import { UserRejectedRequestError } from 'viem';
 import { triggerCurrentUserIdAtom } from './state/currentUser';
 
 /**
@@ -74,7 +77,6 @@ const useSignIn = () => {
         const session = await getSession();
         console.info('User signed in:', session?.user?.id);
         setCurrentUserId(session?.user?.id);
-        // TODO somehow not redirecting to callbackUrl. Need router manually after all?
       } else if (res?.error) {
         const msg = `An error occurred while signin in. Code: ${res.status} - ${res.error}`;
         console.error(msg);
@@ -92,6 +94,8 @@ const useSignIn = () => {
     return nextAuthSignOut().then(() => {
       disconnect();
       setCurrentUserId(undefined);
+      // remove the skipOnboarding flag, so the user sees the onboarding modal again
+      setCookie('quilombo.skipOnboarding', false);
       setState({});
     });
   };
@@ -116,7 +120,9 @@ const useSignIn = () => {
       setState((x) => ({ ...x, loading: false }));
     } catch (error) {
       console.error('Error connecting to Silk:', error);
-      setState((x) => ({ ...x, loading: false, error: error as Error }));
+      if (error instanceof UserRejectedRequestError)
+        enqueueSnackbar('Operation cancelled by user.', { variant: 'info' });
+      else setState((x) => ({ ...x, loading: false, error: error as Error }));
     }
   };
 

@@ -39,7 +39,6 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <OnboardingModal />
       <NextUINavbar
         maxWidth="md"
         position="sticky"
@@ -154,6 +153,7 @@ const Navbar: React.FC = () => {
           </NavbarMenuItem>
         </NavbarMenu>
       </NextUINavbar>
+      <OnboardingModal />
     </>
   );
 };

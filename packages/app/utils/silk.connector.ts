@@ -45,7 +45,7 @@ export default function silk(options?: { referralCode?: string; config?: CustomC
 
         if (!provider.connected) {
           try {
-            provider.login();
+            await provider.login();
           } catch (error) {
             console.warn('Unable to login', error);
             throw new UserRejectedRequestError('User rejected login' as unknown as Error);
