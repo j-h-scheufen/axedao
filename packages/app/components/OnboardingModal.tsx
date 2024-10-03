@@ -10,6 +10,12 @@ import { currentUserAtom } from '@/hooks/state/currentUser';
 import { getCookie, setCookie } from 'cookies-next';
 import { useRouter } from 'next/navigation';
 
+/**
+ * This modal automatically opens on first login (and page reload) if the user hasn't filled out
+ * at least a name or nickname. It sets a cookie that expires after 24 hours to prevent the modal from
+ * showing up again. If the user still hasn't completed the described fields after that
+ * time, the modal would be displayed again.
+ */
 const OnboardingModal = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const router = useRouter();
