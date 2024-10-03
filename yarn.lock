@@ -6861,34 +6861,34 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@silk-wallet/silk-constants@npm:0.0.15":
-  version: 0.0.15
-  resolution: "@silk-wallet/silk-constants@npm:0.0.15"
+"@silk-wallet/silk-constants@npm:0.0.17":
+  version: 0.0.17
+  resolution: "@silk-wallet/silk-constants@npm:0.0.17"
   dependencies:
-    "@silk-wallet/silk-interface-core": "npm:0.0.7"
-  checksum: 10c0/0484144e5fef9d1afff2fa6b785bdb55906b31155dc00c7f3e1979cd9264777f4f9a9f08e686690bb16297efaf8dad1e7ebee4097ec859445ddc8aa343c78bab
+    "@silk-wallet/silk-interface-core": "npm:0.1.0"
+  checksum: 10c0/7aab2e15d756c3d29e5521839e3078181bb93e227aa2ed1341d43982c612f8a5bddfe1630662264fd6e4f95b8480359485e0cef9b976180d2476bfd24497e880
   languageName: node
   linkType: hard
 
-"@silk-wallet/silk-interface-core@npm:0.0.7":
-  version: 0.0.7
-  resolution: "@silk-wallet/silk-interface-core@npm:0.0.7"
-  checksum: 10c0/81cfa89c2976acabed934b3601594b5ba93171c0808acbe0b5ef39d72bc004d7771cea0c67203ad4e69cbf8b4c753f30e925534bddb080b44e2814a376244b20
+"@silk-wallet/silk-interface-core@npm:0.1.0":
+  version: 0.1.0
+  resolution: "@silk-wallet/silk-interface-core@npm:0.1.0"
+  checksum: 10c0/5bd1c1734905602db7e5db20842e0d566e25b467519d9e968c556242a6cb57705544d1cc554ee9b36a112eab7f3ebc84734af47aca2442f0fabb8e7c9fc9f578
   languageName: node
   linkType: hard
 
-"@silk-wallet/silk-wallet-sdk@npm:^0.0.26":
-  version: 0.0.26
-  resolution: "@silk-wallet/silk-wallet-sdk@npm:0.0.26"
+"@silk-wallet/silk-wallet-sdk@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "@silk-wallet/silk-wallet-sdk@npm:0.1.1"
   dependencies:
     "@metamask/rpc-errors": "npm:^5.1.1"
-    "@silk-wallet/silk-constants": "npm:0.0.15"
-    "@silk-wallet/silk-interface-core": "npm:0.0.7"
+    "@silk-wallet/silk-constants": "npm:0.0.17"
+    "@silk-wallet/silk-interface-core": "npm:0.1.0"
     ethers: "npm:5.7.2"
     events: "npm:^3.3.0"
     zod: "npm:^3.21.4"
     zod-validation-error: "npm:^1.3.0"
-  checksum: 10c0/88bbdd4ad999e4587e36fb5a9ac760dd6039f30e4f5793fa783617eb0a4565c4c2e06948998ce3519ca3469db52195349ac9f6409c07bbecd356b57007a24935
+  checksum: 10c0/224e299287cf41518a1935d7f416d1e00ded0a9956fa33dbb1aafea258984861cd6ee12714699d501003e4bceb5bc0e20887502b4a75d42625f2ca467bc47907
   languageName: node
   linkType: hard
 
@@ -16874,7 +16874,7 @@ __metadata:
     "@nextui-org/user": "npm:^2.0.34"
     "@react-aria/ssr": "npm:^3.9.5"
     "@react-aria/visually-hidden": "npm:^3.8.15"
-    "@silk-wallet/silk-wallet-sdk": "npm:^0.0.26"
+    "@silk-wallet/silk-wallet-sdk": "npm:^0.1.1"
     "@svgr/webpack": "npm:^8.1.0"
     "@tailwindcss/typography": "npm:^0.5.14"
     "@tanstack/eslint-plugin-query": "npm:^5.52.0"

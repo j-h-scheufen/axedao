@@ -105,7 +105,11 @@ const useSignIn = () => {
       // enables automatic reconnect on page refresh, but just in case, we can also create
       // the connector here.
       if (!silkConnector) {
-        wagmiConnect({ chainId: defaultChain.id, connector: silk() }); // TODO referral code ENV var
+        wagmiConnect({
+          // TODO referral code ENV var
+          chainId: defaultChain.id,
+          connector: silk({ config: { appName: 'Quilombo', darkMode: true } }),
+        });
       } else {
         wagmiConnect({ chainId: defaultChain.id, connector: silkConnector });
       }
@@ -116,7 +120,7 @@ const useSignIn = () => {
     }
   };
 
-  return { signIn, logout, connect, state };
+  return { signIn, logout, connect, connectError, state };
 };
 
 export default useSignIn;

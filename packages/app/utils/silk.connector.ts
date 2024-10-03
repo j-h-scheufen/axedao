@@ -1,7 +1,7 @@
 import { ChainNotConfiguredError, createConnector } from '@wagmi/core';
 import { Chain, getAddress, SwitchChainError, UserRejectedRequestError } from 'viem';
 
-import { SILK_METHOD } from '@silk-wallet/silk-interface-core';
+import { CustomConfig, SILK_METHOD } from '@silk-wallet/silk-interface-core';
 import { initSilk } from '@silk-wallet/silk-wallet-sdk';
 import { SilkEthereumProviderInterface } from '@silk-wallet/silk-wallet-sdk/dist/lib/provider/types';
 
@@ -22,7 +22,7 @@ import { SilkEthereumProviderInterface } from '@silk-wallet/silk-wallet-sdk/dist
  * @param referralCode Optional referral code for the Silk points system
  * @returns
  */
-export default function silk(referralCode?: string) {
+export default function silk(options?: { referralCode?: string; config?: CustomConfig }) {
   let silkProvider: SilkEthereumProviderInterface | null = null;
 
   return createConnector<SilkEthereumProviderInterface>((config) => ({
@@ -54,7 +54,6 @@ export default function silk(referralCode?: string) {
 
         let currentChainId = await this.getChainId();
         if (chainId && currentChainId !== chainId) {
-          console.warn('CHAIN IDS MISMATCH current/desired ... switching ...', currentChainId, chainId);
           const chain = await this.switchChain!({ chainId }).catch((error) => {
             if (error.code === UserRejectedRequestError.code) throw error;
             return { id: currentChainId };
@@ -90,7 +89,7 @@ export default function silk(referralCode?: string) {
 
     async getProvider(): Promise<SilkEthereumProviderInterface> {
       if (!silkProvider) {
-        silkProvider = initSilk(referralCode);
+        silkProvider = initSilk(options);
       }
 
       return silkProvider;
@@ -132,9 +131,9 @@ export default function silk(referralCode?: string) {
         // console.info('Chain Added: ', chain.name);
         await provider.request({
           method: SILK_METHOD.wallet_switchEthereumChain,
-          params: [`0x${chain.id.toString(16)}`],
+          params: [{ chainId: `0x${chain.id.toString(16)}` }],
         });
-        console.info('Chain Switched to ', chain.name);
+        console.info('Chain switched to:', chain.name, chain.id);
         config.emitter.emit('change', {
           chainId,
         });

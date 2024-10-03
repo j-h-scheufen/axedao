@@ -23,12 +23,10 @@ const SignInForm = () => {
   return (
     <div className="flex flex-col gap-2 sm:gap-3 max-w-sm mx-auto items-center">
       <SignInHelpModal isOpen={isOpen} onOpenChange={onOpenChange} />
-      <h2 className="text-xl sm:text-3xl text-default-500 sm:text-default-800 mb-2 sm:mb-4">
-        Login to the Quilombo App
-      </h2>
+      <h2 className="text-3xl text-default-700 sm:text-default-800 mb-2 sm:mb-4">Quilombo Login</h2>
       {!address && (
-        <div className="flex flex-col gap-2 sm:gap-3">
-          <p>
+        <div className="flex flex-col gap-4 sm:gap-5">
+          <div className="text-inherit">
             If you are new here, please{' '}
             <div className="inline-block bg-warning-100 rounded-md px-2">
               <Link href="#" onPress={onOpenChange} className="no-underline text-foreground hover:opacity-50">
@@ -36,7 +34,7 @@ const SignInForm = () => {
               </Link>
             </div>{' '}
             first!
-          </p>
+          </div>
           <p>Click the button to create a Silk account or log into an existing one.</p>
           <Button size="lg" color="primary" variant="ghost" className="w-full mt-2" onPress={connect}>
             Connect with Silk
