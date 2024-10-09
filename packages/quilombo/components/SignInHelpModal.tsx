@@ -38,11 +38,8 @@ const SignInHelpModal = ({ isOpen, onOpenChange }: Props) => {
                 <li>Check your email inbox for a confirmation link from Silk and click it</li>
               </ol>
               <p>
-                <b>Important</b>: logging into your Silk account <i>always</i> requires both steps: your password and
-                clicking a confirmation link sent via email.
-                <br />
-                <b>Tip</b>: During your Silk login, you encounter a bot challenge to proof you&apos;re human. Use the{' '}
-                <b>slider</b> below the graphic! Example.
+                <b>Tip</b>: Logging into your Silk account <i>always</i> requires both steps: your password and clicking
+                a confirmation link sent via email.
               </p>
             </ModalBody>
             <ModalFooter>

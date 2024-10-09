@@ -14999,6 +14999,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"multiformats@npm:^13.3.0":
+  version: 13.3.0
+  resolution: "multiformats@npm:13.3.0"
+  checksum: 10c0/4ef4d591e36ab610b8592a975f3f7fec0d678450290cf668e093a561942bbcc03181f513422cdf996e73f014efa849207d00ddd252a4e640068c767dd0071312
+  languageName: node
+  linkType: hard
+
 "multiformats@npm:^9.4.2":
   version: 9.9.0
   resolution: "multiformats@npm:9.9.0"
@@ -16927,6 +16934,7 @@ __metadata:
     jotai-tanstack-query: "npm:^0.8.8"
     lodash: "npm:^4.17.21"
     lucide-react: "npm:^0.436.0"
+    multiformats: "npm:^13.3.0"
     next: "npm:14.2.15"
     next-auth: "npm:^4.24.8"
     next-themes: "npm:^0.3.0"

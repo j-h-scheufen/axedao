@@ -2,9 +2,11 @@
 
 import { Button } from '@nextui-org/button';
 import { Select, SelectItem } from '@nextui-org/select';
+import { Spinner } from '@nextui-org/spinner';
 import { Field, FieldArray, FieldProps, Form, Formik, FormikProps } from 'formik';
 import { useAtomValue } from 'jotai';
-import { Mail, Phone } from 'lucide-react';
+import { Mail, Phone, XIcon } from 'lucide-react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Suspense, useCallback } from 'react';
 
@@ -16,7 +18,6 @@ import { PATHS, titles } from '@/config/constants';
 import { ProfileForm as FormType, profileFormSchema } from '@/config/validation-schema';
 import { currentUserAtom } from '@/hooks/state/currentUser';
 import { useUpdateProfile } from '@/hooks/useCurrentUser';
-import { Spinner } from '@nextui-org/spinner';
 
 const ProfileForm = () => {
   const router = useRouter();
@@ -80,13 +81,28 @@ const ProfileForm = () => {
               <Field name="name" label="Name" as={FieldInput} />
               <Field name="nickname" label="Nickname" as={FieldInput} />
               <Field name="title">
-                {({ field }: FieldProps) => (
+                {({ field, form }: FieldProps) => (
                   <Select
                     {...field}
-                    label="Title"
+                    // label="Title"
+                    size="lg"
                     placeholder="Select title"
                     selectedKeys={field.value ? [field.value] : []}
                     classNames={{ value: 'capitalize' }}
+                    endContent={
+                      field.value ? (
+                        <Button
+                          as={Link}
+                          href="#"
+                          variant="light"
+                          className=" items-center"
+                          onPress={() => form.setFieldValue('title', undefined)}
+                          isIconOnly
+                        >
+                          <XIcon className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1} />
+                        </Button>
+                      ) : undefined
+                    }
                   >
                     {titles.map((title) => (
                       <SelectItem key={title} value={title} className="capitalize">
