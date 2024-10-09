@@ -2,14 +2,14 @@
 
 import { Button } from '@nextui-org/button';
 import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@nextui-org/dropdown';
+import { Input } from '@nextui-org/input';
 import { atom, useAtom } from 'jotai';
 import { PlusIcon, XIcon } from 'lucide-react';
-import { useCallback, useMemo, useRef } from 'react';
+import { useCallback, useMemo } from 'react';
 
 import { linkTypes } from '@/config/constants';
 import { isValidUrl, Link, linkSchema } from '@/config/validation-schema';
 import { LinkType, SocialLink } from '@/db/schema';
-import { Input } from '@nextui-org/input';
 import { getLinkIcon } from '../_utils';
 
 type LinkTypeSelection = { icon: JSX.Element; key: string; label: string };
@@ -17,17 +17,22 @@ type Props = { links: SocialLink[]; actions?: { remove?: (index: number) => void
 
 const defaultTypeOption: LinkTypeSelection = { key: 'other', icon: getLinkIcon(undefined), label: 'Other' };
 const selectedTypeAtom = atom<LinkTypeSelection>(defaultTypeOption);
-const isLinkUrlError = atom<boolean>(false);
+const inputUrlAtom = atom<string>('');
+const isValidUrlAtom = atom<boolean>(true);
 
 const LinksArray = ({ links, actions }: Props) => {
-  const urlRef = useRef<HTMLInputElement>(null);
   const [typeSelection, setTypeSelection] = useAtom(selectedTypeAtom);
-  const [isUrlError, setIsUrlError] = useAtom(isLinkUrlError);
-  const isNewUrlValid = useCallback(() => isValidUrl(urlRef.current?.value), [urlRef]);
+  const [url, setUrl] = useAtom(inputUrlAtom);
+  const [urlValid, setUrlValid] = useAtom(isValidUrlAtom);
   const linkTypeOptions: LinkTypeSelection[] = useMemo(() => {
     const knownTypes = linkTypes.map((type) => ({ icon: getLinkIcon(type), key: type, label: type.toUpperCase() }));
     return [defaultTypeOption, ...knownTypes];
   }, []);
+  const validateUrl = useCallback(() => {
+    const isValid = isValidUrl(url);
+    setUrlValid(isValid);
+    return isValid;
+  }, [url, setUrlValid]);
 
   const LinkItem = ({ link, index }: { link: Link; index: number }) => {
     return (
@@ -52,24 +57,29 @@ const LinksArray = ({ links, actions }: Props) => {
   };
 
   return (
-    <div className="flex flex-col gap-2 sm:gap-4">
-      <div className="flex flex-col gap-1 sm:gap-2 w-full">
-        {links.map((link, index) => (
-          <LinkItem key={`link-item-${index}`} link={link} index={index} />
-        ))}
-      </div>
+    <div className="flex flex-col">
+      {!!links.length && (
+        <div className="flex flex-col gap-1 sm:gap-2 w-full mb-2 sm:mb-3">
+          {links.map((link, index) => (
+            <LinkItem key={`link-item-${index}`} link={link} index={index} />
+          ))}
+        </div>
+      )}
       {actions?.add && (
         <div className="flex flex-col gap-1 sm-gap-2">
-          <span className="text-wrap text-sm sm:text-lg">
+          <span className="text-wrap text-small sm:text-medium">
             Too add a link, enter a URL, select an icon, and hit &apos;+&apos;
           </span>
           <div className="flex flex-row gap-1 sm:gap-2 items-start justify-end">
             <Input
               placeholder="https://facebook.com/my-handle"
               type="text"
-              ref={urlRef}
-              isInvalid={isUrlError}
-              onChange={() => setIsUrlError(false)}
+              isInvalid={!urlValid}
+              value={url}
+              onChange={(e) => {
+                setUrlValid(true);
+                setUrl(e.target.value);
+              }}
               errorMessage="Please enter a valid URL incl. https://"
             />
             <Dropdown>
@@ -95,17 +105,15 @@ const LinksArray = ({ links, actions }: Props) => {
             <Button
               variant="solid"
               onPress={() => {
-                if (!isNewUrlValid()) {
-                  setIsUrlError(true);
-                  return;
-                }
+                if (!validateUrl()) return;
+
                 const newLink: Link = {
-                  url: urlRef.current?.value || '',
+                  url,
                   type: typeSelection.key === defaultTypeOption.key ? undefined : (typeSelection.key as LinkType),
                 };
                 linkSchema.validateSync(newLink);
                 actions.add(newLink);
-                urlRef.current!.value = '';
+                setUrl('');
                 setTypeSelection(defaultTypeOption);
               }}
               isIconOnly
