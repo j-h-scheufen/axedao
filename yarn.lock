@@ -16842,9 +16842,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"quilombo@workspace:packages/app":
+"quilombo@workspace:packages/quilombo":
   version: 0.0.0-use.local
-  resolution: "quilombo@workspace:packages/app"
+  resolution: "quilombo@workspace:packages/quilombo"
   dependencies:
     "@icons-pack/react-simple-icons": "npm:^10.0.0"
     "@nextui-org/autocomplete": "npm:^2.1.7"
