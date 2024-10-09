@@ -4,6 +4,7 @@ import { AxiosError } from 'axios';
 import { QueryConfig } from '@/config/constants';
 import ENV from '@/config/environment';
 import { GroupMemberRole, User } from '@/types/model';
+import { CID } from 'multiformats/cid';
 
 export const generateErrorMessage = (error: unknown, defaultMessage: string) => {
   let message = defaultMessage;
@@ -84,7 +85,11 @@ export const getUserDisplayName = (user: User): string => {
   if (user.name) {
     displayName += displayName === '' ? user.name : ` (${user.name})`;
   }
-  return displayName || `Anonymous (${user.walletAddress})`;
+  return displayName || `User (${abbreviateAddress(user.walletAddress)})`;
+};
+
+export const abbreviateAddress = (input: string): string => {
+  return input.replace(/^(.{4}).*(.{4})$/, '$1...$2');
 };
 
 export const getImageUrl = (hash: string | null | undefined): string | undefined =>
@@ -102,4 +107,14 @@ export const createDefaultQueryClient = (staleTime?: number) => {
       },
     },
   });
+};
+
+export const isValidIPFSHash = (hash: string): boolean => {
+  try {
+    CID.parse(hash);
+    return true;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (error) {
+    return false;
+  }
 };

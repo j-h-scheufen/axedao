@@ -80,15 +80,12 @@ const ProfileForm = () => {
               <Field name="name" label="Name" as={FieldInput} />
               <Field name="nickname" label="Nickname" as={FieldInput} />
               <Field name="title">
-                {({ field, meta }: FieldProps) => (
+                {({ field }: FieldProps) => (
                   <Select
                     {...field}
                     label="Title"
                     placeholder="Select title"
                     selectedKeys={field.value ? [field.value] : []}
-                    onChange={(e) => setFieldValue('title', e.target.value)}
-                    isInvalid={meta.touched && !!meta.error}
-                    color={meta.touched && !!meta.error ? 'danger' : undefined}
                     classNames={{ value: 'capitalize' }}
                   >
                     {titles.map((title) => (
@@ -102,19 +99,18 @@ const ProfileForm = () => {
               <Field
                 name="email"
                 type="email"
+                label="Email"
+                placeholder="jane.doe@gmail.com"
                 as={FieldInput}
-                size="sm"
-                classNames={{ inputWrapper: 'h-10' }}
                 startContent={<Mail className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />}
                 disabled
               />
               <Field
                 name="phone"
                 type="phone"
+                label="Phone"
                 as={FieldInput}
-                size="sm"
                 placeholder="+xxx xxxx xxxx"
-                classNames={{ inputWrapper: 'h-10' }}
                 startContent={<Phone className="pointer-events-none h-4 w-4 min-w-4 flex-shrink-0 text-default-400" />}
               />
             </div>

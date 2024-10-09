@@ -1,3 +1,4 @@
+import { isValidIPFSHash } from '@/utils';
 import { InferType, array, boolean, mixed, number, object, string } from 'yup';
 import { linkTypes, titles, validFileExtensions } from './constants';
 
@@ -67,11 +68,11 @@ export const linksSchema = array().of(linkSchema).default([]);
 export const profileFormSchema = object({
   avatar: mixed()
     .test('is-valid-type', 'Not a valid image type', (value: unknown) => {
+      if (value === undefined) return true; // avatar is optional
       if (value instanceof File) {
         return isValidFileType(value && value.name?.toLowerCase(), 'image');
       } else if (typeof value === 'string') {
-        // TODO check if its an IPFS hash
-        return true;
+        return isValidIPFSHash(value);
       }
       return false;
     })

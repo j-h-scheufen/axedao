@@ -66,6 +66,7 @@
     "jotai-tanstack-query": "^0.8.8",
     "lodash": "^4.17.21",
     "lucide-react": "^0.436.0",
+    "multiformats": "^13.3.0",
     "next": "14.2.15",
     "next-auth": "^4.24.8",
     "next-themes": "^0.3.0",
