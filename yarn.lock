@@ -6861,12 +6861,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@silk-wallet/silk-constants@npm:0.0.17":
-  version: 0.0.17
-  resolution: "@silk-wallet/silk-constants@npm:0.0.17"
+"@silk-wallet/silk-constants@npm:0.0.18":
+  version: 0.0.18
+  resolution: "@silk-wallet/silk-constants@npm:0.0.18"
   dependencies:
     "@silk-wallet/silk-interface-core": "npm:0.1.0"
-  checksum: 10c0/7aab2e15d756c3d29e5521839e3078181bb93e227aa2ed1341d43982c612f8a5bddfe1630662264fd6e4f95b8480359485e0cef9b976180d2476bfd24497e880
+  checksum: 10c0/6bb0a560c61d6d69c0797526099ec208871b0ecac10e50e2b41f70cd83379058ae3547c6d24a754e8e9370bafddb6935bd0adb545ebe2a8864437a0c34721359
   languageName: node
   linkType: hard
 
@@ -6877,18 +6877,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@silk-wallet/silk-wallet-sdk@npm:^0.1.1":
-  version: 0.1.1
-  resolution: "@silk-wallet/silk-wallet-sdk@npm:0.1.1"
+"@silk-wallet/silk-wallet-sdk@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "@silk-wallet/silk-wallet-sdk@npm:0.1.2"
   dependencies:
     "@metamask/rpc-errors": "npm:^5.1.1"
-    "@silk-wallet/silk-constants": "npm:0.0.17"
+    "@silk-wallet/silk-constants": "npm:0.0.18"
     "@silk-wallet/silk-interface-core": "npm:0.1.0"
     ethers: "npm:5.7.2"
     events: "npm:^3.3.0"
     zod: "npm:^3.21.4"
     zod-validation-error: "npm:^1.3.0"
-  checksum: 10c0/224e299287cf41518a1935d7f416d1e00ded0a9956fa33dbb1aafea258984861cd6ee12714699d501003e4bceb5bc0e20887502b4a75d42625f2ca467bc47907
+  checksum: 10c0/ec4f5ea2c0d183247f2e1ea6c143c6e890608b8313da37768fd8f832b38305d6a23b151a10c07942cdb6eb9c6160552c91780900f6adff6badbdd4e90c5d5a80
   languageName: node
   linkType: hard
 
@@ -8996,7 +8996,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"axios@npm:^1.5.1, axios@npm:^1.7.5":
+"axios@npm:^1.5.1":
   version: 1.7.5
   resolution: "axios@npm:1.7.5"
   dependencies:
@@ -9004,6 +9004,17 @@ __metadata:
     form-data: "npm:^4.0.0"
     proxy-from-env: "npm:^1.1.0"
   checksum: 10c0/1d5daeb28b3d1bb2a7b9f0743433c4bfbeaddc15461e50ebde487eec6c009af2515749d5261096dd430c90cd891bd310bcba5ec3967bae2033c4a307f58a6ad3
+  languageName: node
+  linkType: hard
+
+"axios@npm:^1.7.7":
+  version: 1.7.7
+  resolution: "axios@npm:1.7.7"
+  dependencies:
+    follow-redirects: "npm:^1.15.6"
+    form-data: "npm:^4.0.0"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: 10c0/4499efc89e86b0b49ffddc018798de05fab26e3bf57913818266be73279a6418c3ce8f9e934c7d2d707ab8c095e837fc6c90608fb7715b94d357720b5f568af7
   languageName: node
   linkType: hard
 
@@ -9972,7 +9983,7 @@ __metadata:
     ethers: "npm:^6.13.2"
     hardhat: "npm:^2.22.9"
     hardhat-gas-reporter: "npm:^1.0.10"
-    husky: "npm:^9.1.5"
+    husky: "npm:^9.1.6"
     pre-commit: "npm:^1.2.2"
     prettier: "npm:^3.3.3"
     prettier-plugin-solidity: "npm:^1.4.1"
@@ -10012,20 +10023,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cookie@npm:^0.6.0":
-  version: 0.6.0
-  resolution: "cookie@npm:0.6.0"
-  checksum: 10c0/f2318b31af7a31b4ddb4a678d024514df5e705f9be5909a192d7f116cfb6d45cbacf96a473fa733faa95050e7cff26e7832bb3ef94751592f1387b71c8956686
+"cookie@npm:^0.7.0":
+  version: 0.7.2
+  resolution: "cookie@npm:0.7.2"
+  checksum: 10c0/9596e8ccdbf1a3a88ae02cf5ee80c1c50959423e1022e4e60b91dd87c622af1da309253d8abdb258fb5e3eacb4f08e579dc58b4897b8087574eee0fd35dfa5d2
   languageName: node
   linkType: hard
 
-"cookies-next@npm:^4.2.1":
-  version: 4.2.1
-  resolution: "cookies-next@npm:4.2.1"
+"cookies-next@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "cookies-next@npm:4.3.0"
   dependencies:
     "@types/cookie": "npm:^0.6.0"
-    cookie: "npm:^0.6.0"
-  checksum: 10c0/b9401feeb5614ecdc7114ea179fe24fffce7c586ac7810e57d74509a496be3d8deffc66289f5fc0ec28f34edce8dbb88567076305583e5c31f44b4c72f38a965
+    cookie: "npm:^0.7.0"
+  checksum: 10c0/091e2712340d595192e442c16d774fa9995a08b0425675a336527c7ee1941f5ea6cb8850cb5401a760e6c8d25bd846a3ce339d057d0c8f84e7b2ce5a4b31f939
   languageName: node
   linkType: hard
 
@@ -13214,12 +13225,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:^9.1.5":
-  version: 9.1.5
-  resolution: "husky@npm:9.1.5"
+"husky@npm:^9.1.6":
+  version: 9.1.6
+  resolution: "husky@npm:9.1.6"
   bin:
     husky: bin.js
-  checksum: 10c0/f42efb95a026303eb880898760f802d88409780dd72f17781d2dfc302177d4f80b641cf1f1694f53f6d97c536c7397684133d8c8fe4a4426f7460186a7d1c6b8
+  checksum: 10c0/705673db4a247c1febd9c5df5f6a3519106cf0335845027bb50a15fba9b1f542cb2610932ede96fd08008f6d9f49db0f15560509861808b0031cdc0e7c798bac
   languageName: node
   linkType: hard
 
@@ -15058,9 +15069,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-auth@npm:^4.24.7":
-  version: 4.24.7
-  resolution: "next-auth@npm:4.24.7"
+"next-auth@npm:^4.24.8":
+  version: 4.24.8
+  resolution: "next-auth@npm:4.24.8"
   dependencies:
     "@babel/runtime": "npm:^7.20.13"
     "@panva/hkdf": "npm:^1.0.2"
@@ -15072,14 +15083,17 @@ __metadata:
     preact-render-to-string: "npm:^5.1.19"
     uuid: "npm:^8.3.2"
   peerDependencies:
+    "@auth/core": 0.34.2
     next: ^12.2.5 || ^13 || ^14
     nodemailer: ^6.6.5
     react: ^17.0.2 || ^18
     react-dom: ^17.0.2 || ^18
   peerDependenciesMeta:
+    "@auth/core":
+      optional: true
     nodemailer:
       optional: true
-  checksum: 10c0/40c5f51e02141615069d422431a4906c38f6050b29f654ecc99a92fd3c974958535eb7c5f7bbc3dfd2e5996825d7c4f20d8ca68f372e2f9aad2131701cb95b7d
+  checksum: 10c0/4ef222c5564d32e8a2037d021863f6a08bd948d6c74060f6eb8c97dace5c6ff394d12a3adf27e7250f53dbcf30b48dff2cda5458a8d8017d92947e75dae32e38
   languageName: node
   linkType: hard
 
@@ -16874,7 +16888,7 @@ __metadata:
     "@nextui-org/user": "npm:^2.0.34"
     "@react-aria/ssr": "npm:^3.9.5"
     "@react-aria/visually-hidden": "npm:^3.8.15"
-    "@silk-wallet/silk-wallet-sdk": "npm:^0.1.1"
+    "@silk-wallet/silk-wallet-sdk": "npm:^0.1.2"
     "@svgr/webpack": "npm:^8.1.0"
     "@tailwindcss/typography": "npm:^0.5.14"
     "@tanstack/eslint-plugin-query": "npm:^5.52.0"
@@ -16890,11 +16904,11 @@ __metadata:
     "@typescript-eslint/parser": "npm:^8.3.0"
     "@wagmi/cli": "npm:^2.1.15"
     autoprefixer: "npm:10.4.20"
-    axios: "npm:^1.7.5"
+    axios: "npm:^1.7.7"
     bcrypt: "npm:^5.1.1"
     chai: "npm:^4.5.0"
     clsx: "npm:^2.1.1"
-    cookies-next: "npm:^4.2.1"
+    cookies-next: "npm:^4.3.0"
     country-state-city: "npm:^3.2.1"
     dnum: "npm:^2.13.1"
     dotenv: "npm:^16.4.5"
@@ -16914,7 +16928,7 @@ __metadata:
     lodash: "npm:^4.17.21"
     lucide-react: "npm:^0.436.0"
     next: "npm:14.2.8"
-    next-auth: "npm:^4.24.7"
+    next-auth: "npm:^4.24.8"
     next-themes: "npm:^0.3.0"
     notistack: "npm:^3.0.1"
     nuqs: "npm:^1.17.8"
@@ -16930,7 +16944,7 @@ __metadata:
     tailwind-merge: "npm:^2.5.2"
     tailwind-variants: "npm:^0.2.1"
     tailwindcss: "npm:3.4.10"
-    tsx: "npm:^4.19.0"
+    tsx: "npm:^4.19.1"
     typescript: "npm:^5.5.4"
     use-debounce: "npm:^10.0.3"
     uuid: "npm:^10.0.0"
@@ -18841,9 +18855,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:^4.19.0":
-  version: 4.19.0
-  resolution: "tsx@npm:4.19.0"
+"tsx@npm:^4.19.1":
+  version: 4.19.1
+  resolution: "tsx@npm:4.19.1"
   dependencies:
     esbuild: "npm:~0.23.0"
     fsevents: "npm:~2.3.3"
@@ -18853,7 +18867,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: 10c0/d14463a78067c6db84c677b79b14861de6d7f6fb0ffa5727cc500c4552459e936395a3854ad0112af0fd7b263bcedd62ce3929b036188eb10cd9902a607ffe34
+  checksum: 10c0/cbea9baf57e7406fa0ecc2c03b9bb2501ee740dc28c938f949180a646a28e5d65e7cccbfba340508923bfd45e90320ef9eef7f815cae4515b6ef2ee429edc7ee
   languageName: node
   linkType: hard
 
