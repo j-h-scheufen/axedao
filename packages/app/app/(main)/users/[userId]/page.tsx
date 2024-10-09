@@ -4,10 +4,10 @@ import { notFound } from 'next/navigation';
 import PageHeading from '@/components/PageHeading';
 import SectionHeading from '@/components/SectionHeading';
 import { UserGroupAssociation, UserProfile, UserProfileClientState } from '@/components/UserProfile';
-import { PATHS, QueryConfig } from '@/config/constants';
+import { QueryConfig } from '@/config/constants';
 import { fetchGroup, fetchUser } from '@/db';
 import { QUERY_KEYS } from '@/query';
-import { createDefaultQueryClient } from '@/utils';
+import { createDefaultQueryClient, getUserDisplayName } from '@/utils';
 
 type Props = { params: { userId: string } };
 
@@ -26,7 +26,7 @@ const UserProfilePage = async ({ params: { userId } }: Props) => {
   return (
     <HydrationBoundary state={dehydratedState}>
       <UserProfileClientState userId={userId}>
-        <PageHeading back={`${PATHS.search}?tab=users`}>User profile</PageHeading>
+        <PageHeading>{getUserDisplayName(user)}</PageHeading>
         <UserProfile />
         <SectionHeading>Group association</SectionHeading>
         <UserGroupAssociation />

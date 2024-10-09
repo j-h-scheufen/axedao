@@ -48,8 +48,8 @@ export const PATHS = {
   admin: '/admin',
   axe: '/axe',
   dao: '/dao',
-  users: '/search/users',
-  groups: '/search/groups',
+  users: '/users',
+  groups: '/groups',
 };
 
 export type IconDictionary = Record<LinkType, JSX.Element>; // TODO not used

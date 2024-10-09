@@ -6,10 +6,8 @@ import { useAtomValue } from 'jotai';
 
 import ContactInfo from '@/components/ContactInfo';
 import GroupMembers from '@/components/GroupMembers';
-import PageHeading from '@/components/PageHeading';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import UserCardWithFetch from '@/components/UserCardWithFetch';
-import { PATHS } from '@/config/constants';
 import { groupAtom, isFounderUuidAtom } from '@/hooks/state/group';
 import { getImageUrl } from '@/utils';
 import { GroupActions, GroupBanner, GroupDescription, GroupLogo } from '.';
@@ -21,7 +19,6 @@ const GroupView = () => {
   if (!group || isFetching) return <Spinner />;
   return (
     <div className="relative">
-      <PageHeading back={`${PATHS.search}?tab=groups`}>{group.name}</PageHeading>
       <GroupBanner />
       <div className="mt-5 xs:flex xs:gap-5">
         <GroupLogo url={getImageUrl(group.logo)} />

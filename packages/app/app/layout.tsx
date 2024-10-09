@@ -13,6 +13,7 @@ import QueryProvider from './_providers/query.provider';
 import SnackbarProvider from './_providers/snackbar.provider';
 import Web3Provider from './_providers/wagmi.provider';
 
+import BreadcrumbTracker from '@/components/BreadcrumbTracker';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
@@ -55,11 +56,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 {/* Note: Web3Provider and StateProvider rely on @tanstack/react-query. Make sure they are always nested inside the QueryProvider */}
                 <Web3Provider>
                   <StateProvider>
+                    <BreadcrumbTracker />
                     <div className="relative flex min-h-screen flex-col">
                       <Navbar />
-                      <main className="container mx-auto max-w-3xl flex-grow px-2 sm:px-4 mb-[40px] sm:mb-[10px]">
-                        {children}
-                      </main>
+                      <main className="container mx-auto max-w-3xl flex-grow mb-[40px] sm:mb-[10px]">{children}</main>
                     </div>
                   </StateProvider>
                 </Web3Provider>

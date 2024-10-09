@@ -12,10 +12,10 @@ import { useQueryClient } from '@tanstack/react-query';
 /**
  * Injects the current user's profile into the Jotai store, when the user is logged in.
  */
-const CurrentUserProvider = ({ children }: PropsWithChildren) => {
+const AppStateProvider = ({ children }: PropsWithChildren) => {
   const { data: session } = useSession();
   const queryClient = useQueryClient();
-  // Hydrate currentUser on first page load and refresh
+  // Hydrate currentUser on first page load and page refresh
   useHydrateAtoms([
     [queryClientAtom, queryClient], // This ensures that React Query and Jotai Query atoms are using the same client
     [triggerCurrentUserIdAtom, session?.user?.id],
@@ -26,7 +26,7 @@ const CurrentUserProvider = ({ children }: PropsWithChildren) => {
 
 const Provider = ({ children }: PropsWithChildren) => (
   <JotaiProvider>
-    <CurrentUserProvider>{children}</CurrentUserProvider>
+    <AppStateProvider>{children}</AppStateProvider>
   </JotaiProvider>
 );
 

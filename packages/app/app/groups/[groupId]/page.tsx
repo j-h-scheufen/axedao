@@ -2,6 +2,7 @@ import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 import { notFound } from 'next/navigation';
 
 import { GroupProfileClientState, GroupView } from '@/components/GroupProfile';
+import PageHeading from '@/components/PageHeading';
 import { QueryConfig } from '@/config/constants';
 import { fetchGroup, fetchGroupAdminIds, fetchGroupMembers } from '@/db';
 import { QUERY_KEYS } from '@/query';
@@ -26,6 +27,7 @@ const GroupProfilePage = async ({ params: { groupId } }: Props) => {
   return (
     <HydrationBoundary state={dehydratedState}>
       <GroupProfileClientState groupId={groupId}>
+        <PageHeading>{group.name}</PageHeading>
         <GroupView />
       </GroupProfileClientState>
     </HydrationBoundary>

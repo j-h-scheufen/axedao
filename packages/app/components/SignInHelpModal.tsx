@@ -34,20 +34,15 @@ const SignInHelpModal = ({ isOpen, onOpenChange }: Props) => {
                   Click on <b>Connect with Silk</b>
                 </li>
                 <li>Enter your email and continue</li>
-                <li>Choose a name and a password and submit</li>
+                <li>Choose a name, a password, and submit</li>
                 <li>Check your email inbox for a confirmation link from Silk and click it</li>
-                <li>
-                  Complete a bot challenge with a <b>slider</b> to proof you&apos;re human.
-                </li>
               </ol>
               <p>
                 <b>Important</b>: logging into your Silk account <i>always</i> requires both steps: your password and
                 clicking a confirmation link sent via email.
-              </p>
-              <p>
-                After your Silk account is connected, you can sign in to Quilombo by{' '}
-                <i>&lsquo;signing a message&rsquo;</i>. This digital signature proves that you have unlocked your Silk
-                account &#128521;
+                <br />
+                <b>Tip</b>: During your Silk login, you encounter a bot challenge to proof you&apos;re human. Use the{' '}
+                <b>slider</b> below the graphic! Example.
               </p>
             </ModalBody>
             <ModalFooter>

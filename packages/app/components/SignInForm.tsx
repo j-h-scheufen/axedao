@@ -29,7 +29,7 @@ const SignInForm = () => {
             If you are new here, please{' '}
             <div className="inline-block bg-warning-100 rounded-md px-2">
               <Link href="#" onPress={onOpenChange} className="no-underline text-foreground hover:opacity-50">
-                read this
+                click here
               </Link>
             </div>{' '}
             first!
@@ -53,8 +53,8 @@ const SignInForm = () => {
             Your Silk account is connected. <i>Fantastic!</i>
             <br />
             <br />
-            In order to complete Login we ask you to sign a message. By doing so you accept the Terms and Conditions of
-            the Quilombo app. Click the button below to proceed.
+            In order to complete Login we ask you to provide a digital signature. By doing so you accept the Terms and
+            Conditions of the Quilombo app. Click the button below to proceed.
           </p>
           <Button
             size="lg"
