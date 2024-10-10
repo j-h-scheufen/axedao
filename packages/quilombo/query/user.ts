@@ -10,34 +10,35 @@ const fetchUser = async (id: string): Promise<User> => axios.get(`/api/users/${i
 export const fetchUserOptions = (id: string | undefined) => {
   return {
     queryKey: [QUERY_KEYS.user.getUser, id],
-    queryFn: () => fetchUser(id ?? ''),
+    queryFn: async () => fetchUser(id ?? ''),
     staleTime: QueryConfig.staleTimeUser,
     enabled: !!id,
   } as const;
 };
 
-const searchUsers = async ({ offset, pageSize, searchTerm }: SearchParams): Promise<UserSearchResult> => {
+export const searchUsers = async ({ offset, pageSize, searchTerm }: SearchParams): Promise<UserSearchResult> => {
   let queryParams = `?offset=${offset}`;
   queryParams += searchTerm ? `&searchTerm=${searchTerm}` : '';
   queryParams += pageSize ? `&limit=${pageSize}` : '';
   return axios.get(`/api/users${queryParams}`).then((response) => response.data);
 };
-function searchUsersOptions(offset?: number, pageSize?: number, searchTerm?: string) {
-  return infiniteQueryOptions({
+export const searchUsersOptions = ({ offset, pageSize, searchTerm }: SearchParams) => {
+  return {
     queryKey: [QUERY_KEYS.user.searchUsers, searchTerm],
-    queryFn: ({ pageParam }: { pageParam: number | string }) =>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    queryFn: async ({ pageParam }: { pageParam: any }) =>
       searchUsers({ offset: Number(pageParam), pageSize, searchTerm }),
     initialPageParam: offset || 0,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    getNextPageParam: (lastPage, pages) => lastPage.nextOffset,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    getNextPageParam: (lastPage: any) => lastPage.nextOffset,
     staleTime: QueryConfig.staleTimeDefault,
-  });
-}
+  } as const;
+};
 
 export const useFetchUser = (id: string) => {
   return useQuery(queryOptions(fetchUserOptions(id)));
 };
 
-export const useSearchUsers = ({ offset, pageSize, searchTerm }: SearchParams) => {
-  return useInfiniteQuery(searchUsersOptions(offset, pageSize, searchTerm));
+export const useSearchUsers = (params: SearchParams) => {
+  return useInfiniteQuery(infiniteQueryOptions(searchUsersOptions(params)));
 };

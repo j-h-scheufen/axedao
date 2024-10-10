@@ -67,3 +67,5 @@ export const QueryConfig = {
 };
 
 export const GROUP_DESCRIPTION_MAX_LENGTH = 500;
+
+export const SEARCH_INPUT_DEBOUNCE = 750;
