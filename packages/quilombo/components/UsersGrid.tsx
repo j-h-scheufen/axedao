@@ -1,6 +1,7 @@
 import { User } from '@/types/model';
 import { cn } from '@/utils/tailwind';
 import React, { ReactNode, RefObject } from 'react';
+
 import UserCard, { UserCardProps } from './UserCard';
 import UserCardSkeleton from './skeletons/UserCardSkeleton';
 

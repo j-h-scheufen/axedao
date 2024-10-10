@@ -1,7 +1,8 @@
 'use client';
 
-import useOverviewQueries from '@/hooks/useOverviewQueries';
 import { Tab, Tabs } from '@nextui-org/tabs';
+
+import useOverviewQueries from '@/hooks/useOverviewQueries';
 import Groups from './Groups';
 import Users from './Users';
 

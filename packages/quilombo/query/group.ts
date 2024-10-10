@@ -19,33 +19,34 @@ import { GroupAndUserParams, QUERY_KEYS } from '.';
  * into the queryOptions() function in order to take advantage of the added type safety and inference.
  */
 
-const fetchGroup = (id: string): Promise<Group> => axios.get(`/api/groups/${id}`).then((response) => response.data);
+const fetchGroup = async (id: string): Promise<Group> =>
+  axios.get(`/api/groups/${id}`).then((response) => response.data);
 export const fetchGroupOptions = (id: string | undefined) => {
   return {
     queryKey: [QUERY_KEYS.group.getGroup, id],
-    queryFn: () => fetchGroup(id ?? ''),
+    queryFn: async () => fetchGroup(id ?? ''),
     staleTime: QueryConfig.staleTimeGroup,
     enabled: !!id,
   } as const;
 };
 
-const fetchGroupMembers = (id: string): Promise<User[]> =>
+const fetchGroupMembers = async (id: string): Promise<User[]> =>
   axios.get(`/api/groups/${id}/members`).then((response) => response.data);
 export const fetchGroupMembersOptions = (id: string | undefined) => {
   return {
     queryKey: [QUERY_KEYS.group.getGroupMembers, id],
-    queryFn: () => fetchGroupMembers(id ?? ''),
+    queryFn: async () => fetchGroupMembers(id ?? ''),
     staleTime: QueryConfig.staleTimeGroupMembers,
     enabled: !!id,
   } as const;
 };
 
-const fetchGroupAdmins = (id: string): Promise<string[]> =>
+const fetchGroupAdmins = async (id: string): Promise<string[]> =>
   axios.get(`/api/groups/${id}/admins`).then((response) => response.data);
 export const fetchGroupAdminsOptions = (id: string | undefined) => {
   return {
     queryKey: [QUERY_KEYS.group.getGroupAdmins, id],
-    queryFn: () => fetchGroupAdmins(id ?? ''),
+    queryFn: async () => fetchGroupAdmins(id ?? ''),
     staleTime: QueryConfig.staleTimeDefault,
     enabled: !!id,
   } as const;
@@ -57,17 +58,18 @@ const searchGroups = async ({ offset, pageSize, searchTerm }: SearchParams): Pro
   queryParams += pageSize ? `&pageSize=${pageSize}` : '';
   return axios.get(`/api/groups${queryParams}`).then((response) => response.data);
 };
-function searchGroupsOptions(offset?: number, pageSize?: number, searchTerm?: string) {
-  return infiniteQueryOptions({
+export const searchGroupsOptions = ({ offset, pageSize, searchTerm }: SearchParams) => {
+  return {
     queryKey: [QUERY_KEYS.group.searchGroups, searchTerm],
-    queryFn: ({ pageParam }: { pageParam: number | string }) =>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    queryFn: async ({ pageParam }: { pageParam: any }) =>
       searchGroups({ offset: Number(pageParam), pageSize, searchTerm }),
     initialPageParam: offset || 0,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    getNextPageParam: (lastPage, pages) => lastPage.nextOffset,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    getNextPageParam: (lastPage: any) => lastPage.nextOffset,
     staleTime: 1000 * 60 * 15, // 15 minutes
-  });
-}
+  } as const;
+};
 
 const createGroup = async (newGroup: CreateNewGroupForm): Promise<Group> =>
   axios.post('/api/groups', newGroup).then((response) => response.data);
@@ -93,14 +95,14 @@ export const useFetchGroupMembers = (id: string) => useQuery(queryOptions(fetchG
 
 export const useFetchGroupAdmins = (id: string) => useQuery(queryOptions(fetchGroupAdminsOptions(id)));
 
-export const useSearchGroups = ({ offset, pageSize, searchTerm }: SearchParams) => {
-  return useInfiniteQuery(searchGroupsOptions(offset, pageSize, searchTerm));
+export const useSearchGroups = (params: SearchParams) => {
+  return useInfiniteQuery(infiniteQueryOptions(searchGroupsOptions(params)));
 };
 
 export const useCreateGroupMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: (newGroup: CreateNewGroupForm) => createGroup(newGroup),
+    mutationFn: async (newGroup: CreateNewGroupForm) => createGroup(newGroup),
     onSuccess: (data) => {
       queryClient.setQueryData([QUERY_KEYS.group.getGroup, data.id], data);
       // The current user's groupId has changed as part of creating a new group
@@ -113,7 +115,7 @@ export const useCreateGroupMutation = () => {
 export const useDeleteGroupMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: (groupId: string) => deleteGroup(groupId),
+    mutationFn: async (groupId: string) => deleteGroup(groupId),
     onSuccess: (data, variables) => {
       // The current user's groupId has changed as part of deleting the group
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.currentUser.getUser] });
@@ -126,9 +128,8 @@ export const useDeleteGroupMutation = () => {
 export const useUpdateGroupMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({ groupId, data }: { groupId: string; data: UpdateGroupForm }) => updateGroup(groupId, data),
+    mutationFn: async ({ groupId, data }: { groupId: string; data: UpdateGroupForm }) => updateGroup(groupId, data),
     onSuccess: (data, variables) => {
-      console.log('updating query cache for group', variables.groupId, data);
       queryClient.setQueryData([QUERY_KEYS.group.getGroup, variables.groupId], data);
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.searchGroups] });
     },
@@ -138,7 +139,7 @@ export const useUpdateGroupMutation = () => {
 export const useRemoveMemberMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({ groupId, userId }: GroupAndUserParams) => removeMember(groupId, userId),
+    mutationFn: async ({ groupId, userId }: GroupAndUserParams) => removeMember(groupId, userId),
     onSuccess: (data, variables) => {
       queryClient.setQueryData([QUERY_KEYS.group.getGroupMembers, variables.groupId], data);
     },
@@ -148,7 +149,7 @@ export const useRemoveMemberMutation = () => {
 export const useAddAdminMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({ groupId, userId }: GroupAndUserParams) => addAdmin(groupId, userId),
+    mutationFn: async ({ groupId, userId }: GroupAndUserParams) => addAdmin(groupId, userId),
     onSuccess: (data, variables) => {
       queryClient.setQueryData([QUERY_KEYS.group.getGroupAdmins, variables.groupId], data);
     },
@@ -158,7 +159,7 @@ export const useAddAdminMutation = () => {
 export const useRemoveAdminMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({ groupId, userId }: GroupAndUserParams) => removeAdmin(groupId, userId),
+    mutationFn: async ({ groupId, userId }: GroupAndUserParams) => removeAdmin(groupId, userId),
     onSuccess: (data, variables) => {
       queryClient.setQueryData([QUERY_KEYS.group.getGroupAdmins, variables.groupId], data);
     },

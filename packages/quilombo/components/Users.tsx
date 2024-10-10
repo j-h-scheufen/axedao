@@ -1,41 +1,45 @@
 'use client';
 
 import { Input } from '@nextui-org/input';
+import { useAtom, useAtomValue } from 'jotai';
+import { debounce } from 'lodash';
 import { Search } from 'lucide-react';
-import { useDebounce } from 'use-debounce';
-
-import { useSearchUsers } from '@/query/user';
+import { useEffect, useMemo, useRef } from 'react';
 import { useInfiniteScroll } from '@nextui-org/use-infinite-scroll';
-import { useState } from 'react';
+
+import { SEARCH_INPUT_DEBOUNCE } from '@/config/constants';
+import { userSearchResultsAtom, userSearchTermAtom } from '@/hooks/state/search';
 import UsersGrid from './UsersGrid';
 
 const Users = () => {
-  const [searchTerm, setSearchTerm] = useState<string | undefined>();
-  const [debouncedSearchTerm] = useDebounce(searchTerm, 500);
-  const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } = useSearchUsers({
-    searchTerm: debouncedSearchTerm,
-  });
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [searchTerm, setSearchTerm] = useAtom(userSearchTermAtom);
+  const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } = useAtomValue(userSearchResultsAtom);
   const [, scrollerRef] = useInfiniteScroll({ hasMore: hasNextPage, onLoadMore: fetchNextPage });
+  const users = useMemo(() => data?.pages.flatMap((page) => page.data), [data]);
+  const debouncedSearch = debounce(setSearchTerm, SEARCH_INPUT_DEBOUNCE);
+
+  useEffect(() => {
+    if (inputRef.current && searchTerm) inputRef.current.value = searchTerm;
+  });
 
   return (
     <div className="flex flex-col gap-4 -mt-5">
       <div className="flex h-fit flex-col items-start justify-start gap-3 md:flex-row md:items-end">
         <Input
+          ref={inputRef}
           isClearable
-          onClear={() => setSearchTerm(undefined)}
+          onClear={() => setSearchTerm('')}
           className="w-full md:max-w-sm"
           placeholder="Search"
           startContent={<Search className="h-4 w-4" />}
           labelPlacement="outside"
-          value={searchTerm || ''}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={(e) => {
+            if (e.target.value !== searchTerm) debouncedSearch(e.target.value);
+          }}
         />
       </div>
-      <UsersGrid
-        users={data?.pages.flatMap((page) => page.data)}
-        isLoading={isFetching || isFetchingNextPage}
-        scrollerRef={scrollerRef}
-      />
+      <UsersGrid users={users} isLoading={isFetching || isFetchingNextPage} scrollerRef={scrollerRef} />
     </div>
   );
 };
