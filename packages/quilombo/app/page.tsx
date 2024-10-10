@@ -12,22 +12,24 @@ export default function Home() {
 
   return (
     <>
-      <header className="mx-5 mt-8 md:mt-16">
+      <header className="mx-4 mt-8 sm:mt-16">
         <div className="relative text-center mx-auto">
           <RippleBackground />
           <div className="relative z-[1]">
-            <h1 className="font-bold text-xl mb-6">Welcome to Quilombo</h1>
-            <p className="my-3 text-default-600 text-sm">
-              The advent of crypto/web3 has given the world a new set of tools. We are Capoeiristas from different
-              corners of the world bringing these tools to the Capoeira community to create shared value. It is time for
-              Capoeira to build its own open infrastructure and participate in the digital asset economy while giving
-              every member a voice in shaping the future of this art form we love.
+            <h1 className="font-bold text-2xl mb-5">Welcome to Quilombo</h1>
+            <p className="my-3 text-medium sm:text-lg">The first app specifically made for Capoeira</p>
+            <p className="my-3 text-default-600 text-sm sm:text-medium">
+              We are capoeiristas from different corners of the world and from different schools who come together to
+              build our own tools instead of relying on social media platforms that don&apos;t serve our needs.
             </p>
-            <p className="my-3 text-default-600 text-sm">
-              Like Capoeira, the cypherpunk culture from which crypto/web3 originates is rooted in the spirit of
-              autonomy, resistance, freedom and self-determination. Axé DAO is a pioneering effort by Capoeiristas for
-              Capoeiristas to channel collective resources into efforts that benefit Capoeira guided by the principles
-              of decentralization and collective action.
+            <p className="my-3 text-default-600 text-sm sm:text-medium">
+              Quilombo starts with a simple directory of capoeira groups and their members, but it can grow into a place
+              where we can share our events, pay for classes, and support each other in many ways.
+            </p>
+            <p className="my-3 text-default-600 text-sm sm:text-medium">
+              If you are in any way involved in Capoeira, we invite you to join us on this journey. This app is free!
+              Make an account, create your profile, join or register a group, and help populate the{' '}
+              <i>geneology tree of Capoeira</i>.
             </p>
           </div>
           <div className="pt-5">
