@@ -8,9 +8,9 @@
     "strict": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "sourceMap": true,
+    "sourceMap": true
   },
   "include": ["./test/**/*.ts", "./scripts/**/*.ts", "./typechain-types"],
   "exclude": ["node_modules"],
-  "files": ["hardhat.config.ts"],
+  "files": ["hardhat.config.ts"]
 }
