@@ -143,9 +143,6 @@ Read the ETH balance of the AxeDeployer:
 cast balance -e --rpc-url http://localhost:8545 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B
 ```
 
-Contracts on Sepolia:
-v2 Router: 0xB26B2De65D07eBB5E54C7F6282424D3be670E1f0
-
 Deploy MockERC20 and mint into treasury:
 
 ```shell
