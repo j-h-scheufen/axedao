@@ -5,7 +5,7 @@ import { SocialLink } from '@/db/schema';
 import { fetchCurrentUserOptions } from '@/query/currentUser';
 import { fetchGroupOptions } from '@/query/group';
 import { Group, User } from '@/types/model';
-import { getImageUrl } from '@/utils';
+import { getImageUrl, getUserDisplayName } from '@/utils';
 
 export const triggerCurrentUserIdAtom = atom<string | undefined>();
 
@@ -16,6 +16,8 @@ export const currentUserAtom = atomWithQuery<User | undefined>((get) =>
 export const currentUserGroupAtom = atomWithQuery<Group | undefined>((get) =>
   fetchGroupOptions(get(currentUserGroupIdAtom)),
 );
+
+export const currentUserDisplayNameAtom = atom<string>((get) => getUserDisplayName(get(currentUserAtom).data));
 
 export const currentUserIdAtom = atom<string | undefined>((get) => get(currentUserAtom).data?.id);
 

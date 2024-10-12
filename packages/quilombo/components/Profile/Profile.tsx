@@ -28,10 +28,10 @@ const Profile = () => {
       <div className="flex flex-1 flex-col gap-3">
         <div className="flex flex-col items-center justify-center gap-5 md:gap-10 xs:flex-row">
           <div className="text-center xs:text-left">
-            <h3 className="text-lg font-medium">{getUserDisplayName(user)}</h3>
             <div className="text-small capitalize text-default-500 flex justify-center xs:justify-start gap-2 mt-2">
               {user.title}
             </div>
+            <h3 className="text-lg font-medium">{getUserDisplayName(user)}</h3>
           </div>
           <div className="xs:mb-auto xs:ml-auto">
             <Button
