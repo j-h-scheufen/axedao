@@ -31,7 +31,7 @@ const Groups = () => {
           isClearable
           onClear={() => setSearchTerm('')}
           className="w-full md:max-w-sm"
-          placeholder="Search by name or nickname"
+          placeholder="Search by group name"
           startContent={<Search className="h-4 w-4" />}
           labelPlacement="outside"
           onChange={(e) => {

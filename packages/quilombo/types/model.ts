@@ -5,7 +5,7 @@ import { SelectGroup, SelectUser } from '../db/schema';
  * This file defines API and app-level types that are wrapping the DB schema types in order to create a layer of separation
  */
 
-export type Group = Omit<SelectGroup, 'updatedAt'>;
+export type Group = Omit<SelectGroup, 'updatedAt'> & { countryName: string };
 
 export type User = Omit<SelectUser, 'updatedAt'>;
 

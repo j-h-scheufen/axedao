@@ -52,7 +52,10 @@ export async function GET(request: NextRequest) {
     groups.pop();
   }
 
-  const result: GroupSearchResult = { data: groups, nextOffset };
+  const result: GroupSearchResult = {
+    data: groups,
+    nextOffset,
+  };
   return Response.json(result);
 }
 

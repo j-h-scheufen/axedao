@@ -1,3 +1,4 @@
+import { Country } from 'country-state-city';
 import { and, count, eq, ilike, ne, notExists, or, SQLWrapper } from 'drizzle-orm';
 import { drizzle, PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
@@ -18,6 +19,7 @@ import { Group, UserSession } from '@/types/model';
 export const client = postgres(ENV.databaseUrl, { prepare: false });
 export const drizzleClient = drizzle(client, { schema, logger: false });
 declare global {
+  // eslint-disable-next-line no-var
   var database: PostgresJsDatabase<typeof schema> | undefined;
 }
 export const db = global.database || drizzleClient;
@@ -31,10 +33,6 @@ export async function isGlobalAdmin(userId: string) {
     columns: { isGlobalAdmin: true },
   });
   return res?.isGlobalAdmin;
-}
-
-export async function fetchUsers() {
-  return await db.select().from(schema.users);
 }
 
 export async function searchUsers(options: SearchParams) {
@@ -72,10 +70,6 @@ export async function countUsers() {
   return result.length ? result[0].count : null;
 }
 
-export async function fetchGroups() {
-  return await db.select().from(schema.users);
-}
-
 export async function searchGroups(options: GroupSearchParams): Promise<Group[]> {
   const { pageSize = 20, offset = 0, searchTerm, city, country, verified } = options;
 
@@ -85,16 +79,13 @@ export async function searchGroups(options: GroupSearchParams): Promise<Group[]>
   if (country) filters.push(eq(schema.groups.country, country));
   if (typeof verified === 'boolean') filters.push(eq(schema.groups.verified, verified));
 
-  return await db.query.groups.findMany({
+  const result = await db.query.groups.findMany({
     limit: pageSize,
     offset,
     where: filters.length ? and(...filters) : undefined,
   });
-}
 
-export async function countGroups() {
-  const result = await db.select({ count: count() }).from(schema.groups);
-  return result.length ? result[0].count : null;
+  return result.map((group) => ({ ...group, countryName: Country.getCountryByCode(group.country)?.name ?? '' }));
 }
 
 export async function isGroupMember(groupId: string, userId: string): Promise<boolean> {
@@ -126,10 +117,16 @@ export async function isGroupAdmin(groupId: string, userId: string): Promise<boo
   return result.length > 0 && result[0].value > 0;
 }
 
-export async function fetchGroup(groupId: string): Promise<schema.SelectGroup | undefined> {
-  return db.query.groups.findFirst({
+export async function fetchGroup(groupId: string): Promise<Group | undefined> {
+  const result = await db.query.groups.findFirst({
     where: (groups, { eq }) => eq(groups.id, groupId),
   });
+  return result
+    ? {
+        ...result,
+        countryName: result?.country ? (Country.getCountryByCode(result.country)?.name ?? '') : '',
+      }
+    : undefined;
 }
 
 export async function fetchGroupMembers(groupId: string): Promise<schema.SelectUser[]> {

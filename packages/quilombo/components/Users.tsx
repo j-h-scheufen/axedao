@@ -1,11 +1,11 @@
 'use client';
 
 import { Input } from '@nextui-org/input';
+import { useInfiniteScroll } from '@nextui-org/use-infinite-scroll';
 import { useAtom, useAtomValue } from 'jotai';
 import { debounce } from 'lodash';
 import { Search } from 'lucide-react';
 import { useEffect, useMemo, useRef } from 'react';
-import { useInfiniteScroll } from '@nextui-org/use-infinite-scroll';
 
 import { SEARCH_INPUT_DEBOUNCE } from '@/config/constants';
 import { userSearchResultsAtom, userSearchTermAtom } from '@/hooks/state/search';
@@ -31,7 +31,7 @@ const Users = () => {
           isClearable
           onClear={() => setSearchTerm('')}
           className="w-full md:max-w-sm"
-          placeholder="Search"
+          placeholder="Search by name or nickname"
           startContent={<Search className="h-4 w-4" />}
           labelPlacement="outside"
           onChange={(e) => {
