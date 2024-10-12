@@ -12,7 +12,7 @@ const ProfileGroupAssociation = () => {
   if (isFetching) return <Spinner />;
 
   return group ? (
-    <GroupCard className="sm:max-w-100" group={group} />
+    <GroupCard group={group} />
   ) : (
     <div className="text-default-500 text-sm">You are currently not associated with a group</div>
   );

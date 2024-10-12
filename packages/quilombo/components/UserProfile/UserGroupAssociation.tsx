@@ -12,7 +12,7 @@ const UserGroupAssociation = () => {
   if (isFetching) return <Spinner />;
 
   return group ? (
-    <GroupCard className="mx-auto sm:mx-0 md:max-w-80" group={group} />
+    <GroupCard group={group} />
   ) : (
     <div className="text-default-500 text-sm">User has no group association</div>
   );

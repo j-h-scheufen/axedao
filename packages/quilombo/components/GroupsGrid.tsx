@@ -8,13 +8,12 @@ type Props = { groups?: Group[]; isLoading?: boolean; scrollerRef?: RefObject<HT
 
 const GroupsGrid = ({ groups = [], isLoading = false, scrollerRef }: Props) => {
   return (
-    <div className="grid w-full grid-cols-1 gap-5 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div className="grid w-full grid-cols-1 gap-5 xs:grid-cols-2 lg:grid-cols-3">
       {groups.map((group, i) => {
-        return <GroupCard key={i} group={group} />;
+        return <GroupCard key={i} group={group} className="" />;
       })}
-      {scrollerRef && <div ref={scrollerRef as RefObject<HTMLDivElement>} className="hidden" hidden></div>}
-
       {isLoading && [...Array(20)].map((_, i) => <GroupCardSkeleton key={i} />)}
+      {scrollerRef && <div ref={scrollerRef as RefObject<HTMLDivElement>} className="hidden" hidden></div>}
     </div>
   );
 };
