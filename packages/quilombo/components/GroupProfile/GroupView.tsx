@@ -3,6 +3,7 @@
 import { Link } from '@nextui-org/link';
 import { Spinner } from '@nextui-org/spinner';
 import { useAtomValue } from 'jotai';
+import { MailIcon } from 'lucide-react';
 
 import ContactInfo from '@/components/ContactInfo';
 import GroupMembers from '@/components/GroupMembers';
@@ -22,12 +23,15 @@ const GroupView = () => {
       <GroupBanner />
       <div className="mt-5 xs:flex xs:gap-5">
         <GroupLogo url={getImageUrl(group.logo)} />
-        <div className="">
+        <div className="flex flex-col gap-2">
           <GroupDescription description={group.description} />
           {group.email && (
-            <Link href={`mailto:${group.email}`} className="text-small tracking-tight text-default-400">
-              {group.email}
-            </Link>
+            <div className="flex gap-1 items-center text-default-400">
+              <MailIcon className="h-4 w-4" />
+              <Link href={`mailto:${group.email}`} className="text-small tracking-tight text-default-400">
+                {group.email}
+              </Link>
+            </div>
           )}
           <ContactInfo links={group.links} />
         </div>

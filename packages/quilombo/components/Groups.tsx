@@ -24,7 +24,7 @@ const Groups = () => {
   });
 
   return (
-    <div className="flex flex-col gap-4 pt-5">
+    <div className="flex flex-col gap-4">
       <div className="flex h-fit items-center justify-between gap-3">
         <Input
           ref={inputRef}

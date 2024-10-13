@@ -1,15 +1,14 @@
 'use client';
 
 import { Tab, Tabs } from '@nextui-org/tabs';
+import { useAtom } from 'jotai';
 
-import useOverviewQueries from '@/hooks/useOverviewQueries';
+import { searchTabAtom } from '@/hooks/state/app';
 import Groups from './Groups';
 import Users from './Users';
 
 const Overview = () => {
-  const [query, setQuery] = useOverviewQueries();
-
-  const { tab } = query;
+  const [searchTab, setSearchTab] = useAtom(searchTabAtom);
 
   return (
     <div>
@@ -18,13 +17,10 @@ const Overview = () => {
         aria-label="Options"
         className="mb-3"
         classNames={{ tabList: 'mb-5' }}
-        defaultSelectedKey={tab || undefined}
-        onSelectionChange={(key) => {
-          const tab = key.toString() as 'users' | 'groups';
-          setQuery({ tab, searchTerm: null });
-        }}
+        defaultSelectedKey={searchTab || undefined}
+        onSelectionChange={(key) => setSearchTab(key.toString() as 'users' | 'groups')}
       >
-        <Tab key="users" title="Users">
+        <Tab key="users" title="People">
           <Users />
         </Tab>
         <Tab key="groups" title="Groups">
