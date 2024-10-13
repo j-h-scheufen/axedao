@@ -28,7 +28,7 @@ const Profile = () => {
       <div className="flex flex-1 flex-col gap-3">
         <div className="flex flex-col items-center justify-center gap-5 md:gap-10 xs:flex-row">
           <div className="text-center xs:text-left">
-            <div className="text-small capitalize text-default-500 flex justify-center xs:justify-start gap-2 mt-2">
+            <div className="text-small capitalize text-default-500 flex justify-center xs:justify-start mt-2">
               {user.title}
             </div>
             <h3 className="text-lg font-medium">{getUserDisplayName(user)}</h3>
@@ -45,6 +45,7 @@ const Profile = () => {
             </Button>
           </div>
         </div>
+        <div>Email: {user.email}</div>
         <ContactInfo links={user.links} />
       </div>
     </div>

@@ -1,50 +1,42 @@
-'use client';
-
 import { Avatar, AvatarProps } from '@nextui-org/avatar';
 import { Card, CardBody, CardProps } from '@nextui-org/card';
 import { Link } from '@nextui-org/link';
+import clsx from 'clsx';
 import { UserRoundIcon } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import { ForwardedRef, ReactNode, forwardRef } from 'react';
+import { ReactNode } from 'react';
 
 import { PATHS } from '@/config/constants';
 import { User } from '@/types/model';
 import { getImageUrl } from '@/utils';
+import UserNameDisplay from './UserNameDisplay';
 
 export type UserCardProps = CardProps & {
-  user?: User | null;
+  user: User;
+  className?: string;
   endContent?: ReactNode | null;
   avatarProps?: AvatarProps;
 };
 
-const UserCard = (
-  { user, endContent = null, avatarProps, ...props }: UserCardProps,
-  ref: ForwardedRef<HTMLDivElement | null>,
-) => {
-  const router = useRouter();
-  if (!user) return 'Missing User';
-
+const UserCard = ({ user, className = '', endContent = null, avatarProps }: UserCardProps) => {
   return (
-    <Link as="div" onPress={() => router.push(`${PATHS.users}/${user.id}`)} className="inline-block cursor-pointer">
-      <Card ref={ref} {...props}>
-        <CardBody className="flex gap-3 justify-between">
-          <Avatar
-            radius="full"
-            size="md"
-            src={getImageUrl(user.avatar)}
-            fallback={<UserRoundIcon className="w-5 h-5 text-default-400" strokeWidth={1.25} />}
-            className="min-w-10"
-            {...avatarProps}
-          />
-          <div className="flex-1 flex flex-col items-start justify-center gap-1">
-            <h4 className="text-small font-semibold leading-none text-default-600">{user.name}</h4>
-            <h5 className="text-small tracking-tight text-default-400">{user.email}</h5>
-          </div>
-          {endContent}
-        </CardBody>
-      </Card>
-    </Link>
+    <Card as={Link} href={`${PATHS.users}/${user.id}`}>
+      <CardBody className={clsx('flex flex-row gap-3 p-2', className)}>
+        <Avatar
+          radius="full"
+          size="lg"
+          src={getImageUrl(user.avatar)}
+          fallback={<UserRoundIcon className="w-5 h-5 text-default-400" strokeWidth={1.25} />}
+          className="min-w-10"
+          {...avatarProps}
+        />
+        <div className="flex-1 flex flex-col items-start justify-top gap-1">
+          <div className="text-small capitalize text-default-500 flex justify-start">{user.title}</div>
+          <UserNameDisplay user={user} />
+        </div>
+        {endContent}
+      </CardBody>
+    </Card>
   );
 };
 
-export default forwardRef(UserCard);
+export default UserCard;

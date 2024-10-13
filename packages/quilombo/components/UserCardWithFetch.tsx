@@ -2,27 +2,21 @@
 
 import { AvatarProps } from '@nextui-org/avatar';
 import { CardProps } from '@nextui-org/card';
-import { ReactNode, Suspense } from 'react';
+import { ReactNode } from 'react';
 
 import { useFetchUser } from '@/query/user';
 import UserCardSkeleton from './skeletons/UserCardSkeleton';
 import UserCard from './UserCard';
 
-export type UserCardDynamicProps = CardProps & {
+export type UserCardWithFetchProps = CardProps & {
   userId: string;
   endContent?: ReactNode | null;
   avatarProps?: AvatarProps;
 };
 
-const DynamicUserCard = ({ userId, ...props }: UserCardDynamicProps) => {
-  const { data: user } = useFetchUser(userId);
-  return <UserCard user={user} {...props} />;
+const UserCardWithFetch = ({ userId, ...props }: UserCardWithFetchProps) => {
+  const { data: user, isLoading, isFetching } = useFetchUser(userId);
+  return isLoading || isFetching || !user ? <UserCardSkeleton /> : <UserCard user={user} {...props} />;
 };
-
-const UserCardWithFetch = (props: UserCardDynamicProps) => (
-  <Suspense fallback={<UserCardSkeleton {...props} />}>
-    <DynamicUserCard {...props} />
-  </Suspense>
-);
 
 export default UserCardWithFetch;

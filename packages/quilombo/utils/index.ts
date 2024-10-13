@@ -81,9 +81,8 @@ export const getUserDisplayName = (user?: User): string => {
   let displayName = '';
   if (user.nickname) {
     displayName = user.nickname;
-  }
-  if (user.name) {
-    displayName += displayName === '' ? user.name : ` (${user.name})`;
+  } else if (user.name) {
+    displayName = user.name;
   }
   return displayName || `User (${abbreviateAddress(user.walletAddress)})`;
 };
