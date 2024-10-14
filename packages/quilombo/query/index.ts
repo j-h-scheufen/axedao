@@ -26,3 +26,5 @@ export const QUERY_KEYS = {
 } as const;
 
 export type GroupAndUserParams = { groupId: string; userId: string };
+
+export type FileUploadParams = { file?: File };

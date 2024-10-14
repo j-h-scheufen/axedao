@@ -18,5 +18,9 @@
   "engines": {
     "node": ">=18.17.0"
   },
-  "packageManager": "yarn@4.5.0"
+  "packageManager": "yarn@4.5.0",
+  "dependencies": {
+    "file-type": "^19.6.0",
+    "sharp": "^0.33.5"
+  }
 }

@@ -1,4 +1,6 @@
 import { LinkType } from '@/db/schema';
+import { ImageType } from '@/types/model';
+import { ResizeOptions } from 'sharp';
 
 export const titles = [
   'mestre',
@@ -69,3 +71,19 @@ export const QueryConfig = {
 export const GROUP_DESCRIPTION_MAX_LENGTH = 500;
 
 export const SEARCH_INPUT_DEBOUNCE = 750;
+
+export const IMAGE_TYPES = ['userAvatar', 'groupLogo', 'groupBanner'] as const;
+
+export const FILE_PREFIXES: Record<ImageType, string> = {
+  userAvatar: 'user-avatar',
+  groupLogo: 'group-logo',
+  groupBanner: 'group-banner',
+};
+
+export const IMAGE_FORMATS: Record<ImageType, ResizeOptions> = {
+  userAvatar: { width: 300, height: 300 },
+  groupLogo: { width: 400, height: 400 },
+  groupBanner: { height: 700, fit: 'outside' },
+};
+
+export const MAX_IMAGE_UPLOAD_SIZE_MB = 5;

@@ -1,6 +1,6 @@
 import { isValidIPFSHash } from '@/utils';
-import { InferType, array, boolean, mixed, number, object, string } from 'yup';
-import { linkTypes, titles, validFileExtensions } from './constants';
+import { array, boolean, InferType, mixed, number, object, string } from 'yup';
+import { linkTypes, MAX_IMAGE_UPLOAD_SIZE_MB, titles, validFileExtensions } from './constants';
 
 export type Title = (typeof titles)[number];
 export type LinkTypes = (typeof linkTypes)[number];
@@ -66,22 +66,6 @@ export const linkSchema = object({
 export const linksSchema = array().of(linkSchema).default([]);
 
 export const profileFormSchema = object({
-  avatar: mixed()
-    .test('is-valid-type', 'Not a valid image type', (value: unknown) => {
-      if (value === undefined) return true; // avatar is optional
-      if (value instanceof File) {
-        return isValidFileType(value && value.name?.toLowerCase(), 'image');
-      } else if (typeof value === 'string') {
-        return isValidIPFSHash(value);
-      }
-      return false;
-    })
-    .test('is-valid-size', 'Maximum image size allowed is 3MB', (value: unknown) => {
-      if (value instanceof File) {
-        return value.size <= megabytesToBytes(3);
-      }
-      return true;
-    }),
   title: string().nullable().oneOf(titles, 'Not a valid title'),
   name: string().nullable(),
   nickname: string().nullable(),
@@ -91,6 +75,27 @@ export const profileFormSchema = object({
 });
 
 export type ProfileForm = InferType<typeof profileFormSchema>;
+
+export const imageUploadSchema = object({
+  file: mixed()
+    .test('is-valid-type', 'Not a valid image type', (value: unknown) => {
+      if (value === undefined) return true;
+      if (value instanceof File) {
+        return isValidFileType(value && value.name?.toLowerCase(), 'image');
+      } else if (typeof value === 'string') {
+        return isValidIPFSHash(value);
+      }
+      return false;
+    })
+    .test('is-valid-size', `Maximum image size allowed is ${MAX_IMAGE_UPLOAD_SIZE_MB}MB`, (value: unknown) => {
+      if (value instanceof File) {
+        return value.size <= megabytesToBytes(MAX_IMAGE_UPLOAD_SIZE_MB);
+      }
+      return true;
+    }),
+});
+
+export type ImageUploadForm = InferType<typeof imageUploadSchema>;
 
 export const createNewGroupFormSchema = object({
   name: string().required('Group name is required'),
@@ -123,9 +128,6 @@ export const axeTransferForm = object({
 
 export type AxeTransferForm = InferType<typeof axeTransferForm>;
 
-/***************************
- * Schemas for API routes and forms
- ***************************/
 export const updateGroupSchema = object({
   name: string().required('Group name is required'),
   founder: string().optional().nullable(),
@@ -133,33 +135,6 @@ export const updateGroupSchema = object({
   description: string().test('max-chars', 'Description cannot exceed 500 characters', (value: string | undefined) =>
     value ? value.length <= 500 : true,
   ),
-  logo: mixed()
-    .test('is-valid-type', 'Not a valid image type', (value) => {
-      if (value instanceof File) {
-        return isValidFileType(value && value.name?.toLowerCase(), 'image');
-      }
-      return true;
-    })
-    .test('is-valid-size', 'Max image size allowed is 3MB', (value) => {
-      if (value instanceof File) {
-        return value.size <= megabytesToBytes(3);
-      }
-      return true;
-    }),
-  banner: mixed()
-    .test('is-valid-type', 'Not a valid image type', (value) => {
-      if (value instanceof File) {
-        return isValidFileType(value && value.name?.toLowerCase(), 'image');
-      }
-      return true;
-    })
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    .test('is-valid-size', 'Max image size allowed is 5MB', (value: any) => {
-      if (value instanceof File) {
-        return value.size <= megabytesToBytes(5);
-      }
-      return true;
-    }),
   links: linksSchema,
 });
 
