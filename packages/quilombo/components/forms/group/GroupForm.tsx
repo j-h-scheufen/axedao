@@ -8,15 +8,14 @@ import { useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
 
 import { FieldInput, FounderField } from '@/components/forms';
-import ImageUpload from '@/components/ImageUpload';
+import LinksArray from '@/components/forms/LinksArray';
+import GroupFormSkeleton from '@/components/skeletons/GroupSkeletons';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import { GROUP_DESCRIPTION_MAX_LENGTH, PATHS } from '@/config/constants';
 import { UpdateGroupForm, updateGroupSchema } from '@/config/validation-schema';
 import { groupAtom } from '@/hooks/state/group';
 import { useDeleteGroup, useUpdateGroup } from '@/hooks/useGroup';
-import LinksArray from '../forms/LinksArray';
-import GroupFormSkeleton from '../skeletons/GroupSkeletons';
-import DeleteGroup from './DeleteGroup';
+import { DeleteGroup } from '.';
 
 const GroupForm = () => {
   const { data: group, isFetching } = useAtomValue(groupAtom);
@@ -52,8 +51,6 @@ const GroupForm = () => {
     email: group?.email || '',
     founder: group?.founder || '',
     description: group?.description || '',
-    logo: group?.logo || '',
-    banner: group?.banner || '',
     links: group?.links || [],
   };
 
@@ -64,45 +61,8 @@ const GroupForm = () => {
       onSubmit={handleSubmit}
       enableReinitialize
     >
-      {({ values, dirty, isValid, isSubmitting, setFieldValue }: FormikProps<UpdateGroupForm>) => (
+      {({ values, dirty, isValid, isSubmitting }: FormikProps<UpdateGroupForm>) => (
         <Form className="flex flex-col gap-2 sm:gap-4">
-          <div className="md:flex sm:gap-5">
-            <div className="flex min-w-24 flex-col justify-start gap-2">
-              <h4>Logo</h4>
-              <Field name="logo">
-                {({ field, meta }: FieldProps) => (
-                  <ImageUpload
-                    {...field}
-                    errorMessage={meta.error}
-                    isInvalid={meta.touched && !!meta.error}
-                    onChange={(file: File) => {
-                      setFieldValue('logo', file);
-                    }}
-                    hideButton
-                  />
-                )}
-              </Field>
-            </div>
-            <div className="flex flex-1 flex-col gap-2">
-              <h4>Banner</h4>
-              <div className="h-full">
-                <Field name="banner">
-                  {({ field, meta }: FieldProps) => (
-                    <ImageUpload
-                      {...field}
-                      errorMessage={meta.error}
-                      isInvalid={meta.touched && !!meta.error}
-                      onChange={(file: File) => {
-                        setFieldValue('banner', file);
-                      }}
-                      hideButton
-                      avatarProps={{ className: 'block h-28 w-full cursor-pointer', radius: 'md' }}
-                    />
-                  )}
-                </Field>
-              </div>
-            </div>
-          </div>
           <Field name="name" label="Name" placeholder="Enter your group's name" as={FieldInput} />
           <Field name="email" label="Email" type="email" placeholder="Enter your group's email" as={FieldInput} />
           <Field name="founder" label="Founder" placeholder="Enter the founder's name" as={FounderField} />

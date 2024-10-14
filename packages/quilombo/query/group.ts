@@ -11,7 +11,7 @@ import axios from 'axios';
 import { QueryConfig } from '@/config/constants';
 import { CreateNewGroupForm, SearchParams, UpdateGroupForm } from '@/config/validation-schema';
 import { Group, GroupSearchResult, User } from '@/types/model';
-import { GroupAndUserParams, QUERY_KEYS } from '.';
+import { FileUploadParams, GroupAndUserParams, QUERY_KEYS, UseFileUploadMutation } from '.';
 
 /**
  * Note that the various fetch options are exported as read-only objects in order to be used by atomWithQuery.
@@ -88,6 +88,32 @@ const addAdmin = async (groupId: string, userId: string): Promise<string[]> =>
 const removeAdmin = async (groupId: string, userId: string): Promise<string[]> =>
   axios.delete(`/api/groups/${groupId}/admins/${userId}`).then((response) => response.data);
 
+export const updateLogo = async ({ ownerId, file }: FileUploadParams): Promise<User> => {
+  const data = new FormData();
+  const url = `/api/group/${ownerId}/logo`;
+  if (file) {
+    data.set('file', file);
+    return axios
+      .post(url, data, { headers: { 'Content-Type': 'multipart/form-data' } })
+      .then((response) => response.data);
+  } else {
+    return axios.delete(url).then((response) => response.data);
+  }
+};
+
+export const updateBanner = async ({ ownerId, file }: FileUploadParams): Promise<User> => {
+  const data = new FormData();
+  const url = `/api/group/${ownerId}/banner`;
+  if (file) {
+    data.set('file', file);
+    return axios
+      .post(url, data, { headers: { 'Content-Type': 'multipart/form-data' } })
+      .then((response) => response.data);
+  } else {
+    return axios.delete(url).then((response) => response.data);
+  }
+};
+
 // HOOKS
 export const useFetchGroup = (id: string) => useQuery(queryOptions(fetchGroupOptions(id)));
 
@@ -162,6 +188,26 @@ export const useRemoveAdminMutation = () => {
     mutationFn: async ({ groupId, userId }: GroupAndUserParams) => removeAdmin(groupId, userId),
     onSuccess: (data, variables) => {
       queryClient.setQueryData([QUERY_KEYS.group.getGroupAdmins, variables.groupId], data);
+    },
+  });
+};
+
+export const useUpdateLogoMutation: UseFileUploadMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (params: FileUploadParams) => updateLogo(params),
+    onSuccess: (data, variables) => {
+      queryClient.setQueryData([QUERY_KEYS.group.getGroup, variables.ownerId], data);
+    },
+  });
+};
+
+export const useUpdateBannerMutation: UseFileUploadMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (params: FileUploadParams) => updateBanner(params),
+    onSuccess: (data, variables) => {
+      queryClient.setQueryData([QUERY_KEYS.group.getGroup, variables.ownerId], data);
     },
   });
 };

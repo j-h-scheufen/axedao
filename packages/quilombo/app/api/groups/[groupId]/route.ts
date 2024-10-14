@@ -70,8 +70,10 @@ export async function PATCH(request: NextRequest, { params }: { params: { groupI
     const oldGroup = await fetchGroup(groupId);
     if (!oldGroup) return notFound();
 
-    const groupData = body as UpdateGroupForm;
+    const groupData = body as Omit<UpdateGroupForm, 'id' | 'logo' | 'banner'>;
     const groupDataClean = omitBy(groupData, isNil);
+
+    // TODO: delete old logo and banner from IPFS
 
     const updatedGroup = await updateGroup({ ...groupDataClean, id: groupId });
     return Response.json(updatedGroup);

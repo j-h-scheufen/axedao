@@ -1,4 +1,3 @@
-import { useAtom } from 'jotai';
 import { enqueueSnackbar } from 'notistack';
 
 import { CreateNewGroupForm, UpdateGroupForm } from '@/config/validation-schema';
@@ -11,8 +10,6 @@ import {
   useRemoveMemberMutation,
   useUpdateGroupMutation,
 } from '@/query/group';
-import { FileUploadParams, useUploadImageMutation } from '@/query/image';
-import { groupMembersAtom } from './state/group';
 
 export const useCreateGroup = () => {
   const { mutateAsync, error, isPending } = useCreateGroupMutation();
@@ -34,34 +31,7 @@ export const useDeleteGroup = () => {
 
 export const useUpdateGroup = () => {
   const { mutateAsync, error, isPending } = useUpdateGroupMutation();
-  const { mutateAsync: mutateImage } = useUploadImageMutation();
   const updateGroup = async (params: { groupId: string; data: UpdateGroupForm }) => {
-    if (params.data.logo && params.data.logo instanceof File) {
-      const uploadParams: FileUploadParams = {
-        file: params.data.logo,
-        name: params.groupId ? `group-logo-${params.groupId}` : undefined,
-      };
-      const hash = await mutateImage(uploadParams);
-      if (hash) params.data.logo = hash;
-      else {
-        console.warn('Logo upload successful, but no hash returned.');
-        delete params.data.logo;
-      }
-    }
-
-    if (params.data.banner && params.data.banner instanceof File) {
-      const uploadParams: FileUploadParams = {
-        file: params.data.banner,
-        name: params.groupId ? `group-logo-${params.groupId}` : undefined,
-      };
-      const hash = await mutateImage(uploadParams);
-      if (hash) params.data.banner = hash;
-      else {
-        console.warn('Logo upload successful, but no hash returned.');
-        delete params.data.banner;
-      }
-    }
-
     return mutateAsync(params, {
       onError: (error) => enqueueSnackbar(`An error occured trying to update the group: ${error.message}`),
     });
@@ -89,7 +59,6 @@ export const useRemoveAdmin = () => {
 };
 
 export const useRemoveMember = () => {
-  const [, setGroupMembers] = useAtom(groupMembersAtom);
   const { mutateAsync, error, isPending } = useRemoveMemberMutation();
   const removeMember = async (params: GroupAndUserParams) =>
     mutateAsync(params, {

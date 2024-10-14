@@ -7,7 +7,7 @@ import { useCallback } from 'react';
 import ErrorText from '@/components/ErrorText';
 import { JoinGroupForm as FormType, joinGroupFormSchema } from '@/config/validation-schema';
 import { useJoinGroup } from '@/hooks/useCurrentUser';
-import GroupSelect from './forms/GroupSelect';
+import GroupSelect from '../GroupSelect';
 
 const JoinGroupForm = () => {
   const { joinGroup, error: joinGroupError } = useJoinGroup();

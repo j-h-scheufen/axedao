@@ -1,4 +1,4 @@
-import { GROUP_ROLES } from '@/config/constants';
+import { GROUP_ROLES, IMAGE_TYPES } from '@/config/constants';
 import { SelectGroup, SelectUser } from '../db/schema';
 
 /**
@@ -25,6 +25,8 @@ export type City = {
 export type GroupMemberRole = (typeof GROUP_ROLES)[number];
 
 export type GroupMember = User & { roles: GroupMemberRole[] };
+
+export type ImageType = (typeof IMAGE_TYPES)[number];
 
 /**
  * Search types used in the search routes

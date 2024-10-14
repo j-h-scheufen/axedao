@@ -24,7 +24,11 @@ export const groupFounderAtom = atom<string | null | undefined>((get) => get(gro
 
 export const groupLeaderAtom = atom<string | null | undefined>((get) => get(groupAtom).data?.leader);
 
+export const groupLogoAtom = atom<string | undefined>((get) => get(groupAtom).data?.logo ?? undefined);
+
 export const groupLogoUrlAtom = atom<string | undefined>((get) => getImageUrl(get(groupAtom).data?.logo));
+
+export const groupBannerAtom = atom<string | undefined>((get) => get(groupAtom).data?.banner ?? undefined);
 
 export const groupBannerUrlAtom = atom<string | undefined>((get) => getImageUrl(get(groupAtom).data?.banner));
 

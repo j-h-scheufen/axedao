@@ -53,7 +53,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <ThemeProvider themeProps={{ attribute: 'class', defaultTheme: 'dark', children: null }}>
             <SnackbarProvider>
               <QueryProvider>
-                {/* Note: Web3Provider and StateProvider rely on @tanstack/react-query. Make sure they are always nested inside the QueryProvider */}
+                {/* Note: Web3Provider and StateProvider rely on @tanstack/react-query. */}
                 <Web3Provider>
                   <StateProvider>
                     <BreadcrumbTracker />

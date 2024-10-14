@@ -4,7 +4,7 @@ import { Tab, Tabs } from '@nextui-org/tabs';
 
 import CreateGroupAssociationSkeleton from '@/components/skeletons/ProfileSkeletons';
 import CreateNewGroupForm from './CreateNewGroupForm';
-import JoinGroupForm from './JoinGroupForm';
+import JoinGroupForm from './forms/group/JoinGroupForm';
 
 type Props = { isLoading?: boolean };
 

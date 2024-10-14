@@ -4,7 +4,7 @@ import axios from 'axios';
 import { ProfileForm } from '@/config/validation-schema';
 import { User } from '@/types/model';
 import { useSession } from 'next-auth/react';
-import { QUERY_KEYS } from '.';
+import { FileUploadParams, QUERY_KEYS, UseFileUploadMutation } from '.';
 
 const fetchCurrentUser = (): Promise<User> => axios.get('/api/profile').then((response) => response.data);
 // The userId is not required to call the endpoint (which automatically uses the session user), but needed to
@@ -27,6 +27,18 @@ const joinGroup = (groupId: string): Promise<User> =>
 
 const leaveGroup = (groupId: string): Promise<User> =>
   axios.delete(`/api/profile/group/${groupId}`).then((response) => response.data);
+
+export const updateAvatar = async ({ file }: FileUploadParams): Promise<User> => {
+  const data = new FormData();
+  if (file) {
+    data.set('file', file);
+    return axios
+      .post('/api/profile/avatar', data, { headers: { 'Content-Type': 'multipart/form-data' } })
+      .then((response) => response.data);
+  } else {
+    return axios.delete('/api/profile/avatar').then((response) => response.data);
+  }
+};
 
 // HOOKS
 export const useFetchCurrentUser = () => {
@@ -58,6 +70,16 @@ export const useLeaveGroupMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (groupId: string) => leaveGroup(groupId),
+    onSuccess: (data) => {
+      queryClient.setQueryData([QUERY_KEYS.currentUser.getUser], data);
+    },
+  });
+};
+
+export const useUpdateAvatarMutation: UseFileUploadMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (params: FileUploadParams) => updateAvatar(params),
     onSuccess: (data) => {
       queryClient.setQueryData([QUERY_KEYS.currentUser.getUser], data);
     },

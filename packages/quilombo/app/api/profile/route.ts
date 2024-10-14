@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { ProfileForm, profileFormSchema } from '@/config/validation-schema';
 import { fetchUser, updateUser } from '@/db';
+import { isNil, omitBy } from 'lodash';
 import { getServerSession } from 'next-auth';
 import { notFound } from 'next/navigation';
 
@@ -49,11 +50,10 @@ export async function PATCH(request: NextRequest) {
   const existingUser = await fetchUser(session.user.id);
   if (!existingUser) return notFound();
   try {
-    const profileData = formData as Omit<ProfileForm, 'avatar'> & {
-      avatar: string | null | undefined;
-    };
+    const profileData = formData as Omit<ProfileForm, 'id' | 'avatar'>;
+    const cleanedProfileData = omitBy(profileData, isNil);
 
-    const updatedUser = await updateUser({ id: session.user.id, ...profileData });
+    const updatedUser = await updateUser({ ...cleanedProfileData, id: session.user.id });
     return Response.json(updatedUser);
   } catch (error) {
     console.error('Error updating user profile', error);

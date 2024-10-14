@@ -1,3 +1,7 @@
+import { UseMutationResult } from '@tanstack/react-query';
+
+import { Group, User } from '@/types/model';
+
 export * as profile from './currentUser';
 export * as group from './group';
 export * as location from './location';
@@ -26,3 +30,7 @@ export const QUERY_KEYS = {
 } as const;
 
 export type GroupAndUserParams = { groupId: string; userId: string };
+
+export type FileUploadParams = { ownerId: string; file?: File };
+export type FileUploadMutationFn = (params: FileUploadParams) => void;
+export type UseFileUploadMutation = () => UseMutationResult<User | Group | unknown, Error, FileUploadParams, unknown>;

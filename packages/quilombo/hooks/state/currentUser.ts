@@ -27,6 +27,8 @@ export const currentUserGroupIdAtom = atom<string | undefined>(
 
 export const currentUserLinksAtom = atom<SocialLink[] | undefined>((get) => get(currentUserAtom).data?.links);
 
+export const currentUserAvatarAtom = atom<string | undefined>((get) => get(currentUserAtom).data?.avatar ?? undefined);
+
 export const currentUserAvatarUrlAtom = atom<string | undefined>((get) =>
   getImageUrl(get(currentUserAtom).data?.avatar),
 );

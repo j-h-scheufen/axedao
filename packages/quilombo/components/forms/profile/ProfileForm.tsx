@@ -11,18 +11,17 @@ import { useRouter } from 'next/navigation';
 import { Suspense, useCallback } from 'react';
 
 import { FieldInput, LinksArray } from '@/components/forms';
-import ImageUpload from '@/components/ImageUpload';
 import ProfileFormSkeleton from '@/components/skeletons/ProfileFormSkeleton';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import { PATHS, titles } from '@/config/constants';
 import { ProfileForm as FormType, profileFormSchema } from '@/config/validation-schema';
 import { currentUserAtom } from '@/hooks/state/currentUser';
-import { useUpdateProfile } from '@/hooks/useCurrentUser';
+import { useUpdateCurrentUserMutation } from '@/query/currentUser';
 
 const ProfileForm = () => {
   const router = useRouter();
   const { data: user } = useAtomValue(currentUserAtom);
-  const { updateProfile } = useUpdateProfile();
+  const { mutateAsync: updateProfile } = useUpdateCurrentUserMutation();
 
   const handleSubmit = useCallback(
     async (values: FormType) => {
@@ -30,7 +29,6 @@ const ProfileForm = () => {
         /**
          * TODO: We should really only update the profile fields that have changed in order to avoid future
          * API validation conflicts. See https://medium.com/@tonyeder11/formik-enablereinitialize-example-fixing-backend-validation-errors-76d26031d5f7
-         * At least the images can be updated separately from the rest of the profile.
          */
         return updateProfile(values).then(() => router.push(PATHS.profile));
       } catch (error) {
@@ -50,7 +48,6 @@ const ProfileForm = () => {
     title: user.title || undefined,
     email: user.email || '',
     phone: user.phone || '',
-    avatar: user.avatar || undefined,
     links: user.links || [],
   };
 
@@ -61,21 +58,9 @@ const ProfileForm = () => {
       onSubmit={handleSubmit}
       enableReinitialize
     >
-      {({ dirty, isValid, isSubmitting, setFieldValue, values }: FormikProps<FormType>) => (
+      {({ dirty, isValid, isSubmitting, values }: FormikProps<FormType>) => (
         <Suspense fallback={<ProfileFormSkeleton />}>
-          <Form className="">
-            <Field name="avatar">
-              {({ field, meta }: FieldProps) => (
-                <ImageUpload
-                  {...field}
-                  errorMessage={meta.error}
-                  isInvalid={meta.touched && !!meta.error}
-                  onChange={(file: File) => {
-                    setFieldValue('avatar', file);
-                  }}
-                />
-              )}
-            </Field>
+          <Form>
             <SubsectionHeading>General Information</SubsectionHeading>
             <div className="flex flex-col gap-2 sm:gap-4">
               <Field name="name" label="Name" as={FieldInput} />
@@ -150,4 +135,5 @@ const ProfileForm = () => {
     </Formik>
   );
 };
+
 export default ProfileForm;

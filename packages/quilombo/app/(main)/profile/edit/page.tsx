@@ -1,13 +1,13 @@
 import PageHeading from '@/components/PageHeading';
-import ProfileForm from '@/components/ProfileForm';
+import { ProfileEdit } from '@/components/forms/profile';
 import { PATHS } from '@/config/constants';
 
 const page = () => {
   return (
-    <>
+    <div className="flex flex-col">
       <PageHeading back={PATHS.profile}>Edit profile</PageHeading>
-      <ProfileForm />
-    </>
+      <ProfileEdit />
+    </div>
   );
 };
 export default page;
