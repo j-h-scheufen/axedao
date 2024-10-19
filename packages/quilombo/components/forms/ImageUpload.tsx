@@ -2,13 +2,14 @@
 
 import { Avatar, AvatarProps } from '@nextui-org/avatar';
 import { Button } from '@nextui-org/button';
+import { Spinner } from '@nextui-org/spinner';
 import { Camera } from 'lucide-react';
+import { enqueueSnackbar } from 'notistack';
 import { useCallback, useRef, useState } from 'react';
 
 import { ImageUploadForm, imageUploadSchema } from '@/config/validation-schema';
 import { UseFileUploadMutation } from '@/query';
 import { getImageUrl } from '@/utils';
-import { enqueueSnackbar } from 'notistack';
 
 type Props = {
   value?: string;
@@ -56,6 +57,7 @@ const ImageUpload = ({ value, ownerId, useDynamicMutation, hideButton, avatarPro
   const handleDelete = useCallback(
     async () =>
       mutateAsync({ ownerId, file: undefined }).then(() => {
+        setImagePreview('');
         enqueueSnackbar('Image deleted successfully', { variant: 'success' });
       }),
     [mutateAsync, ownerId],
@@ -78,25 +80,33 @@ const ImageUpload = ({ value, ownerId, useDynamicMutation, hideButton, avatarPro
         className="hidden"
         hidden
       />
-      <div className="flex items-end gap-3">
-        <Avatar
-          isFocusable
-          showFallback
-          isBordered
-          color={validationError ? 'danger' : undefined}
-          src={imagePreview}
-          fallback={<Camera className="h-10 w-10 animate-pulse text-default-500" strokeWidth={1} size={20} />}
-          className="aspect-square h-full max-h-32 w-full max-w-32 cursor-pointer"
-          onClick={selectImageFile}
-          {...avatarProps}
-        />
-        {!hideButton && !isPending && (
-          <Button type="button" size="sm" className="w-fit" onPress={selectImageFile}>
-            {value ? 'Change' : 'Upload'} image
+      <div className="flex flex-row items-end gap-3">
+        <div className="relative w-32 h-32">
+          <Avatar
+            isFocusable
+            showFallback
+            isBordered
+            color={validationError ? 'danger' : undefined}
+            src={imagePreview}
+            fallback={<Camera className="h-10 w-10 animate-pulse text-default-500" strokeWidth={1} size={20} />}
+            className="aspect-square h-full w-full cursor-pointer"
+            onClick={selectImageFile}
+            {...avatarProps}
+          />
+          {/* Spinner overlay */}
+          {isPending && (
+            <div className="absolute inset-0 flex items-center justify-center bg-transparent">
+              <Spinner />
+            </div>
+          )}
+        </div>
+        {!hideButton && (
+          <Button type="button" size="sm" className="w-fit" onPress={selectImageFile} disabled={isPending}>
+            {value ? 'Change' : 'Upload'} Image
           </Button>
         )}
-        {value && !isPending && (
-          <Button type="button" size="sm" className="w-fit" onPress={() => handleDelete()}>
+        {value && (
+          <Button type="button" size="sm" className="w-fit" onPress={() => handleDelete()} disabled={isPending}>
             Delete Image
           </Button>
         )}

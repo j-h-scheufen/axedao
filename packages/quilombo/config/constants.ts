@@ -54,8 +54,6 @@ export const PATHS = {
   groups: '/groups',
 };
 
-export type IconDictionary = Record<LinkType, JSX.Element>; // TODO not used
-
 // Note: The order of these roles in the array is used to sort group members by role in the UI
 export const GROUP_ROLES = ['founder', 'leader', 'admin', 'member'] as const;
 
@@ -87,3 +85,7 @@ export const IMAGE_FORMATS: Record<ImageType, ResizeOptions> = {
 };
 
 export const MAX_IMAGE_UPLOAD_SIZE_MB = 5;
+
+export const PINATA_FILE_GROUP = 'd923dfed-5f8d-440b-ae87-e8a43504eaa5'; // quilombo group ID
+
+export type IconDictionary = Record<LinkType, JSX.Element>; // TODO not used

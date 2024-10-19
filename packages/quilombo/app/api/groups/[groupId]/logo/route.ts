@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { NextRequest, NextResponse } from 'next/server';
 import sharp from 'sharp';
 
-import { FILE_PREFIXES, IMAGE_FORMATS } from '@/config/constants';
+import { FILE_PREFIXES, IMAGE_FORMATS, PINATA_FILE_GROUP } from '@/config/constants';
 import { fetchGroup, updateGroup } from '@/db';
 import { generateErrorMessage } from '@/utils';
 
@@ -40,7 +40,7 @@ export async function POST(request: NextRequest, { params }: { params: { groupId
 
     const uploadData = new FormData();
     uploadData.append('file', new Blob([imageBuffer]));
-    uploadData.append('pinataMetadata', JSON.stringify({ filename }));
+    uploadData.append('pinataMetadata', JSON.stringify({ name: filename, groupId: PINATA_FILE_GROUP }));
     const IpfsHash = await axios
       .post('https://api.pinata.cloud/pinning/pinFileToIPFS', uploadData, {
         headers: {

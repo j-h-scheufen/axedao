@@ -4,10 +4,11 @@ import { getServerSession } from 'next-auth';
 import { notFound } from 'next/navigation';
 import { NextRequest, NextResponse } from 'next/server';
 
-import { FILE_PREFIXES } from '@/config/constants';
+import { FILE_PREFIXES, IMAGE_FORMATS, PINATA_FILE_GROUP } from '@/config/constants';
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { fetchUser, updateUser } from '@/db';
 import { generateErrorMessage } from '@/utils';
+import sharp from 'sharp';
 
 /**
  * Updates or sets the user's avatar.
@@ -37,21 +38,18 @@ export async function POST(request: NextRequest) {
     const buffer = await file.arrayBuffer();
     const type = await fileTypeFromBuffer(buffer);
 
-    console.log('File type', type?.mime);
-
     if (!type || !['image/png', 'image/jpeg', 'image/jpg', 'image/webp', 'image/svg+xml'].includes(type.mime)) {
       return NextResponse.json({ error: `Invalid input data. Unsupported image mime-type.` }, { status: 400 });
     }
 
-    console.log('Updating user avatar', user.id);
     // Image processing
-    // const imageBuffer = await sharp(buffer).resize(IMAGE_FORMATS.userAvatar).webp({ lossless: true }).toBuffer();
+    const imageBuffer = await sharp(buffer).resize(IMAGE_FORMATS.userAvatar).webp({ lossless: true }).toBuffer();
 
     console.log('Uploading user avatar to IPFS');
 
     const uploadData = new FormData();
-    uploadData.append('file', file);
-    uploadData.append('pinataMetadata', JSON.stringify({ name: filename }));
+    uploadData.append('file', new Blob([imageBuffer]));
+    uploadData.append('pinataMetadata', JSON.stringify({ name: filename, groupId: PINATA_FILE_GROUP }));
     const IpfsHash = await axios
       .post('https://api.pinata.cloud/pinning/pinFileToIPFS', uploadData, {
         headers: {
@@ -86,6 +84,46 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(updatedUser);
   } catch (error) {
     const message = generateErrorMessage(error as Error, 'An unexpected error occured while updating the user avatar');
+    return Response.json(
+      { error: true, message },
+      {
+        status: 500,
+      },
+    );
+  }
+}
+
+export async function DELETE() {
+  const session = await getServerSession(nextAuthOptions);
+
+  if (!session?.user.id) {
+    return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
+  }
+
+  try {
+    const user = await fetchUser(session.user.id);
+    if (!user) return notFound();
+
+    if (user.avatar) {
+      await axios
+        .delete(`https://api.pinata.cloud/pinning/unpin/${user.avatar}`, {
+          headers: {
+            Authorization: `Bearer ${process.env.PINATA_JWT}`,
+          },
+        })
+        .catch((error) => {
+          console.error('Unable to unpin file', error.toJSON());
+          throw error;
+        });
+
+      const updatedUser = await updateUser({ ...user, avatar: null });
+
+      return NextResponse.json(updatedUser);
+    }
+
+    return NextResponse.json(user);
+  } catch (error) {
+    const message = generateErrorMessage(error as Error, 'An unexpected error occured while deleting the user avatar');
     return Response.json(
       { error: true, message },
       {

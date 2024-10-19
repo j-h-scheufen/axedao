@@ -91,8 +91,8 @@ export const abbreviateAddress = (input: string): string => {
   return input.replace(/^(.{4}).*(.{4})$/, '$1...$2');
 };
 
-export const getImageUrl = (hash: string | null | undefined): string | undefined =>
-  hash ? `${ENV.pinataGatewayUrl}/ipfs/${hash}` : undefined;
+export const getImageUrl = (cid: string | null | undefined): string | undefined =>
+  cid ? `${ENV.pinataGatewayUrl}/ipfs/${cid}` : undefined;
 
 /**
  * Use this function instead of 'new QueryClient()' to create a QueryClient with
