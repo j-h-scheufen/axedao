@@ -12,7 +12,7 @@ const ProfileEdit = () => {
   return (
     <div className="flex flex-col">
       {/* ownerId is ignored in the currentUser avatar mutation, so it can be empty */}
-      <ImageUpload value={avatar} ownerId="" useDynamicMutation={useUpdateAvatarMutation} hideButton />
+      <ImageUpload value={avatar} ownerId="" useFileUploadMutation={useUpdateAvatarMutation} />
       <ProfileForm />
     </div>
   );
