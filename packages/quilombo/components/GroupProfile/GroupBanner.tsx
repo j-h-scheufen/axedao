@@ -11,14 +11,14 @@ const Banner = (props: Omit<ImageProps, 'src' | 'alt'>) => {
   const bannerUrl = useAtomValue(groupBannerUrlAtom);
 
   return (
-    <div className="relative bottom-5 flex flex-col h-[200px] w-full mt-8 rounded-xl overflow-hidden bg-default-100">
+    <div className="relative flex h-[160px] sm:h-[200px] w-full rounded-none sm:rounded-xl overflow-hidden bg-default-100">
       {bannerUrl ? (
         <Image
           src={bannerUrl}
           priority
           className="h-full w-full object-cover"
           width={800}
-          height={400}
+          height={200}
           alt="Group banner"
           {...props}
         />

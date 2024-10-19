@@ -15,10 +15,7 @@ const ContactInfo = ({ className = '', links = [], isLoading }: Props) => {
         const { type, url } = link;
         const Icon = getLinkIcon(type ?? null);
         return (
-          <div
-            key={`link-item-${index}`}
-            className="mx-auto flex items-center gap-1 text-default-400 hover:text-primary xs:mx-0"
-          >
+          <div key={`link-item-${index}`} className="flex gap-1 text-default-400 hover:text-primary">
             <Icon href={url} className="pointer-events-none h-4 w-4 flex-shrink-0" strokeWidth={1.4} />
             {!type && (
               <a href={url} target="_blank" className="link">

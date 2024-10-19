@@ -28,7 +28,7 @@ const PageHeading = ({ children, className = '', back, ...props }: Props) => {
   }, [backCrumb, crumbs, setBackCrumb]);
 
   return (
-    <div className="relative z-[1] mb-10 flex items-center gap-3">
+    <div className="relative z-[1] mb-3 flex items-center gap-3">
       {(back || backCrumb) && (
         <Button
           variant="light"

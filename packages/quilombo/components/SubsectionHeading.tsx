@@ -5,7 +5,7 @@ interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
 }
 const SubsectionHeading = ({ children, className = '', ...props }: Props) => {
   return (
-    <h3 className={cn('mb-3 mt-5 text-lg font-semibold', className)} {...props}>
+    <h3 className={cn('mb-2 mt-3 text-lg font-semibold', className)} {...props}>
       {children}
     </h3>
   );

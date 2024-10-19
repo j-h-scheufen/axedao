@@ -27,7 +27,10 @@ const GroupProfilePage = async ({ params: { groupId } }: Props) => {
   return (
     <HydrationBoundary state={dehydratedState}>
       <GroupProfileClientState groupId={groupId}>
-        <PageHeading>{group.name}</PageHeading>
+        {/* Repeating relevant attributes from (main) layout  */}
+        <div className="px-3">
+          <PageHeading>{group.name}</PageHeading>
+        </div>
         <GroupView />
       </GroupProfileClientState>
     </HydrationBoundary>
