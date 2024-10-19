@@ -15,6 +15,7 @@ type ConfigType = {
   uniswapV2PairAddress: Address;
   uniswapV2RouterAddress: Address;
   pinataGatewayUrl: string;
+  pinataJwt: string;
   databaseUrl: string;
   nextAuthSecret: string;
 };
@@ -71,6 +72,7 @@ const ENV: ConfigType = {
     'NEXT_PUBLIC_UNISWAPV2ROUTER_ADDRESS',
   ) as Address,
   pinataGatewayUrl: required(process.env.NEXT_PUBLIC_PINATA_GATEWAY_URL, 'NEXT_PUBLIC_PINATA_GATEWAY_URL'),
+  pinataJwt: isServer ? required(process.env.PINATA_JWT, 'PINATA_JWT') : '',
   databaseUrl: isServer ? required(process.env.DATABASE_URL, 'DATABASE_URL') : '',
   nextAuthSecret: isServer ? required(process.env.NEXTAUTH_SECRET, 'NEXTAUTH_SECRET') : '',
 };

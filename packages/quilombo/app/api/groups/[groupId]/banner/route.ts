@@ -1,12 +1,10 @@
-import axios from 'axios';
-import { fileTypeFromBuffer } from 'file-type';
 import { notFound } from 'next/navigation';
 import { NextRequest, NextResponse } from 'next/server';
-import sharp from 'sharp';
 
-import { FILE_PREFIXES, IMAGE_FORMATS, PINATA_FILE_GROUP } from '@/config/constants';
+import { FILE_PREFIXES, IMAGE_FORMATS } from '@/config/constants';
 import { fetchGroup, updateGroup } from '@/db';
 import { generateErrorMessage } from '@/utils';
+import { pinToGroup, unpin } from '@/utils/pinata';
 
 /**
  * Updates or sets the group's banner.
@@ -29,49 +27,42 @@ export async function POST(request: NextRequest, { params }: { params: { groupId
       return NextResponse.json({ error: `Invalid input data. No file found.` }, { status: 400 });
     }
 
-    const buffer = await file.arrayBuffer();
-    const type = await fileTypeFromBuffer(buffer);
-    if (!type || !['image/png', 'image/jpeg', 'image/jpg', 'image/webp'].includes(type.mime)) {
-      return NextResponse.json({ error: `Invalid input data. Unsupported image mime-type.` }, { status: 400 });
+    const { cid, error, errorStatus } = await pinToGroup(file, filename, IMAGE_FORMATS.groupBanner, group.banner);
+
+    if (error) {
+      return NextResponse.json({ error }, { status: errorStatus ?? 500 });
     }
 
-    // Image processing
-    const imageBuffer = await sharp(buffer).resize(IMAGE_FORMATS.groupBanner).webp({ lossless: true }).toBuffer();
-
-    const uploadData = new FormData();
-    uploadData.append('file', new Blob([imageBuffer]));
-    uploadData.append('pinataMetadata', JSON.stringify({ name: filename, groupId: PINATA_FILE_GROUP }));
-    const IpfsHash = await axios
-      .post('https://api.pinata.cloud/pinning/pinFileToIPFS', uploadData, {
-        headers: {
-          Authorization: `Bearer ${process.env.PINATA_JWT}`,
-        },
-      })
-      .then((res) => res.data.IpfsHash)
-      .catch((error) => {
-        console.error('Unable to pin file to IPFS', error.toJSON());
-        return NextResponse.json({ error: 'Unable to save group banner' }, { status: 500 });
-      });
-
-    // Delete existing banner file before updating DB
-    if (group.banner) {
-      await axios
-        .delete(`https://api.pinata.cloud/pinning/unpin/${group.banner}`, {
-          headers: {
-            Authorization: `Bearer ${process.env.PINATA_JWT}`,
-          },
-        })
-        .catch((error) => {
-          console.error('Unable to unpin file', error.toJSON());
-          // Don't return an error here, as the group's banner has been updated successfully
-        });
-    }
-
-    const updatedGroup = await updateGroup({ ...group, banner: IpfsHash });
+    const updatedGroup = await updateGroup({ ...group, banner: cid });
 
     return NextResponse.json(updatedGroup);
   } catch (error) {
-    const message = generateErrorMessage(error as Error, 'An unexpected error occured while fetching the user');
+    const message = generateErrorMessage(error as Error, 'An unexpected error occured while updating the group banner');
+    return Response.json(
+      { error: true, message },
+      {
+        status: 500,
+      },
+    );
+  }
+}
+
+export async function DELETE(request: NextRequest, { params }: { params: { groupId: string } }) {
+  const { groupId } = params;
+
+  try {
+    const group = await fetchGroup(groupId);
+    if (!group) return notFound();
+
+    if (group.banner) {
+      await unpin(group.banner);
+      const updatedGroup = await updateGroup({ ...group, banner: null });
+      return NextResponse.json(updatedGroup);
+    }
+
+    return NextResponse.json(group);
+  } catch (error) {
+    const message = generateErrorMessage(error as Error, 'An unexpected error occured while deleting the group banner');
     return Response.json(
       { error: true, message },
       {

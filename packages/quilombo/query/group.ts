@@ -90,7 +90,7 @@ const removeAdmin = async (groupId: string, userId: string): Promise<string[]> =
 
 export const updateLogo = async ({ ownerId, file }: FileUploadParams): Promise<User> => {
   const data = new FormData();
-  const url = `/api/group/${ownerId}/logo`;
+  const url = `/api/groups/${ownerId}/logo`;
   if (file) {
     data.set('file', file);
     return axios
@@ -103,7 +103,7 @@ export const updateLogo = async ({ ownerId, file }: FileUploadParams): Promise<U
 
 export const updateBanner = async ({ ownerId, file }: FileUploadParams): Promise<User> => {
   const data = new FormData();
-  const url = `/api/group/${ownerId}/banner`;
+  const url = `/api/groups/${ownerId}/banner`;
   if (file) {
     data.set('file', file);
     return axios

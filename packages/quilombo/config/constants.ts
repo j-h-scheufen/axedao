@@ -80,8 +80,8 @@ export const FILE_PREFIXES: Record<ImageType, string> = {
 
 export const IMAGE_FORMATS: Record<ImageType, ResizeOptions> = {
   userAvatar: { width: 300, height: 300 },
-  groupLogo: { width: 400, height: 400 },
-  groupBanner: { height: 700, fit: 'outside' },
+  groupLogo: { width: 200, height: 200 },
+  groupBanner: { height: 250, width: 800, fit: 'cover', position: 'attention' },
 };
 
 export const MAX_IMAGE_UPLOAD_SIZE_MB = 5;

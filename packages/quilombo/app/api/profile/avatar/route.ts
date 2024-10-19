@@ -1,14 +1,12 @@
-import axios from 'axios';
-import { fileTypeFromBuffer } from 'file-type';
 import { getServerSession } from 'next-auth';
 import { notFound } from 'next/navigation';
 import { NextRequest, NextResponse } from 'next/server';
 
-import { FILE_PREFIXES, IMAGE_FORMATS, PINATA_FILE_GROUP } from '@/config/constants';
+import { FILE_PREFIXES, IMAGE_FORMATS } from '@/config/constants';
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { fetchUser, updateUser } from '@/db';
 import { generateErrorMessage } from '@/utils';
-import sharp from 'sharp';
+import { pinToGroup, unpin } from '@/utils/pinata';
 
 /**
  * Updates or sets the user's avatar.
@@ -35,55 +33,18 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: `Invalid input data. No file found.` }, { status: 400 });
     }
 
-    const buffer = await file.arrayBuffer();
-    const type = await fileTypeFromBuffer(buffer);
+    const { cid, error, errorStatus } = await pinToGroup(file, filename, IMAGE_FORMATS.userAvatar, user.avatar);
 
-    if (!type || !['image/png', 'image/jpeg', 'image/jpg', 'image/webp', 'image/svg+xml'].includes(type.mime)) {
-      return NextResponse.json({ error: `Invalid input data. Unsupported image mime-type.` }, { status: 400 });
+    if (error) {
+      return NextResponse.json({ error }, { status: errorStatus ?? 500 });
     }
 
-    // Image processing
-    const imageBuffer = await sharp(buffer).resize(IMAGE_FORMATS.userAvatar).webp({ lossless: true }).toBuffer();
-
-    console.log('Uploading user avatar to IPFS');
-
-    const uploadData = new FormData();
-    uploadData.append('file', new Blob([imageBuffer]));
-    uploadData.append('pinataMetadata', JSON.stringify({ name: filename, groupId: PINATA_FILE_GROUP }));
-    const IpfsHash = await axios
-      .post('https://api.pinata.cloud/pinning/pinFileToIPFS', uploadData, {
-        headers: {
-          Authorization: `Bearer ${process.env.PINATA_JWT}`,
-        },
-      })
-      .then((res) => res.data.IpfsHash)
-      .catch((error) => {
-        console.error('Unable to pin file to IPFS', error.message, error.toJSON());
-        throw error;
-      });
-
-    console.log('Updating user avatar in DB with hash', JSON.stringify(IpfsHash));
-
-    // Delete existing avatar file before updating DB
-    if (user.avatar) {
-      await axios
-        .delete(`https://api.pinata.cloud/pinning/unpin/${user.avatar}`, {
-          headers: {
-            Authorization: `Bearer ${process.env.PINATA_JWT}`,
-          },
-        })
-        .catch((error) => {
-          console.error('Unable to unpin file', error.toJSON());
-          // Don't return an error here, as the user's avatar has been updated successfully
-        });
-    }
-
-    console.log('done');
-    const updatedUser = await updateUser({ ...user, avatar: IpfsHash });
+    const updatedUser = await updateUser({ ...user, avatar: cid });
 
     return NextResponse.json(updatedUser);
   } catch (error) {
     const message = generateErrorMessage(error as Error, 'An unexpected error occured while updating the user avatar');
+    console.error(message);
     return Response.json(
       { error: true, message },
       {
@@ -105,19 +66,8 @@ export async function DELETE() {
     if (!user) return notFound();
 
     if (user.avatar) {
-      await axios
-        .delete(`https://api.pinata.cloud/pinning/unpin/${user.avatar}`, {
-          headers: {
-            Authorization: `Bearer ${process.env.PINATA_JWT}`,
-          },
-        })
-        .catch((error) => {
-          console.error('Unable to unpin file', error.toJSON());
-          throw error;
-        });
-
+      await unpin(user.avatar);
       const updatedUser = await updateUser({ ...user, avatar: null });
-
       return NextResponse.json(updatedUser);
     }
 
