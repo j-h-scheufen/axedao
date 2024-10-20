@@ -151,6 +151,11 @@ export default function silk(options?: { referralCode?: string; config?: CustomC
       provider.uiMessageManager.removeListener('disconnect', this.onDisconnect);
     },
 
+    async requestEmail(): Promise<unknown> {
+      const provider = await this.getProvider();
+      return await provider.requestEmail();
+    },
+
     onAccountsChanged(accounts) {
       if (accounts.length === 0) config.emitter.emit('disconnect');
       else
