@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "^10.0.0",
+    "@nextui-org/accordion": "^2.0.40",
     "@nextui-org/autocomplete": "^2.1.7",
     "@nextui-org/avatar": "^2.0.33",
     "@nextui-org/breadcrumbs": "^2.0.13",

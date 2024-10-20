@@ -23,7 +23,6 @@ import { currentUserAtom, currentUserAvatarUrlAtom } from '@/hooks/state/current
 import useAuth from '@/hooks/useAuth';
 import { getUserDisplayName } from '@/utils';
 import OnboardingModal from './OnboardingModal';
-import { ThemeSwitch } from './ThemeSwitch';
 
 const Navbar: React.FC = () => {
   const { data: session } = useSession();
@@ -59,6 +58,14 @@ const Navbar: React.FC = () => {
           </NavbarBrand>
         </NavbarContent>
 
+        <NavbarContent className="flex sm:hidden w-full" justify="center">
+          <NavbarItem isActive={isPathDashboard}>
+            <Link color="foreground" href={PATHS.search} size="lg" className="text-inherit">
+              Search
+            </Link>
+          </NavbarItem>
+        </NavbarContent>
+
         <NavbarContent className="hidden sm:flex gap-4" justify="center">
           <NavbarItem isActive={isPathDashboard}>
             <Link color="foreground" href={PATHS.search} size="lg" className="text-inherit">
@@ -77,8 +84,7 @@ const Navbar: React.FC = () => {
           </NavbarItem>
         </NavbarContent>
 
-        <NavbarContent as="div" justify="end">
-          <ThemeSwitch />
+        <NavbarContent justify="end">
           {session && !!user && (
             <Dropdown placement="bottom-end">
               <DropdownTrigger>
@@ -107,6 +113,9 @@ const Navbar: React.FC = () => {
                 >
                   My Group
                 </DropdownItem>
+                <DropdownItem key="settings" href={PATHS.settings}>
+                  Settings
+                </DropdownItem>
                 <DropdownItem key="admin" href={PATHS.admin} className={user.isGlobalAdmin ? '' : 'hidden'}>
                   Admin
                 </DropdownItem>
@@ -118,17 +127,6 @@ const Navbar: React.FC = () => {
           )}
         </NavbarContent>
         <NavbarMenu>
-          <NavbarMenuItem isActive={isPathDashboard}>
-            <Link
-              color="foreground"
-              className="w-full text-inherit"
-              href={PATHS.search}
-              size="lg"
-              onPress={() => setIsMenuOpen(false)}
-            >
-              Search
-            </Link>
-          </NavbarMenuItem>
           <NavbarMenuItem isActive={isPathAxe}>
             <Link
               color="foreground"
