@@ -55,6 +55,11 @@ export async function DELETE(request: NextRequest, { params }: { params: { group
     return NextResponse.json({ error: 'Missing permissions' }, { status: 403 });
   }
 
+  const currentAdmins = await fetchGroupAdminIds(groupId);
+  if (currentAdmins.length === 1 && currentAdmins.includes(userId)) {
+    return NextResponse.json({ error: 'Cannot remove the last admin of the group' }, { status: 403 });
+  }
+
   try {
     await removeGroupAdmin(groupId, userId);
     const adminIds = await fetchGroupAdminIds(groupId);

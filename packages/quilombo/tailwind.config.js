@@ -52,7 +52,7 @@ module.exports = withTV({
               foreground: '#000000',
             },
             secondary: {
-              DEFAULT: '##aa825c',
+              DEFAULT: '#aa825c',
               50: '#15100b',
               100: '#2a2117',
               200: '#55412e',
@@ -84,7 +84,7 @@ module.exports = withTV({
               foreground: '#000000',
             },
             secondary: {
-              DEFAULT: '##D4A373ff',
+              DEFAULT: '##D4A373',
               50: '#15100b',
               100: '#2a2117',
               200: '#55412e',
