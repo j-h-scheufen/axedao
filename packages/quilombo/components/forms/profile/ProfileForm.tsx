@@ -3,12 +3,15 @@
 import { Button } from '@nextui-org/button';
 import { Select, SelectItem } from '@nextui-org/select';
 import { Spinner } from '@nextui-org/spinner';
+import { SilkEthereumProviderInterface } from '@silk-wallet/silk-wallet-sdk/dist/lib/provider/types';
 import { Field, FieldArray, FieldProps, Form, Formik, FormikProps } from 'formik';
 import { useAtomValue } from 'jotai';
 import { Mail, Phone, XIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { enqueueSnackbar } from 'notistack';
 import { Suspense, useCallback } from 'react';
+import { useConnect } from 'wagmi';
 
 import { FieldInput, LinksArray } from '@/components/forms';
 import ProfileFormSkeleton from '@/components/skeletons/ProfileFormSkeleton';
@@ -22,6 +25,7 @@ const ProfileForm = () => {
   const router = useRouter();
   const { data: user } = useAtomValue(currentUserAtom);
   const { mutateAsync: updateProfile } = useUpdateCurrentUserMutation();
+  const { connectors } = useConnect();
 
   const handleSubmit = useCallback(
     async (values: FormType) => {
@@ -41,6 +45,8 @@ const ProfileForm = () => {
 
   if (!user) return <Spinner />;
 
+  const silk = connectors.find((connector) => connector.id === 'silk');
+
   // NOTE: The initial form values MUST BE declared outside of the JSX code, otherwise it can lead to hydration errors.
   const initValues: FormType = {
     name: user.name || '',
@@ -58,7 +64,7 @@ const ProfileForm = () => {
       onSubmit={handleSubmit}
       enableReinitialize
     >
-      {({ dirty, isValid, isSubmitting, values }: FormikProps<FormType>) => (
+      {({ dirty, isValid, isSubmitting, values, setFieldValue }: FormikProps<FormType>) => (
         <Suspense fallback={<ProfileFormSkeleton />}>
           <Form>
             <SubsectionHeading>General Information</SubsectionHeading>
@@ -97,15 +103,37 @@ const ProfileForm = () => {
                   </Select>
                 )}
               </Field>
-              <Field
-                name="email"
-                type="email"
-                label="Email"
-                placeholder="jane.doe@gmail.com"
-                as={FieldInput}
-                startContent={<Mail className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />}
-                disabled
-              />
+              <div className="flex w-full items-center gap-2">
+                <Field
+                  name="email"
+                  type="email"
+                  label="Email"
+                  placeholder="jane.doe@gmail.com"
+                  as={FieldInput}
+                  startContent={<Mail className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />}
+                  disabled
+                />
+                {silk && (
+                  <Button
+                    variant="ghost"
+                    size="lg"
+                    color="primary"
+                    className="text-sm p-5 sm:p-6"
+                    onPress={() =>
+                      (silk as unknown as SilkEthereumProviderInterface)
+                        .requestEmail()
+                        .then((email) => {
+                          if (email) setFieldValue('email', email);
+                        })
+                        .catch((error) => enqueueSnackbar(error.message, { variant: 'error' }))
+                    }
+                  >
+                    Import Email
+                    <br />
+                    from Silk
+                  </Button>
+                )}
+              </div>
               <Field
                 name="phone"
                 type="phone"
