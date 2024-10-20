@@ -1,7 +1,7 @@
 import { ChainNotConfiguredError, createConnector } from '@wagmi/core';
 import { Chain, getAddress, SwitchChainError, UserRejectedRequestError } from 'viem';
 
-import { CustomConfig, SILK_METHOD } from '@silk-wallet/silk-interface-core';
+import { CredentialType, CustomConfig, SILK_METHOD } from '@silk-wallet/silk-interface-core';
 import { initSilk } from '@silk-wallet/silk-wallet-sdk';
 import { SilkEthereumProviderInterface } from '@silk-wallet/silk-wallet-sdk/dist/lib/provider/types';
 
@@ -153,7 +153,13 @@ export default function silk(options?: { referralCode?: string; config?: CustomC
 
     async requestEmail(): Promise<unknown> {
       const provider = await this.getProvider();
-      return await provider.requestEmail();
+      return provider.requestEmail();
+    },
+
+    async requestSBT(type: CredentialType): Promise<unknown> {
+      const provider = await this.getProvider();
+      // TODO the method requestSBT does not exist in the SilkEthereumProviderInterface, but is implemented in the EthereumProvider class
+      return (provider as any).requestSBT(type);
     },
 
     onAccountsChanged(accounts) {

@@ -52,6 +52,7 @@ export const PATHS = {
   dao: '/dao',
   users: '/users',
   groups: '/groups',
+  settings: '/settings',
 };
 
 // Note: The order of these roles in the array is used to sort group members by role in the UI

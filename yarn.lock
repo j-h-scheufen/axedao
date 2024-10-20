@@ -3392,7 +3392,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nextui-org/accordion@npm:2.0.40":
+"@nextui-org/accordion@npm:2.0.40, @nextui-org/accordion@npm:^2.0.40":
   version: 2.0.40
   resolution: "@nextui-org/accordion@npm:2.0.40"
   dependencies:
@@ -17098,6 +17098,7 @@ __metadata:
   resolution: "quilombo@workspace:packages/quilombo"
   dependencies:
     "@icons-pack/react-simple-icons": "npm:^10.0.0"
+    "@nextui-org/accordion": "npm:^2.0.40"
     "@nextui-org/autocomplete": "npm:^2.1.7"
     "@nextui-org/avatar": "npm:^2.0.33"
     "@nextui-org/breadcrumbs": "npm:^2.0.13"

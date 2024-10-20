@@ -24,11 +24,11 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className, classNames }): JS
 
   return (
     <Switch
-      isSelected={theme === 'light' || isSSR}
+      isSelected={theme === 'dark' || isSSR}
       aria-label={`Switch to ${theme === 'light' || isSSR ? 'dark' : 'light'} mode`}
-      size="md"
-      startContent={<SunFilledIcon size={16} />}
-      endContent={<MoonFilledIcon size={16} />}
+      size="sm"
+      startContent={<MoonFilledIcon size={12} />}
+      endContent={<SunFilledIcon size={12} />}
       onChange={onChange}
       className={clsx('transition-opacity hover:opacity-80 [&>span]:mr-0', className, classNames?.base)}
     />
