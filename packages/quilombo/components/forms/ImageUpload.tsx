@@ -64,7 +64,7 @@ const ImageUpload = ({ value, ownerId, useFileUploadMutation: useDynamicMutation
   );
 
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-1 w-full items-center">
       <div className={cn('relative w-32 h-32', classname)}>
         <input
           ref={fileInputRef}

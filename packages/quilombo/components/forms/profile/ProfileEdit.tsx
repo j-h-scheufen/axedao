@@ -11,8 +11,10 @@ const ProfileEdit = () => {
   const avatar = useAtomValue(currentUserAvatarAtom);
   return (
     <div className="flex flex-col">
-      {/* ownerId is ignored in the currentUser avatar mutation, so it can be empty */}
-      <ImageUpload value={avatar} ownerId="" useFileUploadMutation={useUpdateAvatarMutation} />
+      <div className="flex justify-center w-full">
+        {/* ownerId is ignored in the currentUser avatar mutation, so it can be empty */}
+        <ImageUpload value={avatar} ownerId="" useFileUploadMutation={useUpdateAvatarMutation} />
+      </div>
       <ProfileForm />
     </div>
   );

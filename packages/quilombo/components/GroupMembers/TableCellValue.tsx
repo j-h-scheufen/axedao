@@ -5,22 +5,30 @@ import { User } from '@nextui-org/user';
 import { useAtomValue } from 'jotai';
 import { has } from 'lodash';
 import { ArrowDownIcon, ArrowUpIcon, UserXIcon } from 'lucide-react';
+import { useCallback, useMemo } from 'react';
 
 import { PATHS } from '@/config/constants';
 import { currentUserIdAtom } from '@/hooks/state/currentUser';
-import { groupIdAtom, isCurrentUserGroupAdminAtom } from '@/hooks/state/group';
+import { groupAdminIdsAtom, groupIdAtom, isCurrentUserGroupAdminAtom } from '@/hooks/state/group';
 import { useAddAdmin, useRemoveAdmin, useRemoveMember } from '@/hooks/useGroup';
 import { GroupMember } from '@/types/model';
 import { getImageUrl, getUserDisplayName } from '@/utils';
-import { useCallback } from 'react';
 import RoleChips from './RoleChips';
-import { GroupMemberTableColumnKey } from './utils';
+
+export const COLUMNS = [
+  { name: 'USER', uid: 'name' },
+  { name: 'ROLES', uid: 'roles' },
+  { name: 'ACTIONS', uid: 'actions' },
+] as const;
+
+export type GroupMemberTableColumnKey = (typeof COLUMNS)[number]['uid'];
 
 type Props = { groupMember: GroupMember; columnKey: GroupMemberTableColumnKey };
 
 const TableCellValue = ({ groupMember, columnKey }: Props) => {
   const currentUserId = useAtomValue(currentUserIdAtom);
   const isCurrentUserGroupAdmin = useAtomValue(isCurrentUserGroupAdminAtom);
+  const { data: groupAdminIds } = useAtomValue(groupAdminIdsAtom);
   const groupId = useAtomValue(groupIdAtom);
   const { addAdmin, isPending: isAddAdminPending } = useAddAdmin();
   const { removeAdmin, isPending: isRemoveAdminPending } = useRemoveAdmin();
@@ -45,8 +53,8 @@ const TableCellValue = ({ groupMember, columnKey }: Props) => {
     [removeMember, groupId],
   );
 
-  const { avatar, email, roles, id } = groupMember;
-  const isLoggedInUser = id === currentUserId;
+  const { avatar, title, roles, id } = groupMember;
+  const isLoggedInUser = useMemo(() => id === currentUserId, [id, currentUserId]);
   const cellValue = has(groupMember, columnKey) ? groupMember[columnKey]?.toString() : null;
 
   switch (columnKey) {
@@ -55,12 +63,19 @@ const TableCellValue = ({ groupMember, columnKey }: Props) => {
         <Link href={`${PATHS.users}/${id}`} className="text-[unset]">
           <User
             avatarProps={{ radius: 'full', src: getImageUrl(avatar) }}
-            description={email}
-            name={`${getUserDisplayName(groupMember)} ${isLoggedInUser ? '(You)' : ''}`}
+            name={
+              <div className="flex flex-col w-full">
+                {title && <span className="text-default-500 capitalize">{title}</span>}
+                <div className="flex flex-1 items-center gap-1">
+                  <span className="font-semibold leading-none text-default-700 sm:text-large">
+                    {getUserDisplayName(groupMember)}
+                  </span>
+                  {isLoggedInUser ? <span>(You)</span> : null}
+                </div>
+              </div>
+            }
             className="cursor-pointer"
-          >
-            {email}
-          </User>
+          ></User>
         </Link>
       );
     case 'roles':
@@ -91,6 +106,7 @@ const TableCellValue = ({ groupMember, columnKey }: Props) => {
                   className="text-default-400 h-7 w-7 min-w-7 cursor-pointer active:opacity-50"
                   onPress={() => handleRemoveAdmin(id)}
                   isLoading={isRemoveAdminPending}
+                  disabled={isLoggedInUser || (groupAdminIds ? groupAdminIds.length <= 1 : false)}
                   isIconOnly
                 >
                   <ArrowDownIcon className="w-4" />

@@ -30,10 +30,11 @@ export const generateErrorMessage = (error: unknown, defaultMessage: string) => 
  */
 export const getGroupMemberRoles = (
   userId: string,
-  founder?: string,
-  leader?: string,
+  founder?: string | null,
+  leader?: string | null,
   adminIds?: string[],
 ): GroupMemberRole[] => {
+  console.log('getGroupMemberRoles', userId, founder, leader, adminIds);
   const roles: GroupMemberRole[] = [];
   if (userId === founder) {
     roles.push('founder');

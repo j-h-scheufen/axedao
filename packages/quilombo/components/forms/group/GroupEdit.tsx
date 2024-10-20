@@ -14,17 +14,19 @@ const ProfileEdit = () => {
   if (!groupId) return null;
 
   return (
-    <div className="flex flex-col ">
-      <h4 className="mb-1 sm:mb-2">Logo</h4>
-      <ImageUpload value={logo} ownerId={groupId} useFileUploadMutation={useUpdateLogoMutation} />
-      <h4 className="my-1 sm:my-2">Banner</h4>
-      <ImageUpload
-        value={banner}
-        ownerId={groupId}
-        useFileUploadMutation={useUpdateBannerMutation}
-        classname="w-full mb-2 sm:mb-4"
-        avatarProps={{ radius: 'md' }}
-      />
+    <div className="flex flex-col">
+      <div className="flex flex-col items-center">
+        <h4 className="mb-1 sm:mb-2">Logo</h4>
+        <ImageUpload value={logo} ownerId={groupId} useFileUploadMutation={useUpdateLogoMutation} />
+        <h4 className="my-1 sm:my-2">Banner</h4>
+        <ImageUpload
+          value={banner}
+          ownerId={groupId}
+          useFileUploadMutation={useUpdateBannerMutation}
+          classname="w-full mb-2 sm:mb-4"
+          avatarProps={{ radius: 'md' }}
+        />
+      </div>
       <GroupForm />
     </div>
   );

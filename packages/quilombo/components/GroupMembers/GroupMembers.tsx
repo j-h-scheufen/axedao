@@ -15,8 +15,7 @@ import {
 } from '@/hooks/state/group';
 import { GroupMemberRole } from '@/types/model';
 import { getGroupMemberRoles } from '@/utils';
-import TableCellValue from './TableCellValue';
-import { GroupMemberTableColumnKey, columns } from './utils';
+import TableCellValue, { COLUMNS, GroupMemberTableColumnKey } from './TableCellValue';
 
 const GroupMembers = () => {
   const { data: groupMembers, isPending } = useAtomValue(groupMembersAtom);
@@ -25,22 +24,19 @@ const GroupMembers = () => {
   const { data: groupAdminIds } = useAtomValue(groupAdminIdsAtom);
   const isGroupAdmin = useAtomValue(isCurrentUserGroupAdminAtom);
   const getMemberRoles = useCallback(
-    (userId: string): GroupMemberRole[] => {
-      if (groupFounder && groupLeader) return getGroupMemberRoles(userId, groupFounder, groupLeader, groupAdminIds);
-      return [];
-    },
+    (userId: string): GroupMemberRole[] => getGroupMemberRoles(userId, groupFounder, groupLeader, groupAdminIds),
     [groupFounder, groupLeader, groupAdminIds],
   );
 
-  const filteredColumns = [...columns].filter((column) => (isGroupAdmin ? true : column.name !== 'ACTIONS'));
+  const filteredColumns = [...COLUMNS].filter((column) => (isGroupAdmin ? true : column.uid !== 'actions'));
 
   if (isPending) return <GroupMembersSkeleton />;
 
   return (
-    <Table aria-label="Group members table">
+    <Table aria-label="Group members table" hideHeader removeWrapper>
       <TableHeader columns={filteredColumns}>
         {(column) => (
-          <TableColumn key={column.uid} className="last:text-end text-left">
+          <TableColumn key={column.uid} className="last:text-end text-left capitalize">
             {column.name}
           </TableColumn>
         )}
