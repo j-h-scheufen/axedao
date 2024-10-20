@@ -59,7 +59,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                     <BreadcrumbTracker />
                     <div className="relative flex min-h-screen flex-col">
                       <Navbar />
-                      <main className="container mx-auto max-w-3xl flex-grow mb-[40px] sm:mb-[10px]">{children}</main>
+                      <main className="container mx-auto max-w-3xl flex-grow mb-[60px]">{children}</main>
                     </div>
                   </StateProvider>
                 </Web3Provider>
