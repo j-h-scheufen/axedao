@@ -8,7 +8,7 @@ import { ReactNode } from 'react';
 import { PATHS } from '@/config/constants';
 import { Group } from '@/types/model';
 import { getImageUrl } from '@/utils';
-import VerificationChip from './VerificationChip';
+import VerificationBadge from './VerificationBadge';
 
 type Props = { group: Group; className?: string; cardFooter?: ReactNode };
 
@@ -17,7 +17,9 @@ const GroupCard = ({ group, className = '', cardFooter = null }: Props) => {
   return (
     <Card as={Link} href={`${PATHS.groups}/${id}`}>
       <CardBody className={clsx('flex flex-row gap-3 p-2', className)}>
-        <Avatar src={getImageUrl(logo)} size="lg" />
+        <VerificationBadge verified={verified}>
+          <Avatar src={getImageUrl(logo)} size="lg" />
+        </VerificationBadge>
         <div className="flex-1 flex flex-col">
           <h3 className="flex items-center text-md">{name}</h3>
           {countryName && (
@@ -28,7 +30,6 @@ const GroupCard = ({ group, className = '', cardFooter = null }: Props) => {
               </span>
             </div>
           )}
-          <VerificationChip verified={verified} className="self-end" />
         </div>
       </CardBody>
       {cardFooter && <CardFooter className="flex-row">{cardFooter}</CardFooter>}
