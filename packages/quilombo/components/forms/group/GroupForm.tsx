@@ -77,7 +77,7 @@ const GroupForm = () => {
                   placeholder="Enter a short description of your group"
                   description={`${charsLeft} characters left`}
                   onInput={(e) => setCharsLeft(300 - (e.target as HTMLTextAreaElement).value.length)}
-                  className="mb-5 w-full"
+                  className="w-full"
                   classNames={{ description: 'w-fit ml-auto' }}
                 />
               );

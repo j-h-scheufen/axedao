@@ -3493,7 +3493,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nextui-org/badge@npm:2.0.32":
+"@nextui-org/badge@npm:2.0.32, @nextui-org/badge@npm:^2.0.32":
   version: 2.0.32
   resolution: "@nextui-org/badge@npm:2.0.32"
   dependencies:
@@ -4274,7 +4274,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nextui-org/spacer@npm:2.0.33":
+"@nextui-org/spacer@npm:2.0.33, @nextui-org/spacer@npm:^2.0.33":
   version: 2.0.33
   resolution: "@nextui-org/spacer@npm:2.0.33"
   dependencies:
@@ -17101,6 +17101,7 @@ __metadata:
     "@nextui-org/accordion": "npm:^2.0.40"
     "@nextui-org/autocomplete": "npm:^2.1.7"
     "@nextui-org/avatar": "npm:^2.0.33"
+    "@nextui-org/badge": "npm:^2.0.32"
     "@nextui-org/breadcrumbs": "npm:^2.0.13"
     "@nextui-org/button": "npm:2.0.38"
     "@nextui-org/card": "npm:^2.0.34"
@@ -17114,6 +17115,7 @@ __metadata:
     "@nextui-org/react": "npm:^2.4.8"
     "@nextui-org/select": "npm:^2.2.7"
     "@nextui-org/skeleton": "npm:^2.0.32"
+    "@nextui-org/spacer": "npm:^2.0.33"
     "@nextui-org/spinner": "npm:^2.0.34"
     "@nextui-org/switch": "npm:2.0.34"
     "@nextui-org/system": "npm:2.2.6"
