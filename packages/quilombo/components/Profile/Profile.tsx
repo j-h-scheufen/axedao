@@ -26,14 +26,14 @@ const Profile = () => {
         className="aspect-square h-full max-h-32 w-full max-w-32"
       />
       <div className="flex flex-1 flex-col gap-3">
-        <div className="flex flex-col items-center justify-center gap-5 sm:gap-10 xs:flex-row">
-          <div className="text-center xs:text-left">
-            <div className="text-small capitalize text-default-500 flex justify-center xs:justify-start mt-2">
+        <div className="flex flex-col items-center justify-center gap-3 sm:gap-0 sm:justify-between sm:flex-row">
+          <div className="text-center sm:text-left">
+            <div className="text-small capitalize text-default-500 flex justify-center sm:justify-start sm:mt-2">
               {user.title}
             </div>
             <h3 className="text-lg font-medium">{getUserDisplayName(user)}</h3>
           </div>
-          <div className="xs:mb-auto xs:ml-auto">
+          <div className="sm:mb-auto sm:ml-auto">
             <Button
               as={Link}
               href={`${PATHS.profile}/edit`}

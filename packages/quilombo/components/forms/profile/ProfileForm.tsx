@@ -43,9 +43,19 @@ const ProfileForm = () => {
     [updateProfile, router],
   );
 
-  if (!user) return <Spinner />;
+  const requestEmail = useCallback(async (): Promise<string> => {
+    const silk = connectors.find((connector) => connector.id === 'silk');
+    if (silk) {
+      const email = await (silk as unknown as SilkEthereumProviderInterface)
+        .requestEmail()
+        .then((email) => email)
+        .catch((error) => enqueueSnackbar(error.message, { variant: 'error' }));
+      return typeof email === 'string' ? (email as string) : '';
+    }
+    return '';
+  }, [connectors]);
 
-  const silk = connectors.find((connector) => connector.id === 'silk');
+  if (!user) return <Spinner />;
 
   // NOTE: The initial form values MUST BE declared outside of the JSX code, otherwise it can lead to hydration errors.
   const initValues: FormType = {
@@ -72,7 +82,7 @@ const ProfileForm = () => {
               <Field name="name" label="Name" as={FieldInput} />
               <Field name="nickname" label="Nickname" as={FieldInput} />
               <Field name="title">
-                {({ field, form }: FieldProps) => (
+                {({ field }: FieldProps) => (
                   <Select
                     {...field}
                     // label="Title"
@@ -87,7 +97,7 @@ const ProfileForm = () => {
                           href="#"
                           variant="light"
                           className=" items-center"
-                          onPress={() => form.setFieldValue('title', undefined)}
+                          onPress={() => setFieldValue('title', undefined)}
                           isIconOnly
                         >
                           <XIcon className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1} />
@@ -113,26 +123,18 @@ const ProfileForm = () => {
                   startContent={<Mail className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />}
                   disabled
                 />
-                {silk && (
-                  <Button
-                    variant="ghost"
-                    size="lg"
-                    color="primary"
-                    className="text-sm p-5 sm:p-6"
-                    onPress={() =>
-                      (silk as unknown as SilkEthereumProviderInterface)
-                        .requestEmail()
-                        .then((email) => {
-                          if (email) setFieldValue('email', email);
-                        })
-                        .catch((error) => enqueueSnackbar(error.message, { variant: 'error' }))
-                    }
-                  >
-                    Import Email
-                    <br />
-                    from Silk
-                  </Button>
-                )}
+
+                <Button
+                  variant="ghost"
+                  size="lg"
+                  color="primary"
+                  className="text-sm p-5 sm:p-6"
+                  onPress={() => requestEmail().then((email) => setFieldValue('email', email))}
+                >
+                  Import Email
+                  <br />
+                  from Silk
+                </Button>
               </div>
               <Field
                 name="phone"
