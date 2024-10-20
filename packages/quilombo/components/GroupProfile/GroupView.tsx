@@ -6,7 +6,7 @@ import { useAtomValue } from 'jotai';
 import { MailIcon } from 'lucide-react';
 
 import ContactInfo from '@/components/ContactInfo';
-import GroupMembers from '@/components/GroupMembers';
+import { GroupMembers } from '@/components/GroupMembers';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import UserCardWithFetch from '@/components/UserCardWithFetch';
 import { groupAtom, isFounderUuidAtom } from '@/hooks/state/group';

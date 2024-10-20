@@ -14,7 +14,14 @@ import { GroupMember } from '@/types/model';
 import { getImageUrl, getUserDisplayName } from '@/utils';
 import { useCallback } from 'react';
 import RoleChips from './RoleChips';
-import { GroupMemberTableColumnKey } from './utils';
+
+export const COLUMNS = [
+  { name: 'USER', uid: 'name' },
+  { name: 'ROLES', uid: 'roles' },
+  { name: 'ACTIONS', uid: 'actions' },
+] as const;
+
+export type GroupMemberTableColumnKey = (typeof COLUMNS)[number]['uid'];
 
 type Props = { groupMember: GroupMember; columnKey: GroupMemberTableColumnKey };
 
@@ -45,7 +52,7 @@ const TableCellValue = ({ groupMember, columnKey }: Props) => {
     [removeMember, groupId],
   );
 
-  const { avatar, email, roles, id } = groupMember;
+  const { avatar, title, roles, id } = groupMember;
   const isLoggedInUser = id === currentUserId;
   const cellValue = has(groupMember, columnKey) ? groupMember[columnKey]?.toString() : null;
 
@@ -55,12 +62,19 @@ const TableCellValue = ({ groupMember, columnKey }: Props) => {
         <Link href={`${PATHS.users}/${id}`} className="text-[unset]">
           <User
             avatarProps={{ radius: 'full', src: getImageUrl(avatar) }}
-            description={email}
-            name={`${getUserDisplayName(groupMember)} ${isLoggedInUser ? '(You)' : ''}`}
+            name={
+              <div className="flex flex-col w-full">
+                {title && <span className="text-default-500 capitalize">{title}</span>}
+                <div className="flex flex-1 items-center gap-1">
+                  <span className="font-semibold leading-none text-default-700 sm:text-large">
+                    {getUserDisplayName(groupMember)}
+                  </span>
+                  {isLoggedInUser ? <span>(You)</span> : null}
+                </div>
+              </div>
+            }
             className="cursor-pointer"
-          >
-            {email}
-          </User>
+          ></User>
         </Link>
       );
     case 'roles':
