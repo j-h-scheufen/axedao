@@ -29,8 +29,6 @@ const ImageUpload = ({ value, ownerId, useFileUploadMutation: useDynamicMutation
   const [validationError, setValidationError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-  console.log('value in ImageUpload', value);
-  console.log('imagePreview;', imagePreview);
   const selectImageFile = () => {
     fileInputRef.current?.click();
   };
