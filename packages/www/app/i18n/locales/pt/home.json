@@ -1,33 +1,40 @@
 {
   "heading": {
-    "title": "Bemvindo a <nbsp>Axé DAO</nbsp>",
-    "subtitle": "Uma organização digital para a comunidade de Capoeira",
+    "title": "Bem-vindo à <nbsp>Axé DAO</nbsp>",
+    "subtitle": "Uma organização digital para a Comunidade Capoeira",
     "introduction": {
-      "p1": "Somos Capoeiristas de diferentes escolas e de diferentes cantos do mundo que querem retribuir à Capoeira criando ferramentas digitais abertas e comunitárias para o benefício de toda a Capoeira.",
-      "p2": "Valorizamos a autonomia, a liberdade e a autodeterminação e aplicamos esses valores ao mundo digital para criar aplicativos e plataformas compartilhadas para a subcultura da Capoeira e seu ecossistema.",
-      "p3": "Axé DAO é um esforço pioneiro de Capoeiristas para Capoeiristas, visando coordenar ações coletivas que ajudem a expandir o ecossistema da Capoeira e apoiar aqueles que vivem e respiram essa forma de arte."
+      "p1": "A Capoeira é mantida viva hoje pelas pessoas que a praticam, ensinam e compartilham a alegria que ela traz. Grupos estão espalhados pelo globo com estilos, tradições e linhagens diferentes, todos rastreando até os primeiros mestres há mais de 100 anos atrás e além na escravidão brasileira.",
+      "p2": "Não sabemos exatamente quantos grupos e praticantes existem no mundo todo. Cada grupo de Capoeira cultiva suas próprias alianças, mas todos compartilham o espírito de camaradagem que define nossa família global.",
+      "p3": "Axé DAO é uma organização a serviço desta comunidade e para apoiar aqueles que vivem e respiram essa forma de arte."
     }
   },
   "about": {
-    "title": "Missão",
+    "title": "Sobre",
     "content": {
-      "p1": "No mundo digital e online de hoje, os grupos de Capoeira estão espalhados por muitos sites e plataformas gratuitas de redes sociais e mensagens. Não há uma maneira fácil de entender quantos grupos existem em todo o mundo.",
-      "p2": "Uma plataforma digital para Capoeira que seja comunitária e governada democraticamente permite a colaboração global de qualquer pessoa que ame e queira contribuir com essa forma de arte. Imagine um espaço onde cada membro da comunidade de Capoeira tem voz nas decisões e juntos construímos uma plataforma que é verdadeiramente <i>nossa</i>.",
-      "p3": "Nossa missão no Axé DAO é servir e beneficiar a comunidade de Capoeira através de ferramentas digitais. O primeiro aplicativo que está sendo criado é um registro específico para grupos e indivíduos de Capoeira preencherem a <i>árvore genealógica</i> da Capoeira."
+      "p1": "Nossa missão é apoiar, preservar e enriquecer a prática da Capoeira com ferramentas digitais. Queremos criar benefício econômico no ecossistema da Capoeira.",
+      "p2": "Imagine um espaço onde cada membro da comunidade Capoeira tem voz nas decisões e juntos construímos uma plataforma que é verdadeiramente <i>nossa</i>. Criada por Capoeiristas para Capoeiristas.",
+      "p3": "Para povoar a <i>árvore genealógica</i> da Capoeira, fizemos um aplicativo de registro específico para grupos e indivíduos de Capoeira. Crie seu perfil e registre seu grupo <a href='https://quilombo.vercel.app' target='_blank'>aqui</a>.",
+      "p4": "Ultimamente, queremos financiar projetos e eventos de Capoeira individuais e canalizar suporte financeiro para a comunidade onde é necessário."
     }
   },
   "dao": {
     "title": "Organização",
     "content": {
-      "p1": "DAO significa <i>Organização Autônoma Digital</i>. É nosso modelo de governança que facilita processos de tomada de decisão transparentes e equitativos entre seus membros para coletivamente manter fundos e decidir como usá-los.",
-      "p2": "No início, nosso objetivo principal é criar ferramentas digitais para Capoeira como um aplicativo de código aberto, identidade digital e um registro. A longo prazo, queremos financiar projetos e eventos individuais de Capoeira e direcionar apoio financeiro para a comunidade onde for necessário."
+      "p1": "DAO significa <i>Organização Autônoma Digital</i>. É o nosso modelo de governança que facilita processos de decisão transparentes e equitativos entre seus membros para coletivamente deter fundos e decidir como usá-los."
     }
   },
   "goals": {
     "title": "Objetivos",
-    "content": {
-      "p1": "Queremos apoiar, preservar e enriquecer a prática da Capoeira e em 2024 planejamos:<br/><br/><ul><li>Lançar um aplicativo de identidade digital para a comunidade de Capoeira</li><li>Abrir um registro para grupos e indivíduos começarem a criar o gráfico social e a árvore de linhagem dos grupos de Capoeira em todo o mundo</li><li>Decidir sobre o lançamento do token Axé e seus parâmetros de distribuição justa</li></ul>",
-      "p2": "A longo prazo, nossos objetivos são:<br/><br/><ul><li>Criar funcionalidades para grupos de Capoeira acessarem ativos digitais como NFTs que podem ser usados para emblemas, arte digital, adesões, etc.</li><li>Explorar a redução de custos para grupos de Capoeira, oferecendo serviços comuns, como agendamento de eventos, gestão de grupos, taxas de adesão, etc.</li><li>Explorar a criação de um ciclo de atividade econômica digital para sustentar a Capoeira em geral e seus membros da comunidade no futuro</li></ul>"
-    }
+    "intro": "Nossos objetivos giram em torno de criar ferramentas úteis para a comunidade.",
+    "short-term": "Em 2024 planejamos",
+    "sg1": "Lançar um aplicativo para a comunidade Capoeira para fazer perfis e procurar por grupos e indivíduos",
+    "sg2": "Começar a criar o árvore genealógica de grupos de Capoeira em todo o mundo",
+    "sg3": "Adicionar mais coisas legais ao aplicativo com base no feedback da comunidade",
+    "long-term": "Em 2025 e além, pretendemos",
+    "lg1": "Estabelecer um 'Conselho' na organização com representantes eleitos pela comunidade",
+    "lg2": "Lançar nossa própria criptomoeda chamada Axé",
+    "lg3": "Reduzir custos para grupos de Capoeira oferecendo serviços comuns, e.g., para agendamento de eventos, gerenciamento de grupos, coleta de taxas, etc.",
+    "lg4": "Acessar ativos digitais como NFTs que podem ser usados para crachás, arte digital, associações, etc.",
+    "lg5": "Criar um modelo econômico sustentável para gerar receita para a DAO que pode ajudar a financiar projetos e eventos de Capoeira."
   }
 }
