@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 import RippleBackground from '@/components/RippleBackground';
 import { PATHS } from '@/config/constants';
+import ENV from '@/config/environment';
 
 export default function Home() {
   const { data: session } = useSession();
@@ -19,17 +20,26 @@ export default function Home() {
             <h1 className="font-bold text-2xl mb-5">Welcome to Quilombo</h1>
             <p className="my-3 text-medium sm:text-lg">The first app specifically made for Capoeira</p>
             <p className="my-3 text-default-600 text-sm sm:text-medium">
-              We are capoeiristas from different corners of the world and from different schools who come together to
-              build our own tools instead of relying on social media platforms that don&apos;t serve our needs.
-            </p>
-            <p className="my-3 text-default-600 text-sm sm:text-medium">
-              Quilombo starts with a simple directory of capoeira groups and their members, but it can grow into a place
-              where we can share our events, pay for classes, and support each other in many ways.
+              Quilombo is a registry application for Capoeiristas and Capoeira groups. By making profiles and
+              registering groups, users contribute to creating a map of the Capoeira world.
+              <br />
+              But there is more ... Quilombo is also your portal to everything we&apos;re creating. Send digital Axé to
+              your friends and participate in the governance of the platform.
             </p>
             <p className="my-3 text-default-600 text-sm sm:text-medium">
               If you are in any way involved in Capoeira, we invite you to join us on this journey. This app is free!
-              Make an account, create your profile, join or register a group, and help populate the{' '}
-              <i>geneology tree of Capoeira</i>.
+              Create your profile, join or register a group, and help populate the <i>geneology tree of Capoeira</i>.
+            </p>
+            <p className="my-3 text-default-600 text-sm sm:text-medium">
+              This is a community-driven app. We are building it together and we need your help! To get involved send an{' '}
+              <a href={`mailto:${ENV.axeDaoEmail}`} className="hover:text-primary underline">
+                email
+              </a>{' '}
+              or join our{' '}
+              <a href={ENV.axeDaoDiscord} className="hover:text-primary underline">
+                group chat
+              </a>{' '}
+              on Discord.
             </p>
           </div>
           <div className="pt-5">
@@ -44,16 +54,20 @@ export default function Home() {
               </Button>
             ) : (
               <Button as={Link} href={PATHS.login} color="primary" className="w-full font-medium sm:flex-1 sm:max-w-40">
-                Log In
+                Log In / Sign Up
               </Button>
             )}
           </div>
-          <footer className="mt-auto flex w-full items-center justify-center gap-1 pb-20 md:pb-10 py-10">
-            <span className="text-default-600">Powered by </span>
-            <span className="text-primary">AXÉ DAO</span>
-          </footer>
         </div>
       </header>
+      <footer className="mt-auto flex w-full items-center justify-center gap-1 pb-20 md:pb-10 py-10">
+        <div className="text-default-600">
+          Powered by{' '}
+          <a href={ENV.axeDaoSiteUrl} className="text-primary">
+            AXÉ DAO
+          </a>
+        </div>
+      </footer>
     </>
   );
 }
