@@ -26,6 +26,9 @@ const HomeSection = ({
           t={t}
           key={`trans-${contentKey}-${i}`}
           i18nKey={`${contentKey}.content.p${i}`}
+          components={{
+            a: <a className="text-primary underline hover:text-secondary" />,
+          }}
         />
       </p>
     );

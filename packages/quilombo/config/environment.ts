@@ -18,6 +18,9 @@ type ConfigType = {
   pinataJwt: string;
   databaseUrl: string;
   nextAuthSecret: string;
+  axeDaoSiteUrl: string;
+  axeDaoEmail: string;
+  axeDaoDiscord: string;
 };
 
 const envMode = process.env.NEXT_PUBLIC_APP_ENV?.toLowerCase();
@@ -75,6 +78,9 @@ const ENV: ConfigType = {
   pinataJwt: isServer ? required(process.env.PINATA_JWT, 'PINATA_JWT') : '',
   databaseUrl: isServer ? required(process.env.DATABASE_URL, 'DATABASE_URL') : '',
   nextAuthSecret: isServer ? required(process.env.NEXTAUTH_SECRET, 'NEXTAUTH_SECRET') : '',
+  axeDaoSiteUrl: required(process.env.NEXT_PUBLIC_AXE_DAO_SITE_URL, 'NEXT_PUBLIC_AXE_DAO_SITE_URL'),
+  axeDaoEmail: required(process.env.NEXT_PUBLIC_AXE_DAO_EMAIL, 'NEXT_PUBLIC_AXE_DAO_EMAIL'),
+  axeDaoDiscord: required(process.env.NEXT_PUBLIC_AXE_DAO_DISCORD, 'NEXT_PUBLIC_AXE_DAO_DISCORD'),
 };
 
 function required(value: string | undefined, name: string): string {

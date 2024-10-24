@@ -2633,6 +2633,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@heroicons/react@npm:^2.1.5":
+  version: 2.1.5
+  resolution: "@heroicons/react@npm:2.1.5"
+  peerDependencies:
+    react: ">= 16"
+  checksum: 10c0/d0ca2d017545da103ed8e90e9e6679d46329c1b09bb4c06ff509b0fe7cfbba7034409ea24b0469fabd2a0a9b144e8e717f58de924615e0b0a1bed7b51fcc5940
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.11.14":
   version: 0.11.14
   resolution: "@humanwhocodes/config-array@npm:0.11.14"
@@ -20308,6 +20317,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "www@workspace:packages/www"
   dependencies:
+    "@heroicons/react": "npm:^2.1.5"
     "@nextui-org/button": "npm:2.0.38"
     "@nextui-org/code": "npm:2.0.33"
     "@nextui-org/input": "npm:2.2.5"
@@ -20316,8 +20326,10 @@ __metadata:
     "@nextui-org/navbar": "npm:2.0.37"
     "@nextui-org/react": "npm:^2.4.8"
     "@nextui-org/snippet": "npm:2.0.43"
+    "@nextui-org/spacer": "npm:^2.0.33"
     "@nextui-org/switch": "npm:2.0.34"
     "@nextui-org/system": "npm:2.2.6"
+    "@nextui-org/table": "npm:^2.0.40"
     "@nextui-org/theme": "npm:2.2.11"
     "@react-aria/ssr": "npm:^3.9.5"
     "@react-aria/visually-hidden": "npm:^3.8.15"

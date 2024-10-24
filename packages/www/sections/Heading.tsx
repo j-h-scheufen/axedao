@@ -42,7 +42,7 @@ const Heading = ({ locale }: HeadingProps) => {
         className={Title({
           color: 'green',
           size: 'lg',
-          className: 'font-inter text-center',
+          className: 'text-center font-inter',
         })}
       >
         <Trans
