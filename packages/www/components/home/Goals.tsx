@@ -26,13 +26,13 @@ const GoalsTable = ({ locale }: Props) => {
         <CheckCircleIcon
           width={30}
           height={30}
-          className="min-h-[30px] min-w-[30px] stroke-primary"
+          className="min-h-[25px] min-w-[25px] stroke-primary sm:min-h-[30px] sm:min-w-[30px]"
         />
       ) : (
         <ChevronRightIcon
           width={25}
           height={25}
-          className="min-h-[25px] min-w-[25px]"
+          className="min-h-[20px] min-w-[20px] sm:min-h-[25px] sm:min-w-[25px]"
         />
       )}
 
@@ -42,7 +42,7 @@ const GoalsTable = ({ locale }: Props) => {
 
   return (
     <BaseSection title={t('goals.title')}>
-      <div className="px-3">
+      <div className="sm:px-3">
         <p>{t('goals.intro')}</p>
         <h2 className="my-3 text-2xl sm:text-3xl">{t('goals.short-term')}</h2>
         <div className="flex w-full flex-col gap-1 sm:gap-2">
