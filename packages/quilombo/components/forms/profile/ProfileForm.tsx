@@ -1,13 +1,11 @@
 'use client';
 
 import { Button } from '@nextui-org/button';
-import { Select, SelectItem } from '@nextui-org/select';
 import { Spinner } from '@nextui-org/spinner';
 import { SilkEthereumProviderInterface } from '@silk-wallet/silk-wallet-sdk/dist/lib/provider/types';
-import { Field, FieldArray, FieldProps, Form, Formik, FormikProps } from 'formik';
+import { Field, FieldArray, Form, Formik, FormikProps } from 'formik';
 import { useAtomValue } from 'jotai';
-import { Mail, Phone, XIcon } from 'lucide-react';
-import Link from 'next/link';
+import { Mail, Phone } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { enqueueSnackbar } from 'notistack';
 import { Suspense, useCallback } from 'react';
@@ -20,6 +18,7 @@ import { PATHS, titles } from '@/config/constants';
 import { ProfileForm as FormType, profileFormSchema } from '@/config/validation-schema';
 import { currentUserAtom } from '@/hooks/state/currentUser';
 import { useUpdateCurrentUserMutation } from '@/query/currentUser';
+import StringSelect from '../StringSelect';
 
 const ProfileForm = () => {
   const router = useRouter();
@@ -79,40 +78,9 @@ const ProfileForm = () => {
           <Form>
             <SubsectionHeading>General Information</SubsectionHeading>
             <div className="flex flex-col gap-2 sm:gap-4">
+              <Field name="title" as={StringSelect} options={titles} label="Title" />
               <Field name="name" label="Name" as={FieldInput} />
               <Field name="nickname" label="Nickname" as={FieldInput} />
-              <Field name="title">
-                {({ field }: FieldProps) => (
-                  <Select
-                    {...field}
-                    // label="Title"
-                    size="lg"
-                    placeholder="Select title"
-                    selectedKeys={field.value ? [field.value] : []}
-                    classNames={{ value: 'capitalize' }}
-                    endContent={
-                      field.value ? (
-                        <Button
-                          as={Link}
-                          href="#"
-                          variant="light"
-                          className=" items-center"
-                          onPress={() => setFieldValue('title', undefined)}
-                          isIconOnly
-                        >
-                          <XIcon className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1} />
-                        </Button>
-                      ) : undefined
-                    }
-                  >
-                    {titles.map((title) => (
-                      <SelectItem key={title} value={title} className="capitalize">
-                        {title}
-                      </SelectItem>
-                    ))}
-                  </Select>
-                )}
-              </Field>
               <div className="flex w-full items-center gap-2">
                 <Field
                   name="email"
