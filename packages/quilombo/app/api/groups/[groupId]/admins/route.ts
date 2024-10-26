@@ -17,13 +17,15 @@ export async function GET(request: NextRequest, { params }: { params: { groupId:
     if (!group) return notFound();
 
     const adminIds = await fetchGroupAdminIds(groupId);
+
     return NextResponse.json(adminIds);
   } catch (error) {
+    console.error('Error fetching admins', error);
     const message = generateErrorMessage(error, 'An unexpected server error occurred while fetching group admins');
     return Response.json(
       { error: true, message },
       {
-        status: 400,
+        status: 500,
       },
     );
   }
