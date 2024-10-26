@@ -3,6 +3,7 @@ import { getCsrfToken, getSession, signIn as nextAuthSignIn, signOut as nextAuth
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { SiweMessage } from 'siwe';
+import { UserRejectedRequestError } from 'viem';
 import { useAccount, useConnect, useDisconnect, useSignMessage } from 'wagmi';
 
 import { PATHS } from '@/config/constants';
@@ -10,7 +11,6 @@ import { getDefaultChain } from '@/config/wagmi';
 import silk from '@/utils/silk.connector';
 import { setCookie } from 'cookies-next';
 import { enqueueSnackbar } from 'notistack';
-import { UserRejectedRequestError } from 'viem';
 import { triggerCurrentUserIdAtom } from './state/currentUser';
 
 /**

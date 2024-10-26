@@ -20,6 +20,8 @@ export const titles = [
   'iniciante',
 ] as const;
 
+export const styles = ['angola', 'regional', 'contemporânea'] as const;
+
 export const linkTypes = ['twitter', 'facebook', 'instagram', 'linkedin'] as const;
 
 export const validFileExtensions = { image: ['jpg', 'gif', 'png', 'jpeg', 'svg', 'webp'] } as const;
@@ -86,7 +88,5 @@ export const IMAGE_FORMATS: Record<ImageType, ResizeOptions> = {
 };
 
 export const MAX_IMAGE_UPLOAD_SIZE_MB = 4.5; // 4.5 MB is the current limit for Vercel serverless functions! https://vercel.com/docs/concepts/limits/overview#serverless-function-payload-size-limit
-
-export const PINATA_FILE_GROUP = 'd923dfed-5f8d-440b-ae87-e8a43504eaa5'; // quilombo group ID
 
 export type IconDictionary = Record<LinkType, JSX.Element>; // TODO not used

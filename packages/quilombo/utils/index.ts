@@ -34,7 +34,6 @@ export const getGroupMemberRoles = (
   leader?: string | null,
   adminIds?: string[],
 ): GroupMemberRole[] => {
-  console.log('getGroupMemberRoles', userId, founder, leader, adminIds);
   const roles: GroupMemberRole[] = [];
   if (userId === founder) {
     roles.push('founder');
