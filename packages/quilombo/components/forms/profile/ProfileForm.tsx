@@ -79,8 +79,8 @@ const ProfileForm = () => {
             <SubsectionHeading>General Information</SubsectionHeading>
             <div className="flex flex-col gap-2 sm:gap-4">
               <Field name="title" as={StringSelect} options={titles} label="Title" />
-              <Field name="name" label="Name" as={FieldInput} />
               <Field name="nickname" label="Nickname" as={FieldInput} />
+              <Field name="name" label="Fullname" as={FieldInput} />
               <div className="flex w-full items-center gap-2">
                 <Field
                   name="email"

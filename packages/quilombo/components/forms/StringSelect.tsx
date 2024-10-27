@@ -45,7 +45,7 @@ const StringSelect = ({ options = [], label, size, ...props }: Props) => {
         {selectItems}
       </Select>
       {field.value ? (
-        <Button as={Link} href="#" variant="light" onPress={() => form.setValue(undefined)} isIconOnly>
+        <Button as={Link} href="#" variant="light" onPress={() => form.setValue(null)} isIconOnly>
           <XIcon className="h-6 w-6 sm:h-7 sm:w-7" strokeWidth={1} />
         </Button>
       ) : null}

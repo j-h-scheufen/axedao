@@ -45,13 +45,23 @@ const GroupView = () => {
               </Link>
             </div>
           )}
-          <ContactInfo links={group.links} />
+          {!!group.links?.length && <ContactInfo links={group.links} />}
+          {group.style && (
+            <div className="flex gap-1 sm:gap-2 items-end">
+              <div className="text-lg font-semibold">Style</div>
+              <div className="text-lg capitalize">{group.style}</div>
+            </div>
+          )}
         </div>
-        <SubsectionHeading>Founder</SubsectionHeading>
-        {group.founder && isFounderUuid ? (
-          <UserCardWithFetch userId={group.founder!} />
-        ) : (
-          <div className="text-default-500">{group.founder}</div>
+        {group.founder && (
+          <>
+            <SubsectionHeading>Founder</SubsectionHeading>
+            {isFounderUuid ? (
+              <UserCardWithFetch userId={group.founder!} />
+            ) : (
+              <div className="text-default-500">{group.founder}</div>
+            )}
+          </>
         )}
         <SubsectionHeading>Members</SubsectionHeading>
         <GroupMembers />

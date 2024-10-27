@@ -71,6 +71,13 @@
       "when": 1727973704124,
       "tag": "0009_narrow_pepper_potts",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1729975222011,
+      "tag": "0010_grey_cable",
+      "breakpoints": true
     }
   ]
 }
