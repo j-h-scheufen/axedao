@@ -1,6 +1,6 @@
 import { isValidIPFSHash } from '@/utils';
 import { array, boolean, InferType, mixed, number, object, string } from 'yup';
-import { linkTypes, MAX_IMAGE_UPLOAD_SIZE_MB, titles, validFileExtensions } from './constants';
+import { linkTypes, MAX_IMAGE_UPLOAD_SIZE_MB, styles, titles, validFileExtensions } from './constants';
 
 export type Title = (typeof titles)[number];
 export type LinkTypes = (typeof linkTypes)[number];
@@ -135,6 +135,7 @@ export const updateGroupSchema = object({
   description: string().test('max-chars', 'Description cannot exceed 500 characters', (value: string | undefined) =>
     value ? value.length <= 500 : true,
   ),
+  style: string().nullable().oneOf(styles, 'Not a valid style'),
   links: linksSchema,
 });
 

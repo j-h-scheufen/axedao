@@ -1,4 +1,4 @@
-import { linkTypes, titles } from '@/config/constants';
+import { linkTypes, styles, titles } from '@/config/constants';
 import { relations } from 'drizzle-orm';
 import {
   AnyPgColumn,
@@ -17,6 +17,7 @@ import {
 
 export const titleEnum = pgEnum('title', titles);
 export const linkTypeEnum = pgEnum('link_type', linkTypes);
+export const styleEnum = pgEnum('style', styles);
 
 export type LinkType = (typeof linkTypes)[number];
 export type SocialLink = { type?: LinkType; url: string };
@@ -60,6 +61,7 @@ export const groups = pgTable(
       .$onUpdate(() => new Date()),
     name: varchar('name').notNull(),
     description: text('description'),
+    style: styleEnum('style'),
     email: text('email'),
     logo: varchar('logo'),
     banner: varchar('banner'),
@@ -72,7 +74,7 @@ export const groups = pgTable(
   },
   (table) => {
     return {
-      nameIdx: uniqueIndex('name_idx').on(table.name),
+      nameIdx: index('name_idx').on(table.name),
     };
   },
 );

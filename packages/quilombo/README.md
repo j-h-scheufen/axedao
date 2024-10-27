@@ -2,13 +2,10 @@
 
 ## Technologies Used
 
-- [Next.js 13](https://nextjs.org/docs/getting-started)
+- [Next.js 14](https://nextjs.org/docs/getting-started)
 - [NextUI v2](https://nextui.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
 
 ## Data Fetching and State Management
 
@@ -45,3 +42,14 @@ This app uses a very opinionated approach to data fetching and state management:
 | GET    | location/cities                     | URL params: countryCode, searchTerm | City[]          |              |
 | PUT    | admin/groups/[groupId]/verification |                                     | Group           |              |
 | DELETE | admin/groups/[groupId]/verification |                                     | Group           |              |
+
+## Local Development
+
+# DB
+
+```shell
+docker pull postgres
+docker run --name drizzle-postgres -e POSTGRES_PASSWORD=mypassword -d -p 5432:5432 postgres
+```
+
+Set the ENV variable `DATABASE_URL` to `postgres://postgres:mypassword@localhost:5432/postgres`

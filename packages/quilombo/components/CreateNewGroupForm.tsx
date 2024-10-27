@@ -1,21 +1,24 @@
 import { Button } from '@nextui-org/button';
 import { Field, Form, Formik, FormikProps } from 'formik';
+import { useRouter } from 'next/navigation';
 import { useCallback } from 'react';
 
 import { CountrySelect, FieldInput } from '@/components/forms';
+import { PATHS } from '@/config/constants';
 import { CreateNewGroupForm as FormType, createNewGroupFormSchema } from '@/config/validation-schema';
 import useCountriesAndCities from '@/hooks/useCountriesAndCities';
 import { useCreateGroup } from '@/hooks/useGroup';
 
 const CreateNewGroupForm = () => {
+  const router = useRouter();
   const { createGroup, error } = useCreateGroup();
   const { setSelectedCountryCode } = useCountriesAndCities();
 
   const handleSubmit = useCallback(
     async (values: FormType) => {
-      return createGroup(values);
+      return createGroup(values).then((group) => router.push(`${PATHS.groups}/${group.id}/edit`));
     },
-    [createGroup],
+    [createGroup, router],
   );
 
   // NOTE: The initial form values MUST BE declared outside of JSX, otherwise it can lead to hydration errors.

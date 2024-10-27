@@ -13,10 +13,10 @@ const CreateGroupAssociation = ({ isLoading = false }: Props) => {
   return (
     <div className="max-w-lg">
       <Tabs variant="bordered" aria-label="Options">
-        <Tab key="join-a-group" title="Join a group">
+        <Tab key="join-a-group" title="Join existing group">
           <JoinGroupForm />
         </Tab>
-        <Tab key="create-group" title="Create new group">
+        <Tab key="create-group" title="Register a new group">
           <CreateNewGroupForm />
         </Tab>
       </Tabs>

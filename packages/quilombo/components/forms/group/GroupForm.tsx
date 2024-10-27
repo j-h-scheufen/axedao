@@ -7,11 +7,10 @@ import { useAtomValue } from 'jotai';
 import { useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
 
-import { FieldInput, FounderField } from '@/components/forms';
-import LinksArray from '@/components/forms/LinksArray';
+import { FieldInput, FounderField, LinksArray, StringSelect } from '@/components/forms';
 import GroupFormSkeleton from '@/components/skeletons/GroupSkeletons';
 import SubsectionHeading from '@/components/SubsectionHeading';
-import { GROUP_DESCRIPTION_MAX_LENGTH, PATHS } from '@/config/constants';
+import { GROUP_DESCRIPTION_MAX_LENGTH, PATHS, styles } from '@/config/constants';
 import { UpdateGroupForm, updateGroupSchema } from '@/config/validation-schema';
 import { groupAtom } from '@/hooks/state/group';
 import { useDeleteGroup, useUpdateGroup } from '@/hooks/useGroup';
@@ -51,6 +50,7 @@ const GroupForm = () => {
     email: group?.email || '',
     founder: group?.founder || '',
     description: group?.description || '',
+    style: group?.style || undefined,
     links: group?.links || [],
   };
 
@@ -64,6 +64,7 @@ const GroupForm = () => {
       {({ values, dirty, isValid, isSubmitting }: FormikProps<UpdateGroupForm>) => (
         <Form className="flex flex-col gap-2 sm:gap-4">
           <Field name="name" label="Name" placeholder="Enter your group's name" as={FieldInput} />
+          <Field name="style" label="Style" as={StringSelect} options={styles} />
           <Field name="email" label="Email" type="email" placeholder="Enter your group's email" as={FieldInput} />
           <Field name="founder" label="Founder" placeholder="Enter the founder's name" as={FounderField} />
           <Field name="description" label="Description" placeholder="Enter a short description of your group">
