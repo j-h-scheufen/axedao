@@ -1,11 +1,11 @@
+import { isUndefined, omitBy } from 'lodash';
+import { getServerSession } from 'next-auth';
+import { notFound } from 'next/navigation';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { ProfileForm, profileFormSchema } from '@/config/validation-schema';
 import { fetchUser, updateUser } from '@/db';
-import { isNil, omitBy } from 'lodash';
-import { getServerSession } from 'next-auth';
-import { notFound } from 'next/navigation';
 
 /**
  * Returns the User object of the logged-in user, i.e. the user whose session token is passed in the request.
@@ -27,6 +27,7 @@ export async function GET() {
 
 /**
  * Updates the current user's record with the data in the request body.
+ * It is allowed to send partial data, i.e. only the fields that need to be updated. To 'unset' a field, send it as null.
  * @param request - ProfileForm
  * @returns The updated User
  * @throws 400 if the input data is invalid, 401 if the user is not logged in, 404 if the profile is not found, 500 if an unexpected error occurs.
@@ -51,7 +52,7 @@ export async function PATCH(request: NextRequest) {
   if (!existingUser) return notFound();
   try {
     const profileData = formData as Omit<ProfileForm, 'id' | 'avatar'>;
-    const cleanedProfileData = omitBy(profileData, isNil);
+    const cleanedProfileData = omitBy(profileData, isUndefined);
 
     const updatedUser = await updateUser({ ...cleanedProfileData, id: session.user.id });
     return Response.json(updatedUser);

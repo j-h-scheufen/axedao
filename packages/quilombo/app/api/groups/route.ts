@@ -94,15 +94,18 @@ export async function POST(request: NextRequest) {
 
     const newGroupId = uuidv4();
     const group = await insertGroup({ ...groupData, id: newGroupId, verified: false });
+    if (!group) throw Error('Unable to create the group');
+
     await updateUser({ id: session.user.id, groupId: newGroupId });
-    await addGroupAdmin({ groupId: newGroupId, userId: session.user.id });
+    await addGroupAdmin({ groupId: group.id, userId: session.user.id });
 
     return NextResponse.json(group);
   } catch (error) {
+    console.error('Error creating group', error);
     return NextResponse.json(
       { error: true, message: generateErrorMessage(error, 'An unexpected error occurred while creating group') },
       {
-        status: 403,
+        status: 500,
       },
     );
   }

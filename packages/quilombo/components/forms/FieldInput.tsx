@@ -8,16 +8,12 @@ import { FieldProps, useField } from 'formik';
  * @param props The that were passed to the Field component.
  */
 const FieldInput = (props: FieldProps['field']) => {
-  const [field, meta] = useField(props);
+  const [field] = useField(props);
   return (
     <Input
       {...field}
       className="w-full"
-      classNames={{ inputWrapper: '!min-h-14', errorMessage: 'text-left' }}
-      // TODO are the three props below really needed or is that the default behavior?
-      color={meta.touched && meta.error ? 'danger' : undefined}
-      isInvalid={meta.touched && !!meta.error}
-      errorMessage={meta.touched && meta.error ? meta.error : undefined}
+      classNames={{ inputWrapper: '!min-h-14', errorMessage: 'text-left', input: 'base-text' }}
       {...props}
     />
   );

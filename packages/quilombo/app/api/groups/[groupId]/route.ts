@@ -1,15 +1,16 @@
-import { isNil, omitBy } from 'lodash';
+import { isUndefined, omitBy } from 'lodash';
 import { getServerSession } from 'next-auth';
+import { notFound } from 'next/navigation';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { UpdateGroupForm, updateGroupSchema } from '@/config/validation-schema';
 import { deleteGroup, fetchGroup, fetchGroupAdminIds, isGroupAdmin, updateGroup } from '@/db';
 import { generateErrorMessage } from '@/utils';
-import { notFound } from 'next/navigation';
 
 /**
  * Returns a Group object for a given group ID.
+ * It is allowed to send partial data, i.e. only the fields that need to be updated. To 'unset' a field, send it as null.
  * @param request - The request object
  * @returns a Group or 404 if not found
  */
@@ -71,11 +72,9 @@ export async function PATCH(request: NextRequest, { params }: { params: { groupI
     if (!oldGroup) return notFound();
 
     const groupData = body as Omit<UpdateGroupForm, 'id' | 'logo' | 'banner'>;
-    const groupDataClean = omitBy(groupData, isNil);
+    const cleanedGroupData = omitBy(groupData, isUndefined);
 
-    // TODO: delete old logo and banner from IPFS
-
-    const updatedGroup = await updateGroup({ ...groupDataClean, id: groupId });
+    const updatedGroup = await updateGroup({ ...cleanedGroupData, id: groupId });
     return Response.json(updatedGroup);
   } catch (error) {
     console.error(error);

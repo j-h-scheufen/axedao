@@ -16,6 +16,7 @@ type ConfigType = {
   uniswapV2RouterAddress: Address;
   pinataGatewayUrl: string;
   pinataJwt: string;
+  pinataFileGroupId: string;
   databaseUrl: string;
   nextAuthSecret: string;
   axeDaoSiteUrl: string;
@@ -76,6 +77,7 @@ const ENV: ConfigType = {
   ) as Address,
   pinataGatewayUrl: required(process.env.NEXT_PUBLIC_PINATA_GATEWAY_URL, 'NEXT_PUBLIC_PINATA_GATEWAY_URL'),
   pinataJwt: isServer ? required(process.env.PINATA_JWT, 'PINATA_JWT') : '',
+  pinataFileGroupId: required(process.env.NEXT_PUBLIC_PINATA_FILE_GROUP_ID, 'NEXT_PUBLIC_PINATA_FILE_GROUP_ID'),
   databaseUrl: isServer ? required(process.env.DATABASE_URL, 'DATABASE_URL') : '',
   nextAuthSecret: isServer ? required(process.env.NEXTAUTH_SECRET, 'NEXTAUTH_SECRET') : '',
   axeDaoSiteUrl: required(process.env.NEXT_PUBLIC_AXE_DAO_SITE_URL, 'NEXT_PUBLIC_AXE_DAO_SITE_URL'),

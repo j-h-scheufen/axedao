@@ -2,7 +2,6 @@ import axios from 'axios';
 import { fileTypeFromBuffer } from 'file-type';
 import sharp, { ResizeOptions } from 'sharp';
 
-import { PINATA_FILE_GROUP } from '@/config/constants';
 import ENV from '@/config/environment';
 
 type PinningResponse = { cid?: string; error?: string; errorStatus?: ResponseInit['status'] };
@@ -29,7 +28,7 @@ export const pinToGroup = async (
   const uploadData = new FormData();
   uploadData.append('file', new Blob([imageBuffer]));
   uploadData.append('pinataMetadata', JSON.stringify({ name }));
-  uploadData.append('pinataOptions', JSON.stringify({ groupId: PINATA_FILE_GROUP }));
+  uploadData.append('pinataOptions', JSON.stringify({ groupId: ENV.pinataFileGroupId }));
 
   const cid = await axios
     .post('https://api.pinata.cloud/pinning/pinFileToIPFS', uploadData, {
