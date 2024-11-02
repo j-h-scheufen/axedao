@@ -3,9 +3,10 @@
 import { Spinner } from '@nextui-org/spinner';
 import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@nextui-org/table';
 import { useAtomValue } from 'jotai';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 
 import { GroupMembersSkeleton } from '@/components/skeletons/GroupSkeletons';
+import { TitleEnum } from '@/config/constants';
 import {
   groupAdminIdsAtom,
   groupFounderAtom,
@@ -27,6 +28,16 @@ const GroupMembers = () => {
     (userId: string): GroupMemberRole[] => getGroupMemberRoles(userId, groupFounder, groupLeader, groupAdminIds),
     [groupFounder, groupLeader, groupAdminIds],
   );
+  const sortedGroupMembers = useMemo(
+    () =>
+      groupMembers?.sort((a, b) => {
+        if (!a.title && !b.title) return 0;
+        if (!a.title) return -1;
+        if (!b.title) return 1;
+        return TitleEnum[a.title] - TitleEnum[b.title];
+      }) ?? [],
+    [groupMembers],
+  );
 
   const filteredColumns = [...COLUMNS].filter((column) => (isGroupAdmin ? true : column.uid !== 'actions'));
 
@@ -42,7 +53,7 @@ const GroupMembers = () => {
         )}
       </TableHeader>
       <TableBody
-        items={groupMembers}
+        items={sortedGroupMembers}
         isLoading={isPending}
         loadingContent={<Spinner label="Loading..." size="sm" color="default" />}
         emptyContent="No members found"
