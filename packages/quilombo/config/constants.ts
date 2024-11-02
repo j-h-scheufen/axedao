@@ -3,20 +3,20 @@ import { ImageType } from '@/types/model';
 import { ResizeOptions } from 'sharp';
 
 export const titles = [
-  'mestre',
   'mestra',
-  'contra-mestre',
+  'mestre',
   'contra-mestra',
-  'mestrando',
+  'contra-mestre',
   'mestranda',
-  'professor',
+  'mestrando',
   'professora',
-  'instrutor',
+  'professor',
   'instrutora',
-  'monitor',
+  'instrutor',
   'monitora',
-  'aluno',
+  'monitor',
   'aluna',
+  'aluno',
   'iniciante',
 ] as const;
 
