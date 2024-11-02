@@ -20,6 +20,12 @@ export const titles = [
   'iniciante',
 ] as const;
 
+// used to sort titles in the UI
+export const TitleEnum = titles.reduce<Record<string, number>>((acc, title, index) => {
+  acc[title] = index;
+  return acc;
+}, {});
+
 export const styles = ['angola', 'regional', 'contemporânea'] as const;
 
 export const linkTypes = ['twitter', 'facebook', 'instagram', 'linkedin'] as const;
