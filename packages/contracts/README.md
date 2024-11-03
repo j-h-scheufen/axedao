@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-- **Package Manager**: Yarn (preferred) or NPM
+- **Package Manager**: PNPM
 - **Foundry** (not fully used yet, currently optional). See also [here](./Foundry.md).
 
 ```shell
@@ -15,7 +15,7 @@ $ foundryup
 ## Installation
 
 ```shell
-$ yarn install
+$ pnpm install
 ```
 
 ## Usage

@@ -8,14 +8,7 @@
       "name": "WWW debug server-side",
       "type": "node-terminal",
       "request": "launch",
-      "command": "yarn www:start",
-      "sourceMaps": true
-    },
-    {
-      "name": "APP debug server-side",
-      "type": "node-terminal",
-      "request": "launch",
-      "command": "yarn app:start",
+      "command": "pnpm start",
       "sourceMaps": true
     },
     {
@@ -23,30 +16,6 @@
       "type": "chrome",
       "request": "launch",
       "url": "http://localhost:3000"
-    },
-    {
-      "name": "WWW debug full stack",
-      "type": "node-terminal",
-      "request": "launch",
-      "command": "yarn workspace www start",
-      "sourceMaps": true,
-      "serverReadyAction": {
-        "pattern": "- Local:.+(https?://.+)",
-        "uriFormat": "%s",
-        "action": "debugWithChrome"
-      }
-    },
-    {
-      "name": "APP debug full stack",
-      "type": "node-terminal",
-      "request": "launch",
-      "command": "yarn workspace quilombo start",
-      "sourceMaps": true,
-      "serverReadyAction": {
-        "pattern": "- Local:.+(https?://.+)",
-        "uriFormat": "%s",
-        "action": "debugWithChrome"
-      }
     }
   ]
 }
