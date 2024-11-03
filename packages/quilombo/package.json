@@ -9,7 +9,8 @@
     "dev": "next dev",
     "db:generate": "pnpm drizzle-kit generate",
     "db:migrate": "pnpm tsx db/migrate.ts",
-    "build": "wagmi generate && next build",
+    "wagmi:generate": "wagmi generate",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write ."

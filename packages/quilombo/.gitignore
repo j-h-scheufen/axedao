@@ -31,7 +31,7 @@ npm-debug.log*
 next-env.d.ts
 
 # build artifacts
-/generated
+# /generated # TODO: we're committing the smart contract artifacts for now, because of problems using hardhat or foundry to generate them in the CI/CD pipeline
 
 # performance metrics
 .million
