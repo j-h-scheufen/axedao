@@ -5,11 +5,11 @@
   "author": "Jan Hendrik Scheufen <j.h.scheufen@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc --noEmit",
+    "build": "tsc --noEmit && forge compile",
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx",
     "format": "prettier --write .",
     "test": "npx hardhat test",
-    "coverage": "hardhat coverage",
+    "coverage": "npx hardhat coverage",
     "deploy": "npx hardhat run --network localhost scripts/deploy.ts"
   },
   "devDependencies": {
