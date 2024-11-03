@@ -12,130 +12,7 @@ importers:
         specifier: ^9.1.5
         version: 9.1.6
 
-  packages/contracts:
-    devDependencies:
-      '@daohaus/baal-contracts':
-        specifier: ^1.2.18
-        version: 1.2.18(bufferutil@4.0.8)(utf-8-validate@5.0.10)
-      '@nomicfoundation/hardhat-chai-matchers':
-        specifier: ^2.0.7
-        version: 2.0.8(@nomicfoundation/hardhat-ethers@3.0.8(ethers@6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10))(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10)))(chai@4.5.0)(ethers@6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10))(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))
-      '@nomicfoundation/hardhat-ethers':
-        specifier: ^3.0.7
-        version: 3.0.8(ethers@6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10))(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))
-      '@nomicfoundation/hardhat-ignition':
-        specifier: ^0.15.5
-        version: 0.15.7(@nomicfoundation/hardhat-verify@2.0.11(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10)))(bufferutil@4.0.8)(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))(utf-8-validate@5.0.10)
-      '@nomicfoundation/hardhat-ignition-ethers':
-        specifier: ^0.15.5
-        version: 0.15.7(@nomicfoundation/hardhat-ethers@3.0.8(ethers@6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10))(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10)))(@nomicfoundation/hardhat-ignition@0.15.7(@nomicfoundation/hardhat-verify@2.0.11(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10)))(bufferutil@4.0.8)(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))(utf-8-validate@5.0.10))(@nomicfoundation/ignition-core@0.15.7(bufferutil@4.0.8)(utf-8-validate@5.0.10))(ethers@6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10))(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))
-      '@nomicfoundation/hardhat-ignition-viem':
-        specifier: ^0.15.5
-        version: 0.15.7(@nomicfoundation/hardhat-ignition@0.15.7(@nomicfoundation/hardhat-verify@2.0.11(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10)))(bufferutil@4.0.8)(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))(utf-8-validate@5.0.10))(@nomicfoundation/hardhat-viem@2.0.3(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))(typescript@5.0.4)(viem@2.21.40(bufferutil@4.0.8)(typescript@5.0.4)(utf-8-validate@5.0.10)(zod@3.23.8))(zod@3.23.8))(@nomicfoundation/ignition-core@0.15.7(bufferutil@4.0.8)(utf-8-validate@5.0.10))(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))(viem@2.21.40(bufferutil@4.0.8)(typescript@5.0.4)(utf-8-validate@5.0.10)(zod@3.23.8))
-      '@nomicfoundation/hardhat-network-helpers':
-        specifier: ^1.0.11
-        version: 1.0.12(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))
-      '@nomicfoundation/hardhat-toolbox':
-        specifier: ^5.0.0
-        version: 5.0.0(4iasnsuwnfuicn65dnrxuawdgu)
-      '@nomicfoundation/hardhat-toolbox-viem':
-        specifier: 3.0.0
-        version: 3.0.0(x5fz7mgtsdqu2h5igj6msv7r4y)
-      '@nomicfoundation/hardhat-verify':
-        specifier: ^2.0.9
-        version: 2.0.11(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))
-      '@nomicfoundation/hardhat-viem':
-        specifier: 2.0.3
-        version: 2.0.3(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))(typescript@5.0.4)(viem@2.21.40(bufferutil@4.0.8)(typescript@5.0.4)(utf-8-validate@5.0.10)(zod@3.23.8))(zod@3.23.8)
-      '@nomicfoundation/ignition-core':
-        specifier: ^0.15.5
-        version: 0.15.7(bufferutil@4.0.8)(utf-8-validate@5.0.10)
-      '@openzeppelin/contracts':
-        specifier: ^5.0.2
-        version: 5.1.0
-      '@typechain/ethers-v6':
-        specifier: ^0.5.1
-        version: 0.5.1(ethers@6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10))(typechain@8.3.2(typescript@5.0.4))(typescript@5.0.4)
-      '@typechain/hardhat':
-        specifier: ^9.1.0
-        version: 9.1.0(@typechain/ethers-v6@0.5.1(ethers@6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10))(typechain@8.3.2(typescript@5.0.4))(typescript@5.0.4))(ethers@6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10))(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))(typechain@8.3.2(typescript@5.0.4))
-      '@types/chai':
-        specifier: ^4.3.18
-        version: 4.3.20
-      '@types/chai-as-promised':
-        specifier: ^7.1.8
-        version: 7.1.8
-      '@types/mocha':
-        specifier: ^10.0.7
-        version: 10.0.9
-      '@types/node':
-        specifier: ^22.5.0
-        version: 22.5.0
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^8.3.0
-        version: 8.12.2(@typescript-eslint/parser@8.12.2(eslint@8.57.1)(typescript@5.0.4))(eslint@8.57.1)(typescript@5.0.4)
-      '@typescript-eslint/parser':
-        specifier: ^8.3.0
-        version: 8.12.2(eslint@8.57.1)(typescript@5.0.4)
-      '@uniswap/v2-core':
-        specifier: ^1.0.1
-        version: 1.0.1
-      '@uniswap/v2-periphery':
-        specifier: ^1.1.0-beta.0
-        version: 1.1.0-beta.0
-      chai:
-        specifier: ^4.5.0
-        version: 4.5.0
-      dotenv:
-        specifier: ^16.4.5
-        version: 16.4.5
-      eslint:
-        specifier: ^8
-        version: 8.57.1
-      eslint-config-prettier:
-        specifier: ^9.1.0
-        version: 9.1.0(eslint@8.57.1)
-      eslint-plugin-react:
-        specifier: ^7.35.0
-        version: 7.37.2(eslint@8.57.1)
-      ethers:
-        specifier: ^6.13.2
-        version: 6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10)
-      hardhat:
-        specifier: ^2.22.9
-        version: 2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10)
-      hardhat-gas-reporter:
-        specifier: ^1.0.10
-        version: 1.0.10(bufferutil@4.0.8)(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))(utf-8-validate@5.0.10)
-      husky:
-        specifier: ^9.1.5
-        version: 9.1.6
-      pre-commit:
-        specifier: ^1.2.2
-        version: 1.2.2
-      prettier:
-        specifier: ^3.3.3
-        version: 3.3.3
-      prettier-plugin-solidity:
-        specifier: ^1.4.1
-        version: 1.4.1(prettier@3.3.3)
-      solidity-coverage:
-        specifier: ^0.8.12
-        version: 0.8.13(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))
-      ts-node:
-        specifier: ^10.9.2
-        version: 10.9.2(@types/node@22.5.0)(typescript@5.0.4)
-      typechain:
-        specifier: ^8.3.2
-        version: 8.3.2(typescript@5.0.4)
-      typescript:
-        specifier: ~5.0.4
-        version: 5.0.4
-      viem:
-        specifier: ^2.20.1
-        version: 2.21.40(bufferutil@4.0.8)(typescript@5.0.4)(utf-8-validate@5.0.10)(zod@3.23.8)
-
-  packages/quilombo:
+  apps/quilombo:
     dependencies:
       '@icons-pack/react-simple-icons':
         specifier: ^10.0.0
@@ -442,7 +319,7 @@ importers:
         specifier: ^5.5.4
         version: 5.5.4
 
-  packages/www:
+  apps/www:
     dependencies:
       '@heroicons/react':
         specifier: ^2.1.5
@@ -607,6 +484,129 @@ importers:
       prettier-plugin-tailwindcss:
         specifier: ^0.6.6
         version: 0.6.8(prettier-plugin-organize-imports@4.1.0(prettier@3.3.3)(typescript@5.5.4))(prettier@3.3.3)
+
+  packages/contracts:
+    devDependencies:
+      '@daohaus/baal-contracts':
+        specifier: ^1.2.18
+        version: 1.2.18(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@nomicfoundation/hardhat-chai-matchers':
+        specifier: ^2.0.7
+        version: 2.0.8(@nomicfoundation/hardhat-ethers@3.0.8(ethers@6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10))(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10)))(chai@4.5.0)(ethers@6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10))(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))
+      '@nomicfoundation/hardhat-ethers':
+        specifier: ^3.0.7
+        version: 3.0.8(ethers@6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10))(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))
+      '@nomicfoundation/hardhat-ignition':
+        specifier: ^0.15.5
+        version: 0.15.7(@nomicfoundation/hardhat-verify@2.0.11(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10)))(bufferutil@4.0.8)(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))(utf-8-validate@5.0.10)
+      '@nomicfoundation/hardhat-ignition-ethers':
+        specifier: ^0.15.5
+        version: 0.15.7(@nomicfoundation/hardhat-ethers@3.0.8(ethers@6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10))(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10)))(@nomicfoundation/hardhat-ignition@0.15.7(@nomicfoundation/hardhat-verify@2.0.11(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10)))(bufferutil@4.0.8)(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))(utf-8-validate@5.0.10))(@nomicfoundation/ignition-core@0.15.7(bufferutil@4.0.8)(utf-8-validate@5.0.10))(ethers@6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10))(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))
+      '@nomicfoundation/hardhat-ignition-viem':
+        specifier: ^0.15.5
+        version: 0.15.7(@nomicfoundation/hardhat-ignition@0.15.7(@nomicfoundation/hardhat-verify@2.0.11(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10)))(bufferutil@4.0.8)(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))(utf-8-validate@5.0.10))(@nomicfoundation/hardhat-viem@2.0.3(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))(typescript@5.0.4)(viem@2.21.40(bufferutil@4.0.8)(typescript@5.0.4)(utf-8-validate@5.0.10)(zod@3.23.8))(zod@3.23.8))(@nomicfoundation/ignition-core@0.15.7(bufferutil@4.0.8)(utf-8-validate@5.0.10))(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))(viem@2.21.40(bufferutil@4.0.8)(typescript@5.0.4)(utf-8-validate@5.0.10)(zod@3.23.8))
+      '@nomicfoundation/hardhat-network-helpers':
+        specifier: ^1.0.11
+        version: 1.0.12(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))
+      '@nomicfoundation/hardhat-toolbox':
+        specifier: ^5.0.0
+        version: 5.0.0(4iasnsuwnfuicn65dnrxuawdgu)
+      '@nomicfoundation/hardhat-toolbox-viem':
+        specifier: 3.0.0
+        version: 3.0.0(x5fz7mgtsdqu2h5igj6msv7r4y)
+      '@nomicfoundation/hardhat-verify':
+        specifier: ^2.0.9
+        version: 2.0.11(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))
+      '@nomicfoundation/hardhat-viem':
+        specifier: 2.0.3
+        version: 2.0.3(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))(typescript@5.0.4)(viem@2.21.40(bufferutil@4.0.8)(typescript@5.0.4)(utf-8-validate@5.0.10)(zod@3.23.8))(zod@3.23.8)
+      '@nomicfoundation/ignition-core':
+        specifier: ^0.15.5
+        version: 0.15.7(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@openzeppelin/contracts':
+        specifier: ^5.0.2
+        version: 5.1.0
+      '@typechain/ethers-v6':
+        specifier: ^0.5.1
+        version: 0.5.1(ethers@6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10))(typechain@8.3.2(typescript@5.0.4))(typescript@5.0.4)
+      '@typechain/hardhat':
+        specifier: ^9.1.0
+        version: 9.1.0(@typechain/ethers-v6@0.5.1(ethers@6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10))(typechain@8.3.2(typescript@5.0.4))(typescript@5.0.4))(ethers@6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10))(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))(typechain@8.3.2(typescript@5.0.4))
+      '@types/chai':
+        specifier: ^4.3.18
+        version: 4.3.20
+      '@types/chai-as-promised':
+        specifier: ^7.1.8
+        version: 7.1.8
+      '@types/mocha':
+        specifier: ^10.0.7
+        version: 10.0.9
+      '@types/node':
+        specifier: ^22.5.0
+        version: 22.5.0
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^8.3.0
+        version: 8.12.2(@typescript-eslint/parser@8.12.2(eslint@8.57.1)(typescript@5.0.4))(eslint@8.57.1)(typescript@5.0.4)
+      '@typescript-eslint/parser':
+        specifier: ^8.3.0
+        version: 8.12.2(eslint@8.57.1)(typescript@5.0.4)
+      '@uniswap/v2-core':
+        specifier: ^1.0.1
+        version: 1.0.1
+      '@uniswap/v2-periphery':
+        specifier: ^1.1.0-beta.0
+        version: 1.1.0-beta.0
+      chai:
+        specifier: ^4.5.0
+        version: 4.5.0
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.5
+      eslint:
+        specifier: ^8
+        version: 8.57.1
+      eslint-config-prettier:
+        specifier: ^9.1.0
+        version: 9.1.0(eslint@8.57.1)
+      eslint-plugin-react:
+        specifier: ^7.35.0
+        version: 7.37.2(eslint@8.57.1)
+      ethers:
+        specifier: ^6.13.2
+        version: 6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      hardhat:
+        specifier: ^2.22.9
+        version: 2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10)
+      hardhat-gas-reporter:
+        specifier: ^1.0.10
+        version: 1.0.10(bufferutil@4.0.8)(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))(utf-8-validate@5.0.10)
+      husky:
+        specifier: ^9.1.5
+        version: 9.1.6
+      pre-commit:
+        specifier: ^1.2.2
+        version: 1.2.2
+      prettier:
+        specifier: ^3.3.3
+        version: 3.3.3
+      prettier-plugin-solidity:
+        specifier: ^1.4.1
+        version: 1.4.1(prettier@3.3.3)
+      solidity-coverage:
+        specifier: ^0.8.12
+        version: 0.8.13(hardhat@2.22.15(bufferutil@4.0.8)(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.0.4))(typescript@5.0.4)(utf-8-validate@5.0.10))
+      ts-node:
+        specifier: ^10.9.2
+        version: 10.9.2(@types/node@22.5.0)(typescript@5.0.4)
+      typechain:
+        specifier: ^8.3.2
+        version: 8.3.2(typescript@5.0.4)
+      typescript:
+        specifier: ~5.0.4
+        version: 5.0.4
+      viem:
+        specifier: ^2.20.1
+        version: 2.21.40(bufferutil@4.0.8)(typescript@5.0.4)(utf-8-validate@5.0.10)(zod@3.23.8)
 
 packages:
 

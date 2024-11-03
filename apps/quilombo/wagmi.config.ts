@@ -5,7 +5,7 @@ export default defineConfig({
   out: 'generated/index.ts',
   plugins: [
     foundry({
-      project: '../contracts',
+      project: '../../packages/contracts',
     }),
     react(),
   ],
