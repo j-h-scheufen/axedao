@@ -10,11 +10,9 @@ import { IERC721 } from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
  */
 interface IAxeMembership is IERC721 {
   struct Candidate {
-    uint256 index;
-    // 31 bytes are enough for max delegation count to a single candidate
-    // and it allows packing the bool into the same storage slot
-    uint248 delegationCount;
-    bool available;
+    uint248 delegationCount; // Current delegation count
+    bool available; // Whether candidate is currently enlisted
+    address next; // Next candidate in same delegation group
   }
 
   error NotAMemberError();
@@ -48,7 +46,14 @@ interface IAxeMembership is IERC721 {
 
   function getCandidate(address candidate) external view returns (Candidate memory);
 
-  function getTopCandidates(uint256 limit) external view returns (address[] memory);
+  /**
+   * @notice Get a page of candidates from the delegation ranking.
+   * @param offset The number of candidates to skip.
+   * @param pageSize The maximum number of candidates to return.
+   * @return The array of candidate addresses for the requested page.
+   * @return hasMore True if there are more candidates after this page.
+   */
+  function getTopCandidates(uint256 offset, uint256 pageSize) external view returns (address[] memory, bool hasMore);
 
   function getNumberOfRankedGroups() external view returns (uint256);
 
@@ -67,4 +72,11 @@ interface IAxeMembership is IERC721 {
   function setDonationToken(address token) external;
 
   function setDonationReceiver(address receiver) external;
+
+  /**
+   * @notice Get the next ranked candidate after the given candidate.
+   * @param _current The current candidate address, or address(0) to get the highest ranked candidate
+   * @return The next candidate in the ranking, or address(0) if no more candidates
+   */
+  function getNextRankedCandidate(address _current) external view returns (address);
 }

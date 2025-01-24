@@ -35,10 +35,12 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
   mapping(address => Candidate) public candidates;
   /// @notice A mapping from a delegator to their delegatee.
   mapping(address => address) public delegations;
-  /// @notice A mapping from delegation count to a list of candidates with that many delegations.
-  mapping(uint256 => address[]) private delegationGroups;
   /// @notice The sorted list of delegation counts higher than 0. Highest count at index 0.
   uint256[] private sortedGroups;
+  /// @notice Maps delegation count to first candidate in that group
+  mapping(uint256 => address) internal groupHeads;
+  /// @notice Maps delegation count to number of candidates in that group
+  mapping(uint256 => uint256) internal groupSizes;
 
   /**
    * @notice Modifier blocking callers who are not members.
@@ -133,8 +135,8 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
       candidates[sender].delegationCount++;
     }
     uint256 groupIndex = candidates[sender].delegationCount;
-    addCandidateToGroup(sender, groupIndex);
-    if (delegationGroups[groupIndex].length == 1) {
+    bool newGroup = addCandidateToGroup(sender, groupIndex) == 1;
+    if (newGroup) {
       insertSortedGroup(groupIndex);
     }
     emit CandidateEnlisted(sender);
@@ -153,8 +155,8 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
 
     candidates[sender].available = false;
     uint256 groupIndex = candidates[sender].delegationCount;
-    removeCandidateFromGroup(sender, groupIndex);
-    if (delegationGroups[groupIndex].length == 0) {
+    bool groupDepleted = removeCandidateFromGroup(sender, groupIndex) == 0;
+    if (groupDepleted) {
       removeSortedGroup(groupIndex);
     }
     emit CandidateResigned(sender);
@@ -206,24 +208,54 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
   }
 
   /**
-   * @notice Get up to <limit> candidates from the top of the delegation ranking.
-   * @param limit The maximum number of candidates to return.
-   * @return The top candidates as array of addresses. If the provided limit is larger than the number of available candidates, the array will be padded with 0x0 addresses!.
+   * @notice Get a page of candidates from the delegation ranking.
+   * @param offset The number of candidates to skip.
+   * @param pageSize The maximum number of candidates to return.
+   * @return The array of candidate addresses for the requested page. The array may contain 0x0 addresses if there are less candidates than requested.
+   * @return hasMore True if there are more candidates after this page.
    */
-  function getTopCandidates(uint256 limit) external view returns (address[] memory) {
-    address[] memory result = new address[](limit);
+  function getTopCandidates(uint256 offset, uint256 pageSize) external view returns (address[] memory, bool) {
+    address[] memory result = new address[](pageSize);
     uint256 count;
-    uint256 groupLength;
+    uint256 total;
     uint256 totalGroups = sortedGroups.length;
-    // Iterate through sorted groups until limit
-    for (uint256 i = 0; i < totalGroups && count < limit; i++) {
-      address[] memory group = delegationGroups[sortedGroups[i]];
-      groupLength = group.length;
-      for (uint256 j = 0; j < groupLength && count < limit; j++) {
-        result[count++] = group[j];
+
+    // Early return if no candidates
+    if (totalGroups == 0) {
+      return (result, false);
+    }
+
+    // Try to find one more than requested to determine hasMore
+    uint256 plusOneCount = pageSize + 1;
+
+    for (uint256 i = 0; i < totalGroups && count < plusOneCount; ) {
+      uint256 groupIndex = sortedGroups[i];
+      address current = groupHeads[groupIndex];
+
+      while (current != address(0) && count < plusOneCount) {
+        if (total++ < offset) {
+          current = candidates[current].next;
+          continue;
+        }
+
+        if (count < pageSize) {
+          result[count] = current;
+        }
+        count++;
+        current = candidates[current].next;
+      }
+      unchecked {
+        i++;
       }
     }
-    return result;
+
+    // If we couldn't fill the page, or if the last position is address(0),
+    // we definitely don't have more results
+    if (count < pageSize || result[pageSize - 1] == address(0)) {
+      return (result, false);
+    }
+
+    return (result, count > pageSize);
   }
 
   /**
@@ -321,7 +353,18 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
    * @return The candidate addresses in the specified group.
    */
   function getRankedGroupAtIndex(uint256 _index) external view returns (address[] memory) {
-    return delegationGroups[sortedGroups[_index]];
+    uint256 delegationCount = sortedGroups[_index];
+    address[] memory result = new address[](groupSizes[delegationCount]);
+    address current = groupHeads[delegationCount];
+
+    for (uint256 i = 0; current != address(0); ) {
+      result[i] = current;
+      current = candidates[current].next;
+      unchecked {
+        i++;
+      }
+    }
+    return result;
   }
 
   /**
@@ -386,14 +429,28 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
    * @return The new length of the group.
    */
   function removeCandidateFromGroup(address _candidate, uint256 _groupIndex) internal returns (uint256) {
-    uint256 index = candidates[_candidate].index;
-    address[] storage group = delegationGroups[_groupIndex];
-    require(index < group.length, "Invalid index");
-    require(group[index] == _candidate, "Candidate to remove not found");
-    group[index] = group[group.length - 1];
-    candidates[group[index]].index = index;
-    group.pop();
-    return group.length;
+    address head = groupHeads[_groupIndex];
+    require(head != address(0), "Group not found");
+
+    // If candidate is head
+    if (head == _candidate) {
+      groupHeads[_groupIndex] = candidates[_candidate].next;
+      candidates[_candidate].next = address(0);
+      return --groupSizes[_groupIndex];
+    }
+
+    // Find candidate in list
+    address current = head;
+    while (current != address(0) && candidates[current].next != _candidate) {
+      current = candidates[current].next;
+    }
+    require(current != address(0), "Candidate not found in group");
+
+    // Remove from list
+    candidates[current].next = candidates[_candidate].next;
+    candidates[_candidate].next = address(0);
+
+    return --groupSizes[_groupIndex];
   }
 
   /**
@@ -403,10 +460,23 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
    * @return The new length of the group.
    */
   function addCandidateToGroup(address _candidate, uint256 _groupIndex) internal returns (uint256) {
-    address[] storage group = delegationGroups[_groupIndex];
-    candidates[_candidate].index = group.length;
-    group.push(_candidate);
-    return group.length;
+    address head = groupHeads[_groupIndex];
+
+    if (head == address(0)) {
+      groupHeads[_groupIndex] = _candidate;
+      candidates[_candidate].next = address(0);
+      groupSizes[_groupIndex] = 1;
+      return 1;
+    }
+
+    address current = head;
+    while (candidates[current].next != address(0)) {
+      current = candidates[current].next;
+    }
+    candidates[current].next = _candidate;
+    candidates[_candidate].next = address(0);
+
+    return ++groupSizes[_groupIndex];
   }
 
   /**
@@ -482,5 +552,35 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
       }
     }
     return left;
+  }
+
+  /**
+   * @notice Get the next ranked candidate after the given candidate.
+   * @param _current The current candidate address, or address(0) to get the highest ranked candidate
+   * @return The next candidate in the ranking, or address(0) if no more candidates
+   */
+  function getNextRankedCandidate(address _current) external view returns (address) {
+    // Return highest ranked candidate if current is 0x0
+    if (_current == address(0)) {
+      if (sortedGroups.length == 0) return address(0);
+      return groupHeads[sortedGroups[0]];
+    }
+
+    // Get current candidate's group
+    uint256 currentCount = candidates[_current].delegationCount;
+
+    // Check next in same group
+    address next = candidates[_current].next;
+    if (next != address(0)) return next;
+
+    // Find current group's index
+    uint256 groupIndex = findSortedGroupsIndex(currentCount);
+
+    // Look for head of next lower group
+    if (groupIndex + 1 < sortedGroups.length) {
+      return groupHeads[sortedGroups[groupIndex + 1]];
+    }
+
+    return address(0);
   }
 }
