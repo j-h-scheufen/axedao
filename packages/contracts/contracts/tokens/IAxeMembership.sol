@@ -10,9 +10,12 @@ import { IERC721 } from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
  */
 interface IAxeMembership is IERC721 {
   struct Candidate {
-    uint248 delegationCount; // Current delegation count
-    bool available; // Whether candidate is currently enlisted
-    address next; // Next candidate in same delegation group
+    /// @notice The number of delegations this candidate currently has
+    uint248 delegationCount;
+    /// @notice Whether this candidate is available for council membership
+    bool available;
+    /// @notice The next candidate in the linked list with the same delegation count
+    address next;
   }
 
   error NotAMemberError();

@@ -222,7 +222,7 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
 
     // Early return if no candidates
     if (totalGroups == 0) {
-      return (result, false);
+      return (new address[](0), false);
     }
 
     // Try to find one more than requested to determine hasMore
@@ -230,6 +230,16 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
 
     for (uint256 i = 0; i < totalGroups && count < plusOneCount; ) {
       uint256 groupIndex = sortedGroups[i];
+      uint256 groupSize = groupSizes[groupIndex];
+      // skip to the group closest to the offset
+      if (total + groupSize <= offset) {
+        total += groupSize;
+        unchecked {
+          i++;
+        }
+        continue;
+      }
+
       address current = groupHeads[groupIndex];
 
       while (current != address(0) && count < plusOneCount) {
