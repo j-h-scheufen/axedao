@@ -16,7 +16,7 @@ type Props = Omit<ModalProps, 'children'> & {
   onSuccess: () => void;
 };
 
-const CouncilEligibilityModal: React.FC<Props> = ({ isOpen, onClose, onOpenChange, onSuccess }: Props) => {
+const EnlistAsCandidateModal: React.FC<Props> = ({ isOpen, onClose, onOpenChange, onSuccess }: Props) => {
   const [isLootAcquisitionExpanded, setIsLootAcquisitionExpanded] = useState<boolean>(false);
   const { balance: lootShares, refetch: refetchLootShares } = useLootShares();
   const hasLootShares = useMemo(() => !!lootShares && lootShares > 0n, [lootShares]);
@@ -109,4 +109,4 @@ const CouncilEligibilityModal: React.FC<Props> = ({ isOpen, onClose, onOpenChang
   );
 };
 
-export default CouncilEligibilityModal;
+export default EnlistAsCandidateModal;

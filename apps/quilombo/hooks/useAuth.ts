@@ -43,7 +43,8 @@ const useSignIn = () => {
   };
 
   // Pre-fetch random nonce when component using the hook is rendered
-  useEffect(() => {
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+    useEffect(() => {
     fetchNonce();
   }, []);
 
@@ -63,8 +64,10 @@ const useSignIn = () => {
         nonce: state.nonce,
       });
 
+      const preparedMessage = message.prepareMessage();
+
       const signature = await signMessageAsync({
-        message: message.prepareMessage(),
+        message: preparedMessage,
       });
 
       const res = await nextAuthSignIn('credentials', {

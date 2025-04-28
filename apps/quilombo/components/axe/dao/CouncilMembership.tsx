@@ -1,27 +1,27 @@
 'use client';
 
-import { useWriteAxeMembershipResignAsCandidate } from '@/generated';
-import { isCurrentUserEnlistedAtom, isCurrentUserOnCouncilAtom } from '@/hooks/state/dao';
 import { Button } from '@nextui-org/button';
 import { useDisclosure } from '@nextui-org/use-disclosure';
 import { useSnackbar } from 'notistack';
 import { useEffect } from 'react';
-import { Address } from 'viem';
+import type { Address } from 'viem';
 import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
-import CouncilEligibilityModal from './CouncilEligibilityModal';
-import VoteDelegation from './VoteDelegation';
 
 import { PATHS } from '@/config/constants';
 import ENV from '@/config/environment';
-import { useReadAxeMembershipIsMember } from '@/generated';
+import { useReadAxeMembershipIsMember, useWriteAxeMembershipResignAsCandidate } from '@/generated';
+import { isCurrentUserEnlistedAtom, isCurrentUserOnCouncilAtom } from '@/hooks/state/dao';
 import { Link } from '@nextui-org/link';
-import { useAtomValue } from 'jotai';
+import { useAtom, useAtomValue } from 'jotai';
+import EnlistAsCandidateModal from './CouncilEligibilityModal';
+import VoteDelegation from './VoteDelegation';
 
 const CandidateActions: React.FC<{
   isLoading: boolean;
   onResign: () => void;
-}> = ({ isLoading, onResign }) => {
-  const isCandidate = useAtomValue(isCurrentUserEnlistedAtom);
+  onEnlist: () => void;
+}> = ({ isLoading, onResign, onEnlist }) => {
+  const [isCandidate] = useAtom(isCurrentUserEnlistedAtom);
   const isOnCouncil = useAtomValue(isCurrentUserOnCouncilAtom);
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   return (
@@ -29,7 +29,7 @@ const CandidateActions: React.FC<{
       {isCandidate ? (
         <div className="flex flex-col gap-2">
           <div className="flex">
-            <span>{isOnCouncil ? 'Council Member' : 'Council Candidate'}</span>
+            <span>You are a Council {isOnCouncil ? 'Member' : 'Candidate'}</span>
           </div>
           <Button color="danger" variant="flat" onPress={onResign} isLoading={isLoading}>
             Resign as Candidate
@@ -40,7 +40,15 @@ const CandidateActions: React.FC<{
           <Button onPress={onOpen} color="primary" className="w-full">
             Enlist as Candidate
           </Button>
-          <CouncilEligibilityModal isOpen={isOpen} onOpenChange={onOpenChange} onClose={onClose} onSuccess={onClose} />
+          <EnlistAsCandidateModal
+            isOpen={isOpen}
+            onOpenChange={onOpenChange}
+            onClose={onClose}
+            onSuccess={() => {
+              onEnlist();
+              onClose();
+            }}
+          />
         </>
       )}
     </div>
@@ -78,7 +86,9 @@ const CouncilMembership: React.FC = () => {
     } else if (resignSuccess) {
       enqueueSnackbar('Successfully resigned as candidate!');
     } else if (resignError) {
-      enqueueSnackbar(`Failed to resign: ${resignError.message}`, { variant: 'error' });
+      enqueueSnackbar(`Failed to resign: ${resignError.message}`, {
+        variant: 'error',
+      });
     }
   }, [resignLoading, resignSuccess, resignError, enqueueSnackbar]);
 
@@ -93,14 +103,14 @@ const CouncilMembership: React.FC = () => {
       ) : (
         <div className="flex flex-col gap-2 sm:gap-4 w-full">
           <p>
-            As a member of Axé DAO, you should either delegate your vote to a candidate or enlist as a candidate
-            yourself and delegate your vote to you.
+            As a member of Axé DAO, you should either delegate your vote to a candidate or enlist as
+            a candidate yourself and delegate your vote to you.
           </p>
           <CandidateActions
             isLoading={resignPending || resignLoading}
             onResign={() => resign({ address: ENV.axeMembershipAddress })}
+            onEnlist={() => {}}
           />
-          <p>Delegate your vote to a candidate to help them get onto the council.</p>
           <VoteDelegation />
         </div>
       )}

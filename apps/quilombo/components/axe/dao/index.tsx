@@ -1,8 +1,9 @@
 export { CouncilBadge, MemberBadge } from './Badges';
 export { default as Council } from './Council';
-export { default as CouncilEligibilityModal } from './CouncilEligibilityModal';
+export { default as EnlistAsCandidateModal } from './CouncilEligibilityModal';
 export { default as CouncilMembership } from './CouncilMembership';
 export { default as CouncilPanel } from './CouncilPanel';
+export { default as CouncilSeatExchange } from './CouncilSeatExchange';
 export { default as DaoMembership } from './DaoMembership';
 export { default as LootAcquisition } from './LootAcquisition';
 export { default as MembershipDonationModal } from './MembershipDonationModal';

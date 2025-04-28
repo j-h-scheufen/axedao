@@ -1,9 +1,63 @@
-import { Address, PublicClient } from 'viem';
+import type { Address, PublicClient } from 'viem';
 
 import ENV from '@/config/environment';
 import { axeMembershipAbi } from '@/generated';
-import { Candidate } from '@/hooks/state/dao';
-import { GetCandidatesParams, QUERY_KEYS } from '.';
+import type { Candidate } from '@/hooks/state/dao';
+import { type GetCandidatesParams, QUERY_KEYS } from '.';
+
+type CandidateResult = {
+  delegationCount: bigint;
+  available: boolean;
+  next: Address;
+};
+
+/**
+ * Returns query options for retrieving paginated top candidates from the AxeMembership contract.
+ * @param offset - The offset to start retrieving candidates from.
+ * @param pageSize - The number of candidates to retrieve.
+ * @param publicClient - The public client to use for the query.
+ * @returns Query options for the getTopCandidates query.
+ */
+export const getTopCandidatesOptions = ({ 
+  offset = 0, 
+  pageSize = 10, 
+  publicClient 
+}: { 
+  offset?: number; 
+  pageSize?: number; 
+  publicClient?: PublicClient 
+}) => {
+  return {
+    enabled: !!publicClient,
+    queryKey: [QUERY_KEYS.membership.getTopCandidates, offset, pageSize],
+    queryFn: async (): Promise<{ addresses: Address[]; hasMore: boolean }> => {
+      try {
+        const result = publicClient ? await publicClient.readContract({
+          address: ENV.axeMembershipAddress,
+          abi: axeMembershipAbi,
+          functionName: 'getTopCandidates',
+          args: [BigInt(offset), BigInt(pageSize)],
+        }) : [[], false];
+
+        // Result is a tuple [address[], boolean]
+        const [addresses, hasMore] = result as [Address[], boolean];
+
+        // Filter out zero addresses
+        const filteredAddresses = addresses.filter(
+          (addr) => addr !== '0x0000000000000000000000000000000000000000'
+        );
+
+        return { 
+          addresses: filteredAddresses, 
+          hasMore 
+        };
+      } catch (error) {
+        console.error('Error fetching top candidates:', error);
+        return { addresses: [], hasMore: false };
+      }
+    },
+  };
+};
 
 /**
  * Returns query options for retrieving a Record of candidates containing their delegation count and
@@ -24,20 +78,20 @@ export const getCandidatesDictionaryOptions = ({ addresses, publicClient }: GetC
         args: [address],
       }));
 
-      const results = publicClient
-        ? await publicClient.multicall({
-            contracts: multicallCandidates,
-          })
-        : [];
+      const results = publicClient ? await publicClient.multicall({
+        contracts: multicallCandidates,
+      }) : [];
 
       return addresses.reduce(
         (acc, address, index) => {
           const result = results[index].result;
+
           if (result && typeof result === 'object') {
+            const typedResult = result as CandidateResult;
             acc[address as Address] = {
               walletAddress: address as Address,
-              delegationCount: Number(result[0]),
-              available: result[1] as boolean,
+              delegationCount: Number(typedResult.delegationCount),
+              available: typedResult.available,
             };
           }
           return acc;
@@ -58,29 +112,28 @@ export const getCandidateAddressesOptions = ({ publicClient }: { publicClient?: 
   enabled: !!publicClient,
   queryKey: [QUERY_KEYS.membership.getAllCandidateAddresses],
   queryFn: async (): Promise<Address[]> => {
-    if (!publicClient) return [];
 
     const [enlistLogs, resignLogs] = await Promise.all([
-      publicClient.getContractEvents({
+      publicClient ? publicClient.getContractEvents({
         address: ENV.axeMembershipAddress,
         abi: axeMembershipAbi,
         eventName: 'CandidateEnlisted',
         fromBlock: 'earliest',
-      }),
-      publicClient.getContractEvents({
+      }) : [],
+      publicClient ? publicClient.getContractEvents({
         address: ENV.axeMembershipAddress,
         abi: axeMembershipAbi,
         eventName: 'CandidateResigned',
         fromBlock: 'earliest',
-      }),
+      }) : [],
     ]);
 
     // Get all unique addresses that were ever candidates
     const uniqueCandidates = new Set<Address>();
-    [...enlistLogs, ...resignLogs].forEach((log) => {
+    for (const log of [...enlistLogs, ...resignLogs]) {
       const args = log.args as { candidate: Address };
       uniqueCandidates.add(args.candidate);
-    });
+    }
 
     return Array.from(uniqueCandidates);
   },

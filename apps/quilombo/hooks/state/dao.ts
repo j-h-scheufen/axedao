@@ -1,7 +1,7 @@
 'use client';
 
 import { add, divide, from, greaterThan, multiply } from 'dnum';
-import { atom, useAtom } from 'jotai';
+import { atom, useAtom, useAtomValue } from 'jotai';
 import { atomWithQuery } from 'jotai-tanstack-query';
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { useAccount, usePublicClient } from 'wagmi';
@@ -22,12 +22,12 @@ import {
 } from '@/generated';
 import { getCandidateAddressesOptions, getCandidatesDictionaryOptions } from '@/query/dao';
 import { searchUsersByAddressesOptions, useSearchUsersByAddresses } from '@/query/user';
-import { User } from '@/types/model';
+import type { User } from '@/types/model';
 import { enqueueSnackbar } from 'notistack';
-import { Address } from 'viem';
+import type { Address } from 'viem';
 import { useWaitForTransactionReceipt } from 'wagmi';
 import { currentUserAtom, currentUserWalletAddressAtom } from './currentUser';
-import { publicClientAtom } from './web3';
+import { publicClientAtom, useInitializePublicClient } from './web3';
 
 // copied from baal-sdk
 export const PROPOSAL_STATUS = {
@@ -106,11 +106,12 @@ export const activeProposalsAtom = atom<Proposal[]>((get) => {
   return proposals.filter((proposal) => isProposalActive(proposal.status));
 });
 
-export const candidateAddressesAtom = atomWithQuery((get) =>
-  getCandidateAddressesOptions({
-    publicClient: get(publicClientAtom) || undefined,
-  }),
-);
+export const candidateAddressesAtom = atomWithQuery((get) => {
+  const publicClient = get(publicClientAtom);
+  return getCandidateAddressesOptions({
+    publicClient: publicClient || undefined,
+  });
+});
 
 export const candidatesDictionaryAtom = atomWithQuery((get) =>
   getCandidatesDictionaryOptions({
@@ -120,9 +121,10 @@ export const candidatesDictionaryAtom = atomWithQuery((get) =>
 );
 
 export const isCurrentUserEnlistedAtom = atom((get) => {
-  const address = get(currentUserAtom)?.data?.walletAddress;
-  const { data: dictionary } = get(candidatesDictionaryAtom);
-  return dictionary?.[address as Address]?.available;
+  const currentUser = get(currentUserAtom);
+  const dictionary = get(candidatesDictionaryAtom);
+  const address = currentUser?.data?.walletAddress;
+  return dictionary?.data?.[address as Address]?.available;
 });
 
 export const isCurrentUserOnCouncilAtom = atom((get) => {
@@ -149,6 +151,11 @@ export const candidatesAtom = atom((get) => {
     ...user,
     ...dictionary[user.walletAddress as Address],
   })) as CandidateUser[];
+});
+
+export const sortedCandidatesAtom = atom((get) => {
+  const candidates = get(candidatesAtom);
+  return [...candidates].sort((a, b) => b.delegationCount - a.delegationCount);
 });
 
 export const councilAtom = atom<CouncilState>({
@@ -237,7 +244,7 @@ export function useProposals() {
       const proposalResults = new Map<number, Proposal>();
 
       // First, record all submitted proposals (initial state)
-      submitLogs.forEach((log) => {
+      for (const log of submitLogs) {
         const args = log.args as {
           proposal: bigint;
           proposalDataHash: `0x${string}`;
@@ -260,7 +267,7 @@ export function useProposals() {
           status: PROPOSAL_STATUS.VOTING, // Initial state is always voting when we see the event
           timestamp,
         });
-      });
+      }
 
       // First, get voting results for all proposals
       // TODO: in the future, the number of historical proposals will be too large to fetch all at once,
@@ -289,7 +296,7 @@ export function useProposals() {
       const quorumRequirement = multiply(totalSharesDnum, quorumDecimal);
 
       // Update status based on events and voting results
-      proposalResults.forEach((proposal) => {
+      for (const proposal of proposalResults.values()) {
         const voteResult = votingResults.find((v) => v.id === proposal.id)?.result;
         const nowSeconds = Math.floor(Date.now() / 1000);
         const votingEndTime = proposal.timestamp + proposal.votingPeriod;
@@ -313,24 +320,26 @@ export function useProposals() {
           }
           proposal.status = status;
         }
-      });
+      }
 
       // Apply final states from events last (these override any other status)
-      cancelLogs.forEach((log) => {
+      for (const log of cancelLogs) {
         const args = log.args as { proposal: bigint };
         const id = Number(args.proposal);
         if (proposalResults.has(id)) {
+          // biome-ignore lint/style/noNonNullAssertion: <explanation>
           proposalResults.get(id)!.status = PROPOSAL_STATUS.CANCELLED;
         }
-      });
+      }
 
-      processLogs.forEach((log) => {
+      for (const log of processLogs) {
         const args = log.args as { proposal: bigint; passed: boolean };
         const id = Number(args.proposal);
         if (proposalResults.has(id)) {
+          // biome-ignore lint/style/noNonNullAssertion: <explanation>
           proposalResults.get(id)!.status = args.passed ? PROPOSAL_STATUS.PROCESSED : PROPOSAL_STATUS.DEFEATED;
         }
-      });
+      }
 
       // Convert to sorted array before storing
       const sortedProposals = Array.from(proposalResults.values()).sort((a, b) => Number(b.id - a.id)); // Sort by descending ID
@@ -484,6 +493,8 @@ export function useCouncil() {
 
 // Hook to trigger initial loading
 export function useInitializeCouncilState() {
+  useInitializePublicClient();
+
   const { data: incomingAddresses } = useReadAxeMembershipCouncilGetJoiningMembers({
     address: ENV.axeMembershipCouncilAddress,
   });

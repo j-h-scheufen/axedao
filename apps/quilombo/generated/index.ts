@@ -2051,9 +2051,9 @@ export const axeMembershipAbi = [
     inputs: [{ name: '', internalType: 'address', type: 'address' }],
     name: 'candidates',
     outputs: [
-      { name: 'index', internalType: 'uint256', type: 'uint256' },
       { name: 'delegationCount', internalType: 'uint248', type: 'uint248' },
       { name: 'available', internalType: 'bool', type: 'bool' },
+      { name: 'next', internalType: 'address', type: 'address' },
     ],
     stateMutability: 'view',
   },
@@ -2102,9 +2102,9 @@ export const axeMembershipAbi = [
         internalType: 'struct IAxeMembership.Candidate',
         type: 'tuple',
         components: [
-          { name: 'index', internalType: 'uint256', type: 'uint256' },
           { name: 'delegationCount', internalType: 'uint248', type: 'uint248' },
           { name: 'available', internalType: 'bool', type: 'bool' },
+          { name: 'next', internalType: 'address', type: 'address' },
         ],
       },
     ],
@@ -2140,6 +2140,13 @@ export const axeMembershipAbi = [
   },
   {
     type: 'function',
+    inputs: [{ name: '_current', internalType: 'address', type: 'address' }],
+    name: 'getNextRankedCandidate',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
     inputs: [],
     name: 'getNumberOfRankedGroups',
     outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
@@ -2157,6 +2164,19 @@ export const axeMembershipAbi = [
     inputs: [],
     name: 'getTokenDonationAmount',
     outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'offset', internalType: 'uint256', type: 'uint256' },
+      { name: 'pageSize', internalType: 'uint256', type: 'uint256' },
+    ],
+    name: 'getTopCandidates',
+    outputs: [
+      { name: '', internalType: 'address[]', type: 'address[]' },
+      { name: '', internalType: 'bool', type: 'bool' },
+    ],
     stateMutability: 'view',
   },
   {
@@ -2441,6 +2461,25 @@ export const axeMembershipAbi = [
     anonymous: false,
     inputs: [
       {
+        name: 'member',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'memberId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+    ],
+    name: 'ObrigadoMuitoAxe',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
         name: 'previousOwner',
         internalType: 'address',
         type: 'address',
@@ -2513,6 +2552,7 @@ export const axeMembershipAbi = [
     inputs: [{ name: 'member', internalType: 'address', type: 'address' }],
     name: 'AlreadyMemberError',
   },
+  { type: 'error', inputs: [], name: 'DonationOptionNotAvailable' },
   {
     type: 'error',
     inputs: [
@@ -2983,14 +3023,7 @@ export const axeMembershipCouncilAbi = [
   {
     type: 'function',
     inputs: [],
-    name: 'FORMATION_COOLDOWN',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [],
-    name: 'MIN_COUNCIL_SIZE',
+    name: 'UPDATE_COOLDOWN',
     outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
     stateMutability: 'view',
   },
@@ -3020,7 +3053,7 @@ export const axeMembershipCouncilAbi = [
   {
     type: 'function',
     inputs: [],
-    name: 'councilSize',
+    name: 'councilLimit',
     outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
     stateMutability: 'view',
   },
@@ -3034,7 +3067,7 @@ export const axeMembershipCouncilAbi = [
   {
     type: 'function',
     inputs: [],
-    name: 'getCouncilSize',
+    name: 'getCurrentCouncilSize',
     outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
     stateMutability: 'view',
   },
@@ -3058,6 +3091,13 @@ export const axeMembershipCouncilAbi = [
     name: 'getLeavingMembers',
     outputs: [{ name: '', internalType: 'address[]', type: 'address[]' }],
     stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: '_newLimit', internalType: 'uint256', type: 'uint256' }],
+    name: 'increaseCouncilLimit',
+    outputs: [],
+    stateMutability: 'nonpayable',
   },
   {
     type: 'function',
@@ -3098,13 +3138,6 @@ export const axeMembershipCouncilAbi = [
   },
   {
     type: 'function',
-    inputs: [{ name: '_newSize', internalType: 'uint256', type: 'uint256' }],
-    name: 'setCouncilSize',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
     inputs: [{ name: 'newOwner', internalType: 'address', type: 'address' }],
     name: 'transferOwnership',
     outputs: [],
@@ -3115,13 +3148,13 @@ export const axeMembershipCouncilAbi = [
     anonymous: false,
     inputs: [
       {
-        name: 'newSize',
+        name: 'newLimit',
         internalType: 'uint256',
         type: 'uint256',
         indexed: false,
       },
     ],
-    name: 'CouncilSizeChanged',
+    name: 'CouncilLimitIncreased',
   },
   {
     type: 'event',
@@ -3186,7 +3219,6 @@ export const axeMembershipCouncilAbi = [
     ],
     name: 'SeatClaimed',
   },
-  { type: 'error', inputs: [], name: 'FormationCooldownError' },
   {
     type: 'error',
     inputs: [{ name: 'candidate', internalType: 'address', type: 'address' }],
@@ -3203,7 +3235,7 @@ export const axeMembershipCouncilAbi = [
       { name: 'minSize', internalType: 'uint256', type: 'uint256' },
       { name: 'requestedSize', internalType: 'uint256', type: 'uint256' },
     ],
-    name: 'InvalidCouncilSize',
+    name: 'InvalidCouncilLimit',
   },
   {
     type: 'error',
@@ -3234,6 +3266,7 @@ export const axeMembershipCouncilAbi = [
     name: 'OwnableUnauthorizedAccount',
   },
   { type: 'error', inputs: [], name: 'ReentrancyGuardReentrantCall' },
+  { type: 'error', inputs: [], name: 'UpdateCooldownInEffect' },
 ] as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -5866,9 +5899,9 @@ export const iAxeMembershipAbi = [
         internalType: 'struct IAxeMembership.Candidate',
         type: 'tuple',
         components: [
-          { name: 'index', internalType: 'uint256', type: 'uint256' },
           { name: 'delegationCount', internalType: 'uint248', type: 'uint248' },
           { name: 'available', internalType: 'bool', type: 'bool' },
+          { name: 'next', internalType: 'address', type: 'address' },
         ],
       },
     ],
@@ -5904,6 +5937,13 @@ export const iAxeMembershipAbi = [
   },
   {
     type: 'function',
+    inputs: [{ name: '_current', internalType: 'address', type: 'address' }],
+    name: 'getNextRankedCandidate',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
     inputs: [],
     name: 'getNumberOfRankedGroups',
     outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
@@ -5921,6 +5961,19 @@ export const iAxeMembershipAbi = [
     inputs: [],
     name: 'getTokenDonationAmount',
     outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'offset', internalType: 'uint256', type: 'uint256' },
+      { name: 'pageSize', internalType: 'uint256', type: 'uint256' },
+    ],
+    name: 'getTopCandidates',
+    outputs: [
+      { name: '', internalType: 'address[]', type: 'address[]' },
+      { name: 'hasMore', internalType: 'bool', type: 'bool' },
+    ],
     stateMutability: 'view',
   },
   {
@@ -6143,6 +6196,25 @@ export const iAxeMembershipAbi = [
     type: 'event',
     anonymous: false,
     inputs: [
+      {
+        name: 'member',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'memberId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+    ],
+    name: 'ObrigadoMuitoAxe',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
       { name: 'from', internalType: 'address', type: 'address', indexed: true },
       { name: 'to', internalType: 'address', type: 'address', indexed: true },
       {
@@ -6197,6 +6269,7 @@ export const iAxeMembershipAbi = [
     inputs: [{ name: 'member', internalType: 'address', type: 'address' }],
     name: 'AlreadyMemberError',
   },
+  { type: 'error', inputs: [], name: 'DonationOptionNotAvailable' },
   {
     type: 'error',
     inputs: [
@@ -6239,7 +6312,7 @@ export const iAxeMembershipCouncilAbi = [
   {
     type: 'function',
     inputs: [],
-    name: 'getCouncilSize',
+    name: 'getCurrentCouncilSize',
     outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
     stateMutability: 'view',
   },
@@ -6266,6 +6339,13 @@ export const iAxeMembershipCouncilAbi = [
   },
   {
     type: 'function',
+    inputs: [{ name: 'newLimit', internalType: 'uint256', type: 'uint256' }],
+    name: 'increaseCouncilLimit',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
     inputs: [],
     name: 'requestCouncilUpdate',
     outputs: [],
@@ -6276,13 +6356,13 @@ export const iAxeMembershipCouncilAbi = [
     anonymous: false,
     inputs: [
       {
-        name: 'newSize',
+        name: 'newLimit',
         internalType: 'uint256',
         type: 'uint256',
         indexed: false,
       },
     ],
-    name: 'CouncilSizeChanged',
+    name: 'CouncilLimitIncreased',
   },
   {
     type: 'event',
@@ -6328,7 +6408,6 @@ export const iAxeMembershipCouncilAbi = [
     ],
     name: 'SeatClaimed',
   },
-  { type: 'error', inputs: [], name: 'FormationCooldownError' },
   {
     type: 'error',
     inputs: [{ name: 'candidate', internalType: 'address', type: 'address' }],
@@ -6345,7 +6424,7 @@ export const iAxeMembershipCouncilAbi = [
       { name: 'minSize', internalType: 'uint256', type: 'uint256' },
       { name: 'requestedSize', internalType: 'uint256', type: 'uint256' },
     ],
-    name: 'InvalidCouncilSize',
+    name: 'InvalidCouncilLimit',
   },
   {
     type: 'error',
@@ -6365,6 +6444,7 @@ export const iAxeMembershipCouncilAbi = [
     inputs: [{ name: 'candidate', internalType: 'address', type: 'address' }],
     name: 'OnlyReplacementAllowed',
   },
+  { type: 'error', inputs: [], name: 'UpdateCooldownInEffect' },
 ] as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -12469,6 +12549,15 @@ export const useReadAxeMembershipGetNativeDonationAmount =
   })
 
 /**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link axeMembershipAbi}__ and `functionName` set to `"getNextRankedCandidate"`
+ */
+export const useReadAxeMembershipGetNextRankedCandidate =
+  /*#__PURE__*/ createUseReadContract({
+    abi: axeMembershipAbi,
+    functionName: 'getNextRankedCandidate',
+  })
+
+/**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link axeMembershipAbi}__ and `functionName` set to `"getNumberOfRankedGroups"`
  */
 export const useReadAxeMembershipGetNumberOfRankedGroups =
@@ -12493,6 +12582,15 @@ export const useReadAxeMembershipGetTokenDonationAmount =
   /*#__PURE__*/ createUseReadContract({
     abi: axeMembershipAbi,
     functionName: 'getTokenDonationAmount',
+  })
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link axeMembershipAbi}__ and `functionName` set to `"getTopCandidates"`
+ */
+export const useReadAxeMembershipGetTopCandidates =
+  /*#__PURE__*/ createUseReadContract({
+    abi: axeMembershipAbi,
+    functionName: 'getTopCandidates',
   })
 
 /**
@@ -12910,6 +13008,15 @@ export const useWatchAxeMembershipNativeDonationReceivedEvent =
   })
 
 /**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link axeMembershipAbi}__ and `eventName` set to `"ObrigadoMuitoAxe"`
+ */
+export const useWatchAxeMembershipObrigadoMuitoAxeEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: axeMembershipAbi,
+    eventName: 'ObrigadoMuitoAxe',
+  })
+
+/**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link axeMembershipAbi}__ and `eventName` set to `"OwnershipTransferred"`
  */
 export const useWatchAxeMembershipOwnershipTransferredEvent =
@@ -13249,21 +13356,12 @@ export const useReadAxeMembershipCouncil = /*#__PURE__*/ createUseReadContract({
 })
 
 /**
- * Wraps __{@link useReadContract}__ with `abi` set to __{@link axeMembershipCouncilAbi}__ and `functionName` set to `"FORMATION_COOLDOWN"`
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link axeMembershipCouncilAbi}__ and `functionName` set to `"UPDATE_COOLDOWN"`
  */
-export const useReadAxeMembershipCouncilFormationCooldown =
+export const useReadAxeMembershipCouncilUpdateCooldown =
   /*#__PURE__*/ createUseReadContract({
     abi: axeMembershipCouncilAbi,
-    functionName: 'FORMATION_COOLDOWN',
-  })
-
-/**
- * Wraps __{@link useReadContract}__ with `abi` set to __{@link axeMembershipCouncilAbi}__ and `functionName` set to `"MIN_COUNCIL_SIZE"`
- */
-export const useReadAxeMembershipCouncilMinCouncilSize =
-  /*#__PURE__*/ createUseReadContract({
-    abi: axeMembershipCouncilAbi,
-    functionName: 'MIN_COUNCIL_SIZE',
+    functionName: 'UPDATE_COOLDOWN',
   })
 
 /**
@@ -13285,12 +13383,12 @@ export const useReadAxeMembershipCouncilCanRequestCouncilUpdate =
   })
 
 /**
- * Wraps __{@link useReadContract}__ with `abi` set to __{@link axeMembershipCouncilAbi}__ and `functionName` set to `"councilSize"`
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link axeMembershipCouncilAbi}__ and `functionName` set to `"councilLimit"`
  */
-export const useReadAxeMembershipCouncilCouncilSize =
+export const useReadAxeMembershipCouncilCouncilLimit =
   /*#__PURE__*/ createUseReadContract({
     abi: axeMembershipCouncilAbi,
-    functionName: 'councilSize',
+    functionName: 'councilLimit',
   })
 
 /**
@@ -13303,12 +13401,12 @@ export const useReadAxeMembershipCouncilGetCouncilMemberAtIndex =
   })
 
 /**
- * Wraps __{@link useReadContract}__ with `abi` set to __{@link axeMembershipCouncilAbi}__ and `functionName` set to `"getCouncilSize"`
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link axeMembershipCouncilAbi}__ and `functionName` set to `"getCurrentCouncilSize"`
  */
-export const useReadAxeMembershipCouncilGetCouncilSize =
+export const useReadAxeMembershipCouncilGetCurrentCouncilSize =
   /*#__PURE__*/ createUseReadContract({
     abi: axeMembershipCouncilAbi,
-    functionName: 'getCouncilSize',
+    functionName: 'getCurrentCouncilSize',
   })
 
 /**
@@ -13381,6 +13479,15 @@ export const useWriteAxeMembershipCouncilClaimSeat =
   })
 
 /**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link axeMembershipCouncilAbi}__ and `functionName` set to `"increaseCouncilLimit"`
+ */
+export const useWriteAxeMembershipCouncilIncreaseCouncilLimit =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: axeMembershipCouncilAbi,
+    functionName: 'increaseCouncilLimit',
+  })
+
+/**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link axeMembershipCouncilAbi}__ and `functionName` set to `"renounceOwnership"`
  */
 export const useWriteAxeMembershipCouncilRenounceOwnership =
@@ -13396,15 +13503,6 @@ export const useWriteAxeMembershipCouncilRequestCouncilUpdate =
   /*#__PURE__*/ createUseWriteContract({
     abi: axeMembershipCouncilAbi,
     functionName: 'requestCouncilUpdate',
-  })
-
-/**
- * Wraps __{@link useWriteContract}__ with `abi` set to __{@link axeMembershipCouncilAbi}__ and `functionName` set to `"setCouncilSize"`
- */
-export const useWriteAxeMembershipCouncilSetCouncilSize =
-  /*#__PURE__*/ createUseWriteContract({
-    abi: axeMembershipCouncilAbi,
-    functionName: 'setCouncilSize',
   })
 
 /**
@@ -13432,6 +13530,15 @@ export const useSimulateAxeMembershipCouncilClaimSeat =
   })
 
 /**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link axeMembershipCouncilAbi}__ and `functionName` set to `"increaseCouncilLimit"`
+ */
+export const useSimulateAxeMembershipCouncilIncreaseCouncilLimit =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: axeMembershipCouncilAbi,
+    functionName: 'increaseCouncilLimit',
+  })
+
+/**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link axeMembershipCouncilAbi}__ and `functionName` set to `"renounceOwnership"`
  */
 export const useSimulateAxeMembershipCouncilRenounceOwnership =
@@ -13450,15 +13557,6 @@ export const useSimulateAxeMembershipCouncilRequestCouncilUpdate =
   })
 
 /**
- * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link axeMembershipCouncilAbi}__ and `functionName` set to `"setCouncilSize"`
- */
-export const useSimulateAxeMembershipCouncilSetCouncilSize =
-  /*#__PURE__*/ createUseSimulateContract({
-    abi: axeMembershipCouncilAbi,
-    functionName: 'setCouncilSize',
-  })
-
-/**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link axeMembershipCouncilAbi}__ and `functionName` set to `"transferOwnership"`
  */
 export const useSimulateAxeMembershipCouncilTransferOwnership =
@@ -13474,12 +13572,12 @@ export const useWatchAxeMembershipCouncilEvent =
   /*#__PURE__*/ createUseWatchContractEvent({ abi: axeMembershipCouncilAbi })
 
 /**
- * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link axeMembershipCouncilAbi}__ and `eventName` set to `"CouncilSizeChanged"`
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link axeMembershipCouncilAbi}__ and `eventName` set to `"CouncilLimitIncreased"`
  */
-export const useWatchAxeMembershipCouncilCouncilSizeChangedEvent =
+export const useWatchAxeMembershipCouncilCouncilLimitIncreasedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
     abi: axeMembershipCouncilAbi,
-    eventName: 'CouncilSizeChanged',
+    eventName: 'CouncilLimitIncreased',
   })
 
 /**
@@ -16234,6 +16332,15 @@ export const useReadIAxeMembershipGetNativeDonationAmount =
   })
 
 /**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link iAxeMembershipAbi}__ and `functionName` set to `"getNextRankedCandidate"`
+ */
+export const useReadIAxeMembershipGetNextRankedCandidate =
+  /*#__PURE__*/ createUseReadContract({
+    abi: iAxeMembershipAbi,
+    functionName: 'getNextRankedCandidate',
+  })
+
+/**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link iAxeMembershipAbi}__ and `functionName` set to `"getNumberOfRankedGroups"`
  */
 export const useReadIAxeMembershipGetNumberOfRankedGroups =
@@ -16258,6 +16365,15 @@ export const useReadIAxeMembershipGetTokenDonationAmount =
   /*#__PURE__*/ createUseReadContract({
     abi: iAxeMembershipAbi,
     functionName: 'getTokenDonationAmount',
+  })
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link iAxeMembershipAbi}__ and `functionName` set to `"getTopCandidates"`
+ */
+export const useReadIAxeMembershipGetTopCandidates =
+  /*#__PURE__*/ createUseReadContract({
+    abi: iAxeMembershipAbi,
+    functionName: 'getTopCandidates',
   })
 
 /**
@@ -16602,6 +16718,15 @@ export const useWatchIAxeMembershipNativeDonationReceivedEvent =
   })
 
 /**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link iAxeMembershipAbi}__ and `eventName` set to `"ObrigadoMuitoAxe"`
+ */
+export const useWatchIAxeMembershipObrigadoMuitoAxeEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: iAxeMembershipAbi,
+    eventName: 'ObrigadoMuitoAxe',
+  })
+
+/**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link iAxeMembershipAbi}__ and `eventName` set to `"Transfer"`
  */
 export const useWatchIAxeMembershipTransferEvent =
@@ -16654,12 +16779,12 @@ export const useReadIAxeMembershipCouncilGetCouncilMemberAtIndex =
   })
 
 /**
- * Wraps __{@link useReadContract}__ with `abi` set to __{@link iAxeMembershipCouncilAbi}__ and `functionName` set to `"getCouncilSize"`
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link iAxeMembershipCouncilAbi}__ and `functionName` set to `"getCurrentCouncilSize"`
  */
-export const useReadIAxeMembershipCouncilGetCouncilSize =
+export const useReadIAxeMembershipCouncilGetCurrentCouncilSize =
   /*#__PURE__*/ createUseReadContract({
     abi: iAxeMembershipCouncilAbi,
-    functionName: 'getCouncilSize',
+    functionName: 'getCurrentCouncilSize',
   })
 
 /**
@@ -16705,6 +16830,15 @@ export const useWriteIAxeMembershipCouncilClaimSeat =
   })
 
 /**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link iAxeMembershipCouncilAbi}__ and `functionName` set to `"increaseCouncilLimit"`
+ */
+export const useWriteIAxeMembershipCouncilIncreaseCouncilLimit =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: iAxeMembershipCouncilAbi,
+    functionName: 'increaseCouncilLimit',
+  })
+
+/**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link iAxeMembershipCouncilAbi}__ and `functionName` set to `"requestCouncilUpdate"`
  */
 export const useWriteIAxeMembershipCouncilRequestCouncilUpdate =
@@ -16729,6 +16863,15 @@ export const useSimulateIAxeMembershipCouncilClaimSeat =
   })
 
 /**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link iAxeMembershipCouncilAbi}__ and `functionName` set to `"increaseCouncilLimit"`
+ */
+export const useSimulateIAxeMembershipCouncilIncreaseCouncilLimit =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: iAxeMembershipCouncilAbi,
+    functionName: 'increaseCouncilLimit',
+  })
+
+/**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link iAxeMembershipCouncilAbi}__ and `functionName` set to `"requestCouncilUpdate"`
  */
 export const useSimulateIAxeMembershipCouncilRequestCouncilUpdate =
@@ -16744,12 +16887,12 @@ export const useWatchIAxeMembershipCouncilEvent =
   /*#__PURE__*/ createUseWatchContractEvent({ abi: iAxeMembershipCouncilAbi })
 
 /**
- * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link iAxeMembershipCouncilAbi}__ and `eventName` set to `"CouncilSizeChanged"`
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link iAxeMembershipCouncilAbi}__ and `eventName` set to `"CouncilLimitIncreased"`
  */
-export const useWatchIAxeMembershipCouncilCouncilSizeChangedEvent =
+export const useWatchIAxeMembershipCouncilCouncilLimitIncreasedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
     abi: iAxeMembershipCouncilAbi,
-    eventName: 'CouncilSizeChanged',
+    eventName: 'CouncilLimitIncreased',
   })
 
 /**

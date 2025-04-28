@@ -1,6 +1,6 @@
 import { defineConfig } from '@wagmi/cli';
 import { etherscan, foundry, react } from '@wagmi/cli/plugins';
-import { Address } from 'viem';
+import type { Address } from 'viem';
 import { sepolia } from 'viem/chains';
 
 const etherscanApiKey = process.env.NEXT_PUBLIC_ETHERSCAN_API_KEY;

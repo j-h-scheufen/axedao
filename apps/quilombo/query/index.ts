@@ -1,7 +1,7 @@
-import { UseMutationResult } from '@tanstack/react-query';
-import { PublicClient } from 'viem';
+import type { UseMutationResult } from '@tanstack/react-query';
+import type { PublicClient } from 'viem';
 
-import { Group, User } from '@/types/model';
+import type { Group, User } from '@/types/model';
 export * as profile from './currentUser';
 export * as group from './group';
 export * as location from './location';
@@ -33,8 +33,9 @@ export const QUERY_KEYS = {
     getCities: 'location.getCities',
   },
   membership: {
-    getCandidates: 'membership.getCandidates',
-    getAllCandidateAddresses: 'membership.getAllCandidateAddresses',
+    getAllCandidateAddresses: 'getAllCandidateAddresses',
+    getCandidates: 'getCandidates',
+    getTopCandidates: 'getTopCandidates',
   },
 } as const;
 
