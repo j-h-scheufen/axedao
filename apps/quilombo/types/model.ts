@@ -1,5 +1,5 @@
-import { GROUP_ROLES, IMAGE_TYPES } from '@/config/constants';
-import { SelectGroup, SelectUser } from '../db/schema';
+import type { GROUP_ROLES, IMAGE_TYPES } from '@/config/constants';
+import type { SelectGroup, SelectUser } from '../db/schema';
 
 /**
  * This file defines API and app-level types that are wrapping the DB schema types in order to create a layer of separation

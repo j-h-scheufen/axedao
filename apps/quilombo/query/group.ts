@@ -9,9 +9,9 @@ import {
 import axios from 'axios';
 
 import { QueryConfig } from '@/config/constants';
-import { CreateNewGroupForm, SearchParams, UpdateGroupForm } from '@/config/validation-schema';
-import { Group, GroupSearchResult, User } from '@/types/model';
-import { FileUploadParams, GroupAndUserParams, QUERY_KEYS, UseFileUploadMutation } from '.';
+import type { CreateNewGroupForm, SearchParams, UpdateGroupForm } from '@/config/validation-schema';
+import type { Group, GroupSearchResult, User } from '@/types/model';
+import { type FileUploadParams, type GroupAndUserParams, QUERY_KEYS, type UseFileUploadMutation } from '.';
 
 /**
  * Note that the various fetch options are exported as read-only objects in order to be used by atomWithQuery.
@@ -96,9 +96,8 @@ export const updateLogo = async ({ ownerId, file }: FileUploadParams): Promise<U
     return axios
       .post(url, data, { headers: { 'Content-Type': 'multipart/form-data' } })
       .then((response) => response.data);
-  } else {
-    return axios.delete(url).then((response) => response.data);
   }
+  return axios.delete(url).then((response) => response.data);
 };
 
 export const updateBanner = async ({ ownerId, file }: FileUploadParams): Promise<User> => {
@@ -109,9 +108,8 @@ export const updateBanner = async ({ ownerId, file }: FileUploadParams): Promise
     return axios
       .post(url, data, { headers: { 'Content-Type': 'multipart/form-data' } })
       .then((response) => response.data);
-  } else {
-    return axios.delete(url).then((response) => response.data);
   }
+  return axios.delete(url).then((response) => response.data);
 };
 
 // HOOKS
@@ -142,6 +140,7 @@ export const useDeleteGroupMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (groupId: string) => deleteGroup(groupId),
+    // biome-ignore lint/correctness/noUnusedVariables: <explanation>
     onSuccess: (data, variables) => {
       // The current user's groupId has changed as part of deleting the group
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.currentUser.getUser] });

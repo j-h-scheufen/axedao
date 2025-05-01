@@ -1,9 +1,9 @@
 import { atom } from 'jotai';
 import { atomWithQuery } from 'jotai-tanstack-query';
 
-import { SocialLink } from '@/db/schema';
+import type { SocialLink } from '@/db/schema';
 import { fetchGroupAdminsOptions, fetchGroupMembersOptions, fetchGroupOptions } from '@/query/group';
-import { Group, User } from '@/types/model';
+import type { Group, User } from '@/types/model';
 import { getImageUrl, isUUID } from '@/utils';
 import { currentUserGroupIdAtom, currentUserIdAtom } from './currentUser';
 

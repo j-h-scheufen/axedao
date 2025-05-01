@@ -4,7 +4,7 @@ import { atomWithInfiniteQuery } from 'jotai-tanstack-query';
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import { searchGroupsOptions } from '@/query/group';
 import { searchUsersOptions } from '@/query/user';
-import { GroupSearchResult, UserSearchResult } from '@/types/model';
+import type { GroupSearchResult, UserSearchResult } from '@/types/model';
 
 export const pageSizeAtom = atom<number>(QUERY_DEFAULT_PAGE_SIZE);
 

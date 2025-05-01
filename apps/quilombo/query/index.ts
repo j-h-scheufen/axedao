@@ -1,5 +1,5 @@
 import type { UseMutationResult } from '@tanstack/react-query';
-import type { PublicClient } from 'viem';
+import type { Address, PublicClient } from 'viem';
 
 import type { Group, User } from '@/types/model';
 export * as profile from './currentUser';
@@ -13,6 +13,9 @@ export * as user from './user';
  * in order to be able to invalidate all queries for a specific entity category, if needed.
  */
 export const QUERY_KEYS = {
+  global: {
+    blockNumber: 'global.blockNumber',
+  },
   user: {
     getUser: 'user.getUser',
     getUserProfile: 'user.getUserProfile',
@@ -33,7 +36,7 @@ export const QUERY_KEYS = {
     getCities: 'location.getCities',
   },
   membership: {
-    getAllCandidateAddresses: 'getAllCandidateAddresses',
+    getCandidateChanges: 'getCandidateChanges',
     getCandidates: 'getCandidates',
     getTopCandidates: 'getTopCandidates',
   },
@@ -46,7 +49,12 @@ export type SearchParams = {
 export type GroupAndUserParams = { groupId: string; userId: string };
 export type SearchByAddressParams = { addresses: string[] };
 export type FileUploadParams = { ownerId: string; file?: File };
-export type GetCandidatesParams = { addresses: string[]; publicClient?: PublicClient };
+export type GetCandidatesParams = { addresses: Address[]; publicClient?: PublicClient };
 
 export type FileUploadMutationFn = (params: FileUploadParams) => void;
-export type UseFileUploadMutation = () => UseMutationResult<User | Group | unknown, Error, FileUploadParams, unknown>;
+export type UseFileUploadMutation = () => UseMutationResult<
+  User | Group | unknown,
+  Error,
+  FileUploadParams,
+  unknown
+>;

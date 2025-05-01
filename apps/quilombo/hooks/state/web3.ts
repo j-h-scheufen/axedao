@@ -1,6 +1,6 @@
 import { atom, useAtom } from 'jotai';
 import { useEffect } from 'react';
-import { PublicClient } from 'viem';
+import type { PublicClient } from 'viem';
 import { usePublicClient } from 'wagmi';
 
 export const publicClientAtom = atom<PublicClient | null>(null);

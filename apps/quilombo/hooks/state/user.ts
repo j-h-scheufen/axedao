@@ -1,10 +1,10 @@
 import { atom } from 'jotai';
 import { atomWithQuery } from 'jotai-tanstack-query';
 
-import { SocialLink } from '@/db/schema';
+import type { SocialLink } from '@/db/schema';
 import { fetchGroupOptions } from '@/query/group';
 import { fetchUserOptions } from '@/query/user';
-import { Group, User } from '@/types/model';
+import type { Group, User } from '@/types/model';
 import { getImageUrl } from '@/utils';
 
 export const triggerUserIdAtom = atom<string | undefined>();

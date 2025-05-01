@@ -1,10 +1,11 @@
 'use client';
 
 import { add, divide, from, greaterThan, multiply } from 'dnum';
-import { atom, useAtom, useAtomValue } from 'jotai';
-import { atomWithQuery } from 'jotai-tanstack-query';
+import { atom, useAtom, useAtomValue, useSetAtom } from 'jotai';
 import { useCallback, useEffect, useMemo, useRef } from 'react';
-import { useAccount, usePublicClient } from 'wagmi';
+import { useAccount, usePublicClient, useWaitForTransactionReceipt } from 'wagmi';
+import { enqueueSnackbar } from 'notistack';
+import type { Address } from 'viem';
 
 import ENV from '@/config/environment';
 import {
@@ -20,14 +21,12 @@ import {
   useReadIBaalQuorumPercent,
   useWriteAxeMembershipCouncilRequestCouncilUpdate,
 } from '@/generated';
-import { getCandidateAddressesOptions, getCandidatesDictionaryOptions } from '@/query/dao';
 import { searchUsersByAddressesOptions, useSearchUsersByAddresses } from '@/query/user';
 import type { User } from '@/types/model';
-import { enqueueSnackbar } from 'notistack';
-import type { Address } from 'viem';
-import { useWaitForTransactionReceipt } from 'wagmi';
 import { currentUserAtom, currentUserWalletAddressAtom } from './currentUser';
 import { publicClientAtom, useInitializePublicClient } from './web3';
+import { QUERY_KEYS } from '@/query';
+import { atomWithQuery } from 'jotai-tanstack-query';
 
 // copied from baal-sdk
 export const PROPOSAL_STATUS = {
@@ -106,56 +105,89 @@ export const activeProposalsAtom = atom<Proposal[]>((get) => {
   return proposals.filter((proposal) => isProposalActive(proposal.status));
 });
 
-export const candidateAddressesAtom = atomWithQuery((get) => {
-  const publicClient = get(publicClientAtom);
-  return getCandidateAddressesOptions({
-    publicClient: publicClient || undefined,
+// 1. CORE ATOMS
+export const candidatesDictionaryAtom = atom<Record<Address, Candidate>>({} as Record<Address, Candidate>);
+
+export const candidatesSyncEnabledAtom = atom<boolean>(false);
+
+export const candidateUsersAtom = atom<CandidateUser[]>((get) => {
+  const dictionary = get(candidatesDictionaryAtom);
+  const candidates = Object.values(dictionary);
+  const usersQuery = get(candidateUsersQueryAtom);
+
+  // If users query is loading or errored, return empty array
+  // This will be updated when user data becomes available
+  if (!usersQuery.data || usersQuery.isLoading || usersQuery.isError) {
+    return [];
+  }
+
+  // Create a map for quick user lookup
+  const userMap = usersQuery.data.reduce(
+    (acc, user) => {
+      acc[user.walletAddress as Address] = user;
+      return acc;
+    },
+    {} as Record<Address, User>
+  );
+
+  // Merge candidate data with user data
+  const result = candidates.map((candidate) => {
+    const user = userMap[candidate.walletAddress];
+    if (user) {
+      return { ...candidate, ...user };
+    }
+    // For candidates without user data, create a minimal user profile
+    return {
+      ...candidate,
+      id: '',
+      name: `${candidate.walletAddress.slice(0, 6)}...${candidate.walletAddress.slice(-4)}`,
+      nickname: '',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      profilePictureUrl: null,
+      bannerUrl: null,
+      bio: null,
+      location: null,
+      website: null,
+      twitter: null,
+    };
+  }) as CandidateUser[];
+
+  return result;
+});
+
+export const candidateUsersQueryAtom = atomWithQuery((get) => {
+  const dictionary = get(candidatesDictionaryAtom);
+  const addresses = Object.keys(dictionary) as Address[];
+
+  return searchUsersByAddressesOptions({
+    addresses,
   });
 });
 
-export const candidatesDictionaryAtom = atomWithQuery((get) =>
-  getCandidatesDictionaryOptions({
-    addresses: get(candidateAddressesAtom).data ?? [],
-    publicClient: get(publicClientAtom) || undefined,
-  }),
-);
+// Add a sorted version for convenience
+export const sortedCandidateUsersAtom = atom((get) => {
+  const candidates = get(availableCandidateUsersAtom);
+  return [...candidates].sort((a, b) => b.delegationCount - a.delegationCount);
+});
+
+// Add a sorted version for convenience
+export const availableCandidateUsersAtom = atom((get) => {
+  const candidates = get(candidateUsersAtom);
+  return candidates.filter((c) => c.available);
+});
 
 export const isCurrentUserEnlistedAtom = atom((get) => {
   const currentUser = get(currentUserAtom);
   const dictionary = get(candidatesDictionaryAtom);
   const address = currentUser?.data?.walletAddress;
-  return dictionary?.data?.[address as Address]?.available;
+  return dictionary?.[address as Address]?.available;
 });
 
 export const isCurrentUserOnCouncilAtom = atom((get) => {
   const address = get(currentUserWalletAddressAtom);
   const currentMembers = get(currentCouncilAddressesAtom);
   return address && currentMembers ? currentMembers.includes(address as Address) : false;
-});
-
-export const candidateUsersAtom = atomWithQuery((get) =>
-  searchUsersByAddressesOptions({
-    addresses: get(candidateAddressesAtom).data ?? [],
-  }),
-);
-
-export const candidatesAtom = atom((get) => {
-  const { data: dictionary } = get(candidatesDictionaryAtom);
-  const { data: candidateUsers } = get(candidateUsersAtom);
-
-  if (!dictionary || !candidateUsers) {
-    return [];
-  }
-
-  return candidateUsers.map((user) => ({
-    ...user,
-    ...dictionary[user.walletAddress as Address],
-  })) as CandidateUser[];
-});
-
-export const sortedCandidatesAtom = atom((get) => {
-  const candidates = get(candidatesAtom);
-  return [...candidates].sort((a, b) => b.delegationCount - a.delegationCount);
 });
 
 export const councilAtom = atom<CouncilState>({
@@ -286,7 +318,7 @@ export function useProposals() {
             console.error(`Error fetching voting results for proposal ${id}:`, error);
             return { id, result: null };
           }
-        }),
+        })
       );
 
       // Calculate quorum requirement step by step
@@ -420,7 +452,7 @@ export function useCouncil() {
   // Memoize loading state
   const isLoading = useMemo(
     () => state.loading || membersLoading || canUpdateLoading || councilUsersLoading,
-    [state.loading, membersLoading, canUpdateLoading, councilUsersLoading],
+    [state.loading, membersLoading, canUpdateLoading, councilUsersLoading]
   );
 
   const loadCouncilMembers = useCallback(async () => {
@@ -562,5 +594,84 @@ export function useCouncilUpdateRequest() {
     isPending: isWritePending || isConfirming,
     error: writeError || confirmError,
     hash,
+  };
+}
+
+export function useUpdateCandidateDictionary() {
+  const setDictionary = useSetAtom(candidatesDictionaryAtom);
+  const currentUser = useAtomValue(currentUserAtom);
+  const currentUserAddress = currentUser?.data?.walletAddress as Address;
+
+  // Handle current user enlisting as candidate
+  const handleCurrentUserEnlisted = useCallback(
+    (currentDelegationAddress: Address | undefined) => {
+      if (!currentUserAddress) return;
+
+      setDictionary((prev) => ({
+        ...prev,
+        [currentUserAddress]: {
+          walletAddress: currentUserAddress,
+          delegationCount: currentDelegationAddress ? prev[currentUserAddress]?.delegationCount || 0 : 1, // Mimicking the behavior of the smart contract
+          available: true,
+        },
+      }));
+    },
+    [currentUserAddress, setDictionary]
+  );
+
+  // Handle current user resigning as candidate
+  const handleCurrentUserResigned = useCallback(() => {
+    if (!currentUserAddress) return;
+
+    setDictionary((prev) => ({
+      ...prev,
+      [currentUserAddress]: {
+        ...prev[currentUserAddress],
+        available: false,
+      },
+    }));
+  }, [currentUserAddress, setDictionary]);
+
+  // Handle delegation changes
+  const handleCurrentUserDelegationChange = useCallback(
+    (oldDelegateAddress: Address | undefined, newDelegateAddress: Address | undefined) => {
+      if (!currentUserAddress) return;
+
+      setDictionary((prev) => {
+        const updates: Record<Address, Candidate> = {};
+
+        // Decrement old delegate's count if exists
+        if (oldDelegateAddress && prev[oldDelegateAddress]) {
+          updates[oldDelegateAddress] = {
+            ...prev[oldDelegateAddress],
+            delegationCount: Math.max(0, prev[oldDelegateAddress].delegationCount - 1),
+          };
+        }
+
+        // Increment new delegate's count if exists and is not zero address
+        if (
+          newDelegateAddress &&
+          newDelegateAddress !== '0x0000000000000000000000000000000000000000' &&
+          prev[newDelegateAddress]
+        ) {
+          updates[newDelegateAddress] = {
+            ...prev[newDelegateAddress],
+            delegationCount: prev[newDelegateAddress].delegationCount + 1,
+          };
+        }
+
+        return {
+          ...prev,
+          ...updates,
+        };
+      });
+    },
+    [currentUserAddress, setDictionary]
+  );
+
+  return {
+    handleCurrentUserEnlisted,
+    handleCurrentUserResigned,
+    handleCurrentUserDelegationChange,
   };
 }

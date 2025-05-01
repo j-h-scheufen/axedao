@@ -10,10 +10,10 @@ import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 import { PATHS } from '@/config/constants';
 import ENV from '@/config/environment';
 import { useReadAxeMembershipIsMember, useWriteAxeMembershipResignAsCandidate } from '@/generated';
-import { isCurrentUserEnlistedAtom, isCurrentUserOnCouncilAtom } from '@/hooks/state/dao';
+import { isCurrentUserEnlistedAtom, isCurrentUserOnCouncilAtom, useUpdateCandidateDictionary } from '@/hooks/state/dao';
 import { Link } from '@nextui-org/link';
 import { useAtom, useAtomValue } from 'jotai';
-import EnlistAsCandidateModal from './CouncilEligibilityModal';
+import EnlistAsCandidateModal from './EnlistAsCandidateModal';
 import VoteDelegation from './VoteDelegation';
 
 const CandidateActions: React.FC<{
@@ -57,6 +57,7 @@ const CandidateActions: React.FC<{
 
 const CouncilMembership: React.FC = () => {
   const account = useAccount();
+  const { handleCurrentUserResigned } = useUpdateCandidateDictionary();
   const { enqueueSnackbar } = useSnackbar();
 
   // Check if user is DAO member
@@ -85,12 +86,13 @@ const CouncilMembership: React.FC = () => {
       });
     } else if (resignSuccess) {
       enqueueSnackbar('Successfully resigned as candidate!');
+      handleCurrentUserResigned();
     } else if (resignError) {
       enqueueSnackbar(`Failed to resign: ${resignError.message}`, {
         variant: 'error',
       });
     }
-  }, [resignLoading, resignSuccess, resignError, enqueueSnackbar]);
+  }, [resignLoading, resignSuccess, resignError, enqueueSnackbar, handleCurrentUserResigned]);
 
   return (
     <div className="flex flex-col w-full items-center">
@@ -103,8 +105,8 @@ const CouncilMembership: React.FC = () => {
       ) : (
         <div className="flex flex-col gap-2 sm:gap-4 w-full">
           <p>
-            As a member of Axé DAO, you should either delegate your vote to a candidate or enlist as
-            a candidate yourself and delegate your vote to you.
+            As a member of Axé DAO, you should either delegate your vote to a candidate or enlist as a candidate
+            yourself and delegate your vote to you.
           </p>
           <CandidateActions
             isLoading={resignPending || resignLoading}

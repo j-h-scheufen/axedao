@@ -23,6 +23,7 @@ import { currentUserAtom, currentUserAvatarUrlAtom } from '@/hooks/state/current
 import useAuth from '@/hooks/useAuth';
 import { getUserDisplayName } from '@/utils';
 import OnboardingModal from './OnboardingModal';
+import { useSyncManager } from '@/hooks/useSyncManager';
 
 const Navbar: React.FC = () => {
   const { data: session } = useSession();
@@ -31,6 +32,7 @@ const Navbar: React.FC = () => {
   const avatarUrl = useAtomValue(currentUserAvatarUrlAtom);
   const { logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  useSyncManager();
 
   const isPathDashboard = pathname === PATHS.search;
   const isPathAxe = pathname === PATHS.axe;
@@ -109,7 +111,7 @@ const Navbar: React.FC = () => {
                 <DropdownItem
                   key="my-group"
                   href={`${PATHS.groups}/${user.groupId || ''}`}
-                  className={!!user.groupId ? '' : 'hidden'}
+                  className={user.groupId ? '' : 'hidden'}
                 >
                   My Group
                 </DropdownItem>
