@@ -428,28 +428,25 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
     }
   }
 
-  // TODO the below internal functions revert on input that threatens the integrity of the sortedGroups array.
-  // However, they are strictly not needed as the logic of calling the internal functions should not misuse the internal
-  // functions, but better to leave as insurance for now.
-
   /**
    * @notice Remove a candidate from a delegation group.
+   * @dev This function reverts on input that threatens the integrity of the sortedGroups array. Strictly, this is not needed
+   * as the logic of calling the internal functions should not misuse the internal functions, but better to leave as insurance.
    * @param _candidate The candidate to remove.
    * @param _groupIndex The index of the group to remove the candidate from.
-   * @return The new length of the group.
+   * @return The new size of the group.
    */
   function removeCandidateFromGroup(address _candidate, uint256 _groupIndex) internal returns (uint256) {
     address head = groupHeads[_groupIndex];
     require(head != address(0), "Group not found");
 
-    // If candidate is head
+    // If candidate is head, return early
     if (head == _candidate) {
       groupHeads[_groupIndex] = candidates[_candidate].next;
       candidates[_candidate].next = address(0);
       return --groupSizes[_groupIndex];
     }
 
-    // Find candidate in list
     address current = head;
     while (current != address(0) && candidates[current].next != _candidate) {
       current = candidates[current].next;
@@ -467,7 +464,7 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
    * @notice Add a candidate to a delegation group according to the delegation count.
    * @param _candidate The candidate to add.
    * @param _groupIndex The index of the group to add the candidate to.
-   * @return The new length of the group.
+   * @return The new size of the group.
    */
   function addCandidateToGroup(address _candidate, uint256 _groupIndex) internal returns (uint256) {
     address head = groupHeads[_groupIndex];
@@ -490,10 +487,13 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
   }
 
   /**
-   * @dev Rename a delegation count group. This function is used for efficiency reasons to cover the use case
-   * where there is only a single candidate in a group and there is no directly adjacent delegation count in the ranking.
-   * In that case, if the candidate is up- or down-voted, the group can be re-labeled with the new count without having
-   * to update the sortedGroups array as the position of the group in the ranking is unchanged.
+   * @notice Rename a delegation count group.
+   * @dev This function is used for efficiency reasons to cover the use case of a group containing only a single
+   * candidate and there is no directly adjacent delegation count in the ranking. In that case, the group can be
+   * re-labeled with the new count without having to update the sortedGroups array as the position of the group
+   * in the ranking is unchanged.
+   * This function reverts on input that threatens the integrity of the sortedGroups array. Strictly, this is not needed
+   * as the logic of calling the internal functions should not misuse the internal functions, but better to leave as insurance.
    * @param _oldCount The old delegation count.
    * @param _newCount The new delegation count.
    */
@@ -507,7 +507,7 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
   }
 
   /**
-   * @dev Insert a new delegation count into the ranking that does not yet exist.
+   * @notice Insert a new delegation count into the ranking that does not yet exist.
    * @param _count The delegation count to insert.
    */
   function insertSortedGroup(uint256 _count) internal {
@@ -524,7 +524,7 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
   }
 
   /**
-   * @dev Remove the delegation count from the ranking.
+   * @notice Remove the delegation count from the ranking.
    * @param _count The delegation count to remove.
    */
   function removeSortedGroup(uint256 _count) internal {
@@ -542,8 +542,8 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
   }
 
   /**
-   * @dev Determins the current or future index of the delegation count in the ranking using binary search.
-   * The calling function needs to determine the context of the returned value, i.e. whether to use it for inserting
+   * @notice Determines the current or future index of the delegation count in the ranking using binary search.
+   * @dev The calling function needs to determine the context of the returned value, i.e. whether to use it for inserting
    * a new delegation count or accessing an existing one.
    * @param _count The delegation count to find.
    * @return The index of the delegation count, if it already exists, or the correct insertion index in the ranking, if not found.
