@@ -9,9 +9,9 @@ import { useWaitForTransactionReceipt } from 'wagmi';
 
 import ENV from '@/config/environment';
 import { useWriteAxeMembershipEnlistAsCandidate } from '@/generated';
-import { useLootShares, useUpdateCandidateDictionary } from '@/hooks/state/dao';
+import { useLootShares } from '@/hooks/state/dao';
 import LootAcquisition from './LootAcquisition';
-import { useCurrentUserDelegation } from '@/hooks/useCurrentUserDelegation';
+import { useInvalidateSync } from '@/hooks/useSyncManager';
 
 type Props = Omit<ModalProps, 'children'> & {
   onSuccess: () => void;
@@ -21,9 +21,7 @@ const EnlistAsCandidateModal: React.FC<Props> = ({ isOpen, onClose, onOpenChange
   const [isLootAcquisitionExpanded, setIsLootAcquisitionExpanded] = useState<boolean>(false);
   const { balance: lootShares, refetch: refetchLootShares } = useLootShares();
   const hasLootShares = useMemo(() => !!lootShares && lootShares > 0n, [lootShares]);
-  const { handleCurrentUserEnlisted } = useUpdateCandidateDictionary();
-
-  const { address: currentDelegationAddress } = useCurrentUserDelegation();
+  const invalidateSync = useInvalidateSync();
 
   const {
     data: enlistHash,
@@ -35,6 +33,7 @@ const EnlistAsCandidateModal: React.FC<Props> = ({ isOpen, onClose, onOpenChange
     isSuccess: enlistSuccess,
     error: enlistError,
     isLoading: enlistLoading,
+    data: enlistReceipt,
   } = useWaitForTransactionReceipt({ hash: enlistHash });
 
   // Handle transaction states
@@ -43,14 +42,15 @@ const EnlistAsCandidateModal: React.FC<Props> = ({ isOpen, onClose, onOpenChange
       enqueueSnackbar('Enlisting as candidate. Please wait for confirmation...', {
         autoHideDuration: 3000,
       });
-    } else if (enlistSuccess) {
+    } else if (enlistSuccess && enlistReceipt) {
+      console.log('[DEBUG] Transaction mined in block:', enlistReceipt.blockNumber);
       enqueueSnackbar('Successfully enlisted as candidate!');
-      handleCurrentUserEnlisted(currentDelegationAddress);
+      invalidateSync(enlistReceipt);
       onSuccess?.();
     } else if (enlistError) {
       enqueueSnackbar(`Failed to enlist: ${enlistError.message}`, { variant: 'error' });
     }
-  }, [enlistLoading, enlistSuccess, enlistError, onSuccess, handleCurrentUserEnlisted, currentDelegationAddress]);
+  }, [enlistLoading, enlistSuccess, enlistError, enlistReceipt, onSuccess, invalidateSync]);
 
   const handleEnlist = () => {
     enlist({ address: ENV.axeMembershipAddress });

@@ -2,7 +2,7 @@
 
 import { Button } from '@nextui-org/button';
 import { useSnackbar } from 'notistack';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import type { Address } from 'viem';
 import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 import { useAtomValue } from 'jotai';
@@ -13,13 +13,13 @@ import ENV from '@/config/environment';
 import type { MembershipDelegateForm } from '@/config/validation-schema';
 import { useWriteAxeMembershipDelegate, useWriteAxeMembershipUndelegate } from '@/generated';
 import { candidateUsersAtom, type CandidateUser } from '@/hooks/state/dao';
-import { useUpdateCandidateDictionary } from '@/hooks/state/dao';
+import { useInvalidateSync } from '@/hooks/useSyncManager';
 import { useCurrentUserDelegation } from '@/hooks/useCurrentUserDelegation';
 
 const VoteDelegation: React.FC = () => {
   const account = useAccount();
   const { enqueueSnackbar } = useSnackbar();
-  const { handleCurrentUserDelegationChange } = useUpdateCandidateDictionary();
+  const invalidateSync = useInvalidateSync();
   const [showDelegateForm, setShowDelegateForm] = useState(false);
   const [selectedCandidate, setSelectedCandidate] = useState<CandidateUser | null>(null);
   const candidates = useAtomValue(candidateUsersAtom);
@@ -49,8 +49,6 @@ const VoteDelegation: React.FC = () => {
     isLoading: undelegateLoading,
   } = useWaitForTransactionReceipt({ hash: undelegateHash });
 
-  const prevDelegationRef = useRef(currentDelegationAddress);
-
   // Handle transaction states
   useEffect(() => {
     if (delegateLoading) {
@@ -60,23 +58,15 @@ const VoteDelegation: React.FC = () => {
     } else if (delegateSuccess) {
       setShowDelegateForm(false);
       enqueueSnackbar('Successfully delegated vote!');
-      const oldDelegation = prevDelegationRef.current;
-      refetchCurrentDelegation().then((newDelegation) => {
-        handleCurrentUserDelegationChange(oldDelegation, newDelegation.data);
+      refetchCurrentDelegation().then(() => {
+        invalidateSync();
       });
     } else if (delegateError) {
       enqueueSnackbar(`Failed to delegate: ${delegateError.message}`, {
         variant: 'error',
       });
     }
-  }, [
-    delegateLoading,
-    delegateSuccess,
-    delegateError,
-    enqueueSnackbar,
-    refetchCurrentDelegation,
-    handleCurrentUserDelegationChange,
-  ]);
+  }, [delegateLoading, delegateSuccess, delegateError, enqueueSnackbar, refetchCurrentDelegation, invalidateSync]);
 
   useEffect(() => {
     if (undelegateLoading) {
@@ -101,11 +91,6 @@ const VoteDelegation: React.FC = () => {
     }
     setSelectedCandidate(newSelection || null);
   }, [currentDelegationAddress, selectedCandidate, candidates]);
-
-  // Update ref when currentDelegationAddress changes
-  useEffect(() => {
-    prevDelegationRef.current = currentDelegationAddress;
-  }, [currentDelegationAddress]);
 
   const handleSubmit = async (values: MembershipDelegateForm) => {
     await delegate({

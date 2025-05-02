@@ -10,7 +10,8 @@ import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 import { PATHS } from '@/config/constants';
 import ENV from '@/config/environment';
 import { useReadAxeMembershipIsMember, useWriteAxeMembershipResignAsCandidate } from '@/generated';
-import { isCurrentUserEnlistedAtom, isCurrentUserOnCouncilAtom, useUpdateCandidateDictionary } from '@/hooks/state/dao';
+import { isCurrentUserEnlistedAtom, isCurrentUserOnCouncilAtom } from '@/hooks/state/dao';
+import { useInvalidateSync } from '@/hooks/useSyncManager';
 import { Link } from '@nextui-org/link';
 import { useAtom, useAtomValue } from 'jotai';
 import EnlistAsCandidateModal from './EnlistAsCandidateModal';
@@ -57,7 +58,7 @@ const CandidateActions: React.FC<{
 
 const CouncilMembership: React.FC = () => {
   const account = useAccount();
-  const { handleCurrentUserResigned } = useUpdateCandidateDictionary();
+  const invalidateSync = useInvalidateSync();
   const { enqueueSnackbar } = useSnackbar();
 
   // Check if user is DAO member
@@ -76,6 +77,7 @@ const CouncilMembership: React.FC = () => {
     isSuccess: resignSuccess,
     error: resignError,
     isLoading: resignLoading,
+    data: resignReceipt,
   } = useWaitForTransactionReceipt({ hash: resignHash });
 
   // Handle resign transaction states
@@ -86,13 +88,13 @@ const CouncilMembership: React.FC = () => {
       });
     } else if (resignSuccess) {
       enqueueSnackbar('Successfully resigned as candidate!');
-      handleCurrentUserResigned();
+      invalidateSync(resignReceipt);
     } else if (resignError) {
       enqueueSnackbar(`Failed to resign: ${resignError.message}`, {
         variant: 'error',
       });
     }
-  }, [resignLoading, resignSuccess, resignError, enqueueSnackbar, handleCurrentUserResigned]);
+  }, [resignLoading, resignSuccess, resignError, resignReceipt, enqueueSnackbar, invalidateSync]);
 
   return (
     <div className="flex flex-col w-full items-center">
