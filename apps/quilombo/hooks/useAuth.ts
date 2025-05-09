@@ -43,8 +43,8 @@ const useSignIn = () => {
   };
 
   // Pre-fetch random nonce when component using the hook is rendered
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
-    useEffect(() => {
+  // biome-ignore lint/correctness/useExhaustiveDependencies: we want to fetch the nonce only once after the component is mounted
+  useEffect(() => {
     fetchNonce();
   }, []);
 
@@ -73,7 +73,7 @@ const useSignIn = () => {
       const res = await nextAuthSignIn('credentials', {
         message: JSON.stringify(message),
         signature,
-        callbackUrl,
+        callbackUrl, // user is directed here after signing in
       });
 
       if (res?.ok && !res.error) {
