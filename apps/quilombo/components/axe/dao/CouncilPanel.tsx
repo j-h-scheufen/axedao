@@ -10,6 +10,7 @@ import CouncilMembership from './CouncilMembership';
 import CouncilSeatExchange from './CouncilSeatExchange';
 
 const CouncilPanel: React.FC = () => {
+  // All components inside CouncilPanel depend on the council state being initialized
   useInitializeCouncilState(); // TODO: there should be a better way to do this
 
   return (

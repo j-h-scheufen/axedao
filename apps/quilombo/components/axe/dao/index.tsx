@@ -11,3 +11,4 @@ export { default as Proposals } from './Proposals';
 export { default as Treasury } from './Treasury';
 export { default as TreasuryShares } from './TreasuryShares';
 export { default as VoteDelegation } from './VoteDelegation';
+export { default as RequestCouncilUpdateButton } from './RequestCouncilUpdateButton';

@@ -201,25 +201,18 @@ export const incomingAddressesAtom = atom<Address[]>([]);
 export const outgoingAddressesAtom = atom<Address[]>([]);
 export const currentCouncilAddressesAtom = atom<Address[]>([]);
 
-// // Derived atoms with user data
-// export const incomingCouncilUsersAtom = atomWithQuery((get) =>
-//   searchUsersByAddressesOptions({
-//     addresses: get(incomingCouncilAddressesAtom),
-//   }),
-// );
+// Derived atoms with user data
+export const incomingCouncilUsersAtom = atomWithQuery((get) =>
+  searchUsersByAddressesOptions({
+    addresses: get(incomingAddressesAtom),
+  })
+);
 
-// export const outgoingCouncilUsersAtom = atomWithQuery((get) =>
-//   searchUsersByAddressesOptions({
-//     addresses: get(outgoingCouncilAddressesAtom),
-//   }),
-// );
-
-// // Atom to get candidate data from chain
-// export const incomingCandidatesAtom = atomWithQuery((get) => {
-//   const publicClient = get(publicClientAtom);
-//   const incomingAddresses = get(incomingCouncilAddressesAtom);
-//   return getCandidatesOptions({ addresses: incomingAddresses, publicClient: publicClient || undefined });
-// });
+export const outgoingCouncilUsersAtom = atomWithQuery((get) =>
+  searchUsersByAddressesOptions({
+    addresses: get(outgoingAddressesAtom),
+  })
+);
 
 //********************************************************************************
 //
@@ -441,20 +434,18 @@ export function useCouncil() {
     address: ENV.axeMembershipCouncilAddress,
   });
 
-  const { data: canUpdate, isLoading: canUpdateLoading } = useReadAxeMembershipCouncilCanRequestCouncilUpdate({
-    address: ENV.axeMembershipCouncilAddress,
-  });
-
   const { data: councilUsers, isLoading: councilUsersLoading } = useSearchUsersByAddresses({
     addresses: currentMembers?.map((m) => m) ?? [],
   });
 
   // Memoize loading state
   const isLoading = useMemo(
-    () => state.loading || membersLoading || canUpdateLoading || councilUsersLoading,
-    [state.loading, membersLoading, canUpdateLoading, councilUsersLoading]
+    () => state.loading || membersLoading || councilUsersLoading,
+    [state.loading, membersLoading, councilUsersLoading]
   );
 
+  // TODO the candidates to display for members should already be loaded in the candidatesDictionaryAtom!
+  // components just need to use the "candidatesSync" flag to turn trigger the sync
   const loadCouncilMembers = useCallback(async () => {
     if (!currentMembers || !councilUsers || !publicClient || state.initialized) {
       return;
@@ -518,7 +509,6 @@ export function useCouncil() {
     members: state.members,
     isLoading,
     error: state.error,
-    canUpdate,
     refresh: loadCouncilMembers,
   };
 }
@@ -539,9 +529,9 @@ export function useInitializeCouncilState() {
     address: ENV.axeMembershipCouncilAddress,
   });
 
-  const [, setIncoming] = useAtom(incomingAddressesAtom);
-  const [, setOutgoing] = useAtom(outgoingAddressesAtom);
-  const [, setCurrentMembers] = useAtom(currentCouncilAddressesAtom);
+  const setIncoming = useSetAtom(incomingAddressesAtom);
+  const setOutgoing = useSetAtom(outgoingAddressesAtom);
+  const setCurrentMembers = useSetAtom(currentCouncilAddressesAtom);
 
   useEffect(() => {
     if (incomingAddresses) {
