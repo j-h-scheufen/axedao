@@ -5,11 +5,11 @@
   "author": "Jan Hendrik Scheufen <j.h.scheufen@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc --noEmit",
+    "build": "tsc --noEmit && forge compile",
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx",
     "format": "prettier --write .",
     "test": "npx hardhat test",
-    "coverage": "hardhat coverage",
+    "coverage": "npx hardhat coverage",
     "deploy": "npx hardhat run --network localhost scripts/deploy.ts"
   },
   "devDependencies": {
@@ -38,7 +38,6 @@
     "@uniswap/v2-periphery": "^1.1.0-beta.0",
     "chai": "^4.5.0",
     "dotenv": "^16.4.5",
-    "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.35.0",
     "ethers": "^6.13.2",
@@ -52,6 +51,7 @@
     "ts-node": "^10.9.2",
     "typechain": "^8.3.2",
     "typescript": "~5.0.4",
+    "eslint": "^8",
     "viem": "^2.20.1"
   }
 }

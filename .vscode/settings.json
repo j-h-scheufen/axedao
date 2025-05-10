@@ -7,5 +7,7 @@
   "solidity.remappings": [
     "forge-std/=packages/contracts/lib/forge-std/src/",
     "create3-factory/=packages/contracts/lib/create3-factory/src/"
-  ]
+  ],
+  "eslint.trace.server": "off",
+  "eslint.runtime": ""
 }

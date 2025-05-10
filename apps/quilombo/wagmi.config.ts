@@ -1,11 +1,11 @@
 import { defineConfig } from '@wagmi/cli';
-import { hardhat, react } from '@wagmi/cli/plugins';
+import { foundry, react } from '@wagmi/cli/plugins';
 
 export default defineConfig({
   out: 'generated/index.ts',
   plugins: [
-    hardhat({
-      project: '../contracts',
+    foundry({
+      project: '../../packages/contracts',
     }),
     react(),
   ],

@@ -1,22 +1,23 @@
 {
   "name": "axe-monorepo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
-  "description": "Axé DAO & Token Project Monorepo",
+  "description": "Axé DAO Monorepo",
   "author": "Jan Hendrik Scheufen <j.h.scheufen@gmail.com>",
   "repository": "git@github.com:j-h-scheufen/axedao.git",
   "license": "MIT",
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
-    "prepare": "husky install",
-    "build": "yarn workspaces foreach -Wp run build",
-    "test": "yarn workspaces foreach -Wp run test",
-    "lint": "yarn workspaces foreach -Wp run lint"
+    "dev:app": "pnpm --filter quilombo dev",
+    "dev:www": "pnpm --filter www dev",
+    "lint": "pnpm -r lint",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test"
   },
   "engines": {
     "node": ">=18.17.0"
   },
-  "packageManager": "yarn@4.5.0"
+  "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee",
+  "devDependencies": {
+    "husky": "^9.1.5"
+  }
 }
