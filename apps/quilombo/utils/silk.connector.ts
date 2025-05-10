@@ -2,7 +2,8 @@ import { ChainNotConfiguredError, createConnector } from '@wagmi/core';
 import { getAddress, SwitchChainError, UserRejectedRequestError } from 'viem';
 
 import { type CredentialType, SILK_METHOD } from '@silk-wallet/silk-interface-core';
-import { type SilkEthereumProviderInterface, initSilk, type InitSilkOptions } from '@silk-wallet/silk-wallet-sdk';
+import { type SilkEthereumProviderInterface, initSilk } from '@silk-wallet/silk-wallet-sdk';
+import type { InitSilkOptions } from '@silk-wallet/silk-wallet-sdk/dist/lib/provider/types';
 
 // For reference: WAGMI connector event map: wagmi/packages/core/src/connectors/createConnector.ts
 // type ConnectorEventMap = {
