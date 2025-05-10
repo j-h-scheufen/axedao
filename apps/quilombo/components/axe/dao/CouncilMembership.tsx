@@ -7,12 +7,10 @@ import { useEffect } from 'react';
 import type { Address } from 'viem';
 import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 
-import { PATHS } from '@/config/constants';
 import ENV from '@/config/environment';
 import { useReadAxeMembershipIsMember, useWriteAxeMembershipResignAsCandidate } from '@/generated';
 import { isCurrentUserEnlistedAtom, isCurrentUserOnCouncilAtom } from '@/hooks/state/dao';
 import { useInvalidateSync } from '@/hooks/useSyncManager';
-import { Link } from '@nextui-org/link';
 import { useAtom, useAtomValue } from 'jotai';
 import EnlistAsCandidateModal from './EnlistAsCandidateModal';
 import VoteDelegation from './VoteDelegation';
@@ -30,7 +28,7 @@ const CandidateActions: React.FC<{
       {isCandidate ? (
         <div className="flex flex-col gap-2">
           <div className="flex">
-            <span>You are a Council {isOnCouncil ? 'Member' : 'Candidate'}</span>
+            <span>Your status: {isOnCouncil ? 'Council Member' : 'Candidate'}</span>
           </div>
           <Button color="danger" variant="flat" onPress={onResign} isLoading={isLoading}>
             Resign as Candidate
@@ -98,18 +96,12 @@ const CouncilMembership: React.FC = () => {
 
   return (
     <div className="flex flex-col w-full items-center">
-      <div className="text-2xl mb-1 sm:mb-2">Membership Status</div>
+      <div className="text-2xl mb-1 sm:mb-2">Your Status</div>
       {!isMember ? (
-        <div>
-          You are not a member of the Axé DAO and cannot participate in the Council. Join the DAO{' '}
-          <Link href={`${PATHS.dao}?tab=dao`}>here</Link>
-        </div>
+        <div>You are not a member of the Axé DAO and cannot participate in the Council.</div>
       ) : (
         <div className="flex flex-col gap-2 sm:gap-4 w-full">
-          <p>
-            As a member of Axé DAO, you should either delegate your vote to a candidate or enlist as a candidate
-            yourself and delegate your vote to you.
-          </p>
+          <p className="text-center">You are eligible to participate in the Council.</p>
           <CandidateActions
             isLoading={resignPending || resignLoading}
             onResign={() => resign({ address: ENV.axeMembershipAddress })}

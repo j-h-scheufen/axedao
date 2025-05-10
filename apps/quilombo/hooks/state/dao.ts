@@ -11,7 +11,6 @@ import ENV from '@/config/environment';
 import {
   axeMembershipAbi,
   baalAbi,
-  useReadAxeMembershipCouncilCanRequestCouncilUpdate,
   useReadAxeMembershipCouncilGetCurrentMembers,
   useReadAxeMembershipCouncilGetJoiningMembers,
   useReadAxeMembershipCouncilGetLeavingMembers,
@@ -24,8 +23,7 @@ import {
 import { searchUsersByAddressesOptions, useSearchUsersByAddresses } from '@/query/user';
 import type { User } from '@/types/model';
 import { currentUserAtom, currentUserWalletAddressAtom } from './currentUser';
-import { publicClientAtom, useInitializePublicClient } from './web3';
-import { QUERY_KEYS } from '@/query';
+import { useInitializePublicClient } from './web3';
 import { atomWithQuery } from 'jotai-tanstack-query';
 
 // copied from baal-sdk

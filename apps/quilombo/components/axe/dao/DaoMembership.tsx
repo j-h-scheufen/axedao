@@ -2,7 +2,7 @@
 
 import { Button } from '@nextui-org/button';
 import { useDisclosure } from '@nextui-org/use-disclosure';
-import { Address } from 'viem';
+import type { Address } from 'viem';
 import { useAccount } from 'wagmi';
 
 import ENV from '@/config/environment';
@@ -21,11 +21,13 @@ const DaoMembership: React.FC = () => {
 
   return (
     <div className="flex flex-col w-full items-center">
-      <div className="text-2xl mb-1 sm:mb-2">Membership</div>
-      <div className="flex flex-col gap-2 sm:gap-4 w-full">
-        <MemberBadge isMember={isMember} />
+      <div className="text-2xl mb-1 sm:mb-2">Your Status</div>
+      <div className="flex flex-colgap-2 sm:gap-4 w-full items-center">
         {isMember ? (
-          <span>Thanks for being a member!</span>
+          <div className="flex w-full justify-center items-center gap-2 sm:gap-4">
+            <MemberBadge isMember={isMember} />
+            <span>You are a member. Thank you!</span>
+          </div>
         ) : (
           <div className="flex flex-col gap-2 sm:gap-4">
             <span>

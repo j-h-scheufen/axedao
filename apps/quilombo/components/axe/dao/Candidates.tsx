@@ -20,11 +20,10 @@ export default function Candidates() {
 
   return (
     <div className="w-full flex flex-col gap-4">
-      <div className="text-2xl">Council Candidates</div>
       <Table aria-label="Council candidates and their delegations">
         <TableHeader>
-          <TableColumn>CANDIDATE</TableColumn>
-          <TableColumn>DELEGATIONS</TableColumn>
+          <TableColumn>Candidate</TableColumn>
+          <TableColumn>Delegations</TableColumn>
         </TableHeader>
         <TableBody>
           {candidates.map((candidate) => (

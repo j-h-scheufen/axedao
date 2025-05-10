@@ -2,7 +2,7 @@
 
 import { Button } from '@nextui-org/button';
 import { useSnackbar } from 'notistack';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { Address } from 'viem';
 import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 import { useAtomValue } from 'jotai';
@@ -48,6 +48,11 @@ const VoteDelegation: React.FC = () => {
     error: undelegateError,
     isLoading: undelegateLoading,
   } = useWaitForTransactionReceipt({ hash: undelegateHash });
+
+  const isSelfDelegating = useMemo(
+    () => selectedCandidate?.walletAddress === account.address,
+    [selectedCandidate, account.address]
+  );
 
   // Handle transaction states
   useEffect(() => {
@@ -112,10 +117,10 @@ const VoteDelegation: React.FC = () => {
         !showDelegateForm ? (
           <div className="flex flex-col gap-2 sm:gap-4">
             <p>
-              Your are currently delegating to
-              {selectedCandidate?.walletAddress === account.address ? ' yourself' : currentDelegationAddress}:
+              Your membership delegation is to
+              {isSelfDelegating && ' yourself'}
             </p>
-            {selectedCandidate && <UserCard user={selectedCandidate} />}
+            {selectedCandidate && !isSelfDelegating && <UserCard user={selectedCandidate} />}
             <div className="flex gap-2">
               <Button variant="flat" onPress={() => setShowDelegateForm(true)}>
                 Change
