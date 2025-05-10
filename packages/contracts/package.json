@@ -8,9 +8,8 @@
     "build": "tsc --noEmit && forge compile",
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx",
     "format": "prettier --write .",
-    "test": "npx hardhat test",
-    "coverage": "npx hardhat coverage",
-    "deploy": "npx hardhat run --network localhost scripts/deploy.ts"
+    "test": "forge test --no-match-contract IntegrationTest",
+    "coverage": "forge coverage"
   },
   "devDependencies": {
     "@daohaus/baal-contracts": "^1.2.18",
@@ -38,6 +37,7 @@
     "@uniswap/v2-periphery": "^1.1.0-beta.0",
     "chai": "^4.5.0",
     "dotenv": "^16.4.5",
+    "eslint": "^8",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.35.0",
     "ethers": "^6.13.2",
@@ -51,7 +51,6 @@
     "ts-node": "^10.9.2",
     "typechain": "^8.3.2",
     "typescript": "~5.0.4",
-    "eslint": "^8",
-    "viem": "^2.20.1"
+    "viem": "^2.22.3"
   }
 }

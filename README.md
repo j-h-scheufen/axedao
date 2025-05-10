@@ -1,11 +1,13 @@
-# axedao
+```ascii
+    ___          __     ____  ___   ____
+   /   |  _  ___/_/    / __ \/   | / __ \
+  / /| | | |/_/ _ \   / / / / /| |/ / / /
+ / ___ |_>  </  __/  / /_/ / ___ / /_/ /
+/_/  |_/_/|_|\___/  /_____/_/  |_\____/
 
-Roadmap:
+```
 
-- Build badge / NFT system for roles (graduados), events, collections
-- Create revenue streams via liquidity provision
-- Create revenue streams via NFT - AXÉ integration
-- Create revenue streams via services (group management, payments, events, tickets / admission), services could be free in bundle for certain level of yearly DAO contribution (again, something the DAO can set via proposal).
+# Axé DAO
 
 ## Local Development
 
@@ -36,7 +38,7 @@ FORK=true npx hardhat node
 
 ### Unit Tests
 
-Unit tests and Uniswap integration tests are implemented as Hardhat Chai tests and executed via `yarn test` which uses `hardhat compile`.
+Unit tests and Uniswap integration tests are implemented as Hardhat Chai tests and executed via `pnpm test` which uses `hardhat compile`.
 
 ## Deployment
 
@@ -50,21 +52,20 @@ To avoid exposing the private key of the deployer account, it can be added to Fo
 cast wallet import axe-deployer --interactive
 ```
 
-### Deploying via Forge
+### Deployment (with Forge)
 
-The UX around key-management in Foundry is lacking. For the time being, you MUST specify the public address of the wallet to use via `--sender 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B`, otherwise the Forge deploy script ignores the `--account` and uses the default
-account to `startBroadcast()`! (See https://github.com/foundry-rs/foundry/issues/6034)
+BUG ALERT:The UX around key-management in Foundry is lacking. For the time being, you MUST specify the public address of the wallet to use via `--sender 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B`, otherwise the Forge deploy script ignores the `--account` parameter and uses the default account to `startBroadcast()`! (See https://github.com/foundry-rs/foundry/issues/6034)
 
 #### Requirements
 
-ENV vars need to be available and can be set in front of the command in the commandline or exported:
+ENV vars need to be available in the shell and can be set in front of the command in the commandline or exported:
 
 ```shell
 export ETHERSCAN_API_KEY=XXXXXXXXXX
 export HTTPS_PROVIDER_URL_SEPOLIA=XXXXXXXXXXX
 ```
 
-Hint: Alternatively to settings ENV vars like `ETHERSCAN_API_KEY` in the shell, set them in your local `.env.local` and export them into a shell session with `export $(grep -v '^#' .env.local | xargs)`. Make sure there is no whitespace in the declarations in the file (`ETHERSCAN_API_KEY=XXX`).
+HINT: Alternatively to settings ENV vars like `ETHERSCAN_API_KEY` in the shell, set them in your local `.env.local` and export them into a shell session with `export $(grep -v '^#' .env.local | xargs)`. Make sure there are no whitespaces in the declarations in the file (example: `ETHERSCAN_API_KEY=XXX`).
 
 Example how Axé is deployed to a network like Sepolia, if it doesn't exist there, yet:
 
@@ -78,20 +79,20 @@ anvil --fork-url $HTTPS_PROVIDER_URL_SEPOLIA --fork-block-number 5352114
 2. Run the the deploy script against the local node
 
 ```shell
-forge script scripts/deploy.s.sol:Deploy --rpc-url http://localhost:8545 --account axe-deployer --sender 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B --broadcast -vvv
+forge script scripts/deploy-AXE.s.sol:Deploy --rpc-url http://localhost:8545 --account axe-deployer --sender 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B --broadcast -vvv
 ```
 
 3. After verifying local deployment, simulate the deployment against the target network:
 
 ```shell
-forge script scripts/deploy.s.sol:Deploy --fork-url $HTTPS_PROVIDER_URL_SEPOLIA --account axe-deployer --sender 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B -vvv --verify
+forge script scripts/deploy-AXE.s.sol:Deploy --fork-url $HTTPS_PROVIDER_URL_SEPOLIA --account axe-deployer --sender 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B -vvv --verify
 ```
 
 When all looks good, add the `--broadcast` flag and run for final deployment.
 
 ### Contract verification
 
-If you're not using the `--verify` parameter when deploying (see above) you can manually verify the contract:
+If you're not using the `--verify` parameter when deploying (see above) you can manually verify the contract afterwards:
 
 ```shell
 forge verify-contract \
@@ -99,11 +100,27 @@ forge verify-contract \
 --num-of-optimizations 200 \
 --constructor-args $(cast abi-encode "constructor(address,address)" 0xee2ac838c83e5d6bf6eb1c8a425c007345ace39e 0x6EF543d0Cce1171F696f82cB6f698133037d5b32) \
 --etherscan-api-key $ETHERSCAN_API_KEY \
---compiler-version v0.8.23+commit.f704f362 \
+--compiler-version 0.8.24+commit.e11b9ed9 \
 --watch \
 0xaE8F6454fa13EbA1Be4ea60019d1bd34F9D04895 \
 contracts/AXESource.sol:AXESource
 ```
+
+Another example:
+
+```shell
+forge verify-contract \
+--chain-id 11155111 \
+--num-of-optimizations 200 \
+--constructor-args $(cast abi-encode "constructor(address,address,address,uint256,uint256,string)" 0xee2ac838c83e5d6bf6eb1c8a425c007345ace39e 0x114D5F3904dB2b4635528C08b1687ECB5468EE17 0xD44Eb94380bff68a827604fDb2dA7b0A3Ec6Ad0B 10000000000000000000 100000000000000 ipfs://Qmb6cxks2ZMfWTXravK5RHf7LYLRYrtgxL14Zg47hFNxjU/quilombo-early-design.json) \
+--etherscan-api-key $ETHERSCAN_API_KEY \
+--compiler-version v0.8.24+commit.e11b9ed9 \
+--watch \
+0x4970C6Fd50B846A0E3686484d1D0C43157547E82 \
+contracts/tokens/MembershipCouncil.sol:MembershipCouncil
+```
+
+You can find out the compiler version for a contract by running, e.g., `forge inspect MembershipCouncil metadata` and looking at the `compiler` field.
 
 Forge tests are currently not run automatically. We're using them for targeted testing, example:
 
