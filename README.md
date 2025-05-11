@@ -11,12 +11,6 @@
 
 ## Testing
 
-Start a local node via
-
-```shell
-FORK=true npx hardhat node
-```
-
 ### Unit Tests
 
 Unit tests are executed on every build via `pnpm test`. Note that test contracts named "\*IntegrationTest" are not included.
