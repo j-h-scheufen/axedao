@@ -5937,7 +5937,7 @@ export const iAxeMembershipAbi = [
   },
   {
     type: 'function',
-    inputs: [{ name: '_current', internalType: 'address', type: 'address' }],
+    inputs: [{ name: 'candidate', internalType: 'address', type: 'address' }],
     name: 'getNextRankedCandidate',
     outputs: [{ name: '', internalType: 'address', type: 'address' }],
     stateMutability: 'view',

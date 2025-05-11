@@ -29,7 +29,11 @@ const DaoPage = () => {
           </div>
         </Tab>
         <Tab key="council" title="Council" className="w-full">
-          <CouncilPanel />
+          <div className="flex w-full flex-col gap-2 sm:gap-4 items-center">
+            <h2 className="text-3xl font-bold text-center mb-1">Council</h2>
+            <p className="text-center">The Council is the decision-making body of the Axé DAO.</p>
+            <CouncilPanel />
+          </div>
         </Tab>
         <Tab key="proposals" title="Proposals" className="w-full">
           <div className="flex w-full flex-col gap-2 sm:gap-4 items-center">
@@ -42,8 +46,10 @@ const DaoPage = () => {
           <div className="flex w-full flex-col gap-2 sm:gap-4 items-center">
             <h2 className="text-3xl font-bold text-center mb-1">Assets</h2>
             <p className="text-center">The Axé DAO controls multiple treasuries.</p>
-            <Treasury />
-            <TreasuryShares />
+            <div className="flex flex-col gap-2 sm:gap-4 w-full items-center">
+              <Treasury />
+              <TreasuryShares />
+            </div>
           </div>
         </Tab>
       </Tabs>

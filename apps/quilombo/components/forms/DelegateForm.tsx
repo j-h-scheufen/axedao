@@ -2,10 +2,10 @@
 
 import { Button } from '@nextui-org/button';
 import { Field, Form, Formik } from 'formik';
-import { Address } from 'viem';
+import type { Address } from 'viem';
 
-import { MembershipDelegateForm, membershipDelegateSchema } from '@/config/validation-schema';
-import { User } from '@/types/model';
+import { type MembershipDelegateForm, membershipDelegateSchema } from '@/config/validation-schema';
+import type { User } from '@/types/model';
 import UserSelect from './UserSelect';
 
 interface Props {
@@ -16,13 +16,7 @@ interface Props {
   currentDelegationAddress?: Address;
 }
 
-const DelegateForm: React.FC<Props> = ({
-  onSubmit,
-  onCancel,
-  isLoading,
-  candidates,
-  currentDelegationAddress,
-}) => {
+const DelegateForm: React.FC<Props> = ({ onSubmit, onCancel, isLoading, candidates, currentDelegationAddress }) => {
   if (!candidates.length) {
     return (
       <div className="flex flex-col gap-2">

@@ -30,7 +30,7 @@ const CandidateActions: React.FC<{
           <div className="flex">
             <span>Your status: {isOnCouncil ? 'Council Member' : 'Candidate'}</span>
           </div>
-          <Button color="danger" variant="flat" onPress={onResign} isLoading={isLoading}>
+          <Button color="secondary" variant="flat" onPress={onResign} isLoading={isLoading}>
             Resign as Candidate
           </Button>
         </div>

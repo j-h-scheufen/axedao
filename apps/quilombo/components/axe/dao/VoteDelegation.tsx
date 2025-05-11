@@ -126,7 +126,7 @@ const VoteDelegation: React.FC = () => {
                 Change
               </Button>
               <Button
-                color="danger"
+                color="secondary"
                 variant="flat"
                 onPress={handleUndelegate}
                 isLoading={undelegatePending || undelegateLoading}

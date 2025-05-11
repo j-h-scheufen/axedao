@@ -14,9 +14,7 @@ const CouncilPanel: React.FC = () => {
   useInitializeCouncilState(); // TODO: there should be a better way to do this
 
   return (
-    <div className="flex w-full flex-col gap-2 sm:gap-4 items-center">
-      <h2 className="text-3xl font-bold text-center mb-1">Council</h2>
-      <p className="text-center">The Council is the decision-making body of the Axé DAO.</p>
+    <div className="flex flex-col w-full">
       <CouncilMembership />
       <div className="w-full flex flex-col mt-4 gap-2 sm:gap-4">
         <p className="text-2xl text-center">Council Formation</p>

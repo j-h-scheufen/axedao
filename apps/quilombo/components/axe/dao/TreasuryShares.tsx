@@ -1,6 +1,6 @@
 'use client';
 
-import { Address } from 'viem';
+import type { Address } from 'viem';
 import { useAccount } from 'wagmi';
 
 import ENV from '@/config/environment';
@@ -43,7 +43,6 @@ const TreasuryShares: React.FC = () => {
 
   return (
     <div className="flex flex-col w-full items-center">
-      <div className="text-2xl mb-1 sm:mb-2">Membership</div>
       <div className="flex flex-col gap-2 w-full px-2">
         <div className="flex gap-2 sm:gap-4">
           <MemberBadge isMember={isMember} />

@@ -1,6 +1,6 @@
 'use client';
 
-import { Accordion, AccordionItem, Button, Checkbox } from '@nextui-org/react';
+import { Accordion, AccordionItem, Button, Checkbox, Spinner } from '@nextui-org/react';
 import { CheckCircle2, Clock, XCircle } from 'lucide-react';
 import { useSnackbar } from 'notistack';
 import { useEffect, useMemo, useState } from 'react';
@@ -12,7 +12,7 @@ import {
   isProposalActive,
   isProposalFinal,
   PROPOSAL_STATUS,
-  ProposalStatus,
+  type ProposalStatus,
   useProposals,
   useVotingShares,
 } from '@/hooks/state/dao';
@@ -111,7 +111,7 @@ export default function Proposals() {
   };
 
   return (
-    <div className="w-full">
+    <div className="flex flex-col w-full">
       <div className="flex justify-end mb-4">
         <Checkbox isSelected={showOldProposals} onValueChange={setShowOldProposals}>
           Show Old Proposals
@@ -119,7 +119,7 @@ export default function Proposals() {
       </div>
 
       {loading ? (
-        <div>Loading proposals...</div>
+        <Spinner className="w-10 h-10" label="Loading..." />
       ) : visibleProposals.length > 0 ? (
         <Accordion variant="splitted">
           {visibleProposals.map((proposal) => {
@@ -201,7 +201,7 @@ export default function Proposals() {
           })}
         </Accordion>
       ) : (
-        <div>No proposals found</div>
+        <div className="mt-4 sm:mt-8 text-center text-default-500">No active proposals found</div>
       )}
       {error && <div className="text-red-500">{error}</div>}
     </div>

@@ -16,7 +16,7 @@ export default function RequestCouncilUpdateButton() {
 
       <Button
         color="primary"
-        className="max-w-[400px] w-full opacity-100 transition-opacity"
+        className="max-w-[300px] w-full opacity-100 transition-opacity"
         isDisabled={!canRequestUpdate}
         isLoading={isUpdatePending}
         onPress={() => requestUpdate()}

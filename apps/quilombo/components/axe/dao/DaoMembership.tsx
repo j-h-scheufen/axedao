@@ -29,13 +29,10 @@ const DaoMembership: React.FC = () => {
             <span>You are a member. Thank you!</span>
           </div>
         ) : (
-          <div className="flex flex-col gap-2 sm:gap-4">
-            <span>
-              You&apos;re not a member.
-              <br />
-              Donate $10 once for lifetime membership.
-            </span>
-            <Button onPress={onOpen} color="primary" className="w-full">
+          <div className="flex flex-col gap-2 sm:gap-4 w-full items-center">
+            <span>You&apos;re not a member.</span>
+            <span>Donate $10 once for lifetime membership.</span>
+            <Button onPress={onOpen} color="primary" className="mt-4 sm:mt-6 w-full max-w-[300px]">
               Join the DAO
             </Button>
           </div>
