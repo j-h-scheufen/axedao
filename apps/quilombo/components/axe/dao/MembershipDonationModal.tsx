@@ -10,12 +10,12 @@ import { useAccount, useBalance, useSendTransaction, useWaitForTransactionReceip
 
 import ENV from '@/config/environment';
 import {
+  useReadAxeMembershipGetNativeDonationAmount,
+  useReadAxeMembershipGetTokenDonationAmount,
   useReadErc20Allowance,
   useReadErc20BalanceOf,
-  useReadMembershipCouncilGetNativeDonationAmount,
-  useReadMembershipCouncilGetTokenDonationAmount,
+  useWriteAxeMembershipDonate,
   useWriteErc20Approve,
-  useWriteIMembershipCouncilDonate,
 } from '@/generated';
 
 type Props = Omit<ModalProps, 'children'> & { onSuccess?: () => void };
@@ -38,11 +38,11 @@ export default function MembershipDonationModal({ onClose, onSuccess, ...props }
   });
 
   // Get donation amounts from contract
-  const { data: nativeDonationAmount } = useReadMembershipCouncilGetNativeDonationAmount({
-    address: ENV.membershipCouncilAddress as Address,
+  const { data: nativeDonationAmount } = useReadAxeMembershipGetNativeDonationAmount({
+    address: ENV.axeMembershipAddress as Address,
   });
-  const { data: erc20DonationAmount } = useReadMembershipCouncilGetTokenDonationAmount({
-    address: ENV.membershipCouncilAddress as Address,
+  const { data: erc20DonationAmount } = useReadAxeMembershipGetTokenDonationAmount({
+    address: ENV.axeMembershipAddress as Address,
   });
 
   // For ERC20 Approve
@@ -54,7 +54,7 @@ export default function MembershipDonationModal({ onClose, onSuccess, ...props }
   } = useWaitForTransactionReceipt({ hash: approveHash });
 
   // For IMembershipCouncil donate
-  const { data: donateHash, isPending: donatePending, writeContract: donate } = useWriteIMembershipCouncilDonate();
+  const { data: donateHash, isPending: donatePending, writeContract: donate } = useWriteAxeMembershipDonate();
   const {
     isSuccess: donateSuccess,
     error: donateError,
@@ -71,7 +71,7 @@ export default function MembershipDonationModal({ onClose, onSuccess, ...props }
 
   const { data: allowanceAmount, refetch: updateAllowance } = useReadErc20Allowance({
     address: ENV.axeSwapTokenAddress,
-    args: [account.address as Address, ENV.membershipCouncilAddress],
+    args: [account.address as Address, ENV.axeMembershipAddress],
   });
 
   // Update hasApproval state
@@ -134,7 +134,7 @@ export default function MembershipDonationModal({ onClose, onSuccess, ...props }
       return;
     }
     sendNative({
-      to: ENV.membershipCouncilAddress,
+      to: ENV.axeMembershipAddress,
       value: nativeDonationAmount,
     });
   };
@@ -146,13 +146,13 @@ export default function MembershipDonationModal({ onClose, onSuccess, ...props }
     }
     approve({
       address: ENV.axeSwapTokenAddress,
-      args: [ENV.membershipCouncilAddress, erc20DonationAmount],
+      args: [ENV.axeMembershipAddress, erc20DonationAmount],
     });
   };
 
   const handleERC20Donation = async () => {
     donate({
-      address: ENV.membershipCouncilAddress,
+      address: ENV.axeMembershipAddress,
     });
   };
 

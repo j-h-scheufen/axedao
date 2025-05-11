@@ -1,6 +1,6 @@
-import { LinkType } from '@/db/schema';
-import { ImageType } from '@/types/model';
-import { ResizeOptions } from 'sharp';
+import type { LinkType } from '@/db/schema';
+import type { ImageType } from '@/types/model';
+import type { ResizeOptions } from 'sharp';
 
 export const titles = [
   'mestra',
@@ -73,6 +73,7 @@ export const QueryConfig = {
   staleTimeGroup: 1000 * 60 * 60 * 24, // 24 hours
   staleTimeGroupMembers: 1000 * 60 * 60, // 1 hour
   staleTimeUser: 1000 * 60 * 60 * 24, // 24 hours
+  staleTimeSync: 1000 * 60 * 10, // 10 minutes
 };
 
 export const GROUP_DESCRIPTION_MAX_LENGTH = 500;

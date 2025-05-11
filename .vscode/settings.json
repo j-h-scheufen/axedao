@@ -11,5 +11,9 @@
     "@openzeppelin/contracts/=packages/contracts/lib/openzeppelin-contracts/contracts/"
   ],
   "eslint.trace.server": "off",
-  "eslint.runtime": ""
+  "eslint.runtime": "",
+  "editor.defaultFormatter": "biomejs.biome",
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  }
 }

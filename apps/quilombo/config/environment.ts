@@ -1,19 +1,20 @@
-import { Address } from 'viem';
+import type { Address } from 'viem';
 
 type ConfigType = {
   walletConnectProjectId: string;
   sepoliaProviderUrl: string;
   gnosisProviderUrl: string;
   optimismProviderUrl: string;
+  daoAddress: Address;
+  daoTreasuryAddress: Address;
+  daoSharesAddress: Address;
+  daoLootAddress: Address;
+  daoTreasuryShamanAddress: Address;
   axeTokenAddress: Address;
-  axeDaoAddress: Address;
   axeTreasuryAddress: Address;
-  axeDaoTreasuryAddress: Address;
-  axeDaoSharesAddress: Address;
-  axeDaoLootAddress: Address;
   axeSwapTokenAddress: Address;
-  membershipCouncilAddress: Address;
-  councilShamanAddress: Address;
+  axeMembershipAddress: Address;
+  axeMembershipCouncilAddress: Address;
   uniswapV2PairAddress: Address;
   uniswapV2RouterAddress: Address;
   pinataGatewayUrl: string;
@@ -29,6 +30,17 @@ type ConfigType = {
 const envMode = process.env.NEXT_PUBLIC_APP_ENV?.toLowerCase();
 
 const isServer = typeof window === 'undefined';
+
+export const getBaseUrl = () => {
+  let baseUrl = undefined;
+  if (process.env.NEXT_PUBLIC_VERCEL_URL) {
+    baseUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+  } else if (process.env.NEXT_PUBLIC_APP_URL) {
+    baseUrl = process.env.NEXT_PUBLIC_APP_URL;
+  }
+  if (!baseUrl) throw new Error('No base URL found');
+  return baseUrl;
+};
 
 const ENV: ConfigType = {
   walletConnectProjectId: required(
@@ -48,34 +60,32 @@ const ENV: ConfigType = {
       ? required(process.env.NEXT_PUBLIC_OP_PROVIDER, 'NEXT_PUBLIC_OP_PROVIDER')
       : process.env.NEXT_PUBLIC_OP_PROVIDER || '',
   axeTokenAddress: required(process.env.NEXT_PUBLIC_AXE_TOKEN_ADDRESS, 'NEXT_PUBLIC_AXE_TOKEN_ADDRESS') as Address,
-  axeDaoAddress: required(process.env.NEXT_PUBLIC_AXE_DAO_ADDRESS, 'NEXT_PUBLIC_AXE_DAO_ADDRESS') as Address,
+  daoAddress: required(process.env.NEXT_PUBLIC_DAO_ADDRESS, 'NEXT_PUBLIC_DAO_ADDRESS') as Address,
   axeTreasuryAddress: required(
     process.env.NEXT_PUBLIC_AXE_TREASURY_ADDRESS,
     'NEXT_PUBLIC_AXE_TREASURY_ADDRESS',
   ) as Address,
-  axeDaoTreasuryAddress: required(
-    process.env.NEXT_PUBLIC_AXE_DAO_TREASURY_ADDRESS,
-    'NEXT_PUBLIC_AXE_DAO_TREASURY_ADDRESS',
+  daoTreasuryAddress: required(
+    process.env.NEXT_PUBLIC_DAO_TREASURY_ADDRESS,
+    'NEXT_PUBLIC_DAO_TREASURY_ADDRESS',
   ) as Address,
-  axeDaoSharesAddress: required(
-    process.env.NEXT_PUBLIC_AXE_DAO_SHARES_ADDRESS,
-    'NEXT_PUBLIC_AXE_DAO_SHARES_ADDRESS',
-  ) as Address,
-  axeDaoLootAddress: required(
-    process.env.NEXT_PUBLIC_AXE_DAO_LOOT_ADDRESS,
-    'NEXT_PUBLIC_AXE_DAO_LOOT_ADDRESS',
+  daoSharesAddress: required(process.env.NEXT_PUBLIC_DAO_SHARES_ADDRESS, 'NEXT_PUBLIC_DAO_SHARES_ADDRESS') as Address,
+  daoLootAddress: required(process.env.NEXT_PUBLIC_DAO_LOOT_ADDRESS, 'NEXT_PUBLIC_DAO_LOOT_ADDRESS') as Address,
+  daoTreasuryShamanAddress: required(
+    process.env.NEXT_PUBLIC_DAO_TREASURY_SHAMAN_ADDRESS,
+    'NEXT_PUBLIC_DAO_TREASURY_SHAMAN_ADDRESS',
   ) as Address,
   axeSwapTokenAddress: required(
     process.env.NEXT_PUBLIC_AXE_SWAP_TOKEN_ADDRESS,
     'NEXT_PUBLIC_AXE_SWAP_TOKEN_ADDRESS',
   ) as Address,
-  membershipCouncilAddress: required(
-    process.env.NEXT_PUBLIC_MEMBERSHIP_COUNCIL_ADDRESS,
-    'NEXT_PUBLIC_MEMBERSHIP_COUNCIL_ADDRESS',
+  axeMembershipAddress: required(
+    process.env.NEXT_PUBLIC_AXE_MEMBERSHIP_ADDRESS,
+    'NEXT_PUBLIC_AXE_MEMBERSHIP_ADDRESS',
   ) as Address,
-  councilShamanAddress: required(
-    process.env.NEXT_PUBLIC_COUNCIL_SHAMAN_ADDRESS,
-    'NEXT_PUBLIC_COUNCIL_SHAMAN_ADDRESS',
+  axeMembershipCouncilAddress: required(
+    process.env.NEXT_PUBLIC_AXE_MEMBERSHIP_COUNCIL_ADDRESS,
+    'NEXT_PUBLIC_AXE_MEMBERSHIP_COUNCIL_ADDRESS',
   ) as Address,
   uniswapV2PairAddress: required(
     process.env.NEXT_PUBLIC_UNISWAPV2PAIR_ADDRESS,
@@ -90,9 +100,9 @@ const ENV: ConfigType = {
   pinataFileGroupId: required(process.env.NEXT_PUBLIC_PINATA_FILE_GROUP_ID, 'NEXT_PUBLIC_PINATA_FILE_GROUP_ID'),
   databaseUrl: isServer ? required(process.env.DATABASE_URL, 'DATABASE_URL') : '',
   nextAuthSecret: isServer ? required(process.env.NEXTAUTH_SECRET, 'NEXTAUTH_SECRET') : '',
-  axeDaoSiteUrl: required(process.env.NEXT_PUBLIC_AXE_DAO_SITE_URL, 'NEXT_PUBLIC_AXE_DAO_SITE_URL'),
-  axeDaoEmail: required(process.env.NEXT_PUBLIC_AXE_DAO_EMAIL, 'NEXT_PUBLIC_AXE_DAO_EMAIL'),
-  axeDaoDiscord: required(process.env.NEXT_PUBLIC_AXE_DAO_DISCORD, 'NEXT_PUBLIC_AXE_DAO_DISCORD'),
+  axeDaoSiteUrl: required(process.env.NEXT_PUBLIC_DAO_SITE_URL, 'NEXT_PUBLIC_DAO_SITE_URL'),
+  axeDaoEmail: required(process.env.NEXT_PUBLIC_DAO_EMAIL, 'NEXT_PUBLIC_DAO_EMAIL'),
+  axeDaoDiscord: required(process.env.NEXT_PUBLIC_DAO_DISCORD, 'NEXT_PUBLIC_DAO_DISCORD'),
 };
 
 function required(value: string | undefined, name: string): string {

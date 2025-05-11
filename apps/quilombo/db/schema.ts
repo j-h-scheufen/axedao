@@ -1,7 +1,7 @@
 import { linkTypes, styles, titles } from '@/config/constants';
 import { relations } from 'drizzle-orm';
 import {
-  AnyPgColumn,
+  type AnyPgColumn,
   boolean,
   index,
   json,
@@ -46,7 +46,8 @@ export const users = pgTable(
       nicknameIdx: index('nickname_idx').on(table.nickname),
       titleIdx: index('title_idx').on(table.title),
       groupIdx: index('group_idx').on(table.groupId),
-      emailIdx: uniqueIndex('email_idx').on(table.email),
+      emailIdx: index('email_idx').on(table.email),
+      walletAddressIdx: uniqueIndex('wallet_address_idx').on(table.walletAddress),
     };
   },
 );

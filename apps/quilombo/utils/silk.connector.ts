@@ -1,9 +1,9 @@
 import { ChainNotConfiguredError, createConnector } from '@wagmi/core';
 import { getAddress, SwitchChainError, UserRejectedRequestError } from 'viem';
 
-import { CredentialType, CustomConfig, SILK_METHOD } from '@silk-wallet/silk-interface-core';
-import { initSilk } from '@silk-wallet/silk-wallet-sdk';
-import { SilkEthereumProviderInterface } from '@silk-wallet/silk-wallet-sdk/dist/lib/provider/types';
+import { type CredentialType, SILK_METHOD } from '@silk-wallet/silk-interface-core';
+import { type SilkEthereumProviderInterface, initSilk } from '@silk-wallet/silk-wallet-sdk';
+import type { InitSilkOptions } from '@silk-wallet/silk-wallet-sdk/dist/lib/provider/types';
 
 // For reference: WAGMI connector event map: wagmi/packages/core/src/connectors/createConnector.ts
 // type ConnectorEventMap = {
@@ -19,10 +19,10 @@ import { SilkEthereumProviderInterface } from '@silk-wallet/silk-wallet-sdk/dist
 
 /**
  * Creates a WAGMI connector for the Silk Wallet SDK
- * @param referralCode Optional referral code for the Silk points system
+ * @param options the initialization options passed to the Silk Wallet SDK
  * @returns
  */
-export default function silk(options?: { referralCode?: string; config?: CustomConfig }) {
+export default function silk(options?: InitSilkOptions) {
   let silkProvider: SilkEthereumProviderInterface | null = null;
 
   return createConnector<SilkEthereumProviderInterface>((config) => {
@@ -50,13 +50,14 @@ export default function silk(options?: { referralCode?: string; config?: CustomC
               await provider.login();
             } catch (error) {
               console.warn('Unable to login', error);
-              throw new UserRejectedRequestError('User rejected login' as unknown as Error);
+              throw new UserRejectedRequestError('User rejected login or login failed' as unknown as Error);
             }
           }
 
           let currentChainId = await this.getChainId();
           if (chainId && currentChainId !== chainId) {
             console.info(`Switching chain from ${currentChainId} to ${chainId}`);
+            // biome-ignore lint/style/noNonNullAssertion: the switchChain method is defined in the connector
             const chain = await this.switchChain!({ chainId }).catch((error) => {
               if (error.code === UserRejectedRequestError.code) throw error;
               return { id: currentChainId };
@@ -92,7 +93,8 @@ export default function silk(options?: { referralCode?: string; config?: CustomC
 
       async getProvider(): Promise<SilkEthereumProviderInterface> {
         if (!silkProvider) {
-          silkProvider = initSilk(options);
+          console.log('Initializing Silk Provider with options:', options);
+          silkProvider = initSilk(options ?? {});
         }
 
         return silkProvider;
@@ -108,7 +110,7 @@ export default function silk(options?: { referralCode?: string; config?: CustomC
       },
 
       async switchChain({ chainId }) {
-        console.log('Switching chain to ID', chainId);
+        console.info('Switching chain to ID', chainId);
         try {
           const chain = config.chains.find((x) => x.id === chainId);
           if (!chain) throw new ChainNotConfiguredError();
@@ -140,8 +142,8 @@ export default function silk(options?: { referralCode?: string; config?: CustomC
 
       async requestSBT(type: CredentialType): Promise<unknown> {
         const provider = await this.getProvider();
-        // TODO the method requestSBT does not exist in the SilkEthereumProviderInterface, but is implemented in the EthereumProvider class
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        // biome-ignore lint/suspicious/noExplicitAny: the requestSBT method is not declared in the SilkEthereumProviderInterface, but is implemented in the EthereumProvider class
         return (provider as any).requestSBT(type);
       },
 

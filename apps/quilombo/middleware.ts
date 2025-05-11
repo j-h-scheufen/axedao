@@ -1,9 +1,9 @@
-import { getToken, JWT } from 'next-auth/jwt';
+import { getToken, type JWT } from 'next-auth/jwt';
 import { withAuth } from 'next-auth/middleware';
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { PATHS } from './config/constants';
-import { UserSession } from './types/model';
+import type { UserSession } from './types/model';
 
 export default withAuth(
   async function middleware(request: NextRequest) {
@@ -33,13 +33,13 @@ export default withAuth(
   {
     callbacks: {
       authorized({ token }) {
-        return token ? true : false;
+        return !!token;
       },
     },
     pages: {
       signIn: PATHS.login,
     },
-  },
+  }
 );
 
 export const config = {

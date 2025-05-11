@@ -7,7 +7,7 @@ import { UserRejectedRequestError } from 'viem';
 import { useAccount, useConnect, useDisconnect, useSignMessage } from 'wagmi';
 
 import { PATHS } from '@/config/constants';
-import { getDefaultChain } from '@/config/wagmi';
+import { getDefaultChain, silkInitOptions } from '@/config/wagmi';
 import silk from '@/utils/silk.connector';
 import { setCookie } from 'cookies-next';
 import { enqueueSnackbar } from 'notistack';
@@ -43,6 +43,7 @@ const useSignIn = () => {
   };
 
   // Pre-fetch random nonce when component using the hook is rendered
+  // biome-ignore lint/correctness/useExhaustiveDependencies: we want to fetch the nonce only once after the component is mounted
   useEffect(() => {
     fetchNonce();
   }, []);
@@ -63,14 +64,16 @@ const useSignIn = () => {
         nonce: state.nonce,
       });
 
+      const preparedMessage = message.prepareMessage();
+
       const signature = await signMessageAsync({
-        message: message.prepareMessage(),
+        message: preparedMessage,
       });
 
       const res = await nextAuthSignIn('credentials', {
         message: JSON.stringify(message),
         signature,
-        callbackUrl,
+        callbackUrl, // user is directed here after signing in
       });
 
       if (res?.ok && !res.error) {
@@ -112,7 +115,7 @@ const useSignIn = () => {
         wagmiConnect({
           // TODO referral code ENV var
           chainId: defaultChain.id,
-          connector: silk({ config: { appName: 'Quilombo', darkMode: true } }),
+          connector: silk(silkInitOptions),
         });
       } else {
         wagmiConnect({ chainId: defaultChain.id, connector: silkConnector });

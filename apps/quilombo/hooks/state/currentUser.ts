@@ -1,10 +1,11 @@
 import { atom } from 'jotai';
 import { atomWithQuery } from 'jotai-tanstack-query';
+import type { Address } from 'viem';
 
-import { SocialLink } from '@/db/schema';
+import type { SocialLink } from '@/db/schema';
 import { fetchCurrentUserOptions } from '@/query/currentUser';
 import { fetchGroupOptions } from '@/query/group';
-import { Group, User } from '@/types/model';
+import type { Group, User } from '@/types/model';
 import { getImageUrl, getUserDisplayName } from '@/utils';
 
 export const triggerCurrentUserIdAtom = atom<string | undefined>();
@@ -28,6 +29,10 @@ export const currentUserGroupIdAtom = atom<string | undefined>(
 export const currentUserLinksAtom = atom<SocialLink[] | undefined>((get) => get(currentUserAtom).data?.links);
 
 export const currentUserAvatarAtom = atom<string | undefined>((get) => get(currentUserAtom).data?.avatar ?? undefined);
+
+export const currentUserWalletAddressAtom = atom<Address | undefined>(
+  (get) => get(currentUserAtom).data?.walletAddress as Address | undefined,
+);
 
 export const currentUserAvatarUrlAtom = atom<string | undefined>((get) =>
   getImageUrl(get(currentUserAtom).data?.avatar),

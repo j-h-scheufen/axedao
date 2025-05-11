@@ -5,7 +5,7 @@
 ## Prerequisites
 
 - **Package Manager**: PNPM
-- **Foundry** (not fully used yet, currently optional). See also [here](./Foundry.md).
+- **Foundry** (See also [here](./Foundry.md))
 
 ```shell
 $ curl -L https://foundry.paradigm.xyz | bash

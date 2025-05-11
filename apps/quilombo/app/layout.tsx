@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { Metadata, Viewport } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { getServerSession } from 'next-auth';
 
 import Navbar from '@/components/Navbar';
@@ -23,9 +23,23 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: '/favicon.ico',
+    icon: '/quilombo-icon-192x192.png',
     shortcut: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    apple: '/quilombo-icon-apple-touch.png',
+    other: [
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        url: '/quilombo-icon-32x32.png',
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        url: '/quilombo-icon-16x16.png',
+      },
+    ],
   },
 };
 
@@ -46,11 +60,17 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           'min-h-screen bg-background font-sans antialiased',
           fontInter.variable,
           fontFiraCode.variable,
-          fontOpenSans.variable,
+          fontOpenSans.variable
         )}
       >
         <SessionProvider session={session}>
-          <ThemeProvider themeProps={{ attribute: 'class', defaultTheme: 'dark', children: null }}>
+          <ThemeProvider
+            themeProps={{
+              attribute: 'class',
+              defaultTheme: 'dark',
+              children: null,
+            }}
+          >
             <SnackbarProvider>
               <QueryProvider>
                 {/* Note: Web3Provider and StateProvider rely on @tanstack/react-query. */}
