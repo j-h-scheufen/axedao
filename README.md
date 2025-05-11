@@ -9,25 +9,6 @@
 
 # Axé DAO
 
-## Local Development
-
-To be able to use a Hardhat local node that is a fork of a test network with DaoHaus / Moloch / Axé DAO contracts already deployed, the chain ID is set to 1337. The same ID should be configured in Metamask.
-
-See hardhat.config.ts:
-
-```json
-  networks: {
-    hardhat: {
-      chainId: 1337,
-      ...
-    }
-  }
-```
-
-In Metamask configure the localhost network:
-
-!['MetaMask Localhost Network Settings'](/docs/images/metamask-localhost-network.png)
-
 ## Testing
 
 Start a local node via
