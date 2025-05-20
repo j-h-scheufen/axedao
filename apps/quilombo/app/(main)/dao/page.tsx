@@ -3,7 +3,7 @@
 import { Tab, Tabs } from '@nextui-org/tabs';
 import { useQueryState } from 'nuqs';
 
-import { CouncilPanel, DaoMembership, Proposals, Treasury, TreasuryShares } from '@/components/axe/dao';
+import { CouncilPanel, DaoMembership, Treasury, TreasuryShares } from '@/components/axe/dao';
 
 const DaoPage = () => {
   const [tab, setTab] = useQueryState('tab', {
@@ -39,7 +39,7 @@ const DaoPage = () => {
           <div className="flex w-full flex-col gap-2 sm:gap-4 items-center">
             <h2 className="text-3xl font-bold text-center mb-1">Proposals</h2>
             <p className="text-center">The following proposals are currently active.</p>
-            <Proposals />
+            {/* <Proposals /> commented out due to eth_getLogs rate limits */}
           </div>
         </Tab>
         <Tab key="assets" title="Assets" className="w-full">

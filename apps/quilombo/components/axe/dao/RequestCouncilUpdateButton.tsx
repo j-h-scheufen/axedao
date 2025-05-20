@@ -3,10 +3,13 @@
 import { Button } from '@nextui-org/button';
 import { useReadAxeMembershipCouncilCanRequestCouncilUpdate } from '@/generated';
 import { useCouncilUpdateRequest } from '@/hooks/state/dao';
+import ENV from '@/config/environment';
 
 export default function RequestCouncilUpdateButton() {
   const { requestUpdate, isPending: isUpdatePending } = useCouncilUpdateRequest();
-  const { data: canRequestUpdate } = useReadAxeMembershipCouncilCanRequestCouncilUpdate();
+  const { data: canRequestUpdate, isLoading } = useReadAxeMembershipCouncilCanRequestCouncilUpdate({
+    address: ENV.axeMembershipCouncilAddress,
+  });
 
   return (
     <div className="flex flex-col items-center gap-4">
@@ -18,7 +21,7 @@ export default function RequestCouncilUpdateButton() {
         color="primary"
         className="max-w-[300px] w-full opacity-100 transition-opacity"
         isDisabled={!canRequestUpdate}
-        isLoading={isUpdatePending}
+        isLoading={isUpdatePending || isLoading}
         onPress={() => requestUpdate()}
       >
         Request Council Update
