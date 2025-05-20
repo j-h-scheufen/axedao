@@ -11,17 +11,17 @@ import ENV from '@/config/environment';
 import { useReadAxeMembershipIsMember, useWriteAxeMembershipResignAsCandidate } from '@/generated';
 import { isCurrentUserEnlistedAtom, isCurrentUserOnCouncilAtom } from '@/hooks/state/dao';
 import { useInvalidateSync } from '@/hooks/useSyncManager';
-import { useAtom, useAtomValue } from 'jotai';
+import { useAtomValue } from 'jotai';
 import EnlistAsCandidateModal from './EnlistAsCandidateModal';
 import VoteDelegation from './VoteDelegation';
 
 const CandidateActions: React.FC<{
   isLoading: boolean;
+  isCandidate: boolean;
+  isOnCouncil: boolean;
   onResign: () => void;
   onEnlist: () => void;
-}> = ({ isLoading, onResign, onEnlist }) => {
-  const [isCandidate] = useAtom(isCurrentUserEnlistedAtom);
-  const isOnCouncil = useAtomValue(isCurrentUserOnCouncilAtom);
+}> = ({ isLoading, isCandidate, isOnCouncil, onResign, onEnlist }) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   return (
     <div>
@@ -56,6 +56,8 @@ const CandidateActions: React.FC<{
 
 const CouncilMembership: React.FC = () => {
   const account = useAccount();
+  const isCandidate = useAtomValue(isCurrentUserEnlistedAtom);
+  const isOnCouncil = useAtomValue(isCurrentUserOnCouncilAtom);
   const invalidateSync = useInvalidateSync();
   const { enqueueSnackbar } = useSnackbar();
 
@@ -101,9 +103,11 @@ const CouncilMembership: React.FC = () => {
         <div>You are not a member of the Axé DAO and cannot participate in the Council.</div>
       ) : (
         <div className="flex flex-col gap-2 sm:gap-4 w-full">
-          <p className="text-center">You are eligible to participate in the Council.</p>
+          {!isCandidate && <p className="text-center">You are eligible to participate in the Council.</p>}
           <CandidateActions
             isLoading={resignPending || resignLoading}
+            isCandidate={isCandidate}
+            isOnCouncil={isOnCouncil}
             onResign={() => resign({ address: ENV.axeMembershipAddress })}
             onEnlist={() => {}}
           />
