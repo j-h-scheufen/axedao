@@ -4,8 +4,8 @@
 
 ## Prerequisites
 
-- **Package Manager**: Yarn (preferred) or NPM
-- **Foundry** (not fully used yet, currently optional). See also [here](./Foundry.md).
+- **Package Manager**: PNPM
+- **Foundry** (See also [here](./Foundry.md))
 
 ```shell
 $ curl -L https://foundry.paradigm.xyz | bash
@@ -15,7 +15,7 @@ $ foundryup
 ## Installation
 
 ```shell
-$ yarn install
+$ pnpm install
 ```
 
 ## Usage
