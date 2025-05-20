@@ -6,7 +6,7 @@ import type { Candidate } from '@/hooks/state/dao';
 import { type GetCandidatesParams, QUERY_KEYS } from '.';
 import { queryOptions, useQuery } from '@tanstack/react-query';
 
-type CandidateResult = {
+export type CandidateResult = {
   delegationCount: bigint;
   available: boolean;
   next: Address;
@@ -18,7 +18,7 @@ type GetCandidateChangesParams = {
   toBlock?: bigint;
 };
 
-type GetTopCandidatesParams = {
+export type GetTopCandidatesParams = {
   offset?: number;
   pageSize?: number;
   publicClient?: PublicClient;

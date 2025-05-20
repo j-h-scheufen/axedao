@@ -4,18 +4,22 @@ import { useEffect } from 'react';
 import { useAtomValue, useSetAtom } from 'jotai';
 
 import UserCard from '@/components/UserCard';
-import { candidatesSyncEnabledAtom, sortedCandidateUsersAtom } from '@/hooks/state/dao';
+import { sortedCandidateUsersAtom } from '@/hooks/state/dao';
+import { useCandidatesSync } from '@/hooks/state/dao';
+import { directCandidatesSyncEnabledAtom } from '@/hooks/state/dao';
 
 export default function Candidates() {
   const candidates = useAtomValue(sortedCandidateUsersAtom);
-  const setCandidatesSyncEnabled = useSetAtom(candidatesSyncEnabledAtom);
+  const setDirectSync = useSetAtom(directCandidatesSyncEnabledAtom);
+
+  useCandidatesSync();
 
   useEffect(() => {
-    setCandidatesSyncEnabled(true);
+    setDirectSync(true);
     return () => {
-      setCandidatesSyncEnabled(false);
+      setDirectSync(false);
     };
-  }, [setCandidatesSyncEnabled]);
+  }, [setDirectSync]);
 
   return (
     <div className="w-full flex flex-col gap-4">
