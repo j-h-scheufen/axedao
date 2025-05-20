@@ -21,6 +21,7 @@ import {
   useWriteAxeMembershipCouncilRequestCouncilUpdate,
 } from '@/generated';
 import { searchUsersByAddressesOptions, useSearchUsersByAddresses } from '@/query/user';
+import type { CandidateResult } from '@/query/dao';
 import type { User } from '@/types/model';
 import { currentUserAtom, currentUserWalletAddressAtom } from './currentUser';
 import { useInitializePublicClient } from './web3';
@@ -106,6 +107,10 @@ export const activeProposalsAtom = atom<Proposal[]>((get) => {
 // 1. CORE ATOMS
 export const candidatesDictionaryAtom = atom<Record<Address, Candidate>>({} as Record<Address, Candidate>);
 
+// Add a new atom for the direct query sync
+export const directCandidatesSyncEnabledAtom = atom<boolean>(false);
+
+// Keep the old atom but don't use it anymore
 export const candidatesSyncEnabledAtom = atom<boolean>(false);
 
 export const candidateUsersAtom = atom<CandidateUser[]>((get) => {
@@ -583,4 +588,64 @@ export function useCouncilUpdateRequest() {
     error: writeError || confirmError,
     hash,
   };
+}
+
+// Modify useCandidatesSync to use the new atom
+export function useCandidatesSync() {
+  const publicClient = usePublicClient();
+  const setCandidatesDictionary = useSetAtom(candidatesDictionaryAtom);
+  const syncEnabled = useAtomValue(directCandidatesSyncEnabledAtom); // Use new atom
+
+  useEffect(() => {
+    if (!syncEnabled || !publicClient) return;
+
+    const fetchTopCandidates = async () => {
+      try {
+        // Get top 100 candidates
+        const result = await publicClient.readContract({
+          address: ENV.axeMembershipAddress,
+          abi: axeMembershipAbi,
+          functionName: 'getTopCandidates',
+          args: [0n, 100n],
+        });
+
+        if (result && Array.isArray(result) && result[0]) {
+          const [addresses] = result as [Address[], boolean];
+          const validAddresses = addresses.filter((addr) => addr !== '0x0000000000000000000000000000000000000000');
+
+          if (validAddresses.length === 0) return;
+
+          const candidateDetails = await publicClient.multicall({
+            contracts: validAddresses.map((address) => ({
+              address: ENV.axeMembershipAddress,
+              abi: axeMembershipAbi,
+              functionName: 'getCandidate',
+              args: [address],
+            })),
+          });
+
+          const newDictionary: Record<Address, Candidate> = {};
+          validAddresses.forEach((address, i) => {
+            const result = candidateDetails[i].result as unknown as CandidateResult;
+            console.log('[useCandidatesSync] result:', result);
+            if (result) {
+              newDictionary[address] = {
+                walletAddress: address,
+                delegationCount: Number(result.delegationCount),
+                available: result.available,
+              };
+            }
+          });
+
+          setCandidatesDictionary(newDictionary);
+        }
+      } catch (error) {
+        console.error('Error fetching candidates:', error);
+      }
+    };
+
+    fetchTopCandidates();
+    const interval = setInterval(fetchTopCandidates, 30000);
+    return () => clearInterval(interval);
+  }, [syncEnabled, publicClient, setCandidatesDictionary]);
 }
