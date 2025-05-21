@@ -26,7 +26,6 @@ export default function silk(options?: InitSilkOptions) {
   let silkProvider: SilkEthereumProviderInterface | null = null;
 
   return createConnector<SilkEthereumProviderInterface>((config) => {
-    console.log('Silk Connector Config:', config);
     return {
       id: 'silk',
       name: 'Silk Connector',

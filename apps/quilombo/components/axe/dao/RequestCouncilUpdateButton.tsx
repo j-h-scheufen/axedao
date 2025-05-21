@@ -6,9 +6,17 @@ import { useCouncilUpdateRequest } from '@/hooks/state/dao';
 import ENV from '@/config/environment';
 
 export default function RequestCouncilUpdateButton() {
-  const { requestUpdate, isPending: isUpdatePending } = useCouncilUpdateRequest();
-  const { data: canRequestUpdate, isLoading } = useReadAxeMembershipCouncilCanRequestCouncilUpdate({
+  const {
+    data: canRequestUpdate,
+    isLoading,
+    refetch,
+  } = useReadAxeMembershipCouncilCanRequestCouncilUpdate({
     address: ENV.axeMembershipCouncilAddress,
+  });
+  const { requestUpdate, isPending: isUpdatePending } = useCouncilUpdateRequest({
+    onSuccess: () => {
+      refetch();
+    },
   });
 
   return (

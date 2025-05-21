@@ -555,9 +555,13 @@ export function useInitializeCouncilState() {
   }, [currentMembers, setCurrentMembers]);
 }
 
-export function useCouncilUpdateRequest() {
+export function useCouncilUpdateRequest({
+  onSuccess,
+}: {
+  onSuccess?: () => void | Promise<void>;
+}) {
   const {
-    writeContract: requestUpdate,
+    writeContract,
     data: hash,
     error: writeError,
     isPending: isWritePending,
@@ -577,13 +581,14 @@ export function useCouncilUpdateRequest() {
       enqueueSnackbar('Requesting council update...', { autoHideDuration: 3000 });
     } else if (isSuccess) {
       enqueueSnackbar('Council update requested successfully!');
+      onSuccess?.();
     } else if (writeError) {
       enqueueSnackbar(`Failed to request update: ${writeError.message}`, { variant: 'error' });
     }
-  }, [isWritePending, isSuccess, writeError]);
+  }, [isWritePending, isSuccess, writeError, onSuccess]);
 
   return {
-    requestUpdate: () => requestUpdate({ address: ENV.axeMembershipCouncilAddress }),
+    requestUpdate: () => writeContract({ address: ENV.axeMembershipCouncilAddress }),
     isPending: isWritePending || isConfirming,
     error: writeError || confirmError,
     hash,
