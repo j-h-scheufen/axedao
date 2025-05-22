@@ -632,7 +632,6 @@ export function useCandidatesSync() {
           const newDictionary: Record<Address, Candidate> = {};
           validAddresses.forEach((address, i) => {
             const result = candidateDetails[i].result as unknown as CandidateResult;
-            console.log('[useCandidatesSync] result:', result);
             if (result) {
               newDictionary[address] = {
                 walletAddress: address,

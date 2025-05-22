@@ -2,41 +2,31 @@
 
 import { Button } from '@nextui-org/button';
 import clsx from 'clsx';
-import { atom, useAtom, useAtomValue } from 'jotai';
+import { useAtomValue } from 'jotai';
 import { ArrowLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
 
-import { breadcrumbsHistoryAtom } from '@/hooks/state/app';
+import { backUrlFromBreadcrumbsAtom } from '@/hooks/state/app';
 
-const backCrumbAtom = atom<string | undefined>(undefined);
 interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
   children: React.ReactNode;
-  back?: string | boolean;
+  backUrl?: string | boolean;
 }
-const PageHeading = ({ children, className = '', back, ...props }: Props) => {
-  const router = useRouter();
-  const [backCrumb, setBackCrumb] = useAtom(backCrumbAtom);
-  const crumbs = useAtomValue(breadcrumbsHistoryAtom);
 
-  useEffect(() => {
-    // The current page is the last crumb, the second to last is the target for the back button
-    const newTarget = crumbs.length > 1 ? crumbs[crumbs.length - 2] : undefined;
-    if (newTarget !== backCrumb) {
-      setBackCrumb(newTarget);
-    }
-  }, [backCrumb, crumbs, setBackCrumb]);
+const PageHeading = ({ children, className = '', backUrl, ...props }: Props) => {
+  const router = useRouter();
+  const backUrlFromBreadcrumbs = useAtomValue(backUrlFromBreadcrumbsAtom);
 
   return (
     <div className="relative z-[1] mb-3 flex items-center gap-3">
-      {(back || backCrumb) && (
+      {(backUrl || backUrlFromBreadcrumbs) && (
         <Button
           variant="light"
           onPress={() => {
-            if (back && typeof back === 'string') {
-              router.push(back);
-            } else if (backCrumb) {
-              router.push(backCrumb);
+            if (backUrl && typeof backUrl === 'string') {
+              router.push(backUrl);
+            } else if (backUrlFromBreadcrumbs) {
+              router.push(backUrlFromBreadcrumbs);
             } else {
               router.back();
             }
@@ -53,4 +43,5 @@ const PageHeading = ({ children, className = '', back, ...props }: Props) => {
     </div>
   );
 };
+
 export default PageHeading;
