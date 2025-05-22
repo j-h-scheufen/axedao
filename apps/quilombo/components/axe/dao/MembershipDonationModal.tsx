@@ -1,11 +1,11 @@
 'use client';
 
 import { Button } from '@nextui-org/button';
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalProps } from '@nextui-org/modal';
+import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, type ModalProps } from '@nextui-org/modal';
 import { atom, useAtom } from 'jotai';
 import { enqueueSnackbar } from 'notistack';
 import { useEffect } from 'react';
-import { Address, formatEther, formatUnits } from 'viem';
+import { type Address, formatEther, formatUnits } from 'viem';
 import { useAccount, useBalance, useSendTransaction, useWaitForTransactionReceipt } from 'wagmi';
 
 import ENV from '@/config/environment';
@@ -18,11 +18,13 @@ import {
   useWriteErc20Approve,
 } from '@/generated';
 
-type Props = Omit<ModalProps, 'children'> & { onSuccess?: () => void };
+type Props = Omit<ModalProps, 'children'> & {
+  onDonationSuccess?: () => void;
+};
 
 const hasApprovalAtom = atom<boolean>(false);
 
-export default function MembershipDonationModal({ onClose, onSuccess, ...props }: Props) {
+export default function MembershipDonationModal({ onClose, onDonationSuccess, ...props }: Props) {
   const account = useAccount();
   const [hasApproval, setHasApproval] = useAtom(hasApprovalAtom);
 
@@ -106,12 +108,11 @@ export default function MembershipDonationModal({ onClose, onSuccess, ...props }
       });
     } else if (donateSuccess) {
       enqueueSnackbar('Donation confirmed!');
-      onSuccess?.();
-      onClose?.();
+      onDonationSuccess?.();
     } else if (donateError) {
       enqueueSnackbar(`Donation failed: ${donateError.message}`);
     }
-  }, [donateLoading, donateSuccess, donateError, onSuccess, onClose]);
+  }, [donateLoading, donateSuccess, donateError, onDonationSuccess]);
 
   // Effect for send result
   useEffect(() => {
@@ -121,12 +122,11 @@ export default function MembershipDonationModal({ onClose, onSuccess, ...props }
       });
     } else if (sendSuccess) {
       enqueueSnackbar('Send confirmed!');
-      onSuccess?.();
-      onClose?.();
+      onDonationSuccess?.();
     } else if (sendError) {
       enqueueSnackbar(`Send failed: ${sendError.message}`);
     }
-  }, [sendLoading, sendSuccess, sendError, onSuccess, onClose]);
+  }, [sendLoading, sendSuccess, sendError, onDonationSuccess]);
 
   const handleNativeDonation = async () => {
     if (!nativeDonationAmount) {

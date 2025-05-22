@@ -6,7 +6,7 @@ import { PATHS } from '@/config/constants';
 const GroupEditPage = ({ params: { groupId } }: { params: { groupId: string } }) => {
   return (
     <>
-      <PageHeading back={`${PATHS.groups}/${groupId}`}>Edit group</PageHeading>
+      <PageHeading backUrl={`${PATHS.groups}/${groupId}`}>Edit group</PageHeading>
       <GroupProfileClientState groupId={groupId}>
         <GroupEdit />
       </GroupProfileClientState>

@@ -1,14 +1,24 @@
 'use client';
 
+import { useCallback } from 'react';
 import { Button } from '@nextui-org/button';
+
 import { useReadAxeMembershipCouncilCanRequestCouncilUpdate } from '@/generated';
 import { useCouncilUpdateRequest } from '@/hooks/state/dao';
 import ENV from '@/config/environment';
 
 export default function RequestCouncilUpdateButton() {
-  const { requestUpdate, isPending: isUpdatePending } = useCouncilUpdateRequest();
-  const { data: canRequestUpdate, isLoading } = useReadAxeMembershipCouncilCanRequestCouncilUpdate({
+  const {
+    data: canRequestUpdate,
+    isLoading,
+    refetch,
+  } = useReadAxeMembershipCouncilCanRequestCouncilUpdate({
     address: ENV.axeMembershipCouncilAddress,
+  });
+  const { requestUpdate, isPending: isUpdatePending } = useCouncilUpdateRequest({
+    onSuccess: useCallback(() => {
+      refetch();
+    }, [refetch]),
   });
 
   return (

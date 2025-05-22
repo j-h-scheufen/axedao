@@ -7,7 +7,7 @@
   "repository": "git@github.com:j-h-scheufen/axedao.git",
   "license": "MIT",
   "scripts": {
-    "dev:app": "pnpm --filter quilombo dev",
+    "dev:app": "pnpm --filter quilombo dev -p 8080",
     "dev:www": "pnpm --filter www dev",
     "lint": "pnpm -r lint",
     "build": "pnpm -r build",
