@@ -599,7 +599,7 @@ export function useCouncilUpdateRequest({
 export function useCandidatesSync() {
   const publicClient = usePublicClient();
   const setCandidatesDictionary = useSetAtom(candidatesDictionaryAtom);
-  const syncEnabled = useAtomValue(directCandidatesSyncEnabledAtom); // Use new atom
+  const syncEnabled = useAtomValue(directCandidatesSyncEnabledAtom);
 
   useEffect(() => {
     if (!syncEnabled || !publicClient) return;
@@ -650,7 +650,7 @@ export function useCandidatesSync() {
     };
 
     fetchTopCandidates();
-    const interval = setInterval(fetchTopCandidates, 30000);
+    const interval = setInterval(fetchTopCandidates, 300000);
     return () => clearInterval(interval);
   }, [syncEnabled, publicClient, setCandidatesDictionary]);
 }

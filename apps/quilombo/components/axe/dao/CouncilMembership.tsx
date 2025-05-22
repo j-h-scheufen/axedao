@@ -3,7 +3,7 @@
 import { Button } from '@nextui-org/button';
 import { useDisclosure } from '@nextui-org/use-disclosure';
 import { useSnackbar } from 'notistack';
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import type { Address } from 'viem';
 import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 
@@ -23,6 +23,13 @@ const CandidateActions: React.FC<{
   onEnlist: () => void;
 }> = ({ isLoading, isCandidate, isOnCouncil, onResign, onEnlist }) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
+
+  // Memoize the success callback
+  const handleSuccess = useCallback(() => {
+    onEnlist();
+    onClose();
+  }, [onEnlist, onClose]);
+
   return (
     <div>
       {isCandidate ? (
@@ -43,10 +50,7 @@ const CandidateActions: React.FC<{
             isOpen={isOpen}
             onOpenChange={onOpenChange}
             onClose={onClose}
-            onSuccess={() => {
-              onEnlist();
-              onClose();
-            }}
+            onSuccess={handleSuccess}
           />
         </>
       )}
