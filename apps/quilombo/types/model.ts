@@ -3,6 +3,7 @@ import type { SelectGroup, SelectUser } from '../db/schema';
 
 /**
  * This file defines API and app-level types that are wrapping the DB schema types in order to create a layer of separation
+ * TODO: The app is missing a central types.d.ts definition.
  */
 
 export type Group = Omit<SelectGroup, 'updatedAt'> & { countryName: string };
@@ -41,3 +42,8 @@ export type GroupSearchResult = {
 };
 
 export type SearchCitiesParams = { countryCode: string; searchTerm?: string };
+
+export type Breadcrumb = {
+  pathname: string;
+  queryParams: string;
+};

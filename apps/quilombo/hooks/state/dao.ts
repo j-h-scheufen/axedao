@@ -555,9 +555,13 @@ export function useInitializeCouncilState() {
   }, [currentMembers, setCurrentMembers]);
 }
 
-export function useCouncilUpdateRequest() {
+export function useCouncilUpdateRequest({
+  onSuccess,
+}: {
+  onSuccess?: () => void | Promise<void>;
+}) {
   const {
-    writeContract: requestUpdate,
+    writeContract,
     data: hash,
     error: writeError,
     isPending: isWritePending,
@@ -577,13 +581,14 @@ export function useCouncilUpdateRequest() {
       enqueueSnackbar('Requesting council update...', { autoHideDuration: 3000 });
     } else if (isSuccess) {
       enqueueSnackbar('Council update requested successfully!');
+      onSuccess?.();
     } else if (writeError) {
       enqueueSnackbar(`Failed to request update: ${writeError.message}`, { variant: 'error' });
     }
-  }, [isWritePending, isSuccess, writeError]);
+  }, [isWritePending, isSuccess, writeError, onSuccess]);
 
   return {
-    requestUpdate: () => requestUpdate({ address: ENV.axeMembershipCouncilAddress }),
+    requestUpdate: () => writeContract({ address: ENV.axeMembershipCouncilAddress }),
     isPending: isWritePending || isConfirming,
     error: writeError || confirmError,
     hash,
@@ -594,7 +599,7 @@ export function useCouncilUpdateRequest() {
 export function useCandidatesSync() {
   const publicClient = usePublicClient();
   const setCandidatesDictionary = useSetAtom(candidatesDictionaryAtom);
-  const syncEnabled = useAtomValue(directCandidatesSyncEnabledAtom); // Use new atom
+  const syncEnabled = useAtomValue(directCandidatesSyncEnabledAtom);
 
   useEffect(() => {
     if (!syncEnabled || !publicClient) return;
@@ -627,7 +632,6 @@ export function useCandidatesSync() {
           const newDictionary: Record<Address, Candidate> = {};
           validAddresses.forEach((address, i) => {
             const result = candidateDetails[i].result as unknown as CandidateResult;
-            console.log('[useCandidatesSync] result:', result);
             if (result) {
               newDictionary[address] = {
                 walletAddress: address,
@@ -645,7 +649,7 @@ export function useCandidatesSync() {
     };
 
     fetchTopCandidates();
-    const interval = setInterval(fetchTopCandidates, 30000);
+    const interval = setInterval(fetchTopCandidates, 300000);
     return () => clearInterval(interval);
   }, [syncEnabled, publicClient, setCandidatesDictionary]);
 }

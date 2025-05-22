@@ -4,6 +4,7 @@ import { Button } from '@nextui-org/button';
 import { useDisclosure } from '@nextui-org/use-disclosure';
 import type { Address } from 'viem';
 import { useAccount } from 'wagmi';
+import { useCallback } from 'react';
 
 import ENV from '@/config/environment';
 import { useReadAxeMembershipIsMember } from '@/generated';
@@ -12,12 +13,17 @@ import MembershipDonationModal from './MembershipDonationModal';
 
 const DaoMembership: React.FC = () => {
   const account = useAccount();
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const { data: isMember = false, refetch: updateIsMember } = useReadAxeMembershipIsMember({
     address: ENV.axeMembershipAddress,
     args: [account.address as Address],
   });
+
+  const handleSuccess = useCallback(() => {
+    updateIsMember();
+    onClose();
+  }, [updateIsMember, onClose]);
 
   return (
     <div className="flex flex-col w-full items-center">
@@ -37,7 +43,7 @@ const DaoMembership: React.FC = () => {
             </Button>
           </div>
         )}
-        <MembershipDonationModal isOpen={isOpen} onOpenChange={onOpenChange} onSuccess={updateIsMember} />
+        <MembershipDonationModal isOpen={isOpen} onOpenChange={onClose} onDonationSuccess={handleSuccess} />
       </div>
     </div>
   );

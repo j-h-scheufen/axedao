@@ -5,7 +5,7 @@ import { PATHS } from '@/config/constants';
 const page = () => {
   return (
     <div className="flex flex-col">
-      <PageHeading back={PATHS.profile}>Edit profile</PageHeading>
+      <PageHeading backUrl={PATHS.profile}>Edit profile</PageHeading>
       <ProfileEdit />
     </div>
   );
