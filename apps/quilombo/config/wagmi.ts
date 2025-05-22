@@ -3,7 +3,7 @@ import { type Chain, gnosis, localhost, optimism, sepolia } from 'wagmi/chains';
 
 import ENV, { getBaseUrl } from '@/config/environment';
 import silk from '@/utils/silk.connector';
-import type { InitSilkOptions } from '@silk-wallet/silk-wallet-sdk/dist/lib/provider/types';
+import type { InitSilkOptions } from '@silk-wallet/silk-wallet-sdk';
 
 declare module 'wagmi' {
   interface Register {
