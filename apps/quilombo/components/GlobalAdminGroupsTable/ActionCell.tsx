@@ -1,12 +1,11 @@
 'use client';
 
-import { Button } from '@heroui/react';
-import { Tooltip } from '@heroui/react';
+import { Button, Tooltip } from '@heroui/react';
 import { ShieldCheckIcon, ShieldOffIcon } from 'lucide-react';
 import { useCallback } from 'react';
 
 import { useGroupVerification } from '@/hooks/useAdmin';
-import { Group } from '@/types/model';
+import type { Group } from '@/types/model';
 
 type Props = { group: Group };
 

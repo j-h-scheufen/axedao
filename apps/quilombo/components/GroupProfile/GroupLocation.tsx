@@ -1,8 +1,7 @@
-import { Autocomplete, AutocompleteItem, AutocompleteProps } from '@heroui/react';
-import { Avatar } from '@heroui/react';
+import { Autocomplete, AutocompleteItem, type AutocompleteProps, Avatar } from '@heroui/react';
 
 import useCountriesAndCities from '@/hooks/useCountriesAndCities';
-import { City, Country } from '@/types/model';
+import type { City, Country } from '@/types/model';
 import { cn } from '@/utils/tailwind';
 
 type Props = {

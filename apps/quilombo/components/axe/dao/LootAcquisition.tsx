@@ -1,7 +1,6 @@
 'use client';
 
-import { Button } from '@heroui/react';
-import { Card, CardBody, CardHeader } from '@heroui/react';
+import { Button, Card, CardBody, CardHeader } from '@heroui/react';
 import { useSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
 import { type Address, formatUnits } from 'viem';

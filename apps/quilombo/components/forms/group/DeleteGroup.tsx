@@ -1,6 +1,13 @@
-import { Button } from '@heroui/react';
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from '@heroui/react';
-import { Spinner } from '@heroui/react';
+import {
+  Button,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  useDisclosure,
+  Spinner,
+} from '@heroui/react';
 
 type Props = { deleteGroup: () => Promise<void>; isDeleting: boolean };
 const DeleteGroup = ({ deleteGroup, isDeleting }: Props) => {

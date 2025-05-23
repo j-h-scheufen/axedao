@@ -1,7 +1,6 @@
 'use client';
 
-import { Button } from '@heroui/react';
-import { useDisclosure } from '@heroui/react';
+import { Button, useDisclosure } from '@heroui/react';
 import type { Address } from 'viem';
 import { useAccount } from 'wagmi';
 import { useCallback } from 'react';

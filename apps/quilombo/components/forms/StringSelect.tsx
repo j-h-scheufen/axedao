@@ -1,11 +1,9 @@
-import { Button } from '@heroui/react';
-import { Link } from '@heroui/react';
-import { Select, SelectItem } from '@heroui/react';
-import { FieldProps, useField } from 'formik';
+import { Button, Link, Select, SelectItem } from '@heroui/react';
+import { type FieldProps, useField } from 'formik';
 import { XIcon } from 'lucide-react';
 import { useMemo } from 'react';
 
-// TODO Known problem with Select. Waiting for this bug to get fixed: https://github.com/nextui-org/nextui/pull/3698
+// TODO Known problem with Select. This got fixed: https://github.com/nextui-org/nextui/pull/3698. But it's not tested in the app yet.
 
 type Props = Omit<FieldProps['field'], 'items'> & {
   options: string[];

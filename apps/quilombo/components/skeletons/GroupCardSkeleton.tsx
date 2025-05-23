@@ -1,6 +1,6 @@
 'use client';
-import { Card, CardFooter, CardHeader } from '@heroui/react';
-import { Skeleton } from '@heroui/react';
+
+import { Card, CardFooter, CardHeader, Skeleton } from '@heroui/react';
 import clsx from 'clsx';
 
 type Props = { className?: string };

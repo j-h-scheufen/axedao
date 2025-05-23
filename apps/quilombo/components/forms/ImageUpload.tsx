@@ -1,13 +1,12 @@
 'use client';
 
-import { Avatar, AvatarProps } from '@heroui/react';
-import { Spinner } from '@heroui/react';
+import { Avatar, type AvatarProps, Spinner } from '@heroui/react';
 import { Camera, Trash2 } from 'lucide-react';
 import { enqueueSnackbar } from 'notistack';
 import { useCallback, useRef, useState } from 'react';
 
-import { ImageUploadForm, imageUploadSchema } from '@/config/validation-schema';
-import { UseFileUploadMutation } from '@/query';
+import { type ImageUploadForm, imageUploadSchema } from '@/config/validation-schema';
+import type { UseFileUploadMutation } from '@/query';
 import { getImageUrl } from '@/utils';
 import { cn } from '@/utils/tailwind';
 

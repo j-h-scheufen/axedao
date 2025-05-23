@@ -1,7 +1,4 @@
-import { Link } from '@heroui/react';
-import { Card } from '@heroui/react';
-import { Image } from '@heroui/react';
-import { button as buttonStyles } from '@heroui/react';
+import { Card, Image, Link, button as buttonStyles } from '@heroui/react';
 
 import { siteConfig } from '@/config/site';
 import { GithubIcon } from '@/components/icons';

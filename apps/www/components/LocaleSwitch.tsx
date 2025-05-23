@@ -1,11 +1,10 @@
 'use client';
 
-import { Key, useMemo, useState } from 'react';
+import { type Key, useMemo, useState } from 'react';
 import { useRouter, useSelectedLayoutSegments } from 'next/navigation';
-import { Button } from '@heroui/react';
-import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@heroui/react';
+import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@heroui/react';
 
-import { isSupportedLanguage, SupportedLanguage } from '../app/i18n/settings';
+import { isSupportedLanguage, type SupportedLanguage } from '../app/i18n/settings';
 import { useLocale } from '@/hooks/useLocale';
 
 function getFlagEmoji(countryCode: string) {

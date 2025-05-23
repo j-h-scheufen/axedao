@@ -1,25 +1,26 @@
 'use client';
 
-import { Avatar } from '@heroui/react';
-import { Link } from '@heroui/react';
-import { Spinner } from '@heroui/react';
 import {
+  Avatar,
+  Link,
+  Spinner,
   Table,
   TableBody,
   TableCell,
   TableColumn,
-  TableColumnProps,
+  type TableColumnProps,
   TableHeader,
   TableRow,
   getKeyValue,
 } from '@heroui/react';
 import { MapPinIcon } from 'lucide-react';
-import React, { useCallback, useState } from 'react';
+import type React from 'react';
+import { useCallback, useState } from 'react';
 
 import VerificationChip from '@/components/VerificationChip';
 import { PATHS } from '@/config/constants';
 import useGroupSearch from '@/hooks/useGroupSearch';
-import { Group } from '@/types/model';
+import type { Group } from '@/types/model';
 import { getImageUrl } from '@/utils';
 import ActionCell from './ActionCell';
 

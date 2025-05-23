@@ -1,7 +1,6 @@
 'use client';
 
-import { Spinner } from '@heroui/react';
-import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@heroui/react';
+import { Spinner, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@heroui/react';
 import { useAtomValue } from 'jotai';
 import { useCallback, useMemo } from 'react';
 
@@ -14,9 +13,9 @@ import {
   groupMembersAtom,
   isCurrentUserGroupAdminAtom,
 } from '@/hooks/state/group';
-import { GroupMemberRole } from '@/types/model';
+import type { GroupMemberRole } from '@/types/model';
 import { getGroupMemberRoles } from '@/utils';
-import TableCellValue, { COLUMNS, GroupMemberTableColumnKey } from './TableCellValue';
+import TableCellValue, { COLUMNS, type GroupMemberTableColumnKey } from './TableCellValue';
 
 const GroupMembers = () => {
   const { data: groupMembers, isPending } = useAtomValue(groupMembersAtom);

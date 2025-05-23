@@ -1,13 +1,11 @@
 'use client';
 
-import { Card } from '@heroui/react';
-import { Button } from '@heroui/react';
+import { Card, Button, Spinner } from '@heroui/react';
 import { ArrowRight } from 'lucide-react';
 import { useAtomValue } from 'jotai';
 import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 import { useSnackbar } from 'notistack';
 import { useEffect } from 'react';
-import { Spinner } from '@heroui/react';
 import type { Address } from 'viem';
 
 import { incomingCouncilUsersAtom, outgoingCouncilUsersAtom } from '@/hooks/state/dao';

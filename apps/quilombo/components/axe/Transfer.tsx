@@ -1,17 +1,16 @@
 'use client';
 
-import { Button } from '@heroui/react';
-import { useDisclosure } from '@heroui/react';
-import { Field, Form, Formik, FormikProps } from 'formik';
+import { Button, useDisclosure } from '@heroui/react';
+import { Field, Form, Formik, type FormikProps } from 'formik';
 import { enqueueSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
-import { Address, formatUnits, parseUnits } from 'viem';
+import { type Address, formatUnits, parseUnits } from 'viem';
 import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 
 import ENV from '@/config/environment';
-import { AxeTransferForm, axeTransferForm } from '@/config/validation-schema';
+import { type AxeTransferForm, axeTransferForm } from '@/config/validation-schema';
 import { useReadErc20BalanceOf, useWriteErc20Transfer } from '@/generated';
-import { User } from '@/types/model';
+import type { User } from '@/types/model';
 import ErrorText from '../ErrorText';
 import { AmountInput, UserSelect } from '../forms';
 import TransferConfirm from './TransferConfirm';

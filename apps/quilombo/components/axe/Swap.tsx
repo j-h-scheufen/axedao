@@ -1,9 +1,8 @@
 'use client';
 
-import { Card, CardBody } from '@heroui/react';
-import { Tab, Tabs } from '@heroui/react';
+import { Card, CardBody, Tab, Tabs } from '@heroui/react';
 import { useCallback, useEffect, useState } from 'react';
-import { Address } from 'viem';
+import type { Address } from 'viem';
 import { useAccount } from 'wagmi';
 
 import ENV from '@/config/environment';

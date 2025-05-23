@@ -1,7 +1,13 @@
-import { Button } from '@heroui/react';
-import { Spinner } from '@heroui/react';
-
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalProps } from '@heroui/react';
+import {
+  Button,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  type ModalProps,
+  Spinner,
+} from '@heroui/react';
 
 type Props = Omit<ModalProps, 'children'> & { onDelete: () => Promise<void>; isDeleting: boolean };
 const LeaveGroupConfirmationModal = ({ isOpen, onOpenChange, onDelete, isDeleting, ...props }: Props) => {

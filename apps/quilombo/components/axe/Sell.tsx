@@ -1,12 +1,12 @@
 'use client';
 
-import { Button } from '@heroui/react';
-import { Input } from '@heroui/react';
-import { FormikErrors, useFormik } from 'formik';
+import { Button, Input } from '@heroui/react';
+import type { FormikErrors } from 'formik';
+import { useFormik } from 'formik';
 import { debounce } from 'lodash';
 import { enqueueSnackbar } from 'notistack';
 import { useCallback, useEffect, useState } from 'react';
-import { Address, formatUnits, parseUnits } from 'viem';
+import { type Address, formatUnits, parseUnits } from 'viem';
 import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 
 import ENV from '@/config/environment';
@@ -18,7 +18,7 @@ import {
   useWriteIUniswapV2Router02SwapExactTokensForTokensSupportingFeeOnTransferTokens,
 } from '@/generated';
 import { formatAxeUnits, formatStableUnits } from '@/utils/contract.utils';
-import { TradeFormProps } from './Swap';
+import type { TradeFormProps } from './Swap';
 
 const slippageTolerance = 100n; //basispoints
 

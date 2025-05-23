@@ -1,7 +1,6 @@
 'use client';
 
-import { Button } from '@heroui/react';
-import { useDisclosure } from '@heroui/react';
+import { Button, useDisclosure } from '@heroui/react';
 import { SettingsIcon } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';

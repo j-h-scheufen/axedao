@@ -1,5 +1,4 @@
-import { Badge, BadgeProps } from '@heroui/react';
-import { Tooltip } from '@heroui/react';
+import { Badge, type BadgeProps, Tooltip } from '@heroui/react';
 import { CircleCheckIcon } from 'lucide-react';
 
 type Props = { verified: boolean } & BadgeProps;

@@ -1,11 +1,10 @@
-import { Autocomplete, AutocompleteItem } from '@heroui/react';
-import { FieldProps, useField } from 'formik';
+import { Autocomplete, AutocompleteItem, Avatar } from '@heroui/react';
+import { type FieldProps, useField } from 'formik';
 import { SearchIcon } from 'lucide-react';
 
 import useGroupSearch from '@/hooks/useGroupSearch';
-import { Group } from '@/types/model';
+import type { Group } from '@/types/model';
 import { getImageUrl } from '@/utils';
-import { Avatar } from '@heroui/react';
 
 type Props = FieldProps['field'] & {
   onSelect?: (user: Group | null) => void;

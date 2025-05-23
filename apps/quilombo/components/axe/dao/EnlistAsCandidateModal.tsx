@@ -1,8 +1,15 @@
 'use client';
 
-import { Accordion, AccordionItem } from '@heroui/react';
-import { Button } from '@heroui/react';
-import { Modal, ModalBody, ModalContent, ModalHeader, type ModalProps } from '@heroui/react';
+import {
+  Accordion,
+  AccordionItem,
+  Button,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalHeader,
+  type ModalProps,
+} from '@heroui/react';
 import { enqueueSnackbar } from 'notistack';
 import { useEffect, useMemo, useState } from 'react';
 import { useWaitForTransactionReceipt } from 'wagmi';

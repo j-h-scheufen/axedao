@@ -1,5 +1,4 @@
-import { Card } from '@heroui/react';
-import { Image } from '@heroui/react';
+import { Card, Image } from '@heroui/react';
 
 import { TextSection, Title } from '@/components/primitives';
 

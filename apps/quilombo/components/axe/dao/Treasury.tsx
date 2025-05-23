@@ -1,7 +1,6 @@
 'use client';
 
-import { Card, CardBody } from '@heroui/react';
-import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@heroui/react';
+import { Card, CardBody, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@heroui/react';
 import { format } from 'dnum';
 
 import ENV from '@/config/environment';

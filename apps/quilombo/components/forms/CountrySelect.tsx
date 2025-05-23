@@ -1,10 +1,10 @@
-import { Autocomplete, AutocompleteItem } from '@heroui/react';
-import { Avatar } from '@heroui/react';
-import { FieldProps, useField } from 'formik';
+import { Autocomplete, AutocompleteItem, Avatar } from '@heroui/react';
+import type { FieldProps } from 'formik';
+import { useField } from 'formik';
 import { useState } from 'react';
 
 import useCountriesAndCities from '@/hooks/useCountriesAndCities';
-import { Country } from '@/types/model';
+import type { Country } from '@/types/model';
 import { SearchIcon } from '../icons';
 
 type CountrySelectProps = FieldProps['field'] & {

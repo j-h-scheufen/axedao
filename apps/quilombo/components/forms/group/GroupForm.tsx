@@ -1,8 +1,7 @@
 'use client';
 
-import { Button } from '@heroui/react';
-import { Textarea } from '@heroui/react';
-import { Field, FieldArray, FieldProps, Form, Formik, FormikProps } from 'formik';
+import { Button, Textarea } from '@heroui/react';
+import { Field, FieldArray, type FieldProps, Form, Formik, type FormikProps } from 'formik';
 import { useAtomValue } from 'jotai';
 import { useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
@@ -11,7 +10,7 @@ import { FieldInput, FounderField, LinksArray, StringSelect } from '@/components
 import GroupFormSkeleton from '@/components/skeletons/GroupSkeletons';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import { GROUP_DESCRIPTION_MAX_LENGTH, PATHS, styles } from '@/config/constants';
-import { UpdateGroupForm, updateGroupSchema } from '@/config/validation-schema';
+import { type UpdateGroupForm, updateGroupSchema } from '@/config/validation-schema';
 import { groupAtom } from '@/hooks/state/group';
 import { useDeleteGroup, useUpdateGroup } from '@/hooks/useGroup';
 import { DeleteGroup } from '.';

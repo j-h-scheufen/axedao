@@ -1,7 +1,4 @@
-import { Avatar, type AvatarProps } from '@heroui/react';
-import { Card, type CardProps, CardBody } from '@heroui/react';
-import { Link } from '@heroui/react';
-import { Badge } from '@heroui/react';
+import { Avatar, type AvatarProps, Card, type CardProps, CardBody, Link, Badge } from '@heroui/react';
 import clsx from 'clsx';
 import { UserRoundIcon } from 'lucide-react';
 import type { ReactNode } from 'react';

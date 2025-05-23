@@ -1,7 +1,6 @@
 'use client';
 
-import { Button } from '@heroui/react';
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from '@heroui/react';
+import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from '@heroui/react';
 
 type Props = { isOpen: boolean; onOpenChange: () => void };
 

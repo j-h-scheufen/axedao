@@ -1,4 +1,4 @@
-import { Navbar as NextUINavbar, NavbarContent, Button } from '@heroui/react';
+import { Navbar as NextUINavbar, NavbarContent, Button, Link } from '@heroui/react';
 
 // import { siteConfig } from '@/config/site';
 // import NextLink from 'next/link';
@@ -8,7 +8,6 @@ import { Navbar as NextUINavbar, NavbarContent, Button } from '@heroui/react';
 import ENV from '@/config/environment';
 import ThemeSwitch from './ThemeSwitch';
 import LocaleSwitch from './LocaleSwitch';
-import { Link } from '@heroui/react';
 
 const Navbar: React.FC = () => {
   return (

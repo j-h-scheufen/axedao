@@ -1,7 +1,4 @@
-import { Button } from '@heroui/react';
-import { Link } from '@heroui/react';
-import { Tooltip } from '@heroui/react';
-import { User } from '@heroui/react';
+import { Button, Link, Tooltip, User } from '@heroui/react';
 import { useAtomValue } from 'jotai';
 import { has } from 'lodash';
 import { ArrowDownIcon, ArrowUpIcon, UserXIcon } from 'lucide-react';
@@ -11,7 +8,7 @@ import { PATHS } from '@/config/constants';
 import { currentUserIdAtom } from '@/hooks/state/currentUser';
 import { groupAdminIdsAtom, groupIdAtom, isCurrentUserGroupAdminAtom } from '@/hooks/state/group';
 import { useAddAdmin, useRemoveAdmin, useRemoveMember } from '@/hooks/useGroup';
-import { GroupMember } from '@/types/model';
+import type { GroupMember } from '@/types/model';
 import { getImageUrl, getUserDisplayName } from '@/utils';
 import RoleChips from './RoleChips';
 
@@ -75,7 +72,7 @@ const TableCellValue = ({ groupMember, columnKey }: Props) => {
               </div>
             }
             className="cursor-pointer"
-          ></User>
+          />
         </Link>
       );
     case 'roles':

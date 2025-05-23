@@ -1,7 +1,6 @@
 'use client';
 
-import { Button } from '@heroui/react';
-import { Spinner } from '@heroui/react';
+import { Button, Spinner } from '@heroui/react';
 import type { SilkEthereumProviderInterface } from '@silk-wallet/silk-wallet-sdk';
 import { Field, FieldArray, Form, Formik, type FormikProps } from 'formik';
 import { useAtomValue } from 'jotai';

@@ -1,8 +1,7 @@
 'use client';
 
-import { AvatarProps } from '@heroui/react';
-import { CardProps } from '@heroui/react';
-import { ReactNode } from 'react';
+import type { AvatarProps, CardProps } from '@heroui/react';
+import type { ReactNode } from 'react';
 
 import { useFetchUser } from '@/query/user';
 import UserCardSkeleton from './skeletons/UserCardSkeleton';

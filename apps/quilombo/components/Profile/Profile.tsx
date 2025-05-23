@@ -1,7 +1,6 @@
 'use client';
 
-import { Avatar } from '@heroui/react';
-import { Button } from '@heroui/react';
+import { Avatar, Button } from '@heroui/react';
 import { useAtomValue } from 'jotai';
 import { Camera, Edit, MailIcon } from 'lucide-react';
 import Link from 'next/link';

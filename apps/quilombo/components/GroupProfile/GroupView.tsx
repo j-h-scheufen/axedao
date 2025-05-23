@@ -1,7 +1,6 @@
 'use client';
 
-import { Link } from '@heroui/react';
-import { Spinner } from '@heroui/react';
+import { Link, Spinner } from '@heroui/react';
 import { useAtomValue } from 'jotai';
 import { MailIcon } from 'lucide-react';
 

@@ -1,9 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { Button } from '@heroui/react';
-import { Card, CardBody, CardFooter, CardHeader } from '@heroui/react';
-import { Link } from '@heroui/react';
+import { Button, Card, CardBody, CardFooter, CardHeader, Link } from '@heroui/react';
 import { useTransform, useScroll, motion } from 'framer-motion';
 
 type TopicProps = {

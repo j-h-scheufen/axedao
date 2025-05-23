@@ -1,7 +1,6 @@
 'use client';
 
-import { Button } from '@heroui/react';
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from '@heroui/react';
+import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from '@heroui/react';
 import { useAtomValue } from 'jotai';
 import { useCallback, useEffect } from 'react';
 
