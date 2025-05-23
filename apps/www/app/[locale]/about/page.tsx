@@ -1,8 +1,8 @@
 import { Card, Image, Link, button as buttonStyles } from '@heroui/react';
 
-import { siteConfig } from '@/config/site';
 import { GithubIcon } from '@/components/icons';
 import { TextSection, Title } from '@/components/primitives';
+import { siteConfig } from '@/config/site';
 
 export default function AboutPage() {
   return (
