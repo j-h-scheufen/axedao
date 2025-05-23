@@ -24,7 +24,7 @@ type Props = {
  */
 const ImageUpload = ({ value, ownerId, useFileUploadMutation: useDynamicMutation, classname, avatarProps }: Props) => {
   const { mutateAsync, error: uploadError, isPending } = useDynamicMutation();
-  const [imagePreview, setImagePreview] = useState<string | undefined>(value ? (getImageUrl(value) ?? '') : '');
+  const [imagePreview, setImagePreview] = useState<string | undefined>(value ? getImageUrl(value) ?? '' : '');
   const [validationError, setValidationError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -69,7 +69,7 @@ const ImageUpload = ({ value, ownerId, useFileUploadMutation: useDynamicMutation
           accept="image/*"
           onChange={(e) => {
             setValidationError(null);
-            const file = e.target.files && e.target.files[0];
+            const file = e.target.files?.[0];
             if (file) {
               setImagePreview(file ? URL.createObjectURL(file) : '');
               handleSubmit({ file });

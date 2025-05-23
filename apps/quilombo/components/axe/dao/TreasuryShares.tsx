@@ -47,7 +47,10 @@ const TreasuryShares: React.FC = () => {
         <div className="flex gap-2 sm:gap-4">
           <MemberBadge isMember={isMember} />
           {isMember ? (
-            `You own ${format(totalRageQuitShares)} shares of the community treasury equivalent to ${format(userTreasuryPercent, 2)}% (or $ ${format(userTreasuryUsdTotal, 2)})`
+            `You own ${format(totalRageQuitShares)} shares of the community treasury equivalent to ${format(
+              userTreasuryPercent,
+              2
+            )}% (or $ ${format(userTreasuryUsdTotal, 2)})`
           ) : (
             <span>You&apos;re not a member.</span>
           )}

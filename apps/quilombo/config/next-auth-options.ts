@@ -27,7 +27,7 @@ const providers = [
     },
 
     // Note: 'req' is not used atm, but the nonce should come from its headers. See problem and workaround below
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    // biome-ignore lint/correctness/noUnusedVariables: see commment above
     async authorize(credentials, req: RequestInternal['headers']) {
       if (!credentials) {
         return null;

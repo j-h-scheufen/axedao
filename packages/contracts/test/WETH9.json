@@ -12,10 +12,7 @@
     },
     {
       "constant": false,
-      "inputs": [
-        { "name": "guy", "type": "address" },
-        { "name": "wad", "type": "uint256" }
-      ],
+      "inputs": [{ "name": "guy", "type": "address" }, { "name": "wad", "type": "uint256" }],
       "name": "approve",
       "outputs": [{ "name": "", "type": "bool" }],
       "payable": false,
@@ -82,10 +79,7 @@
     },
     {
       "constant": false,
-      "inputs": [
-        { "name": "dst", "type": "address" },
-        { "name": "wad", "type": "uint256" }
-      ],
+      "inputs": [{ "name": "dst", "type": "address" }, { "name": "wad", "type": "uint256" }],
       "name": "transfer",
       "outputs": [{ "name": "", "type": "bool" }],
       "payable": false,
@@ -103,10 +97,7 @@
     },
     {
       "constant": true,
-      "inputs": [
-        { "name": "", "type": "address" },
-        { "name": "", "type": "address" }
-      ],
+      "inputs": [{ "name": "", "type": "address" }, { "name": "", "type": "address" }],
       "name": "allowance",
       "outputs": [{ "name": "", "type": "uint256" }],
       "payable": false,

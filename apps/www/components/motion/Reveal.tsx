@@ -1,7 +1,7 @@
 'use client';
 
-import { PropsWithChildren } from 'react';
 import { motion } from 'framer-motion';
+import type { PropsWithChildren } from 'react';
 
 type RevealProps = PropsWithChildren & {
   initialScale?: number;
@@ -9,12 +9,7 @@ type RevealProps = PropsWithChildren & {
   className?: string;
 };
 
-const Reveal: React.FC<RevealProps> = ({
-  initialScale = 0.8,
-  delay = 0.5,
-  className = '',
-  children,
-}) => {
+const Reveal: React.FC<RevealProps> = ({ initialScale = 0.8, delay = 0.5, className = '', children }) => {
   return (
     <motion.div
       initial={{

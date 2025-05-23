@@ -5,7 +5,7 @@ import ContactInfoInputsSkeleton from '@/components/skeletons/ContactInfoInputsS
 import UserCardSkeleton from '@/components/skeletons/UserCardSkeleton';
 
 export const GroupBannerSkeleton = () => {
-  return <Skeleton className="h-[200px] w-full rounded-xl"></Skeleton>;
+  return <Skeleton className="h-[200px] w-full rounded-xl" />;
 };
 
 export const GroupDescriptionSkeleton = () => {

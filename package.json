@@ -1,6 +1,6 @@
 {
   "name": "axe-monorepo",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "description": "Axé DAO Monorepo",
   "author": "Jan Hendrik Scheufen <j.h.scheufen@gmail.com>",
@@ -11,13 +11,26 @@
     "dev:www": "pnpm --filter www dev",
     "lint": "pnpm -r lint",
     "build": "pnpm -r build",
-    "test": "pnpm -r test"
+    "test": "pnpm -r test",
+    "prepare": "husky"
   },
   "engines": {
-    "node": ">=18.17.0"
+    "node": ">=20.0.0"
   },
   "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee",
   "devDependencies": {
-    "husky": "^9.1.5"
+    "@biomejs/biome": "1.5.3",
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.5.2",
+    "typescript": "^5.8.3"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "biome check --apply",
+      "biome format --write"
+    ],
+    "*.{json,md}": ["biome format --write"]
   }
 }

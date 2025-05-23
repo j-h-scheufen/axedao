@@ -61,12 +61,11 @@ const searchGroups = async ({ offset, pageSize, searchTerm }: SearchParams): Pro
 export const searchGroupsOptions = ({ offset, pageSize, searchTerm }: SearchParams) => {
   return {
     queryKey: [QUERY_KEYS.group.searchGroups, searchTerm],
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: using any here is fine as it gets cast to a number
     queryFn: async ({ pageParam }: { pageParam: any }) =>
       searchGroups({ offset: Number(pageParam), pageSize, searchTerm }),
     initialPageParam: offset || 0,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    getNextPageParam: (lastPage: any) => lastPage.nextOffset,
+    getNextPageParam: (lastPage: GroupSearchResult) => lastPage.nextOffset,
     staleTime: 1000 * 60 * 15, // 15 minutes
   } as const;
 };

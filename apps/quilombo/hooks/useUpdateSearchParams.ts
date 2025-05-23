@@ -1,5 +1,4 @@
-import { usePathname, useRouter } from 'next/navigation';
-import { ReadonlyURLSearchParams } from 'next/navigation';
+import { usePathname, useRouter, type ReadonlyURLSearchParams } from 'next/navigation';
 import { useCallback } from 'react';
 
 const useUpdateSearchParams = (searchParams: ReadonlyURLSearchParams) => {
@@ -14,7 +13,7 @@ const useUpdateSearchParams = (searchParams: ReadonlyURLSearchParams) => {
       params.set(name, value);
       router.push(`${pathname}?${params.toString()}`);
     },
-    [searchParams],
+    [searchParams, pathname, router]
   );
 
   return updater;

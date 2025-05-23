@@ -33,7 +33,7 @@ export const groupBannerAtom = atom<string | undefined>((get) => get(groupAtom).
 export const groupBannerUrlAtom = atom<string | undefined>((get) => getImageUrl(get(groupAtom).data?.banner));
 
 export const isCurrentUserGroupAdminAtom = atom<boolean>(
-  (get) => get(groupAdminIdsAtom)?.data?.includes(get(currentUserIdAtom) ?? '') ?? false,
+  (get) => get(groupAdminIdsAtom)?.data?.includes(get(currentUserIdAtom) ?? '') ?? false
 );
 
 export const isCurrentUserGroupMemberAtom = atom<boolean>((get) => get(groupIdAtom) === get(currentUserGroupIdAtom));

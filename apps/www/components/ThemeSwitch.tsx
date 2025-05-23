@@ -1,12 +1,12 @@
 'use client';
 
-import { FC } from 'react';
-import { Switch, SwitchProps } from '@heroui/react';
-import { useTheme } from 'next-themes';
+import { Switch, type SwitchProps } from '@heroui/react';
 import { useIsSSR } from '@react-aria/ssr';
 import clsx from 'clsx';
+import { useTheme } from 'next-themes';
+import type { FC } from 'react';
 
-import { SunFilledIcon, MoonFilledIcon } from '@/components/icons';
+import { MoonFilledIcon, SunFilledIcon } from '@/components/icons';
 
 export type ThemeSwitchProps = {
   className?: string;

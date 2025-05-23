@@ -22,7 +22,7 @@ const useCountriesAndCities = () => {
       setSelectedCountryCode(undefined);
       setCitySearchTerm(undefined);
     };
-  }, [selectedCountryCode]);
+  }, [selectedCountryCode, refetchCities]);
 
   const setCitySearch = debounce((cityName: string) => setCitySearchTerm(cityName), 1000);
 

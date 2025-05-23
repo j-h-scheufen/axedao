@@ -52,9 +52,4 @@ export type FileUploadParams = { ownerId: string; file?: File };
 export type GetCandidatesParams = { addresses: Address[]; publicClient?: PublicClient };
 
 export type FileUploadMutationFn = (params: FileUploadParams) => void;
-export type UseFileUploadMutation = () => UseMutationResult<
-  User | Group | unknown,
-  Error,
-  FileUploadParams,
-  unknown
->;
+export type UseFileUploadMutation = () => UseMutationResult<User | Group | unknown, Error, FileUploadParams, unknown>;

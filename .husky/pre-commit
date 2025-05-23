@@ -1,1 +1,3 @@
-pnpm lint
+
+# Run lint-staged
+npx lint-staged 

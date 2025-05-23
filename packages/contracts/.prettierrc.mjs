@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   semi: true,
   trailingComma: 'all',
   singleQuote: true,
@@ -11,9 +11,8 @@ module.exports = {
       options: {
         printWidth: 120,
         singleQuote: false,
-        explicitTypes: 'always',
       },
     },
   ],
-  plugins: [require.resolve('prettier-plugin-solidity')],
+  plugins: ['prettier-plugin-solidity'],
 };

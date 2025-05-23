@@ -5,10 +5,10 @@
 import { motion } from 'framer-motion';
 import { Trans } from 'react-i18next';
 
+import { useTranslation } from '@/app/i18n/client';
+import type { SupportedLanguage } from '@/app/i18n/settings';
 import Reveal from '@/components/motion/Reveal';
 import { Subtitle, Title } from '@/components/primitives';
-import { useTranslation } from '@/app/i18n/client';
-import { SupportedLanguage } from '@/app/i18n/settings';
 
 type HeadingProps = {
   locale: SupportedLanguage;
@@ -55,9 +55,7 @@ const Heading = ({ locale }: HeadingProps) => {
       </h1>
 
       <Reveal delay={0.5} className="mt-3 sm:mt-4 md:mt-5">
-        <h2 className={Subtitle({ class: 'text-center' })}>
-          {t('heading.subtitle')}
-        </h2>
+        <h2 className={Subtitle({ class: 'text-center' })}>{t('heading.subtitle')}</h2>
         <div className="text-l mt-4 flex flex-col gap-4 sm:text-center sm:text-xl">
           <p>
             <Trans t={t} i18nKey="heading.introduction.p1" />

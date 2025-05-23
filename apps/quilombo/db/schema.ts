@@ -1,4 +1,3 @@
-import { linkTypes, styles, titles } from '@/config/constants';
 import { relations } from 'drizzle-orm';
 import {
   type AnyPgColumn,
@@ -14,6 +13,8 @@ import {
   uuid,
   varchar,
 } from 'drizzle-orm/pg-core';
+
+import { linkTypes, styles, titles } from '@/config/constants';
 
 export const titleEnum = pgEnum('title', titles);
 export const linkTypeEnum = pgEnum('link_type', linkTypes);
@@ -49,7 +50,7 @@ export const users = pgTable(
       emailIdx: index('email_idx').on(table.email),
       walletAddressIdx: uniqueIndex('wallet_address_idx').on(table.walletAddress),
     };
-  },
+  }
 );
 
 export const groups = pgTable(
@@ -77,7 +78,7 @@ export const groups = pgTable(
     return {
       nameIdx: index('name_idx').on(table.name),
     };
-  },
+  }
 );
 
 export const groupAdmins = pgTable(
@@ -94,7 +95,7 @@ export const groupAdmins = pgTable(
     return {
       pk: primaryKey({ columns: [table.groupId, table.userId] }),
     };
-  },
+  }
 );
 
 export const userGroupRelations = relations(users, ({ one }) => ({

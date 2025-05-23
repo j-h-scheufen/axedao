@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 
-import { Group } from '@/types/model';
+import type { Group } from '@/types/model';
 import { QUERY_KEYS } from '.';
 
 export type GroupVerificationParams = { groupId: string; verified: boolean };
@@ -9,9 +9,8 @@ export type GroupVerificationParams = { groupId: string; verified: boolean };
 const setGroupVerification = ({ groupId, verified }: GroupVerificationParams): Promise<Group> => {
   if (verified) {
     return axios.put(`/api/admin/groups/${groupId}/verification`).then((response) => response.data);
-  } else {
-    return axios.delete(`/api/admin/groups/${groupId}/verification`).then((response) => response.data);
   }
+  return axios.delete(`/api/admin/groups/${groupId}/verification`).then((response) => response.data);
 };
 
 export const useGroupVerificationMutation = () => {

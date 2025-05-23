@@ -1,10 +1,10 @@
 import { isNil, omitBy } from 'lodash';
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
-import { searchParamsSchema } from '@/config/validation-schema';
+import { type SearchParams, searchParamsSchema } from '@/config/validation-schema';
 import { searchUsers } from '@/db';
-import { UserSearchResult } from '@/types/model';
+import type { UserSearchResult } from '@/types/model';
 
 /**
  * Route handler for infinite (paginated) user search
@@ -19,12 +19,12 @@ export async function GET(request: NextRequest) {
   const searchTerm = searchParams.get('searchTerm');
   let nextOffset = null;
 
-  let searchOptions;
+  let searchOptions: SearchParams;
   try {
     searchOptions = searchParamsSchema.validateSync(omitBy({ pageSize: pageSize + 1, offset, searchTerm }, isNil));
   } catch (error) {
     console.error('Unable to validate input data', error);
-    return NextResponse.json({ error: `Invalid input data` }, { status: 400 });
+    return NextResponse.json({ error: 'Invalid input data' }, { status: 400 });
   }
 
   const users = await searchUsers(searchOptions);
