@@ -3,14 +3,14 @@
 import { HeroUIProvider } from '@heroui/react';
 import { useRouter } from 'next/navigation';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
-import type { ThemeProviderProps } from 'next-themes/dist/types';
+import type { ThemeProviderProps } from 'next-themes';
 
 export type ProviderProps = {
   children: React.ReactNode;
   themeProps?: ThemeProviderProps;
 };
 
-export default function Provider({ children, themeProps }: ProviderProps) {
+const UiProvider = ({ children, themeProps }: ProviderProps) => {
   const router = useRouter();
 
   return (
@@ -18,4 +18,6 @@ export default function Provider({ children, themeProps }: ProviderProps) {
       <NextThemesProvider {...themeProps}>{children}</NextThemesProvider>
     </HeroUIProvider>
   );
-}
+};
+
+export default UiProvider;

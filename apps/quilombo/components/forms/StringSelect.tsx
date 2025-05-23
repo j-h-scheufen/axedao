@@ -17,7 +17,7 @@ type Props = Omit<FieldProps['field'], 'items'> & {
 const StringSelect = ({ options = [], label, size, ...props }: Props) => {
   const [field, , form] = useField(props);
   const selectedKeys = useMemo(() => (field.value ? [field.value] : []), [field.value]);
-  const selectItems: Array<JSX.Element> = useMemo(
+  const selectItems = useMemo(
     () =>
       options.map((option) => (
         <SelectItem key={option} className="capitalize" aria-label={`select-option-${option}`}>

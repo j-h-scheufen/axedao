@@ -4,7 +4,7 @@
   "private": true,
   "description": "Axé DAO Monorepo",
   "author": "Jan Hendrik Scheufen <j.h.scheufen@gmail.com>",
-  "repository": "git@github.com:j-h-scheufen/axedao.git",
+  "repository": "git@github.com/j-h-scheufen/axedao.git",
   "license": "MIT",
   "scripts": {
     "dev:app": "pnpm --filter quilombo dev -p 8080",
@@ -28,9 +28,11 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "biome check --apply",
-      "biome format --write"
+      "biome check --apply --no-errors-on-unmatched",
+      "biome format --write --no-errors-on-unmatched"
     ],
-    "*.{json,md}": ["biome format --write"]
+    "*.{json,md}": [
+      "biome format --write --no-errors-on-unmatched"
+    ]
   }
 }

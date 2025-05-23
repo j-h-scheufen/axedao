@@ -15,8 +15,8 @@ import Navbar from '@/components/Navbar';
 // NEXTJS provides these params to pages (layouts do NOT receive searchParams!), but no official interface exists, yet.
 // https://github.com/vercel/next.js/discussions/46131
 export type NextPageProps<ParamType = string> = {
-  params: { locale: ParamType };
-  searchParams?: { [key: string]: string | string[] | undefined };
+  params: Promise<{ locale: ParamType }>;
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 export const metadata: Metadata = {

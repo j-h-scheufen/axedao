@@ -13,7 +13,7 @@ export type ThemeSwitchProps = {
   classNames?: SwitchProps['classNames'];
 };
 
-const ThemeSwitch: FC<ThemeSwitchProps> = ({ className, classNames }): JSX.Element => {
+const ThemeSwitch: FC<ThemeSwitchProps> = ({ className, classNames }) => {
   const { theme, setTheme } = useTheme();
   const isSSR = useIsSSR();
 

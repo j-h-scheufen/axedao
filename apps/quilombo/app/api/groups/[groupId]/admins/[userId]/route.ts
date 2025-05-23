@@ -4,6 +4,7 @@ import { nextAuthOptions } from '@/config/next-auth-options';
 import { addGroupAdmin, fetchGroupAdminIds, isGroupAdmin, removeGroupAdmin } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import { getServerSession } from 'next-auth';
+import type { RouteParamsGroupAndUser } from '@/types/routes';
 
 /**
  * Adds the specified user as an admin of the group.
@@ -12,14 +13,14 @@ import { getServerSession } from 'next-auth';
  * @param userId - PATH parameter. The id of the user to add as admin
  * @returns the updated list of group admin IDs as string[]
  */
-export async function PUT(_: NextRequest, { params }: { params: { groupId: string; userId: string } }) {
+export async function PUT(_: NextRequest, { params }: RouteParamsGroupAndUser) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {
     return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
-  const { groupId, userId } = params;
+  const { groupId, userId } = await params;
   const isAdmin = await isGroupAdmin(groupId, session.user.id);
   if (!isAdmin) {
     return NextResponse.json({ error: 'Missing permissions' }, { status: 403 });
@@ -42,14 +43,14 @@ export async function PUT(_: NextRequest, { params }: { params: { groupId: strin
  * @param userId - PATH parameter. The id of the user to add as admin
  * @returns the updated list of group admin IDs as string[]
  */
-export async function DELETE(_: NextRequest, { params }: { params: { groupId: string; userId: string } }) {
+export async function DELETE(_: NextRequest, { params }: RouteParamsGroupAndUser) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {
     return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
-  const { groupId, userId } = params;
+  const { groupId, userId } = await params;
   const isAdmin = await isGroupAdmin(groupId, session.user.id);
   if (!isAdmin) {
     return NextResponse.json({ error: 'Missing permissions' }, { status: 403 });

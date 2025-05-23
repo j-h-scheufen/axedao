@@ -43,7 +43,7 @@ const providers = [
         // nonce: await getCsrfToken({ req: { headers: req as NextRequest & NextApiRequest } }),
         // NOTE: This is a workaround to get the nonce directly from the cookie instead of the header
         // See: https://stackoverflow.com/questions/77074980/next-js-13-nextauth-sign-in-with-ethereum-csrf-token-mismatch-between-clien
-        const nonce = cookies().get('next-auth.csrf-token')?.value.split('|')[0];
+        const nonce = (await cookies()).get('next-auth.csrf-token')?.value.split('|')[0];
         const verificationParams = { signature: credentials?.signature || '', domain: nextAuthHost, nonce };
         const result = await siwe.verify(verificationParams);
 

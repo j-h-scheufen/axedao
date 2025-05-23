@@ -1,4 +1,3 @@
-import type { LinkType } from '@/db/schema';
 import type { ImageType } from '@/types/model';
 import type { ResizeOptions } from 'sharp';
 
@@ -95,5 +94,3 @@ export const IMAGE_FORMATS: Record<ImageType, ResizeOptions> = {
 };
 
 export const MAX_IMAGE_UPLOAD_SIZE_MB = 4.5; // 4.5 MB is the current limit for Vercel serverless functions! https://vercel.com/docs/concepts/limits/overview#serverless-function-payload-size-limit
-
-export type IconDictionary = Record<LinkType, JSX.Element>; // TODO not used

@@ -3,6 +3,7 @@ import type { NextRequest } from 'next/server';
 import { fetchUser } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import { notFound } from 'next/navigation';
+import type { RouteParamsUser } from '@/types/routes';
 
 /**
  * Returns a User object for a given user ID.
@@ -10,8 +11,8 @@ import { notFound } from 'next/navigation';
  * @param userId - PATH parameter. The id of the user
  * @returns a User object or 404 if not found
  */
-export async function GET(_: NextRequest, { params }: { params: { userId: string } }) {
-  const { userId } = params;
+export async function GET(_: NextRequest, { params }: RouteParamsUser) {
+  const { userId } = await params;
 
   try {
     const user = await fetchUser(userId);
