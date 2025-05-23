@@ -1,7 +1,6 @@
 'use client';
 
-import { Button } from '@nextui-org/button';
-import { useDisclosure } from '@nextui-org/use-disclosure';
+import { Button, useDisclosure } from '@heroui/react';
 import { useSnackbar } from 'notistack';
 import { useEffect, useCallback } from 'react';
 import type { Address } from 'viem';

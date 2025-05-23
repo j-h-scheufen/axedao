@@ -1,7 +1,7 @@
 'use client';
 
-import { Input } from '@nextui-org/input';
-import { useInfiniteScroll } from '@nextui-org/use-infinite-scroll';
+import { Input } from '@heroui/react';
+import { useInfiniteScroll } from '@heroui/use-infinite-scroll';
 import { useAtom, useAtomValue } from 'jotai';
 import { debounce } from 'lodash';
 import { Search } from 'lucide-react';

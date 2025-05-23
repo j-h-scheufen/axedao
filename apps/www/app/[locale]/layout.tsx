@@ -1,7 +1,7 @@
-import { Metadata, Viewport } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Suspense } from 'react';
 import { Analytics } from '@vercel/analytics/react';
-import { Spinner } from '@nextui-org/spinner';
+import { Spinner } from '@heroui/react';
 import { dir } from 'i18next';
 import clsx from 'clsx';
 
@@ -9,11 +9,7 @@ import '@/styles/globals.css';
 import { siteConfig } from '@/config/site';
 import { fontInter, fontFiraCode, fontOpenSans } from '@/config/fonts';
 import { Providers } from '../providers';
-import {
-  ALL_LOCALES,
-  fallbackLng,
-  isSupportedLanguage,
-} from '../i18n/settings';
+import { ALL_LOCALES, fallbackLng, isSupportedLanguage } from '../i18n/settings';
 import Navbar from '@/components/Navbar';
 
 // NEXTJS provides these params to pages (layouts do NOT receive searchParams!), but no official interface exists, yet.
@@ -79,9 +75,7 @@ export default function RootLayout({
             <Navbar />
             <main className="container mx-auto mb-[40px] max-w-6xl flex-grow">
               <Suspense fallback={<Spinner size="lg" />}>
-                <div className="flex flex-col items-center justify-center">
-                  {children}
-                </div>
+                <div className="flex flex-col items-center justify-center">{children}</div>
               </Suspense>
             </main>
           </div>

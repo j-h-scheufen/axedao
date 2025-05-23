@@ -2,7 +2,7 @@
 
 import UserCard from '@/components/UserCard';
 import { useCouncil } from '@/hooks/state/dao';
-import { Spinner } from '@nextui-org/spinner';
+import { Spinner } from '@heroui/react';
 
 export default function Council() {
   const { members, isLoading: councilLoading, error } = useCouncil();

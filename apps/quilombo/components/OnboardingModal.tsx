@@ -1,7 +1,6 @@
 'use client';
 
-import { Button } from '@nextui-org/button';
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from '@nextui-org/modal';
+import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from '@heroui/react';
 import { useAtomValue } from 'jotai';
 import { useCallback, useEffect } from 'react';
 
@@ -37,7 +36,7 @@ const OnboardingModal = () => {
 
       router.push(target);
     },
-    [router],
+    [router]
   );
 
   return (

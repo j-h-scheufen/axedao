@@ -1,8 +1,7 @@
-import { Button } from '@nextui-org/button';
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalProps } from '@nextui-org/modal';
+import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, type ModalProps } from '@heroui/react';
 import { useEffect, useRef } from 'react';
 
-import { User } from '@/types/model';
+import type { User } from '@/types/model';
 import { getUserDisplayName } from '@/utils';
 
 type Props = Omit<ModalProps, 'children'> & {

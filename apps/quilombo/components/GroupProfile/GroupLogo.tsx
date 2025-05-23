@@ -1,4 +1,4 @@
-import { Avatar } from '@nextui-org/avatar';
+import { Avatar } from '@heroui/react';
 import { Camera } from 'lucide-react';
 
 type Props = { url: string | undefined };

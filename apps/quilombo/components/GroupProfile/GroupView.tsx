@@ -1,7 +1,6 @@
 'use client';
 
-import { Link } from '@nextui-org/link';
-import { Spinner } from '@nextui-org/spinner';
+import { Link, Spinner } from '@heroui/react';
 import { useAtomValue } from 'jotai';
 import { MailIcon } from 'lucide-react';
 

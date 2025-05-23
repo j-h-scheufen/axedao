@@ -1,10 +1,10 @@
 'use client';
 
 import { CheckCircleIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
-import { Spacer } from '@nextui-org/spacer';
+import { Spacer } from '@heroui/react';
 
 import { useTranslation } from '@/app/i18n/client';
-import { SupportedLanguage } from '@/app/i18n/settings';
+import type { SupportedLanguage } from '@/app/i18n/settings';
 import BaseSection from './BaseSection';
 
 interface Props {

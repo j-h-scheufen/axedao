@@ -1,6 +1,6 @@
 'use client';
 
-import { Skeleton } from '@nextui-org/skeleton';
+import { Skeleton } from '@heroui/react';
 
 import ContactInfoSkeleton from './ContactInfoSkeleton';
 

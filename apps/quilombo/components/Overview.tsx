@@ -1,6 +1,6 @@
 'use client';
 
-import { Tab, Tabs } from '@nextui-org/tabs';
+import { Tab, Tabs } from '@heroui/react';
 import { useAtom } from 'jotai';
 
 import { searchTabAtom } from '@/hooks/state/app';

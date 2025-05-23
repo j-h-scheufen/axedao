@@ -1,7 +1,4 @@
-import { Button } from '@nextui-org/button';
-import { Link } from '@nextui-org/link';
-import { Tooltip } from '@nextui-org/tooltip';
-import { User } from '@nextui-org/user';
+import { Button, Link, Tooltip, User } from '@heroui/react';
 import { useAtomValue } from 'jotai';
 import { has } from 'lodash';
 import { ArrowDownIcon, ArrowUpIcon, UserXIcon } from 'lucide-react';
@@ -11,7 +8,7 @@ import { PATHS } from '@/config/constants';
 import { currentUserIdAtom } from '@/hooks/state/currentUser';
 import { groupAdminIdsAtom, groupIdAtom, isCurrentUserGroupAdminAtom } from '@/hooks/state/group';
 import { useAddAdmin, useRemoveAdmin, useRemoveMember } from '@/hooks/useGroup';
-import { GroupMember } from '@/types/model';
+import type { GroupMember } from '@/types/model';
 import { getImageUrl, getUserDisplayName } from '@/utils';
 import RoleChips from './RoleChips';
 
@@ -38,19 +35,19 @@ const TableCellValue = ({ groupMember, columnKey }: Props) => {
     async (userId: string) => {
       return groupId ? addAdmin({ groupId, userId }) : null;
     },
-    [addAdmin, groupId],
+    [addAdmin, groupId]
   );
   const handleRemoveAdmin = useCallback(
     async (userId: string) => {
       return groupId ? removeAdmin({ groupId, userId }) : null;
     },
-    [removeAdmin, groupId],
+    [removeAdmin, groupId]
   );
   const handleRemoveMember = useCallback(
     async (userId: string) => {
       return groupId ? removeMember({ groupId, userId }) : null;
     },
-    [removeMember, groupId],
+    [removeMember, groupId]
   );
 
   const { avatar, title, roles, id } = groupMember;
@@ -75,7 +72,7 @@ const TableCellValue = ({ groupMember, columnKey }: Props) => {
               </div>
             }
             className="cursor-pointer"
-          ></User>
+          />
         </Link>
       );
     case 'roles':

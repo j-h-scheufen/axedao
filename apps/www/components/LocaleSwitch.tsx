@@ -1,16 +1,10 @@
 'use client';
 
-import { Key, useMemo, useState } from 'react';
+import { type Key, useMemo, useState } from 'react';
 import { useRouter, useSelectedLayoutSegments } from 'next/navigation';
-import { Button } from '@nextui-org/button';
-import {
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownTrigger,
-} from '@nextui-org/dropdown';
+import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@heroui/react';
 
-import { isSupportedLanguage, SupportedLanguage } from '../app/i18n/settings';
+import { isSupportedLanguage, type SupportedLanguage } from '../app/i18n/settings';
 import { useLocale } from '@/hooks/useLocale';
 
 function getFlagEmoji(countryCode: string) {
@@ -46,9 +40,7 @@ const LocaleSwitch = () => {
   const handleLocaleChange = (key: Key) => {
     const newLocale = key as string;
     if (!isSupportedLanguage(newLocale))
-      throw new Error(
-        'Unexpected value: The selectedValue for locale is not a supported language'
-      );
+      throw new Error('Unexpected value: The selectedValue for locale is not a supported language');
     setLocale(newLocale as SupportedLanguage);
     setSelectedKeys(new Set([newLocale]));
     // NOTE:

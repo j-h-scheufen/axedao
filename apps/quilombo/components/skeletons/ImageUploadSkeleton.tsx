@@ -1,4 +1,4 @@
-import { Skeleton } from '@nextui-org/skeleton';
+import { Skeleton } from '@heroui/react';
 
 type Props = { hideButton?: boolean };
 const ImageUploadSkeleton = ({ hideButton = false }: Props) => {

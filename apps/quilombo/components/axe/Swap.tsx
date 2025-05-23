@@ -1,9 +1,8 @@
 'use client';
 
-import { Card, CardBody } from '@nextui-org/card';
-import { Tab, Tabs } from '@nextui-org/tabs';
+import { Card, CardBody, Tab, Tabs } from '@heroui/react';
 import { useCallback, useEffect, useState } from 'react';
-import { Address } from 'viem';
+import type { Address } from 'viem';
 import { useAccount } from 'wagmi';
 
 import ENV from '@/config/environment';

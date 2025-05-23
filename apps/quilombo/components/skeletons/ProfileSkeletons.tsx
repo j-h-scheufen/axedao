@@ -1,4 +1,4 @@
-import { Skeleton } from '@nextui-org/skeleton';
+import { Skeleton } from '@heroui/react';
 
 import ContactInfoSkeleton from '@/components/skeletons/ContactInfoSkeleton';
 

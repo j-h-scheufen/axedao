@@ -1,13 +1,12 @@
 'use client';
 
-import { Avatar, AvatarProps } from '@nextui-org/avatar';
-import { Spinner } from '@nextui-org/spinner';
+import { Avatar, type AvatarProps, Spinner } from '@heroui/react';
 import { Camera, Trash2 } from 'lucide-react';
 import { enqueueSnackbar } from 'notistack';
 import { useCallback, useRef, useState } from 'react';
 
-import { ImageUploadForm, imageUploadSchema } from '@/config/validation-schema';
-import { UseFileUploadMutation } from '@/query';
+import { type ImageUploadForm, imageUploadSchema } from '@/config/validation-schema';
+import type { UseFileUploadMutation } from '@/query';
 import { getImageUrl } from '@/utils';
 import { cn } from '@/utils/tailwind';
 
@@ -49,7 +48,7 @@ const ImageUpload = ({ value, ownerId, useFileUploadMutation: useDynamicMutation
         });
       }
     },
-    [mutateAsync, ownerId],
+    [mutateAsync, ownerId]
   );
 
   const handleDelete = useCallback(
@@ -58,7 +57,7 @@ const ImageUpload = ({ value, ownerId, useFileUploadMutation: useDynamicMutation
         setImagePreview('');
         enqueueSnackbar('Image deleted successfully', { variant: 'success' });
       }),
-    [mutateAsync, ownerId],
+    [mutateAsync, ownerId]
   );
 
   return (

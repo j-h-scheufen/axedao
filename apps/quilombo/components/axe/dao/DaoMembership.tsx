@@ -1,7 +1,6 @@
 'use client';
 
-import { Button } from '@nextui-org/button';
-import { useDisclosure } from '@nextui-org/use-disclosure';
+import { Button, useDisclosure } from '@heroui/react';
 import type { Address } from 'viem';
 import { useAccount } from 'wagmi';
 import { useCallback } from 'react';

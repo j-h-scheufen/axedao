@@ -1,7 +1,7 @@
 'use client';
 
 import { FC } from 'react';
-import { Switch, SwitchProps } from '@nextui-org/switch';
+import { Switch, SwitchProps } from '@heroui/react';
 import { useTheme } from 'next-themes';
 import { useIsSSR } from '@react-aria/ssr';
 import clsx from 'clsx';
@@ -13,10 +13,7 @@ export type ThemeSwitchProps = {
   classNames?: SwitchProps['classNames'];
 };
 
-const ThemeSwitch: FC<ThemeSwitchProps> = ({
-  className,
-  classNames,
-}): JSX.Element => {
+const ThemeSwitch: FC<ThemeSwitchProps> = ({ className, classNames }): JSX.Element => {
   const { theme, setTheme } = useTheme();
   const isSSR = useIsSSR();
 
@@ -33,11 +30,7 @@ const ThemeSwitch: FC<ThemeSwitchProps> = ({
       startContent={<SunFilledIcon size={16} />}
       endContent={<MoonFilledIcon size={16} />}
       onChange={onChange}
-      className={clsx(
-        'transition-opacity hover:opacity-80',
-        className,
-        classNames?.base
-      )}
+      className={clsx('transition-opacity hover:opacity-80', className, classNames?.base)}
     />
   );
 };

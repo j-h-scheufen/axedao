@@ -1,7 +1,6 @@
 'use client';
 
-import { Button } from '@nextui-org/button';
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, type ModalProps } from '@nextui-org/modal';
+import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, type ModalProps } from '@heroui/react';
 import { atom, useAtom } from 'jotai';
 import { enqueueSnackbar } from 'notistack';
 import { useEffect } from 'react';

@@ -1,15 +1,13 @@
 'use client';
 
-import { Button } from '@nextui-org/button';
-import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@nextui-org/dropdown';
-import { Input } from '@nextui-org/input';
+import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Input } from '@heroui/react';
 import { atom, useAtom } from 'jotai';
 import { PlusIcon, XIcon } from 'lucide-react';
 import { useCallback, useMemo } from 'react';
 
 import { linkTypes } from '@/config/constants';
-import { isValidUrl, Link, linkSchema } from '@/config/validation-schema';
-import { LinkType, SocialLink } from '@/db/schema';
+import { isValidUrl, type Link, linkSchema } from '@/config/validation-schema';
+import type { LinkType, SocialLink } from '@/db/schema';
 import { getLinkIcon } from '../_utils';
 
 type LinkTypeSelection = { icon: JSX.Element; key: string; label: string };
@@ -61,6 +59,7 @@ const LinksArray = ({ links, actions }: Props) => {
       {!!links.length && (
         <div className="flex flex-col gap-1 sm:gap-2 w-full mb-2 sm:mb-3">
           {links.map((link, index) => (
+            // biome-ignore lint/suspicious/noArrayIndexKey: Safe to use index as key
             <LinkItem key={`link-item-${index}`} link={link} index={index} />
           ))}
         </div>

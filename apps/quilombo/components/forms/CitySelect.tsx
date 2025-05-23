@@ -1,7 +1,7 @@
-import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
-import { FieldProps, useField } from 'formik';
+import { Autocomplete, AutocompleteItem } from '@heroui/react';
+import { type FieldProps, useField } from 'formik';
 
-import { City } from '@/types/model';
+import type { City } from '@/types/model';
 import { Suspense } from 'react';
 import { SearchIcon } from '../icons';
 
@@ -15,7 +15,7 @@ function isNumeric(value: string) {
 }
 const getDisplayName = ({ name, stateCode }: City): string => {
   let cityName = name || '';
-  if (!!stateCode && !isNumeric(stateCode)) cityName += ', ' + stateCode;
+  if (!!stateCode && !isNumeric(stateCode)) cityName += `, ${stateCode}`;
   return cityName;
 };
 
@@ -50,9 +50,8 @@ const CountrySelect = ({ cities, onInputChange, ...props }: CityProps) => {
         {...props}
       >
         {cities.map((city, index) => (
-          <AutocompleteItem key={index} value={getDisplayName(city)}>
-            {getDisplayName(city)}
-          </AutocompleteItem>
+          // biome-ignore lint/suspicious/noArrayIndexKey: Safe to use index as key
+          <AutocompleteItem key={index}>{getDisplayName(city)}</AutocompleteItem>
         ))}
       </Autocomplete>
     </Suspense>

@@ -1,12 +1,10 @@
-import { Avatar } from '@nextui-org/avatar';
-import { Card, CardBody, CardFooter } from '@nextui-org/card';
-import { Link } from '@nextui-org/link';
+import { Link, Avatar, Card, CardBody, CardFooter } from '@heroui/react';
 import clsx from 'clsx';
 import { MapPinIcon } from 'lucide-react';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import { PATHS } from '@/config/constants';
-import { Group } from '@/types/model';
+import type { Group } from '@/types/model';
 import { getImageUrl } from '@/utils';
 import VerificationBadge from './VerificationBadge';
 
