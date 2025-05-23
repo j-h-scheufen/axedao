@@ -8,6 +8,7 @@ import type { UpdateGroupForm } from '@/config/validation-schema';
 import { updateGroupSchema } from '@/config/validation-schema';
 import { deleteGroup, fetchGroup, fetchGroupAdminIds, isGroupAdmin, updateGroup } from '@/db';
 import { generateErrorMessage } from '@/utils';
+import type { RouteParamsGroup } from '@/types/routes';
 
 /**
  * Returns a Group object for a given group ID.
@@ -15,9 +16,9 @@ import { generateErrorMessage } from '@/utils';
  * @param _ - The request object (not used)
  * @returns a Group or 404 if not found
  */
-export async function GET(_: NextRequest, { params }: { params: { groupId: string } }) {
+export async function GET(_: NextRequest, { params }: RouteParamsGroup) {
   try {
-    const { groupId } = params;
+    const { groupId } = await params;
     const group = await fetchGroup(groupId);
     if (!group) return notFound();
 
@@ -39,14 +40,14 @@ export async function GET(_: NextRequest, { params }: { params: { groupId: strin
  * @param groupId - PATH parameter. The id of the group
  * @returns the updated Group or 404 if not found
  */
-export async function PATCH(request: NextRequest, { params }: { params: { groupId: string } }) {
+export async function PATCH(request: NextRequest, { params }: RouteParamsGroup) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {
     return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
-  const { groupId } = params;
+  const { groupId } = await params;
   const isAdmin = await isGroupAdmin(groupId, session.user.id);
 
   if (!isAdmin)
@@ -94,7 +95,7 @@ export async function PATCH(request: NextRequest, { params }: { params: { groupI
  * @param groupId - PATH parameter. The id of the group
  * @returns 204 if successful, 404 if not found
  */
-export async function DELETE(_: NextRequest, { params }: { params: { groupId: string } }) {
+export async function DELETE(_: NextRequest, { params }: RouteParamsGroup) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {
@@ -102,7 +103,7 @@ export async function DELETE(_: NextRequest, { params }: { params: { groupId: st
   }
 
   try {
-    const { groupId } = params;
+    const { groupId } = await params;
     const group = await fetchGroup(groupId);
     if (!group) notFound();
 

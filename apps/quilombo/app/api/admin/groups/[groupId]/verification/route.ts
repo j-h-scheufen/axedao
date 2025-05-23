@@ -3,6 +3,7 @@ import { type NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { isGlobalAdmin, updateGroup } from '@/db';
+import type { RouteParamsGroup } from '@/types/routes';
 
 /**
  * Marks the specified group as verified
@@ -10,7 +11,7 @@ import { isGlobalAdmin, updateGroup } from '@/db';
  * @param groupId - PATH parameter. The id of the group
  * @returns Group - the updated Group
  */
-export async function PUT(_: NextRequest, { params }: { params: { groupId: string } }) {
+export async function PUT(_: NextRequest, { params }: RouteParamsGroup) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {
@@ -22,7 +23,7 @@ export async function PUT(_: NextRequest, { params }: { params: { groupId: strin
     return NextResponse.json({ error: 'Missing permission' }, { status: 403 });
   }
 
-  const { groupId } = params;
+  const { groupId } = await params;
   const group = await updateGroup({ id: groupId, verified: true });
   return NextResponse.json(group);
 }
@@ -33,7 +34,7 @@ export async function PUT(_: NextRequest, { params }: { params: { groupId: strin
  * @param groupId - PATH parameter. The id of the group
  * @returns Group - the updated Group
  */
-export async function DELETE(_: NextRequest, { params }: { params: { groupId: string } }) {
+export async function DELETE(_: NextRequest, { params }: RouteParamsGroup) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {
@@ -45,7 +46,7 @@ export async function DELETE(_: NextRequest, { params }: { params: { groupId: st
     return NextResponse.json({ error: 'Missing permission' }, { status: 403 });
   }
 
-  const { groupId } = params;
+  const { groupId } = await params;
   const group = await updateGroup({ id: groupId, verified: false });
   return NextResponse.json(group);
 }

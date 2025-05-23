@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth';
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { updateUser } from '@/db';
+import type { RouteParamsGroup } from '@/types/routes';
 
 /**
  * Let's the current user join the specified group by setting the user's groupId to the specified groupId.
@@ -10,7 +11,7 @@ import { updateUser } from '@/db';
  * @param groupId - PATH parameter. The id of the group to join
  * @returns the updated User of the logged-in user
  */
-export async function PUT(_: NextRequest, { params }: { params: { groupId: string } }) {
+export async function PUT(_: NextRequest, { params }: RouteParamsGroup) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {
@@ -18,7 +19,7 @@ export async function PUT(_: NextRequest, { params }: { params: { groupId: strin
   }
 
   try {
-    const { groupId } = params;
+    const { groupId } = await params;
     const updatedUser = await updateUser({ id: session.user.id, groupId });
     return NextResponse.json(updatedUser);
   } catch (error) {

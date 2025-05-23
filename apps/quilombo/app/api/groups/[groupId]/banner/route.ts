@@ -5,6 +5,7 @@ import { FILE_PREFIXES, IMAGE_FORMATS } from '@/config/constants';
 import { fetchGroup, updateGroup } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import { pinToGroup, unpin } from '@/utils/pinata';
+import type { RouteParamsGroup } from '@/types/routes';
 
 /**
  * Updates or sets the group's banner.
@@ -12,8 +13,8 @@ import { pinToGroup, unpin } from '@/utils/pinata';
  * @param groupId - PATH parameter. The id of the group
  * @returns The updated group or 400 or 500
  */
-export async function POST(request: NextRequest, { params }: { params: { groupId: string } }) {
-  const { groupId } = params;
+export async function POST(request: NextRequest, { params }: RouteParamsGroup) {
+  const { groupId } = await params;
 
   try {
     const group = await fetchGroup(groupId);
@@ -53,8 +54,8 @@ export async function POST(request: NextRequest, { params }: { params: { groupId
  * @param groupId - PATH parameter. The id of the group
  * @returns The updated group or 400 or 500
  */
-export async function DELETE(_: NextRequest, { params }: { params: { groupId: string } }) {
-  const { groupId } = params;
+export async function DELETE(_: NextRequest, { params }: RouteParamsGroup) {
+  const { groupId } = await params;
 
   try {
     const group = await fetchGroup(groupId);
