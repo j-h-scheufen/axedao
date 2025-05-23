@@ -7,7 +7,7 @@ import { useTransform, useScroll, motion } from 'framer-motion';
 type TopicProps = {
   title: string;
   bgImg: string;
-  content: JSX.Element | string;
+  content: React.ReactNode;
   url?: string;
   imgEntryFrom?: 'left' | 'right';
   imgClasses?: string;

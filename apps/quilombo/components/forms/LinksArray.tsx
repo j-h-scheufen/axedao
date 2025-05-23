@@ -10,7 +10,7 @@ import { isValidUrl, type Link, linkSchema } from '@/config/validation-schema';
 import type { LinkType, SocialLink } from '@/db/schema';
 import { getLinkIcon } from '../_utils';
 
-type LinkTypeSelection = { icon: JSX.Element; key: string; label: string };
+type LinkTypeSelection = { icon: React.ReactNode; key: string; label: string };
 type Props = { links: SocialLink[]; actions?: { remove?: (index: number) => void; add: (link: SocialLink) => void } };
 
 const defaultTypeOption: LinkTypeSelection = { key: 'other', icon: getLinkIcon(undefined), label: 'Other' };

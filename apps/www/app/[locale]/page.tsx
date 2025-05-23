@@ -13,7 +13,8 @@ export const metadata: Metadata = {
   title: 'Axé DAO Homepage',
 };
 
-export default async function Home({ params: { locale } }: NextPageProps) {
+export default async function Home({ params }: NextPageProps) {
+  const { locale } = await params;
   const lang = isSupportedLanguage(locale) ? (locale as SupportedLanguage) : fallbackLng;
 
   return (
