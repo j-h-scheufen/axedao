@@ -1,12 +1,12 @@
 'use client';
 
-import { Button } from "@heroui/button";
-import { useDisclosure } from "@heroui/use-disclosure";
+import { Button } from '@heroui/react';
+import { useDisclosure } from '@heroui/react';
 import { useSession } from 'next-auth/react';
 import { useAccount } from 'wagmi';
 
 import useAuth from '@/hooks/useAuth';
-import { Link } from "@heroui/link";
+import { Link } from '@heroui/react';
 import ErrorText from './ErrorText';
 import SignInHelpModal from './SignInHelpModal';
 

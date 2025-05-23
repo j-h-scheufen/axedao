@@ -1,4 +1,4 @@
-import { Skeleton } from "@heroui/skeleton";
+import { Skeleton } from '@heroui/react';
 
 import SubsectionHeading from '@/components/SubsectionHeading';
 import ContactInfoInputsSkeleton from '@/components/skeletons/ContactInfoInputsSkeleton';

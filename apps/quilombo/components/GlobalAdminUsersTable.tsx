@@ -1,7 +1,7 @@
 'use client';
 
-import { Spinner } from "@heroui/spinner";
-import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@heroui/table";
+import { Spinner } from '@heroui/react';
+import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@heroui/react';
 
 import useGlobalAdminUsersTable from '@/hooks/useGlobalAdminUsersTable';
 import GlobalAdminUsersTableFilters from './GlobalAdminUsersTableFilters';

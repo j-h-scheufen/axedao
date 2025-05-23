@@ -1,6 +1,6 @@
-import { Avatar } from "@heroui/avatar";
-import { Card, CardBody, CardFooter } from "@heroui/card";
-import { Link } from "@heroui/link";
+import { Avatar } from '@heroui/react';
+import { Card, CardBody, CardFooter } from '@heroui/react';
+import { Link } from '@heroui/react';
 import clsx from 'clsx';
 import { MapPinIcon } from 'lucide-react';
 import { ReactNode } from 'react';

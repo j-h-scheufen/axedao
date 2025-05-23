@@ -1,4 +1,4 @@
-import { Input } from "@heroui/input";
+import { Input } from '@heroui/react';
 import { Search } from 'lucide-react';
 
 type Props = {

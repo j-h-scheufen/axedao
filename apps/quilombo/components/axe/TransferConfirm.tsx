@@ -1,5 +1,5 @@
-import { Button } from "@heroui/button";
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalProps } from "@heroui/modal";
+import { Button } from '@heroui/react';
+import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalProps } from '@heroui/react';
 import { useEffect, useRef } from 'react';
 
 import { User } from '@/types/model';

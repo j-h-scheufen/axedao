@@ -1,7 +1,7 @@
 'use client';
 
-import { Button } from "@heroui/button";
-import { Input } from "@heroui/input";
+import { Button } from '@heroui/react';
+import { Input } from '@heroui/react';
 import { FormikErrors, useFormik } from 'formik';
 import { debounce } from 'lodash';
 import { enqueueSnackbar } from 'notistack';
@@ -66,7 +66,7 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
       const donation = buyTax && buyTax > 0 ? (amountOut / 10000n) * buyTax : 0n;
       formik.setFieldValue(
         'amountOut',
-        taxedOutput && taxedOutput > 0n ? Number(formatUnits(taxedOutput, 18)).toFixed(4).toLocaleString() : '',
+        taxedOutput && taxedOutput > 0n ? Number(formatUnits(taxedOutput, 18)).toFixed(4).toLocaleString() : ''
       );
       setTaxedOutput(taxedOutput);
       setAxeDonation(formatAxeUnits(donation));
@@ -157,7 +157,7 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
       }
       return errors;
     },
-    [swapBalance],
+    [swapBalance]
   );
 
   const formik = useFormik<FormValues>({

@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from "@heroui/button";
+import { Button } from '@heroui/react';
 import { Field, Form, Formik, FormikProps } from 'formik';
 import { useCallback } from 'react';
 
@@ -16,7 +16,7 @@ const JoinGroupForm = () => {
     async (values: FormType) => {
       return joinGroup(values.id);
     },
-    [joinGroup],
+    [joinGroup]
   );
 
   // NOTE: The initial form values MUST BE declared outside of the JSX code, otherwise it can lead to hydration errors.

@@ -1,7 +1,7 @@
 'use client';
 
-import { AvatarProps } from "@heroui/avatar";
-import { CardProps } from "@heroui/card";
+import { AvatarProps } from '@heroui/react';
+import { CardProps } from '@heroui/react';
 import { ReactNode } from 'react';
 
 import { useFetchUser } from '@/query/user';

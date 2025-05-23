@@ -1,5 +1,5 @@
-import { Input } from "@heroui/input";
-import { Radio, RadioGroup, RadioProps } from "@heroui/radio";
+import { Input } from '@heroui/react';
+import { Radio, RadioGroup, RadioProps } from '@heroui/react';
 import { FieldProps, useField } from 'formik';
 import { useState } from 'react';
 

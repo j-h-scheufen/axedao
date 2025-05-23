@@ -1,4 +1,4 @@
-import { Button } from "@heroui/button";
+import { Button } from '@heroui/react';
 import { Field, Form, Formik, FormikProps } from 'formik';
 import { useRouter } from 'next/navigation';
 import { useCallback } from 'react';
@@ -18,7 +18,7 @@ const CreateNewGroupForm = () => {
     async (values: FormType) => {
       return createGroup(values).then((group) => router.push(`${PATHS.groups}/${group.id}/edit`));
     },
-    [createGroup, router],
+    [createGroup, router]
   );
 
   // NOTE: The initial form values MUST BE declared outside of JSX, otherwise it can lead to hydration errors.

@@ -1,7 +1,7 @@
 'use client';
 
-import { Button } from "@heroui/button";
-import { Tooltip } from "@heroui/tooltip";
+import { Button } from '@heroui/react';
+import { Tooltip } from '@heroui/react';
 import { ShieldCheckIcon, ShieldOffIcon } from 'lucide-react';
 import { useCallback } from 'react';
 

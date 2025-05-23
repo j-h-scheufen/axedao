@@ -1,6 +1,6 @@
 'use client';
 
-import { Skeleton } from "@heroui/skeleton";
+import { Skeleton } from '@heroui/react';
 
 import ContactInfoSkeleton from './ContactInfoSkeleton';
 

@@ -1,8 +1,8 @@
 'use client';
 
-import { Button } from "@heroui/button";
-import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@heroui/dropdown";
-import { Input } from "@heroui/input";
+import { Button } from '@heroui/react';
+import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@heroui/react';
+import { Input } from '@heroui/react';
 import { atom, useAtom } from 'jotai';
 import { PlusIcon, XIcon } from 'lucide-react';
 import { useCallback, useMemo } from 'react';

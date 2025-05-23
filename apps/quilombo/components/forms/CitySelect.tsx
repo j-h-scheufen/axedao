@@ -1,4 +1,4 @@
-import { Autocomplete, AutocompleteItem } from '@heroui/autocomplete';
+import { Autocomplete, AutocompleteItem } from '@heroui/react';
 import { type FieldProps, useField } from 'formik';
 
 import type { City } from '@/types/model';

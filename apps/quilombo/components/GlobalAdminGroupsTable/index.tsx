@@ -1,8 +1,8 @@
 'use client';
 
-import { Avatar } from "@heroui/avatar";
-import { Link } from "@heroui/link";
-import { Spinner } from "@heroui/spinner";
+import { Avatar } from '@heroui/react';
+import { Link } from '@heroui/react';
+import { Spinner } from '@heroui/react';
 import {
   Table,
   TableBody,
@@ -12,7 +12,7 @@ import {
   TableHeader,
   TableRow,
   getKeyValue,
-} from "@heroui/table";
+} from '@heroui/react';
 import { MapPinIcon } from 'lucide-react';
 import React, { useCallback, useState } from 'react';
 

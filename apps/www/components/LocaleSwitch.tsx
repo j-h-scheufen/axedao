@@ -2,13 +2,8 @@
 
 import { Key, useMemo, useState } from 'react';
 import { useRouter, useSelectedLayoutSegments } from 'next/navigation';
-import { Button } from "@heroui/button";
-import {
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownTrigger,
-} from "@heroui/dropdown";
+import { Button } from '@heroui/react';
+import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@heroui/react';
 
 import { isSupportedLanguage, SupportedLanguage } from '../app/i18n/settings';
 import { useLocale } from '@/hooks/useLocale';
@@ -46,9 +41,7 @@ const LocaleSwitch = () => {
   const handleLocaleChange = (key: Key) => {
     const newLocale = key as string;
     if (!isSupportedLanguage(newLocale))
-      throw new Error(
-        'Unexpected value: The selectedValue for locale is not a supported language'
-      );
+      throw new Error('Unexpected value: The selectedValue for locale is not a supported language');
     setLocale(newLocale as SupportedLanguage);
     setSelectedKeys(new Set([newLocale]));
     // NOTE:

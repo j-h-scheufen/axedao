@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback } from 'react';
-import { Button } from "@heroui/button";
+import { Button } from '@heroui/react';
 
 import { useReadAxeMembershipCouncilCanRequestCouncilUpdate } from '@/generated';
 import { useCouncilUpdateRequest } from '@/hooks/state/dao';

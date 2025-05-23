@@ -1,4 +1,4 @@
-import { Chip, ChipProps } from "@heroui/chip";
+import { Chip, ChipProps } from '@heroui/react';
 import { CircleCheckIcon } from 'lucide-react';
 
 type Props = { verified: boolean } & ChipProps;

@@ -1,7 +1,7 @@
 'use client';
 
-import { Button } from "@heroui/button";
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from "@heroui/modal";
+import { Button } from '@heroui/react';
+import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from '@heroui/react';
 import { useAtomValue } from 'jotai';
 import { useCallback, useEffect } from 'react';
 
@@ -37,7 +37,7 @@ const OnboardingModal = () => {
 
       router.push(target);
     },
-    [router],
+    [router]
   );
 
   return (

@@ -1,4 +1,4 @@
-import { Chip } from "@heroui/chip";
+import { Chip } from '@heroui/react';
 
 import { GroupMemberRole } from '@/types/model';
 

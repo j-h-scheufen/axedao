@@ -1,7 +1,7 @@
-import { Button } from "@heroui/button";
-import { Link } from "@heroui/link";
-import { Tooltip } from "@heroui/tooltip";
-import { User } from "@heroui/user";
+import { Button } from '@heroui/react';
+import { Link } from '@heroui/react';
+import { Tooltip } from '@heroui/react';
+import { User } from '@heroui/react';
 import { useAtomValue } from 'jotai';
 import { has } from 'lodash';
 import { ArrowDownIcon, ArrowUpIcon, UserXIcon } from 'lucide-react';
@@ -38,19 +38,19 @@ const TableCellValue = ({ groupMember, columnKey }: Props) => {
     async (userId: string) => {
       return groupId ? addAdmin({ groupId, userId }) : null;
     },
-    [addAdmin, groupId],
+    [addAdmin, groupId]
   );
   const handleRemoveAdmin = useCallback(
     async (userId: string) => {
       return groupId ? removeAdmin({ groupId, userId }) : null;
     },
-    [removeAdmin, groupId],
+    [removeAdmin, groupId]
   );
   const handleRemoveMember = useCallback(
     async (userId: string) => {
       return groupId ? removeMember({ groupId, userId }) : null;
     },
-    [removeMember, groupId],
+    [removeMember, groupId]
   );
 
   const { avatar, title, roles, id } = groupMember;

@@ -1,7 +1,7 @@
 'use client';
 
-import { Spinner } from "@heroui/spinner";
-import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@heroui/table";
+import { Spinner } from '@heroui/react';
+import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@heroui/react';
 import { useAtomValue } from 'jotai';
 import { useCallback, useMemo } from 'react';
 
@@ -26,7 +26,7 @@ const GroupMembers = () => {
   const isGroupAdmin = useAtomValue(isCurrentUserGroupAdminAtom);
   const getMemberRoles = useCallback(
     (userId: string): GroupMemberRole[] => getGroupMemberRoles(userId, groupFounder, groupLeader, groupAdminIds),
-    [groupFounder, groupLeader, groupAdminIds],
+    [groupFounder, groupLeader, groupAdminIds]
   );
   const sortedGroupMembers = useMemo(
     () =>
@@ -36,7 +36,7 @@ const GroupMembers = () => {
         if (!b.title) return 1;
         return TitleEnum[a.title] - TitleEnum[b.title];
       }) ?? [],
-    [groupMembers],
+    [groupMembers]
   );
 
   const filteredColumns = [...COLUMNS].filter((column) => (isGroupAdmin ? true : column.uid !== 'actions'));

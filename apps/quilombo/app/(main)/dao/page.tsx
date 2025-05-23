@@ -1,6 +1,6 @@
 'use client';
 
-import { Tab, Tabs } from "@heroui/tabs";
+import { Tab, Tabs } from '@heroui/react';
 import { useQueryState } from 'nuqs';
 
 import { CouncilPanel, DaoMembership, Treasury, TreasuryShares } from '@/components/axe/dao';

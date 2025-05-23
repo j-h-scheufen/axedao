@@ -1,9 +1,9 @@
 'use client';
 
 import { useRef } from 'react';
-import { Button } from "@heroui/button";
-import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
-import { Link } from "@heroui/link";
+import { Button } from '@heroui/react';
+import { Card, CardBody, CardFooter, CardHeader } from '@heroui/react';
+import { Link } from '@heroui/react';
 import { useTransform, useScroll, motion } from 'framer-motion';
 
 type TopicProps = {
@@ -41,17 +41,9 @@ const Topic: React.FC<TopicProps> = ({
     offset: ['start end', 'start start'],
   });
 
-  const xImg = useTransform(
-    scrollYProgress,
-    [0, 0.75],
-    imgEntryFrom === 'left' ? ['-120vw', '0vw'] : ['100vw', '0vw']
-  );
+  const xImg = useTransform(scrollYProgress, [0, 0.75], imgEntryFrom === 'left' ? ['-120vw', '0vw'] : ['100vw', '0vw']);
 
-  const xCard = useTransform(
-    scrollYProgress,
-    [0, 0.8],
-    imgEntryFrom === 'left' ? ['90vw', '0vw'] : ['-90vw', '0vw']
-  );
+  const xCard = useTransform(scrollYProgress, [0, 0.8], imgEntryFrom === 'left' ? ['90vw', '0vw'] : ['-90vw', '0vw']);
 
   // const position = useTransform(scrollYProgress, (pos) =>
   //   pos >= 1 ? 'relative' : 'sticky'
@@ -63,34 +55,16 @@ const Topic: React.FC<TopicProps> = ({
     <section ref={targetRef} className="relative z-10 my-[10%] h-[70vh]">
       <motion.div className="sticky top-[10vh]">
         <div className="relative flex">
-          <motion.div
-            style={{ x: xImg }}
-            className={`origin-top ${imgMotionClasses}`}
-          >
-            <motion.img
-              src={bgImg}
-              className={`h-auto max-h-none w-[90vw] rounded-2xl ${imgClasses}`}
-            />
+          <motion.div style={{ x: xImg }} className={`origin-top ${imgMotionClasses}`}>
+            <motion.img src={bgImg} className={`h-auto max-h-none w-[90vw] rounded-2xl ${imgClasses}`} />
           </motion.div>
-          <motion.div
-            style={{ x: xCard }}
-            className={`absolute right-9 top-10 origin-top ${cardMotionClasses}`}
-          >
-            <Card
-              className={`z-20 border-2 bg-gradient-to-br from-amber-200 to-stone-300 ${cardClasses}`}
-            >
-              <CardHeader className="text-center text-lg font-bold">
-                {title}
-              </CardHeader>
+          <motion.div style={{ x: xCard }} className={`absolute right-9 top-10 origin-top ${cardMotionClasses}`}>
+            <Card className={`z-20 border-2 bg-gradient-to-br from-amber-200 to-stone-300 ${cardClasses}`}>
+              <CardHeader className="text-center text-lg font-bold">{title}</CardHeader>
               <CardBody>{content}</CardBody>
               {url && (
                 <CardFooter className="justify-center">
-                  <Button
-                    color="primary"
-                    as={Link}
-                    href={url}
-                    className="border-1 border-neutral-500 text-large"
-                  >
+                  <Button color="primary" as={Link} href={url} className="border-1 border-neutral-500 text-large">
                     Read more ...
                   </Button>
                 </CardFooter>

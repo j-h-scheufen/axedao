@@ -1,5 +1,5 @@
-import { Autocomplete, AutocompleteItem } from "@heroui/autocomplete";
-import { Avatar } from "@heroui/avatar";
+import { Autocomplete, AutocompleteItem } from '@heroui/react';
+import { Avatar } from '@heroui/react';
 import { FieldProps, useField } from 'formik';
 import { useState } from 'react';
 

@@ -1,7 +1,7 @@
 'use client';
 
-import { Avatar, AvatarProps } from "@heroui/avatar";
-import { Spinner } from "@heroui/spinner";
+import { Avatar, AvatarProps } from '@heroui/react';
+import { Spinner } from '@heroui/react';
 import { Camera, Trash2 } from 'lucide-react';
 import { enqueueSnackbar } from 'notistack';
 import { useCallback, useRef, useState } from 'react';
@@ -49,7 +49,7 @@ const ImageUpload = ({ value, ownerId, useFileUploadMutation: useDynamicMutation
         });
       }
     },
-    [mutateAsync, ownerId],
+    [mutateAsync, ownerId]
   );
 
   const handleDelete = useCallback(
@@ -58,7 +58,7 @@ const ImageUpload = ({ value, ownerId, useFileUploadMutation: useDynamicMutation
         setImagePreview('');
         enqueueSnackbar('Image deleted successfully', { variant: 'success' });
       }),
-    [mutateAsync, ownerId],
+    [mutateAsync, ownerId]
   );
 
   return (

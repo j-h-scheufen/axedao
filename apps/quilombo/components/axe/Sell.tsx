@@ -1,7 +1,7 @@
 'use client';
 
-import { Button } from "@heroui/button";
-import { Input } from "@heroui/input";
+import { Button } from '@heroui/react';
+import { Input } from '@heroui/react';
 import { FormikErrors, useFormik } from 'formik';
 import { debounce } from 'lodash';
 import { enqueueSnackbar } from 'notistack';
@@ -62,7 +62,7 @@ const Sell: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onU
   useEffect(() => {
     formik.setFieldValue(
       'amountOut',
-      amountOut && amountOut > 0n ? Number(formatUnits(amountOut, 18)).toFixed(4).toLocaleString() : '',
+      amountOut && amountOut > 0n ? Number(formatUnits(amountOut, 18)).toFixed(4).toLocaleString() : ''
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amountOut]);
@@ -151,7 +151,7 @@ const Sell: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onU
       }
       return errors;
     },
-    [axeBalance],
+    [axeBalance]
   );
 
   const formik = useFormik<FormValues>({

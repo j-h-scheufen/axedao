@@ -1,6 +1,6 @@
-import { Button } from "@heroui/button";
-import { Link } from "@heroui/link";
-import { Select, SelectItem } from "@heroui/select";
+import { Button } from '@heroui/react';
+import { Link } from '@heroui/react';
+import { Select, SelectItem } from '@heroui/react';
 import { FieldProps, useField } from 'formik';
 import { XIcon } from 'lucide-react';
 import { useMemo } from 'react';
@@ -26,7 +26,7 @@ const StringSelect = ({ options = [], label, size, ...props }: Props) => {
           {option}
         </SelectItem>
       )),
-    [options],
+    [options]
   );
 
   const placeholder = `Select ${field.name}`;

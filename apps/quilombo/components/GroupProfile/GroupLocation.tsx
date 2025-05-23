@@ -1,5 +1,5 @@
-import { Autocomplete, AutocompleteItem, AutocompleteProps } from "@heroui/autocomplete";
-import { Avatar } from "@heroui/avatar";
+import { Autocomplete, AutocompleteItem, AutocompleteProps } from '@heroui/react';
+import { Avatar } from '@heroui/react';
 
 import useCountriesAndCities from '@/hooks/useCountriesAndCities';
 import { City, Country } from '@/types/model';

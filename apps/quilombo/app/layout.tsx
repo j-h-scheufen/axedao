@@ -8,7 +8,7 @@ import { fontFiraCode, fontInter, fontOpenSans } from '@/config/fonts';
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { siteConfig } from '@/config/site';
 import StateProvider from './_providers/jotai.provider';
-import ThemeProvider from './_providers/nextUI.provider';
+import ThemeProvider from './_providers/ui.provider';
 import QueryProvider from './_providers/query.provider';
 import SnackbarProvider from './_providers/snackbar.provider';
 import Web3Provider from './_providers/wagmi.provider';

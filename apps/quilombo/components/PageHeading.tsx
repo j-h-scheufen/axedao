@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from "@heroui/button";
+import { Button } from '@heroui/react';
 import clsx from 'clsx';
 import { useAtomValue } from 'jotai';
 import { ArrowLeft } from 'lucide-react';

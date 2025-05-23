@@ -1,7 +1,7 @@
 'use client';
 
-import { Card, CardBody } from "@heroui/card";
-import { Tab, Tabs } from "@heroui/tabs";
+import { Card, CardBody } from '@heroui/react';
+import { Tab, Tabs } from '@heroui/react';
 import { useCallback, useEffect, useState } from 'react';
 import { Address } from 'viem';
 import { useAccount } from 'wagmi';

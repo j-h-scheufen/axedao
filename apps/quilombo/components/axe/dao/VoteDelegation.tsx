@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from "@heroui/button";
+import { Button } from '@heroui/react';
 import { useSnackbar } from 'notistack';
 import { useEffect, useMemo, useState } from 'react';
 import type { Address } from 'viem';

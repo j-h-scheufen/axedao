@@ -1,6 +1,6 @@
 'use client';
 
-import { Skeleton } from "@heroui/skeleton";
+import { Skeleton } from '@heroui/react';
 
 import SubsectionHeading from '../SubsectionHeading';
 import ContactInfoInputsSkeleton from './ContactInfoInputsSkeleton';

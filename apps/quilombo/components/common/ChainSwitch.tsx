@@ -1,8 +1,8 @@
 'use client';
 
 import { configureChains } from '@/config/wagmi';
-import { Button } from "@heroui/button";
-import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@heroui/dropdown";
+import { Button } from '@heroui/react';
+import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@heroui/react';
 import { useChainId, useSwitchChain } from 'wagmi';
 
 const chains = configureChains();

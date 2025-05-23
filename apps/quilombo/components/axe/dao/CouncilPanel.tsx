@@ -1,6 +1,6 @@
 'use client';
 
-import { Tab, Tabs } from "@heroui/tabs";
+import { Tab, Tabs } from '@heroui/react';
 import { ArrowLeftRight } from 'lucide-react';
 
 import { useInitializeCouncilState } from '@/hooks/state/dao';

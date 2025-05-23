@@ -1,7 +1,7 @@
 'use client';
 
-import { Button } from "@heroui/button";
-import { Textarea } from "@heroui/input";
+import { Button } from '@heroui/react';
+import { Textarea } from '@heroui/react';
 import { Field, FieldArray, FieldProps, Form, Formik, FormikProps } from 'formik';
 import { useAtomValue } from 'jotai';
 import { useRouter } from 'next/navigation';
@@ -40,7 +40,7 @@ const GroupForm = () => {
        */
       return updateGroup({ groupId: group.id, data: values }).then(() => router.push(`${PATHS.groups}/${group.id}`));
     },
-    [router, updateGroup, group],
+    [router, updateGroup, group]
   );
 
   if (!group || isFetching) return <GroupFormSkeleton />;
