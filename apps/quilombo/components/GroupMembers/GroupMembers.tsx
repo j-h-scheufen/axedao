@@ -1,7 +1,7 @@
 'use client';
 
-import { Spinner } from '@nextui-org/spinner';
-import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@nextui-org/table';
+import { Spinner } from "@heroui/spinner";
+import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@heroui/table";
 import { useAtomValue } from 'jotai';
 import { useCallback, useMemo } from 'react';
 

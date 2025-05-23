@@ -1,7 +1,7 @@
-import { Button } from '@nextui-org/button';
-import { Spinner } from '@nextui-org/spinner';
+import { Button } from "@heroui/button";
+import { Spinner } from "@heroui/spinner";
 
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalProps } from '@nextui-org/modal';
+import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalProps } from "@heroui/modal";
 
 type Props = Omit<ModalProps, 'children'> & { onDelete: () => Promise<void>; isDeleting: boolean };
 const LeaveGroupConfirmationModal = ({ isOpen, onOpenChange, onDelete, isDeleting, ...props }: Props) => {

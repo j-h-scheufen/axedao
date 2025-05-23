@@ -1,4 +1,4 @@
-import { nextui } from '@nextui-org/theme';
+import { heroui } from "@heroui/theme";
 import { withTV } from 'tailwind-variants/transformer';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
@@ -8,7 +8,7 @@ export default withTV({
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     screens: {
@@ -24,7 +24,7 @@ export default withTV({
   },
   darkMode: 'class',
   plugins: [
-    nextui({
+    heroui({
       layout: {
         height: {
           small: '10px',

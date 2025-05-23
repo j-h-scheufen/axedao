@@ -1,7 +1,7 @@
 'use client';
 
-import { Button } from '@nextui-org/button';
-import { Input } from '@nextui-org/input';
+import { Button } from "@heroui/button";
+import { Input } from "@heroui/input";
 import { FormikErrors, useFormik } from 'formik';
 import { debounce } from 'lodash';
 import { enqueueSnackbar } from 'notistack';

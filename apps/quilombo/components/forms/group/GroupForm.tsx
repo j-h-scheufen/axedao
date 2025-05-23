@@ -1,7 +1,7 @@
 'use client';
 
-import { Button } from '@nextui-org/button';
-import { Textarea } from '@nextui-org/input';
+import { Button } from "@heroui/button";
+import { Textarea } from "@heroui/input";
 import { Field, FieldArray, FieldProps, Form, Formik, FormikProps } from 'formik';
 import { useAtomValue } from 'jotai';
 import { useRouter } from 'next/navigation';

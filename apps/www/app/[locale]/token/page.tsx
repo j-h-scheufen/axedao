@@ -1,6 +1,6 @@
 import { TextSection, Title } from '@/components/primitives';
-import { Card } from '@nextui-org/card';
-import { Image } from '@nextui-org/image';
+import { Card } from "@heroui/card";
+import { Image } from "@heroui/image";
 
 export default function AboutPage() {
   return (

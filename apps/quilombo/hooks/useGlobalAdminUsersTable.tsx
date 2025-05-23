@@ -1,8 +1,8 @@
 'use client';
 
-import { Link } from '@nextui-org/link';
-import { getKeyValue } from '@nextui-org/react';
-import { User } from '@nextui-org/user';
+import { Link } from "@heroui/link";
+import { getKeyValue } from "@heroui/react";
+import { User } from "@heroui/user";
 import { useCallback, useState } from 'react';
 
 import { PATHS } from '@/config/constants';

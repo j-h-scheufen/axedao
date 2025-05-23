@@ -1,6 +1,6 @@
 'use client';
 
-import { Accordion, AccordionItem, Button, Checkbox, Spinner } from '@nextui-org/react';
+import { Accordion, AccordionItem, Button, Checkbox, Spinner } from "@heroui/react";
 import { CheckCircle2, Clock, XCircle } from 'lucide-react';
 import { useSnackbar } from 'notistack';
 import { useEffect, useMemo, useState } from 'react';

@@ -1,5 +1,5 @@
-import { Card, CardBody, CardProps } from '@nextui-org/card';
-import { Skeleton } from '@nextui-org/skeleton';
+import { Card, CardBody, CardProps } from "@heroui/card";
+import { Skeleton } from "@heroui/skeleton";
 
 export type UserCardProps = CardProps;
 

@@ -3,7 +3,7 @@
 import ImageUpload from '@/components/forms/ImageUpload';
 import { groupBannerAtom, groupIdAtom, groupLogoAtom } from '@/hooks/state/group';
 import { useUpdateBannerMutation, useUpdateLogoMutation } from '@/query/group';
-import { Spacer } from '@nextui-org/spacer';
+import { Spacer } from "@heroui/spacer";
 import { useAtomValue } from 'jotai';
 import { GroupForm } from '.';
 

@@ -1,6 +1,6 @@
-import { Button } from '@nextui-org/button';
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from '@nextui-org/modal';
-import { Spinner } from '@nextui-org/spinner';
+import { Button } from "@heroui/button";
+import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from "@heroui/modal";
+import { Spinner } from "@heroui/spinner";
 
 type Props = { deleteGroup: () => Promise<void>; isDeleting: boolean };
 const DeleteGroup = ({ deleteGroup, isDeleting }: Props) => {

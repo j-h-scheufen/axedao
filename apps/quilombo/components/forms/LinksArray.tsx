@@ -1,8 +1,8 @@
 'use client';
 
-import { Button } from '@nextui-org/button';
-import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@nextui-org/dropdown';
-import { Input } from '@nextui-org/input';
+import { Button } from "@heroui/button";
+import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@heroui/dropdown";
+import { Input } from "@heroui/input";
 import { atom, useAtom } from 'jotai';
 import { PlusIcon, XIcon } from 'lucide-react';
 import { useCallback, useMemo } from 'react';

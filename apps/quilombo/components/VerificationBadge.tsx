@@ -1,5 +1,5 @@
-import { Badge, BadgeProps } from '@nextui-org/badge';
-import { Tooltip } from '@nextui-org/tooltip';
+import { Badge, BadgeProps } from "@heroui/badge";
+import { Tooltip } from "@heroui/tooltip";
 import { CircleCheckIcon } from 'lucide-react';
 
 type Props = { verified: boolean } & BadgeProps;

@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@nextui-org/button";
-import { Spinner } from "@nextui-org/spinner";
+import { Button } from "@heroui/button";
+import { Spinner } from "@heroui/spinner";
 import type { SilkEthereumProviderInterface } from "@silk-wallet/silk-wallet-sdk";
 import { Field, FieldArray, Form, Formik, type FormikProps } from "formik";
 import { useAtomValue } from "jotai";

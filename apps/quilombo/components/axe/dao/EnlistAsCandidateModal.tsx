@@ -1,8 +1,8 @@
 'use client';
 
-import { Accordion, AccordionItem } from '@nextui-org/accordion';
-import { Button } from '@nextui-org/button';
-import { Modal, ModalBody, ModalContent, ModalHeader, type ModalProps } from '@nextui-org/modal';
+import { Accordion, AccordionItem } from "@heroui/accordion";
+import { Button } from "@heroui/button";
+import { Modal, ModalBody, ModalContent, ModalHeader, type ModalProps } from "@heroui/modal";
 import { enqueueSnackbar } from 'notistack';
 import { useEffect, useMemo, useState } from 'react';
 import { useWaitForTransactionReceipt } from 'wagmi';

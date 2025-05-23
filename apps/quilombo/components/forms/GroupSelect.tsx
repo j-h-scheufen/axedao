@@ -1,11 +1,11 @@
-import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
+import { Autocomplete, AutocompleteItem } from "@heroui/autocomplete";
 import { FieldProps, useField } from 'formik';
 import { SearchIcon } from 'lucide-react';
 
 import useGroupSearch from '@/hooks/useGroupSearch';
 import { Group } from '@/types/model';
 import { getImageUrl } from '@/utils';
-import { Avatar } from '@nextui-org/avatar';
+import { Avatar } from "@heroui/avatar";
 
 type Props = FieldProps['field'] & {
   onSelect?: (user: Group | null) => void;

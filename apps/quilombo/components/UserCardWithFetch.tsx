@@ -1,7 +1,7 @@
 'use client';
 
-import { AvatarProps } from '@nextui-org/avatar';
-import { CardProps } from '@nextui-org/card';
+import { AvatarProps } from "@heroui/avatar";
+import { CardProps } from "@heroui/card";
 import { ReactNode } from 'react';
 
 import { useFetchUser } from '@/query/user';

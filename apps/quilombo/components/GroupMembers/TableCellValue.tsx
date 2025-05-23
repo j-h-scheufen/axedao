@@ -1,7 +1,7 @@
-import { Button } from '@nextui-org/button';
-import { Link } from '@nextui-org/link';
-import { Tooltip } from '@nextui-org/tooltip';
-import { User } from '@nextui-org/user';
+import { Button } from "@heroui/button";
+import { Link } from "@heroui/link";
+import { Tooltip } from "@heroui/tooltip";
+import { User } from "@heroui/user";
 import { useAtomValue } from 'jotai';
 import { has } from 'lodash';
 import { ArrowDownIcon, ArrowUpIcon, UserXIcon } from 'lucide-react';

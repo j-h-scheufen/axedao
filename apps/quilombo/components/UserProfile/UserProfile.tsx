@@ -1,7 +1,7 @@
 'use client';
 
-import { Avatar } from '@nextui-org/avatar';
-import { Spinner } from '@nextui-org/spinner';
+import { Avatar } from "@heroui/avatar";
+import { Spinner } from "@heroui/spinner";
 import { useAtomValue } from 'jotai';
 import { Camera, MailIcon } from 'lucide-react';
 import Link from 'next/link';

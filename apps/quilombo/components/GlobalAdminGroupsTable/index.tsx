@@ -1,8 +1,8 @@
 'use client';
 
-import { Avatar } from '@nextui-org/avatar';
-import { Link } from '@nextui-org/link';
-import { Spinner } from '@nextui-org/spinner';
+import { Avatar } from "@heroui/avatar";
+import { Link } from "@heroui/link";
+import { Spinner } from "@heroui/spinner";
 import {
   Table,
   TableBody,
@@ -12,7 +12,7 @@ import {
   TableHeader,
   TableRow,
   getKeyValue,
-} from '@nextui-org/table';
+} from "@heroui/table";
 import { MapPinIcon } from 'lucide-react';
 import React, { useCallback, useState } from 'react';
 

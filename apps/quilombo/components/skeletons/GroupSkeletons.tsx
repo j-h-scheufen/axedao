@@ -1,4 +1,4 @@
-import { Skeleton } from '@nextui-org/skeleton';
+import { Skeleton } from "@heroui/skeleton";
 
 import SubsectionHeading from '@/components/SubsectionHeading';
 import ContactInfoInputsSkeleton from '@/components/skeletons/ContactInfoInputsSkeleton';

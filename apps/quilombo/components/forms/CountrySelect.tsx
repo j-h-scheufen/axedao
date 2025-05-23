@@ -1,5 +1,5 @@
-import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
-import { Avatar } from '@nextui-org/avatar';
+import { Autocomplete, AutocompleteItem } from "@heroui/autocomplete";
+import { Avatar } from "@heroui/avatar";
 import { FieldProps, useField } from 'formik';
 import { useState } from 'react';
 

@@ -1,4 +1,4 @@
-import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
+import { Autocomplete, AutocompleteItem } from "@heroui/autocomplete";
 import { FieldProps, useField } from 'formik';
 import { SearchIcon } from 'lucide-react';
 

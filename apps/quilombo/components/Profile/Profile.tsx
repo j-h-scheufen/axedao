@@ -1,7 +1,7 @@
 'use client';
 
-import { Avatar } from '@nextui-org/avatar';
-import { Button } from '@nextui-org/button';
+import { Avatar } from "@heroui/avatar";
+import { Button } from "@heroui/button";
 import { useAtomValue } from 'jotai';
 import { Camera, Edit, MailIcon } from 'lucide-react';
 import Link from 'next/link';

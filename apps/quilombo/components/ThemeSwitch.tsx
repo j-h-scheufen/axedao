@@ -1,6 +1,6 @@
 'use client';
 
-import { Switch, SwitchProps } from '@nextui-org/switch';
+import { Switch, SwitchProps } from "@heroui/switch";
 import { useIsSSR } from '@react-aria/ssr';
 import clsx from 'clsx';
 import { useTheme } from 'next-themes';

@@ -1,7 +1,7 @@
-import { Link } from '@nextui-org/link';
-import { Card } from '@nextui-org/card';
-import { Image } from '@nextui-org/image';
-import { button as buttonStyles } from '@nextui-org/theme';
+import { Link } from "@heroui/link";
+import { Card } from "@heroui/card";
+import { Image } from "@heroui/image";
+import { button as buttonStyles } from "@heroui/theme";
 
 import { siteConfig } from '@/config/site';
 import { GithubIcon } from '@/components/icons';

@@ -1,6 +1,6 @@
 'use client';
 
-import { Spinner } from '@nextui-org/spinner';
+import { Spinner } from "@heroui/spinner";
 import { useAtomValue } from 'jotai';
 
 import GroupCard from '@/components/GroupCard';

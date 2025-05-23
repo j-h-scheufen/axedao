@@ -1,13 +1,13 @@
 'use client';
 
-import { Card } from '@nextui-org/card';
-import { Button } from '@nextui-org/button';
+import { Card } from "@heroui/card";
+import { Button } from "@heroui/button";
 import { ArrowRight } from 'lucide-react';
 import { useAtomValue } from 'jotai';
 import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 import { useSnackbar } from 'notistack';
 import { useEffect } from 'react';
-import { Spinner } from '@nextui-org/spinner';
+import { Spinner } from "@heroui/spinner";
 import type { Address } from 'viem';
 
 import { incomingCouncilUsersAtom, outgoingCouncilUsersAtom } from '@/hooks/state/dao';

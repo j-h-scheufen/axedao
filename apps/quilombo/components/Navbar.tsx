@@ -1,8 +1,8 @@
 'use client';
 
-import { Avatar } from '@nextui-org/avatar';
-import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@nextui-org/dropdown';
-import { Link } from '@nextui-org/link';
+import { Avatar } from "@heroui/avatar";
+import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@heroui/dropdown";
+import { Link } from "@heroui/link";
 import {
   NavbarBrand,
   NavbarContent,
@@ -11,7 +11,7 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
   Navbar as NextUINavbar,
-} from '@nextui-org/navbar';
+} from "@heroui/navbar";
 import { useAtomValue } from 'jotai';
 import { useSession } from 'next-auth/react';
 import NextLink from 'next/link';

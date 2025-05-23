@@ -1,6 +1,6 @@
-import { Button } from '@nextui-org/button';
-import { Link } from '@nextui-org/link';
-import { Select, SelectItem } from '@nextui-org/select';
+import { Button } from "@heroui/button";
+import { Link } from "@heroui/link";
+import { Select, SelectItem } from "@heroui/select";
 import { FieldProps, useField } from 'formik';
 import { XIcon } from 'lucide-react';
 import { useMemo } from 'react';

@@ -1,9 +1,9 @@
 'use client';
 
 import { useRef } from 'react';
-import { Button } from '@nextui-org/button';
-import { Card, CardBody, CardFooter, CardHeader } from '@nextui-org/card';
-import { Link } from '@nextui-org/link';
+import { Button } from "@heroui/button";
+import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
+import { Link } from "@heroui/link";
 import { useTransform, useScroll, motion } from 'framer-motion';
 
 type TopicProps = {

@@ -1,5 +1,5 @@
-import { Button } from '@nextui-org/button';
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalProps } from '@nextui-org/modal';
+import { Button } from "@heroui/button";
+import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalProps } from "@heroui/modal";
 import { useEffect, useRef } from 'react';
 
 import { User } from '@/types/model';

@@ -1,6 +1,6 @@
-import { Avatar } from '@nextui-org/avatar';
-import { Card, CardBody, CardFooter } from '@nextui-org/card';
-import { Link } from '@nextui-org/link';
+import { Avatar } from "@heroui/avatar";
+import { Card, CardBody, CardFooter } from "@heroui/card";
+import { Link } from "@heroui/link";
 import clsx from 'clsx';
 import { MapPinIcon } from 'lucide-react';
 import { ReactNode } from 'react';

@@ -1,6 +1,6 @@
 'use client';
 
-import { Skeleton } from '@nextui-org/skeleton';
+import { Skeleton } from "@heroui/skeleton";
 
 import SubsectionHeading from '../SubsectionHeading';
 import ContactInfoInputsSkeleton from './ContactInfoInputsSkeleton';

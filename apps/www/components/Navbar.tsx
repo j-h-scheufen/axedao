@@ -1,15 +1,15 @@
-import { Navbar as NextUINavbar, NavbarContent } from '@nextui-org/navbar';
-import { Button } from '@nextui-org/button';
+import { Navbar as NextUINavbar, NavbarContent } from "@heroui/navbar";
+import { Button } from "@heroui/button";
 
 // import { siteConfig } from '@/config/site';
 // import NextLink from 'next/link';
-// import { link as linkStyles } from '@nextui-org/theme';
+// import { link as linkStyles } from '@heroui/theme';
 // import clsx from 'clsx';
 
 import ENV from '@/config/environment';
 import ThemeSwitch from './ThemeSwitch';
 import LocaleSwitch from './LocaleSwitch';
-import { Link } from '@nextui-org/link';
+import { Link } from "@heroui/link";
 
 const Navbar: React.FC = () => {
   return (

@@ -1,7 +1,7 @@
-import { Avatar, type AvatarProps } from '@nextui-org/avatar';
-import { Card, type CardProps, CardBody } from '@nextui-org/card';
-import { Link } from '@nextui-org/link';
-import { Badge } from '@nextui-org/badge';
+import { Avatar, type AvatarProps } from "@heroui/avatar";
+import { Card, type CardProps, CardBody } from "@heroui/card";
+import { Link } from "@heroui/link";
+import { Badge } from "@heroui/badge";
 import clsx from 'clsx';
 import { UserRoundIcon } from 'lucide-react';
 import type { ReactNode } from 'react';

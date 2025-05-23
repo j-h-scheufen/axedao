@@ -1,6 +1,6 @@
 'use client';
 
-import { Tab, Tabs } from '@nextui-org/tabs';
+import { Tab, Tabs } from "@heroui/tabs";
 import { useQueryState } from 'nuqs';
 
 import { CouncilPanel, DaoMembership, Treasury, TreasuryShares } from '@/components/axe/dao';

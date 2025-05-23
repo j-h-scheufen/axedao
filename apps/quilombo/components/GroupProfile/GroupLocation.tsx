@@ -1,5 +1,5 @@
-import { Autocomplete, AutocompleteItem, AutocompleteProps } from '@nextui-org/autocomplete';
-import { Avatar } from '@nextui-org/avatar';
+import { Autocomplete, AutocompleteItem, AutocompleteProps } from "@heroui/autocomplete";
+import { Avatar } from "@heroui/avatar";
 
 import useCountriesAndCities from '@/hooks/useCountriesAndCities';
 import { City, Country } from '@/types/model';

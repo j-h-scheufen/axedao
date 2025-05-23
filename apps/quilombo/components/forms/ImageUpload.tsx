@@ -1,7 +1,7 @@
 'use client';
 
-import { Avatar, AvatarProps } from '@nextui-org/avatar';
-import { Spinner } from '@nextui-org/spinner';
+import { Avatar, AvatarProps } from "@heroui/avatar";
+import { Spinner } from "@heroui/spinner";
 import { Camera, Trash2 } from 'lucide-react';
 import { enqueueSnackbar } from 'notistack';
 import { useCallback, useRef, useState } from 'react';
