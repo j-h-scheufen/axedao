@@ -1,10 +1,10 @@
 import { isUndefined, omitBy } from 'lodash';
 import { getServerSession } from 'next-auth';
 import { notFound } from 'next/navigation';
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { ProfileForm, profileFormSchema } from '@/config/validation-schema';
+import { type ProfileForm, profileFormSchema } from '@/config/validation-schema';
 import { fetchUser, updateUser } from '@/db';
 
 /**
@@ -45,7 +45,7 @@ export async function PATCH(request: NextRequest) {
     formData = profileFormSchema.validateSync(body);
   } catch (error) {
     console.error('Unable to validate input data', error);
-    return NextResponse.json({ error: `Invalid input data` }, { status: 400 });
+    return NextResponse.json({ error: 'Invalid input data' }, { status: 400 });
   }
 
   const existingUser = await fetchUser(session.user.id);

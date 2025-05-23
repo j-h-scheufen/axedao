@@ -1,15 +1,15 @@
-import { NextRequest } from 'next/server';
+import type { NextRequest } from 'next/server';
 
 import { fetchGroupMembers } from '@/db';
 import { generateErrorMessage } from '@/utils';
 
 /**
  * Returns the members of the specified group
- * @param request - The request object
+ * @param _ - The request object (not used)
  * @param groupId - PATH parameter. The id of the group
  * @returns the members of the group as User[]
  */
-export async function GET(request: NextRequest, { params }: { params: { groupId: string } }) {
+export async function GET(_: NextRequest, { params }: { params: { groupId: string } }) {
   try {
     const { groupId } = params;
     const members = await fetchGroupMembers(groupId);
@@ -20,7 +20,7 @@ export async function GET(request: NextRequest, { params }: { params: { groupId:
       { error: true, message },
       {
         status: 500,
-      },
+      }
     );
   }
 }

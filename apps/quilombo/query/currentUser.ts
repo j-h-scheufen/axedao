@@ -1,10 +1,11 @@
 import { queryOptions, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 
-import { ProfileForm } from '@/config/validation-schema';
-import { User } from '@/types/model';
+import type { ProfileForm } from '@/config/validation-schema';
+import type { User } from '@/types/model';
 import { useSession } from 'next-auth/react';
-import { FileUploadParams, QUERY_KEYS, UseFileUploadMutation } from '.';
+import type { FileUploadParams, UseFileUploadMutation } from '.';
+import { QUERY_KEYS } from '.';
 
 const fetchCurrentUser = (): Promise<User> => axios.get('/api/profile').then((response) => response.data);
 // The userId is not required to call the endpoint (which automatically uses the session user), but needed to
@@ -20,7 +21,7 @@ export const fetchCurrentUserOptions = (userId: string | undefined) => {
 };
 
 const updateCurrentUser = async (data: ProfileForm): Promise<User> =>
-  axios.patch(`/api/profile`, data).then((response) => response.data);
+  axios.patch('/api/profile', data).then((response) => response.data);
 
 const joinGroup = (groupId: string): Promise<User> =>
   axios.put(`/api/profile/group/${groupId}`).then((response) => response.data);
@@ -35,9 +36,8 @@ export const updateAvatar = async ({ file }: FileUploadParams): Promise<User> =>
     return axios
       .post('/api/profile/avatar', data, { headers: { 'Content-Type': 'multipart/form-data' } })
       .then((response) => response.data);
-  } else {
-    return axios.delete('/api/profile/avatar').then((response) => response.data);
   }
+  return axios.delete('/api/profile/avatar').then((response) => response.data);
 };
 
 // HOOKS

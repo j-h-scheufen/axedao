@@ -15,7 +15,7 @@ const getActivatedIconClassName = (isActivated: boolean) => {
     'fill-transparent dark:fill-slate-400 stroke-gray-500 dark:stroke-gray-300 min-w-[25px] min-h-[25px] sm:min-h-[32px] sm:min-w-[32px]',
     {
       'fill-primary dark:fill-primary dark:stroke-slate-500': isActivated,
-    },
+    }
   );
 };
 

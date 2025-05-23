@@ -11,11 +11,11 @@ import { getImageUrl, getUserDisplayName } from '@/utils';
 export const triggerCurrentUserIdAtom = atom<string | undefined>();
 
 export const currentUserAtom = atomWithQuery<User | undefined>((get) =>
-  fetchCurrentUserOptions(get(triggerCurrentUserIdAtom)),
+  fetchCurrentUserOptions(get(triggerCurrentUserIdAtom))
 );
 
 export const currentUserGroupAtom = atomWithQuery<Group | undefined>((get) =>
-  fetchGroupOptions(get(currentUserGroupIdAtom)),
+  fetchGroupOptions(get(currentUserGroupIdAtom))
 );
 
 export const currentUserDisplayNameAtom = atom<string>((get) => getUserDisplayName(get(currentUserAtom).data));
@@ -23,7 +23,7 @@ export const currentUserDisplayNameAtom = atom<string>((get) => getUserDisplayNa
 export const currentUserIdAtom = atom<string | undefined>((get) => get(currentUserAtom).data?.id);
 
 export const currentUserGroupIdAtom = atom<string | undefined>(
-  (get) => get(currentUserAtom).data?.groupId ?? undefined,
+  (get) => get(currentUserAtom).data?.groupId ?? undefined
 );
 
 export const currentUserLinksAtom = atom<SocialLink[] | undefined>((get) => get(currentUserAtom).data?.links);
@@ -31,9 +31,9 @@ export const currentUserLinksAtom = atom<SocialLink[] | undefined>((get) => get(
 export const currentUserAvatarAtom = atom<string | undefined>((get) => get(currentUserAtom).data?.avatar ?? undefined);
 
 export const currentUserWalletAddressAtom = atom<Address | undefined>(
-  (get) => get(currentUserAtom).data?.walletAddress as Address | undefined,
+  (get) => get(currentUserAtom).data?.walletAddress as Address | undefined
 );
 
 export const currentUserAvatarUrlAtom = atom<string | undefined>((get) =>
-  getImageUrl(get(currentUserAtom).data?.avatar),
+  getImageUrl(get(currentUserAtom).data?.avatar)
 );

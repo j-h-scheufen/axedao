@@ -56,7 +56,7 @@ const GroupView = () => {
           <>
             <SubsectionHeading>Founder</SubsectionHeading>
             {isFounderUuid ? (
-              <UserCardWithFetch userId={group.founder!} />
+              <UserCardWithFetch userId={group.founder} />
             ) : (
               <div className="text-default-500">{group.founder}</div>
             )}

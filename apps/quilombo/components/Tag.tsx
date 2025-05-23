@@ -5,7 +5,7 @@ type Props = { children: ReactNode; color?: 'primary' | 'default' | 'secondary' 
 const Tag = ({ children, color = 'primary' }: Props) => {
   return (
     <Button size="sm" variant="flat" color={color} className="rounded-full h-7 cursor-default text-sm">
-      <span className={`bg-${color} inline-block h-2 w-2 rounded-full`}></span>
+      <span className={`bg-${color} inline-block h-2 w-2 rounded-full`} />
       {children}
     </Button>
   );

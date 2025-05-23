@@ -9,11 +9,12 @@ type Props = { groups?: Group[]; isLoading?: boolean; scrollerRef?: RefObject<HT
 const GroupsGrid = ({ groups = [], isLoading = false, scrollerRef }: Props) => {
   return (
     <div className="grid w-full grid-cols-1 gap-5 xs:grid-cols-2 lg:grid-cols-3">
-      {groups.map((group, i) => {
-        return <GroupCard key={i} group={group} className="" />;
+      {groups.map((group) => {
+        return <GroupCard key={`group-card-${group.id}`} group={group} className="" />;
       })}
+      {/* biome-ignore lint/suspicious/noArrayIndexKey: safe to use index as key for skeleton */}
       {isLoading && [...Array(20)].map((_, i) => <GroupCardSkeleton key={i} />)}
-      {scrollerRef && <div ref={scrollerRef as RefObject<HTMLDivElement>} className="hidden" hidden></div>}
+      {scrollerRef && <div ref={scrollerRef as RefObject<HTMLDivElement>} className="hidden" hidden />}
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { City } from 'country-state-city';
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 /**
  * Returns a list of cities in the specified country and optionally filtered by name
@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
       { error: true, message: 'Missing countryCode' },
       {
         status: 400,
-      },
+      }
     );
   }
 

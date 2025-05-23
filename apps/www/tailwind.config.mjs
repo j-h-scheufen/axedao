@@ -1,4 +1,4 @@
-import { heroui } from '@heroui/theme';
+import { heroui } from '@heroui/react';
 import { withTV } from 'tailwind-variants/transformer';
 
 /** @type {import('tailwindcss').Config} */

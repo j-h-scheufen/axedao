@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { fileTypeFromBuffer } from 'file-type';
-import sharp, { ResizeOptions } from 'sharp';
+import sharp, { type ResizeOptions } from 'sharp';
 
 import ENV from '@/config/environment';
 
@@ -10,7 +10,7 @@ export const pinToGroup = async (
   file: File,
   name: string,
   resizeOptions: ResizeOptions | null | undefined = null,
-  replaceCID?: string | null,
+  replaceCID?: string | null
 ): Promise<PinningResponse> => {
   const buffer = await file.arrayBuffer();
   const inFileType = await fileTypeFromBuffer(buffer);

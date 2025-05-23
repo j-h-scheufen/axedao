@@ -114,38 +114,45 @@ const Sell: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onU
     amountOut: string;
   }
 
-  const handleSubmit = (values: FormValues) => {
-    try {
-      const bigInput = parseUnits(values.amountIn.toString(), 18);
-      if (exceedsAllowance) {
-        approve({ address: ENV.axeTokenAddress, args: [ENV.uniswapV2RouterAddress, bigInput] });
-      } else {
-        const deadline = Math.floor(Date.now() / 1000) + 60 * 20; // 20 minutes from the current Unix time
-        //TODO check for slippage and warn / adjust tolerance or block
-        //TODO modal for user to review the TX before sending. That's also where the TX prep can be done best.
-        if (amountOut) {
-          swap({
-            address: ENV.uniswapV2RouterAddress,
-            args: [
-              bigInput,
-              amountOut - (amountOut / 10000n) * slippageTolerance,
-              [ENV.axeTokenAddress, ENV.axeSwapTokenAddress],
-              account.address!,
-              BigInt(deadline),
-            ],
-          });
-        }
+  const handleSubmit = useCallback(
+    (values: FormValues) => {
+      if (!account?.address) {
+        throw new Error('Please connect your wallet first');
       }
-    } catch (error) {
-      console.error('Error during swap.', error);
-      throw error;
-    }
-  };
+
+      try {
+        const bigInput = parseUnits(values.amountIn.toString(), 18);
+        if (exceedsAllowance) {
+          approve({ address: ENV.axeTokenAddress, args: [ENV.uniswapV2RouterAddress, bigInput] });
+        } else {
+          const deadline = Math.floor(Date.now() / 1000) + 60 * 20; // 20 minutes from the current Unix time
+          //TODO check for slippage and warn / adjust tolerance or block
+          //TODO modal for user to review the TX before sending. That's also where the TX prep can be done best.
+          if (amountOut) {
+            swap({
+              address: ENV.uniswapV2RouterAddress,
+              args: [
+                bigInput,
+                amountOut - (amountOut / 10000n) * slippageTolerance,
+                [ENV.axeTokenAddress, ENV.axeSwapTokenAddress],
+                account.address,
+                BigInt(deadline),
+              ],
+            });
+          }
+        }
+      } catch (error) {
+        console.error('Error during swap.', error);
+        throw error;
+      }
+    },
+    [account, amountOut, approve, exceedsAllowance, swap]
+  );
 
   const validateForm = useCallback(
     async (values: FormValues): Promise<FormikErrors<FormValues>> => {
       const errors: FormikErrors<FormValues> = {};
-      if (!!values.amountIn) {
+      if (values.amountIn) {
         const bigAmount = parseUnits(values.amountIn.toString(), 18); // Note: explicit cast toString() required here!
         if (axeBalance && axeBalance < bigAmount) errors.amountIn = 'Available balance exceeded';
       }

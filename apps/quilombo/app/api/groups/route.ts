@@ -1,18 +1,18 @@
 import { isNil, omitBy } from 'lodash';
 import { getServerSession } from 'next-auth';
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
 
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import { nextAuthOptions } from '@/config/next-auth-options';
 import {
-  CreateNewGroupForm,
+  type CreateNewGroupForm,
   createNewGroupFormSchema,
-  GroupSearchParams,
+  type GroupSearchParams,
   groupSearchSchema,
 } from '@/config/validation-schema';
 import { addGroupAdmin, fetchUser, insertGroup, searchGroups, updateUser } from '@/db';
-import { GroupSearchResult } from '@/types/model';
+import type { GroupSearchResult } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
 
 /**
@@ -41,7 +41,7 @@ export async function GET(request: NextRequest) {
     });
   } catch (error) {
     console.error('Unable to validate input data', error);
-    return NextResponse.json({ error: `Invalid input data` }, { status: 400 });
+    return NextResponse.json({ error: 'Invalid input data' }, { status: 400 });
   }
 
   const groups = await searchGroups(searchOptions);
@@ -81,7 +81,7 @@ export async function POST(request: NextRequest) {
     if (user.groupId) {
       return NextResponse.json(
         { error: 'You cannot create a new group while being a member of an existing group' },
-        { status: 403 },
+        { status: 403 }
       );
     }
 
@@ -106,7 +106,7 @@ export async function POST(request: NextRequest) {
       { error: true, message: generateErrorMessage(error, 'An unexpected error occurred while creating group') },
       {
         status: 500,
-      },
+      }
     );
   }
 }

@@ -25,13 +25,13 @@ const BreadcrumbTracker = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [breadcrumbs, setBreadcrumbs] = useAtom(breadcrumbsHistoryAtom);
+  const lastBreadcrumb = breadcrumbs.length > 0 ? breadcrumbs[breadcrumbs.length - 1] : null;
 
   useEffect(() => {
     if (!crumbsPattern.test(pathname)) return;
 
     const queryString = searchParams.toString();
     const newBreadcrumb = { pathname, queryParams: queryString };
-    const lastBreadcrumb = breadcrumbs.length > 0 ? breadcrumbs[breadcrumbs.length - 1] : null;
 
     // The order of checks is important to avoid runaway effect updates!
 
@@ -65,7 +65,7 @@ const BreadcrumbTracker = () => {
 
     // Initial breadcrumb
     setBreadcrumbs([newBreadcrumb]);
-  }, [pathname, searchParams, breadcrumbs, setBreadcrumbs]);
+  }, [pathname, searchParams, breadcrumbs, setBreadcrumbs, lastBreadcrumb]);
 
   return <></>;
 };

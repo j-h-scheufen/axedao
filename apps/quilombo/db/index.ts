@@ -1,12 +1,12 @@
 import { Country } from 'country-state-city';
-import { and, count, eq, ilike, inArray, ne, notExists, or, SQLWrapper } from 'drizzle-orm';
-import { drizzle, PostgresJsDatabase } from 'drizzle-orm/postgres-js';
+import { and, count, eq, ilike, inArray, ne, notExists, or, type SQLWrapper } from 'drizzle-orm';
+import { drizzle, type PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 
 import ENV from '@/config/environment';
-import { GroupSearchParams, SearchParams } from '@/config/validation-schema';
+import type { GroupSearchParams, SearchParams } from '@/config/validation-schema';
 import * as schema from '@/db/schema';
-import { Group, UserSession } from '@/types/model';
+import type { Group, UserSession } from '@/types/model';
 
 /**
  * NOTE: All DB functions in this file can only be run server-side. If you need to retrieve DB data from a client
@@ -19,7 +19,7 @@ import { Group, UserSession } from '@/types/model';
 export const client = postgres(ENV.databaseUrl, { prepare: false });
 export const drizzleClient = drizzle(client, { schema, logger: false });
 declare global {
-  // eslint-disable-next-line no-var
+  // biome-ignore lint/style/noVar: following global declaration convention
   var database: PostgresJsDatabase<typeof schema> | undefined;
 }
 export const db = global.database || drizzleClient;
@@ -102,9 +102,9 @@ export async function isGroupMember(groupId: string, userId: string): Promise<bo
           db
             .select()
             .from(schema.groupAdmins)
-            .where(and(eq(schema.groupAdmins.userId, userId), eq(schema.groupAdmins.groupId, groupId))),
-        ),
-      ),
+            .where(and(eq(schema.groupAdmins.userId, userId), eq(schema.groupAdmins.groupId, groupId)))
+        )
+      )
     );
   return !!result.length;
 }
@@ -124,7 +124,7 @@ export async function fetchGroup(groupId: string): Promise<Group | undefined> {
   return result
     ? {
         ...result,
-        countryName: result?.country ? (Country.getCountryByCode(result.country)?.name ?? '') : '',
+        countryName: result?.country ? Country.getCountryByCode(result.country)?.name ?? '' : '',
       }
     : undefined;
 }

@@ -1,6 +1,6 @@
 import { getServerSession } from 'next-auth';
 import { notFound } from 'next/navigation';
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 import { FILE_PREFIXES, IMAGE_FORMATS } from '@/config/constants';
 import { nextAuthOptions } from '@/config/next-auth-options';
@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
     const filename: string = `${FILE_PREFIXES.userAvatar}-${session.user.id}`;
 
     if (!file) {
-      return NextResponse.json({ error: `Invalid input data. No file found.` }, { status: 400 });
+      return NextResponse.json({ error: 'Invalid input data. No file found.' }, { status: 400 });
     }
 
     const { cid, error, errorStatus } = await pinToGroup(file, filename, IMAGE_FORMATS.userAvatar, user.avatar);
@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
       { error: true, message },
       {
         status: 500,
-      },
+      }
     );
   }
 }
@@ -78,7 +78,7 @@ export async function DELETE() {
       { error: true, message },
       {
         status: 500,
-      },
+      }
     );
   }
 }
