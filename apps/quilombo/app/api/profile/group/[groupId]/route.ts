@@ -1,16 +1,17 @@
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { getServerSession } from 'next-auth';
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 import { updateUser } from '@/db';
+import type { RouteParamsGroup } from '@/types/routes';
 
 /**
  * Let's the current user join the specified group by setting the user's groupId to the specified groupId.
- * @param request - The request object
+ * @param _ - The request object (not used)
  * @param groupId - PATH parameter. The id of the group to join
  * @returns the updated User of the logged-in user
  */
-export async function PUT(request: NextRequest, { params }: { params: { groupId: string } }) {
+export async function PUT(_: NextRequest, { params }: RouteParamsGroup) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {
@@ -18,7 +19,7 @@ export async function PUT(request: NextRequest, { params }: { params: { groupId:
   }
 
   try {
-    const { groupId } = params;
+    const { groupId } = await params;
     const updatedUser = await updateUser({ id: session.user.id, groupId });
     return NextResponse.json(updatedUser);
   } catch (error) {
@@ -49,7 +50,7 @@ export async function DELETE() {
       { error: true, message },
       {
         status: 500,
-      },
+      }
     );
   }
 }

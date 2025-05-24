@@ -1,8 +1,7 @@
-import { Autocomplete, AutocompleteItem, AutocompleteProps } from '@nextui-org/autocomplete';
-import { Avatar } from '@nextui-org/avatar';
+import { Autocomplete, AutocompleteItem, type AutocompleteProps, Avatar, Spinner } from '@heroui/react';
 
 import useCountriesAndCities from '@/hooks/useCountriesAndCities';
-import { City, Country } from '@/types/model';
+import type { City, Country } from '@/types/model';
 import { cn } from '@/utils/tailwind';
 
 type Props = {
@@ -13,6 +12,9 @@ type Props = {
 };
 const GroupLocation = ({ onCountryChange, onCityChange, countriesProps, citiesProps }: Props) => {
   const { countries, selectedCountryCode, setSelectedCountryCode, setCitySearch, cities } = useCountriesAndCities();
+
+  if (!countries || !cities) return <Spinner />;
+
   return (
     <>
       <Autocomplete
@@ -24,7 +26,8 @@ const GroupLocation = ({ onCountryChange, onCityChange, countriesProps, citiesPr
           placement: 'bottom',
         }}
         onSelectionChange={(isoCode) => {
-          onCountryChange(isoCode && countries ? countries.find((c) => c.isoCode === isoCode)! : null);
+          const country = countries.find((c) => c.isoCode === isoCode);
+          onCountryChange(country ?? null);
           setSelectedCountryCode(isoCode?.toString() || '');
         }}
       >
@@ -61,7 +64,7 @@ const GroupLocation = ({ onCountryChange, onCityChange, countriesProps, citiesPr
         }}
         onSelectionChange={(index) => {
           if (index) {
-            const city = cities![Number(index)];
+            const city = cities[Number(index)];
             onCityChange(city);
           } else {
             onCityChange(null);
@@ -73,6 +76,7 @@ const GroupLocation = ({ onCountryChange, onCityChange, countriesProps, citiesPr
             const { name, stateCode } = city;
             let cityName = name;
             if (stateCode) cityName += `, ${stateCode}`;
+            // biome-ignore lint/suspicious/noArrayIndexKey: Safe to use the index as key here
             return <AutocompleteItem key={index}>{cityName}</AutocompleteItem>;
           })
         ) : (

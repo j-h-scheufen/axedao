@@ -1,10 +1,11 @@
-import { Skeleton } from '@nextui-org/skeleton';
+import { Skeleton } from '@heroui/react';
 
 const ContactInfoInputsSkeleton = () => {
   return (
     <div>
       <div className="grid h-fit w-full grid-cols-1 gap-x-3 gap-y-3 text-small text-default-500 sm:grid-cols-2">
         {[...Array(4)].map((_, i) => (
+          // biome-ignore lint/suspicious/noArrayIndexKey: safe to use index as key
           <Skeleton key={i} className="h-10 rounded-medium" />
         ))}
       </div>

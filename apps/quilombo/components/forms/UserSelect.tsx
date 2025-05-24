@@ -1,4 +1,4 @@
-import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
+import { Autocomplete, AutocompleteItem } from '@heroui/react';
 import { FieldProps, useField } from 'formik';
 import { SearchIcon } from 'lucide-react';
 
@@ -55,8 +55,7 @@ const UserSelect = ({ disableCurrentUser = true, keyMode = 'id', onSelect, users
         onSelect?.(
           !key
             ? null
-            : availableUsers.find((u) => (keyMode === 'walletAddress' ? u.walletAddress === key : u.id === key)) ||
-                null,
+            : availableUsers.find((u) => (keyMode === 'walletAddress' ? u.walletAddress === key : u.id === key)) || null
         );
       }}
       {...props}

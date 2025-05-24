@@ -1,13 +1,12 @@
 'use client';
 
-import { Avatar, AvatarProps } from '@nextui-org/avatar';
-import { Spinner } from '@nextui-org/spinner';
+import { Avatar, type AvatarProps, Spinner } from '@heroui/react';
 import { Camera, Trash2 } from 'lucide-react';
 import { enqueueSnackbar } from 'notistack';
 import { useCallback, useRef, useState } from 'react';
 
-import { ImageUploadForm, imageUploadSchema } from '@/config/validation-schema';
-import { UseFileUploadMutation } from '@/query';
+import { type ImageUploadForm, imageUploadSchema } from '@/config/validation-schema';
+import type { UseFileUploadMutation } from '@/query';
 import { getImageUrl } from '@/utils';
 import { cn } from '@/utils/tailwind';
 
@@ -25,7 +24,7 @@ type Props = {
  */
 const ImageUpload = ({ value, ownerId, useFileUploadMutation: useDynamicMutation, classname, avatarProps }: Props) => {
   const { mutateAsync, error: uploadError, isPending } = useDynamicMutation();
-  const [imagePreview, setImagePreview] = useState<string | undefined>(value ? (getImageUrl(value) ?? '') : '');
+  const [imagePreview, setImagePreview] = useState<string | undefined>(value ? getImageUrl(value) ?? '' : '');
   const [validationError, setValidationError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -49,7 +48,7 @@ const ImageUpload = ({ value, ownerId, useFileUploadMutation: useDynamicMutation
         });
       }
     },
-    [mutateAsync, ownerId],
+    [mutateAsync, ownerId]
   );
 
   const handleDelete = useCallback(
@@ -58,7 +57,7 @@ const ImageUpload = ({ value, ownerId, useFileUploadMutation: useDynamicMutation
         setImagePreview('');
         enqueueSnackbar('Image deleted successfully', { variant: 'success' });
       }),
-    [mutateAsync, ownerId],
+    [mutateAsync, ownerId]
   );
 
   return (
@@ -70,7 +69,7 @@ const ImageUpload = ({ value, ownerId, useFileUploadMutation: useDynamicMutation
           accept="image/*"
           onChange={(e) => {
             setValidationError(null);
-            const file = e.target.files && e.target.files[0];
+            const file = e.target.files?.[0];
             if (file) {
               setImagePreview(file ? URL.createObjectURL(file) : '');
               handleSubmit({ file });

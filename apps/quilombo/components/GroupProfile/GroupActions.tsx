@@ -1,7 +1,6 @@
 'use client';
 
-import { Button } from '@nextui-org/button';
-import { useDisclosure } from '@nextui-org/use-disclosure';
+import { Button, useDisclosure } from '@heroui/react';
 import { SettingsIcon } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';

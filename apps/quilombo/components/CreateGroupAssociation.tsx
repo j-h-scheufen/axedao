@@ -1,6 +1,6 @@
 'use client';
 
-import { Tab, Tabs } from '@nextui-org/tabs';
+import { Tab, Tabs } from '@heroui/react';
 
 import CreateGroupAssociationSkeleton from '@/components/skeletons/ProfileSkeletons';
 import CreateNewGroupForm from './CreateNewGroupForm';

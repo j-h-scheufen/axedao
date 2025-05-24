@@ -1,6 +1,6 @@
 'use client';
 
-import { Tab, Tabs } from '@nextui-org/tabs';
+import { Tab, Tabs } from '@heroui/react';
 
 import { Swap, Transfer } from '@/components/axe';
 

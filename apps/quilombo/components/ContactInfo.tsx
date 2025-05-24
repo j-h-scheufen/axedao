@@ -1,7 +1,7 @@
 'use client';
 
 import useContactInfo from '@/hooks/useContactInfo';
-import { Group } from '@/types/model';
+import type { Group } from '@/types/model';
 import clsx from 'clsx';
 import ContactInfoSkeleton from './skeletons/ContactInfoSkeleton';
 
@@ -15,10 +15,11 @@ const ContactInfo = ({ className = '', links = [], isLoading }: Props) => {
         const { type, url } = link;
         const Icon = getLinkIcon(type ?? null);
         return (
+          // biome-ignore lint/suspicious/noArrayIndexKey: Safe to use the index as key here
           <div key={`link-item-${index}`} className="flex gap-1 text-default-400 hover:text-primary">
             <Icon href={url} className="pointer-events-none h-4 w-4 flex-shrink-0" strokeWidth={1.4} />
             {!type && (
-              <a href={url} target="_blank" className="link">
+              <a href={url} target="_blank" className="link" rel="noreferrer">
                 {url}
               </a>
             )}

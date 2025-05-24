@@ -1,6 +1,5 @@
-import { Input } from '@nextui-org/input';
-import { Radio, RadioGroup, RadioProps } from '@nextui-org/radio';
-import { FieldProps, useField } from 'formik';
+import { Input, Radio, RadioGroup, type RadioProps } from '@heroui/react';
+import { type FieldProps, useField } from 'formik';
 import { useState } from 'react';
 
 import { isUUID } from '@/utils';

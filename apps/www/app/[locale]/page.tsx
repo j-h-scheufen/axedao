@@ -1,13 +1,8 @@
 import type { Metadata } from 'next';
-import { Divider } from '@nextui-org/divider';
-import { Link } from '@nextui-org/link';
+import { Divider, Link } from '@heroui/react';
 
-import {
-  SupportedLanguage,
-  fallbackLng,
-  isSupportedLanguage,
-} from '../i18n/settings';
-import { NextPageProps } from './layout';
+import { type SupportedLanguage, fallbackLng, isSupportedLanguage } from '../i18n/settings';
+import type { NextPageProps } from './layout';
 import { siteConfig } from '@/config/site';
 import Heading from '@/sections/Heading';
 import HomeSection from '@/components/home/HomeSection';
@@ -18,10 +13,9 @@ export const metadata: Metadata = {
   title: 'Axé DAO Homepage',
 };
 
-export default async function Home({ params: { locale } }: NextPageProps) {
-  const lang = isSupportedLanguage(locale)
-    ? (locale as SupportedLanguage)
-    : fallbackLng;
+export default async function Home({ params }: NextPageProps) {
+  const { locale } = await params;
+  const lang = isSupportedLanguage(locale) ? (locale as SupportedLanguage) : fallbackLng;
 
   return (
     <div className="relative flex flex-col items-center justify-center p-2 text-xl sm:p-6 md:p-8">
@@ -29,17 +23,11 @@ export default async function Home({ params: { locale } }: NextPageProps) {
         <Heading locale={lang} />
         <Divider />
 
-        <ImageSection
-          src="/images/pandeiro-agogo-lawn.jpg"
-          alt="Pandeiro and Agogo"
-        />
+        <ImageSection src="/images/pandeiro-agogo-lawn.jpg" alt="Pandeiro and Agogo" />
         <Divider />
         <HomeSection contentKey="about" numParagraphs={4} locale={lang} />
         <Divider />
-        <ImageSection
-          src="/images/capoeira-painting.jpg"
-          alt="Capoeira Painting"
-        />
+        <ImageSection src="/images/capoeira-painting.jpg" alt="Capoeira Painting" />
         <Divider />
         <HomeSection contentKey="dao" numParagraphs={1} locale={lang} />
         <Divider />
@@ -49,9 +37,8 @@ export default async function Home({ params: { locale } }: NextPageProps) {
         <div className="flex w-full flex-col items-center p-4 text-center">
           <div className="text-base">
             To get involved or join Axé DAO, please send us an{' '}
-            <Link href={`mailto:${siteConfig.links.email}`}>email</Link> or join
-            our <Link href={siteConfig.links.discord}>group chat</Link> on
-            Discord.
+            <Link href={`mailto:${siteConfig.links.email}`}>email</Link> or join our{' '}
+            <Link href={siteConfig.links.discord}>group chat</Link> on Discord.
           </div>
         </div>
       </main>

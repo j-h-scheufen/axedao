@@ -11,11 +11,11 @@ export const pageSizeAtom = atom<number>(QUERY_DEFAULT_PAGE_SIZE);
 export const userSearchTermAtom = atom<string>('');
 
 export const userSearchResultsAtom = atomWithInfiniteQuery<UserSearchResult>((get) =>
-  searchUsersOptions({ searchTerm: get(userSearchTermAtom), pageSize: get(pageSizeAtom) }),
+  searchUsersOptions({ searchTerm: get(userSearchTermAtom), pageSize: get(pageSizeAtom) })
 );
 
 export const groupSearchTermAtom = atom<string>('');
 
 export const groupSearchResultsAtom = atomWithInfiniteQuery<GroupSearchResult>((get) =>
-  searchGroupsOptions({ searchTerm: get(groupSearchTermAtom), pageSize: get(pageSizeAtom) }),
+  searchGroupsOptions({ searchTerm: get(groupSearchTermAtom), pageSize: get(pageSizeAtom) })
 );

@@ -1,6 +1,6 @@
 'use client';
 
-import { useInfiniteScroll } from '@nextui-org/use-infinite-scroll';
+import { useInfiniteScroll } from '@heroui/use-infinite-scroll';
 import { useState } from 'react';
 import { useDebounce } from 'use-debounce';
 

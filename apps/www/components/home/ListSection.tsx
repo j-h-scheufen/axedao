@@ -12,11 +12,7 @@ interface ListSectionProps {
   locale: SupportedLanguage;
 }
 
-const ListSection = ({
-  contentKey,
-  numParagraphs,
-  locale,
-}: ListSectionProps) => {
+const ListSection = ({ contentKey, numParagraphs, locale }: ListSectionProps) => {
   const { t } = useTranslation(locale, 'home');
   const paragraphs = [];
   for (let i = 1; i <= numParagraphs; i++) {

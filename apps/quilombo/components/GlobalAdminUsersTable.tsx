@@ -1,7 +1,6 @@
 'use client';
 
-import { Spinner } from '@nextui-org/spinner';
-import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@nextui-org/table';
+import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, Spinner } from '@heroui/react';
 
 import useGlobalAdminUsersTable from '@/hooks/useGlobalAdminUsersTable';
 import GlobalAdminUsersTableFilters from './GlobalAdminUsersTableFilters';

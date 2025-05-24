@@ -7,10 +7,10 @@ import { QueryConfig } from '@/config/constants';
 import { fetchGroup, fetchGroupAdminIds, fetchGroupMembers } from '@/db';
 import { QUERY_KEYS } from '@/query';
 import { createDefaultQueryClient } from '@/utils';
+import type { NextPageProps } from '@/app/layout';
 
-type Props = { params: { groupId: string } };
-
-const GroupProfilePage = async ({ params: { groupId } }: Props) => {
+const GroupProfilePage = async ({ params }: NextPageProps<{ groupId: string }>) => {
+  const { groupId } = await params;
   if (!groupId) throw Error('This page must be placed on a dynamic path containing [groupId]');
   const group = await fetchGroup(groupId);
   const adminIds = await fetchGroupAdminIds(groupId);
@@ -30,7 +30,7 @@ const GroupProfilePage = async ({ params: { groupId } }: Props) => {
         {/* Repeating relevant attributes from (main) layout  */}
         <div className="px-3">
           <PageHeading>{group.name}</PageHeading>
-      </div>
+        </div>
         <GroupView />
       </GroupProfileClientState>
     </HydrationBoundary>

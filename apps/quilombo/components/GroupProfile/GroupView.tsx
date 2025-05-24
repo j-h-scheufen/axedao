@@ -1,7 +1,6 @@
 'use client';
 
-import { Link } from '@nextui-org/link';
-import { Spinner } from '@nextui-org/spinner';
+import { Link, Spinner } from '@heroui/react';
 import { useAtomValue } from 'jotai';
 import { MailIcon } from 'lucide-react';
 
@@ -57,7 +56,7 @@ const GroupView = () => {
           <>
             <SubsectionHeading>Founder</SubsectionHeading>
             {isFounderUuid ? (
-              <UserCardWithFetch userId={group.founder!} />
+              <UserCardWithFetch userId={group.founder} />
             ) : (
               <div className="text-default-500">{group.founder}</div>
             )}

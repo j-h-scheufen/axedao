@@ -1,18 +1,19 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 import { fetchGroup, fetchGroupAdminIds } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import { notFound } from 'next/navigation';
+import type { RouteParamsGroup } from '@/types/routes';
 
 /**
  * Returns the admin IDs of the specified group.
- * @param request - The request object
+ * @param _ - The request object (not used)
  * @param groupId - PATH parameter. The id of the group
  * @returns the admin IDs of the group as string[]
  */
-export async function GET(request: NextRequest, { params }: { params: { groupId: string } }) {
+export async function GET(_: NextRequest, { params }: RouteParamsGroup) {
   try {
-    const { groupId } = params;
+    const { groupId } = await params;
     const group = await fetchGroup(groupId);
     if (!group) return notFound();
 
@@ -26,7 +27,7 @@ export async function GET(request: NextRequest, { params }: { params: { groupId:
       { error: true, message },
       {
         status: 500,
-      },
+      }
     );
   }
 }

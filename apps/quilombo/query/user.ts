@@ -25,11 +25,11 @@ export const searchUsers = async ({ offset, pageSize, searchTerm }: SearchParams
 export const searchUsersOptions = ({ offset, pageSize, searchTerm }: SearchParams) => {
   return {
     queryKey: [QUERY_KEYS.user.searchUsers, searchTerm],
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: ok to use any as it gets turned into a number
     queryFn: async ({ pageParam }: { pageParam: any }) =>
       searchUsers({ offset: Number(pageParam), pageSize, searchTerm }),
     initialPageParam: offset || 0,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: following react-query example
     getNextPageParam: (lastPage: any) => lastPage.nextOffset,
     staleTime: QueryConfig.staleTimeDefault,
   } as const;

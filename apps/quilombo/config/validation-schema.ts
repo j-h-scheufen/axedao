@@ -1,5 +1,6 @@
 import { isValidIPFSHash } from '@/utils';
-import { array, boolean, InferType, mixed, number, object, string } from 'yup';
+import { array, boolean, type InferType, mixed, number, object, string } from 'yup';
+
 import { linkTypes, MAX_IMAGE_UPLOAD_SIZE_MB, styles, titles, validFileExtensions } from './constants';
 
 export type Title = (typeof titles)[number];
@@ -29,7 +30,7 @@ export const isValidUrl = (url: string | undefined, validHostnames?: string[], r
     if (regex) {
       valid = regex.test(parsedUrl.pathname);
     }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    // biome-ignore lint/correctness/noUnusedVariables: Ignoring the error
   } catch (error) {
     valid = false;
   }
@@ -81,8 +82,9 @@ export const imageUploadSchema = object({
     .test('is-valid-type', 'Not a valid image type', (value: unknown) => {
       if (value === undefined) return true;
       if (value instanceof File) {
-        return isValidFileType(value && value.name?.toLowerCase(), 'image');
-      } else if (typeof value === 'string') {
+        return isValidFileType(value?.name?.toLowerCase(), 'image');
+      }
+      if (typeof value === 'string') {
         return isValidIPFSHash(value);
       }
       return false;
@@ -130,7 +132,7 @@ export const updateGroupSchema = object({
   founder: string().optional().nullable(),
   email: string().email().optional().nullable(),
   description: string().test('max-chars', 'Description cannot exceed 500 characters', (value: string | undefined) =>
-    value ? value.length <= 500 : true,
+    value ? value.length <= 500 : true
   ),
   style: string().nullable().oneOf(styles, 'Not a valid style'),
   links: linksSchema,
@@ -151,7 +153,7 @@ export const groupSearchSchema = searchParamsSchema.concat(
     city: string().optional(),
     country: string().optional(),
     verified: boolean().optional(),
-  }),
+  })
 );
 
 export type GroupSearchParams = InferType<typeof groupSearchSchema>;

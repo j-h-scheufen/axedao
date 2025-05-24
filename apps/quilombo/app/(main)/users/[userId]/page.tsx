@@ -8,10 +8,10 @@ import { QueryConfig } from '@/config/constants';
 import { fetchGroup, fetchUser } from '@/db';
 import { QUERY_KEYS } from '@/query';
 import { createDefaultQueryClient, getUserDisplayName } from '@/utils';
+import type { NextPageProps } from '@/app/layout';
 
-type Props = { params: { userId: string } };
-
-const UserProfilePage = async ({ params: { userId } }: Props) => {
+const UserProfilePage = async ({ params }: NextPageProps<{ userId: string }>) => {
+  const { userId } = await params;
   if (!userId) throw Error('This page must be placed on a dynamic path containing [userId]');
   const user = await fetchUser(userId);
   const group = user?.groupId ? await fetchGroup(user.groupId) : undefined;

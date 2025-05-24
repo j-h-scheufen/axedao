@@ -1,7 +1,6 @@
 'use client';
 
-import { Button } from '@nextui-org/button';
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from '@nextui-org/modal';
+import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from '@heroui/react';
 
 type Props = { isOpen: boolean; onOpenChange: () => void };
 

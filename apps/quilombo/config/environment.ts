@@ -45,7 +45,7 @@ export const getBaseUrl = () => {
 const ENV: ConfigType = {
   walletConnectProjectId: required(
     process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID,
-    'NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID',
+    'NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID'
   ),
   sepoliaProviderUrl:
     envMode === 'test'
@@ -63,37 +63,37 @@ const ENV: ConfigType = {
   daoAddress: required(process.env.NEXT_PUBLIC_DAO_ADDRESS, 'NEXT_PUBLIC_DAO_ADDRESS') as Address,
   axeTreasuryAddress: required(
     process.env.NEXT_PUBLIC_AXE_TREASURY_ADDRESS,
-    'NEXT_PUBLIC_AXE_TREASURY_ADDRESS',
+    'NEXT_PUBLIC_AXE_TREASURY_ADDRESS'
   ) as Address,
   daoTreasuryAddress: required(
     process.env.NEXT_PUBLIC_DAO_TREASURY_ADDRESS,
-    'NEXT_PUBLIC_DAO_TREASURY_ADDRESS',
+    'NEXT_PUBLIC_DAO_TREASURY_ADDRESS'
   ) as Address,
   daoSharesAddress: required(process.env.NEXT_PUBLIC_DAO_SHARES_ADDRESS, 'NEXT_PUBLIC_DAO_SHARES_ADDRESS') as Address,
   daoLootAddress: required(process.env.NEXT_PUBLIC_DAO_LOOT_ADDRESS, 'NEXT_PUBLIC_DAO_LOOT_ADDRESS') as Address,
   daoTreasuryShamanAddress: required(
     process.env.NEXT_PUBLIC_DAO_TREASURY_SHAMAN_ADDRESS,
-    'NEXT_PUBLIC_DAO_TREASURY_SHAMAN_ADDRESS',
+    'NEXT_PUBLIC_DAO_TREASURY_SHAMAN_ADDRESS'
   ) as Address,
   axeSwapTokenAddress: required(
     process.env.NEXT_PUBLIC_AXE_SWAP_TOKEN_ADDRESS,
-    'NEXT_PUBLIC_AXE_SWAP_TOKEN_ADDRESS',
+    'NEXT_PUBLIC_AXE_SWAP_TOKEN_ADDRESS'
   ) as Address,
   axeMembershipAddress: required(
     process.env.NEXT_PUBLIC_AXE_MEMBERSHIP_ADDRESS,
-    'NEXT_PUBLIC_AXE_MEMBERSHIP_ADDRESS',
+    'NEXT_PUBLIC_AXE_MEMBERSHIP_ADDRESS'
   ) as Address,
   axeMembershipCouncilAddress: required(
     process.env.NEXT_PUBLIC_AXE_MEMBERSHIP_COUNCIL_ADDRESS,
-    'NEXT_PUBLIC_AXE_MEMBERSHIP_COUNCIL_ADDRESS',
+    'NEXT_PUBLIC_AXE_MEMBERSHIP_COUNCIL_ADDRESS'
   ) as Address,
   uniswapV2PairAddress: required(
     process.env.NEXT_PUBLIC_UNISWAPV2PAIR_ADDRESS,
-    'NEXT_PUBLIC_UNISWAPV2PAIR_ADDRESS',
+    'NEXT_PUBLIC_UNISWAPV2PAIR_ADDRESS'
   ) as Address,
   uniswapV2RouterAddress: required(
     process.env.NEXT_PUBLIC_UNISWAPV2ROUTER_ADDRESS,
-    'NEXT_PUBLIC_UNISWAPV2ROUTER_ADDRESS',
+    'NEXT_PUBLIC_UNISWAPV2ROUTER_ADDRESS'
   ) as Address,
   pinataGatewayUrl: required(process.env.NEXT_PUBLIC_PINATA_GATEWAY_URL, 'NEXT_PUBLIC_PINATA_GATEWAY_URL'),
   pinataJwt: isServer ? required(process.env.PINATA_JWT, 'PINATA_JWT') : '',

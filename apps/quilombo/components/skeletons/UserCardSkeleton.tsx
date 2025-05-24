@@ -1,5 +1,4 @@
-import { Card, CardBody, CardProps } from '@nextui-org/card';
-import { Skeleton } from '@nextui-org/skeleton';
+import { Card, CardBody, type CardProps, Skeleton } from '@heroui/react';
 
 export type UserCardProps = CardProps;
 

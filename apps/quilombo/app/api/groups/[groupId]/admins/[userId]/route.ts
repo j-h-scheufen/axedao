@@ -1,25 +1,26 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { addGroupAdmin, fetchGroupAdminIds, isGroupAdmin, removeGroupAdmin } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import { getServerSession } from 'next-auth';
+import type { RouteParamsGroupAndUser } from '@/types/routes';
 
 /**
  * Adds the specified user as an admin of the group.
- * @param request - The request object
+ * @param _ - The request object (not used)
  * @param groupId - PATH parameter. The id of the group
  * @param userId - PATH parameter. The id of the user to add as admin
  * @returns the updated list of group admin IDs as string[]
  */
-export async function PUT(request: NextRequest, { params }: { params: { groupId: string; userId: string } }) {
+export async function PUT(_: NextRequest, { params }: RouteParamsGroupAndUser) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {
     return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
-  const { groupId, userId } = params;
+  const { groupId, userId } = await params;
   const isAdmin = await isGroupAdmin(groupId, session.user.id);
   if (!isAdmin) {
     return NextResponse.json({ error: 'Missing permissions' }, { status: 403 });
@@ -37,19 +38,19 @@ export async function PUT(request: NextRequest, { params }: { params: { groupId:
 
 /**
  * Removes the specified user as an admin of the group.
- * @param request - The request object
+ * @param _ - The request object (not used)
  * @param groupId - PATH parameter. The id of the group
  * @param userId - PATH parameter. The id of the user to add as admin
  * @returns the updated list of group admin IDs as string[]
  */
-export async function DELETE(request: NextRequest, { params }: { params: { groupId: string; userId: string } }) {
+export async function DELETE(_: NextRequest, { params }: RouteParamsGroupAndUser) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {
     return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
   }
 
-  const { groupId, userId } = params;
+  const { groupId, userId } = await params;
   const isAdmin = await isGroupAdmin(groupId, session.user.id);
   if (!isAdmin) {
     return NextResponse.json({ error: 'Missing permissions' }, { status: 403 });

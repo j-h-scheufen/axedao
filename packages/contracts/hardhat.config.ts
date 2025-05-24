@@ -1,7 +1,7 @@
-import { HardhatUserConfig } from 'hardhat/config';
-import '@nomicfoundation/hardhat-toolbox';
 import '@nomicfoundation/hardhat-ethers';
+import '@nomicfoundation/hardhat-toolbox';
 import '@typechain/hardhat';
+import type { HardhatUserConfig } from 'hardhat/config';
 
 import * as dotenv from 'dotenv';
 dotenv.config({ path: ['.env.local', '.env'] });

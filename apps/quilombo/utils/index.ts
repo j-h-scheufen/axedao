@@ -3,7 +3,7 @@ import { AxiosError } from 'axios';
 
 import { QueryConfig } from '@/config/constants';
 import ENV from '@/config/environment';
-import { GroupMemberRole, User } from '@/types/model';
+import type { GroupMemberRole, User } from '@/types/model';
 import { CID } from 'multiformats/cid';
 
 export const generateErrorMessage = (error: unknown, defaultMessage: string) => {
@@ -32,7 +32,7 @@ export const getGroupMemberRoles = (
   userId: string,
   founder?: string | null,
   leader?: string | null,
-  adminIds?: string[],
+  adminIds?: string[]
 ): GroupMemberRole[] => {
   const roles: GroupMemberRole[] = [];
   if (userId === founder) {
@@ -65,12 +65,13 @@ export const getHostname = (url: string): string | undefined => {
   try {
     // Add a protocol if missing
     if (url.indexOf('//:') === -1) {
-      url = `https://${url}`;
+      // biome-ignore lint/style/noParameterAssign: shortening the url
+      url = `https://${url}` as string;
     }
     const host = new URL(url).hostname;
     const domain = host.replace('www.', '');
     return domain.split('.')[0];
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    // biome-ignore lint/correctness/noUnusedVariables:
   } catch (error) {}
   return undefined;
 };
@@ -111,7 +112,7 @@ export const isValidIPFSHash = (hash: string): boolean => {
   try {
     CID.parse(hash);
     return true;
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    // biome-ignore lint/correctness/noUnusedVariables:
   } catch (error) {
     return false;
   }

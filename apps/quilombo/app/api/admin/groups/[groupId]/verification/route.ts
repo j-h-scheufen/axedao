@@ -1,16 +1,17 @@
 import { getServerSession } from 'next-auth';
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { isGlobalAdmin, updateGroup } from '@/db';
+import type { RouteParamsGroup } from '@/types/routes';
 
 /**
  * Marks the specified group as verified
- * @param request - The request object
+ * @param _ - The request object (not used)
  * @param groupId - PATH parameter. The id of the group
  * @returns Group - the updated Group
  */
-export async function PUT(request: NextRequest, { params }: { params: { groupId: string } }) {
+export async function PUT(_: NextRequest, { params }: RouteParamsGroup) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {
@@ -22,18 +23,18 @@ export async function PUT(request: NextRequest, { params }: { params: { groupId:
     return NextResponse.json({ error: 'Missing permission' }, { status: 403 });
   }
 
-  const { groupId } = params;
+  const { groupId } = await params;
   const group = await updateGroup({ id: groupId, verified: true });
   return NextResponse.json(group);
 }
 
 /**
  * Marks the specified group as unverified
- * @param request - The request object
+ * @param _ - The request object (not used)
  * @param groupId - PATH parameter. The id of the group
  * @returns Group - the updated Group
  */
-export async function DELETE(request: NextRequest, { params }: { params: { groupId: string } }) {
+export async function DELETE(_: NextRequest, { params }: RouteParamsGroup) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {
@@ -45,7 +46,7 @@ export async function DELETE(request: NextRequest, { params }: { params: { group
     return NextResponse.json({ error: 'Missing permission' }, { status: 403 });
   }
 
-  const { groupId } = params;
+  const { groupId } = await params;
   const group = await updateGroup({ id: groupId, verified: false });
   return NextResponse.json(group);
 }

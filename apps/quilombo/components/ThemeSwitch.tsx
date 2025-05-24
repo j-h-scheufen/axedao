@@ -1,6 +1,6 @@
 'use client';
 
-import { Switch, SwitchProps } from '@nextui-org/switch';
+import { Switch, SwitchProps } from '@heroui/react';
 import { useIsSSR } from '@react-aria/ssr';
 import clsx from 'clsx';
 import { useTheme } from 'next-themes';
@@ -13,7 +13,7 @@ export type ThemeSwitchProps = {
   classNames?: SwitchProps['classNames'];
 };
 
-export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className, classNames }): JSX.Element => {
+export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className, classNames }) => {
   const { theme, setTheme } = useTheme();
   const isSSR = useIsSSR();
 

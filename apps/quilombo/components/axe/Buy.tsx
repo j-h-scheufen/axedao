@@ -1,12 +1,12 @@
 'use client';
 
-import { Button } from '@nextui-org/button';
-import { Input } from '@nextui-org/input';
-import { FormikErrors, useFormik } from 'formik';
+import { Button, Input } from '@heroui/react';
+import type { FormikErrors } from 'formik';
+import { useFormik } from 'formik';
 import { debounce } from 'lodash';
 import { enqueueSnackbar } from 'notistack';
 import { useCallback, useEffect, useState } from 'react';
-import { Address, formatUnits, parseUnits } from 'viem';
+import { type Address, formatUnits, parseUnits } from 'viem';
 import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 
 import ENV from '@/config/environment';
@@ -18,7 +18,7 @@ import {
   useWriteIUniswapV2Router02SwapExactTokensForTokensSupportingFeeOnTransferTokens,
 } from '@/generated';
 import { formatAxeUnits, formatStableUnits } from '@/utils/contract.utils';
-import { TradeFormProps } from './Swap';
+import type { TradeFormProps } from './Swap';
 
 const slippageTolerance = 100n; //basispoints
 
@@ -66,7 +66,7 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
       const donation = buyTax && buyTax > 0 ? (amountOut / 10000n) * buyTax : 0n;
       formik.setFieldValue(
         'amountOut',
-        taxedOutput && taxedOutput > 0n ? Number(formatUnits(taxedOutput, 18)).toFixed(4).toLocaleString() : '',
+        taxedOutput && taxedOutput > 0n ? Number(formatUnits(taxedOutput, 18)).toFixed(4).toLocaleString() : ''
       );
       setTaxedOutput(taxedOutput);
       setAxeDonation(formatAxeUnits(donation));
@@ -120,44 +120,51 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
     amountOut: string;
   }
 
-  const handleSubmit = (values: FormValues) => {
-    try {
-      const bigInput = parseUnits(values.amountIn.toString(), 18);
-      if (exceedsAllowance) {
-        approve({ address: ENV.axeSwapTokenAddress, args: [ENV.uniswapV2RouterAddress, bigInput] });
-      } else {
-        const deadline = Math.floor(Date.now() / 1000) + 60 * 20; // 20 minutes from the current Unix time
-        //TODO check for slippage and warn / adjust tolerance or block
-        //TODO modal for user to review the TX before sending. That's also where the TX prep can be done best.
-        if (taxedOutput) {
-          swap({
-            address: ENV.uniswapV2RouterAddress,
-            args: [
-              bigInput,
-              taxedOutput - (taxedOutput / 10000n) * slippageTolerance,
-              [ENV.axeSwapTokenAddress, ENV.axeTokenAddress],
-              account.address!,
-              BigInt(deadline),
-            ],
-          });
-        }
+  const handleSubmit = useCallback(
+    (values: FormValues) => {
+      if (!account?.address) {
+        throw new Error('Please connect your wallet first');
       }
-    } catch (error) {
-      console.error('Error during swap.', error);
-      throw error;
-    }
-  };
+
+      try {
+        const bigInput = parseUnits(values.amountIn.toString(), 18);
+        if (exceedsAllowance) {
+          approve({ address: ENV.axeSwapTokenAddress, args: [ENV.uniswapV2RouterAddress, bigInput] });
+        } else {
+          const deadline = Math.floor(Date.now() / 1000) + 60 * 20; // 20 minutes from the current Unix time
+          //TODO check for slippage and warn / adjust tolerance or block
+          //TODO modal for user to review the TX before sending. That's also where the TX prep can be done best.
+          if (taxedOutput) {
+            swap({
+              address: ENV.uniswapV2RouterAddress,
+              args: [
+                bigInput,
+                taxedOutput - (taxedOutput / 10000n) * slippageTolerance,
+                [ENV.axeSwapTokenAddress, ENV.axeTokenAddress],
+                account.address,
+                BigInt(deadline),
+              ],
+            });
+          }
+        }
+      } catch (error) {
+        console.error('Error during swap.', error);
+        throw error;
+      }
+    },
+    [account, approve, exceedsAllowance, swap, taxedOutput]
+  );
 
   const validateForm = useCallback(
     async (values: FormValues): Promise<FormikErrors<FormValues>> => {
       const errors: FormikErrors<FormValues> = {};
-      if (!!values.amountIn) {
+      if (values.amountIn) {
         const bigAmount = parseUnits(values.amountIn.toString(), 18); // Note: explicit cast toString() required here!
         if (swapBalance && swapBalance < bigAmount) errors.amountIn = 'Available balance exceeded';
       }
       return errors;
     },
-    [swapBalance],
+    [swapBalance]
   );
 
   const formik = useFormik<FormValues>({

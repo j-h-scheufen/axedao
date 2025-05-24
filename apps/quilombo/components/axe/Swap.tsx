@@ -1,9 +1,8 @@
 'use client';
 
-import { Card, CardBody } from '@nextui-org/card';
-import { Tab, Tabs } from '@nextui-org/tabs';
+import { Card, CardBody, Tab, Tabs } from '@heroui/react';
 import { useCallback, useEffect, useState } from 'react';
-import { Address } from 'viem';
+import type { Address } from 'viem';
 import { useAccount } from 'wagmi';
 
 import ENV from '@/config/environment';
@@ -34,17 +33,25 @@ const Swap: React.FC = () => {
     rate: 0,
   });
 
+  const isToken0Axe = token0 === ENV.axeTokenAddress;
+
+  const calculateReserves = useCallback(
+    (reservesResult: readonly [bigint, bigint, number]) => {
+      const reserves: Reserves = isToken0Axe
+        ? { axe: reservesResult[0], swap: reservesResult[1], rate: 0 }
+        : { axe: reservesResult[1], swap: reservesResult[0], rate: 0 };
+      reserves.rate = reserves.axe > 0 ? Number((reserves.swap * 1000000n) / reserves.axe) / 1000000 : 0;
+      return reserves;
+    },
+    [isToken0Axe]
+  );
+
   // set reserves and swap rate and determine token indexes
   useEffect(() => {
     if (reservesResult) {
-      const reserves: Reserves =
-        ENV.axeTokenAddress == token0
-          ? { axe: reservesResult[0], swap: reservesResult[1], rate: 0 }
-          : { axe: reservesResult[1], swap: reservesResult[0], rate: 0 };
-      reserves.rate = reserves.axe > 0 ? Number((reserves.swap * 1000000n) / reserves.axe) / 1000000 : 0; // the multiplier determines the decimal precision!
-      setReserves(reserves);
+      setReserves(calculateReserves(reservesResult));
     }
-  }, [reservesResult, token0]);
+  }, [reservesResult, calculateReserves]);
 
   const { data: axeBalance, refetch: updateAxeBalance } = useReadErc20BalanceOf({
     address: ENV.axeTokenAddress,
