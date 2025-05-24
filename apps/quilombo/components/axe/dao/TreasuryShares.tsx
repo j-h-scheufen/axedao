@@ -4,10 +4,12 @@ import type { Address } from 'viem';
 import { useAccount } from 'wagmi';
 
 import ENV from '@/config/environment';
-import { useReadErc20BalanceOf, useReadErc20TotalSupply } from '@/generated';
+import { useReadAxeMembershipIsMember, useReadErc20BalanceOf, useReadErc20TotalSupply } from '@/generated';
 import { add, divide, format, from, greaterThan, multiply } from 'dnum';
 import { Suspense } from 'react';
 import { CouncilBadge, MemberBadge } from './Badges';
+import { isCurrentUserOnCouncilAtom } from '@/hooks/state/dao';
+import { useAtomValue } from 'jotai';
 
 const TreasuryShares: React.FC = () => {
   const account = useAccount();
@@ -31,9 +33,12 @@ const TreasuryShares: React.FC = () => {
     address: ENV.axeSwapTokenAddress,
     args: [ENV.daoTreasuryAddress],
   });
+  const { data: isMember = false } = useReadAxeMembershipIsMember({
+    address: ENV.axeMembershipAddress,
+    args: [account.address as Address],
+  });
 
-  const isMember = !!userDaoLoot && userDaoLoot > 0;
-  const isCouncil = !!userDaoShares && userDaoShares > 0;
+  const isOnCouncil = useAtomValue(isCurrentUserOnCouncilAtom);
   const totalRageQuitShares = add([userDaoShares || BigInt(0), 18], [userDaoLoot || BigInt(0), 18]);
   const sumOfAllShares = add([totalShares || BigInt(0), 18], [totalLoot || BigInt(0), 18]);
   const userTreasuryPercent = greaterThan(sumOfAllShares, 0)
@@ -47,7 +52,7 @@ const TreasuryShares: React.FC = () => {
         <div className="flex gap-2 sm:gap-4">
           <MemberBadge isMember={isMember} />
           {isMember ? (
-            `You own ${format(totalRageQuitShares)} shares of the community treasury equivalent to ${format(
+            `You own ${format(totalRageQuitShares)} share(s) of the community treasury equivalent to ${format(
               userTreasuryPercent,
               2
             )}% (or $ ${format(userTreasuryUsdTotal, 2)})`
@@ -56,8 +61,10 @@ const TreasuryShares: React.FC = () => {
           )}
         </div>
         <div className="flex gap-2 sm:gap-4">
-          <CouncilBadge isCouncil={isCouncil} />
-          {isCouncil ? `You own ${format([userDaoShares, 18])} voting shares` : 'Not a council member'}
+          <CouncilBadge isCouncil={isOnCouncil} />
+          {isOnCouncil
+            ? `You have ${format([userDaoShares ?? BigInt(0), 18])} voting share(s)`
+            : 'You are not a council member'}
         </div>
       </div>
     </div>
