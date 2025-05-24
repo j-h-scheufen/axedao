@@ -1,12 +1,8 @@
-import { getServerSession } from 'next-auth';
-import { SessionProvider as NextAuthSessionProvider } from 'next-auth/react';
+'use client';
 
-import { nextAuthOptions } from '@/config/next-auth-options';
+import { SessionProvider } from 'next-auth/react';
 
-const SessionProvider = async ({ children }: { children: React.ReactNode }) => {
-  const session = await getServerSession(nextAuthOptions);
-
-  return <NextAuthSessionProvider session={session}>{children}</NextAuthSessionProvider>;
-};
-
+/**
+ * Client-side wrapper for NextAuth SessionProvider.
+ */
 export default SessionProvider;
