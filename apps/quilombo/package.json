@@ -6,7 +6,7 @@
   "author": "Jan Hendrik Scheufen <j.h.scheufen@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "db:generate": "pnpm drizzle-kit generate",
     "db:migrate": "pnpm tsx db/migrate.ts",
     "wagmi:generate": "wagmi generate",
