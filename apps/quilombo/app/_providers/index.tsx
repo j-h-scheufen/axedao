@@ -1,4 +1,5 @@
 import { getServerSession } from 'next-auth';
+import { NuqsAdapter } from 'nuqs/adapters/next/app';
 
 import SessionProvider from './session.provider';
 import UiProvider from './ui.provider';
@@ -21,12 +22,14 @@ const Providers = async ({ children }: { children: React.ReactNode }) => {
         }}
       >
         <SnackbarProvider>
-          {/* Note: Web3Provider and StateProvider rely on @tanstack/react-query. */}
-          <QueryProvider>
-            <Web3Provider>
-              <StateProvider>{children}</StateProvider>
-            </Web3Provider>
-          </QueryProvider>
+          <NuqsAdapter>
+            {/* Note: Web3Provider and StateProvider rely on @tanstack/react-query. */}
+            <QueryProvider>
+              <Web3Provider>
+                <StateProvider>{children}</StateProvider>
+              </Web3Provider>
+            </QueryProvider>
+          </NuqsAdapter>
         </SnackbarProvider>
       </UiProvider>
     </SessionProvider>
