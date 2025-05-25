@@ -5,6 +5,7 @@ type ConfigType = {
   sepoliaProviderUrl: string;
   gnosisProviderUrl: string;
   optimismProviderUrl: string;
+  graphApiKey: string;
   daoAddress: Address;
   daoTreasuryAddress: Address;
   daoSharesAddress: Address;
@@ -59,6 +60,7 @@ const ENV: ConfigType = {
     envMode === 'prod'
       ? required(process.env.NEXT_PUBLIC_OP_PROVIDER, 'NEXT_PUBLIC_OP_PROVIDER')
       : process.env.NEXT_PUBLIC_OP_PROVIDER || '',
+  graphApiKey: required(process.env.NEXT_PUBLIC_GRAPH_API_KEY, 'NEXT_PUBLIC_GRAPH_API_KEY'),
   axeTokenAddress: required(process.env.NEXT_PUBLIC_AXE_TOKEN_ADDRESS, 'NEXT_PUBLIC_AXE_TOKEN_ADDRESS') as Address,
   daoAddress: required(process.env.NEXT_PUBLIC_DAO_ADDRESS, 'NEXT_PUBLIC_DAO_ADDRESS') as Address,
   axeTreasuryAddress: required(

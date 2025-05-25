@@ -1,6 +1,9 @@
 {
-  "name": "axe-dao-moloch-v3",
+  "name": "subgraph-moloch-v3",
   "license": "UNLICENSED",
+  "exports": {
+    "./generated/schema": "./generated/schema.ts"
+  },
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
