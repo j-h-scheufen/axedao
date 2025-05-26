@@ -32,3 +32,6 @@ typechain-types
 
 # Hardhat files
 cache
+
+# Matchstick test metadata
+tests/.latest.json
