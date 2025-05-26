@@ -50,7 +50,6 @@ const EnlistAsCandidateModal: React.FC<Props> = ({ isOpen, onClose, onOpenChange
         autoHideDuration: 3000,
       });
     } else if (enlistSuccess && enlistReceipt) {
-      console.log('[DEBUG] Transaction mined in block:', enlistReceipt.blockNumber);
       enqueueSnackbar('Successfully enlisted as candidate!');
       invalidateSync(enlistReceipt);
       onSuccess?.();

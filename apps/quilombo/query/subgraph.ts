@@ -1,47 +1,50 @@
+'use client';
+
 import { useQuery } from '@tanstack/react-query';
 import { QUERY_KEYS } from '.';
 import type { Proposal, ProposalStatus } from '@/hooks/state/dao';
 
-const SUBGRAPH_URL = 'https://api.studio.thegraph.com/query/112368/axe-dao-moloch-v3/version/latest';
+const PROPOSALS_QUERY = `
+  {
+    submitProposals(first: 100, orderBy: timestamp, orderDirection: desc) {
+      proposal
+      proposalDataHash
+      votingPeriod
+      expiration
+      details
+      timestamp
+    }
+    submitVotes(first: 1000) {
+      proposal
+      approved
+      balance
+    }
+    processProposals(first: 100) {
+      proposal
+      passed
+      actionFailed
+    }
+    cancelProposals(first: 100) {
+      proposal
+    }
+  }
+`;
 
 const fetchProposals = async (): Promise<Proposal[]> => {
-  const query = `
-    {
-      submitProposals(first: 100, orderBy: timestamp, orderDirection: desc) {
-        proposal
-        proposalDataHash
-        votingPeriod
-        expiration
-        details
-        timestamp
-      }
-      submitVotes(first: 1000) {
-        proposal
-        approved
-        balance
-      }
-      processProposals(first: 100) {
-        proposal
-        passed
-        actionFailed
-      }
-      cancelProposals(first: 100) {
-        proposal
-      }
-    }
-  `;
-
-  const headers = {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${process.env.NEXT_PUBLIC_GRAPH_API_KEY}`,
-  };
-
-  console.log('Fetching proposals from subgraph...');
-  const response = await fetch(SUBGRAPH_URL, {
+  const response = await fetch('/api/graphql', {
     method: 'POST',
-    headers,
-    body: JSON.stringify({ query }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: PROPOSALS_QUERY,
+      variables: null,
+    }),
   });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
 
   const { data, errors } = await response.json();
 
@@ -50,15 +53,12 @@ const fetchProposals = async (): Promise<Proposal[]> => {
     throw new Error(`Failed to fetch proposals: ${errors[0].message}`);
   }
 
-  console.log('Raw subgraph response:', data);
-
   if (!data?.submitProposals?.length) {
     console.warn('No proposals found in subgraph response');
     return [];
   }
 
   const proposals = data.submitProposals.map((p: any) => {
-    console.log('Processing proposal:', p.proposal);
     const votes = data.submitVotes.filter((v: any) => v.proposal === p.proposal);
     const yesVotes = votes.filter((v: any) => v.approved).reduce((sum: bigint, v: any) => sum + BigInt(v.balance), 0n);
     const noVotes = votes.filter((v: any) => !v.approved).reduce((sum: bigint, v: any) => sum + BigInt(v.balance), 0n);
@@ -75,11 +75,9 @@ const fetchProposals = async (): Promise<Proposal[]> => {
       status: calculateStatus(p, processResult, isCancelled, yesVotes, noVotes),
       timestamp: parseInt(p.timestamp.toString()),
     };
-    console.log('Processed proposal:', proposal);
     return proposal;
   });
 
-  console.log('Total proposals processed:', proposals.length);
   return proposals;
 };
 

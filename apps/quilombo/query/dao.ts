@@ -163,9 +163,6 @@ export const getCandidatesOptions = ({ addresses, publicClient }: GetCandidatesP
         contracts: multicallCandidates,
       });
 
-      // Add logging to see what we get from the contract
-      console.log('[DEBUG] Multicall results:', results);
-
       return addresses.reduce(
         (acc, address, index) => {
           const result = results[index].result;

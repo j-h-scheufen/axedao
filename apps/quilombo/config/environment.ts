@@ -60,7 +60,6 @@ const ENV: ConfigType = {
     envMode === 'prod'
       ? required(process.env.NEXT_PUBLIC_OP_PROVIDER, 'NEXT_PUBLIC_OP_PROVIDER')
       : process.env.NEXT_PUBLIC_OP_PROVIDER || '',
-  graphApiKey: required(process.env.NEXT_PUBLIC_GRAPH_API_KEY, 'NEXT_PUBLIC_GRAPH_API_KEY'),
   axeTokenAddress: required(process.env.NEXT_PUBLIC_AXE_TOKEN_ADDRESS, 'NEXT_PUBLIC_AXE_TOKEN_ADDRESS') as Address,
   daoAddress: required(process.env.NEXT_PUBLIC_DAO_ADDRESS, 'NEXT_PUBLIC_DAO_ADDRESS') as Address,
   axeTreasuryAddress: required(
@@ -102,6 +101,7 @@ const ENV: ConfigType = {
   pinataFileGroupId: required(process.env.NEXT_PUBLIC_PINATA_FILE_GROUP_ID, 'NEXT_PUBLIC_PINATA_FILE_GROUP_ID'),
   databaseUrl: isServer ? required(process.env.DATABASE_URL, 'DATABASE_URL') : '',
   nextAuthSecret: isServer ? required(process.env.NEXTAUTH_SECRET, 'NEXTAUTH_SECRET') : '',
+  graphApiKey: isServer ? required(process.env.GRAPH_API_KEY, 'GRAPH_API_KEY') : '',
   axeDaoSiteUrl: required(process.env.NEXT_PUBLIC_DAO_SITE_URL, 'NEXT_PUBLIC_DAO_SITE_URL'),
   axeDaoEmail: required(process.env.NEXT_PUBLIC_DAO_EMAIL, 'NEXT_PUBLIC_DAO_EMAIL'),
   axeDaoDiscord: required(process.env.NEXT_PUBLIC_DAO_DISCORD, 'NEXT_PUBLIC_DAO_DISCORD'),

@@ -137,9 +137,6 @@ importers:
       siwe:
         specifier: ^2
         version: 2.3.2(ethers@6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10))
-      subgraph-moloch-v3:
-        specifier: workspace:*
-        version: link:../../packages/subgraph-moloch-v3
       tailwind-merge:
         specifier: ^2.5.2
         version: 2.5.4
