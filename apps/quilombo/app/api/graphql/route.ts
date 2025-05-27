@@ -16,9 +16,6 @@ export async function POST(request: Request) {
   try {
     const { query, variables } = await request.json();
 
-    console.log('Query:', query);
-    console.log('Variables:', variables);
-
     const response = await fetch(SUBGRAPH_URL, {
       method: 'POST',
       headers: {

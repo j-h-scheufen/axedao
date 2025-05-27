@@ -19,7 +19,7 @@ import { triggerCurrentUserIdAtom } from './state/currentUser';
  * all functions.
  * @returns
  */
-const useSignIn = () => {
+const useAuth = () => {
   const [state, setState] = useState<{
     loading?: boolean;
     nonce?: string;
@@ -132,4 +132,4 @@ const useSignIn = () => {
   return { signIn, logout, connect, connectError, state };
 };
 
-export default useSignIn;
+export default useAuth;
