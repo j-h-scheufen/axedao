@@ -1,0 +1,4 @@
+# Ignore all files in this directory since they were generated the the Graph CLI!
+*
+# But allow biome.json itself
+!biome.json 

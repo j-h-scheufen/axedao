@@ -70,11 +70,6 @@ const CouncilSeatExchange: React.FC = () => {
     const replacing = '0x0000000000000000000000000000000000000000' as Address;
 
     try {
-      console.log('Attempting to claim seat with args:', {
-        address: ENV.axeMembershipCouncilAddress,
-        args: [replacing],
-      });
-
       claimSeat({
         address: ENV.axeMembershipCouncilAddress,
         args: [replacing],
