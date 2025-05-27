@@ -1,0 +1,8 @@
+{
+  "sepolia": {
+    "Baal": {
+      "address": "0x1c3ac998b698206cd2fb22bb422bf14367470866",
+      "startBlock": 5327950
+    }
+  }
+}

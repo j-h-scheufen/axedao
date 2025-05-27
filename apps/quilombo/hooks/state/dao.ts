@@ -1,6 +1,5 @@
 'use client';
 
-import { add, divide, from, greaterThan, multiply } from 'dnum';
 import { atom, useAtom, useAtomValue, useSetAtom } from 'jotai';
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { useAccount, usePublicClient, useWaitForTransactionReceipt } from 'wagmi';
@@ -10,14 +9,10 @@ import type { Address } from 'viem';
 import ENV from '@/config/environment';
 import {
   axeMembershipAbi,
-  baalAbi,
   useReadAxeMembershipCouncilGetCurrentMembers,
   useReadAxeMembershipCouncilGetJoiningMembers,
   useReadAxeMembershipCouncilGetLeavingMembers,
   useReadErc20BalanceOf,
-  useReadErc20TotalSupply,
-  useReadIBaalGracePeriod,
-  useReadIBaalQuorumPercent,
   useWriteAxeMembershipCouncilRequestCouncilUpdate,
 } from '@/generated';
 import { searchUsersByAddressesOptions, useSearchUsersByAddresses } from '@/query/user';
@@ -26,6 +21,7 @@ import type { User } from '@/types/model';
 import { currentUserAtom, currentUserWalletAddressAtom } from './currentUser';
 import { useInitializePublicClient } from './web3';
 import { atomWithQuery } from 'jotai-tanstack-query';
+import { useGetProposals } from '@/query/subgraph';
 
 // copied from baal-sdk
 export const PROPOSAL_STATUS = {
@@ -225,173 +221,23 @@ export const outgoingCouncilUsersAtom = atomWithQuery((get) =>
 
 export function useProposals() {
   const [state, setState] = useAtom(proposalsAtom);
-  const publicClient = usePublicClient();
-
-  const { data: gracePeriod } = useReadIBaalGracePeriod({
-    address: ENV.daoAddress,
-  });
-
-  const { data: quorumPercent } = useReadIBaalQuorumPercent({
-    address: ENV.daoAddress,
-  });
-
-  const { data: totalShares } = useReadErc20TotalSupply({
-    address: ENV.daoSharesAddress,
-  });
-
-  const loadHistoricalProposalLogs = useCallback(async () => {
-    if (!publicClient || !gracePeriod || !quorumPercent || !totalShares) {
-      return;
-    }
-
-    setState((prev) => ({ ...prev, loading: true }));
-
-    try {
-      const [submitLogs, processLogs, cancelLogs] = await Promise.all([
-        publicClient.getContractEvents({
-          address: ENV.daoAddress,
-          abi: baalAbi,
-          eventName: 'SubmitProposal',
-          fromBlock: 'earliest',
-        }),
-        publicClient.getContractEvents({
-          address: ENV.daoAddress,
-          abi: baalAbi,
-          eventName: 'ProcessProposal',
-          fromBlock: 'earliest',
-        }),
-        publicClient.getContractEvents({
-          address: ENV.daoAddress,
-          abi: baalAbi,
-          eventName: 'CancelProposal',
-          fromBlock: 'earliest',
-        }),
-      ]);
-
-      // Track proposal lifecycle through events
-      const proposalResults = new Map<number, Proposal>();
-
-      // First, record all submitted proposals (initial state)
-      for (const log of submitLogs) {
-        const args = log.args as {
-          proposal: bigint;
-          proposalDataHash: `0x${string}`;
-          votingPeriod: bigint;
-          expiration: bigint;
-          timestamp: bigint;
-          details: string;
-        };
-
-        const id = Number(args.proposal);
-        const timestamp = Number(args.timestamp);
-        const expiration = timestamp + Number(args.votingPeriod);
-
-        proposalResults.set(id, {
-          id,
-          proposalDataHash: args.proposalDataHash,
-          votingPeriod: Number(args.votingPeriod),
-          expiration,
-          details: args.details,
-          status: PROPOSAL_STATUS.VOTING, // Initial state is always voting when we see the event
-          timestamp,
-        });
-      }
-
-      // First, get voting results for all proposals
-      // TODO: in the future, the number of historical proposals will be too large to fetch all at once,
-      // so we need to paginate
-      const votingResults = await Promise.all(
-        Array.from(proposalResults.keys()).map(async (id) => {
-          try {
-            const result = await publicClient.readContract({
-              address: ENV.daoAddress,
-              abi: baalAbi,
-              functionName: 'proposals',
-              args: [BigInt(id)],
-            });
-            return { id, result };
-          } catch (error) {
-            console.error(`Error fetching voting results for proposal ${id}:`, error);
-            return { id, result: null };
-          }
-        })
-      );
-
-      // Calculate quorum requirement step by step
-      const totalSharesDnum = from([totalShares, 18]); // 81 shares with 18 decimals
-      const quorumPercentDnum = from([quorumPercent, 0]); // 51 = 51%
-      const quorumDecimal = divide(quorumPercentDnum, from([100n, 0]), 2); // Convert 51 to 0.51 for 51%
-      const quorumRequirement = multiply(totalSharesDnum, quorumDecimal);
-
-      // Update status based on events and voting results
-      for (const proposal of proposalResults.values()) {
-        const voteResult = votingResults.find((v) => v.id === proposal.id)?.result;
-        const nowSeconds = Math.floor(Date.now() / 1000);
-        const votingEndTime = proposal.timestamp + proposal.votingPeriod;
-        const gracePeriodEndTime = votingEndTime + Number(gracePeriod || 0);
-
-        let status: ProposalStatus;
-        if (nowSeconds <= votingEndTime) {
-          status = PROPOSAL_STATUS.VOTING;
-        } else if (nowSeconds <= gracePeriodEndTime) {
-          status = PROPOSAL_STATUS.GRACE;
-        } else if (voteResult) {
-          const yesVotes = from([voteResult[7], 18]);
-          const noVotes = from([voteResult[8], 18]);
-          const totalVotes = add(yesVotes, noVotes);
-
-          // Check quorum using votes (already at 18 decimals)
-          if (!greaterThan(totalVotes, quorumRequirement)) {
-            status = PROPOSAL_STATUS.FAILED;
-          } else {
-            status = greaterThan(noVotes, yesVotes) ? PROPOSAL_STATUS.DEFEATED : PROPOSAL_STATUS.READY;
-          }
-          proposal.status = status;
-        }
-      }
-
-      // Apply final states from events last (these override any other status)
-      for (const log of cancelLogs) {
-        const args = log.args as { proposal: bigint };
-        const id = Number(args.proposal);
-        if (proposalResults.has(id)) {
-          // biome-ignore lint/style/noNonNullAssertion: <explanation>
-          proposalResults.get(id)!.status = PROPOSAL_STATUS.CANCELLED;
-        }
-      }
-
-      for (const log of processLogs) {
-        const args = log.args as { proposal: bigint; passed: boolean };
-        const id = Number(args.proposal);
-        if (proposalResults.has(id)) {
-          // biome-ignore lint/style/noNonNullAssertion: <explanation>
-          proposalResults.get(id)!.status = args.passed ? PROPOSAL_STATUS.PROCESSED : PROPOSAL_STATUS.DEFEATED;
-        }
-      }
-
-      // Convert to sorted array before storing
-      const sortedProposals = Array.from(proposalResults.values()).sort((a, b) => Number(b.id - a.id)); // Sort by descending ID
-
-      setState((prev) => ({
-        ...prev,
-        proposals: sortedProposals,
-        initialized: true,
-      }));
-    } catch (error) {
-      console.error('Error loading proposals:', error);
-      setState((prev) => ({ ...prev, error: 'Error loading proposals' }));
-    } finally {
-      setState((prev) => ({ ...prev, loading: false }));
-    }
-  }, [publicClient, gracePeriod, quorumPercent, totalShares, setState]);
+  const { data: proposals, isLoading, error, refetch } = useGetProposals();
 
   useEffect(() => {
-    if (!state.initialized && !state.loading) {
-      loadHistoricalProposalLogs();
+    if (!state.initialized && !isLoading && proposals) {
+      setState({
+        proposals,
+        loading: isLoading,
+        initialized: true,
+        error: error ? 'Error loading proposals' : null,
+      });
     }
-  }, [loadHistoricalProposalLogs, state]);
+  }, [proposals, isLoading, error, state.initialized, setState]);
 
-  return { ...state, refresh: loadHistoricalProposalLogs };
+  return {
+    ...state,
+    refresh: refetch,
+  };
 }
 
 export function useVotingShares() {

@@ -62,6 +62,7 @@ export const useJoinGroupMutation = () => {
     mutationFn: (groupId: string) => joinGroup(groupId),
     onSuccess: (data) => {
       queryClient.setQueryData([QUERY_KEYS.currentUser.getUser], data);
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroupMembers] });
     },
   });
 };
@@ -72,6 +73,7 @@ export const useLeaveGroupMutation = () => {
     mutationFn: (groupId: string) => leaveGroup(groupId),
     onSuccess: (data) => {
       queryClient.setQueryData([QUERY_KEYS.currentUser.getUser], data);
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroupMembers] });
     },
   });
 };

@@ -40,6 +40,9 @@ export const QUERY_KEYS = {
     getCandidates: 'getCandidates',
     getTopCandidates: 'getTopCandidates',
   },
+  dao: {
+    getProposals: 'dao.getProposals',
+  },
 } as const;
 
 export type SearchParams = {
