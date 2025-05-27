@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { PATHS } from '@/config/constants';
 import ENV from '@/config/environment';
 import { fetchSessionData, insertUser } from '@/db';
+import { UserSession } from '@/types/model';
 
 const nextAuthUrl = process.env.NEXTAUTH_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null);
 
@@ -55,13 +56,9 @@ const providers = [
               id: uuidv4(),
               walletAddress: siwe.address,
             });
-            user = { id, walletAddress, isGlobalAdmin: isGlobalAdmin || false };
+            user = { id, walletAddress, isGlobalAdmin: isGlobalAdmin || false } as UserSession;
           }
-          return {
-            id: user.id,
-            walletAddress: user.walletAddress,
-            isGlobalAdmin: user.isGlobalAdmin,
-          };
+          return user;
         }
 
         return null;
@@ -78,6 +75,7 @@ export const nextAuthOptions: AuthOptions = {
   pages: { signIn: PATHS.login },
   session: {
     strategy: 'jwt',
+    maxAge: 5 * 24 * 60 * 60, // 5 days
   },
   secret: ENV.nextAuthSecret,
   callbacks: {
