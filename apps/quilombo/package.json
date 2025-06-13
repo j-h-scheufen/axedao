@@ -22,7 +22,7 @@
     "@icons-pack/react-simple-icons": "^12.8.0",
     "@react-aria/ssr": "^3.9.5",
     "@react-aria/visually-hidden": "^3.8.15",
-    "@silk-wallet/silk-wallet-sdk": "^0.6.0",
+    "@silk-wallet/silk-wallet-sdk": "^0.7.1",
     "@tanstack/query-core": "^5.56.2",
     "@tanstack/react-query": "^5.56.2",
     "@wagmi/core": "^2.14.1",
@@ -62,9 +62,6 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
-    "tailwindcss": "3.4.10",
-    "postcss": "8.4.45",
-    "autoprefixer": "10.4.20",
     "@tailwindcss/typography": "^0.5.14",
     "@types/bcrypt": "^5.0.2",
     "@types/lodash": "^4.17.7",
@@ -74,9 +71,12 @@
     "@types/react-dom": "19.1.0",
     "@types/uuid": "^10.0.0",
     "@wagmi/cli": "^2.1.15",
+    "autoprefixer": "10.4.20",
     "chai": "^4.5.0",
     "dotenv": "^16.4.5",
     "drizzle-kit": "^0.31.1",
+    "postcss": "8.4.45",
+    "tailwindcss": "3.4.10",
     "tsx": "^4.19.0"
   },
   "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee"

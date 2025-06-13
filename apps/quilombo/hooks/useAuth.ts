@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { SiweMessage } from 'siwe';
 import { UserRejectedRequestError } from 'viem';
 import { useAccount, useConnect, useDisconnect, useSignMessage } from 'wagmi';
+import type { SilkEthereumProviderInterface } from '@silk-wallet/silk-wallet-sdk';
 
 import { PATHS } from '@/config/constants';
 import { getDefaultChain, silkInitOptions } from '@/config/wagmi';
@@ -94,11 +95,16 @@ const useAuth = () => {
   };
 
   const logout = async () => {
-    return nextAuthSignOut().then(() => {
-      disconnect();
+    const silkConnector = connectors.find((connector) => connector.id === 'silk');
+    disconnect();
+    if (silkConnector) {
+      const provider = await silkConnector.getProvider();
+      (provider as SilkEthereumProviderInterface).logout();
+    }
+    // remove the skipOnboarding flag, so the user sees the onboarding modal again
+    setCookie('quilombo.skipOnboarding', false);
+    nextAuthSignOut().then(() => {
       setCurrentUserId(undefined);
-      // remove the skipOnboarding flag, so the user sees the onboarding modal again
-      setCookie('quilombo.skipOnboarding', false);
       setState({});
     });
   };

@@ -21,10 +21,10 @@ export const getOrigin = () => {
 };
 
 export const silkInitOptions: InitSilkOptions = {
-  useStaging: true,
+  useProd: true,
   config: {
-    allowedSocials: ['google', 'discord'], // Empty array will allow all social providers
     authenticationMethods: ['email', 'social'], // Empty array will allow all auth methods
+    allowedSocials: ['google', 'discord'], // Empty array will allow all social providers
     styles: {
       darkMode: true,
     },
