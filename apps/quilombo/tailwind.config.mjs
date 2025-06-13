@@ -2,13 +2,11 @@ import { heroui } from '@heroui/react';
 import { withTV } from 'tailwind-variants/transformer';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
-/** @type {import('tailwindcss').Config} */
 export default withTV({
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     screens: {

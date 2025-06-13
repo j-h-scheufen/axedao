@@ -98,9 +98,7 @@ const ProfileForm = () => {
                   className="text-sm p-5 sm:p-6"
                   onPress={() => requestEmail().then((email) => setFieldValue('email', email))}
                 >
-                  Import Email
-                  <br />
-                  from Silk
+                  Import Wallet Email
                 </Button>
               </div>
               <Field

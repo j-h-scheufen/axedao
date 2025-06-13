@@ -14,7 +14,7 @@ import { enqueueSnackbar } from 'notistack';
 import { triggerCurrentUserIdAtom } from './state/currentUser';
 
 /**
- * Handles wagmi connect, signMessage, and logout using the Silk wallet.
+ * Handles wagmi connect, signMessage, and logout using the wallet.
  * Only a single 'loading' and 'error' field are stored in state and used across
  * all functions.
  * @returns
@@ -122,7 +122,7 @@ const useAuth = () => {
       }
       setState((x) => ({ ...x, loading: false }));
     } catch (error) {
-      console.error('Error connecting to Silk:', error);
+      console.error('Error connecting to wallet:', error);
       if (error instanceof UserRejectedRequestError)
         enqueueSnackbar('Operation cancelled by user.', { variant: 'info' });
       else setState((x) => ({ ...x, loading: false, error: error as Error }));
