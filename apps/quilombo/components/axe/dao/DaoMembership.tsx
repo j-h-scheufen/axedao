@@ -7,7 +7,6 @@ import { useCallback } from 'react';
 
 import ENV from '@/config/environment';
 import { useReadAxeMembershipIsMember } from '@/generated';
-import { MemberBadge } from './Badges';
 import MembershipDonationModal from './MembershipDonationModal';
 
 const DaoMembership: React.FC = () => {
@@ -30,7 +29,6 @@ const DaoMembership: React.FC = () => {
       <div className="flex flex-colgap-2 sm:gap-4 w-full items-center">
         {isMember ? (
           <div className="flex w-full justify-center items-center gap-2 sm:gap-4">
-            <MemberBadge isMember={isMember} />
             <span>You are a member. Thank you!</span>
           </div>
         ) : (

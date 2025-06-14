@@ -33,7 +33,7 @@ const TransferConfirm: React.FC<Props> = ({ to, amount, onConfirm, ...props }) =
                 </p>
                 <p>
                   Please confirm you&apos;d like to proceed by clicking the <i>Next</i> button below. This will take you
-                  to your Silk Wallet to confirm and submit the transaction. Please wait there until you see a
+                  to your Human Wallet to confirm and submit the transaction. Please wait there until you see a
                   confirmation, then click the <i>Close</i> button to return to this screen.
                 </p>
               </ModalBody>

@@ -32,7 +32,6 @@ const Transfer: React.FC = () => {
     isLoading: transferLoading,
   } = useWaitForTransactionReceipt({ hash: transferHash });
 
-  // reactions to transfer receipt outcome
   useEffect(() => {
     if (transferLoading) {
       enqueueSnackbar('Axé transfer pending. Please allow some time to confirm ...', {

@@ -7,7 +7,6 @@ import ENV from '@/config/environment';
 import { useReadAxeMembershipIsMember, useReadErc20BalanceOf, useReadErc20TotalSupply } from '@/generated';
 import { add, divide, format, from, greaterThan, multiply } from 'dnum';
 import { Suspense } from 'react';
-import { CouncilBadge, MemberBadge } from './Badges';
 import { isCurrentUserOnCouncilAtom } from '@/hooks/state/dao';
 import { useAtomValue } from 'jotai';
 
@@ -48,24 +47,22 @@ const TreasuryShares: React.FC = () => {
 
   return (
     <div className="flex flex-col w-full items-center">
-      <div className="flex flex-col gap-2 w-full px-2">
-        <div className="flex gap-2 sm:gap-4">
-          <MemberBadge isMember={isMember} />
-          {isMember ? (
-            `You own ${format(totalRageQuitShares)} share(s) of the community treasury equivalent to ${format(
-              userTreasuryPercent,
-              2
-            )}% (or $ ${format(userTreasuryUsdTotal, 2)})`
-          ) : (
-            <span>You&apos;re not a member.</span>
-          )}
-        </div>
-        <div className="flex gap-2 sm:gap-4">
-          <CouncilBadge isCouncil={isOnCouncil} />
-          {isOnCouncil
-            ? `You have ${format([userDaoShares ?? BigInt(0), 18])} voting share(s)`
-            : 'You are not a council member'}
-        </div>
+      <div className="flex flex-col w-full px-2">
+        {isMember ? (
+          `You own ${format(totalRageQuitShares)} share(s) of the community treasury equivalent to ${format(
+            userTreasuryPercent,
+            2
+          )}% (or $ ${format(userTreasuryUsdTotal, 2)})`
+        ) : (
+          <span>You don&apos;t own any shares in the community treasury.</span>
+        )}
+      </div>
+      <div className="flex flex-col w-full px-2">
+        {isOnCouncil ? (
+          `You have ${format([userDaoShares ?? BigInt(0), 18])} voting share(s)`
+        ) : (
+          <span>You don&apos;t have any voting shares.</span>
+        )}
       </div>
     </div>
   );

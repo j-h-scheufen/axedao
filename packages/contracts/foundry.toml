@@ -7,6 +7,7 @@ libs = ['lib', 'node_modules']
 test = 'test'
 script = 'scripts'
 cache_path = 'cache_forge'
+# for EIP-7702, use evm_version = "prague"
 
 [rpc_endpoints]
 sepolia = "${HTTPS_PROVIDER_URL_SEPOLIA}"

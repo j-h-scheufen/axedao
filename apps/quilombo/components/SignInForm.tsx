@@ -1,16 +1,14 @@
 'use client';
 
-import { Button, Link, useDisclosure } from '@heroui/react';
+import { Button, Link } from '@heroui/react';
 import { useSession } from 'next-auth/react';
 import { useAccount } from 'wagmi';
 
 import useAuth from '@/hooks/useAuth';
 import ErrorText from './ErrorText';
-import SignInHelpModal from './SignInHelpModal';
 
 const SignInForm = () => {
   const { data: session } = useSession();
-  const { isOpen, onOpenChange } = useDisclosure();
   const { address, isConnecting, isConnected } = useAccount();
   const {
     signIn,
@@ -65,7 +63,6 @@ const SignInForm = () => {
         </div>
       )}
       {error && <ErrorText message={error.message} />}
-      <SignInHelpModal isOpen={isOpen} onOpenChange={onOpenChange} />
     </div>
   );
 };
