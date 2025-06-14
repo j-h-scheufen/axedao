@@ -1,4 +1,3 @@
-export { CouncilBadge, MemberBadge } from './Badges';
 export { default as Council } from './Council';
 export { default as EnlistAsCandidateModal } from './EnlistAsCandidateModal';
 export { default as CouncilMembership } from './CouncilMembership';

@@ -3,7 +3,7 @@ import { getServerSession } from 'next-auth';
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { NextResponse } from 'next/server';
 
-const SUBGRAPH_URL = 'https://api.studio.thegraph.com/query/112368/axe-dao-moloch-v3/version/latest';
+const SUBGRAPH_URL = 'https://gateway.thegraph.com/api/subgraphs/id/6LrdYRsmUcy433RvFFQsKyM7G6fPYQGQEuUzLLSfxLgG';
 
 export async function POST(request: Request) {
   const session = await getServerSession(nextAuthOptions);
