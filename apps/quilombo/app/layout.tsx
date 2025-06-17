@@ -25,7 +25,12 @@ export default async function RootLayout({ children }: PropsWithChildren) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={clsx(fontInter.variable, fontFiraCode.variable, fontOpenSans.variable)}
+      className={clsx(
+        'dark', // This sets the initial theme to match HeroUI defaultTheme: 'dark'
+        fontInter.variable,
+        fontFiraCode.variable,
+        fontOpenSans.variable
+      )}
     >
       <head />
       <body className="min-h-screen font-sans antialiased">
