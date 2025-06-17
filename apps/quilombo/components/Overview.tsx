@@ -16,7 +16,6 @@ const Overview = () => {
         variant="bordered"
         aria-label="Options"
         className="mb-3"
-        classNames={{ tabList: 'mb-5' }}
         defaultSelectedKey={searchTab || undefined}
         onSelectionChange={(key) => setSearchTab(key.toString() as 'users' | 'groups')}
       >

@@ -4,10 +4,11 @@ import type { PropsWithChildren } from 'react';
 import Navbar from '@/components/Navbar';
 import { fontFiraCode, fontInter, fontOpenSans } from '@/config/fonts';
 import BreadcrumbTracker from '@/components/BreadcrumbTracker';
-import '@/styles/globals.css';
 import Providers from './_providers';
 import { sharedMetadata, viewport } from '@/config/metadata';
 import type { SearchParams } from '@/types/routes';
+
+import './globals.css';
 
 export const metadata = sharedMetadata;
 export { viewport };
@@ -21,16 +22,13 @@ export type NextPageProps<T = Record<string, string>> = {
 
 export default async function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={clsx(fontInter.variable, fontFiraCode.variable, fontOpenSans.variable)}
+    >
       <head />
-      <body
-        className={clsx(
-          'min-h-screen bg-background font-sans antialiased',
-          fontInter.variable,
-          fontFiraCode.variable,
-          fontOpenSans.variable
-        )}
-      >
+      <body className="min-h-screen font-sans antialiased">
         <Providers>
           <BreadcrumbTracker />
           <div className="relative flex min-h-screen flex-col">
