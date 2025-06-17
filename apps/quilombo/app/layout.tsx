@@ -8,7 +8,7 @@ import Providers from './_providers';
 import { sharedMetadata, viewport } from '@/config/metadata';
 import type { SearchParams } from '@/types/routes';
 
-import './globals.css';
+import '@/app/globals.css';
 
 export const metadata = sharedMetadata;
 export { viewport };

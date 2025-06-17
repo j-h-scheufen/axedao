@@ -11,7 +11,7 @@ export default {
       fontFamily: {
         sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
         inter: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
-        'fira-code': ['var(--font-fira-code)', ...defaultTheme.fontFamily.mono]
+        'fira-code': ['var(--font-fira-code)', ...defaultTheme.fontFamily.mono],
       },
     },
   },
