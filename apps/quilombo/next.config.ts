@@ -1,10 +1,26 @@
-/** @type {import('next').NextConfig} */
+import type { NextConfig } from 'next';
 
-const nextConfig = {
+const nextConfig: NextConfig = {
+  reactStrictMode: true,
+  poweredByHeader: false, // Remove X-Powered-By header for security
+  images: {
+    formats: ['image/avif', 'image/webp'], // Enable modern image formats
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
+
   // Add SVGR to Webpack to handle SVG imports
   webpack(config) {
-    // Grab the existing rule that handles SVG imports
-    const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.('.svg'));
+    // Handle SVG imports
+    const fileLoaderRule = config.module.rules.find((rule: { test?: { test?: (path: string) => boolean } }) =>
+      rule.test?.test?.('.svg')
+    );
 
     config.module.rules.push(
       // Reapply the existing rule, but only for svg imports ending in ?url
@@ -27,20 +43,6 @@ const nextConfig = {
 
     return config;
   },
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-        port: '',
-        pathname: '/**',
-      },
-    ],
-  },
-  i18n: {
-    locales: ['en', 'pt', 'de'],
-    defaultLocale: 'en',
-  },
 };
 
-module.exports = nextConfig;
+export default nextConfig;

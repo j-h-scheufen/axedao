@@ -16,8 +16,7 @@
     "format": "biome format . --write"
   },
   "dependencies": {
-    "@heroui/react": "2.7.8",
-    "@heroui/theme": "2.4.15",
+    "@heroui/react": "2.8.0-beta.7",
     "@heroui/use-infinite-scroll": "2.2.9",
     "@icons-pack/react-simple-icons": "^12.8.0",
     "@react-aria/ssr": "^3.9.5",
@@ -42,7 +41,7 @@
     "lodash": "^4.17.21",
     "lucide-react": "^0.436.0",
     "multiformats": "^13.3.0",
-    "next": "15.3.2",
+    "next": "15.3.3",
     "next-auth": "^4.24.11",
     "next-themes": "^0.4.6",
     "notistack": "^3.0.2",
@@ -52,8 +51,6 @@
     "react-dom": "19.1.0",
     "sharp": "^0.33.5",
     "siwe": "^2",
-    "tailwind-merge": "^2.5.2",
-    "tailwind-variants": "^0.2.1",
     "use-debounce": "^10.0.3",
     "uuid": "^10.0.0",
     "viem": "^2.30.0",
@@ -62,7 +59,7 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
-    "@tailwindcss/typography": "^0.5.14",
+    "@tailwindcss/postcss": "^4.1.8",
     "@types/bcrypt": "^5.0.2",
     "@types/lodash": "^4.17.7",
     "@types/node": "22.5.0",
@@ -71,13 +68,11 @@
     "@types/react-dom": "19.1.0",
     "@types/uuid": "^10.0.0",
     "@wagmi/cli": "^2.1.15",
-    "autoprefixer": "10.4.20",
-    "chai": "^4.5.0",
     "dotenv": "^16.4.5",
     "drizzle-kit": "^0.31.1",
-    "postcss": "8.4.45",
-    "tailwindcss": "3.4.10",
-    "tsx": "^4.19.0"
+    "postcss": "8.5.5",
+    "postcss-preset-env": "^10.2.3",
+    "tailwindcss": "4.1.10"
   },
   "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee"
 }

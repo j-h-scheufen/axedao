@@ -99,7 +99,7 @@ const useAuth = () => {
     disconnect();
     if (silkConnector) {
       const provider = await silkConnector.getProvider();
-      (provider as SilkEthereumProviderInterface).logout();
+      await (provider as SilkEthereumProviderInterface).logout();
     }
     // remove the skipOnboarding flag, so the user sees the onboarding modal again
     setCookie('quilombo.skipOnboarding', false);
