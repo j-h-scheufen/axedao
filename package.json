@@ -27,7 +27,7 @@
     "typescript": "^5.8.3"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
+    "*.{js,jsx,mjs,ts,tsx}": [
       "biome check --apply --no-errors-on-unmatched",
       "biome format --write --no-errors-on-unmatched"
     ],
