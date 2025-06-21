@@ -13,6 +13,7 @@ import silk from '@/utils/silk.connector';
 import { setCookie } from 'cookies-next';
 import { enqueueSnackbar } from 'notistack';
 import { triggerCurrentUserIdAtom } from './state/currentUser';
+import { useQueryClient } from '@tanstack/react-query';
 
 /**
  * Handles wagmi connect, signMessage, and logout using the wallet.
@@ -31,6 +32,7 @@ const useAuth = () => {
   const { connect: wagmiConnect, error: connectError, connectors } = useConnect();
   const { disconnect } = useDisconnect();
   const { signMessageAsync } = useSignMessage();
+  const queryClient = useQueryClient();
   const params = useSearchParams();
   const callbackUrl = params.get('callbackUrl') || PATHS.profile;
 
@@ -101,11 +103,12 @@ const useAuth = () => {
       const provider = await silkConnector.getProvider();
       await (provider as SilkEthereumProviderInterface).logout();
     }
-    // remove the skipOnboarding flag, so the user sees the onboarding modal again
+    // remove the skipOnboarding flag, so the user sees the onboarding modal again on next login
     setCookie('quilombo.skipOnboarding', false);
     nextAuthSignOut().then(() => {
       setCurrentUserId(undefined);
       setState({});
+      queryClient.clear();
     });
   };
 
