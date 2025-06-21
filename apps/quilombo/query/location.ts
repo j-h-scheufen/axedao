@@ -1,7 +1,7 @@
 import { queryOptions, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
-import { City, Country, SearchCitiesParams } from '@/types/model';
+import type { City, Country, SearchCitiesParams } from '@/types/model';
 import { QUERY_KEYS } from '.';
 
 const fetchCountries = (): Promise<Country[]> => {

@@ -1,7 +1,7 @@
 'use client';
 
 import { Input } from '@heroui/react';
-import { FieldProps, useField } from 'formik';
+import { type FieldProps, useField } from 'formik';
 
 /**
  * A NextUI Input element that binds itself to a Formik Field component.

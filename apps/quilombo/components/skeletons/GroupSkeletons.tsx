@@ -41,7 +41,7 @@ export const GroupFormSkeleton = () => {
       <Skeleton className="h-14 mb-5 rounded-medium" />
       <Skeleton className="h-[100px] mb-10 rounded-medium" />
       <div className="mb-5 max-w-xs">
-        <label className="mb-2 inline-block text-sm">Founder</label>
+        <h4 className="mb-2 inline-block text-sm">Founder</h4>
         <UserCardSkeleton />
       </div>
       <SubsectionHeading>Links</SubsectionHeading>

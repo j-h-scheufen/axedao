@@ -2,9 +2,9 @@ import { infiniteQueryOptions, queryOptions, useInfiniteQuery, useQuery } from '
 import axios from 'axios';
 
 import { QueryConfig } from '@/config/constants';
-import { SearchParams } from '@/config/validation-schema';
-import { User, UserSearchResult } from '@/types/model';
-import { QUERY_KEYS, SearchByAddressParams } from '.';
+import type { SearchParams } from '@/config/validation-schema';
+import type { User, UserSearchResult } from '@/types/model';
+import { QUERY_KEYS, type SearchByAddressParams } from '.';
 
 const fetchUser = async (id: string): Promise<User> => axios.get(`/api/users/${id}`).then((response) => response.data);
 export const fetchUserOptions = (id: string | undefined) => {

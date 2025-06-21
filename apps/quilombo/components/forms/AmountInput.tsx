@@ -1,12 +1,12 @@
 import { Input } from '@heroui/react';
-import { FieldProps, useField } from 'formik';
-import { ChangeEvent } from 'react';
+import { type FieldProps, useField } from 'formik';
+import type { ChangeEvent } from 'react';
 
 /**
  * A NextUI Input element that binds itself to a Formik Field component.
  * E.g. <Field name="name" label="Name" as={TextInput} />.
  * Props like 'classname' and 'classnames' will override the default styling.
- * @param props The that were passed to the Field component.
+ * @param {FieldProps} props The props that were passed to the Field component.
  */
 const AmountInput = (props: FieldProps['field']) => {
   const [field, meta] = useField(props);

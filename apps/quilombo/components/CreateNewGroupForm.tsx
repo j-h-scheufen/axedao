@@ -1,11 +1,11 @@
 import { Button } from '@heroui/react';
-import { Field, Form, Formik, FormikProps } from 'formik';
+import { Field, Form, Formik, type FormikProps } from 'formik';
 import { useRouter } from 'next/navigation';
 import { useCallback } from 'react';
 
 import { CountrySelect, FieldInput } from '@/components/forms';
 import { PATHS } from '@/config/constants';
-import { CreateNewGroupForm as FormType, createNewGroupFormSchema } from '@/config/validation-schema';
+import { type CreateNewGroupForm as FormType, createNewGroupFormSchema } from '@/config/validation-schema';
 import useCountriesAndCities from '@/hooks/useCountriesAndCities';
 import { useCreateGroup } from '@/hooks/useGroup';
 

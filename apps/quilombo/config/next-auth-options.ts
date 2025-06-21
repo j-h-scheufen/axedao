@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { PATHS } from '@/config/constants';
 import ENV from '@/config/environment';
 import { fetchSessionData, insertUser } from '@/db';
-import { UserSession } from '@/types/model';
+import type { UserSession } from '@/types/model';
 
 const nextAuthUrl = process.env.NEXTAUTH_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null);
 
@@ -28,8 +28,7 @@ const providers = [
     },
 
     // Note: 'req' is not used atm, but the nonce should come from its headers. See problem and workaround below
-    // biome-ignore lint/correctness/noUnusedVariables: see commment above
-    async authorize(credentials, req: RequestInternal['headers']) {
+    async authorize(credentials, _req: RequestInternal['headers']) {
       if (!credentials) {
         return null;
       }

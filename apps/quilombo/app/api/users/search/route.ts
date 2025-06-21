@@ -1,5 +1,5 @@
 import { isNil, omitBy } from 'lodash';
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import * as yup from 'yup';
 
 import { searchUsersByAddresses } from '@/db';

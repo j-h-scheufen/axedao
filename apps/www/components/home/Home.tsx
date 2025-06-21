@@ -2,7 +2,7 @@
 
 import { Divider, Link } from '@heroui/react';
 
-import { SupportedLanguage } from '@/app/i18n/settings';
+import type { SupportedLanguage } from '@/app/i18n/settings';
 import Heading from '@/sections/Heading';
 import ImageSection from './ImageSection';
 import HomeSection from './HomeSection';

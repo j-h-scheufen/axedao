@@ -1,6 +1,6 @@
-import { RefObject } from 'react';
+import type { RefObject } from 'react';
 
-import { Group } from '@/types/model';
+import type { Group } from '@/types/model';
 import GroupCard from './GroupCard';
 import GroupCardSkeleton from './skeletons/GroupCardSkeleton';
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { useAtomValue } from 'jotai';
-import Image, { ImageProps } from 'next/image';
+import Image, { type ImageProps } from 'next/image';
 import { Suspense } from 'react';
 
 import { GroupBannerSkeleton } from '@/components/skeletons/GroupSkeletons';

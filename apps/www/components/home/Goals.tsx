@@ -11,34 +11,24 @@ interface Props {
   locale: SupportedLanguage;
 }
 
+const GoalRow = ({ goalKey, completed, t }: { goalKey: string; completed?: boolean; t: (key: string) => string }) => (
+  <div className="flex flex-row items-start gap-2">
+    {completed ? (
+      <CheckCircleIcon
+        width={30}
+        height={30}
+        className="min-h-[25px] min-w-[25px] stroke-primary sm:min-h-[30px] sm:min-w-[30px]"
+      />
+    ) : (
+      <ChevronRightIcon width={25} height={25} className="min-h-[20px] min-w-[20px] sm:min-h-[25px] sm:min-w-[25px]" />
+    )}
+
+    <span>{t(`goals.${goalKey}`)}</span>
+  </div>
+);
+
 const GoalsTable = ({ locale }: Props) => {
   const { t } = useTranslation(locale, 'home');
-
-  const GoalRow = ({
-    goalKey,
-    completed,
-  }: {
-    goalKey: string;
-    completed?: boolean;
-  }) => (
-    <div className="flex flex-row items-start gap-2">
-      {completed ? (
-        <CheckCircleIcon
-          width={30}
-          height={30}
-          className="min-h-[25px] min-w-[25px] stroke-primary sm:min-h-[30px] sm:min-w-[30px]"
-        />
-      ) : (
-        <ChevronRightIcon
-          width={25}
-          height={25}
-          className="min-h-[20px] min-w-[20px] sm:min-h-[25px] sm:min-w-[25px]"
-        />
-      )}
-
-      <span>{t(`goals.${goalKey}`)}</span>
-    </div>
-  );
 
   return (
     <BaseSection title={t('goals.title')}>
@@ -46,18 +36,18 @@ const GoalsTable = ({ locale }: Props) => {
         <p>{t('goals.intro')}</p>
         <h2 className="my-3 text-2xl sm:text-3xl">{t('goals.short-term')}</h2>
         <div className="flex w-full flex-col gap-1 sm:gap-2">
-          <GoalRow goalKey="sg1" completed />
-          <GoalRow goalKey="sg2" completed />
-          <GoalRow goalKey="sg3" />
+          <GoalRow goalKey="sg1" t={t} completed />
+          <GoalRow goalKey="sg2" t={t} completed />
+          <GoalRow goalKey="sg3" t={t} />
         </div>
         <Spacer y={4} />
         <h2 className="my-3 text-2xl sm:text-3xl">{t('goals.long-term')}</h2>
         <div className="flex w-full flex-col justify-start gap-1">
-          <GoalRow goalKey="lg1" />
-          <GoalRow goalKey="lg2" />
-          <GoalRow goalKey="lg3" />
-          <GoalRow goalKey="lg4" />
-          <GoalRow goalKey="lg5" />
+          <GoalRow goalKey="lg1" t={t} />
+          <GoalRow goalKey="lg2" t={t} />
+          <GoalRow goalKey="lg3" t={t} />
+          <GoalRow goalKey="lg4" t={t} />
+          <GoalRow goalKey="lg5" t={t} />
         </div>
       </div>
     </BaseSection>

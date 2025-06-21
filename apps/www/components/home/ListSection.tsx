@@ -3,7 +3,7 @@
 import { Trans } from 'react-i18next';
 
 import { useTranslation } from '@/app/i18n/client';
-import { SupportedLanguage } from '@/app/i18n/settings';
+import type { SupportedLanguage } from '@/app/i18n/settings';
 import BaseSection from './BaseSection';
 
 interface ListSectionProps {

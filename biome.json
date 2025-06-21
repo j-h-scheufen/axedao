@@ -1,8 +1,6 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
-  "organizeImports": {
-    "enabled": false
-  },
+  "$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
+  "assist": { "actions": { "source": { "organizeImports": "off" } } },
   "linter": {
     "enabled": true,
     "rules": {
@@ -12,17 +10,10 @@
       },
       "suspicious": {
         "noExplicitAny": "warn"
-      },
-      "style": {
-        "useTemplate": "error"
-      },
-      "a11y": {
-        "useKeyWithClickEvents": "error"
       }
     }
   },
   "formatter": {
-    "enabled": true,
     "indentStyle": "space",
     "indentWidth": 2,
     "lineWidth": 120
@@ -30,11 +21,29 @@
   "javascript": {
     "formatter": {
       "quoteStyle": "single",
-      "trailingComma": "es5",
+      "trailingCommas": "es5",
       "semicolons": "always"
     }
   },
   "files": {
-    "ignore": ["node_modules", ".next", "dist", "build"]
+    "includes": [
+      "**",
+      "!**/node_modules",
+      "!**/.next",
+      "!**/dist",
+      "!**/build",
+      "!**/db/migrations/**/*",
+      "!**/generated/**/*",
+      "!**/cache",
+      "!**/cache_forge",
+      "!**/coverage",
+      "!**/coverage.json",
+      "!**/artifacts",
+      "!**/broadcast",
+      "!**/out",
+      "!**/lib",
+      "!**/*.sol",
+      "!**/typechain-types"
+    ]
   }
 }

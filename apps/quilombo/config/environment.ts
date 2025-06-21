@@ -33,7 +33,7 @@ const envMode = process.env.NEXT_PUBLIC_APP_ENV?.toLowerCase();
 const isServer = typeof window === 'undefined';
 
 export const getBaseUrl = () => {
-  let baseUrl = undefined;
+  let baseUrl: string | undefined;
   if (process.env.NEXT_PUBLIC_VERCEL_URL) {
     baseUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
   } else if (process.env.NEXT_PUBLIC_APP_URL) {

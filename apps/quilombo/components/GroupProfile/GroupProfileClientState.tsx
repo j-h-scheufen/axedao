@@ -3,7 +3,7 @@
 import { triggerGroupIdAtom } from '@/hooks/state/group';
 import { useAtomValue } from 'jotai';
 import { useHydrateAtoms } from 'jotai/react/utils';
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 
 type Props = PropsWithChildren & { groupId: string };
 

@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 
 /**
  * This layout provides a full-width frame with padding. It is the first layout to be nested inside the root layout

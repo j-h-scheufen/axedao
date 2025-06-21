@@ -139,8 +139,7 @@ export const useDeleteGroupMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (groupId: string) => deleteGroup(groupId),
-    // biome-ignore lint/correctness/noUnusedVariables: <explanation>
-    onSuccess: (data, variables) => {
+    onSuccess: (_data, variables) => {
       // The current user's groupId has changed as part of deleting the group
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.currentUser.getUser] });
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroup, variables] });

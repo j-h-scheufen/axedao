@@ -19,7 +19,6 @@ import type { Group, UserSession } from '@/types/model';
 export const client = postgres(ENV.databaseUrl, { prepare: false });
 export const drizzleClient = drizzle(client, { schema, logger: false });
 declare global {
-  // biome-ignore lint/style/noVar: following global declaration convention
   var database: PostgresJsDatabase<typeof schema> | undefined;
 }
 export const db = global.database || drizzleClient;
@@ -124,7 +123,7 @@ export async function fetchGroup(groupId: string): Promise<Group | undefined> {
   return result
     ? {
         ...result,
-        countryName: result?.country ? Country.getCountryByCode(result.country)?.name ?? '' : '',
+        countryName: result?.country ? (Country.getCountryByCode(result.country)?.name ?? '') : '',
       }
     : undefined;
 }

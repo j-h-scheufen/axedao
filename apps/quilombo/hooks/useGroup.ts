@@ -1,7 +1,7 @@
 import { enqueueSnackbar } from 'notistack';
 
-import { CreateNewGroupForm, UpdateGroupForm } from '@/config/validation-schema';
-import { GroupAndUserParams } from '@/query';
+import type { CreateNewGroupForm, UpdateGroupForm } from '@/config/validation-schema';
+import type { GroupAndUserParams } from '@/query';
 import {
   useAddAdminMutation,
   useCreateGroupMutation,

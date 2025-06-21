@@ -31,23 +31,21 @@ const GroupLocation = ({ onCountryChange, onCityChange, countriesProps, citiesPr
           setSelectedCountryCode(isoCode?.toString() || '');
         }}
       >
-        {countries !== undefined ? (
-          countries.map((country) => {
-            const { name, isoCode } = country;
-            return (
-              <AutocompleteItem
-                key={isoCode}
-                startContent={
-                  <Avatar alt={name} className="w-6 h-6" src={`https://flagcdn.com/${isoCode.toLowerCase()}.svg`} />
-                }
-              >
-                {name}
-              </AutocompleteItem>
-            );
-          })
-        ) : (
-          <></>
-        )}
+        {countries !== undefined
+          ? countries.map((country) => {
+              const { name, isoCode } = country;
+              return (
+                <AutocompleteItem
+                  key={isoCode}
+                  startContent={
+                    <Avatar alt={name} className="w-6 h-6" src={`https://flagcdn.com/${isoCode.toLowerCase()}.svg`} />
+                  }
+                >
+                  {name}
+                </AutocompleteItem>
+              );
+            })
+          : null}
       </Autocomplete>
       <Autocomplete
         {...citiesProps}
@@ -71,19 +69,18 @@ const GroupLocation = ({ onCountryChange, onCityChange, countriesProps, citiesPr
           }
         }}
       >
-        {cities !== undefined ? (
-          cities.map((city, index) => {
-            const { name, stateCode } = city;
-            let cityName = name;
-            if (stateCode) cityName += `, ${stateCode}`;
-            // biome-ignore lint/suspicious/noArrayIndexKey: Safe to use the index as key here
-            return <AutocompleteItem key={index}>{cityName}</AutocompleteItem>;
-          })
-        ) : (
-          <></>
-        )}
+        {cities !== undefined
+          ? cities.map((city, index) => {
+              const { name, stateCode } = city;
+              let cityName = name;
+              if (stateCode) cityName += `, ${stateCode}`;
+              // biome-ignore lint/suspicious/noArrayIndexKey: Safe to use the index as key here
+              return <AutocompleteItem key={index}>{cityName}</AutocompleteItem>;
+            })
+          : null}
       </Autocomplete>
     </>
   );
 };
+
 export default GroupLocation;
