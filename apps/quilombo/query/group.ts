@@ -61,12 +61,15 @@ const searchGroups = async ({ offset, pageSize, searchTerm }: SearchParams): Pro
 export const searchGroupsOptions = ({ offset, pageSize, searchTerm }: SearchParams) => {
   return {
     queryKey: [QUERY_KEYS.group.searchGroups, searchTerm],
-    // biome-ignore lint/suspicious/noExplicitAny: using any here is fine as it gets cast to a number
-    queryFn: async ({ pageParam }: { pageParam: any }) =>
-      searchGroups({ offset: Number(pageParam), pageSize, searchTerm }),
+    queryFn: async ({ pageParam }: { pageParam: number }) => searchGroups({ offset: pageParam, pageSize, searchTerm }),
     initialPageParam: offset || 0,
-    getNextPageParam: (lastPage: GroupSearchResult) => lastPage.nextOffset,
-    staleTime: 1000 * 60 * 15, // 15 minutes
+    getNextPageParam: (lastPage: GroupSearchResult) => {
+      if (lastPage.nextOffset === null || lastPage.nextOffset >= lastPage.totalCount) {
+        return undefined;
+      }
+      return lastPage.nextOffset;
+    },
+    staleTime: QueryConfig.staleTimeDefault,
   } as const;
 };
 

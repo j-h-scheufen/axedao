@@ -1,10 +1,15 @@
 import type { RefObject } from 'react';
 
+import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import type { Group } from '@/types/model';
 import GroupCard from './GroupCard';
 import GroupCardSkeleton from './skeletons/GroupCardSkeleton';
 
-type Props = { groups?: Group[]; isLoading?: boolean; scrollerRef?: RefObject<HTMLElement> };
+type Props = {
+  groups?: Group[];
+  isLoading?: boolean;
+  scrollerRef?: RefObject<HTMLElement | null>;
+};
 
 const GroupsGrid = ({ groups = [], isLoading = false, scrollerRef }: Props) => {
   return (
@@ -12,9 +17,18 @@ const GroupsGrid = ({ groups = [], isLoading = false, scrollerRef }: Props) => {
       {groups.map((group) => {
         return <GroupCard key={`group-card-${group.id}`} group={group} className="" />;
       })}
-      {/* biome-ignore lint/suspicious/noArrayIndexKey: safe to use index as key for skeleton */}
-      {isLoading && [...Array(20)].map((_, i) => <GroupCardSkeleton key={i} />)}
-      {scrollerRef && <div ref={scrollerRef as RefObject<HTMLDivElement>} className="hidden" hidden />}
+      {isLoading &&
+        // biome-ignore lint/suspicious/noArrayIndexKey: safe to use the index for the skeletons
+        [...Array(QUERY_DEFAULT_PAGE_SIZE)].map((_, i) => <GroupCardSkeleton key={`group-skeleton-${i}`} />)}
+      {/* Infinite scroll trigger - hidden but observed by intersection observer */}
+      {scrollerRef && (
+        <div
+          ref={scrollerRef as RefObject<HTMLDivElement>}
+          className="h-1 w-full col-span-full"
+          style={{ visibility: 'hidden' }}
+          aria-hidden="true"
+        />
+      )}
     </div>
   );
 };

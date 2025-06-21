@@ -21,19 +21,26 @@ export async function GET(request: NextRequest) {
 
   let searchOptions: SearchParams;
   try {
-    searchOptions = searchParamsSchema.validateSync(omitBy({ pageSize: pageSize + 1, offset, searchTerm }, isNil));
+    searchOptions = searchParamsSchema.validateSync(omitBy({ pageSize, offset, searchTerm }, isNil));
   } catch (error) {
     console.error('Unable to validate input data', error);
     return NextResponse.json({ error: 'Invalid input data' }, { status: 400 });
   }
 
-  const users = await searchUsers(searchOptions);
-  // we retrieve one more than the pageSize / limit to determine if there are more results
-  if (users.length > pageSize) {
+  const searchResults = await searchUsers(searchOptions);
+
+  // Calculate nextOffset based on totalCount and offset
+  if (searchResults.totalCount > offset + pageSize) {
     nextOffset = offset + pageSize;
-    users.pop();
+  } else if (searchResults.totalCount > offset) {
+    nextOffset = searchResults.totalCount;
+  } else {
+    nextOffset = null;
   }
 
-  const result: UserSearchResult = { data: users, nextOffset };
+  // Convert SelectUser to User by excluding updatedAt
+  const users = searchResults.rows.map(({ updatedAt, ...user }) => user);
+
+  const result: UserSearchResult = { data: users, totalCount: searchResults.totalCount, nextOffset };
   return Response.json(result);
 }

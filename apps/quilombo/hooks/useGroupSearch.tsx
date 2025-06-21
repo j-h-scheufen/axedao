@@ -1,27 +1,29 @@
 'use client';
 
-import { useInfiniteScroll } from '@heroui/use-infinite-scroll';
 import { useState } from 'react';
 import { useDebounce } from 'use-debounce';
 
+import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import { useSearchGroups } from '@/query/group';
 
-const useUserSearch = () => {
+const useGroupSearch = () => {
   const [searchTerm, setSearchTerm] = useState<string | undefined>();
   const [debouncedSearchTerm] = useDebounce(searchTerm, 750);
   const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } = useSearchGroups({
     searchTerm: debouncedSearchTerm,
+    pageSize: QUERY_DEFAULT_PAGE_SIZE,
+    offset: 0,
   });
-  const [loaderRef, scrollerRef] = useInfiniteScroll({ hasMore: hasNextPage, onLoadMore: fetchNextPage });
 
   return {
     searchTerm,
     setSearchTerm,
     groups: data?.pages.flatMap((page) => page.data) || [],
+    totalCount: data?.pages[0]?.totalCount || 0,
     isLoading: isFetching || isFetchingNextPage,
-    loaderRef,
-    scrollerRef,
+    hasNextPage,
+    fetchNextPage,
   };
 };
 
-export default useUserSearch;
+export default useGroupSearch;

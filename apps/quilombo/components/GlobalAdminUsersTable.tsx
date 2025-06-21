@@ -1,13 +1,29 @@
 'use client';
 
 import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, Spinner } from '@heroui/react';
+import { useInfiniteScroll } from '@heroui/use-infinite-scroll';
 
 import useGlobalAdminUsersTable from '@/hooks/useGlobalAdminUsersTable';
 import GlobalAdminUsersTableFilters from './GlobalAdminUsersTableFilters';
 
 const GlobalAdminUsersTable = () => {
-  const { searchTerm, setSearchTerm, users, isLoading, selectedRows, setSelectedRows, columns, getCellValue } =
-    useGlobalAdminUsersTable();
+  const {
+    searchTerm,
+    setSearchTerm,
+    users,
+    isLoading,
+    selectedRows,
+    setSelectedRows,
+    columns,
+    getCellValue,
+    hasNextPage,
+    fetchNextPage,
+  } = useGlobalAdminUsersTable();
+
+  const [loaderRef, scrollerRef] = useInfiniteScroll({
+    hasMore: hasNextPage,
+    onLoadMore: fetchNextPage,
+  });
 
   return (
     <div className="flex flex-col gap-4 -mt-5">
@@ -17,10 +33,11 @@ const GlobalAdminUsersTable = () => {
           aria-label="Global admin users table"
           selectedKeys={selectedRows}
           onSelectionChange={(key) => setSelectedRows(key as Set<string>)}
+          baseRef={scrollerRef}
           bottomContent={
-            isLoading ? (
-              <div className="py-5 flex items-center justify-center">
-                <Spinner size="sm" color="default" />
+            hasNextPage ? (
+              <div className="flex w-full justify-center">
+                <Spinner ref={loaderRef} size="sm" color="default" />
               </div>
             ) : null
           }
@@ -28,7 +45,12 @@ const GlobalAdminUsersTable = () => {
           <TableHeader columns={columns}>
             {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
           </TableHeader>
-          <TableBody items={users}>
+          <TableBody
+            items={users}
+            isLoading={isLoading}
+            loadingContent={<Spinner size="sm" color="default" />}
+            emptyContent="No users found"
+          >
             {(item) => (
               <TableRow key={item.id}>
                 {(columnKey) => <TableCell>{getCellValue({ user: item, key: columnKey as string })}</TableCell>}

@@ -1,5 +1,5 @@
 import { Country } from 'country-state-city';
-import { and, count, eq, ilike, inArray, ne, notExists, or, type SQLWrapper } from 'drizzle-orm';
+import { and, count, eq, ilike, inArray, ne, notExists, or, sql, type SQLWrapper } from 'drizzle-orm';
 import { drizzle, type PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 
@@ -7,6 +7,7 @@ import ENV from '@/config/environment';
 import type { GroupSearchParams, SearchParams } from '@/config/validation-schema';
 import * as schema from '@/db/schema';
 import type { Group, UserSession } from '@/types/model';
+import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 
 /**
  * NOTE: All DB functions in this file can only be run server-side. If you need to retrieve DB data from a client
@@ -34,8 +35,8 @@ export async function isGlobalAdmin(userId: string) {
   return res?.isGlobalAdmin;
 }
 
-export async function searchUsers(options: SearchParams) {
-  const { pageSize = 20, offset = 0, searchTerm } = options;
+export async function searchUsers(options: SearchParams): Promise<{ rows: schema.SelectUser[]; totalCount: number }> {
+  const { pageSize = QUERY_DEFAULT_PAGE_SIZE, offset = 0, searchTerm } = options;
   const orFilters: (SQLWrapper | undefined)[] = [];
 
   if (searchTerm) {
@@ -43,11 +44,22 @@ export async function searchUsers(options: SearchParams) {
     orFilters.push(ilike(schema.users.nickname, `%${searchTerm}%`));
   }
 
-  return await db.query.users.findMany({
-    limit: pageSize,
-    offset,
-    where: orFilters.length ? or(...orFilters) : undefined,
-  });
+  const rawResults = await db
+    .select({ record: schema.users, count: sql<number>`count(*) over()` })
+    .from(schema.users)
+    .where(orFilters.length ? or(...orFilters) : undefined)
+    .limit(pageSize)
+    .offset(offset);
+
+  const mappedResult = {
+    records: rawResults.map((result) => result.record),
+    count: rawResults[0].count,
+  };
+
+  return {
+    rows: mappedResult.records,
+    totalCount: mappedResult.count,
+  };
 }
 
 export async function fetchSessionData(walletAddress: string): Promise<UserSession | undefined> {
@@ -64,13 +76,10 @@ export async function fetchUser(userId: string): Promise<schema.SelectUser | und
   });
 }
 
-export async function countUsers() {
-  const result = await db.select({ count: count() }).from(schema.users);
-  return result.length ? result[0].count : null;
-}
-
-export async function searchGroups(options: GroupSearchParams): Promise<Group[]> {
-  const { pageSize = 20, offset = 0, searchTerm, city, country, verified } = options;
+export async function searchGroups(
+  options: GroupSearchParams
+): Promise<{ rows: schema.SelectGroup[]; totalCount: number }> {
+  const { pageSize = QUERY_DEFAULT_PAGE_SIZE, offset = 0, searchTerm, city, country, verified } = options;
 
   const filters: (SQLWrapper | undefined)[] = [];
   if (searchTerm) filters.push(ilike(schema.groups.name, `%${searchTerm}%`));
@@ -78,13 +87,22 @@ export async function searchGroups(options: GroupSearchParams): Promise<Group[]>
   if (country) filters.push(eq(schema.groups.country, country));
   if (typeof verified === 'boolean') filters.push(eq(schema.groups.verified, verified));
 
-  const result = await db.query.groups.findMany({
-    limit: pageSize,
-    offset,
-    where: filters.length ? and(...filters) : undefined,
-  });
+  const rawResults = await db
+    .select({ record: schema.groups, count: sql<number>`count(*) over()` })
+    .from(schema.groups)
+    .where(filters.length ? or(...filters) : undefined)
+    .limit(pageSize)
+    .offset(offset);
 
-  return result.map((group) => ({ ...group, countryName: Country.getCountryByCode(group.country)?.name ?? '' }));
+  const mappedResult = {
+    records: rawResults.map((result) => result.record),
+    count: rawResults[0].count,
+  };
+
+  return {
+    rows: mappedResult.records,
+    totalCount: mappedResult.count,
+  };
 }
 
 export async function isGroupMember(groupId: string, userId: string): Promise<boolean> {

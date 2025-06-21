@@ -16,7 +16,7 @@ export const fetchUserOptions = (id: string | undefined) => {
   } as const;
 };
 
-export const searchUsers = async ({ offset, pageSize, searchTerm }: SearchParams): Promise<UserSearchResult> => {
+export const searchUsers = async ({ offset = 0, pageSize, searchTerm }: SearchParams): Promise<UserSearchResult> => {
   let queryParams = `?offset=${offset}`;
   queryParams += searchTerm ? `&searchTerm=${searchTerm}` : '';
   queryParams += pageSize ? `&limit=${pageSize}` : '';
@@ -25,12 +25,14 @@ export const searchUsers = async ({ offset, pageSize, searchTerm }: SearchParams
 export const searchUsersOptions = ({ offset, pageSize, searchTerm }: SearchParams) => {
   return {
     queryKey: [QUERY_KEYS.user.searchUsers, searchTerm],
-    // biome-ignore lint/suspicious/noExplicitAny: ok to use any as it gets turned into a number
-    queryFn: async ({ pageParam }: { pageParam: any }) =>
-      searchUsers({ offset: Number(pageParam), pageSize, searchTerm }),
+    queryFn: async ({ pageParam }: { pageParam: number }) => searchUsers({ offset: pageParam, pageSize, searchTerm }),
     initialPageParam: offset || 0,
-    // biome-ignore lint/suspicious/noExplicitAny: following react-query example
-    getNextPageParam: (lastPage: any) => lastPage.nextOffset,
+    getNextPageParam: (lastPage: UserSearchResult) => {
+      if (lastPage.nextOffset === null || lastPage.nextOffset >= lastPage.totalCount) {
+        return undefined;
+      }
+      return lastPage.nextOffset;
+    },
     staleTime: QueryConfig.staleTimeDefault,
   } as const;
 };

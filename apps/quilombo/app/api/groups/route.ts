@@ -14,6 +14,7 @@ import {
 import { addGroupAdmin, fetchUser, insertGroup, searchGroups, updateUser } from '@/db';
 import type { GroupSearchResult } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
+import { Country } from 'country-state-city';
 
 /**
  * Route handler for infinite (paginated) group search.
@@ -44,18 +45,24 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Invalid input data' }, { status: 400 });
   }
 
-  const groups = await searchGroups(searchOptions);
-  // we retrieve one more than the pageSize to determine if there are more results
-  // TODO: better solution: https://github.com/drizzle-team/drizzle-orm/discussions/610
-  if (groups.length > pageSize) {
+  const searchResults = await searchGroups(searchOptions);
+
+  // Calculate nextOffset based on totalCount and offset
+  if (searchResults.totalCount > offset + pageSize) {
     nextOffset = offset + pageSize;
-    groups.pop();
+  } else if (searchResults.totalCount > offset) {
+    nextOffset = searchResults.totalCount;
+  } else {
+    nextOffset = null;
   }
 
-  const result: GroupSearchResult = {
-    data: groups,
-    nextOffset,
-  };
+  // Convert SelectGroup to Group by excluding updatedAt and adding countryName
+  const groups = searchResults.rows.map(({ updatedAt, ...group }) => ({
+    ...group,
+    countryName: Country.getCountryByCode(group.country)?.name ?? '',
+  }));
+
+  const result: GroupSearchResult = { data: groups, totalCount: searchResults.totalCount, nextOffset };
   return Response.json(result);
 }
 

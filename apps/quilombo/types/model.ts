@@ -29,15 +29,15 @@ export type GroupMember = User & { roles: GroupMemberRole[] };
 
 export type ImageType = (typeof IMAGE_TYPES)[number];
 
-/**
- * Search types used in the search routes
- */
 export type UserSearchResult = {
   data: User[];
+  totalCount: number;
   nextOffset: number | null;
 };
+
 export type GroupSearchResult = {
   data: Group[];
+  totalCount: number;
   nextOffset: number | null;
 };
 
