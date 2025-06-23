@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "db:generate": "pnpm drizzle-kit generate",
-    "db:migrate": "pnpm tsx db/migrate.ts",
+    "db:migrate": "pnpm drizzle-kit migrate",
     "wagmi:generate": "wagmi generate",
     "build": "next build",
     "start": "next start",
@@ -18,6 +18,8 @@
   "dependencies": {
     "@heroui/react": "2.8.0-beta.7",
     "@heroui/use-infinite-scroll": "2.2.9",
+    "@maptiler/geocoding-control": "^2.1.6",
+    "maplibre-gl": "^5.5.0",
     "@icons-pack/react-simple-icons": "^12.8.0",
     "@react-aria/ssr": "^3.9.5",
     "@react-aria/visually-hidden": "^3.8.15",
@@ -52,7 +54,7 @@
     "sharp": "^0.34.2",
     "siwe": "^3.0.0",
     "use-debounce": "^10.0.3",
-    "uuid": "^10.0.0",
+    "uuid": "^11.1.0",
     "viem": "^2.30.0",
     "wagmi": "^2.15.4",
     "yup": "^1.4.0"
