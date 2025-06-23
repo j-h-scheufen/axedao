@@ -9,6 +9,7 @@ export default {
   dbCredentials: {
     url: ENV.databaseUrl,
   },
+  extensionsFilters: ['postgis'],
   verbose: true,
   strict: true,
 } satisfies Config;

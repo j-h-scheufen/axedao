@@ -1,9 +1,11 @@
-import { relations } from 'drizzle-orm';
+import { relations, sql } from 'drizzle-orm';
 import {
   type AnyPgColumn,
   boolean,
+  geometry,
   index,
   json,
+  jsonb,
   pgEnum,
   pgTable,
   primaryKey,
@@ -42,15 +44,13 @@ export const users = pgTable(
     isGlobalAdmin: boolean('is_global_admin').default(false).notNull(),
     links: json('links').$type<SocialLink[]>().notNull().default([]),
   },
-  (table) => {
-    return {
-      nicknameIdx: index('nickname_idx').on(table.nickname),
-      titleIdx: index('title_idx').on(table.title),
-      groupIdx: index('group_idx').on(table.groupId),
-      emailIdx: index('email_idx').on(table.email),
-      walletAddressIdx: uniqueIndex('wallet_address_idx').on(table.walletAddress),
-    };
-  }
+  (t) => [
+    index('nickname_idx').on(t.nickname),
+    index('title_idx').on(t.title),
+    index('group_idx').on(t.groupId),
+    index('email_idx').on(t.email),
+    uniqueIndex('wallet_address_idx').on(t.walletAddress),
+  ]
 );
 
 export const groups = pgTable(
@@ -74,11 +74,7 @@ export const groups = pgTable(
     country: varchar('country').notNull(),
     links: json('links').$type<SocialLink[]>().notNull().default([]),
   },
-  (table) => {
-    return {
-      nameIdx: index('name_idx').on(table.name),
-    };
-  }
+  (t) => [index('name_idx').on(t.name)]
 );
 
 export const groupAdmins = pgTable(
@@ -91,11 +87,7 @@ export const groupAdmins = pgTable(
       .notNull()
       .references(() => users.id, { onDelete: 'cascade' }),
   },
-  (table) => {
-    return {
-      pk: primaryKey({ columns: [table.groupId, table.userId] }),
-    };
-  }
+  (t) => [primaryKey({ columns: [t.groupId, t.userId] })]
 );
 
 export const userGroupRelations = relations(users, ({ one }) => ({
@@ -104,6 +96,27 @@ export const userGroupRelations = relations(users, ({ one }) => ({
     references: [groups.id],
   }),
 }));
+
+export const groupLocations = pgTable(
+  'group_locations',
+  {
+    id: uuid('id').defaultRandom().primaryKey(),
+    groupId: uuid('group_id')
+      .notNull()
+      .references(() => groups.id, { onDelete: 'cascade' }),
+    name: varchar('name').notNull(),
+    description: text('description'),
+    feature: jsonb('feature').notNull(),
+
+    /* derive geometry(Point,4326) from GeoJSON */
+    location: geometry('location', { type: 'point', srid: 4326 })
+      .generatedAlwaysAs(
+        sql`ST_SetSRID(ST_MakePoint((( feature -> 'geometry' -> 'coordinates') ->> 0)::numeric, (( feature -> 'geometry' -> 'coordinates') ->> 1)::numeric), 4326)`
+      )
+      .notNull(),
+  },
+  (t) => [index('groups_location_gix').using('gist', t.location)]
+);
 
 export type InsertUser = typeof users.$inferInsert;
 export type SelectUser = typeof users.$inferSelect;
