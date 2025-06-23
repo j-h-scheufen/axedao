@@ -1,5 +1,5 @@
 import type { GROUP_ROLES, IMAGE_TYPES } from '@/config/constants';
-import type { SelectGroup, SelectUser } from '../db/schema';
+import type { SelectGroup, SelectUser, SelectGroupLocation } from '../db/schema';
 
 /**
  * This file defines API and app-level types that are wrapping the DB schema types in order to create a layer of separation
@@ -9,6 +9,8 @@ import type { SelectGroup, SelectUser } from '../db/schema';
 export type Group = Omit<SelectGroup, 'updatedAt'> & { countryName: string };
 
 export type User = Omit<SelectUser, 'updatedAt'>;
+
+export type GroupLocation = Omit<SelectGroupLocation, 'updatedAt'>;
 
 export type UserSession = {
   id: string;

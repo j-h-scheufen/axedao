@@ -209,3 +209,51 @@ export async function searchUsersByAddresses(addresses: string[]) {
     orderBy: (users, { asc }) => [asc(users.id)],
   });
 }
+
+/**
+ * GROUP LOCATIONS
+ */
+export async function fetchGroupLocations(groupId: string): Promise<schema.SelectGroupLocation[]> {
+  return await db.query.groupLocations.findMany({
+    where: (locations, { eq }) => eq(locations.groupId, groupId),
+    orderBy: (locations, { asc }) => [asc(locations.name)],
+  });
+}
+
+export async function fetchGroupLocation(locationId: string): Promise<schema.SelectGroupLocation | undefined> {
+  return await db.query.groupLocations.findFirst({
+    where: (locations, { eq }) => eq(locations.id, locationId),
+  });
+}
+
+export async function insertGroupLocation(location: schema.InsertGroupLocation): Promise<schema.SelectGroupLocation> {
+  const locations = await db.insert(schema.groupLocations).values(location).returning();
+  if (!locations.length) {
+    throw new Error('Failed to insert group location');
+  }
+  return locations[0];
+}
+
+export async function updateGroupLocation(
+  locationId: string,
+  updates: Partial<schema.InsertGroupLocation>
+): Promise<schema.SelectGroupLocation | undefined> {
+  const locations = await db
+    .update(schema.groupLocations)
+    .set(updates)
+    .where(eq(schema.groupLocations.id, locationId))
+    .returning();
+  return locations.length ? locations[0] : undefined;
+}
+
+export async function deleteGroupLocation(locationId: string): Promise<void> {
+  await db.delete(schema.groupLocations).where(eq(schema.groupLocations.id, locationId));
+}
+
+export async function isLocationInGroup(locationId: string, groupId: string): Promise<boolean> {
+  const result = await db
+    .select({ value: count() })
+    .from(schema.groupLocations)
+    .where(and(eq(schema.groupLocations.id, locationId), eq(schema.groupLocations.groupId, groupId)));
+  return result.length > 0 && result[0].value > 0;
+}

@@ -170,3 +170,25 @@ export const testForAddress = (value: string) => {
   // basic address validation, not checksummed
   return /^(0x)?[0-9a-f]{40}$/i.test(value || '');
 };
+
+// Group Location validation schemas
+export const createLocationFormSchema = object({
+  name: string().required('Location name is required'),
+  description: string().optional(),
+  feature: object({
+    type: string().oneOf(['Feature'], 'Must be a Feature type').required(),
+    geometry: object({
+      type: string().oneOf(['Point'], 'Must be a Point geometry').required(),
+      coordinates: array().of(number().required()).length(2, 'Coordinates must be [longitude, latitude]').required(),
+    }).required(),
+    properties: object({
+      address: string().required('Address is required'),
+    }).required(),
+  }).required(),
+});
+
+export type CreateLocationForm = InferType<typeof createLocationFormSchema>;
+
+export const updateLocationFormSchema = createLocationFormSchema.partial();
+
+export type UpdateLocationForm = InferType<typeof updateLocationFormSchema>;

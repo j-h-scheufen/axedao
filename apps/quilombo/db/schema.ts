@@ -126,3 +126,6 @@ export type SelectGroup = typeof groups.$inferSelect;
 
 export type InsertGroupAdmin = typeof groupAdmins.$inferInsert;
 export type SelectGroupAdmin = typeof groupAdmins.$inferSelect;
+
+export type InsertGroupLocation = typeof groupLocations.$inferInsert;
+export type SelectGroupLocation = typeof groupLocations.$inferSelect;

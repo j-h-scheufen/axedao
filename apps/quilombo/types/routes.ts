@@ -16,6 +16,11 @@ export type GroupParams = {
 
 export type GroupAndUserParams = GroupParams & UserParams;
 
+export type GroupAndLocationParams = {
+  groupId: string;
+  locationId: string;
+};
+
 // For API route handlers
 export type RouteParamsUser = {
   params: Promise<UserParams>;
@@ -27,4 +32,8 @@ export type RouteParamsGroup = {
 
 export type RouteParamsGroupAndUser = {
   params: Promise<GroupAndUserParams>;
+};
+
+export type RouteParamsGroupAndLocation = {
+  params: Promise<GroupAndLocationParams>;
 };
