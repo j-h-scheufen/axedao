@@ -6,16 +6,6 @@ export type SearchParams = {
   [key: string]: string | string[] | undefined;
 };
 
-export type UserParams = {
-  userId: string;
-};
-
-export type GroupParams = {
-  groupId: string;
-};
-
-export type GroupAndUserParams = GroupParams & UserParams;
-
 export type GroupAndLocationParams = {
   groupId: string;
   locationId: string;
@@ -23,15 +13,15 @@ export type GroupAndLocationParams = {
 
 // For API route handlers
 export type RouteParamsUser = {
-  params: Promise<UserParams>;
+  params: Promise<{ userId: string }>;
 };
 
 export type RouteParamsGroup = {
-  params: Promise<GroupParams>;
+  params: Promise<{ groupId: string }>;
 };
 
 export type RouteParamsGroupAndUser = {
-  params: Promise<GroupAndUserParams>;
+  params: Promise<{ groupId: string; userId: string }>;
 };
 
 export type RouteParamsGroupAndLocation = {

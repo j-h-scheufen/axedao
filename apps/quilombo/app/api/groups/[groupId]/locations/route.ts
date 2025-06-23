@@ -33,7 +33,7 @@ export async function GET(_: NextRequest, { params }: RouteParamsGroup) {
  * Adds a new location to the specified group
  * @param request - CreateLocationForm
  * @param groupId - PATH parameter. The id of the group
- * @returns the created GroupLocation
+ * @returns the updated list of group locations as GroupLocation[]
  */
 export async function POST(request: NextRequest, { params }: RouteParamsGroup) {
   const session = await getServerSession(nextAuthOptions);
@@ -58,12 +58,13 @@ export async function POST(request: NextRequest, { params }: RouteParamsGroup) {
     const body = await request.json();
     const validatedData = await createLocationFormSchema.validate(body);
 
-    const location = await insertGroupLocation({
+    await insertGroupLocation({
       ...validatedData,
       groupId,
     });
 
-    return Response.json(location);
+    const locations = await fetchGroupLocations(groupId);
+    return Response.json(locations);
   } catch (error) {
     console.error('Error creating group location:', error);
     const message = generateErrorMessage(error, 'An unexpected error occurred while creating the location');

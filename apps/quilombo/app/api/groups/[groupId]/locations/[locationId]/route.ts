@@ -3,7 +3,7 @@ import { type NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { updateLocationFormSchema } from '@/config/validation-schema';
-import { deleteGroupLocation, isGroupAdmin, isLocationInGroup, updateGroupLocation } from '@/db';
+import { deleteGroupLocation, fetchGroupLocations, isGroupAdmin, isLocationInGroup, updateGroupLocation } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import type { RouteParamsGroupAndLocation } from '@/types/routes';
 
@@ -12,7 +12,7 @@ import type { RouteParamsGroupAndLocation } from '@/types/routes';
  * @param request - UpdateLocationForm
  * @param groupId - PATH parameter. The id of the group
  * @param locationId - PATH parameter. The id of the location to update
- * @returns the updated GroupLocation
+ * @returns the updated list of group locations as GroupLocation[]
  */
 export async function PATCH(request: NextRequest, { params }: RouteParamsGroupAndLocation) {
   const session = await getServerSession(nextAuthOptions);
@@ -59,7 +59,8 @@ export async function PATCH(request: NextRequest, { params }: RouteParamsGroupAn
       );
     }
 
-    return Response.json(updatedLocation);
+    const locations = await fetchGroupLocations(groupId);
+    return Response.json(locations);
   } catch (error) {
     console.error('Error updating group location:', error);
     const message = generateErrorMessage(error, 'An unexpected error occurred while updating the location');
@@ -77,7 +78,7 @@ export async function PATCH(request: NextRequest, { params }: RouteParamsGroupAn
  * @param _ - The request object (not used)
  * @param groupId - PATH parameter. The id of the group
  * @param locationId - PATH parameter. The id of the location to delete
- * @returns 204 if successful, 404 if not found
+ * @returns the updated list of group locations as GroupLocation[]
  */
 export async function DELETE(_: NextRequest, { params }: RouteParamsGroupAndLocation) {
   const session = await getServerSession(nextAuthOptions);
@@ -111,7 +112,8 @@ export async function DELETE(_: NextRequest, { params }: RouteParamsGroupAndLoca
 
   try {
     await deleteGroupLocation(locationId);
-    return new NextResponse(null, { status: 204 });
+    const locations = await fetchGroupLocations(groupId);
+    return Response.json(locations);
   } catch (error) {
     console.error('Error deleting group location:', error);
     const message = generateErrorMessage(error, 'An unexpected error occurred while deleting the location');

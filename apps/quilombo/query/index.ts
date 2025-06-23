@@ -26,6 +26,7 @@ export const QUERY_KEYS = {
     getGroup: 'group.getGroup',
     getGroupMembers: 'group.getGroupMembers',
     getGroupAdmins: 'group.getGroupAdmins',
+    getGroupLocations: 'group.getGroupLocations',
     searchGroups: 'groups.search',
   },
   currentUser: {
@@ -45,10 +46,8 @@ export const QUERY_KEYS = {
   },
 } as const;
 
-export type SearchParams = {
-  pageSize?: number;
-  offset?: number;
-};
+export type SearchParams = { pageSize?: number; offset?: number };
+export type GroupAndLocationParams = { groupId: string; locationId: string };
 export type GroupAndUserParams = { groupId: string; userId: string };
 export type SearchByAddressParams = { addresses: string[] };
 export type FileUploadParams = { ownerId: string; file?: File };
