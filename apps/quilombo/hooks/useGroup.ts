@@ -1,13 +1,21 @@
 import { enqueueSnackbar } from 'notistack';
 
-import type { CreateNewGroupForm, UpdateGroupForm } from '@/config/validation-schema';
-import type { GroupAndUserParams } from '@/query';
+import type {
+  CreateLocationForm,
+  CreateNewGroupForm,
+  UpdateGroupForm,
+  UpdateLocationForm,
+} from '@/config/validation-schema';
+import type { GroupAndLocationParams, GroupAndUserParams } from '@/query';
 import {
   useAddAdminMutation,
+  useCreateGroupLocationMutation,
   useCreateGroupMutation,
+  useDeleteGroupLocationMutation,
   useDeleteGroupMutation,
   useRemoveAdminMutation,
   useRemoveMemberMutation,
+  useUpdateGroupLocationMutation,
   useUpdateGroupMutation,
 } from '@/query/group';
 
@@ -62,7 +70,45 @@ export const useRemoveMember = () => {
   const { mutateAsync, error, isPending } = useRemoveMemberMutation();
   const removeMember = async (params: GroupAndUserParams) =>
     mutateAsync(params, {
-      onError: (error) => enqueueSnackbar(`An error occured trying to remove the group member: ${error.message}`),
+      onError: (error) =>
+        enqueueSnackbar(`An error occured trying to remove the member from the group: ${error.message}`),
     });
   return { removeMember, error, isPending };
+};
+
+export const useCreateGroupLocation = () => {
+  const { mutateAsync, error, isPending } = useCreateGroupLocationMutation();
+  const createGroupLocation = async ({ groupId, data }: { groupId: string; data: CreateLocationForm }) =>
+    mutateAsync(
+      { groupId, data },
+      {
+        onError: (error) => enqueueSnackbar(`An error occurred trying to create the location: ${error.message}`),
+      }
+    );
+  return { createGroupLocation, error, isPending };
+};
+
+export const useUpdateGroupLocation = () => {
+  const { mutateAsync, error, isPending } = useUpdateGroupLocationMutation();
+  const updateGroupLocation = async ({
+    groupId,
+    locationId,
+    data,
+  }: GroupAndLocationParams & { data: UpdateLocationForm }) =>
+    mutateAsync(
+      { groupId, locationId, data },
+      {
+        onError: (error) => enqueueSnackbar(`An error occurred trying to update the location: ${error.message}`),
+      }
+    );
+  return { updateGroupLocation, error, isPending };
+};
+
+export const useDeleteGroupLocation = () => {
+  const { mutateAsync, error, isPending } = useDeleteGroupLocationMutation();
+  const deleteGroupLocation = async (params: GroupAndLocationParams) =>
+    mutateAsync(params, {
+      onError: (error) => enqueueSnackbar(`An error occurred trying to delete the location: ${error.message}`),
+    });
+  return { deleteGroupLocation, error, isPending };
 };

@@ -17,6 +17,7 @@ import {
 } from 'drizzle-orm/pg-core';
 
 import { linkTypes, styles, titles } from '@/config/constants';
+import type { Feature, Geometry } from 'geojson';
 
 export const titleEnum = pgEnum('title', titles);
 export const linkTypeEnum = pgEnum('link_type', linkTypes);
@@ -106,7 +107,7 @@ export const groupLocations = pgTable(
       .references(() => groups.id, { onDelete: 'cascade' }),
     name: varchar('name').notNull(),
     description: text('description'),
-    feature: jsonb('feature').notNull(),
+    feature: jsonb('feature').$type<Feature<Geometry>>().notNull(),
 
     /* derive geometry(Point,4326) from GeoJSON */
     location: geometry('location', { type: 'point', srid: 4326 })

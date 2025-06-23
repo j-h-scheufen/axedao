@@ -1,5 +1,6 @@
 import { isValidIPFSHash } from '@/utils';
 import { array, boolean, type InferType, mixed, number, object, string } from 'yup';
+import type { Feature, Geometry } from 'geojson';
 
 import { linkTypes, MAX_IMAGE_UPLOAD_SIZE_MB, styles, titles, validFileExtensions } from './constants';
 
@@ -175,16 +176,30 @@ export const testForAddress = (value: string) => {
 export const createLocationFormSchema = object({
   name: string().required('Location name is required'),
   description: string().optional(),
-  feature: object({
-    type: string().oneOf(['Feature'], 'Must be a Feature type').required(),
-    geometry: object({
-      type: string().oneOf(['Point'], 'Must be a Point geometry').required(),
-      coordinates: array().of(number().required()).length(2, 'Coordinates must be [longitude, latitude]').required(),
-    }).required(),
-    properties: object({
-      address: string().required('Address is required'),
-    }).required(),
-  }).required(),
+  feature: mixed()
+    .test(
+      'is-geojson-feature',
+      'Must be a valid GeoJSON Feature with display text',
+      (value): value is Feature<Geometry> => {
+        if (!value || typeof value !== 'object') return false;
+        const feature = value as any;
+
+        // Check if it's a valid GeoJSON Feature
+        if (feature.type !== 'Feature') return false;
+        if (!feature.geometry || !feature.geometry.coordinates) return false;
+
+        // Ensure we have some form of display text
+        const hasDisplayText =
+          feature.text ||
+          feature.place_name ||
+          feature.properties?.address ||
+          feature.properties?.text ||
+          feature.properties?.name;
+
+        return !!hasDisplayText;
+      }
+    )
+    .required(),
 });
 
 export type CreateLocationForm = InferType<typeof createLocationFormSchema>;

@@ -1,5 +1,6 @@
 import { getServerSession } from 'next-auth';
 import { type NextRequest, NextResponse } from 'next/server';
+import type { Feature, Geometry } from 'geojson';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { createLocationFormSchema } from '@/config/validation-schema';
@@ -61,6 +62,7 @@ export async function POST(request: NextRequest, { params }: RouteParamsGroup) {
     await insertGroupLocation({
       ...validatedData,
       groupId,
+      feature: validatedData.feature as Feature<Geometry>,
     });
 
     const locations = await fetchGroupLocations(groupId);

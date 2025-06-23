@@ -1,11 +1,13 @@
 import { getServerSession } from 'next-auth';
 import { type NextRequest, NextResponse } from 'next/server';
+import type { Feature, Geometry } from 'geojson';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { updateLocationFormSchema } from '@/config/validation-schema';
 import { deleteGroupLocation, fetchGroupLocations, isGroupAdmin, isLocationInGroup, updateGroupLocation } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import type { RouteParamsGroupAndLocation } from '@/types/routes';
+import type * as schema from '@/db/schema';
 
 /**
  * Updates an existing location of the specified group
@@ -48,7 +50,14 @@ export async function PATCH(request: NextRequest, { params }: RouteParamsGroupAn
     const body = await request.json();
     const validatedData = await updateLocationFormSchema.validate(body);
 
-    const updatedLocation = await updateGroupLocation(locationId, validatedData);
+    // Convert the validated data to match the database schema
+    const dbUpdates: Partial<schema.InsertGroupLocation> = {
+      ...(validatedData.name && { name: validatedData.name }),
+      ...(validatedData.description !== undefined && { description: validatedData.description }),
+      ...(validatedData.feature && { feature: validatedData.feature as Feature<Geometry> }),
+    };
+
+    const updatedLocation = await updateGroupLocation(locationId, dbUpdates);
 
     if (!updatedLocation) {
       return Response.json(
