@@ -63,6 +63,7 @@ const LocationModal = ({ isOpen, onOpenChange, location, onSubmit, isSubmitting 
     onOpenChange(false);
   }, [formik, onOpenChange]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: formik is not needed as dependency and causes problems
   useEffect(() => {
     if (!isOpen) {
       formik.resetForm();
