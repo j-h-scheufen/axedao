@@ -68,7 +68,7 @@ const LocationModal = ({ isOpen, onOpenChange, location, onSubmit, isSubmitting 
       formik.resetForm();
       setSelectedFeature(null);
     }
-  }, [isOpen, formik]);
+  }, [isOpen]);
 
   const address = getGeoJsonFeatureLabel(selectedFeature);
 

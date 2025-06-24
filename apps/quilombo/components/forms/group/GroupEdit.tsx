@@ -1,6 +1,7 @@
 'use client';
 
 import ImageUpload from '@/components/forms/ImageUpload';
+import { GroupLocations } from '@/components/GroupLocations';
 import { groupBannerAtom, groupIdAtom, groupLogoAtom } from '@/hooks/state/group';
 import { useUpdateBannerMutation, useUpdateLogoMutation } from '@/query/group';
 import { Spacer } from '@heroui/react';
@@ -30,6 +31,8 @@ const ProfileEdit = () => {
       </div>
       <Spacer y={2} />
       <GroupForm />
+      <Spacer y={4} />
+      <GroupLocations />
     </div>
   );
 };
