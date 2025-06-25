@@ -1,4 +1,3 @@
-import { Country } from 'country-state-city';
 import { and, count, eq, ilike, inArray, ne, notExists, or, sql, type SQLWrapper } from 'drizzle-orm';
 import { drizzle, type PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
@@ -79,12 +78,10 @@ export async function fetchUser(userId: string): Promise<schema.SelectUser | und
 export async function searchGroups(
   options: GroupSearchParams
 ): Promise<{ rows: schema.SelectGroup[]; totalCount: number }> {
-  const { pageSize = QUERY_DEFAULT_PAGE_SIZE, offset = 0, searchTerm, city, country, verified } = options;
+  const { pageSize = QUERY_DEFAULT_PAGE_SIZE, offset = 0, searchTerm, verified } = options;
 
   const filters: (SQLWrapper | undefined)[] = [];
   if (searchTerm) filters.push(ilike(schema.groups.name, `%${searchTerm}%`));
-  if (city) filters.push(eq(schema.groups.city, city));
-  if (country) filters.push(eq(schema.groups.country, country));
   if (typeof verified === 'boolean') filters.push(eq(schema.groups.verified, verified));
 
   const rawResults = await db
@@ -141,7 +138,7 @@ export async function fetchGroup(groupId: string): Promise<Group | undefined> {
   return result
     ? {
         ...result,
-        countryName: result?.country ? (Country.getCountryByCode(result.country)?.name ?? '') : '',
+        countryCodes: [], // TODO: add country codes from group locations
       }
     : undefined;
 }

@@ -14,7 +14,6 @@ import {
 import { addGroupAdmin, fetchUser, insertGroup, searchGroups, updateUser } from '@/db';
 import type { GroupSearchResult } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
-import { Country } from 'country-state-city';
 
 /**
  * Route handler for infinite (paginated) group search.
@@ -27,8 +26,6 @@ export async function GET(request: NextRequest) {
   const pageSize = Number(searchParams.get('pageSize')) || QUERY_DEFAULT_PAGE_SIZE;
   const offset = Number(searchParams.get('offset'));
   const searchTerm = searchParams.get('searchTerm');
-  const city = searchParams.get('city');
-  const country = searchParams.get('country');
   let verified: string | null | boolean | undefined = searchParams.get('verified');
   verified = verified === 'false' ? false : verified === 'true' || undefined;
   let nextOffset = null;
@@ -38,7 +35,7 @@ export async function GET(request: NextRequest) {
     searchOptions = groupSearchSchema.validateSync({
       pageSize,
       offset,
-      ...omitBy({ searchTerm, city, country, verified }, isNil),
+      ...omitBy({ searchTerm, verified }, isNil),
     });
   } catch (error) {
     console.error('Unable to validate input data', error);
@@ -59,7 +56,7 @@ export async function GET(request: NextRequest) {
   // Convert SelectGroup to Group by excluding updatedAt and adding countryName
   const groups = searchResults.rows.map(({ updatedAt, ...group }) => ({
     ...group,
-    countryName: Country.getCountryByCode(group.country)?.name ?? '',
+    countryCodes: [], // TODO: add country codes from group locations
   }));
 
   const result: GroupSearchResult = { data: groups, totalCount: searchResults.totalCount, nextOffset };

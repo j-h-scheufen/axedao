@@ -4,7 +4,6 @@ import type { Address, PublicClient } from 'viem';
 import type { Group, User } from '@/types/model';
 export * as profile from './currentUser';
 export * as group from './group';
-export * as location from './location';
 export * as user from './user';
 
 /**
@@ -31,10 +30,6 @@ export const QUERY_KEYS = {
   },
   currentUser: {
     getUser: 'currentUser.getUser',
-  },
-  location: {
-    getCountries: 'location.getCountries',
-    getCities: 'location.getCities',
   },
   membership: {
     getCandidateChanges: 'getCandidateChanges',

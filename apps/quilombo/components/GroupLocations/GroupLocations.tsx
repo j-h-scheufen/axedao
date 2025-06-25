@@ -21,6 +21,7 @@ import { useCreateGroupLocation, useDeleteGroupLocation, useUpdateGroupLocation 
 import type { GroupLocation } from '@/types/model';
 import TableCellValue, { COLUMNS, type GroupLocationTableColumnKey } from './TableCellValue';
 import { LocationModal, DeleteLocationModal } from '.';
+import type { CreateLocationForm, UpdateLocationForm } from '@/config/validation-schema';
 
 const GroupLocations = () => {
   const { data: groupLocations, isPending } = useAtomValue(groupLocationsAtom);
@@ -67,13 +68,13 @@ const GroupLocations = () => {
   );
 
   const handleLocationSubmit = useCallback(
-    async (data: any) => {
+    async (data: CreateLocationForm | UpdateLocationForm) => {
       if (!groupId) return;
 
       if (editingLocation) {
         await updateGroupLocation({ groupId, locationId: editingLocation.id, data });
       } else {
-        await createGroupLocation({ groupId, data });
+        await createGroupLocation({ groupId, data: data as CreateLocationForm });
       }
 
       onLocationModalOpenChange();

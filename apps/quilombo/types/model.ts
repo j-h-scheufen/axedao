@@ -6,7 +6,7 @@ import type { SelectGroup, SelectUser, SelectGroupLocation } from '../db/schema'
  * TODO: The app is missing a central types.d.ts definition.
  */
 
-export type Group = Omit<SelectGroup, 'updatedAt'> & { countryName: string };
+export type Group = Omit<SelectGroup, 'updatedAt'> & { countryCodes: string[] };
 
 export type User = Omit<SelectUser, 'updatedAt'>;
 
@@ -16,13 +16,6 @@ export type UserSession = {
   id: string;
   walletAddress: string;
   isGlobalAdmin: boolean;
-};
-
-export type Country = { name: string; isoCode: string };
-
-export type City = {
-  name: string;
-  stateCode?: string;
 };
 
 export type GroupMemberRole = (typeof GROUP_ROLES)[number];

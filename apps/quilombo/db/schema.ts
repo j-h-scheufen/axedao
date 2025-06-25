@@ -71,8 +71,6 @@ export const groups = pgTable(
     leader: uuid('leader_id').references((): AnyPgColumn => users.id, { onDelete: 'set null' }),
     founder: varchar('founder'),
     verified: boolean('verified').notNull().default(false),
-    city: varchar('city'),
-    country: varchar('country').notNull(),
     links: json('links').$type<SocialLink[]>().notNull().default([]),
   },
   (t) => [index('name_idx').on(t.name)]
@@ -115,8 +113,25 @@ export const groupLocations = pgTable(
         sql`ST_SetSRID(ST_MakePoint((( feature -> 'geometry' -> 'coordinates') ->> 0)::numeric, (( feature -> 'geometry' -> 'coordinates') ->> 1)::numeric), 4326)`
       )
       .notNull(),
+    countryCode: varchar('country_code', { length: 2 })
+      .generatedAlwaysAs(
+        sql`
+          COALESCE(
+            -- Extract from context[].id == 'country.*'
+            (
+              SELECT lower(value->>'country_code')
+              FROM jsonb_path_query(feature->'context', '$[*] ? (@.id like_regex \"^country\\\\..*\")')
+              AS value
+              LIMIT 1
+            ),
+            -- Fallback to properties.country_code
+            lower(feature->'properties'->>'country_code')
+          )
+        `
+      )
+      .notNull(),
   },
-  (t) => [index('groups_location_gix').using('gist', t.location)]
+  (t) => [index('groups_location_gix').using('gist', t.location), index('country_code_idx').on(t.countryCode)]
 );
 
 export type InsertUser = typeof users.$inferInsert;

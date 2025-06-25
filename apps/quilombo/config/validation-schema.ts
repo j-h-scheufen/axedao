@@ -151,7 +151,6 @@ export type SearchParams = InferType<typeof searchParamsSchema>;
 
 export const groupSearchSchema = searchParamsSchema.concat(
   object({
-    city: string().optional(),
     country: string().optional(),
     verified: boolean().optional(),
   })
@@ -182,6 +181,7 @@ export const createLocationFormSchema = object({
       'Must be a valid GeoJSON Feature with display text',
       (value): value is Feature<Geometry> => {
         if (!value || typeof value !== 'object') return false;
+        // biome-ignore lint/suspicious/noExplicitAny: any is used to start validation
         const feature = value as any;
 
         // Check if it's a valid GeoJSON Feature
