@@ -53,7 +53,7 @@ const LocationModal = ({ isOpen, onOpenChange, location, onSubmit, isSubmitting 
     enableReinitialize: true,
   });
 
-  const handleMapSelection = useCallback((feature: MaptilerFeature, coordinates: [number, number]) => {
+  const handleMapSelection = useCallback((feature: MaptilerFeature, _coordinates: [number, number]) => {
     setSelectedFeature(feature);
   }, []);
 
@@ -70,6 +70,12 @@ const LocationModal = ({ isOpen, onOpenChange, location, onSubmit, isSubmitting 
       setSelectedFeature(null);
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen && location?.feature) {
+      setSelectedFeature(location.feature as MaptilerFeature);
+    }
+  }, [isOpen, location]);
 
   const address = getGeoJsonFeatureLabel(selectedFeature);
 
@@ -116,7 +122,6 @@ const LocationModal = ({ isOpen, onOpenChange, location, onSubmit, isSubmitting 
 
                 {/* Map */}
                 <div className="space-y-2">
-                  <h3 className="text-sm font-medium">Select Location on Map</h3>
                   <div className="h-80 rounded-lg overflow-hidden border">
                     <LocationMap initialFeature={selectedFeature} onSelectionChange={handleMapSelection} />
                   </div>
@@ -132,7 +137,7 @@ const LocationModal = ({ isOpen, onOpenChange, location, onSubmit, isSubmitting 
               color="primary"
               type="submit"
               isLoading={isSubmitting}
-              isDisabled={!formik.isValid || !selectedFeature}
+              isDisabled={!formik.isValid || !selectedFeature || !formik.dirty}
             >
               {isEditing ? 'Save' : 'Submit'}
             </Button>

@@ -5,8 +5,8 @@
 export function getGeoJsonFeatureLabel(feature: any): string {
   if (!feature) return 'No address';
   return (
-    feature.text ||
     feature.place_name ||
+    feature.text ||
     feature.properties?.address ||
     feature.properties?.text ||
     feature.properties?.name ||

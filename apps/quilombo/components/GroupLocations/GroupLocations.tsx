@@ -129,12 +129,12 @@ const GroupLocations = () => {
           items={sortedGroupLocations}
           isLoading={isPending}
           loadingContent={<Spinner label="Loading..." size="sm" color="default" />}
-          emptyContent="No locations found"
+          emptyContent="This group has no locations configured"
         >
           {(item) => (
             <TableRow key={item.id}>
               {(columnKey) => (
-                <TableCell className="last:text-end first:text-left text-center">
+                <TableCell className="last:text-end text-left">
                   <TableCellValue
                     groupLocation={item}
                     columnKey={columnKey as GroupLocationTableColumnKey}

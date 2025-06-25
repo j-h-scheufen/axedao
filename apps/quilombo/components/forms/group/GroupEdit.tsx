@@ -8,7 +8,7 @@ import { Spacer } from '@heroui/react';
 import { useAtomValue } from 'jotai';
 import { GroupForm } from '.';
 
-const ProfileEdit = () => {
+const GroupEdit = () => {
   const groupId = useAtomValue(groupIdAtom);
   const logo = useAtomValue(groupLogoAtom);
   const banner = useAtomValue(groupBannerAtom);
@@ -31,10 +31,10 @@ const ProfileEdit = () => {
       </div>
       <Spacer y={2} />
       <GroupForm />
-      <Spacer y={4} />
+      <Spacer y={6} />
       <GroupLocations />
     </div>
   );
 };
 
-export default ProfileEdit;
+export default GroupEdit;

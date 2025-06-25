@@ -9,8 +9,8 @@ import { getGeoJsonFeatureLabel } from '@/components/_utils/geojson';
 
 export const COLUMNS = [
   { uid: 'name', name: 'Name' },
-  { uid: 'description', name: 'Description' },
   { uid: 'address', name: 'Address' },
+  { uid: 'description', name: 'Description' },
   { uid: 'actions', name: 'Actions' },
 ] as const;
 
@@ -48,21 +48,21 @@ const TableCellValue = ({
     case 'description':
       return groupLocation.description ? (
         <Tooltip content={groupLocation.description}>
-          <span className="text-gray-600">{truncatedDescription}</span>
+          <span>{truncatedDescription}</span>
         </Tooltip>
       ) : (
         <span className="text-gray-400 italic">No description</span>
       );
 
     case 'address':
-      return <span className="text-gray-700">{address}</span>;
+      return <span>{address}</span>;
 
     case 'actions':
       return (
         <div className="flex gap-2 justify-end">
           {onEdit && (
             <Button isIconOnly size="sm" variant="light" onPress={onEdit} isDisabled={isUpdating || isDeleting}>
-              <EditIcon className="h-4 w-4" />
+              <EditIcon className="h-4 w-4 text-default-600" />
             </Button>
           )}
           {onDelete && (
