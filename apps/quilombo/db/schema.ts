@@ -113,23 +113,7 @@ export const groupLocations = pgTable(
         sql`ST_SetSRID(ST_MakePoint((( feature -> 'geometry' -> 'coordinates') ->> 0)::numeric, (( feature -> 'geometry' -> 'coordinates') ->> 1)::numeric), 4326)`
       )
       .notNull(),
-    countryCode: varchar('country_code', { length: 2 })
-      .generatedAlwaysAs(
-        sql`
-          COALESCE(
-            -- Extract from context[].id == 'country.*'
-            (
-              SELECT lower(value->>'country_code')
-              FROM jsonb_path_query(feature->'context', '$[*] ? (@.id like_regex \"^country\\\\..*\")')
-              AS value
-              LIMIT 1
-            ),
-            -- Fallback to properties.country_code
-            lower(feature->'properties'->>'country_code')
-          )
-        `
-      )
-      .notNull(),
+    countryCode: varchar('country_code', { length: 2 }),
   },
   (t) => [index('groups_location_gix').using('gist', t.location), index('country_code_idx').on(t.countryCode)]
 );
