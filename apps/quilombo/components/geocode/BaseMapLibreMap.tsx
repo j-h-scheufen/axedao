@@ -29,7 +29,6 @@ interface BaseMapLibreMapProps {
  * @param children - Children components to be rendered inside the map
  */
 const BaseMapLibreMap = ({ geojsonData, onStyleReady, additionalCssUrls, children }: BaseMapLibreMapProps) => {
-  console.log('BaseMapLibreMap render');
   const hostRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [shadowRoot, setShadowRoot] = useState<ShadowRoot | null>(null);
@@ -39,7 +38,6 @@ const BaseMapLibreMap = ({ geojsonData, onStyleReady, additionalCssUrls, childre
 
   // Shadow DOM setup
   useEffect(() => {
-    console.log('BaseMapLibreMap: shadow DOM effect');
     if (!hostRef.current) return;
     if (hostRef.current.shadowRoot) {
       setShadowRoot(hostRef.current.shadowRoot);
@@ -56,7 +54,7 @@ const BaseMapLibreMap = ({ geojsonData, onStyleReady, additionalCssUrls, childre
   // Add additional CSS URLs to shadow root
   useEffect(() => {
     if (!shadowRoot || !additionalCssUrls) return;
-    console.log('BaseMapLibreMap: adding additional CSS URLs');
+
     for (const href of additionalCssUrls) {
       const extraLink = document.createElement('link');
       extraLink.rel = 'stylesheet';
@@ -67,7 +65,6 @@ const BaseMapLibreMap = ({ geojsonData, onStyleReady, additionalCssUrls, childre
 
   // Map creation (once)
   useEffect(() => {
-    console.log('BaseMapLibreMap: map creation effect');
     if (!shadowRoot || !containerRef.current) return;
     const map = new maplibregl.Map({
       container: containerRef.current,
@@ -80,10 +77,8 @@ const BaseMapLibreMap = ({ geojsonData, onStyleReady, additionalCssUrls, childre
     styleReadyCalledRef.current = false;
 
     const handleStyleLoad = () => {
-      console.log('BaseMapLibreMap: style loaded');
       setStyleLoaded(true);
       if (onStyleReady && !styleReadyCalledRef.current) {
-        console.log('BaseMapLibreMap: calling onStyleReady');
         onStyleReady(map);
         styleReadyCalledRef.current = true;
       }
@@ -92,7 +87,6 @@ const BaseMapLibreMap = ({ geojsonData, onStyleReady, additionalCssUrls, childre
     if (map.isStyleLoaded()) handleStyleLoad();
 
     return () => {
-      console.log('BaseMapLibreMap: map cleanup');
       map.off('style.load', handleStyleLoad);
       setTimeout(() => {
         map.remove();
@@ -107,7 +101,7 @@ const BaseMapLibreMap = ({ geojsonData, onStyleReady, additionalCssUrls, childre
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !geojsonData || !styleLoaded) return;
-    console.log('BaseMapLibreMap: adding geojson source/layer');
+
     // Remove existing layer/source if present
     if (map.getLayer('geojson-points-layer')) map.removeLayer('geojson-points-layer');
     if (map.getSource('geojson-points')) map.removeSource('geojson-points');
@@ -118,16 +112,17 @@ const BaseMapLibreMap = ({ geojsonData, onStyleReady, additionalCssUrls, childre
     });
     map.addLayer({
       id: 'geojson-points-layer',
-      type: 'symbol',
+      type: 'circle',
       source: 'geojson-points',
-      layout: {
-        'icon-image': 'marker-15',
-        'icon-size': 1.5,
+      paint: {
+        'circle-radius': 8,
+        'circle-color': '#3B82F6',
+        'circle-stroke-color': '#FFFFFF',
+        'circle-stroke-width': 2,
       },
     });
 
     return () => {
-      console.log('BaseMapLibreMap: removing geojson source/layer');
       const currentMap = mapRef.current;
       if (!currentMap) return;
       if (currentMap.getLayer('geojson-points-layer')) currentMap.removeLayer('geojson-points-layer');

@@ -254,3 +254,35 @@ export async function isLocationInGroup(locationId: string, groupId: string): Pr
     .where(and(eq(schema.groupLocations.id, locationId), eq(schema.groupLocations.groupId, groupId)));
   return result.length > 0 && result[0].value > 0;
 }
+
+export async function fetchAllGroupLocationsWithGroups(): Promise<
+  Array<schema.SelectGroupLocation & { group: schema.SelectGroup }>
+> {
+  return await db
+    .select({
+      id: schema.groupLocations.id,
+      groupId: schema.groupLocations.groupId,
+      name: schema.groupLocations.name,
+      description: schema.groupLocations.description,
+      feature: schema.groupLocations.feature,
+      location: schema.groupLocations.location,
+      countryCode: schema.groupLocations.countryCode,
+      group: {
+        id: schema.groups.id,
+        createdAt: schema.groups.createdAt,
+        updatedAt: schema.groups.updatedAt,
+        name: schema.groups.name,
+        description: schema.groups.description,
+        style: schema.groups.style,
+        email: schema.groups.email,
+        logo: schema.groups.logo,
+        banner: schema.groups.banner,
+        leader: schema.groups.leader,
+        founder: schema.groups.founder,
+        verified: schema.groups.verified,
+        links: schema.groups.links,
+      },
+    })
+    .from(schema.groupLocations)
+    .innerJoin(schema.groups, eq(schema.groupLocations.groupId, schema.groups.id));
+}

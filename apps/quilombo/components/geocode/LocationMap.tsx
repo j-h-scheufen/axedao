@@ -15,7 +15,6 @@ type Props = {
 };
 
 const LocationMap = ({ initialFeature, onSelectionChange }: Props) => {
-  console.log('LocationMap render');
   const [selectedFeature, setSelectedFeature] = useState<Feature | null>(initialFeature ?? null);
   const [controller, setController] = useState<MapController | null>(null);
   const [mapInstance, setMapInstance] = useState<maplibregl.Map | null>(null);
@@ -26,15 +25,12 @@ const LocationMap = ({ initialFeature, onSelectionChange }: Props) => {
   }, []);
 
   useEffect(() => {
-    console.log('LocationMap: useEffect for initialFeature', initialFeature);
     setSelectedFeature(initialFeature ?? null);
   }, [initialFeature]);
 
   const geojsonData: FeatureCollection<Geometry> = selectedFeature
     ? { type: 'FeatureCollection', features: [selectedFeature] }
     : { type: 'FeatureCollection', features: [] };
-
-  console.log('controller', controller, 'mapInstance', mapInstance, 'isStyleLoaded', mapInstance?.isStyleLoaded());
 
   return (
     <BaseMapLibreMap

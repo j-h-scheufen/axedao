@@ -5,6 +5,7 @@ import type { Group, User } from '@/types/model';
 export * as profile from './currentUser';
 export * as group from './group';
 export * as user from './user';
+export * as location from './location';
 
 /**
  * Query keys for react-query
@@ -27,6 +28,9 @@ export const QUERY_KEYS = {
     getGroupAdmins: 'group.getGroupAdmins',
     getGroupLocations: 'group.getGroupLocations',
     searchGroups: 'groups.search',
+  },
+  location: {
+    getLocations: 'location.getLocations',
   },
   currentUser: {
     getUser: 'currentUser.getUser',

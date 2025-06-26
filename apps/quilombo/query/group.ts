@@ -232,6 +232,8 @@ export const useCreateGroupLocationMutation = () => {
       createGroupLocation(groupId, data),
     onSuccess: (data, variables) => {
       queryClient.setQueryData([QUERY_KEYS.group.getGroupLocations, variables.groupId], data);
+      // Invalidate locations since a new location was added
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.location.getLocations] });
     },
   });
 };
@@ -243,6 +245,8 @@ export const useUpdateGroupLocationMutation = () => {
       updateGroupLocation({ groupId, locationId }, data),
     onSuccess: (data, variables) => {
       queryClient.setQueryData([QUERY_KEYS.group.getGroupLocations, variables.groupId], data);
+      // Invalidate locations since a location was updated
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.location.getLocations] });
     },
   });
 };
@@ -253,6 +257,8 @@ export const useDeleteGroupLocationMutation = () => {
     mutationFn: async ({ groupId, locationId }: GroupAndLocationParams) => deleteGroupLocation({ groupId, locationId }),
     onSuccess: (data, variables) => {
       queryClient.setQueryData([QUERY_KEYS.group.getGroupLocations, variables.groupId], data);
+      // Invalidate locations since a location was deleted
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.location.getLocations] });
     },
   });
 };
