@@ -1,5 +1,3 @@
-ALTER TABLE group_locations ADD COLUMN country_code varchar(2);
-
 CREATE OR REPLACE FUNCTION set_country_code_from_feature()
 RETURNS trigger AS $$
 BEGIN

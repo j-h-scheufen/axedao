@@ -3,11 +3,10 @@
 import { Button, Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Textarea } from '@heroui/react';
 import type { Feature as MaptilerFeature } from '@maptiler/geocoding-control/types';
 import { useFormik } from 'formik';
-import { useCallback, useEffect, useState } from 'react';
-import * as yup from 'yup';
+import { useCallback, useEffect } from 'react';
 
 import { LocationMap } from '@/components/geocode';
-import type { CreateLocationForm, UpdateLocationForm } from '@/config/validation-schema';
+import { createLocationFormSchema, type CreateLocationForm, type UpdateLocationForm } from '@/config/validation-schema';
 import type { GroupLocation } from '@/types/model';
 import { getGeoJsonFeatureLabel } from '@/components/_utils/geojson';
 
@@ -19,25 +18,20 @@ interface LocationModalProps {
   isSubmitting: boolean;
 }
 
-const locationSchema = yup.object({
-  name: yup.string().required('Location name is required'),
-  description: yup.string().optional(),
-});
-
 const LocationModal = ({ isOpen, onOpenChange, location, onSubmit, isSubmitting }: LocationModalProps) => {
   const isEditing = !!location;
-  const [selectedFeature, setSelectedFeature] = useState<MaptilerFeature | null>(
-    location?.feature ? (location.feature as MaptilerFeature) : null
-  );
+
+  const initialValues = {
+    name: location?.name || '',
+    description: location?.description || '',
+    feature: location?.feature ? (location.feature as MaptilerFeature) : (null as MaptilerFeature | null),
+  };
 
   const formik = useFormik({
-    initialValues: {
-      name: location?.name || '',
-      description: location?.description || '',
-    },
-    validationSchema: locationSchema,
+    initialValues,
+    validationSchema: createLocationFormSchema,
     onSubmit: async (values) => {
-      if (!selectedFeature) {
+      if (!values.feature) {
         return; // Form validation will prevent submission
       }
 
@@ -45,7 +39,7 @@ const LocationModal = ({ isOpen, onOpenChange, location, onSubmit, isSubmitting 
       const data = {
         name: values.name,
         description: values.description || undefined,
-        feature: selectedFeature,
+        feature: values.feature,
       };
 
       await onSubmit(data);
@@ -53,13 +47,15 @@ const LocationModal = ({ isOpen, onOpenChange, location, onSubmit, isSubmitting 
     enableReinitialize: true,
   });
 
-  const handleMapSelection = useCallback((feature: MaptilerFeature, _coordinates: [number, number]) => {
-    setSelectedFeature(feature);
-  }, []);
+  const handleMapSelection = useCallback(
+    (feature: MaptilerFeature, _coordinates: [number, number]) => {
+      formik.setFieldValue('feature', feature);
+    },
+    [formik]
+  );
 
   const handleClose = useCallback(() => {
     formik.resetForm();
-    setSelectedFeature(null);
     onOpenChange(false);
   }, [formik, onOpenChange]);
 
@@ -67,17 +63,10 @@ const LocationModal = ({ isOpen, onOpenChange, location, onSubmit, isSubmitting 
   useEffect(() => {
     if (!isOpen) {
       formik.resetForm();
-      setSelectedFeature(null);
     }
   }, [isOpen]);
 
-  useEffect(() => {
-    if (isOpen && location?.feature) {
-      setSelectedFeature(location.feature as MaptilerFeature);
-    }
-  }, [isOpen, location]);
-
-  const address = getGeoJsonFeatureLabel(selectedFeature);
+  const address = getGeoJsonFeatureLabel(formik.values.feature);
 
   return (
     <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="3xl">
@@ -88,7 +77,7 @@ const LocationModal = ({ isOpen, onOpenChange, location, onSubmit, isSubmitting 
             <div className="space-y-6">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Form Fields */}
-                <div className="space-y-4">
+                <div className="flex flex-col h-full space-y-4">
                   <Input
                     label="Location Name"
                     placeholder="Enter location name"
@@ -112,9 +101,9 @@ const LocationModal = ({ isOpen, onOpenChange, location, onSubmit, isSubmitting 
                     errorMessage={formik.touched.description && formik.errors.description}
                   />
 
-                  <div className="space-y-2">
-                    <Input label="Address" value={address} isReadOnly placeholder="Select address from map" />
-                    {!selectedFeature && (
+                  <div className="space-y-2 mt-auto">
+                    <Input label="Saved Address" value={address} isReadOnly placeholder="Select address from map" />
+                    {!formik.values.feature && (
                       <p className="text-sm text-gray-500">Please select an address using the map</p>
                     )}
                   </div>
@@ -122,8 +111,9 @@ const LocationModal = ({ isOpen, onOpenChange, location, onSubmit, isSubmitting 
 
                 {/* Map */}
                 <div className="space-y-2">
+                  <h3>Select a new location using the map</h3>
                   <div className="h-80 rounded-lg overflow-hidden border">
-                    <LocationMap initialFeature={selectedFeature} onSelectionChange={handleMapSelection} />
+                    <LocationMap initialFeature={formik.values.feature} onSelectionChange={handleMapSelection} />
                   </div>
                 </div>
               </div>
@@ -137,7 +127,7 @@ const LocationModal = ({ isOpen, onOpenChange, location, onSubmit, isSubmitting 
               color="primary"
               type="submit"
               isLoading={isSubmitting}
-              isDisabled={!formik.isValid || !selectedFeature || !formik.dirty}
+              isDisabled={!formik.isValid || !formik.values.feature || !formik.dirty}
             >
               {isEditing ? 'Save' : 'Submit'}
             </Button>

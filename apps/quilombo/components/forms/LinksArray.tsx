@@ -64,7 +64,7 @@ const LinksArray = ({ links, actions }: Props) => {
       {actions?.add && (
         <div className="flex flex-col gap-1 sm-gap-2">
           <span className="text-wrap text-small sm:text-medium">
-            Too add a link, enter a URL, select an icon, and hit &apos;+&apos;
+            To add a link, enter a URL, select an icon, and hit &apos;+&apos;
           </span>
           <div className="flex flex-row gap-1 sm:gap-2 items-start justify-end">
             <Input

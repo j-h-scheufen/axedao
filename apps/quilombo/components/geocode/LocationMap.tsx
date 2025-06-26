@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import maplibregl from 'maplibre-gl';
 import { createMapLibreGlMapController } from '@maptiler/geocoding-control/maplibregl-controller';
 import { GeocodingControl } from '@maptiler/geocoding-control/react';
@@ -15,10 +15,18 @@ type Props = {
 };
 
 const LocationMap = ({ initialFeature, onSelectionChange }: Props) => {
+  console.log('LocationMap render');
   const [selectedFeature, setSelectedFeature] = useState<Feature | null>(initialFeature ?? null);
   const [controller, setController] = useState<MapController | null>(null);
+  const [mapInstance, setMapInstance] = useState<maplibregl.Map | null>(null);
+
+  const handleStyleReady = useCallback((map: maplibregl.Map) => {
+    setMapInstance(map);
+    setController(createMapLibreGlMapController(map, maplibregl));
+  }, []);
 
   useEffect(() => {
+    console.log('LocationMap: useEffect for initialFeature', initialFeature);
     setSelectedFeature(initialFeature ?? null);
   }, [initialFeature]);
 
@@ -26,12 +34,15 @@ const LocationMap = ({ initialFeature, onSelectionChange }: Props) => {
     ? { type: 'FeatureCollection', features: [selectedFeature] }
     : { type: 'FeatureCollection', features: [] };
 
+  console.log('controller', controller, 'mapInstance', mapInstance, 'isStyleLoaded', mapInstance?.isStyleLoaded());
+
   return (
     <BaseMapLibreMap
       geojsonData={geojsonData}
-      onMapReady={(map) => setController(createMapLibreGlMapController(map, maplibregl))}
+      onStyleReady={handleStyleReady}
+      additionalCssUrls={['https://unpkg.com/@maptiler/geocoding-control/style.css']}
     >
-      {controller && (
+      {controller && mapInstance ? (
         <div style={{ position: 'absolute', top: 10, left: 10, zIndex: 1 }}>
           <GeocodingControl
             mapController={controller}
@@ -48,7 +59,7 @@ const LocationMap = ({ initialFeature, onSelectionChange }: Props) => {
             }}
           />
         </div>
-      )}
+      ) : null}
     </BaseMapLibreMap>
   );
 };
