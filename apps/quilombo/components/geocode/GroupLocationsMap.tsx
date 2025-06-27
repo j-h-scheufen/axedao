@@ -46,12 +46,7 @@ const GroupLocationsMap = ({ geojsonData }: GroupLocationsMapProps) => {
   }
 
   return (
-    <BaseMapLibreMap
-      geojsonData={mapData}
-      mapStyleUrl={SATELLITE_STYLE_URL}
-      initialCenter={INITIAL_CENTER}
-      initialZoom={INITIAL_ZOOM}
-    />
+    <BaseMapLibreMap mapStyleUrl={SATELLITE_STYLE_URL} initialCenter={INITIAL_CENTER} initialZoom={INITIAL_ZOOM} />
   );
 };
 

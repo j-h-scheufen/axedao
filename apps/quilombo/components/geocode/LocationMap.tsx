@@ -1,11 +1,11 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import maplibregl from 'maplibre-gl';
 import { createMapLibreGlMapController } from '@maptiler/geocoding-control/maplibregl-controller';
 import { GeocodingControl } from '@maptiler/geocoding-control/react';
 import type { Feature, MapController } from '@maptiler/geocoding-control/types';
-import type { FeatureCollection, Geometry } from 'geojson';
+
 import BaseMapLibreMap from './BaseMapLibreMap';
 import ENV from '@/config/environment';
 
@@ -18,8 +18,9 @@ const LocationMap = ({ initialFeature, onSelectionChange }: Props) => {
   const [selectedFeature, setSelectedFeature] = useState<Feature | null>(initialFeature ?? null);
   const [controller, setController] = useState<MapController | null>(null);
   const [mapInstance, setMapInstance] = useState<maplibregl.Map | null>(null);
+  const markerRef = useRef<maplibregl.Marker | null>(null);
 
-  const handleStyleReady = useCallback((map: maplibregl.Map) => {
+  const handleMapReady = useCallback((map: maplibregl.Map) => {
     setMapInstance(map);
     setController(createMapLibreGlMapController(map, maplibregl));
   }, []);
@@ -28,14 +29,36 @@ const LocationMap = ({ initialFeature, onSelectionChange }: Props) => {
     setSelectedFeature(initialFeature ?? null);
   }, [initialFeature]);
 
-  const geojsonData: FeatureCollection<Geometry> = selectedFeature
-    ? { type: 'FeatureCollection', features: [selectedFeature] }
-    : { type: 'FeatureCollection', features: [] };
+  // Handle marker when selectedFeature or mapInstance changes
+  useEffect(() => {
+    if (!mapInstance) return;
+
+    // Remove previous marker
+    if (markerRef.current) {
+      markerRef.current.remove();
+      markerRef.current = null;
+    }
+
+    if (
+      selectedFeature &&
+      selectedFeature.geometry.type === 'Point' &&
+      Array.isArray(selectedFeature.geometry.coordinates)
+    ) {
+      const [lng, lat] = selectedFeature.geometry.coordinates as [number, number];
+
+      // Get primary color from CSS custom properties
+      const primaryColor =
+        getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim() || '#7DC639'; // fallback to primary-500
+
+      const newMarker = new maplibregl.Marker({ color: primaryColor }).setLngLat([lng, lat]).addTo(mapInstance);
+      markerRef.current = newMarker;
+      mapInstance.flyTo({ center: [lng, lat], zoom: 14 });
+    }
+  }, [selectedFeature, mapInstance]);
 
   return (
     <BaseMapLibreMap
-      geojsonData={geojsonData}
-      onStyleReady={handleStyleReady}
+      onMapReady={handleMapReady}
       additionalCssUrls={['https://unpkg.com/@maptiler/geocoding-control/style.css']}
     >
       {controller && mapInstance ? (
