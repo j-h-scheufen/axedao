@@ -154,7 +154,7 @@ const GroupLocations = () => {
       <LocationModal
         isOpen={isLocationModalOpen}
         onOpenChange={onLocationModalOpenChange}
-        location={editingLocation}
+        savedLocation={editingLocation}
         onSubmit={handleLocationSubmit}
         isSubmitting={isCreating || isUpdating}
       />

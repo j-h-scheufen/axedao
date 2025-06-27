@@ -17,6 +17,9 @@ interface BaseMapLibreMapProps {
   children?: React.ReactNode;
 }
 
+export const DEFAULT_CENTER: [number, number] = [0, 20];
+export const DEFAULT_ZOOM = 1.2;
+
 /**
  * MapLibre map component that implements a shadow root to isolate the map from the rest of the page.
  * Calls onMapReady(map) only after the map's created and the style is loaded.
@@ -31,8 +34,8 @@ interface BaseMapLibreMapProps {
  */
 const BaseMapLibreMap = ({
   mapStyleUrl = 'https://api.maptiler.com/maps/basic/style.json',
-  initialCenter = [0, 20],
-  initialZoom = 1.2,
+  initialCenter = DEFAULT_CENTER,
+  initialZoom = DEFAULT_ZOOM,
   onMapReady,
   additionalCssUrls,
   children,

@@ -4,6 +4,7 @@
 
 export { default as AmountInput } from './AmountInput';
 export { default as FieldInput } from './FieldInput';
+export { default as FieldTextarea } from './FieldTextarea';
 export { default as FounderField } from './FounderField';
 export { default as GroupSelect } from './GroupSelect';
 export { default as ImageUpload } from './ImageUpload';

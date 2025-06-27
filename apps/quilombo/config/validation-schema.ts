@@ -1,6 +1,6 @@
 import { isValidIPFSHash } from '@/utils';
 import { array, boolean, type InferType, mixed, number, object, string } from 'yup';
-import type { Feature, Geometry } from 'geojson';
+import type { Feature, Geometry, GeoJsonProperties } from 'geojson';
 
 import { linkTypes, MAX_IMAGE_UPLOAD_SIZE_MB, styles, titles, validFileExtensions } from './constants';
 
@@ -175,31 +175,7 @@ export const testForAddress = (value: string) => {
 export const createLocationFormSchema = object({
   name: string().required('Location name is required'),
   description: string().optional(),
-  feature: mixed()
-    .test(
-      'is-geojson-feature',
-      'Must be a valid GeoJSON Feature with display text',
-      (value): value is Feature<Geometry> => {
-        if (!value || typeof value !== 'object') return false;
-        // biome-ignore lint/suspicious/noExplicitAny: any is used to start validation
-        const feature = value as any;
-
-        // Check if it's a valid GeoJSON Feature
-        if (feature.type !== 'Feature') return false;
-        if (!feature.geometry || !feature.geometry.coordinates) return false;
-
-        // Ensure we have some form of display text
-        const hasDisplayText =
-          feature.text ||
-          feature.place_name ||
-          feature.properties?.address ||
-          feature.properties?.text ||
-          feature.properties?.name;
-
-        return !!hasDisplayText;
-      }
-    )
-    .required(),
+  feature: mixed<Feature<Geometry, GeoJsonProperties>>().required('Please select a location from the map'),
 });
 
 export type CreateLocationForm = InferType<typeof createLocationFormSchema>;
