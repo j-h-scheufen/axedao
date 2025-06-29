@@ -2,7 +2,7 @@
 
 import { useMemo, useRef, useEffect, useState, useCallback } from 'react';
 import Supercluster from 'supercluster';
-import { IconLayer } from '@deck.gl/layers';
+import { IconLayer, ScatterplotLayer, TextLayer } from '@deck.gl/layers';
 import { MapboxOverlay } from '@deck.gl/mapbox';
 import { useAtomValue } from 'jotai';
 
@@ -53,36 +53,84 @@ const GroupLocationsMap = () => {
     return superclusterRef.current.getClusters(bounds, Math.round(zoom));
   }, [bounds, zoom]);
 
-  // Prepare data for IconLayer: clusters and points
-  const markerData = useMemo(() => {
-    const data = clusters.map((feature: any) => {
+  // Separate clusters and individual points
+  const { clusterData, pointData } = useMemo(() => {
+    const clusterArray: any[] = [];
+    const pointArray: any[] = [];
+
+    clusters.forEach((feature: any) => {
       const [longitude, latitude] = feature.geometry.coordinates;
       if (feature.properties.cluster) {
-        // Cluster marker
-        return {
-          icon: '/favicon-16x16.png', // Use a special cluster icon if you want
+        // Cluster data
+        clusterArray.push({
           coordinates: [longitude, latitude] as [number, number],
           point_count: feature.properties.point_count,
-          cluster: true,
-        };
+        });
+      } else {
+        // Individual point data
+        pointArray.push({
+          icon: feature.properties.icon,
+          groupId: feature.properties.groupId,
+          name: feature.properties.name,
+          coordinates: [longitude, latitude] as [number, number],
+        });
       }
-      // Single point marker
-      return {
-        icon: feature.properties.icon,
-        groupId: feature.properties.groupId,
-        name: feature.properties.name,
-        coordinates: [longitude, latitude] as [number, number],
-        cluster: false,
-      };
     });
-    return data;
+
+    console.log('Cluster data:', clusterArray.length, 'clusters');
+    console.log('Point data:', pointArray.length, 'points');
+
+    return { clusterData: clusterArray, pointData: pointArray };
   }, [clusters]);
 
-  const iconLayer = useMemo(
+  // ScatterplotLayer for clusters (circles)
+  const clusterLayer = useMemo(
+    () =>
+      new ScatterplotLayer<any>({
+        id: 'cluster-layer',
+        data: clusterData,
+        pickable: true,
+        getPosition: (d) => d.coordinates,
+        getRadius: (d) => Math.max(20, 15 + Math.log2(d.point_count) * 6), // Smaller circles
+        getFillColor: [127, 217, 42, 200], // Primary color from HeroUI theme with transparency
+        getLineColor: [255, 255, 255, 200], // White border with transparency
+        getLineWidth: 2,
+        stroked: true,
+        filled: true,
+        opacity: 0.9,
+        radiusMinPixels: 15,
+        radiusMaxPixels: 80,
+      }),
+    [clusterData]
+  );
+
+  // TextLayer for cluster counts
+  const clusterTextLayer = useMemo(
+    () =>
+      new TextLayer<any>({
+        id: 'cluster-text-layer',
+        data: clusterData,
+        pickable: false,
+        getPosition: (d) => d.coordinates,
+        getText: (d) => String(d.point_count),
+        getSize: 14,
+        getColor: [255, 255, 255], // White text
+        getTextAnchor: 'middle',
+        getAlignmentBaseline: 'center',
+        fontFamily: 'Arial, sans-serif',
+        fontWeight: 'bold',
+        background: false,
+        backgroundPadding: [0, 0, 0, 0],
+      }),
+    [clusterData]
+  );
+
+  // IconLayer for individual points
+  const pointLayer = useMemo(
     () =>
       new IconLayer<any>({
-        id: 'group-locations-icon-layer',
-        data: markerData,
+        id: 'point-layer',
+        data: pointData,
         pickable: true,
         getPosition: (d) => d.coordinates,
         iconAtlas: '/favicon-16x16.png',
@@ -91,9 +139,9 @@ const GroupLocationsMap = () => {
         },
         getIcon: (d) => 'marker',
         getSize: 32,
-        getColor: (d) => (d.cluster ? [0, 128, 255, 200] : [255, 255, 255]),
+        getColor: [255, 255, 255], // White icons
       }),
-    [markerData]
+    [pointData]
   );
 
   const handleMapReady = useCallback(
@@ -108,8 +156,11 @@ const GroupLocationsMap = () => {
       map.on('moveend', updateBoundsAndZoom);
       map.on('zoomend', updateBoundsAndZoom);
 
-      // Create and add deck.gl overlay
-      const overlay = new MapboxOverlay({ layers: [iconLayer], interleaved: false });
+      // Create and add deck.gl overlay with all layers
+      const overlay = new MapboxOverlay({
+        layers: [clusterLayer, clusterTextLayer, pointLayer],
+        interleaved: false,
+      });
       overlayRef.current = overlay;
       map.addControl(overlay);
 
@@ -121,15 +172,17 @@ const GroupLocationsMap = () => {
         }
       };
     },
-    [iconLayer]
+    [clusterLayer, clusterTextLayer, pointLayer]
   );
 
-  // Update deck.gl overlay when iconLayer changes
+  // Update deck.gl overlay when layers change
   useEffect(() => {
     if (overlayRef.current) {
-      overlayRef.current.setProps({ layers: [iconLayer] });
+      overlayRef.current.setProps({
+        layers: [clusterLayer, clusterTextLayer, pointLayer],
+      });
     }
-  }, [iconLayer]);
+  }, [clusterLayer, clusterTextLayer, pointLayer]);
 
   // Now do conditional rendering
   if (isPending) {
