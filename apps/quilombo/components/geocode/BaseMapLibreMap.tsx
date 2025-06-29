@@ -46,6 +46,12 @@ const BaseMapLibreMap = ({
   const mapRef = useRef<maplibregl.Map | null>(null);
   const [styleLoaded, setStyleLoaded] = useState(false);
   const styleReadyCalledRef = useRef(false);
+  const onMapReadyRef = useRef(onMapReady);
+
+  // Update the ref when onMapReady changes
+  useEffect(() => {
+    onMapReadyRef.current = onMapReady;
+  }, [onMapReady]);
 
   // Shadow DOM setup
   useEffect(() => {
@@ -73,7 +79,8 @@ const BaseMapLibreMap = ({
     }
   }, [shadowRoot, additionalCssUrls]);
 
-  // Map creation (once)
+  // Map creation - only depends on shadowRoot and mapStyleUrl
+  // biome-ignore lint/correctness/useExhaustiveDependencies: suppress to prevent infinite map recreation
   useEffect(() => {
     if (!shadowRoot || !containerRef.current) return;
     const map = new maplibregl.Map({
@@ -88,8 +95,8 @@ const BaseMapLibreMap = ({
 
     const handleStyleLoad = () => {
       setStyleLoaded(true);
-      if (onMapReady && !styleReadyCalledRef.current) {
-        onMapReady(map);
+      if (onMapReadyRef.current && !styleReadyCalledRef.current) {
+        onMapReadyRef.current(map);
         styleReadyCalledRef.current = true;
       }
     };
@@ -105,7 +112,7 @@ const BaseMapLibreMap = ({
         styleReadyCalledRef.current = false;
       }, 0);
     };
-  }, [shadowRoot, onMapReady, mapStyleUrl]);
+  }, [shadowRoot, mapStyleUrl]);
 
   // Handle center and zoom changes after map is created
   useEffect(() => {

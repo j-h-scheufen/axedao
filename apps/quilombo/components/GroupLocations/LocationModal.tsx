@@ -3,7 +3,7 @@
 import { Button, Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from '@heroui/react';
 import type { Feature as MaptilerFeature } from '@maptiler/geocoding-control/types';
 import { Field, Form, Formik, type FormikProps } from 'formik';
-import { useCallback } from 'react';
+import { useCallback, useRef } from 'react';
 import type { Feature, Geometry, GeoJsonProperties } from 'geojson';
 
 import { LocationMap } from '@/components/geocode';
@@ -27,6 +27,7 @@ interface LocationModalProps {
 
 const LocationModal = ({ isOpen, onOpenChange, savedLocation, onSubmit, isSubmitting }: LocationModalProps) => {
   const isEditing = !!location;
+  const setFieldValueRef = useRef<any>(null);
 
   const initialValues: UpdateLocationForm = {
     name: savedLocation?.name || '',
@@ -55,6 +56,16 @@ const LocationModal = ({ isOpen, onOpenChange, savedLocation, onSubmit, isSubmit
     onOpenChange(false);
   }, [onOpenChange]);
 
+  const handleLocationMapSelection = useCallback(
+    (feature: Feature<Geometry, GeoJsonProperties>, _coordinates: [number, number]) => {
+      if (setFieldValueRef.current) {
+        // Cast back to MaptilerFeature since that's what we store
+        setFieldValueRef.current('feature', feature as MaptilerFeature);
+      }
+    },
+    []
+  );
+
   return (
     <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="3xl">
       <ModalContent>
@@ -74,13 +85,8 @@ const LocationModal = ({ isOpen, onOpenChange, savedLocation, onSubmit, isSubmit
           }: FormikProps<typeof initialValues>) => {
             const address = getGeoJsonFeatureLabel(values.feature);
 
-            const handleLocationMapSelection = useCallback(
-              (feature: Feature<Geometry, GeoJsonProperties>, _coordinates: [number, number]) => {
-                // Cast back to MaptilerFeature since that's what we store
-                setFieldValue('feature', feature as MaptilerFeature);
-              },
-              [setFieldValue]
-            );
+            // Update the ref with the current setFieldValue
+            setFieldValueRef.current = setFieldValue;
 
             return (
               <Form className="flex flex-col gap-2 sm:gap-4">
