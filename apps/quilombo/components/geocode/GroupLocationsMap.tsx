@@ -30,7 +30,7 @@ const GroupLocationsMap = () => {
         geometry: feature.geometry,
         properties: {
           ...feature.properties,
-          icon: getImageUrl(feature.properties?.groupLogo) || '/favicon-16x16.png',
+          icon: getImageUrl(feature.properties?.groupLogo) || '/favicon-32x32.png',
         },
       }));
   }, [locations]);
@@ -77,9 +77,6 @@ const GroupLocationsMap = () => {
       }
     });
 
-    console.log('Cluster data:', clusterArray.length, 'clusters');
-    console.log('Point data:', pointArray.length, 'points');
-
     return { clusterData: clusterArray, pointData: pointArray };
   }, [clusters]);
 
@@ -125,21 +122,38 @@ const GroupLocationsMap = () => {
     [clusterData]
   );
 
-  // IconLayer for individual points
-  const pointLayer = useMemo(
+  // Individual point markers with white border (composite approach)
+  const pointBorderLayer = useMemo(
+    () =>
+      new ScatterplotLayer<any>({
+        id: 'point-border-layer',
+        data: pointData,
+        pickable: false,
+        getPosition: (d) => d.coordinates,
+        getRadius: 17,
+        radiusUnits: 'pixels',
+        getLineColor: [255, 255, 255, 255],
+        getLineWidth: 2,
+        lineWidthUnits: 'pixels',
+        stroked: true,
+        filled: false,
+      }),
+    [pointData]
+  );
+
+  const pointIconLayer = useMemo(
     () =>
       new IconLayer<any>({
-        id: 'point-layer',
+        id: 'point-icon-layer',
         data: pointData,
         pickable: true,
         getPosition: (d) => d.coordinates,
-        iconAtlas: '/favicon-16x16.png',
+        iconAtlas: '/favicon-32x32.png',
         iconMapping: {
-          marker: { x: 0, y: 0, width: 16, height: 16, mask: false },
+          marker: { x: 0, y: 0, width: 32, height: 32, mask: false },
         },
         getIcon: (d) => 'marker',
         getSize: 32,
-        getColor: [255, 255, 255], // White icons
       }),
     [pointData]
   );
@@ -158,7 +172,7 @@ const GroupLocationsMap = () => {
 
       // Create and add deck.gl overlay with all layers
       const overlay = new MapboxOverlay({
-        layers: [clusterLayer, clusterTextLayer, pointLayer],
+        layers: [clusterLayer, clusterTextLayer, pointBorderLayer, pointIconLayer],
         interleaved: false,
       });
       overlayRef.current = overlay;
@@ -172,17 +186,17 @@ const GroupLocationsMap = () => {
         }
       };
     },
-    [clusterLayer, clusterTextLayer, pointLayer]
+    [clusterLayer, clusterTextLayer, pointBorderLayer, pointIconLayer]
   );
 
   // Update deck.gl overlay when layers change
   useEffect(() => {
     if (overlayRef.current) {
       overlayRef.current.setProps({
-        layers: [clusterLayer, clusterTextLayer, pointLayer],
+        layers: [clusterLayer, clusterTextLayer, pointBorderLayer, pointIconLayer],
       });
     }
-  }, [clusterLayer, clusterTextLayer, pointLayer]);
+  }, [clusterLayer, clusterTextLayer, pointBorderLayer, pointIconLayer]);
 
   // Now do conditional rendering
   if (isPending) {

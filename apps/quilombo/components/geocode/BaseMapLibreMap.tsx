@@ -17,8 +17,8 @@ interface BaseMapLibreMapProps {
   children?: React.ReactNode;
 }
 
-export const DEFAULT_CENTER: [number, number] = [0, 20];
-export const DEFAULT_ZOOM = 1.2;
+export const DEFAULT_CENTER: [number, number] = [10, 16];
+export const DEFAULT_ZOOM = 0.8;
 
 /**
  * MapLibre map component that implements a shadow root to isolate the map from the rest of the page.
