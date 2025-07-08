@@ -20,6 +20,7 @@ import { useSession } from 'next-auth/react';
 import NextLink from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import clsx from 'clsx';
 
 import { PATHS } from '@/config/constants';
 import { currentUserAtom, currentUserAvatarUrlAtom } from '@/hooks/state/currentUser';
@@ -60,8 +61,8 @@ const Navbar: React.FC = () => {
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
         classNames={{
-          item: ['px-2 py-1', '[&[data-active=true]]:text-primary', '[&[data-active=true]]:font-bold'],
-          menuItem: ['px-2 py-1', '[&[data-active=true]]:text-primary', '[&[data-active=true]]:font-bold'],
+          item: ['data-[active=true]:text-primary-400', 'data-[active=true]:dark:text-primary'],
+          menuItem: ['data-[active=true]:text-primary-400', 'data-[active=true]:dark:text-primary'],
         }}
       >
         <NavbarContent>
@@ -74,8 +75,8 @@ const Navbar: React.FC = () => {
         </NavbarContent>
 
         <NavbarContent className="flex sm:hidden w-full" justify="center">
-          <NavbarItem isActive className="custom-navbar-item">
-            <Link color="foreground" href={activePage.path} size="lg" className="text-inherit">
+          <NavbarItem isActive>
+            <Link color="primary" href={activePage.path} size="lg" className="text-xl font-bold">
               {activePage.label}
             </Link>
           </NavbarItem>
@@ -83,17 +84,32 @@ const Navbar: React.FC = () => {
 
         <NavbarContent className="hidden sm:flex gap-4" justify="center">
           <NavbarItem isActive={isPathDashboard}>
-            <Link color="foreground" href={PATHS.search} size="lg" className="text-inherit">
+            <Link
+              color="foreground"
+              href={PATHS.search}
+              size="lg"
+              className={clsx('text-inherit w-full', isPathDashboard && 'text-xl font-bold')}
+            >
               Find
             </Link>
           </NavbarItem>
           <NavbarItem isActive={isPathAxe}>
-            <Link color="foreground" href={PATHS.axe} size="lg" className="text-inherit">
+            <Link
+              color="foreground"
+              href={PATHS.axe}
+              size="lg"
+              className={clsx('text-inherit w-full', isPathAxe && 'text-xl font-bold')}
+            >
               Axé
             </Link>
           </NavbarItem>
           <NavbarItem isActive={isPathDao}>
-            <Link color="foreground" href={PATHS.dao} size="lg" className="text-inherit">
+            <Link
+              color="foreground"
+              href={PATHS.dao}
+              size="lg"
+              className={clsx('text-inherit w-full', isPathDao && 'text-xl font-bold')}
+            >
               Organization
             </Link>
           </NavbarItem>
@@ -141,12 +157,13 @@ const Navbar: React.FC = () => {
             </Dropdown>
           )}
         </NavbarContent>
+        {/* Mobile burger menu */}
         <NavbarMenu>
           {inactivePages.map((page) => (
-            <NavbarMenuItem key={page.key} isActive={pathname === page.path}>
+            <NavbarMenuItem key={page.key}>
               <Link
                 color="foreground"
-                className="w-full text-inherit"
+                className="text-inherit w-full"
                 href={page.path}
                 size="lg"
                 onPress={() => setIsMenuOpen(false)}
@@ -155,21 +172,6 @@ const Navbar: React.FC = () => {
               </Link>
             </NavbarMenuItem>
           ))}
-          {/* Keep existing desktop menu items for larger screens */}
-          {isPathAxe && (
-            <NavbarMenuItem isActive={isPathAxe} className="hidden">
-              <Link color="foreground" className="w-full text-inherit" href={PATHS.axe} size="lg">
-                Axé
-              </Link>
-            </NavbarMenuItem>
-          )}
-          {isPathDao && (
-            <NavbarMenuItem isActive={isPathDao} className="hidden">
-              <Link color="foreground" className="w-full text-inherit" href={PATHS.dao} size="lg">
-                Organization
-              </Link>
-            </NavbarMenuItem>
-          )}
         </NavbarMenu>
       </NextUINavbar>
       <OnboardingModal />
