@@ -5,7 +5,7 @@ import Supercluster from 'supercluster';
 import { IconLayer, ScatterplotLayer, TextLayer } from '@deck.gl/layers';
 import { MapboxOverlay } from '@deck.gl/mapbox';
 import type { PickingInfo } from '@deck.gl/core';
-import { useAtomValue, useSetAtom } from 'jotai';
+import { useAtomValue } from 'jotai';
 
 import { locationsAtom, groupLogoAtlasAtom } from '@/hooks/state/location';
 import BaseMapLibreMap from './BaseMapLibreMap';
@@ -158,15 +158,8 @@ const GroupLocationsMap = () => {
   // IconLayer for group logos (only render when atlas is ready)
   const pointIconLayer = useMemo(() => {
     if (!groupLogoAtlas) {
-      console.log('[Map] groupLogoAtlas not ready');
       return null;
     }
-    console.log('[Map] groupLogoAtlas mapping:', groupLogoAtlas.mapping);
-    console.log('[Map] groupLogoAtlas image src:', groupLogoAtlas.image.src);
-    console.log(
-      '[Map] pointData:',
-      pointData.map((d) => ({ icon: d.icon, coordinates: d.coordinates }))
-    );
     return new IconLayer<any>({
       id: 'point-icon-layer',
       data: pointData,

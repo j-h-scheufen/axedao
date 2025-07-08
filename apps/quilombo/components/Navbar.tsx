@@ -41,6 +41,16 @@ const Navbar: React.FC = () => {
   const isPathAxe = pathname === PATHS.axe;
   const isPathDao = pathname === PATHS.dao;
 
+  const NAV_PAGES = [
+    { key: 'search', label: 'Find', path: PATHS.search },
+    { key: 'axe', label: 'Axé', path: PATHS.axe },
+    { key: 'dao', label: 'Organization', path: PATHS.dao },
+  ];
+
+  // Determine active page
+  const activePage = NAV_PAGES.find((p) => pathname === p.path) || NAV_PAGES[0];
+  const inactivePages = NAV_PAGES.filter((p) => p.key !== activePage.key);
+
   return (
     <>
       <NextUINavbar
@@ -50,8 +60,8 @@ const Navbar: React.FC = () => {
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
         classNames={{
-          item: ['data-[active=true]:text-primary-400', 'data-[active=true]:dark:text-primary'],
-          menuItem: ['data-[active=true]:text-primary-400', 'data-[active=true]:dark:text-primary'],
+          item: ['px-2 py-1', '[&[data-active=true]]:text-primary', '[&[data-active=true]]:font-bold'],
+          menuItem: ['px-2 py-1', '[&[data-active=true]]:text-primary', '[&[data-active=true]]:font-bold'],
         }}
       >
         <NavbarContent>
@@ -64,9 +74,9 @@ const Navbar: React.FC = () => {
         </NavbarContent>
 
         <NavbarContent className="flex sm:hidden w-full" justify="center">
-          <NavbarItem isActive={isPathDashboard}>
-            <Link color="foreground" href={PATHS.search} size="lg" className="text-inherit">
-              Search
+          <NavbarItem isActive className="custom-navbar-item">
+            <Link color="foreground" href={activePage.path} size="lg" className="text-inherit">
+              {activePage.label}
             </Link>
           </NavbarItem>
         </NavbarContent>
@@ -74,7 +84,7 @@ const Navbar: React.FC = () => {
         <NavbarContent className="hidden sm:flex gap-4" justify="center">
           <NavbarItem isActive={isPathDashboard}>
             <Link color="foreground" href={PATHS.search} size="lg" className="text-inherit">
-              Search
+              Find
             </Link>
           </NavbarItem>
           <NavbarItem isActive={isPathAxe}>
@@ -132,28 +142,34 @@ const Navbar: React.FC = () => {
           )}
         </NavbarContent>
         <NavbarMenu>
-          <NavbarMenuItem isActive={isPathAxe}>
-            <Link
-              color="foreground"
-              className="w-full text-inherit"
-              href={PATHS.axe}
-              size="lg"
-              onPress={() => setIsMenuOpen(false)}
-            >
-              Axé
-            </Link>
-          </NavbarMenuItem>
-          <NavbarMenuItem isActive={isPathDao}>
-            <Link
-              color="foreground"
-              className="w-full text-inherit"
-              href={PATHS.dao}
-              size="lg"
-              onPress={() => setIsMenuOpen(false)}
-            >
-              Organization
-            </Link>
-          </NavbarMenuItem>
+          {inactivePages.map((page) => (
+            <NavbarMenuItem key={page.key} isActive={pathname === page.path}>
+              <Link
+                color="foreground"
+                className="w-full text-inherit"
+                href={page.path}
+                size="lg"
+                onPress={() => setIsMenuOpen(false)}
+              >
+                {page.label}
+              </Link>
+            </NavbarMenuItem>
+          ))}
+          {/* Keep existing desktop menu items for larger screens */}
+          {isPathAxe && (
+            <NavbarMenuItem isActive={isPathAxe} className="hidden">
+              <Link color="foreground" className="w-full text-inherit" href={PATHS.axe} size="lg">
+                Axé
+              </Link>
+            </NavbarMenuItem>
+          )}
+          {isPathDao && (
+            <NavbarMenuItem isActive={isPathDao} className="hidden">
+              <Link color="foreground" className="w-full text-inherit" href={PATHS.dao} size="lg">
+                Organization
+              </Link>
+            </NavbarMenuItem>
+          )}
         </NavbarMenu>
       </NextUINavbar>
       <OnboardingModal />

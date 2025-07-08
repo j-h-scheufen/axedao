@@ -43,7 +43,7 @@ const GroupLocationPopover: FC<GroupLocationPopoverProps> = ({ location, address
       <div className="font-bold mb-1">{location.groupName}</div>
       <div className="text-xs text-gray-500 mb-2 text-center">{address}</div>
       <Button as={Link} href={`/groups/${location.groupId}`} color="primary" size="sm">
-        Details
+        Go to group
       </Button>
     </Card>
   </div>
