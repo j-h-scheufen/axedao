@@ -1,12 +1,24 @@
-import PageHeading from '@/components/PageHeading';
-import Overview from '@/components/Overview';
+'use client';
 
-const page = () => {
+import { Tab } from '@heroui/react';
+
+import PageTabs from '@/components/PageTabs';
+import Users from '@/components/Users';
+import Groups from '@/components/Groups';
+
+const SearchPage = () => {
   return (
-    <div>
-      <PageHeading>Overview</PageHeading>
-      <Overview />
-    </div>
+    <PageTabs>
+      <Tab key="users" title="People">
+        <Users />
+      </Tab>
+      <Tab key="groups" title="Groups">
+        <Groups />
+      </Tab>
+      <Tab key="rodas" title="Rodas">
+        <div>Rodas</div>
+      </Tab>
+    </PageTabs>
   );
 };
-export default page;
+export default SearchPage;
