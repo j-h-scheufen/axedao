@@ -103,8 +103,6 @@ export type ImageUploadForm = InferType<typeof imageUploadSchema>;
 export const createNewGroupFormSchema = object({
   name: string().required('Group name is required'),
   verified: boolean().default(false),
-  city: string(),
-  country: string().required('Country is required'),
 });
 
 export type CreateNewGroupForm = InferType<typeof createNewGroupFormSchema>;

@@ -114,3 +114,14 @@ export const isValidIPFSHash = (hash: string): boolean => {
     return false;
   }
 };
+
+const flagCache: Record<string, string> = {};
+
+export function getFlagEmoji(countryCode: string): string {
+  const code = countryCode.toUpperCase();
+  if (flagCache[code]) return flagCache[code];
+  if (!/^[A-Z]{2}$/.test(code)) return '';
+  const flag = String.fromCodePoint(...[...code].map((c) => 0x1f1e6 + c.charCodeAt(0) - 65));
+  flagCache[code] = flag;
+  return flag;
+}

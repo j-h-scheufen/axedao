@@ -34,7 +34,7 @@ const GroupActions = () => {
       />
       {isGroupMember && !isGroupAdmin && (
         <Button variant="light" size="sm" color="danger" onPress={onOpen} isLoading={isPending}>
-          Leave group
+          Leave Group
         </Button>
       )}
       {isGroupAdmin && (
@@ -45,7 +45,7 @@ const GroupActions = () => {
           variant="light"
           startContent={<SettingsIcon className="h-4 w-4" />}
         >
-          Settings
+          Edit Group
         </Button>
       )}
     </div>

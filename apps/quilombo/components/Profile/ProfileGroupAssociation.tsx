@@ -8,9 +8,9 @@ import { currentUserGroupAtom } from '@/hooks/state/currentUser';
 import CreateGroupAssociation from '../CreateGroupAssociation';
 
 const ProfileGroupAssociation = () => {
-  const { data: group, isFetching } = useAtomValue(currentUserGroupAtom);
+  const { data: group, isLoading } = useAtomValue(currentUserGroupAtom);
 
-  if (isFetching) return <Spinner />;
+  if (isLoading) return <Spinner />;
 
   return group ? <GroupCard group={group} /> : <CreateGroupAssociation />;
 };

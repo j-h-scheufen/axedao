@@ -13,10 +13,10 @@ import { getImageUrl } from '@/utils';
 import { GroupActions, GroupBanner, GroupLogo } from '.';
 
 const GroupView = () => {
-  const { data: group, isFetching } = useAtomValue(groupAtom);
+  const { data: group, isLoading } = useAtomValue(groupAtom);
   const isFounderUuid = useAtomValue(isFounderUuidAtom);
 
-  if (!group || isFetching) return <Spinner />;
+  if (!group || isLoading) return <Spinner />;
   return (
     <>
       <GroupBanner />
