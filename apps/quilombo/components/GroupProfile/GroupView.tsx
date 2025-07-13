@@ -21,8 +21,8 @@ const GroupView = () => {
     <>
       <GroupBanner />
       {/* Repeating relevant attributes from (main) layout */}
-      <div className="flex flex-col px-3 mt-4 gap-2 sm:gap-3">
-        <div className="flex gap-3 sm:gap-4 w-full">
+      <div className="flex flex-col px-2 mt-4 gap-2 sm:gap-3">
+        <div className="flex gap-3 sm:gap-4 w-full px-1">
           <GroupLogo url={getImageUrl(group.logo)} />
           <div className="flex flex-col w-full">
             <div className="flex justify-between">

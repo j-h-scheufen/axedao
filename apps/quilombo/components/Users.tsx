@@ -18,7 +18,7 @@ const Users = () => {
         <Input
           isClearable
           onClear={() => setSearchTerm('')}
-          className="w-full md:max-w-sm"
+          className="w-full max-w-sm"
           placeholder="Search by name or nickname"
           startContent={<Search className="h-4 w-4" />}
           labelPlacement="outside"

@@ -24,7 +24,7 @@ const Groups = () => {
             setInputValue('');
             setSearchTerm('');
           }}
-          className="w-full md:max-w-sm"
+          className="w-full max-w-sm"
           placeholder="Search by group name"
           startContent={<Search className="h-4 w-4" />}
           labelPlacement="outside"
@@ -36,7 +36,7 @@ const Groups = () => {
           }}
         />
       </div>
-      <Tabs aria-label="List / Map View" fullWidth>
+      <Tabs aria-label="List / Map View" fullWidth classNames={{ panel: 'px-0 py-0' }}>
         <Tab key="list" title="List">
           <div className="flex flex-col gap-1 sm:gap-2">
             <p className="text-sm">
