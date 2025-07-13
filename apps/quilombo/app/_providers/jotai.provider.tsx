@@ -4,7 +4,7 @@ import { Provider as JotaiProvider } from 'jotai';
 import { queryClientAtom } from 'jotai-tanstack-query';
 import { useHydrateAtoms } from 'jotai/react/utils';
 import { useSession } from 'next-auth/react';
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 
 import { triggerCurrentUserIdAtom } from '@/hooks/state/currentUser';
 import { useQueryClient } from '@tanstack/react-query';

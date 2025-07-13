@@ -53,3 +53,8 @@ docker run --name drizzle-postgres -e POSTGRES_PASSWORD=mypassword -d -p 5432:54
 ```
 
 Set the ENV variable `DATABASE_URL` to `postgres://postgres:mypassword@localhost:5432/postgres`
+
+
+IMPORTANT: For the postgres / postgis geolocation features, the "postgis" exension must be added to the DB which is done on a particular schema.
+To keep things clean, we've added it to the "gis" schema. However, for DB migrations to work, this schema needs to be added to the `search_path`.
+The quickest way to do that is to append it as a parameter to the DATABASE_URL like so: `?options=-csearch_path%3D%24user,public,extensions,gis`

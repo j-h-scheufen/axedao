@@ -26,8 +26,6 @@ export async function GET(request: NextRequest) {
   const pageSize = Number(searchParams.get('pageSize')) || QUERY_DEFAULT_PAGE_SIZE;
   const offset = Number(searchParams.get('offset'));
   const searchTerm = searchParams.get('searchTerm');
-  const city = searchParams.get('city');
-  const country = searchParams.get('country');
   let verified: string | null | boolean | undefined = searchParams.get('verified');
   verified = verified === 'false' ? false : verified === 'true' || undefined;
   let nextOffset = null;
@@ -37,25 +35,31 @@ export async function GET(request: NextRequest) {
     searchOptions = groupSearchSchema.validateSync({
       pageSize,
       offset,
-      ...omitBy({ searchTerm, city, country, verified }, isNil),
+      ...omitBy({ searchTerm, verified }, isNil),
     });
   } catch (error) {
     console.error('Unable to validate input data', error);
     return NextResponse.json({ error: 'Invalid input data' }, { status: 400 });
   }
 
-  const groups = await searchGroups(searchOptions);
-  // we retrieve one more than the pageSize to determine if there are more results
-  // TODO: better solution: https://github.com/drizzle-team/drizzle-orm/discussions/610
-  if (groups.length > pageSize) {
+  const searchResults = await searchGroups(searchOptions);
+
+  // Calculate nextOffset based on totalCount and offset
+  if (searchResults.totalCount > offset + pageSize) {
     nextOffset = offset + pageSize;
-    groups.pop();
+  } else if (searchResults.totalCount > offset) {
+    nextOffset = searchResults.totalCount;
+  } else {
+    nextOffset = null;
   }
 
-  const result: GroupSearchResult = {
-    data: groups,
-    nextOffset,
-  };
+  // Convert SelectGroup to Group by excluding updatedAt and adding countryName
+  const groups = searchResults.rows.map(({ updatedAt, ...group }) => ({
+    ...group,
+    countryCodes: [], // TODO: add country codes from group locations
+  }));
+
+  const result: GroupSearchResult = { data: groups, totalCount: searchResults.totalCount, nextOffset };
   return Response.json(result);
 }
 

@@ -1,6 +1,6 @@
 import { Chip } from '@heroui/react';
 
-import { GroupMemberRole } from '@/types/model';
+import type { GroupMemberRole } from '@/types/model';
 
 const roleChipClasses: Record<string, string | string[]> = {
   member: 'default',

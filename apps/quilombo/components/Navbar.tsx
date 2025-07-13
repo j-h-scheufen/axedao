@@ -20,6 +20,7 @@ import { useSession } from 'next-auth/react';
 import NextLink from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import clsx from 'clsx';
 
 import { PATHS } from '@/config/constants';
 import { currentUserAtom, currentUserAvatarUrlAtom } from '@/hooks/state/currentUser';
@@ -40,6 +41,16 @@ const Navbar: React.FC = () => {
   const isPathDashboard = pathname === PATHS.search;
   const isPathAxe = pathname === PATHS.axe;
   const isPathDao = pathname === PATHS.dao;
+
+  const NAV_PAGES = [
+    { key: 'search', label: 'Find', path: PATHS.search },
+    { key: 'axe', label: 'Axé', path: PATHS.axe },
+    { key: 'dao', label: 'Organization', path: PATHS.dao },
+  ];
+
+  // Determine active page
+  const activePage = NAV_PAGES.find((p) => pathname === p.path) || NAV_PAGES[0];
+  const inactivePages = NAV_PAGES.filter((p) => p.key !== activePage.key);
 
   return (
     <>
@@ -64,26 +75,41 @@ const Navbar: React.FC = () => {
         </NavbarContent>
 
         <NavbarContent className="flex sm:hidden w-full" justify="center">
-          <NavbarItem isActive={isPathDashboard}>
-            <Link color="foreground" href={PATHS.search} size="lg" className="text-inherit">
-              Search
+          <NavbarItem isActive>
+            <Link color="primary" href={activePage.path} size="lg" className="text-xl font-bold">
+              {activePage.label}
             </Link>
           </NavbarItem>
         </NavbarContent>
 
         <NavbarContent className="hidden sm:flex gap-4" justify="center">
           <NavbarItem isActive={isPathDashboard}>
-            <Link color="foreground" href={PATHS.search} size="lg" className="text-inherit">
-              Search
+            <Link
+              color="foreground"
+              href={PATHS.search}
+              size="lg"
+              className={clsx('text-inherit w-full', isPathDashboard && 'text-xl font-bold')}
+            >
+              Find
             </Link>
           </NavbarItem>
           <NavbarItem isActive={isPathAxe}>
-            <Link color="foreground" href={PATHS.axe} size="lg" className="text-inherit">
+            <Link
+              color="foreground"
+              href={PATHS.axe}
+              size="lg"
+              className={clsx('text-inherit w-full', isPathAxe && 'text-xl font-bold')}
+            >
               Axé
             </Link>
           </NavbarItem>
           <NavbarItem isActive={isPathDao}>
-            <Link color="foreground" href={PATHS.dao} size="lg" className="text-inherit">
+            <Link
+              color="foreground"
+              href={PATHS.dao}
+              size="lg"
+              className={clsx('text-inherit w-full', isPathDao && 'text-xl font-bold')}
+            >
               Organization
             </Link>
           </NavbarItem>
@@ -131,29 +157,21 @@ const Navbar: React.FC = () => {
             </Dropdown>
           )}
         </NavbarContent>
+        {/* Mobile burger menu */}
         <NavbarMenu>
-          <NavbarMenuItem isActive={isPathAxe}>
-            <Link
-              color="foreground"
-              className="w-full text-inherit"
-              href={PATHS.axe}
-              size="lg"
-              onPress={() => setIsMenuOpen(false)}
-            >
-              Axé
-            </Link>
-          </NavbarMenuItem>
-          <NavbarMenuItem isActive={isPathDao}>
-            <Link
-              color="foreground"
-              className="w-full text-inherit"
-              href={PATHS.dao}
-              size="lg"
-              onPress={() => setIsMenuOpen(false)}
-            >
-              Organization
-            </Link>
-          </NavbarMenuItem>
+          {inactivePages.map((page) => (
+            <NavbarMenuItem key={page.key}>
+              <Link
+                color="foreground"
+                className="text-inherit w-full"
+                href={page.path}
+                size="lg"
+                onPress={() => setIsMenuOpen(false)}
+              >
+                {page.label}
+              </Link>
+            </NavbarMenuItem>
+          ))}
         </NavbarMenu>
       </NextUINavbar>
       <OnboardingModal />

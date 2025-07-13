@@ -24,7 +24,7 @@ type Props = {
  */
 const ImageUpload = ({ value, ownerId, useFileUploadMutation: useDynamicMutation, classname, avatarProps }: Props) => {
   const { mutateAsync, error: uploadError, isPending } = useDynamicMutation();
-  const [imagePreview, setImagePreview] = useState<string | undefined>(value ? getImageUrl(value) ?? '' : '');
+  const [imagePreview, setImagePreview] = useState<string | undefined>(value ? (getImageUrl(value) ?? '') : '');
   const [validationError, setValidationError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -95,20 +95,18 @@ const ImageUpload = ({ value, ownerId, useFileUploadMutation: useDynamicMutation
             <Spinner />
           </div>
         ) : (
-          <>
-            {value && (
-              <div className="absolute inset-0 flex items-center justify-center bg-transparent p-3 gap-1">
-                <Camera
-                  className="h-[28px] sm:h-[35px] w-[28px] sm:w-[35px] cursor-pointer stroke-black fill-primary"
-                  onClick={selectImageFile}
-                />
-                <Trash2
-                  className="h-[28px] sm:h-[35px] w-[28px] sm:w-[35px] cursor-pointer stroke-black fill-primary"
-                  onClick={() => handleDelete()}
-                />
-              </div>
-            )}
-          </>
+          value && (
+            <div className="absolute inset-0 flex items-center justify-center bg-transparent p-3 gap-1">
+              <Camera
+                className="h-[28px] sm:h-[35px] w-[28px] sm:w-[35px] cursor-pointer stroke-black fill-primary"
+                onClick={selectImageFile}
+              />
+              <Trash2
+                className="h-[28px] sm:h-[35px] w-[28px] sm:w-[35px] cursor-pointer stroke-black fill-primary"
+                onClick={() => handleDelete()}
+              />
+            </div>
+          )
         )}
       </div>
       {uploadError && <span className="mt-1 inline-block text-small text-danger">{uploadError.message}</span>}

@@ -5,7 +5,7 @@ import type { FormikErrors } from 'formik';
 import { useFormik } from 'formik';
 import { debounce } from 'lodash';
 import { enqueueSnackbar } from 'notistack';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, type FC } from 'react';
 import { type Address, formatUnits, parseUnits } from 'viem';
 import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 
@@ -22,7 +22,7 @@ import type { TradeFormProps } from './Swap';
 
 const slippageTolerance = 100n; //basispoints
 
-const Sell: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUpdate }) => {
+const Sell: FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUpdate }) => {
   const account = useAccount();
   const [isUpdating, setIsUpdating] = useState<boolean>(false);
   const [exceedsAllowance, setExceedsAllowance] = useState<boolean>(false);
@@ -59,12 +59,12 @@ const Sell: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onU
 
   // update amountOut from getAmount estimate
   // the axe donation was subtracted from the input before the estimate, so the estimate should be accurate
+  // biome-ignore lint/correctness/useExhaustiveDependencies: effect not dependent on formik
   useEffect(() => {
     formik.setFieldValue(
       'amountOut',
       amountOut && amountOut > 0n ? Number(formatUnits(amountOut, 18)).toFixed(4).toLocaleString() : ''
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amountOut]);
 
   // reactions to approve receipt outcome
@@ -81,7 +81,7 @@ const Sell: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onU
     }
   }, [approveLoading, approveSuccess, approveError, updateAllowance]);
 
-  // reactions to swap receipt outcome
+  // biome-ignore lint/correctness/useExhaustiveDependencies: effect not dependent on formik
   useEffect(() => {
     if (swapLoading) {
       enqueueSnackbar('Swap submitted. Please allow some time to confirm ...', {
@@ -97,7 +97,6 @@ const Sell: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onU
     } else if (swapError) {
       enqueueSnackbar(`The Swap has failed: ${swapError.message}`);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [swapLoading, swapSuccess, swapError, onUpdate]);
 
   useEffect(() => {

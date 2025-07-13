@@ -1,4 +1,4 @@
-import { User } from '@/types/model';
+import type { User } from '@/types/model';
 import { getUserDisplayName } from '@/utils';
 
 type Props = { user: User };

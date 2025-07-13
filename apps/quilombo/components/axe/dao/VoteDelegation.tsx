@@ -90,7 +90,7 @@ const VoteDelegation: React.FC = () => {
 
   useEffect(() => {
     if (currentDelegationAddress === selectedCandidate?.walletAddress) return;
-    let newSelection: CandidateUser | undefined = undefined;
+    let newSelection: CandidateUser | undefined;
     if (currentDelegationAddress) {
       newSelection = candidates?.find((candidate) => candidate.walletAddress === currentDelegationAddress);
     }

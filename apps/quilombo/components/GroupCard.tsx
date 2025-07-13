@@ -11,7 +11,7 @@ import VerificationBadge from './VerificationBadge';
 type Props = { group: Group; className?: string; cardFooter?: ReactNode };
 
 const GroupCard = ({ group, className = '', cardFooter = null }: Props) => {
-  const { name, id, logo, verified, countryName } = group;
+  const { name, id, logo, verified, countryCodes } = group;
   return (
     <Card as={Link} href={`${PATHS.groups}/${id}`}>
       <CardBody className={clsx('flex flex-row gap-3 p-2', className)}>
@@ -20,11 +20,11 @@ const GroupCard = ({ group, className = '', cardFooter = null }: Props) => {
         </VerificationBadge>
         <div className="flex-1 flex flex-col">
           <h3 className="flex items-center text-md">{name}</h3>
-          {countryName && (
+          {countryCodes.length > 0 && (
             <div className="flex items-center gap-2">
-              <span className="flex items-center gap-1 text-small text-default-500">
+              <span className="flex items-center gap-1 text-small text-default-500 uppercase">
                 <MapPinIcon className="h-3 w-3" />
-                {countryName}
+                {countryCodes.join(', ')}
               </span>
             </div>
           )}

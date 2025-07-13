@@ -58,12 +58,18 @@ const fetchProposals = async (): Promise<Proposal[]> => {
     return [];
   }
 
+  // biome-ignore lint/suspicious/noExplicitAny: any is accepted due to lack of types
   const proposals = data.submitProposals.map((p: any) => {
+    // biome-ignore lint/suspicious/noExplicitAny: any is accepted due to lack of types
     const votes = data.submitVotes.filter((v: any) => v.proposal === p.proposal);
+    // biome-ignore lint/suspicious/noExplicitAny: any is accepted due to lack of types
     const yesVotes = votes.filter((v: any) => v.approved).reduce((sum: bigint, v: any) => sum + BigInt(v.balance), 0n);
+    // biome-ignore lint/suspicious/noExplicitAny: any is accepted due to lack of types
     const noVotes = votes.filter((v: any) => !v.approved).reduce((sum: bigint, v: any) => sum + BigInt(v.balance), 0n);
 
+    // biome-ignore lint/suspicious/noExplicitAny: any is accepted due to lack of types
     const processResult = data.processProposals.find((pp: any) => pp.proposal === p.proposal);
+    // biome-ignore lint/suspicious/noExplicitAny: any is accepted due to lack of types
     const isCancelled = data.cancelProposals.some((cp: any) => cp.proposal === p.proposal);
 
     const proposal = {
@@ -82,7 +88,9 @@ const fetchProposals = async (): Promise<Proposal[]> => {
 };
 
 function calculateStatus(
+  // biome-ignore lint/suspicious/noExplicitAny: any is accepted due to lack of types
   proposal: any,
+  // biome-ignore lint/suspicious/noExplicitAny: any is accepted due to lack of types
   processResult: any | undefined,
   isCancelled: boolean,
   yesVotes: bigint,

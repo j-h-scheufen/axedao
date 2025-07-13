@@ -2,8 +2,13 @@ import { atom } from 'jotai';
 import { atomWithQuery } from 'jotai-tanstack-query';
 
 import type { SocialLink } from '@/db/schema';
-import { fetchGroupAdminsOptions, fetchGroupMembersOptions, fetchGroupOptions } from '@/query/group';
-import type { Group, User } from '@/types/model';
+import {
+  fetchGroupAdminsOptions,
+  fetchGroupLocationsOptions,
+  fetchGroupMembersOptions,
+  fetchGroupOptions,
+} from '@/query/group';
+import type { Group, GroupLocation, User } from '@/types/model';
 import { getImageUrl, isUUID } from '@/utils';
 import { currentUserGroupIdAtom, currentUserIdAtom } from './currentUser';
 
@@ -39,3 +44,7 @@ export const isCurrentUserGroupAdminAtom = atom<boolean>(
 export const isCurrentUserGroupMemberAtom = atom<boolean>((get) => get(groupIdAtom) === get(currentUserGroupIdAtom));
 
 export const isFounderUuidAtom = atom<boolean>((get) => isUUID(get(groupFounderAtom) ?? ''));
+
+export const groupLocationsAtom = atomWithQuery<GroupLocation[]>((get) =>
+  fetchGroupLocationsOptions(get(triggerGroupIdAtom))
+);

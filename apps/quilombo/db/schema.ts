@@ -1,9 +1,11 @@
-import { relations } from 'drizzle-orm';
+import { relations, sql } from 'drizzle-orm';
 import {
   type AnyPgColumn,
   boolean,
+  geometry,
   index,
   json,
+  jsonb,
   pgEnum,
   pgTable,
   primaryKey,
@@ -15,6 +17,7 @@ import {
 } from 'drizzle-orm/pg-core';
 
 import { linkTypes, styles, titles } from '@/config/constants';
+import type { Feature, Geometry } from 'geojson';
 
 export const titleEnum = pgEnum('title', titles);
 export const linkTypeEnum = pgEnum('link_type', linkTypes);
@@ -42,15 +45,13 @@ export const users = pgTable(
     isGlobalAdmin: boolean('is_global_admin').default(false).notNull(),
     links: json('links').$type<SocialLink[]>().notNull().default([]),
   },
-  (table) => {
-    return {
-      nicknameIdx: index('nickname_idx').on(table.nickname),
-      titleIdx: index('title_idx').on(table.title),
-      groupIdx: index('group_idx').on(table.groupId),
-      emailIdx: index('email_idx').on(table.email),
-      walletAddressIdx: uniqueIndex('wallet_address_idx').on(table.walletAddress),
-    };
-  }
+  (t) => [
+    index('nickname_idx').on(t.nickname),
+    index('title_idx').on(t.title),
+    index('group_idx').on(t.groupId),
+    index('email_idx').on(t.email),
+    uniqueIndex('wallet_address_idx').on(t.walletAddress),
+  ]
 );
 
 export const groups = pgTable(
@@ -70,15 +71,9 @@ export const groups = pgTable(
     leader: uuid('leader_id').references((): AnyPgColumn => users.id, { onDelete: 'set null' }),
     founder: varchar('founder'),
     verified: boolean('verified').notNull().default(false),
-    city: varchar('city'),
-    country: varchar('country').notNull(),
     links: json('links').$type<SocialLink[]>().notNull().default([]),
   },
-  (table) => {
-    return {
-      nameIdx: index('name_idx').on(table.name),
-    };
-  }
+  (t) => [index('name_idx').on(t.name)]
 );
 
 export const groupAdmins = pgTable(
@@ -91,11 +86,7 @@ export const groupAdmins = pgTable(
       .notNull()
       .references(() => users.id, { onDelete: 'cascade' }),
   },
-  (table) => {
-    return {
-      pk: primaryKey({ columns: [table.groupId, table.userId] }),
-    };
-  }
+  (t) => [primaryKey({ columns: [t.groupId, t.userId] })]
 );
 
 export const userGroupRelations = relations(users, ({ one }) => ({
@@ -105,6 +96,28 @@ export const userGroupRelations = relations(users, ({ one }) => ({
   }),
 }));
 
+export const groupLocations = pgTable(
+  'group_locations',
+  {
+    id: uuid('id').defaultRandom().primaryKey(),
+    groupId: uuid('group_id')
+      .notNull()
+      .references(() => groups.id, { onDelete: 'cascade' }),
+    name: varchar('name').notNull(),
+    description: text('description'),
+    feature: jsonb('feature').$type<Feature<Geometry>>().notNull(),
+
+    /* derive geometry(Point,4326) from GeoJSON */
+    location: geometry('location', { type: 'point', srid: 4326 })
+      .generatedAlwaysAs(
+        sql`ST_SetSRID(ST_MakePoint((( feature -> 'geometry' -> 'coordinates') ->> 0)::numeric, (( feature -> 'geometry' -> 'coordinates') ->> 1)::numeric), 4326)`
+      )
+      .notNull(),
+    countryCode: varchar('country_code', { length: 2 }),
+  },
+  (t) => [index('groups_location_gix').using('gist', t.location), index('country_code_idx').on(t.countryCode)]
+);
+
 export type InsertUser = typeof users.$inferInsert;
 export type SelectUser = typeof users.$inferSelect;
 
@@ -113,3 +126,6 @@ export type SelectGroup = typeof groups.$inferSelect;
 
 export type InsertGroupAdmin = typeof groupAdmins.$inferInsert;
 export type SelectGroupAdmin = typeof groupAdmins.$inferSelect;
+
+export type InsertGroupLocation = typeof groupLocations.$inferInsert;
+export type SelectGroupLocation = typeof groupLocations.$inferSelect;

@@ -1,6 +1,5 @@
 'use client';
 
-import { useInfiniteScroll } from '@heroui/use-infinite-scroll';
 import { useState } from 'react';
 import { useDebounce } from 'use-debounce';
 
@@ -12,15 +11,15 @@ const useUserSearch = () => {
   const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } = useSearchUsers({
     searchTerm: debouncedSearchTerm,
   });
-  const [loaderRef, scrollerRef] = useInfiniteScroll({ hasMore: hasNextPage, onLoadMore: fetchNextPage });
 
   return {
     searchTerm,
     setSearchTerm,
     users: data?.pages.flatMap((page) => page.data) || [],
+    totalCount: data?.pages[0]?.totalCount || 0,
     isLoading: isFetching || isFetchingNextPage,
-    loaderRef,
-    scrollerRef,
+    hasNextPage,
+    fetchNextPage,
   };
 };
 

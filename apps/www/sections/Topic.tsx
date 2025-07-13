@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
+import Image from 'next/image';
 import { Button, Card, CardBody, CardFooter, CardHeader, Link } from '@heroui/react';
 import { useTransform, useScroll, motion } from 'framer-motion';
 
@@ -49,12 +50,20 @@ const Topic: React.FC<TopicProps> = ({
 
   // style={{ position, top: '10vh' }}
 
+  const MotionImage = motion(Image);
+
   return (
     <section ref={targetRef} className="relative z-10 my-[10%] h-[70vh]">
       <motion.div className="sticky top-[10vh]">
         <div className="relative flex">
           <motion.div style={{ x: xImg }} className={`origin-top ${imgMotionClasses}`}>
-            <motion.img src={bgImg} className={`h-auto max-h-none w-[90vw] rounded-2xl ${imgClasses}`} />
+            <MotionImage
+              src={bgImg}
+              alt={title}
+              width={1440}
+              height={810}
+              className={`h-auto max-h-none w-[90vw] rounded-2xl ${imgClasses}`}
+            />
           </motion.div>
           <motion.div style={{ x: xCard }} className={`absolute right-9 top-10 origin-top ${cardMotionClasses}`}>
             <Card className={`z-20 border-2 bg-gradient-to-br from-amber-200 to-stone-300 ${cardClasses}`}>
