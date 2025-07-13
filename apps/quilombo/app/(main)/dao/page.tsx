@@ -15,7 +15,7 @@ const DaoPage = () => {
           <DaoMembership />
         </div>
       </Tab>
-      <Tab key="council" title="Council" className="w-full">
+      <Tab key="council" title="Council" className="w-full max-w-lg mx-auto">
         <div className="flex w-full flex-col gap-2 sm:gap-4 items-center">
           <h2 className="text-3xl font-bold text-center mb-1">Council</h2>
           <p className="text-center">The Council is the decision-making body of the Axé DAO.</p>
@@ -29,7 +29,7 @@ const DaoPage = () => {
           <Proposals />
         </div>
       </Tab>
-      <Tab key="assets" title="Assets" className="w-full">
+      <Tab key="assets" title="Assets" className="w-full max-w-lg mx-auto">
         <div className="flex w-full flex-col gap-2 sm:gap-4 items-center">
           <h2 className="text-3xl font-bold text-center mb-1">Assets</h2>
           <p className="text-center">The Axé DAO controls multiple treasuries.</p>

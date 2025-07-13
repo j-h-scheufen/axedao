@@ -68,7 +68,7 @@ const Swap: React.FC = () => {
   }, [updateAxeBalance, updateSwapBalance, updateReserves]);
 
   return (
-    <div className="inline-block w-full max-w-lg">
+    <div className="inline-block w-full">
       <Tabs size="lg" aria-label="Buy / Sell Tabs" fullWidth>
         <Tab key="buy" title="Buy">
           <Card>

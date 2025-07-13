@@ -7,6 +7,8 @@ import type { GroupLocationFeatureCollection } from '@/types/model';
 // Global locations for map view
 export const locationsAtom = atomWithQuery<GroupLocationFeatureCollection>(() => fetchLocationsOptions());
 
+export const filteredLocationsAtom = atom<GroupLocationFeatureCollection | null>(null);
+
 // --- Sprite Atlas for Group Logos ---
 // This atom depends on locationsAtom and builds a sprite atlas for group logos using Next.js image optimization API.
 // It returns { image: HTMLImageElement, mapping: ... } or null if not ready.

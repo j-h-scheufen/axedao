@@ -52,7 +52,7 @@ export async function searchUsers(options: SearchParams): Promise<{ rows: schema
 
   const mappedResult = {
     records: rawResults.map((result) => result.record),
-    count: rawResults[0].count,
+    count: rawResults.length > 0 ? rawResults[0].count : 0,
   };
 
   return {
@@ -93,7 +93,7 @@ export async function searchGroups(
 
   const mappedResult = {
     records: rawResults.map((result) => result.record),
-    count: rawResults[0].count,
+    count: rawResults.length > 0 ? rawResults[0].count : 0,
   };
 
   return {

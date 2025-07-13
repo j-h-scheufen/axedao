@@ -13,8 +13,8 @@ const Users = () => {
   const debouncedSearch = debounce(setSearchTerm, SEARCH_INPUT_DEBOUNCE);
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex h-fit flex-col items-start justify-start gap-3 md:flex-row md:items-end">
+    <div className="flex flex-col gap-4 mt-1 sm:mt-3">
+      <div className="flex h-fit items-center justify-center w-full">
         <Input
           isClearable
           onClear={() => setSearchTerm('')}

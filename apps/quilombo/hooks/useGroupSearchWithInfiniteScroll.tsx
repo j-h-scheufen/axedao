@@ -1,9 +1,14 @@
 'use client';
 
 import { useInfiniteScroll } from './useInfiniteScroll';
-import useGroupSearch from './useGroupSearch';
+import useGroupSearch, { type UseGroupSearchResult } from './useGroupSearch';
+import type { RefObject } from 'react';
 
-const useGroupSearchWithInfiniteScroll = () => {
+interface UseGroupSearchWithInfiniteScrollResult extends UseGroupSearchResult {
+  scrollerRef: RefObject<HTMLDivElement | null>;
+}
+
+const useGroupSearchWithInfiniteScroll = (): UseGroupSearchWithInfiniteScrollResult => {
   const searchData = useGroupSearch();
   const scrollerRef = useInfiniteScroll({
     hasMore: searchData.hasNextPage,

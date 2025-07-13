@@ -7,16 +7,19 @@ import { MapboxOverlay } from '@deck.gl/mapbox';
 import type { PickingInfo } from '@deck.gl/core';
 import { useAtomValue } from 'jotai';
 
-import { locationsAtom, groupLogoAtlasAtom } from '@/hooks/state/location';
+import { groupLogoAtlasAtom } from '@/hooks/state/location';
 import BaseMapLibreMap from './BaseMapLibreMap';
 import { getGeoJsonFeatureLabel } from '@/components/_utils/geojson';
 import GroupLocationPopover from './GroupLocationPopover';
-import type { GroupLocationFeatureProperties } from '@/types/model';
+import type { GroupLocationFeatureCollection, GroupLocationFeatureProperties } from '@/types/model';
 
 const SATELLITE_STYLE_URL = 'https://api.maptiler.com/maps/satellite/style.json';
 
-const GroupLocationsMap = () => {
-  const { data: locations, isPending, error } = useAtomValue(locationsAtom);
+interface GroupLocationsMapProps {
+  locations: GroupLocationFeatureCollection;
+}
+
+const GroupLocationsMap = ({ locations }: GroupLocationsMapProps) => {
   const groupLogoAtlas = useAtomValue(groupLogoAtlasAtom);
 
   // Add state for bounds and zoom
@@ -233,7 +236,7 @@ const GroupLocationsMap = () => {
     [locations]
   );
 
-  if (isPending) {
+  if (!locations || !groupLogoAtlas) {
     return (
       <div className="w-full h-96 bg-gray-100 rounded-lg flex items-center justify-center">
         <div className="text-gray-500">Loading map...</div>
@@ -241,19 +244,10 @@ const GroupLocationsMap = () => {
     );
   }
 
-  if (error) {
-    console.error('GroupLocationsMap error:', error);
-    return (
-      <div className="w-full h-96 bg-red-50 rounded-lg flex items-center justify-center">
-        <div className="text-red-500">Error loading map data</div>
-      </div>
-    );
-  }
-
-  if (!locations || locations.features.length === 0) {
+  if (locations.features.length === 0) {
     return (
       <div className="w-full h-96 bg-gray-50 rounded-lg flex items-center justify-center">
-        <div className="text-gray-500">No locations available</div>
+        <div className="text-gray-500">No locations found for this search</div>
       </div>
     );
   }
