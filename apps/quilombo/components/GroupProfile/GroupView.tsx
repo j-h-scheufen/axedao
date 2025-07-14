@@ -6,6 +6,7 @@ import { MailIcon } from 'lucide-react';
 
 import ContactInfo from '@/components/ContactInfo';
 import { GroupMembers } from '@/components/GroupMembers';
+import GroupLocations from '@/components/GroupLocations/GroupLocations';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import UserCardWithFetch from '@/components/UserCardWithFetch';
 import { groupAtom, isFounderUuidAtom } from '@/hooks/state/group';
@@ -62,6 +63,7 @@ const GroupView = () => {
             )}
           </>
         )}
+        <GroupLocations />
         <SubsectionHeading>Members</SubsectionHeading>
         <GroupMembers />
       </div>

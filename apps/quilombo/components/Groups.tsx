@@ -4,14 +4,15 @@ import { Input, Tabs, Tab } from '@heroui/react';
 import { Search } from 'lucide-react';
 import { useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
+import { useAtomValue } from 'jotai';
 import type { Key } from 'react';
 
-import GroupsGrid from './GroupsGrid';
 import useGroupSearchWithInfiniteScroll from '@/hooks/useGroupSearchWithInfiniteScroll';
-import GroupLocationsMap from './geocode/GroupLocationsMap';
-import { useAtomValue } from 'jotai';
 import { filteredLocationsAtom } from '@/hooks/state/location';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
+
+import GroupsGrid from './GroupsGrid';
+import GroupLocationsMap from './geocode/GroupLocationsMap';
 
 const Groups = () => {
   const searchParams = useSearchParams();

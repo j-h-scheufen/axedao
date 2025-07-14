@@ -1,8 +1,8 @@
 'use client';
 
-import type { PropsWithChildren, ReactElement } from 'react';
 import { Tabs } from '@heroui/react';
-import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import type { PropsWithChildren, ReactElement } from 'react';
 
 const PageTabs = ({ children }: PropsWithChildren): ReactElement => {
   const searchParams = useSearchParams();
