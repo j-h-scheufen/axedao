@@ -24,7 +24,7 @@ import { LocationModal, DeleteLocationModal } from '.';
 import type { CreateLocationForm, UpdateLocationForm } from '@/config/validation-schema';
 
 const GroupLocations = () => {
-  const { data: groupLocations, isPending } = useAtomValue(groupLocationsAtom);
+  const { data: groupLocations, isLoading } = useAtomValue(groupLocationsAtom);
   const groupId = useAtomValue(groupIdAtom);
   const isGroupAdmin = useAtomValue(isCurrentUserGroupAdminAtom);
 
@@ -97,9 +97,12 @@ const GroupLocations = () => {
     [groupLocations]
   );
 
-  const filteredColumns = [...COLUMNS].filter((column) => (isGroupAdmin ? true : column.uid !== 'actions'));
+  // Show loading state if admin status is still being determined
+  if (isGroupAdmin === null || isLoading) {
+    return <GroupLocationsSkeleton />;
+  }
 
-  if (isPending) return <GroupLocationsSkeleton />;
+  const filteredColumns = [...COLUMNS].filter((column) => (isGroupAdmin ? true : column.uid !== 'actions'));
 
   return (
     <>
@@ -128,7 +131,7 @@ const GroupLocations = () => {
         </TableHeader>
         <TableBody
           items={sortedGroupLocations}
-          isLoading={isPending}
+          isLoading={isLoading}
           loadingContent={<Spinner label="Loading..." size="sm" color="default" />}
           emptyContent="This group has no locations configured"
         >

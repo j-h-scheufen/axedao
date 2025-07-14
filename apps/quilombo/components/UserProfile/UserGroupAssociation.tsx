@@ -7,9 +7,9 @@ import GroupCard from '@/components/GroupCard';
 import { userGroupAtom } from '@/hooks/state/user';
 
 const UserGroupAssociation = () => {
-  const { data: group, isFetching } = useAtomValue(userGroupAtom);
+  const { data: group, isLoading } = useAtomValue(userGroupAtom);
 
-  if (isFetching) return <Spinner />;
+  if (isLoading) return <Spinner />;
 
   return group ? (
     <GroupCard group={group} />

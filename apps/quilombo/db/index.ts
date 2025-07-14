@@ -75,31 +75,79 @@ export async function fetchUser(userId: string): Promise<schema.SelectUser | und
   });
 }
 
-export async function searchGroups(
-  options: GroupSearchParams
-): Promise<{ rows: schema.SelectGroup[]; totalCount: number }> {
+/**
+ *
+ */
+export async function searchGroups(options: GroupSearchParams): Promise<{ rows: Group[]; totalCount: number }> {
   const { pageSize = QUERY_DEFAULT_PAGE_SIZE, offset = 0, searchTerm, verified } = options;
 
   const filters: (SQLWrapper | undefined)[] = [];
   if (searchTerm) filters.push(ilike(schema.groups.name, `%${searchTerm}%`));
   if (typeof verified === 'boolean') filters.push(eq(schema.groups.verified, verified));
 
-  const rawResults = await db
-    .select({ record: schema.groups, count: sql<number>`count(*) over()` })
+  const results = await db
+    .select({
+      id: schema.groups.id,
+      createdAt: schema.groups.createdAt,
+      name: schema.groups.name,
+      description: schema.groups.description,
+      style: schema.groups.style,
+      email: schema.groups.email,
+      logo: schema.groups.logo,
+      banner: schema.groups.banner,
+      leader: schema.groups.leader,
+      founder: schema.groups.founder,
+      verified: schema.groups.verified,
+      links: schema.groups.links,
+
+      countryCodes: sql<string[]>`ARRAY_REMOVE(ARRAY_AGG(DISTINCT ${schema.groupLocations.countryCode}), NULL)`.as(
+        'country_codes'
+      ),
+      count: sql<number>`count(*) over()`,
+    })
     .from(schema.groups)
-    .where(filters.length ? or(...filters) : undefined)
+    .leftJoin(schema.groupLocations, eq(schema.groups.id, schema.groupLocations.groupId))
+    .where(filters.length ? and(...filters) : undefined)
+    .groupBy(schema.groups.id)
     .limit(pageSize)
     .offset(offset);
 
-  const mappedResult = {
-    records: rawResults.map((result) => result.record),
-    count: rawResults.length > 0 ? rawResults[0].count : 0,
-  };
-
   return {
-    rows: mappedResult.records,
-    totalCount: mappedResult.count,
+    rows: results,
+    totalCount: results.length > 0 ? results[0].count : 0,
   };
+}
+
+/**
+ * Efficiently fetch a single group and its countryCodes using a single query with aggregation.
+ */
+export async function fetchGroup(groupId: string): Promise<Group | undefined> {
+  const result = await db
+    .select({
+      id: schema.groups.id,
+      createdAt: schema.groups.createdAt,
+      name: schema.groups.name,
+      description: schema.groups.description,
+      style: schema.groups.style,
+      email: schema.groups.email,
+      logo: schema.groups.logo,
+      banner: schema.groups.banner,
+      leader: schema.groups.leader,
+      founder: schema.groups.founder,
+      verified: schema.groups.verified,
+      links: schema.groups.links,
+
+      countryCodes: sql<string[]>`ARRAY_REMOVE(ARRAY_AGG(DISTINCT ${schema.groupLocations.countryCode}), NULL)`.as(
+        'country_codes'
+      ),
+    })
+    .from(schema.groups)
+    .leftJoin(schema.groupLocations, eq(schema.groups.id, schema.groupLocations.groupId))
+    .where(eq(schema.groups.id, groupId))
+    .groupBy(schema.groups.id)
+    .limit(1);
+
+  return result[0] as Group | undefined;
 }
 
 export async function isGroupMember(groupId: string, userId: string): Promise<boolean> {
@@ -131,18 +179,6 @@ export async function isGroupAdmin(groupId: string, userId: string): Promise<boo
   return result.length > 0 && result[0].value > 0;
 }
 
-export async function fetchGroup(groupId: string): Promise<Group | undefined> {
-  const result = await db.query.groups.findFirst({
-    where: (groups, { eq }) => eq(groups.id, groupId),
-  });
-  return result
-    ? {
-        ...result,
-        countryCodes: [], // TODO: add country codes from group locations
-      }
-    : undefined;
-}
-
 export async function fetchGroupMembers(groupId: string): Promise<schema.SelectUser[]> {
   return await db
     .select()
@@ -167,9 +203,9 @@ export async function insertUser(userValues: schema.InsertUser) {
   return user;
 }
 
-export async function insertGroup(group: schema.InsertGroup) {
-  const groups = await db.insert(schema.groups).values(group).returning();
-  return groups.length ? groups[0] : undefined;
+export async function insertGroup(group: schema.InsertGroup): Promise<Group | undefined> {
+  await db.insert(schema.groups).values(group);
+  return fetchGroup(group.id);
 }
 
 export async function deleteGroup(groupId: string) {

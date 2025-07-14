@@ -18,7 +18,7 @@ import { getGroupMemberRoles } from '@/utils';
 import TableCellValue, { COLUMNS, type GroupMemberTableColumnKey } from './TableCellValue';
 
 const GroupMembers = () => {
-  const { data: groupMembers, isPending } = useAtomValue(groupMembersAtom);
+  const { data: groupMembers, isLoading } = useAtomValue(groupMembersAtom);
   const groupFounder = useAtomValue(groupFounderAtom);
   const groupLeader = useAtomValue(groupLeaderAtom);
   const { data: groupAdminIds } = useAtomValue(groupAdminIdsAtom);
@@ -38,9 +38,12 @@ const GroupMembers = () => {
     [groupMembers]
   );
 
-  const filteredColumns = [...COLUMNS].filter((column) => (isGroupAdmin ? true : column.uid !== 'actions'));
+  // Show loading state if admin status is still being determined
+  if (isGroupAdmin === null || isLoading) {
+    return <GroupMembersSkeleton />;
+  }
 
-  if (isPending) return <GroupMembersSkeleton />;
+  const filteredColumns = [...COLUMNS].filter((column) => (isGroupAdmin ? true : column.uid !== 'actions'));
 
   return (
     <Table aria-label="Group members table" hideHeader removeWrapper>
@@ -53,7 +56,7 @@ const GroupMembers = () => {
       </TableHeader>
       <TableBody
         items={sortedGroupMembers}
-        isLoading={isPending}
+        isLoading={isLoading}
         loadingContent={<Spinner label="Loading..." size="sm" color="default" />}
         emptyContent="No members found"
       >

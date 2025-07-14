@@ -22,8 +22,6 @@ const CreateNewGroupForm = () => {
   // NOTE: The initial form values MUST BE declared outside of JSX, otherwise it can lead to hydration errors.
   const initValues: FormType = {
     name: '',
-    country: '',
-    city: '',
     verified: false,
   };
 

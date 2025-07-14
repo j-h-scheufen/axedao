@@ -53,13 +53,7 @@ export async function GET(request: NextRequest) {
     nextOffset = null;
   }
 
-  // Convert SelectGroup to Group by excluding updatedAt and adding countryName
-  const groups = searchResults.rows.map(({ updatedAt, ...group }) => ({
-    ...group,
-    countryCodes: [], // TODO: add country codes from group locations
-  }));
-
-  const result: GroupSearchResult = { data: groups, totalCount: searchResults.totalCount, nextOffset };
+  const result: GroupSearchResult = { data: searchResults.rows, totalCount: searchResults.totalCount, nextOffset };
   return Response.json(result);
 }
 

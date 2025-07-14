@@ -37,11 +37,35 @@ export const groupBannerAtom = atom<string | undefined>((get) => get(groupAtom).
 
 export const groupBannerUrlAtom = atom<string | undefined>((get) => getImageUrl(get(groupAtom).data?.banner));
 
-export const isCurrentUserGroupAdminAtom = atom<boolean>(
+// Atoms that properly handle loading states
+export const isCurrentUserGroupAdminAtom = atom<boolean | null>((get) => {
+  const groupAdminIds = get(groupAdminIdsAtom);
+  const currentUserId = get(currentUserIdAtom);
+
+  // Return null if still loading or if currentUserId is not available
+  if (groupAdminIds.isLoading || groupAdminIds.isError || !currentUserId) {
+    return null;
+  }
+
+  return groupAdminIds.data?.includes(currentUserId) ?? false;
+});
+
+export const isCurrentUserGroupMemberAtom = atom<boolean | null>((get) => {
+  const group = get(groupAtom);
+  const currentUserGroupId = get(currentUserGroupIdAtom);
+
+  // Return null if still loading or if currentUserGroupId is not available
+  if (group.isLoading || group.isError || !currentUserGroupId) {
+    return null;
+  }
+
+  return group.data?.id === currentUserGroupId;
+});
+
+// Legacy atoms for backward compatibility (deprecated - use the ones above)
+export const isCurrentUserGroupAdminAtomLegacy = atom<boolean>(
   (get) => get(groupAdminIdsAtom)?.data?.includes(get(currentUserIdAtom) ?? '') ?? false
 );
-
-export const isCurrentUserGroupMemberAtom = atom<boolean>((get) => get(groupIdAtom) === get(currentUserGroupIdAtom));
 
 export const isFounderUuidAtom = atom<boolean>((get) => isUUID(get(groupFounderAtom) ?? ''));
 
