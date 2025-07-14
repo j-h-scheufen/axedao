@@ -24,6 +24,17 @@ const GroupActions = () => {
     await leaveGroup(groupId);
   }, [leaveGroup, groupId]);
 
+  // Show loading state if admin/member status is still being determined
+  if (isGroupAdmin === null || isGroupMember === null) {
+    return (
+      <div className="flex gap-3 justify-end">
+        <Button variant="light" size="sm" isLoading>
+          Loading...
+        </Button>
+      </div>
+    );
+  }
+
   return (
     <div className="flex gap-3 justify-end">
       <LeaveGroupConfirmationModal

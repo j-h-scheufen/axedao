@@ -78,6 +78,11 @@ const TableCellValue = ({ groupMember, columnKey }: Props) => {
     case 'roles':
       return <RoleChips roles={roles} />;
     case 'actions':
+      // Don't show actions if admin status is still being determined
+      if (isCurrentUserGroupAdmin === null) {
+        return null;
+      }
+
       if (isCurrentUserGroupAdmin) {
         const isAdmin = roles.includes('admin');
         return (
