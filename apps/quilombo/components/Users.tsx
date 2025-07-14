@@ -7,6 +7,7 @@ import { useSearchParams } from 'next/navigation';
 
 import UsersGrid from './UsersGrid';
 import useUserSearchWithInfiniteScroll from '@/hooks/useUserSearchWithInfiniteScroll';
+import { useScrollPosition } from '@/hooks/useScrollPosition';
 
 const Users = () => {
   const searchParams = useSearchParams();
@@ -14,6 +15,9 @@ const Users = () => {
 
   const [inputValue, setInputValue] = useState(urlSearchTerm);
   const { setSearchTerm, users, totalCount, isLoading, scrollerRef } = useUserSearchWithInfiniteScroll();
+
+  // Scroll position restoration
+  const scrollContainerRef = useScrollPosition({ key: 'users' });
 
   const handleSearchChange = (value: string) => {
     setInputValue(value);
@@ -42,7 +46,9 @@ const Users = () => {
       <div>
         Displaying {users?.length} of {totalCount} results
       </div>
-      <UsersGrid users={users} isLoading={isLoading} scrollerRef={scrollerRef || undefined} />
+      <div ref={scrollContainerRef} className="overflow-y-auto max-h-[calc(100vh-200px)]">
+        <UsersGrid users={users} isLoading={isLoading} scrollerRef={scrollerRef || undefined} />
+      </div>
     </div>
   );
 };

@@ -12,18 +12,20 @@ type Props = {
 };
 const UsersGrid = ({ users = [], isLoading = false, scrollerRef }: Props) => {
   return (
-    <div className="grid w-full grid-cols-1 gap-3 md:gap-4 sm:grid-cols-2 md:grid-cols-3">
-      {users.map((user) => (
-        <UserCard key={user.id} user={user} />
-      ))}
-      {isLoading &&
-        // biome-ignore lint/suspicious/noArrayIndexKey: safe to use the index for the skeletons
-        [...Array(QUERY_DEFAULT_PAGE_SIZE)].map((_, i) => <UserCardSkeleton key={`user-skeleton-${i}`} />)}
-      {/* Infinite scroll trigger - hidden but observed by intersection observer */}
+    <div className="w-full">
+      <div className="grid w-full grid-cols-1 gap-3 md:gap-4 sm:grid-cols-2 md:grid-cols-3">
+        {users.map((user) => (
+          <UserCard key={user.id} user={user} />
+        ))}
+        {isLoading &&
+          // biome-ignore lint/suspicious/noArrayIndexKey: safe to use the index for the skeletons
+          [...Array(QUERY_DEFAULT_PAGE_SIZE)].map((_, i) => <UserCardSkeleton key={`user-skeleton-${i}`} />)}
+      </div>
+      {/* Infinite scroll trigger - positioned at the bottom of the grid */}
       {scrollerRef && (
         <div
           ref={scrollerRef as RefObject<HTMLDivElement>}
-          className="h-1 w-full col-span-full"
+          className="h-1 w-full mt-4"
           style={{ visibility: 'hidden' }}
           aria-hidden="true"
         />

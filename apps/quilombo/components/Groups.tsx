@@ -11,6 +11,7 @@ import useGroupSearchWithInfiniteScroll from '@/hooks/useGroupSearchWithInfinite
 import GroupLocationsMap from './geocode/GroupLocationsMap';
 import { useAtomValue } from 'jotai';
 import { filteredLocationsAtom } from '@/hooks/state/location';
+import { useScrollPosition } from '@/hooks/useScrollPosition';
 
 const Groups = () => {
   const searchParams = useSearchParams();
@@ -21,6 +22,12 @@ const Groups = () => {
   const [inputValue, setInputValue] = useState(urlSearchTerm);
   const { setSearchTerm, groups, totalCount, isLoading, scrollerRef } = useGroupSearchWithInfiniteScroll();
   const locations = useAtomValue(filteredLocationsAtom);
+
+  // Scroll position restoration - only enabled for list view
+  const scrollContainerRef = useScrollPosition({
+    key: 'groups',
+    enabled: urlView === 'list',
+  });
 
   const handleSearchChange = (value: string) => {
     setInputValue(value);
@@ -69,7 +76,9 @@ const Groups = () => {
             <p className="text-sm">
               Displaying {groups?.length} of {totalCount} results
             </p>
-            <GroupsGrid groups={groups} isLoading={isLoading} scrollerRef={scrollerRef || undefined} />
+            <div ref={scrollContainerRef} className="overflow-y-auto max-h-[calc(100vh-200px)]">
+              <GroupsGrid groups={groups} isLoading={isLoading} scrollerRef={scrollerRef || undefined} />
+            </div>
           </div>
         </Tab>
         <Tab key="map" title="Map">
