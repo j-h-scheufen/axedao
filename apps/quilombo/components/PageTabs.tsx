@@ -8,7 +8,7 @@ const PageTabs = ({ children }: PropsWithChildren): ReactElement => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
-  const tabFromUrl = searchParams.get('tab') || 'users';
+  const tabFromUrl = searchParams.get('tab');
 
   const handleSelectionChange = (key: React.Key) => {
     const params = new URLSearchParams(searchParams);
@@ -18,7 +18,7 @@ const PageTabs = ({ children }: PropsWithChildren): ReactElement => {
 
   return (
     <Tabs
-      selectedKey={tabFromUrl}
+      selectedKey={tabFromUrl || undefined}
       onSelectionChange={handleSelectionChange}
       color="primary"
       size="lg"

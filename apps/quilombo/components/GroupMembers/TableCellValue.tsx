@@ -86,7 +86,7 @@ const TableCellValue = ({ groupMember, columnKey }: Props) => {
       if (isCurrentUserGroupAdmin) {
         const isAdmin = roles.includes('admin');
         return (
-          <div className="relative flex items-center justify-end gap-2">
+          <div className="flex flex-wrap justify-end gap-2">
             {!isAdmin ? (
               <Tooltip content="Make Admin">
                 <Button
