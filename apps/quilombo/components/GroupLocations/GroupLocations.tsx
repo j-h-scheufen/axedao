@@ -78,7 +78,7 @@ const GroupLocations = () => {
           aria-label={`${locationCount} ${locationText}`}
           title={`${locationCount} ${locationText}`}
           classNames={{
-            content: 'px-0 py-1',
+            content: 'px-0 sm:px-2 py-1',
             heading: 'px-4 py-1',
           }}
         >
