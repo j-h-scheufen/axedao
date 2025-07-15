@@ -1,11 +1,13 @@
 'use client';
 
-import ImageUpload from '@/components/forms/ImageUpload';
-import { GroupLocations } from '@/components/GroupLocations';
-import { groupBannerAtom, groupIdAtom, groupLogoAtom } from '@/hooks/state/group';
-import { useUpdateBannerMutation, useUpdateLogoMutation } from '@/query/group';
 import { Spacer } from '@heroui/react';
 import { useAtomValue } from 'jotai';
+
+import ImageUpload from '@/components/forms/ImageUpload';
+import { GroupLocationsEdit } from '@/components/GroupLocations';
+import { groupBannerAtom, groupIdAtom, groupLogoAtom } from '@/hooks/state/group';
+import { useUpdateBannerMutation, useUpdateLogoMutation } from '@/query/group';
+
 import { GroupForm } from '.';
 
 const GroupEdit = () => {
@@ -32,7 +34,7 @@ const GroupEdit = () => {
       <Spacer y={2} />
       <GroupForm />
       <Spacer y={6} />
-      <GroupLocations />
+      <GroupLocationsEdit />
     </div>
   );
 };

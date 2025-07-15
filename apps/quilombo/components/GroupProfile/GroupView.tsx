@@ -6,6 +6,7 @@ import { MailIcon } from 'lucide-react';
 
 import ContactInfo from '@/components/ContactInfo';
 import { GroupMembers } from '@/components/GroupMembers';
+import GroupLocations from '@/components/GroupLocations/GroupLocations';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import UserCardWithFetch from '@/components/UserCardWithFetch';
 import { groupAtom, isFounderUuidAtom } from '@/hooks/state/group';
@@ -17,6 +18,7 @@ const GroupView = () => {
   const isFounderUuid = useAtomValue(isFounderUuidAtom);
 
   if (!group || isLoading) return <Spinner />;
+
   return (
     <>
       <GroupBanner />
@@ -62,7 +64,7 @@ const GroupView = () => {
             )}
           </>
         )}
-        <SubsectionHeading>Members</SubsectionHeading>
+        <GroupLocations />
         <GroupMembers />
       </div>
     </>
