@@ -57,21 +57,30 @@ const GroupLocations = () => {
     return <GroupLocationsSkeleton />;
   }
 
-  if (!sortedGroupLocations.length) {
-    return null;
-  }
-
   const locationCount = sortedGroupLocations.length;
-  const locationText = locationCount === 1 ? 'Location' : 'Locations';
+  const locationText = locationCount === 0 ? 'No Locations' : locationCount === 1 ? 'Location' : 'Locations';
+
+  if (!sortedGroupLocations.length) {
+    return (
+      <Accordion variant="bordered" className="w-full">
+        <AccordionItem key="locations" aria-label="No Locations" title="No Locations" className="px-0" isDisabled>
+          <div className="text-default-500 text-center py-4">No locations configured</div>
+        </AccordionItem>
+      </Accordion>
+    );
+  }
 
   return (
     <>
-      <Accordion variant="bordered" className="w-full">
+      <Accordion variant="bordered" className="w-full px-0" fullWidth>
         <AccordionItem
           key="locations"
           aria-label={`${locationCount} ${locationText}`}
           title={`${locationCount} ${locationText}`}
-          className="px-0"
+          classNames={{
+            content: 'px-0 py-1',
+            heading: 'px-4 py-1',
+          }}
         >
           <Table aria-label="Group locations table" hideHeader removeWrapper>
             <TableHeader columns={VIEW_COLUMNS}>

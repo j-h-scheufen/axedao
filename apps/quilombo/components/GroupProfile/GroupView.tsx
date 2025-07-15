@@ -18,6 +18,7 @@ const GroupView = () => {
   const isFounderUuid = useAtomValue(isFounderUuidAtom);
 
   if (!group || isLoading) return <Spinner />;
+
   return (
     <>
       <GroupBanner />
@@ -64,7 +65,6 @@ const GroupView = () => {
           </>
         )}
         <GroupLocations />
-        <SubsectionHeading>Members</SubsectionHeading>
         <GroupMembers />
       </div>
     </>
