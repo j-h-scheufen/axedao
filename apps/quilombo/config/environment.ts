@@ -6,6 +6,7 @@ type ConfigType = {
   gnosisProviderUrl: string;
   optimismProviderUrl: string;
   graphApiKey: string;
+  mapTilerKey: string;
   daoAddress: Address;
   daoTreasuryAddress: Address;
   daoSharesAddress: Address;
@@ -33,7 +34,7 @@ const envMode = process.env.NEXT_PUBLIC_APP_ENV?.toLowerCase();
 const isServer = typeof window === 'undefined';
 
 export const getBaseUrl = () => {
-  let baseUrl = undefined;
+  let baseUrl: string | undefined;
   if (process.env.NEXT_PUBLIC_VERCEL_URL) {
     baseUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
   } else if (process.env.NEXT_PUBLIC_APP_URL) {
@@ -102,6 +103,7 @@ const ENV: ConfigType = {
   databaseUrl: isServer ? required(process.env.DATABASE_URL, 'DATABASE_URL') : '',
   nextAuthSecret: isServer ? required(process.env.NEXTAUTH_SECRET, 'NEXTAUTH_SECRET') : '',
   graphApiKey: isServer ? required(process.env.GRAPH_API_KEY, 'GRAPH_API_KEY') : '',
+  mapTilerKey: required(process.env.NEXT_PUBLIC_MAPTILER_KEY, 'NEXT_PUBLIC_MAPTILER_KEY'),
   axeDaoSiteUrl: required(process.env.NEXT_PUBLIC_DAO_SITE_URL, 'NEXT_PUBLIC_DAO_SITE_URL'),
   axeDaoEmail: required(process.env.NEXT_PUBLIC_DAO_EMAIL, 'NEXT_PUBLIC_DAO_EMAIL'),
   axeDaoDiscord: required(process.env.NEXT_PUBLIC_DAO_DISCORD, 'NEXT_PUBLIC_DAO_DISCORD'),

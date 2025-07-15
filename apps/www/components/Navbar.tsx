@@ -1,3 +1,5 @@
+'use client';
+
 import { Button, Link, NavbarContent, Navbar as NextUINavbar } from '@heroui/react';
 
 // import { siteConfig } from '@/config/site';

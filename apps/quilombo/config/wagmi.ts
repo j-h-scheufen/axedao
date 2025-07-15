@@ -109,7 +109,7 @@ const wagmiConfig: Config = createConfig({
     [gnosis.id]: http(ENV.gnosisProviderUrl),
     [sepolia.id]: http(ENV.sepoliaProviderUrl),
     [localhost.id]: http('http://127.0.0.1:8545'),
-    [31337]: http('http://127.0.0.1:8545'), // hardhat
+    [31337 as const]: http('http://127.0.0.1:8545'), // hardhat
   },
   ssr: true,
 });

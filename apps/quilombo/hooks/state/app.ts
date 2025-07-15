@@ -13,7 +13,7 @@ export const backUrlFromBreadcrumbsAtom = atom<string | undefined>((get) => {
   return backCrumb.pathname + (backCrumb.queryParams ? `?${backCrumb.queryParams}` : '');
 });
 
-export const searchTabAtom = atom<'users' | 'groups'>('users');
+export const searchTabAtom = atom<'users' | 'groups' | 'rodas'>('users');
 
 export const lastSyncedBlockAtom = atom<bigint | null>(null);
 

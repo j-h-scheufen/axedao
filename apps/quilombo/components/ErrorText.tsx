@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { CircleAlertIcon } from 'lucide-react';
-import { HTMLAttributes, ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
 type Props = HTMLAttributes<HTMLDivElement> & { message: ReactNode };
 

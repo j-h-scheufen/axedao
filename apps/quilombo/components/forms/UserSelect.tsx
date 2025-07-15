@@ -1,9 +1,9 @@
 import { Autocomplete, AutocompleteItem } from '@heroui/react';
-import { FieldProps, useField } from 'formik';
+import { type FieldProps, useField } from 'formik';
 import { SearchIcon } from 'lucide-react';
 
 import useUserSearch from '@/hooks/useUserSearch';
-import { User } from '@/types/model';
+import type { User } from '@/types/model';
 import { getUserDisplayName } from '@/utils';
 import { useSession } from 'next-auth/react';
 

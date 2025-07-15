@@ -401,11 +401,7 @@ export function useInitializeCouncilState() {
   }, [currentMembers, setCurrentMembers]);
 }
 
-export function useCouncilUpdateRequest({
-  onSuccess,
-}: {
-  onSuccess?: () => void | Promise<void>;
-}) {
+export function useCouncilUpdateRequest({ onSuccess }: { onSuccess?: () => void | Promise<void> }) {
   const {
     writeContract,
     data: hash,

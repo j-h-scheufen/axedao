@@ -36,7 +36,7 @@ const columns: Column<Group>[] = [
     key: 'name',
     label: 'NAME',
     cell: ({ item }) => {
-      const { logo, name, city, country, id } = item;
+      const { logo, name, id } = item;
       return (
         <Link href={`${PATHS.groups}/${id}`} className="inline-block text-[unset]">
           <div className="flex items-center gap-2">
@@ -44,7 +44,7 @@ const columns: Column<Group>[] = [
             <div className="flex justify-center flex-col">
               <div className="text-sm">{name}</div>
               <span className="flex items-center gap-1 text-xs text-default-500">
-                <MapPinIcon className="h-3 w-3" /> {city}, {country}
+                <MapPinIcon className="h-3 w-3" /> TODO
               </span>
             </div>
           </div>

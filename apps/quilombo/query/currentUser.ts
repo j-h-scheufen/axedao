@@ -52,6 +52,10 @@ export const useUpdateCurrentUserMutation = () => {
     mutationFn: (data: ProfileForm) => updateCurrentUser(data),
     onSuccess: (data) => {
       queryClient.setQueryData([QUERY_KEYS.currentUser.getUser], data);
+      queryClient.invalidateQueries({
+        queryKey: [QUERY_KEYS.user.searchUsers],
+        exact: false, // invalidate all searchUsers queries regardless of the search term
+      });
     },
   });
 };
@@ -62,7 +66,7 @@ export const useJoinGroupMutation = () => {
     mutationFn: (groupId: string) => joinGroup(groupId),
     onSuccess: (data) => {
       queryClient.setQueryData([QUERY_KEYS.currentUser.getUser], data);
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroupMembers] });
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroupMembers, data.groupId] });
     },
   });
 };
@@ -73,7 +77,7 @@ export const useLeaveGroupMutation = () => {
     mutationFn: (groupId: string) => leaveGroup(groupId),
     onSuccess: (data) => {
       queryClient.setQueryData([QUERY_KEYS.currentUser.getUser], data);
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroupMembers] });
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroupMembers, data.groupId] });
     },
   });
 };
@@ -84,6 +88,10 @@ export const useUpdateAvatarMutation: UseFileUploadMutation = () => {
     mutationFn: (params: FileUploadParams) => updateAvatar(params),
     onSuccess: (data) => {
       queryClient.setQueryData([QUERY_KEYS.currentUser.getUser], data);
+      queryClient.invalidateQueries({
+        queryKey: [QUERY_KEYS.user.searchUsers],
+        exact: false,
+      });
     },
   });
 };

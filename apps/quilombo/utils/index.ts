@@ -65,14 +65,12 @@ export const getHostname = (url: string): string | undefined => {
   try {
     // Add a protocol if missing
     if (url.indexOf('//:') === -1) {
-      // biome-ignore lint/style/noParameterAssign: shortening the url
       url = `https://${url}` as string;
     }
     const host = new URL(url).hostname;
     const domain = host.replace('www.', '');
     return domain.split('.')[0];
-    // biome-ignore lint/correctness/noUnusedVariables:
-  } catch (error) {}
+  } catch (_error) {}
   return undefined;
 };
 
@@ -112,8 +110,18 @@ export const isValidIPFSHash = (hash: string): boolean => {
   try {
     CID.parse(hash);
     return true;
-    // biome-ignore lint/correctness/noUnusedVariables:
-  } catch (error) {
+  } catch (_error) {
     return false;
   }
 };
+
+const flagCache: Record<string, string> = {};
+
+export function getFlagEmoji(countryCode: string): string {
+  const code = countryCode.toUpperCase();
+  if (flagCache[code]) return flagCache[code];
+  if (!/^[A-Z]{2}$/.test(code)) return '';
+  const flag = String.fromCodePoint(...[...code].map((c) => 0x1f1e6 + c.charCodeAt(0) - 65));
+  flagCache[code] = flag;
+  return flag;
+}

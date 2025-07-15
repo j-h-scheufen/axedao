@@ -1,5 +1,6 @@
 import { isValidIPFSHash } from '@/utils';
 import { array, boolean, type InferType, mixed, number, object, string } from 'yup';
+import type { Feature, Geometry, GeoJsonProperties } from 'geojson';
 
 import { linkTypes, MAX_IMAGE_UPLOAD_SIZE_MB, styles, titles, validFileExtensions } from './constants';
 
@@ -102,8 +103,6 @@ export type ImageUploadForm = InferType<typeof imageUploadSchema>;
 export const createNewGroupFormSchema = object({
   name: string().required('Group name is required'),
   verified: boolean().default(false),
-  city: string(),
-  country: string().required('Country is required'),
 });
 
 export type CreateNewGroupForm = InferType<typeof createNewGroupFormSchema>;
@@ -150,7 +149,6 @@ export type SearchParams = InferType<typeof searchParamsSchema>;
 
 export const groupSearchSchema = searchParamsSchema.concat(
   object({
-    city: string().optional(),
     country: string().optional(),
     verified: boolean().optional(),
   })
@@ -170,3 +168,16 @@ export const testForAddress = (value: string) => {
   // basic address validation, not checksummed
   return /^(0x)?[0-9a-f]{40}$/i.test(value || '');
 };
+
+// Group Location validation schemas
+export const createLocationFormSchema = object({
+  name: string().required('Location name is required'),
+  description: string().optional(),
+  feature: mixed<Feature<Geometry, GeoJsonProperties>>().required('Please select a location from the map'),
+});
+
+export type CreateLocationForm = InferType<typeof createLocationFormSchema>;
+
+export const updateLocationFormSchema = createLocationFormSchema.partial();
+
+export type UpdateLocationForm = InferType<typeof updateLocationFormSchema>;

@@ -32,8 +32,9 @@ contract ProposalsIntegrationTest is MultiSendProposal {
     Grace /* 4 - proceeds to ready/defeated */,
     Ready /* 5 - can be processed */,
     Processed /* 6 - terminal state */,
-    Defeated /* 7 - terminal state, yes votes <= no votes, counts as processed */
+    Defeated
   }
+  /* 7 - terminal state, yes votes <= no votes, counts as processed */
 
   function setUp() public {
     string memory testMode = vm.envOr("TEST_MODE", string("normal"));

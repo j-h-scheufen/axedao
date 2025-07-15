@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 
 /**
  * This layout provides a full-width frame with padding. It is the first layout to be nested inside the root layout
@@ -6,6 +6,6 @@ import { PropsWithChildren } from 'react';
  * of the screen should be placed outside of this layout.
  */
 const MainLayout = ({ children }: PropsWithChildren) => {
-  return <main className="container flex-grow w-full px-3">{children}</main>;
+  return <main className="flex-grow w-full px-2">{children}</main>;
 };
 export default MainLayout;

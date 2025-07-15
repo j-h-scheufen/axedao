@@ -9,9 +9,16 @@ import {
 import axios from 'axios';
 
 import { QueryConfig } from '@/config/constants';
+import type { CreateLocationForm, UpdateLocationForm } from '@/config/validation-schema';
 import type { CreateNewGroupForm, SearchParams, UpdateGroupForm } from '@/config/validation-schema';
-import type { Group, GroupSearchResult, User } from '@/types/model';
-import { type FileUploadParams, type GroupAndUserParams, QUERY_KEYS, type UseFileUploadMutation } from '.';
+import type { Group, GroupLocation, GroupSearchResult, User } from '@/types/model';
+import {
+  type FileUploadParams,
+  type GroupAndLocationParams,
+  type GroupAndUserParams,
+  QUERY_KEYS,
+  type UseFileUploadMutation,
+} from '.';
 
 /**
  * Note that the various fetch options are exported as read-only objects in order to be used by atomWithQuery.
@@ -52,6 +59,18 @@ export const fetchGroupAdminsOptions = (id: string | undefined) => {
   } as const;
 };
 
+const fetchGroupLocations = async (id: string): Promise<GroupLocation[]> =>
+  axios.get(`/api/groups/${id}/locations`).then((response) => response.data);
+
+export const fetchGroupLocationsOptions = (id: string | undefined) => {
+  return {
+    queryKey: [QUERY_KEYS.group.getGroupLocations, id],
+    queryFn: async () => fetchGroupLocations(id ?? ''),
+    staleTime: QueryConfig.staleTimeDefault,
+    enabled: !!id,
+  } as const;
+};
+
 const searchGroups = async ({ offset, pageSize, searchTerm }: SearchParams): Promise<GroupSearchResult> => {
   let queryParams = `?offset=${offset}`;
   queryParams += searchTerm ? `&searchTerm=${searchTerm}` : '';
@@ -61,12 +80,15 @@ const searchGroups = async ({ offset, pageSize, searchTerm }: SearchParams): Pro
 export const searchGroupsOptions = ({ offset, pageSize, searchTerm }: SearchParams) => {
   return {
     queryKey: [QUERY_KEYS.group.searchGroups, searchTerm],
-    // biome-ignore lint/suspicious/noExplicitAny: using any here is fine as it gets cast to a number
-    queryFn: async ({ pageParam }: { pageParam: any }) =>
-      searchGroups({ offset: Number(pageParam), pageSize, searchTerm }),
+    queryFn: async ({ pageParam }: { pageParam: number }) => searchGroups({ offset: pageParam, pageSize, searchTerm }),
     initialPageParam: offset || 0,
-    getNextPageParam: (lastPage: GroupSearchResult) => lastPage.nextOffset,
-    staleTime: 1000 * 60 * 15, // 15 minutes
+    getNextPageParam: (lastPage: GroupSearchResult) => {
+      if (lastPage.nextOffset === null || lastPage.nextOffset >= lastPage.totalCount) {
+        return undefined;
+      }
+      return lastPage.nextOffset;
+    },
+    staleTime: QueryConfig.staleTimeDefault,
   } as const;
 };
 
@@ -86,6 +108,18 @@ const addAdmin = async (groupId: string, userId: string): Promise<string[]> =>
 
 const removeAdmin = async (groupId: string, userId: string): Promise<string[]> =>
   axios.delete(`/api/groups/${groupId}/admins/${userId}`).then((response) => response.data);
+
+const createGroupLocation = async (groupId: string, data: CreateLocationForm): Promise<GroupLocation[]> =>
+  axios.post(`/api/groups/${groupId}/locations`, data).then((response) => response.data);
+
+const updateGroupLocation = async (
+  { groupId, locationId }: GroupAndLocationParams,
+  data: UpdateLocationForm
+): Promise<GroupLocation[]> =>
+  axios.patch(`/api/groups/${groupId}/locations/${locationId}`, data).then((response) => response.data);
+
+const deleteGroupLocation = async ({ groupId, locationId }: GroupAndLocationParams): Promise<GroupLocation[]> =>
+  axios.delete(`/api/groups/${groupId}/locations/${locationId}`).then((response) => response.data);
 
 export const updateLogo = async ({ ownerId, file }: FileUploadParams): Promise<User> => {
   const data = new FormData();
@@ -118,6 +152,8 @@ export const useFetchGroupMembers = (id: string) => useQuery(queryOptions(fetchG
 
 export const useFetchGroupAdmins = (id: string) => useQuery(queryOptions(fetchGroupAdminsOptions(id)));
 
+export const useFetchGroupLocations = (id: string) => useQuery(queryOptions(fetchGroupLocationsOptions(id)));
+
 export const useSearchGroups = (params: SearchParams) => {
   return useInfiniteQuery(infiniteQueryOptions(searchGroupsOptions(params)));
 };
@@ -139,8 +175,7 @@ export const useDeleteGroupMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (groupId: string) => deleteGroup(groupId),
-    // biome-ignore lint/correctness/noUnusedVariables: <explanation>
-    onSuccess: (data, variables) => {
+    onSuccess: (_data, variables) => {
       // The current user's groupId has changed as part of deleting the group
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.currentUser.getUser] });
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroup, variables] });
@@ -186,6 +221,44 @@ export const useRemoveAdminMutation = () => {
     mutationFn: async ({ groupId, userId }: GroupAndUserParams) => removeAdmin(groupId, userId),
     onSuccess: (data, variables) => {
       queryClient.setQueryData([QUERY_KEYS.group.getGroupAdmins, variables.groupId], data);
+    },
+  });
+};
+
+export const useCreateGroupLocationMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async ({ groupId, data }: { groupId: string; data: CreateLocationForm }) =>
+      createGroupLocation(groupId, data),
+    onSuccess: (data, variables) => {
+      queryClient.setQueryData([QUERY_KEYS.group.getGroupLocations, variables.groupId], data);
+      // Invalidate locations since a new location was added
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.location.getLocations] });
+    },
+  });
+};
+
+export const useUpdateGroupLocationMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async ({ groupId, locationId, data }: GroupAndLocationParams & { data: UpdateLocationForm }) =>
+      updateGroupLocation({ groupId, locationId }, data),
+    onSuccess: (data, variables) => {
+      queryClient.setQueryData([QUERY_KEYS.group.getGroupLocations, variables.groupId], data);
+      // Invalidate locations since a location was updated
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.location.getLocations] });
+    },
+  });
+};
+
+export const useDeleteGroupLocationMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async ({ groupId, locationId }: GroupAndLocationParams) => deleteGroupLocation({ groupId, locationId }),
+    onSuccess: (data, variables) => {
+      queryClient.setQueryData([QUERY_KEYS.group.getGroupLocations, variables.groupId], data);
+      // Invalidate locations since a location was deleted
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.location.getLocations] });
     },
   });
 };

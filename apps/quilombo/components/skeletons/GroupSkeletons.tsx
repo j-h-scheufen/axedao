@@ -22,6 +22,54 @@ export const GroupMembersSkeleton = () => {
   return <Skeleton className="rounded-large h-60" />;
 };
 
+export const GroupLocationsSkeleton = () => {
+  return (
+    <div className="space-y-4">
+      {/* Header with title and button */}
+      <div className="flex justify-between items-center mb-4">
+        <Skeleton className="h-6 w-24 rounded-lg" />
+        <Skeleton className="h-8 w-32 rounded-md" />
+      </div>
+
+      {/* Table skeleton */}
+      <div className="space-y-3">
+        {/* Table header */}
+        <div className="flex gap-4 pb-2 border-b">
+          <Skeleton className="h-4 w-20 rounded-md" />
+          <Skeleton className="h-4 w-32 rounded-md" />
+          <Skeleton className="h-4 w-24 rounded-md ml-auto" />
+        </div>
+
+        {/* Table rows */}
+        <div className="flex gap-4 py-3 border-b border-gray-100">
+          <Skeleton className="h-4 w-24 rounded-md" />
+          <Skeleton className="h-4 w-40 rounded-md" />
+          <div className="flex gap-2 ml-auto">
+            <Skeleton className="h-6 w-6 rounded-md" />
+            <Skeleton className="h-6 w-6 rounded-md" />
+          </div>
+        </div>
+        <div className="flex gap-4 py-3 border-b border-gray-100">
+          <Skeleton className="h-4 w-24 rounded-md" />
+          <Skeleton className="h-4 w-40 rounded-md" />
+          <div className="flex gap-2 ml-auto">
+            <Skeleton className="h-6 w-6 rounded-md" />
+            <Skeleton className="h-6 w-6 rounded-md" />
+          </div>
+        </div>
+        <div className="flex gap-4 py-3 border-b border-gray-100">
+          <Skeleton className="h-4 w-24 rounded-md" />
+          <Skeleton className="h-4 w-40 rounded-md" />
+          <div className="flex gap-2 ml-auto">
+            <Skeleton className="h-6 w-6 rounded-md" />
+            <Skeleton className="h-6 w-6 rounded-md" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export const GroupFormSkeleton = () => {
   return (
     <div className="max-w-xl">
@@ -41,7 +89,7 @@ export const GroupFormSkeleton = () => {
       <Skeleton className="h-14 mb-5 rounded-medium" />
       <Skeleton className="h-[100px] mb-10 rounded-medium" />
       <div className="mb-5 max-w-xs">
-        <label className="mb-2 inline-block text-sm">Founder</label>
+        <h4 className="mb-2 inline-block text-sm">Founder</h4>
         <UserCardSkeleton />
       </div>
       <SubsectionHeading>Links</SubsectionHeading>

@@ -4,8 +4,8 @@ import type { Address, PublicClient } from 'viem';
 import type { Group, User } from '@/types/model';
 export * as profile from './currentUser';
 export * as group from './group';
-export * as location from './location';
 export * as user from './user';
+export * as location from './location';
 
 /**
  * Query keys for react-query
@@ -26,14 +26,14 @@ export const QUERY_KEYS = {
     getGroup: 'group.getGroup',
     getGroupMembers: 'group.getGroupMembers',
     getGroupAdmins: 'group.getGroupAdmins',
+    getGroupLocations: 'group.getGroupLocations',
     searchGroups: 'groups.search',
+  },
+  location: {
+    getLocations: 'location.getLocations',
   },
   currentUser: {
     getUser: 'currentUser.getUser',
-  },
-  location: {
-    getCountries: 'location.getCountries',
-    getCities: 'location.getCities',
   },
   membership: {
     getCandidateChanges: 'getCandidateChanges',
@@ -45,10 +45,8 @@ export const QUERY_KEYS = {
   },
 } as const;
 
-export type SearchParams = {
-  pageSize?: number;
-  offset?: number;
-};
+export type SearchParams = { pageSize?: number; offset?: number };
+export type GroupAndLocationParams = { groupId: string; locationId: string };
 export type GroupAndUserParams = { groupId: string; userId: string };
 export type SearchByAddressParams = { addresses: string[] };
 export type FileUploadParams = { ownerId: string; file?: File };

@@ -1,6 +1,6 @@
 import { enqueueSnackbar } from 'notistack';
 
-import { GroupVerificationParams, useGroupVerificationMutation } from '@/query/admin';
+import { type GroupVerificationParams, useGroupVerificationMutation } from '@/query/admin';
 
 export const useGroupVerification = () => {
   const { mutateAsync, error, isPending } = useGroupVerificationMutation();

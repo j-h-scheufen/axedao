@@ -1,10 +1,10 @@
 'use client';
 
-import { Switch, SwitchProps } from '@heroui/react';
+import { Switch, type SwitchProps } from '@heroui/react';
 import { useIsSSR } from '@react-aria/ssr';
 import clsx from 'clsx';
 import { useTheme } from 'next-themes';
-import { FC } from 'react';
+import type { FC } from 'react';
 
 import { MoonFilledIcon, SunFilledIcon } from '@/components/icons';
 

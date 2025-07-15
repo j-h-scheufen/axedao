@@ -1,46 +1,100 @@
 'use client';
 
-import { Input } from '@heroui/react';
-import { useInfiniteScroll } from '@heroui/use-infinite-scroll';
-import { useAtom, useAtomValue } from 'jotai';
-import { debounce } from 'lodash';
+import { Input, Tabs, Tab } from '@heroui/react';
 import { Search } from 'lucide-react';
-import { useEffect, useMemo, useRef } from 'react';
+import { useState } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
+import { useAtomValue } from 'jotai';
+import type { Key } from 'react';
 
-import { SEARCH_INPUT_DEBOUNCE } from '@/config/constants';
-import { groupSearchResultsAtom, groupSearchTermAtom } from '@/hooks/state/search';
+import useGroupSearchWithInfiniteScroll from '@/hooks/useGroupSearchWithInfiniteScroll';
+import { filteredLocationsAtom } from '@/hooks/state/location';
+import { useScrollPosition } from '@/hooks/useScrollPosition';
+
 import GroupsGrid from './GroupsGrid';
+import GroupLocationsMap from './geocode/GroupLocationsMap';
 
 const Groups = () => {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [searchTerm, setSearchTerm] = useAtom(groupSearchTermAtom);
-  const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } = useAtomValue(groupSearchResultsAtom);
-  const [, scrollerRef] = useInfiniteScroll({ hasMore: hasNextPage, onLoadMore: fetchNextPage });
-  const groups = useMemo(() => data?.pages.flatMap((page) => page.data), [data]);
-  const debouncedSearch = debounce(setSearchTerm, SEARCH_INPUT_DEBOUNCE);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const urlView = searchParams.get('view') || 'list';
+  const urlSearchTerm = searchParams.get('gq') || '';
 
-  useEffect(() => {
-    if (inputRef.current && searchTerm) inputRef.current.value = searchTerm;
+  const [inputValue, setInputValue] = useState(urlSearchTerm);
+  const { setSearchTerm, groups, totalCount, isLoading, scrollerRef } = useGroupSearchWithInfiniteScroll();
+  const locations = useAtomValue(filteredLocationsAtom);
+
+  // Scroll position restoration - only enabled for list view
+  const scrollContainerRef = useScrollPosition({
+    key: 'groups',
+    enabled: urlView === 'list',
   });
 
+  const handleSearchChange = (value: string) => {
+    setInputValue(value);
+    setSearchTerm(value);
+  };
+
+  const handleClear = () => {
+    setInputValue('');
+    setSearchTerm('');
+  };
+
+  const handleViewChange = (key: Key) => {
+    const viewKey = String(key);
+    const params = new URLSearchParams(searchParams);
+    if (viewKey === 'list') {
+      params.delete('view');
+    } else {
+      params.set('view', viewKey);
+    }
+    router.replace(`?${params.toString()}`, { scroll: false });
+  };
+
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex h-fit items-center justify-between gap-3">
+    <div className="flex flex-col gap-2 sm:gap-4 mt-1 sm:mt-3">
+      <div className="flex h-fit items-center justify-center w-full">
         <Input
-          ref={inputRef}
           isClearable
-          onClear={() => setSearchTerm('')}
-          className="w-full md:max-w-sm"
+          onClear={handleClear}
+          className="w-full max-w-sm"
           placeholder="Search by group name"
           startContent={<Search className="h-4 w-4" />}
           labelPlacement="outside"
-          onChange={(e) => {
-            if (e.target.value !== searchTerm) debouncedSearch(e.target.value);
-          }}
+          value={inputValue}
+          onChange={(e) => handleSearchChange(e.target.value)}
         />
       </div>
-      <GroupsGrid groups={groups} isLoading={isFetching || isFetchingNextPage} scrollerRef={scrollerRef} />
+      <Tabs
+        aria-label="List / Map View"
+        fullWidth
+        classNames={{ panel: 'px-0 py-0' }}
+        selectedKey={urlView}
+        onSelectionChange={handleViewChange}
+      >
+        <Tab key="list" title="List">
+          <div className="flex flex-col gap-1 sm:gap-2">
+            <p className="text-sm">
+              Displaying {groups?.length} of {totalCount} results
+            </p>
+            <div ref={scrollContainerRef} className="overflow-y-auto max-h-[calc(100vh-200px)]">
+              <GroupsGrid groups={groups} isLoading={isLoading} scrollerRef={scrollerRef || undefined} />
+            </div>
+          </div>
+        </Tab>
+        <Tab key="map" title="Map">
+          <div className="rounded-lg shadow-lg overflow-hidden">
+            {locations && (
+              <div className="flex flex-col gap-1 sm:gap-2">
+                <p className="text-sm">Displaying {locations.features.length} group locations</p>
+                <GroupLocationsMap locations={locations} />
+              </div>
+            )}
+          </div>
+        </Tab>
+      </Tabs>
     </div>
   );
 };
+
 export default Groups;

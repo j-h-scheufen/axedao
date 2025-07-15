@@ -1,11 +1,11 @@
 'use client';
 
 import { Button } from '@heroui/react';
-import { Field, Form, Formik, FormikProps } from 'formik';
+import { Field, Form, Formik, type FormikProps } from 'formik';
 import { useCallback } from 'react';
 
 import ErrorText from '@/components/ErrorText';
-import { JoinGroupForm as FormType, joinGroupFormSchema } from '@/config/validation-schema';
+import { type JoinGroupForm as FormType, joinGroupFormSchema } from '@/config/validation-schema';
 import { useJoinGroup } from '@/hooks/useCurrentUser';
 import GroupSelect from '../GroupSelect';
 

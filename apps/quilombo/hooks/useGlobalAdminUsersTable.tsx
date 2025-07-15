@@ -28,7 +28,7 @@ const columns = [
 const useGlobalAdminUsersTable = () => {
   const currentUserId = useAtomValue(currentUserIdAtom);
   const [selectedRows, setSelectedRows] = useState<Set<string>>(new Set([]));
-  const { searchTerm, setSearchTerm, users, isLoading, loaderRef, scrollerRef } = useUserSearch();
+  const { searchTerm, setSearchTerm, users, isLoading, hasNextPage, fetchNextPage } = useUserSearch();
 
   const getCellValue = useCallback(
     ({ user, key }: { user: UserType; key: string }) => {
@@ -61,8 +61,8 @@ const useGlobalAdminUsersTable = () => {
     setSelectedRows,
     columns,
     getCellValue,
-    loaderRef,
-    scrollerRef,
+    hasNextPage,
+    fetchNextPage,
   };
 };
 

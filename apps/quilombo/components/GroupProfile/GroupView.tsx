@@ -6,6 +6,7 @@ import { MailIcon } from 'lucide-react';
 
 import ContactInfo from '@/components/ContactInfo';
 import { GroupMembers } from '@/components/GroupMembers';
+import GroupLocations from '@/components/GroupLocations/GroupLocations';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import UserCardWithFetch from '@/components/UserCardWithFetch';
 import { groupAtom, isFounderUuidAtom } from '@/hooks/state/group';
@@ -13,16 +14,17 @@ import { getImageUrl } from '@/utils';
 import { GroupActions, GroupBanner, GroupLogo } from '.';
 
 const GroupView = () => {
-  const { data: group, isFetching } = useAtomValue(groupAtom);
+  const { data: group, isLoading } = useAtomValue(groupAtom);
   const isFounderUuid = useAtomValue(isFounderUuidAtom);
 
-  if (!group || isFetching) return <Spinner />;
+  if (!group || isLoading) return <Spinner />;
+
   return (
     <>
       <GroupBanner />
       {/* Repeating relevant attributes from (main) layout */}
-      <div className="flex flex-col px-3 mt-4 gap-2 sm:gap-3">
-        <div className="flex gap-3 sm:gap-4 w-full">
+      <div className="flex flex-col px-2 mt-4 gap-2 sm:gap-3">
+        <div className="flex gap-3 sm:gap-4 w-full px-1">
           <GroupLogo url={getImageUrl(group.logo)} />
           <div className="flex flex-col w-full">
             <div className="flex justify-between">
@@ -62,7 +64,7 @@ const GroupView = () => {
             )}
           </>
         )}
-        <SubsectionHeading>Members</SubsectionHeading>
+        <GroupLocations />
         <GroupMembers />
       </div>
     </>

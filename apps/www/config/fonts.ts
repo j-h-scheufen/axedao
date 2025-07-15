@@ -8,7 +8,7 @@ export const fontInter = Inter({
 // monospace
 export const fontFiraCode = Fira_Code({
   subsets: ['latin'],
-  variable: '--font-fira_code',
+  variable: '--font-fira-code',
 });
 
 // export const fontNunito = Nunito({

@@ -1,16 +1,15 @@
 import type { Metadata, Viewport } from 'next';
-import { Suspense } from 'react';
 import { Analytics } from '@vercel/analytics/react';
-import { Spinner } from '@heroui/react';
 import { dir } from 'i18next';
 import clsx from 'clsx';
 
-import '@/styles/globals.css';
 import { siteConfig } from '@/config/site';
 import { fontInter, fontFiraCode, fontOpenSans } from '@/config/fonts';
 import { Providers } from '../providers';
 import { ALL_LOCALES, fallbackLng, isSupportedLanguage } from '../i18n/settings';
 import Navbar from '@/components/Navbar';
+
+import '@/app/globals.css';
 
 // NEXTJS provides these params to pages (layouts do NOT receive searchParams!), but no official interface exists, yet.
 // https://github.com/vercel/next.js/discussions/46131
@@ -54,16 +53,14 @@ export default function RootLayout({
 }) {
   const lang = isSupportedLanguage(locale) ? locale : fallbackLng;
   return (
-    <html lang={lang} dir={dir(lang)} suppressHydrationWarning>
+    <html
+      lang={lang}
+      dir={dir(lang)}
+      suppressHydrationWarning
+      className={clsx('light', fontInter.variable, fontFiraCode.variable, fontOpenSans.variable)}
+    >
       <head />
-      <body
-        className={clsx(
-          'min-h-screen bg-background font-sans antialiased',
-          fontInter.variable,
-          fontFiraCode.variable,
-          fontOpenSans.variable
-        )}
-      >
+      <body className="min-h-screen font-sans antialiased">
         <Providers
           themeProps={{
             attribute: 'class',
@@ -74,9 +71,7 @@ export default function RootLayout({
           <div className="relative flex h-screen flex-col">
             <Navbar />
             <main className="container mx-auto mb-[40px] max-w-6xl flex-grow">
-              <Suspense fallback={<Spinner size="lg" />}>
-                <div className="flex flex-col items-center justify-center">{children}</div>
-              </Suspense>
+              <div className="flex flex-col items-center justify-center">{children}</div>
             </main>
           </div>
         </Providers>

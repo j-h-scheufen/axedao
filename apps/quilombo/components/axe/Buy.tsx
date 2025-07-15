@@ -60,6 +60,7 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
   } = useWaitForTransactionReceipt({ hash: approveHash });
 
   // apply buyTax on getAmountsOut estimate as the Axé donation is taken from the swap output
+  // biome-ignore lint/correctness/useExhaustiveDependencies: effect not dependent on formik
   useEffect(() => {
     if (amountOut) {
       const taxedOutput = buyTax && buyTax > 0 ? amountOut - (amountOut / 10000n) * buyTax : amountOut;
@@ -71,7 +72,6 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
       setTaxedOutput(taxedOutput);
       setAxeDonation(formatAxeUnits(donation));
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amountOut, buyTax]);
 
   // reactions to approve receipt outcome
@@ -88,7 +88,7 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
     }
   }, [approveLoading, approveSuccess, approveError, updateAllowance]);
 
-  // reactions to swap receipt outcome
+  // biome-ignore lint/correctness/useExhaustiveDependencies: effect not dependent on formik
   useEffect(() => {
     if (swapLoading) {
       enqueueSnackbar('Swap submitted. Please allow some time to confirm ...', {
@@ -103,7 +103,6 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
     } else if (swapError) {
       enqueueSnackbar(`The Swap has failed: ${swapError.message}`);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [swapLoading, swapSuccess, swapError, onUpdate]);
 
   useEffect(() => {
