@@ -1,24 +1,21 @@
 'use client';
 
 import { Tabs } from '@heroui/react';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { parseAsString, useQueryStates } from 'nuqs';
 import type { PropsWithChildren, ReactElement } from 'react';
 
 const PageTabs = ({ children }: PropsWithChildren): ReactElement => {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const pathname = usePathname();
-  const tabFromUrl = searchParams.get('tab');
+  const [{ tab }, setQueryStates] = useQueryStates({
+    tab: parseAsString,
+  });
 
   const handleSelectionChange = (key: React.Key) => {
-    const params = new URLSearchParams(searchParams);
-    params.set('tab', key.toString());
-    router.push(`${pathname}?${params.toString()}`);
+    setQueryStates({ tab: key.toString() });
   };
 
   return (
     <Tabs
-      selectedKey={tabFromUrl || undefined}
+      selectedKey={tab || undefined}
       onSelectionChange={handleSelectionChange}
       color="primary"
       size="lg"
