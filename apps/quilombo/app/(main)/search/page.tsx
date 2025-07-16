@@ -16,11 +16,11 @@ const SearchPage = () => {
         <Groups />
       </Tab>
       <Tab key="events" title="Events" className="w-full">
-        <div className="w-full items-center justify-center mt-2 text-center">Coming soon: Find events in your area</div>
-      </Tab>
-      <Tab key="rodas" title="Rodas" className="w-full">
-        <div className="w-full items-center justify-center mt-2 text-center">
-          Coming soon: Post and find public rodas
+        <div className="w-full items-center justify-center mt-4 text-center">
+          Coming soon ...
+          <br />
+          <br />
+          Find events like workshops or public rodas in your area
         </div>
       </Tab>
     </PageTabs>

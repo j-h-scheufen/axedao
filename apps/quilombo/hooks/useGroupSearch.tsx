@@ -1,9 +1,9 @@
 'use client';
 
-import { useMemo, useEffect, useState, useCallback } from 'react';
+import { useMemo, useEffect, useState } from 'react';
 import { useSetAtom, useAtomValue } from 'jotai';
 import { isEqual, debounce } from 'lodash';
-import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+import { parseAsString, useQueryStates } from 'nuqs';
 
 import { QUERY_DEFAULT_PAGE_SIZE, SEARCH_INPUT_DEBOUNCE } from '@/config/constants';
 import { useSearchGroups } from '@/query/group';
@@ -11,7 +11,7 @@ import { filteredLocationsAtom } from './state/location';
 import { locationsAtom } from './state/location';
 import type { Group } from '@/types/model';
 
-const queryKey = 'gq';
+export const PARAM_KEY_GROUP_QUERY = 'gq';
 
 export interface UseGroupSearchResult {
   searchTerm: string | undefined;
@@ -24,12 +24,11 @@ export interface UseGroupSearchResult {
 }
 
 const useGroupSearch = (): UseGroupSearchResult => {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const pathname = usePathname();
-  const urlSearchTerm = searchParams.get(queryKey) || '';
+  const [{ [PARAM_KEY_GROUP_QUERY]: urlSearchTerm }, setQueryStates] = useQueryStates({
+    [PARAM_KEY_GROUP_QUERY]: parseAsString.withDefault(''),
+  });
 
-  const [searchTerm, setSearchTerm] = useState<string | undefined>(urlSearchTerm);
+  const [searchTerm, setSearchTerm] = useState<string | undefined>(urlSearchTerm || '');
   const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } = useSearchGroups({
     searchTerm,
     pageSize: QUERY_DEFAULT_PAGE_SIZE,
@@ -42,32 +41,18 @@ const useGroupSearch = (): UseGroupSearchResult => {
   // Sync URL search term with hook state on mount
   useEffect(() => {
     if (urlSearchTerm !== searchTerm) {
-      setSearchTerm(urlSearchTerm);
+      setSearchTerm(urlSearchTerm || '');
     }
   }, [urlSearchTerm, searchTerm]);
-
-  const updateUrlSearchTerm = useCallback(
-    (term: string | undefined) => {
-      // Update URL
-      const params = new URLSearchParams(searchParams);
-      if (term) {
-        params.set(queryKey, term);
-      } else {
-        params.delete(queryKey);
-      }
-      router.replace(`${pathname}?${params.toString()}`, { scroll: false });
-    },
-    [searchParams, router, pathname]
-  );
 
   // Debounced function that updates both search term and URL
   const debouncedSetSearchTerm = useMemo(
     () =>
       debounce((term: string | undefined) => {
         setSearchTerm(term);
-        updateUrlSearchTerm(term);
+        setQueryStates({ [PARAM_KEY_GROUP_QUERY]: term || null });
       }, SEARCH_INPUT_DEBOUNCE),
-    [updateUrlSearchTerm]
+    [setQueryStates]
   );
 
   // Cleanup the debounced function on unmount

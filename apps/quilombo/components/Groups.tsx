@@ -3,7 +3,7 @@
 import { Input, Tabs, Tab } from '@heroui/react';
 import { Search } from 'lucide-react';
 import { useState } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { parseAsString, useQueryStates } from 'nuqs';
 import { useAtomValue } from 'jotai';
 import type { Key } from 'react';
 
@@ -13,42 +13,39 @@ import { useScrollPosition } from '@/hooks/useScrollPosition';
 
 import GroupsGrid from './GroupsGrid';
 import GroupLocationsMap from './geocode/GroupLocationsMap';
+import { PARAM_KEY_GROUP_QUERY } from '@/hooks/useGroupSearch';
 
 const Groups = () => {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const urlView = searchParams.get('view') || 'list';
-  const urlSearchTerm = searchParams.get('gq') || '';
+  const [{ view, [PARAM_KEY_GROUP_QUERY]: gq }, setQueryStates] = useQueryStates({
+    view: parseAsString.withDefault('list'),
+    gq: parseAsString.withDefault(''),
+  });
 
-  const [inputValue, setInputValue] = useState(urlSearchTerm);
+  const [inputValue, setInputValue] = useState(gq || '');
   const { setSearchTerm, groups, totalCount, isLoading, scrollerRef } = useGroupSearchWithInfiniteScroll();
   const locations = useAtomValue(filteredLocationsAtom);
 
   // Scroll position restoration - only enabled for list view
   const scrollContainerRef = useScrollPosition({
     key: 'groups',
-    enabled: urlView === 'list',
+    enabled: view === 'list',
   });
 
   const handleSearchChange = (value: string) => {
     setInputValue(value);
     setSearchTerm(value);
+    setQueryStates({ gq: value || null });
   };
 
   const handleClear = () => {
     setInputValue('');
     setSearchTerm('');
+    setQueryStates({ gq: null });
   };
 
   const handleViewChange = (key: Key) => {
     const viewKey = String(key);
-    const params = new URLSearchParams(searchParams);
-    if (viewKey === 'list') {
-      params.delete('view');
-    } else {
-      params.set('view', viewKey);
-    }
-    router.replace(`?${params.toString()}`, { scroll: false });
+    setQueryStates({ view: viewKey === 'list' ? null : viewKey });
   };
 
   return (
@@ -69,7 +66,7 @@ const Groups = () => {
         aria-label="List / Map View"
         fullWidth
         classNames={{ panel: 'px-0 py-0' }}
-        selectedKey={urlView}
+        selectedKey={view}
         onSelectionChange={handleViewChange}
       >
         <Tab key="list" title="List">
