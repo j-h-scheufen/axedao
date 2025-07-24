@@ -1,0 +1,493 @@
+{
+  "persons": [
+    {
+      "name": "Mestre Benedito",
+      "studentOf": [],
+      "born": null,
+      "passed": null
+    },
+    {
+      "name": "Mestre Vicente Pastinha",
+      "studentOf": [
+        "Mestre Benedito"
+      ],
+      "born": "1889-04-05",
+      "passed": "1981-11-13",
+      "description": "Iconic figure of Capoeira Angola. Preserved its traditions through CECA in Salvador."
+    },
+    {
+      "name": "Mestre João Pequeno",
+      "studentOf": [
+        "Mestre Vicente Pastinha",
+        "Mestre Gilvenson"
+      ],
+      "born": "1917-12-27",
+      "passed": "2011-12-09",
+      "description": "Student of Mestre Pastinha and co-leader of CECA. Later founded his own school to carry on the lineage and taught several notable mestres including Jogo de Dentro and Barba Branca."
+    },
+    {
+      "name": "Mestre João Grande",
+      "studentOf": [
+        "Mestre Vicente Pastinha"
+      ],
+      "born": "1933-01-15",
+      "passed": null,
+      "description": "One of the foremost students of Mestre Pastinha. He moved to New York and established an academy there, spreading Capoeira Angola internationally."
+    },
+    {
+      "name": "Mestre Gilvenson",
+      "studentOf": [],
+      "born": null,
+      "passed": null
+    },
+    {
+      "name": "Mestre Jogo de Dentro",
+      "studentOf": [
+        "Mestre João Pequeno"
+      ],
+      "born": "1965-04-06",
+      "passed": null,
+      "description": "Student of João Pequeno. Founded Grupo Semente do Jogo de Angola in Salvador. Known for preserving the Angola style in its traditional form."
+    },
+    {
+      "name": "Mestre Barba Branca",
+      "studentOf": [
+        "Mestre João Pequeno"
+      ],
+      "born": "1956-03-28",
+      "passed": "2021-11-13"
+    },
+    {
+      "name": "Mestre Pé de Chumbo",
+      "studentOf": [
+        "Mestre João Pequeno"
+      ],
+      "born": "1964-12-08",
+      "passed": null
+    },
+    {
+      "name": "Mestre Pedro Moraes (Mestre Moraes)",
+      "studentOf": [
+        "Mestre João Grande"
+      ],
+      "born": "1950-02-09",
+      "passed": null,
+      "description": "Founder of GCAP. A student of João Grande and João Pequeno. One of the key figures in the revival of Capoeira Angola."
+    },
+    {
+      "name": "Mestre Cobra Mansa",
+      "studentOf": [
+        "Mestre Pedro Moraes"
+      ],
+      "born": "1960-05-19",
+      "passed": null,
+      "description": "Student of Mestre Moraes. Co-founder of FICA. Known for internationalizing Capoeira Angola and tracing its roots to Africa."
+    },
+    {
+      "name": "Mestre Traíra",
+      "studentOf": [],
+      "born": null,
+      "passed": null
+    },
+    {
+      "name": "Mestre Manuel dos Reis Machado (Mestre Bimba)",
+      "studentOf": [
+        "Mestre Bentinho"
+      ],
+      "born": "1900-11-23",
+      "passed": "1974-02-05",
+      "description": "Founder of Capoeira Regional. First to create a formal school and introduce a structured pedagogy."
+    },
+    {
+      "name": "Mestre Bentinho",
+      "studentOf": [],
+      "born": null,
+      "passed": null
+    },
+    {
+      "name": "Mestre Manoel Nascimento Machado (Mestre Nenel)",
+      "studentOf": [
+        "Mestre Manuel dos Reis Machado (Mestre Bimba)"
+      ],
+      "born": null,
+      "passed": null,
+      "description": "Son of Mestre Bimba. Founded Filhos de Bimba to preserve his father's legacy."
+    },
+    {
+      "name": "Mestre Ubirajara Almeida (Mestre Acordeon)",
+      "studentOf": [
+        "Mestre Manuel dos Reis Machado (Mestre Bimba)"
+      ],
+      "born": "1943-01-01",
+      "passed": null
+    },
+    {
+      "name": "Mestre Reinaldo Ramos Suassuna",
+      "studentOf": [
+        "Mestre Sururu",
+        "Mestre Abiné",
+        "Mestre Tonho Role"
+      ],
+      "born": "1938-01-16",
+      "passed": null,
+      "description": "Co-founder of Cordão de Ouro. Known for musical innovation and wide international influence."
+    },
+    {
+      "name": "Mestre Djamir Pinatti",
+      "studentOf": [
+        "Mestre Manuel dos Reis Machado (Mestre Bimba)"
+      ],
+      "born": "1930-04-13",
+      "passed": "2025-05-14"
+    },
+    {
+      "name": "Mestre José Andrade",
+      "studentOf": [
+        "Mestre Djamir Pinatti"
+      ],
+      "born": "1947-01-01",
+      "passed": null
+    },
+    {
+      "name": "Mestre Corisco (José Olimpio)",
+      "studentOf": [
+        "Mestre José Andrade"
+      ],
+      "born": null,
+      "passed": null,
+      "description": "Student of Mestre Andrade. Founded Chapéu de Couro, active in Recife and Europe."
+    },
+    {
+      "name": "Mestre Luís Santos (Mestre Bandeira)",
+      "studentOf": [
+        "Mestre Corisco (José Olimpio)"
+      ],
+      "born": "1957-04-01",
+      "passed": null
+    },
+    {
+      "name": "Mestre Doutor (Adenilson dos Santos)",
+      "studentOf": [
+        "Mestre Luís Santos (Mestre Bandeira)"
+      ],
+      "born": "1964-06-27",
+      "passed": null,
+      "description": "Student of Mestre Bandeira. Founded Project Capoeira in Philadelphia."
+    },
+    {
+      "name": "Mestre Olívio Bispo (Mestre Bispo)",
+      "studentOf": [],
+      "born": "1918-07-18",
+      "passed": "1972-09-25"
+    },
+    {
+      "name": "Mestre Roberto Teles (Mestre Sombra)",
+      "studentOf": [
+        "Mestre Olívio Bispo (Mestre Bispo)"
+      ],
+      "born": "1941-02-06",
+      "passed": null,
+      "description": "Student of Mestre Bispo. Founded Capoeira Senzala de Santos and taught many future mestres."
+    },
+    {
+      "name": "Mestre Laudelino Ramos de Lima (Mestre Lima)",
+      "studentOf": [
+        "Mestre Roberto Teles (Mestre Sombra)"
+      ],
+      "born": "1956-06-10",
+      "passed": null,
+      "description": "Student of Mestre Sombra. Founded Filhos de Senzala and Arte Popular."
+    },
+    {
+      "name": "Mestre António Carlos de Lima (Mestre Liminha)",
+      "studentOf": [
+        "Mestre Laudelino Ramos de Lima (Mestre Lima)"
+      ],
+      "born": "1964-08-08",
+      "passed": "2005-11-03",
+      "description": "Student of Mestre Lima. Helped expand capoeira in Brazil and Europe."
+    },
+    {
+      "name": "Mestre Beck",
+      "studentOf": [
+        "Mestre Laudelino Ramos de Lima (Mestre Lima)"
+      ],
+      "born": null,
+      "passed": null,
+      "description": "Student of Mestre Lima. Part of the Filhos de Senzala lineage."
+    },
+    {
+      "name": "Mestre Demerval Lacerda (Mestre Leopoldina)",
+      "studentOf": [
+        "Mestre Quinzinho",
+        "Mestre Artur Emídio"
+      ],
+      "born": "1933-02-12",
+      "passed": "2007-10-17",
+      "description": "Known for his malícia and charisma. Learned from Quinzinho and Artur Emídio."
+    },
+    {
+      "name": "Mestre Quinzinho",
+      "studentOf": [],
+      "born": null,
+      "passed": "1950-01-01"
+    },
+    {
+      "name": "Mestre Artur Emídio",
+      "studentOf": [],
+      "born": "1930-01-01",
+      "passed": "2011-01-01"
+    },
+    {
+      "name": "Mestre Nestor Capoeira (Nestor dos Passos)",
+      "studentOf": [
+        "Mestre Demerval Lacerda (Mestre Leopoldina)"
+      ],
+      "born": "1946-09-29",
+      "passed": "2025-03-29",
+      "description": "Student of Mestre Leopoldina. Popularized capoeira worldwide through books and teachings."
+    },
+    {
+      "name": "Mestre Jelon Vieira",
+      "studentOf": [
+        "Mestre Eziquiel"
+      ],
+      "born": "1953-01-01",
+      "passed": null,
+      "description": "Founded Capoeira Luanda. Introduced capoeira in New York in the 1970s."
+    },
+    {
+      "name": "Mestre Eziquiel",
+      "studentOf": [
+        "Mestre Manuel dos Reis Machado (Mestre Bimba)"
+      ],
+      "born": null,
+      "passed": null
+    },
+    {
+      "name": "Mestre Marcos da Silva (Mestre Barrão)",
+      "studentOf": [
+        "Mestre Pirajá"
+      ],
+      "born": "1961-01-01",
+      "passed": null,
+      "description": "Founder of Axé Capoeira. Pioneer of capoeira in North America."
+    },
+    {
+      "name": "Mestre Pirajá",
+      "studentOf": [
+        "Mestre Manuel dos Reis Machado (Mestre Bimba)"
+      ],
+      "born": null,
+      "passed": null
+    },
+    {
+      "name": "Mestre José Tadeu Cardoso (Mestre Camisa)",
+      "studentOf": [
+        "Mestre Manuel dos Reis Machado (Mestre Bimba)"
+      ],
+      "born": "1955-10-28",
+      "passed": null,
+      "description": "Founder of ABADÁ. Student of Mestre Bimba. Known for systematizing capoeira training."
+    },
+    {
+      "name": "Mestre Luiz Simas (Mestre Boneco)",
+      "studentOf": [
+        "Mestre Peixinho"
+      ],
+      "born": null,
+      "passed": null,
+      "description": "One of the founders of Grupo Capoeira Brasil. Previously part of Senzala."
+    },
+    {
+      "name": "Mestre Paulo César (Mestre Paulão Ceará)",
+      "studentOf": [
+        "Mestre Peixinho"
+      ],
+      "born": null,
+      "passed": null
+    },
+    {
+      "name": "Mestre Paulo S. da Silva (Mestre Paulão Muzenza)",
+      "studentOf": [
+        "Mestre Mentirinha"
+      ],
+      "born": null,
+      "passed": null,
+      "description": "Founder of Muzenza. Known for promoting capoeira through formal events and publications."
+    },
+    {
+      "name": "Mestre Paulo A. S. (Mestre Paulinho Sabiá)",
+      "studentOf": [
+        "Mestre Peixinho"
+      ],
+      "born": null,
+      "passed": null
+    },
+    {
+      "name": "Mestre Brasília (José Gomes)",
+      "studentOf": [],
+      "born": null,
+      "passed": null
+    },
+    {
+      "name": "Mestre Itapoan",
+      "studentOf": [
+        "Mestre Manuel dos Reis Machado (Mestre Bimba)"
+      ],
+      "born": null,
+      "passed": null
+    },
+    {
+      "name": "Mestre Paulo Gomes (Mestre Mintirinha)",
+      "studentOf": [],
+      "born": null,
+      "passed": null
+    },
+    {
+      "name": "Mestre Itamar Acidino (Mestre Burguês)",
+      "studentOf": [
+        "Mestre Paulo S. da Silva (Mestre Paulão Muzenza)"
+      ],
+      "born": null,
+      "passed": null
+    },
+    {
+      "name": "Contra Mestre Cabeção",
+      "studentOf": ["Mestre Esquilo"],
+      "born": null,
+      "passed": null,
+      "description": "Founder and lead teacher of Cai Na Capoeira. Began training with Mestre Esquilo in Sete Lagoas, Brazil in 1996. Has over 25 years of experience teaching and performing in Brazil, Israel, and the U.S."
+    },
+    {
+      "name": "Instrutora Areia",
+      "studentOf": ["Professora Casca Dura", "Contra Mestre Cabeção"],
+      "born": null,
+      "passed": null,
+      "description": "Assistant instructor at Cai Na Capoeira. Began training in 2007 with Capoeira Mandinga Com Expressão in Rochester, NY. Continued training under Professora Casca Dura (Cordão de Ouro) and joined Cai Na Capoeira in 2011."
+    },
+    {
+      "name": "Mestre Esquilo",
+      "studentOf": ["Mestre Reinaldo Ramos Suassuna"],
+      "born": null,
+      "passed": null,
+      "description": "Cordão de Ouro representative in Sete Lagoas, Brazil. Teacher of Contra Mestre Cabeção and a known figure within the CDO lineage."
+    },
+    {
+      "name": "Professora Casca Dura",
+      "studentOf": ["Cordão de Ouro lineage"],
+      "born": null,
+      "passed": null,
+      "description": "Capoeira Cordão de Ouro teacher in Rochester, NY. Early instructor of Instrutora Areia."
+    }
+  ],
+  "groups": [
+    {
+      "name": "Academia de Capoeira Regional (Mestre Bimba's School)",
+      "location": "Salvador, Brazil",
+      "foundedBy": "Mestre Manuel dos Reis Machado (Mestre Bimba)",
+      "leadBy": "Mestre Manoel Nascimento Machado (Mestre Nenel)",
+      "description": "Founded by Mestre Bimba. First legal capoeira school. Taught Capoeira Regional in a structured form."
+    },
+    {
+      "name": "Centro Esportivo de Capoeira Angola (CECA)",
+      "location": "Salvador, Brazil",
+      "foundedBy": "Mestre Vicente Pastinha",
+      "leadBy": null,
+      "description": "Founded by Mestre Pastinha to preserve Capoeira Angola. Known for teaching foundational Angola mestres."
+    },
+    {
+      "name": "Grupo Senzala",
+      "location": "Rio de Janeiro, Brazil",
+      "foundedBy": "Mestre Peixinho (Marcelo Azevedo)",
+      "leadBy": "Mestre Gato (Fernando C. Albuquerque)",
+      "description": "Founded in the 1960s in Rio. Helped popularize capoeira internationally. Known for its blended Angola/Regional approach."
+    },
+    {
+      "name": "Associação de Capoeira Cordão de Ouro",
+      "location": "São Paulo, Brazil",
+      "foundedBy": "Mestre Reinaldo Ramos Suassuna",
+      "leadBy": "Mestre Reinaldo Ramos Suassuna",
+      "description": "Founded by Mestre Suassuna and Mestre Brasília. Known for technical skill and global reach."
+    },
+    {
+      "name": "ABADÁ-Capoeira",
+      "location": "Rio de Janeiro, Brazil",
+      "foundedBy": "Mestre José Tadeu Cardoso (Mestre Camisa)",
+      "leadBy": "Mestre José Tadeu Cardoso (Mestre Camisa)",
+      "description": "Founded by Mestre Camisa. A structured, pedagogical capoeira organization with wide international presence."
+    },
+    {
+      "name": "Grupo Capoeira Brasil",
+      "location": "Niterói, Brazil",
+      "foundedBy": "Mestre Luiz Simas (Mestre Boneco)",
+      "leadBy": "Mestre Luiz Simas (Mestre Boneco)",
+      "description": "Founded by Mestres Boneco, Paulão, and Paulinho Sabiá. Known for its innovative and contemporary style."
+    },
+    {
+      "name": "Grupo Muzenza de Capoeira",
+      "location": "Curitiba, Brazil",
+      "foundedBy": "Mestre Paulo S. da Silva (Mestre Paulão Muzenza)",
+      "leadBy": "Mestre Itamar Acidino (Mestre Burguês)",
+      "description": "Founded by Mestre Paulão Muzenza. Hosts major capoeira events and promotes its values globally."
+    },
+    {
+      "name": "Grupo Axé Capoeira",
+      "location": "Vancouver, Canada",
+      "foundedBy": "Mestre Marcos da Silva (Mestre Barrão)",
+      "leadBy": "Mestre Marcos da Silva (Mestre Barrão)",
+      "description": "Founded by Mestre Barrão in Canada. One of the most widespread international capoeira groups."
+    },
+    {
+      "name": "Fundação Mestre Bimba (Filhos de Bimba School)",
+      "location": "Salvador, Brazil",
+      "foundedBy": "Mestre Manoel Nascimento Machado (Mestre Nenel)",
+      "leadBy": "Mestre Manoel Nascimento Machado (Mestre Nenel)",
+      "description": "Founded by Mestre Nenel to continue Mestre Bimba’s original Capoeira Regional."
+    },
+    {
+      "name": "Grupo de Capoeira Semente do Jogo de Angola",
+      "location": "Salvador, Brazil",
+      "foundedBy": "Mestre Jogo de Dentro",
+      "leadBy": "Mestre Jogo de Dentro",
+      "description": "Founded by Mestre Jogo de Dentro. Focused on traditional Angola style."
+    },
+    {
+      "name": "Grupo Capoeira Angola Pelourinho (GCAP)",
+      "location": "Salvador, Brazil",
+      "foundedBy": "Mestre Pedro Moraes (Mestre Moraes)",
+      "leadBy": "Mestre Pedro Moraes (Mestre Moraes)",
+      "description": "Founded by Mestre Moraes. A key group in the international revival of Capoeira Angola."
+    },
+    {
+      "name": "International Capoeira Angola Foundation (FICA)",
+      "location": "Washington, DC, USA",
+      "foundedBy": "Mestre Cobra Mansa",
+      "leadBy": "Mestre Cobra Mansa",
+      "description": "Founded by Mestre Cobra Mansa. Major promoter of Capoeira Angola with international reach."
+    },
+    {
+      "name": "Grupo de Capoeira Chapéu de Couro",
+      "location": "Recife, Brazil",
+      "foundedBy": "Mestre Corisco (José Olimpio)",
+      "leadBy": "Mestre Corisco (José Olimpio)",
+      "description": "Founded by Mestre Corisco in Recife. Known for its longevity and reach in Brazil and Europe."
+    },
+    {
+      "name": "Capoeira Luanda",
+      "location": "New York, USA",
+      "foundedBy": "Mestre Jelon Vieira",
+      "leadBy": "Mestre Jelon Vieira",
+      "description": "Founded by Mestre Jelon Vieira. One of the earliest capoeira groups in the USA."
+    },
+    {
+      "name": "Cai Na Capoeira",
+      "location": "Hudson Valley, NY, USA",
+      "foundedBy": "Contra Mestre Cabeção",
+      "leadBy": "Contra Mestre Cabeção",
+      "academia": "Associação de Capoeira Cordão de Ouro",
+      "description": "Capoeira group based in Westchester County, NY, founded in January 2012 by Contra Mestre Cabeção. Offers classes and events across Ossining, Tarrytown, Peekskill, White Plains, Beacon, and Cold Spring. Connected to the Cordão de Ouro lineage through Mestre Esquilo.",
+      "foundedOn": "2012-01-01"
+    }
+  ]
+}
