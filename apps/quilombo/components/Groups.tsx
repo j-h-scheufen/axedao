@@ -1,7 +1,6 @@
 'use client';
 
-import { Input, Tabs, Tab } from '@heroui/react';
-import { Search } from 'lucide-react';
+import { Tabs, Tab } from '@heroui/react';
 import { useState } from 'react';
 import { parseAsString, useQueryStates } from 'nuqs';
 import { useAtomValue } from 'jotai';
@@ -11,14 +10,16 @@ import useGroupSearchWithInfiniteScroll from '@/hooks/useGroupSearchWithInfinite
 import { filteredLocationsAtom } from '@/hooks/state/location';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 
+import SearchBar from './SearchBar';
+import FilterButton from './FilterButton';
 import GroupsGrid from './GroupsGrid';
 import GroupLocationsMap from './geocode/GroupLocationsMap';
-import { PARAM_KEY_GROUP_QUERY } from '@/hooks/useGroupSearch';
+import { PARAM_KEY_GROUP_QUERY } from '@/config/constants';
 
 const Groups = () => {
   const [{ view, [PARAM_KEY_GROUP_QUERY]: gq }, setQueryStates] = useQueryStates({
     view: parseAsString.withDefault('list'),
-    gq: parseAsString.withDefault(''),
+    [PARAM_KEY_GROUP_QUERY]: parseAsString.withDefault(''),
   });
 
   const [inputValue, setInputValue] = useState(gq || '');
@@ -34,13 +35,13 @@ const Groups = () => {
   const handleSearchChange = (value: string) => {
     setInputValue(value);
     setSearchTerm(value);
-    setQueryStates({ gq: value || null });
+    setQueryStates({ [PARAM_KEY_GROUP_QUERY]: value || null });
   };
 
   const handleClear = () => {
     setInputValue('');
     setSearchTerm('');
-    setQueryStates({ gq: null });
+    setQueryStates({ [PARAM_KEY_GROUP_QUERY]: null });
   };
 
   const handleViewChange = (key: Key) => {
@@ -48,20 +49,20 @@ const Groups = () => {
     setQueryStates({ view: viewKey === 'list' ? null : viewKey });
   };
 
+  const handleFilterClick = () => {
+    // TODO: Implement filter functionality for groups
+    console.log('Group filter clicked');
+  };
+
   return (
     <div className="flex flex-col gap-2 sm:gap-4 mt-1 sm:mt-3">
-      <div className="flex h-fit items-center justify-center w-full">
-        <Input
-          isClearable
-          onClear={handleClear}
-          className="w-full max-w-sm"
-          placeholder="Search by group name"
-          startContent={<Search className="h-4 w-4" />}
-          labelPlacement="outside"
-          value={inputValue}
-          onChange={(e) => handleSearchChange(e.target.value)}
-        />
-      </div>
+      <SearchBar
+        placeholder="Search by group name"
+        searchTerm={inputValue}
+        onSearchChange={handleSearchChange}
+        onClear={handleClear}
+        filterContent={<FilterButton onPress={handleFilterClick} />}
+      />
       <Tabs
         aria-label="List / Map View"
         fullWidth

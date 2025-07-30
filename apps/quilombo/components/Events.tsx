@@ -1,22 +1,23 @@
 'use client';
 
-import { Input, Tabs, Tab } from '@heroui/react';
-import { Search } from 'lucide-react';
+import { Tabs, Tab, Button } from '@heroui/react';
+import { Plus } from 'lucide-react';
 import { useState } from 'react';
 import { parseAsString, useQueryStates } from 'nuqs';
 import type { Key } from 'react';
 
 import useEventSearchWithInfiniteScroll from '@/hooks/useEventSearchWithInfiniteScroll';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
+import { PARAM_KEY_EVENT_QUERY } from '@/config/constants';
 
+import SearchBar from './SearchBar';
+import FilterButton from './FilterButton';
 import EventsGrid from './EventsGrid';
-
-const PARAM_KEY_EVENT_QUERY = 'eq';
 
 const Events = () => {
   const [{ view, [PARAM_KEY_EVENT_QUERY]: eq }, setQueryStates] = useQueryStates({
     view: parseAsString.withDefault('list'),
-    eq: parseAsString.withDefault(''),
+    [PARAM_KEY_EVENT_QUERY]: parseAsString.withDefault(''),
   });
 
   const [inputValue, setInputValue] = useState(eq || '');
@@ -31,13 +32,13 @@ const Events = () => {
   const handleSearchChange = (value: string) => {
     setInputValue(value);
     setSearchTerm(value);
-    setQueryStates({ eq: value || null });
+    setQueryStates({ [PARAM_KEY_EVENT_QUERY]: value || null });
   };
 
   const handleClear = () => {
     setInputValue('');
     setSearchTerm('');
-    setQueryStates({ eq: null });
+    setQueryStates({ [PARAM_KEY_EVENT_QUERY]: null });
   };
 
   const handleViewChange = (key: Key) => {
@@ -45,20 +46,47 @@ const Events = () => {
     setQueryStates({ view: viewKey === 'list' ? null : viewKey });
   };
 
+  const handleFilterClick = () => {
+    // TODO: Implement filter functionality
+    console.log('Filter clicked');
+  };
+
+  const handleNewEventClick = () => {
+    // TODO: Navigate to new event form
+    console.log('New Event clicked');
+  };
+
+  const newEventButton = (
+    <>
+      {/* Mobile: Icon-only button */}
+      <Button color="primary" size="sm" isIconOnly onPress={handleNewEventClick} className="flex-1 sm:hidden">
+        <Plus className="h-4 w-4" />
+      </Button>
+
+      {/* Desktop: Button with icon and text */}
+      <Button
+        color="primary"
+        size="sm"
+        startContent={<Plus className="h-4 w-4" />}
+        onPress={handleNewEventClick}
+        className="hidden sm:flex sm:flex-none"
+      >
+        New Event
+      </Button>
+    </>
+  );
+
   return (
     <div className="flex flex-col gap-2 sm:gap-4 mt-1 sm:mt-3">
-      <div className="flex h-fit items-center justify-center w-full">
-        <Input
-          isClearable
-          onClear={handleClear}
-          className="w-full max-w-sm"
-          placeholder="Search by event name"
-          startContent={<Search className="h-4 w-4" />}
-          labelPlacement="outside"
-          value={inputValue}
-          onChange={(e) => handleSearchChange(e.target.value)}
-        />
-      </div>
+      <SearchBar
+        placeholder="Search by event name"
+        searchTerm={inputValue}
+        onSearchChange={handleSearchChange}
+        onClear={handleClear}
+        filterContent={<FilterButton onPress={handleFilterClick} />}
+        rightContent={newEventButton}
+      />
+
       <Tabs
         aria-label="List / Map View"
         fullWidth

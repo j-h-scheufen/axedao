@@ -82,6 +82,23 @@ export const GROUP_DESCRIPTION_MAX_LENGTH = 500;
 
 export const SEARCH_INPUT_DEBOUNCE = 750;
 
+// Search parameter keys for URL synchronization
+export const SEARCH_PARAM_KEYS = {
+  USER_QUERY: 'uq',
+  GROUP_QUERY: 'gq',
+  EVENT_QUERY: 'eq',
+  VIEW: 'view',
+} as const;
+
+// Type for search parameter keys
+export type SearchParamKey = keyof typeof SEARCH_PARAM_KEYS;
+
+// Individual exports for backward compatibility
+export const PARAM_KEY_USER_QUERY = SEARCH_PARAM_KEYS.USER_QUERY;
+export const PARAM_KEY_GROUP_QUERY = SEARCH_PARAM_KEYS.GROUP_QUERY;
+export const PARAM_KEY_EVENT_QUERY = SEARCH_PARAM_KEYS.EVENT_QUERY;
+export const PARAM_KEY_VIEW = SEARCH_PARAM_KEYS.VIEW;
+
 export const IMAGE_TYPES = ['userAvatar', 'groupLogo', 'groupBanner'] as const;
 
 export const FILE_PREFIXES: Record<ImageType, string> = {

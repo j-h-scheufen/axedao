@@ -4,16 +4,14 @@ import { useState, useMemo, useEffect } from 'react';
 import { debounce } from 'lodash';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 
-import { SEARCH_INPUT_DEBOUNCE } from '@/config/constants';
+import { SEARCH_INPUT_DEBOUNCE, PARAM_KEY_USER_QUERY } from '@/config/constants';
 import { useSearchUsers } from '@/query/user';
-
-const queryKey = 'uq';
 
 const useUserSearch = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
-  const urlSearchTerm = searchParams.get(queryKey) || '';
+  const urlSearchTerm = searchParams.get(PARAM_KEY_USER_QUERY) || '';
 
   const [searchTerm, setSearchTerm] = useState<string | undefined>(urlSearchTerm);
   const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } = useSearchUsers({
@@ -36,9 +34,9 @@ const useUserSearch = () => {
         // Update URL
         const params = new URLSearchParams(searchParams);
         if (term) {
-          params.set(queryKey, term);
+          params.set(PARAM_KEY_USER_QUERY, term);
         } else {
-          params.delete(queryKey);
+          params.delete(PARAM_KEY_USER_QUERY);
         }
         router.replace(`${pathname}?${params.toString()}`, { scroll: false });
       }, SEARCH_INPUT_DEBOUNCE),
