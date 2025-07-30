@@ -3,8 +3,9 @@
 import { Tab } from '@heroui/react';
 
 import PageTabs from '@/components/PageTabs';
-import Users from '@/components/Users';
 import Groups from '@/components/Groups';
+import Users from '@/components/Users';
+import Events from '@/components/Events';
 
 const SearchPage = () => {
   return (
@@ -16,12 +17,7 @@ const SearchPage = () => {
         <Groups />
       </Tab>
       <Tab key="events" title="Events" className="w-full">
-        <div className="w-full items-center justify-center mt-4 text-center">
-          Coming soon ...
-          <br />
-          <br />
-          Find events like workshops or public rodas in your area
-        </div>
+        <Events />
       </Tab>
     </PageTabs>
   );

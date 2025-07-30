@@ -61,6 +61,7 @@ export const PATHS = {
   dao: '/dao',
   users: '/users',
   groups: '/groups',
+  events: '/events',
   settings: '/settings',
 };
 
