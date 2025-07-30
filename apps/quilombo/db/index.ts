@@ -354,6 +354,7 @@ export async function searchEvents(options: {
   if (searchTerm) {
     filters.push(ilike(schema.events.name, `%${searchTerm}%`));
     filters.push(ilike(schema.events.description, `%${searchTerm}%`));
+    filters.push(ilike(schema.events.url, `%${searchTerm}%`));
   }
 
   if (type) filters.push(eq(schema.events.type, type as any));

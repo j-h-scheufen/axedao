@@ -6,6 +6,7 @@ export * as profile from './currentUser';
 export * as group from './group';
 export * as user from './user';
 export * as location from './location';
+export * as event from './event';
 
 /**
  * Query keys for react-query
@@ -31,6 +32,10 @@ export const QUERY_KEYS = {
   },
   location: {
     getLocations: 'location.getLocations',
+  },
+  event: {
+    getEvent: 'event.getEvent',
+    searchEvents: 'events.search',
   },
   currentUser: {
     getUser: 'currentUser.getUser',

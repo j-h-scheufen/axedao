@@ -191,14 +191,14 @@ export const createEventFormSchema = object({
     .test('is-valid-date', 'Invalid start date', (value) => {
       if (!value) return false;
       const date = new Date(value);
-      return !isNaN(date.getTime());
+      return !Number.isNaN(date.getTime());
     }),
   end: string()
     .optional()
     .test('is-valid-date', 'Invalid end date', (value) => {
       if (!value) return true;
       const date = new Date(value);
-      return !isNaN(date.getTime());
+      return !Number.isNaN(date.getTime());
     })
     .test('is-after-start', 'End date must be after start date', function (value) {
       const { start } = this.parent;
@@ -206,35 +206,16 @@ export const createEventFormSchema = object({
       return new Date(value) > new Date(start);
     }),
   type: string().required('Event type is required').oneOf(eventTypes, 'Invalid event type'),
+  url: string()
+    .optional()
+    .test('is-valid-url', 'Enter a valid URL incl. https://', (value) => isValidUrl(value)),
   feature: mixed<Feature<Geometry, GeoJsonProperties>>().required('Location is required'),
   countryCode: string().length(2, 'Country code must be 2 characters').optional(),
   associatedGroups: array().of(string().uuid('Invalid group ID')).default([]),
   associatedUsers: array().of(string().uuid('Invalid user ID')).default([]),
 });
 
-export const updateEventFormSchema = object({
-  name: string().optional(),
-  description: string().optional(),
-  start: string()
-    .optional()
-    .test('is-valid-date', 'Invalid start date', (value) => {
-      if (!value) return true;
-      const date = new Date(value);
-      return !isNaN(date.getTime());
-    }),
-  end: string()
-    .optional()
-    .test('is-valid-date', 'Invalid end date', (value) => {
-      if (!value) return true;
-      const date = new Date(value);
-      return !isNaN(date.getTime());
-    }),
-  type: string().optional().oneOf(eventTypes, 'Invalid event type'),
-  feature: mixed<Feature<Geometry, GeoJsonProperties>>().optional(),
-  countryCode: string().length(2, 'Country code must be 2 characters').optional(),
-  associatedGroups: array().of(string().uuid('Invalid group ID')).optional(),
-  associatedUsers: array().of(string().uuid('Invalid user ID')).optional(),
-});
+export const updateEventFormSchema = createEventFormSchema.partial();
 
 export type CreateEventForm = InferType<typeof createEventFormSchema>;
 export type UpdateEventForm = InferType<typeof updateEventFormSchema>;

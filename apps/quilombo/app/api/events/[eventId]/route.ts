@@ -1,11 +1,38 @@
+import { isUndefined, omitBy } from 'lodash';
 import { getServerSession } from 'next-auth';
 import { type NextRequest, NextResponse } from 'next/server';
-import type { Feature, Geometry } from 'geojson';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { updateEventFormSchema, type UpdateEventForm, type EventType } from '@/config/validation-schema';
+import { updateEventFormSchema, type UpdateEventForm } from '@/config/validation-schema';
 import { deleteEvent, fetchEvent, isEventCreator, updateEvent } from '@/db';
 import { generateErrorMessage } from '@/utils';
+
+/**
+ * Fetches a single event by ID.
+ * @param _ - The request object
+ * @param params - eventId
+ * @returns
+ */
+export async function GET(_: NextRequest, { params }: { params: Promise<{ eventId: string }> }) {
+  try {
+    const { eventId } = await params;
+
+    const event = await fetchEvent(eventId);
+    if (!event) {
+      return NextResponse.json({ error: 'Event not found' }, { status: 404 });
+    }
+
+    return NextResponse.json(event);
+  } catch (error) {
+    console.error('Error fetching event', error);
+    return NextResponse.json(
+      { error: true, message: generateErrorMessage(error, 'An unexpected error occurred while fetching event') },
+      {
+        status: 500,
+      }
+    );
+  }
+}
 
 /**
  * Updates an event. Only the creator can update the event.
@@ -42,18 +69,17 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
     }
     const eventData = body as UpdateEventForm;
 
-    // Convert date strings to Date objects if provided
-    const updates: any = { ...eventData };
-    if (eventData.start) updates.start = new Date(eventData.start);
-    if (eventData.end) updates.end = new Date(eventData.end);
-    if (eventData.type) updates.type = eventData.type as EventType;
-    if (eventData.feature) updates.feature = eventData.feature as Feature<Geometry>;
-    if (eventData.associatedGroups)
-      updates.associatedGroups = eventData.associatedGroups.filter((id): id is string => id !== undefined);
-    if (eventData.associatedUsers)
-      updates.associatedUsers = eventData.associatedUsers.filter((id): id is string => id !== undefined);
+    // Clean the event data and merge with existing event
+    const cleanedEventData = omitBy(eventData, isUndefined);
+    const updatedEventData = {
+      ...existingEvent,
+      ...cleanedEventData,
+      // Convert date strings to Date objects if provided
+      start: eventData.start ? new Date(eventData.start) : existingEvent.start,
+      end: eventData.end ? new Date(eventData.end) : existingEvent.end,
+    };
 
-    const updatedEvent = await updateEvent(eventId, updates);
+    const updatedEvent = await updateEvent(eventId, updatedEventData);
     if (!updatedEvent) {
       throw new Error('Failed to update event');
     }
@@ -72,11 +98,11 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
 
 /**
  * Deletes an event. Only the creator can delete the event.
- * @param request - The request object
+ * @param _ - The request object
  * @param params - eventId
  * @returns
  */
-export async function DELETE(request: NextRequest, { params }: { params: Promise<{ eventId: string }> }) {
+export async function DELETE(_: NextRequest, { params }: { params: Promise<{ eventId: string }> }) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {

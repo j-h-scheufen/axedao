@@ -132,6 +132,7 @@ export const events = pgTable(
     start: timestamp('start').notNull(),
     end: timestamp('end'),
     type: eventTypeEnum('type').notNull(),
+    url: text('url'),
     feature: jsonb('feature').$type<Feature<Geometry>>().notNull(),
     location: geometry('location', { type: 'point', srid: 4326 })
       .generatedAlwaysAs(
