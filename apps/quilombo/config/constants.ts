@@ -29,6 +29,8 @@ export const styles = ['angola', 'regional', 'contemporânea'] as const;
 
 export const linkTypes = ['twitter', 'facebook', 'instagram', 'linkedin'] as const;
 
+export const eventTypes = ['general', 'workshop', 'batizado', 'public_roda'] as const;
+
 export const validFileExtensions = { image: ['jpg', 'gif', 'png', 'jpeg', 'svg', 'webp'] } as const;
 
 export const linkBaseUrls = [

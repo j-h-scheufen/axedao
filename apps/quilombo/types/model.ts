@@ -1,5 +1,5 @@
-import type { GROUP_ROLES, IMAGE_TYPES } from '@/config/constants';
-import type { SelectGroup, SelectUser, SelectGroupLocation } from '../db/schema';
+import type { GROUP_ROLES, IMAGE_TYPES, eventTypes } from '@/config/constants';
+import type { SelectGroup, SelectUser, SelectGroupLocation, SelectEvent } from '../db/schema';
 import type { Feature, Geometry } from 'geojson';
 
 /**
@@ -12,6 +12,10 @@ export type Group = Omit<SelectGroup, 'updatedAt'> & { countryCodes: string[] };
 export type User = Omit<SelectUser, 'updatedAt'>;
 
 export type GroupLocation = Omit<SelectGroupLocation, 'updatedAt'>;
+
+export type Event = Omit<SelectEvent, 'updatedAt'>;
+
+export type EventType = (typeof eventTypes)[number];
 
 // GeoJSON Feature Properties for Group Locations on Global Map
 export interface GroupLocationFeatureProperties {
@@ -59,6 +63,12 @@ export type UserSearchResult = {
 
 export type GroupSearchResult = {
   data: Group[];
+  totalCount: number;
+  nextOffset: number | null;
+};
+
+export type EventSearchResult = {
+  data: Event[];
   totalCount: number;
   nextOffset: number | null;
 };

@@ -16,12 +16,13 @@ import {
   varchar,
 } from 'drizzle-orm/pg-core';
 
-import { linkTypes, styles, titles } from '@/config/constants';
+import { linkTypes, styles, titles, eventTypes } from '@/config/constants';
 import type { Feature, Geometry } from 'geojson';
 
 export const titleEnum = pgEnum('title', titles);
 export const linkTypeEnum = pgEnum('link_type', linkTypes);
 export const styleEnum = pgEnum('style', styles);
+export const eventTypeEnum = pgEnum('event_type', eventTypes);
 
 export type LinkType = (typeof linkTypes)[number];
 export type SocialLink = { type?: LinkType; url: string };
@@ -118,6 +119,43 @@ export const groupLocations = pgTable(
   (t) => [index('groups_location_gix').using('gist', t.location), index('country_code_idx').on(t.countryCode)]
 );
 
+export const events = pgTable(
+  'events',
+  {
+    id: uuid('id').primaryKey(),
+    createdAt: timestamp('created_at').notNull().defaultNow(),
+    updatedAt: timestamp('updated_at')
+      .notNull()
+      .$onUpdate(() => new Date()),
+    name: text('name').notNull(),
+    description: text('description'),
+    start: timestamp('start').notNull(),
+    end: timestamp('end'),
+    type: eventTypeEnum('type').notNull(),
+    feature: jsonb('feature').$type<Feature<Geometry>>().notNull(),
+    location: geometry('location', { type: 'point', srid: 4326 })
+      .generatedAlwaysAs(
+        sql`ST_SetSRID(ST_MakePoint((( feature -> 'geometry' -> 'coordinates') ->> 0)::numeric, (( feature -> 'geometry' -> 'coordinates') ->> 1)::numeric), 4326)`
+      )
+      .notNull(),
+    countryCode: varchar('country_code', { length: 2 }),
+    creatorId: uuid('creator_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    associatedGroups: uuid('associated_groups').array().notNull().default([]),
+    associatedUsers: uuid('associated_users').array().notNull().default([]),
+  },
+  (t) => [
+    index('events_location_gix').using('gist', t.location),
+    index('events_country_code_idx').on(t.countryCode),
+    index('events_type_idx').on(t.type),
+    index('events_start_idx').on(t.start),
+    index('events_end_idx').on(t.end),
+    index('events_associated_groups_idx').on(t.associatedGroups),
+    index('events_associated_users_idx').on(t.associatedUsers),
+  ]
+);
+
 export type InsertUser = typeof users.$inferInsert;
 export type SelectUser = typeof users.$inferSelect;
 
@@ -129,3 +167,6 @@ export type SelectGroupAdmin = typeof groupAdmins.$inferSelect;
 
 export type InsertGroupLocation = typeof groupLocations.$inferInsert;
 export type SelectGroupLocation = typeof groupLocations.$inferSelect;
+
+export type InsertEvent = typeof events.$inferInsert;
+export type SelectEvent = typeof events.$inferSelect;
