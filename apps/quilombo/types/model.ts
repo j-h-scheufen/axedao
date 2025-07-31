@@ -1,6 +1,7 @@
 import type { GROUP_ROLES, IMAGE_TYPES, eventTypes } from '@/config/constants';
 import type { SelectGroup, SelectUser, SelectGroupLocation, SelectEvent } from '../db/schema';
 import type { Feature, Geometry } from 'geojson';
+import type { ZonedDateTime } from '@internationalized/date';
 
 /**
  * This file defines API and app-level types that are wrapping the DB schema types in order to create a layer of separation
@@ -13,7 +14,10 @@ export type User = Omit<SelectUser, 'updatedAt'>;
 
 export type GroupLocation = Omit<SelectGroupLocation, 'updatedAt'>;
 
-export type Event = Omit<SelectEvent, 'updatedAt'>;
+export type Event = Omit<SelectEvent, 'updatedAt' | 'start' | 'end'> & {
+  start: ZonedDateTime;
+  end?: ZonedDateTime;
+};
 
 export type EventType = (typeof eventTypes)[number];
 

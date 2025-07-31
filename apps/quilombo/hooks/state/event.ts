@@ -1,5 +1,6 @@
 import { atom } from 'jotai';
 import { atomWithQuery } from 'jotai-tanstack-query';
+import type { ZonedDateTime } from '@internationalized/date';
 
 import { fetchEventOptions } from '@/query/event';
 import type { Event } from '@/types/model';
@@ -19,9 +20,9 @@ export const eventTypeAtom = atom<string | undefined>((get) => get(eventAtom).da
 
 export const eventUrlAtom = atom<string | null | undefined>((get) => get(eventAtom).data?.url);
 
-export const eventStartDateAtom = atom<Date | undefined>((get) => get(eventAtom).data?.start ?? undefined);
+export const eventStartDateAtom = atom<ZonedDateTime | undefined>((get) => get(eventAtom).data?.start ?? undefined);
 
-export const eventEndDateAtom = atom<Date | null | undefined>((get) => get(eventAtom).data?.end);
+export const eventEndDateAtom = atom<ZonedDateTime | undefined>((get) => get(eventAtom).data?.end);
 
 export const eventCountryCodeAtom = atom<string | null | undefined>((get) => get(eventAtom).data?.countryCode);
 

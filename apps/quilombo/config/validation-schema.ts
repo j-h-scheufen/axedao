@@ -4,6 +4,14 @@ import type { Feature, Geometry, GeoJsonProperties } from 'geojson';
 
 import { linkTypes, styles, titles, eventTypes, validFileExtensions, MAX_IMAGE_UPLOAD_SIZE_MB } from './constants';
 
+// ISO 8601 validation regex
+const ISO_8601_REGEX = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{3})?Z$/;
+
+export const isValidISO8601 = (value: string): boolean => {
+  if (!value) return false;
+  return ISO_8601_REGEX.test(value) && !Number.isNaN(new Date(value).getTime());
+};
+
 export type Title = (typeof titles)[number];
 export type LinkTypes = (typeof linkTypes)[number];
 export type EventType = (typeof eventTypes)[number];
@@ -188,17 +196,12 @@ export const createEventFormSchema = object({
   description: string().optional(),
   start: string()
     .required('Start date is required')
-    .test('is-valid-date', 'Invalid start date', (value) => {
-      if (!value) return false;
-      const date = new Date(value);
-      return !Number.isNaN(date.getTime());
-    }),
+    .test('is-valid-date', 'Invalid start date', (value) => isValidISO8601(value)),
   end: string()
     .optional()
     .test('is-valid-date', 'Invalid end date', (value) => {
       if (!value) return true;
-      const date = new Date(value);
-      return !Number.isNaN(date.getTime());
+      return isValidISO8601(value);
     })
     .test('is-after-start', 'End date must be after start date', function (value) {
       const { start } = this.parent;
@@ -208,8 +211,11 @@ export const createEventFormSchema = object({
   type: string().required('Event type is required').oneOf(eventTypes, 'Invalid event type'),
   url: string()
     .optional()
-    .test('is-valid-url', 'Enter a valid URL incl. https://', (value) => isValidUrl(value)),
-  feature: mixed<Feature<Geometry, GeoJsonProperties>>().required('Location is required'),
+    .test('is-valid-url', 'Enter a valid URL incl. https://', (value) => {
+      if (!value) return true; // Allow empty URLs since field is optional
+      return isValidUrl(value);
+    }),
+  feature: mixed<Feature<Geometry, GeoJsonProperties>>().optional(),
   countryCode: string().length(2, 'Country code must be 2 characters').optional(),
   associatedGroups: array().of(string().uuid('Invalid group ID')).default([]),
   associatedUsers: array().of(string().uuid('Invalid user ID')).default([]),

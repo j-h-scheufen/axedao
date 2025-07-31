@@ -9,9 +9,11 @@ import type { Key } from 'react';
 import useEventSearchWithInfiniteScroll from '@/hooks/useEventSearchWithInfiniteScroll';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { PARAM_KEY_EVENT_QUERY } from '@/config/constants';
+import { useCreateEventMutation } from '@/query/event';
 
-import SearchBar from './SearchBar';
-import FilterButton from './FilterButton';
+import SearchBar from '@/components/SearchBar';
+import FilterButton from '@/components/FilterButton';
+import CreateEventModal from './CreateEventModal';
 import EventsGrid from './EventsGrid';
 
 const Events = () => {
@@ -22,6 +24,9 @@ const Events = () => {
 
   const [inputValue, setInputValue] = useState(eq || '');
   const { setSearchTerm, events, totalCount, isLoading, scrollerRef } = useEventSearchWithInfiniteScroll();
+  const [isEventModalOpen, setIsEventModalOpen] = useState(false);
+
+  const createEventMutation = useCreateEventMutation();
 
   // Scroll position restoration - only enabled for list view
   const scrollContainerRef = useScrollPosition({
@@ -52,8 +57,18 @@ const Events = () => {
   };
 
   const handleNewEventClick = () => {
-    // TODO: Navigate to new event form
-    console.log('New Event clicked');
+    setIsEventModalOpen(true);
+  };
+
+  const handleEventSubmit = async (data: any) => {
+    try {
+      await createEventMutation.mutateAsync(data);
+      setIsEventModalOpen(false);
+      // TODO: Show success message
+    } catch (error) {
+      console.error('Failed to create event:', error);
+      // TODO: Show error message
+    }
   };
 
   const newEventButton = (
@@ -115,6 +130,13 @@ const Events = () => {
           </div>
         </Tab>
       </Tabs>
+
+      <CreateEventModal
+        isOpen={isEventModalOpen}
+        onOpenChange={setIsEventModalOpen}
+        onSubmit={handleEventSubmit}
+        isSubmitting={createEventMutation.isPending}
+      />
     </div>
   );
 };

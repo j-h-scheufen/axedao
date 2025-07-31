@@ -6,26 +6,13 @@ import type { ReactNode } from 'react';
 import { PATHS } from '@/config/constants';
 import type { Event } from '@/types/model';
 import { getFlagEmoji } from '@/utils';
+import { formatDate, formatTime } from '@/components/_utils';
+import { getGeoJsonFeatureLabel } from '@/components/_utils/geojson';
 
 type Props = { event: Event; className?: string; cardFooter?: ReactNode };
 
 const EventCard = ({ event, className = '', cardFooter = null }: Props) => {
-  const { name, id, type, start, end, countryCode, url } = event;
-
-  const formatDate = (date: Date) => {
-    return new Intl.DateTimeFormat('en-US', {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-    }).format(date);
-  };
-
-  const formatTime = (date: Date) => {
-    return new Intl.DateTimeFormat('en-US', {
-      hour: 'numeric',
-      minute: '2-digit',
-    }).format(date);
-  };
+  const { name, id, type, start, end, countryCode, url, feature } = event;
 
   const getEventTypeColor = (eventType: string) => {
     switch (eventType) {
@@ -70,16 +57,23 @@ const EventCard = ({ event, className = '', cardFooter = null }: Props) => {
             <CalendarIcon className="h-4 w-4" />
             <span>
               {formatDate(start)}
-              {start.getHours() !== 0 && ` at ${formatTime(start)}`}
+              {start.hour !== 0 && ` at ${formatTime(start)}`}
               {end && (
                 <>
                   {' - '}
                   {formatDate(end)}
-                  {end.getHours() !== 0 && ` at ${formatTime(end)}`}
+                  {end.hour !== 0 && ` at ${formatTime(end)}`}
                 </>
               )}
             </span>
           </div>
+
+          {feature && (
+            <div className="flex items-center gap-2 text-sm text-default-600">
+              <MapPinIcon className="h-4 w-4" />
+              <span className="line-clamp-1">{getGeoJsonFeatureLabel(feature)}</span>
+            </div>
+          )}
 
           {countryCode && (
             <div className="flex items-center gap-2">

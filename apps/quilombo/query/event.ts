@@ -7,8 +7,10 @@ import {
   useQueryClient,
 } from '@tanstack/react-query';
 import axios from 'axios';
+import { parseAbsoluteToLocal } from '@internationalized/date';
 
 import { QueryConfig } from '@/config/constants';
+import { isValidISO8601 } from '@/config/validation-schema';
 import type { CreateEventForm, UpdateEventForm } from '@/config/validation-schema';
 import type { Event, EventSearchResult } from '@/types/model';
 import { QUERY_KEYS } from '.';
@@ -19,8 +21,23 @@ import { QUERY_KEYS } from '.';
  * into the queryOptions() function in order to take advantage of the added type safety and inference.
  */
 
-const fetchEvent = async (id: string): Promise<Event> =>
-  axios.get(`/api/events/${id}`).then((response) => response.data);
+const validateAndParseDate = (dateString: string, fieldName: string) => {
+  if (!isValidISO8601(dateString)) {
+    throw new Error(`Invalid ISO 8601 date format for ${fieldName}: ${dateString}`);
+  }
+  return parseAbsoluteToLocal(dateString);
+};
+
+const fetchEvent = async (id: string): Promise<Event> => {
+  const response = await axios.get(`/api/events/${id}`);
+  const rawEvent = response.data;
+
+  return {
+    ...rawEvent,
+    start: validateAndParseDate(rawEvent.start, 'start'),
+    end: rawEvent.end ? validateAndParseDate(rawEvent.end, 'end') : undefined,
+  };
+};
 export const fetchEventOptions = (id: string | undefined) => {
   return {
     queryKey: [QUERY_KEYS.event.getEvent, id],
@@ -64,7 +81,17 @@ const searchEvents = async ({
 
   const queryString = params.toString();
   const url = `/api/events${queryString ? `?${queryString}` : ''}`;
-  return axios.get(url).then((response) => response.data);
+  const response = await axios.get(url);
+  const rawData = response.data;
+
+  return {
+    ...rawData,
+    data: rawData.data.map((rawEvent: any) => ({
+      ...rawEvent,
+      start: validateAndParseDate(rawEvent.start, 'start'),
+      end: rawEvent.end ? validateAndParseDate(rawEvent.end, 'end') : undefined,
+    })),
+  };
 };
 
 export const searchEventsOptions = ({

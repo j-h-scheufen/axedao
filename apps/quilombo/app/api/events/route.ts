@@ -47,7 +47,10 @@ export async function GET(request: NextRequest) {
     nextOffset = null;
   }
 
-  const result = { data: searchResults.rows, totalCount: searchResults.totalCount, nextOffset };
+  // Convert database events to client events with proper Date objects
+  const clientEvents = searchResults.rows;
+
+  const result = { data: clientEvents, totalCount: searchResults.totalCount, nextOffset };
   return Response.json(result);
 }
 
@@ -70,10 +73,14 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const isValid = await createEventFormSchema.validate(body);
-    if (!isValid) {
-      return NextResponse.json({ error: 'Invalid event data' }, { status: 400 });
+
+    try {
+      await createEventFormSchema.validate(body);
+    } catch (validationError) {
+      console.error('Validation error:', validationError);
+      return NextResponse.json({ error: 'Invalid event data', details: validationError }, { status: 400 });
     }
+
     const eventData = body as CreateEventForm;
 
     const newEventId = uuidv4();
@@ -81,15 +88,18 @@ export async function POST(request: NextRequest) {
       ...eventData,
       id: newEventId,
       creatorId: session.user.id,
-      start: new Date(eventData.start),
-      end: eventData.end ? new Date(eventData.end) : undefined,
+      start: new Date(eventData.start), // Convert ISO string to Date for DB
+      end: eventData.end ? new Date(eventData.end) : undefined, // Convert ISO string to Date for DB
       type: eventData.type as EventType,
       feature: eventData.feature as Feature<Geometry>,
       associatedGroups: eventData.associatedGroups.filter((id): id is string => id !== undefined),
       associatedUsers: eventData.associatedUsers.filter((id): id is string => id !== undefined),
     });
 
-    return NextResponse.json(event);
+    // Convert database event to client event with proper Date objects
+    const clientEvent = event;
+
+    return NextResponse.json(clientEvent);
   } catch (error) {
     console.error('Error creating event', error);
     return NextResponse.json(

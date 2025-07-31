@@ -2,7 +2,7 @@
  * Returns the best display label for a GeoJSON Feature or MapTiler Feature.
  * Priority: text > place_name > properties.address > properties.text > properties.name > 'Unknown location'
  */
-// biome-ignore lint/suspicious/noExplicitAny: any is used on purpose
+// biome-ignore lint/suspicious/noExplicitAny: any is used on purpose to 'unknown'
 export function getGeoJsonFeatureLabel(feature: any): string {
   if (!feature) return 'No address';
   return (

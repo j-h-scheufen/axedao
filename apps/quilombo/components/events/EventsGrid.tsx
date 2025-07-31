@@ -2,8 +2,9 @@ import type { RefObject } from 'react';
 
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import type { Event } from '@/types/model';
-import EventCard from './EventCard';
-import EventCardSkeleton from './skeletons/EventCardSkeleton';
+import EventCardSkeleton from '@/components/skeletons/EventCardSkeleton';
+
+import { EventCard } from '.';
 
 type Props = {
   events?: Event[];
