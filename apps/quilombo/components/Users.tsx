@@ -43,7 +43,7 @@ const Users = () => {
       <div>
         Displaying {users?.length} of {totalCount} results
       </div>
-      <div ref={scrollContainerRef} className="overflow-y-auto max-h-[calc(100vh-200px)]">
+      <div ref={scrollContainerRef} className="overflow-visible">
         <UsersGrid users={users} isLoading={isLoading} scrollerRef={scrollerRef || undefined} />
       </div>
     </div>

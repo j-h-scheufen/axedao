@@ -114,7 +114,7 @@ const Events = () => {
             <p className="text-sm">
               Displaying {events?.length} of {totalCount} results
             </p>
-            <div ref={scrollContainerRef} className="overflow-y-auto max-h-[calc(100vh-200px)]">
+            <div ref={scrollContainerRef} className="overflow-visible">
               <EventsGrid events={events} isLoading={isLoading} scrollerRef={scrollerRef || undefined} />
             </div>
           </div>

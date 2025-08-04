@@ -4,11 +4,13 @@ import { type NextRequest, NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
 import type { Feature, Geometry } from 'geojson';
 
-import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
+import { QUERY_DEFAULT_PAGE_SIZE, FILE_PREFIXES, IMAGE_FORMATS } from '@/config/constants';
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { createEventFormSchema, type CreateEventForm, type EventType } from '@/config/validation-schema';
 import { fetchUser, insertEvent, searchEvents } from '@/db';
 import { generateErrorMessage } from '@/utils';
+import { pinToGroup } from '@/utils/pinata';
+import { createImageBuffer } from '@/utils/images';
 
 /**
  * Route handler for infinite (paginated) event search.
@@ -72,28 +74,63 @@ export async function POST(request: NextRequest) {
       throw new Error('No entry for logged-in user in DB. This should not be possible.');
     }
 
-    const body = await request.json();
+    const formData = await request.formData();
+    const imageFile = formData.get('image') as File | null;
+
+    // Extract form data excluding the file
+    const eventData: Record<string, any> = {};
+    for (const [key, value] of formData.entries()) {
+      if (key !== 'image') {
+        eventData[key] = value;
+      }
+    }
+
+    // Parse JSON fields
+    if (eventData.feature) {
+      eventData.feature = JSON.parse(eventData.feature as string);
+    }
+    if (eventData.associatedGroups) {
+      eventData.associatedGroups = JSON.parse(eventData.associatedGroups as string);
+    }
+    if (eventData.associatedUsers) {
+      eventData.associatedUsers = JSON.parse(eventData.associatedUsers as string);
+    }
 
     try {
-      await createEventFormSchema.validate(body);
+      await createEventFormSchema.validate(eventData);
     } catch (validationError) {
       console.error('Validation error:', validationError);
       return NextResponse.json({ error: 'Invalid event data', details: validationError }, { status: 400 });
     }
 
-    const eventData = body as CreateEventForm;
-
+    const validatedEventData = eventData as CreateEventForm;
     const newEventId = uuidv4();
+
+    // Upload image to Pinata if provided
+    let imageUrl: string | undefined;
+    if (imageFile) {
+      const filename = `${FILE_PREFIXES.eventImage}-${newEventId}`;
+      const imageBuffer = await createImageBuffer(imageFile, 'eventImage');
+      const { cid, error, errorStatus } = await pinToGroup(imageBuffer, filename);
+
+      if (error) {
+        return NextResponse.json({ error }, { status: errorStatus ?? 500 });
+      }
+
+      imageUrl = cid;
+    }
+
     const event = await insertEvent({
-      ...eventData,
+      ...validatedEventData,
       id: newEventId,
       creatorId: session.user.id,
-      start: new Date(eventData.start), // Convert ISO string to Date for DB
-      end: eventData.end ? new Date(eventData.end) : undefined, // Convert ISO string to Date for DB
-      type: eventData.type as EventType,
-      feature: eventData.feature as Feature<Geometry>,
-      associatedGroups: eventData.associatedGroups.filter((id): id is string => id !== undefined),
-      associatedUsers: eventData.associatedUsers.filter((id): id is string => id !== undefined),
+      image: imageUrl,
+      start: new Date(validatedEventData.start), // Convert ISO string to Date for DB
+      end: validatedEventData.end ? new Date(validatedEventData.end) : undefined, // Convert ISO string to Date for DB
+      type: validatedEventData.type as EventType,
+      feature: validatedEventData.feature as Feature<Geometry>,
+      associatedGroups: validatedEventData.associatedGroups.filter((id): id is string => id !== undefined),
+      associatedUsers: validatedEventData.associatedUsers.filter((id): id is string => id !== undefined),
     });
 
     // Convert database event to client event with proper Date objects

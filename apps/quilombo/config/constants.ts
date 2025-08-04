@@ -99,18 +99,30 @@ export const PARAM_KEY_GROUP_QUERY = SEARCH_PARAM_KEYS.GROUP_QUERY;
 export const PARAM_KEY_EVENT_QUERY = SEARCH_PARAM_KEYS.EVENT_QUERY;
 export const PARAM_KEY_VIEW = SEARCH_PARAM_KEYS.VIEW;
 
-export const IMAGE_TYPES = ['userAvatar', 'groupLogo', 'groupBanner'] as const;
+export const IMAGE_TYPES = ['userAvatar', 'groupLogo', 'groupBanner', 'eventImage'] as const;
 
 export const FILE_PREFIXES: Record<ImageType, string> = {
   userAvatar: 'user-avatar',
   groupLogo: 'group-logo',
   groupBanner: 'group-banner',
+  eventImage: 'event-image',
 };
 
-export const IMAGE_FORMATS: Record<ImageType, ResizeOptions> = {
-  userAvatar: { width: 300, height: 300 },
-  groupLogo: { width: 200, height: 200 },
-  groupBanner: { height: 250, width: 800, fit: 'cover', position: 'attention' },
+export type ImageProcessingInstructions = {
+  lossless?: boolean;
+  resizeOptions: ResizeOptions | { portrait: ResizeOptions; landscape: ResizeOptions };
+};
+
+export const IMAGE_FORMATS: Record<ImageType, ImageProcessingInstructions> = {
+  userAvatar: { lossless: true, resizeOptions: { width: 300, height: 300 } },
+  groupLogo: { lossless: true, resizeOptions: { width: 200, height: 200 } },
+  groupBanner: { resizeOptions: { height: 250, width: 800, fit: 'cover', position: 'attention' } },
+  eventImage: {
+    resizeOptions: {
+      portrait: { width: 900, withoutEnlargement: true },
+      landscape: { width: 1200, withoutEnlargement: true },
+    },
+  },
 };
 
 export const MAX_IMAGE_UPLOAD_SIZE_MB = 4.5; // 4.5 MB is the current limit for Vercel serverless functions! https://vercel.com/docs/concepts/limits/overview#serverless-function-payload-size-limit

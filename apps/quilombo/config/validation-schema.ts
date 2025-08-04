@@ -216,6 +216,7 @@ export const createEventFormSchema = object({
       return isValidUrl(value);
     }),
   feature: mixed<Feature<Geometry, GeoJsonProperties>>().optional(),
+  image: string().optional(),
   countryCode: string().length(2, 'Country code must be 2 characters').optional(),
   associatedGroups: array().of(string().uuid('Invalid group ID')).default([]),
   associatedUsers: array().of(string().uuid('Invalid user ID')).default([]),

@@ -11,11 +11,12 @@ import {
   Select,
   SelectItem,
   DateRangePicker,
+  Image,
 } from '@heroui/react';
 import { parseAbsoluteToLocal } from '@internationalized/date';
 import type { Feature as MaptilerFeature } from '@maptiler/geocoding-control/types';
 import { Field, Form, Formik, type FormikProps } from 'formik';
-import { useCallback, useRef } from 'react';
+import { useCallback, useRef, useState, useId } from 'react';
 import type { Feature, Geometry, GeoJsonProperties } from 'geojson';
 
 import { LocationMap } from '@/components/geocode';
@@ -27,12 +28,13 @@ import { getGeoJsonFeatureLabel } from '@/components/_utils/geojson';
 interface EventModalProps {
   isOpen: boolean;
   onOpenChange: (open: boolean) => void;
-  onSubmit: (data: CreateEventForm) => Promise<void>;
+  onSubmit: (data: CreateEventForm | FormData) => Promise<void>;
   isSubmitting: boolean;
 }
 
 const CreateEventModal = ({ isOpen, onOpenChange, onSubmit, isSubmitting }: EventModalProps) => {
   const setFieldValueRef = useRef<((field: string, value: unknown) => void) | null>(null);
+  const imageUploadId = useId();
 
   const initialValues: CreateEventForm = {
     name: '',
@@ -46,6 +48,9 @@ const CreateEventModal = ({ isOpen, onOpenChange, onSubmit, isSubmitting }: Even
     associatedUsers: [],
   };
 
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+
   const handleSubmit = useCallback(
     async (values: CreateEventForm) => {
       if (!values.feature || !values.start) {
@@ -53,21 +58,27 @@ const CreateEventModal = ({ isOpen, onOpenChange, onSubmit, isSubmitting }: Even
         return;
       }
 
-      const data = {
-        name: values.name,
-        description: values.description || undefined,
-        start: values.start,
-        end: values.end || undefined,
-        type: values.type,
-        url: values.url || undefined,
-        feature: values.feature,
-        associatedGroups: values.associatedGroups || [],
-        associatedUsers: values.associatedUsers || [],
-      };
+      const formData = new FormData();
 
-      await onSubmit(data);
+      // Add form fields
+      formData.append('name', values.name);
+      formData.append('description', values.description || '');
+      formData.append('start', values.start);
+      if (values.end) formData.append('end', values.end);
+      formData.append('type', values.type);
+      if (values.url) formData.append('url', values.url);
+      formData.append('feature', JSON.stringify(values.feature));
+      formData.append('associatedGroups', JSON.stringify(values.associatedGroups || []));
+      formData.append('associatedUsers', JSON.stringify(values.associatedUsers || []));
+
+      // Add image if selected
+      if (selectedImage) {
+        formData.append('image', selectedImage);
+      }
+
+      await onSubmit(formData);
     },
-    [onSubmit]
+    [onSubmit, selectedImage]
   );
 
   const handleClose = useCallback(() => {
@@ -82,6 +93,23 @@ const CreateEventModal = ({ isOpen, onOpenChange, onSubmit, isSubmitting }: Even
     },
     []
   );
+
+  const handleImageChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      setSelectedImage(file);
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setImagePreview(e.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  }, []);
+
+  const handleRemoveImage = useCallback(() => {
+    setSelectedImage(null);
+    setImagePreview(null);
+  }, []);
 
   return (
     <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="4xl">
@@ -211,6 +239,39 @@ const CreateEventModal = ({ isOpen, onOpenChange, onSubmit, isSubmitting }: Even
                           onChange={(e) => setFieldValue('url', e.target.value)}
                           onBlur={() => setFieldTouched('url', true)}
                         />
+                      </div>
+
+                      {/* Image Upload */}
+                      <div className="flex flex-col gap-2">
+                        <div className="flex items-center gap-4">
+                          <input
+                            type="file"
+                            accept="image/*"
+                            onChange={handleImageChange}
+                            className="hidden"
+                            id={imageUploadId}
+                          />
+                          <label
+                            htmlFor={imageUploadId}
+                            className="cursor-pointer px-4 py-2 bg-default-100 hover:bg-default-200 rounded-lg text-sm font-medium transition-colors"
+                          >
+                            Choose Event Image (Optional)
+                          </label>
+                          {selectedImage && (
+                            <Button size="sm" variant="light" color="danger" onPress={handleRemoveImage}>
+                              Remove
+                            </Button>
+                          )}
+                        </div>
+                        {imagePreview && (
+                          <div className="mt-2">
+                            <Image
+                              src={imagePreview}
+                              alt="Event preview"
+                              className="w-32 h-32 object-cover rounded-lg"
+                            />
+                          </div>
+                        )}
                       </div>
                     </div>
 

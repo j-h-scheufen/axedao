@@ -1,18 +1,18 @@
-import { Link, Card, CardBody, CardFooter } from '@heroui/react';
+import { Link, Card, CardBody, CardFooter, Image } from '@heroui/react';
 import clsx from 'clsx';
 import { CalendarIcon, MapPinIcon, ExternalLinkIcon } from 'lucide-react';
 import type { ReactNode } from 'react';
 
 import { PATHS } from '@/config/constants';
 import type { Event } from '@/types/model';
-import { getFlagEmoji } from '@/utils';
+import { getFlagEmoji, getImageUrl } from '@/utils';
 import { formatDate, formatTime } from '@/components/_utils';
 import { getGeoJsonFeatureLabel } from '@/components/_utils/geojson';
 
 type Props = { event: Event; className?: string; cardFooter?: ReactNode };
 
 const EventCard = ({ event, className = '', cardFooter = null }: Props) => {
-  const { name, id, type, start, end, countryCode, url, feature } = event;
+  const { name, id, type, start, end, countryCode, url, feature, image } = event;
 
   const getEventTypeColor = (eventType: string) => {
     switch (eventType) {
@@ -70,18 +70,8 @@ const EventCard = ({ event, className = '', cardFooter = null }: Props) => {
 
           {feature && (
             <div className="flex items-center gap-2 text-sm text-default-600">
-              <MapPinIcon className="h-4 w-4" />
+              {countryCode ? <span>{getFlagEmoji(countryCode)}</span> : <MapPinIcon className="h-4 w-4" />}
               <span className="line-clamp-1">{getGeoJsonFeatureLabel(feature)}</span>
-            </div>
-          )}
-
-          {countryCode && (
-            <div className="flex items-center gap-2">
-              <span className="flex items-center gap-1 text-sm text-default-500">
-                <MapPinIcon className="h-3 w-3" />
-                <span className="text-lg">{getFlagEmoji(countryCode)}</span>
-                <span className="uppercase">{countryCode}</span>
-              </span>
             </div>
           )}
 
@@ -90,6 +80,15 @@ const EventCard = ({ event, className = '', cardFooter = null }: Props) => {
               <ExternalLinkIcon className="h-3 w-3 text-default-400" />
               <span className="text-xs text-default-500 truncate">{url}</span>
             </div>
+          )}
+
+          {image && (
+            <Image
+              src={getImageUrl(image)}
+              alt={`${name} event image`}
+              className="w-full h-full object-cover rounded-lg"
+              loading="lazy"
+            />
           )}
         </div>
       </CardBody>

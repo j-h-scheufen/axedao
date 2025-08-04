@@ -75,7 +75,7 @@ const Groups = () => {
             <p className="text-sm">
               Displaying {groups?.length} of {totalCount} results
             </p>
-            <div ref={scrollContainerRef} className="overflow-y-auto max-h-[calc(100vh-200px)]">
+            <div ref={scrollContainerRef} className="overflow-visible">
               <GroupsGrid groups={groups} isLoading={isLoading} scrollerRef={scrollerRef || undefined} />
             </div>
           </div>

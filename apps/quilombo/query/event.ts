@@ -140,8 +140,12 @@ export const searchEventsOptions = ({
   } as const;
 };
 
-const createEvent = async (newEvent: CreateEventForm): Promise<Event> =>
-  axios.post('/api/events', newEvent).then((response) => response.data);
+const createEvent = async (newEvent: CreateEventForm | FormData): Promise<Event> => {
+  const response = await axios.post('/api/events', newEvent, {
+    headers: newEvent instanceof FormData ? {} : { 'Content-Type': 'application/json' },
+  });
+  return response.data;
+};
 
 const updateEvent = async (eventId: string, data: UpdateEventForm): Promise<Event> =>
   axios.patch(`/api/events/${eventId}`, data).then((response) => response.data);
@@ -168,7 +172,7 @@ export const useSearchEvents = (params: {
 export const useCreateEventMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async (newEvent: CreateEventForm) => createEvent(newEvent),
+    mutationFn: async (newEvent: CreateEventForm | FormData) => createEvent(newEvent),
     onSuccess: (data) => {
       queryClient.setQueryData([QUERY_KEYS.event.getEvent, data.id], data);
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.event.searchEvents] });
