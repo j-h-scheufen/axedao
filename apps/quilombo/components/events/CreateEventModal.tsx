@@ -16,7 +16,7 @@ import {
 import { parseAbsoluteToLocal } from '@internationalized/date';
 import type { Feature as MaptilerFeature } from '@maptiler/geocoding-control/types';
 import { Field, Form, Formik, type FormikProps } from 'formik';
-import { useCallback, useRef, useState, useId } from 'react';
+import { useCallback, useRef, useId, useState, useMemo } from 'react';
 import type { Feature, Geometry, GeoJsonProperties } from 'geojson';
 
 import { LocationMap } from '@/components/geocode';
@@ -36,17 +36,20 @@ const CreateEventModal = ({ isOpen, onOpenChange, onSubmit, isSubmitting }: Even
   const setFieldValueRef = useRef<((field: string, value: unknown) => void) | null>(null);
   const imageUploadId = useId();
 
-  const initialValues: CreateEventForm = {
-    name: '',
-    description: '',
-    start: new Date().toISOString(), // Use ISO string for form
-    end: undefined,
-    type: eventTypes[0],
-    url: '',
-    feature: undefined,
-    associatedGroups: [],
-    associatedUsers: [],
-  };
+  const initialValues: CreateEventForm = useMemo(
+    () => ({
+      name: '',
+      description: '',
+      start: new Date().toISOString(), // Use ISO string for form
+      end: undefined,
+      type: eventTypes[0],
+      url: '',
+      feature: undefined,
+      associatedGroups: [],
+      associatedUsers: [],
+    }),
+    []
+  );
 
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
@@ -119,7 +122,7 @@ const CreateEventModal = ({ isOpen, onOpenChange, onSubmit, isSubmitting }: Even
           initialValues={initialValues}
           validationSchema={createEventFormSchema}
           onSubmit={handleSubmit}
-          enableReinitialize
+          enableReinitialize={false}
         >
           {({
             values,
