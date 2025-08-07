@@ -77,7 +77,6 @@ const EventCard = ({ event, className = '', cardFooter = null }: Props) => {
                       {end.hour !== 0 && ` at ${formatTime(end)}`}
                     </>
                   )}
-                  {!end && start.hour !== 0 && ' (open-ended)'}
                 </>
               )}
             </span>

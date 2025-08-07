@@ -57,6 +57,7 @@ const searchEvents = async ({
   userId,
   startDate,
   endDate,
+  showActiveOnly,
 }: {
   offset?: number;
   pageSize?: number;
@@ -67,6 +68,7 @@ const searchEvents = async ({
   userId?: string;
   startDate?: string;
   endDate?: string;
+  showActiveOnly?: boolean;
 }): Promise<EventSearchResult> => {
   const params = new URLSearchParams();
   if (offset !== undefined) params.append('offset', offset.toString());
@@ -78,6 +80,7 @@ const searchEvents = async ({
   if (userId) params.append('userId', userId);
   if (startDate) params.append('startDate', startDate);
   if (endDate) params.append('endDate', endDate);
+  if (showActiveOnly) params.append('showActiveOnly', 'true');
 
   const queryString = params.toString();
   const url = `/api/events${queryString ? `?${queryString}` : ''}`;
@@ -104,6 +107,7 @@ export const searchEventsOptions = ({
   userId,
   startDate,
   endDate,
+  showActiveOnly,
 }: {
   offset?: number;
   pageSize?: number;
@@ -114,9 +118,20 @@ export const searchEventsOptions = ({
   userId?: string;
   startDate?: string;
   endDate?: string;
+  showActiveOnly?: boolean;
 }) => {
   return {
-    queryKey: [QUERY_KEYS.event.searchEvents, searchTerm, type, countryCode, groupId, userId, startDate, endDate],
+    queryKey: [
+      QUERY_KEYS.event.searchEvents,
+      searchTerm,
+      type,
+      countryCode,
+      groupId,
+      userId,
+      startDate,
+      endDate,
+      showActiveOnly,
+    ],
     queryFn: async ({ pageParam }: { pageParam: number }) =>
       searchEvents({
         offset: pageParam,
@@ -128,6 +143,7 @@ export const searchEventsOptions = ({
         userId,
         startDate,
         endDate,
+        showActiveOnly,
       }),
     initialPageParam: offset || 0,
     getNextPageParam: (lastPage: EventSearchResult) => {
@@ -165,6 +181,7 @@ export const useSearchEvents = (params: {
   userId?: string;
   startDate?: string;
   endDate?: string;
+  showActiveOnly?: boolean;
 }) => {
   return useInfiniteQuery(infiniteQueryOptions(searchEventsOptions(params)));
 };

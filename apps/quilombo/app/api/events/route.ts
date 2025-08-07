@@ -4,7 +4,7 @@ import { type NextRequest, NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
 import type { Feature, Geometry } from 'geojson';
 
-import { QUERY_DEFAULT_PAGE_SIZE, FILE_PREFIXES, IMAGE_FORMATS } from '@/config/constants';
+import { QUERY_DEFAULT_PAGE_SIZE, FILE_PREFIXES } from '@/config/constants';
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { createEventFormSchema, type CreateEventForm, type EventType } from '@/config/validation-schema';
 import { fetchUser, insertEvent, searchEvents } from '@/db';
@@ -29,13 +29,17 @@ export async function GET(request: NextRequest) {
   const userId = searchParams.get('userId');
   const startDate = searchParams.get('startDate');
   const endDate = searchParams.get('endDate');
+  const showActiveOnly = searchParams.get('showActiveOnly') === 'true';
 
   let nextOffset = null;
 
   const searchOptions = {
     pageSize,
     offset,
-    ...omitBy({ searchTerm, type, countryCode, groupId, userId, startDate, endDate }, isNil),
+    ...omitBy({ searchTerm, type, countryCode, groupId, userId }, isNil),
+    ...(startDate && { startDate: new Date(startDate) }),
+    ...(endDate && { endDate: new Date(endDate) }),
+    showActiveOnly,
   };
 
   const searchResults = await searchEvents(searchOptions);

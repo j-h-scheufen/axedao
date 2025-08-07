@@ -1,4 +1,19 @@
-import { and, count, eq, ilike, inArray, ne, notExists, or, sql, type SQLWrapper } from 'drizzle-orm';
+import {
+  and,
+  count,
+  eq,
+  gte,
+  ilike,
+  inArray,
+  lte,
+  ne,
+  notExists,
+  or,
+  sql,
+  type SQLWrapper,
+  lt,
+  isNotNull,
+} from 'drizzle-orm';
 import { drizzle, type PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 
@@ -336,6 +351,7 @@ export async function searchEvents(options: {
   userId?: string;
   startDate?: Date;
   endDate?: Date;
+  showActiveOnly?: boolean; // New parameter to show only active/upcoming events
 }): Promise<{ rows: schema.SelectEvent[]; totalCount: number }> {
   const {
     pageSize = QUERY_DEFAULT_PAGE_SIZE,
@@ -347,6 +363,7 @@ export async function searchEvents(options: {
     userId,
     startDate,
     endDate,
+    showActiveOnly = false,
   } = options;
 
   const filters: (SQLWrapper | undefined)[] = [];
@@ -359,8 +376,28 @@ export async function searchEvents(options: {
 
   if (type) filters.push(eq(schema.events.type, type as any));
   if (countryCode) filters.push(eq(schema.events.countryCode, countryCode));
-  if (startDate) filters.push(sql`${schema.events.start} >= ${startDate}`);
-  if (endDate) filters.push(sql`${schema.events.end} <= ${endDate}`);
+
+  // Handle date filtering
+  if (showActiveOnly) {
+    // Show events that are either:
+    // 1. Starting in the future (start >= now)
+    // 2. Currently ongoing multi-day events (start < now AND end IS NOT NULL AND end >= now)
+    const now = new Date();
+    filters.push(
+      or(
+        gte(schema.events.start, now), // Future events
+        and(
+          lt(schema.events.start, now), // Started in the past
+          isNotNull(schema.events.end), // Has an end date (multi-day event)
+          gte(schema.events.end, now) // End date is in the future
+        )
+      )
+    );
+  } else {
+    // Use explicit start/end date filters if provided
+    if (startDate) filters.push(gte(schema.events.start, startDate));
+    if (endDate) filters.push(lte(schema.events.end, endDate));
+  }
 
   if (groupId) {
     filters.push(sql`${schema.events.associatedGroups} @> ${[groupId]}`);

@@ -14,8 +14,10 @@ const useEventSearch = () => {
   const urlSearchTerm = searchParams.get(PARAM_KEY_EVENT_QUERY) || '';
 
   const [searchTerm, setSearchTerm] = useState<string | undefined>(urlSearchTerm);
+
   const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } = useSearchEvents({
     searchTerm,
+    showActiveOnly: true, // Only show active/upcoming events
   });
 
   // Sync URL search term with hook state on mount
