@@ -12,7 +12,7 @@ import { getGeoJsonFeatureLabel } from '@/components/_utils/geojson';
 type Props = { event: Event; className?: string; cardFooter?: ReactNode };
 
 const EventCard = ({ event, className = '', cardFooter = null }: Props) => {
-  const { name, id, type, start, end, countryCode, url, feature, image } = event;
+  const { name, id, type, start, end, isAllDay, countryCode, url, feature, image } = event;
 
   const getEventTypeColor = (eventType: string) => {
     switch (eventType) {
@@ -56,13 +56,28 @@ const EventCard = ({ event, className = '', cardFooter = null }: Props) => {
           <div className="flex items-center gap-2 text-sm text-default-600">
             <CalendarIcon className="h-4 w-4" />
             <span>
-              {formatDate(start)}
-              {start.hour !== 0 && ` at ${formatTime(start)}`}
-              {end && (
+              {isAllDay ? (
                 <>
-                  {' - '}
-                  {formatDate(end)}
-                  {end.hour !== 0 && ` at ${formatTime(end)}`}
+                  {formatDate(start)}
+                  {end && start.toDate().toDateString() !== end.toDate().toDateString() && (
+                    <>
+                      {' - '}
+                      {formatDate(end)}
+                    </>
+                  )}
+                </>
+              ) : (
+                <>
+                  {formatDate(start)}
+                  {start.hour !== 0 && ` at ${formatTime(start)}`}
+                  {end && (
+                    <>
+                      {' - '}
+                      {formatDate(end)}
+                      {end.hour !== 0 && ` at ${formatTime(end)}`}
+                    </>
+                  )}
+                  {!end && start.hour !== 0 && ' (open-ended)'}
                 </>
               )}
             </span>

@@ -131,6 +131,7 @@ export const events = pgTable(
     description: text('description'),
     start: timestamp('start').notNull(),
     end: timestamp('end'),
+    isAllDay: boolean('is_all_day').notNull().default(false),
     type: eventTypeEnum('type').notNull(),
     url: text('url'),
     image: varchar('image'),

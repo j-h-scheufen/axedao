@@ -208,6 +208,12 @@ export const createEventFormSchema = object({
       if (!start || !value) return true;
       return new Date(value) > new Date(start);
     }),
+  isAllDay: boolean().required('All day status is required'),
+  feature: mixed<Feature<Geometry, GeoJsonProperties>>()
+    .optional()
+    .test('location-required', 'Location is required', (value) => {
+      return value !== undefined && value !== null;
+    }),
   type: string().required('Event type is required').oneOf(eventTypes, 'Invalid event type'),
   url: string()
     .optional()
@@ -215,7 +221,6 @@ export const createEventFormSchema = object({
       if (!value) return true; // Allow empty URLs since field is optional
       return isValidUrl(value);
     }),
-  feature: mixed<Feature<Geometry, GeoJsonProperties>>().optional(),
   image: string().optional(),
   countryCode: string().length(2, 'Country code must be 2 characters').optional(),
   associatedGroups: array().of(string().uuid('Invalid group ID')).default([]),

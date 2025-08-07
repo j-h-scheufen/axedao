@@ -127,6 +127,7 @@ export async function POST(request: NextRequest) {
       image: imageUrl,
       start: new Date(validatedEventData.start), // Convert ISO string to Date for DB
       end: validatedEventData.end ? new Date(validatedEventData.end) : undefined, // Convert ISO string to Date for DB
+      isAllDay: validatedEventData.isAllDay,
       type: validatedEventData.type as EventType,
       feature: validatedEventData.feature as Feature<Geometry>,
       associatedGroups: validatedEventData.associatedGroups.filter((id): id is string => id !== undefined),
