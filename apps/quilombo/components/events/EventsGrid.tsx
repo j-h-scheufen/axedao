@@ -1,13 +1,13 @@
 import type { RefObject } from 'react';
 
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
-import type { Event } from '@/types/model';
+import type { ZonedEvent } from '@/types/model';
 import EventCardSkeleton from '@/components/skeletons/EventCardSkeleton';
 
 import { EventCard } from '.';
 
 type Props = {
-  events?: Event[];
+  events?: ZonedEvent[];
   isLoading?: boolean;
   scrollerRef?: RefObject<HTMLElement | null>;
 };

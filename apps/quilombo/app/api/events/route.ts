@@ -20,34 +20,39 @@ import { createImageBuffer } from '@/utils/images';
  */
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
-  const pageSize = Number(searchParams.get('pageSize')) || QUERY_DEFAULT_PAGE_SIZE;
-  const offset = Number(searchParams.get('offset'));
-  const searchTerm = searchParams.get('searchTerm');
-  const type = searchParams.get('type');
-  const countryCode = searchParams.get('countryCode');
-  const groupId = searchParams.get('groupId');
-  const userId = searchParams.get('userId');
-  const startDate = searchParams.get('startDate');
-  const endDate = searchParams.get('endDate');
-  const showActiveOnly = searchParams.get('showActiveOnly') === 'true';
+  const {
+    pageSize = QUERY_DEFAULT_PAGE_SIZE.toString(),
+    offset = '0',
+    searchTerm,
+    type,
+    countryCode,
+    groupId,
+    userId,
+    startDate,
+    endDate,
+    showActiveOnly = 'false',
+  } = Object.fromEntries(searchParams.entries());
+
+  const pageSizeNum = Number(pageSize) || QUERY_DEFAULT_PAGE_SIZE;
+  const offsetNum = Number(offset) || 0;
 
   let nextOffset = null;
 
   const searchOptions = {
-    pageSize,
-    offset,
+    pageSize: pageSizeNum,
+    offset: offsetNum,
     ...omitBy({ searchTerm, type, countryCode, groupId, userId }, isNil),
     ...(startDate && { startDate: new Date(startDate) }),
     ...(endDate && { endDate: new Date(endDate) }),
-    showActiveOnly,
+    showActiveOnly: showActiveOnly === 'true',
   };
 
   const searchResults = await searchEvents(searchOptions);
 
   // Calculate nextOffset based on totalCount and offset
-  if (searchResults.totalCount > offset + pageSize) {
-    nextOffset = offset + pageSize;
-  } else if (searchResults.totalCount > offset) {
+  if (searchResults.totalCount > offsetNum + pageSizeNum) {
+    nextOffset = offsetNum + pageSizeNum;
+  } else if (searchResults.totalCount > offsetNum) {
     nextOffset = searchResults.totalCount;
   } else {
     nextOffset = null;

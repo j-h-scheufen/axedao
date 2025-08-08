@@ -12,7 +12,7 @@ import { parseAbsoluteToLocal } from '@internationalized/date';
 import { QueryConfig } from '@/config/constants';
 import { isValidISO8601 } from '@/config/validation-schema';
 import type { CreateEventForm, UpdateEventForm } from '@/config/validation-schema';
-import type { Event, EventSearchResult } from '@/types/model';
+import type { EventSearchResult, Event } from '@/types/model';
 import { QUERY_KEYS } from '.';
 
 /**
@@ -21,7 +21,7 @@ import { QUERY_KEYS } from '.';
  * into the queryOptions() function in order to take advantage of the added type safety and inference.
  */
 
-const validateAndParseDate = (dateString: string, fieldName: string) => {
+const validateAndParseZonedDateTime = (dateString: string, fieldName: string) => {
   if (!isValidISO8601(dateString)) {
     throw new Error(`Invalid ISO 8601 date format for ${fieldName}: ${dateString}`);
   }
@@ -32,10 +32,19 @@ const fetchEvent = async (id: string): Promise<Event> => {
   const response = await axios.get(`/api/events/${id}`);
   const rawEvent = response.data;
 
+  // Convert ISO strings back to Date objects to match server-side format
+  // Add defensive validation to ensure we received ISO strings
+  const validateAndConvertDate = (value: unknown, fieldName: string): Date => {
+    if (typeof value === 'string' && /^\d{4}-\d{2}-\d{2}T/.test(value)) {
+      return new Date(value);
+    }
+    throw new Error(`Invalid ISO date format for ${fieldName}: ${value}`);
+  };
+
   return {
     ...rawEvent,
-    start: validateAndParseDate(rawEvent.start, 'start'),
-    end: rawEvent.end ? validateAndParseDate(rawEvent.end, 'end') : undefined,
+    start: validateAndConvertDate(rawEvent.start, 'start'),
+    end: rawEvent.end ? validateAndConvertDate(rawEvent.end, 'end') : undefined,
   };
 };
 export const fetchEventOptions = (id: string | undefined) => {
@@ -91,8 +100,8 @@ const searchEvents = async ({
     ...rawData,
     data: rawData.data.map((rawEvent: any) => ({
       ...rawEvent,
-      start: validateAndParseDate(rawEvent.start, 'start'),
-      end: rawEvent.end ? validateAndParseDate(rawEvent.end, 'end') : undefined,
+      start: validateAndParseZonedDateTime(rawEvent.start, 'start'),
+      end: rawEvent.end ? validateAndParseZonedDateTime(rawEvent.end, 'end') : undefined,
     })),
   };
 };

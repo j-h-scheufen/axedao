@@ -14,7 +14,10 @@ export type User = Omit<SelectUser, 'updatedAt'>;
 
 export type GroupLocation = Omit<SelectGroupLocation, 'updatedAt'>;
 
-export type Event = Omit<SelectEvent, 'updatedAt' | 'start' | 'end'> & {
+export type Event = Omit<SelectEvent, 'updatedAt'>;
+
+// Event type based on RawEvent with ZonedDateTime fields
+export type ZonedEvent = Omit<Event, 'start' | 'end'> & {
   start: ZonedDateTime;
   end?: ZonedDateTime;
 };
@@ -72,7 +75,7 @@ export type GroupSearchResult = {
 };
 
 export type EventSearchResult = {
-  data: Event[];
+  data: ZonedEvent[];
   totalCount: number;
   nextOffset: number | null;
 };

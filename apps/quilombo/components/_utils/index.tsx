@@ -17,8 +17,8 @@ export const getLinkIcon = (domain: string | null | undefined) => {
   }
 };
 
-export const formatDate = (date: ZonedDateTime) => {
-  const jsDate = date.toDate();
+export const formatDate = (date: ZonedDateTime | Date) => {
+  const jsDate = date instanceof Date ? date : date.toDate();
   return new Intl.DateTimeFormat(undefined, {
     year: 'numeric',
     month: 'numeric',
@@ -26,8 +26,8 @@ export const formatDate = (date: ZonedDateTime) => {
   }).format(jsDate);
 };
 
-export const formatTime = (date: ZonedDateTime) => {
-  const jsDate = date.toDate();
+export const formatTime = (date: ZonedDateTime | Date) => {
+  const jsDate = date instanceof Date ? date : date.toDate();
   return new Intl.DateTimeFormat(undefined, {
     hour: 'numeric',
     minute: '2-digit',
