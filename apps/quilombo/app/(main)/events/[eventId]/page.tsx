@@ -2,7 +2,7 @@ import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 import { notFound } from 'next/navigation';
 
 import PageHeading from '@/components/PageHeading';
-import { EventDetails, EventDetailsClientState } from '@/components/events';
+import { EventDetails, EventDetailsClientState, EventTypeChip } from '@/components/events';
 import { QueryConfig } from '@/config/constants';
 import { fetchEvent } from '@/db';
 import { QUERY_KEYS } from '@/query';
@@ -24,7 +24,10 @@ const EventDetailsPage = async ({ params }: NextPageProps<{ eventId: string }>) 
   return (
     <HydrationBoundary state={dehydratedState}>
       <EventDetailsClientState eventId={eventId}>
-        <PageHeading>{rawEvent.name}</PageHeading>
+        <PageHeading className="flex gap-2 sm:gap-3 items-center">
+          <EventTypeChip type={rawEvent.type} size="md" />
+          <span>{rawEvent.name}</span>
+        </PageHeading>
         <EventDetails />
       </EventDetailsClientState>
     </HydrationBoundary>

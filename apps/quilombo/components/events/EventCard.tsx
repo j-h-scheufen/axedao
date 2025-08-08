@@ -1,13 +1,14 @@
 import { Link, Card, CardBody, CardFooter, Image } from '@heroui/react';
 import clsx from 'clsx';
-import { CalendarIcon, MapPinIcon, ExternalLinkIcon } from 'lucide-react';
+import { MapPinIcon, ExternalLinkIcon } from 'lucide-react';
 import type { ReactNode } from 'react';
 
 import { PATHS } from '@/config/constants';
 import type { ZonedEvent } from '@/types/model';
-import { getFlagEmoji, getImageUrl, getEventTypeColor, getEventTypeLabel } from '@/utils';
-import { formatDate, formatTime } from '@/components/_utils';
+import { getFlagEmoji, getImageUrl } from '@/utils';
 import { getGeoJsonFeatureLabel } from '@/components/_utils/geojson';
+import EventTypeChip from './EventTypeChip';
+import EventDateTime from './EventDateTime';
 
 type Props = { event: ZonedEvent; className?: string; cardFooter?: ReactNode };
 
@@ -19,42 +20,11 @@ const EventCard = ({ event, className = '', cardFooter = null }: Props) => {
       <CardBody className={clsx('flex flex-col gap-3 p-4', className)}>
         <div className="flex items-start justify-between">
           <h3 className="text-lg font-semibold line-clamp-2">{name}</h3>
-          <span
-            className={clsx('px-2 py-1 text-xs font-medium rounded-full whitespace-nowrap', getEventTypeColor(type))}
-          >
-            {getEventTypeLabel(type)}
-          </span>
+          <EventTypeChip type={type} size="sm" />
         </div>
 
         <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-2 text-sm text-default-600">
-            <CalendarIcon className="h-4 w-4" />
-            <span>
-              {isAllDay ? (
-                <>
-                  {formatDate(start)}
-                  {end && start.toDate().toDateString() !== end.toDate().toDateString() && (
-                    <>
-                      {' - '}
-                      {formatDate(end)}
-                    </>
-                  )}
-                </>
-              ) : (
-                <>
-                  {formatDate(start)}
-                  {start.hour !== 0 && ` at ${formatTime(start)}`}
-                  {end && (
-                    <>
-                      {' - '}
-                      {formatDate(end)}
-                      {end.hour !== 0 && ` at ${formatTime(end)}`}
-                    </>
-                  )}
-                </>
-              )}
-            </span>
-          </div>
+          <EventDateTime start={start} end={end} isAllDay={isAllDay} variant="compact" />
 
           {feature && (
             <div className="flex items-center gap-2 text-sm text-default-600">
