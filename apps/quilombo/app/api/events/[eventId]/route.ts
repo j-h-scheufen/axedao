@@ -2,10 +2,13 @@ import { isUndefined, omitBy } from 'lodash';
 import { getServerSession } from 'next-auth';
 import { type NextRequest, NextResponse } from 'next/server';
 
+import { FILE_PREFIXES } from '@/config/constants';
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { updateEventFormSchema, type UpdateEventForm } from '@/config/validation-schema';
 import { deleteEvent, fetchEvent, isEventCreator, updateEvent } from '@/db';
 import { generateErrorMessage } from '@/utils';
+import { pinToGroup } from '@/utils/pinata';
+import { createImageBuffer } from '@/utils/images';
 
 /**
  * Fetches a single event by ID.
@@ -62,22 +65,65 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
       return NextResponse.json({ error: 'Only the event creator can update this event' }, { status: 403 });
     }
 
-    const body = await request.json();
-    const isValid = await updateEventFormSchema.validate(body);
-    if (!isValid) {
-      return NextResponse.json({ error: 'Invalid event data' }, { status: 400 });
+    const formData = await request.formData();
+    const imageFile = formData.get('image') as File | null;
+
+    // Extract form data excluding the file
+    const eventData: Record<string, any> = {};
+    for (const [key, value] of formData.entries()) {
+      if (key !== 'image') {
+        eventData[key] = value;
+      }
     }
-    const eventData = body as UpdateEventForm;
+
+    // Parse JSON fields
+    if (eventData.feature) {
+      eventData.feature = JSON.parse(eventData.feature as string);
+    }
+    if (eventData.associatedGroups) {
+      eventData.associatedGroups = JSON.parse(eventData.associatedGroups as string);
+    }
+    if (eventData.associatedUsers) {
+      eventData.associatedUsers = JSON.parse(eventData.associatedUsers as string);
+    }
+
+    try {
+      await updateEventFormSchema.validate(eventData);
+    } catch (validationError) {
+      console.error('Validation error:', validationError);
+      return NextResponse.json({ error: 'Invalid event data', details: validationError }, { status: 400 });
+    }
+
+    const validatedEventData = eventData as UpdateEventForm;
 
     // Clean the event data and merge with existing event
-    const cleanedEventData = omitBy(eventData, isUndefined);
-    const updatedEventData = {
-      ...existingEvent,
-      ...cleanedEventData,
+    const cleanedEventData = omitBy(validatedEventData, isUndefined);
+
+    // Remove auto-generated fields that should not be updated directly
+    const { location: _location, countryCode: _countryCode, ...updateableFields } = cleanedEventData;
+
+    const updatedEventData: any = {
+      ...updateableFields,
       // Convert date strings to Date objects if provided
-      start: eventData.start ? new Date(eventData.start) : existingEvent.start,
-      end: eventData.end ? new Date(eventData.end) : existingEvent.end,
+      start: validatedEventData.start ? new Date(validatedEventData.start) : existingEvent.start,
+      end: validatedEventData.end ? new Date(validatedEventData.end) : existingEvent.end,
     };
+
+    // Handle image upload if provided
+    if (imageFile) {
+      const filename = `${FILE_PREFIXES.eventImage}-${eventId}`;
+      const imageBuffer = await createImageBuffer(imageFile, 'eventImage');
+      const { cid, error, errorStatus } = await pinToGroup(imageBuffer, filename);
+
+      if (error) {
+        return NextResponse.json({ error }, { status: errorStatus ?? 500 });
+      }
+
+      updatedEventData.image = cid || null;
+    } else if (validatedEventData.image !== undefined) {
+      // If no new image but image field is provided, use the existing value
+      updatedEventData.image = validatedEventData.image;
+    }
 
     const updatedEvent = await updateEvent(eventId, updatedEventData);
     if (!updatedEvent) {

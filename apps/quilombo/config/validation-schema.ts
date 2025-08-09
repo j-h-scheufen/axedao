@@ -210,7 +210,7 @@ export const createEventFormSchema = object({
     }),
   isAllDay: boolean().required('All day status is required'),
   feature: mixed<Feature<Geometry, GeoJsonProperties>>()
-    .optional()
+    .nullable()
     .test('location-required', 'Location is required', (value) => {
       return value !== undefined && value !== null;
     }),
@@ -222,6 +222,7 @@ export const createEventFormSchema = object({
       return isValidUrl(value);
     }),
   image: string().optional(),
+  imageChanged: boolean().optional(),
   countryCode: string().length(2, 'Country code must be 2 characters').optional(),
   associatedGroups: array().of(string().uuid('Invalid group ID')).default([]),
   associatedUsers: array().of(string().uuid('Invalid user ID')).default([]),

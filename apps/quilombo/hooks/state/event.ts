@@ -2,7 +2,7 @@ import { atom } from 'jotai';
 import { atomWithQuery } from 'jotai-tanstack-query';
 import { parseAbsoluteToLocal } from '@internationalized/date';
 
-import { fetchEventOptions } from '@/query/event';
+import { fetchEventOptions, validateAndConvertDate } from '@/query/event';
 import type { Event, ZonedEvent } from '@/types/model';
 
 // This atom is used to trigger the loading of an event
@@ -20,8 +20,8 @@ export const zonedEventAtom = atom<{ event: ZonedEvent | undefined; isLoading: b
   return {
     event: {
       ...rawEvent,
-      start: parseAbsoluteToLocal(rawEvent.start.toISOString()),
-      end: rawEvent.end ? parseAbsoluteToLocal(rawEvent.end.toISOString()) : undefined,
+      start: parseAbsoluteToLocal(validateAndConvertDate(rawEvent.start, 'start').toISOString()),
+      end: rawEvent.end ? parseAbsoluteToLocal(validateAndConvertDate(rawEvent.end, 'end').toISOString()) : undefined,
     },
     isLoading: rawEventResult.isLoading,
   };

@@ -1,4 +1,4 @@
-import { CalendarIcon, ClockIcon } from 'lucide-react';
+import { CalendarIcon } from 'lucide-react';
 import clsx from 'clsx';
 
 import { formatDate, formatTime } from '@/components/_utils';
@@ -38,13 +38,13 @@ const EventDateTime = ({ start, end, isAllDay, variant = 'compact', className = 
             </>
           ) : (
             <>
-              {formatDate(start)}
-              {start.hour !== 0 && ` at ${formatTime(start)}`}
+              {formatDate(start)} at {formatTime(start)}
               {end && (
                 <>
                   {' - '}
-                  {formatDate(end)}
-                  {end.hour !== 0 && ` at ${formatTime(end)}`}
+                  {start.toDate().toDateString() === end.toDate().toDateString()
+                    ? formatTime(end)
+                    : `${formatDate(end)} at ${formatTime(end)}`}
                 </>
               )}
             </>

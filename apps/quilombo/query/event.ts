@@ -21,25 +21,21 @@ import { QUERY_KEYS } from '.';
  * into the queryOptions() function in order to take advantage of the added type safety and inference.
  */
 
-const validateAndParseZonedDateTime = (dateString: string, fieldName: string) => {
-  if (!isValidISO8601(dateString)) {
-    throw new Error(`Invalid ISO 8601 date format for ${fieldName}: ${dateString}`);
+// Convert ISO strings back to Date objects to match server-side format
+// Add defensive validation to ensure we received ISO strings
+export const validateAndConvertDate = (value: unknown, fieldName: string): Date => {
+  if (value instanceof Date) {
+    return value;
   }
-  return parseAbsoluteToLocal(dateString);
+  if (typeof value === 'string' && isValidISO8601(value)) {
+    return new Date(value);
+  }
+  throw new Error(`Invalid ISO date format for ${fieldName}: ${value}`);
 };
 
 const fetchEvent = async (id: string): Promise<Event> => {
   const response = await axios.get(`/api/events/${id}`);
   const rawEvent = response.data;
-
-  // Convert ISO strings back to Date objects to match server-side format
-  // Add defensive validation to ensure we received ISO strings
-  const validateAndConvertDate = (value: unknown, fieldName: string): Date => {
-    if (typeof value === 'string' && /^\d{4}-\d{2}-\d{2}T/.test(value)) {
-      return new Date(value);
-    }
-    throw new Error(`Invalid ISO date format for ${fieldName}: ${value}`);
-  };
 
   return {
     ...rawEvent,
@@ -100,8 +96,8 @@ const searchEvents = async ({
     ...rawData,
     data: rawData.data.map((rawEvent: any) => ({
       ...rawEvent,
-      start: validateAndParseZonedDateTime(rawEvent.start, 'start'),
-      end: rawEvent.end ? validateAndParseZonedDateTime(rawEvent.end, 'end') : undefined,
+      start: parseAbsoluteToLocal(validateAndConvertDate(rawEvent.start, 'start').toISOString()),
+      end: rawEvent.end ? parseAbsoluteToLocal(validateAndConvertDate(rawEvent.end, 'end').toISOString()) : undefined,
     })),
   };
 };
@@ -211,7 +207,13 @@ export const useUpdateEventMutation = () => {
   return useMutation({
     mutationFn: async ({ eventId, data }: { eventId: string; data: UpdateEventForm }) => updateEvent(eventId, data),
     onSuccess: (data, variables) => {
-      queryClient.setQueryData([QUERY_KEYS.event.getEvent, variables.eventId], data);
+      // Process the data through the same validation as fetchEvent
+      const processedData = {
+        ...data,
+        start: validateAndConvertDate(data.start, 'start'),
+        end: data.end ? validateAndConvertDate(data.end, 'end') : undefined,
+      };
+      queryClient.setQueryData([QUERY_KEYS.event.getEvent, variables.eventId], processedData);
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.event.searchEvents] });
     },
   });

@@ -1,27 +1,33 @@
 'use client';
 
-import { Card, CardBody, Image, Link } from '@heroui/react';
-import { MapPinIcon, ExternalLinkIcon } from 'lucide-react';
+import { Card, CardBody, Image, Link, Button } from '@heroui/react';
+import { MapPinIcon, ExternalLinkIcon, SettingsIcon } from 'lucide-react';
 import { useAtomValue } from 'jotai';
+import NextLink from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import { zonedEventAtom } from '@/hooks/state/event';
+import { currentUserIdAtom } from '@/hooks/state/currentUser';
 import { getFlagEmoji, getImageUrl } from '@/utils';
 import { getGeoJsonFeatureLabel } from '@/components/_utils/geojson';
-import UserCard from '@/components/UserCard';
-import SubsectionHeading from '@/components/SubsectionHeading';
+// import UserCard from '@/components/UserCard';
+// import SubsectionHeading from '@/components/SubsectionHeading';
 import EventDateTime from './EventDateTime';
-import { useFetchUser } from '@/query/user';
-import UserCardSkeleton from '../skeletons/UserCardSkeleton';
+// import { useFetchUser } from '@/query/user';
+// import UserCardSkeleton from '../skeletons/UserCardSkeleton';
 
 const EventDetails = () => {
   const { event, isLoading } = useAtomValue(zonedEventAtom);
-  const { data: creator, isLoading: isCreatorLoading } = useFetchUser(event?.creatorId);
+  const currentUserId = useAtomValue(currentUserIdAtom);
+  // const { data: creator, isLoading: isCreatorLoading } = useFetchUser(event?.creatorId);
+  const pathname = usePathname();
 
   if (isLoading || !event) {
     return <div>Loading...</div>;
   }
 
   const { name, start, end, isAllDay, countryCode, url, feature, image, description } = event;
+  const isEventCreator = event.creatorId === currentUserId;
 
   return (
     <div className="space-y-6">
@@ -31,6 +37,20 @@ const EventDetails = () => {
           {/* Combined details card */}
           <Card>
             <CardBody className="flex flex-col gap-2">
+              {/* Edit button for event creator */}
+              {isEventCreator && (
+                <div className="flex justify-end mb-2">
+                  <Button
+                    as={NextLink}
+                    href={`${pathname}/edit`}
+                    size="sm"
+                    variant="light"
+                    startContent={<SettingsIcon className="h-4 w-4" />}
+                  >
+                    Edit Event
+                  </Button>
+                </div>
+              )}
               {/* Date and time */}
               <EventDateTime start={start} end={end} isAllDay={isAllDay} variant="detailed" />
 
@@ -67,12 +87,12 @@ const EventDetails = () => {
           </Card>
 
           {/* Creator */}
-          {creator && (
+          {/* {creator && (
             <div>
               <SubsectionHeading>Created by</SubsectionHeading>
               {isCreatorLoading ? <UserCardSkeleton /> : <UserCard user={creator} />}
             </div>
-          )}
+          )} */}
         </div>
 
         {image && (

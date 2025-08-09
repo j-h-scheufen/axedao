@@ -9,7 +9,7 @@ import { Events } from '@/components/events';
 
 const SearchPage = () => {
   return (
-    <PageTabs>
+    <PageTabs defaultTab="users">
       <Tab key="users" title="People">
         <Users />
       </Tab>
