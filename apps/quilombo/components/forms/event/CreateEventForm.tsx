@@ -1,26 +1,30 @@
 'use client';
 
 import { Button, Card, CardBody, CardFooter } from '@heroui/react';
-import type { Feature as MaptilerFeature } from '@maptiler/geocoding-control/types';
 import { Field, Form, Formik, type FormikProps } from 'formik';
 import { useCallback, useId, useState, useMemo } from 'react';
-import type { Feature, Geometry, GeoJsonProperties } from 'geojson';
 
-import { FieldInput, FieldTextarea } from '@/components/forms';
-import { createEventFormSchema, type CreateEventForm } from '@/config/validation-schema';
-import { getGeoJsonFeatureLabel } from '@/components/_utils/geojson';
-import { EventDateTimeSection, EventTypeAndUrlSection, EventImageUploadSection, EventLocationSection } from './shared';
+import {
+  FieldInput,
+  FieldTextarea,
+  EventDateTimeField,
+  EventLocationField,
+  EventTypeField,
+  EventUrlField,
+} from '@/components/forms';
+import { createEventFormSchema, type CreateEventForm as CreateEventFormType } from '@/config/validation-schema';
+import { EventImageUploadSection } from './shared';
 import { eventTypes } from '@/config/constants';
 
 interface CreateEventFormProps {
-  onSubmit: (data: CreateEventForm | FormData) => Promise<void>;
+  onSubmit: (data: CreateEventFormType | FormData) => Promise<void>;
   isSubmitting: boolean;
 }
 
-const CreateEventFormComponent = ({ onSubmit, isSubmitting }: CreateEventFormProps) => {
+const CreateEventForm = ({ onSubmit, isSubmitting }: CreateEventFormProps) => {
   const imageUploadId = useId();
 
-  const initialValues: CreateEventForm = useMemo(
+  const initialValues: CreateEventFormType = useMemo(
     () => ({
       name: '',
       description: '',
@@ -32,17 +36,16 @@ const CreateEventFormComponent = ({ onSubmit, isSubmitting }: CreateEventFormPro
       feature: undefined,
       associatedGroups: [],
       associatedUsers: [],
-      imageChanged: false, // Track if image was changed
+      imageChanged: false,
     }),
     []
   );
 
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
-  const [isMultiDay, setIsMultiDay] = useState(false);
 
   const handleSubmit = useCallback(
-    async (values: CreateEventForm) => {
+    async (values: CreateEventFormType) => {
       if (!values.start) {
         console.warn('Event submission requires start date');
         return;
@@ -54,8 +57,7 @@ const CreateEventFormComponent = ({ onSubmit, isSubmitting }: CreateEventFormPro
       formData.append('name', values.name);
       formData.append('description', values.description || '');
       formData.append('start', values.start);
-      // Only include end date if it's a multi-day event
-      if (isMultiDay && !!values.end) {
+      if (values.end) {
         formData.append('end', values.end);
       }
       formData.append('isAllDay', (values.isAllDay || false).toString());
@@ -72,57 +74,34 @@ const CreateEventFormComponent = ({ onSubmit, isSubmitting }: CreateEventFormPro
 
       await onSubmit(formData);
     },
-    [onSubmit, selectedImage, isMultiDay]
+    [onSubmit, selectedImage]
   );
 
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      setSelectedImage(file);
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setImagePreview(e.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleRemoveImage = () => {
+    setSelectedImage(null);
+    setImagePreview(null);
+  };
+
   return (
-    <Formik<CreateEventForm>
+    <Formik<CreateEventFormType>
       initialValues={initialValues}
       validationSchema={createEventFormSchema}
       onSubmit={handleSubmit}
       enableReinitialize={false}
     >
-      {({
-        values,
-        dirty,
-        isValid,
-        isSubmitting: formikIsSubmitting,
-        setFieldValue,
-        setFieldTouched,
-        errors,
-        touched,
-      }: FormikProps<typeof initialValues>) => {
-        const address = values.feature ? getGeoJsonFeatureLabel(values.feature) : '';
-
-        const handleLocationMapSelection = (
-          feature: Feature<Geometry, GeoJsonProperties>,
-          _coordinates: [number, number]
-        ) => {
-          setFieldValue('feature', feature as MaptilerFeature);
-          setFieldTouched('feature', true);
-        };
-
-        const handleImageChangeLocal = (event: React.ChangeEvent<HTMLInputElement>) => {
-          const file = event.target.files?.[0];
-          if (file) {
-            setSelectedImage(file);
-            const reader = new FileReader();
-            reader.onload = (e) => {
-              setImagePreview(e.target?.result as string);
-            };
-            reader.readAsDataURL(file);
-            // Mark image as changed in Formik
-            setFieldValue('imageChanged', true);
-          }
-        };
-
-        const handleRemoveImageLocal = () => {
-          setSelectedImage(null);
-          setImagePreview(null);
-          // Mark image as changed in Formik
-          setFieldValue('imageChanged', true);
-        };
-
+      {({ values, dirty, isValid, isSubmitting: formikIsSubmitting }: FormikProps<typeof initialValues>) => {
         return (
           <Card>
             <Form className="flex flex-col gap-2 sm:gap-4">
@@ -130,14 +109,7 @@ const CreateEventFormComponent = ({ onSubmit, isSubmitting }: CreateEventFormPro
                 <div className="flex flex-col lg:flex-row gap-6">
                   {/* Form Fields */}
                   <div className="flex flex-col gap-4 lg:w-1/2">
-                    <Field
-                      name="name"
-                      label="Event Name"
-                      placeholder="Enter event name"
-                      isRequired
-                      as={FieldInput}
-                      onBlur={() => setFieldTouched('name', true)}
-                    />
+                    <Field name="name" label="Event Name" placeholder="Enter event name" isRequired as={FieldInput} />
 
                     <Field
                       name="description"
@@ -147,41 +119,32 @@ const CreateEventFormComponent = ({ onSubmit, isSubmitting }: CreateEventFormPro
                       className="lg:flex-1 lg:resize-none"
                     />
 
-                    <EventDateTimeSection
-                      values={values}
-                      touched={touched}
-                      errors={errors}
-                      isMultiDay={isMultiDay}
-                      setIsMultiDay={setIsMultiDay}
-                      setFieldValue={setFieldValue}
-                      setFieldTouched={setFieldTouched}
+                    {/* Using the new Formik-integrated field components */}
+                    <Field
+                      name="dateTime"
+                      as={EventDateTimeField}
+                      startFieldName="start"
+                      endFieldName="end"
+                      isAllDayFieldName="isAllDay"
                     />
 
-                    <EventTypeAndUrlSection
-                      values={values}
-                      setFieldValue={setFieldValue}
-                      setFieldTouched={setFieldTouched}
-                    />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <Field name="type" as={EventTypeField} />
+                      <Field name="url" as={EventUrlField} />
+                    </div>
 
                     <EventImageUploadSection
                       selectedImage={selectedImage}
                       imagePreview={imagePreview}
                       imageUploadId={imageUploadId}
-                      handleImageChange={handleImageChangeLocal}
-                      handleRemoveImage={handleRemoveImageLocal}
+                      handleImageChange={handleImageChange}
+                      handleRemoveImage={handleRemoveImage}
                     />
                   </div>
 
                   {/* Location Section */}
                   <div className="flex flex-col gap-4 lg:w-1/2">
-                    <EventLocationSection
-                      address={address}
-                      values={values}
-                      touched={touched}
-                      errors={errors}
-                      setFieldTouched={setFieldTouched}
-                      handleLocationMapSelection={handleLocationMapSelection}
-                    />
+                    <Field name="feature" as={EventLocationField} />
                   </div>
                 </div>
               </CardBody>
@@ -203,4 +166,4 @@ const CreateEventFormComponent = ({ onSubmit, isSubmitting }: CreateEventFormPro
   );
 };
 
-export default CreateEventFormComponent;
+export default CreateEventForm;

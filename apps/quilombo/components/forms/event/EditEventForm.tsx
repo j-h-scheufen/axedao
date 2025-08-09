@@ -1,17 +1,22 @@
 'use client';
 
 import { Button, Card, CardBody, CardFooter } from '@heroui/react';
-import type { Feature as MaptilerFeature } from '@maptiler/geocoding-control/types';
 import { Field, Form, Formik, type FormikProps } from 'formik';
-import { useCallback, useRef, useId, useState, useMemo } from 'react';
-import type { Feature, Geometry, GeoJsonProperties } from 'geojson';
+import { useCallback, useId, useState, useMemo } from 'react';
 
-import { FieldInput, FieldTextarea } from '@/components/forms';
+import {
+  FieldInput,
+  FieldTextarea,
+  EventDateTimeField,
+  EventLocationField,
+  EventTypeField,
+  EventUrlField,
+} from '@/components/forms';
 import { eventTypes } from '@/config/constants';
 import { updateEventFormSchema, type UpdateEventForm } from '@/config/validation-schema';
-import { getGeoJsonFeatureLabel } from '@/components/_utils/geojson';
+
 import type { ZonedEvent } from '@/types/model';
-import { EventDateTimeSection, EventTypeAndUrlSection, EventImageUploadSection, EventLocationSection } from './shared';
+import { EventImageUploadSection } from './shared';
 import { getImageUrl } from '@/utils';
 
 interface EditEventFormProps {
@@ -23,8 +28,6 @@ interface EditEventFormProps {
 }
 
 const EditEventForm = ({ initialEvent, onSubmit, isSubmitting, onDelete, isDeleting }: EditEventFormProps) => {
-  const setFieldValueRef = useRef<((field: string, value: unknown) => void) | null>(null);
-  const setFieldTouchedRef = useRef<((field: string, touched: boolean) => void) | null>(null);
   const imageUploadId = useId();
 
   const initialValues: UpdateEventForm = useMemo(
@@ -48,7 +51,6 @@ const EditEventForm = ({ initialEvent, onSubmit, isSubmitting, onDelete, isDelet
   const [imagePreview, setImagePreview] = useState<string | null>(
     initialEvent.image ? getImageUrl(initialEvent.image) || null : null
   );
-  const [isMultiDay, setIsMultiDay] = useState(!!initialEvent.end);
 
   const handleSubmit = useCallback(
     async (values: UpdateEventForm) => {
@@ -63,8 +65,8 @@ const EditEventForm = ({ initialEvent, onSubmit, isSubmitting, onDelete, isDelet
       formData.append('name', values.name || '');
       formData.append('description', values.description || '');
       formData.append('start', values.start || '');
-      // Only include end date if it's a multi-day event
-      if (isMultiDay && !!values.end) {
+      // Only include end date if it exists
+      if (values.end) {
         formData.append('end', values.end);
       }
       formData.append('isAllDay', (values.isAllDay || false).toString());
@@ -81,19 +83,7 @@ const EditEventForm = ({ initialEvent, onSubmit, isSubmitting, onDelete, isDelet
 
       await onSubmit(formData);
     },
-    [onSubmit, selectedImage, isMultiDay]
-  );
-
-  const handleLocationMapSelection = useCallback(
-    (feature: Feature<Geometry, GeoJsonProperties>, _coordinates: [number, number]) => {
-      if (setFieldValueRef.current) {
-        setFieldValueRef.current('feature', feature as MaptilerFeature);
-        if (setFieldTouchedRef.current) {
-          setFieldTouchedRef.current('feature', true);
-        }
-      }
-    },
-    []
+    [onSubmit, selectedImage]
   );
 
   const handleImageChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
@@ -105,20 +95,12 @@ const EditEventForm = ({ initialEvent, onSubmit, isSubmitting, onDelete, isDelet
         setImagePreview(e.target?.result as string);
       };
       reader.readAsDataURL(file);
-      // Mark image as changed in Formik
-      if (setFieldValueRef.current) {
-        setFieldValueRef.current('imageChanged', true);
-      }
     }
   }, []);
 
   const handleRemoveImage = useCallback(() => {
     setSelectedImage(null);
     setImagePreview(null);
-    // Mark image as changed in Formik
-    if (setFieldValueRef.current) {
-      setFieldValueRef.current('imageChanged', true);
-    }
   }, []);
 
   return (
@@ -138,11 +120,6 @@ const EditEventForm = ({ initialEvent, onSubmit, isSubmitting, onDelete, isDelet
         errors,
         touched,
       }: FormikProps<typeof initialValues>) => {
-        const address = values.feature ? getGeoJsonFeatureLabel(values.feature) : '';
-
-        setFieldValueRef.current = setFieldValue;
-        setFieldTouchedRef.current = setFieldTouched;
-
         return (
           <Card>
             <Form className="flex flex-col gap-2 sm:gap-4">
@@ -167,21 +144,18 @@ const EditEventForm = ({ initialEvent, onSubmit, isSubmitting, onDelete, isDelet
                       className="lg:flex-1 lg:resize-none"
                     />
 
-                    <EventDateTimeSection
-                      values={values}
-                      touched={touched}
-                      errors={errors}
-                      isMultiDay={isMultiDay}
-                      setIsMultiDay={setIsMultiDay}
-                      setFieldValue={setFieldValue}
-                      setFieldTouched={setFieldTouched}
+                    <Field
+                      name="dateTime"
+                      as={EventDateTimeField}
+                      startFieldName="start"
+                      endFieldName="end"
+                      isAllDayFieldName="isAllDay"
                     />
 
-                    <EventTypeAndUrlSection
-                      values={values}
-                      setFieldValue={setFieldValue}
-                      setFieldTouched={setFieldTouched}
-                    />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <Field name="type" as={EventTypeField} />
+                      <Field name="url" as={EventUrlField} />
+                    </div>
 
                     <EventImageUploadSection
                       selectedImage={selectedImage}
@@ -194,14 +168,7 @@ const EditEventForm = ({ initialEvent, onSubmit, isSubmitting, onDelete, isDelet
 
                   {/* Location Section */}
                   <div className="flex flex-col gap-4 lg:w-1/2">
-                    <EventLocationSection
-                      address={address}
-                      values={values}
-                      touched={touched}
-                      errors={errors}
-                      setFieldTouched={setFieldTouched}
-                      handleLocationMapSelection={handleLocationMapSelection}
-                    />
+                    <Field name="feature" as={EventLocationField} />
                   </div>
                 </div>
               </CardBody>
