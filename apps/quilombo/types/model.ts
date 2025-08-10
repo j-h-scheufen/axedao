@@ -24,6 +24,35 @@ export type ZonedEvent = Omit<Event, 'start' | 'end'> & {
 
 export type EventType = (typeof eventTypes)[number];
 
+// GeoJSON Feature Properties for Event Locations on Global Map
+export interface EventLocationFeatureProperties {
+  // Event-specific data
+  eventId: string;
+  eventName: string;
+  eventDescription?: string;
+  eventType: EventType;
+  eventStart: string; // ISO string for dates
+  eventEnd?: string; // ISO string for dates
+  eventIsAllDay: boolean;
+  eventUrl?: string;
+  eventImage?: string;
+  countryCode?: string;
+
+  // Creator/Group data
+  creatorId: string;
+  associatedGroups: string[];
+  associatedUsers: string[];
+}
+
+// GeoJSON Feature type for Event Locations - extends standard Feature with custom properties
+export type EventLocationFeature = Feature<Geometry, EventLocationFeatureProperties>;
+
+// GeoJSON FeatureCollection type for Event Locations
+export type EventLocationFeatureCollection = {
+  type: 'FeatureCollection';
+  features: EventLocationFeature[];
+};
+
 // GeoJSON Feature Properties for Group Locations on Global Map
 export interface GroupLocationFeatureProperties {
   // Location-specific data

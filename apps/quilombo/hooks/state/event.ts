@@ -2,8 +2,8 @@ import { atom } from 'jotai';
 import { atomWithQuery } from 'jotai-tanstack-query';
 import { parseAbsoluteToLocal } from '@internationalized/date';
 
-import { fetchEventOptions, validateAndConvertDate } from '@/query/event';
-import type { Event, ZonedEvent } from '@/types/model';
+import { fetchEventOptions, validateAndConvertDate, fetchEventLocationsOptions } from '@/query/event';
+import type { Event, ZonedEvent, EventLocationFeatureCollection } from '@/types/model';
 
 // This atom is used to trigger the loading of an event
 export const triggerEventIdAtom = atom<string | undefined>();
@@ -25,4 +25,30 @@ export const zonedEventAtom = atom<{ event: ZonedEvent | undefined; isLoading: b
     },
     isLoading: rawEventResult.isLoading,
   };
+});
+
+// Global event locations for map view - with default filters for active events
+export const eventLocationsAtom = atomWithQuery<EventLocationFeatureCollection>(() =>
+  fetchEventLocationsOptions({ showActiveOnly: true })
+);
+
+// Filtered event locations that can be updated based on search/filter criteria
+export const filteredEventLocationsAtom = atom<EventLocationFeatureCollection | null>(null);
+
+// Search parameters atom for event locations
+export const eventLocationSearchParamsAtom = atom<{
+  searchTerm?: string;
+  type?: string;
+  countryCode?: string;
+  groupId?: string;
+  userId?: string;
+  startDate?: string;
+  endDate?: string;
+  showActiveOnly?: boolean;
+}>({ showActiveOnly: true });
+
+// Derived atom that fetches event locations based on search parameters
+export const filteredEventLocationsQueryAtom = atomWithQuery((get) => {
+  const searchParams = get(eventLocationSearchParamsAtom);
+  return fetchEventLocationsOptions(searchParams);
 });

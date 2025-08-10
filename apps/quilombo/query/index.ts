@@ -36,6 +36,7 @@ export const QUERY_KEYS = {
   event: {
     getEvent: 'event.getEvent',
     searchEvents: 'events.search',
+    getEventLocations: 'event.getEventLocations',
   },
   currentUser: {
     getUser: 'currentUser.getUser',

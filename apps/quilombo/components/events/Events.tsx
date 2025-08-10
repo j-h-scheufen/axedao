@@ -9,12 +9,13 @@ import type { Key } from 'react';
 import useEventSearchWithInfiniteScroll from '@/hooks/useEventSearchWithInfiniteScroll';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { PARAM_KEY_EVENT_QUERY } from '@/config/constants';
-import { useCreateEventMutation } from '@/query/event';
+import { useCreateEventMutation, useFetchEventLocations } from '@/query/event';
 
 import SearchBar from '@/components/SearchBar';
 import FilterButton from '@/components/FilterButton';
 import CreateEventModal from './CreateEventModal';
 import EventsGrid from './EventsGrid';
+import EventsMap from './EventsMap';
 
 const Events = () => {
   const [{ view, [PARAM_KEY_EVENT_QUERY]: eq }, setQueryStates] = useQueryStates({
@@ -27,6 +28,12 @@ const Events = () => {
   const [isEventModalOpen, setIsEventModalOpen] = useState(false);
 
   const createEventMutation = useCreateEventMutation();
+
+  // Fetch event locations for map view with same search parameters
+  const { data: eventLocations, isLoading: isLoadingLocations } = useFetchEventLocations({
+    searchTerm: eq || undefined,
+    showActiveOnly: true,
+  });
 
   // Scroll position restoration - only enabled for list view
   const scrollContainerRef = useScrollPosition({
@@ -120,12 +127,20 @@ const Events = () => {
           </div>
         </Tab>
         <Tab key="map" title="Map">
-          <div className="rounded-lg shadow-lg overflow-hidden">
-            <div className="flex flex-col gap-1 sm:gap-2">
-              <p className="text-sm">Map view coming soon...</p>
-              <div className="h-96 bg-gray-100 rounded-lg flex items-center justify-center">
-                <p className="text-gray-500">Event map implementation coming soon</p>
-              </div>
+          <div className="flex flex-col gap-1 sm:gap-2">
+            <p className="text-sm">Displaying {eventLocations?.features.length || 0} events on map</p>
+            <div className="rounded-lg shadow-lg overflow-hidden">
+              {isLoadingLocations ? (
+                <div className="h-96 bg-gray-100 rounded-lg flex items-center justify-center">
+                  <p className="text-gray-500">Loading events map...</p>
+                </div>
+              ) : eventLocations ? (
+                <EventsMap eventLocations={eventLocations} />
+              ) : (
+                <div className="h-96 bg-gray-50 rounded-lg flex items-center justify-center">
+                  <p className="text-gray-500">No events found</p>
+                </div>
+              )}
             </div>
           </div>
         </Tab>

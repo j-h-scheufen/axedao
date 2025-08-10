@@ -12,7 +12,7 @@ import { parseAbsoluteToLocal } from '@internationalized/date';
 import { QueryConfig } from '@/config/constants';
 import { isValidISO8601 } from '@/config/validation-schema';
 import type { CreateEventForm, UpdateEventForm } from '@/config/validation-schema';
-import type { EventSearchResult, Event } from '@/types/model';
+import type { EventSearchResult, Event, EventLocationFeatureCollection } from '@/types/model';
 import { QUERY_KEYS } from '.';
 
 /**
@@ -198,6 +198,7 @@ export const useCreateEventMutation = () => {
     onSuccess: (data) => {
       queryClient.setQueryData([QUERY_KEYS.event.getEvent, data.id], data);
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.event.searchEvents] });
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.event.getEventLocations] });
     },
   });
 };
@@ -215,6 +216,7 @@ export const useUpdateEventMutation = () => {
       };
       queryClient.setQueryData([QUERY_KEYS.event.getEvent, variables.eventId], processedData);
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.event.searchEvents] });
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.event.getEventLocations] });
     },
   });
 };
@@ -226,6 +228,60 @@ export const useDeleteEventMutation = () => {
     onSuccess: (_data, variables) => {
       queryClient.removeQueries({ queryKey: [QUERY_KEYS.event.getEvent, variables] });
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.event.searchEvents] });
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.event.getEventLocations] });
     },
   });
 };
+
+// Fetch all event locations for map view
+const fetchEventLocations = async (params?: {
+  searchTerm?: string;
+  type?: string;
+  countryCode?: string;
+  groupId?: string;
+  userId?: string;
+  startDate?: string;
+  endDate?: string;
+  showActiveOnly?: boolean;
+}): Promise<EventLocationFeatureCollection> => {
+  const searchParams = new URLSearchParams();
+  if (params?.searchTerm) searchParams.append('searchTerm', params.searchTerm);
+  if (params?.type) searchParams.append('type', params.type);
+  if (params?.countryCode) searchParams.append('countryCode', params.countryCode);
+  if (params?.groupId) searchParams.append('groupId', params.groupId);
+  if (params?.userId) searchParams.append('userId', params.userId);
+  if (params?.startDate) searchParams.append('startDate', params.startDate);
+  if (params?.endDate) searchParams.append('endDate', params.endDate);
+  if (params?.showActiveOnly) searchParams.append('showActiveOnly', 'true');
+
+  const queryString = searchParams.toString();
+  const url = `/api/events/locations${queryString ? `?${queryString}` : ''}`;
+  const response = await axios.get(url);
+  return response.data;
+};
+
+export const fetchEventLocationsOptions = (params?: {
+  searchTerm?: string;
+  type?: string;
+  countryCode?: string;
+  groupId?: string;
+  userId?: string;
+  startDate?: string;
+  endDate?: string;
+  showActiveOnly?: boolean;
+}) => ({
+  queryKey: [QUERY_KEYS.event.getEventLocations, params],
+  queryFn: () => fetchEventLocations(params),
+  staleTime: QueryConfig.staleTimeDefault,
+});
+
+export const useFetchEventLocations = (params?: {
+  searchTerm?: string;
+  type?: string;
+  countryCode?: string;
+  groupId?: string;
+  userId?: string;
+  startDate?: string;
+  endDate?: string;
+  showActiveOnly?: boolean;
+}) => useQuery(queryOptions(fetchEventLocationsOptions(params)));
