@@ -1,7 +1,7 @@
 'use client';
 
 import { DateRangePicker, DatePicker, Switch } from '@heroui/react';
-import { parseAbsoluteToLocal } from '@internationalized/date';
+import { parseAbsoluteToLocal, type ZonedDateTime } from '@internationalized/date';
 import { type FieldProps, useField } from 'formik';
 import { useState, useEffect } from 'react';
 
@@ -16,7 +16,7 @@ type EventDateTimeFieldProps = FieldProps['field'] & {
  * Manages multi-day toggle and all-day toggle internally.
  * Usage: <Field name="dateTime" as={EventDateTimeField} startFieldName="start" endFieldName="end" isAllDayFieldName="isAllDay" />
  */
-const EventDateTimeField = ({ startFieldName, endFieldName, isAllDayFieldName, ...props }: EventDateTimeFieldProps) => {
+const EventDateTimeField = ({ startFieldName, endFieldName, isAllDayFieldName }: EventDateTimeFieldProps) => {
   const [startField, startMeta, startHelpers] = useField(startFieldName);
   const [endField, endMeta, endHelpers] = useField(endFieldName);
   const [isAllDayField, , isAllDayHelpers] = useField(isAllDayFieldName);
@@ -43,7 +43,7 @@ const EventDateTimeField = ({ startFieldName, endFieldName, isAllDayFieldName, .
     isAllDayHelpers.setTouched(true);
   };
 
-  const handleSingleDateChange = (date: any) => {
+  const handleSingleDateChange = (date: ZonedDateTime | null) => {
     if (date) {
       const startISO = date.toDate().toISOString();
       startHelpers.setValue(startISO);
@@ -52,7 +52,7 @@ const EventDateTimeField = ({ startFieldName, endFieldName, isAllDayFieldName, .
     }
   };
 
-  const handleDateRangeChange = (range: any) => {
+  const handleDateRangeChange = (range: { start: ZonedDateTime; end?: ZonedDateTime } | null) => {
     if (range) {
       const startISO = range.start.toDate().toISOString();
       const endISO = range.end ? range.end.toDate().toISOString() : undefined;
@@ -72,21 +72,17 @@ const EventDateTimeField = ({ startFieldName, endFieldName, isAllDayFieldName, .
       {/* Multi-day Toggle */}
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-2">
-          <Switch isSelected={isMultiDay} onValueChange={handleMultiDayToggle} aria-label="Toggle multi-day event" />
-          <span className="text-sm font-medium">Multi-day event</span>
+          <Switch
+            isSelected={isAllDayField.value}
+            onValueChange={handleAllDayToggle}
+            aria-label="Toggle all day event"
+          />
+          <span className="text-sm font-medium">All day</span>
         </div>
-
-        {/* All Day Toggle - only show when multi-day is enabled */}
-        {isMultiDay && (
-          <div className="flex items-center gap-2">
-            <Switch
-              isSelected={isAllDayField.value}
-              onValueChange={handleAllDayToggle}
-              aria-label="Toggle all day event"
-            />
-            <span className="text-sm font-medium">All day event</span>
-          </div>
-        )}
+        <div className="flex items-center gap-2">
+          <Switch isSelected={isMultiDay} onValueChange={handleMultiDayToggle} aria-label="Toggle multi-day event" />
+          <span className="text-sm font-medium">Multi-day</span>
+        </div>
       </div>
 
       {/* Date Picker - Single Date */}
@@ -96,7 +92,7 @@ const EventDateTimeField = ({ startFieldName, endFieldName, isAllDayFieldName, .
           aria-label="Select event date and time"
           value={startField.value ? parseAbsoluteToLocal(startField.value) : null}
           onChange={handleSingleDateChange}
-          granularity="minute"
+          granularity={isAllDayField.value ? 'day' : 'minute'}
           hideTimeZone
           isInvalid={startMeta.touched && !!startMeta.error}
           errorMessage={startMeta.touched && startMeta.error ? String(startMeta.error) : undefined}

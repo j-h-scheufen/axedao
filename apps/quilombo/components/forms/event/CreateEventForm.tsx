@@ -30,7 +30,7 @@ const CreateEventForm = ({ onSubmit, isSubmitting }: CreateEventFormProps) => {
       description: '',
       start: new Date().toISOString(),
       end: undefined,
-      isAllDay: false,
+      isAllDay: true,
       type: eventTypes[0],
       url: '',
       feature: undefined,
@@ -101,7 +101,7 @@ const CreateEventForm = ({ onSubmit, isSubmitting }: CreateEventFormProps) => {
       onSubmit={handleSubmit}
       enableReinitialize={false}
     >
-      {({ values, dirty, isValid, isSubmitting: formikIsSubmitting }: FormikProps<typeof initialValues>) => {
+      {({ dirty, isValid, isSubmitting: formikIsSubmitting }: FormikProps<typeof initialValues>) => {
         return (
           <Card>
             <Form className="flex flex-col gap-2 sm:gap-4">

@@ -108,18 +108,9 @@ const EditEventForm = ({ initialEvent, onSubmit, isSubmitting, onDelete, isDelet
       initialValues={initialValues}
       validationSchema={updateEventFormSchema}
       onSubmit={handleSubmit}
-      enableReinitialize={false}
+      enableReinitialize={true}
     >
-      {({
-        values,
-        dirty,
-        isValid,
-        isSubmitting: formikIsSubmitting,
-        setFieldValue,
-        setFieldTouched,
-        errors,
-        touched,
-      }: FormikProps<typeof initialValues>) => {
+      {({ dirty, isValid, isSubmitting: formikIsSubmitting }: FormikProps<typeof initialValues>) => {
         return (
           <Card>
             <Form className="flex flex-col gap-2 sm:gap-4">
@@ -127,14 +118,7 @@ const EditEventForm = ({ initialEvent, onSubmit, isSubmitting, onDelete, isDelet
                 <div className="flex flex-col lg:flex-row gap-6">
                   {/* Form Fields */}
                   <div className="flex flex-col gap-4 lg:w-1/2">
-                    <Field
-                      name="name"
-                      label="Event Name"
-                      placeholder="Enter event name"
-                      isRequired
-                      as={FieldInput}
-                      onBlur={() => setFieldTouched('name', true)}
-                    />
+                    <Field name="name" label="Event Name" placeholder="Enter event name" isRequired as={FieldInput} />
 
                     <Field
                       name="description"

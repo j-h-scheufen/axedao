@@ -69,7 +69,7 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
     const imageFile = formData.get('image') as File | null;
 
     // Extract form data excluding the file
-    const eventData: Record<string, any> = {};
+    const eventData: Record<string, unknown> = {};
     for (const [key, value] of formData.entries()) {
       if (key !== 'image') {
         eventData[key] = value;
@@ -87,6 +87,14 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
       eventData.associatedUsers = JSON.parse(eventData.associatedUsers as string);
     }
 
+    // Convert boolean fields from string to boolean
+    if (eventData.isAllDay !== undefined) {
+      eventData.isAllDay = eventData.isAllDay === 'true';
+    }
+    if (eventData.imageChanged !== undefined) {
+      eventData.imageChanged = eventData.imageChanged === 'true';
+    }
+
     try {
       await updateEventFormSchema.validate(eventData);
     } catch (validationError) {
@@ -102,12 +110,18 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
     // Remove auto-generated fields that should not be updated directly
     const { location: _location, countryCode: _countryCode, ...updateableFields } = cleanedEventData;
 
-    const updatedEventData: any = {
+    // Create the update data with proper typing
+    const updateData: Record<string, unknown> = {
       ...updateableFields,
-      // Convert date strings to Date objects if provided
-      start: validatedEventData.start ? new Date(validatedEventData.start) : existingEvent.start,
-      end: validatedEventData.end ? new Date(validatedEventData.end) : existingEvent.end,
     };
+
+    // Convert date strings to Date objects if provided
+    if (validatedEventData.start) {
+      updateData.start = new Date(validatedEventData.start);
+    }
+    if (validatedEventData.end) {
+      updateData.end = new Date(validatedEventData.end);
+    }
 
     // Handle image upload if provided
     if (imageFile) {
@@ -119,13 +133,13 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
         return NextResponse.json({ error }, { status: errorStatus ?? 500 });
       }
 
-      updatedEventData.image = cid || null;
+      updateData.image = cid || null;
     } else if (validatedEventData.image !== undefined) {
       // If no new image but image field is provided, use the existing value
-      updatedEventData.image = validatedEventData.image;
+      updateData.image = validatedEventData.image;
     }
 
-    const updatedEvent = await updateEvent(eventId, updatedEventData);
+    const updatedEvent = await updateEvent(eventId, updateData);
     if (!updatedEvent) {
       throw new Error('Failed to update event');
     }
