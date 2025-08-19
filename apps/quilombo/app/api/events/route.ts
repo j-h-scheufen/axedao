@@ -87,7 +87,7 @@ export async function POST(request: NextRequest) {
     const imageFile = formData.get('image') as File | null;
 
     // Extract form data excluding the file
-    const eventData: Record<string, any> = {};
+    const eventData: Record<string, unknown> = {};
     for (const [key, value] of formData.entries()) {
       if (key !== 'image') {
         eventData[key] = value;
@@ -103,6 +103,14 @@ export async function POST(request: NextRequest) {
     }
     if (eventData.associatedUsers) {
       eventData.associatedUsers = JSON.parse(eventData.associatedUsers as string);
+    }
+
+    // Convert boolean fields from string to boolean
+    if (eventData.isAllDay !== undefined) {
+      eventData.isAllDay = eventData.isAllDay === 'true';
+    }
+    if (eventData.imageChanged !== undefined) {
+      eventData.imageChanged = eventData.imageChanged === 'true';
     }
 
     try {
