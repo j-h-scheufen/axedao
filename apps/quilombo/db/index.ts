@@ -1,4 +1,19 @@
-import { and, count, eq, ilike, inArray, ne, notExists, or, sql, type SQLWrapper } from 'drizzle-orm';
+import {
+  and,
+  count,
+  eq,
+  gte,
+  ilike,
+  inArray,
+  lte,
+  ne,
+  notExists,
+  or,
+  sql,
+  type SQLWrapper,
+  lt,
+  isNotNull,
+} from 'drizzle-orm';
 import { drizzle, type PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 
@@ -321,4 +336,127 @@ export async function fetchAllGroupLocationsWithGroups(): Promise<
     })
     .from(schema.groupLocations)
     .innerJoin(schema.groups, eq(schema.groupLocations.groupId, schema.groups.id));
+}
+
+/**
+ * EVENTS
+ */
+export async function searchEvents(options: {
+  pageSize?: number;
+  offset?: number;
+  searchTerm?: string;
+  type?: string;
+  countryCode?: string;
+  groupId?: string;
+  userId?: string;
+  startDate?: Date;
+  endDate?: Date;
+  showActiveOnly?: boolean; // New parameter to show only active/upcoming events
+}): Promise<{ rows: schema.SelectEvent[]; totalCount: number }> {
+  const {
+    pageSize = QUERY_DEFAULT_PAGE_SIZE,
+    offset = 0,
+    searchTerm,
+    type,
+    countryCode,
+    groupId,
+    userId,
+    startDate,
+    endDate,
+    showActiveOnly = false,
+  } = options;
+
+  const filters: (SQLWrapper | undefined)[] = [];
+
+  if (searchTerm) {
+    // Group search filters with OR logic - event can match in any of these fields
+    const searchFilters = [
+      ilike(schema.events.name, `%${searchTerm}%`),
+      ilike(schema.events.description, `%${searchTerm}%`),
+    ];
+    filters.push(or(...searchFilters));
+  }
+
+  if (type) filters.push(eq(schema.events.type, type as any));
+  if (countryCode) filters.push(eq(schema.events.countryCode, countryCode));
+
+  // Handle date filtering
+  if (showActiveOnly) {
+    // Show events that are either:
+    // 1. Starting in the future (start >= now)
+    // 2. Currently ongoing multi-day events (start < now AND end IS NOT NULL AND end >= now)
+    const now = new Date();
+    filters.push(
+      or(
+        gte(schema.events.start, now), // Future events
+        and(
+          lt(schema.events.start, now), // Started in the past
+          isNotNull(schema.events.end), // Has an end date (multi-day event)
+          gte(schema.events.end, now) // End date is in the future
+        )
+      )
+    );
+  } else {
+    // Use explicit start/end date filters if provided
+    if (startDate) filters.push(gte(schema.events.start, startDate));
+    if (endDate) filters.push(lte(schema.events.end, endDate));
+  }
+
+  if (groupId) {
+    filters.push(sql`${schema.events.associatedGroups} @> ${[groupId]}`);
+  }
+
+  if (userId) {
+    filters.push(sql`${schema.events.associatedUsers} @> ${[userId]}`);
+  }
+
+  const results = await db
+    .select({
+      record: schema.events,
+      count: sql<number>`count(*) over()`,
+    })
+    .from(schema.events)
+    .where(filters.length ? and(...filters) : undefined)
+    .orderBy(schema.events.start)
+    .limit(pageSize)
+    .offset(offset);
+
+  return {
+    rows: results.map((r) => r.record),
+    totalCount: results[0]?.count || 0,
+  };
+}
+
+export async function fetchEvent(eventId: string): Promise<schema.SelectEvent | undefined> {
+  return await db.query.events.findFirst({
+    where: (events, { eq }) => eq(events.id, eventId),
+  });
+}
+
+export async function insertEvent(event: schema.InsertEvent): Promise<schema.SelectEvent> {
+  const events = await db.insert(schema.events).values(event).returning();
+  if (!events.length) {
+    throw new Error('Failed to insert event');
+  }
+  return events[0];
+}
+
+export async function updateEvent(
+  eventId: string,
+  updates: Partial<schema.InsertEvent>
+): Promise<schema.SelectEvent | undefined> {
+  const events = await db.update(schema.events).set(updates).where(eq(schema.events.id, eventId)).returning();
+  return events.length ? events[0] : undefined;
+}
+
+export async function deleteEvent(eventId: string): Promise<void> {
+  await db.delete(schema.events).where(eq(schema.events.id, eventId));
+}
+
+export async function isEventCreator(eventId: string, userId: string): Promise<boolean> {
+  const result = await db
+    .select({ value: count() })
+    .from(schema.events)
+    .where(and(eq(schema.events.id, eventId), eq(schema.events.creatorId, userId)));
+  return result.length > 0 && result[0].value > 0;
 }

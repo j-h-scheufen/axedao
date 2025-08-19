@@ -37,7 +37,7 @@ export const searchUsersOptions = ({ offset, pageSize, searchTerm }: SearchParam
   } as const;
 };
 
-export const useFetchUser = (id: string) => {
+export const useFetchUser = (id: string | undefined) => {
   return useQuery(queryOptions(fetchUserOptions(id)));
 };
 

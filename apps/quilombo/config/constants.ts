@@ -1,4 +1,4 @@
-import type { ImageType } from '@/types/model';
+import type { EventType, ImageType } from '@/types/model';
 import type { ResizeOptions } from 'sharp';
 
 export const titles = [
@@ -28,6 +28,8 @@ export const TitleEnum = titles.reduce<Record<string, number>>((acc, title, inde
 export const styles = ['angola', 'regional', 'contemporânea'] as const;
 
 export const linkTypes = ['twitter', 'facebook', 'instagram', 'linkedin'] as const;
+
+export const eventTypes = ['general', 'workshop', 'batizado', 'public_roda'] as const;
 
 export const validFileExtensions = { image: ['jpg', 'gif', 'png', 'jpeg', 'svg', 'webp'] } as const;
 
@@ -59,6 +61,7 @@ export const PATHS = {
   dao: '/dao',
   users: '/users',
   groups: '/groups',
+  events: '/events',
   settings: '/settings',
 };
 
@@ -79,18 +82,54 @@ export const GROUP_DESCRIPTION_MAX_LENGTH = 500;
 
 export const SEARCH_INPUT_DEBOUNCE = 750;
 
-export const IMAGE_TYPES = ['userAvatar', 'groupLogo', 'groupBanner'] as const;
+// Search parameter keys for URL synchronization
+export const SEARCH_PARAM_KEYS = {
+  USER_QUERY: 'uq',
+  GROUP_QUERY: 'gq',
+  EVENT_QUERY: 'eq',
+  VIEW: 'view',
+} as const;
+
+// Type for search parameter keys
+export type SearchParamKey = keyof typeof SEARCH_PARAM_KEYS;
+
+// Individual exports for backward compatibility
+export const PARAM_KEY_USER_QUERY = SEARCH_PARAM_KEYS.USER_QUERY;
+export const PARAM_KEY_GROUP_QUERY = SEARCH_PARAM_KEYS.GROUP_QUERY;
+export const PARAM_KEY_EVENT_QUERY = SEARCH_PARAM_KEYS.EVENT_QUERY;
+export const PARAM_KEY_VIEW = SEARCH_PARAM_KEYS.VIEW;
+
+export const IMAGE_TYPES = ['userAvatar', 'groupLogo', 'groupBanner', 'eventImage'] as const;
 
 export const FILE_PREFIXES: Record<ImageType, string> = {
   userAvatar: 'user-avatar',
   groupLogo: 'group-logo',
   groupBanner: 'group-banner',
+  eventImage: 'event-image',
 };
 
-export const IMAGE_FORMATS: Record<ImageType, ResizeOptions> = {
-  userAvatar: { width: 300, height: 300 },
-  groupLogo: { width: 200, height: 200 },
-  groupBanner: { height: 250, width: 800, fit: 'cover', position: 'attention' },
+export type ImageProcessingInstructions = {
+  lossless?: boolean;
+  resizeOptions: ResizeOptions | { portrait: ResizeOptions; landscape: ResizeOptions };
+};
+
+export const IMAGE_FORMATS: Record<ImageType, ImageProcessingInstructions> = {
+  userAvatar: { lossless: true, resizeOptions: { width: 300, height: 300 } },
+  groupLogo: { lossless: true, resizeOptions: { width: 200, height: 200 } },
+  groupBanner: { resizeOptions: { height: 250, width: 800, fit: 'cover', position: 'attention' } },
+  eventImage: {
+    resizeOptions: {
+      portrait: { width: 900, withoutEnlargement: true },
+      landscape: { width: 1200, withoutEnlargement: true },
+    },
+  },
 };
 
 export const MAX_IMAGE_UPLOAD_SIZE_MB = 4.5; // 4.5 MB is the current limit for Vercel serverless functions! https://vercel.com/docs/concepts/limits/overview#serverless-function-payload-size-limit
+
+export const EVENT_ICONS: Record<EventType, string> = {
+  general: '/images/events/event-black-64.png',
+  workshop: '/images/events/workshop-black-64.png',
+  batizado: '/images/events/batizado-black-64.png',
+  public_roda: '/images/events/roda-black-64.png',
+};

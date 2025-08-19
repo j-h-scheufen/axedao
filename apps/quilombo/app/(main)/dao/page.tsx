@@ -7,7 +7,7 @@ import { CouncilPanel, DaoMembership, Proposals, Treasury, TreasuryShares } from
 
 const DaoPage = () => {
   return (
-    <PageTabs>
+    <PageTabs defaultTab="dao">
       <Tab key="dao" title="Axé DAO" className="w-full">
         <div className="flex w-full flex-col gap-2 sm:gap-4 items-center">
           <h2 className="text-3xl font-bold text-center mb-1">Axé DAO</h2>
