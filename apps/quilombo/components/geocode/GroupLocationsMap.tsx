@@ -9,9 +9,15 @@ import { useAtomValue } from 'jotai';
 
 import { groupLogoAtlasAtom } from '@/hooks/state/location';
 import BaseMapLibreMap from './BaseMapLibreMap';
-import { getGeoJsonFeatureLabel } from '@/components/_utils/geojson';
+import { getGeoJsonFeatureLabel, isCluster, isPointFeature } from '@/components/_utils/geojson';
 import GroupLocationPopover from './GroupLocationPopover';
-import type { GroupLocationFeatureCollection, GroupLocationFeatureProperties } from '@/types/model';
+import type {
+  ClusterDatum,
+  ClusterFeature,
+  GroupLocationFeatureCollection,
+  GroupLocationFeatureProperties,
+  GroupLocationPointDatum,
+} from '@/types/model';
 
 const SATELLITE_STYLE_URL = 'https://api.maptiler.com/maps/satellite/style.json';
 
@@ -34,45 +40,36 @@ const GroupLocationsMap = ({ locations }: GroupLocationsMapProps) => {
   const mapRef = useRef<maplibregl.Map | null>(null);
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
 
-  // Prepare GeoJSON features for supercluster
-  const geojsonPoints = useMemo(() => {
-    if (!locations) return [];
-    return locations.features
-      .filter((f) => f.geometry.type === 'Point')
-      .map((feature) => ({
-        type: 'Feature',
-        geometry: feature.geometry,
-        properties: {
-          ...feature.properties,
-        },
-      }));
-  }, [locations]);
-
-  // Setup supercluster index
-  const superclusterRef = useRef<Supercluster<any>>(null);
-  useEffect(() => {
-    if (geojsonPoints.length > 0) {
-      superclusterRef.current = new Supercluster<any>({
-        radius: 40,
-        maxZoom: 12,
+  const handleClick = useCallback((info: PickingInfo<GroupLocationPointDatum>) => {
+    if (info?.object) {
+      setActiveMarker({
+        location: info.object,
+        lngLat: info.object.coordinates,
       });
-      superclusterRef.current.load(geojsonPoints as any);
     }
-  }, [geojsonPoints]);
+  }, []);
 
-  // Get clusters for current viewport/zoom
+  // 1) Create the supercluster index
+  const clusterIndex = new Supercluster<GroupLocationFeatureProperties, ClusterFeature>({
+    radius: 40,
+    maxZoom: 12,
+  });
+  clusterIndex.load(locations.features.filter(isPointFeature));
+
+  // 2) Derive clusters from the *current* index, bounds and zoom
   const clusters = useMemo(() => {
-    if (!superclusterRef.current || !bounds) return [];
-    return superclusterRef.current.getClusters(bounds, Math.round(zoom));
-  }, [bounds, zoom]);
+    if (!clusterIndex || !bounds) return [];
+    return clusterIndex.getClusters(bounds, Math.round(zoom));
+  }, [clusterIndex, bounds, zoom]);
 
   // Separate clusters and individual points
   const { clusterData, pointData } = useMemo(() => {
-    const clusterArray: any[] = [];
-    const pointArray: any[] = [];
-    clusters.forEach((feature: any) => {
+    const clusterArray: Array<{ coordinates: [number, number]; point_count: number }> = [];
+    const pointArray: Array<GroupLocationFeatureProperties & { coordinates: [number, number]; icon: string }> = [];
+
+    clusters.forEach((feature) => {
       const [longitude, latitude] = feature.geometry.coordinates;
-      if (feature.properties.cluster) {
+      if (isCluster(feature)) {
         clusterArray.push({
           coordinates: [longitude, latitude] as [number, number],
           point_count: feature.properties.point_count,
@@ -88,93 +85,70 @@ const GroupLocationsMap = ({ locations }: GroupLocationsMapProps) => {
     return { clusterData: clusterArray, pointData: pointArray };
   }, [clusters]);
 
-  // ScatterplotLayer for clusters (circles)
-  const clusterLayer = useMemo(
-    () =>
-      new ScatterplotLayer<any>({
-        id: 'cluster-layer',
-        data: clusterData,
-        pickable: true,
-        getPosition: (d) => d.coordinates,
-        getRadius: (d) => Math.max(20, 15 + Math.log2(d.point_count) * 6),
-        getFillColor: [127, 217, 42, 200],
-        getLineColor: [255, 255, 255, 200],
-        getLineWidth: 2,
-        stroked: true,
-        filled: true,
-        opacity: 0.9,
-        radiusMinPixels: 15,
-        radiusMaxPixels: 80,
-      }),
-    [clusterData]
-  );
-
-  // TextLayer for cluster counts
-  const clusterTextLayer = useMemo(
-    () =>
-      new TextLayer<any>({
-        id: 'cluster-text-layer',
-        data: clusterData,
-        pickable: false,
-        getPosition: (d) => d.coordinates,
-        getText: (d) => String(d.point_count),
-        getSize: 14,
-        getColor: [255, 255, 255],
-        getTextAnchor: 'middle',
-        getAlignmentBaseline: 'center',
-        fontFamily: 'Arial, sans-serif',
-        fontWeight: 'bold',
-        background: false,
-        backgroundPadding: [0, 0, 0, 0],
-      }),
-    [clusterData]
-  );
-
-  // Individual point markers with white border (composite approach)
-  const pointBorderLayer = useMemo(
-    () =>
-      new ScatterplotLayer<any>({
-        id: 'point-border-layer',
-        data: pointData,
-        pickable: false,
-        getPosition: (d) => d.coordinates,
-        getRadius: 17,
-        radiusUnits: 'pixels',
-        getLineColor: [255, 255, 255, 255],
-        getLineWidth: 2,
-        lineWidthUnits: 'pixels',
-        stroked: true,
-        filled: false,
-      }),
-    [pointData]
-  );
-
-  const handleClick = useCallback((info: PickingInfo) => {
-    if (info?.object) {
-      setActiveMarker({
-        location: info.object as GroupLocationFeatureProperties,
-        lngLat: info.object.coordinates,
-      });
-    }
-  }, []);
-
-  // IconLayer for group logos (only render when atlas is ready)
-  const pointIconLayer = useMemo(() => {
-    if (!groupLogoAtlas) {
-      return null;
-    }
-    return new IconLayer<any>({
-      id: 'point-icon-layer',
-      data: pointData,
+  const layers = [
+    // ScatterplotLayer for clusters (circles)
+    new ScatterplotLayer<ClusterDatum>({
+      id: 'cluster-layer',
+      data: clusterData,
       pickable: true,
       getPosition: (d) => d.coordinates,
-      iconAtlas: groupLogoAtlas.image.src,
-      iconMapping: groupLogoAtlas.mapping,
-      getIcon: (d) => (d.icon in groupLogoAtlas.mapping ? d.icon : 'fallback'),
-      getSize: 32,
-      onClick: handleClick,
-    });
-  }, [pointData, handleClick, groupLogoAtlas]);
+      getRadius: (d) => Math.max(20, 15 + Math.log2(d.point_count) * 6),
+      getFillColor: [127, 217, 42, 200],
+      getLineColor: [255, 255, 255, 200],
+      getLineWidth: 2,
+      stroked: true,
+      filled: true,
+      opacity: 0.9,
+      radiusMinPixels: 15,
+      radiusMaxPixels: 80,
+    }),
+
+    // TextLayer for cluster counts
+    new TextLayer<ClusterDatum>({
+      id: 'cluster-text-layer',
+      data: clusterData,
+      pickable: false,
+      getPosition: (d) => d.coordinates,
+      getText: (d) => String(d.point_count),
+      getSize: 14,
+      getColor: [255, 255, 255],
+      getTextAnchor: 'middle',
+      getAlignmentBaseline: 'center',
+      fontFamily: 'Arial, sans-serif',
+      fontWeight: 'bold',
+      background: false,
+      backgroundPadding: [0, 0, 0, 0],
+    }),
+
+    // Individual group markers with white border (composite approach)
+    new ScatterplotLayer<GroupLocationPointDatum>({
+      id: 'point-border-layer',
+      data: pointData,
+      pickable: false,
+      getPosition: (d) => d.coordinates,
+      getRadius: 17,
+      radiusUnits: 'pixels',
+      getLineColor: [255, 255, 255, 255],
+      getLineWidth: 2,
+      lineWidthUnits: 'pixels',
+      stroked: true,
+      filled: false,
+    }),
+
+    // IconLayer for group logos (only render when atlas is ready)
+    groupLogoAtlas &&
+      new IconLayer<GroupLocationPointDatum>({
+        id: 'point-icon-layer',
+        data: pointData,
+        pickable: true,
+        getPosition: (d) => d.coordinates,
+        iconAtlas: groupLogoAtlas.image.src,
+        iconMapping: groupLogoAtlas.mapping,
+        getIcon: (d) => (d.icon in groupLogoAtlas.mapping ? d.icon : 'fallback'),
+        getSize: 32,
+        onClick: handleClick,
+      }),
+  ].filter(Boolean);
 
   const handleMapReady = useCallback(
     (map: maplibregl.Map) => {
@@ -187,10 +161,7 @@ const GroupLocationsMap = ({ locations }: GroupLocationsMapProps) => {
       updateBoundsAndZoom();
       map.on('moveend', updateBoundsAndZoom);
       map.on('zoomend', updateBoundsAndZoom);
-      const overlay = new MapboxOverlay({
-        layers: [clusterLayer, clusterTextLayer, pointBorderLayer, pointIconLayer].filter(Boolean),
-        interleaved: false,
-      });
+      const overlay = new MapboxOverlay({ layers, interleaved: false });
       overlayRef.current = overlay;
       map.addControl(overlay);
       return () => {
@@ -200,28 +171,30 @@ const GroupLocationsMap = ({ locations }: GroupLocationsMapProps) => {
         }
       };
     },
-    [clusterLayer, clusterTextLayer, pointBorderLayer, pointIconLayer]
+    [layers]
   );
 
   useEffect(() => {
     if (overlayRef.current) {
-      overlayRef.current.setProps({
-        layers: [clusterLayer, clusterTextLayer, pointBorderLayer, pointIconLayer].filter(Boolean),
-      });
+      overlayRef.current.setProps({ layers });
     }
-  }, [clusterLayer, clusterTextLayer, pointBorderLayer, pointIconLayer]);
+  }, [layers]);
 
   useEffect(() => {
-    if (activeMarker && mapRef.current && mapContainerRef.current) {
+    if (!activeMarker || !mapRef.current || !mapContainerRef.current) return;
+
+    const update = () => {
+      if (!mapRef.current || !mapContainerRef.current) return;
       const { x, y } = mapRef.current.project(activeMarker.lngLat);
       const rect = mapContainerRef.current.getBoundingClientRect();
-      setPopoverPos({
-        x: rect.left + x,
-        y: rect.top + y,
-      });
-    } else {
-      setPopoverPos(null);
-    }
+      setPopoverPos({ x: rect.left + x, y: rect.top + y });
+    };
+
+    update();
+    mapRef.current.on('move', update);
+    return () => {
+      mapRef.current?.off('move', update);
+    };
   }, [activeMarker]);
 
   // Get address for popover

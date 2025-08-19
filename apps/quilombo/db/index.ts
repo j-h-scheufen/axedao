@@ -369,9 +369,12 @@ export async function searchEvents(options: {
   const filters: (SQLWrapper | undefined)[] = [];
 
   if (searchTerm) {
-    filters.push(ilike(schema.events.name, `%${searchTerm}%`));
-    filters.push(ilike(schema.events.description, `%${searchTerm}%`));
-    filters.push(ilike(schema.events.url, `%${searchTerm}%`));
+    // Group search filters with OR logic - event can match in any of these fields
+    const searchFilters = [
+      ilike(schema.events.name, `%${searchTerm}%`),
+      ilike(schema.events.description, `%${searchTerm}%`),
+    ];
+    filters.push(or(...searchFilters));
   }
 
   if (type) filters.push(eq(schema.events.type, type as any));
@@ -418,14 +421,9 @@ export async function searchEvents(options: {
     .limit(pageSize)
     .offset(offset);
 
-  const mappedResult = {
-    records: results.map((result) => result.record),
-    count: results.length > 0 ? results[0].count : 0,
-  };
-
   return {
-    rows: mappedResult.records,
-    totalCount: mappedResult.count,
+    rows: results.map((r) => r.record),
+    totalCount: results[0]?.count || 0,
   };
 }
 

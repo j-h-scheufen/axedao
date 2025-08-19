@@ -3,9 +3,12 @@
 import { useState, useMemo, useEffect } from 'react';
 import { debounce } from 'lodash';
 import { parseAsString, useQueryStates } from 'nuqs';
+import { useSetAtom, useAtomValue } from 'jotai';
+import { isEqual } from 'lodash';
 
-import { SEARCH_INPUT_DEBOUNCE, PARAM_KEY_GROUP_QUERY } from '@/config/constants';
+import { SEARCH_INPUT_DEBOUNCE, PARAM_KEY_GROUP_QUERY, QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import { useSearchGroups } from '@/query/group';
+import { filteredLocationsAtom, locationsAtom } from './state/location';
 import type { Group } from '@/types/model';
 
 export interface UseGroupSearchResult {
@@ -27,7 +30,12 @@ const useGroupSearch = (): UseGroupSearchResult => {
 
   const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } = useSearchGroups({
     searchTerm,
+    pageSize: QUERY_DEFAULT_PAGE_SIZE, // TODO: Add a page size query param + offset
+    offset: 0,
   });
+
+  const setFilteredLocations = useSetAtom(filteredLocationsAtom);
+  const allLocations = useAtomValue(locationsAtom);
 
   // Sync URL search term with hook state on mount
   useEffect(() => {
@@ -53,11 +61,38 @@ const useGroupSearch = (): UseGroupSearchResult => {
     };
   }, [debouncedSetSearchTerm]);
 
+  const groupResults = useMemo(() => {
+    return data?.pages.flatMap((page) => page.data) || [];
+  }, [data]);
+
+  const locationsData = useMemo(() => {
+    return allLocations.data;
+  }, [allLocations.data]);
+
+  const filteredLocations = useMemo(() => {
+    if (!locationsData) {
+      return { type: 'FeatureCollection' as const, features: [] };
+    } else if (!searchTerm) {
+      return locationsData;
+    } else {
+      const groupIds = new Set(groupResults.map((g) => g.id));
+      return {
+        ...locationsData,
+        features: locationsData.features.filter((feature) => groupIds.has(feature.properties?.groupId)),
+      };
+    }
+  }, [searchTerm, groupResults, locationsData]);
+
+  useEffect(() => {
+    if (!filteredLocations || !locationsData) return;
+    setFilteredLocations((prev) => (isEqual(prev, filteredLocations) ? prev : filteredLocations));
+  }, [filteredLocations, setFilteredLocations, locationsData]);
+
   return {
     searchTerm,
     setSearchTerm: debouncedSetSearchTerm,
-    groups: data?.pages.flatMap((page) => page.data) || [],
-    totalCount: data?.pages[0]?.totalCount || 0,
+    groups: groupResults,
+    totalCount: groupResults.length,
     isLoading: isFetching || isFetchingNextPage,
     hasNextPage,
     fetchNextPage,

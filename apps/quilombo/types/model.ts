@@ -1,7 +1,8 @@
 import type { GROUP_ROLES, IMAGE_TYPES, eventTypes } from '@/config/constants';
 import type { SelectGroup, SelectUser, SelectGroupLocation, SelectEvent } from '../db/schema';
-import type { Feature, Geometry } from 'geojson';
+import type { Feature, Geometry, Point } from 'geojson';
 import type { ZonedDateTime } from '@internationalized/date';
+import type Supercluster from 'supercluster';
 
 /**
  * This file defines API and app-level types that are wrapping the DB schema types in order to create a layer of separation
@@ -78,6 +79,18 @@ export type GroupLocationFeatureCollection = {
   type: 'FeatureCollection';
   features: GroupLocationFeature[];
 };
+
+// Deck.GL types for clusters and layers
+// biome-ignore lint/complexity/noBannedTypes: on purpose
+export type ClusterPropsFrom<TAgg extends object = {}> = Extract<
+  ReturnType<Supercluster<GroupLocationFeatureProperties, TAgg>['getClusters']>[number]['properties'],
+  { cluster: true }
+>;
+// biome-ignore lint/complexity/noBannedTypes: on purpose
+export type ClusterFeature<TAgg extends object = {}> = Feature<Point, ClusterPropsFrom<TAgg>>;
+export type ClusterDatum = { coordinates: [number, number]; point_count: number };
+export type GroupLocationPoint = Feature<Point, GroupLocationFeatureProperties>;
+export type GroupLocationPointDatum = GroupLocationFeatureProperties & { coordinates: [number, number]; icon: string };
 
 export type UserSession = {
   id: string;

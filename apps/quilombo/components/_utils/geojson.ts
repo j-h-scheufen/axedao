@@ -1,3 +1,6 @@
+import type { ClusterFeature } from '@/types/model';
+import type { Feature, Geometry, Point } from 'geojson';
+
 /**
  * Returns the best display label for a GeoJSON Feature or MapTiler Feature.
  * Priority: text > place_name > properties.address > properties.text > properties.name > 'Unknown location'
@@ -14,3 +17,15 @@ export function getGeoJsonFeatureLabel(feature: any): string {
     'Unknown location'
   );
 }
+
+// TYPE GUARDS
+
+// biome-ignore lint/suspicious/noExplicitAny: any is used on purpose to support different properties
+export function isPointFeature(f: Feature<Geometry, any>): f is Feature<Point, any> {
+  return f.geometry?.type === 'Point';
+}
+
+export const isCluster = <TAgg extends object>(
+  // biome-ignore lint/suspicious/noExplicitAny: any is used on purpose to support different properties
+  f: Feature<Point, any>
+): f is ClusterFeature<TAgg> => f.properties?.cluster === true;
