@@ -7,7 +7,7 @@ import { Swap, Transfer } from '@/components/axe';
 
 const AxePage = () => {
   return (
-    <PageTabs>
+    <PageTabs defaultTab="send">
       <Tab key="send" title="Send" className="w-full max-w-lg mx-auto">
         <div className="flex w-full flex-col gap-2 sm:gap-4 items-center">
           <h2 className="text-3xl font-bold text-center mb-1">Send Axé</h2>

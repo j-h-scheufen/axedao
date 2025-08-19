@@ -4,9 +4,13 @@ import { Tabs } from '@heroui/react';
 import { parseAsString, useQueryStates } from 'nuqs';
 import type { PropsWithChildren, ReactElement } from 'react';
 
-const PageTabs = ({ children }: PropsWithChildren): ReactElement => {
+type PageTabsProps = PropsWithChildren & {
+  defaultTab?: string;
+};
+
+const PageTabs = ({ children, defaultTab = '' }: PageTabsProps): ReactElement => {
   const [{ tab }, setQueryStates] = useQueryStates({
-    tab: parseAsString,
+    tab: parseAsString.withDefault(defaultTab),
   });
 
   const handleSelectionChange = (key: React.Key) => {
@@ -15,7 +19,7 @@ const PageTabs = ({ children }: PropsWithChildren): ReactElement => {
 
   return (
     <Tabs
-      selectedKey={tab || undefined}
+      selectedKey={tab}
       onSelectionChange={handleSelectionChange}
       color="primary"
       size="lg"

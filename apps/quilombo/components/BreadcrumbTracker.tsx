@@ -8,7 +8,7 @@ import { PATHS } from '@/config/constants';
 import { breadcrumbsHistoryAtom } from '@/hooks/state/app';
 
 // Cover all paths that should be processed by the breadcrumb tracker
-const crumbsPattern = /^\/(search|users|groups|dao)(?!.*\/edit$)/;
+const crumbsPattern = /^\/(search|users|groups|dao|events)(?!.*\/edit$)/;
 
 // Add paths that should reset the breadcrumbs tracking
 const resetPaths = [PATHS.search, PATHS.dao];

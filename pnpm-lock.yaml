@@ -47,6 +47,9 @@ importers:
       '@icons-pack/react-simple-icons':
         specifier: ^13.5.0
         version: 13.5.0(react@19.1.0)
+      '@internationalized/date':
+        specifier: ^3.8.2
+        version: 3.8.2
       '@maptiler/geocoding-control':
         specifier: ^2.1.7
         version: 2.1.7(maplibre-gl@5.6.1)(react@19.1.0)

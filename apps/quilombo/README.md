@@ -63,3 +63,9 @@ The "gis" schema also needs to be added to the DB user's role with which wer're 
 ```shell
 ALTER ROLE postgres SET search_path TO "\$user", public, extensions, gis
 ```
+
+IMPORTANT: there are a number of migration files that were manually generated, e.g. to add functions and triggers (things Drizzle does not generate). As a reminder for the procedure:
+
+1. create a new numbered migration file with the DB changes
+2.1. run `npx drizzle-kit push` (to manually add the missing migration) or 
+2.2. add a new entry to the _journal.json and run `npx drizzle-kit migrate`

@@ -125,3 +125,39 @@ export function getFlagEmoji(countryCode: string): string {
   flagCache[code] = flag;
   return flag;
 }
+
+/**
+ * Returns the CSS class for event type badge styling
+ * @param eventType the event type string
+ * @returns CSS class string for the badge
+ */
+export const getEventTypeColor = (eventType: string): string => {
+  switch (eventType) {
+    case 'workshop':
+      return 'bg-blue-100 text-blue-800';
+    case 'batizado':
+      return 'bg-green-100 text-green-800';
+    case 'public_roda':
+      return 'bg-purple-100 text-purple-800';
+    default:
+      return 'bg-gray-100 text-gray-800';
+  }
+};
+
+/**
+ * Returns the display label for event type
+ * @param eventType the event type string
+ * @returns human-readable label for the event type
+ */
+export const getEventTypeLabel = (eventType: string): string => {
+  switch (eventType) {
+    case 'workshop':
+      return 'Workshop';
+    case 'batizado':
+      return 'Batizado';
+    case 'public_roda':
+      return 'Public Roda';
+    default:
+      return 'General';
+  }
+};

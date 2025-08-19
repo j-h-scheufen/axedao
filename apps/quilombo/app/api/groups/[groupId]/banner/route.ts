@@ -6,6 +6,7 @@ import { fetchGroup, updateGroup } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import { pinToGroup, unpin } from '@/utils/pinata';
 import type { RouteParamsGroup } from '@/types/routes';
+import { createImageBuffer } from '@/utils/images';
 
 /**
  * Updates or sets the group's banner.
@@ -28,7 +29,8 @@ export async function POST(request: NextRequest, { params }: RouteParamsGroup) {
       return NextResponse.json({ error: 'Invalid input data. No file found.' }, { status: 400 });
     }
 
-    const { cid, error, errorStatus } = await pinToGroup(file, filename, IMAGE_FORMATS.groupBanner, group.banner);
+    const imageBuffer = await createImageBuffer(file, 'groupBanner');
+    const { cid, error, errorStatus } = await pinToGroup(imageBuffer, filename, group.banner);
 
     if (error) {
       return NextResponse.json({ error }, { status: errorStatus ?? 500 });

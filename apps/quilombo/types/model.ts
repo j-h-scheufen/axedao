@@ -1,6 +1,8 @@
-import type { GROUP_ROLES, IMAGE_TYPES } from '@/config/constants';
-import type { SelectGroup, SelectUser, SelectGroupLocation } from '../db/schema';
-import type { Feature, Geometry } from 'geojson';
+import type { GROUP_ROLES, IMAGE_TYPES, eventTypes } from '@/config/constants';
+import type { SelectGroup, SelectUser, SelectGroupLocation, SelectEvent } from '../db/schema';
+import type { Feature, Geometry, Point } from 'geojson';
+import type { ZonedDateTime } from '@internationalized/date';
+import type Supercluster from 'supercluster';
 
 /**
  * This file defines API and app-level types that are wrapping the DB schema types in order to create a layer of separation
@@ -12,6 +14,45 @@ export type Group = Omit<SelectGroup, 'updatedAt'> & { countryCodes: string[] };
 export type User = Omit<SelectUser, 'updatedAt'>;
 
 export type GroupLocation = Omit<SelectGroupLocation, 'updatedAt'>;
+
+export type Event = Omit<SelectEvent, 'updatedAt'>;
+
+// Event type based on RawEvent with ZonedDateTime fields
+export type ZonedEvent = Omit<Event, 'start' | 'end'> & {
+  start: ZonedDateTime;
+  end?: ZonedDateTime;
+};
+
+export type EventType = (typeof eventTypes)[number];
+
+// GeoJSON Feature Properties for Event Locations on Global Map
+export interface EventLocationFeatureProperties {
+  // Event-specific data
+  eventId: string;
+  eventName: string;
+  eventDescription?: string;
+  eventType: EventType;
+  eventStart: string; // ISO string for dates
+  eventEnd?: string; // ISO string for dates
+  eventIsAllDay: boolean;
+  eventUrl?: string;
+  eventImage?: string;
+  countryCode?: string;
+
+  // Creator/Group data
+  creatorId: string;
+  associatedGroups: string[];
+  associatedUsers: string[];
+}
+
+// GeoJSON Feature type for Event Locations - extends standard Feature with custom properties
+export type EventLocationFeature = Feature<Geometry, EventLocationFeatureProperties>;
+
+// GeoJSON FeatureCollection type for Event Locations
+export type EventLocationFeatureCollection = {
+  type: 'FeatureCollection';
+  features: EventLocationFeature[];
+};
 
 // GeoJSON Feature Properties for Group Locations on Global Map
 export interface GroupLocationFeatureProperties {
@@ -39,6 +80,23 @@ export type GroupLocationFeatureCollection = {
   features: GroupLocationFeature[];
 };
 
+// Deck.GL types for clusters and layers
+// biome-ignore lint/complexity/noBannedTypes: on purpose
+export type ClusterPropsFrom<TAgg extends object = {}> = Extract<
+  ReturnType<Supercluster<GroupLocationFeatureProperties, TAgg>['getClusters']>[number]['properties'],
+  { cluster: true }
+>;
+// biome-ignore lint/complexity/noBannedTypes: on purpose
+export type ClusterFeature<TAgg extends object = {}> = Feature<Point, ClusterPropsFrom<TAgg>>;
+export type ClusterDatum = { coordinates: [number, number]; point_count: number };
+export type GroupLocationPoint = Feature<Point, GroupLocationFeatureProperties>;
+export type GroupLocationPointDatum = GroupLocationFeatureProperties & { coordinates: [number, number]; icon: string };
+export type EventLocationPoint = Feature<Point, EventLocationFeatureProperties>;
+export type EventLocationPointDatum = EventLocationFeatureProperties & {
+  coordinates: [number, number];
+  eventType: EventType;
+};
+
 export type UserSession = {
   id: string;
   walletAddress: string;
@@ -59,6 +117,12 @@ export type UserSearchResult = {
 
 export type GroupSearchResult = {
   data: Group[];
+  totalCount: number;
+  nextOffset: number | null;
+};
+
+export type EventSearchResult = {
+  data: ZonedEvent[];
   totalCount: number;
   nextOffset: number | null;
 };

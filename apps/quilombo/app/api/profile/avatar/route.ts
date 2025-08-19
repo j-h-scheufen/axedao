@@ -7,6 +7,7 @@ import { nextAuthOptions } from '@/config/next-auth-options';
 import { fetchUser, updateUser } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import { pinToGroup, unpin } from '@/utils/pinata';
+import { createImageBuffer } from '@/utils/images';
 
 /**
  * Updates or sets the user's avatar.
@@ -33,7 +34,8 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Invalid input data. No file found.' }, { status: 400 });
     }
 
-    const { cid, error, errorStatus } = await pinToGroup(file, filename, IMAGE_FORMATS.userAvatar, user.avatar);
+    const imageBuffer = await createImageBuffer(file, 'userAvatar');
+    const { cid, error, errorStatus } = await pinToGroup(imageBuffer, filename, user.avatar);
 
     if (error) {
       return NextResponse.json({ error }, { status: errorStatus ?? 500 });
