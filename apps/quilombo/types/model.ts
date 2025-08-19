@@ -91,6 +91,11 @@ export type ClusterFeature<TAgg extends object = {}> = Feature<Point, ClusterPro
 export type ClusterDatum = { coordinates: [number, number]; point_count: number };
 export type GroupLocationPoint = Feature<Point, GroupLocationFeatureProperties>;
 export type GroupLocationPointDatum = GroupLocationFeatureProperties & { coordinates: [number, number]; icon: string };
+export type EventLocationPoint = Feature<Point, EventLocationFeatureProperties>;
+export type EventLocationPointDatum = EventLocationFeatureProperties & {
+  coordinates: [number, number];
+  eventType: EventType;
+};
 
 export type UserSession = {
   id: string;

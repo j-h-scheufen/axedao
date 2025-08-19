@@ -50,11 +50,11 @@ const GroupLocationsMap = ({ locations }: GroupLocationsMapProps) => {
   }, []);
 
   // 1) Create the supercluster index
-  const clusterIndex = new Supercluster<GroupLocationFeatureProperties, ClusterFeature>({
-    radius: 40,
-    maxZoom: 12,
-  });
-  clusterIndex.load(locations.features.filter(isPointFeature));
+  const clusterIndex = useMemo(() => {
+    const index = new Supercluster<GroupLocationFeatureProperties, ClusterFeature>({ radius: 40, maxZoom: 12 });
+    index.load(locations.features.filter(isPointFeature));
+    return index;
+  }, [locations]);
 
   // 2) Derive clusters from the *current* index, bounds and zoom
   const clusters = useMemo(() => {

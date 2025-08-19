@@ -1,4 +1,4 @@
-import type { ImageType } from '@/types/model';
+import type { EventType, ImageType } from '@/types/model';
 import type { ResizeOptions } from 'sharp';
 
 export const titles = [
@@ -126,3 +126,10 @@ export const IMAGE_FORMATS: Record<ImageType, ImageProcessingInstructions> = {
 };
 
 export const MAX_IMAGE_UPLOAD_SIZE_MB = 4.5; // 4.5 MB is the current limit for Vercel serverless functions! https://vercel.com/docs/concepts/limits/overview#serverless-function-payload-size-limit
+
+export const EVENT_ICONS: Record<EventType, string> = {
+  general: '/images/events/event-black-64.png',
+  workshop: '/images/events/workshop-black-64.png',
+  batizado: '/images/events/batizado-black-64.png',
+  public_roda: '/images/events/roda-black-64.png',
+};
