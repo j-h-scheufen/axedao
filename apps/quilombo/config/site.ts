@@ -11,6 +11,5 @@ export const siteConfig = {
   ],
   links: {
     github: 'https://github.com/j-h-scheufen/axedao',
-    discord: 'https://discord.gg/sdsfX6R2Tm',
   },
 };

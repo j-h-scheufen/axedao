@@ -8,7 +8,8 @@ import { useAccount, useConnect, useDisconnect, useSignMessage } from 'wagmi';
 import type { SilkEthereumProviderInterface } from '@silk-wallet/silk-wallet-sdk';
 
 import { PATHS } from '@/config/constants';
-import { getDefaultChain, silkInitOptions } from '@/config/wagmi';
+import { getDefaultChain } from '@/config/wagmi';
+import { silkInitOptions } from '@/config/silk';
 import silk from '@/utils/silk.connector';
 import { setCookie } from 'cookies-next';
 import { enqueueSnackbar } from 'notistack';
