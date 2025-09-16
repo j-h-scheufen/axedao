@@ -25,16 +25,19 @@
   },
   "goals": {
     "title": "Ziele",
-    "intro": "Unsere Ziele sind darauf ausgerichtet, nützliche Werkzeuge für die Gemeinschaft zu schaffen.",
-    "short-term": "Im Jahr 2024 planen wir",
-    "sg1": "Eine Community-App zu starten, um Capoeira-Profile zu erstellen und nach Gruppen und Einzelpersonen zu suchen",
-    "sg2": "Mit dem Aufbau des Stammbaums der Capoeira-Gruppen weltweit zu beginnen",
-    "sg3": "Weitere coole Sachen zur App hinzuzufügen, basierend auf dem Feedback der Gemeinschaft",
-    "long-term": "In 2025 und darüber hinaus wollen wir",
-    "lg1": "Einen 'Rat' in der Organisation einrichten, mit von der Gemeinschaft gewählten Vertretern",
-    "lg2": "Unsere eigene Kryptowährung namens Axé starten",
-    "lg3": "Die Kosten für Capoeira-Gruppen zu senken, indem gemeinsame Dienste angeboten werden, z.B. für die Veranstaltungsplanung, Gruppenmanagement, Gebührenerhebung usw.",
-    "lg4": "Zugang zu digitalen Gegenständen wie NFTs zu ermöglichen, die für Abzeichen, digitale Kunst, Mitgliedschaften usw. verwendet werden können.",
-    "lg5": "Ein nachhaltiges Wirtschaftsmodell zu schaffen, um Einnahmen für die DAO zu generieren, die helfen können, Capoeira-Projekte und -Veranstaltungen zu finanzieren."
+    "intro": "Unsere Ziele drehen sich darum, nützliche Werkzeuge für die Gemeinschaft, die Lehrenden sowie die Schüler zu schaffen.",
+    "2024": "Im Jahr 2024 haben wir",
+    "24g1": "Eine App für die Capoeira-Community gestartet, um Profile für Gruppen und Individuen zu erstellen und danach zu suchen",
+    "24g2": "Begonnen, den sozialen Graphen und Stammbaum der Capoeira-Gruppen weltweit zu erstellen",
+    "24g3": "Capoeira-Gruppen unterstützt, die die App testen und Feedback geben",
+    "2025": "Im Jahr 2025 wollen wir",
+    "25g1": "Ein 'Council' innerhalb der Organisation etablieren, in welches die Community ihre Vertreter wählt",
+    "25g2": "Weitere Funktionen zur App hinzufügen, wie globale Karten, Events / Workshops und mehr",
+    "25g3": "Die Website aktualisieren und zu mehr Beteiligung einladen",
+    "long-term": "Langfristige Ziele umfassen:",
+    "lg1": "Kosten für Capoeira-Gruppen senken, indem gemeinsame Dienste angeboten werden, z. B. für Eventplanung, Gruppenverwaltung, Beitragserhebung usw.",
+    "lg2": "Zugang zu digitalen Assets wie NFTs, die für Abzeichen, digitale Kunst, Mitgliedschaften usw. genutzt werden können",
+    "lg3": "Einen digitalen Axé-Token einführen, um Wertschätzung und positive Energie in der Community auszudrücken",
+    "lg4": "Ein nachhaltiges Wirtschaftsmodell schaffen, um Einnahmen für die DAO zu generieren, die Capoeira-Projekte und -Veranstaltungen finanzieren können"
   }
 }

@@ -34,11 +34,18 @@ const GoalsTable = ({ locale }: Props) => {
     <BaseSection title={t('goals.title')}>
       <div className="sm:px-3">
         <p>{t('goals.intro')}</p>
-        <h2 className="my-3 text-2xl sm:text-3xl">{t('goals.short-term')}</h2>
+        <h2 className="my-3 text-2xl sm:text-3xl">{t('goals.2024')}</h2>
         <div className="flex w-full flex-col gap-1 sm:gap-2">
-          <GoalRow goalKey="sg1" t={t} completed />
-          <GoalRow goalKey="sg2" t={t} completed />
-          <GoalRow goalKey="sg3" t={t} />
+          <GoalRow goalKey="24g1" t={t} completed />
+          <GoalRow goalKey="24g2" t={t} completed />
+          <GoalRow goalKey="24g3" t={t} completed />
+        </div>
+        <Spacer y={4} />
+        <h2 className="my-3 text-2xl sm:text-3xl">{t('goals.2025')}</h2>
+        <div className="flex w-full flex-col justify-start gap-1">
+          <GoalRow goalKey="25g1" t={t} completed />
+          <GoalRow goalKey="25g2" t={t} completed />
+          <GoalRow goalKey="25g3" t={t} />
         </div>
         <Spacer y={4} />
         <h2 className="my-3 text-2xl sm:text-3xl">{t('goals.long-term')}</h2>
@@ -47,7 +54,6 @@ const GoalsTable = ({ locale }: Props) => {
           <GoalRow goalKey="lg2" t={t} />
           <GoalRow goalKey="lg3" t={t} />
           <GoalRow goalKey="lg4" t={t} />
-          <GoalRow goalKey="lg5" t={t} />
         </div>
       </div>
     </BaseSection>
