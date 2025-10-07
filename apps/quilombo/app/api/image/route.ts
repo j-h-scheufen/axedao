@@ -57,7 +57,7 @@ export async function GET(req: NextRequest) {
       .png({ compressionLevel: 9 })
       .toBuffer();
 
-    const res = new NextResponse(output, {
+    const res = new NextResponse(new Uint8Array(output), {
       status: 200,
       headers: {
         'Content-Type': 'image/png',
