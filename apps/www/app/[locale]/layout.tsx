@@ -42,15 +42,16 @@ export async function generateStaticParams() {
   return ALL_LOCALES.map((lng) => ({ lng }));
 }
 
-export default function RootLayout({
-  params: { locale },
+export default async function RootLayout({
+  params,
   children,
 }: {
   children: React.ReactNode;
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 }) {
+  const { locale } = await params;
   const lang = isSupportedLanguage(locale) ? locale : fallbackLng;
   return (
     <html
