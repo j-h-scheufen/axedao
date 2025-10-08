@@ -1,10 +1,11 @@
 import type { Address } from 'viem';
+import type { EnvType } from '@/types';
 
 type ConfigType = {
+  environment: EnvType;
   walletConnectProjectId: string;
   sepoliaProviderUrl: string;
   gnosisProviderUrl: string;
-  optimismProviderUrl: string;
   graphApiKey: string;
   mapTilerKey: string;
   daoAddress: Address;
@@ -26,10 +27,10 @@ type ConfigType = {
   nextAuthSecret: string;
   axeDaoSiteUrl: string;
   axeDaoEmail: string;
-  axeDaoDiscord: string;
+  quilomboSignalGroup: string;
 };
 
-const envMode = process.env.NEXT_PUBLIC_APP_ENV?.toLowerCase();
+const envMode: EnvType = process.env.NEXT_PUBLIC_APP_ENV?.toLowerCase() as EnvType;
 
 const isServer = typeof window === 'undefined';
 
@@ -45,22 +46,19 @@ export const getBaseUrl = () => {
 };
 
 const ENV: ConfigType = {
+  environment: required(envMode, 'NEXT_PUBLIC_APP_ENV') as EnvType,
   walletConnectProjectId: required(
     process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID,
     'NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID'
   ),
   sepoliaProviderUrl:
-    envMode === 'test'
+    envMode === 'development'
       ? required(process.env.NEXT_PUBLIC_SEPOLIA_PROVIDER, 'NEXT_PUBLIC_SEPOLIA_PROVIDER')
       : process.env.NEXT_PUBLIC_SEPOLIA_PROVIDER || '',
   gnosisProviderUrl:
-    envMode === 'prod'
+    envMode === 'production'
       ? required(process.env.NEXT_PUBLIC_GNOSIS_PROVIDER, 'NEXT_PUBLIC_GNOSIS_PROVIDER')
       : process.env.NEXT_PUBLIC_GNOSIS_PROVIDER || '',
-  optimismProviderUrl:
-    envMode === 'prod'
-      ? required(process.env.NEXT_PUBLIC_OP_PROVIDER, 'NEXT_PUBLIC_OP_PROVIDER')
-      : process.env.NEXT_PUBLIC_OP_PROVIDER || '',
   axeTokenAddress: required(process.env.NEXT_PUBLIC_AXE_TOKEN_ADDRESS, 'NEXT_PUBLIC_AXE_TOKEN_ADDRESS') as Address,
   daoAddress: required(process.env.NEXT_PUBLIC_DAO_ADDRESS, 'NEXT_PUBLIC_DAO_ADDRESS') as Address,
   axeTreasuryAddress: required(
@@ -106,7 +104,7 @@ const ENV: ConfigType = {
   mapTilerKey: required(process.env.NEXT_PUBLIC_MAPTILER_KEY, 'NEXT_PUBLIC_MAPTILER_KEY'),
   axeDaoSiteUrl: required(process.env.NEXT_PUBLIC_DAO_SITE_URL, 'NEXT_PUBLIC_DAO_SITE_URL'),
   axeDaoEmail: required(process.env.NEXT_PUBLIC_DAO_EMAIL, 'NEXT_PUBLIC_DAO_EMAIL'),
-  axeDaoDiscord: required(process.env.NEXT_PUBLIC_DAO_DISCORD, 'NEXT_PUBLIC_DAO_DISCORD'),
+  quilomboSignalGroup: required(process.env.NEXT_PUBLIC_SIGNAL_GROUP, 'NEXT_PUBLIC_SIGNAL_GROUP'),
 };
 
 function required(value: string | undefined, name: string): string {

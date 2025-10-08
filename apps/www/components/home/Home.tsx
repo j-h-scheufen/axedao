@@ -30,7 +30,7 @@ export default function Home({ locale }: { locale: SupportedLanguage }) {
         <div className="text-base">
           To get involved or join Axé DAO, please send us an{' '}
           <Link href={`mailto:${siteConfig.links.email}`}>email</Link> or join our{' '}
-          <Link href={siteConfig.links.discord}>group chat</Link> on Discord.
+          <Link href={siteConfig.links.common_ground}>group chat</Link> on Common Ground.
         </div>
       </div>
     </>

@@ -10,7 +10,7 @@ export const pinToGroup = async (
   replaceCID?: string | null
 ): Promise<PinningResponse> => {
   const uploadData = new FormData();
-  uploadData.append('file', new Blob([buffer]));
+  uploadData.append('file', new Blob([new Uint8Array(buffer)]));
   uploadData.append('pinataMetadata', JSON.stringify({ name }));
   uploadData.append('pinataOptions', JSON.stringify({ groupId: ENV.pinataFileGroupId }));
 

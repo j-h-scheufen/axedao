@@ -25,16 +25,19 @@
   },
   "goals": {
     "title": "Objetivos",
-    "intro": "Nossos objetivos giram em torno de criar ferramentas úteis para a comunidade.",
-    "short-term": "Em 2024 planejamos",
-    "sg1": "Lançar um aplicativo para a comunidade Capoeira para fazer perfis e procurar por grupos e indivíduos",
-    "sg2": "Começar a criar o árvore genealógica de grupos de Capoeira em todo o mundo",
-    "sg3": "Adicionar mais coisas legais ao aplicativo com base no feedback da comunidade",
-    "long-term": "Em 2025 e além, pretendemos",
-    "lg1": "Estabelecer um 'Conselho' na organização com representantes eleitos pela comunidade",
-    "lg2": "Lançar nossa própria criptomoeda chamada Axé",
-    "lg3": "Reduzir custos para grupos de Capoeira oferecendo serviços comuns, e.g., para agendamento de eventos, gerenciamento de grupos, coleta de taxas, etc.",
-    "lg4": "Acessar ativos digitais como NFTs que podem ser usados para crachás, arte digital, associações, etc.",
-    "lg5": "Criar um modelo econômico sustentável para gerar receita para a DAO que pode ajudar a financiar projetos e eventos de Capoeira."
+    "intro": "Nossos objetivos giram em torno da criação de ferramentas úteis para a comunidade, os mestres e os alunos.",
+    "2024": "Em 2024 nós",
+    "24g1": "Lançamos um aplicativo para a comunidade da Capoeira criar perfis e buscar grupos e pessoas",
+    "24g2": "Começamos a construir o grafo social e a árvore de linhagem dos grupos de Capoeira ao redor do mundo",
+    "24g3": "Apoiamos grupos de Capoeira que testam o app e fornecem feedback",
+    "2025": "Em 2025 queremos",
+    "25g1": "Estabelecer um 'Conselho' na organização, com a comunidade elegendo representantes",
+    "25g2": "Adicionar mais recursos ao app, como mapas globais, eventos de Capoeira e muito mais",
+    "25g3": "Atualizar o site e convidar mais pessoas a participarem",
+    "long-term": "Os objetivos de longo prazo incluem:",
+    "lg1": "Reduzir os custos para os grupos de Capoeira oferecendo serviços compartilhados, como agendamento de eventos, gestão de grupos, cobrança de mensalidades, etc.",
+    "lg2": "Acessar ativos digitais como NFTs que podem ser usados para medalhas, arte digital, associações, etc.",
+    "lg3": "Lançar um token digital de Axé para expressar reconhecimento e energia positiva na comunidade",
+    "lg4": "Criar um modelo econômico sustentável para gerar receita para a DAO e financiar projetos e eventos de Capoeira"
   }
 }

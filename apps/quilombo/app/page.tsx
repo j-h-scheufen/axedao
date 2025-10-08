@@ -23,8 +23,8 @@ export default function Home() {
               Quilombo is a registry application for Capoeiristas and Capoeira groups. By making profiles and
               registering groups, users contribute to creating a map of the Capoeira world.
               <br />
-              But there is more ... Quilombo is also your portal to everything we&apos;re creating. Send digital Axé to
-              your friends and participate in the governance of the platform.
+              Quilombo is also your portal to everything we&apos;re creating. Post and search for Capoeira events, send
+              digital Axé to your friends, and participate in the governance of the platform.
             </p>
             <p className="my-3 text-default-600 text-sm sm:text-medium">
               If you are in any way involved in Capoeira, we invite you to join us on this journey. This app is free!
@@ -36,10 +36,10 @@ export default function Home() {
                 email
               </a>{' '}
               or join our{' '}
-              <a href={ENV.axeDaoDiscord} className="hover:text-primary underline">
+              <a href={ENV.quilomboSignalGroup} className="hover:text-primary underline">
                 group chat
               </a>{' '}
-              on Discord.
+              on Signal.
             </p>
           </div>
           <div className="pt-5">

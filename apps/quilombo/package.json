@@ -19,17 +19,17 @@
     "@deck.gl/geo-layers": "^9.1.13",
     "@deck.gl/layers": "^9.1.13",
     "@deck.gl/mapbox": "^9.1.13",
-    "@heroui/react": "2.8.1",
-    "@heroui/use-infinite-scroll": "2.2.10",
+    "@heroui/react": "2.8.5",
+    "@heroui/use-infinite-scroll": "2.2.12",
     "@icons-pack/react-simple-icons": "^13.5.0",
-    "@internationalized/date": "^3.8.2",
+    "@internationalized/date": "3.10.0",
     "@maptiler/geocoding-control": "^2.1.7",
     "@react-aria/ssr": "^3.9.5",
     "@react-aria/visually-hidden": "^3.8.15",
-    "@silk-wallet/silk-wallet-sdk": "^0.7.1",
+    "@silk-wallet/silk-wallet-sdk": "1.0.1",
     "@tanstack/query-core": "^5.83.0",
     "@tanstack/react-query": "^5.83.0",
-    "@wagmi/core": "^2.14.1",
+    "@wagmi/core": "2.21.2",
     "axios": "^1.7.5",
     "bcrypt": "^5.1.1",
     "clsx": "^2.1.1",
@@ -59,8 +59,8 @@
     "siwe": "^3.0.0",
     "supercluster": "^8.0.1",
     "uuid": "^11.1.0",
-    "viem": "^2.31.7",
-    "wagmi": "^2.15.4",
+    "viem": "2.37.0",
+    "wagmi": "2.17.5",
     "yup": "^1.4.0"
   },
   "devDependencies": {
@@ -78,7 +78,7 @@
     "drizzle-kit": "^0.31.4",
     "postcss": "8.5.6",
     "postcss-preset-env": "^10.2.4",
-    "tailwindcss": "4.1.11"
+    "tailwindcss": "4.1.14"
   },
   "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee"
 }
