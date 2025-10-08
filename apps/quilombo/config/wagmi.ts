@@ -1,5 +1,5 @@
 import { type Config, createConfig, http, webSocket } from 'wagmi';
-import { type Chain, gnosis, localhost, optimism, sepolia } from 'wagmi/chains';
+import { type Chain, gnosis, localhost, sepolia } from 'wagmi/chains';
 
 import ENV, { getBaseUrl } from '@/config/environment';
 import { silkInitOptions } from '@/config/silk';
@@ -44,9 +44,6 @@ export const getTransport = (chain: Chain | undefined) => {
   switch (chain?.id) {
     case gnosis.id:
       url = ENV.gnosisProviderUrl;
-      break;
-    case optimism.id:
-      url = ENV.optimismProviderUrl;
       break;
     case sepolia.id:
       url = ENV.sepoliaProviderUrl;
