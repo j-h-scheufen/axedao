@@ -29,7 +29,7 @@ import {
 export default function silk(options?: InitSilkOptions) {
   let silkProvider: SilkEthereumProviderInterface | null = null;
 
-  return createConnector<SilkEthereumProviderInterface>((config) => {
+  return createConnector((config) => {
     return {
       id: 'silk',
       name: 'Silk Connector',
@@ -37,12 +37,12 @@ export default function silk(options?: InitSilkOptions) {
       chains: config.chains,
       supportsSimulation: false,
 
-      async connect({ chainId } = {}) {
+      async connect({ chainId, withCapabilities = false } = {}) {
         try {
           config.emitter.emit('message', {
             type: 'connecting',
           });
-          const provider = await this.getProvider();
+          const provider = (await this.getProvider()) as SilkEthereumProviderInterface;
 
           provider.on('accountsChanged', this.onAccountsChanged);
           provider.on('chainChanged', this.onChainChanged);
@@ -70,7 +70,17 @@ export default function silk(options?: InitSilkOptions) {
 
           const accounts = await this.getAccounts();
 
-          return { accounts, chainId: currentChainId };
+          if (withCapabilities) {
+            return {
+              accounts: accounts.map((address) => ({
+                address,
+                capabilities: {} as Record<string, unknown>,
+              })),
+              chainId: currentChainId,
+            };
+          }
+          // biome-ignore lint/suspicious/noExplicitAny: conditionally typed
+          return { accounts, chainId: currentChainId } as any;
         } catch (error) {
           console.error('Error while connecting', error);
           this.onDisconnect();
@@ -79,7 +89,7 @@ export default function silk(options?: InitSilkOptions) {
       },
 
       async getAccounts() {
-        const provider = await this.getProvider();
+        const provider = (await this.getProvider()) as SilkEthereumProviderInterface;
         const accounts = await provider.request({
           method: SILK_METHOD.eth_accounts,
         });
@@ -89,7 +99,7 @@ export default function silk(options?: InitSilkOptions) {
       },
 
       async getChainId() {
-        const provider = await this.getProvider();
+        const provider = (await this.getProvider()) as SilkEthereumProviderInterface;
         const chainId = await provider.request({ method: SILK_METHOD.eth_chainId });
         return Number(chainId);
       },
@@ -117,7 +127,7 @@ export default function silk(options?: InitSilkOptions) {
           const chain = config.chains.find((x) => x.id === chainId);
           if (!chain) throw new ChainNotConfiguredError();
 
-          const provider = await this.getProvider();
+          const provider = (await this.getProvider()) as SilkEthereumProviderInterface;
           await provider.request({
             method: SILK_METHOD.wallet_switchEthereumChain,
             params: [{ chainId: `0x${chain.id.toString(16)}` }],
@@ -131,20 +141,20 @@ export default function silk(options?: InitSilkOptions) {
       },
 
       async disconnect(): Promise<void> {
-        const provider = await this.getProvider();
+        const provider = (await this.getProvider()) as SilkEthereumProviderInterface;
         provider.removeListener('accountsChanged', this.onAccountsChanged);
         provider.removeListener('chainChanged', this.onChainChanged);
         provider.removeListener('disconnect', this.onDisconnect);
       },
 
       async requestEmail(): Promise<unknown> {
-        const provider = await this.getProvider();
+        const provider = (await this.getProvider()) as SilkEthereumProviderInterface;
         return provider.requestEmail();
       },
 
       async requestSBT(type: CredentialType): Promise<unknown> {
-        const provider = await this.getProvider();
-        return (provider as SilkEthereumProviderInterface).requestSBT(type);
+        const provider = (await this.getProvider()) as SilkEthereumProviderInterface;
+        return provider.requestSBT(type);
       },
 
       onAccountsChanged(accounts) {

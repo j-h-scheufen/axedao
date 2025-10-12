@@ -119,17 +119,13 @@ const useAuth = () => {
     const defaultChain = getDefaultChain();
     try {
       // There should already be a silk connector in the wagmi config which also
-      // enables automatic reconnect on page refresh, but just in case, we can also create
-      // the connector here.
-      if (!silkConnector) {
-        wagmiConnect({
-          // TODO referral code ENV var
-          chainId: defaultChain.id,
-          connector: silk(silkInitOptions),
-        });
-      } else {
-        wagmiConnect({ chainId: defaultChain.id, connector: silkConnector });
-      }
+      // enables automatic reconnect on page refresh, but if not, we need to use the factory.
+      const connectorToUse = silkConnector || silk(silkInitOptions);
+
+      wagmiConnect({
+        connector: connectorToUse,
+        chainId: defaultChain.id,
+      });
       setState((x) => ({ ...x, loading: false }));
     } catch (error) {
       console.error('Error connecting to wallet:', error);
