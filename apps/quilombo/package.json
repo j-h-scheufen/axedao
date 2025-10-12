@@ -40,7 +40,7 @@
     "file-type": "21.0.0",
     "formik": "2.4.6",
     "framer-motion": "12.23.24",
-    "intl-messageformat": "10.7.16",
+    "intl-messageformat": "10.7.18",
     "jotai": "2.15.0",
     "jotai-tanstack-query": "0.11.0",
     "lodash": "4.17.21",
