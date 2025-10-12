@@ -60,8 +60,8 @@ importers:
         specifier: ^3.8.15
         version: 3.8.25(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@silk-wallet/silk-wallet-sdk':
-        specifier: ^0.7.1
-        version: 0.7.1(@ethersproject/sha2@5.8.0)(@types/react@19.1.8)(bufferutil@4.0.9)(encoding@0.1.13)(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)
+        specifier: 1.0.1
+        version: 1.0.1(@ethersproject/sha2@5.8.0)(@types/react@19.1.8)(bufferutil@4.0.9)(encoding@0.1.13)(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)
       '@tanstack/query-core':
         specifier: ^5.83.0
         version: 5.83.0
@@ -426,12 +426,14 @@ packages:
 
   '@arcgis/components-utils@4.33.10':
     resolution: {integrity: sha512-QnN9h6mDjUWQPRvqP1CHqgLEQm7GRX0Cf7bIe6JkQHepFQhkjo1o17F5tS+MnCIUo2SGVfDyazSAHBtkClSuRw==}
+    deprecated: This version is no longer supported. Upgrade to @latest
 
   '@arcgis/core@4.33.4':
     resolution: {integrity: sha512-/uVb8AX4HBER6GfnvDwvW3qVS0ouozUZ7BlMQoXG4PmlPhg2gQUqOxeobwgJNjzcxp43DCs7GlwnbH+oKo8ebg==}
 
   '@arcgis/lumina@4.33.10':
     resolution: {integrity: sha512-l/vbTpedxltW3yzZzWX3f2jV8/vLDz93TBnlxG8NQxyYAHlmQlLPVSxKsvOp8kL1rEx/7jlGBgOU4EXDwzYiHQ==}
+    deprecated: This version is no longer supported. Upgrade to @latest
 
   '@babel/code-frame@7.27.1':
     resolution: {integrity: sha512-cjQ7ZlQ0Mv3b47hABuTevyTuYN4i+loJKGeV9flcCgIK37cCXRh+L1bd3iBHlynerhQ7BhCkn2BPbQUL+rGqFg==}
@@ -4135,16 +4137,16 @@ packages:
     resolution: {integrity: sha512-zaYmoH0NWWtvnJjC9/CBseXMtKHm/tm40sz3YfJRxeQjyzRqNQPgivpd9R/oDJCYj999mzdW382p/qi2ypjLww==}
     engines: {node: '>=6'}
 
-  '@silk-wallet/silk-constants@0.3.2':
-    resolution: {integrity: sha512-0Tf+q19iIIgb4DxbGlysAvWiJd0EUj0W9I+GRVDwfeSik6T5YmRtUR5EsJDOulHKhvhdNqWNGezBRd6Av11Dqw==}
+  '@silk-wallet/silk-constants@0.3.7':
+    resolution: {integrity: sha512-+VaHjcwVk2hVWqzKf/BRlkB8zqgiZSVzFGATHkjRLPrM58xwaK/knbZ5wpqxcPotx4yfqcxx5OiLFxlLOOrfyQ==}
     engines: {node: '>=18.0.0'}
 
-  '@silk-wallet/silk-interface-core@0.4.2':
-    resolution: {integrity: sha512-SoFDdVC4OThFRoXuKcZJYJ6WV/T1GsW1XlKPZ6NJnxzthnbhXq1YJ7HyqgRMxSvGGSLMzMzOuiB0eBsNSMuEXQ==}
+  '@silk-wallet/silk-interface-core@0.4.4':
+    resolution: {integrity: sha512-63kO0AOXOnMaKjN4jUT+9T30qE9DqBBE30nA4hreeSfTEVB1wBdWuhIN26BWUF3zeERY39BI9XdgDCz9CQUfBQ==}
     engines: {node: '>=18.0.0'}
 
-  '@silk-wallet/silk-wallet-sdk@0.7.1':
-    resolution: {integrity: sha512-Wx8BEUL1aPR943+JMU8dxcw7BW3io3TOC/4+0WHvOB7l6Wnj8JDyDYwHK0A43TO50HT4kQNqVZlRvVeC4fsfLw==}
+  '@silk-wallet/silk-wallet-sdk@1.0.1':
+    resolution: {integrity: sha512-DQ+iNtG3Xzi+zOM4AHKf8MMCS3IGDvb8HO/P+E2GbM0h3MOoMudcQ3skmldt8LRJs+EUDHXxrpW6+0WnpR0YtQ==}
     engines: {node: '>=18.0.0'}
 
   '@socket.io/component-emitter@3.1.2':
@@ -15693,19 +15695,19 @@ snapshots:
       '@sentry/types': 5.30.0
       tslib: 1.14.1
 
-  '@silk-wallet/silk-constants@0.3.2':
+  '@silk-wallet/silk-constants@0.3.7':
     dependencies:
-      '@silk-wallet/silk-interface-core': 0.4.2
+      '@silk-wallet/silk-interface-core': 0.4.4
 
-  '@silk-wallet/silk-interface-core@0.4.2': {}
+  '@silk-wallet/silk-interface-core@0.4.4': {}
 
-  '@silk-wallet/silk-wallet-sdk@0.7.1(@ethersproject/sha2@5.8.0)(@types/react@19.1.8)(bufferutil@4.0.9)(encoding@0.1.13)(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)':
+  '@silk-wallet/silk-wallet-sdk@1.0.1(@ethersproject/sha2@5.8.0)(@types/react@19.1.8)(bufferutil@4.0.9)(encoding@0.1.13)(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)':
     dependencies:
       '@metamask/rpc-errors': 5.1.1
       '@reown/appkit': 1.7.10(@types/react@19.1.8)(bufferutil@4.0.9)(encoding@0.1.13)(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.25.67)
       '@reown/appkit-adapter-ethers': 1.7.10(@ethersproject/sha2@5.8.0)(@types/react@19.1.8)(bufferutil@4.0.9)(encoding@0.1.13)(ethers@6.15.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.25.67)
-      '@silk-wallet/silk-constants': 0.3.2
-      '@silk-wallet/silk-interface-core': 0.4.2
+      '@silk-wallet/silk-constants': 0.3.7
+      '@silk-wallet/silk-interface-core': 0.4.4
       events: 3.3.0
       pino-pretty: 10.3.1
       zod: 3.25.67
