@@ -53,8 +53,8 @@ importers:
         specifier: 13.5.0
         version: 13.5.0(react@19.1.0)
       '@internationalized/date':
-        specifier: 3.8.2
-        version: 3.8.2
+        specifier: 3.10.0
+        version: 3.10.0
       '@maptiler/geocoding-control':
         specifier: 2.1.7
         version: 2.1.7(maplibre-gl@5.6.1)(react@19.1.0)
@@ -3035,9 +3035,6 @@ packages:
 
   '@internationalized/date@3.10.0':
     resolution: {integrity: sha512-oxDR/NTEJ1k+UFVQElaNIk65E/Z83HK1z1WI3lQyhTtnNg4R5oVXaPzK3jcpKG8UHKDVuDQHzn+wsxSz8RP3aw==}
-
-  '@internationalized/date@3.8.2':
-    resolution: {integrity: sha512-/wENk7CbvLbkUvX1tu0mwq49CVkkWpkXubGel6birjRPyo6uQ4nQpnq5xZu823zRCwwn82zgHrvgF1vZyvmVgA==}
 
   '@internationalized/message@3.1.8':
     resolution: {integrity: sha512-Rwk3j/TlYZhn3HQ6PyXUV0XP9Uv42jqZGNegt0BXlxjE6G3+LwHjbQZAGHhCnCPdaA6Tvd3ma/7QzLlLkJxAWA==}
@@ -13741,10 +13738,6 @@ snapshots:
   '@interactjs/types@1.10.27': {}
 
   '@internationalized/date@3.10.0':
-    dependencies:
-      '@swc/helpers': 0.5.17
-
-  '@internationalized/date@3.8.2':
     dependencies:
       '@swc/helpers': 0.5.17
 

@@ -22,7 +22,7 @@
     "@heroui/react": "2.8.5",
     "@heroui/use-infinite-scroll": "2.2.12",
     "@icons-pack/react-simple-icons": "13.5.0",
-    "@internationalized/date": "3.8.2",
+    "@internationalized/date": "3.10.0",
     "@maptiler/geocoding-control": "2.1.7",
     "@react-aria/ssr": "3.9.9",
     "@react-aria/visually-hidden": "3.8.25",
