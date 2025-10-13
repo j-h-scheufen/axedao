@@ -8,7 +8,8 @@ import { useAccount, useConnect, useDisconnect, useSignMessage } from 'wagmi';
 import type { SilkEthereumProviderInterface } from '@silk-wallet/silk-wallet-sdk';
 
 import { PATHS } from '@/config/constants';
-import { getDefaultChain, silkInitOptions } from '@/config/wagmi';
+import { getDefaultChain } from '@/config/wagmi';
+import { silkInitOptions } from '@/config/silk';
 import silk from '@/utils/silk.connector';
 import { setCookie } from 'cookies-next';
 import { enqueueSnackbar } from 'notistack';
@@ -118,17 +119,13 @@ const useAuth = () => {
     const defaultChain = getDefaultChain();
     try {
       // There should already be a silk connector in the wagmi config which also
-      // enables automatic reconnect on page refresh, but just in case, we can also create
-      // the connector here.
-      if (!silkConnector) {
-        wagmiConnect({
-          // TODO referral code ENV var
-          chainId: defaultChain.id,
-          connector: silk(silkInitOptions),
-        });
-      } else {
-        wagmiConnect({ chainId: defaultChain.id, connector: silkConnector });
-      }
+      // enables automatic reconnect on page refresh, but if not, we need to use the factory.
+      const connectorToUse = silkConnector || silk(silkInitOptions);
+
+      wagmiConnect({
+        connector: connectorToUse,
+        chainId: defaultChain.id,
+      });
       setState((x) => ({ ...x, loading: false }));
     } catch (error) {
       console.error('Error connecting to wallet:', error);

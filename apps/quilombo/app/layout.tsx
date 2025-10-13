@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import type { PropsWithChildren } from 'react';
+import type { Metadata } from 'next';
 
 import Navbar from '@/components/Navbar';
 import { fontFiraCode, fontInter, fontOpenSans } from '@/config/fonts';
@@ -10,7 +11,7 @@ import type { SearchParams } from '@/types/routes';
 
 import '@/app/globals.css';
 
-export const metadata = sharedMetadata;
+export const metadata: Metadata = sharedMetadata;
 export { viewport };
 
 // NEXTJS provides these params to pages (layouts do NOT receive searchParams!), but no official interface exists, yet.
