@@ -6,7 +6,6 @@ type ConfigType = {
   walletConnectProjectId: string;
   sepoliaProviderUrl: string;
   gnosisProviderUrl: string;
-  optimismProviderUrl: string;
   graphApiKey: string;
   mapTilerKey: string;
   daoAddress: Address;
@@ -60,10 +59,6 @@ const ENV: ConfigType = {
     envMode === 'production'
       ? required(process.env.NEXT_PUBLIC_GNOSIS_PROVIDER, 'NEXT_PUBLIC_GNOSIS_PROVIDER')
       : process.env.NEXT_PUBLIC_GNOSIS_PROVIDER || '',
-  optimismProviderUrl:
-    envMode === 'production'
-      ? required(process.env.NEXT_PUBLIC_OP_PROVIDER, 'NEXT_PUBLIC_OP_PROVIDER')
-      : process.env.NEXT_PUBLIC_OP_PROVIDER || '',
   axeTokenAddress: required(process.env.NEXT_PUBLIC_AXE_TOKEN_ADDRESS, 'NEXT_PUBLIC_AXE_TOKEN_ADDRESS') as Address,
   daoAddress: required(process.env.NEXT_PUBLIC_DAO_ADDRESS, 'NEXT_PUBLIC_DAO_ADDRESS') as Address,
   axeTreasuryAddress: required(

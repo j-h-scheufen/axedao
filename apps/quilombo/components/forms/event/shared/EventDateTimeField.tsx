@@ -24,6 +24,10 @@ const EventDateTimeField = ({ startFieldName, endFieldName, isAllDayFieldName }:
   // Derive multi-day state from whether end date exists
   const [isMultiDay, setIsMultiDay] = useState(!!endField.value);
 
+  // Parse dates into state to ensure consistent typing
+  const startDate = startField.value ? parseAbsoluteToLocal(startField.value) : null;
+  const endDate = endField.value ? parseAbsoluteToLocal(endField.value) : null;
+
   // Update multi-day state when form values change (for edit mode)
   useEffect(() => {
     setIsMultiDay(!!endField.value);
@@ -90,7 +94,7 @@ const EventDateTimeField = ({ startFieldName, endFieldName, isAllDayFieldName }:
         <DatePicker
           label="Event Date & Time"
           aria-label="Select event date and time"
-          value={startField.value ? parseAbsoluteToLocal(startField.value) : null}
+          value={startDate}
           onChange={handleSingleDateChange}
           granularity={isAllDayField.value ? 'day' : 'minute'}
           hideTimeZone
@@ -105,10 +109,10 @@ const EventDateTimeField = ({ startFieldName, endFieldName, isAllDayFieldName }:
           label="Event Date Range"
           aria-label="Select event date range"
           value={
-            startField.value
+            startDate
               ? {
-                  start: parseAbsoluteToLocal(startField.value),
-                  end: endField.value ? parseAbsoluteToLocal(endField.value) : parseAbsoluteToLocal(startField.value),
+                  start: startDate,
+                  end: endDate ?? startDate,
                 }
               : null
           }
