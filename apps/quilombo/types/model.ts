@@ -99,7 +99,7 @@ export type EventLocationPointDatum = EventLocationFeatureProperties & {
 
 export type UserSession = {
   id: string;
-  walletAddress: string;
+  walletAddress: string | null;
   isGlobalAdmin: boolean;
 };
 

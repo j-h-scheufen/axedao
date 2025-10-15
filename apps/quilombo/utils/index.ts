@@ -82,7 +82,7 @@ export const getUserDisplayName = (user?: User): string => {
   } else if (user.name) {
     displayName = user.name;
   }
-  return displayName || `User (${abbreviateAddress(user.walletAddress)})`;
+  return displayName || `User (${abbreviateAddress(user.walletAddress ?? '0xABCDEF1234567890')})`; // TODO this is a temp workaround after making the wallet optional
 };
 
 export const abbreviateAddress = (input: string): string => {

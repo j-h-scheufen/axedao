@@ -23,6 +23,9 @@ export const titleEnum = pgEnum('title', titles);
 export const linkTypeEnum = pgEnum('link_type', linkTypes);
 export const styleEnum = pgEnum('style', styles);
 export const eventTypeEnum = pgEnum('event_type', eventTypes);
+export const accountStatusEnum = pgEnum('account_status', ['pending_verification', 'active', 'disabled']);
+export const tokenTypeEnum = pgEnum('token_type', ['email_verification', 'password_reset']);
+export const oauthProviderEnum = pgEnum('oauth_provider', ['google']);
 
 export type LinkType = (typeof linkTypes)[number];
 export type SocialLink = { type?: LinkType; url: string };
@@ -42,7 +45,10 @@ export const users = pgTable(
     email: text('email'),
     groupId: uuid('group_id').references((): AnyPgColumn => groups.id, { onDelete: 'set null' }),
     phone: varchar('phone'),
-    walletAddress: varchar('wallet_address').notNull(),
+    walletAddress: varchar('wallet_address'),
+    passwordHash: text('password_hash'),
+    emailVerifiedAt: timestamp('email_verified_at'),
+    accountStatus: accountStatusEnum('account_status').default('active').notNull(),
     isGlobalAdmin: boolean('is_global_admin').default(false).notNull(),
     links: json('links').$type<SocialLink[]>().notNull().default([]),
   },
@@ -88,6 +94,37 @@ export const groupAdmins = pgTable(
       .references(() => users.id, { onDelete: 'cascade' }),
   },
   (t) => [primaryKey({ columns: [t.groupId, t.userId] })]
+);
+
+export const verificationTokens = pgTable(
+  'verification_tokens',
+  {
+    id: uuid('id').defaultRandom().primaryKey(),
+    userId: uuid('user_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    tokenHash: text('token_hash').notNull(),
+    type: tokenTypeEnum('type').notNull(),
+    expiresAt: timestamp('expires_at').notNull(),
+    consumedAt: timestamp('consumed_at'),
+    createdAt: timestamp('created_at').notNull().defaultNow(),
+  },
+  (t) => [index('token_hash_idx').on(t.tokenHash), index('user_token_type_idx').on(t.userId, t.type)]
+);
+
+export const oauthAccounts = pgTable(
+  'oauth_accounts',
+  {
+    id: uuid('id').defaultRandom().primaryKey(),
+    userId: uuid('user_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    provider: oauthProviderEnum('provider').notNull(),
+    providerUserId: text('provider_user_id').notNull(),
+    providerEmail: text('provider_email'),
+    createdAt: timestamp('created_at').notNull().defaultNow(),
+  },
+  (t) => [uniqueIndex('oauth_provider_user_idx').on(t.provider, t.providerUserId), index('oauth_user_idx').on(t.userId)]
 );
 
 export const userGroupRelations = relations(users, ({ one }) => ({
@@ -173,3 +210,9 @@ export type SelectGroupLocation = typeof groupLocations.$inferSelect;
 
 export type InsertEvent = typeof events.$inferInsert;
 export type SelectEvent = typeof events.$inferSelect;
+
+export type InsertVerificationToken = typeof verificationTokens.$inferInsert;
+export type SelectVerificationToken = typeof verificationTokens.$inferSelect;
+
+export type InsertOAuthAccount = typeof oauthAccounts.$inferInsert;
+export type SelectOAuthAccount = typeof oauthAccounts.$inferSelect;

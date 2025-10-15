@@ -69,3 +69,25 @@ IMPORTANT: there are a number of migration files that were manually generated, e
 1. create a new numbered migration file with the DB changes
 2.1. run `npx drizzle-kit push` (to manually add the missing migration) or 
 2.2. add a new entry to the _journal.json and run `npx drizzle-kit migrate`
+
+## Safety Hooks for Claude Code
+
+This project uses a bash safety hook to prevent accidental execution of dangerous commands by Claude Code. The hook blocks:
+
+- **Database operations**: `drizzle-kit migrate`, `drizzle-kit push`, `prisma migrate`, `prisma db push`, and direct SQL execution
+- **Package publishing**: `npm publish`, `yarn publish`, `pnpm publish`
+- **Force operations**: `git push --force`, `git push -f`
+- **Production deployments**: `vercel --prod`, `netlify deploy --prod`, `firebase deploy`
+- **Destructive operations**: `kubectl delete`, `docker-compose down`, `rm -rf` on critical paths
+
+The hook is context-aware and allows safe operations like:
+- Writing documentation that mentions these commands (e.g., `echo "Run drizzle-kit migrate"`)
+- Creating code examples or configuration files
+- Using heredocs or string literals
+
+The hook **only blocks** when these commands are actually being executed. This protects against accidental database migrations, production deployments, or package publishing without manual review.
+
+Hook location: `~/.claude/hooks/bash-safety-check.sh`  
+Configuration: `~/.claude/settings.json`
+
+For more details, see `~/.claude/hooks/README.md`
