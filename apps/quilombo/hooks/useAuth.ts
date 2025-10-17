@@ -17,16 +17,20 @@ import { triggerCurrentUserIdAtom } from './state/currentUser';
 import { useQueryClient } from '@tanstack/react-query';
 
 /**
- * Handles wagmi connect, signMessage, and logout using the wallet.
+ * Handles authentication for all three methods:
+ * 1. Human Wallet (SIWE)
+ * 2. Email/Password
+ * 3. Google OAuth (handled by next-auth, not in this hook)
+ *
  * Only a single 'loading' and 'error' field are stored in state and used across
  * all functions.
- * @returns
  */
 const useAuth = () => {
   const [state, setState] = useState<{
     loading?: boolean;
     nonce?: string;
     error?: Error;
+    emailRequired?: boolean; // For first-time wallet users
   }>({});
   const setCurrentUserId = useSetAtom(triggerCurrentUserIdAtom);
   const { address, chainId } = useAccount();
@@ -52,11 +56,15 @@ const useAuth = () => {
     fetchNonce();
   }, []);
 
-  const signIn = async () => {
+  /**
+   * Sign in with Human Wallet (SIWE)
+   * @param email - Optional email for first-time wallet users
+   */
+  const signIn = async (email?: string) => {
     try {
       if (!address || !chainId) return;
 
-      setState((x) => ({ ...x, loading: true, error: undefined }));
+      setState((x) => ({ ...x, loading: true, error: undefined, emailRequired: false }));
       // Create SIWE message with pre-fetched nonce and sign with wallet
       const message = new SiweMessage({
         domain: window.location.host,
@@ -74,11 +82,19 @@ const useAuth = () => {
         message: preparedMessage,
       });
 
-      const res = await nextAuthSignIn('credentials', {
+      const res = await nextAuthSignIn('ethereum', {
         message: JSON.stringify(message),
         signature,
-        callbackUrl, // user is directed here after signing in
+        email: email || undefined,
+        callbackUrl,
+        redirect: false,
       });
+
+      if (res?.error === 'EMAIL_REQUIRED') {
+        // First-time wallet user needs to provide email
+        setState((x) => ({ ...x, loading: false, emailRequired: true }));
+        return;
+      }
 
       if (res?.ok && !res.error) {
         const session = await getSession();
@@ -94,6 +110,47 @@ const useAuth = () => {
     } catch (error) {
       setState((x) => ({ ...x, loading: false, error: error as Error, nonce: undefined }));
       fetchNonce();
+    }
+  };
+
+  /**
+   * Sign in with email and password
+   */
+  const signInWithPassword = async (email: string, password: string) => {
+    setState((x) => ({ ...x, loading: true, error: undefined }));
+
+    try {
+      const res = await nextAuthSignIn('email-password', {
+        email,
+        password,
+        callbackUrl,
+        redirect: false,
+      });
+
+      if (res?.ok && !res.error) {
+        const session = await getSession();
+        console.info('User signed in:', session?.user?.id);
+        setCurrentUserId(session?.user?.id);
+        setState((x) => ({ ...x, loading: false }));
+      } else if (res?.error === 'EMAIL_NOT_VERIFIED') {
+        setState((x) => ({
+          ...x,
+          loading: false,
+          error: new Error('Please verify your email before logging in'),
+        }));
+      } else {
+        setState((x) => ({
+          ...x,
+          loading: false,
+          error: new Error('Invalid email or password'),
+        }));
+      }
+    } catch (error) {
+      setState((x) => ({
+        ...x,
+        loading: false,
+        error: error as Error,
+      }));
     }
   };
 
@@ -135,7 +192,7 @@ const useAuth = () => {
     }
   };
 
-  return { signIn, logout, connect, connectError, state };
+  return { signIn, signInWithPassword, logout, connect, connectError, state };
 };
 
 export default useAuth;

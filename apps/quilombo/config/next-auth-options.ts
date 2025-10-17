@@ -1,18 +1,24 @@
 import type { AuthOptions, RequestInternal } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import GoogleProvider from 'next-auth/providers/google';
 import { cookies } from 'next/headers';
 import { SiweMessage } from 'siwe';
 import { v4 as uuidv4 } from 'uuid';
+import { sql, eq, and } from 'drizzle-orm';
 
 import { PATHS } from '@/config/constants';
 import ENV from '@/config/environment';
-import { fetchSessionData, insertUser } from '@/db';
+import { db, fetchSessionData, insertUser } from '@/db';
+import { users, oauthAccounts } from '@/db/schema';
+import { verifyPassword } from '@/utils/auth/password';
 import type { UserSession } from '@/types/model';
 
 const nextAuthUrl = process.env.NEXTAUTH_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null);
 
 const providers = [
+  // Method 1: Human Wallet (SIWE)
   CredentialsProvider({
+    id: 'ethereum',
     name: 'Ethereum',
     credentials: {
       message: {
@@ -24,6 +30,11 @@ const providers = [
         label: 'Signature',
         type: 'text',
         placeholder: '0x0',
+      },
+      email: {
+        label: 'Email',
+        type: 'text',
+        placeholder: 'email@example.com',
       },
     },
 
@@ -49,11 +60,20 @@ const providers = [
 
         if (result.success) {
           let user = await fetchSessionData(siwe.address);
+
           if (!user) {
-            // Users are automatically created when they sign in, because all we need is their wallet address
+            // First-time wallet user - require email
+            if (!credentials.email) {
+              throw new Error('EMAIL_REQUIRED');
+            }
+
+            // Create new user with wallet + email
             const { id, walletAddress, isGlobalAdmin } = await insertUser({
               id: uuidv4(),
               walletAddress: siwe.address,
+              email: credentials.email.toLowerCase(),
+              accountStatus: 'active',
+              emailVerifiedAt: new Date(), // Wallet signature proves ownership
             });
             user = { id, walletAddress, isGlobalAdmin: isGlobalAdmin || false } as UserSession;
           }
@@ -62,10 +82,68 @@ const providers = [
 
         return null;
       } catch (e) {
-        console.error(e);
+        console.error('SIWE auth error:', e);
         return null;
       }
     },
+  }),
+
+  // Method 2: Email/Password
+  CredentialsProvider({
+    id: 'email-password',
+    name: 'Email',
+    credentials: {
+      email: {
+        label: 'Email',
+        type: 'text',
+      },
+      password: {
+        label: 'Password',
+        type: 'password',
+      },
+    },
+    async authorize(credentials) {
+      if (!credentials?.email || !credentials?.password) {
+        return null;
+      }
+
+      try {
+        // Find user by email (case-insensitive)
+        const user = await db.query.users.findFirst({
+          where: sql`LOWER(${users.email}) = LOWER(${credentials.email})`,
+        });
+
+        if (!user || !user.passwordHash) {
+          return null;
+        }
+
+        // Verify password
+        const isValid = await verifyPassword(credentials.password, user.passwordHash);
+        if (!isValid) {
+          return null;
+        }
+
+        // Check if email verified
+        if (user.accountStatus === 'pending_verification') {
+          throw new Error('EMAIL_NOT_VERIFIED');
+        }
+
+        return {
+          id: user.id,
+          walletAddress: user.walletAddress,
+          isGlobalAdmin: user.isGlobalAdmin,
+        } as UserSession;
+      } catch (e) {
+        console.error('Email/password auth error:', e);
+        throw e;
+      }
+    },
+  }),
+
+  // Method 3: Google OAuth
+  GoogleProvider({
+    clientId: process.env.GOOGLE_CLIENT_ID!,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
   }),
 ];
 
@@ -78,9 +156,90 @@ export const nextAuthOptions: AuthOptions = {
   },
   secret: ENV.nextAuthSecret,
   callbacks: {
-    async jwt({ token, user }) {
+    async signIn({ user, account, profile }) {
+      // Handle Google OAuth account linking
+      if (account?.provider === 'google') {
+        const email = profile?.email?.toLowerCase();
+        if (!email) return false;
+
+        try {
+          // Check if oauth account already exists
+          const existingOAuth = await db.query.oauthAccounts.findFirst({
+            where: and(
+              eq(oauthAccounts.provider, 'google'),
+              eq(oauthAccounts.providerUserId, account.providerAccountId)
+            ),
+          });
+
+          if (existingOAuth) {
+            // OAuth account already linked, fetch user for session
+            const existingUser = await db.query.users.findFirst({
+              where: eq(users.id, existingOAuth.userId),
+            });
+
+            if (existingUser) {
+              user.id = existingUser.id;
+              return true;
+            }
+          }
+
+          // Check if user exists by email
+          let existingUser = await db.query.users.findFirst({
+            where: sql`LOWER(${users.email}) = LOWER(${email})`,
+          });
+
+          if (!existingUser) {
+            // Create new user
+            const newUser = await insertUser({
+              id: uuidv4(),
+              email,
+              accountStatus: 'active',
+              emailVerifiedAt: new Date(), // Google pre-verifies emails
+            });
+            existingUser = newUser;
+          }
+
+          // Link OAuth account
+          await db.insert(oauthAccounts).values({
+            userId: existingUser.id,
+            provider: 'google',
+            providerUserId: account.providerAccountId,
+            providerEmail: email,
+          });
+
+          // Update user object for session
+          user.id = existingUser.id;
+          return true;
+        } catch (error) {
+          console.error('Google OAuth signIn error:', error);
+          return false;
+        }
+      }
+
+      return true;
+    },
+    async jwt({ token, user, account }) {
       // Initial sign in persists the UserSession in the token
-      if (user) return { ...token, user };
+      if (user) {
+        // For Google OAuth, fetch full user session data
+        if (account?.provider === 'google') {
+          const dbUser = await db.query.users.findFirst({
+            where: eq(users.id, user.id),
+            columns: { id: true, walletAddress: true, isGlobalAdmin: true },
+          });
+          if (dbUser) {
+            return {
+              ...token,
+              user: {
+                id: dbUser.id,
+                walletAddress: dbUser.walletAddress,
+                isGlobalAdmin: dbUser.isGlobalAdmin,
+              } as UserSession,
+            };
+          }
+        }
+        return { ...token, user };
+      }
       return token;
     },
     async session({ session, token }) {

@@ -42,5 +42,9 @@
     "*.{json,md}": [
       "biome format --write --no-errors-on-unmatched"
     ]
+  },
+  "dependencies": {
+    "@types/node-mailjet": "^4.0.0",
+    "node-mailjet": "^6.0.9"
   }
 }

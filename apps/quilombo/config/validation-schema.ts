@@ -1,5 +1,5 @@
 import { isValidIPFSHash } from '@/utils';
-import { array, boolean, type InferType, mixed, number, object, string } from 'yup';
+import { array, boolean, type InferType, mixed, number, object, string, ref } from 'yup';
 import type { Feature, Geometry, GeoJsonProperties } from 'geojson';
 
 import { linkTypes, styles, titles, eventTypes, validFileExtensions, MAX_IMAGE_UPLOAD_SIZE_MB } from './constants';
@@ -232,3 +232,63 @@ export const updateEventFormSchema = createEventFormSchema.partial();
 
 export type CreateEventForm = InferType<typeof createEventFormSchema>;
 export type UpdateEventForm = InferType<typeof updateEventFormSchema>;
+
+// Authentication validation schemas
+export const signupSchema = object({
+  email: string().email('Invalid email address').required('Email is required').lowercase().trim(),
+  password: string()
+    .required('Password is required')
+    .min(12, 'Password must be at least 12 characters')
+    .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
+    .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
+    .matches(/[0-9]/, 'Password must contain at least one number')
+    .matches(/[!@#$%^&*(),.?":{}|<>]/, 'Password must contain at least one special character'),
+});
+
+export const loginSchema = object({
+  email: string().email('Invalid email address').required('Email is required').lowercase().trim(),
+  password: string().required('Password is required'),
+});
+
+export const forgotPasswordSchema = object({
+  email: string().email('Invalid email address').required('Email is required').lowercase().trim(),
+});
+
+export const resetPasswordSchema = object({
+  token: string().required('Token is required'),
+  newPassword: string()
+    .required('New password is required')
+    .min(12, 'Password must be at least 12 characters')
+    .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
+    .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
+    .matches(/[0-9]/, 'Password must contain at least one number')
+    .matches(/[!@#$%^&*(),.?":{}|<>]/, 'Password must contain at least one special character'),
+});
+
+export const walletSignupEmailSchema = object({
+  email: string().email('Invalid email address').required('Email is required').lowercase().trim(),
+});
+
+export const changePasswordSchema = object({
+  currentPassword: string().required('Current password is required'),
+  newPassword: string()
+    .required('New password is required')
+    .min(12, 'Password must be at least 12 characters')
+    .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
+    .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
+    .matches(/[0-9]/, 'Password must contain at least one number')
+    .matches(/[!@#$%^&*(),.?":{}|<>]/, 'Password must contain at least one special character')
+    .test('passwords-different', 'New password must be different from current password', function (value) {
+      return value !== this.parent.currentPassword;
+    }),
+  confirmPassword: string()
+    .required('Please confirm your new password')
+    .oneOf([ref('newPassword')], 'Passwords must match'),
+});
+
+export type SignupForm = InferType<typeof signupSchema>;
+export type LoginForm = InferType<typeof loginSchema>;
+export type ForgotPasswordForm = InferType<typeof forgotPasswordSchema>;
+export type ResetPasswordForm = InferType<typeof resetPasswordSchema>;
+export type WalletSignupEmailForm = InferType<typeof walletSignupEmailSchema>;
+export type ChangePasswordForm = InferType<typeof changePasswordSchema>;
