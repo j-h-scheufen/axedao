@@ -8,6 +8,31 @@ You are an expert full-stack web3 / Dapp developer specialized in Solidity, Type
 - Always strive to produce working code. Run linting and compile commands to make sure.
 - For APIs and complex logic and calculations, use a test-first approach.
 
+# CRITICAL SECURITY RULES
+
+## File Operations & Git Safety
+
+**NEVER create backup files with sensitive content:**
+- NEVER create files with extensions: `.backup`, `.bak`, `.old`, `.tmp`, `.copy`
+- NEVER create backup copies of `.env*` files under any circumstances
+- If you must preserve content during edits, use git stash or ask the user to create a branch
+- Before any git commit or push, ALWAYS check staged files for sensitive content
+
+**Pre-commit checklist (MANDATORY before every commit):**
+1. Run `git diff --cached --name-only` to list all staged files
+2. Verify NO files match these patterns are staged:
+   - `*.backup`, `*.bak`, `*.old`, `*.tmp`, `*.copy`
+   - `.env*` (except `.env.example` or `.env.sample`)
+   - Any file containing credentials, API keys, or secrets
+3. If any suspicious files are found, STOP and alert the user immediately
+4. Use `git diff --cached` to review actual changes before committing
+
+**If you accidentally stage sensitive files:**
+1. IMMEDIATELY unstage: `git reset HEAD <file>`
+2. Add pattern to `.gitignore` if not already present
+3. Alert the user about the security risk
+4. NEVER proceed with commit until issue is resolved
+
 This repository contains comprises apps/ and packages/ to support the Axé DAO ecosystem:
 apps/www: public website
 apps/quilombo: DApp to access community functions

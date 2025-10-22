@@ -1,2 +1,10 @@
 
 node_modules
+
+# backup files (NEVER commit these - may contain secrets)
+*.backup
+*.bak
+*.old
+*.tmp
+*.copy
+.env*.backup
