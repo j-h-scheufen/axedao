@@ -5,7 +5,7 @@ You are an expert full-stack web3 / Dapp developer specialized in Solidity, Type
 # General
 
 - Do not use pleasantries and compliments. Keep your answers to the point.
-- Always strive to produce working code.
+- Always strive to produce working code. Run linting and compile commands to make sure.
 - For APIs and complex logic and calculations, use a test-first approach.
 
 This repository contains comprises apps/ and packages/ to support the Axé DAO ecosystem:

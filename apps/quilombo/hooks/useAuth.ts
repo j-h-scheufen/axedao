@@ -132,6 +132,8 @@ const useAuth = () => {
         console.info('User signed in:', session?.user?.id);
         setCurrentUserId(session?.user?.id);
         setState((x) => ({ ...x, loading: false }));
+        // Redirect to callbackUrl after successful login
+        window.location.href = callbackUrl;
       } else if (res?.error === 'EMAIL_NOT_VERIFIED') {
         setState((x) => ({
           ...x,

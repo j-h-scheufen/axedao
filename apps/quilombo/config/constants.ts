@@ -54,6 +54,10 @@ export const linkBaseUrls = [
 
 export const PATHS = {
   login: '/auth/login',
+  signup: '/auth/signup',
+  verifyEmail: '/auth/verify-email',
+  forgotPassword: '/auth/forgot-password',
+  resetPassword: '/auth/reset-password',
   search: '/search',
   profile: '/profile',
   admin: '/admin',
