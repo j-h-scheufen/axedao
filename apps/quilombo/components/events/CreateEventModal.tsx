@@ -19,15 +19,32 @@ const CreateEventModal = ({ isOpen, onOpenChange, onSubmit, isSubmitting }: Even
   }, [onOpenChange]);
 
   return (
-    <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="4xl">
-      <ModalContent>
-        <ModalHeader>Create New Event</ModalHeader>
-        <ModalBody className="lg:max-h-none lg:overflow-visible max-h-[80vh] overflow-y-auto">
-          <CreateEventForm onSubmit={onSubmit} isSubmitting={isSubmitting} />
+    <Modal
+      isOpen={isOpen}
+      onOpenChange={onOpenChange}
+      size="4xl"
+      scrollBehavior="inside"
+      classNames={{
+        base: 'max-h-[100dvh] my-0 sm:my-16 mx-0 sm:mx-auto',
+        wrapper: 'items-center',
+      }}
+    >
+      <ModalContent className="flex flex-col h-[100dvh] sm:h-auto max-h-[100dvh]">
+        <ModalHeader className="flex-shrink-0">Create New Event</ModalHeader>
+        <ModalBody className="flex-1 overflow-y-auto overflow-x-hidden min-h-0 px-4 sm:px-6">
+          <CreateEventForm
+            onSubmit={onSubmit}
+            isSubmitting={isSubmitting}
+            showSubmitButton={false}
+            formId="create-event-form"
+          />
         </ModalBody>
-        <ModalFooter>
+        <ModalFooter className="flex-shrink-0 justify-between">
           <Button variant="light" onPress={handleClose}>
             Cancel
+          </Button>
+          <Button color="primary" type="submit" form="create-event-form" isLoading={isSubmitting}>
+            Create Event
           </Button>
         </ModalFooter>
       </ModalContent>

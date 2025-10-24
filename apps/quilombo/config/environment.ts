@@ -3,6 +3,8 @@ import type { EnvType } from '@/types';
 
 type ConfigType = {
   environment: EnvType;
+  walletEnvironment: EnvType;
+  chainEnvironment: EnvType;
   walletConnectProjectId: string;
   sepoliaProviderUrl: string;
   gnosisProviderUrl: string;
@@ -47,6 +49,8 @@ export const getBaseUrl = () => {
 
 const ENV: ConfigType = {
   environment: required(envMode, 'NEXT_PUBLIC_APP_ENV') as EnvType,
+  walletEnvironment: required(process.env.NEXT_PUBLIC_WALLET_ENV, 'NEXT_PUBLIC_WALLET_ENV') as EnvType,
+  chainEnvironment: required(process.env.NEXT_PUBLIC_CHAIN_ENV, 'NEXT_PUBLIC_CHAIN_ENV') as EnvType,
   walletConnectProjectId: required(
     process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID,
     'NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID'

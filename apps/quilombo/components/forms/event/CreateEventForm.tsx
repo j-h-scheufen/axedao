@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Card, CardBody, CardFooter } from '@heroui/react';
+import { Button } from '@heroui/react';
 import { Field, Form, Formik, type FormikProps } from 'formik';
 import { useCallback, useId, useState, useMemo } from 'react';
 
@@ -19,9 +19,11 @@ import { eventTypes } from '@/config/constants';
 interface CreateEventFormProps {
   onSubmit: (data: CreateEventFormType | FormData) => Promise<void>;
   isSubmitting: boolean;
+  showSubmitButton?: boolean;
+  formId?: string;
 }
 
-const CreateEventForm = ({ onSubmit, isSubmitting }: CreateEventFormProps) => {
+const CreateEventForm = ({ onSubmit, isSubmitting, showSubmitButton = true, formId }: CreateEventFormProps) => {
   const imageUploadId = useId();
 
   const initialValues: CreateEventFormType = useMemo(
@@ -103,52 +105,52 @@ const CreateEventForm = ({ onSubmit, isSubmitting }: CreateEventFormProps) => {
     >
       {({ dirty, isValid, isSubmitting: formikIsSubmitting }: FormikProps<typeof initialValues>) => {
         return (
-          <Card>
-            <Form className="flex flex-col gap-2 sm:gap-4">
-              <CardBody>
-                <div className="flex flex-col lg:flex-row gap-6">
-                  {/* Form Fields */}
-                  <div className="flex flex-col gap-4 lg:w-1/2">
-                    <Field name="name" label="Event Name" placeholder="Enter event name" isRequired as={FieldInput} />
+          <Form id={formId} className="flex flex-col gap-2 sm:gap-4">
+            <div className="flex flex-col lg:flex-row gap-6">
+              {/* Form Fields */}
+              <div className="flex flex-col gap-4 lg:w-1/2">
+                <Field name="name" label="Event Name" placeholder="Enter event name" isRequired as={FieldInput} />
 
-                    <Field
-                      name="description"
-                      label="Description"
-                      placeholder="Enter event description (optional)"
-                      as={FieldTextarea}
-                      className="lg:flex-1 lg:resize-none"
-                    />
+                <Field
+                  name="description"
+                  label="Description"
+                  placeholder="Enter event description (optional)"
+                  as={FieldTextarea}
+                  className="lg:flex-1 lg:resize-none"
+                />
 
-                    {/* Using the new Formik-integrated field components */}
-                    <Field
-                      name="dateTime"
-                      as={EventDateTimeField}
-                      startFieldName="start"
-                      endFieldName="end"
-                      isAllDayFieldName="isAllDay"
-                    />
+                {/* Using the new Formik-integrated field components */}
+                <Field
+                  name="dateTime"
+                  as={EventDateTimeField}
+                  startFieldName="start"
+                  endFieldName="end"
+                  isAllDayFieldName="isAllDay"
+                />
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <Field name="type" as={EventTypeField} />
-                      <Field name="url" as={EventUrlField} />
-                    </div>
-
-                    <EventImageUploadSection
-                      selectedImage={selectedImage}
-                      imagePreview={imagePreview}
-                      imageUploadId={imageUploadId}
-                      handleImageChange={handleImageChange}
-                      handleRemoveImage={handleRemoveImage}
-                    />
-                  </div>
-
-                  {/* Location Section */}
-                  <div className="flex flex-col gap-4 lg:w-1/2">
-                    <Field name="feature" as={EventLocationField} />
-                  </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <Field name="type" as={EventTypeField} />
+                  <Field name="url" as={EventUrlField} />
                 </div>
-              </CardBody>
-              <CardFooter className="flex justify-end">
+
+                <EventImageUploadSection
+                  selectedImage={selectedImage}
+                  imagePreview={imagePreview}
+                  imageUploadId={imageUploadId}
+                  handleImageChange={handleImageChange}
+                  handleRemoveImage={handleRemoveImage}
+                />
+              </div>
+
+              {/* Location Section */}
+              <div className="flex flex-col gap-4 lg:w-1/2">
+                <Field name="feature" as={EventLocationField} />
+              </div>
+            </div>
+
+            {/* Show submit button if requested (for standalone use) */}
+            {showSubmitButton && (
+              <div className="flex justify-end mt-4">
                 <Button
                   color="primary"
                   type="submit"
@@ -157,9 +159,9 @@ const CreateEventForm = ({ onSubmit, isSubmitting }: CreateEventFormProps) => {
                 >
                   Create Event
                 </Button>
-              </CardFooter>
-            </Form>
-          </Card>
+              </div>
+            )}
+          </Form>
         );
       }}
     </Formik>
