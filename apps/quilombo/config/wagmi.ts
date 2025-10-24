@@ -22,14 +22,14 @@ export const getOrigin = () => {
 
 export const configureChains = (): [Chain, ...Chain[]] => {
   let chains: [Chain, ...Chain[]] = [gnosis];
-  if (ENV.environment === 'local') chains = [localhost];
-  else if (ENV.environment === 'development') chains = [sepolia];
-  console.info(`Chains configured for '${ENV.environment}' mode.`);
+  if (ENV.chainEnvironment === 'local') chains = [localhost];
+  else if (ENV.chainEnvironment === 'development') chains = [sepolia];
+  console.info(`Chains configured for '${ENV.chainEnvironment}' mode.`);
   return chains;
 };
 
 export const getDefaultChain = (): Chain => {
-  switch (ENV.environment) {
+  switch (ENV.chainEnvironment) {
     case 'local':
       return localhost;
     case 'development':
