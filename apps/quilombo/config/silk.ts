@@ -1,9 +1,9 @@
 import type { InitSilkOptions } from '@silk-wallet/silk-wallet-sdk';
 
-import ENV from './environment';
+import ENV from '@/config/environment';
 
 export const silkInitOptions: InitSilkOptions = {
-  useStaging: ENV.environment !== 'production',
+  useStaging: ENV.walletEnvironment !== 'production',
   config: {
     authenticationMethods: ['email', 'social'], // Empty array will allow all auth methods
     allowedSocials: ['google', 'discord'], // Empty array will allow all social providers
