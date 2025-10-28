@@ -25,11 +25,13 @@ import useAuth from '@/hooks/useAuth';
 import ErrorText from '../ErrorText';
 
 type AuthMethods = {
+  notificationEmail: string | null;
   hasPassword: boolean;
   hasGoogle: boolean;
   hasWallet: boolean;
   googleEmail?: string;
   walletAddress?: string;
+  userEmail?: string;
 };
 
 const AuthenticationManagement = () => {
@@ -70,6 +72,7 @@ const AuthenticationManagement = () => {
     onSuccess: () => {
       enqueueSnackbar('Password changed successfully', { variant: 'success' });
       changePasswordModal.onClose();
+      setError(null); // Clear errors on success
     },
     onError: (error: Error) => {
       setError(error.message);
@@ -78,12 +81,14 @@ const AuthenticationManagement = () => {
 
   // Link Google account
   const handleLinkGoogle = async () => {
+    setError(null); // Clear any previous errors
     linkGoogleModal.onClose();
     await nextAuthSignIn('google', { callbackUrl: window.location.href });
   };
 
   // Link wallet
   const handleLinkWallet = async () => {
+    setError(null); // Clear any previous errors
     await connect();
     if (address) {
       // Call API to link wallet
@@ -119,6 +124,7 @@ const AuthenticationManagement = () => {
       queryClient.invalidateQueries({ queryKey: ['auth-methods'] });
       removeAuthModal.onClose();
       setAuthMethodToRemove(null);
+      setError(null); // Clear errors on success
     },
     onError: (error: Error) => {
       setError(error.message);
@@ -126,6 +132,7 @@ const AuthenticationManagement = () => {
   });
 
   const handleRemoveAuth = (method: AuthMethod) => {
+    setError(null); // Clear any previous errors
     setAuthMethodToRemove(method);
     removeAuthModal.onOpen();
   };
@@ -162,11 +169,27 @@ const AuthenticationManagement = () => {
                   </Chip>
                 )}
               </div>
+              {authMethods.userEmail && (
+                <p className="text-xs text-default-500">
+                  {authMethods.userEmail}
+                  {authMethods.userEmail === authMethods.notificationEmail && (
+                    <span className="ml-2 text-success">• Contact email</span>
+                  )}
+                </p>
+              )}
             </div>
             <div className="flex flex-wrap gap-2">
               {authMethods.hasPassword ? (
                 <>
-                  <Button size="sm" color="secondary" variant="flat" onPress={changePasswordModal.onOpen}>
+                  <Button
+                    size="sm"
+                    color="secondary"
+                    variant="flat"
+                    onPress={() => {
+                      setError(null);
+                      changePasswordModal.onOpen();
+                    }}
+                  >
                     Change Password
                   </Button>
                   <Button
@@ -180,7 +203,15 @@ const AuthenticationManagement = () => {
                   </Button>
                 </>
               ) : (
-                <Button size="sm" color="primary" variant="flat" onPress={changePasswordModal.onOpen}>
+                <Button
+                  size="sm"
+                  color="primary"
+                  variant="flat"
+                  onPress={() => {
+                    setError(null);
+                    changePasswordModal.onOpen();
+                  }}
+                >
                   Set Password
                 </Button>
               )}
@@ -210,7 +241,12 @@ const AuthenticationManagement = () => {
                 )}
               </div>
               {authMethods.hasGoogle && authMethods.googleEmail && (
-                <p className="text-xs text-default-500">{authMethods.googleEmail}</p>
+                <p className="text-xs text-default-500">
+                  {authMethods.googleEmail}
+                  {authMethods.googleEmail === authMethods.notificationEmail && !authMethods.userEmail && (
+                    <span className="ml-2 text-success">• Contact email</span>
+                  )}
+                </p>
               )}
             </div>
             <div className="flex flex-wrap gap-2">
@@ -225,7 +261,15 @@ const AuthenticationManagement = () => {
                   Unlink
                 </Button>
               ) : (
-                <Button size="sm" color="primary" variant="flat" onPress={linkGoogleModal.onOpen}>
+                <Button
+                  size="sm"
+                  color="primary"
+                  variant="flat"
+                  onPress={() => {
+                    setError(null);
+                    linkGoogleModal.onOpen();
+                  }}
+                >
                   Link Google
                 </Button>
               )}

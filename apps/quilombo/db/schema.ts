@@ -56,7 +56,7 @@ export const users = pgTable(
     index('nickname_idx').on(t.nickname),
     index('title_idx').on(t.title),
     index('group_idx').on(t.groupId),
-    index('email_idx').on(t.email),
+    uniqueIndex('email_idx').on(t.email),
     uniqueIndex('wallet_address_idx').on(t.walletAddress),
   ]
 );

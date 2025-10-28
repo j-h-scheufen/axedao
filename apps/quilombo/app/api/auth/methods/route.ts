@@ -59,12 +59,17 @@ export async function GET() {
       where: eq(oauthAccounts.userId, session.user.id),
     });
 
+    // Determine contact email: users.email takes priority, fallback to Google email
+    const notificationEmail = user.email || googleAccount?.providerEmail || null;
+
     return NextResponse.json({
+      notificationEmail,
       hasPassword: !!user.passwordHash,
       hasGoogle: !!googleAccount,
       hasWallet: !!user.walletAddress,
       googleEmail: googleAccount?.providerEmail || undefined,
       walletAddress: user.walletAddress || undefined,
+      userEmail: user.email || undefined,
     });
   } catch (error) {
     console.error('Error fetching auth methods:', error);

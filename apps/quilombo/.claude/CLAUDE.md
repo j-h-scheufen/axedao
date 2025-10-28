@@ -27,6 +27,17 @@ pnpm lint
 pnpm format
 ```
 
+**Important**: Database commands (`db:generate`, `db:migrate`) require environment variables. Export them from `.env.local` first:
+
+```bash
+# Export all environment variables from .env.local
+export $(grep -v '^#' .env.local | xargs)
+
+# Then run database commands
+pnpm db:generate
+pnpm db:migrate
+```
+
 ## Database Setup
 
 ### Local PostgreSQL with PostGIS
