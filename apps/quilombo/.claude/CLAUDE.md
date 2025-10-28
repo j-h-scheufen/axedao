@@ -255,9 +255,14 @@ export async function POST(request: Request) {
 ### Form Handling & Validation
 
 **Formik + Yup** (`/config/validation-schema.ts`):
-- Centralized schema definitions
+- **Centralized schema definitions** - ALL validation schemas live here
 - Schema pattern: `object().shape({ field: string().required().email() })`
 - Type extraction: `type MyForm = InferType<typeof mySchema>`
+- **Type Deduplication Pattern**: If a type union (e.g., `'password' | 'google' | 'wallet'`) appears 3+ times:
+  1. Extract as a const array: `export const authMethods = ['password', 'google', 'wallet'] as const`
+  2. Derive type from it: `export type AuthMethod = (typeof authMethods)[number]`
+  3. Use in Yup schema: `.oneOf(authMethods, 'Invalid value')`
+  4. Import and reuse the type across components/API routes
 - Validation approach:
   - Use `validate()` or `validateSync()` based on context (async vs sync)
   - Return **first validation error only**: `error.errors?.[0]`

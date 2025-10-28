@@ -3,9 +3,6 @@
 import { useState } from 'react';
 import {
   Button,
-  Card,
-  CardBody,
-  CardHeader,
   Divider,
   Chip,
   Modal,
@@ -22,9 +19,10 @@ import { Formik, Form } from 'formik';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { enqueueSnackbar } from 'notistack';
 
-import { changePasswordSchema, type ChangePasswordForm } from '@/config/validation-schema';
-import ErrorText from './ErrorText';
+import { changePasswordSchema, type ChangePasswordForm, type AuthMethod } from '@/config/validation-schema';
 import useAuth from '@/hooks/useAuth';
+
+import ErrorText from '../ErrorText';
 
 type AuthMethods = {
   hasPassword: boolean;
@@ -43,7 +41,7 @@ const AuthenticationManagement = () => {
   const linkGoogleModal = useDisclosure();
   const removeAuthModal = useDisclosure();
 
-  const [authMethodToRemove, setAuthMethodToRemove] = useState<'password' | 'google' | 'wallet' | null>(null);
+  const [authMethodToRemove, setAuthMethodToRemove] = useState<AuthMethod | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   // Fetch user's current auth methods
@@ -106,7 +104,7 @@ const AuthenticationManagement = () => {
 
   // Remove auth method
   const removeAuthMutation = useMutation({
-    mutationFn: async (method: 'password' | 'google' | 'wallet') => {
+    mutationFn: async (method: AuthMethod) => {
       const response = await fetch(`/api/auth/remove-method`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -127,7 +125,7 @@ const AuthenticationManagement = () => {
     },
   });
 
-  const handleRemoveAuth = (method: 'password' | 'google' | 'wallet') => {
+  const handleRemoveAuth = (method: AuthMethod) => {
     setAuthMethodToRemove(method);
     removeAuthModal.onOpen();
   };
@@ -147,21 +145,13 @@ const AuthenticationManagement = () => {
 
   return (
     <>
-      <Card className="w-full">
-        <CardHeader className="flex flex-col gap-1 items-start">
-          <h3 className="text-lg font-semibold">Authentication Methods</h3>
-          <p className="text-sm text-default-500">Manage how you sign in to your account</p>
-        </CardHeader>
-        <Divider />
-        <CardBody className="gap-6">
-          {/* Email/Password */}
-          <div className="flex flex-col gap-2">
-            <div className="flex justify-between items-start">
-              <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-2">
-                  <span className="text-2xl">🔑</span>
-                  <h4 className="font-semibold">Email/Password</h4>
-                </div>
+      <div className="w-full flex flex-col gap-6">
+        {/* Email/Password */}
+        <div className="flex flex-col gap-3">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center gap-2">
+                <h4 className="font-semibold">Email/Password</h4>
                 {authMethods.hasPassword ? (
                   <Chip size="sm" color="success" variant="flat">
                     Active
@@ -172,134 +162,130 @@ const AuthenticationManagement = () => {
                   </Chip>
                 )}
               </div>
-              <div className="flex gap-2">
-                {authMethods.hasPassword ? (
-                  <>
-                    <Button size="sm" color="secondary" variant="flat" onPress={changePasswordModal.onOpen}>
-                      Change Password
-                    </Button>
-                    <Button
-                      size="sm"
-                      color="danger"
-                      variant="flat"
-                      onPress={() => handleRemoveAuth('password')}
-                      isDisabled={!canRemoveMethod}
-                    >
-                      Remove
-                    </Button>
-                  </>
-                ) : (
-                  <Button size="sm" color="primary" variant="flat" onPress={changePasswordModal.onOpen}>
-                    Set Password
-                  </Button>
-                )}
-              </div>
             </div>
-            {!canRemoveMethod && authMethods.hasPassword && (
-              <p className="text-xs text-warning">Add another method before removing password</p>
-            )}
+            <div className="flex flex-wrap gap-2">
+              {authMethods.hasPassword ? (
+                <>
+                  <Button size="sm" color="secondary" variant="flat" onPress={changePasswordModal.onOpen}>
+                    Change Password
+                  </Button>
+                  <Button
+                    size="sm"
+                    color="danger"
+                    variant="flat"
+                    onPress={() => handleRemoveAuth('password')}
+                    isDisabled={!canRemoveMethod}
+                  >
+                    Remove
+                  </Button>
+                </>
+              ) : (
+                <Button size="sm" color="primary" variant="flat" onPress={changePasswordModal.onOpen}>
+                  Set Password
+                </Button>
+              )}
+            </div>
           </div>
+          {!canRemoveMethod && authMethods.hasPassword && (
+            <p className="text-xs text-warning">Add another method before removing password</p>
+          )}
+        </div>
 
-          <Divider />
+        <Divider />
 
-          {/* Google OAuth */}
-          <div className="flex flex-col gap-2">
-            <div className="flex justify-between items-start">
-              <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-2">
-                  <span className="text-2xl">🔗</span>
-                  <h4 className="font-semibold">Google Account</h4>
-                </div>
+        {/* Google OAuth */}
+        <div className="flex flex-col gap-3">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center gap-2">
+                <h4 className="font-semibold">Google Account</h4>
                 {authMethods.hasGoogle ? (
-                  <>
-                    <Chip size="sm" color="success" variant="flat">
-                      Linked
-                    </Chip>
-                    {authMethods.googleEmail && <p className="text-xs text-default-500">{authMethods.googleEmail}</p>}
-                  </>
+                  <Chip size="sm" color="success" variant="flat">
+                    Linked
+                  </Chip>
                 ) : (
                   <Chip size="sm" color="default" variant="flat">
                     Not linked
                   </Chip>
                 )}
               </div>
-              <div className="flex gap-2">
-                {authMethods.hasGoogle ? (
-                  <Button
-                    size="sm"
-                    color="danger"
-                    variant="flat"
-                    onPress={() => handleRemoveAuth('google')}
-                    isDisabled={!canRemoveMethod}
-                  >
-                    Unlink
-                  </Button>
-                ) : (
-                  <Button size="sm" color="primary" variant="flat" onPress={linkGoogleModal.onOpen}>
-                    Link Google
-                  </Button>
-                )}
-              </div>
+              {authMethods.hasGoogle && authMethods.googleEmail && (
+                <p className="text-xs text-default-500">{authMethods.googleEmail}</p>
+              )}
             </div>
-            {!canRemoveMethod && authMethods.hasGoogle && (
-              <p className="text-xs text-warning">Add another method before unlinking Google</p>
-            )}
+            <div className="flex flex-wrap gap-2">
+              {authMethods.hasGoogle ? (
+                <Button
+                  size="sm"
+                  color="danger"
+                  variant="flat"
+                  onPress={() => handleRemoveAuth('google')}
+                  isDisabled={!canRemoveMethod}
+                >
+                  Unlink
+                </Button>
+              ) : (
+                <Button size="sm" color="primary" variant="flat" onPress={linkGoogleModal.onOpen}>
+                  Link Google
+                </Button>
+              )}
+            </div>
           </div>
+          {!canRemoveMethod && authMethods.hasGoogle && (
+            <p className="text-xs text-warning">Add another method before unlinking Google</p>
+          )}
+        </div>
 
-          <Divider />
+        <Divider />
 
-          {/* Human Wallet */}
-          <div className="flex flex-col gap-2">
-            <div className="flex justify-between items-start">
-              <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-2">
-                  <span className="text-2xl">💼</span>
-                  <h4 className="font-semibold">Human Wallet</h4>
-                </div>
+        {/* Human Wallet */}
+        <div className="flex flex-col gap-3">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center gap-2">
+                <h4 className="font-semibold">Human Wallet</h4>
                 {authMethods.hasWallet ? (
-                  <>
-                    <Chip size="sm" color="success" variant="flat">
-                      Connected
-                    </Chip>
-                    {authMethods.walletAddress && (
-                      <p className="text-xs text-default-500 font-mono">
-                        {authMethods.walletAddress.slice(0, 6)}...{authMethods.walletAddress.slice(-4)}
-                      </p>
-                    )}
-                  </>
+                  <Chip size="sm" color="success" variant="flat">
+                    Connected
+                  </Chip>
                 ) : (
                   <Chip size="sm" color="default" variant="flat">
                     Not connected
                   </Chip>
                 )}
               </div>
-              <div className="flex gap-2">
-                {authMethods.hasWallet ? (
-                  <Button
-                    size="sm"
-                    color="danger"
-                    variant="flat"
-                    onPress={() => handleRemoveAuth('wallet')}
-                    isDisabled={!canRemoveMethod}
-                  >
-                    Disconnect
-                  </Button>
-                ) : (
-                  <Button size="sm" color="primary" variant="flat" onPress={handleLinkWallet}>
-                    Connect Wallet
-                  </Button>
-                )}
-              </div>
+              {authMethods.hasWallet && authMethods.walletAddress && (
+                <p className="text-xs text-default-500 font-mono">
+                  {authMethods.walletAddress.slice(0, 6)}...{authMethods.walletAddress.slice(-4)}
+                </p>
+              )}
             </div>
-            {!canRemoveMethod && authMethods.hasWallet && (
-              <p className="text-xs text-warning">Add another method before disconnecting wallet</p>
-            )}
-            {!authMethods.hasWallet && (
-              <p className="text-xs text-default-500">Recommended: Add a wallet for web3 features</p>
-            )}
+            <div className="flex flex-wrap gap-2">
+              {authMethods.hasWallet ? (
+                <Button
+                  size="sm"
+                  color="danger"
+                  variant="flat"
+                  onPress={() => handleRemoveAuth('wallet')}
+                  isDisabled={!canRemoveMethod}
+                >
+                  Disconnect
+                </Button>
+              ) : (
+                <Button size="sm" color="primary" variant="flat" onPress={handleLinkWallet}>
+                  Connect Wallet
+                </Button>
+              )}
+            </div>
           </div>
-        </CardBody>
-      </Card>
+          {!canRemoveMethod && authMethods.hasWallet && (
+            <p className="text-xs text-warning">Add another method before disconnecting wallet</p>
+          )}
+          {!authMethods.hasWallet && (
+            <p className="text-xs text-default-500">Recommended: Add a wallet for web3 features</p>
+          )}
+        </div>
+      </div>
 
       {/* Change Password Modal */}
       <Modal isOpen={changePasswordModal.isOpen} onClose={changePasswordModal.onClose}>

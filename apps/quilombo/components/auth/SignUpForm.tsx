@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 
 import { PATHS } from '@/config/constants';
 import { signupSchema, type SignupForm as SignupFormValues } from '@/config/validation-schema';
-import ErrorText from './ErrorText';
+import ErrorText from '@/components/ErrorText';
 
 const PasswordRequirements = ({ password }: { password: string }) => {
   const requirements = [

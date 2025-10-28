@@ -9,7 +9,7 @@ import { Formik, Form } from 'formik';
 import useAuth from '@/hooks/useAuth';
 import { PATHS } from '@/config/constants';
 import { loginSchema } from '@/config/validation-schema';
-import ErrorText from './ErrorText';
+import ErrorText from '../ErrorText';
 import WalletEmailModal from './WalletEmailModal';
 
 type LoginFormValues = {

@@ -3,7 +3,7 @@
 import { Button, Input, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from '@heroui/react';
 import { Formik, Form } from 'formik';
 import { walletSignupEmailSchema, type WalletSignupEmailForm } from '@/config/validation-schema';
-import ErrorText from './ErrorText';
+import ErrorText from '../ErrorText';
 
 type WalletEmailModalProps = {
   isOpen: boolean;

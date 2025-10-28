@@ -309,8 +309,12 @@ export const linkWalletSchema = object({
   walletAddress: ethereumAddressField(),
 });
 
+// Authentication method types
+export const authMethods = ['password', 'google', 'wallet'] as const;
+export type AuthMethod = (typeof authMethods)[number];
+
 export const removeMethodSchema = object({
-  method: string().required('Method is required').oneOf(['password', 'google', 'wallet'], 'Invalid auth method'),
+  method: string().required('Method is required').oneOf(authMethods, 'Invalid auth method'),
 });
 
 export type SignupForm = InferType<typeof signupSchema>;

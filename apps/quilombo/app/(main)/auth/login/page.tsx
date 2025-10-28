@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 
-import SignInForm from '@/components/SignInForm';
+import SignInForm from '@/components/auth/SignInForm';
 
 const LoginPage = () => {
   return (

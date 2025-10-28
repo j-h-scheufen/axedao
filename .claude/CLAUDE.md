@@ -87,7 +87,12 @@ For detailed package-specific commands, refer to each package's `.claude/CLAUDE.
 - Always check all package.json files to know about latest dependencies.
 - Follow SOLID principles.
 - Emphasize type-safety and static analysis.
-- Once the same variable or chunk of code is needed in more than one place, extract it into a separate function or utility module.
+- **DRY Principle - Extract Duplicates**:
+  - **Functions/Logic**: Once the same code is needed in more than one place, extract it into a separate function or utility module
+  - **Types**: If the same type union (e.g., `'a' | 'b' | 'c'`) appears 3+ times, extract it as a named type
+  - **Constants**: If the same literal array/object appears 2+ times, extract it as a const
+  - **Validation**: Shared validation rules should be centralized in `config/validation-schema.ts`
+  - **Location**: Extract to the most appropriate shared location (types/, utils/, config/)
 - **Environment variables**: Use centralized config/environment.ts files in apps, not direct process.env access.
 - **Database access** (Quilombo): Centralized in db/index.ts - all DB functions must be added there.
 
