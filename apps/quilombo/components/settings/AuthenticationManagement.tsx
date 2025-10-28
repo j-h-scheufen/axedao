@@ -83,6 +83,8 @@ const AuthenticationManagement = () => {
   const handleLinkGoogle = async () => {
     setError(null); // Clear any previous errors
     linkGoogleModal.onClose();
+    // Set cookie to indicate this is intentional linking from Settings
+    document.cookie = 'quilombo_google_linking=true; path=/; max-age=300'; // 5 minutes
     await nextAuthSignIn('google', { callbackUrl: window.location.href });
   };
 

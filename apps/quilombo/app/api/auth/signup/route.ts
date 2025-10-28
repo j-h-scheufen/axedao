@@ -23,7 +23,14 @@ export async function POST(request: Request) {
     });
 
     if (existingUser) {
-      return NextResponse.json({ error: 'An account with this email already exists' }, { status: 409 });
+      // Generic error to prevent user enumeration
+      return NextResponse.json(
+        {
+          error:
+            'Unable to create account. If you already have an account, please sign in or use the forgot password link.',
+        },
+        { status: 400 }
+      );
     }
 
     // Hash password

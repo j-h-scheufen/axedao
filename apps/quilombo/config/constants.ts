@@ -69,6 +69,13 @@ export const PATHS = {
   settings: '/settings',
 };
 
+// Authentication error codes
+export const AUTH_ERRORS = {
+  EMAIL_REQUIRED: 'EMAIL_REQUIRED',
+  REGISTRATION_FAILED: 'REGISTRATION_FAILED',
+  ACCOUNT_EXISTS: 'ACCOUNT_EXISTS',
+} as const;
+
 // Note: The order of these roles in the array is used to sort group members by role in the UI
 export const GROUP_ROLES = ['founder', 'leader', 'admin', 'member'] as const;
 

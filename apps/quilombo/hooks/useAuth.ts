@@ -7,7 +7,7 @@ import { UserRejectedRequestError } from 'viem';
 import { useAccount, useConnect, useDisconnect, useSignMessage } from 'wagmi';
 import type { SilkEthereumProviderInterface } from '@silk-wallet/silk-wallet-sdk';
 
-import { PATHS } from '@/config/constants';
+import { PATHS, AUTH_ERRORS } from '@/config/constants';
 import { getDefaultChain } from '@/config/wagmi';
 import { silkInitOptions } from '@/config/silk';
 import silk from '@/utils/silk.connector';
@@ -90,9 +90,21 @@ const useAuth = () => {
         redirect: false,
       });
 
-      if (res?.error === 'EMAIL_REQUIRED') {
+      if (res?.error === AUTH_ERRORS.EMAIL_REQUIRED) {
         // First-time wallet user needs to provide email
         setState((x) => ({ ...x, loading: false, emailRequired: true }));
+        return;
+      }
+
+      if (res?.error === AUTH_ERRORS.REGISTRATION_FAILED) {
+        // Generic error to prevent user enumeration
+        setState((x) => ({
+          ...x,
+          loading: false,
+          error: new Error(
+            'Unable to create account. If you already have an account, please sign in or use the forgot password link.'
+          ),
+        }));
         return;
       }
 

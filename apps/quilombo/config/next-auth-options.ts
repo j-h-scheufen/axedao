@@ -6,7 +6,7 @@ import { SiweMessage } from 'siwe';
 import { v4 as uuidv4 } from 'uuid';
 import { sql, eq, and } from 'drizzle-orm';
 
-import { PATHS } from '@/config/constants';
+import { PATHS, AUTH_ERRORS } from '@/config/constants';
 import ENV from '@/config/environment';
 import { db, fetchSessionData, insertUser } from '@/db';
 import { users, oauthAccounts } from '@/db/schema';
@@ -64,7 +64,17 @@ const providers = [
           if (!user) {
             // First-time wallet user - require email
             if (!credentials.email) {
-              throw new Error('EMAIL_REQUIRED');
+              throw new Error(AUTH_ERRORS.EMAIL_REQUIRED);
+            }
+
+            // Check if email already exists (case-insensitive) to prevent enumeration via detailed errors
+            const existingUser = await db.query.users.findFirst({
+              where: sql`LOWER(${users.email}) = LOWER(${credentials.email})`,
+            });
+
+            if (existingUser) {
+              // Generic error to prevent user enumeration
+              throw new Error(AUTH_ERRORS.REGISTRATION_FAILED);
             }
 
             // Create new user with wallet + email
@@ -184,31 +194,56 @@ export const nextAuthOptions: AuthOptions = {
           }
 
           // Check if user exists by email
-          let existingUser = await db.query.users.findFirst({
+          const existingUser = await db.query.users.findFirst({
             where: sql`LOWER(${users.email}) = LOWER(${email})`,
           });
 
-          if (!existingUser) {
-            // Create new user
-            const newUser = await insertUser({
-              id: uuidv4(),
-              email,
-              accountStatus: 'active',
-              emailVerifiedAt: new Date(), // Google pre-verifies emails
+          if (existingUser) {
+            // User exists with this email but no Google OAuth linked
+            // Check if this is intentional linking from Settings
+            const cookieStore = await cookies();
+            const isLinking = cookieStore.get('quilombo_google_linking')?.value === 'true';
+
+            if (!isLinking) {
+              // This is sign-up attempt with existing email - prevent auto-linking
+              // Generic error to prevent user enumeration
+              throw new Error(AUTH_ERRORS.ACCOUNT_EXISTS);
+            }
+
+            // This is intentional linking from Settings - allow it
+            // Clear the linking cookie
+            cookieStore.delete('quilombo_google_linking');
+
+            // Link OAuth account to existing user
+            await db.insert(oauthAccounts).values({
+              userId: existingUser.id,
+              provider: 'google',
+              providerUserId: account.providerAccountId,
+              providerEmail: email,
             });
-            existingUser = newUser;
+
+            user.id = existingUser.id;
+            return true;
           }
 
-          // Link OAuth account
+          // No existing user - create new account
+          const newUser = await insertUser({
+            id: uuidv4(),
+            email,
+            accountStatus: 'active',
+            emailVerifiedAt: new Date(), // Google pre-verifies emails
+          });
+
+          // Link OAuth account to new user
           await db.insert(oauthAccounts).values({
-            userId: existingUser.id,
+            userId: newUser.id,
             provider: 'google',
             providerUserId: account.providerAccountId,
             providerEmail: email,
           });
 
           // Update user object for session
-          user.id = existingUser.id;
+          user.id = newUser.id;
           return true;
         } catch (error) {
           console.error('Google OAuth signIn error:', error);

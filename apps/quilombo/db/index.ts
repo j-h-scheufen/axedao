@@ -210,7 +210,7 @@ export async function fetchGroupAdminIds(groupId: string): Promise<string[]> {
 }
 
 export async function insertUser(userValues: schema.InsertUser) {
-  const rows = await db.insert(schema.users).values(userValues);
+  const rows = await db.insert(schema.users).values(userValues).returning();
   return rows[0];
 }
 

@@ -6,7 +6,7 @@ import { signIn as nextAuthSignIn } from 'next-auth/react';
 import { Formik, Form } from 'formik';
 import { useRouter } from 'next/navigation';
 
-import { PATHS } from '@/config/constants';
+import { PATHS, AUTH_ERRORS } from '@/config/constants';
 import { signupSchema, type SignupForm as SignupFormValues } from '@/config/validation-schema';
 import ErrorText from '@/components/ErrorText';
 
@@ -71,7 +71,23 @@ const SignUpForm = () => {
     setGoogleLoading(true);
     setError(null);
     try {
-      await nextAuthSignIn('google', { callbackUrl: PATHS.profile });
+      const result = await nextAuthSignIn('google', {
+        callbackUrl: PATHS.profile,
+        redirect: false,
+      });
+
+      if (result?.error) {
+        // Check if error is ACCOUNT_EXISTS
+        if (result.error === AUTH_ERRORS.ACCOUNT_EXISTS) {
+          // Redirect to account exists page (no email to prevent enumeration)
+          window.location.href = '/auth/account-exists';
+          return;
+        }
+        setError('Failed to sign up with Google');
+      } else if (result?.ok) {
+        // Success - redirect to profile
+        window.location.href = PATHS.profile;
+      }
     } catch (err) {
       console.error('Google sign-up error:', err);
       setError('Failed to sign up with Google');

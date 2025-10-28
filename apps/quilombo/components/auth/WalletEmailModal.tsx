@@ -18,8 +18,13 @@ type WalletEmailModalProps = {
  * Displayed when a wallet connects that hasn't been registered before
  */
 const WalletEmailModal = ({ isOpen, walletAddress, onEmailSubmit, onClose, error }: WalletEmailModalProps) => {
-  const handleSubmit = async (values: WalletSignupEmailForm) => {
+  const handleSubmit = async (
+    values: WalletSignupEmailForm,
+    { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
+  ) => {
+    // Server-side will handle duplicate email detection
     await onEmailSubmit(values.email);
+    setSubmitting(false);
   };
 
   return (
