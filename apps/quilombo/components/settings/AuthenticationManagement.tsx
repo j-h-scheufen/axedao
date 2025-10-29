@@ -18,6 +18,7 @@ import { useAccount } from 'wagmi';
 import { Formik, Form } from 'formik';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { enqueueSnackbar } from 'notistack';
+import { setCookie } from 'cookies-next';
 
 import { changePasswordSchema, type ChangePasswordForm, type AuthMethod } from '@/config/validation-schema';
 import useAuth from '@/hooks/useAuth';
@@ -84,7 +85,7 @@ const AuthenticationManagement = () => {
     setError(null); // Clear any previous errors
     linkGoogleModal.onClose();
     // Set cookie to indicate this is intentional linking from Settings
-    document.cookie = 'quilombo_google_linking=true; path=/; max-age=300'; // 5 minutes
+    setCookie('quilombo_google_linking', 'true', { maxAge: 300 }); // 5 minutes
     await nextAuthSignIn('google', { callbackUrl: window.location.href });
   };
 
