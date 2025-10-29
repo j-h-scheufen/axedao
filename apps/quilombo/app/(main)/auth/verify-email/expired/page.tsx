@@ -38,7 +38,7 @@ const VerifyEmailExpiredPage = () => {
 
   if (resent) {
     return (
-      <div className="flex flex-col gap-4 max-w-md mx-auto items-center text-center py-8">
+      <div className="auth-container-py items-center text-center">
         <div className="text-6xl mb-4">📧</div>
         <h2 className="text-2xl text-default-700 font-semibold">Verification Email Sent</h2>
         <p className="text-default-600">Check your inbox for a new verification link.</p>
@@ -50,7 +50,7 @@ const VerifyEmailExpiredPage = () => {
   }
 
   return (
-    <div className="flex flex-col gap-4 max-w-md mx-auto items-center text-center py-8">
+    <div className="auth-container-py items-center text-center">
       <div className="text-6xl mb-4">⏰</div>
       <h2 className="text-3xl text-default-700 font-semibold">Link Expired</h2>
       <p className="text-default-600">This verification link has expired or is invalid.</p>

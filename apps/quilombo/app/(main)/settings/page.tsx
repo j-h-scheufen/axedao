@@ -37,7 +37,7 @@ const SettingsPage = () => {
   return (
     <>
       <PageHeading>Settings</PageHeading>
-      <div className="flex flex-col items-start px-2 mt-3">
+      <div className="flex flex-col items-start mt-3">
         {/* Contact Email Section */}
         {authMethods?.notificationEmail && (
           <div className="w-full mb-4 p-4 bg-default-100 rounded-lg border border-default-200">

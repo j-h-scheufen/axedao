@@ -56,7 +56,7 @@ const SignInForm = () => {
   // Show loading state during hydration to prevent mismatch
   if (!mounted) {
     return (
-      <div className="flex flex-col gap-4 max-w-md mx-auto items-center py-8">
+      <div className="auth-container-py">
         <div className="text-center">Loading...</div>
       </div>
     );
@@ -72,7 +72,7 @@ const SignInForm = () => {
         error={error?.message}
       />
 
-      <div className="flex flex-col gap-4 max-w-md mx-auto items-stretch">
+      <div className="auth-container">
         <h2 className="text-3xl text-default-700 sm:text-default-800 mb-2 text-center">Welcome to Quilombo</h2>
 
         {/* Human Wallet Option */}

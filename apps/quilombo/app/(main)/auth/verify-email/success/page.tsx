@@ -18,7 +18,7 @@ const VerifyEmailSuccessPage = () => {
   }, [router]);
 
   return (
-    <div className="flex flex-col gap-4 max-w-md mx-auto items-center text-center py-8">
+    <div className="auth-container-py items-center text-center">
       <div className="text-6xl mb-4">✓</div>
       <h2 className="text-3xl text-success font-semibold">Email Verified!</h2>
       <p className="text-default-600">Your email has been successfully verified.</p>

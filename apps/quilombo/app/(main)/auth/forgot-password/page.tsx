@@ -39,7 +39,7 @@ const ForgotPasswordPage = () => {
 
   if (submitted) {
     return (
-      <div className="flex flex-col gap-4 max-w-md mx-auto items-center text-center py-8">
+      <div className="auth-container-py items-center text-center">
         <div className="text-6xl mb-4">📧</div>
         <h2 className="text-2xl text-default-700 font-semibold">Check Your Email</h2>
         <p className="text-default-600">
@@ -56,7 +56,7 @@ const ForgotPasswordPage = () => {
   }
 
   return (
-    <div className="flex flex-col gap-4 max-w-md mx-auto items-stretch py-8">
+    <div className="auth-container-py">
       <h2 className="text-3xl text-default-700 font-semibold text-center mb-2">Forgot Password?</h2>
       <p className="text-default-600 text-center mb-4">
         Enter your email address and we'll send you instructions to reset your password.

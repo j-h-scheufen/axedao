@@ -44,7 +44,7 @@ const ResetPasswordPage = () => {
 
   if (!token) {
     return (
-      <div className="flex flex-col gap-4 max-w-md mx-auto items-center text-center py-8">
+      <div className="auth-container-py items-center text-center">
         <div className="text-6xl mb-4">⚠️</div>
         <h2 className="text-2xl text-default-700 font-semibold">Invalid Reset Link</h2>
         <p className="text-default-600">This password reset link is invalid or missing.</p>
@@ -88,7 +88,7 @@ const ResetPasswordPage = () => {
 
   if (success) {
     return (
-      <div className="flex flex-col gap-4 max-w-md mx-auto items-center text-center py-8">
+      <div className="auth-container-py items-center text-center">
         <div className="text-6xl mb-4">✓</div>
         <h2 className="text-2xl text-success font-semibold">Password Updated!</h2>
         <p className="text-default-600">Your password has been successfully reset.</p>
@@ -101,7 +101,7 @@ const ResetPasswordPage = () => {
   }
 
   return (
-    <div className="flex flex-col gap-4 max-w-md mx-auto items-stretch py-8">
+    <div className="auth-container-py">
       <h2 className="text-3xl text-default-700 font-semibold text-center mb-2">Reset Password</h2>
       <p className="text-default-600 text-center mb-4">Enter your new password below.</p>
 

@@ -12,7 +12,7 @@ const AccountExistsPage = () => {
   const router = useRouter();
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4">
+    <div className="page-centered-full">
       <Card className="max-w-md w-full">
         <CardBody className="gap-6 p-6">
           <div className="text-center">

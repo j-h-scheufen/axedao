@@ -55,7 +55,7 @@ const VerifyEmailSentPage = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 max-w-md mx-auto items-center text-center py-8">
+    <div className="auth-container-py items-center text-center">
       <div className="text-6xl mb-4">📧</div>
       <h2 className="text-3xl text-default-700 font-semibold">Check Your Inbox</h2>
       <p className="text-default-600">
