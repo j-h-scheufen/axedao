@@ -8,6 +8,7 @@ import { useWaitForTransactionReceipt } from 'wagmi';
 
 import ENV from '@/config/environment';
 import { useWriteIBaalSubmitVote } from '@/generated';
+import { useWalletProtection } from '@/hooks/useWalletProtection';
 import {
   isProposalActive,
   isProposalFinal,
@@ -39,6 +40,7 @@ function ProposalStatusIcon({ status }: { status: ProposalStatus }) {
 export default function Proposals() {
   const [showOldProposals, setShowOldProposals] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
+  const { protectAction, WalletModal } = useWalletProtection();
   const { proposals, loading, error } = useProposals();
   const { balance: votingShares, isLoading: votingSharesLoading } = useVotingShares();
   const isVotingEligible = useMemo(() => !!votingShares && votingShares > 0n, [votingShares]);
@@ -177,7 +179,7 @@ export default function Proposals() {
                             color="success"
                             variant="flat"
                             isLoading={isVotePending || voteLoading}
-                            onPress={() => handleVote(proposal.id, true)}
+                            onPress={() => protectAction(() => handleVote(proposal.id, true))}
                           >
                             Vote Yes
                           </Button>
@@ -185,7 +187,7 @@ export default function Proposals() {
                             color="danger"
                             variant="flat"
                             isLoading={isVotePending || voteLoading}
-                            onPress={() => handleVote(proposal.id, false)}
+                            onPress={() => protectAction(() => handleVote(proposal.id, false))}
                           >
                             Vote No
                           </Button>
@@ -204,6 +206,7 @@ export default function Proposals() {
         <div className="mt-4 sm:mt-8 text-center text-default-500">No active proposals found</div>
       )}
       {error && <div className="text-red-500">{error}</div>}
+      {WalletModal}
     </div>
   );
 }

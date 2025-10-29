@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { eq, and, isNull, lt } from 'drizzle-orm';
+import { eq, and, isNull } from 'drizzle-orm';
 
 import { db } from '@/db';
 import { users, verificationTokens } from '@/db/schema';

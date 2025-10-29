@@ -5,6 +5,30 @@ import { Tab } from '@heroui/react';
 import PageTabs from '@/components/PageTabs';
 import { Swap, Transfer } from '@/components/axe';
 
+/**
+ * Axé Token Page
+ *
+ * Note: Web3 transaction buttons in child components (Transfer, Swap) should use
+ * useWalletProtection() hook to protect actions that require a wallet.
+ *
+ * Example usage in a component:
+ * ```tsx
+ * const { protectAction, WalletModal } = useWalletProtection();
+ *
+ * const handleSwap = () => {
+ *   protectAction(() => {
+ *     // Swap logic here - only executes if wallet is connected
+ *   });
+ * };
+ *
+ * return (
+ *   <>
+ *     <Button onPress={handleSwap}>Swap Tokens</Button>
+ *     <WalletModal />
+ *   </>
+ * );
+ * ```
+ */
 const AxePage = () => {
   return (
     <PageTabs defaultTab="send">

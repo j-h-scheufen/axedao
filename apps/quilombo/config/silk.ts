@@ -6,7 +6,7 @@ export const silkInitOptions: InitSilkOptions = {
   useStaging: ENV.walletEnvironment !== 'production',
   config: {
     authenticationMethods: ['email', 'social'], // Empty array will allow all auth methods
-    allowedSocials: ['google', 'discord'], // Empty array will allow all social providers
+    allowedSocials: ['google'], // Empty array will allow all social providers
     styles: {
       darkMode: true,
     },

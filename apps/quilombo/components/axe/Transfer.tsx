@@ -10,6 +10,7 @@ import { useAccount, useWaitForTransactionReceipt } from 'wagmi';
 import ENV from '@/config/environment';
 import { type AxeTransferForm, axeTransferForm } from '@/config/validation-schema';
 import { useReadErc20BalanceOf, useWriteErc20Transfer } from '@/generated';
+import { useWalletProtection } from '@/hooks/useWalletProtection';
 import type { User } from '@/types/model';
 import ErrorText from '../ErrorText';
 import { AmountInput, UserSelect } from '../forms';
@@ -17,6 +18,7 @@ import TransferConfirm from './TransferConfirm';
 
 const Transfer: React.FC = () => {
   const account = useAccount();
+  const { protectAction, WalletModal } = useWalletProtection();
   const [selectedRecipient, setSelectedRecipient] = useState<User | null>(null);
   const { isOpen, onOpen: openConfirmation, onOpenChange } = useDisclosure();
 
@@ -92,7 +94,7 @@ const Transfer: React.FC = () => {
               className="mt-4"
               isLoading={isSubmitting}
               disabled={!dirty || !isValid || transferPending}
-              onPress={openConfirmation}
+              onPress={() => protectAction(openConfirmation)}
             >
               Send
             </Button>
@@ -104,6 +106,7 @@ const Transfer: React.FC = () => {
               amount={values.amount}
               onConfirm={submitForm}
             />
+            {WalletModal}
           </Form>
         )}
       </Formik>

@@ -7,10 +7,12 @@ import { useCallback } from 'react';
 
 import ENV from '@/config/environment';
 import { useReadAxeMembershipIsMember } from '@/generated';
+import { useWalletProtection } from '@/hooks/useWalletProtection';
 import MembershipDonationModal from './MembershipDonationModal';
 
 const DaoMembership: React.FC = () => {
   const account = useAccount();
+  const { protectAction, WalletModal } = useWalletProtection();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const { data: isMember = false, refetch: updateIsMember } = useReadAxeMembershipIsMember({
@@ -35,12 +37,13 @@ const DaoMembership: React.FC = () => {
           <div className="flex flex-col gap-2 sm:gap-4 w-full items-center">
             <span>You&apos;re not a member.</span>
             <span>Donate $10 once for lifetime membership.</span>
-            <Button onPress={onOpen} color="primary" className="mt-4 sm:mt-6 w-full max-w-[300px]">
+            <Button onPress={() => protectAction(onOpen)} color="primary" className="mt-4 sm:mt-6 w-full max-w-[300px]">
               Join the DAO
             </Button>
           </div>
         )}
         <MembershipDonationModal isOpen={isOpen} onOpenChange={onClose} onDonationSuccess={handleSuccess} />
+        {WalletModal}
       </div>
     </div>
   );

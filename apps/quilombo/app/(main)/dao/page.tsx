@@ -5,6 +5,30 @@ import { Tab } from '@heroui/react';
 import PageTabs from '@/components/PageTabs';
 import { CouncilPanel, DaoMembership, Proposals, Treasury, TreasuryShares } from '@/components/axe/dao';
 
+/**
+ * DAO Governance Page
+ *
+ * Note: Web3 transaction buttons in child components (DaoMembership, Proposals, etc.)
+ * should use useWalletProtection() hook to protect actions that require a wallet.
+ *
+ * Example usage in a component:
+ * ```tsx
+ * const { protectAction, WalletModal } = useWalletProtection();
+ *
+ * const handleJoinDao = () => {
+ *   protectAction(() => {
+ *     // DAO join logic here - only executes if wallet is connected
+ *   });
+ * };
+ *
+ * return (
+ *   <>
+ *     <Button onPress={handleJoinDao}>Join DAO</Button>
+ *     <WalletModal />
+ *   </>
+ * );
+ * ```
+ */
 const DaoPage = () => {
   return (
     <PageTabs defaultTab="dao">
