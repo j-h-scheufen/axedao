@@ -6,7 +6,7 @@ import { SiweMessage } from 'siwe';
 import { v4 as uuidv4 } from 'uuid';
 import { sql, eq, and } from 'drizzle-orm';
 
-import { PATHS, AUTH_ERRORS } from '@/config/constants';
+import { PATHS, AUTH_ERRORS, accountStatuses } from '@/config/constants';
 import ENV from '@/config/environment';
 import { db, fetchSessionData, insertUser } from '@/db';
 import { users, oauthAccounts } from '@/db/schema';
@@ -67,25 +67,41 @@ const providers = [
               throw new Error(AUTH_ERRORS.EMAIL_REQUIRED);
             }
 
-            // Check if email already exists (case-insensitive) to prevent enumeration via detailed errors
+            // Check if user with this email already exists (case-insensitive)
             const existingUser = await db.query.users.findFirst({
               where: sql`LOWER(${users.email}) = LOWER(${credentials.email})`,
             });
 
             if (existingUser) {
-              // Generic error to prevent user enumeration
-              throw new Error(AUTH_ERRORS.REGISTRATION_FAILED);
-            }
+              // Link wallet to existing email account
+              // This handles cases where:
+              // 1. User signed up with email/pwd but never verified → wallet login activates account
+              // 2. User has active email/pwd account → adds wallet as additional auth method
+              await db
+                .update(users)
+                .set({
+                  walletAddress: siwe.address,
+                  accountStatus: accountStatuses[1], // 'active' - Activate if pending
+                  emailVerifiedAt: new Date(), // Mark email verified (Human Wallet verified it)
+                })
+                .where(eq(users.id, existingUser.id));
 
-            // Create new user with wallet + email
-            const { id, walletAddress, isGlobalAdmin } = await insertUser({
-              id: uuidv4(),
-              walletAddress: siwe.address,
-              email: credentials.email.toLowerCase(),
-              accountStatus: 'active',
-              emailVerifiedAt: new Date(), // Wallet signature proves ownership
-            });
-            user = { id, walletAddress, isGlobalAdmin: isGlobalAdmin || false } as UserSession;
+              user = {
+                id: existingUser.id,
+                walletAddress: siwe.address,
+                isGlobalAdmin: existingUser.isGlobalAdmin || false,
+              } as UserSession;
+            } else {
+              // Create new user with wallet + email
+              const { id, walletAddress, isGlobalAdmin } = await insertUser({
+                id: uuidv4(),
+                walletAddress: siwe.address,
+                email: credentials.email.toLowerCase(),
+                accountStatus: accountStatuses[1], // 'active'
+                emailVerifiedAt: new Date(), // Wallet signature proves ownership
+              });
+              user = { id, walletAddress, isGlobalAdmin: isGlobalAdmin || false } as UserSession;
+            }
           }
           return user;
         }
@@ -134,7 +150,8 @@ const providers = [
         }
 
         // Check if email verified
-        if (user.accountStatus === 'pending_verification') {
+        if (user.accountStatus === accountStatuses[0]) {
+          // 'pending_verification'
           throw new Error('EMAIL_NOT_VERIFIED');
         }
 
@@ -230,7 +247,7 @@ export const nextAuthOptions: AuthOptions = {
           const newUser = await insertUser({
             id: uuidv4(),
             email,
-            accountStatus: 'active',
+            accountStatus: accountStatuses[1], // 'active'
             emailVerifiedAt: new Date(), // Google pre-verifies emails
           });
 

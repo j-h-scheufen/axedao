@@ -16,14 +16,14 @@ import {
   varchar,
 } from 'drizzle-orm/pg-core';
 
-import { linkTypes, styles, titles, eventTypes } from '@/config/constants';
+import { linkTypes, styles, titles, eventTypes, accountStatuses } from '@/config/constants';
 import type { Feature, Geometry } from 'geojson';
 
 export const titleEnum = pgEnum('title', titles);
 export const linkTypeEnum = pgEnum('link_type', linkTypes);
 export const styleEnum = pgEnum('style', styles);
 export const eventTypeEnum = pgEnum('event_type', eventTypes);
-export const accountStatusEnum = pgEnum('account_status', ['pending_verification', 'active', 'disabled']);
+export const accountStatusEnum = pgEnum('account_status', accountStatuses);
 export const tokenTypeEnum = pgEnum('token_type', ['email_verification', 'password_reset']);
 export const oauthProviderEnum = pgEnum('oauth_provider', ['google']);
 

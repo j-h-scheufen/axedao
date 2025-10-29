@@ -76,6 +76,10 @@ export const AUTH_ERRORS = {
   ACCOUNT_EXISTS: 'ACCOUNT_EXISTS',
 } as const;
 
+// Account statuses for user accounts
+export const accountStatuses = ['pending_verification', 'active', 'disabled'] as const;
+export type AccountStatus = (typeof accountStatuses)[number];
+
 // Note: The order of these roles in the array is used to sort group members by role in the UI
 export const GROUP_ROLES = ['founder', 'leader', 'admin', 'member'] as const;
 

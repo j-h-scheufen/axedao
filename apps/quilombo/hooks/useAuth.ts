@@ -58,13 +58,29 @@ const useAuth = () => {
 
   /**
    * Sign in with Human Wallet (SIWE)
-   * @param email - Optional email for first-time wallet users
+   * @param email - Optional email for first-time wallet users (auto-fetched from SDK if not provided)
    */
   const signIn = async (email?: string) => {
     try {
       if (!address || !chainId) return;
 
       setState((x) => ({ ...x, loading: true, error: undefined, emailRequired: false }));
+
+      // Auto-fetch email from Human Wallet SDK if not provided
+      // Human Wallet stores verified emails, so we can trust this value
+      if (!email) {
+        try {
+          const silkConnector = connectors.find((c) => c.id === 'silk');
+          if (silkConnector) {
+            const provider = (await silkConnector.getProvider()) as SilkEthereumProviderInterface;
+            email = (await provider.requestEmail()) as string;
+          }
+        } catch (error) {
+          console.warn('Could not fetch email from Human Wallet:', error);
+          // Continue without email - backend will request it if needed
+        }
+      }
+
       // Create SIWE message with pre-fetched nonce and sign with wallet
       const message = new SiweMessage({
         domain: window.location.host,
