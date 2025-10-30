@@ -217,19 +217,27 @@ export const nextAuthOptions: AuthOptions = {
 
           if (existingUser) {
             // User exists with this email but no Google OAuth linked
-            // Check if this is intentional linking from Settings
+            // Auto-link Google OAuth to existing account and activate it
+            // This handles cases where:
+            // 1. User signed up with email/pwd but never verified → Google OAuth activates account
+            // 2. User has active email/pwd account → adds Google OAuth as additional auth method
+            // 3. User is intentionally linking from Settings (cookie-based flow still works)
+
+            // Check if this is intentional linking from Settings (optional cleanup)
             const cookieStore = await cookies();
             const isLinking = cookieStore.get('quilombo_google_linking')?.value === 'true';
-
-            if (!isLinking) {
-              // This is sign-up attempt with existing email - prevent auto-linking
-              // Generic error to prevent user enumeration
-              throw new Error(AUTH_ERRORS.ACCOUNT_EXISTS);
+            if (isLinking) {
+              cookieStore.delete('quilombo_google_linking');
             }
 
-            // This is intentional linking from Settings - allow it
-            // Clear the linking cookie
-            cookieStore.delete('quilombo_google_linking');
+            // Update user: activate account and mark email as verified
+            await db
+              .update(users)
+              .set({
+                accountStatus: accountStatuses[1], // 'active' - Activate if pending
+                emailVerifiedAt: new Date(), // Mark email verified (Google verified it)
+              })
+              .where(eq(users.id, existingUser.id));
 
             // Link OAuth account to existing user
             await db.insert(oauthAccounts).values({

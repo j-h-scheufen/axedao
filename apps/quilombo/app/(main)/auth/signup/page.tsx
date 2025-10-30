@@ -5,9 +5,7 @@ import SignUpForm from '@/components/auth/SignUpForm';
 const SignupPage = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <div className="flex flex-col text-center">
-        <SignUpForm />
-      </div>
+      <SignUpForm />
     </Suspense>
   );
 };

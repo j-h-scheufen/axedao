@@ -62,7 +62,12 @@ const ForgotPasswordPage = () => {
         Enter your email address and we'll send you instructions to reset your password.
       </p>
 
-      <Formik initialValues={{ email: '' }} validationSchema={forgotPasswordSchema} onSubmit={handleSubmit}>
+      <Formik
+        initialValues={{ email: '' }}
+        validationSchema={forgotPasswordSchema}
+        validateOnBlur={false}
+        onSubmit={handleSubmit}
+      >
         {({ errors, touched, isSubmitting, handleChange, handleBlur, values }) => (
           <Form className="flex flex-col gap-4">
             <Input
