@@ -4,6 +4,7 @@ import { eq, and, isNull } from 'drizzle-orm';
 import { db } from '@/db';
 import { users, verificationTokens } from '@/db/schema';
 import { hashToken } from '@/utils/auth/tokens';
+import { getEmailProvider } from '@/utils/email';
 
 export async function POST(request: Request) {
   try {
@@ -40,6 +41,12 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'This verification link has already been used' }, { status: 410 });
     }
 
+    // Get user email before update
+    const user = await db.query.users.findFirst({
+      where: eq(users.id, tokenRecord.userId),
+      columns: { email: true },
+    });
+
     // Update user account status and set email verified timestamp
     await db
       .update(users)
@@ -54,6 +61,17 @@ export async function POST(request: Request) {
       .update(verificationTokens)
       .set({ consumedAt: new Date() })
       .where(eq(verificationTokens.id, tokenRecord.id));
+
+    // Send welcome email
+    if (user?.email) {
+      try {
+        const emailProvider = getEmailProvider();
+        await emailProvider.sendWelcomeEmail(user.email);
+      } catch (emailError) {
+        // Log but don't fail the verification if welcome email fails
+        console.error('Failed to send welcome email:', emailError);
+      }
+    }
 
     return NextResponse.json(
       {

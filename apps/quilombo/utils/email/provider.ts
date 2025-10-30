@@ -17,4 +17,11 @@ export interface EmailProvider {
    * @param userName - Optional user name for personalization
    */
   sendPasswordResetEmail(to: string, token: string, userName?: string): Promise<void>;
+
+  /**
+   * Sends a welcome email when account is activated
+   * @param to - Recipient email address
+   * @param userName - Optional user name for personalization
+   */
+  sendWelcomeEmail(to: string, userName?: string): Promise<void>;
 }

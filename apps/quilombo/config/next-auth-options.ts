@@ -11,6 +11,7 @@ import ENV from '@/config/environment';
 import { db, fetchSessionData, insertUser } from '@/db';
 import { users, oauthAccounts } from '@/db/schema';
 import { verifyPassword } from '@/utils/auth/password';
+import { getEmailProvider } from '@/utils/email';
 import type { UserSession } from '@/types/model';
 
 const nextAuthUrl = process.env.NEXTAUTH_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null);
@@ -77,6 +78,8 @@ const providers = [
               // This handles cases where:
               // 1. User signed up with email/pwd but never verified → wallet login activates account
               // 2. User has active email/pwd account → adds wallet as additional auth method
+              const wasInactive = existingUser.accountStatus === accountStatuses[0]; // pending_verification
+
               await db
                 .update(users)
                 .set({
@@ -85,6 +88,16 @@ const providers = [
                   emailVerifiedAt: new Date(), // Mark email verified (Human Wallet verified it)
                 })
                 .where(eq(users.id, existingUser.id));
+
+              // Send welcome email if account was just activated
+              if (wasInactive) {
+                try {
+                  const emailProvider = getEmailProvider();
+                  await emailProvider.sendWelcomeEmail(credentials.email);
+                } catch (emailError) {
+                  console.error('Failed to send welcome email:', emailError);
+                }
+              }
 
               user = {
                 id: existingUser.id,
@@ -100,6 +113,15 @@ const providers = [
                 accountStatus: accountStatuses[1], // 'active'
                 emailVerifiedAt: new Date(), // Wallet signature proves ownership
               });
+
+              // Send welcome email for new user
+              try {
+                const emailProvider = getEmailProvider();
+                await emailProvider.sendWelcomeEmail(credentials.email);
+              } catch (emailError) {
+                console.error('Failed to send welcome email:', emailError);
+              }
+
               user = { id, walletAddress, isGlobalAdmin: isGlobalAdmin || false } as UserSession;
             }
           }
@@ -230,6 +252,8 @@ export const nextAuthOptions: AuthOptions = {
               cookieStore.delete('quilombo_google_linking');
             }
 
+            const wasInactive = existingUser.accountStatus === accountStatuses[0]; // pending_verification
+
             // Update user: activate account and mark email as verified
             await db
               .update(users)
@@ -246,6 +270,16 @@ export const nextAuthOptions: AuthOptions = {
               providerUserId: account.providerAccountId,
               providerEmail: email,
             });
+
+            // Send welcome email if account was just activated
+            if (wasInactive) {
+              try {
+                const emailProvider = getEmailProvider();
+                await emailProvider.sendWelcomeEmail(email);
+              } catch (emailError) {
+                console.error('Failed to send welcome email:', emailError);
+              }
+            }
 
             user.id = existingUser.id;
             return true;
@@ -266,6 +300,14 @@ export const nextAuthOptions: AuthOptions = {
             providerUserId: account.providerAccountId,
             providerEmail: email,
           });
+
+          // Send welcome email for new user
+          try {
+            const emailProvider = getEmailProvider();
+            await emailProvider.sendWelcomeEmail(email);
+          } catch (emailError) {
+            console.error('Failed to send welcome email:', emailError);
+          }
 
           // Update user object for session
           user.id = newUser.id;
