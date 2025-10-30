@@ -2,6 +2,16 @@
 
 This file provides guidance to Claude Code when working with the Quilombo DApp.
 
+## Code Quality Mantra
+
+**Reduce code complexity and size to increase maintainability**
+
+Always look for opportunities to:
+- Extract reusable components from repeated patterns
+- Use Formik Field components (FormikInput, FieldInput) instead of manually binding onChange, onBlur, isInvalid, errorMessage
+- Centralize shared logic and validation schemas
+- Follow DRY principles rigorously
+
 ## Overview
 
 Quilombo is the main DApp for the Axé DAO ecosystem, providing community functions including user profiles, group management, events, and Web3 wallet integration.

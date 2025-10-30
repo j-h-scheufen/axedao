@@ -1,13 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { Button, Input, Link } from '@heroui/react';
-import { Formik, Form } from 'formik';
+import { Button, Link } from '@heroui/react';
+import { Formik, Form, Field } from 'formik';
 import { useRouter } from 'next/navigation';
 
 import { PATHS } from '@/config/constants';
 import { forgotPasswordSchema, type ForgotPasswordForm } from '@/config/validation-schema';
 import ErrorText from '@/components/ErrorText';
+import FormikInput from '@/components/forms/FormikInput';
 
 const ForgotPasswordPage = () => {
   const router = useRouter();
@@ -68,20 +69,16 @@ const ForgotPasswordPage = () => {
         validateOnBlur={false}
         onSubmit={handleSubmit}
       >
-        {({ errors, touched, isSubmitting, handleChange, handleBlur, values }) => (
+        {({ isSubmitting }) => (
           <Form className="flex flex-col gap-4">
-            <Input
+            <Field
               name="email"
               type="email"
               label="Email"
               placeholder="your@email.com"
-              value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              isInvalid={touched.email && !!errors.email}
-              errorMessage={touched.email && errors.email}
               isRequired
               autoFocus
+              as={FormikInput}
             />
             <Button type="submit" color="primary" size="lg" isLoading={isSubmitting}>
               Send Reset Instructions

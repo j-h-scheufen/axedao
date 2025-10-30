@@ -1,15 +1,16 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Button, Input, Link, Divider } from '@heroui/react';
+import { Button, Link, Divider } from '@heroui/react';
 import { useSession, signIn as nextAuthSignIn } from 'next-auth/react';
 import { useAccount } from 'wagmi';
-import { Formik, Form } from 'formik';
+import { Formik, Form, Field } from 'formik';
 
 import useAuth from '@/hooks/useAuth';
 import { PATHS } from '@/config/constants';
 import { loginSchema } from '@/config/validation-schema';
 import ErrorText from '../ErrorText';
+import FormikInput from '../forms/FormikInput';
 import WalletEmailModal from './WalletEmailModal';
 
 type LoginFormValues = {
@@ -81,31 +82,16 @@ const SignInForm = () => {
           validationSchema={loginSchema}
           onSubmit={handleEmailPasswordSubmit}
         >
-          {({ errors, touched, isSubmitting, handleChange, handleBlur, values }) => (
+          {({ isSubmitting }) => (
             <Form className="flex flex-col gap-4">
-              <Input
-                name="email"
-                type="email"
-                label="Email"
-                placeholder="your@email.com"
-                value={values.email}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                isInvalid={touched.email && !!errors.email}
-                errorMessage={touched.email && errors.email}
-                isRequired
-              />
-              <Input
+              <Field name="email" type="email" label="Email" placeholder="your@email.com" isRequired as={FormikInput} />
+              <Field
                 name="password"
                 type="password"
                 label="Password"
                 placeholder="Enter your password"
-                value={values.password}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                isInvalid={touched.password && !!errors.password}
-                errorMessage={touched.password && errors.password}
                 isRequired
+                as={FormikInput}
               />
               <div className="flex justify-end">
                 <Link href={PATHS.forgotPassword} size="sm" color="secondary">

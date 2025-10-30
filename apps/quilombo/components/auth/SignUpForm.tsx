@@ -1,43 +1,19 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Button, Input, Link, Divider } from '@heroui/react';
+import { Button, Link, Divider } from '@heroui/react';
 import { signIn as nextAuthSignIn, useSession } from 'next-auth/react';
 import { useAccount } from 'wagmi';
-import { Formik, Form } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import { useRouter } from 'next/navigation';
 
 import { PATHS } from '@/config/constants';
 import { signupSchema, type SignupForm as SignupFormValues } from '@/config/validation-schema';
 import ErrorText from '@/components/ErrorText';
+import FormikInput from '@/components/forms/FormikInput';
 import useAuth from '@/hooks/useAuth';
+import { PasswordRequirements } from './PasswordRequirements';
 import WalletEmailModal from './WalletEmailModal';
-
-const PasswordRequirements = ({ password }: { password: string }) => {
-  const requirements = [
-    { label: 'At least 12 characters', test: (p: string) => p.length >= 12 },
-    { label: 'One uppercase letter', test: (p: string) => /[A-Z]/.test(p) },
-    { label: 'One lowercase letter', test: (p: string) => /[a-z]/.test(p) },
-    { label: 'One number', test: (p: string) => /[0-9]/.test(p) },
-    { label: 'One special character', test: (p: string) => /[!@#$%^&*(),.?":{}|<>]/.test(p) },
-  ];
-
-  if (!password) return null;
-
-  return (
-    <div className="text-xs space-y-1 mb-2">
-      <p className="text-default-600 font-medium">Password Requirements:</p>
-      {requirements.map((req) => (
-        <div key={req.label} className="flex items-center gap-2">
-          <span className={req.test(password) ? 'text-success' : 'text-default-400'}>
-            {req.test(password) ? '✓' : '○'}
-          </span>
-          <span className={req.test(password) ? 'text-success' : 'text-default-600'}>{req.label}</span>
-        </div>
-      ))}
-    </div>
-  );
-};
 
 const SignUpForm = () => {
   const router = useRouter();
@@ -150,31 +126,16 @@ const SignUpForm = () => {
           validationSchema={signupSchema}
           onSubmit={handleEmailPasswordSubmit}
         >
-          {({ errors, touched, isSubmitting, handleChange, handleBlur, values }) => (
+          {({ isSubmitting, values }) => (
             <Form className="flex flex-col gap-4">
-              <Input
-                name="email"
-                type="email"
-                label="Email"
-                placeholder="your@email.com"
-                value={values.email}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                isInvalid={touched.email && !!errors.email}
-                errorMessage={touched.email && errors.email}
-                isRequired
-              />
-              <Input
+              <Field name="email" type="email" label="Email" placeholder="your@email.com" isRequired as={FormikInput} />
+              <Field
                 name="password"
                 type="password"
                 label="Password"
                 placeholder="Create a strong password"
-                value={values.password}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                isInvalid={touched.password && !!errors.password}
-                errorMessage={touched.password && errors.password}
                 isRequired
+                as={FormikInput}
               />
               <PasswordRequirements password={values.password} />
               <Button type="submit" color="primary" size="lg" isLoading={isSubmitting}>

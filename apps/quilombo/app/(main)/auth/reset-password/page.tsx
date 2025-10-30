@@ -1,39 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import { Button, Input, Link } from '@heroui/react';
-import { Formik, Form } from 'formik';
+import { Button, Link } from '@heroui/react';
+import { Formik, Form, Field } from 'formik';
 import { useSearchParams, useRouter } from 'next/navigation';
 
 import { PATHS } from '@/config/constants';
 import { resetPasswordFormSchema, type ResetPasswordFormValues } from '@/config/validation-schema';
 import ErrorText from '@/components/ErrorText';
-
-const PasswordRequirements = ({ password }: { password: string }) => {
-  const requirements = [
-    { label: 'At least 12 characters', test: (p: string) => p.length >= 12 },
-    { label: 'One uppercase letter', test: (p: string) => /[A-Z]/.test(p) },
-    { label: 'One lowercase letter', test: (p: string) => /[a-z]/.test(p) },
-    { label: 'One number', test: (p: string) => /[0-9]/.test(p) },
-    { label: 'One special character', test: (p: string) => /[!@#$%^&*(),.?":{}|<>]/.test(p) },
-  ];
-
-  if (!password) return null;
-
-  return (
-    <div className="text-xs space-y-1 mb-2">
-      <p className="text-default-600 font-medium">Password Requirements:</p>
-      {requirements.map((req) => (
-        <div key={req.label} className="flex items-center gap-2">
-          <span className={req.test(password) ? 'text-success' : 'text-default-400'}>
-            {req.test(password) ? '✓' : '○'}
-          </span>
-          <span className={req.test(password) ? 'text-success' : 'text-default-600'}>{req.label}</span>
-        </div>
-      ))}
-    </div>
-  );
-};
+import FormikInput from '@/components/forms/FormikInput';
+import { PasswordRequirements } from '@/components/auth/PasswordRequirements';
 
 const ResetPasswordPage = () => {
   const router = useRouter();
@@ -110,33 +86,25 @@ const ResetPasswordPage = () => {
         validationSchema={resetPasswordFormSchema}
         onSubmit={handleSubmit}
       >
-        {({ errors, touched, isSubmitting, handleChange, handleBlur, values }) => (
+        {({ isSubmitting, values }) => (
           <Form className="flex flex-col gap-4">
-            <Input
+            <Field
               name="newPassword"
               type="password"
               label="New Password"
               placeholder="Create a strong password"
-              value={values.newPassword}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              isInvalid={touched.newPassword && !!errors.newPassword}
-              errorMessage={touched.newPassword && errors.newPassword}
               isRequired
               autoFocus
+              as={FormikInput}
             />
             <PasswordRequirements password={values.newPassword} />
-            <Input
+            <Field
               name="confirmPassword"
               type="password"
               label="Confirm New Password"
               placeholder="Re-enter your password"
-              value={values.confirmPassword}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              isInvalid={touched.confirmPassword && !!errors.confirmPassword}
-              errorMessage={touched.confirmPassword && errors.confirmPassword}
               isRequired
+              as={FormikInput}
             />
             <Button type="submit" color="primary" size="lg" isLoading={isSubmitting}>
               Reset Password

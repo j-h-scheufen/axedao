@@ -35,15 +35,18 @@ jobs:
             ## Review Focus Areas:
 
             ### 1. Code Quality & Architecture
+            **MANTRA: Reduce code complexity and size to increase maintainability**
             - Adherence to project patterns (Next.js 15 App Router, RSC, Jotai, React-Query)
             - DRY principle violations:
               * Type unions used 3+ times should be extracted
               * Literal arrays/objects used 2+ times should be extracted as const
               * Duplicate functions should be centralized
+              * Repeated component prop patterns (onChange, onBlur, isInvalid, errorMessage, etc.) should use Formik Field components (see FormikInput, FieldInput patterns)
             - Type safety and proper TypeScript usage
             - Import organization (external → @/config → @/ → relative)
             - Functional components with RORO pattern
             - Minimize 'use client', 'useEffect', 'setState' - favor RSC
+            - Component complexity: look for opportunities to extract reusable patterns
 
             ### 2. Security (CRITICAL)
             - NO secrets, API keys, or credentials committed
