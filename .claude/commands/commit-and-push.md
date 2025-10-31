@@ -21,7 +21,12 @@ Verify your SSH agent has keys loaded:
 ssh-add -l
 ```
 
-If this shows your SSH keys, commit signing will work automatically. If not, the workflow will detect signing failure and offer to create the commit without the signature (with your approval).
+If this shows your SSH keys, commit signing will work automatically. If not, load keys from macOS keychain:
+```bash
+ssh-add -A  # or: ssh-add --apple-load-keychain
+```
+
+Then verify again with `ssh-add -l`. Commits for this project MUST always be signed.
 
 ## Usage:
 
