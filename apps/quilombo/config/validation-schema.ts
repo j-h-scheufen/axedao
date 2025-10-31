@@ -2,7 +2,15 @@ import { isValidIPFSHash } from '@/utils';
 import { array, boolean, type InferType, mixed, number, object, string, ref } from 'yup';
 import type { Feature, Geometry, GeoJsonProperties } from 'geojson';
 
-import { linkTypes, styles, titles, eventTypes, validFileExtensions, MAX_IMAGE_UPLOAD_SIZE_MB } from './constants';
+import {
+  linkTypes,
+  styles,
+  titles,
+  eventTypes,
+  validFileExtensions,
+  MAX_IMAGE_UPLOAD_SIZE_MB,
+  invitationTypes,
+} from './constants';
 
 // ISO 8601 validation regex
 const ISO_8601_REGEX = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{3})?Z$/;
@@ -267,10 +275,35 @@ export const updateEventFormSchema = createEventFormSchema.partial();
 export type CreateEventForm = InferType<typeof createEventFormSchema>;
 export type UpdateEventForm = InferType<typeof updateEventFormSchema>;
 
+// Invitation validation schemas
+export const invitationSchema = object({
+  type: string().oneOf(invitationTypes, 'Invalid invitation type').required('Invitation type is required'),
+  invitedEmail: string()
+    .email('Invalid email address')
+    .lowercase()
+    .trim()
+    .when('type', ([type], schema) => {
+      return type === 'email_bound'
+        ? schema.required('Email is required for email-bound invitations')
+        : schema.optional();
+    }),
+  sendEmail: boolean().optional(), // Only for email_bound
+});
+
+export const validateInvitationSchema = object({
+  code: string().uuid('Invalid invitation code').required('Invitation code is required'),
+  email: string().email('Invalid email address').lowercase().trim().optional(), // Optional - only validated for email_bound
+});
+
+export type InvitationForm = InferType<typeof invitationSchema>;
+export type ValidateInvitationForm = InferType<typeof validateInvitationSchema>;
+
 // Authentication validation schemas
 export const signupSchema = object({
   email: string().email('Invalid email address').required('Email is required').lowercase().trim(),
   password: passwordField(),
+  // TODO: TEMPORARY - Will be required for invite-only mode once UI is implemented
+  invitationCode: string().uuid('Invalid invitation code').optional(),
 });
 
 export const loginSchema = object({
