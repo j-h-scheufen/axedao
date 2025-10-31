@@ -24,4 +24,12 @@ export interface EmailProvider {
    * @param userName - Optional user name for personalization
    */
   sendWelcomeEmail(to: string, userName?: string): Promise<void>;
+
+  /**
+   * Sends an invitation email to a potential new member
+   * @param to - Recipient email address
+   * @param invitationCode - UUID invitation code
+   * @param inviterName - Name of the person who sent the invitation
+   */
+  sendInvitationEmail(to: string, invitationCode: string, inviterName: string): Promise<void>;
 }
