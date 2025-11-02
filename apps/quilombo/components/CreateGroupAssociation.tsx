@@ -12,7 +12,13 @@ const CreateGroupAssociation = ({ isLoading = false }: Props) => {
   if (isLoading) return <CreateGroupAssociationSkeleton />;
   return (
     <div className="max-w-lg">
-      <Tabs variant="bordered" aria-label="Options">
+      <Tabs
+        variant="bordered"
+        aria-label="Options"
+        classNames={{
+          panel: 'px-0', // Remove default horizontal padding from tab panels
+        }}
+      >
         <Tab key="join-a-group" title="Join existing group">
           <JoinGroupForm />
         </Tab>

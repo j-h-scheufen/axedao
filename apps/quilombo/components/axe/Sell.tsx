@@ -17,6 +17,7 @@ import {
   useWriteErc20Approve,
   useWriteIUniswapV2Router02SwapExactTokensForTokensSupportingFeeOnTransferTokens,
 } from '@/generated';
+import { useWalletProtection } from '@/hooks/useWalletProtection';
 import { formatAxeUnits, formatStableUnits } from '@/utils/contract.utils';
 import type { TradeFormProps } from './Swap';
 
@@ -24,6 +25,7 @@ const slippageTolerance = 100n; //basispoints
 
 const Sell: FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUpdate }) => {
   const account = useAccount();
+  const { protectAction, WalletModal } = useWalletProtection();
   const [isUpdating, setIsUpdating] = useState<boolean>(false);
   const [exceedsAllowance, setExceedsAllowance] = useState<boolean>(false);
   const [amountIn, setAmountIn] = useState<bigint>(0n);
@@ -59,7 +61,7 @@ const Sell: FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUpdate 
 
   // update amountOut from getAmount estimate
   // the axe donation was subtracted from the input before the estimate, so the estimate should be accurate
-  // biome-ignore lint/correctness/useExhaustiveDependencies: effect not dependent on formik
+  // biome-ignore lint/correctness/useExhaustiveDependencies: formik declared after this useEffect
   useEffect(() => {
     formik.setFieldValue(
       'amountOut',
@@ -81,7 +83,7 @@ const Sell: FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUpdate 
     }
   }, [approveLoading, approveSuccess, approveError, updateAllowance]);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: effect not dependent on formik
+  // biome-ignore lint/correctness/useExhaustiveDependencies: formik declared after this useEffect
   useEffect(() => {
     if (swapLoading) {
       enqueueSnackbar('Swap submitted. Please allow some time to confirm ...', {
@@ -230,14 +232,15 @@ const Sell: FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUpdate 
         <div>Your Balance: ${formatStableUnits(swapBalance)}</div>
 
         <Button
-          type="submit"
           size="lg"
           className="mt-2 w-full bg-orange-200 dark:bg-orange-700"
           isDisabled={!formik.isValid || !formik.dirty || isUpdating || approvePending || swapPending}
           isLoading={formik.isSubmitting}
+          onPress={() => protectAction(formik.submitForm)}
         >
           {swapPending ? 'Confirming...' : isUpdating ? 'Updating ...' : exceedsAllowance ? 'Approve' : 'Sell'}
         </Button>
+        {WalletModal}
       </div>
     </form>
   );

@@ -18,7 +18,7 @@ const CouncilPanel: React.FC = () => {
       <CouncilMembership />
       <div className="w-full flex flex-col mt-4 gap-2 sm:gap-4">
         <p className="text-2xl text-center">Council Formation</p>
-        <Tabs aria-label="Axé DAO Council Tabs" color="secondary" size="lg" fullWidth>
+        <Tabs aria-label="Axé DAO Council Tabs" color="secondary" size="lg" fullWidth classNames={{ panel: 'px-0' }}>
           <Tab key="candidates" title="Candidates" className="w-full">
             <Candidates />
           </Tab>

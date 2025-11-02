@@ -7,7 +7,7 @@ import { UserRejectedRequestError } from 'viem';
 import { useAccount, useConnect, useDisconnect, useSignMessage } from 'wagmi';
 import type { SilkEthereumProviderInterface } from '@silk-wallet/silk-wallet-sdk';
 
-import { PATHS } from '@/config/constants';
+import { PATHS, AUTH_ERRORS } from '@/config/constants';
 import { getDefaultChain } from '@/config/wagmi';
 import { silkInitOptions } from '@/config/silk';
 import silk from '@/utils/silk.connector';
@@ -17,16 +17,20 @@ import { triggerCurrentUserIdAtom } from './state/currentUser';
 import { useQueryClient } from '@tanstack/react-query';
 
 /**
- * Handles wagmi connect, signMessage, and logout using the wallet.
+ * Handles authentication for all three methods:
+ * 1. Human Wallet (SIWE)
+ * 2. Email/Password
+ * 3. Google OAuth (handled by next-auth, not in this hook)
+ *
  * Only a single 'loading' and 'error' field are stored in state and used across
  * all functions.
- * @returns
  */
 const useAuth = () => {
   const [state, setState] = useState<{
     loading?: boolean;
     nonce?: string;
     error?: Error;
+    emailRequired?: boolean; // For first-time wallet users
   }>({});
   const setCurrentUserId = useSetAtom(triggerCurrentUserIdAtom);
   const { address, chainId } = useAccount();
@@ -52,11 +56,31 @@ const useAuth = () => {
     fetchNonce();
   }, []);
 
-  const signIn = async () => {
+  /**
+   * Sign in with Human Wallet (SIWE)
+   * @param email - Optional email for first-time wallet users (auto-fetched from SDK if not provided)
+   */
+  const signIn = async (email?: string) => {
     try {
       if (!address || !chainId) return;
 
-      setState((x) => ({ ...x, loading: true, error: undefined }));
+      setState((x) => ({ ...x, loading: true, error: undefined, emailRequired: false }));
+
+      // Auto-fetch email from Human Wallet SDK if not provided
+      // Human Wallet stores verified emails, so we can trust this value
+      if (!email) {
+        try {
+          const silkConnector = connectors.find((c) => c.id === 'silk');
+          if (silkConnector) {
+            const provider = (await silkConnector.getProvider()) as SilkEthereumProviderInterface;
+            email = (await provider.requestEmail()) as string;
+          }
+        } catch (error) {
+          console.warn('Could not fetch email from Human Wallet:', error);
+          // Continue without email - backend will request it if needed
+        }
+      }
+
       // Create SIWE message with pre-fetched nonce and sign with wallet
       const message = new SiweMessage({
         domain: window.location.host,
@@ -74,11 +98,31 @@ const useAuth = () => {
         message: preparedMessage,
       });
 
-      const res = await nextAuthSignIn('credentials', {
+      const res = await nextAuthSignIn('ethereum', {
         message: JSON.stringify(message),
         signature,
-        callbackUrl, // user is directed here after signing in
+        email: email || undefined,
+        callbackUrl,
+        redirect: false,
       });
+
+      if (res?.error === AUTH_ERRORS.EMAIL_REQUIRED) {
+        // First-time wallet user needs to provide email
+        setState((x) => ({ ...x, loading: false, emailRequired: true }));
+        return;
+      }
+
+      if (res?.error === AUTH_ERRORS.REGISTRATION_FAILED) {
+        // Generic error to prevent user enumeration
+        setState((x) => ({
+          ...x,
+          loading: false,
+          error: new Error(
+            'Unable to create account. If you already have an account, please sign in or use the forgot password link.'
+          ),
+        }));
+        return;
+      }
 
       if (res?.ok && !res.error) {
         const session = await getSession();
@@ -94,6 +138,49 @@ const useAuth = () => {
     } catch (error) {
       setState((x) => ({ ...x, loading: false, error: error as Error, nonce: undefined }));
       fetchNonce();
+    }
+  };
+
+  /**
+   * Sign in with email and password
+   */
+  const signInWithPassword = async (email: string, password: string) => {
+    setState((x) => ({ ...x, loading: true, error: undefined }));
+
+    try {
+      const res = await nextAuthSignIn('email-password', {
+        email,
+        password,
+        callbackUrl,
+        redirect: false,
+      });
+
+      if (res?.ok && !res.error) {
+        const session = await getSession();
+        console.info('User signed in:', session?.user?.id);
+        setCurrentUserId(session?.user?.id);
+        setState((x) => ({ ...x, loading: false }));
+        // Redirect to callbackUrl after successful login
+        window.location.href = callbackUrl;
+      } else if (res?.error === 'EMAIL_NOT_VERIFIED') {
+        setState((x) => ({
+          ...x,
+          loading: false,
+          error: new Error('Please verify your email before logging in'),
+        }));
+      } else {
+        setState((x) => ({
+          ...x,
+          loading: false,
+          error: new Error('Invalid email or password'),
+        }));
+      }
+    } catch (error) {
+      setState((x) => ({
+        ...x,
+        loading: false,
+        error: error as Error,
+      }));
     }
   };
 
@@ -135,7 +222,7 @@ const useAuth = () => {
     }
   };
 
-  return { signIn, logout, connect, connectError, state };
+  return { signIn, signInWithPassword, logout, connect, connectError, state };
 };
 
 export default useAuth;

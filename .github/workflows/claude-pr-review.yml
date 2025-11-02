@@ -1,0 +1,113 @@
+name: Claude Code PR Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review, reopened]
+    branches:
+      - develop
+
+jobs:
+  code-review:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for better context
+
+      - name: Run Claude Code Review
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          track_progress: true
+
+          prompt: |
+            REPO: ${{ github.repository }}
+            PR: #${{ github.event.pull_request.number }}
+
+            Review this pull request following the project guidelines in .claude/CLAUDE.md, apps/quilombo/.claude/CLAUDE.md, and packages/contracts/.claude/CLAUDE.md.
+
+            ## Review Focus Areas:
+
+            ### 1. Code Quality & Architecture
+            **MANTRA: Reduce code complexity and size to increase maintainability**
+            - Adherence to project patterns (Next.js 15 App Router, RSC, Jotai, React-Query)
+            - DRY principle violations:
+              * Type unions used 3+ times should be extracted
+              * Literal arrays/objects used 2+ times should be extracted as const
+              * Duplicate functions should be centralized
+              * Repeated component prop patterns (onChange, onBlur, isInvalid, errorMessage, etc.) should use Formik Field components (see FormikInput, FieldInput patterns)
+            - Type safety and proper TypeScript usage
+            - Import organization (external → @/config → @/ → relative)
+            - Functional components with RORO pattern
+            - Minimize 'use client', 'useEffect', 'setState' - favor RSC
+            - Component complexity: look for opportunities to extract reusable patterns
+
+            ### 2. Security (CRITICAL)
+            - NO secrets, API keys, or credentials committed
+            - NO .env* files (except .env.example or .env.sample)
+            - NO backup files (.backup, .bak, .old, .tmp, .copy)
+            - Input validation using centralized Yup schemas
+            - Proper error handling without exposing internals
+            - SQL injection prevention
+            - XSS vulnerabilities
+            - Authentication/authorization logic
+
+            ### 3. Database & API Patterns (Quilombo)
+            - ALL database functions centralized in db/index.ts
+            - API routes MUST have OpenAPI-style JSDoc comments (@openapi tags)
+            - Consistent error responses: `{ error: string }`
+            - Proper HTTP status codes (400, 401, 403, 404, 409, 500)
+            - Return first validation error only: `error.errors?.[0]`
+            - Always console.error() before returning error responses
+
+            ### 4. Validation & Forms
+            - ALL Yup schemas in config/validation-schema.ts (centralized)
+            - Type unions appearing 3+ times should be extracted as const + derived type
+            - Pattern: `const values = ['a', 'b'] as const; type T = (typeof values)[number]`
+            - Use in schema: `.oneOf(values, 'error')`
+            - JSDoc comments on reusable utility functions
+
+            ### 5. State Management
+            - API calls through React-Query with proper caching
+            - Query key naming: QUERY_KEYS.category.operation
+            - Mutations invalidate related queries on success
+            - Jotai atoms for client state
+
+            ### 6. Smart Contracts (if applicable)
+            - Foundry/Forge testing patterns
+            - Unit tests exclude integration tests
+            - Gas optimization considerations
+            - Proper natspec documentation
+
+            ### 7. Monorepo Awareness
+            - pnpm workspace structure respected
+            - Shared dependencies appropriately placed
+            - Package-specific documentation in .claude/CLAUDE.md files
+
+            ### 8. Testing & Documentation
+            - JSDoc comments on ALL utility functions (@param, @returns, @throws)
+            - OpenAPI comments on API routes
+            - Breaking changes documented
+            - Test coverage for critical paths
+
+            ## Review Instructions:
+
+            1. Read .claude/CLAUDE.md, apps/quilombo/.claude/CLAUDE.md, and packages/contracts/.claude/CLAUDE.md for full context
+            2. Check git diff for all changed files
+            3. Provide inline comments for specific issues (security, bugs, violations)
+            4. Use PR-level comments for:
+               - General observations
+               - Architectural concerns
+               - Praise for good patterns
+               - Suggestions for future improvements
+            5. Be constructive and specific
+            6. Prioritize security and data safety issues
+            7. Highlight violations of project conventions
+
+            If you find security issues, mark them as CRITICAL and explain the risk.

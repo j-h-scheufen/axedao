@@ -6,6 +6,6 @@ import type { PropsWithChildren } from 'react';
  * of the screen should be placed outside of this layout.
  */
 const MainLayout = ({ children }: PropsWithChildren) => {
-  return <main className="flex-grow w-full px-2">{children}</main>;
+  return <main className="flex-grow w-full page-container">{children}</main>;
 };
 export default MainLayout;

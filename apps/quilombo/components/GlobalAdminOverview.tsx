@@ -17,7 +17,7 @@ const GlobalAdminOverview = () => {
         variant="bordered"
         aria-label="Options"
         className="mb-3"
-        classNames={{ tabList: 'mb-5' }}
+        classNames={{ tabList: 'mb-5', panel: 'px-0' }}
         defaultSelectedKey={tab || undefined}
         onSelectionChange={(key) => {
           const tab = key.toString() as 'users' | 'groups';

@@ -45,4 +45,83 @@
       color: var(--color-primary);
     }
   }
+
+  /*
+   * LAYOUT SPACING ARCHITECTURE
+   * ===========================
+   *
+   * Hierarchy & Rules:
+   *
+   * 1. LAYOUT LEVEL (app/(main)/layout.tsx)
+   *    - Applies: .page-container (px-2 sm:px-4)
+   *    - Rule: ONLY place for horizontal page padding
+   *
+   * 2. PAGE LEVEL (page.tsx files)
+   *    - Rule: NO horizontal padding (px-, p-)
+   *    - Allowed: Vertical margin/padding (mt-, mb-, py-), flex/layout classes
+   *    - Wrapper divs should use: flex, gap-, items-, justify- only
+   *
+   * 3. COMPONENT LEVEL (reusable components)
+   *    - PageHeading: Can have mb- for spacing below
+   *    - SectionHeading: Can have mt-, mb- for section separation
+   *    - Content components: NO horizontal padding
+   *    - Rule: Components should NOT add horizontal padding
+   *
+   * 4. CONTENT LEVEL (cards, boxes, form elements)
+   *    - Rule: CAN have padding (p-4, p-6, etc.)
+   *    - Examples: Card bodies, info boxes, textareas, buttons
+   *    - This is internal content spacing
+   *
+   * IMPORTANT: HeroUI Tabs Component
+   * ---------------------------------
+   * HeroUI's <Tabs> component adds default horizontal padding to tab panels.
+   * Always override this with: classNames={{ panel: 'px-0' }}
+   *
+   * Example:
+   * <Tabs classNames={{ panel: 'px-0' }}>
+   *   <Tab key="tab1" title="Tab 1">Content</Tab>
+   * </Tabs>
+   *
+   * When in doubt:
+   * - If it wraps page content → NO horizontal padding
+   * - If it's actual content/card → YES padding is OK
+   */
+
+  /* Main layout container - Applied at layout level */
+  .page-container {
+    @apply px-2 sm:px-4;
+  }
+
+  /* Auth form containers (max-w-md centered) */
+  .auth-container {
+    @apply flex flex-col gap-4 max-w-md mx-auto items-stretch;
+  }
+
+  .auth-container-py {
+    @apply flex flex-col gap-4 max-w-md mx-auto items-stretch py-8;
+  }
+
+  /* Tab content wrappers (max-w-lg centered) */
+  .tab-wrapper {
+    @apply w-full max-w-lg mx-auto;
+  }
+
+  /* Tab content inner container */
+  .tab-content {
+    @apply flex w-full flex-col gap-2 sm:gap-4 items-center;
+  }
+
+  /* Full-height centered page (like account-exists, member) */
+  .page-centered-full {
+    @apply flex flex-col items-center justify-center min-h-screen p-4;
+  }
+
+  /* Common responsive patterns */
+  .gap-responsive {
+    @apply gap-2 sm:gap-4;
+  }
+
+  .pt-responsive {
+    @apply pt-2 sm:pt-4;
+  }
 }

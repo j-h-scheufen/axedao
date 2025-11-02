@@ -2,7 +2,7 @@ import { getServerSession } from 'next-auth';
 import { notFound } from 'next/navigation';
 import { type NextRequest, NextResponse } from 'next/server';
 
-import { FILE_PREFIXES, IMAGE_FORMATS } from '@/config/constants';
+import { FILE_PREFIXES } from '@/config/constants';
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { fetchUser, updateUser } from '@/db';
 import { generateErrorMessage } from '@/utils';
