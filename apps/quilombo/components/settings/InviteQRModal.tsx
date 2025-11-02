@@ -16,9 +16,11 @@ type InviteQRModalProps = {
   isOpen: boolean;
   onOpenChange: () => void;
   invitation: InvitationResponse;
+  onRegenerate?: () => void;
+  isRegenerating?: boolean;
 };
 
-const InviteQRModal = ({ isOpen, onOpenChange, invitation }: InviteQRModalProps) => {
+const InviteQRModal = ({ isOpen, onOpenChange, invitation, onRegenerate, isRegenerating }: InviteQRModalProps) => {
   const expiryDate = new Date(invitation.expiresAt);
   const formattedExpiry = expiryDate.toLocaleString('en-US', {
     month: 'short',
@@ -35,7 +37,7 @@ const InviteQRModal = ({ isOpen, onOpenChange, invitation }: InviteQRModalProps)
         {(onClose) => (
           <>
             <ModalHeader className="flex flex-col gap-1">
-              <h3 className="text-xl font-semibold">Event QR Code</h3>
+              <h3 className="text-xl font-semibold">Invite QR Code</h3>
               <p className="text-sm font-normal text-default-500">Share this QR code at workshops and events</p>
             </ModalHeader>
 
@@ -49,7 +51,7 @@ const InviteQRModal = ({ isOpen, onOpenChange, invitation }: InviteQRModalProps)
               <div className="text-center space-y-2">
                 <p className="text-sm font-semibold text-default-700">Valid until:</p>
                 <p className="text-base font-medium text-default-900">{formattedExpiry}</p>
-                <p className="text-xs text-default-500">(72 hours from generation)</p>
+                <p className="text-xs text-default-500">(72 hours)</p>
               </div>
 
               {/* Usage Information */}
@@ -57,13 +59,24 @@ const InviteQRModal = ({ isOpen, onOpenChange, invitation }: InviteQRModalProps)
                 <p className="text-xs text-default-600 text-center">
                   ✓ Multiple people can use this code
                   <br />✓ No email restriction
-                  <br />✓ Perfect for in-person events
+                  <br />✓ This code is saved until it expires or is regenerated
                 </p>
               </div>
             </ModalBody>
 
-            <ModalFooter>
-              <Button color="primary" onPress={onClose} fullWidth>
+            <ModalFooter className="flex gap-2">
+              {onRegenerate && (
+                <Button
+                  color="warning"
+                  variant="flat"
+                  onPress={onRegenerate}
+                  isLoading={isRegenerating}
+                  className="flex-1"
+                >
+                  Regenerate
+                </Button>
+              )}
+              <Button color="primary" onPress={onClose} className="flex-1">
                 Close
               </Button>
             </ModalFooter>

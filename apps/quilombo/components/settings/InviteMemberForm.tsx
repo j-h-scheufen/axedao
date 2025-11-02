@@ -6,7 +6,9 @@ import { Formik, Form } from 'formik';
 import { useMutation } from '@tanstack/react-query';
 import { enqueueSnackbar } from 'notistack';
 import { object, string } from 'yup';
+import { useAtom } from 'jotai';
 
+import { activeQRInvitationAtom, validQRInvitationAtom } from '@/hooks/state/invitations';
 import InviteQRModal from './InviteQRModal';
 import InviteLinkModal from './InviteLinkModal';
 import ErrorText from '../ErrorText';
@@ -32,6 +34,8 @@ const InviteMemberForm = () => {
   const qrModal = useDisclosure();
   const linkModal = useDisclosure();
   const [currentInvitation, setCurrentInvitation] = useState<InvitationResponse | null>(null);
+  const [_activeQRInvitation, setActiveQRInvitation] = useAtom(activeQRInvitationAtom);
+  const [validQRInvitation] = useAtom(validQRInvitationAtom);
 
   // Mutation: Create email-bound invitation and send email
   const sendEmailMutation = useMutation({
@@ -109,6 +113,14 @@ const InviteMemberForm = () => {
       return response.json();
     },
     onSuccess: (data: InvitationResponse) => {
+      // Store in atom for persistence
+      setActiveQRInvitation({
+        code: data.code,
+        type: data.type as 'open',
+        expiresAt: data.expiresAt,
+        inviteLink: data.inviteLink,
+        createdAt: new Date().toISOString(),
+      });
       setCurrentInvitation(data);
       qrModal.onOpen();
     },
@@ -116,6 +128,23 @@ const InviteMemberForm = () => {
       enqueueSnackbar(error.message || 'Failed to generate QR code', { variant: 'error' });
     },
   });
+
+  // Handler for showing/generating QR code
+  const handleShowQRCode = () => {
+    if (validQRInvitation) {
+      // Show existing valid QR code
+      setCurrentInvitation(validQRInvitation);
+      qrModal.onOpen();
+    } else {
+      // Generate new QR code
+      generateQRMutation.mutate();
+    }
+  };
+
+  // Handler for regenerating QR code (called from modal)
+  const handleRegenerateQR = () => {
+    generateQRMutation.mutate();
+  };
 
   const handleSendEmail = async (values: EmailForm, { resetForm }: { resetForm: () => void }) => {
     await sendEmailMutation.mutateAsync(values.email);
@@ -188,14 +217,29 @@ const InviteMemberForm = () => {
 
       {/* Section 2: Generate QR Code for Events */}
       <div>
-        <h3 className="text-lg font-semibold text-default-900 mb-2">Generate QR Code for Events</h3>
+        <h3 className="text-lg font-semibold text-default-900 mb-2">QR Code for Events</h3>
         <p className="text-sm text-default-500 mb-4">
           Generate a QR code for in-person events (workshops, rodas). Valid for 72 hours. Multiple people can scan the
-          same code. Generating a new code will replace your current one.
+          same code. Your QR code is saved and can be reopened anytime before it expires.
         </p>
 
-        <Button color="secondary" onPress={() => generateQRMutation.mutate()} isLoading={generateQRMutation.isPending}>
-          Generate QR Code
+        {validQRInvitation && (
+          <div className="mb-3 p-3 bg-success-50 rounded-lg border border-success-200">
+            <p className="text-sm text-success-700">
+              ✓ Active QR code (expires{' '}
+              {new Date(validQRInvitation.expiresAt).toLocaleString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit',
+              })}
+              )
+            </p>
+          </div>
+        )}
+
+        <Button color="secondary" onPress={handleShowQRCode} isLoading={generateQRMutation.isPending}>
+          {validQRInvitation ? 'Show QR Code' : 'Generate QR Code'}
         </Button>
 
         {generateQRMutation.isError && <ErrorText className="mt-2" message={generateQRMutation.error.message} />}
@@ -204,7 +248,13 @@ const InviteMemberForm = () => {
       {/* Modals */}
       {currentInvitation && (
         <>
-          <InviteQRModal isOpen={qrModal.isOpen} onOpenChange={qrModal.onOpenChange} invitation={currentInvitation} />
+          <InviteQRModal
+            isOpen={qrModal.isOpen}
+            onOpenChange={qrModal.onOpenChange}
+            invitation={currentInvitation}
+            onRegenerate={handleRegenerateQR}
+            isRegenerating={generateQRMutation.isPending}
+          />
           <InviteLinkModal
             isOpen={linkModal.isOpen}
             onOpenChange={linkModal.onOpenChange}

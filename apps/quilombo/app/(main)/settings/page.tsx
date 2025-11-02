@@ -188,8 +188,8 @@ const SettingsPage = () => {
 
           <AccordionItem
             key="invite-members"
-            aria-label="Invite Members"
-            title="Invite Members"
+            aria-label="Invite Friends"
+            title="Invite Friends"
             subtitle="Invite friends to join Quilombo"
             classNames={{
               trigger: 'py-4',
