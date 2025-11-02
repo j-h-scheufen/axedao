@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Button, Input, Link } from '@heroui/react';
 import { Formik, Form } from 'formik';
 import { useRouter } from 'next/navigation';
+import { Clock, Mail } from 'lucide-react';
 
 import { PATHS } from '@/config/constants';
 import { forgotPasswordSchema } from '@/config/validation-schema';
@@ -39,7 +40,9 @@ const VerifyEmailExpiredPage = () => {
   if (resent) {
     return (
       <div className="auth-container-py items-center text-center">
-        <div className="text-6xl mb-4">📧</div>
+        <div className="mb-6 flex justify-center">
+          <Mail className="w-20 h-20 text-primary" strokeWidth={1.5} />
+        </div>
         <h2 className="text-2xl text-default-700 font-semibold">Verification Email Sent</h2>
         <p className="text-default-600">Check your inbox for a new verification link.</p>
         <Button color="primary" onPress={() => router.push(PATHS.login)} className="mt-4">
@@ -51,7 +54,9 @@ const VerifyEmailExpiredPage = () => {
 
   return (
     <div className="auth-container-py items-center text-center">
-      <div className="text-6xl mb-4">⏰</div>
+      <div className="mb-6 flex justify-center">
+        <Clock className="w-20 h-20 text-warning" strokeWidth={1.5} />
+      </div>
       <h2 className="text-3xl text-default-700 font-semibold">Link Expired</h2>
       <p className="text-default-600">This verification link has expired or is invalid.</p>
       <p className="text-default-500 text-sm">

@@ -2,6 +2,8 @@
 
 import { useRouter } from 'next/navigation';
 import { Button, Card, CardBody } from '@heroui/react';
+import { AlertCircle } from 'lucide-react';
+
 import { PATHS } from '@/config/constants';
 
 /**
@@ -16,7 +18,9 @@ const AccountExistsPage = () => {
       <Card className="max-w-md w-full">
         <CardBody className="gap-6 p-6">
           <div className="text-center">
-            <div className="text-5xl mb-4">⚠️</div>
+            <div className="mb-4 flex justify-center">
+              <AlertCircle className="w-16 h-16 text-warning" strokeWidth={1.5} />
+            </div>
             <h1 className="text-2xl font-bold text-default-900 mb-2">Account Already Exists</h1>
           </div>
 

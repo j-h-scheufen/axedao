@@ -1,119 +1,71 @@
-import { Body, Button, Container, Head, Heading, Html, Preview, Section, Text } from '@react-email/components';
+import { Body, Button, Container, Head, Heading, Html, Img, Preview, Section, Text } from '@react-email/components';
+
+import { emailStyles } from './styles';
 
 interface WelcomeEmailProps {
   profileUrl: string;
+  logoUrl: string;
   userName?: string;
 }
 
-export const WelcomeEmail = ({ profileUrl, userName }: WelcomeEmailProps) => (
+export const WelcomeEmail = ({ profileUrl, logoUrl, userName }: WelcomeEmailProps) => (
   <Html>
-    <Head />
+    <Head>
+      <style>
+        {`
+          @media (prefers-color-scheme: dark) {
+            .dark-mode-bg { background-color: #1a1a1a !important; }
+            .dark-mode-container { background-color: #2d2d2d !important; }
+            .dark-mode-text { color: #e0e0e0 !important; }
+            .dark-mode-heading { color: #ffffff !important; }
+          }
+        `}
+      </style>
+    </Head>
     <Preview>Welcome to Quilombo! Your account is now active</Preview>
-    <Body style={main}>
-      <Container style={container}>
-        <Heading style={h1}>Welcome to Quilombo! 🎉</Heading>
-        <Text style={text}>{userName ? `Hi ${userName},` : 'Hi there,'}</Text>
-        <Text style={text}>
+    <Body style={emailStyles.main} className="dark-mode-bg">
+      <Container style={emailStyles.container} className="dark-mode-container">
+        <Section style={emailStyles.logoContainer}>
+          <Img src={logoUrl} width="80" height="80" alt="Quilombo" style={emailStyles.logo} />
+        </Section>
+        <Heading style={emailStyles.h1} className="dark-mode-heading">
+          Welcome to Quilombo! 🎉
+        </Heading>
+        <Text style={emailStyles.text} className="dark-mode-text">
+          {userName ? `Hi ${userName},` : 'Hi there,'}
+        </Text>
+        <Text style={emailStyles.text} className="dark-mode-text">
           Your account has been successfully activated! You're now part of a vibrant community connecting people through
           local groups and events.
         </Text>
-        <Text style={heading2}>Here's what you can do:</Text>
-        <Section style={features}>
-          <Text style={feature}>
+        <Text style={emailStyles.h2} className="dark-mode-heading">
+          Here's what you can do:
+        </Text>
+        <Section style={emailStyles.section}>
+          <Text style={emailStyles.feature} className="dark-mode-text">
             <strong>✓ Create and join groups</strong> – Find your community
           </Text>
-          <Text style={feature}>
+          <Text style={emailStyles.feature} className="dark-mode-text">
             <strong>✓ Discover events</strong> – Connect in person
           </Text>
-          <Text style={feature}>
+          <Text style={emailStyles.feature} className="dark-mode-text">
             <strong>✓ Engage with your community</strong> – Build meaningful connections
           </Text>
-          <Text style={feature}>
+          <Text style={emailStyles.feature} className="dark-mode-text">
             <strong>✓ Participate in DAO governance</strong> – Shape the future together
           </Text>
         </Section>
-        <Section style={buttonContainer}>
-          <Button style={button} href={profileUrl}>
+        <Section style={emailStyles.buttonContainer}>
+          <Button style={{ ...emailStyles.button, ...emailStyles.buttonPrimary }} href={profileUrl}>
             Complete Your Profile
           </Button>
         </Section>
-        <Text style={footer}>Questions? Just reply to this email – we're here to help!</Text>
+        <Text style={emailStyles.footerCentered} className="dark-mode-text">
+          Questions? Just reply to this email – we're here to help!
+        </Text>
       </Container>
     </Body>
   </Html>
 );
 
 export default WelcomeEmail;
-
-const main = {
-  backgroundColor: '#f6f9fc',
-  fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif',
-};
-
-const container = {
-  backgroundColor: '#ffffff',
-  margin: '0 auto',
-  padding: '20px 0 48px',
-  marginBottom: '64px',
-};
-
-const h1 = {
-  color: '#333',
-  fontSize: '24px',
-  fontWeight: 'bold',
-  margin: '40px 0',
-  padding: '0',
-  textAlign: 'center' as const,
-};
-
-const heading2 = {
-  color: '#333',
-  fontSize: '18px',
-  fontWeight: 'bold',
-  margin: '24px 0 12px',
-  padding: '0 40px',
-};
-
-const text = {
-  color: '#333',
-  fontSize: '16px',
-  lineHeight: '26px',
-  padding: '0 40px',
-};
-
-const features = {
-  padding: '0 40px',
-};
-
-const feature = {
-  color: '#333',
-  fontSize: '16px',
-  lineHeight: '26px',
-  margin: '8px 0',
-};
-
-const buttonContainer = {
-  padding: '27px 0 27px',
-  textAlign: 'center' as const,
-};
-
-const button = {
-  backgroundColor: '#22c55e',
-  borderRadius: '4px',
-  color: '#fff',
-  fontSize: '16px',
-  fontWeight: 'bold',
-  textDecoration: 'none',
-  textAlign: 'center' as const,
-  display: 'inline-block',
-  padding: '12px 24px',
-};
-
-const footer = {
-  color: '#8898aa',
-  fontSize: '12px',
-  lineHeight: '16px',
-  padding: '0 40px',
-  marginTop: '24px',
-  textAlign: 'center' as const,
-};

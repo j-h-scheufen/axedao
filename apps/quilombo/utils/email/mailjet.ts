@@ -1,5 +1,6 @@
 import { render } from '@react-email/components';
 
+import { getBaseUrl } from '@/config/environment';
 import ENV from '@/config/environment';
 import type { EmailProvider } from './provider';
 import { VerificationEmail } from './templates/verification-email';
@@ -26,10 +27,12 @@ export class MailjetProvider implements EmailProvider {
   }
 
   async sendVerificationEmail(to: string, token: string, userName?: string): Promise<void> {
-    const verifyUrl = `${process.env.NEXT_PUBLIC_APP_URL}/auth/verify-email?token=${token}`;
+    const baseUrl = getBaseUrl();
+    const verifyUrl = `${baseUrl}/auth/verify-email?token=${token}`;
+    const logoUrl = `${baseUrl}/quilombo-icon-192x192.png`;
 
-    const html = await render(VerificationEmail({ verifyUrl, userName }));
-    const text = await render(VerificationEmail({ verifyUrl, userName }), { plainText: true });
+    const html = await render(VerificationEmail({ verifyUrl, logoUrl, userName }));
+    const text = await render(VerificationEmail({ verifyUrl, logoUrl, userName }), { plainText: true });
 
     await this.client.post('send', { version: 'v3.1' }).request({
       Messages: [
@@ -39,16 +42,19 @@ export class MailjetProvider implements EmailProvider {
           Subject: 'Verify your Quilombo account',
           TextPart: text,
           HTMLPart: html,
+          CustomID: 'email-verification',
         },
       ],
     });
   }
 
   async sendPasswordResetEmail(to: string, token: string, userName?: string): Promise<void> {
-    const resetUrl = `${process.env.NEXT_PUBLIC_APP_URL}/auth/reset-password?token=${token}`;
+    const baseUrl = getBaseUrl();
+    const resetUrl = `${baseUrl}/auth/reset-password?token=${token}`;
+    const logoUrl = `${baseUrl}/quilombo-icon-192x192.png`;
 
-    const html = await render(PasswordResetEmail({ resetUrl, userName }));
-    const text = await render(PasswordResetEmail({ resetUrl, userName }), { plainText: true });
+    const html = await render(PasswordResetEmail({ resetUrl, logoUrl, userName }));
+    const text = await render(PasswordResetEmail({ resetUrl, logoUrl, userName }), { plainText: true });
 
     await this.client.post('send', { version: 'v3.1' }).request({
       Messages: [
@@ -58,16 +64,19 @@ export class MailjetProvider implements EmailProvider {
           Subject: 'Reset your Quilombo password',
           TextPart: text,
           HTMLPart: html,
+          CustomID: 'password-reset',
         },
       ],
     });
   }
 
   async sendWelcomeEmail(to: string, userName?: string): Promise<void> {
-    const profileUrl = `${process.env.NEXT_PUBLIC_APP_URL}/profile`;
+    const baseUrl = getBaseUrl();
+    const profileUrl = `${baseUrl}/profile`;
+    const logoUrl = `${baseUrl}/quilombo-icon-192x192.png`;
 
-    const html = await render(WelcomeEmail({ profileUrl, userName }));
-    const text = await render(WelcomeEmail({ profileUrl, userName }), { plainText: true });
+    const html = await render(WelcomeEmail({ profileUrl, logoUrl, userName }));
+    const text = await render(WelcomeEmail({ profileUrl, logoUrl, userName }), { plainText: true });
 
     await this.client.post('send', { version: 'v3.1' }).request({
       Messages: [
@@ -77,6 +86,7 @@ export class MailjetProvider implements EmailProvider {
           Subject: 'Welcome to Quilombo!',
           TextPart: text,
           HTMLPart: html,
+          CustomID: 'welcome',
         },
       ],
     });
