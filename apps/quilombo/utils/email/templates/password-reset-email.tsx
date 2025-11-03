@@ -10,31 +10,16 @@ interface PasswordResetEmailProps {
 
 export const PasswordResetEmail = ({ resetUrl, logoUrl, userName }: PasswordResetEmailProps) => (
   <Html>
-    <Head>
-      <style>
-        {`
-          @media (prefers-color-scheme: dark) {
-            .dark-mode-bg { background-color: #1a1a1a !important; }
-            .dark-mode-container { background-color: #2d2d2d !important; }
-            .dark-mode-text { color: #e0e0e0 !important; }
-            .dark-mode-heading { color: #ffffff !important; }
-          }
-        `}
-      </style>
-    </Head>
+    <Head />
     <Preview>Reset your Quilombo password</Preview>
-    <Body style={emailStyles.main} className="dark-mode-bg">
-      <Container style={emailStyles.container} className="dark-mode-container">
+    <Body style={emailStyles.main}>
+      <Container style={emailStyles.container}>
         <Section style={emailStyles.logoContainer}>
           <Img src={logoUrl} width={80} height={80} alt="Quilombo" style={emailStyles.logo} />
         </Section>
-        <Heading style={emailStyles.h1} className="dark-mode-heading">
-          Password Reset Request
-        </Heading>
-        <Text style={emailStyles.text} className="dark-mode-text">
-          {userName ? `Hi ${userName},` : 'Hi there,'}
-        </Text>
-        <Text style={emailStyles.text} className="dark-mode-text">
+        <Heading style={emailStyles.h1}>Password Reset Request</Heading>
+        <Text style={emailStyles.text}>{userName ? `Hi ${userName},` : 'Hi there,'}</Text>
+        <Text style={emailStyles.text}>
           We received a request to reset your password. Click the button below to set a new password:
         </Text>
         <Section style={emailStyles.buttonContainer}>
@@ -42,11 +27,9 @@ export const PasswordResetEmail = ({ resetUrl, logoUrl, userName }: PasswordRese
             Reset Password
           </Button>
         </Section>
-        <Text style={emailStyles.text} className="dark-mode-text">
-          Or copy and paste this link into your browser:
-        </Text>
+        <Text style={emailStyles.text}>Or copy and paste this link into your browser:</Text>
         <Text style={{ ...emailStyles.link, ...emailStyles.linkDanger }}>{resetUrl}</Text>
-        <Text style={emailStyles.footer} className="dark-mode-text">
+        <Text style={emailStyles.footer}>
           This link will expire in 60 minutes. If you didn't request this password reset, please ignore this email. Your
           password will remain unchanged.
         </Text>
