@@ -39,5 +39,7 @@ export default withAuth(
 
 export const config = {
   // Do not run the middleware on static assets and auth pages, but everything else
-  matcher: '/((?!_next/static|_next/image|manifest.json|assets|favicon*|images|logos|auth).+)',
+  // Excludes: Next.js internals, static files with extensions in root, specific directories, and auth pages
+  matcher:
+    '/((?!_next/static|_next/image|manifest.json|.*\\.(?:ico|png|jpg|jpeg|svg|webp|gif)|assets|favicon*|images|logos|auth).+)',
 };
