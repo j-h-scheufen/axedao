@@ -29,7 +29,7 @@ export class MailjetProvider implements EmailProvider {
   async sendVerificationEmail(to: string, token: string, userName?: string): Promise<void> {
     const baseUrl = getBaseUrl();
     const verifyUrl = `${baseUrl}/auth/verify-email?token=${token}`;
-    const logoUrl = `${baseUrl}/quilombo-icon-192x192.png`;
+    const logoUrl = 'https://quilombo.net/quilombo-icon-192x192.png';
 
     const html = await render(VerificationEmail({ verifyUrl, logoUrl, userName }));
     const text = await render(VerificationEmail({ verifyUrl, logoUrl, userName }), { plainText: true });
@@ -51,7 +51,7 @@ export class MailjetProvider implements EmailProvider {
   async sendPasswordResetEmail(to: string, token: string, userName?: string): Promise<void> {
     const baseUrl = getBaseUrl();
     const resetUrl = `${baseUrl}/auth/reset-password?token=${token}`;
-    const logoUrl = `${baseUrl}/quilombo-icon-192x192.png`;
+    const logoUrl = 'https://quilombo.net/quilombo-icon-192x192.png';
 
     const html = await render(PasswordResetEmail({ resetUrl, logoUrl, userName }));
     const text = await render(PasswordResetEmail({ resetUrl, logoUrl, userName }), { plainText: true });
@@ -73,7 +73,7 @@ export class MailjetProvider implements EmailProvider {
   async sendWelcomeEmail(to: string, userName?: string): Promise<void> {
     const baseUrl = getBaseUrl();
     const profileUrl = `${baseUrl}/profile`;
-    const logoUrl = `${baseUrl}/quilombo-icon-192x192.png`;
+    const logoUrl = 'https://quilombo.net/quilombo-icon-192x192.png';
 
     const html = await render(WelcomeEmail({ profileUrl, logoUrl, userName }));
     const text = await render(WelcomeEmail({ profileUrl, logoUrl, userName }), { plainText: true });

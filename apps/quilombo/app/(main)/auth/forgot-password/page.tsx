@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Button, Link } from '@heroui/react';
 import { Formik, Form, Field } from 'formik';
 import { useRouter } from 'next/navigation';
+import { Mail } from 'lucide-react';
 
 import { PATHS } from '@/config/constants';
 import { forgotPasswordSchema, type ForgotPasswordForm } from '@/config/validation-schema';
@@ -41,7 +42,9 @@ const ForgotPasswordPage = () => {
   if (submitted) {
     return (
       <div className="auth-container-py items-center text-center">
-        <div className="text-6xl mb-4">📧</div>
+        <div className="mb-6 flex justify-center">
+          <Mail className="w-20 h-20 text-primary" strokeWidth={1.5} />
+        </div>
         <h2 className="text-2xl text-default-700 font-semibold">Check Your Email</h2>
         <p className="text-default-600">
           If an account exists with that email address, we've sent password reset instructions.
