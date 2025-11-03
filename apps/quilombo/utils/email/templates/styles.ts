@@ -25,10 +25,6 @@ export const emailStyles = {
   },
 
   logo: {
-    display: 'block',
-    outline: 'none',
-    border: 'none',
-    textDecoration: 'none',
     margin: '0 auto',
   },
 
