@@ -4,6 +4,8 @@ import { Accordion, AccordionItem } from '@heroui/react';
 import { useTheme } from 'next-themes';
 import { useSession } from 'next-auth/react';
 import { useQuery } from '@tanstack/react-query';
+import { Mail } from 'lucide-react';
+
 import PageHeading from '@/components/PageHeading';
 import { ThemeSwitch } from '@/components/settings/ThemeSwitch';
 import AuthenticationManagement from '@/components/settings/AuthenticationManagement';
@@ -42,7 +44,7 @@ const SettingsPage = () => {
         {authMethods?.notificationEmail && (
           <div className="w-full mb-4 p-4 bg-default-100 rounded-lg border border-default-200">
             <div className="flex items-start gap-3">
-              <div className="text-2xl">📧</div>
+              <Mail className="w-6 h-6 text-primary mt-0.5" strokeWidth={1.5} />
               <div className="flex-1">
                 <h3 className="text-sm font-semibold text-default-700 mb-1">Contact Email</h3>
                 <p className="text-base font-medium text-default-900 mb-1">{authMethods.notificationEmail}</p>
