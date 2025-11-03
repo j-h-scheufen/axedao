@@ -18,15 +18,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Full history for better context
+          fetch-depth: 1
 
       - name: Run Claude Code Review
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          show_full_output: true
           prompt: |
             REPO: ${{ github.repository }}
-            PR: #${{ github.event.pull_request.number }}
+            PR NUMBER: ${{ github.event.pull_request.number }}
 
             Review this pull request following the project guidelines in .claude/CLAUDE.md, apps/quilombo/.claude/CLAUDE.md, and packages/contracts/.claude/CLAUDE.md.
 
