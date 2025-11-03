@@ -1,4 +1,4 @@
-import { Body, Button, Container, Head, Heading, Html, Img, Preview, Section, Text } from '@react-email/components';
+import { Body, Button, Container, Head, Heading, Html, Preview, Section, Text } from '@react-email/components';
 
 import { emailStyles } from './styles';
 
@@ -26,7 +26,7 @@ export const VerificationEmail = ({ verifyUrl, logoUrl, userName }: Verification
     <Body style={emailStyles.main} className="dark-mode-bg">
       <Container style={emailStyles.container} className="dark-mode-container">
         <Section style={emailStyles.logoContainer}>
-          <Img src={logoUrl} width="80" height="80" alt="Quilombo" style={emailStyles.logo} />
+          <img src={logoUrl} width="80" height="80" alt="Quilombo" style={emailStyles.logo} />
         </Section>
         <Heading style={emailStyles.h1} className="dark-mode-heading">
           Welcome to Quilombo!
