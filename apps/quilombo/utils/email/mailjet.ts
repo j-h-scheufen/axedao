@@ -8,15 +8,6 @@ import { PasswordResetEmail } from './templates/password-reset-email';
 import { WelcomeEmail } from './templates/welcome-email';
 
 /**
- * Removes preload link tags from HTML that break email client dark mode
- * @param html - The HTML string to process
- * @returns HTML string with preload tags removed
- */
-function stripPreloadTags(html: string): string {
-  return html.replace(/<link[^>]*rel="preload"[^>]*>/gi, '');
-}
-
-/**
  * Mailjet email provider implementation
  * Uses React Email for templates
  */
@@ -40,8 +31,7 @@ export class MailjetProvider implements EmailProvider {
     const verifyUrl = `${baseUrl}/auth/verify-email?token=${token}`;
     const logoUrl = 'https://quilombo.net/quilombo-icon-192x192.png';
 
-    let html = await render(VerificationEmail({ verifyUrl, logoUrl, userName }), { pretty: false });
-    html = stripPreloadTags(html);
+    const html = await render(VerificationEmail({ verifyUrl, logoUrl, userName }));
     const text = await render(VerificationEmail({ verifyUrl, logoUrl, userName }), { plainText: true });
 
     await this.client.post('send', { version: 'v3.1' }).request({
@@ -63,8 +53,7 @@ export class MailjetProvider implements EmailProvider {
     const resetUrl = `${baseUrl}/auth/reset-password?token=${token}`;
     const logoUrl = 'https://quilombo.net/quilombo-icon-192x192.png';
 
-    let html = await render(PasswordResetEmail({ resetUrl, logoUrl, userName }), { pretty: false });
-    html = stripPreloadTags(html);
+    const html = await render(PasswordResetEmail({ resetUrl, logoUrl, userName }));
     const text = await render(PasswordResetEmail({ resetUrl, logoUrl, userName }), { plainText: true });
 
     await this.client.post('send', { version: 'v3.1' }).request({
@@ -86,8 +75,7 @@ export class MailjetProvider implements EmailProvider {
     const profileUrl = `${baseUrl}/profile`;
     const logoUrl = 'https://quilombo.net/quilombo-icon-192x192.png';
 
-    let html = await render(WelcomeEmail({ profileUrl, logoUrl, userName }), { pretty: false });
-    html = stripPreloadTags(html);
+    const html = await render(WelcomeEmail({ profileUrl, logoUrl, userName }));
     const text = await render(WelcomeEmail({ profileUrl, logoUrl, userName }), { plainText: true });
 
     await this.client.post('send', { version: 'v3.1' }).request({
