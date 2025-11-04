@@ -1,6 +1,6 @@
 import { useSetAtom } from 'jotai';
 import { getCsrfToken, getSession, signIn as nextAuthSignIn, signOut as nextAuthSignOut } from 'next-auth/react';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { SiweMessage } from 'siwe';
 import { UserRejectedRequestError } from 'viem';
@@ -38,6 +38,7 @@ const useAuth = () => {
   const { disconnect } = useDisconnect();
   const { signMessageAsync } = useSignMessage();
   const queryClient = useQueryClient();
+  const router = useRouter();
   const params = useSearchParams();
   const callbackUrl = params.get('callbackUrl') || PATHS.profile;
 
@@ -128,6 +129,10 @@ const useAuth = () => {
         const session = await getSession();
         console.info('User signed in:', session?.user?.id);
         setCurrentUserId(session?.user?.id);
+        setState((x) => ({ ...x, loading: false }));
+        // Redirect to callbackUrl after successful login
+        router.push(callbackUrl);
+        return;
       } else if (res?.error) {
         const msg = `An error occurred while signin in. Code: ${res.status} - ${res.error}`;
         console.error(msg);
@@ -161,7 +166,7 @@ const useAuth = () => {
         setCurrentUserId(session?.user?.id);
         setState((x) => ({ ...x, loading: false }));
         // Redirect to callbackUrl after successful login
-        window.location.href = callbackUrl;
+        router.push(callbackUrl);
       } else if (res?.error === 'EMAIL_NOT_VERIFIED') {
         setState((x) => ({
           ...x,

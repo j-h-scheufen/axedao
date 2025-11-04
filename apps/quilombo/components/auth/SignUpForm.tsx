@@ -5,7 +5,7 @@ import { Button, Link, Divider } from '@heroui/react';
 import { signIn as nextAuthSignIn, useSession } from 'next-auth/react';
 import { useAccount } from 'wagmi';
 import { Formik, Form, Field } from 'formik';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 import { PATHS } from '@/config/constants';
 import { signupSchema, type SignupForm as SignupFormValues } from '@/config/validation-schema';
@@ -17,6 +17,7 @@ import WalletEmailModal from './WalletEmailModal';
 
 const SignUpForm = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [mounted, setMounted] = useState(false);
   const { data: session } = useSession();
   const { address, isConnecting, isConnected } = useAccount();
@@ -33,6 +34,14 @@ const SignUpForm = () => {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Redirect already authenticated users
+  useEffect(() => {
+    if (session?.user) {
+      const redirectUrl = searchParams.get('callbackUrl') || PATHS.profile;
+      router.push(redirectUrl);
+    }
+  }, [session, router, searchParams]);
 
   const handleEmailPasswordSubmit = async (values: SignupFormValues) => {
     setError(null);
@@ -72,7 +81,7 @@ const SignUpForm = () => {
         setError('Failed to sign up with Google');
       } else if (result?.ok) {
         // Success - redirect to profile
-        window.location.href = PATHS.profile;
+        router.push(PATHS.profile);
       }
     } catch (err) {
       console.error('Google sign-up error:', err);
@@ -203,7 +212,7 @@ const SignUpForm = () => {
             Connect Human Wallet
           </Button>
         )}
-        {address && isConnected && !session && (
+        {address && isConnected && (
           <div className="flex flex-col gap-3">
             <p className="text-sm text-center text-default-600">
               Your Human Wallet is connected. Click below to complete sign-up.
