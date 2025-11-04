@@ -103,6 +103,16 @@ export type UserSession = {
   isGlobalAdmin: boolean;
 };
 
+export type AuthMethods = {
+  notificationEmail: string | null;
+  hasPassword: boolean;
+  hasGoogle: boolean;
+  hasWallet: boolean;
+  googleEmail?: string;
+  walletAddress?: string;
+  userEmail?: string;
+};
+
 export type GroupMemberRole = (typeof GROUP_ROLES)[number];
 
 export type GroupMember = User & { roles: GroupMemberRole[] };

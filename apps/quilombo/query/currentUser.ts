@@ -2,7 +2,7 @@ import { queryOptions, useMutation, useQuery, useQueryClient } from '@tanstack/r
 import axios from 'axios';
 
 import type { ProfileForm } from '@/config/validation-schema';
-import type { User } from '@/types/model';
+import type { AuthMethods, User } from '@/types/model';
 import { useSession } from 'next-auth/react';
 import type { FileUploadParams, UseFileUploadMutation } from '.';
 import { QUERY_KEYS } from '.';
@@ -16,6 +16,16 @@ export const fetchCurrentUserOptions = (userId: string | undefined) => {
   return {
     queryKey: [QUERY_KEYS.currentUser.getUser],
     queryFn: () => fetchCurrentUser(),
+    enabled: !!userId,
+  } as const;
+};
+
+const fetchAuthMethods = (): Promise<AuthMethods> => axios.get('/api/auth/methods').then((response) => response.data);
+
+export const fetchAuthMethodsOptions = (userId: string | undefined) => {
+  return {
+    queryKey: [QUERY_KEYS.currentUser.getAuthMethods],
+    queryFn: () => fetchAuthMethods(),
     enabled: !!userId,
   } as const;
 };
@@ -44,6 +54,11 @@ export const updateAvatar = async ({ file }: FileUploadParams): Promise<User> =>
 export const useFetchCurrentUser = () => {
   const { data: session } = useSession();
   return useQuery(queryOptions(fetchCurrentUserOptions(session?.user.id)));
+};
+
+export const useFetchAuthMethods = () => {
+  const { data: session } = useSession();
+  return useQuery(queryOptions(fetchAuthMethodsOptions(session?.user.id)));
 };
 
 export const useUpdateCurrentUserMutation = () => {
