@@ -40,6 +40,7 @@ export const QUERY_KEYS = {
   },
   currentUser: {
     getUser: 'currentUser.getUser',
+    getAuthMethods: 'currentUser.getAuthMethods',
   },
   membership: {
     getCandidateChanges: 'getCandidateChanges',

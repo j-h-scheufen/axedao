@@ -13,30 +13,20 @@ import {
   Input,
   useDisclosure,
 } from '@heroui/react';
-import { useSession, signIn as nextAuthSignIn } from 'next-auth/react';
+import { signIn as nextAuthSignIn } from 'next-auth/react';
 import { useAccount } from 'wagmi';
 import { Formik, Form } from 'formik';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { enqueueSnackbar } from 'notistack';
 import { setCookie } from 'cookies-next';
 
 import { changePasswordSchema, type ChangePasswordForm, type AuthMethod } from '@/config/validation-schema';
 import useAuth from '@/hooks/useAuth';
+import { useFetchAuthMethods } from '@/query/currentUser';
 
 import ErrorText from '../ErrorText';
 
-type AuthMethods = {
-  notificationEmail: string | null;
-  hasPassword: boolean;
-  hasGoogle: boolean;
-  hasWallet: boolean;
-  googleEmail?: string;
-  walletAddress?: string;
-  userEmail?: string;
-};
-
 const AuthenticationManagement = () => {
-  const { data: session } = useSession();
   const { address } = useAccount();
   const { connect } = useAuth();
   const queryClient = useQueryClient();
@@ -48,15 +38,7 @@ const AuthenticationManagement = () => {
   const [error, setError] = useState<string | null>(null);
 
   // Fetch user's current auth methods
-  const { data: authMethods, isLoading } = useQuery<AuthMethods>({
-    queryKey: ['auth-methods', session?.user?.id],
-    queryFn: async () => {
-      const response = await fetch('/api/auth/methods');
-      if (!response.ok) throw new Error('Failed to fetch auth methods');
-      return response.json();
-    },
-    enabled: !!session?.user?.id,
-  });
+  const { data: authMethods, isLoading } = useFetchAuthMethods();
 
   // Change password mutation
   const changePasswordMutation = useMutation({

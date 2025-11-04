@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Button, Link, Divider } from '@heroui/react';
 import { useSession, signIn as nextAuthSignIn } from 'next-auth/react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useAccount } from 'wagmi';
 import { Formik, Form, Field } from 'formik';
 
@@ -20,6 +21,8 @@ type LoginFormValues = {
 
 const SignInForm = () => {
   const [mounted, setMounted] = useState(false);
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const { data: session } = useSession();
   const { address, isConnecting, isConnected } = useAccount();
 
@@ -27,6 +30,14 @@ const SignInForm = () => {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Redirect already authenticated users
+  useEffect(() => {
+    if (session?.user) {
+      const redirectUrl = searchParams.get('callbackUrl') || PATHS.profile;
+      router.push(redirectUrl);
+    }
+  }, [session, router, searchParams]);
   const {
     signIn,
     signInWithPassword,
@@ -165,7 +176,7 @@ const SignInForm = () => {
             Connect Human Wallet
           </Button>
         )}
-        {address && isConnected && !session && (
+        {address && isConnected && (
           <div className="flex flex-col gap-3">
             <p className="text-sm text-center text-default-600">
               Your Human Wallet is connected. Click below to complete sign-in.

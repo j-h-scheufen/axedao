@@ -110,3 +110,12 @@ jobs:
             7. Highlight violations of project conventions
 
             If you find security issues, mark them as CRITICAL and explain the risk.
+
+            ## IMPORTANT: Commit Message Rules
+
+            When creating commits, NEVER include:
+            - Claude attribution lines (🤖 Generated with Claude Code)
+            - Co-Authored-By: Claude <noreply@anthropic.com>
+            - Any other AI-generated attribution
+
+            Keep commit messages concise and focused on the actual changes.

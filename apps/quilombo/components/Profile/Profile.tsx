@@ -9,10 +9,14 @@ import ContactInfo from '@/components/ContactInfo';
 import { ProfileSkeleton } from '@/components/skeletons/ProfileSkeletons';
 import { PATHS } from '@/config/constants';
 import { currentUserAtom } from '@/hooks/state/currentUser';
+import { useFetchAuthMethods } from '@/query/currentUser';
 import { getImageUrl, getUserDisplayName } from '@/utils';
 
 const Profile = () => {
   const { data: user, isFetching } = useAtomValue(currentUserAtom);
+
+  // Fetch auth methods to get notification email
+  const { data: authMethods } = useFetchAuthMethods();
 
   if (!user || isFetching) return <ProfileSkeleton />;
 
@@ -44,14 +48,14 @@ const Profile = () => {
             </Button>
           </div>
         </div>
-        {user.email && (
+        {authMethods?.notificationEmail && (
           <div className="flex gap-1 items-center text-default-400">
             <MailIcon className="h-4 w-4" />
             <Link
-              href={`mailto:${user.email}`}
+              href={`mailto:${authMethods.notificationEmail}`}
               className="text-small text-default-400 tracking-tight hover:text-primary"
             >
-              {user.email}
+              {authMethods.notificationEmail}
             </Link>
           </div>
         )}
