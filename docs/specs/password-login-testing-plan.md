@@ -57,7 +57,7 @@ This testing plan covers the Human Wallet email flow implementation, specificall
 - ✅ Success toast: "Signed in successfully" or similar
 
 **Actual Results:**
-- [ ] Pass / [ ] Fail
+- [x] Pass / [ ] Fail
 
 **Notes:**
 _Record any issues, error messages, or unexpected behavior_
@@ -97,7 +97,7 @@ _Record any issues, error messages, or unexpected behavior_
 - ✅ User sees success message
 
 **Actual Results:**
-- [ ] Pass / [ ] Fail
+- [x] Pass / [ ] Fail
 
 **Notes:**
 _Record DB user ID, before/after values_

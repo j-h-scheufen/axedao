@@ -178,6 +178,26 @@ export const testForAddress = (value: string) => {
   return /^(0x)?[0-9a-f]{40}$/i.test(value || '');
 };
 
+// Reusable password validation field (for required passwords)
+const passwordValidationRules = () =>
+  string()
+    .min(12, 'Password must be at least 12 characters')
+    .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
+    .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
+    .matches(/[0-9]/, 'Password must contain at least one number')
+    .matches(/[!@#$%^&*(),.?":{}|<>]/, 'Password must contain at least one special character');
+
+// Helper for required password field
+export const passwordField = (label = 'Password') => passwordValidationRules().required(`${label} is required`);
+
+// Helper for new password field with confirmation
+export const newPasswordWithConfirmation = () => ({
+  newPassword: passwordField('New password'),
+  confirmPassword: string()
+    .required('Please confirm your new password')
+    .oneOf([ref('newPassword')], 'Passwords must match'),
+});
+
 // Reusable Ethereum address validation field
 export const ethereumAddressField = () =>
   string()
@@ -242,13 +262,7 @@ export type UpdateEventForm = InferType<typeof updateEventFormSchema>;
 // Authentication validation schemas
 export const signupSchema = object({
   email: string().email('Invalid email address').required('Email is required').lowercase().trim(),
-  password: string()
-    .required('Password is required')
-    .min(12, 'Password must be at least 12 characters')
-    .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
-    .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
-    .matches(/[0-9]/, 'Password must contain at least one number')
-    .matches(/[!@#$%^&*(),.?":{}|<>]/, 'Password must contain at least one special character'),
+  password: passwordField(),
 });
 
 export const loginSchema = object({
@@ -262,27 +276,10 @@ export const forgotPasswordSchema = object({
 
 export const resetPasswordSchema = object({
   token: string().required('Token is required'),
-  newPassword: string()
-    .required('New password is required')
-    .min(12, 'Password must be at least 12 characters')
-    .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
-    .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
-    .matches(/[0-9]/, 'Password must contain at least one number')
-    .matches(/[!@#$%^&*(),.?":{}|<>]/, 'Password must contain at least one special character'),
+  newPassword: passwordField('New password'),
 });
 
-export const resetPasswordFormSchema = object({
-  newPassword: string()
-    .required('New password is required')
-    .min(12, 'Password must be at least 12 characters')
-    .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
-    .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
-    .matches(/[0-9]/, 'Password must contain at least one number')
-    .matches(/[!@#$%^&*(),.?":{}|<>]/, 'Password must contain at least one special character'),
-  confirmPassword: string()
-    .required('Please confirm your password')
-    .oneOf([ref('newPassword')], 'Passwords must match'),
-});
+export const resetPasswordFormSchema = object(newPasswordWithConfirmation());
 
 export const walletSignupEmailSchema = object({
   email: string().email('Invalid email address').required('Email is required').lowercase().trim(),
@@ -290,19 +287,20 @@ export const walletSignupEmailSchema = object({
 
 export const changePasswordSchema = object({
   currentPassword: string().required('Current password is required'),
-  newPassword: string()
-    .required('New password is required')
-    .min(12, 'Password must be at least 12 characters')
-    .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
-    .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
-    .matches(/[0-9]/, 'Password must contain at least one number')
-    .matches(/[!@#$%^&*(),.?":{}|<>]/, 'Password must contain at least one special character')
-    .test('passwords-different', 'New password must be different from current password', function (value) {
+  ...newPasswordWithConfirmation(),
+}).shape({
+  newPassword: passwordField('New password').test(
+    'passwords-different',
+    'New password must be different from current password',
+    function (value) {
       return value !== this.parent.currentPassword;
-    }),
-  confirmPassword: string()
-    .required('Please confirm your new password')
-    .oneOf([ref('newPassword')], 'Passwords must match'),
+    }
+  ),
+});
+
+export const setPasswordSchema = object({
+  currentPassword: string().optional(),
+  ...newPasswordWithConfirmation(),
 });
 
 export const linkWalletSchema = object({
@@ -324,5 +322,6 @@ export type ResetPasswordForm = InferType<typeof resetPasswordSchema>;
 export type ResetPasswordFormValues = InferType<typeof resetPasswordFormSchema>;
 export type WalletSignupEmailForm = InferType<typeof walletSignupEmailSchema>;
 export type ChangePasswordForm = InferType<typeof changePasswordSchema>;
+export type SetPasswordForm = InferType<typeof setPasswordSchema>;
 export type LinkWalletForm = InferType<typeof linkWalletSchema>;
 export type RemoveMethodForm = InferType<typeof removeMethodSchema>;

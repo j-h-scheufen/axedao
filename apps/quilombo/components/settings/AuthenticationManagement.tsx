@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   Button,
   Divider,
@@ -20,9 +20,16 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { enqueueSnackbar } from 'notistack';
 import { setCookie } from 'cookies-next';
 
-import { changePasswordSchema, type ChangePasswordForm, type AuthMethod } from '@/config/validation-schema';
+import {
+  changePasswordSchema,
+  setPasswordSchema,
+  type ChangePasswordForm,
+  type SetPasswordForm,
+  type AuthMethod,
+} from '@/config/validation-schema';
 import useAuth from '@/hooks/useAuth';
 import { useFetchAuthMethods } from '@/query/currentUser';
+import { QUERY_KEYS } from '@/query';
 
 import ErrorText from '../ErrorText';
 
@@ -36,13 +43,14 @@ const AuthenticationManagement = () => {
 
   const [authMethodToRemove, setAuthMethodToRemove] = useState<AuthMethod | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const isLinkingWallet = useRef(false);
 
   // Fetch user's current auth methods
   const { data: authMethods, isLoading } = useFetchAuthMethods();
 
-  // Change password mutation
+  // Change/Set password mutation
   const changePasswordMutation = useMutation({
-    mutationFn: async (values: ChangePasswordForm) => {
+    mutationFn: async (values: ChangePasswordForm | SetPasswordForm) => {
       const response = await fetch('/api/auth/change-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -53,8 +61,10 @@ const AuthenticationManagement = () => {
       return data;
     },
     onSuccess: () => {
-      enqueueSnackbar('Password changed successfully', { variant: 'success' });
+      const message = authMethods?.hasPassword ? 'Password changed successfully' : 'Password set successfully';
+      enqueueSnackbar(message, { variant: 'success' });
       changePasswordModal.onClose();
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.currentUser.getAuthMethods] });
       setError(null); // Clear errors on success
     },
     onError: (error: Error) => {
@@ -71,26 +81,35 @@ const AuthenticationManagement = () => {
     await nextAuthSignIn('google', { callbackUrl: window.location.href });
   };
 
-  // Link wallet
+  // Link wallet - triggers wallet connection and sets flag to auto-link when address is available
   const handleLinkWallet = async () => {
     setError(null); // Clear any previous errors
+    isLinkingWallet.current = true;
     await connect();
-    if (address) {
-      // Call API to link wallet
-      try {
-        const response = await fetch('/api/auth/link-wallet', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ walletAddress: address }),
-        });
-        if (!response.ok) throw new Error('Failed to link wallet');
-        queryClient.invalidateQueries({ queryKey: ['auth-methods'] });
-        enqueueSnackbar('Wallet linked successfully', { variant: 'success' });
-      } catch (_err) {
-        setError('Failed to link wallet');
-      }
-    }
   };
+
+  // Auto-link wallet when address becomes available after connecting
+  useEffect(() => {
+    if (isLinkingWallet.current && address && !authMethods?.hasWallet) {
+      const linkWallet = async () => {
+        try {
+          const response = await fetch('/api/auth/link-wallet', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ walletAddress: address }),
+          });
+          if (!response.ok) throw new Error('Failed to link wallet');
+          queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.currentUser.getAuthMethods] });
+          enqueueSnackbar('Wallet linked successfully', { variant: 'success' });
+          isLinkingWallet.current = false;
+        } catch (_err) {
+          setError('Failed to link wallet');
+          isLinkingWallet.current = false;
+        }
+      };
+      linkWallet();
+    }
+  }, [address, authMethods?.hasWallet, queryClient]);
 
   // Remove auth method
   const removeAuthMutation = useMutation({
@@ -106,7 +125,7 @@ const AuthenticationManagement = () => {
     },
     onSuccess: () => {
       enqueueSnackbar('Authentication method removed', { variant: 'success' });
-      queryClient.invalidateQueries({ queryKey: ['auth-methods'] });
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.currentUser.getAuthMethods] });
       removeAuthModal.onClose();
       setAuthMethodToRemove(null);
       setError(null); // Clear errors on success
@@ -322,7 +341,7 @@ const AuthenticationManagement = () => {
           <ModalHeader>{authMethods.hasPassword ? 'Change Password' : 'Set Password'}</ModalHeader>
           <Formik
             initialValues={{ currentPassword: '', newPassword: '', confirmPassword: '' }}
-            validationSchema={changePasswordSchema}
+            validationSchema={authMethods.hasPassword ? changePasswordSchema : setPasswordSchema}
             onSubmit={(values) => changePasswordMutation.mutate(values)}
           >
             {({ errors, touched, isSubmitting, handleChange, handleBlur, values }) => (
