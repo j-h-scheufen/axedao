@@ -62,6 +62,22 @@ const providers = [
         if (result.success) {
           let user = await fetchSessionData(siwe.address);
 
+          // If wallet is already linked to a user, verify email matches
+          // This prevents identity confusion when switching wallet providers
+          if (user && credentials.email) {
+            const existingUser = await db.query.users.findFirst({
+              where: eq(users.id, user.id),
+            });
+
+            // Only allow login if emails match (case-insensitive)
+            if (existingUser?.email && existingUser.email.toLowerCase() !== credentials.email.toLowerCase()) {
+              console.warn(
+                `Wallet ${siwe.address} is linked to ${existingUser.email} but login attempted with ${credentials.email}`
+              );
+              throw new Error(AUTH_ERRORS.REGISTRATION_FAILED);
+            }
+          }
+
           if (!user) {
             // First-time wallet user - require email
             if (!credentials.email) {

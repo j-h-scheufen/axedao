@@ -46,6 +46,10 @@ Quilombo supports three authentication methods that can work together:
 - When linking Google with a different email than your primary, you'll be prompted to:
   - Keep your current primary email and link Google (Google email stored in `oauthAccounts` only)
   - Update your primary email to match Google email (with confirmation modal)
+- **Wallet linking allows the same wallet to be used by multiple accounts** because:
+  - Wallet connection alone doesn't prove ownership (no cryptographic signature)
+  - Real authentication via SIWE requires signing a message with the wallet's private key
+  - This prevents blocking attacks where someone connects a wallet they don't control
 - Wallet linking always preserves the existing primary email
 - Users must maintain at least one authentication method (cannot remove the last method)
 
@@ -55,6 +59,7 @@ Quilombo supports three authentication methods that can work together:
   - Unlink any OAuth accounts using the old email as their provider email
   - Block email changes that conflict with existing OAuth provider emails
 - During account linking, the system validates that you're not accidentally linking to another user's account
+- **SIWE authentication verifies email consistency**: If a wallet is already linked to an account, signing in with that wallet requires the same email address to prevent identity confusion (important if switching wallet providers)
 
 ### User Profiles
 - Customizable profiles with avatars and social links

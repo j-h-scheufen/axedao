@@ -90,11 +90,34 @@ const AuthenticationManagement = () => {
     await nextAuthSignIn('google', { callbackUrl: window.location.href });
   };
 
-  // Link wallet - triggers wallet connection and sets flag to auto-link when address is available
+  // Link wallet - either connects wallet first, or directly links if already connected
   const handleLinkWallet = async () => {
     setError(null); // Clear any previous errors
-    isLinkingWallet.current = true;
-    await connect();
+
+    // If wallet is already connected (from previous session), directly link it
+    if (address) {
+      try {
+        const response = await fetch('/api/auth/link-wallet', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ walletAddress: address }),
+        });
+        const data = await response.json();
+        if (!response.ok) {
+          throw new Error(data.error || 'Failed to link wallet');
+        }
+        queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.currentUser.getAuthMethods] });
+        enqueueSnackbar('Wallet linked successfully', { variant: 'success' });
+      } catch (err) {
+        const errorMessage = err instanceof Error ? err.message : 'Failed to link wallet';
+        enqueueSnackbar(errorMessage, { variant: 'error' });
+        setError(errorMessage);
+      }
+    } else {
+      // No wallet connected yet, trigger connection flow
+      isLinkingWallet.current = true;
+      await connect();
+    }
   };
 
   // Auto-link wallet when address becomes available after connecting
@@ -107,12 +130,17 @@ const AuthenticationManagement = () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ walletAddress: address }),
           });
-          if (!response.ok) throw new Error('Failed to link wallet');
+          const data = await response.json();
+          if (!response.ok) {
+            throw new Error(data.error || 'Failed to link wallet');
+          }
           queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.currentUser.getAuthMethods] });
           enqueueSnackbar('Wallet linked successfully', { variant: 'success' });
           isLinkingWallet.current = false;
-        } catch (_err) {
-          setError('Failed to link wallet');
+        } catch (err) {
+          const errorMessage = err instanceof Error ? err.message : 'Failed to link wallet';
+          enqueueSnackbar(errorMessage, { variant: 'error' });
+          setError(errorMessage);
           isLinkingWallet.current = false;
         }
       };
@@ -330,7 +358,7 @@ const AuthenticationManagement = () => {
                 </Button>
               ) : (
                 <Button size="sm" color="primary" variant="flat" onPress={handleLinkWallet}>
-                  Connect Wallet
+                  {address ? 'Link Wallet Address' : 'Connect Wallet'}
                 </Button>
               )}
             </div>

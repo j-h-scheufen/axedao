@@ -48,8 +48,6 @@ import { users } from '@/db/schema';
  *                   type: string
  *       401:
  *         description: Unauthorized
- *       409:
- *         description: Wallet address already in use
  *       500:
  *         description: Internal server error
  */
@@ -80,14 +78,10 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Wallet already linked to your account' }, { status: 400 });
     }
 
-    // Check if wallet is already used by another user
-    const existingWalletUser = await db.query.users.findFirst({
-      where: eq(users.walletAddress, walletAddress),
-    });
-
-    if (existingWalletUser) {
-      return NextResponse.json({ error: 'Wallet address already in use by another account' }, { status: 409 });
-    }
+    // Note: We allow the same wallet to be linked to multiple accounts because:
+    // 1. Wallet connection alone doesn't prove ownership (no signature verification here)
+    // 2. Real authentication via SIWE requires cryptographic signature
+    // 3. This prevents blocking attacks where someone connects a wallet they don't control
 
     // Link wallet to user
     await db.update(users).set({ walletAddress }).where(eq(users.id, session.user.id));

@@ -209,22 +209,32 @@ const useAuth = () => {
     setState((x) => ({ ...x, loading: true, error: undefined }));
     const silkConnector = connectors.find((connector) => connector.id === 'silk');
     const defaultChain = getDefaultChain();
-    try {
-      // There should already be a silk connector in the wagmi config which also
-      // enables automatic reconnect on page refresh, but if not, we need to use the factory.
-      const connectorToUse = silkConnector || silk(silkInitOptions);
 
-      wagmiConnect({
+    // There should already be a silk connector in the wagmi config which also
+    // enables automatic reconnect on page refresh, but if not, we need to use the factory.
+    const connectorToUse = silkConnector || silk(silkInitOptions);
+
+    // wagmiConnect is not async - it triggers connection and errors are handled via callbacks
+    wagmiConnect(
+      {
         connector: connectorToUse,
         chainId: defaultChain.id,
-      });
-      setState((x) => ({ ...x, loading: false }));
-    } catch (error) {
-      console.error('Error connecting to wallet:', error);
-      if (error instanceof UserRejectedRequestError)
-        enqueueSnackbar('Operation cancelled by user.', { variant: 'info' });
-      else setState((x) => ({ ...x, loading: false, error: error as Error }));
-    }
+      },
+      {
+        onSuccess: () => {
+          setState((x) => ({ ...x, loading: false }));
+        },
+        onError: (error) => {
+          console.error('Error connecting to wallet:', error);
+          if (error instanceof UserRejectedRequestError) {
+            enqueueSnackbar('Connecting wallet cancelled by user', { variant: 'info' });
+            setState((x) => ({ ...x, loading: false }));
+          } else {
+            setState((x) => ({ ...x, loading: false, error }));
+          }
+        },
+      }
+    );
   };
 
   return { signIn, signInWithPassword, logout, connect, connectError, state };

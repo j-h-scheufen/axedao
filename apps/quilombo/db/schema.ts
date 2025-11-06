@@ -57,7 +57,9 @@ export const users = pgTable(
     index('title_idx').on(t.title),
     index('group_idx').on(t.groupId),
     uniqueIndex('email_idx').on(t.email),
-    uniqueIndex('wallet_address_idx').on(t.walletAddress),
+    // Note: walletAddress is NOT unique - same wallet can be linked to multiple accounts
+    // Wallet connection doesn't prove ownership, only SIWE signature does
+    index('wallet_address_idx').on(t.walletAddress),
   ]
 );
 
