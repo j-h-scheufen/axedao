@@ -13,13 +13,14 @@ import {
   Input,
   useDisclosure,
 } from '@heroui/react';
-import { signIn as nextAuthSignIn } from 'next-auth/react';
+import { signIn as nextAuthSignIn, useSession } from 'next-auth/react';
 import { useAccount } from 'wagmi';
 import { Formik, Form } from 'formik';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { enqueueSnackbar } from 'notistack';
 import { setCookie } from 'cookies-next';
 
+import { AUTH_COOKIES } from '@/config/constants';
 import {
   changePasswordSchema,
   setPasswordSchema,
@@ -34,6 +35,7 @@ import { QUERY_KEYS } from '@/query';
 import ErrorText from '../ErrorText';
 
 const AuthenticationManagement = () => {
+  const { data: session } = useSession();
   const { address } = useAccount();
   const { connect } = useAuth();
   const queryClient = useQueryClient();
@@ -76,8 +78,15 @@ const AuthenticationManagement = () => {
   const handleLinkGoogle = async () => {
     setError(null); // Clear any previous errors
     linkGoogleModal.onClose();
-    // Set cookie to indicate this is intentional linking from Settings
-    setCookie('quilombo_google_linking', 'true', { maxAge: 300 }); // 5 minutes
+
+    if (!session?.user?.id) {
+      setError('No active session found');
+      return;
+    }
+
+    // Set cookies to indicate this is intentional linking from Settings by logged-in user
+    setCookie(AUTH_COOKIES.GOOGLE_LINKING, 'true', { maxAge: 300 }); // 5 minutes
+    setCookie(AUTH_COOKIES.GOOGLE_LINKING_USER, session.user.id, { maxAge: 300 }); // 5 minutes
     await nextAuthSignIn('google', { callbackUrl: window.location.href });
   };
 

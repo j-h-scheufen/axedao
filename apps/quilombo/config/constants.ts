@@ -76,6 +76,13 @@ export const AUTH_ERRORS = {
   ACCOUNT_EXISTS: 'ACCOUNT_EXISTS',
 } as const;
 
+// Authentication cookie names
+export const AUTH_COOKIES = {
+  GOOGLE_LINKING: 'quilombo_google_linking',
+  GOOGLE_LINKING_USER: 'quilombo_google_linking_user',
+  PENDING_OAUTH_LINK: 'quilombo_pending_oauth_link',
+} as const;
+
 // Account statuses for user accounts
 export const accountStatuses = ['pending_verification', 'active', 'disabled'] as const;
 export type AccountStatus = (typeof accountStatuses)[number];

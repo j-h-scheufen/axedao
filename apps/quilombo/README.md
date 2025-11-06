@@ -14,6 +14,48 @@ Quilombo is the main DApp of the Axé DAO ecosystem, providing a feature-rich pl
 - **Google OAuth**: Quick signup with Google account
 - **Account Linking**: Connect multiple auth methods to one account
 
+#### Authentication Methods & Primary Email
+
+Quilombo supports three authentication methods that can work together:
+
+1. **Email/Password**: Traditional authentication with bcrypt-hashed passwords
+2. **Google OAuth**: Social login with automatic email verification
+3. **Human Wallet (SIWE)**: Web3 authentication using Sign-In-With-Ethereum
+
+**Primary Email Concept**:
+- Every user account has a **primary email** (`users.email`) used for notifications, account recovery, and user identification
+- The primary email determines which user profile is loaded during login
+- Only one user can have a specific email as their primary email (enforced by unique DB constraint)
+
+**How Primary Email is Set**:
+
+| Scenario | Primary Email Behavior |
+|----------|------------------------|
+| **Sign up with Email/Password** | Primary email = the email you registered with |
+| **Sign up with Google OAuth** | Primary email = your Google account email |
+| **Sign up with Wallet (SIWE)** | Primary email = email from Human Wallet (user must provide) |
+| **Link Google OAuth (matching email)** | Primary email remains unchanged |
+| **Link Google OAuth (different email)** | User is prompted to confirm if they want to update primary email to Google email (only if that email is not taken by another user) |
+| **Link Wallet after sign-up** | Primary email remains unchanged (wallet linking doesn't overwrite existing email) |
+
+**Account Linking Rules**:
+- Users can link multiple authentication methods to one account
+- Google OAuth can only be linked if:
+  - The Google email is not already registered as another user's primary email
+  - The Google OAuth account is not already linked to another user
+- When linking Google with a different email than your primary, you'll be prompted to:
+  - Keep your current primary email and link Google (Google email stored in `oauthAccounts` only)
+  - Update your primary email to match Google email (with confirmation modal)
+- Wallet linking always preserves the existing primary email
+- Users must maintain at least one authentication method (cannot remove the last method)
+
+**Important Security Notes**:
+- Primary email cannot be changed manually (only through the OAuth linking flow described above)
+- If we add manual email change functionality in the future, we'll need to either:
+  - Unlink any OAuth accounts using the old email as their provider email
+  - Block email changes that conflict with existing OAuth provider emails
+- During account linking, the system validates that you're not accidentally linking to another user's account
+
 ### User Profiles
 - Customizable profiles with avatars and social links
 - Public/private visibility controls
@@ -276,7 +318,10 @@ For detailed architecture documentation, see [`.claude/CLAUDE.md`](./.claude/CLA
 | POST | `/api/auth/change-password` | Change password |
 | GET | `/api/auth/methods` | Get auth methods for user |
 | POST | `/api/auth/link-wallet` | Link wallet to account |
-| DELETE | `/api/auth/remove-method` | Remove auth method |
+| POST | `/api/auth/remove-method` | Remove auth method |
+| GET | `/api/auth/oauth-link` | Get pending OAuth link data |
+| POST | `/api/auth/oauth-link` | Confirm OAuth account linking |
+| DELETE | `/api/auth/oauth-link` | Cancel pending OAuth link |
 | **Users** |
 | GET | `/api/users` | Search users |
 | GET | `/api/users/[userId]` | Get user by ID |

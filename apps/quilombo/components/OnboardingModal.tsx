@@ -3,30 +3,45 @@
 import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from '@heroui/react';
 import { useAtomValue } from 'jotai';
 import { useCallback, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 import { PATHS } from '@/config/constants';
 import { currentUserAtom } from '@/hooks/state/currentUser';
 import { getCookie, setCookie } from 'cookies-next';
 import { useRouter } from 'next/navigation';
 
+// Pages where it's appropriate to show the onboarding modal
+const ONBOARDING_ALLOWED_PATHS = [PATHS.profile, PATHS.search];
+
 /**
  * This modal automatically opens on first login (and page reload) if the user hasn't filled out
  * at least a name or nickname. It sets a cookie that expires after 24 hours to prevent the modal from
  * showing up again. If the user still hasn't completed the described fields after that
  * time, the modal would be displayed again.
+ *
+ * The modal will NOT show if the user is on a page other than common landing pages,
+ * as they may have been redirected there via callbackUrl and we shouldn't interrupt
+ * their intended navigation flow.
  */
 const OnboardingModal = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const router = useRouter();
+  const pathname = usePathname();
   const { data: user } = useAtomValue(currentUserAtom);
 
   useEffect(() => {
     if (user && !user.name && !user.nickname) {
       const skipOnboarding = getCookie('quilombo.skipOnboarding');
       if (skipOnboarding === 'true') return;
+
+      // Only show modal on common landing pages, not when user is accessing specific content
+      // This prevents interrupting users who were redirected via callbackUrl
+      const isAllowedPath = ONBOARDING_ALLOWED_PATHS.includes(pathname);
+      if (!isAllowedPath) return;
+
       onOpen();
     }
-  }, [user, onOpen]);
+  }, [user, onOpen, pathname]);
 
   const handleClose = useCallback(
     async (target: string) => {
