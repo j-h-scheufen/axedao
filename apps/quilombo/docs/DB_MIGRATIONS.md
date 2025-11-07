@@ -18,7 +18,7 @@ Your project now has **two separate migration workflows**:
    - Runs migrations on **production database**
    - Uses `PRODUCTION_DATABASE_URL` secret
    - Script: `pnpm migrate:production`
-   - Triggers Vercel deployment after success
+   - Vercel auto-deploys via Git integration after workflow succeeds
 
 ## Why Two Workflows?
 
@@ -119,7 +119,6 @@ Add these secrets:
 |------------|---------|-------|
 | `STAGING_DATABASE_URL` | Staging workflow | Supabase staging DB connection string |
 | `PRODUCTION_DATABASE_URL` | Production workflow | Supabase production DB connection string |
-| `VERCEL_DEPLOY_HOOK_URL` | Production workflow | Vercel deploy hook URL (optional) |
 
 ### Connection String Format
 
