@@ -243,6 +243,7 @@ Both workflows include:
 - ✅ **Rollback instructions** - Provides detailed recovery steps on failure
 - ✅ **Deployment blocking** - Stops Vercel deploy if migration fails (production only)
 - ✅ **Detailed logging** - Full audit trail in GitHub Actions
+- ✅ **Minimal dependencies** - Uses `db/connection.ts` to avoid loading full app configuration
 
 ## Related Documentation
 
