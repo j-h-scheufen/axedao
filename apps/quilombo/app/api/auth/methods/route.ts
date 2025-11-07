@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
-import { eq } from 'drizzle-orm';
+import { eq, and } from 'drizzle-orm';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { db } from '@/db';
@@ -56,7 +56,7 @@ export async function GET() {
 
     // Check for Google OAuth account
     const googleAccount = await db.query.oauthAccounts.findFirst({
-      where: eq(oauthAccounts.userId, session.user.id),
+      where: and(eq(oauthAccounts.userId, session.user.id), eq(oauthAccounts.provider, 'google')),
     });
 
     // Determine contact email: users.email takes priority, fallback to Google email

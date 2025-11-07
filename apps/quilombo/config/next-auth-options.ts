@@ -6,7 +6,7 @@ import { SiweMessage } from 'siwe';
 import { v4 as uuidv4 } from 'uuid';
 import { sql, eq, and } from 'drizzle-orm';
 
-import { PATHS, AUTH_ERRORS, accountStatuses } from '@/config/constants';
+import { PATHS, AUTH_ERRORS, AUTH_COOKIES, accountStatuses } from '@/config/constants';
 import ENV from '@/config/environment';
 import { db, fetchSessionData, insertUser } from '@/db';
 import { users, oauthAccounts } from '@/db/schema';
@@ -61,6 +61,22 @@ const providers = [
 
         if (result.success) {
           let user = await fetchSessionData(siwe.address);
+
+          // If wallet is already linked to a user, verify email matches
+          // This prevents identity confusion when switching wallet providers
+          if (user && credentials.email) {
+            const existingUser = await db.query.users.findFirst({
+              where: eq(users.id, user.id),
+            });
+
+            // Only allow login if emails match (case-insensitive)
+            if (existingUser?.email && existingUser.email.toLowerCase() !== credentials.email.toLowerCase()) {
+              console.warn(
+                `Wallet ${siwe.address} is linked to ${existingUser.email} but login attempted with ${credentials.email}`
+              );
+              throw new Error(AUTH_ERRORS.REGISTRATION_FAILED);
+            }
+          }
 
           if (!user) {
             // First-time wallet user - require email
@@ -212,6 +228,12 @@ export const nextAuthOptions: AuthOptions = {
         if (!email) return false;
 
         try {
+          // CRITICAL: Check if this is intentional linking from Settings FIRST
+          // This must be done before any other logic to prevent account switching
+          const cookieStore = await cookies();
+          const isLinking = cookieStore.get(AUTH_COOKIES.GOOGLE_LINKING)?.value === 'true';
+          const linkingUserId = cookieStore.get(AUTH_COOKIES.GOOGLE_LINKING_USER)?.value;
+
           // Check if oauth account already exists
           const existingOAuth = await db.query.oauthAccounts.findFirst({
             where: and(
@@ -221,7 +243,14 @@ export const nextAuthOptions: AuthOptions = {
           });
 
           if (existingOAuth) {
-            // OAuth account already linked, fetch user for session
+            // If we're in linking mode and this OAuth belongs to another user, BLOCK IT
+            if (isLinking && existingOAuth.userId !== linkingUserId) {
+              cookieStore.delete(AUTH_COOKIES.GOOGLE_LINKING);
+              cookieStore.delete(AUTH_COOKIES.GOOGLE_LINKING_USER);
+              return `/settings?error=${encodeURIComponent('This Google account is already linked to another user.')}`;
+            }
+
+            // OAuth account already linked, fetch user for session (for regular login)
             const existingUser = await db.query.users.findFirst({
               where: eq(users.id, existingOAuth.userId),
             });
@@ -232,7 +261,100 @@ export const nextAuthOptions: AuthOptions = {
             }
           }
 
-          // Check if user exists by email
+          if (isLinking) {
+            cookieStore.delete(AUTH_COOKIES.GOOGLE_LINKING);
+            cookieStore.delete(AUTH_COOKIES.GOOGLE_LINKING_USER);
+
+            // When linking from Settings, ONLY link to the currently logged-in user
+            if (linkingUserId) {
+              const currentUser = await db.query.users.findFirst({
+                where: eq(users.id, linkingUserId),
+              });
+
+              if (currentUser) {
+                // Check if Google email is already used by another user as their primary email
+                // NOTE: Currently users.email always matches the OAuth provider email for OAuth sign-ups,
+                // since manual email changes are not supported. If we add manual email change functionality
+                // in the future, we'll need to either unlink OAuth accounts or block email changes that
+                // conflict with existing OAuth provider emails.
+                const emailOwner = await db.query.users.findFirst({
+                  where: sql`LOWER(${users.email}) = LOWER(${email})`,
+                });
+
+                if (emailOwner && emailOwner.id !== currentUser.id) {
+                  // Google email belongs to different user - cannot link
+                  return `/settings?error=${encodeURIComponent(
+                    'This Google account email is already registered to another user. Please use a different Google account.'
+                  )}`;
+                }
+
+                // Check if this Google OAuth is already linked to another user
+                const existingOAuthLink = await db.query.oauthAccounts.findFirst({
+                  where: and(
+                    eq(oauthAccounts.provider, 'google'),
+                    eq(oauthAccounts.providerUserId, account.providerAccountId)
+                  ),
+                });
+
+                if (existingOAuthLink && existingOAuthLink.userId !== currentUser.id) {
+                  // This Google account is already linked to a different user
+                  return `/settings?error=${encodeURIComponent(
+                    'This Google account is already linked to another user.'
+                  )}`;
+                }
+
+                // Check for email mismatch between current user's email and Google email
+                const emailMismatch = currentUser.email && currentUser.email.toLowerCase() !== email.toLowerCase();
+
+                if (emailMismatch) {
+                  // Store OAuth data in secure cookie for user confirmation
+                  // This avoids exposing sensitive data in URL params and prevents double OAuth flow
+                  cookieStore.set(
+                    AUTH_COOKIES.PENDING_OAUTH_LINK,
+                    JSON.stringify({
+                      provider: 'google',
+                      providerUserId: account.providerAccountId,
+                      email: email,
+                      providerEmail: profile?.email || email,
+                      currentEmail: currentUser.email,
+                    }),
+                    {
+                      httpOnly: true,
+                      secure: process.env.NODE_ENV === 'production',
+                      sameSite: 'lax',
+                      maxAge: 300, // 5 minutes
+                    }
+                  );
+
+                  // Redirect to settings to show confirmation modal
+                  return '/settings?confirm_email_update=true';
+                }
+
+                // No email mismatch - link directly
+                await db.insert(oauthAccounts).values({
+                  userId: currentUser.id,
+                  provider: 'google',
+                  providerUserId: account.providerAccountId,
+                  providerEmail: email,
+                });
+
+                user.id = currentUser.id;
+                return true;
+              }
+            }
+
+            // If we're in linking mode but didn't find a user to link to, block the flow
+            // This prevents falling through to the auto-link logic below
+            return `/settings?error=${encodeURIComponent('Unable to link Google account. Please try again.')}`;
+          }
+
+          // CRITICAL: If we reach here and isLinking is true, something went wrong
+          // Block any auto-linking when in linking mode to prevent account switching
+          if (isLinking) {
+            return `/settings?error=${encodeURIComponent('Unable to link Google account. Please try again.')}`;
+          }
+
+          // Check if user exists by email (for login/signup flows, not linking)
           const existingUser = await db.query.users.findFirst({
             where: sql`LOWER(${users.email}) = LOWER(${email})`,
           });
@@ -243,14 +365,6 @@ export const nextAuthOptions: AuthOptions = {
             // This handles cases where:
             // 1. User signed up with email/pwd but never verified → Google OAuth activates account
             // 2. User has active email/pwd account → adds Google OAuth as additional auth method
-            // 3. User is intentionally linking from Settings (cookie-based flow still works)
-
-            // Check if this is intentional linking from Settings (optional cleanup)
-            const cookieStore = await cookies();
-            const isLinking = cookieStore.get('quilombo_google_linking')?.value === 'true';
-            if (isLinking) {
-              cookieStore.delete('quilombo_google_linking');
-            }
 
             const wasInactive = existingUser.accountStatus === accountStatuses[0]; // pending_verification
 

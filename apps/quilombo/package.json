@@ -9,6 +9,8 @@
     "dev": "next dev",
     "db:generate": "pnpm drizzle-kit generate",
     "db:migrate": "pnpm drizzle-kit migrate",
+    "migrate:staging": "tsx scripts/db-migrate-staging.ts",
+    "migrate:production": "tsx scripts/db-migrate-production.ts",
     "wagmi:generate": "wagmi generate",
     "build": "next build",
     "start": "next start",
@@ -81,7 +83,8 @@
     "drizzle-kit": "0.31.5",
     "postcss": "8.5.6",
     "postcss-preset-env": "10.2.4",
-    "tailwindcss": "4.1.14"
+    "tailwindcss": "4.1.14",
+    "tsx": "^4.20.6"
   },
   "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee"
 }

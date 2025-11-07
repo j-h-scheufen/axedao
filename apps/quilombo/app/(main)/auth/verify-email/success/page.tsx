@@ -13,7 +13,7 @@ const VerifyEmailSuccessPage = () => {
   useEffect(() => {
     // Auto-redirect after 3 seconds
     const timeout = setTimeout(() => {
-      router.push(PATHS.profile);
+      router.push(PATHS.login);
     }, 3000);
 
     return () => clearTimeout(timeout);
@@ -26,10 +26,10 @@ const VerifyEmailSuccessPage = () => {
       </div>
       <h2 className="text-3xl text-success font-semibold">Email Verified!</h2>
       <p className="text-default-600">Your email has been successfully verified.</p>
-      <p className="text-default-500 text-sm">Redirecting you to your profile...</p>
+      <p className="text-default-500 text-sm">Redirecting you to login...</p>
 
-      <Button color="primary" onPress={() => router.push(PATHS.profile)} className="mt-4">
-        Go to Profile Now
+      <Button color="primary" onPress={() => router.push(PATHS.login)} className="mt-4">
+        Go to Login
       </Button>
     </div>
   );

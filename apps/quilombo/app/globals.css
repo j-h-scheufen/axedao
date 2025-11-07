@@ -124,4 +124,41 @@
   .pt-responsive {
     @apply pt-2 sm:pt-4;
   }
+
+  /* Notistack toast notifications - restore styling lost in Tailwind 4 reset */
+  .notistack-SnackbarContainer {
+    pointer-events: none;
+  }
+
+  .notistack-Snackbar {
+    pointer-events: auto;
+  }
+
+  .notistack-MuiContent {
+    @apply px-4 py-3 rounded-lg shadow-lg;
+    @apply flex items-center gap-2;
+    @apply font-medium text-sm;
+    @apply sm:px-6 sm:py-4 sm:text-base;
+    min-width: 288px;
+  }
+
+  .notistack-MuiContent-default {
+    @apply bg-default-100 text-default-900;
+  }
+
+  .notistack-MuiContent-success {
+    @apply bg-success text-success-foreground;
+  }
+
+  .notistack-MuiContent-error {
+    @apply bg-danger text-danger-foreground;
+  }
+
+  .notistack-MuiContent-warning {
+    @apply bg-warning text-warning-foreground;
+  }
+
+  .notistack-MuiContent-info {
+    @apply bg-primary text-primary-foreground;
+  }
 }
