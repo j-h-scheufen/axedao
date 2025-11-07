@@ -42,45 +42,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Check for schema changes
-        id: check_changes
-        run: |
-          echo "Checking for database schema changes..."
-
-          # Check if there are new migration files or schema changes
-          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD)
-          echo "Changed files:"
-          echo "$CHANGED_FILES"
-
-          if echo "$CHANGED_FILES" | grep -qE "apps/quilombo/db/(migrations|schema\.ts)"; then
-            echo "has_changes=true" >> $GITHUB_OUTPUT
-            echo "✓ Database changes detected"
-          else
-            echo "has_changes=false" >> $GITHUB_OUTPUT
-            echo "ℹ No database changes detected"
-          fi
-
-      - name: Verify migration files exist
-        if: steps.check_changes.outputs.has_changes == 'true'
-        working-directory: apps/quilombo
-        run: |
-          if [ ! -d "db/migrations" ]; then
-            echo "❌ Migration directory not found"
-            exit 1
-          fi
-
-          MIGRATION_COUNT=$(ls -1 db/migrations/*.sql 2>/dev/null | wc -l)
-          echo "Found $MIGRATION_COUNT migration file(s)"
-
-          if [ "$MIGRATION_COUNT" -eq 0 ]; then
-            echo "❌ No migration files found"
-            exit 1
-          fi
-
-          echo "✓ Migration files verified"
-
       - name: Run production migrations
-        if: steps.check_changes.outputs.has_changes == 'true'
         working-directory: apps/quilombo
         env:
           DATABASE_URL: ${{ secrets.PRODUCTION_DATABASE_URL }}
@@ -108,7 +70,7 @@ jobs:
           echo "✅ Migration completed successfully"
 
       - name: Create migration report
-        if: always() && steps.check_changes.outputs.has_changes == 'true'
+        if: always()
         run: |
           echo "# Migration Report" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY

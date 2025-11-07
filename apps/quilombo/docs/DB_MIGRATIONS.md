@@ -14,6 +14,7 @@ Your project now has **two separate migration workflows**:
 
 2. **Production Workflow** (`.github/workflows/db-migrate-production.yml`)
    - Triggers on push to `main` branch
+   - **Always runs migrations** (drizzle-kit handles "already applied" gracefully)
    - Runs migrations on **production database**
    - Uses `PRODUCTION_DATABASE_URL` secret
    - Script: `pnpm migrate:production`
