@@ -2,9 +2,9 @@ name: Claude Code PR Review
 
 on:
   pull_request:
-    types: [opened, synchronize, ready_for_review, reopened]
+    types: [ready_for_review]
     branches:
-      - main
+      - develop
 
 jobs:
   code-review:
