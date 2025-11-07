@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [opened, synchronize, ready_for_review, reopened]
     branches:
-      - develop
+      - main
 
 jobs:
   code-review:
@@ -24,6 +24,7 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          permission_mode: always_allow
           show_full_output: true
           prompt: |
             REPO: ${{ github.repository }}
