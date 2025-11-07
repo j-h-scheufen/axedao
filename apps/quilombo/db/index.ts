@@ -210,12 +210,8 @@ export async function fetchGroupAdminIds(groupId: string): Promise<string[]> {
 }
 
 export async function insertUser(userValues: schema.InsertUser) {
-  const rows = await db
-    .insert(schema.users)
-    .values(userValues)
-    .returning({ id: schema.users.id, createdAt: schema.users.createdAt, updatedAt: schema.users.updatedAt });
-  const user = { ...userValues, ...rows[0] };
-  return user;
+  const rows = await db.insert(schema.users).values(userValues).returning();
+  return rows[0];
 }
 
 export async function insertGroup(group: schema.InsertGroup): Promise<Group | undefined> {

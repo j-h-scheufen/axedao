@@ -9,174 +9,235 @@
 
 # Axé DAO
 
-## Local Development
+**Building a decentralized autonomous organization for the global Capoeira community**
 
-To be able to use a Hardhat local node that is a fork of a test network with DaoHaus / Moloch / Axé DAO contracts already deployed, the chain ID is set to 1337. The same ID should be configured in Metamask.
+Axé DAO combines blockchain technology with community governance to create a transparent, inclusive platform for Capoeira practitioners worldwide. This monorepo contains the smart contracts, DApp, and supporting infrastructure for the Axé DAO ecosystem.
 
-See hardhat.config.ts:
+## 🌍 Project Overview
 
-```json
-  networks: {
-    hardhat: {
-      chainId: 1337,
-      ...
-    }
-  }
+Axé DAO empowers Capoeira communities through:
+
+- **Decentralized Governance**: Moloch v3-based DAO for transparent community decision-making
+- **Community Platform**: Connect with practitioners, groups, and events globally
+- **Token Economics**: AXE token for participation and governance
+- **Membership NFTs**: On-chain representation of community roles and achievements
+
+## 📦 Monorepo Structure
+
+This is a pnpm monorepo containing:
+
+| Package | Description | Tech Stack |
+|---------|-------------|------------|
+| [`apps/quilombo`](./apps/quilombo) | Main DApp for community features | Next.js, React, Wagmi, Drizzle ORM |
+| [`apps/www`](./apps/www) | Public marketing website | Next.js, i18next |
+| [`packages/contracts`](./packages/contracts) | Smart contracts for AXE token and DAO | Solidity, Foundry, Hardhat |
+| [`packages/subgraph-moloch-v3`](./packages/subgraph-moloch-v3) | GraphQL API for DAO data | The Graph |
+
+> **Note**: For current package versions, refer to the respective `package.json` files in each package directory.
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- **Node.js**: >=20.0.0 (see `engines` in root [package.json](./package.json))
+- **pnpm**: (see `packageManager` in root [package.json](./package.json))
+- **Foundry**: (for smart contracts)
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/j-h-scheufen/axedao.git
+cd axedao
+
+# Install dependencies
+pnpm install
+
+# Build all packages
+pnpm build
 ```
 
-In Metamask configure the localhost network:
+### Development
 
-!['MetaMask Localhost Network Settings'](/docs/images/metamask-localhost-network.png)
+```bash
+# Run Quilombo DApp (port 8080)
+pnpm dev:app
 
-## Testing
+# Run public website (port 3000)
+pnpm dev:www
 
-Start a local node via
+# Run all tests
+pnpm test
 
-```shell
-FORK=true npx hardhat node
+# Lint all packages
+pnpm lint
+
+# Format all code
+pnpm format
 ```
 
-### Unit Tests
+For package-specific commands and detailed setup instructions, see each package's README:
+- [Quilombo DApp](./apps/quilombo/README.md)
+- [Public Website](./apps/www/README.md)
+- [Smart Contracts](./packages/contracts/README.md)
 
-Unit tests are executed on every build via `pnpm test`. Note that test contracts named "\*IntegrationTest" are not included.
+## 🏗️ Architecture
 
-### Integration Tests
+### Technology Stack
 
-To run the integration tests, start a local anvil node and run `export TEST_MODE=integration && forge test --match-contract IntegrationTest`.
+**Frontend**:
+- Next.js App Router with React Server Components
+- HeroUI component library + Tailwind CSS
+- TypeScript for type safety
 
-## Deployment
+**Web3**:
+- Wagmi + Viem for Ethereum interactions
+- Silk Wallet SDK for embedded wallet support
+- Moloch v3 DAO framework
 
-The deploy scripts are written in Solidity to generate the bytecode which is deployed via the [Create3Factory]('https://github.com/lifinance/create3-factory') available at `0x93FEC2C00BfE902F733B57c5a6CeeD7CD1384AE1` on all chains.
+**Backend**:
+- PostgreSQL with PostGIS for geospatial data
+- Drizzle ORM for type-safe database access
+- NextAuth for multi-provider authentication
 
-### Pre-Requisites
+**Smart Contracts**:
+- Solidity
+- Foundry for testing and deployment
+- OpenZeppelin contracts
+- Create3Factory for deterministic addresses
 
-To avoid exposing the private key of the deployer account, it can be added to Forge's encrypted keystore:
+### Key Features
 
-```shell
-cast wallet import axe-deployer --interactive
+- **Multi-Provider Authentication**: SIWE wallet auth, email/password, Google OAuth
+- **Geospatial Mapping**: Find groups and events using PostGIS
+- **State Management**: Jotai atoms + React-Query for efficient data fetching
+- **Type Safety**: End-to-end TypeScript from frontend to database
+- **Mobile-First Design**: Responsive UI optimized for all devices
+
+## 🤝 Contributing
+
+We welcome contributions from the community! Whether you're a developer, designer, or Capoeira practitioner, there are many ways to get involved.
+
+### Development Setup
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Make your changes
+4. Run tests: `pnpm test`
+5. Commit using conventional commits: `git commit -m "feat: add amazing feature"`
+6. Push to your fork: `git push origin feature/amazing-feature`
+7. Open a Pull Request
+
+### Commit Convention
+
+We use [Conventional Commits](https://www.conventionalcommits.org/):
+
+- `feat:` New features
+- `fix:` Bug fixes
+- `docs:` Documentation changes
+- `chore:` Maintenance tasks
+- `test:` Test additions or changes
+- `refactor:` Code refactoring
+
+### Code Style
+
+- **JavaScript/TypeScript**: Biome for linting and formatting
+- **Solidity**: Prettier with solidity plugin
+- Pre-commit hooks enforce style automatically
+
+### Testing
+
+```bash
+# Run all unit tests
+pnpm test
+
+# Smart contract tests
+cd packages/contracts
+forge test
+
+# Integration tests (requires local DB)
+cd apps/quilombo
+pnpm db:migrate
+pnpm test
 ```
 
-### Deployment (with Forge)
+## 📚 Documentation
 
-BUG ALERT:The UX around key-management in Foundry is lacking. For the time being, you MUST specify the public address of the wallet to use via `--sender 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B`, otherwise the Forge deploy script ignores the `--account` parameter and uses the default account to `startBroadcast()`! (See https://github.com/foundry-rs/foundry/issues/6034)
+- [Quilombo DApp Documentation](./apps/quilombo/README.md)
+- [Smart Contracts Documentation](./packages/contracts/README.md)
+- [Public Website Documentation](./apps/www/README.md)
+- [Contributing Guidelines](./CONTRIBUTING.md) _(coming soon)_
+- [Code of Conduct](./CODE_OF_CONDUCT.md) _(coming soon)_
 
-#### Requirements
+## 🌐 Deployments
 
-ENV vars need to be available in the shell and can be set in front of the command in the commandline or exported:
+### Sepolia Testnet
 
-```shell
-export ETHERSCAN_API_KEY=XXXXXXXXXX
-export HTTPS_PROVIDER_URL_SEPOLIA=XXXXXXXXXXX
-```
+- **AXESource Token**: [`0xaE8F6454fa13EbA1Be4ea60019d1bd34F9D04895`](https://sepolia.etherscan.io/address/0xaE8F6454fa13EbA1Be4ea60019d1bd34F9D04895)
+- **AxeUSD Test Token**: `0xD44Eb94380bff68a827604fDb2dA7b0A3Ec6Ad0B`
+- **UniswapV2Factory**: `0xAB5db096E5d2d79434ADC48B8D34f878dD7Fa0b0`
+- **UniswapV2Router02**: `0xEF5aC450A41A39ef8A652C154318b3c8902ed86E`
 
-HINT: Alternatively to settings ENV vars like `ETHERSCAN_API_KEY` in the shell, set them in your local `.env.local` and export them into a shell session with `export $(grep -v '^#' .env.local | xargs)`. Make sure there are no whitespaces in the declarations in the file (example: `ETHERSCAN_API_KEY=XXX`).
+### Production
 
-Example how Axé is deployed to a network like Sepolia, if it doesn't exist there, yet:
+_Coming soon_
 
-1. Start a local node that is forked from Sepolia.
-   The Axé DAO on Sepolia was created in block 5327951 ([TxReceipt](https://sepolia.etherscan.io/tx/0xc69d904e77106520193ac9821087bb628b923fb3beb0788a70ed444c3f7d61ad))
+## 🛠️ Tech Stack Details
 
-```shell
-anvil --fork-url $HTTPS_PROVIDER_URL_SEPOLIA --fork-block-number 5352114
-```
+### Frontend Libraries
 
-2. Run the the deploy script against the local node
+- **UI Framework**: HeroUI
+- **Styling**: Tailwind CSS
+- **State Management**: Jotai
+- **Data Fetching**: TanStack Query
+- **Forms**: Formik + Yup
+- **Web3**: Wagmi + Viem
+- **Authentication**: NextAuth
+- **Internationalization**: i18next (www)
 
-```shell
-forge script scripts/deploy-AXE.s.sol:Deploy --rpc-url http://localhost:8545 --account axe-deployer --sender 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B --broadcast -vvv
-```
+### Backend Libraries
 
-3. After verifying local deployment, simulate the deployment against the target network:
+- **Database**: PostgreSQL with PostGIS extension
+- **ORM**: Drizzle ORM
+- **Image Processing**: Sharp
+- **Email**: Mailjet integration
 
-```shell
-forge script scripts/deploy-AXE.s.sol:Deploy --fork-url $HTTPS_PROVIDER_URL_SEPOLIA --account axe-deployer --sender 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B -vvv --verify
-```
+### Smart Contract Dependencies
 
-When all looks good, add the `--broadcast` flag and run for final deployment.
+- **Framework**: Foundry/Forge
+- **DAO**: DaoHaus Baal Contracts
+- **Tokens**: OpenZeppelin
+- **DEX**: Uniswap V2 Core & Periphery
 
-### Contract verification
+> **Note**: For current package versions, refer to the `package.json` files in each package directory.
 
-If you're not using the `--verify` parameter when deploying (see above) you can manually verify the contract afterwards:
+## 📄 License
 
-```shell
-forge verify-contract \
---chain-id 11155111 \
---num-of-optimizations 200 \
---constructor-args $(cast abi-encode "constructor(address,address)" 0xee2ac838c83e5d6bf6eb1c8a425c007345ace39e 0x6EF543d0Cce1171F696f82cB6f698133037d5b32) \
---etherscan-api-key $ETHERSCAN_API_KEY \
---compiler-version 0.8.24+commit.e11b9ed9 \
---watch \
-0xaE8F6454fa13EbA1Be4ea60019d1bd34F9D04895 \
-contracts/AXESource.sol:AXESource
-```
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
-Another example:
+## 🙏 Acknowledgments
 
-```shell
-forge verify-contract \
---chain-id 11155111 \
---num-of-optimizations 200 \
---constructor-args $(cast abi-encode "constructor(address,address,address,uint256,uint256,string)" 0xee2ac838c83e5d6bf6eb1c8a425c007345ace39e 0x114D5F3904dB2b4635528C08b1687ECB5468EE17 0xD44Eb94380bff68a827604fDb2dA7b0A3Ec6Ad0B 10000000000000000000 100000000000000 ipfs://Qmb6cxks2ZMfWTXravK5RHf7LYLRYrtgxL14Zg47hFNxjU/quilombo-early-design.json) \
---etherscan-api-key $ETHERSCAN_API_KEY \
---compiler-version v0.8.24+commit.e11b9ed9 \
---watch \
-0x4970C6Fd50B846A0E3686484d1D0C43157547E82 \
-contracts/tokens/MembershipCouncil.sol:MembershipCouncil
-```
+- [Moloch DAO](https://molochdao.com/) for the governance framework
+- [DaoHaus](https://daohaus.club/) for Baal contracts and tooling
+- The global Capoeira community for inspiration and support
 
-You can find out the compiler version for a contract by running, e.g., `forge inspect MembershipCouncil metadata` and looking at the `compiler` field.
+## 📞 Contact
 
-Forge tests are currently not run automatically. We're using them for targeted testing, example:
+- **Website**: https://axe-dao.vervel.app
+- **App**: https://quilombo.vercel.app
+- **Common Ground (DAO Forums)**: https://app.cg/c/x36ZitNwuM/
+- **Public Signal**: https://signal.group/#CjQKIEzU62ErtEASM1FZ0yjmW2HZxgk6ig4Ztf58xRfCl58OEhBCXyjFcNxdyzxV_xfGCyTE
+- **Email**: axe-dao@protonmail.com
 
-```shell
-forge test --fork-url $HTTPS_PROVIDER_URL_SEPOLIA --fork-block-number 5360605 --match-test test_IssuanceProposal
-```
+## ⚡ Support
 
-```shell
-forge test --fork-url $HTTPS_PROVIDER_URL_SEPOLIA --fork-block-number 5411000 --match-test test_LiquidityProposal
-```
+If you find this project valuable, consider:
+- ⭐ Starring the repository
+- 🐛 Reporting bugs
+- 💡 Suggesting new features
+- 🤝 Contributing code or documentation
+- 📣 Spreading the word about Axé DAO
 
-## Useful commands
+---
 
-Forge run test with impersonated account: `--unlocked --from 0x238472397`
-
-On a local Anvil node, give the Axé Deployer account some funds from one of the default accounts:
-
-```shell
-cast send --rpc-url http://localhost:8545 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B --value 0.5ether --unlocked --from 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
-```
-
-Read the state of proposal no. 3 from the DAO:
-
-```shell
-cast call 0x1c3ac998b698206cd2fb22bb422bf14367470866 "state(uint32)" 3 --rpc-url http://localhost:8545
-```
-
-Read the Axé balance of an account:
-
-```shell
-cast balance --erc20 0xaE8F6454fa13EbA1Be4ea60019d1bd34F9D04895 --rpc-url http://localhost:8545 0xEE2ac838C83e5d6bf6Eb1C8A425C007345ACe39E
-```
-
-Read the ETH balance of the AxeDeployer:
-
-```shell
-cast balance -e --rpc-url http://localhost:8545 0x7e95A312E398431a26AC266B9215A7DddD5Ea60B
-```
-
-Deploy MockERC20 and mint into treasury:
-
-```shell
-forge create --rpc-url $HTTPS_PROVIDER_URL_SEPOLIA --account axe-deployer --constructor-args "AxeUSD" "AXEUSD" --etherscan-api-key $ETHERSCAN_API_KEY test/MockERC20.sol:MockERC20
-
-cast send 0xD44Eb94380bff68a827604fDb2dA7b0A3Ec6Ad0B "mint(address,uint256)" 0xEE2ac838C83e5d6bf6Eb1C8A425C007345ACe39E 10000000000000000000000 --rpc-url $HTTPS_PROVIDER_URL_SEPOLIA --account axe-deployer
-```
-
-## Deployments
-
-### Sepolia
-
-AXESource: 0xaE8F6454fa13EbA1Be4ea60019d1bd34F9D04895
-axeUSD: 0xD44Eb94380bff68a827604fDb2dA7b0A3Ec6Ad0B
-UniswapV2Factory: 0xAB5db096E5d2d79434ADC48B8D34f878dD7Fa0b0
-UniswapV2Router02: 0xEF5aC450A41A39ef8A652C154318b3c8902ed86E
+**Built with ❤️ by the Capoeira community, for the Capoeira community**

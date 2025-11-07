@@ -1,14 +1,11 @@
 'use client';
 
 import { Button, Spinner } from '@heroui/react';
-import type { SilkEthereumProviderInterface } from '@silk-wallet/silk-wallet-sdk';
 import { Field, FieldArray, Form, Formik, type FormikProps } from 'formik';
 import { useAtomValue } from 'jotai';
 import { Mail, Phone } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { enqueueSnackbar } from 'notistack';
 import { Suspense, useCallback } from 'react';
-import { useConnect } from 'wagmi';
 
 import { FieldInput, LinksArray } from '@/components/forms';
 import ProfileFormSkeleton from '@/components/skeletons/ProfileFormSkeleton';
@@ -16,14 +13,16 @@ import SubsectionHeading from '@/components/SubsectionHeading';
 import { PATHS, titles } from '@/config/constants';
 import { type ProfileForm as FormType, profileFormSchema } from '@/config/validation-schema';
 import { currentUserAtom } from '@/hooks/state/currentUser';
-import { useUpdateCurrentUserMutation } from '@/query/currentUser';
+import { useFetchAuthMethods, useUpdateCurrentUserMutation } from '@/query/currentUser';
 import StringSelect from '../StringSelect';
 
 const ProfileForm = () => {
   const router = useRouter();
   const { data: user } = useAtomValue(currentUserAtom);
   const { mutateAsync: updateProfile } = useUpdateCurrentUserMutation();
-  const { connectors } = useConnect();
+
+  // Fetch auth methods to get notification email
+  const { data: authMethods } = useFetchAuthMethods();
 
   const handleSubmit = useCallback(
     async (values: FormType) => {
@@ -41,18 +40,6 @@ const ProfileForm = () => {
     [updateProfile, router]
   );
 
-  const requestEmail = useCallback(async (): Promise<string | undefined> => {
-    const silk = connectors.find((connector: { id: string }) => connector.id === 'silk');
-    if (silk) {
-      const email = await (silk as unknown as SilkEthereumProviderInterface)
-        .requestEmail()
-        .then((email) => email)
-        .catch((error) => enqueueSnackbar(error.message, { variant: 'error' }));
-      return typeof email === 'string' ? (email as string) : undefined;
-    }
-    return undefined;
-  }, [connectors]);
-
   if (!user) return <Spinner />;
 
   // NOTE: The initial form values MUST BE declared outside of the JSX code, otherwise it can lead to hydration errors.
@@ -60,7 +47,7 @@ const ProfileForm = () => {
     name: user.name || '',
     nickname: user.nickname || '',
     title: user.title || undefined,
-    email: user.email || undefined,
+    email: authMethods?.notificationEmail || undefined,
     phone: user.phone || '',
     links: user.links || [],
   };
@@ -72,7 +59,7 @@ const ProfileForm = () => {
       onSubmit={handleSubmit}
       enableReinitialize
     >
-      {({ dirty, isValid, isSubmitting, values, setFieldValue }: FormikProps<FormType>) => (
+      {({ dirty, isValid, isSubmitting, values }: FormikProps<FormType>) => (
         <Suspense fallback={<ProfileFormSkeleton />}>
           <Form>
             <SubsectionHeading>General Information</SubsectionHeading>
@@ -80,27 +67,15 @@ const ProfileForm = () => {
               <Field name="title" as={StringSelect} options={titles} label="Title" />
               <Field name="nickname" label="Nickname" as={FieldInput} />
               <Field name="name" label="Fullname" as={FieldInput} />
-              <div className="flex w-full items-center gap-2">
-                <Field
-                  name="email"
-                  type="email"
-                  label="Email"
-                  placeholder="jane.doe@gmail.com"
-                  as={FieldInput}
-                  startContent={<Mail className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />}
-                  disabled
-                />
-
-                <Button
-                  variant="ghost"
-                  size="lg"
-                  color="primary"
-                  className="text-sm p-5 sm:p-6"
-                  onPress={() => requestEmail().then((email) => setFieldValue('email', email))}
-                >
-                  Import Wallet Email
-                </Button>
-              </div>
+              <Field
+                name="email"
+                type="email"
+                label="Email"
+                placeholder="jane.doe@gmail.com"
+                as={FieldInput}
+                startContent={<Mail className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />}
+                disabled
+              />
               <Field
                 name="phone"
                 type="phone"

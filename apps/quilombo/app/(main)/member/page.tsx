@@ -55,7 +55,7 @@ const NFTPage = () => {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center max-w-lg pt-2 sm:pt-4 w-full mx-auto">
+    <section className="flex flex-col items-center justify-center max-w-lg pt-responsive w-full mx-auto">
       <div className="flex w-full flex-col gap-4 items-center">
         <h2 className="text-3xl font-bold text-center mb-1">NFT Minting</h2>
 

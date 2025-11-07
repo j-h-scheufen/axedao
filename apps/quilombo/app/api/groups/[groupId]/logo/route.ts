@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { type NextRequest, NextResponse } from 'next/server';
 
-import { FILE_PREFIXES, IMAGE_FORMATS } from '@/config/constants';
+import { FILE_PREFIXES } from '@/config/constants';
 import { fetchGroup, updateGroup } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import { pinToGroup, unpin } from '@/utils/pinata';

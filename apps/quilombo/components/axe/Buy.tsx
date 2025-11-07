@@ -17,6 +17,7 @@ import {
   useWriteErc20Approve,
   useWriteIUniswapV2Router02SwapExactTokensForTokensSupportingFeeOnTransferTokens,
 } from '@/generated';
+import { useWalletProtection } from '@/hooks/useWalletProtection';
 import { formatAxeUnits, formatStableUnits } from '@/utils/contract.utils';
 import type { TradeFormProps } from './Swap';
 
@@ -24,6 +25,7 @@ const slippageTolerance = 100n; //basispoints
 
 const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUpdate }) => {
   const account = useAccount();
+  const { protectAction, WalletModal } = useWalletProtection();
   const [isUpdating, setIsUpdating] = useState<boolean>(false);
   const [exceedsAllowance, setExceedsAllowance] = useState<boolean>(false);
   const [amountIn, setAmountIn] = useState<bigint>(0n);
@@ -60,7 +62,7 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
   } = useWaitForTransactionReceipt({ hash: approveHash });
 
   // apply buyTax on getAmountsOut estimate as the Axé donation is taken from the swap output
-  // biome-ignore lint/correctness/useExhaustiveDependencies: effect not dependent on formik
+  // biome-ignore lint/correctness/useExhaustiveDependencies: formik declared after this useEffect
   useEffect(() => {
     if (amountOut) {
       const taxedOutput = buyTax && buyTax > 0 ? amountOut - (amountOut / 10000n) * buyTax : amountOut;
@@ -88,7 +90,7 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
     }
   }, [approveLoading, approveSuccess, approveError, updateAllowance]);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: effect not dependent on formik
+  // biome-ignore lint/correctness/useExhaustiveDependencies: formik declared after this useEffect
   useEffect(() => {
     if (swapLoading) {
       enqueueSnackbar('Swap submitted. Please allow some time to confirm ...', {
@@ -233,15 +235,16 @@ const Buy: React.FC<TradeFormProps> = ({ reserves, swapBalance, axeBalance, onUp
         <div>Your Balance: {formatAxeUnits(axeBalance)} Axé</div>
 
         <Button
-          type="submit"
           size="lg"
           color="primary"
           className="mt-2 w-full"
           isDisabled={!formik.isValid || !formik.dirty || isUpdating || approvePending || swapPending}
           isLoading={formik.isSubmitting}
+          onPress={() => protectAction(formik.submitForm)}
         >
           {swapPending ? 'Confirming...' : isUpdating ? 'Updating ...' : exceedsAllowance ? 'Approve' : 'Buy'}
         </Button>
+        {WalletModal}
       </div>
     </form>
   );

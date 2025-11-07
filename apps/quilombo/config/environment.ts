@@ -30,6 +30,8 @@ type ConfigType = {
   axeDaoSiteUrl: string;
   axeDaoEmail: string;
   quilomboSignalGroup: string;
+  mailjetApiKey: string;
+  mailjetApiSecret: string;
 };
 
 const envMode: EnvType = process.env.NEXT_PUBLIC_APP_ENV?.toLowerCase() as EnvType;
@@ -109,6 +111,8 @@ const ENV: ConfigType = {
   axeDaoSiteUrl: required(process.env.NEXT_PUBLIC_DAO_SITE_URL, 'NEXT_PUBLIC_DAO_SITE_URL'),
   axeDaoEmail: required(process.env.NEXT_PUBLIC_DAO_EMAIL, 'NEXT_PUBLIC_DAO_EMAIL'),
   quilomboSignalGroup: required(process.env.NEXT_PUBLIC_SIGNAL_GROUP, 'NEXT_PUBLIC_SIGNAL_GROUP'),
+  mailjetApiKey: isServer ? required(process.env.MAILJET_API_KEY, 'MAILJET_API_KEY') : '',
+  mailjetApiSecret: isServer ? required(process.env.MAILJET_API_SECRET, 'MAILJET_API_SECRET') : '',
 };
 
 function required(value: string | undefined, name: string): string {

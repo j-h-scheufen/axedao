@@ -69,7 +69,7 @@ const Swap: React.FC = () => {
 
   return (
     <div className="inline-block w-full">
-      <Tabs size="lg" aria-label="Buy / Sell Tabs" fullWidth>
+      <Tabs size="lg" aria-label="Buy / Sell Tabs" fullWidth classNames={{ panel: 'px-0' }}>
         <Tab key="buy" title="Buy">
           <Card>
             <CardBody>

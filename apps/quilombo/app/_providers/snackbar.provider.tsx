@@ -5,7 +5,7 @@ import type { PropsWithChildren } from 'react';
 
 export default function Provider({ children }: PropsWithChildren) {
   return (
-    <SnackbarProvider autoHideDuration={5000} anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}>
+    <SnackbarProvider autoHideDuration={5000} anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }} maxSnack={3}>
       {children}
     </SnackbarProvider>
   );

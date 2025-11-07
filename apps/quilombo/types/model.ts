@@ -99,8 +99,18 @@ export type EventLocationPointDatum = EventLocationFeatureProperties & {
 
 export type UserSession = {
   id: string;
-  walletAddress: string;
+  walletAddress: string | null;
   isGlobalAdmin: boolean;
+};
+
+export type AuthMethods = {
+  notificationEmail: string | null;
+  hasPassword: boolean;
+  hasGoogle: boolean;
+  hasWallet: boolean;
+  googleEmail?: string;
+  walletAddress?: string;
+  userEmail?: string;
 };
 
 export type GroupMemberRole = (typeof GROUP_ROLES)[number];

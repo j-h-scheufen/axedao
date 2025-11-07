@@ -20,7 +20,7 @@ export default function Council() {
       {members.length === 0 ? (
         <p className="text-lg text-gray-500 text-center">No members on the council</p>
       ) : (
-        members.map((member) => <UserCard key={member.id} user={member} />)
+        members.map((member, index) => <UserCard key={member.id || `council-member-${index}`} user={member} />)
       )}
     </div>
   );

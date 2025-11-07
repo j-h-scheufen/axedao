@@ -1,5 +1,5 @@
 import { isValidIPFSHash } from '@/utils';
-import { array, boolean, type InferType, mixed, number, object, string } from 'yup';
+import { array, boolean, type InferType, mixed, number, object, string, ref } from 'yup';
 import type { Feature, Geometry, GeoJsonProperties } from 'geojson';
 
 import { linkTypes, styles, titles, eventTypes, validFileExtensions, MAX_IMAGE_UPLOAD_SIZE_MB } from './constants';
@@ -178,6 +178,32 @@ export const testForAddress = (value: string) => {
   return /^(0x)?[0-9a-f]{40}$/i.test(value || '');
 };
 
+// Reusable password validation field (for required passwords)
+const passwordValidationRules = () =>
+  string()
+    .min(12, 'Password must be at least 12 characters')
+    .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
+    .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
+    .matches(/[0-9]/, 'Password must contain at least one number')
+    .matches(/[!@#$%^&*(),.?":{}|<>]/, 'Password must contain at least one special character');
+
+// Helper for required password field
+export const passwordField = (label = 'Password') => passwordValidationRules().required(`${label} is required`);
+
+// Helper for new password field with confirmation
+export const newPasswordWithConfirmation = () => ({
+  newPassword: passwordField('New password'),
+  confirmPassword: string()
+    .required('Please confirm your new password')
+    .oneOf([ref('newPassword')], 'Passwords must match'),
+});
+
+// Reusable Ethereum address validation field
+export const ethereumAddressField = () =>
+  string()
+    .required('Wallet address is required')
+    .test('is-address', 'Invalid Ethereum address', (value) => testForAddress(value || ''));
+
 // Group Location validation schemas
 export const createLocationFormSchema = object({
   name: string().required('Location name is required'),
@@ -232,3 +258,70 @@ export const updateEventFormSchema = createEventFormSchema.partial();
 
 export type CreateEventForm = InferType<typeof createEventFormSchema>;
 export type UpdateEventForm = InferType<typeof updateEventFormSchema>;
+
+// Authentication validation schemas
+export const signupSchema = object({
+  email: string().email('Invalid email address').required('Email is required').lowercase().trim(),
+  password: passwordField(),
+});
+
+export const loginSchema = object({
+  email: string().email('Invalid email address').required('Email is required').lowercase().trim(),
+  password: string().required('Password is required'),
+});
+
+export const forgotPasswordSchema = object({
+  email: string().email('Invalid email address').required('Email is required').lowercase().trim(),
+});
+
+export const resetPasswordSchema = object({
+  token: string().required('Token is required'),
+  newPassword: passwordField('New password'),
+});
+
+export const resetPasswordFormSchema = object(newPasswordWithConfirmation());
+
+export const walletSignupEmailSchema = object({
+  email: string().email('Invalid email address').required('Email is required').lowercase().trim(),
+});
+
+export const changePasswordSchema = object({
+  currentPassword: string().required('Current password is required'),
+  ...newPasswordWithConfirmation(),
+}).shape({
+  newPassword: passwordField('New password').test(
+    'passwords-different',
+    'New password must be different from current password',
+    function (value) {
+      return value !== this.parent.currentPassword;
+    }
+  ),
+});
+
+export const setPasswordSchema = object({
+  currentPassword: string().optional(),
+  ...newPasswordWithConfirmation(),
+});
+
+export const linkWalletSchema = object({
+  walletAddress: ethereumAddressField(),
+});
+
+// Authentication method types
+export const authMethods = ['password', 'google', 'wallet'] as const;
+export type AuthMethod = (typeof authMethods)[number];
+
+export const removeMethodSchema = object({
+  method: string().required('Method is required').oneOf(authMethods, 'Invalid auth method'),
+});
+
+export type SignupForm = InferType<typeof signupSchema>;
+export type LoginForm = InferType<typeof loginSchema>;
+export type ForgotPasswordForm = InferType<typeof forgotPasswordSchema>;
+export type ResetPasswordForm = InferType<typeof resetPasswordSchema>;
+export type ResetPasswordFormValues = InferType<typeof resetPasswordFormSchema>;
+export type WalletSignupEmailForm = InferType<typeof walletSignupEmailSchema>;
+export type ChangePasswordForm = InferType<typeof changePasswordSchema>;
+export type SetPasswordForm = InferType<typeof setPasswordSchema>;
+export type LinkWalletForm = InferType<typeof linkWalletSchema>;
+export type RemoveMethodForm = InferType<typeof removeMethodSchema>;

@@ -23,6 +23,14 @@ npm-debug.log*
 .env*.local
 .env
 
+# backup files (NEVER commit these - may contain secrets)
+*.backup
+*.bak
+*.old
+*.tmp
+*.copy
+.env*.backup
+
 # vercel
 .vercel
 

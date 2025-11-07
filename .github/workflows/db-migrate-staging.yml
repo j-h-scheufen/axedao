@@ -1,0 +1,140 @@
+name: Staging Database Migration
+
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - 'apps/quilombo/db/migrations/**'
+      - 'apps/quilombo/db/schema.ts'
+      - 'apps/quilombo/scripts/db-migrate-staging.ts'
+  workflow_dispatch: # Allow manual triggering
+
+# Prevent concurrent migrations
+concurrency:
+  group: staging-migration
+  cancel-in-progress: false
+
+jobs:
+  migrate:
+    name: Run Database Migrations
+    runs-on: ubuntu-latest
+    environment: staging # Use GitHub environment for protection rules
+    timeout-minutes: 10 # Fail if migration takes too long
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2 # Needed to check what changed
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check for schema changes
+        id: check_changes
+        run: |
+          echo "Checking for database schema changes..."
+
+          # Check if there are new migration files or schema changes
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD)
+          echo "Changed files:"
+          echo "$CHANGED_FILES"
+
+          if echo "$CHANGED_FILES" | grep -qE "apps/quilombo/db/(migrations|schema\.ts)"; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "✓ Database changes detected"
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "ℹ No database changes detected"
+          fi
+
+      - name: Verify migration files exist
+        if: steps.check_changes.outputs.has_changes == 'true'
+        working-directory: apps/quilombo
+        run: |
+          if [ ! -d "db/migrations" ]; then
+            echo "❌ Migration directory not found"
+            exit 1
+          fi
+
+          MIGRATION_COUNT=$(ls -1 db/migrations/*.sql 2>/dev/null | wc -l)
+          echo "Found $MIGRATION_COUNT migration file(s)"
+
+          if [ "$MIGRATION_COUNT" -eq 0 ]; then
+            echo "❌ No migration files found"
+            exit 1
+          fi
+
+          echo "✓ Migration files verified"
+
+      - name: Run staging migrations
+        if: steps.check_changes.outputs.has_changes == 'true'
+        working-directory: apps/quilombo
+        env:
+          DATABASE_URL: ${{ secrets.STAGING_DATABASE_URL }}
+          NEXT_PUBLIC_APP_ENV: development
+          NEXT_PUBLIC_WALLET_ENV: production
+          NEXT_PUBLIC_CHAIN_ENV: development
+        run: |
+          echo "🚀 Starting staging database migration..."
+          echo "Timestamp: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          echo ""
+
+          # Run the migration script
+          pnpm tsx scripts/db-migrate-staging.ts
+
+          # Check exit code
+          EXIT_CODE=$?
+          if [ $EXIT_CODE -ne 0 ]; then
+            echo ""
+            echo "❌ Migration failed with exit code $EXIT_CODE"
+            echo "⚠️  DO NOT MERGE TO MAIN"
+            exit 1
+          fi
+
+          echo ""
+          echo "✅ Migration completed successfully"
+
+      - name: Create migration report
+        if: always() && steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          echo "# Staging Migration Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Repository:** ${{ github.repository }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Branch:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Triggered by:** ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Timestamp:** $(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ "${{ job.status }}" = "success" ]; then
+            echo "✅ **Status:** Migration completed successfully" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "The staging database has been updated. Safe to test and merge to main." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Status:** Migration failed" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "⚠️ **Action Required:**" >> $GITHUB_STEP_SUMMARY
+            echo "1. Check the logs above for error details" >> $GITHUB_STEP_SUMMARY
+            echo "2. DO NOT merge to main until this is resolved" >> $GITHUB_STEP_SUMMARY
+            echo "3. Follow the rollback instructions if needed" >> $GITHUB_STEP_SUMMARY
+            echo "4. Fix the migration and push again" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "::error::Staging database migration failed. Do not merge to main."
+          echo "::error::Check the logs above for details and follow rollback procedures if necessary."
