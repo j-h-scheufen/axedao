@@ -20,22 +20,23 @@ export const WelcomeEmail = ({ profileUrl, logoUrl, userName }: WelcomeEmailProp
         <Heading style={emailStyles.h1}>Welcome to Quilombo! 🎉</Heading>
         <Text style={emailStyles.text}>{userName ? `Hi ${userName},` : 'Hi there,'}</Text>
         <Text style={emailStyles.text}>
-          Your account has been successfully activated! You're now part of a vibrant community connecting people through
-          local groups and events.
+          Your account has been successfully activated! Quilombo is an app built by members of the global Capoeira
+          community to connect with other Capoeristas and groups and find local events.
         </Text>
+        <Text style={emailStyles.text}>
+          We're constantly adding new features and would like to hear your ideas, too!
+        </Text>
+        <Text style={emailStyles.text}>Muito Ax&eacute;!</Text>
         <Text style={emailStyles.h2}>Here's what you can do:</Text>
         <Section style={emailStyles.section}>
           <Text style={emailStyles.feature}>
-            <strong>✓ Create and join groups</strong> – Find your community
+            <strong>✓ Register your group or join an existing one</strong> – Find your community
           </Text>
           <Text style={emailStyles.feature}>
-            <strong>✓ Discover events</strong> – Connect in person
+            <strong>✓ Discover events and groups in your area</strong> – Connect in person
           </Text>
           <Text style={emailStyles.feature}>
-            <strong>✓ Engage with your community</strong> – Build meaningful connections
-          </Text>
-          <Text style={emailStyles.feature}>
-            <strong>✓ Participate in DAO governance</strong> – Shape the future together
+            <strong>✓ Participate in DAO governance</strong> – Democratic decision-making within the community
           </Text>
         </Section>
         <Section style={emailStyles.buttonContainer}>
