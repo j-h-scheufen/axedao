@@ -14,25 +14,24 @@ import {
   lt,
   isNotNull,
 } from 'drizzle-orm';
-import { drizzle, type PostgresJsDatabase } from 'drizzle-orm/postgres-js';
-import postgres from 'postgres';
+import type { PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 
 import ENV from '@/config/environment';
 import type { GroupSearchParams, SearchParams } from '@/config/validation-schema';
 import * as schema from '@/db/schema';
 import type { Group, UserSession } from '@/types/model';
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
+import { createDatabaseConnection } from './connection';
 
 /**
  * NOTE: All DB functions in this file can only be run server-side. If you need to retrieve DB data from a client
  * component, use the API route handlers provide access to the DB.
  */
 
-// Disable prefetch as it is not supported for "Transaction" pool mode
-// The below setup is based on: https://github.com/orgs/supabase/discussions/21789
-// due to CONNECT_TIMEOUT issues with Supabase.
-export const client = postgres(ENV.databaseUrl, { prepare: false });
-export const drizzleClient = drizzle(client, { schema, logger: false });
+// Create database connection using centralized factory
+const { client: postgresClient, db: drizzleClient } = createDatabaseConnection(ENV.databaseUrl);
+
+export const client = postgresClient;
 declare global {
   var database: PostgresJsDatabase<typeof schema> | undefined;
 }

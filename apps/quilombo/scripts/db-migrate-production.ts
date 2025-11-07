@@ -17,8 +17,12 @@
  */
 
 import { execSync } from 'node:child_process';
-import { db } from '../db';
 import { sql } from 'drizzle-orm';
+
+import { createDatabaseConnection } from '../db/connection';
+
+// Initialize database connection (will be validated in main())
+const { db } = createDatabaseConnection(process.env.DATABASE_URL || '');
 
 // ANSI color codes for better logging
 const colors = {
