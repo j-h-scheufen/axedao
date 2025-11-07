@@ -84,19 +84,16 @@ jobs:
         working-directory: apps/quilombo
         env:
           DATABASE_URL: ${{ secrets.STAGING_DATABASE_URL }}
-          NEXT_PUBLIC_APP_ENV: staging
-          NEXT_PUBLIC_WALLET_ENV: staging
-          NEXT_PUBLIC_CHAIN_ENV: gnosis
+          NEXT_PUBLIC_APP_ENV: development
+          NEXT_PUBLIC_WALLET_ENV: production
+          NEXT_PUBLIC_CHAIN_ENV: development
         run: |
           echo "🚀 Starting staging database migration..."
           echo "Timestamp: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
           echo ""
 
-          # Make the script executable
-          chmod +x scripts/db-migrate-staging.ts
-
           # Run the migration script
-          tsx scripts/db-migrate-staging.ts
+          pnpm tsx scripts/db-migrate-staging.ts
 
           # Check exit code
           EXIT_CODE=$?
