@@ -26,6 +26,14 @@ pnpm dev
 pnpm db:generate  # Generate migrations from schema changes
 pnpm db:migrate   # Apply migrations to database
 
+# Local database (Docker)
+pnpm db:local:up      # Start PostgreSQL container
+pnpm db:local:down    # Stop PostgreSQL container
+pnpm db:local:reset   # Reset database (destroys data, runs migrations)
+pnpm db:local:seed    # Populate with test data
+pnpm db:local:logs    # View database logs
+pnpm db:local:psql    # Connect to PostgreSQL CLI
+
 # Generate Wagmi hooks from contract ABIs
 pnpm wagmi:generate
 
@@ -50,17 +58,44 @@ pnpm db:migrate
 
 ## Database Setup
 
-### Local PostgreSQL with PostGIS
+### Local Development with Docker (Recommended)
+
+The recommended approach for local development is using Docker Compose:
+
+```bash
+# First, update .env.local to use the local database:
+# DATABASE_URL=postgres://postgres:mypassword@localhost:5433/postgres
+
+# Start PostgreSQL + PostGIS container
+pnpm db:local:up
+
+# Run migrations to set up schema (REQUIRED on first run!)
+pnpm db:migrate
+
+# (Optional) Seed with test data
+pnpm db:local:seed
+
+# Or, use reset to do it all in one command:
+pnpm db:local:reset  # Destroys data, recreates container, runs migrations
+```
+
+**Important**: On first run, the database is empty. You MUST run `pnpm db:migrate` after starting the container, or use `pnpm db:local:reset` which does both automatically.
+
+**See `docs/LOCAL_DATABASE.md` for complete documentation** including:
+- All available commands
+- Test data details
+- Switching between environments
+- Troubleshooting
+- Benefits and workflows
+
+### Legacy Manual Setup
+
+If you prefer not to use Docker, you can set up PostgreSQL manually:
 
 ```bash
 # Pull and run PostgreSQL
-docker pull postgres
-docker run --name drizzle-postgres -e POSTGRES_PASSWORD=mypassword -d -p 5432:5432 postgres
-```
-
-Set `DATABASE_URL` environment variable:
-```
-postgres://postgres:mypassword@localhost:5432/postgres?options=-csearch_path%3D%24user,public,extensions,gis
+docker pull postgis/postgis:17-3.5
+docker run --name drizzle-postgres -e POSTGRES_PASSWORD=mypassword -d -p 5432:5432 postgis/postgis:17-3.5
 ```
 
 **Important PostGIS Setup:**
