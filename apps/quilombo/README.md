@@ -113,52 +113,65 @@ cd apps/quilombo
 pnpm install
 ```
 
-### Database Setup
+### Local Development Setup
 
-#### Option 1: Docker PostgreSQL
+**Recommended**: Use Docker Compose for a complete local development environment with PostgreSQL and email testing.
 
 ```bash
-# Pull and run PostgreSQL with PostGIS
-docker pull postgres
-docker run --name drizzle-postgres \
-  -e POSTGRES_PASSWORD=mypassword \
-  -d -p 5432:5432 \
-  postgres
+# 1. Configure environment for local development
+# Edit .env.local:
+NEXT_PUBLIC_APP_ENV=development
+DATABASE_URL=postgres://postgres:mypassword@localhost:5433/postgres
+
+# 2. Start PostgreSQL + Inbucket containers
+pnpm db:local:up
+
+# 3. Run database migrations
+pnpm db:migrate
+
+# 4. (Optional) Seed test data
+pnpm db:local:seed
+
+# 5. Start development server
+pnpm dev
 ```
 
-#### Option 2: Local PostgreSQL
+**Access local services:**
+- App: http://localhost:8080
+- Inbucket (email viewer): http://localhost:9000
+- PostgreSQL: localhost:5433
 
-Install PostgreSQL 14+ with PostGIS extension on your system.
+See [`docs/LOCAL_DATABASE.md`](./docs/LOCAL_DATABASE.md) for detailed database documentation.
 
-#### Database Configuration
+#### Local Email Testing
 
-1. Set the `DATABASE_URL` environment variable:
-   ```
-   DATABASE_URL=postgres://postgres:mypassword@localhost:5432/postgres?options=-csearch_path%3D%24user,public,extensions,gis
-   ```
+When `NEXT_PUBLIC_APP_ENV=development`, all emails are sent to the local Inbucket SMTP server instead of Mailjet:
 
-2. Configure the database for PostGIS (run in PostgreSQL):
-   ```sql
-   -- Add PostGIS extension to 'gis' schema
-   CREATE SCHEMA IF NOT EXISTS gis;
-   CREATE EXTENSION IF NOT EXISTS postgis SCHEMA gis;
+- **View emails**: http://localhost:9000
+- **Test workflows**: Signup, password reset, invitations all work normally
+- **No real emails sent**: Safe to test with any email address
+- **Console logging**: Verification/reset URLs are logged for quick access
 
-   -- Update user role search path
-   ALTER ROLE postgres SET search_path TO "$user", public, extensions, gis;
-   ```
+**Common email workflows to test:**
+- Register new account → verification email with link
+- Use "Forgot password" → password reset email
+- Send invites from `/invites` page → invitation emails
+- Verify email after signup → welcome email
 
-3. Run migrations:
-   ```bash
-   pnpm db:migrate
-   ```
+#### Manual Database Setup (Alternative)
+
+If you prefer not to use Docker, see [`docs/LOCAL_DATABASE.md`](./docs/LOCAL_DATABASE.md) for manual PostgreSQL setup instructions.
 
 ### Environment Variables
 
 Create a `.env.local` file (never commit this):
 
 ```env
+# Environment Mode (development uses local SMTP, production uses Mailjet)
+NEXT_PUBLIC_APP_ENV=development
+
 # Database
-DATABASE_URL=postgres://postgres:mypassword@localhost:5432/postgres?options=-csearch_path%3D%24user,public,extensions,gis
+DATABASE_URL=postgres://postgres:mypassword@localhost:5433/postgres
 
 # NextAuth
 NEXTAUTH_URL=http://localhost:8080
@@ -168,13 +181,16 @@ NEXTAUTH_SECRET=your-secret-here
 GOOGLE_CLIENT_ID=your-google-client-id
 GOOGLE_CLIENT_SECRET=your-google-client-secret
 
-# Email (Mailjet for production)
-MAILJET_API_KEY=your-mailjet-api-key
-MAILJET_API_SECRET=your-mailjet-api-secret
+# Email - Production only (not needed for local development)
+# MAILJET_API_KEY=your-mailjet-api-key
+# MAILJET_API_SECRET=your-mailjet-api-secret
 
-# Environment Configuration
-NEXT_PUBLIC_CHAIN_ENV=localhost
-NEXT_PUBLIC_APP_ENV=development
+# SMTP - Local development (optional, defaults shown)
+# SMTP_HOST=localhost
+# SMTP_PORT=2500
+
+# Web3 Configuration
+NEXT_PUBLIC_CHAIN_ENV=development
 NEXT_PUBLIC_WALLET_ENV=development
 
 # RPC URLs

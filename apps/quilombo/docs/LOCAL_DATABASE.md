@@ -10,8 +10,7 @@ This guide explains how to work with a local PostgreSQL database for development
 ## Quick Start
 
 ```bash
-# 1. Update .env.local to use local database
-# Uncomment the LOCAL DATABASE_URL line:
+# 1. Update .env.local to use local database:
 DATABASE_URL=postgres://postgres:mypassword@localhost:5433/postgres
 
 # 2. Start the local PostgreSQL container
@@ -128,6 +127,8 @@ postgres=# \q                     -- Quit
 - **Container Name**: `quilombo-postgres`
 - **Port**: `5433` (host) → `5432` (container)
 - **Volume**: `quilombo-postgres-data` (persists data between restarts)
+
+**Note**: The docker-compose.yml also includes an Inbucket container for email testing. See the main [README.md](../README.md#local-email-testing) for details.
 
 ### Data Persistence
 
