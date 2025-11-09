@@ -25,12 +25,14 @@ interface StatCardProps {
 
 const StatCard = ({ icon, label, value }: StatCardProps) => {
   return (
-    <Card className="shadow-medium">
+    <Card className="shadow-[0_4px_14px_0_rgba(0,0,0,0.25)] hover:shadow-[0_6px_20px_0_rgba(0,0,0,0.35)] sm:hover:scale-105 transition-all duration-200 border border-primary-200/60 dark:border-primary-800/40 border-t-primary-100/80 border-l-primary-100/80 dark:border-t-primary-900/30 dark:border-l-primary-900/30">
       <CardBody className="flex flex-row items-start gap-3 p-4">
-        <div className="text-primary-400 dark:text-primary-500">{icon}</div>
+        <div className="text-primary-400 dark:text-primary-500 border border-primary-300 dark:border-primary-600 rounded-md p-1.5 bg-gradient-to-br from-primary-50/50 to-transparent dark:from-primary-950/30 dark:to-transparent">
+          {icon}
+        </div>
         <div className="flex flex-col gap-0.5">
-          <span className="text-2xl font-bold text-default-900">{value.toLocaleString()}</span>
-          <span className="text-sm text-default-500">{label}</span>
+          <span className="text-2xl font-bold text-default-900 dark:text-default-800">{value.toLocaleString()}</span>
+          <span className="text-sm text-default-500 dark:text-default-600">{label}</span>
         </div>
       </CardBody>
     </Card>
@@ -39,9 +41,9 @@ const StatCard = ({ icon, label, value }: StatCardProps) => {
 
 const StatCardSkeleton = () => {
   return (
-    <Card className="shadow-medium">
+    <Card className="shadow-[0_4px_14px_0_rgba(0,0,0,0.25)] border border-primary-200/60 dark:border-primary-800/40 border-t-primary-100/80 border-l-primary-100/80 dark:border-t-primary-900/30 dark:border-l-primary-900/30">
       <CardBody className="flex flex-row items-start gap-3 p-4">
-        <Skeleton className="w-6 h-6 rounded-lg" />
+        <Skeleton className="w-9 h-9 rounded-md" />
         <div className="flex flex-col gap-2 flex-1">
           <Skeleton className="h-7 w-16 rounded-lg" />
           <Skeleton className="h-4 w-24 rounded-lg" />
