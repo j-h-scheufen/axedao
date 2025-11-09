@@ -8,8 +8,27 @@ import { hashPassword } from '@/utils/auth/password';
 import { generateToken, hashToken } from '@/utils/auth/tokens';
 import { getEmailProvider } from '@/utils/email';
 import { signupSchema } from '@/config/validation-schema';
+import { rateLimit, getClientIp } from '@/utils/rate-limit';
 
 export async function POST(request: Request) {
+  // Rate limiting: 5 signups per hour per IP
+  const clientIp = getClientIp(request);
+  const rateLimitResult = rateLimit(clientIp, { maxRequests: 5, windowMs: 60 * 60 * 1000 });
+
+  if (!rateLimitResult.allowed) {
+    return NextResponse.json(
+      {
+        error: `Too many signup attempts. Please try again in ${Math.ceil(rateLimitResult.retryAfter! / 60000)} minutes.`,
+      },
+      {
+        status: 429,
+        headers: {
+          'Retry-After': Math.ceil(rateLimitResult.retryAfter! / 1000).toString(),
+        },
+      }
+    );
+  }
+
   try {
     const body = await request.json();
 
