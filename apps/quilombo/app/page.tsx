@@ -5,6 +5,7 @@ import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 
 import RippleBackground from '@/components/RippleBackground';
+import StatisticsWidget from '@/components/StatisticsWidget';
 import { PATHS } from '@/config/constants';
 import ENV from '@/config/environment';
 
@@ -13,10 +14,12 @@ export default function Home() {
 
   return (
     <>
-      <header className="mx-4 mt-8 sm:mt-16">
-        <div className="relative text-center mx-auto">
-          <RippleBackground />
-          <div className="relative z-[1]">
+      <div className="absolute inset-y-0 sm:inset-y-18 left-0 right-0 overflow-hidden pointer-events-none">
+        <RippleBackground />
+      </div>
+      <div className="relative mx-2 sm:mx-4">
+        <header className="relative z-[1] mt-4 sm:mt-16">
+          <div className="text-center mx-auto max-w-4xl">
             <h1 className="font-bold text-2xl mb-5">Welcome to Quilombo</h1>
             <p className="my-3 text-medium sm:text-lg">The first app specifically made for Capoeira</p>
             <p className="my-3 text-default-600 text-sm sm:text-medium">
@@ -42,7 +45,7 @@ export default function Home() {
               on Signal.
             </p>
           </div>
-          <div className="pt-5">
+          <div className="pt-5 flex justify-center">
             {session ? (
               <Button
                 as={Link}
@@ -58,8 +61,11 @@ export default function Home() {
               </Button>
             )}
           </div>
-        </div>
-      </header>
+        </header>
+        <section className="my-6 sm:my-12">
+          <StatisticsWidget />
+        </section>
+      </div>
       <footer className="mt-auto flex w-full items-center justify-center gap-1 pb-20 md:pb-10 py-10">
         <div className="text-default-600">
           Powered by{' '}

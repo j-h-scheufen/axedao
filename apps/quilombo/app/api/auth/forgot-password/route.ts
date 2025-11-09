@@ -6,8 +6,27 @@ import { users, verificationTokens } from '@/db/schema';
 import { generateToken, hashToken } from '@/utils/auth/tokens';
 import { getEmailProvider } from '@/utils/email';
 import { forgotPasswordSchema } from '@/config/validation-schema';
+import { rateLimit, getClientIp } from '@/utils/rate-limit';
 
 export async function POST(request: Request) {
+  // Rate limiting: 3 requests per 15 minutes per IP
+  const clientIp = getClientIp(request);
+  const rateLimitResult = rateLimit(clientIp, { maxRequests: 3, windowMs: 15 * 60 * 1000 });
+
+  if (!rateLimitResult.allowed) {
+    return NextResponse.json(
+      {
+        error: `Too many password reset attempts. Please try again in ${Math.ceil(rateLimitResult.retryAfter! / 60000)} minutes.`,
+      },
+      {
+        status: 429,
+        headers: {
+          'Retry-After': Math.ceil(rateLimitResult.retryAfter! / 1000).toString(),
+        },
+      }
+    );
+  }
+
   try {
     const body = await request.json();
 

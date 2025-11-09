@@ -14,8 +14,19 @@ export type UserCardWithFetchProps = CardProps & {
 };
 
 const UserCardWithFetch = ({ userId, ...props }: UserCardWithFetchProps) => {
-  const { data: user, isLoading, isFetching } = useFetchUser(userId);
-  return isLoading || isFetching || !user ? <UserCardSkeleton /> : <UserCard user={user} {...props} />;
+  const { data: user, isLoading, isFetching, isError } = useFetchUser(userId);
+
+  // Show skeleton while loading/fetching
+  if (isLoading || isFetching) {
+    return <UserCardSkeleton />;
+  }
+
+  // Handle error or missing user data
+  if (isError || !user) {
+    return 'Unable to retrieve user';
+  }
+
+  return <UserCard user={user} {...props} />;
 };
 
 export default UserCardWithFetch;
