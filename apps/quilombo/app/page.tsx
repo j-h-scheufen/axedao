@@ -5,6 +5,7 @@ import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 
 import RippleBackground from '@/components/RippleBackground';
+import StatisticsWidget from '@/components/StatisticsWidget';
 import { PATHS } from '@/config/constants';
 import ENV from '@/config/environment';
 
@@ -14,7 +15,7 @@ export default function Home() {
   return (
     <>
       <header className="mx-4 mt-8 sm:mt-16">
-        <div className="relative text-center mx-auto">
+        <div className="relative text-center mx-auto overflow-hidden">
           <RippleBackground />
           <div className="relative z-[1]">
             <h1 className="font-bold text-2xl mb-5">Welcome to Quilombo</h1>
@@ -60,6 +61,9 @@ export default function Home() {
           </div>
         </div>
       </header>
+      <section className="mx-4 my-12">
+        <StatisticsWidget />
+      </section>
       <footer className="mt-auto flex w-full items-center justify-center gap-1 pb-20 md:pb-10 py-10">
         <div className="text-default-600">
           Powered by{' '}

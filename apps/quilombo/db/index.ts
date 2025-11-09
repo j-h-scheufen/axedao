@@ -455,3 +455,56 @@ export async function isEventCreator(eventId: string, userId: string): Promise<b
     .where(and(eq(schema.events.id, eventId), eq(schema.events.creatorId, userId)));
   return result.length > 0 && result[0].value > 0;
 }
+
+/**
+ * Public statistics for display on the homepage.
+ * Returns aggregated counts that are safe to expose publicly.
+ */
+export interface PublicStats {
+  activeUsers: number;
+  verifiedGroups: number;
+  unverifiedGroups: number;
+  upcomingEvents: number;
+}
+
+/**
+ * Fetches public statistics for homepage display
+ * - Active users: users with 'active' account status
+ * - Verified/unverified groups: based on 'verified' boolean field
+ * - Upcoming events: events with start date >= now
+ * @returns Public statistics object
+ */
+export async function fetchPublicStats(): Promise<PublicStats> {
+  const now = new Date();
+
+  // Count active users
+  const activeUsersResult = await db
+    .select({ value: count() })
+    .from(schema.users)
+    .where(eq(schema.users.accountStatus, 'active'));
+
+  // Count verified groups
+  const verifiedGroupsResult = await db
+    .select({ value: count() })
+    .from(schema.groups)
+    .where(eq(schema.groups.verified, true));
+
+  // Count unverified groups
+  const unverifiedGroupsResult = await db
+    .select({ value: count() })
+    .from(schema.groups)
+    .where(eq(schema.groups.verified, false));
+
+  // Count upcoming events (start date >= now)
+  const upcomingEventsResult = await db
+    .select({ value: count() })
+    .from(schema.events)
+    .where(gte(schema.events.start, now));
+
+  return {
+    activeUsers: activeUsersResult[0]?.value ?? 0,
+    verifiedGroups: verifiedGroupsResult[0]?.value ?? 0,
+    unverifiedGroups: unverifiedGroupsResult[0]?.value ?? 0,
+    upcomingEvents: upcomingEventsResult[0]?.value ?? 0,
+  };
+}
