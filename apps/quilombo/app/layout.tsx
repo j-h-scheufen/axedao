@@ -39,7 +39,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
           <BreadcrumbTracker />
           <div className="relative flex min-h-screen flex-col">
             <Navbar />
-            <main className="container mx-auto max-w-3xl flex-grow mb-[60px]">{children}</main>
+            <main className="container sm:mx-auto max-w-3xl flex-grow mb-[60px]">{children}</main>
           </div>
         </Providers>
       </body>

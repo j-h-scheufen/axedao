@@ -70,8 +70,8 @@ const StatisticsWidget = () => {
 
   if (isLoading) {
     return (
-      <div className="w-full max-w-6xl mx-auto">
-        <h2 className="text-xl font-semibold text-default-900 mb-4 text-center">Quilombo Overview</h2>
+      <div className="w-full mx-auto">
+        <h2 className="text-xl font-semibold text-default-900 mb-2 sm:mb-4 text-center">Statistics</h2>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           <StatCardSkeleton />
           <StatCardSkeleton />
@@ -89,12 +89,12 @@ const StatisticsWidget = () => {
   const totalGroups = stats.verifiedGroups + stats.unverifiedGroups;
 
   return (
-    <div className="w-full max-w-6xl mx-auto">
-      <h2 className="text-xl font-semibold text-default-900 mb-4 text-center">Platform Overview</h2>
+    <div className="w-full mx-auto">
+      <h2 className="text-xl font-semibold text-default-900 mb-2 sm:mb-4 text-center">Statistics</h2>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
         <StatCard icon={<Users size={24} />} label="Active Users" value={stats.activeUsers} />
-        <StatCard icon={<CheckCircle size={24} />} label="Verified Groups" value={stats.verifiedGroups} />
         <StatCard icon={<UsersRound size={24} />} label="Total Groups" value={totalGroups} />
+        <StatCard icon={<CheckCircle size={24} />} label="Verified Groups" value={stats.verifiedGroups} />
         <StatCard icon={<Calendar size={24} />} label="Upcoming Events" value={stats.upcomingEvents} />
       </div>
     </div>
