@@ -60,6 +60,7 @@ export const PATHS = {
   resetPassword: '/auth/reset-password',
   search: '/search',
   profile: '/profile',
+  invites: '/invites',
   admin: '/admin',
   axe: '/axe',
   dao: '/dao',

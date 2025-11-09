@@ -182,7 +182,7 @@ const InviteMemberForm = () => {
                   isDisabled={isSubmitting || copyLinkMutation.isPending}
                 />
 
-                <div className="flex gap-2">
+                <div className="flex gap-2 justify-center sm:justify-start">
                   <Button
                     type="submit"
                     color="primary"
@@ -217,10 +217,10 @@ const InviteMemberForm = () => {
 
       {/* Section 2: Generate QR Code for Events */}
       <div>
-        <h3 className="text-lg font-semibold text-default-900 mb-2">QR Code for Events</h3>
+        <h3 className="text-lg font-semibold text-default-900 mb-2">Invite with QR Code</h3>
         <p className="text-sm text-default-500 mb-4">
-          Generate a QR code for in-person events (workshops, rodas). Valid for 72 hours. Multiple people can scan the
-          same code. Your QR code is saved and can be reopened anytime before it expires.
+          Generate a QR code for in-person meetings (events, workshops, rodas). Valid for 72 hours. Multiple people can
+          scan the same code. Your QR code is saved and can be reopened anytime before it expires.
         </p>
 
         {validQRInvitation && (
@@ -238,9 +238,11 @@ const InviteMemberForm = () => {
           </div>
         )}
 
-        <Button color="secondary" onPress={handleShowQRCode} isLoading={generateQRMutation.isPending}>
-          {validQRInvitation ? 'Show QR Code' : 'Generate QR Code'}
-        </Button>
+        <div className="flex justify-center sm:justify-start">
+          <Button color="secondary" onPress={handleShowQRCode} isLoading={generateQRMutation.isPending}>
+            {validQRInvitation ? 'Show QR Code' : 'Generate QR Code'}
+          </Button>
+        </div>
 
         {generateQRMutation.isError && <ErrorText className="mt-2" message={generateQRMutation.error.message} />}
       </div>

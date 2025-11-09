@@ -19,7 +19,6 @@ import { enqueueSnackbar } from 'notistack';
 import PageHeading from '@/components/PageHeading';
 import { ThemeSwitch } from '@/components/settings/ThemeSwitch';
 import AuthenticationManagement from '@/components/settings/AuthenticationManagement';
-import InviteMemberForm from '@/components/settings/InviteMemberForm';
 import { useFetchAuthMethods } from '@/query/currentUser';
 
 const SettingsPage = () => {
@@ -183,20 +182,6 @@ const SettingsPage = () => {
           >
             <div className="pb-4">
               <AuthenticationManagement />
-            </div>
-          </AccordionItem>
-
-          <AccordionItem
-            key="invite-members"
-            aria-label="Invite Friends"
-            title="Invite Friends"
-            subtitle="Invite friends to join Quilombo"
-            classNames={{
-              trigger: 'py-4',
-            }}
-          >
-            <div className="pb-4">
-              <InviteMemberForm />
             </div>
           </AccordionItem>
         </Accordion>
