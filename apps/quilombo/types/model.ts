@@ -11,7 +11,9 @@ import type Supercluster from 'supercluster';
 
 export type Group = Omit<SelectGroup, 'updatedAt'> & { countryCodes: string[] };
 
-export type User = Omit<SelectUser, 'updatedAt'>;
+export type User = Omit<SelectUser, 'updatedAt'> & {
+  groupName?: string;
+};
 
 export type GroupLocation = Omit<SelectGroupLocation, 'updatedAt'>;
 

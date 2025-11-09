@@ -7,7 +7,11 @@ import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { SEARCH_INPUT_DEBOUNCE, PARAM_KEY_USER_QUERY } from '@/config/constants';
 import { useSearchUsers } from '@/query/user';
 
-const useUserSearch = () => {
+type UseUserSearchOptions = {
+  hasWallet?: boolean;
+};
+
+const useUserSearch = (options?: UseUserSearchOptions) => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -16,6 +20,7 @@ const useUserSearch = () => {
   const [searchTerm, setSearchTerm] = useState<string | undefined>(urlSearchTerm);
   const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } = useSearchUsers({
     searchTerm,
+    hasWallet: options?.hasWallet,
   });
 
   // Sync URL search term with hook state on mount

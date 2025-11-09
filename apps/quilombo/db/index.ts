@@ -17,7 +17,7 @@ import {
 import type { PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 
 import ENV from '@/config/environment';
-import type { GroupSearchParams, SearchParams } from '@/config/validation-schema';
+import type { GroupSearchParams, SearchParams, UserSearchParams } from '@/config/validation-schema';
 import * as schema from '@/db/schema';
 import type { Group, UserSession } from '@/types/model';
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
@@ -48,24 +48,42 @@ export async function isGlobalAdmin(userId: string) {
   return res?.isGlobalAdmin;
 }
 
-export async function searchUsers(options: SearchParams): Promise<{ rows: schema.SelectUser[]; totalCount: number }> {
-  const { pageSize = QUERY_DEFAULT_PAGE_SIZE, offset = 0, searchTerm } = options;
+export async function searchUsers(
+  options: UserSearchParams
+): Promise<{ rows: schema.SelectUser[]; totalCount: number }> {
+  const { pageSize = QUERY_DEFAULT_PAGE_SIZE, offset = 0, searchTerm, hasWallet } = options;
   const orFilters: (SQLWrapper | undefined)[] = [];
+  const andFilters: (SQLWrapper | undefined)[] = [];
 
   if (searchTerm) {
     orFilters.push(ilike(schema.users.name, `%${searchTerm}%`));
     orFilters.push(ilike(schema.users.nickname, `%${searchTerm}%`));
   }
 
+  if (hasWallet) {
+    andFilters.push(isNotNull(schema.users.walletAddress));
+  }
+
+  // Combine filters: (searchTerm filters) AND (hasWallet filter)
+  const whereClause = and(orFilters.length ? or(...orFilters) : undefined, ...andFilters);
+
   const rawResults = await db
-    .select({ record: schema.users, count: sql<number>`count(*) over()` })
+    .select({
+      record: schema.users,
+      groupName: schema.groups.name,
+      count: sql<number>`count(*) over()`,
+    })
     .from(schema.users)
-    .where(orFilters.length ? or(...orFilters) : undefined)
+    .leftJoin(schema.groups, eq(schema.users.groupId, schema.groups.id))
+    .where(whereClause)
     .limit(pageSize)
     .offset(offset);
 
   const mappedResult = {
-    records: rawResults.map((result) => result.record),
+    records: rawResults.map((result) => ({
+      ...result.record,
+      groupName: result.groupName ?? undefined,
+    })),
     count: rawResults.length > 0 ? rawResults[0].count : 0,
   };
 
