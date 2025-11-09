@@ -7,7 +7,6 @@ import type { EmailProvider } from './provider';
 import { VerificationEmail } from './templates/verification-email';
 import { PasswordResetEmail } from './templates/password-reset-email';
 import { WelcomeEmail } from './templates/welcome-email';
-import { InvitationEmail } from './templates/invitation-email';
 
 /**
  * SMTP email provider implementation for local development
@@ -87,23 +86,5 @@ export class SMTPProvider implements EmailProvider {
     });
 
     console.log(`[SMTP] Sent welcome email to ${to}`);
-  }
-
-  async sendInvitationEmail(to: string, invitationCode: string, inviterName: string): Promise<void> {
-    const inviteUrl = `${process.env.NEXT_PUBLIC_APP_URL}/auth/signup?code=${invitationCode}&email=${encodeURIComponent(to)}`;
-
-    const html = await render(InvitationEmail({ inviteUrl, inviterName, invitedEmail: to }));
-    const text = await render(InvitationEmail({ inviteUrl, inviterName, invitedEmail: to }), { plainText: true });
-
-    await this.transporter.sendMail({
-      from: '"Quilombo Community" <join@quilombo.net>',
-      to,
-      subject: `${inviterName} invited you to join Quilombo`,
-      text,
-      html,
-    });
-
-    console.log(`[SMTP] Sent invitation email to ${to}`);
-    console.log(`[SMTP] Invite URL: ${inviteUrl}`);
   }
 }
