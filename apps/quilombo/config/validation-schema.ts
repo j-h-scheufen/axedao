@@ -156,6 +156,14 @@ export const searchParamsSchema = object({
 
 export type SearchParams = InferType<typeof searchParamsSchema>;
 
+export const userSearchParamsSchema = searchParamsSchema.concat(
+  object({
+    hasWallet: boolean().optional(),
+  })
+);
+
+export type UserSearchParams = InferType<typeof userSearchParamsSchema>;
+
 export const groupSearchSchema = searchParamsSchema.concat(
   object({
     country: string().optional(),
