@@ -1,4 +1,4 @@
-import type { EventType, ImageType } from '@/types/model';
+import type { EventType, ImageType, AccountStatus, SearchParamKey } from '@/types/model';
 import type { ResizeOptions } from 'sharp';
 
 export const titles = [
@@ -60,6 +60,7 @@ export const PATHS = {
   resetPassword: '/auth/reset-password',
   search: '/search',
   profile: '/profile',
+  invites: '/invites',
   admin: '/admin',
   axe: '/axe',
   dao: '/dao',
@@ -85,7 +86,10 @@ export const AUTH_COOKIES = {
 
 // Account statuses for user accounts
 export const accountStatuses = ['pending_verification', 'active', 'disabled'] as const;
-export type AccountStatus = (typeof accountStatuses)[number];
+
+// Invitation system constants
+export const invitationTypes = ['email_bound', 'open'] as const;
+export const invitationStatuses = ['pending', 'accepted', 'expired'] as const;
 
 // Note: The order of these roles in the array is used to sort group members by role in the UI
 export const GROUP_ROLES = ['founder', 'leader', 'admin', 'member'] as const;
@@ -111,9 +115,6 @@ export const SEARCH_PARAM_KEYS = {
   EVENT_QUERY: 'eq',
   VIEW: 'view',
 } as const;
-
-// Type for search parameter keys
-export type SearchParamKey = keyof typeof SEARCH_PARAM_KEYS;
 
 // Individual exports for backward compatibility
 export const PARAM_KEY_USER_QUERY = SEARCH_PARAM_KEYS.USER_QUERY;
@@ -155,3 +156,6 @@ export const EVENT_ICONS: Record<EventType, string> = {
   batizado: '/images/events/batizado-black-64.png',
   public_roda: '/images/events/roda-black-64.png',
 };
+
+// Re-export types for backward compatibility (types are defined in @/types/model)
+export type { AccountStatus, SearchParamKey };

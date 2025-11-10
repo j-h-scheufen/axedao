@@ -6,6 +6,7 @@ import type { EmailProvider } from './provider';
 import { VerificationEmail } from './templates/verification-email';
 import { PasswordResetEmail } from './templates/password-reset-email';
 import { WelcomeEmail } from './templates/welcome-email';
+import { InvitationEmail } from './templates/invitation-email';
 
 /**
  * Mailjet email provider implementation
@@ -87,6 +88,26 @@ export class MailjetProvider implements EmailProvider {
           TextPart: text,
           HTMLPart: html,
           CustomID: 'welcome',
+        },
+      ],
+    });
+  }
+
+  async sendInvitationEmail(to: string, invitationCode: string, inviterName: string): Promise<void> {
+    // TODO: TEMPORARY INVITE-ONLY - Remove when opening to public
+    const inviteUrl = `${process.env.NEXT_PUBLIC_APP_URL}/auth/signup?code=${invitationCode}&email=${encodeURIComponent(to)}`;
+
+    const html = await render(InvitationEmail({ inviteUrl, inviterName, invitedEmail: to }));
+    const text = await render(InvitationEmail({ inviteUrl, inviterName, invitedEmail: to }), { plainText: true });
+
+    await this.client.post('send', { version: 'v3.1' }).request({
+      Messages: [
+        {
+          From: { Email: 'join@quilombo.net', Name: 'Quilombo Community' },
+          To: [{ Email: to }],
+          Subject: `${inviterName} invited you to join Quilombo`,
+          TextPart: text,
+          HTMLPart: html,
         },
       ],
     });

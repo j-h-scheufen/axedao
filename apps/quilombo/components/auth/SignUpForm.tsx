@@ -30,6 +30,10 @@ const SignUpForm = () => {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
+  // Extract invitation code and email from URL params
+  const invitationCode = searchParams.get('code');
+  const invitedEmail = searchParams.get('email');
+
   // Prevent hydration mismatch by only rendering after client mount
   useEffect(() => {
     setMounted(true);
@@ -49,7 +53,10 @@ const SignUpForm = () => {
       const response = await fetch('/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          ...values,
+          ...(invitationCode && { invitationCode }),
+        }),
       });
 
       const data = await response.json();
@@ -129,9 +136,18 @@ const SignUpForm = () => {
       <div className="auth-container-py">
         <h2 className="text-3xl text-default-700 sm:text-default-800 mb-2 text-center">Create Your Account</h2>
 
+        {invitationCode && (
+          <div className="mb-4 p-3 bg-success-50 rounded-lg border border-success-200">
+            <p className="text-sm text-success-700 text-center">
+              ✓ You're signing up with a valid invitation
+              {invitedEmail && ` for ${invitedEmail}`}
+            </p>
+          </div>
+        )}
+
         {/* Email/Password Form */}
         <Formik
-          initialValues={{ email: '', password: '' }}
+          initialValues={{ email: invitedEmail || '', password: '' }}
           validationSchema={signupSchema}
           onSubmit={handleEmailPasswordSubmit}
         >

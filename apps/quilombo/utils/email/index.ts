@@ -16,4 +16,18 @@ export const getEmailProvider = (): EmailProvider => {
   return new MailjetProvider();
 };
 
+/**
+ * Sends an invitation email to a potential new member
+ * TODO: TEMPORARY INVITE-ONLY - Remove when opening to public
+ *
+ * @param to - Recipient email address
+ * @param invitationCode - UUID invitation code
+ * @param inviterName - Name of the person who sent the invitation
+ * @throws Error if email provider is not configured or sending fails
+ */
+export const sendInvitationEmail = async (to: string, invitationCode: string, inviterName: string): Promise<void> => {
+  const provider = getEmailProvider();
+  await provider.sendInvitationEmail(to, invitationCode, inviterName);
+};
+
 export type { EmailProvider } from './provider';
