@@ -91,6 +91,9 @@ export const accountStatuses = ['pending_verification', 'active', 'disabled'] as
 export const invitationTypes = ['email_bound', 'open'] as const;
 export const invitationStatuses = ['pending', 'accepted', 'expired'] as const;
 
+// Group claim statuses
+export const groupClaimStatuses = ['pending', 'approved', 'rejected'] as const;
+
 // Note: The order of these roles in the array is used to sort group members by role in the UI
 export const GROUP_ROLES = ['founder', 'leader', 'admin', 'member'] as const;
 

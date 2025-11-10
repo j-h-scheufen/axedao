@@ -3,6 +3,8 @@
 ## Overview
 Enable users to register groups they don't belong to (data entry), track metadata about group lifecycle, and allow legitimate group members to claim ownership through a verification process.
 
+**IMPORTANT CHANGE**: Users can NO LONGER create groups directly as "their" group. All groups must be registered (unclaimed) first, then claimed through verification. This ensures all group-user relationships are verified.
+
 ## Phase 1: Database Schema Changes
 
 ### 1.1 Extend Groups Table
@@ -10,13 +12,13 @@ Add new fields to `groups` table in `db/schema.ts`:
 - `createdBy` (uuid, nullable, FK to users.id, set null on delete) - tracks who registered the group
 - `claimedBy` (uuid, nullable, FK to users.id, set null on delete) - tracks who claimed it
 - `claimedAt` (timestamp, nullable) - when the group was claimed
-- `lastVerifiedBy` (uuid, nullable, FK to users.id, set null on delete) - most recent verifier
-- `lastVerifiedAt` (timestamp, nullable) - most recent verification timestamp
 
 **Derivation Logic:**
 - **Unclaimed**: `claimedBy IS NULL` (no admins assigned yet)
 - **Claimed**: `claimedBy IS NOT NULL` OR has at least one group admin
 - Legacy groups: `createdBy IS NULL` to distinguish imports
+
+**Note**: Removed `lastVerifiedBy` and `lastVerifiedAt` fields - this is redundant with `groupVerifications` table. Latest verification can be queried when needed.
 
 ### 1.2 New Table: groupVerifications
 Track complete verification history for future rewards:
@@ -25,7 +27,7 @@ groupVerifications {
   id: uuid (PK)
   groupId: uuid (FK to groups.id, cascade delete)
   userId: uuid (FK to users.id, set null on delete)
-  verifiedAt: timestamp
+  verifiedAt: timestamp (default now)
   notes: text (optional - what was verified)
 }
 ```
@@ -38,7 +40,7 @@ groupClaims {
   groupId: uuid (FK to groups.id, cascade delete)
   userId: uuid (FK to users.id, set null on delete)
   status: enum ('pending', 'approved', 'rejected')
-  requestedAt: timestamp
+  requestedAt: timestamp (default now)
   processedAt: timestamp (nullable)
   processedBy: uuid (FK to users.id, nullable, set null on delete)
   userMessage: text (why they should be admin)
@@ -48,9 +50,11 @@ groupClaims {
 
 ### 1.4 Update Validation Schemas
 Create new schemas in `config/validation-schema.ts`:
-- `registerGroupFormSchema` - name, location (lat/lng), contact (email or website required)
-- `claimGroupFormSchema` - userMessage (why claiming), groupId
+- `registerGroupFormSchema` - name (required), description (required), location (required), style (optional), links (at least one required - website or social media)
+- `claimGroupFormSchema` - userMessage (why claiming, min 20 chars), groupId
 - `verifyGroupFormSchema` - notes (optional what was verified)
+
+**Note**: Removed email/phone as direct contact fields. Groups must provide at least one link (social media or website) instead. This is more reliable and doesn't require exposing potentially private contact info.
 
 ## Phase 2: Database Functions (db/index.ts)
 
@@ -61,9 +65,10 @@ Create new schemas in `config/validation-schema.ts`:
 
 ### 2.2 Verification Functions
 - `canUserVerifyGroup(userId, groupId)` - checks if user hasn't verified in last 30 days
-- `verifyGroup(userId, groupId, notes)` - adds record to `groupVerifications`, updates `lastVerifiedBy/At`
+- `verifyGroup(userId, groupId, notes)` - adds record to `groupVerifications`
 - `getGroupVerificationHistory(groupId)` - for admin review
 - `getUserVerificationCount(userId)` - for future gamification
+- `getLatestGroupVerification(groupId)` - returns most recent verification (replaces lastVerifiedBy/At fields)
 
 ### 2.3 Claim Functions
 - `createGroupClaim(userId, groupId, message)` - creates pending claim
@@ -75,22 +80,21 @@ Create new schemas in `config/validation-schema.ts`:
 ## Phase 3: API Routes
 
 ### 3.1 Group Registration
-- **POST** `/api/groups/register` - register new group (different from `/api/groups`)
+- **POST** `/api/groups/register` - register new group (replaces `/api/groups` for user group creation)
   - Auth required
   - No restriction on user's current group membership
   - Sets `createdBy`, leaves `claimedBy` null
   - Does NOT add user as admin
+  - Required fields: name, description, location (lat/lng), at least one link
   - Returns group ID
 
 ### 3.2 Group Verification
 - **POST** `/api/groups/[groupId]/verify` - verify a group
   - Auth required
   - Rate limit: one verification per user per group per 30 days
+  - Check eligibility inline (no separate status endpoint)
   - Adds verification record
   - Returns success with cooldown info
-
-- **GET** `/api/groups/[groupId]/verify/status` - check if user can verify
-  - Returns: `canVerify: boolean`, `lastVerifiedAt: timestamp | null`, `cooldownEndsAt: timestamp | null`
 
 ### 3.3 Group Claims
 - **POST** `/api/groups/[groupId]/claim` - submit claim request
@@ -118,52 +122,64 @@ Create new schemas in `config/validation-schema.ts`:
   - Returns success
 
 ### 3.4 Update Existing Routes
+- **REMOVE** `/api/groups` POST endpoint (users can no longer create "their" group directly)
 - **PATCH** `/api/groups/[groupId]` - add authorization for `createdBy` user (not just admins)
   - Allow the user who registered an unclaimed group to edit it
 
 ## Phase 4: UI Components
 
 ### 4.1 Register Group Flow
-- **New page**: `/groups/register` - separate from `/groups/new`
+- **New page**: `/groups/register` - replaces direct group creation
 - **Component**: `RegisterGroupForm.tsx`
-  - Fields: name, description, location picker (map), email, website, social links, logo upload
-  - Required: name, location (lat/lng), at least one contact method (email OR website)
+  - Required fields: name, description, location picker (map), at least one link (social/website)
+  - Optional: style, logo upload
+  - No email/phone fields (use links instead)
   - Submit → POST `/api/groups/register`
   - Success: redirect to group profile with "Group registered! Want to claim it?" message
 
 ### 4.2 Claim Group UI
 - **Component**: `ClaimGroupButton.tsx` (on group profile page)
   - Only shows for unclaimed groups
-  - Only shows for authenticated users
+  - Note: All pages require auth, no need for separate auth check
   - Opens `ClaimGroupModal.tsx`
 
 - **Component**: `ClaimGroupModal.tsx`
-  - Form with textarea: "Why should you be the admin of this group?"
+  - Clear explainer text about what information to provide:
+    - Your relationship to the group
+    - Who leads the group
+    - Other organizers
+    - How to contact you (email or phone, if comfortable sharing)
+  - Form with textarea: "Why should you be the admin of this group?" (min 20 chars)
   - Submit → POST `/api/groups/[groupId]/claim`
   - Success message: "Claim submitted! We'll review and email you."
+  - Note: Consider PII cleanup workflow in future phase
 
 ### 4.3 Verify Group UI
-- **Component**: `VerifyGroupButton.tsx` (on group profile page)
-  - Shows for all authenticated users
-  - Fetches verification status from `/api/groups/[groupId]/verify/status`
-  - If can verify: shows "Verify this group" button
-  - If on cooldown: shows "Verified X days ago" (disabled)
-  - Opens `VerifyGroupModal.tsx`
+- **Component**: `GroupActionsMenu.tsx` (three-dot menu)
+  - Mobile: Three-dot menu with actions (Verify, Claim, Edit)
+  - Desktop: Consistent three-dot menu OR separate buttons (implementation choice)
+  - Saves mobile screen space
+  - Actions shown based on context:
+    - Verify: All authenticated users (with 30-day cooldown check)
+    - Claim: Only for unclaimed groups
+    - Edit: Only for admins or createdBy user
 
 - **Component**: `VerifyGroupModal.tsx`
   - Instructions: "By verifying, you confirm: 1) The group website/contact is valid, 2) The group is still active, 3) The information is accurate"
   - Optional notes field
+  - Check verification eligibility before showing modal
+  - If on cooldown: show "You verified this group X days ago. You can verify again in Y days."
   - Submit → POST `/api/groups/[groupId]/verify`
   - Success: "Thanks for verifying! You can verify again in 30 days."
 
 ### 4.4 Group Status Indicators
-- **Update**: `GroupProfile/GroupView.tsx`
-  - Add status badges:
-    - "Unclaimed" badge (orange) if `claimedBy IS NULL`
+- **Update**: `GroupProfile/GroupView.tsx` and `GroupCard.tsx`
+  - Keep existing "verified" badge on group logo/card
+  - Add "unclaimed/claimed" status badge:
+    - "Unclaimed" badge (orange/gray) if `claimedBy IS NULL`
     - "Claimed" badge (green) if `claimedBy IS NOT NULL`
-    - Show last verification date if exists
-  - Show "Claim this group" button if unclaimed
-  - Show "Verify this group" button
+  - Explore overlapping badges in different sizes or different badge positions
+  - Show last verification date (query from `groupVerifications` table)
 
 - **Component**: `ClaimStatusBadge.tsx` - reusable badge component
 
@@ -193,8 +209,9 @@ Create new schemas in `config/validation-schema.ts`:
   - Submit → PUT `/api/admin/claims/[claimId]/reject`
 
 ### 4.7 Navigation Updates
+- **REMOVE** "Create Group" from user profile navigation
 - Add "Register a Group" link in appropriate navigation (e.g., main menu, map page)
-- Keep existing "Create Group" on user profile
+- All users must use register → claim workflow
 
 ## Phase 5: Email Templates
 
@@ -222,20 +239,16 @@ Add methods:
 
 Implement in both SMTPProvider and MailjetProvider.
 
-## Phase 6: Migration & Data Import
+## Phase 6: Database Migration
 
-### 6.1 Database Migration
-- Generate Drizzle migration for schema changes
-- Run migration: `pnpm --filter quilombo db:migrate`
+### 6.1 Generate Migration
+- Generate Drizzle migration: `pnpm drizzle-kit generate`
+- **DO NOT RUN** `db:migrate` locally
+- User will handle local migration manually
+- Staging/Production: Use existing GitHub Actions workflows
 
-### 6.2 Legacy Data Import Script
-- Create script: `apps/quilombo/scripts/import-legacy-groups.ts`
-- Read CSV/JSON of 4000+ groups
-- For each group:
-  - Create group record with `createdBy = NULL`
-  - Set `verified = false` initially
-  - Map fields from legacy data to new schema
-- Log import results (success/failures)
+### 6.2 Legacy Data Import
+**SKIPPED** - Will handle in separate feature context when needed
 
 ## Phase 7: Testing
 
@@ -244,6 +257,7 @@ Implement in both SMTPProvider and MailjetProvider.
 - Test verification rate limiting (30-day cooldown)
 - Test claim submission, approval, rejection
 - Test authorization (admin-only routes)
+- Test that direct group creation is disabled
 
 ### 7.2 Edge Cases to Test
 - User tries to claim group they're already admin of
@@ -251,6 +265,8 @@ Implement in both SMTPProvider and MailjetProvider.
 - User tries to verify same group within 30 days
 - Unclaimed group with `createdBy = NULL` (imported)
 - Claim approval when user is already in another group
+- Registration without links (should fail validation)
+- Registration without description (should fail validation)
 
 ### 7.3 Email Testing
 - Use SMTPProvider in development to test email templates
@@ -258,11 +274,11 @@ Implement in both SMTPProvider and MailjetProvider.
 
 ## Implementation Order
 
-1. **Database (Phase 1)**: Schema changes, migration
+1. **Database (Phase 1)**: ✅ Schema changes complete
 2. **Backend (Phases 2-3)**: DB functions, API routes
 3. **Emails (Phase 5)**: Templates and provider methods
 4. **Frontend (Phase 4)**: UI components, forms, admin panel
-5. **Import (Phase 6)**: Legacy data import script
+5. **Migration (Phase 6)**: Generate migration (user handles execution)
 6. **Testing (Phase 7)**: End-to-end testing
 
 ## Out of Scope (Future Phases)
@@ -272,23 +288,33 @@ Implement in both SMTPProvider and MailjetProvider.
 - Advanced fraud detection
 - Bulk group operations
 - Public API for group registration
+- PII cleanup workflow for claim messages
+- Legacy data import (4000+ groups)
 
-## Questions/Decisions Made
+## Key Decisions & Changes
 
-✅ Separate "Register Group" flow from "Create Group"
+✅ **REMOVED** direct "Create Group" - all groups must be registered then claimed
+✅ Separate "Register Group" flow from claim workflow
 ✅ Auto-assign claimer when claim approved
 ✅ Track all verifications and claim attempts in DB
 ✅ Show all groups on map (claimed and unclaimed)
-✅ Simple verify button with instructional modal
+✅ Simple verify action via three-dot menu (saves mobile space)
 ✅ Users can register multiple groups (no membership restriction)
 ✅ In-app claim form (not Google Form) for better integration
-✅ Required fields: name, location, contact (email or website)
+✅ Required fields: name, description, location, at least one link
+✅ **REMOVED** email/phone as direct contact fields (use links instead)
+✅ **REMOVED** lastVerifiedBy/At from groups table (query from groupVerifications)
+✅ **REMOVED** separate verify status endpoint (check inline)
 ✅ Plan data structure for gamification, implement UI later
 ✅ Legacy imports have `createdBy = NULL`
+✅ Three-dot menu for mobile actions (Verify, Claim, Edit)
+✅ Overlapping or multi-position badges for verified/claimed status
+✅ Description field now required for registration
+✅ Database migration generated but not executed (user handles)
 
 ## Estimated Complexity
 
-- **Database**: Medium (3 new tables, several new fields)
+- **Database**: Medium (3 new tables, 3 new fields on groups)
 - **Backend**: Medium-High (new endpoints, email integration, claim workflow)
-- **Frontend**: Medium-High (several new components, forms, admin panel)
+- **Frontend**: High (several new components, three-dot menu, forms, admin panel, remove existing create flow)
 - **Total**: ~2-3 weeks of development for full implementation

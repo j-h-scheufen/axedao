@@ -366,3 +366,31 @@ export type ChangePasswordForm = InferType<typeof changePasswordSchema>;
 export type SetPasswordForm = InferType<typeof setPasswordSchema>;
 export type LinkWalletForm = InferType<typeof linkWalletSchema>;
 export type RemoveMethodForm = InferType<typeof removeMethodSchema>;
+
+// Group Registration & Claiming validation schemas
+export const registerGroupFormSchema = object({
+  name: string().required('Group name is required'),
+  description: string().required('Group description is required'),
+  feature: mixed<Feature<Geometry, GeoJsonProperties>>().required('Location is required'),
+  style: string().nullable().oneOf(styles, 'Not a valid style'),
+  links: array()
+    .of(linkSchema)
+    .min(1, 'At least one link (website or social media) is required')
+    .required('At least one link (website or social media) is required'),
+});
+
+export const claimGroupFormSchema = object({
+  groupId: string().uuid('Invalid group ID').required('Group ID is required'),
+  userMessage: string()
+    .required('Please explain why you should be the admin of this group')
+    .min(20, 'Message must be at least 20 characters'),
+});
+
+export const verifyGroupFormSchema = object({
+  groupId: string().uuid('Invalid group ID').required('Group ID is required'),
+  notes: string().optional(),
+});
+
+export type RegisterGroupForm = InferType<typeof registerGroupFormSchema>;
+export type ClaimGroupForm = InferType<typeof claimGroupFormSchema>;
+export type VerifyGroupForm = InferType<typeof verifyGroupFormSchema>;

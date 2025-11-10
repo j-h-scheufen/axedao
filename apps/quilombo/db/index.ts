@@ -131,6 +131,9 @@ export async function searchGroups(options: GroupSearchParams): Promise<{ rows: 
       founder: schema.groups.founder,
       verified: schema.groups.verified,
       links: schema.groups.links,
+      createdBy: schema.groups.createdBy,
+      claimedBy: schema.groups.claimedBy,
+      claimedAt: schema.groups.claimedAt,
 
       countryCodes: sql<string[]>`ARRAY_REMOVE(ARRAY_AGG(DISTINCT ${schema.groupLocations.countryCode}), NULL)`.as(
         'country_codes'
@@ -168,6 +171,9 @@ export async function fetchGroup(groupId: string): Promise<Group | undefined> {
       founder: schema.groups.founder,
       verified: schema.groups.verified,
       links: schema.groups.links,
+      createdBy: schema.groups.createdBy,
+      claimedBy: schema.groups.claimedBy,
+      claimedAt: schema.groups.claimedAt,
 
       countryCodes: sql<string[]>`ARRAY_REMOVE(ARRAY_AGG(DISTINCT ${schema.groupLocations.countryCode}), NULL)`.as(
         'country_codes'
@@ -345,6 +351,9 @@ export async function fetchAllGroupLocationsWithGroups(): Promise<
         founder: schema.groups.founder,
         verified: schema.groups.verified,
         links: schema.groups.links,
+        createdBy: schema.groups.createdBy,
+        claimedBy: schema.groups.claimedBy,
+        claimedAt: schema.groups.claimedAt,
       },
     })
     .from(schema.groupLocations)
