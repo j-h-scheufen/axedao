@@ -47,8 +47,6 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.PRODUCTION_DATABASE_URL }}
           NEXT_PUBLIC_APP_ENV: production
-          NEXT_PUBLIC_WALLET_ENV: production
-          NEXT_PUBLIC_CHAIN_ENV: development
         run: |
           echo "🚀 Starting production database migration..."
           echo "Timestamp: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
