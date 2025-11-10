@@ -13,13 +13,17 @@
  *
  * Environment Variables Required:
  *   DATABASE_URL - PostgreSQL connection string (staging)
- *   NEXT_PUBLIC_APP_ENV - Must be 'staging'
+ *   NEXT_PUBLIC_APP_ENV - Must be 'development' (staging environment)
  */
 
 import { execSync } from 'node:child_process';
 import { sql } from 'drizzle-orm';
 
+import type { EnvType } from '../types';
 import { createDatabaseConnection } from '../db/connection';
+
+// Type-safe environment constant for staging
+const STAGING_ENV: EnvType = 'development';
 
 // Initialize database connection (will be validated in main())
 const { db } = createDatabaseConnection(process.env.DATABASE_URL || '');
@@ -256,10 +260,11 @@ async function main(): Promise<void> {
   log.info('Staging Database Migration Runner');
   log.info('='.repeat(80));
 
-  // Safety check: ensure we're in staging mode
-  if (process.env.NEXT_PUBLIC_APP_ENV !== 'staging') {
+  // Safety check: ensure we're in staging mode (development env signifies staging)
+  const currentEnv = process.env.NEXT_PUBLIC_APP_ENV;
+  if (currentEnv !== STAGING_ENV) {
     log.error('This script should only run in staging environment');
-    log.error(`Current NEXT_PUBLIC_APP_ENV: ${process.env.NEXT_PUBLIC_APP_ENV}`);
+    log.error(`Current NEXT_PUBLIC_APP_ENV: ${currentEnv} (expected: ${STAGING_ENV})`);
     process.exit(1);
   }
 

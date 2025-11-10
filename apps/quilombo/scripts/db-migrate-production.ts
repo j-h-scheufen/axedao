@@ -19,7 +19,11 @@
 import { execSync } from 'node:child_process';
 import { sql } from 'drizzle-orm';
 
+import type { EnvType } from '../types';
 import { createDatabaseConnection } from '../db/connection';
+
+// Type-safe environment constant for production
+const PRODUCTION_ENV: EnvType = 'production';
 
 // Initialize database connection (will be validated in main())
 const { db } = createDatabaseConnection(process.env.DATABASE_URL || '');
@@ -257,9 +261,10 @@ async function main(): Promise<void> {
   log.info('='.repeat(80));
 
   // Safety check: ensure we're in production mode
-  if (process.env.NEXT_PUBLIC_APP_ENV !== 'production') {
+  const currentEnv = process.env.NEXT_PUBLIC_APP_ENV;
+  if (currentEnv !== PRODUCTION_ENV) {
     log.error('This script should only run in production environment');
-    log.error(`Current NEXT_PUBLIC_APP_ENV: ${process.env.NEXT_PUBLIC_APP_ENV}`);
+    log.error(`Current NEXT_PUBLIC_APP_ENV: ${currentEnv} (expected: ${PRODUCTION_ENV})`);
     process.exit(1);
   }
 
