@@ -6,7 +6,7 @@
   "author": "Jan Hendrik Scheufen <j.h.scheufen@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "db:generate": "pnpm drizzle-kit generate",
     "db:migrate": "pnpm drizzle-kit migrate",
     "db:local:up": "docker compose up -d",
