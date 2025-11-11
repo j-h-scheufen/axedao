@@ -367,18 +367,7 @@ export type SetPasswordForm = InferType<typeof setPasswordSchema>;
 export type LinkWalletForm = InferType<typeof linkWalletSchema>;
 export type RemoveMethodForm = InferType<typeof removeMethodSchema>;
 
-// Group Registration & Claiming validation schemas
-export const registerGroupFormSchema = object({
-  name: string().required('Group name is required'),
-  description: string().required('Group description is required'),
-  feature: mixed<Feature<Geometry, GeoJsonProperties>>().required('Location is required'),
-  style: string().nullable().oneOf(styles, 'Not a valid style'),
-  links: array()
-    .of(linkSchema)
-    .min(1, 'At least one link (website or social media) is required')
-    .required('At least one link (website or social media) is required'),
-});
-
+// Group Claiming & Verification validation schemas
 export const claimGroupFormSchema = object({
   groupId: string().uuid('Invalid group ID').required('Group ID is required'),
   userMessage: string()
@@ -391,6 +380,5 @@ export const verifyGroupFormSchema = object({
   notes: string().optional(),
 });
 
-export type RegisterGroupForm = InferType<typeof registerGroupFormSchema>;
 export type ClaimGroupForm = InferType<typeof claimGroupFormSchema>;
 export type VerifyGroupForm = InferType<typeof verifyGroupFormSchema>;

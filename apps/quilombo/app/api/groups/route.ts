@@ -60,6 +60,7 @@ export async function GET(request: NextRequest) {
 /**
  * Creates a new group and assigns the logged-in user as the admin of the group.
  * The user must not be a member of any other group.
+ * Sets createdBy field. Leaves claimedBy/claimedAt NULL (claiming is only for imported groups).
  * @param request - CreateNewGroupForm
  * @returns
  */
@@ -91,7 +92,12 @@ export async function POST(request: NextRequest) {
     const groupData = body as CreateNewGroupForm;
 
     const newGroupId = uuidv4();
-    const group = await insertGroup({ ...groupData, id: newGroupId, verified: false });
+    const group = await insertGroup({
+      ...groupData,
+      id: newGroupId,
+      verified: false,
+      createdBy: session.user.id,
+    });
     if (!group) throw Error('Unable to create the group');
 
     await updateUser({ id: session.user.id, groupId: newGroupId });

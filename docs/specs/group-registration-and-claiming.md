@@ -1,9 +1,13 @@
 # Group Registration & Claiming Feature - Implementation Plan
 
 ## Overview
-Enable users to register groups they don't belong to (data entry), track metadata about group lifecycle, and allow legitimate group members to claim ownership through a verification process.
+Track group lifecycle metadata (creator, claimer, verifications) and allow legitimate group members to claim ownership of unclaimed groups through a verification process.
 
-**IMPORTANT CHANGE**: Users can NO LONGER create groups directly as "their" group. All groups must be registered (unclaimed) first, then claimed through verification. This ensures all group-user relationships are verified.
+**KEY DESIGN DECISIONS**:
+1. **Mass data import**: 4000+ groups will be imported via database scripts (NOT through UI). No manual mass registration feature needed.
+2. **Regular group creation**: Users can create their own group through existing UI. They automatically become admin and are recorded as creator (`createdBy`).
+3. **Group verification**: Any user can verify/vouch for group information accuracy through "verify group" flow (30-day global cooldown per group).
+4. **Group claiming**: Users can request to claim unclaimed groups (imported groups without admins) through admin-reviewed process.
 
 ## Phase 1: Database Schema Changes
 
@@ -14,9 +18,10 @@ Add new fields to `groups` table in `db/schema.ts`:
 - `claimedAt` (timestamp, nullable) - when the group was claimed
 
 **Derivation Logic:**
-- **Unclaimed**: `claimedBy IS NULL` (no admins assigned yet)
-- **Claimed**: `claimedBy IS NOT NULL` OR has at least one group admin
-- Legacy groups: `createdBy IS NULL` to distinguish imports
+- **Claimable (truly unclaimed)**: `claimedBy IS NULL` AND no admins exist
+- **Claimed**: `claimedBy IS NOT NULL` (someone claimed an imported group)
+- **User-created**: `createdBy IS NOT NULL` AND `claimedBy IS NULL` AND has admins
+- **Imported**: `createdBy IS NULL` to distinguish imports
 
 **Note**: Removed `lastVerifiedBy` and `lastVerifiedAt` fields - this is redundant with `groupVerifications` table. Latest verification can be queried when needed.
 
@@ -50,21 +55,20 @@ groupClaims {
 
 ### 1.4 Update Validation Schemas
 Create new schemas in `config/validation-schema.ts`:
-- `registerGroupFormSchema` - name (required), description (required), location (required), style (optional), links (at least one required - website or social media)
 - `claimGroupFormSchema` - userMessage (why claiming, min 20 chars), groupId
-- `verifyGroupFormSchema` - notes (optional what was verified)
+- `verifyGroupFormSchema` - notes (optional what was verified), groupId
 
-**Note**: Removed email/phone as direct contact fields. Groups must provide at least one link (social media or website) instead. This is more reliable and doesn't require exposing potentially private contact info.
+**Note**: No registration form schema needed - mass import via scripts, regular creation uses existing form.
 
 ## Phase 2: Database Functions (db/index.ts)
 
-### 2.1 Group Registration Functions
-- `registerGroup(data, userId)` - creates group with `createdBy`, no admins
-- `getUnclaimedGroups()` - fetches groups where `claimedBy IS NULL`
-- `getUserRegisteredGroups(userId)` - groups created by this user
+### 2.1 Group Query Functions
+- `getUnclaimedGroups()` - fetches truly claimable groups (`claimedBy IS NULL` AND no admins)
+  - Excludes user-created groups (which have admins but claimedBy=NULL)
+  - Only returns imported groups without admins
 
 ### 2.2 Verification Functions
-- `canUserVerifyGroup(userId, groupId)` - checks if user hasn't verified in last 30 days
+- `canVerifyGroup(groupId)` - checks if group hasn't been verified by ANY user in last 30 days
 - `verifyGroup(userId, groupId, notes)` - adds record to `groupVerifications`
 - `getGroupVerificationHistory(groupId)` - for admin review
 - `getUserVerificationCount(userId)` - for future gamification
@@ -79,19 +83,17 @@ Create new schemas in `config/validation-schema.ts`:
 
 ## Phase 3: API Routes
 
-### 3.1 Group Registration
-- **POST** `/api/groups/register` - register new group (replaces `/api/groups` for user group creation)
-  - Auth required
-  - No restriction on user's current group membership
-  - Sets `createdBy`, leaves `claimedBy` null
-  - Does NOT add user as admin
-  - Required fields: name, description, location (lat/lng), at least one link
-  - Returns group ID
+### 3.1 Update Existing Group Creation
+- **UPDATE** `/api/groups` POST endpoint - add `createdBy` field
+  - Existing flow: user creates their own group and becomes admin
+  - NEW: Set `createdBy` to the user's ID
+  - NEW: Leave `claimedBy` and `claimedAt` NULL (claiming is only for imported groups)
+  - Keep all existing validations and restrictions
 
 ### 3.2 Group Verification
 - **POST** `/api/groups/[groupId]/verify` - verify a group
   - Auth required
-  - Rate limit: one verification per user per group per 30 days
+  - Rate limit: one verification per group per 30 days (global cooldown, applies to all users)
   - Check eligibility inline (no separate status endpoint)
   - Adds verification record
   - Returns success with cooldown info
@@ -122,20 +124,14 @@ Create new schemas in `config/validation-schema.ts`:
   - Returns success
 
 ### 3.4 Update Existing Routes
-- **REMOVE** `/api/groups` POST endpoint (users can no longer create "their" group directly)
-- **PATCH** `/api/groups/[groupId]` - add authorization for `createdBy` user (not just admins)
-  - Allow the user who registered an unclaimed group to edit it
+- **PATCH** `/api/groups/[groupId]` - no changes needed (admin-only authorization remains)
+  - `createdBy` is for historical tracking only, not for ongoing permissions
 
 ## Phase 4: UI Components
 
-### 4.1 Register Group Flow
-- **New page**: `/groups/register` - replaces direct group creation
-- **Component**: `RegisterGroupForm.tsx`
-  - Required fields: name, description, location picker (map), at least one link (social/website)
-  - Optional: style, logo upload
-  - No email/phone fields (use links instead)
-  - Submit → POST `/api/groups/register`
-  - Success: redirect to group profile with "Group registered! Want to claim it?" message
+### 4.1 Group Creation Flow
+- **No changes needed** - existing group creation UI stays as-is
+- Backend will automatically set `createdBy`, `claimedBy`, `claimedAt` fields
 
 ### 4.2 Claim Group UI
 - **Component**: `ClaimGroupButton.tsx` (on group profile page)
@@ -160,7 +156,7 @@ Create new schemas in `config/validation-schema.ts`:
   - Desktop: Consistent three-dot menu OR separate buttons (implementation choice)
   - Saves mobile screen space
   - Actions shown based on context:
-    - Verify: All authenticated users (with 30-day cooldown check)
+    - Verify: All authenticated users (with 30-day global per-group cooldown check)
     - Claim: Only for unclaimed groups
     - Edit: Only for admins or createdBy user
 
@@ -168,9 +164,9 @@ Create new schemas in `config/validation-schema.ts`:
   - Instructions: "By verifying, you confirm: 1) The group website/contact is valid, 2) The group is still active, 3) The information is accurate"
   - Optional notes field
   - Check verification eligibility before showing modal
-  - If on cooldown: show "You verified this group X days ago. You can verify again in Y days."
+  - If on cooldown: show "This group was verified X days ago. It can be verified again in Y days."
   - Submit → POST `/api/groups/[groupId]/verify`
-  - Success: "Thanks for verifying! You can verify again in 30 days."
+  - Success: "Thanks for verifying! This group can be verified again in 30 days."
 
 ### 4.4 Group Status Indicators
 - **Update**: `GroupProfile/GroupView.tsx` and `GroupCard.tsx`
@@ -209,9 +205,7 @@ Create new schemas in `config/validation-schema.ts`:
   - Submit → PUT `/api/admin/claims/[claimId]/reject`
 
 ### 4.7 Navigation Updates
-- **REMOVE** "Create Group" from user profile navigation
-- Add "Register a Group" link in appropriate navigation (e.g., main menu, map page)
-- All users must use register → claim workflow
+- **No changes needed** - existing "Create Group" flow remains unchanged
 
 ## Phase 5: Email Templates
 
@@ -239,22 +233,30 @@ Add methods:
 
 Implement in both SMTPProvider and MailjetProvider.
 
-## Phase 6: Database Migration
+## Phase 6: Database Migration & Import
 
 ### 6.1 Generate Migration
-- Generate Drizzle migration: `pnpm drizzle-kit generate`
+- Generate Drizzle migration: `pnpm drizzle-kit generate` ✅ DONE
 - **DO NOT RUN** `db:migrate` locally
 - User will handle local migration manually
 - Staging/Production: Use existing GitHub Actions workflows
 
-### 6.2 Legacy Data Import
-**SKIPPED** - Will handle in separate feature context when needed
+### 6.2 Legacy Data Import Script
+Create import script in `scripts/import-groups.ts`:
+- Read group data from CSV/JSON file (4000+ groups)
+- Insert groups with `createdBy = NULL` and `claimedBy = NULL` (unclaimed state)
+- Use batch inserts for performance
+- Handle duplicates (check by name or external ID)
+- Log import progress and errors
+- Run via: `tsx scripts/import-groups.ts`
+
+**Note**: User will provide data format and run script manually
 
 ## Phase 7: Testing
 
 ### 7.1 API Route Tests
 - Test group registration flow
-- Test verification rate limiting (30-day cooldown)
+- Test verification rate limiting (30-day global per-group cooldown)
 - Test claim submission, approval, rejection
 - Test authorization (admin-only routes)
 - Test that direct group creation is disabled
@@ -262,7 +264,7 @@ Implement in both SMTPProvider and MailjetProvider.
 ### 7.2 Edge Cases to Test
 - User tries to claim group they're already admin of
 - Multiple users claim same group simultaneously
-- User tries to verify same group within 30 days
+- User tries to verify group within 30 days of ANY user's verification
 - Unclaimed group with `createdBy = NULL` (imported)
 - Claim approval when user is already in another group
 - Registration without links (should fail validation)
@@ -275,11 +277,16 @@ Implement in both SMTPProvider and MailjetProvider.
 ## Implementation Order
 
 1. **Database (Phase 1)**: ✅ Schema changes complete
-2. **Backend (Phases 2-3)**: DB functions, API routes
+2. **Backend (Phases 2-3)**: ✅ DB functions complete, ⚠️ API routes partially complete
+   - ✅ Verification routes done
+   - ✅ Claim routes done
+   - ⬜ Update POST /api/groups to set createdBy/claimedBy/claimedAt
+   - ⬜ Remove unused POST /api/groups/register route
 3. **Emails (Phase 5)**: Templates and provider methods
-4. **Frontend (Phase 4)**: UI components, forms, admin panel
-5. **Migration (Phase 6)**: Generate migration (user handles execution)
-6. **Testing (Phase 7)**: End-to-end testing
+4. **Frontend (Phase 4)**: UI components, verify/claim flows, admin panel
+5. **Migration (Phase 6)**: ✅ Migration generated (user handles execution)
+6. **Import Script (Phase 6.2)**: Create script for 4000+ groups import
+7. **Testing (Phase 7)**: End-to-end testing
 
 ## Out of Scope (Future Phases)
 
@@ -293,28 +300,28 @@ Implement in both SMTPProvider and MailjetProvider.
 
 ## Key Decisions & Changes
 
-✅ **REMOVED** direct "Create Group" - all groups must be registered then claimed
-✅ Separate "Register Group" flow from claim workflow
-✅ Auto-assign claimer when claim approved
+✅ **KEPT** existing "Create Group" flow - users create their own group and become admin
+✅ **NEW** track creator via `createdBy` field on all new groups (historical tracking only)
+✅ **NEW** Leave `claimedBy/claimedAt` NULL for user-created groups (claiming is only for imports)
+✅ **REMOVED** manual mass registration UI - use database import scripts instead
+✅ Auto-assign claimer when claim approved (for imported unclaimed groups)
+✅ `createdBy` does NOT grant edit permissions - only current admins can edit groups
 ✅ Track all verifications and claim attempts in DB
 ✅ Show all groups on map (claimed and unclaimed)
 ✅ Simple verify action via three-dot menu (saves mobile space)
-✅ Users can register multiple groups (no membership restriction)
+✅ Any user can verify any group (including their own) with 30-day global per-group cooldown
 ✅ In-app claim form (not Google Form) for better integration
-✅ Required fields: name, description, location, at least one link
-✅ **REMOVED** email/phone as direct contact fields (use links instead)
 ✅ **REMOVED** lastVerifiedBy/At from groups table (query from groupVerifications)
 ✅ **REMOVED** separate verify status endpoint (check inline)
 ✅ Plan data structure for gamification, implement UI later
-✅ Legacy imports have `createdBy = NULL`
+✅ Imported groups have `createdBy = NULL` and `claimedBy = NULL`
 ✅ Three-dot menu for mobile actions (Verify, Claim, Edit)
 ✅ Overlapping or multi-position badges for verified/claimed status
-✅ Description field now required for registration
 ✅ Database migration generated but not executed (user handles)
 
 ## Estimated Complexity
 
-- **Database**: Medium (3 new tables, 3 new fields on groups)
-- **Backend**: Medium-High (new endpoints, email integration, claim workflow)
-- **Frontend**: High (several new components, three-dot menu, forms, admin panel, remove existing create flow)
-- **Total**: ~2-3 weeks of development for full implementation
+- **Database**: Medium (3 new tables, 3 new fields on groups) ✅ DONE
+- **Backend**: Medium (claim/verify endpoints, email integration) - REDUCED from Medium-High
+- **Frontend**: Medium (three-dot menu, claim UI, verify UI, admin panel) - REDUCED from High
+- **Total**: ~1-2 weeks of development (reduced from 2-3 weeks due to removal of registration UI)

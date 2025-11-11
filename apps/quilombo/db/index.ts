@@ -22,6 +22,7 @@ import type { GroupSearchParams, UserSearchParams } from '@/config/validation-sc
 import * as schema from '@/db/schema';
 import type { Group, UserSession, InvitationType } from '@/types/model';
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
+import { NotFoundError } from '@/utils/errors';
 import { createDatabaseConnection } from './connection';
 
 /**
@@ -695,39 +696,19 @@ export async function expireOldInvitations(): Promise<void> {
 ////////////////////////////////////////////////////////////////////
 
 /**
- * Registers a new group (unclaimed) created by a user.
- * The user becomes the creator but is NOT added as an admin.
- * The group must be claimed before admins can be assigned.
+ * Fetches all truly claimable groups (no claimedBy value AND no admins).
+ * Used to display groups that can be claimed by users.
+ * Excludes user-created groups which have admins but claimedBy=NULL.
  *
- * @param data - Group data including name, description, location, links, style
- * @param userId - ID of the user registering the group
- * @returns The created group ID
- */
-export async function registerGroup(
-  data: schema.InsertGroup & { countryCodes?: string[] },
-  userId: string
-): Promise<string> {
-  const { countryCodes: _countryCodes, ...groupData } = data;
-
-  const result = await db
-    .insert(schema.groups)
-    .values({
-      ...groupData,
-      createdBy: userId,
-      claimedBy: null,
-      claimedAt: null,
-    })
-    .returning({ id: schema.groups.id });
-
-  return result[0].id;
-}
-
-/**
- * Fetches all unclaimed groups (groups with no claimedBy value).
- *
- * @returns Array of unclaimed groups
+ * @returns Array of claimable groups
  */
 export async function getUnclaimedGroups(): Promise<Group[]> {
+  // Subquery to get all group IDs that HAVE admins
+  const groupsWithAdmins = db
+    .select({ groupId: schema.groupAdmins.groupId })
+    .from(schema.groupAdmins)
+    .as('groups_with_admins');
+
   const results = await db
     .select({
       id: schema.groups.id,
@@ -751,61 +732,55 @@ export async function getUnclaimedGroups(): Promise<Group[]> {
     })
     .from(schema.groups)
     .leftJoin(schema.groupLocations, eq(schema.groups.id, schema.groupLocations.groupId))
-    .where(isNull(schema.groups.claimedBy))
+    .leftJoin(groupsWithAdmins, eq(schema.groups.id, groupsWithAdmins.groupId))
+    .where(and(isNull(schema.groups.claimedBy), isNull(groupsWithAdmins.groupId)))
     .groupBy(schema.groups.id);
 
   return results as Group[];
 }
 
 /**
- * Fetches all groups registered by a specific user.
+ * Checks if a group is claimable (claimedBy IS NULL AND no admins exist).
  *
- * @param userId - ID of the user who registered the groups
- * @returns Array of groups created by this user
+ * @param groupId - ID of the group to check
+ * @returns True if group is claimable, false otherwise
  */
-export async function getUserRegisteredGroups(userId: string): Promise<Group[]> {
-  const results = await db
+export async function isGroupClaimable(groupId: string): Promise<boolean> {
+  // Single query with left join to check both conditions at once
+  const result = await db
     .select({
-      id: schema.groups.id,
-      createdAt: schema.groups.createdAt,
-      name: schema.groups.name,
-      description: schema.groups.description,
-      style: schema.groups.style,
-      email: schema.groups.email,
-      logo: schema.groups.logo,
-      banner: schema.groups.banner,
-      leader: schema.groups.leader,
-      founder: schema.groups.founder,
-      verified: schema.groups.verified,
-      links: schema.groups.links,
-      createdBy: schema.groups.createdBy,
       claimedBy: schema.groups.claimedBy,
-      claimedAt: schema.groups.claimedAt,
-      countryCodes: sql<string[]>`ARRAY_REMOVE(ARRAY_AGG(DISTINCT ${schema.groupLocations.countryCode}), NULL)`.as(
-        'country_codes'
-      ),
+      adminUserId: schema.groupAdmins.userId,
     })
     .from(schema.groups)
-    .leftJoin(schema.groupLocations, eq(schema.groups.id, schema.groupLocations.groupId))
-    .where(eq(schema.groups.createdBy, userId))
-    .groupBy(schema.groups.id);
+    .leftJoin(schema.groupAdmins, eq(schema.groups.id, schema.groupAdmins.groupId))
+    .where(eq(schema.groups.id, groupId))
+    .limit(1);
 
-  return results as Group[];
+  // If no group found, not claimable
+  if (result.length === 0) {
+    return false;
+  }
+
+  const { claimedBy, adminUserId } = result[0];
+
+  // Group is claimable only if claimedBy IS NULL AND no admins exist
+  return claimedBy === null && adminUserId === null;
 }
 
 /**
- * Checks if a user can verify a group (hasn't verified it in the last 30 days).
+ * Checks if a group can be verified (hasn't been verified by ANY user in the last 30 days).
+ * The cooldown is global per-group, not per-user.
  *
- * @param userId - ID of the user attempting to verify
  * @param groupId - ID of the group to verify
- * @returns True if user can verify, false if on cooldown
+ * @returns True if group can be verified, false if on cooldown
  */
-export async function canUserVerifyGroup(userId: string, groupId: string): Promise<boolean> {
+export async function canVerifyGroup(groupId: string): Promise<boolean> {
   const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
 
+  // Check if ANY user has verified this group in the last 30 days
   const recentVerification = await db.query.groupVerifications.findFirst({
     where: and(
-      eq(schema.groupVerifications.userId, userId),
       eq(schema.groupVerifications.groupId, groupId),
       gte(schema.groupVerifications.verifiedAt, thirtyDaysAgo)
     ),
@@ -973,7 +948,7 @@ export async function approveClaim(claimId: string, adminId: string): Promise<vo
   });
 
   if (!claim) {
-    throw new Error('Claim not found');
+    throw new NotFoundError('Claim', claimId);
   }
 
   // Update claim status
@@ -1010,6 +985,15 @@ export async function approveClaim(claimId: string, adminId: string): Promise<vo
  * @param notes - Admin's reason for rejection
  */
 export async function rejectClaim(claimId: string, adminId: string, notes: string): Promise<void> {
+  // Get the claim details
+  const claim = await db.query.groupClaims.findFirst({
+    where: eq(schema.groupClaims.id, claimId),
+  });
+
+  if (!claim) {
+    throw new NotFoundError('Claim', claimId);
+  }
+
   await db
     .update(schema.groupClaims)
     .set({
