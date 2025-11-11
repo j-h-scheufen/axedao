@@ -1,7 +1,11 @@
 import type { Config } from 'drizzle-kit';
+import { config } from 'dotenv';
 
-// Simple config for migrations - only needs DATABASE_URL
-// Avoids loading full environment config with all its validations
+// Load environment variables from .env and .env.local (local overrides .env)
+// This allows drizzle-kit commands to work without manually exporting DATABASE_URL
+config({ path: '.env' });
+config({ path: '.env.local', override: true });
+
 const databaseUrl = process.env.DATABASE_URL;
 
 if (!databaseUrl) {

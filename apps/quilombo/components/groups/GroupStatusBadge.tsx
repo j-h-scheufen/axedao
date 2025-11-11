@@ -1,3 +1,5 @@
+'use client';
+
 import { Badge, Tooltip } from '@heroui/react';
 import { CircleCheckIcon, ShieldCheckIcon } from 'lucide-react';
 import type { ReactNode } from 'react';

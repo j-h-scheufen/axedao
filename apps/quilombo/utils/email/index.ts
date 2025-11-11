@@ -5,12 +5,12 @@ import type { EmailProvider } from './provider';
 
 /**
  * Factory function to get the email provider
- * Returns SMTPProvider for local development (NEXT_PUBLIC_APP_ENV=development)
- * Returns MailjetProvider for staging/production
+ * Returns SMTPProvider for local development (NEXT_PUBLIC_APP_ENV=local)
+ * Returns MailjetProvider for development/production
  * Throws error if provider is not properly configured
  */
 export const getEmailProvider = (): EmailProvider => {
-  if (ENV.environment === 'development') {
+  if (ENV.environment === 'local') {
     return new SMTPProvider();
   }
   return new MailjetProvider();

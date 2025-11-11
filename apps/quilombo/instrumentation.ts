@@ -14,7 +14,7 @@ export async function register() {
     console.log(`Chain Environment: ${ENV.chainEnvironment}`);
     console.log(`Base URL: ${getBaseUrl()}`);
 
-    if (ENV.environment === 'development') {
+    if (ENV.environment === 'local') {
       console.log(`Email Provider: SMTP (${ENV.smtpHost}:${ENV.smtpPort})`);
     } else {
       console.log(`Email Provider: Mailjet`);
