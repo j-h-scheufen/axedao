@@ -13,6 +13,7 @@ import { InvitationEmail } from './templates/invitation-email';
  * Uses React Email for templates
  */
 export class MailjetProvider implements EmailProvider {
+  // biome-ignore lint/suspicious/noExplicitAny: Third-party library without official types
   private client: any;
 
   constructor() {

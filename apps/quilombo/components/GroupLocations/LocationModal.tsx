@@ -27,7 +27,7 @@ interface LocationModalProps {
 
 const LocationModal = ({ isOpen, onOpenChange, savedLocation, onSubmit, isSubmitting }: LocationModalProps) => {
   const isEditing = !!location;
-  const setFieldValueRef = useRef<any>(null);
+  const setFieldValueRef = useRef<((field: string, value: unknown) => void) | null>(null);
 
   const initialValues: UpdateLocationForm = {
     name: savedLocation?.name || '',

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { eq, and } from 'drizzle-orm';
+import { ValidationError } from 'yup';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { removeMethodSchema } from '@/config/validation-schema';
@@ -131,12 +132,12 @@ export async function POST(request: Request) {
       },
       { status: 200 }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
     // Yup validation errors
-    if (error.name === 'ValidationError') {
+    if (error instanceof ValidationError) {
       return NextResponse.json(
         {
-          error: error.errors?.[0] || 'Invalid input',
+          error: error.errors[0] || 'Invalid input',
         },
         { status: 400 }
       );

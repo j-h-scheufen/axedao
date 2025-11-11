@@ -21,7 +21,7 @@ import ENV from '@/config/environment';
 import type { GroupSearchParams, UserSearchParams } from '@/config/validation-schema';
 import * as schema from '@/db/schema';
 import type { Group, UserSession, InvitationType } from '@/types/model';
-import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
+import { QUERY_DEFAULT_PAGE_SIZE, type eventTypes } from '@/config/constants';
 import { NotFoundError } from '@/utils/errors';
 import { createDatabaseConnection } from './connection';
 
@@ -401,7 +401,7 @@ export async function searchEvents(options: {
     filters.push(or(...searchFilters));
   }
 
-  if (type) filters.push(eq(schema.events.type, type as any));
+  if (type) filters.push(eq(schema.events.type, type as (typeof eventTypes)[number]));
   if (countryCode) filters.push(eq(schema.events.countryCode, countryCode));
 
   // Handle date filtering

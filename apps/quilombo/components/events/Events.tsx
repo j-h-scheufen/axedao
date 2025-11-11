@@ -10,6 +10,7 @@ import useEventSearchWithInfiniteScroll from '@/hooks/useEventSearchWithInfinite
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { PARAM_KEY_EVENT_QUERY } from '@/config/constants';
 import { useCreateEventMutation, useFetchEventLocations } from '@/query/event';
+import type { CreateEventForm } from '@/config/validation-schema';
 
 import SearchBar from '@/components/SearchBar';
 import FilterButton from '@/components/FilterButton';
@@ -67,7 +68,7 @@ const Events = () => {
     setIsEventModalOpen(true);
   };
 
-  const handleEventSubmit = async (data: any) => {
+  const handleEventSubmit = async (data: CreateEventForm | FormData) => {
     try {
       await createEventMutation.mutateAsync(data);
       setIsEventModalOpen(false);

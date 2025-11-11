@@ -62,8 +62,9 @@ export const groupLogoAtlasAtom = atom(async (get) => {
   const canvas = document.createElement('canvas');
   canvas.width = ICONS_PER_ROW * (ICON_SIZE + ICON_PADDING) - ICON_PADDING;
   canvas.height = rows * (ICON_SIZE + ICON_PADDING) - ICON_PADDING;
-  const ctx = canvas.getContext('2d')!;
-  const mapping: Record<string, any> = {};
+  const ctx = canvas.getContext('2d');
+  if (!ctx) throw new Error('Failed to get 2d context');
+  const mapping: Record<string, { x: number; y: number; width: number; height: number; mask: boolean }> = {};
   images.forEach((img, i) => {
     const x = (i % ICONS_PER_ROW) * (ICON_SIZE + ICON_PADDING);
     const y = Math.floor(i / ICONS_PER_ROW) * (ICON_SIZE + ICON_PADDING);

@@ -1,5 +1,6 @@
 import { getServerSession } from 'next-auth';
 import { NextResponse } from 'next/server';
+import { ValidationError } from 'yup';
 
 import { getBaseUrl } from '@/config/environment';
 import { nextAuthOptions } from '@/config/next-auth-options';
@@ -145,9 +146,8 @@ export async function POST(request: Request) {
     );
   } catch (error: unknown) {
     // Yup validation errors
-    if (error && typeof error === 'object' && 'name' in error && error.name === 'ValidationError') {
-      const validationError = error as { errors?: string[] };
-      return NextResponse.json({ error: validationError.errors?.[0] || 'Validation failed' }, { status: 400 });
+    if (error instanceof ValidationError) {
+      return NextResponse.json({ error: error.errors[0] || 'Validation failed' }, { status: 400 });
     }
 
     console.error('Failed to create invitation:', error);

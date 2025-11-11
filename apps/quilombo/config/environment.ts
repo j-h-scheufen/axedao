@@ -34,6 +34,8 @@ type ConfigType = {
   mailjetApiSecret: string;
   smtpHost: string;
   smtpPort: number;
+  googleClientId: string;
+  googleClientSecret: string;
 };
 
 const envMode: EnvType = process.env.NEXT_PUBLIC_APP_ENV?.toLowerCase() as EnvType;
@@ -118,6 +120,8 @@ const ENV: ConfigType = {
     isServer && envMode !== 'development' ? required(process.env.MAILJET_API_SECRET, 'MAILJET_API_SECRET') : '',
   smtpHost: isServer && envMode === 'development' ? process.env.SMTP_HOST || 'localhost' : '',
   smtpPort: isServer && envMode === 'development' ? Number(process.env.SMTP_PORT) || 2500 : 0,
+  googleClientId: isServer ? required(process.env.GOOGLE_CLIENT_ID, 'GOOGLE_CLIENT_ID') : '',
+  googleClientSecret: isServer ? required(process.env.GOOGLE_CLIENT_SECRET, 'GOOGLE_CLIENT_SECRET') : '',
 };
 
 function required(value: string | undefined, name: string): string {
