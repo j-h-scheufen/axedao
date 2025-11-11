@@ -252,41 +252,48 @@ Create import script in `scripts/import-groups.ts`:
 
 **Note**: User will provide data format and run script manually
 
-## Phase 7: Testing
+## Phase 7: Testing ✅
 
-### 7.1 API Route Tests
-- Test group registration flow
-- Test verification rate limiting (30-day global per-group cooldown)
-- Test claim submission, approval, rejection
-- Test authorization (admin-only routes)
-- Test that direct group creation is disabled
+**Status**: Comprehensive manual test plan created in `docs/specs/group-registration-and-claiming-test-plan.md`
 
-### 7.2 Edge Cases to Test
-- User tries to claim group they're already admin of
-- Multiple users claim same group simultaneously
-- User tries to verify group within 30 days of ANY user's verification
-- Unclaimed group with `createdBy = NULL` (imported)
-- Claim approval when user is already in another group
-- Registration without links (should fail validation)
-- Registration without description (should fail validation)
+Since the Quilombo app doesn't have automated test infrastructure, a detailed manual testing checklist was created covering:
 
-### 7.3 Email Testing
-- Use SMTPProvider in development to test email templates
-- Verify all email triggers work correctly
+### 7.1 Test Coverage Areas
+- ✅ Group verification flow (basic, with notes, cooldown enforcement)
+- ✅ Group claiming flow (eligibility, submission, validation)
+- ✅ Admin claim management (approve/reject workflows)
+- ✅ UI component verification (badges, menus, responsive behavior)
+- ✅ Edge cases (simultaneous claims, deleted users, network errors, special characters)
+- ✅ Email testing (all templates, bilingual content, links)
+- ✅ Database integrity (foreign keys, verification history)
+- ✅ Performance & UX (modal timing, large messages, table performance)
+- ✅ Regression tests (existing group creation/editing still works)
+
+### 7.2 Test Plan Includes
+- Prerequisites and setup commands
+- Step-by-step test procedures with expected results
+- Database verification queries
+- Email verification checklist
+- Quick smoke test checklist for deployments
+- Test results summary template
+- Future automated testing recommendations
+
+### 7.3 How to Use
+Refer to `docs/specs/group-registration-and-claiming-test-plan.md` for complete testing procedures before deploying to staging/production.
 
 ## Implementation Order
 
 1. **Database (Phase 1)**: ✅ Schema changes complete
-2. **Backend (Phases 2-3)**: ✅ DB functions complete, ⚠️ API routes partially complete
+2. **Backend (Phases 2-3)**: ✅ DB functions complete, ✅ API routes complete
    - ✅ Verification routes done
    - ✅ Claim routes done
-   - ⬜ Update POST /api/groups to set createdBy/claimedBy/claimedAt
-   - ⬜ Remove unused POST /api/groups/register route
-3. **Emails (Phase 5)**: Templates and provider methods
-4. **Frontend (Phase 4)**: UI components, verify/claim flows, admin panel
+   - ✅ Update POST /api/groups to set createdBy/claimedBy/claimedAt
+   - ✅ Remove unused POST /api/groups/register route
+3. **Emails (Phase 5)**: ✅ Templates and provider methods complete
+4. **Frontend (Phase 4)**: ✅ UI components, verify/claim flows, admin panel complete
 5. **Migration (Phase 6)**: ✅ Migration generated (user handles execution)
-6. **Import Script (Phase 6.2)**: Create script for 4000+ groups import
-7. **Testing (Phase 7)**: End-to-end testing
+6. **Import Script (Phase 6.2)**: ⬜ Create script for 4000+ groups import (pending user data format)
+7. **Testing (Phase 7)**: ✅ Manual test plan created and documented
 
 ## Out of Scope (Future Phases)
 
