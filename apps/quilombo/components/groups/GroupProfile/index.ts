@@ -1,4 +1,4 @@
-export { default as GroupActions } from './GroupActions';
+export { default as GroupActionsDropdown } from './GroupActionsDropdown';
 export { default as GroupBanner } from './GroupBanner';
 export { default as GroupLogo } from './GroupLogo';
 export { default as GroupProfileClientState } from './GroupProfileClientState';

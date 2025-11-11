@@ -5,13 +5,13 @@ import { useAtomValue } from 'jotai';
 import { MailIcon } from 'lucide-react';
 
 import ContactInfo from '@/components/ContactInfo';
-import { GroupMembers } from '@/components/GroupMembers';
-import GroupLocations from '@/components/GroupLocations/GroupLocations';
+import { GroupMembers } from '@/components/groups/GroupMembers';
+import GroupLocations from '@/components/groups/GroupLocations/GroupLocations';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import UserCardWithFetch from '@/components/UserCardWithFetch';
 import { groupAtom, isFounderUuidAtom } from '@/hooks/state/group';
 import { getImageUrl } from '@/utils';
-import { GroupActions, GroupBanner, GroupLogo } from '.';
+import { GroupActionsDropdown, GroupBanner, GroupLogo } from '.';
 
 const GroupView = () => {
   const { data: group, isLoading } = useAtomValue(groupAtom);
@@ -25,11 +25,11 @@ const GroupView = () => {
       {/* Repeating relevant attributes from (main) layout */}
       <div className="flex flex-col px-2 mt-4 gap-2 sm:gap-3">
         <div className="flex gap-3 sm:gap-4 w-full px-1">
-          <GroupLogo url={getImageUrl(group.logo)} />
+          <GroupLogo url={getImageUrl(group.logo)} verified={group.verified} claimedBy={group.claimedBy} />
           <div className="flex flex-col w-full">
             <div className="flex justify-between">
               <SubsectionHeading className="my-0 text-default-400">Description</SubsectionHeading>
-              <GroupActions />
+              <GroupActionsDropdown />
             </div>
             {!!group.description && <p className="mt-1 text-small text-default-500">{group.description}</p>}
           </div>

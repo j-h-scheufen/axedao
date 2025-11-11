@@ -21,14 +21,14 @@ const nextConfig: NextConfig = {
 
     // Optimize package imports
     optimizePackageImports: ['@heroui/react', 'lucide-react', 'lodash', 'framer-motion'],
+  },
 
-    // Turbopack configuration for SVG handling
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
+  // Turbopack configuration for SVG handling (moved from experimental.turbo)
+  turbopack: {
+    rules: {
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
       },
     },
   },

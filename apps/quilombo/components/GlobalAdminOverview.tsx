@@ -3,8 +3,8 @@
 import { Tab, Tabs } from '@heroui/react';
 
 import useGlobalAdminOverview from '@/hooks/useGlobalAdminOverview';
-import GlobalAdminGroupsTable from './GlobalAdminGroupsTable';
-import GlobalAdminUsersTable from './GlobalAdminUsersTable';
+import GlobalAdminGroupsTable from '@/components/groups/GlobalAdminGroupsTable';
+import GlobalAdminUsersTable from '@/components/GlobalAdminUsersTable';
 
 const GlobalAdminOverview = () => {
   const [query, setQuery] = useGlobalAdminOverview();

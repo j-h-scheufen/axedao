@@ -3,7 +3,7 @@
 import { Spinner } from '@heroui/react';
 import { useAtomValue } from 'jotai';
 
-import GroupCard from '@/components/GroupCard';
+import GroupCard from '@/components/groups/GroupCard';
 import { userGroupAtom } from '@/hooks/state/user';
 
 const UserGroupAssociation = () => {

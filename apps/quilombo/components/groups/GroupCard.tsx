@@ -6,18 +6,18 @@ import type { ReactNode } from 'react';
 import { PATHS } from '@/config/constants';
 import type { Group } from '@/types/model';
 import { getFlagEmoji, getImageUrl } from '@/utils';
-import VerificationBadge from './VerificationBadge';
+import GroupStatusBadge from './GroupStatusBadge';
 
 type Props = { group: Group; className?: string; cardFooter?: ReactNode };
 
 const GroupCard = ({ group, className = '', cardFooter = null }: Props) => {
-  const { name, id, logo, verified, countryCodes } = group;
+  const { name, id, logo, verified, claimedBy, countryCodes } = group;
   return (
     <Card as={Link} href={`${PATHS.groups}/${id}`}>
       <CardBody className={clsx('flex flex-row gap-3 p-2', className)}>
-        <VerificationBadge verified={verified}>
+        <GroupStatusBadge verified={verified} claimedBy={claimedBy}>
           <Avatar src={getImageUrl(logo)} size="lg" />
-        </VerificationBadge>
+        </GroupStatusBadge>
         <div className="flex-1 flex flex-col">
           <h3 className="flex items-center text-md">{name}</h3>
           {countryCodes.length > 0 && (

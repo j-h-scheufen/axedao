@@ -10,10 +10,10 @@ import useGroupSearchWithInfiniteScroll from '@/hooks/useGroupSearchWithInfinite
 import { filteredLocationsAtom } from '@/hooks/state/location';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 
-import SearchBar from './SearchBar';
-import FilterButton from './FilterButton';
-import GroupsGrid from './GroupsGrid';
-import GroupLocationsMap from './geocode/GroupLocationsMap';
+import SearchBar from '@/components/SearchBar';
+import FilterButton from '@/components/FilterButton';
+import GroupsGrid from '@/components/groups/GroupsGrid';
+import GroupLocationsMap from '@/components/geocode/GroupLocationsMap';
 import { PARAM_KEY_GROUP_QUERY } from '@/config/constants';
 
 const Groups = () => {

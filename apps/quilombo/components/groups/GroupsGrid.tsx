@@ -2,8 +2,8 @@ import type { RefObject } from 'react';
 
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import type { Group } from '@/types/model';
-import GroupCard from './GroupCard';
-import GroupCardSkeleton from './skeletons/GroupCardSkeleton';
+import GroupCard from '@/components/groups/GroupCard';
+import GroupCardSkeleton from '@/components/skeletons/GroupCardSkeleton';
 
 type Props = {
   groups?: Group[];

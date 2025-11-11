@@ -17,8 +17,7 @@ import { useSearchParams } from 'next/navigation';
 import { enqueueSnackbar } from 'notistack';
 
 import PageHeading from '@/components/PageHeading';
-import { ThemeSwitch } from '@/components/settings/ThemeSwitch';
-import AuthenticationManagement from '@/components/settings/AuthenticationManagement';
+import { ThemeSwitch, AuthenticationManagement } from '@/components/settings';
 import { useFetchAuthMethods } from '@/query/currentUser';
 
 const SettingsPage = () => {

@@ -1,5 +1,5 @@
 import { GroupEdit } from '@/components/forms/group';
-import { GroupProfileClientState } from '@/components/GroupProfile';
+import { GroupProfileClientState } from '@/components/groups/GroupProfile';
 import PageHeading from '@/components/PageHeading';
 import { PATHS } from '@/config/constants';
 import type { NextPageProps } from '@/app/layout';

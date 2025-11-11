@@ -10,8 +10,7 @@ import axios from 'axios';
 import { parseAbsoluteToLocal } from '@internationalized/date';
 
 import { QueryConfig } from '@/config/constants';
-import { isValidISO8601 } from '@/config/validation-schema';
-import type { CreateEventForm, UpdateEventForm } from '@/config/validation-schema';
+import { isValidISO8601, type CreateEventForm, type UpdateEventForm } from '@/config/validation-schema';
 import type { EventSearchResult, Event, EventLocationFeatureCollection } from '@/types/model';
 import { QUERY_KEYS } from '.';
 

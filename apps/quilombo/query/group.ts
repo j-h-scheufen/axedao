@@ -9,8 +9,13 @@ import {
 import axios from 'axios';
 
 import { QueryConfig } from '@/config/constants';
-import type { CreateLocationForm, UpdateLocationForm } from '@/config/validation-schema';
-import type { CreateNewGroupForm, SearchParams, UpdateGroupForm } from '@/config/validation-schema';
+import type {
+  CreateLocationForm,
+  UpdateLocationForm,
+  CreateNewGroupForm,
+  SearchParams,
+  UpdateGroupForm,
+} from '@/config/validation-schema';
 import type { Group, GroupLocation, GroupSearchResult, User } from '@/types/model';
 import {
   type FileUploadParams,

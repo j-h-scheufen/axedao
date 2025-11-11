@@ -50,4 +50,4 @@ I will:
 - Type of changes (feat/fix/chore/refactor/docs)
 - Affected areas (API, UI, auth, database, etc.)
 
-**Message format:** Concise, preferably 100 chars or less on a single line, but can be longer (multi-line) for larger changes, follows your repo's conventions
+**Message format:** Concise, each line must be 100 chars or less. Small commits favor a a single line, but use longer (multi-line) for larger changes, follows your repo's conventions

@@ -3,8 +3,8 @@
 import { Tab, Tabs } from '@heroui/react';
 
 import CreateGroupAssociationSkeleton from '@/components/skeletons/ProfileSkeletons';
-import CreateNewGroupForm from './CreateNewGroupForm';
-import JoinGroupForm from './forms/group/JoinGroupForm';
+import CreateNewGroupForm from '@/components/groups/CreateNewGroupForm';
+import JoinGroupForm from '@/components/forms/group/JoinGroupForm';
 
 type Props = { isLoading?: boolean };
 
