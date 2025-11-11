@@ -13,11 +13,12 @@ import {
   type SQLWrapper,
   lt,
   isNotNull,
+  isNull,
 } from 'drizzle-orm';
 import type { PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 
 import ENV from '@/config/environment';
-import type { GroupSearchParams, SearchParams, UserSearchParams } from '@/config/validation-schema';
+import type { GroupSearchParams, UserSearchParams } from '@/config/validation-schema';
 import * as schema from '@/db/schema';
 import type { Group, UserSession, InvitationType } from '@/types/model';
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
@@ -687,4 +688,376 @@ export async function expireOldInvitations(): Promise<void> {
     .update(schema.invitations)
     .set({ status: 'expired' })
     .where(and(eq(schema.invitations.status, 'pending'), lt(schema.invitations.expiresAt, new Date())));
+}
+
+////////////////////////////////////////////////////////////////////
+// GROUP REGISTRATION & CLAIMING
+////////////////////////////////////////////////////////////////////
+
+/**
+ * Registers a new group (unclaimed) created by a user.
+ * The user becomes the creator but is NOT added as an admin.
+ * The group must be claimed before admins can be assigned.
+ *
+ * @param data - Group data including name, description, location, links, style
+ * @param userId - ID of the user registering the group
+ * @returns The created group ID
+ */
+export async function registerGroup(
+  data: schema.InsertGroup & { countryCodes?: string[] },
+  userId: string
+): Promise<string> {
+  const { countryCodes: _countryCodes, ...groupData } = data;
+
+  const result = await db
+    .insert(schema.groups)
+    .values({
+      ...groupData,
+      createdBy: userId,
+      claimedBy: null,
+      claimedAt: null,
+    })
+    .returning({ id: schema.groups.id });
+
+  return result[0].id;
+}
+
+/**
+ * Fetches all unclaimed groups (groups with no claimedBy value).
+ *
+ * @returns Array of unclaimed groups
+ */
+export async function getUnclaimedGroups(): Promise<Group[]> {
+  const results = await db
+    .select({
+      id: schema.groups.id,
+      createdAt: schema.groups.createdAt,
+      name: schema.groups.name,
+      description: schema.groups.description,
+      style: schema.groups.style,
+      email: schema.groups.email,
+      logo: schema.groups.logo,
+      banner: schema.groups.banner,
+      leader: schema.groups.leader,
+      founder: schema.groups.founder,
+      verified: schema.groups.verified,
+      links: schema.groups.links,
+      createdBy: schema.groups.createdBy,
+      claimedBy: schema.groups.claimedBy,
+      claimedAt: schema.groups.claimedAt,
+      countryCodes: sql<string[]>`ARRAY_REMOVE(ARRAY_AGG(DISTINCT ${schema.groupLocations.countryCode}), NULL)`.as(
+        'country_codes'
+      ),
+    })
+    .from(schema.groups)
+    .leftJoin(schema.groupLocations, eq(schema.groups.id, schema.groupLocations.groupId))
+    .where(isNull(schema.groups.claimedBy))
+    .groupBy(schema.groups.id);
+
+  return results as Group[];
+}
+
+/**
+ * Fetches all groups registered by a specific user.
+ *
+ * @param userId - ID of the user who registered the groups
+ * @returns Array of groups created by this user
+ */
+export async function getUserRegisteredGroups(userId: string): Promise<Group[]> {
+  const results = await db
+    .select({
+      id: schema.groups.id,
+      createdAt: schema.groups.createdAt,
+      name: schema.groups.name,
+      description: schema.groups.description,
+      style: schema.groups.style,
+      email: schema.groups.email,
+      logo: schema.groups.logo,
+      banner: schema.groups.banner,
+      leader: schema.groups.leader,
+      founder: schema.groups.founder,
+      verified: schema.groups.verified,
+      links: schema.groups.links,
+      createdBy: schema.groups.createdBy,
+      claimedBy: schema.groups.claimedBy,
+      claimedAt: schema.groups.claimedAt,
+      countryCodes: sql<string[]>`ARRAY_REMOVE(ARRAY_AGG(DISTINCT ${schema.groupLocations.countryCode}), NULL)`.as(
+        'country_codes'
+      ),
+    })
+    .from(schema.groups)
+    .leftJoin(schema.groupLocations, eq(schema.groups.id, schema.groupLocations.groupId))
+    .where(eq(schema.groups.createdBy, userId))
+    .groupBy(schema.groups.id);
+
+  return results as Group[];
+}
+
+/**
+ * Checks if a user can verify a group (hasn't verified it in the last 30 days).
+ *
+ * @param userId - ID of the user attempting to verify
+ * @param groupId - ID of the group to verify
+ * @returns True if user can verify, false if on cooldown
+ */
+export async function canUserVerifyGroup(userId: string, groupId: string): Promise<boolean> {
+  const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+
+  const recentVerification = await db.query.groupVerifications.findFirst({
+    where: and(
+      eq(schema.groupVerifications.userId, userId),
+      eq(schema.groupVerifications.groupId, groupId),
+      gte(schema.groupVerifications.verifiedAt, thirtyDaysAgo)
+    ),
+  });
+
+  return !recentVerification;
+}
+
+/**
+ * Records a group verification by a user.
+ *
+ * @param userId - ID of the user verifying the group
+ * @param groupId - ID of the group being verified
+ * @param notes - Optional notes about what was verified
+ */
+export async function verifyGroup(userId: string, groupId: string, notes?: string): Promise<void> {
+  await db.insert(schema.groupVerifications).values({
+    userId,
+    groupId,
+    notes: notes || null,
+    verifiedAt: new Date(),
+  });
+}
+
+/**
+ * Fetches the complete verification history for a group.
+ *
+ * @param groupId - ID of the group
+ * @returns Array of verification records with user info
+ */
+export async function getGroupVerificationHistory(
+  groupId: string
+): Promise<Array<schema.SelectGroupVerification & { user: schema.SelectUser | null }>> {
+  const results = await db
+    .select({
+      id: schema.groupVerifications.id,
+      groupId: schema.groupVerifications.groupId,
+      userId: schema.groupVerifications.userId,
+      verifiedAt: schema.groupVerifications.verifiedAt,
+      notes: schema.groupVerifications.notes,
+      user: schema.users,
+    })
+    .from(schema.groupVerifications)
+    .leftJoin(schema.users, eq(schema.groupVerifications.userId, schema.users.id))
+    .where(eq(schema.groupVerifications.groupId, groupId))
+    .orderBy(schema.groupVerifications.verifiedAt);
+
+  return results.map((r) => ({
+    id: r.id,
+    groupId: r.groupId,
+    userId: r.userId,
+    verifiedAt: r.verifiedAt,
+    notes: r.notes,
+    user: r.user,
+  }));
+}
+
+/**
+ * Counts how many times a user has verified groups (for gamification).
+ *
+ * @param userId - ID of the user
+ * @returns Number of verifications performed by this user
+ */
+export async function getUserVerificationCount(userId: string): Promise<number> {
+  const result = await db
+    .select({ count: count() })
+    .from(schema.groupVerifications)
+    .where(eq(schema.groupVerifications.userId, userId));
+
+  return result[0]?.count || 0;
+}
+
+/**
+ * Gets the most recent verification for a group.
+ * Replaces the removed lastVerifiedBy/lastVerifiedAt fields.
+ *
+ * @param groupId - ID of the group
+ * @returns The latest verification record or null
+ */
+export async function getLatestGroupVerification(groupId: string): Promise<schema.SelectGroupVerification | null> {
+  const result = await db.query.groupVerifications.findFirst({
+    where: eq(schema.groupVerifications.groupId, groupId),
+    orderBy: (verifications, { desc }) => [desc(verifications.verifiedAt)],
+  });
+
+  return result || null;
+}
+
+/**
+ * Creates a new group claim request.
+ *
+ * @param userId - ID of the user claiming the group
+ * @param groupId - ID of the group being claimed
+ * @param message - User's explanation for why they should be admin
+ * @returns The created claim ID
+ */
+export async function createGroupClaim(userId: string, groupId: string, message: string): Promise<string> {
+  const result = await db
+    .insert(schema.groupClaims)
+    .values({
+      userId,
+      groupId,
+      userMessage: message,
+      status: 'pending',
+      requestedAt: new Date(),
+    })
+    .returning({ id: schema.groupClaims.id });
+
+  return result[0].id;
+}
+
+/**
+ * Fetches all pending group claims for admin review.
+ *
+ * @returns Array of pending claims with group and user info
+ */
+export async function getPendingClaims(): Promise<
+  Array<schema.SelectGroupClaim & { group: schema.SelectGroup | null; user: schema.SelectUser | null }>
+> {
+  const results = await db
+    .select({
+      id: schema.groupClaims.id,
+      groupId: schema.groupClaims.groupId,
+      userId: schema.groupClaims.userId,
+      status: schema.groupClaims.status,
+      requestedAt: schema.groupClaims.requestedAt,
+      processedAt: schema.groupClaims.processedAt,
+      processedBy: schema.groupClaims.processedBy,
+      userMessage: schema.groupClaims.userMessage,
+      adminNotes: schema.groupClaims.adminNotes,
+      group: schema.groups,
+      user: schema.users,
+    })
+    .from(schema.groupClaims)
+    .leftJoin(schema.groups, eq(schema.groupClaims.groupId, schema.groups.id))
+    .leftJoin(schema.users, eq(schema.groupClaims.userId, schema.users.id))
+    .where(eq(schema.groupClaims.status, 'pending'))
+    .orderBy(schema.groupClaims.requestedAt);
+
+  return results.map((r) => ({
+    id: r.id,
+    groupId: r.groupId,
+    userId: r.userId,
+    status: r.status,
+    requestedAt: r.requestedAt,
+    processedAt: r.processedAt,
+    processedBy: r.processedBy,
+    userMessage: r.userMessage,
+    adminNotes: r.adminNotes,
+    group: r.group,
+    user: r.user,
+  }));
+}
+
+/**
+ * Approves a group claim: marks it approved, adds user as admin, sets claimedBy/At.
+ *
+ * @param claimId - ID of the claim to approve
+ * @param adminId - ID of the admin approving the claim
+ */
+export async function approveClaim(claimId: string, adminId: string): Promise<void> {
+  // Get the claim details
+  const claim = await db.query.groupClaims.findFirst({
+    where: eq(schema.groupClaims.id, claimId),
+  });
+
+  if (!claim) {
+    throw new Error('Claim not found');
+  }
+
+  // Update claim status
+  await db
+    .update(schema.groupClaims)
+    .set({
+      status: 'approved',
+      processedAt: new Date(),
+      processedBy: adminId,
+    })
+    .where(eq(schema.groupClaims.id, claimId));
+
+  // Add user as group admin
+  await addGroupAdmin({ groupId: claim.groupId, userId: claim.userId });
+
+  // Update group's claimedBy and claimedAt
+  await db
+    .update(schema.groups)
+    .set({
+      claimedBy: claim.userId,
+      claimedAt: new Date(),
+    })
+    .where(eq(schema.groups.id, claim.groupId));
+
+  // Add user to the group
+  await db.update(schema.users).set({ groupId: claim.groupId }).where(eq(schema.users.id, claim.userId));
+}
+
+/**
+ * Rejects a group claim with admin notes.
+ *
+ * @param claimId - ID of the claim to reject
+ * @param adminId - ID of the admin rejecting the claim
+ * @param notes - Admin's reason for rejection
+ */
+export async function rejectClaim(claimId: string, adminId: string, notes: string): Promise<void> {
+  await db
+    .update(schema.groupClaims)
+    .set({
+      status: 'rejected',
+      processedAt: new Date(),
+      processedBy: adminId,
+      adminNotes: notes,
+    })
+    .where(eq(schema.groupClaims.id, claimId));
+}
+
+/**
+ * Fetches all claims for a specific group (for history/audit).
+ *
+ * @param groupId - ID of the group
+ * @returns Array of all claims for this group
+ */
+export async function getGroupClaims(
+  groupId: string
+): Promise<Array<schema.SelectGroupClaim & { user: schema.SelectUser | null }>> {
+  const results = await db
+    .select({
+      id: schema.groupClaims.id,
+      groupId: schema.groupClaims.groupId,
+      userId: schema.groupClaims.userId,
+      status: schema.groupClaims.status,
+      requestedAt: schema.groupClaims.requestedAt,
+      processedAt: schema.groupClaims.processedAt,
+      processedBy: schema.groupClaims.processedBy,
+      userMessage: schema.groupClaims.userMessage,
+      adminNotes: schema.groupClaims.adminNotes,
+      user: schema.users,
+    })
+    .from(schema.groupClaims)
+    .leftJoin(schema.users, eq(schema.groupClaims.userId, schema.users.id))
+    .where(eq(schema.groupClaims.groupId, groupId))
+    .orderBy(schema.groupClaims.requestedAt);
+
+  return results.map((r) => ({
+    id: r.id,
+    groupId: r.groupId,
+    userId: r.userId,
+    status: r.status,
+    requestedAt: r.requestedAt,
+    processedAt: r.processedAt,
+    processedBy: r.processedBy,
+    userMessage: r.userMessage,
+    adminNotes: r.adminNotes,
+    user: r.user,
+  }));
 }
