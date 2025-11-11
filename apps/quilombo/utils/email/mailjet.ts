@@ -7,6 +7,9 @@ import { VerificationEmail } from './templates/verification-email';
 import { PasswordResetEmail } from './templates/password-reset-email';
 import { WelcomeEmail } from './templates/welcome-email';
 import { InvitationEmail } from './templates/invitation-email';
+import { ClaimSubmittedEmail } from './templates/claim-submitted-email';
+import { ClaimApprovedEmail } from './templates/claim-approved-email';
+import { ClaimRejectedEmail } from './templates/claim-rejected-email';
 
 /**
  * Mailjet email provider implementation
@@ -109,6 +112,77 @@ export class MailjetProvider implements EmailProvider {
           Subject: `${inviterName} invited you to join Quilombo`,
           TextPart: text,
           HTMLPart: html,
+        },
+      ],
+    });
+  }
+
+  async sendClaimSubmittedEmail(
+    to: string,
+    groupName: string,
+    claimerName: string,
+    claimerEmail: string,
+    userMessage: string,
+    adminPanelUrl: string
+  ): Promise<void> {
+    const html = await render(
+      ClaimSubmittedEmail({ groupName, claimerName, claimerEmail, userMessage, adminPanelUrl })
+    );
+    const text = await render(
+      ClaimSubmittedEmail({ groupName, claimerName, claimerEmail, userMessage, adminPanelUrl }),
+      { plainText: true }
+    );
+
+    await this.client.post('send', { version: 'v3.1' }).request({
+      Messages: [
+        {
+          From: { Email: 'support@quilombo.net', Name: 'Quilombo' },
+          To: [{ Email: to }],
+          Subject: 'New Group Claim Request',
+          TextPart: text,
+          HTMLPart: html,
+          CustomID: 'claim-submitted',
+        },
+      ],
+    });
+  }
+
+  async sendClaimApprovedEmail(to: string, groupName: string, groupId: string, claimerName: string): Promise<void> {
+    const baseUrl = getBaseUrl();
+    const groupManagementUrl = `${baseUrl}/groups/${groupId}`;
+
+    const html = await render(ClaimApprovedEmail({ groupName, groupId, claimerName, groupManagementUrl }));
+    const text = await render(ClaimApprovedEmail({ groupName, groupId, claimerName, groupManagementUrl }), {
+      plainText: true,
+    });
+
+    await this.client.post('send', { version: 'v3.1' }).request({
+      Messages: [
+        {
+          From: { Email: 'support@quilombo.net', Name: 'Quilombo' },
+          To: [{ Email: to, Name: claimerName }],
+          Subject: 'Your group claim has been approved!',
+          TextPart: text,
+          HTMLPart: html,
+          CustomID: 'claim-approved',
+        },
+      ],
+    });
+  }
+
+  async sendClaimRejectedEmail(to: string, groupName: string, claimerName: string, reason: string): Promise<void> {
+    const html = await render(ClaimRejectedEmail({ groupName, claimerName, reason }));
+    const text = await render(ClaimRejectedEmail({ groupName, claimerName, reason }), { plainText: true });
+
+    await this.client.post('send', { version: 'v3.1' }).request({
+      Messages: [
+        {
+          From: { Email: 'support@quilombo.net', Name: 'Quilombo' },
+          To: [{ Email: to, Name: claimerName }],
+          Subject: 'Group claim update',
+          TextPart: text,
+          HTMLPart: html,
+          CustomID: 'claim-rejected',
         },
       ],
     });

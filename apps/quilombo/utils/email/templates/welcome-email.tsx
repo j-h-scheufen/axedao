@@ -44,7 +44,33 @@ export const WelcomeEmail = ({ profileUrl, logoUrl, userName }: WelcomeEmailProp
             Complete Your Profile
           </Button>
         </Section>
+
+        <Text style={emailStyles.divider}>---</Text>
+
+        <Text style={emailStyles.text}>{userName ? `Olá ${userName},` : 'Olá,'}</Text>
+        <Text style={emailStyles.text}>
+          Sua conta foi ativada com sucesso! Quilombo é um aplicativo criado por membros da comunidade global de
+          Capoeira para conectar capoeiristas, grupos e encontrar eventos locais.
+        </Text>
+        <Text style={emailStyles.text}>
+          Estamos constantemente adicionando novos recursos e gostaríamos de ouvir suas ideias também!
+        </Text>
+        <Text style={emailStyles.text}>Muito Axé!</Text>
+        <Text style={emailStyles.h2}>Aqui está o que você pode fazer:</Text>
+        <Section style={emailStyles.section}>
+          <Text style={emailStyles.feature}>
+            <strong>✓ Registre seu grupo ou junte-se a um existente</strong> – Encontre sua comunidade
+          </Text>
+          <Text style={emailStyles.feature}>
+            <strong>✓ Descubra eventos e grupos na sua área</strong> – Conecte-se pessoalmente
+          </Text>
+          <Text style={emailStyles.feature}>
+            <strong>✓ Participe da governança da DAO</strong> – Tomada de decisão democrática na comunidade
+          </Text>
+        </Section>
+
         <Text style={emailStyles.footerCentered}>Questions? Just reply to this email – we're here to help!</Text>
+        <Text style={emailStyles.footerCentered}>Dúvidas? Basta responder este email – estamos aqui para ajudar!</Text>
       </Container>
     </Body>
   </Html>

@@ -1,53 +1,57 @@
 import { Body, Button, Container, Head, Heading, Html, Preview, Section, Text } from '@react-email/components';
 
-interface InvitationEmailProps {
-  inviteUrl: string;
-  inviterName: string;
-  invitedEmail: string;
+interface ClaimApprovedEmailProps {
+  groupName: string;
+  groupId: string;
+  claimerName: string;
+  groupManagementUrl: string;
 }
 
-export const InvitationEmail = ({ inviteUrl, inviterName, invitedEmail }: InvitationEmailProps) => (
+export const ClaimApprovedEmail = ({
+  groupName,
+  // biome-ignore lint/correctness/noUnusedFunctionParameters: groupId is passed through from email providers but not used in template
+  groupId,
+  claimerName,
+  groupManagementUrl,
+}: ClaimApprovedEmailProps) => (
   <Html>
     <Head />
-    <Preview>You've been invited to join Quilombo by {inviterName}</Preview>
+    <Preview>Your group claim for {groupName} has been approved!</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Heading style={h1}>You're Invited to Quilombo!</Heading>
+        <Heading style={h1}>Claim Approved!</Heading>
+
         <Text style={text}>
-          <strong>{inviterName}</strong> has invited you to join <strong>Quilombo</strong>, the global Capoeira
-          community platform.
+          Great news, <strong>{claimerName}</strong>! Your request to claim <strong>{groupName}</strong> has been
+          approved.
         </Text>
+
         <Text style={text}>
-          Quilombo connects Capoeira practitioners worldwide, helping you find groups, events, and fellow capoeiristas
-          in your area and around the globe.
+          You are now the administrator of this group. You can update group information, manage members, and post
+          events.
         </Text>
+
         <Section style={buttonContainer}>
-          <Button style={button} href={inviteUrl}>
-            Accept Invitation
+          <Button style={button} href={groupManagementUrl}>
+            Manage Your Group
           </Button>
         </Section>
+
         <Text style={text}>Or copy and paste this link into your browser:</Text>
-        <Text style={link}>{inviteUrl}</Text>
+        <Text style={link}>{groupManagementUrl}</Text>
 
         <Text style={divider}>---</Text>
 
         <Text style={text}>
-          <strong>{inviterName}</strong> convidou você para participar do <strong>Quilombo</strong>, a plataforma global
-          da comunidade de Capoeira.
-        </Text>
-        <Text style={text}>
-          O Quilombo conecta praticantes de Capoeira em todo o mundo, ajudando você a encontrar grupos, eventos e
-          capoeiristas na sua área e ao redor do globo.
+          Boas notícias, <strong>{claimerName}</strong>! Sua solicitação para reivindicar <strong>{groupName}</strong>{' '}
+          foi aprovada.
         </Text>
 
-        <Text style={footer}>
-          This invitation was sent to <strong>{invitedEmail}</strong> and will expire in 30 days. If you didn't expect
-          this invitation, you can safely ignore this email.
+        <Text style={text}>
+          Agora você é o administrador deste grupo. Você pode atualizar as informações do grupo, gerenciar membros e
+          publicar eventos.
         </Text>
-        <Text style={footer}>
-          Este convite foi enviado para <strong>{invitedEmail}</strong> e expirará em 30 dias. Se você não esperava este
-          convite, pode ignorar este email com segurança.
-        </Text>
+
         <Text style={footer}>Need help? Contact us at support@quilombo.net</Text>
         <Text style={footer}>Precisa de ajuda? Entre em contato conosco em support@quilombo.net</Text>
       </Container>
@@ -55,7 +59,7 @@ export const InvitationEmail = ({ inviteUrl, inviterName, invitedEmail }: Invita
   </Html>
 );
 
-export default InvitationEmail;
+export default ClaimApprovedEmail;
 
 const main = {
   backgroundColor: '#f6f9fc',
@@ -83,6 +87,7 @@ const text = {
   fontSize: '16px',
   lineHeight: '26px',
   padding: '0 40px',
+  marginTop: '16px',
 };
 
 const buttonContainer = {

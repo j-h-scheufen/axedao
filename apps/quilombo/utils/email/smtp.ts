@@ -8,6 +8,9 @@ import { VerificationEmail } from './templates/verification-email';
 import { PasswordResetEmail } from './templates/password-reset-email';
 import { WelcomeEmail } from './templates/welcome-email';
 import { InvitationEmail } from './templates/invitation-email';
+import { ClaimSubmittedEmail } from './templates/claim-submitted-email';
+import { ClaimApprovedEmail } from './templates/claim-approved-email';
+import { ClaimRejectedEmail } from './templates/claim-rejected-email';
 
 /**
  * SMTP email provider implementation for local development
@@ -105,5 +108,70 @@ export class SMTPProvider implements EmailProvider {
 
     console.log(`[SMTP] Sent invitation email to ${to}`);
     console.log(`[SMTP] Invite URL: ${inviteUrl}`);
+  }
+
+  async sendClaimSubmittedEmail(
+    to: string,
+    groupName: string,
+    claimerName: string,
+    claimerEmail: string,
+    userMessage: string,
+    adminPanelUrl: string
+  ): Promise<void> {
+    const html = await render(
+      ClaimSubmittedEmail({ groupName, claimerName, claimerEmail, userMessage, adminPanelUrl })
+    );
+    const text = await render(
+      ClaimSubmittedEmail({ groupName, claimerName, claimerEmail, userMessage, adminPanelUrl }),
+      { plainText: true }
+    );
+
+    await this.transporter.sendMail({
+      from: '"Quilombo" <support@quilombo.net>',
+      to,
+      subject: 'New Group Claim Request',
+      text,
+      html,
+    });
+
+    console.log(`[SMTP] Sent claim submitted notification to ${to}`);
+    console.log(`[SMTP] Group: ${groupName}, Claimer: ${claimerName}`);
+  }
+
+  async sendClaimApprovedEmail(to: string, groupName: string, groupId: string, claimerName: string): Promise<void> {
+    const baseUrl = getBaseUrl();
+    const groupManagementUrl = `${baseUrl}/groups/${groupId}`;
+
+    const html = await render(ClaimApprovedEmail({ groupName, groupId, claimerName, groupManagementUrl }));
+    const text = await render(ClaimApprovedEmail({ groupName, groupId, claimerName, groupManagementUrl }), {
+      plainText: true,
+    });
+
+    await this.transporter.sendMail({
+      from: '"Quilombo" <support@quilombo.net>',
+      to,
+      subject: 'Your group claim has been approved!',
+      text,
+      html,
+    });
+
+    console.log(`[SMTP] Sent claim approved email to ${to}`);
+    console.log(`[SMTP] Group: ${groupName} (${groupId})`);
+  }
+
+  async sendClaimRejectedEmail(to: string, groupName: string, claimerName: string, reason: string): Promise<void> {
+    const html = await render(ClaimRejectedEmail({ groupName, claimerName, reason }));
+    const text = await render(ClaimRejectedEmail({ groupName, claimerName, reason }), { plainText: true });
+
+    await this.transporter.sendMail({
+      from: '"Quilombo" <support@quilombo.net>',
+      to,
+      subject: 'Group claim update',
+      text,
+      html,
+    });
+
+    console.log(`[SMTP] Sent claim rejected email to ${to}`);
+    console.log(`[SMTP] Group: ${groupName}`);
   }
 }
