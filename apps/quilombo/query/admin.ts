@@ -18,12 +18,12 @@ export type GroupClaim = {
 
 export type ApproveClaimParams = {
   claimId: string;
-  adminNotes?: string;
+  notes?: string;
 };
 
 export type RejectClaimParams = {
   claimId: string;
-  adminNotes?: string;
+  notes: string;
 };
 
 const fetchClaims = async (): Promise<GroupClaim[]> => axios.get('/api/admin/claims').then((response) => response.data);
@@ -36,11 +36,11 @@ export const fetchClaimsOptions = () => {
   } as const;
 };
 
-const approveClaim = async ({ claimId, adminNotes }: ApproveClaimParams): Promise<void> =>
-  axios.post(`/api/admin/claims/${claimId}/approve`, { adminNotes }).then((response) => response.data);
+const approveClaim = async ({ claimId, notes }: ApproveClaimParams): Promise<void> =>
+  axios.put(`/api/admin/claims/${claimId}/approve`, { notes }).then((response) => response.data);
 
-const rejectClaim = async ({ claimId, adminNotes }: RejectClaimParams): Promise<void> =>
-  axios.post(`/api/admin/claims/${claimId}/reject`, { adminNotes }).then((response) => response.data);
+const rejectClaim = async ({ claimId, notes }: RejectClaimParams): Promise<void> =>
+  axios.put(`/api/admin/claims/${claimId}/reject`, { notes }).then((response) => response.data);
 
 // HOOKS
 export const useFetchClaims = () => useQuery(queryOptions(fetchClaimsOptions()));

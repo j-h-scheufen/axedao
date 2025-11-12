@@ -106,6 +106,20 @@ export async function getPendingClaims(): Promise<
 }
 
 /**
+ * Fetches a single claim by ID.
+ *
+ * @param claimId - ID of the claim to fetch
+ * @returns The claim or null if not found
+ */
+export async function getGroupClaim(claimId: string): Promise<schema.SelectGroupClaim | null> {
+  const claim = await db.query.groupClaims.findFirst({
+    where: eq(schema.groupClaims.id, claimId),
+  });
+
+  return claim || null;
+}
+
+/**
  * Approves a group claim: marks it approved, adds user as admin, sets claimedBy/At.
  *
  * @param claimId - ID of the claim to approve
@@ -114,9 +128,7 @@ export async function getPendingClaims(): Promise<
  */
 export async function approveClaim(claimId: string, adminId: string): Promise<void> {
   // Get the claim details
-  const claim = await db.query.groupClaims.findFirst({
-    where: eq(schema.groupClaims.id, claimId),
-  });
+  const claim = await getGroupClaim(claimId);
 
   if (!claim) {
     throw new NotFoundError('Claim', claimId);
