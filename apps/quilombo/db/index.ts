@@ -1,6 +1,7 @@
 import {
   and,
   count,
+  countDistinct,
   eq,
   gte,
   ilike,
@@ -13,7 +14,6 @@ import {
   type SQLWrapper,
   lt,
   isNotNull,
-  isNull,
 } from 'drizzle-orm';
 import type { PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 
@@ -21,7 +21,7 @@ import ENV from '@/config/environment';
 import type { GroupSearchParams, UserSearchParams } from '@/config/validation-schema';
 import * as schema from '@/db/schema';
 import type { Group, UserSession, InvitationType } from '@/types/model';
-import { QUERY_DEFAULT_PAGE_SIZE, type eventTypes } from '@/config/constants';
+import { QUERY_DEFAULT_PAGE_SIZE, GROUP_VERIFICATION_COOLDOWN_MS, type eventTypes } from '@/config/constants';
 import { NotFoundError } from '@/utils/errors';
 import { createDatabaseConnection } from './connection';
 
@@ -117,7 +117,23 @@ export async function searchGroups(options: GroupSearchParams): Promise<{ rows: 
 
   const filters: (SQLWrapper | undefined)[] = [];
   if (searchTerm) filters.push(ilike(schema.groups.name, `%${searchTerm}%`));
-  if (typeof verified === 'boolean') filters.push(eq(schema.groups.verified, verified));
+
+  // Filter by verification status using subquery on group_verifications
+  if (typeof verified === 'boolean') {
+    if (verified) {
+      // Show only verified groups (have at least one verification)
+      filters.push(sql`EXISTS (
+        SELECT 1 FROM ${schema.groupVerifications}
+        WHERE ${schema.groupVerifications.groupId} = ${schema.groups.id}
+      )`);
+    } else {
+      // Show only unverified groups (no verifications)
+      filters.push(sql`NOT EXISTS (
+        SELECT 1 FROM ${schema.groupVerifications}
+        WHERE ${schema.groupVerifications.groupId} = ${schema.groups.id}
+      )`);
+    }
+  }
 
   const results = await db
     .select({
@@ -131,11 +147,17 @@ export async function searchGroups(options: GroupSearchParams): Promise<{ rows: 
       banner: schema.groups.banner,
       leader: schema.groups.leader,
       founder: schema.groups.founder,
-      verified: schema.groups.verified,
       links: schema.groups.links,
       createdBy: schema.groups.createdBy,
       claimedBy: schema.groups.claimedBy,
       claimedAt: schema.groups.claimedAt,
+
+      // Compute lastVerifiedAt
+      lastVerifiedAt: sql<Date | null>`(
+        SELECT MAX(${schema.groupVerifications.verifiedAt})
+        FROM ${schema.groupVerifications}
+        WHERE ${schema.groupVerifications.groupId} = ${schema.groups.id}
+      )`.as('last_verified_at'),
 
       countryCodes: sql<string[]>`ARRAY_REMOVE(ARRAY_AGG(DISTINCT ${schema.groupLocations.countryCode}), NULL)`.as(
         'country_codes'
@@ -171,11 +193,19 @@ export async function fetchGroup(groupId: string): Promise<Group | undefined> {
       banner: schema.groups.banner,
       leader: schema.groups.leader,
       founder: schema.groups.founder,
-      verified: schema.groups.verified,
       links: schema.groups.links,
       createdBy: schema.groups.createdBy,
       claimedBy: schema.groups.claimedBy,
       claimedAt: schema.groups.claimedAt,
+
+      // Get most recent verification date
+      lastVerifiedAt: sql<Date | null>`
+        (
+          SELECT MAX(${schema.groupVerifications.verifiedAt})
+          FROM ${schema.groupVerifications}
+          WHERE ${schema.groupVerifications.groupId} = ${schema.groups.id}
+        )
+      `.as('last_verified_at'),
 
       countryCodes: sql<string[]>`ARRAY_REMOVE(ARRAY_AGG(DISTINCT ${schema.groupLocations.countryCode}), NULL)`.as(
         'country_codes'
@@ -351,7 +381,6 @@ export async function fetchAllGroupLocationsWithGroups(): Promise<
         banner: schema.groups.banner,
         leader: schema.groups.leader,
         founder: schema.groups.founder,
-        verified: schema.groups.verified,
         links: schema.groups.links,
         createdBy: schema.groups.createdBy,
         claimedBy: schema.groups.claimedBy,
@@ -513,17 +542,18 @@ export async function fetchPublicStats(): Promise<PublicStats> {
     .from(schema.users)
     .where(eq(schema.users.accountStatus, 'active'));
 
-  // Count verified groups
+  // Count verified groups (count distinct groups that have at least one verification)
   const verifiedGroupsResult = await db
-    .select({ value: count() })
-    .from(schema.groups)
-    .where(eq(schema.groups.verified, true));
+    .select({ value: countDistinct(schema.groupVerifications.groupId) })
+    .from(schema.groupVerifications);
 
-  // Count unverified groups
-  const unverifiedGroupsResult = await db
-    .select({ value: count() })
-    .from(schema.groups)
-    .where(eq(schema.groups.verified, false));
+  // Count total groups
+  const totalGroupsResult = await db.select({ value: count() }).from(schema.groups);
+
+  // Calculate unverified groups (total groups minus verified groups)
+  const verifiedCount = verifiedGroupsResult[0]?.value ?? 0;
+  const totalCount = totalGroupsResult[0]?.value ?? 0;
+  const unverifiedCount = totalCount - verifiedCount;
 
   // Count upcoming events (start date >= now)
   const upcomingEventsResult = await db
@@ -533,8 +563,8 @@ export async function fetchPublicStats(): Promise<PublicStats> {
 
   return {
     activeUsers: activeUsersResult[0]?.value ?? 0,
-    verifiedGroups: verifiedGroupsResult[0]?.value ?? 0,
-    unverifiedGroups: unverifiedGroupsResult[0]?.value ?? 0,
+    verifiedGroups: verifiedCount,
+    unverifiedGroups: unverifiedCount,
     upcomingEvents: upcomingEventsResult[0]?.value ?? 0,
   };
 }
@@ -696,50 +726,6 @@ export async function expireOldInvitations(): Promise<void> {
 ////////////////////////////////////////////////////////////////////
 
 /**
- * Fetches all truly claimable groups (no claimedBy value AND no admins).
- * Used to display groups that can be claimed by users.
- * Excludes user-created groups which have admins but claimedBy=NULL.
- *
- * @returns Array of claimable groups
- */
-export async function getUnclaimedGroups(): Promise<Group[]> {
-  // Subquery to get all group IDs that HAVE admins
-  const groupsWithAdmins = db
-    .select({ groupId: schema.groupAdmins.groupId })
-    .from(schema.groupAdmins)
-    .as('groups_with_admins');
-
-  const results = await db
-    .select({
-      id: schema.groups.id,
-      createdAt: schema.groups.createdAt,
-      name: schema.groups.name,
-      description: schema.groups.description,
-      style: schema.groups.style,
-      email: schema.groups.email,
-      logo: schema.groups.logo,
-      banner: schema.groups.banner,
-      leader: schema.groups.leader,
-      founder: schema.groups.founder,
-      verified: schema.groups.verified,
-      links: schema.groups.links,
-      createdBy: schema.groups.createdBy,
-      claimedBy: schema.groups.claimedBy,
-      claimedAt: schema.groups.claimedAt,
-      countryCodes: sql<string[]>`ARRAY_REMOVE(ARRAY_AGG(DISTINCT ${schema.groupLocations.countryCode}), NULL)`.as(
-        'country_codes'
-      ),
-    })
-    .from(schema.groups)
-    .leftJoin(schema.groupLocations, eq(schema.groups.id, schema.groupLocations.groupId))
-    .leftJoin(groupsWithAdmins, eq(schema.groups.id, groupsWithAdmins.groupId))
-    .where(and(isNull(schema.groups.claimedBy), isNull(groupsWithAdmins.groupId)))
-    .groupBy(schema.groups.id);
-
-  return results as Group[];
-}
-
-/**
  * Checks if a group is claimable (claimedBy IS NULL AND no admins exist).
  *
  * @param groupId - ID of the group to check
@@ -769,20 +755,20 @@ export async function isGroupClaimable(groupId: string): Promise<boolean> {
 }
 
 /**
- * Checks if a group can be verified (hasn't been verified by ANY user in the last 30 days).
+ * Checks if a group can be verified (hasn't been verified by ANY user in the cooldown period).
  * The cooldown is global per-group, not per-user.
  *
  * @param groupId - ID of the group to verify
  * @returns True if group can be verified, false if on cooldown
  */
 export async function canVerifyGroup(groupId: string): Promise<boolean> {
-  const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+  const cooldownCutoff = new Date(Date.now() - GROUP_VERIFICATION_COOLDOWN_MS);
 
-  // Check if ANY user has verified this group in the last 30 days
+  // Check if ANY user has verified this group during the cooldown period
   const recentVerification = await db.query.groupVerifications.findFirst({
     where: and(
       eq(schema.groupVerifications.groupId, groupId),
-      gte(schema.groupVerifications.verifiedAt, thirtyDaysAgo)
+      gte(schema.groupVerifications.verifiedAt, cooldownCutoff)
     ),
   });
 

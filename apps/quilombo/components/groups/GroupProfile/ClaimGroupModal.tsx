@@ -3,10 +3,10 @@
 import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from '@heroui/react';
 import { Field, Form, Formik, type FormikProps } from 'formik';
 import { enqueueSnackbar } from 'notistack';
-import { useState } from 'react';
 
 import { FieldTextarea } from '@/components/forms';
 import { type ClaimGroupForm, claimGroupFormSchema } from '@/config/validation-schema';
+import { group } from '@/query';
 
 type Props = {
   isOpen: boolean;
@@ -15,31 +15,20 @@ type Props = {
 };
 
 const ClaimGroupModal = ({ isOpen, onOpenChange, groupId }: Props) => {
-  const [error, setError] = useState<string | null>(null);
+  const claimGroupMutation = group.useClaimGroupMutation();
 
   const handleSubmit = async (values: ClaimGroupForm) => {
     if (!groupId) return;
 
-    setError(null);
     try {
-      const response = await fetch(`/api/groups/${groupId}/claim`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userMessage: values.userMessage }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        setError(data.error || 'Failed to submit claim request');
-        return;
-      }
-
+      await claimGroupMutation.mutateAsync({ groupId, data: values });
       enqueueSnackbar("Claim submitted! We'll review and email you.", { variant: 'success' });
       onOpenChange();
     } catch (error) {
       console.error('Error submitting claim:', error);
-      setError('An error occurred while submitting your claim');
+      enqueueSnackbar((error as Error).message || 'An error occurred while submitting your claim', {
+        variant: 'error',
+      });
     }
   };
 
@@ -78,7 +67,6 @@ const ClaimGroupModal = ({ isOpen, onOpenChange, groupId }: Props) => {
                     minRows={5}
                     isRequired
                   />
-                  {error && <div className="text-danger text-small">{error}</div>}
                 </ModalBody>
                 <ModalFooter>
                   <Button color="default" variant="light" onPress={onClose}>

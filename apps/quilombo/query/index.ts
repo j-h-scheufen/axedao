@@ -7,6 +7,9 @@ export * as group from './group';
 export * as user from './user';
 export * as location from './location';
 export * as event from './event';
+export * as admin from './admin';
+export * as invitation from './invitation';
+export * as auth from './auth';
 
 /**
  * Query keys for react-query
@@ -49,6 +52,12 @@ export const QUERY_KEYS = {
   },
   dao: {
     getProposals: 'dao.getProposals',
+  },
+  admin: {
+    getClaims: 'admin.getClaims',
+  },
+  invitation: {
+    getInvitations: 'invitation.getInvitations',
   },
 } as const;
 

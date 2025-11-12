@@ -3,6 +3,8 @@
 import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from '@heroui/react';
 import { useState } from 'react';
 
+import * as admin from '@/query/admin';
+
 type GroupClaim = {
   id: string;
   groupName: string;
@@ -17,24 +19,15 @@ type Props = {
 };
 
 const ApproveClaimModal = ({ isOpen, onOpenChange, claim, onSuccess }: Props) => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
+  const approveClaimMutation = admin.useApproveClaimMutation();
+
   const handleApprove = async () => {
-    setIsSubmitting(true);
     setError(null);
     try {
-      const response = await fetch(`/api/admin/claims/${claim.id}/approve`, {
-        method: 'PUT',
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        setError(data.error || 'Failed to approve claim');
-        return;
-      }
+      await approveClaimMutation.mutateAsync({ claimId: claim.id });
 
       setSuccess(true);
       setTimeout(() => {
@@ -44,9 +37,7 @@ const ApproveClaimModal = ({ isOpen, onOpenChange, claim, onSuccess }: Props) =>
       }, 1500);
     } catch (error) {
       console.error('Error approving claim:', error);
-      setError('An error occurred while approving the claim');
-    } finally {
-      setIsSubmitting(false);
+      setError((error as Error).message || 'An error occurred while approving the claim');
     }
   };
 
@@ -75,7 +66,7 @@ const ApproveClaimModal = ({ isOpen, onOpenChange, claim, onSuccess }: Props) =>
               <Button color="default" variant="light" onPress={onClose}>
                 Cancel
               </Button>
-              <Button color="primary" onPress={handleApprove} isLoading={isSubmitting}>
+              <Button color="primary" onPress={handleApprove} isLoading={approveClaimMutation.isPending}>
                 Approve
               </Button>
             </ModalFooter>

@@ -26,7 +26,11 @@ const GroupView = () => {
       <div className="flex flex-col px-2 mt-4 gap-2 sm:gap-3">
         <div className="flex gap-3 sm:gap-4 w-full px-1">
           <div className="shrink-0">
-            <GroupLogo url={getImageUrl(group.logo)} verified={group.verified} claimedBy={group.claimedBy} />
+            <GroupLogo
+              url={getImageUrl(group.logo)}
+              lastVerifiedAt={group.lastVerifiedAt}
+              claimedBy={group.claimedBy}
+            />
           </div>
           <div className="flex flex-col w-full">
             <div className="flex justify-between">

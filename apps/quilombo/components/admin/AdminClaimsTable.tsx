@@ -13,11 +13,11 @@ import {
   useDisclosure,
   Chip,
 } from '@heroui/react';
-import { useQuery } from '@tanstack/react-query';
 import { ExternalLinkIcon } from 'lucide-react';
 import { useState } from 'react';
 
 import { PATHS } from '@/config/constants';
+import * as admin from '@/query/admin';
 import ApproveClaimModal from './ApproveClaimModal';
 import RejectClaimModal from './RejectClaimModal';
 
@@ -38,21 +38,7 @@ const AdminClaimsTable = () => {
   const { isOpen: isApproveOpen, onOpen: onApproveOpen, onOpenChange: onApproveOpenChange } = useDisclosure();
   const { isOpen: isRejectOpen, onOpen: onRejectOpen, onOpenChange: onRejectOpenChange } = useDisclosure();
 
-  const {
-    data: claims,
-    isLoading,
-    refetch,
-  } = useQuery<GroupClaim[]>({
-    queryKey: ['admin-claims'],
-    queryFn: async () => {
-      const response = await fetch('/api/admin/claims');
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.error || 'Failed to fetch claims');
-      }
-      return response.json();
-    },
-  });
+  const { data: claims, isLoading } = admin.useFetchClaims();
 
   const handleApprove = (claim: GroupClaim) => {
     setSelectedClaim(claim);
@@ -65,11 +51,11 @@ const AdminClaimsTable = () => {
   };
 
   const handleApproveSuccess = () => {
-    refetch();
+    // Query invalidation is handled by the mutation hook
   };
 
   const handleRejectSuccess = () => {
-    refetch();
+    // Query invalidation is handled by the mutation hook
   };
 
   if (isLoading) {
@@ -96,7 +82,7 @@ const AdminClaimsTable = () => {
           <TableColumn>ACTIONS</TableColumn>
         </TableHeader>
         <TableBody>
-          {claims.map((claim) => (
+          {claims?.map((claim: GroupClaim) => (
             <TableRow key={claim.id}>
               <TableCell>
                 <Link href={`${PATHS.groups}/${claim.groupId}`} target="_blank" className="flex items-center gap-1">

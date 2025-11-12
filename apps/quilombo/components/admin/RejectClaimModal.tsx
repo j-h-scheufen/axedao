@@ -3,6 +3,8 @@
 import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Textarea } from '@heroui/react';
 import { useState } from 'react';
 
+import * as admin from '@/query/admin';
+
 type GroupClaim = {
   id: string;
   groupName: string;
@@ -17,10 +19,11 @@ type Props = {
 };
 
 const RejectClaimModal = ({ isOpen, onOpenChange, claim, onSuccess }: Props) => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [reason, setReason] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+
+  const rejectClaimMutation = admin.useRejectClaimMutation();
 
   const handleReject = async () => {
     if (!reason.trim()) {
@@ -28,21 +31,9 @@ const RejectClaimModal = ({ isOpen, onOpenChange, claim, onSuccess }: Props) => 
       return;
     }
 
-    setIsSubmitting(true);
     setError(null);
     try {
-      const response = await fetch(`/api/admin/claims/${claim.id}/reject`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ adminNotes: reason }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        setError(data.error || 'Failed to reject claim');
-        return;
-      }
+      await rejectClaimMutation.mutateAsync({ claimId: claim.id, adminNotes: reason });
 
       setSuccess(true);
       setTimeout(() => {
@@ -53,9 +44,7 @@ const RejectClaimModal = ({ isOpen, onOpenChange, claim, onSuccess }: Props) => 
       }, 1500);
     } catch (error) {
       console.error('Error rejecting claim:', error);
-      setError('An error occurred while rejecting the claim');
-    } finally {
-      setIsSubmitting(false);
+      setError((error as Error).message || 'An error occurred while rejecting the claim');
     }
   };
 
@@ -92,7 +81,7 @@ const RejectClaimModal = ({ isOpen, onOpenChange, claim, onSuccess }: Props) => 
               <Button color="default" variant="light" onPress={onClose}>
                 Cancel
               </Button>
-              <Button color="danger" onPress={handleReject} isLoading={isSubmitting}>
+              <Button color="danger" onPress={handleReject} isLoading={rejectClaimMutation.isPending}>
                 Reject Claim
               </Button>
             </ModalFooter>

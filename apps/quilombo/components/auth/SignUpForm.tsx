@@ -12,6 +12,7 @@ import { signupSchema, type SignupForm as SignupFormValues } from '@/config/vali
 import ErrorText from '@/components/ErrorText';
 import FieldInput from '@/components/forms/FieldInput';
 import useAuth from '@/hooks/useAuth';
+import * as auth from '@/query/auth';
 import { PasswordRequirements } from './PasswordRequirements';
 import WalletEmailModal from './WalletEmailModal';
 
@@ -29,6 +30,9 @@ const SignUpForm = () => {
   const [googleLoading, setGoogleLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+
+  // Use signup mutation from query layer
+  const signupMutation = auth.useSignupMutation();
 
   // Extract invitation code and email from URL params
   const invitationCode = searchParams.get('code');
@@ -50,27 +54,16 @@ const SignUpForm = () => {
   const handleEmailPasswordSubmit = async (values: SignupFormValues) => {
     setError(null);
     try {
-      const response = await fetch('/api/auth/signup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...values,
-          ...(invitationCode && { invitationCode }),
-        }),
+      await signupMutation.mutateAsync({
+        ...values,
+        ...(invitationCode && { invitationCode }),
       });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        setError(data.error || 'Failed to create account');
-        return;
-      }
 
       setSuccess(true);
       // Redirect to email verification page
       router.push(`${PATHS.verifyEmail}/sent?email=${encodeURIComponent(values.email)}`);
     } catch (err) {
-      setError('An unexpected error occurred. Please try again.');
+      setError((err as Error).message || 'An unexpected error occurred. Please try again.');
       console.error('Signup error:', err);
     }
   };

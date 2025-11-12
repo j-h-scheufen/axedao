@@ -6,7 +6,7 @@ import type { ReactNode } from 'react';
 import GroupStatusIcon from './GroupStatusIcon';
 
 type Props = {
-  verified: boolean;
+  lastVerifiedAt: Date | null;
   claimedBy: string | null;
   children: ReactNode;
 };
@@ -17,15 +17,16 @@ type Props = {
  * - Outer ring: claimed status
  * - Inner circle: verified status
  */
-const GroupStatusBadge = ({ verified, claimedBy, children }: Props) => {
+const GroupStatusBadge = ({ lastVerifiedAt, claimedBy, children }: Props) => {
+  const isVerified = lastVerifiedAt !== null;
   const isClaimed = claimedBy !== null;
 
   // Build tooltip text based on status with explanation
   const getTooltipContent = () => {
     const statusText = (() => {
-      if (verified && isClaimed) return 'Verified & Claimed';
-      if (verified && !isClaimed) return 'Verified & Unclaimed';
-      if (!verified && isClaimed) return 'Unverified & Claimed';
+      if (isVerified && isClaimed) return 'Verified & Claimed';
+      if (isVerified && !isClaimed) return 'Verified & Unclaimed';
+      if (!isVerified && isClaimed) return 'Unverified & Claimed';
       return 'Unverified & Unclaimed';
     })();
 
@@ -41,7 +42,7 @@ const GroupStatusBadge = ({ verified, claimedBy, children }: Props) => {
       content={
         <Tooltip content={getTooltipContent()} placement="right" delay={300}>
           <div className="cursor-help">
-            <GroupStatusIcon verified={verified} claimed={isClaimed} />
+            <GroupStatusIcon verified={isVerified} claimed={isClaimed} />
           </div>
         </Tooltip>
       }

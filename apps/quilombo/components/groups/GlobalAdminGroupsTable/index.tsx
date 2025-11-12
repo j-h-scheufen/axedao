@@ -22,7 +22,6 @@ import { PATHS } from '@/config/constants';
 import useGroupSearch from '@/hooks/useGroupSearch';
 import type { Group } from '@/types/model';
 import { getImageUrl } from '@/utils';
-import ActionCell from './ActionCell';
 
 type Column<T> = {
   key: keyof T;
@@ -54,32 +53,18 @@ const columns: Column<Group>[] = [
     columnProps: { allowsSorting: true },
   },
   {
-    key: 'verified',
+    key: 'lastVerifiedAt',
     label: 'VERIFICATION',
     cell: ({ item }) => {
-      const { verified } = item;
+      const isVerified = item.lastVerifiedAt !== null;
       return (
         <VerificationChip
-          verified={verified}
+          verified={isVerified}
           // className="position top-[1px]"
         />
       );
     },
     columnProps: { allowsSorting: true },
-  },
-  {
-    key: 'id',
-    label: 'ACTIONS',
-    cell: ({ item }) => {
-      return (
-        <div className="flex items-center justify-end">
-          <ActionCell group={item} />
-        </div>
-      );
-    },
-    columnProps: {
-      className: 'w-6',
-    },
   },
 ];
 

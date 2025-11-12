@@ -95,7 +95,6 @@ export async function POST(request: NextRequest) {
     const group = await insertGroup({
       ...groupData,
       id: newGroupId,
-      verified: false,
       createdBy: session.user.id,
     });
     if (!group) throw Error('Unable to create the group');

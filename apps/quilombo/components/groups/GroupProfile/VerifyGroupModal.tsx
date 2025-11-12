@@ -3,10 +3,11 @@
 import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from '@heroui/react';
 import { Field, Form, Formik, type FormikProps } from 'formik';
 import { enqueueSnackbar } from 'notistack';
-import { useState, useEffect } from 'react';
 
 import { FieldTextarea } from '@/components/forms';
+import { GROUP_VERIFICATION_COOLDOWN_MS } from '@/config/constants';
 import { type VerifyGroupForm, verifyGroupFormSchema } from '@/config/validation-schema';
+import { group } from '@/query';
 
 type Props = {
   isOpen: boolean;
@@ -15,57 +16,32 @@ type Props = {
 };
 
 const VerifyGroupModal = ({ isOpen, onOpenChange, groupId }: Props) => {
-  const [error, setError] = useState<string | null>(null);
-  const [cooldownInfo, setCooldownInfo] = useState<{ canVerify: boolean; message?: string } | null>(null);
+  const { data: groupData } = group.useFetchGroup(groupId ?? '');
+  const verifyGroupMutation = group.useVerifyGroupMutation();
+
+  // Compute cooldown status from lastVerifiedAt
+  const canVerify =
+    !groupData?.lastVerifiedAt || Date.now() - groupData.lastVerifiedAt.getTime() > GROUP_VERIFICATION_COOLDOWN_MS;
+  const cooldownMessage = !canVerify
+    ? 'This group was recently verified. Groups can only be verified once every 30 days.'
+    : undefined;
 
   const handleSubmit = async (values: VerifyGroupForm) => {
     if (!groupId) return;
 
-    setError(null);
     try {
-      const response = await fetch(`/api/groups/${groupId}/verify`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ notes: values.notes }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        setError(data.error || 'Failed to verify group');
-        return;
-      }
-
+      await verifyGroupMutation.mutateAsync({ groupId, data: values });
       enqueueSnackbar('Thanks for verifying! This group can be verified again in 30 days.', { variant: 'success' });
       onOpenChange();
     } catch (error) {
       console.error('Error verifying group:', error);
-      setError('An error occurred while verifying the group');
+      enqueueSnackbar((error as Error).message || 'An error occurred while verifying the group', { variant: 'error' });
     }
   };
 
   const initialValues: VerifyGroupForm = {
     notes: '',
   };
-
-  // Check cooldown status when modal opens
-  useEffect(() => {
-    if (!isOpen || !groupId) return;
-
-    const checkCooldown = async () => {
-      try {
-        const response = await fetch(`/api/groups/${groupId}/verify`);
-        if (response.ok) {
-          const data = await response.json();
-          setCooldownInfo(data);
-        }
-      } catch (error) {
-        console.error('Error checking verification cooldown:', error);
-      }
-    };
-
-    checkCooldown();
-  }, [isOpen, groupId]);
 
   return (
     <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="lg">
@@ -80,8 +56,8 @@ const VerifyGroupModal = ({ isOpen, onOpenChange, groupId }: Props) => {
               <Form>
                 <ModalHeader className="flex flex-col gap-1">Verify Group</ModalHeader>
                 <ModalBody>
-                  {cooldownInfo && !cooldownInfo.canVerify ? (
-                    <div className="text-default-600 p-4 bg-default-100 rounded-lg">{cooldownInfo.message}</div>
+                  {!canVerify ? (
+                    <div className="text-default-600 p-4 bg-default-100 rounded-lg">{cooldownMessage}</div>
                   ) : (
                     <>
                       <div className="text-default-600">
@@ -99,7 +75,6 @@ const VerifyGroupModal = ({ isOpen, onOpenChange, groupId }: Props) => {
                         as={FieldTextarea}
                         minRows={3}
                       />
-                      {error && <div className="text-danger text-small">{error}</div>}
                     </>
                   )}
                 </ModalBody>
@@ -107,7 +82,7 @@ const VerifyGroupModal = ({ isOpen, onOpenChange, groupId }: Props) => {
                   <Button color="default" variant="light" onPress={onClose}>
                     Cancel
                   </Button>
-                  {(cooldownInfo === null || cooldownInfo.canVerify) && (
+                  {canVerify && (
                     <Button color="primary" type="submit" isLoading={isSubmitting}>
                       Verify Group
                     </Button>

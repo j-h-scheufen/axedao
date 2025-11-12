@@ -97,7 +97,6 @@ export const groups = pgTable(
     banner: varchar('banner'),
     leader: uuid('leader_id').references((): AnyPgColumn => users.id, { onDelete: 'set null' }),
     founder: varchar('founder'),
-    verified: boolean('verified').notNull().default(false),
     links: json('links').$type<SocialLink[]>().notNull().default([]),
     // Group lifecycle tracking for registration & claiming
     createdBy: uuid('created_by').references((): AnyPgColumn => users.id, { onDelete: 'set null' }),

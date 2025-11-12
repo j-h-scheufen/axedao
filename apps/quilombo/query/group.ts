@@ -15,6 +15,8 @@ import type {
   CreateNewGroupForm,
   SearchParams,
   UpdateGroupForm,
+  VerifyGroupForm,
+  ClaimGroupForm,
 } from '@/config/validation-schema';
 import type { Group, GroupLocation, GroupSearchResult, User } from '@/types/model';
 import {
@@ -284,6 +286,38 @@ export const useUpdateBannerMutation: UseFileUploadMutation = () => {
     mutationFn: (params: FileUploadParams) => updateBanner(params),
     onSuccess: (data, variables) => {
       queryClient.setQueryData([QUERY_KEYS.group.getGroup, variables.ownerId], data);
+    },
+  });
+};
+
+// GROUP VERIFICATION AND CLAIMING
+
+const verifyGroup = async (groupId: string, data: VerifyGroupForm): Promise<{ success: boolean }> =>
+  axios.post(`/api/groups/${groupId}/verify`, data).then((response) => response.data);
+
+const claimGroup = async (groupId: string, data: ClaimGroupForm): Promise<{ success: boolean }> =>
+  axios.post(`/api/groups/${groupId}/claim`, data).then((response) => response.data);
+
+export const useVerifyGroupMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async ({ groupId, data }: { groupId: string; data: VerifyGroupForm }) => verifyGroup(groupId, data),
+    onSuccess: (_data, variables) => {
+      // Invalidate the group query to refresh verification status and lastVerifiedAt
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroup, variables.groupId] });
+      // Invalidate search results to update verification badges
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.searchGroups] });
+    },
+  });
+};
+
+export const useClaimGroupMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async ({ groupId, data }: { groupId: string; data: ClaimGroupForm }) => claimGroup(groupId, data),
+    onSuccess: (_data, _variables) => {
+      // Invalidate admin claims list if user is admin
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.admin.getClaims] });
     },
   });
 };
