@@ -25,7 +25,9 @@ const GroupView = () => {
       {/* Repeating relevant attributes from (main) layout */}
       <div className="flex flex-col px-2 mt-4 gap-2 sm:gap-3">
         <div className="flex gap-3 sm:gap-4 w-full px-1">
-          <GroupLogo url={getImageUrl(group.logo)} verified={group.verified} claimedBy={group.claimedBy} />
+          <div className="shrink-0">
+            <GroupLogo url={getImageUrl(group.logo)} verified={group.verified} claimedBy={group.claimedBy} />
+          </div>
           <div className="flex flex-col w-full">
             <div className="flex justify-between">
               <SubsectionHeading className="my-0 text-default-400">Description</SubsectionHeading>

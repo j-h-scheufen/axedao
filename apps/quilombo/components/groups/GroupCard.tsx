@@ -10,13 +10,15 @@ import GroupStatusBadge from './GroupStatusBadge';
 
 type Props = { group: Group; className?: string; cardFooter?: ReactNode };
 
+const DEFAULT_GROUP_LOGO = '/quilombo-icon-192x192.png';
+
 const GroupCard = ({ group, className = '', cardFooter = null }: Props) => {
   const { name, id, logo, verified, claimedBy, countryCodes } = group;
   return (
     <Card as={Link} href={`${PATHS.groups}/${id}`}>
       <CardBody className={clsx('flex flex-row gap-3 p-2', className)}>
         <GroupStatusBadge verified={verified} claimedBy={claimedBy}>
-          <Avatar src={getImageUrl(logo)} size="lg" />
+          <Avatar src={getImageUrl(logo) || DEFAULT_GROUP_LOGO} size="lg" />
         </GroupStatusBadge>
         <div className="flex-1 flex flex-col">
           <h3 className="flex items-center text-md">{name}</h3>

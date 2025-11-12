@@ -8,7 +8,7 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import { PATHS } from '@/config/constants';
 import { resetPasswordFormSchema, type ResetPasswordFormValues } from '@/config/validation-schema';
 import ErrorText from '@/components/ErrorText';
-import FormikInput from '@/components/forms/FormikInput';
+import FieldInput from '@/components/forms/FieldInput';
 import { PasswordRequirements } from '@/components/auth/PasswordRequirements';
 
 const ResetPasswordPage = () => {
@@ -95,7 +95,7 @@ const ResetPasswordPage = () => {
               placeholder="Create a strong password"
               isRequired
               autoFocus
-              as={FormikInput}
+              as={FieldInput}
             />
             <PasswordRequirements password={values.newPassword} />
             <Field
@@ -104,7 +104,7 @@ const ResetPasswordPage = () => {
               label="Confirm New Password"
               placeholder="Re-enter your password"
               isRequired
-              as={FormikInput}
+              as={FieldInput}
             />
             <Button type="submit" color="primary" size="lg" isLoading={isSubmitting}>
               Reset Password

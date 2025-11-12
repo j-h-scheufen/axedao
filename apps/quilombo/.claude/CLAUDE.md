@@ -129,6 +129,21 @@ Some migrations are manually generated for features Drizzle doesn't support (fun
 - **Images**: Sharp 0.34.4
 - **Styling**: Framer Motion 12.23.24
 
+### Form Handling with Formik
+
+**Pattern**: Use Formik with `<Field as={FieldInput}>` / `<Field as={FieldTextarea}>` for automatic binding and error handling via `useField` hook.
+
+**Reference Implementations**:
+- `/components/forms/profile/ProfileForm.tsx` - Complete form with validation
+- `/components/groups/GroupProfile/ClaimGroupModal.tsx` - Modal with Formik
+- `/components/forms/FieldTextarea.tsx` - Auto-binding component using `useField` hook
+
+**Key Points**:
+- Use `<Formik>` + `<Form>` + `<Field as={FieldInput/FieldTextarea}>`
+- **CRITICAL**: Field components must extract both `field` and `meta` from `useField()`. The `meta` object contains validation state (touched, error) which must be passed to HeroUI components as `isInvalid` and `errorMessage` props.
+- Submit button: `type="submit"` inside `<Form>` (NOT `onPress={() => formik.handleSubmit()}`)
+- For simple confirmation modals without inputs, use direct button handlers with useState instead of Formik
+
 ### Multi-Provider Authentication
 
 **Three authentication methods** via NextAuth Credentials providers:

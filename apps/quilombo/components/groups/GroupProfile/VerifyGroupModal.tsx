@@ -1,10 +1,12 @@
 'use client';
 
-import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Textarea } from '@heroui/react';
-import { useFormik } from 'formik';
+import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from '@heroui/react';
+import { Field, Form, Formik, type FormikProps } from 'formik';
+import { enqueueSnackbar } from 'notistack';
 import { useState, useEffect } from 'react';
 
-import { verifyGroupFormSchema } from '@/config/validation-schema';
+import { FieldTextarea } from '@/components/forms';
+import { type VerifyGroupForm, verifyGroupFormSchema } from '@/config/validation-schema';
 
 type Props = {
   isOpen: boolean;
@@ -13,49 +15,38 @@ type Props = {
 };
 
 const VerifyGroupModal = ({ isOpen, onOpenChange, groupId }: Props) => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState(false);
   const [cooldownInfo, setCooldownInfo] = useState<{ canVerify: boolean; message?: string } | null>(null);
 
-  const formik = useFormik({
-    initialValues: {
-      notes: '',
-    },
-    validationSchema: verifyGroupFormSchema,
-    onSubmit: async (values) => {
-      if (!groupId) return;
+  const handleSubmit = async (values: VerifyGroupForm) => {
+    if (!groupId) return;
 
-      setIsSubmitting(true);
-      setError(null);
-      try {
-        const response = await fetch(`/api/groups/${groupId}/verify`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ notes: values.notes }),
-        });
+    setError(null);
+    try {
+      const response = await fetch(`/api/groups/${groupId}/verify`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ notes: values.notes }),
+      });
 
-        const data = await response.json();
+      const data = await response.json();
 
-        if (!response.ok) {
-          setError(data.error || 'Failed to verify group');
-          return;
-        }
-
-        setSuccess(true);
-        formik.resetForm();
-        setTimeout(() => {
-          setSuccess(false);
-          onOpenChange();
-        }, 2000);
-      } catch (error) {
-        console.error('Error verifying group:', error);
-        setError('An error occurred while verifying the group');
-      } finally {
-        setIsSubmitting(false);
+      if (!response.ok) {
+        setError(data.error || 'Failed to verify group');
+        return;
       }
-    },
-  });
+
+      enqueueSnackbar('Thanks for verifying! This group can be verified again in 30 days.', { variant: 'success' });
+      onOpenChange();
+    } catch (error) {
+      console.error('Error verifying group:', error);
+      setError('An error occurred while verifying the group');
+    }
+  };
+
+  const initialValues: VerifyGroupForm = {
+    notes: '',
+  };
 
   // Check cooldown status when modal opens
   useEffect(() => {
@@ -80,51 +71,51 @@ const VerifyGroupModal = ({ isOpen, onOpenChange, groupId }: Props) => {
     <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="lg">
       <ModalContent>
         {(onClose) => (
-          <>
-            <ModalHeader className="flex flex-col gap-1">Verify Group</ModalHeader>
-            <ModalBody>
-              {success ? (
-                <div className="text-success p-4 bg-success-50 rounded-lg">
-                  Thanks for verifying! This group can be verified again in 30 days.
-                </div>
-              ) : cooldownInfo && !cooldownInfo.canVerify ? (
-                <div className="text-default-600 p-4 bg-default-100 rounded-lg">{cooldownInfo.message}</div>
-              ) : (
-                <>
-                  <div className="text-default-600">
-                    <p className="mb-3">By verifying, you confirm:</p>
-                    <ol className="list-decimal list-inside space-y-2 ml-2">
-                      <li>The group website/contact information is valid</li>
-                      <li>The group is still active</li>
-                      <li>The information displayed is accurate</li>
-                    </ol>
-                  </div>
-                  <Textarea
-                    label="Notes (optional)"
-                    placeholder="What did you verify?"
-                    value={formik.values.notes}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    name="notes"
-                    minRows={3}
-                    errorMessage={formik.touched.notes && formik.errors.notes ? formik.errors.notes : ''}
-                    isInvalid={!!(formik.touched.notes && formik.errors.notes)}
-                  />
-                  {error && <div className="text-danger text-small">{error}</div>}
-                </>
-              )}
-            </ModalBody>
-            <ModalFooter>
-              <Button color="default" variant="light" onPress={onClose}>
-                Cancel
-              </Button>
-              {cooldownInfo?.canVerify && (
-                <Button color="primary" onPress={() => formik.handleSubmit()} isLoading={isSubmitting}>
-                  Verify Group
-                </Button>
-              )}
-            </ModalFooter>
-          </>
+          <Formik<VerifyGroupForm>
+            initialValues={initialValues}
+            validationSchema={verifyGroupFormSchema}
+            onSubmit={handleSubmit}
+          >
+            {({ isSubmitting }: FormikProps<VerifyGroupForm>) => (
+              <Form>
+                <ModalHeader className="flex flex-col gap-1">Verify Group</ModalHeader>
+                <ModalBody>
+                  {cooldownInfo && !cooldownInfo.canVerify ? (
+                    <div className="text-default-600 p-4 bg-default-100 rounded-lg">{cooldownInfo.message}</div>
+                  ) : (
+                    <>
+                      <div className="text-default-600">
+                        <p className="mb-3">By verifying, you confirm:</p>
+                        <ol className="list-decimal list-inside space-y-2 ml-2">
+                          <li>The group website/contact information is valid</li>
+                          <li>The group is still active</li>
+                          <li>The information displayed is accurate</li>
+                        </ol>
+                      </div>
+                      <Field
+                        name="notes"
+                        label="Notes (optional)"
+                        placeholder="What did you verify?"
+                        as={FieldTextarea}
+                        minRows={3}
+                      />
+                      {error && <div className="text-danger text-small">{error}</div>}
+                    </>
+                  )}
+                </ModalBody>
+                <ModalFooter>
+                  <Button color="default" variant="light" onPress={onClose}>
+                    Cancel
+                  </Button>
+                  {(cooldownInfo === null || cooldownInfo.canVerify) && (
+                    <Button color="primary" type="submit" isLoading={isSubmitting}>
+                      Verify Group
+                    </Button>
+                  )}
+                </ModalFooter>
+              </Form>
+            )}
+          </Formik>
         )}
       </ModalContent>
     </Modal>

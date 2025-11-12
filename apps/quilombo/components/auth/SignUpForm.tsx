@@ -10,7 +10,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { PATHS } from '@/config/constants';
 import { signupSchema, type SignupForm as SignupFormValues } from '@/config/validation-schema';
 import ErrorText from '@/components/ErrorText';
-import FormikInput from '@/components/forms/FormikInput';
+import FieldInput from '@/components/forms/FieldInput';
 import useAuth from '@/hooks/useAuth';
 import { PasswordRequirements } from './PasswordRequirements';
 import WalletEmailModal from './WalletEmailModal';
@@ -153,14 +153,14 @@ const SignUpForm = () => {
         >
           {({ isSubmitting, values }) => (
             <Form className="flex flex-col gap-4">
-              <Field name="email" type="email" label="Email" placeholder="your@email.com" isRequired as={FormikInput} />
+              <Field name="email" type="email" label="Email" placeholder="your@email.com" isRequired as={FieldInput} />
               <Field
                 name="password"
                 type="password"
                 label="Password"
                 placeholder="Create a strong password"
                 isRequired
-                as={FormikInput}
+                as={FieldInput}
               />
               <PasswordRequirements password={values.password} />
               <Button type="submit" color="primary" size="lg" isLoading={isSubmitting}>

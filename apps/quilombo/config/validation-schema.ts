@@ -369,14 +369,12 @@ export type RemoveMethodForm = InferType<typeof removeMethodSchema>;
 
 // Group Claiming & Verification validation schemas
 export const claimGroupFormSchema = object({
-  groupId: string().uuid('Invalid group ID').required('Group ID is required'),
   userMessage: string()
     .required('Please explain why you should be the admin of this group')
     .min(20, 'Message must be at least 20 characters'),
 });
 
 export const verifyGroupFormSchema = object({
-  groupId: string().uuid('Invalid group ID').required('Group ID is required'),
   notes: string().optional(),
 });
 
