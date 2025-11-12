@@ -58,8 +58,8 @@ export async function searchGroups(options: GroupSearchParams): Promise<{ rows: 
       claimedBy: schema.groups.claimedBy,
       claimedAt: schema.groups.claimedAt,
 
-      // Compute lastVerifiedAt
-      lastVerifiedAt: sql<Date | null>`(
+      // Compute lastVerifiedAt (returns string ISO timestamp)
+      lastVerifiedAt: sql<string | null>`(
         SELECT MAX(${schema.groupVerifications.verifiedAt})
         FROM ${schema.groupVerifications}
         WHERE ${schema.groupVerifications.groupId} = ${schema.groups.id}
@@ -77,8 +77,14 @@ export async function searchGroups(options: GroupSearchParams): Promise<{ rows: 
     .limit(pageSize)
     .offset(offset);
 
+  // Convert lastVerifiedAt strings to Date objects
+  const rows = results.map((row) => ({
+    ...row,
+    lastVerifiedAt: row.lastVerifiedAt ? new Date(row.lastVerifiedAt) : null,
+  })) as Group[];
+
   return {
-    rows: results,
+    rows,
     totalCount: results.length > 0 ? results[0].count : 0,
   };
 }
@@ -107,8 +113,8 @@ export async function fetchGroup(groupId: string): Promise<Group | undefined> {
       claimedBy: schema.groups.claimedBy,
       claimedAt: schema.groups.claimedAt,
 
-      // Get most recent verification date
-      lastVerifiedAt: sql<Date | null>`
+      // Get most recent verification date (returns string ISO timestamp)
+      lastVerifiedAt: sql<string | null>`
         (
           SELECT MAX(${schema.groupVerifications.verifiedAt})
           FROM ${schema.groupVerifications}
@@ -126,7 +132,14 @@ export async function fetchGroup(groupId: string): Promise<Group | undefined> {
     .groupBy(schema.groups.id)
     .limit(1);
 
-  return result[0] as Group | undefined;
+  if (!result[0]) return undefined;
+
+  // Convert lastVerifiedAt string to Date object
+  const group = result[0];
+  return {
+    ...group,
+    lastVerifiedAt: group.lastVerifiedAt ? new Date(group.lastVerifiedAt) : null,
+  } as Group;
 }
 
 /**
