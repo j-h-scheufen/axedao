@@ -1,8 +1,10 @@
+import { getServerSession } from 'next-auth';
 import { notFound } from 'next/navigation';
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { FILE_PREFIXES } from '@/config/constants';
-import { fetchGroup, updateGroup } from '@/db';
+import { nextAuthOptions } from '@/config/next-auth-options';
+import { fetchGroup, isGroupAdmin, updateGroup } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import { pinToGroup, unpin } from '@/utils/pinata';
 import type { RouteParamsGroup } from '@/types/routes';
@@ -15,11 +17,25 @@ import { createImageBuffer } from '@/utils/images';
  * @returns The updated group or 400 or 500
  */
 export async function POST(request: NextRequest, { params }: RouteParamsGroup) {
+  const session = await getServerSession(nextAuthOptions);
+
+  if (!session?.user.id) {
+    return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
+  }
+
   const { groupId } = await params;
 
   try {
     const group = await fetchGroup(groupId);
     if (!group) return notFound();
+
+    const isAdmin = await isGroupAdmin(groupId, session.user.id);
+    if (!isAdmin) {
+      return NextResponse.json(
+        { error: 'Unauthorized! Only group admins can update the group banner' },
+        { status: 403 }
+      );
+    }
 
     const data = await request.formData();
     const file: File | null = data.get('file') as unknown as File;
@@ -57,11 +73,25 @@ export async function POST(request: NextRequest, { params }: RouteParamsGroup) {
  * @returns The updated group or 400 or 500
  */
 export async function DELETE(_: NextRequest, { params }: RouteParamsGroup) {
+  const session = await getServerSession(nextAuthOptions);
+
+  if (!session?.user.id) {
+    return NextResponse.json({ error: 'Unauthorized, try to login again' }, { status: 401 });
+  }
+
   const { groupId } = await params;
 
   try {
     const group = await fetchGroup(groupId);
     if (!group) return notFound();
+
+    const isAdmin = await isGroupAdmin(groupId, session.user.id);
+    if (!isAdmin) {
+      return NextResponse.json(
+        { error: 'Unauthorized! Only group admins can delete the group banner' },
+        { status: 403 }
+      );
+    }
 
     if (group.banner) {
       await unpin(group.banner);

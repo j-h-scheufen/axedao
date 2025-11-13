@@ -7,7 +7,7 @@ import GroupStatusIcon from './GroupStatusIcon';
 
 type Props = {
   lastVerifiedAt: Date | null;
-  claimedBy: string | null;
+  adminCount: number;
   children: ReactNode;
 };
 
@@ -17,16 +17,16 @@ type Props = {
  * - Outer ring: management status (actively managed vs awaiting management)
  * - Inner circle: verified status
  */
-const GroupStatusBadge = ({ lastVerifiedAt, claimedBy, children }: Props) => {
+const GroupStatusBadge = ({ lastVerifiedAt, adminCount, children }: Props) => {
   const isVerified = lastVerifiedAt !== null;
-  const isClaimed = claimedBy !== null;
+  const isManaged = adminCount > 0;
 
   // Build tooltip text based on status with explanation
   const getTooltipContent = () => {
     const statusText = (() => {
-      if (isVerified && isClaimed) return 'Verified & Actively Managed';
-      if (isVerified && !isClaimed) return 'Verified & Awaiting Management';
-      if (!isVerified && isClaimed) return 'Unverified & Actively Managed';
+      if (isVerified && isManaged) return 'Verified & Actively Managed';
+      if (isVerified && !isManaged) return 'Verified & Awaiting Management';
+      if (!isVerified && isManaged) return 'Unverified & Actively Managed';
       return 'Unverified & Awaiting Management';
     })();
 
@@ -42,7 +42,7 @@ const GroupStatusBadge = ({ lastVerifiedAt, claimedBy, children }: Props) => {
       content={
         <Tooltip content={getTooltipContent()} placement="right" delay={300}>
           <div className="cursor-help">
-            <GroupStatusIcon verified={isVerified} claimed={isClaimed} />
+            <GroupStatusIcon verified={isVerified} managed={isManaged} />
           </div>
         </Tooltip>
       }

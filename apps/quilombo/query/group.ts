@@ -34,7 +34,14 @@ import {
  */
 
 const fetchGroup = async (id: string): Promise<Group> =>
-  axios.get(`/api/groups/${id}`).then((response) => response.data);
+  axios.get(`/api/groups/${id}`).then((response) => {
+    const data = response.data;
+    // Convert lastVerifiedAt from ISO string to Date object
+    if (data.lastVerifiedAt) {
+      data.lastVerifiedAt = new Date(data.lastVerifiedAt);
+    }
+    return data;
+  });
 export const fetchGroupOptions = (id: string | undefined) => {
   return {
     queryKey: [QUERY_KEYS.group.getGroup, id],
@@ -82,7 +89,15 @@ const searchGroups = async ({ offset, pageSize, searchTerm }: SearchParams): Pro
   let queryParams = `?offset=${offset}`;
   queryParams += searchTerm ? `&searchTerm=${searchTerm}` : '';
   queryParams += pageSize ? `&pageSize=${pageSize}` : '';
-  return axios.get(`/api/groups${queryParams}`).then((response) => response.data);
+  return axios.get(`/api/groups${queryParams}`).then((response) => {
+    const result = response.data;
+    // Convert lastVerifiedAt from ISO string to Date object for each group
+    result.data = result.data.map((group: Group) => ({
+      ...group,
+      lastVerifiedAt: group.lastVerifiedAt ? new Date(group.lastVerifiedAt) : null,
+    }));
+    return result;
+  });
 };
 export const searchGroupsOptions = ({ offset, pageSize, searchTerm }: SearchParams) => {
   return {

@@ -14,6 +14,7 @@ import {
 import { addGroupAdmin, fetchUser, insertGroup, searchGroups, updateUser } from '@/db';
 import type { GroupSearchResult } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
+import { sendGroupRegisteredEmail } from '@/utils/email';
 
 /**
  * Route handler for infinite (paginated) group search.
@@ -101,6 +102,13 @@ export async function POST(request: NextRequest) {
 
     await updateUser({ id: session.user.id, groupId: newGroupId });
     await addGroupAdmin({ groupId: group.id, userId: session.user.id });
+
+    // Send welcome email (don't block on email failure)
+    if (user.email) {
+      sendGroupRegisteredEmail(user.email, group.name, group.id, user.name || 'Member').catch((emailError) => {
+        console.error('Failed to send group registration email:', emailError);
+      });
+    }
 
     return NextResponse.json(group);
   } catch (error) {

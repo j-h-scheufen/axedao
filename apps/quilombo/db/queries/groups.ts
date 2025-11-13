@@ -65,6 +65,13 @@ export async function searchGroups(options: GroupSearchParams): Promise<{ rows: 
         WHERE ${schema.groupVerifications.groupId} = ${schema.groups.id}
       )`.as('last_verified_at'),
 
+      // Compute adminCount
+      adminCount: sql<number>`(
+        SELECT COUNT(*)
+        FROM ${schema.groupAdmins}
+        WHERE ${schema.groupAdmins.groupId} = ${schema.groups.id}
+      )`.as('admin_count'),
+
       countryCodes: sql<string[]>`ARRAY_REMOVE(ARRAY_AGG(DISTINCT ${schema.groupLocations.countryCode}), NULL)`.as(
         'country_codes'
       ),
@@ -77,10 +84,11 @@ export async function searchGroups(options: GroupSearchParams): Promise<{ rows: 
     .limit(pageSize)
     .offset(offset);
 
-  // Convert lastVerifiedAt strings to Date objects
+  // Convert lastVerifiedAt strings to Date objects and ensure adminCount is a number
   const rows = results.map((row) => ({
     ...row,
     lastVerifiedAt: row.lastVerifiedAt ? new Date(row.lastVerifiedAt) : null,
+    adminCount: Number(row.adminCount),
   })) as Group[];
 
   return {
@@ -122,6 +130,15 @@ export async function fetchGroup(groupId: string): Promise<Group | undefined> {
         )
       `.as('last_verified_at'),
 
+      // Get admin count
+      adminCount: sql<number>`
+        (
+          SELECT COUNT(*)
+          FROM ${schema.groupAdmins}
+          WHERE ${schema.groupAdmins.groupId} = ${schema.groups.id}
+        )
+      `.as('admin_count'),
+
       countryCodes: sql<string[]>`ARRAY_REMOVE(ARRAY_AGG(DISTINCT ${schema.groupLocations.countryCode}), NULL)`.as(
         'country_codes'
       ),
@@ -134,11 +151,12 @@ export async function fetchGroup(groupId: string): Promise<Group | undefined> {
 
   if (!result[0]) return undefined;
 
-  // Convert lastVerifiedAt string to Date object
+  // Convert lastVerifiedAt string to Date object and ensure adminCount is a number
   const group = result[0];
   return {
     ...group,
     lastVerifiedAt: group.lastVerifiedAt ? new Date(group.lastVerifiedAt) : null,
+    adminCount: Number(group.adminCount),
   } as Group;
 }
 

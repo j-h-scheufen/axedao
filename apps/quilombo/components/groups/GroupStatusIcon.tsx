@@ -1,6 +1,6 @@
 type Props = {
   verified: boolean;
-  claimed: boolean;
+  managed: boolean;
 };
 
 /**
@@ -17,9 +17,9 @@ type Props = {
  * - default-300 (awaiting management): #d4d4d8
  * - default-400 (unverified): #a1a1aa
  */
-const GroupStatusIcon = ({ verified, claimed }: Props) => {
+const GroupStatusIcon = ({ verified, managed }: Props) => {
   // Color definitions matching HeroUI theme
-  const outerRingColor = claimed ? '#17c964' : '#d4d4d8'; // actively managed : awaiting management
+  const outerRingColor = managed ? '#17c964' : '#d4d4d8'; // actively managed : awaiting management
   const innerCircleColor = verified ? '#12a150' : '#a1a1aa'; // verified : unverified
 
   return (

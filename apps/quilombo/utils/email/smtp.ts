@@ -1,16 +1,9 @@
-import { render } from '@react-email/components';
 import nodemailer from 'nodemailer';
 
-import { getBaseUrl } from '@/config/environment';
 import ENV from '@/config/environment';
 import type { EmailProvider } from './provider';
-import { VerificationEmail } from './templates/verification-email';
-import { PasswordResetEmail } from './templates/password-reset-email';
-import { WelcomeEmail } from './templates/welcome-email';
-import { InvitationEmail } from './templates/invitation-email';
-import { ClaimSubmittedEmail } from './templates/claim-submitted-email';
-import { ClaimApprovedEmail } from './templates/claim-approved-email';
-import { ClaimRejectedEmail } from './templates/claim-rejected-email';
+import { emailTemplates } from './email-config';
+import { renderEmailTemplate } from './email-helpers';
 
 /**
  * SMTP email provider implementation for local development
@@ -34,57 +27,46 @@ export class SMTPProvider implements EmailProvider {
   }
 
   async sendVerificationEmail(to: string, token: string, userName?: string): Promise<void> {
-    const baseUrl = getBaseUrl();
-    const verifyUrl = `${baseUrl}/auth/verify-email?token=${token}`;
-    const logoUrl = 'https://quilombo.net/quilombo-icon-192x192.png';
-
-    const html = await render(VerificationEmail({ verifyUrl, logoUrl, userName }));
-    const text = await render(VerificationEmail({ verifyUrl, logoUrl, userName }), { plainText: true });
+    const config = emailTemplates.verification;
+    const template = config.getTemplate(token, userName);
+    const { html, text } = await renderEmailTemplate(template);
 
     await this.transporter.sendMail({
-      from: '"Quilombo" <support@quilombo.net>',
+      from: `"${config.metadata.from.name}" <${config.metadata.from.email}>`,
       to,
-      subject: 'Verify your Quilombo account',
+      subject: config.metadata.subject,
       text,
       html,
     });
 
     console.log(`[SMTP] Sent verification email to ${to}`);
-    console.log(`[SMTP] Verification URL: ${verifyUrl}`);
   }
 
   async sendPasswordResetEmail(to: string, token: string, userName?: string): Promise<void> {
-    const baseUrl = getBaseUrl();
-    const resetUrl = `${baseUrl}/auth/reset-password?token=${token}`;
-    const logoUrl = 'https://quilombo.net/quilombo-icon-192x192.png';
-
-    const html = await render(PasswordResetEmail({ resetUrl, logoUrl, userName }));
-    const text = await render(PasswordResetEmail({ resetUrl, logoUrl, userName }), { plainText: true });
+    const config = emailTemplates.passwordReset;
+    const template = config.getTemplate(token, userName);
+    const { html, text } = await renderEmailTemplate(template);
 
     await this.transporter.sendMail({
-      from: '"Quilombo" <support@quilombo.net>',
+      from: `"${config.metadata.from.name}" <${config.metadata.from.email}>`,
       to,
-      subject: 'Reset your Quilombo password',
+      subject: config.metadata.subject,
       text,
       html,
     });
 
     console.log(`[SMTP] Sent password reset email to ${to}`);
-    console.log(`[SMTP] Reset URL: ${resetUrl}`);
   }
 
   async sendWelcomeEmail(to: string, userName?: string): Promise<void> {
-    const baseUrl = getBaseUrl();
-    const profileUrl = `${baseUrl}/profile`;
-    const logoUrl = 'https://quilombo.net/quilombo-icon-192x192.png';
-
-    const html = await render(WelcomeEmail({ profileUrl, logoUrl, userName }));
-    const text = await render(WelcomeEmail({ profileUrl, logoUrl, userName }), { plainText: true });
+    const config = emailTemplates.welcome;
+    const template = config.getTemplate(userName);
+    const { html, text } = await renderEmailTemplate(template);
 
     await this.transporter.sendMail({
-      from: '"Quilombo" <support@quilombo.net>',
+      from: `"${config.metadata.from.name}" <${config.metadata.from.email}>`,
       to,
-      subject: 'Welcome to Quilombo!',
+      subject: config.metadata.subject,
       text,
       html,
     });
@@ -93,21 +75,20 @@ export class SMTPProvider implements EmailProvider {
   }
 
   async sendInvitationEmail(to: string, invitationCode: string, inviterName: string): Promise<void> {
-    const inviteUrl = `${process.env.NEXT_PUBLIC_APP_URL}/auth/signup?code=${invitationCode}&email=${encodeURIComponent(to)}`;
-
-    const html = await render(InvitationEmail({ inviteUrl, inviterName, invitedEmail: to }));
-    const text = await render(InvitationEmail({ inviteUrl, inviterName, invitedEmail: to }), { plainText: true });
+    const config = emailTemplates.invitation;
+    const template = config.getTemplate(invitationCode, inviterName, to);
+    const { html, text } = await renderEmailTemplate(template);
 
     await this.transporter.sendMail({
-      from: '"Quilombo Community" <join@quilombo.net>',
+      from: `"${config.metadata.from.name}" <${config.metadata.from.email}>`,
       to,
-      subject: `${inviterName} invited you to join Quilombo`,
+      subject:
+        typeof config.metadata.subject === 'function' ? config.metadata.subject(inviterName) : config.metadata.subject,
       text,
       html,
     });
 
     console.log(`[SMTP] Sent invitation email to ${to}`);
-    console.log(`[SMTP] Invite URL: ${inviteUrl}`);
   }
 
   async sendClaimSubmittedEmail(
@@ -118,18 +99,14 @@ export class SMTPProvider implements EmailProvider {
     userMessage: string,
     adminPanelUrl: string
   ): Promise<void> {
-    const html = await render(
-      ClaimSubmittedEmail({ groupName, claimerName, claimerEmail, userMessage, adminPanelUrl })
-    );
-    const text = await render(
-      ClaimSubmittedEmail({ groupName, claimerName, claimerEmail, userMessage, adminPanelUrl }),
-      { plainText: true }
-    );
+    const config = emailTemplates.claimSubmitted;
+    const template = config.getTemplate(groupName, claimerName, claimerEmail, userMessage, adminPanelUrl);
+    const { html, text } = await renderEmailTemplate(template);
 
     await this.transporter.sendMail({
-      from: '"Quilombo" <support@quilombo.net>',
+      from: `"${config.metadata.from.name}" <${config.metadata.from.email}>`,
       to,
-      subject: 'New Group Claim Request',
+      subject: config.metadata.subject,
       text,
       html,
     });
@@ -139,18 +116,14 @@ export class SMTPProvider implements EmailProvider {
   }
 
   async sendClaimApprovedEmail(to: string, groupName: string, groupId: string, claimerName: string): Promise<void> {
-    const baseUrl = getBaseUrl();
-    const groupManagementUrl = `${baseUrl}/groups/${groupId}`;
-
-    const html = await render(ClaimApprovedEmail({ groupName, groupId, claimerName, groupManagementUrl }));
-    const text = await render(ClaimApprovedEmail({ groupName, groupId, claimerName, groupManagementUrl }), {
-      plainText: true,
-    });
+    const config = emailTemplates.claimApproved;
+    const template = config.getTemplate(groupName, groupId, claimerName);
+    const { html, text } = await renderEmailTemplate(template);
 
     await this.transporter.sendMail({
-      from: '"Quilombo" <support@quilombo.net>',
+      from: `"${config.metadata.from.name}" <${config.metadata.from.email}>`,
       to,
-      subject: 'Your group claim has been approved!',
+      subject: config.metadata.subject,
       text,
       html,
     });
@@ -160,18 +133,36 @@ export class SMTPProvider implements EmailProvider {
   }
 
   async sendClaimRejectedEmail(to: string, groupName: string, claimerName: string, reason: string): Promise<void> {
-    const html = await render(ClaimRejectedEmail({ groupName, claimerName, reason }));
-    const text = await render(ClaimRejectedEmail({ groupName, claimerName, reason }), { plainText: true });
+    const config = emailTemplates.claimRejected;
+    const template = config.getTemplate(groupName, claimerName, reason);
+    const { html, text } = await renderEmailTemplate(template);
 
     await this.transporter.sendMail({
-      from: '"Quilombo" <support@quilombo.net>',
+      from: `"${config.metadata.from.name}" <${config.metadata.from.email}>`,
       to,
-      subject: 'Group claim update',
+      subject: config.metadata.subject,
       text,
       html,
     });
 
     console.log(`[SMTP] Sent claim rejected email to ${to}`);
     console.log(`[SMTP] Group: ${groupName}`);
+  }
+
+  async sendGroupRegisteredEmail(to: string, groupName: string, groupId: string, userName: string): Promise<void> {
+    const config = emailTemplates.groupRegistered;
+    const template = config.getTemplate(groupName, groupId, userName);
+    const { html, text } = await renderEmailTemplate(template);
+
+    await this.transporter.sendMail({
+      from: `"${config.metadata.from.name}" <${config.metadata.from.email}>`,
+      to,
+      subject: config.metadata.subject,
+      text,
+      html,
+    });
+
+    console.log(`[SMTP] Sent group registered email to ${to}`);
+    console.log(`[SMTP] Group: ${groupName} (${groupId})`);
   }
 }

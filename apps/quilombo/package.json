@@ -38,7 +38,6 @@
     "@silk-wallet/silk-wallet-sdk": "1.0.2",
     "@tanstack/query-core": "5.90.2",
     "@tanstack/react-query": "5.90.2",
-    "@types/node-mailjet": "^4.0.0",
     "@types/nodemailer": "^7.0.3",
     "@wagmi/core": "2.22.0",
     "axios": "1.12.2",

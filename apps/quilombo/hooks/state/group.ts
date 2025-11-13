@@ -42,8 +42,8 @@ export const groupBannerUrlAtom = atom<string | undefined>((get) => {
   // If group has a custom banner, use it
   if (group.banner) return getImageUrl(group.banner);
 
-  // If group is not actively managed (unclaimed), use default banner
-  if (!group.claimedBy) return '/images/default-group-banner.webp';
+  // If group is not actively managed (no admins), use default banner
+  if (group.adminCount === 0) return '/images/default-group-banner.webp';
 
   // Otherwise, no banner
   return undefined;

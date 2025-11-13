@@ -68,4 +68,13 @@ export interface EmailProvider {
    * @param reason - Admin's reason for rejection
    */
   sendClaimRejectedEmail(to: string, groupName: string, claimerName: string, reason: string): Promise<void>;
+
+  /**
+   * Sends a welcome email to a user who registered a new group
+   * @param to - User's email address
+   * @param groupName - Name of the registered group
+   * @param groupId - ID of the group for generating management URL
+   * @param userName - Name of the user for personalization
+   */
+  sendGroupRegisteredEmail(to: string, groupName: string, groupId: string, userName: string): Promise<void>;
 }

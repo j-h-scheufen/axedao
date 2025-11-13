@@ -29,7 +29,7 @@ const GroupView = () => {
             <GroupLogo
               url={getImageUrl(group.logo)}
               lastVerifiedAt={group.lastVerifiedAt}
-              claimedBy={group.claimedBy}
+              adminCount={group.adminCount}
             />
           </div>
           <div className="flex flex-col w-full">

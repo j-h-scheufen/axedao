@@ -12,6 +12,16 @@ Automated workflow: lint → build → stage → commit (signed) → push
 6. **Commit with signature**: `git commit -S -m "message"`
 7. **Push to remote**: `git push`
 
+## ⚠️ CRITICAL: DO NOT MODIFY APPROVED COMMIT MESSAGE
+
+**Once the user approves a commit message, use it EXACTLY as approved.**
+
+- DO NOT add "🤖 Generated with Claude Code"
+- DO NOT add "Co-Authored-By: Claude <noreply@anthropic.com>"
+- DO NOT add ANY attribution, footer, or modification of any kind
+- Use the EXACT string that was shown and approved
+- The approved message is the FINAL message - no additions, no changes
+
 ## Prerequisites:
 
 **SSH Agent for commit signing:**
