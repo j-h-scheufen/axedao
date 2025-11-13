@@ -155,7 +155,12 @@
       }
     ],
     "notes": "Fairfax County, Virginia. Graduado Negrão under Mestre Lampreia [Brooklyn]. SOURCE: website 5/6/19",
-    "rawRecord": "Motumbaxé Capoeira\n  http://www.motumbaxecapoeira.com\nGraduado Negrão \"Frank Frimpong-Manso\" under  Mestre Lampreia[Brooklyn]\n        Pies Fitness Yoga Studio\n531 N. Howard St., Alexandria, VA 22304\nThurs 7-8:30pm, Sun 10-11:30am\n  https://www.piesfitnessyoga.com/capoeira/\nSOURCE: website 5/6/19"
+    "rawRecord": "Motumbaxé Capoeira\n  http://www.motumbaxecapoeira.com\nGraduado Negrão \"Frank Frimpong-Manso\" under  Mestre Lampreia[Brooklyn]\n        Pies Fitness Yoga Studio\n531 N. Howard St., Alexandria, VA 22304\nThurs 7-8:30pm, Sun 10-11:30am\n  https://www.piesfitnessyoga.com/capoeira/\nSOURCE: website 5/6/19",
+    "fixMetadata": {
+      "manuallyFixed": true,
+      "originalName": "Motumbaxé Capoeira",
+      "fixedFields": ["name"]
+    }
   },
   {
     "name": "Abadá Capoeira",

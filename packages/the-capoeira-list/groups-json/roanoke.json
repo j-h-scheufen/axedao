@@ -192,14 +192,19 @@
     "rawRecord": "      Jagube Capoeira\n(website offline  Fua is  currently listed on  \nUniversity of Vermont website with the following email we are attempting\n contact  phone is from the website in 2014 11/3/19) Professor Fu�  \"Fabio Pereira Nascimento\"\n  [802]272-7239\n  f..fuacapoeira@gmail.com"
   },
   {
-    "name": "Burlington, Capoeira Angola",
+    "name": "Capoeira Angola",
     "website": null,
     "leader": null,
     "mainContact": null,
     "sources": ["https://www.facebook.com/Burlington-VT-Capoeira-Angola-177503552339856/"],
     "locations": [],
     "notes": "Burlington, Vermont. April 13, 2015 currently on hiatus. SOURCE: facebook 11/3/19",
-    "rawRecord": "      Burlington,  Capoeira Angola\n\n\"April 13, 2015 �...currently on hiatus\"..\n\nhttps://www.facebook.com/Burlington-VT-Capoeira-Angola-177503552339856/\n\nSOURCE facebook  11/3/19"
+    "rawRecord": "      Burlington,  Capoeira Angola\n\n\"April 13, 2015 �...currently on hiatus\"..\n\nhttps://www.facebook.com/Burlington-VT-Capoeira-Angola-177503552339856/\n\nSOURCE facebook  11/3/19",
+    "fixMetadata": {
+      "manuallyFixed": true,
+      "originalName": "Burlington, Capoeira Angola",
+      "fixedFields": ["name"]
+    }
   },
   {
     "name": "Gingarte Capoeira Vermont",

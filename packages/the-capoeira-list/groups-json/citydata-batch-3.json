@@ -328,12 +328,12 @@
     "rawRecord": "Nassau County\n\n\n      Capoeira Angola Palmares New York\nhttp://www.gullivercapoeira.com\nMestre Gulliver  \"Paulo Aires\"\n   347-469-3650\n   gullivercapoeira@gmail.com\n      913 Wantagh Avenue\n913 Wantagh Ave, Wantagh, NY 11793\n516-557-2888\nMon 6:30pm\nSOURCE: website 5/30/12"
   },
   {
-    "name": "Com Expressao-Capoeira Mandinga",
+    "name": "Com Expressao",
     "website": "http://www.comexpressao.com/",
     "leader": {
-      "title": "mestre",
-      "nickname": "Carcara",
-      "name": "Todd Russell"
+      "title": "professor",
+      "nickname": "Todd Russell",
+      "name": ""
     },
     "mainContact": {
       "name": null,
@@ -343,7 +343,12 @@
     "sources": [],
     "locations": [],
     "notes": "SOURCE: websites 10/7/12",
-    "rawRecord": "Rochester\n\n      \n      \n      \n      \n      \n      \n      \n      \n      \n      Com Expressao-Capoeira Mandinga\nhttp://www.comexpressao.com/\nunder Mestre Caveirinha  \"Marcelo Pereira\" [Oakland\nCA]\nContra-Mestre Carcara  \"Todd Russell\"\nAguaceiro \"James Albertson\"\nTarugo \"Julio Pabon\"\nPhone: 510.517.0655 or 585.309.3533\nEmail: info@comexpressao.com\n      Academia Com Expressao\n46 Sager Dr  Rochester, NY.\n(Full schedule of classes)\n      University of Rochester\n      Monroe Community College\n      Rochester Institute of Technology\nhttp://www.rit.edu/sg/capoeira/\nEspiao under the supervision of Contra Mestre Carcara\nRITCapoeira@gmail.com\nSLC Lower Dance Studio Fri 7:00 - 9:00;\nRoom: 55-1310 Tues7:00 - 9:00pm\nSOURCE: websites 10/7/12"
+    "rawRecord": "Rochester\n\n      \n      \n      \n      \n      \n      \n      \n      \n      \n      Com Expressao-Capoeira Mandinga\nhttp://www.comexpressao.com/\nunder Mestre Caveirinha  \"Marcelo Pereira\" [Oakland\nCA]\nContra-Mestre Carcara  \"Todd Russell\"\nAguaceiro \"James Albertson\"\nTarugo \"Julio Pabon\"\nPhone: 510.517.0655 or 585.309.3533\nEmail: info@comexpressao.com\n      Academia Com Expressao\n46 Sager Dr  Rochester, NY.\n(Full schedule of classes)\n      University of Rochester\n      Monroe Community College\n      Rochester Institute of Technology\nhttp://www.rit.edu/sg/capoeira/\nEspiao under the supervision of Contra Mestre Carcara\nRITCapoeira@gmail.com\nSLC Lower Dance Studio Fri 7:00 - 9:00;\nRoom: 55-1310 Tues7:00 - 9:00pm\nSOURCE: websites 10/7/12",
+    "fixMetadata": {
+      "manuallyFixed": true,
+      "originalName": "Com Expressao-Capoeira Mandinga",
+      "fixedFields": ["name", "leader"]
+    }
   },
   {
     "name": "Uncao Capoeira",
@@ -360,7 +365,7 @@
     "rawRecord": "Saratoga Springs\n\n\n      Uncao Capoeira\nCamarao\nPhone: [201] 669-6763\nhttps://www.facebook.com/groups/296591040351954/\n      Skidmore College\n815 North Broadway, Saratoga Springs, NY 12866\nSOURCE: http://uncaocapoeira.com/contact.html \n9/21/12"
   },
   {
-    "name": "Syracuse Capoeira Club",
+    "name": "Syracuse Capoeira Club - Capoeira Cordão de Ouro",
     "website": "http://www.syracusecapoeira.com",
     "leader": null,
     "mainContact": {
@@ -371,7 +376,12 @@
     "sources": [],
     "locations": [],
     "notes": "SOURCE: website 9/28/12",
-    "rawRecord": "Syracuse\n\n      Syracuse Capoeira Club\nhttp://www.syracusecapoeira.com\n\"Christopher Getman \"\ninfo@syracusecapoeira.com\nhttps://www.facebook.com/groups/100778606734411/\nLocations Syracuse, NY and Liverpool, NY\n      Onondaga Lake Park, Parkside Field\nSummer of 2012: Sun 1:00pm; Wed 6:30pm\nSOURCE: website 9/28/12"
+    "rawRecord": "Syracuse\n\n      Syracuse Capoeira Club\nhttp://www.syracusecapoeira.com\n\"Christopher Getman \"\ninfo@syracusecapoeira.com\nhttps://www.facebook.com/groups/100778606734411/\nLocations Syracuse, NY and Liverpool, NY\n      Onondaga Lake Park, Parkside Field\nSummer of 2012: Sun 1:00pm; Wed 6:30pm\nSOURCE: website 9/28/12",
+    "fixMetadata": {
+      "manuallyFixed": true,
+      "originalName": "Syracuse Capoeira Club",
+      "fixedFields": ["name"]
+    }
   },
   {
     "name": "Abada Capoeira RPI",

@@ -157,7 +157,7 @@
     "rawRecord": "      Capoeira Connecticut Ginga Brasil - Cordão de\nOuro\nInstrutor Suave  \"Joel Melendez\"  See Harwinton\n      Plus One Defense Systems\n9 Tolles St West Hartford, CT 06110\n860.922.5343\n Darin@teamplusone.com\nhttp://www.teamplusone.com\nAdults: Mon 8:00-9:30pm; Thurs 8:30-10:00pm\nSOURCE: website 9/3/17"
   },
   {
-    "name": "Motumbaxe Capoeira CT",
+    "name": "Motumbaxé Capoeira",
     "website": "http://www.motumbaxecapoeira.com",
     "leader": null,
     "mainContact": {
@@ -187,7 +187,12 @@
       }
     ],
     "notes": "West Hartford and Hartford, Hartford County, Connecticut. Professora Formiguinha (Leticia Monteiro). SOURCE: facebook 5/15/16 website 9/2/17",
-    "rawRecord": "\n      Motumbaxe Capoeira CT\nhttp://www.motumbaxecapoeira.com\nhttps://www.facebook.com/iheartctcapoeira\nProfessora Formiguinha  \"Leticia Monteiro\"\n347-489-6058\niheartcapoeiraformi@gmail.com\n      Sudor Taino\n635 New Park Avenue, West Hartford, CT. 06110\nPhone: [860] 952-9015\nEmail: Info@sudortaino.com\n      Studio8sixty\n224 Farmington Avenue, Hartford CT, 06105\nSOURCE:  facebook  5/15/16  website 9/2/17"
+    "rawRecord": "\n      Motumbaxe Capoeira CT\nhttp://www.motumbaxecapoeira.com\nhttps://www.facebook.com/iheartctcapoeira\nProfessora Formiguinha  \"Leticia Monteiro\"\n347-489-6058\niheartcapoeiraformi@gmail.com\n      Sudor Taino\n635 New Park Avenue, West Hartford, CT. 06110\nPhone: [860] 952-9015\nEmail: Info@sudortaino.com\n      Studio8sixty\n224 Farmington Avenue, Hartford CT, 06105\nSOURCE:  facebook  5/15/16  website 9/2/17",
+    "fixMetadata": {
+      "manuallyFixed": true,
+      "originalName": "Motumbaxe Capoeira CT",
+      "fixedFields": ["name"]
+    }
   },
   {
     "name": "Capoeira Esporao - Hartford County",

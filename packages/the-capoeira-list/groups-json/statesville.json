@@ -416,12 +416,12 @@
     "rawRecord": "Navegando Capoeira Association \r\n    151 Mattix Run Galloway NJ, 08205 \r\n    http://zorak.monmouth.edu/~capoeira/firstpage.htm\r\n    \r\n    (The website does not appear to have been updated since spring\r\n      2006 Please contact us if you know anything 5/12/12 ; 3/17/19)\r\n    \r\n    Mestre Geraldo Carvalho  and Contramestre Eder Carvalho \r\n      [609]-652-2022 \r\n      navegandocapoeira@yahoo.com \r\n      geraldinhokpoera@gmail.com \r\n          Monmouth University Capoeira Club \r\n    Contact: \"Kasey Sanders\" \r\n      732-547-4400 \r\n      capoeiraclub@monmouth.edu \r\n    SOURCE: website 5/12/12"
   },
   {
-    "name": "The Capoeira List",
+    "name": "Cultural Association of Brazilian Arts [CAOBA]",
     "website": "http://www.caobarts.com",
     "leader": {
       "title": "mestre",
-      "nickname": " Irani Andreati",
-      "name": ""
+      "nickname": "Bayano",
+      "name": "Irani Andreati"
     },
     "mainContact": {
       "name": null,
@@ -441,7 +441,13 @@
       }
     ],
     "notes": "SOURCE: website 3/19/19",
-    "rawRecord": "The Capoeira List\r\n    \r\n    \r\n    \r\n    \r\n    NEW JERSEY\r\n      \r\n  \r\n\r\n\r\n\r\n  \r\n    \r\n    \r\n    \r\n    \r\n    Bergen County Capoeira\r\n    \r\n  \r\n  \r\n                           Bergen County \r\n      Hackensack,  Edgewater, Paramus Bergenfield\r\n    \r\n    \r\n          Cultural Association of Brazilian Arts [CAOBA]\r\n      817 Main St, Hackensack, NJ 07601 \r\n      Mestre Bayano  \" Irani Andreati\" \r\n      http://www.caobarts.com \r\n\r\n\r\n\r\n\r\n\r\n\r\n      \r\n       201 820 3197\r\n       caobanj{/\\T}gmail.com\r\n      Youth: Mon & Wed 6:00- 7:00pm;  Sat 12:00-1:00pm\r\n      Beginners:Tues & Thurs 7:15pm- 8:15pm\r\n      Intermediate and Advanced:Mon & Wed 7:15 - 8:15pm\r\n      Music: Fri 7:00 - 8:00pm\r\n      Physical Conditioning low impact Adults Only:Thurs 6:00 - 7:00pm\r\n      SOURCE: website 3/19/19"
+    "rawRecord": "The Capoeira List\r\n    \r\n    \r\n    \r\n    \r\n    NEW JERSEY\r\n      \r\n  \r\n\r\n\r\n\r\n  \r\n    \r\n    \r\n    \r\n    \r\n    Bergen County Capoeira\r\n    \r\n  \r\n  \r\n                           Bergen County \r\n      Hackensack,  Edgewater, Paramus Bergenfield\r\n    \r\n    \r\n          Cultural Association of Brazilian Arts [CAOBA]\r\n      817 Main St, Hackensack, NJ 07601 \r\n      Mestre Bayano  \" Irani Andreati\" \r\n      http://www.caobarts.com \r\n\r\n\r\n\r\n\r\n\r\n\r\n      \r\n       201 820 3197\r\n       caobanj{/\\T}gmail.com\r\n      Youth: Mon & Wed 6:00- 7:00pm;  Sat 12:00-1:00pm\r\n      Beginners:Tues & Thurs 7:15pm- 8:15pm\r\n      Intermediate and Advanced:Mon & Wed 7:15 - 8:15pm\r\n      Music: Fri 7:00 - 8:00pm\r\n      Physical Conditioning low impact Adults Only:Thurs 6:00 - 7:00pm\r\n      SOURCE: website 3/19/19",
+    "fixMetadata": {
+      "originalName": "Hackensack,  Edgewater, Paramus Bergenfield",
+      "fixed": true,
+      "fixedFields": ["name", "leader"],
+      "manuallyFixed": true
+    }
   },
   {
     "name": "Ginga Mundo",
@@ -528,12 +534,12 @@
     "rawRecord": "Nacao Capoeira \r\n    64 South Washington Avenue, Bergenfield, NJ 07621\r\n    +1 201-244-1770\r\n    SOURCE: google 3/20/19"
   },
   {
-    "name": "The Capoeira List",
+    "name": "Oficina da Capoeira",
     "website": "http://www.oficinadacapoeira.org/",
     "leader": {
-      "title": "mestre",
-      "nickname": null,
-      "name": null
+      "title": "professor",
+      "nickname": "Claudio",
+      "name": ""
     },
     "mainContact": {
       "name": null,
@@ -553,15 +559,21 @@
       }
     ],
     "notes": "SOURCE: website 7/24/16",
-    "rawRecord": "The Capoeira List\r\n    \r\n    \r\n    \r\n    \r\n    NEW JERSEY\r\n      \r\n    \r\n  \r\n\r\n\r\n\r\n  \r\n    \r\n    \r\n    \r\n    \r\n    Burlington County Capoeira\r\n    \r\n  \r\n  \r\n                     Burlington County\r\n    \r\n    \r\n          Oficina da Capoeira \r\n      http://www.oficinadacapoeira.org/\r\n      \r\n      OdCbaltimore@gmail.com \r\n     Professor Claudio under Mestre Ray \r\n         856-297-5051 \r\n      1205 route 73  Mount Laurel,  NJ \r\n       Mon & Wed 7- 8:30 pm;  Sat 2 :00-3:30 pm \r\n    SOURCE: website 7/24/16"
+    "rawRecord": "The Capoeira List\r\n    \r\n    \r\n    \r\n    \r\n    NEW JERSEY\r\n      \r\n    \r\n  \r\n\r\n\r\n\r\n  \r\n    \r\n    \r\n    \r\n    \r\n    Burlington County Capoeira\r\n    \r\n  \r\n  \r\n                     Burlington County\r\n    \r\n    \r\n          Oficina da Capoeira \r\n      http://www.oficinadacapoeira.org/\r\n      \r\n      OdCbaltimore@gmail.com \r\n     Professor Claudio under Mestre Ray \r\n         856-297-5051 \r\n      1205 route 73  Mount Laurel,  NJ \r\n       Mon & Wed 7- 8:30 pm;  Sat 2 :00-3:30 pm \r\n    SOURCE: website 7/24/16",
+    "fixMetadata": {
+      "originalName": "Oficina da Capoeira",
+      "fixed": true,
+      "fixedFields": ["name", "leader"],
+      "manuallyFixed": true
+    }
   },
   {
-    "name": "NEW JERSEY",
+    "name": "Grupo União Capoeira",
     "website": "https://www.meetup.com/Camden-Capoeira",
     "leader": {
-      "title": "mestre",
-      "nickname": " Brian Moragne",
-      "name": "under Mestre Boi"
+      "title": "professor",
+      "nickname": "Graveto",
+      "name": "Brian Moragne"
     },
     "mainContact": {
       "name": null,
@@ -581,7 +593,13 @@
       }
     ],
     "notes": "SOURCE: email 3/22/19",
-    "rawRecord": "NEW JERSEY\r\n    \r\n  \r\n\r\n\r\n\r\n    \r\n    \r\n    \r\n    \r\n    Camden Capoeira\r\n    \r\n  \r\n  \r\n                     Camden\r\n    \r\n    \r\n           Grupo Un��o Capoeira \r\n      Professor Graveto \" Brian Moragne\"  under Mestre Boi\r\n      https://www.meetup.com/Camden-Capoeira\r\n            Freestyle Martial Arts Academy II, LLC\r\n      3500 Federal Street Camden NJ 08104\r\n      609.300.3744 Office/Text\r\n      http://www.FreestyleMartialArt.com\r\n      https://www.Facebook.com/MoragneKarate.com\r\n      Fri 6;00pm\r\n      SOURCE: email 3/22/19"
+    "rawRecord": "NEW JERSEY\r\n    \r\n  \r\n\r\n\r\n\r\n    \r\n    \r\n    \r\n    \r\n    Camden Capoeira\r\n    \r\n  \r\n  \r\n                     Camden\r\n    \r\n    \r\n           Grupo Un��o Capoeira \r\n      Professor Graveto \" Brian Moragne\"  under Mestre Boi\r\n      https://www.meetup.com/Camden-Capoeira\r\n            Freestyle Martial Arts Academy II, LLC\r\n      3500 Federal Street Camden NJ 08104\r\n      609.300.3744 Office/Text\r\n      http://www.FreestyleMartialArt.com\r\n      https://www.Facebook.com/MoragneKarate.com\r\n      Fri 6;00pm\r\n      SOURCE: email 3/22/19",
+    "fixMetadata": {
+      "originalName": "Grupo Un��o Capoeira",
+      "fixed": true,
+      "fixedFields": ["name", "leader"],
+      "manuallyFixed": true
+    }
   },
   {
     "name": "ASCAB [Associacao Santista de Capoeira Areia Branca]",
@@ -602,12 +620,12 @@
     "rawRecord": "ASCAB [Associacao Santista de Capoeira Areia Branca] \r\n    Estagiario Canguru  \"Antonio Marcos Correa\" \r\n    [267] 446-2814 \r\n    canguru_ascab@yahoo.com \r\n     (website offline 3/25/19)\r\n    ((Class not on website.  6/5/12 ))SOURCE :website 6/27/06"
   },
   {
-    "name": "NEW JERSEY",
+    "name": "Afro Brazilian Cultural Center of New Jersey",
     "website": "http://www.abccnj.com/",
     "leader": {
       "title": "mestre",
-      "nickname": "David Morgan",
-      "name": ""
+      "nickname": "Gaivota",
+      "name": "David Morgan"
     },
     "mainContact": {
       "name": null,
@@ -627,7 +645,13 @@
       }
     ],
     "notes": "SOURCE: website 3/23/19",
-    "rawRecord": "NEW JERSEY\r\n    \r\n  \r\n\r\n\r\n\r\n    \r\n    \r\n    \r\n    \r\n    Essex Capoeira\r\n    \r\n  \r\n  \r\n                     Essex County \r\n      Bloomfield, Newark\r\n    \r\n          Afro Brazilian Cultural Center of New Jersey \r\n      554 Bloomfield Ave Bloomfield, NJ 07003 (adjacent to IHOP) \r\n      http://www.abccnj.com/ \r\n      Mestre Gaivota \"David Morgan\"\r\n        phone. 973-744-4934\r\n        email david@abccnj.com\r\n      Children:   Mon,Wed & Fri 6:00-7:00pm \r\n      Beginners & Teens: Mon,Wed & Fri\r\n      7:00-7:30pm         \r\n      Adult: Mon,Wed & Fri 7:30-9:00pm \r\n      SOURCE: website 3/23/19"
+    "rawRecord": "NEW JERSEY\r\n    \r\n  \r\n\r\n\r\n\r\n    \r\n    \r\n    \r\n    \r\n    Essex Capoeira\r\n    \r\n  \r\n  \r\n                     Essex County \r\n      Bloomfield, Newark\r\n    \r\n          Afro Brazilian Cultural Center of New Jersey \r\n      554 Bloomfield Ave Bloomfield, NJ 07003 (adjacent to IHOP) \r\n      http://www.abccnj.com/ \r\n      Mestre Gaivota \"David Morgan\"\r\n        phone. 973-744-4934\r\n        email david@abccnj.com\r\n      Children:   Mon,Wed & Fri 6:00-7:00pm \r\n      Beginners & Teens: Mon,Wed & Fri\r\n      7:00-7:30pm         \r\n      Adult: Mon,Wed & Fri 7:30-9:00pm \r\n      SOURCE: website 3/23/19",
+    "fixMetadata": {
+      "originalName": "Bloomfield, Newark",
+      "fixed": true,
+      "fixedFields": ["name", "leader"],
+      "manuallyFixed": true
+    }
   },
   {
     "name": "Brazilian Cultural Center of Newark",
@@ -683,7 +707,12 @@
       }
     ],
     "notes": "SOURCE: website 3/28/19",
-    "rawRecord": "Centro Cultural Senzala de Capoeira\r\n    \r\n    Mestre Zumbi \r\n    http://zumbisenzala.org/ \r\n     info@zumbisenzala.org \r\n    sapulha@zumbisenzala.org \r\n    1-929-314-4642\r\n    https://www.facebook.com/MestreZumbiSenzala\r\n          A Fit Above Fitness Center\r\n    290 Chestnut St, Newark, NJ 07105\r\n    All Levels: Thurs 8;00 � 9:00pm \r\n    SOURCE: website 3/28/19"
+    "rawRecord": "Centro Cultural Senzala de Capoeira\r\n    \r\n    Mestre Zumbi \r\n    http://zumbisenzala.org/ \r\n     info@zumbisenzala.org \r\n    sapulha@zumbisenzala.org \r\n    1-929-314-4642\r\n    https://www.facebook.com/MestreZumbiSenzala\r\n          A Fit Above Fitness Center\r\n    290 Chestnut St, Newark, NJ 07105\r\n    All Levels: Thurs 8;00 � 9:00pm \r\n    SOURCE: website 3/28/19",
+    "fixMetadata": {
+      "manuallyFixed": true,
+      "originalName": "Centro Cultural Senzala de Capoeira",
+      "fixedFields": ["name"]
+    }
   },
   {
     "name": "Grupo Un��o Capoeira",
@@ -732,7 +761,7 @@
     "rawRecord": "New Jersey Cultural Arts Center \r\n    51 Bruen Street Newark, NJ 07105 \r\n    (  website offline 3/27/19)\r\n    [973]-589-5757 \r\n    info@njculturalartscenter.com \r\n    Professor Bujao of Capoeira Angola Center New York \r\n    Master Gulliver of Capoeira Angola Palmares \r\n    Adults: Tues & Thurs 8:00- 10:00pm \r\n    Children's : Mon, Wed,& Fri 5:00-700pm \r\n    SOURCE: website 8/7/12"
   },
   {
-    "name": "NEW JERSEY",
+    "name": "Grupo Ginga",
     "website": "http://www.grupoginga.com",
     "leader": {
       "title": "mestre",
@@ -757,7 +786,13 @@
       }
     ],
     "notes": "SOURCE: website 5/7/19",
-    "rawRecord": "NEW JERSEY\r\n        \r\n  \r\n\r\n\r\n\r\n    \r\n    \r\n    \r\n    \r\n    Hudson County Capoeira\r\n    \r\n  \r\n  \r\n                           Hudson County \r\n      Jersey City,  North Bergen\r\n    \r\n            Grupo Ginga \r\n\r\n      Mestre Kiki da Bahia \r\n\r\n      http://www.grupoginga.com\r\n      \r\n+1 917 725 0381\r\n\r\nhttps://www.facebook.com/mestrekiki.dabahia\r\n             Performance Arts Workshop \r\n      196 Morgan Street [1 Blk from Grove street PATH] Jersey City, NJ\r\n      07302\r\n      Mon & Thurs  7:00 - 8:30pm( call or contact though\r\n        website for details.)\r\nSOURCE: website 5/7/19"
+    "rawRecord": "NEW JERSEY\r\n        \r\n  \r\n\r\n\r\n\r\n    \r\n    \r\n    \r\n    \r\n    Hudson County Capoeira\r\n    \r\n  \r\n  \r\n                           Hudson County \r\n      Jersey City,  North Bergen\r\n    \r\n            Grupo Ginga \r\n\r\n      Mestre Kiki da Bahia \r\n\r\n      http://www.grupoginga.com\r\n      \r\n+1 917 725 0381\r\n\r\nhttps://www.facebook.com/mestrekiki.dabahia\r\n             Performance Arts Workshop \r\n      196 Morgan Street [1 Blk from Grove street PATH] Jersey City, NJ\r\n      07302\r\n      Mon & Thurs  7:00 - 8:30pm( call or contact though\r\n        website for details.)\r\nSOURCE: website 5/7/19",
+    "fixMetadata": {
+      "originalName": "Grupo Ginga",
+      "fixed": true,
+      "fixedFields": ["name"],
+      "manuallyFixed": true
+    }
   },
   {
     "name": "Arts United Capoeira",
@@ -806,34 +841,6 @@
     "rawRecord": "Capoeira\r\n        Angola Center of Mestre Jo�o Grande \r\n       http://www.joaogrande.org/ \r\n      info{/\\T}joaogrande.org\r\n          \r\n          Professor Rastinha\r\n         [201] 547-4565140 \r\n      Martin Luther King Dr Jersey City, NJ 07305\r\n      Free class: Sat 11:45am-1:15pm\r\n            SOURCE: website 6/4/12"
   },
   {
-    "name": "(Boca do Mundo is currently teaching in",
-    "website": null,
-    "leader": {
-      "title": null,
-      "nickname": null,
-      "name": null
-    },
-    "mainContact": {
-      "name": null,
-      "email": null,
-      "phone": "12"
-    },
-    "sources": [],
-    "locations": [
-      {
-        "name": null,
-        "address": "4/12/19)",
-        "schedule": null,
-        "contactPerson": null,
-        "email": null,
-        "phone": null,
-        "rawText": "4/12/19)"
-      }
-    ],
-    "notes": "",
-    "rawRecord": "(Boca do Mundo is currently teaching in\r\n    )(Edgewater)(\r\n      4/12/19)"
-  },
-  {
     "name": "Capoeira Angola Palmares",
     "website": null,
     "leader": {
@@ -862,12 +869,12 @@
     "rawRecord": "Capoeira Angola Palmares\r\n      Instrutora Papaia \r\n      (email bounced: user does not  exist 5/13/12)\r\n      83 Franklin Ave, Jersey City\r\n      Mon. & Thurs. 7:00pm\r\n      SOURCE: email 4/14/06"
   },
   {
-    "name": "NEW JERSEY",
+    "name": "Rising Sun Capoeira",
     "website": "https://www.wellrisingsun.org/capoeira",
     "leader": {
-      "title": "mestre",
-      "nickname": "Kasey Sanders",
-      "name": "supervised by Mestre"
+      "title": "professor",
+      "nickname": "Tigre",
+      "name": "Kasey Sanders"
     },
     "mainContact": {
       "name": null,
@@ -887,7 +894,13 @@
       }
     ],
     "notes": "SOURCE: website 4/6/19",
-    "rawRecord": "NEW JERSEY\r\n    \r\n  \r\n\r\n\r\n\r\n  \r\n    \r\n    \r\n    \r\n    \r\n    Long Branch Capoeira\r\n    \r\n  \r\n  \r\n                           Long Branch\r\n    \r\n          Capoeira Sol Nascente\r\n      https://www.wellrisingsun.org/capoeira\r\n      Mestrando Estagiario Baiano\"Kasey Sanders\" supervised by Mestre\r\n      Romeu [Bahia, Brazil] \r\n       email: info@wellrisingsun.com \r\n       Phone: 732.547.4400 \r\n      https://www.facebook.com/risingsunwellnessnj/      \r\n        Rising Sun Cultural and Wellness Center\r\n      10 Pearl St, Long Branch, second floor,  NJ 07740\r\n      all levels ages 12yrs+: Mon, Tues & Thurs 7:00-8:15pm\r\n      kids ages 5+: Tues & Thurs 6:00-7:00pm  classes 6pm-7pm a\r\n      ages 7+: Sat 10:00-11:00am   \r\n      SOURCE: website 4/6/19"
+    "rawRecord": "NEW JERSEY\r\n    \r\n  \r\n\r\n\r\n\r\n  \r\n    \r\n    \r\n    \r\n    \r\n    Long Branch Capoeira\r\n    \r\n  \r\n  \r\n                           Long Branch\r\n    \r\n          Capoeira Sol Nascente\r\n      https://www.wellrisingsun.org/capoeira\r\n      Mestrando Estagiario Baiano\"Kasey Sanders\" supervised by Mestre\r\n      Romeu [Bahia, Brazil] \r\n       email: info@wellrisingsun.com \r\n       Phone: 732.547.4400 \r\n      https://www.facebook.com/risingsunwellnessnj/      \r\n        Rising Sun Cultural and Wellness Center\r\n      10 Pearl St, Long Branch, second floor,  NJ 07740\r\n      all levels ages 12yrs+: Mon, Tues & Thurs 7:00-8:15pm\r\n      kids ages 5+: Tues & Thurs 6:00-7:00pm  classes 6pm-7pm a\r\n      ages 7+: Sat 10:00-11:00am   \r\n      SOURCE: website 4/6/19",
+    "fixMetadata": {
+      "originalName": "Long Branch",
+      "fixed": true,
+      "fixedFields": ["name", "leader"],
+      "manuallyFixed": true
+    }
   },
   {
     "name": "New Jersey",
@@ -964,7 +977,7 @@
     "rawRecord": "Cultural Association of Brazilian Arts [CAOBA]\r\n    \r\n    see Bergen County"
   },
   {
-    "name": "NEW JERSEY",
+    "name": "Gloucester County Karate",
     "website": "http://gloucestercountykarate.com/",
     "leader": {
       "title": null,
@@ -989,10 +1002,16 @@
       }
     ],
     "notes": "SOURCE: website 12/11/15\nSOURCE: website 8/7/12",
-    "rawRecord": "NEW JERSEY\r\n    \r\n  \r\n\r\n\r\n\r\n  \r\n    \r\n    \r\n    \r\n    \r\n    Pitman Capoeira\r\n    \r\n  \r\n  \r\n                     Pitman\r\n    \r\n    \r\n          Okinawa Kenpo Karate Academy \r\n      Pitman Business Plaza, 72 East Holly Avenue, Pitman, NJ 08071 \r\n      Sensei Ryan Sickes \r\n      http://gloucestercountykarate.com/\r\n      \r\n      856-589-5551 \r\n      pitman@gloucestercountykarate.com \r\n      SOURCE: website 12/11/15 \r\n      bdegori@juno.com \r\n      Thurs 7:30-8:45am; Tues   8:30- 9:45pm \r\n      SOURCE: website 8/7/12"
+    "rawRecord": "NEW JERSEY\r\n    \r\n  \r\n\r\n\r\n\r\n  \r\n    \r\n    \r\n    \r\n    \r\n    Pitman Capoeira\r\n    \r\n  \r\n  \r\n                     Pitman\r\n    \r\n    \r\n          Okinawa Kenpo Karate Academy \r\n      Pitman Business Plaza, 72 East Holly Avenue, Pitman, NJ 08071 \r\n      Sensei Ryan Sickes \r\n      http://gloucestercountykarate.com/\r\n      \r\n      856-589-5551 \r\n      pitman@gloucestercountykarate.com \r\n      SOURCE: website 12/11/15 \r\n      bdegori@juno.com \r\n      Thurs 7:30-8:45am; Tues   8:30- 9:45pm \r\n      SOURCE: website 8/7/12",
+    "fixMetadata": {
+      "originalName": "Pitman",
+      "fixed": true,
+      "fixedFields": ["name"],
+      "manuallyFixed": true
+    }
   },
   {
-    "name": "NEW JERSEY",
+    "name": "Centro Cultural Senzala de Capoeira",
     "website": "http://zumbisenzala.org/",
     "leader": {
       "title": "professor",
@@ -1017,10 +1036,16 @@
       }
     ],
     "notes": "SOURCE: websites 4/7/19",
-    "rawRecord": "NEW JERSEY\r\n    \r\n  \r\n\r\n\r\n\r\n  \r\n    \r\n    \r\n    \r\n    Princeton Capoeira\r\n    \r\n  \r\n  \r\n                           Princeton\r\n    \r\n          Centro Cultural Senzala de Capoeira \r\n      Mestre Zumbi \r\n      http://zumbisenzala.org/ \r\n      929-314-4642\r\n      info@zumbisenzala.org \r\n            New Graduate College Common Room \r\n      88 College Rd W. Princeton NJ 08540\r\n      Open Levels: Mon 7;30-9:00pm;  Fri 7:00pm � 8:30pm\r\n    \r\n    Professor Cacique\r\n            Louis A. Simpson International Building\r\n      Room B60 [lower level]\r\n      Open Levels:  Wed 7:00 � 8:00pm\r\n    \r\n          Princeton University Capoeira Club \r\n             http://www.princeton.edu/~capoeira\r\n      (last updated 2015  4/7/19)\r\n      capoeira @princeton . edu\r\n      SOURCE: websites 4/7/19"
+    "rawRecord": "NEW JERSEY\r\n    \r\n  \r\n\r\n\r\n\r\n  \r\n    \r\n    \r\n    \r\n    Princeton Capoeira\r\n    \r\n  \r\n  \r\n                           Princeton\r\n    \r\n          Centro Cultural Senzala de Capoeira \r\n      Mestre Zumbi \r\n      http://zumbisenzala.org/ \r\n      929-314-4642\r\n      info@zumbisenzala.org \r\n            New Graduate College Common Room \r\n      88 College Rd W. Princeton NJ 08540\r\n      Open Levels: Mon 7;30-9:00pm;  Fri 7:00pm � 8:30pm\r\n    \r\n    Professor Cacique\r\n            Louis A. Simpson International Building\r\n      Room B60 [lower level]\r\n      Open Levels:  Wed 7:00 � 8:00pm\r\n    \r\n          Princeton University Capoeira Club \r\n             http://www.princeton.edu/~capoeira\r\n      (last updated 2015  4/7/19)\r\n      capoeira @princeton . edu\r\n      SOURCE: websites 4/7/19",
+    "fixMetadata": {
+      "originalName": "Princeton",
+      "fixed": true,
+      "fixedFields": ["name"],
+      "manuallyFixed": true
+    }
   },
   {
-    "name": "NEW JERSEY",
+    "name": "Capoeira Angola",
     "website": null,
     "leader": {
       "title": null,
@@ -1044,8 +1069,14 @@
         "rawText": "1702 State Highway 541, Burlington, NJ 08016\nAdults and Kids: Tues & Thurs 8:30-10:00pm\nSt. Casimir's Roman Catholic Church\nGymnasium, 502 New Jersey Ave Riverside, NJ 08075\nAdult and Kids: Mon & Wed  7:30-9:00pm\nSOURCE:Tripod website  copyright 2006  4/7/19"
       }
     ],
-    "notes": "SOURCE:Tripod website  copyright 2006  4/7/19",
-    "rawRecord": "NEW JERSEY\r\n    \r\n  \r\n\r\n\r\n\r\n  \r\n    \r\n    \r\n    \r\n    \r\n    Burlington County Capoeira\r\n    \r\n  \r\n  \r\n                     Burlington County\r\n      \r\n    \r\n    \r\n    \r\n    \r\n    \r\n          Capuraginga\r\n      Phone:  [609] 577-9351 \r\n      (email bounced  4/8/19)\r\n            Team Torres Martial Art Training \r\n      1702 State Highway 541, Burlington, NJ 08016\r\n      Adults and Kids: Tues & Thurs 8:30-10:00pm\r\n            St. Casimir's Roman Catholic Church\r\n      Gymnasium, 502 New Jersey Ave Riverside, NJ 08075\r\n      Adult and Kids: Mon & Wed  7:30-9:00pm\r\n      SOURCE:Tripod website  copyright 2006  4/7/19"
+    "notes": "West Windsor, NJ. SOURCE:Tripod website copyright 2006 4/7/19",
+    "rawRecord": "NEW JERSEY\r\n    \r\n  \r\n\r\n\r\n\r\n  \r\n    \r\n    \r\n    \r\n    \r\n    Burlington County Capoeira\r\n    \r\n  \r\n  \r\n                     Burlington County\r\n      \r\n    \r\n    \r\n    \r\n    \r\n    \r\n          Capuraginga\r\n      Phone:  [609] 577-9351 \r\n      (email bounced  4/8/19)\r\n            Team Torres Martial Art Training \r\n      1702 State Highway 541, Burlington, NJ 08016\r\n      Adults and Kids: Tues & Thurs 8:30-10:00pm\r\n            St. Casimir's Roman Catholic Church\r\n      Gymnasium, 502 New Jersey Ave Riverside, NJ 08075\r\n      Adult and Kids: Mon & Wed  7:30-9:00pm\r\n      SOURCE:Tripod website  copyright 2006  4/7/19",
+    "fixMetadata": {
+      "originalName": "Capuraginga",
+      "fixed": true,
+      "fixedFields": ["name", "notes"],
+      "manuallyFixed": true
+    }
   },
   {
     "name": "Oficina da Capoeira",
@@ -1076,7 +1107,7 @@
     "rawRecord": "Oficina da Capoeira \r\n       (website dead 8/7/12) \r\n      Estagiario Claudio \"Claudio dos Santos\" under Mestre Ray \r\n        856.297.5051 \r\n        claudionewjersey@hotmail.com \r\n      Monitor Azulao: \r\n        856.979.5315 \r\n        azulaocapoeira1@gmail.com \r\n      Erin Flanigan [Caxixi]: \r\n        609.577.9351 \r\n        flaniganerin@hotmail.com \r\n      SOURCE: website 3/4/09"
   },
   {
-    "name": "NEW JERSEY",
+    "name": "Grupo Liberdade de Capoeira",
     "website": "http://www.grupoliberdadedecapoeira.com/",
     "leader": {
       "title": "mestre",
@@ -1101,7 +1132,13 @@
       }
     ],
     "notes": "SOURCE: website 4/3/19",
-    "rawRecord": "NEW JERSEY\r\n    \r\n  \r\n\r\n\r\n\r\n  \r\n    \r\n    \r\n    \r\n    \r\n    Union County Capoeira\r\n    \r\n    \r\n  \r\n  \r\n                     Union County\r\n    \r\n          Grupo Liberdade de Capoeira\r\n    http://www.grupoliberdadedecapoeira.com/\r\n    Professora Amazonas under Mestre Cigano[Porto Seguro,Brazil]\r\n    amazonas.jb@gmail.com[347] 228-5593\r\n          Umoja Dance Studio\r\n    2120 Springfield Ave, Vauxhall, NJ 07088\r\n    SOURCE: website 4/3/19"
+    "rawRecord": "NEW JERSEY\r\n    \r\n  \r\n\r\n\r\n\r\n  \r\n    \r\n    \r\n    \r\n    \r\n    Union County Capoeira\r\n    \r\n    \r\n  \r\n  \r\n                     Union County\r\n    \r\n          Grupo Liberdade de Capoeira\r\n    http://www.grupoliberdadedecapoeira.com/\r\n    Professora Amazonas under Mestre Cigano[Porto Seguro,Brazil]\r\n    amazonas.jb@gmail.com[347] 228-5593\r\n          Umoja Dance Studio\r\n    2120 Springfield Ave, Vauxhall, NJ 07088\r\n    SOURCE: website 4/3/19",
+    "fixMetadata": {
+      "originalName": "Grupo Liberdade de Capoeira",
+      "fixed": true,
+      "fixedFields": ["name"],
+      "manuallyFixed": true
+    }
   },
   {
     "name": "Capoeira Guerreiros Union County",
@@ -1132,7 +1169,7 @@
     "rawRecord": "Capoeira Guerreiros Union County\r\n      https://www.capoeira-nj.com\r\n      [732]207-1953\r\n      guerreirosnj@gmail.com\r\n      https://www.facebook.com/profile.php?id=100019306443808\r\n            Renzo Gracie Cranford\r\n      155 South Ave, Garwood, NJ 07027\r\n      Tues & Thurs Kids 7:00pm-8:00pm\r\n      Adults 8:45-9:45pm\r\n      SOURCE: website 3/22/19"
   },
   {
-    "name": "NEW JERSEY",
+    "name": "Martial Art & Capoeira Center",
     "website": "https://www.facebook.com/pg/martialart17/",
     "leader": {
       "title": null,
@@ -1157,7 +1194,13 @@
       }
     ],
     "notes": "SOURCE: facebook 4/12/19",
-    "rawRecord": "NEW JERSEY\r\n      \r\n    \r\n  \r\n\r\n\r\n\r\n  \r\n    \r\n    \r\n    \r\n    \r\n    Albuqueque Capoeira\r\n    \r\n  \r\n  \r\n                           Albuquerque\r\n    \r\n    \r\n          Capoeira Canga�o -Cord�o de Ouro \r\n      https://www.facebook.com/pg/martialart17/\r\n      \r\n      [505] 819-3236\r\n      abqcapoeira@ gmail .com  (attempting\r\n\r\n        contact via email 4/10/19\r\n      )      Brazilian Cultral Center\r\n      2412 Comanche Rd NE, Albuquerque, New Mexico\r\n      SOURCE: facebook 4/12/19"
+    "rawRecord": "NEW JERSEY\r\n      \r\n    \r\n  \r\n\r\n\r\n\r\n  \r\n    \r\n    \r\n    \r\n    \r\n    Albuqueque Capoeira\r\n    \r\n  \r\n  \r\n                           Albuquerque\r\n    \r\n    \r\n          Capoeira Canga�o -Cord�o de Ouro \r\n      https://www.facebook.com/pg/martialart17/\r\n      \r\n      [505] 819-3236\r\n      abqcapoeira@ gmail .com  (attempting\r\n\r\n        contact via email 4/10/19\r\n      )      Brazilian Cultral Center\r\n      2412 Comanche Rd NE, Albuquerque, New Mexico\r\n      SOURCE: facebook 4/12/19",
+    "fixMetadata": {
+      "originalName": "Albuquerque",
+      "fixed": true,
+      "fixedFields": ["name"],
+      "manuallyFixed": true
+    }
   },
   {
     "name": "Gingarte Capoeira",
@@ -1308,24 +1351,6 @@
     "rawRecord": "The Berimbau Academy of Capoeira\r\n    \r\n    52 Oshara Blvd. Santa Fe NM 87508\r\n    \r\n    Instructor: Pete Jackson\r\n    \r\n    phone: [505] 577-8005\r\n    \r\n    email: pj4capart@aol.com\r\n    \r\n    Adult classes:  Mon & Wed 7:00 - 8:30pm\r\n    \r\n    SOURCE: email   10/28/17"
   },
   {
-    "name": "(Isabela Coelho is now permanently in Bahia, Brazil)",
-    "website": null,
-    "leader": {
-      "title": null,
-      "nickname": null,
-      "name": null
-    },
-    "mainContact": {
-      "name": null,
-      "email": null,
-      "phone": "20"
-    },
-    "sources": [],
-    "locations": [],
-    "notes": "SOURCE: email  2/20/12",
-    "rawRecord": "(Isabela Coelho is now permanently in Bahia, Brazil)\r\n    \r\n    SOURCE: email  2/20/12"
-  },
-  {
     "name": "CapuraGinga",
     "website": null,
     "leader": {
@@ -1380,7 +1405,7 @@
     "rawRecord": "Burning Man Capoeira\r\n    \r\n  \r\n  \r\n                           Black Rock City\r\n    \r\n    \r\n    (Website offline. )(Email list email bounces. )(We\r\n        are unable to find any current information about capoeira\r\n        at  Burning Man Please contact us if you can tell us\r\n        anything 1/16/19)"
   },
   {
-    "name": "The Capoeira List",
+    "name": "Capoeira Mandinga Henderson",
     "website": "http://capoeiralasvegas.com/capHenderson",
     "leader": {
       "title": null,
@@ -1405,7 +1430,13 @@
       }
     ],
     "notes": "SOURCE: website 1/11/19",
-    "rawRecord": "The Capoeira List\r\n    \r\n    \r\n    \r\n      \r\n        \r\n        \r\n  \r\n\r\n\r\n\r\n  \r\n    \r\n    \r\n    \r\n    \r\n    Henderson Capoeira\r\n    \r\n  \r\n  \r\n                           Henderson\r\n    \r\n    \r\n    \r\n    \r\n    \r\n    \r\n           Capoeira Mandinga Henderson\r\n      http://capoeiralasvegas.com/capHenderson\r\n      contact@capoeirahenderson.com \r\n      702-358-1659 \r\n            Henderson Multigenerational Center\r\n      250 S. Green Valley Pkwy, Henderson, NV\r\n      kids ages 7-11:12:00-12:45pm \r\n      Adult beginner, ages 12+:12:45-2:00pm \r\n      roda all levels, ages 7+: 2:00-3:00pm \r\n      SOURCE: website 1/11/19"
+    "rawRecord": "The Capoeira List\r\n    \r\n    \r\n    \r\n      \r\n        \r\n        \r\n  \r\n\r\n\r\n\r\n  \r\n    \r\n    \r\n    \r\n    \r\n    Henderson Capoeira\r\n    \r\n  \r\n  \r\n                           Henderson\r\n    \r\n    \r\n    \r\n    \r\n    \r\n    \r\n           Capoeira Mandinga Henderson\r\n      http://capoeiralasvegas.com/capHenderson\r\n      contact@capoeirahenderson.com \r\n      702-358-1659 \r\n            Henderson Multigenerational Center\r\n      250 S. Green Valley Pkwy, Henderson, NV\r\n      kids ages 7-11:12:00-12:45pm \r\n      Adult beginner, ages 12+:12:45-2:00pm \r\n      roda all levels, ages 7+: 2:00-3:00pm \r\n      SOURCE: website 1/11/19",
+    "fixMetadata": {
+      "originalName": "Capoeira Mandinga Henderson",
+      "fixed": true,
+      "fixedFields": ["name"],
+      "manuallyFixed": true
+    }
   },
   {
     "name": "Las Vegas Capoeira",
@@ -1648,12 +1679,12 @@
     "rawRecord": "Motumbax�  Capoeira\r\nhttps://www.facebook.com/pg/iheartbkcapoeira/ Graduado Kamikazee \"Herman Pardon\"\r\ninfo@iheartbkcapoeira.com\r\nCall [646] 346-9428\r\n(classes planned in Riverdale )SOURCE: facebook 5/6/19"
   },
   {
-    "name": "The Capoeira List",
+    "name": "Motumbaxé Capoeira",
     "website": "http://www.motumbaxecapoeira.com",
     "leader": {
-      "title": "graduado",
-      "nickname": null,
-      "name": null
+      "title": "mestre",
+      "nickname": "Joao Bispo de Souza Neto,",
+      "name": "Lampreia"
     },
     "mainContact": {
       "name": null,
@@ -1673,7 +1704,13 @@
       }
     ],
     "notes": "SOURCE: website 5/6/19",
-    "rawRecord": "The Capoeira List\r\n\r\n\r\n \r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nBrooklyn Capoeira\r\n\r\n\r\n    \r\n  \r\n  \r\n     \r\n\r\n                  \r\n            Brooklyn\r\n\r\n\r\n\r\n      Motumbax� Capoeira\r\n  76 Nevins St. Brookyn, NY 11217 \r\n\r\n\r\nMestre  Lampreia  \"Joao Bispo de Souza Neto,\"\r\n\r\n\r\n    http://www.motumbaxecapoeira.com \r\n\r\n lampreia@motumbaxecapoeira.com\r\n\r\n\r\n917 573 9517 \r\n\r\n\r\n  (full schedule of classes)\r\n\r\nGraduado Kamikazee  is now teaching in Riverdale in the Bronx\r\n\r\n\r\nInstructora Forminghina  is now teaching in Hartford CT. \r\n\r\nSOURCE: website 5/6/19"
+    "rawRecord": "The Capoeira List\r\n\r\n\r\n \r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nBrooklyn Capoeira\r\n\r\n\r\n    \r\n  \r\n  \r\n     \r\n\r\n                  \r\n            Brooklyn\r\n\r\n\r\n\r\n      Motumbax� Capoeira\r\n  76 Nevins St. Brookyn, NY 11217 \r\n\r\n\r\nMestre  Lampreia  \"Joao Bispo de Souza Neto,\"\r\n\r\n\r\n    http://www.motumbaxecapoeira.com \r\n\r\n lampreia@motumbaxecapoeira.com\r\n\r\n\r\n917 573 9517 \r\n\r\n\r\n  (full schedule of classes)\r\n\r\nGraduado Kamikazee  is now teaching in Riverdale in the Bronx\r\n\r\n\r\nInstructora Forminghina  is now teaching in Hartford CT. \r\n\r\nSOURCE: website 5/6/19",
+    "fixMetadata": {
+      "originalName": "Motumbax� Capoeira",
+      "fixed": true,
+      "fixedFields": ["name"],
+      "manuallyFixed": true
+    }
   },
   {
     "name": "Capoeira Vida Brooklyn",
@@ -2130,7 +2167,7 @@
     "rawRecord": "Clinton Capoeira\r\n   \r\n\r\n\r\n\r\n                 Clinton\r\n\r\n      Hamilton College Capoeira Club\r\n(no information  on campus website now; attempting contact 5/24/19)contact Dom Veconi\r\n  dveconi@hamilton.edu\r\nSOURCE: website  9/25/12"
   },
   {
-    "name": "The Capoeira List",
+    "name": "Capoeira Arte e Ginga",
     "website": null,
     "leader": {
       "title": "mestre",
@@ -2145,7 +2182,12 @@
     "sources": [],
     "locations": [],
     "notes": "",
-    "rawRecord": "The Capoeira List\r\n\r\n\r\n \r\n\r\n\r\n\r\n\r\n   \r\n   \r\n   \r\n   \r\n   Duchess County Capoeira\r\n   \r\n\r\n\r\n\r\n                 Duchess County\r\n\r\n\r\n\r\n      Capoeira Arte e Ginga\r\nAlem�o \"Alastair Thompson\" under  Mestre Tio Jo�o\r\n(Was starting a class in 2005; no news since then.)"
+    "rawRecord": "The Capoeira List\r\n\r\n\r\n \r\n\r\n\r\n\r\n\r\n   \r\n   \r\n   \r\n   \r\n   Duchess County Capoeira\r\n   \r\n\r\n\r\n\r\n                 Duchess County\r\n\r\n\r\n\r\n      Capoeira Arte e Ginga\r\nAlem�o \"Alastair Thompson\" under  Mestre Tio Jo�o\r\n(Was starting a class in 2005; no news since then.)",
+    "fixMetadata": {
+      "originalName": "The Capoeira List",
+      "fixed": true,
+      "fixedFields": ["name"]
+    }
   },
   {
     "name": "Hamliton Capoeira",
@@ -2405,7 +2447,12 @@
       }
     ],
     "notes": "SOURCE: venue website 4/13/19",
-    "rawRecord": "Centro Cultural Senzala de Capoeira \r\n      Mestre Zumbi \r\n      http://zumbisenzala.org/ \r\n      (no information about classes in New York on website 4/13/19)\r\n       info@zumbisenzala.org \r\n            Rod Rodgers Dance Co & Studios \r\n      62 East 4th Street, NYC ([between 2nd and 3rd aves]) \r\n      http://www.rodrodgersdance.org/\r\n      \r\n      Tues 8:00-9:00pm\r\n      SOURCE: venue website 4/13/19"
+    "rawRecord": "Centro Cultural Senzala de Capoeira \r\n      Mestre Zumbi \r\n      http://zumbisenzala.org/ \r\n      (no information about classes in New York on website 4/13/19)\r\n       info@zumbisenzala.org \r\n            Rod Rodgers Dance Co & Studios \r\n      62 East 4th Street, NYC ([between 2nd and 3rd aves]) \r\n      http://www.rodrodgersdance.org/\r\n      \r\n      Tues 8:00-9:00pm\r\n      SOURCE: venue website 4/13/19",
+    "fixMetadata": {
+      "manuallyFixed": true,
+      "originalName": "Centro Cultural Senzala de Capoeira",
+      "fixedFields": ["name"]
+    }
   },
   {
     "name": "Grupo Ginga",
@@ -2423,7 +2470,12 @@
     "sources": [],
     "locations": [],
     "notes": "SOURCE: website 5/7/19",
-    "rawRecord": "Grupo Ginga \r\n\r\n      Mestre Kiki da Bahia \r\n\r\n      http://www.grupoginga.com\r\n      \r\n+1 917 725 0381\r\n\r\n  https://www.facebook.com/mestrekiki.dabahia\r\n\r\n  (contact for information)\r\n\r\n      SOURCE: website 5/7/19"
+    "rawRecord": "Grupo Ginga \r\n\r\n      Mestre Kiki da Bahia \r\n\r\n      http://www.grupoginga.com\r\n      \r\n+1 917 725 0381\r\n\r\n  https://www.facebook.com/mestrekiki.dabahia\r\n\r\n  (contact for information)\r\n\r\n      SOURCE: website 5/7/19",
+    "fixMetadata": {
+      "manuallyFixed": true,
+      "originalName": "Grupo Ginga",
+      "fixedFields": ["name"]
+    }
   },
   {
     "name": "Nag� Capoeira Academy",
@@ -2686,7 +2738,7 @@
     "rawRecord": "Columbia University Capoeira Club \r\n      https://columbiacapoeira.weebly.com/index.html  \r\nhttps://www.facebook.com/groups/434005753277815/\r\nSOURCE: website"
   },
   {
-    "name": "(Website has not been updated,",
+    "name": "Grupo Maculele Capoeira",
     "website": null,
     "leader": {
       "title": null,
@@ -2710,8 +2762,14 @@
         "rawText": "8/25/12)\n(website offline 5/7/19)\nGrupo Maculele Capoeira\nTesoura\nSchuH072@newschool.edu\nSOURCE: website 9/26/10"
       }
     ],
-    "notes": "SOURCE: website 9/26/10",
-    "rawRecord": "(Website has not been updated,\r\n          and there is no indication of capoeira on the venue website\r\n          8/25/12) \r\n      (website offline 5/7/19)\r\n         Grupo Maculele Capoeira  \r\n      Tesoura \r\n        SchuH072@newschool.edu \r\n      SOURCE: website 9/26/10"
+    "notes": "Website offline 5/7/19",
+    "rawRecord": "(Website has not been updated,\r\n          and there is no indication of capoeira on the venue website\r\n          8/25/12) \r\n      (website offline 5/7/19)\r\n         Grupo Maculele Capoeira  \r\n      Tesoura \r\n        SchuH072@newschool.edu \r\n      SOURCE: website 9/26/10",
+    "fixMetadata": {
+      "originalName": "(website offline 5/7/19)",
+      "fixed": true,
+      "fixedFields": ["name", "notes"],
+      "manuallyFixed": true
+    }
   },
   {
     "name": "Omulu Capoeira Guanabara",
@@ -3224,10 +3282,10 @@
     "rawRecord": "Omulu Capoeira Guanabara Brooklyn \r\n\r\n\r\n\r\n https://www.facebook.com/Omulu-Capoeira-New-York-1605981866290569/\r\n\r\n\r\n\r\n\r\n    omulubrooklyn@gmail.com \r\n\r\n\r\n\r\n\r\n    917-940-9321 \r\n\r\n\r\n\r\n       (last post was in 2016, website on facebook is offline,  attempting email  5/8/19)"
   },
   {
-    "name": "The Capoeira List",
+    "name": "Com Expressao",
     "website": "http://www.comexpressao.com/",
     "leader": {
-      "title": "mestre",
+      "title": "professor",
       "nickname": "Todd Russell",
       "name": ""
     },
@@ -3249,7 +3307,13 @@
       }
     ],
     "notes": "SOURCE:  website 5/26/19",
-    "rawRecord": "The Capoeira List\r\n     \r\n\r\n\r\n    \r\n     \r\n\r\n\r\n    \r\n    \r\n\r\n\r\n     \r\n  \r\n\r\n\r\n\r\n    \r\n    \r\n    \r\n    \r\n    Rochester Capoeira\r\n    \r\n  \r\n  \r\n                           Rochester\r\n    \r\n    \r\n          Com Expressao \r\n      \r\n      http://www.comexpressao.com/\r\n      \r\n      Contra-Mestre Carcar�  \"Todd Russell\"\r\n      \r\n            Academia Com Expressao\r\n      1352 Culver Drive, Rochester, New York 14609\r\n      585-319-6521\r\n      \r\n      capo@comexpressao.com\r\n      \r\n      (Full schedule of classes\r\n)        RIT Capoeira(website offline  5/26/19)RITCapoeira@gmail.com\r\n      \r\n      SOURCE:  website 5/26/19"
+    "rawRecord": "The Capoeira List\r\n     \r\n\r\n\r\n    \r\n     \r\n\r\n\r\n    \r\n    \r\n\r\n\r\n     \r\n  \r\n\r\n\r\n\r\n    \r\n    \r\n    \r\n    \r\n    Rochester Capoeira\r\n    \r\n  \r\n  \r\n                           Rochester\r\n    \r\n    \r\n          Com Expressao \r\n      \r\n      http://www.comexpressao.com/\r\n      \r\n      Contra-Mestre Carcar�  \"Todd Russell\"\r\n      \r\n            Academia Com Expressao\r\n      1352 Culver Drive, Rochester, New York 14609\r\n      585-319-6521\r\n      \r\n      capo@comexpressao.com\r\n      \r\n      (Full schedule of classes\r\n)        RIT Capoeira(website offline  5/26/19)RITCapoeira@gmail.com\r\n      \r\n      SOURCE:  website 5/26/19",
+    "fixMetadata": {
+      "originalName": "Com Expressao",
+      "fixed": true,
+      "fixedFields": ["name", "leader"],
+      "manuallyFixed": true
+    }
   },
   {
     "name": "Capoeira Angola Quintal Rochester",
@@ -3364,7 +3428,7 @@
     "rawRecord": "ABAD�-Capoeira Long Island\r\n\r\nhttps://www.facebook.com/pg/ACLongIsland/\r\n\r\naclongisland@yahoo.com      \r\n   Gymnasium \r\n350 Higbie Ln, West Islip, NY:\r\nMon & Wed 8:00-9:00pm      \r\n(\"October 26, 2015 �Classes with ABADA Capoeira on Long Island have been suspended.)(\r\n)( We would like to resume asap and will post any relevant updates\")      \r\nSOURCE: facebook 5/17/19"
   },
   {
-    "name": "The Capoeira List",
+    "name": "Syracuse Capoeira Club - Capoeira Cordão de Ouro",
     "website": "http://www.syracusecapoeira.com",
     "leader": {
       "title": null,
@@ -3389,7 +3453,13 @@
       }
     ],
     "notes": "SOURCE: website  facebook 5/19",
-    "rawRecord": "The Capoeira List\r\n    \r\n    \r\n    \r\n      \r\n       \r\n    \r\n  \r\n\r\n\r\n\r\n   \r\n   \r\n   \r\n   \r\n   Syracuse Capoeira\r\n   \r\n\r\n\r\n\r\n                  Syracuse\r\n\r\n\r\n\r\n      Syracuse Capoeira Club - Capoeira Cord�o de Ouro\r\n  \r\nhttp://www.syracusecapoeira.com\r\n  \r\n\"Christopher Getman \" \r\n  \r\ninfo@syracusecapoeira.com\r\nhttps://www.facebook.com/groups/100778606734411/\r\n      Five Star Martial Arts\r\n7575 Buckley Road,  North Syracuse, NY 13212\r\nFri 7:30pm; Sun 4:00pm \r\nSOURCE: website  facebook 5/19"
+    "rawRecord": "The Capoeira List\r\n    \r\n    \r\n    \r\n      \r\n       \r\n    \r\n  \r\n\r\n\r\n\r\n   \r\n   \r\n   \r\n   \r\n   Syracuse Capoeira\r\n   \r\n\r\n\r\n\r\n                  Syracuse\r\n\r\n\r\n\r\n      Syracuse Capoeira Club - Capoeira Cord�o de Ouro\r\n  \r\nhttp://www.syracusecapoeira.com\r\n  \r\n\"Christopher Getman \" \r\n  \r\ninfo@syracusecapoeira.com\r\nhttps://www.facebook.com/groups/100778606734411/\r\n      Five Star Martial Arts\r\n7575 Buckley Road,  North Syracuse, NY 13212\r\nFri 7:30pm; Sun 4:00pm \r\nSOURCE: website  facebook 5/19",
+    "fixMetadata": {
+      "originalName": "Syracuse Capoeira Club - Capoeira Cord�o de Ouro",
+      "fixed": true,
+      "fixedFields": ["name"],
+      "manuallyFixed": true
+    }
   },
   {
     "name": "Troy Capoeira",

@@ -464,12 +464,12 @@
     "rawRecord": "Grupo Candeias Sacramento\r\n    \r\n    (website offline 7/23/17)\r\n    \r\n    Instrutor Morto \" Sergio Phan Lung\"\r\n    \r\n          Dance 2D Rhythm Studio\r\n    \r\n    9257 Laguna Springs Dr, Elk Grove, CA 95758( Behind BJ's\r\n      Restaurant\r\n      in Laguna Blvd)\r\n    \r\n    Phone: [916] 684-8707 / [916] 275-1161\r\n    \r\n          The Lord's Gym - Roseville\r\n    \r\n    702 Atlantic Street, Roseville, CA 95678\r\n    \r\n    Phone: [916] 773-5673\r\n    \r\n    SOURCE: website 5/20/11"
   },
   {
-    "name": "San Diego County",
+    "name": "Capoeira Brasil San Diego",
     "website": "http://capoeirabrasilsandiego.weebly.com/",
     "leader": {
       "title": "mestre",
-      "nickname": "Raphael Cunha",
-      "name": "under Mestre BonecoLos"
+      "nickname": "Mindinho",
+      "name": "Raphael Cunha"
     },
     "mainContact": {
       "name": null,
@@ -489,7 +489,12 @@
       }
     ],
     "notes": "SOURCE: website 7/28/17",
-    "rawRecord": "San Diego County\r\n\r\n\r\n      Capoeira Brasil San Diego\r\n2176 Chatsworth Blvd. 92107\r\nhttp://capoeirabrasilsandiego.weebly.com/\r\nMestre  Mindinho \"Raphael Cunha\" under Mestre Boneco[Los\r\nAngeles]\r\ndalma@capoeirabrasil.org\r\n1 [619] 928-2276\r\nAdults: Mon 7:30-9:00pm; Wed 6:30-7:30pm; Fri 6:30-8:00pm; Sun 1:00-2:30pm\r\nAdult Mornings: Tues & Thurs 7:30- 8:30am\r\nKids: Mon 4:3:0-5:30pm;  Wed 4:30-5:30pm;  Sun 12:00-1:00pm\r\nTots [ages 2-4]: Sun 11:15-Noon\r\nClass Information: areia@capoeirabrasil.org\r\nSOURCE: website 7/28/17"
+    "rawRecord": "San Diego County\r\n\r\n\r\n      Capoeira Brasil San Diego\r\n2176 Chatsworth Blvd. 92107\r\nhttp://capoeirabrasilsandiego.weebly.com/\r\nMestre  Mindinho \"Raphael Cunha\" under Mestre Boneco[Los\r\nAngeles]\r\ndalma@capoeirabrasil.org\r\n1 [619] 928-2276\r\nAdults: Mon 7:30-9:00pm; Wed 6:30-7:30pm; Fri 6:30-8:00pm; Sun 1:00-2:30pm\r\nAdult Mornings: Tues & Thurs 7:30- 8:30am\r\nKids: Mon 4:3:0-5:30pm;  Wed 4:30-5:30pm;  Sun 12:00-1:00pm\r\nTots [ages 2-4]: Sun 11:15-Noon\r\nClass Information: areia@capoeirabrasil.org\r\nSOURCE: website 7/28/17",
+    "fixMetadata": {
+      "manuallyFixed": true,
+      "originalName": "San Diego County",
+      "fixedFields": ["name", "leader"]
+    }
   },
   {
     "name": "Capoeira Mandinga",
@@ -1058,12 +1063,12 @@
     "rawRecord": "Capoeira Maculel�\r\n\r\n\r\n\r\nProfessor Mico under Mestre Fran[Atlanta]\r\n\r\n\r\n\r\n  capomico@gmail.com\r\n\r\n\r\n\r\n(attempting to contact 7/31/17)\r\n\r\n\r\n\r\n      Harvey Milk Rec Center\r\n\r\n\r\n\r\n50 Scott Street, San Francisco\r\n\r\n\r\n\r\n      University of San Francisco Capoeira Club\r\n\r\n\r\n\r\nSOURCE: website    6/5/11"
   },
   {
-    "name": "The Capoeira List",
+    "name": "Cordao de Ouro",
     "website": "http://www.centralcoastcapoeira.com",
     "leader": {
-      "title": "mestre",
-      "nickname": "Joshua Ivey",
-      "name": "under the supervision of Mestre"
+      "title": "monitor",
+      "nickname": "Macaco",
+      "name": "Joshua Ivey"
     },
     "mainContact": {
       "name": null,
@@ -1083,7 +1088,13 @@
       }
     ],
     "notes": "SOURCE: website 8/1/17",
-    "rawRecord": "The Capoeira List\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n                       San Luis Obispo\r\n\r\n      Cordao de Ouro\r\nhttp://www.centralcoastcapoeira.com      /\r\nMonitor Macaco \"Joshua Ivey\"  under the supervision of Mestre\r\nChicot[Paris]\r\n   909 436 6318\r\n  centralcoastcapoeira@gmail.com\r\n      Academy of Dance\r\n3422 Miguelito Court, San Luis Obispo, CA, 93401.\r\nThurs 7:00pm; Sat 11:00am\r\n      Dinosaur Caves Park\r\n2701 Price St, Pismo Beach, CA 93449\r\nTues & Wed  6:30pm\r\n      Paragon Brazilian JiuJitsu\r\nSan Luis Obispo\r\nMon & Wed  730-845pm\r\nSOURCE: website 8/1/17"
+    "rawRecord": "The Capoeira List\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n                       San Luis Obispo\r\n\r\n      Cordao de Ouro\r\nhttp://www.centralcoastcapoeira.com      /\r\nMonitor Macaco \"Joshua Ivey\"  under the supervision of Mestre\r\nChicot[Paris]\r\n   909 436 6318\r\n  centralcoastcapoeira@gmail.com\r\n      Academy of Dance\r\n3422 Miguelito Court, San Luis Obispo, CA, 93401.\r\nThurs 7:00pm; Sat 11:00am\r\n      Dinosaur Caves Park\r\n2701 Price St, Pismo Beach, CA 93449\r\nTues & Wed  6:30pm\r\n      Paragon Brazilian JiuJitsu\r\nSan Luis Obispo\r\nMon & Wed  730-845pm\r\nSOURCE: website 8/1/17",
+    "fixMetadata": {
+      "originalName": "San Luis Obispo",
+      "fixed": true,
+      "fixedFields": ["name", "leader"],
+      "manuallyFixed": true
+    }
   },
   {
     "name": "San Mateo Capoeira",
@@ -1226,7 +1237,7 @@
     "rawRecord": "Omulu Capoeira of San Mateo\r\nhttp://www.omulupeninsula.com/\r\nGraduado Apache  \" Daniel Rosse\"\r\n      All Stars Martial Arts\r\nLaurelwood Shopping Senter 1200 W Hilllsdale Blvd., San Mateo, CA 94403\r\nKids : Wed. & Sun.6:15-7:15pm\r\nAdult :  Sun. 7:15-8:45pm\r\nSOURCE: website 12/3/16"
   },
   {
-    "name": "Santa Barbara County",
+    "name": "The Brazilian Cultural Arts Center of Santa Barbara",
     "website": "http://www.capoeira805.com",
     "leader": {
       "title": "mestre",
@@ -1251,7 +1262,12 @@
       }
     ],
     "notes": "SOURCE: website 3/14/16, 8/1/17",
-    "rawRecord": "Santa Barbara County\r\nSanta Maria, , Santa Barbara, Goleta\r\n\r\n\r\n      The Brazilian Cultural Arts Center of Santa Barbara\r\n      (formerly Capoeira Batuque)\r\nhttp://www.capoeira805.com\r\nMail: 5370 Hollister Ave. Ste. A,  Santa Barbara, CA 93117\r\nDirector/Founder: Mestre  Mariano Silva\r\n  805-259-7874\r\n  marianosbdance@yahoo.com\r\nProgram Director: Stephanie Armstrong\r\n  805-259-8318\r\n      Dance Unlimited\r\n370 Hollister Ave, Ste. A, Santa Barbara, CA 93117\r\nAll Levels: Mon 8:00; Wed 7:15\r\n Kids & Parents: Fri 5:15\r\n Beginners  Fri 6:15pm\r\n      Westside Dance Studio\r\n2009 De La Vina St. Santa Barbara, CA 93101\r\nKids: Tues 6:15pm\r\nAll Levels Tues 6:15pm\r\nSOURCE: website 3/14/16, 8/1/17"
+    "rawRecord": "Santa Barbara County\r\nSanta Maria, , Santa Barbara, Goleta\r\n\r\n\r\n      The Brazilian Cultural Arts Center of Santa Barbara\r\n      (formerly Capoeira Batuque)\r\nhttp://www.capoeira805.com\r\nMail: 5370 Hollister Ave. Ste. A,  Santa Barbara, CA 93117\r\nDirector/Founder: Mestre  Mariano Silva\r\n  805-259-7874\r\n  marianosbdance@yahoo.com\r\nProgram Director: Stephanie Armstrong\r\n  805-259-8318\r\n      Dance Unlimited\r\n370 Hollister Ave, Ste. A, Santa Barbara, CA 93117\r\nAll Levels: Mon 8:00; Wed 7:15\r\n Kids & Parents: Fri 5:15\r\n Beginners  Fri 6:15pm\r\n      Westside Dance Studio\r\n2009 De La Vina St. Santa Barbara, CA 93101\r\nKids: Tues 6:15pm\r\nAll Levels Tues 6:15pm\r\nSOURCE: website 3/14/16, 8/1/17",
+    "fixMetadata": {
+      "manuallyFixed": true,
+      "originalName": "Santa Barbara County",
+      "fixedFields": ["name"]
+    }
   },
   {
     "name": "Capoeira Sul da Bahia",
@@ -1552,12 +1568,12 @@
     "rawRecord": "Omulu Capoeira Guanabara Milpitas\r\nhttp://capoeiramilpitas.tumblr.com  (offline 11/28/15)\r\nSapo\r\n(email bounced  11/28/15)\r\n424-256-6140 phone\r\n      Susan�s Dance Studio\r\n2146 Ringwood Ave San Jose, CA 95131\r\nMon 6-7pm; Wed 5:30-630pm\r\n424-256-6140\r\nMon 6-7pm; Wed 5:30-630pm\r\nSOURCE: website 10/30/12\r\ncapoeiramilpitas.com (offline 11/28/15)\r\n1535 Landess Ave, Ste 103, San Jose, CA 95132\r\n424-256-6140\r\nSOURCE: yelp 11/28/15"
   },
   {
-    "name": "Santa Cruz County",
+    "name": "Raizes do Brasil",
     "website": "http://www.santacruzcapoeira.com",
     "leader": {
       "title": "mestre",
-      "nickname": null,
-      "name": null
+      "nickname": "Papiba",
+      "name": ""
     },
     "mainContact": {
       "name": null,
@@ -1577,7 +1593,12 @@
       }
     ],
     "notes": "SOURCE: website 8/16/17\nSOURCE: google 8/18/17",
-    "rawRecord": "Santa Cruz County\r\n\r\n\r\n      Raizes do Brasil\r\n207 Mcpherson St. Suite A, Santa Cruz, CA  95060\r\nhttp://www.santacruzcapoeira.com\r\nMestre Papiba under Mestre Ralil Salomao[ Brasilia]\r\n831.325.1769\r\ninfo@santacruzcapoeira.com\r\nhttp://www.facebook.com/pages/Ra%C3%ADzes-do-Brazil-Capoeira-Santa-Cruz/115230958552544?sk=info\r\n(Full schedule of classes See Website)\r\nSOURCE: website 8/16/17\r\n\"Gina Garcia\"\r\n  ginacirco@gmail.com\r\n  phone: [831] 325-5542\r\n      Watsonville Yoga, Dance and Healing Arts\r\n375 N. Main Watsonville, CA 95076\r\nhttps://www.watsonville.yoga\r\n[831] 228-1177\r\nchildren ages 4-10:  Thurs  4:15pm\r\nadults:  Thurs 5:30pm\r\nSOURCE: google 8/18/17"
+    "rawRecord": "Santa Cruz County\r\n\r\n\r\n      Raizes do Brasil\r\n207 Mcpherson St. Suite A, Santa Cruz, CA  95060\r\nhttp://www.santacruzcapoeira.com\r\nMestre Papiba under Mestre Ralil Salomao[ Brasilia]\r\n831.325.1769\r\ninfo@santacruzcapoeira.com\r\nhttp://www.facebook.com/pages/Ra%C3%ADzes-do-Brazil-Capoeira-Santa-Cruz/115230958552544?sk=info\r\n(Full schedule of classes See Website)\r\nSOURCE: website 8/16/17\r\n\"Gina Garcia\"\r\n  ginacirco@gmail.com\r\n  phone: [831] 325-5542\r\n      Watsonville Yoga, Dance and Healing Arts\r\n375 N. Main Watsonville, CA 95076\r\nhttps://www.watsonville.yoga\r\n[831] 228-1177\r\nchildren ages 4-10:  Thurs  4:15pm\r\nadults:  Thurs 5:30pm\r\nSOURCE: google 8/18/17",
+    "fixMetadata": {
+      "manuallyFixed": true,
+      "originalName": "Santa Cruz County",
+      "fixedFields": ["name", "leader"]
+    }
   },
   {
     "name": "Capoeira Brasil,",
@@ -1642,24 +1663,6 @@
     "locations": [],
     "notes": "SOURCE: website 2/8/11",
     "rawRecord": "Capoeira Maculele\r\n(website offline 8/16/17)\r\nProfessor Aranha\r\nSOURCE: website 2/8/11"
-  },
-  {
-    "name": "( Capoeira instructor Colin Maher.)",
-    "website": "http://www.cityonahillpress.com/2011/06/02/a-friendly-game-of-fighting/,",
-    "leader": {
-      "title": null,
-      "nickname": null,
-      "name": null
-    },
-    "mainContact": {
-      "name": null,
-      "email": null,
-      "phone": "2011"
-    },
-    "sources": ["http://www.cityonahillpress.com/2011/06/02/a-friendly-game-of-fighting/,"],
-    "locations": [],
-    "notes": "SOURCE:   http://www.cityonahillpress.com/2011/06/02/a-friendly-game-of-fighting/,",
-    "rawRecord": "( Capoeira instructor Colin Maher.)\r\n(Maher teaches Capoeira at UCSC on Sat and Mon)\r\nSOURCE:   http://www.cityonahillpress.com/2011/06/02/a-friendly-game-of-fighting/,"
   },
   {
     "name": "Capoeira Angola",
@@ -1744,12 +1747,12 @@
     "rawRecord": "Capoeira Sabara\r\nMestre Sabara\r\nSanta Cruz\r\nSOURCE: offline website unknown date"
   },
   {
-    "name": "Solano County",
+    "name": "Cordao De Ouro",
     "website": "http://www.northbayathletics.com/",
     "leader": {
       "title": "professor",
-      "nickname": null,
-      "name": null
+      "nickname": "Berinjela",
+      "name": ""
     },
     "mainContact": {
       "name": null,
@@ -1769,15 +1772,20 @@
       }
     ],
     "notes": "SOURCE: http://www.cdobayarea.com",
-    "rawRecord": "Solano County\r\n\r\n\r\n      Cordao De Ouro\r\nProfessor Berinjela\r\n  berinjela@cdobayarea.com\r\n  [[707]643-9622\r\n  [510]725-0312\r\n      North Bay Athletic Association\r\n415 Mississippi St. Vallejo, CA 94590\r\nhttp://www.northbayathletics.com/\r\nSat. 1:00 � 2:15pm;  Wed  7:30 � 9:00pm\r\nSOURCE: http://www.cdobayarea.com \r\n8/19/17"
+    "rawRecord": "Solano County\r\n\r\n\r\n      Cordao De Ouro\r\nProfessor Berinjela\r\n  berinjela@cdobayarea.com\r\n  [[707]643-9622\r\n  [510]725-0312\r\n      North Bay Athletic Association\r\n415 Mississippi St. Vallejo, CA 94590\r\nhttp://www.northbayathletics.com/\r\nSat. 1:00 � 2:15pm;  Wed  7:30 � 9:00pm\r\nSOURCE: http://www.cdobayarea.com \r\n8/19/17",
+    "fixMetadata": {
+      "manuallyFixed": true,
+      "originalName": "Solano County",
+      "fixedFields": ["name", "leader"]
+    }
   },
   {
-    "name": "Sonoma County",
+    "name": "Capoeira Azania Petaluma",
     "website": "http://www.capoeirapetaluma.com",
     "leader": {
-      "title": "mestre",
-      "nickname": null,
-      "name": null
+      "title": "contra-mestre",
+      "nickname": "Fabio",
+      "name": ""
     },
     "mainContact": {
       "name": null,
@@ -1797,7 +1805,12 @@
       }
     ],
     "notes": "SOURCE: website 8/20/17",
-    "rawRecord": "Sonoma County\r\n\r\n      Capoeira Azania  Petaluma\r\nhttp://www.capoeirapetaluma.com\r\nhttps://www.facebook.com/petalumacapoeira/\r\nContra-Mestre Fabio\r\n  [415] 314-7623\r\n   fabio@capoeirapetaluma.com\r\n      Petaluma School of Ballet\r\n110 Howard Street, Petaluma, CA\r\nAges 3.5-5: Tues & Thurs 3:30-4:30pm\r\nAges 5-7: Mon & Wed, 4:00-5:00pm\r\nAges 8-14: Mon& Weds, 5:15-6:15pm\r\nInt. Kids & Mixed Level Adults:Tues & Thurs 5:00-6:30p\r\nAdults: Mon & Wed, 7:00-8:30pm\r\nSOURCE: website 8/20/17"
+    "rawRecord": "Sonoma County\r\n\r\n      Capoeira Azania  Petaluma\r\nhttp://www.capoeirapetaluma.com\r\nhttps://www.facebook.com/petalumacapoeira/\r\nContra-Mestre Fabio\r\n  [415] 314-7623\r\n   fabio@capoeirapetaluma.com\r\n      Petaluma School of Ballet\r\n110 Howard Street, Petaluma, CA\r\nAges 3.5-5: Tues & Thurs 3:30-4:30pm\r\nAges 5-7: Mon & Wed, 4:00-5:00pm\r\nAges 8-14: Mon& Weds, 5:15-6:15pm\r\nInt. Kids & Mixed Level Adults:Tues & Thurs 5:00-6:30p\r\nAdults: Mon & Wed, 7:00-8:30pm\r\nSOURCE: website 8/20/17",
+    "fixMetadata": {
+      "manuallyFixed": true,
+      "originalName": "Sonoma County",
+      "fixedFields": ["name", "leader"]
+    }
   },
   {
     "name": "Capoeira Mandinga Santa Rosa",
