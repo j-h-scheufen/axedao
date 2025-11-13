@@ -35,7 +35,19 @@ export const groupLogoUrlAtom = atom<string | undefined>((get) => getImageUrl(ge
 
 export const groupBannerAtom = atom<string | undefined>((get) => get(groupAtom).data?.banner ?? undefined);
 
-export const groupBannerUrlAtom = atom<string | undefined>((get) => getImageUrl(get(groupAtom).data?.banner));
+export const groupBannerUrlAtom = atom<string | undefined>((get) => {
+  const group = get(groupAtom).data;
+  if (!group) return undefined;
+
+  // If group has a custom banner, use it
+  if (group.banner) return getImageUrl(group.banner);
+
+  // If group is not actively managed (unclaimed), use default banner
+  if (!group.claimedBy) return '/images/default-group-banner.webp';
+
+  // Otherwise, no banner
+  return undefined;
+});
 
 // Atoms that properly handle loading states
 export const isCurrentUserGroupAdminAtom = atom<boolean | null>((get) => {

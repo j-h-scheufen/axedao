@@ -4,23 +4,23 @@ type Props = {
 };
 
 /**
- * Custom SVG icon showing group verification and claim status
+ * Custom SVG icon showing group verification and management status
  *
  * Design:
- * - Outer ring: Claimed status (primary green if claimed, light gray if unclaimed)
+ * - Outer ring: Management status (primary green if actively managed, light gray if awaiting management)
  * - Inner circle: Verified status (primary-600 darker green if verified, darker gray if unverified)
  * - Black separator between layers for visual distinction
  *
  * Colors match HeroUI primary palette:
- * - primary (claimed): #17c964
+ * - primary (actively managed): #17c964
  * - primary-600 (verified): #12a150
- * - default-300 (unclaimed): #d4d4d8
+ * - default-300 (awaiting management): #d4d4d8
  * - default-400 (unverified): #a1a1aa
  */
 const GroupStatusIcon = ({ verified, claimed }: Props) => {
   // Color definitions matching HeroUI theme
-  const outerRingColor = claimed ? '#17c964' : '#d4d4d8'; // primary : default-300
-  const innerCircleColor = verified ? '#12a150' : '#a1a1aa'; // primary-600 : default-400
+  const outerRingColor = claimed ? '#17c964' : '#d4d4d8'; // actively managed : awaiting management
+  const innerCircleColor = verified ? '#12a150' : '#a1a1aa'; // verified : unverified
 
   return (
     <svg
@@ -32,7 +32,7 @@ const GroupStatusIcon = ({ verified, claimed }: Props) => {
       role="img"
       aria-label="Group status indicator"
     >
-      {/* Outer ring - Claimed status */}
+      {/* Outer ring - Management status */}
       <circle cx="10" cy="10" r="9.5" fill={outerRingColor} stroke="black" strokeWidth="1" />
 
       {/* Inner circle - Verified status */}

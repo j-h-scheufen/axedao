@@ -12,9 +12,9 @@ type Props = {
 };
 
 /**
- * Displays status badge for group verification and claim status
+ * Displays status badge for group verification and management status
  * Uses custom SVG icon with two-ring design:
- * - Outer ring: claimed status
+ * - Outer ring: management status (actively managed vs awaiting management)
  * - Inner circle: verified status
  */
 const GroupStatusBadge = ({ lastVerifiedAt, claimedBy, children }: Props) => {
@@ -24,10 +24,10 @@ const GroupStatusBadge = ({ lastVerifiedAt, claimedBy, children }: Props) => {
   // Build tooltip text based on status with explanation
   const getTooltipContent = () => {
     const statusText = (() => {
-      if (isVerified && isClaimed) return 'Verified & Claimed';
-      if (isVerified && !isClaimed) return 'Verified & Unclaimed';
-      if (!isVerified && isClaimed) return 'Unverified & Claimed';
-      return 'Unverified & Unclaimed';
+      if (isVerified && isClaimed) return 'Verified & Actively Managed';
+      if (isVerified && !isClaimed) return 'Verified & Awaiting Management';
+      if (!isVerified && isClaimed) return 'Unverified & Actively Managed';
+      return 'Unverified & Awaiting Management';
     })();
 
     return (

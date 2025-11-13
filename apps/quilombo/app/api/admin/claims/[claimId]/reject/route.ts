@@ -2,7 +2,8 @@ import { getServerSession } from 'next-auth';
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { isGlobalAdmin, rejectClaim } from '@/db';
+import { isGlobalAdmin, rejectClaim, fetchUser, fetchGroup, getGroupClaim } from '@/db';
+import { getEmailProvider } from '@/utils/email';
 import { generateErrorMessage } from '@/utils';
 import { NotFoundError } from '@/utils/errors';
 
@@ -122,15 +123,33 @@ export async function PUT(request: NextRequest, { params }: RouteParams) {
       return NextResponse.json({ error: 'Rejection notes are required' }, { status: 400 });
     }
 
+    // Fetch claim details before rejecting (for email)
+    const claim = await getGroupClaim(claimId);
+    if (!claim) {
+      return NextResponse.json({ error: 'Claim not found' }, { status: 404 });
+    }
+
+    // Fetch user and group details for email
+    const user = await fetchUser(claim.userId);
+    const group = await fetchGroup(claim.groupId);
+
+    if (!user || !group) {
+      return NextResponse.json({ error: 'User or group not found' }, { status: 404 });
+    }
+
     // Reject the claim
-    // Will throw Error('Claim not found') if claim doesn't exist
     await rejectClaim(claimId, session.user.id, body.notes);
 
-    // TODO: Phase 5 - Send rejection email to claimer
-    // const claim = await getGroupClaim(claimId);
-    // const user = await fetchUser(claim.userId);
-    // const group = await fetchGroup(claim.groupId);
-    // await sendClaimRejectedEmail(user.email, group.name, body.notes);
+    // Send rejection email to claimer
+    if (user.email) {
+      try {
+        const emailProvider = getEmailProvider();
+        await emailProvider.sendClaimRejectedEmail(user.email, group.name, user.name || user.email, body.notes);
+      } catch (emailError) {
+        console.error('Failed to send rejection email:', emailError);
+        // Don't fail the request if email fails
+      }
+    }
 
     return NextResponse.json({
       message: 'Claim rejected successfully.',

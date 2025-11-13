@@ -90,7 +90,21 @@ export async function GET(_: NextRequest) {
 
   try {
     const pendingClaims = await getPendingClaims();
-    return NextResponse.json(pendingClaims);
+
+    // Transform data to flatten group and user info
+    const transformedClaims = pendingClaims.map((claim) => ({
+      id: claim.id,
+      groupId: claim.groupId,
+      groupName: claim.group?.name || 'Unknown Group',
+      userId: claim.userId,
+      userName: claim.user?.name || 'Unknown User',
+      userEmail: claim.user?.email || '',
+      requestedAt: claim.requestedAt,
+      userMessage: claim.userMessage,
+      status: claim.status,
+    }));
+
+    return NextResponse.json(transformedClaims);
   } catch (error) {
     console.error('Error fetching pending claims:', error);
     return NextResponse.json(

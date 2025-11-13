@@ -2,7 +2,8 @@ import { getServerSession } from 'next-auth';
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { isGlobalAdmin, approveClaim } from '@/db';
+import { isGlobalAdmin, approveClaim, fetchUser, fetchGroup, getGroupClaim } from '@/db';
+import { getEmailProvider } from '@/utils/email';
 import { generateErrorMessage } from '@/utils';
 import { NotFoundError } from '@/utils/errors';
 
@@ -97,15 +98,33 @@ export async function PUT(_: NextRequest, { params }: RouteParams) {
   try {
     const { claimId } = await params;
 
+    // Fetch claim details before approving (for email)
+    const claim = await getGroupClaim(claimId);
+    if (!claim) {
+      return NextResponse.json({ error: 'Claim not found' }, { status: 404 });
+    }
+
+    // Fetch user and group details for email
+    const user = await fetchUser(claim.userId);
+    const group = await fetchGroup(claim.groupId);
+
+    if (!user || !group) {
+      return NextResponse.json({ error: 'User or group not found' }, { status: 404 });
+    }
+
     // Approve the claim (handles all database updates)
-    // Will throw Error('Claim not found') if claim doesn't exist
     await approveClaim(claimId, session.user.id);
 
-    // TODO: Phase 5 - Send approval email to claimer
-    // const claim = await getGroupClaim(claimId);
-    // const user = await fetchUser(claim.userId);
-    // const group = await fetchGroup(claim.groupId);
-    // await sendClaimApprovedEmail(user.email, group.name, group.id);
+    // Send approval email to claimer
+    if (user.email) {
+      try {
+        const emailProvider = getEmailProvider();
+        await emailProvider.sendClaimApprovedEmail(user.email, group.name, group.id, user.name || user.email);
+      } catch (emailError) {
+        console.error('Failed to send approval email:', emailError);
+        // Don't fail the request if email fails
+      }
+    }
 
     return NextResponse.json({
       message: 'Claim approved successfully. User has been added as group admin.',
