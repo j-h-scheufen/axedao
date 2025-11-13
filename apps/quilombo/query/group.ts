@@ -231,8 +231,10 @@ export const useAddAdminMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async ({ groupId, userId }: GroupAndUserParams) => addAdmin(groupId, userId),
-    onSuccess: (data, variables) => {
-      queryClient.setQueryData([QUERY_KEYS.group.getGroupAdmins, variables.groupId], data);
+    onSuccess: (_data, variables) => {
+      queryClient.setQueryData([QUERY_KEYS.group.getGroupAdmins, variables.groupId], _data);
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroup, variables.groupId] });
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroupMembers, variables.groupId] });
     },
   });
 };
@@ -241,8 +243,10 @@ export const useRemoveAdminMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async ({ groupId, userId }: GroupAndUserParams) => removeAdmin(groupId, userId),
-    onSuccess: (data, variables) => {
-      queryClient.setQueryData([QUERY_KEYS.group.getGroupAdmins, variables.groupId], data);
+    onSuccess: (_data, variables) => {
+      queryClient.setQueryData([QUERY_KEYS.group.getGroupAdmins, variables.groupId], _data);
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroup, variables.groupId] });
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroupMembers, variables.groupId] });
     },
   });
 };

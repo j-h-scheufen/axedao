@@ -19,7 +19,12 @@ export const groupAtom = atomWithQuery<Group | undefined>((get) => fetchGroupOpt
 
 export const groupMembersAtom = atomWithQuery<User[]>((get) => fetchGroupMembersOptions(get(triggerGroupIdAtom)));
 
-export const groupAdminIdsAtom = atomWithQuery<string[]>((get) => fetchGroupAdminsOptions(get(triggerGroupIdAtom)));
+export const groupAdminIdsAtom = atomWithQuery<string[]>((get) => {
+  const groupId = get(triggerGroupIdAtom);
+  // Add dependency on adminCount so atom refetches when admin list changes
+  const _adminCount = get(groupAtom).data?.adminCount;
+  return fetchGroupAdminsOptions(groupId);
+});
 
 export const groupIdAtom = atom<string | undefined>((get) => get(groupAtom).data?.id);
 
