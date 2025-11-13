@@ -1,0 +1,81 @@
+[
+  {
+    "name": "Beira-Mar Capoeira",
+    "website": "http://www.gbantu.com",
+    "leader": {
+      "title": null,
+      "nickname": "Jaco",
+      "name": "Jacob Woosley"
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "Eastern Kentucky University",
+        "address": "Begley Stadium Rm 113, Richmond, KY (off Lancaster Ave)",
+        "schedule": "Students and Adults: Mon 6:00-8:45pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Eastern Kentucky University\n Begley Stadium Rm 113 , Richmond, KY (off Lancaster Ave)\nStudents and Adults: Mon 6:00 -8:45pm\n(**Please inquire about training outside of campus semesters.)"
+      }
+    ],
+    "notes": "Richmond, Kentucky. Jaco (Jacob Woosley) under Contra Mestre Bundo [Jacksonville FL] and Mestre Tarzan [Brazil]. Please inquire about training outside of campus semesters. SOURCE: website 3/14/17",
+    "rawRecord": "      Beira-Mar Capoeira\nhttp://www.gbantu.com\nJaco  \"Jacob Woosley\" under Contra Mestre Bundo [Jacksonville\nFL]   and Mestre Tarzan [Brazill]\n       Eastern Kentucky University\n Begley Stadium Rm 113 , Richmond, KY (off Lancaster Ave)\nStudents and Adults: Mon 6:00 -8:45pm\n(**Please inquire about training outside of campus semesters.)\nSOURCE:  website 3/14/17"
+  },
+  {
+    "name": "Grupo Senazala de Capoeira",
+    "website": "http://capoeirabatonrouge.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Zumbi",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Andorinha (Melinda Gonzalez) and Hobbit (Goran Jagetic)",
+      "email": null,
+      "phone": null
+    },
+    "sources": ["https://www.facebook.com/CapoeiraBatonRouge/"],
+    "locations": [
+      {
+        "name": "BREC Independence",
+        "address": "7501 Independence Blvd, Rm 117, Baton Rouge, Louisiana",
+        "schedule": "Kids: Wed 5:30 – 6:30pm; Adults: Wed 6:30 – 7:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "BREC Independence\n7501 Independence Blvd, Rm 117, Baton Rouge, Louisiana\nKids: Wed 5:30 � 6:30pm\nAdults: Wed 6:30 � 7:30pm"
+      },
+      {
+        "name": "Beat2Sleep",
+        "address": "12021 Florida Blvd, Baton Rouge, Louisiana",
+        "schedule": "All Ages: Sat 10:00-11:30am; Roda & Music [all ages]: Sun 12:00 – 2:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Beat2Sleep\n12021 Florida Blvd, Baton Rouge, Louisiana\nAll Ages: : Sat 10:00-11:30am\nRoda & Music [all ages]: Sun 12:00 � 2:00pm"
+      }
+    ],
+    "notes": "Baton Rouge, Louisiana. Andorinha (Melinda Gonzalez) and Hobbit (Goran Jagetic) under the tutelage of Mestre Zumbi. SOURCE: website 5/15/17",
+    "rawRecord": "      Grupo Senazala de Capoeira\nhttp://capoeirabatonrouge.com/\nAndorinha \"Melinda Gonzalez\" and Hobbit  \"Goran Jagetic\" \nunder the tutelage of Mestre Zumbi\n      BREC Independence\n7501 Independence Blvd, Rm 117, Baton Rouge, Louisiana\nKids: Wed 5:30 � 6:30pm\nAdults: Wed 6:30 � 7:30pm\n      Beat2Sleep\n12021 Florida Blvd, Baton Rouge, Louisiana\nAll Ages: : Sat 10:00-11:30am\nRoda & Music [all ages]: Sun 12:00 � 2:00pm\nSOURCE: website 5/15/17\nhttps://www.facebook.com/CapoeiraBatonRouge/"
+  },
+  {
+    "name": "Capoeira Angola Palmares",
+    "website": null,
+    "leader": {
+      "title": "mestre",
+      "nickname": "Gulliver",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Monitor Pirata Negro",
+      "email": "palmaresbr@gmail.com",
+      "phone": "225-288-4136"
+    },
+    "sources": ["http://www.facebook.com/groups/palmaresbr/"],
+    "locations": [],
+    "notes": "Baton Rouge, Louisiana. Monitor Pirata Negro under the guidance of Mestre Gulliver [Queens, NY]. Website offline, current status of group unknown, please contact us 5/16/17. SOURCE: website 11/15/11",
+    "rawRecord": "      Capoeira Angola Palmares\n(website offline,  current status of group unknown,  please\ncontact us 5/16/17)\nhttp://www.facebook.com/groups/palmaresbr/\nMonitor Pirata Negro under the guidance of Mestre Gulliver[Queens,\nNY]\n  225-288-4136\n  palmaresbr@gmail.com\nSOURCE: website 11/15/11"
+  }
+]

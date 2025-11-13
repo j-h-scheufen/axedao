@@ -1,0 +1,1320 @@
+[
+  {
+    "name": "The Cloudwalker Place",
+    "website": "http://thecloudwalker.com",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": "John the Cloudwalker"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "johnthecloudwalker@gmail.com",
+      "phone": "[772] 453-6449"
+    },
+    "sources": ["http://thecloudwalker.com"],
+    "locations": [
+      {
+        "name": "The Cloudwalker Place",
+        "address": "703 17th Street, Vero Beach, FL 32960",
+        "schedule": "Capoiera for Executives: Mon & Wed: 4:00-5:00pm; Capoiera for Kids: Mon, Wed, & Fri: 5:00-6:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "703 17th Street, Vero Beach, FL 32960\nhttp://thecloudwalker.com\nSite Last Updated: 08/18/2016\nPhone: [772] 453-6449\njohnthecloudwalker@gmail.com\nCapoiera for Executives: Mon & Wed: 4:00-5:00pm;\nCapoiera for Kids: Mon, Wed, & Fri: 5:00-6:00pm"
+      }
+    ],
+    "notes": "Vero Beach, Florida. SOURCE: website 11/30/17",
+    "rawRecord": "The Cloudwalker Place\n703 17th Street, Vero Beach, FL 32960\nhttp://thecloudwalker.com\nSite Last Updated: 08/18/2016\nPhone: [772] 453-6449\njohnthecloudwalker@gmail.com\nCapoiera for Executives: Mon & Wed: 4:00-5:00pm;\nCapoiera for Kids: Mon, Wed, & Fri: 5:00-6:00pm\nSOURCE: website 11/30/17"
+  },
+  {
+    "name": "ABADA Capoeira",
+    "website": "http://www.verobeachcapoeiraabada.com/",
+    "leader": {
+      "title": null,
+      "nickname": "Xodo",
+      "name": "Joao Batista dos Santos"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "beachsidetraining@gmail.com",
+      "phone": "772-240-6000"
+    },
+    "sources": ["http://www.verobeachcapoeiraabada.com/", "https://www.beachsidetraining.com/"],
+    "locations": [
+      {
+        "name": "Beachside Martial Arts and Fitness",
+        "address": "733 22nd Street, Vero Beach, FL 32960",
+        "schedule": "Wed & Fri 6:30-7:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Beachside Martial Arts and Fitness\n733 22nd Street, Vero Beach, FL 32960\nhttps://www.beachsidetraining.com/\n772-240-6000\nbeachsidetraining@gmail.com\nWed & Fri 6:30-7:30pm"
+      }
+    ],
+    "notes": "Vero Beach, Florida. Website offline 11/30/17. LINEAGE: Mestre Camisa > Arisco > Xodo. SOURCE: website 11/30/17",
+    "rawRecord": "ABADA Capoeira\nhttp://www.verobeachcapoeiraabada.com/\n(website offline 11/30/17)\nXodo \"Joao Batista dos Santos\"\nLINEAGE: Mestre Camisa > Arisco > Xodo\n      Beachside Martial Arts and Fitness\n733 22nd Street, Vero Beach, FL 32960\nhttps://www.beachsidetraining.com/\n772-240-6000\nbeachsidetraining@gmail.com\nWed & Fri 6:30-7:30pm\nSOURCE: website 11/30/17"
+  },
+  {
+    "name": "Capoeira Maculele Athens",
+    "website": "https://uga.campuslabs.com/engage/organization/capoeira",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "capoeira@uga.edu",
+      "phone": null
+    },
+    "sources": ["https://uga.campuslabs.com/engage/organization/capoeira", "http://www.facebook.com/athenscapoeira"],
+    "locations": [
+      {
+        "name": "UGA Capoeira",
+        "address": "102 Tate Student Center Athens, GA 30602",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "102 Tate Student Center Athens, GA 30602\nEmail: capoeira@uga.edu"
+      },
+      {
+        "name": "Ramsey Student Center",
+        "address": "Mind and Body Studio, 330 River Rd, Athens, GA 30602",
+        "schedule": "Mon & Wed 8:30-10:30pm (UGA affiliated only)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Ramsey Student Center\nMind and Body Studio, 330 River Rd, Athens, GA 30602\nMon & Wed 8:30-10:30pm\n(UGA affiliated only)"
+      }
+    ],
+    "notes": "Athens, Georgia. Affiliated with Mestre Fran [Decatur]. SOURCE: website facebook 12/9/17",
+    "rawRecord": "Capoeira Maculele Athens\naffiliated with  Mestre Fran[Decator]\nhttps://uga.campuslabs.com/engage/organization/capoeira\nhttp://www.facebook.com/athenscapoeira\n102 Tate Student Center Athens, GA 30602\nEmail: capoeira@uga.edu\n      Ramsey Student Center\nMind and Body Studio, 330 River Rd, Athens, GA 30602\nMon & Wed 8:30-10:30pm\n(UGA affiliated only)\nSOURCE: website facebook 12/9/17"
+  },
+  {
+    "name": "Capoeira Maculele",
+    "website": "http://www.capoeiraatlanta.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Fran",
+      "name": "Francisco Antonio Rodrigues da Silva"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "mestrefrancapoeira@hotmail.com",
+      "phone": "[404] 578-7386"
+    },
+    "sources": ["http://www.capoeiraatlanta.com/"],
+    "locations": [
+      {
+        "name": "Atlanta's United Tae Kwon Do",
+        "address": "533 W Howard Ave, Decatur, GA",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Atlanta's United Tae Kwon Do,\n533 W Howard Ave, Decatur, GA"
+      },
+      {
+        "name": "Several Dancers Core",
+        "address": "519 N McDonough St, Decatur, GA",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Several Dancers Core\n519 N McDonough St, Decatur, GA"
+      },
+      {
+        "name": "The Solarium",
+        "address": "321 West Hill Street, Decatur, GA 30030",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "The Solarium\n321 West Hill Street, Decatur, GA 30030"
+      }
+    ],
+    "notes": "Atlanta, Georgia. Mestre Fran [404] 957-9400. SOURCE: website 12/2/17",
+    "rawRecord": "Capoeira Maculele\n      \n      http://www.capoeiraatlanta.com/\n      \n      [404] 578-7386\n      \n      Mestre Fran \"Francisco Antonio Rodrigues da Silva\"\n      \n        [404] 957-9400\n        \n        mestrefrancapoeira@hotmail.com\n      \n            Atlanta's United Tae Kwon Do,\n      \n      533 W Howard Ave, Decatur, GA\n      \n            Several Dancers Core\n      \n      519 N McDonough St, Decatur, GA\n      \n             The Solarium\n      \n      321 West Hill Street, Decatur, GA 30030\n      \n      SOURCE: website 12/2/17"
+  },
+  {
+    "name": "Cordão de Ouro",
+    "website": "http://cdoatlanta.org",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Muriel Ribeiro",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "cdoatlanta@gmail.com",
+      "phone": "[678] 993-3919"
+    },
+    "sources": ["http://cdoatlanta.org", "https://www.facebook.com/capoeiraatlanta"],
+    "locations": [
+      {
+        "name": "Raw Studio",
+        "address": "1781 Clairmont Rd, Decatur, GA 30033 (behind Druid Hills Eye Car)",
+        "schedule": "Beginners: Mon & Wed 8:00-9:00pm; Advanced: Mon & Wed 9:00-10:00pm; Family: Fri 7:00-8:00pm; Adult: Sat 11:00am-12:00pm; Kids: Sat 3:00-4:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Raw Studio\n1781 Clairmont Rd, Decatur, GA  30033\n(behind Druid Hills Eye Car)\nBeginners: Mon & Wed 8:00-9:00pm\nAdvanced: Mon & Wed 9:00-10:00pm\nFamily:  Fri 7:00 - 8:00pm\nAdult: Sat  11:00am- 12:00pm\nKids: Sat 3:00- 4:00pm"
+      },
+      {
+        "name": "The Welch Martial Arts Experience",
+        "address": null,
+        "schedule": "Tues & Thurs 7:00-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "The Welch Martial Arts Experience\nTues & Thurs 7:00- 8:00pm"
+      },
+      {
+        "name": "UFC Gym",
+        "address": null,
+        "schedule": "Tues 7:30-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "UFC Gym\nTues 7:30 - 8:00pm"
+      },
+      {
+        "name": "Georgia Institute of Technology",
+        "address": null,
+        "schedule": "Mon & Wed 6:00-7:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Georgia Institute of Technology -\nMon & Wed 6:00-7:00pm"
+      }
+    ],
+    "notes": "Atlanta, Georgia. SOURCE: website 12/2/17",
+    "rawRecord": "Cordão de Ouro\n    \n    Mestre Muriel Ribeiro\n    \n    http://cdoatlanta.org\n    \n    cdoatlanta@gmail.com\n    \n    [678] 993-3919\n    \n    https://www.facebook.com/capoeiraatlanta\n    \n          Raw Studio\n    \n    1781 Clairmont Rd, Decatur, GA  30033\n    \n    (behind Druid Hills Eye Car)\n    \n    Beginners: Mon & Wed 8:00-9:00pm\n    \n    Advanced: Mon & Wed 9:00-10:00pm\n    \n    Family:  Fri 7:00 - 8:00pm\n    \n    Adult: Sat  11:00am- 12:00pm\n    \n    Kids: Sat 3:00- 4:00pm\n    \n          The Welch Martial Arts Experience\n    \n    Tues & Thurs 7:00- 8:00pm\n    \n          UFC Gym\n    \n    Tues 7:30 - 8:00pm\n    \n          Georgia Institute of Technology -\n    \n    Mon & Wed 6:00-7:00pm\n    \n    SOURCE:  website 12/2/17"
+  },
+  {
+    "name": "Abba Capoeira Regional",
+    "website": "http://abbacapoeira.wixsite.com/abbacapoeira",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Robson De Jesus",
+      "name": "Robson De Jesus"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "abbacapoeira@gmail.com",
+      "phone": "678.240.9017"
+    },
+    "sources": ["http://abbacapoeira.wixsite.com/abbacapoeira", "https://www.facebook.com/pg/abbacapoeira/"],
+    "locations": [
+      {
+        "name": "Cirque Freaks Building",
+        "address": "5910 Gateway Drive, Alpharetta, GA 30004",
+        "schedule": "Kids: Mon, Wed, & Fri 6:00-7:00pm; Adults: Mon, Wed, & Fri 7:30-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Cirque Freaks Building\n5910 Gateway Drive, Alpharetta, GA 30004\nKids: Mon, Wed, & Fri 6:00-7:00pm\nAdults: Mon, Wed, & Fri 7:30-9:00pm"
+      }
+    ],
+    "notes": "Atlanta, Georgia. SOURCE website 12/10/17",
+    "rawRecord": "Abba Capoeira Regional\n    \n     Mestre Robson De Jesus \"Robson De Jesus\"\n    \n    http://abbacapoeira.wixsite.com/abbacapoeira\n    \n    Tel: 678.240.9017\n    \n    abbacapoeira@gmail.com\n    \n    https://www.facebook.com/pg/abbacapoeira/\n    \n          Cirque Freaks Building\n    \n    5910 Gateway Drive, Alpharetta, GA 30004\n    \n    Kids: Mon, Wed, & Fri 6:00-7:00pm\n    \n    Adults: Mon, Wed, & Fri 7:30-9:00pm\n    \n    SOURCE website 12/10/17"
+  },
+  {
+    "name": "Capoeira Passo a Frente",
+    "website": null,
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Bocão",
+      "name": "David de Lima"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "capopaf@gmail.com",
+      "phone": "[678] 829-7447"
+    },
+    "sources": ["https://www.facebook.com/capopaf/"],
+    "locations": [
+      {
+        "name": "Capoeira Passo a Frente",
+        "address": "495 B Moreland Ave SE Atlanta, GA 30316",
+        "schedule": "(Full schedule of classes)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "495 B Moreland Ave SE Atlanta, GA 30316\nContra Mestre Bocão  \"David de Lima\"\ncapopaf@gmail.com\n[678] 829-7447\nhttps://www.facebook.com/capopaf/\n(Full schedule of classes)"
+      }
+    ],
+    "notes": "Atlanta, Georgia. SOURCE: website 12/10/17",
+    "rawRecord": "Capoeira  Passo a Frente\n    \n    495 B Moreland Ave SE Atlanta, GA 30316\n    \n    Contra Mestre Bocão  \"David de Lima\"\n    \n    capopaf@gmail.com\n    \n    [678] 829-7447\n    \n    https://www.facebook.com/capopaf/\n    \n    (Full schedule of classes)\n    \n     SOURCE: website 12/10/17"
+  },
+  {
+    "name": "Grupo Axé Capoeira",
+    "website": "http://www.axecapoeiraatlanta.com/",
+    "leader": {
+      "title": null,
+      "nickname": "Feijoada",
+      "name": "Branden Thorne"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "678.252.9352"
+    },
+    "sources": ["http://www.axecapoeiraatlanta.com/"],
+    "locations": [
+      {
+        "name": "Top Notch Training Center",
+        "address": "3145 Northwoods Pkwy #100, Peachtree Corners, GA 30071",
+        "schedule": "Kids 5-6years: Tues & Thurs 5:00pm; Sat 11:00am; Kids 7-12years: Tues & Thurs 6;00pm Sat 12:30pm; Adults intro: Tues & Thurs 7:00pm; Sat 1:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Top Notch Training Center\n 3145 Northwoods Pkwy #100, Peachtree Corners, GA 30071\nKids 5-6years: Tues & Thurs 5:00pm; Sat 11:00am\nKids 7-12years:  Tues & Thurs 6;00pm Sat 12:30pm\nAdults intro:  Tues & Thurs 7:00pm; Sat 1:00pm"
+      },
+      {
+        "name": "Kenny Kim Brazilian Jiu Jitsu",
+        "address": "800 Whitlock Ave, suite 141, Marietta, GA 30064",
+        "schedule": "Kids all ages: Wed & Fri 5:00pm; Mixed Levels: Wed & Fri 8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Kenny Kim Brazilian Jiu Jitsu\n800 Whitlock Ave, suite 141,  Marietta, GA 30064\nKids all ages: Wed & Fri 5:00pm\nMixed Levels: Wed & Fri 8:00pm"
+      }
+    ],
+    "notes": "Atlanta, Georgia. SOURCE: website 12/3/17",
+    "rawRecord": "Grupo Axé Capoeira\n    \n    http://www.axecapoeiraatlanta.com/\n    \n    Feijoada  \"Branden Thorne\"\n    \n    678.252.9352\n    \n          Top Notch Training Center\n    \n     3145 Northwoods Pkwy #100, Peachtree Corners, GA 30071\n    \n    Kids 5-6years: Tues & Thurs 5:00pm; Sat 11:00am\n    \n    Kids 7-12years:  Tues & Thurs 6;00pm Sat 12:30pm\n    \n    Adults intro:  Tues & Thurs 7:00pm; Sat 1:00pm\n    \n          Kenny Kim Brazilian Jiu Jitsu\n    \n    800 Whitlock Ave, suite 141,  Marietta, GA 30064\n    \n    Kids all ages: Wed & Fri 5:00pm\n    \n    Mixed Levels: Wed & Fri 8:00pm\n    \n    SOURCE: website 12/3/17"
+  },
+  {
+    "name": "N'Golo Atlanta",
+    "website": "https://www.facebook.com/pg/ngoloatlanta/about/",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "ngoloatlanta@gmail.com",
+      "phone": "[404] 447-0032"
+    },
+    "sources": ["https://www.facebook.com/pg/ngoloatlanta/about/"],
+    "locations": [
+      {
+        "name": "The Naga House",
+        "address": null,
+        "schedule": "Adults:: Mon, Wed & Fri 6:30-8:30 pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "The Naga House  \nAdults:: Mon, Wed & Fri  6:30-8:30 pm"
+      },
+      {
+        "name": "Piedmont Park",
+        "address": null,
+        "schedule": "Children: Sat 2:00-3:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Piedmont Park\nChildren: Sat 2:00-3:00pm"
+      }
+    ],
+    "notes": "Atlanta, Georgia. SOURCE: facebook 12/19/17",
+    "rawRecord": "N'Golo Atlanta\n    \n    https://www.facebook.com/pg/ngoloatlanta/about/\n    \n    Phone [404] 447-0032\n    \n    Email ngoloatlanta@gmail.com\n    \n           The Naga House  \n    \n    Adults:: Mon, Wed & Fri  6:30-8:30 pm\n    \n          Piedmont Park\n    \n    Children: Sat 2:00-3:00pm\n    \n    SOURCE: facebook 12/19/17"
+  },
+  {
+    "name": "T.A.B.C.A.T [Tribo Afro Bahiana de Capoeira Angola Tradicional do Mestre Caboquinho]",
+    "website": "https://www.facebook.com/AtlantaTabcatCapoeiraAngola",
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Perna de Ferro",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "pernadeferro@yahoo.com",
+      "phone": "404-522-3854"
+    },
+    "sources": ["https://www.facebook.com/AtlantaTabcatCapoeiraAngola"],
+    "locations": [],
+    "notes": "Atlanta, Georgia. Instructor: Perna de Ferro under Mestre Caboquinho [Detroit]. Facebook page says that the group was still active in 2015, but without classes. 12/19/17. SOURCE: email 5/3/06",
+    "rawRecord": "T.A.B.C.A.T [Tribo Afro Bahiana de Capoeira\n    Angola\n    Tradicional  do Mestre Caboquinho]\n    \n    Instructor:  Perna de Ferro  under Mestre Caboquinho[ Detroit]\n    \n    Phone: 404-522-3854\n    \n    email: pernadeferro@yahoo.com\n    \n    SOURCE: email 5/3/06\n    \n    (facebook page says that the group was still active in 2015, but\n      without classes.  12/19/17)\n    \n    https://www.facebook.com/AtlantaTabcatCapoeiraAngola"
+  },
+  {
+    "name": "Grupo Ginga Mundo",
+    "website": null,
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Scud",
+      "name": "Alexandre Daltro"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "gingamundoatlanta@gmail.com",
+      "phone": "404-503-7582"
+    },
+    "sources": ["https://twitter.com/GingaMundoATL", "https://www.facebook.com/gingamundoatlanta"],
+    "locations": [],
+    "notes": "Atlanta, Georgia. Website offline 5/22/13. Attempting contact 12/19/17. SOURCE: website 8/4/11",
+    "rawRecord": "Grupo Ginga Mundo\n    \n    (website offline 5/22/13)\n    \n    Instructor Scud  \"Alexandre Daltro \"\n    \n      404-503-7582\n    \n      gingamundoatlanta@gmail.com\n    \n    (attempting contact 12/19/17)\n    \n    SOURCE: website 8/4/11\n    \n    https://twitter.com/GingaMundoATL\n    \n    https://www.facebook.com/gingamundoatlanta"
+  },
+  {
+    "name": "Conyers Capoeira",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "conyerscapoeira@gmail.com",
+      "phone": "404-966-3602"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Atlanta, Georgia (Conyers). Website offline 8/2/11. Attempting contact 12/19/17. SOURCE: email 7/9/09",
+    "rawRecord": "Conyers Capoeira\n    \n    (Website offline 8/2/11)\n    \n    404-966-3602\n    \n    conyerscapoeira@gmail.com\n    \n    (attempting contact 12/19/17)\n    \n    SOURCE: email 7/9/09"
+  },
+  {
+    "name": "Capoeira Luanda Atlanta",
+    "website": null,
+    "leader": {
+      "title": "graduado",
+      "nickname": "Maromba",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "maromba@atlcapoeira.com",
+      "phone": "[404] 910-3369"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Atlanta, Georgia. Website parked 8/2/11. SOURCE: email 12/8/09",
+    "rawRecord": "Capoeira Luanda Atlanta\n    \n    (website parked 8/2/11)\n    \n    Teacher: Graduado Maromba\n    \n      Phone: [404] 910-3369\n    \n      Email: maromba@atlcapoeira.com\n    \n    SOURCE: email 12/8/09"
+  },
+  {
+    "name": "Grupo Candeias",
+    "website": null,
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Canarinho",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "canariorod@hotmail.com",
+      "phone": "[678] 508-3085"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Atlanta, Georgia. Attempting to email 12/19/17. Website offline 8/16/11. SOURCE: website 5/21/05",
+    "rawRecord": "Grupo Candeias\n    \n    (attempting to email 12/19/17)\n    \n    (website offline 8/16/11)\n    \n     Instructor Canarinho\n    \n       [678] 508-3085\n    \n       canariorod@hotmail.com\n    \n     SOURCE: website 5/21/05"
+  },
+  {
+    "name": "Capoeira Candeias",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": "Rodolfo Oliveira"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "rod_atlanta_usa@hotmail.com",
+      "phone": "404-936-6131"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Atlanta, Georgia. Teacher Rodolfo Oliveira under Mestre Suino. SOURCE: offline website",
+    "rawRecord": "Capoeira Candeias\n    \n    Teacher  Rodolfo Oliveira under Mestre Suino\n    \n    Email  rod_atlanta_usa@hotmail.com\n    \n    Phone 404-936-6131\n    \n    SOURCE:  offline website"
+  },
+  {
+    "name": "Comunidade de Capoeira Angola Atlanta",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Atlanta, Georgia. Website has been hijacked 12/10/17",
+    "rawRecord": "Comunidade de Capoeira Angola Atlanta\n    \n    (website has been hijacked 12/10/17)"
+  },
+  {
+    "name": "Tao Hsieh Wu Shu",
+    "website": "http://www.warriors-for-christ.com/",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["http://www.warriors-for-christ.com/"],
+    "locations": [
+      {
+        "name": "Campus Church",
+        "address": "1525 Indian Trail Road, Norcross, Georgia 30093",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Campus Church,\n1525 Indian Trail Road, Norcross, Georgia 30093"
+      }
+    ],
+    "notes": "Norcross, Georgia. Based on eight different widely recognized martial art styles: Tae Kwon Do, Wing Chun, Shoalin Wu Shu, Jujitsu/Judo, Muay Thai, Capoeira, Nin-Po, Pressure Points. We feel that this group has only a loose connection to capoeira, Please tell us whether or not you think it should be included on this website. SOURCE: website 12/9/17",
+    "rawRecord": "We feel that this group has only a loose connection to\ncapoeira, Please tell us whether or not you think it should be included\non this website\n \n      Tao Hsieh Wu Shu\nhttp://www.warriors-for-christ.com/\nbased on eight different widely recognized martial art styles:\n    Tae Kwon Do\n    Wing Chun\n    Shoalin Wu Shu\n    Jujitsu  / Judo\n    Muay Thai\n    Capoeira\n    Nin-Po\n    Pressure Points\n      Campus Church,\n1525 Indian Trail Road, Norcross, Georgia 30093\nSOURCE:  website 12/9/17"
+  },
+  {
+    "name": "Carioca Capoeira Savannah",
+    "website": "https://www.facebook.com/CapoeiraSavannah/",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "djtechnyx@gmail.com",
+      "phone": "[912] 777-9682"
+    },
+    "sources": ["https://www.facebook.com/CapoeiraSavannah/"],
+    "locations": [
+      {
+        "name": "Carioca Capoeira Savannah",
+        "address": "1002 Lisa St, Rincon, Georgia",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "1002 Lisa St, Rincon, Georgia\nCall [912] 777-9682\ndjtechnyx@gmail.com"
+      }
+    ],
+    "notes": "Savannah, Georgia. SOURCE: facebook 7/5/19",
+    "rawRecord": "Carioca Capoeira Savannah\n\nhttps://www.facebook.com/CapoeiraSavannah/  \n\n1002 Lisa St, Rincon, Georgia\n\nCall [912] 777-9682\n\ndjtechnyx@gmail.com\n\nSOURCE: facebook 7/5/19"
+  },
+  {
+    "name": "Grupo Cabana Capoeira - Savannah",
+    "website": "https://www.facebook.com/UncaoCapoeiraSavannah/",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "djtechnyx@gmail.com",
+      "phone": "[912] 777-9682"
+    },
+    "sources": ["https://www.facebook.com/UncaoCapoeiraSavannah/"],
+    "locations": [
+      {
+        "name": "Habersham YMCA",
+        "address": "6400 Habersham St Savannah, Georgia 31405",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Habersham YMCA\n6400 Habersham St Savannah, Georgia 31405"
+      }
+    ],
+    "notes": "Savannah, Georgia. Please note that the contact information is exactly the same as the above group 7/5/19. SOURCE: facebook 12/2/17",
+    "rawRecord": "Grupo Cabana Capoeira - Savannah\nhttps://www.facebook.com/UncaoCapoeiraSavannah/\n[912] 777-9682\ndjtechnyx@gmail.com (\nplease note that the contact information is exactly the same as the above group 7/5/19\n  )       Habersham YMCA\n6400 Habersham St Savannah, Georgia 31405\nSOURCE: facebook 12/2/17"
+  },
+  {
+    "name": "Grupo Bantu Beira Mar",
+    "website": "http://www.gbantu.com",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["http://www.gbantu.com"],
+    "locations": [],
+    "notes": "Savannah, Georgia. No current classes, check website for news. SOURCE: website 12/2/17",
+    "rawRecord": "Grupo Bantu Beira Mar\nhttp://www.gbantu.com\n(No current classes,  check website for news)\nSOURCE:  website 12/2/17"
+  },
+  {
+    "name": "Low Country Capoeira Angola Society",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": "Chicago",
+      "name": "Erik Murray"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Savannah, Georgia. Chicago has moved to Philadelphia",
+    "rawRecord": "Low Country Capoeira Angola Society\nChicago \"Erik Murray\" has moved to Philadelphia"
+  },
+  {
+    "name": "Capoeira Regional Hawaii",
+    "website": "https://capoeiraregionalhawaii.com/",
+    "leader": {
+      "title": "professora",
+      "nickname": "Ro",
+      "name": "Jane Prideaux"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "CapoeiraRegionalHawaii@gmail.com",
+      "phone": null
+    },
+    "sources": ["https://capoeiraregionalhawaii.com/", "https://www.facebook.com/capoeiraregionalhawaii"],
+    "locations": [
+      {
+        "name": "Center for Spiritual Living",
+        "address": "31st & Paradise Dr.. Kea'au, HI (located on the right [Pahoa] side of Paradise Dr. on the makai [ocean] side corner of 31st when coming down from highway 131 toward the ocean [makai].)",
+        "schedule": "Adult Beginner: Mon 6:30-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Center for Spiritual Living \n31st & Paradise Dr.. Kea'au, HI \n  ( located on the right [Pahoa] side of Paradise Dr. on the\nmakai [ocean] side corner of 31st when coming down from highway 131\ntoward the ocean [makai].)\nAdult Beginner: Mon 6:30-8:00pm"
+      }
+    ],
+    "notes": "Hawaii County. Professora Ro under Mestre Almiro [Portland]. SOURCE: website 6/23/19",
+    "rawRecord": "Capoeira Regional Hawaii\n  https://capoeiraregionalhawaii.com/\n Professora Ro  \" Jane Prideaux\"  under Mestre  Almiro  [Portland]\n  \n CapoeiraRegionalHawaii@gmail.com \n  https://www.facebook.com/capoeiraregionalhawaii\n        Center for Spiritual Living \n31st & Paradise Dr.. Kea'au, HI \n  ( located on the right [Pahoa] side of Paradise Dr. on the\nmakai [ocean] side corner of 31st when coming down from highway 131\ntoward the ocean [makai].)\nAdult Beginner: Mon 6:30-8:00pm\nSOURCE: website 6/23/19"
+  },
+  {
+    "name": "Capoeira São Salvador",
+    "website": "http://capoeiabigisland.com/",
+    "leader": {
+      "title": null,
+      "nickname": "Sargaço",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["http://capoeiabigisland.com/"],
+    "locations": [
+      {
+        "name": "Penn Training and Fitness Center",
+        "address": "639 Kinoole St, Hilo, HI",
+        "schedule": "All levels: Thurs 6:45-8:00pm (Private lessons available)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Penn Training and Fitness Center\n639 Kinoole St, Hilo, HI\nAll levels: Thurs 6:45-8:00pm\n(Private lessons available)"
+      }
+    ],
+    "notes": "Hawaii County. Sargaço under Mestre Cachorro [Portland]. SOURCE: website 12/27/17",
+    "rawRecord": "Capoeira São Salvador\nhttp://capoeiabigisland.com/\nSargaço under Mestre Cachorro[Portland]\n      Penn Training and Fitness Center\n639 Kinoole St, Hilo, HI\nAll levels: Thurs 6:45-8:00pm\n(Private lessons available)\nSOURCE: website 12/27/17"
+  },
+  {
+    "name": "Capoeira Água de Beber - UCA",
+    "website": "https://www.facebook.com/ADBWaimea",
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Castanho",
+      "name": "Mario Hill"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "capoeira_waimea@yahoo.com",
+      "phone": "[916] 752 7275"
+    },
+    "sources": ["https://www.facebook.com/ADBWaimea"],
+    "locations": [
+      {
+        "name": "Capoeira Água de Beber Waimea",
+        "address": "65-1184 Mamalahoa Highway, Waimea, HI 96743",
+        "schedule": "(Offers classes to youth & adults of Waimea/Kamuela and surrounding areas of the Big Island of Hawai'i.)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "65-1184 Mamalahoa Highway, Waimea, HI 96743\nhttps://www.facebook.com/ADBWaimea\n Instrutor Castanho \"Mario Hill\"\n capoeira_waimea@yahoo.com\n [916] 752 7275\n(Offers classes to youth & adults of Waimea/Kamuela and surrounding\nareas of the Big Island of Hawai'i.)"
+      }
+    ],
+    "notes": "Hawaii County. SOURCE: facebook capoeiralist.com 1/5/14",
+    "rawRecord": "Capoeira Água de Beber - UCA\n65-1184 Mamalahoa Highway, Waimea, HI 96743\nhttps://www.facebook.com/ADBWaimea\n Instrutor Castanho \"Mario Hill\"\n capoeira_waimea@yahoo.com\n [916] 752 7275\n(Offers classes to youth & adults of Waimea/Kamuela and surrounding\nareas of the Big Island of Hawai'i.)\nSOURCE: facebook capoeiralist.com 1/5/14"
+  },
+  {
+    "name": "FICA Hilo Hawaiʻi Study Group - International Capoeira Angola Foundation",
+    "website": "http://ficahawaii.org/",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "ficahawaii@gmail.com",
+      "phone": "808-965-6306"
+    },
+    "sources": [
+      "http://ficahawaii.org/",
+      "https://www.facebook.com/International-Capoeira-Angola-Foundation-Hawaii-15378105"
+    ],
+    "locations": [
+      {
+        "name": "Pahoa Community Center",
+        "address": "(in the old building)",
+        "schedule": "Thurs 4:30-6:00pm",
+        "contactPerson": "Criss",
+        "email": null,
+        "phone": "808 238 6933",
+        "rawText": "Pahoa Community Center\n(in the old building)\ncontact Criss 808 238 6933\nThurs 4:30 – 6:00pm"
+      },
+      {
+        "name": "Kalani Honua",
+        "address": "12-6860 Kalapana-Kapoho Rd, Pahoa, HI 96778",
+        "schedule": "Sat 4:30-6:00pm",
+        "contactPerson": "Joe",
+        "email": null,
+        "phone": "808 965 6306",
+        "rawText": "Kalani Honua\n12-6860 Kalapana-Kapoho Rd, Pahoa, HI 96778\ncontact Joe 808 965 6306\nSat 4:30-6:00pm"
+      }
+    ],
+    "notes": "Hawaii County. Under Mestre Silvinho and Mestre Jurandir [Seattle]. Mailing Address: P.O. Box 1864, Pahoa, Hi 96778. SOURCE: website 12/23/17",
+    "rawRecord": "FICA Hilo Hawaiʻi Study Group- International Capoeira\nAngola Foundation\n under Mestre Silvinho and Mestre Jurandir[Seattle]\nhttp://ficahawaii.org/\nEmail: ficahawaii@gmail.com\nPhone: 808-965-6306\nMailing Address: P.O. Box 1864, Pahoa, Hi 96778\nhttps://www.facebook.com/International-Capoeira-Angola-Foundation-Hawaii-15378105\n      Pahoa Community Center\n(in the old building)\ncontact Criss 808 238 6933\nThurs 4:30 – 6:00pm\n      Kalani Honua\n12-6860 Kalapana-Kapoho Rd, Pahoa, HI 96778\ncontact Joe 808 965 6306\nSat 4:30-6:00pm\nSOURCE: website  12/23/17"
+  },
+  {
+    "name": "Grupo Cafu Capoeira Association Hilo",
+    "website": "https://www.facebook.com/groupo.cafu",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["https://www.facebook.com/groupo.cafu"],
+    "locations": [],
+    "notes": "Hawaii County. No contact or schedule information on page 1/17/18",
+    "rawRecord": "Grupo Cafu Capoeira Association Hilo\nhttps://www.facebook.com/groupo.cafu\n(No contact or schedule information on page  1/17/18)"
+  },
+  {
+    "name": "Capoeira Jurema-Hawaii",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Hawaii County. No longer active. SOURCE: email 1/16/18",
+    "rawRecord": "Capoeira Jurema-Hawaii\nNo longer active\nSOURCE: email 1/16/18"
+  },
+  {
+    "name": "Capoeira Angola",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": "Ras Randy"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Pahoa community center",
+        "address": "baseball field above the center",
+        "schedule": "Sat 8am",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "we meet every Sat at  8am  at the Pahoa community center.\nright now we're up on the baseball field above the center. we do angola,\nno shoes, on concrete, rain or shine. everyone welcome. bless."
+      }
+    ],
+    "notes": "Hawaii County. We meet every Sat at 8am at the Pahoa community center. Right now we're up on the baseball field above the center. We do angola, no shoes, on concrete, rain or shine. Everyone welcome. We are Rasta and have no problem with different types of people. SOURCE: capoeira.com PM from ifajah 10/24/06",
+    "rawRecord": "Capoeira Angola\n(we meet every Sat at  8am  at the Pahoa community center.\nright now we're up on the baseball field above the center. we do angola,\nno shoes, on concrete, rain or shine. everyone welcome. bless.)\n( If you ever come to the islands, go to Ras Randy's class.\n8am every Sat in Pahoa, rain or shine. We play on concrete with no shoes.\nIf you can hang and play in these elements, feel free to join us. We are\nRasta and have no problem with different types of people.)\nSOURCE: capoeira.com PM from ifajah  10/24/06"
+  },
+  {
+    "name": "Capoeira Mandinga",
+    "website": null,
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Aimore",
+      "name": "Johnathan Kailuili"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "[808] 961-6204"
+    },
+    "sources": ["http://www.onzuka.com/"],
+    "locations": [
+      {
+        "name": "Waiakea Recreation Center",
+        "address": "Hilo, Hawaii 96720",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Waiakea Recreation Center\nHilo, Hawaii 96720\n[808] 961-6204"
+      }
+    ],
+    "notes": "Hawaii County. Instrutor Aimore under Mestre Marcelo Caveirinha [Oakland CA]. SOURCE http://www.onzuka.com/ 1/12/12",
+    "rawRecord": "Capoeira Mandinga\nInstrutor Aimore \"Johnathan  Kailuili\"  under Mestre Marcelo\nCaveirinha[Oakland CA]\n      Waiakea Recreation Center\nHilo, Hawaii 96720\n[808] 961-6204\nSOURCE http://www.onzuka.com/ 1/12/12"
+  },
+  {
+    "name": "Capoeira Besouro",
+    "website": "http://www.capoeirabesourohawaii.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Kinha",
+      "name": "Paulo Linhares da Silva"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "capoeirabesourohawaii@gmail.com",
+      "phone": "[808] 247-7890"
+    },
+    "sources": ["http://www.capoeirabesourohawaii.com/", "https://www.facebook.com/Mestrekinha/"],
+    "locations": [
+      {
+        "name": "Capoeira Besouro Academy",
+        "address": "46-208 Kahuhipa St, Kaneohe, HI 96744",
+        "schedule": "Capoeira Basics: Wed & Fri 6:00-7:00pm; Teens & Adults: Mon & Wed 6:00-7:30pm; Sat 11:00am; Children: Mon & Wed 5:00-6:00pm; Sat 10:00am; Advanced Children: Fri 5:00-6:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Capoeira Besouro Academy\n46-208 Kahuhipa St, Kaneohe, HI 96744\nCapoeira Basics: Wed & Fri 6:00-7:00pm\nTeens &  Adults:  Mon & Wed 6:00 - 7:30pm; Sat 11:00am\nChildren: Mon & Wed 5:00 - 6:00pm; Sat 10:00am\nAdvanced Children: Fri 5:00-6:00pm"
+      },
+      {
+        "name": "Boca Hawaii",
+        "address": "330 Cooke St. Honolulu, HI 96813",
+        "schedule": "Adults [all levels] Tue & Thurs 7:30-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": "591-9839",
+        "rawText": "Boca Hawaii\n330 Cooke St. Honolulu, HI 96813\n Ph: 591-9839\nhttp://bocahawaii.com/\nAdults [all levels]  Tue & Thurs 7:30 - 9:00pm"
+      }
+    ],
+    "notes": "Oahu, Hawaii. SOURCE: website 1/7/18",
+    "rawRecord": "Capoeira Besouro\nhttp://www.capoeirabesourohawaii.com/\nMestre Kinha \"Paulo Linhares da Silva \"\n  [808] 247-7890\n  https://www.facebook.com/Mestrekinha/\ncapoeirabesourohawaii@gmail.com\n      Capoeira Besouro Academy\n46-208 Kahuhipa St, Kaneohe, HI 96744\nCapoeira Basics: Wed & Fri 6:00-7:00pm\nTeens &  Adults:  Mon & Wed 6:00 - 7:30pm; Sat 11:00am\nChildren: Mon & Wed 5:00 - 6:00pm; Sat 10:00am\nAdvanced Children: Fri 5:00-6:00pm\n      Boca Hawaii\n330 Cooke St. Honolulu, HI 96813\n Ph: 591-9839\nhttp://bocahawaii.com/\nAdults [all levels]  Tue & Thurs 7:30 - 9:00pm\nSOURCE: website 1/7/18"
+  },
+  {
+    "name": "Capoeira Senzala Hawaii",
+    "website": "http://www.facebook.com/SenzalaHawaii",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Japa",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "japasenzala@gmail.com",
+      "phone": "[808] 778-7618"
+    },
+    "sources": ["http://www.facebook.com/SenzalaHawaii", "https://www.facebook.com/JapaSenzala"],
+    "locations": [
+      {
+        "name": "UH Manoa",
+        "address": "Studio 3, 1337 Lower Campus Rd. Honolulu, HI 96822",
+        "schedule": "All Levels: Wed 8:05-9:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "UH Manoa\nStudio 3, 1337 Lower Campus Rd. Honolulu, HI 96822\nAll Levels: Wed 8:05-9:30pm"
+      },
+      {
+        "name": "Saint Marks Church",
+        "address": "539 Kapahulu Ave. Honolulu, HI 96815",
+        "schedule": "All Levels: Mon & Thurs 8:00-9:30pm; Kids: Mon 7;00-7:55pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Saint Marks Church\n539 Kapahulu Ave. Honolulu, HI 96815\nAll Levels: Mon & Thurs 8:00-9:30pm\nKids: Mon  7;00-7:55pm"
+      },
+      {
+        "name": "Corner of Kapahulu Avenue and Kalakaua Avenue",
+        "address": "Waikiki, Hawaii",
+        "schedule": "Street Roda: first Sat of month 6:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Corner of Kapahulu Avenue and Kalakaua Avenue,\nWaikiki, Hawaii\nStreet Roda:  first Sat of month 6:00pm"
+      }
+    ],
+    "notes": "Oahu, Hawaii. Contra Mestre Japa student of Mestre Flavio Caranguejo [Rio de Janeiro]. Contact for private classes. SOURCE: facebook 1/2/18",
+    "rawRecord": "Capoeira Senzala Hawaii\nhttp://www.facebook.com/SenzalaHawaii\nContra Mestre Japa student of Mestre Flavio Caranguejo[Rio de Janeiro]\n  (Contact for private classes)\n  Call: [808] 778-7618\n  e-mail: japasenzala@gmail.com\n  https://www.facebook.com/JapaSenzala\n      UH Manoa\nStudio 3, 1337 Lower Campus Rd. Honolulu, HI 96822\nAll Levels: Wed 8:05-9:30pm\n      Saint Marks Church\n539 Kapahulu Ave. Honolulu, HI 96815\nAll Levels: Mon & Thurs 8:00-9:30pm\nKids: Mon  7;00-7:55pm\n      Corner of Kapahulu Avenue and Kalakaua Avenue,\nWaikiki, Hawaii\nStreet Roda:  first Sat of month 6:00pm\nSOURCE: facebook 1/2/18"
+  },
+  {
+    "name": "Capoeira Cordao de Ouro Hawaii",
+    "website": "http://www.cdohawaii.org/",
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Bala",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "admin@cdohawaii.org",
+      "phone": null
+    },
+    "sources": ["http://www.cdohawaii.org/", "https://www.facebook.com/cdohawaii/"],
+    "locations": [
+      {
+        "name": "Wilson Park",
+        "address": "4901 Kilauea Ave, Honolulu, HI 96816",
+        "schedule": "Adult Beginner: Mon 7:00-8:00pm; Adult Mixed: Mon & Wed 8:30-10:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Wilson Park\n 4901 Kilauea Ave, Honolulu, HI 96816\nAdult Beginner: Mon 7:00-8:00pm\nAdult Mixed: Mon & Wed 8:30-10:30pm"
+      },
+      {
+        "name": "Old Blaisedell Hotel",
+        "address": "1152 Fort Street Mall, Honolulu, HI 96813",
+        "schedule": "Music: (This is a secure building. Please contact instructor)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Old Blaisedell Hotel\n1152 Fort Street Mall, Honolulu, HI 96813\nMusic: (This is a secure building.  Please contact instructor)"
+      },
+      {
+        "name": "Paki Playground",
+        "address": "3503 Leahi Ave, Honolulu, HI 96815",
+        "schedule": "Junior [ages 10-15]: Fri 4:30-5:45pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Paki Playground\n3503 Leahi Ave, Honolulu, HI 96815\nJunior[ages 10-15]: Fri 4:30-5:45pm"
+      },
+      {
+        "name": "Kahala Community Park",
+        "address": "4495 Pahoa Ave, Honolulu, HI 96816",
+        "schedule": "Kids [5-9 years]: Thurs: 6:00-7:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Kahala Community Park\n4495 Pahoa Ave, Honolulu, HI 96816\nKids[5-9 years]: Thurs: 6:00-7:00pm"
+      }
+    ],
+    "notes": "Oahu, Hawaii. Instructor Bala under Contra Mestre Duas-Duzias [Vicosa, Brazil]. SOURCE: website 1/7/18",
+    "rawRecord": "Capoeira Cordao de Ouro Hawaii\nhttp://www.cdohawaii.org/\nInstructor Bala under Contra Mestre Duas-Duzias  [Vicosa,\nBrazil]\nhttps://www.facebook.com/cdohawaii/\nEmail: admin@cdohawaii.org\n      Wilson Park\n 4901 Kilauea Ave, Honolulu, HI 96816\nAdult Beginner: Mon 7:00-8:00pm\nAdult Mixed: Mon & Wed 8:30-10:30pm\n      Old Blaisedell Hotel\n1152 Fort Street Mall, Honolulu, HI 96813\nMusic: (This is a secure building.  Please contact instructor)\n      Paki Playground\n3503 Leahi Ave, Honolulu, HI 96815\nJunior[ages 10-15]: Fri 4:30-5:45pm\n      Kahala Community Park\n4495 Pahoa Ave, Honolulu, HI 96816\nKids[5-9 years]: Thurs: 6:00-7:00pm\nSOURCE: website 1/7/18"
+  },
+  {
+    "name": "Capoeira Omulu Guanabara",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "808 7214255"
+    },
+    "sources": ["http://www.adsinusa.com/c/4086/4086d2733.htm"],
+    "locations": [
+      {
+        "name": "Momments Unforgettable Performing Arts Academy",
+        "address": "21484 N. King Street, Kalihi, Honolulu, HI 96819",
+        "schedule": "Wed 7:00-8:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Momments Unforgettable Performing Arts Academy\n21484 N. King Street, Kalihi,  Honolulu, HI 96819\nWed 7:00-8:30pm"
+      }
+    ],
+    "notes": "Oahu, Hawaii. SOURCE: http://www.adsinusa.com/c/4086/4086d2733.htm 9/2/11",
+    "rawRecord": "Capoeira Omulu Guanabara\n808 7214255\n      Momments Unforgettable Performing Arts Academy\n21484 N. King Street, Kalihi,  Honolulu, HI 96819\nWed 7:00-8:30pm\nSOURCE: \nhttp://www.adsinusa.com/c/4086/4086d2733.htm 9/2/11"
+  },
+  {
+    "name": "Capoeira Hawaii",
+    "website": null,
+    "leader": {
+      "title": "professor",
+      "nickname": "Entrada",
+      "name": "Rod Ussing"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Oahu, Hawaii. We have read that this school is closed 4/19/12. Professor Entrada appears to still be in Honolulu 1/15/18",
+    "rawRecord": "Capoeira Hawaii\n(We have read that this school is closed 4/19/12)\n Professor Entrada \"Rod Ussing\"  (appears to still be in\nHonolulu  1/15/18)"
+  },
+  {
+    "name": "Ewahine",
+    "website": "http://www.ewahine.com/english/",
+    "leader": {
+      "title": "instrutor",
+      "nickname": null,
+      "name": "Eva Geueke"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["http://www.facebook.com/ewahine", "http://www.ewahine.com/english/"],
+    "locations": [],
+    "notes": "Oahu, Hawaii. Instructor Eva Geueke includes some capoeira in her teaching 1/15/18",
+    "rawRecord": "Instructor \"Eva Geueke\"( includes some capoeira in her\nteaching 1/15/18)\nhttp://www.facebook.com/ewahine\nhttp://www.ewahine.com/english/"
+  },
+  {
+    "name": "Grupo Cafu Capoeira Association",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "wilhelmk001@hawaiirr.com",
+      "phone": "[808]218-4387"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Oahu, Hawaii. Website host down, but we have heard that the group still exists, and has a Facebook page 3/14/11. However we are unable to find it. Please contact us. SOURCE: website 5/16/05",
+    "rawRecord": "Grupo Cafu Capoeira Association\n(website host down,  but we have heard that the group still\nexists, and has a Facebook page 3/14/11)\n(However we are unable to find it. Please contact us)\n[808]218-4387\nwilhelmk001@hawaiirr.com\nSOURCE : website 5/16/05"
+  },
+  {
+    "name": "Cordao de Contas do Hawaii",
+    "website": null,
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Brinco",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "cordaodecontasdohawaii@yahoo.com",
+      "phone": "[808] 489-3855"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Oahu, Hawaii. SOURCE: email website 2/2/06 webhost gone 2/1/11",
+    "rawRecord": "Cordao de Contas do Hawaii\n Instrutor Brinco\ncordaodecontasdohawaii@yahoo.com\n[808] 489-3855\n SOURCE: email  website 2/2/06 webhost gone 2/1/11"
+  },
+  {
+    "name": "CapoeiraArt School [Regional]",
+    "website": null,
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Reco",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "recocapoeira@earthlink.net",
+      "phone": "[808]783.5224"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Oahu, Hawaii. LINEAGE: Mestre Bimba > Mestre Deputado > Rico. SOURCE: email 5/28/05",
+    "rawRecord": "CapoeiraArt School [Regional]\n contra-mestre Reco\n[808]783.5224\nrecocapoeira@earthlink.net\nLINEAGE: Mestre Bimba>Mestre Deputado> Rico\nSOURCE: email 5/28/05"
+  },
+  {
+    "name": "Capoeira Angola Hawaii",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": "Malandro",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "[808] 265-4172"
+    },
+    "sources": ["http://ktuh.org/"],
+    "locations": [],
+    "notes": "Oahu, Hawaii. Teacher Malandro is a student of Mestre Joao Grande. SOURCE: http://ktuh.org/ unknown date",
+    "rawRecord": "Capoeira Angola Hawaii\n Teacher \"Malandro\" is a student of Mestre Joao Grande.\nCall [808] 265-4172\nSOURCE: http://ktuh.org/ unknown date"
+  },
+  {
+    "name": "North Shore Capoeira",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": "David Linhares and Ilan Freitas"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "637-9054"
+    },
+    "sources": ["http://ktuh.org"],
+    "locations": [
+      {
+        "name": "Waialua Community Center",
+        "address": "(across the street from Hale'iwa Post Office)",
+        "schedule": "Tuesdays, 8pm-10pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Waialua Community Center\n(across the street from Hale'iwa Post Office)\nTuesdays,8pm - 10pm"
+      }
+    ],
+    "notes": "Oahu, Hawaii. David Linhares and Ilan Freitas. Info: 637-9054. SOURCE: http://ktuh.org unknown date",
+    "rawRecord": "North Shore Capoeira\n David Linhares and Ilan Freitas.\nInfo: 637-9054.\n      Waialua Community Center\n(across the street from Hale'iwa Post Office)\nTuesdays,8pm - 10pm,\nSOURCE: http://ktuh.org unknown date"
+  },
+  {
+    "name": "Capoeira Abada",
+    "website": null,
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Ratihna",
+      "name": "Marcia"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Oahu, Hawaii. Please contact us",
+    "rawRecord": "Capoeira Abada\nInstructor  Ratihna \"Marcia\"\n(Please contact us)"
+  },
+  {
+    "name": "Capoeira Besouro Maui",
+    "website": "https://www.facebook.com/capoeirabesouromaui/",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "lkuramat@gmail.com",
+      "phone": "[808] 783-6992"
+    },
+    "sources": ["https://www.facebook.com/capoeirabesouromaui/"],
+    "locations": [
+      {
+        "name": "Waikapu Community Center",
+        "address": "22 E. Waiko Road Wailuku, HI 96793",
+        "schedule": "Mon 7:15pm-8:45pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Waikapu Community Center\n22 E. Waiko Road Wailuku, HI 96793\nMon 7:15pm-8:45pm"
+      },
+      {
+        "name": "Lahaina Civic Center",
+        "address": "1840 Honoapili Hwy Lahaina, HI 96761",
+        "schedule": "Wed 7:00-8:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Lahaina Civic Center\n1840 Honoapili Hwy Lahaina, HI 96761\nWed 7:00 - 8:30pm"
+      }
+    ],
+    "notes": "Maui, Hawaii. SOURCE: facebook 12/19/17",
+    "rawRecord": "Capoeira Besouro Maui\nhttps://www.facebook.com/capoeirabesouromaui/\n[808] 783-6992\nlkuramat@gmail.com\n      Waikapu Community Center\n22 E. Waiko Road Wailuku, HI 96793\nMon 7:15pm-8:45pm\n      Lahaina Civic Center\n1840 Honoapili Hwy Lahaina, HI 96761\nWed 7:00 - 8:30pm\nSOURCE: facebook 12/19/17"
+  },
+  {
+    "name": "Grupo Rio Maui",
+    "website": "http://www.myspace.com/maui_capoeira",
+    "leader": {
+      "title": "professor",
+      "nickname": "Fabio",
+      "name": "Fabio Maximino"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "fmaximino@hotmail.com",
+      "phone": "808-870-9106"
+    },
+    "sources": ["https://www.facebook.com/rio.maui.9", "http://www.myspace.com/maui_capoeira"],
+    "locations": [
+      {
+        "name": "Lahaina Crossfit",
+        "address": null,
+        "schedule": "Adults: Sat 11:00am; Kids: 12:00 pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Lahaina Crossfit\nAdults: Sat 11:00am\nKids: 12:00 pm"
+      },
+      {
+        "name": "The Shops",
+        "address": "505 Front Street, Lahaina, HI USA 96761",
+        "schedule": "Kids Free Keiki Capoeira: Tues & Thurs 6:30-7:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "The Shops\n505 Front Street, Lahaina, HI USA 96761\nKids Free Keiki Capoeira : Tues & Thurs 6:30-7:30pm"
+      }
+    ],
+    "notes": "Maui, Hawaii. fabio_maximino_@hotmail.com. SOURCE: facebook 1/15/18, google 9/13/11, 1/17/18",
+    "rawRecord": "Grupo Rio Maui\nProfessor Fabio \"Fabio Maximino\"\nhttps://www.facebook.com/rio.maui.9\n       Lahaina Crossfit\nAdults: Sat 11:00am\nKids: 12:00 pm\nSOURCE: facebook 1/15/18\nPhone: 808-870-9106\nEmail: fmaximino@hotmail.com\nfabio_maximino_@hotmail.com\nhttp://www.myspace.com/maui_capoeira\n      The Shops\n505 Front Street, Lahaina, HI USA 96761\nKids Free Keiki Capoeira : Tues & Thurs 6:30-7:30pm\nSOURCE: google 9/13/11, 1/17/18"
+  },
+  {
+    "name": "Raizes do Brasil Maui",
+    "website": "https://www.facebook.com/john.tavares.589",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["https://www.facebook.com/john.tavares.589"],
+    "locations": [],
+    "notes": "Maui, Hawaii. Facebook active but contains no contact or schedule information 12/27/17",
+    "rawRecord": "Raizes do Brasil Maui\nhttps://www.facebook.com/john.tavares.589\n(facebook active but contains no contact or schedule information\n12/27/17"
+  },
+  {
+    "name": "Raizes do Brasil, Halau o Kapulele",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": "Desiree M. Morales"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "[808] 878-6963"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Kula, HI",
+        "address": "Kula, HI 96790",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Kula, HI 96790"
+      }
+    ],
+    "notes": "Maui, Hawaii. Desiree M. Morales under Mestre Ralil [Brasilia]. She is still living on Maui 12/26/13. SOURCE: The Maui News: May 11, 2007",
+    "rawRecord": ")      Raizes do Brasil, Halau o Kapulele\nDesiree M. Morales under Mestre Ralil[ Brasilia]\n(she is still living on Maui 12/26/13)\n  [808] 878-6963\n Kula, HI 96790\nSOURCE:  The Maui News: May 11, 2007"
+  },
+  {
+    "name": "Grupo Luanda Maui",
+    "website": null,
+    "leader": {
+      "title": "professor",
+      "nickname": "Guga",
+      "name": "Marcio Momo"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Maui, Hawaii. Professor Guga under Mestre Eziquiel [Bahia]. Facebook page offline, current status unknown 12/27/17",
+    "rawRecord": "Grupo Luanda Maui\nProfessor Guga \"Marcio Momo\" under  Mestre Eziquiel[Bahia]\n(facebook page offline, current status unknown 12/27/17)"
+  },
+  {
+    "name": "Capoeira Muzenza",
+    "website": null,
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Tony Tartaruga",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Capoeira Muzenza Maui",
+        "address": "1288 P.O. Box Lahaima Hawaii 96761",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "mail: 1288 P.O. Box Lahaima  Hawaii 96761"
+      }
+    ],
+    "notes": "Maui, Hawaii. Instructor: Tony Tartaruga. SOURCE: unreliable website now offline; date unknown but most likely before 2003",
+    "rawRecord": "Capoeira Muzenza\nInstructor: Tony Tartaruga\nmail: 1288 P.O. Box Lahaima  Hawaii 96761\nSOURCE: , unreliable website now offline; date unknown  but most\nlikely before 2003"
+  },
+  {
+    "name": "Capoeira del Norte",
+    "website": "http://capoeiradelnorte.wordpress.com/",
+    "leader": {
+      "title": null,
+      "nickname": "Papagaio",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "papagaio.game@gmail.com",
+      "phone": null
+    },
+    "sources": ["http://capoeiradelnorte.wordpress.com/", "http://www.facebook.com/CapoeiraDelNorte"],
+    "locations": [
+      {
+        "name": "Bodies In Motion",
+        "address": "729 W. Diamond St. Boise, ID 83705 (Near Fred Meyer on Federal Way)",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Bodies In Motion\n729 W. Diamond St. Boise, ID 83705 (Near Fred Meyer on Federal Way)"
+      }
+    ],
+    "notes": "Boise, Idaho. Last website update 11/9/11. Last facebook post 2/11/15. Attempting contact 1/22/18. SOURCE: website facebook 2/1/18",
+    "rawRecord": "Capoeira del Norte\nhttp://capoeiradelnorte.wordpress.com/\nLast website update 11/ 9/11\nhttp://www.facebook.com/CapoeiraDelNorte\nLast facebook post 2/11/15\n Papagaio\npapagaio.game@gmail.com\n(attempting contact 1/22/18)\n       Bodies In Motion\n729 W. Diamond St. Boise, ID 83705 (Near Fred Meyer on Federal Way)\nSOURCE:  website  facebook 2/1/18"
+  },
+  {
+    "name": "Capoeira Boise",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": "Jonathan and Cherie Hoeger"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@CapoeiraBoise.com",
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Boise, Idaho. Still active in running a capoeira online store, which includes a school list that does not show any groups in Idaho 2/1/18. SOURCE: website 10/19/08 9/13/11",
+    "rawRecord": "Capoeira Boise\nJonathan and Cherie Hoeger\ninfo@CapoeiraBoise.com\ncapoeiraboise@gmail.com\nSOURCE: website 10/19/08  9/13/11\n(Still active in running a capoeira online store,)\n(which includes a school list that does not)\n(show any groups in Idaho 2/1/18)"
+  }
+]

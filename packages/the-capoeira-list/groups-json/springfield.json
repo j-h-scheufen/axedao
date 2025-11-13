@@ -1,0 +1,125 @@
+[
+  {
+    "name": "Capoeira Volta Ao Mundo - Springfield",
+    "website": "http://www.capoeiravam.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Rony",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Professor Espigao",
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Cottonwood Drive location",
+        "address": "1 Cottonwood Drive, Chatham, IL 62629 (at Main St)",
+        "schedule": "Adult Class Fri 5:30-6:30pm; Sat 11:00am-1:00pm; CapoKids: 11:00am-12:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "1 Cottonwood Drive, Chatham, IL  62629 (at Main St)\n Professor Espigao. under Mestre Rony[Sarasota]\nhttp://www.capoeiravam.com/\nAdult Class Fri 5:30-6:30pm; Sat 11:00am-1:00pm:\n CapoKids:     11:00am-12:00pm"
+      },
+      {
+        "name": "Washington Park",
+        "address": null,
+        "schedule": "Mon 6:00 – 7:00pm (weather permitting)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Washington Park\nMon 6:00 � 7:00pm  (weather permitting)"
+      }
+    ],
+    "notes": "Springfield/Chatham, Illinois. Professor Espigao under Mestre Rony [Sarasota]. SOURCE: website 11/29/17",
+    "rawRecord": "      Capoeira Volta Ao Mundo\n1 Cottonwood Drive, Chatham, IL  62629 (at Main St)\n Professor Espigao. under Mestre Rony[Sarasota]\nhttp://www.capoeiravam.com/\nAdult Class Fri 5:30-6:30pm; Sat 11:00am-1:00pm:\n CapoKids:     11:00am-12:00pm\n      Washington Park\nMon 6:00 � 7:00pm  (weather permitting)\nSOURCE:  website 11/29/17"
+  },
+  {
+    "name": "Kurt Kincaid Capoeira",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Kurt Kincaid",
+      "email": "beowulf@famvid.com",
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Springfield, Illinois. Kurt Kincaid. SOURCE: offline website unknown date",
+    "rawRecord": "Kurt Kincaid    Springfield, IL USA\nbeowulf@famvid.com\nSOURCE:offline website unknown date"
+  },
+  {
+    "name": "Capoeira Angola Center of Mestre Joao Grande - Urbana/Champaign",
+    "website": "http://www.angolacenterillinois.com/",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Denis",
+      "name": "Denis Chiaramonte"
+    },
+    "mainContact": null,
+    "sources": ["http://lcvcapoeira.com/newsite2013", "https://www.facebook.com/groups/272548572882091/"],
+    "locations": [
+      {
+        "name": "UIUC Capoeira Angola Club",
+        "address": "201 Lincoln Sq, Urbana, IL 61801, Space 157 (North Entrance)",
+        "schedule": "Movement Beginner/Mixed: Mon 6:00-7:00pm; Tues & Thurs 6:30-8:30pm; Kids ages 4+: Tues & Thurs 5:30-6:30; Movement & Roda Intermediate/advance: Wed 6:30pm-8:00pm; Pre-school 2-3 yrs: Sat 10:00-10:30am; Roda all levels: Sun 3:00-5:00pm",
+        "contactPerson": null,
+        "email": "angolacenterillinois@gmail.com",
+        "phone": "217.721.0887",
+        "rawText": "201 Lincoln Sq, Urbana, IL 61801,  Space 157  (North Entrance)\nContra-Mestre Denis \"Denis Chiaramonte\"\nhttp://www.angolacenterillinois.com/\nhttp://lcvcapoeira.com/newsite2013\nEmail: angolacenterillinois@gmail.com\nPhone: 217.721.0887\nhttps://www.facebook.com/groups/272548572882091/\nMovement  � Beginner/Mixed Level class: Mon 6:00-7:00pm; Tues\n& Thurs 6:30-8:30pm; Thurs 6:30-8:30pm\nKids Class ages 4 y/o and up: Tues & Thurs 5:30-6:30\nMovement & Roda � Intermediate /advance: Wed 6:30pm-8:00pm-\nPre-school Class  2 yrs & 3 yrs: Sat 10:00- 10:30am\nRoda  -all levels/ages welcome: Sun 3:00-5:00pm\n      UIUC Capoeira Angola Club"
+      }
+    ],
+    "notes": "Urbana/Champaign, Illinois. Contra-Mestre Denis (Denis Chiaramonte). SOURCE: website 3/2/18",
+    "rawRecord": "      Capoeira Angola Center of Mestre Joao Grande\n201 Lincoln Sq, Urbana, IL 61801,  Space 157  (North Entrance)\nContra-Mestre Denis \"Denis Chiaramonte\"\nhttp://www.angolacenterillinois.com/\nhttp://lcvcapoeira.com/newsite2013\nEmail: angolacenterillinois@gmail.com\nPhone: 217.721.0887\nhttps://www.facebook.com/groups/272548572882091/\nMovement  � Beginner/Mixed Level class: Mon 6:00-7:00pm; Tues\n& Thurs 6:30-8:30pm; Thurs 6:30-8:30pm\nKids Class ages 4 y/o and up: Tues & Thurs 5:30-6:30\nMovement & Roda � Intermediate /advance: Wed 6:30pm-8:00pm-\nPre-school Class  2 yrs & 3 yrs: Sat 10:00- 10:30am\nRoda  -all levels/ages welcome: Sun 3:00-5:00pm\n      UIUC Capoeira Angola Club\nSOURCE: website 3/2/18"
+  },
+  {
+    "name": "North Star Capoeira Angola - Bloomington",
+    "website": "http://northstarcapoeira.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Iuri Santos",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "Casa do Mestre Iuri",
+        "address": "812 South Henderson, Bloomington, IN 47401",
+        "schedule": "Children: Mon 5:00-6:00 (contact for details); Adults: Mon & Fri 6:30-8:30pm",
+        "contactPerson": null,
+        "email": "iurigagari@hotmail.com",
+        "phone": "[812] 340-8844",
+        "rawText": "Casa do Mestre Iuri\n812 South Henderson, Bloomington, IN 47401\nAdults: Mon & Fri 6:30- 8:30pm"
+      }
+    ],
+    "notes": "Bloomington, Indiana. Mestre Iuri Santos (northstarcapoeira@gmail.com). LINEAGE: Mestre Pastina >> Mestre Joao Pequeno >> Mestre Marrom >> Mestre Iuri Hart Santos. SOURCE: website 3/5/18",
+    "rawRecord": "      North Star Capoeira Angola\n Mestre Iuri Santos\nhttp://northstarcapoeira.com/\niurigagari@hotmail.com\nnorthstarcapoeira@gmail.comc\n[812] 340-8844\nChildren: Mon 5:00-6:00 (contact for details)\n      Casa do Mestre Iuri\n812 South Henderson, Bloomington, IN 47401\nAdults: Mon & Fri 6:30- 8:30pm\nSOURCE: website 3/5/18\nLINEAGE: Mestre Pastina >>Mestre Joao Pequeno >>Mestre Marrom >> Mestre\nIuri Hart Santos"
+  },
+  {
+    "name": "Grupo Axe Capoeira - Chesterton",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Zebra (Ken McLain)",
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Chesterton, Indiana. Zebra (Ken McLain). Group website is offline. Contacted venue, and they said that they have no idea. An Axe list does not have any information. CapoeiraList.com still has a listing, but it does not appear to have any information more up to date than what we have just removed. Please contact us if you have any information 3/8/18. SOURCE: website 5/23/12",
+    "rawRecord": "(Group website is offline Contacted  venue, and they said that\nthey have no idea.  An Axe list does not have any information.\n CapoeiraList.com still has a listing, but it does  not appear to have\nany  information more up to date than what we have just removed .\nPlease contact us if you have any information    3/8/18)\n      Grupo Axe Capoeira\nZebra  \"Ken McLain,\"\nSOURCE: website 5/23/12"
+  },
+  {
+    "name": "North Star Capoeira Angola - Evansville",
+    "website": "http://northstarcapoeira.com/",
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Evansville, Indiana. There is no current information on the website except to say that the group existed. We are unable to find any current information. Please contact us. SOURCE: website 3/8/18",
+    "rawRecord": "      North Star Capoeira Angola\nhttp://northstarcapoeira.com/\n(There is no current information on the website except to say that\nthe group existed We are unable to find any current information. Please\ncontact us)\nSOURCE: website  3/8/18"
+  }
+]

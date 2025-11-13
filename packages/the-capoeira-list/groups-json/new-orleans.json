@@ -1,0 +1,1064 @@
+[
+  {
+    "name": "New Orleans Capoeira",
+    "website": "http://nolacapoeira.com/",
+    "leader": {
+      "title": "mestrando",
+      "nickname": "Cocada",
+      "name": "Rogerio Valencio da Silva"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "capoeirawestbank@gmail.com",
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "NOLA BJJ studio",
+        "address": "2901 General de Gaulle Dr, New Orleans, LA 70114",
+        "schedule": "Adult Beginner: Mon & Wed 8:00-9:00pm; Kids: Mon & Wed 5;00-6:00pm",
+        "contactPerson": "Instrutor Molejo",
+        "email": "capoeirawestbank@gmail.com",
+        "phone": null,
+        "rawText": "       NOLA BJJ studio\n2901 General de Gaulle Dr, New Orleans, LA 70114\ncapoeirawestbank@gmail.com.\nAdult Beginner: Mon & Wed 8:00-9:00pm\nKids: Mon & Wed  5;00-6:00pm"
+      }
+    ],
+    "notes": "New Orleans, Louisiana. Mestrando Cocada (Rogerio Valencio da Silva), Instrutor Molejo. SOURCE: website 4/29/18",
+    "rawRecord": "      New Orleans Capoeira\nhttp://nolacapoeira.com/\nMestrando Cocada \"Rogerio Valencio da Silva\"\nInstrutor Molejo\n       NOLA BJJ studio\n2901 General de Gaulle Dr, New Orleans, LA 70114\ncapoeirawestbank@gmail.com.\nAdult Beginner: Mon & Wed 8:00-9:00pm\nKids: Mon & Wed  5;00-6:00pm\nSOURCE: website 4/29/18"
+  },
+  {
+    "name": "Grupo Besouro Capoeira Angola New Orleans",
+    "website": "http://capoeiraangolaneworleans.com",
+    "leader": null,
+    "mainContact": {
+      "name": "Curtis Pierre",
+      "email": "casasambaneworleans@gmail.com",
+      "phone": "[1] 504-236-7479"
+    },
+    "sources": ["http://www.tulane.edu/~capoeira/"],
+    "locations": [
+      {
+        "name": "Annunciation Cente",
+        "address": "800 Race Street, New Orleans, LA, 70130",
+        "schedule": "Capoeira Angola Kids: Wed & Fri 6:00-7:00pm; Capoeira Angola Adults: Wed & Fri 7:00-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Annunciation Cente\n800 Race Street, New Orleans, LA, 70130\nCapoeira Angola Kids: Wed & Fri 6:00-7:00pm\nCapoeira Angola Adults: Wed &  Fri 7:00-9:00pm"
+      },
+      {
+        "name": "Tulane University Capoeira Angola Club - Uptown Gym of the Reily Center",
+        "address": "Uptown Gym of the Reily Center",
+        "schedule": "Tues 8:00-10:00pm; Fri 5:00-7:00pm",
+        "contactPerson": null,
+        "email": "capoeira@tulane.edu",
+        "phone": null,
+        "rawText": "      Tulane University Capoeira Angola Club\nhttp://www.tulane.edu/~capoeira/\ncapoeira@tulane.edu\n      Uptown Gym of the Reily Center\nTues 8:00-10:00pm; Fri 5:00-7:00pm"
+      }
+    ],
+    "notes": "New Orleans, Louisiana. Instructor: Curtis Pierre. SOURCE: websites 4/29/18",
+    "rawRecord": "      Grupo Besouro Capoeira Angola New Orleans\nhttp://capoeiraangolaneworleans.com\nInstructor: Curtis Pierre\n[1] 504-236-7479\ncasasambaneworleans@gmail.com.\n      Annunciation Cente\n800 Race Street, New Orleans, LA, 70130\nCapoeira Angola Kids: Wed & Fri 6:00-7:00pm\nCapoeira Angola Adults: Wed &  Fri 7:00-9:00pm\n      Tulane University Capoeira Angola Club\nhttp://www.tulane.edu/~capoeira/\ncapoeira@tulane.edu\n      Uptown Gym of the Reily Center\nTues 8:00-10:00pm; Fri 5:00-7:00pm\nSOURCE: websites 4/29/18"
+  },
+  {
+    "name": "Onda Nova - United Capoeira Association",
+    "website": "https://www.facebook.com/pg/UCAbayou/",
+    "leader": {
+      "title": "professora",
+      "nickname": "Onda",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "lilsmooth186@aol.com",
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "New Orleans, Louisiana. Professora Onda student of Mestre Acordeon[Berkeley] and Contra Mestre Dondi [Tucson]. SOURCE: facebook 4/30/18",
+    "rawRecord": "      Onda Nova- United Capoeira Association\nhttps://www.facebook.com/pg/UCAbayou/\nProfessora Onda student of  Mestre Acordeon[Berkeley] \nand Contra Mestre Dondi [Tucson]\nlilsmooth186@aol.com\nSOURCE: facebook 4/30/18"
+  },
+  {
+    "name": "Capoeira Angola Palmares",
+    "website": null,
+    "leader": {
+      "title": "monitor",
+      "nickname": "Pirata Negro",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "1 225.288.4136"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "New Orleans, Louisiana. Website and facebook offline; email bounced. 4/28/18. Monitor Pirata Negro under the guidance of Mestre Gulliver[Queens, NY]. SOURCE: facebook website 11/15/11",
+    "rawRecord": "      Capoeira Angola Palmares\n(Website and facebook offline;  email bounced.  4/28/18)\nMonitor Pirata Negro under the guidance of Mestre Gulliver[Queens,\nNY]\nPhone  1 225.288.4136\nSOURCE: facebook website 11/15/11"
+  },
+  {
+    "name": "North Star Capoeira Angola",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Instrutor Ivan Watkins",
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "New Orleans, Louisiana. Instrutor Ivan Watkins under Mestre Iuri Santos[Bloomington]. SOURCE: website 2/1/18",
+    "rawRecord": "      North Star Capoeira Angola\nInstrutor Ivan Watkins under Mestre Iuri Santos[Bloomington]\nSOURCE: website 2/1/18"
+  },
+  {
+    "name": "The Brazilian Cultural Center of New England - Hampshire Colleges",
+    "website": "http://www.capoeira-angola.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Deraldo Ferreira",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Amherst, Hadley, Hampshire, Massachusetts. Mestre Deraldo Ferreira currently teaches classes and workshops at Hampshire College, Amherst College, and Smith College. SOURCE: website 7/18/18",
+    "rawRecord": "          The Brazilian Cultural Center of New England \n      \" Mestre Deraldo Ferreira currently teaches classes and workshops\n      at   Hampshire College, Amherst College, and Smith\n      College\" \n      SOURCE: http://www.capoeira-angola.com\n      7/18/18"
+  },
+  {
+    "name": "Northampton Capoeira - Capoeira Rosa Rubra",
+    "website": "https://www.gunga.org/",
+    "leader": {
+      "title": "estagiario",
+      "nickname": "Bicicleta",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Estagiario Bicicleta",
+      "email": "nohocapoeira@gmail.com",
+      "phone": "+1 413 362 0642"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "East Street Studios",
+        "address": "47 East Street, Hadley, MA 01035",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "          East Street Studios\n     47 East Street, Hadley, MA 01035"
+      }
+    ],
+    "notes": "Northampton, Massachusetts. Estagiario Bicicleta under Mestre Calango[Boston]. SOURCE: website 2/6/19",
+    "rawRecord": "      Northampton Capoeira - Capoeira Rosa Rubra \n    https://www.gunga.org/ \n    Instructor Estagiario Bicicleta under  Mestre Calango[Boston] \n    nohocapoeira@gmail.com \n     +1 413 362 0642 \n          East Street Studios\n     47 East Street, Hadley, MA 01035 \n    SOURCE: website 2/6/19"
+  },
+  {
+    "name": "Western Mass Capoeira",
+    "website": "https://www.facebook.com/pg/westernmasscapoeira",
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "jwcertinho@gmail.com",
+      "phone": "[541] 399-3245"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Munson Library",
+        "address": null,
+        "schedule": "ages 12 and up. All levels: Sun: 6:00-7:30pm.",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "          Munson Library \n    ages 12 and up. All levels::Sun: 6:00-7:30pm."
+      }
+    ],
+    "notes": "Western Massachusetts. Received email saying that classes may start up again but are not currently being taught 4/17/18. SOURCE: facebook 4/14/18",
+    "rawRecord": "      Western Mass Capoeira \n    https://www.facebook.com/pg/westernmasscapoeira\n    \n     [541] 399-3245 \n    jwcertinho@gmail.com \n          Munson Library \n    ages 12 and up. All levels::Sun: 6:00-7:30pm. \n    (recieved email saying that classes may start up again but are not\n      currently being taught 4/17/18) \n    SOURCE: facebook  4/14/18"
+  },
+  {
+    "name": "Omulu Capoeira",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Massachusetts. We have received word that this group is no longer active. Other Omulu websites have no current information. Please contact us 4/14/18. SOURCE: various",
+    "rawRecord": " (We have recieved word that this group is no longer active. Other\n      Omulu websites have no current information. Please contact us\n      4/14/18) \n          Omulu Capoeira"
+  },
+  {
+    "name": "Associação de Capoeira Mandingueiros dos Palmares [Capoeira MdP] - Boston",
+    "website": "http://capoeiramdp.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Chuvisco",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Mestre Chuvisco",
+      "email": "contact@capoeiramdp.com",
+      "phone": "[857] 230-9139"
+    },
+    "sources": ["http://www.mestrechuvisco.com"],
+    "locations": [
+      {
+        "name": "South Boston Yoga Center",
+        "address": "36 W Broadway, Boston, MA 02127",
+        "schedule": "All Levels: Sun 2:00-3:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": "[617] 315-7448",
+        "rawText": "       South Boston Yoga Center\n36 W Broadway, Boston, MA 02127\n[617] 315-7448\nhttp://www.southbostonyoga.net/\nAll Levels: Sun 2:00-3:30pm"
+      },
+      {
+        "name": "Boston University",
+        "address": "700 Beacon St Boston, MA 02215",
+        "schedule": "Mon & Wed 7:00 - 8:30pm (Boston University Students and Faculty Only)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "        Boston University \n700 Beacon St Boston, MA 02215\nMon & Wed| 7:00 - 8:30pm\n  (Boston Universit)(      y)( Students and Faculty Onl)y"
+      }
+    ],
+    "notes": "Boston, Massachusetts (Suffolk County). Mestre Chuvisco. SOURCE: email 1/31/20",
+    "rawRecord": "      Associação de Capoeira Mandingueiros dos Palmares [Capoeira MdP]\n\n  http://capoeiramdp.com/\n\nMestre Chuvisco\n\n  http://www.mestrechuvisco.com\n\n [857] 230 - 9139\n\ncontact{      /\\T}capoeiramdp{D      0T}com       South Boston Yoga Center\n36 W Broadway, Boston, MA 02127\n[617] 315-7448\nhttp://www.southbostonyoga.net/\nAll Levels: Sun 2:00-3:30pm \n        Boston University \n700 Beacon St Boston, MA 02215\nMon & Wed| 7:00 - 8:30pm\n  (Boston Universit)(      y)( Students and Faculty Onl)y\nSOURCE: email 1/31/20"
+  },
+  {
+    "name": "Capoeira Rosa Rubra - Boston",
+    "website": "http://capoeirarosarubra.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Calango",
+      "name": "Joao Garbe Ramires"
+    },
+    "mainContact": {
+      "name": "Mestre Calango",
+      "email": "lcalango@hotmail.com",
+      "phone": "978-837-8499"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Boston, Massachusetts. Mestre Calango (Joao Garbe Ramires). SOURCE: website 5/29/18",
+    "rawRecord": "      Capoeira Rosa Rubra\nhttp://capoeirarosarubra.com/\nMestre Calango \"Joao Garbe Ramires\"\n  Phone: 978-837-8499\n  Email:  lcalango@hotmail.com\nSOURCE: website 5/29/18"
+  },
+  {
+    "name": "SINHA' Capoeira - Boston",
+    "website": "http://sinhacapoeira.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Chuvisquinho",
+      "name": "Lindemberg Souza"
+    },
+    "mainContact": {
+      "name": "Mestre Chuvisquinho",
+      "email": null,
+      "phone": "857-417-9394"
+    },
+    "sources": ["http://www.campusrec.neu.edu/instructionalprograms/"],
+    "locations": [
+      {
+        "name": "Boston Martial Arts Center",
+        "address": "161 Harvard Ave Ste 4e Allston, MA",
+        "schedule": "Adults: Sat 3:30 - 5:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Boston Martial Arts Center\n161 Harvard Ave Ste 4e Allston, MA\nAdults: Sat  3:30 - 5:30pm"
+      },
+      {
+        "name": "SINHA' Capoeira Dorchester",
+        "address": "48 Pleasant St Dorcester MA",
+        "schedule": "Kids & Teens: Thurs 6:00-7:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      SINHA' Capoeira  Dorchester\n48  Pleasant St Dorcester MA\nKids & Teens: Thurs 6:00-7:00pm"
+      },
+      {
+        "name": "Northeastern University",
+        "address": null,
+        "schedule": "Mon & Tues 2:00 - 3:30pm (NEU students only)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Northeastern University\nhttp://www.campusrec.neu.edu/instructionalprograms/\nMon & Tues  2:00 - 3:30pm (NEU students only)"
+      },
+      {
+        "name": "University of Mass- Boston",
+        "address": null,
+        "schedule": "Mon & Wed 4:00 - 5:00pm ( UMB students & faculty only)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      University of Mass- Boston\nMon & Wed 4:00 - 5:00pm ( UMB students & faculty only)"
+      }
+    ],
+    "notes": "Boston, Massachusetts. Mestre Chuvisquinho (Lindemberg Souza). SOURCE: website 5/26/18",
+    "rawRecord": "      SINHA' Capoeira\nhttp://sinhacapoeira.com\n 857-417-9394\nMestre Chuvisquinho \"Lindemberg Souza\"\n      Boston Martial Arts Center\n161 Harvard Ave Ste 4e Allston, MA\nAdults: Sat  3:30 - 5:30pm\n      SINHA' Capoeira  Dorchester\n48  Pleasant St Dorcester MA\nKids & Teens: Thurs 6:00-7:00pm\n      Northeastern University\nhttp://www.campusrec.neu.edu/instructionalprograms/\nMon & Tues  2:00 - 3:30pm (NEU students only)\n      University of Mass- Boston\nMon & Wed 4:00 - 5:00pm ( UMB students & faculty only)\nSOURCE:  website  5/26/18"
+  },
+  {
+    "name": "Capoeira Gerais - Boston",
+    "website": "http://capoeirageraisboston.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Coreba",
+      "name": "Marquinho Coreba"
+    },
+    "mainContact": {
+      "name": "Mestre Coreba",
+      "email": "client@capoeirageraisboston.com",
+      "phone": "508-215-4142"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Spontaneous Celebrations",
+        "address": "45 Danforth Street, Jamaica Plain, MA 02130",
+        "schedule": "Adults, All Levels: Wed 7:30 - 9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Spontaneous Celebrations\n45 Danforth Street, Jamaica Plain, MA 02130\nAdults, All Levels: Wed 7:30 - 9:00pm"
+      }
+    ],
+    "notes": "Boston, Massachusetts (Jamaica Plain). Mestre Coreba (Marquinho Coreba). SOURCE: website 6/1/18",
+    "rawRecord": "      Capoeira Gerais\nhttp://capoeirageraisboston.com\nMestre Coreba \"Marquinho Coreba\"\nPhone: 508-215-4142\nEmail: client@capoeirageraisboston.com\n      Spontaneous Celebrations\n45 Danforth Street, Jamaica Plain, MA 02130\nAdults, All Levels: Wed 7:30 - 9:00pm\nSOURCE: website 6/1/18"
+  },
+  {
+    "name": "Capoeira Brasil - Boston",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Boston, Massachusetts. See Cambridge. SOURCE: unknown",
+    "rawRecord": "      Capoeira Brasil\nSee Cambridge"
+  },
+  {
+    "name": "Associacao de Capoeira Regional Mandingueiros dos Palmares - Jamaica Plain",
+    "website": "https://sites.google.com/site/jamaicaplaincapoeira/",
+    "leader": {
+      "title": "monitor",
+      "nickname": "Leopardo",
+      "name": "Jared Williams"
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Jamaica Plain, Massachusetts. Monitor Leopardo (Jared Williams). Website does not appear to have been updated since 2011. No capoeira is listed on the schedule of the indicated venue 6/2/18. SOURCE: website 12/26/11",
+    "rawRecord": "      Associacao de Capoeira Regional Mandingueiros dos Palmares\nMonitor Leopardo \"Jared Williams \"\nhttps://sites.google.com/site/jamaicaplaincapoeira/\nSOURCE: website 12/26/11\n(Website does not appear to have been updated since 2011. No capoeira\nis listed on the schedule of the indicated venue 6/2/18"
+  },
+  {
+    "name": "Kilimobo Novo Capoeira Angola",
+    "website": "http://www.facebook.com/KilomboNovoCapoeiraAngola",
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "Kilombono@gmail.com",
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "The City School",
+        "address": "614 Columbia Rd, Dorchester, MA (Upham's Corner. Enter from back on Ramsey St)",
+        "schedule": "Wed 7:00-8:30pm & Sat 12:30-3:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      The City School\n614 Columbia Rd, Dorchester, MA\n(Upham's Corner. Enter from back on Ramsey St)\nWed 7:00-8:30pm & Sat 12:30-3:30pm"
+      }
+    ],
+    "notes": "Dorchester, Massachusetts. Unable to find any information on facebook page 6/2/18. SOURCE: facebook 12/23/11",
+    "rawRecord": ")      Kilimobo Novo Capoeira Angola\nhttp://www.facebook.com/KilomboNovoCapoeiraAngola\n(Unable to find any information on  facebook page 6/2/18)\nKilombono@gmail.com\n      The City School\n614 Columbia Rd, Dorchester, MA\n(Upham's Corner. Enter from back on Ramsey St)\nWed 7:00-8:30pm & Sat 12:30-3:30pm\nSOURCE: facebook 12/23/11"
+  },
+  {
+    "name": "Grupo Muzenza de Capoeira",
+    "website": "http://muzenza.com.br/2013/escolas/?lang=en",
+    "leader": {
+      "title": "instructor",
+      "nickname": "Taquara",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Boston, Massachusetts. Instructor Taquara. SOURCE: website 10/29/16",
+    "rawRecord": "      Grupo Muzenza de Capoeira\nInstructor Taquara\n SOURCE: http://muzenza.com.br/2013/escolas/?lang=en 10/29/16"
+  },
+  {
+    "name": "ABADÁ-Capoeira Boston",
+    "website": null,
+    "leader": {
+      "title": "instrutora",
+      "nickname": "Sereia",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Boston, Massachusetts. The website for this group is offline. Instrutora Sereia is currently in Tucson, 6/2/18. SOURCE: unknown",
+    "rawRecord": "      ABADÁ-Capoeira\n(The website for this group is offline. Instrutora Sereia  is\ncurrently in Tucson,  \n6/2/18)"
+  },
+  {
+    "name": "Grupo Ondas - Fall River",
+    "website": "https://ampacademygym.com/",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Tabareu",
+      "name": "Joel Pasian"
+    },
+    "mainContact": {
+      "name": "Contramestre Tabareu",
+      "email": "info@ampacademygym.com",
+      "phone": "[508] 567-1002"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "AMP Academy[Athletic Movement & Parkour Academy]",
+        "address": "288 Plymouth Avenue 3rd Floor, Fall River, MA 02721",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "        AMP Academy[Athletic Movement & Parkour Academy]\n\n288 Plymouth Avenue 3rd Floor, Fall River, MA 02721\n\nPhone: [508] 567-1002\n\nEmail: info@ampacademygym.com"
+      }
+    ],
+    "notes": "Fall River, Massachusetts (Bristol County). Contramestre Tabareu (Joel Pasian) under Mestre Tigre[Warwick RI]. Monitor Coruja no longer listed on Ondas website 7/14/18. SOURCE: website 7/5/19",
+    "rawRecord": "      Grupo Ondas\n\nContramestre Tabareu \" Joel Pasian\"  under Mestre Tigre[Warwick RI]\n\n        AMP Academy[Athletic Movement & Parkour Academy]\n\n288 Plymouth Avenue 3rd Floor, Fall River, MA 02721\n\nPhone: [508] 567-1002\n\nEmail: info@ampacademygym.com\n\n  https://ampacademygym.com/\n\nSOURCE: website 7/5/19 \n\n\n\nMonitor Coruja\n  Phone: [508] 951-1186\n  lifeineverybreath@gmail.com \n  (No longer listed on Ondas website 7/14/18\n    \n  )U M A S S   -   D A R T M O U T H\nSOURCE: website unknown date"
+  },
+  {
+    "name": "The Brazilian Cultural Center of New England - Wheaton College",
+    "website": "http://www.capoeira-angola.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Deraldo Ferreira",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Norton, Massachusetts (Bristol County). Mestre Deraldo Ferreira currently teaches classes and workshops at Wheaton College. SOURCE: website 7/18/18",
+    "rawRecord": "      Wheaton College\n\n\n\" Mestre Deraldo Ferreira currently teaches classes and workshops at \nWheaton College\"\n\n\nSOURCE: http://www.capoeira-angola.com\n7/18/18"
+  },
+  {
+    "name": "Capoeira Besouro Cape Cod",
+    "website": "https://www.facebook.com/capoeirabesouro.capecod.9",
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Pe de Cabra",
+      "name": "Andre Lima"
+    },
+    "mainContact": {
+      "name": "Instrutor Pe de Cabra",
+      "email": "CapoeiraBesouroCapeCod@gmail.com",
+      "phone": "774,208.1874"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Cape Cod, Massachusetts (Wellfleet, Truro and Orleans). Instrutor Pe de Cabra (Andre Lima) under Master Kinha[Honolulu]. SOURCE: facebook google 6/27/18",
+    "rawRecord": "       Capoeira Besouro Cape Cod\nInstrutor Pe de Cabra \"Andre Lima\" under  Master Kinha[Honolulu]\nhttps://www.facebook.com/capoeirabesouro.capecod.9\n774,208.1874\n CapoeiraBesouroCapeCod@gmail.com\n(Classes in  Wellfleet, Truro and Orleans)\nSOURCE: facebook google 6/27/18"
+  },
+  {
+    "name": "Associacao de Capoeira Regional Mandingueiros dos Palmares - Cape Cod",
+    "website": "https://www.facebook.com/CapeCodCapoeira",
+    "leader": {
+      "title": "professor",
+      "nickname": "Bolancia",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Professor Bolancia",
+      "email": "capecodcapoeira@gmail.com",
+      "phone": "774-487-1004"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Juniko Hyannis",
+        "address": "92 Barnstable Road, Hyannis, MA 02601",
+        "schedule": "Tues & Wed 8:45-9:45pm; Sat 10-11:00am",
+        "contactPerson": null,
+        "email": null,
+        "phone": "508.827.7814",
+        "rawText": "      Juniko Hyannis\n92 Barnstable Road, Hyannis, MA 02601\n508.827.7814\nTues & Wed 8:45-9:45pm; Sat 10-11:00am"
+      }
+    ],
+    "notes": "Cape Cod, Massachusetts (Hyannis). Professor Bolancia. SOURCE: facebook 6/27/18",
+    "rawRecord": "       Associacao de Capoeira Regional Mandingueiros dos Palmares\nhttps://www.facebook.com/CapeCodCapoeira \nProfessor Bolancia\n  774-487-1004\ncapecodcapoeira@gmail.com\n      Juniko Hyannis\n92 Barnstable Road, Hyannis, MA 02601\n508.827.7814\nTues & Wed 8:45-9:45pm; Sat 10-11:00am\nSOURCE:   facebook 6/27/18"
+  },
+  {
+    "name": "Associação de Capoeira Mandingueiros dos Palmares [Capoeira MdP] - Gloucester",
+    "website": "http://capoeiramdp.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Chuvisco",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Mestre Chuvisco",
+      "email": "contact@capoeiramdp.com",
+      "phone": "[857] 230-9139"
+    },
+    "sources": ["http://www.mestrechuvisco.com"],
+    "locations": [
+      {
+        "name": "Movement Arts Gloucester Massachusetts [MAGMA]",
+        "address": "11 Pleasant St,Gloucester, MA 01930",
+        "schedule": "Tues 8:00- 9:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "        Movement Arts Gloucester Massachusetts [MAGMA]\n11 Pleasant St,Gloucester, MA 01930\nTues 8:00- 9:30pm"
+      }
+    ],
+    "notes": "Gloucester, Massachusetts (Essex County). Mestre Chuvisco. SOURCE: email 1/31/20",
+    "rawRecord": "      \nAssociação de Capoeira Mandingueiros dos Palmares [Capoeira MdP]\n  http://capoeiramdp.com/\nMestre Chuvisco\n  http://www.mestrechuvisco.com\n [857] 230 - 9139\ncontact{      /\\T}capoeiramdp{D      0T}com \n        Movement Arts Gloucester Massachusetts [MAGMA]\n11 Pleasant St,Gloucester, MA 01930\nTues 8:00- 9:30pm\nSOURCE: email 1/31/20"
+  },
+  {
+    "name": "Capoeira Rosa Rubra - Salisbury",
+    "website": "http://capoeirarosarubra.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Calango",
+      "name": "Joao Garbe Ramires"
+    },
+    "mainContact": {
+      "name": "Mestre Calango",
+      "email": "lcalango@hotmail.com",
+      "phone": "978-837-8499"
+    },
+    "sources": ["http://tokyojoesma.com/"],
+    "locations": [
+      {
+        "name": "Tokyo Joe's Studio of Self-Defense",
+        "address": "141 Bridge Road, Salisbury, MA 01952",
+        "schedule": "Mon, 7:30-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": "[978] 499-8800",
+        "rawText": "      Tokyo Joe's Studio of Self-Defense\n141 Bridge Road , Salisbury, MA 01952\n[978] 499-8800\nhttp://tokyojoesma.com/\nMon, 7:30-9:00pm"
+      }
+    ],
+    "notes": "Salisbury, Massachusetts (Essex County). Mestre Calango (Joao Garbe Ramires). SOURCE: website 5/29/18",
+    "rawRecord": "      Capoeira Rosa Rubra\nhttp://capoeirarosarubra.com/\nMestre Calango \"Joao Garbe Ramires\"\n  Phone: 978-837-8499\n  Email:  lcalango@hotmail.com\n      Tokyo Joe's Studio of Self-Defense\n141 Bridge Road , Salisbury, MA 01952\n[978] 499-8800\nhttp://tokyojoesma.com/\nMon, 7:30-9:00pm\nSOURCE: website 5/29/18"
+  },
+  {
+    "name": "Capoeira Lawrence",
+    "website": null,
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Toca",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "Senior Center",
+        "address": "155 Haverhill Street, Lawrence, MA 01840",
+        "schedule": "Mon 7:30-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Senior Center\n\n155 Haverhill Street, Lawrence, MA 01840\n\nMon 7:30-9:00pm"
+      }
+    ],
+    "notes": "Lawrence, Massachusetts (Essex County). Contra Mestre Toca a student of mestre Deraldo. SOURCE: email 4/2/13",
+    "rawRecord": "      Capoeira Lawrence\n\nContra Mestre Toca a student of mestre Deraldo\n\n      Senior Center\n\n155 Haverhill Street, Lawrence, MA 01840\n\nMon 7:30-9:00pm\n\nSOURCE: email 4/2/13"
+  },
+  {
+    "name": "Associacao de Capoeira Regional Mandingueiros dos Palmares - Martha's Vineyard",
+    "website": null,
+    "leader": {
+      "title": "gunga",
+      "nickname": null,
+      "name": "Adilson Ribeiro"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "508 360-8453"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Martha's Vineyard, Massachusetts. Gunga (Adilson Ribeiro) under Mestre Chuvisco[Boston]. Website offline and email returned, current status unknown 7/24/18. SOURCE: website 2/21/09",
+    "rawRecord": "      Associacao de Capoeira Regional Mandingueiros dos Palmares\nGunga \"Adilson Ribeiro\" under Mestre Chuvisco[Boston]\n508 360-8453\n(Website offline and email returned,  current status unknown7/24/18)\nSOURCE: website 2/21/09"
+  },
+  {
+    "name": "Capoeira Angola - Martha's Vineyard",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Leandro Lemos",
+      "email": "angolacenter@hotmail.com",
+      "phone": "774-521-5349"
+    },
+    "sources": ["http://www.mvtimes.com"],
+    "locations": [
+      {
+        "name": "Shephard Fine ArtSpace",
+        "address": "Oak Bluffs",
+        "schedule": "Mon 7:30 pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Shephard Fine ArtSpace\nOak Bluffs\nMon 7:30 pm"
+      },
+      {
+        "name": "The Yard",
+        "address": "Chilmark",
+        "schedule": "Wed 6:30 pm.",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "       The Yard\nChilmark\nWed 6:30 pm."
+      },
+      {
+        "name": "Adult and Community Education of Martha's Vineyard",
+        "address": "80 Chase Road, Edgartown, MA 02539",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Adult and Community Education of Martha's Vineyard\n80 Chase Road, Edgartown, MA 02539"
+      },
+      {
+        "name": "YMCA of M.V",
+        "address": "Oak Bluffs",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      YMCA of M.V\nOak Bluffs"
+      }
+    ],
+    "notes": "Martha's Vineyard, Massachusetts. Leandro Lemos. Attempting to email 7/24/18. SOURCE: mvtimes.com",
+    "rawRecord": "      Capoeira Angola\n\"Leandro Lemos\"\n      Shephard Fine ArtSpace\nOak Bluffs\nMon 7:30 pm\n       The Yard\nChilmark\nWed 6:30 pm.\n      Adult and Community Education of Martha's Vineyard\n80 Chase Road, Edgartown, MA 02539\nSOURCE: http://www.mvtimes.com\n      YMCA of M.V\nOak Bluffs\n774-521-5349\nangolacenter@hotmail.com\n(attempting to email 7/24/18)"
+  },
+  {
+    "name": "Group Capoeira Camara Angola - Cambridge",
+    "website": "http://www.capoeira-angola.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Deraldo Ferreira",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Mestre Deraldo Ferreira",
+      "email": "deraldoferr@gmail.com",
+      "phone": "857.246.4090"
+    },
+    "sources": ["http://www.dancecomplex.org"],
+    "locations": [
+      {
+        "name": "Dance Complex",
+        "address": "Central Square .536 Massachusetts Ave.Cambridge MA 02139-4029",
+        "schedule": "Wed 7:00-8:30pm; Sat 3:00-5:00 pm; Sun 11:30am-1:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": "[617]547-9363",
+        "rawText": "          Dance Complex\n    \n\n    Central Square .536 Massachusetts Ave.Cambridge MA 02139-4029\n    \n\n    [617]547-9363\n    \n\n    http://www.dancecomplex.org\n    \n\n    Wed 7:00-8:30pm; Sat 3:00-5:00 pm; Sun  11:30am-1:00pm"
+      }
+    ],
+    "notes": "Cambridge, Massachusetts (Middlesex County). Mestre Deraldo Ferreira. SOURCE: website 7/18/18",
+    "rawRecord": "          Group Capoeira Camara Angola\n    \n\n    http://www.capoeira-angola.com\n    \n\n    Mestre Deraldo Ferreira\n    \n\n      deraldoferr@gmail .com\n    \n\n      857.246.4090\n    \n\n          Dance Complex\n    \n\n    Central Square .536 Massachusetts Ave.Cambridge MA 02139-4029\n    \n\n    [617]547-9363\n    \n\n    http://www.dancecomplex.org\n    \n\n    Wed 7:00-8:30pm; Sat 3:00-5:00 pm; Sun  11:30am-1:00pm\n    \n\n    SOURCE: website 7/18/18"
+  },
+  {
+    "name": "Associação de Capoeira Mandingueiros dos Palmares - Cambridge",
+    "website": "http://capoeiramdp.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Chuvisco",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Mestre Chuvisco",
+      "email": "contact@capoeiramdp.com",
+      "phone": "[857] 230-9139"
+    },
+    "sources": ["http://www.mestrechuvisco.com", "http://www.dancecomplex.org/", "http://www.communityartcenter.org/"],
+    "locations": [
+      {
+        "name": "Dance Complex",
+        "address": "536 Massachusetts Avenue, Cambridge, MA",
+        "schedule": "Mon 6:30 - 8:30pm (studio 2); Sat 10:30am-12:00pm (studio 6)",
+        "contactPerson": null,
+        "email": null,
+        "phone": "[617] 547-9363",
+        "rawText": "          Dance Complex\n    \n\n    536 Massachusetts Avenue, Cambridge, MA\n    \n\n    [617] 547-9363\n    \n\n    http://www.dancecomplex.org/\n    \nMon 6:30 - 8:30pm (studio 2;  )Sat 10:30am-12:00pm (\nstudio 6 )"
+      },
+      {
+        "name": "Windsor Community Art Center",
+        "address": "119 Windsor St # 6, Cambridge, MA 02139",
+        "schedule": "Children[8+] Wed & Thurs 6:30-7:30pm; Adults: Wed & Thurs 7:30-8:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": "[617] 868-7100",
+        "rawText": "          Windsor Community Art Center\n    \n\n    119 Windsor St # 6, Cambridge, MA 02139\n    \n\n    [617] 868-7100\n    \n\n    http://www.communityartcenter.org/\n    \nChildren[8+] Wed & Thurs 6:30-7:30pm\n\nAdults: Wed & Thurs 7:30-8:30pm"
+      },
+      {
+        "name": "Harvard Capoeira Regional Club",
+        "address": "The Malkin Athletic Center, 39 Holyoke St, Cambridge, MA 02139",
+        "schedule": "Mon 8:30-9:55pm[ (Fitness Room 2)]; Wed 8:30-9:55pm[(Mezzanine)] (Harvard Faculty and Students only)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "          Harvard Capoeira Regional Club\n    \n\n    The Malkin Athletic Center, 39 Holyoke St, Cambridge, MA 02139\n    \n\n    Mon 8:30-9:55pm[ (Fitness Room 2)]; Wed  8:30-9:55pm[(Mezzanine)]\n    \n\n(Harvard Faculty  and Students only)"
+      }
+    ],
+    "notes": "Cambridge, Massachusetts (Middlesex County). Mestre Chuvisco. SOURCE: email 1/31/20",
+    "rawRecord": "      Associação de Capoeira Mandingueiros\n      dos Palmares\n    \n\n    http://capoeiramdp.com/ \n\n    Mestre Chuvisco\n    \n\n  http://www.mestrechuvisco.com\n\n [857] 230 - 9139\n\ncontact{      /\\T}capoeiramdp.com \n\n          Dance Complex\n    \n\n    536 Massachusetts Avenue, Cambridge, MA\n    \n\n    [617] 547-9363\n    \n\n    http://www.dancecomplex.org/\n    \nMon 6:30 - 8:30pm (studio 2;  )Sat 10:30am-12:00pm (\nstudio 6 )   \n\n          Windsor Community Art Center\n    \n\n    119 Windsor St # 6, Cambridge, MA 02139\n    \n\n    [617] 868-7100\n    \n\n    http://www.communityartcenter.org/\n    \nChildren[8+] Wed & Thurs 6:30-7:30pm\n\nAdults: Wed & Thurs 7:30-8:30pm\n\n          Harvard Capoeira Regional Club\n    \n\n    The Malkin Athletic Center, 39 Holyoke St, Cambridge, MA 02139\n    \n\n    Mon 8:30-9:55pm[ (Fitness Room 2)]; Wed  8:30-9:55pm[(Mezzanine)]\n    \n\n(Harvard Faculty  and Students only)\n\n    SOURCE: email 1/31/20"
+  },
+  {
+    "name": "Grupo de Capoeira Angola do Acupe - Cambridge",
+    "website": "https://www.grupoacupe.org/",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Chorão",
+      "name": "Alberto Nunes"
+    },
+    "mainContact": {
+      "name": "Contra Mestre Chorão",
+      "email": "acupe.capoeira@gmail.com",
+      "phone": "631-241-3605"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Casa do Benfica",
+        "address": "178 Elm St. Cambridge, MA 02139",
+        "schedule": "Mon, Wed, & Fri 7:30-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "          Casa do Benfica\n    \n\n    178 Elm St. Cambridge, MA 02139\n    \n\n    Mon, Wed, & Fri 7:30-9:00pm"
+      }
+    ],
+    "notes": "Cambridge, Massachusetts (Middlesex County). Contra Mestre Chorão (Alberto Nunes). SOURCE: email website 7/3/16",
+    "rawRecord": "      Grupo de Capoeira Angola do Acupe\n    \n\n    Contra Mestre Chorão \"Alberto Nunes\"\n    \n\n    https://www.grupoacupe.org/\n    \n\n    acupe.capoeira@gmail .com\n    \n\n    631-241-3605\n    \n\n          Casa do Benfica\n    \n\n    178 Elm St. Cambridge, MA 02139\n    \n\n    Mon, Wed, & Fri 7:30-9:00pm\n    \n\n    SOURCE: email  website 7/3/16"
+  },
+  {
+    "name": "SINHA' Capoeira - Cambridge",
+    "website": "http://sinhacapoeira.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Chuvisquinho",
+      "name": "Lindemberg Souza"
+    },
+    "mainContact": {
+      "name": "Mestre Chuvisquinho",
+      "email": null,
+      "phone": "857-417-9394"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "New England Aikikai",
+        "address": "2000 Massachusetts Ave, Cambridge MA",
+        "schedule": "Ages 5-12: Tues & Thurs 6:00-7:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "          New England Aikikai\n    \n\n    2000 Massachusetts Ave, Cambridge MA\n    \n\n    Ages 5-12:  Tues & Thurs 6:00-7:00pm"
+      }
+    ],
+    "notes": "Cambridge, Massachusetts (Middlesex County). Mestre Chuvisquinho (Lindemberg Souza). SOURCE: website 5/26/18",
+    "rawRecord": "      SINHA' Capoeira\n    \n\n    http://sinhacapoeira.com\n    \n\n     857-417-9394\n    \n\n    Mestre Chuvisquinho \"Lindemberg Souza\"\n    \n\n          New England Aikikai\n    \n\n    2000 Massachusetts Ave, Cambridge MA\n    \n\n    Ages 5-12:  Tues & Thurs 6:00-7:00pm\n    \n\n    SOURCE: website 5/26/18"
+  },
+  {
+    "name": "Capoeira Rosa Rubra - Lowell",
+    "website": "http://capoeirarosarubra.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Calango",
+      "name": "Joao Garbe Ramires"
+    },
+    "mainContact": {
+      "name": "Mestre Calango",
+      "email": "lcalango@hotmail.com",
+      "phone": "978-837-8499"
+    },
+    "sources": ["http://www.garycardkarate.com/"],
+    "locations": [
+      {
+        "name": "Gary Card's Martial Arts Academy",
+        "address": "649 Lawrence St, Lowell, MA 01852",
+        "schedule": "Wed & Fri 6:30-8:00pm; Sat, 5:30-7:00 pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "          Gary Card's Martial Arts Academy\n    \n\n    649 Lawrence St , Lowell, MA 01852\n    \n\n    http://www.garycardkarate.com/\n    \n\n    Wed & Fri  6:30-8:00pm; Sat, 5:30-7:00 pm"
+      }
+    ],
+    "notes": "Lowell, Massachusetts (Middlesex County). Mestre Calango (Joao Garbe Ramires). SOURCE: website 5/29/18",
+    "rawRecord": "      Capoeira Rosa Rubra\n    \n\n    http://capoeirarosarubra.com/\n    \n\n    Mestre Calango \"Joao Garbe Ramires\"\n    \n\n      Phone: 978-837-8499\n    \n\n      Email:  lcalango@hotmail.com\n    \n\n          Gary Card's Martial Arts Academy\n    \n\n    649 Lawrence St , Lowell, MA 01852\n    \n\n    http://www.garycardkarate.com/\n    \n\n    Wed & Fri  6:30-8:00pm; Sat, 5:30-7:00 pm\n    \n\n    SOURCE: website 5/29/18"
+  },
+  {
+    "name": "Embondeiro Capoeira Boston - Cambridge",
+    "website": "https://www.embondeirocapoeiraboston.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Cabeça",
+      "name": "Adeilton Silva Santos"
+    },
+    "mainContact": {
+      "name": "Mestre Cabeça",
+      "email": "embondeirocapoeiracambridge@gmail.com",
+      "phone": "617-833-4744"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Green Street Studio",
+        "address": "185 Green St. Cambridge MA 02139",
+        "schedule": "Tues 6:00-7:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "          Green Street Studio\n    \n\n    185 Green St. Cambridge MA 02139\n    \n\n    Tues  6:00-7:00pm"
+      }
+    ],
+    "notes": "Cambridge, Massachusetts (Middlesex County). Formerly Grupo Capoeira Brasil. Mestre Cabeça (Adeilton Silva Santos). SOURCE: website 5/23/17",
+    "rawRecord": "      Embondeiro Capoeira Boston\n    \n\n    (formerly Grupo Capoeira Brasil)\n    \n\n    Mestre Cabeça  \"Adeilton Silva Santos\"\n    \n\n    https://www.embondeirocapoeiraboston.com/\n    \n\n    embondeirocapoeiracambridge@gmail .com\n    \n\n    Phone: 617- 833-4744\n    \n\n          Green Street Studio\n    \n\n    185 Green St. Cambridge MA 02139\n    \n\n    Tues  6:00-7:00pm\n    \n\n    SOURCE: website 5/23/17"
+  },
+  {
+    "name": "Capoeira Brasil New England - Somerville",
+    "website": "http://www.capoeirabrasilne.com",
+    "leader": {
+      "title": null,
+      "nickname": "Tigre Branco",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@capoeirabrasilne.com",
+      "phone": "310-902-1256"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Carlos Neto Brazilian Jiu Jitsu and Capoeira Brasil Studio",
+        "address": "86 Joy Street,Somerville, MA",
+        "schedule": "Tiny Tots: Mon & Wed 4:15-5:00pm; Kids: Mon & Wed 5:00-6:00pm; Adults: Tues & Thurs 8;00-9:15pm; All Ages: Sat 10:00-11:00am",
+        "contactPerson": null,
+        "email": null,
+        "phone": "617-625-2100",
+        "rawText": "          Carlos Neto Brazilian Jiu Jitsu and Capoeira Brasil Studio\n\n    86 Joy Street,Somerville, MA\n\n    617-625-2100\n\n    Tiny Tots:  Mon & Wed 4:15-5:00pm\n\n    Adults: Tues & Thurs 8;00-9:15pm\n\n    Kids:  Mon & Wed 5:00-6:00pm\n\n    All Ages: Sat 10:00-11:00am"
+      }
+    ],
+    "notes": "Somerville, Massachusetts (Middlesex County). Tigre Branco under Mestre Boneco[Los Angeles]. SOURCE: website 3/12/19",
+    "rawRecord": "      Capoeira Brasil New England\n    http://www.capoeirabrasilne.com\n\n    Tigre Branco under Mestre Boneco[Los Angeles]\n\n      310-902-1256\n\n    info@capoeirabrasilne.com\n\n          Carlos Neto Brazilian Jiu Jitsu and Capoeira Brasil Studio\n\n    86 Joy Street,Somerville, MA\n\n    617-625-2100\n\n    Tiny Tots:  Mon & Wed 4:15-5:00pm\n\n    Adults: Tues & Thurs 8;00-9:15pm\n\n    Kids:  Mon & Wed 5:00-6:00pm\n\n    All Ages: Sat 10:00-11:00am\n\n    SOURCE: website 3/12/19"
+  },
+  {
+    "name": "Capoeira Angola Quintal Boston - Somerville",
+    "website": "http://www.caqboston.com/",
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "Mary Flynn Murphy Dance Studio",
+        "address": "730 Broadway, Somerville, MA 02144",
+        "schedule": "Wed: 8:00- 10:00pm; Sun: 4:00-6:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "          Mary Flynn Murphy Dance Studio\n    \n\n    730 Broadway, Somerville, MA 02144\n    \n\n    Wed: 8:00- 10:00pm; Sun: 4:00-6:00pm"
+      }
+    ],
+    "notes": "Somerville, Massachusetts (Middlesex County). SOURCE: website 3/1/18",
+    "rawRecord": "      Capoeira Angola Quintal Boston\n    \n\n    http://www.caqboston.com/\n    \n\n          Mary Flynn Murphy Dance Studio\n    \n\n    730 Broadway, Somerville, MA 02144\n    \n\n    Wed: 8:00- 10:00pm; Sun: 4:00-6:00pm\n    \n\n    SOURCE: website 3/1/18"
+  },
+  {
+    "name": "Capoeira Gerais - Marlborough",
+    "website": "http://capoeirageraisboston.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Coreba",
+      "name": "Marquinho Coreba"
+    },
+    "mainContact": {
+      "name": "Mestre Coreba",
+      "email": "client@capoeirageraisboston.com",
+      "phone": "508-215-4142"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Marlboro Fitness and Martial Arts",
+        "address": "28 Hosmer Street, Marlborough, MA 01752",
+        "schedule": "Adult Classes:Tues & Thurs 7:30 - 9:00pm; 3-5 year-olds: Tues & Thurs 5:00 - 6:00pm; 6-12 year-olds: Tues & Thurs 6:00 - 7:00pm; Kid's Beginner Mon & Wed 5:15 - 6:00pm [all ages]; Music and Movement Class 2-4 year-olds with parents: Tues 10:15 - 10:45am",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "          Marlboro Fitness and Martial Arts\n    \n\n    28 Hosmer Street, Marlborough, MA 01752\n    \n\n    Adult Classes:Tues & Thurs 7:30 - 9:00pm\n    \n\n    3-5 year-olds: Tues & Thurs 5:00 - 6:00pm\n    \n\n    6-12 year-olds: Tues & Thurs 6:00 - 7:00pm\n    \n\n    Kid's Beginner Mon & Wed\n    \n\n    5:15 - 6:00pm [all ages]\n    \n\n    Music and Movement Class 2-4 year-olds with parents: Tues 10:15 -\n    10:45am"
+      }
+    ],
+    "notes": "Marlborough, Massachusetts (Middlesex County). Mestre Coreba (Marquinho Coreba). SOURCE: website 6/1/18",
+    "rawRecord": "      Capoeira Gerais\n    \n\n    http://capoeirageraisboston.com\n    \n\n    Mestre Coreba \"Marquinho Coreba\"\n    \n\n    Phone: 508-215-4142\n    \n\n    Email: client@capoeirageraisboston.com\n    \n\n          Marlboro Fitness and Martial Arts\n    \n\n    28 Hosmer Street, Marlborough, MA 01752\n    \n\n    Adult Classes:Tues & Thurs 7:30 - 9:00pm\n    \n\n    3-5 year-olds: Tues & Thurs 5:00 - 6:00pm\n    \n\n    6-12 year-olds: Tues & Thurs 6:00 - 7:00pm\n    \n\n    Kid's Beginner Mon & Wed\n    \n\n    5:15 - 6:00pm [all ages]\n    \n\n    Music and Movement Class 2-4 year-olds with parents: Tues 10:15 -\n    10:45am\n    \n\n    SOURCE: website 6/1/18"
+  },
+  {
+    "name": "UMass Lowell Capoeira Club",
+    "website": "https://www.uml.edu/CampusRecreation/Club-Sports/Capoeira.aspx",
+    "leader": {
+      "title": "president",
+      "nickname": "Rapadura",
+      "name": "Daniel Faria"
+    },
+    "mainContact": {
+      "name": "President Rapadura",
+      "email": "daniel_faria@student.uml.edu",
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Lowell, Massachusetts (Middlesex County). President Rapadura (Daniel Faria) overseen by Mestre Loka[Leominster]. Mon 5:00- 6:30pm.( inside CRC Studio2); Wed: 4:00 -5:30pm.( inside CRC Studio 1). SOURCE: website 7/20/18",
+    "rawRecord": "       UMass Lowell Capoeira Club\n    \n\n    https://www.uml.edu/CampusRecreation/Club-Sports/Capoeira.aspx\n    \n\n    President   Rapadura \"Daniel Faria\" overseen by Mestre\n    Loka[Leominster]\n    \n\n      daniel_faria@student.uml.edu\n    \n\n    Mon 5:00- 6:30pm.( inside CRC Studio2)\n    \n\n    Wed: 4:00 -5:30pm.( inside CRC Studio 1)\n    \n\n    SOURCE: website 7/20/18"
+  },
+  {
+    "name": "Capoeira Besouro Boston",
+    "website": null,
+    "leader": {
+      "title": "mestre",
+      "nickname": "Bocoio",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "capoeirabesouroboston@gmail.com",
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Boston, Massachusetts (Middlesex County area). Mestre Bocoió appears to be in Rio 11/22/17. SOURCE: facebook 11/3/11",
+    "rawRecord": "      Capoeira Besouro Boston\n    \n\n    Mestre Bocoio\n    \n\n    (Mestre Bocoió appears to be  in Rio 11/22/17)\n    \n\n    capoeirabesouroboston@gmail .com\n    \n\n    SOURCE: facebook 11/3/11"
+  },
+  {
+    "name": "Capoeira Artes das Gerais Framingham - International Capoeira Artes das Gerais Foundation [FICAG]",
+    "website": "http://superbuff.wordpress.com/capoeira-artes-das-gerais/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Ze ComFome",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Framingham, Massachusetts (Middlesex County). Current status of the group is unknown. Mestre Ze ComFome is now teaching in Miami Fl 11/29/11. SOURCE: website 12/24/11",
+    "rawRecord": "      Capoeira Artes das Gerais Framingham\n      -International\n      Capoeira Artes das Gerais Foundation [FICAG]\n    \n\n    (Current status of the group is unknown)\n    \n\n    (Mestre Ze ComFome is now teaching in Miami\n      Fl 11/29/11)\n    \n\n    http://superbuff.wordpress.com/capoeira-artes-das-gerais/\n    \n\n    SOURCE: website 12/24/11"
+  },
+  {
+    "name": "The Brazilian Cultural Center of New England - Wellesley College",
+    "website": "http://www.capoeira-angola.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Deraldo Ferreira",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Wellesley, Massachusetts (Norfolk County). Mestre Deraldo Ferreira currently teaches classes and workshops at Wellesley College. SOURCE: website 7/18/18",
+    "rawRecord": "      The Brazilian Cultural Center of New England\n\" Mestre Deraldo Ferreira currently teaches classes and workshops at \nWellesley College\"\nSOURCE: http://www.capoeira-angola.com7/18/18"
+  },
+  {
+    "name": "SINHA' Capoeira - Brookline",
+    "website": "http://sinhacapoeira.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Chuvisquinho",
+      "name": "Lindemberg Souza"
+    },
+    "mainContact": {
+      "name": "Mestre Chuvisquinho",
+      "email": null,
+      "phone": "857-417-9394"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Jean Paige Dance Studio",
+        "address": "1431 Beacon Street, Brookline MA",
+        "schedule": "Adults: Mon & Wed 8:30 to 10:300pm; Teens: Sat 12:30-1:30pm; ages 3.5-12: Sat 1:30-2:45pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "J      ean Paige Dance Studio\n1431 Beacon Street, Brookline MA\nAdults: Mon & Wed 8:30 to 10:300pm\nTeens: Sat  12:30-1:30pm\nages 3.5-12: Sat 1:30-2:45pm"
+      }
+    ],
+    "notes": "Brookline, Massachusetts (Norfolk County). Mestre Chuvisquinho (Lindemberg Souza). SOURCE: website 5/26/18",
+    "rawRecord": "      SINHA' Capoeira\nhttp://sinhacapoeira.com\nMestre Chuvisquinho \"Lindemberg Souza\"\n 857-417-9394\nJ      ean Paige Dance Studio\n1431 Beacon Street, Brookline MA\nAdults: Mon & Wed 8:30 to 10:300pm\nTeens: Sat  12:30-1:30pm\nages 3.5-12: Sat 1:30-2:45pm\nSOURCE: website 5/26/18"
+  },
+  {
+    "name": "Capoeira Rosa Rubra - Brookline",
+    "website": "http://capoeirarosarubra.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Calango",
+      "name": "Joao Garbe Ramires"
+    },
+    "mainContact": {
+      "name": "Mestre Calango",
+      "email": "lcalango@hotmail.com",
+      "phone": "978-837-8499"
+    },
+    "sources": ["http://www.yogainthevillage.com/"],
+    "locations": [
+      {
+        "name": "Inner Space Yoga Studio",
+        "address": "17 Station St, Brookline, MA 02445",
+        "schedule": "Sat, 2:00-3:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Inner Space Yoga Studio\n17 Station St, Brookline, MA 02445\nhttp://www.yogainthevillage.com/\nSat, 2:00-3:30pm"
+      }
+    ],
+    "notes": "Brookline, Massachusetts (Norfolk County). Mestre Calango (Joao Garbe Ramires). SOURCE: website 5/29/18",
+    "rawRecord": "      Capoeira Rosa Rubra\nhttp://capoeirarosarubra.com/\nMestre Calango \"Joao Garbe Ramires\"\n  Phone: 978-837-8499\n  Email:  lcalango@hotmail.com\n      Inner Space Yoga Studio\n17 Station St, Brookline, MA 02445\nhttp://www.yogainthevillage.com/\nSat, 2:00-3:30pm\nSOURCE: website 5/29/18"
+  },
+  {
+    "name": "Capoeira Gerais - Norfolk County",
+    "website": "http://capoeirageraisboston.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Marquinho Coreba",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Norfolk County, Massachusetts. Mestre Marquinho Coreba. No current classes in Norfolk county. SOURCE: website 6/23/18",
+    "rawRecord": "      Capoeira Gerais\nhttp://capoeirageraisboston.com\n Mestre Marquinho Coreba\nNo current  classes in  Norfolk county\nSOURCE: website 6/23/18"
+  },
+  {
+    "name": "Associação de Capoeira Mandingueiros dos Palmares - Abington",
+    "website": "http://capoeiramdp.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Chuvisco",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Mestre Chuvisco",
+      "email": "contact@capoeiramdp.com",
+      "phone": "[857] 230-9139"
+    },
+    "sources": ["http://www.mestrechuvisco.com"],
+    "locations": [
+      {
+        "name": "Boston Taekwondo Academy",
+        "address": "1501 Bedford St Abington, MA 02351",
+        "schedule": "Sat 3:00 - 4:30pm; Sun | 10:30am - 12:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "        Boston Taekwondo Academy\n1501 Bedford St Abington, MA 02351\nSat 3:00 - 4:30pm; Sun  | 10:30am - 12:00pm"
+      }
+    ],
+    "notes": "Abington, Massachusetts (Plymouth County). Mestre Chuvisco. SOURCE: email 1/21/20",
+    "rawRecord": "      Associação de Capoeira Mandingueiros\n      dos Palmares\n    \n\n    http://capoeiramdp.com/ \n\n    Mestre Chuvisco\n    \n\n  http://www.mestrechuvisco.com\n\n [857] 230 - 9139\n\ncontact{      /\\T}capoeiramdp.com \n        Boston Taekwondo Academy\n1501 Bedford St Abington, MA 02351\nSat 3:00 - 4:30pm; Sun  | 10:30am - 12:00pm\nSOURCE: email  1/21/20"
+  }
+]

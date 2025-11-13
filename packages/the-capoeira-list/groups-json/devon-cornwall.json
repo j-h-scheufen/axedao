@@ -1,0 +1,200 @@
+[
+  {
+    "name": "Grupo de Capoeira Angola Menino Quem Foi Seu Mestre - MQFSM",
+    "website": "http://capoeiraroberval.com",
+    "leader": {
+      "title": "professora",
+      "nickname": "Brisa",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "aamazonasbrisa@hotmail.com",
+      "phone": "07984 537020"
+    },
+    "sources": ["https://www.facebook.com/groups/844177552281269/", "http://capoeiraroberval.com"],
+    "locations": [
+      {
+        "name": "Falmouth Sports Club",
+        "address": "Western Terrace, Falmouth TR11 4QJ",
+        "schedule": "Thurs 7:30-9:00pm; Sun 10.30am-12:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Falmouth Sports Club\nWestern Terrace, Falmouth TR11 4QJ\nThurs  7:30-9:00pm;  Sun 10.30am-12:00pm"
+      }
+    ],
+    "notes": "Under Mestre Roberval. SOURCE: facebook website 10/27/16",
+    "rawRecord": "Grupo de Capoeira Angola Menino Quem Foi Seu Mestre - MQFSM\nhttps://www.facebook.com/groups/844177552281269/\nhttp://capoeiraroberval.com\nProfessora Brisa  under  Mestre Roberval\n  07984 537020\n  aamazonasbrisa@hotmail.com\n      Falmouth Sports Club\nWestern Terrace, Falmouth TR11 4QJ\nThurs  7:30-9:00pm;  Sun 10.30am-12:00pm\nSOURCE: facebook website 10/27/16"
+  },
+  {
+    "name": "Apiara Capoeira Cornwall",
+    "website": "http://www.accornwall.co.uk/",
+    "leader": {
+      "title": null,
+      "nickname": "Chamada",
+      "name": "Joshua"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["http://www.accornwall.co.uk/"],
+    "locations": [
+      {
+        "name": "Jason Thomas dance",
+        "address": "Mallets Ope, Victoria Square, Truro, TR1 2RG",
+        "schedule": "Adult [14+]: Thurs 8:00-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Jason Thomas dance\nMallets Ope, Victoria Square, Truro, TR1 2RG\nAdult [14+]: Thurs 8:00-9:00pm"
+      },
+      {
+        "name": "Falmouth Sports Club",
+        "address": "Western Terrace, TR11 4QJ",
+        "schedule": "Adult [14+]: Tues 7:00pm-8:00pm; Kids [5-6 years]: Mon 5:00pm-6:00pm; Kids [5-9 years]: Sat 10:00am-11:00am; Kids [Acrobatics]: Sat 11:00am-12:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Falmouth Sports Club\nWestern Terrace, TR11 4QJ\nAdult [14+]: Tues 7:00pm - 8:00pm\nKids [5-6 years]: Mon 5:00pm - 6:00pm\nKids [5-9 years]: Sat 10:00am - 11:00am\nKids [Acrobatics]: Sat 11:00am-12:00pm"
+      },
+      {
+        "name": "Dracaena Centre",
+        "address": "Dracaena avenue Falmouth TR11 2ES",
+        "schedule": "Kids [5-6 years]: Mon 5:00pm-6:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Dracaena Centre\nDracaena avenue Falmouth TR11 2ES\nKids [5-6 years]: Mon 5:00pm - 6:00pm"
+      },
+      {
+        "name": "Zedshed",
+        "address": "Jubilee Wharf, Commercial Road, TR10 8FG",
+        "schedule": "Toddlers [3-4 years]: Fri 11.30am-12.15pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Zedshed\nJubilee Wharf, Commercial Road, TR10 8FG\nToddlers [3-4 years]: Fri 11.30am - 12.15pm"
+      }
+    ],
+    "notes": "Instructor Joshua Chamada under Mestre Casquinha [Cyprus]. SOURCE: website 11/11/16",
+    "rawRecord": "Ap�iara Capoeira Cornwall\nhttp://www.accornwall.co.uk/\nInstructor Joshua Chamada  under  Mestre Casquinha[Cyprus\n]\n      Jason Thomas dance\nMallets Ope, Victoria Square, Truro, TR1 2RG\nAdult [14+]: Thurs 8:00-9:00pm\n      Falmouth Sports Club\nWestern Terrace, TR11 4QJ\nAdult [14+]: Tues 7:00pm - 8:00pm\nKids [5-6 years]: Mon 5:00pm - 6:00pm\nKids [5-9 years]: Sat 10:00am - 11:00am\nKids [Acrobatics]: Sat 11:00am-12:00pm\n      Dracaena Centre\nDracaena avenue Falmouth TR11 2ES\nKids [5-6 years]: Mon 5:00pm - 6:00pm\n       Zedshed\nJubilee Wharf, Commercial Road, TR10 8FG\nToddlers [3-4 years]: Fri 11.30am - 12.15pm\nSOURCE: website 11/11/16"
+  },
+  {
+    "name": "Association of Capoeira Engenho da Rainha",
+    "website": "http://www.capoeiracornwall.co.uk/",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Rodrigo",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "e.rodrigo@acercapoeira.com",
+      "phone": "44 [0] 7921 66 77 26"
+    },
+    "sources": ["http://www.capoeiracornwall.co.uk/", "http://www.capoeiraworld.org", "http://www.capoeirakids.co.uk/"],
+    "locations": [
+      {
+        "name": "St Stephen's Hill",
+        "address": "Tregadillett - Launceston PL15 7EU",
+        "schedule": "5 to 11yrs: Mon 3:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "St Stephen's Hill\nTregadillett - Launceston PL15 7EU\n5 to 11yrs: Mon 3:30pm"
+      },
+      {
+        "name": "Phoenix Leisure Centre",
+        "address": "Coronation Pk, Launceston PL15 9DQ",
+        "schedule": "12yrs+: Mon",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Phoenix Leisure Centre -\nCoronation Pk, Launceston PL15 9DQ\n12yrs+: Mon"
+      }
+    ],
+    "notes": "LINEAGE: Mestre Nenem > Mestre Paizinho > Mestre Artu Emidio > Mestre Celso > Contra Mestre Rodrigo. ACER Kids program. SOURCE: website 10/30/16",
+    "rawRecord": "Association of Capoeira Engenho da Rainha\nhttp://www.capoeiracornwall.co.uk/\nhttp://www.capoeiraworld.org\nContra Mestre Rodrigo\n  e.rodrigo@acercapoeira.com\n   44 [0] 7921 66 77 26\nLINEAGE: Mestre Nenem&gt; Mestre Paizinho&gt;Mestre Artu Emidio&gt; Mestre Celso&gt;Contra\nMestre Rodrigo\n      ACER Kids\nhttp://www.capoeirakids.co.uk/\n      St Stephen's Hill\nTregadillett - Launceston PL15 7EU\n5 to 11yrs: Mon 3:30pm\n      Phoenix Leisure Centre -\nCoronation Pk, Launceston PL15 9DQ\n12yrs+: Mon\nSOURCE: website 10/30/16"
+  },
+  {
+    "name": "Capoeira Angoleiros do Mare",
+    "website": "http://www.angoleirosdomar.com/",
+    "leader": {
+      "title": "treinel",
+      "nickname": "Pao de milho",
+      "name": "Christie"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": [
+      "http://www.angoleirosdomar.com/",
+      "https://www.facebook.com/groups/715098891887853/",
+      "http://www.capoeiracornwall.com/",
+      "http://www.capoeiradevon.co.uk/"
+    ],
+    "locations": [
+      {
+        "name": "St. Michael's Church Hall",
+        "address": "St Michaels Road, Newquay, Cornwall, TR7 1RA",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "St. Michael�s Church Hall\nSt Michaels Road, Newquay, Cornwall, TR7 1RA"
+      },
+      {
+        "name": "Simara Winter Studio",
+        "address": "Unit 3, 1-2 Ermington Terrace, Mutley Plain, PL4 6QG",
+        "schedule": "Thurs 8:00-9:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Simara Winter Studio\nUnit 3, 1-2 Ermington Terrace, Mutley Plain, PL4 6QG\nThurs 8:00 � 9:30pm"
+      }
+    ],
+    "notes": "Under Mestre Marcelo Angola. SOURCE: websites 10/11/16",
+    "rawRecord": "Capoeira Angoleiros do Mar�\nhttp://www.angoleirosdomar.com/\nhttps://www.facebook.com/groups/715098891887853/ Trenel P�o de milho \"Christie\" under Mestre Marcelo Angola\nhttp://www.capoeiracornwall.com/\n      St. Michael�s Church Hall\nSt Michaels Road, Newquay, Cornwall, TR7 1RA\nhttp://www.capoeiradevon.co.uk/\n      Simara Winter Studio\nUnit 3, 1-2 Ermington Terrace, Mutley Plain, PL4 6QG\nThurs 8:00 � 9:30pm\nSOURCE: websites 10/11/16"
+  },
+  {
+    "name": "Jinga Communities",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": "Canguru",
+      "name": "Craig Blackburn"
+    },
+    "mainContact": {
+      "name": "Craig Blackburn",
+      "email": null,
+      "phone": "07870 167 974"
+    },
+    "sources": ["https://www.linkedin.com/in/craig-blackburn-1916061b", "https://www.facebook.com/canguru.jinga"],
+    "locations": [],
+    "notes": "Website offline. We are not sure if this group is still active. The phone may still be valid. Please contact us 11/12/16",
+    "rawRecord": "Jinga Communities\n(Website offline We are not sure if this group is still active The\nphone may stil be valid. Please contact us  11/12/16)\nCanguru  \"Craig Blackburn\"\n  Phone  07870 167 974\n  https://www.linkedin.com/in/craig-blackburn-1916061b\n  https://www.facebook.com/canguru.jinga"
+  },
+  {
+    "name": "Capoeira-SouthWest",
+    "website": null,
+    "leader": {
+      "title": "professor",
+      "nickname": null,
+      "name": "Adam Barker"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Website no longer valid 7/6/08. Current status of the group is unknown. Instructor: Professor Adam Barker.",
+    "rawRecord": "Capoeira-SouthWest\n(website now longer valid  7/6/08)\n(Current status of the group is unknown)\nInstructor: Professor Adam Barker."
+  }
+]

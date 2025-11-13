@@ -1,0 +1,448 @@
+[
+  {
+    "name": "Capoeira Palmares Orlando",
+    "website": "http://capoeirapalmaresorlando.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "George Palmares",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "capoeirapalmaresorlando@gmail.com",
+      "phone": "[407]-960-3104"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Orlando location",
+        "address": "2400 North Forsyth Road Unit 201 Orlando, FL 32807-6439",
+        "schedule": "Kids: Mon, Wed, & Fri 6:30pm-7:30pm; All Levels: Mon, Wed, & Fri7:30-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "2400 North Forsyth Road Unit 201 Orlando,  FL  32807-6439\nKids:  Mon, Wed, & Fri 6:30pm-7:30pm\nAll Levels: Mon, Wed, & Fri7:30-9:00pm"
+      }
+    ],
+    "notes": "Orlando, Florida. SOURCE: website 11/23/17",
+    "rawRecord": "      Capoeira Palmares Orlando\n2400 North Forsyth Road Unit 201 Orlando,  FL  32807-6439\nhttp://capoeirapalmaresorlando.com\nMestre George Palmares\n [407]-960-3104\ncapoeirapalmaresorlando@gmail.com\nKids:  Mon, Wed, & Fri 6:30pm-7:30pm\nAll Levels: Mon, Wed, & Fri7:30-9:00pm\nSOURCE: website 11/23/17"
+  },
+  {
+    "name": "Capoeira Brazilian Pelourinho",
+    "website": "http://www.capoeirabrazilpelo.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Lazaro da Bahia",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "CapoeiraBrazilPelo@gmail.com",
+      "phone": "407.226.3195"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Orlando location",
+        "address": "7075 Kingspointe Pkwy Suite #10 Orlando, Florida 32819",
+        "schedule": "(Full schedule of classes)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "7075 Kingspointe Pkwy Suite #10 Orlando, Florida 32819\n(Full schedule of classes)"
+      }
+    ],
+    "notes": "Orlando, Florida. SOURCE: website 11/23/17",
+    "rawRecord": "      Capoeira Brazilian Pelourinho\n7075 Kingspointe Pkwy Suite #10 Orlando, Florida 32819\nhttp://www.capoeirabrazilpelo.com\nMestre Lazaro da Bahia\n407.226.3195\n CapoeiraBrazilPelo@gmail.com\n(Full schedule of classes)\nSOURCE: website  11/23/17"
+  },
+  {
+    "name": "Capoeira Guerreiros",
+    "website": "http://www.capoeiraorlando.com",
+    "leader": {
+      "title": "professor",
+      "nickname": "Folclore",
+      "name": "Roberto Armien"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "855-434-8675 ext 1"
+    },
+    "sources": ["http://www.facebook.com/capoeira.orlando"],
+    "locations": [
+      {
+        "name": "Orlando location",
+        "address": "829 Woodbury Rd Orlando, FL 32828",
+        "schedule": "Adults[13+]: Mon, Tues, & Thurs 7;00-8:00pm; Kids: Tues & Thurs 6:00-7:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "829 Woodbury Rd Orlando, FL 32828\nAdults[13+]: Mon,  Tues, & Thurs 7;00-8:00pm\nKids: Tues & Thurs 6:00-7:00pm"
+      }
+    ],
+    "notes": "Orlando, Florida. Professor Folclore under Contramestre Gaivota [Bloomfield NJ]. SOURCE: website 11/14/17",
+    "rawRecord": "      Capoeira Guerreiros\n829 Woodbury Rd Orlando, FL 32828\nhttp://www.capoeiraorlando.com\nProfessor Folclore \"Roberto Armien\" under Contramestre Gaivota[Bloomfield\nNJ]\n855-434-8675 ext 1\nhttp://www.facebook.com/capoeira.orlando\nAdults[13+]: Mon,  Tues, & Thurs 7;00-8:00pm\nKids: Tues & Thurs 6:00-7:00pm\nSOURCE:  website 11/14/17"
+  },
+  {
+    "name": "Capoeira Abolicao Orlando",
+    "website": "http://www.capoeira-orlando.com/",
+    "leader": {
+      "title": "professor",
+      "nickname": "Gigante",
+      "name": "Franklin Neves"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "Gigantedaabolicao@gmail.com",
+      "phone": "407-494-0261"
+    },
+    "sources": ["https://www.facebook.com/Capoeira Abolicao Orlando-373410699728577/"],
+    "locations": [
+      {
+        "name": "Peaches Dance Studio",
+        "address": "9001 Taborfield Avenue,Orlando, FL 32836",
+        "schedule": "Ages 10 and over: Mon & Tues 7:30-9:00pm; Wed 7:00-8:30 pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Peaches Dance Studio\n9001 Taborfield Avenue,Orlando, FL 32836\nAges 10 and over: Mon & Tues 7:30-9:00pm;  Wed 7:00-8:30 pm"
+      },
+      {
+        "name": "Sunset Park Elementary - PE Pavillion",
+        "address": "12050 Overstreet Road, Windermere, FL 34786",
+        "schedule": "Grades 2nd-5th: Tues 3:30-4:30 pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Sunset Park Elementary\nPE Pavillion, 12050 Overstreet Road, Windermere, FL 34786\nGrades 2nd - 5th: Tues 3:30 - 4:30 pm"
+      },
+      {
+        "name": "Windermere High School - Dance Room",
+        "address": "5523 Winter Garden Vineland Rd, Windermere, FL 34786",
+        "schedule": "Tues, Wed & Thurs 5:30-6:30 pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Windermere High School\nDance Room, 5523 Winter Garden Vineland Rd, Windermere, FL 34786\nTues, Wed & Thurs  5:30 - 6:30 pm"
+      }
+    ],
+    "notes": "Orlando, Florida. SOURCE: website 9/17/17",
+    "rawRecord": "      Capoeira Abolicao Orlando\nhttp://www.capoeira-orlando.com/\nProfessor Gigante \"Franklin Neves\"\n407-494-0261\nGigantedaabolicao@gmail.com\nhttps://www.facebook.com/Capoeira\nAbolicao Orlando-373410699728577/\n      Peaches Dance Studio\n9001 Taborfield Avenue,Orlando, FL 32836\nAges 10 and over: Mon & Tues 7:30-9:00pm;  Wed 7:00-8:30 pm\n      Sunset Park Elementary\nPE Pavillion, 12050 Overstreet Road, Windermere, FL 34786\nGrades 2nd - 5th: Tues 3:30 - 4:30 pm\n      Windermere High School\nDance Room, 5523 Winter Garden Vineland Rd, Windermere, FL 34786\nTues, Wed & Thurs  5:30 - 6:30 pm\nSOURCE: website  9/17/17"
+  },
+  {
+    "name": "Capoeira Karkara",
+    "website": "http://capoeirakarkara.com/",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Betinho",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@capokusa.com",
+      "phone": "[561] 737-3425"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Boynton Beach location",
+        "address": "106 Commerce Rd., Boynton Beach FL 33426",
+        "schedule": "(Full schedule of classes)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "106 Commerce Rd., Boynton Beach FL 33426\n(Full schedule of classes)"
+      },
+      {
+        "name": "Melbourne Capoeira and World Class MMA",
+        "address": "4185 W. New Haven Ave Melbourne, FL 32904",
+        "schedule": null,
+        "contactPerson": "Formado Ray",
+        "email": "info@capofitclub.com",
+        "phone": "[321]-223-0062",
+        "rawText": "Melbourne Capoeira and World Class MMA\n4185 W. New Haven Ave Melbourne, FL 32904\nEmail: info@capofitclub.com\nhttp://www.capofitclub.com"
+      }
+    ],
+    "notes": "Palm Beach County, Florida (Boynton Beach, Boca Raton, Melbourne, Palm Bay). Formado Ray: [321]-223-0062. SOURCE: website 9/16/17",
+    "rawRecord": "      Capoeira Karkara\n106 Commerce Rd., Boynton Beach FL 33426\nhttp://capoeirakarkara.com/\nContra Mestre Betinho\nPhone:  [561] 737-3425\nEmail  info@capokusa.com\n(Full schedule of classes)\n Formado Ray\n  [321]-223-0062\n      Melbourne Capoeira and World Class MMA\n4185 W. New Haven Ave Melbourne, FL 32904\nEmail: info@capofitclub.com\nhttp://www.capofitclub.com\nSOURCE: website 9/16/17"
+  },
+  {
+    "name": "Capoeira Males - Boca Raton",
+    "website": "http://www.velocitymartialarts.com/",
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Negao",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "561-416-7373"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Velocity Martial Arts",
+        "address": "5970 SW 18Th St. Suite 8&9 Boca Raton, Florida 33433",
+        "schedule": "Adults: Mon & Wed 7:45-9:30pm; Kids: Mon & Wed 6:15-7:15pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Velocity Martial Arts\n5970 SW 18Th St. Suite 8&9 Boca Raton, Florida 33433\nAdults: Mon & Wed  7:45-9:30pm\nKids: Mon & Wed  6:15-7:15pm"
+      }
+    ],
+    "notes": "Palm Beach County, Florida. Instrutor Negao under Mestre Curisco [Seattle]. SOURCE: website 10/5/17",
+    "rawRecord": "      Capoeira Males\nInstrutor Negao  under Mestre Curisco[Seattle]\n      Velocity Martial Arts\n5970 SW 18Th St. Suite 8&9 Boca Raton, Florida 33433\nhttp://www.velocitymartialarts.com/\n561-416-7373\nAdults: Mon & Wed  7:45-9:30pm\nKids: Mon & Wed  6:15-7:15pm\nSOURCE: website  10/5/17"
+  },
+  {
+    "name": "Melbourne Recreation Capoeira",
+    "website": null,
+    "leader": {
+      "title": "instructor",
+      "nickname": null,
+      "name": "Paekan Claudin"
+    },
+    "mainContact": null,
+    "sources": ["http://playmelbournefl.org/events/capoeira/"],
+    "locations": [
+      {
+        "name": "Melbourne Recreation",
+        "address": "1551 Highland Ave, Melbourne, FL 32935",
+        "schedule": "All ages and Levels: Mon &Thurs 5:30-6:30pm Aug 21, 2017-Jan 31, 2018",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Melbourne Recreation\n1551 Highland Ave, Melbourne, FL 32935\nAll ages and Levels:  Mon &Thurs 5:30-6:30pm  Aug 21, \n2017-Jan 31,  2018"
+      }
+    ],
+    "notes": "Palm Beach County, Florida. Instructor: Paekan Claudin. SOURCE: webpage 9/16/17",
+    "rawRecord": "Instructor: Paekan Claudin\n      Melbourne Recreation\n1551 Highland Ave, Melbourne, FL 32935\nhttp://playmelbournefl.org/events/capoeira/\nAll ages and Levels:  Mon &Thurs 5:30-6:30pm  Aug 21, \n2017-Jan 31,  2018\nSOURCE: webpage 9/16/17"
+  },
+  {
+    "name": "Capoeira LuandAngola",
+    "website": null,
+    "leader": {
+      "title": "professor",
+      "nickname": "Pica Pau",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": ["https://www.facebook.com/Grupo-LuandAngola-198583953536679/"],
+    "locations": [
+      {
+        "name": "Boca Raton location",
+        "address": "23103 Sandalfoot Plaza Dr, Boca Raton, Florida",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "23103 Sandalfoot Plaza Dr, Boca Raton, Florida"
+      }
+    ],
+    "notes": "Palm Beach County, Florida. Website offline 2/4/16. SOURCE facebook 2/4/16",
+    "rawRecord": "      Capoeira LuandAngola\n23103 Sandalfoot Plaza Dr, Boca Raton, Florida\nhttps://www.facebook.com/Grupo-LuandAngola-198583953536679/\n(website) (offline 2/4/16)\nProfessor Pica Pau\nSOURCE  facebook 2/4/16"
+  },
+  {
+    "name": "Palm Bay Capoeira - Parafusa",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": "Parafusa",
+      "name": "Josh Saavedra"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "[321] 952-1139"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Palm Beach County, Florida (Palm Bay). Email account no longer exists, please contact us 2/2/16. SOURCE: email 5/26/03",
+    "rawRecord": "Parafusa \"Josh Saavedra\"\n(email account no longer exists, please contact us  2/2/16)\n[321] 952-1139.\nPalm Bay\nSOURCE: email 5/26/03"
+  },
+  {
+    "name": "Capoeira Volta Ao Mundo - Sarasota",
+    "website": "http://www.capovam.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Rony Costa",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "[941] 922-4520"
+    },
+    "sources": ["http://www.capokids.com"],
+    "locations": [
+      {
+        "name": "Sarasota location",
+        "address": "4672 McIntosh Lane Sarasota, FL 34232",
+        "schedule": "Martial Arts Preschool CapoKids Mon-Fri 7:30am-6:00pm; After School Program: Mon-Fri: 3:30-6:00pm; CapoKids Ages 3-6: Tues & Thurs; CapoKids Ages 7-11: Mon & Wed 5:00-6:00pm; Adult Class: Mon-Thurs 6:00-7:00pm; RODA!: Fri 6:00-7:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "4672 McIntosh Lane Sarasota, FL 34232\nMartial Arts Preschool CapoKids Mon - Fri 7:30am-6:00pm\nAfter School Program:  Mon - Fri:  3:30-6:00pm\n CapoKids Ages 3-6: Tues & Thurs\n CapoKids Ages 7-11:  Mon & Wed  5:00-6:00pm:\nAdult Class: Mon - Thurs 6:00-7:00pm\nRODA! : Fri  6:00-7:00pm"
+      }
+    ],
+    "notes": "Sarasota, Florida. SOURCE: website 11/29/17",
+    "rawRecord": "      Capoeira Volta Ao Mundo\n4672 McIntosh Lane Sarasota, FL 34232\nMestre Rony Costa\nhttp://www.capovam.com/\nhttp://www.capokids.com\nPhone: [941] 922-4520\nMartial Arts Preschool CapoKids Mon - Fri 7:30am-6:00pm\nAfter School Program:  Mon - Fri:  3:30-6:00pm\n CapoKids Ages 3-6: Tues & Thurs\n CapoKids Ages 7-11:  Mon & Wed  5:00-6:00pm:\nAdult Class: Mon - Thurs 6:00-7:00pm\nRODA! : Fri  6:00-7:00pm\nSOURCE: website 11/29/17"
+  },
+  {
+    "name": "Sarasota Capoeira- Capoeira Maculele",
+    "website": null,
+    "leader": {
+      "title": "instructors",
+      "nickname": "Dende and Reco",
+      "name": "Gabriela Rocha and Gustavo Jorg"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@sarasotacapoeira..com",
+      "phone": "941-306-8433"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Sarasota location",
+        "address": "408 S Washington Blvd Sarasota, FL 34236",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "408 S Washington Blvd  Sarasota, FL 34236"
+      }
+    ],
+    "notes": "Sarasota, Florida. Instructors Dende 'Gabriela Rocha' and Reco' Gustavo Jorg' under the supervision of Girino [St Petersberg] affiliated to Mestre Fran. Ph: 941-586-2153. Website offline. Group is reported to be inactive. We are unable to find any current information We are attempting to contact 11/29/17. SOURCE: website 7/30/11",
+    "rawRecord": "      Sarasota Capoeira- Capoeira Maculele\n408 S Washington Blvd  Sarasota, FL 34236\nInstructors Dende \"Gabriela  Rocha\" and Reco\"  Gustavo \nJorg\"\nunder the supervision of  Girino[St\nPetersberg] affiliated to Mestre Fran\ninfo@sarasotacapoeira..com\nPh: 941-306-8433 or 941-586-2153\nSOURCE: website 7/30/11\n(Website offline Group is reported to be inactive. We are unable\nto find any current  information We are attempting to contact )11/29/17"
+  },
+  {
+    "name": "Capoeria Tampa Bay - Grupo Maculele",
+    "website": "https://tampacapoeira.com/",
+    "leader": {
+      "title": "mestrando",
+      "nickname": "Girino",
+      "name": "Eduardo Torres"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "tampacapoeira@gmail.com",
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Hip Expressions Studio",
+        "address": "2033 54th Ave N, St. Petersburg, FL",
+        "schedule": "Kids: Mon & Wed 6:00-7:00pm; Teens & adults: Mon & Wed 7:00-8:15pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Hip Expressions Studio\n2033 54th Ave N, St. Petersburg, FL\nKids: Mon & Wed 6:00-7:00pm\nTeens & adults: Mon & Wed 7:00-8:15pm"
+      }
+    ],
+    "notes": "St. Petersburg, Florida. Mestrando Girino under Mestre Fran. SOURCE: website 11/22/17",
+    "rawRecord": "      Capoeria Tampa Bay - Grupo Maculele\nhttps://tampacapoeira.com/\nMestrando Girino \"Eduardo Torres\" under Mestre Fran\ntampacapoeira@gmail.com\n      Hip Expressions Studio\n2033 54th Ave N, St. Petersburg, FL\nKids: Mon & Wed 6:00-7:00pm\nTeens & adults: Mon & Wed 7:00-8:15pm\nSOURCE: website 11/22/17"
+  },
+  {
+    "name": "CapoWhat-Capoeira Volta Ao Mundo",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": "Pica Pau and Brilhosa",
+      "name": "Rodney Ondrus and Mary Taylor"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@capowhat.com",
+      "phone": "727-698-1233"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Jewish Community Center",
+        "address": "5023 Central Ave. St. Petersburg, FL 33710",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": "[727] 321-6100",
+        "rawText": "Jewish Community Center 5023 Central Ave. St. Petersburg, FL\n33710\nPhone: [727] 321-6100"
+      }
+    ],
+    "notes": "St. Petersburg, Florida. Website offline 11/21/17, 11/22/17. SOURCE: websites 7/31/11",
+    "rawRecord": "      CapoWhat-Capoeira Volta Ao Mundo\nPica Pau \"Rodney Ondrus\" and   Brilhosa \"Mary Taylor \"\n(website offline 11/21/17)\ncall: 727-698-1233\ninfo@capowhat.com\n      Jewish Community Center 5023 Central Ave. St. Petersburg, FL\n33710\nPhone: [727] 321-6100\n(website offline 11/22/17)\nSOURCE: websites 7/31/11"
+  },
+  {
+    "name": "Capoeira dos Escorpioes",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "scorpioncapoeira@yahoo.com",
+      "phone": null
+    },
+    "sources": [
+      "https://sites.google.com/site/scorpionclanrockstheworld/",
+      "http://www.facebook.com/capoeira.dosescorpioes"
+    ],
+    "locations": [],
+    "notes": "St. Petersburg, Florida. Has moved to Fort Worth. SOURCE: facebook 2/21/12",
+    "rawRecord": "      Capoeira dos Escorpioes\nhas moved to Fort Worth\nhttps://sites.google.com/site/scorpionclanrockstheworld/\nscorpioncapoeira@yahoo.com\nhttp://www.facebook.com/capoeira.dosescorpioes\nSOURCE: facebook 2/21/12"
+  },
+  {
+    "name": "Capoeira Besouro Florida",
+    "website": null,
+    "leader": {
+      "title": "mestre",
+      "nickname": "Bocoio",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "St. Petersburg, Florida. Mestre Bocoio is in Rio 11/22/17.",
+    "rawRecord": "      Capoeira Besouro Florida\nMestre Bocoio (is in Rio 11/22/17)"
+  },
+  {
+    "name": "Tallahassee Capoeira - Allied Capoeira League",
+    "website": "https://www.tallahasseecapoeira.com/",
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "[850] 264-6792"
+    },
+    "sources": ["https://www.facebook.com/TallahasseeCapoeira/", "http://www.tallahasseecapoeira.com/"],
+    "locations": [
+      {
+        "name": "Tallahassee Martial Arts and Self Defense Academy",
+        "address": "2706 N Monroe St Tallahassee FL United States 32303",
+        "schedule": "Teens and Adults: Mon, Wed, & Fri 7:00-8:00pm; Little Kids 4-6: Mon & Wed 4:00-4:45pm; Big Kids 7-11 Mon & Wed 5:00-5:45pm; Adult Music Class: Mon 6:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Tallahassee Martial Arts and Self Defense Academy\n2706 N Monroe St Tallahassee FL United States 32303\nTeens and Adults: Mon, Wed, & Fri 7:00-8:00pm\nLittle Kids  4-6 : Mon & Wed 4:00-4:45pm\nBig Kids  7-11 Mon & Wed 5:00-5:45pm\nAdult Music Class:  Mon 6:30pm"
+      }
+    ],
+    "notes": "Talahassee, Florida. SOURCE: website 11/29/17",
+    "rawRecord": "      Tallahassee Capoeira  - Allied Capoeira League\nhttps://www.tallahasseecapoeira.com/\n[850] 264-6792\nhttps://www.facebook.com/TallahasseeCapoeira/\n      Tallahassee Martial Arts and Self Defense Academy\n2706 N Monroe St Tallahassee FL United States 32303\nTeens and Adults: Mon, Wed, & Fri 7:00-8:00pm\nLittle Kids  4-6 : Mon & Wed 4:00-4:45pm\nBig Kids  7-11 Mon & Wed 5:00-5:45pm\nAdult Music Class:  Mon 6:30pm\nSOURCE: website 11/29/17\nhttp://www.tallahasseecapoeira.com/"
+  },
+  {
+    "name": "Grupo Bantu Beira Mar - Tallahassee",
+    "website": "http://www.gbantu.com",
+    "leader": {
+      "title": null,
+      "nickname": "Preguica",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "[850] 980-2627"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Talahassee, Florida. Email failed and no current information for this teacher or this location is listed on the website 11/29/17. SOURCE: website 2/2/11",
+    "rawRecord": "      Grupo Bantu Beira Mar\nhttp://www.gbantu.com\nPreguica\n  [850] 980-2627\ne(mail failed and no current information for  this teacher or\nthis location is  listed on the website 11/29/17)\nSOURCE: website 2/2/11"
+  }
+]

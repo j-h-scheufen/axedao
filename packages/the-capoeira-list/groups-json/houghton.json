@@ -1,0 +1,121 @@
+[
+  {
+    "name": "Michigan Technological University - Superior Capoeira",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Diego J. Levy",
+      "email": "lscapoeira@gmail.com",
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Michigan Technological University",
+        "address": "1400 Townsend Dr., MUB 106 Houghton, MI 49931",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Address: 1400 Townsend Dr., MUB 106 Houghton, MI 49931"
+      }
+    ],
+    "notes": "Houghton, MI. President: Diego J. Levy (djlevy@mtu.edu), Advisor: Miguel Levy [2009] (mlevy@mtu.edu). All sources on this page are offline. We are attempting to email 8/19/18. SOURCE: offline website 2/1/11",
+    "rawRecord": "      Michigan Technological University - Superior Capoeira\nEmail: lscapoeira@gmail.com\nAddress: 1400 Townsend Dr., MUB 106 Houghton, MI 49931\nPresident: Diego J. Levy  djlevy@mtu{D0T.edu\nAdvisor: Miguel Levy [2009] mlevy@mtu.edu\nSOURCE: offline website  2/1/1"
+  },
+  {
+    "name": "Indigo Massage & Wellness Studio",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "cmirwin@mtu.edu",
+      "phone": "[906] 523-5750"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Indigo Massage & Wellness Studio",
+        "address": "520 Shelden Ave. Houghton MI 49931",
+        "schedule": "Thurs & Sun 6:00-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": "[906] 201-0409",
+        "rawText": "Indigo Massage & Wellness Studio\n520 Shelden Ave.  Houghton MI 49931\n(Downtown Houghton Between Cyberia Cafe &\nVictoria's Kitchen)\n[906] 523 – 5750; [906] 201 – 0409\ncmirwin@mtu.edu\nThurs & Sun 6:00-8:00pm"
+      }
+    ],
+    "notes": "Houghton, MI. Downtown Houghton Between Cyberia Cafe & Victoria's Kitchen. SOURCE: offline website 2/1/11",
+    "rawRecord": "      Indigo Massage & Wellness Studio\n520 Shelden Ave.  Houghton MI 49931\n(Downtown Houghton Between Cyberia Cafe &\nVictoria's Kitchen)\n[906] 523 – 5750; [906] 201 – 0409\ncmirwin@mtu.edu\nThurs & Sun 6:00-8:00pm\nSOURCE: offline website \nl 2/1/11"
+  },
+  {
+    "name": "Cordão de Ouro",
+    "website": null,
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Show Grande",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Anna Hessen",
+      "email": "cdowestmichigan@gmail.com",
+      "phone": null
+    },
+    "sources": ["http://www.facebook.com/group.php?gid=25016025168"],
+    "locations": [
+      {
+        "name": "Kiva Room: Faunce Center: Western Michigan University",
+        "address": null,
+        "schedule": "Wed 6-8pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Kiva Room: Faunce Center: Western Michigan University\nWed 6-8pm"
+      },
+      {
+        "name": "Franklin Athletic Club",
+        "address": null,
+        "schedule": "Open Rodas",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Franklin Athletic Club\nOpen Rodas;"
+      }
+    ],
+    "notes": "Kalamazoo, MI. Website and facebook offline 9/11/18. SOURCE: website facebook 2/1/11",
+    "rawRecord": "      Cordão de Ouro\n\n(website and facebook offline 9/11/18) \nhttp://www.facebook.com/group.php?gid=25016025168\n\nInstrutor Show Grande\n\nContact: Anna Hessen\n\n  cdowestmichigan@gmail.com\n\n      Kiva Room: Faunce Center: Western Michigan University\n\nWed 6-8pm\n\n       Franklin Athletic Club\n\nOpen Rodas;\n\nSOURCE: website facebook  \n2/1/11"
+  },
+  {
+    "name": "Northern Michigan University Capoeira Club",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Jennifer Kirk",
+      "email": "jkirk@nmu.edu",
+      "phone": null
+    },
+    "sources": ["www.nmu.com", "capoeira.com"],
+    "locations": [
+      {
+        "name": "Northern Michigan University",
+        "address": "217 Spooner Hall",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Northern Michigan University \nCapoeira Club \n 217 Spooner Hall"
+      }
+    ],
+    "notes": "Marquette, MI. A search of nmu.edu for capoeira club gave no results 9/14/18. Attempting to contact 9/21/18. Alternate email: capoeiranm@gmail.com. SOURCE: www.nmu.com 7/23/06, capoeira.com Sat Jul 22 2006, 09:19",
+    "rawRecord": "(a search of  nmu.edu for capoeira club gave no results\n  9/14/18)\n     \n    Northern Michigan University \nCapoeira Club \n 217 Spooner Hall \nContact:  Jennifer Kirk \n(attempting to contact 9/21/18\n)   jkirk{      /\\T}nmu.edu \nSOURCE:  www.nmu.com 7/23/06 \ncapoeiranm{      /\\T}gmail .com \nSOURCE: capoeira.com Sat Jul 22 2006, 09:19"
+  },
+  {
+    "name": "Port Huron Capoeira",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Port Huron, MI. We have no current information as of 9/21/18",
+    "rawRecord": "(We have no current information 9/21/18)"
+  }
+]

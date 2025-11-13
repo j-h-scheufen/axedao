@@ -1,0 +1,408 @@
+[
+  {
+    "name": "Axe Capoeira",
+    "website": "http://www.axemaryland.com/",
+    "leader": {
+      "title": null,
+      "nickname": "Catatau",
+      "name": "Bayu Wicaksono"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "axemaryland@gmail.com",
+      "phone": "240-281-7828"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Anne Arundel Community College",
+        "address": "CADE building, 1st floor, 101 College Parkway, Arnold, MD 21012-1895",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Anne Arundel Community College\nCADE building, 1st floor, 101 College Parkway, Arnold, MD 21012-1895"
+      },
+      {
+        "name": "Wulin Institute",
+        "address": "7164 E Furnace Branch Road, Glen Burnie, MD 21061",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": "240-281-7828",
+        "rawText": "Wulin Institute\n7164 E Furnace Branch Road, Glen Burnie, MD 21061\n240-281-7828"
+      }
+    ],
+    "notes": "under the guidance of instrutor Bambu[Chicago]. SOURCE. website / 3/30/18",
+    "rawRecord": "      Axe Capoeira\nhttp://www.axemaryland.com/\nCatatau \"Bayu Wicaksono\"  under the guidance of instrutor Bambu[Chicago]\naxemaryland@gmail.com\n      Anne Arundel Community College\nCADE building, 1st floor, 101 College Parkway, Arnold, MD 21012-1895\n      Wulin Institute\n7164 E Furnace Branch Road, Glen Burnie, MD 21061\n240-281-7828\nSOURCE. website / 3/30/18"
+  },
+  {
+    "name": "Oficina da Capoeira",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": "Graduado Siriguejo",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "OdCbaltimore@gmail.com",
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "South River High School Capoeira Club",
+        "address": null,
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "South River High School Capoeira Club"
+      },
+      {
+        "name": "Social Project Classes in Annapolis",
+        "address": null,
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Social Project Classes in Annapolis"
+      }
+    ],
+    "notes": "under Mestre Ray. (website offline 5/6/18). SOURCE: website 7/24/16",
+    "rawRecord": "      Oficina da Capoeira\n(website offline 5/6/18)\nOdCbaltimore@gmail.com\nGraduado Siriguejo under Mestre Ray\n      South River High School Capoeira Club\n      Social Project Classes in Annapolis\nSOURCE: website 7/24/16"
+  },
+  {
+    "name": "FICA Baltimore",
+    "website": "http://ficabaltimore.org/",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Skher Brown",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@ficabaltimore.org",
+      "phone": "[443] 692-7909"
+    },
+    "sources": ["https://www.facebook.com/pg/ficabmore"],
+    "locations": [
+      {
+        "name": "Asana Roots",
+        "address": "1707 N Charles St #201, Baltimore, MD 21201",
+        "schedule": "Mon 7:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Asana Roots\n1707 N Charles St #201, Baltimore, MD 21201.\nMon 7:00pm"
+      }
+    ],
+    "notes": "trained under the tutelage of Mestre Cobra Mansa. SOURCE: website 5/14/18",
+    "rawRecord": "      ( )FICA Baltimore\nhttp://ficabaltimore.org/\nContra Mestre Skher Brown trained under the tutelage of Mestre Cobra\nMansa\n[443] 692-7909\ninfo@ficabaltimore.org\nhttps://www.facebook.com/pg/ficabmore\n      Asana Roots\n1707 N Charles St #201, Baltimore, MD 21201.\nMon 7:00pm\nSOURCE:  website 5/14/18"
+  },
+  {
+    "name": "Goucher College Capoeria Club",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Cydney Cohn",
+      "email": "cydney.cohn@mail.goucher.edu",
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "SOURCE: www.goucher.edu 5/10/18",
+    "rawRecord": "       Goucher College Capoeria Club\nContact Cydney Cohn\n cydney.cohn@mail.goucher.edu\nSOURCE: www.goucher.edu  5/10/18"
+  },
+  {
+    "name": "Carioca Capoeira",
+    "website": "http://www.capoeiracariocamaryland.com",
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Onca",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "daryl-brigman@comcast.net",
+      "phone": "843-409-7249"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Baltimore Martial Arts Academy",
+        "address": "6565 Baltimore National Pike, Catonsville MA 21228",
+        "schedule": "All Levels: Sat1:00pm-Until; Kids: Tues 5:00-6:00pm; Adults: Tues & Thur: 6:00-7:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": "410-465-7799",
+        "rawText": "Baltimore Martial Arts Academy\n6565 Baltimore National Pike, Catonsville MA 21228\nPhone-410-465-7799\nhttp://www.baltimoremartialarts.com\nAll Levels: Sat1:00pm-Until\nKids: Tues  5:00-6:00pm-\nAdults: Tues & Thur: 6:00-7:30pm"
+      }
+    ],
+    "notes": "under Professor Queixo[Charleston], and Mestre Carioca. SOURCE: website 5/15/18",
+    "rawRecord": "      Carioca Capoeira\nhttp://www.capoeiracariocamaryland.com\nInstrutor Onca under under Professor Queixo[Charleston],\nand Mestre Carioca\ndaryl-brigman@comcast.net\n843-409-7249\n      Baltimore Martial Arts Academy\n6565 Baltimore National Pike, Catonsville MA 21228\nPhone-410-465-7799\nhttp://www.baltimoremartialarts.com\nAll Levels: Sat1:00pm-Until\nKids: Tues  5:00-6:00pm-\nAdults: Tues & Thur: 6:00-7:30pm\nSOURCE:  website 5/15/18"
+  },
+  {
+    "name": "Capoeira Luanda",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "sarah.cormiea@gmail.com, gnicolu1@jhu.edu",
+      "phone": null
+    },
+    "sources": ["https://www.facebook.com/groups/145338508929458/about/"],
+    "locations": [
+      {
+        "name": "John Hopkins University - Great Hall of Levering [Homewood]",
+        "address": null,
+        "schedule": "Thur, 8:00-9:15pm at [Spring 2018] (please contact for location and time updates)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "John Hopkins University\nhttps://johnshopkins.campuslabs.com/engage/organization/jhucapoeira\nhttps://johnshopkins.campuslabs.com/engage/organization/JHUCA\nGreat Hall of Levering [Homewood]\nsarah.cormiea@gmail.com\ngnicolu1@jhu.edu\nThur , 8:00-9:15pm at  [Spring 2018]\n(please contact for location and time updates)"
+      }
+    ],
+    "notes": "under Mestre Jelon supervised by Contra-Mestre Borracha and Monitor Senzala. SOURCE: website 5/7/18",
+    "rawRecord": "      Capoeira Luanda\nunder  Mestre Jelon supervised by Contra-Mestre Borracha and Monitor\nSenzala.\nhttps://www.facebook.com/groups/145338508929458/about/\n      John Hopkins University\nhttps://johnshopkins.campuslabs.com/engage/organization/jhucapoeira\nhttps://johnshopkins.campuslabs.com/engage/organization/JHUCA\nGreat Hall of Levering [Homewood]\nsarah.cormiea@gmail.com\ngnicolu1@jhu.edu\nThur , 8:00-9:15pm at  [Spring 2018]\n(please contact for location and time updates)\nSOURCE:  website 5/7/18"
+  },
+  {
+    "name": "African Liberation Capoeira Angola",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": ["https://www.facebook.com/aya.bmore/"],
+    "locations": [
+      {
+        "name": "Wombwork Productions, Inc.",
+        "address": "3123 Walbrook Avenue, Baltimore, MD 21216",
+        "schedule": "Tues & Fri 7:00-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Wombwork Productions, Inc.\n3123 Walbrook Avenue, Baltimore, MD 21216\nTues &  Fri 7:00-9:00pm"
+      }
+    ],
+    "notes": "SOURCE: facebook email 5/11/18",
+    "rawRecord": "      African Liberation Capoeira Angola\nhttps://www.facebook.com/aya.bmore/\n      Wombwork Productions, Inc.\n3123 Walbrook Avenue, Baltimore, MD 21216\nTues &  Fri 7:00-9:00pm\nSOURCE:  facebook  email 5/11/18"
+  },
+  {
+    "name": "Oficina da Capoeira",
+    "website": "http://www.capoeirasocialproject.org/",
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "currently does not offer regular classes. offers in school/festival demonstrations and workshops under non-profit Capoeira Social Project in MD, DC, and VA. SOURCE: email 5/22/18",
+    "rawRecord": "      Oficina da Capoeira\ncurrently does not offer regular classes. offers in school/festival\ndemonstrations and workshops under non-profit Capoeira Social Project in\nMD, DC, and VA.\nhttp://www.capoeirasocialproject.org/\nSOURCE:  email  5/22/18"
+  },
+  {
+    "name": "Capoeria Karkara",
+    "website": "http://capoeirakarkara.com",
+    "leader": {
+      "title": "formado",
+      "nickname": "Band-aid",
+      "name": "Matt Strobel"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "formadobandaid@gmail.com",
+      "phone": "[202] 368-5325"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "The Studio Cooperative",
+        "address": "10400 O'Donnell Place #201, Waldorf, MD 20603",
+        "schedule": "(See website for schedule)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "The Studio Cooperative\n10400 O'Donnell Place #201, Waldorf, MD 20603\nhtttp://www.thestudiocooperative.org\n(See website for schedule)"
+      }
+    ],
+    "notes": "Charles County, Waldorf. SOURCE: websites 5/15/18",
+    "rawRecord": "      Capoeria Karkara\nhttp://capoeirakarkara.com\nFormado  Band-aid  \"Matt Strobel\"\n  Phone: [202] 368-5325\n  Email: formadobandaid@gmail.com\n      The Studio Cooperative\n10400 O'Donnell Place #201, Waldorf, MD 20603\nhtttp://www.thestudiocooperative.org\n(See website for schedule)\nSOURCE:   websites 5/15/18"
+  },
+  {
+    "name": "FICA",
+    "website": "https://www.sambatrovao.com",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "BabaJan",
+      "name": "Livaldi da Cruz"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "sambatrovao@gmail.com",
+      "phone": "301.704.4703"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Espaço Cultural Samba Trovão",
+        "address": "4318 Hamilton Street #203, Hyattsville 20781",
+        "schedule": "Ages 14- up: Mon & Wed 7:00 - 9:00pm; Sat11:00am-1:00pm; Ages 5 - 13: Tues & Thurs 6:00pm - 7:00pm; Sat 10:00- 11:00am; Ages 5-under with parents:(3 families needed for class to started)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Espaço Cultural Samba Trovão\n4318 Hamilton Street #203, Hyattsville  20781\nhttps://www.sambatrovao.com\nsambatrovao@gmail.com\n301.704.4703\nAges 14- up: Mon  & Wed 7:00 - 9:00pm; Sat11:00am-1:00pm\nAges 5 - 13: Tues & Thurs  6:00pm - 7:00pm; Sat 10:00- 11:00am\nAges 5-under with parents:( 3 families needed  for class to\nstarted)"
+      }
+    ],
+    "notes": "Prince George's County, Hyattsville, Capital Heights. SOURCE: website 5/16/18",
+    "rawRecord": "      FICA\nContra Mestre BabaJan \"Livaldi  da Cruz\"\n      Espaço Cultural Samba Trovão\n4318 Hamilton Street #203, Hyattsville  20781\nhttps://www.sambatrovao.com\nsambatrovao@gmail.com\n301.704.4703\nAges 14- up: Mon  & Wed 7:00 - 9:00pm; Sat11:00am-1:00pm\nAges 5 - 13: Tues & Thurs  6:00pm - 7:00pm; Sat 10:00- 11:00am\nAges 5-under with parents:( 3 families needed  for class to\nstarted)\nSOURCE: website 5/16/18"
+  },
+  {
+    "name": "Capoeira Sul da Bahia",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "No longer appears to be in Prince George's County, but is still in Takoma Park",
+    "rawRecord": "       Capoeira Sul da Bahia\nNo longer appears to be  in Prince George's County, but is still\nin Takoma Park"
+  },
+  {
+    "name": "Oficina da Capoeira",
+    "website": "http://www.capoeirasocialproject.org/",
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "currently does not offer regular classes. offers in school/festival demonstrations and workshops under non-profit Capoeira Social Project in MD, DC, and VA. SOURCE: email 5/22/18",
+    "rawRecord": "      Oficina da Capoeira\ncurrently does not offer regular classes. offers in school/festival\ndemonstrations and workshops under non-profit Capoeira Social Project in\nMD, DC, and VA.\nhttp://www.capoeirasocialproject.org/\nSOURCE:  email  5/22/18"
+  },
+  {
+    "name": "Capoeira Barro Vermelho",
+    "website": "http://www.capoeirafitnessdc.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Bomba",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "bombabahia@gmail.com",
+      "phone": "+1 [202] 838-3907"
+    },
+    "sources": ["https://www.facebook.com/groups/capoeiraDC/"],
+    "locations": [
+      {
+        "name": "Brookmont Church",
+        "address": "Social Hall 4000 Virginia Pl, Bethesda, MD 20816",
+        "schedule": "Ages 4-6 : Mon 4:00-4:40 pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Brookmont Church\nSocial Hall 4000 Virginia Pl, Bethesda, MD 20816\nAges 4-6 : Mon 4:00-4:40 pm"
+      }
+    ],
+    "notes": "Montgomery County. Mail: 4103 18th St., NW Washington, DC 20011. SOURCE: website 5/19/18",
+    "rawRecord": "      Capoeira Barro Vermelho\nhttp://www.capoeirafitnessdc.com/\nMestre Bomba\nPhone: +1 [202] 838-3907\nEmail: bombabahia@gmail.com\nMail: 4103 18th St., NW Washington, DC  20011\nhttps://www.facebook.com/groups/capoeiraDC/\n      Brookmont Church\nSocial Hall 4000 Virginia Pl, Bethesda, MD 20816\nAges 4-6 : Mon 4:00-4:40 pm\nSOURCE: website 5/19/18"
+  },
+  {
+    "name": "Capoeira Sul da Bahia - ANGA Capoeira",
+    "website": "http://rodamovements.com/fight/capoeira-all-levels/",
+    "leader": {
+      "title": "professor",
+      "nickname": "Hakim",
+      "name": "Roberto Tapia"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "rodamovements@gmail.com",
+      "phone": "301-920-0913"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Roda Movements Academy",
+        "address": "7014-A Westmoreland Ave, Takoma Park, MD 20912",
+        "schedule": "Beginner: Mon 7:30-9:00pm; All Levels: Wed 7:30-9:00pm; Level 3: Fri 7:30-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Roda Movements Academy\n7014-A Westmoreland Ave, Takoma Park, MD 20912\nPhone:  301-920-0913\nrodamovements@gmail.com\nBeginner: Mon 7:30-9:00pm\nAll Levels: Wed 7:30-9:00pm\nLevel 3: Fri 7:30-9:00pm"
+      }
+    ],
+    "notes": "under Mestre Maxuel[Philadelphia]. SOURCE: website 5/16/18",
+    "rawRecord": "      Capoeira Sul da Bahia - ANGA Capoeira\nhttp://rodamovements.com/fight/capoeira-all-levels/\nProfessor Hakim  \"Roberto Tapia \"  under  Mestre Maxuel[Philadelphia]\n      Roda Movements Academy\n7014-A Westmoreland Ave, Takoma Park, MD 20912\nPhone:  301-920-0913\nrodamovements@gmail.com\nBeginner: Mon 7:30-9:00pm\nAll Levels: Wed 7:30-9:00pm\nLevel 3: Fri 7:30-9:00pm\nSOURCE: website 5/16/18"
+  },
+  {
+    "name": "Abadá Capoeira",
+    "website": "http://abadadc.org/",
+    "leader": {
+      "title": "professora",
+      "nickname": "Yara",
+      "name": "Yara Cordeiro"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@abadadc.org",
+      "phone": "301-947-5806"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Rendevouz Social Dance Studio",
+        "address": "11910 Parklawn Dr, Rockville MD",
+        "schedule": "Children: Tues & Thurs 5:30 – 6:30 pm; Sat 1:00-2:00pm; Adolescents / Adults:: Tues & Thurs7:30 – 9:00; Sat 2:00 – 3:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Rendevouz Social Dance Studio\n11910 Parklawn Dr, Rockville MD\nChildren: Tues & Thurs 5:30 – 6:30 pm; Sat  1:00-2:00pm\nAdolescents / Adults::  Tues & Thurs7:30 – 9:00; Sat 2:00 – 3:30pm"
+      }
+    ],
+    "notes": "SOURCE: website 11/30/19",
+    "rawRecord": "       Abadá Capoeira\nhttp://abadadc.org/\nProfessora Yara\n\"Yara Cordeiro\"\nemail:  info@abadadc.org\n\nphone: 301-947-5806       Rendevouz Social Dance Studio\n11910 Parklawn Dr, Rockville MD\nChildren: Tues & Thurs 5:30 – 6:30 pm; Sat  1:00-2:00pm\nAdolescents / Adults::  Tues & Thurs7:30 – 9:00; Sat 2:00 – 3:30pm\nSOURCE: website 11/30/19"
+  },
+  {
+    "name": "Oficina da Capoeira",
+    "website": "http://www.capoeirasocialproject.org/",
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "currently does not offer regular classes. offers in school/festival demonstrations and workshops under non-profit Capoeira Social Project in MD, DC, and VA. SOURCE: email 5/22/18",
+    "rawRecord": "      Oficina da Capoeira\ncurrently does not offer regular classes. offers in school/festival\ndemonstrations and workshops under non-profit Capoeira Social Project in\nMD, DC, and VA.\nhttp://www.capoeirasocialproject.org/\nSOURCE:  email  5/22/18"
+  },
+  {
+    "name": "mini capoeira community",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": "Chorou",
+      "name": "Matt"
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Worcester County. formerly of Batus Capoeira-Israel [mastre Pintor]. Ocean City, Berlin, Ocean Pines, Mystic, Oyster Harbor, Bishipville, Rehoboth Beach. free of charge. Yellow/black belt in batizado. SOURCE: email 10/16/04 (email bounced We have no current information; please contact us 12/1/11)",
+    "rawRecord": "mini capoeira community\nChorou \"Matt\"\nformerly of        Batus Capoeira-Israel  [mastre Pintor]\nOcean City, Berlin, Ocean Pines, Mystic, Oyster Harbor, Bishipville,\nRehoboth Beach\nfree of charge\nCapoeira Backround:\n    in the end of 2002 i heard about capoeira\nnear my\n    house  [in israel] i didnt know\nwhat it was so i went to check it\n     out....it was  AWSOME i\nloved it i used to practise with 3 freinds more\n     than 3 hours a day  EVERYDAY\ni wouldnt/ couldnt miss out on it!! it was\n     like a lifestyle to me!\ni have been to 1 batizado and i used to take\n     classes with \"Batus Capoeira\n[mastre Pintor]\"\n    i got a yeelow/black belt in the batizado....\nSOURCE: email  10/16/04\n(email bounced  We have no current information; please contact\nus 12/1/11)()"
+  },
+  {
+    "name": "Bangor Capoeira Group",
+    "website": "http://www.facebook.com/pages/Bangor-Capoeira-Group/188477926908",
+    "leader": null,
+    "mainContact": {
+      "name": "Garrett Broadway",
+      "email": "bangorcapoeira@gmail.com",
+      "phone": "[207] 404-0298, [207]344-8623"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Kishintaikan Dojo",
+        "address": "88 Central St., Bangor, ME 04401",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Kishintaikan Dojo\n88 Central St., Bangor, ME 04401"
+      }
+    ],
+    "notes": "Bangor, ME. SOURCE: facebook 7/24/18",
+    "rawRecord": "      Bangor Capoeira Group\nhttp://www.facebook.com/pages/Bangor-Capoeira-Group/188477926908\n[207] 404-0298\nContact Garrett Broadway\n  [207]344-8623\n  bangorcapoeira@gmail.com\n      Kishintaikan Dojo\n88 Central St., Bangor, ME 04401\nSOURCE: facebook 7/24/18"
+  }
+]

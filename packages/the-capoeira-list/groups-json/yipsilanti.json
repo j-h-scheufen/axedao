@@ -1,0 +1,946 @@
+[
+  {
+    "name": "Cordao de Ouro Michigan",
+    "website": "http://www.cdomichigan.com/",
+    "leader": null,
+    "mainContact": {
+      "name": "Instructor Manhoso (Van Robins)",
+      "email": "info@cdomichigan.com",
+      "phone": "734.548.0641"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Ypsilanti, Michigan. Instructor Manhoso (Van Robins). Class information on website is for Fall 2011. SOURCE: website 1/29/12",
+    "rawRecord": "      Cordao de Ouro\nhttp://www.cdomichigan.com/\nInstructor Manhoso \"Van Robins\"\nE-mail: info@cdomichigan.com\nTelephone: 734.548.0641\n(Class information on website is for Fall 2011)\nSOURCE: website 1/29/12"
+  },
+  {
+    "name": "Capoeira Mandinga-EMU",
+    "website": "http://www.facebook.com/pages/Capoeira-Mandinga-EMU/222674431079502",
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Eastern Michigan University, Ypsilanti, Michigan. It appears that this group is inactive. The website is dead. SOURCE: facebook 1/29/12",
+    "rawRecord": "      Capoeira Mandinga-EMU\nhttp://www.facebook.com/pages/Capoeira-Mandinga-EMU/222674431079502\n(It appears that this group is inactive. The website is dead.)\nSOURCE: facebook 1/29/12"
+  },
+  {
+    "name": "Capoeira Batuque",
+    "website": null,
+    "leader": {
+      "title": "monitor",
+      "nickname": "Surfista Prateado",
+      "name": "Nicholas DeShaw"
+    },
+    "mainContact": null,
+    "sources": ["https://www.facebook.com/BatuqueDuluth/"],
+    "locations": [],
+    "notes": "Duluth, Minnesota. Monitor Surfista Prateado (Nicholas DeShaw) overseen by Contra Mestre Versatil and Mestre Amen [Los Angeles]. Teacher has moved away; no current classes 12/9/18. SOURCE: facebook 12/9/18",
+    "rawRecord": "      Capoeira Batuque \n(teacher has moved away; no current classes 12//9/18)\nhttps://www.facebook.com/BatuqueDuluth/\n\n      \n      Monitor Surfista Prateado  \"Nicholas  DeShaw\" \noverseen by  Contra Mestre Versatil  and Mestre Amen[Los Angeles]"
+  },
+  {
+    "name": "University of Minnesota Duluth Capoeira Club",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Justin Brach",
+      "email": "desh0045@d.umn.edu",
+      "phone": "[651] 434-4893"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Duluth, Minnesota. Primary Contact: Justin Brach. Website and facebook offline; no current information on UMD website 12/21/18. SOURCE: capoeira.com 1/24/11",
+    "rawRecord": "       University of Minnesota Duluth Capoeira Club(\n website and facebook offline; no current information on UMD\n      website 12/21/18)\nPrimary Contact: \"Justin Brach\"\ndesh0045@d.umn.edu\nP: [651] 434-4893\nSOURCE: capoeira .com 1/24/11"
+  },
+  {
+    "name": "Afro-Brazilian Capoeira Association",
+    "website": "http://www.abcapoeira.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Yoji Senna",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Mestre Yoji Senna",
+      "email": "abcapoeira@gmail.com",
+      "phone": "612-298-3402"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "South High School",
+        "address": "Weight Room, 3131 S 19th Ave, Minneapolis, MN 55407",
+        "schedule": "Tues & Thurs 7:00-9:00pm; Roda Sat 2:00pm (intermittent schedule, contact for dates)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "South High School\nWeight Room, 3131 S 19th Ave, Minneapolis, MN\n55407\nTues & Thurs 7:00-9:00pm\nRoda Sat 2:00pm.( intermittent schedule, contact for dates)"
+      }
+    ],
+    "notes": "Minneapolis-St.Paul, Minnesota. Mestre Yoji Senna. SOURCE: website 10/4/18",
+    "rawRecord": "          Afro-Brazilian Capoeira Association \n      http://www.abcapoeira.com/\n      \n      Mestre Yoji Senna \n        612-298-3402\n      Email: abcapoeira@gmail.com \n            South High School\n      Weight Room, 3131 S 19th Ave, Minneapolis, MN\n          55407\n      Tues & Thurs 7:00-9:00pm\nRoda Sat 2:00pm.( intermittent schedule, contact for dates)(\nS)OURCE: website 10/4/18"
+  },
+  {
+    "name": "University of Minnesota ABKilombo Capoeira Club",
+    "website": "https://www.abkilombo.com/",
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "abcapd@umn.edu",
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Minneapolis, Minnesota. Not currently active 12/9/19. SOURCE: website 12/9/19",
+    "rawRecord": "      University of Minnesota ABKilombo Capoeira Club\n  https://www.abkilombo.com/\n    abcapd@umn.edu\n(Not currently active 12/9/19)"
+  },
+  {
+    "name": "Capoeira Floração",
+    "website": "http://www.mncapoeira.org/",
+    "leader": null,
+    "mainContact": {
+      "name": "Instrutor Coruja (James Lynch) and Monitora Vespa (Jenny Johnson-Blanchard)",
+      "email": "minnesotacap@gmail.com",
+      "phone": "612-326-0809"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Minnesota Capoeira Academy",
+        "address": "6463 Lyndale Avenue South, Richfield, MN 55423",
+        "schedule": "(full schedule of classes)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Minnesota Capoeira Academy \n6463 Lyndale Avenue South,  Richfield, MN  55423 \n(full schedule of classes)"
+      }
+    ],
+    "notes": "Minneapolis, Minnesota. Instrutor Coruja (James Lynch) and Monitora Vespa (Jenny Johnson-Blanchard). SOURCE: website 2/18/18",
+    "rawRecord": "      Capoeira Floração \n    http://www.mncapoeira.org/\n    \n    Instrutor Coruja \"James Lynch\" \n    Monitora  Vespa \"Jenny Johnson-Blanchard\" \n    Phone: 612-326-0809 \n    Email:  minnesotacap@gmail.com \n          Minnesota Capoeira Academy \n    6463 Lyndale Avenue South,  Richfield, MN  55423 \n    (full schedule of classes) \n    SOURCE:  website 2/18/18"
+  },
+  {
+    "name": "Capoeira Minnesota - Capuraginga",
+    "website": "http://capmsp.com/",
+    "leader": null,
+    "mainContact": {
+      "name": "Graduado Guerreiro - Head Team Instructor; Arco-íris - Head Children's Instructor",
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Minneapolis-St.Paul, Minnesota. Graduado Guerreiro - Head Team Instructor; Arco-íris - Head Children's Instructor. Class in St Paul and Minneapolis, and surrounding cities including Eagan, West St Paul, East St Paul, Woodbury, Maplewood, Apple Valley, Burnsville, Oakdale, Forest Lake, Inver Grove Heights, Roseville, Shakopee, Mendota Heights, Edina, and Eden Prairie. SOURCE: website 4/2/19",
+    "rawRecord": "      Capoeira Minnesota - Capuraginga \n    http://capmsp.com/\n    Graduado Guerreiro  - Head Team Instructor\n    Arco-íris - Head Children's Instructor\n     (Class in St Paul and Minneapolis, and surrounding cities\n      including Eagan, West St Paul, East St Paul, Woodbury, Maplewood,\n      Apple Valley, Burnsville, Oakdale, Forest Lake, Inver Grove\n      Heights, Roseville, Shakopee, Mendota Heights, Edina, and Eden\n      Prairie.)\n    SOURCE: website 4/2/19"
+  },
+  {
+    "name": "Red Wing Capoeira",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Red Wing, Minnesota. No classes since 2011. SOURCE: email 10/5/18",
+    "rawRecord": "      No classes since 2011\n      SOURCE: email 10/5/18"
+  },
+  {
+    "name": "Grupo Balança Capoeira Missouri",
+    "website": "https://www.missouricapoeira.com/",
+    "leader": {
+      "title": "formado",
+      "nickname": "Turbulência",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Formado Turbulência",
+      "email": "missouricapoeira@gmail.com",
+      "phone": "910-603-3303"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Contact for location",
+        "address": "Fort Leonard Wood, Missouri",
+        "schedule": "Ages: 5-15 years old: Tues & Thurs 6:30-7:30pm; Sat 3:00-4:00pm; Ages: 16 years old and up: Wed & Fri 7:45-9:00pm; Sat 1:00-2:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "(Contact for location )\nAges: 5-15 years old:Tues & Thurs 6:30-7:30pm; Sat 3:00-4:00pm\nAges: 16 years old and up:Wed & Fri 7:45 - 9:00pm; Sat 1:00-2:30pm"
+      }
+    ],
+    "notes": "Fort Leonard Wood, Missouri. Formado Turbulência. SOURCE: website 7/19/19",
+    "rawRecord": "      Grupo Balança Capoeira Missouri\n\nhttps://www.missouricapoeira.com/\n\nFormado Turbulência\n\n910-603-3303\n\nmissouricapoeira@gmail.com\n\n (Contact for location )\n\nAges: 5-15 years old:Tues & Thurs 6:30-7:30pm; Sat 3:00-4:00pm\n\nAges: 16 years old and up:Wed & Fri 7:45 - 9:00pm; &#8203;Sat 1:00-2:30pm\n\nSOURCE: website 7/19/19"
+  },
+  {
+    "name": "Axe Capoeira Kansas City",
+    "website": "http://www.capoeirakc.com",
+    "leader": {
+      "title": "graduada",
+      "nickname": "Arara",
+      "name": "Sonia Duncombe"
+    },
+    "mainContact": {
+      "name": "Graduada Arara (Sonia Duncombe)",
+      "email": "axecapoeirakc1@gmail.com",
+      "phone": "[816] 442-9907"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Axe Capoeira Kansas City",
+        "address": "6430 Troost Ave, Kansas City, MO 64131",
+        "schedule": "(Full schedule of classes)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "6430 Troost Ave, Kansas City, MO 64131\nhttp://www.capoeirakc.com\n(Full schedule of classes)"
+      }
+    ],
+    "notes": "Kansas City, Missouri. Graduada Arara (Sonia Duncombe). SOURCE: website 3/19/18",
+    "rawRecord": "          Axe Capoeira \n        6430 Troost Ave, Kansas City, MO 64131 \n      http://www.capoeirakc.com\n      \n      Graduada Arara \"Sonia Duncombe\" \n      Email: axecapoeirakc1 @gmail.com \n      [816] 442-9907 \n      (Full schedule of classes) \n      SOURCE: website 3/19/18"
+  },
+  {
+    "name": "Capoeira dos Palmares",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Rachel",
+      "email": null,
+      "phone": "0404 373 277"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Overland Park location",
+        "address": "10107 W. 105th Street, Overland Park, KS 66212",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": "1 734.558.0715",
+        "rawText": "10107 W. 105th Street, Overland Park, KS 66212 \n1 734.558.0715 \n(email failed 1/5/19)\nStatus Closed"
+      }
+    ],
+    "notes": "Overland Park, Kansas. Status Closed. Email failed 1/5/19. SOURCE: facebook 10/22/11",
+    "rawRecord": "      Capoeira dos Palmares \n    10107 W. 105th Street, Overland Park, KS 66212 \n    1 734.558.0715 \n    (email failed 1/5/19)\n    Status Closed \n    SOURCE: facebook 10/22/11"
+  },
+  {
+    "name": "Capoeira Angola Study Group of St. Louis",
+    "website": "https://capoeiraangolastl.com/",
+    "leader": null,
+    "mainContact": {
+      "name": "Timbalada (David) and Fumaca (Keith)",
+      "email": "capoeiraangolastl@gmail.com",
+      "phone": "[314] 246-9584"
+    },
+    "sources": ["https://www.facebook.com/capoeiraangolastlstudygroup/"],
+    "locations": [
+      {
+        "name": "Unity Christ Church",
+        "address": "33 N Skinker, St. Louis, MO 63105",
+        "schedule": "Mon & Tues 6:00-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Unity Christ Church\n33 N Skinker, St. Louis, MO 63105\nMon & Tues 6:00-8:00pm"
+      }
+    ],
+    "notes": "Saint Louis, Missouri. Timbalada (David) and Fumaca (Keith). SOURCE: email website 4/18/17",
+    "rawRecord": "      Capoeira Angola Study Group of St. Louis\nhttps://capoeiraangolastl.com/\nCall or text: [314] 246-9584\nEmail: capoeiraangolastl@gmail.com\nhttps://www.facebook.com/capoeiraangolastlstudygroup/\nTimbalada  \"David\"\nFumaca   \"Keith\"\n      Unity Christ Church\n33 N Skinker, St. Louis, MO 63105\nMon & Tues 6:00-8:00pm\nSOURCE: email website 4/18/17"
+  },
+  {
+    "name": "Capoeira Luanda of St. Louis",
+    "website": "http://www.capoeirastl.org/",
+    "leader": null,
+    "mainContact": {
+      "name": "Instructor Beija-flor (Keith Wilson)",
+      "email": "beijaflor@capoeirastl.org",
+      "phone": "[618] 530-3132"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "University Tower",
+        "address": "1034 S Brentwood Blvd, St. Louis, MO 63117",
+        "schedule": "Kids: Mon & Wed 7:30-8:30pm; Adults: Mon & Wed 7:30-9:00pm",
+        "contactPerson": "Graduado Damiao (Joseph Grey)",
+        "email": null,
+        "phone": null,
+        "rawText": "University Tower\n1034 S Brentwood Blvd, St. Louis, MO 63117\n(behind First Community Credit Union. Same building the Blue Sky\nTower Grill is in. Across from the Galleria Mall. Located on the 16th floor.\nPlease call 618 530-3132 to be let up if no one is downstairs.)\nKids:    Mon & Wed  7:30-8:30pm\nAdults: Mon & Wed  7:30-9:00pm\nGraduado Damiao- \"Joseph Grey\""
+      },
+      {
+        "name": "Be Well Now",
+        "address": "221 Center Drive, Alton, IL 62002",
+        "schedule": "Tues & Thurs 8:00-9:30pm",
+        "contactPerson": "Graduado Cebolinha (Matt Hawkins)",
+        "email": null,
+        "phone": "[618] 225-9246",
+        "rawText": "Be Well Now\n221 Center Drive, Alton, IL 62002\n[618] 225-9246\nTues & Thurs 8:00-9:30pm\nGraduado Cebolinha- \"Matt Hawkins\""
+      }
+    ],
+    "notes": "Saint Louis, Missouri. Instructor Beija-flor (Keith Wilson) Founder & Executive Director. SOURCE: website 4/19/17",
+    "rawRecord": "      Capoeira Luanda of St. Louis\nhttp://www.capoeirastl.org/\nPhone & Text::    [618] 530-3132\nE-mail: beijaflor@capoeirastl.org\nInstructor Beija-flor \"Keith Wilson\"  Founder & \nExecutive Director\nGraduado Damiao- \"Joseph Grey\"\n      University Tower\n1034 S Brentwood Blvd, St. Louis, MO 63117\n(behind First Community Credit Union. Same building the Blue Sky\nTower Grill is in. Across from the Galleria Mall. Located on the 16th floor.\nPlease call 618 530-3132 to be let up if no one is downstairs.)\nKids:    Mon & Wed  7:30-8:30pm\nAdults: Mon & Wed  7:30-9:00pm\nGraduado Cebolinha- \"Matt Hawkins\"\n      Be Well Now\n221 Center Drive, Alton, IL 62002\n[618] 225-9246\nTues & Thurs 8:00-9:30pm\nSOURCE: website 4/19/17"
+  },
+  {
+    "name": "Pinx Academy of Dance",
+    "website": "http://pinxacademyofdance.com/",
+    "leader": null,
+    "mainContact": {
+      "name": "Nicole 'Pinky' Thomas",
+      "email": null,
+      "phone": "314.304.7719"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Pinx Academy of Dance",
+        "address": "6537 Olive Blvd, University City, MO",
+        "schedule": null,
+        "contactPerson": "Instuctor: Lua (Jeff Lewis)",
+        "email": null,
+        "phone": null,
+        "rawText": "Pinx Academy of Dance\n6537 Olive Blvd, University City, MO\nhttp://pinxacademyofdance.com/\nContact: Nicole \"Pinky\" Thomas\n314.304.7719\nInstuctor: Lua \"Jeff Lewis\""
+      }
+    ],
+    "notes": "University City, Missouri. Instuctor: Lua (Jeff Lewis). SOURCE: website 9/14/16",
+    "rawRecord": "      Pinx Academy of Dance\n6537 Olive Blvd, University City, MO\nhttp://pinxacademyofdance.com/\nContact: Nicole \"Pinky\" Thomas\n314.304.7719\nInstuctor: Lua \"Jeff Lewis\"\nSOURCE: website  9/14/16"
+  },
+  {
+    "name": "Axe Capoeira St. Louis",
+    "website": "http://axestl.com",
+    "leader": null,
+    "mainContact": {
+      "name": "Cenoura (David Payne)",
+      "email": "axestlouis@gmail.com",
+      "phone": "[314] 488.4867"
+    },
+    "sources": ["https://www.facebook.com/pages/Axé-Capoeira-St-Louis/170067556387014"],
+    "locations": [
+      {
+        "name": "Solar Yoga Center of St. Louis",
+        "address": "6002 Pershing Ave. St. Louis, MO 63112",
+        "schedule": "Tues & Thurs 8:00-10:00pm; Sat & Sun 1:00-3:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Solar Yoga Center of St. Louis\n6002 Pershing Ave. St. Louis, MO 63112\nTues & Thurs 8:00-10:00pm; Sat & Sun  & 1:00- 3:00pm"
+      }
+    ],
+    "notes": "Saint Louis, Missouri. Cenoura (David Payne). SOURCE: website 9/12/16",
+    "rawRecord": "      Axe Capoeira\nhttp://axestl.com\nCenoura  \"David Payne\"\n  [314] 488.4867\nEmail  axestlouis@gmail{.com\nhttps://www.facebook.com/pages/Ax%C3%A9-Capoeira-St-Louis/170067556387014\n      Solar Yoga Center of St. Louis\n6002 Pershing Ave. St. Louis, MO 63112\nTues & Thurs 8:00-10:00pm; Sat & Sun  & 1:00- 3:00pm\nSOURCE: website 9/12/16"
+  },
+  {
+    "name": "Centro Esportivo de Capoeira Angola [CECA] St Louis, MO",
+    "website": "https://capoeiraangolasaintlouis.wordpress.com/",
+    "leader": null,
+    "mainContact": null,
+    "sources": ["http://www.capoeirastl.webs.com"],
+    "locations": [
+      {
+        "name": "Yeyo Arts Collective",
+        "address": "2907 South Jefferson Ave, Saint Louis, MO 63118",
+        "schedule": "Wed 7:00pm-8:30pm; Sat: 4:00-6:00pm (no classes on fourth Wed each month)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Yeyo Arts Collective\n2907 South Jefferson Ave, Saint Louis, MO 63118\nWed 7:00pm – 8:30pm;  Sat: 4:00-6:00pm\n(no classes on fourth Wed each month)"
+      }
+    ],
+    "notes": "Saint Louis, Missouri. SOURCE: website 3/2/18",
+    "rawRecord": "      Centro Esportivo de Capoeira Angola [CECA] St Louis, MO\nhttps://capoeiraangolasaintlouis.wordpress.com/\n      Yeyo Arts Collective\n2907 South Jefferson Ave, Saint Louis, MO 63118\nWed 7:00pm – 8:30pm;  Sat: 4:00-6:00pm\n(no classes on fourth Wed each month)\nSOURCE: website 3/2/18\nhttp://www.capoeirastl.webs.com"
+  },
+  {
+    "name": "Centro De Capoeira – Livre Como Vento",
+    "website": "http://www.cdo-stl.com",
+    "leader": null,
+    "mainContact": {
+      "name": "Tebogo Schultz and Zsuzsanna Vida",
+      "email": "tebogo.schultz@gmail.com",
+      "phone": "314.323.7725"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Saint Louis, Missouri. Formerly Grupo Cordao de Ouro Capoeira. We have heard that this group is no active in Saint Louis; the website is offline. We are trying to contact. We have some indications that the instructors have moved 9/14/16. SOURCE: unknown",
+    "rawRecord": "      Centro De Capoeira – Livre Como Vento\n(formerly       Grupo Cordao de Ouro Capoeira)\n http://www.cdo-stl.com\nInstructors - Tebogo Schultz; Zsuzsanna Vida\n 314.323.7725\n  tebogo.schultz@gmail{.com\n(We have heard that this group is no active in Saint Louis; the website\nis offline. We are trying to contact.  We have some indications that\nthe instructors have moved 9/14/16)"
+  },
+  {
+    "name": "Grupo Besouro Capoeira Angola of Jackson",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Magia (Ivory Lee Harris) and Diamante (Marvin Williams)",
+      "email": "capoeiraangolapalmares_ms@yahoo.com",
+      "phone": "[601] 331-8468, [601] 503-6160"
+    },
+    "sources": ["https://www.facebook.com/pg/capoeirajackson/"],
+    "locations": [
+      {
+        "name": "Boxers Rebellion",
+        "address": "856 S.State st. Suite E, 39201 Jackson, MS",
+        "schedule": "Sat 12:00-2:00pm; Sun 5:00-7:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Boxers Rebellion\n856 S.State st. Suite E, 39201 Jackson\n Sat 12:00-2:00pm; Sun 5:00-7:00pm"
+      }
+    ],
+    "notes": "Jackson, Mississippi. Magia (Ivory Lee Harris) and Diamante (Marvin Williams) under the guidance of Curtis Pierre [New Orleans]. Website offline 12/30/18. SOURCE: facebook website 2/10/12",
+    "rawRecord": "        Grupo Besouro Capoeira Angola of Jackson\n      https://www.facebook.com/pg/capoeirajackson/\n      [601] 331-8468\n            Boxers Rebellion\n      856 S.State st. Suite E, 39201 Jackson\n       Sat 12:00-2:00pm; Sun 5:00-7:00pm \n      ( )SOURCE: facebook  1/3/19 \n       Magia  \"Ivory Lee Harris\"  and  \n      Diamante \n      \"Marvin Williams\"\n      \n      under the guidance of Curtis Pierre[New\n        Orleans]\n      \n      capoeiraangolapalmares_ms@yahoo.com \n      \n      Phone [601] 503-6160\n      \n      (website offline 12/30/18)\n      SOURCE:  facebook website 2/10/12"
+  },
+  {
+    "name": "Bem-vindo à Capoeira Missoula - Raízes do Brasil",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Jardineiro (Colin Maher)",
+      "email": "info@ddcmontana.com",
+      "phone": "[406]541-7240"
+    },
+    "sources": ["https://www.facebook.com/missoulacapoeira", "https://www.facebook.com/groups/494999117207037/about/"],
+    "locations": [
+      {
+        "name": "Downtown Dance Collective",
+        "address": "121 W. Main st., Missoula, MT",
+        "schedule": "Mon 6:00-7:00pm; Wed 6:00-7:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Downtown Dance Collective\n121 W. Main st., Missoula, MT \n[406]541-7240\ninfo@ddcmontana.com\nhttp://ddcmontana.com\nMon 6:00-7:00pm; Wed 6;00-7:30pm"
+      },
+      {
+        "name": "Roots Sports & Learning Center",
+        "address": "216 Commerce Street, Missoula, MT",
+        "schedule": "Wed 6:30-8pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Roots Sports & Learning Center\n216 Commerce Street, Missoula, MT\nWed 6:30-8pm"
+      },
+      {
+        "name": "Skaggs Building main lobby",
+        "address": "University of Montana Campus, Missoula, MT",
+        "schedule": "Music: Sun 5:15-6:15pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Skaggs Building main lobby\nUniversity of Montana Campus\nMusic :  Sun 5:15-6:15pm"
+      }
+    ],
+    "notes": "Missoula, Montana. Jardineiro (Colin Maher) under Mestre Papiba [Santa Cruz]. SOURCE: facebook 1/6/19, 1/6/20",
+    "rawRecord": "          Bem-vindo à Capoeira Missoula -Raízes do Brasil\n      \n      https://www.facebook.com/missoulacapoeira\n      \n      Jardineiro \"Colin Maher\" under  Mestre Papiba[Santa\n        Cruz]\n      \n       \n        http://ddcmontana.com/colin-maher/ \n            Downtown Dance Collective\n      \n       121 W. Main st., Missoula, MT \n      [406]541-7240\n      info@ddcmontana.com\n      http://ddcmontana.com\n      Mon 6:00-7:00pm; Wed 6;00-7:30pm\n      SOURCE: facebook 1/6/19\n\nhttps://www.facebook.com/groups/494999117207037/about/\n        Roots Sports & Learning Center\n216 Commerce Street, Missoula, MT\nWed 6:30-8pm\n        Skaggs Building main lobby\nUniversity of Montana Campus\nMusic :  Sun 5:15-6:15pm\nSOURCE: facebook 1/6/20"
+  },
+  {
+    "name": "Centro Esportivo de Capoeira Angola Asheville",
+    "website": "http://www.capoeiraasheville.org/",
+    "leader": null,
+    "mainContact": {
+      "name": "Stefan and Jashwant",
+      "email": null,
+      "phone": "828-712-4013"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Burton Street Community Center",
+        "address": "134 Burton St, Asheville, NC 28806",
+        "schedule": "Wed 6:00-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Burton Street Community Center\n134 Burton St, Asheville, NC 28806 \nWed 6:00-8\"00pm"
+      },
+      {
+        "name": "Montford Community Center",
+        "address": "34 Pearson Drive, Asheville, NC, 28801",
+        "schedule": "Sat 10:00am-12:00",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Montford Community Center\n34 Pearson Drive, Asheville, NC, 28801\nSat 10:00am-12:00"
+      },
+      {
+        "name": "Broad River Community Center",
+        "address": "44 Broad River VFD Road, Black Mountain, NC",
+        "schedule": "Senior focus: Tues & Thurs 6:30-8:00",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Broad River Community Center\n44 Broad River VFD Road, Black Mountain, NC\nSenior focus: Tues & Thurs 6;30-8:00"
+      }
+    ],
+    "notes": "Asheville, North Carolina. Stefan and Jashwant under Mestre Pe de Chumbo [Germany]. SOURCE: website 5/30/19",
+    "rawRecord": "      Centro Esportivo de Capoeira Angola\nhttp://www.capoeiraasheville.org/\n  \n Stefan and Jashwant under Mestre Pe de Chumbo[ Germany]\n    828-712-4013\n         Burton Street Community Center\n134 Burton St, Asheville, NC 28806 \nWed 6:00-8\"00pm\n         Montford Community Center\n34 Pearson Drive, Asheville, NC, 28801\nSat 10:00am-12:00\n        Broad River Community Center\n44 Broad River VFD Road, Black Mountain, NC\nSenior focus: Tues & Thurs 6;30-8:00\nSOURCE:  website  5/30/19"
+  },
+  {
+    "name": "Capoeira Arte Antiga - Grupo ASCAB",
+    "website": "http://capoeiraaa.com/",
+    "leader": {
+      "title": "professora",
+      "nickname": "Agua de Beber",
+      "name": "Gabrielle Motta-Passajou"
+    },
+    "mainContact": {
+      "name": "Professora Agua de Beber (Gabrielle Motta-Passajou)",
+      "email": null,
+      "phone": "[828] 278-8949"
+    },
+    "sources": ["https://www.facebook.com/pg/CapoeiraArteAntiga/"],
+    "locations": [
+      {
+        "name": "Boone location",
+        "address": "Boone Docks Rd, Boone, NC 28607",
+        "schedule": "Sun 12:30-2:00pm; Wed & Thurs 7:15-8:45pm; Adults Mon 7:15-8:45pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Boone Docks Rd, Boone, NC 28607\nSun 12:30-2:00pm;Wed  & Thurs 7:15-8:45pm\nAdults Mon 7:15-8:45pm"
+      }
+    ],
+    "notes": "Boone, North Carolina. Professora Agua de Beber (Gabrielle Motta-Passajou) under the guidance and teaching of Mestre Doutor [Philadelphia]. SOURCE: website google 6/5/19",
+    "rawRecord": "      Capoeira Arte Antiga-Grupo  - ASCAB]\nProfessora Agua de Beber \"Gabrielle Motta-Passajou\"  under the\nguidance and teaching of Mestre Doutor[Philadelphia]\nhttp://capoeiraaa.com/\nPhone: [828] 278-8949 \n  https://www.facebook.com/pg/CapoeiraArteAntiga/\n Boone Docks Rd, Boone, NC 28607\nSun 12:30-2:00pm;Wed  & Thurs 7:15-8:45pm\nAdults Mon 7:15-8:45pm\nSOURCE:  website google 6/5/19"
+  },
+  {
+    "name": "Capoeira Arte e Movimento Boone",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Bacana (Tiago Souza)",
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Neighborhood Yoga",
+        "address": "212 Water St. Boone, NC 28607",
+        "schedule": "Wed 8:00-9:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": "828.265.0377",
+        "rawText": "Neighborhood Yoga\n212 Water St.Boone, NC 28607\n828.265.0377\nWed  8:00 -9:30pm"
+      }
+    ],
+    "notes": "Boone, North Carolina. Bacana (Tiago Souza). Website offline 6/3/19, email failed 10/19/12. Also at Appalachian State University and Caldwell Community College. SOURCE: email 6/9/06 website 10/10/12 Last Updated: Apr 16, 2006",
+    "rawRecord": "      Capoeira Arte e Movimento\n(website offline 6/3/19) Fred\n(email failed 10/19/12)\nBacana \"Tiago Souza\"\n      Neighborhood Yoga\n212 Water St.Boone, NC 28607\n828.265.0377\nWed  8:00 -9:30pm\n      Appalachian State University\n      Caldwell Community College\nSOURCE: email  6/9/06 website 10/10/12 Last Updated: Apr 16, 2006"
+  },
+  {
+    "name": "Associacao de Capoeira Mandingueiros dos Palmares Boone",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Wendy Waters",
+      "email": null,
+      "phone": "828-773-3114"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Boone location",
+        "address": "Boone, North Carolina 28607",
+        "schedule": "Adult: mon & wed 7:30pm-8:30pm, sat. 11:00am-12:30pm; Kids: tues/thurs 4-5",
+        "contactPerson": "Instructor: Mandibula",
+        "email": null,
+        "phone": null,
+        "rawText": "Boone, North Carolina 28607\nInstructor: Mandibula\nContact: Wendy Waters\n  Phone: 828-773-3114\nAdult: mon & wed 7:30pm-8:30pm, sat. 11:00am-12:30pm\nKids: tues/thurs 4-5"
+      }
+    ],
+    "notes": "Boone, North Carolina. Instructor: Mandibula. From Associacao de Capoeira Mandingueiros dos Palmares [Boston]. SOURCE: unreliable offline website, entry last updated Jul 24 2005",
+    "rawRecord": "      Associacao de Capoeira Mandingueiros dos Palmares[Boston]\nInstructor: Mandibula\nContact: Wendy Waters\n  Phone: 828-773-3114\nBoone, North Carolina 28607\nAdult: mon & wed 7:30pm-8:30pm, sat. 11:00am-12:30pm\nKids: tues/thurs 4-5\nSOURCE:  unreliable offline website,  entry last updated\nJul 24 2005"
+  },
+  {
+    "name": "Cordão de Ouro Chapel Hill",
+    "website": null,
+    "leader": {
+      "title": "mestre",
+      "nickname": "Esquilo",
+      "name": "Bruno Antonio de Araujo Melo"
+    },
+    "mainContact": {
+      "name": "Monitor Obama",
+      "email": "charlottecapoeira@gmail.com",
+      "phone": "[919] 308-2320"
+    },
+    "sources": ["http://mestreesquilo.com/"],
+    "locations": [
+      {
+        "name": "Balanced Movement Studio",
+        "address": "304 W. Weaver St. Carrboro, NC 27510",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Balanced Movement Studio\n304 W. Weaver St. Carrboro, NC 27510"
+      }
+    ],
+    "notes": "Chapel Hill/Carrboro, North Carolina. Monitor Obama under Mestre Esquilo (Bruno Antonio de Araujo Melo). Website and facebook listed on mestre's website are offline 6/4/19. SOURCE: mestre's website 6/4/19",
+    "rawRecord": "      Cordão de Ouro\n  Monitor Obama \n [919] 308-2320 \n(website and facebook listed on mestre's website are offline 6/4/19)             Balanced Movement Studio\n\n304 W. Weaver St. Carrboro, NC 27510\nunder   Mestre Esquilo \" Bruno Antonio de Araujo Melo\"\nhttp://mestreesquilo.com/\n email: charlottecapoeira@gmail.com\n SOURCE:\nmestre's website 6/4/19"
+  },
+  {
+    "name": "ASCAB Chapel Hill",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Chapel Hill, North Carolina. ASCAB [Associacao Santista de Capoeira Areia Branca] has moved to Raleigh 6/4/19. SOURCE: 6/4/19",
+    "rawRecord": "      ASCAB [Associacao Santista de Capoeira Areia Branca]\n has moved to Raleigh   6/4/19"
+  },
+  {
+    "name": "Carolina Capoeira Club - UNC Chapel Hill",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": ["https://www.facebook.com/CarolinaCapoeiraClub"],
+    "locations": [
+      {
+        "name": "Student Recreation Center",
+        "address": "racquetball courts, UNC Chapel Hill",
+        "schedule": "Tues 6:00-7:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Student Recreation Center\nracquetball courts\nTues 6:00 -7:00pm"
+      },
+      {
+        "name": "Woollen combat room",
+        "address": "UNC Chapel Hill",
+        "schedule": "Thurs 8:00-10:00pm; Sat 12:00-2:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Woollen combat room\nThurs 8:00-10:00pm; Sat 12:00-2:00pm"
+      }
+    ],
+    "notes": "Chapel Hill, North Carolina. University of North Carolina. SOURCE: https://www.dailytarheel.com 3/6/17",
+    "rawRecord": "      Carolina Capoeira Club - UNC Chapel Hill\n https://www.facebook.com/CarolinaCapoeiraClub\n      Student Recreation Center\nracquetball courts\nTues 6:00 -7:00pm\n       Woollen combat room\nThurs 8:00-10:00pm; Sat 12:00-2:00pm SOURCE: https://www.dailytarheel.com 3/6/17"
+  },
+  {
+    "name": "Triangle Youth Ballet Capoeira",
+    "website": "http://www.triangleyouthballet.org",
+    "leader": null,
+    "mainContact": {
+      "name": "Monitor Cristal (Jamie Taylor)",
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Chapel Hill, North Carolina. Monitor Cristal (Jamie Taylor). No classes currently. Information found on website is out of date. SOURCE: email 9/26/19",
+    "rawRecord": "No classes currently. Information found on website is out of date      \nTriangle Youth Ballet\n\n  http://www.triangleyouthballet.org\nMonitor Cristal  \"Jamie Taylor\"       SOURCE: email 9/26/19"
+  },
+  {
+    "name": "Capoeira Arte e Movimento Chapel Hill",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Cebola (Chris Geddings)",
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Chapel Hill, North Carolina. There are classes in Chapel Hill with Cebola (Chris Geddings). SOURCE: email 10/30/12",
+    "rawRecord": "      Capoeira Arte e Movimento\nThere are classes  in Chapel Hill with Cebola. \"Chris Geddings\"\nSOURCE: email 10/30/12"
+  },
+  {
+    "name": "Cordão de Ouro Carolinas",
+    "website": "https://neguinhocdo.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Neguinho",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "Budokon Academy Charlotte",
+        "address": "2935 Griffith Street, Charlotte, NC",
+        "schedule": "Adults: Mon 8:00-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Budokon Academy Charlotte\n2935 Griffith Street, Charlotte, NC\nAdults: Mon 8:00-9:00pm"
+      }
+    ],
+    "notes": "Charlotte, North Carolina. Mestre Neguinho. SOURCE: website 6/6/19",
+    "rawRecord": "      Cordão de Ouro Carolinas\nMestre Neguinho\n\n  https://neguinhocdo.com\n\n        Budokon Academy Charlotte\n\n2935 Griffith Street, Charlotte, NC\n\nAdults: Mon 8:00-9:00pm\n\nSOURCE: website 6/6/19"
+  },
+  {
+    "name": "Cordão de Ouro Charlotte",
+    "website": null,
+    "leader": {
+      "title": "mestre",
+      "nickname": "Esquilo",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Contra-Mestre Zumbi (Aristides Valeriano de Fatima)",
+      "email": "charlottecapoeira@gmail.com",
+      "phone": "[980] 228-6266"
+    },
+    "sources": ["http://mestreesquilo.com/", "https://www.facebook.com/charlottecapoeira"],
+    "locations": [
+      {
+        "name": "Brazilian Arts Center",
+        "address": "635 Atando Ave, Unit J, Charlotte, NC 28206",
+        "schedule": "(full schedule of classes)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Brazilian Arts Center 635 Atando Ave, Unit J, Charlotte, NC 28206(full schedule of classes\n)"
+      },
+      {
+        "name": "The Project Space",
+        "address": "514 E 15th St Suite 10B, Charlotte, NC 28206",
+        "schedule": "Mon Wed, & Thurs 7:00pm",
+        "contactPerson": "Monitor Peruca",
+        "email": null,
+        "phone": null,
+        "rawText": "The Project Space \n514 E 15th St Suite 10B, Charlotte, NC 28206\n Mon Wed, & Thurs 7:00pm\nMonitor Peruca"
+      },
+      {
+        "name": "4M Fitness",
+        "address": "2021 Van Buren Ave, Indian Trail, NC 28079",
+        "schedule": "Adults: Mon 7:00pm",
+        "contactPerson": "Monitora Reba",
+        "email": null,
+        "phone": null,
+        "rawText": "4M Fitness\n 2021 Van Buren Ave, Indian Trail, NC 28079\nAdults:  Mon 7:00pm\nMonitora Reba\n  http://www.rebabowens.com/capoeira"
+      },
+      {
+        "name": "The Project Space",
+        "address": "514 E. 15th Street, Charlotte, NC 28206",
+        "schedule": "Kids Ages 3-6 yrs old Tues 6:15pm; Kids Ages 8 yrs old and up Thurs 6:15pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "The Project Space \n514 E. 15th Street, Charlotte, NC 28206\nKids  Ages 3-6 yrs oldTues 6:15pm\nKids Ages 8 yrs old and up Thurs 6:15pm"
+      }
+    ],
+    "notes": "Charlotte, North Carolina. Contra-Mestre Zumbi (Aristides Valeriano de Fatima) under Mestre Esquilo [Brazil]. SOURCE: website 6/5/19",
+    "rawRecord": "      Cordão de Ouro\nContra-Mestre Zumbi, \"Aristides Valeriano de Fatima\",  under  Mestre Esquilo[Brazil]http://mestreesquilo.com/\n\n[980] 228-6266 email: charlottecapoeira@gmail.com\nhttps://www.facebook.com/charlottecapoeira\n       Brazilian Arts Center 635 Atando Ave, Unit J, Charlotte, NC 28206(full schedule of classes\n)\n\nMonitor Peruca\n        The Project Space \n514 E 15th St Suite 10B, Charlotte, NC 28206\n Mon Wed, & Thurs 7:00pm(\n  )Monitora Reba\n  http://www.rebabowens.com/capoeira \n         4M Fitness\n 2021 Van Buren Ave, Indian Trail, NC 28079\nAdults:  Mon 7:00pm\n        The Project Space \n514 E. 15th Street, Charlotte, NC 28206\nKids  Ages 3-6 yrs oldTues 6:15pm\nKids Ages 8 yrs old and up Thurs 6:15pm \nSOURCE: website  6/5/19"
+  },
+  {
+    "name": "Roda do Mundo Charlotte",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "Charlotte location",
+        "address": "8100 Old Mallard Creek Rd, Charlotte, NC",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": "704-575-4675, 704-618-3940",
+        "rawText": "8100 Old Mallard Creek Rd, Charlotte, NC\n704-575-4675 or 704-618-3940"
+      }
+    ],
+    "notes": "Charlotte, North Carolina. SOURCE: http://www.scout.me/capoeira-classes--near--charlotte-nc/e-9210754 10/28/12",
+    "rawRecord": "      Roda do Mundo\n704-575-4675 or 704-618-3940\n8100 Old Mallard Creek Rd, Charlotte, NC\nSOURCE: http://www.scout.me/capoeira-classes--near--charlotte-nc/e-9210754\n10/28/12"
+  },
+  {
+    "name": "Academia Aprende Charlotte",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Patrick Deibel [Cordao Azul]",
+      "email": null,
+      "phone": "704-526-8284, 814-9252"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Charlotte, North Carolina. Patrick Deibel [Cordao Azul]. Website offline 10/29/12. SOURCE: email, website 6/26/06",
+    "rawRecord": "      Academia Aprende\n Patrick Deibel [Cordao Azul]\n(website offline   10/29/12)\n 704-526-8284, or 814-9252\nSOURCE: email, website 6/26/06"
+  },
+  {
+    "name": "Durham Angoleiro",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": ["https://durhamangoleiro.wordpress.com/", "https://www.facebook.com/durham.angoleiro"],
+    "locations": [
+      {
+        "name": "Weaver Street Recreation Center",
+        "address": "3000 Weaver St, Durham, NC 27707",
+        "schedule": "Mon & Wed 7:00-8:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Weaver Street Recreation Center\n 3000 Weaver St, Durham, NC 27707\nMon & Wed 7:00 - 8:30pm"
+      },
+      {
+        "name": "Living Arts Collective",
+        "address": "downstairs studio 410 W Geer St, Durham, NC 27701",
+        "schedule": "Sun, 3:00-4:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Living Arts Collective \ndownstairs studio 410 W Geer St, Durham, NC 27701\nSun, 3:00- 4:30pm"
+      }
+    ],
+    "notes": "Durham, North Carolina. SOURCE: email 6/18/19, website 6/8/19",
+    "rawRecord": "        Durham Angoleiro\n  https://durhamangoleiro.wordpress.com/\n  https://www.facebook.com/durham.angoleiro\n        Weaver Street Recreation Center\n 3000 Weaver St, Durham, NC 27707\nMon & Wed 7:00 - 8:30pm\n SOURCE:  email 6/18/19\n\n      Living Arts Collective \ndownstairs studio 410 W Geer St, Durham, NC 27701\nSun, 3:00- 4:30pm\n  https://www.livingartscollective.com/capoeira-angola-martial-arts-dance-beginner-dance-classes-at-lac/\nSOURCE: website 6/8/19"
+  },
+  {
+    "name": "Capoeira Brasil Durham",
+    "website": null,
+    "leader": {
+      "title": "mestre",
+      "nickname": "Boneco",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Formado Caxias (Alex Filadelfo)",
+      "email": null,
+      "phone": null
+    },
+    "sources": ["https://www.facebook.com/pg/CapoeiraNC/"],
+    "locations": [],
+    "notes": "Durham, North Carolina. Formado Caxias (Alex Filadelfo) under Mestre Boneco [Los Angeles]. Website offline 6/8/19, last facebook post 2017, email failed. Caxias appears to currently be in Abu Dabi 6/8/19. SOURCE: facebook 6/8/19",
+    "rawRecord": "      Capoeira Brasil\n(website offline 6/8/19) Formado Caxias \"Alex Filadelfo\" under Mestre Boneco[Los\nAngeles]\n https://www.facebook.com/pg/CapoeiraNC/\n  (last post 2017;) (email failed; )(Caxias appears to currently be in Abu Dabi 6/8/19)"
+  },
+  {
+    "name": "Capoeira ABADA Durham",
+    "website": "http://abadacapoeiradurham.wordpress.com",
+    "leader": null,
+    "mainContact": {
+      "name": "Graduada Camarão (Katya Wesolowski)",
+      "email": "katyacamarao@gmail.com",
+      "phone": null
+    },
+    "sources": ["https://culturalanthropology.duke.edu/people/katya-wesolowski"],
+    "locations": [],
+    "notes": "Durham, North Carolina. Graduada Camarão (Katya Wesolowski). Website has not been updated since 2013 6/8/19. Attempting contact 6/8/19. SOURCE: website 11/5/12",
+    "rawRecord": "      Capoeira ABADA\nhttp://abadacapoeiradurham.wordpress.com\n\n(website has not been updated since 2013 6/8/19)\nGraduada Camarão  \" Katya Wesolowski\"\n\n  https://culturalanthropology.duke.edu/people/katya-wesolowski        katyacamarao@gmail.com \n(attempting contact 6/8/19) SOURCE: website 11/5/12"
+  },
+  {
+    "name": "Durham Capoeira Cooperative",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Janaina Pantoja",
+      "email": null,
+      "phone": "[919] 597-8257"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Durham location",
+        "address": "105C Corporation St. Durham ,NC 27701",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "105C Corporation St. Durham ,NC 27701\nPrimary Contact: Janaina Pantoja\n[919] 597-8257"
+      }
+    ],
+    "notes": "Durham, North Carolina. Primary Contact: Janaina Pantoja. Email no longer exists 6/8/19. SOURCE: duke.edu 1/1/12",
+    "rawRecord": "      Durham Capoeira Cooperative\n105C Corporation St. Durham ,NC 27701\nPrimary Contact: Janaina Pantoja\n(email no longer  exists  6/8/19)   [919] 597-8257\nSOURCE: duke.edu 1/1/12"
+  },
+  {
+    "name": "Associação de Capoeira Corpo e Movimento Durham",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Durham, North Carolina. Has moved to Statesville. SOURCE: 6/8/19",
+    "rawRecord": "      Associação de Capoeira Corpo e Movimento\nHas moved to Statesville"
+  },
+  {
+    "name": "Nego Gato, Inc",
+    "website": "http://www.negogato.org",
+    "leader": null,
+    "mainContact": {
+      "name": "Miguel Pickett",
+      "email": "orixadance@yahoo.com",
+      "phone": "919-620-0796"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Durham location",
+        "address": "1225 Berkely St. Durham, North Carolina",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "1225 Berkely St. Durham, North Carolina"
+      }
+    ],
+    "notes": "Durham, North Carolina. Student Instructor: Miguel Pickett. We have no current information on the status of the group 12/27/08. Website has no information other than the contact information; attempting email 6/8/19. Contact: contactus@negogato.org, 8/|5-6/|7-9OOl. SOURCE: unknown",
+    "rawRecord": "      Nego Gato, Inc\n(We have no current information on the status of the group.12/27/08)\nInstructor: Student Instructor: \"Miguel Pickett\n\"Email: orixadance@yahoo.com\n(attempting contact 6/8/19)Phone: 919-620-0796\nAddress: 1225 Berkely St. Durham, North Carolina\n http://www.negogato.org\nSOURCE: unknown\n(website has no information other  than the contact information below; attempting email  6/8/19)\ncontactus{      /\\T}negogato.org \n8/|5-6/|7-9OOl"
+  },
+  {
+    "name": "Bringing Capoeira to Fayetteville NC",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": ["https://www.facebook.com/Bring-ing-Capoeira-to-Fayetteville-NC-173916112664204/"],
+    "locations": [],
+    "notes": "Fayetteville, North Carolina. Last facebook post was on March 22, 2018. Phone: [910] 433-1088. SOURCE: facebook 6/11/19",
+    "rawRecord": "  https://www.facebook.com/Bring-ing-Capoeira-to-Fayetteville-NC-173916112664204/(\nlast post  was on)(( March 22, 2018).    6/11/19\n)[910] 433-1088(\n)SOURCE: facebook 6/11/19"
+  },
+  {
+    "name": "Associacao de Capoeira Regional Mandingueiros dos Palmares Fayetteville",
+    "website": null,
+    "leader": {
+      "title": "mestre",
+      "nickname": "Chuvisco",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Instructor Azulao (Jamie T. Ellerbe)",
+      "email": "azulaocapoeiranc@gmail.com",
+      "phone": "[910] 373-7004"
+    },
+    "sources": ["https://jtellerbe.wixsite.com/jamiejtellerbe@gmail.com", "https://www.facebook.com/AzulaoCapoeira/"],
+    "locations": [
+      {
+        "name": "Westover Recreation Center",
+        "address": "267 Bonanza Drive, Fayetteville, NC 28303",
+        "schedule": "Mon & Wed 8:00-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Westover Recreation Center\n267 Bonanza Drive, Fayetteville, NC 28303 \nMon & Wed 8:00-9:00pm"
+      }
+    ],
+    "notes": "Fayetteville, North Carolina. Instructor Azulao (Jamie T. Ellerbe) under Mestre Chuvisco [Cambridge MA]. Last facebook post was on April 10, 2018. SOURCE: website facebook 6/11/19",
+    "rawRecord": "      Associacao de Capoeira Regional Mandingueiros dos Palmares\nInstructor Azulao \" Jamie T. Ellerbe\"  under  Mestre Chuvisco[Cambridge\nMA]\n  \n  https://jtellerbe.wixsite.com/jamiejtellerbe@gmail.com  \nazulaocapoeiranc@gmail.com\nTel: [910] 373-700\n4https://www.facebook.com/AzulaoCapoeira/ (last post was on April 10, 2018  6/11/19\n  )      Westover Recreation Center\n267 Bonanza Drive, Fayetteville, NC 28303 \nMon & Wed 8:00-9:00pm\nSOURCE: \n  ()SOURCE: website facebook website 6/11/19"
+  },
+  {
+    "name": "Capoeira Brazil Fayetteville",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Fayetteville, North Carolina. Both instructor and contact have moved away. Some people were still playing and training without an instructor in 2007. SOURCE: google 11/4/12",
+    "rawRecord": "       Capoeira Brazil\n(Both instructor and contact have moved away. Some people were still\nplaying and training without an instructor  in 2007.)\nSOURCE: google 11/4/12"
+  },
+  {
+    "name": "Upstate Capoeira",
+    "website": "https://projectbacana.com",
+    "leader": null,
+    "mainContact": {
+      "name": "Contra Mestre Neguinho (Elias Martins) and Professora Risadinha (Melinda Erickson-Martins)",
+      "email": null,
+      "phone": null
+    },
+    "sources": ["http://us.placedigger.com/equilibrio---movement-culture-center971972765.html"],
+    "locations": [
+      {
+        "name": "Equilíbrio - Movement Culture Center",
+        "address": "182 W. Main Avenue, Gastonia, NC 28052",
+        "schedule": "Kids' Capoeira: Mon & Wed 7:30-8:15pm; Adults' Capoeira: Mon & Wed 8:00-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Equilíbrio - Movement Culture Center\n182 W. Main Avenue, Gastonia, NC 28052\nKids' Capoeira : Mon & Wed 7:30-8:15pm\nAdults' Capoeira :  Mon & Wed 8:00-9:00pm"
+      }
+    ],
+    "notes": "Gastonia, North Carolina. Contra Mestre Neguinho (Elias Martins) and Professora Risadinha (Melinda Erickson-Martins). SOURCE: website 6/13/18",
+    "rawRecord": "      Upstate Capoeira\nhttp://us.placedigger.com/equilibrio---movement-culture-center971972765.html\nhttps://projectbacana.com\nContra Mestre  Neguinho \"Elias Martins\"\nProfessora Risadinha \"Melinda Erickson-Martins\"\n      Equilíbrio - Movement Culture Center\n182 W. Main Avenue, Gastonia, NC 28052\nKids' Capoeira : Mon & Wed 7:30-8:15pm\nAdults' Capoeira :  Mon & Wed 8:00-9:00pm\nSOURCE: website 6/13/18"
+  }
+]

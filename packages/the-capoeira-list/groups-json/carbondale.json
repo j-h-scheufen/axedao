@@ -1,0 +1,270 @@
+[
+  {
+    "name": "Capoeira Angola Palmares",
+    "website": null,
+    "leader": {
+      "title": "monitor",
+      "nickname": "Pirata Negro",
+      "name": "Donovon Miller"
+    },
+    "mainContact": {
+      "name": "Monitor Pirata Negro",
+      "email": "capoeiranola@gmail.com",
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Marion-Carbondale area, South Illinois. Monitor Pirata Negro (Donovon Miller): \"I moved to South Illinois [Marion-Carbondale area] to further my career in engineering awhile back. I've been focusing more on what pays the bills more than Capoeira in the last year, but i'm feeling that itch again. Anyone interested in training in this area get at me at capoeiranola@gmail.com\" SOURCE: offline capoeira forum post 4/27/13",
+    "rawRecord": "Marion\n\n\n      Capoeira Angola Palmares\n Monitor Pirata Negro  \"Donovon Miller\"\n   capoeiranola@gmail.com\n\"I  I moved to South Illinois [Marion-Carbondale\narea] to further my career in engineering awhile back.  I've been\nfocusing more on what pays the bills more than Capoeira in the last year,\nbut i'm feeling that itch again.  Anyone interested in training in\nthis area get at me at  capoeiranola@gmail.com\"\nSOURCE:  offline capoeira forum post 4/27/13"
+  },
+  {
+    "name": "Gingarte Capoeira - Capoeira Cordao de Ouro",
+    "website": "http://gingartecapoeira.org/",
+    "leader": {
+      "title": "mestra",
+      "nickname": "Marisa",
+      "name": "Marisa Cordeiro"
+    },
+    "mainContact": {
+      "name": "Mestra Marisa",
+      "email": "info@gingartecapoeira.org",
+      "phone": "3l2-768-85O7"
+    },
+    "sources": ["https://www.facebook.com/Gingarte-Capoeira-130707523673677/"],
+    "locations": [
+      {
+        "name": "Ruth Page Center of the Arts",
+        "address": "1016 North Dearborn Street Chicago IL",
+        "schedule": "Tues & Thurs 7:00-9:00pm; Sun 11:00am-1:00pm; Ages 3-12: (see website)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Ruth Page Center of the Arts\n1016 North Dearborn Street Chicago IL\nTues & Thurs  7:00-9:00pm;  Sun 11:00am-1:00pm\nAges 3-12: (see website)"
+      },
+      {
+        "name": "Old Town School of Folk Music",
+        "address": "4454 N. Lincoln Avenue Chicago IL",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Old Town School of Folk Music\n4454 N. Lincoln Avenue Chicago IL\nhttps://www.oldtownschool.org/classes/adults/dance/"
+      },
+      {
+        "name": "University of Chicago - Gingarte Capoeira Club",
+        "address": "Ida Noyes Dance Room 1212 E. 59th St",
+        "schedule": null,
+        "contactPerson": "Prof. Girafa and Prof. Tinta Forte",
+        "email": null,
+        "phone": null,
+        "rawText": "      University of Chicago       Gingarte Capoeira Club\n Ida Noyes Dance Room 1212 E. 59th St\n http://capoeira.uchicago.edu/\nProf. Girafa and Prof. Tinta Forte"
+      },
+      {
+        "name": "CombatZone",
+        "address": "8242 S Cottage Grove Ave, Chicago",
+        "schedule": null,
+        "contactPerson": null,
+        "email": "info@risetrainingacademy.com",
+        "phone": null,
+        "rawText": "      CombatZone\n8242 S Cottage Grove Ave, Chicago\ninfo@risetrainingacademy.com\nhttp://www.risetrainingacademy.com"
+      }
+    ],
+    "notes": "Chicago, Illinois. Mestra Marisa (Marisa Cordeiro). SOURCE: website 2/18/18",
+    "rawRecord": "      Gingarte Capoeira -Capoeira Cordao de Ouro\nhttp://gingartecapoeira.org/\nMestra Marisa  \"Marisa Cordeiro\"\nhttps://www.facebook.com/Gingarte-Capoeira-130707523673677/\ninfo@gingartecapoeira.org\n3l2-768-85O7\n      Ruth Page Center of the Arts\n1016 North Dearborn Street Chicago IL\nTues & Thurs  7:00-9:00pm;  Sun 11:00am-1:00pm\nAges 3-12: (see website)\n      Old Town School of Folk Music\n4454 N. Lincoln Avenue Chicago IL\nhttps://www.oldtownschool.org/classes/adults/dance/\n      University of Chicago       Gingarte Capoeira Club\n Ida Noyes Dance Room 1212 E. 59th St\n http://capoeira.uchicago.edu/\nProf. Girafa and Prof. Tinta Forte\n      CombatZone\n8242 S Cottage Grove Ave, Chicago\ninfo@risetrainingacademy.com\nhttp://www.risetrainingacademy.com\nSOURCE:  website 2/18/18"
+  },
+  {
+    "name": "International Capoeira Angola Foundation",
+    "website": "http://www.capoeira-angola-chicago.org/",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Beto Defreitas",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Contramestre Beto Defreitas",
+      "email": "info@quilombocenter.org",
+      "phone": "[773]227-8879"
+    },
+    "sources": ["https://www.facebook.com/FICAChicago/?fref=ts", "http://www.quilombocenter.org/"],
+    "locations": [
+      {
+        "name": "Quilombo Cultural Center",
+        "address": "1757 N. Kimball Ave. Chicago, IL 60647",
+        "schedule": "Beginners Mon 7:00-7:30pm; Fri 9:30-11:00am Sat 3;15-4:45pm; Mixed Levels: Wed 7:00-9:00pm; Sat 4:15-6:15pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Quilombo Cultural Center,\n1757 N. Kimball Ave. Chicago, IL 60647\nhttp://www.quilombocenter.org/\nBeginners  Mon 7:00-7:30pm; Fri 9:30-11:00am Sat  3;15-4:45pm\nMixed Levels:  Wed 7:00-9:00pm; Sat 4:15-6:15pm"
+      }
+    ],
+    "notes": "Chicago, Illinois. Contramestre Beto Defreitas. LINEAGE: Mestre Pastinha>Mestre João Grande>Mestre Moraes>Mestre Cobra Mansa>Contramestre Beto. SOURCE: website 2/23/18",
+    "rawRecord": "      International Capoeira Angola Foundation\nhttp://www.capoeira-angola-chicago.org/\nContramestre Beto Defreitas\nLINEAGE: Mestre Pastinha>Mestre João Grande>Mestre\nMoraes>Mestre\nCobra Mansa>Contramestre Beto\ninfo@quilombocenter.org\nTel: [773]227-8879\nhttps://www.facebook.com/FICAChicago/?fref=ts\n      Quilombo Cultural Center,\n1757 N. Kimball Ave. Chicago, IL 60647\nhttp://www.quilombocenter.org/\nBeginners  Mon 7:00-7:30pm; Fri 9:30-11:00am Sat  3;15-4:45pm\nMixed Levels:  Wed 7:00-9:00pm; Sat 4:15-6:15pm\nSOURCE: website 2/23/18"
+  },
+  {
+    "name": "Capoeira Brasil",
+    "website": "https://colibricb.com",
+    "leader": {
+      "title": "formada",
+      "nickname": "Colibri",
+      "name": "Katia Da Conceicao"
+    },
+    "mainContact": {
+      "name": "Formada Colibri",
+      "email": "katiacolibri@gmail.com",
+      "phone": "[347] 952-6047"
+    },
+    "sources": ["https://www.facebook.com/chicagocapoeiracenter/"],
+    "locations": [
+      {
+        "name": "Chicago Capoeira Center",
+        "address": "1802 W Berteau, #215, Chicago, IL 60613",
+        "schedule": "Beginners: Sun 3:00-4:00pm; Tues & Thurs 5:45-6:45pm; Kids[7-12] Sat 12:00-12:45pm; All levels: Sat 1:00-2:30; Sun 5:00-6:30pm; Mon & Wed 6:00-7:30pm; Mon & Wed 7:30-9:00pm; Music: Sun 4:00-5:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Chicago Capoeira Center\n1802 W Berteau, #215,  Chicago, IL 60613\nBeginners:  Sun 3:00-4:00pm; Tues & Thurs 5:45-6:45pm\nKids[7-12] Sat 12:00-12:45pm\nAll levels: Sat 1:00-2:30; Sun 5:00-6:30pm;  Mon & Wed 6:00-7:30pm;\nMon & Wed 7:30-9:00pm\nMusic: Sun 4:00-5:00pm"
+      },
+      {
+        "name": "Japanese Culture Center",
+        "address": "1016 W. Belmont Ave, Chicago IL",
+        "schedule": "All levels: Tues & Thurs 7;30-9:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Japanese Culture Center\n1016 W. Belmont Ave, Chicago IL\nAll levels: Tues & Thurs 7;30-9:30pm"
+      }
+    ],
+    "notes": "Chicago, Illinois. Formada Colibri (Katia Da Conceicao). SOURCE: website 2/23/18",
+    "rawRecord": "       Capoeira Brasil\nhttps://colibricb.com\nFormada Colibri   \"Katia Da Conceicao\"\n  katiacolibri@gmail.com\n[347] 952-6047\nhttps://www.facebook.com/chicagocapoeiracenter/\n      Chicago Capoeira Center\n1802 W Berteau, #215,  Chicago, IL 60613\nBeginners:  Sun 3:00-4:00pm; Tues & Thurs 5:45-6:45pm\nKids[7-12] Sat 12:00-12:45pm\nAll levels: Sat 1:00-2:30; Sun 5:00-6:30pm;  Mon & Wed 6:00-7:30pm;\nMon & Wed 7:30-9:00pm\nMusic: Sun 4:00-5:00pm\n      Japanese Culture Center\n1016 W. Belmont Ave, Chicago IL\nAll levels: Tues & Thurs 7;30-9:30pm\nSOURCE: website 2/23/18"
+  },
+  {
+    "name": "Grupo Axé Capoeira",
+    "website": "http://axechicago.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Barrão",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Professor Bambu (Steven Kolhouse)",
+      "email": null,
+      "phone": "[773] 368-4777"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Axé Capoeira Academy",
+        "address": "1543 W Chicago Ave, Chicago, IL 60642",
+        "schedule": "(full schedule of classes)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Axé Capoeira Academy\n1543 W Chicago Ave, Chicago, IL 60642\n(full schedule of classes)"
+      }
+    ],
+    "notes": "Chicago, Illinois. Professor Bambu (Steven Kolhouse), graduated student of Mestre Barrão [Vancouver]. SOURCE: website 2/18/18",
+    "rawRecord": "      Grupo Axé Capoeira\nhttp://axechicago.com/\nProfessor  Bambu  \"Steven Kolhouse\" , graduated student of\nMestre Barrão[Vancouver]\n[773] 368-4777\n      Axé Capoeira Academy\n1543 W Chicago Ave, Chicago, IL 60642\n(full schedule of classes)\nSOURCE: website  2/18/18"
+  },
+  {
+    "name": "Herança Cultural Capoeira",
+    "website": "https://www.herancaculturalchicago.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Catitu",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Estagiando Boneco (Anderson Pereira Goes)",
+      "email": "info@herancaculturalchicago.com",
+      "phone": "312-918-2873"
+    },
+    "sources": ["http://www.facebook.com/herancaculturalchicago"],
+    "locations": [
+      {
+        "name": "Bezz Training",
+        "address": "6033 N. Sheridan Rd., Chicago, IL",
+        "schedule": "Mon, Wed, & Fri 7;30-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Bezz Training\n6033 N. Sheridan Rd., Chicago, IL\nMon, Wed, & Fri 7;30-9:00pm"
+      }
+    ],
+    "notes": "Chicago, Illinois. Estagiando Boneco (Anderson Pereira Goes) under Mestre Catitu [Guarulhos, SP, Brazil]. SOURCE: website 3/4/18",
+    "rawRecord": "      Herança Cultural Capoeira\nhttps://www.herancaculturalchicago.com/\nEstagiando Boneco \"Anderson Pereira Goes\" under Mestre Catitu[Guarulhos,\nSP, Brazil]\nPhone: 312-918-2873\nEmail: info@herancaculturalchicago.com\nhttp://www.facebook.com/herancaculturalchicago\n      Bezz Training\n6033 N. Sheridan Rd., Chicago, IL\nMon, Wed, & Fri 7;30-9:00pm\nSOURCE:  website 3/4/18"
+  },
+  {
+    "name": "Os Malandros de Mestre Touro",
+    "website": "https://www.chicagomalandros.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Preto Velho",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Dr. Kamau Rashid",
+      "email": "harakatizawaasi@gmail.com",
+      "phone": "773-609-4699"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Chicago, Illinois. Dr. Kamau Rashid under the supervision of Mestre Preto Velho [San Diego]. Contact for location. Fri 6:30-8:00pm. SOURCE: website 7/28/19",
+    "rawRecord": "      Os Malandros de Mestre Touro.\nhttps://www.chicagomalandros.com/\nDr. Kamau Rashid under the supervision of Mestre Preto Velho[San Diego]\n   harakatizawaasi@gmail.com \n   773-609-4699\n( Contact for location)   \n: Fri 6:30-8:00pm\nSOURCE: website 7/28/19"
+  },
+  {
+    "name": "Grupo de Capoeira Akebulan",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Instrutor Valentao (Jaiel Omari)",
+      "email": null,
+      "phone": "[773] 4126346"
+    },
+    "sources": ["https://www.facebook.com/jaiel.omari"],
+    "locations": [
+      {
+        "name": "Tuley Park",
+        "address": "501 E. 90th Place Chicago IL",
+        "schedule": "Mon & Wed 7:00pm. (starting August 5, 2019)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Tuley Park \n501 E. 90th Place Chicago IL\nMon & Wed 7:00pm. (starting August 5, 2019)"
+      }
+    ],
+    "notes": "Chicago, Illinois. Instructor: Valentao (Jaiel Omari). SOURCE: email facebook 7/30/19",
+    "rawRecord": "      Grupo de Capoeira Akebulan\nInstructor: Valentao  \"Jaiel Omari\"\n\n  [773] 4126346\nhttps://www.facebook.com/jaiel.omari      Tuley Park \n501 E. 90th Place Chicago IL\nMon & Wed 7:00pm. (starting August 5, 2019)SOURCE: email  facebook 7/30/19"
+  },
+  {
+    "name": "Omulu Guanabara Capoeira",
+    "website": null,
+    "leader": {
+      "title": "mestre",
+      "nickname": "Preguica",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Instrutor Invisível (Matthew Hill)",
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Chicago, Illinois. Email bounces, website offline no links on other Omulu websites 2/18/18. Instrutor Invisível (Matthew Hill) under Mestre Preguica [Los Angeles]. SOURCE: website 9/18/11",
+    "rawRecord": "( email bounces, website offline no links on other\nOmulu websites 2/18/18)\n      Omulu Guanabara Capoeira\nInstructor       Invisvel \"Matthew Hill \" under   Mestre\nPreguica.[Los Angeles]\n       SOURCE: website  9/18/11"
+  },
+  {
+    "name": "Grupo Unidade Capoeira Chicago",
+    "website": "http://www.unidadecapoeira.net",
+    "leader": null,
+    "mainContact": {
+      "name": "Monitor Dentista",
+      "email": null,
+      "phone": "216.264.6960"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Chicago, Illinois. Website online but no content; email bounces. Current status unknown 2/18/18. Monitor Dentista. SOURCE: http://www.unidadecapoeira.net 11/23/12",
+    "rawRecord": "(website online but no content;  email  bounces )(Current status unknown 2/18/18)\n      Grupo Unidade Capoeira Chicago\nMonitor Dentista\n  216.264.6960\nSOURCE:  http://www.unidadecapoeira.net\n11/23/12"
+  }
+]

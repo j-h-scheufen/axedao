@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Grupo Candeias Capoeira",
+    "website": null,
+    "leader": {
+      "title": "mestre",
+      "nickname": "Piau",
+      "name": "Jose Carlos de Oliveira"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "mestrepiau@gmail.com",
+      "phone": "087 623 8525"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Gaelscoil Mhicil Chiosog",
+        "address": "Glenina, Ennis",
+        "schedule": "Mon & Fri Kids 6:00pm Adults 7:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Gaelscoil Mh�c�l C�os�g,\nGlenina, Ennis\nMon & Fri Kids 6:00 pm Adults 7:30pm"
+      }
+    ],
+    "notes": "Website and facebook pages offline. Mestre Piau may be teaching in Limrick 12/31/19. SOURCE: website 8/21/14",
+    "rawRecord": "Grupo Candeias Capoeira\n(Website and facebook pages offline  Mestre Piau may be  teaching in Limrick 12/31/19) Mestre Piau  \"Jose Carlos de Oliveira\"\n  email : mestrepiau@gmail.com\n  Phone : 087 623 8525\n      Gaelscoil Mh�c�l C�os�g,\nGlenina, Ennis\nMon & Fri Kids 6:00 pm Adults 7:30pm\nSOURCE: website 8/21/14"
+  }
+]

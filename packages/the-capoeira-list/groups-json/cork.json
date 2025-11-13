@@ -1,0 +1,94 @@
+[
+  {
+    "name": "Escola da Capoeiragem Cork",
+    "website": "https://www.facebook.com/Capoeiragem-Cork-Cruz-819721814861924/",
+    "leader": {
+      "title": "graduado",
+      "nickname": "Cruz",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "pawegor9@gmail.com",
+      "phone": "087 2542 307"
+    },
+    "sources": ["https://www.facebook.com/Capoeiragem-Cork-Cruz-819721814861924/"],
+    "locations": [
+      {
+        "name": "Leeside Leisure Centre, The Metropole Hotel",
+        "address": "MacCurtain Street, Montenotte, Cork",
+        "schedule": "Mon 7.30pm; Sat 5:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Leeside Leisure Centre,\nThe Metropole Hotel,  MacCurtain Street, Montenotte, Cork\nMon 7.30pm; Sat 5:00pm"
+      }
+    ],
+    "notes": "Under Mestre Samuca. SOURCE: facebook 12/31/19",
+    "rawRecord": "Escola da Capoeiragem Cork\n  https://www.facebook.com/Capoeiragem-Cork-Cruz-819721814861924/\npawegor9@gmail.com\nGraduado  Cruz  under Mestre Samuca\n    087 2542 307\n        Leeside Leisure Centre,\nThe Metropole Hotel,  MacCurtain Street, Montenotte, Cork\nMon 7.30pm; Sat 5:00pm\nSOURCE: facebook 12/31/19"
+  },
+  {
+    "name": "Capoeira Camara Cork",
+    "website": "http://www.capoeiracork.com/",
+    "leader": {
+      "title": "professor",
+      "nickname": "Curioso",
+      "name": "Paulo Farinha"
+    },
+    "mainContact": {
+      "name": "Paulo Farinha",
+      "email": "Paulo.Curioso@gmail.com",
+      "phone": "087 171 2394"
+    },
+    "sources": ["https://www.facebook.com/CapoeiraCork", "http://www.capoeiracork.com/"],
+    "locations": [
+      {
+        "name": "Camara Studios",
+        "address": "Unit 30, Watercourse Rd. Cork 00",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Camara Studios,\n Unit 30, Watercourse Rd. [5,093.33 mi] Cork 00"
+      },
+      {
+        "name": "St Vincent's Secondary School",
+        "address": "St Mary's Road, Blackpool, Cork, County Cork, Ireland",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "St Vincent�s Secondary School\n St Mary�s Road, Blackpool  Cork, Co Cork"
+      },
+      {
+        "name": "Midleton Educate Together National School",
+        "address": "Mill Rd, Broomfield West, Midleton, Co. Cork",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Midleton Educate Together National School\nMill Rd, Broomfield West, Midleton, Co. Cork"
+      }
+    ],
+    "notes": "Under Mestre Bola. Mail: St Vincent's Secondary School, St Mary's Road, Blackpool, Cork, County Cork, Ireland. SOURCE: website 12/30/19",
+    "rawRecord": "Capoeira Camara Cork\nhttps://www.facebook.com/CapoeiraCork\nhttp://www.capoeiracork.com/\nProfessor Curioso \"Paulo Farinha\"  under Mestre Bola\n Mobile:  087 171 2394\n\n  Paulo.Curioso@gmail.com\n\nMail: St Vincent's Secondary School, St Mary's Road, Blackpool. Cork, County Cork, Ireland\n      Camara Studios,\n Unit 30, Watercourse Rd. [5,093.33 mi] Cork 00      St Vincent�s Secondary School\n St Mary�s Road, Blackpool  Cork, Co Cork      Midleton Educate Together National School\nMill Rd, Broomfield West, Midleton, Co. Cork\nSOURCE: website 12/30/19"
+  },
+  {
+    "name": "Grupo Candeias Capoeira",
+    "website": null,
+    "leader": {
+      "title": "professor",
+      "nickname": "Gaucho",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Gaucho",
+      "email": "gauchocapoeira@hotmail.com",
+      "phone": "+353 [0]87 2564141"
+    },
+    "sources": ["https://candeiasdublin.wordpress.com/contact/"],
+    "locations": [],
+    "notes": "SOURCE: https://candeiasdublin.wordpress.com/contact/ 12/31/19",
+    "rawRecord": "Grupo Candeias Capoeira\nProfessor Gaucho\n   +353 [0]87 2564141\n   gauchocapoeira@hotmail.com\nSOURCE:   https://candeiasdublin.wordpress.com/contact/  12/31/19"
+  }
+]

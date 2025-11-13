@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Capoeira Vadiacao de Oxossi",
+    "website": "https://sites.google.com/site/vadiacaodeoxossi/home/programs",
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Cupido",
+      "name": "Kevin Hockett"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "khockett@gmail.com",
+      "phone": "319-321-4212"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "SWEAT Studio",
+        "address": "700 South Dubuque St, Iowa City, IA",
+        "schedule": "Tues, Thurs, & Fri 8:00-9:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "SWEAT Studio\n700 South Dubuque St, Iowa City, IA\nTues, Thurs, & Fri  8:00-9:30pm"
+      }
+    ],
+    "notes": "Under Perere [Port Townsend]. SOURCE: website 3/21/18",
+    "rawRecord": "      Capoeira Vadiacao de Oxossi\nhttps://sites.google.com/site/vadiacaodeoxossi/home/programs\nInstructor Cupido \"Kevin Hockett\"  under  Perere[Port\nTownsend]\n  khockett@gmail.com\n  319-321-4212\n      SWEAT Studio\n700 South Dubuque St, Iowa City, IA\nTues, Thurs, & Fri  8:00-9:30pm\nSOURCE: website 3/21/18"
+  }
+]

@@ -1,0 +1,521 @@
+[
+  {
+    "name": "Grupo Capoeira Integrado",
+    "website": "http://capoeiraintegrado.wix.com/grupo",
+    "leader": {
+      "title": null,
+      "nickname": "Gato",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Gato",
+      "email": "gcigato@yahoo.com",
+      "phone": "[361] 585-6403"
+    },
+    "sources": ["http://capoeiraintegrado.wix.com/grupo"],
+    "locations": [
+      {
+        "name": "N-Step Dance Studio",
+        "address": "40 N. Main Street, Tooele, Utah (access from Merck Plaza on Garden Street)",
+        "schedule": "Sat 9:30-11:00 am",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "N-Step Dance Studio\n40 N. Main Street,  Tooele, Utah\n(access from Merck Plaza on Garden Street)\nSat 9:30-11:00 am"
+      }
+    ],
+    "notes": "Tooele, Utah. SOURCE: website 5/17/16",
+    "rawRecord": "Grupo Capoeira Integrado\nhttp://capoeiraintegrado.wix.com/grupo\nGato\nPhone: [361] 585-6403\nE-mail:  gcigato@yahoo.com\n      N-Step Dance Studio\n40 N. Main Street,  Tooele, Utah\n(access from Merck Plaza on Garden Street)\nSat 9:30-11:00 am\nSOURCE: website 5/17/16"
+  },
+  {
+    "name": "Utah Valley Capoeira - Capuraginga",
+    "website": "http://www.utahcapoeira.com/",
+    "leader": {
+      "title": "graduado",
+      "nickname": "Espeto",
+      "name": "Arles Lara"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "utahcapoeira@gmail.com",
+      "phone": "801.368.8966"
+    },
+    "sources": ["http://www.utahcapoeira.com/"],
+    "locations": [
+      {
+        "name": "Utah Valley Capoeira",
+        "address": "578 North 100 West, Orem, UT 84057",
+        "schedule": "(full schedule of classes)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "578 North 100 West, Orem, UT 84057\nhttp://www.utahcapoeira.com/\nGraduado Espeto  \"Arles   Lara\" \nunder Mestre Loka\n801.368.8966\nutahcapoeira@gmail.com \n  (full schedule of classes)"
+      }
+    ],
+    "notes": "Utah County. Graduado Espeto under Mestre Loka. SOURCE: website 9/22/19",
+    "rawRecord": "Utah Valley Capoeira  -       Capuraginga\n  578 North 100 West, Orem, UT 84057 http://www.utahcapoeira.com/\nGraduado Espeto  \"Arles   Lara\" \nunder Mestre Loka801.368.8966 utahcapoeira@gmail.com \n  (full schedule of classes) \nSOURCE: website  9/22/19"
+  },
+  {
+    "name": "BYU Brazilian Capoeira Club",
+    "website": "https://clubs.byu.edu/clubs#/capoeira-club",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": "Kellen Everett"
+    },
+    "mainContact": {
+      "name": "Kellen Everett",
+      "email": null,
+      "phone": null
+    },
+    "sources": ["https://clubs.byu.edu/clubs#/capoeira-club", "https://www.facebook.com/byucapoeiraclub/?fref=ts"],
+    "locations": [],
+    "notes": "Utah County. President Kellen Everett, Advisor Jeff Tessem. SOURCE: byu.edu 9/22/19",
+    "rawRecord": "BYU   Brazilian Capoeira Club\nhttps://clubs.byu.edu/clubs#/capoeira-club https://www.facebook.com/byucapoeiraclub/?fref=ts\nPresident Kellen Everett\nAdvisor Jeff Tessem SOURCE: byu.edu  9/22/19"
+  },
+  {
+    "name": "Volta Miúda",
+    "website": "https://www.voltamiuda.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Jamaika",
+      "name": "Mauro Romualdo"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["https://www.voltamiuda.com/"],
+    "locations": [
+      {
+        "name": "Volta Miúda Lehi",
+        "address": "870 N 100 E #110, Lehi, UT 84043",
+        "schedule": "All Ages: Tues 6:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "870 N 100 E #110, Lehi, UT 84043\nAll Ages: Tues 6:30pm"
+      }
+    ],
+    "notes": "Utah County. SOURCE: website 9/25/19",
+    "rawRecord": "Volta Miúda\n\n\nhttps://www.voltamiuda.com/ \n\nMestre  Jamaika \"Mauro Romualdo\"\n\n\n870 N 100 E #110, Lehi, UT 84043\n\nAll Ages: Tues 6:30pm\n\nSOURCE:website 9/25/19"
+  },
+  {
+    "name": "Capoeira Escola",
+    "website": null,
+    "leader": {
+      "title": "mestre",
+      "nickname": "Vue",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "377.1355"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Capoeira Escola Provo",
+        "address": "241 West Center St, Provo UT",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": "602.7195",
+        "rawText": "241 West Center St,  Provo UT\nMestre Vue\n377.1355\n602.7195"
+      }
+    ],
+    "notes": "Utah County. SOURCE: unknown 7/31/06",
+    "rawRecord": "Capoeira Escola\n\n241 West Center St,  Provo UT\n\nMestre Vue\n\n377.1355\n\n602.7195\n\nSOURCE: unknown 7/31/06"
+  },
+  {
+    "name": "Motumbaxé Capoeira",
+    "website": "http://www.motumbaxecapoeira.com",
+    "leader": {
+      "title": "graduado",
+      "nickname": "Negrão",
+      "name": "Frank Frimpong-Manso"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["http://www.motumbaxecapoeira.com", "https://www.piesfitnessyoga.com/capoeira/"],
+    "locations": [
+      {
+        "name": "Pies Fitness Yoga Studio",
+        "address": "531 N. Howard St., Alexandria, VA 22304",
+        "schedule": "Thurs 7-8:30pm, Sun 10-11:30am",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Pies Fitness Yoga Studio\n531 N. Howard St., Alexandria, VA 22304\nThurs 7-8:30pm, Sun 10-11:30am\n  https://www.piesfitnessyoga.com/capoeira/"
+      }
+    ],
+    "notes": "Fairfax County, Virginia. Graduado Negrão under Mestre Lampreia [Brooklyn]. SOURCE: website 5/6/19",
+    "rawRecord": "Motumbaxé Capoeira\n  http://www.motumbaxecapoeira.com\nGraduado Negrão \"Frank Frimpong-Manso\" under  Mestre Lampreia[Brooklyn]\n        Pies Fitness Yoga Studio\n531 N. Howard St., Alexandria, VA 22304\nThurs 7-8:30pm, Sun 10-11:30am\n  https://www.piesfitnessyoga.com/capoeira/\nSOURCE: website 5/6/19"
+  },
+  {
+    "name": "Abadá Capoeira",
+    "website": "http://www.abadadc.org",
+    "leader": {
+      "title": "professora",
+      "nickname": "Yara",
+      "name": "Yara Cordeiro"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@abadadc.org",
+      "phone": "301-947-5806"
+    },
+    "sources": ["http://www.abadadc.org"],
+    "locations": [
+      {
+        "name": "Fairfax Jiu Jitsu",
+        "address": "14119 Mariah Ct Chantilly, VA",
+        "schedule": "Children: Wed & Fri 5:30-6:30pm; Adolescents & Adults: Wed & Fri 6:30-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Fairfax Jiu Jitsu\n14119 Mariah Ct Chantilly, VA\nChildren: Wed & Fri 5:30 – 6:30pm\nAdolescents & Adults: Wed & Fri  6:30 – 8:00pm"
+      }
+    ],
+    "notes": "Fairfax County, Virginia. SOURCE: website 11/30/19",
+    "rawRecord": "Abadá Capoeira\nhttp://www.abadadc.org\nProfessora Yara\n\"Yara Cordeiro\"email:  info@abadadc.org\nphone: 301-947-5806      Fairfax Jiu Jitsu\n14119 Mariah Ct Chantilly, VA\nChildren: Wed & Fri 5:30 – 6:30pm\nAdolescents & Adults: Wed & Fri  6:30 – 8:00pm\nSOURCE:  website  11/30/19"
+  },
+  {
+    "name": "Oficina da Capoeira",
+    "website": "http://www.capoeirasocialproject.org/",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["http://www.capoeirasocialproject.org/"],
+    "locations": [],
+    "notes": "Fairfax County, Virginia. Currently does not offer regular classes. Offers in school/festival demonstrations and workshops under non-profit Capoeira Social Project in MD, DC, and VA. SOURCE: email 5/22/18",
+    "rawRecord": "Oficina da Capoeira\ncurrently does not offer regular classes. offers in school/festival\ndemonstrations and workshops under non-profit Capoeira Social Project in\nMD, DC, and VA.\nhttp://www.capoeirasocialproject.org/\nSOURCE:  email  5/22/18"
+  },
+  {
+    "name": "Grupo Capoeira Candeias",
+    "website": null,
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Canchan",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "candeiasva@gmail.com",
+      "phone": "[703] 615-1032"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Pilates Pro Works",
+        "address": "1103 Queen Street, Alexandria, VA 22314",
+        "schedule": "Tues & Thurs 8:15-9:15pm; Sat 12:00-1:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Pilates Pro Works\n1103 Queen Street, Alexandria, VA 22314\nTues & Thurs  8:15-9:15pm; Sat 12:00-1:00pm"
+      }
+    ],
+    "notes": "Fairfax County, Virginia. Instructor Canchan under the supervision of Contra Mestre Javali [Peru]. Website offline 11/30/19. SOURCE: website 5/20/18",
+    "rawRecord": "Grupo Capoeira Candeias\nInstructor Canchan under the supervision of Contra Mestre Javali [Peru]\n(website offline  11/30/19) candeiasva@gmail.com\nPhone: [703] 615-1032\n      Pilates Pro Works\n1103 Queen Street, Alexandria, VA 22314\nTues & Thurs  8:15-9:15pm; Sat 12:00-1:00pm\nSOURCE:   website 5/20/18"
+  },
+  {
+    "name": "Grupo Ondas - Mandingueiros dos Palmares",
+    "website": "https://www.facebook.com/GrupoOndasVirginiaCapoeira/",
+    "leader": {
+      "title": null,
+      "nickname": "Doninha",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "gaze13@yahoo.com",
+      "phone": "703-298-8838"
+    },
+    "sources": ["https://www.facebook.com/GrupoOndasVirginiaCapoeira/"],
+    "locations": [
+      {
+        "name": "Ferocity Dance Company",
+        "address": "900 S. Washington Street, Falls Church VA",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": "[202] 905-8156",
+        "rawText": "Ferocity Dance Company\n900 S. Washington Street,  Falls Church VA"
+      }
+    ],
+    "notes": "Fairfax County, Virginia. Website offline 11/30/19. Last facebook post December 25 2016 (12/19/19). SOURCE: website 4/25/16, facebook 4/25/16",
+    "rawRecord": "Grupo Ondas -  Mandingueiros dos Palmares\n\n(website offline 11/30/19)\n\n Doninha\n\n    703-298-8838\n\n    gaze13@yahoo.com\n\nSOURCE: website   4/25/16\n\nhttps://www.facebook.com/GrupoOndasVirginiaCapoeira/\n(last facebook post  December 25 2016)        12/19/19\n[202] 905-8156\n\n      Ferocity Dance Company\n\n900 S. Washington Street,  Falls Church VA \nSOURCE: facebook 4/25/16"
+  },
+  {
+    "name": "Grupo Resistência Escola de Capoeira do Mestre Panão",
+    "website": "https://sites.google.com/site/capoeirarva/home",
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Balancão",
+      "name": "Roderick J. Davis"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "davis.roderick.82@gmail.com",
+      "phone": "[804] 301-5681"
+    },
+    "sources": ["https://sites.google.com/site/capoeirarva/home"],
+    "locations": [
+      {
+        "name": "IX Art Park",
+        "address": "963 2nd St. SE, Charlottesville, VA 22902",
+        "schedule": "Adults [13+ years]: Mon 5:30-6:30pm; Kids [4-12 years of age] Mon: 4:30-5:30PM",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "IX Art Park\n963 2nd St. SE, Charlottesville, VA 22902\nAdults [13+ years]:  Mon 5:30–6:30pm\nKids: [4-12 years of age] Mon: 4:30–5:30PM"
+      },
+      {
+        "name": "The Dance Spot",
+        "address": "109 2nd St. SE, Charlottesville, VA 22902",
+        "schedule": "Adults [13+ years]: Thurs: 5:30-6:30pm; Kids [4-12 years of age]: Thurs: 4:30-5:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "The Dance Spot\n109 2nd St. SE, Charlottesville, VA 22902  \nhttp://www.dancespotcville.com/\nAdults [13+ years]: Thurs:  5:30–6:30pm\nKids  [4-12 years of age]: Thurs: 4:30–5:30pm"
+      }
+    ],
+    "notes": "Charlottesville, Virginia. SOURCE: website 11/30/19",
+    "rawRecord": "Grupo Resistência Escola de Capoeira do Mestre Panão \n  \n  https://sites.google.com/site/capoeirarva/home\nInstrutor Balancão \"Roderick J. Davis\"\n\nEmail: davis.roderick.82@gmail.com\n\nPhone: [804] 301-5681\n        IX Art Park\n963 2nd St. SE, Charlottesville, VA 22902\nAdults [13+ years]:  Mon 5:30–6:30pm\nKids: [4-12 years of age] Mon: 4:30–5:30PM\n        The Dance Spot\n109 2nd St. SE, Charlottesville, VA 22902  \nhttp://www.dancespotcville.com/\nAdults [13+ years]: Thurs:  5:30–6:30pm\nKids  [4-12 years of age]: Thurs: 4:30–5:30pm  \nSOURCE:  website 11/30/19"
+  },
+  {
+    "name": "Nova Capoeira - Capoeira Luanda",
+    "website": "https://www.facebook.com/NovaCapoeira",
+    "leader": {
+      "title": "professor",
+      "nickname": "Borracha",
+      "name": "Wellington Porto"
+    },
+    "mainContact": {
+      "name": "Kekee",
+      "email": null,
+      "phone": "571-207-9984"
+    },
+    "sources": ["https://www.facebook.com/NovaCapoeira"],
+    "locations": [
+      {
+        "name": "Nova Capoeira",
+        "address": "44710 Cape Ct. Suite 132 Ashburn, VA 20147",
+        "schedule": null,
+        "contactPerson": "Kristen Delellis",
+        "email": null,
+        "phone": null,
+        "rawText": "44710 Cape Ct. Suite 132 Ashburn, VA 20147\nProfessor  Borracha  \"Wellington Porto\"  under Mestre Jelon Vieira\nKekee \"Kristen  Delellis\"\n571-207-9984"
+      }
+    ],
+    "notes": "Loudoun County, Virginia. Contra Mestre Borracha is currently the head Instructor for Nova Capoeira in Ashburn, VA. Website offline 11/30/19. Website and email on facebook no longer valid. Current status of group is unknown (12/2/19). Professor Borracha under Mestre Jelon Vieira. SOURCE: http://www.capoeirastl.org/instructors.html 12/2/19, website 5/24/13",
+    "rawRecord": "Contra Mestre Borracha is currently the head Instuctor for Nova Capoeira in Ashburn, VA.\"\n\nSOURCE: http://www.capoeirastl.org/instructors.html( ) 12/ 2/19      \nNova Capoeira - Capoeira Luanda\n( website offline 11/30/19)\n  https://www.facebook.com/NovaCapoeira\n  (website and email on facebook no longer valid. Current status of group is unknown  )(12/ 2/19)\n44710 Cape Ct. Suite 132 Ashburn, VA 20147\nProfessor  Borracha  \"Wellington Porto\"  under Mestre\nJelon Vieira\nKekee \"Kristen  Delellis\"\n571-207-9984\nSOURCE: website 5/24/13"
+  },
+  {
+    "name": "Capoeira Cangaço Cordão De Ouro Northern Virginia",
+    "website": null,
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Ganga Zumba",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Loudoun County, Virginia. Instructor Ganga Zumba has moved to Oxnard CA. SOURCE: website 4/16/13",
+    "rawRecord": "Capoeira Cangaço Cordão De Ouro Northern\nVirginia\nInstructor Ganga Zumba has moved to Oxnard\nCA\nSOURCE: website 4/16/13"
+  },
+  {
+    "name": "Capoeira Resistência",
+    "website": "https://sites.google.com/site/capoeirarva/home/contact",
+    "leader": {
+      "title": null,
+      "nickname": "Onda",
+      "name": "Crystal Jenkins"
+    },
+    "mainContact": {
+      "name": "Crystal Jenkins",
+      "email": "capoeiratraining@gmail.com",
+      "phone": "757-672-3091"
+    },
+    "sources": ["https://sites.google.com/site/capoeirarva/home/contact"],
+    "locations": [
+      {
+        "name": "Capoeira Resistência Norfolk",
+        "address": "158 S Military Hwy Norfolk VA 23502",
+        "schedule": "Adults: Wed 8:30-10:00pm; Tues & Thurs 7:00-9:00pm; Kids Tues & Thurs 6:00-7:00pm; Adults & Kids Sat 10:00am-12:00pm (24 hour notice required); Open Roda Fri 8:30-10:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "158 S Military Hwy Norfolk VA  23502\nAdults:  Wed 8:30-10:00pm; Tues & Thurs 7:00-9:00pm\nKids Tues & Thurs 6:00-7:00pm\nAdults & Kids Sat 10:00am-12:00pm (24 hour notice required)\nOpen Roda  Fri 8:30-10:00pm"
+      }
+    ],
+    "notes": "Norfolk, Virginia. Website offline 12/20/19. Has no information about Norfolk 12/20/19. SOURCE: websites 5/7/16",
+    "rawRecord": "Capoeira Resistência\n158 S Military Hwy Norfolk VA  23502\n(website offline  12/20/19) https://sites.google.com/site/capoeirarva/home/contact\n  \n  (has no information about Norfolk 12/20/19)\nContact: Onda \" Crystal Jenkins\"\n  757-672-3091\n  capoeiratraining@gmail.com\nAdults:  Wed 8:30-10:00pm; Tues & Thurs 7:00-9:00pm\nKids Tues & Thurs 6:00-7:00pm\nAdults & Kids Sat 10:00am-12:00pm (24 hour notice required)\nOpen Roda  Fri 8:30-10:00pm\nSOURCE: websites 5/7/16"
+  },
+  {
+    "name": "Capoeira Resistencia",
+    "website": "https://sites.google.com/site/capoeirarva/home",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Panão",
+      "name": "Robson Alexandre Pedro"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "capoeiraRVA@gmail.com",
+      "phone": "[803] 477-0768"
+    },
+    "sources": ["https://sites.google.com/site/capoeirarva/home", "http://www.facebook.com/mestrepanaoresistencia"],
+    "locations": [
+      {
+        "name": "Randolph Community Center",
+        "address": "1415 Grayland Ave, Richmond, VA 23220",
+        "schedule": "Adults [13+ years]: Wed & Fri 7:00-8:00pm; Sat 2:00-3:30pm; Kids [4-12 years of age]: Wed & Fri 6:00-6:50pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Randolph Community Center \n1415 Grayland Ave, Richmond, VA 23220\nAdults  [13+ years]: Wed & Fri 7:00-8:00pm; Sat 2:00-3:30pm\n\nKids  [4-12 years of age]: Wed & Fri 6:00-6:50pm"
+      }
+    ],
+    "notes": "Richmond, Virginia. SOURCE: website 12/1/19",
+    "rawRecord": "Capoeira Resistencia\nMestre Panão  \"Robson Alexandre Pedro\"\nhttps://sites.google.com/site/capoeirarva/home\nhttp://www.facebook.com/mestrepanaoresistencia\ncapoeiraRVA@gmail.com\n[803] 477-0768 \n        Randolph Community Center \n1415 Grayland Ave, Richmond, VA 23220\nAdults  [13+ years]: Wed & Fri 7:00-8:00pm; Sat 2:00-3:30pm\n\nKids  [4-12 years of age]: Wed & Fri 6:00-6:50pmSOURCE: website 12/1/19"
+  },
+  {
+    "name": "CALM - Capoeira Angola Liberation Movement",
+    "website": "https://calmrva.weebly.com",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["https://calmrva.weebly.com"],
+    "locations": [
+      {
+        "name": "Illumination Dance Theatre",
+        "address": "Dogtown Theatre 109 W.15th St. Richmond VA 23234",
+        "schedule": "Adults [teens welcome] Sat 10:30am-12pm; Kids: Sun 11am-12pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Illumination Dance Theatre\nDogtown Theatre 109 W.15th St. Richmond VA 23234\nAdults [teens welcome] Sat 10:30am-12pm\n​Kids: Sun 11am-12pm"
+      }
+    ],
+    "notes": "Richmond, Virginia. SOURCE: website 12/1/19",
+    "rawRecord": "CALM  - Capoeira Angola Liberation Movement\nhttps://calmrva.weebly.com      /\n      Illumination Dance Theatre\nDogtown Theatre 109 W.15th St. Richmond VA 23234\nAdults [teens welcome] Sat 10:30am-12pm\n​Kids: Sun 11am-12pm\nSOURCE: website 12/1/19"
+  },
+  {
+    "name": "Virginia Commonwealth University - DANC 491-001 TOPICS IN DANCE:CAPOEIRA",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": "Chioke A. I'Anson"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Richmond, Virginia. SOURCE: www.vcu.edu 5/7/16 (unable to find 12/19/19)",
+    "rawRecord": "Virginia Commonwealth University\nDANC 491-001 TOPICS IN DANCE:CAPOEIRA\nChioke A. I'Anson\nSOURCE: www.vcu.edu 5/7/16\n(unable to find 12/19/19)"
+  },
+  {
+    "name": "Chicote de Couro",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": "Ruben Ernesto"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["https://prabook.com/web/ruben_ernesto_bittencourt.navarrete/69382"],
+    "locations": [],
+    "notes": "Richmond, Virginia. Email out of date 5/10/16. Ruben Ernesto has been back in Brazil since 2007. SOURCE: https://prabook.com/web/ruben_ernesto_bittencourt.navarrete/69382 12/20/19",
+    "rawRecord": "Chicote de Couro \n(email out of date 5/10/16)\n\"Ruben Ernesto\"  has been back in Brazil since 2007\n SOURCE  https://prabook.com/web/ruben_ernesto_bittencourt.navarrete/69382 12/20/19"
+  },
+  {
+    "name": "Grupo de Pretos Velhos",
+    "website": null,
+    "leader": {
+      "title": "professor",
+      "nickname": "Reizinho",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "pretosvelhos@hotmail.com",
+      "phone": "804. 247. 0761"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Golds Gym",
+        "address": "8904 West Broad Street Richmond, Virginia",
+        "schedule": "Mon, Tues, Wed, Thur, 8:30-9:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Golds Gym\n8904 West Broad Street Richmond , Virginia\nMon, Tues, Wed, Thur, 8:30- 9:30pm"
+      }
+    ],
+    "notes": "Richmond, Virginia. Website offline 4/26/13. SOURCE: email 10/20/04",
+    "rawRecord": "Grupo de Pretos Velhos\nProf. Reizinho\n(website offline 4/26/13)\n804. 247. 0761\npretosvelhos@hotmail.com\n      Golds Gym\n8904 West Broad Street Richmond , Virginia\nMon, Tues, Wed, Thur, 8:30- 9:30pm\nSOURCE: email 10/20/04"
+  },
+  {
+    "name": "Grupo Roda Axe Capoeira",
+    "website": null,
+    "leader": {
+      "title": "professor",
+      "nickname": "Reizinho",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "804. 270. 2286"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Grupo Roda Axe Capoeira",
+        "address": "3004 Impala Place Richmond, Virginia 23294",
+        "schedule": "Mon & Wed 8:30-10:00",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "3004 Impala Place Richmond, Virginia 23294\nMon  & Wed 8:30-10:00"
+      }
+    ],
+    "notes": "Richmond, Virginia. Email bounced 4/28/13. SOURCE: unreliable offline website Last updated Feb 17 2005",
+    "rawRecord": "Grupo Roda Axe Capoeira\nProf. Reizinho\nPhone:804. 270. 2286\n(email bounced 4/28/13)\n3004 Impala Place Richmond, Virginia 23294\nMon  & Wed 8:30-10:00\nSOURCE: unreliable offline websiteLast updated Feb 17 2005"
+  }
+]

@@ -1,0 +1,60 @@
+[
+  {
+    "name": "Fitness Connections",
+    "website": "http://www.fitness-connections.org",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": "Holly Sells and Julio Arruda dos Santos",
+      "email": null,
+      "phone": "[515] 344-5140"
+    },
+    "sources": [
+      "https://cultureall.org/meet-brazilian-cultureall-ambassadors-julio-holly/",
+      "http://www.fitness-connections.org"
+    ],
+    "locations": [],
+    "notes": "Holly Sells and Julio Arruda dos Santos. SOURCE: website 3/17/18",
+    "rawRecord": "https://cultureall.org/meet-brazilian-cultureall-ambassadors-julio-holly/\n      Fitness Connections\nhttp://www.fitness-connections.org\n[515] 344-5140\n\"Holly Sells\"  and \"Julio Arruda dos Santos\"\nSOURCE website 3/17/18"
+  },
+  {
+    "name": "Roots Capoeira De Ouro - Cordao de Ouro",
+    "website": "http://www.rootscapoeira.com",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "iowarootscapoeira@gmail.com",
+      "phone": "1-515-661-4556"
+    },
+    "sources": ["http://www.rootscapoeira.com"],
+    "locations": [
+      {
+        "name": "Grubb YMCA",
+        "address": null,
+        "schedule": "Children ages 4-11 years old: Thurs 5:30-6:30pm; Adults: Thurs 6:30-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Grubb YMCA\nChildren ages 4-11 years old:  Thurs 5:30-6:30pm\nAdults: Thurs 6:30-8:00pm"
+      },
+      {
+        "name": "Moulton Elementary",
+        "address": null,
+        "schedule": "Kids 7-12: Tues & Thurs 3:40-4:45pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Moulton Elementary\nKids7-12: Tues & Thurs 3:40-4:45pm"
+      }
+    ],
+    "notes": "Overseen by Mestre Chicote [Paris]. Monitora Caju \"Rebecca Schleuger-Valadao\", Graduada Dim Dim \"Shalina Wallace\", Graduado Piriquito \"EJ Wallace\". SOURCE: website 3/17/18",
+    "rawRecord": "Roots Capoeira De Ouro -       Cordao de Ouro\nhttp://www.rootscapoeira.com\n1-515-661-4556\n iowarootscapoeira@gmail.com\noverseen by Mestre Chicote[Paris]\nMonitora Caju  \"Rebecca Schleuger-Valadao\"\nGraduada Dim Dim \"Shalina Wallace\"\nGraduado Piriquito  \"EJ Wallace\"\n      Grubb YMCA\nChildren ages 4-11 years old:  Thurs 5:30-6:30pm\nAdults: Thurs 6:30-8:00pm\n       Moulton Elementary\nKids7-12: Tues & Thurs 3:40-4:45pm\nSOURCE:  website 3/17/18"
+  }
+]

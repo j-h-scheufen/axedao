@@ -1,0 +1,421 @@
+[
+  {
+    "name": "Capoeira Key West",
+    "website": "http://janczerny.wixsite.com/capoeirakeywest/",
+    "leader": null,
+    "mainContact": {
+      "name": "Jan Czerny",
+      "email": null,
+      "phone": "305 304 3951"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Key West, Florida. Beginners and Advanced: Mon & Wed 8:30pm (Please call first). SOURCE: website 11/12/17",
+    "rawRecord": "      Capoeira Key West\nhttp://janczerny.wixsite.com/capoeirakeywest/\nJan Czerny\n  305 304 3951\nBeginners and Advanced :  Mon & Wed 8:30pm\n(Please call first)\nSOURCE: website 11/12/17"
+  },
+  {
+    "name": "Capoeira Maranhão",
+    "website": "http://www.capoeiramaranhao.com",
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Corvo",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "609-501-9954"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Estero Recreational Center",
+        "address": "9200 Corkscrew Palms Blvd, Estero, FL 33928",
+        "schedule": "All Ages Class: Tues & Thurs 6:45-7:45pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Estero Recreational Center\n9200 Corkscrew Palms Blvd, Estero, FL 33928\nAll Ages Class: Tues & Thurs 6:45– 7:45pm"
+      }
+    ],
+    "notes": "Lee County (Fort Myers, Estero), Florida. Under Contra Mestre Maranhão [New Brunswick]. SOURCE: website 3/31/19",
+    "rawRecord": "      Capoeira Maranhão  \nhttp://www.capoeiramaranhao.com\n Instructor Corvo  under Contra Mestre Maranhão[New\nBrunswick].\n  609-501-9954\n      Estero Recreational Center\n9200 Corkscrew Palms Blvd, Estero, FL 33928\nAll Ages Class: Tues & Thurs 6:45– 7:45pm\nSOURCE: website 3/31/19"
+  },
+  {
+    "name": "Oficina da Capoeira",
+    "website": "http://www.odcteamflorida.com",
+    "leader": {
+      "title": "graduado",
+      "nickname": "Lagartixa",
+      "name": "Humberto Almeida Passos"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "lagartixaoficinaflorida@hotmail.com",
+      "phone": "239-243-6138"
+    },
+    "sources": ["https://www.facebook.com/odcteamflorida/"],
+    "locations": [
+      {
+        "name": "Fort Myers location",
+        "address": "2086 Beacon Manor Drive Fort Myers, FL 339916",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "2086 Beacon Manor Drive Fort Myers, FL 339916"
+      }
+    ],
+    "notes": "Lee County (Fort Myers), Florida. SOURCE: website 7/25/17",
+    "rawRecord": "      Oficina da Capoeira \n2086 Beacon Manor Drive Fort Myers, FL 339916 \nhttp://www.odcteamflorida.com\n\nGraduato Lagartixa \"Humberto Almeida Passos\" \n   lagartixaoficinaflorida@hotmail{D0Tcom\n\n\n  : 239-243-6138 \nhttps://www.facebook.com/odcteamflorida/\n\nSOURCE: website 7/25/17"
+  },
+  {
+    "name": "Capoeira Abolição Community Foundation, Inc.",
+    "website": null,
+    "leader": {
+      "title": "mestre",
+      "nickname": "Delei Kacula",
+      "name": "Wanderlei Narciso"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "capoeiraabolicaoinfo@gmail.com",
+      "phone": "305-985-0117"
+    },
+    "sources": ["https://www.facebook.com/capoeiraabolicaofdn"],
+    "locations": [
+      {
+        "name": "North Miami location",
+        "address": "1948 NE 123 St #102, North Miami, Florida",
+        "schedule": "Full schedule of classes",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "1948 NE 123 St #102,  North Miami, Florida."
+      }
+    ],
+    "notes": "Miami Dade County (Miami, Miami Beach, Bay Harbor Islands, Doral, Coconut Grove, Sunny Isles Beach), Florida. Professor Gigante \"Franklin Neves\" is teaching in Orlando. SOURCE: email 9/28/17",
+    "rawRecord": "      Capoeira Abolição Community Foundation, Inc. \n\n1948 NE 123 St #102,  North Miami, Florida. \nMestre Delei  Kacula   \"Wanderlei Narciso\" \nhttps://www.facebook.com/capoeiraabolicaofdn\n\ncapoeiraabolicaoinfo@gmail.com \n305-985-0117 \n(Full schedule of classes) \nSOURCE: email  9/28/17 \nProfessor Gigante \"Franklin Neves\" \n  is  teaching in Orlando"
+  },
+  {
+    "name": "Capoeira Group Artes Das Gerais",
+    "website": "http://erikadosreis.wix.com/mestrezecomfome",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Ze Com Fome",
+      "name": "Adailton Fernandes Dos Reis"
+    },
+    "mainContact": {
+      "name": "Erika",
+      "email": "artesdasgerais@hotmail.com",
+      "phone": "305-989-6628"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Tough Training Center Inc.",
+        "address": "8361 NE. 2n Avenue, Miami, Fl.",
+        "schedule": "Mon & Wed 7:30-9:00pm; Fri 7:00 pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Tough Training Center Inc.\n8361 NE. 2n Avenue, Miami, Fl.\nMon & Wed 7:30-9:00pm; Fri 7:00 pm"
+      },
+      {
+        "name": "Tina Hils Pavilion",
+        "address": "Bayfront Park, 301 Biscayne Blvd Miami FL",
+        "schedule": "Sat 10:30am",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Tina Hils Pavilion\nBayfront Park,  301 Biscayne Blvd Miami FL\nSat  10:30am"
+      }
+    ],
+    "notes": "Miami Dade County, Florida. Under Mestre Museu [Belo Horizonte]. SOURCE: website 9/17/17",
+    "rawRecord": "      Capoeira Group Artes Das Gerais \nMestre Ze Com Fome \"Adailton Fernandes Dos Reis\" under Mestre Museu[\nBelo Horizonte] \nhttp://erikadosreis.wix.com/mestrezecomfome\n\nartesdasgerais@hotmail.com \nCall  Erika  305-989-6628 \n      Tough Training Center Inc. \n8361 NE. 2n Avenue, Miami, Fl. \nMon & Wed 7:30-9:00pm; Fri 7:00 pm \n      Tina Hils Pavilion \nBayfront Park,  301 Biscayne Blvd Miami FL \nSat  10:30am \nSOURCE:   website 9/17/17"
+  },
+  {
+    "name": "Mestre Andre Gusmao",
+    "website": "https://www.formulafightfitness.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": null,
+      "name": "Andre Gusmao"
+    },
+    "mainContact": null,
+    "sources": ["https://www.facebook.com/andre.gusmao.397"],
+    "locations": [],
+    "notes": "Miami Dade County, Florida. Adults: Tues & Thurs 8:15-9:00am; Mon & Wed 6:30-7:15pm; Fri 6:00pm. Young Adults all levels: Tues & Thurs 5:15-6:00pm. SOURCE: website 7/23/19",
+    "rawRecord": "Mestre Andre Gusmao\n\nhttps://www.formulafightfitness.com/\n\nhttps://www.facebook.com/andre.gusmao.397\nAdults: \nTues & Thurs 8:15-9:00am; Mon & Wed  6:30-7:15pm;  Fri  6:00pm\n\nYoung Adults all levels:  Tues & Thurs 5:15- 6:00pm        \n\nSOURCE: website 7/23/19"
+  },
+  {
+    "name": "Miami Capoeira Sol e Lua-United Capoeira Association",
+    "website": "http://www.miamicapoeirasolelua.com",
+    "leader": {
+      "title": "contra-mestra",
+      "nickname": "Índia",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "indiauca@gmail.com",
+      "phone": "305-332-1636"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Miami location",
+        "address": "2200 SW 16th St Miami Fl 33145",
+        "schedule": "Full schedule of classes",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "2200 SW 16th St  Miami Fl 33145"
+      }
+    ],
+    "notes": "Miami Dade County, Florida. SOURCE: website 10/4/17",
+    "rawRecord": "      Miami Capoeira Sol e Lua-United Capoeira\n  Association \n2200 SW 16th St  Miami Fl 33145 \nhttp://www.miamicapoeirasolelua.com\n\nContra Mestra Índia \n   305-332-1636 \n  indiauca@gmail.com \n(Full schedule of classes) \nSOURCE: website 10/4/17"
+  },
+  {
+    "name": "Capoeira Berimbau",
+    "website": "http://www.capoeiraberimbau.com",
+    "leader": null,
+    "mainContact": {
+      "name": "Marcio Pizanelli",
+      "email": "marciopizanelli@hotmail.com",
+      "phone": "305-219-2923"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Ripped Fitness Center",
+        "address": "5983 NW 102nd Avenue, Doral, FL 33178",
+        "schedule": "Kids[5-7years]: Tues & Thurs 4:45pm; Kids[8-13years]: Tues & Thurs 5:15pm; Adults: Mon 6:15; Wed 7:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": "305-418-8855",
+        "rawText": "Ripped Fitness Center\n5983 NW 102nd Avenue, Doral, FL 33178\nOffice/Fax: 305-418-8855\nhttp://www.rippedfitnesscenter.com\n\nKids[5-7years]: Tues & Thurs 4:45pm\nKids[8-13years]: Tues & Thurs 5:15pm\nAdults: Mon 6:15;  Wed 7:30pm"
+      }
+    ],
+    "notes": "Miami Dade County, Florida. Website redirects to Ripped as of 11/5/17. Nextel: 158*31*26956. SOURCE: email 11/22/17",
+    "rawRecord": "      Capoeira Berimbau \nhttp://www.capoeiraberimbau.com\n\n(website redirects to Ripped 11/5/17) \nMarcio Pizanelli \n  Email : marciopizanelli@hotmail.com\n\n  Cell: 305-219-2923 \n  Nextel: 158*31*26956 \n      Ripped Fitness Center \n5983 NW 102nd Avenue, Doral, FL 33178 \nOffice/Fax: 305-418-8855 \nhttp://www.rippedfitnesscenter.com\n\nKids[5-7years]: Tues & Thurs 4:45pm \nKids[8-13years]: Tues & Thurs 5:15pm \nAdults: Mon 6:15;  Wed 7:30pm \nSOURCE: email 11/22/17"
+  },
+  {
+    "name": "Capoeira Nagô Miami",
+    "website": "http://www.nagomiami.com/",
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "nagoacademymiami@hotmail.com",
+      "phone": "305 974 2200"
+    },
+    "sources": ["https://www.facebook.com/nagoacademymiami/"],
+    "locations": [
+      {
+        "name": "Miami location",
+        "address": "2656 NE 189th Terrace, Miami FL 33180",
+        "schedule": "Full schedule of classes",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "2656 NE 189th Terrace, Miami FL 33180"
+      }
+    ],
+    "notes": "Miami Dade County, Florida. SOURCE: website 10/7/17",
+    "rawRecord": "      Capoeira Nagô Miami \n2656 NE 189th Terrace, Miami FL 33180 \nhttp://www.nagomiami.com/ \n305 974 2200| \nnagoacademymiami@hotmail.com \nhttps://www.facebook.com/nagoacademymiami/\n\n(Full schedule of classes) \nSOURCE: website 10/7/17"
+  },
+  {
+    "name": "Cordão de Ouro Miami",
+    "website": "https://cdomiami.wordpress.com",
+    "leader": {
+      "title": "instrutora",
+      "nickname": "Rebelde",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "rebeldecdo@gmail.com",
+      "phone": "305 606 9191"
+    },
+    "sources": ["https://www.facebook.com/cdomiami/"],
+    "locations": [
+      {
+        "name": "Little Haiti Cultural Center",
+        "address": "212 Ne 59 Terrace, Miami FL",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Little Haiti Cultural Center\n212 Ne 59 Terrace, Miami  FL"
+      }
+    ],
+    "notes": "Miami Dade County, Florida. Under Contra Mestre Espirrinho. Professora Casca Dura \"Tania de Jesus\" is living in Pembroke Pines, but does not appear to be teaching (facebook 11/5/17). SOURCE: webpage 11/3/17",
+    "rawRecord": "      Cordão de Ouro Miami \nhttps://cdomiami.wordpress.com\n\nInstrutora Rebelde  under Contra Mestre Espirrinho \n305 606 9191 \nrebeldecdo@gmail.com \nhttps://www.facebook.com/cdomiami/\n\n      Little Haiti Cultural Center \n212 Ne 59 Terrace, Miami  FL \nSOURCE:  webpage 11/3/17\nProfessora Casca Dura( \")Tania de Jesus\" \n  is living in Pembroke Pines, but does not appear to be teaching \n  SOURCE:  facebook 11/5/17"
+  },
+  {
+    "name": "Carioca Capoeira",
+    "website": "http://www.cariocacapoeiramiami.com",
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "CobraCapoeira@aol.com",
+      "phone": "1-786-715-5504"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Carioca Capoeira-Miami Studio",
+        "address": "9550 Bay Harbor Terrace, Room # 215. Bay Harbor Islands, Fl 33154.",
+        "schedule": "Kids Mon 6:00-7:00pm; Adults Mon & Wed 7:00-8:30 pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Carioca Capoeira-Miami Studio\n9550 Bay Harbor Terrace, Room # 215. Bay Harbor Islands, Fl 33154.\nKids  Mon 6:007:00pm\nAdults  Mon & Wed 7:00-8:30 pm"
+      }
+    ],
+    "notes": "Miami Dade County, Florida. Under Mestre Carioca [Espirito Santo, Brazil]. Instrutora Canela \"Joanah Bodero\", Instrutor Cobra D'Agua \"Darwin Bodero\". SOURCE: website 10/17/17",
+    "rawRecord": "      Carioca Capoeira \nhttp://www.cariocacapoeiramiami.com \nunder Mestre Carioca[Espirito Santo, Brazil] \nInstrutora  Canela \"Joanah Bodero\" \nInstrutor  Cobra D'Agua \"Darwin Bodero\" \n1-786-715-5504 \nCobraCapoeira@aol.com \n      Carioca Capoeira-Miami Studio \n9550 Bay Harbor Terrace, Room # 215. Bay Harbor Islands, Fl 33154. \nKids  Mon 6:007:00pm \nAdults  Mon & Wed 7:00-8:30 pm \nSOURCE: website 10/17/17"
+  },
+  {
+    "name": "Capoeira Superação",
+    "website": "http://capoeira.us/",
+    "leader": {
+      "title": "professor",
+      "nickname": "Alemão Superação",
+      "name": "Scott Michael Miller"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "professor@capoeira.us",
+      "phone": "786-863-2451"
+    },
+    "sources": [
+      "http://capoeira.life",
+      "http://www.facebook.com/groups/46459085901",
+      "http://superacaocapoeira.blogspot.com/"
+    ],
+    "locations": [
+      {
+        "name": "Florida International University",
+        "address": null,
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Florida International University\nhttps://studentaffairs.fiu.edu/health-and-fitness/recreation/mmc/group-fitness-classes/"
+      }
+    ],
+    "notes": "Miami Dade County, Florida. SOURCE: websites 11/5/17",
+    "rawRecord": "      Capoeira Superação \nProfessor Alemão Superação \"Scott Michael Miller\" \n  professor@capoeira.us \n  786-863-2451 \nhttp://capoeira.us/ \nhttp://capoeira.life \nhttp://www.facebook.com/groups/46459085901\n\nhttp://superacaocapoeira.blogspot.com/\n\n      Florida International University \nhttps://studentaffairs.fiu.edu/health-and-fitness/recreation/mmc/group-fitness-classes/\n\nSOURCE: websites 11/5/17"
+  },
+  {
+    "name": "Grupo Maculelê",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Miami Dade County, Florida. See Pembroke Park 8/1/17",
+    "rawRecord": "      Grupo Maculelê \n(See Pembroke Park )8/1/17"
+  },
+  {
+    "name": "Grupo Ondas",
+    "website": "http://www.inertiastreak.com/BCV/ri_va_fl_col.html",
+    "leader": {
+      "title": "monitora",
+      "nickname": "Onca",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "capkitty04@yahoo.com",
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Miami Dade County, Florida. Under Contra Mestre Tigri [Warwick RI]. SOURCE: website 10/28/17",
+    "rawRecord": "       Grupo Ondas \nhttp://www.inertiastreak.com/BCV/ri_va_fl_col.html\n\nMonitora Onca under  Contra Mestre Tigri[ Warwick RI] \n  capkitty04@yahoo.com \nSOURCE: website 10/28/17"
+  },
+  {
+    "name": "Capoeira Luanda",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": "Esquilo Preto",
+      "name": "Washington Luiz Lima Porto"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "esquilomiami@gmail.com",
+      "phone": "305.873.3049"
+    },
+    "sources": ["http://www.facebook.com/groups/142332235783805/"],
+    "locations": [],
+    "notes": "Miami Dade County, Florida. Under Mestre Jolen [New York]. Website offline; facebook appears abandoned, current status of group unknown 10/31/17. SOURCE: website 7/27/11",
+    "rawRecord": "      Capoeira Luanda under Mestre Jolen[New York] \n(website offline; facebook appears abandoned, current status of\n  group unknown 10/31/17) \nhttp://www.facebook.com/groups/142332235783805/\n\nEsquilo Preto \"Washington Luiz Lima Porto\" \n  305.873.3049 \n  esquilomiami@gmail.com \nSOURCE: website 7/27/11"
+  },
+  {
+    "name": "Nação Capoeira",
+    "website": null,
+    "leader": {
+      "title": "mestre",
+      "nickname": "Cesar Dialabama",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "786.273.5621"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Miami Dade County, Florida. Website offline, but we have some reason to believe that the group is still active. Please contact us. 10/16/17. Email failed 11/5/17. SOURCE: website 2/20/13",
+    "rawRecord": "      Nação Capoeira \nMestre Cesar Dialabama \n(website offline, but we have some reason to believe that the\n  group is still active. Please\n\n    contact us. 10/16/17) \n(email failed 11/5/17) \ncall: 786.273.5621 \nSOURCE: website 2/20/13"
+  },
+  {
+    "name": "T.A.B.C.A.T Tribo Afro Bahiana de Capoeira Angola Tradicional do Mestre Caboquinho",
+    "website": null,
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Beriba",
+      "name": "Raquel Prymak"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "[305]531-1795"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Miami Dade County, Florida. Website offline 1/8/17. Email failed 11/5/17. SOURCE: website 7/23/11",
+    "rawRecord": "      T.A.B.C.A.T Tribo Afro Bahiana\n    de Capoeira Angola Tradicional do Mestre Caboquinho \n(website offline 1/8/17) \nContra Mestre Beriba \"Raquel Prymak\" \n  [305]531-1795 \n(email failed 11/5/17) \nSOURCE: website 7/23/11"
+  },
+  {
+    "name": "Nego Gato, Inc.",
+    "website": "http://www.negogato.org",
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "[954]425-0901"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Miami Dade County, Florida. No Class information on website as of 8/1/17",
+    "rawRecord": "Nego Gato, Inc. \nMiami [954]425-0901 \nhttp://www.negogato.org \n(No Class information on website    8/1/17"
+  },
+  {
+    "name": "Fabiano",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Fabiano",
+      "email": "fabianosc@hotmail.com",
+      "phone": "[786]285-1431"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Miami Dade County, Florida. Attempting contact 11/5/17",
+    "rawRecord": ")Fabiano \nEmail: fabianosc@hotmail.com \n(attempting contact 11/5/17) \nTel: [786]285-1431"
+  }
+]

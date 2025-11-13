@@ -1,0 +1,48 @@
+[
+  {
+    "name": "Arkansas Centrosul Capoeira",
+    "website": null,
+    "leader": {
+      "title": "professora",
+      "nickname": "Borboleta",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Has moved to Fort Worth. SOURCE: email 9/22/16",
+    "rawRecord": "Arkansas Centrosul Capoeira\nProfessora Borboleta\nhas moved to Fort Worth\nSOURCE:  email 9/22/16"
+  },
+  {
+    "name": "Ozark Capoeira Club",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": "Dagen Ames"
+    },
+    "mainContact": {
+      "name": "Dagen Ames",
+      "email": null,
+      "phone": "[206]-390-3605"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Walker Park",
+        "address": "Walker Park, Fayetteville",
+        "schedule": "Tues 5:30-7:30pm; Roda BBQ on some Sundays",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Walker Park\nFayetteville\nTues 5:30-7:30pm\nRoda  BBQ  on some  Sundays"
+      }
+    ],
+    "notes": "Email failed: mailbox unavailable. capoeira.com is offline. 11/25/16. \"Has just come together after a few months of recruiting capoeiristas and anyone interested\". SOURCE: capoeira.com Sun Apr 15 2007",
+    "rawRecord": "Ozark Capoeira Club\n\"Dagen Ames\"\n  [206]-390-3605\n(email failed: mailbox unavailable.  capoeira.com is offline. \n11/25/16)\n\"has just come together after a few months of recruiting capoeiristas\nand anyone interested\".\n      Walker Park\nFayetteville\nTues 5:30-7:30pm\nRoda  BBQ  on some  Sundays\nSOURCE:  capoeira.com Sun Apr 15 2007"
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Cornell College Capoeira Club - Forca Rara",
+    "website": "https://people.cornellcollege.edu/JAlexander14/index.html",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Ninja",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Anna Fox",
+      "email": "AFox13@cornellcollege.edu",
+      "phone": null
+    },
+    "sources": ["http://people.cornellcollege.edu/skram12/Capoeira/"],
+    "locations": [
+      {
+        "name": "Hedges",
+        "address": "Hedges",
+        "schedule": "Tues & Thurs 7:30-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Hedges\nTues & Thurs 7:30 -9:00pm"
+      }
+    ],
+    "notes": "Mont Vernon, Iowa. Under Contra-Mestre Ninja [Lenexa]. Website does not appear to have been updated since 2010 as of 3/21/18. SOURCE: website 3/21/18",
+    "rawRecord": "      Cornell College Capoeira Club - Forca Rara\nhttps://people.cornellcollege.edu/JAlexander14/index.html\nunder  Contra-Mestre Ninja[Lenexa]\nContact Anna Fox\n   AFox13@cornellcollege.edu\n      Hedges\nTues & Thurs 7:30 -9:00pm\nSOURCE: website 3/21/18\nhttp://people.cornellcollege.edu/skram12/Capoeira/\n(above website does not appear to have been updated since 2010 3/21/18)"
+  }
+]

@@ -1,0 +1,78 @@
+[
+  {
+    "name": "Purdue Capoeira Club",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Petronio A. Bendito",
+      "email": "pbendito@purdue.edu",
+      "phone": null
+    },
+    "sources": ["https://boilerlink.purdue.edu/organization/capoeiraclub"],
+    "locations": [],
+    "notes": "Purdue University, Indiana. Primary Advisor: Petronio A. Bendito. SOURCE: https://boilerlink.purdue.edu/organization/capoeiraclub 3/13/18",
+    "rawRecord": "      Purdue Capoeira Club\n  capoeira@purdue.edu\nPrimary Advisor:  Petronio A. Bendito\n  pbendito@purdue.edu\nSOURCE:  https://boilerlink.purdue.edu/organization/capoeiraclub\n3/13/18"
+  },
+  {
+    "name": "South Bend Capoeira",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Greg Downey",
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "South Bend, Indiana. Greg Downey is in Australia and is no longer teaching or playing. The Capoeira List would like to express our deepest sympathy to the family and students of one of the first capoeira instructors in the US, Peg Strain, who died 8 Mar 2014. SOURCE: google 3/13/18, https://www.findagrave.com/memorial/126167848",
+    "rawRecord": "\"Greg Downey\" is in Australia and  is no longer teaching or playing\nSOURCE google 3/13/18 \n\n\n The Capoeira List would like to express our deepest sympathy to\nthe family and students of one of the first capoeira instructors in the\nUS\n\"Peg Strain\"  Died  8 Mar 2014\nSOURCE: https://www.findagrave.com/memorial/126167848"
+  },
+  {
+    "name": "Cordao de Ouro - Cedar Falls",
+    "website": "https://sites.google.com/site/cedarvalleycapoeira",
+    "leader": null,
+    "mainContact": {
+      "name": "Alan Huynh",
+      "email": "cedarvalley@gmail.com",
+      "phone": "319-215-1140"
+    },
+    "sources": ["https://www.heinzacademy.net/"],
+    "locations": [
+      {
+        "name": "Heinz Academy",
+        "address": "6322 University Ave, Cedar Falls, IA 50613",
+        "schedule": null,
+        "contactPerson": "Busca Pe (Alan Huynh)",
+        "email": null,
+        "phone": null,
+        "rawText": "Heinz Academy\n6322 University Ave, Cedar Falls, IA 50613\nhttps://www.heinzacademy.net/\n(Classes are on the schedule but do not agree with the above website\n3/14/118)"
+      }
+    ],
+    "notes": "Cedar Falls, Iowa. Contact: Busca Pe (Alan Huynh). Website has not been updated since 2015; facebook page is offline 3/14/18. Classes are on the schedule but do not agree with the above website 3/14/18. SOURCE: websites 3/14/18",
+    "rawRecord": "      Cordao de Ouro\nhttps://sites.google.com/site/cedarvalleycapoeira\n(website has not been updated since 2015;  facebook page is\noffline  3/14/18)\ncedarvalley@gmail.com\nContact: Busca Pe \"Alan  Huynh\"\n  Phone: 319-215-1140\n      Heinz Academy\n6322 University Ave, Cedar Falls, IA 50613\nhttps://www.heinzacademy.net/\n(Classes are on the schedule but do not agree with the above website\n3/14/118)"
+  },
+  {
+    "name": "University of Northern Iowa Capoeira Sport Club",
+    "website": "https://cgi.access.uni.edu/cgi-bin/student_orgs/student_orgs.cgi?oid=29",
+    "leader": null,
+    "mainContact": {
+      "name": "Celeste Bembry",
+      "email": "celeste.bembry@uni.edu",
+      "phone": "319-273-2797"
+    },
+    "sources": ["https://www.facebook.com/UniCapoeiraSportClub/"],
+    "locations": [
+      {
+        "name": "University of Northern Iowa WRC RM 176",
+        "address": "University of Northern Iowa Communication Arts Center 266, Cedar Falls, IA 50614-0358",
+        "schedule": "during school year for UNI (Students only)",
+        "contactPerson": null,
+        "email": "unicapoeiraclub@gmail.com",
+        "phone": "[563] 271-6231",
+        "rawText": "University of Northern Iowa Capoeira Sport Club\nWRC RM 176 ( during school year for UNI) (Students only)\nhttps://cgi.access.uni.edu/cgi-bin/student_orgs/student_orgs.cgi?oid=29\nPhone:  [563] 271-6231\nEmail:  unicapoeiraclub@gmail.com\nhttps://www.facebook.com/UniCapoeiraSportClub/\n       Adviser: Celeste Bembry\nceleste.bembry@uni.edu\n319-273-2797\nUniversity of Northern Iowa Communication Arts Center 266, Cedar Falls,\n IA 50614-0358"
+      }
+    ],
+    "notes": "Cedar Falls, Iowa. University of Northern Iowa students only, during school year. Adviser: Celeste Bembry. SOURCE: websites 3/14/18",
+    "rawRecord": "      University of Northern Iowa Capoeira Sport Club\nWRC RM 176 ( during school year for UNI) (Students only)\nhttps://cgi.access.uni.edu/cgi-bin/student_orgs/student_orgs.cgi?oid=29\nPhone:  [563] 271-6231\nEmail:  unicapoeiraclub@gmail.com\nhttps://www.facebook.com/UniCapoeiraSportClub/\n       Adviser: Celeste Bembry\nceleste.bembry@uni.edu\n319-273-2797\nUniversity of Northern Iowa Communication Arts Center 266, Cedar Falls,\n IA 50614-0358\nSOURCE: websites 3/14/18"
+  }
+]

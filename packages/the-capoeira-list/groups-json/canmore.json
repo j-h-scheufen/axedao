@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Capoeira Ache Brasil",
+    "website": "http://achebrasil.ca",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": "Julie Budgen"
+    },
+    "mainContact": {
+      "name": "Julie Budgen",
+      "email": "jbudgen@corvidaeenv.com",
+      "phone": "403.609.2019"
+    },
+    "sources": ["http://achebrasil.ca"],
+    "locations": [
+      {
+        "name": "LifeWorks",
+        "address": "1412 Railway Ave, Canmore AB",
+        "schedule": "Tues & Thurs 5:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "LifeWorks\n1412 Railway Ave, Canmore AB\nTues & Thurs 5:30 pm"
+      }
+    ],
+    "notes": "Under Mestre Eclison de Jesus [Vancouver]. SOURCE: website 3/19/17 information not changed since Feb 20, 2011",
+    "rawRecord": "Capoeira Ache Brasil\nhttp://achebrasil.ca\n\"Julie Budgen\" under Mestre Eclison de Jesus[Vancouver]\n   ph: 403.609.2019\n   jbudgen@corvidaeenv.com\n      LifeWorks\n1412 Railway Ave, Canmore AB\nTues & Thurs 5:30 pm\nSOURCE: website 3/19/17 information not changed since Feb 20, 2011"
+  }
+]

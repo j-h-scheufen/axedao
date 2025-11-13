@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Uniao Capoeira",
+    "website": "http://www.capoeirauniao.co.uk",
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "info@capoeirauniao.co.uk",
+      "phone": "07946 601221"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Flexibility Health and Fitness club",
+        "address": "Palace Chambers, Silver Street, Bedford, Bedfordshire, MK40 1SY",
+        "schedule": "All levels, adults and children: Sat 11:30 – 12:30",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Flexibility Health and Fitness club\nPalace Chambers, Silver Street, Bedford, Bedfordshire, MK40 1SY\nAll levels, adults and children:  Sat 11:30 – 12:30"
+      },
+      {
+        "name": "Carnival Arts Centre",
+        "address": "3 St Mary's Rd, Luton LU1 3JA",
+        "schedule": "All levels: Mon 18:45 – 20:15",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Carnival Arts Centre\n3 St Mary's Rd, Luton LU1 3JA\nAll levels: Mon 18:45 – 20:15"
+      }
+    ],
+    "notes": "SOURCE: website 10/25/16",
+    "rawRecord": "      Uniao Capoeira.\nhttp://www.capoeirauniao.co.uk\n07946 601221\ninfo@capoeirauniao.co.uk\n      Flexibility Health and Fitness club\nPalace Chambers, Silver Street, Bedford, Bedfordshire, MK40 1SY\nAll levels, adults and children:  Sat 11:30 – 12:30\n      Carnival Arts Centre\n3 St Mary's Rd, Luton LU1 3JA\nAll levels: Mon 18:45 – 20:15\nSOURCE: website 10/25/16"
+  }
+]

@@ -1,0 +1,84 @@
+[
+  {
+    "name": "TABCAT - P.R.",
+    "website": "http://www.capoeira-tabcat-pr.es.tl/",
+    "leader": null,
+    "mainContact": {
+      "name": "Trenel Guia Martinez",
+      "email": "tabcat_pr@hotmail.com",
+      "phone": "787-674-1213"
+    },
+    "sources": ["http://www.myspace.com/capoeira_angola_pr"],
+    "locations": [
+      {
+        "name": "Parque Central Santurce",
+        "address": null,
+        "schedule": "Mon & Wed 7:30pm-9:00pm; Tues & Thurs 7:30pm-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Parque Central Santurce\nMon& Wed 7:30pm-9:00pm\nTues& Thurs 7:30pm - 9:00pm"
+      }
+    ],
+    "notes": "San Juan, Puerto Rico. Trenel Guia Martinez. SOURCE: email 11/9/09",
+    "rawRecord": "      TABCAT - P.R.\nhttp://www.myspace.com/capoeira_angola_pr\nhttp://www.capoeira-tabcat-pr.es.tl/\n Trenel Guia Martinez\nemail: tabcat_pr@hotmail.com\nPhone: 787-674-1213\nParque Central Santurce\nMon& Wed 7:30pm-9:00pm\nTues& Thurs 7:30pm - 9:00pm\nSOURCE: email 11/9/09"
+  },
+  {
+    "name": "Quilombo San Diego",
+    "website": "http://groups-beta.google.com/group/Capoeira_in_Puerto_Rico",
+    "leader": null,
+    "mainContact": {
+      "name": "Catatau",
+      "email": "CapoeiraQuilomboPuertoRico@groups.msn.com",
+      "phone": "787-767-5204"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "352 San Claudio Ave.",
+        "address": "352 San Claudio Ave.",
+        "schedule": "Mon & Wed 7:00-8:30 pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "352 San Claudio Ave.\nMon & Wed 7:00-8:30 pm"
+      }
+    ],
+    "notes": "San Juan, Puerto Rico. Catatau. Mail: Box 112 San Juan, Puerto Rico 00926. SOURCE: Capoeirista.com 6/29/06",
+    "rawRecord": "      Quilombo San Diego\n http://groups-beta.google.com/group/Capoeira_in_Puerto_Rico\nCatatau\nmail: Box 112 San Juan, Puerto Rico 00926\nemail CapoeiraQuilomboPuertoRico@groups. msn.com\nPhone: 787-767-5204\n352 San Claudio Ave.\nMon & Wed 7:00-8:30 pm\nSOURCE: Capoeirista.com 6/29/06"
+  },
+  {
+    "name": "Grupo Caribe",
+    "website": "http://www.capoeira.com/user.php?id.3043",
+    "leader": {
+      "title": "professor",
+      "nickname": "Corvo",
+      "name": "Carlos Leokane"
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "San Juan, Puerto Rico (Culebra). Prof. Corvo (Carlos Leokane).",
+    "rawRecord": "      Grupo Caribe\nProf. Corvo \"Carlos Leokane\"\nCulebra\nhttp://www.capoeira.com/user.php?id.3043"
+  },
+  {
+    "name": "Grupo Uniao Dos Palmares",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "San Juan, Puerto Rico. See Santurce.",
+    "rawRecord": "      Grupo Uniao Dos Palmares\nSee Santurce"
+  },
+  {
+    "name": "Grupo internacional de Capoeira Abolicao",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "San Juan, Puerto Rico. See Santurce.",
+    "rawRecord": "      Grupo internacional de Capoeira Abolicao\nSee Santurce"
+  }
+]
