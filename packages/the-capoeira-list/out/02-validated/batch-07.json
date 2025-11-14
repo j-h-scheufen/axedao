@@ -1,0 +1,1997 @@
+[
+  {
+    "name": "Capoeira Brasil Arizona",
+    "website": "http://capoeiraarizona.com/",
+    "leader": null,
+    "mainContact": {
+      "name": "Professora Borboleta (Angelique Starks) and Instrutor Lagarta de Goiaba Branca (Matthew Underwood)",
+      "email": "info@capoeiraarizona.com",
+      "phone": "[480]510-4741"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Capoeira Brasil Arizona",
+        "address": "4113 N 7th Ave, Phoenix, AZ 85013",
+        "schedule": "(full schedule of classes)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "4113 N 7th Ave, Phoenix, AZ 85013\nhttp://capoeiraarizona.com/\nProfessora  Borboleta \"Angelique Starks\"\nInstrutor Lagarta de Goiaba Branca \"Matthew Underwood\"\nPhone: [480]510-4741\ninfo@capoeiraarizona.com\n(full schedule of classes)"
+      }
+    ],
+    "notes": "Phoenix, Arizona. Professora Borboleta (Angelique Starks) and Instrutor Lagarta de Goiaba Branca (Matthew Underwood). SOURCE: website 6/12/18",
+    "rawRecord": "      Capoeira Brasil Arizona\n\n4113 N 7th Ave, Phoenix, AZ 85013\n\nhttp://capoeiraarizona.com/\n\nProfessora  Borboleta \"Angelique Starks\"\n\nInstrutor Lagarta de Goiaba Branca \"Matthew Underwood\"\n\nPhone: [480]510-4741\n\ninfo@capoeiraarizona.com\n\n(full schedule of classes)\n\nSOURCE: website 6/12/18",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "western-australla.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:02:33.097Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Capoeira Brasil Arizona - Home <meta name=\"generator\" content=\"Starfield Technologies; Go",
+        "redirectUrl": "https://capoeiraarizona.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["wweeiihhuuaanngg@gmail.com"],
+        "extractedPhones": ["(623) 703-1002"]
+      }
+    }
+  },
+  {
+    "name": "Capoeira Phoenix - United Capoeira Association",
+    "website": "http://capoeiraphoenix.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Acordeon",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Instructor Mestiço and Monitor Primo",
+      "email": null,
+      "phone": "520-399-5671"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "OneOhOne Art Gallery",
+        "address": "101 W Main St, Mesa, AZ 85210",
+        "schedule": "Kids Sat 9:00-10:00am; Mon & Wed 5:30-6:30pm; Teen/Adult Beginner Intermediate Mon & Wed 7:00-8:30pm; Sat 10:30am-12:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "OneOhOne Art Gallery\n101 W Main St, Mesa, AZ 85210\nKids Sat 9:00-10:00am; Mon & Wed  5:30-6:30pm\nTeen/Adult Beginner Intermediate Mon & Wed 7:00-8:30pm; Sat 10:30am\n– 12:00pm"
+      }
+    ],
+    "notes": "Phoenix/Mesa, Arizona. Instructor Mestiço and Monitor Primo under the tutelage and supervision of Professor Besouro. Student of the legendary Capoeira Mestre, Mestre Acordeon. SOURCE: website 6/15/18",
+    "rawRecord": "      Capoeira Phoenix  - United Capoeira Association\n\nhttp://capoeiraphoenix.com/\n\nInstructor Mestiço and Monitor Primo\n\nunder the tutelage and supervision of Professor Besouro. Student of\nthe legendary Capoeira Mestre, Mestre Acordeon\n\n520-399-5671\n\n      OneOhOne Art Gallery\n\n101 W Main St, Mesa, AZ 85210\n\nKids Sat 9:00-10:00am; Mon & Wed  5:30-6:30pm\n\nTeen/Adult Beginner Intermediate Mon & Wed 7:00-8:30pm; Sat 10:30am\n– 12:00pm\n\nSOURCE: website 6/15/18",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "western-australla.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:02:34.518Z",
+      "phase": 2,
+      "websiteStatus": "unreachable",
+      "websiteValidation": {
+        "statusCode": 0,
+        "isCapoeiraRelated": false,
+        "errorMessage": "fetch failed"
+      }
+    }
+  },
+  {
+    "name": "Omulu Capoeira Guanabara - Madison",
+    "website": "http://www.madisoncapoeira.org/",
+    "leader": {
+      "title": "monitora",
+      "nickname": "Guerreira",
+      "name": "Kelly Schumann"
+    },
+    "mainContact": {
+      "name": "Monitora Guerreira",
+      "email": "madcapoeira@gmail.com, Kelly_schumann@hotmail.com",
+      "phone": "[608] 492-1919, 608-469-5843"
+    },
+    "sources": ["https://www.facebook.com/MadisonCapoeira", "http://win.wisc.edu/organization/capoeira"],
+    "locations": [
+      {
+        "name": "Kanopy Dance",
+        "address": "341 State St # 3. Madison, WI 53703",
+        "schedule": "Mixed: Mon, Wed, & Fri 7:00pm; Kids: Sat 12:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "         Kanopy Dance\n341 State St # 3.  Madison, WI 53703\nMixed: Mon, Wed, & Fri\n7:00pm\nKids: Sat 12:00pm"
+      }
+    ],
+    "notes": "Madison, Wisconsin. Monitora Guerreira (Kelly Schumann) under Mestre Preguiça [Los Angeles]. UW Omulu Capoeira Club. SOURCE: website 1/4/20",
+    "rawRecord": "      Omulu Capoeira Guanabara - Madisonhttp://www.madisoncapoeira.org/\nTel: [608] 492-1919\nEmail: madcapoeira@gmail.com \nMail: 341 State St # 3.  Madison, WI 53703\nhttps://www.facebook.com/MadisonCapoeira\nmonitora  Guerreira \"Kelly Schumann\" under Mestre Preguiça[Los Angeles ]\n  Kelly_schumann@hotmail.com\n  608-469-5843\n  \n         Kanopy Dance\n341 State St # 3.  Madison, WI 53703\nMixed: Mon, Wed, & Fri\n7:00pm\nKids: Sat 12:00pm      UW Omulu Capoeira Club\nhttp://win.wisc.edu/organization/capoeira SOURCE: website 1/4/20",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "whidbey-island.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:02:35.080Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "window['ppConfig'] = {productName: '6b8ce7c01e3dacd3d2c7a8cd322ff979', deleteIsEnforced: false , sealIsEnforced: false , heartbeatRate: 0.5 , periodicReportingRateMillis: 60000.0 , disableAllReporting: false };(function(){'use strict';function k(a){var b=0;return function(){return b<a.length?{done:!1,value:a[b++]}:{done:!0}}}function l(a){var b=typeof Symbol!=\"undefi",
+        "redirectUrl": "https://www.madisoncapoeira.org/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["madcapoeira@gmail.com"],
+        "extractedPhones": ["(608) 492-1919"]
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/MadisonCapoeira",
+          "source": "sources",
+          "status": "unreachable"
+        },
+        {
+          "url": "http://win.wisc.edu/organization/capoeira",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Raizes do Brasil Madison",
+    "website": "http://capoeiramadison.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Papiba",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": ["http://www.facebook.com/RaizesCapoeiraMadison"],
+    "locations": [
+      {
+        "name": "Maple Bluff Village Center",
+        "address": "18 Oxford Place Madison",
+        "schedule": "Sun 10:30am-12:30pm; Mon 7:00-8:30pm; Kid's 11:30am-12:15pm",
+        "contactPerson": null,
+        "email": "rootsofbrazilcapoeiramadison@gmail.com",
+        "phone": "608-509-7559",
+        "rawText": "       Maple Bluff Village Center \n 18 Oxford Place Madison\nSun 10:30am : 12:30pm; Mon 7:00 - 8:30pm\nKid's  11:30am - 12:15pm"
+      },
+      {
+        "name": "The Quadra",
+        "address": "72 North Bryan Street Madison",
+        "schedule": "Wed 7:15pm-8:45pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      The Quadra \n72 North Bryan Street Madison\nWed 7:15pm - 8:45pm"
+      }
+    ],
+    "notes": "Madison, Wisconsin. Under Mestre Papiba [Santa Cruz]. SOURCE: website facebook 3/11/16",
+    "rawRecord": "      Raizes do Brasil Madison\nhttp://capoeiramadison.com\nunder  Mestre Papiba [Santa\nCruz]\n608-509-7559rootsofbrazilcapoeiramadison@gmail.com\nhttp://www.facebook.com/RaizesCapoeiraMadison       Maple Bluff Village Center \n 18 Oxford Place Madison\nSun 10:30am : 12:30pm; Mon 7:00 - 8:30pm\nKid's  11:30am - 12:15pm\n      The Quadra \n72 North Bryan Street Madison\nWed 7:15pm - 8:45pm SOURCE:  website facebook 3/11/16",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "whidbey-island.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:02:39.710Z",
+      "phase": 2,
+      "websiteStatus": "unreachable",
+      "websiteValidation": {
+        "statusCode": 403,
+        "isCapoeiraRelated": false,
+        "redirectUrl": "http://capoeiramadison.com/",
+        "errorMessage": "HTTP 403"
+      },
+      "alternativeUrls": [
+        {
+          "url": "http://www.facebook.com/RaizesCapoeiraMadison",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Milwaukee Capoeira - Capoeira Nagô",
+    "website": "https://mkecapoeira.org/",
+    "leader": {
+      "title": "graduado",
+      "nickname": "Arrepiado",
+      "name": "Daniel Farmer"
+    },
+    "mainContact": {
+      "name": "Graduado Arrepiado",
+      "email": "capoeira.nago.mke@gmail.com",
+      "phone": null
+    },
+    "sources": ["https://www.facebook.com/capoeiranago.milwaukee"],
+    "locations": [
+      {
+        "name": "Daync Studio",
+        "address": "910 E Hamilton St.",
+        "schedule": "Adults, all levels, Wed 8:00-9:00pm; Sat 10:00-11:15am",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "        Daync Studio \n910 E Hamilton St.\nAdults, all levels, Wed 8:00-9:00pm; Sat 10:00-11:15am"
+      }
+    ],
+    "notes": "Milwaukee, Wisconsin. Graduado Arrepiado (Daniel Farmer) under Mestre André Gusmao [New York]. Not currently offering children's classes. SOURCE: website 1/5/20",
+    "rawRecord": "      Milwaukee Capoeira - Capoeira Nagô\nhttps://mkecapoeira.org/\nGraduado Arrepiado \"Daniel Farmer\" under Mestre André Gusmao[New\nYork]\ncapoeira.nago.mke@gmail.com\nhttps://www.facebook.com/capoeiranago.milwaukee\n  \n        Daync Studio \n910 E Hamilton St.\nAdults, all levels, Wed 8:00-9:00pm; Sat 10:00-11:15am(\n not currently offering  children's classes).SOURCE: website 1/5/20",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "whidbey-island.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:02:41.517Z",
+      "phase": 2,
+      "websiteStatus": "unreachable",
+      "websiteValidation": {
+        "statusCode": 0,
+        "isCapoeiraRelated": false,
+        "errorMessage": "fetch failed"
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/capoeiranago.milwaukee",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Milwaukee Capoeira",
+    "website": "http://capoeiramilwaukee.com/",
+    "leader": null,
+    "mainContact": {
+      "name": "Steve Antonson",
+      "email": "capoeiraangola@hotmail.com",
+      "phone": "[414] 732-8379"
+    },
+    "sources": ["m.me/capoeiramilwaukee"],
+    "locations": [
+      {
+        "name": "Delaware House",
+        "address": "2499 S. Delaware Ave, Milwaukee, WI 53207",
+        "schedule": "All Ages and Levels: Sat 10:00am-12:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Delaware House\n\n2499 S. Delaware Ave, Milwaukee, WI 53207\n\n\nhttps://delaware-house.com/\nAll Ages and Levels:  Sat 10:00am \n-12:00pm"
+      }
+    ],
+    "notes": "Milwaukee, Wisconsin. Instructor: Steve Antonson. Instructor's capoeira name, affiliation, and supervisor are no longer listed on the group website. We are unable to find any evidence that his supervisor is still active. 1/5/20. SOURCE: website 3/14/16 1/5/19",
+    "rawRecord": "      Milwaukee Capoeira\n\n http://capoeiramilwaukee.com/\nInstructor: \"Steve Antonson\" \n  capoeiraangola@hotmail.com\n\n  [414] 732-8379\n\n\n   m.me/capoeiramilwaukee\n\n(instructor's capoeira name,  affiliation, and supervisor are no \nlonger listed on the group website. We are unable to find any evidence \nthat his superviser is still active.  1/5/20)\n      Delaware House\n\n2499 S. Delaware Ave, Milwaukee, WI 53207\n\n\nhttps://delaware-house.com/\nAll Ages and Levels:  Sat 10:00am \n-12:00pm \n\nSOURCE: website 3/14/16 \n1/5/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "whidbey-island.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:02:42.972Z",
+      "phase": 2,
+      "websiteStatus": "unreachable",
+      "websiteValidation": {
+        "statusCode": 0,
+        "isCapoeiraRelated": false,
+        "errorMessage": "fetch failed"
+      },
+      "alternativeUrls": [
+        {
+          "url": "m.me/capoeiramilwaukee",
+          "source": "sources",
+          "status": "invalid_url"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Capoeira Maya",
+    "website": "http://wichitavalor.com/capoeira.html",
+    "leader": null,
+    "mainContact": {
+      "name": "Aluno Formado Marcio Navarro",
+      "email": "contact@wichitavalor.com",
+      "phone": "316-260-6595"
+    },
+    "sources": ["https://www.facebook.com/wichitavalor", "http://wichitavalor.com/schedule.html"],
+    "locations": [
+      {
+        "name": "Valor Martial Arts",
+        "address": "1836 S. Woodlawn Wichita, KS 67218",
+        "schedule": "Adults: Fri 4:30pm; Sat 9:00am",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Valor Martial Arts\n1836 S. Woodlawn Wichita, KS 67218\nhttp://wichitavalor.com/capoeira.html\nhttps://www.facebook.com/wichitavalor\ncontact@wichitavalor.com.\n316-260-6595\nAdults: Fri 4:30pm; Sat 9:00am\nhttp://wichitavalor.com/schedule.html"
+      }
+    ],
+    "notes": "Wichita, Kansas. Aluno Formado Marcio Navarro. SOURCE: email 8/12/15 website 3/30/18",
+    "rawRecord": "      Capoeira Maya\nAluno Formado Marcio Navarro\n      Valor Martial Arts\n1836 S. Woodlawn Wichita, KS 67218\nhttp://wichitavalor.com/capoeira.html\nhttps://www.facebook.com/wichitavalor\ncontact@wichitavalor.com.\n316-260-6595\nAdults: Fri 4:30pm; Sat 9:00am\nhttp://wichitavalor.com/schedule.html\nSOURCE: email  8/12/15 website 3/30/18",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "wichita.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:02:44.034Z",
+      "phase": 2,
+      "websiteStatus": "unreachable",
+      "websiteValidation": {
+        "statusCode": 400,
+        "isCapoeiraRelated": false,
+        "redirectUrl": "https://www.wichitavalor.com/capoeira.html",
+        "errorMessage": "HTTP 400"
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/wichitavalor",
+          "source": "sources",
+          "status": "unreachable"
+        },
+        {
+          "url": "http://wichitavalor.com/schedule.html",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Capuraginga Capoeira",
+    "website": "http://capuraginga.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Loka",
+      "name": "Manoel Leite"
+    },
+    "mainContact": {
+      "name": "Mestre Loka",
+      "email": "masterloka@yahoo.com",
+      "phone": "[978] 580-9333"
+    },
+    "sources": ["https://www.facebook.com/mestre.loka?lst=1783327277%3A693675816%3A1505832807"],
+    "locations": [
+      {
+        "name": "The Brazilian Capoeira Academy",
+        "address": "298 Lancaster Street, Leominster MA, 0145",
+        "schedule": "(no class is on the website 7/20/18)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "The Brazilian Capoeira Academy\n298 Lancaster Street, Leominster MA, 0145\n(no class is on the website 7/20/18)"
+      }
+    ],
+    "notes": "Leominster, Massachusetts. Mestre Loka (Manoel Leite). SOURCE: website 7/20/18",
+    "rawRecord": "      Capuraginga Capoeira\nhttp://capuraginga.com/\nMestre Loka \"Manoel Leite \"\n298 Lancaster Street, Leominster MA, 0145\nEmail    masterloka@yahoo.com\nPhone    [978] 580-9333\nhttps://www.facebook.com/mestre.loka?lst=1783327277%3A693675816%3A1505832807\n      The Brazilian Capoeira Academy\n(no class is on the website 7/20/18)\nSOURCE: website 7/20/18",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "worcester-county.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:02:46.983Z",
+      "phase": 2,
+      "websiteStatus": "unreachable",
+      "websiteValidation": {
+        "statusCode": 0,
+        "isCapoeiraRelated": false,
+        "errorMessage": "fetch failed"
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/mestre.loka?lst=1783327277%3A693675816%3A1505832807",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Afro-Brazilian Capoeira Association",
+    "website": "http://www.abcapoeira.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Yoji Senna",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Mestre Yoji Senna",
+      "email": "abcapoeira@gmail.com",
+      "phone": "612-298-3402"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "South High School",
+        "address": "Weight Room, 3131 S 19th Ave, Minneapolis, MN 55407",
+        "schedule": "Tues & Thurs 7:00-9:00pm; Roda Sat 2:00pm (intermittent schedule, contact for dates)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "South High School\nWeight Room, 3131 S 19th Ave, Minneapolis, MN\n55407\nTues & Thurs 7:00-9:00pm\nRoda Sat 2:00pm.( intermittent schedule, contact for dates)"
+      }
+    ],
+    "notes": "Minneapolis-St.Paul, Minnesota. Mestre Yoji Senna. SOURCE: website 10/4/18",
+    "rawRecord": "          Afro-Brazilian Capoeira Association \n      http://www.abcapoeira.com/\n      \n      Mestre Yoji Senna \n        612-298-3402\n      Email: abcapoeira@gmail.com \n            South High School\n      Weight Room, 3131 S 19th Ave, Minneapolis, MN\n          55407\n      Tues & Thurs 7:00-9:00pm\nRoda Sat 2:00pm.( intermittent schedule, contact for dates)(\nS)OURCE: website 10/4/18",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "yipsilanti.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:02:48.418Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "img:is([sizes=\"auto\" i], [sizes^=\"auto,\" i]) { contain-intrinsic-size: 3000px 1500px } <!-- This site is optimized with the Yoast SEO plugin v26.3 - https://yoast.com/wordpress/plu",
+        "redirectUrl": "https://www.abcapoeira.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Capoeira Floração",
+    "website": "http://www.mncapoeira.org/",
+    "leader": null,
+    "mainContact": {
+      "name": "Instrutor Coruja (James Lynch) and Monitora Vespa (Jenny Johnson-Blanchard)",
+      "email": "minnesotacap@gmail.com",
+      "phone": "612-326-0809"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Minnesota Capoeira Academy",
+        "address": "6463 Lyndale Avenue South, Richfield, MN 55423",
+        "schedule": "(full schedule of classes)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Minnesota Capoeira Academy \n6463 Lyndale Avenue South,  Richfield, MN  55423 \n(full schedule of classes)"
+      }
+    ],
+    "notes": "Minneapolis, Minnesota. Instrutor Coruja (James Lynch) and Monitora Vespa (Jenny Johnson-Blanchard). SOURCE: website 2/18/18",
+    "rawRecord": "      Capoeira Floração \n    http://www.mncapoeira.org/\n    \n    Instrutor Coruja \"James Lynch\" \n    Monitora  Vespa \"Jenny Johnson-Blanchard\" \n    Phone: 612-326-0809 \n    Email:  minnesotacap@gmail.com \n          Minnesota Capoeira Academy \n    6463 Lyndale Avenue South,  Richfield, MN  55423 \n    (full schedule of classes) \n    SOURCE:  website 2/18/18",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "yipsilanti.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:02:50.811Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "#wpadminbar #wp-admin-bar-p404_free_top_button .ab-icon:before { content: \"\\f103\"; color: red; top: 2px; } <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' /",
+        "redirectUrl": "https://mncapoeira.org/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Grupo Balança Capoeira Missouri",
+    "website": "https://www.missouricapoeira.com/",
+    "leader": {
+      "title": "formado",
+      "nickname": "Turbulência",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Formado Turbulência",
+      "email": "missouricapoeira@gmail.com",
+      "phone": "910-603-3303"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Contact for location",
+        "address": "Fort Leonard Wood, Missouri",
+        "schedule": "Ages: 5-15 years old: Tues & Thurs 6:30-7:30pm; Sat 3:00-4:00pm; Ages: 16 years old and up: Wed & Fri 7:45-9:00pm; Sat 1:00-2:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "(Contact for location )\nAges: 5-15 years old:Tues & Thurs 6:30-7:30pm; Sat 3:00-4:00pm\nAges: 16 years old and up:Wed & Fri 7:45 - 9:00pm; Sat 1:00-2:30pm"
+      }
+    ],
+    "notes": "Fort Leonard Wood, Missouri. Formado Turbulência. SOURCE: website 7/19/19",
+    "rawRecord": "      Grupo Balança Capoeira Missouri\n\nhttps://www.missouricapoeira.com/\n\nFormado Turbulência\n\n910-603-3303\n\nmissouricapoeira@gmail.com\n\n (Contact for location )\n\nAges: 5-15 years old:Tues & Thurs 6:30-7:30pm; Sat 3:00-4:00pm\n\nAges: 16 years old and up:Wed & Fri 7:45 - 9:00pm; &#8203;Sat 1:00-2:30pm\n\nSOURCE: website 7/19/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "yipsilanti.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:02:55.343Z",
+      "phase": 2,
+      "websiteStatus": "unreachable",
+      "websiteValidation": {
+        "statusCode": 0,
+        "isCapoeiraRelated": false,
+        "errorMessage": "fetch failed"
+      }
+    }
+  },
+  {
+    "name": "Axe Capoeira Kansas City",
+    "website": "http://www.capoeirakc.com",
+    "leader": {
+      "title": "graduada",
+      "nickname": "Arara",
+      "name": "Sonia Duncombe"
+    },
+    "mainContact": {
+      "name": "Graduada Arara (Sonia Duncombe)",
+      "email": "axecapoeirakc1@gmail.com",
+      "phone": "[816] 442-9907"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Axe Capoeira Kansas City",
+        "address": "6430 Troost Ave, Kansas City, MO 64131",
+        "schedule": "(Full schedule of classes)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "6430 Troost Ave, Kansas City, MO 64131\nhttp://www.capoeirakc.com\n(Full schedule of classes)"
+      }
+    ],
+    "notes": "Kansas City, Missouri. Graduada Arara (Sonia Duncombe). SOURCE: website 3/19/18",
+    "rawRecord": "          Axe Capoeira \n        6430 Troost Ave, Kansas City, MO 64131 \n      http://www.capoeirakc.com\n      \n      Graduada Arara \"Sonia Duncombe\" \n      Email: axecapoeirakc1 @gmail.com \n      [816] 442-9907 \n      (Full schedule of classes) \n      SOURCE: website 3/19/18",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "yipsilanti.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:02:55.909Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Grupo Ax&eacute; Capoeira Kansas City img:is([sizes=\"auto\" i], [sizes^=\"auto,\" i]) { contain-intrinsic-size: 3000px 1500px } <link rel=\"alternate\" type=\"application/rss+xml\" title=\"",
+        "redirectUrl": "https://capoeirakc.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["axecapoeirakc1@gmail.com"],
+        "extractedPhones": ["(816) 442-9907"]
+      }
+    }
+  },
+  {
+    "name": "Capoeira Angola Study Group of St. Louis",
+    "website": "https://capoeiraangolastl.com/",
+    "leader": null,
+    "mainContact": {
+      "name": "Timbalada (David) and Fumaca (Keith)",
+      "email": "capoeiraangolastl@gmail.com",
+      "phone": "[314] 246-9584"
+    },
+    "sources": ["https://www.facebook.com/capoeiraangolastlstudygroup/"],
+    "locations": [
+      {
+        "name": "Unity Christ Church",
+        "address": "33 N Skinker, St. Louis, MO 63105",
+        "schedule": "Mon & Tues 6:00-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Unity Christ Church\n33 N Skinker, St. Louis, MO 63105\nMon & Tues 6:00-8:00pm"
+      }
+    ],
+    "notes": "Saint Louis, Missouri. Timbalada (David) and Fumaca (Keith). SOURCE: email website 4/18/17",
+    "rawRecord": "      Capoeira Angola Study Group of St. Louis\nhttps://capoeiraangolastl.com/\nCall or text: [314] 246-9584\nEmail: capoeiraangolastl@gmail.com\nhttps://www.facebook.com/capoeiraangolastlstudygroup/\nTimbalada  \"David\"\nFumaca   \"Keith\"\n      Unity Christ Church\n33 N Skinker, St. Louis, MO 63105\nMon & Tues 6:00-8:00pm\nSOURCE: email website 4/18/17",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "yipsilanti.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:01.347Z",
+      "phase": 2,
+      "websiteStatus": "unreachable",
+      "websiteValidation": {
+        "statusCode": 0,
+        "isCapoeiraRelated": false,
+        "errorMessage": "fetch failed"
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/capoeiraangolastlstudygroup/",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Capoeira Luanda of St. Louis",
+    "website": "http://www.capoeirastl.org/",
+    "leader": null,
+    "mainContact": {
+      "name": "Instructor Beija-flor (Keith Wilson)",
+      "email": "beijaflor@capoeirastl.org",
+      "phone": "[618] 530-3132"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "University Tower",
+        "address": "1034 S Brentwood Blvd, St. Louis, MO 63117",
+        "schedule": "Kids: Mon & Wed 7:30-8:30pm; Adults: Mon & Wed 7:30-9:00pm",
+        "contactPerson": "Graduado Damiao (Joseph Grey)",
+        "email": null,
+        "phone": null,
+        "rawText": "University Tower\n1034 S Brentwood Blvd, St. Louis, MO 63117\n(behind First Community Credit Union. Same building the Blue Sky\nTower Grill is in. Across from the Galleria Mall. Located on the 16th floor.\nPlease call 618 530-3132 to be let up if no one is downstairs.)\nKids:    Mon & Wed  7:30-8:30pm\nAdults: Mon & Wed  7:30-9:00pm\nGraduado Damiao- \"Joseph Grey\""
+      },
+      {
+        "name": "Be Well Now",
+        "address": "221 Center Drive, Alton, IL 62002",
+        "schedule": "Tues & Thurs 8:00-9:30pm",
+        "contactPerson": "Graduado Cebolinha (Matt Hawkins)",
+        "email": null,
+        "phone": "[618] 225-9246",
+        "rawText": "Be Well Now\n221 Center Drive, Alton, IL 62002\n[618] 225-9246\nTues & Thurs 8:00-9:30pm\nGraduado Cebolinha- \"Matt Hawkins\""
+      }
+    ],
+    "notes": "Saint Louis, Missouri. Instructor Beija-flor (Keith Wilson) Founder & Executive Director. SOURCE: website 4/19/17",
+    "rawRecord": "      Capoeira Luanda of St. Louis\nhttp://www.capoeirastl.org/\nPhone & Text::    [618] 530-3132\nE-mail: beijaflor@capoeirastl.org\nInstructor Beija-flor \"Keith Wilson\"  Founder & \nExecutive Director\nGraduado Damiao- \"Joseph Grey\"\n      University Tower\n1034 S Brentwood Blvd, St. Louis, MO 63117\n(behind First Community Credit Union. Same building the Blue Sky\nTower Grill is in. Across from the Galleria Mall. Located on the 16th floor.\nPlease call 618 530-3132 to be let up if no one is downstairs.)\nKids:    Mon & Wed  7:30-8:30pm\nAdults: Mon & Wed  7:30-9:00pm\nGraduado Cebolinha- \"Matt Hawkins\"\n      Be Well Now\n221 Center Drive, Alton, IL 62002\n[618] 225-9246\nTues & Thurs 8:00-9:30pm\nSOURCE: website 4/19/17",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "yipsilanti.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:03.071Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Toto Togel >> Daftar Situs Togel & Situs Toto Online Terbesar Promosi Scatter Hitam 2 <meta name=\"description\" content=\"Toto Togel adalah daftar situs togel dan situs toto online terbesar banyak di minati pemain judi online, karena memiliki promosi terbesar seperti scatter hitam 2 jejer hadiah jutaan rupiah, dan masih banyak lainnya, langsung",
+        "redirectUrl": "https://capoeirastl.org/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": [
+          "512 938.6666",
+          "667-192 426.6666",
+          "192-426.6666",
+          "667-426.6666",
+          "667 192-426.6666",
+          "667 192 426.6666",
+          "667 426.6666",
+          "666 256-247.4666",
+          "652 820.7582",
+          "957-123.5478",
+          "174 275.7008",
+          "174 445.2173",
+          "043 141.8685",
+          "739 316.5495",
+          "887 142.0688",
+          "957 188.6608",
+          "957 158.1189",
+          "739 159.2097",
+          "435 159.4323",
+          "348 159.4323",
+          "913 158.0299",
+          "913 142.8702",
+          "609-188.9947",
+          "044-173.3676",
+          "487 139.9763",
+          "217-208.1613",
+          "304 876.7443",
+          "667 814.9333",
+          "334 273.0666",
+          "667 507.7333",
+          "333 170.6666",
+          "256 507.7333",
+          "068 460.1266",
+          "068 474.2663",
+          "767 978.3969",
+          "667 904.5333",
+          "809.344 695.3691",
+          "17.792-113.4811",
+          "143 535.3325",
+          "143 101.1931",
+          "714-207.9085",
+          "857 152.2468",
+          "429 151.3142",
+          "429 152.6674",
+          "286 895.8171",
+          "429-152.6674",
+          "571-154.0022",
+          "286 408.1371",
+          "51.968-114.8342",
+          "143-152.6857",
+          "143-154.0205",
+          "429 153.1977",
+          "571 154.5508",
+          "571 114.8342",
+          "428 206.5371",
+          "286 154.5691",
+          "143 152.6674",
+          "286-153.1977",
+          "429-154.5691",
+          "768 686.9333",
+          "333 418.1333",
+          "667 123.7333",
+          "333 123.7333",
+          "2-128-119.4666",
+          "667-170.6666",
+          "666 439.4666",
+          "667 149.3333",
+          "522 201.9555",
+          "222 611.5555",
+          "222 236.0888",
+          "667 725.3333",
+          "128-132.2666",
+          "320-375.4666",
+          "333 196.2666",
+          "512 682.6666",
+          "333 849.0666",
+          "667-388.2666",
+          "334-162.1333",
+          "667-251.7333",
+          "548.864 1024",
+          "212.992 1024",
+          "024 212.992 1024",
+          "008 811.008 1024",
+          "778 341.3333",
+          "778 249.4577",
+          "889 312.8888",
+          "111 398.2222",
+          "333 223.5733",
+          "778 253.7244",
+          "223 113.7777",
+          "222 185.4577",
+          "889 287.2888",
+          "666 190.2933",
+          "111 309.1911",
+          "889 718.2222",
+          "667-109.7955",
+          "889 214.7555",
+          "555 113.7777",
+          "333-412.4444",
+          "222 230.9688",
+          "555 330.8088",
+          "333-350.4355",
+          "223 229.8311",
+          "111 278.4711",
+          "444-100.9777",
+          "778-110.6488",
+          "111 229.8311",
+          "444 261.4044",
+          "778 116.9066",
+          "445-239.7866",
+          "778 316.0177",
+          "889 284.4444",
+          "445-204.5155",
+          "778 177.2088",
+          "778 308.3377",
+          "556 300.9422",
+          "333 718.2222",
+          "333 785.0666",
+          "667 247.4666",
+          "667 119.4666",
+          "67-256 264.5333",
+          "256 110.9333",
+          "512 580.2666",
+          "667-196.2666",
+          "667-110.9333",
+          "256 264.5333",
+          "333-145.0666",
+          "2-256 110.9333",
+          "33-256 110.9333",
+          "667-136.5333",
+          "666-136.5333",
+          "667 375.4666",
+          "333 298.6666",
+          "0 512 229.2337",
+          "667 318.5777",
+          "556-116.0533",
+          "667 227.5555",
+          "556-115.4844",
+          "667-116.0248",
+          "256 318.5777",
+          "256 713.6711",
+          "889 853.3333",
+          "33 512 853.3333",
+          "0 256-139.6337",
+          "78 256-271.7013",
+          "333-263.0826",
+          "889 682.6666",
+          "333 565.6462",
+          "444 398.2222",
+          "441.088 487.7084",
+          "334 277.3333",
+          "333-123.7333",
+          "334-277.3333",
+          "333 174.9333",
+          "333 510.7626",
+          "667-401.0666",
+          "667 401.0666",
+          "666 401.0666",
+          "666-401.0666",
+          "667-157.8666",
+          "333-354.1333",
+          "333 157.8666",
+          "333 354.1333",
+          "333 369.9626",
+          "667 529.0666",
+          "256-256-273.0666",
+          "667 213.3333",
+          "334 209.0666",
+          "333-162.1333",
+          "334-157.8666",
+          "667-200.5333",
+          "666 136.5333",
+          "876 203.5279",
+          "689 508.8198",
+          "863 228.9689",
+          "379-260.7701",
+          "124-190.8074",
+          "559 146.2857",
+          "571 127.2049",
+          "745 349.8136",
+          "137 235.3291",
+          "845 165.3664",
+          "149 171.7267",
+          "894 292.5714",
+          "403 209.8881",
+          "174 273.4906",
+          "497 318.0124",
+          "603 120.8447",
+          "391-178.0869",
+          "391 184.4472",
+          "666 541.8666",
+          "667 196.2666",
+          "333 110.9333",
+          "333-221.8666",
+          "333 401.0666",
+          "192 366.9333",
+          "333 315.7333",
+          "333 695.4666",
+          "667 226.1333",
+          "128 128 157.8666",
+          "67 128 196.2666",
+          "128-443.7333",
+          "334 337.0666",
+          "667-674.1333",
+          "320 132.2666",
+          "333 426.6666",
+          "667 106.6666",
+          "667 136.5333",
+          "666 302.9333",
+          "333 149.3333",
+          "667-302.9333",
+          "666-110.9333",
+          "0-192 149.3333",
+          "333 776.5333",
+          "333 610.1333",
+          "334 213.3333",
+          "333 119.4666",
+          "512 841.5898",
+          "844-148.3154",
+          "969 329.5898",
+          "969-329.5898",
+          "844-329.5898",
+          "844 148.3154",
+          "844 329.5898",
+          "725 327.4296",
+          "698 299.9267",
+          "333 273.0666",
+          "666 388.2666",
+          "273 727.8312",
+          "545 130.0945",
+          "909 151.8312",
+          "819 161.2334",
+          "818-109.4749",
+          "091-109.4749",
+          "182 134.3301",
+          "182 134.5163",
+          "545 134.1905",
+          "139.264-123.1127",
+          "091 122.8334",
+          "181-100.0727",
+          "818 131.3978",
+          "909 131.2581",
+          "728 137.0763",
+          "545 131.1185",
+          "727-125.7658",
+          "182 131.2581",
+          "727-136.9832",
+          "455 776.4712",
+          "454 176.6865",
+          "272-338.2923",
+          "636-150.2021",
+          "091-150.2021",
+          "32.768 137.7745",
+          "273 137.7745",
+          "637 344.7621",
+          "636-136.1454",
+          "091 964.4218",
+          "234.496 163.1883",
+          "455 332.1483",
+          "636 605.4632",
+          "636-524.9861",
+          "637 253.3003",
+          "455 460.2414",
+          "636 461.7309",
+          "454-202.9381",
+          "455-400.2909",
+          "273-417.0007",
+          "091 321.6290",
+          "727 166.8654",
+          "182 303.2901",
+          "545 304.2210",
+          "16.896-133.7250",
+          "727-263.7265",
+          "636-274.7112",
+          "118 531.8027",
+          "297 517.9180",
+          "288 219.9921",
+          "558-214.5293",
+          "207 869.5867",
+          "689 184.8252",
+          "413 120.8647",
+          "632-108.2320",
+          "715-101.7449",
+          "652 698.8737",
+          "978-180.9557",
+          "029 105.7282",
+          "604 491.2868",
+          "361 475.8088",
+          "612 573.6842",
+          "121 104.9315",
+          "122 709.5718",
+          "402 703.1985",
+          "847 565.6038",
+          "933 523.6084",
+          "042 698.8737",
+          "334 458.6237",
+          "861-183.8009",
+          "782-238.9981",
+          "108 171.0292",
+          "132 582.8524",
+          "376 141.2114",
+          "578 479.2866",
+          "461 141.2114",
+          "022 171.0292",
+          "132 245.8650",
+          "854 229.5269",
+          "546 285.2931",
+          "342 171.2066",
+          "503 366.8939",
+          "427 171.7756",
+          "889 472.3945",
+          "629-148.9755",
+          "256-193.4747",
+          "155 139.5294",
+          "179 139.5294",
+          "295 234.4458",
+          "418 234.4458",
+          "865 234.2181",
+          "706 234.2181",
+          "501 144.9922",
+          "681 144.9922",
+          "315 109.3701",
+          "338 194.0437",
+          "673-201.7827",
+          "197 217.8297",
+          "222 237.4935",
+          "639 273.8236",
+          "226 272.4579",
+          "597 211.5702",
+          "148 197.4328",
+          "802 410.2047",
+          "579 182.4101",
+          "633 479.6280",
+          "064 182.2963",
+          "801 197.4328",
+          "802 649.2029",
+          "582 227.1369",
+          "667 648.5333",
+          "667 170.6666",
+          "67 256 170.6666",
+          "333 285.8666",
+          "667-106.6666",
+          "333 482.1333",
+          "33-320 631.4666",
+          "333 725.3333",
+          "333 256 853.3333",
+          "667 238.9333",
+          "667 110.9333",
+          "667-149.3333",
+          "667 132.2666",
+          "333 430.9333",
+          "334-213.3333",
+          "4-192 418.1333",
+          "667 418.1333",
+          "667-247.4666",
+          "667-366.9333",
+          "667 298.6666",
+          "333 520.5333",
+          "4 192-418.1333",
+          "667-418.1333",
+          "667 366.9333",
+          "667 810.6666",
+          "666 238.9333",
+          "333 750.9333",
+          "192-418.1333",
+          "666 162.1333",
+          "667-213.3333",
+          "333-110.9333",
+          "667-162.1333",
+          "667 157.8666",
+          "667 494.9333",
+          "333 469.3333",
+          "455 910.7907",
+          "268-173.3316",
+          "219 124.7220",
+          "049 263.5153",
+          "219-312.1249",
+          "633 516.2666",
+          "033 853.3333",
+          "332 516.2666",
+          "667-422.3999",
+          "667 311.4666",
+          "333 605.8666",
+          "031-280.0000",
+          "512 111.9999",
+          "031 400.0000",
+          "118 602.3529",
+          "529 147.5764",
+          "942 304.1882",
+          "353-246.9647",
+          "706 201.7882",
+          "706 451.7647",
+          "235 451.7647",
+          "294 761.9764",
+          "294 512 262.0235",
+          "333 738.1333",
+          "666 251.7333",
+          "666-213.3333",
+          "192 426.6666",
+          "471 360.1142",
+          "512 917.1885",
+          "481 360.1142",
+          "313-167.1428",
+          "998 679.1428",
+          "687 734.8571",
+          "313 603.2342",
+          "535 734.8571",
+          "006 247.6457",
+          "147 177.2571",
+          "431 247.6457",
+          "372 339.3942",
+          "149-104.0228",
+          "691 293.7600",
+          "001-247.6457",
+          "372 339.3257",
+          "005 912.1142",
+          "539 957.7142",
+          "529 729.7828",
+          "684 957.7142",
+          "529 512 957.7142",
+          "529 294.2857",
+          "476 809.1200",
+          "005 111.8857",
+          "461 611.0171",
+          "552 779.6224",
+          "74.624 137.7792",
+          "104-152.2944",
+          "68.352-153.1904",
+          "68.736 152.3456",
+          "264 153.1648",
+          "712 153.1648",
+          "448-193.3824",
+          "194.432 193.3824",
+          "194.432 106.6752",
+          "936 193.4336",
+          "584-194.4576",
+          "336-194.4576",
+          "152 108.0576",
+          "118.528 788.8128",
+          "696 236.5696",
+          "448-530.7904",
+          "544 466.8928",
+          "664-108.0576",
+          "667 874.6666",
+          "334-324.2666",
+          "333 136.5333",
+          "667 260.2666",
+          "512 810.6666",
+          "667-119.4666",
+          "667 234.6666",
+          "333 145.0666",
+          "667 490.6666",
+          "667-490.6666",
+          "667-234.6666",
+          "024 451.1426",
+          "024 629.5304",
+          "759 280.3641",
+          "345-173.5503",
+          "345-173.5856",
+          "759 282.1296",
+          "276 273.6551",
+          "862 375.6844",
+          "104 467.3677",
+          "738-172.4910",
+          "724-172.5263",
+          "241 383.7351",
+          "241 302.8568",
+          "667 676.3946",
+          "18.752 932.6506",
+          "667 347.6053",
+          "666-256.2133",
+          "333 309.1626",
+          "313.984 918.3786",
+          "918.784 705.1946",
+          "6-384 379.7333",
+          "34-384-379.7333",
+          "512 298.6666",
+          "384 379.7333",
+          "512 797.8666",
+          "667-315.7333",
+          "666 213.3333",
+          "666 298.6666",
+          "333 264.5333",
+          "333-209.0666",
+          "667-209.0666",
+          "334 132.2666",
+          "667 533.3333",
+          "333 187.7333",
+          "857 785.5542",
+          "429 600.5028",
+          "857-151.4057",
+          "571-108.2514",
+          "571-173.3485",
+          "571 170.4228",
+          "572 183.5885",
+          "571 664.8685",
+          "857-150.6742",
+          "857-110.4457",
+          "857 151.4057",
+          "857 150.6742",
+          "714 451.2914",
+          "857 110.4457"
+        ]
+      }
+    }
+  },
+  {
+    "name": "Pinx Academy of Dance",
+    "website": "http://pinxacademyofdance.com/",
+    "leader": null,
+    "mainContact": {
+      "name": "Nicole 'Pinky' Thomas",
+      "email": null,
+      "phone": "314.304.7719"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Pinx Academy of Dance",
+        "address": "6537 Olive Blvd, University City, MO",
+        "schedule": null,
+        "contactPerson": "Instuctor: Lua (Jeff Lewis)",
+        "email": null,
+        "phone": null,
+        "rawText": "Pinx Academy of Dance\n6537 Olive Blvd, University City, MO\nhttp://pinxacademyofdance.com/\nContact: Nicole \"Pinky\" Thomas\n314.304.7719\nInstuctor: Lua \"Jeff Lewis\""
+      }
+    ],
+    "notes": "University City, Missouri. Instuctor: Lua (Jeff Lewis). SOURCE: website 9/14/16",
+    "rawRecord": "      Pinx Academy of Dance\n6537 Olive Blvd, University City, MO\nhttp://pinxacademyofdance.com/\nContact: Nicole \"Pinky\" Thomas\n314.304.7719\nInstuctor: Lua \"Jeff Lewis\"\nSOURCE: website  9/14/16",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "yipsilanti.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:04.351Z",
+      "phase": 2,
+      "websiteStatus": "unreachable",
+      "websiteValidation": {
+        "statusCode": 0,
+        "isCapoeiraRelated": false,
+        "errorMessage": "fetch failed"
+      }
+    }
+  },
+  {
+    "name": "Axe Capoeira St. Louis",
+    "website": "http://axestl.com",
+    "leader": null,
+    "mainContact": {
+      "name": "Cenoura (David Payne)",
+      "email": "axestlouis@gmail.com",
+      "phone": "[314] 488.4867"
+    },
+    "sources": ["https://www.facebook.com/pages/Axé-Capoeira-St-Louis/170067556387014"],
+    "locations": [
+      {
+        "name": "Solar Yoga Center of St. Louis",
+        "address": "6002 Pershing Ave. St. Louis, MO 63112",
+        "schedule": "Tues & Thurs 8:00-10:00pm; Sat & Sun 1:00-3:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Solar Yoga Center of St. Louis\n6002 Pershing Ave. St. Louis, MO 63112\nTues & Thurs 8:00-10:00pm; Sat & Sun  & 1:00- 3:00pm"
+      }
+    ],
+    "notes": "Saint Louis, Missouri. Cenoura (David Payne). SOURCE: website 9/12/16",
+    "rawRecord": "      Axe Capoeira\nhttp://axestl.com\nCenoura  \"David Payne\"\n  [314] 488.4867\nEmail  axestlouis@gmail{.com\nhttps://www.facebook.com/pages/Ax%C3%A9-Capoeira-St-Louis/170067556387014\n      Solar Yoga Center of St. Louis\n6002 Pershing Ave. St. Louis, MO 63112\nTues & Thurs 8:00-10:00pm; Sat & Sun  & 1:00- 3:00pm\nSOURCE: website 9/12/16",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "yipsilanti.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:04.902Z",
+      "phase": 2,
+      "websiteStatus": "unreachable",
+      "websiteValidation": {
+        "statusCode": 0,
+        "isCapoeiraRelated": false,
+        "errorMessage": "fetch failed"
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/pages/Axé-Capoeira-St-Louis/170067556387014",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Centro Esportivo de Capoeira Angola [CECA] St Louis, MO",
+    "website": "https://capoeiraangolasaintlouis.wordpress.com/",
+    "leader": null,
+    "mainContact": null,
+    "sources": ["http://www.capoeirastl.webs.com"],
+    "locations": [
+      {
+        "name": "Yeyo Arts Collective",
+        "address": "2907 South Jefferson Ave, Saint Louis, MO 63118",
+        "schedule": "Wed 7:00pm-8:30pm; Sat: 4:00-6:00pm (no classes on fourth Wed each month)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Yeyo Arts Collective\n2907 South Jefferson Ave, Saint Louis, MO 63118\nWed 7:00pm – 8:30pm;  Sat: 4:00-6:00pm\n(no classes on fourth Wed each month)"
+      }
+    ],
+    "notes": "Saint Louis, Missouri. SOURCE: website 3/2/18",
+    "rawRecord": "      Centro Esportivo de Capoeira Angola [CECA] St Louis, MO\nhttps://capoeiraangolasaintlouis.wordpress.com/\n      Yeyo Arts Collective\n2907 South Jefferson Ave, Saint Louis, MO 63118\nWed 7:00pm – 8:30pm;  Sat: 4:00-6:00pm\n(no classes on fourth Wed each month)\nSOURCE: website 3/2/18\nhttp://www.capoeirastl.webs.com",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "yipsilanti.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:06.170Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Capoeira Angola Saint Louis | movement and music classes for all people! <l"
+      },
+      "enrichedData": {
+        "extractedEmails": ["calexchable@gmail.com"],
+        "extractedPhones": ["314-788-0740"]
+      },
+      "alternativeUrls": [
+        {
+          "url": "http://www.capoeirastl.webs.com",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Centro Esportivo de Capoeira Angola Asheville",
+    "website": "http://www.capoeiraasheville.org/",
+    "leader": null,
+    "mainContact": {
+      "name": "Stefan and Jashwant",
+      "email": null,
+      "phone": "828-712-4013"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Burton Street Community Center",
+        "address": "134 Burton St, Asheville, NC 28806",
+        "schedule": "Wed 6:00-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Burton Street Community Center\n134 Burton St, Asheville, NC 28806 \nWed 6:00-8\"00pm"
+      },
+      {
+        "name": "Montford Community Center",
+        "address": "34 Pearson Drive, Asheville, NC, 28801",
+        "schedule": "Sat 10:00am-12:00",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Montford Community Center\n34 Pearson Drive, Asheville, NC, 28801\nSat 10:00am-12:00"
+      },
+      {
+        "name": "Broad River Community Center",
+        "address": "44 Broad River VFD Road, Black Mountain, NC",
+        "schedule": "Senior focus: Tues & Thurs 6:30-8:00",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Broad River Community Center\n44 Broad River VFD Road, Black Mountain, NC\nSenior focus: Tues & Thurs 6;30-8:00"
+      }
+    ],
+    "notes": "Asheville, North Carolina. Stefan and Jashwant under Mestre Pe de Chumbo [Germany]. SOURCE: website 5/30/19",
+    "rawRecord": "      Centro Esportivo de Capoeira Angola\nhttp://www.capoeiraasheville.org/\n  \n Stefan and Jashwant under Mestre Pe de Chumbo[ Germany]\n    828-712-4013\n         Burton Street Community Center\n134 Burton St, Asheville, NC 28806 \nWed 6:00-8\"00pm\n         Montford Community Center\n34 Pearson Drive, Asheville, NC, 28801\nSat 10:00am-12:00\n        Broad River Community Center\n44 Broad River VFD Road, Black Mountain, NC\nSenior focus: Tues & Thurs 6;30-8:00\nSOURCE:  website  5/30/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "yipsilanti.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:07.922Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<link rel=\"shortcut icon\" href=\"https://static.parastorage.com/client/pfavico.ico\" type=\"image/x-icon",
+        "redirectUrl": "https://www.capoeiraasheville.org/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["capoeiraasheville@gmail.com"],
+        "extractedPhones": ["(828) 712-4013"]
+      }
+    }
+  },
+  {
+    "name": "Capoeira Arte Antiga - Grupo ASCAB",
+    "website": "http://capoeiraaa.com/",
+    "leader": {
+      "title": "professora",
+      "nickname": "Agua de Beber",
+      "name": "Gabrielle Motta-Passajou"
+    },
+    "mainContact": {
+      "name": "Professora Agua de Beber (Gabrielle Motta-Passajou)",
+      "email": null,
+      "phone": "[828] 278-8949"
+    },
+    "sources": ["https://www.facebook.com/pg/CapoeiraArteAntiga/"],
+    "locations": [
+      {
+        "name": "Boone location",
+        "address": "Boone Docks Rd, Boone, NC 28607",
+        "schedule": "Sun 12:30-2:00pm; Wed & Thurs 7:15-8:45pm; Adults Mon 7:15-8:45pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Boone Docks Rd, Boone, NC 28607\nSun 12:30-2:00pm;Wed  & Thurs 7:15-8:45pm\nAdults Mon 7:15-8:45pm"
+      }
+    ],
+    "notes": "Boone, North Carolina. Professora Agua de Beber (Gabrielle Motta-Passajou) under the guidance and teaching of Mestre Doutor [Philadelphia]. SOURCE: website google 6/5/19",
+    "rawRecord": "      Capoeira Arte Antiga-Grupo  - ASCAB]\nProfessora Agua de Beber \"Gabrielle Motta-Passajou\"  under the\nguidance and teaching of Mestre Doutor[Philadelphia]\nhttp://capoeiraaa.com/\nPhone: [828] 278-8949 \n  https://www.facebook.com/pg/CapoeiraArteAntiga/\n Boone Docks Rd, Boone, NC 28607\nSun 12:30-2:00pm;Wed  & Thurs 7:15-8:45pm\nAdults Mon 7:15-8:45pm\nSOURCE:  website google 6/5/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "yipsilanti.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:09.096Z",
+      "phase": 2,
+      "websiteStatus": "unreachable",
+      "websiteValidation": {
+        "statusCode": 0,
+        "isCapoeiraRelated": false,
+        "errorMessage": "fetch failed"
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/pg/CapoeiraArteAntiga/",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Cordão de Ouro Carolinas",
+    "website": "https://neguinhocdo.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Neguinho",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "Budokon Academy Charlotte",
+        "address": "2935 Griffith Street, Charlotte, NC",
+        "schedule": "Adults: Mon 8:00-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Budokon Academy Charlotte\n2935 Griffith Street, Charlotte, NC\nAdults: Mon 8:00-9:00pm"
+      }
+    ],
+    "notes": "Charlotte, North Carolina. Mestre Neguinho. SOURCE: website 6/6/19",
+    "rawRecord": "      Cordão de Ouro Carolinas\nMestre Neguinho\n\n  https://neguinhocdo.com\n\n        Budokon Academy Charlotte\n\n2935 Griffith Street, Charlotte, NC\n\nAdults: Mon 8:00-9:00pm\n\nSOURCE: website 6/6/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "yipsilanti.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:10.364Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Contra Mestre Neguinho Capoeira CDO | Cordao de Ouro South Carolina (Spartanburg/Greenville)",
+        "redirectUrl": "https://neguinhocdo.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Nego Gato, Inc",
+    "website": "http://www.negogato.org",
+    "leader": null,
+    "mainContact": {
+      "name": "Miguel Pickett",
+      "email": "orixadance@yahoo.com",
+      "phone": "919-620-0796"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Durham location",
+        "address": "1225 Berkely St. Durham, North Carolina",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "1225 Berkely St. Durham, North Carolina"
+      }
+    ],
+    "notes": "Durham, North Carolina. Student Instructor: Miguel Pickett. We have no current information on the status of the group 12/27/08. Website has no information other than the contact information; attempting email 6/8/19. Contact: contactus@negogato.org, 8/|5-6/|7-9OOl. SOURCE: unknown",
+    "rawRecord": "      Nego Gato, Inc\n(We have no current information on the status of the group.12/27/08)\nInstructor: Student Instructor: \"Miguel Pickett\n\"Email: orixadance@yahoo.com\n(attempting contact 6/8/19)Phone: 919-620-0796\nAddress: 1225 Berkely St. Durham, North Carolina\n http://www.negogato.org\nSOURCE: unknown\n(website has no information other  than the contact information below; attempting email  6/8/19)\ncontactus{      /\\T}negogato.org \n8/|5-6/|7-9OOl",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "yipsilanti.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:11.098Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": false,
+        "contentSnippet": "Nego Gato Afro-Brazilian Music and Dance Ensemble #placeholder{ margin-left:auto; margin-right:auto; display:block; width:960px; text-decoration:none; margin-top:46px; } body{ margin:0px; background-color:#646464; } </style",
+        "redirectUrl": "http://www.negogato.org/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["contactus@negogato.org"],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Upstate Capoeira",
+    "website": "https://projectbacana.com",
+    "leader": null,
+    "mainContact": {
+      "name": "Contra Mestre Neguinho (Elias Martins) and Professora Risadinha (Melinda Erickson-Martins)",
+      "email": null,
+      "phone": null
+    },
+    "sources": ["http://us.placedigger.com/equilibrio---movement-culture-center971972765.html"],
+    "locations": [
+      {
+        "name": "Equilíbrio - Movement Culture Center",
+        "address": "182 W. Main Avenue, Gastonia, NC 28052",
+        "schedule": "Kids' Capoeira: Mon & Wed 7:30-8:15pm; Adults' Capoeira: Mon & Wed 8:00-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Equilíbrio - Movement Culture Center\n182 W. Main Avenue, Gastonia, NC 28052\nKids' Capoeira : Mon & Wed 7:30-8:15pm\nAdults' Capoeira :  Mon & Wed 8:00-9:00pm"
+      }
+    ],
+    "notes": "Gastonia, North Carolina. Contra Mestre Neguinho (Elias Martins) and Professora Risadinha (Melinda Erickson-Martins). SOURCE: website 6/13/18",
+    "rawRecord": "      Upstate Capoeira\nhttp://us.placedigger.com/equilibrio---movement-culture-center971972765.html\nhttps://projectbacana.com\nContra Mestre  Neguinho \"Elias Martins\"\nProfessora Risadinha \"Melinda Erickson-Martins\"\n      Equilíbrio - Movement Culture Center\n182 W. Main Avenue, Gastonia, NC 28052\nKids' Capoeira : Mon & Wed 7:30-8:15pm\nAdults' Capoeira :  Mon & Wed 8:00-9:00pm\nSOURCE: website 6/13/18",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "yipsilanti.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:12.186Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Project BACANA &#8211; Brazilian Arts &amp; Culture Association of North America var wpcom_remote_l",
+        "redirectUrl": "https://projectbacana.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["upstatecapoeira@gmail.com"],
+        "extractedPhones": ["704 949 5535", "704-949-5535"]
+      },
+      "alternativeUrls": [
+        {
+          "url": "http://us.placedigger.com/equilibrio---movement-culture-center971972765.html",
+          "source": "sources",
+          "status": "reachable",
+          "isCapoeiraRelated": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "Peaceful Warriors Black Belt Academy",
+    "website": "https://www.oklakicks.com/",
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "Peaceful Warriors Black Belt Academy",
+        "address": "3597 NW 32nd St, Newcastle, OK 73065",
+        "schedule": "Fundamentals: Sat 5:30-6:30pm; Basic Movements: Sat 6:30-7:30pm; Music Theory & Games: Sat 7:30-8:00pm",
+        "contactPerson": null,
+        "email": "peacefulwarriors@live.com",
+        "phone": "[405] 496-4590",
+        "rawText": "Peaceful Warriors Black Belt Academy3597 NW 32nd St, Newcastle, OK 73065\n [405] 496-4590 \npeacefulwarriors@live.com\n  https://www.oklakicks.com/\n  (All classes are Ages 12 + and on  )((Level 2 & 3 Back Floor\n    )) Fundamentals: Sat 5:30-6:30pm\n Basic Movements: Sat6:30-7:30pm \n Music Theory & Games: Sat 7:30-8:00pm"
+      }
+    ],
+    "notes": "Oklahoma City/Newcastle, Oklahoma. All classes are Ages 12+ and on Level 2 & 3 Back Floor. SOURCE: website 6/23/10",
+    "rawRecord": "        Peaceful Warriors Black Belt Academy3597 NW 32nd St, Newcastle, OK 73065\n [405] 496-4590 \npeacefulwarriors@live.com\n  https://www.oklakicks.com/\n  (All classes are Ages 12 + and on  )((Level 2 & 3 Back Floor\n    )) Fundamentals: Sat 5:30-6:30pm\n Basic Movements: Sat6:30-7:30pm \n Music Theory & Games: Sat 7:30-8:00pm\nSOURCE: website 6/23/10",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "youngstown.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:14.298Z",
+      "phase": 2,
+      "websiteStatus": "unreachable",
+      "websiteValidation": {
+        "statusCode": 403,
+        "isCapoeiraRelated": false,
+        "errorMessage": "HTTP 403"
+      }
+    }
+  },
+  {
+    "name": "Angola Cultural Defense Foundation",
+    "website": "http://www.facebook.com/oklahoma.capoeira",
+    "leader": null,
+    "mainContact": {
+      "name": "Will Rose",
+      "email": "Okccapoeira@gmail.com",
+      "phone": "405-285-0351 or 770-316-9901"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Henrietta B. Foster Pool and Recreation Center",
+        "address": "614 NE 4th St. Oklahoma City, Oklahoma",
+        "schedule": "Wed 5:00-7:00 pm, Fri 5:30-7:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Henrietta B. Foster Pool and Recreation Center\n614 NE 4th St. Oklahoma City, Oklahoma\nWed 5:00-7:00 pm, Fri 5:30 -7:30pm"
+      }
+    ],
+    "notes": "Oklahoma City, Oklahoma. Instructor: Will Rose. Last facebook post on October 15, 2018 (6/21/19). SOURCE: email 8/5/11",
+    "rawRecord": "      Angola Cultural Defense Foundation\nInstructor: Will Rose\nEmail:Okccapoeira@gmail.com\n405-285-0351 or 770-316-9901.\n (last facebook post on October 15, 2018  6/21/19)http://www.facebook.com/oklahoma.capoeira\n      Henrietta B. Foster Pool and Recreation Center\n614 NE 4th St. Oklahoma City, Oklahoma\nWed 5:00-7:00 pm, Fri 5:30 -7:30pm\nSOURCE:  email 8/5/11",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "youngstown.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:15.008Z",
+      "phase": 2,
+      "websiteStatus": "unreachable",
+      "websiteValidation": {
+        "statusCode": 400,
+        "isCapoeiraRelated": false,
+        "redirectUrl": "https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Foklahoma.capoeira",
+        "errorMessage": "HTTP 400"
+      }
+    }
+  },
+  {
+    "name": "Embondeiro Capoeira - Tulsa",
+    "website": "https://www.embondeirocapoeiraboston.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Cabea",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": ["https://www.facebook.com/capoeiraintulsa/"],
+    "locations": [
+      {
+        "name": "Tulsa location",
+        "address": "307 E 111th Street Unit O, Bixby, Oklahoma",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": "[918] 200-9253",
+        "rawText": "307 E 111th Street Unit O, Bixby, Oklahoma\n  https://www.facebook.com/capoeiraintulsa/\nUnder Mestre Cabea\nhttps://www.embondeirocapoeiraboston.com\n\n\nm.me/capoeiraintulsa\n\nCall [918] 200-9253"
+      }
+    ],
+    "notes": "Tulsa, Oklahoma. Under Mestre Cabea. SOURCE: facebook 6/21/19",
+    "rawRecord": "      Embondeiro Capoeira \n\n307 E 111th Street Unit O, Bixby, Oklahoma\n\n  https://www.facebook.com/capoeiraintulsa/\n\nUnder Mestre Cabea\nhttps://www.embondeirocapoeiraboston.com\n\n\nm.me/capoeiraintulsa\n\nCall [918] 200-9253\n\nSOURCE facebook 6/21/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "youngstown.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:16.234Z",
+      "phase": 2,
+      "websiteStatus": "unreachable",
+      "websiteValidation": {
+        "statusCode": 0,
+        "isCapoeiraRelated": false,
+        "errorMessage": "fetch failed"
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/capoeiraintulsa/",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Ashland Capoeira Rumizumb",
+    "website": "https://www.facebook.com/ashlandcapoeira",
+    "leader": null,
+    "mainContact": {
+      "name": "Andres Marquez",
+      "email": null,
+      "phone": "541-324-0335"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Lithia Park",
+        "address": null,
+        "schedule": "Wed 5:30",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Lithia Park\nWed 5:30"
+      }
+    ],
+    "notes": "Ashland, Oregon. Andres Marquez. Text 541-324-0335. SOURCE: facebook 6/22/19",
+    "rawRecord": "      Ashland Capoeira Rumizumb\nihttps://www.facebook.com/ashlandcapoeira\nAndres Marquez\"\n  text  541-324-0335\n      Lithia Park\nWed 5:30\nSOURCE: facebook 6/22/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "youngstown.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:17.700Z",
+      "phase": 2,
+      "websiteStatus": "unreachable",
+      "websiteValidation": {
+        "statusCode": 400,
+        "isCapoeiraRelated": false,
+        "redirectUrl": "https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fashlandcapoeira",
+        "errorMessage": "HTTP 400"
+      }
+    }
+  },
+  {
+    "name": "Capoeira Oregon - CapuraGinga - Beaverton",
+    "website": "http://bodyofbrazil.com/",
+    "leader": {
+      "title": "mestrando",
+      "nickname": "Mago",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "Body of Brazil",
+        "address": "9955 SW Beaverton Hillsdale Hwy #230, Beaverton, OR 97005",
+        "schedule": "Kids Beginning: Wed 5:05pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": "03.530.8176",
+        "rawText": "9955 SW Beaverton Hillsdale Hwy  #230, Beaverton, OR  97005\nhttp://bodyofbrazil.com/\nMestrando Mago under the guidance of Mestre Loka \n03.530.8176\nKids Begining:  Wed 5:05pm"
+      }
+    ],
+    "notes": "Beaverton, Oregon. Mestrando Mago under the guidance of Mestre Loka. Classes for Adults Children, and Families Contact for Details. SOURCE: website 6/25/19",
+    "rawRecord": "      Capoeira Oregon - CapuraGinga \n9955 SW Beaverton Hillsdale Hwy  #230, Beaverton, OR  97005\nhttp://bodyofbrazil.com/\nMestrando Mago under the guidance of Mestre Loka \n03.530.8176\nKids Begining:  Wed 5:05pm\n  (Classes for Adults Children, and Families Contact for Details \n  )SOURCE website 6/25/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "youngstown.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:18.681Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "img:is([sizes=\"auto\" i], [sizes^=\"auto,\" i]) { contain-intrinsic-size: 3000px 1500px } <!-- This site is opt",
+        "redirectUrl": "https://bodyofbrazil.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "United Capoeira Association - Bend",
+    "website": "http://www.ucabend.com/",
+    "leader": null,
+    "mainContact": {
+      "name": "Embauba (Scott McBride)",
+      "email": null,
+      "phone": null
+    },
+    "sources": ["https://www.facebook.com/UnitedCapoeiraAssociation/"],
+    "locations": [
+      {
+        "name": "Fitness 1440",
+        "address": "1569 NE 2nd St, Bend, OR 97701",
+        "schedule": "Beginners: Wed 7:00-8:00pm (New students first Wednesdays); All Levels: Mon 7:00-8:30pm; Thurs 7:45-8:45pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Fitness 1440\n1569 NE 2nd St, Bend, OR 97701 \nBeginners: Wed7:00-8:00pm (New studentsfirst Wednesdays)\nAll Levels: Mon7:00-8:30pm; Thurs7:45-8:45pm"
+      }
+    ],
+    "notes": "Bend, Oregon. Embauba (Scott McBride). SOURCE: website 6/22/19",
+    "rawRecord": "      United Capoeira Association - Bend\nhttp://www.ucabend.com/\nEmbauba  \"Scott McBride\"\nhttps://www.facebook.com/UnitedCapoeiraAssociation/      \nFitness 1440\n1569 NE 2nd St, Bend, OR 97701 \nBeginners: Wed7:00-8:00pm (New studentsfirst Wednesdays)\nAll Levels: Mon7:00-8:30pm; Thurs7:45-8:45pm\nSOURCE: website 6/22/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "youngstown.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:19.575Z",
+      "phase": 2,
+      "websiteStatus": "unreachable",
+      "websiteValidation": {
+        "statusCode": 403,
+        "isCapoeiraRelated": false,
+        "errorMessage": "HTTP 403"
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/UnitedCapoeiraAssociation/",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "CTE Capoeiragem - Eugene",
+    "website": "http://cteportland.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Dilaho",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Formado Brucutu (Davey Jackson)",
+      "email": "davey.jackson2@gmail.com",
+      "phone": "541-206-3391"
+    },
+    "sources": ["https://www.facebook.com/CTEOregon"],
+    "locations": [
+      {
+        "name": "Celebration Belly Dance and Yoga",
+        "address": "1840 Willamette St #206, Eugene, OR 97401-4601",
+        "schedule": "Youth Classes: Tues 5:15pm; Adult Classes: Tues 8:00pm",
+        "contactPerson": "Heather Figi",
+        "email": "heatherfigi@gmail.com",
+        "phone": "541-515-9328",
+        "rawText": "Celebration Belly Dance and Yoga\n1840 Willamette St #206, Eugene, OR  97401-4601\nhttp://celebrationbellydanceandyoga.com/?page_id=2795\nYouth Classes: Tues5:15pm\nAdult Classes: Tues 8:00pm\nHeather Figi\nhttp://www.eugeneagogo.com/Cte-Capoeiragem-Eugene/a/QAPVVTM/\n  heatherfigi@gmail.com\n  541-515-9328"
+      },
+      {
+        "name": "Eugene YMCA",
+        "address": "2055 Patterson Street Eugene OR 97405-2958",
+        "schedule": "Parent/Child Class 11-11:45 Sundays; Adult Beginners 12 Noon",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Eugene YMCA\n2055 Patterson Street  Eugene OR 97405-2958\nParent/Child Class 11-11:45 Sundays\nAdult Beginners 12 Noon"
+      }
+    ],
+    "notes": "Eugene, Oregon. Under the leadership of Mestre Dilaho [Portland]. Formado Brucutu (Davey Jackson). SOURCE: email 5/4/15",
+    "rawRecord": "      CTE Capoeiragem\nunder the leadership of  Mestre Dilaho[Portland]\nhttp://cteportland.com\nhttps://www.facebook.com/CTEOregon      \n      Capoeira Oregon\nFormado Brucutu \"Davey Jackson\"\n  davey.jackson2@gmail.com\n  541-206-3391\n      Celebration Belly Dance and Yoga\n1840 Willamette St #206, Eugene, OR  97401-4601\nhttp://celebrationbellydanceandyoga.com/?page_id=2795\nYouth Classes: Tues5:15pm\nAdult Classes: Tues 8:00pm\nHeather Figi\nhttp://www.eugeneagogo.com/Cte-Capoeiragem-Eugene/a/QAPVVTM/\n  heatherfigi@gmail.com\n  541-515-9328\n      Eugene YMCA\n2055 Patterson Street  Eugene OR 97405-2958\nParent/Child Class 11-11:45 Sundays\nAdult Beginners 12 Noon\nSOURCE: email  5/4/15",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "youngstown.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:21.430Z",
+      "phase": 2,
+      "websiteStatus": "unreachable",
+      "websiteValidation": {
+        "statusCode": 0,
+        "isCapoeiraRelated": false,
+        "errorMessage": "fetch failed"
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/CTEOregon",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  }
+]
