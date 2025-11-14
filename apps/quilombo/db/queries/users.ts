@@ -8,7 +8,7 @@ import { and, eq, ilike, inArray, isNotNull, or, sql, type SQLWrapper } from 'dr
 import type { UserSearchParams } from '@/config/validation-schema';
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import * as schema from '@/db/schema';
-import { db } from '@/db/connection';
+import { db } from '@/db';
 import type { UserSession } from '@/types/model';
 
 /**

@@ -7,12 +7,15 @@
  * - Database migration scripts
  * - Standalone CLI tools
  * - Any script that needs database access
+ *
+ * IMPORTANT: This module does NOT import @/config/environment at the top level
+ * to allow migration scripts to import createDatabaseConnection without
+ * triggering validation of all environment variables.
  */
 
 import { drizzle, type PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 
-import ENV from '@/config/environment';
 import * as schema from './schema';
 
 /**
@@ -53,15 +56,3 @@ export function createDatabaseConnection(
 
   return { client, db };
 }
-
-// Create database connection using centralized factory
-const { client: postgresClient, db: drizzleClient } = createDatabaseConnection(ENV.databaseUrl);
-
-export const client = postgresClient;
-
-declare global {
-  var database: PostgresJsDatabase<typeof schema> | undefined;
-}
-
-export const db = global.database || drizzleClient;
-if (process.env.NODE_ENV !== 'production') global.database = db;

@@ -7,7 +7,7 @@ import { and, count, eq, gte } from 'drizzle-orm';
 
 import { GROUP_VERIFICATION_COOLDOWN_MS } from '@/config/constants';
 import * as schema from '@/db/schema';
-import { db } from '@/db/connection';
+import { db } from '@/db';
 
 /**
  * Checks if a group can be verified (hasn't been verified by ANY user in the cooldown period).

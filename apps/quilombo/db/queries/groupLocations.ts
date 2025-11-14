@@ -6,7 +6,7 @@
 import { and, count, eq } from 'drizzle-orm';
 
 import * as schema from '@/db/schema';
-import { db } from '@/db/connection';
+import { db } from '@/db';
 
 /**
  * Fetches all locations for a specific group.

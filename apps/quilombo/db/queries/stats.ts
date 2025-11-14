@@ -6,7 +6,7 @@
 import { count, countDistinct, eq, gte } from 'drizzle-orm';
 
 import * as schema from '@/db/schema';
-import { db } from '@/db/connection';
+import { db } from '@/db';
 
 export interface PublicStats {
   activeUsers: number;

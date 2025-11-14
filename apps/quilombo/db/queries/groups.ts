@@ -8,7 +8,7 @@ import { and, count, eq, ilike, ne, notExists, sql, type SQLWrapper } from 'driz
 import type { GroupSearchParams } from '@/config/validation-schema';
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import * as schema from '@/db/schema';
-import { db } from '@/db/connection';
+import { db } from '@/db';
 import type { Group } from '@/types/model';
 
 /**

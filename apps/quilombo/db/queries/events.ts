@@ -7,7 +7,7 @@ import { and, count, eq, gte, ilike, isNotNull, lt, lte, or, sql, type SQLWrappe
 
 import { QUERY_DEFAULT_PAGE_SIZE, type eventTypes } from '@/config/constants';
 import * as schema from '@/db/schema';
-import { db } from '@/db/connection';
+import { db } from '@/db';
 
 /**
  * Searches events with flexible filtering and pagination.

@@ -16,8 +16,23 @@
  * - stats: Public statistics
  */
 
-// Database connection (used by API routes and query modules)
-export { db, client } from './connection';
+import type { PostgresJsDatabase } from 'drizzle-orm/postgres-js';
+
+import ENV from '@/config/environment';
+import { createDatabaseConnection } from './connection';
+import type * as schema from './schema';
+
+// Create database connection using centralized factory
+const { client: postgresClient, db: drizzleClient } = createDatabaseConnection(ENV.databaseUrl);
+
+export const client = postgresClient;
+
+declare global {
+  var database: PostgresJsDatabase<typeof schema> | undefined;
+}
+
+export const db = global.database || drizzleClient;
+if (process.env.NODE_ENV !== 'production') global.database = db;
 
 // Domain modules
 export * from './queries/users';
