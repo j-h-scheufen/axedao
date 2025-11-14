@@ -36,7 +36,7 @@ export const TitleEnum = titles.reduce<Record<string, number>>((acc, title, inde
 
 export const styles = ['angola', 'regional', 'contemporânea'] as const;
 
-export const linkTypes = ['twitter', 'facebook', 'instagram', 'linkedin'] as const;
+export const linkTypes = ['website', 'twitter', 'facebook', 'instagram', 'linkedin'] as const;
 
 export const eventTypes = ['general', 'workshop', 'batizado', 'public_roda'] as const;
 
