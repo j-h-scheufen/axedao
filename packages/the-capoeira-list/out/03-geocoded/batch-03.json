@@ -230,7 +230,7 @@
         "contactPerson": null,
         "email": "Krzysztof.rittau@gmail.com",
         "phone": null,
-        "rawText": "Forest Park\n Mullingar Business Park\nTues 6:00 � 7:20pm",
+        "rawText": "Forest Park\n Mullingar Business Park\nTues 6:00 á 7:20pm",
         "geoJsonFeature": {
           "type": "Feature",
           "geometry": {
@@ -258,7 +258,7 @@
         "contactPerson": null,
         "email": null,
         "phone": null,
-        "rawText": "Harbour St, Commons\nThurs: 6:30 � 8:00pm",
+        "rawText": "Harbour St, Commons\nThurs: 6:30 á 8:00pm",
         "geoJsonFeature": {
           "type": "Feature",
           "geometry": {
@@ -281,7 +281,7 @@
       }
     ],
     "notes": "Mullingar, Ireland. Monitor Vizinho under Mestre Sansao [Dublin]. SOURCE: website 12/31/19",
-    "rawRecord": "      Mundo Capoeira Ireland\nhttp://www.capoeiraireland.com/\ninfo@capoeiraireland.com\n\nMonitor Vizinho under Mestre Sansao[Dublin]\n   087-777-7931\n\n: Krzysztof.rittau@gmail.com\n\n      Forest Park\n Mullingar Business Park\nTues 6:00 � 7:20pm\n      Harbour St, Commons\nThurs: 6:30 � 8:00pm\nSOURCE: website  12/31/19",
+    "rawRecord": "      Mundo Capoeira Ireland\nhttp://www.capoeiraireland.com/\ninfo@capoeiraireland.com\n\nMonitor Vizinho under Mestre Sansao[Dublin]\n   087-777-7931\n\n: Krzysztof.rittau@gmail.com\n\n      Forest Park\n Mullingar Business Park\nTues 6:00 á 7:20pm\n      Harbour St, Commons\nThurs: 6:30 á 8:00pm\nSOURCE: website  12/31/19",
     "filterMetadata": {
       "filteredAt": "2025-11-13T23:13:17Z",
       "phase": 1,
@@ -424,7 +424,7 @@
         "contactPerson": null,
         "email": null,
         "phone": null,
-        "rawText": "Trinity church hall\n1,Unthank road, Norwich, NR2 2PA\n(Find the hall which is behind the church, by walking down the left\nhand side under the archway)\nAdults, All levels: 19:00-20:30pm\nAge 4 � 7years. :  Tues 15:30-16:15 pm\nAge 8 upwards:  Tues 16:15-17:15 pm",
+        "rawText": "Trinity church hall\n1,Unthank road, Norwich, NR2 2PA\n(Find the hall which is behind the church, by walking down the left\nhand side under the archway)\nAdults, All levels: 19:00-20:30pm\nAge 4 á 7years. :  Tues 15:30-16:15 pm\nAge 8 upwards:  Tues 16:15-17:15 pm",
         "geoJsonFeature": {
           "type": "Feature",
           "geometry": {
@@ -446,7 +446,7 @@
         }
       },
       {
-        "name": "UEA Capoeira Society - Sportspark Dance Studio",
+        "name": "Sportspark Dance Studio",
         "address": "Sportspark, University of East Anglia, Norwich, UK",
         "schedule": "Wed & Fri 3.15-5.15 pm; Sun 4:00-5:00pm",
         "contactPerson": "Monitor Feliz (Ash Smith)",
@@ -475,7 +475,7 @@
       }
     ],
     "notes": "Norfolk, England. Professor Cascao under Mestre Papa-Leguas [Patos de Minas, Minas Gerais]. SOURCE: website 11/18/16",
-    "rawRecord": "      Cordo de Ouro\nhttp://capocoms.org.uk\nhttp://www.cdonorwich.com/\nProfessor Cascao  under  Mestre Papa-Leguas [Patos\nde Minas, Minas Gerais] and\n      Trinity church hall\n1,Unthank road, Norwich, NR2 2PA\n(Find the hall which is behind the church, by walking down the left\nhand side under the archway)\nAdults, All levels: 19:00-20:30pm\nAge 4 � 7years. :  Tues 15:30-16:15 pm\nAge 8 upwards:  Tues 16:15-17:15 pm      \n      UEA Capoeira Society\nMonitor Feliz  \"Ash Smith\"\n      Sportspark Dance Studio\nWed & Fri  3.15 -5.15 pm; Sun 4:00-5:00pm\n(For all UEA students)\nSOURCE: website 11/18/16",
+    "rawRecord": "      Cordo de Ouro\nhttp://capocoms.org.uk\nhttp://www.cdonorwich.com/\nProfessor Cascao  under  Mestre Papa-Leguas [Patos\nde Minas, Minas Gerais] and\n      Trinity church hall\n1,Unthank road, Norwich, NR2 2PA\n(Find the hall which is behind the church, by walking down the left\nhand side under the archway)\nAdults, All levels: 19:00-20:30pm\nAge 4 á 7years. :  Tues 15:30-16:15 pm\nAge 8 upwards:  Tues 16:15-17:15 pm      \n      UEA Capoeira Society\nMonitor Feliz  \"Ash Smith\"\n      Sportspark Dance Studio\nWed & Fri  3.15 -5.15 pm; Sun 4:00-5:00pm\n(For all UEA students)\nSOURCE: website 11/18/16",
     "filterMetadata": {
       "filteredAt": "2025-11-13T23:13:17Z",
       "phase": 1,
@@ -2303,7 +2303,7 @@
       "websiteValidation": {
         "statusCode": 200,
         "isCapoeiraRelated": true,
-        "contentSnippet": "Brazilian Cultural Center of New England | Capoeira Angola | CECA <meta name=\"description\" content=\"The Brazilian Cultural Center of New England has been named an international Culture Point � one of three in the United S",
+        "contentSnippet": "Brazilian Cultural Center of New England | Capoeira Angola | CECA <meta name=\"description\" content=\"The Brazilian Cultural Center of New England has been named an international Culture Point á one of three in the United S",
         "redirectUrl": "http://www.capoeira-angola.com/"
       },
       "enrichedData": {
