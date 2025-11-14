@@ -17,7 +17,11 @@ import type Supercluster from 'supercluster';
  * TODO: The app is missing a central types.d.ts definition.
  */
 
-export type Group = Omit<SelectGroup, 'updatedAt'> & { countryCodes: string[] };
+export type Group = Omit<SelectGroup, 'updatedAt'> & {
+  countryCodes: string[];
+  lastVerifiedAt: Date | null;
+  adminCount: number;
+};
 
 export type User = Omit<SelectUser, 'updatedAt'> & {
   groupName?: string;
@@ -87,7 +91,6 @@ export interface GroupLocationFeatureProperties {
   groupName: string;
   groupDescription?: string;
   groupLogo?: string;
-  groupVerified: boolean;
   groupStyle?: string;
 }
 

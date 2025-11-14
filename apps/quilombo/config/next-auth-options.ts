@@ -207,8 +207,8 @@ const providers = [
 
   // Method 3: Google OAuth
   GoogleProvider({
-    clientId: process.env.GOOGLE_CLIENT_ID!,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    clientId: ENV.googleClientId,
+    clientSecret: ENV.googleClientSecret,
   }),
 ];
 

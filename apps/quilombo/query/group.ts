@@ -9,8 +9,15 @@ import {
 import axios from 'axios';
 
 import { QueryConfig } from '@/config/constants';
-import type { CreateLocationForm, UpdateLocationForm } from '@/config/validation-schema';
-import type { CreateNewGroupForm, SearchParams, UpdateGroupForm } from '@/config/validation-schema';
+import type {
+  CreateLocationForm,
+  UpdateLocationForm,
+  CreateNewGroupForm,
+  SearchParams,
+  UpdateGroupForm,
+  VerifyGroupForm,
+  ClaimGroupForm,
+} from '@/config/validation-schema';
 import type { Group, GroupLocation, GroupSearchResult, User } from '@/types/model';
 import {
   type FileUploadParams,
@@ -27,7 +34,14 @@ import {
  */
 
 const fetchGroup = async (id: string): Promise<Group> =>
-  axios.get(`/api/groups/${id}`).then((response) => response.data);
+  axios.get(`/api/groups/${id}`).then((response) => {
+    const data = response.data;
+    // Convert lastVerifiedAt from ISO string to Date object
+    if (data.lastVerifiedAt) {
+      data.lastVerifiedAt = new Date(data.lastVerifiedAt);
+    }
+    return data;
+  });
 export const fetchGroupOptions = (id: string | undefined) => {
   return {
     queryKey: [QUERY_KEYS.group.getGroup, id],
@@ -75,7 +89,15 @@ const searchGroups = async ({ offset, pageSize, searchTerm }: SearchParams): Pro
   let queryParams = `?offset=${offset}`;
   queryParams += searchTerm ? `&searchTerm=${searchTerm}` : '';
   queryParams += pageSize ? `&pageSize=${pageSize}` : '';
-  return axios.get(`/api/groups${queryParams}`).then((response) => response.data);
+  return axios.get(`/api/groups${queryParams}`).then((response) => {
+    const result = response.data;
+    // Convert lastVerifiedAt from ISO string to Date object for each group
+    result.data = result.data.map((group: Group) => ({
+      ...group,
+      lastVerifiedAt: group.lastVerifiedAt ? new Date(group.lastVerifiedAt) : null,
+    }));
+    return result;
+  });
 };
 export const searchGroupsOptions = ({ offset, pageSize, searchTerm }: SearchParams) => {
   return {
@@ -209,8 +231,10 @@ export const useAddAdminMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async ({ groupId, userId }: GroupAndUserParams) => addAdmin(groupId, userId),
-    onSuccess: (data, variables) => {
-      queryClient.setQueryData([QUERY_KEYS.group.getGroupAdmins, variables.groupId], data);
+    onSuccess: (_data, variables) => {
+      queryClient.setQueryData([QUERY_KEYS.group.getGroupAdmins, variables.groupId], _data);
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroup, variables.groupId] });
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroupMembers, variables.groupId] });
     },
   });
 };
@@ -219,8 +243,10 @@ export const useRemoveAdminMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async ({ groupId, userId }: GroupAndUserParams) => removeAdmin(groupId, userId),
-    onSuccess: (data, variables) => {
-      queryClient.setQueryData([QUERY_KEYS.group.getGroupAdmins, variables.groupId], data);
+    onSuccess: (_data, variables) => {
+      queryClient.setQueryData([QUERY_KEYS.group.getGroupAdmins, variables.groupId], _data);
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroup, variables.groupId] });
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroupMembers, variables.groupId] });
     },
   });
 };
@@ -279,6 +305,38 @@ export const useUpdateBannerMutation: UseFileUploadMutation = () => {
     mutationFn: (params: FileUploadParams) => updateBanner(params),
     onSuccess: (data, variables) => {
       queryClient.setQueryData([QUERY_KEYS.group.getGroup, variables.ownerId], data);
+    },
+  });
+};
+
+// GROUP VERIFICATION AND CLAIMING
+
+const verifyGroup = async (groupId: string, data: VerifyGroupForm): Promise<{ success: boolean }> =>
+  axios.post(`/api/groups/${groupId}/verify`, data).then((response) => response.data);
+
+const claimGroup = async (groupId: string, data: ClaimGroupForm): Promise<{ success: boolean }> =>
+  axios.post(`/api/groups/${groupId}/claim`, data).then((response) => response.data);
+
+export const useVerifyGroupMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async ({ groupId, data }: { groupId: string; data: VerifyGroupForm }) => verifyGroup(groupId, data),
+    onSuccess: (_data, variables) => {
+      // Invalidate the group query to refresh verification status and lastVerifiedAt
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroup, variables.groupId] });
+      // Invalidate search results to update verification badges
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.searchGroups] });
+    },
+  });
+};
+
+export const useClaimGroupMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async ({ groupId, data }: { groupId: string; data: ClaimGroupForm }) => claimGroup(groupId, data),
+    onSuccess: (_data, _variables) => {
+      // Invalidate admin claims list if user is admin
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.admin.getClaims] });
     },
   });
 };

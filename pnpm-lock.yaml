@@ -12,13 +12,6 @@ overrides:
 importers:
 
   .:
-    dependencies:
-      '@types/node-mailjet':
-        specifier: ^4.0.0
-        version: 4.0.0
-      node-mailjet:
-        specifier: ^6.0.9
-        version: 6.0.9
     devDependencies:
       '@biomejs/biome':
         specifier: 2.0.0
@@ -83,9 +76,6 @@ importers:
       '@tanstack/react-query':
         specifier: 5.90.2
         version: 5.90.2(react@19.1.0)
-      '@types/node-mailjet':
-        specifier: ^4.0.0
-        version: 4.0.0
       '@types/nodemailer':
         specifier: ^7.0.3
         version: 7.0.3
@@ -5104,10 +5094,6 @@ packages:
 
   '@types/ms@2.1.0':
     resolution: {integrity: sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==}
-
-  '@types/node-mailjet@4.0.0':
-    resolution: {integrity: sha512-BoRchpkPegTg5jKmIWGMjdu6J3JuWBeffs/VlJvJV8b/sFIIXWYg7Qkbi1sEl24G2zxRpYBiGyRG7yB1iWU0xg==}
-    deprecated: This is a stub types definition. node-mailjet provides its own type definitions, so you do not need this installed.
 
   '@types/node@10.17.60':
     resolution: {integrity: sha512-F0KIgDJfy2nA3zMLmWGKxcH2ZVEtCZXHHdOQs2gSaQ27+lNeEfGxzkIw90aXswATX7AZ33tahPbzy6KAfUreVw==}
@@ -17988,12 +17974,6 @@ snapshots:
   '@types/mocha@10.0.10': {}
 
   '@types/ms@2.1.0': {}
-
-  '@types/node-mailjet@4.0.0':
-    dependencies:
-      node-mailjet: 6.0.9
-    transitivePeerDependencies:
-      - debug
 
   '@types/node@10.17.60': {}
 

@@ -169,6 +169,27 @@
       "when": 1762602963658,
       "tag": "0023_freezing_patch",
       "breakpoints": true
+    },
+    {
+      "idx": 24,
+      "version": "7",
+      "when": 1762812569863,
+      "tag": "0024_peaceful_rachel_grey",
+      "breakpoints": true
+    },
+    {
+      "idx": 25,
+      "version": "7",
+      "when": 1762942213376,
+      "tag": "0025_powerful_moonstone",
+      "breakpoints": true
+    },
+    {
+      "idx": 26,
+      "version": "7",
+      "when": 1763049778655,
+      "tag": "0026_concerned_orphan",
+      "breakpoints": true
     }
   ]
 }

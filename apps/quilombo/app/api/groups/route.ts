@@ -14,6 +14,7 @@ import {
 import { addGroupAdmin, fetchUser, insertGroup, searchGroups, updateUser } from '@/db';
 import type { GroupSearchResult } from '@/types/model';
 import { generateErrorMessage } from '@/utils';
+import { sendGroupRegisteredEmail } from '@/utils/email';
 
 /**
  * Route handler for infinite (paginated) group search.
@@ -60,6 +61,7 @@ export async function GET(request: NextRequest) {
 /**
  * Creates a new group and assigns the logged-in user as the admin of the group.
  * The user must not be a member of any other group.
+ * Sets createdBy field. Leaves claimedBy/claimedAt NULL (claiming is only for imported groups).
  * @param request - CreateNewGroupForm
  * @returns
  */
@@ -91,11 +93,22 @@ export async function POST(request: NextRequest) {
     const groupData = body as CreateNewGroupForm;
 
     const newGroupId = uuidv4();
-    const group = await insertGroup({ ...groupData, id: newGroupId, verified: false });
+    const group = await insertGroup({
+      ...groupData,
+      id: newGroupId,
+      createdBy: session.user.id,
+    });
     if (!group) throw Error('Unable to create the group');
 
     await updateUser({ id: session.user.id, groupId: newGroupId });
     await addGroupAdmin({ groupId: group.id, userId: session.user.id });
+
+    // Send welcome email (don't block on email failure)
+    if (user.email) {
+      sendGroupRegisteredEmail(user.email, group.name, group.id, user.name || 'Member').catch((emailError) => {
+        console.error('Failed to send group registration email:', emailError);
+      });
+    }
 
     return NextResponse.json(group);
   } catch (error) {

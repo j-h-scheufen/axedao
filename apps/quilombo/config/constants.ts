@@ -12,8 +12,17 @@ export const titles = [
   'professor',
   'instrutora',
   'instrutor',
+  'graduada',
+  'graduado',
+  'formada',
+  'formado',
+  'estagiaria',
+  'estagiario',
+  'estagianda',
+  'estagiando',
   'monitora',
   'monitor',
+  'treinel',
   'aluna',
   'aluno',
   'iniciante',
@@ -90,6 +99,13 @@ export const accountStatuses = ['pending_verification', 'active', 'disabled'] as
 // Invitation system constants
 export const invitationTypes = ['email_bound', 'open'] as const;
 export const invitationStatuses = ['pending', 'accepted', 'expired'] as const;
+
+// Group claim statuses
+export const groupClaimStatuses = ['pending', 'approved', 'rejected'] as const;
+
+// Group verification cooldown period (in milliseconds)
+// Groups can only be verified once every 30 days
+export const GROUP_VERIFICATION_COOLDOWN_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
 
 // Note: The order of these roles in the array is used to sort group members by role in the UI
 export const GROUP_ROLES = ['founder', 'leader', 'admin', 'member'] as const;

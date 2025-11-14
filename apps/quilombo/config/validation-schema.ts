@@ -366,3 +366,17 @@ export type ChangePasswordForm = InferType<typeof changePasswordSchema>;
 export type SetPasswordForm = InferType<typeof setPasswordSchema>;
 export type LinkWalletForm = InferType<typeof linkWalletSchema>;
 export type RemoveMethodForm = InferType<typeof removeMethodSchema>;
+
+// Group Claiming & Verification validation schemas
+export const claimGroupFormSchema = object({
+  userMessage: string()
+    .required('Please explain why you should be the admin of this group')
+    .min(20, 'Message must be at least 20 characters'),
+});
+
+export const verifyGroupFormSchema = object({
+  notes: string().optional(),
+});
+
+export type ClaimGroupForm = InferType<typeof claimGroupFormSchema>;
+export type VerifyGroupForm = InferType<typeof verifyGroupFormSchema>;

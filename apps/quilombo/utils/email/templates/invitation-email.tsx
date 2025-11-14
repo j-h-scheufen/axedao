@@ -28,11 +28,28 @@ export const InvitationEmail = ({ inviteUrl, inviterName, invitedEmail }: Invita
         </Section>
         <Text style={text}>Or copy and paste this link into your browser:</Text>
         <Text style={link}>{inviteUrl}</Text>
+
+        <Text style={divider}>---</Text>
+
+        <Text style={text}>
+          <strong>{inviterName}</strong> convidou você para participar do <strong>Quilombo</strong>, a plataforma global
+          da comunidade de Capoeira.
+        </Text>
+        <Text style={text}>
+          O Quilombo conecta praticantes de Capoeira em todo o mundo, ajudando você a encontrar grupos, eventos e
+          capoeiristas na sua área e ao redor do globo.
+        </Text>
+
         <Text style={footer}>
           This invitation was sent to <strong>{invitedEmail}</strong> and will expire in 30 days. If you didn't expect
           this invitation, you can safely ignore this email.
         </Text>
+        <Text style={footer}>
+          Este convite foi enviado para <strong>{invitedEmail}</strong> e expirará em 30 dias. Se você não esperava este
+          convite, pode ignorar este email com segurança.
+        </Text>
         <Text style={footer}>Need help? Contact us at support@quilombo.net</Text>
+        <Text style={footer}>Precisa de ajuda? Entre em contato conosco em support@quilombo.net</Text>
       </Container>
     </Body>
   </Html>
@@ -93,10 +110,19 @@ const link = {
   wordBreak: 'break-all' as const,
 };
 
+const divider = {
+  color: '#8898aa',
+  fontSize: '16px',
+  textAlign: 'center' as const,
+  padding: '0 40px',
+  marginTop: '32px',
+  marginBottom: '32px',
+};
+
 const footer = {
   color: '#8898aa',
   fontSize: '12px',
   lineHeight: '16px',
   padding: '0 40px',
-  marginTop: '24px',
+  marginTop: '8px',
 };

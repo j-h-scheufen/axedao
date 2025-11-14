@@ -1,18 +1,14 @@
-import { render } from '@react-email/components';
-
-import { getBaseUrl } from '@/config/environment';
 import ENV from '@/config/environment';
 import type { EmailProvider } from './provider';
-import { VerificationEmail } from './templates/verification-email';
-import { PasswordResetEmail } from './templates/password-reset-email';
-import { WelcomeEmail } from './templates/welcome-email';
-import { InvitationEmail } from './templates/invitation-email';
+import { emailTemplates } from './email-config';
+import { renderEmailTemplate } from './email-helpers';
 
 /**
  * Mailjet email provider implementation
  * Uses React Email for templates
  */
 export class MailjetProvider implements EmailProvider {
+  // biome-ignore lint/suspicious/noExplicitAny: Third-party library without official types
   private client: any;
 
   constructor() {
@@ -28,86 +24,161 @@ export class MailjetProvider implements EmailProvider {
   }
 
   async sendVerificationEmail(to: string, token: string, userName?: string): Promise<void> {
-    const baseUrl = getBaseUrl();
-    const verifyUrl = `${baseUrl}/auth/verify-email?token=${token}`;
-    const logoUrl = 'https://quilombo.net/quilombo-icon-192x192.png';
-
-    const html = await render(VerificationEmail({ verifyUrl, logoUrl, userName }));
-    const text = await render(VerificationEmail({ verifyUrl, logoUrl, userName }), { plainText: true });
+    const config = emailTemplates.verification;
+    const template = config.getTemplate(token, userName);
+    const { html, text } = await renderEmailTemplate(template);
 
     await this.client.post('send', { version: 'v3.1' }).request({
       Messages: [
         {
-          From: { Email: 'support@quilombo.net', Name: 'Quilombo' },
+          From: { Email: config.metadata.from.email, Name: config.metadata.from.name },
           To: [{ Email: to, Name: userName }],
-          Subject: 'Verify your Quilombo account',
+          Subject: config.metadata.subject,
           TextPart: text,
           HTMLPart: html,
-          CustomID: 'email-verification',
+          CustomID: config.metadata.customId,
         },
       ],
     });
   }
 
   async sendPasswordResetEmail(to: string, token: string, userName?: string): Promise<void> {
-    const baseUrl = getBaseUrl();
-    const resetUrl = `${baseUrl}/auth/reset-password?token=${token}`;
-    const logoUrl = 'https://quilombo.net/quilombo-icon-192x192.png';
-
-    const html = await render(PasswordResetEmail({ resetUrl, logoUrl, userName }));
-    const text = await render(PasswordResetEmail({ resetUrl, logoUrl, userName }), { plainText: true });
+    const config = emailTemplates.passwordReset;
+    const template = config.getTemplate(token, userName);
+    const { html, text } = await renderEmailTemplate(template);
 
     await this.client.post('send', { version: 'v3.1' }).request({
       Messages: [
         {
-          From: { Email: 'support@quilombo.net', Name: 'Quilombo' },
+          From: { Email: config.metadata.from.email, Name: config.metadata.from.name },
           To: [{ Email: to, Name: userName }],
-          Subject: 'Reset your Quilombo password',
+          Subject: config.metadata.subject,
           TextPart: text,
           HTMLPart: html,
-          CustomID: 'password-reset',
+          CustomID: config.metadata.customId,
         },
       ],
     });
   }
 
   async sendWelcomeEmail(to: string, userName?: string): Promise<void> {
-    const baseUrl = getBaseUrl();
-    const profileUrl = `${baseUrl}/profile`;
-    const logoUrl = 'https://quilombo.net/quilombo-icon-192x192.png';
-
-    const html = await render(WelcomeEmail({ profileUrl, logoUrl, userName }));
-    const text = await render(WelcomeEmail({ profileUrl, logoUrl, userName }), { plainText: true });
+    const config = emailTemplates.welcome;
+    const template = config.getTemplate(userName);
+    const { html, text } = await renderEmailTemplate(template);
 
     await this.client.post('send', { version: 'v3.1' }).request({
       Messages: [
         {
-          From: { Email: 'support@quilombo.net', Name: 'Quilombo' },
+          From: { Email: config.metadata.from.email, Name: config.metadata.from.name },
           To: [{ Email: to, Name: userName }],
-          Subject: 'Welcome to Quilombo!',
+          Subject: config.metadata.subject,
           TextPart: text,
           HTMLPart: html,
-          CustomID: 'welcome',
+          CustomID: config.metadata.customId,
         },
       ],
     });
   }
 
   async sendInvitationEmail(to: string, invitationCode: string, inviterName: string): Promise<void> {
-    // TODO: TEMPORARY INVITE-ONLY - Remove when opening to public
-    const inviteUrl = `${process.env.NEXT_PUBLIC_APP_URL}/auth/signup?code=${invitationCode}&email=${encodeURIComponent(to)}`;
-
-    const html = await render(InvitationEmail({ inviteUrl, inviterName, invitedEmail: to }));
-    const text = await render(InvitationEmail({ inviteUrl, inviterName, invitedEmail: to }), { plainText: true });
+    const config = emailTemplates.invitation;
+    const template = config.getTemplate(invitationCode, inviterName, to);
+    const { html, text } = await renderEmailTemplate(template);
 
     await this.client.post('send', { version: 'v3.1' }).request({
       Messages: [
         {
-          From: { Email: 'join@quilombo.net', Name: 'Quilombo Community' },
+          From: { Email: config.metadata.from.email, Name: config.metadata.from.name },
           To: [{ Email: to }],
-          Subject: `${inviterName} invited you to join Quilombo`,
+          Subject:
+            typeof config.metadata.subject === 'function'
+              ? config.metadata.subject(inviterName)
+              : config.metadata.subject,
           TextPart: text,
           HTMLPart: html,
+        },
+      ],
+    });
+  }
+
+  async sendClaimSubmittedEmail(
+    to: string,
+    groupName: string,
+    claimerName: string,
+    claimerEmail: string,
+    userMessage: string,
+    adminPanelUrl: string
+  ): Promise<void> {
+    const config = emailTemplates.claimSubmitted;
+    const template = config.getTemplate(groupName, claimerName, claimerEmail, userMessage, adminPanelUrl);
+    const { html, text } = await renderEmailTemplate(template);
+
+    await this.client.post('send', { version: 'v3.1' }).request({
+      Messages: [
+        {
+          From: { Email: config.metadata.from.email, Name: config.metadata.from.name },
+          To: [{ Email: to }],
+          Subject: config.metadata.subject,
+          TextPart: text,
+          HTMLPart: html,
+          CustomID: config.metadata.customId,
+        },
+      ],
+    });
+  }
+
+  async sendClaimApprovedEmail(to: string, groupName: string, groupId: string, claimerName: string): Promise<void> {
+    const config = emailTemplates.claimApproved;
+    const template = config.getTemplate(groupName, groupId, claimerName);
+    const { html, text } = await renderEmailTemplate(template);
+
+    await this.client.post('send', { version: 'v3.1' }).request({
+      Messages: [
+        {
+          From: { Email: config.metadata.from.email, Name: config.metadata.from.name },
+          To: [{ Email: to, Name: claimerName }],
+          Subject: config.metadata.subject,
+          TextPart: text,
+          HTMLPart: html,
+          CustomID: config.metadata.customId,
+        },
+      ],
+    });
+  }
+
+  async sendClaimRejectedEmail(to: string, groupName: string, claimerName: string, reason: string): Promise<void> {
+    const config = emailTemplates.claimRejected;
+    const template = config.getTemplate(groupName, claimerName, reason);
+    const { html, text } = await renderEmailTemplate(template);
+
+    await this.client.post('send', { version: 'v3.1' }).request({
+      Messages: [
+        {
+          From: { Email: config.metadata.from.email, Name: config.metadata.from.name },
+          To: [{ Email: to, Name: claimerName }],
+          Subject: config.metadata.subject,
+          TextPart: text,
+          HTMLPart: html,
+          CustomID: config.metadata.customId,
+        },
+      ],
+    });
+  }
+
+  async sendGroupRegisteredEmail(to: string, groupName: string, groupId: string, userName: string): Promise<void> {
+    const config = emailTemplates.groupRegistered;
+    const template = config.getTemplate(groupName, groupId, userName);
+    const { html, text } = await renderEmailTemplate(template);
+
+    await this.client.post('send', { version: 'v3.1' }).request({
+      Messages: [
+        {
+          From: { Email: config.metadata.from.email, Name: config.metadata.from.name },
+          To: [{ Email: to, Name: userName }],
+          Subject: config.metadata.subject,
+          TextPart: text,
+          HTMLPart: html,
+          CustomID: config.metadata.customId,
         },
       ],
     });

@@ -29,8 +29,19 @@ export const VerificationEmail = ({ verifyUrl, logoUrl, userName }: Verification
         </Section>
         <Text style={emailStyles.text}>Or copy and paste this link into your browser:</Text>
         <Text style={{ ...emailStyles.link, ...emailStyles.linkPrimary }}>{verifyUrl}</Text>
+
+        <Text style={emailStyles.divider}>---</Text>
+
+        <Text style={emailStyles.text}>{userName ? `Olá ${userName},` : 'Olá,'}</Text>
+        <Text style={emailStyles.text}>
+          Obrigado por se cadastrar! Clique no botão acima para verificar seu endereço de email e ativar sua conta.
+        </Text>
+
         <Text style={emailStyles.footer}>
           This link will expire in 30 minutes. If you didn't create this account, you can safely ignore this email.
+        </Text>
+        <Text style={emailStyles.footer}>
+          Este link expirará em 30 minutos. Se você não criou esta conta, pode ignorar este email com segurança.
         </Text>
       </Container>
     </Body>

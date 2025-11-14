@@ -10,12 +10,14 @@ import { type FieldProps, useField } from 'formik';
  * @param props The that were passed to the Field component.
  */
 const FieldInput = (props: FieldProps['field']) => {
-  const [field] = useField(props);
+  const [field, meta] = useField(props);
   return (
     <Input
       {...field}
       className="w-full"
       classNames={{ inputWrapper: '!min-h-14', errorMessage: 'text-left', input: 'base-text' }}
+      isInvalid={meta.touched && !!meta.error}
+      errorMessage={meta.touched && meta.error ? meta.error : undefined}
       {...props}
     />
   );

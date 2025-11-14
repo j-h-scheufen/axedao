@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Button, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from '@heroui/react';
 import { useAccount } from 'wagmi';
-import { useMutation } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
 import { enqueueSnackbar } from 'notistack';
 
 import useAuth from '@/hooks/useAuth';
+import * as auth from '@/query/auth';
 
 import ErrorText from './ErrorText';
 
@@ -43,31 +43,24 @@ const WalletRequiredModal = ({ isOpen, onClose, onWalletConnected, hasWallet = f
   const [waitingForWallet, setWaitingForWallet] = useState(false);
 
   // Link wallet mutation
-  const linkWalletMutation = useMutation({
-    mutationFn: async (walletAddress: string) => {
-      const response = await fetch('/api/auth/link-wallet', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ walletAddress }),
-      });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || 'Failed to link wallet');
-      return data;
-    },
-    onSuccess: async () => {
-      // Refresh session to include newly linked wallet address
-      await updateSession();
-      enqueueSnackbar('Wallet connected successfully', { variant: 'success' });
-      setError(null);
-      setIsConnecting(false);
-      setWaitingForWallet(false);
-      onClose();
-      // Execute callback after successful connection (e.g., retry the protected action)
-      if (onWalletConnected) {
-        onWalletConnected();
-      }
-    },
-    onError: async (error: Error) => {
+  const linkWalletMutation = auth.useLinkWalletMutation();
+
+  const handleLinkWalletSuccess = useCallback(async () => {
+    // Refresh session to include newly linked wallet address
+    await updateSession();
+    enqueueSnackbar('Wallet connected successfully', { variant: 'success' });
+    setError(null);
+    setIsConnecting(false);
+    setWaitingForWallet(false);
+    onClose();
+    // Execute callback after successful connection (e.g., retry the protected action)
+    if (onWalletConnected) {
+      onWalletConnected();
+    }
+  }, [updateSession, onClose, onWalletConnected]);
+
+  const handleLinkWalletError = useCallback(
+    async (error: Error) => {
       // Handle case where wallet is already linked but session hasn't propagated yet
       // This can happen if user re-clicks the protected action quickly after linking
       if (
@@ -92,7 +85,8 @@ const WalletRequiredModal = ({ isOpen, onClose, onWalletConnected, hasWallet = f
         setWaitingForWallet(false);
       }
     },
-  });
+    [updateSession, onClose, onWalletConnected]
+  );
 
   // Reactively handle wallet connection - triggered when wagmi detects connected wallet
   useEffect(() => {
@@ -114,10 +108,23 @@ const WalletRequiredModal = ({ isOpen, onClose, onWalletConnected, hasWallet = f
         }
       } else {
         // No wallet linked, need to link it
-        linkWalletMutation.mutate(address);
+        linkWalletMutation.mutate(
+          { walletAddress: address },
+          { onSuccess: handleLinkWalletSuccess, onError: handleLinkWalletError }
+        );
       }
     }
-  }, [waitingForWallet, isConnected, address, hasWallet, onClose, onWalletConnected, linkWalletMutation]);
+  }, [
+    waitingForWallet,
+    isConnected,
+    address,
+    hasWallet,
+    onClose,
+    onWalletConnected,
+    linkWalletMutation,
+    handleLinkWalletError,
+    handleLinkWalletSuccess,
+  ]);
 
   const handleConnectWallet = async () => {
     try {

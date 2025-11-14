@@ -3,12 +3,12 @@
 import { useState } from 'react';
 import { Button, Input, Divider, useDisclosure } from '@heroui/react';
 import { Formik, Form } from 'formik';
-import { useMutation } from '@tanstack/react-query';
 import { enqueueSnackbar } from 'notistack';
 import { object, string } from 'yup';
 import { useAtom } from 'jotai';
 
 import { activeQRInvitationAtom, validQRInvitationAtom } from '@/hooks/state/invitations';
+import * as invitation from '@/query/invitation';
 import InviteQRModal from './InviteQRModal';
 import InviteLinkModal from './InviteLinkModal';
 import ErrorText from '../ErrorText';
@@ -37,97 +37,73 @@ const InviteMemberForm = () => {
   const [_activeQRInvitation, setActiveQRInvitation] = useAtom(activeQRInvitationAtom);
   const [validQRInvitation] = useAtom(validQRInvitationAtom);
 
-  // Mutation: Create email-bound invitation and send email
-  const sendEmailMutation = useMutation({
-    mutationFn: async (email: string) => {
-      const response = await fetch('/api/invitations', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+  // Use mutation hooks from query layer
+  const createInvitationMutation = invitation.useCreateInvitationMutation();
+
+  // Custom mutation wrappers for different invitation scenarios
+  const sendEmailMutation = {
+    mutateAsync: async (email: string) => {
+      try {
+        await createInvitationMutation.mutateAsync({
           type: 'email_bound',
           invitedEmail: email,
           sendEmail: true,
-        }),
-      });
-
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.error || 'Failed to send invitation');
+        });
+        enqueueSnackbar('Invitation email sent successfully', { variant: 'success' });
+      } catch (error) {
+        enqueueSnackbar((error as Error).message || 'Failed to send invitation', { variant: 'error' });
+        throw error;
       }
+    },
+    isPending: createInvitationMutation.isPending,
+    isError: createInvitationMutation.isError,
+    error: createInvitationMutation.error,
+  };
 
-      return response.json();
-    },
-    onSuccess: () => {
-      enqueueSnackbar('Invitation email sent successfully', { variant: 'success' });
-    },
-    onError: (error: Error) => {
-      enqueueSnackbar(error.message || 'Failed to send invitation', { variant: 'error' });
-    },
-  });
-
-  // Mutation: Create email-bound invitation and get link
-  const copyLinkMutation = useMutation({
-    mutationFn: async (email: string) => {
-      const response = await fetch('/api/invitations', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+  const copyLinkMutation = {
+    mutateAsync: async (email: string) => {
+      try {
+        const data = await createInvitationMutation.mutateAsync({
           type: 'email_bound',
           invitedEmail: email,
           sendEmail: false,
-        }),
-      });
-
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.error || 'Failed to create invitation');
+        });
+        setCurrentInvitation(data);
+        linkModal.onOpen();
+      } catch (error) {
+        enqueueSnackbar((error as Error).message || 'Failed to create invitation', { variant: 'error' });
+        throw error;
       }
+    },
+    isPending: createInvitationMutation.isPending,
+    isError: createInvitationMutation.isError,
+    error: createInvitationMutation.error,
+  };
 
-      return response.json();
-    },
-    onSuccess: (data: InvitationResponse) => {
-      setCurrentInvitation(data);
-      linkModal.onOpen();
-    },
-    onError: (error: Error) => {
-      enqueueSnackbar(error.message || 'Failed to create invitation', { variant: 'error' });
-    },
-  });
-
-  // Mutation: Generate QR code (open invitation)
-  const generateQRMutation = useMutation({
-    mutationFn: async () => {
-      const response = await fetch('/api/invitations', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+  const generateQRMutation = {
+    mutate: async () => {
+      try {
+        const data = await createInvitationMutation.mutateAsync({
           type: 'open',
-        }),
-      });
-
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.error || 'Failed to generate QR code');
+        });
+        // Store in atom for persistence
+        setActiveQRInvitation({
+          code: data.code,
+          type: data.type as 'open',
+          expiresAt: data.expiresAt,
+          inviteLink: data.inviteLink,
+          createdAt: new Date().toISOString(),
+        });
+        setCurrentInvitation(data);
+        qrModal.onOpen();
+      } catch (error) {
+        enqueueSnackbar((error as Error).message || 'Failed to generate QR code', { variant: 'error' });
       }
-
-      return response.json();
     },
-    onSuccess: (data: InvitationResponse) => {
-      // Store in atom for persistence
-      setActiveQRInvitation({
-        code: data.code,
-        type: data.type as 'open',
-        expiresAt: data.expiresAt,
-        inviteLink: data.inviteLink,
-        createdAt: new Date().toISOString(),
-      });
-      setCurrentInvitation(data);
-      qrModal.onOpen();
-    },
-    onError: (error: Error) => {
-      enqueueSnackbar(error.message || 'Failed to generate QR code', { variant: 'error' });
-    },
-  });
+    isPending: createInvitationMutation.isPending,
+    isError: createInvitationMutation.isError,
+    error: createInvitationMutation.error,
+  };
 
   // Handler for showing/generating QR code
   const handleShowQRCode = () => {
@@ -244,7 +220,9 @@ const InviteMemberForm = () => {
           </Button>
         </div>
 
-        {generateQRMutation.isError && <ErrorText className="mt-2" message={generateQRMutation.error.message} />}
+        {generateQRMutation.isError && generateQRMutation.error && (
+          <ErrorText className="mt-2" message={generateQRMutation.error.message} />
+        )}
       </div>
 
       {/* Modals */}

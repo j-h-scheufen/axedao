@@ -24,6 +24,7 @@ import {
   accountStatuses,
   invitationTypes,
   invitationStatuses,
+  groupClaimStatuses,
 } from '@/config/constants';
 import type { Feature, Geometry } from 'geojson';
 
@@ -37,6 +38,8 @@ export const oauthProviderEnum = pgEnum('oauth_provider', ['google']);
 // Invitation system - users can invite friends via QR codes or email
 export const invitationTypeEnum = pgEnum('invitation_type', invitationTypes);
 export const invitationStatusEnum = pgEnum('invitation_status', invitationStatuses);
+// Group claim system - users can request to claim ownership of registered groups
+export const groupClaimStatusEnum = pgEnum('group_claim_status', groupClaimStatuses);
 
 export type LinkType = (typeof linkTypes)[number];
 export type SocialLink = { type?: LinkType; url: string };
@@ -94,10 +97,17 @@ export const groups = pgTable(
     banner: varchar('banner'),
     leader: uuid('leader_id').references((): AnyPgColumn => users.id, { onDelete: 'set null' }),
     founder: varchar('founder'),
-    verified: boolean('verified').notNull().default(false),
     links: json('links').$type<SocialLink[]>().notNull().default([]),
+    // Group lifecycle tracking for registration & claiming
+    createdBy: uuid('created_by').references((): AnyPgColumn => users.id, { onDelete: 'set null' }),
+    claimedBy: uuid('claimed_by').references((): AnyPgColumn => users.id, { onDelete: 'set null' }),
+    claimedAt: timestamp('claimed_at'),
   },
-  (t) => [index('name_idx').on(t.name)]
+  (t) => [
+    index('name_idx').on(t.name),
+    index('created_by_idx').on(t.createdBy),
+    index('claimed_by_idx').on(t.claimedBy),
+  ]
 );
 
 export const groupAdmins = pgTable(
@@ -167,6 +177,53 @@ export const invitations = pgTable(
     index('invitation_created_by_idx').on(t.createdBy),
     index('invitation_status_idx').on(t.status),
     index('invitation_type_idx').on(t.type),
+  ]
+);
+
+// Group verification history - tracks all verifications for future rewards
+export const groupVerifications = pgTable(
+  'group_verifications',
+  {
+    id: uuid('id').defaultRandom().primaryKey(),
+    groupId: uuid('group_id')
+      .notNull()
+      .references(() => groups.id, { onDelete: 'cascade' }),
+    userId: uuid('user_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'set null' }),
+    verifiedAt: timestamp('verified_at').notNull().defaultNow(),
+    notes: text('notes'), // Optional - what was verified
+  },
+  (t) => [
+    index('group_verification_group_idx').on(t.groupId),
+    index('group_verification_user_idx').on(t.userId),
+    index('group_verification_date_idx').on(t.verifiedAt),
+  ]
+);
+
+// Group claims - tracks all claim requests (pending, approved, rejected)
+export const groupClaims = pgTable(
+  'group_claims',
+  {
+    id: uuid('id').defaultRandom().primaryKey(),
+    groupId: uuid('group_id')
+      .notNull()
+      .references(() => groups.id, { onDelete: 'cascade' }),
+    userId: uuid('user_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'set null' }),
+    status: groupClaimStatusEnum('status').notNull().default('pending'),
+    requestedAt: timestamp('requested_at').notNull().defaultNow(),
+    processedAt: timestamp('processed_at'),
+    processedBy: uuid('processed_by').references(() => users.id, { onDelete: 'set null' }),
+    userMessage: text('user_message').notNull(), // Why they should be admin
+    adminNotes: text('admin_notes'), // Admin's decision notes
+  },
+  (t) => [
+    index('group_claim_group_idx').on(t.groupId),
+    index('group_claim_user_idx').on(t.userId),
+    index('group_claim_status_idx').on(t.status),
+    index('group_claim_date_idx').on(t.requestedAt),
   ]
 );
 
@@ -262,3 +319,9 @@ export type SelectOAuthAccount = typeof oauthAccounts.$inferSelect;
 
 export type InsertInvitation = typeof invitations.$inferInsert;
 export type SelectInvitation = typeof invitations.$inferSelect;
+
+export type InsertGroupVerification = typeof groupVerifications.$inferInsert;
+export type SelectGroupVerification = typeof groupVerifications.$inferSelect;
+
+export type InsertGroupClaim = typeof groupClaims.$inferInsert;
+export type SelectGroupClaim = typeof groupClaims.$inferSelect;

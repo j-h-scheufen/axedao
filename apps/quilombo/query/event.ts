@@ -10,10 +10,15 @@ import axios from 'axios';
 import { parseAbsoluteToLocal } from '@internationalized/date';
 
 import { QueryConfig } from '@/config/constants';
-import { isValidISO8601 } from '@/config/validation-schema';
-import type { CreateEventForm, UpdateEventForm } from '@/config/validation-schema';
+import { isValidISO8601, type CreateEventForm, type UpdateEventForm } from '@/config/validation-schema';
 import type { EventSearchResult, Event, EventLocationFeatureCollection } from '@/types/model';
 import { QUERY_KEYS } from '.';
+
+// Type for raw event data from API (dates as ISO strings)
+type RawEvent = Omit<Event, 'start' | 'end'> & {
+  start: string;
+  end?: string;
+};
 
 /**
  * Note that the various fetch options are exported as read-only objects in order to be used by atomWithQuery.
@@ -94,7 +99,7 @@ const searchEvents = async ({
 
   return {
     ...rawData,
-    data: rawData.data.map((rawEvent: any) => ({
+    data: rawData.data.map((rawEvent: RawEvent) => ({
       ...rawEvent,
       start: parseAbsoluteToLocal(validateAndConvertDate(rawEvent.start, 'start').toISOString()),
       end: rawEvent.end ? parseAbsoluteToLocal(validateAndConvertDate(rawEvent.end, 'end').toISOString()) : undefined,
@@ -168,8 +173,12 @@ const createEvent = async (newEvent: CreateEventForm | FormData): Promise<Event>
   return response.data;
 };
 
-const updateEvent = async (eventId: string, data: UpdateEventForm): Promise<Event> =>
-  axios.patch(`/api/events/${eventId}`, data).then((response) => response.data);
+const updateEvent = async (eventId: string, data: UpdateEventForm | FormData): Promise<Event> => {
+  const response = await axios.patch(`/api/events/${eventId}`, data, {
+    headers: data instanceof FormData ? {} : { 'Content-Type': 'application/json' },
+  });
+  return response.data;
+};
 
 const deleteEvent = async (eventId: string): Promise<void> => axios.delete(`/api/events/${eventId}`);
 
@@ -206,7 +215,8 @@ export const useCreateEventMutation = () => {
 export const useUpdateEventMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async ({ eventId, data }: { eventId: string; data: UpdateEventForm }) => updateEvent(eventId, data),
+    mutationFn: async ({ eventId, data }: { eventId: string; data: UpdateEventForm | FormData }) =>
+      updateEvent(eventId, data),
     onSuccess: (data, variables) => {
       // Process the data through the same validation as fetchEvent
       const processedData = {

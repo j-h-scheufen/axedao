@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { sql } from 'drizzle-orm';
 import { v4 as uuidv4 } from 'uuid';
+import { ValidationError } from 'yup';
 
 import { db, findValidInvitation, markInvitationAccepted } from '@/db';
 import { users, verificationTokens } from '@/db/schema';
@@ -70,14 +71,15 @@ export async function POST(request: Request) {
   const rateLimitResult = rateLimit(clientIp, { maxRequests: 5, windowMs: 60 * 60 * 1000 });
 
   if (!rateLimitResult.allowed) {
+    const retryAfterMs = rateLimitResult.retryAfter ?? 0;
     return NextResponse.json(
       {
-        error: `Too many signup attempts. Please try again in ${Math.ceil(rateLimitResult.retryAfter! / 60000)} minutes.`,
+        error: `Too many signup attempts. Please try again in ${Math.ceil(retryAfterMs / 60000)} minutes.`,
       },
       {
         status: 429,
         headers: {
-          'Retry-After': Math.ceil(rateLimitResult.retryAfter! / 1000).toString(),
+          'Retry-After': Math.ceil(retryAfterMs / 1000).toString(),
         },
       }
     );
@@ -160,12 +162,12 @@ export async function POST(request: Request) {
       },
       { status: 201 }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
     // Yup validation errors
-    if (error.name === 'ValidationError') {
+    if (error instanceof ValidationError) {
       return NextResponse.json(
         {
-          error: error.errors?.[0] || 'Invalid input',
+          error: error.errors[0] || 'Invalid input',
         },
         { status: 400 }
       );

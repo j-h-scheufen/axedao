@@ -129,6 +129,21 @@ Some migrations are manually generated for features Drizzle doesn't support (fun
 - **Images**: Sharp 0.34.4
 - **Styling**: Framer Motion 12.23.24
 
+### Form Handling with Formik
+
+**Pattern**: Use Formik with `<Field as={FieldInput}>` / `<Field as={FieldTextarea}>` for automatic binding and error handling via `useField` hook.
+
+**Reference Implementations**:
+- `/components/forms/profile/ProfileForm.tsx` - Complete form with validation
+- `/components/groups/GroupProfile/ClaimGroupModal.tsx` - Modal with Formik
+- `/components/forms/FieldTextarea.tsx` - Auto-binding component using `useField` hook
+
+**Key Points**:
+- Use `<Formik>` + `<Form>` + `<Field as={FieldInput/FieldTextarea}>`
+- **CRITICAL**: Field components must extract both `field` and `meta` from `useField()`. The `meta` object contains validation state (touched, error) which must be passed to HeroUI components as `isInvalid` and `errorMessage` props.
+- Submit button: `type="submit"` inside `<Form>` (NOT `onPress={() => formik.handleSubmit()}`)
+- For simple confirmation modals without inputs, use direct button handlers with useState instead of Formik
+
 ### Multi-Provider Authentication
 
 **Three authentication methods** via NextAuth Credentials providers:
@@ -163,7 +178,36 @@ Some migrations are manually generated for features Drizzle doesn't support (fun
 
 ### Database Architecture (Drizzle ORM)
 
-**Pattern**: All DB access centralized in `/db/index.ts` (server-side only)
+**Pattern**: Database query functions organized by domain in `/db/queries/` (server-side only)
+
+**Module Structure**:
+- `db/index.ts` - Thin re-export layer (30 lines)
+- `db/connection.ts` - Database connection factory
+- `db/queries/` - Domain-based query modules:
+  - `users.ts` - User management and authentication (~140 lines)
+  - `groups.ts` - Group CRUD and membership (~260 lines)
+  - `groupClaims.ts` - Group ownership claiming workflow (~220 lines)
+  - `groupVerifications.ts` - Group verification system (~110 lines)
+  - `groupLocations.ts` - Geographic locations and mapping (~130 lines)
+  - `events.ts` - Event creation and querying (~170 lines)
+  - `invitations.ts` - Email-bound and open (QR code) invitations (~165 lines)
+  - `stats.ts` - Public statistics for homepage (~60 lines)
+
+**Adding New Database Functions**:
+1. Identify the appropriate domain module in `db/queries/`
+2. Add function with JSDoc documentation
+3. Export from the module file
+4. No need to update `db/index.ts` (re-exports automatically)
+5. If creating a new domain, create new module and add re-export to `db/index.ts`
+
+**Import Pattern**:
+```typescript
+// Consumers import from db/index.ts (re-export layer)
+import { fetchUser, searchGroups, createGroupClaim } from '@/db';
+
+// NOT from individual modules (internal implementation detail)
+// ❌ import { fetchUser } from '@/db/queries/users';
+```
 
 **Schema** (`/db/schema.ts`):
 - PostgreSQL with drizzle-orm 0.44.6

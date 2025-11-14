@@ -3,8 +3,8 @@ import type { PropsWithChildren } from 'react';
 import type { Metadata } from 'next';
 
 import Navbar from '@/components/Navbar';
-import { fontFiraCode, fontInter, fontOpenSans } from '@/config/fonts';
 import BreadcrumbTracker from '@/components/BreadcrumbTracker';
+import { fontFiraCode, fontInter, fontOpenSans } from '@/config/fonts';
 import Providers from './_providers';
 import { sharedMetadata, viewport } from '@/config/metadata';
 import type { SearchParams } from '@/types/routes';

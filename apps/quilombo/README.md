@@ -329,44 +329,93 @@ For detailed architecture documentation, see [`.claude/CLAUDE.md`](./.claude/CLA
 
 ## API Routes
 
+### Authentication
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| **Authentication** |
 | POST | `/api/auth/signup` | Create new account |
 | POST | `/api/auth/verify-email` | Verify email address |
+| POST | `/api/auth/resend-verification` | Resend verification email |
 | POST | `/api/auth/forgot-password` | Request password reset |
-| POST | `/api/auth/reset-password` | Reset password |
-| POST | `/api/auth/change-password` | Change password |
-| GET | `/api/auth/methods` | Get auth methods for user |
-| POST | `/api/auth/link-wallet` | Link wallet to account |
-| POST | `/api/auth/remove-method` | Remove auth method |
-| GET | `/api/auth/oauth-link` | Get pending OAuth link data |
-| POST | `/api/auth/oauth-link` | Confirm OAuth account linking |
-| DELETE | `/api/auth/oauth-link` | Cancel pending OAuth link |
-| **Users** |
-| GET | `/api/users` | Search users |
-| GET | `/api/users/[userId]` | Get user by ID |
+| POST | `/api/auth/reset-password` | Reset password with token |
+| POST | `/api/auth/change-password` | Change password (authenticated) |
+| POST | `/api/auth/link-wallet` | Link Web3 wallet to account |
+| POST | `/api/auth/remove-method` | Remove authentication method |
+| GET | `/api/auth/methods` | Get available auth methods for user |
+| GET | `/api/auth/oauth-link` | Get OAuth link status |
+| POST | `/api/auth/oauth-link` | Link OAuth provider |
+| DELETE | `/api/auth/oauth-link` | Unlink OAuth provider |
+
+### Profile
+| Method | Endpoint | Description |
+|--------|----------|-------------|
 | GET | `/api/profile` | Get current user profile |
 | PATCH | `/api/profile` | Update current user profile |
-| **Groups** |
-| GET | `/api/groups` | Search groups |
+| POST | `/api/profile/avatar` | Upload profile avatar |
+| DELETE | `/api/profile/avatar` | Delete profile avatar |
+| PUT | `/api/profile/group/[groupId]` | Join a group |
+| DELETE | `/api/profile/group/[groupId]` | Leave a group |
+
+### Users
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/users` | List users (with pagination/filters) |
+| GET | `/api/users/[userId]` | Get specific user details |
+| POST | `/api/users/search` | Search users |
+
+### Groups
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/groups` | List groups (with pagination/filters) |
 | POST | `/api/groups` | Create new group |
-| GET | `/api/groups/[groupId]` | Get group by ID |
+| GET | `/api/groups/[groupId]` | Get group details |
 | PATCH | `/api/groups/[groupId]` | Update group |
 | DELETE | `/api/groups/[groupId]` | Delete group |
-| GET | `/api/groups/[groupId]/members` | Get group members |
-| PUT | `/api/profile/group/[groupId]` | Join group |
-| DELETE | `/api/profile/group/[groupId]` | Leave group |
-| GET | `/api/groups/[groupId]/admins` | Get group admins |
-| PUT | `/api/groups/[groupId]/admins/[userId]` | Add admin |
-| DELETE | `/api/groups/[groupId]/admins/[userId]` | Remove admin |
-| **Other** |
-| POST | `/api/images` | Upload image |
-| GET | `/api/location/countries` | Get country list |
-| GET | `/api/location/cities` | Search cities |
-| **Admin** |
-| PUT | `/api/admin/groups/[groupId]/verification` | Verify group |
-| DELETE | `/api/admin/groups/[groupId]/verification` | Unverify group |
+| POST | `/api/groups/[groupId]/logo` | Upload group logo |
+| DELETE | `/api/groups/[groupId]/logo` | Delete group logo |
+| POST | `/api/groups/[groupId]/banner` | Upload group banner |
+| DELETE | `/api/groups/[groupId]/banner` | Delete group banner |
+| POST | `/api/groups/[groupId]/verify` | Submit group verification |
+| POST | `/api/groups/[groupId]/claim` | Claim group ownership |
+| GET | `/api/groups/[groupId]/members` | List group members |
+| DELETE | `/api/groups/[groupId]/members/[userId]` | Remove member from group |
+| GET | `/api/groups/[groupId]/admins` | List group admins |
+| PUT | `/api/groups/[groupId]/admins/[userId]` | Add group admin |
+| DELETE | `/api/groups/[groupId]/admins/[userId]` | Remove group admin |
+| GET | `/api/groups/[groupId]/locations` | List group locations |
+| POST | `/api/groups/[groupId]/locations` | Add group location |
+| PATCH | `/api/groups/[groupId]/locations/[locationId]` | Update group location |
+| DELETE | `/api/groups/[groupId]/locations/[locationId]` | Delete group location |
+
+### Events
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/events` | List events (with filters) |
+| POST | `/api/events` | Create new event |
+| GET | `/api/events/[eventId]` | Get event details |
+| PATCH | `/api/events/[eventId]` | Update event |
+| DELETE | `/api/events/[eventId]` | Delete event |
+| GET | `/api/events/locations` | Get event locations for map |
+
+### Invitations
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/invitations` | Create invitation |
+| POST | `/api/invitations/validate` | Validate invitation code |
+
+### Admin
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/admin/claims` | List all pending group claims |
+| PUT | `/api/admin/claims/[claimId]/approve` | Approve group claim |
+| PUT | `/api/admin/claims/[claimId]/reject` | Reject group claim |
+
+### Utilities
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/image` | Image proxy/optimization service |
+| GET | `/api/locations` | Get all locations for map |
+| GET | `/api/stats` | Get system statistics |
+| POST | `/api/graphql` | GraphQL endpoint |
 
 For detailed API documentation with request/response schemas, see the OpenAPI comments in each route handler.
 

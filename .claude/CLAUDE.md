@@ -127,13 +127,14 @@ Organize imports in this order:
 - Use functional components and TypeScript types
 - Use const for components
 - Use Hero UI and Tailwind for components and styling
-- Implement responsive design with Tailwind CSS (mobile-first approach)
+- Documentation by component can be accessed with this pattern: https://www.heroui.com/docs/components/<ComponentName>
+- Implement responsive design (mobile-first approach)
 - Use content variables for static content outside render functions
 - Minimize 'use client', 'useEffect', and 'setState' - favor RSC
 - Use Formik for forms, Yup for validation
 - Use dynamic loading for non-critical components
 - Optimize images: WebP format, size data, lazy loading
-- Use error boundaries: Implement using error.tsx and global-error.tsx files
+- When creating React components, organize them into subdirectories when there are multiple forming their own domain. Each subdirectory must contain an index.ts file that re-exports the components from that directory making it easier for other components to import multiple elements from the same domain
 
 ## Validation (Quilombo)
 

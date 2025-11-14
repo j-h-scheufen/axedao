@@ -1,6 +1,9 @@
 
 node_modules
 
+# TypeScript build cache
+*.tsbuildinfo
+
 # backup files (NEVER commit these - may contain secrets)
 *.backup
 *.bak

@@ -1,7 +1,7 @@
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 import { notFound } from 'next/navigation';
 
-import { GroupProfileClientState, GroupView } from '@/components/GroupProfile';
+import { GroupProfileClientState, GroupView } from '@/components/groups/GroupProfile';
 import PageHeading from '@/components/PageHeading';
 import { QueryConfig } from '@/config/constants';
 import { fetchGroup, fetchGroupAdminIds, fetchGroupMembers } from '@/db';

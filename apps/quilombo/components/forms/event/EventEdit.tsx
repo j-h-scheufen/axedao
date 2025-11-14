@@ -7,6 +7,7 @@ import { zonedEventAtom } from '@/hooks/state/event';
 import { currentUserIdAtom } from '@/hooks/state/currentUser';
 import { useUpdateEventMutation, useDeleteEventMutation } from '@/query/event';
 import { PATHS } from '@/config/constants';
+import type { UpdateEventForm } from '@/config/validation-schema';
 
 import { EditEventForm } from '.';
 
@@ -43,7 +44,7 @@ const EventEdit = () => {
     }
   };
 
-  const handleSubmit = async (data: any) => {
+  const handleSubmit = async (data: UpdateEventForm | FormData) => {
     if (!event?.id) return;
     try {
       await updateEventMutation.mutateAsync({ eventId: event.id, data });

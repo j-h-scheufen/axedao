@@ -3,6 +3,36 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false, // Remove X-Powered-By header for security
+
+  // Performance optimizations
+  compiler: {
+    // Remove console.log in production (keep error/warn)
+    removeConsole:
+      process.env.NODE_ENV === 'production'
+        ? {
+            exclude: ['error', 'warn'],
+          }
+        : false,
+  },
+
+  experimental: {
+    // Enable build worker parallelization
+    webpackBuildWorker: true,
+
+    // Optimize package imports
+    optimizePackageImports: ['@heroui/react', 'lucide-react', 'lodash', 'framer-motion'],
+  },
+
+  // Turbopack configuration for SVG handling (moved from experimental.turbo)
+  turbopack: {
+    rules: {
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
+      },
+    },
+  },
+
   images: {
     formats: ['image/avif', 'image/webp'], // Enable modern image formats
     remotePatterns: [

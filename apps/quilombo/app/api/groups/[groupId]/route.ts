@@ -48,6 +48,11 @@ export async function PATCH(request: NextRequest, { params }: RouteParamsGroup) 
   }
 
   const { groupId } = await params;
+
+  // Check if group exists
+  const group = await fetchGroup(groupId);
+  if (!group) return notFound();
+
   const isAdmin = await isGroupAdmin(groupId, session.user.id);
 
   if (!isAdmin)
@@ -70,9 +75,6 @@ export async function PATCH(request: NextRequest, { params }: RouteParamsGroup) 
   }
 
   try {
-    const oldGroup = await fetchGroup(groupId);
-    if (!oldGroup) return notFound();
-
     const groupData = body as Omit<UpdateGroupForm, 'id' | 'logo' | 'banner'>;
     const cleanedGroupData = omitBy(groupData, isUndefined);
 
