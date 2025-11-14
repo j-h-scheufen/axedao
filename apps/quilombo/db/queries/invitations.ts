@@ -6,7 +6,7 @@
 import { and, eq, gte, lt } from 'drizzle-orm';
 
 import * as schema from '@/db/schema';
-import { db } from '@/db/connection';
+import { db } from '@/db';
 import type { InvitationType } from '@/types/model';
 
 /**

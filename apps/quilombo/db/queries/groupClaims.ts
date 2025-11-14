@@ -6,7 +6,7 @@
 import { eq } from 'drizzle-orm';
 
 import * as schema from '@/db/schema';
-import { db } from '@/db/connection';
+import { db } from '@/db';
 import { NotFoundError } from '@/utils/errors';
 import { addGroupAdmin } from './groups';
 
