@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Capoeira Cordao de Ouro",
+    "website": "http://a2capoeira.wixsite.com/home",
+    "leader": {
+      "title": "professor",
+      "nickname": "Manhoso",
+      "name": "Van Robbins"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "smithmr75@gmail.com",
+      "phone": null
+    },
+    "sources": ["https://www.facebook.com/pg/CDOMichigan"],
+    "locations": [
+      {
+        "name": "Trotter Multicultural Center",
+        "address": "University of Michigan",
+        "schedule": "Wed & Thurs 6:00-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Trotter Multicultural Center\nUniversity of Michigan\nWed & Thurs 6:00-8:00pm"
+      }
+    ],
+    "notes": "SOURCE: website facebook. 8/3/18",
+    "rawRecord": "      Capoeira Cordao de Ouro\nhttp://a2capoeira.wixsite.com/home\nhttps://www.facebook.com/pg/CDOMichigan\nsmithmr75@gmail.com\nProfessor Manhoso \"Van Robbins\"\n      Trotter Multicultural Center\nUniversity of Michigan\nWed & Thurs 6:00-8:00pm,\nSOURCE: website facebook. 8/3/18"
+  },
+  {
+    "name": "T.A.B.C.A.T. [Tribo Afro Bahiana de Capoeira Angola Tradicional]",
+    "website": "http://www.tabcat.org/",
+    "leader": {
+      "title": "treinel",
+      "nickname": "Boston",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "under Mestre Caboquinho [Sacramento]. SOURCE: website 7/29/18",
+    "rawRecord": "      T.A.B.C.A.T. [Tribo Afro Bahiana de Capoeira Angola\nTradicional]\nhttp://www.tabcat.org/\nTreinel Boston under  Mestre Caboquinho [Sacramento]\nSOURCE: website 7/29/18"
+  }
+]

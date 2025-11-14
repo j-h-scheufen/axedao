@@ -1,0 +1,58 @@
+[
+  {
+    "name": "FICA - Quebec",
+    "website": "http://capoeiraangolaquebec.blogspot.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Valmir",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Treinel Roque Batista",
+      "email": "capoeiraangolaquebec@gmail.com",
+      "phone": "[418] 524-6030, [418] 554-7601"
+    },
+    "sources": ["http://www.ficaoakland.org/links.htm"],
+    "locations": [],
+    "notes": "Quebec, Canada. Mestre Valmir. Treinel Roque Batista. SOURCE: http://www.ficaoakland.org/links.htm 4/24/17",
+    "rawRecord": "      FICA - Quebec\nhttp://capoeiraangolaquebec.blogspot.com/\nMestre Valmir\nTreinel Roque Batista\n[418] 524-6030, [418] 554-7601\ncapoeiraangolaquebec@gmail.com.\nSOURCE: http://www.ficaoakland.org/links.htm\n4/24/17"
+  },
+  {
+    "name": "Capoeira Sul da Bahia",
+    "website": "https://capoeiraquebec.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Railson",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": ["http://www.centrecultureletsportif.com/"],
+    "locations": [],
+    "notes": "Quebec, Canada. Under Mestre Railson [Bahia]. SOURCE: website 4/24/17",
+    "rawRecord": "      Capoeira Sul da Bahia\nunder Mestre Railson[Bahia]\nhttps://capoeiraquebec.com/\ntel: [418 527 9109\ninfo@capoeiraquebec.com\nhttp://www.centrecultureletsportif.com/\nSOURCE:website 4/24/17"
+  },
+  {
+    "name": "Axe Richmond",
+    "website": "https://richmondcapoeira.com",
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Polvo",
+      "name": "Kenneth Clark"
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "Richmond Olympic Oval",
+        "address": "6111 River Road, Richmond, BC V7C 0A2",
+        "schedule": "Tues & Thurs 8:15 – 9:45pm; Sat 1:00 – 2:30pm",
+        "contactPerson": null,
+        "email": "axeprograms@gmail.com",
+        "phone": "778.296.1400",
+        "rawText": "Axe Richmond\nhttps://richmondcapoeira.com\nInstrutor Polvo \"Kenneth  Clark \" under Mestre Barrao[Vancouver]\n778.296.1400\naxeprograms@gmail.com\n      Richmond Olympic Oval\n6111 River Road,  Richmond, BC V7C 0A2\nTues & Thurs  8:15 � 9:45pm; Sat  1:00 � 2:30pm"
+      }
+    ],
+    "notes": "Richmond BC, Canada. Instrutor Polvo (Kenneth Clark) under Mestre Barrao [Vancouver]. SOURCE: website 4/25/17",
+    "rawRecord": "       Axe Richmond\nhttps://richmondcapoeira.com\nInstrutor Polvo \"Kenneth  Clark \" under Mestre Barrao[Vancouver]\n778.296.1400\naxeprograms@gmail.com\n      Richmond Olympic Oval\n6111 River Road,  Richmond, BC V7C 0A2\nTues & Thurs  8:15 � 9:45pm; Sat  1:00 � 2:30pm\nSOURCE: website 4/25/17"
+  }
+]

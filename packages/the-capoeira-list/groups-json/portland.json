@@ -1,0 +1,95 @@
+[
+  {
+    "name": "Capoeira Volta ao Mundo - Portland",
+    "website": null,
+    "leader": {
+      "title": "mestre",
+      "nickname": "Beck",
+      "name": "Samuel Cordeiro"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "becapoeira@aol.com",
+      "phone": "860-543-2955"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Portland location",
+        "address": "517 Forest Avenue, Suite 2, Portland, Maine 04101",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "517 Forest Avenue, Suite 2, Portland, Maine 04101"
+      }
+    ],
+    "notes": "Biddeford/Portland, Maine. Website expired 7/22/17. SOURCE: website 12/26/11",
+    "rawRecord": "      Capoeira Volta ao Mundo\n(website expired 7/22/17)\nMestre Beck \"Samuel Cordeiro\"\n 860-543-2955\n Email: becapoeira@aol.com\n517 Forest Avenue, Suite 2, Portland, Maine 04101\nSOURCE: website 12/26/11"
+  },
+  {
+    "name": "Capoeira Alma do Mar",
+    "website": "http://www.almacapoeira.com/",
+    "leader": {
+      "title": "monitora",
+      "nickname": "Sonho",
+      "name": "Pamela McGrath"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "almadomarcapoeira@gmail.com",
+      "phone": "[207] 409-6124"
+    },
+    "sources": ["https://www.facebook.com/almadomarcapoeira"],
+    "locations": [
+      {
+        "name": "Hustle & Flow Studio",
+        "address": "155 Brackett St Portland, Maine, ME 04102",
+        "schedule": "Ages 5-8: Tues & Thurs 4:00-5:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Hustle & Flow Studio\n155 Brackett St Portland, Maine, ME 04102\nAges 5-8: Tues & Thurs 4:00-5:00pm"
+      },
+      {
+        "name": "Metta Studios",
+        "address": "40 Main Street, Pepperell Mill, Biddeford, Maine 04005",
+        "schedule": "Adults: Tues, 6:00-7:00pm; Kids ages 5+: Mon 4:30-5:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Metta Studios\n40 Main Street, Pepperell Mill, Biddeford, Maine 04005\nAdults: Tues, 6:00-7:00pm\nKids ages 5+ : Mon 4:30-5:30pm"
+      }
+    ],
+    "notes": "Biddeford/Portland, Maine. Monitora Sonho, a dedicated student of Mestre Beck. SOURCE: website 7/24/18",
+    "rawRecord": "      Capoeira Alma do Mar\nhttp://www.almacapoeira.com/\nMonitora Sonho  \"Pamela McGrath\"  a dedicated student of\nMestre Beck\n  [207] 409-6124\n  almadomarcapoeira@gmail.com\nhttps://www.facebook.com/almadomarcapoeira\n      Hustle & Flow Studio\n155 Brackett St Portland, Maine, ME 04102\nAges 5-8: Tues & Thurs 4:00-5:00pm\n      Metta Studios\n40 Main Street, Pepperell Mill, Biddeford, Maine 04005\nAdults: Tues, 6:00-7:00pm\nKids ages 5+ : Mon 4:30-5:30pm\nSOURCE:  website  7/24/18"
+  },
+  {
+    "name": "Kosho Karate Battleground Maine",
+    "website": "https://koshobattlegroundmaine.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Pasta",
+      "name": "Anderson Palmas"
+    },
+    "mainContact": {
+      "name": "Natasha Palmas",
+      "email": "natashapalmas@gmail.com",
+      "phone": "[973]991-5325"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Kosho Karate Battleground Maine",
+        "address": "408 Alfred St. Biddeford, ME 04005",
+        "schedule": "Tues & Thurs 7:30 – 9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "408 Alfred St. Biddeford, ME 04005\nTues & Thurs 7:30 – 9:00pm"
+      }
+    ],
+    "notes": "Biddeford, Maine. SOURCE: website Posted on April 22, 2018",
+    "rawRecord": "      Kosho Karate Battleground Maine\n408 Alfred St. Biddeford, ME 04005\n https://koshobattlegroundmaine.com/\nMestre Pasta \"Anderson Palmas\"\n contact Natasha Palmas\n  [973]991-5325\n  natashapalmas@gmail.com\nTues & Thurs 7:30 – 9:00pm\nSOURCE: website  Posted on April 22, 2018"
+  }
+]

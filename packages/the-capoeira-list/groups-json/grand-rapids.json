@@ -1,0 +1,85 @@
+[
+  {
+    "name": "Grand Rapids Capoeira - West Michigan Cordao de Ouro",
+    "website": "https://www.grcapoeira.com/",
+    "leader": {
+      "title": "monitor",
+      "nickname": "Talento",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "talentocdo@gmail.com",
+      "phone": null
+    },
+    "sources": ["https://www.grcapoeira.com/"],
+    "locations": [
+      {
+        "name": "Armentality Movement Arts Center",
+        "address": "233 E Fulton Suite 620, Grand Rapids, MI",
+        "schedule": "All Levels: Tues 7:15-8:30pm; Family Classes: 3rd Sat 3:00-4:15pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Armentality Movement Arts Center\n233 E Fulton Suite 620, Grand Rapids, MI\nAll Levels: Tues7:15-8:30pm\nFamily Classes: 3rd Sat 3:00-4:15pm"
+      }
+    ],
+    "notes": "Under the supervision of Instrutor Show Grande. Allendale. SOURCE: website 7/29/18",
+    "rawRecord": "Grand Rapids Capoeira - West Michigan Cordao de Ouro\nhttps://www.grcapoeira.com/\nMonitor Talento under the supervision of Instrutor Show Grande\n  talentocdo@gmail.com\n      Armentality Movement Arts Center\n233 E Fulton Suite 620, Grand Rapids, MI\nAll Levels: Tues7:15-8:30pm\nFamily Classes: 3rd Sat 3:00-4:15pm\nSOURCE: website 7/29/18"
+  },
+  {
+    "name": "Ginga Associacao de Capoeira USA",
+    "website": "http://gingacapoeira.com",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["http://gingacapoeira.com"],
+    "locations": [],
+    "notes": "Has classes in Grand Rapids 8/16/18",
+    "rawRecord": "Ginga Associacao de Capoeira USA\nhttp://gingacapoeira.com\n(has classes in Grand Rapids 8/16/18"
+  },
+  {
+    "name": "Capoeira Mandinga",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["https://www.facebook.com/capoeiramandinga.grandrapids"],
+    "locations": [
+      {
+        "name": "Grand Rapids Brazilian Jiu-Jitsu Academy",
+        "address": "3210 Jefferson Ave SE Grand Rapids, MI 49548 (By 32nd Ave & Jefferson)",
+        "schedule": "Mon 8:30-10:00pm; Wed 8:30-9:30pm; Fri 8:00-9:30pm; Kids class: Sat: 1:00pm to 3:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Grand Rapids Brazilian Jiu-Jitsu Academy\n3210 Jefferson Ave SE Grand Rapids, MI 49548 (By 32nd Ave & Jefferson)\nMon 8:30-10:00pm ;Wed 8:30-9:30pm; Fri 8:00-9:30pm\nKids class: Sat: 1:00pm to 3:00pm -"
+      },
+      {
+        "name": "Grand Valley State University-Fieldhouse",
+        "address": "FH 30 - Combative Room / Dance Room",
+        "schedule": "Combative Room: Tues & Thurs 8:00-10:00pm; Dance Room: Sun 11:00am-1:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Grand Valley State University-Fieldhouse\nFH 30 - Combative Room: Tues & Thurs 8:00-10:00pm\nDance Room: Sun 11:00am -1:00pm"
+      }
+    ],
+    "notes": "Website offline, status unknown 7/29/18. Last facebook post July 4th 2011. SOURCE: website 7/6/11",
+    "rawRecord": ")      Capoeira Mandinga\n(website offline,  status unknown  7/29/18)\nhttps://www.facebook.com/capoeiramandinga.grandrapids\n(last facebook post July 4th 2011)\n      Grand Rapids Brazilian Jiu-Jitsu Academy\n3210 Jefferson Ave SE Grand Rapids, MI 49548 (By 32nd Ave & Jefferson)\nMon 8:30-10:00pm ;Wed 8:30-9:30pm; Fri 8:00-9:30pm\nKids class: Sat: 1:00pm to 3:00pm -\n      Grand Valley State University-Fieldhouse\nFH 30 - Combative Room: Tues & Thurs 8:00-10:00pm\nDance Room: Sun 11:00am -1:00pm\nSOURCE:  website 7/6/11"
+  }
+]

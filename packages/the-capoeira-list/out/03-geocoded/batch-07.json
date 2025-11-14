@@ -1,0 +1,1360 @@
+[
+  {
+    "name": "Capoeira Brasil Arizona",
+    "website": "http://capoeiraarizona.com/",
+    "leader": null,
+    "mainContact": {
+      "name": "Professora Borboleta (Angelique Starks) and Instrutor Lagarta de Goiaba Branca (Matthew Underwood)",
+      "email": "info@capoeiraarizona.com",
+      "phone": "[480]510-4741"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Capoeira Brasil Arizona",
+        "address": "4113 N 7th Ave, Phoenix, AZ 85013",
+        "schedule": "(full schedule of classes)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "4113 N 7th Ave, Phoenix, AZ 85013\nhttp://capoeiraarizona.com/\nProfessora  Borboleta \"Angelique Starks\"\nInstrutor Lagarta de Goiaba Branca \"Matthew Underwood\"\nPhone: [480]510-4741\ninfo@capoeiraarizona.com\n(full schedule of classes)",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-112.0833679, 33.4952155]
+          },
+          "properties": {
+            "address": "4113 N 7th Ave, Phoenix, AZ 85013",
+            "displayName": "4113, North 7th Avenue, Melrose District, Encanto, Phoenix, Maricopa County, Arizona, 85013, United States of America",
+            "countryCode": "US",
+            "boundingBox": [33.4951655, 33.4952655, -112.0834179, -112.0833179]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:59:55.458Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "Phoenix, Arizona. Professora Borboleta (Angelique Starks) and Instrutor Lagarta de Goiaba Branca (Matthew Underwood). SOURCE: website 6/12/18",
+    "rawRecord": "      Capoeira Brasil Arizona\n\n4113 N 7th Ave, Phoenix, AZ 85013\n\nhttp://capoeiraarizona.com/\n\nProfessora  Borboleta \"Angelique Starks\"\n\nInstrutor Lagarta de Goiaba Branca \"Matthew Underwood\"\n\nPhone: [480]510-4741\n\ninfo@capoeiraarizona.com\n\n(full schedule of classes)\n\nSOURCE: website 6/12/18",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "western-australla.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:02:33.097Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Capoeira Brasil Arizona - Home <meta name=\"generator\" content=\"Starfield Technologies; Go",
+        "redirectUrl": "https://capoeiraarizona.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["wweeiihhuuaanngg@gmail.com"],
+        "extractedPhones": ["(623) 703-1002"]
+      }
+    }
+  },
+  {
+    "name": "Omulu Capoeira Guanabara - Madison",
+    "website": "http://www.madisoncapoeira.org/",
+    "leader": {
+      "title": "monitora",
+      "nickname": "Guerreira",
+      "name": "Kelly Schumann"
+    },
+    "mainContact": {
+      "name": "Monitora Guerreira",
+      "email": "madcapoeira@gmail.com, Kelly_schumann@hotmail.com",
+      "phone": "[608] 492-1919, 608-469-5843"
+    },
+    "sources": ["https://www.facebook.com/MadisonCapoeira", "http://win.wisc.edu/organization/capoeira"],
+    "locations": [
+      {
+        "name": "Kanopy Dance",
+        "address": "341 State St # 3. Madison, WI 53703",
+        "schedule": "Mixed: Mon, Wed, & Fri 7:00pm; Kids: Sat 12:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "         Kanopy Dance\n341 State St # 3.  Madison, WI 53703\nMixed: Mon, Wed, & Fri\n7:00pm\nKids: Sat 12:00pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-89.3906996, 43.0746911]
+          },
+          "properties": {
+            "address": "341 State St . Madison, WI 53703",
+            "displayName": "341, State Street, Mifflin West, Downtown, Madison, Dane County, Wisconsin, 53703, United States of America",
+            "countryCode": "US",
+            "boundingBox": [43.0746411, 43.0747411, -89.3907496, -89.3906496]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:59:59.056Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "Madison, Wisconsin. Monitora Guerreira (Kelly Schumann) under Mestre Preguiça [Los Angeles]. UW Omulu Capoeira Club. SOURCE: website 1/4/20",
+    "rawRecord": "      Omulu Capoeira Guanabara - Madisonhttp://www.madisoncapoeira.org/\nTel: [608] 492-1919\nEmail: madcapoeira@gmail.com \nMail: 341 State St # 3.  Madison, WI 53703\nhttps://www.facebook.com/MadisonCapoeira\nmonitora  Guerreira \"Kelly Schumann\" under Mestre Preguiça[Los Angeles ]\n  Kelly_schumann@hotmail.com\n  608-469-5843\n  \n         Kanopy Dance\n341 State St # 3.  Madison, WI 53703\nMixed: Mon, Wed, & Fri\n7:00pm\nKids: Sat 12:00pm      UW Omulu Capoeira Club\nhttp://win.wisc.edu/organization/capoeira SOURCE: website 1/4/20",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "whidbey-island.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:02:35.080Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "window['ppConfig'] = {productName: '6b8ce7c01e3dacd3d2c7a8cd322ff979', deleteIsEnforced: false , sealIsEnforced: false , heartbeatRate: 0.5 , periodicReportingRateMillis: 60000.0 , disableAllReporting: false };(function(){'use strict';function k(a){var b=0;return function(){return b<a.length?{done:!1,value:a[b++]}:{done:!0}}}function l(a){var b=typeof Symbol!=\"undefi",
+        "redirectUrl": "https://www.madisoncapoeira.org/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["madcapoeira@gmail.com"],
+        "extractedPhones": ["(608) 492-1919"]
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/MadisonCapoeira",
+          "source": "sources",
+          "status": "unreachable"
+        },
+        {
+          "url": "http://win.wisc.edu/organization/capoeira",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Afro-Brazilian Capoeira Association",
+    "website": "http://www.abcapoeira.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Yoji Senna",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Mestre Yoji Senna",
+      "email": "abcapoeira@gmail.com",
+      "phone": "612-298-3402"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "South High School",
+        "address": "Weight Room, 3131 S 19th Ave, Minneapolis, MN 55407",
+        "schedule": "Tues & Thurs 7:00-9:00pm; Roda Sat 2:00pm (intermittent schedule, contact for dates)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "South High School\nWeight Room, 3131 S 19th Ave, Minneapolis, MN\n55407\nTues & Thurs 7:00-9:00pm\nRoda Sat 2:00pm.( intermittent schedule, contact for dates)",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-93.243599, 44.9456577]
+          },
+          "properties": {
+            "address": "3131 S 19th Ave, Minneapolis, MN 55407",
+            "displayName": "South High School, 3131, 19th Avenue South, Standish, Corcoran, Powderhorn, Minneapolis, Hennepin County, Minnesota, 55407, United States of America",
+            "countryCode": "US",
+            "boundingBox": [44.9448404, 44.9475235, -93.2448078, -93.2424024]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:00:04.186Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "24%"
+        }
+      }
+    ],
+    "notes": "Minneapolis-St.Paul, Minnesota. Mestre Yoji Senna. SOURCE: website 10/4/18",
+    "rawRecord": "          Afro-Brazilian Capoeira Association \n      http://www.abcapoeira.com/\n      \n      Mestre Yoji Senna \n        612-298-3402\n      Email: abcapoeira@gmail.com \n            South High School\n      Weight Room, 3131 S 19th Ave, Minneapolis, MN\n          55407\n      Tues & Thurs 7:00-9:00pm\nRoda Sat 2:00pm.( intermittent schedule, contact for dates)(\nS)OURCE: website 10/4/18",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "yipsilanti.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:02:48.418Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "img:is([sizes=\"auto\" i], [sizes^=\"auto,\" i]) { contain-intrinsic-size: 3000px 1500px } <!-- This site is optimized with the Yoast SEO plugin v26.3 - https://yoast.com/wordpress/plu",
+        "redirectUrl": "https://www.abcapoeira.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Capoeira Floração",
+    "website": "http://www.mncapoeira.org/",
+    "leader": null,
+    "mainContact": {
+      "name": "Instrutor Coruja (James Lynch) and Monitora Vespa (Jenny Johnson-Blanchard)",
+      "email": "minnesotacap@gmail.com",
+      "phone": "612-326-0809"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Minnesota Capoeira Academy",
+        "address": "6463 Lyndale Avenue South, Richfield, MN 55423",
+        "schedule": "(full schedule of classes)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Minnesota Capoeira Academy \n6463 Lyndale Avenue South,  Richfield, MN  55423 \n(full schedule of classes)",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-93.2868223, 44.8859142]
+          },
+          "properties": {
+            "address": "6463 Lyndale Avenue South, Richfield, MN 55423",
+            "displayName": "6463, Lyndale Avenue South, Richfield, Hennepin County, Minnesota, 55423, United States of America",
+            "countryCode": "US",
+            "boundingBox": [44.8858642, 44.8859642, -93.2868723, -93.2867723]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:00:05.751Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "Minneapolis, Minnesota. Instrutor Coruja (James Lynch) and Monitora Vespa (Jenny Johnson-Blanchard). SOURCE: website 2/18/18",
+    "rawRecord": "      Capoeira Floração \n    http://www.mncapoeira.org/\n    \n    Instrutor Coruja \"James Lynch\" \n    Monitora  Vespa \"Jenny Johnson-Blanchard\" \n    Phone: 612-326-0809 \n    Email:  minnesotacap@gmail.com \n          Minnesota Capoeira Academy \n    6463 Lyndale Avenue South,  Richfield, MN  55423 \n    (full schedule of classes) \n    SOURCE:  website 2/18/18",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "yipsilanti.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:02:50.811Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "#wpadminbar #wp-admin-bar-p404_free_top_button .ab-icon:before { content: \"\\f103\"; color: red; top: 2px; } <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' /",
+        "redirectUrl": "https://mncapoeira.org/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Axe Capoeira Kansas City",
+    "website": "http://www.capoeirakc.com",
+    "leader": {
+      "title": "graduada",
+      "nickname": "Arara",
+      "name": "Sonia Duncombe"
+    },
+    "mainContact": {
+      "name": "Graduada Arara (Sonia Duncombe)",
+      "email": "axecapoeirakc1@gmail.com",
+      "phone": "[816] 442-9907"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Axe Capoeira Kansas City",
+        "address": "6430 Troost Ave, Kansas City, MO 64131",
+        "schedule": "(Full schedule of classes)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "6430 Troost Ave, Kansas City, MO 64131\nhttp://www.capoeirakc.com\n(Full schedule of classes)",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-94.5749955, 39.010136]
+          },
+          "properties": {
+            "address": "6430 Troost Ave, Kansas City, MO 64131",
+            "displayName": "6430, Troost Avenue, Oak Meyer Gardens, Kansas City, Jackson County, Missouri, 64131, United States of America",
+            "countryCode": "US",
+            "boundingBox": [39.0100595, 39.0102125, -94.5751173, -94.5748737]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:00:07.276Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "Kansas City, Missouri. Graduada Arara (Sonia Duncombe). SOURCE: website 3/19/18",
+    "rawRecord": "          Axe Capoeira \n        6430 Troost Ave, Kansas City, MO 64131 \n      http://www.capoeirakc.com\n      \n      Graduada Arara \"Sonia Duncombe\" \n      Email: axecapoeirakc1 @gmail.com \n      [816] 442-9907 \n      (Full schedule of classes) \n      SOURCE: website 3/19/18",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "yipsilanti.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:02:55.909Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Grupo Ax&eacute; Capoeira Kansas City img:is([sizes=\"auto\" i], [sizes^=\"auto,\" i]) { contain-intrinsic-size: 3000px 1500px } <link rel=\"alternate\" type=\"application/rss+xml\" title=\"",
+        "redirectUrl": "https://capoeirakc.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["axecapoeirakc1@gmail.com"],
+        "extractedPhones": ["(816) 442-9907"]
+      }
+    }
+  },
+  {
+    "name": "Capoeira Luanda of St. Louis",
+    "website": "http://www.capoeirastl.org/",
+    "leader": null,
+    "mainContact": {
+      "name": "Instructor Beija-flor (Keith Wilson)",
+      "email": "beijaflor@capoeirastl.org",
+      "phone": "[618] 530-3132"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "University Tower",
+        "address": "1034 S Brentwood Blvd, St. Louis, MO 63117",
+        "schedule": "Kids: Mon & Wed 7:30-8:30pm; Adults: Mon & Wed 7:30-9:00pm",
+        "contactPerson": "Graduado Damiao (Joseph Grey)",
+        "email": null,
+        "phone": null,
+        "rawText": "University Tower\n1034 S Brentwood Blvd, St. Louis, MO 63117\n(behind First Community Credit Union. Same building the Blue Sky\nTower Grill is in. Across from the Galleria Mall. Located on the 16th floor.\nPlease call 618 530-3132 to be let up if no one is downstairs.)\nKids:    Mon & Wed  7:30-8:30pm\nAdults: Mon & Wed  7:30-9:00pm\nGraduado Damiao- \"Joseph Grey\"",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-90.3443545, 38.6362618]
+          },
+          "properties": {
+            "address": "1034 S Brentwood Blvd, St. Louis, MO 63117",
+            "displayName": "Passport Health Richmond Heights Travel Clinic, 1034, South Brentwood Boulevard, Richmond Heights, Saint Louis County, Missouri, 63117, United States of America",
+            "countryCode": "US",
+            "boundingBox": [38.6362118, 38.6363118, -90.3444045, -90.3443045]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:00:09.627Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      },
+      {
+        "name": "Be Well Now",
+        "address": "221 Center Drive, Alton, IL 62002",
+        "schedule": "Tues & Thurs 8:00-9:30pm",
+        "contactPerson": "Graduado Cebolinha (Matt Hawkins)",
+        "email": null,
+        "phone": "[618] 225-9246",
+        "rawText": "Be Well Now\n221 Center Drive, Alton, IL 62002\n[618] 225-9246\nTues & Thurs 8:00-9:30pm\nGraduado Cebolinha- \"Matt Hawkins\"",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-90.1739251, 38.9212312]
+          },
+          "properties": {
+            "address": "221 Center Drive, Alton, IL 62002",
+            "displayName": "221, East Center Drive, Alton Square Mall, Alton, Madison County, Illinois, 62002, United States of America",
+            "countryCode": "US",
+            "boundingBox": [38.9211812, 38.9212812, -90.1739751, -90.1738751]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:00:11.546Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "Saint Louis, Missouri. Instructor Beija-flor (Keith Wilson) Founder & Executive Director. SOURCE: website 4/19/17",
+    "rawRecord": "      Capoeira Luanda of St. Louis\nhttp://www.capoeirastl.org/\nPhone & Text::    [618] 530-3132\nE-mail: beijaflor@capoeirastl.org\nInstructor Beija-flor \"Keith Wilson\"  Founder & \nExecutive Director\nGraduado Damiao- \"Joseph Grey\"\n      University Tower\n1034 S Brentwood Blvd, St. Louis, MO 63117\n(behind First Community Credit Union. Same building the Blue Sky\nTower Grill is in. Across from the Galleria Mall. Located on the 16th floor.\nPlease call 618 530-3132 to be let up if no one is downstairs.)\nKids:    Mon & Wed  7:30-8:30pm\nAdults: Mon & Wed  7:30-9:00pm\nGraduado Cebolinha- \"Matt Hawkins\"\n      Be Well Now\n221 Center Drive, Alton, IL 62002\n[618] 225-9246\nTues & Thurs 8:00-9:30pm\nSOURCE: website 4/19/17",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "yipsilanti.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:03.071Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Toto Togel >> Daftar Situs Togel & Situs Toto Online Terbesar Promosi Scatter Hitam 2 <meta name=\"description\" content=\"Toto Togel adalah daftar situs togel dan situs toto online terbesar banyak di minati pemain judi online, karena memiliki promosi terbesar seperti scatter hitam 2 jejer hadiah jutaan rupiah, dan masih banyak lainnya, langsung",
+        "redirectUrl": "https://capoeirastl.org/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": [
+          "512 938.6666",
+          "667-192 426.6666",
+          "192-426.6666",
+          "667-426.6666",
+          "667 192-426.6666",
+          "667 192 426.6666",
+          "667 426.6666",
+          "666 256-247.4666",
+          "652 820.7582",
+          "957-123.5478",
+          "174 275.7008",
+          "174 445.2173",
+          "043 141.8685",
+          "739 316.5495",
+          "887 142.0688",
+          "957 188.6608",
+          "957 158.1189",
+          "739 159.2097",
+          "435 159.4323",
+          "348 159.4323",
+          "913 158.0299",
+          "913 142.8702",
+          "609-188.9947",
+          "044-173.3676",
+          "487 139.9763",
+          "217-208.1613",
+          "304 876.7443",
+          "667 814.9333",
+          "334 273.0666",
+          "667 507.7333",
+          "333 170.6666",
+          "256 507.7333",
+          "068 460.1266",
+          "068 474.2663",
+          "767 978.3969",
+          "667 904.5333",
+          "809.344 695.3691",
+          "17.792-113.4811",
+          "143 535.3325",
+          "143 101.1931",
+          "714-207.9085",
+          "857 152.2468",
+          "429 151.3142",
+          "429 152.6674",
+          "286 895.8171",
+          "429-152.6674",
+          "571-154.0022",
+          "286 408.1371",
+          "51.968-114.8342",
+          "143-152.6857",
+          "143-154.0205",
+          "429 153.1977",
+          "571 154.5508",
+          "571 114.8342",
+          "428 206.5371",
+          "286 154.5691",
+          "143 152.6674",
+          "286-153.1977",
+          "429-154.5691",
+          "768 686.9333",
+          "333 418.1333",
+          "667 123.7333",
+          "333 123.7333",
+          "2-128-119.4666",
+          "667-170.6666",
+          "666 439.4666",
+          "667 149.3333",
+          "522 201.9555",
+          "222 611.5555",
+          "222 236.0888",
+          "667 725.3333",
+          "128-132.2666",
+          "320-375.4666",
+          "333 196.2666",
+          "512 682.6666",
+          "333 849.0666",
+          "667-388.2666",
+          "334-162.1333",
+          "667-251.7333",
+          "548.864 1024",
+          "212.992 1024",
+          "024 212.992 1024",
+          "008 811.008 1024",
+          "778 341.3333",
+          "778 249.4577",
+          "889 312.8888",
+          "111 398.2222",
+          "333 223.5733",
+          "778 253.7244",
+          "223 113.7777",
+          "222 185.4577",
+          "889 287.2888",
+          "666 190.2933",
+          "111 309.1911",
+          "889 718.2222",
+          "667-109.7955",
+          "889 214.7555",
+          "555 113.7777",
+          "333-412.4444",
+          "222 230.9688",
+          "555 330.8088",
+          "333-350.4355",
+          "223 229.8311",
+          "111 278.4711",
+          "444-100.9777",
+          "778-110.6488",
+          "111 229.8311",
+          "444 261.4044",
+          "778 116.9066",
+          "445-239.7866",
+          "778 316.0177",
+          "889 284.4444",
+          "445-204.5155",
+          "778 177.2088",
+          "778 308.3377",
+          "556 300.9422",
+          "333 718.2222",
+          "333 785.0666",
+          "667 247.4666",
+          "667 119.4666",
+          "67-256 264.5333",
+          "256 110.9333",
+          "512 580.2666",
+          "667-196.2666",
+          "667-110.9333",
+          "256 264.5333",
+          "333-145.0666",
+          "2-256 110.9333",
+          "33-256 110.9333",
+          "667-136.5333",
+          "666-136.5333",
+          "667 375.4666",
+          "333 298.6666",
+          "0 512 229.2337",
+          "667 318.5777",
+          "556-116.0533",
+          "667 227.5555",
+          "556-115.4844",
+          "667-116.0248",
+          "256 318.5777",
+          "256 713.6711",
+          "889 853.3333",
+          "33 512 853.3333",
+          "0 256-139.6337",
+          "78 256-271.7013",
+          "333-263.0826",
+          "889 682.6666",
+          "333 565.6462",
+          "444 398.2222",
+          "441.088 487.7084",
+          "334 277.3333",
+          "333-123.7333",
+          "334-277.3333",
+          "333 174.9333",
+          "333 510.7626",
+          "667-401.0666",
+          "667 401.0666",
+          "666 401.0666",
+          "666-401.0666",
+          "667-157.8666",
+          "333-354.1333",
+          "333 157.8666",
+          "333 354.1333",
+          "333 369.9626",
+          "667 529.0666",
+          "256-256-273.0666",
+          "667 213.3333",
+          "334 209.0666",
+          "333-162.1333",
+          "334-157.8666",
+          "667-200.5333",
+          "666 136.5333",
+          "876 203.5279",
+          "689 508.8198",
+          "863 228.9689",
+          "379-260.7701",
+          "124-190.8074",
+          "559 146.2857",
+          "571 127.2049",
+          "745 349.8136",
+          "137 235.3291",
+          "845 165.3664",
+          "149 171.7267",
+          "894 292.5714",
+          "403 209.8881",
+          "174 273.4906",
+          "497 318.0124",
+          "603 120.8447",
+          "391-178.0869",
+          "391 184.4472",
+          "666 541.8666",
+          "667 196.2666",
+          "333 110.9333",
+          "333-221.8666",
+          "333 401.0666",
+          "192 366.9333",
+          "333 315.7333",
+          "333 695.4666",
+          "667 226.1333",
+          "128 128 157.8666",
+          "67 128 196.2666",
+          "128-443.7333",
+          "334 337.0666",
+          "667-674.1333",
+          "320 132.2666",
+          "333 426.6666",
+          "667 106.6666",
+          "667 136.5333",
+          "666 302.9333",
+          "333 149.3333",
+          "667-302.9333",
+          "666-110.9333",
+          "0-192 149.3333",
+          "333 776.5333",
+          "333 610.1333",
+          "334 213.3333",
+          "333 119.4666",
+          "512 841.5898",
+          "844-148.3154",
+          "969 329.5898",
+          "969-329.5898",
+          "844-329.5898",
+          "844 148.3154",
+          "844 329.5898",
+          "725 327.4296",
+          "698 299.9267",
+          "333 273.0666",
+          "666 388.2666",
+          "273 727.8312",
+          "545 130.0945",
+          "909 151.8312",
+          "819 161.2334",
+          "818-109.4749",
+          "091-109.4749",
+          "182 134.3301",
+          "182 134.5163",
+          "545 134.1905",
+          "139.264-123.1127",
+          "091 122.8334",
+          "181-100.0727",
+          "818 131.3978",
+          "909 131.2581",
+          "728 137.0763",
+          "545 131.1185",
+          "727-125.7658",
+          "182 131.2581",
+          "727-136.9832",
+          "455 776.4712",
+          "454 176.6865",
+          "272-338.2923",
+          "636-150.2021",
+          "091-150.2021",
+          "32.768 137.7745",
+          "273 137.7745",
+          "637 344.7621",
+          "636-136.1454",
+          "091 964.4218",
+          "234.496 163.1883",
+          "455 332.1483",
+          "636 605.4632",
+          "636-524.9861",
+          "637 253.3003",
+          "455 460.2414",
+          "636 461.7309",
+          "454-202.9381",
+          "455-400.2909",
+          "273-417.0007",
+          "091 321.6290",
+          "727 166.8654",
+          "182 303.2901",
+          "545 304.2210",
+          "16.896-133.7250",
+          "727-263.7265",
+          "636-274.7112",
+          "118 531.8027",
+          "297 517.9180",
+          "288 219.9921",
+          "558-214.5293",
+          "207 869.5867",
+          "689 184.8252",
+          "413 120.8647",
+          "632-108.2320",
+          "715-101.7449",
+          "652 698.8737",
+          "978-180.9557",
+          "029 105.7282",
+          "604 491.2868",
+          "361 475.8088",
+          "612 573.6842",
+          "121 104.9315",
+          "122 709.5718",
+          "402 703.1985",
+          "847 565.6038",
+          "933 523.6084",
+          "042 698.8737",
+          "334 458.6237",
+          "861-183.8009",
+          "782-238.9981",
+          "108 171.0292",
+          "132 582.8524",
+          "376 141.2114",
+          "578 479.2866",
+          "461 141.2114",
+          "022 171.0292",
+          "132 245.8650",
+          "854 229.5269",
+          "546 285.2931",
+          "342 171.2066",
+          "503 366.8939",
+          "427 171.7756",
+          "889 472.3945",
+          "629-148.9755",
+          "256-193.4747",
+          "155 139.5294",
+          "179 139.5294",
+          "295 234.4458",
+          "418 234.4458",
+          "865 234.2181",
+          "706 234.2181",
+          "501 144.9922",
+          "681 144.9922",
+          "315 109.3701",
+          "338 194.0437",
+          "673-201.7827",
+          "197 217.8297",
+          "222 237.4935",
+          "639 273.8236",
+          "226 272.4579",
+          "597 211.5702",
+          "148 197.4328",
+          "802 410.2047",
+          "579 182.4101",
+          "633 479.6280",
+          "064 182.2963",
+          "801 197.4328",
+          "802 649.2029",
+          "582 227.1369",
+          "667 648.5333",
+          "667 170.6666",
+          "67 256 170.6666",
+          "333 285.8666",
+          "667-106.6666",
+          "333 482.1333",
+          "33-320 631.4666",
+          "333 725.3333",
+          "333 256 853.3333",
+          "667 238.9333",
+          "667 110.9333",
+          "667-149.3333",
+          "667 132.2666",
+          "333 430.9333",
+          "334-213.3333",
+          "4-192 418.1333",
+          "667 418.1333",
+          "667-247.4666",
+          "667-366.9333",
+          "667 298.6666",
+          "333 520.5333",
+          "4 192-418.1333",
+          "667-418.1333",
+          "667 366.9333",
+          "667 810.6666",
+          "666 238.9333",
+          "333 750.9333",
+          "192-418.1333",
+          "666 162.1333",
+          "667-213.3333",
+          "333-110.9333",
+          "667-162.1333",
+          "667 157.8666",
+          "667 494.9333",
+          "333 469.3333",
+          "455 910.7907",
+          "268-173.3316",
+          "219 124.7220",
+          "049 263.5153",
+          "219-312.1249",
+          "633 516.2666",
+          "033 853.3333",
+          "332 516.2666",
+          "667-422.3999",
+          "667 311.4666",
+          "333 605.8666",
+          "031-280.0000",
+          "512 111.9999",
+          "031 400.0000",
+          "118 602.3529",
+          "529 147.5764",
+          "942 304.1882",
+          "353-246.9647",
+          "706 201.7882",
+          "706 451.7647",
+          "235 451.7647",
+          "294 761.9764",
+          "294 512 262.0235",
+          "333 738.1333",
+          "666 251.7333",
+          "666-213.3333",
+          "192 426.6666",
+          "471 360.1142",
+          "512 917.1885",
+          "481 360.1142",
+          "313-167.1428",
+          "998 679.1428",
+          "687 734.8571",
+          "313 603.2342",
+          "535 734.8571",
+          "006 247.6457",
+          "147 177.2571",
+          "431 247.6457",
+          "372 339.3942",
+          "149-104.0228",
+          "691 293.7600",
+          "001-247.6457",
+          "372 339.3257",
+          "005 912.1142",
+          "539 957.7142",
+          "529 729.7828",
+          "684 957.7142",
+          "529 512 957.7142",
+          "529 294.2857",
+          "476 809.1200",
+          "005 111.8857",
+          "461 611.0171",
+          "552 779.6224",
+          "74.624 137.7792",
+          "104-152.2944",
+          "68.352-153.1904",
+          "68.736 152.3456",
+          "264 153.1648",
+          "712 153.1648",
+          "448-193.3824",
+          "194.432 193.3824",
+          "194.432 106.6752",
+          "936 193.4336",
+          "584-194.4576",
+          "336-194.4576",
+          "152 108.0576",
+          "118.528 788.8128",
+          "696 236.5696",
+          "448-530.7904",
+          "544 466.8928",
+          "664-108.0576",
+          "667 874.6666",
+          "334-324.2666",
+          "333 136.5333",
+          "667 260.2666",
+          "512 810.6666",
+          "667-119.4666",
+          "667 234.6666",
+          "333 145.0666",
+          "667 490.6666",
+          "667-490.6666",
+          "667-234.6666",
+          "024 451.1426",
+          "024 629.5304",
+          "759 280.3641",
+          "345-173.5503",
+          "345-173.5856",
+          "759 282.1296",
+          "276 273.6551",
+          "862 375.6844",
+          "104 467.3677",
+          "738-172.4910",
+          "724-172.5263",
+          "241 383.7351",
+          "241 302.8568",
+          "667 676.3946",
+          "18.752 932.6506",
+          "667 347.6053",
+          "666-256.2133",
+          "333 309.1626",
+          "313.984 918.3786",
+          "918.784 705.1946",
+          "6-384 379.7333",
+          "34-384-379.7333",
+          "512 298.6666",
+          "384 379.7333",
+          "512 797.8666",
+          "667-315.7333",
+          "666 213.3333",
+          "666 298.6666",
+          "333 264.5333",
+          "333-209.0666",
+          "667-209.0666",
+          "334 132.2666",
+          "667 533.3333",
+          "333 187.7333",
+          "857 785.5542",
+          "429 600.5028",
+          "857-151.4057",
+          "571-108.2514",
+          "571-173.3485",
+          "571 170.4228",
+          "572 183.5885",
+          "571 664.8685",
+          "857-150.6742",
+          "857-110.4457",
+          "857 151.4057",
+          "857 150.6742",
+          "714 451.2914",
+          "857 110.4457"
+        ]
+      }
+    }
+  },
+  {
+    "name": "Centro Esportivo de Capoeira Angola [CECA] St Louis, MO",
+    "website": "https://capoeiraangolasaintlouis.wordpress.com/",
+    "leader": null,
+    "mainContact": null,
+    "sources": ["http://www.capoeirastl.webs.com"],
+    "locations": [
+      {
+        "name": "Yeyo Arts Collective",
+        "address": "2907 South Jefferson Ave, Saint Louis, MO 63118",
+        "schedule": "Wed 7:00pm-8:30pm; Sat: 4:00-6:00pm (no classes on fourth Wed each month)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Yeyo Arts Collective\n2907 South Jefferson Ave, Saint Louis, MO 63118\nWed 7:00pm – 8:30pm;  Sat: 4:00-6:00pm\n(no classes on fourth Wed each month)",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-90.2242087, 38.6008258]
+          },
+          "properties": {
+            "address": "2907 South Jefferson Ave, Saint Louis, MO 63118",
+            "displayName": "2907-2909, South Jefferson Avenue, Fox Park, Benton Park West, Saint Louis, Missouri, 63118, United States of America",
+            "countryCode": "US",
+            "boundingBox": [38.6007377, 38.6009086, -90.2243251, -90.2240998]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:00:13.137Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "Saint Louis, Missouri. SOURCE: website 3/2/18",
+    "rawRecord": "      Centro Esportivo de Capoeira Angola [CECA] St Louis, MO\nhttps://capoeiraangolasaintlouis.wordpress.com/\n      Yeyo Arts Collective\n2907 South Jefferson Ave, Saint Louis, MO 63118\nWed 7:00pm – 8:30pm;  Sat: 4:00-6:00pm\n(no classes on fourth Wed each month)\nSOURCE: website 3/2/18\nhttp://www.capoeirastl.webs.com",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "yipsilanti.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:06.170Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Capoeira Angola Saint Louis | movement and music classes for all people! <l"
+      },
+      "enrichedData": {
+        "extractedEmails": ["calexchable@gmail.com"],
+        "extractedPhones": ["314-788-0740"]
+      },
+      "alternativeUrls": [
+        {
+          "url": "http://www.capoeirastl.webs.com",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Centro Esportivo de Capoeira Angola Asheville",
+    "website": "http://www.capoeiraasheville.org/",
+    "leader": null,
+    "mainContact": {
+      "name": "Stefan and Jashwant",
+      "email": null,
+      "phone": "828-712-4013"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Burton Street Community Center",
+        "address": "134 Burton St, Asheville, NC 28806",
+        "schedule": "Wed 6:00-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Burton Street Community Center\n134 Burton St, Asheville, NC 28806 \nWed 6:00-8\"00pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-82.5844158, 35.5830269]
+          },
+          "properties": {
+            "address": "134 Burton St, Asheville, NC 28806",
+            "displayName": "Burton Street Community Center, 134, Burton Street, Hazel Green, West Asheville, Asheville, Buncombe County, North Carolina, 28806, United States of America",
+            "countryCode": "US",
+            "boundingBox": [35.5828282, 35.583209, -82.5846116, -82.5842062]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:00:14.649Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      },
+      {
+        "name": "Montford Community Center",
+        "address": "34 Pearson Drive, Asheville, NC, 28801",
+        "schedule": "Sat 10:00am-12:00",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Montford Community Center\n34 Pearson Drive, Asheville, NC, 28801\nSat 10:00am-12:00",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-82.5651653, 35.6003947]
+          },
+          "properties": {
+            "address": "34 Pearson Drive, Asheville, NC, 28801",
+            "displayName": "Tempie Avery Montford Community Center, 34, Pearson Drive, Montford Hills, Asheville, Buncombe County, North Carolina, 28801, United States of America",
+            "countryCode": "US",
+            "boundingBox": [35.6002032, 35.6005681, -82.565394, -82.5649226]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:00:16.076Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      },
+      {
+        "name": "Broad River Community Center",
+        "address": "44 Broad River VFD Road, Black Mountain, NC",
+        "schedule": "Senior focus: Tues & Thurs 6:30-8:00",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Broad River Community Center\n44 Broad River VFD Road, Black Mountain, NC\nSenior focus: Tues & Thurs 6;30-8:00",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-82.257718, 35.5100929]
+          },
+          "properties": {
+            "address": "44 Broad River VFD Road, Black Mountain, NC",
+            "displayName": "The Broad River Volunteer Fire & Rescue Department, 44, Broad River VFD Road, Black Mountain, Buncombe County, North Carolina, 28711, United States of America",
+            "countryCode": "US",
+            "boundingBox": [35.5100429, 35.5101429, -82.257768, -82.257668]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:00:17.976Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "Asheville, North Carolina. Stefan and Jashwant under Mestre Pe de Chumbo [Germany]. SOURCE: website 5/30/19",
+    "rawRecord": "      Centro Esportivo de Capoeira Angola\nhttp://www.capoeiraasheville.org/\n  \n Stefan and Jashwant under Mestre Pe de Chumbo[ Germany]\n    828-712-4013\n         Burton Street Community Center\n134 Burton St, Asheville, NC 28806 \nWed 6:00-8\"00pm\n         Montford Community Center\n34 Pearson Drive, Asheville, NC, 28801\nSat 10:00am-12:00\n        Broad River Community Center\n44 Broad River VFD Road, Black Mountain, NC\nSenior focus: Tues & Thurs 6;30-8:00\nSOURCE:  website  5/30/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "yipsilanti.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:07.922Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<link rel=\"shortcut icon\" href=\"https://static.parastorage.com/client/pfavico.ico\" type=\"image/x-icon",
+        "redirectUrl": "https://www.capoeiraasheville.org/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["capoeiraasheville@gmail.com"],
+        "extractedPhones": ["(828) 712-4013"]
+      }
+    }
+  },
+  {
+    "name": "Cordão de Ouro Carolinas",
+    "website": "https://neguinhocdo.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Neguinho",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "Budokon Academy Charlotte",
+        "address": "2935 Griffith Street, Charlotte, NC",
+        "schedule": "Adults: Mon 8:00-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Budokon Academy Charlotte\n2935 Griffith Street, Charlotte, NC\nAdults: Mon 8:00-9:00pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-80.8697823, 35.200317]
+          },
+          "properties": {
+            "address": "2935 Griffith Street, Charlotte, NC",
+            "displayName": "2935, Griffith Street, Silos, Sedgefield, Charlotte, Mecklenburg County, North Carolina, 28203, United States of America",
+            "countryCode": "US",
+            "boundingBox": [35.200267, 35.200367, -80.8698323, -80.8697323]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:00:19.480Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "Charlotte, North Carolina. Mestre Neguinho. SOURCE: website 6/6/19",
+    "rawRecord": "      Cordão de Ouro Carolinas\nMestre Neguinho\n\n  https://neguinhocdo.com\n\n        Budokon Academy Charlotte\n\n2935 Griffith Street, Charlotte, NC\n\nAdults: Mon 8:00-9:00pm\n\nSOURCE: website 6/6/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "yipsilanti.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:10.364Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Contra Mestre Neguinho Capoeira CDO | Cordao de Ouro South Carolina (Spartanburg/Greenville)",
+        "redirectUrl": "https://neguinhocdo.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Upstate Capoeira",
+    "website": "https://projectbacana.com",
+    "leader": null,
+    "mainContact": {
+      "name": "Contra Mestre Neguinho (Elias Martins) and Professora Risadinha (Melinda Erickson-Martins)",
+      "email": null,
+      "phone": null
+    },
+    "sources": ["http://us.placedigger.com/equilibrio---movement-culture-center971972765.html"],
+    "locations": [
+      {
+        "name": "Equilíbrio - Movement Culture Center",
+        "address": "182 W. Main Avenue, Gastonia, NC 28052",
+        "schedule": "Kids' Capoeira: Mon & Wed 7:30-8:15pm; Adults' Capoeira: Mon & Wed 8:00-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Equilíbrio - Movement Culture Center\n182 W. Main Avenue, Gastonia, NC 28052\nKids' Capoeira : Mon & Wed 7:30-8:15pm\nAdults' Capoeira :  Mon & Wed 8:00-9:00pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-81.1889188, 35.2625292]
+          },
+          "properties": {
+            "address": "182 W. Main Avenue, Gastonia, NC 28052",
+            "displayName": "182, West Main Avenue, FUSE, Gastonia, Gaston County, North Carolina, 28052, United States of America",
+            "countryCode": "US",
+            "boundingBox": [35.2624792, 35.2625792, -81.1889688, -81.1888688]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:00:20.926Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "Gastonia, North Carolina. Contra Mestre Neguinho (Elias Martins) and Professora Risadinha (Melinda Erickson-Martins). SOURCE: website 6/13/18",
+    "rawRecord": "      Upstate Capoeira\nhttp://us.placedigger.com/equilibrio---movement-culture-center971972765.html\nhttps://projectbacana.com\nContra Mestre  Neguinho \"Elias Martins\"\nProfessora Risadinha \"Melinda Erickson-Martins\"\n      Equilíbrio - Movement Culture Center\n182 W. Main Avenue, Gastonia, NC 28052\nKids' Capoeira : Mon & Wed 7:30-8:15pm\nAdults' Capoeira :  Mon & Wed 8:00-9:00pm\nSOURCE: website 6/13/18",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "yipsilanti.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:12.186Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Project BACANA &#8211; Brazilian Arts &amp; Culture Association of North America var wpcom_remote_l",
+        "redirectUrl": "https://projectbacana.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["upstatecapoeira@gmail.com"],
+        "extractedPhones": ["704 949 5535", "704-949-5535"]
+      },
+      "alternativeUrls": [
+        {
+          "url": "http://us.placedigger.com/equilibrio---movement-culture-center971972765.html",
+          "source": "sources",
+          "status": "reachable",
+          "isCapoeiraRelated": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "Capoeira Oregon - CapuraGinga - Beaverton",
+    "website": "http://bodyofbrazil.com/",
+    "leader": {
+      "title": "mestrando",
+      "nickname": "Mago",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "Body of Brazil",
+        "address": "9955 SW Beaverton Hillsdale Hwy #230, Beaverton, OR 97005",
+        "schedule": "Kids Beginning: Wed 5:05pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": "03.530.8176",
+        "rawText": "9955 SW Beaverton Hillsdale Hwy  #230, Beaverton, OR  97005\nhttp://bodyofbrazil.com/\nMestrando Mago under the guidance of Mestre Loka \n03.530.8176\nKids Begining:  Wed 5:05pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-122.7802165, 45.4868334]
+          },
+          "properties": {
+            "address": "9955 SW Beaverton Hillsdale Hwy, Beaverton, OR 97005",
+            "displayName": "Studio 10 Karaoke Box, 9955, Southwest Beaverton Hillsdale Highway, Raleigh West, Denney Whitford/Raleigh West, Beaverton, Washington County, Oregon, 97005, United States of America",
+            "countryCode": "US",
+            "boundingBox": [45.4867834, 45.4868834, -122.7802665, -122.7801665]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:00:24.086Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "Beaverton, Oregon. Mestrando Mago under the guidance of Mestre Loka. Classes for Adults Children, and Families Contact for Details. SOURCE: website 6/25/19",
+    "rawRecord": "      Capoeira Oregon - CapuraGinga \n9955 SW Beaverton Hillsdale Hwy  #230, Beaverton, OR  97005\nhttp://bodyofbrazil.com/\nMestrando Mago under the guidance of Mestre Loka \n03.530.8176\nKids Begining:  Wed 5:05pm\n  (Classes for Adults Children, and Families Contact for Details \n  )SOURCE website 6/25/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:18Z",
+      "phase": 1,
+      "sourceFile": "youngstown.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-14T00:03:18.681Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "img:is([sizes=\"auto\" i], [sizes^=\"auto,\" i]) { contain-intrinsic-size: 3000px 1500px } <!-- This site is opt",
+        "redirectUrl": "https://bodyofbrazil.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  }
+]

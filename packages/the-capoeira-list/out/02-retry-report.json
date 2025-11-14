@@ -1,0 +1,56 @@
+{
+  "phase": 2.5,
+  "description": "Retry timeout errors with longer timeout (30s)",
+  "timestamp": "2025-11-14T00:06:34.074Z",
+  "retryTimeout": 30000,
+  "summary": {
+    "totalRetries": 10,
+    "totalSucceeded": 1,
+    "totalFailed": 9,
+    "successRate": "10.00"
+  },
+  "fileResults": [
+    {
+      "file": "batch-01.json",
+      "retriesAttempted": 1,
+      "retriesSucceeded": 0,
+      "retriesFailed": 1
+    },
+    {
+      "file": "batch-02.json",
+      "retriesAttempted": 2,
+      "retriesSucceeded": 0,
+      "retriesFailed": 2
+    },
+    {
+      "file": "batch-03.json",
+      "retriesAttempted": 3,
+      "retriesSucceeded": 0,
+      "retriesFailed": 3
+    },
+    {
+      "file": "batch-04.json",
+      "retriesAttempted": 2,
+      "retriesSucceeded": 1,
+      "retriesFailed": 1
+    },
+    {
+      "file": "batch-05.json",
+      "retriesAttempted": 1,
+      "retriesSucceeded": 0,
+      "retriesFailed": 1
+    },
+    {
+      "file": "batch-06.json",
+      "retriesAttempted": 1,
+      "retriesSucceeded": 0,
+      "retriesFailed": 1
+    },
+    {
+      "file": "batch-07.json",
+      "retriesAttempted": 0,
+      "retriesSucceeded": 0,
+      "retriesFailed": 0
+    }
+  ]
+}

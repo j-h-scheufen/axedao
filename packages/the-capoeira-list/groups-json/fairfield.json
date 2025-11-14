@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Capoeira Vadiacao de Oxossi",
+    "website": "https://sites.google.com/site/vadiacaodeoxossi/home",
+    "leader": {
+      "title": null,
+      "nickname": "Girafa",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "capoeiragirafa@gmail.com",
+      "phone": null
+    },
+    "sources": [
+      "https://sites.google.com/site/vadiacaodeoxossi/home/programs",
+      "https://sites.google.com/site/vadiacaodeoxossi/home"
+    ],
+    "locations": [
+      {
+        "name": "Maharishi University of Management Recreation Center",
+        "address": "Dance/Gymnastics area, or Field Hockey court",
+        "schedule": "Age 14 and up: Mon & Wed 7:30-9:00pm; Sat 3:00-4:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Maharishi University of Management  Recreation Center\nDance/Gymnastics area, or Field Hockey court\nAge 14 and up: Mon & Wed 7:30 - 9:00pm;  Sat 3:00 - 4:30pm"
+      }
+    ],
+    "notes": "Instructor: Girafa under Perere [Port Townsend WA]. SOURCE: website 3/17/18",
+    "rawRecord": "https://sites.google.com/site/vadiacaodeoxossi/home/programs\n      Capoeira Vadiacao de Oxossi\nhttps://sites.google.com/site/vadiacaodeoxossi/home\nInstructor: Girafa under  Perere[Port\nTownsend WA]\n  capoeiragirafa@gmail.com\n      Maharishi University of Management  Recreation Center\nDance/Gymnastics area, or Field Hockey court\nAge 14 and up: Mon & Wed 7:30 - 9:00pm;  Sat 3:00 - 4:30pm\nSOURCE:  website 3/17/18"
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "name": "Capuraginga Capoeira",
+    "website": "http://capuraginga.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Loka",
+      "name": "Manoel Leite"
+    },
+    "mainContact": {
+      "name": "Mestre Loka",
+      "email": "masterloka@yahoo.com",
+      "phone": "[978] 580-9333"
+    },
+    "sources": ["https://www.facebook.com/mestre.loka?lst=1783327277%3A693675816%3A1505832807"],
+    "locations": [
+      {
+        "name": "The Brazilian Capoeira Academy",
+        "address": "298 Lancaster Street, Leominster MA, 0145",
+        "schedule": "(no class is on the website 7/20/18)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "The Brazilian Capoeira Academy\n298 Lancaster Street, Leominster MA, 0145\n(no class is on the website 7/20/18)"
+      }
+    ],
+    "notes": "Leominster, Massachusetts. Mestre Loka (Manoel Leite). SOURCE: website 7/20/18",
+    "rawRecord": "      Capuraginga Capoeira\nhttp://capuraginga.com/\nMestre Loka \"Manoel Leite \"\n298 Lancaster Street, Leominster MA, 0145\nEmail    masterloka@yahoo.com\nPhone    [978] 580-9333\nhttps://www.facebook.com/mestre.loka?lst=1783327277%3A693675816%3A1505832807\n      The Brazilian Capoeira Academy\n(no class is on the website 7/20/18)\nSOURCE: website 7/20/18"
+  },
+  {
+    "name": "Capoeira Luanda",
+    "website": "http://masscapoeira.com/",
+    "leader": null,
+    "mainContact": {
+      "name": "Instructor Morcego (Alexandro Silveira)",
+      "email": "morcegaoluanda@gmail.com",
+      "phone": "832.771.7179"
+    },
+    "sources": ["https://www.facebook.com/capoeiraluanda.MA"],
+    "locations": [],
+    "notes": "Massachusetts. Instructor Morcego (Alexandro Silveira). Check website for class information. SOURCE: website 7/20/18",
+    "rawRecord": "      Capoeira Luanda\nhttp://masscapoeira.com/\nInstructor Morcego \"Alexandro Silveira\"\n  832.771.7179\n  morcegaoluanda@gmail.com\nhttps://www.facebook.com/capoeiraluanda.MA\n(Check website for class information)\nSOURCE: website 7/20/18"
+  },
+  {
+    "name": "Assumption College Capoeira Club",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Worcester County, Massachusetts. The club disbanded in 2008. This website is still here to serve as a memory for former members of the club. SOURCE: website 7/2/18",
+    "rawRecord": "      Assumption College Capoeira Club\n(\"The club disbanded in 2008. This website is still here to serve\nas a memory for former members of the club.\")\nSOURCE:  website 7/2/18"
+  }
+]

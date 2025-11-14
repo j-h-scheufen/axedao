@@ -1,0 +1,4152 @@
+[
+  {
+    "name": "Cordao de Ouro South Carolina",
+    "website": "https://neguinhocdo.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Neguinho",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "Raja Martial Arts Academy",
+        "address": "1200 Woodruff Road, Suite B8, Greenville, SC",
+        "schedule": "Beginners: Tues & Thur 5:30-6:30pm; Kids: Tues & Thurs 4:30-5:20pm; Sat 2:00-3:00pm; Adults: Tues & Thurs 6:30-7:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Raja Martial Arts Academy\n1200 Woodruff Road, Suite B8, Greenville, SC. \nBeginners:  Tues & Thur 5:30-6:30pm\n Kids:  Tues & Thurs 4:30-5:20pm; Sat 2:00-3:00pm\n Adults: Tues & Thurs 6:30-7:30pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-82.2899651, 34.8221418]
+          },
+          "properties": {
+            "address": "1200 Woodruff Road, Greenville, SC",
+            "displayName": "Busy Beez Movers LLC, 1200, Woodruff Road, Merovan Business Center, Greenville County, South Carolina, 29607, United States of America",
+            "countryCode": "US",
+            "boundingBox": [34.8220918, 34.8221918, -82.2900151, -82.2899151]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:51:17.719Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      },
+      {
+        "name": "Ethos Combatives",
+        "address": "2306 Chesnee Highway, Suite 10, Spartanburg, SC",
+        "schedule": "Adults: Tues 8:00-9:00pm (kids welcome as well)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Ethos Combatives\n2306 Chesnee Highway, Suite 10, Spartanburg, SC.\nAdultsá  á  Tues 8:00-9:00pm  ( kids welcome\nas well)",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-81.8948813, 35.0250235]
+          },
+          "properties": {
+            "address": "2306 Chesnee Highway, Spartanburg, SC",
+            "displayName": "2306, Chesnee Highway, Spartanburg County, South Carolina, 29303, United States of America",
+            "countryCode": "US",
+            "boundingBox": [35.02488, 35.025167, -81.895077, -81.894686]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:51:22.334Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "Greenville/Spartanburg, South Carolina. Mestre Neguinho. SOURCE: website 7/10/19",
+    "rawRecord": "   Greenville Capoeira\n   \n\n\n\n                 Greenville/Spartanburg\nTaylors\n\n \n \n      Cordao de Ouro South Carolina\nhttps://neguinhocdo.com/\nMestre Neguinho\n      Raja Martial Arts Academy\n1200 Woodruff Road, Suite B8, Greenville, SC. \nBeginners:  Tues & Thur 5:30-6:30pm\n Kids:  Tues & Thurs 4:30-5:20pm; Sat 2:00-3:00pm\n Adults: Tues & Thurs 6:30-7:30pm      Ethos Combatives\n2306 Chesnee Highway, Suite 10, Spartanburg, SC.\nAdultsá  á  Tues 8:00-9:00pm  ( kids welcome\nas well)\nSOURCE: website 7/10/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "fort-mill.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:46:11.447Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Contra Mestre Neguinho Capoeira CDO | Cordao de Ouro South Carolina (Spartanburg/Greenville)"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Capoeira Fundo da Mata - United Capoeira Association",
+    "website": "http://www.capoeiraknoxville.org",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Avestruz",
+      "name": "Joe Williams"
+    },
+    "mainContact": null,
+    "sources": ["https://www.facebook.com/groups/10676755862/"],
+    "locations": [
+      {
+        "name": "Emporium Center for Arts and Culture",
+        "address": "100 S Gay St Knoxville, TN 37902",
+        "schedule": "Open Levels with Mestre Avestruz: Tues 6:00-8:00 pm; Student-led Conditioning Class: Thurs 6:00-7:00 pm",
+        "contactPerson": null,
+        "email": "info@capoeiraknoxville.org",
+        "phone": null,
+        "rawText": "       Emporium Center for Arts and Culture\n100 S Gay St  Knoxville, TN 37902\nOpen Levels with Mestre Avestruz:  Tues 6:00-8:00 pm\nStudent-led Conditioning Class:  Thurs 6:00-7:00 pm:",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-83.920052, 35.9680804]
+          },
+          "properties": {
+            "address": "100 S Gay St Knoxville, TN 37902",
+            "displayName": "South Gay Street, Knoxville Central Business District, Mechanicsville, Knoxville, Knox County, East Tennessee, Tennessee, 37902, United States of America",
+            "countryCode": "US",
+            "boundingBox": [35.9672189, 35.9688228, -83.9207907, -83.9194659]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:51:24.089Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      }
+    ],
+    "notes": "Knoxville, Tennessee. Mestre Avestruz (Joe Williams) under Mestre Acordeon[Berkeley]. SOURCE: website 7/21/19",
+    "rawRecord": "Knoxville Capoeira\n\n   \n\n\n\n                 Knoxville\n\n\n\n\n\n      Capoeira Fundo da Mata -       United Capoeira Association\n http://www.capoeiraknoxville.org\nMestre Avestruz \"Joe Williams\"  under Mestre Acordeon[Berkeley]\ninfo@capoeiraknoxville.org\nhttps://www.facebook.com/groups/10676755862/\n       Emporium Center for Arts and Culture\n100 S Gay St  Knoxville, TN 37902\nOpen Levels with Mestre Avestruz:  Tues 6:00-8:00 pm\nStudent-led Conditioning Class:  Thurs 6:00-7:00 pm:\nSOURCE: website 7/21/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "fort-mill.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:46:12.181Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=EDGE\" /",
+        "redirectUrl": "https://capoeiraknoxville.org/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/groups/10676755862/",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Capoeira Abolicao Knoxville",
+    "website": "http://www.capoeiraknoxville.com",
+    "leader": {
+      "title": "mestrando",
+      "nickname": "Anao",
+      "name": "Alejandro Florez"
+    },
+    "mainContact": {
+      "name": "Mestrando Anao",
+      "email": "mimadacapo@gmail.com",
+      "phone": "[865] 321-1106"
+    },
+    "sources": ["https://www.facebook.com/pg/CapoeiraKnoxville/"],
+    "locations": [
+      {
+        "name": "The FitBox Knox",
+        "address": "9294 Kingston Pike #101, Knoxville, TN 37922",
+        "schedule": "Adults: Mon, Tues, Wed, & Thurs: 7:30pm; Kids: Tues & Thurs 5:30pm; Music and Roda: Fri 6:30pm",
+        "contactPerson": null,
+        "email": "fitboxknox@gmail.com",
+        "phone": "[865] 312-9782",
+        "rawText": "      The FitBox Knox\n9294 Kingston Pike #101, Knoxville, TN 37922[865] 312-9782\nfitboxknox@gmail.com\nhttps://thefitboxknox.com/\nAdults: Mon,  Tues, Wed, & Thurs: 7:30pm\nKids: Tues & Thurs 5:30pm\nMusic and Roda: Fri 6:30pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-84.0923611, 35.9105592]
+          },
+          "properties": {
+            "address": "9294 Kingston Pike, Knoxville, TN 37922",
+            "displayName": "9294, Kingston Pike, Knoxville, Knox County, East Tennessee, Tennessee, 37922, United States of America",
+            "countryCode": "US",
+            "boundingBox": [35.9105092, 35.9106092, -84.0924111, -84.0923111]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:51:29.088Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "Knoxville, Tennessee. Mestrando Anao (Alejandro Florez) under Master Delei[Miami]. SOURCE: website facebook 7/23/19",
+    "rawRecord": "      Capoeira Abolicao Knoxvillehttp://www.capoeiraknoxville.com \nMestrando Anao \"Alejandro Florez\"  under Master Delei[Miami][865] 321-1106\n mimadacapo@gmail.com\nhttps://www.facebook.com/pg/CapoeiraKnoxville/      \nThe FitBox Knox\n9294 Kingston Pike #101, Knoxville, TN 37922[865] 312-9782\nfitboxknox@gmail.com\nhttps://thefitboxknox.com/\nAdults: Mon,  Tues, Wed, & Thurs: 7:30pm\nKids: Tues & Thurs 5:30pm\nMusic and Roda: Fri 6:30pm\nSOURCE: website facebook 7/23/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "fort-mill.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:46:13.972Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=EDGE\" /",
+        "redirectUrl": "https://capoeiraknoxville.org/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/pg/CapoeiraKnoxville/",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Capoeira Ginga Brasil - Cordão de Ouro",
+    "website": "http://www.capoeiraustin.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Pinga Fogo",
+      "name": "Guilherme Torres"
+    },
+    "mainContact": null,
+    "sources": ["https://www.facebook.com/capoeiraustin"],
+    "locations": [
+      {
+        "name": "Rising Sun Aikido",
+        "address": "2125-C Goodrich Avenue, Austin, TX 78704",
+        "schedule": "All Levels: Mon 6:00-7:00pm; Wed 8:00-9:00pm; Kids[2 1/2 - 4]: Mon 4:30-5:00pm; Kids[4 - 7]: Mon 5:00-5:45pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": "203 444 7142",
+        "rawText": "      Rising Sun Aikido\n\n2125-C Goodrich Avenue, Austin, TX 78704\n\nAll Levels: Mon 6:00-7:00pm; Wed 8:00-9:00pm\n\nKids[2 1/2 - 4]: Mon 4:30-5:00pm\nKids[4 - 7]:  Mon 5:00-5:45pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-97.7720492, 30.2507394]
+          },
+          "properties": {
+            "address": "2125-C Goodrich Avenue, Austin, TX 78704",
+            "displayName": "Goodrich Avenue, Zilker, Austin, Travis County, Texas, 78704, United States of America",
+            "countryCode": "US",
+            "boundingBox": [30.2483403, 30.253143, -97.7736188, -97.770486]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:51:34.715Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      }
+    ],
+    "notes": "Austin, Texas. Mestre Pinga Fogo (Guilherme Torres). SOURCE: facebook website 7/29/19",
+    "rawRecord": "Austin Capoeira\n\n   \n\n\n\n                       Austin\n\n\n      Capoeira Ginga Brasil - Cordáo de Ouro\n\nMestre Pinga Fogo \"Guilherme Torres\"\n\nhttp://www.capoeiraustin.com/\n\n203 444 7142\n\nhttps://www.facebook.com/capoeiraustin\n      Rising Sun Aikido\n\n2125-C Goodrich Avenue, Austin, TX 78704\n\nAll Levels: Mon 6:00-7:00pm; Wed 8:00-9:00pm\n\nKids[2 1/2 - 4]: Mon 4:30-5:00pm\nKids[4 - 7]:  Mon 5:00-5:45pmSOURCE: facebook website 7/29/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "fort-mill.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:46:30.034Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "www.capoeiraustin.com <meta http-equiv=\"Accept-CH\" content=\"Sec-CH-UA-Platform-Version, Sec-CH-UA-Model\"",
+        "redirectUrl": "https://www.capoeiraustin.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["user@domain.com", "capoeiraustin@gmail.com"],
+        "extractedPhones": []
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/capoeiraustin",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Capoeira Evolução",
+    "website": "http://www.capoeiraevolucao.com/",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Metido",
+      "name": "Alex Rodriguez"
+    },
+    "mainContact": {
+      "name": "Contra Mestre Metido",
+      "email": "alex@capoeiraevolucao.com",
+      "phone": "512-715-4373"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Capoeira Evolução",
+        "address": "4619 South Congress Avenue, Austin, TX 78745",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "4619 South Congress Avenue Suite E, Austin, TX 78745\nhttp://www.capoeiraevolucao.com/",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:17:20.423Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-97.7679494, 30.2153029]
+          },
+          "properties": {
+            "address": "4619 South Congress Avenue, Austin, TX 78745",
+            "displayName": "4619, South Congress Avenue, St. Elmo, Austin, Travis County, Texas, 78745, United States of America",
+            "countryCode": "US",
+            "boundingBox": [30.214896, 30.2155227, -97.7683269, -97.7675751]
+          }
+        }
+      }
+    ],
+    "notes": "Austin, Texas. Contra Mestre Metido (Alex Rodriguez) under Mestre Rodrigo Zerlotti. Full schedule of classes. See website. LINEAGE: Betinho>Mestre Bimba > Mestre Suassuna>Mestre Jurema >MestreWilton Pereira >Mestre Rodrigo Zerlotti. SOURCE: website 7/24/19",
+    "rawRecord": "      Capoeira Evolu�áo\n\n4619 South Congress Avenue Suite E, Austin, TX 78745\nhttp://www.capoeiraevolucao.com/\n\nContra Mestre Metido \"Alex Rodriguez\" \nunder Mestre Rodrigo Zerlotti \n Phone : 512-715-4373\n\n  alex@capoeiraevolucao.com\n\n(full schedule of classes. See website.\n)\nLINEAGE: Betinho>Mestre Bimba > Mestre Suassuna>Mestre Jurema >MestreWilton\nPereira >Mestre Rodrigo Zerlotti\n\nSOURCE: website 7/24/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "fort-mill.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:46:31.795Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "var et_site_url='https://www.capoeiraevolucao.com';var et_post_id='478';function et_core_page_resource_fallback(a,b){\"undefined\"===typeof b&&(b=a.sheet.cssRules&&0===a.sheet.cssRules.length);b&&(a.onerror=null,a.onload=null,a.href?a.href=et_site_url+\"/?et_core_page_resource=\"+a.id+et_post_id:a.src&&(a.src=et_site_url+\"/?et_core_page_resource=\"+a.id+et_post_id))}",
+        "redirectUrl": "https://www.capoeiraevolucao.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": ["512-715-4373"]
+      }
+    }
+  },
+  {
+    "name": "Capoeira Luanda- Austin",
+    "website": "http://austincapoeira.com",
+    "leader": null,
+    "mainContact": null,
+    "sources": ["https://www.facebook.com/AustinCapoeira"],
+    "locations": [
+      {
+        "name": "Austin Recreation Center",
+        "address": "1301 Shoal Creek Blvd, Austin, TX 78701",
+        "schedule": "Mon 6:00-7:30pm; Thursday 7:30-9:00pm; Music: Sat 9:00-10:30am",
+        "contactPerson": null,
+        "email": "info@austincapoeira.com",
+        "phone": "512-827-7618",
+        "rawText": "      Austin Recreation Center\n1301 Shoal Creek Blvd, Austin, TX 78701\nMon    6:00-7:30pm  Thursday    7:30 - 9:00pm\nMusic: Sat   9:00 - 10:30am",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-97.7489593, 30.2782451]
+          },
+          "properties": {
+            "address": "1301 Shoal Creek Blvd, Austin, TX 78701",
+            "displayName": "Austin Recreation Center, 1301, Shoal Creek Boulevard, Austin, Travis County, Texas, 78701, United States of America",
+            "countryCode": "US",
+            "boundingBox": [30.2781172, 30.2785067, -97.7491567, -97.7488019]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:51:37.653Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "Austin, Texas. SOURCE: website 7/30/19",
+    "rawRecord": "<hr       Capoeira Luanda- Austin\n\nhttp://austincapoeira.com\n\nhttps://www.facebook.com/AustinCapoeira\n512-827-7618\n\ninfo@austincapoeira.com\n\n      Austin Recreation Center\n1301 Shoal Creek Blvd, Austin, TX 78701\nMon    6:00-7:30pm  Thursday    7:30 - 9:00pm\nMusic: Sat   9:00 - 10:30am\nSOURCE: website 7/30/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "fort-mill.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:46:35.128Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "img:is([sizes=\"auto\" i], [sizes^=\"auto,\" i]) { contain-intrinsic-size: 3000px 1500px } Welcome to our Capoeira Scho",
+        "redirectUrl": "https://austincapoeira.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["info@austincapoeira.com"],
+        "extractedPhones": []
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/AustinCapoeira",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Raça em Movimento",
+    "website": "http://www.southtexascapoeira.com/",
+    "leader": {
+      "title": "professor",
+      "nickname": "Graveto",
+      "name": "Tyrone Phelipa"
+    },
+    "mainContact": {
+      "name": "Professor Graveto",
+      "email": "professor.graveto@southtexascapoeira.com",
+      "phone": "+1[956] 371 1666"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Raça em Movimento",
+        "address": "1601 E Alton Gloor Blvd, Brownsville, TX 78526",
+        "schedule": "Kids Group 1: Tues & Thurs 5:00-5:45pm; Kids Group 2: Tues & Thurs 5:45-630pm; Adults Fundamentals: Tues & Thurs 6:30-7:00pm; Adults: 7:00-8:30pm; All ages Review:Sat 5:00-5:45pm; All ages Muisic: Sat 6:30-7:00pm; All ages Acrobatics: Sat 5:45-630pm; All ages Roda: Sat 5;30-7:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Raáa em Movimento\n1601 E Alton Gloor Blvd, Brownsville, TX 78526      (\n    )(Next to the Kuk Sool Won Academy, across from Lotus Chinese Restaurant)\nhttp://www.southtexascapoeira.com/\n  \nProfessor Graveto \"Tyrone Phelipa\" under Mestre Efraim[New\nHaven CT]\n  email: professor.graveto@southtexascapoeira.com\n  call  text: +1[956] 371 1666\nKids Group 1 : Tues & Thurs 5:00-5:45pm\nKids Group 2::  Tues & Thurs  5:45-630pm\nAdults Fundamentals: Tues & Thurs 6:30-7:00pm\nAdults:  7:00-8:30pm\nAll ages Review:Sat  5:00-5:45pm\nAll ages Muisic: Sat 6:30-7:00pm\nAll ages Acrobatics:  Sat 5:45-630pm\nAll ages Roda: Sat  5;30-7:00pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-97.4963908, 25.9800881]
+          },
+          "properties": {
+            "address": "1601 E Alton Gloor Blvd, Brownsville, TX 78526",
+            "displayName": "East Alton Gloor Boulevard, Brownsville, Cameron County, Texas, 78526, United States of America",
+            "countryCode": "US",
+            "boundingBox": [25.9793024, 25.9808411, -97.5046322, -97.4881675]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:51:39.111Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      },
+      {
+        "name": "Eternamente Bella Spa",
+        "address": "217 S. 16th St. McAllen, TX (corner of 16th and Chicago)",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "       Eternamente Bella Spa\n217 S. 16th St. McAllen, TX  (corner of 16th and Chicago)",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-98.2368903, 26.2024525]
+          },
+          "properties": {
+            "address": "217 S. 16th St. McAllen, TX",
+            "displayName": "217, South 16th Street, College Heights, McAllen, Hidalgo County, Texas, 78501, United States of America",
+            "countryCode": "US",
+            "boundingBox": [26.2024025, 26.2025025, -98.2369403, -98.2368403]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:51:42.427Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "Brownsville, McAllen, Texas. Professor Graveto (Tyrone Phelipa) under Mestre Efraim[New Haven CT]. Next to the Kuk Sool Won Academy, across from Lotus Chinese Restaurant. SOURCE: website 8/4/19",
+    "rawRecord": "   Brownsville Capoeira\n   \n\n\n\n                       Brownsville\n      McAllen\n\n\n      Raáa em Movimento\n1601 E Alton Gloor Blvd, Brownsville, TX 78526      (\n    )(Next to the Kuk Sool Won Academy, across from Lotus Chinese Restaurant)\nhttp://www.southtexascapoeira.com/\n  \nProfessor Graveto \"Tyrone Phelipa\" under Mestre Efraim[New\nHaven CT]\n  email: professor.graveto@southtexascapoeira.com\n  call  text: +1[956] 371 1666\nKids Group 1 : Tues & Thurs 5:00-5:45pm\nKids Group 2::  Tues & Thurs  5:45-630pm\nAdults Fundamentals: Tues & Thurs 6:30-7:00pm\nAdults:  7:00-8:30pm\nAll ages Review:Sat  5:00-5:45pm\nAll ages Muisic: Sat 6:30-7:00pm\nAll ages Acrobatics:  Sat 5:45-630pm\nAll ages Roda: Sat  5;30-7:00pm\n       Eternamente Bella Spa\n217 S. 16th St. McAllen, TX  (corner of 16th and Chicago)SOURCE: website  8/4/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "fort-mill.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:46:42.816Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Welcome to South Texas Capoeira <meta name=\"robots\" content=\"max-image-preview:l",
+        "redirectUrl": "https://www.southtexascapoeira.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["info@southtexascapoeira.com"],
+        "extractedPhones": ["+1 (956) 371 1666"]
+      }
+    }
+  },
+  {
+    "name": "Fort Worth Capoeira Regional",
+    "website": "http://www.ftwcapoeira.com",
+    "leader": {
+      "title": "professora",
+      "nickname": "Borboleta",
+      "name": "Lindsay Puente"
+    },
+    "mainContact": {
+      "name": "Professora Borboleta",
+      "email": "ftwcapo@gmail.com",
+      "phone": "817-586-2146"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Fort Worth Capoeira Regional",
+        "address": "Fort Worth, TX 76110",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Fort Worth Capoeira Regional\n1800 McPherson Ave Fort Worth TX 76110\nhttp://www.ftwcapoeira.com",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:43:04.284Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "66%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-97.3327459, 32.753177]
+          },
+          "properties": {
+            "address": "Fort Worth, TX 76110",
+            "displayName": "Fort Worth, Tarrant County, Texas, United States of America",
+            "countryCode": "US",
+            "boundingBox": [32.551584, 33.049529, -97.592388, -97.0335808]
+          }
+        }
+      }
+    ],
+    "notes": "Dallas-Ft. Worth, Texas. Professora Borboleta (Lindsay Puente). SOURCE: email 3/19/16",
+    "rawRecord": "   Dallas Capoeira\n   \n\n\n\n                       Dallas-Ft. Worth\n\n\n\n      Fort Worth Capoeira Regional\n1800 McPherson Ave Fort Worth TX 76110\nhttp://www.ftwcapoeira.com\nProfessora Borboleta \"Lindsay Puente\"\n  817-586-2146 \nftwcapo@gmail.com\nSOURCE:  email   3/19/16",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "fort-mill.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:46:46.913Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "ONDAS &#8211; A Community of Movement and Culture img:is([sizes=\"auto\" i], [sizes^=\"auto,\" i]) { contain-intrinsic-size: 3000px 1500px } <link rel='dns-prefet",
+        "redirectUrl": "http://ondascommunity.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["main-logo@3x.png", "main-logo@3x-300x208.png", "info@ondascommunity.com"],
+        "extractedPhones": ["817-586-2146"]
+      }
+    }
+  },
+  {
+    "name": "Os Malandros de Mestre Touro -Capoeira Angola de São Bento Grande",
+    "website": "http://www.dallasmalandros.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Preto Velho",
+      "name": "Dennis Newsome"
+    },
+    "mainContact": {
+      "name": "Zumbi Malandro",
+      "email": "info@dallasmalandros.com",
+      "phone": "972-415-5103"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "South Dallas Cultural Center",
+        "address": "3400 S. Fitzhugh, Dallas, Texas 76210",
+        "schedule": "Tues & Thurs 7:00-8:45pm; Sat 10:00am-12:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": "[214] 939 2787",
+        "rawText": "      South Dallas Cultural Center\n3400 S. Fitzhugh, Dallas, Texas 76210\n[214] 939 2787\nTues & Thurs 7:00 - 8:45pm; Sat 10:00am-12:00pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-96.7574052, 32.771362]
+          },
+          "properties": {
+            "address": "3400 S. Fitzhugh, Dallas, Texas 76210",
+            "displayName": "South Dallas Cultural Center, 3400, South Fitzhugh Avenue, Wheatley Place Historic District, Dallas, Dallas County, Texas, 75210, United States of America",
+            "countryCode": "US",
+            "boundingBox": [32.7710161, 32.7716707, -96.7576773, -96.7570244]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:51:47.561Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "Dallas, Texas. Under Mestre Preto Velho (Dennis Newsome) [San Diego]. Zumbi Malandro. SOURCE: website 3/20/16",
+    "rawRecord": "       Os Malandros de Mestre Touro -Capoeira Angola\nde São Bento Grande\nUnder Mestre Preto Velho \"Dennis Newsome\" [San\nDiego]\nhttp://www.dallasmalandros.com\nZumbi Malandro\n  Phone  972-415- 5103\ninfo@dallasmalandros.com\n      South Dallas Cultural Center\n3400 S. Fitzhugh, Dallas, Texas 76210\n[214] 939 2787\nTues & Thurs 7:00 - 8:45pm; Sat 10:00am-12:00pm\nSOURCE:  website 3/20/16",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "fort-mill.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:46:48.276Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<link rel=\"shortcut icon\" href=\"https://static.parastorage.com/client/pfavico.ico\" type=\"image/x-icon",
+        "redirectUrl": "https://www.dallasmalandros.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["info@dallasmalandros.com"],
+        "extractedPhones": ["972-415-5103", "214-364-9037"]
+      }
+    }
+  },
+  {
+    "name": "Capoeira Resistência",
+    "website": "http://www.capoeiraallen.blogspot.com/",
+    "leader": {
+      "title": "professor",
+      "nickname": "Molejo",
+      "name": "Diogo Rodrigues da Costa Oliveira"
+    },
+    "mainContact": {
+      "name": "Professor Molejo",
+      "email": null,
+      "phone": "469.734.8281"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Capoeira Resistência",
+        "address": "410 N. Greenville Ave -suite 113 - Allen, TX 75002",
+        "schedule": "Adults: Mon-Thurs 3:00-4:00pm, 7:00-7:50pm, 7:50-8:40pm 8:40-9:40pm; Sat 1:00-2:00pm; Kids: Mon-Thurs 4:00-4:45 pm, 4:45-5:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Capoeira Resistáncia\n410 N. Greenville Ave -suite 113 - Allen, TX 75002\nhttp://www.capoeiraallen.blogspot.com/\nProfessor Molejo \"Diogo Rodrigues da Costa Oliveira\" under  Mestre\nPanáo[ Richmond]\nPhone: 469.734.8281\nAdults:  Mon-Thurs 3:00- 4:00pm, 7:00-7:50pm,  7:50-8:40pm \n8:40-9:40pm; Sat 1:00-2:00pm\nKids:   Mon-Thurs 4:00-4:45 pm, 4:45-5:30pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-96.6580883, 33.1056144]
+          },
+          "properties": {
+            "address": "410 N. Greenville Ave - - Allen, TX 75002",
+            "displayName": "410, North Greenville Avenue, Allen, Collin County, Texas, 75002, United States of America",
+            "countryCode": "US",
+            "boundingBox": [33.1055644, 33.1056644, -96.6581383, -96.6580383]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:51:52.363Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "Dallas, Texas. Professor Molejo (Diogo Rodrigues da Costa Oliveira) under Mestre Panão[Richmond]. SOURCE: website 3/24/16",
+    "rawRecord": "      Capoeira Resistáncia\n410 N. Greenville Ave -suite 113 - Allen, TX 75002\nhttp://www.capoeiraallen.blogspot.com/\nProfessor Molejo \"Diogo Rodrigues da Costa Oliveira\" under  Mestre\nPanáo[ Richmond]\nPhone: 469.734.8281\nAdults:  Mon-Thurs 3:00- 4:00pm, 7:00-7:50pm,  7:50-8:40pm \n8:40-9:40pm; Sat 1:00-2:00pm\nKids:   Mon-Thurs 4:00-4:45 pm, 4:45-5:30pm\nSOURCE: website  3/24/16",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "fort-mill.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:46:49.316Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<l",
+        "redirectUrl": "http://capoeiraallen.blogspot.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": ["469.734.8281"]
+      }
+    }
+  },
+  {
+    "name": "United Capoeira Association",
+    "website": "https://www.capoeiraelpaso.com/",
+    "leader": null,
+    "mainContact": null,
+    "sources": ["https://www.solstudioep.com/capoeira"],
+    "locations": [
+      {
+        "name": "SoL Studio",
+        "address": "4106 Montana Ave El Paso, TX 79903",
+        "schedule": null,
+        "contactPerson": null,
+        "email": "ucaelpaso@gmail.com",
+        "phone": "[915] 996-1814",
+        "rawText": "            SoL Studio \n      https://www.solstudioep.com/capoeira\n      4106 Montana Ave El Paso, TX 79903",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-106.4432986, 31.7835557]
+          },
+          "properties": {
+            "address": "4106 Montana Ave El Paso, TX 79903",
+            "displayName": "4106, Montana Avenue, El Paso, El Paso County, Texas, 79903, United States of America",
+            "countryCode": "US",
+            "boundingBox": [31.7835057, 31.7836057, -106.4433486, -106.4432486]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:51:54.006Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "El Paso, Texas. United Capoeira Association. SOURCE: website 4/10/19",
+    "rawRecord": "    El Paso Capoeira\n    \n  \n  \n                     El Paso\n          United Capoeira Association\n      https://www.capoeiraelpaso.com/\n      Email:ucaelpaso{/\\T}gmail.com\n      Phone: [915] 996-1814 \n            SoL Studio \n      https://www.solstudioep.com/capoeira\n      4106 Montana Ave El Paso, TX 79903\n      SOURCE: website 4/10/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "fort-mill.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:46:51.040Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<link rel=\"icon\" sizes=\"192x192\" href=\"https://static.wixstatic.com/media/6b81be_e91e168bbd534338b46f29156b97fcbf.jpg/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/6b81be_e91e168bbd534338b46f29156b97fcbf.jpg\" ty"
+      },
+      "enrichedData": {
+        "extractedEmails": ["ucaelpaso@gmail.com"],
+        "extractedPhones": ["(915) 996-1814"]
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.solstudioep.com/capoeira",
+          "source": "sources",
+          "status": "reachable",
+          "isCapoeiraRelated": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "Centro Cultural Aruandê Capoeira",
+    "website": "https://www.zumzumzum.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Demetrius",
+      "name": "Demétrius Pereira Dos Santos"
+    },
+    "mainContact": {
+      "name": "Mestre Demetrius",
+      "email": "capoeira@aruande.com",
+      "phone": "+1-832-303-0319"
+    },
+    "sources": ["https://www.facebook.com/aruandecapoeira"],
+    "locations": [
+      {
+        "name": "Danz Fit X",
+        "address": "6110 N. Hwy 6, Houston, TX 77084",
+        "schedule": "Ages 12 and under: 5:00pm Thurs & Sat; Ages 12 & up: 8:15pm Tues, Thurs & Sat",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "    Danz Fit X\n\n              6110 N. Hwy 6, Houston, TX 77084\nAges 12 and under: 5:00pm Thurs & Sat\nAges 12 & up:   8:15pm  Tues, Thurs & Sat",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-95.6450369, 29.8056946]
+          },
+          "properties": {
+            "address": "6110 N. Hwy 6, Houston, TX 77084",
+            "displayName": "North Highway 6, Addicks, Houston, Harris County, Texas, 77084, United States of America",
+            "countryCode": "US",
+            "boundingBox": [29.7980892, 29.8132865, -95.6453897, -95.644945]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:51:55.646Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      }
+    ],
+    "notes": "Houston, Spring, Texas. Mestre Demetrius (Demétrius Pereira Dos Santos). SOURCE: website 8/11/19",
+    "rawRecord": "   Houston Capoeira\n   \n\n\n\n                       Houston\nSpring\n\n\n\n      Centro Cultural Aruandá Capoeira\nhttps://www.zumzumzum.com/ Mestre Demetrius \"Demátrius Pereira Dos Santos\" \nT: +1-832-303-0319\n\n\n              E: capoeira@aruande.com\n     https://www.facebook.com/aruandecapoeira      \n    Danz Fit X\n\n              6110 N. Hwy 6, Houston, TX 77084\nAges 12 and under: 5:00pm Thurs & Sat\nAges 12 & up:   8:15pm  Tues, Thurs & Sat\nSOURCE: website  8/11/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "fort-mill.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:46:52.852Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"a"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": ["(832) 303-0319"]
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/aruandecapoeira",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Capoeira Luanda",
+    "website": "http://brazilianarts.org/",
+    "leader": null,
+    "mainContact": {
+      "name": "Gringo (Mauricio Campos)",
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Brazilian Arts Foundation",
+        "address": "316 Pecore St, Houston TX, 77009",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Brazilian Arts Foundation\n316 Pecore St, Houston TX, 77009 http://brazilianarts.org/",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-95.3745185, 29.7905406]
+          },
+          "properties": {
+            "address": "316 Pecore St, Houston TX, 77009",
+            "displayName": "316, Pecore Street, Woodland Heights, Houston Heights, Houston, Harris County, Texas, 77009, United States of America",
+            "countryCode": "US",
+            "boundingBox": [29.7904906, 29.7905906, -95.3745685, -95.3744685]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:51:56.873Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      },
+      {
+        "name": "Midtown Park",
+        "address": "2811 Travis Street, Houston, Texas 77006",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Midtown Park\n2811 Travis Street, Houston, Texas 77006\n(See website for schedule )",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-95.3759601, 29.7445057]
+          },
+          "properties": {
+            "address": "2811 Travis Street, Houston, Texas 77006",
+            "displayName": "2811, Travis Street, Midtown, Houston, Harris County, Texas, 77006, United States of America",
+            "countryCode": "US",
+            "boundingBox": [29.7444557, 29.7445557, -95.3760101, -95.3759101]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:51:58.265Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "Houston, Texas. Gringo (Mauricio Campos) under Mestre Jelon Viera. See website for schedule. SOURCE: website 3/23/13",
+    "rawRecord": "      Capoeira Luanda\nGringo \"Mauricio Campos\" under Mestre Jelon Viera\n      Brazilian Arts Foundation\n316 Pecore St, Houston TX, 77009 http://brazilianarts.org/\n\n      Midtown Park\n2811 Travis Street, Houston, Texas 77006\n(See website for schedule )SOURCE: website 3/23/13",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "fort-mill.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:46:57.066Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Homepage - Brazilian Cultural Institute window.dataLayer = window.data",
+        "redirectUrl": "https://www.brazilianculturalinstitute.org/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["info@brazilianarts.org"],
+        "extractedPhones": ["713-862-3300"]
+      }
+    }
+  },
+  {
+    "name": "Kalunga N'Golo",
+    "website": "http://www.ngolohouston.org",
+    "leader": null,
+    "mainContact": {
+      "name": "Ezell, Marrio, Osakwe",
+      "email": null,
+      "phone": "[832] 814-8928, [512] 909-0892, [832] 971-2395"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Shape Community Center - Family Center",
+        "address": "3815 Live Oak Street Houston, TX 77004 (intersection of Live Oak and Alabama)",
+        "schedule": "Wed 7:30-9:00pm Sat 1:00-3:00pm, Sun 2:00-4:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Shape Community Center - Family Center\n3815 Live Oak Street  Houston, TX 77004\n(intersection of Live Oak and Alabama)\nWed 7:30-9:00pm Sat 1:00 - 3:00pm, Sun 2:00-4:00pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-95.3663875, 29.7290807]
+          },
+          "properties": {
+            "address": "3815 Live Oak Street Houston, TX 77004",
+            "displayName": "Shape Community Center, 3815, Live Oak Street, Washington Terrace, Third Ward, Houston, Harris County, Texas, 77004, United States of America",
+            "countryCode": "US",
+            "boundingBox": [29.728918, 29.7292411, -95.3665873, -95.3661878]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:52:01.435Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "Houston, Texas. Ezell: [832] 814-8928, Marrio: [512] 909-0892, Osakwe [832] 971-2395. SOURCE: website 3/2/13",
+    "rawRecord": "      Kalunga N'Golo\nhttp://www.ngolohouston.org\nEzell:\n  [832] 814-8928\nMarrio:\n   [512] 909-0892\nOsakwe\n  [832] 971-2395\n      Shape Community Center - Family Center\n3815 Live Oak Street  Houston, TX 77004\n(intersection of Live Oak and Alabama)\nWed 7:30-9:00pm Sat 1:00 - 3:00pm, Sun 2:00-4:00pm\nSOURCE: website 3/2/13",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "fort-mill.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:47:00.383Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Grupo de NÁGolo Houston Grupo de N'Golo Houston What is Capoeira Angola? The Afro-Brazilian martial art, Capoeira, is often described as being a dance, a fight, or a game. Those who take note of the graceful, rhythmic, continuous movements of Capoeira see it as a dance. Those who focu",
+        "redirectUrl": "http://www.ngolohouston.org/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["jacare722000@yahoo.com"],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Central Cultural Aruandê Capoeira",
+    "website": "https://www.zumzumzum.com/",
+    "leader": {
+      "title": "graduado",
+      "nickname": "Violão",
+      "name": "Carlos A. Morales, Jr."
+    },
+    "mainContact": {
+      "name": "Graduado Violão",
+      "email": "info@moralesfpa.com",
+      "phone": "[956] 220 - 7449 / [956] 319 - 4133"
+    },
+    "sources": ["https://www.moralesfpa.com"],
+    "locations": [
+      {
+        "name": "Morales Fine & Performaning Arts",
+        "address": "800 E Mann Rd, Laredo, TX 78041",
+        "schedule": "Beg./Adv. [All Ages]: Mon & Wed 6:00-7:30 p.m.",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "        Morales Fine & Performaning Arts\n800 E. Mann Rd. Suite # 105 Laredo, TX 78041\n  https://www.moralesfpa.com\n [956] 220 - 7449 / [956] 319 - 4133\n info@moralesfpa.com  \nBeg./Adv. [All Ages]:   Mon & Wed 6:00 - 7:30 p.m.",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:44:15.281Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-99.4998491, 27.5580792]
+          },
+          "properties": {
+            "address": "800 E Mann Rd, Laredo, TX 78041",
+            "displayName": "East Mann Road, Nye, Laredo, Webb County, Texas, 78041, United States of America",
+            "countryCode": "US",
+            "boundingBox": [27.5567322, 27.5594231, -99.5032525, -99.4964444]
+          }
+        }
+      }
+    ],
+    "notes": "Laredo, Texas. Graduado Violão (Carlos A. Morales, Jr.). SOURCE: websites 8/118/19",
+    "rawRecord": "   Laredo Capoeira\n   \n\n\n\n                 Laredo\n\n\n\n\n\n\n\n\n\n\n\n\n\n        Central Cultural Aruandá Capoeira\n  https://www.zumzumzum.com/\nGraduado Violáo  \" Carlos A. Morales, Jr.\"\n        Morales Fine & Performaning Arts\n800 E. Mann Rd. Suite # 105 Laredo, TX 78041\n  https://www.moralesfpa.com\n [956] 220 - 7449 / [956] 319 - 4133\n info@moralesfpa.com  \nBeg./Adv. [All Ages]:   Mon & Wed 6:00 - 7:30 p.m.\nSOURCE: websites 8/118/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "fort-mill.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:47:01.206Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"a"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": ["(832) 303-0319"]
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.moralesfpa.com",
+          "source": "sources",
+          "status": "reachable",
+          "isCapoeiraRelated": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "Capoeira Luanda San Antonio",
+    "website": "http://www.capoeiratexas.com/",
+    "leader": null,
+    "mainContact": null,
+    "sources": ["https://www.facebook.com/BrazilSA/"],
+    "locations": [
+      {
+        "name": "Capoeira Luanda San Antonio",
+        "address": "925 West Russell Pl, San Antonio TX 78212",
+        "schedule": "Music: Mon 7:00-8:00pm; Adults Tues & Thurs 7:00-8:00pm: Sat 2:00-4:00pm; Children: Wed 6:30pm-7:30pm; Sat 1:00-2:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Capoeira Luanda San Antonio\n\n\n925 West Russell Pl,  San Antonio TX 78212\n\nhttp://www.capoeiratexas.com/\n\n\nhttps://www.facebook.com/BrazilSA/\n\n\nMusic:   Mon  7:00-8:00pm\n\n\nAdults Tues & Thurs  7:00-8:00pm: Sat 2:00-4:00pm\n\n\nChildren:  Wed 6:30pm-7:30pm; Sat 1:00-2:00pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-98.5048533, 29.4511045]
+          },
+          "properties": {
+            "address": "925 West Russell Pl, San Antonio TX 78212",
+            "displayName": "925, West Russell Place, Alta Vista, San Antonio, Bexar County, Texas, 78212, United States of America",
+            "countryCode": "US",
+            "boundingBox": [29.4510545, 29.4511545, -98.5049033, -98.5048033]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:52:07.591Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "San Antonio, Texas. SOURCE website 8/19/19",
+    "rawRecord": "San Antonio Capoeira\n\n   \n\n\n\n                       San Antonio\n\n\n\n\n      Capoeira Luanda San Antonio\n\n\n925 West Russell Pl,  San Antonio TX 78212\n\nhttp://www.capoeiratexas.com/\n\n\nhttps://www.facebook.com/BrazilSA/\n\n\nMusic:   Mon  7:00-8:00pm\n\n\nAdults Tues & Thurs  7:00-8:00pm: Sat 2:00-4:00pm\n\n\nChildren:  Wed 6:30pm-7:30pm; Sat 1:00-2:00pm\n\nSOURCE website 8/19/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "fort-mill.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:47:03.603Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "--> --> --> #footer { font-family:Trebuchet MS; font-size:12px; color:#230d02; padding: 20px 0 10px; } #footer a { color:#f1bc42; text-decoration: underline; } </"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/BrazilSA/",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "CapuraGinga Capoeira",
+    "website": "http://www.go-cap.com",
+    "leader": {
+      "title": "monitor",
+      "nickname": "Advogado",
+      "name": "Nathan Sparrow"
+    },
+    "mainContact": {
+      "name": "Monitor Advogado",
+      "email": "info@go-cap.com",
+      "phone": "210-535-4577"
+    },
+    "sources": ["https://www.facebook.com/getcap"],
+    "locations": [
+      {
+        "name": "CapuraGinga Capoeira",
+        "address": "8005 West Avenue, San Antonio TX 78213",
+        "schedule": "Beg Kids Tues & Thurs 5:00pm; Adv Kids: Mon & Wed 6:00pm; Beg Adults: Tues & Thurs 6:00pm; Adults: Mon, Wed, & Fri 6:00am; Sat 10:am; Ad/Inter Adults: Mon, Tues & Wed7:00pm; RODA Thurs: 7:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      CapuraGinga Capoeira\n\n8005 West Avenue, San Antonio TX 78213\nhttp://www.go-cap.com\n\nMonitor Advogado \"Nathan Sparrow\" under Mestre Loka\n\n210-535-4577\n\ninfo@go-cap.com\n\n  https://www.facebook.com/getcap\n\nBeg Kids Tues & Thurs 5:00pm\n\nAdv Kids:  Mon & Wed 6:00pm\n\nBeg Adults: Tues & Thurs 6:00pm\n\nAdults: Mon, Wed, & Fri 6:00am;  Sat 10:am\n\nAd/Inter Adults: Mon,  Tues & Wed7:00pm\n\nRODA Thurs: 7:00pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-98.5259367, 29.5144559]
+          },
+          "properties": {
+            "address": "8005 West Avenue, San Antonio TX 78213",
+            "displayName": "West Avenue, San Antonio, Bexar County, Texas, 78213, United States of America",
+            "countryCode": "US",
+            "boundingBox": [29.5141143, 29.5147974, -98.5259399, -98.5259334]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:52:09.029Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      }
+    ],
+    "notes": "San Antonio, Texas. Monitor Advogado (Nathan Sparrow) under Mestre Loka. SOURCE: website 8/19/19",
+    "rawRecord": "      CapuraGinga Capoeira\n\n8005 West Avenue, San Antonio TX 78213\nhttp://www.go-cap.com\n\nMonitor Advogado \"Nathan Sparrow\" under Mestre Loka\n\n210-535-4577\n\ninfo@go-cap.com\n\n  https://www.facebook.com/getcap\n\nBeg Kids Tues & Thurs 5:00pm\n\nAdv Kids:  Mon & Wed 6:00pm\n\nBeg Adults: Tues & Thurs 6:00pm\n\nAdults: Mon, Wed, & Fri 6:00am;  Sat 10:am\n\nAd/Inter Adults: Mon,  Tues & Wed7:00pm\n\nRODA Thurs: 7:00pm \nSOURCE: website 8/19/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "fort-mill.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:47:05.976Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "The Brazilian Capoeira Academy | San Antonio, TX <link rel=\"preconnect\" hr",
+        "redirectUrl": "https://go-cap.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": ["(210) 942-0372"]
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/getcap",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Mao no Chao Capoeira Angola Glasgow",
+    "website": "https://maonochao.wordpress.com/",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["https://maonochao.wordpress.com/"],
+    "locations": [
+      {
+        "name": "Overnewton Recreation Centre",
+        "address": "2 Overnewton Square, Glasgow, G3 8RW",
+        "schedule": "Thurs 7:00-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Overnewton Recreation Centre\n2 Overnewton Square, Glasgow, G3 8RW\nThurs 7:00£9:00pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-4.2909928, 55.8658667]
+          },
+          "properties": {
+            "address": "2 Overnewton Square, Glasgow, G3 8RW",
+            "displayName": "Overnewton Square, Stobcross, Kelvinhaugh, Glasgow, Glasgow City, Alba / Scotland, G3 8TW, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [55.8658586, 55.8658747, -4.2912315, -4.290754]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:52:10.284Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      },
+      {
+        "name": "Garnethill Multicultural Centre",
+        "address": "21 Rose Street, Glasgow",
+        "schedule": "Kids and adults, Mon 7.30-9.30",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "G      arnethill Multicultural Centre, \n21 Rose Street, Glasgow\nKids and adults,  Mon 7.30£9.30",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-4.2616269, 55.866268]
+          },
+          "properties": {
+            "address": "21 Rose Street, Glasgow",
+            "displayName": "Garnethill Multicultural Comunity Centre, 21, Rose Street, Garnethill, Glasgow, Glasgow City, Alba / Scotland, G3 6RE, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [55.8661786, 55.8663572, -4.2617428, -4.2615101]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:52:11.781Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "Associated with Mestre Marrom e Alunos [Rio de Janiero]. SOURCE: website 12/29/19",
+    "rawRecord": "Mao no Chao Capoeira Angola Glasgow\nhttps://maonochao.wordpress.com/ associated with Mestre Marrom e Alunos[Rio de Janiero]\n      Overnewton Recreation Centre\n2 Overnewton Square, Glasgow, G3 8RW\nThurs 7:00£9:00pm\n      G      arnethill Multicultural Centre, \n21 Rose Street, Glasgow\nKids and adults,  Mon 7.30£9.30SOURCE: website 12/29/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "glasgow.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:47:21.435Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Mao No Chao Scotland &#8211; Capoeira Angola in Scotland <link rel='dns-prefetch' href='//s2."
+      },
+      "enrichedData": {
+        "extractedEmails": ["maonochao.edinburgh@googlemail.com"],
+        "extractedPhones": []
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://maonochao.wordpress.com/",
+          "source": "sources",
+          "status": "reachable",
+          "isCapoeiraRelated": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "Grand Rapids Capoeira - West Michigan Cordao de Ouro",
+    "website": "https://www.grcapoeira.com/",
+    "leader": {
+      "title": "monitor",
+      "nickname": "Talento",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "talentocdo@gmail.com",
+      "phone": null
+    },
+    "sources": ["https://www.grcapoeira.com/"],
+    "locations": [
+      {
+        "name": "Armentality Movement Arts Center",
+        "address": "233 E Fulton Suite 620, Grand Rapids, MI",
+        "schedule": "All Levels: Tues 7:15-8:30pm; Family Classes: 3rd Sat 3:00-4:15pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Armentality Movement Arts Center\n233 E Fulton Suite 620, Grand Rapids, MI\nAll Levels: Tues7:15-8:30pm\nFamily Classes: 3rd Sat 3:00-4:15pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-85.6804535, 42.9633171]
+          },
+          "properties": {
+            "address": "233 E Fulton, Grand Rapids, MI",
+            "displayName": "Fulton Street West, Grand Rapids, Kent County, Michigan, 49503, United States of America",
+            "countryCode": "US",
+            "boundingBox": [42.9633023, 42.96339, -85.681517, -85.679385]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:52:15.614Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      }
+    ],
+    "notes": "Under the supervision of Instrutor Show Grande. Allendale. SOURCE: website 7/29/18",
+    "rawRecord": "Grand Rapids Capoeira - West Michigan Cordao de Ouro\nhttps://www.grcapoeira.com/\nMonitor Talento under the supervision of Instrutor Show Grande\n  talentocdo@gmail.com\n      Armentality Movement Arts Center\n233 E Fulton Suite 620, Grand Rapids, MI\nAll Levels: Tues7:15-8:30pm\nFamily Classes: 3rd Sat 3:00-4:15pm\nSOURCE: website 7/29/18",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "grand-rapids.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:47:30.498Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Grand Rapids Capoeira <meta http-equiv=\"Accept-CH\" content=\"Sec-CH-UA-Platform-Version, Sec-CH-UA-Model"
+      },
+      "enrichedData": {
+        "extractedEmails": ["info@grcapoeira.com", "user@domain.com"],
+        "extractedPhones": ["(616) 450-3274"]
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.grcapoeira.com/",
+          "source": "sources",
+          "status": "reachable",
+          "isCapoeiraRelated": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "Capoeira MarAzul",
+    "website": "http://www.marazul.co.uk/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Joãozinho",
+      "name": "Joãozinho da Figueira"
+    },
+    "mainContact": {
+      "name": "Suzannah",
+      "email": "info@marazul.co.uk",
+      "phone": "[+44] 07731 833 819"
+    },
+    "sources": ["https://www.facebook.com/groups/337512776304214/"],
+    "locations": [
+      {
+        "name": "Highfield Residents Gardens Pavilion",
+        "address": "13 Abbotts Way, Southampton, SO17 1QU",
+        "schedule": "Children: Tues 4.00-4.45pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Highfield Residents Gardens Pavilion\n13 Abbotts Way, Southampton, SO17 1QU\nChildren: Tues  4.00-4.45pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-1.3951985, 50.9275054]
+          },
+          "properties": {
+            "address": "13 Abbotts Way, Southampton, SO17 1QU",
+            "displayName": "13, Abbotts Way, Portswood Park, Portswood, Southampton, England, SO17 1NU, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [50.9274368, 50.9275911, -1.3953024, -1.3950761]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:52:16.836Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      },
+      {
+        "name": "The Café",
+        "address": "University of Southampton Students Union, Southampton, SO17 1BJ, UK",
+        "schedule": "Adults Movement & Music: Mon 5:00-7:00; Wed 6:00-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "The Café\nLevel 3, Students Union, Highfield Campus, Southampton University\nSO17 1BJ\nAdults Movement & Music:  Mon 5:00-7:00; Wed 6:00-8:00pm",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T10:07:37.290Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-1.3974844, 50.9341804]
+          },
+          "properties": {
+            "address": "University of Southampton Students Union, Southampton, SO17 1BJ, UK",
+            "displayName": "University of Southampton Students' Union (SUSU), Courtyard, Highfield, Southampton, England, SO17 1BJ, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [50.9337731, 50.9345962, -1.3981197, -1.3968993]
+          }
+        }
+      },
+      {
+        "name": "Activities Studio",
+        "address": "University of Southampton Students Union, Southampton, SO17 1BJ, UK",
+        "schedule": "Adults Movement & Music Sun 12:00-2:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Activities Studio\nLevel 3, Students Union, Highfield Campus, Southampton University\nSO17 1BJ\nAdults Movement & Music  Sun  12:00-2:00pm",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T10:07:37.290Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-1.3974844, 50.9341804]
+          },
+          "properties": {
+            "address": "University of Southampton Students Union, Southampton, SO17 1BJ, UK",
+            "displayName": "University of Southampton Students' Union (SUSU), Courtyard, Highfield, Southampton, England, SO17 1BJ, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [50.9337731, 50.9345962, -1.3981197, -1.3968993]
+          }
+        }
+      }
+    ],
+    "notes": "Mestre's phone (Portuguese only): [+44] 0787 119 3871. SOURCE: website 10/25/16",
+    "rawRecord": "      Capoeira MarAzul\n\nhttp://www.marazul.co.uk/\n\nMestre Joãozinho \"Joãozinho da Figueira\"\n\n  [+44] 0787 119 3871 (Portuguese only)\n\ninfo@marazul.{DOT}co{DOT}uk\n\n[+44] 07731 833 819 [Suzannah]\n\nhttps://www.facebook.com/groups/337512776304214/\n\n       Highfield Residents Gardens Pavilion\n\n13 Abbotts Way, Southampton, SO17 1QU\n\nChildren: Tues  4.00-4.45pm\n\n      The Café\n\nLevel 3, Students Union, Highfield Campus, Southampton University\nSO17 1BJ\n\nAdults Movement & Music:  Mon 5:00-7:00; Wed 6:00-8:00pm\n\n      Activities Studio\n\nLevel 3, Students Union, Highfield Campus, Southampton University\nSO17 1BJ\n\nAdults Movement & Music  Sun  12:00-2:00pm\n\nSOURCE:  website 10/25/16",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "hampshire-dorset.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:47:41.803Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "window._currentDevice = 'desktop'; window.Parameters = window.Parameters || { HomeUrl: 'https://www.marazul.co.uk/', AccountUUID: '81f809df47a94196966f5473d06a3e3f', SystemID: 'US_DIRECT_PRODUCTION', SiteAlias: 'f4a8d1ab', SiteType: atob('RFVEQU9ORQ=='),",
+        "redirectUrl": "https://www.marazul.co.uk/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["capoeiramarazul@yahoo.com.br"],
+        "extractedPhones": ["787 119 3871"]
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/groups/337512776304214/",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Origens do Brasil Capoeira",
+    "website": "http://www.ajitucapoeira.com",
+    "leader": {
+      "title": "professora",
+      "nickname": "Bia",
+      "name": "Beatriz Viana Rosa"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "bia_origens@hotmail.com",
+      "phone": "[0044]07729133051"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Pavilion Dance South West",
+        "address": "Bournemouth, Westover Road, BH1 2BU",
+        "schedule": "Mon 7.15pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Pavilion Dance South West\nBournemouth, Westover Road,  BH1 2BU\nMon  7.15pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-1.8759707, 50.7187029]
+          },
+          "properties": {
+            "address": "Bournemouth, Westover Road, BH1 2BU",
+            "displayName": "Bournemouth Aviary, 26-29, Westover Road, Lansdowne, West Cliff, Bournemouth, Bournemouth, Christchurch and Poole, England, BH1 2BU, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [50.7186529, 50.7187529, -1.8760207, -1.8759207]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:52:21.134Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      },
+      {
+        "name": "BH Live",
+        "address": "Queens Park South Drive BH8 9BJ",
+        "schedule": "Adults: Thurs 20.00; Sat 11.00 Kids Class",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "BH Live\nQueens Park South Drive BH8 9BJ\nAdults: Thurs 20.00\nSat 11.00 Kids Class",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-1.8456749, 50.7371626]
+          },
+          "properties": {
+            "address": "Queens Park South Drive BH8 9BJ",
+            "displayName": "Queen's Park South Drive, Springbourne, Bournemouth, Bournemouth, Christchurch and Poole, England, BH8 9BJ, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [50.7366953, 50.7371651, -1.8468618, -1.844606]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:52:22.611Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      },
+      {
+        "name": "The City of Portsmouth Girls' School",
+        "address": "St Marys Road, Portsmouth, PO1 5PF, UK",
+        "schedule": "Adults: Mon 7.15pm; Kids: Mon 6.30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "The City of Portsmouth Girls' School\nPortsmouth - St Mary's Road - Fratton - PO1 5PF\nAdults: Mon 7.15pm\nKids:  Mon 6.30pm",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:58:12.446Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-1.071864, 50.8032249]
+          },
+          "properties": {
+            "address": "St Marys Road, Portsmouth, PO1 5PF, UK",
+            "displayName": "St Marys Road, Kingston, Fratton, Portsmouth, England, PO1 5PJ, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [50.8029077, 50.8040957, -1.0763874, -1.0672615]
+          }
+        }
+      },
+      {
+        "name": "Cantell School",
+        "address": "Violet road, Southampton, SO16 3GJ",
+        "schedule": "Kids: Tues 5.45pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Cantell School\nViolet road , Southampton,  SO16 3GJ\nKids:  Tues 5.45pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-1.3975873, 50.9409368]
+          },
+          "properties": {
+            "address": "Violet road, Southampton, SO16 3GJ",
+            "displayName": "Violet Road, Glen Eyre, Southampton, England, SO16 3GS, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [50.9405508, 50.9410683, -1.3982153, -1.3970812]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:52:25.384Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      }
+    ],
+    "notes": "Under Mestre Adelmo [Sao Paulo]. New website 10/30/18. KIDS CLASS ARE IN BLOCKS AND MUST BE BOOKED IN ADVANCE. Additional contacts: Aluno Graduado Rob (+44 7989 542595, robertjkeit@outlook.com), Aluna Graduada Voltagem (+44 7876 736390, docvoltagem@gmail.com). SOURCE: website 11/12/16",
+    "rawRecord": "      Origens do Brasil Capoeira\n\nhttp://www.ajitucapoeira.com \n(new website 10/30/18)\nProfessora Bia   \"Beatriz Viana Rosa\" under Mestre\nAdelmo[Sao\nPaulo]\n\n  Phone: [0044]07729133051\n\n  bia_origens@hotmail.com\n KIDS CLASS ARE IN BLOCKS AND MUST BE BOOKED IN ADVANCE.\n  \n  PLEASE CONTACT\n\nAluno Graduado Rob\n  \n    +44 7989 542595\n  \n    robertjkeit@outlook.com\n  \n        Pavilion Dance South West\n  \n  Bournemouth, Westover Road,  BH1 2BU\n  \n  Mon  7.15pm\n  \n        BH Live\n  \n  Queens Park South Drive BH8 9BJ\n  \n  Adults: Thurs 20.00\n\nAluna Graduada Voltagem\n  \n    +44 7876 736390\n  \n    docvoltagem@gmail.com\n  \n         The City of Portsmouth Girls' School\n  \n  Portsmouth - St Mary's Road - Fratton - PO1 5PF\n  \n  Adults: Mon 7.15pm\n  \n  Kids:  Mon 6.30pm\n  \n        Cantell School\n  \n  Violet road , Southampton,  SO16 3GJ\n  \n  Kids:  Tues 5.45pm\n  \n        BH Live\n  \n  Queens Park South Drive BH8 9BJ\n  \n  Sat 11.00 Kids Class\n  \n  SOURCE: website 11/12/16",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "hampshire-dorset.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:47:44.760Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Ajitu Capoeira - Professora Bia <meta name=\"keywords\" content=\"martial arts classes near me, kids classes nea",
+        "redirectUrl": "https://www.ajitucapoeira.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Group Senzala",
+    "website": "http://senzala-london.co.uk",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Sanhaco",
+      "name": "Julio Cesar Alves de Oliveira"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "07834 553975"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Fitness First, Unit 17",
+        "address": "St Albans, AL3 5DQ, UK",
+        "schedule": "Wed 8.00-9.15pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Fitness First, Unit 17\nChristopher Place Shopping Centre, St. Albans, AL3 5DQ\nWed 8.00-9.15pm",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:53:30.335Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.3406679, 51.7510497]
+          },
+          "properties": {
+            "address": "St Albans, AL3 5DQ, UK",
+            "displayName": "Cancer Research UK, 15A, High Street, St Stephens, St Albans, Hertfordshire, England, AL3 4ED, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.7509997, 51.7510997, -0.3407179, -0.3406179]
+          }
+        }
+      },
+      {
+        "name": "Hatfield University - Sports Hall 2",
+        "address": "de Havilland Campus, Hatfield, AL10 9EU",
+        "schedule": "Mon 9.00-10.30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Hatfield University\nSports Hall 2, de Havilland Campus, Hatfield, AL10 9EU\nMon 9.00-10.30pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.249154, 51.7613981]
+          },
+          "properties": {
+            "address": "de Havilland Campus, Hatfield, AL10 9EU",
+            "displayName": "University of Hertfordshire, de Havilland Campus, Cunningham Avenue, Hatfield Business Park, Hatfield, Welwyn Hatfield, Hertfordshire, England, AL10 9LR, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.7592396, 51.7635586, -0.2568514, -0.2438553]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:52:28.267Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      },
+      {
+        "name": "Hutton Hall",
+        "address": "College Lane, Hatfield, AL10 9AB",
+        "schedule": "Wed 6.00-7.30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Hutton Hall, College Lane, Hatfield, AL10 9AB\nWed 6.00-7.30pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.2390498, 51.7517443]
+          },
+          "properties": {
+            "address": "College Lane, Hatfield, AL10 9AB",
+            "displayName": "University of Hertfordshire, College Lane Campus, Roehyde Way, Nast Hyde, Hatfield, Welwyn Hatfield, Hertfordshire, England, AL4 0PJ, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.7480625, 51.7549097, -0.2444839, -0.234031]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:52:29.598Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "50%"
+        }
+      }
+    ],
+    "notes": "A student of Mestre Peixinho. Time not on current website as of 10/26/16. SOURCE: website 11/6/09, 10/26/16",
+    "rawRecord": " ___________________________________________________________________\n      Group Senzala\nContra mestre Sanhaco\"Julio Cesar Alves de Oliveira\"  a \nstudent of Mestre Peixinho\nhttp://senzala-london.co.uk\n  Tel: 07834 553975\n       Fitness First, Unit 17\nChristopher Place Shopping Centre, St. Albans, AL3 5DQ\nWed 8.00-9.15pm (time not on the current website 10/26/16)\n      Hatfield University\nSports Hall 2, de Havilland Campus, Hatfield, AL10 9EU\nMon 9.00-10.30pm\nHutton Hall, College Lane, Hatfield, AL10 9AB\nWed 6.00-7.30pm\nSOURCE: website11/6/09 10/26/16",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "hertfordshire.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:47:49.143Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "img:is([sizes=\"auto\" i], [sizes^=\"auto,\" i]) { contain-intrins",
+        "redirectUrl": "https://senzala-london.co.uk/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["senzalalondon@gmail.com"],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Grupo Capoeira Brasil Hong Kong",
+    "website": "http://capoeira.hk/",
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "info@capoeira.hk",
+      "phone": "+852 9197 4429"
+    },
+    "sources": ["https://www.facebook.com/GCBHK/"],
+    "locations": [
+      {
+        "name": "Capri Building",
+        "address": "130 Austin Road, Tsim Sha Tsui, Kowloon, Hong Kong",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Room A, 7/F, Capri Building.\n130 Austin Road Tsim Sha Tsui. Kowloon, Hong Kong",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T10:59:19.106Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [114.173653, 22.3031362]
+          },
+          "properties": {
+            "address": "130 Austin Road, Tsim Sha Tsui, Kowloon, Hong Kong",
+            "displayName": "嘉碧大廈 Capri Building, 130, 柯士甸道 Austin Road, 官涌 Kwun Chung, 尖沙咀 Tsim Sha Tsui, 油尖旺區 Yau Tsim Mong District, 九龍 Kowloon, 香港 Hong Kong, 中国",
+            "countryCode": "CN",
+            "boundingBox": [22.3030731, 22.3032872, 114.1736021, 114.1736993]
+          }
+        }
+      }
+    ],
+    "notes": "Classes also in Mong Kok, Wan Chai, and Tsuen Wan. SOURCE: website facebook 3/8/17",
+    "rawRecord": "      Grupo Capoeira Brasil Hong Kong\nhttps://www.facebook.com/GCBHK/\nhttp://capoeira.hk/\n+852 9197 4429\ninfo@capoeira.hk\n      Room A, 7/F, Capri Building.\n130 Austin Road Tsim Sha Tsui. Kowloon, Hong Kong\n(Classes also in Mong Kok, Wan Chai, and Tsuen Wan)\nSOURCE: website facebook 3/8/17",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "hong-kong.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:47:53.890Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "香港巴西戰舞 GCBHK Capoeira Hong Kong &#8211; Hong Kongs Capoeira Specialists img:is([sizes=\"auto\" i], [sizes^=\"auto,\" i]) { contain-intrinsic-size: 3000px 1500px } <link rel=\"alternate\" type=\"application/rss+xml\" title=\"香港巴西戰",
+        "redirectUrl": "https://capoeira.hk/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": ["025-001-1024", "025-002-1024"]
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/GCBHK/",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Capoeira Mandinga Aotearoa",
+    "website": "http://www.capoeira.org.nz/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Brabo",
+      "name": "Grant Cole"
+    },
+    "mainContact": {
+      "name": "Colette Hanley",
+      "email": "capoeira@capoeira.org.nz",
+      "phone": "0273242688"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "National Academy",
+        "address": "29 Randolph St, Newton, Auckland",
+        "schedule": "Full schedule of classes",
+        "contactPerson": "Hannah or Josh",
+        "email": "taranaki@capoeira.org.nz",
+        "phone": "027 327 9716 or 06 752 4065",
+        "rawText": "National Academy\n29 Randolph St, Newton, Auckland\n(full schedule of classes)\n Hannah or Josh,\n027 327 9716 or 06 752 4065\ntaranaki@capoeira.org.nz",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [174.7566876, -36.8622298]
+          },
+          "properties": {
+            "address": "29 Randolph St, Newton, Auckland",
+            "displayName": "29, Randolph Street, Newton, Eden Terrace, Waitematā, Auckland, 1002, New Zealand / Aotearoa",
+            "countryCode": "NZ",
+            "boundingBox": [-36.8622798, -36.8621798, 174.7566376, 174.7567376]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:52:34.428Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      },
+      {
+        "name": "Central Primary School Hall",
+        "address": "Pendarves Street, New Plymouth, New Zealand",
+        "schedule": null,
+        "contactPerson": "Yan",
+        "email": "capoeira@capoeira.org.nz",
+        "phone": "0226800801",
+        "rawText": "Central Primary School Hall\nPendarves/Lemon St, New Plymouth, Taranaki\nYan\n0226800801 or capoeira@capoeira.org.nz",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:58:13.842Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [174.082271, -39.0592113]
+          },
+          "properties": {
+            "address": "Pendarves Street, New Plymouth, New Zealand",
+            "displayName": "Pendarves Street, Strandon, New Plymouth, New Plymouth District, Taranaki, 4310, New Zealand / Aotearoa",
+            "countryCode": "NZ",
+            "boundingBox": [-39.0605825, -39.0578233, 174.077738, 174.0867983]
+          }
+        }
+      },
+      {
+        "name": "Aro Valley community center",
+        "address": "48 Aro St; Wellington",
+        "schedule": "Mon 6:00-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Aro Valley community center\n48 Aro St; Wellington\nMon 6:00-8:00pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [174.7688892, -41.2953096]
+          },
+          "properties": {
+            "address": "48 Aro St; Wellington",
+            "displayName": "Aro Valley Preschool, 48, Aro Street, Aro Valley, Wellington, Wellington City, Wellington, 6040, New Zealand / Aotearoa",
+            "countryCode": "NZ",
+            "boundingBox": [-41.2953757, -41.2952366, 174.7686367, 174.7689955]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:52:37.186Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      },
+      {
+        "name": "Thistle Hall",
+        "address": "293 Cuba St, Wellington",
+        "schedule": "Thurs 6:00-8:00pm",
+        "contactPerson": "Stephen da Capo",
+        "email": "Stephen@vital.org.nz",
+        "phone": null,
+        "rawText": "Thistle Hall\n293 Cuba St, Wellington\nThurs 6:00-8:00pm\nStephen da Capo\n  Stephen@vital{.org.nz",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [174.7736646, -41.2973613]
+          },
+          "properties": {
+            "address": "293 Cuba St, Wellington",
+            "displayName": "Thistle Hall, 293, Cuba Street, Mount Cook, Wellington, Wellington City, Wellington, 6040, New Zealand / Aotearoa",
+            "countryCode": "NZ",
+            "boundingBox": [-41.2974325, -41.2972782, 174.7735252, 174.7738041]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:52:38.642Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      },
+      {
+        "name": "White Elephant HQ",
+        "address": "442 Tuam Street. Christchurch",
+        "schedule": "Tues & Thurs 6:00-8:00pm",
+        "contactPerson": "Julien",
+        "email": null,
+        "phone": "021774426",
+        "rawText": "White Elephant HQ\n442 Tuam Street. Christchurch\nTues & Thurs 6:00-8:00pm\nContact: Julien 021774426",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [172.6550987, -43.5356106]
+          },
+          "properties": {
+            "address": "442 Tuam Street. Christchurch",
+            "displayName": "442, Tuam Street, Phillipstown, Christchurch, Christchurch City, Canterbury, 8011, New Zealand / Aotearoa",
+            "countryCode": "NZ",
+            "boundingBox": [-43.5356606, -43.5355606, 172.6550487, 172.6551487]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:52:39.909Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      },
+      {
+        "name": "Taipa area school hall",
+        "address": "Northland",
+        "schedule": "Tue & Wed, 4:00-6:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Taipa area school hall\nNorthland\nTue & Wed, 4:00-6:00pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [173.9470106, -35.3755091]
+          },
+          "properties": {
+            "address": "Northland",
+            "displayName": "Northland, New Zealand / Aotearoa",
+            "countryCode": "NZ",
+            "boundingBox": [-36.5586286, -34.1935434, 172.3928404, 174.9935714]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:52:41.261Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "52%"
+        }
+      }
+    ],
+    "notes": "New Zealand. PO Box 68403 Newton, Auckland. Additional Facebook: http://www.facebook.com/groups/capoeiraotautahi/. SOURCE: website 2/9/17",
+    "rawRecord": "      Capoeira Mandinga Aotearoa\nhttp://www.capoeira.org.nz/\nMestre Brabo \" Grant Cole\"\nPO Box 68403 Newton, Auckland\nContact: Colette Hanley\n   0273242688\ncapoeira@capoeira.org.nz\n      National Academy\n29 Randolph St, Newton, Auckland\n(full schedule of classes)\n Hannah or Josh,\n027 327 9716 or 06 752 4065\ntaranaki@capoeira.org.nz\n      Central Primary School Hall\nPendarves/Lemon St, New Plymouth, Taranaki\nYan\n0226800801 or capoeira@capoeira.org.nz\n      Aro Valley community center\n48 Aro St; Wellington\nMon 6:00-8:00pm\n      Thistle Hall\n293 Cuba St, Wellington\nThurs 6:00-8:00pm\nStephen da Capo\n  Stephen@vital{.org.nz\n http://www.facebook.com/groups/capoeiraotautahi/\n      White Elephant HQ\n442 Tuam Street. Christchurch\nTues & Thurs 6:00-8:00pm\nContact: Julien 021774426\n      Taipa area school hall\nNorthland\nTue & Wed, 4:00-6:00pm\nSOURCE: website 2/9/17",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "hong-kong.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:47:59.606Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Capoeira Mandinga Aotearoa - NZ’s National Capoeira Group <meta name=\"robots\" content=\"index, follow, max-image-preview:lar",
+        "redirectUrl": "https://www.capoeira.org.nz/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Miami Capoeira Sol e Lua-United Capoeira Association",
+    "website": "http://www.miamicapoeirasolelua.com",
+    "leader": {
+      "title": "contra-mestra",
+      "nickname": "Índia",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "indiauca@gmail.com",
+      "phone": "305-332-1636"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Miami location",
+        "address": "2200 SW 16th St Miami Fl 33145",
+        "schedule": "Full schedule of classes",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "2200 SW 16th St  Miami Fl 33145",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-80.2308184, 25.7578202]
+          },
+          "properties": {
+            "address": "2200 SW 16th St Miami Fl 33145",
+            "displayName": "2200, Southwest 16th Street, Miami, Miami-Dade County, Florida, 33145, United States of America",
+            "countryCode": "US",
+            "boundingBox": [25.7577702, 25.7578702, -80.2308684, -80.2307684]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:52:42.924Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "Miami Dade County, Florida. SOURCE: website 10/4/17",
+    "rawRecord": "      Miami Capoeira Sol e Lua-United Capoeira\n  Association \n2200 SW 16th St  Miami Fl 33145 \nhttp://www.miamicapoeirasolelua.com\n\nContra Mestra Índia \n   305-332-1636 \n  indiauca@gmail.com \n(Full schedule of classes) \nSOURCE: website 10/4/17",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "key-west.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:48:19.943Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<link rel=\"icon\" sizes=\"192x192\" href=\"https://static.wixstatic.com/media/e4198f_6c4c07ee414a4b6b93b90ef73464dfcf%7Emv2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/e4198f_6c4c07ee414a4b6b93b90ef73464dfcf%7",
+        "redirectUrl": "https://www.miamicapoeirasolelua.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["indiauca@gmail.com"],
+        "extractedPhones": ["305-332-1636"]
+      }
+    }
+  },
+  {
+    "name": "Cordão de Ouro Miami",
+    "website": "https://cdomiami.wordpress.com",
+    "leader": {
+      "title": "instrutora",
+      "nickname": "Rebelde",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "rebeldecdo@gmail.com",
+      "phone": "305 606 9191"
+    },
+    "sources": ["https://www.facebook.com/cdomiami/"],
+    "locations": [
+      {
+        "name": "Little Haiti Cultural Center",
+        "address": "212 NE 59th Terrace, Miami, FL",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Little Haiti Cultural Center\n212 Ne 59 Terrace, Miami  FL",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:51:01.057Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-80.1914299, 25.8301861]
+          },
+          "properties": {
+            "address": "212 NE 59th Terrace, Miami, FL",
+            "displayName": "Little Haiti Cultural Center, 212, Northeast 59th Terrace, Little Haiti, Bayshore, Miami, Miami-Dade County, Florida, 33137, United States of America",
+            "countryCode": "US",
+            "boundingBox": [25.8298759, 25.8304927, -80.1915825, -80.1911011]
+          }
+        }
+      }
+    ],
+    "notes": "Miami Dade County, Florida. Under Contra Mestre Espirrinho. Professora Casca Dura \"Tania de Jesus\" is living in Pembroke Pines, but does not appear to be teaching (facebook 11/5/17). SOURCE: webpage 11/3/17",
+    "rawRecord": "      Cordão de Ouro Miami \nhttps://cdomiami.wordpress.com\n\nInstrutora Rebelde  under Contra Mestre Espirrinho \n305 606 9191 \nrebeldecdo@gmail.com \nhttps://www.facebook.com/cdomiami/\n\n      Little Haiti Cultural Center \n212 Ne 59 Terrace, Miami  FL \nSOURCE:  webpage 11/3/17\nProfessora Casca Dura( \")Tania de Jesus\" \n  is living in Pembroke Pines, but does not appear to be teaching \n  SOURCE:  facebook 11/5/17",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "key-west.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:48:25.092Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Cordão de Ouro Miami | Capoeira Training Family <link rel=\"stylesheet\" type=\"text/css\" m",
+        "redirectUrl": "https://cdomiami.wordpress.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/cdomiami/",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Morro Verde Capoeira",
+    "website": "http://www.newhopecapoeira.com/",
+    "leader": {
+      "title": "contra-mestra",
+      "nickname": "Gata Brava",
+      "name": "Leigh Robinson"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "gatabravacapoeira@gmail.com",
+      "phone": "[858] 688-0316"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "New Hope location",
+        "address": "New Hope, PA 18938",
+        "schedule": "Adults: Mon 7:30-9:00pm; Tues 6:30-8:00pm; Thurs 7:00-8:30pm; Music: Wed 5:30-6:30pm; Kids 6 and up: Tues 5:30-6:30pm; Thurs 6:00-7:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "6365 Greenhill Rd, New Hope, PA 18938\nAdults: Mon 7;30-9;00pm; Tues  6:30-8;00pm; Thurs 7:00-8:30pm\nMusic: Wed 5;30-6;30pm\nKids 6 and up: Tues 5:30-6:30pm; Thurs 6:00-7:00pm",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:44:16.756Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "45%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-74.9512785, 40.3642728]
+          },
+          "properties": {
+            "address": "New Hope, PA 18938",
+            "displayName": "New Hope, Bucks County, Pennsylvania, United States of America",
+            "countryCode": "US",
+            "boundingBox": [40.3497411, 40.3735144, -74.9685192, -74.9454628]
+          }
+        }
+      },
+      {
+        "name": "New Hope Fitness",
+        "address": "6542-K Lower York Road, New Hope, PA 18938",
+        "schedule": "Wed 12:00-1:00pm (Please contact if you're interested in this class)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "New Hope Fitness\n6542-K Lower York Road, New Hope, PA 18938\n Wed 12:00-1:00pm\n(Please contact if you're interested in this class)",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-74.9757146, 40.3559836]
+          },
+          "properties": {
+            "address": "6542-K Lower York Road, New Hope, PA 18938",
+            "displayName": "New Hope Fitness, 6542, Lower York Road, Reeder, New Hope, Bucks County, Pennsylvania, 18938, United States of America",
+            "countryCode": "US",
+            "boundingBox": [40.3557761, 40.356188, -74.9759667, -74.9754678]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:52:51.358Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "New Hope, PA. Under Mestre Doutor. Estagiário Rolha \"Corky Brown\" (galaxyblur@gmail.com, [856] 237-930m). SOURCE: website 4/3/19",
+    "rawRecord": "      Morro Verde Capoeira \n6365 Greenhill Rd, New Hope, PA 18938 \nhttp://www.newhopecapoeira.com/\n\nContra-Mestra Gata Brava \"Leigh Robinson\"  under Mestre Doutor\n  gatabravacapoeira@gmail.com\n  [858] 688-0316\nEstagiário Rolha \"Corky Brown\"  \n  galaxyblur@gmail.com\n   [856] 237-930m \nAdults: Mon 7;30-9;00pm; Tues  6:30-8;00pm; Thurs 7:00-8:30pm\nMusic: Wed 5;30-6;30pm\nKids 6 and up: Tues 5:30-6:30pm; Thurs 6:00-7:00pm\n      New Hope Fitness\n6542-K Lower York Road, New Hope, PA 18938 \n Wed 12:00-1:00pm\n(Please contact if you're interested in this class) \nSOURCE: website 4/3/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "lancaster.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:48:33.190Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Greenhill Arts Center | Capoeira Morro Verde | New Hope, PA - Lambertville, NJ - Doylestown, PA <meta name=\"description\" content=\"World-class capoeira academy in Buckingham, PA",
+        "redirectUrl": "https://www.newhopecapoeira.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["cmgatabrava@gmail.com", "galaxyblur@gmail.com", "ajurema90@gmail.com"],
+        "extractedPhones": ["(858) 688-0316", "(856) 237-9301", "(267) 261-4432"]
+      }
+    }
+  },
+  {
+    "name": "ASCAB [Associacao Santista de Capoeira Areia Branca]",
+    "website": "http://www.projectcapoeira.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Doutor",
+      "name": "Adenilson dos Santos"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "215-601-9117"
+    },
+    "sources": ["https://www.facebook.com/ProjectCapoeira"],
+    "locations": [
+      {
+        "name": "Philadelphia Capoeira Arts Center",
+        "address": "1213 Race Street, Philadelphia, PA 19107",
+        "schedule": "Full Schedule of classes, kids teens beginners all levels. See website for details",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Philadelphia Capoeira Arts Center\n1213 Race Street, Ground Floor, Philadelphia PA 19107  (Full Schedule of classes, kids teens beginners all levels. See website for details.",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:43:05.753Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-75.1595353, 39.9559105]
+          },
+          "properties": {
+            "address": "1213 Race Street, Philadelphia, PA 19107",
+            "displayName": "1213, Race Street, Chinatown, Fashion District Philadelphia, Center City, Philadelphia, Philadelphia County, Pennsylvania, 19107, United States of America",
+            "countryCode": "US",
+            "boundingBox": [39.9558605, 39.9559605, -75.1595853, -75.1594853]
+          }
+        }
+      }
+    ],
+    "notes": "Philadelphia, PA. Formado Canguru \"Antonio Marcos Correa\" - Website offline 6/28/19, 2l5-9OO-977O, email has been disabled 7/3/19 (SOURCE: website 6/27/06). SOURCE: website 6/29/19",
+    "rawRecord": "      ASCAB [Associacao Santista de Capoeira Areia Branca]\nhttp://www.projectcapoeira.com/ Mestre Doutor \"Adenilson dos Santos\"\n  Phone  215-601-9117\n\nhttps://www.facebook.com/ProjectCapoeira      Philadelphia Capoeira Arts Center\n1213 Race Street, Ground Floor, Philadelphia PA 19107  (Full Schedule of classes, kids teens beginners all levels. See website for details.\n)SOURCE: website 6/29/19\n()\n\nFormado  Canguru  \"Antonio Marcos Correa\"\n\n(Website offline 6/28/19) \n  2l5-9OO-977O( \nemail has been disabled  7/3/19)\nSOURCE: website   6/27/06",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "lancaster.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:48:34.565Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Project Capoeira const COGS = { baseURL : 'https:\\/\\/www.projectcapoeira.com\\/', group : 'Project Capoeira', formspreeEmail : 'ascabligeira@aol.com', for",
+        "redirectUrl": "https://www.projectcapoeira.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["ascabligeira@aol.com", "ascabcoruja@gmail.com"],
+        "extractedPhones": ["610-762-7384", "215-317-1392", "215-601-9117"]
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/ProjectCapoeira",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "ICAF-Philadelphia Chapter",
+    "website": "http://www.ficaphiladelphia.org/",
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "Info@ficaphiladelphia.org",
+      "phone": "215.500.5987"
+    },
+    "sources": ["https://www.facebook.com/groups/ficaphilly/"],
+    "locations": [
+      {
+        "name": "Martin Luther King Recreation Center",
+        "address": "22nd Street & Cecil B. Moore Avenue Philadelphia",
+        "schedule": "Classes Tues & Thurs 6:30-8:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Martin Luther King Recreation Center\n22nd Street & Cecil B. Moore Avenue Philadelphia,\nClasses   Tues & Thurs 6:30-8:30pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-75.1651867, 39.9796396]
+          },
+          "properties": {
+            "address": "22nd Street & Cecil B. Moore Avenue Philadelphia",
+            "displayName": "Cecil B Moore Avenue, Sharswood, North Philadelphia, Philadelphia, Philadelphia County, Pennsylvania, 19121, United States of America",
+            "countryCode": "US",
+            "boundingBox": [39.9786738, 39.9806198, -75.1724979, -75.1578703]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:52:56.732Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      }
+    ],
+    "notes": "Philadelphia, PA. SOURCE: website 6/29/19",
+    "rawRecord": "      ICAF-Philadelphia Chapter\nhttp://www.ficaphiladelphia.org/\nPhone:Phone: 215.500.5987\nEmail:   Info@ficaphiladelphia.org\nhttps://www.facebook.com/groups/ficaphilly/\n      Martin Luther King Recreation Center\n22nd Street & Cecil B. Moore Avenue Philadelphia,\nClasses   Tues & Thurs 6:30-8:30pm\nSOURCE: website 6/29/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "lancaster.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:48:37.166Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "window['ppConfig'] = {productName: '6b8ce7c01e3dacd3d2c7a8cd322ff979', deleteIsEnforced: false , sealIsEnforced: false , heartbeatRate: 0.5 , periodicReportingRateMillis: 60000.0 , disableAllReporting: false };(function(){'use strict';function k(a){var b=0;return function(){return b<a.length?{done:!1,value:a[b++]}:{done:!0}}}function l(a){var b=typeof Symbol!=\"undefi",
+        "redirectUrl": "https://www.ficaphiladelphia.org/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      },
+      "alternativeUrls": [
+        {
+          "url": "https://www.facebook.com/groups/ficaphilly/",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Capoeira Angola of Mestre João Grande",
+    "website": "http://www.steel-dragon.org",
+    "leader": null,
+    "mainContact": {
+      "name": "Chris Young",
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Steel Dragon Kung Fu",
+        "address": "100 43rd St, Pittsburgh, PA 15201",
+        "schedule": "Adults Fri 7:00-9:00pm; Sun 3:00-5:00pm; Kids: Mon & Wed 5:00-6:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Steel Dragon Kung Fu\nIce House Studios,100 43rd St. Suite 113; Pittsburgh, PA 15201\nAdults Fri 7:00-9:00pm ; Sun 3:00-5:00pm\nKids: Mon  & Wed 5:00-6:00pm",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:44:18.225Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-79.964289, 40.473366]
+          },
+          "properties": {
+            "address": "100 43rd St, Pittsburgh, PA 15201",
+            "displayName": "100, 43rd Street, Lawrenceville, Central Lawrenceville, Pittsburgh, Allegheny County, Pennsylvania, 15201, United States of America",
+            "countryCode": "US",
+            "boundingBox": [40.473316, 40.473416, -79.964339, -79.964239]
+          }
+        }
+      }
+    ],
+    "notes": "Pittsburgh, PA. Kung Fu. \"Chris Young.\" under Mestre João Grande [New York]. SOURCE: email website 7/3/19",
+    "rawRecord": "      Capoeira Angola of Mestre João Grande\n\n  http://www.steel-dragon.org \n\nKung Fu. \"Chris Young.\" under Mestre João Grande[New York]\n\n      Steel Dragon Kung Fu\n\nIce House Studios,100 43rd St. Suite 113; Pittsburgh, PA 15201\n\nAdults Fri 7:00-9:00pm ; Sun 3:00-5:00pm\n\nKids: Mon  & Wed 5:00-6:00pm \n\nSOURCE: email website 7/3/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "lancaster.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:48:40.905Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Steel Dragon Martial Arts - Kung Fu Lion Dance Capoeira html,body{-webkit-text-zoom:reset !important}@font-face{font-display:block;font-family:\"Lato 2\";src:url('css/Lato-Regular.woff2') format('woff2'),url('css/Lato-Regular.",
+        "redirectUrl": "http://www.steel-dragon.org/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Ecole d'Arts Martiaux Bresiliens de Laval",
+    "website": "https://www.ecolecapoeiralaval.com/",
+    "leader": {
+      "title": "professor",
+      "nickname": "Perninha",
+      "name": "Vitor Silva Dos Santos"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@ecolecapoeiralaval.com",
+      "phone": "+1 514-814-4530"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Laval location",
+        "address": "103 Boulevard de la Concorde Ouest, Laval, QC, H7N 1H8, Canada",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Address: 103 Boulevard de la Concorde O, Laval, QC H7N 1H8, Canada",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:01:29.893Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.6985976, 45.5670147]
+          },
+          "properties": {
+            "address": "103 Boulevard de la Concorde Ouest, Laval, QC, H7N 1H8, Canada",
+            "displayName": "103, Boulevard de la Concorde Ouest, Laval-des-Rapides, Laval (région administrative), Québec, H7N 2C8, Canada",
+            "countryCode": "CA",
+            "boundingBox": [45.5669647, 45.5670647, -73.6986476, -73.6985476]
+          }
+        }
+      }
+    ],
+    "notes": "Laval, Quebec, Canada. SOURCE: website 3/22/17, email 7/30/12",
+    "rawRecord": "      Ecole d'Arts Martiaux Bresiliens de Laval\nAddress: 103 Boulevard de la Concorde O, Laval, QC H7N 1H8, Canada\nhttps://www.ecolecapoeiralaval.com/\nProfessor Perninha \"Vitor Silva Dos Santos\"\nPhone: +1 514-814-4530\ninfo@ecolecapoeiralaval.com\nSOURCE: website 3/22/17, email  7/30/12",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "laval.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:48:43.180Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<link rel=\"shortcut icon\" href=\"https://static.parastorage.com/client/pfavico.ico\" type=\"image/x-icon"
+      },
+      "enrichedData": {
+        "extractedEmails": ["info@ecolecapoeiralaval.com"],
+        "extractedPhones": ["702-883-8694", "514-717-4530"]
+      }
+    }
+  },
+  {
+    "name": "Grupo Forca Rara",
+    "website": "http://www.brazilacademyusa.com/",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Ninja",
+      "name": "Luis Felipe Pinto"
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "Brazil Academy",
+        "address": "11441 Strang Line Rd. Lenexa, KS 66215",
+        "schedule": "Full schedule of classes",
+        "contactPerson": null,
+        "email": null,
+        "phone": "[913]220-2153",
+        "rawText": "Brazil Academy\nhttp://www.brazilacademyusa.com/\n11441 Strang Line Rd. Lenexa, KS 66215\n[913]220-2153\n(Full schedule of classes)",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-94.7599216, 38.9211916]
+          },
+          "properties": {
+            "address": "11441 Strang Line Rd. Lenexa, KS 66215",
+            "displayName": "11441, Strang Line Road, Lackmans, Lenexa, Johnson County, Kansas, 66215, United States of America",
+            "countryCode": "US",
+            "boundingBox": [38.9211416, 38.9212416, -94.7599716, -94.7598716]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:53:04.409Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "Lenexa, Kansas. Under Mestre Saracura, Indaiatuba-SP Brazil. SOURCE: website 3/27/16",
+    "rawRecord": "      Grupo Forca Rara\nContra-Mestre Ninja \"Luis Felipe Pinto \" under Mestre Saracura, Indaiatuba-SP\nBrazil\n      Brazil Academy\nhttp://www.brazilacademyusa.com/\n11441 Strang Line Rd. Lenexa, KS 66215\n[913]220-2153\n(Full schedule of classes)\nSOURCE: website 3/27/16",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "lenexa.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:48:46.459Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<link rel=\"icon\" sizes=\"192x192\" href=\"https://static.wixstatic.com/media/3fbeac_0d41803bfc66471d8ca18e934cc317c9%7Emv2.jpg/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/3fbeac_0d41803bfc66471d8ca18e934cc317c9%7",
+        "redirectUrl": "https://www.brazilacademyusa.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": ["(913) 220-2153"]
+      }
+    }
+  },
+  {
+    "name": "Filhos de Bimba",
+    "website": "https://mestrepelicano.wordpress.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "mestre.pelicano@gmail.com",
+      "phone": "07873 847703."
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Mulberry Sports and Leisure Centre",
+        "address": "Richard Street, Shadwell, London, E1 2JP, UK",
+        "schedule": "Thurs  7:00-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "07873 847703.\nMulberry Sports and Leisure Centre\nRichard Street,Shadwell,London E1 2JP\nThurs  7:00-8:00pm\nSOURCE: website 11/7/16  1/16/20",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T10:59:21.026Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.0602945, 51.514594]
+          },
+          "properties": {
+            "address": "Richard Street, Shadwell, London, E1 2JP, UK",
+            "displayName": "Richard Street, St. George in the East, Whitechapel, London Borough of Tower Hamlets, London, Greater London, England, E1 2FE, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.5144756, 51.5147125, -0.0603144, -0.0602757]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE: website 11/7/16  1/16/20",
+    "rawRecord": "Filhos de Bimba\r\n\r\n\r\n\r\nhttps://mestrepelicano.wordpress.com/\r\n\r\n\r\n\r\nMestre Pelicano\r\n\r\n\r\n\r\n  mestre.pelicano@gmail.com\r\n\r\n\r\n\r\n  07873 847703.\r\n\r\n\r\n\r\n      Mulberry Sports and Leisure Centre\r\n\r\n\r\n\r\nRichard Street,Shadwell,London E1 2JP \r\n\r\n\r\n\r\n\r\nThurs  7:00-8:00pm\r\n\r\n\r\n\r\nSOURCE: website 11/7/16  1/16/20",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "liverpool.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:48:47.608Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Kingdom School OF Capoeira Regional &#8211; Capoeira Regional in the Noth East of UK with Mestre Pelicano WebFontConfig = {\"google\":{\"families\":[\"Gentium+Book+Basic:r:latin,latin-ext\",\"Open+S"
+      },
+      "enrichedData": {
+        "extractedEmails": ["mestre.pelicano@gmail.com"],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Mojuba Capoeria",
+    "website": "http://www.mojuba.co.uk",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Ponciano Almeida",
+      "name": ""
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "368"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "North End Road",
+        "address": "368 North End Road, London, SW6 1LY, UK",
+        "schedule": "All Levels: Mon 20.30-22.00; Wed 18.00-19.20,; All Levels:  Thurs 18:00-19:00; Fri 18.30-20:30; Sun 10:30-12:00; Music: Wed 19:30-20:30; Sun 12:30-13:30; All Levels: Tues & Thurs 20:00-21.30; All Levels: Sat 17:00-18:30",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "368 North End Rd, London SW6 1LY\nAll Levels: Mon 20.30-22.00; Wed 18.00-19.20,\nAll Levels:  Thurs 18:00-19:00; Fri 18.30-20:30; Sun 10:30-12:00\nMusic: Wed 19:30-20:30; Sun 12:30-13:30\nThe Place school, Euston\n17 Duke's Rd, London WC1H 9PY\nAll Levels: Tues & Thurs 20:00-21.30\nPineapple Studios\n7 Langley St, Covent Garden, London WC2H 9JA\nAll Levels: Sat 17:00-18:30\nSOURCE: website 1/19/20",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:49:40.853Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.1996097, 51.4811645]
+          },
+          "properties": {
+            "address": "368 North End Road, London, SW6 1LY, UK",
+            "displayName": "Dance Attic Studios, 368, North End Road, Walham Green, Fulham, London Borough of Hammersmith and Fulham, London, Greater London, England, SW6 1LY, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.4810326, 51.481279, -0.199971, -0.1992752]
+          }
+        }
+      },
+      {
+        "name": "Duke's Road",
+        "address": "17 Duke's Road, London, WC1H 9PY, UK",
+        "schedule": "All Levels: Mon 20.30-22.00; Wed 18.00-19.20,; All Levels:  Thurs 18:00-19:00; Fri 18.30-20:30; Sun 10:30-12:00; Music: Wed 19:30-20:30; Sun 12:30-13:30; All Levels: Tues & Thurs 20:00-21.30; All Levels: Sat 17:00-18:30",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "368 North End Rd, London SW6 1LY\nAll Levels: Mon 20.30-22.00; Wed 18.00-19.20,\nAll Levels:  Thurs 18:00-19:00; Fri 18.30-20:30; Sun 10:30-12:00\nMusic: Wed 19:30-20:30; Sun 12:30-13:30\nThe Place school, Euston\n17 Duke's Rd, London WC1H 9PY\nAll Levels: Tues & Thurs 20:00-21.30\nPineapple Studios\n7 Langley St, Covent Garden, London WC2H 9JA\nAll Levels: Sat 17:00-18:30\nSOURCE: website 1/19/20",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:49:42.262Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "33%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.1286962, 51.5273868]
+          },
+          "properties": {
+            "address": "17 Duke's Road, London, WC1H 9PY, UK",
+            "displayName": "The Place, 17, Duke's Road, St Pancras, London Borough of Camden, London, Greater London, England, WC1H 9PY, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.527042, 51.5278322, -0.1292357, -0.1282312]
+          }
+        }
+      },
+      {
+        "name": "Langley Street",
+        "address": "7 Langley Street, Covent Garden, London, WC2H 9JA, UK",
+        "schedule": "All Levels: Mon 20.30-22.00; Wed 18.00-19.20,; All Levels:  Thurs 18:00-19:00; Fri 18.30-20:30; Sun 10:30-12:00; Music: Wed 19:30-20:30; Sun 12:30-13:30; All Levels: Tues & Thurs 20:00-21.30; All Levels: Sat 17:00-18:30",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "368 North End Rd, London SW6 1LY\nAll Levels: Mon 20.30-22.00; Wed 18.00-19.20,\nAll Levels:  Thurs 18:00-19:00; Fri 18.30-20:30; Sun 10:30-12:00\nMusic: Wed 19:30-20:30; Sun 12:30-13:30\nThe Place school, Euston\n17 Duke's Rd, London WC1H 9PY\nAll Levels: Tues & Thurs 20:00-21.30\nPineapple Studios\n7 Langley St, Covent Garden, London WC2H 9JA\nAll Levels: Sat 17:00-18:30\nSOURCE: website 1/19/20",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:49:43.847Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.1252772, 51.5132082]
+          },
+          "properties": {
+            "address": "7 Langley Street, Covent Garden, London, WC2H 9JA, UK",
+            "displayName": "Langley Street, Seven Dials, Bloomsbury, City of Westminster, Greater London, England, WC2H 9JA, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.5128625, 51.5135599, -0.1257552, -0.1247948]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE: website 1/19/20",
+    "rawRecord": "Mojuba Capoeria\r\n\r\n\r\n\r\nMestre Poncianinho \"Ponciano Almeida\"\r\n\r\n\r\n\r\n http://www.mojuba.co.uk\r\n\r\n\r\n\r\n      The Dance Attic\r\n\r\n\r\n\r\n368 North End Rd, London SW6 1LY\r\n\r\n\r\n\r\nAll Levels: Mon 20.30-22.00; Wed 18.00-19.20,\r\n\r\n\r\n\r\nAll Levels:  Thurs 18:00-19:00; Fri 18.30-20:30; Sun 10:30-12:00\r\n\r\n\r\n\r\nMusic: Wed 19:30-20:30; Sun 12:30-13:30\r\n\r\n\r\n\r\n      The Place school, Euston\r\n\r\n\r\n\r\n17 Duke's Rd, London WC1H 9PY \r\n\r\n\r\n\r\nAll Levels: Tues & Thurs 20:00-21.30 \r\n\r\n      Pineapple Studios\r\n\r\n\r\n\r\n7 Langley St, Covent Garden, London WC2H 9JA \r\n\r\n\r\n\r\nAll Levels: Sat 17:00-18:30\r\n\r\n\r\nSOURCE: website 1/19/20",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "liverpool.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:48:48.617Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "(function(i,s,o,g,r,a,m){i[\"GoogleAna",
+        "redirectUrl": "https://www.mojuba.co.uk/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Danca Da Liberdade",
+    "website": "http://www.dancadaliberdade.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@ddluk.org",
+      "phone": "07 739 973 890"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Kennington Park Centre",
+        "address": "136 Streatham High Road, London, SW16 1BW, UK",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "136 Streatham High Road, Streatham SW16 1BW\n(Full schedule of classes. Entrance on Woodbourne Avenue)\nKennington Park Centre\n40 St Agnes Pl LondonSE11 4BE\nSOURCE: website  1/19/20",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:43:07.184Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "20%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.12828, 51.4341658]
+          },
+          "properties": {
+            "address": "136 Streatham High Road, London, SW16 1BW, UK",
+            "displayName": "Streatham High Road, Streatham, London Borough of Lambeth, London, Greater London, England, SW16 1BW, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.4340125, 51.4343195, -0.1282962, -0.1282602]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE: website  1/19/20",
+    "rawRecord": "Danca Da Liberdade\r\n\r\n\r\n\r\nhttp://www.dancadaliberdade.com/\r\n\r\n\r\n\r\nMestre Guimba \"Marcelo Oliveira Dos Santos\"\r\n\r\n\r\n\r\nE-mail: info@ddluk.org\r\n\r\n\r\n\r\nTelephone: 07 739 973 890\r\n\r\n\r\n\r\nLINEAGE: Arthu Emidio> Mestre Celso de Pilares > Mestre Indio> Sergio\r\nLuiz Dos Santos >Mestre Guimba\r\n\r\n\r\n\r\n      Streatham Capoeira Centre\r\n\r\n\r\n\r\n136 Streatham High Road, Streatham SW16 1BW\r\n\r\n\r\n\r\n(Full schedule of classes. Entrance on Woodbourne Avenue)\r\n\r\n\r\n\r\n       Kennington Park Centre\r\n\r\n\r\n\r\n40 St Agnes Pl LondonSE11 4BE\r\n\r\n\r\n\r\nSOURCE: website  1/19/20",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "liverpool.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:48:50.055Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Home Page <meta property=\"og:url\" content=\"http://danc"
+      },
+      "enrichedData": {
+        "extractedEmails": ["info@ddluk.org"],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Olorum Capoeira",
+    "website": "http://www.olorumcapoeira.com",
+    "leader": {
+      "title": "professor",
+      "nickname": "Danny Kearns",
+      "name": ""
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "+44 [0]79 7712 3581"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Northcote Road",
+        "address": "Northcote Road, Walthamstow, London, E17 6PQ, UK",
+        "schedule": "Adults [All levels]: Thurs 20:10-21:40; Sat 10:30-12:30; Adults [Advanced Class]Wed 19:00-21:00; Kids [from 5 years old all levels]: Sat 9:30-10:30Professora Boca Rica \"Raquel Pereira\"; Wed 16:30-17:30 - Kids  [all levels - from 5 years old]; Harmony Hall; Mon 16:30-17:30 - Kids [all levels - from 5 years old] with Professor Seguidor \"Danny Kearns\"; Harmony Hall; Thurs 16:30-17:30 - Kids  [from 5 years old -  * all levels] with",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Northcote Road Walthamstow, London, E17 6PQ (off Palmerston Road)\nAdults [All levels]: Thurs 20:10-21:40; Sat 10:30-12:30\nAdults [Advanced Class]Wed 19:00-21:00\nKids [from 5 years old all levels]: Sat 9:30-10:30Professora Boca Rica \"Raquel Pereira\"\n07583908028\nThe Old Fire Station\n61 Leswin Road, N16 7NX\nWed 16:30-17:30 - Kids  [all levels - from 5 years old]\nFormada Sariema \"Linda Minovicha\"\n07501903792\nHarmony Hall\n10, Truro Road, Walthamstow, E17 7BY\nMon 16:30-17:30 - Kids [all levels - from 5 years old] with Professor Seguidor \"Danny Kearns\"\n07739080102\nHarmony Hall\n10 Truro Road, Walthamstow, E17 7BY\nThurs 16:30-17:30 - Kids  [from 5 years old -  * all levels] with\nSOURCE: website 1/22/20",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:49:45.363Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.0302913, 51.5852869]
+          },
+          "properties": {
+            "address": "Northcote Road, Walthamstow, London, E17 6PQ, UK",
+            "displayName": "Northcote Road, London Borough of Waltham Forest, London, Greater London, England, E17 7DU, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.5851224, 51.5854515, -0.0308938, -0.0296889]
+          }
+        }
+      },
+      {
+        "name": "Leswin Road",
+        "address": "61 Leswin Road, London, N16 7NX, UK",
+        "schedule": "Adults [All levels]: Thurs 20:10-21:40; Sat 10:30-12:30; Adults [Advanced Class]Wed 19:00-21:00; Kids [from 5 years old all levels]: Sat 9:30-10:30Professora Boca Rica \"Raquel Pereira\"; Wed 16:30-17:30 - Kids  [all levels - from 5 years old]; Harmony Hall; Mon 16:30-17:30 - Kids [all levels - from 5 years old] with Professor Seguidor \"Danny Kearns\"; Harmony Hall; Thurs 16:30-17:30 - Kids  [from 5 years old -  * all levels] with",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Northcote Road Walthamstow, London, E17 6PQ (off Palmerston Road)\nAdults [All levels]: Thurs 20:10-21:40; Sat 10:30-12:30\nAdults [Advanced Class]Wed 19:00-21:00\nKids [from 5 years old all levels]: Sat 9:30-10:30Professora Boca Rica \"Raquel Pereira\"\n07583908028\nThe Old Fire Station\n61 Leswin Road, N16 7NX\nWed 16:30-17:30 - Kids  [all levels - from 5 years old]\nFormada Sariema \"Linda Minovicha\"\n07501903792\nHarmony Hall\n10, Truro Road, Walthamstow, E17 7BY\nMon 16:30-17:30 - Kids [all levels - from 5 years old] with Professor Seguidor \"Danny Kearns\"\n07739080102\nHarmony Hall\n10 Truro Road, Walthamstow, E17 7BY\nThurs 16:30-17:30 - Kids  [from 5 years old -  * all levels] with\nSOURCE: website 1/22/20",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:49:46.858Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.0730045, 51.5599625]
+          },
+          "properties": {
+            "address": "61 Leswin Road, London, N16 7NX, UK",
+            "displayName": "Leswin Road, West Hackney, London Borough of Hackney, London, Greater London, England, N16 7NX, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.5592987, 51.56062, -0.0730148, -0.0729873]
+          }
+        }
+      },
+      {
+        "name": "Truro Road",
+        "address": "10 Truro Road, Walthamstow, E17 7BY, UK",
+        "schedule": "Adults [All levels]: Thurs 20:10-21:40; Sat 10:30-12:30; Adults [Advanced Class]Wed 19:00-21:00; Kids [from 5 years old all levels]: Sat 9:30-10:30Professora Boca Rica \"Raquel Pereira\"; Wed 16:30-17:30 - Kids  [all levels - from 5 years old]; Harmony Hall; Mon 16:30-17:30 - Kids [all levels - from 5 years old] with Professor Seguidor \"Danny Kearns\"; Harmony Hall; Thurs 16:30-17:30 - Kids  [from 5 years old -  * all levels] with",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Northcote Road Walthamstow, London, E17 6PQ (off Palmerston Road)\nAdults [All levels]: Thurs 20:10-21:40; Sat 10:30-12:30\nAdults [Advanced Class]Wed 19:00-21:00\nKids [from 5 years old all levels]: Sat 9:30-10:30Professora Boca Rica \"Raquel Pereira\"\n07583908028\nThe Old Fire Station\n61 Leswin Road, N16 7NX\nWed 16:30-17:30 - Kids  [all levels - from 5 years old]\nFormada Sariema \"Linda Minovicha\"\n07501903792\nHarmony Hall\n10, Truro Road, Walthamstow, E17 7BY\nMon 16:30-17:30 - Kids [all levels - from 5 years old] with Professor Seguidor \"Danny Kearns\"\n07739080102\nHarmony Hall\n10 Truro Road, Walthamstow, E17 7BY\nThurs 16:30-17:30 - Kids  [from 5 years old -  * all levels] with\nSOURCE: website 1/22/20",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:49:49.943Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.0261758, 51.5838888]
+          },
+          "properties": {
+            "address": "10 Truro Road, Walthamstow, E17 7BY, UK",
+            "displayName": "Truro Road, London Borough of Waltham Forest, London, Greater London, England, E17 7BY, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.5836583, 51.5841194, -0.0263584, -0.0259931]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE: website 1/22/20",
+    "rawRecord": "Olorum Capoeira\r\n\r\n\r\n\r\nhttp://www.olorumcapoeira.com\r\n\r\n\r\n\r\nMestre Velho Josá \"Aldemar de Sousa\" with the help of Mestre\r\nDeputado\r\n\r\n\r\n\r\n\r\n  Mob +44 [0]79 7712 3581\r\n\r\n\r\n\r\n      Frampton Park Baptist Church\r\n\r\n\r\n\r\nFrampton Park Road, E9 7PQ\r\n\r\n\r\n\r\nAdults [All levels]: Tues 19:30-21:30\r\n\r\n\r\n\r\n      Parish of St Michael and All Angels\r\n\r\n\r\n\r\nNorthcote Road Walthamstow, London, E17 6PQ (off Palmerston Road)\r\n\r\n\r\n\r\nAdults [All levels]: Thurs 20:10-21:40; Sat 10:30-12:30\r\n\r\n\r\n\r\nAdults [Advanced Class]Wed 19:00-21:00\r\n\r\n\r\n\r\nKids [from 5 years old all levels]: Sat 9:30-10:30Professora Boca Rica \"Raquel Pereira\"\r\n\r\n\r\n\r\n\r\n  07583908028\r\n\r\n\r\n\r\n\r\n      The Old Fire Station\r\n\r\n\r\n\r\n\r\n61 Leswin Road, N16 7NX\r\n\r\n\r\n\r\n\r\nWed 16:30-17:30 - Kids  [all levels - from 5 years old]       \r\n\r\n\r\n\r\nFormada Sariema \"Linda Minovicha\"\r\n\r\n\r\n\r\n    07501903792\r\n\r\n\r\n\r\n      Harmony Hall\r\n\r\n\r\n\r\n10, Truro Road, Walthamstow, E17 7BY\r\n\r\n\r\n\r\nMon 16:30-17:30 - Kids [all levels - from 5 years old] with Professor Seguidor \"Danny Kearns\"\r\n\r\n\r\n\r\n  07739080102\r\n\r\n\r\n\r\n      Harmony Hall\r\n\r\n\r\n\r\n10 Truro Road, Walthamstow, E17 7BY\r\n\r\n\r\n\r\nThurs 16:30-17:30 - Kids  [from 5 years old -  * all levels] with \r\n\r\n\r\n\r\nSOURCE: website 1/22/20",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "liverpool.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:48:51.010Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "img:is([sizes=\"auto\" i], [sizes^=\"auto,\" i]) { contain-intrinsic-size: 3000px 1500px } <link rel=\"canonical\" href=\"https:/",
+        "redirectUrl": "https://olorumcapoeira.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "UR Capoeira",
+    "website": "http://www.capoeira.co.uk",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Simon Atkinson",
+      "name": ""
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "07779031273"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Stonebridge Gardens",
+        "address": "Haggerston Road, Hackney, London, E8 4EP, UK",
+        "schedule": "Mon 7:00-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Stonebridge Gardens\nHaggerston Road, Hackney, London, E8 4EP, UK\nMon 7:00-9:00pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.0744177, 51.5395585]
+          },
+          "properties": {
+            "address": "Haggerston Road, Hackney, London, E8 4EP, UK",
+            "displayName": "Haggerston Road, De Beauvoir Town, Haggerston, London Borough of Hackney, London, Greater London, England, E8 4EX, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.539546, 51.5395709, -0.0744309, -0.0744045]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T11:03:24.037Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      },
+      {
+        "name": "SPACe Gym",
+        "address": "31 Falkirk Street, Hoxton, London, N1 6HF, UK",
+        "schedule": "Tues 8:00-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "SPACe Gym\n31 Falkirk Street, Hoxton, London, N1 6HF, UK\nTues 8:00-9:00pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.0789463, 51.5307898]
+          },
+          "properties": {
+            "address": "31 Falkirk Street, Hoxton, London, N1 6HF, UK",
+            "displayName": "Falkirk Street, Shoreditch, London Borough of Hackney, London, Greater London, England, N1 6SA, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.5307237, 51.5308505, -0.0801919, -0.0777011]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T11:03:25.902Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      },
+      {
+        "name": "Rhodes Community Hall",
+        "address": "Kirkland Walk, Hackney, London, UK",
+        "schedule": "Thurs 7:00-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Rhodes Community Hall\nKirkland Walk, Rhodes Estate, Hackney, London, E8, UK\nThurs 7:00-9:00pm",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T11:05:44.476Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.072611, 51.5455927]
+          },
+          "properties": {
+            "address": "Kirkland Walk, Hackney, London, UK",
+            "displayName": "Kirkland Walk, Rhodes Estate, Dalston, London Borough of Hackney, London, Greater London, England, E8 3SY, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.54551, 51.5456754, -0.0726115, -0.0726106]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE: website 1020/20",
+    "rawRecord": "UR Capoeira \r\n\r\n\r\nMestre Fantasma \"Simon Atkinson\"\r\n\r\n\r\n\r\n Call 07779031273\r\n\r\n\r\n\r\nhttp://www.capoeira.co.uk\r\n\r\n\r\n\r\n      Stonebridge Gardens\r\n\r\n\r\n\r\nHaggerston Road Hackney E8:00 4EP\r\n\r\n\r\n\r\nMon 7:00£9:00pm\r\n\r\n\r\n\r\n      SPACe Gym\r\n\r\n\r\n\r\n31 Falkirk street Hackney  N1 6HF\r\n\r\n\r\n\r\nTues 8:00£9:00pm \r\n\r\n\r\n\r\n      Rhodes Community Hall \r\n\r\n\r\n\r\nKirkland Walk Rhodes Estate Hackney  E8:00\r\n\r\n\r\n\r\nThurs 7:00£9:00pm(s.)\r\n\r\n\r\n\r\nSOURCE: website 1020/20",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "liverpool.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:48:54.052Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Capoeira London <link rel=\"stylesheet\" type=\"text/css\" media=\"all\" href=\"https://www.capoeira.co.uk/wp-content/themes/eastl",
+        "redirectUrl": "https://www.capoeira.co.uk/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Capoeira Angola Palmares",
+    "website": "http://capoeirapalmares.co.uk/",
+    "leader": {
+      "title": "mestre",
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@capoeirapalmares.co.uk",
+      "phone": "07813 554785"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "St. Mildred's Church Hall",
+        "address": "5 Albert Road, Addiscombe, Croydon, CR0 5PE, UK",
+        "schedule": "Mon 7:15-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "St. Mildred's Church Hall\n5 Albert Road, Addiscombe, Croydon, CR0 5PE, UK\nMon 7:15-9:00pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.0612255, 51.3914253]
+          },
+          "properties": {
+            "address": "5 Albert Road, Addiscombe, Croydon, CR0 5PE, UK",
+            "displayName": "Albert Road, Woodside, London Borough of Croydon, London, Greater London, England, SE25 4RN, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.3907112, 51.3921543, -0.0619136, -0.0605227]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T11:03:30.055Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      },
+      {
+        "name": "University of Law Bloomsbury",
+        "address": "100 High Holborn, London, WC1V 6LJ, UK",
+        "schedule": "Tues 6:30-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "University of Law Bloomsbury\n100 High Holborn, London, WC1V 6LJ, UK\nTues 6:30-8:00pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.1193869, 51.5178134]
+          },
+          "properties": {
+            "address": "100 High Holborn, London, WC1V 6LJ, UK",
+            "displayName": "Caffè Nero, 100-110, High Holborn, Gray's Inn, Holborn, London Borough of Camden, London, Greater London, England, WC1V 6QL, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.5177634, 51.5178634, -0.1194369, -0.1193369]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T11:03:31.899Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      },
+      {
+        "name": "Queens Park Community School",
+        "address": "Salusbury Road, London, UK",
+        "schedule": "Wed 7:00-8:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Queens Park Community School\n105 Salusbury Road, Queens Park, London, NW6 6RG, UK\nWed 7:00-8:30pm",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T11:05:46.412Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.2039971, 51.5335275]
+          },
+          "properties": {
+            "address": "Salusbury Road, London, UK",
+            "displayName": "Salusbury Road, Queen's Park, London Borough of Brent, London, Greater London, England, NW6 6BF, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.5334063, 51.5336461, -0.2041281, -0.2038686]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE:   website 1/28/20",
+    "rawRecord": "Capoeira Angola Palmares\r\n\r\n\r\n\r\nhttp://capoeirapalmares.co.uk/\r\n\r\n\r\nMestre Ax�\r\n\r\n\r\n\r\n  07813 554785 or 07856 032553 or 07944 806841\r\n\r\n\r\n info@capoeirapalmares.co.uk\r\n\r\n\r\nhttps://www.facebook.com/palmaresuk\r\n\r\n\r\n      Albert Road Centre\r\n5 Albert Road, London NW6 5DT\r\n\r\n\r\nWed: 7:00-9:00pm             \r\n\r\n\r\n      Gymbox\r\n\r\n\r\n100 High Holborn, London WC1V 6RD      \r\n\r\n\r\nFri: 8:00-10:00pm ; Sun 1:00-3:00pm\r\n\r\n\r\n      Fitness First Kilburn\r\n\r\n\r\n105 Salusbury Road, London NW6 6RG     \r\n\r\n\r\nSat: 3:00-:500pm\r\n\r\n\r\n SOURCE:   website 1/28/20",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "liverpool.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:48:57.712Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "document.documentElement.className = 'js'; Capoeira Palmares | Capoeira Angola Palmares London /* Original: https://fonts.googl",
+        "redirectUrl": "https://capoeirapalmares.co.uk/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["axesalvador@hotmail.com"],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Group Senzala",
+    "website": "http://senzala-london.co.uk",
+    "leader": {
+      "title": "mestre",
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "gingasanha@gmail.com",
+      "phone": "07984 969 040"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Artizan Community Centre",
+        "address": "1 Drummond Crescent, London, NW1 1LY, UK",
+        "schedule": "Adults [All levels]: Tues & Thurs 7:00 - 8.30pm; Adults [All levels]: Wed 7.15 - 8.15pm; Children [4-12 years]: Sat 12.30 - 1.15pm; Adults [All levels]: Sat   1.15 - 2.30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "1-39 Drummond Cres, London NW1 1LY\nAdults [All levels]: Tues & Thurs 7:00 - 8.30pm\nArtizan Community Centre\n1 Artizan St, Spitalfields, London E1 7AF\nAdults [All levels]: Wed 7.15 - 8.15pm\nSeymour Leisure Centre\nSeymour Place, London W1H 5TJ\nChildren [4-12 years]: Sat 12.30 - 1.15pm\nAdults [All levels]: Sat   1.15 - 2.30pm\nSOURCE: website 2/4/20",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:43:08.710Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.1320641, 51.5297882]
+          },
+          "properties": {
+            "address": "1 Drummond Crescent, London, NW1 1LY, UK",
+            "displayName": "Drummond Crescent, Somers Town, London Borough of Camden, London, Greater London, England, NW1 1LD, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.5296366, 51.5297882, -0.1331994, -0.1309409]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE: website 2/4/20",
+    "rawRecord": "Group Senzala\r\n\r\n\r\nhttp://senzala-london.co.uk\r\n\r\n\r\nMestre Sanhaáo\"Julio Cesar Alves de Oliveira\"  a \r\nstudent of Mestre Peixinho\r\n\r\n\r\n   tel: 07984 969 040 \r\n\r\n\r\n   gingasanha{      /\\T}gmail.com\r\n\r\n\r\n      Maria Fidelis Catholic School\r\n\r\n\r\n1-39 Drummond Cres, London NW1 1LY\r\n\r\n\r\nAdults [All levels]: Tues & Thurs 7:00 - 8.30pm\r\n\r\n\r\n      Artizan Community Centre\r\n\r\n\r\n1 Artizan St, Spitalfields, London E1 7AF\r\n\r\n\r\n  Adults [All levels]: Wed 7.15 - 8.15pm \r\n\r\n\r\n      Seymour Leisure Centre\r\n\r\n\r\nSeymour Place, London W1H 5TJ\r\n\r\n\r\n Children [4-12 years]: Sat 12.30 - 1.15pm \r\n\r\n\r\nAdults [All levels]: Sat   1.15 - 2.30pm  \r\n\r\n\r\nSOURCE: website 2/4/20",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "liverpool.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:49:00.592Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "img:is([sizes=\"auto\" i], [sizes^=\"auto,\" i]) { contain-intrins",
+        "redirectUrl": "https://senzala-london.co.uk/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["senzalalondon@gmail.com"],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Association of Capoeira Engenho da Rainha",
+    "website": "http://www.capoeiraworld.org",
+    "leader": {
+      "title": "mestre",
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "e.rodrigo@acercapoeira.com",
+      "phone": "44 [0] 7921 66 77 26"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Sands End Community Centre",
+        "address": "66 High Street, Fulham, London, SW6 3LJ, UK",
+        "schedule": "Mon 7:00-8:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Sands End Community Centre\n66 High Street, Fulham, London, SW6 3LJ, UK\nMon 7:00-8:30pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.2109249, 51.4708886]
+          },
+          "properties": {
+            "address": "66 High Street, Fulham, London, SW6 3LJ, UK",
+            "displayName": "Fulham High Street, Hurlingham, Fulham, London Borough of Hammersmith and Fulham, London, Greater London, England, SW6 3LQ, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.4705411, 51.4712772, -0.2110829, -0.2106859]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T11:03:34.043Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "20%"
+        }
+      },
+      {
+        "name": "Greyhound Community Centre",
+        "address": "Dryburgh Road, Putney, London, SW15 1BL, UK",
+        "schedule": "Wed 7:00-8:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Greyhound Community Centre\nDryburgh Road, Putney, London, SW15 1BL, UK\nWed 7:00-8:30pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.2305592, 51.4654018]
+          },
+          "properties": {
+            "address": "Dryburgh Road, Putney, London, SW15 1BL, UK",
+            "displayName": "Dryburgh Road, Putney, London Borough of Wandsworth, London, Greater London, England, SW15 1BL, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.4651916, 51.4659956, -0.2335588, -0.2293608]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T11:03:34.043Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      }
+    ],
+    "notes": "SOURCE: website 10/30/16\nSOURCE: website 2/5/20",
+    "rawRecord": "Association of Capoeira Engenho da Rainha\r\n\r\n\r\n\r\nhttp://www.capoeiraworld.org\r\n\r\n\r\n\r\nContra Mestre Rodrigo\r\n\r\n\r\n\r\n  e.rodrigo@acercapoeira.com\r\n\r\n\r\n\r\n   44 [0] 7921 66 77 26\r\n\r\n\r\n\r\nLINEAGE: Mestre Nenem&gt; Mestre Paizinho&gt;Mestre Artu Emidio&gt; Mestre Celso&gt;Contra\r\nMestre Rodrigo\r\n\r\n\r\n\r\nSOURCE: website 10/30/16        \r\nACER Kids\r\n\r\n\r\n\r\nhttp://www.capoeirakids.co.uk/\r\n\r\n\r\n\r\n      Colliers Wood Community Centre\r\n\r\n\r\n\r\n66/72 High Street SW19 2BY\r\n\r\n\r\n\r\n      Putney Leisure Centre\r\n\r\n\r\n\r\nDryburgh Road London SW15 1BL (off Upper Richmond Rd)\r\n\r\n\r\nSOURCE: website 2/5/20",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "liverpool.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:49:03.177Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Association of Capoeira ACER - Capoeira London, Capoeira Classes in South London for Beginners <META NAME=\"Description\" CONTENT=\"Capoeira class in South Lond",
+        "redirectUrl": "https://www.capoeiraworld.org/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Capoeira Muzenza",
+    "website": "http://capoeiracademyuk.com/",
+    "leader": {
+      "title": "professor",
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "capoeiracademyuk@gmail.com",
+      "phone": "078 4134 2874"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "The Broadway",
+        "address": "25 The Broadway, HA7 4DA, UK",
+        "schedule": "Beginners & Intermediates: Mon 8.30-9.30; Thurs & Fri 6.30-7.30pm; All Levels: Sat 12.15-2.00pm; Intermediates & Advance: Mon & Wed 7.30-8.30pm; Skills development Members only: Wed 8.30-9.30pm       Bernays Memorial Hall; Kids: Mon 4:45-5:30pm; Adults Parents: Tues 5:00-6:00pm; kids ages 3-4: Tues 3:30-4:00pm kids ages 5+: Tues 4:00-5:00pm; kids: Wed 4:00-5:00pm; Sun 12:30-1:30pm; Adults: Mon 8:15pm;  Fri  7:15pm; Adults:  Wed 7:30pm; Children Only:Wed     17.00hr; Children Only: Sat 10.30hr; Redmond Comm. Centre; Children Only: Fri 17.00hr; Children Only:  Mon16.30hr",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "078 4134 2874\ncapoeiracademyuk@gmail.com\nhttps://www.facebook.com/capoeiracademyuk/\nThe 52Club Basement\nBonham Carter House, 52 Gower Street, London WC1E 6EB\nBeginners & Intermediates: Mon 8.30-9.30; Thurs & Fri 6.30-7.30pm\nAll Levels: Sat 12.15-2.00pm\nIntermediates & Advance: Mon & Wed 7.30-8.30pm\nSkills development Members only: Wed 8.30-9.30pm       Bernays Memorial Hall\n25 The Broadway HA7 4DA\nKids: Mon 4:45-5:30pm\nMycenae House Community Centre\n90 Mycenae Road, Blackheath, SE3 7SE. Room 15 - 2 Floor\nAdults Parents: Tues 5:00-6:00pm\nkids ages 3-4: Tues 3:30-4:00pm kids ages 5+: Tues 4:00-5:00pm\nCamberwell Leisure Centre\nArtichoke Place,  SE5 8TS (off Camberwell Church Street)\nkids: Wed 4:00-5:00pm\nUrban Kings Gym\n4 Bravingtons Walk,Kings Cross London N1 9GA\nhttps://urbankingsgym.com/\nSun 12:30-1:30pm\nSOURCE: websites 2/26/20\nProfessor   Madeira\nhttp://www.capoeiramuzenza.co.uk/\nEmail: madeira.muzenza@gmail.com\nPhone: 078 504 03221\nFitness First Islington\n361-373 City Rd, London, EC1\nAdults: Mon 8:15pm;  Fri  7:15pm\nNew Kingshold Comm. Centre\nAinsworth Rd   London\nAdults:  Wed 7:30pm\nParents and Guardians- with Grad. Moranguinho:  17.00hr\nChildren Only:Wed     17.00hr\nLeytonstone Comm. Sport Centre\nJames Lane, Leytonstone, London E11 1NS\nAdults with Grad. Moranguinho : 20.00hr\nMildmay Comm. Centre\nWoodville Rd, London N16 8NA\nChildren Only: Sat 10.30hr\nRedmond Comm. Centre\nKayani Ave London N4 2HF\nChildren Only: Fri 17.00hr\nTimber Lodge Caf�\nOlympic Park, 1 Honour Lea Ave.London E20 1DY\nChildren Only:  Mon16.30hr\nSOURCE:  website  2/26/20",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:49:53.396Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.3339538, 51.6004812]
+          },
+          "properties": {
+            "address": "25 The Broadway, HA7 4DA, UK",
+            "displayName": "27,25,23,21, The Broadway, Wealdstone, London Borough of Harrow, London, Greater London, England, HA3 7EH, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.6003188, 51.6006435, -0.3341103, -0.3337972]
+          }
+        }
+      },
+      {
+        "name": "Mycenae Road",
+        "address": "90 Mycenae Road, Blackheath, SE3 7SE, UK",
+        "schedule": "Beginners & Intermediates: Mon 8.30-9.30; Thurs & Fri 6.30-7.30pm; All Levels: Sat 12.15-2.00pm; Intermediates & Advance: Mon & Wed 7.30-8.30pm; Skills development Members only: Wed 8.30-9.30pm       Bernays Memorial Hall; Kids: Mon 4:45-5:30pm; Adults Parents: Tues 5:00-6:00pm; kids ages 3-4: Tues 3:30-4:00pm kids ages 5+: Tues 4:00-5:00pm; kids: Wed 4:00-5:00pm; Sun 12:30-1:30pm; Adults: Mon 8:15pm;  Fri  7:15pm; Adults:  Wed 7:30pm; Children Only:Wed     17.00hr; Children Only: Sat 10.30hr; Redmond Comm. Centre; Children Only: Fri 17.00hr; Children Only:  Mon16.30hr",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "078 4134 2874\ncapoeiracademyuk@gmail.com\nhttps://www.facebook.com/capoeiracademyuk/\nThe 52Club Basement\nBonham Carter House, 52 Gower Street, London WC1E 6EB\nBeginners & Intermediates: Mon 8.30-9.30; Thurs & Fri 6.30-7.30pm\nAll Levels: Sat 12.15-2.00pm\nIntermediates & Advance: Mon & Wed 7.30-8.30pm\nSkills development Members only: Wed 8.30-9.30pm       Bernays Memorial Hall\n25 The Broadway HA7 4DA\nKids: Mon 4:45-5:30pm\nMycenae House Community Centre\n90 Mycenae Road, Blackheath, SE3 7SE. Room 15 - 2 Floor\nAdults Parents: Tues 5:00-6:00pm\nkids ages 3-4: Tues 3:30-4:00pm kids ages 5+: Tues 4:00-5:00pm\nCamberwell Leisure Centre\nArtichoke Place,  SE5 8TS (off Camberwell Church Street)\nkids: Wed 4:00-5:00pm\nUrban Kings Gym\n4 Bravingtons Walk,Kings Cross London N1 9GA\nhttps://urbankingsgym.com/\nSun 12:30-1:30pm\nSOURCE: websites 2/26/20\nProfessor   Madeira\nhttp://www.capoeiramuzenza.co.uk/\nEmail: madeira.muzenza@gmail.com\nPhone: 078 504 03221\nFitness First Islington\n361-373 City Rd, London, EC1\nAdults: Mon 8:15pm;  Fri  7:15pm\nNew Kingshold Comm. Centre\nAinsworth Rd   London\nAdults:  Wed 7:30pm\nParents and Guardians- with Grad. Moranguinho:  17.00hr\nChildren Only:Wed     17.00hr\nLeytonstone Comm. Sport Centre\nJames Lane, Leytonstone, London E11 1NS\nAdults with Grad. Moranguinho : 20.00hr\nMildmay Comm. Centre\nWoodville Rd, London N16 8NA\nChildren Only: Sat 10.30hr\nRedmond Comm. Centre\nKayani Ave London N4 2HF\nChildren Only: Fri 17.00hr\nTimber Lodge Caf�\nOlympic Park, 1 Honour Lea Ave.London E20 1DY\nChildren Only:  Mon16.30hr\nSOURCE:  website  2/26/20",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:49:54.774Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "29%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [0.0162807, 51.4796406]
+          },
+          "properties": {
+            "address": "90 Mycenae Road, Blackheath, SE3 7SE, UK",
+            "displayName": "Woodlands House, 90, Mycenae Road, Blackheath Royal Standard, Blackheath, Royal Borough of Greenwich, London, Greater London, England, SE3 7SE, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.4795204, 51.4797507, 0.0160341, 0.0165082]
+          }
+        }
+      },
+      {
+        "name": "Kings Cross",
+        "address": "Kings Cross, London, N1 9GA, UK",
+        "schedule": "Beginners & Intermediates: Mon 8.30-9.30; Thurs & Fri 6.30-7.30pm; All Levels: Sat 12.15-2.00pm; Intermediates & Advance: Mon & Wed 7.30-8.30pm; Skills development Members only: Wed 8.30-9.30pm       Bernays Memorial Hall; Kids: Mon 4:45-5:30pm; Adults Parents: Tues 5:00-6:00pm; kids ages 3-4: Tues 3:30-4:00pm kids ages 5+: Tues 4:00-5:00pm; kids: Wed 4:00-5:00pm; Sun 12:30-1:30pm; Adults: Mon 8:15pm;  Fri  7:15pm; Adults:  Wed 7:30pm; Children Only:Wed     17.00hr; Children Only: Sat 10.30hr; Redmond Comm. Centre; Children Only: Fri 17.00hr; Children Only:  Mon16.30hr",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "078 4134 2874\ncapoeiracademyuk@gmail.com\nhttps://www.facebook.com/capoeiracademyuk/\nThe 52Club Basement\nBonham Carter House, 52 Gower Street, London WC1E 6EB\nBeginners & Intermediates: Mon 8.30-9.30; Thurs & Fri 6.30-7.30pm\nAll Levels: Sat 12.15-2.00pm\nIntermediates & Advance: Mon & Wed 7.30-8.30pm\nSkills development Members only: Wed 8.30-9.30pm       Bernays Memorial Hall\n25 The Broadway HA7 4DA\nKids: Mon 4:45-5:30pm\nMycenae House Community Centre\n90 Mycenae Road, Blackheath, SE3 7SE. Room 15 - 2 Floor\nAdults Parents: Tues 5:00-6:00pm\nkids ages 3-4: Tues 3:30-4:00pm kids ages 5+: Tues 4:00-5:00pm\nCamberwell Leisure Centre\nArtichoke Place,  SE5 8TS (off Camberwell Church Street)\nkids: Wed 4:00-5:00pm\nUrban Kings Gym\n4 Bravingtons Walk,Kings Cross London N1 9GA\nhttps://urbankingsgym.com/\nSun 12:30-1:30pm\nSOURCE: websites 2/26/20\nProfessor   Madeira\nhttp://www.capoeiramuzenza.co.uk/\nEmail: madeira.muzenza@gmail.com\nPhone: 078 504 03221\nFitness First Islington\n361-373 City Rd, London, EC1\nAdults: Mon 8:15pm;  Fri  7:15pm\nNew Kingshold Comm. Centre\nAinsworth Rd   London\nAdults:  Wed 7:30pm\nParents and Guardians- with Grad. Moranguinho:  17.00hr\nChildren Only:Wed     17.00hr\nLeytonstone Comm. Sport Centre\nJames Lane, Leytonstone, London E11 1NS\nAdults with Grad. Moranguinho : 20.00hr\nMildmay Comm. Centre\nWoodville Rd, London N16 8NA\nChildren Only: Sat 10.30hr\nRedmond Comm. Centre\nKayani Ave London N4 2HF\nChildren Only: Fri 17.00hr\nTimber Lodge Caf�\nOlympic Park, 1 Honour Lea Ave.London E20 1DY\nChildren Only:  Mon16.30hr\nSOURCE:  website  2/26/20",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T10:07:39.097Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.1175506, 51.5312377]
+          },
+          "properties": {
+            "address": "Kings Cross, London, N1 9GA, UK",
+            "displayName": "Kings cross, Pentonville Road, Pentonville, Barnsbury, London Borough of Islington, London, Greater London, England, N1 9UZ, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.5311877, 51.5312877, -0.1176006, -0.1175006]
+          }
+        }
+      },
+      {
+        "name": "City Road",
+        "address": "361-373 City Road, London, EC1, UK",
+        "schedule": "Beginners & Intermediates: Mon 8.30-9.30; Thurs & Fri 6.30-7.30pm; All Levels: Sat 12.15-2.00pm; Intermediates & Advance: Mon & Wed 7.30-8.30pm; Skills development Members only: Wed 8.30-9.30pm       Bernays Memorial Hall; Kids: Mon 4:45-5:30pm; Adults Parents: Tues 5:00-6:00pm; kids ages 3-4: Tues 3:30-4:00pm kids ages 5+: Tues 4:00-5:00pm; kids: Wed 4:00-5:00pm; Sun 12:30-1:30pm; Adults: Mon 8:15pm;  Fri  7:15pm; Adults:  Wed 7:30pm; Children Only:Wed     17.00hr; Children Only: Sat 10.30hr; Redmond Comm. Centre; Children Only: Fri 17.00hr; Children Only:  Mon16.30hr",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "078 4134 2874\ncapoeiracademyuk@gmail.com\nhttps://www.facebook.com/capoeiracademyuk/\nThe 52Club Basement\nBonham Carter House, 52 Gower Street, London WC1E 6EB\nBeginners & Intermediates: Mon 8.30-9.30; Thurs & Fri 6.30-7.30pm\nAll Levels: Sat 12.15-2.00pm\nIntermediates & Advance: Mon & Wed 7.30-8.30pm\nSkills development Members only: Wed 8.30-9.30pm       Bernays Memorial Hall\n25 The Broadway HA7 4DA\nKids: Mon 4:45-5:30pm\nMycenae House Community Centre\n90 Mycenae Road, Blackheath, SE3 7SE. Room 15 - 2 Floor\nAdults Parents: Tues 5:00-6:00pm\nkids ages 3-4: Tues 3:30-4:00pm kids ages 5+: Tues 4:00-5:00pm\nCamberwell Leisure Centre\nArtichoke Place,  SE5 8TS (off Camberwell Church Street)\nkids: Wed 4:00-5:00pm\nUrban Kings Gym\n4 Bravingtons Walk,Kings Cross London N1 9GA\nhttps://urbankingsgym.com/\nSun 12:30-1:30pm\nSOURCE: websites 2/26/20\nProfessor   Madeira\nhttp://www.capoeiramuzenza.co.uk/\nEmail: madeira.muzenza@gmail.com\nPhone: 078 504 03221\nFitness First Islington\n361-373 City Rd, London, EC1\nAdults: Mon 8:15pm;  Fri  7:15pm\nNew Kingshold Comm. Centre\nAinsworth Rd   London\nAdults:  Wed 7:30pm\nParents and Guardians- with Grad. Moranguinho:  17.00hr\nChildren Only:Wed     17.00hr\nLeytonstone Comm. Sport Centre\nJames Lane, Leytonstone, London E11 1NS\nAdults with Grad. Moranguinho : 20.00hr\nMildmay Comm. Centre\nWoodville Rd, London N16 8NA\nChildren Only: Sat 10.30hr\nRedmond Comm. Centre\nKayani Ave London N4 2HF\nChildren Only: Fri 17.00hr\nTimber Lodge Caf�\nOlympic Park, 1 Honour Lea Ave.London E20 1DY\nChildren Only:  Mon16.30hr\nSOURCE:  website  2/26/20",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:49:57.531Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "32%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.1027165, 51.5310801]
+          },
+          "properties": {
+            "address": "361-373 City Road, London, EC1, UK",
+            "displayName": "City Road, Angel, Islington, London Borough of Islington, London, Greater London, England, EC1V 1LR, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.5309015, 51.5312587, -0.1034045, -0.1020284]
+          }
+        }
+      },
+      {
+        "name": "Ainsworth Road",
+        "address": "Ainsworth Road, London, UK",
+        "schedule": "Beginners & Intermediates: Mon 8.30-9.30; Thurs & Fri 6.30-7.30pm; All Levels: Sat 12.15-2.00pm; Intermediates & Advance: Mon & Wed 7.30-8.30pm; Skills development Members only: Wed 8.30-9.30pm       Bernays Memorial Hall; Kids: Mon 4:45-5:30pm; Adults Parents: Tues 5:00-6:00pm; kids ages 3-4: Tues 3:30-4:00pm kids ages 5+: Tues 4:00-5:00pm; kids: Wed 4:00-5:00pm; Sun 12:30-1:30pm; Adults: Mon 8:15pm;  Fri  7:15pm; Adults:  Wed 7:30pm; Children Only:Wed     17.00hr; Children Only: Sat 10.30hr; Redmond Comm. Centre; Children Only: Fri 17.00hr; Children Only:  Mon16.30hr",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "078 4134 2874\ncapoeiracademyuk@gmail.com\nhttps://www.facebook.com/capoeiracademyuk/\nThe 52Club Basement\nBonham Carter House, 52 Gower Street, London WC1E 6EB\nBeginners & Intermediates: Mon 8.30-9.30; Thurs & Fri 6.30-7.30pm\nAll Levels: Sat 12.15-2.00pm\nIntermediates & Advance: Mon & Wed 7.30-8.30pm\nSkills development Members only: Wed 8.30-9.30pm       Bernays Memorial Hall\n25 The Broadway HA7 4DA\nKids: Mon 4:45-5:30pm\nMycenae House Community Centre\n90 Mycenae Road, Blackheath, SE3 7SE. Room 15 - 2 Floor\nAdults Parents: Tues 5:00-6:00pm\nkids ages 3-4: Tues 3:30-4:00pm kids ages 5+: Tues 4:00-5:00pm\nCamberwell Leisure Centre\nArtichoke Place,  SE5 8TS (off Camberwell Church Street)\nkids: Wed 4:00-5:00pm\nUrban Kings Gym\n4 Bravingtons Walk,Kings Cross London N1 9GA\nhttps://urbankingsgym.com/\nSun 12:30-1:30pm\nSOURCE: websites 2/26/20\nProfessor   Madeira\nhttp://www.capoeiramuzenza.co.uk/\nEmail: madeira.muzenza@gmail.com\nPhone: 078 504 03221\nFitness First Islington\n361-373 City Rd, London, EC1\nAdults: Mon 8:15pm;  Fri  7:15pm\nNew Kingshold Comm. Centre\nAinsworth Rd   London\nAdults:  Wed 7:30pm\nParents and Guardians- with Grad. Moranguinho:  17.00hr\nChildren Only:Wed     17.00hr\nLeytonstone Comm. Sport Centre\nJames Lane, Leytonstone, London E11 1NS\nAdults with Grad. Moranguinho : 20.00hr\nMildmay Comm. Centre\nWoodville Rd, London N16 8NA\nChildren Only: Sat 10.30hr\nRedmond Comm. Centre\nKayani Ave London N4 2HF\nChildren Only: Fri 17.00hr\nTimber Lodge Caf�\nOlympic Park, 1 Honour Lea Ave.London E20 1DY\nChildren Only:  Mon16.30hr\nSOURCE:  website  2/26/20",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:49:58.900Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.0507183, 51.5396756]
+          },
+          "properties": {
+            "address": "Ainsworth Road, London, UK",
+            "displayName": "Ainsworth Road, Victoria Park Village, Hackney, London Borough of Hackney, London, Greater London, England, E9 7LP, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.5388225, 51.5405177, -0.0512788, -0.0501748]
+          }
+        }
+      },
+      {
+        "name": "James Lane",
+        "address": "James Lane, Leytonstone, London, E11 1NS, UK",
+        "schedule": "Beginners & Intermediates: Mon 8.30-9.30; Thurs & Fri 6.30-7.30pm; All Levels: Sat 12.15-2.00pm; Intermediates & Advance: Mon & Wed 7.30-8.30pm; Skills development Members only: Wed 8.30-9.30pm       Bernays Memorial Hall; Kids: Mon 4:45-5:30pm; Adults Parents: Tues 5:00-6:00pm; kids ages 3-4: Tues 3:30-4:00pm kids ages 5+: Tues 4:00-5:00pm; kids: Wed 4:00-5:00pm; Sun 12:30-1:30pm; Adults: Mon 8:15pm;  Fri  7:15pm; Adults:  Wed 7:30pm; Children Only:Wed     17.00hr; Children Only: Sat 10.30hr; Redmond Comm. Centre; Children Only: Fri 17.00hr; Children Only:  Mon16.30hr",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "078 4134 2874\ncapoeiracademyuk@gmail.com\nhttps://www.facebook.com/capoeiracademyuk/\nThe 52Club Basement\nBonham Carter House, 52 Gower Street, London WC1E 6EB\nBeginners & Intermediates: Mon 8.30-9.30; Thurs & Fri 6.30-7.30pm\nAll Levels: Sat 12.15-2.00pm\nIntermediates & Advance: Mon & Wed 7.30-8.30pm\nSkills development Members only: Wed 8.30-9.30pm       Bernays Memorial Hall\n25 The Broadway HA7 4DA\nKids: Mon 4:45-5:30pm\nMycenae House Community Centre\n90 Mycenae Road, Blackheath, SE3 7SE. Room 15 - 2 Floor\nAdults Parents: Tues 5:00-6:00pm\nkids ages 3-4: Tues 3:30-4:00pm kids ages 5+: Tues 4:00-5:00pm\nCamberwell Leisure Centre\nArtichoke Place,  SE5 8TS (off Camberwell Church Street)\nkids: Wed 4:00-5:00pm\nUrban Kings Gym\n4 Bravingtons Walk,Kings Cross London N1 9GA\nhttps://urbankingsgym.com/\nSun 12:30-1:30pm\nSOURCE: websites 2/26/20\nProfessor   Madeira\nhttp://www.capoeiramuzenza.co.uk/\nEmail: madeira.muzenza@gmail.com\nPhone: 078 504 03221\nFitness First Islington\n361-373 City Rd, London, EC1\nAdults: Mon 8:15pm;  Fri  7:15pm\nNew Kingshold Comm. Centre\nAinsworth Rd   London\nAdults:  Wed 7:30pm\nParents and Guardians- with Grad. Moranguinho:  17.00hr\nChildren Only:Wed     17.00hr\nLeytonstone Comm. Sport Centre\nJames Lane, Leytonstone, London E11 1NS\nAdults with Grad. Moranguinho : 20.00hr\nMildmay Comm. Centre\nWoodville Rd, London N16 8NA\nChildren Only: Sat 10.30hr\nRedmond Comm. Centre\nKayani Ave London N4 2HF\nChildren Only: Fri 17.00hr\nTimber Lodge Caf�\nOlympic Park, 1 Honour Lea Ave.London E20 1DY\nChildren Only:  Mon16.30hr\nSOURCE:  website  2/26/20",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:00.298Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [0.0042018, 51.5755155]
+          },
+          "properties": {
+            "address": "James Lane, Leytonstone, London, E11 1NS, UK",
+            "displayName": "James Lane, Whipps Cross, Leytonstone, London Borough of Waltham Forest, London, Greater London, England, E11 1NS, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.5750804, 51.575915, 0.0035823, 0.0048447]
+          }
+        }
+      },
+      {
+        "name": "Woodville Road",
+        "address": "Woodville Road, London, N16 8NA, UK",
+        "schedule": "Beginners & Intermediates: Mon 8.30-9.30; Thurs & Fri 6.30-7.30pm; All Levels: Sat 12.15-2.00pm; Intermediates & Advance: Mon & Wed 7.30-8.30pm; Skills development Members only: Wed 8.30-9.30pm       Bernays Memorial Hall; Kids: Mon 4:45-5:30pm; Adults Parents: Tues 5:00-6:00pm; kids ages 3-4: Tues 3:30-4:00pm kids ages 5+: Tues 4:00-5:00pm; kids: Wed 4:00-5:00pm; Sun 12:30-1:30pm; Adults: Mon 8:15pm;  Fri  7:15pm; Adults:  Wed 7:30pm; Children Only:Wed     17.00hr; Children Only: Sat 10.30hr; Redmond Comm. Centre; Children Only: Fri 17.00hr; Children Only:  Mon16.30hr",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "078 4134 2874\ncapoeiracademyuk@gmail.com\nhttps://www.facebook.com/capoeiracademyuk/\nThe 52Club Basement\nBonham Carter House, 52 Gower Street, London WC1E 6EB\nBeginners & Intermediates: Mon 8.30-9.30; Thurs & Fri 6.30-7.30pm\nAll Levels: Sat 12.15-2.00pm\nIntermediates & Advance: Mon & Wed 7.30-8.30pm\nSkills development Members only: Wed 8.30-9.30pm       Bernays Memorial Hall\n25 The Broadway HA7 4DA\nKids: Mon 4:45-5:30pm\nMycenae House Community Centre\n90 Mycenae Road, Blackheath, SE3 7SE. Room 15 - 2 Floor\nAdults Parents: Tues 5:00-6:00pm\nkids ages 3-4: Tues 3:30-4:00pm kids ages 5+: Tues 4:00-5:00pm\nCamberwell Leisure Centre\nArtichoke Place,  SE5 8TS (off Camberwell Church Street)\nkids: Wed 4:00-5:00pm\nUrban Kings Gym\n4 Bravingtons Walk,Kings Cross London N1 9GA\nhttps://urbankingsgym.com/\nSun 12:30-1:30pm\nSOURCE: websites 2/26/20\nProfessor   Madeira\nhttp://www.capoeiramuzenza.co.uk/\nEmail: madeira.muzenza@gmail.com\nPhone: 078 504 03221\nFitness First Islington\n361-373 City Rd, London, EC1\nAdults: Mon 8:15pm;  Fri  7:15pm\nNew Kingshold Comm. Centre\nAinsworth Rd   London\nAdults:  Wed 7:30pm\nParents and Guardians- with Grad. Moranguinho:  17.00hr\nChildren Only:Wed     17.00hr\nLeytonstone Comm. Sport Centre\nJames Lane, Leytonstone, London E11 1NS\nAdults with Grad. Moranguinho : 20.00hr\nMildmay Comm. Centre\nWoodville Rd, London N16 8NA\nChildren Only: Sat 10.30hr\nRedmond Comm. Centre\nKayani Ave London N4 2HF\nChildren Only: Fri 17.00hr\nTimber Lodge Caf�\nOlympic Park, 1 Honour Lea Ave.London E20 1DY\nChildren Only:  Mon16.30hr\nSOURCE:  website  2/26/20",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:02.308Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.0816084, 51.5508423]
+          },
+          "properties": {
+            "address": "Woodville Road, London, N16 8NA, UK",
+            "displayName": "Woodville Road, Mayville Estate, Islington, London Borough of Islington, London, Greater London, England, N16 8NE, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.5502039, 51.5514732, -0.0820579, -0.0811602]
+          }
+        }
+      },
+      {
+        "name": "Kayani Avenue",
+        "address": "Kayani Avenue, London, N4 2HF, UK",
+        "schedule": "Beginners & Intermediates: Mon 8.30-9.30; Thurs & Fri 6.30-7.30pm; All Levels: Sat 12.15-2.00pm; Intermediates & Advance: Mon & Wed 7.30-8.30pm; Skills development Members only: Wed 8.30-9.30pm       Bernays Memorial Hall; Kids: Mon 4:45-5:30pm; Adults Parents: Tues 5:00-6:00pm; kids ages 3-4: Tues 3:30-4:00pm kids ages 5+: Tues 4:00-5:00pm; kids: Wed 4:00-5:00pm; Sun 12:30-1:30pm; Adults: Mon 8:15pm;  Fri  7:15pm; Adults:  Wed 7:30pm; Children Only:Wed     17.00hr; Children Only: Sat 10.30hr; Redmond Comm. Centre; Children Only: Fri 17.00hr; Children Only:  Mon16.30hr",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "078 4134 2874\ncapoeiracademyuk@gmail.com\nhttps://www.facebook.com/capoeiracademyuk/\nThe 52Club Basement\nBonham Carter House, 52 Gower Street, London WC1E 6EB\nBeginners & Intermediates: Mon 8.30-9.30; Thurs & Fri 6.30-7.30pm\nAll Levels: Sat 12.15-2.00pm\nIntermediates & Advance: Mon & Wed 7.30-8.30pm\nSkills development Members only: Wed 8.30-9.30pm       Bernays Memorial Hall\n25 The Broadway HA7 4DA\nKids: Mon 4:45-5:30pm\nMycenae House Community Centre\n90 Mycenae Road, Blackheath, SE3 7SE. Room 15 - 2 Floor\nAdults Parents: Tues 5:00-6:00pm\nkids ages 3-4: Tues 3:30-4:00pm kids ages 5+: Tues 4:00-5:00pm\nCamberwell Leisure Centre\nArtichoke Place,  SE5 8TS (off Camberwell Church Street)\nkids: Wed 4:00-5:00pm\nUrban Kings Gym\n4 Bravingtons Walk,Kings Cross London N1 9GA\nhttps://urbankingsgym.com/\nSun 12:30-1:30pm\nSOURCE: websites 2/26/20\nProfessor   Madeira\nhttp://www.capoeiramuzenza.co.uk/\nEmail: madeira.muzenza@gmail.com\nPhone: 078 504 03221\nFitness First Islington\n361-373 City Rd, London, EC1\nAdults: Mon 8:15pm;  Fri  7:15pm\nNew Kingshold Comm. Centre\nAinsworth Rd   London\nAdults:  Wed 7:30pm\nParents and Guardians- with Grad. Moranguinho:  17.00hr\nChildren Only:Wed     17.00hr\nLeytonstone Comm. Sport Centre\nJames Lane, Leytonstone, London E11 1NS\nAdults with Grad. Moranguinho : 20.00hr\nMildmay Comm. Centre\nWoodville Rd, London N16 8NA\nChildren Only: Sat 10.30hr\nRedmond Comm. Centre\nKayani Ave London N4 2HF\nChildren Only: Fri 17.00hr\nTimber Lodge Caf�\nOlympic Park, 1 Honour Lea Ave.London E20 1DY\nChildren Only:  Mon16.30hr\nSOURCE:  website  2/26/20",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:03.819Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.0918882, 51.5707101]
+          },
+          "properties": {
+            "address": "Kayani Avenue, London, N4 2HF, UK",
+            "displayName": "Kayani Avenue, Brownswood Park, Stoke Newington, London Borough of Hackney, London, Greater London, England, N4 2GU, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.5701859, 51.5712464, -0.0920284, -0.0917419]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE: websites 2/26/20\nSOURCE:  website  2/26/20",
+    "rawRecord": "Capoeira Muzenza\r\n\r\n\r\nProfessor Bombril \"Edgar Leite\"      \r\nCapoeira Academy - Capoeira Muzenza London\r\nhttp://capoeiracademyuk.com/\r\n078 4134 2874\r\ncapoeiracademyuk@gmail.com\r\nhttps://www.facebook.com/capoeiracademyuk/\r\n      The 52Club Basement\r\nBonham Carter House, 52 Gower Street, London WC1E 6EB\r\n  \r\nBeginners & Intermediates: Mon 8.30-9.30; Thurs & Fri 6.30-7.30pm\r\nAll Levels: Sat 12.15-2.00pm\r\nIntermediates & Advance: Mon & Wed 7.30-8.30pm\r\nSkills development Members only: Wed 8.30-9.30pm       Bernays Memorial Hall\r\n25 The Broadway HA7 4DA\r\nKids: Mon 4:45-5:30pm\r\n      Mycenae House Community Centre\r\n90 Mycenae Road, Blackheath, SE3 7SE. Room 15 - 2 Floor\r\nAdults Parents: Tues 5:00-6:00pm\r\nkids ages 3-4: Tues 3:30-4:00pm kids ages 5+: Tues 4:00-5:00pm\r\n      Camberwell Leisure Centre\r\nArtichoke Place,  SE5 8TS (off Camberwell Church Street)\r\nkids: Wed 4:00-5:00pm\r\n        Urban Kings Gym\r\n4 Bravingtons Walk,Kings Cross London N1 9GA\r\n  https://urbankingsgym.com/\r\nSun 12:30-1:30pm\r\nSOURCE: websites 2/26/20\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nProfessor   Madeira\r\nhttp://www.capoeiramuzenza.co.uk/\r\n  Email: madeira.muzenza@gmail.com\r\nPhone: 078 504 03221      \r\nFitness First Islington\r\n361-373 City Rd, London, EC1\r\nAdults: Mon 8:15pm;  Fri  7:15pm\r\n        New Kingshold Comm. Centre\r\nAinsworth Rd   London\r\nAdults:  Wed 7:30pm\r\nParents and Guardians- with Grad. Moranguinho:  17.00hr\r\nChildren Only:Wed     17.00hr\r\n        Leytonstone Comm. Sport Centre\r\nJames Lane, Leytonstone, London E11 1NS\r\nAdults with Grad. Moranguinho : 20.00hr\r\n        Mildmay Comm. Centre\r\n\r\nWoodville Rd, London N16 8NA\r\n\r\n Children Only: Sat 10.30hr\r\n        Redmond Comm. Centre\r\n\r\nKayani Ave London N4 2HF\r\n\r\nChildren Only: Fri 17.00hr\r\n        Timber Lodge Caf�\r\n\r\nOlympic Park, 1 Honour Lea Ave.London E20 1DY\r\n\r\nChildren Only:  Mon16.30hr\r\nSOURCE:  website  2/26/20",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "liverpool.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:49:04.701Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "document.documentElement.className = 'js'; Capoeira Academy UK Try Capoeira Risk-Free for 15 d- London Kids and Adults classes | Capoeira Academy UK is run by Professor Bombril and is part of Capoeira Muzenza, one of the world’s largest Capoeira org",
+        "redirectUrl": "https://capoeiracademyuk.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Capoeira Science",
+    "website": "http://www.capoeirascience.co.uk/",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@capoeirascience.co.uk",
+      "phone": "283-291"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Wandsworth Road",
+        "address": "283-291 Wandsworth Road, London,",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "283-291 Wandsworth Road, London,\nPhone : 078 5361 1496\nEmail : info@capoeirascience.co.uk\nVauxhall, Stockwell, South-West LondonWest Croydon[private classes only]\nPhone : 078 5361 1496\nSOURCE: website 2/28/2020",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.1437744, 51.4683931]
+          },
+          "properties": {
+            "address": "283-291 Wandsworth Road, London,",
+            "displayName": "Wandsworth Road, Clapham, London Borough of Lambeth, London, Greater London, England, SW8 3JE, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.4681047, 51.4686523, -0.1443861, -0.1431497]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:53:24.164Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      }
+    ],
+    "notes": "SOURCE: website 2/28/2020",
+    "rawRecord": "Capoeira Science\r\n\r\n\r\n\r\n\r\nhttp://www.capoeirascience.co.uk/\r\n\r\n\r\n\r\n\r\n283-291 Wandsworth Road, London,\r\n\r\n\r\n\r\n\r\nPhone : 078 5361 1496\r\n\r\n\r\n\r\n\r\nEmail : info@capoeirascience.co.uk\r\n\r\nVauxhall, Stockwell, South-West LondonWest Croydon[private classes only]\r\n\r\nPhone : 078 5361 1496\r\n\r\n\r\n\r\nSOURCE: website 2/28/2020",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "liverpool.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:49:06.691Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Capoeira Science London <meta name=\"keywords\" content=\"Capoeira, Classes, Acrobatics, M",
+        "redirectUrl": "https://www.capoeirascience.co.uk/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["info@capoeirascience.co.uk"],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Capoeira Ceara",
+    "website": "http://capoeira-ceara.co.uk.",
+    "leader": {
+      "title": "monitora",
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "frangolino@capoeira-ceara.co.uk",
+      "phone": "44 78233 33962"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Parish Church of St. Jude on the Hill",
+        "address": "1 Pocock Street, London, NW11, UK",
+        "schedule": "Mon 7:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Parish Church of St. Jude on the Hill\n1 Pocock St, Hampstead Garden Suburb, London, NW11 9QD, UK\nMon 7:30pm",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T11:05:46.415Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "18%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.0999825, 51.5024846]
+          },
+          "properties": {
+            "address": "1 Pocock Street, London, NW11, UK",
+            "displayName": "1-15, Pocock Street, Bankside, Southwark, London Borough of Southwark, London, Greater London, England, SE1 0BJ, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.5023043, 51.5027477, -0.1008825, -0.099083]
+          }
+        }
+      },
+      {
+        "name": "Orchard Hall",
+        "address": "145 Orange Hill Road, Burnt Oak, Edgware, HA8 0TW, UK",
+        "schedule": "Wed 8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Orchard Hall\n145 Orange Hill Road, Burnt Oak, Edgware, HA8 0TW, UK\nWed 8:00pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.2660186, 51.6088906]
+          },
+          "properties": {
+            "address": "145 Orange Hill Road, Burnt Oak, Edgware, HA8 0TW, UK",
+            "displayName": "Watling Community Centre, 145, Orange Hill Road, Burnt Oak, Edgware, London, Greater London, England, HA8 0TR, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.6087187, 51.6090606, -0.2663074, -0.2657497]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T11:03:37.120Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      },
+      {
+        "name": "Clissold Park",
+        "address": "Clissold Road, Stoke Newington, London, N16 9HJ, UK",
+        "schedule": "Sat 12:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Clissold Park\nClissold Road, Stoke Newington, London, N16 9HJ, UK\nSat 12:00pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.0857374, 51.5603672]
+          },
+          "properties": {
+            "address": "Clissold Road, Stoke Newington, London, N16 9HJ, UK",
+            "displayName": "Clissold Road, Stoke Newington, London Borough of Hackney, London, Greater London, England, N16 9HD, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.5603466, 51.5603852, -0.0857639, -0.0857132]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T11:03:38.958Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      }
+    ],
+    "notes": "SOURCE: website 1/21/20",
+    "rawRecord": "Capoeira Ceara\r\n\r\n\r\n\r\n\r\nhttp://capoeira-ceara.co.uk.\r\n\r\n\r\n\r\n\r\nled by Monitora Maya founded by  Mestre Caboclin \"Wilton Rocha\"\r\n\r\n\r\n\r\n\r\n   44 78233 33962\r\n\r\n\r\n\r\n\r\n Instrutor Frangolino\r\n\r\n\r\n\r\n\r\nMobile 07789350442\r\n\r\n\r\n\r\n\r\nEmail: frangolino@capoeira-ceara.co.uk\r\n\r\n\r\n\r\n\r\n      Energie Fitness\r\n\r\n\r\n\r\n\r\n1 Pocock St,London SE1 0FN\r\n\r\n\r\n\r\n\r\nAll Levels: Mon 19:15-20:15Instructor Rodáo and  Monitora Kanako\r\n\r\n\r\n\r\n\r\nMobile: 07942452698\r\n\r\n\r\n\r\n\r\nEmail: rodao@capoeira-ceara.co.uk\r\n\r\n\r\n\r\n\r\n      Watling Community Centre,\r\n\r\n\r\n\r\n\r\n145 Orange Hill Road, London HA8 0TR\r\n\r\n\r\n\r\n\r\nAdults and Kids:Thurs  18:45-19:45Monitora Maya\r\n\r\n\r\n\r\n\r\nMobile: 07823333962\r\n\r\n\r\n\r\n\r\nEmail: maya@capoeira-ceara.co.uk\r\n\r\n\r\n\r\n\r\n      Stoke Newington School & Sixth Form,\r\n\r\n\r\n\r\n\r\nClissold Rd, London N16 9EX  [Dance Studio]\r\n\r\n\r\n\r\n\r\nAll Levels: Fri 19:00-20:00\r\n\r\n\r\n\r\n\r\nSOURCE: website 1/21/20",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "liverpool.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:49:08.291Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "img.lazy{min-height:1px} <!-- Favicons ==========================================",
+        "redirectUrl": "https://capoeira-ceara.co.uk/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["info@capoeira-ceara.co.uk"],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Capoeira Angola - South London",
+    "website": "http://www.capoeiradeangola.net",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "50"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "50A Corry Dr",
+        "address": "50A Corry Dr, Brixton, London SW9 8QT",
+        "schedule": "Wed 7.30-9.00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "50A Corry Dr, Brixton, London SW9 8QT\n(just behind brixton station off Coldharbour Lane)\nWed 7.30-9.00pm\nSOURCE: website 2/21/20",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.1066799, 51.4605046]
+          },
+          "properties": {
+            "address": "50A Corry Dr, Brixton, London SW9 8QT",
+            "displayName": "Corry Drive, Brixton, London Borough of Lambeth, London, Greater London, England, SW9 8QT, United Kingdom",
+            "countryCode": "GB",
+            "boundingBox": [51.4599525, 51.4612441, -0.1074557, -0.1063773]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:53:28.598Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      }
+    ],
+    "notes": "SOURCE: website 2/21/20",
+    "rawRecord": "Capoeira Angola - South London\r\n\r\n\r\n\r\n\r\nhttp://www.capoeiradeangola.net\r\n\r\n\r\n\r\n\r\n      Moorlands Community Centre\r\n\r\n\r\n50A Corry Dr, Brixton, London SW9 8QT\r\n\r\n\r\n(just behind brixton station off Coldharbour Lane)\r\n\r\n\r\n\r\nWed 7.30-9.00pm\r\n\r\n\r\n\r\n\r\nSOURCE: website 2/21/20",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:16Z",
+      "phase": 1,
+      "sourceFile": "liverpool.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:49:17.648Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<link",
+        "redirectUrl": "http://www.capoeiradeangola.net/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  }
+]

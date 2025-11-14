@@ -1,0 +1,89 @@
+[
+  {
+    "name": "Capoeira Mundo - Western Kentucky University-Capoeira Club",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": ["http://www.wku.edu/"],
+    "locations": [],
+    "notes": "Unable to find any current information on website. Instructor has moved away. Email failed. SOURCE: website 10/14/11, verified 4/8/18",
+    "rawRecord": "      Capoeira Mundo\n      Western Kentucky University-Capoeira Club\nSOURCE: http://www.wku.edu/ 10/14/11\n(Unable to find any current information on website. Instructor has\nmoved away.  email failed   Please contact us 4/8/18)"
+  },
+  {
+    "name": "Cordao de Ouro",
+    "website": "https://4seasonsmma.com/",
+    "leader": {
+      "title": null,
+      "nickname": "Charuto",
+      "name": "Ray Jordan"
+    },
+    "mainContact": null,
+    "sources": ["https://kysu.edu/the-institute-of-life-long-learning-capoeira/"],
+    "locations": [
+      {
+        "name": "Four Seasons Martial Arts",
+        "address": "951 Floyd Dr Lexington, KY 40505",
+        "schedule": "Tues & Fri 7:00-8:30pm; Sat 1:00-2:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": "[859] 245-5082",
+        "rawText": "Four Seasons Martial Arts.\n951 Floyd Dr Lexington, KY 40505\n[859] 245-5082\nhttps://4seasonsmma.com/\nTues & Fri 7:00-8:30pm; Sat  1:00-2:30pm"
+      },
+      {
+        "name": "Kentucky State University",
+        "address": "Exum Gym",
+        "schedule": "Mon 7:00-8:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Kentucky State University\nExum Gym.\nhttps://kysu.edu/the-institute-of-life-long-learning-capoeira/\nMon 7:00-8:30pm"
+      }
+    ],
+    "notes": "LINEAGE: Mestre Suassuna>Mestre Chicote>Professor Xango>Instructor Baiano> Charuto. University of Kentucky location appears abandoned and the club is no longer active. SOURCE: website 4/22/18",
+    "rawRecord": "      Cordao de Ouro\nCharuto  \"Ray  Jordan.\"\nLINEAGE:  Mestre Suassuna>Mestre Chicote>Professor Xango>Instructor\nBaiano> Charuto.\n       Four Seasons Martial Arts.\n951 Floyd Dr Lexington, KY 40505\n[859] 245-5082\nhttps://4seasonsmma.com/\nTues & Fri 7:00-8:30pm; Sat  1:00-2:30pm\n      Kentucky State University\nExum Gym.\nhttps://kysu.edu/the-institute-of-life-long-learning-capoeira/\nMon 7:00-8:30pm\n      University of Kentucky\n(Website appears abandoned and the club is no longer active)\nSOURCE: website 4/22/18"
+  },
+  {
+    "name": "Grupo Balanca Capoeira Lexington",
+    "website": "https://www.facebook.com/Grupo-Balan%C3%A7a-Capoeira-Lexington-729763667113916/",
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "Premeire Dance Studio",
+        "address": "845 Lane Allen Rd Lexington, KY 40504",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Premeire Dance Studio\n845 Lane Allen Rd Lexington, KY  40504"
+      }
+    ],
+    "notes": "Pega Pega and Bico de Balanca under the supervision of Mestre Gildo Valu. SOURCE: facebook 4/22/18",
+    "rawRecord": "      Grupo Balanca Capoeira Lexington\nhttps://www.facebook.com/Grupo-Balan%C3%A7a-Capoeira-Lexington-729763667113916/\n Pega Pega and Bico de Balanca under the supervision of Mastre\nGildo Valu.\n      Premeire Dance Studio\n845 Lane Allen Rd Lexington, KY  40504\nSOURCE: facebook 4/22/18"
+  },
+  {
+    "name": "Capoeira Volta Ao Mundo",
+    "website": "https://urbanninjaproject.com",
+    "leader": null,
+    "mainContact": {
+      "name": "Jim Weise",
+      "email": "wiese.7@hotmail.com",
+      "phone": "859 229 7284"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Urban Ninja Project",
+        "address": "1820 Bryan Station Rd, Lexington, KY",
+        "schedule": "Teen/Adults: Sun 4:30-5:30pm; Mon, Tues, & Wed 7:10-8:10pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": "[866] 923-5569",
+        "rawText": "Urban Ninja Project\n1820 Bryan Station Rd, Lexington, KY\nhttps://urbanninjaproject.com\n[866] 923-5569\nTeen/Adults: Sun 4:30-5:30pm; Mon, Tues, & Wed 7:10-8:10pm"
+      }
+    ],
+    "notes": "SOURCE: website 4/21/18, offline website 11/6/11",
+    "rawRecord": "      Capoeira Volta Ao Mundo\n \"Jim Weise\"\n      Urban Ninja Project\n1820 Bryan Station Rd, Lexington, KY\nhttps://urbanninjaproject.com\n[866] 923-5569\nTeen/Adults: Sun 4:30-5:30pm; Mon, Tues, & Wed 7:10-8:10pm\nSOURCE: website 4/21/18\n \"Jim Weise\"\n  wiese.7@hotmail.com\n   859 229 7284\nSOURCE: offline website 11/6/11"
+  }
+]

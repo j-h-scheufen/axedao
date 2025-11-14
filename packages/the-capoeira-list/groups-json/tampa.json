@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Capoeira Volta Ao Mundo - Tampa",
+    "website": "https://www.capovam.com/locations/st-peterburg/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Rony",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Monitora Nina (Nina Costa)",
+      "email": "capoeira@tpamartialarts.com",
+      "phone": "813-704-0845"
+    },
+    "sources": ["https://www.tpamartialarts.com/capoeira"],
+    "locations": [
+      {
+        "name": "Akido Martial Arts Academy",
+        "address": "4405 W. South Avenue, Tampa, FL, 33614",
+        "schedule": "Adult Class: Mon & Wed 8:00-9:00pm; Sat 12:30-1:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Akido Martial Arts Academy\n4405 W. South Avenue, Tampa, FL, 33614\nhttps://www.tpamartialarts.com/capoeira\nAdult Class: Mon & Wed   8:00-9:00pm; Sat 12:30-1:30pm"
+      }
+    ],
+    "notes": "Tampa, Florida. Monitora Nina (Nina Costa) under Mestre Rony [Sarasota]. SOURCE: webpages 11/22/17",
+    "rawRecord": "      Capoeira Volta Ao Mundo\nhttps://www.capovam.com/locations/st-peterburg/\nMonitora Nina \"Nina Costa\" under Mestre Rony[Sarasota]\n  813-704-0845\n  capoeira@tpamartialarts.com\n      Akido Martial Arts Academy\n4405 W. South Avenue, Tampa, FL, 33614\nhttps://www.tpamartialarts.com/capoeira\nAdult Class: Mon & Wed   8:00-9:00pm; Sat 12:30-1:30pm\nSOURCE: webpages 11/22/17"
+  },
+  {
+    "name": "Tampa Capoeira",
+    "website": "http://www.tampacapoeira.com",
+    "leader": {
+      "title": "professor",
+      "nickname": "Girino",
+      "name": "Eduardo Torres"
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Tampa, Florida. Professor Girino (Eduardo Torres) is now only teaching in St Petersburg. SOURCE: website 11/22/17",
+    "rawRecord": "      Tampa Capoeira\nhttp://www.tampacapoeira.com\nProfessor Girino \"Eduardo Torres\"\n(is now only teaching in\nSt Petersberg)\nSOURCE: website 11/22/17"
+  }
+]

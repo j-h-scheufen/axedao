@@ -1,0 +1,169 @@
+[
+  {
+    "name": "Aluaie Capoeira",
+    "website": "http://www.capolondon.com",
+    "leader": {
+      "title": "mestrando",
+      "nickname": "Je",
+      "name": "Jefferson Oliveira"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "mail@aluaieuk.com",
+      "phone": "0750 224 2102"
+    },
+    "sources": ["http://www.capolondon.com"],
+    "locations": [
+      {
+        "name": "Fitness 364 Gym",
+        "address": "Globe House, New Street, Chelmsford, Essex CM1 1TA",
+        "schedule": "Tues 7:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Fitness 364 Gym\nGlobe House, New Street, Chelmsford, Essex CM1 1TA\nTues 7:30pm"
+      }
+    ],
+    "notes": "Location: 29A Amelia street. SE17 3PY, London. Harlow, Southend on Sea, Chelmsford, Romford, Saffron Walden. SOURCE: website 3/2/20",
+    "rawRecord": "Aluai� Capoeira\n29A Amelia street. SE17 3PY, London.\nhttp://www.capolondon.com\nMestrando Je  \"Jefferson Oliveira\" \nPhone: 0750 224 2102\nEmail: mail@aluaieuk.com\n      Fitness 364 Gym\nGlobe House, New Street, Chelmsford, Essex CM1 1TA\nTues 7:30pm\nSOURCE: website 3/2/20"
+  },
+  {
+    "name": "Sangue Bom Capoeira",
+    "website": "http://capoeiraessex.blogspot.com/",
+    "leader": {
+      "title": "professor",
+      "nickname": "Sangue Bom",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "chris.to22@sky.com",
+      "phone": "+44 7810 433874"
+    },
+    "sources": ["http://capoeiraessex.blogspot.com/", "https://www.facebook.com/capoeiraessex/"],
+    "locations": [
+      {
+        "name": "Paringdon Sports Centre",
+        "address": "Paringdon Road Harlow, CM19 4QT",
+        "schedule": "Thurs 7:00-8:00pm; Tues 8:00-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Paringdon Sports Centre\nParingdon Road Harlow, CM19 4QT\nThurs 7:00 - 8:00pm; Tues 8:00 - 9:00pm"
+      }
+    ],
+    "notes": "Facebook and blog do not seem to be being updated. 3/3/20. SOURCE: facebook post Jan 19, 2019 3/2/20",
+    "rawRecord": "Sangue Bom Capoeira\nhttp://capoeiraessex.blogspot.com/\n Professor Sangue Bom\n+44 7810 433874\nchris.to22{      /\\T}sky.com\n(facebook and blog do not seem to  be being updated. 3/3/20) https://www.facebook.com/capoeiraessex/\n      Paringdon Sports Centre\nParingdon Road Harlow, CM19 4QT\nThurs 7:00 - 8:00pm; Tues 8:00 - 9:00pm\nSOURCE: facebook post Jan 19, 2019 3/2/20"
+  },
+  {
+    "name": "Grupo Negaca Capoeira",
+    "website": "http://www.capoeiracambridge.co.uk/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Chitaozinho",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Manuela",
+      "email": "manuela.gnc@gmail.com",
+      "phone": null
+    },
+    "sources": ["http://www.capoeiracambridge.co.uk/", "https://www.facebook.com/groups/128149583887914/"],
+    "locations": [
+      {
+        "name": "Golden Acre Community Centre",
+        "address": "Long Horse Croft, Saffron Walden, CB11 4BL",
+        "schedule": "All Level Adults: Wed 6:30-7:30pm (beginners welcome, please get in touch first); Children class [6 to 9 years]: Wed 6:00-6:45pm; Children & adult improvers class [10+ years]: Wed 6:45-7:45pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Golden Acre Community Centre\nLong Horse Croft, Saffron Walden, CB11 4BL\nAll Level Adults:Wed 6:30 - 7:30pm, (beginners welcome, please get in touch first)\nChildren class [6 to 9 years]: Wed 6:00 - 6:45pm\nChildren & adult improvers class [10+ years]: Wed 6:45 - 7:45pm"
+      }
+    ],
+    "notes": "Contact: negaca@capoeiracambridge.co.uk. SOURCE: website 3/3/20",
+    "rawRecord": "Grupo Nega�a  Capoeira\nhttp://www.capoeiracambridge.co.uk/\nMestre Chit�ozinho\nnegaca@capoeiracambridge.co.uk\nhttps://www.facebook.com/groups/128149583887914/\nManuela\n  manuela.gnc@gmail.com       \nGolden Acre Community Centre\nLong Horse Croft, Saffron Walden, CB11 4BL\nAll Level Adults:Wed 6:30 - 7:30pm, (beginners welcome, please get in touch first)\nChildren class [6 to 9 years]: Wed 6:00 - 6:45pm\nChildren & adult improvers class [10+ years]: Wed 6:45 - 7:45pm\nSOURCE: website 3/3/20"
+  },
+  {
+    "name": "Danca Da Liberdade",
+    "website": "http://www.dancadaliberdade.com",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@dancadaliberdade.com",
+      "phone": null
+    },
+    "sources": ["http://www.dancadaliberdade.com"],
+    "locations": [],
+    "notes": "No longer appears to have classes in Essex 11/12/16",
+    "rawRecord": "Danca Da Liberdade\nhttp://www.dancadaliberdade.com\nE-mail: info@dancadaliberdade.com\n(No longer appears to have classes in Essex 11/12/16)"
+  },
+  {
+    "name": "Capoeira Brazil",
+    "website": "http://brazilarte.org",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Biscuim",
+      "name": "Licio Aurelio De Oliveira Bezerra"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@brazilarte.org",
+      "phone": null
+    },
+    "sources": ["http://brazilarte.org", "http://brazilarteacademy.co.uk", "https://www.facebook.com/brazilarteacadem"],
+    "locations": [
+      {
+        "name": "BrazilArte Academy",
+        "address": "Kensington Road, Southend on Sea, Essex, SS1 2TA",
+        "schedule": "Full schedule of classes",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "BrazilArte Academy\nKensington Road, Southend on Sea, Essex, SS1 2TA\nhttp://brazilarteacademy.co.uk\nhttps://www.facebook.com/brazilarteacadem\n(Full schedule of classes)"
+      },
+      {
+        "name": "Nuffield Health & Fitness",
+        "address": "Unit 6 Victoria Road, Chelmsford, Essex CM1 1AN",
+        "schedule": "Beginners: Tues 20.00-21.00",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Nuffield Health & Fitness\nUnit 6  Victoria Road, Chelmsford, Essex CM1 1AN\nBeginners: Tues 20.00 � 21.00"
+      }
+    ],
+    "notes": "Professora Sininha \"Emma Gibbs De Oliveira\" - Call | Text: [English & Portuguese] +44 [0] 7894 716 833. SOURCE: website 11/12/16",
+    "rawRecord": "Capoeira Brazil\nhttp://brazilarte.org\nEmail: info@brazilarte.org\nMestre Biscuim  \"Licio Aurelio De Oliveira Bezerra\"\nProfessora Sininha \"Emma Gibbs De Oliveira \"\n  Call | Text:  [English & Portuguese]  +44 [0]\n7894 716 833\n      BrazilArte Academy\nKensington Road, Southend on Sea, Essex, SS1 2TA\nhttp://brazilarteacademy.co.uk\nhttps://www.facebook.com/brazilarteacadem\n(Full schedule of classes)\n      Nuffield Health & Fitness\nUnit 6  Victoria Road, Chelmsford, Essex CM1 1AN\nBeginners: Tues 20.00 � 21.00\nSOURCE: website 11/12/16"
+  },
+  {
+    "name": "Capoeira Esporao",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": "Dean",
+      "email": null,
+      "phone": "07830-355020"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "University of Essex",
+        "address": "Wivenhoe Park Colchester CO4 3SQ",
+        "schedule": "Sun 4:00-6:00",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "University of Essex\nWivenhoe Park Colchester CO4 3SQ\nSun  4:00 - 6:00"
+      }
+    ],
+    "notes": "Website offline, email bounced 11/12/16. SOURCE: website unknown date",
+    "rawRecord": "Capoeira Esporao\n(website offline   email  bounced 11/12/16)\nContact Dean\n  07830-355020\n      University of Essex\nWivenhoe Park Colchester CO4 3SQ\nSun  4:00 - 6:00\nSOURCE: website unknown date"
+  }
+]

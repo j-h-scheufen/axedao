@@ -1,0 +1,59 @@
+[
+  {
+    "name": "Capoeira Mandinga",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "m.me/2085153338386864",
+      "phone": "[810] 841-9779"
+    },
+    "sources": ["https://www.facebook.com/Lansing-Capoeira-Mandinga-2085153338386864/"],
+    "locations": [
+      {
+        "name": "Lansing location",
+        "address": "125 S Pennsylvania Ave Lansing, MI 48912",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "125 S Pennsylvania Ave Lansing, MI  48912"
+      }
+    ],
+    "notes": "SOURCE: facebook 8/18/18",
+    "rawRecord": "       Capoeira Mandinga\n125 S Pennsylvania Ave Lansing, MI  48912\nhttps://www.facebook.com/Lansing-Capoeira-Mandinga-2085153338386864/\n[810] 841-9779\nm.me/2085153338386864\nSOURCE: facebook 8/18/18"
+  },
+  {
+    "name": "Cordao de Ouro",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "CDOWestMichigan@gmail.com",
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "MSU: McDonel Hall",
+        "address": "McDonel Hall [Basement]",
+        "schedule": "Tues & Thurs 6-8pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "MSU: McDonel Hall [Basement]\nTues & Thurs 6-8pm"
+      },
+      {
+        "name": "Oak Park YMCA of Lansing",
+        "address": null,
+        "schedule": "Sat 11:20-12:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Oak Park YMCA of Lansing\nSat 11:20-12:30pm"
+      }
+    ],
+    "notes": "East Lansing, MI. Website and facebook offline, attempting to email 8/18/18. SOURCE: website 2/1/11",
+    "rawRecord": "      Cordao de Ouro\nCDOWestMichigan@gmail.com\n(website and facebook offline, attempting to email 8/18/18)\nMSU: McDonel Hall [Basement]\nTues & Thurs 6-8pm\nOak Park YMCA of Lansing\nSat 11:20-12:30pm\nSOURCE: website 2/1/11"
+  }
+]

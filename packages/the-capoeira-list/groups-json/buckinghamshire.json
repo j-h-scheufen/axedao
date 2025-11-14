@@ -1,0 +1,48 @@
+[
+  {
+    "name": "Capoeira Milton Keynes",
+    "website": "http://capoeiramiltonkeynes.com/",
+    "leader": {
+      "title": null,
+      "nickname": "Andre Azevedo",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Fabienne",
+      "email": null,
+      "phone": "07743 720034"
+    },
+    "sources": ["http://capoeiramiltonkeynes.com/", "https://www.facebook.com/Capoeira-Milton-Keynes-332633196897457/"],
+    "locations": [
+      {
+        "name": "M1 J14 Academy",
+        "address": "Howard Way, Newport Pagnell, Milton Keynes, MK16 9PY",
+        "schedule": "All levels: Mon, Wed & Fri 11.00-12.30pm; Caporeira Conditioning Sat 12-1.15pm; Caporeira Basics Sun 2:00-3.30pm (Please call before coming to a class)",
+        "contactPerson": "Africano \"Ebe Shanash\"",
+        "email": null,
+        "phone": null,
+        "rawText": "M1 J14 Academy\nHoward Way, Newport Pagnell, Milton Keynes, MK16 9PY\nAll levels: Mon,  Wed  & Fri 11.00- 12.30pm\nCaporeira Conditioning  Sat 12 � 1.15pm\nCaporeira Basics  Sun 2:00 3.30pm\n(Please call before coming to a class)"
+      }
+    ],
+    "notes": "Ponto de Areia. Contact: Fabienne, Africano \"Ebe Shanash\". SOURCE: website 11/7/16",
+    "rawRecord": "Capoeira Milton Keynes\nTel : 07743 720034\nhttp://capoeiramiltonkeynes.com/\nhttps://www.facebook.com/Capoeira-Milton-Keynes-332633196897457/\nPonto de Areia  \"Andre Azevedo\"\nFabienne\nAfricano \"Ebe Shanash\"\n      M1 J14 Academy\nHoward Way, Newport Pagnell, Milton Keynes, MK16 9PY\nAll levels: Mon,  Wed  & Fri 11.00- 12.30pm\nCaporeira Conditioning  Sat 12 � 1.15pm\nCaporeira Basics  Sun 2:00 3.30pm\n(Please call before coming to a class)\nSOURCE: website 11/7/16"
+  },
+  {
+    "name": "England School of Capoeira- Grupo Uniao Na Capoeira",
+    "website": "http://www.capoeirauniao.co.uk",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["http://www.capoeirauniao.co.uk"],
+    "locations": [],
+    "notes": "No longer has classes in Milton Keynes 11/7/16",
+    "rawRecord": "England School of Capoeira- Grupo Uniao Na Capoeira.\nhttp://www.capoeirauniao.co.uk\n(No longer has classes in Milton Keynes 11/7/16)"
+  }
+]

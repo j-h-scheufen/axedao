@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Axe Capoeira Comox",
+    "website": "http://www.capoeiracomox.com/index.html",
+    "leader": {
+      "title": "graduada",
+      "nickname": "Alisha",
+      "name": "Alicia Fennell"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "axecomox@hotmail.com",
+      "phone": "250-898-7918"
+    },
+    "sources": ["http://www.capoeiracomox.com/index.html", "http://www.facebook.com/axe.comoxvalley"],
+    "locations": [
+      {
+        "name": null,
+        "address": "129 5th street, Courtenay, British Columbia",
+        "schedule": "See Website for classes for Adults and Children",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "129 5th street, Courtenay, British Columbia\n(See Website for classes for Adults and Children)"
+      }
+    ],
+    "notes": "Under Mestre Barrao [Vancouver]. SOURCE: website 5/2/17",
+    "rawRecord": "Axe Capoeira Comox \n129 5th street, Courtenay, British Columbia\nhttp://www.capoeiracomox.com/index.html\nGraduada Alisha \"Alicia Fennell\" under  Mestre Barrao[Vancouver]\nEmail : axecomox@hotmail.com\nCall or text 250-898-7918\nhttp://www.facebook.com/axe.comoxvalley\n(See Website for classes for Adults and Children)\nSOURCE: website 5/2/17"
+  }
+]

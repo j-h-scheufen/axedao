@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Capoeira Maya",
+    "website": "http://wichitavalor.com/capoeira.html",
+    "leader": null,
+    "mainContact": {
+      "name": "Aluno Formado Marcio Navarro",
+      "email": "contact@wichitavalor.com",
+      "phone": "316-260-6595"
+    },
+    "sources": ["https://www.facebook.com/wichitavalor", "http://wichitavalor.com/schedule.html"],
+    "locations": [
+      {
+        "name": "Valor Martial Arts",
+        "address": "1836 S. Woodlawn Wichita, KS 67218",
+        "schedule": "Adults: Fri 4:30pm; Sat 9:00am",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Valor Martial Arts\n1836 S. Woodlawn Wichita, KS 67218\nhttp://wichitavalor.com/capoeira.html\nhttps://www.facebook.com/wichitavalor\ncontact@wichitavalor.com.\n316-260-6595\nAdults: Fri 4:30pm; Sat 9:00am\nhttp://wichitavalor.com/schedule.html"
+      }
+    ],
+    "notes": "Wichita, Kansas. Aluno Formado Marcio Navarro. SOURCE: email 8/12/15 website 3/30/18",
+    "rawRecord": "      Capoeira Maya\nAluno Formado Marcio Navarro\n      Valor Martial Arts\n1836 S. Woodlawn Wichita, KS 67218\nhttp://wichitavalor.com/capoeira.html\nhttps://www.facebook.com/wichitavalor\ncontact@wichitavalor.com.\n316-260-6595\nAdults: Fri 4:30pm; Sat 9:00am\nhttp://wichitavalor.com/schedule.html\nSOURCE: email  8/12/15 website 3/30/18"
+  }
+]

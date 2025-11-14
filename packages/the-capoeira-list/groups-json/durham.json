@@ -1,0 +1,48 @@
+[
+  {
+    "name": "Grupo Senzela",
+    "website": "http://www.groupsenzala.co.uk/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Tasmania",
+      "name": "Jimi McAvoy"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "jimi@groupsenzala.co.uk",
+      "phone": "+44 [0] 191 5860691"
+    },
+    "sources": ["http://www.groupsenzala.co.uk/"],
+    "locations": [
+      {
+        "name": "Vane Tempest Hall",
+        "address": "Maynard's Row Gilesgate Durham DH1 1QF",
+        "schedule": "Wed 7.30pm-9:00pm; Sun 3.00pm-4.30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Vane Tempest Hall\nMaynard�s Row GilesgateDurhamDH1 1QF\n Wed 7.30pm - 9:00pm;  Sun 3.00pm - 4.30pm"
+      }
+    ],
+    "notes": "Under the guidance of Mestre Gato [Rio de Janeiro]. Professor Caranguejo \"Peter\" (peter@groupsenzala.co.uk), Professor Scuzzi \"Rob\" (rob@groupsenzala.co.uk, 07917440093). SOURCE: website 11/18/16",
+    "rawRecord": "Grupo Senzela\nhttp://www.groupsenzala.co.uk/\nMestre Tasmania  \"Jimi McAvoy\" under the guidance of Mestre Gato[Rio\nde Janeiro]\nEmail : jimi@groupsenzala.co.uk\nTelephone : +44 [0] 191 5860691\nProfessor Caranguejo \"Peter\" \n  Email: peter@groupsenzala.co.uk\nProfessor Scuzzi \"Rob\"\n  Email rob@groupsenzala.co.uk\n  07917440093\n      Vane Tempest Hall\nMaynard�s Row GilesgateDurhamDH1 1QF\n Wed 7.30pm - 9:00pm;  Sun 3.00pm - 4.30pm\nSOURCE: website 11/18/16"
+  },
+  {
+    "name": "Filhos de Bimba",
+    "website": null,
+    "leader": {
+      "title": "professor",
+      "nickname": "Pequeno Mestre",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Has moved to Dorset and is currently only teaching children 10/24/16",
+    "rawRecord": "Filhos de Bimba\nProfessor Pequeno Mestre\n(has moved to Dorset\nand is currently only teaching children 10/24/16)"
+  }
+]

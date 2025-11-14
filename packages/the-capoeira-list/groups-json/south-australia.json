@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Capoeira Kadara Adelaide",
+    "website": null,
+    "leader": {
+      "title": "mestrando",
+      "nickname": "Tata",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": ["https://www.facebook.com/KadaraAdelaide.mestrandotata", "http://www.kadaracapoeira.com/home/"],
+    "locations": [],
+    "notes": "Adelaide, South Australia. Website under construction. Mestrando Tata, under Mestre Cicatriz [Sydney]. Phone: +61 422 087 972. SOURCE: http://www.kadaracapoeira.com/home/ 2/2/17",
+    "rawRecord": "      Capoeira Kadara Adelaide\n(website under construction)\nhttps://www.facebook.com/KadaraAdelaide.mestrandotata\nMestrando Tata, under Mestre Cicatriz[Sydney]\n  +61 422 087 972\nSOURCE: http://www.kadaracapoeira.com/home/\n2/2/17"
+  },
+  {
+    "name": "Soul Capoeira",
+    "website": "http://soulcapoeira.org/",
+    "leader": null,
+    "mainContact": {
+      "name": "Chan Griffin",
+      "email": null,
+      "phone": "0403 301 285"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Soul Capoeira Studio",
+        "address": "Basement 38 Currie St Adelaide City",
+        "schedule": "Mon 6:00-8:00pm; Thurs 6:00-7:30pm; Sat 9:30-10:15am; Roda: last Fri 6:30-7:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Soul Capoeira Studio\nBasement 38 Currie St Adelaide City\nMon 6;00-8:00pm;  Thurs 6:00-7:30pm\nSat 9:30-10:15am ( call tanja for more details: 0403 805 135)\nRoda: last Fri  6:30-7:30pm"
+      }
+    ],
+    "notes": "Adelaide, South Australia. Chan Griffin. Call Tanja for more details: 0403 805 135. SOURCE: website 2/8/17",
+    "rawRecord": "      Soul Capoeira\nhttp://soulcapoeira.org/\nChan Griffin\n     0403 301 285\n      Soul Capoeira Studio\nBasement 38 Currie St Adelaide City\nMon 6;00-8:00pm;  Thurs 6:00-7:30pm\nSat 9:30-10:15am ( call tanja for more details: 0403 805 135)\nRoda: last Fri  6:30-7:30pm\nSOURCE: website 2/8/17"
+  },
+  {
+    "name": "CapuraGinga - Adelaide University",
+    "website": "www.capuraginga.com",
+    "leader": null,
+    "mainContact": {
+      "name": "Javali",
+      "email": "javali@lcapoeira.co.il",
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Adelaide University",
+        "address": "North Terrace, Adelaide, SA 5005 Australia",
+        "schedule": "Fri 12pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Adelaide University\nInstructor: Javali   javali<AT>lcapoeira[DOT]co[DOT]il\nAddress:  North Terrace, Adelaide, SA 5005   Australia\n Class Schedule: Irene Watson Room [Union House Level 5] 12pm\nFri"
+      }
+    ],
+    "notes": "Adelaide, South Australia. Instructor: Javali. Current status of group unknown. SOURCE: www.capuraginga.com unknown date",
+    "rawRecord": "      CapuraGinga\n      Adelaide University\nInstructor: Javali   javali<AT>lcapoeira[DOT]co[DOT]il\nAddress:  North Terrace, Adelaide, SA 5005   Australia\n Class Schedule: Irene Watson Room [Union House Level 5] 12pm\nFri\nSOURCE:  www.capuraginga.com\nunknown date\n(Current status of group unknown)"
+  },
+  {
+    "name": "Capoeira Tasmania",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Tazz / Raiinha do frio (Melanie Molano)",
+      "email": "meltas@gmail.com",
+      "phone": "+61414225200"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Tasmania, Australia. Tazz / Raiinha do frio (Melanie Molano). SOURCE: email 1/2/17",
+    "rawRecord": "      Capoeira Tasmania\nTazz / Raiinha do frio \"Melanie Molano\"\nPh: +61414225200\nemail: meltas@gmail.com\nSOURCE:  email 1/2/17"
+  },
+  {
+    "name": "Escola de Capoeira Nzinga Tasmania [ECANT]",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": ["https://www.facebook.com/capoeiraangolatasmania"],
+    "locations": [],
+    "notes": "Tasmania, Australia. Phone: +61 438 062 888. SOURCE: facebook 12/26/16",
+    "rawRecord": "      Escola de Capoeira Nzinga Tasmania [ECANT]\nhttps://www.facebook.com/capoeiraangolatasmania\n+61 438 062 888\nSOURCE: facebook 12/26/16"
+  },
+  {
+    "name": "Capoeira Brasil - Newton",
+    "website": null,
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Peixe",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Tasmania, Australia. Contra Mestre Peixe. Email address formerly listed not working. Please contact us 12/13/10. Phone: [61 2] 91301326. SOURCE: offline unreliable website",
+    "rawRecord": "      Capoeira Brasil - Newton\nContra Mestre Peixe\n(email address formerly listed not working Please contact us12/13/10)\n[61 2] 91301326\nSOURCE: oflfine unreliable website"
+  }
+]

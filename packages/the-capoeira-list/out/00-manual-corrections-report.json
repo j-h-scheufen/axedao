@@ -1,0 +1,204 @@
+{
+  "totalFixed": 30,
+  "totalDeleted": 3,
+  "filesModified": 6,
+  "appliedCorrections": [
+    {
+      "file": "citydata-batch-3.json",
+      "originalName": "Com Expressao-Capoeira Mandinga",
+      "correctedName": "Com Expressao",
+      "fixedFields": ["name", "leader"]
+    },
+    {
+      "file": "citydata-batch-3.json",
+      "originalName": "Syracuse Capoeira Club",
+      "correctedName": "Syracuse Capoeira Club - Capoeira Cordão de Ouro",
+      "fixedFields": ["name"]
+    },
+    {
+      "file": "orange-country.json",
+      "originalName": "San Diego County",
+      "correctedName": "Capoeira Brasil San Diego",
+      "fixedFields": ["name", "leader"]
+    },
+    {
+      "file": "orange-country.json",
+      "originalName": "San Luis Obispo",
+      "correctedName": "Cordao de Ouro",
+      "fixedFields": ["name", "leader"]
+    },
+    {
+      "file": "orange-country.json",
+      "originalName": "Santa Barbara County",
+      "correctedName": "The Brazilian Cultural Arts Center of Santa Barbara",
+      "fixedFields": ["name"]
+    },
+    {
+      "file": "orange-country.json",
+      "originalName": "Santa Cruz County",
+      "correctedName": "Raizes do Brasil",
+      "fixedFields": ["name", "leader"]
+    },
+    {
+      "file": "orange-country.json",
+      "originalName": "Solano County",
+      "correctedName": "Cordao De Ouro",
+      "fixedFields": ["name", "leader"]
+    },
+    {
+      "file": "orange-country.json",
+      "originalName": "Sonoma County",
+      "correctedName": "Capoeira Azania Petaluma",
+      "fixedFields": ["name", "leader"]
+    },
+    {
+      "file": "pueblo.json",
+      "originalName": "Motumbaxe Capoeira CT",
+      "correctedName": "Motumbaxé Capoeira",
+      "fixedFields": ["name"]
+    },
+    {
+      "file": "roanoke.json",
+      "originalName": "Burlington, Capoeira Angola",
+      "correctedName": "Capoeira Angola",
+      "fixedFields": ["name"]
+    },
+    {
+      "file": "statesville.json",
+      "originalName": "Hackensack,  Edgewater, Paramus Bergenfield",
+      "correctedName": "Cultural Association of Brazilian Arts [CAOBA]",
+      "fixedFields": ["name", "leader"]
+    },
+    {
+      "file": "statesville.json",
+      "originalName": "Oficina da Capoeira",
+      "correctedName": "Oficina da Capoeira",
+      "fixedFields": ["name", "leader"]
+    },
+    {
+      "file": "statesville.json",
+      "originalName": "Grupo Un��o Capoeira",
+      "correctedName": "Grupo União Capoeira",
+      "fixedFields": ["name", "leader"]
+    },
+    {
+      "file": "statesville.json",
+      "originalName": "Bloomfield, Newark",
+      "correctedName": "Afro Brazilian Cultural Center of New Jersey",
+      "fixedFields": ["name", "leader"]
+    },
+    {
+      "file": "statesville.json",
+      "originalName": "Centro Cultural Senzala de Capoeira",
+      "correctedName": "Centro Cultural Senzala de Capoeira",
+      "fixedFields": ["name"]
+    },
+    {
+      "file": "statesville.json",
+      "originalName": "Grupo Ginga",
+      "correctedName": "Grupo Ginga",
+      "fixedFields": ["name"]
+    },
+    {
+      "file": "statesville.json",
+      "originalName": "Long Branch",
+      "correctedName": "Rising Sun Capoeira",
+      "fixedFields": ["name", "leader"]
+    },
+    {
+      "file": "statesville.json",
+      "originalName": "Pitman",
+      "correctedName": "Gloucester County Karate",
+      "fixedFields": ["name"]
+    },
+    {
+      "file": "statesville.json",
+      "originalName": "Princeton",
+      "correctedName": "Centro Cultural Senzala de Capoeira",
+      "fixedFields": ["name"]
+    },
+    {
+      "file": "statesville.json",
+      "originalName": "Capuraginga",
+      "correctedName": "Capoeira Angola",
+      "fixedFields": ["name", "notes"]
+    },
+    {
+      "file": "statesville.json",
+      "originalName": "Grupo Liberdade de Capoeira",
+      "correctedName": "Grupo Liberdade de Capoeira",
+      "fixedFields": ["name"]
+    },
+    {
+      "file": "statesville.json",
+      "originalName": "Albuquerque",
+      "correctedName": "Martial Art & Capoeira Center",
+      "fixedFields": ["name"]
+    },
+    {
+      "file": "statesville.json",
+      "originalName": "Capoeira Mandinga Henderson",
+      "correctedName": "Capoeira Mandinga Henderson",
+      "fixedFields": ["name"]
+    },
+    {
+      "file": "statesville.json",
+      "originalName": "Motumbax� Capoeira",
+      "correctedName": "Motumbaxé Capoeira",
+      "fixedFields": ["name"]
+    },
+    {
+      "file": "statesville.json",
+      "originalName": "Centro Cultural Senzala de Capoeira",
+      "correctedName": "Centro Cultural Senzala de Capoeira",
+      "fixedFields": ["name"]
+    },
+    {
+      "file": "statesville.json",
+      "originalName": "Grupo Ginga",
+      "correctedName": "Grupo Ginga",
+      "fixedFields": ["name"]
+    },
+    {
+      "file": "statesville.json",
+      "originalName": "(website offline 5/7/19)",
+      "correctedName": "Grupo Maculele Capoeira",
+      "fixedFields": ["name", "notes"]
+    },
+    {
+      "file": "statesville.json",
+      "originalName": "Com Expressao",
+      "correctedName": "Com Expressao",
+      "fixedFields": ["name", "leader"]
+    },
+    {
+      "file": "statesville.json",
+      "originalName": "Syracuse Capoeira Club - Capoeira Cord�o de Ouro",
+      "correctedName": "Syracuse Capoeira Club - Capoeira Cordão de Ouro",
+      "fixedFields": ["name"]
+    },
+    {
+      "file": "tooele.json",
+      "originalName": "Motumbaxé Capoeira",
+      "correctedName": "Motumbaxé Capoeira",
+      "fixedFields": ["name"]
+    }
+  ],
+  "deletedEntries": [
+    {
+      "file": "orange-country.json",
+      "name": "( Capoeira instructor Colin Maher.)",
+      "reason": "Note about an instructor, not a group"
+    },
+    {
+      "file": "statesville.json",
+      "name": "(Boca do Mundo is currently teaching in",
+      "reason": "Incomplete note, not a group"
+    },
+    {
+      "file": "statesville.json",
+      "name": "(Isabela Coelho is now permanently in Bahia, Brazil)",
+      "reason": "Note about instructor relocation, not a group"
+    }
+  ]
+}

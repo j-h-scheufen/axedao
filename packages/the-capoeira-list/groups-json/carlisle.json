@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Capoeira Mandinga - Dickinson College Portuguese Club",
+    "website": null,
+    "leader": {
+      "title": "professor",
+      "nickname": "Ligeirinho",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["www.dickinson.edu"],
+    "locations": [
+      {
+        "name": "Dickinson College - Allison Community Room",
+        "address": "Dickinson College, Carlisle",
+        "schedule": "Wed 8:00-9:30pm; Sun 2:00-3:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Dickinson College\nPortuguese Club Capoeira \nAllison Community Room\nWed  8:00- 9:30pm: Sun 2:00-3:30pm"
+      }
+    ],
+    "notes": "Under the supervision of Mestre Marcelo [Oakland]. SOURCE: www.dickinson.edu 5/22/19",
+    "rawRecord": "Capoeira Mandinga\nProfessor Ligeirinho under the supervision of Mestre Marcelo[Oakland]\nDickinson College\nPortuguese Club Capoeira \nAllison Community Room\nWed  8:00- 9:30pm: Sun 2:00-3:30pm\nSOURCE: www.dickinson.edu  5/22/19"
+  }
+]

@@ -1,0 +1,75 @@
+[
+  {
+    "name": "Cordao de Ouro Alaska",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": [
+      "https://www.facebook.com/CordaoDeOuroAlaska?fref=ts",
+      "https://www.facebook.com/groups/412847258733958"
+    ],
+    "locations": [
+      {
+        "name": "U-Park Gym",
+        "address": null,
+        "schedule": "Mon 6:45-8:30pm Fri 6:45-8:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "U-Park Gym\nMon 6:45-8:30pm Fri 6:45-8:30pm"
+      }
+    ],
+    "notes": "SOURCE: facebook 8/11/15",
+    "rawRecord": "Cordao de Ouro Alaska\nhttps://www.facebook.com/CordaoDeOuroAlaska?fref=ts\nhttps://www.facebook.com/groups/412847258733958\n      U-Park Gym\nMon 6:45-8:30pm Fri 6:45-8:30pm\nSOURCE: facebook 8/11/15"
+  },
+  {
+    "name": "ABADA Capoeira",
+    "website": "http://abadacapoeiraalaska.blogspot.com/",
+    "leader": {
+      "title": null,
+      "nickname": "Coco",
+      "name": "Marcelo Fagundes"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "abada.alaska@gmail.com",
+      "phone": "[907]388-0122 & [907]347-5262"
+    },
+    "sources": [
+      "http://abadacapoeiraalaska.blogspot.com/",
+      "http://www.uafsunstar.com/?p=2339",
+      "http://www.uaf.edu/woodcenter/leadership/organizations/active/index.xml?id=38",
+      "http://www.myspace.com/fairbankscapoeira"
+    ],
+    "locations": [
+      {
+        "name": "University of Alaska - Great Hall / Student Recreation Center",
+        "address": "Student Recreation Center - 2nd floor",
+        "schedule": "Meeting times vary by sources",
+        "contactPerson": null,
+        "email": "ssalazar2@alaska.edu",
+        "phone": null,
+        "rawText": "University of Alaska\nGreat Hall\nStudent Recreation Center- 2nd floor\n(Meeting times vary by sources)"
+      },
+      {
+        "name": "Infinit8yoga",
+        "address": "Artisan's Courtyard 1755 Westwood Way, Studio #3",
+        "schedule": "Tues & Thurs 8:00-9:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Infinit8yoga\nArtisan's Courtyard 1755 Westwood Way,  Studio #3.\nTues & Thurs 8:00- 9:30pm"
+      }
+    ],
+    "notes": "Instructor Coco \"Marcelo Fagundes\". SOURCES: blog websites 3/4/11",
+    "rawRecord": "ABADA Capoeira\nhttp://abadacapoeiraalaska.blogspot.com/\nhttp://www.uafsunstar.com/?p=2339 \n12/7/10\nhttp://www.uaf.edu/woodcenter/leadership/organizations/active/index.xml?id=38\nhttp://www.myspace.com/fairbankscapoeira\nInstructor Coco \"Marcelo Fagundes\"\n[907]388-0122 & [907]347-5262.\nabada.alaska@gmail.com\nssalazar2@alaska.edu\n      University of Alaska\nGreat Hall\nStudent Recreation Center- 2nd floor\n(Meeting times vary by sources)\n      Infinit8yoga\nArtisan's Courtyard 1755 Westwood Way,  Studio #3.\nTues & Thurs 8:00- 9:30pm\nSOURCES blog websites  3/4/11"
+  }
+]

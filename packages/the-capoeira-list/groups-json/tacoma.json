@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Tacoma Capoeira Angola Palmares",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Omari Jarmon",
+      "email": "tacomacapoeira@gmail.com",
+      "phone": "[253] 880-4896"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "The People's Center",
+        "address": "1602 Martin Luther King, Way Tacoma, WA 98405",
+        "schedule": "Sat 12:00pm-1:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "The People�s Center\n1602 Martin Luther King, Way Tacoma, WA 98405\nSat  12:00pm - 1:00pm"
+      }
+    ],
+    "notes": "Tacoma, Washington. Contact: Omari Jarmon. This group no longer appears to be active. We are sending email 4/23/16. SOURCE: website 5/24/13",
+    "rawRecord": "      Tacoma Capoeira Angola Palmares\n(This group no longer appears to be active  We are sending email4/23/16)\nContact: Omari Jarmon\n  tacomacapoeira@gmail.com\n  [253] 880-4896\n      The People�s Center\n1602 Martin Luther King, Way Tacoma, WA 98405\nSat  12:00pm - 1:00pm\nSOURCE: website 5/24/13"
+  }
+]

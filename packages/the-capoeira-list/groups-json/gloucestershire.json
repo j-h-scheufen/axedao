@@ -1,0 +1,69 @@
+[
+  {
+    "name": "Oficina Da Capoeira England",
+    "website": "http://www.odacapoeira.com/",
+    "leader": {
+      "title": "mestrando",
+      "nickname": "Primo",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "odacapoeira@hotmail.com",
+      "phone": "07521 077099"
+    },
+    "sources": [
+      "http://www.odacapoeira.com/",
+      "https://www.facebook.com/pages/Oficina-da-Capoeira-England/125506694130741"
+    ],
+    "locations": [
+      {
+        "name": "Gas Green Youth Community Center",
+        "address": "6 Baker Street Cheltenham Glos GL51 9HE",
+        "schedule": "Mon 7:00 to 8:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Gas Green Youth Community Center\n6 Baker Street Cheltenham Glos GL51 9HE\nMon 7:00 to 8:30pm"
+      },
+      {
+        "name": "Trojan Combat Center",
+        "address": "23o Lansdown trading state, GL51 8PL",
+        "schedule": "Wed 8:00-9:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Trojan Combat Center\n23o Lansdown trading state, GL51 8PL\nWed 8:00-9:30pm"
+      },
+      {
+        "name": "Unit 16 The Brewery",
+        "address": "Henrietta Street, Cheltenham GL50 4AF",
+        "schedule": "Sat 12:00-13:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Unit 16 The Brewery\nHenrietta Street, Cheltenham GL50 4AF\nSat12:00 -13:00pm"
+      },
+      {
+        "name": "Stroud Youth Centre",
+        "address": "Ryeleaze Road, Stroud GL5 1JR",
+        "schedule": "Kids class: Mon 4:00 to 4:45pm, Tues: 7:00to 8:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Stroud Youth Centre\nRyeleaze Road, Stroud GL5 1JR\nKids class:  Mon 4:00 to 4:45pm,\n Tues: 7:00to 8:30pm"
+      },
+      {
+        "name": "Urban Kickboxing Gym",
+        "address": "Unit 2E, All Saints Road, Gloucester, GL1 4EE",
+        "schedule": "Thurs 7:00 to 8:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Urban Kickboxing Gym,\nUnit 2E, All Saints Road, Gloucester, GL1 4EE\nThurs 7:00 to 8:30pm"
+      }
+    ],
+    "notes": "Gloucester, Cheltenham, Stroud. SOURCE: website 11/7/16",
+    "rawRecord": "Oficina Da Capoeira England\nhttp://www.odacapoeira.com/\nMestrando Primo\n  07521 077099\n  odacapoeira@hotmail.com\nhttps://www.facebook.com/pages/Oficina-da-Capoeira-England/125506694130741\n      Gas Green Youth Community Center\n6 Baker Street Cheltenham Glos GL51 9HE\nMon 7:00 to 8:30pm\n      Trojan Combat Center\n23o Lansdown trading state, GL51 8PL\nWed 8:00-9:30pm\n       Unit 16 The Brewery\nHenrietta Street, Cheltenham GL50 4AF\nSat12:00 -13:00pm\n      Stroud Youth Centre\nRyeleaze Road, Stroud GL5 1JR\nKids class:  Mon 4:00 to 4:45pm,\n Tues: 7:00to 8:30pm\n      Urban Kickboxing Gym,\nUnit 2E, All Saints Road, Gloucester, GL1 4EE\nThurs 7:00 to 8:30pm\nSOURCE: website 11/7/16"
+  }
+]

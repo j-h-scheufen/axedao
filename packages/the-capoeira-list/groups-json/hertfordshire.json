@@ -1,0 +1,213 @@
+[
+  {
+    "name": "Group Senzala",
+    "website": "http://senzala-london.co.uk",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Sanhaco",
+      "name": "Julio Cesar Alves de Oliveira"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "07834 553975"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Fitness First, Unit 17",
+        "address": "Christopher Place Shopping Centre, St. Albans, AL3 5DQ",
+        "schedule": "Wed 8.00-9.15pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Fitness First, Unit 17\nChristopher Place Shopping Centre, St. Albans, AL3 5DQ\nWed 8.00-9.15pm"
+      },
+      {
+        "name": "Hatfield University - Sports Hall 2",
+        "address": "de Havilland Campus, Hatfield, AL10 9EU",
+        "schedule": "Mon 9.00-10.30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Hatfield University\nSports Hall 2, de Havilland Campus, Hatfield, AL10 9EU\nMon 9.00-10.30pm"
+      },
+      {
+        "name": "Hutton Hall",
+        "address": "College Lane, Hatfield, AL10 9AB",
+        "schedule": "Wed 6.00-7.30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Hutton Hall, College Lane, Hatfield, AL10 9AB\nWed 6.00-7.30pm"
+      }
+    ],
+    "notes": "A student of Mestre Peixinho. Time not on current website as of 10/26/16. SOURCE: website 11/6/09, 10/26/16",
+    "rawRecord": " ___________________________________________________________________\n      Group Senzala\nContra mestre Sanhaco\"Julio Cesar Alves de Oliveira\"  a \nstudent of Mestre Peixinho\nhttp://senzala-london.co.uk\n  Tel: 07834 553975\n       Fitness First, Unit 17\nChristopher Place Shopping Centre, St. Albans, AL3 5DQ\nWed 8.00-9.15pm (time not on the current website 10/26/16)\n      Hatfield University\nSports Hall 2, de Havilland Campus, Hatfield, AL10 9EU\nMon 9.00-10.30pm\nHutton Hall, College Lane, Hatfield, AL10 9AB\nWed 6.00-7.30pm\nSOURCE: website11/6/09 10/26/16"
+  },
+  {
+    "name": "Capoeira Uniao",
+    "website": "http://www.capoeirauniao.co.uk",
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "info@capoeirauniao.co.uk",
+      "phone": "07946 601221"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Active4less Fitness club & gym",
+        "address": "North Road, Stevenage SG1 4BB",
+        "schedule": "All levels, adults and children: Sat 10:30-11:30",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Active4less Fitness club & gym\nNorth Road, Stevenage SG1 4BB\nAll levels, adults and children:  Sat 10:30 – 11:30"
+      }
+    ],
+    "notes": "Hertfordshire. SOURCE: website 10/25/16",
+    "rawRecord": "      Capoeira Uniao\nhttp://www.capoeirauniao.co.uk\n07946 601221\ninfo@capoeirauniao.co.uk\n      Active4less Fitness club & gym\nNorth Road, Stevenage SG1 4BB\nAll levels, adults and children:  Sat 10:30 – 11:30\nSOURCE: website 10/25/16"
+  },
+  {
+    "name": "Ngoma Capoeira Angola, Inverness",
+    "website": "http://www.facebook.com/groups/146825575858/",
+    "leader": null,
+    "mainContact": {
+      "name": "Fraser Macdonald",
+      "email": null,
+      "phone": "+44 779688663"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Studio 2, Eden Court",
+        "address": "5 Bishops Road Inverness",
+        "schedule": "Sun 5:00-7:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Studio 2, Eden Court\n5 Bishops Road Inverness\nSun, 5:00-7:00pm"
+      }
+    ],
+    "notes": "Inverness. Formerly Highland Capoeira Association - Maonochao Capoeira. SOURCE: facebook 9/29/19",
+    "rawRecord": "      Ngoma Capoeira Angola, Inverness(\nFormerly Highland Capoeira Associationv - Maonochao Capoeira)\nhttp://www.facebook.com/groups/146825575858/\nFraser Macdonald\nCall +44 779688663       Studio 2, Eden Court\n5 Bishops Road Inverness\nSun, 5:00-7:00pm\nSOURCE:  facebook 9/29/19"
+  },
+  {
+    "name": "Capoeira Muzenza",
+    "website": "http://www.capoeiramuzenza.co.uk/",
+    "leader": {
+      "title": "professor",
+      "nickname": "Madeira",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "madeira.muzenza@gmail.com",
+      "phone": "078504033l"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Prince of Wales Club",
+        "address": "23a Military Road, Canterbury, CT1 1YX",
+        "schedule": "Adults: Tues 19.00hr; Children Only: Tues 16.30hr",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Prince of Wales Club\n23a Military Road, Canterbury, CT1 1YX\n Adults: Tues   19.00hr\nChildren Only: Tues   16.30hr"
+      },
+      {
+        "name": "University of Kent",
+        "address": "Bradley Room, Elliot Building, Canterbury CT2 7NL",
+        "schedule": "Adults - Tues 21.00hr",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "University of Kent\nBradley Room, Elliot Building, Canterbury CT2 7NL\n Adults -  Tues 21.00hr"
+      },
+      {
+        "name": "Freedom Fitness Gym",
+        "address": "Mill Meadow, St Peter's St., Maidstone. ME16 0SX",
+        "schedule": "Adults Thurs 21.05hr",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Freedom Fitness Gym\nMill Meadow, St Peter's St.,Maidstone. ME16 0SX\nAdults  Thurs 21.05hr"
+      },
+      {
+        "name": "W.I. Willesborough Hall",
+        "address": "100 Church Rd, Ashford TN24 0JG",
+        "schedule": "Children Only: Tues 15.30hr",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "W.I. Willesborough Hall\n100 Church Rd, Ashford TN24 0JG\nChildren Only:  Tues 15.30hr"
+      }
+    ],
+    "notes": "Kent. SOURCE: website 1/22/20",
+    "rawRecord": "      Capoeira Muzenza\nhttp://www.capoeiramuzenza.co.uk/\nProfessor   Madeira\n  Email: madeira.muzenza@gmail.com\n  Tel. 078504033l\n  \n        Prince of Wales Club\n23a Military Road, Canterbury, CT1 1YX\n Adults: Tues   19.00hr\nChildren Only: Tues   16.30hr\n      University of Kent\nBradley Room, Elliot Building, Canterbury CT2 7NL\n Adults -  Tues 21.00hr \n        Freedom Fitness Gym\nMill Meadow, St Peter's St.,Maidstone. ME16 0SX\nAdults  Thurs 21.05hr\n        W.I. Willesborough Hall\n100 Church Rd, Ashford TN24 0JG\nChildren Only:  Tues 15.30hr\nSOURCE: website 1/22/20"
+  },
+  {
+    "name": "Association of Capoeira Engenho da Rainha",
+    "website": "http://www.capoeirakids.co.uk/",
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Kent. Kent page is blank as of 1/22/20",
+    "rawRecord": "      Association of Capoeira Engenho da Rainha \nhttp://www.capoeirakids.co.uk/ \n(Kent page is blank 1/22/2)(0)"
+  },
+  {
+    "name": "Lancaster informal practice group",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "mat_weldon@yahoo.co.uk",
+      "phone": null
+    },
+    "sources": ["www.capoeira.com"],
+    "locations": [],
+    "notes": "Lancaster. Informal capoeira practice group started Mon Sep 12 2005. Meets once a week on Fridays. Plans workshops with visiting instructors, trips to events etc. A way for capoeiristas in the area to keep in touch and practice in the absence of an instructor. SOURCE: www.capoeira.com. We have not heard anything from them since, and we are unable to find any other capoeira in Lancaster. We have sent email 11/12/16",
+    "rawRecord": "\"Mon Sep 12 2005, 08:38\nThis is just to let you know that I have started an informal capoeira\npractice group in Lancaster [lancs. england, UK].\nThe group meets once a week on Fridays. We also plan workshops with\nvisiting instructors, trips to events etc. Its basically a way for capoeiristas\nin the area to keep in touch and practice in the absence of an instructor.\nIf you're interested get in touch.\nmat[underscore]weldon[at]yahoo[dot]co[dot]uk\"\nSOURCE: www.capoeira.com\n(We have not heard anything from them since, and we are unable to\nfind any other capoeira in Lancaster. We have sent email 11/12/16)"
+  },
+  {
+    "name": "Capoeira Natural Do Brasil",
+    "website": "http://bcac.com.gridhosted.co.uk/",
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Leicestershire. No classes in Leicestershire as of 11/16/16",
+    "rawRecord": "      Capoeira Natural Do Brasil\nhttp://bcac.com.gridhosted.co.uk/\n(No classes in Leicestershire  11/16/16)"
+  },
+  {
+    "name": "Capoeira Senzala Leicester",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Leicestershire. No Capoeira on website as of 11/16/16",
+    "rawRecord": "      Capoeira Senzala Leicester\n(No Capoeira on website  11/16/16)"
+  },
+  {
+    "name": "Grupo Candeias",
+    "website": null,
+    "leader": {
+      "title": "mestre",
+      "nickname": "Piau",
+      "name": "Jose Carlos de Oliveira"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "mestrepiau@gmail.com",
+      "phone": "+353 [0]87 6238525"
+    },
+    "sources": ["https://candeiasdublin.wordpress.com/contact/"],
+    "locations": [],
+    "notes": "Limrick. Alternate email: mestrepiau@hotmail.com, Phone: 087 623 8525. SOURCE: website 8/21/14 (website now offline 1/1/20), https://candeiasdublin.wordpress.com/contact/ 12/31/19",
+    "rawRecord": "      Grupo Candeias\n Mestre Piau\n    +353 [0]87 6238525\n     mestrepiau@hotmail.com\nSOURCE: https://candeiasdublin.wordpress.com/contact/ 12/31/19 \n\nMestre Piau  \"Jose Carlos de Oliveira\"\n  email : mestrepiau@gmail.com\n  Phone : 087 623 8525\nSOURCE: website 8/21/14 ( website now offline 1/1/20)"
+  }
+]

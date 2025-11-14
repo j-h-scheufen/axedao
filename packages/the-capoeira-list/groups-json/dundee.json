@@ -1,0 +1,85 @@
+[
+  {
+    "name": "Mao no Chao Capoeira Angola",
+    "website": "https://maonochao.wordpress.com/",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": "Stephen",
+      "email": "maonochao.edinburgh@googlemail.com",
+      "phone": "07807 693298"
+    },
+    "sources": ["https://maonochao.wordpress.com/"],
+    "locations": [
+      {
+        "name": "Showcase The Street",
+        "address": "42 Brown St Dundee, Dundee City DD1 5EF",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Showcase The Street\n42 Brown St  Dundee, Dundee City DD1 5EF"
+      }
+    ],
+    "notes": "Associated with Mestre Marrom e Alunos [Rio de Janiero]. No longer appears to have classes in Dundee 12/30/19. SOURCE: website 6/20/13",
+    "rawRecord": "Mao no Chao Capoeira Angola  \nhttps://maonochao.wordpress.com/ associated with Mestre Marrom e Alunos[Rio de Janiero]\nmaonochao.edinburgh@googlemail.com\nContact Stephen\n   mobile: 07807 693298\n      Showcase The Street\n42 Brown St  Dundee, Dundee City DD1 5EF\n (No longer appears to have classes in Dundee 12/30/19)SOURCE: website 6/20/13"
+  },
+  {
+    "name": "Capoeira Senzala Scotland",
+    "website": "http://www.senzala.co.uk/",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["http://www.senzala.co.uk/"],
+    "locations": [
+      {
+        "name": "The Bridge",
+        "address": "Perth Rd, Dundee [opp. the Art College]",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "The Bridge\nPerth Rd, Dundee [opp. the Art College]"
+      },
+      {
+        "name": "Dundee University Union, Carnegie Suite",
+        "address": "Dundee University Union, Carnegie Suite",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Dundee University Union, Carnegie Suite"
+      }
+    ],
+    "notes": "No longer appears to have classes in Dundee (12/28/19). SOURCE: website 2/16/12",
+    "rawRecord": "Capoeira Senzala Scotland\nhttp://www.senzala.co.uk/ (no longer appears to have classes in Dundee) (12/28/1)9      \nThe Bridge\nPerth Rd, Dundee [opp. the Art College]\n      Dundee University Union, Carnegie Suite\nSOURCE: website 2/16/12"
+  },
+  {
+    "name": "Capoeira Angola Dundee",
+    "website": "http://www.facebook.com/groups/4569469462/",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["http://www.facebook.com/groups/4569469462/"],
+    "locations": [],
+    "notes": "Last post was August 16, 2010. SOURCE: facebook 12/30/19",
+    "rawRecord": "Capoeira Angola Dundee\nhttp://www.facebook.com/groups/4569469462/\nlast post was August 16, 2010 SOURCE: facebook 12/30/19"
+  }
+]
