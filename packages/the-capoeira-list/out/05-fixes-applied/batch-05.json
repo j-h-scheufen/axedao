@@ -37,7 +37,7 @@
           "properties": {
             "address": "32807, Orlando, FL",
             "displayName": "Orlando, Orange County, Florida, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [28.3480634, 28.614283, -81.5075377, -81.1241435]
           }
         }
@@ -113,7 +113,7 @@
           "properties": {
             "address": "7075 Kingspointe Parkway, Orlando, FL 32819",
             "displayName": "7075, Kingspointe Parkway, Florida Center, Orlando, Orange County, Florida, 32819, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [28.4616196, 28.4617196, -81.4368424, -81.4367424]
           }
         }
@@ -178,7 +178,7 @@
           "properties": {
             "address": "829 Woodbury Rd Orlando, FL 32828",
             "displayName": "Mid Florida Dermatology Associates, 829, Woodbury Road, Waterford Lakes, Orlando, Orange County, Florida, 32828, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [28.5475201, 28.5476201, -81.1940577, -81.1939577]
           }
         },
@@ -256,7 +256,7 @@
           "properties": {
             "address": "106 Commerce Rd., Boynton Beach FL 33426",
             "displayName": "106, Commerce Road, Boynton Beach, Palm Beach County, Florida, 33426, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [26.5588334, 26.5589334, -80.0715413, -80.0714413]
           }
         },
@@ -284,7 +284,7 @@
           "properties": {
             "address": "4185 W. New Haven Ave Melbourne, FL 32904",
             "displayName": "New Haven Avenue, Melbourne, Brevard County, Florida, 32904, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [28.0789676, 28.07897, -80.6535477, -80.6528014]
           }
         },
@@ -355,7 +355,7 @@
           "properties": {
             "address": "4672 McIntosh Lane Sarasota, FL 34232",
             "displayName": "4672, McIntosh Lane, Sarasota County, Florida, 34232, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [27.299396, 27.299496, -82.4752298, -82.4751298]
           }
         },
@@ -434,7 +434,7 @@
           "properties": {
             "address": "2033 54th Ave N, St. Petersburg, FL",
             "displayName": "54th Avenue North, Bay Breeze Cove, Saint Petersburg, Pinellas County, Florida, 33703, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [27.821169, 27.821338, -82.6401515, -82.6393724]
           }
         },
@@ -506,7 +506,7 @@
           "properties": {
             "address": "2706 N Monroe St, Tallahassee, FL 32303",
             "displayName": "2706, North Monroe Street, Tallahassee, Leon County, Florida, 32303, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [30.4786695, 30.4787695, -84.3006158, -84.3005158]
           }
         }
@@ -579,7 +579,7 @@
           "properties": {
             "address": "54 Brunswick, Pointe-Claire, QC H9B 2L3, Canada",
             "displayName": "Boulevard Brunswick, Pointe-Claire, Agglomération de Montréal, Montréal (région administrative), Québec, H9B 2L3, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [45.4821405, 45.4822265, -73.7980832, -73.7979089]
           }
         },
@@ -650,7 +650,7 @@
           "properties": {
             "address": "155 Brackett St Portland, Maine, ME 04102",
             "displayName": "Fresh Approach Market, 155, Brackett Street, West End, Portland, Cumberland County, Maine, 04102, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [43.6506697, 43.6509543, -70.2664755, -70.266133]
           }
         },
@@ -678,7 +678,7 @@
           "properties": {
             "address": "40 Main Street, Pepperell Mill, Biddeford, Maine 04005",
             "displayName": "40, Main Street, Pepperell Mill Campus, Biddeford, York County, Maine, 04005, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [43.4928334, 43.4929334, -70.4531085, -70.4530085]
           }
         },
@@ -756,7 +756,7 @@
           "properties": {
             "address": "3768 Main Street, Bridgeport, Connecticut 06606",
             "displayName": "Hancock Pharmacy III, 3768, Main Street, Bridgeport, Greater Bridgeport Planning Region, Connecticut, 06606, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [41.2124703, 41.2125703, -73.2105232, -73.2104232]
           }
         },
@@ -827,7 +827,7 @@
           "properties": {
             "address": "9 Tolles St West Hartford, CT 06110",
             "displayName": "9, Tolles Street, Elmwood, West Hartford, Capitol Planning Region, Connecticut, 06110, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [41.7361098, 41.7362098, -72.7185287, -72.7184287]
           }
         },
@@ -904,7 +904,7 @@
           "properties": {
             "address": "76 Nevins Street, Brooklyn, NY 11217",
             "displayName": "76, Nevins Street, Boerum Hill, Brooklyn, Kings County, City of New York, New York, 11217, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.6864297, 40.6865828, -73.982767, -73.9824835]
           }
         }
@@ -981,7 +981,7 @@
           "properties": {
             "address": "25 Main St. Kent, Ct 06757",
             "displayName": "25, South Main Street, Kent, Northwest Hills Planning Region, Connecticut, 06757, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [41.7226869, 41.7227869, -73.4782744, -73.4781744]
           }
         },
@@ -1054,7 +1054,7 @@
           "properties": {
             "address": "6322 University Ave, Cedar Falls, IA 50613",
             "displayName": "West Music, 6322, University Avenue, Cedar Falls, Black Hawk County, Iowa, 50613, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.5148377, 42.5152255, -92.4342076, -92.4339595]
           }
         },
@@ -1129,7 +1129,7 @@
           "properties": {
             "address": "6111 River Road, Richmond, BC V7C 0A2",
             "displayName": "Richmond Olympic Oval, 6111, River Road, Oval Village, City Centre, Richmond, Metro Vancouver Regional District, British Columbia, V7C, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [49.1740674, 49.175336, -123.15314, -123.1501928]
           }
         },
@@ -1200,7 +1200,7 @@
           "properties": {
             "address": "1154 S Roselle Rd, Schaumburg, IL 60193",
             "displayName": "1154, South Roselle Road, Schaumburg, Schaumburg Township, Cook County, Illinois, 60193, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.0063786, 42.0064786, -88.0802273, -88.0801273]
           }
         },
@@ -1273,7 +1273,7 @@
           "properties": {
             "address": "Beaufort, SC 29906",
             "displayName": "Beaufort County, South Carolina, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [32.07689, 32.704321, -81.016234, -80.3448069]
           }
         }
@@ -1344,7 +1344,7 @@
           "properties": {
             "address": "1069 St Clair Ave West, Toronto, Ontario, M6E 1A6, Canada",
             "displayName": "1069, St. Clair Avenue West, Corso Italia-Davenport, Davenport, Toronto, Golden Horseshoe, Ontario, M6E 1A3, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [43.6786181, 43.6787181, -79.4392791, -79.4391791]
           }
         }
@@ -1409,7 +1409,7 @@
           "properties": {
             "address": "2065 Midland Ave., Scarborough, ON M1P 4P8",
             "displayName": "2065, Midland Avenue, Dorset Park, Scarborough Centre, Scarborough, Toronto, Golden Horseshoe, Ontario, M1P 2X3, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [43.769919, 43.770517, -79.271559, -79.270133]
           }
         },
@@ -1437,7 +1437,7 @@
           "properties": {
             "address": "399 Four Valley Drive, Vaughan, ON.",
             "displayName": "399, Four Valley Drive, Vaughan, York Region, Golden Horseshoe, Ontario, L4K 4Z7, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [43.8199873, 43.8209353, -79.5363164, -79.5351416]
           }
         },
@@ -1508,7 +1508,7 @@
           "properties": {
             "address": "374 Dupont St.",
             "displayName": "374, Dupont Street, Annex, University—Rosedale, Toronto, Golden Horseshoe, Ontario, M5R 1V9, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [43.674259, 43.6746194, -79.4107294, -79.4103342]
           }
         },
@@ -1575,7 +1575,7 @@
           "properties": {
             "address": "288 Bridgeland Avenue, M6A 1Z4, Toronto, ON",
             "displayName": "Bridgeland Avenue, Yorkdale-Glen Park, Eglinton—Lawrence, North York, Toronto, Golden Horseshoe, Ontario, M3K 1E4, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [43.7269067, 43.7270672, -79.4592586, -79.458437]
           }
         },
@@ -1646,7 +1646,7 @@
           "properties": {
             "address": "341 East Broadway, Vancouver BC V5T 1W5",
             "displayName": "Capoeira Aché Brasil Academy, 341, East Broadway, Mount Pleasant, Vancouver, Metro Vancouver Regional District, British Columbia, V5T, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [49.2629159, 49.2630159, -123.097891, -123.097791]
           }
         },
@@ -1724,7 +1724,7 @@
           "properties": {
             "address": "1739 Venables st, Vancouver, BC, v5L 2H3",
             "displayName": "1739, Venables Street, Grandview-Woodland, Vancouver, Metro Vancouver Regional District, British Columbia, V5L, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [49.2767563, 49.277034, -123.0701996, -123.069698]
           }
         },
@@ -1752,7 +1752,7 @@
           "properties": {
             "address": "808 Lytton St, North Vancouver, BC V7H 2T1",
             "displayName": "Lytton Street, Seymour Heights, Seymour, District of North Vancouver, Metro Vancouver Regional District, British Columbia, V7H 2M5, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [49.3135999, 49.315233, -123.001259, -123.0000177]
           }
         },
@@ -1780,7 +1780,7 @@
           "properties": {
             "address": "3096 East Hastings St, Vancouver, BC V2C 6N6",
             "displayName": "Hastings Community Centre, 3096, East Hastings Street, Hastings-Sunrise, Vancouver, Metro Vancouver Regional District, British Columbia, V5K 2A3, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [49.2804151, 49.2809541, -123.039868, -123.03926]
           }
         },
@@ -1808,7 +1808,7 @@
           "properties": {
             "address": "225 east 2nd street, North Vancouver, BC V7L 1C4",
             "displayName": "North Shore Neighbourhood House, 225, East 2nd Street, The Shipyards Common, Lower Lonsdale, North Vancouver, Metro Vancouver Regional District, British Columbia, V7L, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [49.3104443, 49.3108417, -123.0743106, -123.0736315]
           }
         },
@@ -1886,7 +1886,7 @@
           "properties": {
             "address": "715 Yates Street Victoria, BC V8W 1L6",
             "displayName": "715, Yates Street, Chinatown, Downtown, Victoria, Capital Regional District, British Columbia, V8W 0C8, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [48.4259958, 48.4260958, -123.3641727, -123.3640727]
           }
         },
@@ -1957,7 +1957,7 @@
           "properties": {
             "address": "1085 Millar Creek Rd, Whistler, BC V0N 1B1",
             "displayName": "Millar Creek Road, Function Junction, Whistler Resort Municipality, Squamish-Lillooet Regional District, British Columbia, V8E 0W5, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [50.0872792, 50.0880923, -123.0425136, -123.0387185]
           }
         },
@@ -2046,7 +2046,7 @@
           "properties": {
             "address": "2590 Walnut St, Boulder, CO 80302",
             "displayName": "The Dairy Arts Center, 2590, Walnut Street, Goss-Grove, Boulder, Boulder County, Colorado, 80302, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.0191141, 40.0196856, -105.2614154, -105.26066]
           }
         }
@@ -2107,7 +2107,7 @@
           "properties": {
             "address": "4705 Centennial Blvd, Colorado Springs, CO 80919",
             "displayName": "4705, Centennial Boulevard, Colorado Springs, El Paso County, Colorado, 80919, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.9004687, 38.9005687, -104.8525904, -104.8524904]
           }
         },
@@ -2184,7 +2184,7 @@
           "properties": {
             "address": "85705, Tucson, AZ",
             "displayName": "85705, Miracle Manor, Tucson, Pima County, Arizona, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [32.204989, 32.304989, -111.0290004, -110.9290004]
           }
         }
@@ -2245,7 +2245,7 @@
           "properties": {
             "address": "2928 East Broadway Blvd, Tucson, AZ, 85716",
             "displayName": "2928, East Broadway Boulevard, Broadmoor-Broadway, Tucson, Pima County, Arizona, 85716, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [32.2213917, 32.2214917, -110.9288277, -110.9287277]
           }
         },
@@ -2323,7 +2323,7 @@
           "properties": {
             "address": "Motherwell Street Airdrie ML6 7HU",
             "displayName": "Motherwell Street, Rawyards, Airdrie, North Lanarkshire, Alba / Scotland, ML6 7HP, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [55.8716683, 55.8764014, -3.9657183, -3.9615687]
           }
         },
@@ -2459,7 +2459,7 @@
           "properties": {
             "address": "812 South Henderson, Bloomington, IN 47401",
             "displayName": "812, South Henderson Street, Elm Heights, Bloomington, Monroe County, Indiana, 47401, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [39.158493, 39.158585, -86.527562, -86.527275]
           }
         },
@@ -2535,7 +2535,7 @@
           "properties": {
             "address": "345 N Jacob Street, Visalia, CA 93291",
             "displayName": "345, North Jacob Street, Visalia, Tulare County, California, 93291, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [36.3323037, 36.3324037, -119.3021383, -119.3020383]
           }
         }
@@ -2603,7 +2603,7 @@
           "properties": {
             "address": "105 S. Oak Street Ventura CA",
             "displayName": "105, South Oak Street, San Buenaventura (Ventura), Ventura County, California, 93001, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [34.279306, 34.279406, -119.2948068, -119.2947068]
           }
         },
@@ -2673,7 +2673,7 @@
           "properties": {
             "address": "1/8/19), 7/16/11   1/8/19",
             "displayName": "Woodville House, 1, Brunswick Road, Benhilton, London Borough of Sutton, London, Greater London, England, SM1 4DE, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.3673854, 51.3674854, -0.1918655, -0.1917655]
           }
         },

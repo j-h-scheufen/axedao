@@ -37,7 +37,7 @@
           "properties": {
             "address": "1213 Race Street, Philadelphia, PA 19107",
             "displayName": "1213, Race Street, Chinatown, Fashion District Philadelphia, Center City, Philadelphia, Philadelphia County, Pennsylvania, 19107, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [39.9558605, 39.9559605, -75.1595853, -75.1594853]
           }
         }
@@ -105,7 +105,7 @@
           "properties": {
             "address": "22nd Street & Cecil B. Moore Avenue Philadelphia",
             "displayName": "Cecil B Moore Avenue, Sharswood, North Philadelphia, Philadelphia, Philadelphia County, Pennsylvania, 19121, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [39.9786738, 39.9806198, -75.1724979, -75.1578703]
           }
         },
@@ -185,7 +185,7 @@
           "properties": {
             "address": "100 43rd St, Pittsburgh, PA 15201",
             "displayName": "100, 43rd Street, Lawrenceville, Central Lawrenceville, Pittsburgh, Allegheny County, Pennsylvania, 15201, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.473316, 40.473416, -79.964339, -79.964239]
           }
         }
@@ -256,7 +256,7 @@
           "properties": {
             "address": "103 Boulevard de la Concorde Ouest, Laval, QC, H7N 1H8, Canada",
             "displayName": "103, Boulevard de la Concorde Ouest, Laval-des-Rapides, Laval (région administrative), Québec, H7N 2C8, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [45.5669647, 45.5670647, -73.6986476, -73.6985476]
           }
         }
@@ -316,7 +316,7 @@
           "properties": {
             "address": "11441 Strang Line Rd. Lenexa, KS 66215",
             "displayName": "11441, Strang Line Road, Lackmans, Lenexa, Johnson County, Kansas, 66215, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.9211416, 38.9212416, -94.7599716, -94.7598716]
           }
         },
@@ -393,7 +393,7 @@
           "properties": {
             "address": "Richard Street, Shadwell, London, E1 2JP, UK",
             "displayName": "Richard Street, St. George in the East, Whitechapel, London Borough of Tower Hamlets, London, Greater London, England, E1 2FE, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.5144756, 51.5147125, -0.0603144, -0.0602757]
           }
         }
@@ -463,7 +463,7 @@
           "properties": {
             "address": "368 North End Road, London, SW6 1LY, UK",
             "displayName": "Dance Attic Studios, 368, North End Road, Walham Green, Fulham, London Borough of Hammersmith and Fulham, London, Greater London, England, SW6 1LY, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.4810326, 51.481279, -0.199971, -0.1992752]
           }
         }
@@ -491,7 +491,7 @@
           "properties": {
             "address": "17 Duke's Road, London, WC1H 9PY, UK",
             "displayName": "The Place, 17, Duke's Road, St Pancras, London Borough of Camden, London, Greater London, England, WC1H 9PY, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.527042, 51.5278322, -0.1292357, -0.1282312]
           }
         }
@@ -519,7 +519,7 @@
           "properties": {
             "address": "7 Langley Street, Covent Garden, London, WC2H 9JA, UK",
             "displayName": "Langley Street, Seven Dials, Bloomsbury, City of Westminster, Greater London, England, WC2H 9JA, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.5128625, 51.5135599, -0.1257552, -0.1247948]
           }
         }
@@ -590,7 +590,7 @@
           "properties": {
             "address": "136 Streatham High Road, London, SW16 1BW, UK",
             "displayName": "Streatham High Road, Streatham, London Borough of Lambeth, London, Greater London, England, SW16 1BW, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.4340125, 51.4343195, -0.1282962, -0.1282602]
           }
         }
@@ -660,7 +660,7 @@
           "properties": {
             "address": "Northcote Road, Walthamstow, London, E17 6PQ, UK",
             "displayName": "Northcote Road, London Borough of Waltham Forest, London, Greater London, England, E17 7DU, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.5851224, 51.5854515, -0.0308938, -0.0296889]
           }
         }
@@ -688,7 +688,7 @@
           "properties": {
             "address": "61 Leswin Road, London, N16 7NX, UK",
             "displayName": "Leswin Road, West Hackney, London Borough of Hackney, London, Greater London, England, N16 7NX, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.5592987, 51.56062, -0.0730148, -0.0729873]
           }
         }
@@ -716,7 +716,7 @@
           "properties": {
             "address": "10 Truro Road, Walthamstow, E17 7BY, UK",
             "displayName": "Truro Road, London Borough of Waltham Forest, London, Greater London, England, E17 7BY, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.5836583, 51.5841194, -0.0263584, -0.0259931]
           }
         }
@@ -781,7 +781,7 @@
           "properties": {
             "address": "Haggerston Road, Hackney, London, E8 4EP, UK",
             "displayName": "Haggerston Road, De Beauvoir Town, Haggerston, London Borough of Hackney, London, Greater London, England, E8 4EX, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.539546, 51.5395709, -0.0744309, -0.0744045]
           }
         },
@@ -809,7 +809,7 @@
           "properties": {
             "address": "31 Falkirk Street, Hoxton, London, N1 6HF, UK",
             "displayName": "Falkirk Street, Shoreditch, London Borough of Hackney, London, Greater London, England, N1 6SA, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.5307237, 51.5308505, -0.0801919, -0.0777011]
           }
         },
@@ -843,7 +843,7 @@
           "properties": {
             "address": "Kirkland Walk, Hackney, London, UK",
             "displayName": "Kirkland Walk, Rhodes Estate, Dalston, London Borough of Hackney, London, Greater London, England, E8 3SY, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.54551, 51.5456754, -0.0726115, -0.0726106]
           }
         }
@@ -908,7 +908,7 @@
           "properties": {
             "address": "5 Albert Road, Addiscombe, Croydon, CR0 5PE, UK",
             "displayName": "Albert Road, Woodside, London Borough of Croydon, London, Greater London, England, SE25 4RN, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.3907112, 51.3921543, -0.0619136, -0.0605227]
           }
         },
@@ -936,7 +936,7 @@
           "properties": {
             "address": "100 High Holborn, London, WC1V 6LJ, UK",
             "displayName": "Caffè Nero, 100-110, High Holborn, Gray's Inn, Holborn, London Borough of Camden, London, Greater London, England, WC1V 6QL, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.5177634, 51.5178634, -0.1194369, -0.1193369]
           }
         },
@@ -970,7 +970,7 @@
           "properties": {
             "address": "Salusbury Road, London, UK",
             "displayName": "Salusbury Road, Queen's Park, London Borough of Brent, London, Greater London, England, NW6 6BF, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.5334063, 51.5336461, -0.2041281, -0.2038686]
           }
         }
@@ -1035,7 +1035,7 @@
           "properties": {
             "address": "66 High Street, Fulham, London, SW6 3LJ, UK",
             "displayName": "Fulham High Street, Hurlingham, Fulham, London Borough of Hammersmith and Fulham, London, Greater London, England, SW6 3LQ, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.4705411, 51.4712772, -0.2110829, -0.2106859]
           }
         },
@@ -1063,7 +1063,7 @@
           "properties": {
             "address": "Dryburgh Road, Putney, London, SW15 1BL, UK",
             "displayName": "Dryburgh Road, Putney, London Borough of Wandsworth, London, Greater London, England, SW15 1BL, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.4651916, 51.4659956, -0.2335588, -0.2293608]
           }
         },
@@ -1140,7 +1140,7 @@
           "properties": {
             "address": "25 The Broadway, HA7 4DA, UK",
             "displayName": "27,25,23,21, The Broadway, Wealdstone, London Borough of Harrow, London, Greater London, England, HA3 7EH, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.6003188, 51.6006435, -0.3341103, -0.3337972]
           }
         }
@@ -1168,7 +1168,7 @@
           "properties": {
             "address": "90 Mycenae Road, Blackheath, SE3 7SE, UK",
             "displayName": "Woodlands House, 90, Mycenae Road, Blackheath Royal Standard, Blackheath, Royal Borough of Greenwich, London, Greater London, England, SE3 7SE, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.4795204, 51.4797507, 0.0160341, 0.0165082]
           }
         }
@@ -1196,7 +1196,7 @@
           "properties": {
             "address": "Kings Cross, London, N1 9GA, UK",
             "displayName": "Kings cross, Pentonville Road, Pentonville, Barnsbury, London Borough of Islington, London, Greater London, England, N1 9UZ, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.5311877, 51.5312877, -0.1176006, -0.1175006]
           }
         }
@@ -1224,7 +1224,7 @@
           "properties": {
             "address": "361-373 City Road, London, EC1, UK",
             "displayName": "City Road, Angel, Islington, London Borough of Islington, London, Greater London, England, EC1V 1LR, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.5309015, 51.5312587, -0.1034045, -0.1020284]
           }
         }
@@ -1252,7 +1252,7 @@
           "properties": {
             "address": "Ainsworth Road, London, UK",
             "displayName": "Ainsworth Road, Victoria Park Village, Hackney, London Borough of Hackney, London, Greater London, England, E9 7LP, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.5388225, 51.5405177, -0.0512788, -0.0501748]
           }
         }
@@ -1280,7 +1280,7 @@
           "properties": {
             "address": "James Lane, Leytonstone, London, E11 1NS, UK",
             "displayName": "James Lane, Whipps Cross, Leytonstone, London Borough of Waltham Forest, London, Greater London, England, E11 1NS, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.5750804, 51.575915, 0.0035823, 0.0048447]
           }
         }
@@ -1308,7 +1308,7 @@
           "properties": {
             "address": "Woodville Road, London, N16 8NA, UK",
             "displayName": "Woodville Road, Mayville Estate, Islington, London Borough of Islington, London, Greater London, England, N16 8NE, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.5502039, 51.5514732, -0.0820579, -0.0811602]
           }
         }
@@ -1336,7 +1336,7 @@
           "properties": {
             "address": "Kayani Avenue, London, N4 2HF, UK",
             "displayName": "Kayani Avenue, Brownswood Park, Stoke Newington, London Borough of Hackney, London, Greater London, England, N4 2GU, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.5701859, 51.5712464, -0.0920284, -0.0917419]
           }
         }
@@ -1401,7 +1401,7 @@
           "properties": {
             "address": "283-291 Wandsworth Road, London,",
             "displayName": "Wandsworth Road, Clapham, London Borough of Lambeth, London, Greater London, England, SW8 3JE, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.4681047, 51.4686523, -0.1443861, -0.1431497]
           }
         },
@@ -1429,7 +1429,7 @@
           "properties": {
             "address": "283-291 Wandsworth Road, London",
             "displayName": "Wandsworth Road, Clapham, London Borough of Lambeth, London, Greater London, England, SW8 3JE, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.4681047, 51.4686523, -0.1443861, -0.1431497]
           }
         },
@@ -1506,7 +1506,7 @@
           "properties": {
             "address": "1 Pocock Street, London, NW11, UK",
             "displayName": "1-15, Pocock Street, Bankside, Southwark, London Borough of Southwark, London, Greater London, England, SE1 0BJ, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.5023043, 51.5027477, -0.1008825, -0.099083]
           }
         }
@@ -1528,7 +1528,7 @@
           "properties": {
             "address": "145 Orange Hill Road, Burnt Oak, Edgware, HA8 0TW, UK",
             "displayName": "Watling Community Centre, 145, Orange Hill Road, Burnt Oak, Edgware, London, Greater London, England, HA8 0TR, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.6087187, 51.6090606, -0.2663074, -0.2657497]
           }
         },
@@ -1556,7 +1556,7 @@
           "properties": {
             "address": "Clissold Road, Stoke Newington, London, N16 9HJ, UK",
             "displayName": "Clissold Road, Stoke Newington, London Borough of Hackney, London, Greater London, England, N16 9HD, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.5603466, 51.5603852, -0.0857639, -0.0857132]
           }
         },
@@ -1627,7 +1627,7 @@
           "properties": {
             "address": "50A Corry Dr, Brixton, London SW9 8QT",
             "displayName": "Corry Drive, Brixton, London Borough of Lambeth, London, Greater London, England, SW9 8QT, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.4599525, 51.4612441, -0.1074557, -0.1063773]
           }
         },
@@ -1698,7 +1698,7 @@
           "properties": {
             "address": "1860 Mellwood Ave, Louisville, KY 40206",
             "displayName": "Mellwood Art Center, 1860, Mellwood Avenue, Clifton, Louisville, Jefferson County, Kentucky, 40206, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.2620065, 38.2635747, -85.7137558, -85.7120802]
           }
         },
@@ -1732,7 +1732,7 @@
           "properties": {
             "address": "Richmond, KY",
             "displayName": "Richmond, Madison County, Kentucky, 40475, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.623519, 37.794517, -84.34202, -84.24014]
           }
         }
@@ -1793,7 +1793,7 @@
           "properties": {
             "address": "2920 Frankfort Ave, Louisville, KY, 40206",
             "displayName": "2920, Frankfort Avenue, Louisville, Jefferson County, Kentucky, 40206, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.2546794, 38.2547794, -85.6867047, -85.6866047]
           }
         },
@@ -1864,7 +1864,7 @@
           "properties": {
             "address": "Higher Cambridge St, Hulme. M15 6HP",
             "displayName": "Higher Cambridge Street, First Street, Hulme, Manchester, Greater Manchester, England, M15 6AR, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [53.4662796, 53.4664035, -2.2382653, -2.2381564]
           }
         },
@@ -1931,7 +1931,7 @@
           "properties": {
             "address": "1,Unthank road, Norwich, NR2 2PA",
             "displayName": "1-6 Pym House, 260, Unthank Road, Mount Pleasant, Eaton, Norwich, Norfolk, England, NR2 2AJ, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [52.6202229, 52.6203795, 1.2709014, 1.2711955]
           }
         },
@@ -1965,7 +1965,7 @@
           "properties": {
             "address": "Sportspark, University of East Anglia, Norwich, UK",
             "displayName": "Sportspark, University of East Anglia, Norwich, Norfolk, England, NR4 7TJ, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [52.6236661, 52.6249165, 1.2405376, 1.2421443]
           }
         }
@@ -2037,7 +2037,7 @@
           "properties": {
             "address": "618 B Street, San Rafael, CA 94901",
             "displayName": "San Rafael Community Center, 618, B Street, San Rafael, Marin County, California, 94902, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.9692018, 37.9697162, -122.5294175, -122.5288381]
           }
         },
@@ -2071,7 +2071,7 @@
           "properties": {
             "address": "Mill Valley, CA 94941",
             "displayName": "Mill Valley, Marin County, California, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.886477, 37.9296329, -122.5769802, -122.5143818]
           }
         }
@@ -2093,7 +2093,7 @@
           "properties": {
             "address": "775 Miller Creek Road San Rafael, CA 94903",
             "displayName": "Marinwood Community Center, 775, Miller Creek Road, Lucas Valley, Lucas Valley-Marinwood, San Rafael, Marin County, California, 94903, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.0278559, 38.0279559, -122.5524132, -122.5523132]
           }
         },
@@ -2121,7 +2121,7 @@
           "properties": {
             "address": "498 Tamalpais Dr. Corte Madera, CA 94924",
             "displayName": "Corte Madera Community Center, 498;500, Tamalpais Drive, Corte Madera, Marin County, California, 94925, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.9255644, 37.9259161, -122.5242747, -122.5239601]
           }
         },
@@ -2149,7 +2149,7 @@
           "properties": {
             "address": "150 Oak Manor Drive, Fairfax, CA 94930",
             "displayName": "150, Oak Manor Drive, Manor, Fairfax, Marin County, California, 94930, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.99789, 37.99799, -122.594132, -122.594032]
           }
         },
@@ -2220,7 +2220,7 @@
           "properties": {
             "address": "500 West Perkins Street Ukiah, CA 95482",
             "displayName": "500, West Perkins Street, Downtown, Downtown Ukiah, Ukiah, Mendocino County, California, 95482, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [39.149382, 39.149482, -123.211709, -123.211609]
           }
         },
@@ -2291,7 +2291,7 @@
           "properties": {
             "address": "724 Abrego Street, Monterey, CA 93940",
             "displayName": "El Palomar Monterey, 724, Abrego Street, Monterey, Monterey County, California, 93940, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [36.5947154, 36.5948154, -121.8925512, -121.8924512]
           }
         },
@@ -2362,7 +2362,7 @@
           "properties": {
             "address": "2505 152nd Ave NE, Redmond, WA 98052",
             "displayName": "2505, 152nd Avenue Northeast, Overlake, Redmond, King County, Washington, 98052, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [47.6329999, 47.6330999, -122.1382877, -122.1381877]
           }
         },
@@ -2390,7 +2390,7 @@
           "properties": {
             "address": "12440 128th Lane NE Kirkland, WA 98034",
             "displayName": "12440, 128th Lane Northeast, Kirkland, King County, Washington, 98034, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [47.7114673, 47.7118049, -122.169807, -122.169078]
           }
         },
@@ -2463,7 +2463,7 @@
           "properties": {
             "address": "Western Washington University, Bellingham, WA",
             "displayName": "Western Washington University, 516, High Street, Bellingham, Whatcom County, Washington, 98225, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [48.7264107, 48.7413577, -122.4917467, -122.4804349]
           }
         }
@@ -2535,7 +2535,7 @@
           "properties": {
             "address": "CRC Room 117",
             "displayName": "Circus Room, 2309, Southwest 6th Avenue, Original Town of Amarillo, Amarillo, Potter County, Texas, 79106, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [35.2109544, 35.2110544, -101.8632954, -101.8631954]
           }
         },
@@ -2606,7 +2606,7 @@
           "properties": {
             "address": "418 N 35th St, Fremont - Seattle, 98103",
             "displayName": "418, North 35th Street, Fremont, Seattle, King County, Washington, 98103, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [47.6513601, 47.6516152, -122.3537165, -122.3534763]
           }
         },
@@ -2677,7 +2677,7 @@
           "properties": {
             "address": "803 S King St. Seattle, Wa 98104",
             "displayName": "803, South King Street, Chinatown, Chinatown International District, Seattle, King County, Washington, 98104, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [47.5981779, 47.5982779, -122.3222672, -122.3221672]
           }
         },
@@ -2748,7 +2748,7 @@
           "properties": {
             "address": "3150 Airport Way S Seattle 98134",
             "displayName": "3150, Airport Way South, Beacon Hill, Seattle, King County, Washington, 98134, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [47.5760833, 47.5761833, -122.3205072, -122.3204072]
           }
         },
@@ -2776,7 +2776,7 @@
           "properties": {
             "address": "4501 Interlake Ave. North #6 | Seattle, WA 98103",
             "displayName": "Compfit Dance & Fitness Studio, 4501, Interlake Avenue North, Wallingford, Seattle, King County, Washington, 98103, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [47.6618119, 47.6619119, -122.3409219, -122.3408219]
           }
         },
@@ -2847,7 +2847,7 @@
           "properties": {
             "address": "2909 Rainier Avenue South Seattle, WA 98144",
             "displayName": "2909, Rainier Avenue South, Mount Baker, Seattle, King County, Washington, 98144, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [47.5772834, 47.5773834, -122.2977467, -122.2976467]
           }
         },
@@ -2931,7 +2931,7 @@
           "properties": {
             "address": "372 Sainte-Catherine Ouest, Montreal, QC, Canada",
             "displayName": "Belgo, 372, Rue Sainte-Catherine Ouest, Quartier des Spectacles, Ville-Marie, Montréal, Agglomération de Montréal, Montréal (région administrative), Québec, H3B 1A2, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [45.5051668, 45.5061857, -73.5676107, -73.5665504]
           }
         }
@@ -2996,7 +2996,7 @@
           "properties": {
             "address": "2755 Chemin de Chambly, Longueuil, J4L 1M7, QC",
             "displayName": "2755, Chemin de Chambly, Le Vieux-Longueuil, Longueuil, Agglomération de Longueuil, Montérégie, Québec, J3L 1N3, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [45.5206065, 45.5207065, -73.4604591, -73.4603591]
           }
         },
@@ -3030,7 +3030,7 @@
           "properties": {
             "address": "5556 Grande Allee, Saint-Hubert, QC, J3Y 1A8, Canada",
             "displayName": "5556, Grande Allée, Saint-Hubert, Longueuil, Agglomération de Longueuil, Montérégie, Québec, J3Y 1A5, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [45.4757502, 45.4758502, -73.4445546, -73.4444546]
           }
         }
@@ -3091,7 +3091,7 @@
           "properties": {
             "address": "3680, rue Jeanne-Mance Montreal QC H2X 2K5",
             "displayName": "Ex aequo, 3680, Rue Jeanne-Mance, Le Plateau-Mont-Royal, Montréal, Agglomération de Montréal, Montréal (région administrative), Québec, H2X 2K5, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [45.5115485, 45.5116485, -73.5763831, -73.5762831]
           }
         },
@@ -3169,7 +3169,7 @@
           "properties": {
             "address": "2901 General de Gaulle Dr, New Orleans, LA 70114",
             "displayName": "2901, General de Gaulle Drive, New Orleans, Orleans Parish, Louisiana, 70114, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [29.927887, 29.927987, -90.02924, -90.02914]
           }
         },
@@ -3235,7 +3235,7 @@
           "properties": {
             "address": "800 Race Street, New Orleans, LA, 70130",
             "displayName": "800, Race Street, The Saulet Apartment Homes, Garden District, New Orleans, Orleans Parish, Louisiana, 70130, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [29.933477, 29.933577, -90.068904, -90.068804]
           }
         },
@@ -3269,7 +3269,7 @@
           "properties": {
             "address": "Tulane University, New Orleans, LA 70118",
             "displayName": "Tulane University, 6823, Saint Charles Avenue, Black Pearl, Greenville, New Orleans, Orleans Parish, Louisiana, 70118, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [29.9342635, 29.948289, -90.1238755, -90.1143296]
           }
         }

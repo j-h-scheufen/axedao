@@ -98,7 +98,7 @@ async function geocodeAddress(address: string): Promise<any | null> {
         properties: {
           address: address,
           displayName: feature.properties.display_name,
-          countryCode: feature.properties.address?.country_code,
+          country_code: feature.properties.address?.country_code,
           boundingBox: feature.bbox ? [feature.bbox[1], feature.bbox[3], feature.bbox[0], feature.bbox[2]] : undefined,
         },
       };

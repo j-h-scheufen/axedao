@@ -31,7 +31,7 @@
           "properties": {
             "address": "366 Grand Ave, Oakland",
             "displayName": "366, Grand Avenue, Adams Point, Downtown Oakland, Oakland, Alameda County, California, 94606, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.8090454, 37.8092668, -122.2553408, -122.2551533]
           }
         },
@@ -59,7 +59,7 @@
           "properties": {
             "address": "3234 Grand Ave, Oakland",
             "displayName": "Studio Grand, 3234, Grand Avenue, Grand Lake, Oakland, Alameda County, California, 94610, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.8118595, 37.8119595, -122.2474785, -122.2473785]
           }
         },
@@ -87,7 +87,7 @@
           "properties": {
             "address": "2500 Rd 20, San Pablo",
             "displayName": "Road 20, San Pablo, Contra Costa County, California, 94806, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.9627456, 37.9633546, -122.3452922, -122.3443137]
           }
         },
@@ -115,7 +115,7 @@
           "properties": {
             "address": "800 West Tower ave, Alameda",
             "displayName": "Hangar 40, 800, West Tower Avenue, Alameda, Alameda County, California, 94607, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.7817409, 37.7828443, -122.3016538, -122.3006595]
           }
         },
@@ -199,7 +199,7 @@
           "properties": {
             "address": "2822 Union St, San Francisco, CA 94123",
             "displayName": "2822, Union Street, San Francisco, California, 94123, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.7958227, 37.7959227, -122.4457582, -122.4456582]
           }
         }
@@ -221,7 +221,7 @@
           "properties": {
             "address": "4820 Bissell Ave, Richmond CA",
             "displayName": "4820, Bissell Avenue, Richmond, Contra Costa County, California, 94805, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.9317296, 37.9318296, -122.3237858, -122.3236858]
           }
         },
@@ -249,7 +249,7 @@
           "properties": {
             "address": "3075 Adeline Street, Berkeley CA",
             "displayName": "Ed Roberts Campus, 3075, Adeline Street, Lorin, Berkeley, Alameda County, California, 94705, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.8520533, 37.8529213, -122.2698083, -122.268898]
           }
         },
@@ -328,7 +328,7 @@
           "properties": {
             "address": "4300 San Pablo Avenue, Emeryville, CA 94608",
             "displayName": "Emeryville Recreation Department, 4300, San Pablo Avenue, Emeryville, Alameda County, California, 94608, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.8331804, 37.8336094, -122.2804831, -122.2801344]
           }
         },
@@ -362,7 +362,7 @@
           "properties": {
             "address": "3990 Harlan St, Emeryville, CA 94608",
             "displayName": "Harlan Street, Emeryville, Alameda County, California, 94608, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.8303752, 37.8316328, -122.2836879, -122.2832851]
           }
         }
@@ -441,7 +441,7 @@
           "properties": {
             "address": "1428 Alice Street, Oakland, CA",
             "displayName": "Malonga Casquelourd Center for the Arts, 1428, Alice Street, Lakeside, Downtown Oakland, Oakland, Alameda County, California, 94612, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.8025764, 37.8030558, -122.266107, -122.2654364]
           }
         }
@@ -514,7 +514,7 @@
           "properties": {
             "address": "366 Grand Ave. Oakland CA",
             "displayName": "366, Grand Avenue, Adams Point, Downtown Oakland, Oakland, Alameda County, California, 94606, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.8090454, 37.8092668, -122.2553408, -122.2551533]
           }
         },
@@ -542,7 +542,7 @@
           "properties": {
             "address": "2566 Telegraph Ave. Berkeley CA",
             "displayName": "2566, Telegraph Avenue, Southside, Berkeley, Alameda County, California, 94705, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.8635619, 37.8638129, -122.2591836, -122.2588132]
           }
         },
@@ -621,7 +621,7 @@
           "properties": {
             "address": "578 North 100 West, Orem, UT 84057",
             "displayName": "578, North 100 West, Orem Station, Orem, Utah County, Utah, 84057, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.3082114, 40.3083114, -111.6980578, -111.6979578]
           }
         },
@@ -706,7 +706,7 @@
           "properties": {
             "address": "Chantilly, VA 20151",
             "displayName": "Chantilly, Fairfax County, Virginia, 20153, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.8541543, 38.9341543, -77.4711513, -77.3911513]
           }
         }
@@ -779,7 +779,7 @@
           "properties": {
             "address": "963 2nd St. SE, Charlottesville, VA 22902",
             "displayName": "2nd Street Southeast, North Downtown, Charlottesville, Virginia, 22902, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.0298203, 38.0305652, -78.4811033, -78.4807819]
           }
         },
@@ -807,7 +807,7 @@
           "properties": {
             "address": "109 2nd St. SE, Charlottesville, VA 22902",
             "displayName": "Jack Brown’s Beer & Burger Joint, 109, 2nd Street Southeast, North Downtown, Charlottesville, Virginia, 22902, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.0301309, 38.0302481, -78.4812048, -78.480981]
           }
         },
@@ -885,7 +885,7 @@
           "properties": {
             "address": "1415 Grayland Ave, Richmond, VA 23220",
             "displayName": "1415, Grayland Avenue, Randolph, Richmond, Virginia, 23220, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.5438601, 37.5439601, -77.4605033, -77.4604033]
           }
         },
@@ -974,7 +974,7 @@
           "properties": {
             "address": "Alpharetta, GA 30004",
             "displayName": "Alpharetta, Fulton County, Georgia, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [34.0281476, 34.1173451, -84.359435, -84.201218]
           }
         }
@@ -1055,7 +1055,7 @@
           "properties": {
             "address": "(in the old building)",
             "displayName": "old spencers building, Ooty-Coonoor Road, Udhagamandalam, Nilgiris, Tamil Nadu, 643001, India",
-            "countryCode": "IN",
+            "country_code": "IN",
             "boundingBox": [11.4131689, 11.413428, 76.7030332, 76.7033433]
           }
         },
@@ -1083,7 +1083,7 @@
           "properties": {
             "address": "12-6860 Kalapana-Kapoho Rd, Pahoa, HI 96778",
             "displayName": "Kalani Retreat Center, 12-6860, Kapoho-Kalapana Road, Sea View Estates, Opihikao, Pahoa, Hawaiʻi County, Hawaii, 96778, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [19.4057622, 19.4058622, -154.9109145, -154.9108145]
           }
         },
@@ -1167,7 +1167,7 @@
           "properties": {
             "address": "729 W. Diamond St. Boise, ID 83705",
             "displayName": "Bodies in Motion, 729, West Diamond Street, Broadway Place, Southeast Boise, Boise, Ada County, Idaho, 83705, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [43.5683503, 43.5684503, -116.189896, -116.189796]
           }
         },
@@ -1257,7 +1257,7 @@
           "properties": {
             "address": "University of Connecticut, Storrs, CT",
             "displayName": "University of Connecticut, North Eagleville Road, Towers, Storrs, Mansfield, Capitol Planning Region, Connecticut, 06269, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [41.796721, 41.8255142, -72.2788641, -72.2384722]
           }
         }
@@ -1340,7 +1340,7 @@
           "properties": {
             "address": "1611 16th Street NW, Washington, DC",
             "displayName": "Church of the Holy City, 1611, 16th Street Northwest, Dupont Circle, Ward 2, Washington, District of Columbia, 20012, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.9115564, 38.9117995, -77.0362503, -77.0358482]
           }
         }
@@ -1368,7 +1368,7 @@
           "properties": {
             "address": "Dupont Circle, Washington, DC 20036",
             "displayName": "Dupont Circle, 1526, New Hampshire Avenue Northwest, Dupont Circle, Ward 2, Washington, District of Columbia, 20036, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.9108936, 38.9109936, -77.0427759, -77.0426759]
           }
         }
@@ -1396,7 +1396,7 @@
           "properties": {
             "address": "3222 11th St NW, Washington, DC 20001",
             "displayName": "BloomBars, 3222, 11th Street Northwest, Ward 1, Washington, District of Columbia, 20010, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.9301775, 38.9302321, -77.0281829, -77.0280218]
           }
         }
@@ -1468,7 +1468,7 @@
           "properties": {
             "address": "2008 Rhode Island Ave NE, Washington, DC 20018",
             "displayName": "2008, Rhode Island Avenue Northeast, Ward 5, Washington, District of Columbia, 20018, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.9294877, 38.9296576, -76.9758377, -76.9756602]
           }
         },
@@ -1531,7 +1531,7 @@
           "properties": {
             "address": "733 Euclid St. NW Washington DC.",
             "displayName": "733, Euclid Street Northwest, Columbia Heights, Ward 1, Washington, District of Columbia, 20001, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.9242103, 38.9244569, -77.0238223, -77.0236526]
           }
         },
@@ -1608,7 +1608,7 @@
           "properties": {
             "address": "7A 44 Hutton St Osborne Park WA 6017",
             "displayName": "Hutton Street, Osborne Park, City of Stirling, Western Australia, 6017, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-31.904382, -31.9042627, 115.816935, 115.817165]
           }
         },
@@ -1679,7 +1679,7 @@
           "properties": {
             "address": "2/99 Loftus St, Leederville, Western Australia",
             "displayName": "Loftus Street, Leederville, City of Vincent, Western Australia, 6007, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-31.9361879, -31.9348661, 115.8463018, 115.8465506]
           }
         },
@@ -1707,7 +1707,7 @@
           "properties": {
             "address": "275 Stirling St Perth",
             "displayName": "Stirling Street, Perth, City of Perth, Western Australia, 6000, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-31.9508449, -31.9491276, 115.8632652, 115.8643703]
           }
         },
@@ -1773,7 +1773,7 @@
           "properties": {
             "address": "213 South San Francisco St. Flagstaff, AZ 86001",
             "displayName": "213, South San Francisco Street, Flagstaff Normal Addition, Flagstaff, Coconino County, Arizona, 86001, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [35.1942493, 35.1943493, -111.6495584, -111.6494584]
           }
         },
@@ -1857,7 +1857,7 @@
           "properties": {
             "address": "Tempe, AZ 85281",
             "displayName": "Tempe, Maricopa County, Arizona, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [33.31986, 33.4639799, -111.9784718, -111.8773587]
           }
         }
@@ -1879,7 +1879,7 @@
           "properties": {
             "address": "Arizona State University",
             "displayName": "Arizona State University, 1151, South Forest Avenue, Tempe Junction, Tempe, Maricopa County, Arizona, 85281, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [33.4102062, 33.4329786, -111.9411651, -111.9092447]
           }
         },
@@ -1953,7 +1953,7 @@
           "properties": {
             "address": "1992 N. Alma School Rd, Chandler, AZ 85224",
             "displayName": "1992, North Alma School Road, Chandler, Maricopa County, Arizona, 85224, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [33.3348318, 33.3349318, -111.8592157, -111.8591157]
           }
         },
@@ -2020,7 +2020,7 @@
           "properties": {
             "address": "4113 N 7th Ave, Phoenix, AZ 85013",
             "displayName": "4113, North 7th Avenue, Melrose District, Encanto, Phoenix, Maricopa County, Arizona, 85013, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [33.4951655, 33.4952655, -112.0834179, -112.0833179]
           }
         },
@@ -2091,7 +2091,7 @@
           "properties": {
             "address": "341 State St . Madison, WI 53703",
             "displayName": "341, State Street, Mifflin West, Downtown, Madison, Dane County, Wisconsin, 53703, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [43.0746411, 43.0747411, -89.3907496, -89.3906496]
           }
         },
@@ -2174,7 +2174,7 @@
           "properties": {
             "address": "3131 S 19th Ave, Minneapolis, MN 55407",
             "displayName": "South High School, 3131, 19th Avenue South, Standish, Corcoran, Powderhorn, Minneapolis, Hennepin County, Minnesota, 55407, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [44.9448404, 44.9475235, -93.2448078, -93.2424024]
           }
         },
@@ -2241,7 +2241,7 @@
           "properties": {
             "address": "6463 Lyndale Avenue South, Richfield, MN 55423",
             "displayName": "6463, Lyndale Avenue South, Richfield, Hennepin County, Minnesota, 55423, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [44.8858642, 44.8859642, -93.2868723, -93.2867723]
           }
         },
@@ -2312,7 +2312,7 @@
           "properties": {
             "address": "6430 Troost Ave, Kansas City, MO 64131",
             "displayName": "6430, Troost Avenue, Oak Meyer Gardens, Kansas City, Jackson County, Missouri, 64131, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [39.0100595, 39.0102125, -94.5751173, -94.5748737]
           }
         },
@@ -2379,7 +2379,7 @@
           "properties": {
             "address": "1034 S Brentwood Blvd, St. Louis, MO 63117",
             "displayName": "Passport Health Richmond Heights Travel Clinic, 1034, South Brentwood Boulevard, Richmond Heights, Saint Louis County, Missouri, 63117, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.6362118, 38.6363118, -90.3444045, -90.3443045]
           }
         },
@@ -2407,7 +2407,7 @@
           "properties": {
             "address": "221 Center Drive, Alton, IL 62002",
             "displayName": "221, East Center Drive, Alton Square Mall, Alton, Madison County, Illinois, 62002, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.9211812, 38.9212812, -90.1739751, -90.1738751]
           }
         },
@@ -2973,7 +2973,7 @@
           "properties": {
             "address": "2907 South Jefferson Ave, Saint Louis, MO 63118",
             "displayName": "2907-2909, South Jefferson Avenue, Fox Park, Benton Park West, Saint Louis, Missouri, 63118, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.6007377, 38.6009086, -90.2243251, -90.2240998]
           }
         },
@@ -3046,7 +3046,7 @@
           "properties": {
             "address": "134 Burton St, Asheville, NC 28806",
             "displayName": "Burton Street Community Center, 134, Burton Street, Hazel Green, West Asheville, Asheville, Buncombe County, North Carolina, 28806, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [35.5828282, 35.583209, -82.5846116, -82.5842062]
           }
         },
@@ -3074,7 +3074,7 @@
           "properties": {
             "address": "34 Pearson Drive, Asheville, NC, 28801",
             "displayName": "Tempie Avery Montford Community Center, 34, Pearson Drive, Montford Hills, Asheville, Buncombe County, North Carolina, 28801, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [35.6002032, 35.6005681, -82.565394, -82.5649226]
           }
         },
@@ -3102,7 +3102,7 @@
           "properties": {
             "address": "44 Broad River VFD Road, Black Mountain, NC",
             "displayName": "The Broad River Volunteer Fire & Rescue Department, 44, Broad River VFD Road, Black Mountain, Buncombe County, North Carolina, 28711, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [35.5100429, 35.5101429, -82.257768, -82.257668]
           }
         },
@@ -3169,7 +3169,7 @@
           "properties": {
             "address": "2935 Griffith Street, Charlotte, NC",
             "displayName": "2935, Griffith Street, Silos, Sedgefield, Charlotte, Mecklenburg County, North Carolina, 28203, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [35.200267, 35.200367, -80.8698323, -80.8697323]
           }
         },
@@ -3236,7 +3236,7 @@
           "properties": {
             "address": "182 W. Main Avenue, Gastonia, NC 28052",
             "displayName": "182, West Main Avenue, FUSE, Gastonia, Gaston County, North Carolina, 28052, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [35.2624792, 35.2625792, -81.1889688, -81.1888688]
           }
         },
@@ -3311,7 +3311,7 @@
           "properties": {
             "address": "9955 SW Beaverton Hillsdale Hwy, Beaverton, OR 97005",
             "displayName": "Studio 10 Karaoke Box, 9955, Southwest Beaverton Hillsdale Highway, Raleigh West, Denney Whitford/Raleigh West, Beaverton, Washington County, Oregon, 97005, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [45.4867834, 45.4868834, -122.7802665, -122.7801665]
           }
         },

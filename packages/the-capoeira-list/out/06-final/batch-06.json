@@ -37,7 +37,7 @@
           "properties": {
             "address": "817 Main Street, Hackensack, NJ 07601",
             "displayName": "817, Main Street, Hackensack, Bergen County, New Jersey, 07601, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.9046872, 40.9047872, -74.0424721, -74.0423721]
           }
         }
@@ -114,7 +114,7 @@
           "properties": {
             "address": "890 River Road, Edgewater, NJ 07020",
             "displayName": "890, River Road, Edgewater, Bergen County, New Jersey, 07020, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.825433, 40.825533, -73.9744985, -73.9743985]
           }
         }
@@ -185,7 +185,7 @@
           "properties": {
             "address": "554 Bloomfield Avenue, Bloomfield, NJ 07003",
             "displayName": "Bloomfield Avenue, Bloomfield, Essex County, New Jersey, 07003, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.78514, 40.7893499, -74.1953298, -74.19314]
           }
         }
@@ -262,7 +262,7 @@
           "properties": {
             "address": "196 Morgan Street, Jersey City, NJ 07302",
             "displayName": "196, Morgan Street, Hamilton Park, Jersey City, Hudson County, New Jersey, 07302, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.7201493, 40.7202493, -74.0416131, -74.0415131]
           }
         }
@@ -339,7 +339,7 @@
           "properties": {
             "address": "54 Coles St, Jersey City, NJ 07302",
             "displayName": "54, Coles Street, Hamilton Park, Journal Square, Jersey City, Hudson County, New Jersey, 07302, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.723578, 40.723678, -74.047381, -74.047281]
           }
         }
@@ -409,7 +409,7 @@
           "properties": {
             "address": "Vauxhall, NJ 07088",
             "displayName": "Vauxhall Road, Union, Union County, New Jersey, 07088, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.7158195, 40.7181288, -74.2839144, -74.2820391]
           }
         }
@@ -485,7 +485,7 @@
           "properties": {
             "address": "507 Kathryn Street, Santa Fe, NM 87501",
             "displayName": "Kathryn Street Foot Bridge, Santa Fe, Santa Fe County, New Mexico, 87505, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [35.678406, 35.6784954, -105.9575702, -105.9575694]
           }
         }
@@ -556,7 +556,7 @@
           "properties": {
             "address": "2929 W Sahara Ave, Las Vegas, NV 89102",
             "displayName": "Las Vegas Shotokan Karate, 2929, West Sahara Avenue, Rancho Charleston, Las Vegas, Clark County, Nevada, 89102, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [36.1438013, 36.1439321, -115.1818719, -115.1816866]
           }
         }
@@ -627,7 +627,7 @@
           "properties": {
             "address": "316 7th Street, Brooklyn, NY 11215",
             "displayName": "Way of Action, 316, 7th Street, Park Slope, Brooklyn, Kings County, City of New York, New York, 11215, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.670378, 40.670478, -73.9857719, -73.9856719]
           }
         }
@@ -691,7 +691,7 @@
           "properties": {
             "address": "335 Throop Ave Brooklyn, NY 11221",
             "displayName": "335, Throop Avenue, Bedford-Stuyvesant, Brooklyn, Kings County, City of New York, New York, 11221, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.6917356, 40.6920139, -73.942605, -73.9422432]
           }
         },
@@ -767,7 +767,7 @@
           "properties": {
             "address": "279 3rd Ave, Brooklyn, NY 11215",
             "displayName": "279, 3rd Avenue, Gowanus, Brooklyn, Kings County, City of New York, New York, 11215, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.6773133, 40.6774133, -73.9859522, -73.9857867]
           }
         }
@@ -838,7 +838,7 @@
           "properties": {
             "address": "Lincoln Terrace Park, Brooklyn, New York, USA",
             "displayName": "Lincoln Terrace Park / Arthur S. Somers Park, Brownsville, Brooklyn, Kings County, City of New York, New York, United States of America",
-            "countryCode": "us",
+            "country_code": "us",
             "boundingBox": [40.664806, 40.6683733, -73.9285708, -73.9243734]
           }
         }
@@ -866,7 +866,7 @@
           "properties": {
             "address": "520 8th Ave, New York, NY",
             "displayName": "Houndstooth Pub, 520, 8th Avenue, Garment District, Manhattan Community Board 5, Manhattan, New York County, City of New York, New York, 10018, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.7538143, 40.7539143, -73.9920013, -73.9919013]
           }
         }
@@ -937,7 +937,7 @@
           "properties": {
             "address": "303 3rd Avenue, Brooklyn, NY 11215",
             "displayName": "303, 3rd Avenue, Gowanus, Brooklyn, Kings County, City of New York, New York, 11215, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.67652, 40.6767076, -73.9865069, -73.9861747]
           }
         }
@@ -965,7 +965,7 @@
           "properties": {
             "address": "3 Lafayette Avenue, Brooklyn, NY",
             "displayName": "3, Lafayette Avenue, Fort Greene, Brooklyn, Kings County, City of New York, New York, 11217, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.6868263, 40.6869263, -73.9789279, -73.9788279]
           }
         }
@@ -993,7 +993,7 @@
           "properties": {
             "address": "106 Calyer St, Greenpoint, Brooklyn, NY",
             "displayName": "Triskelion Arts, 106, Calyer Street, Greenpoint, Brooklyn, Kings County, City of New York, New York, 11222, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.7269217, 40.7270217, -73.9566105, -73.9565105]
           }
         }
@@ -1021,7 +1021,7 @@
           "properties": {
             "address": "361 Manhattan Ave, Brooklyn, NY",
             "displayName": "Center For Performing Research, 361, Manhattan Avenue, Greenpoint, Brooklyn, Kings County, City of New York, New York, 11211, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.7165999, 40.7167423, -73.9468007, -73.946556]
           }
         }
@@ -1049,7 +1049,7 @@
           "properties": {
             "address": "432 3rd Avenue, Brooklyn, NY 11215",
             "displayName": "432, 3rd Avenue, Park Slope, Brooklyn, Kings County, City of New York, New York, 11215, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.6724526, 40.6725526, -73.9903934, -73.9902934]
           }
         }
@@ -1077,7 +1077,7 @@
           "properties": {
             "address": "419 Waverly Avenue, Brooklyn, NY 11238",
             "displayName": "Public School 11, 419, Waverly Avenue, Clinton Hill, Brooklyn, Kings County, City of New York, New York, 11238, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.6852063, 40.6860426, -73.9662811, -73.9654307]
           }
         }
@@ -1148,7 +1148,7 @@
           "properties": {
             "address": "197 Clifton Place, Brooklyn, NY 11216",
             "displayName": "197, Clifton Place, Clinton Hill, Brooklyn, Kings County, City of New York, New York, 11205, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.6886857, 40.688959, -73.9560718, -73.9558518]
           }
         }
@@ -1176,7 +1176,7 @@
           "properties": {
             "address": "216 Greene Ave, Brooklyn, NY 11238",
             "displayName": "216, Greene Avenue, Clinton Hill, Brooklyn, Kings County, City of New York, New York, 11238, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.6867185, 40.6869735, -73.9627948, -73.9626759]
           }
         }
@@ -1204,7 +1204,7 @@
           "properties": {
             "address": "778 Nostrand Avenue, Brooklyn, NY 11216",
             "displayName": "778, Nostrand Avenue, Crown Heights, Brooklyn, Kings County, City of New York, New York, 11216, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.6720531, 40.6721194, -73.9507359, -73.9504179]
           }
         }
@@ -1232,7 +1232,7 @@
           "properties": {
             "address": "1368 Fulton Street, Brooklyn, NY 11216",
             "displayName": "Restoration Plaza, 1368, Fulton Street, Bedford-Stuyvesant, Brooklyn, Kings County, City of New York, New York, 11216, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.6797461, 40.6800899, -73.9460765, -73.9451482]
           }
         }
@@ -1260,7 +1260,7 @@
           "properties": {
             "address": "548 Main Street, New York, NY 10044",
             "displayName": "548, Main Street, Manhattan Community Board 8, Manhattan, New York County, City of New York, New York, 10044, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.7619059, 40.7620059, -73.9496557, -73.9495557]
           }
         }
@@ -1325,7 +1325,7 @@
           "properties": {
             "address": "281 N 7th St, Brooklyn, NY 11211",
             "displayName": "281, North 7th Street, Williamsburg, Brooklyn, Kings County, City of New York, New York, 11211, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.7151203, 40.7154761, -73.9534105, -73.9529504]
           }
         },
@@ -1395,7 +1395,7 @@
           "properties": {
             "address": "226 E. Utica St., Buffalo, NY",
             "displayName": "226, East Utica Street, East Side, Buffalo, Erie County, New York, 14208, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.911321, 42.911421, -78.8575102, -78.8574102]
           }
         },
@@ -1466,7 +1466,7 @@
           "properties": {
             "address": "407 Taughannock Boulevard, Ithaca, NY 14850",
             "displayName": "407, Old Taughannock Boulevard, Ward 1, City of Ithaca, Tompkins County, New York, 14850, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.4425802, 42.4426802, -76.5123069, -76.5122069]
           }
         },
@@ -1537,7 +1537,7 @@
           "properties": {
             "address": "Willard Straight Hall, 136 Ho Plaza, Ithaca, NY 14853",
             "displayName": "Willard Straight Hall, 136, Ho Plaza, Ward 4, City of Ithaca, Tompkins County, New York, 14850, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.4462657, 42.4468666, -76.4860045, -76.4853035]
           }
         },
@@ -1614,7 +1614,7 @@
           "properties": {
             "address": "2916 Frederick Douglass Boulevard, New York, NY 10039",
             "displayName": "2916, Frederick Douglass Boulevard, Harlem, Manhattan Community Board 10, Manhattan, New York County, City of New York, New York, 10039, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.8284013, 40.8286821, -73.9375526, -73.9371287]
           }
         }
@@ -1705,7 +1705,7 @@
           "properties": {
             "address": "107 Suffolk Street, New York, NY 10002",
             "displayName": "107, Suffolk Street, Lower East Side, Manhattan Community Board 3, Manhattan, New York County, City of New York, New York, 10002, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.719001, 40.719101, -73.9862296, -73.9861296]
           }
         }
@@ -1776,7 +1776,7 @@
           "properties": {
             "address": "635 Riverside Drive, New York, NY 10031",
             "displayName": "635, Riverside Drive, Philipse Manor, Village of Sleepy Hollow, Town of Mount Pleasant, Westchester County, New York, 10591, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [41.1014377, 41.1015377, -73.8670619, -73.8669619]
           }
         }
@@ -1804,7 +1804,7 @@
           "properties": {
             "address": "721 Broadway, New York, NY 10003",
             "displayName": "721, Broadway, East Village, NoHo, Manhattan, New York County, City of New York, New York, 10003, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.7294108, 40.7295108, -73.9936191, -73.9935191]
           }
         }
@@ -1832,7 +1832,7 @@
           "properties": {
             "address": "405 West 55th Street, New York, NY 10019",
             "displayName": "405, West 55th Street, Columbus Circle, Manhattan Community Board 4, Manhattan, New York County, City of New York, New York, 10019, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.7667871, 40.7671155, -73.9872415, -73.98663]
           }
         }
@@ -1860,7 +1860,7 @@
           "properties": {
             "address": "2121 Broadway, New York, NY 10023",
             "displayName": "2121, Broadway, Upper West Side, Manhattan Community Board 7, Manhattan, New York County, City of New York, New York, 10023, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.7806443, 40.7807443, -73.9817382, -73.9816382]
           }
         }
@@ -1888,7 +1888,7 @@
           "properties": {
             "address": "69 W 14th St, New York, NY 10011",
             "displayName": "69, West 14th Street, Union Square, Manhattan Community Board 5, Manhattan, New York County, City of New York, New York, 10011, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.7374152, 40.7375152, -73.9965943, -73.9964943]
           }
         }
@@ -1916,7 +1916,7 @@
           "properties": {
             "address": "28 West 25th Street, New York, NY 10010",
             "displayName": "28, West 25th Street, Chelsea, Manhattan Community Board 5, Manhattan, New York County, City of New York, New York, 10010, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.7432298, 40.7435126, -73.9906572, -73.9903436]
           }
         }
@@ -1944,7 +1944,7 @@
           "properties": {
             "address": "27 N Moore St, New York, NY 10013",
             "displayName": "27, North Moore Street, Tribeca, Manhattan, New York County, City of New York, New York, 10013, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.7198906, 40.7199906, -74.0074962, -74.0073962]
           }
         }
@@ -1972,7 +1972,7 @@
           "properties": {
             "address": "25 Pine St, New York, NY 10005",
             "displayName": "25, Pine Street, Financial District, Manhattan, New York County, City of New York, New York, 10005, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.7075003, 40.7076003, -74.0101889, -74.0100889]
           }
         }
@@ -2037,7 +2037,7 @@
           "properties": {
             "address": "149 Christopher Street, New York, NY",
             "displayName": "149, Christopher Street, West Village, Manhattan, New York County, City of New York, New York, 10014, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.7328073, 40.7329073, -74.0079955, -74.0078955]
           }
         },
@@ -2108,7 +2108,7 @@
           "properties": {
             "address": "27-24 24th St. Astoria, Queens, NY(",
             "displayName": "24th Street, Astoria, Queens, Queens County, City of New York, New York, 11102, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.7735424, 40.773931, -73.92216, -73.921656]
           }
         },
@@ -2185,7 +2185,7 @@
           "properties": {
             "address": "1352 Culver Rd, Rochester, NY 14609",
             "displayName": "1352, Culver Road, Homestead Heights, City of Rochester, Monroe County, New York, 14609, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [43.1700872, 43.1701872, -77.5604834, -77.5603834]
           }
         }
@@ -2256,7 +2256,7 @@
           "properties": {
             "address": "34 Elton St, Rochester, New York 14607",
             "displayName": "34, Elton Street, Neighborhood Of The Arts, City of Rochester, Monroe County, New York, 14607, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [43.1552257, 43.1553257, -77.579688, -77.579588]
           }
         },
@@ -2333,7 +2333,7 @@
           "properties": {
             "address": "42 North Broadway, Tarrytown, NY 10591",
             "displayName": "42, North Broadway, Village of Tarrytown, Town of Greenburgh, Westchester County, New York, 10591, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [41.0792826, 41.0793826, -73.8576102, -73.8575102]
           }
         }
@@ -2404,7 +2404,7 @@
           "properties": {
             "address": "130 Rhodes St, New Rochelle, NY",
             "displayName": "130, Rhodes Street, Homestead Park, City of New Rochelle, Westchester County, New York, 10801, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.9175907, 40.9176907, -73.776076, -73.775976]
           }
         }
@@ -2475,7 +2475,7 @@
           "properties": {
             "address": "20437 Hannan Parkway, Walton Hills, OH 44146",
             "displayName": "20437, Hannan Parkway, Walton Hills, Cuyahoga County, Ohio, 44146, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [41.3646054, 41.3647054, -81.530583, -81.530483]
           }
         }
@@ -2503,7 +2503,7 @@
           "properties": {
             "address": "23945 Mercantile Rd, Beachwood, OH 44122",
             "displayName": "23945, Mercantile Road, Beachwood Commerce Park, Hampshire Park Country Estates, Beachwood, Cuyahoga County, Ohio, 44122, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [41.4610389, 41.4611389, -81.5051683, -81.5050683]
           }
         }
@@ -2574,7 +2574,7 @@
           "properties": {
             "address": "1069 Jaeger St, Columbus, OH 43206",
             "displayName": "1069, Jaeger Street, German Village, Columbus, Franklin County, Ohio, 43206, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [39.9414155, 39.9419273, -82.9922681, -82.9911503]
           }
         }
@@ -2639,7 +2639,7 @@
           "properties": {
             "address": "Highdown Rd., Lewes BN7 1QE",
             "displayName": "Highdown Road, Nevill, Lewes, Offham, Lewes, East Sussex, England, BN7 1QE, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [50.8788369, 50.8813654, -0.0126896, -0.00711]
           }
         },
@@ -2724,7 +2724,7 @@
           "properties": {
             "address": "Leckwith Road, Cardiff, CF11 8HP, UK",
             "displayName": "Leckwith Road, Leckwith, Canton, Cardiff, Cymru / Wales, CF11 8HP, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.4766635, 51.4773681, -3.2026182, -3.2017503]
           }
         }
@@ -2746,7 +2746,7 @@
           "properties": {
             "address": "Market Rd, Canton, Cardiff, CF5 1QE",
             "displayName": "Market Road, Leckwith, Canton, Cardiff, Cymru / Wales, CF5 1RZ, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.4818436, 51.4839897, -3.2049421, -3.2036371]
           }
         },
@@ -2774,7 +2774,7 @@
           "properties": {
             "address": "Bevan Pl, Cardiff CF14 3UX",
             "displayName": "Bevan Place, The Colonies, Gabalfa, Cardiff, Cymru / Wales, CF14 3AS, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.4973641, 51.4977007, -3.1963781, -3.1959893]
           }
         },
@@ -2808,7 +2808,7 @@
           "properties": {
             "address": "Cardiff University, Cardiff, Wales, UK",
             "displayName": "Cardiff University, Park Place, Civic Centre, Castle, Cardiff, Cymru / Wales, CF10 3AT, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.4886926, 51.4887926, -3.1796499, -3.1795499]
           }
         }
@@ -2880,7 +2880,7 @@
           "properties": {
             "address": "LL57 4LQ",
             "displayName": "LL57 4LQ, Llandygai, Mynydd Llandygái, Gwynedd, Cymru / Wales, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [53.16845, 53.17245, -4.09024, -4.08624]
           }
         },
@@ -2908,7 +2908,7 @@
           "properties": {
             "address": "Treborth, Bangor. LL57 2NX",
             "displayName": "Treborth Road, Pentir, Bangor, Gwynedd, Cymru / Wales, LL57 2RJ, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [53.2150133, 53.2168943, -4.1630117, -4.1613625]
           }
         },
@@ -2942,7 +2942,7 @@
           "properties": {
             "address": "Bangor University, Bangor, LL57 2DG, UK",
             "displayName": "Bangor University, College Road Site, Garth Road, Garth, Bangor, Gwynedd, Cymru / Wales, LL57 2RP, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [53.2279858, 53.2319511, -4.1327012, -4.1260824]
           }
         }
@@ -3020,7 +3020,7 @@
           "properties": {
             "address": "Ecclesall Road, Sheffield, S11 8TE, UK",
             "displayName": "Ecclesall Road, Banner Cross, Endcliffe, Sheffield, South Yorkshire, England, S11 7AA, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [53.366302, 53.3664853, -1.5068174, -1.5064289]
           }
         }
@@ -3042,7 +3042,7 @@
           "properties": {
             "address": "Darwin Ln, Crosspool, Sheffield S10 5RG",
             "displayName": "Darwin Lane, Crosspool, Sheffield, South Yorkshire, England, S10 5RH, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [53.3763606, 53.3765697, -1.5229344, -1.5225693]
           }
         },
@@ -3076,7 +3076,7 @@
           "properties": {
             "address": "Sheffield Hallam University, Sheffield, S1 1WB, UK",
             "displayName": "Sheffield Hallam University, Pond Hill, Sheaf Valley, City Centre, Sheffield, South Yorkshire, England, S1 2BG, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [53.3810967, 53.3823651, -1.4638458, -1.4625352]
           }
         }
@@ -3154,7 +3154,7 @@
           "properties": {
             "address": "22540 Foothill Blvd. Hayward, CA 94541",
             "displayName": "22540, Foothill Boulevard, Hayward, Alameda County, California, 94541, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.6746019, 37.6747019, -122.0816921, -122.0815921]
           }
         },
@@ -3244,7 +3244,7 @@
           "properties": {
             "address": "445 East 69th St, New York, NY",
             "displayName": "445, East 69th Street, Lenox Hill, Manhattan Community Board 8, Manhattan, New York County, City of New York, New York, 10021, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.7650488, 40.7651488, -73.9553846, -73.9552846]
           }
         }
@@ -3272,7 +3272,7 @@
           "properties": {
             "address": "41-20 Queens Boulevard, Sunnyside, NY 11104",
             "displayName": "41-20, Queens Boulevard, Sunnyside Gardens, Queens, Queens County, City of New York, New York, 11104, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.7432989, 40.7433989, -73.9228422, -73.9227422]
           }
         }
@@ -3311,7 +3311,7 @@
           "properties": {
             "address": "Downtown Charleston, SC",
             "displayName": "Residence Inn Charleston Downtown/Riverview, 90, Ripley Point Drive, The Crescent, Charleston, Charleston County, South Carolina, 29407, United States of America",
-            "countryCode": "us",
+            "country_code": "us",
             "boundingBox": [32.7775896, 32.7781046, -79.9662154, -79.9652675]
           }
         },
@@ -3339,7 +3339,7 @@
           "properties": {
             "address": "Hampton Park, Charleston, SC",
             "displayName": "Hampton Park, Charleston, Charleston County, South Carolina, United States of America",
-            "countryCode": "us",
+            "country_code": "us",
             "boundingBox": [32.796825, 32.8031015, -79.9595482, -79.9519746]
           }
         },
@@ -3384,7 +3384,7 @@
           "properties": {
             "address": "7123 N Miami Avenue, Miami, FL 33150",
             "displayName": "7123, North Miami Avenue, Miami, Miami-Dade County, Florida, 33150, United States of America",
-            "countryCode": "us",
+            "country_code": "us",
             "boundingBox": [25.8401342, 25.841247, -80.1964601, -80.1956687]
           }
         },

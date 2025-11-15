@@ -37,7 +37,7 @@
           "properties": {
             "address": "Charlemont Street, Dublin 2, Ireland",
             "displayName": "Charlemont Street, Saint Kevins Ward 1986, Dublin, County Dublin, Leinster, D02 Y993, Éire / Ireland",
-            "countryCode": "ie",
+            "country_code": "ie",
             "boundingBox": [53.3305855, 53.3324182, -6.2630178, -6.2603245]
           }
         }
@@ -65,7 +65,7 @@
           "properties": {
             "address": "Old Airport Road, Dublin, Ireland",
             "displayName": "Collinstown Lane, Airport ED, Fingal, County Dublin, Leinster, K67 A0K7, Éire / Ireland",
-            "countryCode": "ie",
+            "country_code": "ie",
             "boundingBox": [53.4178438, 53.4182048, -6.2508855, -6.2474421]
           }
         }
@@ -93,7 +93,7 @@
           "properties": {
             "address": "1, Upper Stephen St., Dunlavin Upper, Dunlavin, West Wicklow, Co. Wicklow W91N8H7",
             "displayName": "1 Upper Stephen Street, Dunlavin, Co. Wicklow W91 N8H7, Ireland",
-            "countryCode": "us"
+            "country_code": "us"
           }
         }
       },
@@ -114,7 +114,7 @@
           "properties": {
             "address": "North Quay, Wicklow, A67 XR58",
             "displayName": "North Quay, Arklow No 2 Urban ED, The Municipal District of Arklow, County Wicklow, Leinster, Y14 WE22, Éire / Ireland",
-            "countryCode": "ie",
+            "country_code": "ie",
             "boundingBox": [52.7950934, 52.7979841, -6.149136, -6.1442661]
           }
         },
@@ -193,7 +193,7 @@
           "properties": {
             "address": "56 Aungier street, Dublin 2",
             "displayName": "Carmelite Community Centre, 56, Aungier Street, Royal Exchange A Ward 1986, Dublin, County Dublin, Leinster, D02 RW67, Éire / Ireland",
-            "countryCode": "IE",
+            "country_code": "IE",
             "boundingBox": [53.3398635, 53.3401797, -6.2661703, -6.2658673]
           }
         },
@@ -287,7 +287,7 @@
           "properties": {
             "address": "42 Brown St Dundee, Dundee City DD1 5EF",
             "displayName": "Brown Street, University of Dundee Campus, Dudhope, Dundee, Dundee City, Alba / Scotland, DD1 5EJ, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [56.4599907, 56.4610451, -2.9797198, -2.9793613]
           }
         },
@@ -365,7 +365,7 @@
           "properties": {
             "address": "Trewhitt Road, Heaton, Newcastle Upon Tyne NE6 5DY",
             "displayName": "Trewhitt Road, Heaton, Newcastle upon Tyne, Tyne and Wear, North East, England, NE6 5DT, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [54.9876845, 54.9877215, -1.5711115, -1.5702347]
           }
         },
@@ -399,7 +399,7 @@
           "properties": {
             "address": "Wentworth Terrace, Sunderland SR4 7AD, UK",
             "displayName": "Wentworth Terrace, Millfield, Sunderland, North East, England, SR4 7AD, United Kingdom",
-            "countryCode": "gb",
+            "country_code": "gb",
             "boundingBox": [54.9059241, 54.9067115, -1.3972087, -1.396692]
           }
         }
@@ -421,7 +421,7 @@
           "properties": {
             "address": "The Village, Brancepeth, Durham, DH7 8DD",
             "displayName": "The Village, Brancepeth, County Durham, North East, England, DH7 8DG, United Kingdom",
-            "countryCode": "gb",
+            "country_code": "gb",
             "boundingBox": [54.7356261, 54.7363613, -1.6568973, -1.6557398]
           }
         },
@@ -500,7 +500,7 @@
           "properties": {
             "address": "36 Dalmeny St, Leith Edinburgh, EH6 8RG",
             "displayName": "The Out of the Blue Drill Hall, 36, Dalmeny Street, Lorne, Leith, City of Edinburgh, Alba / Scotland, EH6 8RG, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [55.9641446, 55.9647529, -3.1746998, -3.174016]
           }
         },
@@ -528,7 +528,7 @@
           "properties": {
             "address": "Tollcross",
             "displayName": "Tollcross, Glasgow, Glasgow City, Alba / Scotland, G32 8HD, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [55.8232796, 55.8632796, -4.190804, -4.150804]
           }
         },
@@ -606,7 +606,7 @@
           "properties": {
             "address": "Kensington Road, Southend on Sea, Essex, SS1 2TA",
             "displayName": "Kensington Road, Kursaal Estate, Southchurch, Southend-on-Sea, Essex, England, SS1 2TA, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.535529, 51.5383554, 0.7321059, 0.7325058]
           }
         },
@@ -634,7 +634,7 @@
           "properties": {
             "address": "Unit 6 Victoria Road, Chelmsford, Essex CM1 1AN",
             "displayName": "Victoria Road, Springfield Park, Chelmsford, Essex, England, CM2 6LJ, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.7364181, 51.7365186, 0.4788398, 0.4790132]
           }
         },
@@ -735,7 +735,7 @@
           "properties": {
             "address": "Student Recreation Center - 2nd floor",
             "displayName": "Student Recreation Center Turnaround, Athletics District, Bowling Green, Wood County, Ohio, 43403, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [41.3781407, 41.3782912, -83.631557, -83.630975]
           }
         },
@@ -769,7 +769,7 @@
           "properties": {
             "address": "Mar Vista Family Center, Los Angeles, CA",
             "displayName": "Mar Vista Family Center, Ballona Creek Bike Path, Los Angeles, Los Angeles County, California, 90096, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [33.992989, 33.9933795, -118.4072602, -118.4066923]
           }
         }
@@ -866,7 +866,7 @@
           "properties": {
             "address": "Maharishi University of Management, Fairfield, IA 52557",
             "displayName": "Maharishi International University, 1000, North 4th Street, Fairfield, Jefferson County, Iowa, 52557, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [41.014892, 41.0320579, -91.971762, -91.9586887]
           }
         }
@@ -941,7 +941,7 @@
           "properties": {
             "address": "1200 Woodruff Road, Greenville, SC",
             "displayName": "Busy Beez Movers LLC, 1200, Woodruff Road, Merovan Business Center, Greenville County, South Carolina, 29607, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [34.8220918, 34.8221918, -82.2900151, -82.2899151]
           }
         },
@@ -969,7 +969,7 @@
           "properties": {
             "address": "2306 Chesnee Highway, Spartanburg, SC",
             "displayName": "2306, Chesnee Highway, Spartanburg County, South Carolina, 29303, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [35.02488, 35.025167, -81.895077, -81.894686]
           }
         },
@@ -1035,7 +1035,7 @@
           "properties": {
             "address": "100 S Gay St Knoxville, TN 37902",
             "displayName": "South Gay Street, Knoxville Central Business District, Mechanicsville, Knoxville, Knox County, East Tennessee, Tennessee, 37902, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [35.9672189, 35.9688228, -83.9207907, -83.9194659]
           }
         },
@@ -1113,7 +1113,7 @@
           "properties": {
             "address": "9294 Kingston Pike, Knoxville, TN 37922",
             "displayName": "9294, Kingston Pike, Knoxville, Knox County, East Tennessee, Tennessee, 37922, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [35.9105092, 35.9106092, -84.0924111, -84.0923111]
           }
         },
@@ -1187,7 +1187,7 @@
           "properties": {
             "address": "2125-C Goodrich Avenue, Austin, TX 78704",
             "displayName": "Goodrich Avenue, Zilker, Austin, Travis County, Texas, 78704, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [30.2483403, 30.253143, -97.7736188, -97.770486]
           }
         },
@@ -1271,7 +1271,7 @@
           "properties": {
             "address": "4619 South Congress Avenue, Austin, TX 78745",
             "displayName": "4619, South Congress Avenue, St. Elmo, Austin, Travis County, Texas, 78745, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [30.214896, 30.2155227, -97.7683269, -97.7675751]
           }
         }
@@ -1328,7 +1328,7 @@
           "properties": {
             "address": "1301 Shoal Creek Blvd, Austin, TX 78701",
             "displayName": "Austin Recreation Center, 1301, Shoal Creek Boulevard, Austin, Travis County, Texas, 78701, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [30.2781172, 30.2785067, -97.7491567, -97.7488019]
           }
         },
@@ -1406,7 +1406,7 @@
           "properties": {
             "address": "1601 E Alton Gloor Blvd, Brownsville, TX 78526",
             "displayName": "East Alton Gloor Boulevard, Brownsville, Cameron County, Texas, 78526, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [25.9793024, 25.9808411, -97.5046322, -97.4881675]
           }
         },
@@ -1434,7 +1434,7 @@
           "properties": {
             "address": "217 S. 16th St. McAllen, TX",
             "displayName": "217, South 16th Street, College Heights, McAllen, Hidalgo County, Texas, 78501, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [26.2024025, 26.2025025, -98.2369403, -98.2368403]
           }
         },
@@ -1511,7 +1511,7 @@
           "properties": {
             "address": "Fort Worth, TX 76110",
             "displayName": "Fort Worth, Tarrant County, Texas, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [32.551584, 33.049529, -97.592388, -97.0335808]
           }
         }
@@ -1576,7 +1576,7 @@
           "properties": {
             "address": "3400 S. Fitzhugh, Dallas, Texas 76210",
             "displayName": "South Dallas Cultural Center, 3400, South Fitzhugh Avenue, Wheatley Place Historic District, Dallas, Dallas County, Texas, 75210, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [32.7710161, 32.7716707, -96.7576773, -96.7570244]
           }
         },
@@ -1647,7 +1647,7 @@
           "properties": {
             "address": "410 N. Greenville Ave - - Allen, TX 75002",
             "displayName": "410, North Greenville Avenue, Allen, Collin County, Texas, 75002, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [33.1055644, 33.1056644, -96.6581383, -96.6580383]
           }
         },
@@ -1710,7 +1710,7 @@
           "properties": {
             "address": "4106 Montana Ave El Paso, TX 79903",
             "displayName": "4106, Montana Avenue, El Paso, El Paso County, Texas, 79903, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [31.7835057, 31.7836057, -106.4433486, -106.4432486]
           }
         },
@@ -1788,7 +1788,7 @@
           "properties": {
             "address": "6110 N. Hwy 6, Houston, TX 77084",
             "displayName": "North Highway 6, Addicks, Houston, Harris County, Texas, 77084, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [29.7980892, 29.8132865, -95.6453897, -95.644945]
           }
         },
@@ -1861,7 +1861,7 @@
           "properties": {
             "address": "316 Pecore St, Houston TX, 77009",
             "displayName": "316, Pecore Street, Woodland Heights, Houston Heights, Houston, Harris County, Texas, 77009, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [29.7904906, 29.7905906, -95.3745685, -95.3744685]
           }
         },
@@ -1889,7 +1889,7 @@
           "properties": {
             "address": "2811 Travis Street, Houston, Texas 77006",
             "displayName": "2811, Travis Street, Midtown, Houston, Harris County, Texas, 77006, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [29.7444557, 29.7445557, -95.3760101, -95.3759101]
           }
         },
@@ -1956,7 +1956,7 @@
           "properties": {
             "address": "3815 Live Oak Street Houston, TX 77004",
             "displayName": "Shape Community Center, 3815, Live Oak Street, Washington Terrace, Third Ward, Houston, Harris County, Texas, 77004, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [29.728918, 29.7292411, -95.3665873, -95.3661878]
           }
         },
@@ -2033,7 +2033,7 @@
           "properties": {
             "address": "800 E Mann Rd, Laredo, TX 78041",
             "displayName": "East Mann Road, Nye, Laredo, Webb County, Texas, 78041, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [27.5567322, 27.5594231, -99.5032525, -99.4964444]
           }
         }
@@ -2097,7 +2097,7 @@
           "properties": {
             "address": "925 West Russell Pl, San Antonio TX 78212",
             "displayName": "925, West Russell Place, Alta Vista, San Antonio, Bexar County, Texas, 78212, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [29.4510545, 29.4511545, -98.5049033, -98.5048033]
           }
         },
@@ -2174,7 +2174,7 @@
           "properties": {
             "address": "8005 West Avenue, San Antonio TX 78213",
             "displayName": "West Avenue, San Antonio, Bexar County, Texas, 78213, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [29.5141143, 29.5147974, -98.5259399, -98.5259334]
           }
         },
@@ -2252,7 +2252,7 @@
           "properties": {
             "address": "2 Overnewton Square, Glasgow, G3 8RW",
             "displayName": "Overnewton Square, Stobcross, Kelvinhaugh, Glasgow, Glasgow City, Alba / Scotland, G3 8TW, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [55.8658586, 55.8658747, -4.2912315, -4.290754]
           }
         },
@@ -2280,7 +2280,7 @@
           "properties": {
             "address": "21 Rose Street, Glasgow",
             "displayName": "Garnethill Multicultural Comunity Centre, 21, Rose Street, Garnethill, Glasgow, Glasgow City, Alba / Scotland, G3 6RE, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [55.8661786, 55.8663572, -4.2617428, -4.2615101]
           }
         },
@@ -2358,7 +2358,7 @@
           "properties": {
             "address": "233 E Fulton, Grand Rapids, MI",
             "displayName": "Fulton Street West, Grand Rapids, Kent County, Michigan, 49503, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.9633023, 42.96339, -85.681517, -85.679385]
           }
         },
@@ -2436,7 +2436,7 @@
           "properties": {
             "address": "13 Abbotts Way, Southampton, SO17 1QU",
             "displayName": "13, Abbotts Way, Portswood Park, Portswood, Southampton, England, SO17 1NU, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [50.9274368, 50.9275911, -1.3953024, -1.3950761]
           }
         },
@@ -2470,7 +2470,7 @@
           "properties": {
             "address": "University of Southampton Students Union, Southampton, SO17 1BJ, UK",
             "displayName": "University of Southampton Students' Union (SUSU), Courtyard, Highfield, Southampton, England, SO17 1BJ, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [50.9337731, 50.9345962, -1.3981197, -1.3968993]
           }
         }
@@ -2498,7 +2498,7 @@
           "properties": {
             "address": "University of Southampton Students Union, Southampton, SO17 1BJ, UK",
             "displayName": "University of Southampton Students' Union (SUSU), Courtyard, Highfield, Southampton, England, SO17 1BJ, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [50.9337731, 50.9345962, -1.3981197, -1.3968993]
           }
         }
@@ -2570,7 +2570,7 @@
           "properties": {
             "address": "Bournemouth, Westover Road, BH1 2BU",
             "displayName": "Bournemouth Aviary, 26-29, Westover Road, Lansdowne, West Cliff, Bournemouth, Bournemouth, Christchurch and Poole, England, BH1 2BU, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [50.7186529, 50.7187529, -1.8760207, -1.8759207]
           }
         },
@@ -2598,7 +2598,7 @@
           "properties": {
             "address": "Queens Park South Drive BH8 9BJ",
             "displayName": "Queen's Park South Drive, Springbourne, Bournemouth, Bournemouth, Christchurch and Poole, England, BH8 9BJ, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [50.7366953, 50.7371651, -1.8468618, -1.844606]
           }
         },
@@ -2632,7 +2632,7 @@
           "properties": {
             "address": "St Marys Road, Portsmouth, PO1 5PF, UK",
             "displayName": "St Marys Road, Kingston, Fratton, Portsmouth, England, PO1 5PJ, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [50.8029077, 50.8040957, -1.0763874, -1.0672615]
           }
         }
@@ -2654,7 +2654,7 @@
           "properties": {
             "address": "Violet road, Southampton, SO16 3GJ",
             "displayName": "Violet Road, Glen Eyre, Southampton, England, SO16 3GS, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [50.9405508, 50.9410683, -1.3982153, -1.3970812]
           }
         },
@@ -2725,7 +2725,7 @@
           "properties": {
             "address": "157-197 Buckingham Palace Road, London, SW1W 9SP",
             "displayName": "National Audit Office, 157-197, Buckingham Palace Road, Victoria, City of Westminster, Greater London, England, SW1W 9SP, United Kingdom",
-            "countryCode": "gb",
+            "country_code": "gb",
             "boundingBox": [51.4909736, 51.4922323, -0.1491108, -0.1473421]
           }
         },
@@ -2753,7 +2753,7 @@
           "properties": {
             "address": "1 Artizan St, London, E1 7AF",
             "displayName": "Artizan Street, Devonshire Square, City of London, Greater London, England, E1 7BS, United Kingdom",
-            "countryCode": "gb",
+            "country_code": "gb",
             "boundingBox": [51.5153262, 51.5154551, -0.0771807, -0.0770069]
           }
         },
@@ -2781,7 +2781,7 @@
           "properties": {
             "address": "114 Cheshire Street, London, E2 6EJ",
             "displayName": "Reflection House, 112a-114, Cheshire Street, Spitalfields, Whitechapel, London Borough of Tower Hamlets, Greater London, England, E2 6HE, United Kingdom",
-            "countryCode": "gb",
+            "country_code": "gb",
             "boundingBox": [51.5235304, 51.5239186, -0.0667393, -0.0665559]
           }
         },
@@ -2809,7 +2809,7 @@
           "properties": {
             "address": "8 Greenland Street, London, NW1 0ND",
             "displayName": "St Michael's Church Community Space for Camden Town, 8, Greenland Street, Chalk Farm, Camden Town, London Borough of Camden, Greater London, England, NW1 0ND, United Kingdom",
-            "countryCode": "gb",
+            "country_code": "gb",
             "boundingBox": [51.5383152, 51.5385104, -0.1415836, -0.1412108]
           }
         },
@@ -2837,7 +2837,7 @@
           "properties": {
             "address": "2 Regent's Park Road, London, NW1 7AY",
             "displayName": "Cecil Sharp House, 2, Regent's Park Road, Primrose Hill, Chalk Farm, Camden Town, London Borough of Camden, Greater London, England, NW1 7AY, United Kingdom",
-            "countryCode": "gb",
+            "country_code": "gb",
             "boundingBox": [51.537996, 51.538323, -0.1495841, -0.1490597]
           }
         },
@@ -2910,7 +2910,7 @@
           "properties": {
             "address": "130 Austin Road, Tsim Sha Tsui, Kowloon, Hong Kong",
             "displayName": "嘉碧大廈 Capri Building, 130, 柯士甸道 Austin Road, 官涌 Kwun Chung, 尖沙咀 Tsim Sha Tsui, 油尖旺區 Yau Tsim Mong District, 九龍 Kowloon, 香港 Hong Kong, 中国",
-            "countryCode": "CN",
+            "country_code": "CN",
             "boundingBox": [22.3030731, 22.3032872, 114.1736021, 114.1736993]
           }
         }
@@ -2982,7 +2982,7 @@
           "properties": {
             "address": "29 Randolph St, Newton, Auckland",
             "displayName": "29, Randolph Street, Newton, Eden Terrace, Waitematā, Auckland, 1002, New Zealand / Aotearoa",
-            "countryCode": "NZ",
+            "country_code": "NZ",
             "boundingBox": [-36.8622798, -36.8621798, 174.7566376, 174.7567376]
           }
         },
@@ -3016,7 +3016,7 @@
           "properties": {
             "address": "Pendarves Street, New Plymouth, New Zealand",
             "displayName": "Pendarves Street, Strandon, New Plymouth, New Plymouth District, Taranaki, 4310, New Zealand / Aotearoa",
-            "countryCode": "NZ",
+            "country_code": "NZ",
             "boundingBox": [-39.0605825, -39.0578233, 174.077738, 174.0867983]
           }
         }
@@ -3038,7 +3038,7 @@
           "properties": {
             "address": "48 Aro St; Wellington",
             "displayName": "Aro Valley Preschool, 48, Aro Street, Aro Valley, Wellington, Wellington City, Wellington, 6040, New Zealand / Aotearoa",
-            "countryCode": "NZ",
+            "country_code": "NZ",
             "boundingBox": [-41.2953757, -41.2952366, 174.7686367, 174.7689955]
           }
         },
@@ -3066,7 +3066,7 @@
           "properties": {
             "address": "293 Cuba St, Wellington",
             "displayName": "Thistle Hall, 293, Cuba Street, Mount Cook, Wellington, Wellington City, Wellington, 6040, New Zealand / Aotearoa",
-            "countryCode": "NZ",
+            "country_code": "NZ",
             "boundingBox": [-41.2974325, -41.2972782, 174.7735252, 174.7738041]
           }
         },
@@ -3094,7 +3094,7 @@
           "properties": {
             "address": "442 Tuam Street. Christchurch",
             "displayName": "442, Tuam Street, Phillipstown, Christchurch, Christchurch City, Canterbury, 8011, New Zealand / Aotearoa",
-            "countryCode": "NZ",
+            "country_code": "NZ",
             "boundingBox": [-43.5356606, -43.5355606, 172.6550487, 172.6551487]
           }
         },
@@ -3122,7 +3122,7 @@
           "properties": {
             "address": "Northland",
             "displayName": "Northland, New Zealand / Aotearoa",
-            "countryCode": "NZ",
+            "country_code": "NZ",
             "boundingBox": [-36.5586286, -34.1935434, 172.3928404, 174.9935714]
           }
         },
@@ -3193,7 +3193,7 @@
           "properties": {
             "address": "2200 SW 16th St Miami Fl 33145",
             "displayName": "2200, Southwest 16th Street, Miami, Miami-Dade County, Florida, 33145, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [25.7577702, 25.7578702, -80.2308684, -80.2307684]
           }
         },
@@ -3270,7 +3270,7 @@
           "properties": {
             "address": "212 NE 59th Terrace, Miami, FL",
             "displayName": "Little Haiti Cultural Center, 212, Northeast 59th Terrace, Little Haiti, Bayshore, Miami, Miami-Dade County, Florida, 33137, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [25.8298759, 25.8304927, -80.1915825, -80.1911011]
           }
         }
@@ -3348,7 +3348,7 @@
           "properties": {
             "address": "New Hope, PA 18938",
             "displayName": "New Hope, Bucks County, Pennsylvania, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.3497411, 40.3735144, -74.9685192, -74.9454628]
           }
         }
@@ -3370,7 +3370,7 @@
           "properties": {
             "address": "6542-K Lower York Road, New Hope, PA 18938",
             "displayName": "New Hope Fitness, 6542, Lower York Road, Reeder, New Hope, Bucks County, Pennsylvania, 18938, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.3557761, 40.356188, -74.9759667, -74.9754678]
           }
         },

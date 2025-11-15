@@ -31,7 +31,7 @@ interface GeoJsonFeature {
   properties: {
     address: string;
     displayName?: string;
-    countryCode?: string;
+    country_code?: string;
     boundingBox?: [number, number, number, number];
   };
 }

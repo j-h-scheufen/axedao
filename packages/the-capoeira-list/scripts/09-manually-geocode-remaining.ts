@@ -87,7 +87,7 @@ async function manuallyGeocodeRemaining(): Promise<void> {
             properties: {
               address: location.address,
               displayName: manual.displayName,
-              countryCode: location.address.includes('UK') ? 'gb' : location.address.includes('Ireland') ? 'ie' : 'us',
+              country_code: location.address.includes('UK') ? 'gb' : location.address.includes('Ireland') ? 'ie' : 'us',
             },
           };
 

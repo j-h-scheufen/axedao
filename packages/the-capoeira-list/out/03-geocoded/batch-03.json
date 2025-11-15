@@ -31,7 +31,7 @@
           "properties": {
             "address": "1860 Mellwood Ave, Louisville, KY 40206",
             "displayName": "Mellwood Art Center, 1860, Mellwood Avenue, Clifton, Louisville, Jefferson County, Kentucky, 40206, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.2620065, 38.2635747, -85.7137558, -85.7120802]
           }
         },
@@ -98,7 +98,7 @@
           "properties": {
             "address": "2920 Frankfort Ave, Louisville, KY, 40206",
             "displayName": "2920, Frankfort Avenue, Louisville, Jefferson County, Kentucky, 40206, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.2546794, 38.2547794, -85.6867047, -85.6866047]
           }
         },
@@ -169,7 +169,7 @@
           "properties": {
             "address": "Higher Cambridge St, Hulme. M15 6HP",
             "displayName": "Higher Cambridge Street, First Street, Hulme, Manchester, Greater Manchester, England, M15 6AR, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [53.4662796, 53.4664035, -2.2382653, -2.2381564]
           }
         },
@@ -240,7 +240,7 @@
           "properties": {
             "address": "Mullingar Business Park",
             "displayName": "Mullingar Business Park, Mullingar Rural ED, The Municipal District of Mullingar — Kinnegad, County Westmeath, Leinster, N91 NH33, Éire / Ireland",
-            "countryCode": "IE",
+            "country_code": "IE",
             "boundingBox": [53.51232, 53.5180083, -7.3585803, -7.3532406]
           }
         },
@@ -268,7 +268,7 @@
           "properties": {
             "address": "Harbour St, Commons",
             "displayName": "Claypond Commons, Fantasy Harbour, Horry County, South Carolina, 29577, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [33.7098921, 33.7298921, -78.9536986, -78.9336986]
           }
         },
@@ -339,7 +339,7 @@
           "properties": {
             "address": "Trewhitt Road, Heaton, Newcastle Upon Tyne NE6 5DY",
             "displayName": "Trewhitt Road, Heaton, Newcastle upon Tyne, Tyne and Wear, North East, England, NE6 5DT, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [54.9876845, 54.9877215, -1.5711115, -1.5702347]
           }
         },
@@ -367,7 +367,7 @@
           "properties": {
             "address": "Temple Street, Newcastle Upon Tyne, NE1 4BR",
             "displayName": "Temple Street, Grainger Town, Newcastle upon Tyne, Tyne and Wear, North East, England, NE1 4BR, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [54.9702967, 54.9703617, -1.6225272, -1.6218326]
           }
         },
@@ -434,7 +434,7 @@
           "properties": {
             "address": "1,Unthank road, Norwich, NR2 2PA",
             "displayName": "1-6 Pym House, 260, Unthank Road, Mount Pleasant, Eaton, Norwich, Norfolk, England, NR2 2AJ, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [52.6202229, 52.6203795, 1.2709014, 1.2711955]
           }
         },
@@ -468,7 +468,7 @@
           "properties": {
             "address": "Sportspark, University of East Anglia, Norwich, UK",
             "displayName": "Sportspark, University of East Anglia, Norwich, Norfolk, England, NR4 7TJ, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [52.6236661, 52.6249165, 1.2405376, 1.2421443]
           }
         }
@@ -540,7 +540,7 @@
           "properties": {
             "address": "618 B Street, San Rafael, CA 94901",
             "displayName": "San Rafael Community Center, 618, B Street, San Rafael, Marin County, California, 94902, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.9692018, 37.9697162, -122.5294175, -122.5288381]
           }
         },
@@ -574,7 +574,7 @@
           "properties": {
             "address": "Mill Valley, CA 94941",
             "displayName": "Mill Valley, Marin County, California, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.886477, 37.9296329, -122.5769802, -122.5143818]
           }
         }
@@ -596,7 +596,7 @@
           "properties": {
             "address": "775 Miller Creek Road San Rafael, CA 94903",
             "displayName": "Marinwood Community Center, 775, Miller Creek Road, Lucas Valley, Lucas Valley-Marinwood, San Rafael, Marin County, California, 94903, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.0278559, 38.0279559, -122.5524132, -122.5523132]
           }
         },
@@ -624,7 +624,7 @@
           "properties": {
             "address": "498 Tamalpais Dr. Corte Madera, CA 94924",
             "displayName": "Corte Madera Community Center, 498;500, Tamalpais Drive, Corte Madera, Marin County, California, 94925, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.9255644, 37.9259161, -122.5242747, -122.5239601]
           }
         },
@@ -652,7 +652,7 @@
           "properties": {
             "address": "150 Oak Manor Drive, Fairfax, CA 94930",
             "displayName": "150, Oak Manor Drive, Manor, Fairfax, Marin County, California, 94930, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.99789, 37.99799, -122.594132, -122.594032]
           }
         },
@@ -723,7 +723,7 @@
           "properties": {
             "address": "500 West Perkins Street Ukiah, CA 95482",
             "displayName": "500, West Perkins Street, Downtown, Downtown Ukiah, Ukiah, Mendocino County, California, 95482, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [39.149382, 39.149482, -123.211709, -123.211609]
           }
         },
@@ -794,7 +794,7 @@
           "properties": {
             "address": "724 Abrego Street, Monterey, CA 93940",
             "displayName": "El Palomar Monterey, 724, Abrego Street, Monterey, Monterey County, California, 93940, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [36.5947154, 36.5948154, -121.8925512, -121.8924512]
           }
         },
@@ -865,7 +865,7 @@
           "properties": {
             "address": "2505 152nd Ave NE, Redmond, WA 98052",
             "displayName": "2505, 152nd Avenue Northeast, Overlake, Redmond, King County, Washington, 98052, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [47.6329999, 47.6330999, -122.1382877, -122.1381877]
           }
         },
@@ -893,7 +893,7 @@
           "properties": {
             "address": "12440 128th Lane NE Kirkland, WA 98034",
             "displayName": "12440, 128th Lane Northeast, Kirkland, King County, Washington, 98034, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [47.7114673, 47.7118049, -122.169807, -122.169078]
           }
         },
@@ -966,7 +966,7 @@
           "properties": {
             "address": "Western Washington University, Bellingham, WA",
             "displayName": "Western Washington University, 516, High Street, Bellingham, Whatcom County, Washington, 98225, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [48.7264107, 48.7413577, -122.4917467, -122.4804349]
           }
         }
@@ -1038,7 +1038,7 @@
           "properties": {
             "address": "CRC Room 117",
             "displayName": "Circus Room, 2309, Southwest 6th Avenue, Original Town of Amarillo, Amarillo, Potter County, Texas, 79106, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [35.2109544, 35.2110544, -101.8632954, -101.8631954]
           }
         },
@@ -1109,7 +1109,7 @@
           "properties": {
             "address": "418 N 35th St, Fremont - Seattle, 98103",
             "displayName": "418, North 35th Street, Fremont, Seattle, King County, Washington, 98103, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [47.6513601, 47.6516152, -122.3537165, -122.3534763]
           }
         },
@@ -1180,7 +1180,7 @@
           "properties": {
             "address": "803 S King St. Seattle, Wa 98104",
             "displayName": "803, South King Street, Chinatown, Chinatown International District, Seattle, King County, Washington, 98104, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [47.5981779, 47.5982779, -122.3222672, -122.3221672]
           }
         },
@@ -1251,7 +1251,7 @@
           "properties": {
             "address": "3150 Airport Way S Seattle 98134",
             "displayName": "3150, Airport Way South, Beacon Hill, Seattle, King County, Washington, 98134, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [47.5760833, 47.5761833, -122.3205072, -122.3204072]
           }
         },
@@ -1279,7 +1279,7 @@
           "properties": {
             "address": "4501 Interlake Ave. North #6 | Seattle, WA 98103",
             "displayName": "Compfit Dance & Fitness Studio, 4501, Interlake Avenue North, Wallingford, Seattle, King County, Washington, 98103, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [47.6618119, 47.6619119, -122.3409219, -122.3408219]
           }
         },
@@ -1350,7 +1350,7 @@
           "properties": {
             "address": "2909 Rainier Avenue South Seattle, WA 98144",
             "displayName": "2909, Rainier Avenue South, Mount Baker, Seattle, King County, Washington, 98144, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [47.5772834, 47.5773834, -122.2977467, -122.2976467]
           }
         },
@@ -1434,7 +1434,7 @@
           "properties": {
             "address": "372 Sainte-Catherine Ouest, Montreal, QC, Canada",
             "displayName": "Belgo, 372, Rue Sainte-Catherine Ouest, Quartier des Spectacles, Ville-Marie, Montréal, Agglomération de Montréal, Montréal (région administrative), Québec, H3B 1A2, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [45.5051668, 45.5061857, -73.5676107, -73.5665504]
           }
         }
@@ -1499,7 +1499,7 @@
           "properties": {
             "address": "2755 Chemin de Chambly, Longueuil, J4L 1M7, QC",
             "displayName": "2755, Chemin de Chambly, Le Vieux-Longueuil, Longueuil, Agglomération de Longueuil, Montérégie, Québec, J3L 1N3, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [45.5206065, 45.5207065, -73.4604591, -73.4603591]
           }
         },
@@ -1533,7 +1533,7 @@
           "properties": {
             "address": "5556 Grande Allee, Saint-Hubert, QC, J3Y 1A8, Canada",
             "displayName": "5556, Grande Allée, Saint-Hubert, Longueuil, Agglomération de Longueuil, Montérégie, Québec, J3Y 1A5, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [45.4757502, 45.4758502, -73.4445546, -73.4444546]
           }
         }
@@ -1594,7 +1594,7 @@
           "properties": {
             "address": "3680, rue Jeanne-Mance Montreal QC H2X 2K5",
             "displayName": "Ex aequo, 3680, Rue Jeanne-Mance, Le Plateau-Mont-Royal, Montréal, Agglomération de Montréal, Montréal (région administrative), Québec, H2X 2K5, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [45.5115485, 45.5116485, -73.5763831, -73.5762831]
           }
         },
@@ -1672,7 +1672,7 @@
           "properties": {
             "address": "2901 General de Gaulle Dr, New Orleans, LA 70114",
             "displayName": "2901, General de Gaulle Drive, New Orleans, Orleans Parish, Louisiana, 70114, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [29.927887, 29.927987, -90.02924, -90.02914]
           }
         },
@@ -1738,7 +1738,7 @@
           "properties": {
             "address": "800 Race Street, New Orleans, LA, 70130",
             "displayName": "800, Race Street, The Saulet Apartment Homes, Garden District, New Orleans, Orleans Parish, Louisiana, 70130, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [29.933477, 29.933577, -90.068904, -90.068804]
           }
         },
@@ -1772,7 +1772,7 @@
           "properties": {
             "address": "Tulane University, New Orleans, LA 70118",
             "displayName": "Tulane University, 6823, Saint Charles Avenue, Black Pearl, Greenville, New Orleans, Orleans Parish, Louisiana, 70118, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [29.9342635, 29.948289, -90.1238755, -90.1143296]
           }
         }
@@ -1844,7 +1844,7 @@
           "properties": {
             "address": "47 East Street, Hadley, MA 01035",
             "displayName": "47, East Street, Hadley Center Historic District, Hadley, Hampshire County, Massachusetts, 01035, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.3461529, 42.3467387, -72.5830886, -72.582327]
           }
         },
@@ -1915,7 +1915,7 @@
           "properties": {
             "address": "36 W Broadway, Boston, MA 02127",
             "displayName": "36, West Broadway, Seaport, South Boston, Boston, Suffolk County, Massachusetts, 02127, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.3406276, 42.3407276, -71.0535796, -71.0534796]
           }
         },
@@ -1943,7 +1943,7 @@
           "properties": {
             "address": "700 Beacon St Boston, MA 02215",
             "displayName": "Beacon Street, Audubon Circle, Fenway, Boston, Suffolk County, Massachusetts, 02215, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.347536, 42.3481714, -71.1018535, -71.0995747]
           }
         },
@@ -2027,7 +2027,7 @@
           "properties": {
             "address": "161 Harvard Ave Allston, MA",
             "displayName": "Salsa y Control, 161, Harvard Avenue, Allston Village, Allston, Boston, Suffolk County, Massachusetts, 02134, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.3513977, 42.3514977, -71.1319551, -71.1318551]
           }
         },
@@ -2061,7 +2061,7 @@
           "properties": {
             "address": "48 Pleasant St, Dorchester, MA",
             "displayName": "48, Pleasant Street, Uphams Corner, Dorchester, Boston, Suffolk County, Massachusetts, 02125, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.3152763, 42.3155415, -71.0595963, -71.0593602]
           }
         }
@@ -2089,7 +2089,7 @@
           "properties": {
             "address": "Northeastern University, Boston, MA",
             "displayName": "Northeastern University, 360, Huntington Avenue, Fenway, Boston, Suffolk County, Massachusetts, 02115, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.334667, 42.3458049, -71.0936211, -71.0830404]
           }
         }
@@ -2117,7 +2117,7 @@
           "properties": {
             "address": "University of Massachusetts Boston, Boston, MA",
             "displayName": "University of Massachusetts Boston, 150, Mount Vernon Street, Dorchester, Boston, Suffolk County, Massachusetts, 02125, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.3103068, 42.3178731, -71.046738, -71.0326914]
           }
         }
@@ -2189,7 +2189,7 @@
           "properties": {
             "address": "11 Pleasant St,Gloucester, MA 01930",
             "displayName": "11, Pleasant Street, Central Gloucester Historic District, Five Pound Island, Gloucester, Essex County, Massachusetts, 01930, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.6138565, 42.6139565, -70.6618482, -70.6617482]
           }
         },
@@ -2279,7 +2279,7 @@
           "properties": {
             "address": "536 Massachusetts Avenue, Cambridge, MA 02139-4029",
             "displayName": "Odd Fellows Hall, 534;536;538, Massachusetts Avenue, Central Square, Cambridge, Middlesex County, Massachusetts, 02139, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.3640931, 42.3643696, -71.1024769, -71.1021262]
           }
         }
@@ -2352,7 +2352,7 @@
           "properties": {
             "address": "536 Massachusetts Avenue, Cambridge, MA",
             "displayName": "Odd Fellows Hall, 534;536;538, Massachusetts Avenue, Central Square, Cambridge, Middlesex County, Massachusetts, 02139, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.3640931, 42.3643696, -71.1024769, -71.1021262]
           }
         },
@@ -2380,7 +2380,7 @@
           "properties": {
             "address": "119 Windsor St, Cambridge, MA 02139",
             "displayName": "Windsor St. Health & Community Center, 119, Windsor Street, The Port, Cambridge, Middlesex County, Massachusetts, 02139, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.3646476, 42.3647476, -71.0966949, -71.0965949]
           }
         },
@@ -2408,7 +2408,7 @@
           "properties": {
             "address": "39 Holyoke St, Cambridge, MA 02139",
             "displayName": "39, Holyoke Street, Cambridge, Middlesex County, Massachusetts, 02138, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.3712705, 42.3713705, -71.1191132, -71.1190132]
           }
         },
@@ -2504,7 +2504,7 @@
           "properties": {
             "address": "2000 Massachusetts Ave, Cambridge MA",
             "displayName": "2000, Massachusetts Avenue, Cambridge, Middlesex County, Massachusetts, 02140, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.3900666, 42.3904157, -71.1217366, -71.1212628]
           }
         },
@@ -2575,7 +2575,7 @@
           "properties": {
             "address": "1431 Beacon Street, Brookline MA",
             "displayName": "1431, Beacon Street, Coolidge Corner, North Brookline, Brookline, Norfolk County, Massachusetts, 02446, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.3406099, 42.3407099, -71.1261963, -71.1260963]
           }
         },
@@ -2646,7 +2646,7 @@
           "properties": {
             "address": "1501 Bedford St Abington, MA 02351",
             "displayName": "1501, Bedford Street, North Abington, Abington, Plymouth County, Massachusetts, 02351, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.1457305, 42.1458305, -70.9538567, -70.9537567]
           }
         },
@@ -2736,7 +2736,7 @@
           "properties": {
             "address": "Casuarina, Northern Territory, Australia",
             "displayName": "Casuarina, Darwin, City of Darwin, Northern Territory, 0810, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-12.377589, -12.369968, 130.876531, 130.886235]
           }
         }
@@ -2764,7 +2764,7 @@
           "properties": {
             "address": "Chambers Crescent, Malak, NT, Australia",
             "displayName": "Chambers Crescent, Malak, Darwin, City of Darwin, Northern Territory, 0812, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-12.3978089, -12.3942011, 130.9025959, 130.9080322]
           }
         }
@@ -2829,7 +2829,7 @@
           "properties": {
             "address": "Quarry St, Ultimo NSW 2007",
             "displayName": "Quarry Street, Ultimo, Sydney CBD, Sydney, Council of the City of Sydney, New South Wales, 2007, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-33.8775558, -33.8771291, 151.1948569, 151.1959296]
           }
         },
@@ -2857,7 +2857,7 @@
           "properties": {
             "address": "97 Brook St, Coogee NSW",
             "displayName": "Brook Street, Coogee, Eastern Suburbs, Sydney, Randwick City Council, New South Wales, 2034, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-33.9223863, -33.920485, 151.2539973, 151.2544005]
           }
         },
@@ -2885,7 +2885,7 @@
           "properties": {
             "address": "218 Church St, Parramatta NSW",
             "displayName": "Church Street, Parramatta, Sydney, City of Parramatta Council, New South Wales, 2150, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-33.8169249, -33.8168266, 151.0034338, 151.0034555]
           }
         },
@@ -2919,7 +2919,7 @@
           "properties": {
             "address": "180 King Street, Newcastle, NSW 2300, Australia",
             "displayName": "devFU, 180, King Street, Newcastle, Newcastle-Maitland, City of Newcastle, New South Wales, 2300, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-32.9269354, -32.9268354, 151.7763874, 151.7764874]
           }
         }
@@ -2990,7 +2990,7 @@
           "properties": {
             "address": "10/23 Hillcrest Parade Miami, Gold Coast",
             "displayName": "Hillcrest Parade, Miami, Gold Coast City, Queensland, 4220, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-28.0675205, -28.0651885, 153.4350582, 153.4360251]
           }
         },
@@ -3018,7 +3018,7 @@
           "properties": {
             "address": "349 Montague Road West End, QLD",
             "displayName": "349, Montague Road, Hill End, West End, Greater Brisbane, Queensland, 4101, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-27.4829804, -27.4827154, 153.003003, 153.0033489]
           }
         },
@@ -3089,7 +3089,7 @@
           "properties": {
             "address": "17 Fleming St, Aitkenvale QLD 4812",
             "displayName": "Fleming Street, Aitkenvale, Townsville, Townsville City, Queensland, 4814, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-19.2937236, -19.2928683, 146.7670419, 146.7707552]
           }
         },
@@ -3160,7 +3160,7 @@
           "properties": {
             "address": "St Andrews Ave, Isle of Capri",
             "displayName": "Church of Jesus Christ of Latter-Day Saints - Isle Of Capri Chapel, St Andrews Avenue, Surfers Paradise, Gold Coast City, Queensland, 4217, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-28.0117169, -28.0113638, 153.4225966, 153.4230992]
           }
         },
@@ -3194,7 +3194,7 @@
           "properties": {
             "address": "Southport, QLD 4215, Australia",
             "displayName": "Southport, Gold Coast City, Queensland, 4215, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-27.998492, -27.951279, 153.376002, 153.422794]
           }
         }
@@ -3216,7 +3216,7 @@
           "properties": {
             "address": "Dominions Rd, Ashmore",
             "displayName": "Dominions Road, Ashmore, Gold Coast City, Queensland, 4214, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-27.9822643, -27.9782359, 153.3836254, 153.3842479]
           }
         },
@@ -3289,7 +3289,7 @@
           "properties": {
             "address": "Jalan 14/22, Section 14, Petaling Jaya, Selangor, Malaysia",
             "displayName": "Jalan 14/22, Seksyen 14, Petaling Jaya, Petaling, Selangor, 46200, Malaysia",
-            "countryCode": "MY",
+            "country_code": "MY",
             "boundingBox": [3.1106254, 3.1118253, 101.6338987, 101.6343121]
           }
         }
@@ -3354,7 +3354,7 @@
           "properties": {
             "address": "Warneford Lane, Headington OX3 7JX",
             "displayName": "Warneford Lane, Headington, Oxford, Oxfordshire, England, OX3 7QJ, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.7506824, 51.7524776, -1.2243886, -1.2213668]
           }
         },
@@ -3388,7 +3388,7 @@
           "properties": {
             "address": "Cheney Lane, Headington, Oxford, OX3 0BD, UK",
             "displayName": "Cheney Lane, Headington Hill, Headington, Oxford, Oxfordshire, England, OX3 0BF, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.7526041, 51.753358, -1.2322215, -1.2283714]
           }
         }
@@ -3410,7 +3410,7 @@
           "properties": {
             "address": "11 Mansfield Road, Oxford OX1 3SZ",
             "displayName": "University Club, 11, Mansfield Road, Holywell, City Centre, Oxford, Oxfordshire, England, OX1 3SZ, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.756948, 51.7573321, -1.2515715, -1.2511067]
           }
         },
@@ -3498,7 +3498,7 @@
           "properties": {
             "address": "Penrhyn Road, Kingston upon Thames, KT1 2EE, UK",
             "displayName": "Penrhyn Road, Surbiton, Royal Borough of Kingston upon Thames, London, Greater London, England, KT1 2ED, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.402976, 51.4039044, -0.3044653, -0.3043023]
           }
         }
@@ -3520,7 +3520,7 @@
           "properties": {
             "address": "Richmond Road, Kingston upon Thames KT2 5PL",
             "displayName": "Richmond Road, Royal Borough of Kingston upon Thames, London, Greater London, England, KT2 5PW, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.4250351, 51.4259985, -0.3051848, -0.3044731]
           }
         },
@@ -3548,7 +3548,7 @@
           "properties": {
             "address": "Piper Road, Kingston upon Thames, KT1 3EX",
             "displayName": "Piper Road, Norbiton, Royal Borough of Kingston upon Thames, London, Greater London, England, KT1 3EX, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.4062535, 51.4070477, -0.2896307, -0.2895898]
           }
         },
@@ -3615,7 +3615,7 @@
           "properties": {
             "address": "283-291 Wandsworth Road, London",
             "displayName": "Wandsworth Road, Clapham, London Borough of Lambeth, London, Greater London, England, SW8 3JE, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.4681047, 51.4686523, -0.1443861, -0.1431497]
           }
         },
@@ -3688,7 +3688,7 @@
           "properties": {
             "address": "Kew Foot Road, Richmond, TW9 2SS, UK",
             "displayName": "Kew Foot Road, Kew, London Borough of Richmond upon Thames, London, Greater London, England, TW9 2TA, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.4652253, 51.4671822, -0.3021765, -0.3003272]
           }
         }
@@ -3764,7 +3764,7 @@
           "properties": {
             "address": "16582 Gothard St, Huntington Beach, CA 92647",
             "displayName": "16582, Gothard Street, Wintersburg, Huntington Beach, Orange County, California, 92647, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [33.7207516, 33.7218645, -117.9998298, -117.9995542]
           }
         }

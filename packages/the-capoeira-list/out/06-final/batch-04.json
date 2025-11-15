@@ -31,7 +31,7 @@
           "properties": {
             "address": "47 East Street, Hadley, MA 01035",
             "displayName": "47, East Street, Hadley Center Historic District, Hadley, Hampshire County, Massachusetts, 01035, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.3461529, 42.3467387, -72.5830886, -72.582327]
           }
         },
@@ -102,7 +102,7 @@
           "properties": {
             "address": "36 W Broadway, Boston, MA 02127",
             "displayName": "36, West Broadway, Seaport, South Boston, Boston, Suffolk County, Massachusetts, 02127, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.3406276, 42.3407276, -71.0535796, -71.0534796]
           }
         },
@@ -130,7 +130,7 @@
           "properties": {
             "address": "700 Beacon St Boston, MA 02215",
             "displayName": "Beacon Street, Audubon Circle, Fenway, Boston, Suffolk County, Massachusetts, 02215, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.347536, 42.3481714, -71.1018535, -71.0995747]
           }
         },
@@ -214,7 +214,7 @@
           "properties": {
             "address": "161 Harvard Ave Allston, MA",
             "displayName": "Salsa y Control, 161, Harvard Avenue, Allston Village, Allston, Boston, Suffolk County, Massachusetts, 02134, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.3513977, 42.3514977, -71.1319551, -71.1318551]
           }
         },
@@ -248,7 +248,7 @@
           "properties": {
             "address": "48 Pleasant St, Dorchester, MA",
             "displayName": "48, Pleasant Street, Uphams Corner, Dorchester, Boston, Suffolk County, Massachusetts, 02125, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.3152763, 42.3155415, -71.0595963, -71.0593602]
           }
         }
@@ -276,7 +276,7 @@
           "properties": {
             "address": "Northeastern University, Boston, MA",
             "displayName": "Northeastern University, 360, Huntington Avenue, Fenway, Boston, Suffolk County, Massachusetts, 02115, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.334667, 42.3458049, -71.0936211, -71.0830404]
           }
         }
@@ -304,7 +304,7 @@
           "properties": {
             "address": "University of Massachusetts Boston, Boston, MA",
             "displayName": "University of Massachusetts Boston, 150, Mount Vernon Street, Dorchester, Boston, Suffolk County, Massachusetts, 02125, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.3103068, 42.3178731, -71.046738, -71.0326914]
           }
         }
@@ -376,7 +376,7 @@
           "properties": {
             "address": "11 Pleasant St,Gloucester, MA 01930",
             "displayName": "11, Pleasant Street, Central Gloucester Historic District, Five Pound Island, Gloucester, Essex County, Massachusetts, 01930, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.6138565, 42.6139565, -70.6618482, -70.6617482]
           }
         },
@@ -466,7 +466,7 @@
           "properties": {
             "address": "536 Massachusetts Avenue, Cambridge, MA 02139-4029",
             "displayName": "Odd Fellows Hall, 534;536;538, Massachusetts Avenue, Central Square, Cambridge, Middlesex County, Massachusetts, 02139, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.3640931, 42.3643696, -71.1024769, -71.1021262]
           }
         }
@@ -539,7 +539,7 @@
           "properties": {
             "address": "536 Massachusetts Avenue, Cambridge, MA",
             "displayName": "Odd Fellows Hall, 534;536;538, Massachusetts Avenue, Central Square, Cambridge, Middlesex County, Massachusetts, 02139, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.3640931, 42.3643696, -71.1024769, -71.1021262]
           }
         },
@@ -567,7 +567,7 @@
           "properties": {
             "address": "119 Windsor St, Cambridge, MA 02139",
             "displayName": "Windsor St. Health & Community Center, 119, Windsor Street, The Port, Cambridge, Middlesex County, Massachusetts, 02139, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.3646476, 42.3647476, -71.0966949, -71.0965949]
           }
         },
@@ -595,7 +595,7 @@
           "properties": {
             "address": "39 Holyoke St, Cambridge, MA 02139",
             "displayName": "39, Holyoke Street, Cambridge, Middlesex County, Massachusetts, 02138, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.3712705, 42.3713705, -71.1191132, -71.1190132]
           }
         },
@@ -691,7 +691,7 @@
           "properties": {
             "address": "2000 Massachusetts Ave, Cambridge MA",
             "displayName": "2000, Massachusetts Avenue, Cambridge, Middlesex County, Massachusetts, 02140, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.3900666, 42.3904157, -71.1217366, -71.1212628]
           }
         },
@@ -762,7 +762,7 @@
           "properties": {
             "address": "1431 Beacon Street, Brookline MA",
             "displayName": "1431, Beacon Street, Coolidge Corner, North Brookline, Brookline, Norfolk County, Massachusetts, 02446, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.3406099, 42.3407099, -71.1261963, -71.1260963]
           }
         },
@@ -833,7 +833,7 @@
           "properties": {
             "address": "1501 Bedford St Abington, MA 02351",
             "displayName": "1501, Bedford Street, North Abington, Abington, Plymouth County, Massachusetts, 02351, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.1457305, 42.1458305, -70.9538567, -70.9537567]
           }
         },
@@ -923,7 +923,7 @@
           "properties": {
             "address": "Casuarina, Northern Territory, Australia",
             "displayName": "Casuarina, Darwin, City of Darwin, Northern Territory, 0810, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-12.377589, -12.369968, 130.876531, 130.886235]
           }
         }
@@ -951,7 +951,7 @@
           "properties": {
             "address": "Chambers Crescent, Malak, NT, Australia",
             "displayName": "Chambers Crescent, Malak, Darwin, City of Darwin, Northern Territory, 0812, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-12.3978089, -12.3942011, 130.9025959, 130.9080322]
           }
         }
@@ -1016,7 +1016,7 @@
           "properties": {
             "address": "Quarry St, Ultimo NSW 2007",
             "displayName": "Quarry Street, Ultimo, Sydney CBD, Sydney, Council of the City of Sydney, New South Wales, 2007, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-33.8775558, -33.8771291, 151.1948569, 151.1959296]
           }
         },
@@ -1044,7 +1044,7 @@
           "properties": {
             "address": "97 Brook St, Coogee NSW",
             "displayName": "Brook Street, Coogee, Eastern Suburbs, Sydney, Randwick City Council, New South Wales, 2034, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-33.9223863, -33.920485, 151.2539973, 151.2544005]
           }
         },
@@ -1072,7 +1072,7 @@
           "properties": {
             "address": "218 Church St, Parramatta NSW",
             "displayName": "Church Street, Parramatta, Sydney, City of Parramatta Council, New South Wales, 2150, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-33.8169249, -33.8168266, 151.0034338, 151.0034555]
           }
         },
@@ -1106,7 +1106,7 @@
           "properties": {
             "address": "180 King Street, Newcastle, NSW 2300, Australia",
             "displayName": "devFU, 180, King Street, Newcastle, Newcastle-Maitland, City of Newcastle, New South Wales, 2300, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-32.9269354, -32.9268354, 151.7763874, 151.7764874]
           }
         }
@@ -1177,7 +1177,7 @@
           "properties": {
             "address": "10/23 Hillcrest Parade Miami, Gold Coast",
             "displayName": "Hillcrest Parade, Miami, Gold Coast City, Queensland, 4220, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-28.0675205, -28.0651885, 153.4350582, 153.4360251]
           }
         },
@@ -1205,7 +1205,7 @@
           "properties": {
             "address": "349 Montague Road West End, QLD",
             "displayName": "349, Montague Road, Hill End, West End, Greater Brisbane, Queensland, 4101, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-27.4829804, -27.4827154, 153.003003, 153.0033489]
           }
         },
@@ -1276,7 +1276,7 @@
           "properties": {
             "address": "17 Fleming St, Aitkenvale QLD 4812",
             "displayName": "Fleming Street, Aitkenvale, Townsville, Townsville City, Queensland, 4814, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-19.2937236, -19.2928683, 146.7670419, 146.7707552]
           }
         },
@@ -1347,7 +1347,7 @@
           "properties": {
             "address": "St Andrews Ave, Isle of Capri",
             "displayName": "Church of Jesus Christ of Latter-Day Saints - Isle Of Capri Chapel, St Andrews Avenue, Surfers Paradise, Gold Coast City, Queensland, 4217, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-28.0117169, -28.0113638, 153.4225966, 153.4230992]
           }
         },
@@ -1381,7 +1381,7 @@
           "properties": {
             "address": "Southport, QLD 4215, Australia",
             "displayName": "Southport, Gold Coast City, Queensland, 4215, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-27.998492, -27.951279, 153.376002, 153.422794]
           }
         }
@@ -1403,7 +1403,7 @@
           "properties": {
             "address": "Dominions Rd, Ashmore",
             "displayName": "Dominions Road, Ashmore, Gold Coast City, Queensland, 4214, Australia",
-            "countryCode": "AU",
+            "country_code": "AU",
             "boundingBox": [-27.9822643, -27.9782359, 153.3836254, 153.3842479]
           }
         },
@@ -1476,7 +1476,7 @@
           "properties": {
             "address": "Jalan 14/22, Section 14, Petaling Jaya, Selangor, Malaysia",
             "displayName": "Jalan 14/22, Seksyen 14, Petaling Jaya, Petaling, Selangor, 46200, Malaysia",
-            "countryCode": "MY",
+            "country_code": "MY",
             "boundingBox": [3.1106254, 3.1118253, 101.6338987, 101.6343121]
           }
         }
@@ -1541,7 +1541,7 @@
           "properties": {
             "address": "Warneford Lane, Headington OX3 7JX",
             "displayName": "Warneford Lane, Headington, Oxford, Oxfordshire, England, OX3 7QJ, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.7506824, 51.7524776, -1.2243886, -1.2213668]
           }
         },
@@ -1575,7 +1575,7 @@
           "properties": {
             "address": "Cheney Lane, Headington, Oxford, OX3 0BD, UK",
             "displayName": "Cheney Lane, Headington Hill, Headington, Oxford, Oxfordshire, England, OX3 0BF, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.7526041, 51.753358, -1.2322215, -1.2283714]
           }
         }
@@ -1597,7 +1597,7 @@
           "properties": {
             "address": "11 Mansfield Road, Oxford OX1 3SZ",
             "displayName": "University Club, 11, Mansfield Road, Holywell, City Centre, Oxford, Oxfordshire, England, OX1 3SZ, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.756948, 51.7573321, -1.2515715, -1.2511067]
           }
         },
@@ -1685,7 +1685,7 @@
           "properties": {
             "address": "Penrhyn Road, Kingston upon Thames, KT1 2EE, UK",
             "displayName": "Penrhyn Road, Surbiton, Royal Borough of Kingston upon Thames, London, Greater London, England, KT1 2ED, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.402976, 51.4039044, -0.3044653, -0.3043023]
           }
         }
@@ -1707,7 +1707,7 @@
           "properties": {
             "address": "Richmond Road, Kingston upon Thames KT2 5PL",
             "displayName": "Richmond Road, Royal Borough of Kingston upon Thames, London, Greater London, England, KT2 5PW, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.4250351, 51.4259985, -0.3051848, -0.3044731]
           }
         },
@@ -1735,7 +1735,7 @@
           "properties": {
             "address": "Piper Road, Kingston upon Thames, KT1 3EX",
             "displayName": "Piper Road, Norbiton, Royal Borough of Kingston upon Thames, London, Greater London, England, KT1 3EX, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.4062535, 51.4070477, -0.2896307, -0.2895898]
           }
         },
@@ -1808,7 +1808,7 @@
           "properties": {
             "address": "Kew Foot Road, Richmond, TW9 2SS, UK",
             "displayName": "Kew Foot Road, Kew, London Borough of Richmond upon Thames, London, Greater London, England, TW9 2TA, United Kingdom",
-            "countryCode": "GB",
+            "country_code": "GB",
             "boundingBox": [51.4652253, 51.4671822, -0.3021765, -0.3003272]
           }
         }
@@ -1884,7 +1884,7 @@
           "properties": {
             "address": "16582 Gothard St, Huntington Beach, CA 92647",
             "displayName": "16582, Gothard Street, Wintersburg, Huntington Beach, Orange County, California, 92647, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [33.7207516, 33.7218645, -117.9998298, -117.9995542]
           }
         }
@@ -1949,7 +1949,7 @@
           "properties": {
             "address": "1830 17th St., San Francisco, California",
             "displayName": "1830, 17th Street, Potrero Hill, San Francisco, California, 90103, United States of America",
-            "countryCode": "us",
+            "country_code": "us",
             "boundingBox": [37.7649148, 37.7651906, -122.4021409, -122.4018104]
           }
         },
@@ -1977,7 +1977,7 @@
           "properties": {
             "address": "755 Frederick St., San Francisco, California",
             "displayName": "San Francisco Circus Center, 755, Frederick Street, Cole Valley, San Francisco, California, 94117, United States of America",
-            "countryCode": "us",
+            "country_code": "us",
             "boundingBox": [37.7653299, 37.7657748, -122.4571758, -122.4568064]
           }
         },
@@ -2005,7 +2005,7 @@
           "properties": {
             "address": "Half Moon Bay, California",
             "displayName": "Half Moon Bay, San Mateo County, California, 94019, United States of America",
-            "countryCode": "us",
+            "country_code": "us",
             "boundingBox": [37.423903, 37.522908, -122.4774867, -122.415842]
           }
         },
@@ -2033,7 +2033,7 @@
           "properties": {
             "address": "Pacifica, California",
             "displayName": "Pacifica, San Mateo County, California, 94044, United States of America",
-            "countryCode": "us",
+            "country_code": "us",
             "boundingBox": [37.5663417, 37.6666377, -122.515384, -122.4439341]
           }
         },
@@ -2104,7 +2104,7 @@
           "properties": {
             "address": "600 Broadway, Sacramento, CA 95818",
             "displayName": "600, Broadway, Upper Land Park, Sacramento, Sacramento County, California, 95818, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.565064, 38.565164, -121.505844, -121.505744]
           }
         },
@@ -2181,7 +2181,7 @@
           "properties": {
             "address": "4128 El Camino Ave, Sacramento, CA 95821",
             "displayName": "4128, El Camino Avenue, Arden-Arcade, Sacramento County, California, 95821, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.610147, 38.610247, -121.367783, -121.367683]
           }
         }
@@ -2252,7 +2252,7 @@
           "properties": {
             "address": "3780 Hancock Street, San Diego, CA 92110",
             "displayName": "3780, Hancock Street, Midway District, San Diego, San Diego County, California, 92110, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [32.7583519, 32.7584519, -117.2121769, -117.2120769]
           }
         }
@@ -2280,7 +2280,7 @@
           "properties": {
             "address": "880 Garnet Ave, San Diego, CA 92109",
             "displayName": "880, Garnet Avenue, Pacific Beach, San Diego, San Diego County, California, 92109, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [32.7968975, 32.7969975, -117.2541674, -117.2540674]
           }
         }
@@ -2308,7 +2308,7 @@
           "properties": {
             "address": "La Jolla, CA 92093",
             "displayName": "La Jolla, San Diego, San Diego County, California, 92037, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [32.8201623, 32.8601623, -117.2940777, -117.2540777]
           }
         }
@@ -2372,7 +2372,7 @@
           "properties": {
             "address": "640 Stanyan St. San Francisco, CA 94417",
             "displayName": "636;638;640;644, Stanyan Street, Cole Valley, San Francisco, California, 94117, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.7702808, 37.7704674, -122.4536662, -122.4532828]
           }
         },
@@ -2443,7 +2443,7 @@
           "properties": {
             "address": "3221 22nd St. San Francisco, 94110[",
             "displayName": "3221, 22nd Street, Mission District, San Francisco, California, 94110, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.7552682, 37.7553682, -122.4193661, -122.4192661]
           }
         },
@@ -2520,7 +2520,7 @@
           "properties": {
             "address": "2868 Mission Street, San Francisco, CA 94110",
             "displayName": "Mission Cultural Center for Latino Arts, 2868, Mission Street, Mission District, San Francisco, California, 94110, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.7508835, 37.7510668, -122.4187347, -122.4184786]
           }
         }
@@ -2548,7 +2548,7 @@
           "properties": {
             "address": "3435 Cesar Chavez Street, San Francisco, CA 94110",
             "displayName": "3435, Cesar Chavez Street, Mission District, San Francisco, California, 94110, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.7479611, 37.7480611, -122.4190505, -122.4189505]
           }
         }
@@ -2576,7 +2576,7 @@
           "properties": {
             "address": "672 South Van Ness, San Francisco, CA 94110",
             "displayName": "South Van Ness Avenue, Mission District, San Francisco, California, 90110, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.7619709, 37.7623203, -122.4172286, -122.4171965]
           }
         }
@@ -2604,7 +2604,7 @@
           "properties": {
             "address": "3813 24th Street, San Francisco, CA 94110",
             "displayName": "3801;3805;3807;3809;3811;3813, 24th Street, Noe Valley, Mission District, San Francisco, California, 94114, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.7513439, 37.7516161, -122.4278452, -122.4275607]
           }
         }
@@ -2669,7 +2669,7 @@
           "properties": {
             "address": "3906 Irving St., San Francisco, CA",
             "displayName": "3900;3906, Irving Street, Sunset District, San Francisco, California, 94121, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.7626715, 37.7628164, -122.4999342, -122.4997685]
           }
         },
@@ -2746,7 +2746,7 @@
           "properties": {
             "address": "409 Old County Road, Belmont, CA 94002",
             "displayName": "409, Old County Road, Belmont, San Mateo County, California, 94002, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.5262593, 37.5263593, -122.2818244, -122.2817244]
           }
         }
@@ -2811,7 +2811,7 @@
           "properties": {
             "address": "69 Washington Street, Daly City, CA 94014",
             "displayName": "69, Washington Street, Daly City, San Mateo County, California, 94014, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.6877457, 37.6878457, -122.4685592, -122.4684592]
           }
         },
@@ -2887,7 +2887,7 @@
           "properties": {
             "address": "370 Hollister Ave, Santa Barbara, CA 93117",
             "displayName": "Hollister Avenue, Santa Barbara, Santa Barbara County, California, 93117, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [34.430339, 34.430643, -119.859598, -119.8563399]
           }
         }
@@ -2915,7 +2915,7 @@
           "properties": {
             "address": "2009 De La Vina St, Santa Barbara, CA 93101",
             "displayName": "2009, De La Vina Street, Santa Barbara, Santa Barbara County, California, 93105, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [34.428692, 34.428792, -119.717485, -119.717385]
           }
         }
@@ -2985,7 +2985,7 @@
           "properties": {
             "address": "1230 State Street, Santa Barbara, CA  93101",
             "displayName": "Yona Redz, 1230, State Street, Santa Barbara, Santa Barbara County, California, 93101, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [34.424189, 34.424289, -119.705447, -119.705347]
           }
         },
@@ -3061,7 +3061,7 @@
           "properties": {
             "address": "207 McPherson Street, Santa Cruz, CA 95060",
             "displayName": "207, McPherson Street, Westside Industrial District, Westside, Santa Cruz, Santa Cruz County, California, 95060, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [36.9601329, 36.9602329, -122.0478812, -122.0477812]
           }
         }
@@ -3137,7 +3137,7 @@
           "properties": {
             "address": "172 N Main Street, Sebastopol, CA 95472",
             "displayName": "172, North Main Street, Sebastopol, Sonoma County, California, 95472, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.402778, 38.402878, -122.8245684, -122.8244684]
           }
         }
@@ -3165,7 +3165,7 @@
           "properties": {
             "address": "56 W 6th Street, Santa Rosa, CA 95401",
             "displayName": "56, West 6th Street, Santa Rosa, Sonoma County, California, 95401, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.4373298, 38.4374298, -122.7233259, -122.7232259]
           }
         }
