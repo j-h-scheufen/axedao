@@ -37,7 +37,7 @@
           "properties": {
             "address": "Placerville, CA 95667",
             "displayName": "Placerville, El Dorado County, California, 95667, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.712864, 38.7486766, -120.851472, -120.750502]
           }
         }
@@ -102,7 +102,7 @@
           "properties": {
             "address": "600 Broadway, Sacramento, CA 95818",
             "displayName": "600, Broadway, Upper Land Park, Sacramento, Sacramento County, California, 95818, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.565064, 38.565164, -121.505844, -121.505744]
           }
         },
@@ -179,7 +179,7 @@
           "properties": {
             "address": "4128 El Camino Ave, Sacramento, CA 95821",
             "displayName": "4128, El Camino Avenue, Arden-Arcade, Sacramento County, California, 95821, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.610147, 38.610247, -121.367783, -121.367683]
           }
         }
@@ -250,7 +250,7 @@
           "properties": {
             "address": "2420 N St, Sacramento, CA",
             "displayName": "Seasons Coffee Roasters, 2420, N Street, Lavender Heights, Midtown, Sacramento, Sacramento County, California, 95816, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.5702978, 38.5703978, -121.476012, -121.475912]
           }
         }
@@ -321,7 +321,7 @@
           "properties": {
             "address": "3780 Hancock Street, San Diego, CA 92110",
             "displayName": "3780, Hancock Street, Midway District, San Diego, San Diego County, California, 92110, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [32.7583519, 32.7584519, -117.2121769, -117.2120769]
           }
         }
@@ -349,7 +349,7 @@
           "properties": {
             "address": "880 Garnet Ave, San Diego, CA 92109",
             "displayName": "880, Garnet Avenue, Pacific Beach, San Diego, San Diego County, California, 92109, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [32.7968975, 32.7969975, -117.2541674, -117.2540674]
           }
         }
@@ -377,7 +377,7 @@
           "properties": {
             "address": "La Jolla, CA 92093",
             "displayName": "La Jolla, San Diego, San Diego County, California, 92037, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [32.8201623, 32.8601623, -117.2940777, -117.2540777]
           }
         }
@@ -441,7 +441,7 @@
           "properties": {
             "address": "640 Stanyan St. San Francisco, CA 94417",
             "displayName": "636;638;640;644, Stanyan Street, Cole Valley, San Francisco, California, 94117, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.7702808, 37.7704674, -122.4536662, -122.4532828]
           }
         },
@@ -512,7 +512,7 @@
           "properties": {
             "address": "3221 22nd St. San Francisco, 94110[",
             "displayName": "3221, 22nd Street, Mission District, San Francisco, California, 94110, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.7552682, 37.7553682, -122.4193661, -122.4192661]
           }
         },
@@ -589,7 +589,7 @@
           "properties": {
             "address": "2095 Harrison Street, San Francisco, CA 94110",
             "displayName": "Project Commotion, 2095, Harrison Street, Mission District, San Francisco, California, 90110, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.7643288, 37.7644288, -122.4129027, -122.4128027]
           }
         }
@@ -660,7 +660,7 @@
           "properties": {
             "address": "2868 Mission Street, San Francisco, CA 94110",
             "displayName": "Mission Cultural Center for Latino Arts, 2868, Mission Street, Mission District, San Francisco, California, 94110, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.7508835, 37.7510668, -122.4187347, -122.4184786]
           }
         }
@@ -688,7 +688,7 @@
           "properties": {
             "address": "3435 Cesar Chavez Street, San Francisco, CA 94110",
             "displayName": "3435, Cesar Chavez Street, Mission District, San Francisco, California, 94110, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.7479611, 37.7480611, -122.4190505, -122.4189505]
           }
         }
@@ -716,7 +716,7 @@
           "properties": {
             "address": "672 South Van Ness, San Francisco, CA 94110",
             "displayName": "South Van Ness Avenue, Mission District, San Francisco, California, 90110, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.7619709, 37.7623203, -122.4172286, -122.4171965]
           }
         }
@@ -744,7 +744,7 @@
           "properties": {
             "address": "3813 24th Street, San Francisco, CA 94110",
             "displayName": "3801;3805;3807;3809;3811;3813, 24th Street, Noe Valley, Mission District, San Francisco, California, 94114, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.7513439, 37.7516161, -122.4278452, -122.4275607]
           }
         }
@@ -809,7 +809,7 @@
           "properties": {
             "address": "3906 Irving St., San Francisco, CA",
             "displayName": "3900;3906, Irving Street, Sunset District, San Francisco, California, 94121, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.7626715, 37.7628164, -122.4999342, -122.4997685]
           }
         },
@@ -886,7 +886,7 @@
           "properties": {
             "address": "409 Old County Road, Belmont, CA 94002",
             "displayName": "409, Old County Road, Belmont, San Mateo County, California, 94002, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.5262593, 37.5263593, -122.2818244, -122.2817244]
           }
         }
@@ -951,7 +951,7 @@
           "properties": {
             "address": "69 Washington Street, Daly City, CA 94014",
             "displayName": "69, Washington Street, Daly City, San Mateo County, California, 94014, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.6877457, 37.6878457, -122.4685592, -122.4684592]
           }
         },
@@ -1027,7 +1027,7 @@
           "properties": {
             "address": "640 Crespi Drive, Pacifica, CA 94044",
             "displayName": "640, Crespi Drive, Pedro Valley, Pacifica, San Mateo County, California, 94044, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.5964579, 37.5965579, -122.4972689, -122.4971689]
           }
         }
@@ -1098,7 +1098,7 @@
           "properties": {
             "address": "370 Hollister Ave, Santa Barbara, CA 93117",
             "displayName": "Hollister Avenue, Santa Barbara, Santa Barbara County, California, 93117, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [34.430339, 34.430643, -119.859598, -119.8563399]
           }
         }
@@ -1126,7 +1126,7 @@
           "properties": {
             "address": "2009 De La Vina St, Santa Barbara, CA 93101",
             "displayName": "2009, De La Vina Street, Santa Barbara, Santa Barbara County, California, 93105, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [34.428692, 34.428792, -119.717485, -119.717385]
           }
         }
@@ -1196,7 +1196,7 @@
           "properties": {
             "address": "1230 State Street, Santa Barbara, CA  93101",
             "displayName": "Yona Redz, 1230, State Street, Santa Barbara, Santa Barbara County, California, 93101, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [34.424189, 34.424289, -119.705447, -119.705347]
           }
         },
@@ -1272,7 +1272,7 @@
           "properties": {
             "address": "207 McPherson Street, Santa Cruz, CA 95060",
             "displayName": "207, McPherson Street, Westside Industrial District, Westside, Santa Cruz, Santa Cruz County, California, 95060, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [36.9601329, 36.9602329, -122.0478812, -122.0477812]
           }
         }
@@ -1348,7 +1348,7 @@
           "properties": {
             "address": "172 N Main Street, Sebastopol, CA 95472",
             "displayName": "172, North Main Street, Sebastopol, Sonoma County, California, 95472, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.402778, 38.402878, -122.8245684, -122.8244684]
           }
         }
@@ -1376,7 +1376,7 @@
           "properties": {
             "address": "56 W 6th Street, Santa Rosa, CA 95401",
             "displayName": "56, West 6th Street, Santa Rosa, Sonoma County, California, 95401, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.4373298, 38.4374298, -122.7233259, -122.7232259]
           }
         }
@@ -1447,7 +1447,7 @@
           "properties": {
             "address": "32807, Orlando, FL",
             "displayName": "Orlando, Orange County, Florida, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [28.3480634, 28.614283, -81.5075377, -81.1241435]
           }
         }
@@ -1523,7 +1523,7 @@
           "properties": {
             "address": "7075 Kingspointe Parkway, Orlando, FL 32819",
             "displayName": "7075, Kingspointe Parkway, Florida Center, Orlando, Orange County, Florida, 32819, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [28.4616196, 28.4617196, -81.4368424, -81.4367424]
           }
         }
@@ -1588,7 +1588,7 @@
           "properties": {
             "address": "829 Woodbury Rd Orlando, FL 32828",
             "displayName": "Mid Florida Dermatology Associates, 829, Woodbury Road, Waterford Lakes, Orlando, Orange County, Florida, 32828, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [28.5475201, 28.5476201, -81.1940577, -81.1939577]
           }
         },
@@ -1666,7 +1666,7 @@
           "properties": {
             "address": "106 Commerce Rd., Boynton Beach FL 33426",
             "displayName": "106, Commerce Road, Boynton Beach, Palm Beach County, Florida, 33426, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [26.5588334, 26.5589334, -80.0715413, -80.0714413]
           }
         },
@@ -1694,7 +1694,7 @@
           "properties": {
             "address": "4185 W. New Haven Ave Melbourne, FL 32904",
             "displayName": "New Haven Avenue, Melbourne, Brevard County, Florida, 32904, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [28.0789676, 28.07897, -80.6535477, -80.6528014]
           }
         },
@@ -1765,7 +1765,7 @@
           "properties": {
             "address": "4672 McIntosh Lane Sarasota, FL 34232",
             "displayName": "4672, McIntosh Lane, Sarasota County, Florida, 34232, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [27.299396, 27.299496, -82.4752298, -82.4751298]
           }
         },
@@ -1844,7 +1844,7 @@
           "properties": {
             "address": "2033 54th Ave N, St. Petersburg, FL",
             "displayName": "54th Avenue North, Bay Breeze Cove, Saint Petersburg, Pinellas County, Florida, 33703, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [27.821169, 27.821338, -82.6401515, -82.6393724]
           }
         },
@@ -1916,7 +1916,7 @@
           "properties": {
             "address": "2706 N Monroe St, Tallahassee, FL 32303",
             "displayName": "2706, North Monroe Street, Tallahassee, Leon County, Florida, 32303, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [30.4786695, 30.4787695, -84.3006158, -84.3005158]
           }
         }
@@ -1989,7 +1989,7 @@
           "properties": {
             "address": "54 Brunswick, Pointe-Claire, QC H9B 2L3, Canada",
             "displayName": "Boulevard Brunswick, Pointe-Claire, Agglomération de Montréal, Montréal (région administrative), Québec, H9B 2L3, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [45.4821405, 45.4822265, -73.7980832, -73.7979089]
           }
         },
@@ -2060,7 +2060,7 @@
           "properties": {
             "address": "155 Brackett St Portland, Maine, ME 04102",
             "displayName": "Fresh Approach Market, 155, Brackett Street, West End, Portland, Cumberland County, Maine, 04102, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [43.6506697, 43.6509543, -70.2664755, -70.266133]
           }
         },
@@ -2088,7 +2088,7 @@
           "properties": {
             "address": "40 Main Street, Pepperell Mill, Biddeford, Maine 04005",
             "displayName": "40, Main Street, Pepperell Mill Campus, Biddeford, York County, Maine, 04005, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [43.4928334, 43.4929334, -70.4531085, -70.4530085]
           }
         },
@@ -2166,7 +2166,7 @@
           "properties": {
             "address": "3768 Main Street, Bridgeport, Connecticut 06606",
             "displayName": "Hancock Pharmacy III, 3768, Main Street, Bridgeport, Greater Bridgeport Planning Region, Connecticut, 06606, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [41.2124703, 41.2125703, -73.2105232, -73.2104232]
           }
         },
@@ -2237,7 +2237,7 @@
           "properties": {
             "address": "9 Tolles St West Hartford, CT 06110",
             "displayName": "9, Tolles Street, Elmwood, West Hartford, Capitol Planning Region, Connecticut, 06110, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [41.7361098, 41.7362098, -72.7185287, -72.7184287]
           }
         },
@@ -2304,7 +2304,7 @@
           "properties": {
             "address": "635 New Park Avenue, West Hartford, CT. 06110",
             "displayName": "635, New Park Avenue, Elmwood, West Hartford, Capitol Planning Region, Connecticut, 06110, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [41.7328618, 41.7329618, -72.7241461, -72.7240461]
           }
         },
@@ -2332,7 +2332,7 @@
           "properties": {
             "address": "224 Farmington Avenue, Hartford CT, 06105",
             "displayName": "224, Farmington Avenue, Imlay and Laurel Streets District, Parkville, Clay Arsenal, Hartford, Capitol Planning Region, Connecticut, 06105, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [41.767773, 41.767873, -72.6953615, -72.6952615]
           }
         },
@@ -2415,7 +2415,7 @@
           "properties": {
             "address": "25 Main St. Kent, Ct 06757",
             "displayName": "25, South Main Street, Kent, Northwest Hills Planning Region, Connecticut, 06757, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [41.7226869, 41.7227869, -73.4782744, -73.4781744]
           }
         },
@@ -2488,7 +2488,7 @@
           "properties": {
             "address": "6322 University Ave, Cedar Falls, IA 50613",
             "displayName": "West Music, 6322, University Avenue, Cedar Falls, Black Hawk County, Iowa, 50613, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.5148377, 42.5152255, -92.4342076, -92.4339595]
           }
         },
@@ -2563,7 +2563,7 @@
           "properties": {
             "address": "6111 River Road, Richmond, BC V7C 0A2",
             "displayName": "Richmond Olympic Oval, 6111, River Road, Oval Village, City Centre, Richmond, Metro Vancouver Regional District, British Columbia, V7C, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [49.1740674, 49.175336, -123.15314, -123.1501928]
           }
         },
@@ -2634,7 +2634,7 @@
           "properties": {
             "address": "1154 S Roselle Rd, Schaumburg, IL 60193",
             "displayName": "1154, South Roselle Road, Schaumburg, Schaumburg Township, Cook County, Illinois, 60193, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [42.0063786, 42.0064786, -88.0802273, -88.0801273]
           }
         },
@@ -2707,7 +2707,7 @@
           "properties": {
             "address": "Richmond, KY",
             "displayName": "Richmond, Madison County, Kentucky, 40475, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [37.623519, 37.794517, -84.34202, -84.24014]
           }
         }
@@ -2774,7 +2774,7 @@
           "properties": {
             "address": "Beaufort, SC 29906",
             "displayName": "Beaufort County, South Carolina, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [32.07689, 32.704321, -81.016234, -80.3448069]
           }
         }
@@ -2845,7 +2845,7 @@
           "properties": {
             "address": "1069 St Clair Ave West, Toronto, Ontario, M6E 1A6, Canada",
             "displayName": "1069, St. Clair Avenue West, Corso Italia-Davenport, Davenport, Toronto, Golden Horseshoe, Ontario, M6E 1A3, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [43.6786181, 43.6787181, -79.4392791, -79.4391791]
           }
         }
@@ -2910,7 +2910,7 @@
           "properties": {
             "address": "2065 Midland Ave., Scarborough, ON M1P 4P8",
             "displayName": "2065, Midland Avenue, Dorset Park, Scarborough Centre, Scarborough, Toronto, Golden Horseshoe, Ontario, M1P 2X3, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [43.769919, 43.770517, -79.271559, -79.270133]
           }
         },
@@ -2938,7 +2938,7 @@
           "properties": {
             "address": "399 Four Valley Drive, Vaughan, ON.",
             "displayName": "399, Four Valley Drive, Vaughan, York Region, Golden Horseshoe, Ontario, L4K 4Z7, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [43.8199873, 43.8209353, -79.5363164, -79.5351416]
           }
         },
@@ -3009,7 +3009,7 @@
           "properties": {
             "address": "374 Dupont St.",
             "displayName": "374, Dupont Street, Annex, University—Rosedale, Toronto, Golden Horseshoe, Ontario, M5R 1V9, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [43.674259, 43.6746194, -79.4107294, -79.4103342]
           }
         },
@@ -3076,7 +3076,7 @@
           "properties": {
             "address": "288 Bridgeland Avenue, M6A 1Z4, Toronto, ON",
             "displayName": "Bridgeland Avenue, Yorkdale-Glen Park, Eglinton—Lawrence, North York, Toronto, Golden Horseshoe, Ontario, M3K 1E4, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [43.7269067, 43.7270672, -79.4592586, -79.458437]
           }
         },
@@ -3147,7 +3147,7 @@
           "properties": {
             "address": "341 East Broadway, Vancouver BC V5T 1W5",
             "displayName": "Capoeira Aché Brasil Academy, 341, East Broadway, Mount Pleasant, Vancouver, Metro Vancouver Regional District, British Columbia, V5T, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [49.2629159, 49.2630159, -123.097891, -123.097791]
           }
         },
@@ -3225,7 +3225,7 @@
           "properties": {
             "address": "1739 Venables st, Vancouver, BC, v5L 2H3",
             "displayName": "1739, Venables Street, Grandview-Woodland, Vancouver, Metro Vancouver Regional District, British Columbia, V5L, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [49.2767563, 49.277034, -123.0701996, -123.069698]
           }
         },
@@ -3253,7 +3253,7 @@
           "properties": {
             "address": "808 Lytton St, North Vancouver, BC V7H 2T1",
             "displayName": "Lytton Street, Seymour Heights, Seymour, District of North Vancouver, Metro Vancouver Regional District, British Columbia, V7H 2M5, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [49.3135999, 49.315233, -123.001259, -123.0000177]
           }
         },
@@ -3281,7 +3281,7 @@
           "properties": {
             "address": "3096 East Hastings St, Vancouver, BC V2C 6N6",
             "displayName": "Hastings Community Centre, 3096, East Hastings Street, Hastings-Sunrise, Vancouver, Metro Vancouver Regional District, British Columbia, V5K 2A3, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [49.2804151, 49.2809541, -123.039868, -123.03926]
           }
         },
@@ -3309,7 +3309,7 @@
           "properties": {
             "address": "225 east 2nd street, North Vancouver, BC V7L 1C4",
             "displayName": "North Shore Neighbourhood House, 225, East 2nd Street, The Shipyards Common, Lower Lonsdale, North Vancouver, Metro Vancouver Regional District, British Columbia, V7L, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [49.3104443, 49.3108417, -123.0743106, -123.0736315]
           }
         },
@@ -3387,7 +3387,7 @@
           "properties": {
             "address": "715 Yates Street Victoria, BC V8W 1L6",
             "displayName": "715, Yates Street, Chinatown, Downtown, Victoria, Capital Regional District, British Columbia, V8W 0C8, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [48.4259958, 48.4260958, -123.3641727, -123.3640727]
           }
         },
@@ -3458,7 +3458,7 @@
           "properties": {
             "address": "1085 Millar Creek Rd, Whistler, BC V0N 1B1",
             "displayName": "Millar Creek Road, Function Junction, Whistler Resort Municipality, Squamish-Lillooet Regional District, British Columbia, V8E 0W5, Canada",
-            "countryCode": "CA",
+            "country_code": "CA",
             "boundingBox": [50.0872792, 50.0880923, -123.0425136, -123.0387185]
           }
         },
@@ -3547,7 +3547,7 @@
           "properties": {
             "address": "2590 Walnut St, Boulder, CO 80302",
             "displayName": "The Dairy Arts Center, 2590, Walnut Street, Goss-Grove, Boulder, Boulder County, Colorado, 80302, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [40.0191141, 40.0196856, -105.2614154, -105.26066]
           }
         }

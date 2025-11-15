@@ -29,7 +29,7 @@ interface Location {
       address: string;
       name?: string;
       displayName?: string;
-      countryCode?: string;
+      country_code?: string;
       boundingBox?: [number, number, number, number];
     };
   };
@@ -172,7 +172,7 @@ async function geocodeAddress(address: string): Promise<{
     properties: {
       address: string;
       displayName?: string;
-      countryCode?: string;
+      country_code?: string;
       boundingBox?: [number, number, number, number];
     };
   };
@@ -236,7 +236,7 @@ async function geocodeAddress(address: string): Promise<{
         properties: {
           address,
           displayName: location.display_name,
-          countryCode: location.address?.country_code?.toUpperCase(),
+          country_code: location.address?.country_code?.toUpperCase(),
           boundingBox,
         },
       },

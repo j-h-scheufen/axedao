@@ -1,0 +1,220 @@
+[
+  {
+    "groupName": "Grupo Negaca Capoeira",
+    "website": "http://www.capoeiracambridge.co.uk/",
+    "duplicateCount": 2,
+    "locations": [
+      {
+        "address": "Campkin Rd, Cambridge, CB4 2LD",
+        "source": "Duplicate #1"
+      },
+      {
+        "address": "Cambridge, CB1 3QU, UK",
+        "source": "Duplicate #1"
+      },
+      {
+        "address": "Stapleford, CB22 5BQ, UK",
+        "source": "Duplicate #1"
+      },
+      {
+        "address": "Long Horse Croft, Saffron Walden, CB11 4BL",
+        "source": "Duplicate #1"
+      },
+      {
+        "address": "Long Horse Croft, Saffron Walden, CB11 4BL",
+        "source": "Duplicate #2"
+      }
+    ],
+    "shouldMerge": true,
+    "reason": "Locations are close or same - safe to merge"
+  },
+  {
+    "groupName": "Mundo Capoeira Ireland",
+    "website": "http://www.capoeiraireland.com/",
+    "duplicateCount": 2,
+    "locations": [
+      {
+        "address": "Synge Street, Dublin 8, Ireland",
+        "source": "Duplicate #1"
+      },
+      {
+        "address": "Charlemont Street, Dublin 2, Ireland",
+        "source": "Duplicate #1"
+      },
+      {
+        "address": "Rathmines Square, 161 Rathmines Rd Lower",
+        "source": "Duplicate #1"
+      },
+      {
+        "address": "Mullingar Business Park",
+        "source": "Duplicate #2"
+      },
+      {
+        "address": "Harbour St, Commons",
+        "source": "Duplicate #2"
+      }
+    ],
+    "shouldMerge": true,
+    "reason": "Locations are close or same - safe to merge"
+  },
+  {
+    "groupName": "Grupo Senzela",
+    "website": "http://www.groupsenzala.co.uk/",
+    "duplicateCount": 2,
+    "locations": [
+      {
+        "address": "Maynard's Row Gilesgate Durham DH1 1QF",
+        "source": "Duplicate #1"
+      },
+      {
+        "address": "Trewhitt Road, Heaton, Newcastle Upon Tyne NE6 5DY",
+        "source": "Duplicate #2"
+      },
+      {
+        "address": "Temple Street, Newcastle Upon Tyne, NE1 4BR",
+        "source": "Duplicate #2"
+      }
+    ],
+    "shouldMerge": true,
+    "reason": "Locations are close or same - safe to merge"
+  },
+  {
+    "groupName": "Group Senzala",
+    "website": "http://senzala-london.co.uk",
+    "duplicateCount": 2,
+    "locations": [
+      {
+        "address": "St Albans, AL3 5DQ, UK",
+        "source": "Duplicate #1"
+      },
+      {
+        "address": "de Havilland Campus, Hatfield, AL10 9EU",
+        "source": "Duplicate #1"
+      },
+      {
+        "address": "College Lane, Hatfield, AL10 9AB",
+        "source": "Duplicate #1"
+      },
+      {
+        "address": "1 Drummond Crescent, London, NW1 1LY, UK",
+        "source": "Duplicate #2"
+      }
+    ],
+    "shouldMerge": true,
+    "reason": "Locations are close or same - safe to merge"
+  },
+  {
+    "groupName": "Capoeira Science",
+    "website": "http://www.capoeirascience.co.uk/",
+    "duplicateCount": 2,
+    "locations": [
+      {
+        "address": "283-291 Wandsworth Road, London,",
+        "source": "Duplicate #1"
+      },
+      {
+        "address": "283-291 Wandsworth Road, London",
+        "source": "Duplicate #2"
+      }
+    ],
+    "shouldMerge": true,
+    "reason": "Locations are close or same - safe to merge"
+  },
+  {
+    "groupName": "Beira-Mar Capoeira",
+    "website": "http://www.gbantu.com",
+    "duplicateCount": 2,
+    "locations": [
+      {
+        "address": "1860 Mellwood Ave # 277, Louisville, KY 40206",
+        "source": "Duplicate #1"
+      },
+      {
+        "address": "Richmond, KY",
+        "source": "Duplicate #2"
+      }
+    ],
+    "shouldMerge": true,
+    "reason": "Locations are close or same - safe to merge"
+  },
+  {
+    "groupName": "Capoeira IJEXÁ",
+    "website": "http://www.capoeiraijexa.com",
+    "duplicateCount": 2,
+    "locations": [
+      {
+        "address": "2420 N St, Sacramento, CA",
+        "source": "Duplicate #1"
+      },
+      {
+        "address": "640 Crespi Drive, Pacifica, CA 94044",
+        "source": "Duplicate #2"
+      }
+    ],
+    "shouldMerge": true,
+    "reason": "Locations are close or same - safe to merge"
+  },
+  {
+    "groupName": "Motumbaxé Capoeira",
+    "website": "http://www.motumbaxecapoeira.com",
+    "duplicateCount": 3,
+    "locations": [
+      {
+        "address": "635 New Park Avenue, West Hartford, CT. 06110",
+        "source": "Duplicate #1"
+      },
+      {
+        "address": "224 Farmington Avenue, Hartford CT, 06105",
+        "source": "Duplicate #1"
+      },
+      {
+        "address": "76 Nevins Street, Brooklyn, NY 11217",
+        "source": "Duplicate #2"
+      },
+      {
+        "address": "531 N. Howard St., Alexandria, VA 22304",
+        "source": "Duplicate #3"
+      }
+    ],
+    "shouldMerge": true,
+    "reason": "Locations are close or same - safe to merge"
+  },
+  {
+    "groupName": "Vai Capoeira",
+    "website": "https://www.vaicapoeira.org",
+    "duplicateCount": 2,
+    "locations": [
+      {
+        "address": "646.379.4468",
+        "source": "Duplicate #1"
+      },
+      {
+        "address": "520 8th Ave, New York, NY",
+        "source": "Duplicate #2"
+      }
+    ],
+    "shouldMerge": true,
+    "reason": "Locations are close or same - safe to merge"
+  },
+  {
+    "groupName": "Carioca Capoeira",
+    "website": "http://www.cariocacapoeira.com",
+    "duplicateCount": 2,
+    "locations": [
+      {
+        "address": "445 East 69th St, New York, NY",
+        "source": "Duplicate #1"
+      },
+      {
+        "address": "49-10 43rd Ave, Woodside, NY 11377",
+        "source": "Duplicate #2"
+      },
+      {
+        "address": "41-20 Queens Boulevard, Sunnyside, NY 11104",
+        "source": "Duplicate #2"
+      }
+    ],
+    "shouldMerge": true,
+    "reason": "Locations are close or same - safe to merge"
+  }
+]

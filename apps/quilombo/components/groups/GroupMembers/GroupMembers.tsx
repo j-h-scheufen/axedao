@@ -50,8 +50,9 @@ const GroupMembers = () => {
     [groupMembers]
   );
 
-  // Show loading state if admin status is still being determined
-  if (isGroupAdmin === null || isLoading) {
+  // Show loading state only while fetching member data
+  // Note: isGroupAdmin being null (no user logged in or imported group) is not a loading state
+  if (isLoading) {
     return <GroupMembersSkeleton />;
   }
 

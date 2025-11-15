@@ -27,7 +27,7 @@
           "properties": {
             "address": "4113 N 7th Ave, Phoenix, AZ 85013",
             "displayName": "4113, North 7th Avenue, Melrose District, Encanto, Phoenix, Maricopa County, Arizona, 85013, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [33.4951655, 33.4952655, -112.0834179, -112.0833179]
           }
         },
@@ -98,7 +98,7 @@
           "properties": {
             "address": "341 State St . Madison, WI 53703",
             "displayName": "341, State Street, Mifflin West, Downtown, Madison, Dane County, Wisconsin, 53703, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [43.0746411, 43.0747411, -89.3907496, -89.3906496]
           }
         },
@@ -181,7 +181,7 @@
           "properties": {
             "address": "3131 S 19th Ave, Minneapolis, MN 55407",
             "displayName": "South High School, 3131, 19th Avenue South, Standish, Corcoran, Powderhorn, Minneapolis, Hennepin County, Minnesota, 55407, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [44.9448404, 44.9475235, -93.2448078, -93.2424024]
           }
         },
@@ -248,7 +248,7 @@
           "properties": {
             "address": "6463 Lyndale Avenue South, Richfield, MN 55423",
             "displayName": "6463, Lyndale Avenue South, Richfield, Hennepin County, Minnesota, 55423, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [44.8858642, 44.8859642, -93.2868723, -93.2867723]
           }
         },
@@ -319,7 +319,7 @@
           "properties": {
             "address": "6430 Troost Ave, Kansas City, MO 64131",
             "displayName": "6430, Troost Avenue, Oak Meyer Gardens, Kansas City, Jackson County, Missouri, 64131, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [39.0100595, 39.0102125, -94.5751173, -94.5748737]
           }
         },
@@ -386,7 +386,7 @@
           "properties": {
             "address": "1034 S Brentwood Blvd, St. Louis, MO 63117",
             "displayName": "Passport Health Richmond Heights Travel Clinic, 1034, South Brentwood Boulevard, Richmond Heights, Saint Louis County, Missouri, 63117, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.6362118, 38.6363118, -90.3444045, -90.3443045]
           }
         },
@@ -414,7 +414,7 @@
           "properties": {
             "address": "221 Center Drive, Alton, IL 62002",
             "displayName": "221, East Center Drive, Alton Square Mall, Alton, Madison County, Illinois, 62002, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.9211812, 38.9212812, -90.1739751, -90.1738751]
           }
         },
@@ -980,7 +980,7 @@
           "properties": {
             "address": "2907 South Jefferson Ave, Saint Louis, MO 63118",
             "displayName": "2907-2909, South Jefferson Avenue, Fox Park, Benton Park West, Saint Louis, Missouri, 63118, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [38.6007377, 38.6009086, -90.2243251, -90.2240998]
           }
         },
@@ -1053,7 +1053,7 @@
           "properties": {
             "address": "134 Burton St, Asheville, NC 28806",
             "displayName": "Burton Street Community Center, 134, Burton Street, Hazel Green, West Asheville, Asheville, Buncombe County, North Carolina, 28806, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [35.5828282, 35.583209, -82.5846116, -82.5842062]
           }
         },
@@ -1081,7 +1081,7 @@
           "properties": {
             "address": "34 Pearson Drive, Asheville, NC, 28801",
             "displayName": "Tempie Avery Montford Community Center, 34, Pearson Drive, Montford Hills, Asheville, Buncombe County, North Carolina, 28801, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [35.6002032, 35.6005681, -82.565394, -82.5649226]
           }
         },
@@ -1109,7 +1109,7 @@
           "properties": {
             "address": "44 Broad River VFD Road, Black Mountain, NC",
             "displayName": "The Broad River Volunteer Fire & Rescue Department, 44, Broad River VFD Road, Black Mountain, Buncombe County, North Carolina, 28711, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [35.5100429, 35.5101429, -82.257768, -82.257668]
           }
         },
@@ -1176,7 +1176,7 @@
           "properties": {
             "address": "2935 Griffith Street, Charlotte, NC",
             "displayName": "2935, Griffith Street, Silos, Sedgefield, Charlotte, Mecklenburg County, North Carolina, 28203, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [35.200267, 35.200367, -80.8698323, -80.8697323]
           }
         },
@@ -1243,7 +1243,7 @@
           "properties": {
             "address": "182 W. Main Avenue, Gastonia, NC 28052",
             "displayName": "182, West Main Avenue, FUSE, Gastonia, Gaston County, North Carolina, 28052, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [35.2624792, 35.2625792, -81.1889688, -81.1888688]
           }
         },
@@ -1318,7 +1318,7 @@
           "properties": {
             "address": "9955 SW Beaverton Hillsdale Hwy, Beaverton, OR 97005",
             "displayName": "Studio 10 Karaoke Box, 9955, Southwest Beaverton Hillsdale Highway, Raleigh West, Denney Whitford/Raleigh West, Beaverton, Washington County, Oregon, 97005, United States of America",
-            "countryCode": "US",
+            "country_code": "US",
             "boundingBox": [45.4867834, 45.4868834, -122.7802665, -122.7801665]
           }
         },

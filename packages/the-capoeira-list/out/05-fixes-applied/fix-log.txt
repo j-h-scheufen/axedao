@@ -1,0 +1,65 @@
+
+FIX #1: Grupo Negaça Capoeira
+  ✓ Fixed name: "Grupo Negaca Capoeira" → "Grupo Negaça Capoeira"
+  ✓ Fixed Stapleford address for re-geocoding
+
+FIX #2: Mundo Capoeira Ireland
+  ✗ Dropped location: Synge Street, Dublin 8, Ireland
+  ✗ Dropped location: Rathmines Square, 161 Rathmines Rd Lower
+  ✗ Dropped location: Mullingar Business Park
+  ✗ Dropped location: Harbour St, Commons
+  ✓ Updated Charlemont location
+  ✓ Added 3 new locations
+
+FIX #3: Grupo Senzala North East
+  ✓ Fixed name: "Grupo Senzela" → "Grupo Senzala North East"
+  ✓ Kept Heaton location, updated schedule
+  ✗ Dropped Durham and Dance City locations
+  ✓ Added 2 new locations
+
+FIX #4: Centro Cultural Senzala London
+  ✓ Fixed name: "Group Senzala" → "Centro Cultural Senzala London"
+  ✗ Dropped all outdated locations (Hertfordshire and old London)
+  ✓ Added 5 new London locations
+
+FIX #5: Capoeira Science
+  ✓ Fixed main contact phone: "283-291" → "07853611496"
+  ✓ Kept Wandsworth Road location
+  ✗ Dropped duplicate Surrey location
+
+FIX #6: Beira-Mar Capoeira
+  ✗ Deleted (will be split into 4 regional groups)
+
+CREATING BEIRA-MAR SPLIT GROUPS:
+  ✓ Created "Beira-Mar Capoeira Florida" (2 locations)
+  ✓ Created "Beira-Mar Capoeira Kentucky" (2 locations)
+  ✓ Created "Beira-Mar Capoeira Colorado" (1 location)
+  ✓ Created "Beira-Mar Capoeira Daejeon" (1 location)
+
+FIX #7: Capoeira IJEXÁ
+  ✗ Dropped all outdated locations
+  ✓ Merged duplicates, updated leader and contact info
+  ✓ Added 4 new Bay Area locations
+
+FIX #7: Capoeira IJEXÁ - Deleting duplicate
+
+FIX #7: Capoeira IJEXÁ - Deleting duplicate
+
+FIX #8: Motumbaxé Capoeira
+  ✓ Kept Brooklyn location (76 Nevins St)
+  ✗ Dropped 3 outdated locations (CT and VA)
+
+FIX #2: Mundo Capoeira Ireland
+  ✗ Dropped location: Monksland, Athlone, Ireland
+  ✓ Added 3 new locations
+
+FIX #9: Vai Capoeira
+  ✓ Fixed phone-as-address: "646.379.4468" → "Lincoln Terrace Park, Crown Heights, Brooklyn, NY"
+
+FIX #10: Carioca Capoeira
+  ✗ Deleted (will be split into 3 regional groups)
+
+CREATING CARIOCA SPLIT GROUPS:
+  ✓ Created "Carioca Capoeira (New York City)" (2 locations)
+  ✓ Created "Carioca Capoeira (Charleston)" (2 locations)
+  ✓ Created "Carioca Capoeira (Miami)" (1 location)

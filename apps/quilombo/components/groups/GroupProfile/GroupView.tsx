@@ -37,7 +37,9 @@ const GroupView = () => {
               <SubsectionHeading className="my-0 text-default-400">Description</SubsectionHeading>
               <GroupActionsDropdown />
             </div>
-            {!!group.description && <p className="mt-1 text-small text-default-500">{group.description}</p>}
+            {!!group.description && (
+              <p className="mt-1 text-small text-default-500 whitespace-pre-wrap">{group.description}</p>
+            )}
           </div>
         </div>
         <div className="flex flex-col gap-2 sm:gap-4 mt-2">

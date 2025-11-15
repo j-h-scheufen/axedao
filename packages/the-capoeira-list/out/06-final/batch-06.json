@@ -1,0 +1,3400 @@
+[
+  {
+    "name": "Cultural Association of Brazilian Arts [CAOBA]",
+    "website": "http://www.caobarts.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Bayano",
+      "name": "Irani Andreati"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "caobanj@gmail.com",
+      "phone": "817"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Main Street",
+        "address": "817 Main Street, Hackensack, NJ 07601",
+        "schedule": "Youth: Mon & Wed 6:00- 7:00pm;  Sat 12:00-1:00pm; Beginners:Tues & Thurs 7:15pm- 8:15pm; Intermediate and Advanced:Mon & Wed 7:15 - 8:15pm; Music: Fri 7:00 - 8:00pm; Physical Conditioning low impact Adults Only:Thurs 6:00 - 7:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "817 Main St, Hackensack, NJ 07601\nMestre Bayano  \" Irani Andreati\"\nhttp://www.caobarts.com\n201 820 3197\ncaobanj{/\\T}gmail.com\nYouth: Mon & Wed 6:00- 7:00pm;  Sat 12:00-1:00pm\nBeginners:Tues & Thurs 7:15pm- 8:15pm\nIntermediate and Advanced:Mon & Wed 7:15 - 8:15pm\nMusic: Fri 7:00 - 8:00pm\nPhysical Conditioning low impact Adults Only:Thurs 6:00 - 7:00pm\nSOURCE: website 3/19/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:51:08.192Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-74.0424221, 40.9047372]
+          },
+          "properties": {
+            "address": "817 Main Street, Hackensack, NJ 07601",
+            "displayName": "817, Main Street, Hackensack, Bergen County, New Jersey, 07601, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.9046872, 40.9047872, -74.0424721, -74.0423721]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE: website 3/19/19",
+    "rawRecord": "The Capoeira List\r\n    \r\n    \r\n    \r\n    \r\n    NEW JERSEY\r\n      \r\n  \r\n\r\n\r\n\r\n  \r\n    \r\n    \r\n    \r\n    \r\n    Bergen County Capoeira\r\n    \r\n  \r\n  \r\n                           Bergen County \r\n      Hackensack,  Edgewater, Paramus Bergenfield\r\n    \r\n    \r\n          Cultural Association of Brazilian Arts [CAOBA]\r\n      817 Main St, Hackensack, NJ 07601 \r\n      Mestre Bayano  \" Irani Andreati\" \r\n      http://www.caobarts.com \r\n\r\n\r\n\r\n\r\n\r\n\r\n      \r\n       201 820 3197\r\n       caobanj{/\\T}gmail.com\r\n      Youth: Mon & Wed 6:00- 7:00pm;  Sat 12:00-1:00pm\r\n      Beginners:Tues & Thurs 7:15pm- 8:15pm\r\n      Intermediate and Advanced:Mon & Wed 7:15 - 8:15pm\r\n      Music: Fri 7:00 - 8:00pm\r\n      Physical Conditioning low impact Adults Only:Thurs 6:00 - 7:00pm\r\n      SOURCE: website 3/19/19",
+    "fixMetadata": {
+      "originalName": "Hackensack,  Edgewater, Paramus Bergenfield",
+      "fixed": true,
+      "fixedFields": ["name", "leader"],
+      "manuallyFixed": true
+    },
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:57:10.698Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Cultural Association Of Brazilian Arts #s-content.s-font-title-montserrat .s-font-title{font-family:montserrat,helvetica,sans-serif}#s-content.s-font-heading-arvo .s-",
+        "redirectUrl": "https://www.caobarts.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["caobanj@gmail.com", "u003ecaobanj@gmail.com", "u003einfo@company.com"],
+        "extractedPhones": ["646.509.0914", "201.820.3197", "201.261.7800", "321-555-5555"]
+      }
+    }
+  },
+  {
+    "name": "Ginga Mundo",
+    "website": "http://www.gingamundo.us",
+    "leader": {
+      "title": "mestre",
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "bocadomundo@yahoo.com",
+      "phone": "917] 488-0041"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "River Road",
+        "address": "890 River Road, Edgewater, NJ 07020",
+        "schedule": "Adults: Tues & Thurs -; Kids Age 4-6: Sun - 10:00-11:00am:; Kids Age 7-13: Sun 11:00am-12:00pm :",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "890 River Road Unit 4, Edgewater, NJ 07020\nAdults: Tues & Thurs -\n8:30-10:00pm\nKids Age 4-6: Sun - 10:00-11:00am:\nKids Age 7-13: Sun 11:00am-12:00pm :\nSOURCE: website 3/27/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T10:59:44.963Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9744485, 40.825483]
+          },
+          "properties": {
+            "address": "890 River Road, Edgewater, NJ 07020",
+            "displayName": "890, River Road, Edgewater, Bergen County, New Jersey, 07020, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.825433, 40.825533, -73.9744985, -73.9743985]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE: website 3/27/19",
+    "rawRecord": "Ginga Mundo \r\n      http://www.gingamundo.us \r\n       https://www.facebook.com/BocaCapoeira/info?tab=overview\r\n      \r\n      Boca do Mundo under the guidance of Mestre Sabia [ Salvador,\r\n      Bahia] \r\n      [917] 488-0041  \r\n      bocadomundo@yahoo.com \r\n            Dub Fit\r\n      890 River Road Unit 4, Edgewater, NJ 07020\r\n       Adults: Tues & Thurs -\r\n      8:30-10:00pm                                                                                         \r\n\r\n\r\n      \r\n      Kids Age 4-6: Sun - 10:00-11:00am: \r\n      Kids Age 7-13: Sun 11:00am-12:00pm :\r\n      SOURCE: website 3/27/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:57:11.726Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "THE ACADEMY <meta http-equiv=\"Accept-CH\" content=\"Sec-C",
+        "redirectUrl": "http://www.gingamundo.us/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["user@domain.com", "bocadomundo@yahoo.com"],
+        "extractedPhones": ["(917) 488-0041", "917.488.0041"]
+      }
+    }
+  },
+  {
+    "name": "Afro Brazilian Cultural Center of New Jersey",
+    "website": "http://www.abccnj.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Gaivota",
+      "name": "David Morgan"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "emaildavid@abccnj.com",
+      "phone": "554"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Bloomfield Avenue",
+        "address": "554 Bloomfield Avenue, Bloomfield, NJ 07003",
+        "schedule": "Children:   Mon,Wed & Fri 6:00-7:00pm; Beginners & Teens: Mon,Wed & Fri; Adult: Mon,Wed & Fri 7:30-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "554 Bloomfield Ave Bloomfield, NJ 07003 (adjacent to IHOP)\nhttp://www.abccnj.com/\nMestre Gaivota \"David Morgan\"\nphone. 973-744-4934\nemail david@abccnj.com\nChildren:   Mon,Wed & Fri 6:00-7:00pm\nBeginners & Teens: Mon,Wed & Fri\n7:00-7:30pm\nAdult: Mon,Wed & Fri 7:30-9:00pm\nSOURCE: website 3/23/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:51:09.626Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-74.1942323, 40.7872463]
+          },
+          "properties": {
+            "address": "554 Bloomfield Avenue, Bloomfield, NJ 07003",
+            "displayName": "Bloomfield Avenue, Bloomfield, Essex County, New Jersey, 07003, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.78514, 40.7893499, -74.1953298, -74.19314]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE: website 3/23/19",
+    "rawRecord": "NEW JERSEY\r\n    \r\n  \r\n\r\n\r\n\r\n    \r\n    \r\n    \r\n    \r\n    Essex Capoeira\r\n    \r\n  \r\n  \r\n                     Essex County \r\n      Bloomfield, Newark\r\n    \r\n          Afro Brazilian Cultural Center of New Jersey \r\n      554 Bloomfield Ave Bloomfield, NJ 07003 (adjacent to IHOP) \r\n      http://www.abccnj.com/ \r\n      Mestre Gaivota \"David Morgan\"\r\n        phone. 973-744-4934\r\n        email david@abccnj.com\r\n      Children:   Mon,Wed & Fri 6:00-7:00pm \r\n      Beginners & Teens: Mon,Wed & Fri\r\n      7:00-7:30pm         \r\n      Adult: Mon,Wed & Fri 7:30-9:00pm \r\n      SOURCE: website 3/23/19",
+    "fixMetadata": {
+      "originalName": "Bloomfield, Newark",
+      "fixed": true,
+      "fixedFields": ["name", "leader"],
+      "manuallyFixed": true
+    },
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:57:16.441Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<link rel=\"shortcut icon\" href=\"https://static.parastorage.com/client/pfavico.ico\" type=\"image/x-icon",
+        "redirectUrl": "https://www.abccnj.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Grupo Ginga",
+    "website": "http://www.grupoginga.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "+1 917 725 0381"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Morgan Street",
+        "address": "196 Morgan Street, Jersey City, NJ 07302",
+        "schedule": "Mon & Thurs  7:00 - 8:30pm( call or contact though",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "196 Morgan Street [1 Blk from Grove street PATH] Jersey City, NJ\n07302\nMon & Thurs  7:00 - 8:30pm( call or contact though\nwebsite for details.)\nSOURCE: website 5/7/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:51:10.975Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-74.0415631, 40.7201993]
+          },
+          "properties": {
+            "address": "196 Morgan Street, Jersey City, NJ 07302",
+            "displayName": "196, Morgan Street, Hamilton Park, Jersey City, Hudson County, New Jersey, 07302, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.7201493, 40.7202493, -74.0416131, -74.0415131]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE: website 5/7/19",
+    "rawRecord": "NEW JERSEY\r\n        \r\n  \r\n\r\n\r\n\r\n    \r\n    \r\n    \r\n    \r\n    Hudson County Capoeira\r\n    \r\n  \r\n  \r\n                           Hudson County \r\n      Jersey City,  North Bergen\r\n    \r\n            Grupo Ginga \r\n\r\n      Mestre Kiki da Bahia \r\n\r\n      http://www.grupoginga.com\r\n      \r\n+1 917 725 0381\r\n\r\nhttps://www.facebook.com/mestrekiki.dabahia\r\n             Performance Arts Workshop \r\n      196 Morgan Street [1 Blk from Grove street PATH] Jersey City, NJ\r\n      07302\r\n      Mon & Thurs  7:00 - 8:30pm( call or contact though\r\n        website for details.)\r\nSOURCE: website 5/7/19",
+    "fixMetadata": {
+      "originalName": "Grupo Ginga",
+      "fixed": true,
+      "fixedFields": ["name"],
+      "manuallyFixed": true
+    },
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:57:19.148Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Ginga Capoeira Regional <l",
+        "redirectUrl": "http://gingacapoeira.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["gingausa@gmail.com", "user@domain.com"],
+        "extractedPhones": ["(917) 573 8384"]
+      }
+    }
+  },
+  {
+    "name": "Arts United Capoeira",
+    "website": "https://aucapoeira.wixsite.com/aucapoeira",
+    "leader": {
+      "title": "mestre",
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "aucapoeira@gmail.com",
+      "phone": "19)"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Coles St",
+        "address": "54 Coles St, Jersey City, NJ 07302",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "4/5/19)\nhttps://www.facebook.com/aucapoeira/\naucapoeira@gmail.com\n908.432.2405\nGrassroots Community Space\n54 Coles St, Jersey City, NJ 07302(\n)SOURCE:  website 4/5/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T10:59:47.284Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-74.047331, 40.723628]
+          },
+          "properties": {
+            "address": "54 Coles St, Jersey City, NJ 07302",
+            "displayName": "54, Coles Street, Hamilton Park, Journal Square, Jersey City, Hudson County, New Jersey, 07302, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.723578, 40.723678, -74.047381, -74.047281]
+          }
+        }
+      }
+    ],
+    "notes": ")SOURCE:  website 4/5/19",
+    "rawRecord": "Arts United Capoeira \r\n      Mestre Glauber\r\n       https://aucapoeira.wixsite.com/aucapoeira\r\n      (website listed on facebook is parked,   )(\r\n        4/5/19)\r\n      https://www.facebook.com/aucapoeira/\r\n       aucapoeira@gmail.com \r\n       908.432.2405\r\n            Grassroots Community Space\r\n      54 Coles St, Jersey City, NJ 07302(\r\n      )SOURCE:  website 4/5/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:57:20.414Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<link rel=\"apple-touch-icon\" h"
+      },
+      "enrichedData": {
+        "extractedEmails": ["aucapoeira@gmail.com"],
+        "extractedPhones": ["908-432-2405"]
+      }
+    }
+  },
+  {
+    "name": "Grupo Liberdade de Capoeira",
+    "website": "http://www.grupoliberdadedecapoeira.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "amazonas.jb@gmail.com",
+      "phone": "347] 228-5593"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Vauxhall",
+        "address": "Vauxhall, NJ 07088",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "2120 Springfield Ave, Vauxhall, NJ 07088\nSOURCE: website 4/3/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T11:12:29.963Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-74.2827557, 40.7171382]
+          },
+          "properties": {
+            "address": "Vauxhall, NJ 07088",
+            "displayName": "Vauxhall Road, Union, Union County, New Jersey, 07088, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.7158195, 40.7181288, -74.2839144, -74.2820391]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE: website 4/3/19",
+    "rawRecord": "NEW JERSEY\r\n    \r\n  \r\n\r\n\r\n\r\n  \r\n    \r\n    \r\n    \r\n    \r\n    Union County Capoeira\r\n    \r\n    \r\n  \r\n  \r\n                     Union County\r\n    \r\n          Grupo Liberdade de Capoeira\r\n    http://www.grupoliberdadedecapoeira.com/\r\n    Professora Amazonas under Mestre Cigano[Porto Seguro,Brazil]\r\n    amazonas.jb@gmail.com[347] 228-5593\r\n          Umoja Dance Studio\r\n    2120 Springfield Ave, Vauxhall, NJ 07088\r\n    SOURCE: website 4/3/19",
+    "fixMetadata": {
+      "originalName": "Grupo Liberdade de Capoeira",
+      "fixed": true,
+      "fixedFields": ["name"],
+      "manuallyFixed": true
+    },
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:57:25.308Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-72599905-1');"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Santa Fe Capoeira",
+    "website": "http://www.capoeirasantafe.com",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "507"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Kathryn Street",
+        "address": "507 Kathryn Street, Santa Fe, NM 87501",
+        "schedule": "Tues 6:00-7:30 pm; Thurs 6:00 -7:00 pm.; Conditioning:  Mon- Fri 8:00- 8:45 am.; All ages: Sat 9:00 - 9:45am,",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "507 Kathryn Street, Santa Fe, New Mexico 87501\nhttp://www.capoeirasantafe.com\n[505] 474-3060\nTues 6:00-7:30 pm; Thurs 6:00 -7:00 pm.\nConditioning:  Mon- Fri 8:00- 8:45 am.\nThe Railyard Performance Center\n1611 Paseo De Peralta, Santa Fe, NM\nAll ages: Sat 9:00 - 9:45am,\n(Please be a few minutes early to sign in.)\nSOURCE:  website  4/10/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:51:12.389Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "4%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-105.9575698, 35.6784507]
+          },
+          "properties": {
+            "address": "507 Kathryn Street, Santa Fe, NM 87501",
+            "displayName": "Kathryn Street Foot Bridge, Santa Fe, Santa Fe County, New Mexico, 87505, United States of America",
+            "country_code": "US",
+            "boundingBox": [35.678406, 35.6784954, -105.9575702, -105.9575694]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE:  website  4/10/19",
+    "rawRecord": "Santa Fe Capoeira\r\n    \r\n  \r\n  \r\n                           Santa Fe\r\n    \r\n    \r\n          Capoeira Santa Fe\r\n      \r\n      507 Kathryn Street, Santa Fe, New Mexico 87501 \r\n      http://www.capoeirasantafe.com\r\n      \r\n      [505] 474-3060\r\n      Tues 6:00-7:30 pm; Thurs 6:00 -7:00 pm.\r\n      Conditioning:  Mon- Fri 8:00- 8:45 am.\r\n            The Railyard Performance Center\r\n      1611 Paseo De Peralta, Santa Fe, NM\r\n      All ages: Sat 9:00 - 9:45am, \r\n      (Please be a few minutes early to sign in.)\r\n      \r\n      SOURCE:  website  4/10/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:57:29.507Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Capoeira, Martial Arts - CAPOEIRA SANTA FE - Santa Fe, New Mexico <meta name=\"author\" content=\"CAPOEIRA S",
+        "redirectUrl": "https://capoeirasantafe.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["jonpinhorn.typedesign@gmail.com", "amkryukov@gmail.com", "juankmoranesi@gmail.com"],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "LV Capoeira Academy - Grupo Liberdade",
+    "website": "https://www.lvcapoeira.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Adam Kaswiner",
+      "name": "under Mestre CiganoRio de"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "akaswiner@gmail.com",
+      "phone": "845-464-2332"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "W Sahara Ave",
+        "address": "2929 W Sahara Ave, Las Vegas, NV 89102",
+        "schedule": "Mon, Tues & Thur 8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "845-464-2332\nakaswiner@gmail.com\nLV Shotokan Karate\n2929 W. Sahara Ave,Las Vegas, NV 89102\nMon, Tues & Thur 8:00pm\nSOURCE: website 1/12/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T11:11:30.664Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-115.1817792, 36.1438589]
+          },
+          "properties": {
+            "address": "2929 W Sahara Ave, Las Vegas, NV 89102",
+            "displayName": "Las Vegas Shotokan Karate, 2929, West Sahara Avenue, Rancho Charleston, Las Vegas, Clark County, Nevada, 89102, United States of America",
+            "country_code": "US",
+            "boundingBox": [36.1438013, 36.1439321, -115.1818719, -115.1816866]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE: website 1/12/19",
+    "rawRecord": "LV Capoeira Academy - Grupo Liberdade\r\n      de Capoeira\r\n    https://www.lvcapoeira.com\r\n    Instrutor Viajante \"Adam Kaswiner\" under Mestre Cigano[Rio de\r\n    Janeiro]\r\n    845-464-2332\r\n    akaswiner@gmail.com\r\n          LV Shotokan Karate\r\n    2929 W. Sahara Ave,Las Vegas, NV 89102\r\n    Mon, Tues & Thur 8:00pm\r\n    SOURCE: website 1/12/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:57:33.339Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<link rel=\"icon\" sizes=\"192x192\" href=\"https://static.wixstatic.com/media/70a555_11d993788e044542950d79adf358e98e%7Emv2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/70a555_11d993788e044542950d79adf358e98e%7",
+        "redirectUrl": "https://www.lvcapoeira.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": ["845.464.2332"]
+      }
+    }
+  },
+  {
+    "name": "Capoeira Vida Brooklyn",
+    "website": "https://www.capoeiravida.com/",
+    "leader": {
+      "title": "professora",
+      "nickname": "Ana Costa(",
+      "name": ")("
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@capoeirabrooklyn.com",
+      "phone": "917-722-6703"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "7th Street",
+        "address": "316 7th Street, Brooklyn, NY 11215",
+        "schedule": "Beginner:  Wed: 6:30-8pm; All Levels:  Tues: 6:30-8pm; Thurs : 7:30-9pm; Sat:",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "917-722-6703\ninfo@capoeirabrooklyn.com\nWay of Action\n316 7th St ,2nd Floor, Brooklyn, NY 11215\nBeginner:  Wed: 6:30-8pm\nAll Levels:  Tues: 6:30-8pm; Thurs : 7:30-9pm; Sat:\n11am-12:30pm\n(see website for kids classes)Professora Rouxinol(  )\"Ana Costa(\")(\n)http://www.anacostafitness.com(\n)\nSOURCE:   website 4/19/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:51:15.351Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9857219, 40.670428]
+          },
+          "properties": {
+            "address": "316 7th Street, Brooklyn, NY 11215",
+            "displayName": "Way of Action, 316, 7th Street, Park Slope, Brooklyn, Kings County, City of New York, New York, 11215, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.670378, 40.670478, -73.9857719, -73.9856719]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE:   website 4/19/19",
+    "rawRecord": "Capoeira Vida Brooklyn  \r\n\r\n      https://www.capoeiravida.com/\r\n\r\n      Mestre Foca \r\n\r\n      917-722-6703\r\n\r\n      info@capoeirabrooklyn.com\r\n\r\n            Way of Action \r\n\r\n      316 7th St ,2nd Floor, Brooklyn, NY 11215\r\n\r\n      Beginner:  Wed: 6:30-8pm\r\n\r\n      All Levels:  Tues: 6:30-8pm; Thurs : 7:30-9pm; Sat:\r\n      11am-12:30pm\r\n\r\n      (see website for kids classes)Professora Rouxinol(  )\"Ana Costa(\")(\r\n)http://www.anacostafitness.com(\r\n)\r\n\r\n      SOURCE:   website 4/19/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:57:39.156Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "CapoeiraVida <link rel=\""
+      },
+      "enrichedData": {
+        "extractedEmails": ["user@domain.com", "info@capoeirabrooklyn.com", "info@capoeiravida.com"],
+        "extractedPhones": ["917-722-6703"]
+      }
+    }
+  },
+  {
+    "name": "Centro de Capoeira Angola Filhos de Dunga",
+    "website": "http://www.capoeiraangolabrooklyn.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Luiz Rocha",
+      "name": ""
+    },
+    "mainContact": {
+      "name": null,
+      "email": "nygrande@gmail.com",
+      "phone": "335"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Throop Ave Brooklyn",
+        "address": "335 Throop Ave Brooklyn, NY 11221( entrance at 309 Kosciuszko St .select S-3 and buzz)",
+        "schedule": "Basic Postures, Movements, Sequences, Music: Mon, Tues, Wed, & Thurs 7:00-9:00pm; Music & Movement Ages: 3-5 Years: Sat 10:00á 10:45am; Music & Movement Ages: 6-12Years: Sat 11:00:00amá 12:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "335 Throop Ave Brooklyn, NY 11221( entrance at 309 Kosciuszko St .select S-3 and buzz)\nhttp://www.capoeiraangolabrooklyn.com/\nMestre Grande \"Luiz Rocha\"\nT: +1 646 508 2643\nE: nygrande@gmail.com\nBasic Postures, Movements, Sequences, Music: Mon, Tues, Wed, & Thurs 7:00-9:00pm\nMusic & Movement Ages: 3-5 Years: Sat 10:00á 10:45am\nMusic & Movement Ages: 6-12Years: Sat 11:00:00amá 12:00pm\nSOURCE: 5/12/19",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9424241, 40.6918747]
+          },
+          "properties": {
+            "address": "335 Throop Ave Brooklyn, NY 11221",
+            "displayName": "335, Throop Avenue, Bedford-Stuyvesant, Brooklyn, Kings County, City of New York, New York, 11221, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.6917356, 40.6920139, -73.942605, -73.9422432]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:57:46.648Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "SOURCE: 5/12/19",
+    "rawRecord": "Centro de Capoeira Angola Filhos de Dunga \r\n335 Throop Ave Brooklyn, NY 11221( entrance at 309 Kosciuszko St .select S-3 and buzz)\r\nhttp://www.capoeiraangolabrooklyn.com/\r\nMestre Grande \"Luiz Rocha\"\r\n  T: +1 646 508 2643 \r\n  E: nygrande@gmail.com\r\nBasic Postures, Movements, Sequences, Music: Mon, Tues, Wed, & Thurs 7:00-9:00pm\r\nMusic & Movement Ages: 3-5 Years: Sat 10:00á 10:45am\r\nMusic & Movement Ages: 6-12Years: Sat 11:00:00amá 12:00pm\r\nSOURCE: 5/12/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:57:40.061Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Centro de Capoeira Angola Filhos de Dunga - CAPOEIRA ANGOLA BROOKLYN"
+      },
+      "enrichedData": {
+        "extractedEmails": ["user@domain.com", "nygrande@gmail.com"],
+        "extractedPhones": ["(646) 508-2643"]
+      }
+    }
+  },
+  {
+    "name": "Raizes do Brasil",
+    "website": "http://www.rbcapoeira.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@rbcapoeira.com",
+      "phone": "347] 921-2446"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "3rd Ave",
+        "address": "279 3rd Ave, Brooklyn, NY 11215",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "279 3rd Ave, Brooklyn, NY 11215(between President + Carroll\nfull schedule of classes\n)SOURCE: website  4/23/19(\n)",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:47:37.544Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9858694, 40.6773633]
+          },
+          "properties": {
+            "address": "279 3rd Ave, Brooklyn, NY 11215",
+            "displayName": "279, 3rd Avenue, Gowanus, Brooklyn, Kings County, City of New York, New York, 11215, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.6773133, 40.6774133, -73.9859522, -73.9857867]
+          }
+        }
+      }
+    ],
+    "notes": ")SOURCE: website  4/23/19(",
+    "rawRecord": "Raizes do Brasil       \r\n    http://www.rbcapoeira.com/      \r\n    Professor Curu under Mestre Ralil      \r\n    info@rbcapoeira.com\r\n\r\n\r\n    [347] 921-2446      \r\n      Monkey Do Yoga       \r\n    279 3rd Ave, Brooklyn, NY 11215(between President + Carroll\r\n      full schedule of classes\r\n    )SOURCE: website  4/23/19(\r\n    )",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:57:40.799Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Ra&iacute;zes do Brasil Capoeira Brooklyn &#8211; Capoeira in Brooklyn for Kids + Adults <meta name='robots' content='max-",
+        "redirectUrl": "https://www.rbcapoeira.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": ["(347) 946-8083"]
+      }
+    }
+  },
+  {
+    "name": "Vai Capoeira",
+    "website": "https://www.vaicapoeira.org",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "646.379.4468"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "646.379.4468",
+        "address": "Lincoln Terrace Park, Brooklyn, New York, USA",
+        "schedule": "Thurs & Sat 6:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "646.379.4468\n\"Kujo  and Chupa Ashanti\"\nLincoln Terrace Park\nCrown Heights, Brooklyn , NY\nThurs & Sat 6:00pm\nSOURCE: website 4/19/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T23:55:50.820Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "75%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.92648354162583, 40.666995549999996]
+          },
+          "properties": {
+            "address": "Lincoln Terrace Park, Brooklyn, New York, USA",
+            "displayName": "Lincoln Terrace Park / Arthur S. Somers Park, Brownsville, Brooklyn, Kings County, City of New York, New York, United States of America",
+            "country_code": "us",
+            "boundingBox": [40.664806, 40.6683733, -73.9285708, -73.9243734]
+          }
+        }
+      },
+      {
+        "name": "8th Ave",
+        "address": "520 8th Ave, New York, NY",
+        "schedule": "Mon & Wed: 8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "646.379.4468\n\"Kujo  and Chupa Ashanti\"\nRipley Grier Studios\n520 8th Ave New York, NY\nMon & Wed: 8:00pm\nSOURCE: website 4/19/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T10:59:54.153Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9919513, 40.7538643]
+          },
+          "properties": {
+            "address": "520 8th Ave, New York, NY",
+            "displayName": "Houndstooth Pub, 520, 8th Avenue, Garment District, Manhattan Community Board 5, Manhattan, New York County, City of New York, New York, 10018, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.7538143, 40.7539143, -73.9920013, -73.9919013]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE: website 4/19/19",
+    "rawRecord": "Vai Capoeira \r\n\r\n\r\n    https://www.vaicapoeira.org\r\n\r\n\r\n    646.379.4468\r\n\r\n\r\n    \"Kujo  and Chupa Ashanti\"\r\n\r\n\r\n          Lincoln Terrace Park\r\n\r\n\r\n    Crown Heights, Brooklyn , NY\r\n\r\n\r\n    Thurs & Sat 6:00pm\r\n\r\n\r\n    SOURCE: website 4/19/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:57:44.704Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<link rel=\"apple-touch-icon\" h",
+        "redirectUrl": "https://vaicapoeira.wixsite.com/muitoloco"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": ["646.379.4468"]
+      }
+    }
+  },
+  {
+    "name": "Capoeira Luanda under Mestre Jelon",
+    "website": "http://www.piaocapoeira.com",
+    "leader": {
+      "title": "professor",
+      "nickname": "Angelo Ribeiro",
+      "name": ""
+    },
+    "mainContact": {
+      "name": null,
+      "email": "piaocapoeira@gmail.com",
+      "phone": "917] 224-1209"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "3rd Avenue",
+        "address": "303 3rd Avenue, Brooklyn, NY 11215",
+        "schedule": "Adult: Mon, Wed & Fri: 7:00-8:30pm; Sat: 4:00-5:30pm; Kids:Sat: 3:00-4:00pmProfessor Alegria \"Leandro Santos da Silva\"; Mon 7:30-8:45pm; Kids: &#8203;Mon 5:00-6:00pm; Kids Wed 4:00-5:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "303 3rd Avenue, Brooklyn, NY 11215\nAdult: Mon, Wed & Fri: 7:00-8:30pm; Sat: 4:00-5:30pm\nKids:Sat: 3:00-4:00pmProfessor Alegria \"Leandro Santos da Silva\"\nhttp://www.cadny.org\nMark Morris Dance Group\n3 Lafayette Avenue, Brooklyn, NY\nhttp://www.markmorrisdancegroup.org\nMon 7:30-8:45pm\nSOURCE website 4/13/19Instructora Miragem ÁCristina Dodd �\nhttps://www.capoeirakidsny.com/instrutora-miragem.html\nMiragemcapoeira@icloud.com\nTriskelion Arts Center\n106 Calyer St., Greenpoint, Brooklyn\nKids: &#8203;Mon 5:00-6:00pm\nCenter for Performance Arts\n361 Manhattan Ave.\nWilliamsburg, Brooklyn\nKids Wed 4:00-5:00pm\nSOURCE: website 4/14/19Introdutor Caipira  \"Mirlet(\")(\n)https://www.capoeirakidsny.com/instrutor-caipira.html\nPowerplay\n432 3rd Avenue Brooklyn, NY 11215\nPS11 - The Purvis J. Behan Elementary School\n419 Waverly Avenue - Brooklyn, NY 11238\nSOURCE: website 4/14/19\nProfessor Gafanhoto \"Angelo Ribeiro\"\n(website is offline 4/14/19)",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:14.510Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.986335, 40.6766107]
+          },
+          "properties": {
+            "address": "303 3rd Avenue, Brooklyn, NY 11215",
+            "displayName": "303, 3rd Avenue, Gowanus, Brooklyn, Kings County, City of New York, New York, 11215, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.67652, 40.6767076, -73.9865069, -73.9861747]
+          }
+        }
+      },
+      {
+        "name": "Lafayette Avenue",
+        "address": "3 Lafayette Avenue, Brooklyn, NY",
+        "schedule": "Adult: Mon, Wed & Fri: 7:00-8:30pm; Sat: 4:00-5:30pm; Kids:Sat: 3:00-4:00pmProfessor Alegria \"Leandro Santos da Silva\"; Mon 7:30-8:45pm; Kids: &#8203;Mon 5:00-6:00pm; Kids Wed 4:00-5:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "303 3rd Avenue, Brooklyn, NY 11215\nAdult: Mon, Wed & Fri: 7:00-8:30pm; Sat: 4:00-5:30pm\nKids:Sat: 3:00-4:00pmProfessor Alegria \"Leandro Santos da Silva\"\nhttp://www.cadny.org\nMark Morris Dance Group\n3 Lafayette Avenue, Brooklyn, NY\nhttp://www.markmorrisdancegroup.org\nMon 7:30-8:45pm\nSOURCE website 4/13/19Instructora Miragem ÁCristina Dodd �\nhttps://www.capoeirakidsny.com/instrutora-miragem.html\nMiragemcapoeira@icloud.com\nTriskelion Arts Center\n106 Calyer St., Greenpoint, Brooklyn\nKids: &#8203;Mon 5:00-6:00pm\nCenter for Performance Arts\n361 Manhattan Ave.\nWilliamsburg, Brooklyn\nKids Wed 4:00-5:00pm\nSOURCE: website 4/14/19Introdutor Caipira  \"Mirlet(\")(\n)https://www.capoeirakidsny.com/instrutor-caipira.html\nPowerplay\n432 3rd Avenue Brooklyn, NY 11215\nPS11 - The Purvis J. Behan Elementary School\n419 Waverly Avenue - Brooklyn, NY 11238\nSOURCE: website 4/14/19\nProfessor Gafanhoto \"Angelo Ribeiro\"\n(website is offline 4/14/19)",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:16.224Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9788779, 40.6868763]
+          },
+          "properties": {
+            "address": "3 Lafayette Avenue, Brooklyn, NY",
+            "displayName": "3, Lafayette Avenue, Fort Greene, Brooklyn, Kings County, City of New York, New York, 11217, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.6868263, 40.6869263, -73.9789279, -73.9788279]
+          }
+        }
+      },
+      {
+        "name": "Calyer St",
+        "address": "106 Calyer St, Greenpoint, Brooklyn, NY",
+        "schedule": "Adult: Mon, Wed & Fri: 7:00-8:30pm; Sat: 4:00-5:30pm; Kids:Sat: 3:00-4:00pmProfessor Alegria \"Leandro Santos da Silva\"; Mon 7:30-8:45pm; Kids: &#8203;Mon 5:00-6:00pm; Kids Wed 4:00-5:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "303 3rd Avenue, Brooklyn, NY 11215\nAdult: Mon, Wed & Fri: 7:00-8:30pm; Sat: 4:00-5:30pm\nKids:Sat: 3:00-4:00pmProfessor Alegria \"Leandro Santos da Silva\"\nhttp://www.cadny.org\nMark Morris Dance Group\n3 Lafayette Avenue, Brooklyn, NY\nhttp://www.markmorrisdancegroup.org\nMon 7:30-8:45pm\nSOURCE website 4/13/19Instructora Miragem ÁCristina Dodd �\nhttps://www.capoeirakidsny.com/instrutora-miragem.html\nMiragemcapoeira@icloud.com\nTriskelion Arts Center\n106 Calyer St., Greenpoint, Brooklyn\nKids: &#8203;Mon 5:00-6:00pm\nCenter for Performance Arts\n361 Manhattan Ave.\nWilliamsburg, Brooklyn\nKids Wed 4:00-5:00pm\nSOURCE: website 4/14/19Introdutor Caipira  \"Mirlet(\")(\n)https://www.capoeirakidsny.com/instrutor-caipira.html\nPowerplay\n432 3rd Avenue Brooklyn, NY 11215\nPS11 - The Purvis J. Behan Elementary School\n419 Waverly Avenue - Brooklyn, NY 11238\nSOURCE: website 4/14/19\nProfessor Gafanhoto \"Angelo Ribeiro\"\n(website is offline 4/14/19)",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:17.585Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9565605, 40.7269717]
+          },
+          "properties": {
+            "address": "106 Calyer St, Greenpoint, Brooklyn, NY",
+            "displayName": "Triskelion Arts, 106, Calyer Street, Greenpoint, Brooklyn, Kings County, City of New York, New York, 11222, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.7269217, 40.7270217, -73.9566105, -73.9565105]
+          }
+        }
+      },
+      {
+        "name": "Manhattan Ave",
+        "address": "361 Manhattan Ave, Brooklyn, NY",
+        "schedule": "Adult: Mon, Wed & Fri: 7:00-8:30pm; Sat: 4:00-5:30pm; Kids:Sat: 3:00-4:00pmProfessor Alegria \"Leandro Santos da Silva\"; Mon 7:30-8:45pm; Kids: &#8203;Mon 5:00-6:00pm; Kids Wed 4:00-5:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "303 3rd Avenue, Brooklyn, NY 11215\nAdult: Mon, Wed & Fri: 7:00-8:30pm; Sat: 4:00-5:30pm\nKids:Sat: 3:00-4:00pmProfessor Alegria \"Leandro Santos da Silva\"\nhttp://www.cadny.org\nMark Morris Dance Group\n3 Lafayette Avenue, Brooklyn, NY\nhttp://www.markmorrisdancegroup.org\nMon 7:30-8:45pm\nSOURCE website 4/13/19Instructora Miragem ÁCristina Dodd �\nhttps://www.capoeirakidsny.com/instrutora-miragem.html\nMiragemcapoeira@icloud.com\nTriskelion Arts Center\n106 Calyer St., Greenpoint, Brooklyn\nKids: &#8203;Mon 5:00-6:00pm\nCenter for Performance Arts\n361 Manhattan Ave.\nWilliamsburg, Brooklyn\nKids Wed 4:00-5:00pm\nSOURCE: website 4/14/19Introdutor Caipira  \"Mirlet(\")(\n)https://www.capoeirakidsny.com/instrutor-caipira.html\nPowerplay\n432 3rd Avenue Brooklyn, NY 11215\nPS11 - The Purvis J. Behan Elementary School\n419 Waverly Avenue - Brooklyn, NY 11238\nSOURCE: website 4/14/19\nProfessor Gafanhoto \"Angelo Ribeiro\"\n(website is offline 4/14/19)",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:19.099Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9466784, 40.7166711]
+          },
+          "properties": {
+            "address": "361 Manhattan Ave, Brooklyn, NY",
+            "displayName": "Center For Performing Research, 361, Manhattan Avenue, Greenpoint, Brooklyn, Kings County, City of New York, New York, 11211, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.7165999, 40.7167423, -73.9468007, -73.946556]
+          }
+        }
+      },
+      {
+        "name": "3rd Avenue",
+        "address": "432 3rd Avenue, Brooklyn, NY 11215",
+        "schedule": "Adult: Mon, Wed & Fri: 7:00-8:30pm; Sat: 4:00-5:30pm; Kids:Sat: 3:00-4:00pmProfessor Alegria \"Leandro Santos da Silva\"; Mon 7:30-8:45pm; Kids: &#8203;Mon 5:00-6:00pm; Kids Wed 4:00-5:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "303 3rd Avenue, Brooklyn, NY 11215\nAdult: Mon, Wed & Fri: 7:00-8:30pm; Sat: 4:00-5:30pm\nKids:Sat: 3:00-4:00pmProfessor Alegria \"Leandro Santos da Silva\"\nhttp://www.cadny.org\nMark Morris Dance Group\n3 Lafayette Avenue, Brooklyn, NY\nhttp://www.markmorrisdancegroup.org\nMon 7:30-8:45pm\nSOURCE website 4/13/19Instructora Miragem ÁCristina Dodd �\nhttps://www.capoeirakidsny.com/instrutora-miragem.html\nMiragemcapoeira@icloud.com\nTriskelion Arts Center\n106 Calyer St., Greenpoint, Brooklyn\nKids: &#8203;Mon 5:00-6:00pm\nCenter for Performance Arts\n361 Manhattan Ave.\nWilliamsburg, Brooklyn\nKids Wed 4:00-5:00pm\nSOURCE: website 4/14/19Introdutor Caipira  \"Mirlet(\")(\n)https://www.capoeirakidsny.com/instrutor-caipira.html\nPowerplay\n432 3rd Avenue Brooklyn, NY 11215\nPS11 - The Purvis J. Behan Elementary School\n419 Waverly Avenue - Brooklyn, NY 11238\nSOURCE: website 4/14/19\nProfessor Gafanhoto \"Angelo Ribeiro\"\n(website is offline 4/14/19)",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:20.673Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9903434, 40.6725026]
+          },
+          "properties": {
+            "address": "432 3rd Avenue, Brooklyn, NY 11215",
+            "displayName": "432, 3rd Avenue, Park Slope, Brooklyn, Kings County, City of New York, New York, 11215, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.6724526, 40.6725526, -73.9903934, -73.9902934]
+          }
+        }
+      },
+      {
+        "name": "Waverly Avenue",
+        "address": "419 Waverly Avenue, Brooklyn, NY 11238",
+        "schedule": "Adult: Mon, Wed & Fri: 7:00-8:30pm; Sat: 4:00-5:30pm; Kids:Sat: 3:00-4:00pmProfessor Alegria \"Leandro Santos da Silva\"; Mon 7:30-8:45pm; Kids: &#8203;Mon 5:00-6:00pm; Kids Wed 4:00-5:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "303 3rd Avenue, Brooklyn, NY 11215\nAdult: Mon, Wed & Fri: 7:00-8:30pm; Sat: 4:00-5:30pm\nKids:Sat: 3:00-4:00pmProfessor Alegria \"Leandro Santos da Silva\"\nhttp://www.cadny.org\nMark Morris Dance Group\n3 Lafayette Avenue, Brooklyn, NY\nhttp://www.markmorrisdancegroup.org\nMon 7:30-8:45pm\nSOURCE website 4/13/19Instructora Miragem ÁCristina Dodd �\nhttps://www.capoeirakidsny.com/instrutora-miragem.html\nMiragemcapoeira@icloud.com\nTriskelion Arts Center\n106 Calyer St., Greenpoint, Brooklyn\nKids: &#8203;Mon 5:00-6:00pm\nCenter for Performance Arts\n361 Manhattan Ave.\nWilliamsburg, Brooklyn\nKids Wed 4:00-5:00pm\nSOURCE: website 4/14/19Introdutor Caipira  \"Mirlet(\")(\n)https://www.capoeirakidsny.com/instrutor-caipira.html\nPowerplay\n432 3rd Avenue Brooklyn, NY 11215\nPS11 - The Purvis J. Behan Elementary School\n419 Waverly Avenue - Brooklyn, NY 11238\nSOURCE: website 4/14/19\nProfessor Gafanhoto \"Angelo Ribeiro\"\n(website is offline 4/14/19)",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:22.168Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9658381, 40.6855509]
+          },
+          "properties": {
+            "address": "419 Waverly Avenue, Brooklyn, NY 11238",
+            "displayName": "Public School 11, 419, Waverly Avenue, Clinton Hill, Brooklyn, Kings County, City of New York, New York, 11238, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.6852063, 40.6860426, -73.9662811, -73.9654307]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE: website 4/14/19Introdutor Caipira  \"Mirlet(\")(\nSOURCE: website 4/14/19",
+    "rawRecord": "Capoeira Luanda    under Mestre Jelon\r\n    Vieira[Baiha] \r\n\r\n\r\n    Professor Piáo  \"Alisson Silveira\"\r\n\r\n\r\nhttp://www.piaocapoeira.com\r\n\r\n\r\npiaocapoeira@gmail.com\r\n\r\n\r\n[917] 224-1209\r\n\r\n\r\n      The Muse Gowanus\r\n\r\n\r\n303 3rd Avenue, Brooklyn, NY 11215\r\n\r\n\r\nAdult: Mon, Wed & Fri: 7:00-8:30pm; Sat: 4:00-5:30pm\r\n\r\n\r\nKids:Sat: 3:00-4:00pmProfessor Alegria \"Leandro Santos da Silva\"\r\n\r\n\r\n    http://www.cadny.org       \r\n      Mark Morris Dance Group \r\n\r\n\r\n    3 Lafayette Avenue, Brooklyn, NY \r\n\r\n\r\n    http://www.markmorrisdancegroup.org\r\n    \r\n\r\n\r\n    Mon 7:30-8:45pm \r\n\r\n\r\n    SOURCE website 4/13/19Instructora Miragem ÁCristina Dodd �\r\n\r\n      https://www.capoeirakidsny.com/instrutora-miragem.html\r\n\r\n      Miragemcapoeira@icloud.com\r\n\r\n            Triskelion Arts Center\r\n\r\n      106 Calyer St., Greenpoint, Brooklyn\r\n\r\n      Kids: &#8203;Mon 5:00-6:00pm\r\n\r\n            Center for Performance Arts\r\n\r\n      361 Manhattan Ave.\r\n\r\n      Williamsburg, Brooklyn\r\n\r\n      Kids Wed 4:00-5:00pm\r\n\r\n      SOURCE: website 4/14/19Introdutor Caipira  \"Mirlet(\")(\r\n      )https://www.capoeirakidsny.com/instrutor-caipira.html\r\n\r\n            Powerplay \r\n\r\n      432 3rd Avenue Brooklyn, NY 11215\r\n\r\n      PS11 - The Purvis J. Behan Elementary School\r\n\r\n            419 Waverly Avenue - Brooklyn, NY 11238\r\n\r\n      SOURCE: website 4/14/19\r\n\r\n    Professor Gafanhoto \"Angelo Ribeiro\" \r\n\r\n\r\n    (website is offline 4/14/19)",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:57:52.977Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Capoeira Luanda Brooklyn - Professor Pião - Classes for Kids, Teens and Adults in Brooklyn <meta http-equiv=\"Accept-CH\" content=\"",
+        "redirectUrl": "https://piaocapoeira.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["user@domain.com", "piaocapoeira@gmail.com", "capoeiraluandabk@gmail.com"],
+        "extractedPhones": ["(917) 224-1209"]
+      }
+    }
+  },
+  {
+    "name": "Pena Verde Capoeira",
+    "website": "http://www.penaverdecapoeira.com",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "197"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Clifton Place",
+        "address": "197 Clifton Place, Brooklyn, NY 11216",
+        "schedule": "Adults: Tues & Thurs 7:00-8;30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "197 Clifton Place Brooklyn, NY 11216\nhttp://www.sacredbrooklyn.com/\nGreene  Moments Studio\n216 Greene Ave, Brooklyn, NY 11238\nAdults: Tues & Thurs 7:00-8;30pm\nFit 4 Dance\n778 Nostrand Avenue, Brooklyn, NY 11216\nCumbe\n1368 Fulton Street, Brooklyn, NY 11216\nSOURCE: websites 5/6/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:23.591Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9559765, 40.6888772]
+          },
+          "properties": {
+            "address": "197 Clifton Place, Brooklyn, NY 11216",
+            "displayName": "197, Clifton Place, Clinton Hill, Brooklyn, Kings County, City of New York, New York, 11205, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.6886857, 40.688959, -73.9560718, -73.9558518]
+          }
+        }
+      },
+      {
+        "name": "Greene Ave",
+        "address": "216 Greene Ave, Brooklyn, NY 11238",
+        "schedule": "Adults: Tues & Thurs 7:00-8;30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "197 Clifton Place Brooklyn, NY 11216\nhttp://www.sacredbrooklyn.com/\nGreene  Moments Studio\n216 Greene Ave, Brooklyn, NY 11238\nAdults: Tues & Thurs 7:00-8;30pm\nFit 4 Dance\n778 Nostrand Avenue, Brooklyn, NY 11216\nCumbe\n1368 Fulton Street, Brooklyn, NY 11216\nSOURCE: websites 5/6/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:25.160Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9627409, 40.6868743]
+          },
+          "properties": {
+            "address": "216 Greene Ave, Brooklyn, NY 11238",
+            "displayName": "216, Greene Avenue, Clinton Hill, Brooklyn, Kings County, City of New York, New York, 11238, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.6867185, 40.6869735, -73.9627948, -73.9626759]
+          }
+        }
+      },
+      {
+        "name": "Nostrand Avenue",
+        "address": "778 Nostrand Avenue, Brooklyn, NY 11216",
+        "schedule": "Adults: Tues & Thurs 7:00-8;30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "197 Clifton Place Brooklyn, NY 11216\nhttp://www.sacredbrooklyn.com/\nGreene  Moments Studio\n216 Greene Ave, Brooklyn, NY 11238\nAdults: Tues & Thurs 7:00-8;30pm\nFit 4 Dance\n778 Nostrand Avenue, Brooklyn, NY 11216\nCumbe\n1368 Fulton Street, Brooklyn, NY 11216\nSOURCE: websites 5/6/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:26.516Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9505769, 40.6720862]
+          },
+          "properties": {
+            "address": "778 Nostrand Avenue, Brooklyn, NY 11216",
+            "displayName": "778, Nostrand Avenue, Crown Heights, Brooklyn, Kings County, City of New York, New York, 11216, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.6720531, 40.6721194, -73.9507359, -73.9504179]
+          }
+        }
+      },
+      {
+        "name": "Fulton Street",
+        "address": "1368 Fulton Street, Brooklyn, NY 11216",
+        "schedule": "Adults: Tues & Thurs 7:00-8;30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "197 Clifton Place Brooklyn, NY 11216\nhttp://www.sacredbrooklyn.com/\nGreene  Moments Studio\n216 Greene Ave, Brooklyn, NY 11238\nAdults: Tues & Thurs 7:00-8;30pm\nFit 4 Dance\n778 Nostrand Avenue, Brooklyn, NY 11216\nCumbe\n1368 Fulton Street, Brooklyn, NY 11216\nSOURCE: websites 5/6/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:28.220Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9456091, 40.6799639]
+          },
+          "properties": {
+            "address": "1368 Fulton Street, Brooklyn, NY 11216",
+            "displayName": "Restoration Plaza, 1368, Fulton Street, Bedford-Stuyvesant, Brooklyn, Kings County, City of New York, New York, 11216, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.6797461, 40.6800899, -73.9460765, -73.9451482]
+          }
+        }
+      },
+      {
+        "name": "Main Street Dance and Theatre Alliance",
+        "address": "548 Main Street, New York, NY 10044",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Main Street Dance and Theatre Alliance\n548 Main Street, New York, NY 10044\n(Kids classes only at this venue; see website for schedule)\nSOURCE: website 5/6/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T11:17:08.166Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9496057, 40.7619559]
+          },
+          "properties": {
+            "address": "548 Main Street, New York, NY 10044",
+            "displayName": "548, Main Street, Manhattan Community Board 8, Manhattan, New York County, City of New York, New York, 10044, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.7619059, 40.7620059, -73.9496557, -73.9495557]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE: websites 5/6/19 (merged from 2 duplicate entries)",
+    "rawRecord": "Pena Verde Capoeira\r\n\r\nInstructor: Pena Verde\r\n\r\n  http://www.penaverdecapoeira.com      \r\nSacred Brooklyn \r\n\r\n      197 Clifton Place Brooklyn, NY 11216 \r\n\r\n      http://www.sacredbrooklyn.com/\r\n\r\n        Greene  Moments Studio\r\n\r\n216 Greene Ave, Brooklyn, NY 11238\r\n\r\nAdults: Tues & Thurs 7:00-8;30pm\r\n\r\n        Fit 4 Dance \r\n\r\n778 Nostrand Avenue, Brooklyn, NY 11216\r\n\r\n        Cumbe\r\n\r\n1368 Fulton Street, Brooklyn, NY 11216\r\n\r\n SOURCE: websites 5/6/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:57:54.042Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Pena Verde Capoeira <link rel=\"icon\" type=",
+        "redirectUrl": "http://www.penaverdecapoeira.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["user@domain.com", "071985p@gmail.com"],
+        "extractedPhones": ["917-275-3294"]
+      }
+    }
+  },
+  {
+    "name": "ABADÁ - -Capoeira Brooklyn",
+    "website": "https://www.abadanyc.com/",
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Ryan Johnson",
+      "name": ""
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "281"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "N 7th St",
+        "address": "281 N 7th St,Brooklyn, NY 11211 (Ring bell #7, 2nd Floor, Red Door)",
+        "schedule": "Tues & Fri 7:00-9:00pm; Sun 12:30-4:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "281 N 7th St,Brooklyn, NY 11211 (Ring bell #7, 2nd Floor, Red Door)\nhttps://www.abadanyc.com/\nInstrutor Pastor  \"Ryan Johnson\"\nTEL: 917-776-8150\nTues & Fri 7:00-9:00pm; Sun 12:30-4:00pm\nSOURCE: website 5/11/19",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9531794, 40.715298]
+          },
+          "properties": {
+            "address": "281 N 7th St, Brooklyn, NY 11211",
+            "displayName": "281, North 7th Street, Williamsburg, Brooklyn, Kings County, City of New York, New York, 11211, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.7151203, 40.7154761, -73.9534105, -73.9529504]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:57:58.120Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "SOURCE: website 5/11/19",
+    "rawRecord": "ABADÁ      -      -Capoeira       Brooklyn  \r\n\r\n281 N 7th St,Brooklyn, NY 11211 (Ring bell #7, 2nd Floor, Red Door)\r\n\r\nhttps://www.abadanyc.com/\r\n\r\nInstrutor Pastor  \"Ryan Johnson\"\r\n\r\n\r\nTEL: 917-776-8150   \r\n\r\n\r\nTues & Fri 7:00-9:00pm; Sun 12:30-4:00pm \r\n\r\nSOURCE: website 5/11/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:57:54.756Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<link rel=\"shortcut icon\" href=\"https://static.parastorage.com/client/pfavico.ico\" type=\"image/x-icon"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": ["917-776-8150", "347-282-0491"]
+      }
+    }
+  },
+  {
+    "name": "Buffalo Capoeira",
+    "website": "http://www.capoeirabuffalo.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "capoeiraculturalarts@gmail.com",
+      "phone": "716] 320-0093"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "E. Utica St.",
+        "address": "226 E. Utica St., Buffalo, NY",
+        "schedule": "Adult Beginner: Mon, Wed & Fri 6:30 - 8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "226 E. Utica St., Buffalo, NY\nAdult Beginner: Mon, Wed & Fri 6:30 - 8:00pm\nSOURCE: website 5/26/19",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-78.8574602, 42.911371]
+          },
+          "properties": {
+            "address": "226 E. Utica St., Buffalo, NY",
+            "displayName": "226, East Utica Street, East Side, Buffalo, Erie County, New York, 14208, United States of America",
+            "country_code": "US",
+            "boundingBox": [42.911321, 42.911421, -78.8575102, -78.8574102]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:57:59.528Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "SOURCE: website 5/26/19",
+    "rawRecord": "Buffalo Capoeira\r\n    \r\n  \r\n  \r\n                           Buffalo\r\n    \r\n    \r\n\r\n            Capoeira Buffalo - Com Expressao \r\n      http://www.capoeirabuffalo.com\r\nTouro \"Tim Ekkebus\"    \" under \r\n      Contra-Mestre Carcará [Rochester] \r\n  capoeiraculturalarts@gmail.com\r\n         [716] 320-0093\r\n      \r\n            Sol Rise\r\n      \r\n      226 E. Utica St., Buffalo, NY\r\n      Adult Beginner: Mon, Wed & Fri 6:30 - 8:00pm\r\n      SOURCE: website 5/26/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:58:01.101Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Capoeira Buffalo <link rel=\"icon\" type",
+        "redirectUrl": "http://www.capoeirabuffalo.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["user@domain.com", "buffalo@comexpressao.com"],
+        "extractedPhones": ["716.320.0093"]
+      }
+    }
+  },
+  {
+    "name": "Ithaca Capoeira",
+    "website": "http://vadiacao.net/index.html",
+    "leader": {
+      "title": "mestre",
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "407"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Taughannock Boulevard",
+        "address": "407 Taughannock Boulevard, Ithaca, NY 14850",
+        "schedule": "Mon, Wed & Fri 7:30-930pm; Music: Sun 1:00-2:30pm (location may be elsewhere)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "407 Taughannock Boulevard, Ithaca, NY 14850\nMon, Wed & Fri 7:30-930pm\nMusic: Sun 1:00-2:30pm (location may be elsewhere)\nSOURCE: website, facebook 5/27/19",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-76.5122569, 42.4426302]
+          },
+          "properties": {
+            "address": "407 Taughannock Boulevard, Ithaca, NY 14850",
+            "displayName": "407, Old Taughannock Boulevard, Ward 1, City of Ithaca, Tompkins County, New York, 14850, United States of America",
+            "country_code": "US",
+            "boundingBox": [42.4425802, 42.4426802, -76.5123069, -76.5122069]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:58:00.762Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "SOURCE: website, facebook 5/27/19",
+    "rawRecord": "Ithaca Capoeira\r\n   \r\n\r\n\r\n\r\n                       Ithaca\r\n\r\n\r\n      Capoeira Angola Negaáa\r\nhttp://vadiacao.net/index.html\r\nContra-Mestre Graveto in the lineage and tradition of Mestre\r\nN�\r\nhttps://www.facebook.com/IthacaCapoeira/\r\n      Hanuman Siddhi\r\n407 Taughannock Boulevard, Ithaca, NY 14850\r\nMon, Wed & Fri 7:30-930pm\r\nMusic: Sun 1:00-2:30pm (location may be elsewhere)\r\nSOURCE: website, facebook 5/27/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:58:02.168Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Capoeira Angola Nega&ccedil;a Ithaca <meta property=\"og:description\" content=\"Capoeira Angola Negaça, A Ithaca Capoeira group that has been in the area for over 20 years and taught by Contra Mestre Graveto",
+        "redirectUrl": "https://vadiacao.net/index.html"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Capoeira Angola Quintal of Ithaca, NY",
+    "website": "https://www.ithacacapoeira.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "ithacacaq@gmail.com",
+      "phone": "136"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Willard Straight Hall",
+        "address": "Willard Straight Hall, 136 Ho Plaza, Ithaca, NY 14853",
+        "schedule": "Sun & Tues: 7:30pm - 9:00pm; Fri 3:30-5:30pm      (Contact for location); Thurs  7:30-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Willard Straight Hall\n136 Ho Plaza, Ithaca, NY 14853\nSun & Tues: 7:30pm - 9:00pm\nSouthside Community Center 305 S Plain St, Ithaca, NY 14850\nFri 3:30-5:30pm      (Contact for location)\nThurs  7:30-9:00pm\nSOURCE:  website 5/27/19",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-76.4856054, 42.446466]
+          },
+          "properties": {
+            "address": "Willard Straight Hall, 136 Ho Plaza, Ithaca, NY 14853",
+            "displayName": "Willard Straight Hall, 136, Ho Plaza, Ward 4, City of Ithaca, Tompkins County, New York, 14850, United States of America",
+            "country_code": "US",
+            "boundingBox": [42.4462657, 42.4468666, -76.4860045, -76.4853035]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:58:02.191Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "34%"
+        }
+      }
+    ],
+    "notes": "SOURCE:  website 5/27/19",
+    "rawRecord": "Capoeira Angola Quintal of Ithaca, NY\r\nhttps://www.ithacacapoeira.com\r\nInstrutor Carcaju \r\nunder  Mestre Ombrinho [New York]https://www.facebook.com/groups/ithacaCAQ/\r\nithacacaq@gmail.com\r\n\r\n      Willard Straight Hall\r\n136 Ho Plaza, Ithaca, NY 14853\r\nSun & Tues: 7:30pm - 9:00pm\r\n       Southside Community Center 305 S Plain St, Ithaca, NY 14850\r\nFri 3:30-5:30pm      (Contact for location)\r\nThurs  7:30-9:00pm\r\nSOURCE:  website 5/27/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:58:04.071Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<link rel=\"icon\" sizes=\"192x192\" href=\"https://static.wixstatic.com/media/df1d1b_d38dcdf498404e86a17313e2bba750e9%7Emv2.jpg/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/df1d1b_d38dcdf498404e86a17313e2bba750e9%7",
+        "redirectUrl": "https://www.ithacacapoeira.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Manhatten Capoeira",
+    "website": "http://www.joaogrande.org/",
+    "leader": {
+      "title": "mestre",
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@joaogrande.org",
+      "phone": "2916"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Frederick Douglass Boulevard",
+        "address": "2916 Frederick Douglass Boulevard, New York, NY 10039",
+        "schedule": "Adults: Mon-Fri 6:30- 8:30pm, Sun 10am-12; Kids: Sat 11:00am-12:00; RODA!: Sun 2:00-7:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "2916 Frederick Douglass Boulevard 3rd Floor, New York, NY 10039|\nhttp://www.joaogrande.org/\n1+ [212] 989-6975(])\ninfo@joaogrande.org\nAdults: Mon-Fri 6:30- 8:30pm, Sun 10am-12\nKids: Sat 11:00am-12:00\nRODA!: Sun 2:00-7:00pm\nSOURCE: website 4/12/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:51:16.569Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9373406, 40.8285417]
+          },
+          "properties": {
+            "address": "2916 Frederick Douglass Boulevard, New York, NY 10039",
+            "displayName": "2916, Frederick Douglass Boulevard, Harlem, Manhattan Community Board 10, Manhattan, New York County, City of New York, New York, 10039, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.8284013, 40.8286821, -73.9375526, -73.9371287]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE: website 4/12/19",
+    "rawRecord": "Manhatten Capoeira\r\n\r\n    \r\n  \r\n  \r\n    \r\n                             New York County \r\n              Manhatten\r\n       \r\n      \r\n        \r\n        \r\n       \r\n      see also Brooklyn \r\n        Queens \r\n          Bronx\r\n      \r\n        \r\n            Capoeira Angola Center of Mestre Joáo Grande \r\n      2916 Frederick Douglass Boulevard 3rd Floor, New York, NY 10039| \r\n      http://www.joaogrande.org/\r\n      \r\n      1+ [212] 989-6975(])\r\n      info@joaogrande.org \r\n      Adults: Mon-Fri 6:30- 8:30pm, Sun 10am-12 \r\n      Kids: Sat 11:00am-12:00\r\n      RODA!: Sun 2:00-7:00pm \r\n      SOURCE: website 4/12/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:58:05.958Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<link rel=\"icon\" href=\"//img1.wsimg.com/isteam/ip/fe9d0ea3-43a9-4d34-b48a-d80537968ddb/favicon/ea17d4aa-0c7f-4563-af4c-63f",
+        "redirectUrl": "https://joaogrande.org/"
+      },
+      "enrichedData": {
+        "extractedEmails": [
+          "impallari@gmail.com",
+          "team@latofonts.com",
+          "cacmjg@gmail.com",
+          "info@joaogrande.org",
+          "capoeiraangolacenternyc@gmail.com",
+          "angolacenteritalia@gmail.com",
+          "capokenya@gmail.com",
+          "angolacentersandiego@gmail.com",
+          "capoeiraangolacenteraz@gmail.com",
+          "cecademestrejoaograndela@gmail.com",
+          "capoeiraangola@email.de",
+          "info@joaogrande.orgcapoeiraangolacenternyc"
+        ],
+        "extractedPhones": [
+          "(212) 989-6975",
+          "(347) 989-6975",
+          "+1-314-728-9007",
+          "039 338 1324",
+          "+1 602-791-7545",
+          "+1 424-200-4968"
+        ]
+      }
+    }
+  },
+  {
+    "name": "Capoeira Angola Quintal",
+    "website": "http://newyorkcapoeira.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Michael Goldstein",
+      "name": ""
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "107"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "107 Suffolk St, Studio 307 New York, NY 10002",
+        "address": "107 Suffolk Street, New York, NY 10002",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "107 Suffolk St, Studio 307 New York, NY 10002\nThe Clemente 107 Suffolk St. #307, NY, NY, 10002\n[212] 677-2203\n(full schedule of classes)\nSOURCE: websites 4/13/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:43:11.308Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9861796, 40.719051]
+          },
+          "properties": {
+            "address": "107 Suffolk Street, New York, NY 10002",
+            "displayName": "107, Suffolk Street, Lower East Side, Manhattan Community Board 3, Manhattan, New York County, City of New York, New York, 10002, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.719001, 40.719101, -73.9862296, -73.9861296]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE: websites 4/13/19",
+    "rawRecord": "Capoeira Angola Quintal \r\n      Mestre Ombrinho \"Michael Goldstein\" \r\n      http://newyorkcapoeira.com/\r\n      \r\n            New York Capoeira Center \r\n      107 Suffolk St, Studio 307 New York, NY 10002 \r\n      The Clemente 107 Suffolk St. #307, NY, NY, 10002 \r\n       [212] 677-2203\r\n      (full schedule of classes) \r\n      SOURCE: websites 4/13/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:58:07.619Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "New York Ile de Palmares Capoeira <meta http-equiv=\"Accept-CH\" content=\"Sec-CH-UA-Platform-Version, Se",
+        "redirectUrl": "https://www.newyorkcapoeira.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["user@domain.com"],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Capoeira Luanda",
+    "website": "http://www.capoeiracenterny.org/",
+    "leader": {
+      "title": "instrutor",
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@capoeiracenterny.orgProfessorTiba",
+      "phone": "635"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Riverside Drive",
+        "address": "635 Riverside Drive, New York, NY 10031",
+        "schedule": "Tues 7:30-9:00pm; Wed 7:30-8:00pm; Sat 4:00-5:30pm; All levels: Sat- 4:00-5:30pm Introdutor Caipira  \"Mirlet(\")(",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "635 Riverside Drive, #11A, New York, NY 10031\nTell: +1 [646] 330 4858\nEmail: info@capoeiracenterny.org Professor Tiba\nhttps://www.capoeirakidsny.com/our-professor-tiba.html\nTisch School of the Arts\n721 Broadway, New York, NY 10003\nThe Ailey Extension\n405 West 55th Street New York, NY 10019\nSOURCE: website 4/14/19\nProfessor Alegria \"Leandro Santos da Silva\"\nhttp://www.cadny.org\n352-226-0056\nalegriacad@gmail.com\nSteps on Broadway\n2121 Broadway at 74th Street\nhttp://www.stepsnyc.com\nTues 7:30-9:00pm; Wed 7:30-8:00pm; Sat 4:00-5:30pm\nSOURCE: website 4/13/19(\n)\nInstructora  Trindade \"Michelle PInzon-Vieira\"\nhttp://www.capoeiraluandanyc.com/\n69 W 14th St,  New York, New York 10011\n+1.6467702408\ncapoeiraluandanyc@gmail.com\nPMT Dance Studio\n28 West 25th Street, 2nd floorNY, NY 10017\nAll levels: Sat- 4:00-5:30pm Introdutor Caipira  \"Mirlet(\")(\n)https://www.capoeirakidsny.com/instrutor-caipira.html\nPortfolio School\n27 N Moore St, New York, NY 10013\nThe Quad Preparatory School\n25 Pine St., 4th Fl. New York, NY 10005\nSOURCE: website 4/14/19 Instructor Sabiá  (is now teaching in  Contra Costa County CA\n)(4/27/19\n)",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:30.314Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.8670119, 41.1014877]
+          },
+          "properties": {
+            "address": "635 Riverside Drive, New York, NY 10031",
+            "displayName": "635, Riverside Drive, Philipse Manor, Village of Sleepy Hollow, Town of Mount Pleasant, Westchester County, New York, 10591, United States of America",
+            "country_code": "US",
+            "boundingBox": [41.1014377, 41.1015377, -73.8670619, -73.8669619]
+          }
+        }
+      },
+      {
+        "name": "Broadway",
+        "address": "721 Broadway, New York, NY 10003",
+        "schedule": "Tues 7:30-9:00pm; Wed 7:30-8:00pm; Sat 4:00-5:30pm; All levels: Sat- 4:00-5:30pm Introdutor Caipira  \"Mirlet(\")(",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "635 Riverside Drive, #11A, New York, NY 10031\nTell: +1 [646] 330 4858\nEmail: info@capoeiracenterny.org Professor Tiba\nhttps://www.capoeirakidsny.com/our-professor-tiba.html\nTisch School of the Arts\n721 Broadway, New York, NY 10003\nThe Ailey Extension\n405 West 55th Street New York, NY 10019\nSOURCE: website 4/14/19\nProfessor Alegria \"Leandro Santos da Silva\"\nhttp://www.cadny.org\n352-226-0056\nalegriacad@gmail.com\nSteps on Broadway\n2121 Broadway at 74th Street\nhttp://www.stepsnyc.com\nTues 7:30-9:00pm; Wed 7:30-8:00pm; Sat 4:00-5:30pm\nSOURCE: website 4/13/19(\n)\nInstructora  Trindade \"Michelle PInzon-Vieira\"\nhttp://www.capoeiraluandanyc.com/\n69 W 14th St,  New York, New York 10011\n+1.6467702408\ncapoeiraluandanyc@gmail.com\nPMT Dance Studio\n28 West 25th Street, 2nd floorNY, NY 10017\nAll levels: Sat- 4:00-5:30pm Introdutor Caipira  \"Mirlet(\")(\n)https://www.capoeirakidsny.com/instrutor-caipira.html\nPortfolio School\n27 N Moore St, New York, NY 10013\nThe Quad Preparatory School\n25 Pine St., 4th Fl. New York, NY 10005\nSOURCE: website 4/14/19 Instructor Sabiá  (is now teaching in  Contra Costa County CA\n)(4/27/19\n)",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:32.477Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9935691, 40.7294608]
+          },
+          "properties": {
+            "address": "721 Broadway, New York, NY 10003",
+            "displayName": "721, Broadway, East Village, NoHo, Manhattan, New York County, City of New York, New York, 10003, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.7294108, 40.7295108, -73.9936191, -73.9935191]
+          }
+        }
+      },
+      {
+        "name": "West 55th Street",
+        "address": "405 West 55th Street, New York, NY 10019",
+        "schedule": "Tues 7:30-9:00pm; Wed 7:30-8:00pm; Sat 4:00-5:30pm; All levels: Sat- 4:00-5:30pm Introdutor Caipira  \"Mirlet(\")(",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "635 Riverside Drive, #11A, New York, NY 10031\nTell: +1 [646] 330 4858\nEmail: info@capoeiracenterny.org Professor Tiba\nhttps://www.capoeirakidsny.com/our-professor-tiba.html\nTisch School of the Arts\n721 Broadway, New York, NY 10003\nThe Ailey Extension\n405 West 55th Street New York, NY 10019\nSOURCE: website 4/14/19\nProfessor Alegria \"Leandro Santos da Silva\"\nhttp://www.cadny.org\n352-226-0056\nalegriacad@gmail.com\nSteps on Broadway\n2121 Broadway at 74th Street\nhttp://www.stepsnyc.com\nTues 7:30-9:00pm; Wed 7:30-8:00pm; Sat 4:00-5:30pm\nSOURCE: website 4/13/19(\n)\nInstructora  Trindade \"Michelle PInzon-Vieira\"\nhttp://www.capoeiraluandanyc.com/\n69 W 14th St,  New York, New York 10011\n+1.6467702408\ncapoeiraluandanyc@gmail.com\nPMT Dance Studio\n28 West 25th Street, 2nd floorNY, NY 10017\nAll levels: Sat- 4:00-5:30pm Introdutor Caipira  \"Mirlet(\")(\n)https://www.capoeirakidsny.com/instrutor-caipira.html\nPortfolio School\n27 N Moore St, New York, NY 10013\nThe Quad Preparatory School\n25 Pine St., 4th Fl. New York, NY 10005\nSOURCE: website 4/14/19 Instructor Sabiá  (is now teaching in  Contra Costa County CA\n)(4/27/19\n)",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:33.764Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9869292, 40.7669468]
+          },
+          "properties": {
+            "address": "405 West 55th Street, New York, NY 10019",
+            "displayName": "405, West 55th Street, Columbus Circle, Manhattan Community Board 4, Manhattan, New York County, City of New York, New York, 10019, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.7667871, 40.7671155, -73.9872415, -73.98663]
+          }
+        }
+      },
+      {
+        "name": "Broadway",
+        "address": "2121 Broadway, New York, NY 10023",
+        "schedule": "Tues 7:30-9:00pm; Wed 7:30-8:00pm; Sat 4:00-5:30pm; All levels: Sat- 4:00-5:30pm Introdutor Caipira  \"Mirlet(\")(",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "635 Riverside Drive, #11A, New York, NY 10031\nTell: +1 [646] 330 4858\nEmail: info@capoeiracenterny.org Professor Tiba\nhttps://www.capoeirakidsny.com/our-professor-tiba.html\nTisch School of the Arts\n721 Broadway, New York, NY 10003\nThe Ailey Extension\n405 West 55th Street New York, NY 10019\nSOURCE: website 4/14/19\nProfessor Alegria \"Leandro Santos da Silva\"\nhttp://www.cadny.org\n352-226-0056\nalegriacad@gmail.com\nSteps on Broadway\n2121 Broadway at 74th Street\nhttp://www.stepsnyc.com\nTues 7:30-9:00pm; Wed 7:30-8:00pm; Sat 4:00-5:30pm\nSOURCE: website 4/13/19(\n)\nInstructora  Trindade \"Michelle PInzon-Vieira\"\nhttp://www.capoeiraluandanyc.com/\n69 W 14th St,  New York, New York 10011\n+1.6467702408\ncapoeiraluandanyc@gmail.com\nPMT Dance Studio\n28 West 25th Street, 2nd floorNY, NY 10017\nAll levels: Sat- 4:00-5:30pm Introdutor Caipira  \"Mirlet(\")(\n)https://www.capoeirakidsny.com/instrutor-caipira.html\nPortfolio School\n27 N Moore St, New York, NY 10013\nThe Quad Preparatory School\n25 Pine St., 4th Fl. New York, NY 10005\nSOURCE: website 4/14/19 Instructor Sabiá  (is now teaching in  Contra Costa County CA\n)(4/27/19\n)",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:35.742Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9816882, 40.7806943]
+          },
+          "properties": {
+            "address": "2121 Broadway, New York, NY 10023",
+            "displayName": "2121, Broadway, Upper West Side, Manhattan Community Board 7, Manhattan, New York County, City of New York, New York, 10023, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.7806443, 40.7807443, -73.9817382, -73.9816382]
+          }
+        }
+      },
+      {
+        "name": "W 14th St",
+        "address": "69 W 14th St, New York, NY 10011",
+        "schedule": "Tues 7:30-9:00pm; Wed 7:30-8:00pm; Sat 4:00-5:30pm; All levels: Sat- 4:00-5:30pm Introdutor Caipira  \"Mirlet(\")(",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "635 Riverside Drive, #11A, New York, NY 10031\nTell: +1 [646] 330 4858\nEmail: info@capoeiracenterny.org Professor Tiba\nhttps://www.capoeirakidsny.com/our-professor-tiba.html\nTisch School of the Arts\n721 Broadway, New York, NY 10003\nThe Ailey Extension\n405 West 55th Street New York, NY 10019\nSOURCE: website 4/14/19\nProfessor Alegria \"Leandro Santos da Silva\"\nhttp://www.cadny.org\n352-226-0056\nalegriacad@gmail.com\nSteps on Broadway\n2121 Broadway at 74th Street\nhttp://www.stepsnyc.com\nTues 7:30-9:00pm; Wed 7:30-8:00pm; Sat 4:00-5:30pm\nSOURCE: website 4/13/19(\n)\nInstructora  Trindade \"Michelle PInzon-Vieira\"\nhttp://www.capoeiraluandanyc.com/\n69 W 14th St,  New York, New York 10011\n+1.6467702408\ncapoeiraluandanyc@gmail.com\nPMT Dance Studio\n28 West 25th Street, 2nd floorNY, NY 10017\nAll levels: Sat- 4:00-5:30pm Introdutor Caipira  \"Mirlet(\")(\n)https://www.capoeirakidsny.com/instrutor-caipira.html\nPortfolio School\n27 N Moore St, New York, NY 10013\nThe Quad Preparatory School\n25 Pine St., 4th Fl. New York, NY 10005\nSOURCE: website 4/14/19 Instructor Sabiá  (is now teaching in  Contra Costa County CA\n)(4/27/19\n)",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:37.934Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9965443, 40.7374652]
+          },
+          "properties": {
+            "address": "69 W 14th St, New York, NY 10011",
+            "displayName": "69, West 14th Street, Union Square, Manhattan Community Board 5, Manhattan, New York County, City of New York, New York, 10011, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.7374152, 40.7375152, -73.9965943, -73.9964943]
+          }
+        }
+      },
+      {
+        "name": "West 25th Street",
+        "address": "28 West 25th Street, New York, NY 10010",
+        "schedule": "Tues 7:30-9:00pm; Wed 7:30-8:00pm; Sat 4:00-5:30pm; All levels: Sat- 4:00-5:30pm Introdutor Caipira  \"Mirlet(\")(",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "635 Riverside Drive, #11A, New York, NY 10031\nTell: +1 [646] 330 4858\nEmail: info@capoeiracenterny.org Professor Tiba\nhttps://www.capoeirakidsny.com/our-professor-tiba.html\nTisch School of the Arts\n721 Broadway, New York, NY 10003\nThe Ailey Extension\n405 West 55th Street New York, NY 10019\nSOURCE: website 4/14/19\nProfessor Alegria \"Leandro Santos da Silva\"\nhttp://www.cadny.org\n352-226-0056\nalegriacad@gmail.com\nSteps on Broadway\n2121 Broadway at 74th Street\nhttp://www.stepsnyc.com\nTues 7:30-9:00pm; Wed 7:30-8:00pm; Sat 4:00-5:30pm\nSOURCE: website 4/13/19(\n)\nInstructora  Trindade \"Michelle PInzon-Vieira\"\nhttp://www.capoeiraluandanyc.com/\n69 W 14th St,  New York, New York 10011\n+1.6467702408\ncapoeiraluandanyc@gmail.com\nPMT Dance Studio\n28 West 25th Street, 2nd floorNY, NY 10017\nAll levels: Sat- 4:00-5:30pm Introdutor Caipira  \"Mirlet(\")(\n)https://www.capoeirakidsny.com/instrutor-caipira.html\nPortfolio School\n27 N Moore St, New York, NY 10013\nThe Quad Preparatory School\n25 Pine St., 4th Fl. New York, NY 10005\nSOURCE: website 4/14/19 Instructor Sabiá  (is now teaching in  Contra Costa County CA\n)(4/27/19\n)",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:39.679Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9905004, 40.7433712]
+          },
+          "properties": {
+            "address": "28 West 25th Street, New York, NY 10010",
+            "displayName": "28, West 25th Street, Chelsea, Manhattan Community Board 5, Manhattan, New York County, City of New York, New York, 10010, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.7432298, 40.7435126, -73.9906572, -73.9903436]
+          }
+        }
+      },
+      {
+        "name": "N Moore St",
+        "address": "27 N Moore St, New York, NY 10013",
+        "schedule": "Tues 7:30-9:00pm; Wed 7:30-8:00pm; Sat 4:00-5:30pm; All levels: Sat- 4:00-5:30pm Introdutor Caipira  \"Mirlet(\")(",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "635 Riverside Drive, #11A, New York, NY 10031\nTell: +1 [646] 330 4858\nEmail: info@capoeiracenterny.org Professor Tiba\nhttps://www.capoeirakidsny.com/our-professor-tiba.html\nTisch School of the Arts\n721 Broadway, New York, NY 10003\nThe Ailey Extension\n405 West 55th Street New York, NY 10019\nSOURCE: website 4/14/19\nProfessor Alegria \"Leandro Santos da Silva\"\nhttp://www.cadny.org\n352-226-0056\nalegriacad@gmail.com\nSteps on Broadway\n2121 Broadway at 74th Street\nhttp://www.stepsnyc.com\nTues 7:30-9:00pm; Wed 7:30-8:00pm; Sat 4:00-5:30pm\nSOURCE: website 4/13/19(\n)\nInstructora  Trindade \"Michelle PInzon-Vieira\"\nhttp://www.capoeiraluandanyc.com/\n69 W 14th St,  New York, New York 10011\n+1.6467702408\ncapoeiraluandanyc@gmail.com\nPMT Dance Studio\n28 West 25th Street, 2nd floorNY, NY 10017\nAll levels: Sat- 4:00-5:30pm Introdutor Caipira  \"Mirlet(\")(\n)https://www.capoeirakidsny.com/instrutor-caipira.html\nPortfolio School\n27 N Moore St, New York, NY 10013\nThe Quad Preparatory School\n25 Pine St., 4th Fl. New York, NY 10005\nSOURCE: website 4/14/19 Instructor Sabiá  (is now teaching in  Contra Costa County CA\n)(4/27/19\n)",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:41.831Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-74.0074462, 40.7199406]
+          },
+          "properties": {
+            "address": "27 N Moore St, New York, NY 10013",
+            "displayName": "27, North Moore Street, Tribeca, Manhattan, New York County, City of New York, New York, 10013, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.7198906, 40.7199906, -74.0074962, -74.0073962]
+          }
+        }
+      },
+      {
+        "name": "Pine St",
+        "address": "25 Pine St, New York, NY 10005",
+        "schedule": "Tues 7:30-9:00pm; Wed 7:30-8:00pm; Sat 4:00-5:30pm; All levels: Sat- 4:00-5:30pm Introdutor Caipira  \"Mirlet(\")(",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "635 Riverside Drive, #11A, New York, NY 10031\nTell: +1 [646] 330 4858\nEmail: info@capoeiracenterny.org Professor Tiba\nhttps://www.capoeirakidsny.com/our-professor-tiba.html\nTisch School of the Arts\n721 Broadway, New York, NY 10003\nThe Ailey Extension\n405 West 55th Street New York, NY 10019\nSOURCE: website 4/14/19\nProfessor Alegria \"Leandro Santos da Silva\"\nhttp://www.cadny.org\n352-226-0056\nalegriacad@gmail.com\nSteps on Broadway\n2121 Broadway at 74th Street\nhttp://www.stepsnyc.com\nTues 7:30-9:00pm; Wed 7:30-8:00pm; Sat 4:00-5:30pm\nSOURCE: website 4/13/19(\n)\nInstructora  Trindade \"Michelle PInzon-Vieira\"\nhttp://www.capoeiraluandanyc.com/\n69 W 14th St,  New York, New York 10011\n+1.6467702408\ncapoeiraluandanyc@gmail.com\nPMT Dance Studio\n28 West 25th Street, 2nd floorNY, NY 10017\nAll levels: Sat- 4:00-5:30pm Introdutor Caipira  \"Mirlet(\")(\n)https://www.capoeirakidsny.com/instrutor-caipira.html\nPortfolio School\n27 N Moore St, New York, NY 10013\nThe Quad Preparatory School\n25 Pine St., 4th Fl. New York, NY 10005\nSOURCE: website 4/14/19 Instructor Sabiá  (is now teaching in  Contra Costa County CA\n)(4/27/19\n)",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:43.681Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-74.0101389, 40.7075503]
+          },
+          "properties": {
+            "address": "25 Pine St, New York, NY 10005",
+            "displayName": "25, Pine Street, Financial District, Manhattan, New York County, City of New York, New York, 10005, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.7075003, 40.7076003, -74.0101889, -74.0100889]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE: website 4/14/19\nSOURCE: website 4/13/19(\nSOURCE: website 4/14/19 Instructor Sabiá  (is now teaching in  Contra Costa County CA",
+    "rawRecord": "Capoeira Luanda\r\n      The Capoeira Center of New York, Inc.\r\n\r\n  http://www.capoeiracenterny.org/\r\n\r\n635 Riverside Drive, #11A, New York, NY 10031\r\n\r\nTell: +1 [646] 330 4858\r\n\r\nEmail: info@capoeiracenterny.org Professor Tiba \r\n      https://www.capoeirakidsny.com/our-professor-tiba.html \r\n\r\n            Tisch School of the Arts\r\n      721 Broadway, New York, NY 10003      \r\n        The Ailey Extension \r\n\r\n      405 West 55th Street New York, NY 10019  \r\n\r\n      SOURCE: website 4/14/19\r\n  \r\n Professor Alegria \"Leandro Santos da Silva\" \r\n      http://www.cadny.org  \r\n      352-226-0056 \r\n      alegriacad@gmail.com      \r\n        Steps on Broadway \r\n      2121 Broadway at 74th Street \r\n      http://www.stepsnyc.com \r\n      Tues 7:30-9:00pm; Wed 7:30-8:00pm; Sat 4:00-5:30pm \r\n      SOURCE: website 4/13/19(\r\n      ) \r\nInstructora  Trindade \"Michelle PInzon-Vieira\"\r\nhttp://www.capoeiraluandanyc.com/\r\n   69 W 14th St,  New York, New York 10011\r\n   +1.6467702408  \r\n   capoeiraluandanyc@gmail.com\r\n        PMT Dance Studio\r\n 28 West 25th Street, 2nd floorNY, NY 10017\r\n All levels: Sat- 4:00-5:30pm Introdutor Caipira  \"Mirlet(\")(\r\n      )https://www.capoeirakidsny.com/instrutor-caipira.html\r\n            Portfolio School\r\n      27 N Moore St, New York, NY 10013\r\n            The Quad Preparatory School \r\n      25 Pine St., 4th Fl. New York, NY 10005\r\n      SOURCE: website 4/14/19 Instructor Sabiá  (is now teaching in  Contra Costa County CA \r\n      )(4/27/19\r\n)",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:58:12.822Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "img:is([sizes=\"auto\" i], [sizes^=\"auto,\" i]) { contain-intrinsic-size: 3000px 1500px } <!-- This site is optimized with the Yoast SEO plugin v26.3 - https://yoast.com/wordpress/plu",
+        "redirectUrl": "https://www.capoeiracenterny.org/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "FICA New York",
+    "website": "http://www.ficanewyork.org",
+    "leader": {
+      "title": "treinel",
+      "nickname": "Michael Kranz",
+      "name": "917.971.7980"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "ficany@gmail.com",
+      "phone": "917.971.7980"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Christopher Street",
+        "address": "149 Christopher Street, New York, NY",
+        "schedule": "Mon &Wed 7:00-9:00p; RODA! :3rd Sat 3:00-6:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "149 Christopher Street, New York, NY\nMon &Wed 7:00-9:00p\nRODA! :3rd Sat 3:00-6:00pm\nSOURCE: website  5/11/19(\n)",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-74.0079455, 40.7328573]
+          },
+          "properties": {
+            "address": "149 Christopher Street, New York, NY",
+            "displayName": "149, Christopher Street, West Village, Manhattan, New York County, City of New York, New York, 10014, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.7328073, 40.7329073, -74.0079955, -74.0078955]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:58:12.330Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "SOURCE: website  5/11/19(",
+    "rawRecord": "FICA New York\r\nhttp://www.ficanewyork.org\r\nTreinel   Puck  \"Michael  Kranz\"   917.971.7980\r\n\"Njoli Brown\"   551.574.0644\r\nficany@gmail.com\r\n      St Veronica Creative Cultural Center\r\n149 Christopher Street, New York, NY\r\nMon &Wed 7:00-9:00p\r\n\r\nRODA! :3rd Sat 3:00-6:00pm\r\nSOURCE: website  5/11/19(\r\n      )",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:58:17.684Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<meta type=\"description\" content=\"The International Capoeira Angola Foundation is a group dedicated to continuing the African-Brazilian tradition of Capoeira Angola through training, playing and",
+        "redirectUrl": "http://www.ficanewyork.org/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Dendê Arts - Capoeira Cordao de Ouro",
+    "website": "http://dendearts.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Chris Rodriguez",
+      "name": "under Contra-Mestre CebolinhaNewark"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "dende.arts@gmail.com",
+      "phone": "862-571- 7629"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "24th St. Astoria",
+        "address": "27-24 24th St. Astoria, Queens, NY(",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "27-24 24th St. Astoria, Queens, NY(\nRing Number £211á to be buzzed in and g o up the stairs 1 flight to the second floor. Step through the door and make a quick right and then left to find room 211) (see website for schedule)\nSOURCE: email 7/10/18",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9219081, 40.7737369]
+          },
+          "properties": {
+            "address": "27-24 24th St. Astoria, Queens, NY(",
+            "displayName": "24th Street, Astoria, Queens, Queens County, City of New York, New York, 11102, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.7735424, 40.773931, -73.92216, -73.921656]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:58:19.351Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      }
+    ],
+    "notes": "SOURCE: email 7/10/18",
+    "rawRecord": "Dendê Arts - Capoeira Cordao de Ouro \r\n\r\n\r\n    http://dendearts.com Calado \"Chris  Rodriguez\" under  Contra-Mestre Cebolinha[Newark]\r\n\r\n\r\n    Phone: 862-571- 7629 \r\n\r\n\r\n    Email: dende.arts@gmail.com \r\n\r\n\r\n          Green Space Studio \r\n\r\n\r\n    27-24 24th St. Astoria, Queens, NY( \r\nRing Number £211á to be buzzed in and g o up the stairs 1 flight to the second floor. Step through the door and make a quick right and then left to find room 211) (see website for schedule)\r\nSOURCE: email 7/10/18",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:58:33.110Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "The hub of Capoeira education, uniforms, and quality products <link rel=\"stylesheet\" href=\"/css/page",
+        "redirectUrl": "https://dendearts.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Com Expressao",
+    "website": "http://www.comexpressao.com/",
+    "leader": {
+      "title": "professor",
+      "nickname": "Todd Russell",
+      "name": ""
+    },
+    "mainContact": {
+      "name": null,
+      "email": "capo@comexpressao.com",
+      "phone": "1352"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Culver Rd",
+        "address": "1352 Culver Rd, Rochester, NY 14609",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "1352 Culver Drive, Rochester, New York 14609\n585-319-6521\ncapo@comexpressao.com\n(Full schedule of classes\n)        RIT Capoeira(website offline  5/26/19)RITCapoeira@gmail.com\nSOURCE:  website 5/26/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:20:33.558Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-77.5604334, 43.1701372]
+          },
+          "properties": {
+            "address": "1352 Culver Rd, Rochester, NY 14609",
+            "displayName": "1352, Culver Road, Homestead Heights, City of Rochester, Monroe County, New York, 14609, United States of America",
+            "country_code": "US",
+            "boundingBox": [43.1700872, 43.1701872, -77.5604834, -77.5603834]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE:  website 5/26/19",
+    "rawRecord": "The Capoeira List\r\n     \r\n\r\n\r\n    \r\n     \r\n\r\n\r\n    \r\n    \r\n\r\n\r\n     \r\n  \r\n\r\n\r\n\r\n    \r\n    \r\n    \r\n    \r\n    Rochester Capoeira\r\n    \r\n  \r\n  \r\n                           Rochester\r\n    \r\n    \r\n          Com Expressao \r\n      \r\n      http://www.comexpressao.com/\r\n      \r\n      Contra-Mestre Carcará  \"Todd Russell\"\r\n      \r\n            Academia Com Expressao\r\n      1352 Culver Drive, Rochester, New York 14609\r\n      585-319-6521\r\n      \r\n      capo@comexpressao.com\r\n      \r\n      (Full schedule of classes\r\n)        RIT Capoeira(website offline  5/26/19)RITCapoeira@gmail.com\r\n      \r\n      SOURCE:  website 5/26/19",
+    "fixMetadata": {
+      "originalName": "Com Expressao",
+      "fixed": true,
+      "fixedFields": ["name", "leader"],
+      "manuallyFixed": true
+    },
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:58:48.913Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "com Expressao <meta name",
+        "redirectUrl": "https://www.comexpressao.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["u003ecapo@comexpressao.com"],
+        "extractedPhones": ["585-319-6521"]
+      }
+    }
+  },
+  {
+    "name": "Capoeira Angola Quintal Rochester",
+    "website": "http://www.rochestercapoeira.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": " Greg Hollar",
+      "name": "under Mestre OmbrinhoNew York"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "34"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Elton St",
+        "address": "34 Elton St,  #205, Rochester, New York 14607",
+        "schedule": "Movement: Mon & Thurs 6:30-8:00pm; Music: Wed 6:30-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "34 Elton St,  #205, Rochester, New York 14607\nMovement: Mon & Thurs 6:30-8:00pm\nMusic: Wed 6:30-8:00pm\nRIT CAQ\nhttps://campusgroups.rit.edu/caq/about/\nSOURCE: website  5/26/19",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-77.579638, 43.1552757]
+          },
+          "properties": {
+            "address": "34 Elton St, Rochester, New York 14607",
+            "displayName": "34, Elton Street, Neighborhood Of The Arts, City of Rochester, Monroe County, New York, 14607, United States of America",
+            "country_code": "US",
+            "boundingBox": [43.1552257, 43.1553257, -77.579688, -77.579588]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:58:24.844Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "SOURCE: website  5/26/19",
+    "rawRecord": "Capoeira Angola Quintal Rochester\r\n    http://www.rochestercapoeira.com/\r\n    \r\n    Instrutor Espiáo \r\n    \" Greg Hollar\" under   Mestre Ombrinho[New York]\r\n    https://www.facebook.com/CAQRochester\r\n          Rochester Mindful Capoeira Center\r\n34 Elton St,  #205, Rochester, New York 14607 \r\n    \r\nMovement: Mon & Thurs 6:30-8:00pm\r\n    \r\nMusic: Wed 6:30-8:00pm\r\n      RIT CAQ\r\nhttps://campusgroups.rit.edu/caq/about/\r\n    SOURCE: website  5/26/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:58:51.120Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Rochester Capoeira <meta name=\"generator\" content=\"St",
+        "redirectUrl": "https://rochestercapoeira.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["info@indiantypefoundry.com", "rochestercapoeira@gmail.com"],
+        "extractedPhones": ["585-281-7008"]
+      }
+    }
+  },
+  {
+    "name": "Westchester Capoeira",
+    "website": "http://www.cainacapoeira.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Raefal and Sarah Teixeira",
+      "name": "email: cnc.ny.usa@gmail.com"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "cnc.ny.usa@gmail.com",
+      "phone": "845-826-4511"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "North Broadway",
+        "address": "42 North Broadway, Tarrytown, NY 10591",
+        "schedule": "kids: Mon  6:00-6:50 pm; adults: Mon 7:00-8:00 pm;  Thurs 7:30-8:30 pm; Children: Wed  6:10-7:00pm; Adults:  Wed 7:30-8:30 pm; Family/All ages  Sat 9:30-10:30 am      &#8203;      Belmars,; Conditioning:  Sun 4:00-4:4 pm; Music & Roda: Sun 5:00-6:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "42 North Broadway, Tarrytown, NY\nkids: Mon  6:00-6:50 pm\nadults: Mon 7:00-8:00 pm;  Thurs 7:30-8:30 pm\nNew Era Creative Space,\n1016 Brown Street, Peekskill NY\nChildren: Wed  6:10-7:00pm\nAdults:  Wed 7:30-8:30 pm\nFamily/All ages  Sat 9:30-10:30 am      &#8203;      Belmars,\n5 Prospect Avenue, White Plains NY&#8203;\nConditioning:  Sun 4:00-4:4 pm\nMusic & Roda: Sun 5:00-6:00pm\nPurchase College\n(check for classes )\nSOURCE: website 5/20/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:01:33.072Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.8575602, 41.0793326]
+          },
+          "properties": {
+            "address": "42 North Broadway, Tarrytown, NY 10591",
+            "displayName": "42, North Broadway, Village of Tarrytown, Town of Greenburgh, Westchester County, New York, 10591, United States of America",
+            "country_code": "US",
+            "boundingBox": [41.0792826, 41.0793826, -73.8576102, -73.8575102]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE: website 5/20/19",
+    "rawRecord": "Westchester  Capoeira\r\n   \r\n\r\n\r\n\r\n                       Westchester County\r\nNew Rochelle,  Tarrytown, Ossining, Mount Kisco, Scarsdale, White\r\nPlains\r\n\r\n\r\n\r\n        Cai Na Capoeira  -       Cordáo de Ourohttp://www.cainacapoeira.com/\r\nContra Mestre Cabe�áo and Monitora Areia \"Raefal and Sarah Teixeira\"email: cnc.ny.usa@gmail.com\r\nphone: 845-826-4511 \r\nhttps://www.facebook.com/groups/166388733424027/\r\n      The Reformed Church of Tarrytown\r\n42 North Broadway, Tarrytown, NY\r\nkids: Mon  6:00-6:50 pm\r\nadults: Mon 7:00-8:00 pm;  Thurs 7:30-8:30 pm\r\n      New Era Creative Space, \r\n1016 Brown Street, Peekskill NY\r\nChildren: Wed  6:10-7:00pm\r\nAdults:  Wed 7:30-8:30 pm      \r\n  Family/All ages  Sat 9:30-10:30 am      &#8203;      Belmars,\r\n 5 Prospect Avenue, White Plains NY&#8203;\r\nConditioning:  Sun 4:00-4:4 pm \r\nMusic & Roda: Sun 5:00-6:00pm\r\n       Purchase College\r\n  (check for classes )\r\nSOURCE: website 5/20/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:58:56.394Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<link rel=\"icon\" sizes=\"192x192\" href=\"https://static.wixstatic.com/media/75ac60_a32947dc52554d7d833f7a6332a6b14d%7Emv2.jpg/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/75ac60_a32947dc52554d7d833f7a6332a6b14d%7",
+        "redirectUrl": "https://www.cainacapoeira.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Capoeira Luanda New Rochelle",
+    "website": "http://www.thecapoeiracenter.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "instructoracoruja@gmail.com",
+      "phone": "347.880.2127"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "The Capoeira Center",
+        "address": "130 Rhodes St, New Rochelle, NY",
+        "schedule": "Kids & Young Teens  Tues 6:00-7:00pm; Teens & Adults Tues  7:00-8:30pm; Thurs 7:00-8:00pm; Sat 2:00-3:30pm; Kids Sat 1:00-2:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "347.880.2127\nThe Capoeira Center\n130 Rhodes St, New Rochelle, NY\nKids & Young Teens  Tues 6:00-7:00pm\nTeens & Adults Tues  7:00-8:30pm; Thurs 7:00-8:00pm; Sat 2:00-3:30pm\nKids Sat 1:00-2:00pm\nSOURCE: website 5/20/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T10:59:55.894Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.776026, 40.9176407]
+          },
+          "properties": {
+            "address": "130 Rhodes St, New Rochelle, NY",
+            "displayName": "130, Rhodes Street, Homestead Park, City of New Rochelle, Westchester County, New York, 10801, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.9175907, 40.9176907, -73.776076, -73.775976]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE: website 5/20/19",
+    "rawRecord": "Capoeira Luanda New Rochelle  \r\nhttp://www.thecapoeiracenter.com\r\nInstrutora Coruja  Renáe Rinaldi\"\r\n under the supervision of Contramestre Chuvisco, Mestre Guerreiro and Mestre Jelon\r\n  instructoracoruja@gmail.com\r\n347.880.2127\r\n      The Capoeira Center\r\n130 Rhodes St, New Rochelle, NY\r\nKids & Young Teens  Tues 6:00-7:00pm\r\nTeens & Adults Tues  7:00-8:30pm; Thurs 7:00-8:00pm; Sat 2:00-3:30pm\r\nKids Sat 1:00-2:00pm\r\nSOURCE: website 5/20/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:58:57.660Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Capoeira Luanda- New Rochelle <link rel=\"icon\" ty",
+        "redirectUrl": "http://www.thecapoeiracenter.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["user@domain.com", "graduada.coruja@gmail.com"],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Cleveland Capoeira",
+    "website": "http://ohiocapoeira.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "undertheguidanceofFormandoTuzhinoandMestreBonecoohiocapoeira@gmail.com",
+      "phone": "20437"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Hannan Parkway",
+        "address": "20437 Hannan Parkway, Walton Hills, OH 44146",
+        "schedule": "Kids ages 6-12  Sun12:00pm - 12:45pm; Music: Sun 1:00pm - 1:30pm; Adult Beginner Sun 1:30pm - 2:30pm; Adults: All Levels:  Mon 8:30 - 9:30pm;  Thurs 7:00 - 8:30pm; Beginner  Adults: Tues 7:00pm - 8:30pmSOURCE: website  6/16/19",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "20437 Hannan Pkwy, Walton Hills, OH 44146 http://ohiocapoeira.com/\nInstructor Santo  \"Anthony McCombs Santo Domingo\"\nunder the guidance of Formando Tuzhino and Mestre Boneco ohiocapoeira@gmail.com\nhttps://www.facebook.com/CBCLE/\nKids ages 6-12  Sun12:00pm - 12:45pm\nMusic: Sun 1:00pm - 1:30pm\nAdult Beginner Sun 1:30pm - 2:30pm\nAdults: All Levels:  Mon 8:30 - 9:30pm;  Thurs 7:00 - 8:30pm\nStudio J Dance&#8203;\n23945 Mercantile Rd, Beachwood, OH 44122Kids ages 6-12:Tues  6:00 - 6:45pm\nBeginner  Adults: Tues 7:00pm - 8:30pmSOURCE: website  6/16/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:52.000Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-81.530533, 41.3646554]
+          },
+          "properties": {
+            "address": "20437 Hannan Parkway, Walton Hills, OH 44146",
+            "displayName": "20437, Hannan Parkway, Walton Hills, Cuyahoga County, Ohio, 44146, United States of America",
+            "country_code": "US",
+            "boundingBox": [41.3646054, 41.3647054, -81.530583, -81.530483]
+          }
+        }
+      },
+      {
+        "name": "Mercantile Rd",
+        "address": "23945 Mercantile Rd, Beachwood, OH 44122",
+        "schedule": "Kids ages 6-12  Sun12:00pm - 12:45pm; Music: Sun 1:00pm - 1:30pm; Adult Beginner Sun 1:30pm - 2:30pm; Adults: All Levels:  Mon 8:30 - 9:30pm;  Thurs 7:00 - 8:30pm; Beginner  Adults: Tues 7:00pm - 8:30pmSOURCE: website  6/16/19",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "20437 Hannan Pkwy, Walton Hills, OH 44146 http://ohiocapoeira.com/\nInstructor Santo  \"Anthony McCombs Santo Domingo\"\nunder the guidance of Formando Tuzhino and Mestre Boneco ohiocapoeira@gmail.com\nhttps://www.facebook.com/CBCLE/\nKids ages 6-12  Sun12:00pm - 12:45pm\nMusic: Sun 1:00pm - 1:30pm\nAdult Beginner Sun 1:30pm - 2:30pm\nAdults: All Levels:  Mon 8:30 - 9:30pm;  Thurs 7:00 - 8:30pm\nStudio J Dance&#8203;\n23945 Mercantile Rd, Beachwood, OH 44122Kids ages 6-12:Tues  6:00 - 6:45pm\nBeginner  Adults: Tues 7:00pm - 8:30pmSOURCE: website  6/16/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:53.395Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-81.5051183, 41.4610889]
+          },
+          "properties": {
+            "address": "23945 Mercantile Rd, Beachwood, OH 44122",
+            "displayName": "23945, Mercantile Road, Beachwood Commerce Park, Hampshire Park Country Estates, Beachwood, Cuyahoga County, Ohio, 44122, United States of America",
+            "country_code": "US",
+            "boundingBox": [41.4610389, 41.4611389, -81.5051683, -81.5050683]
+          }
+        }
+      }
+    ],
+    "notes": "Beginner  Adults: Tues 7:00pm - 8:30pmSOURCE: website  6/16/19",
+    "rawRecord": "Cleveland Capoeira\r\n   \r\n\r\n\r\n\r\n                       Cleveland\r\n\r\n\r\n      Grupo Capoeira Brasil Cleveland \r\n20437 Hannan Pkwy, Walton Hills, OH 44146 http://ohiocapoeira.com/\r\nInstructor Santo  \"Anthony McCombs Santo Domingo\"\r\n under the guidance of Formando Tuzhino and Mestre Boneco ohiocapoeira@gmail.com\r\n\r\nhttps://www.facebook.com/CBCLE/  \r\nKids ages 6-12  Sun12:00pm - 12:45pm\r\nMusic: Sun 1:00pm - 1:30pm\r\nAdult Beginner Sun 1:30pm - 2:30pm\r\nAdults: All Levels:  Mon 8:30 - 9:30pm;  Thurs 7:00 - 8:30pm      \r\n Studio J Dance&#8203;\r\n23945 Mercantile Rd, Beachwood, OH 44122Kids ages 6-12:Tues  6:00 - 6:45pm\r\nBeginner  Adults: Tues 7:00pm - 8:30pmSOURCE: website  6/16/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:59:00.027Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "img:is([sizes=\"auto\" i], [sizes^=\"auto,\" i]) { contain-intrinsic-size: 3000px 1500px } <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=2,",
+        "redirectUrl": "https://viamartialarts.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["via.martialarts@gmail.com"],
+        "extractedPhones": ["440-225-8863"]
+      }
+    }
+  },
+  {
+    "name": "Columbus Capoeira",
+    "website": "https://www.capoeirabrasileiracolumbus.com",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "1069"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Jaeger St",
+        "address": "1069 Jaeger St, Columbus, OH 43206",
+        "schedule": "age 13+: Tues & Thurs 7:35- 8:35pm; ages 5 - 11: Mon & Thurs 6:45-7:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "1069 Jager St. Columbus, Ohio, 43206\nhttps://www.capoeirabrasileiracolumbus.com\nage 13+: Tues & Thurs 7:35- 8:35pm\nages 5 - 11: Mon & Thurs 6:45-7:30pm\nSOURCE: website 5/26/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:20:35.130Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-82.9917605, 39.9416859]
+          },
+          "properties": {
+            "address": "1069 Jaeger St, Columbus, OH 43206",
+            "displayName": "1069, Jaeger Street, German Village, Columbus, Franklin County, Ohio, 43206, United States of America",
+            "country_code": "US",
+            "boundingBox": [39.9414155, 39.9419273, -82.9922681, -82.9911503]
+          }
+        }
+      }
+    ],
+    "notes": "SOURCE: website 5/26/19",
+    "rawRecord": "Columbus Capoeira\r\n\r\n   \r\n\r\n\r\n\r\n                       Columbus\r\n\r\n\r\n      Equipe Capoeira Brasileira \r\n  1069 Jager St. Columbus, Ohio, 43206      \r\n  \r\n  https://www.capoeirabrasileiracolumbus.com\r\n\r\nage 13+: Tues & Thurs 7:35- 8:35pm\r\n\r\nages 5 - 11: Mon & Thurs 6:45-7:30pm\r\n\r\nSOURCE: website 5/26/19",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "statesville.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:59:07.436Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Capoeira Brasil Columbus img:is([sizes=\"auto\" i], [sizes^=\"auto,\" i]) { contain-intrinsic-size: 3000px 1500px } <link rel=\"canonic",
+        "redirectUrl": "https://capoeiracolumbus.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["capoeiracolumbus@gmail.com"],
+        "extractedPhones": []
+      }
+    }
+  },
+  {
+    "name": "Brighton Capoeira Angola Group - Filhos de Angola",
+    "website": "http://brightoncapoeira.wordpress.com/",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["http://brightoncapoeira.wordpress.com/"],
+    "locations": [
+      {
+        "name": "St. Mary's Church Hall",
+        "address": "Highdown Rd., Lewes BN7 1QE",
+        "schedule": "Beginners: Fri 6.30-8.30pm; ages 5-8: Tues 4:10-5:10pm",
+        "contactPerson": "Al",
+        "email": null,
+        "phone": "07900020491",
+        "rawText": "St. Mary's Church Hall,\nHighdown Rd., Lewes BN7 1QE\nBeginners: Fri 6.30-8.30pm Contact: Al    07900020491\nages 5 - 8:: Tues 4:10-5:10pm Contact Susie  07748 471 491",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-0.0092883, 50.880775]
+          },
+          "properties": {
+            "address": "Highdown Rd., Lewes BN7 1QE",
+            "displayName": "Highdown Road, Nevill, Lewes, Offham, Lewes, East Sussex, England, BN7 1QE, United Kingdom",
+            "country_code": "GB",
+            "boundingBox": [50.8788369, 50.8813654, -0.0126896, -0.00711]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:58:36.394Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      }
+    ],
+    "notes": "Contact Susie 07748 471 491 for kids class. SOURCE: website 11/3/16",
+    "rawRecord": "Brighton Capoeira Angola Group -Filhos de Angola\nhttp://brightoncapoeira.wordpress.com/\n      St. Mary's Church Hall,\nHighdown Rd., Lewes BN7 1QE\nBeginners: Fri 6.30-8.30pm Contact: Al    07900020491\nages 5 - 8:: Tues 4:10-5:10pm Contact Susie  07748 471 491\nSOURCE: website  11/3/16",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "sussex.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:59:16.349Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Brighton Capoeira Filhos de Angola | Keeping the Angola vibe in Brighton <link rel=\"stylesheet\" href=\"https://s2.wp.com/wp-content/themes/pub/sunburn/style.css?m=1741693343i\" type=\"text/css\" me",
+        "redirectUrl": "https://brightoncapoeira.wordpress.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      },
+      "alternativeUrls": [
+        {
+          "url": "http://brightoncapoeira.wordpress.com/",
+          "source": "sources",
+          "status": "reachable",
+          "isCapoeiraRelated": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "Nucleo de Capoeiragem",
+    "website": "http://www.cardiffcapoeira.com/",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Claudio Campos",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Claudio Campos",
+      "email": "claudiocamposrosario@hotmail.com",
+      "phone": "07882745860"
+    },
+    "sources": ["http://www.cardiffcapoeira.com/"],
+    "locations": [
+      {
+        "name": "Canton Community Hall",
+        "address": "Leckwith Road, Cardiff, CF11 8HP, UK",
+        "schedule": "Wed 8:00-9:45pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Canton Community Hall,\nLeckwith Rd, Cardiff, South Glamorgan, CF11 8HP\nWed 8:00-9:45pm",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:44:32.969Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-3.2021661, 51.476997]
+          },
+          "properties": {
+            "address": "Leckwith Road, Cardiff, CF11 8HP, UK",
+            "displayName": "Leckwith Road, Leckwith, Canton, Cardiff, Cymru / Wales, CF11 8HP, United Kingdom",
+            "country_code": "GB",
+            "boundingBox": [51.4766635, 51.4773681, -3.2026182, -3.2017503]
+          }
+        }
+      },
+      {
+        "name": "Chapter Arts Center",
+        "address": "Market Rd, Canton, Cardiff, CF5 1QE",
+        "schedule": "Fri",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Chapter Arts Center\n Market Rd, Canton, Cardiff, CF5 1QE\n Fri",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-3.2042231, 51.4829544]
+          },
+          "properties": {
+            "address": "Market Rd, Canton, Cardiff, CF5 1QE",
+            "displayName": "Market Road, Leckwith, Canton, Cardiff, Cymru / Wales, CF5 1RZ, United Kingdom",
+            "country_code": "GB",
+            "boundingBox": [51.4818436, 51.4839897, -3.2049421, -3.2036371]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:58:39.111Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      },
+      {
+        "name": "Talybont Sports Centre",
+        "address": "Bevan Pl, Cardiff CF14 3UX",
+        "schedule": "Kids: Fri",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Talybont Sports Centre\nBevan Pl, Cardiff CF14 3UX\nKids: Fri",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-3.1961837, 51.4975314]
+          },
+          "properties": {
+            "address": "Bevan Pl, Cardiff CF14 3UX",
+            "displayName": "Bevan Place, The Colonies, Gabalfa, Cardiff, Cymru / Wales, CF14 3AS, United Kingdom",
+            "country_code": "GB",
+            "boundingBox": [51.4973641, 51.4977007, -3.1963781, -3.1959893]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:58:40.443Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      },
+      {
+        "name": "University of Wales Capoeira Society",
+        "address": "Cardiff University, Cardiff, Wales, UK",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "University of Wales Capoeira Society",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T11:11:34.103Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-3.1795999, 51.4887426]
+          },
+          "properties": {
+            "address": "Cardiff University, Cardiff, Wales, UK",
+            "displayName": "Cardiff University, Park Place, Civic Centre, Castle, Cardiff, Cymru / Wales, CF10 3AT, United Kingdom",
+            "country_code": "GB",
+            "boundingBox": [51.4886926, 51.4887926, -3.1796499, -3.1795499]
+          }
+        }
+      }
+    ],
+    "notes": "Wales. Under the supervision of Mestres Jorge & Danilo. SOURCE: website 1/1/20",
+    "rawRecord": "Nucleo de Capoeiragem,.\n\nhttp://www.cardiffcapoeira.com/\n\nContra Mestre Claudio Campos  under the supervision of Mestres\nJorge & Danilo\n\n  email: claudiocamposrosario@hotmail.com\n\n  call: 07882745860\n\n       Canton Community Hall,\n\nLeckwith Rd, Cardiff, South Glamorgan, CF11 8HP\n\nWed 8:00-9:45pm\n\n\n      Chapter Arts Center\n\n Market Rd, Canton, Cardiff, CF5 1QE\n\n Fri \n      Talybont Sports Centre\nBevan Pl, Cardiff CF14 3UX\nKids: Fri  \n, \n      University of Wales Capoeira Society\n\nSOURCE: website 1/1/20",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "sussex.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:59:20.114Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "Home <script type='text/javascri"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      },
+      "alternativeUrls": [
+        {
+          "url": "http://www.cardiffcapoeira.com/",
+          "source": "sources",
+          "status": "reachable",
+          "isCapoeiraRelated": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "Capoeira Mocambo - Associação de Capoeira Senzala Santos",
+    "website": "http://www.capoeiramocambo.co.uk/",
+    "leader": {
+      "title": "monitor",
+      "nickname": "Colin Daimond",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Colin Daimond",
+      "email": "info@capoeiramocambo.co.uk",
+      "phone": "07773 798199"
+    },
+    "sources": ["http://www.capoeiramocambo.co.uk/"],
+    "locations": [
+      {
+        "name": "Mynydd LLandgai",
+        "address": "LL57 4LQ",
+        "schedule": "Adults: Tues & Thurs 9:30-10:30am",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Mynydd LLandgai\n LL57 4LQ \nAdults: Tues & Thurs 9:30- 10:30am",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-4.08824, 53.17045]
+          },
+          "properties": {
+            "address": "LL57 4LQ",
+            "displayName": "LL57 4LQ, Llandygai, Mynydd Llandygái, Gwynedd, Cymru / Wales, United Kingdom",
+            "country_code": "GB",
+            "boundingBox": [53.16845, 53.17245, -4.09024, -4.08624]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:58:41.635Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "7%"
+        }
+      },
+      {
+        "name": "Hen Iard Nwyddau / The Old Goods Yard",
+        "address": "Treborth, Bangor. LL57 2NX",
+        "schedule": "All ages: Tues & Wed 6:30-7:30pm; Adults: Tues & Wed 6:30-9:00pm; 4-6 year olds: Wed 4:00-4:45pm; 7-11 year olds: Wed 4.45-5:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Hen Iard Nwyddau / The Old Goods Yard,\n\nTreborth,Bangor. LL57 2NX\n\nAll ages: Tues  & Wed  6:30-7:30pm\n\nAdults: Tues & Wed 6:30-9:00pm\n\n4-6 year olds: . Wed 4:00-4:45pm\n\n7-11 year olds: Wed 4.45- 5:30pm",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-4.1620744, 53.2158565]
+          },
+          "properties": {
+            "address": "Treborth, Bangor. LL57 2NX",
+            "displayName": "Treborth Road, Pentir, Bangor, Gwynedd, Cymru / Wales, LL57 2RJ, United Kingdom",
+            "country_code": "GB",
+            "boundingBox": [53.2150133, 53.2168943, -4.1630117, -4.1613625]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:58:42.975Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      },
+      {
+        "name": "Bangor University Capoeira Society",
+        "address": "Bangor University, Bangor, LL57 2DG, UK",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Bangor University Capoeira Society",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T11:02:04.151Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "51%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-4.130082, 53.2300234]
+          },
+          "properties": {
+            "address": "Bangor University, Bangor, LL57 2DG, UK",
+            "displayName": "Bangor University, College Road Site, Garth Road, Garth, Bangor, Gwynedd, Cymru / Wales, LL57 2RP, United Kingdom",
+            "country_code": "GB",
+            "boundingBox": [53.2279858, 53.2319511, -4.1327012, -4.1260824]
+          }
+        }
+      }
+    ],
+    "notes": "Wales. Monitor Colin Daimond in association with Mestre Sombra [Santos, Brazil]. SOURCE: website 1/1/20",
+    "rawRecord": "Capoeira Mocambo-Associação de Capoeira Senzala\nSantos\n\nhttp://www.capoeiramocambo.co.uk/\n\nMonitor Colin Daimond in association with Mestre Sombra[Santos, Brazil]\n\n  07773 798199\n\ninfo@capoeiramocambo.co.uk \n      Mynydd LLandgai\n LL57 4LQ \nAdults: Tues & Thurs 9:30- 10:30am\n\n      Hen Iard Nwyddau / The Old Goods Yard,\n\nTreborth,Bangor. LL57 2NX\n\nAll ages: Tues  & Wed  6:30-7:30pm\n\nAdults: Tues & Wed 6:30-9:00pm\n\n4-6 year olds: . Wed 4:00-4:45pm\n\n7-11 year olds: Wed 4.45- 5:30pm\n\n      Bangor University Capoeira Society  \n\nSOURCE: website 1/1/20",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "sussex.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:59:21.597Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "document.documentElement.className = 'js'; Capoeira Mocambo | North Wales Capoeira School /* Original: https://fonts.googleapis.com/css?family=Montserrat:100,2"
+      },
+      "enrichedData": {
+        "extractedEmails": ["info@capoeiramocambo.co.uk"],
+        "extractedPhones": []
+      },
+      "alternativeUrls": [
+        {
+          "url": "http://www.capoeiramocambo.co.uk/",
+          "source": "sources",
+          "status": "reachable",
+          "isCapoeiraRelated": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "Capoeira School Sheffield - Group Senzala Anglia",
+    "website": "http://capoeirasheffield.com/",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@capoeirasheffield.com",
+      "phone": "07412381534"
+    },
+    "sources": ["http://capoeirasheffield.com/", "https://www.facebook.com/groups/shucapoeira"],
+    "locations": [
+      {
+        "name": "Trinity Church",
+        "address": "Ecclesall Road, Sheffield, S11 8TE, UK",
+        "schedule": "Adults All Levels: Mon & Fri 19.00; Kids [3-5]: Sat 9.30; Kids [6-8]: Sat 10.30; Kids [9-13]: Sat 11.30",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Trinity Church\nEcclesal Road, Sheffield, S11 8TE\nAdults All Levels: Mon & Fri 19.00\nKids[3-5]: Sat  9.30\nKids[6-8]: Sat  10.30\nKids[9-13]: Sat  11.30",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T08:53:35.935Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "26%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-1.506627, 53.3664017]
+          },
+          "properties": {
+            "address": "Ecclesall Road, Sheffield, S11 8TE, UK",
+            "displayName": "Ecclesall Road, Banner Cross, Endcliffe, Sheffield, South Yorkshire, England, S11 7AA, United Kingdom",
+            "country_code": "GB",
+            "boundingBox": [53.366302, 53.3664853, -1.5068174, -1.5064289]
+          }
+        }
+      },
+      {
+        "name": "King Edward Lower School",
+        "address": "Darwin Ln, Crosspool, Sheffield S10 5RG",
+        "schedule": "Adult Beginners: Wed 18:15",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "King Edward Lower School\nDarwin Ln, Crosspool, Sheffield S10 5RG\nAdult Beginners:  Wed 18:15",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-1.5225737, 53.3764558]
+          },
+          "properties": {
+            "address": "Darwin Ln, Crosspool, Sheffield S10 5RG",
+            "displayName": "Darwin Lane, Crosspool, Sheffield, South Yorkshire, England, S10 5RH, United Kingdom",
+            "country_code": "GB",
+            "boundingBox": [53.3763606, 53.3765697, -1.5229344, -1.5225693]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:58:45.552Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "5%"
+        }
+      },
+      {
+        "name": "Hallam Capoeira Society",
+        "address": "Sheffield Hallam University, Sheffield, S1 1WB, UK",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Hallam Capoeira Society",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T11:02:06.734Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "48%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-1.4627951, 53.3817264]
+          },
+          "properties": {
+            "address": "Sheffield Hallam University, Sheffield, S1 1WB, UK",
+            "displayName": "Sheffield Hallam University, Pond Hill, Sheaf Valley, City Centre, Sheffield, South Yorkshire, England, S1 2BG, United Kingdom",
+            "country_code": "GB",
+            "boundingBox": [53.3810967, 53.3823651, -1.4638458, -1.4625352]
+          }
+        }
+      }
+    ],
+    "notes": "Yorkshire. SOURCE: website 11/13/16",
+    "rawRecord": "Capoeira School Sheffield - Group Senzala Anglia\nhttp://capoeirasheffield.com/\ninfo@capoeirasheffield.com\nT: 07412381534\nhttps://www.facebook.com/groups/shucapoeira\n      Trinity Church\nEcclesal Road, Sheffield, S11 8TE\nAdults All Levels: Mon & Fri 19.00\nKids[3-5]: Sat  9.30\nKids[6-8]: Sat  10.30\nKids[9-13]: Sat  11.30\n      King Edward Lower School\nDarwin Ln, Crosspool, Sheffield S10 5RG\nAdult Beginners:  Wed 18:15\n      Hallam Capoeira Society\nSOURCE: website 11/13/16",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "sussex.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:59:25.850Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<link rel=\"shortcut icon\" href=\"https://static.parastorage.com/client/pfavico.ico\" type=\"image/x-icon",
+        "redirectUrl": "https://www.capoeirasheffield.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": ["capoeirafts@gmail.com"],
+        "extractedPhones": []
+      },
+      "alternativeUrls": [
+        {
+          "url": "http://capoeirasheffield.com/",
+          "source": "sources",
+          "status": "reachable",
+          "isCapoeiraRelated": true
+        },
+        {
+          "url": "https://www.facebook.com/groups/shucapoeira",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "UCA-Hayward",
+    "website": "http://www.ucahayward.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Recruta",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "650.218.7601"
+    },
+    "sources": ["http://www.ucahayward.com/", "http://www.facebook.com/ucahayward"],
+    "locations": [
+      {
+        "name": "UCA-Hayward",
+        "address": "22540 Foothill Blvd. Hayward, CA 94541",
+        "schedule": "Adults: Mon 8:00-9:30pm; Tues & Thurs 7:15-8:45pm; Sat 11:15am-1:00pm; Youth: Tues & Thurs 6:00-7:00pm; Sat 10:00-11:00am",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "22540 Foothill Blvd. Hayward, CA 94541\nMestre  Recruta\nhttp://www.ucahayward.com/\n650.218.7601\nhttp://www.facebook.com/ucahayward\nAdults: Mon 8:00-9:30pm; Tues & Thurs 7:15-8:45pm; Sat 11:15am-1:00pm\nYouth  Tues & Thurs 6:00-7:00pm; Sat 10:00-11:00am",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-122.0816421, 37.6746519]
+          },
+          "properties": {
+            "address": "22540 Foothill Blvd. Hayward, CA 94541",
+            "displayName": "22540, Foothill Boulevard, Hayward, Alameda County, California, 94541, United States of America",
+            "country_code": "US",
+            "boundingBox": [37.6746019, 37.6747019, -122.0816921, -122.0815921]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T07:58:47.039Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        }
+      }
+    ],
+    "notes": "Alameda County, California. SOURCE: websites 11/29/16",
+    "rawRecord": "UCA-Hayward\n      \n      22540 Foothill Blvd. Hayward, CA 94541\n      \n      Mestre  Recruta\n      \n      http://www.ucahayward.com/\n      \n      650.218.7601\n      \n      http://www.facebook.com/ucahayward\n      \n      Adults: Mon 8:00-9:30pm; Tues & Thurs 7:15-8:45pm; Sat 11:15am-1:00pm\n      \n      Youth  Tues & Thurs 6:00-7:00pm; Sat 10:00-11:00am\n      \n      SOURCE: websites 11/29/16",
+    "filterMetadata": {
+      "filteredAt": "2025-11-13T23:13:17Z",
+      "phase": 1,
+      "sourceFile": "sussex.json",
+      "criteria": {
+        "requireWebsite": true,
+        "requireLocation": true
+      }
+    },
+    "validationMetadata": {
+      "validatedAt": "2025-11-13T23:59:43.097Z",
+      "phase": 2,
+      "websiteStatus": "reachable",
+      "websiteValidation": {
+        "statusCode": 200,
+        "isCapoeiraRelated": true,
+        "contentSnippet": "<link rel=\"icon\" sizes=\"192x192\" href=\"https://static.wixstatic.com/media/ddb13b_db9d4310cc564dc5808135951e72c9f3%7Emv2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/ddb13b_db9d4310cc564dc5808135951e72c9f3%7",
+        "redirectUrl": "https://www.ucahayward.com/"
+      },
+      "enrichedData": {
+        "extractedEmails": [],
+        "extractedPhones": []
+      },
+      "alternativeUrls": [
+        {
+          "url": "http://www.ucahayward.com/",
+          "source": "sources",
+          "status": "reachable",
+          "isCapoeiraRelated": true
+        },
+        {
+          "url": "http://www.facebook.com/ucahayward",
+          "source": "sources",
+          "status": "unreachable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Carioca Capoeira (New York City)",
+    "website": "http://www.cariocacapoeira.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Carioca",
+      "name": "Carlos da Silva Borge"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "cariocanyc@yahoo.com",
+      "phone": "718-309-7605"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Cornell Medical College",
+        "address": "445 East 69th St, New York, NY",
+        "schedule": "Tue 7-9pm; Sat 12-2pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "718-309-7605\nhttps://www.facebook.com/Carioca-Capoeira-New-York-114498605305383/\nCornell Medical College\nOlin Hall Gym 445 East 69th St.( btw 1st & York Ave.)\nTues 7:00-9:00pm; Sat 12:00-2:00pm\nSOURCE: website 4/13/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T10:59:50.729Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9553346, 40.7650988]
+          },
+          "properties": {
+            "address": "445 East 69th St, New York, NY",
+            "displayName": "445, East 69th Street, Lenox Hill, Manhattan Community Board 8, Manhattan, New York County, City of New York, New York, 10021, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.7650488, 40.7651488, -73.9553846, -73.9552846]
+          }
+        }
+      },
+      {
+        "name": "Woodside Ballet Academy",
+        "address": "41-20 Queens Boulevard, Sunnyside, NY 11104",
+        "schedule": "Fri 7:30-9pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "718-309-7605\nhttps://www.facebook.com/Carioca-Capoeira-New-York-114498605305383/\nWoodside Ballet Academy\n49-10 43rd Ave. Woodside, NY 11377\nkids : Thurs 6:00-7:00pm\nThe Q StudioLab\n41-20 Queens Boulevard, Sunnyside, NY 11104\nFri 7:30-9:00pm\nSOURCE: website 4/13/19",
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T09:50:50.769Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "0%"
+        },
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.9227922, 40.7433489]
+          },
+          "properties": {
+            "address": "41-20 Queens Boulevard, Sunnyside, NY 11104",
+            "displayName": "41-20, Queens Boulevard, Sunnyside Gardens, Queens, Queens County, City of New York, New York, 11104, United States of America",
+            "country_code": "US",
+            "boundingBox": [40.7432989, 40.7433989, -73.9228422, -73.9227422]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": "Carioca Capoeira (Charleston)",
+    "website": "https://capoeiracharleston.com/",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Arthur Christopher Community Center",
+        "address": "Downtown Charleston, SC",
+        "schedule": "Tue & Thu 6:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Arthur Christopher Community Center\nDowntown Charleston, SC\nTue & Thu 6:30pm\nNOTE: Need to search for full address",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-79.9659379131642, 32.77784705]
+          },
+          "properties": {
+            "address": "Downtown Charleston, SC",
+            "displayName": "Residence Inn Charleston Downtown/Riverview, 90, Ripley Point Drive, The Crescent, Charleston, Charleston County, South Carolina, 29407, United States of America",
+            "country_code": "us",
+            "boundingBox": [32.7775896, 32.7781046, -79.9662154, -79.9652675]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T23:55:27.987Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "80%"
+        }
+      },
+      {
+        "name": "Hampton Park Gazebo",
+        "address": "Hampton Park, Charleston, SC",
+        "schedule": "Sat 10:30am",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Hampton Park Gazebo\nHampton Park, Charleston, SC\nSat 10:30am\nNOTE: Need to search for full address",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-79.95573217211538, 32.79997625]
+          },
+          "properties": {
+            "address": "Hampton Park, Charleston, SC",
+            "displayName": "Hampton Park, Charleston, Charleston County, South Carolina, United States of America",
+            "country_code": "us",
+            "boundingBox": [32.796825, 32.8031015, -79.9595482, -79.9519746]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T23:55:29.436Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "80%"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Carioca Capoeira (Miami)",
+    "website": "https://oceanlifestudios.com/our-classes/capoeira-miami-beach/",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Ocean Life Studio",
+        "address": "7123 N Miami Avenue, Miami, FL 33150",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Ocean Life Studio\n7123 N Miami Avenue, Miami, FL 33150\nNOTE: Check website for schedule",
+        "geoJsonFeature": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-80.1963164, 25.840595]
+          },
+          "properties": {
+            "address": "7123 N Miami Avenue, Miami, FL 33150",
+            "displayName": "7123, North Miami Avenue, Miami, Miami-Dade County, Florida, 33150, United States of America",
+            "country_code": "us",
+            "boundingBox": [25.8401342, 25.841247, -80.1964601, -80.1956687]
+          }
+        },
+        "geocodeMetadata": {
+          "geocodedAt": "2025-11-14T23:55:31.667Z",
+          "success": true,
+          "service": "nominatim",
+          "confidence": "80%"
+        }
+      }
+    ]
+  }
+]

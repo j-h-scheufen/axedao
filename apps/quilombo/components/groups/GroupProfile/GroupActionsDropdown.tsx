@@ -49,8 +49,9 @@ const GroupActionsDropdown = () => {
     }
   };
 
-  // Show loading state if admin/member status is still being determined
-  if (isGroupAdmin === null || isGroupMember === null || !group) {
+  // Show loading state only if group data is not loaded yet
+  // Treat null admin/member status as false (happens when no user is logged in or for imported groups)
+  if (!group) {
     return (
       <Button isIconOnly variant="light" size="sm" isLoading>
         <MoreVerticalIcon className="h-4 w-4" />

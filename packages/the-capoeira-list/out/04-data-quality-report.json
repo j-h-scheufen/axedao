@@ -1,0 +1,106 @@
+[
+  {
+    "type": "duplicate-group",
+    "severity": "high",
+    "groupName": "Grupo Negaca Capoeira",
+    "website": "http://www.capoeiracambridge.co.uk/",
+    "details": "Duplicate group with same name and website",
+    "suggestion": "Remove duplicate entry or merge locations"
+  },
+  {
+    "type": "duplicate-group",
+    "severity": "high",
+    "groupName": "Group Senzala",
+    "website": "http://senzala-london.co.uk",
+    "details": "Duplicate group with same name and website",
+    "suggestion": "Remove duplicate entry or merge locations"
+  },
+  {
+    "type": "duplicate-group",
+    "severity": "high",
+    "groupName": "Mundo Capoeira Ireland",
+    "website": "http://www.capoeiraireland.com/",
+    "details": "Duplicate group with same name and website",
+    "suggestion": "Remove duplicate entry or merge locations"
+  },
+  {
+    "type": "duplicate-group",
+    "severity": "high",
+    "groupName": "Grupo Senzela",
+    "website": "http://www.groupsenzala.co.uk/",
+    "details": "Duplicate group with same name and website",
+    "suggestion": "Remove duplicate entry or merge locations"
+  },
+  {
+    "type": "duplicate-group",
+    "severity": "high",
+    "groupName": "Capoeira Science",
+    "website": "http://www.capoeirascience.co.uk/",
+    "details": "Duplicate group with same name and website",
+    "suggestion": "Remove duplicate entry or merge locations"
+  },
+  {
+    "type": "duplicate-group",
+    "severity": "high",
+    "groupName": "Capoeira IJEXÁ",
+    "website": "http://www.capoeiraijexa.com",
+    "details": "Duplicate group with same name and website",
+    "suggestion": "Remove duplicate entry or merge locations"
+  },
+  {
+    "type": "duplicate-group",
+    "severity": "high",
+    "groupName": "Beira-Mar Capoeira",
+    "website": "http://www.gbantu.com",
+    "details": "Duplicate group with same name and website",
+    "suggestion": "Remove duplicate entry or merge locations"
+  },
+  {
+    "type": "duplicate-group",
+    "severity": "high",
+    "groupName": "Motumbaxé Capoeira",
+    "website": "http://www.motumbaxecapoeira.com",
+    "details": "Duplicate group with same name and website",
+    "suggestion": "Remove duplicate entry or merge locations"
+  },
+  {
+    "type": "phone-as-address",
+    "severity": "high",
+    "groupName": "Vai Capoeira",
+    "website": "https://www.vaicapoeira.org",
+    "details": "Address field contains phone number: 646.379.4468",
+    "suggestion": "Correct address: Lincoln Terrace Park, Crown Heights, Brooklyn , NY"
+  },
+  {
+    "type": "phone-as-address",
+    "severity": "high",
+    "groupName": "Vai Capoeira",
+    "website": "https://www.vaicapoeira.org",
+    "details": "Location has suspicious phone number 646.379.4468 as address",
+    "suggestion": "This phone number appears in many records - likely a parsing error"
+  },
+  {
+    "type": "duplicate-group",
+    "severity": "high",
+    "groupName": "Vai Capoeira",
+    "website": "https://www.vaicapoeira.org",
+    "details": "Duplicate group with same name and website",
+    "suggestion": "Remove duplicate entry or merge locations"
+  },
+  {
+    "type": "duplicate-group",
+    "severity": "high",
+    "groupName": "Carioca Capoeira",
+    "website": "http://www.cariocacapoeira.com",
+    "details": "Duplicate group with same name and website",
+    "suggestion": "Remove duplicate entry or merge locations"
+  },
+  {
+    "type": "duplicate-group",
+    "severity": "high",
+    "groupName": "Motumbaxé Capoeira",
+    "website": "http://www.motumbaxecapoeira.com",
+    "details": "Duplicate group with same name and website",
+    "suggestion": "Remove duplicate entry or merge locations"
+  }
+]
