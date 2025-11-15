@@ -209,7 +209,7 @@ VALUES ('${locationId}', '${groupId}', ${name}, ${description}, ${feature}::json
 async function main() {
   const scriptDir = path.dirname(new URL(import.meta.url).pathname);
   const packageDir = path.join(scriptDir, '..');
-  const inputDir = path.join(packageDir, 'out', '03-geocoded');
+  const inputDir = path.join(packageDir, 'out', '06-final');
   const outputFile = path.join(packageDir, 'out', 'import-groups.sql');
 
   console.log(`Reading geocoded data from: ${inputDir}`);
