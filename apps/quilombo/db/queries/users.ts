@@ -5,7 +5,7 @@
 
 import { and, eq, ilike, inArray, isNotNull, or, sql, type SQLWrapper } from 'drizzle-orm';
 
-import type { UserSearchParams } from '@/config/validation-schema';
+import type { UserSearchParamsWithFilters } from '@/config/validation-schema';
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import * as schema from '@/db/schema';
 import { db } from '@/db';
@@ -28,13 +28,14 @@ export async function isGlobalAdmin(userId: string) {
 /**
  * Searches users with optional filters and pagination.
  *
- * @param options - Search parameters including searchTerm, hasWallet, pagination
+ * @param options - Search parameters including searchTerm, filters, pagination
  * @returns Paginated list of users with total count
  */
 export async function searchUsers(
-  options: UserSearchParams
+  options: UserSearchParamsWithFilters
 ): Promise<{ rows: schema.SelectUser[]; totalCount: number }> {
-  const { pageSize = QUERY_DEFAULT_PAGE_SIZE, offset = 0, searchTerm, hasWallet } = options;
+  const { pageSize = QUERY_DEFAULT_PAGE_SIZE, offset = 0, searchTerm, filters } = options;
+  const { hasWallet } = filters || {};
   const orFilters: (SQLWrapper | undefined)[] = [];
   const andFilters: (SQLWrapper | undefined)[] = [];
 

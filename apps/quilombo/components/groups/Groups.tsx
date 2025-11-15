@@ -14,16 +14,24 @@ import SearchBar from '@/components/SearchBar';
 import FilterButton from '@/components/FilterButton';
 import GroupsGrid from '@/components/groups/GroupsGrid';
 import GroupLocationsMap from '@/components/geocode/GroupLocationsMap';
+import CountryFilter from '@/components/groups/CountryFilter';
+import CountryFilterChip from '@/components/groups/CountryFilterChip';
 import { PARAM_KEY_GROUP_QUERY } from '@/config/constants';
 
 const Groups = () => {
-  const [{ view, [PARAM_KEY_GROUP_QUERY]: gq }, setQueryStates] = useQueryStates({
+  const [{ view, [PARAM_KEY_GROUP_QUERY]: gq, countries }, setQueryStates] = useQueryStates({
     view: parseAsString.withDefault('list'),
     [PARAM_KEY_GROUP_QUERY]: parseAsString.withDefault(''),
+    countries: parseAsString.withDefault(''),
   });
 
   const [inputValue, setInputValue] = useState(gq || '');
-  const { setSearchTerm, groups, totalCount, isLoading, scrollerRef } = useGroupSearchWithInfiniteScroll();
+  const selectedCountries = countries ? countries.split(',').filter(Boolean) : [];
+
+  const { setSearchTerm, groups, totalCount, isLoading, scrollerRef } = useGroupSearchWithInfiniteScroll({
+    countryCodes: selectedCountries.length > 0 ? selectedCountries : undefined,
+  });
+
   const locations = useAtomValue(filteredLocationsAtom);
 
   // Scroll position restoration - only enabled for list view
@@ -44,13 +52,23 @@ const Groups = () => {
     setQueryStates({ [PARAM_KEY_GROUP_QUERY]: null });
   };
 
+  const handleCountriesChange = (newCountries: string[]) => {
+    setQueryStates({
+      countries: newCountries.length > 0 ? newCountries.join(',') : null,
+    });
+  };
+
+  const handleClearCountries = () => {
+    setQueryStates({ countries: null });
+  };
+
   const handleViewChange = (key: Key) => {
     const viewKey = String(key);
     setQueryStates({ view: viewKey === 'list' ? null : viewKey });
   };
 
   const handleFilterClick = () => {
-    // TODO: Implement filter functionality for groups
+    // TODO: Implement filter functionality for groups (verification, style, etc.)
     console.log('Group filter clicked');
   };
 
@@ -61,8 +79,21 @@ const Groups = () => {
         searchTerm={inputValue}
         onSearchChange={handleSearchChange}
         onClear={handleClear}
+        leftContent={
+          <CountryFilter
+            selectedCountries={selectedCountries}
+            onCountriesChange={handleCountriesChange}
+            isActive={selectedCountries.length > 0}
+          />
+        }
         filterContent={<FilterButton onPress={handleFilterClick} />}
       />
+
+      {/* Active Filter Chip */}
+      {selectedCountries.length > 0 && (
+        <CountryFilterChip selectedCountries={selectedCountries} onClear={handleClearCountries} />
+      )}
+
       <Tabs
         aria-label="List / Map View"
         fullWidth

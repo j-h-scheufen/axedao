@@ -11,6 +11,10 @@ import { useSearchGroups } from '@/query/group';
 import { filteredLocationsAtom, locationsAtom } from './state/location';
 import type { Group } from '@/types/model';
 
+export interface UseGroupSearchParams {
+  countryCodes?: string[];
+}
+
 export interface UseGroupSearchResult {
   searchTerm: string | undefined;
   setSearchTerm: (term: string | undefined) => void;
@@ -21,7 +25,9 @@ export interface UseGroupSearchResult {
   fetchNextPage: () => void;
 }
 
-const useGroupSearch = (): UseGroupSearchResult => {
+const useGroupSearch = (params?: UseGroupSearchParams): UseGroupSearchResult => {
+  const { countryCodes } = params || {};
+
   const [{ [PARAM_KEY_GROUP_QUERY]: urlSearchTerm }, setQueryStates] = useQueryStates({
     [PARAM_KEY_GROUP_QUERY]: parseAsString.withDefault(''),
   });
@@ -30,8 +36,11 @@ const useGroupSearch = (): UseGroupSearchResult => {
 
   const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } = useSearchGroups({
     searchTerm,
-    pageSize: QUERY_DEFAULT_PAGE_SIZE, // TODO: Add a page size query param + offset
+    pageSize: QUERY_DEFAULT_PAGE_SIZE,
     offset: 0,
+    filters: {
+      countryCodes,
+    },
   });
 
   const setFilteredLocations = useSetAtom(filteredLocationsAtom);

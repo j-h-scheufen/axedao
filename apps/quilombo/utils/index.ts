@@ -182,3 +182,5 @@ export const getEventTypeLabel = (eventType: string): string => {
       return 'General';
   }
 };
+
+export { formatCountryChipLabel } from './country';

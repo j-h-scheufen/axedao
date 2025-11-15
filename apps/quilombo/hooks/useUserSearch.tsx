@@ -20,7 +20,9 @@ const useUserSearch = (options?: UseUserSearchOptions) => {
   const [searchTerm, setSearchTerm] = useState<string | undefined>(urlSearchTerm);
   const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } = useSearchUsers({
     searchTerm,
-    hasWallet: options?.hasWallet,
+    filters: {
+      hasWallet: options?.hasWallet,
+    },
   });
 
   // Sync URL search term with hook state on mount

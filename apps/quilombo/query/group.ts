@@ -13,19 +13,14 @@ import type {
   CreateLocationForm,
   UpdateLocationForm,
   CreateNewGroupForm,
-  SearchParams,
+  GroupSearchParamsWithFilters,
   UpdateGroupForm,
   VerifyGroupForm,
   ClaimGroupForm,
 } from '@/config/validation-schema';
 import type { Group, GroupLocation, GroupSearchResult, User } from '@/types/model';
-import {
-  type FileUploadParams,
-  type GroupAndLocationParams,
-  type GroupAndUserParams,
-  QUERY_KEYS,
-  type UseFileUploadMutation,
-} from '.';
+import { QUERY_KEYS } from './keys';
+import type { FileUploadParams, GroupAndLocationParams, GroupAndUserParams, UseFileUploadMutation } from '.';
 
 /**
  * Note that the various fetch options are exported as read-only objects in order to be used by atomWithQuery.
@@ -85,11 +80,17 @@ export const fetchGroupLocationsOptions = (id: string | undefined) => {
   } as const;
 };
 
-const searchGroups = async ({ offset, pageSize, searchTerm }: SearchParams): Promise<GroupSearchResult> => {
-  let queryParams = `?offset=${offset}`;
-  queryParams += searchTerm ? `&searchTerm=${searchTerm}` : '';
-  queryParams += pageSize ? `&pageSize=${pageSize}` : '';
-  return axios.get(`/api/groups${queryParams}`).then((response) => {
+const fetchAvailableCountries = async (): Promise<{ countryCodes: string[] }> =>
+  axios.get('/api/groups/countries').then((response) => response.data);
+
+export const fetchAvailableCountriesOptions = {
+  queryKey: [QUERY_KEYS.group.getAvailableCountries],
+  queryFn: fetchAvailableCountries,
+  staleTime: QueryConfig.staleTimeGroup, // Countries don't change often
+} as const;
+
+const searchGroups = async (params: GroupSearchParamsWithFilters): Promise<GroupSearchResult> => {
+  return axios.post('/api/groups/search', params).then((response) => {
     const result = response.data;
     // Convert lastVerifiedAt from ISO string to Date object for each group
     result.data = result.data.map((group: Group) => ({
@@ -99,10 +100,13 @@ const searchGroups = async ({ offset, pageSize, searchTerm }: SearchParams): Pro
     return result;
   });
 };
-export const searchGroupsOptions = ({ offset, pageSize, searchTerm }: SearchParams) => {
+
+export const searchGroupsOptions = (params: GroupSearchParamsWithFilters) => {
+  const { offset, pageSize, searchTerm, filters } = params;
   return {
-    queryKey: [QUERY_KEYS.group.searchGroups, searchTerm],
-    queryFn: async ({ pageParam }: { pageParam: number }) => searchGroups({ offset: pageParam, pageSize, searchTerm }),
+    queryKey: [QUERY_KEYS.group.searchGroups, searchTerm, filters],
+    queryFn: async ({ pageParam }: { pageParam: number }) =>
+      searchGroups({ offset: pageParam, pageSize, searchTerm, filters }),
     initialPageParam: offset || 0,
     getNextPageParam: (lastPage: GroupSearchResult) => {
       if (lastPage.nextOffset === null || lastPage.nextOffset >= lastPage.totalCount) {
@@ -176,7 +180,9 @@ export const useFetchGroupAdmins = (id: string) => useQuery(queryOptions(fetchGr
 
 export const useFetchGroupLocations = (id: string) => useQuery(queryOptions(fetchGroupLocationsOptions(id)));
 
-export const useSearchGroups = (params: SearchParams) => {
+export const useFetchAvailableCountries = () => useQuery(queryOptions(fetchAvailableCountriesOptions));
+
+export const useSearchGroups = (params: GroupSearchParamsWithFilters) => {
   return useInfiniteQuery(infiniteQueryOptions(searchGroupsOptions(params)));
 };
 

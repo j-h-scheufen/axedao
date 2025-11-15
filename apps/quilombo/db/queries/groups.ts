@@ -5,7 +5,7 @@
 
 import { and, count, eq, ilike, ne, notExists, sql, type SQLWrapper } from 'drizzle-orm';
 
-import type { GroupSearchParams } from '@/config/validation-schema';
+import type { GroupSearchParamsWithFilters } from '@/config/validation-schema';
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import * as schema from '@/db/schema';
 import { db } from '@/db';
@@ -15,30 +15,47 @@ import type { Group } from '@/types/model';
  * Searches groups with optional filters and pagination.
  * Includes country codes and verification status.
  *
- * @param options - Search parameters including searchTerm, verified, pagination
+ * @param options - Search parameters including searchTerm, filters, pagination
  * @returns Paginated list of groups with total count
  */
-export async function searchGroups(options: GroupSearchParams): Promise<{ rows: Group[]; totalCount: number }> {
-  const { pageSize = QUERY_DEFAULT_PAGE_SIZE, offset = 0, searchTerm, verified } = options;
+export async function searchGroups(
+  options: GroupSearchParamsWithFilters
+): Promise<{ rows: Group[]; totalCount: number }> {
+  const { pageSize = QUERY_DEFAULT_PAGE_SIZE, offset = 0, searchTerm, filters } = options;
+  const { verified, countryCodes, styles } = filters || {};
 
-  const filters: (SQLWrapper | undefined)[] = [];
-  if (searchTerm) filters.push(ilike(schema.groups.name, `%${searchTerm}%`));
+  const sqlFilters: (SQLWrapper | undefined)[] = [];
+  if (searchTerm) sqlFilters.push(ilike(schema.groups.name, `%${searchTerm}%`));
 
   // Filter by verification status using subquery on group_verifications
   if (typeof verified === 'boolean') {
     if (verified) {
       // Show only verified groups (have at least one verification)
-      filters.push(sql`EXISTS (
+      sqlFilters.push(sql`EXISTS (
         SELECT 1 FROM ${schema.groupVerifications}
         WHERE ${schema.groupVerifications.groupId} = ${schema.groups.id}
       )`);
     } else {
       // Show only unverified groups (no verifications)
-      filters.push(sql`NOT EXISTS (
+      sqlFilters.push(sql`NOT EXISTS (
         SELECT 1 FROM ${schema.groupVerifications}
         WHERE ${schema.groupVerifications.groupId} = ${schema.groups.id}
       )`);
     }
+  }
+
+  // Filter by country codes
+  if (countryCodes && countryCodes.length > 0) {
+    sqlFilters.push(sql`EXISTS (
+      SELECT 1 FROM ${schema.groupLocations}
+      WHERE ${schema.groupLocations.groupId} = ${schema.groups.id}
+        AND ${schema.groupLocations.countryCode} IN ${countryCodes}
+    )`);
+  }
+
+  // Filter by styles
+  if (styles && styles.length > 0) {
+    sqlFilters.push(sql`${schema.groups.style} IN ${styles}`);
   }
 
   const results = await db
@@ -79,7 +96,7 @@ export async function searchGroups(options: GroupSearchParams): Promise<{ rows: 
     })
     .from(schema.groups)
     .leftJoin(schema.groupLocations, eq(schema.groups.id, schema.groupLocations.groupId))
-    .where(filters.length ? and(...filters) : undefined)
+    .where(sqlFilters.length ? and(...sqlFilters) : undefined)
     .groupBy(schema.groups.id)
     .limit(pageSize)
     .offset(offset);
@@ -289,4 +306,21 @@ export async function removeGroupAdmin(groupId: string, adminId: string) {
   await db
     .delete(schema.groupAdmins)
     .where(and(eq(schema.groupAdmins.groupId, groupId), eq(schema.groupAdmins.userId, adminId)));
+}
+
+/**
+ * Get distinct country codes from group locations.
+ * Only returns countries that have at least one group.
+ * Results are sorted alphabetically.
+ *
+ * @returns Array of ISO 3166-1 alpha-2 country codes
+ */
+export async function getDistinctCountryCodes(): Promise<string[]> {
+  const results = await db
+    .selectDistinct({ countryCode: schema.groupLocations.countryCode })
+    .from(schema.groupLocations)
+    .where(sql`${schema.groupLocations.countryCode} IS NOT NULL`)
+    .orderBy(schema.groupLocations.countryCode);
+
+  return results.map((r) => r.countryCode).filter(Boolean) as string[];
 }
