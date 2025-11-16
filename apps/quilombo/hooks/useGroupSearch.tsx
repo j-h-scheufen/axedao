@@ -7,12 +7,13 @@ import { useSetAtom, useAtomValue } from 'jotai';
 import { isEqual } from 'lodash';
 
 import { SEARCH_INPUT_DEBOUNCE, PARAM_KEY_GROUP_QUERY, QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
+import type { GroupFilters } from '@/config/validation-schema';
 import { useSearchGroups } from '@/query/group';
 import { filteredLocationsAtom, locationsAtom } from './state/location';
 import type { Group } from '@/types/model';
 
 export interface UseGroupSearchParams {
-  countryCodes?: string[];
+  filters?: GroupFilters;
 }
 
 export interface UseGroupSearchResult {
@@ -26,7 +27,7 @@ export interface UseGroupSearchResult {
 }
 
 const useGroupSearch = (params?: UseGroupSearchParams): UseGroupSearchResult => {
-  const { countryCodes } = params || {};
+  const { filters } = params || {};
 
   const [{ [PARAM_KEY_GROUP_QUERY]: urlSearchTerm }, setQueryStates] = useQueryStates({
     [PARAM_KEY_GROUP_QUERY]: parseAsString.withDefault(''),
@@ -38,9 +39,7 @@ const useGroupSearch = (params?: UseGroupSearchParams): UseGroupSearchResult => 
     searchTerm,
     pageSize: QUERY_DEFAULT_PAGE_SIZE,
     offset: 0,
-    filters: {
-      countryCodes,
-    },
+    filters,
   });
 
   const setFilteredLocations = useSetAtom(filteredLocationsAtom);

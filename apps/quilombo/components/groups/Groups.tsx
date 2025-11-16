@@ -11,25 +11,40 @@ import { filteredLocationsAtom } from '@/hooks/state/location';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 
 import SearchBar from '@/components/SearchBar';
-import FilterButton from '@/components/FilterButton';
 import GroupsGrid from '@/components/groups/GroupsGrid';
 import GroupLocationsMap from '@/components/geocode/GroupLocationsMap';
 import CountryFilter from '@/components/groups/CountryFilter';
 import CountryFilterChip from '@/components/groups/CountryFilterChip';
+import GroupFilters, { type GroupFilterValues } from '@/components/groups/GroupFilters';
 import { PARAM_KEY_GROUP_QUERY } from '@/config/constants';
 
 const Groups = () => {
-  const [{ view, [PARAM_KEY_GROUP_QUERY]: gq, countries }, setQueryStates] = useQueryStates({
-    view: parseAsString.withDefault('list'),
-    [PARAM_KEY_GROUP_QUERY]: parseAsString.withDefault(''),
-    countries: parseAsString.withDefault(''),
-  });
+  const [{ view, [PARAM_KEY_GROUP_QUERY]: gq, countries, styles: stylesParam, verified }, setQueryStates] =
+    useQueryStates({
+      view: parseAsString.withDefault('list'),
+      [PARAM_KEY_GROUP_QUERY]: parseAsString.withDefault(''),
+      countries: parseAsString.withDefault(''),
+      styles: parseAsString.withDefault(''),
+      verified: parseAsString.withDefault(''),
+    });
 
   const [inputValue, setInputValue] = useState(gq || '');
   const selectedCountries = countries ? countries.split(',').filter(Boolean) : [];
 
+  // Parse filter values from URL params
+  const [groupFilters, setGroupFilters] = useState<Partial<GroupFilterValues>>({
+    styles: stylesParam
+      ? (stylesParam.split(',').filter(Boolean) as Array<'angola' | 'regional' | 'contemporânea'>)
+      : undefined,
+    verified: verified === 'true' ? true : verified === 'false' ? false : undefined,
+  });
+
   const { setSearchTerm, groups, totalCount, isLoading, scrollerRef } = useGroupSearchWithInfiniteScroll({
-    countryCodes: selectedCountries.length > 0 ? selectedCountries : undefined,
+    filters: {
+      countryCodes: selectedCountries.length > 0 ? selectedCountries : undefined,
+      verified: groupFilters.verified,
+      styles: groupFilters.styles && groupFilters.styles.length > 0 ? groupFilters.styles : undefined,
+    },
   });
 
   const locations = useAtomValue(filteredLocationsAtom);
@@ -62,14 +77,17 @@ const Groups = () => {
     setQueryStates({ countries: null });
   };
 
+  const handleFiltersChange = (newFilters: Partial<GroupFilterValues>) => {
+    setGroupFilters(newFilters);
+    setQueryStates({
+      styles: newFilters.styles && newFilters.styles.length > 0 ? newFilters.styles.join(',') : null,
+      verified: newFilters.verified !== undefined ? String(newFilters.verified) : null,
+    });
+  };
+
   const handleViewChange = (key: Key) => {
     const viewKey = String(key);
     setQueryStates({ view: viewKey === 'list' ? null : viewKey });
-  };
-
-  const handleFilterClick = () => {
-    // TODO: Implement filter functionality for groups (verification, style, etc.)
-    console.log('Group filter clicked');
   };
 
   return (
@@ -91,7 +109,11 @@ const Groups = () => {
           />
         </div>
         <div className="flex-shrink-0">
-          <FilterButton onPress={handleFilterClick} />
+          <GroupFilters
+            filters={groupFilters}
+            onFiltersChange={handleFiltersChange}
+            isActive={(groupFilters.styles && groupFilters.styles.length > 0) || groupFilters.verified !== undefined}
+          />
         </div>
       </div>
 

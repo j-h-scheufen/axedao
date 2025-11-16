@@ -1,0 +1,124 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { Button, Checkbox, CheckboxGroup, cn } from '@heroui/react';
+import { Filter } from 'lucide-react';
+import { isEqual } from 'lodash';
+
+import { styles } from '@/config/constants';
+import type { GroupFilters as GroupFilterValues } from '@/config/validation-schema';
+import FilterPanel from '@/components/FilterPanel';
+
+export type { GroupFilterValues };
+
+type GroupFiltersProps = {
+  filters: Partial<GroupFilterValues>;
+  onFiltersChange: (filters: Partial<GroupFilterValues>) => void;
+  isActive: boolean; // Whether any filters are selected
+};
+
+const GroupFilters = ({ filters, onFiltersChange, isActive }: GroupFiltersProps) => {
+  const [localFilters, setLocalFilters] = useState<Partial<GroupFilterValues>>(filters);
+
+  // Sync local filters with prop changes
+  useEffect(() => {
+    setLocalFilters(filters);
+  }, [filters]);
+
+  const hasChanges = !isEqual(localFilters, filters);
+
+  const handleApply = () => {
+    onFiltersChange(localFilters);
+  };
+
+  const handleClear = () => {
+    setLocalFilters({ styles: [], verified: undefined });
+  };
+
+  const handleStylesChange = (selectedStyles: string[]) => {
+    setLocalFilters((prev) => ({
+      ...prev,
+      styles: selectedStyles as Array<'angola' | 'regional' | 'contemporânea'>,
+    }));
+  };
+
+  const handleVerifiedChange = (checked: boolean) => {
+    setLocalFilters((prev) => ({
+      ...prev,
+      verified: prev.verified === undefined ? checked : prev.verified === checked ? undefined : checked,
+    }));
+  };
+
+  // Trigger button render function
+  const trigger = ({ onPress }: { onPress?: () => void }) => (
+    <Button
+      isIconOnly
+      variant="bordered"
+      size="sm"
+      className={cn('flex-1 sm:flex-none', isActive && 'border-primary')}
+      aria-label="Filter groups"
+      {...(onPress ? { onPress } : {})}
+    >
+      <Filter className={cn('h-4 w-4', isActive ? 'text-primary' : '')} />
+    </Button>
+  );
+
+  // Footer with Clear and Apply buttons
+  const footer = (
+    <div className="flex justify-between gap-2">
+      <Button variant="bordered" size="sm" onPress={handleClear}>
+        Clear
+      </Button>
+      <Button color="primary" size="sm" isDisabled={!hasChanges} onPress={handleApply}>
+        Apply
+      </Button>
+    </div>
+  );
+
+  // Prepare checkbox values (filtering out undefined) and cast to string[]
+  const selectedStyles = (localFilters.styles || []).filter((s) => s !== undefined) as string[];
+
+  // Filter content
+  const content = (
+    <div className="flex flex-col gap-4">
+      {/* Verification Status */}
+      <div>
+        <p className="text-sm font-semibold mb-2">Verification Status</p>
+        <div className="flex flex-col gap-2">
+          <Checkbox
+            isSelected={localFilters.verified === true}
+            onValueChange={(checked) => handleVerifiedChange(checked)}
+          >
+            <span className="text-sm">Verified only</span>
+          </Checkbox>
+          <Checkbox
+            isSelected={localFilters.verified === false}
+            onValueChange={(checked) => handleVerifiedChange(!checked)}
+          >
+            <span className="text-sm">Unverified only</span>
+          </Checkbox>
+        </div>
+      </div>
+
+      {/* Styles */}
+      <div>
+        <p className="text-sm font-semibold mb-2">Style</p>
+        <CheckboxGroup value={selectedStyles} onValueChange={handleStylesChange}>
+          {styles.map((style) => (
+            <Checkbox key={style} value={style}>
+              <span className="text-sm capitalize">{style}</span>
+            </Checkbox>
+          ))}
+        </CheckboxGroup>
+      </div>
+    </div>
+  );
+
+  return (
+    <FilterPanel trigger={trigger} title="Filter Groups" footer={footer}>
+      {content}
+    </FilterPanel>
+  );
+};
+
+export default GroupFilters;
