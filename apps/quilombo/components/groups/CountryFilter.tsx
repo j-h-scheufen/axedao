@@ -3,16 +3,17 @@
 import { useState, useEffect } from 'react';
 import {
   Button,
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerBody,
+  DrawerFooter,
   Popover,
   PopoverTrigger,
   PopoverContent,
   Spinner,
   cn,
+  useDisclosure,
 } from '@heroui/react';
 import { Globe, Search } from 'lucide-react';
 import { isEqual } from 'lodash';
@@ -28,7 +29,9 @@ type CountryFilterProps = {
 
 const CountryFilter = ({ selectedCountries, onCountriesChange, isActive }: CountryFilterProps) => {
   const [localSelection, setLocalSelection] = useState<string[]>(selectedCountries);
-  const [isOpen, setIsOpen] = useState(false);
+  const [desktopOpen, setDesktopOpen] = useState(false);
+  const disclosure = useDisclosure();
+  const { isOpen, onOpen, onOpenChange } = disclosure;
   const { data, isLoading } = useFetchAvailableCountries();
 
   const countryCodes = data?.countryCodes || [];
@@ -42,7 +45,7 @@ const CountryFilter = ({ selectedCountries, onCountriesChange, isActive }: Count
 
   const handleApply = () => {
     onCountriesChange(localSelection);
-    setIsOpen(false);
+    onOpenChange();
   };
 
   const handleClear = () => {
@@ -53,26 +56,37 @@ const CountryFilter = ({ selectedCountries, onCountriesChange, isActive }: Count
     setLocalSelection((prev) => (prev.includes(code) ? prev.filter((c) => c !== code) : [...prev, code]));
   };
 
-  // Trigger button (used in SearchBar startContent)
-  const trigger = (
+  // Icon content (shared)
+  const iconContent = (
+    <div className="relative w-full h-full flex items-center justify-center">
+      <Globe className={cn('h-4 w-4 transition-colors', isActive ? 'text-primary' : 'text-default-400')} />
+      <Search className="h-2 w-2 absolute bottom-0 right-0 text-default-600" />
+    </div>
+  );
+
+  // Mobile trigger (needs onClick to call onOpen)
+  const mobileTrigger = (
     <button
       type="button"
-      onClick={() => setIsOpen(true)}
-      className="cursor-pointer focus:outline-none"
+      onClick={(e) => {
+        e.stopPropagation();
+        if (countryCodes.length > 0) {
+          onOpen();
+        }
+      }}
+      className="inline-flex items-center justify-center cursor-pointer focus:outline-none h-4 w-4"
       aria-label="Filter by country"
+      disabled={countryCodes.length === 0}
     >
-      <div className="relative inline-flex items-center justify-center w-5 h-5">
-        <Globe className={cn('h-5 w-5 transition-colors', isActive ? 'text-primary' : 'text-default-400')} />
-        <Search className="h-2.5 w-2.5 absolute bottom-0 right-0 text-default-600" />
-      </div>
+      {iconContent}
     </button>
   );
 
-  // Flag grid (shared between desktop/mobile)
-  const flagGrid = (
-    <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-3 p-3 sm:p-4">
+  // Flag grid for mobile drawer
+  const mobileGrid = (
+    <div className="grid grid-cols-3 gap-3 p-4">
       {isLoading ? (
-        <div className="col-span-3 sm:col-span-6 flex justify-center py-8">
+        <div className="col-span-3 flex justify-center py-8">
           <Spinner />
         </div>
       ) : (
@@ -89,9 +103,50 @@ const CountryFilter = ({ selectedCountries, onCountriesChange, isActive }: Count
     </div>
   );
 
-  // Footer buttons (shared)
-  const footer = (
-    <div className="flex justify-between gap-2 p-3 sm:p-4 border-t border-divider">
+  // Flag grid for desktop popover (same spacing as mobile)
+  const desktopGrid = (
+    <div className="grid grid-cols-6 gap-3 p-4">
+      {isLoading ? (
+        <div className="col-span-6 flex justify-center py-8">
+          <Spinner />
+        </div>
+      ) : (
+        countryCodes.map((code) => (
+          <CountryFlagButton
+            key={code}
+            countryCode={code}
+            isSelected={localSelection.includes(code)}
+            onToggle={handleToggle}
+            size="md"
+          />
+        ))
+      )}
+    </div>
+  );
+
+  // Footer buttons for desktop popover
+  const desktopFooter = (
+    <div className="flex justify-between gap-2">
+      <Button variant="bordered" size="sm" onPress={handleClear}>
+        Clear
+      </Button>
+      <Button
+        color="primary"
+        size="sm"
+        isDisabled={!hasChanges}
+        onPress={() => {
+          onCountriesChange(localSelection);
+          setDesktopOpen(false);
+        }}
+      >
+        Apply
+      </Button>
+    </div>
+  );
+
+  // Footer buttons for mobile drawer
+  const mobileFooter = (
+    <div className="flex justify-between gap-2">
       <Button variant="bordered" size="sm" onPress={handleClear}>
         Clear
       </Button>
@@ -107,28 +162,36 @@ const CountryFilter = ({ selectedCountries, onCountriesChange, isActive }: Count
     <>
       {/* Desktop */}
       <div className="hidden sm:block">
-        <Popover placement="bottom-start" isOpen={isOpen} onOpenChange={setIsOpen}>
-          <PopoverTrigger>{trigger}</PopoverTrigger>
-          <PopoverContent className="w-[480px] p-0">
-            <div className="p-4 pb-0">
+        <Popover placement="bottom-start" isOpen={desktopOpen} onOpenChange={setDesktopOpen}>
+          <PopoverTrigger>
+            <Button isIconOnly variant="light" size="sm" className="min-w-0 w-4 h-4 p-0" aria-label="Filter by country">
+              {iconContent}
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-[560px] p-0">
+            <div className="px-4 pt-4 pb-2">
               <h3 className="text-lg font-semibold">Select Countries</h3>
             </div>
-            {flagGrid}
-            {footer}
+            {desktopGrid}
+            <div className="px-4 pb-4">{desktopFooter}</div>
           </PopoverContent>
         </Popover>
       </div>
 
       {/* Mobile */}
       <div className="sm:hidden">
-        {trigger}
-        <Modal isOpen={isOpen} onOpenChange={setIsOpen} placement="bottom" className="rounded-t-2xl">
-          <ModalContent>
-            <ModalHeader>Select Countries</ModalHeader>
-            <ModalBody className="max-h-[60vh] overflow-y-auto p-0">{flagGrid}</ModalBody>
-            <ModalFooter className="p-0">{footer}</ModalFooter>
-          </ModalContent>
-        </Modal>
+        {mobileTrigger}
+        <Drawer isOpen={isOpen} onOpenChange={onOpenChange} placement="bottom">
+          <DrawerContent>
+            {() => (
+              <>
+                <DrawerHeader>Select Countries</DrawerHeader>
+                <DrawerBody className="overflow-y-auto">{mobileGrid}</DrawerBody>
+                <DrawerFooter>{mobileFooter}</DrawerFooter>
+              </>
+            )}
+          </DrawerContent>
+        </Drawer>
       </div>
     </>
   );

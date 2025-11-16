@@ -53,9 +53,9 @@ const SearchBar = ({
           className="w-full"
           placeholder={placeholder}
           startContent={
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1.5 h-full">
               {leftContent}
-              <Search className="h-4 w-4 text-default-400" />
+              <Search className="h-4 w-4 text-default-400 flex-shrink-0" />
             </div>
           }
           labelPlacement="outside"

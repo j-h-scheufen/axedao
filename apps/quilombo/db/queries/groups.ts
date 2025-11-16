@@ -307,20 +307,3 @@ export async function removeGroupAdmin(groupId: string, adminId: string) {
     .delete(schema.groupAdmins)
     .where(and(eq(schema.groupAdmins.groupId, groupId), eq(schema.groupAdmins.userId, adminId)));
 }
-
-/**
- * Get distinct country codes from group locations.
- * Only returns countries that have at least one group.
- * Results are sorted alphabetically.
- *
- * @returns Array of ISO 3166-1 alpha-2 country codes
- */
-export async function getDistinctCountryCodes(): Promise<string[]> {
-  const results = await db
-    .selectDistinct({ countryCode: schema.groupLocations.countryCode })
-    .from(schema.groupLocations)
-    .where(sql`${schema.groupLocations.countryCode} IS NOT NULL`)
-    .orderBy(schema.groupLocations.countryCode);
-
-  return results.map((r) => r.countryCode).filter(Boolean) as string[];
-}

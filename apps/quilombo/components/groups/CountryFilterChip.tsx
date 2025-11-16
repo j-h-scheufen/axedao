@@ -35,17 +35,17 @@ const CountryFilterChip = ({ selectedCountries, onClear, onChipClick }: CountryF
       variant="flat"
       color="primary"
       size="sm"
-      className="gap-1.5 cursor-pointer"
+      className="cursor-pointer pr-1.5"
       onClick={onChipClick}
     >
-      <span className="font-medium text-xs">Countries:</span>
-      <span className="flex items-center gap-1">
+      <span className="flex items-center gap-1.5 whitespace-nowrap">
+        <span className="font-medium text-xs">Countries:</span>
         {visible.map((flag) => (
           <span key={flag} className="text-base leading-none" role="img">
             {flag}
           </span>
         ))}
-        {remaining > 0 && <span className="text-xs font-semibold text-primary">+{remaining}</span>}
+        {remaining > 0 && <span className="text-xs font-semibold">+{remaining}</span>}
       </span>
     </Chip>
   );
