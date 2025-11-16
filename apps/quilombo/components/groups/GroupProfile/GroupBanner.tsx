@@ -16,7 +16,7 @@ const Banner = (props: Omit<ImageProps, 'src' | 'alt'>) => {
         <Image
           src={bannerUrl}
           priority
-          className="h-full w-full object-cover"
+          className="h-full w-full object-contain sm:object-cover"
           width={800}
           height={200}
           alt="Group banner"

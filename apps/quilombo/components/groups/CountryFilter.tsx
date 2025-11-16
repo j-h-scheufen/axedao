@@ -15,7 +15,7 @@ import {
   cn,
   useDisclosure,
 } from '@heroui/react';
-import { Globe, Search } from 'lucide-react';
+import { Globe } from 'lucide-react';
 import { isEqual } from 'lodash';
 
 import { useFetchAvailableCountries } from '@/query/group';
@@ -56,30 +56,17 @@ const CountryFilter = ({ selectedCountries, onCountriesChange, isActive }: Count
     setLocalSelection((prev) => (prev.includes(code) ? prev.filter((c) => c !== code) : [...prev, code]));
   };
 
-  // Icon content (shared)
-  const iconContent = (
-    <div className="relative w-full h-full flex items-center justify-center">
-      <Globe className={cn('h-4 w-4 transition-colors', isActive ? 'text-primary' : 'text-default-400')} />
-      <Search className="h-2 w-2 absolute bottom-0 right-0 text-default-600" />
-    </div>
-  );
-
-  // Mobile trigger (needs onClick to call onOpen)
-  const mobileTrigger = (
-    <button
-      type="button"
-      onClick={(e) => {
-        e.stopPropagation();
-        if (countryCodes.length > 0) {
-          onOpen();
-        }
-      }}
-      className="inline-flex items-center justify-center cursor-pointer focus:outline-none h-4 w-4"
+  // Trigger button (shared between desktop and mobile)
+  const triggerButton = (
+    <Button
+      isIconOnly
+      variant="bordered"
+      size="sm"
+      className={cn('flex-1 sm:flex-none', isActive && 'border-primary')}
       aria-label="Filter by country"
-      disabled={countryCodes.length === 0}
     >
-      {iconContent}
-    </button>
+      <Globe className={cn('h-4 w-4', isActive ? 'text-primary' : '')} />
+    </Button>
   );
 
   // Flag grid for mobile drawer
@@ -163,11 +150,7 @@ const CountryFilter = ({ selectedCountries, onCountriesChange, isActive }: Count
       {/* Desktop */}
       <div className="hidden sm:block">
         <Popover placement="bottom-start" isOpen={desktopOpen} onOpenChange={setDesktopOpen}>
-          <PopoverTrigger>
-            <Button isIconOnly variant="light" size="sm" className="min-w-0 w-4 h-4 p-0" aria-label="Filter by country">
-              {iconContent}
-            </Button>
-          </PopoverTrigger>
+          <PopoverTrigger>{triggerButton}</PopoverTrigger>
           <PopoverContent className="w-[560px] p-0">
             <div className="px-4 pt-4 pb-2">
               <h3 className="text-lg font-semibold">Select Countries</h3>
@@ -180,19 +163,28 @@ const CountryFilter = ({ selectedCountries, onCountriesChange, isActive }: Count
 
       {/* Mobile */}
       <div className="sm:hidden">
-        {mobileTrigger}
-        <Drawer isOpen={isOpen} onOpenChange={onOpenChange} placement="bottom">
-          <DrawerContent>
-            {() => (
-              <>
-                <DrawerHeader>Select Countries</DrawerHeader>
-                <DrawerBody className="overflow-y-auto">{mobileGrid}</DrawerBody>
-                <DrawerFooter>{mobileFooter}</DrawerFooter>
-              </>
-            )}
-          </DrawerContent>
-        </Drawer>
+        <Button
+          isIconOnly
+          variant="bordered"
+          size="sm"
+          className={cn('flex-1 sm:flex-none', isActive && 'border-primary')}
+          aria-label="Filter by country"
+          onPress={onOpen}
+        >
+          <Globe className={cn('h-4 w-4', isActive ? 'text-primary' : '')} />
+        </Button>
       </div>
+      <Drawer isOpen={isOpen} onOpenChange={onOpenChange} placement="bottom">
+        <DrawerContent>
+          {() => (
+            <>
+              <DrawerHeader>Select Countries</DrawerHeader>
+              <DrawerBody className="overflow-y-auto">{mobileGrid}</DrawerBody>
+              <DrawerFooter>{mobileFooter}</DrawerFooter>
+            </>
+          )}
+        </DrawerContent>
+      </Drawer>
     </>
   );
 };

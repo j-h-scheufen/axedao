@@ -74,20 +74,26 @@ const Groups = () => {
 
   return (
     <div className="flex flex-col gap-2 sm:gap-4 mt-1 sm:mt-3">
-      <SearchBar
-        placeholder="Search by group name"
-        searchTerm={inputValue}
-        onSearchChange={handleSearchChange}
-        onClear={handleClear}
-        leftContent={
+      <div className="flex gap-2 items-center">
+        <div className="flex-shrink-0">
           <CountryFilter
             selectedCountries={selectedCountries}
             onCountriesChange={handleCountriesChange}
             isActive={selectedCountries.length > 0}
           />
-        }
-        filterContent={<FilterButton onPress={handleFilterClick} />}
-      />
+        </div>
+        <div className="flex-1 min-w-0">
+          <SearchBar
+            placeholder="Search by group name"
+            searchTerm={inputValue}
+            onSearchChange={handleSearchChange}
+            onClear={handleClear}
+          />
+        </div>
+        <div className="flex-shrink-0">
+          <FilterButton onPress={handleFilterClick} />
+        </div>
+      </div>
 
       {/* Active Filter Chip */}
       {selectedCountries.length > 0 && (
