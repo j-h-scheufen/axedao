@@ -9,7 +9,7 @@ import { Mail } from 'lucide-react';
 import { PATHS } from '@/config/constants';
 import { forgotPasswordSchema, type ForgotPasswordForm } from '@/config/validation-schema';
 import ErrorText from '@/components/ErrorText';
-import FormikInput from '@/components/forms/FormikInput';
+import FieldInput from '@/components/forms/FieldInput';
 
 const ForgotPasswordPage = () => {
   const router = useRouter();
@@ -81,7 +81,7 @@ const ForgotPasswordPage = () => {
               placeholder="your@email.com"
               isRequired
               autoFocus
-              as={FormikInput}
+              as={FieldInput}
             />
             <Button type="submit" color="primary" size="lg" isLoading={isSubmitting}>
               Send Reset Instructions

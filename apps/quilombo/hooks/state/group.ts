@@ -19,7 +19,12 @@ export const groupAtom = atomWithQuery<Group | undefined>((get) => fetchGroupOpt
 
 export const groupMembersAtom = atomWithQuery<User[]>((get) => fetchGroupMembersOptions(get(triggerGroupIdAtom)));
 
-export const groupAdminIdsAtom = atomWithQuery<string[]>((get) => fetchGroupAdminsOptions(get(triggerGroupIdAtom)));
+export const groupAdminIdsAtom = atomWithQuery<string[]>((get) => {
+  const groupId = get(triggerGroupIdAtom);
+  // Add dependency on adminCount so atom refetches when admin list changes
+  const _adminCount = get(groupAtom).data?.adminCount;
+  return fetchGroupAdminsOptions(groupId);
+});
 
 export const groupIdAtom = atom<string | undefined>((get) => get(groupAtom).data?.id);
 
@@ -35,7 +40,19 @@ export const groupLogoUrlAtom = atom<string | undefined>((get) => getImageUrl(ge
 
 export const groupBannerAtom = atom<string | undefined>((get) => get(groupAtom).data?.banner ?? undefined);
 
-export const groupBannerUrlAtom = atom<string | undefined>((get) => getImageUrl(get(groupAtom).data?.banner));
+export const groupBannerUrlAtom = atom<string | undefined>((get) => {
+  const group = get(groupAtom).data;
+  if (!group) return undefined;
+
+  // If group has a custom banner, use it
+  if (group.banner) return getImageUrl(group.banner);
+
+  // If group is not actively managed (no admins), use default banner
+  if (group.adminCount === 0) return '/images/default-group-banner.webp';
+
+  // Otherwise, no banner
+  return undefined;
+});
 
 // Atoms that properly handle loading states
 export const isCurrentUserGroupAdminAtom = atom<boolean | null>((get) => {

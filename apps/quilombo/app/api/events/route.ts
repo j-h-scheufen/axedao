@@ -1,69 +1,15 @@
-import { isNil, omitBy } from 'lodash';
 import { getServerSession } from 'next-auth';
 import { type NextRequest, NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
 import type { Feature, Geometry } from 'geojson';
 
-import { QUERY_DEFAULT_PAGE_SIZE, FILE_PREFIXES } from '@/config/constants';
+import { FILE_PREFIXES } from '@/config/constants';
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { createEventFormSchema, type CreateEventForm, type EventType } from '@/config/validation-schema';
-import { fetchUser, insertEvent, searchEvents } from '@/db';
+import { fetchUser, insertEvent } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import { pinToGroup } from '@/utils/pinata';
 import { createImageBuffer } from '@/utils/images';
-
-/**
- * Route handler for infinite (paginated) event search.
- * @param request - The request object
- * @param URLparams - pageSize, offset, searchTerm, type, countryCode, groupId, userId, startDate, endDate
- * @returns { data: Event[], nextOffset: number }
- */
-export async function GET(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams;
-  const {
-    pageSize = QUERY_DEFAULT_PAGE_SIZE.toString(),
-    offset = '0',
-    searchTerm,
-    type,
-    countryCode,
-    groupId,
-    userId,
-    startDate,
-    endDate,
-    showActiveOnly = 'false',
-  } = Object.fromEntries(searchParams.entries());
-
-  const pageSizeNum = Number(pageSize) || QUERY_DEFAULT_PAGE_SIZE;
-  const offsetNum = Number(offset) || 0;
-
-  let nextOffset = null;
-
-  const searchOptions = {
-    pageSize: pageSizeNum,
-    offset: offsetNum,
-    ...omitBy({ searchTerm, type, countryCode, groupId, userId }, isNil),
-    ...(startDate && { startDate: new Date(startDate) }),
-    ...(endDate && { endDate: new Date(endDate) }),
-    showActiveOnly: showActiveOnly === 'true',
-  };
-
-  const searchResults = await searchEvents(searchOptions);
-
-  // Calculate nextOffset based on totalCount and offset
-  if (searchResults.totalCount > offsetNum + pageSizeNum) {
-    nextOffset = offsetNum + pageSizeNum;
-  } else if (searchResults.totalCount > offsetNum) {
-    nextOffset = searchResults.totalCount;
-  } else {
-    nextOffset = null;
-  }
-
-  // Convert database events to client events with proper Date objects
-  const clientEvents = searchResults.rows;
-
-  const result = { data: clientEvents, totalCount: searchResults.totalCount, nextOffset };
-  return Response.json(result);
-}
 
 /**
  * Creates a new event with the logged-in user as the creator.

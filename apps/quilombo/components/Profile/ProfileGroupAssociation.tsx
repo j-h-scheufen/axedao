@@ -3,9 +3,9 @@
 import { Spinner } from '@heroui/react';
 import { useAtomValue } from 'jotai';
 
-import GroupCard from '@/components/GroupCard';
+import GroupCard from '@/components/groups/GroupCard';
 import { currentUserAtom, currentUserGroupAtom } from '@/hooks/state/currentUser';
-import CreateGroupAssociation from '../CreateGroupAssociation';
+import CreateGroupAssociation from '@/components/groups/CreateGroupAssociation';
 
 const ProfileGroupAssociation = () => {
   const currentUser = useAtomValue(currentUserAtom);

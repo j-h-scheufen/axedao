@@ -32,6 +32,10 @@ type ConfigType = {
   quilomboSignalGroup: string;
   mailjetApiKey: string;
   mailjetApiSecret: string;
+  smtpHost: string;
+  smtpPort: number;
+  googleClientId: string;
+  googleClientSecret: string;
 };
 
 const envMode: EnvType = process.env.NEXT_PUBLIC_APP_ENV?.toLowerCase() as EnvType;
@@ -111,8 +115,18 @@ const ENV: ConfigType = {
   axeDaoSiteUrl: required(process.env.NEXT_PUBLIC_DAO_SITE_URL, 'NEXT_PUBLIC_DAO_SITE_URL'),
   axeDaoEmail: required(process.env.NEXT_PUBLIC_DAO_EMAIL, 'NEXT_PUBLIC_DAO_EMAIL'),
   quilomboSignalGroup: required(process.env.NEXT_PUBLIC_SIGNAL_GROUP, 'NEXT_PUBLIC_SIGNAL_GROUP'),
-  mailjetApiKey: isServer ? required(process.env.MAILJET_API_KEY, 'MAILJET_API_KEY') : '',
-  mailjetApiSecret: isServer ? required(process.env.MAILJET_API_SECRET, 'MAILJET_API_SECRET') : '',
+  mailjetApiKey:
+    isServer && envMode !== 'local' && envMode !== 'development'
+      ? required(process.env.MAILJET_API_KEY, 'MAILJET_API_KEY')
+      : '',
+  mailjetApiSecret:
+    isServer && envMode !== 'local' && envMode !== 'development'
+      ? required(process.env.MAILJET_API_SECRET, 'MAILJET_API_SECRET')
+      : '',
+  smtpHost: isServer && envMode === 'local' ? required(process.env.SMTP_HOST, 'SMTP_HOST') : 'localhost',
+  smtpPort: isServer && envMode === 'local' ? Number(required(process.env.SMTP_PORT, 'SMTP_PORT')) : 2500,
+  googleClientId: isServer ? required(process.env.GOOGLE_CLIENT_ID, 'GOOGLE_CLIENT_ID') : '',
+  googleClientSecret: isServer ? required(process.env.GOOGLE_CLIENT_SECRET, 'GOOGLE_CLIENT_SECRET') : '',
 };
 
 function required(value: string | undefined, name: string): string {

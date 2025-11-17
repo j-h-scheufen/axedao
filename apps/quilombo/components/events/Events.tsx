@@ -9,25 +9,50 @@ import type { Key } from 'react';
 import useEventSearchWithInfiniteScroll from '@/hooks/useEventSearchWithInfiniteScroll';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { PARAM_KEY_EVENT_QUERY } from '@/config/constants';
-import { useCreateEventMutation, useFetchEventLocations } from '@/query/event';
+import { useCreateEventMutation, useFetchEventLocations, useFetchAvailableEventCountries } from '@/query/event';
+import type { CreateEventForm } from '@/config/validation-schema';
+
+import { CountryFilter, FilterChipsContainer } from '@/components/filters';
 
 import SearchBar from '@/components/SearchBar';
-import FilterButton from '@/components/FilterButton';
+import CountryFilterChip from '@/components/groups/CountryFilterChip';
+import EventTypesFilterChip from './EventTypesFilterChip';
+import EventFilters, { type EventFilterValues } from './EventFilters';
 import CreateEventModal from './CreateEventModal';
 import EventsGrid from './EventsGrid';
 import EventsMap from './EventsMap';
 
 const Events = () => {
-  const [{ view, [PARAM_KEY_EVENT_QUERY]: eq }, setQueryStates] = useQueryStates({
-    view: parseAsString.withDefault('list'),
-    [PARAM_KEY_EVENT_QUERY]: parseAsString.withDefault(''),
-  });
+  const [{ view, [PARAM_KEY_EVENT_QUERY]: eq, countries, eventTypes: eventTypesParam }, setQueryStates] =
+    useQueryStates({
+      view: parseAsString.withDefault('list'),
+      [PARAM_KEY_EVENT_QUERY]: parseAsString.withDefault(''),
+      countries: parseAsString.withDefault(''),
+      eventTypes: parseAsString.withDefault(''),
+    });
 
   const [inputValue, setInputValue] = useState(eq || '');
-  const { setSearchTerm, events, totalCount, isLoading, scrollerRef } = useEventSearchWithInfiniteScroll();
+  const selectedCountries = countries ? countries.split(',').filter(Boolean) : [];
+
+  // Parse filter values from URL params
+  const [eventFilters, setEventFilters] = useState<Partial<EventFilterValues>>({
+    eventTypes: eventTypesParam
+      ? (eventTypesParam.split(',').filter(Boolean) as Array<'general' | 'workshop' | 'batizado' | 'public_roda'>)
+      : undefined,
+  });
+
+  const { setSearchTerm, events, totalCount, isLoading, scrollerRef } = useEventSearchWithInfiniteScroll({
+    filters: {
+      countryCodes: selectedCountries.length > 0 ? selectedCountries : undefined,
+      eventTypes: eventFilters.eventTypes && eventFilters.eventTypes.length > 0 ? eventFilters.eventTypes : undefined,
+    },
+  });
   const [isEventModalOpen, setIsEventModalOpen] = useState(false);
 
   const createEventMutation = useCreateEventMutation();
+
+  // Fetch available countries for the filter
+  const { data: countriesData, isLoading: isLoadingCountries } = useFetchAvailableEventCountries();
 
   // Fetch event locations for map view with same search parameters
   const { data: eventLocations, isLoading: isLoadingLocations } = useFetchEventLocations({
@@ -58,16 +83,33 @@ const Events = () => {
     setQueryStates({ view: viewKey === 'list' ? null : viewKey });
   };
 
-  const handleFilterClick = () => {
-    // TODO: Implement filter functionality
-    console.log('Filter clicked');
+  const handleCountriesChange = (newCountries: string[]) => {
+    setQueryStates({
+      countries: newCountries.length > 0 ? newCountries.join(',') : null,
+    });
+  };
+
+  const handleClearCountries = () => {
+    setQueryStates({ countries: null });
+  };
+
+  const handleFiltersChange = (newFilters: Partial<EventFilterValues>) => {
+    setEventFilters(newFilters);
+    setQueryStates({
+      eventTypes: newFilters.eventTypes && newFilters.eventTypes.length > 0 ? newFilters.eventTypes.join(',') : null,
+    });
+  };
+
+  const handleClearEventTypes = () => {
+    const newFilters = { ...eventFilters, eventTypes: undefined };
+    handleFiltersChange(newFilters);
   };
 
   const handleNewEventClick = () => {
     setIsEventModalOpen(true);
   };
 
-  const handleEventSubmit = async (data: any) => {
+  const handleEventSubmit = async (data: CreateEventForm | FormData) => {
     try {
       await createEventMutation.mutateAsync(data);
       setIsEventModalOpen(false);
@@ -100,14 +142,46 @@ const Events = () => {
 
   return (
     <div className="flex flex-col gap-2 sm:gap-4 mt-1 sm:mt-3">
-      <SearchBar
-        placeholder="Search by event name"
-        searchTerm={inputValue}
-        onSearchChange={handleSearchChange}
-        onClear={handleClear}
-        filterContent={<FilterButton onPress={handleFilterClick} />}
-        rightContent={newEventButton}
-      />
+      <div className="flex gap-2 items-center">
+        <div className="flex-shrink-0">
+          <CountryFilter
+            selectedCountries={selectedCountries}
+            onCountriesChange={handleCountriesChange}
+            isActive={selectedCountries.length > 0}
+            countryCodes={countriesData?.countryCodes || []}
+            isLoading={isLoadingCountries}
+          />
+        </div>
+        <div className="flex-1 min-w-0">
+          <SearchBar
+            placeholder="Search by event name"
+            searchTerm={inputValue}
+            onSearchChange={handleSearchChange}
+            onClear={handleClear}
+            rightContent={newEventButton}
+          />
+        </div>
+        <div className="flex-shrink-0">
+          <EventFilters
+            filters={eventFilters}
+            onFiltersChange={handleFiltersChange}
+            isActive={!!(eventFilters.eventTypes && eventFilters.eventTypes.length > 0)}
+          />
+        </div>
+      </div>
+
+      {/* Active Filter Chips */}
+      <FilterChipsContainer>
+        {selectedCountries.length > 0 && (
+          <CountryFilterChip selectedCountries={selectedCountries} onClear={handleClearCountries} />
+        )}
+        {eventFilters.eventTypes && eventFilters.eventTypes.length > 0 && (
+          <EventTypesFilterChip
+            selectedEventTypes={eventFilters.eventTypes.filter((t): t is NonNullable<typeof t> => t !== undefined)}
+            onClear={handleClearEventTypes}
+          />
+        )}
+      </FilterChipsContainer>
 
       <Tabs
         aria-label="List / Map View"

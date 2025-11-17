@@ -113,52 +113,65 @@ cd apps/quilombo
 pnpm install
 ```
 
-### Database Setup
+### Local Development Setup
 
-#### Option 1: Docker PostgreSQL
+**Recommended**: Use Docker Compose for a complete local development environment with PostgreSQL and email testing.
 
 ```bash
-# Pull and run PostgreSQL with PostGIS
-docker pull postgres
-docker run --name drizzle-postgres \
-  -e POSTGRES_PASSWORD=mypassword \
-  -d -p 5432:5432 \
-  postgres
+# 1. Configure environment for local development
+# Edit .env.local:
+NEXT_PUBLIC_APP_ENV=development
+DATABASE_URL=postgres://postgres:mypassword@localhost:5433/postgres
+
+# 2. Start PostgreSQL + Inbucket containers
+pnpm db:local:up
+
+# 3. Run database migrations
+pnpm db:migrate
+
+# 4. (Optional) Seed test data
+pnpm db:local:seed
+
+# 5. Start development server
+pnpm dev
 ```
 
-#### Option 2: Local PostgreSQL
+**Access local services:**
+- App: http://localhost:8080
+- Inbucket (email viewer): http://localhost:9000
+- PostgreSQL: localhost:5433
 
-Install PostgreSQL 14+ with PostGIS extension on your system.
+See [`docs/LOCAL_DATABASE.md`](./docs/LOCAL_DATABASE.md) for detailed database documentation.
 
-#### Database Configuration
+#### Local Email Testing
 
-1. Set the `DATABASE_URL` environment variable:
-   ```
-   DATABASE_URL=postgres://postgres:mypassword@localhost:5432/postgres?options=-csearch_path%3D%24user,public,extensions,gis
-   ```
+When `NEXT_PUBLIC_APP_ENV=development`, all emails are sent to the local Inbucket SMTP server instead of Mailjet:
 
-2. Configure the database for PostGIS (run in PostgreSQL):
-   ```sql
-   -- Add PostGIS extension to 'gis' schema
-   CREATE SCHEMA IF NOT EXISTS gis;
-   CREATE EXTENSION IF NOT EXISTS postgis SCHEMA gis;
+- **View emails**: http://localhost:9000
+- **Test workflows**: Signup, password reset, invitations all work normally
+- **No real emails sent**: Safe to test with any email address
+- **Console logging**: Verification/reset URLs are logged for quick access
 
-   -- Update user role search path
-   ALTER ROLE postgres SET search_path TO "$user", public, extensions, gis;
-   ```
+**Common email workflows to test:**
+- Register new account → verification email with link
+- Use "Forgot password" → password reset email
+- Send invites from `/invites` page → invitation emails
+- Verify email after signup → welcome email
 
-3. Run migrations:
-   ```bash
-   pnpm db:migrate
-   ```
+#### Manual Database Setup (Alternative)
+
+If you prefer not to use Docker, see [`docs/LOCAL_DATABASE.md`](./docs/LOCAL_DATABASE.md) for manual PostgreSQL setup instructions.
 
 ### Environment Variables
 
 Create a `.env.local` file (never commit this):
 
 ```env
+# Environment Mode (development uses local SMTP, production uses Mailjet)
+NEXT_PUBLIC_APP_ENV=development
+
 # Database
-DATABASE_URL=postgres://postgres:mypassword@localhost:5432/postgres?options=-csearch_path%3D%24user,public,extensions,gis
+DATABASE_URL=postgres://postgres:mypassword@localhost:5433/postgres
 
 # NextAuth
 NEXTAUTH_URL=http://localhost:8080
@@ -168,13 +181,16 @@ NEXTAUTH_SECRET=your-secret-here
 GOOGLE_CLIENT_ID=your-google-client-id
 GOOGLE_CLIENT_SECRET=your-google-client-secret
 
-# Email (Mailjet for production)
-MAILJET_API_KEY=your-mailjet-api-key
-MAILJET_API_SECRET=your-mailjet-api-secret
+# Email - Production only (not needed for local development)
+# MAILJET_API_KEY=your-mailjet-api-key
+# MAILJET_API_SECRET=your-mailjet-api-secret
 
-# Environment Configuration
-NEXT_PUBLIC_CHAIN_ENV=localhost
-NEXT_PUBLIC_APP_ENV=development
+# SMTP - Local development (optional, defaults shown)
+# SMTP_HOST=localhost
+# SMTP_PORT=2500
+
+# Web3 Configuration
+NEXT_PUBLIC_CHAIN_ENV=development
 NEXT_PUBLIC_WALLET_ENV=development
 
 # RPC URLs
@@ -313,44 +329,93 @@ For detailed architecture documentation, see [`.claude/CLAUDE.md`](./.claude/CLA
 
 ## API Routes
 
+### Authentication
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| **Authentication** |
 | POST | `/api/auth/signup` | Create new account |
 | POST | `/api/auth/verify-email` | Verify email address |
+| POST | `/api/auth/resend-verification` | Resend verification email |
 | POST | `/api/auth/forgot-password` | Request password reset |
-| POST | `/api/auth/reset-password` | Reset password |
-| POST | `/api/auth/change-password` | Change password |
-| GET | `/api/auth/methods` | Get auth methods for user |
-| POST | `/api/auth/link-wallet` | Link wallet to account |
-| POST | `/api/auth/remove-method` | Remove auth method |
-| GET | `/api/auth/oauth-link` | Get pending OAuth link data |
-| POST | `/api/auth/oauth-link` | Confirm OAuth account linking |
-| DELETE | `/api/auth/oauth-link` | Cancel pending OAuth link |
-| **Users** |
-| GET | `/api/users` | Search users |
-| GET | `/api/users/[userId]` | Get user by ID |
+| POST | `/api/auth/reset-password` | Reset password with token |
+| POST | `/api/auth/change-password` | Change password (authenticated) |
+| POST | `/api/auth/link-wallet` | Link Web3 wallet to account |
+| POST | `/api/auth/remove-method` | Remove authentication method |
+| GET | `/api/auth/methods` | Get available auth methods for user |
+| GET | `/api/auth/oauth-link` | Get OAuth link status |
+| POST | `/api/auth/oauth-link` | Link OAuth provider |
+| DELETE | `/api/auth/oauth-link` | Unlink OAuth provider |
+
+### Profile
+| Method | Endpoint | Description |
+|--------|----------|-------------|
 | GET | `/api/profile` | Get current user profile |
 | PATCH | `/api/profile` | Update current user profile |
-| **Groups** |
-| GET | `/api/groups` | Search groups |
+| POST | `/api/profile/avatar` | Upload profile avatar |
+| DELETE | `/api/profile/avatar` | Delete profile avatar |
+| PUT | `/api/profile/group/[groupId]` | Join a group |
+| DELETE | `/api/profile/group/[groupId]` | Leave a group |
+
+### Users
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/users` | List users (with pagination/filters) |
+| GET | `/api/users/[userId]` | Get specific user details |
+| POST | `/api/users/search` | Search users |
+
+### Groups
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/groups` | List groups (with pagination/filters) |
 | POST | `/api/groups` | Create new group |
-| GET | `/api/groups/[groupId]` | Get group by ID |
+| GET | `/api/groups/[groupId]` | Get group details |
 | PATCH | `/api/groups/[groupId]` | Update group |
 | DELETE | `/api/groups/[groupId]` | Delete group |
-| GET | `/api/groups/[groupId]/members` | Get group members |
-| PUT | `/api/profile/group/[groupId]` | Join group |
-| DELETE | `/api/profile/group/[groupId]` | Leave group |
-| GET | `/api/groups/[groupId]/admins` | Get group admins |
-| PUT | `/api/groups/[groupId]/admins/[userId]` | Add admin |
-| DELETE | `/api/groups/[groupId]/admins/[userId]` | Remove admin |
-| **Other** |
-| POST | `/api/images` | Upload image |
-| GET | `/api/location/countries` | Get country list |
-| GET | `/api/location/cities` | Search cities |
-| **Admin** |
-| PUT | `/api/admin/groups/[groupId]/verification` | Verify group |
-| DELETE | `/api/admin/groups/[groupId]/verification` | Unverify group |
+| POST | `/api/groups/[groupId]/logo` | Upload group logo |
+| DELETE | `/api/groups/[groupId]/logo` | Delete group logo |
+| POST | `/api/groups/[groupId]/banner` | Upload group banner |
+| DELETE | `/api/groups/[groupId]/banner` | Delete group banner |
+| POST | `/api/groups/[groupId]/verify` | Submit group verification |
+| POST | `/api/groups/[groupId]/claim` | Claim group ownership |
+| GET | `/api/groups/[groupId]/members` | List group members |
+| DELETE | `/api/groups/[groupId]/members/[userId]` | Remove member from group |
+| GET | `/api/groups/[groupId]/admins` | List group admins |
+| PUT | `/api/groups/[groupId]/admins/[userId]` | Add group admin |
+| DELETE | `/api/groups/[groupId]/admins/[userId]` | Remove group admin |
+| GET | `/api/groups/[groupId]/locations` | List group locations |
+| POST | `/api/groups/[groupId]/locations` | Add group location |
+| PATCH | `/api/groups/[groupId]/locations/[locationId]` | Update group location |
+| DELETE | `/api/groups/[groupId]/locations/[locationId]` | Delete group location |
+
+### Events
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/events` | List events (with filters) |
+| POST | `/api/events` | Create new event |
+| GET | `/api/events/[eventId]` | Get event details |
+| PATCH | `/api/events/[eventId]` | Update event |
+| DELETE | `/api/events/[eventId]` | Delete event |
+| GET | `/api/events/locations` | Get event locations for map |
+
+### Invitations
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/invitations` | Create invitation |
+| POST | `/api/invitations/validate` | Validate invitation code |
+
+### Admin
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/admin/claims` | List all pending group claims |
+| PUT | `/api/admin/claims/[claimId]/approve` | Approve group claim |
+| PUT | `/api/admin/claims/[claimId]/reject` | Reject group claim |
+
+### Utilities
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/image` | Image proxy/optimization service |
+| GET | `/api/locations` | Get all locations for map |
+| GET | `/api/stats` | Get system statistics |
+| POST | `/api/graphql` | GraphQL endpoint |
 
 For detailed API documentation with request/response schemas, see the OpenAPI comments in each route handler.
 

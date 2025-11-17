@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Nitzschke's Black Belt Academy",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": "Zazi",
+      "email": null,
+      "phone": "734-454-5425"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": null,
+        "address": "39523 Joy Road Canton, Michigan 48178",
+        "schedule": "Tues 8pm-9pm; Thurs 8:15-9:15",
+        "contactPerson": "Instructor: Zazi",
+        "email": null,
+        "phone": null,
+        "rawText": "39523 Joy Road Canton, Michigan 48178\n734-454-5425\nInstructor: Zazi\n(email bounced 1/15/12)\n Tues 8pm-9 pm; Thurs 8:15-9:15"
+      }
+    ],
+    "notes": "Email bounced 1/15/12. SOURCES: offline website 3/4/04 email 3/31/04",
+    "rawRecord": "Nitzschke's Black Belt Academy\n 39523 Joy Road Canton, Michigan 48178\n734-454-5425\nInstructor: Zazi\n(email bounced 1/15/12)\n Tues 8pm-9 pm; Thurs 8:15-9:15\nSOURCES offline website 3/4/04 email 3/31/04"
+  }
+]

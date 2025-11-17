@@ -7,6 +7,10 @@
  * - Database migration scripts
  * - Standalone CLI tools
  * - Any script that needs database access
+ *
+ * IMPORTANT: This module does NOT import @/config/environment at the top level
+ * to allow migration scripts to import createDatabaseConnection without
+ * triggering validation of all environment variables.
  */
 
 import { drizzle, type PostgresJsDatabase } from 'drizzle-orm/postgres-js';

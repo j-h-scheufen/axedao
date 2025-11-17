@@ -1,0 +1,119 @@
+'use client';
+
+import {
+  Avatar,
+  Link,
+  Spinner,
+  Table,
+  TableBody,
+  TableCell,
+  TableColumn,
+  type TableColumnProps,
+  TableHeader,
+  TableRow,
+  getKeyValue,
+} from '@heroui/react';
+import { MapPinIcon } from 'lucide-react';
+import type React from 'react';
+import { useCallback, useState } from 'react';
+
+import VerificationChip from '@/components/VerificationChip';
+import { PATHS } from '@/config/constants';
+import useGroupSearch from '@/hooks/useGroupSearch';
+import type { Group } from '@/types/model';
+import { getImageUrl } from '@/utils';
+
+type Column<T> = {
+  key: keyof T;
+  label: string;
+  cell?: React.FC<{ item: T }>;
+  columnProps?: Omit<TableColumnProps<T>, 'children'>;
+};
+
+const columns: Column<Group>[] = [
+  {
+    key: 'name',
+    label: 'NAME',
+    cell: ({ item }) => {
+      const { logo, name, id } = item;
+      return (
+        <Link href={`${PATHS.groups}/${id}`} className="inline-block text-[unset]">
+          <div className="flex items-center gap-2">
+            <Avatar size="sm" src={getImageUrl(logo)} radius="full" />
+            <div className="flex justify-center flex-col">
+              <div className="text-sm">{name}</div>
+              <span className="flex items-center gap-1 text-xs text-default-500">
+                <MapPinIcon className="h-3 w-3" /> TODO
+              </span>
+            </div>
+          </div>
+        </Link>
+      );
+    },
+    columnProps: { allowsSorting: true },
+  },
+  {
+    key: 'lastVerifiedAt',
+    label: 'VERIFICATION',
+    cell: ({ item }) => {
+      const isVerified = item.lastVerifiedAt !== null;
+      return (
+        <VerificationChip
+          verified={isVerified}
+          // className="position top-[1px]"
+        />
+      );
+    },
+    columnProps: { allowsSorting: true },
+  },
+];
+
+const GlobalAdminGroupsTable = () => {
+  const [selectedKeys, setSelectedKeys] = useState<Set<string>>(new Set([]));
+
+  const { groups, isLoading } = useGroupSearch();
+
+  const getCellValue = useCallback((item: Group, key: keyof Group) => {
+    const cell = columns.find((col) => col.key === key)?.cell;
+    if (cell) {
+      return cell({ item });
+    }
+    return getKeyValue(item, key) || 'N/A';
+  }, []);
+
+  // TODO need to replace the filters. Probably use example from NextUI: https://nextui.org/docs/components/table#use-case-example
+
+  return (
+    <div className="flex flex-col gap-4 -mt-5">
+      {/* <Filters query={{ searchTerm }} setQuery={(query) => setSearchTerm(query.searchTerm)} /> */}
+      <div className="flex flex-col gap-3">
+        <Table
+          aria-label="Global admin groups table"
+          selectedKeys={selectedKeys}
+          onSelectionChange={(key) => setSelectedKeys(key as Set<string>)}
+        >
+          <TableHeader columns={columns}>
+            {(column) => (
+              <TableColumn key={column.key} {...(column.columnProps || {})}>
+                {column.label}
+              </TableColumn>
+            )}
+          </TableHeader>
+          <TableBody
+            items={groups}
+            isLoading={isLoading}
+            loadingContent={<Spinner size="sm" color="default" />}
+            emptyContent="No group found"
+          >
+            {(item: Group) => (
+              <TableRow key={item.id}>
+                {(columnKey) => <TableCell>{getCellValue(item, columnKey as unknown as keyof Group)}</TableCell>}
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      </div>
+    </div>
+  );
+};
+export default GlobalAdminGroupsTable;

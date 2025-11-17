@@ -4,7 +4,7 @@ import { Spacer } from '@heroui/react';
 import { useAtomValue } from 'jotai';
 
 import ImageUpload from '@/components/forms/ImageUpload';
-import { GroupLocationsEdit } from '@/components/GroupLocations';
+import { GroupLocationsEdit } from '@/components/groups/GroupLocations';
 import { groupBannerAtom, groupIdAtom, groupLogoAtom } from '@/hooks/state/group';
 import { useUpdateBannerMutation, useUpdateLogoMutation } from '@/query/group';
 

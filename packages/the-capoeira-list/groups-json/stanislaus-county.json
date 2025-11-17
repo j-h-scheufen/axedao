@@ -1,0 +1,218 @@
+[
+  {
+    "name": "ASCAB [the American Society of Capoeira and Arts from Brazil]",
+    "website": "https://www.ascabcapoeirachico.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Doutor",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Instrutor Pato (Mason Rapacz)",
+      "email": "ascabpato@gmail.com",
+      "phone": "[928] 600-9189"
+    },
+    "sources": ["https://www.facebook.com/pg/CentralValleyCapoeira"],
+    "locations": [],
+    "notes": "Turlock, Stanislaus County, California. Instrutor Pato (Mason Rapacz) under Mestre Doutor [Philadelphia]. Based in Chico, but still has a group in Turlock. SOURCE: website 6/11/18",
+    "rawRecord": " Turlock,\n\n\n      ASCAB[the American Socitey of Capoeira and Arts from Brazil]\nhttps://www.ascabcapoeirachico.com/\nhttps://www.facebook.com/pg/CentralValleyCapoeira\nInstrutor Pato \"Mason Rapacz \"  under Mestre Doutor[Philadelphia]\nbased in Chico, but still has a group in Turlock\n  ascabpato@gmail.com\n  [928] 600-9189\nSOURCE: website 6/11/18"
+  },
+  {
+    "name": "ABADA Visalia",
+    "website": "http://abadatoninho.wixsite.com/abadavisalia",
+    "leader": {
+      "title": "mestra",
+      "nickname": "Cigarra",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Graduada Toninho (Erica Hemenway)",
+      "email": "abada.toninho@gmail.com",
+      "phone": null
+    },
+    "sources": ["https://www.facebook.com/abadacapoeiravisalia/"],
+    "locations": [
+      {
+        "name": "Anthony Community Center",
+        "address": "Dance Studio, 345 N Jacob St, Visalia, CA 93291",
+        "schedule": "Tues & Thurs 7:30pm-8:45pm (Check facebook for schedule updates)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Anthony Community Center\nDance Studio, 345 N Jacob St, Visalia, CA 93291\nTues & Thurs7:30pm-8:45pm\n(Check facebook for schedule updates)"
+      }
+    ],
+    "notes": "Tulare County (Visalia), California. Graduada Toninho (Erica Hemenway) under Mestra Cigarra [San Francisco]. SOURCE: website 8/23/17",
+    "rawRecord": "      ABADA Visalia\nhttp://abadatoninho.wixsite.com/abadavisalia\nhttps://www.facebook.com/abadacapoeiravisalia/\nGraduada Toninho \"Erica Hemenway\"under Mestra  Cigarra[San\nFrancisco]\n  abada.toninho@gmail.com\n      Anthony Community Center\nDance Studio, 345 N Jacob St, Visalia, CA 93291\nTues & Thurs7:30pm-8:45pm\n(Check facebook for schedule updates)\nSOURCE: website 8/23/17"
+  },
+  {
+    "name": "Capoeira Brasil - Visalia",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Tulare County (Visalia), California. No longer appears to have classes in Visalia. See Fresno.",
+    "rawRecord": "      Capoeira Brasil\n(No longer appears to have classes in Visalia)\nSee Fresno"
+  },
+  {
+    "name": "Capoeira Cangaco Cordao de Ouro - Ventura County",
+    "website": "http://www.gzcapoeira.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Virgulino",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Instructor Ganga Zumba",
+      "email": "info@gzcapoeira.com",
+      "phone": "[805] 253-3273"
+    },
+    "sources": ["https://www.facebook.com/vccapoeira"],
+    "locations": [
+      {
+        "name": "Fuzion Fitness",
+        "address": "2550 Vineyard Avenue, Oxnard, CA",
+        "schedule": "Adults & Teens: Mon 7:00-8:00pm Wed 8:00-9:00pm; Sat 12:00-1:00pm; Kids: Mon & Wed 5:00-5:45pm; Sat 11:00-11:45am; Community: 1st Fri 6:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Fuzion Fitness\n2550 Vineyard Avenue, Oxnard, CA\nAdults & Teens: Mon 7:00-8:00pmWed 8:00-9:00pm; Sat 12:00-1:00pm\nKids:  Mon & Wed 5:00-5:45pm; Sat 11:00-11:45am\nCommunity: 1st Fri 6:30pm"
+      }
+    ],
+    "notes": "Ventura County (Oxnard, Ventura), California. Instructor Ganga Zumba under the direction of Mestre Virgulino [Albuquerque]. SOURCE: website 8/23/17",
+    "rawRecord": "      Capoeira Cangaco Cordao de Ouro\nhttp://www.gzcapoeira.com/\nInstructor Ganga Zumba under the direction of Mestre Virgulino[Albuquerque]\ninfo@gzcapoeira.com\nCall or Text: [805] 253-3273\nhttps://www.facebook.com/vccapoeira\n      Fuzion Fitness\n2550 Vineyard Avenue, Oxnard, CA\nAdults & Teens: Mon 7:00-8:00pmWed 8:00-9:00pm; Sat 12:00-1:00pm\nKids:  Mon & Wed 5:00-5:45pm; Sat 11:00-11:45am\nCommunity: 1st Fri 6:30pm\nSOURCE: website 8/23/17"
+  },
+  {
+    "name": "Capoeira Sul da Bahia - Ventura",
+    "website": "http://www.capoeirasantabarbara.com/",
+    "leader": null,
+    "mainContact": {
+      "name": "Instructor Caicara (Mike)",
+      "email": "capoeirasb@gmail.com",
+      "phone": "[805] 637-5355"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Yoga Jones",
+        "address": "105 S. Oak Street Ventura CA",
+        "schedule": "Tues & Thurs 7:30-8:45",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Yoga Jones\n105 S. Oak Street Ventura CA\nTues & Thurs 7:30-8:45"
+      }
+    ],
+    "notes": "Ventura County (Ventura), California. Instructor Caicara (Mike). Mail: 1230 State Street, Santa Barbara, CA 93101. SOURCE: website 8/23/17",
+    "rawRecord": "      Capoeira Sul da Bahia\nhttp://www.capoeirasantabarbara.com/\nEmail: capoeirasb@gmail.com\nmail: 1230 State Street, Santa Barbara, CA  93101\nphone[805] 637-5355\nInstructor Caicara \"Mike\"\n      Yoga Jones\n105 S. Oak Street Ventura CA\nTues & Thurs 7:30-8:45\nSOURCE: website 8/23/17"
+  },
+  {
+    "name": "Capoeira Relampue Ventura County",
+    "website": null,
+    "leader": {
+      "title": "formado",
+      "nickname": "Patua",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": ["https://www.facebook.com/profile.php?id=100008529784755&f"],
+    "locations": [
+      {
+        "name": "Tae Ryong Taekwondo",
+        "address": "1540 E Main St, Ventura, CA 93001 (Near the corner of E. Santa Clara)",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Tae Ryong Taekwondo\n1540 E Main St, Ventura, CA 93001\n(  Near the corner of E. Santa Clara)"
+      }
+    ],
+    "notes": "Ventura County, California. Formado Patua. SOURCE: facebook 8/23/17",
+    "rawRecord": "      Capoeira Relampue Ventura County\nFormado Patua\nhttps://www.facebook.com/profile.php?id=100008529784755&f\n      Tae Ryong Taekwondo\n1540 E Main St, Ventura, CA 93001\n(  Near the corner of E. Santa Clara)\nSOURCE: facebook 8/23/17"
+  },
+  {
+    "name": "Capoeira Agua de Beber-United Capoeira Association",
+    "website": "http://www.daviscapoeira.com/",
+    "leader": null,
+    "mainContact": {
+      "name": "Professora Burbulias (Susie Pike)",
+      "email": "susie.pike@gmail.com",
+      "phone": "[530] 601-6050"
+    },
+    "sources": ["https://www.facebook.com/davisadb/"],
+    "locations": [
+      {
+        "name": "International House Davis",
+        "address": "Community Room, 10 College Park, Davis, CA 95616",
+        "schedule": "All Levels: Tues 6:00-7:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "International House Davis\nCommunity Room, 10 College Park, Davis, CA 95616\nAll Levels: Tues 6:00-7:30pm"
+      },
+      {
+        "name": "UC Davis Activities and Recreation Center",
+        "address": null,
+        "schedule": "All Levels: Wed 5:30-6:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "UC Davis Activities and Recreation Center\nAll Levels:Wed 5:30-6:30pm"
+      },
+      {
+        "name": "Davis Arts Center",
+        "address": "1919 F Street Davis CA",
+        "schedule": "All Levels: Fri 6:30-8:00pm; Kids: Fri 5:30-6:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Davis Arts Center\n1919 F Street  Davis CA\nAll Levels:Fri 6:30-8:00pm\nKids: Fri 5:30-6:30pm"
+      }
+    ],
+    "notes": "Yolo County (Davis), California. Professora Burbulias (Susie Pike). See also SACRAMENTO. SOURCE: website 7/24/17",
+    "rawRecord": "      Capoeira Agua de Beber-United Capoeira Association\nhttp://www.daviscapoeira.com/\nhttps://www.facebook.com/davisadb/\n Professora Burbulias \"Susie Pike\"\n   [530] 601-6050\n   susie.pike@gmail.com\n      International House Davis\nCommunity Room, 10 College Park, Davis, CA 95616\nAll Levels: Tues 6:00-7:30pm\n      UC Davis Activities and Recreation Center\nAll Levels:Wed 5:30-6:30pm\n      Davis Arts Center\n1919 F Street  Davis CA\nAll Levels:Fri 6:30-8:00pm\nKids: Fri 5:30-6:30pm\nSOURCE: website 7/24/17"
+  },
+  {
+    "name": "Capoeira Guanabara - Brandon",
+    "website": "http://www.guanabaracanada.com/",
+    "leader": null,
+    "mainContact": {
+      "name": "Espiga",
+      "email": "espigaguanabara@gmail.com",
+      "phone": "[204] 901-0410"
+    },
+    "sources": ["https://www.facebook.com/guanabaracanada/"],
+    "locations": [
+      {
+        "name": "Capoeira Guanabara Academy",
+        "address": "31a-9th St., Brandon, MB",
+        "schedule": "Kids: Mon & Fri 4:30pm; Adults: Mon, Wed & Fri 5:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Capoeira Guanabara Academy\n31a-9th St.,  Brandon, MB\nKids: Mon & Fri 4:30pm\nAdults: Mon, Wed & Fri 5:30pm"
+      },
+      {
+        "name": "Shoal Lake School",
+        "address": "110 Station Road Shoal Lake, MB",
+        "schedule": "Adults: Tues & Thurs 5:15pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Shoal Lake School\n110 Station Road Shoal Lake, MB\nAdults: Tues & Thurs 5:15pm"
+      },
+      {
+        "name": "Brandon Eagles Gymnastics Centre",
+        "address": "1030-22nd St.Brandon, MB",
+        "schedule": "Kids: Sat 5:00pm; Adults: 7:45pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Brandon Eagles Gymnastics Centre\n1030-22nd St.Brandon, MB\nKids: Sat 5:00pm\nAdults: 7:45pm"
+      }
+    ],
+    "notes": "Brandon, Manitoba, Canada. Espiga. SOURCE: website 5/8/17",
+    "rawRecord": "      Capoeira Guanabara\nhttp://www.guanabaracanada.com/\n espigaguanabara@gmail.com\nPhone: [204] 901-0410\nhttps://www.facebook.com/guanabaracanada/\n      Capoeira Guanabara Academy\n31a-9th St.,  Brandon, MB\nKids: Mon & Fri 4:30pm\nAdults: Mon, Wed & Fri 5:30pm\n      Shoal Lake School\n110 Station Road Shoal Lake, MB\nAdults: Tues & Thurs 5:15pm\n      Brandon Eagles Gymnastics Centre\n1030-22nd St.Brandon, MB\nKids: Sat 5:00pm\nAdults: 7:45pm\nSOURCE: website 5/8/17"
+  }
+]

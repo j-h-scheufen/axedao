@@ -1,0 +1,178 @@
+[
+  {
+    "name": "Mundo Capoeira Ireland",
+    "website": "http://www.capoeiraireland.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Sansao",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@capoeiraireland.com",
+      "phone": "[+353] 086 1079313"
+    },
+    "sources": ["http://www.capoeiraireland.com/"],
+    "locations": [
+      {
+        "name": "Byrne Hall",
+        "address": "Byrne Hall, Synge St, Saint Kevin's, D8",
+        "schedule": "Adults: Tues & Thurs: 7:00-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Byrne Hall\nByrne Hall, Synge St, Saint Kevin�s, D8Adults: Tues & Thurs: 7:00 � 9:00pm"
+      },
+      {
+        "name": "Charlemont Community Resource Centre",
+        "address": "Core 3, French-Mullen House, Charlemont St, D2",
+        "schedule": "Adults: Sat 12:00-2:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Charlemont Community Resource Centre\nCore 3, French-Mullen House, Charlemont St, D2\nAdults: Sat 12:00 � 2:00pm"
+      },
+      {
+        "name": "Swan Leisure",
+        "address": "Rathmines Square, 161 Rathmines Rd Lower",
+        "schedule": "Children of 4 years of age up: Sat 11:00am-12:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Swan Leisure\nRathmines Square, 161 Rathmines Rd Lower\nChildren of 4 years of age up: Sat 11:00am-12:00pm"
+      }
+    ],
+    "notes": "Graduada Smorfete \"Daniela Quaresima\" [+353] 086 8875119 daniela@capoeiraireland.com. Location: 48, the Weavers, South Earl St, Dublin 8. SOURCE: website 12/31/19",
+    "rawRecord": "Mundo Capoeira Ireland\n48, the Weavers, South Earl St, Dublin 8\nhttp://www.capoeiraireland.com/\ninfo@capoeiraireland.com\nMestre Sansao\n[+353] 086 1079313\n  sansao@capoeiraireland.com\nGraduada Smorfete\n\"Daniela Quaresima\"  [+353] 086 8875119 \n  daniela@capoeiraireland.com\n      Byrne Hall\nByrne Hall, Synge St, Saint Kevin�s, D8Adults: Tues & Thurs: 7:00 � 9:00pm\n        Charlemont Community Resource Centre\nCore 3, French-Mullen House, Charlemont St, D2\nAdults: Sat 12:00 � 2:00pm  \n        Swan Leisure\nRathmines Square, 161 Rathmines Rd Lower\nChildren of 4 years of age up: Sat 11:00am-12:00pm \nSOURCE: website 12/31/19"
+  },
+  {
+    "name": "Capoeira Gerais Ireland",
+    "website": "http://www.capoeira-gerais.eu",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": "Przemek Janiak"
+    },
+    "mainContact": {
+      "name": "Przemek Janiak",
+      "email": "capoeira.dub.pl@gmail.com",
+      "phone": "[+353] 863 78 48 79"
+    },
+    "sources": ["http://www.capoeira-gerais.eu", "https://www.facebook.com/CapoeiraGeraisDublin/"],
+    "locations": [
+      {
+        "name": "Glin Road Sport Hall",
+        "address": "Coloock, Dublin",
+        "schedule": "Kids: Tues & Thurs 18:00-19:00; Adults: Sat 10:00-11:00",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Glin Road Sport Hall\nColoock, Dublin,\nKids: Tues  &  Thurs 18:00-19:00\nAdults:  Sat 10:00-11:00"
+      }
+    ],
+    "notes": "SOURCE: website 1/1/20",
+    "rawRecord": "Capoeira Gerais Ireland\n\nhttp://www.capoeira-gerais.eu\n\n\"Przemek Janiak\" \n  Phone: [+353] 863 78 48 79 \nEmail: capoeira.dub.pl@gmail.com\n\nhttps://www.facebook.com/CapoeiraGeraisDublin/ \n      Glin Road Sport Hall\n\nColoock, Dublin,\n\nKids: Tues  &  Thurs 18:00-19:00\n\nAdults:  Sat 10:00-11:00\n\nSOURCE: website  1/1/20"
+  },
+  {
+    "name": "Grupo Candeias Capoeira",
+    "website": "https://candeiasdublin.wordpress.com/",
+    "leader": {
+      "title": "professor",
+      "nickname": "Pele",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "pelecandeias@hotmail.com",
+      "phone": "087 1531355"
+    },
+    "sources": ["https://candeiasdublin.wordpress.com/", "https://www.facebook.com/capoeiracandeias.dublin"],
+    "locations": [
+      {
+        "name": "Carmelite Communite centre",
+        "address": "56 Aungier street, Dublin 2",
+        "schedule": "Beginners: Mon 9:00 to 10:00; Mixed With Roda. Wed 8:00 to 9:00",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Carmelite Communite centre,\n\n56 Aungier street, Dublin 2:\n\nBeginners: Mon 9:00 to 10:00\n\nMixed With Roda.  Wed 8:00 to 9:00"
+      }
+    ],
+    "notes": "SOURCE: website 12/31/19",
+    "rawRecord": "Grupo Candeias Capoeira\n\nhttps://candeiasdublin.wordpress.com/ \nhttps://www.facebook.com/capoeiracandeias.dublin \nProfessor Pele\n\n  Phone : 087 1531355\n\n  pelecandeias@hotmail.com\n\n      Carmelite Communite centre,\n\n56 Aungier street, Dublin 2:\n\nBeginners: Mon 9:00 to 10:00\n\nMixed With Roda.  Wed 8:00 to 9:00\n\nSOURCE: website 12/31/19"
+  },
+  {
+    "name": "Capoeira.ie",
+    "website": "http://www.capoeira.ie",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@capoeira.ie",
+      "phone": null
+    },
+    "sources": ["http://www.capoeira.ie", "https://www.facebook.com/Capoeira.ie/"],
+    "locations": [
+      {
+        "name": "Blanchardstown Institute of Technology",
+        "address": "Blanchardstown Institute of Technology",
+        "schedule": "Adults All Levels: Thurs 7:00-8:30pm (five week terms, contact for details)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Blanchardstown Institute of Technology.\nAdults All Levels: Thurs 7:00-8:30 pm\n(five week terms, contact for details)"
+      }
+    ],
+    "notes": "SOURCE: website 1/1/20",
+    "rawRecord": "Capoeira.ie\n\nhttp://www.capoeira.ie\n\ninfo@capoeira.ie \nhttps://www.facebook.com/Capoeira.ie/\nBlanchardstown Institute of Technology.\nAdults All Levels: Thurs 7:00-8:30 pm\n(five week terms, contact for details)\nSOURCE: website 1/1/20"
+  },
+  {
+    "name": "Capoeira Muzenza Ireland",
+    "website": null,
+    "leader": {
+      "title": "monitor",
+      "nickname": "Salame",
+      "name": "Diogo Marinho de Oliveira"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "089-9659-181"
+    },
+    "sources": ["https://yellow.place/en/capoeira-muzenza-ireland-dublin-ireland"],
+    "locations": [
+      {
+        "name": null,
+        "address": "117-126 upper sherriff street, Dublin, 1, Ireland",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "117-126 upper sherriff street, Dublin, 1, Ireland"
+      }
+    ],
+    "notes": "SOURCE: https://yellow.place/en/capoeira-muzenza-ireland-dublin-ireland 1/1/20",
+    "rawRecord": "Capoeira Muzenza Ireland\n117-126 upper sherriff street, Dublin, 1, Ireland\nMonitor Salame \" Diogo Marinho de Oliveira\"\n089-9659-181\nSOURCE: https://yellow.place/en/capoeira-muzenza-ireland-dublin-ireland 1/1/20"
+  },
+  {
+    "name": "Capoeira Angola Group Angoleiro Sim Sinho",
+    "website": null,
+    "leader": {
+      "title": "treinel",
+      "nickname": "Dani",
+      "name": "Daniele Bolletta"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "086 2652642"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Website offline 12/30/19. SOURCE: website 10/13/16 linkedin 1/1/20",
+    "rawRecord": "Capoeira Angola Group Angoleiro Sim Sinho\n\n\n(website offline 12/30/19 )\n\n Treinel Dani   \"Daniele Bolletta\"\n \"\n\n   086 2652642\n\nSOURCE: website 10/13/16 linkedin 1/1/20"
+  }
+]

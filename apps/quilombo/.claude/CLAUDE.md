@@ -26,6 +26,14 @@ pnpm dev
 pnpm db:generate  # Generate migrations from schema changes
 pnpm db:migrate   # Apply migrations to database
 
+# Local database (Docker)
+pnpm db:local:up      # Start PostgreSQL container
+pnpm db:local:down    # Stop PostgreSQL container
+pnpm db:local:reset   # Reset database (destroys data, runs migrations)
+pnpm db:local:seed    # Populate with test data
+pnpm db:local:logs    # View database logs
+pnpm db:local:psql    # Connect to PostgreSQL CLI
+
 # Generate Wagmi hooks from contract ABIs
 pnpm wagmi:generate
 
@@ -50,17 +58,44 @@ pnpm db:migrate
 
 ## Database Setup
 
-### Local PostgreSQL with PostGIS
+### Local Development with Docker (Recommended)
+
+The recommended approach for local development is using Docker Compose:
+
+```bash
+# First, update .env.local to use the local database:
+# DATABASE_URL=postgres://postgres:mypassword@localhost:5433/postgres
+
+# Start PostgreSQL + PostGIS container
+pnpm db:local:up
+
+# Run migrations to set up schema (REQUIRED on first run!)
+pnpm db:migrate
+
+# (Optional) Seed with test data
+pnpm db:local:seed
+
+# Or, use reset to do it all in one command:
+pnpm db:local:reset  # Destroys data, recreates container, runs migrations
+```
+
+**Important**: On first run, the database is empty. You MUST run `pnpm db:migrate` after starting the container, or use `pnpm db:local:reset` which does both automatically.
+
+**See `docs/LOCAL_DATABASE.md` for complete documentation** including:
+- All available commands
+- Test data details
+- Switching between environments
+- Troubleshooting
+- Benefits and workflows
+
+### Legacy Manual Setup
+
+If you prefer not to use Docker, you can set up PostgreSQL manually:
 
 ```bash
 # Pull and run PostgreSQL
-docker pull postgres
-docker run --name drizzle-postgres -e POSTGRES_PASSWORD=mypassword -d -p 5432:5432 postgres
-```
-
-Set `DATABASE_URL` environment variable:
-```
-postgres://postgres:mypassword@localhost:5432/postgres?options=-csearch_path%3D%24user,public,extensions,gis
+docker pull postgis/postgis:17-3.5
+docker run --name drizzle-postgres -e POSTGRES_PASSWORD=mypassword -d -p 5432:5432 postgis/postgis:17-3.5
 ```
 
 **Important PostGIS Setup:**
@@ -93,6 +128,21 @@ Some migrations are manually generated for features Drizzle doesn't support (fun
 - **UI**: HeroUI 2.8.5 + Tailwind CSS 4.1.14
 - **Images**: Sharp 0.34.4
 - **Styling**: Framer Motion 12.23.24
+
+### Form Handling with Formik
+
+**Pattern**: Use Formik with `<Field as={FieldInput}>` / `<Field as={FieldTextarea}>` for automatic binding and error handling via `useField` hook.
+
+**Reference Implementations**:
+- `/components/forms/profile/ProfileForm.tsx` - Complete form with validation
+- `/components/groups/GroupProfile/ClaimGroupModal.tsx` - Modal with Formik
+- `/components/forms/FieldTextarea.tsx` - Auto-binding component using `useField` hook
+
+**Key Points**:
+- Use `<Formik>` + `<Form>` + `<Field as={FieldInput/FieldTextarea}>`
+- **CRITICAL**: Field components must extract both `field` and `meta` from `useField()`. The `meta` object contains validation state (touched, error) which must be passed to HeroUI components as `isInvalid` and `errorMessage` props.
+- Submit button: `type="submit"` inside `<Form>` (NOT `onPress={() => formik.handleSubmit()}`)
+- For simple confirmation modals without inputs, use direct button handlers with useState instead of Formik
 
 ### Multi-Provider Authentication
 
@@ -128,7 +178,36 @@ Some migrations are manually generated for features Drizzle doesn't support (fun
 
 ### Database Architecture (Drizzle ORM)
 
-**Pattern**: All DB access centralized in `/db/index.ts` (server-side only)
+**Pattern**: Database query functions organized by domain in `/db/queries/` (server-side only)
+
+**Module Structure**:
+- `db/index.ts` - Thin re-export layer (30 lines)
+- `db/connection.ts` - Database connection factory
+- `db/queries/` - Domain-based query modules:
+  - `users.ts` - User management and authentication (~140 lines)
+  - `groups.ts` - Group CRUD and membership (~260 lines)
+  - `groupClaims.ts` - Group ownership claiming workflow (~220 lines)
+  - `groupVerifications.ts` - Group verification system (~110 lines)
+  - `groupLocations.ts` - Geographic locations and mapping (~130 lines)
+  - `events.ts` - Event creation and querying (~170 lines)
+  - `invitations.ts` - Email-bound and open (QR code) invitations (~165 lines)
+  - `stats.ts` - Public statistics for homepage (~60 lines)
+
+**Adding New Database Functions**:
+1. Identify the appropriate domain module in `db/queries/`
+2. Add function with JSDoc documentation
+3. Export from the module file
+4. No need to update `db/index.ts` (re-exports automatically)
+5. If creating a new domain, create new module and add re-export to `db/index.ts`
+
+**Import Pattern**:
+```typescript
+// Consumers import from db/index.ts (re-export layer)
+import { fetchUser, searchGroups, createGroupClaim } from '@/db';
+
+// NOT from individual modules (internal implementation detail)
+// ❌ import { fetchUser } from '@/db/queries/users';
+```
 
 **Schema** (`/db/schema.ts`):
 - PostgreSQL with drizzle-orm 0.44.6

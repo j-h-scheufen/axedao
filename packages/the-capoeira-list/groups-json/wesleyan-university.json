@@ -1,0 +1,316 @@
+[
+  {
+    "name": "Green Street Arts Center of Wesleyan University",
+    "website": "http://www.wesleyan.edu/greenstreet",
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "gsac@wesleyan.edu",
+      "phone": "860-685-7871"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Green Street Arts Center",
+        "address": "51 Green Street, Middletown, CT 06457",
+        "schedule": "(has classes for children, teens, and adults)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Green Street Arts Center of Wesleyan University\n51 Green Street, Middletown, CT 06457\nhttp://www.wesleyan.edu/greenstreet\n860-685-7871\ngsac@wesleyan.edu\n(has classes for children, teens, and adults)"
+      }
+    ],
+    "notes": "Middletown, Connecticut (Wesleyan University). Ana Paula Hofling. SOURCE: website 5/15/16",
+    "rawRecord": "      Green Street Arts Center of Wesleyan University\n51 Green Street, Middletown, CT 06457\nhttp://www.wesleyan.edu/greenstreet\n860-685-7871\ngsac@wesleyan.edu\n(has classes for children, teens, and adults)\nSOURCE:  website 5/15/16\n\nAna Paula Hofling\nhttp://ahofling.faculty.wesleyan.edu/"
+  },
+  {
+    "name": "Raca em Movimento New Haven",
+    "website": "http://remctcapoeira.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Efraim",
+      "name": "Efraim Silva"
+    },
+    "mainContact": {
+      "name": "Mestre Efraim (Efraim Silva)",
+      "email": null,
+      "phone": "[203]982-4147"
+    },
+    "sources": ["http://inkoncept.wixsite.com/ccdc"],
+    "locations": [
+      {
+        "name": "CT Capoeira & Dance Center",
+        "address": "1175 State St room 207, New Haven CT 06511",
+        "schedule": "beginners: Mon 7:30-8:30pm; mixed: Tues, & Wed 7:30-9:00pm; Fri 7:30-8:30pm; Sat 1:00am-12:00pm; Roda: Thurs 7:30pm-9:00pm; Age 8-12: Tues & Thurs 6:30-7:15; Age 4-7: Tues & Thurs 5:30pm-6:15pm; Age 3-4: Sat 10:00-10:45am",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "CT Capoeira & Dance Center\n1175 State St room 207, New Haven CT 06511\nhttp://inkoncept.wixsite.com/ccdc\nhttp://remctcapoeira.com\n[203]982-4147\nbeginners: Mon 7:30-8:30pm\nmixed: Tues, & Wed  7:30-9:00pm; Fri 7:30-8:30pm; Sat 1:00am-12:00pm\nRoda: Thurs 7:30pm-9:00pm\nAge 8-12:  Tues & Thurs 6:30-7:15\nAge 4-7: Tues & Thurs 5:30pm-6:15pm\nAge 3-4: Sat 10:00-10:45am"
+      }
+    ],
+    "notes": "New Haven County, Connecticut. Mestre Efraim (Efraim Silva). SOURCE: website 8/30/17",
+    "rawRecord": "       Raca em Movimento\nMestre Efraim \"Efraim Silva\"\n      CT Capoeira & Dance Center\n1175 State St room 207, New Haven CT 06511\nhttp://inkoncept.wixsite.com/ccdc\nhttp://remctcapoeira.com\n[203]982-4147\nbeginners: Mon 7:30-8:30pm\nmixed: Tues, & Wed  7:30-9:00pm; Fri 7:30-8:30pm; Sat 1:00am-12:00pm\nRoda: Thurs 7:30pm-9:00pm\nAge 8-12:  Tues & Thurs 6:30-7:15\nAge 4-7: Tues & Thurs 5:30pm-6:15pm\nAge 3-4: Sat 10:00-10:45am\nSOURCE: website 8/30/17"
+  },
+  {
+    "name": "Capoeira Balance",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Professore Fabiano (Fabiano Aparecido Lucas)",
+      "email": "capoeirabalance@yahoo.com",
+      "phone": "203-675-5195"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "New Haven County, Connecticut. Professore Fabiano (Fabiano Aparecido Lucas). Website offline 9/3/17. SOURCE: website 12/12/10",
+    "rawRecord": "      Capoeira Balance\n(website offline,   9/3/17)\nProfessore Fabiano \"Fabiano Aparecido Lucas\"\n  capoeirabalance@yahoo.com\n  203-675-5195\nSOURCE: website 12/12/10"
+  },
+  {
+    "name": "Valentin Karate",
+    "website": "http://www.meridenkarate.com/",
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "Valentin Karate",
+        "address": "75 S. Colony Street, Meriden, CT 06450",
+        "schedule": "(website says that they have classes 9/3/17)",
+        "contactPerson": null,
+        "email": null,
+        "phone": "[203] 238-0427",
+        "rawText": "Valentin Karate\n75 S. Colony Street, Meriden, CT 06450\nhttp://www.meridenkarate.com/\n[203] 238-0427\n(website says that they have classes 9/3/17)"
+      }
+    ],
+    "notes": "Meriden, Connecticut (New Haven County). SOURCE: website 9/3/17",
+    "rawRecord": "      Valentin Karate\n75 S. Colony Street, Meriden, CT 06450\nhttp://www.meridenkarate.com/\n[203] 238-0427\n(website says that they have classes 9/3/17)"
+  },
+  {
+    "name": "Mestre Pinga Fogo",
+    "website": null,
+    "leader": {
+      "title": "mestre",
+      "nickname": "Pinga Fogo",
+      "name": "Guilherme Torres"
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "New Haven County, Connecticut. Mestre Pinga Fogo (Guilherme Torres). Has moved to Austin 12/13/16. SOURCE: 12/13/16",
+    "rawRecord": "Mestre Pinga Fogo \"Guilherme Torres \"\n(Has moved to Austin \n12/13/16)"
+  },
+  {
+    "name": "Raca em Movimento University of Connecticut",
+    "website": "http://uconncapoeira.wordpress.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Efraim Silva",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Greg Dillon (Club President)",
+      "email": "GMD005@aol.com, uconncapoeira@gmail.com, uconncapoeira@yahoo.com",
+      "phone": "860-427-5778, 203-257-5466"
+    },
+    "sources": ["http://phuc.technology/capoeira/index.html", "https://www.facebook.com/uconncapoeira/"],
+    "locations": [
+      {
+        "name": "University of Connecticut",
+        "address": "University of Connecticut, Tolland County, CT",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "University of Connecticut Capoeira Club\nhttp://phuc.technology/capoeira/index.html\nhttp://uconncapoeira.wordpress.com/\nuconncapoeira@gmail.com\nuconncapoeira@yahoo.com\nhttps://www.facebook.com/uconncapoeira/\nClub President: Greg Dillon\n  Phone: 860-427-5778\n  Cell: 203-257-5466\n  E-mail: GMD005@aol.com\nClub Treasurer: Matthew DeLuzio\n  Phone: 860-427-5780\n  Cell: 860-508-3709\n  E-mail: ronin9790@sbcglobal.net"
+      }
+    ],
+    "notes": "Tolland County, Connecticut (University of Connecticut). Instructor: Professore Fabiano (Fabiano Lucas) under Mestre Efraim Silva. Club President: Greg Dillon. Club Treasurer: Matthew DeLuzio. SOURCE: google 9/11/17",
+    "rawRecord": "      Raca em Movimento,\nunder Mestre Efraim Silva\nInstructor: Professore Fabiano \"Fabiano Lucas\"\n      University of Connecticut Capoeira Club\nhttp://phuc.technology/capoeira/index.html\nhttp://uconncapoeira.wordpress.com/\nuconncapoeira@gmail.com\nuconncapoeira@yahoo.com\nhttps://www.facebook.com/uconncapoeira/\nClub President: Greg Dillon\n  Phone: 860-427-5778\n  Cell: 203-257-5466\n  E-mail: GMD005@aol.com\nClub Treasurer: Matthew DeLuzio\n  Phone: 860-427-5780\n  Cell: 860-508-3709\n  E-mail: ronin9790@sbcglobal.net\nSOURCE:  google 9/11/17"
+  },
+  {
+    "name": "Capoeira Barro Vermelho DC",
+    "website": "http://www.capoeirafitnessdc.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Bomba",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Mestre Bomba",
+      "email": "bombabahia@gmail.com",
+      "phone": "+1 [202] 838-3907"
+    },
+    "sources": ["https://www.facebook.com/groups/capoeiraDC/"],
+    "locations": [
+      {
+        "name": "Church of the Holy City",
+        "address": "1611 16th Street, N.W. Washington DC",
+        "schedule": "Kids: Tues 5:30-6:15pm; Thurs 6:30-7:10pm; Adult Beginners: Tues 6:30-7:15pm; Adult All Levels: Tues 7:30-8:45pm; Thurs 7:15-8:30pm; Music: Thurs 8:30-9:15pm; Adult Fundamentals: Sat 10:00-11:00am; All Levels and Roda: Sat 11:15am 12:45pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Church of the Holy City\n1611 16th Street, N.W. Washington DC\nKids: Tues 5:30-6:15pm; Thurs 6:30-7:10pm\nAdult Beginners: Tues 6:30-7:15pm\nAdult All Levels: Tues 7:30-8:45pm; Thurs7:15-8:30pm\nMusic: Thurs 8:30 – 9:15pm\nAdult Fundamentals:  Sat 10:00-11:00am\nAll Levals and Roda: Sat 11:15am 12:45pm"
+      },
+      {
+        "name": "Dupont Circle Park",
+        "address": "Connecticut Avenue/New Hampshire Avenue, Washington DC",
+        "schedule": "(Adult Saturday classes are move here during good weather in the summer)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Dupont Circle Park\nConnecticut Avenue/New Hampshire Avenue\n(Adult Saturday classes are move here during good weather in the\nsummer)"
+      },
+      {
+        "name": "BloomBars",
+        "address": "Columbia Heights, 3222 11th St NW, Washington, DC 20001",
+        "schedule": "Kids: Sat 8:30-9:15am",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "BloomBars\nColumbia Heights, 3222 11th St NW, Washington, DC 20001\nKids: Sat  8:30-9:15am"
+      }
+    ],
+    "notes": "District of Columbia (Washington DC). Mestre Bomba. Mail: 4103 18th St., NW Washington, DC 20011. SOURCE: website 5/19/18",
+    "rawRecord": "      Capoeira Barro Vermelho\nhttp://www.capoeirafitnessdc.com/\nMestre Bomba\nPhone: +1 [202] 838-3907\nEmail: bombabahia@gmail.com\nMail: 4103 18th St., NW Washington, DC  20011\nhttps://www.facebook.com/groups/capoeiraDC/\n      Church of the Holy City\n1611 16th Street, N.W. Washington DC\nKids: Tues 5:30-6:15pm; Thurs 6:30-7:10pm\nAdult Beginners: Tues 6:30-7:15pm\nAdult All Levels: Tues 7:30-8:45pm; Thurs7:15-8:30pm\nMusic: Thurs 8:30 – 9:15pm\nAdult Fundamentals:  Sat 10:00-11:00am\nAll Levals and Roda: Sat 11:15am 12:45pm\n      Dupont Circle Park\nConnecticut Avenue/New Hampshire Avenue\n(Adult Saturday classes are move here during good weather in the\nsummer)\n      BloomBars\nColumbia Heights, 3222 11th St NW, Washington, DC 20001\nKids: Sat  8:30-9:15am\nSOURCE:   website 5/19/18"
+  },
+  {
+    "name": "CapuraGinga DC",
+    "website": "http://www.districtcapoeira.com/",
+    "leader": null,
+    "mainContact": {
+      "name": "Monitor Bugalu",
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Augustana Lutheran Church",
+        "address": "2100 New Hampshire Ave NW, Washington DC",
+        "schedule": "Adults - all levels: Tues & Wed 7:15-8:15pm; Sat 10:30am (Drop-ins welcome); Kids' [ages 4 and up] Tues 6:15-7:00pm; Sat 9:30-10:15am (Advance sign-up on website required)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Augustana Lutheran Church\n2100 New Hampshire Ave NW\nAdults - all levels:Tues &Wed  7:15- 8:15pm;  Sat 10:30am.  (Drop-ins welcome)\nKids' cages 4 and up]  Tues 6:15-7:00pm ; Sat 9:30-10:15am.  (Advance sign-up on website required\n)"
+      }
+    ],
+    "notes": "District of Columbia (Washington DC). Monitor Bugalu. SOURCE: website 6/25/19",
+    "rawRecord": "      CapuraGinga DC \nhttp://www.districtcapoeira.com/\nMonitor Bugalu\n      Augustana Lutheran Church\n2100 New Hampshire Ave NW\nAdults - all levels:Tues &Wed  7:15- 8:15pm;  Sat 10:30am.  (Drop-ins welcome)\nKids' cages 4 and up]  Tues 6:15-7:00pm ; Sat 9:30-10:15am.  (Advance sign-up on website required\n)SOURCE: website  6/25/19"
+  },
+  {
+    "name": "Capoeira Malês DC",
+    "website": "http://www.capoeiradc.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Curisco",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Instructor: Gaviao",
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "The Capoeira Spot",
+        "address": "2008 Rhode Island Ave NE, Washington, DC 20018",
+        "schedule": "(Full schedule of classes. See website)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "The Capoeira Spot\n2008 Rhode Island Ave NE, Washington, DC 20018\n(Full schedule of classes.  See website)"
+      }
+    ],
+    "notes": "District of Columbia (Washington DC). Instructor: Gaviao under the guidance of Mestre Curisco [Seattle]. SOURCE: email 9/22/10 website 2/25/11",
+    "rawRecord": "      Capoeira Malês\nhttp://www.capoeiradc.com\nInstructor: Gaviao under the guidance of Mestre Curisco[Seattle]\n      The Capoeira Spot\n2008 Rhode Island Ave NE, Washington, DC 20018\n(Full schedule of classes.  See website)\nSOURCE: email 9/22/10 website 2/25/11"
+  },
+  {
+    "name": "International Capoeira Angola Federation DC",
+    "website": "https://ficadc.org/",
+    "leader": null,
+    "mainContact": null,
+    "sources": ["https://www.facebook.com/FICADC/"],
+    "locations": [
+      {
+        "name": "Emergence Community Arts Collective",
+        "address": "733 Euclid St. NW Washington DC.",
+        "schedule": "(Full schedule of classes. See website)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Emergence Community Arts Collective\n733 Euclid St. NW Washington DC.\n(Full schedule of classes.  See website)"
+      }
+    ],
+    "notes": "District of Columbia (Washington DC). SOURCE: website 5/15/18",
+    "rawRecord": "      International Capoeira Angola Federation\nhttps://ficadc.org/\nhttps://www.facebook.com/FICADC/\n      Emergence Community Arts Collective\n733 Euclid St. NW Washington DC.\n(Full schedule of classes.  See website)\nSOURCE: website 5/15/18"
+  },
+  {
+    "name": "Universal Capoeira Angola Center DC",
+    "website": "http://www.universalcapoeira.org/",
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "Universal Capoeira Angola Center",
+        "address": "1351 U Street NW Washington, DC 20009 ([in the rear of the building])",
+        "schedule": "Capoeira Conditioning [Beginner's Class] Mon & Fri 6:30-7:30pm; All Levels [Music and Movement] Tues & Thurs 6:30-8:30pm; Sat & Sun 11:00-1:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "1351 U Street NW Washington, DC 20009 ([in the rear of the building])\nhttp://www.universalcapoeira.org/\nCapoeira Conditioning [Beginner's Class] Mon & Fri  6:30-7:30pm\nAll Levels [Music and Movement]Tues & Thurs 6:30- 8:30pm; Sat &\nSun11:00-1:00pm"
+      }
+    ],
+    "notes": "District of Columbia (Washington DC). SOURCE: website 5/20/18",
+    "rawRecord": "      Universal Capoeira Angola Center\n1351 U Street NW Washington, DC 20009 ([in the rear of the building])\nhttp://www.universalcapoeira.org/\nCapoeira Conditioning [Beginner's Class] Mon & Fri  6:30-7:30pm\nAll Levels [Music and Movement]Tues & Thurs 6:30- 8:30pm; Sat &\nSun11:00-1:00pm\nSOURCE: website 5/20/18"
+  },
+  {
+    "name": "Oficina da Capoeira",
+    "website": "http://www.capoeirasocialproject.org/",
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "District of Columbia (Washington DC). Currently does not offer regular classes. Offers in school/festival demonstrations and workshops under non-profit Capoeira Social Project in MD, DC, and VA. SOURCE: email 5/22/18",
+    "rawRecord": "      Oficina da Capoeira\ncurrently does not offer regular classes. offers in school/festival\ndemonstrations and workshops under non-profit Capoeira Social Project in\nMD, DC, and VA.\nhttp://www.capoeirasocialproject.org/\nSOURCE:  email  5/22/18"
+  },
+  {
+    "name": "Abadá Capoeira DC",
+    "website": "http://abadadc.org/",
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "District of Columbia (Washington DC). Only in Fairfax and Montgomery Counties. No regular classes in the District proper 5/20/18. SOURCE: website 5/20/18",
+    "rawRecord": "       Abadá Capoeira\nhttp://abadadc.org/\n(Only in Fairfax and Montgomery Counties. No regular classes in the\nDistrict proper.   5/20/18"
+  },
+  {
+    "name": "Serpente Negra Capoeira",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Aluno Adiantado Corajoso (J.J. Bechhold)",
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "District of Columbia (Washington DC). Aluno Adiantado Corajoso (J.J. Bechhold). Email bounced 6/15/13. SOURCE: email 4/26/05",
+    "rawRecord": ")      Serpente Negra Capoeira\nAluno Adiantado Corajoso \"J.J. Bechhold\"\n(  email bounced  6/15/13)\nSOURCE: email 4/26/05"
+  },
+  {
+    "name": "Vai Capoeira Newark",
+    "website": "http://www.vaicapoeira.org/",
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "Instructor@vaicapoeira.org",
+      "phone": "646.379.4468"
+    },
+    "sources": ["https://www.facebook.com/pages/Vai-Capoeira/166279410079532"],
+    "locations": [],
+    "notes": "Newark, Delaware. Workshops are being offered on a semi regular basis in both Pennsylvania and Delaware. Contact for additional information. SOURCE: website 6/29/19",
+    "rawRecord": "          Vai Capoeira\n\nhttp://www.vaicapoeira.org/\n\nEmail: Instructor@vaicapoeira.org\n\ncall 646.379.4468\nhttps://www.facebook.com/pages/Vai-Capoeira/166279410079532\n\n\"Workshops are being offered on a semi regular basis in both Pennsylvania and Delaware. Contact for additional information.\"\n\nSOURCE: website 6/29/19"
+  }
+]

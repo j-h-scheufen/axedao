@@ -3,8 +3,8 @@ import type { PropsWithChildren } from 'react';
 import type { Metadata } from 'next';
 
 import Navbar from '@/components/Navbar';
-import { fontFiraCode, fontInter, fontOpenSans } from '@/config/fonts';
 import BreadcrumbTracker from '@/components/BreadcrumbTracker';
+import { fontFiraCode, fontInter, fontOpenSans } from '@/config/fonts';
 import Providers from './_providers';
 import { sharedMetadata, viewport } from '@/config/metadata';
 import type { SearchParams } from '@/types/routes';
@@ -39,7 +39,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
           <BreadcrumbTracker />
           <div className="relative flex min-h-screen flex-col">
             <Navbar />
-            <main className="container mx-auto max-w-3xl flex-grow mb-[60px]">{children}</main>
+            <main className="container sm:mx-auto max-w-3xl flex-grow mb-[60px]">{children}</main>
           </div>
         </Providers>
       </body>

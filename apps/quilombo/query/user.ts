@@ -2,9 +2,10 @@ import { infiniteQueryOptions, queryOptions, useInfiniteQuery, useQuery } from '
 import axios from 'axios';
 
 import { QueryConfig } from '@/config/constants';
-import type { SearchParams } from '@/config/validation-schema';
+import type { UserSearchParams } from '@/config/validation-schema';
 import type { User, UserSearchResult } from '@/types/model';
-import { QUERY_KEYS, type SearchByAddressParams } from '.';
+import { QUERY_KEYS } from './keys';
+import type { SearchByAddressParams } from '.';
 
 const fetchUser = async (id: string): Promise<User> => axios.get(`/api/users/${id}`).then((response) => response.data);
 export const fetchUserOptions = (id: string | undefined) => {
@@ -16,16 +17,16 @@ export const fetchUserOptions = (id: string | undefined) => {
   } as const;
 };
 
-export const searchUsers = async ({ offset = 0, pageSize, searchTerm }: SearchParams): Promise<UserSearchResult> => {
-  let queryParams = `?offset=${offset}`;
-  queryParams += searchTerm ? `&searchTerm=${searchTerm}` : '';
-  queryParams += pageSize ? `&limit=${pageSize}` : '';
-  return axios.get(`/api/users${queryParams}`).then((response) => response.data);
+export const searchUsers = async (params: UserSearchParams): Promise<UserSearchResult> => {
+  return axios.post('/api/users/search', params).then((response) => response.data);
 };
-export const searchUsersOptions = ({ offset, pageSize, searchTerm }: SearchParams) => {
+
+export const searchUsersOptions = (params: UserSearchParams) => {
+  const { offset, pageSize, searchTerm, filters } = params;
   return {
-    queryKey: [QUERY_KEYS.user.searchUsers, searchTerm],
-    queryFn: async ({ pageParam }: { pageParam: number }) => searchUsers({ offset: pageParam, pageSize, searchTerm }),
+    queryKey: [QUERY_KEYS.user.searchUsers, searchTerm, filters],
+    queryFn: async ({ pageParam }: { pageParam: number }) =>
+      searchUsers({ offset: pageParam, pageSize, searchTerm, filters }),
     initialPageParam: offset || 0,
     getNextPageParam: (lastPage: UserSearchResult) => {
       if (lastPage.nextOffset === null || lastPage.nextOffset >= lastPage.totalCount) {
@@ -41,7 +42,7 @@ export const useFetchUser = (id: string | undefined) => {
   return useQuery(queryOptions(fetchUserOptions(id)));
 };
 
-export const useSearchUsers = (params: SearchParams) => {
+export const useSearchUsers = (params: UserSearchParams) => {
   return useInfiniteQuery(infiniteQueryOptions(searchUsersOptions(params)));
 };
 

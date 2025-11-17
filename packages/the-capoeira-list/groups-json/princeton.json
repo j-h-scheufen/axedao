@@ -1,0 +1,49 @@
+[
+  {
+    "name": "Grupo Cumbe Capoeira",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": "Veleiro",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "Princeton Track",
+        "address": "Princeton, West Virginia 24740",
+        "schedule": "Thurs 6:00-7:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Princeton, West Virginia 24740\nThurs 6:00 - 7:30pm Princeton Track."
+      },
+      {
+        "name": "Princeton Dance Studio",
+        "address": "Princeton, West Virginia",
+        "schedule": "Sun 4:00-6:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Sun 4:00-6:00pm  Princeton Dance Studio"
+      }
+    ],
+    "notes": "Princeton, West Virginia. Website offline 3/27/16. SOURCE offline unreliable website. posted Apr 13 2006",
+    "rawRecord": "       Grupo Cumbe Capoeira\n(website offline 3/27/16)\nVeleiro\nPrinceton, West Virginia 24740\nThurs 6:00 - 7:30pm Princeton Track.\nSun 4:00-6:00pm  Princeton Dance Studio\nSOURCE offline unreliable website.  posted  Apr 13 2006"
+  },
+  {
+    "name": "Snowshoe Capoeira",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Jarrod Lemley",
+      "email": null,
+      "phone": "304-572-3355"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Snowshoe, West Virginia. Date: June 25, 2005. Contact Jarrod Lemley, formerly of Raízes do Brasil-Huntington, if interested. We have found that there is a Jarrod Jon Lemley formerly of Snowshoe, currently living in Huntington 12/26/19. SOURCE: forum post",
+    "rawRecord": "Date:June 25, 2005 \ncontact Jarrod Lemley, formerly of Raízes do Brasil-Huntington,\nif interested\n  304-572-3355\nSOURCE: forum post\n (We have found that there is a Jarrod Jon Lemley formerly of Snowshoe, currently living in Huntington 12/26/19)"
+  }
+]

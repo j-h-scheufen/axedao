@@ -10,8 +10,9 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { PATHS } from '@/config/constants';
 import { signupSchema, type SignupForm as SignupFormValues } from '@/config/validation-schema';
 import ErrorText from '@/components/ErrorText';
-import FormikInput from '@/components/forms/FormikInput';
+import FieldInput from '@/components/forms/FieldInput';
 import useAuth from '@/hooks/useAuth';
+import * as auth from '@/query/auth';
 import { PasswordRequirements } from './PasswordRequirements';
 import WalletEmailModal from './WalletEmailModal';
 
@@ -30,6 +31,13 @@ const SignUpForm = () => {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
+  // Use signup mutation from query layer
+  const signupMutation = auth.useSignupMutation();
+
+  // Extract invitation code and email from URL params
+  const invitationCode = searchParams.get('code');
+  const invitedEmail = searchParams.get('email');
+
   // Prevent hydration mismatch by only rendering after client mount
   useEffect(() => {
     setMounted(true);
@@ -46,24 +54,16 @@ const SignUpForm = () => {
   const handleEmailPasswordSubmit = async (values: SignupFormValues) => {
     setError(null);
     try {
-      const response = await fetch('/api/auth/signup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
+      await signupMutation.mutateAsync({
+        ...values,
+        ...(invitationCode && { invitationCode }),
       });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        setError(data.error || 'Failed to create account');
-        return;
-      }
 
       setSuccess(true);
       // Redirect to email verification page
       router.push(`${PATHS.verifyEmail}/sent?email=${encodeURIComponent(values.email)}`);
     } catch (err) {
-      setError('An unexpected error occurred. Please try again.');
+      setError((err as Error).message || 'An unexpected error occurred. Please try again.');
       console.error('Signup error:', err);
     }
   };
@@ -129,22 +129,31 @@ const SignUpForm = () => {
       <div className="auth-container-py">
         <h2 className="text-3xl text-default-700 sm:text-default-800 mb-2 text-center">Create Your Account</h2>
 
+        {invitationCode && (
+          <div className="mb-4 p-3 bg-success-50 rounded-lg border border-success-200">
+            <p className="text-sm text-success-700 text-center">
+              ✓ You're signing up with a valid invitation
+              {invitedEmail && ` for ${invitedEmail}`}
+            </p>
+          </div>
+        )}
+
         {/* Email/Password Form */}
         <Formik
-          initialValues={{ email: '', password: '' }}
+          initialValues={{ email: invitedEmail || '', password: '' }}
           validationSchema={signupSchema}
           onSubmit={handleEmailPasswordSubmit}
         >
           {({ isSubmitting, values }) => (
             <Form className="flex flex-col gap-4">
-              <Field name="email" type="email" label="Email" placeholder="your@email.com" isRequired as={FormikInput} />
+              <Field name="email" type="email" label="Email" placeholder="your@email.com" isRequired as={FieldInput} />
               <Field
                 name="password"
                 type="password"
                 label="Password"
                 placeholder="Create a strong password"
                 isRequired
-                as={FormikInput}
+                as={FieldInput}
               />
               <PasswordRequirements password={values.password} />
               <Button type="submit" color="primary" size="lg" isLoading={isSubmitting}>

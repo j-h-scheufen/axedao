@@ -1,0 +1,137 @@
+[
+  {
+    "name": "Ecole d'Arts Martiaux Bresiliens de Laval",
+    "website": "https://www.ecolecapoeiralaval.com/",
+    "leader": {
+      "title": "professor",
+      "nickname": "Perninha",
+      "name": "Vitor Silva Dos Santos"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@ecolecapoeiralaval.com",
+      "phone": "+1 514-814-4530"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Laval location",
+        "address": "103 Boulevard de la Concorde O, Laval, QC H7N 1H8, Canada",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Address: 103 Boulevard de la Concorde O, Laval, QC H7N 1H8, Canada"
+      }
+    ],
+    "notes": "Laval, Quebec, Canada. SOURCE: website 3/22/17, email 7/30/12",
+    "rawRecord": "      Ecole d'Arts Martiaux Bresiliens de Laval\nAddress: 103 Boulevard de la Concorde O, Laval, QC H7N 1H8, Canada\nhttps://www.ecolecapoeiralaval.com/\nProfessor Perninha \"Vitor Silva Dos Santos\"\nPhone: +1 514-814-4530\ninfo@ecolecapoeiralaval.com\nSOURCE: website 3/22/17, email  7/30/12"
+  },
+  {
+    "name": "Grupo Cultura Capoeira",
+    "website": "http://www.grupoculturacapoeira.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": null,
+      "name": "Marcelo Brandao de Macedo"
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Laval, Quebec, Canada. SOURCE: website 3/22/17",
+    "rawRecord": "      Grupo Cultura Capoeira\nMestre Marcelo Brandao de Macedo\nhttp://www.grupoculturacapoeira.com\nSOURCE:   website 3/22/17,"
+  },
+  {
+    "name": "Axe Capoeira",
+    "website": "http://capoeiramississauga.com/",
+    "leader": {
+      "title": null,
+      "nickname": "Pulga",
+      "name": "Mike Soltysiak"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "axemartialarts@gmail.com",
+      "phone": "647 244 7570"
+    },
+    "sources": ["https://www.facebook.com/pg/axemississauga/about/?ref=page_internal"],
+    "locations": [
+      {
+        "name": "Unit 1A",
+        "address": "2505 Dunwin Drive, Mississauga, Canada",
+        "schedule": "Kids: Tues & Thurs 5:30-6:30pm; Sun 11:00am-12:00pm; Adults: Tues & Thurs 6:30-8:00pm; Sun 12:00-1:30pm; Music: Sun 1:30-2:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Unit 1A\n2505 Dunwin Drive, Mississauga, Canada\nKids: Tues & Thurs 5:30-6:30pm; Sun 11:00am-12:00pm\nAdults: Tues & Thurs 6:30-8:00pm; Sun 12:00-1:30pm\nMusic: Sun 1:30-2:00pm"
+      }
+    ],
+    "notes": "Mississauga, Ontario, Canada. Under Mestre Barrao [Vancouver]. SOURCE: website facebook 3/22/17",
+    "rawRecord": "      Axe Capoeira\n http://capoeiramississauga.com/\nhttps://www.facebook.com/pg/axemississauga/about/?ref=page_internal\nPulga   \"Mike Soltysiak\" under Mestre Barrao[Vancouver]\n647 244 7570\naxemartialarts@gmail.com\n      Unit 1A\n2505 Dunwin Drive, Mississauga, Canada\nKids: Tues & Thurs 5:30-6:30pm; Sun 11:00am-12:00pm\nAdults: Tues & Thurs 6:30-8:00pm; Sun 12:00-1:30pm\nMusic: Sun 1:30-2:00pm\nSOURCE  website facebook 3/22/17"
+  },
+  {
+    "name": "Ginga Fitness",
+    "website": "http://www.gingafitness.ca",
+    "leader": null,
+    "mainContact": {
+      "name": "Myneesha",
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "River Grove Community CC",
+        "address": "5800 River Grove Ave. Mississauga, On",
+        "schedule": "Monday: 5:30 pm-6:30 pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "River Grove Community CC\n5800 River Grove Ave. Mississauga, On\nMonday:  5:30 pm – 6:30 pm"
+      },
+      {
+        "name": "Frank McKechnie CC",
+        "address": "310 Bristol Rd E. Mississauga, On",
+        "schedule": "Monday: 7:25 pm-8:25 pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Frank McKechnie CC\n310 Bristol Rd E. Mississauga, On\nMonday:  7:25 pm – 8:25 pm"
+      },
+      {
+        "name": "Meadowvale C.C.",
+        "address": "6655 Glen Erin Dr Mississauga, ON",
+        "schedule": "Tuesday: 6:30 pm-7:30 pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Meadowvale C.C.\n6655 Glen Erin Dr Mississauga, ON\nTuesday:   6:30 pm – 7:30 pm"
+      },
+      {
+        "name": "City of Mississauga",
+        "address": "730 Courtneypark Dr. W. Mississauga, On",
+        "schedule": "Wednesday: 7:00 pm-8:00 pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "City of Mississauga\n730 Courtneypark Dr. W. Mississauga, On\nWednesday:  7:00 pm – 8:00 pm"
+      }
+    ],
+    "notes": "Mississauga, Ontario, Canada. A capoeira based workout. SOURCE: website 3/22/17",
+    "rawRecord": "      Ginga Fitness\n(A capoeira based workout)\nhttp://www.gingafitness.ca\nMyneesha\n      River Grove Community CC\n5800 River Grove Ave. Mississauga, On\nMonday:  5:30 pm – 6:30 pm\n      Frank McKechnie CC\n310 Bristol Rd E. Mississauga, On\nMonday:  7:25 pm – 8:25 pm\n      Meadowvale C.C.\n6655 Glen Erin Dr Mississauga, ON\nTuesday:   6:30 pm – 7:30 pm\n      City of Mississauga\n730 Courtneypark Dr. W. Mississauga, On\nWednesday:  7:00 pm – 8:00 pm\nSOURCE: website 3/22/17"
+  },
+  {
+    "name": "Cordao de Contas",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": "LoboGuara",
+      "name": "Paul Bielak"
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "In Europe. SOURCE: email 1/22/11",
+    "rawRecord": "      Cordao de Contas\n LoboGuara  \"Paul Bielak\"\n in Europe\nSOURCE: email 1/22/11"
+  }
+]

@@ -104,13 +104,23 @@ export const emailStyles = {
     color: '#dc3545',
   },
 
+  // Divider for bilingual content
+  divider: {
+    color: '#8898aa',
+    fontSize: '16px',
+    textAlign: 'center' as const,
+    padding: '0 40px',
+    marginTop: '32px',
+    marginBottom: '32px',
+  },
+
   // Footer styles
   footer: {
     color: '#8898aa',
     fontSize: '12px',
     lineHeight: '16px',
     padding: '0 40px',
-    marginTop: '24px',
+    marginTop: '8px',
   },
 
   footerCentered: {
@@ -118,7 +128,7 @@ export const emailStyles = {
     fontSize: '12px',
     lineHeight: '16px',
     padding: '0 40px',
-    marginTop: '24px',
+    marginTop: '8px',
     textAlign: 'center' as const,
   },
 

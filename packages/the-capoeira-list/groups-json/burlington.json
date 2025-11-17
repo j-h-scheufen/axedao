@@ -1,0 +1,168 @@
+[
+  {
+    "name": "Grupo Capoeira Males",
+    "website": "http://capoeiraschool.ca/",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Lua Branca",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Camarao",
+      "email": "camarao_capoeira@hotmail.com",
+      "phone": "[647] 283-0462"
+    },
+    "sources": ["http://capoeiraschool.ca/"],
+    "locations": [
+      {
+        "name": "Sidekicks School of Martial Arts",
+        "address": "2421 New Street, Burlington, Ontario",
+        "schedule": "Mon 8:00-9:30pm; Wed. 7:30pm - 9:00pm; Sat. 12:30pm - 2:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Sidekicks School of Martial Arts\n2421 New Street,  Burlington, Ontario\n Mon 8:00-9:30pm;  Wed. 7:30pm - 9:00pm; Sat. 12:30pm - 2:00pm"
+      }
+    ],
+    "notes": "Contra Mestre Lua Branca is based in Toronto. SOURCE: website 3/18/17",
+    "rawRecord": "Grupo Capoeira Males\nhttp://capoeiraschool.ca/\nContra Mestre Lua Branca[Toronto]\nContact : Camarao\n  [647] 283-0462\n  camarao_capoeira@hotmail.com.\n      Sidekicks School of Martial Arts\n2421 New Street,  Burlington, Ontario\n Mon 8:00-9:30pm;  Wed. 7:30pm - 9:00pm; Sat. 12:30pm - 2:00pm\nSOURCE: website 3/18/17"
+  },
+  {
+    "name": "Capoeira Camara",
+    "website": "http://www.camaracalgary.com",
+    "leader": {
+      "title": "professor",
+      "nickname": "Frankenstein",
+      "name": "Frankie Da' Silva"
+    },
+    "mainContact": {
+      "name": "Frankenstein",
+      "email": "camara_academy@hotmail.com",
+      "phone": "[403] 827-7917"
+    },
+    "sources": ["http://www.camaracalgary.com"],
+    "locations": [
+      {
+        "name": "Richmond Knob Hill Studio",
+        "address": "2433 26 Ave SW, Calgary, AB",
+        "schedule": "Adult[16+]: Tues & Thurs 8:00-9:30pm (Check website for current kids class schedule)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Richmond Knob Hill Studio\n2433 26 Ave SW, Calgary, AB\nAdult[16+]: Tues & Thurs 8:00-9:30pm\n(Check website for current kids class schedule)"
+      },
+      {
+        "name": "Hillhurst Studio",
+        "address": "1320 5 Ave NW, Calgary, AB",
+        "schedule": "check website for current kids and adult class schedule",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Hillhurst Studio\n1320 5 Ave NW, Calgary, AB\n( check website for current kids and adult class schedule)"
+      }
+    ],
+    "notes": "Calgary location. SOURCE: website 3/18/17",
+    "rawRecord": "Capoeira Camara\nhttp://www.camaracalgary.com\nProfessor Frankenstein  \"Frankie Da' Silva\"\n[403] 827-7917\ncamara_academy@hotmail.com\n      Richmond Knob Hill Studio\n2433 26 Ave SW, Calgary, AB\nAdult[16+]: Tues & Thurs 8:00-9:30pm\n(Check website for current kids class schedule)\n      Hillhurst Studio\n1320 5 Ave NW, Calgary, AB\n( check website for current kids and adult class schedule)\nSOURCE: website 3/18/17"
+  },
+  {
+    "name": "Grupo Axe Capoeira",
+    "website": "http://www.axecalgary.com/",
+    "leader": {
+      "title": "mestrando",
+      "nickname": "Tigrao",
+      "name": "Elvio Dos Santos"
+    },
+    "mainContact": {
+      "name": "Tigrao",
+      "email": "axecapo@gmail.com",
+      "phone": "403-210-0269"
+    },
+    "sources": ["http://www.axecalgary.com/"],
+    "locations": [
+      {
+        "name": "Sait Polytechnic",
+        "address": "Calgary, AB",
+        "schedule": "Youth [12yrs+], Adult Beginner & Advanced: Mon 06:30 - 08:00pm; Beginner Adult Family Class: Mon 05:30 - 06:30pm; Tykes [4-6yrs] Mon 05:30 PM - 06:15pm; Kids [ 7-11yrs ] Wed 05:30 PM - 06:30pm; Youth [12yrs+], Adult Beginner & Advanced: Wed 06:30 - 08:00pm; Music & Dance Fri 06:30 - 08:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Sait Polytechnic\nYouth [12yrs+], Adult Beginner & Advanced: Mon  06:30 - 08:00pm\n Beginner Adult Family Class: .  Mon  05:30 - 06:30pm\n Tykes [4-6yrs].  Mon  05:30 PM - 06:15pm\n Kids [ 7-11yrs ]  Wed  05:30 PM - 06:30pm\nYouth [12yrs+], Adult Beginner & Advanced: Wed  06:30 - 08:00pm\n Music & Dance.  Fri  06:30 - 08:00pm"
+      },
+      {
+        "name": "Vivo",
+        "address": "Calgary, AB",
+        "schedule": "Youth Beginner: Sun 04:30 - 05:30pm; Adult Beginner: Sun 05:30- 06:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Vivo\nYouth Beginner:  Sun  04:30 - 05:30pm\n Adult Beginner:  Sun  05:30- 06:30pm"
+      },
+      {
+        "name": "YMCA Saddletown",
+        "address": "Calgary, AB",
+        "schedule": "Kids [6-11yrs] Tues 06:15 - 07:15pm; Beginner Youth [12yrs+] & Adult Tues 07:30 - 08:45pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "YMCA Saddletown\n  Kids [6-11yrs] Tues  06:15  - 07:15pm\n Beginner Youth [12yrs+] & Adult Tues  07:30 - 08:45pm"
+      },
+      {
+        "name": "YMCA Shawnessy",
+        "address": "400, 333 Shawville Boulevard SE, Calgary, AB",
+        "schedule": "Kids [6-11yrs]: Thurs 06:15 - 07:15pm; Beginner Youth [12yrs+] & Adult: Thurs 07:30- 08:45pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "YMCA Shawnessy\n400, 333 Shawville Boulevard SE , Calgary, AB\n Kids [6-11yrs]:  Thurs 06:15 - 07:15pm\n Beginner Youth [12yrs+] & Adult:   Thurs \n07:30- 08:45pm"
+      },
+      {
+        "name": "SpaLady",
+        "address": "Calgary, AB",
+        "schedule": "Adult Women Only: Thurs 10:45 - 11:45am",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "SpaLady\nAdult Women Only:  Thurs  10:45 - 11:45am"
+      },
+      {
+        "name": "MMA University",
+        "address": "16-49 Aero Drive NE, Calgary, AB",
+        "schedule": "Music Class -Youth, Adult Beginner & Advanced: Sat 02:30pm 03:00pm; Kids Music Class: Sat 03:00 - 03:30; Kids [4yrs+]: Class & roda: Sat 03:30pm 04:30pm; Youth [12yrs+], Adult Beginner & Advanced: Class & roda Saturday 03:00 PM - 04:30 PM; Youth & Adult Beginner Tues 07:30 - 08:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "MMA University\n16-49 Aero Drive NE.\n Music Class -Youth, Adult Beginner & Advanced:  \nSat  02:30pm 03:00pm\n Kids Music Class: .  Sat 03:00 - 03:30\n Kids [4yrs+]: Class & roda: .  Sat  03:30pm 04:30pm\n Youth [12yrs+], Adult Beginner & Advanced: Class & roda.\nSaturday  03:00 PM - 04:30 PM\n Youth & Adult Beginner  Tues  07:30 - 08:30pm"
+      }
+    ],
+    "notes": "Under Mestre Barrao [Vancouver]. Calgary location. SOURCE: website 3/18/17",
+    "rawRecord": "Grupo Axe Capoeira\nhttp://www.axecalgary.com/\nMestrando Tigrao  \"Elvio Dos Santos\" under  Mestre\nBarrao[Vancouver]\nPhone: 403-210-0269\nEmail:  axecapo@gmail.com\n      Sait Polytechnic\nYouth [12yrs+], Adult Beginner & Advanced: Mon  06:30 - 08:00pm\n Beginner Adult Family Class: .  Mon  05:30 - 06:30pm\n Tykes [4-6yrs].  Mon  05:30 PM - 06:15pm\n Kids [ 7-11yrs ]  Wed  05:30 PM - 06:30pm\nYouth [12yrs+], Adult Beginner & Advanced: Wed  06:30 - 08:00pm\n Music & Dance.  Fri  06:30 - 08:00pm\n      Vivo\nYouth Beginner:  Sun  04:30 - 05:30pm\n Adult Beginner:  Sun  05:30- 06:30pm\n      YMCA Saddletown\n  Kids [6-11yrs] Tues  06:15  - 07:15pm\n Beginner Youth [12yrs+] & Adult Tues  07:30 - 08:45pm\n      YMCA Shawnessy\n400, 333 Shawville Boulevard SE , Calgary, AB\n Kids [6-11yrs]:  Thurs 06:15 - 07:15pm\n Beginner Youth [12yrs+] & Adult:   Thurs \n07:30- 08:45pm\n      SpaLady\nAdult Women Only:  Thurs  10:45 - 11:45am\n      MMA University\n16-49 Aero Drive NE.\n Music Class -Youth, Adult Beginner & Advanced:  \nSat  02:30pm 03:00pm\n Kids Music Class: .  Sat 03:00 - 03:30\n Kids [4yrs+]: Class & roda: .  Sat  03:30pm 04:30pm\n Youth [12yrs+], Adult Beginner & Advanced: Class & roda.\nSaturday  03:00 PM - 04:30 PM\n Youth & Adult Beginner  Tues  07:30 - 08:30pm\nSOURCE:  website 3/18/17"
+  },
+  {
+    "name": "Capoeira Ache Brasil Calgary",
+    "website": "https://capoeiraabc.com/",
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Manteiga",
+      "name": "Mike Darling"
+    },
+    "mainContact": {
+      "name": "Manteiga",
+      "email": "info@capoeiraabc.com",
+      "phone": "403-808-6924"
+    },
+    "sources": ["https://capoeiraabc.com/", "https://www.facebook.com/groups/11532272207/"],
+    "locations": [
+      {
+        "name": "Capoeira Ache Brasil Calgary",
+        "address": "201 3811 Edmonton Trail NE Calgary, Alberta, T2E 8J9",
+        "schedule": "Beginner Class: Mon 6:15pm-7:15pm; Intermediate Class: Wed & Fri 7:00pm-8:30pm; Advanced Class: Mon 7:15pm-8:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Capoeira Ache Brasil Calgary\n201 3811 Edmonton Trail NE Calgary, Alberta, T2E 8J9\nhttps://capoeiraabc.com/\nInstrutor Manteiga \"Mike Darling\" and  Monitor Suassuna \"Vlad\nGincher\"\nunder Mestre Eclilson De Jesus [ Vancouver]\nPhone: 403-808-6924\ninfo@capoeiraabc.com\nhttps://www.facebook.com/groups/11532272207/\nBeginner Class: Mon 6:15pm-7:15pm\nIntermediate Class: Wed & Fri 7:00pm-8:30pm\nAdvanced Class: Mon 7:15pm-8:30pm"
+      }
+    ],
+    "notes": "Instrutor Manteiga and Monitor Suassuna under Mestre Eclilson De Jesus [Vancouver]. Calgary location. SOURCES: website 3/18/17",
+    "rawRecord": "Capoeira Ache Brasil Calgary\n201 3811 Edmonton Trail NE Calgary, Alberta, T2E 8J9\nhttps://capoeiraabc.com/\nInstrutor Manteiga \"Mike Darling\" and  Monitor Suassuna \"Vlad\nGincher\"\nunder Mestre Eclilson De Jesus [ Vancouver]\nPhone: 403-808-6924\ninfo@capoeiraabc.com\nhttps://www.facebook.com/groups/11532272207/\nBeginner Class: Mon 6:15pm-7:15pm\nIntermediate Class: Wed & Fri 7:00pm-8:30pm\nAdvanced Class: Mon 7:15pm-8:30pm\nSOURCES: website 3/18/17"
+  }
+]

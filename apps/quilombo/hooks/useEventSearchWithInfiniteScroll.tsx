@@ -1,10 +1,16 @@
 'use client';
 
+import type { EventFilters } from '@/config/validation-schema';
 import { useInfiniteScroll } from './useInfiniteScroll';
 import useEventSearch from './useEventSearch';
 
-const useEventSearchWithInfiniteScroll = () => {
-  const searchData = useEventSearch();
+type UseEventSearchWithInfiniteScrollOptions = {
+  filters?: Partial<EventFilters>;
+  showActiveOnly?: boolean;
+};
+
+const useEventSearchWithInfiniteScroll = (options?: UseEventSearchWithInfiniteScrollOptions) => {
+  const searchData = useEventSearch(options);
   const scrollerRef = useInfiniteScroll({
     hasMore: searchData.hasNextPage,
     onLoadMore: searchData.fetchNextPage,

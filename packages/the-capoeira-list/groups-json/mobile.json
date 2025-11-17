@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Mobile Capoeira Meet-up",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": "Da'Vel",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": ["https://www.meetup.com/Mobile-Capoeira-Meet-up/"],
+    "locations": [],
+    "notes": "Mobile, Alabama. Da'Vel formerly of Capoeira Karkara in Melbourne, FL. Sat 4:30pm.",
+    "rawRecord": "https://www.meetup.com/Mobile-Capoeira-Meet-up/\nDa'Vel formerly of        Capoeira Karkara in Melbourne,\nFL\nSat 4:30pm"
+  },
+  {
+    "name": "Grupo Unidade Capoeira",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": "Sol em Boca",
+      "name": "Marc"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "unidadecapoeirabama@yahoo.com",
+      "phone": "256-466-5641"
+    },
+    "sources": ["http://www.facebook.com/unidadealabama"],
+    "locations": [
+      {
+        "name": "Worlds Gym",
+        "address": "3040 Eastern Blvd, Montgomery, AL 36116",
+        "schedule": "All ages: Tues & Thurs 8:45-11:00pm; Sat 4:30-6:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Worlds Gym\n3040 Eastern Blvd,  Montgomery, AL 36116\nAll ages:  Tues & Thurs 8:45-11:00pm; Sat 4:30-6:00pm"
+      }
+    ],
+    "notes": "Montgomery, Alabama. Website offline 11/22/16 (http://www.unidadecapoeirabama.com/). Tarantula 'Elijah': elijah_123@hotmail.com, 256-541-2389. Historiador 'Mike': mijackson22@yahoo.com, 334-233-2391. SOURCE: website 10/14/12",
+    "rawRecord": "      Grupo Unidade Capoeira\nhttp://www.unidadecapoeirabama.com/\n(website offline 11/22/16)\nhttp://www.facebook.com/unidadealabama\nSol em Boca \"Marc\"\n  unidadecapoeirabama@yahoo.com\n  256-466-5641\nTarantula \"Elijah\"\n  elijah_123@hotmail.com\n  256-541-2389\nHistoriador \"Mike\"\n  mijackson22@yahoo.com\n  334-233-2391\n      Worlds Gym\n3040 Eastern Blvd,  Montgomery, AL 36116\nAll ages:  Tues & Thurs 8:45-11:00pm; Sat 4:30-6:00pm\nSOURCE: website 10/14/12"
+  }
+]

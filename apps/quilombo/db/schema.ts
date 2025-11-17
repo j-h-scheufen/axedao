@@ -16,7 +16,16 @@ import {
   varchar,
 } from 'drizzle-orm/pg-core';
 
-import { linkTypes, styles, titles, eventTypes, accountStatuses } from '@/config/constants';
+import {
+  linkTypes,
+  styles,
+  titles,
+  eventTypes,
+  accountStatuses,
+  invitationTypes,
+  invitationStatuses,
+  groupClaimStatuses,
+} from '@/config/constants';
 import type { Feature, Geometry } from 'geojson';
 
 export const titleEnum = pgEnum('title', titles);
@@ -26,6 +35,11 @@ export const eventTypeEnum = pgEnum('event_type', eventTypes);
 export const accountStatusEnum = pgEnum('account_status', accountStatuses);
 export const tokenTypeEnum = pgEnum('token_type', ['email_verification', 'password_reset']);
 export const oauthProviderEnum = pgEnum('oauth_provider', ['google']);
+// Invitation system - users can invite friends via QR codes or email
+export const invitationTypeEnum = pgEnum('invitation_type', invitationTypes);
+export const invitationStatusEnum = pgEnum('invitation_status', invitationStatuses);
+// Group claim system - users can request to claim ownership of registered groups
+export const groupClaimStatusEnum = pgEnum('group_claim_status', groupClaimStatuses);
 
 export type LinkType = (typeof linkTypes)[number];
 export type SocialLink = { type?: LinkType; url: string };
@@ -51,6 +65,8 @@ export const users = pgTable(
     accountStatus: accountStatusEnum('account_status').default('active').notNull(),
     isGlobalAdmin: boolean('is_global_admin').default(false).notNull(),
     links: json('links').$type<SocialLink[]>().notNull().default([]),
+    // Invitation attribution - tracks who invited this user
+    invitedBy: uuid('invited_by').references((): AnyPgColumn => users.id, { onDelete: 'set null' }),
   },
   (t) => [
     index('nickname_idx').on(t.nickname),
@@ -60,6 +76,8 @@ export const users = pgTable(
     // Note: walletAddress is NOT unique - same wallet can be linked to multiple accounts
     // Wallet connection doesn't prove ownership, only SIWE signature does
     index('wallet_address_idx').on(t.walletAddress),
+    // Index for invitation attribution queries
+    index('invited_by_idx').on(t.invitedBy),
   ]
 );
 
@@ -79,10 +97,17 @@ export const groups = pgTable(
     banner: varchar('banner'),
     leader: uuid('leader_id').references((): AnyPgColumn => users.id, { onDelete: 'set null' }),
     founder: varchar('founder'),
-    verified: boolean('verified').notNull().default(false),
     links: json('links').$type<SocialLink[]>().notNull().default([]),
+    // Group lifecycle tracking for registration & claiming
+    createdBy: uuid('created_by').references((): AnyPgColumn => users.id, { onDelete: 'set null' }),
+    claimedBy: uuid('claimed_by').references((): AnyPgColumn => users.id, { onDelete: 'set null' }),
+    claimedAt: timestamp('claimed_at'),
   },
-  (t) => [index('name_idx').on(t.name)]
+  (t) => [
+    index('name_idx').on(t.name),
+    index('created_by_idx').on(t.createdBy),
+    index('claimed_by_idx').on(t.claimedBy),
+  ]
 );
 
 export const groupAdmins = pgTable(
@@ -127,6 +152,79 @@ export const oauthAccounts = pgTable(
     createdAt: timestamp('created_at').notNull().defaultNow(),
   },
   (t) => [uniqueIndex('oauth_provider_user_idx').on(t.provider, t.providerUserId), index('oauth_user_idx').on(t.userId)]
+);
+
+// Invitation system - allows users to invite others via QR codes or email
+export const invitations = pgTable(
+  'invitations',
+  {
+    id: uuid('id').defaultRandom().primaryKey(),
+    code: uuid('code').defaultRandom().notNull(),
+    type: invitationTypeEnum('type').notNull(),
+    invitedEmail: text('invited_email'), // Nullable for open invites
+    createdBy: uuid('created_by')
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    createdAt: timestamp('created_at').notNull().defaultNow(),
+    expiresAt: timestamp('expires_at').notNull(),
+    status: invitationStatusEnum('status').notNull().default('pending'),
+    acceptedAt: timestamp('accepted_at'), // Only for email_bound
+    acceptedBy: uuid('accepted_by').references(() => users.id, { onDelete: 'set null' }), // Only for email_bound
+  },
+  (t) => [
+    uniqueIndex('invitation_code_idx').on(t.code),
+    index('invitation_email_idx').on(t.invitedEmail),
+    index('invitation_created_by_idx').on(t.createdBy),
+    index('invitation_status_idx').on(t.status),
+    index('invitation_type_idx').on(t.type),
+  ]
+);
+
+// Group verification history - tracks all verifications for future rewards
+export const groupVerifications = pgTable(
+  'group_verifications',
+  {
+    id: uuid('id').defaultRandom().primaryKey(),
+    groupId: uuid('group_id')
+      .notNull()
+      .references(() => groups.id, { onDelete: 'cascade' }),
+    userId: uuid('user_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'set null' }),
+    verifiedAt: timestamp('verified_at').notNull().defaultNow(),
+    notes: text('notes'), // Optional - what was verified
+  },
+  (t) => [
+    index('group_verification_group_idx').on(t.groupId),
+    index('group_verification_user_idx').on(t.userId),
+    index('group_verification_date_idx').on(t.verifiedAt),
+  ]
+);
+
+// Group claims - tracks all claim requests (pending, approved, rejected)
+export const groupClaims = pgTable(
+  'group_claims',
+  {
+    id: uuid('id').defaultRandom().primaryKey(),
+    groupId: uuid('group_id')
+      .notNull()
+      .references(() => groups.id, { onDelete: 'cascade' }),
+    userId: uuid('user_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'set null' }),
+    status: groupClaimStatusEnum('status').notNull().default('pending'),
+    requestedAt: timestamp('requested_at').notNull().defaultNow(),
+    processedAt: timestamp('processed_at'),
+    processedBy: uuid('processed_by').references(() => users.id, { onDelete: 'set null' }),
+    userMessage: text('user_message').notNull(), // Why they should be admin
+    adminNotes: text('admin_notes'), // Admin's decision notes
+  },
+  (t) => [
+    index('group_claim_group_idx').on(t.groupId),
+    index('group_claim_user_idx').on(t.userId),
+    index('group_claim_status_idx').on(t.status),
+    index('group_claim_date_idx').on(t.requestedAt),
+  ]
 );
 
 export const userGroupRelations = relations(users, ({ one }) => ({
@@ -218,3 +316,12 @@ export type SelectVerificationToken = typeof verificationTokens.$inferSelect;
 
 export type InsertOAuthAccount = typeof oauthAccounts.$inferInsert;
 export type SelectOAuthAccount = typeof oauthAccounts.$inferSelect;
+
+export type InsertInvitation = typeof invitations.$inferInsert;
+export type SelectInvitation = typeof invitations.$inferSelect;
+
+export type InsertGroupVerification = typeof groupVerifications.$inferInsert;
+export type SelectGroupVerification = typeof groupVerifications.$inferSelect;
+
+export type InsertGroupClaim = typeof groupClaims.$inferInsert;
+export type SelectGroupClaim = typeof groupClaims.$inferSelect;

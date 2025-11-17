@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Allied Capoeira League Gainesville",
+    "website": "http://www.capoeiragainesville.com",
+    "leader": {
+      "title": "mestrando",
+      "nickname": "Mico",
+      "name": "Joshua Broadhead"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "352-219-6106"
+    },
+    "sources": ["http://www.capoeiragainesville.com"],
+    "locations": [
+      {
+        "name": null,
+        "address": "2020 NW 6th Street Gainesville, FL 32609 (around the corner from Ward's across the street from Protocol)",
+        "schedule": "Full schedule of classes",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "2020 NW 6th Street Gainesville, FL 32609 (around the corner\nfrom Ward's across the street from Protocol)\n(Full schedule of classes)"
+      }
+    ],
+    "notes": "Professor Gaviao. SOURCE: website 11/5/17",
+    "rawRecord": "Allied Capoeira  League Gainesville\n 2020 NW 6th Street Gainesville, FL 32609 (around the corner\nfrom Ward's across the street from Protocol)\nhttp://www.capoeiragainesville.com\n352-219-6106\nMestrando Mico \"Joshua Broadhead \"\nProfessor Gaviao\n(Full schedule of classes)\nSOURCE: website 11/5/17"
+  },
+  {
+    "name": "Capoeira Academy of Gainesville - Fundacao Internacional Capoeira Artes das Gerais",
+    "website": "https://capoeiraacademyofgainesville.weebly.com/",
+    "leader": {
+      "title": null,
+      "nickname": "Samurai",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "capoeiraacademyofgainesville@gmail.com",
+      "phone": "352-4947323"
+    },
+    "sources": ["https://capoeiraacademyofgainesville.weebly.com/"],
+    "locations": [
+      {
+        "name": null,
+        "address": "604 and ?606 N.Main Street, Gainesville, FL, 32601",
+        "schedule": "Full schedule of classes",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "604 and ?606 N.Main Street, Gainesville, FL, 32601\n(Full schedule of classes)"
+      }
+    ],
+    "notes": "Instructor Samurai under the guidance of Mestre Ze com Fome [Miami]. Instrutora Mel. SOURCE: website 11/5/17",
+    "rawRecord": "Capoeira Academy of Gainesville -  Fundacao Internacional\nCapoeira Artes das Gerais\n604 and ?606 N.Main Street, Gainesville, FL, 32601\nhttps://capoeiraacademyofgainesville.weebly.com/\nInstructor Samurai under the guidance of Mestre Ze com Fome[Miami]\nInstrutora Mel\n352- 4947323\ncapoeiraacademyofgainesville@gmail.com\n(Full schedule of classes)\nSOURCE: website 11/5/17"
+  },
+  {
+    "name": "Capoeira Luanda",
+    "website": "http://www.bcaeonline.org",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Borracha",
+      "name": "Wellington Porto"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@bcaeonline.org",
+      "phone": "[352] 359-4143"
+    },
+    "sources": ["http://www.bcaeonline.org", "http://www.facebook.com/BCAECapoeira"],
+    "locations": [
+      {
+        "name": "The Movement",
+        "address": "1212 North Main St, Gainesville Fl (next to Publix)",
+        "schedule": "Kids [4-8years] Wed 4:30-5:30pm; Sat 11am-12pm; Kids [8-12years] Tues 5:00-6:00pm; Sat 11am-12pm; Adults Tues 6:00-7:15pm; Thurs 7:00pm-8:15pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "The Movement\n1212 North Main St, Gainesville Fl (next to Publix)\nKids [4-8years] Wed 4:30-5:30pm;  Sat 11am-12pm\nKids [8-12years]Tues 5:00-6:00pm; Sat  11am-12pm\nAdults Tues 6:00-7:15pm; Thurs 7:00pm-8:15pm"
+      }
+    ],
+    "notes": "Under Mestre Jelon Vieira. Graduada Delicada \"Catherine Powers\". All Classes cancelled until further notice. Check website 11/6/17. SOURCE: website 11/6/17",
+    "rawRecord": "Capoeira Luanda\nhttp://www.bcaeonline.org\nhttp://www.facebook.com/BCAECapoeira\nunder Mestre Jelon Vieira\nContra Mestre  Borracha [Bohasha] \"Wellington Porto\"\nGraduada Delicada \"Catherine Powers\"\nCall [352] 359-4143\ninfo@bcaeonline.org\n(All Classes cancelled until further notice. Check\nwebsite  11/6/17)\n      The Movement\n1212 North Main St, Gainesville Fl (next to Publix)\nKids [4-8years] Wed 4:30-5:30pm;  Sat 11am-12pm\nKids [8-12years]Tues 5:00-6:00pm; Sat  11am-12pm\nAdults Tues 6:00-7:15pm; Thurs 7:00pm-8:15pm\nSOURCE website 11/6/17"
+  }
+]

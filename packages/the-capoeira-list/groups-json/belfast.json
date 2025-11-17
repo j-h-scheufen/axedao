@@ -1,0 +1,374 @@
+[
+  {
+    "name": "Capoeira Belfast - Escola da Capoeiragem",
+    "website": "https://www.facebook.com/capoeira.belfast.5",
+    "leader": {
+      "title": "professor",
+      "nickname": "Feijaozinho",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Alina Gazdieva",
+      "email": "odalisca_capoeira@hotmail.com",
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "The Queen's University of Belfast",
+        "address": "University Rd, Belfast BT7 1NN, United Kingdom",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "The Queen's University of Belfast\nUniversity Rd, Belfast BT7 1NN, United Kingdom"
+      },
+      {
+        "name": "Crescent Arts Centre",
+        "address": "2-4 University Rd, Belfast BT7 1NH",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Crescent Arts Centre\n2-4 University Rd, Belfast BT7 1NH"
+      }
+    ],
+    "notes": "under Mestre Sambua. SOURCE: email 11/18/15",
+    "rawRecord": "      Capoeira Belfast - Escola da Capoeiragem\nhttps://www.facebook.com/capoeira.belfast.5\nProfessor Feijaozinho under Mestre Sambua\nContact: Alina Gazdieva\n  odalisca_capoeira@hotmail.com\n      The Queen's University of Belfast\nUniversity Rd, Belfast BT7 1NN, United Kingdom\n      Crescent Arts Centre\n2-4 University Rd, Belfast BT7 1NH,\nSOURCE: email 11/18/15"
+  },
+  {
+    "name": "Capoeira Belfast-Capoeira Natural Do Brasil",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Aluno Zorrinho",
+      "email": null,
+      "phone": "+44 7877032961"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "(Website is offline; email bounces. we have heard that this group has not been in Belfast for seven or eight years. If someone local could try calling, and report back to us, it would be very helpful 11/23/15) Aluno Implusivo: +44 7842651806. SOURCE: website 8/4/07",
+    "rawRecord": "      Capoeira Belfast-Capoeira Natural Do Brasil\n(Website is offline; email bounces.  we have heard that this\ngroup has not been in Belfast for seven or eight years. If someone local\ncould try calling, and report back to us, it would be very helpful 11/23/15)\nAluno Zorrinho\n  +44 7877032961\nAluno Implusivo\n   +44 7842651806\nSOURCE: website 8/4/07"
+  },
+  {
+    "name": "Capoeira Nago",
+    "website": "http://www.cobracapoeira.co.uk/",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Cobra",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "cobranago@hotmail.com",
+      "phone": "07769778664"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "The Warehouse",
+        "address": "1a Cumberland Road, Reading, RG1 3LB",
+        "schedule": "Kids[4-12 years] Thurs 5:15-6pm; Adults[13+ years]: Thurs 7-8:30 pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "The Warehouse\n1a Cumberland Road, Reading, RG1 3LB\nKids[4-12 years] Thurs 5:15-6pm\nAdults[13+ years]: Thurs 7-8:30 pm"
+      },
+      {
+        "name": "Highdown School",
+        "address": "Main hall or School Barn, Surley Row, Reading, RG4 8LR",
+        "schedule": "Adults[13+ years]: Mon 7:15-8:15pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Highdown School\nMain hall or School Barn,  Surley Row, Reading, RG4 8LR\nAdults[13+ years]: Mon 7:15-8:15pm"
+      },
+      {
+        "name": "Coley Park Community Centre",
+        "address": "140 Wensley Rd, Reading RG1 6DW",
+        "schedule": "Adults[13+ years]: 7:00-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Coley Park Community Centre\n140 Wensley Rd, Reading RG1 6DW\nAdults[13+ years]: 7:00-8:00pm"
+      },
+      {
+        "name": "King George VI Day Centre",
+        "address": "83-95 Clarence Rd, Windsor, West Berkshire SL4 5AR",
+        "schedule": "Kids[4-12 years] Fri 5:30-6:15pm; Adults[13+ years]: Fri 7:15-8:15pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "King George VI Day Centre\n83-95 Clarence Rd, Windsor, West Berkshire SL4 5AR\nKids[4-12 years] Fri 5:30-6:15pm\nAdults[13+ years]: Fri  7:15-8:15pm"
+      },
+      {
+        "name": "CPVA, The Milestones Centre",
+        "address": "Northbrook Road, Caversham Park Village, RG4 6PF",
+        "schedule": "Kids[4-12 years]: Mon 6-6:45pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "CPVA, The Milestones Centre\nNorthbrook Road, Caversham Park Village, RG4 6PF\nKids[4-12 years]: Mon 6-6:45pm"
+      },
+      {
+        "name": "Tilehurst Methodist Church",
+        "address": "26 School Road, Tilehurst, Reading, RG31 5AN",
+        "schedule": "Kids[4-12 years]: 4:30-5:15pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Tilehurst Methodist Church\n26 School Road, Tilehurst, Reading, RG31 5AN\nKids[4-12 years]: 4:30-5:15pm"
+      }
+    ],
+    "notes": "Berkshire. SOURCE: website 11/3/16",
+    "rawRecord": "      Capoeira Nago\nhttp://www.cobracapoeira.co.uk/\nContra-Mestre Cobra\n   07769778664\n   cobranago@hotmail.com\n      The Warehouse\n1a Cumberland Road, Reading, RG1 3LB\nKids[4-12 years] Thurs 5:15-6pm\nAdults[13+ years]: Thurs 7-8:30 pm\n      Highdown School\nMain hall or School Barn,  Surley Row, Reading, RG4 8LR\nAdults[13+ years]: Mon 7:15-8:15pm\n      Coley Park Community Centre\n140 Wensley Rd, Reading RG1 6DW\nAdults[13+ years]: 7:00-8:00pm\n      King George VI Day Centre\n83-95 Clarence Rd, Windsor, West Berkshire SL4 5AR\nKids[4-12 years] Fri 5:30-6:15pm\nAdults[13+ years]: Fri  7:15-8:15pm\n      CPVA, The Milestones Centre\nNorthbrook Road, Caversham Park Village, RG4 6PF\nKids[4-12 years]: Mon 6-6:45pm\n      Tilehurst Methodist Church\n26 School Road, Tilehurst, Reading, RG31 5AN\nKids[4-12 years]: 4:30-5:15pm\nSOURCE: website 11/3/16"
+  },
+  {
+    "name": "Grupo De Capoeira Sao Jose Dos Carpinteiros",
+    "website": "https://sites.google.com/site/capoeirareading/home",
+    "leader": {
+      "title": "instructor",
+      "nickname": "Polaco",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "0772 390 9107"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "St Lukes Church Hall",
+        "address": "4 Erleigh Road Reading, Berkshire RG1 5LH",
+        "schedule": "Tues 6:30-8:00pm; Fri 8:00-10:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "St Lukes Church Hall\n4 Erleigh Road Reading, Berkshire RG1 5LH\nTues 6:30-8:00pm;  Fri 8:00-10:00pm"
+      }
+    ],
+    "notes": "Berkshire. SOURCE: website 11/3/16",
+    "rawRecord": "      Grupo De Capoeira Sao Jose Dos Carpinteiros.\nhttps://sites.google.com/site/capoeirareading/home\nInstructor: Polaco\n   Mobile:0772 390 9107\n      St Lukes Church Hall\n4 Erleigh Road Reading, Berkshire RG1 5LH\nTues 6:30-8:00pm;  Fri 8:00-10:00pm\nSOURCE:  website 11/3/16"
+  },
+  {
+    "name": "Capoeira UK - Capoeira Senzala de Santos",
+    "website": "http://www.capoeirauk.co.uk/",
+    "leader": {
+      "title": "instructor",
+      "nickname": "Michel Neves",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "capoeirauk@hotmail.com",
+      "phone": "01628 672256, 07905 463 145"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "WRVS York Center",
+        "address": "42 York Road Maidenhead SL6 1SH",
+        "schedule": "Tues 7:00-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "WRVS York Center\n42 York Road Maidenhead SL6 1SH\nTues 7:00-8:00pm"
+      },
+      {
+        "name": "Windor Leisure Center",
+        "address": "Clewer Mead, Stovall Road Windor Berkshire SL4 5JB",
+        "schedule": "Fri 7:00-8:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Windor Leisure Center\nClewer Mead, Stovall Road Windor  Berkshire SL4 5JB\nFri 7:00-8:30pm"
+      }
+    ],
+    "notes": "Berkshire. under Mestre Sombra \"Roberto Teles de Oliveira\" [Sao Paulo, Brazil]. (The information above is still on the website.. However the class information page has no content, and the information below is not currently on the website. We have kept it listed since it is possible, although very unlikely, that it is still valid. Please contact us 11/3/16). SOURCE: website 5/18/11",
+    "rawRecord": "      Capoeira UK - Capoeira Senzala de Santos\nhttp://www.capoeirauk.co.uk/\nInstructor Michel Neves under  Mestre Sombra \"Roberto Teles de\nOliveira \" [Sao Paulo, Brazil]\n  Tel:  01628 672256\n  Mob: 07905 463 145\ncapoeirauk@hotmail.com\n(The  information above  is still on the website.. However\nthe class information page has  no content, and the information below\nis not currently on the website. We have kept it listed  since\nit is possible, although very unlikely,  that it is still valid. Please\ncontact us  11/3/16)\n      WRVS York Center\n42 York Road Maidenhead SL6 1SH\nTues 7:00-8:00pm\n      Windor Leisure Center\nClewer Mead, Stovall Road Windor  Berkshire SL4 5JB\nFri 7:00-8:30pm\nSOURCE: website 5/18/11"
+  },
+  {
+    "name": "Cordao de Ouro, Birmingham Brazilian Cultural Centre",
+    "website": "http://www.cdob.co.uk/",
+    "leader": {
+      "title": "professor",
+      "nickname": "Mascote",
+      "name": "Samuel Mascote"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info.cdob@gmail.com",
+      "phone": "+44 [0] 7812 99 17 69"
+    },
+    "sources": ["https://www.facebook.com/CDOB.uk"],
+    "locations": [
+      {
+        "name": "Arch 32 Water Street",
+        "address": "Arch 32 Water Street, Birmingham B3 1HL",
+        "schedule": "Beginners: Mon 7:00-9:00pm; All Levels: Tues, Wed, & Fri 7:00-8:30pm; Kids: Tues & Thurs 5:00-6:00pm; Acrobatics: Tues 8:30-9:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Arch 32 Water Street,  Birmingham B3 1HL\nBeginners:  Mon 7:00-9:00pm\nAll Levels:  Tues, Wed, & Fri 7:00-8:30pm\nKids:  Tues & Thurs 5:00-6:00pm\nAcrobatics: Tues 8:30-9:30pm"
+      }
+    ],
+    "notes": "West Midlands, Birmingham, Leamington Spa, Coventry, Wolverhampton. SOURCE: website 11/7/16",
+    "rawRecord": "      Cordao de Ouro,  Birmingham Brazilian Cultural Centre\nArch 32 Water Street,  Birmingham B3 1HL\nhttp://www.cdob.co.uk/\nProfessor Mascote \"Samuel Mascote\"\nTel: +44 [0] 7812 99 17 69\nEmail:  info.cdob@gmail.com\nhttps://www.facebook.com/CDOB.uk\nBeginners:  Mon 7:00-9:00pm\nAll Levels:  Tues, Wed, & Fri 7:00-8:30pm\nKids:  Tues & Thurs 5:00-6:00pm\nAcrobatics: Tues 8:30-9:30pm\nSOURCE: website  11/7/16"
+  },
+  {
+    "name": "Capoeira Natural Do Brasil",
+    "website": "http://bcac.com.gridhosted.co.uk",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Anjo",
+      "name": "Leandro Menezes"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "cnbrasiluk@gmail.com",
+      "phone": "07734 357 771"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Motionhouse",
+        "address": "Spencer Yard, Leamington Spa, CV31 3SY",
+        "schedule": "Children's Class All Ages: Mon18:15 – 19:00; Introduction to Capoeira: Mon 19:00 – 19:45; Intermediate Class: Mon19:45 – 20:45",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Motionhouse\nSpencer Yard, Leamington Spa, CV31 3SY\nChildren's Class All Ages:  Mon18:15 – 19:00\nIntroduction to Capoeira: Mon 19:00 – 19:45\nIntermediate Class:  Mon19:45 – 20:45"
+      },
+      {
+        "name": "Pure Health Club",
+        "address": "58 Bedford Street, Leamington Spa, CV32 5DT",
+        "schedule": "Beginners Class: Wed 18:00 – 19:00",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Pure Health Club\n58 Bedford Street, Leamington Spa, CV32 5DT\nBeginners Class: Wed 18:00 – 19:00"
+      },
+      {
+        "name": "Warriors Den",
+        "address": "Unit 8, Rowley's Green Industrial Estate, CV6 6AN",
+        "schedule": "Wed 19.30-20.45",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Warriors Den\nUnit 8, Rowley's Green Industrial Estate, CV6 6AN\nWed 19.30-20.45"
+      },
+      {
+        "name": "Coventry Sport & Leisure Centre",
+        "address": "Studio 2, Fairfax Street, Coventry City Centre, CV1 5RY",
+        "schedule": "Family Class For Parents & Children: Fri 18:30 – 19:15; Mixed & Advanced: Fri 19:20 – 20:40",
+        "contactPerson": "Graduado Animado",
+        "email": null,
+        "phone": "07931181687",
+        "rawText": "Coventry Sport & Leisure Centre\nStudio 2, Fairfax Street, Coventry City Centre, CV1 5RY\nFamily Class For Parents & Children: Fri 18:30 – 19:15\nMixed & Advanced:  Fri 19:20 – 20:40\nGraduado Animado\n   07931181687"
+      },
+      {
+        "name": "Elite Fitness & Martial Arts",
+        "address": "124 Barr Street, Hockley, Birmingham, B19 3DE",
+        "schedule": "Beginners: Mon17:30-18:30; Fri 17:00-18:00",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Elite Fitness & Martial Arts\n124 Barr Street, Hockley, Birmingham, B19 3DE\nBeginners: Mon17:30-18:30; Fri 17:00-18:00"
+      }
+    ],
+    "notes": "West Midlands. SOURCE: website 11/7/16",
+    "rawRecord": "      Capoeira Natural Do Brasil\nhttp://bcac.com.gridhosted.co.uk\nemail: cnbrasiluk@gmail.com\nContra-Mestre Anjo \"Leandro Menezes\"\n  Tel : 07734 357 771\n      Motionhouse\nSpencer Yard, Leamington Spa, CV31 3SY\nChildren's Class All Ages:  Mon18:15 – 19:00\nIntroduction to Capoeira: Mon 19:00 – 19:45\nIntermediate Class:  Mon19:45 – 20:45\n      Pure Health Club\n58 Bedford Street, Leamington Spa, CV32 5DT\nBeginners Class: Wed 18:00 – 19:00\n      Warriors Den\nUnit 8, Rowley's Green Industrial Estate, CV6 6AN\nWed 19.30-20.45\n      Coventry Sport & Leisure Centre\nStudio 2, Fairfax Street, Coventry City Centre, CV1 5RY\nFamily Class For Parents & Children: Fri 18:30 – 19:15\nMixed & Advanced:  Fri 19:20 – 20:40\nGraduado Animado\n   07931181687\n      Elite Fitness & Martial Arts\n124 Barr Street, Hockley, Birmingham, B19 3DE\nBeginners: Mon17:30-18:30; Fri 17:00-18:00\nSOURCE: website 11/7/16"
+  },
+  {
+    "name": "Birmingham University Capoeira Society - Grupo Uniao na Capoeira",
+    "website": "http://capsoc.wixsite.com/capsoc",
+    "leader": null,
+    "mainContact": null,
+    "sources": ["https://www.facebook.com/BirmUniCapoeira/"],
+    "locations": [
+      {
+        "name": "Lecture Room 5, The Arts Building",
+        "address": null,
+        "schedule": "Movements: Tues & Thurs 6:30- 8:30pm; Music & Roda: Fri 6:30- 8:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Lecture Room 5, The Arts Building\nMovements: Tues & Thurs   6:30- 8:30pm\nMusic & Roda: Fri  6:30- 8:30pm"
+      }
+    ],
+    "notes": "West Midlands. SOURCE: website 11/21/16",
+    "rawRecord": "      Birmingham University Capoeira Society - Grupo Uniao\nna Capoeira\nhttp://capsoc.wixsite.com/capsoc\nhttps://www.facebook.com/BirmUniCapoeira/\n Lecture Room 5, The Arts Building\nMovements: Tues & Thurs   6:30- 8:30pm\nMusic & Roda: Fri  6:30- 8:30pm\nSOURCE:    website 11/21/16"
+  },
+  {
+    "name": "Wolverhampton University Capoeira Society",
+    "website": "https://www.wolvesunion.org/societies/society/xcapoeira/",
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "West Midlands. (Does not appear to have been updated since 2011, 11/21/16)",
+    "rawRecord": "      Wolverhampton University Capoeira Society\nhttps://www.wolvesunion.org/societies/society/xcapoeira/\n(Does not appear to have been updated since 2011,  11/21/16)"
+  },
+  {
+    "name": "Capoeira Renascer",
+    "website": "http://www.bjjbirmingham.co.uk/",
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "West Midlands. (Unable to find schedule information on website, 11/21/16)",
+    "rawRecord": "      Capoeira Renascer\nhttp://www.bjjbirmingham.co.uk/\n(Unable to find schedule information on website ,  11/21/16)"
+  },
+  {
+    "name": "Association of Capoeira Conviver",
+    "website": "http://www.capoeira-conviver.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Valdir da Silva",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@capoeira-conviver.com",
+      "phone": "[+44] 07912 256898"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Ladywood Community and Health Centre",
+        "address": "St Vincent Street West, Ladywood B16 8RP",
+        "schedule": "Wed 19:00 - 21:00 Sat 14:00 - 16:00",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Ladywood Community and Health Centre\nSt Vincent Street West, Ladywood B16 8RP\nWed 19:00 - 21:00 Sat 14:00 - 16:00"
+      },
+      {
+        "name": "Queensbridge School",
+        "address": "Queensbridge Road, Moseley, B13 8QB",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Queensbridge School\nQueensbridge Road, Moseley, B13 8QB"
+      }
+    ],
+    "notes": "West Midlands. (no classes currently on website 11/7/16). SOURCE: website 7/13/09",
+    "rawRecord": "      Association of Capoeira Conviver\nhttp://www.capoeira-conviver.com\nMestre Valdir da Silva\nTel.: [+44] 07912 256898\nE-mail: info@capoeira-conviver.com\n(no  classes currently on website 11/7/16)\n      Ladywood Community and Health Centre\nSt Vincent Street West, Ladywood B16 8RP\nWed 19:00 - 21:00 Sat 14:00 - 16:00\n       Queensbridge School\nQueensbridge Road, Moseley, B13 8QB\nSOURCE: website 7/13/09"
+  },
+  {
+    "name": "Companhia Pernas Pro Ar",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "ask@capoeira-uk.com",
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "West Midlands. (website offline 11/21/16). SOURCE: website 5/26/07",
+    "rawRecord": "      Companhia Pernas Pro Ar\n(website offline 11/21/16)\nask@capoeira-uk.com\nSOURCE:  website 5/26/07"
+  }
+]

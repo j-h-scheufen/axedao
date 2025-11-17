@@ -32,7 +32,6 @@ export async function GET(_request: NextRequest): Promise<NextResponse> {
             groupName: locationWithGroup.group.name,
             groupDescription: locationWithGroup.group.description || undefined,
             groupLogo: locationWithGroup.group.logo || undefined,
-            groupVerified: locationWithGroup.group.verified,
             groupStyle: locationWithGroup.group.style || undefined,
           },
         })),

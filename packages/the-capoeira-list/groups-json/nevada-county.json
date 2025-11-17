@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Capoeira Raca Em Movimento-California",
+    "website": "http://www.jmcapoeira.com/",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Joao Marcio",
+      "name": "Joao Marcio Pires"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "joaomarciocapoeira@hotmail.com",
+      "phone": "[530]277-9743"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Core Movement Center",
+        "address": "578 Searls Ave, Nevada City CA, 95959",
+        "schedule": "All Level Adult: Tues 7:00-8:30pm; All level Kids: Tues 5:00-6:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Core Movement Center\n578 Searls Ave, Nevada City CA, 95959\nAll Level Adult: Tues 7:00-8:30pm\nAll level Kids: Tues 5:00-6:00pm"
+      }
+    ],
+    "notes": "Nevada County, California. Tel: [530]277-7336. SOURCE: website 7/22/17",
+    "rawRecord": "      Capoeira Raca Em Movimento-California\nhttp://www.jmcapoeira.com/\nContra Mestre Joao Marcio \"Joao Marcio Pires\"\nTel: [530]277-9743,  [530]277-7336\nEmail: joaomarciocapoeira@hotmail.com\n      Core Movement Center\n578 Searls Ave, Nevada City CA, 95959\nAll Level Adult: Tues 7:00-8:30pm\nAll level Kids: Tues 5:00-6:00pm\nSOURCE: website 7/22/17"
+  },
+  {
+    "name": "Powerhouse MMA",
+    "website": "http://www.powerhouse-mma.com/",
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "Powerhouse MMA",
+        "address": "158 Olympia Park Rd, Grass Valley, Ca 95945",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "158 Olympia Park Rd, Grass Valley, Ca 95945"
+      }
+    ],
+    "notes": "Nevada County, California. Listed as a program, but no classes currently on schedule. Please contact us if classes resume 7/22/17.",
+    "rawRecord": "      Powerhouse MMA\n158 Olympia Park Rd, Grass Valley, Ca 95945\nhttp://www.powerhouse-mma.com/\n(Listed as a program, but no classes currently on schedule. Please\ncontact us if classes resume 7/22/17)"
+  }
+]

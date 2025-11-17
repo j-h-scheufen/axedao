@@ -11,7 +11,7 @@ import useAuth from '@/hooks/useAuth';
 import { PATHS } from '@/config/constants';
 import { loginSchema } from '@/config/validation-schema';
 import ErrorText from '../ErrorText';
-import FormikInput from '../forms/FormikInput';
+import FieldInput from '../forms/FieldInput';
 import WalletEmailModal from './WalletEmailModal';
 
 type LoginFormValues = {
@@ -95,14 +95,14 @@ const SignInForm = () => {
         >
           {({ isSubmitting }) => (
             <Form className="flex flex-col gap-4">
-              <Field name="email" type="email" label="Email" placeholder="your@email.com" isRequired as={FormikInput} />
+              <Field name="email" type="email" label="Email" placeholder="your@email.com" isRequired as={FieldInput} />
               <Field
                 name="password"
                 type="password"
                 label="Password"
                 placeholder="Enter your password"
                 isRequired
-                as={FormikInput}
+                as={FieldInput}
               />
               <div className="flex justify-end">
                 <Link href={PATHS.forgotPassword} size="sm" color="secondary">

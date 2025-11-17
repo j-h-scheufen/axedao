@@ -24,7 +24,6 @@ export const configureChains = (): [Chain, ...Chain[]] => {
   let chains: [Chain, ...Chain[]] = [gnosis];
   if (ENV.chainEnvironment === 'local') chains = [localhost];
   else if (ENV.chainEnvironment === 'development') chains = [sepolia];
-  console.info(`Chains configured for '${ENV.chainEnvironment}' mode.`);
   return chains;
 };
 

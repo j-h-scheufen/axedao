@@ -2,7 +2,15 @@ import { isValidIPFSHash } from '@/utils';
 import { array, boolean, type InferType, mixed, number, object, string, ref } from 'yup';
 import type { Feature, Geometry, GeoJsonProperties } from 'geojson';
 
-import { linkTypes, styles, titles, eventTypes, validFileExtensions, MAX_IMAGE_UPLOAD_SIZE_MB } from './constants';
+import {
+  linkTypes,
+  styles,
+  titles,
+  eventTypes,
+  validFileExtensions,
+  MAX_IMAGE_UPLOAD_SIZE_MB,
+  invitationTypes,
+} from './constants';
 
 // ISO 8601 validation regex
 const ISO_8601_REGEX = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{3})?Z$/;
@@ -156,14 +164,105 @@ export const searchParamsSchema = object({
 
 export type SearchParams = InferType<typeof searchParamsSchema>;
 
-export const groupSearchSchema = searchParamsSchema.concat(
+// ========================================
+// UNIFIED SEARCH FILTERS ARCHITECTURE
+// ========================================
+
+/**
+ * Base filters shared across all entity searches
+ */
+export const baseSearchFiltersSchema = object({
+  countryCodes: array().of(string().length(2, 'Country code must be 2 characters')).optional(),
+});
+
+export type BaseSearchFilters = InferType<typeof baseSearchFiltersSchema>;
+
+/**
+ * Group-specific search filters
+ */
+export const groupFiltersSchema = baseSearchFiltersSchema.concat(
   object({
-    country: string().optional(),
     verified: boolean().optional(),
+    styles: array().of(string().oneOf(styles, 'Invalid style')).optional(),
   })
 );
 
-export type GroupSearchParams = InferType<typeof groupSearchSchema>;
+export type GroupFilters = InferType<typeof groupFiltersSchema>;
+
+/**
+ * User-specific search filters
+ */
+export const userFiltersSchema = baseSearchFiltersSchema.concat(
+  object({
+    hasWallet: boolean().optional(),
+    titles: array().of(string().oneOf(titles, 'Invalid title')).optional(),
+  })
+);
+
+export type UserFilters = InferType<typeof userFiltersSchema>;
+
+/**
+ * Event-specific search filters
+ */
+export const eventFiltersSchema = baseSearchFiltersSchema.concat(
+  object({
+    eventTypes: array().of(string().oneOf(eventTypes, 'Invalid event type')).optional(),
+    startDate: string()
+      .optional()
+      .test('is-valid-date', 'Invalid start date', (value) => {
+        if (!value) return true;
+        return isValidISO8601(value);
+      }),
+    endDate: string()
+      .optional()
+      .test('is-valid-date', 'Invalid end date', (value) => {
+        if (!value) return true;
+        return isValidISO8601(value);
+      }),
+  })
+);
+
+export type EventFilters = InferType<typeof eventFiltersSchema>;
+
+/**
+ * Unified search params with filters for groups
+ */
+export const groupSearchParamsSchema = object({
+  offset: number().optional(),
+  pageSize: number().optional(),
+  searchTerm: string().optional(),
+  filters: groupFiltersSchema.optional(),
+});
+
+export type GroupSearchParamsWithFilters = InferType<typeof groupSearchParamsSchema>;
+
+/**
+ * Unified search params with filters for users
+ */
+export const userSearchParamsSchema = object({
+  offset: number().optional(),
+  pageSize: number().optional(),
+  searchTerm: string().optional(),
+  filters: userFiltersSchema.optional(),
+});
+
+export type UserSearchParamsWithFilters = InferType<typeof userSearchParamsSchema>;
+
+/**
+ * Unified search params with filters for events
+ */
+export const eventSearchParamsSchema = object({
+  offset: number().optional(),
+  pageSize: number().optional(),
+  searchTerm: string().optional(),
+  filters: eventFiltersSchema.optional(),
+});
+
+export type EventSearchParamsWithFilters = InferType<typeof eventSearchParamsSchema>;
+
+// Type aliases for backward compatibility with existing code
+export type UserSearchParams = UserSearchParamsWithFilters;
+export type GroupSearchParams = GroupSearchParamsWithFilters;
 
 export const membershipDelegateSchema = object({
   candidate: string()
@@ -259,10 +358,35 @@ export const updateEventFormSchema = createEventFormSchema.partial();
 export type CreateEventForm = InferType<typeof createEventFormSchema>;
 export type UpdateEventForm = InferType<typeof updateEventFormSchema>;
 
+// Invitation validation schemas
+export const invitationSchema = object({
+  type: string().oneOf(invitationTypes, 'Invalid invitation type').required('Invitation type is required'),
+  invitedEmail: string()
+    .email('Invalid email address')
+    .lowercase()
+    .trim()
+    .when('type', ([type], schema) => {
+      return type === 'email_bound'
+        ? schema.required('Email is required for email-bound invitations')
+        : schema.optional();
+    }),
+  sendEmail: boolean().optional(), // Only for email_bound
+});
+
+export const validateInvitationSchema = object({
+  code: string().uuid('Invalid invitation code').required('Invitation code is required'),
+  email: string().email('Invalid email address').lowercase().trim().optional(), // Optional - only validated for email_bound
+});
+
+export type InvitationForm = InferType<typeof invitationSchema>;
+export type ValidateInvitationForm = InferType<typeof validateInvitationSchema>;
+
 // Authentication validation schemas
 export const signupSchema = object({
   email: string().email('Invalid email address').required('Email is required').lowercase().trim(),
   password: passwordField(),
+  // TODO: TEMPORARY - Will be required for invite-only mode once UI is implemented
+  invitationCode: string().uuid('Invalid invitation code').optional(),
 });
 
 export const loginSchema = object({
@@ -325,3 +449,17 @@ export type ChangePasswordForm = InferType<typeof changePasswordSchema>;
 export type SetPasswordForm = InferType<typeof setPasswordSchema>;
 export type LinkWalletForm = InferType<typeof linkWalletSchema>;
 export type RemoveMethodForm = InferType<typeof removeMethodSchema>;
+
+// Group Claiming & Verification validation schemas
+export const claimGroupFormSchema = object({
+  userMessage: string()
+    .required('Please explain why you should be the admin of this group')
+    .min(20, 'Message must be at least 20 characters'),
+});
+
+export const verifyGroupFormSchema = object({
+  notes: string().optional(),
+});
+
+export type ClaimGroupForm = InferType<typeof claimGroupFormSchema>;
+export type VerifyGroupForm = InferType<typeof verifyGroupFormSchema>;

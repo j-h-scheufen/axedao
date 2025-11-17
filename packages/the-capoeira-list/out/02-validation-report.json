@@ -1,0 +1,87 @@
+{
+  "phase": 2,
+  "description": "Website validation and data enrichment through web scraping",
+  "timestamp": "2025-11-14T00:03:22.928Z",
+  "summary": {
+    "totalGroups": 629,
+    "websitesReachable": 330,
+    "websitesUnreachable": 297,
+    "websitesInvalid": 2,
+    "noWebsite": 0,
+    "capoeiraContentConfirmed": 242,
+    "alternativeUrlsFound": 251,
+    "dataEnriched": 329
+  },
+  "fileResults": [
+    {
+      "file": "batch-01.json",
+      "totalGroups": 100,
+      "validationResults": {
+        "reachable": 56,
+        "unreachable": 44,
+        "invalid": 0,
+        "noWebsite": 0
+      }
+    },
+    {
+      "file": "batch-02.json",
+      "totalGroups": 100,
+      "validationResults": {
+        "reachable": 55,
+        "unreachable": 45,
+        "invalid": 0,
+        "noWebsite": 0
+      }
+    },
+    {
+      "file": "batch-03.json",
+      "totalGroups": 100,
+      "validationResults": {
+        "reachable": 52,
+        "unreachable": 48,
+        "invalid": 0,
+        "noWebsite": 0
+      }
+    },
+    {
+      "file": "batch-04.json",
+      "totalGroups": 100,
+      "validationResults": {
+        "reachable": 54,
+        "unreachable": 46,
+        "invalid": 0,
+        "noWebsite": 0
+      }
+    },
+    {
+      "file": "batch-05.json",
+      "totalGroups": 100,
+      "validationResults": {
+        "reachable": 53,
+        "unreachable": 45,
+        "invalid": 2,
+        "noWebsite": 0
+      }
+    },
+    {
+      "file": "batch-06.json",
+      "totalGroups": 100,
+      "validationResults": {
+        "reachable": 48,
+        "unreachable": 52,
+        "invalid": 0,
+        "noWebsite": 0
+      }
+    },
+    {
+      "file": "batch-07.json",
+      "totalGroups": 29,
+      "validationResults": {
+        "reachable": 12,
+        "unreachable": 17,
+        "invalid": 0,
+        "noWebsite": 0
+      }
+    }
+  ]
+}

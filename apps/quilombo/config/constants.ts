@@ -1,4 +1,4 @@
-import type { EventType, ImageType } from '@/types/model';
+import type { EventType, ImageType, AccountStatus, SearchParamKey } from '@/types/model';
 import type { ResizeOptions } from 'sharp';
 
 export const titles = [
@@ -12,8 +12,17 @@ export const titles = [
   'professor',
   'instrutora',
   'instrutor',
+  'graduada',
+  'graduado',
+  'formada',
+  'formado',
+  'estagiaria',
+  'estagiario',
+  'estagianda',
+  'estagiando',
   'monitora',
   'monitor',
+  'treinel',
   'aluna',
   'aluno',
   'iniciante',
@@ -27,7 +36,7 @@ export const TitleEnum = titles.reduce<Record<string, number>>((acc, title, inde
 
 export const styles = ['angola', 'regional', 'contemporânea'] as const;
 
-export const linkTypes = ['twitter', 'facebook', 'instagram', 'linkedin'] as const;
+export const linkTypes = ['website', 'twitter', 'facebook', 'instagram', 'linkedin'] as const;
 
 export const eventTypes = ['general', 'workshop', 'batizado', 'public_roda'] as const;
 
@@ -60,6 +69,7 @@ export const PATHS = {
   resetPassword: '/auth/reset-password',
   search: '/search',
   profile: '/profile',
+  invites: '/invites',
   admin: '/admin',
   axe: '/axe',
   dao: '/dao',
@@ -85,7 +95,17 @@ export const AUTH_COOKIES = {
 
 // Account statuses for user accounts
 export const accountStatuses = ['pending_verification', 'active', 'disabled'] as const;
-export type AccountStatus = (typeof accountStatuses)[number];
+
+// Invitation system constants
+export const invitationTypes = ['email_bound', 'open'] as const;
+export const invitationStatuses = ['pending', 'accepted', 'expired'] as const;
+
+// Group claim statuses
+export const groupClaimStatuses = ['pending', 'approved', 'rejected'] as const;
+
+// Group verification cooldown period (in milliseconds)
+// Groups can only be verified once every 30 days
+export const GROUP_VERIFICATION_COOLDOWN_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
 
 // Note: The order of these roles in the array is used to sort group members by role in the UI
 export const GROUP_ROLES = ['founder', 'leader', 'admin', 'member'] as const;
@@ -111,9 +131,6 @@ export const SEARCH_PARAM_KEYS = {
   EVENT_QUERY: 'eq',
   VIEW: 'view',
 } as const;
-
-// Type for search parameter keys
-export type SearchParamKey = keyof typeof SEARCH_PARAM_KEYS;
 
 // Individual exports for backward compatibility
 export const PARAM_KEY_USER_QUERY = SEARCH_PARAM_KEYS.USER_QUERY;
@@ -155,3 +172,6 @@ export const EVENT_ICONS: Record<EventType, string> = {
   batizado: '/images/events/batizado-black-64.png',
   public_roda: '/images/events/roda-black-64.png',
 };
+
+// Re-export types for backward compatibility (types are defined in @/types/model)
+export type { AccountStatus, SearchParamKey };

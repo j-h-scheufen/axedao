@@ -1,0 +1,84 @@
+[
+  {
+    "name": "M.A.R.T.Y. Martial Arts Capoeira Group",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "martycapoeira@gmail.com",
+      "phone": "[501] 376-0458"
+    },
+    "sources": [
+      "https://www.facebook.com/pages/MARTY-Capoeira-Group/240114342673742",
+      "https://www.reddit.com/r/capoeira/comments/29ss3b/when_you_have_to_take_a_break_from_capoeira/"
+    ],
+    "locations": [
+      {
+        "name": "Little Rock location",
+        "address": "324 W. 8th St. Little Rock, AR 72201",
+        "schedule": "Mon & Wed 6:30-8:00 pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "324 W. 8th St. Little Rock, AR 72201\nMon & Wed 6:30 - 8:00 pm"
+      },
+      {
+        "name": "Alternate address",
+        "address": "1116 W Daisy L Gatson Bates Dr, Little Rock, Arkansas 72201",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "1116 W Daisy L Gatson Bates Dr,  Little Rock, Arkansas 72201"
+      }
+    ],
+    "notes": "Little Rock, Arkansas. No information on facebook page as of 11/25/16. SOURCE: email 2/7/11 facebook 6/27/14",
+    "rawRecord": "      M.A.R.T.Y.  Martial Arts Capoeira Group\nmartycapoeira@gmail.com\n324 W. 8th St. Little Rock, AR 72201\nMon & Wed 6:30 - 8:00 pm\nhttps://www.facebook.com/pages/MARTY-Capoeira-Group/240114342673742\n(No information on facebook page 11/25/16)\n1116 W Daisy L Gatson Bates Dr,  Little Rock, Arkansas 72201\nPhone [501] 376-0458\nSOURCE:    email 2/7/11 facebook 6/27/14\nhttps://www.reddit.com/r/capoeira/comments/29ss3b/when_you_have_to_take_a_break_from_capoeira/"
+  },
+  {
+    "name": "Capoeira Mandinga",
+    "website": null,
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Caroco",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "guamcapoeira@gmail.com",
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Island Girl Power",
+        "address": "#359 Ysengsong Rd. Dededo, Guam 96929",
+        "schedule": "Mon 6:00-8:00pm; Sat 3:30-5:00pm; Capoeira Self-Defense- for girls 7-18: twice a year",
+        "contactPerson": "Juanita",
+        "email": "islandgirlpower@yahoo.com",
+        "phone": "688-4752",
+        "rawText": "Island Girl Power\n#359 Ysengsong Rd. Dededo, Guam 96929\nMon 6:00-8:00pm; Sat 3:30-5:00pm\nCapoeria Self-Defense- for girls 7-18:  twice a year"
+      },
+      {
+        "name": "Old Dededo Fire Station",
+        "address": "Old Dededo Fire Station (by skakepark)",
+        "schedule": "Wed 6:00-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Old Dededo Fire Station (by skakepark)\nWed 6:00-8:00pm"
+      },
+      {
+        "name": "DNA Evolution",
+        "address": "The Plaza, 1255 Pale San Vitores Road, Tumon Bay, 96913",
+        "schedule": "OPEN RODA: Fri 6:00-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "DNA Evolution\nThe Plaza, 1255 Pale San Vitores Road, Tumon Bay, 96913\nOPEN RODA: Fri 6:00-8:00pm"
+      }
+    ],
+    "notes": "Guam. Monitore Vampiro ([671] 688-6629, vampiroguam@hotmail.com). SOURCE: google; Automatic reply from group email 1/28/17",
+    "rawRecord": "      Capoeira Mandinga\nguamcapoeira@gmail.com\nInstructor Caroco\nMonitore Vampiro\n   [671] 688-6629\n  vampiroguam@hotmail.com\nJuanita program director\n  688-4752\n  islandgirlpower@yahoo.com\n      Island Girl Power\n#359 Ysengsong Rd. Dededo, Guam 96929\nMon 6:00-8:00pm; Sat 3:30-5:00pm\nCapoeria Self-Defense- for girls 7-18:  twice a year\n      Old Dededo Fire Station (by skakepark)\nWed 6:00-8:00pm\n      DNA Evolution\nThe Plaza, 1255 Pale San Vitores Road, Tumon Bay, 96913\nOPEN RODA: Fri 6:00-8:00pm\nSOURCE: google;  Automatic reply from from group email 1/28/17"
+  }
+]

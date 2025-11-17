@@ -74,15 +74,36 @@ export const getHostname = (url: string): string | undefined => {
   return undefined;
 };
 
+/**
+ * Returns the display name for a user based on available profile information.
+ * Priority order:
+ * 1. If both nickname and name exist: "Nickname (Name)"
+ * 2. If only nickname exists: "Nickname"
+ * 3. If only name exists: "Name"
+ * 4. Fallback to email address
+ * @param user - The user object
+ * @returns The formatted display name
+ */
 export const getUserDisplayName = (user?: User): string => {
   if (!user) return '';
-  let displayName = '';
-  if (user.nickname) {
-    displayName = user.nickname;
-  } else if (user.name) {
-    displayName = user.name;
+
+  // Both nickname and name exist
+  if (user.nickname && user.name) {
+    return `${user.nickname} (${user.name})`;
   }
-  return displayName || `User (${abbreviateAddress(user.walletAddress ?? '0xABCDEF1234567890')})`; // TODO this is a temp workaround after making the wallet optional
+
+  // Only nickname exists
+  if (user.nickname) {
+    return user.nickname;
+  }
+
+  // Only name exists
+  if (user.name) {
+    return user.name;
+  }
+
+  // Fallback to email
+  return user.email || '';
 };
 
 export const abbreviateAddress = (input: string): string => {
@@ -161,3 +182,5 @@ export const getEventTypeLabel = (eventType: string): string => {
       return 'General';
   }
 };
+
+export { formatCountryChipLabel } from './country';

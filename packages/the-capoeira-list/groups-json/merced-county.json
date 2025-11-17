@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Capoeira Angola Palmares Merced",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": "Dourado",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "ursodopalmares@gmail.com",
+      "phone": null
+    },
+    "sources": ["https://www.facebook.com/pg/CapoeiraAngolaPalmaresMerced"],
+    "locations": [
+      {
+        "name": "Moe's TKD",
+        "address": "Main Street, Merced",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Moe's TKD\nMain Street, Merced"
+      }
+    ],
+    "notes": "Merced County, California. Website offline, but still listed on facebook 7/16/17. Dourado under the guidance of Mestre Gulliver and Mestre No. SOURCE: facebook 7/16/17, website 10/13/08",
+    "rawRecord": "      Capoeira Angola Palmares Merced\nhttps://www.facebook.com/pg/CapoeiraAngolaPalmaresMerced\n ursodopalmares@gmail.com\n(website offline, but still listed on facebook 7/16/17)\n      Moe's TKD\nMain Street, Merced\nSOURCE: facebook 7/16/17\nDourado  under the guidance of Mestre Gulliver and Mestre No\nSOURCE:  website 10/13/08"
+  },
+  {
+    "name": "Raizes do Brasil",
+    "website": "http://capoeiramonterey.com/",
+    "leader": {
+      "title": "professor",
+      "nickname": "Quati",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "capoeira.quati@gmail.com",
+      "phone": "[831] 818-4811"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Monterey Yoga Shala",
+        "address": "724 Abrego Street, Monterey, CA 93940",
+        "schedule": "Kids [4+ yrs]: Mon 4:30-5:30 pm; Adults: Mon 6:45-7:45 pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Monterey Yoga Shala\n724 Abrego Street, Monterey, CA 93940\nKids [4+ yrs]: Mon 4:30-5:30 pm\nAdults:   Mon 6:45-7:45 pm"
+      }
+    ],
+    "notes": "Monterey County, California. Professor Quati under Mestre Papiba [Santa Cruz]. SOURCE: website 7/17/17",
+    "rawRecord": "      Raizes do Brasil\nhttp://capoeiramonterey.com/\nProfessor Quati under Mestre Papiba[Santa\nCruz]\n  [831] 818-4811\n  capoeira.quati@gmail.com\n      Monterey Yoga Shala\n724 Abrego Street, Monterey, CA 93940\nKids [4+ yrs]: Mon 4:30-5:30 pm\nAdults:   Mon 6:45-7:45 pm\nSOURCE: website 7/17/17"
+  },
+  {
+    "name": "Capoeira Angola under Mestre Joao Grande",
+    "website": null,
+    "leader": {
+      "title": "instructor",
+      "nickname": "Grande",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "[eight three one]four oh two- twelve eighty two"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Monterey Youth Center - Dance Studio",
+        "address": "777 Pearl Street, Monterey, CA",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Monterey Youth Center\nDance Studio, 777 Pearl Street, Monterey,\nCA"
+      }
+    ],
+    "notes": "Monterey County, California. Website is offline. Email bounces. 5/16/11. Please contact us if you have any information. SOURCE: email website 8/15/03",
+    "rawRecord": "       Capoeira Angola under Mestre Joao\nGrande\nInstructor: Grande\n(Website is offline. email bounces.  5/16/11)\n(please contact us if you have any information.)\nPhone. [eight three one]four oh two- twelve eighty two\n      Monterey Youth Center\nDance Studio, 777 Pearl Street, Monterey,\nCA\nSOURCE: email website 8/15/ 03"
+  }
+]

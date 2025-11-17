@@ -1,0 +1,71 @@
+{
+  "phase": 3,
+  "description": "Geocoding addresses to GeoJSON Features using OpenStreetMap Nominatim",
+  "timestamp": "2025-11-14T08:00:24.115Z",
+  "filterCriteria": {
+    "requireReachableWebsite": true,
+    "requireCapoeiraRelated": true
+  },
+  "summary": {
+    "totalGroupsInput": 629,
+    "totalGroupsFiltered": 373,
+    "totalGroupsProcessed": 256,
+    "totalLocations": 357,
+    "locationsGeocoded": 231,
+    "locationsFailed": 116,
+    "locationsSkipped": 10,
+    "cacheHits": 3,
+    "apiCalls": 416
+  },
+  "fileResults": [
+    {
+      "file": "batch-01.json",
+      "groupsProcessed": 44,
+      "groupsFiltered": 56,
+      "locationsGeocoded": 47,
+      "locationsFailed": 16
+    },
+    {
+      "file": "batch-02.json",
+      "groupsProcessed": 45,
+      "groupsFiltered": 55,
+      "locationsGeocoded": 40,
+      "locationsFailed": 24
+    },
+    {
+      "file": "batch-03.json",
+      "groupsProcessed": 41,
+      "groupsFiltered": 59,
+      "locationsGeocoded": 50,
+      "locationsFailed": 17
+    },
+    {
+      "file": "batch-04.json",
+      "groupsProcessed": 44,
+      "groupsFiltered": 56,
+      "locationsGeocoded": 33,
+      "locationsFailed": 18
+    },
+    {
+      "file": "batch-05.json",
+      "groupsProcessed": 37,
+      "groupsFiltered": 63,
+      "locationsGeocoded": 14,
+      "locationsFailed": 23
+    },
+    {
+      "file": "batch-06.json",
+      "groupsProcessed": 34,
+      "groupsFiltered": 66,
+      "locationsGeocoded": 33,
+      "locationsFailed": 18
+    },
+    {
+      "file": "batch-07.json",
+      "groupsProcessed": 11,
+      "groupsFiltered": 18,
+      "locationsGeocoded": 14,
+      "locationsFailed": 0
+    }
+  ]
+}

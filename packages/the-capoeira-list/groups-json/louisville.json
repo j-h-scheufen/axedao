@@ -1,0 +1,96 @@
+[
+  {
+    "name": "Beira-Mar Capoeira",
+    "website": "http://www.gbantu.com",
+    "leader": {
+      "title": null,
+      "nickname": "Gafanhoto",
+      "name": "Stan Marshall"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "[502] 229-9182"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Freestyle Fitness",
+        "address": "1860 Mellwood Ave # 277, Louisville, KY 40206",
+        "schedule": "Kids and Adults: Tues & Thurs 8:00-10:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Freestyle Fitness\n1860 Mellwood Ave # 277, Louisville, KY 40206\n[502] 229-9182\nKids and Adults: Tues & Thurs  8:00-10:00pm"
+      }
+    ],
+    "notes": "Louisville, Kentucky. Under Contra Mestre Bundo [Jacksonville FL] and Mestre Tarzan [Brazil]. SOURCE: website 4/16/18",
+    "rawRecord": "      Beira-Mar Capoeira\nhttp://www.gbantu.com\nGafanhoto \"Stan Marshall\" under Contra Mestre Bundo [Jacksonville FL]  \nand Mestre Tarzan [Brazill]\n       Freestyle Fitness\n1860 Mellwood Ave # 277, Louisville, KY 40206\n[502] 229-9182\nKids and Adults: Tues & Thurs  8:00-10:00pm\nSOURCE: website 4/16/18"
+  },
+  {
+    "name": "Capoeira Angola Palmares Louisville",
+    "website": "https://angolapalmaresnashville.wordpress.com/",
+    "leader": {
+      "title": null,
+      "nickname": "Zulu",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "esu.capoeirista@gmail.com",
+      "phone": null
+    },
+    "sources": ["https://www.facebook.com/pages/Nashville-Capoeira-Angola-Palmares/1556107817980393"],
+    "locations": [],
+    "notes": "Louisville, Kentucky. Additional contacts (from now offline website 4/22/18): Male (502-807-0609, capoeiristamale@gmail.com), Steven (508-287-5046, steveooishere@aol.com). SOURCE: website 4/22/18, website 6/2/12",
+    "rawRecord": "      Capoeira Angola Palmares Louisville\nhttps://angolapalmaresnashville.wordpress.com/\n Zulu\n   esu.capoeirista@gmail.com\n  https://www.facebook.com/pages/Nashville-Capoeira-Angola-Palmares/1556107817980393\nSOURCE: website 4/22/18\n(All following information came a now offline website 4/22/18)\n Male\n  502-807-0609\n  capoeiristamale@gmail.com\nSteven\n  508-287-5046\n  steveooishere@aol.com\nSOURCE: website  6/2/12"
+  },
+  {
+    "name": "Capoeira Volta Ao Mundo Louisville",
+    "website": "https://www.capovam.com/locations/louisville/",
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "502-641-7218"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Freestyle Fitness",
+        "address": "2920 Frankfort Ave, Louisville, KY, 40206",
+        "schedule": "Adults: Mon 8:00-9:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Freestyle Fitness\n2920 Frankfort Ave, Louisville, KY, 40206\nAdults: Mon 8:00-9:30pm:"
+      }
+    ],
+    "notes": "Louisville, Kentucky. The information on Derby City Martial Arts page (http://www.derbycitymartialarts.com/app_pages/capoeira.php) appears to be out of date as of 4/22/18. SOURCE: website 4/22/18",
+    "rawRecord": "      Capoeira Volta Ao Mundo Louisville\nhttps://www.capovam.com/locations/louisville/\n502-641-7218\n      Freestyle Fitness\n2920 Frankfort Ave, Louisville, KY, 40206\nAdults: Mon 8:00-9:30pm:\nSOURCE: website 4/22/18\n\n(The information on this page appears to be out of date 4/22/18)\nhttp://www.derbycitymartialarts.com/app_pages/capoeira.php"
+  },
+  {
+    "name": "Grupo Maculele Capoeira",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": "Godzilla",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Louisville, Kentucky. Under Mestre Fran. Website offline 11/21/11. SOURCE: website 11/14/08",
+    "rawRecord": "      Grupo Maculele Capoeira\n(website offline  11/21/11)\nGodzilla  under Mestre Fran\nSOURCE: website 11/14/08"
+  },
+  {
+    "name": "Evolution Arts - Scorpion Capoeira - Nge Shujaa Chando",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Louisville, Kentucky. Has moved to Auburn AL. SOURCE: email unknown date",
+    "rawRecord": "      Evolution Arts - Scorpion Capoeira  - Nge Shujaa\nChando\nhas moved to Auburn AL\nSOURCE: email unknown date"
+  }
+]

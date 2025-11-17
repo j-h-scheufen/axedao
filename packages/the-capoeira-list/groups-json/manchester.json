@@ -1,0 +1,238 @@
+[
+  {
+    "name": "Capoeira North West - Capoeira Cordao De Ouro",
+    "website": "http://cdonw.co.uk",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Parente",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "cdonorthwest@gmail.com",
+      "phone": "+44 7949 711 745"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "The Trinity Centre",
+        "address": "Higher Cambridge St, Hulme. M15 6HP",
+        "schedule": "All Levels: Thurs 7:00-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "The Trinity Centre,\nHigher Cambridge St, Hulme.M15 6HP\nAll Levels: Thurs 7:00 - 8:00pm"
+      }
+    ],
+    "notes": "Manchester, England. SOURCE: website 11/17/16",
+    "rawRecord": "      Capoeira North West - Capoeira Cordao De Ouro\nMestre Parente\nhttp://cdonw.co.uk\n+44 7949 711 745\nEmail: cdonorthwest@gmail.com\n      The Trinity Centre,\nHigher Cambridge St, Hulme.M15 6HP\nAll Levels: Thurs 7:00 - 8:00pm\nSOURCE: website 11/17/16"
+  },
+  {
+    "name": "Capoeira Natural Do Brasil",
+    "website": "http://bcac.com.gridhosted.co.uk",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Anjo",
+      "name": "Leandro Menezes"
+    },
+    "mainContact": {
+      "name": "Dragao",
+      "email": "cnbrasiluk@gmail.com",
+      "phone": "07557 055 677"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Studio 25",
+        "address": "25 Church Street, Manchester, Lancashire, M4 1PE",
+        "schedule": "Beginners: Wed & Fri 19:00 – 20:00",
+        "contactPerson": "Contra-Mestre Anjo",
+        "email": "cnbrasiluk@gmail.com",
+        "phone": "07734 357 771",
+        "rawText": "Studio 25\n25 Church Street, Manchester, Lancashire, M4 1PE\nBeginners:  Wed & Fri  19:00 � 20:00"
+      }
+    ],
+    "notes": "Manchester, England. Contra-Mestre Anjo: 07734 357 771. Dragao: 07557 055 677. SOURCE: website 11/7/16",
+    "rawRecord": "      Capoeira Natural Do Brasil\nhttp://bcac.com.gridhosted.co.uk\nContra-Mestre Anjo \"Leandro Menezes\"\n  Tel : 07734 357 771\n  email: cnbrasiluk@gmail.com\nDragao\n  07557 055 677\n      Studio 25\n25 Church Street, Manchester, Lancashire, M4 1PE\nBeginners:  Wed & Fri  19:00 � 20:00\nSOURCE: website 11/7/16"
+  },
+  {
+    "name": "Manchester Capoeira Academy - Association of Capoeira Conviver",
+    "website": "http://manchestercapoeiraacademy.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": null,
+      "name": "Valdir da Silva"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "0798 839 9139"
+    },
+    "sources": ["https://www.facebook.com/manchestercapoeira/"],
+    "locations": [
+      {
+        "name": "Universal Building",
+        "address": "Units 18a and 19, Fourth Floor Devonshire St N, Manchester M12 6JR",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Universal Building  (Previously Majid House)\nUnits 18a and 19, Fourth Floor Devonshire St N,  Manchester M12 6JR\n(Free parking behind the building)"
+      }
+    ],
+    "notes": "Manchester, England. SOURCE: website 11/14/16",
+    "rawRecord": "      Manchester Capoeira Academy - Association of Capoeira\nConviver\nUniversal Building  (Previously Majid House)\nUnits 18a and 19, Fourth Floor Devonshire St N,  Manchester M12\n6JR\n(Free parking behind the building)\nhttp://manchestercapoeiraacademy.com/\nTel: 0798 839 9139\nMestre Valdir da Silva\nhttps://www.facebook.com/manchestercapoeira/\nSOURCE: website 11/14/16"
+  },
+  {
+    "name": "Associacao Cultural de Capoeira Angola",
+    "website": "http://acca-bhz.org.br/",
+    "leader": {
+      "title": "professor",
+      "nickname": "William",
+      "name": "William Sousa"
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Manchester, England. Professor William is back in Belo Horizonte, Brazil and no longer has classes in England as of 11/17/16.",
+    "rawRecord": "      Associacao Cultural de Capoeira Angola\nhttp://acca-bhz.org.br/\n(Professor William \"William Sousa\" is back in  Belo Horizonte, \nBrazil  and no longer has classes in England 11/17/16)"
+  },
+  {
+    "name": "Capoeira Norte - Associacao de Capoeira Senzala Santos",
+    "website": null,
+    "leader": {
+      "title": "professor",
+      "nickname": "Tijolo",
+      "name": "Paul Sadot"
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Manchester, England. Professor Tijolo is not currently teaching capoeira. SOURCE: google 11/18/16",
+    "rawRecord": "      Capoeira Norte - .      Associacao de\nCapoeira Senzala Santos\nProfessor Tijolo \"Paul Sadot \" is not currently teaching capoeira\nSOURCE: google 11/18/16"
+  },
+  {
+    "name": "Mundo Capoeira Ireland",
+    "website": "http://www.capoeiraireland.com/",
+    "leader": {
+      "title": "monitor",
+      "nickname": "Vizinho",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@capoeiraireland.com",
+      "phone": "087-777-7931"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Forest Park",
+        "address": "Mullingar Business Park",
+        "schedule": "Tues 6:00 – 7:20pm",
+        "contactPerson": null,
+        "email": "Krzysztof.rittau@gmail.com",
+        "phone": null,
+        "rawText": "Forest Park\n Mullingar Business Park\nTues 6:00 � 7:20pm"
+      },
+      {
+        "name": "Harbour St, Commons",
+        "address": "Harbour St, Commons",
+        "schedule": "Thurs: 6:30 – 8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Harbour St, Commons\nThurs: 6:30 � 8:00pm"
+      }
+    ],
+    "notes": "Mullingar, Ireland. Monitor Vizinho under Mestre Sansao [Dublin]. SOURCE: website 12/31/19",
+    "rawRecord": "      Mundo Capoeira Ireland\nhttp://www.capoeiraireland.com/\ninfo@capoeiraireland.com\n\nMonitor Vizinho under Mestre Sansao[Dublin]\n   087-777-7931\n\n: Krzysztof.rittau@gmail.com\n\n      Forest Park\n Mullingar Business Park\nTues 6:00 � 7:20pm\n      Harbour St, Commons\nThurs: 6:30 � 8:00pm\nSOURCE: website  12/31/19"
+  },
+  {
+    "name": "Grupo Senzela",
+    "website": "http://www.groupsenzala.co.uk/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Tasmania",
+      "name": "Jimi McAvoy"
+    },
+    "mainContact": {
+      "name": "Mestre Tasmania",
+      "email": "jimi@groupsenzala.co.uk",
+      "phone": "+44 [0] 191 5860691"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Heaton Community Centre",
+        "address": "Trewhitt Road, Heaton, Newcastle Upon Tyne NE6 5DY",
+        "schedule": "Tues 7:00-9.30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Heaton Community Centre\nTrewhitt Road, Heaton, Newcastle Upon Tyne NE6 5DY\nTues 7:00-9.30pm"
+      },
+      {
+        "name": "Dance City",
+        "address": "Temple Street, Newcastle Upon Tyne, NE1 4BR",
+        "schedule": "Thurs 7.30pm-8.30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Dance City\nTemple Street, Newcastle Upon Tyne, NE1 4BR\nThurs 7.30pm - 8.30pm"
+      }
+    ],
+    "notes": "Newcastle, England. Under the guidance of Mestre Gato [Rio de Janeiro]. Professor Caranguejo (peter@groupsenzala.co.uk). Professor Scuzzi 'Rob' (rob@groupsenzala.co.uk, 07917440093). SOURCE: website 11/18/16",
+    "rawRecord": "      Grupo Senzela\nhttp://www.groupsenzala.co.uk/\nMestre Tasmania  \"Jimi McAvoy\" under the guidance of Mestre Gato[Rio\nde Janeiro]\nEmail : jimi@groupsenzala.co.uk\nTelephone: +44 [0] 191 5860691\nProfessor Caranguejo \"Peter\"\n  Email: peter@groupsenzala.co.uk\nProfessor Scuzzi \"Rob\"\n  Email rob@groupsenzala.co.uk\n  Telephone  07917440093\n      Heaton Community Centre\nTrewhitt Road, Heaton, Newcastle Upon Tyne NE6 5DY\nTues 7:00-9.30pm\n      Dance City\nTemple Street, Newcastle Upon Tyne, NE1 4BR\nThurs 7.30pm - 8.30pm\nSOURCE: website  11/18/16"
+  },
+  {
+    "name": "Filhos de Bimba",
+    "website": null,
+    "leader": {
+      "title": "mestre",
+      "nickname": "Pelicano",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": [
+      "https://www.facebook.com/pages/Capoeira-Regional-Filhos-de-Bimba-Newcastle-North-East-England/598092503681247",
+      "https://www.flickr.com/groups/filhos-de-bimba/"
+    ],
+    "locations": [],
+    "notes": "Newcastle, England. No content on facebook page 11/18/16. Mestre Pelicano is teaching in London 11/18/16. Professor Pequeno Mestre has moved to Dorset and is currently only teaching children 10/24/16. Professor Bocao is back teaching in Brazil 11/18/16.",
+    "rawRecord": "      Filhos de Bimba\nhttps://www.facebook.com/pages/Capoeira-Regional-Filhos-de-Bimba-Newcastle-North-East-England/598092503681247\n( No content on facebook page 11/18/16)\nMestre Pelicano\n(is teaching in London 11/18/16)\nProfessor Pequeno Mestre\n(has moved to Dorset\nand is currently only teaching children 10/24/16)\nProfessor Bocao\nhttps://www.flickr.com/groups/filhos-de-bimba/\n(is back teaching in Brazil  11/18/16)"
+  },
+  {
+    "name": "Cordo de Ouro",
+    "website": "http://capocoms.org.uk",
+    "leader": {
+      "title": "professor",
+      "nickname": "Cascao",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": ["http://www.cdonorwich.com/"],
+    "locations": [
+      {
+        "name": "Trinity church hall",
+        "address": "1,Unthank road, Norwich, NR2 2PA",
+        "schedule": "Adults, All levels: 19:00-20:30pm; Age 4-7 years: Tues 15:30-16:15 pm; Age 8 upwards: Tues 16:15-17:15 pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Trinity church hall\n1,Unthank road, Norwich, NR2 2PA\n(Find the hall which is behind the church, by walking down the left\nhand side under the archway)\nAdults, All levels: 19:00-20:30pm\nAge 4 � 7years. :  Tues 15:30-16:15 pm\nAge 8 upwards:  Tues 16:15-17:15 pm"
+      },
+      {
+        "name": "UEA Capoeira Society - Sportspark Dance Studio",
+        "address": "Sportspark Dance Studio",
+        "schedule": "Wed & Fri 3.15-5.15 pm; Sun 4:00-5:00pm",
+        "contactPerson": "Monitor Feliz (Ash Smith)",
+        "email": null,
+        "phone": null,
+        "rawText": "UEA Capoeira Society\nMonitor Feliz  \"Ash Smith\"\n      Sportspark Dance Studio\nWed & Fri  3.15 -5.15 pm; Sun 4:00-5:00pm\n(For all UEA students)"
+      }
+    ],
+    "notes": "Norfolk, England. Professor Cascao under Mestre Papa-Leguas [Patos de Minas, Minas Gerais]. SOURCE: website 11/18/16",
+    "rawRecord": "      Cordo de Ouro\nhttp://capocoms.org.uk\nhttp://www.cdonorwich.com/\nProfessor Cascao  under  Mestre Papa-Leguas [Patos\nde Minas, Minas Gerais] and\n      Trinity church hall\n1,Unthank road, Norwich, NR2 2PA\n(Find the hall which is behind the church, by walking down the left\nhand side under the archway)\nAdults, All levels: 19:00-20:30pm\nAge 4 � 7years. :  Tues 15:30-16:15 pm\nAge 8 upwards:  Tues 16:15-17:15 pm      \n      UEA Capoeira Society\nMonitor Feliz  \"Ash Smith\"\n      Sportspark Dance Studio\nWed & Fri  3.15 -5.15 pm; Sun 4:00-5:00pm\n(For all UEA students)\nSOURCE: website 11/18/16"
+  }
+]

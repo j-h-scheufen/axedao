@@ -1,5 +1,13 @@
-import type { GROUP_ROLES, IMAGE_TYPES, eventTypes } from '@/config/constants';
-import type { SelectGroup, SelectUser, SelectGroupLocation, SelectEvent } from '../db/schema';
+import type {
+  GROUP_ROLES,
+  IMAGE_TYPES,
+  eventTypes,
+  invitationTypes,
+  invitationStatuses,
+  accountStatuses,
+  SEARCH_PARAM_KEYS,
+} from '@/config/constants';
+import type { SelectGroup, SelectUser, SelectGroupLocation, SelectEvent, SelectInvitation } from '../db/schema';
 import type { Feature, Geometry, Point } from 'geojson';
 import type { ZonedDateTime } from '@internationalized/date';
 import type Supercluster from 'supercluster';
@@ -9,13 +17,21 @@ import type Supercluster from 'supercluster';
  * TODO: The app is missing a central types.d.ts definition.
  */
 
-export type Group = Omit<SelectGroup, 'updatedAt'> & { countryCodes: string[] };
+export type Group = Omit<SelectGroup, 'updatedAt'> & {
+  countryCodes: string[];
+  lastVerifiedAt: Date | null;
+  adminCount: number;
+};
 
-export type User = Omit<SelectUser, 'updatedAt'>;
+export type User = Omit<SelectUser, 'updatedAt'> & {
+  groupName?: string;
+};
 
 export type GroupLocation = Omit<SelectGroupLocation, 'updatedAt'>;
 
 export type Event = Omit<SelectEvent, 'updatedAt'>;
+
+export type Invitation = SelectInvitation;
 
 // Event type based on RawEvent with ZonedDateTime fields
 export type ZonedEvent = Omit<Event, 'start' | 'end'> & {
@@ -24,6 +40,14 @@ export type ZonedEvent = Omit<Event, 'start' | 'end'> & {
 };
 
 export type EventType = (typeof eventTypes)[number];
+
+export type InvitationType = (typeof invitationTypes)[number];
+
+export type InvitationStatus = (typeof invitationStatuses)[number];
+
+export type AccountStatus = (typeof accountStatuses)[number];
+
+export type SearchParamKey = keyof typeof SEARCH_PARAM_KEYS;
 
 // GeoJSON Feature Properties for Event Locations on Global Map
 export interface EventLocationFeatureProperties {
@@ -67,7 +91,6 @@ export interface GroupLocationFeatureProperties {
   groupName: string;
   groupDescription?: string;
   groupLogo?: string;
-  groupVerified: boolean;
   groupStyle?: string;
 }
 

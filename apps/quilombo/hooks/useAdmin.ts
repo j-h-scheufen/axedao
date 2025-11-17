@@ -1,12 +1,2 @@
-import { enqueueSnackbar } from 'notistack';
-
-import { type GroupVerificationParams, useGroupVerificationMutation } from '@/query/admin';
-
-export const useGroupVerification = () => {
-  const { mutateAsync, error, isPending } = useGroupVerificationMutation();
-  const setGroupVerification = async (data: GroupVerificationParams) =>
-    mutateAsync(data, {
-      onError: (error) => enqueueSnackbar(`An error occured trying to change the group verification: ${error.message}`),
-    });
-  return { setGroupVerification, error, isPending };
-};
+// This file is intentionally left empty as admin-specific hooks have been removed.
+// Admin claim management is handled directly through query/admin.ts hooks.

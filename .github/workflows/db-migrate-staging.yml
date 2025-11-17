@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - develop
-    paths:
-      - 'apps/quilombo/db/migrations/**'
-      - 'apps/quilombo/db/schema.ts'
-      - 'apps/quilombo/scripts/db-migrate-staging.ts'
   workflow_dispatch: # Allow manual triggering
 
 # Prevent concurrent migrations
@@ -25,8 +21,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 2 # Needed to check what changed
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
@@ -42,51 +36,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Check for schema changes
-        id: check_changes
-        run: |
-          echo "Checking for database schema changes..."
-
-          # Check if there are new migration files or schema changes
-          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD)
-          echo "Changed files:"
-          echo "$CHANGED_FILES"
-
-          if echo "$CHANGED_FILES" | grep -qE "apps/quilombo/db/(migrations|schema\.ts)"; then
-            echo "has_changes=true" >> $GITHUB_OUTPUT
-            echo "✓ Database changes detected"
-          else
-            echo "has_changes=false" >> $GITHUB_OUTPUT
-            echo "ℹ No database changes detected"
-          fi
-
-      - name: Verify migration files exist
-        if: steps.check_changes.outputs.has_changes == 'true'
-        working-directory: apps/quilombo
-        run: |
-          if [ ! -d "db/migrations" ]; then
-            echo "❌ Migration directory not found"
-            exit 1
-          fi
-
-          MIGRATION_COUNT=$(ls -1 db/migrations/*.sql 2>/dev/null | wc -l)
-          echo "Found $MIGRATION_COUNT migration file(s)"
-
-          if [ "$MIGRATION_COUNT" -eq 0 ]; then
-            echo "❌ No migration files found"
-            exit 1
-          fi
-
-          echo "✓ Migration files verified"
-
       - name: Run staging migrations
-        if: steps.check_changes.outputs.has_changes == 'true'
         working-directory: apps/quilombo
         env:
           DATABASE_URL: ${{ secrets.STAGING_DATABASE_URL }}
           NEXT_PUBLIC_APP_ENV: development
-          NEXT_PUBLIC_WALLET_ENV: production
-          NEXT_PUBLIC_CHAIN_ENV: development
         run: |
           echo "🚀 Starting staging database migration..."
           echo "Timestamp: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
@@ -108,7 +62,7 @@ jobs:
           echo "✅ Migration completed successfully"
 
       - name: Create migration report
-        if: always() && steps.check_changes.outputs.has_changes == 'true'
+        if: always()
         run: |
           echo "# Staging Migration Report" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
@@ -120,9 +74,9 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
 
           if [ "${{ job.status }}" = "success" ]; then
-            echo "✅ **Status:** Migration completed successfully" >> $GITHUB_STEP_SUMMARY
+            echo "✅ **Status:** Migration check completed successfully" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
-            echo "The staging database has been updated. Safe to test and merge to main." >> $GITHUB_STEP_SUMMARY
+            echo "The staging database is up to date. Safe to test and merge to main." >> $GITHUB_STEP_SUMMARY
           else
             echo "❌ **Status:** Migration failed" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY

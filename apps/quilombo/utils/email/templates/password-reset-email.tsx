@@ -29,9 +29,21 @@ export const PasswordResetEmail = ({ resetUrl, logoUrl, userName }: PasswordRese
         </Section>
         <Text style={emailStyles.text}>Or copy and paste this link into your browser:</Text>
         <Text style={{ ...emailStyles.link, ...emailStyles.linkDanger }}>{resetUrl}</Text>
+
+        <Text style={emailStyles.divider}>---</Text>
+
+        <Text style={emailStyles.text}>{userName ? `Olá ${userName},` : 'Olá,'}</Text>
+        <Text style={emailStyles.text}>
+          Recebemos uma solicitação para redefinir sua senha. Clique no botão acima para definir uma nova senha:
+        </Text>
+
         <Text style={emailStyles.footer}>
           This link will expire in 60 minutes. If you didn't request this password reset, please ignore this email. Your
           password will remain unchanged.
+        </Text>
+        <Text style={emailStyles.footer}>
+          Este link expirará em 60 minutos. Se você não solicitou esta redefinição de senha, ignore este email. Sua
+          senha permanecerá inalterada.
         </Text>
       </Container>
     </Body>

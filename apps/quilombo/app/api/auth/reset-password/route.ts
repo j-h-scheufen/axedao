@@ -1,13 +1,34 @@
 import { NextResponse } from 'next/server';
 import { eq, and, isNull } from 'drizzle-orm';
+import { ValidationError } from 'yup';
 
 import { db } from '@/db';
 import { users, verificationTokens } from '@/db/schema';
 import { hashPassword } from '@/utils/auth/password';
 import { hashToken } from '@/utils/auth/tokens';
 import { resetPasswordSchema } from '@/config/validation-schema';
+import { rateLimit, getClientIp } from '@/utils/rate-limit';
 
 export async function POST(request: Request) {
+  // Rate limiting: 5 requests per hour per IP
+  const clientIp = getClientIp(request);
+  const rateLimitResult = rateLimit(clientIp, { maxRequests: 5, windowMs: 60 * 60 * 1000 });
+
+  if (!rateLimitResult.allowed) {
+    const retryAfterMs = rateLimitResult.retryAfter ?? 0;
+    return NextResponse.json(
+      {
+        error: `Too many password reset attempts. Please try again in ${Math.ceil(retryAfterMs / 60000)} minutes.`,
+      },
+      {
+        status: 429,
+        headers: {
+          'Retry-After': Math.ceil(retryAfterMs / 1000).toString(),
+        },
+      }
+    );
+  }
+
   try {
     const body = await request.json();
 
@@ -54,12 +75,12 @@ export async function POST(request: Request) {
       },
       { status: 200 }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
     // Yup validation errors
-    if (error.name === 'ValidationError') {
+    if (error instanceof ValidationError) {
       return NextResponse.json(
         {
-          error: error.errors?.[0] || 'Invalid input',
+          error: error.errors[0] || 'Invalid input',
         },
         { status: 400 }
       );

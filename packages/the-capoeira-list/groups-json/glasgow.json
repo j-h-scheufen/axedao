@@ -1,0 +1,181 @@
+[
+  {
+    "name": "Capoeira Senzala",
+    "website": "http://www.senzala.co.uk/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Pedro",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["http://www.senzala.co.uk/", "https://www.facebook.com/gruposenzalamestrepedro"],
+    "locations": [
+      {
+        "name": "Lesser Hall, Woodside Hall",
+        "address": "Glenfarg Street, G20 7QE",
+        "schedule": "Adults all levels: Mon 8:30-20:00; Wed 19:00-20:30; Music practice: Mon 20:00-20:30; Wed 8:30-19:0",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Lesser Hall, Woodside Hall\nGlenfarg Street, G20 7QE\nAdults all levels:  Mon  8:30 - 20:00; Wed 19:00 - 20:30\nMusic practice: Mon 20:00 - 20:30; Wed 8:30 - 19:0"
+      },
+      {
+        "name": "Mid Hall, Partick Burgh Hall",
+        "address": "9 Burgh Hall Street, G11 5LW",
+        "schedule": "Monthly Roda: 1st Sat 12:00-14:00",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Mid Hall, Partick Burgh Hall\n9 Burgh Hall Street, G11 5LW\nMonthly Roda: 1st Sat  12:00 - 14:00"
+      }
+    ],
+    "notes": "Not currently running kids classes in Glasgow. SOURCE: website 12/29/19",
+    "rawRecord": "Capoeira Senzala \nhttp://www.senzala.co.uk/ \nMestre Pedro\nhttps://www.facebook.com/gruposenzalamestrepedro(not currently running kids classes in Glasgow.)\n      Lesser Hall, Woodside Hall\nGlenfarg Street, G20 7QE\nAdults all levels:  Mon  8:30 - 20:00; Wed 19:00 - 20:30\nMusic practice: Mon 20:00 - 20:30; Wed 8:30 - 19:0\n      Mid Hall, Partick Burgh Hall\n9 Burgh Hall Street, G11 5LW\nMonthly Roda: 1st Sat  12:00 - 14:00 SOURCE: website  12/29/19"
+  },
+  {
+    "name": "Mao no Chao Capoeira Angola Glasgow",
+    "website": "https://maonochao.wordpress.com/",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["https://maonochao.wordpress.com/"],
+    "locations": [
+      {
+        "name": "Overnewton Recreation Centre",
+        "address": "2 Overnewton Square, Glasgow, G3 8RW",
+        "schedule": "Thurs 7:00-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Overnewton Recreation Centre\n2 Overnewton Square, Glasgow, G3 8RW\nThurs 7:00�9:00pm"
+      },
+      {
+        "name": "Garnethill Multicultural Centre",
+        "address": "21 Rose Street, Glasgow",
+        "schedule": "Kids and adults, Mon 7.30-9.30",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "G      arnethill Multicultural Centre, \n21 Rose Street, Glasgow\nKids and adults,  Mon 7.30�9.30"
+      }
+    ],
+    "notes": "Associated with Mestre Marrom e Alunos [Rio de Janiero]. SOURCE: website 12/29/19",
+    "rawRecord": "Mao no Chao Capoeira Angola Glasgow\nhttps://maonochao.wordpress.com/ associated with Mestre Marrom e Alunos[Rio de Janiero]\n      Overnewton Recreation Centre\n2 Overnewton Square, Glasgow, G3 8RW\nThurs 7:00�9:00pm\n      G      arnethill Multicultural Centre, \n21 Rose Street, Glasgow\nKids and adults,  Mon 7.30�9.30SOURCE: website 12/29/19"
+  },
+  {
+    "name": "Grupo Cordao De Ouro (formerly Glasgow Capoeira)",
+    "website": "http://cdoscotland.com/classes-in-glasgow/",
+    "leader": {
+      "title": null,
+      "nickname": "Fiaz-Jaca",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "fiaz_7_8_6@hotmail.com",
+      "phone": "07956241940"
+    },
+    "sources": [
+      "http://cdoscotland.com/classes-in-glasgow/",
+      "https://www.facebook.com/groups/590289261001518/",
+      "https://www.gla.ac.uk/myglasgow/sport/whatson/club/capoeira/"
+    ],
+    "locations": [
+      {
+        "name": "Wellington Church",
+        "address": "77 Southpark Avenue Glasgow G12 8LE",
+        "schedule": "Beginners Mon 6:00-7:00pm; Intermediate: Mon 7:00-8:30pm; All levels: Wed 6:00-8:00pm; All levels kids: Wed 6:00-8:00pm; 5-10 year olds: Wed 3:30-4:30pm; 5-8 year olds: Fri 3:30-4:00pm; 8-11 year olds: Fri 4:15-5:00pm; 11+ year olds: Fri 5:00-6:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Wellington Church\n77 Southpark Avenue  Glasgow G12 8LE\n\nBeginners Mon 6:00 � 7:00pm \nIntermediate: Mon 7:00 � 8:30pm \nAll levels: Wed 6:00 � 8:00pm \nAll levels kids:   Wed 6:00 � 8:00pm\n 5 � 10 year olds: Wed 3:30 � 4:30pm\n 5 � 8 year olds: Fri 3:30 � 4:00pm\n8 � 11 year olds: Fri 4:15 � 5:00pm \n 11+ year olds: Fri  5:00 � 6:00pm"
+      },
+      {
+        "name": "Andalus",
+        "address": "211 New City Road Glasgow G4 9PA",
+        "schedule": "Fri 6:30-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Andalus\n211 New City Road Glasgow G4 9PA\n\nhttp://www.andalus.co.uk/\nFri 6:30 � 8:00pm"
+      }
+    ],
+    "notes": "Instructor Fiaz-Jaca under the direct supervision & guidance of Contra Mestre Papa Leguas. Glasgow University Capoeira Club. SOURCE: webpages 12/29'10",
+    "rawRecord": "Grupo Cordao De Ouro \n[formerly Glasgow Capoeira]\nhttp://cdoscotland.com/classes-in-glasgow/ https://www.facebook.com/groups/590289261001518/\n Instructor Fiaz-Jaca  under the direct supervision & guidance of Contra Mestre Papa Leguas\nfiaz_7_8_6@hotmail.com\nphone: 07956241940      \nWellington Church\n77 Southpark Avenue  Glasgow G12 8LE\n\nBeginners Mon 6:00 � 7:00pm \nIntermediate: Mon 7:00 � 8:30pm \nAll levels: Wed 6:00 � 8:00pm \nAll levels kids:   Wed 6:00 � 8:00pm\n 5 � 10 year olds: Wed 3:30 � 4:30pm\n 5 � 8 year olds: Fri 3:30 � 4:00pm\n8 � 11 year olds: Fri 4:15 � 5:00pm \n 11+ year olds: Fri  5:00 � 6:00pm\n      Andalus\n211 New City Road Glasgow G4 9PA\n\nhttp://www.andalus.co.uk/\nFri 6:30 � 8:00pm \n      Glasgow University Capoeira Club(\n)https://www.gla.ac.uk/myglasgow/sport/whatson/club/capoeira/ \nSOURCE:  webpages 12/29'10"
+  },
+  {
+    "name": "Glasgow Dance Center",
+    "website": "http://www.glasgowdancecentre.co.uk/capoeira-classes-in-glasgow.html",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": null
+    },
+    "sources": ["http://www.glasgowdancecentre.co.uk/capoeira-classes-in-glasgow.html"],
+    "locations": [],
+    "notes": "No classes on schedule 12/30/19",
+    "rawRecord": "Glasgow Dance Center\nhttp://www.glasgowdancecentre.co.uk/capoeira-classes-in-glasgow.html\n( no classes on schedule 12/30/19)"
+  },
+  {
+    "name": "Capoeira Brasil Glasgow",
+    "website": null,
+    "leader": {
+      "title": "formando",
+      "nickname": "Raul",
+      "name": "Ricardo Machado Fideles"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "raul.capoeira@hotmail.com",
+      "phone": "+44 07903363991"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": null,
+        "address": "22 Jamaica St Glasgow, Glasgow City G1 4QD",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "22 Jamaica St Glasgow, Glasgow City G1 4QD"
+      }
+    ],
+    "notes": "Supervised by Mestre Paulao Ceara. Website offline; attempting to email; current status of group unknown 12/29/19. SOURCE: website 7/4/13",
+    "rawRecord": "Capoeira Brasil Glasgow\n22 Jamaica St Glasgow, Glasgow City G1 4QD\n(\nwebsite offline; attempting to email; current status of group unknown 12/29/19)\nFormando Raul  \"Ricardo Machado Fideles\"  supervised by Mestre\nPaulao Ceara\n  +44 07903363991\n  raul.capoeira@hotmail.com\nSOURCE: website 7/4/13"
+  },
+  {
+    "name": "Capoeira Abolicao",
+    "website": null,
+    "leader": {
+      "title": "monitor",
+      "nickname": "Selva",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "abolicao_capoeira@yahoo.co.uk",
+      "phone": "O78 l394O22O"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Website last modified May 6 2008, 7/2/13. Website offline; current status of group unknown 12/29/19. SOURCE: website 7/2/13",
+    "rawRecord": "Capoeira Abolicao\n()\n(Website last modified May 6 2008, 7/2/13)\n\n Monitor Selva\n\n   email: abolicao_capoeira@yahoo.co.uk\n\n  Mob: O78 l394O22O\n\nSOURCE: website 7/2/13\n(website offline; current status of group unknown 12/29/19)"
+  }
+]

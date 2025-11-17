@@ -1,0 +1,48 @@
+[
+  {
+    "name": "Aruande Capoeira",
+    "website": null,
+    "leader": {
+      "title": "mestre",
+      "nickname": "Demetrius",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Rachel Bingham",
+      "email": "kickmove@gmail.com",
+      "phone": "[217] 779-3615"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Quincy, Illinois. Rachel Bingham (formerly Rachel Canyon) under Mestre Demetrius [Houston]. Not offering classes at this time. SOURCE: google cache from offline facebook page 2/25/18, website 2/26/13",
+    "rawRecord": "\"Aruande Capoeira, Quincy, IL. 51 likes. Rachel Bingham [formerly\nRachel Canyon] is not offering classes at this time\"\nSOURCE: google cache from offline facebookpage  2/25/18\n      Aruande Capoeira\n\"Rachel Bingham\"  under  Mestre Demetrius[Houston]\n  [217] 779-3615\n  kickmove@gmail.com\n.SOURCE:  website 2/26/13"
+  },
+  {
+    "name": "Capoeira Brasil - Schaumburg",
+    "website": "https://colibricb.com",
+    "leader": {
+      "title": "formada",
+      "nickname": "Colibri",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Raphaela Augusto",
+      "email": "pretolcct@hotmail.com",
+      "phone": "[773] 554-8384"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Brazilian Jiu Jitsu",
+        "address": "1154 S Roselle Rd, Schaumburg, IL 60193",
+        "schedule": "All Levels: Thurs 7:30-8:30pm; Sat 10:30-11:30am",
+        "contactPerson": "Raphaela Augusto",
+        "email": null,
+        "phone": null,
+        "rawText": "Brazilian Jiu Jitsu\n1154 S Roselle Rd, Schaumburg, IL 60193\nContact: \"Raphaela Augusto\"\n  pretolcct@hotmail.com\n  [773] 554-8384\nAll Levels: Thurs 7:30-830pm; Sat 10;30-1130pm"
+      }
+    ],
+    "notes": "Schaumburg, Illinois. Formada Colibri. Contact: Raphaela Augusto. SOURCE: website 2/23/18",
+    "rawRecord": "      Capoeira Brasil\nhttps://colibricb.com\nFormada Colibri\n[347] 952-6047\nkatiacolibri@gmail.com\n      Brazilian Jiu Jitsu\n1154 S Roselle Rd, Schaumburg, IL 60193\nContact: \"Raphaela Augusto\"\n  pretolcct@hotmail.com\n  [773] 554-8384\nAll Levels: Thurs 7:30-830pm; Sat 10;30-1130pm\nSOURCE: website 2/23/18"
+  }
+]

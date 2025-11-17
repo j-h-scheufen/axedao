@@ -10,6 +10,7 @@ type Props = {
   searchTerm?: string;
   onSearchChange: (value: string) => void;
   onClear: () => void;
+  leftContent?: ReactNode; // NEW: content before search icon (e.g., country filter)
   filterContent?: ReactNode;
   rightContent?: ReactNode;
   className?: string;
@@ -20,6 +21,7 @@ const SearchBar = ({
   searchTerm = '',
   onSearchChange,
   onClear,
+  leftContent,
   filterContent,
   rightContent,
   className = '',
@@ -50,7 +52,12 @@ const SearchBar = ({
           onClear={handleClear}
           className="w-full"
           placeholder={placeholder}
-          startContent={<Search className="h-4 w-4" />}
+          startContent={
+            <div className="flex items-center gap-1.5 h-full">
+              {leftContent}
+              <Search className="h-4 w-4 text-default-400 flex-shrink-0" />
+            </div>
+          }
           labelPlacement="outside"
           value={inputValue}
           onChange={(e) => handleSearchChange(e.target.value)}

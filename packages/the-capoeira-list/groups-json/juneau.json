@@ -1,0 +1,83 @@
+[
+  {
+    "name": "Juneau Dance Unlimited Studio",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Anthony Manuel",
+      "email": null,
+      "phone": "586-2787"
+    },
+    "sources": ["http://www.juneauempire.com/stories/122001/Thi_happening.shtml"],
+    "locations": [
+      {
+        "name": "Juneau Dance Unlimited Studio",
+        "address": null,
+        "schedule": "Low intermediate level classes 4-6 p.m.; High intermediate classes 6:30-8 p.m.",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Low intermediate level classes 4-6 p.m.\nHigh intermediate classes 6:30-8 p.m.,"
+      }
+    ],
+    "notes": "Juneau, Alaska. Anthony Manuel, choreographer and dancer with the Seattle based Fusion Dance Company, teaches capoeira, hip hop and jazz intensive dance classes for intermediate level students. SOURCE: http://www.juneauempire.com/stories/122001/Thi_happening.shtml",
+    "rawRecord": "      Juneau Dance Unlimited Studio\n586-2787.\nAnthony Manuel\nchoreographer and dancer with the Seattle based Fusion Dance Company,\nteaches capoeira, hip hop and jazz intensive dance classes for intermediate\nlevel students.\nLow intermediate level classes 4-6 p.m.\nHigh intermediate classes 6:30-8 p.m., .\nSOURCE: http://www.juneauempire.com/stories/122001/Thi_happening.shtml"
+  },
+  {
+    "name": "Capoeira Maculele",
+    "website": "http://www.capoeiraseal.com",
+    "leader": {
+      "title": null,
+      "nickname": "Pele",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "peleogunseye@gmail.com",
+      "phone": "678.760.4864"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Tuskegee University; Logan Hall",
+        "address": "1200 West Montgomery Road, Tuskegee, AL 36088",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Tuskegee University; Logan Hall\n1200 West Montgomery Road, Tuskegee, AL 36088"
+      },
+      {
+        "name": "Frank Brown Recreation Center",
+        "address": "235 Opelika Road, Auburn, AL 36830",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Frank Brown Recreation Center\n235 Opelika Road, Auburn, AL 36830"
+      }
+    ],
+    "notes": "Auburn/Tuskegee, Alabama. Intermediario Pele under Mestre Fran [Atlanta]. SOURCE: website 11/2/16",
+    "rawRecord": "      Capoeira Maculele\nhttp://www.capoeiraseal.com\nIntermediario Pele under Mestre Fran[Atlanta]\n  678.760.4864\n  peleogunseye@gmail.com\n      Tuskegee University; Logan Hall\n1200 West Montgomery Road, Tuskegee, AL 36088\n      Frank Brown Recreation Center\n235 Opelika Road, Auburn, AL 36830\nSOURCE: website 11/2/16"
+  },
+  {
+    "name": "Nge Shujaa Chando Capoeira - Capoeira dos Escorpioes",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Auburn, Alabama. Moved to Pinellas Park, FL 6/29/12",
+    "rawRecord": "      Nge Shujaa Chando Capoeira - Capoeira dos Escorpioes\n(Moved to  Pinellas\nPark, FL  6/29/12)"
+  },
+  {
+    "name": "Auburn University Capoeira Club",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": ["capoeira.com"],
+    "locations": [],
+    "notes": "Auburn, Alabama. Club is no longer in existence. SOURCE: capoeira.com PM 6/16/06",
+    "rawRecord": "(\"also the auburn university capoeira club is no longer in existence.\")\nSOURCE:     capoeira.com PM 6/16/06"
+  }
+]

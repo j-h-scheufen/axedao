@@ -12,6 +12,16 @@ Automated workflow: lint → build → stage → commit (signed) → push
 6. **Commit with signature**: `git commit -S -m "message"`
 7. **Push to remote**: `git push`
 
+## ⚠️ CRITICAL: DO NOT MODIFY APPROVED COMMIT MESSAGE
+
+**Once the user approves a commit message, use it EXACTLY as approved.**
+
+- DO NOT add "🤖 Generated with Claude Code"
+- DO NOT add "Co-Authored-By: Claude <noreply@anthropic.com>"
+- DO NOT add ANY attribution, footer, or modification of any kind
+- Use the EXACT string that was shown and approved
+- The approved message is the FINAL message - no additions, no changes
+
 ## Prerequisites:
 
 **SSH Agent for commit signing:**
@@ -21,7 +31,12 @@ Verify your SSH agent has keys loaded:
 ssh-add -l
 ```
 
-If this shows your SSH keys, commit signing will work automatically. If not, the workflow will detect signing failure and offer to create the commit without the signature (with your approval).
+If this shows your SSH keys, commit signing will work automatically. If not, load keys from macOS keychain:
+```bash
+ssh-add -A  # or: ssh-add --apple-load-keychain
+```
+
+Then verify again with `ssh-add -l`. Commits for this project MUST always be signed.
 
 ## Usage:
 
@@ -45,4 +60,4 @@ I will:
 - Type of changes (feat/fix/chore/refactor/docs)
 - Affected areas (API, UI, auth, database, etc.)
 
-**Message format:** Concise, preferably 100 chars or less on a single line, but can be longer (multi-line) for larger changes, follows your repo's conventions
+**Message format:** Concise, each line must be 100 chars or less. Small commits favor a a single line, but use longer (multi-line) for larger changes, follows your repo's conventions

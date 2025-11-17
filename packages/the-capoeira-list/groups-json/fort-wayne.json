@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Capoeira Fort Wayne",
+    "website": "https://www.facebook.com/groups/CapoeiraFortWayne",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": "Chris Carr"
+    },
+    "mainContact": {
+      "name": "Chris Carr",
+      "email": null,
+      "phone": null
+    },
+    "sources": ["https://www.facebook.com/groups/CapoeiraFortWayne"],
+    "locations": [
+      {
+        "name": "IPFW Athletic Center",
+        "address": null,
+        "schedule": "Mon & Thurs 6:30pm; Sat 9:30am",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "IPFW Athletic Center\nMon & Thurs 6:30pm;  Sat 9:30am"
+      }
+    ],
+    "notes": "SOURCE: facebook 3/8/18",
+    "rawRecord": "Capoeira Fort Wayne\n\"Chris Carr\"\nhttps://www.facebook.com/groups/CapoeiraFortWayne\n      IPFW Athletic Center\nMon & Thurs 6:30pm;  Sat 9:30am\nSOURCE: facebook 3/8/18"
+  }
+]

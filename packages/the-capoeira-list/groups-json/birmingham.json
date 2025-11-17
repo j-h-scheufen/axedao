@@ -1,0 +1,108 @@
+[
+  {
+    "name": "Spartan Fitness",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "Spartan Fitness",
+        "address": "3417 Lorna Lane Birmingham, AL",
+        "schedule": "Sat 3:00pm, Sun 1:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Spartan Fitness\n3417 Lorna Lane Birmingham, AL\nSat 3:00pm, Sun 1:00pm"
+      }
+    ],
+    "notes": "Meetup group no longer exists as of 11/22/16. SOURCE: website 3/3/11",
+    "rawRecord": "      Spartan Fitness\n3417 Lorna Lane Birmingham, AL\nSat 3:00pm, Sun 1:00pm\nSOURCE:  website  3/3/11\n(Meetup group no longer exists  11/22/16)"
+  },
+  {
+    "name": "Grupo Unidade Capoeira",
+    "website": "http://www.unidadecapoeirabama.com",
+    "leader": null,
+    "mainContact": {
+      "name": "Sol em Boca \"Marc\"",
+      "email": "unidadecapoeirabama@yahoo.com",
+      "phone": "256-466-5641"
+    },
+    "sources": ["http://www.facebook.com/unidadealabama"],
+    "locations": [
+      {
+        "name": "Webster's Martial Art Academy",
+        "address": "113 6th Ave. NE Decatur, Alabama 35601",
+        "schedule": "All ages: Thurs 8:15-9:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Webster's Martial Art Academy\n113 6th Ave. NE Decatur, Alabama 35601\nAll ages: Thurs 8:15-9:30pm"
+      }
+    ],
+    "notes": "Website offline as of 11/22/16. Additional contacts: Tarantula \"Elijah\" (elijah_123@hotmail.com, 256-541-2389), Historiador \"Mike\" (mijackson22@yahoo.com, 334-233-2391). SOURCE: website 10/14/12",
+    "rawRecord": "      Grupo Unidade Capoeira\nhttp://www.unidadecapoeirabama.com\n(Website offline  11/22/16)\nhttp://www.facebook.com/unidadealabama\nSol em Boca \"Marc\"\n  unidadecapoeirabama@yahoo.com\n  256-466-5641\nTarantula \"Elijah\"\n  elijah_123@hotmail.com\n  256-541-2389\nHistoriador \"Mike\"\n  mijackson22@yahoo.com\n  334-233-2391\n      Webster's Martial Art Academy\n113 6th Ave. NE Decatur, Alabama 35601\nAll ages: Thurs 8:15-9:30pm\nSOURCE:  website 10/14/12"
+  },
+  {
+    "name": "Unidade Capoeira",
+    "website": "http://www.unidadecapoeirabama.com",
+    "leader": null,
+    "mainContact": {
+      "name": "Sol em Boca \"Marc\"",
+      "email": "unidadecapoeirabama@yahoo.com",
+      "phone": "256-466-5641"
+    },
+    "sources": ["http://www.facebook.com/unidadealabama"],
+    "locations": [
+      {
+        "name": "Health & Wellness Center",
+        "address": "4900 Meridian Street North, Huntsville, AL 35810-1015",
+        "schedule": "All ages: Sun 3:00pm-5:00pm; Mon & Wed 7:30pm-9:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Health & Wellness Center\n4900 Meridian Street North, Huntsville, AL 35810-1015\nAll ages:  Sun 3:00pm-5:00pm; Mon & Wed 7:30pm-9:00pm"
+      }
+    ],
+    "notes": "Website offline as of 11/22/16. Additional contacts: Tarantula \"Elijah\" (elijah_123@hotmail.com, 256-541-2389), Historiador \"Mike\" (mijackson22@yahoo.com, 334-233-2391). SOURCE: website 10/14/12",
+    "rawRecord": "      Unidade Capoeira\nhttp://www.unidadecapoeirabama.com\n(website offline 11/22/16)\nhttp://www.facebook.com/unidadealabama\nSol em Boca \"Marc\"\n  unidadecapoeirabama@yahoo.com\n  256-466-5641\nTarantula \"Elijah\"\n  elijah_123@hotmail.com\n  256-541-2389\nHistoriador \"Mike\"\n  mijackson22@yahoo.com\n  334-233-2391\n      Health & Wellness Center\n4900 Meridian Street North, Huntsville, AL 35810-1015\nAll ages:  Sun 3:00pm-5:00pm; Mon & Wed 7:30pm-9:00pm\nSOURCE:  website 10/14/12"
+  },
+  {
+    "name": "NEEMA",
+    "website": "http://www.neemaperformingarts.com/",
+    "leader": null,
+    "mainContact": {
+      "name": "Gregory Datcher",
+      "email": null,
+      "phone": null
+    },
+    "sources": ["http://findarticles.com/p/articles/mi_m1365/is_5_35/ai_n8576290/"],
+    "locations": [],
+    "notes": "No classes listed. Additional contact: Toni Hamilton. SOURCE: google search 3/3/11",
+    "rawRecord": "NEEMA\nhttp://www.neemaperformingarts.com/\n(No classes listed)\nGregory Datcher\nToni Hamilton\nhttp://findarticles.com/p/articles/mi_m1365/is_5_35/ai_n8576290/\nSOURCE: google seach 3/3/11"
+  },
+  {
+    "name": "SABA School of Dance",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Elijah Williams",
+      "email": "elijah_123@hotmail.com",
+      "phone": "256 348 9804"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "SABA School of Dance",
+        "address": null,
+        "schedule": "Tues 6:00-:00 pm Thurs 7:00-8:00 pm",
+        "contactPerson": "Elijah Williams",
+        "email": "elijah_123@hotmail.com",
+        "phone": "256 348 9804",
+        "rawText": "SABA School of Dance\n Tues  6:00- :00 pm Thurs  7:00-8:00 pm\nContact: ELijah Williams\n256 348 9804\nelijah_123@hotmail.com"
+      }
+    ],
+    "notes": "SOURCE: email 3/10/06",
+    "rawRecord": "      SABA School of Dance\n Tues  6:00- :00 pm Thurs  7:00-8:00 pm\nContact: ELijah Williams\n256 348 9804\nelijah_123@hotmail.com\nSOURCE: email 3/10/06"
+  }
+]

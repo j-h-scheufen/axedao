@@ -1,0 +1,309 @@
+[
+  {
+    "name": "Hong Kong School of Capoeira",
+    "website": "http://www.capoeirahk.com/",
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "hongkongcapoeira@gmail.com",
+      "phone": "68460789"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "SOURCE: website 7/8/17",
+    "rawRecord": "      Hong Kong School of Capoeira\nhttp://www.capoeirahk.com/\nhongkongcapoeira@gmail.com\nphone 68460789\nSOURCE: website 7/8/17"
+  },
+  {
+    "name": "Grupo Capoeira Brasil Hong Kong",
+    "website": "http://capoeira.hk/",
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "info@capoeira.hk",
+      "phone": "+852 9197 4429"
+    },
+    "sources": ["https://www.facebook.com/GCBHK/"],
+    "locations": [
+      {
+        "name": "Capri Building",
+        "address": "Room A, 7/F, Capri Building. 130 Austin Road Tsim Sha Tsui. Kowloon, Hong Kong",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Room A, 7/F, Capri Building.\n130 Austin Road Tsim Sha Tsui. Kowloon, Hong Kong"
+      }
+    ],
+    "notes": "Classes also in Mong Kok, Wan Chai, and Tsuen Wan. SOURCE: website facebook 3/8/17",
+    "rawRecord": "      Grupo Capoeira Brasil Hong Kong\nhttps://www.facebook.com/GCBHK/\nhttp://capoeira.hk/\n+852 9197 4429\ninfo@capoeira.hk\n      Room A, 7/F, Capri Building.\n130 Austin Road Tsim Sha Tsui. Kowloon, Hong Kong\n(Classes also in Mong Kok, Wan Chai, and Tsuen Wan)\nSOURCE: website facebook 3/8/17"
+  },
+  {
+    "name": "Capoeira Brasil",
+    "website": null,
+    "leader": {
+      "title": "mestra",
+      "nickname": "Jo",
+      "name": "Joselita P. Oliveira"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "jo_oliveira24@hotmail.com",
+      "phone": "[+852] 5104-2129"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Website and facebook offline as of 3/8/17. SOURCE: website 9/3/12",
+    "rawRecord": "      Capoeira Brasil\n(website and facebook offline 3/8/17)\nMestra Jo  \"Joselita P. Oliveira\"\njo_oliveira24@hotmail.com\n[+852] 5104-2129\nSOURCE: website 9/3/12"
+  },
+  {
+    "name": "Grupo Axe Capoeira",
+    "website": "http://www.axecapoeirachina.com",
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "axecapoeiraasia@gmail.com",
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Men-o-War Boxing Club",
+        "address": "Fabrica Va Nam, 562-568, Avenida Olimpica, Taipa",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Men-o-War Boxing Club\nFabrica Va Nam, 562-568, Avenida Olimpica, Taipa"
+      },
+      {
+        "name": "Complexo de Servicos de Apoio a Juventude e Familia \"Pou Ta\"",
+        "address": "Rua do Minho, Taipa, (Inside Buddhist Temple, 8th Floor)",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Complexo de Servicos de Apoio a Juventude e Familia\n\"Pou Ta\"\nRua do Minho, Taipa, (Inside Buddhist Temple, 8th Floor)"
+      }
+    ],
+    "notes": "May also have classes in Hong Kong",
+    "rawRecord": "      Grupo Axe Capoeira\nhttp://www.axecapoeirachina.com\naxecapoeiraasia@gmail.com\n(May also have classes in Hong Kong)\n      Men-o-War Boxing Club\nFabrica Va Nam, 562-568, Avenida Olimpica, Taipa\n      Complexo de Servicos de Apoio a Juventude e Familia\n\"Pou Ta\"\nRua do Minho, Taipa, (Inside Buddhist Temple, 8th Floor)"
+  },
+  {
+    "name": "Capoeira Mandinga Aotearoa",
+    "website": "http://www.capoeira.org.nz/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Brabo",
+      "name": "Grant Cole"
+    },
+    "mainContact": {
+      "name": "Colette Hanley",
+      "email": "capoeira@capoeira.org.nz",
+      "phone": "0273242688"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "National Academy",
+        "address": "29 Randolph St, Newton, Auckland",
+        "schedule": "Full schedule of classes",
+        "contactPerson": "Hannah or Josh",
+        "email": "taranaki@capoeira.org.nz",
+        "phone": "027 327 9716 or 06 752 4065",
+        "rawText": "National Academy\n29 Randolph St, Newton, Auckland\n(full schedule of classes)\n Hannah or Josh,\n027 327 9716 or 06 752 4065\ntaranaki@capoeira.org.nz"
+      },
+      {
+        "name": "Central Primary School Hall",
+        "address": "Pendarves/Lemon St, New Plymouth, Taranaki",
+        "schedule": null,
+        "contactPerson": "Yan",
+        "email": "capoeira@capoeira.org.nz",
+        "phone": "0226800801",
+        "rawText": "Central Primary School Hall\nPendarves/Lemon St, New Plymouth, Taranaki\nYan\n0226800801 or capoeira@capoeira.org.nz"
+      },
+      {
+        "name": "Aro Valley community center",
+        "address": "48 Aro St; Wellington",
+        "schedule": "Mon 6:00-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Aro Valley community center\n48 Aro St; Wellington\nMon 6:00-8:00pm"
+      },
+      {
+        "name": "Thistle Hall",
+        "address": "293 Cuba St, Wellington",
+        "schedule": "Thurs 6:00-8:00pm",
+        "contactPerson": "Stephen da Capo",
+        "email": "Stephen@vital.org.nz",
+        "phone": null,
+        "rawText": "Thistle Hall\n293 Cuba St, Wellington\nThurs 6:00-8:00pm\nStephen da Capo\n  Stephen@vital{.org.nz"
+      },
+      {
+        "name": "White Elephant HQ",
+        "address": "442 Tuam Street. Christchurch",
+        "schedule": "Tues & Thurs 6:00-8:00pm",
+        "contactPerson": "Julien",
+        "email": null,
+        "phone": "021774426",
+        "rawText": "White Elephant HQ\n442 Tuam Street. Christchurch\nTues & Thurs 6:00-8:00pm\nContact: Julien 021774426"
+      },
+      {
+        "name": "Taipa area school hall",
+        "address": "Northland",
+        "schedule": "Tue & Wed, 4:00-6:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Taipa area school hall\nNorthland\nTue & Wed, 4:00-6:00pm"
+      }
+    ],
+    "notes": "New Zealand. PO Box 68403 Newton, Auckland. Additional Facebook: http://www.facebook.com/groups/capoeiraotautahi/. SOURCE: website 2/9/17",
+    "rawRecord": "      Capoeira Mandinga Aotearoa\nhttp://www.capoeira.org.nz/\nMestre Brabo \" Grant Cole\"\nPO Box 68403 Newton, Auckland\nContact: Colette Hanley\n   0273242688\ncapoeira@capoeira.org.nz\n      National Academy\n29 Randolph St, Newton, Auckland\n(full schedule of classes)\n Hannah or Josh,\n027 327 9716 or 06 752 4065\ntaranaki@capoeira.org.nz\n      Central Primary School Hall\nPendarves/Lemon St, New Plymouth, Taranaki\nYan\n0226800801 or capoeira@capoeira.org.nz\n      Aro Valley community center\n48 Aro St; Wellington\nMon 6:00-8:00pm\n      Thistle Hall\n293 Cuba St, Wellington\nThurs 6:00-8:00pm\nStephen da Capo\n  Stephen@vital{.org.nz\n http://www.facebook.com/groups/capoeiraotautahi/\n      White Elephant HQ\n442 Tuam Street. Christchurch\nTues & Thurs 6:00-8:00pm\nContact: Julien 021774426\n      Taipa area school hall\nNorthland\nTue & Wed, 4:00-6:00pm\nSOURCE: website 2/9/17"
+  },
+  {
+    "name": "Ungu Capoeira School",
+    "website": "http://www.nzcapoeira.co.nz/",
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "admin@nzcapoeira.co.nz",
+      "phone": null
+    },
+    "sources": ["https://www.facebook.com/UnguCapoeiraNZ/"],
+    "locations": [
+      {
+        "name": "Wellington Performing Arts Centre",
+        "address": "25-27 Vivian Street, Te Aro",
+        "schedule": "All Levels: Thurs 6:00pm to 7:30pm",
+        "contactPerson": "Professor Perere",
+        "email": null,
+        "phone": null,
+        "rawText": "Wellington Performing Arts Centre\n25-27 Vivian Street, Te Aro\nAll Levels: Thurs  6:00pm to 7:30pm\nProfessor Perere in Wellington"
+      },
+      {
+        "name": "Chrystal Palace",
+        "address": "12 Chrystal Rd, Richmond",
+        "schedule": "Mon 7:30-8:30pm",
+        "contactPerson": "Sushi",
+        "email": "sushicapoeira@gmail.com",
+        "phone": "021 037 5669",
+        "rawText": "Chrystal Palace\n12 Chrystal Rd, Richmond\nMon 7:30- 8:30pm\nSushi  in Christchurch\n  021 037 5669\n  sushicapoeira@gmail.com"
+      },
+      {
+        "name": "Salsa Latina",
+        "address": "Studio 2, 12 Bath St, Central",
+        "schedule": "Fri: 7:30-8:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Salsa Latina\nStudio 2, 12 Bath St, Central\nFri: 7:30- 8:30pm"
+      },
+      {
+        "name": "Teacher's college dance hall",
+        "address": "159 Union street east Dunedin",
+        "schedule": "beginners: Mon 5:30-7:00pm",
+        "contactPerson": "Pensador",
+        "email": "capoeiradunedin@gmail.com",
+        "phone": "021 264 8736",
+        "rawText": "Teacher's college dance hall\n159 Union street east Dunedin\nbeginners:  Mon 5:30-7:00pm\nPensador  in Dunedin\n  021 264 8736\n  capoeiradunedin@gmail.com"
+      },
+      {
+        "name": "Old Gym",
+        "address": "665 Cumberland Street Dunedin",
+        "schedule": "all levels: Wed 7:00-8:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Old Gym\n665 Cumberland Street Dunedin\nall levels: Wed 7:00-8:30pm"
+      }
+    ],
+    "notes": "New Zealand. Kids classes TBA. SOURCE: website facebook 3/14/17",
+    "rawRecord": "      Ungu Capoeira School\nhttp://www.nzcapoeira.co.nz/\nhttps://www.facebook.com/UnguCapoeiraNZ/\nProfessor Perere in Wellington\n  admin@nzcapoeira.co.nz\n      Wellington Performing Arts Centre\n25-27 Vivian Street, Te Aro\nAll Levels: Thurs  6:00pm to 7:30pm\nSushi  in Christchurch\n  021 037 5669\n  sushicapoeira@gmail.com\n      Chrystal Palace\n12 Chrystal Rd, Richmond\nMon 7:30- 8:30pm\n      Salsa Latina\nStudio 2, 12 Bath St, Central\nFri: 7:30- 8:30pm\nPensador  in Dunedin\n  021 264 8736\n  capoeiradunedin@gmail.com\n       Teacher's college dance hall\n159 Union street east Dunedin\nbeginners:  Mon 5:30-7:00pm\n      Old Gym\n665 Cumberland Street Dunedin\nall levels: Wed 7:00-8:30pm\nKids classes TBA\nSOURCE: website facebook 3/14/17"
+  },
+  {
+    "name": "AU Capoeira",
+    "website": "https://aucapoeiranz.com",
+    "leader": null,
+    "mainContact": {
+      "name": "Jake Colloff and Donna Tuari",
+      "email": "Junior@aucapoeira.co.nz",
+      "phone": "021 082 67503"
+    },
+    "sources": ["https://www.facebook.com/AuCapoeiraAkld"],
+    "locations": [
+      {
+        "name": "St Lukes Anglican Church",
+        "address": "704 New N Rd, Mount Albert, Auckland 1022",
+        "schedule": "adults: Wed 7:00-8.30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "St Lukes Anglican Church\n704 New N Rd, Mount Albert, Auckland 1022\nadults: Wed 7:00 – 8.30pm"
+      },
+      {
+        "name": "92 Surrey Cres",
+        "address": "92 Surrey Cres, Grey Lynn, Auckland 1021",
+        "schedule": "kids: Wed: 4:00–5:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "92 Surrey Cres\n92 Surrey Cres, Grey Lynn, Auckland 1021\nkids: Wed: 4:00–5:00pm"
+      }
+    ],
+    "notes": "New Zealand. Under Mestre Junior [Sydney or Hong Kong]. Correnteza in Bay of Plenty: 027 477 0327. SOURCE: website 2/10/17",
+    "rawRecord": "      AU Capoeira\nhttps://aucapoeiranz.com\nhttps://www.facebook.com/AuCapoeiraAkld\nunder Mestre  Junior[Sydney or Hong Kong]\nContact \"Jake Colloff\" and  \"Donna Tuari\"\nJunior @ aucapoeira.co.nz\n021 082 67503\n      St Lukes Anglican Church\n704 New N Rd, Mount Albert, Auckland 1022\nadults: Wed 7:00 – 8.30pm\n      92 Surrey Cres\n92 Surrey Cres, Grey Lynn, Auckland 1021\nkids: Wed: 4:00–5:00pm\n Correnteza in Bay of Plenty\n027 477 0327\nSOURCE: website 2/10/17"
+  },
+  {
+    "name": "Capoeira Brasil",
+    "website": "http://www.capoeirabrasilnz.co.nz/",
+    "leader": {
+      "title": "monitor",
+      "nickname": "Pedra",
+      "name": "Josh"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "capoeiracollectivenz@gmail.com",
+      "phone": "021 105 4300"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Arataki Community Centre - Dotterel Room",
+        "address": "Zambuk Way Mount Maunganui 3116",
+        "schedule": "Mon: 7:15-9:00pm; Fri 6:00-7:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Arataki Community Centre - Dotterel Room\nZambuk Way Mount Maunganui 3116\nMon:   7:15-9:00pm; Fri  6:00-7:30pm"
+      }
+    ],
+    "notes": "New Zealand. Under the supervision of Mestre Peixe [New South Wales]. SOURCE: website 2/9/17",
+    "rawRecord": "      Capoeira Brasil\nhttp://www.capoeirabrasilnz.co.nz/\ncapoeiracollectivenz@gmail.com\n 021 105 4300\nMonitor, Pedra \"Josh\" under the supervision of Mestre Peixe[New\nSouth Wales]\n      Arataki Community Centre - Dotterel Room\nZambuk Way Mount Maunganui 3116\nMon:   7:15-9:00pm; Fri  6:00-7:30pm\nSOURCE: website 2/9/17"
+  },
+  {
+    "name": "Capoeira Resistencia",
+    "website": "http://www.victoria.ac.nz/students/campus/clubs/directory/capoeira-resistencia",
+    "leader": null,
+    "mainContact": {
+      "name": "Elizabeth Reich",
+      "email": "elizabethreichsimko@me.com",
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Victoria University of Wellington",
+        "address": null,
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Victoria University of Wellington"
+      }
+    ],
+    "notes": "New Zealand. SOURCE: website 2/10/17",
+    "rawRecord": "      Capoeira Resistencia\nhttp://www.victoria.ac.nz/students/campus/clubs/directory/capoeira-resistencia\n      Victoria University of Wellington\nContact: Elizabeth Reich\n  elizabethreichsimko@me.com\nSOURCE: website 2/10/17"
+  }
+]

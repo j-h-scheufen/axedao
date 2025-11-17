@@ -1,0 +1,135 @@
+[
+  {
+    "name": "Canto do Galo - United Capoeira Association",
+    "website": "http://www.cantodogalo.org/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Galo",
+      "name": "Greg Flickinger"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "info@cantodogalo.org",
+      "phone": "[303] 273-2830"
+    },
+    "sources": ["http://www.cantodogalo.org/"],
+    "locations": [
+      {
+        "name": null,
+        "address": "910 Santa Fe Dr. Studio 1, Denver CO, 80204",
+        "schedule": "Full schedule of classes",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "910 Santa Fe Dr. Studio 1, Denver CO, 80204.\n(Full schedule of classes)"
+      }
+    ],
+    "notes": "SOURCE: website 8/24/17",
+    "rawRecord": "Canto do Galo-United Capoeira Association\n910 Santa Fe Dr. Studio 1, Denver CO, 80204.\nhttp://www.cantodogalo.org/\nMestre Galo \"Greg Flickinger \"\n[303] 273-2830\ninfo@cantodogalo.org\n(Full schedule of classes)\nSOURCE:  website 8/24/17"
+  },
+  {
+    "name": "Capoiera Luanda",
+    "website": "http://www.capoeiradenver.com/",
+    "leader": {
+      "title": "graduado",
+      "nickname": "Vampiro",
+      "name": "Slade Weidl"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "capoeiraluandadenver@gmail.com",
+      "phone": "720.275.7507"
+    },
+    "sources": [
+      "http://www.capoeiradenver.com/",
+      "https://www.facebook.com/Capoeira-Luanda-Denver-347869338572580/?fref=ts"
+    ],
+    "locations": [
+      {
+        "name": "Qi Flow",
+        "address": "3827 Steele St Denver, CO 80205",
+        "schedule": "Mon & Wed 7:30-9:00pm; Fri 6:30-7:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Qi Flow\n3827 Steele St Denver,  CO 80205\nMon & Wed 7:30-9:00pm; Fri 6:30-7:30pm"
+      },
+      {
+        "name": "Colorado New Style Dance",
+        "address": "520 Cherokee St. Denver, CO 80204",
+        "schedule": "Thurs 6:00-7:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Colorado New Style Dance\n520 Cherokee St. Denver, CO 80204\nThurs 6:00-7:00pm"
+      }
+    ],
+    "notes": "Under the Instruction and Supervision of Contramestre Esquilo Preto. SOURCE: website facebook 8/24/17",
+    "rawRecord": "Capoiera Luanda\nhttp://www.capoeiradenver.com/\ncapoeiraluandadenver@gmail.com\n720.275.7507\nGraduado Vampiro \"Slade Weidl\" under the Instruction and Supervision\nof Contramestre Esquilo Preto.\nhttps://www.facebook.com/Capoeira-Luanda-Denver-347869338572580/?fref=ts\n      Qi Flow\n3827 Steele St Denver,  CO 80205\nMon & Wed 7:30-9:00pm; Fri 6:30-7:30pm\n      Colorado New Style Dance\n520 Cherokee St. Denver, CO 80204\nThurs 6:00-7:00pm\nSOURCE: website facebook 8/24/17"
+  },
+  {
+    "name": "Colorado Capoeira Angola Palmares",
+    "website": "http://www.jogotoday.com/",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "playdenverl@gmail.com",
+      "phone": "+1.7206415829"
+    },
+    "sources": ["http://www.jogotoday.com/"],
+    "locations": [
+      {
+        "name": null,
+        "address": "9990 E Colfax Ave, Aurora, CO 80010",
+        "schedule": "Tues: 6:30-8:00pm; Sat 12:00-1:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "9990 E Colfax Ave, Aurora, CO 80010\nTues :6:30--8:00pm; Sat 12:00--1:30pm"
+      }
+    ],
+    "notes": "SOURCE: website 8/24/17",
+    "rawRecord": "Colorado Capoeira Angola Palmares\n9990 E Colfax Ave, Aurora, CO 80010\nhttp://www.jogotoday.com/\n +1.7206415829\nplaydenverl@gmail.com\nTues :6:30--8:00pm; Sat 12:00--1:30pm\nSOURCE: website 8/24/17"
+  },
+  {
+    "name": "Brazilian Capoeira",
+    "website": "http://cap-denver.com/",
+    "leader": {
+      "title": null,
+      "nickname": null,
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "support@cap-denver.com",
+      "phone": "720-882-7809"
+    },
+    "sources": ["http://cap-denver.com/", "http://www.capoeiracolorado.com/"],
+    "locations": [
+      {
+        "name": null,
+        "address": "4362 E Evans Ave. Denver, CO 80222",
+        "schedule": "Mon-Thurs 5:45-7:30pm; Sat 10:00am-12:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "4362 E Evans Ave. Denver, CO 80222\nMon � Thurs 5:45-7:30pm; Sat 10:00am-12:00pm"
+      },
+      {
+        "name": "Enshin Karate School",
+        "address": "6441 E Evans Ave Denver CO",
+        "schedule": "Kids: Wed 6:00pm; Adult Beginners: Mon & Wed 7:00pm; Tues & Thurs 8:00pm; Intermediate: Wed 8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Enshin Karate School\n6441 E Evans Ave Denver CO\nKids: Wed 6:00pm\nAdult Beginners: Mon & Wed 7:00pm; Tues & Thurs 8:00pm\nIntermediate: Wed 8:00pm"
+      }
+    ],
+    "notes": "The websites disagree on details. SOURCE: website 8/24/17",
+    "rawRecord": "Brazilian Capoeira\n4362 E Evans Ave. Denver, CO 80222\nhttp://cap-denver.com/\nCall  : 720-882-7809\nMail:   support@cap-denver.com\nMon � Thurs 5:45-7:30pm; Sat 10:00am-12:00pm\nSOURCE: website 8/24/17  (The websites disagree)\nhttp://www.capoeiracolorado.com/\n      Enshin Karate School\n6441 E Evans Ave Denver CO\nKids: Wed 6:00pm\nAdult Beginners: Mon & Wed 7:00pm; Tues & Thurs 8:00pm\nIntermediate: Wed 8:00pm\nSOURCE: website  8/24/17 (The websites disagree)"
+  }
+]

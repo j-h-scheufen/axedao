@@ -10,10 +10,15 @@ import axios from 'axios';
 import { parseAbsoluteToLocal } from '@internationalized/date';
 
 import { QueryConfig } from '@/config/constants';
-import { isValidISO8601 } from '@/config/validation-schema';
-import type { CreateEventForm, UpdateEventForm } from '@/config/validation-schema';
+import { isValidISO8601, type CreateEventForm, type UpdateEventForm } from '@/config/validation-schema';
 import type { EventSearchResult, Event, EventLocationFeatureCollection } from '@/types/model';
 import { QUERY_KEYS } from '.';
+
+// Type for raw event data from API (dates as ISO strings)
+type RawEvent = Omit<Event, 'start' | 'end'> & {
+  start: string;
+  end?: string;
+};
 
 /**
  * Note that the various fetch options are exported as read-only objects in order to be used by atomWithQuery.
@@ -63,6 +68,7 @@ const searchEvents = async ({
   startDate,
   endDate,
   showActiveOnly,
+  filters,
 }: {
   offset?: number;
   pageSize?: number;
@@ -74,7 +80,29 @@ const searchEvents = async ({
   startDate?: string;
   endDate?: string;
   showActiveOnly?: boolean;
+  filters?: import('@/config/validation-schema').EventFilters;
 }): Promise<EventSearchResult> => {
+  // Use POST /api/events/search when filters are provided
+  if (filters) {
+    const response = await axios.post('/api/events/search', {
+      offset,
+      pageSize,
+      searchTerm,
+      filters,
+    });
+    const rawData = response.data;
+
+    return {
+      ...rawData,
+      data: rawData.data.map((rawEvent: RawEvent) => ({
+        ...rawEvent,
+        start: parseAbsoluteToLocal(validateAndConvertDate(rawEvent.start, 'start').toISOString()),
+        end: rawEvent.end ? parseAbsoluteToLocal(validateAndConvertDate(rawEvent.end, 'end').toISOString()) : undefined,
+      })),
+    };
+  }
+
+  // Legacy GET request for backward compatibility
   const params = new URLSearchParams();
   if (offset !== undefined) params.append('offset', offset.toString());
   if (pageSize !== undefined) params.append('pageSize', pageSize.toString());
@@ -94,7 +122,7 @@ const searchEvents = async ({
 
   return {
     ...rawData,
-    data: rawData.data.map((rawEvent: any) => ({
+    data: rawData.data.map((rawEvent: RawEvent) => ({
       ...rawEvent,
       start: parseAbsoluteToLocal(validateAndConvertDate(rawEvent.start, 'start').toISOString()),
       end: rawEvent.end ? parseAbsoluteToLocal(validateAndConvertDate(rawEvent.end, 'end').toISOString()) : undefined,
@@ -113,6 +141,7 @@ export const searchEventsOptions = ({
   startDate,
   endDate,
   showActiveOnly,
+  filters,
 }: {
   offset?: number;
   pageSize?: number;
@@ -124,6 +153,7 @@ export const searchEventsOptions = ({
   startDate?: string;
   endDate?: string;
   showActiveOnly?: boolean;
+  filters?: import('@/config/validation-schema').EventFilters;
 }) => {
   return {
     queryKey: [
@@ -136,6 +166,7 @@ export const searchEventsOptions = ({
       startDate,
       endDate,
       showActiveOnly,
+      filters,
     ],
     queryFn: async ({ pageParam }: { pageParam: number }) =>
       searchEvents({
@@ -149,6 +180,7 @@ export const searchEventsOptions = ({
         startDate,
         endDate,
         showActiveOnly,
+        filters,
       }),
     initialPageParam: offset || 0,
     getNextPageParam: (lastPage: EventSearchResult) => {
@@ -168,8 +200,12 @@ const createEvent = async (newEvent: CreateEventForm | FormData): Promise<Event>
   return response.data;
 };
 
-const updateEvent = async (eventId: string, data: UpdateEventForm): Promise<Event> =>
-  axios.patch(`/api/events/${eventId}`, data).then((response) => response.data);
+const updateEvent = async (eventId: string, data: UpdateEventForm | FormData): Promise<Event> => {
+  const response = await axios.patch(`/api/events/${eventId}`, data, {
+    headers: data instanceof FormData ? {} : { 'Content-Type': 'application/json' },
+  });
+  return response.data;
+};
 
 const deleteEvent = async (eventId: string): Promise<void> => axios.delete(`/api/events/${eventId}`);
 
@@ -187,6 +223,7 @@ export const useSearchEvents = (params: {
   startDate?: string;
   endDate?: string;
   showActiveOnly?: boolean;
+  filters?: import('@/config/validation-schema').EventFilters;
 }) => {
   return useInfiniteQuery(infiniteQueryOptions(searchEventsOptions(params)));
 };
@@ -206,7 +243,8 @@ export const useCreateEventMutation = () => {
 export const useUpdateEventMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async ({ eventId, data }: { eventId: string; data: UpdateEventForm }) => updateEvent(eventId, data),
+    mutationFn: async ({ eventId, data }: { eventId: string; data: UpdateEventForm | FormData }) =>
+      updateEvent(eventId, data),
     onSuccess: (data, variables) => {
       // Process the data through the same validation as fetchEvent
       const processedData = {
@@ -285,3 +323,14 @@ export const useFetchEventLocations = (params?: {
   endDate?: string;
   showActiveOnly?: boolean;
 }) => useQuery(queryOptions(fetchEventLocationsOptions(params)));
+
+const fetchAvailableEventCountries = async (): Promise<{ countryCodes: string[] }> =>
+  axios.get('/api/events/countries').then((response) => response.data);
+
+export const fetchAvailableEventCountriesOptions = {
+  queryKey: [QUERY_KEYS.event.getAvailableCountries],
+  queryFn: fetchAvailableEventCountries,
+  staleTime: QueryConfig.staleTimeGroup, // Countries don't change often
+} as const;
+
+export const useFetchAvailableEventCountries = () => useQuery(queryOptions(fetchAvailableEventCountriesOptions));

@@ -1,0 +1,149 @@
+[
+  {
+    "name": "Group D'Oxala - ASCAB",
+    "website": "http://www.groupdoxala.com/",
+    "leader": null,
+    "mainContact": {
+      "name": "Joao [John] Gazeta",
+      "email": null,
+      "phone": "[336] 899 4138"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Free Spirits Yoga",
+        "address": "337 Martin Luther King Blvd. Greensboro, NC 27406",
+        "schedule": "Wed 6:30 pm-8:30 pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Free Spirits Yoga\n337 Martin Luther King Blvd. Greensboro, NC 27406\nWed  6:30 pm-8:30 pm"
+      }
+    ],
+    "notes": "Greensboro, North Carolina. Joao [John] Gazeta. SOURCE: website 1/4/13",
+    "rawRecord": "      Group D'Oxala - ASCAB\nhttp://www.groupdoxala.com/\n\"Joao [John] Gazeta\"\n  [336] 899 4138\n      Free Spirits Yoga\n337 Martin Luther King Blvd. Greensboro, NC 27406\nWed  6:30 pm-8:30 pm\nSOURCE: website 1/4/13"
+  },
+  {
+    "name": "Morehead City Capoeira",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Morehead City, North Carolina. We have no current information 6/14/19.",
+    "rawRecord": "   Morehead City Capoeira\n\n                       Morehead City\n\n\n(We have no current information  6/14/19)"
+  },
+  {
+    "name": "New Bern Capoeira",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "New Bern/Havelock, North Carolina. We have no current information 6/14/19.",
+    "rawRecord": "   New Bern Capoeira\n\n                 New Bern\nHavelock\n\n(We have no current information 6/14/19)"
+  },
+  {
+    "name": "Capoeira Angola Quintal - Outer Banks",
+    "website": "http://obxcapoeira.com/",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Graveto",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Professor Giratorio",
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Ocracoke Island, North Carolina. Professor Giratorio under Contra Mestre Graveto [Ithaca NY]. Contact though website for upcoming classes. SOURCE: website 6/14/19",
+    "rawRecord": "      Capoeira Angola Quintal - Outer Banks\nhttp://obxcapoeira.com/\nProfessor  Giratorio under Contra Mestre Graveto[Ithaca\nNY]\n(Contact  though website for upcoming classes) SOURCE:  website 6/14/19"
+  },
+  {
+    "name": "Grupo Capoeira Brasil",
+    "website": "https://capoeirabrasilnc.com",
+    "leader": null,
+    "mainContact": {
+      "name": "Professor Taturana (Cosme de Araujo)",
+      "email": null,
+      "phone": "919-593-0111"
+    },
+    "sources": ["https://www.facebook.com/Capoeirabrasilnc/", "https://www.instagram.com/capoeirabrasilnc/"],
+    "locations": [
+      {
+        "name": "Casarez BJJ",
+        "address": "329 N Harrison Ave, Cary, NC 27513",
+        "schedule": "Tues 8:00-9:30pm; Fri 6:00-7:00pm; Sat 9:45-11:00am",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Casarez BJJ\n329 N Harrison Ave, Cary, NC 27513\nhttps://casarezbjj.com\nTues 8:00 – 9:30pm; Fri 6:00 – 7:00pm; Sat  9:45 – 11:00am"
+      }
+    ],
+    "notes": "Raleigh, North Carolina. Professor Taturana (Cosme de Araujo). SOURCE: website 6/14/19",
+    "rawRecord": "      Grupo Capoeira Brasil\n\n\nhttps://capoeirabrasilnc.com\n\n\nProfessor Taturana \"Cosme de Araujo\"\n\n919-593-0111\nhttps://www.facebook.com/Capoeirabrasilnc/\nhttps://www.instagram.com/capoeirabrasilnc/\n       Casarez BJJ\n329 N Harrison Ave, Cary, NC 27513\nhttps://casarezbjj.com\nTues 8:00 – 9:30pm; Fri 6:00 – 7:00pm; Sat  9:45 – 11:00am\n\nSOURCE: website 6/14/19"
+  },
+  {
+    "name": "ASCAB [Associacao Santista de Capoeira Areia Branca]",
+    "website": "http://facebook.com/groups/235971143093389",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Doutor",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Professor Lobo Mau, Maravilha, Pijama",
+      "email": "Maravilhamary@gmail.com, PijamaAustin@gmail.com",
+      "phone": "919-455-5100, 919-744-7400"
+    },
+    "sources": ["http://www.forcaunificada.org/", "https://sites.google.com/site/ncascab/"],
+    "locations": [
+      {
+        "name": "Lifetime Fitness",
+        "address": "601 E Six Forks Rd Raleigh, NC 27609",
+        "schedule": "All-Levels Ages15 up: Tues & Thurs 7:30-9:00pm; Sat 1:00-3:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Lifetime Fitness\n601 E Six Forks Rd Raleigh, NC 27609\nAll-Levels Ages15 up:Tues & Thurs 7:30-9:00pm; Sat 1:00-3:00pm"
+      },
+      {
+        "name": "Cirque de Vol",
+        "address": "300 w. Hargett St. #40, Raleigh, NC 27601",
+        "schedule": "7:45-8:45pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Cirque de Vol\n300 w. Hargett St. #40, Raleigh, NC 27601\nhttps://www.cirquedevol.com/shop/capoeira/\n7:45-8:45pm"
+      }
+    ],
+    "notes": "Raleigh, North Carolina. Professor Lobo Mau under the guidance of Mestre Doutor [Philadelphia]. Additional contacts: Maravilha and Pijama. Website is empty 6/14/19. SOURCE: facebook 6/14/19, website 10/27/12",
+    "rawRecord": "      ASCAB [Associacao Santista de Capoeira Areia Branca]\n\nhttp://facebook.com/groups/235971143093389\nProfessor Lobo Mau under the guidance of Mestre Doutor([)Philadelphia(])\n\n        Lifetime Fitness\n\n601 E Six Forks Rd Raleigh, NC 27609\n\nAll-Levels Ages15 up:Tues & Thurs 7:30-9:00pm; Sat 1:00-3:00pm\n\nSOURCE: facebook 6/14/19\n\n        Cirque de Vol\n\n300 w. Hargett St. #40, Raleigh, NC 27601\n\n  https://www.cirquedevol.com/shop/capoeira/ \n\n 7:45-8:45pm \n\nSOURCE: website 6/14/19\n\n   http://www.forcaunificada.org/\n\n https://sites.google.com/site/ncascab/\n\n  (second URL redirects to the first);  (website is empty 6/14/19\n  )Maravilha\n\n  Maravilhamary@gmail.com\n\n  919-455-5100\n\nPijama\n\n  PijamaAustin@gmail.com\n\n  919-744-7400\n\nSOURCE: website 10/27/12"
+  },
+  {
+    "name": "Capoeira ABADA Raleigh",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Vaga-Lume (Fabiano Cunha)",
+      "email": null,
+      "phone": "nine-nineteen; nine- ninety seven; seven-seventy one; seventy five, ninety seven"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Raleigh Aikido",
+        "address": "2210 East Milbrook Rd. #111 Raleigh, NC 27604",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Raleigh Aikido\n2210 East Milbrook Rd. #111 Raleigh, NC 27604"
+      }
+    ],
+    "notes": "Raleigh, North Carolina. Vaga-Lume (Fabiano Cunha). The website is offline and according to google Raleigh Abada Capoeira is recorded closed. Please contact us if you have any information 6/14/19. SOURCE: website 11/5/12",
+    "rawRecord": "      Capoeira ABADA\n(The website is offline and acccording to google  Raleigh Abada Capoeira is recorded closed . Please contact us if you have any imformation 6/14/19 ) \nVaga-Lume\" Fabiano Cunha\"\n\n Phone: nine-nineteen;  nine- ninety seven;  seven-seventy\none;  seventy five, ninety seven\n\n      Raleigh Aikido\n\n2210 East Milbrook Rd. #111 Raleigh, NC 27604\n\nSOURCE: website 11/5/12"
+  }
+]

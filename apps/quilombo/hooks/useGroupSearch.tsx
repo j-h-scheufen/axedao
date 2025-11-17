@@ -7,9 +7,14 @@ import { useSetAtom, useAtomValue } from 'jotai';
 import { isEqual } from 'lodash';
 
 import { SEARCH_INPUT_DEBOUNCE, PARAM_KEY_GROUP_QUERY, QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
+import type { GroupFilters } from '@/config/validation-schema';
 import { useSearchGroups } from '@/query/group';
 import { filteredLocationsAtom, locationsAtom } from './state/location';
 import type { Group } from '@/types/model';
+
+export interface UseGroupSearchParams {
+  filters?: GroupFilters;
+}
 
 export interface UseGroupSearchResult {
   searchTerm: string | undefined;
@@ -21,7 +26,9 @@ export interface UseGroupSearchResult {
   fetchNextPage: () => void;
 }
 
-const useGroupSearch = (): UseGroupSearchResult => {
+const useGroupSearch = (params?: UseGroupSearchParams): UseGroupSearchResult => {
+  const { filters } = params || {};
+
   const [{ [PARAM_KEY_GROUP_QUERY]: urlSearchTerm }, setQueryStates] = useQueryStates({
     [PARAM_KEY_GROUP_QUERY]: parseAsString.withDefault(''),
   });
@@ -30,8 +37,9 @@ const useGroupSearch = (): UseGroupSearchResult => {
 
   const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } = useSearchGroups({
     searchTerm,
-    pageSize: QUERY_DEFAULT_PAGE_SIZE, // TODO: Add a page size query param + offset
+    pageSize: QUERY_DEFAULT_PAGE_SIZE,
     offset: 0,
+    filters,
   });
 
   const setFilteredLocations = useSetAtom(filteredLocationsAtom);

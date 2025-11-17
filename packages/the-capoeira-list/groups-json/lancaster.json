@@ -1,0 +1,457 @@
+[
+  {
+    "name": "Pennsylvania Capoeira - Cordao De Ouro",
+    "website": "http://www.pennsylvaniacapoeira.com",
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Coqui",
+      "name": "Carlos Rodriguez"
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "Quest Total Fitness",
+        "address": "830 Plaza Drive, Lancaster",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Quest Total Fitness\n830 Plaza Drive, Lancaster"
+      },
+      {
+        "name": "Binns Park",
+        "address": "100 N Queen St Lancaster",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Binns Park\n100 N Queen St Lancaster."
+      }
+    ],
+    "notes": "Lancaster, PA. Affiliated with Mestre Virgulino [Albuquerque]. SOURCE: website 12/27/12",
+    "rawRecord": "      Pennsylvania Capoeira - Cordao De Ouro\nInstructor Coqui \"Carlos Rodriguez\" affilated with Mestre Virgulino[Albuquerque]\nhttp://www.pennsylvaniacapoeira.com\n      Quest Total Fitness\n830 Plaza Drive, Lancaster\n      Binns Park\n100 N Queen St Lancaster.\nSOURCE: website 12/27/12"
+  },
+  {
+    "name": "Morro Verde Capoeira",
+    "website": "http://www.newhopecapoeira.com/",
+    "leader": {
+      "title": "contra-mestra",
+      "nickname": "Gata Brava",
+      "name": "Leigh Robinson"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "gatabravacapoeira@gmail.com",
+      "phone": "[858] 688-0316"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "New Hope location",
+        "address": "6365 Greenhill Rd, New Hope, PA 18938",
+        "schedule": "Adults: Mon 7:30-9:00pm; Tues 6:30-8:00pm; Thurs 7:00-8:30pm; Music: Wed 5:30-6:30pm; Kids 6 and up: Tues 5:30-6:30pm; Thurs 6:00-7:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "6365 Greenhill Rd, New Hope, PA 18938\nAdults: Mon 7;30-9;00pm; Tues  6:30-8;00pm; Thurs 7:00-8:30pm\nMusic: Wed 5;30-6;30pm\nKids 6 and up: Tues 5:30-6:30pm; Thurs 6:00-7:00pm"
+      },
+      {
+        "name": "New Hope Fitness",
+        "address": "6542-K Lower York Road, New Hope, PA 18938",
+        "schedule": "Wed 12:00-1:00pm (Please contact if you're interested in this class)",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "New Hope Fitness\n6542-K Lower York Road, New Hope, PA 18938\n Wed 12:00-1:00pm\n(Please contact if you're interested in this class)"
+      }
+    ],
+    "notes": "New Hope, PA. Under Mestre Doutor. Estagiário Rolha \"Corky Brown\" (galaxyblur@gmail.com, [856] 237-930m). SOURCE: website 4/3/19",
+    "rawRecord": "      Morro Verde Capoeira \n6365 Greenhill Rd, New Hope, PA 18938 \nhttp://www.newhopecapoeira.com/\n\nContra-Mestra Gata Brava \"Leigh Robinson\"  under Mestre Doutor\n  gatabravacapoeira@gmail.com\n  [858] 688-0316\nEstagiário Rolha \"Corky Brown\"  \n  galaxyblur@gmail.com\n   [856] 237-930m \nAdults: Mon 7;30-9;00pm; Tues  6:30-8;00pm; Thurs 7:00-8:30pm\nMusic: Wed 5;30-6;30pm\nKids 6 and up: Tues 5:30-6:30pm; Thurs 6:00-7:00pm\n      New Hope Fitness\n6542-K Lower York Road, New Hope, PA 18938 \n Wed 12:00-1:00pm\n(Please contact if you're interested in this class) \nSOURCE: website 4/3/19"
+  },
+  {
+    "name": "Angú Capoeira - Capoeira Sul da Bahia",
+    "website": "https://www.capoeira-philadelphia.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Maxuel",
+      "name": "Maxuel Moreira Santos"
+    },
+    "mainContact": null,
+    "sources": ["https://www.facebook.com/groups/221820846964/"],
+    "locations": [],
+    "notes": "Philadelphia, PA. Contact through website for classes. SOURCE: website 6/29/19",
+    "rawRecord": "   Angú Capoeira - Capoeira Sul da Bahia\nMestre Maxuel \"Maxuel Moreira Santos\"\nhttps://www.capoeira-philadelphia.com\nhttps://www.facebook.com/groups/221820846964/(\ncontact  though  website for classes. )\nSOURCE: website   6/29/19"
+  },
+  {
+    "name": "ASCAB [Associacao Santista de Capoeira Areia Branca]",
+    "website": "http://www.projectcapoeira.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Doutor",
+      "name": "Adenilson dos Santos"
+    },
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "215-601-9117"
+    },
+    "sources": ["https://www.facebook.com/ProjectCapoeira"],
+    "locations": [
+      {
+        "name": "Philadelphia Capoeira Arts Center",
+        "address": "1213 Race Street, Ground Floor, Philadelphia PA 19107",
+        "schedule": "Full Schedule of classes, kids teens beginners all levels. See website for details",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Philadelphia Capoeira Arts Center\n1213 Race Street, Ground Floor, Philadelphia PA 19107  (Full Schedule of classes, kids teens beginners all levels. See website for details."
+      }
+    ],
+    "notes": "Philadelphia, PA. Formado Canguru \"Antonio Marcos Correa\" - Website offline 6/28/19, 2l5-9OO-977O, email has been disabled 7/3/19 (SOURCE: website 6/27/06). SOURCE: website 6/29/19",
+    "rawRecord": "      ASCAB [Associacao Santista de Capoeira Areia Branca]\nhttp://www.projectcapoeira.com/ Mestre Doutor \"Adenilson dos Santos\"\n  Phone  215-601-9117\n\nhttps://www.facebook.com/ProjectCapoeira      Philadelphia Capoeira Arts Center\n1213 Race Street, Ground Floor, Philadelphia PA 19107  (Full Schedule of classes, kids teens beginners all levels. See website for details.\n)SOURCE: website 6/29/19\n()\n\nFormado  Canguru  \"Antonio Marcos Correa\"\n\n(Website offline 6/28/19) \n  2l5-9OO-977O( \nemail has been disabled  7/3/19)\nSOURCE: website   6/27/06"
+  },
+  {
+    "name": "Capoeira Nao Compreendo",
+    "website": null,
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Pardal",
+      "name": "Ron Wood"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "capoeiranaocompreendo@gmail.com",
+      "phone": "[215] 432-3260"
+    },
+    "sources": ["https://www.facebook.com/capoeiranaocompreendo/"],
+    "locations": [
+      {
+        "name": "Community Education Center",
+        "address": "3500 Lancaster Ave Philadelphia PA 19104",
+        "schedule": "Mon & Wed 5:30-7:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Community Education Center3500 Lancaster Ave Philadelphia PA 19104\nhttp://www.cecarts.org/\nMon & Wed 5:30-7:00pm"
+      }
+    ],
+    "notes": "Philadelphia, PA. SOURCE: facebook 6/28/19",
+    "rawRecord": "      Capoeira Nao Compreendo\n Contra Mestre Pardal \"Ron Wood\" \nhttps://www.facebook.com/capoeiranaocompreendo/      \ncapoeiranaocompreendo@gmail.com\n [215] 432-3260      \nCommunity Education Center3500 Lancaster Ave Philadelphia PA 19104\nhttp://www.cecarts.org/\nMon & Wed 5:30-7:00pm\nSOURCE:  facebook 6/28/19"
+  },
+  {
+    "name": "Vai Capoeira",
+    "website": "http://www.vaicapoeira.org/",
+    "leader": {
+      "title": null,
+      "nickname": "Muito Loco",
+      "name": "Sean Ashanti"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "Instructor@vaicapoeira.org",
+      "phone": "646.379.4468"
+    },
+    "sources": ["https://www.facebook.com/pages/Vai-Capoeira/166279410079532"],
+    "locations": [],
+    "notes": "Philadelphia, PA. Workshops are being offered on a semi regular basis in both Pennsylvania and Delaware. Contact for additional information. SOURCE: website 6/29/19",
+    "rawRecord": "      Vai Capoeira\nhttp://www.vaicapoeira.org/\nMuito Loco \"Sean  Ashanti\"\nEmail: Instructor@vaicapoeira.org\ncall 646.379.4468https://www.facebook.com/pages/Vai-Capoeira/166279410079532\n\"Workshops are being offered on a semi regular basis in both Pennsylvania and Delaware. Contact for additional information.\"\nSOURCE: website 6/29/19"
+  },
+  {
+    "name": "ICAF-Philadelphia Chapter",
+    "website": "http://www.ficaphiladelphia.org/",
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "Info@ficaphiladelphia.org",
+      "phone": "215.500.5987"
+    },
+    "sources": ["https://www.facebook.com/groups/ficaphilly/"],
+    "locations": [
+      {
+        "name": "Martin Luther King Recreation Center",
+        "address": "22nd Street & Cecil B. Moore Avenue Philadelphia",
+        "schedule": "Classes Tues & Thurs 6:30-8:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Martin Luther King Recreation Center\n22nd Street & Cecil B. Moore Avenue Philadelphia,\nClasses   Tues & Thurs 6:30-8:30pm"
+      }
+    ],
+    "notes": "Philadelphia, PA. SOURCE: website 6/29/19",
+    "rawRecord": "      ICAF-Philadelphia Chapter\nhttp://www.ficaphiladelphia.org/\nPhone:Phone: 215.500.5987\nEmail:   Info@ficaphiladelphia.org\nhttps://www.facebook.com/groups/ficaphilly/\n      Martin Luther King Recreation Center\n22nd Street & Cecil B. Moore Avenue Philadelphia,\nClasses   Tues & Thurs 6:30-8:30pm\nSOURCE: website 6/29/19"
+  },
+  {
+    "name": "Oficina da Capoeira",
+    "website": null,
+    "leader": {
+      "title": "estagiario",
+      "nickname": "Claudio",
+      "name": "Claudio dos Santos"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "claudionewjersey@hotmail.com",
+      "phone": "856.297.5051"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Optimal Gym",
+        "address": "325 Bainbridge St. Philadelphia PA 19147",
+        "schedule": "Mon 5:30-7pm & 7:30-9pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Optimal Gym\n325  Bainbridge St. Philadelphia PA 19147\nMon 5:30-7pm &7:30-9pm"
+      }
+    ],
+    "notes": "Philadelphia, PA. Under Mestre Ray. Website offline 1/3/13. Additional contacts: Monitor Azulao (856.979.5315, azulaocapoeira1@gmail.com), Caxixi \"Erin Flanigan\" (609.577.9351, flaniganerin@hotmail.com). SOURCE: website 3/5/09",
+    "rawRecord": "      Oficina da Capoeira \n(website offline 1/3/13)\nEstagiario Claudio \"Claudio dos Santos\" under Mestre Ray\n  856.297.5051\n  claudionewjersey@hotmail.com\nMonitor Azulao:\n  856.979.5315\n  azulaocapoeira1@gmail.com\nCaxixi \"Erin Flanigan\"\n  609.577.9351\n  flaniganerin@hotmail.com\n      Optimal Gym\n325  Bainbridge St. Philadelphia PA 19147\nMon 5:30-7pm &7:30-9pm\nSOURCE: website 3/5/09"
+  },
+  {
+    "name": "Central Cultural Aruandê Capoeira",
+    "website": null,
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Assustado",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "mdemetriusbr@yahoo.com.brs",
+      "phone": "856-577-7939"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Powerhouse Gym",
+        "address": "505 Knorr St Philadelphia, PA 19149",
+        "schedule": "Tues & Thurs Children 7:30-8:30pm Adults 8:40-9:40pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Powerhouse Gym\n505 Knorr St   Philadelphia, PA 19149\nTues & Thurs Children 7:30- 8:30pm   Adults 8:40- 9:40pm"
+      }
+    ],
+    "notes": "Philadelphia, PA. Formerly CapuraGinga. Phone: 856-577-7939 [English] / 609-352-3374 [Portuguese]. SOURCE: email 11/14/06 5/20/07",
+    "rawRecord": "      Central Cultural Aruandê Capoeira\n(formerly CapuraGinga)\nInstructor:. Assustado\n  856-577-7939 [English] / 609-352-3374 [Portuguese]\n  mdemetriusbr@yahoo.com.brs\n      Powerhouse Gym\n505 Knorr St   Philadelphia, PA 19149\nTues & Thurs Children 7:30- 8:30pm   Adults 8:40- 9:40pm\n-\nSOURCE:  email  11/14/06 5/20/07"
+  },
+  {
+    "name": "Low Country Angola Society",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "lccapoeira@yahoo.com",
+      "phone": "[912] 596-2142"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Philadelphia location",
+        "address": "5300 Overbrook Avenue Philadelphia, PA (Gold and green house behind large hedges.Two blocks from 54th and City Line Ave)",
+        "schedule": "Adults[13 and up]: Mon, Wed, and Fri 7:30pm-9:00pm; Children[4-6 years]: Sat 11pm-12noon; Children [7 to 12 years]: Tues and Thurs 7pm-8:30pm; Roda: Sat 12noon until 3pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": "[215] 473-0702",
+        "rawText": "5300 Overbrook Avenue Philadelphia, PA (Gold and green house behind\nlarge hedges.Two blocks from 54th and City Line Ave)\n[215] 473-0702\nAdults[13 and up]: Mon, Wed, and Fri 7:30pm-9:00pm;\nChildren[4-6 years]: Sat 11pm-12noon;\nChildren [7 to 12 years]: Tues and Thurs 7pm-8:30pm\nRoda: Sat 12noon until 3pm."
+      }
+    ],
+    "notes": "Philadelphia, PA. Chicago under Mestre Joao Grande [New York]. SOURCE: unknown",
+    "rawRecord": "      Low Country Angola Society\n Chicago  under Mestre  Joao Grande[New\nYork]\n [912] 596-2142 [Cell]\nlccapoeira@yahoo.com\n5300 Overbrook Avenue Philadelphia, PA (Gold and green house behind\nlarge hedges.Two blocks from 54th and City Line Ave)\n[215] 473-0702\nAdults[13 and up]: Mon, Wed, and Fri 7:30pm-9:00pm;\nChildren[4-6 years]: Sat 11pm-12noon;\nChildren [7 to 12 years]: Tues and Thurs 7pm-8:30pm\nRoda: Sat 12noon until 3pm.\nSOURCE: unknown"
+  },
+  {
+    "name": "University City Arts League",
+    "website": "http://www.ucartsleague.org/",
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "215/382-7811"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "University City Arts League",
+        "address": "4226 Spruce Street Philadelphia, PA 19104",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "University City Arts League\n4226 Spruce Street Philadelphia, PA 19104"
+      }
+    ],
+    "notes": "Philadelphia, PA. No longer appears to have capoeira as of 6/25/19. Fax: 215/382.3339. SOURCE: website 1/9/13",
+    "rawRecord": "      University City Arts League\n4226 Spruce Street Philadelphia, PA 19104\nhttp://www.ucartsleague.org/\nTel: 215/382-7811 Fax: 215/382.3339\n(No longer appears to have capoeira 6/25/19)\nSOURCE:  website 1/9/13"
+  },
+  {
+    "name": "Capoeira Angola of Mestre João Grande",
+    "website": "http://www.steel-dragon.org",
+    "leader": null,
+    "mainContact": {
+      "name": "Chris Young",
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Steel Dragon Kung Fu",
+        "address": "Ice House Studios,100 43rd St. Suite 113; Pittsburgh, PA 15201",
+        "schedule": "Adults Fri 7:00-9:00pm; Sun 3:00-5:00pm; Kids: Mon & Wed 5:00-6:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Steel Dragon Kung Fu\nIce House Studios,100 43rd St. Suite 113; Pittsburgh, PA 15201\nAdults Fri 7:00-9:00pm ; Sun 3:00-5:00pm\nKids: Mon  & Wed 5:00-6:00pm"
+      }
+    ],
+    "notes": "Pittsburgh, PA. Kung Fu. \"Chris Young.\" under Mestre João Grande [New York]. SOURCE: email website 7/3/19",
+    "rawRecord": "      Capoeira Angola of Mestre João Grande\n\n  http://www.steel-dragon.org \n\nKung Fu. \"Chris Young.\" under Mestre João Grande[New York]\n\n      Steel Dragon Kung Fu\n\nIce House Studios,100 43rd St. Suite 113; Pittsburgh, PA 15201\n\nAdults Fri 7:00-9:00pm ; Sun 3:00-5:00pm\n\nKids: Mon  & Wed 5:00-6:00pm \n\nSOURCE: email website 7/3/19"
+  },
+  {
+    "name": "Capoeira Association of Pittsburgh",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": null,
+      "phone": "404.858.2051"
+    },
+    "sources": ["https://www.facebook.com/Capoeira-Association-of-Pittsburgh-"],
+    "locations": [
+      {
+        "name": "Hill Dance Academy Theatre",
+        "address": "2900 Bedford Ave Pittsburgh PA",
+        "schedule": "Adults [11+]: Mon & Thurs 7:00-9:00pm; Kids Thurs 6:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Hill Dance Academy Theatre\n2900 Bedford Ave Pittsburgh PA\nAdults [11+]:  Mon &Thurs 7:00-9:00pm\nKids Thurs 6:00pm"
+      }
+    ],
+    "notes": "Pittsburgh, PA. SOURCE: facebook 7/3/19",
+    "rawRecord": "      Capoeira Association of Pittsburgh\n\n  https://www.facebook.com/Capoeira-Association-of-Pittsburgh-\n\n404.858.2051\n\n      Hill Dance Academy Theatre\n\n2900 Bedford Ave Pittsburgh PA\n\nAdults [11+]:  Mon &Thurs 7:00-9:00pm\n\nKids Thurs 6:00pm\n\nSOURCE: facebook 7/3/19"
+  },
+  {
+    "name": "Besouro Capoeira Angola of Pittsburgh",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": null,
+      "email": "jbmeunier@hotmail.fr",
+      "phone": "[412] 277-1417"
+    },
+    "sources": ["https://www.facebook.com/pg/Besouro-Capoeira-Angola-of-Pittsburgh-376230659421668"],
+    "locations": [],
+    "notes": "Pittsburgh, PA. SOURCE: facebook 7/3/19",
+    "rawRecord": "      Besouro Capoeira Angola of Pittsburgh\n\nhttps://www.facebook.com/pg/Besouro-Capoeira-Angola-of-Pittsburgh-376230659421668\n\n[412] 277-1417\n\n  jbmeunier@hotmail.fr \n\nSOURCE: facebook 7/3/19"
+  },
+  {
+    "name": "Nego Gato Inc",
+    "website": "http://www.negogato.org",
+    "leader": {
+      "title": null,
+      "nickname": "Nego Gato",
+      "name": "Jose Sena"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "contactus@negogato.org",
+      "phone": "845-987-9OOl"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Pittsburgh, PA. SOURCE: website 7/3/19",
+    "rawRecord": "      Nego Gato  Inc\n\n\nNego Gato \"Jose Sena\" \n\n\nhttp://www.negogato.org\n\n\n\nPhone 845- 987 - 9OOl \n\n\ncontactus@negogato.org\n\n\nSOURCE: website  7/3/19"
+  },
+  {
+    "name": "Community Capoeira Angola of Pittsburgh",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "JB [Xamã]",
+      "email": "jbmeunier@hotmail.fr",
+      "phone": "412 680 8218"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "The Irma Freeman Center for Imagination",
+        "address": "5006 Penn Ave Pittsburgh,PA, 15224",
+        "schedule": "Tues, 7:00-8:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "The Irma Freeman Center for Imagination\n5006 Penn Ave Pittsburgh,PA, 15224 \nhttp://irmafreeman.org/\nTues , 7:00-8:00pm (This class is listed as being taught by this group 7/3/19)"
+      },
+      {
+        "name": "Squirrel Hill",
+        "address": "5824 Forbes Avenue, Pittsburgh, PA 15217",
+        "schedule": "all levels/ages: Sun 1:30-2:30pm; children: Sun 2:30-3:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Squirel Hill\n5824 Forbes Avenue, Pittsburgh, PA 15217\n all levels/ages: Sun 1:30-2:30pm\nchildren: Sun 2:30-3:30pm"
+      }
+    ],
+    "notes": "Pittsburgh, PA. Blogspot and facebook offline 7/3/19. Additional contact: Kryn (917 685 7245, krynwinfield@gmail.com). SOURCE: website 5/2/16",
+    "rawRecord": "      Community  Capoeira  Angola    of    \nPittsburgh(\nblogspot  and facebook offline 7/3/19)\n\nJB [Xamã]\n\n  412 680 8218\n\n  jbmeunier@hotmail.fr\n\nKryn\n\n  917 685 7245\n\n  krynwinfield@gmail.com\n\n The Irma Freeman Center for Imagination\n\n5006 Penn Ave Pittsburgh,PA, 15224 \n\n  http://irmafreeman.org/\n  \n\nTues , 7:00-8:00pm (This class is listed as being taught by this group 7/3/19)\nSquirel Hill\n\n5824 Forbes Avenue, Pittsburgh, PA 15217\n\n all levels/ages: Sun 1:30-2:30pm\n\nchildren: Sun 2:30-3:30pm\n\nSOURCE: website 5/2/16"
+  },
+  {
+    "name": "União Capoeira Pittsburgh",
+    "website": "http://capoeirapittsburgh.wordpress.com",
+    "leader": {
+      "title": "graduada",
+      "nickname": "Tasha",
+      "name": null
+    },
+    "mainContact": {
+      "name": null,
+      "email": "capoeirapittsburgh@gmail.com",
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Pittsburgh, PA. Last update 2014, attempting contact 7/3/19. SOURCE: website 1/9/13",
+    "rawRecord": "      União Capoeira Pittsburgh\n\nhttp://capoeirapittsburgh.wordpress.com\n\n(last update )((2014 )  attmempting contact 7/3/19)\n\nGraduada Tasha\n\ncapoeirapittsburgh@gmail.com\n\nSOURCE: website 1/9/13"
+  },
+  {
+    "name": "Capoeira Angola Quintal",
+    "website": null,
+    "leader": {
+      "title": null,
+      "nickname": "Beira Mar",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": ["http://obxcapoeira.com/academies/"],
+    "locations": [],
+    "notes": "Pittsburgh, PA. Page offline 6/26/19. SOURCE: http://obxcapoeira.com/academies/ 5/2/16",
+    "rawRecord": "      Capoeira Angola Quintal\n\nBeira Mar\n\nSOURCE: http://obxcapoeira.com/academies/ \n5/2/16\n(  page  offline 6/26/19)"
+  },
+  {
+    "name": "Capoeira Angola Palmares",
+    "website": "http://mydynamicenter.com/martial-arts/capoeira/",
+    "leader": {
+      "title": "instrutor",
+      "nickname": "Chico",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": ["http://www.capoeiraartsny.com/programsandclasses.html"],
+    "locations": [
+      {
+        "name": "Dynamic Martial Art Center Puerto Rico",
+        "address": "Calle Gardenia #10, Isla Verde, P.R. 00979",
+        "schedule": "Adults: Tues & Thurs 8:00-9:30pm; Kids: Tues & Thurs 5:00-6:15pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": "787.354.4834",
+        "rawText": "Dynamic Martial Art Center Puerto Rico\nCalle Gardenia #10, Isla Verde, P.R. 00979\nTel. 787.354.4834\nhttp://www.mydynamicenter.com\nAdults: Tues & Thurs 8:00-9:30pm\nKids: Tues & Thurs 5:00-6:15pm"
+      }
+    ],
+    "notes": "Isla Verde, Puerto Rico. SOURCE: http://www.capoeiraartsny.com/programsandclasses.html 6/4/12",
+    "rawRecord": "      Capoeira Angola Palmares\n Instructor Chico\nhttp://mydynamicenter.com/martial-arts/capoeira/\n      Dynamic Martial Art Center Puerto Rico\nCalle Gardenia #10, Isla Verde, P.R. 00979\nTel. 787.354.4834\nhttp://www.mydynamicenter.com\nAdults: Tues & Thurs 8:00-9:30pm\nKids: Tues & Thurs 5:00-6:15pm\nSOURCE:  http://www.capoeiraartsny.com/programsandclasses.html\n6/4/12"
+  }
+]

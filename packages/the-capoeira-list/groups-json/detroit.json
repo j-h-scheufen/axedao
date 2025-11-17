@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Michigan Center for Capoeira",
+    "website": "https://www.tmc4c.com/",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Baz",
+      "name": "Baz Michaeli"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "tmcc.info@gmail.com",
+      "phone": "248-225-7349"
+    },
+    "sources": ["https://www.tmc4c.com/"],
+    "locations": [
+      {
+        "name": null,
+        "address": "27881 Orchard Lake Rd. Farmington Hills, MI 48334",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "27881Orchard Lake Rd. Farmington Hills, MI 48334"
+      }
+    ],
+    "notes": "Rochester, Farmington Hills, St. Clair Shores, Ferndale. SOURCE: website 8/18/18",
+    "rawRecord": "Michigan Center for Capoeira\n27881Orchard Lake Rd. Farmington Hills, MI 48334\nhttps://www.tmc4c.com/\nContra-Mestre Baz \"Baz Michaeli \"\n248-225-7349\ntmcc.info@gmail.com\nSOURCE: website 8/18/18"
+  },
+  {
+    "name": "TABCAT Detroit",
+    "website": "http://www.detroitcapoeira.com",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Pequenininho",
+      "name": "Kelvin Wyatt"
+    },
+    "mainContact": {
+      "name": null,
+      "email": "contact@detroitcapoeira.com",
+      "phone": "313-638-7379"
+    },
+    "sources": ["http://www.detroitcapoeira.com"],
+    "locations": [
+      {
+        "name": "Creative Movement Brazil",
+        "address": "18018 James Couzens Fwy, Detroit, MI 48235",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "Creative Movement Brazil\n18018 James Couzens Fwy, Detroit, MI 48235"
+      }
+    ],
+    "notes": "Under Mestre Caboclinho Aruanda [Sacramento]. SOURCE: website 8/16/18",
+    "rawRecord": "TABCAT Detroit\nhttp://www.detroitcapoeira.com\nContra-Mestre Pequenininho \"Kelvin Wyatt\" under   Mestre\nCaboclinho Aruanda [Sacramento]\nPhone: 313-638-7379 3\nEmail: contact@detroitcapoeira.com\n      Creative Movement Brazil\n18018 James Couzens Fwy, Detroit, MI 48235\nSOURCE:   website 8/16/18"
+  }
+]

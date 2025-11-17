@@ -3,7 +3,7 @@
 import { Tab } from '@heroui/react';
 
 import PageTabs from '@/components/PageTabs';
-import Groups from '@/components/Groups';
+import Groups from '@/components/groups/Groups';
 import Users from '@/components/Users';
 import { Events } from '@/components/events';
 

@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Rexburg Capoeira",
+    "website": "http://www.facebook.com/groups/336491054848/",
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Rexburg, Idaho. This group is active and has classes at BYU 2/1/18. SOURCE: google 9/13/11",
+    "rawRecord": "      Rexburg Capoeira\nhttp://www.facebook.com/groups/336491054848/\n(This group is active and has classes at BYU  2/1/18)\nSOURCE:  google 9/13/11"
+  },
+  {
+    "name": "Capoeira Angola Center of Mestre Joao Grande - Bloomington",
+    "website": "http://www.angolacenterillinois.com/",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Denis",
+      "name": "Denis Chiaramonte"
+    },
+    "mainContact": null,
+    "sources": ["http://lcvcapoeira.com/newsite2013", "https://www.facebook.com/groups/272548572882091/"],
+    "locations": [
+      {
+        "name": "ISU Bloomington Capoeira Club",
+        "address": null,
+        "schedule": "Fri 6:30pm-8:00pm",
+        "contactPerson": null,
+        "email": "angolacenterillinois@gmail.com",
+        "phone": "217.721.0887",
+        "rawText": "ISU Bloomington Capoeira Club\nFri 6:30pm -8:00pm-"
+      }
+    ],
+    "notes": "Bloomington, Illinois. Contra-Mestre Denis (Denis Chiaramonte). SOURCE: website 3/2/18",
+    "rawRecord": "      Capoeira Angola Center of Mestre Joao Grande \nContra-Mestre Denis \"Denis Chiaramonte\"\nhttp://www.angolacenterillinois.com/\nhttp://lcvcapoeira.com/newsite2013\nEmail: angolacenterillinois{/\\T}gmail.com\nPhone: 217.721.0887\nhttps://www.facebook.com/groups/272548572882091/\n      ISU Bloomington Capoeira Club\nFri 6:30pm -8:00pm-\nSOURCE: website 3/2/18"
+  },
+  {
+    "name": "Illinois Wesleyan Capoeira Club",
+    "website": "http://www.lcvcapoeira.com/classes/illinois-wesleyan-university/",
+    "leader": {
+      "title": "contra-mestre",
+      "nickname": "Denis",
+      "name": "Denis Chiaramonte"
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Bloomington, Illinois. Contra Mestre Denis (Denis Chiaramonte). Classes will resume again Thursday September 13th, Memorial Center in the Main Lounge. Facebook page listed is offline. September 13 occurred on a Thursday in 2012 and will occur on a Thursday in 2018. We have no idea which was meant 2/2/18. SOURCE: website 2/2/18",
+    "rawRecord": "      Illinois Wesleyan Capoeira Club\nhttp://www.lcvcapoeira.com/classes/illinois-wesleyan-university/\nContra Mestre Denis\" Denis Chiaramonte\"\n\"Classes will resume again Thursday September 13th, Memorial Center\nin the Main Lounge\"\n(facebook page listed is offline.  September 13 occured on a\nThursday in 2012 and will occur on a Thursday in 2018. We have no idea\nwhich was meant 2/2/18)\nSOURCE: website 2/2/18"
+  }
+]

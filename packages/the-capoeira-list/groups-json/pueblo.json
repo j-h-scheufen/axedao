@@ -1,0 +1,281 @@
+[
+  {
+    "name": "The Dragon Dojo",
+    "website": "http://dragondojokarate.com",
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "The Dragon Dojo",
+        "address": "930 S. Santa Fe Ave, Pueblo, CO 81006",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": "719-543-7637",
+        "rawText": "      The Dragon Dojo\n930 S. Santa Fe Ave, Pueblo, CO 81006\n719-543-7637\nhttp://dragondojokarate.com"
+      }
+    ],
+    "notes": "Pueblo, Colorado. Classes planned 8/24/17.",
+    "rawRecord": "\n\n      The Dragon Dojo\n930 S. Santa Fe Ave, Pueblo, CO 81006\n719-543-7637\nhttp://dragondojokarate.com\n(classes planned)   8/24/17"
+  },
+  {
+    "name": "Grupo de Capoeira Esporão",
+    "website": "http://esporaomulticulturalcenter.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Marinaldo",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Contra Mestre Ubaldo (Ubaldo Teixeira Baleeiro)",
+      "email": "capoeirainct@gmail.com",
+      "phone": "203.231.6931"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Esporão Multi-Cultural Center",
+        "address": "3768 Main Street, Bridgeport, Connecticut 06606",
+        "schedule": "Adult: Mon, Wed & Fri 7:30-9:30pm; Youth: Mon & Wed 6:00-7:00pm",
+        "contactPerson": "Instrutora Capitã",
+        "email": null,
+        "phone": "203.615.4275",
+        "rawText": "       Esporão Multi-Cultural Center\n3768 Main Street, Bridgeport, Connecticut 06606\nContra Mestre Ubaldo \"Ubaldo Teixeira Baleeiro\" under  Mestre\nMarinaldo[Brazil]\n  203.231.6931\nAdult:  Mon, Wed & Fri     7:30 - 9:30\npm\nInstrutora Capitã\n  203.615.4275\nYouth: Mon & Wed 6:00 - 7:00 pm"
+      }
+    ],
+    "notes": "Bridgeport, Fairfield County, Connecticut. Contra Mestre Ubaldo (Ubaldo Teixeira Baleeiro) under Mestre Marinaldo [Brazil]. Instrutora Capitã. SOURCE: website 8/27/17",
+    "rawRecord": "      Grupo de Capoeira Esporão\nhttp://esporaomulticulturalcenter.com/\ncapoeirainct@gmail.com\n       Esporão Multi-Cultural Center\n3768 Main Street, Bridgeport, Connecticut 06606\nContra Mestre Ubaldo \"Ubaldo Teixeira Baleeiro\" under  Mestre\nMarinaldo[Brazil]\n  203.231.6931\nAdult:  Mon, Wed & Fri     7:30 - 9:30\npm\nInstrutora Capitã\n  203.615.4275\nYouth: Mon & Wed 6:00 - 7:00 pm\nSOURCE: website 8/27/17"
+  },
+  {
+    "name": "Group Ginga",
+    "website": null,
+    "leader": null,
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Fairfield County, Connecticut. Classes are currently being held in Kent 5/7/19.",
+    "rawRecord": "      Group Ginga\n(Classes are currently being held in )(Kent )(5/7/19)"
+  },
+  {
+    "name": "Capoeira Tribal International Center",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Contra Mestre Gringro (Michael de Oliveira)",
+      "email": null,
+      "phone": "[203] 334-5551"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Bridgeport location",
+        "address": "370 North Ave, Bridgeport, Connecticut; 850 Park Ave, Bridgeport, Connecticut",
+        "schedule": "Mom, Tues, & Thurs at 7:00-8:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "370 North Ave,  Bridgeport, Connecticut\n850 Park Ave, Bridgeport, Connecticut\n[203] 334-5551\nContra Mestre Gringro \"Michael de Oliveira\"\nMom, Tues, & Thurs at 7:00- 8:30pm"
+      }
+    ],
+    "notes": "Bridgeport, Fairfield County, Connecticut. Contra Mestre Gringro (Michael de Oliveira). Website is parked. We have no idea which address is correct, if the phone number is current, or if the schedule is current. Please contact us 9/1/17. SOURCE: google 9/1/17",
+    "rawRecord": "      Capoeira Tribal International Center\n(Website is parked We have no idea which address is correct,)\n(if the phone number is current,)\n(or if the schedule is current.)\n(Please contact us  9/1/17)\n370 North Ave,  Bridgeport, Connecticut\n850 Park Ave, Bridgeport, Connecticut\n[203] 334-5551\nContra Mestre Gringro \"Michael de Oliveira\"\nMom, Tues, & Thurs at 7:00- 8:30pm\nSOURCE: google 9/1/17"
+  },
+  {
+    "name": "Capoeira Cordão de Ouro - Fairfield County",
+    "website": null,
+    "leader": {
+      "title": "mestre",
+      "nickname": "Pinga Fogo",
+      "name": "Guilherme Torres"
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [],
+    "notes": "Fairfield County, Connecticut. Mestre Pinga Fogo (Guilherme Torres) has moved to Austin 12/13/16. Instructor Zumbi is currently teaching in Korea 9/1/17.",
+    "rawRecord": "      Capoeira Cordão de Ouro\nMestre Pinga Fogo \"Guilherme Torres \" (Has moved to Austin \n12/13/16)\n       Instructor Zumbi( is currently  teaching in Korea\n9/1/17)"
+  },
+  {
+    "name": "Capoeira Brasil - Hartford County",
+    "website": "http://www.capoeirabrasilct.com",
+    "leader": null,
+    "mainContact": {
+      "name": "Profesor Tuzinho (Mathuzalem de Melo Jr) and Instrutura Tomate (Holly de Melo)",
+      "email": "capoeirahartford@gmail.com",
+      "phone": "[860] 375-4320"
+    },
+    "sources": ["http://www.rhparkrec.org/", "http://www.ctcage.com/"],
+    "locations": [
+      {
+        "name": "Rocky Hill Parks & Recreation",
+        "address": "761 Old Main Street, Rocky Hill, CT 06067",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Rocky Hill Parks & Recreation\n761 Old Main Street, Rocky Hill, CT 06067\nhttp://www.rhparkrec.org/"
+      },
+      {
+        "name": "The Cage",
+        "address": "712 Brook St, Rocky Hill, CT 06067",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      The Cage\n712 Brook St, Rocky Hill, CT 06067\nhttp://www.ctcage.com/"
+      }
+    ],
+    "notes": "Hartford County (Hartford, Rocky Hill, West Hartford), Connecticut. Profesor Tuzinho (Mathuzalem de Melo Jr) and Instrutura Tomate (Holly de Melo). SOURCE: website 9/2/17",
+    "rawRecord": "      Capoeira Brasil\nhttp://www.capoeirabrasilct.com\nPhone: [860] 375-4320\nEmail: capoeirahartford@gmail.com\nProfesor Tuzinho \"Mathuzalem de Melo Jr\" and Instrutura Tomate \"Holly\nde Melo\"\n      Rocky Hill Parks & Recreation\n761 Old Main Street, Rocky Hill, CT 06067\nhttp://www.rhparkrec.org/\n      The Cage\n712 Brook St, Rocky Hill, CT 06067\nhttp://www.ctcage.com/\nSOURCE: website 9/2/17"
+  },
+  {
+    "name": "Capoeira Connecticut Ginga Brasil - Cordão de Ouro - West Hartford",
+    "website": "http://www.teamplusone.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Pinga Fogo",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Instrutor Suave (Joel Melendez)",
+      "email": "Darin@teamplusone.com",
+      "phone": "860.922.5343"
+    },
+    "sources": [],
+    "locations": [
+      {
+        "name": "Plus One Defense Systems",
+        "address": "9 Tolles St West Hartford, CT 06110",
+        "schedule": "Adults: Mon 8:00-9:30pm; Thurs 8:30-10:00pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Plus One Defense Systems\n9 Tolles St West Hartford, CT 06110\n860.922.5343\n Darin@teamplusone.com\nhttp://www.teamplusone.com\nAdults: Mon 8:00-9:30pm; Thurs 8:30-10:00pm"
+      }
+    ],
+    "notes": "West Hartford, Hartford County, Connecticut. Instrutor Suave (Joel Melendez). See also Harwinton location. SOURCE: website 9/3/17",
+    "rawRecord": "      Capoeira Connecticut Ginga Brasil - Cordão de\nOuro\nInstrutor Suave  \"Joel Melendez\"  See Harwinton\n      Plus One Defense Systems\n9 Tolles St West Hartford, CT 06110\n860.922.5343\n Darin@teamplusone.com\nhttp://www.teamplusone.com\nAdults: Mon 8:00-9:30pm; Thurs 8:30-10:00pm\nSOURCE: website 9/3/17"
+  },
+  {
+    "name": "Motumbaxé Capoeira",
+    "website": "http://www.motumbaxecapoeira.com",
+    "leader": null,
+    "mainContact": {
+      "name": "Professora Formiguinha (Leticia Monteiro)",
+      "email": "iheartcapoeiraformi@gmail.com",
+      "phone": "347-489-6058"
+    },
+    "sources": ["https://www.facebook.com/iheartctcapoeira"],
+    "locations": [
+      {
+        "name": "Sudor Taino",
+        "address": "635 New Park Avenue, West Hartford, CT. 06110",
+        "schedule": null,
+        "contactPerson": null,
+        "email": "Info@sudortaino.com",
+        "phone": "[860] 952-9015",
+        "rawText": "      Sudor Taino\n635 New Park Avenue, West Hartford, CT. 06110\nPhone: [860] 952-9015\nEmail: Info@sudortaino.com"
+      },
+      {
+        "name": "Studio8sixty",
+        "address": "224 Farmington Avenue, Hartford CT, 06105",
+        "schedule": null,
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "      Studio8sixty\n224 Farmington Avenue, Hartford CT, 06105"
+      }
+    ],
+    "notes": "West Hartford and Hartford, Hartford County, Connecticut. Professora Formiguinha (Leticia Monteiro). SOURCE: facebook 5/15/16 website 9/2/17",
+    "rawRecord": "\n      Motumbaxe Capoeira CT\nhttp://www.motumbaxecapoeira.com\nhttps://www.facebook.com/iheartctcapoeira\nProfessora Formiguinha  \"Leticia Monteiro\"\n347-489-6058\niheartcapoeiraformi@gmail.com\n      Sudor Taino\n635 New Park Avenue, West Hartford, CT. 06110\nPhone: [860] 952-9015\nEmail: Info@sudortaino.com\n      Studio8sixty\n224 Farmington Avenue, Hartford CT, 06105\nSOURCE:  facebook  5/15/16  website 9/2/17",
+    "fixMetadata": {
+      "manuallyFixed": true,
+      "originalName": "Motumbaxe Capoeira CT",
+      "fixedFields": ["name"]
+    }
+  },
+  {
+    "name": "Capoeira Esporao - Hartford County",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Professor Tectoy",
+      "email": null,
+      "phone": null
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Hartford County, Connecticut. Professor Tectoy is currently teaching in Jacksonville 9/2/17.",
+    "rawRecord": "      Capoeira Esporao\nProfessor Tectoy is currently teaching  in Jacksonville\n9/2/17"
+  },
+  {
+    "name": "Capoeira Balance",
+    "website": null,
+    "leader": null,
+    "mainContact": {
+      "name": "Professore Fabiano",
+      "email": "capoeirabalance@yahoo.com",
+      "phone": "203-675-5195"
+    },
+    "sources": [],
+    "locations": [],
+    "notes": "Hartford County, Connecticut. Website offline, no classes at former venue's website. Status of group unknown 9/3/17. Professore Fabiano. SOURCE: website 6/20/11",
+    "rawRecord": "      Capoeira Balance\n(website offline, no classes at former venue's website)\n( status of group unknown   9/3/17)\nProfessore Fabiano\n  capoeirabalance@yahoo.com\n  203-675-5195\nSOURCE: website 6/20/11"
+  },
+  {
+    "name": "Ginga Associação de Capoeira USA",
+    "website": "http://gingacapoeira.com/",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Kiki Da Bahia",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Mestre Kiki Da Bahia",
+      "email": null,
+      "phone": "+1 917 725 0381"
+    },
+    "sources": ["https://www.facebook.com/mestrekiki.dabahia"],
+    "locations": [
+      {
+        "name": "W Rhythm Fitness & Wellness Studio",
+        "address": "25 Main St. #2 Kent, Ct 06757",
+        "schedule": "Sun 12:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": "[203] 788-7818",
+        "rawText": "      W Rhythm Fitness & Wellness Studio\n      25 Main St. #2 Kent, Ct 06757\n      tel: [203] 788-7818Sun 12:30pm"
+      }
+    ],
+    "notes": "Kent, Litchfield County, Connecticut. Mestre Kiki Da Bahia. SOURCE: website 5/7/19",
+    "rawRecord": "      Ginga Associação de Capoeira USA\n      Mestre Kiki Da Bahia\n       http://gingacapoeira.com/\n       +1 917 725 0381\n  https://www.facebook.com/mestrekiki.dabahia\n      W Rhythm Fitness & Wellness Studio\n      25 Main St. #2 Kent, Ct 06757\n      tel: [203] 788-7818Sun 12:30pm \nSOURCE: website 5/7/19"
+  },
+  {
+    "name": "Capoeira Connecticut Ginga Brasil - Cordão de Ouro - Harwinton",
+    "website": "http://www.ctcapoeiragbcdo.com",
+    "leader": {
+      "title": "mestre",
+      "nickname": "Pinga Fogo",
+      "name": null
+    },
+    "mainContact": {
+      "name": "Instrutor Suave (Joel Melendez)",
+      "email": "gingabrasilct@gmail.com",
+      "phone": "860 967 8105"
+    },
+    "sources": ["http://thrivemovementstudio.net"],
+    "locations": [
+      {
+        "name": "Thrive Movement Studio",
+        "address": "221 Burlington Rd. Harwinton, CT",
+        "schedule": "Kids: Tues & Thurs 6:00-7:00pm; all ages Roda: Sat 10:30-11:30; Adult: Mon 6:30-7:45; Wed 6:30-8:00",
+        "contactPerson": null,
+        "email": "thrivemovementstudio@gmail.com",
+        "phone": "860 309-0306",
+        "rawText": "            Thrive Movement Studio\n      \n      221 Burlington Rd. Harwinton, CT\n      \n      thrivemovementstudio@gmail.com\n      \n      860 309-0306\n      \n      http://thrivemovementstudio.net\n      \n      Kids: Tues & Thurs 6:00-7:00pm\n      \n      all ages Roda: Sat  10:30-11:30\n      \n      Adult:  Mon 6:30-7:45;  Wed 6:30-8:00"
+      }
+    ],
+    "notes": "Harwinton, Litchfield County, Connecticut. Instrutor Suave (Joel Melendez) under the supervision of Mestre Pinga Fogo [Austin]. SOURCE: websites 9/2/17",
+    "rawRecord": "          Capoeira Connecticut Ginga Brasil - Cordão de Ouro\n      \n      http://www.ctcapoeiragbcdo.com\n      \n      Instrutor Suave  \"Joel Melendez\"  under the supervision\n      of\n      Mestre Pinga Fogo[Austin]\n      \n      gingabrasilct@gmail.com\n      \n      Tel: 860 967 8105\n      \n            Thrive Movement Studio\n      \n      221 Burlington Rd. Harwinton, CT\n      \n      thrivemovementstudio@gmail.com\n      \n      860 309-0306\n      \n      http://thrivemovementstudio.net\n      \n      Kids: Tues & Thurs 6:00-7:00pm\n      \n      all ages Roda: Sat  10:30-11:30\n      \n      Adult:  Mon 6:30-7:45;  Wed 6:30-8:00\n      \n      SOURCE: websites 9/2/17"
+  }
+]

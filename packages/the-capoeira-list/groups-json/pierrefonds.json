@@ -1,0 +1,26 @@
+[
+  {
+    "name": "West Island Capoeira - Equipe Capoeira Brasileira",
+    "website": "http://www.westislandcapoeira.com/",
+    "leader": {
+      "title": "professor",
+      "nickname": "Pirata",
+      "name": null
+    },
+    "mainContact": null,
+    "sources": [],
+    "locations": [
+      {
+        "name": "San Tropez",
+        "address": "54 Brunswick, Pointe-Claire, QC H9B 2L3, Canada",
+        "schedule": "Sat 1:30-3:00pm; Mon 6:30-8:00pm; Wed 7:00-8:30pm",
+        "contactPerson": null,
+        "email": null,
+        "phone": null,
+        "rawText": "San Tropez\n54 Brunswick, Pointe-Claire, QC H9B 2L3, Canada\nSat 1:30-3:00pm;  Mon 6:30-8:00pm; Wed 7:00-8:30pm"
+      }
+    ],
+    "notes": "Pierrefonds, Quebec, Canada. Professor Pirata under Mestre Peninha [Montreal]. SOURCE: website 4/22/17",
+    "rawRecord": "      West Island Capoeira  - Equipe Capoeira Brasileira\nhttp://www.westislandcapoeira.com/\nProfessor Pirata under Mestre Peninha[Montreal]\n      San Tropez\n54 Brunswick, Pointe-Claire, QC H9B 2L3, Canada\nSat 1:30-3:00pm;  Mon 6:30-8:00pm; Wed 7:00-8:30pm\nSOURCE: website 4/22/17"
+  }
+]

@@ -3,8 +3,9 @@
 import { Tab, Tabs } from '@heroui/react';
 
 import useGlobalAdminOverview from '@/hooks/useGlobalAdminOverview';
-import GlobalAdminGroupsTable from './GlobalAdminGroupsTable';
-import GlobalAdminUsersTable from './GlobalAdminUsersTable';
+import GlobalAdminGroupsTable from '@/components/groups/GlobalAdminGroupsTable';
+import GlobalAdminUsersTable from '@/components/GlobalAdminUsersTable';
+import AdminClaimsTable from '@/components/admin/AdminClaimsTable';
 
 const GlobalAdminOverview = () => {
   const [query, setQuery] = useGlobalAdminOverview();
@@ -20,7 +21,7 @@ const GlobalAdminOverview = () => {
         classNames={{ tabList: 'mb-5', panel: 'px-0' }}
         defaultSelectedKey={tab || undefined}
         onSelectionChange={(key) => {
-          const tab = key.toString() as 'users' | 'groups';
+          const tab = key.toString() as 'users' | 'groups' | 'claims';
           setQuery({ tab, searchBy: tab === 'users' ? 'name' : null, searchTerm: null });
         }}
       >
@@ -29,6 +30,9 @@ const GlobalAdminOverview = () => {
         </Tab>
         <Tab key="groups" title="Groups">
           <GlobalAdminGroupsTable />
+        </Tab>
+        <Tab key="claims" title="Claims">
+          <AdminClaimsTable />
         </Tab>
       </Tabs>
     </div>
