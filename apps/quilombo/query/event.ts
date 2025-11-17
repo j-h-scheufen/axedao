@@ -323,3 +323,14 @@ export const useFetchEventLocations = (params?: {
   endDate?: string;
   showActiveOnly?: boolean;
 }) => useQuery(queryOptions(fetchEventLocationsOptions(params)));
+
+const fetchAvailableEventCountries = async (): Promise<{ countryCodes: string[] }> =>
+  axios.get('/api/events/countries').then((response) => response.data);
+
+export const fetchAvailableEventCountriesOptions = {
+  queryKey: [QUERY_KEYS.event.getAvailableCountries],
+  queryFn: fetchAvailableEventCountries,
+  staleTime: QueryConfig.staleTimeGroup, // Countries don't change often
+} as const;
+
+export const useFetchAvailableEventCountries = () => useQuery(queryOptions(fetchAvailableEventCountriesOptions));

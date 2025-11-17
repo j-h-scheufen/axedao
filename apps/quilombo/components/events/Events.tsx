@@ -9,12 +9,14 @@ import type { Key } from 'react';
 import useEventSearchWithInfiniteScroll from '@/hooks/useEventSearchWithInfiniteScroll';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { PARAM_KEY_EVENT_QUERY } from '@/config/constants';
-import { useCreateEventMutation, useFetchEventLocations } from '@/query/event';
+import { useCreateEventMutation, useFetchEventLocations, useFetchAvailableEventCountries } from '@/query/event';
 import type { CreateEventForm } from '@/config/validation-schema';
 
+import { CountryFilter, FilterChipsContainer } from '@/components/filters';
+
 import SearchBar from '@/components/SearchBar';
-import CountryFilter from '@/components/groups/CountryFilter';
 import CountryFilterChip from '@/components/groups/CountryFilterChip';
+import EventTypesFilterChip from './EventTypesFilterChip';
 import EventFilters, { type EventFilterValues } from './EventFilters';
 import CreateEventModal from './CreateEventModal';
 import EventsGrid from './EventsGrid';
@@ -48,6 +50,9 @@ const Events = () => {
   const [isEventModalOpen, setIsEventModalOpen] = useState(false);
 
   const createEventMutation = useCreateEventMutation();
+
+  // Fetch available countries for the filter
+  const { data: countriesData, isLoading: isLoadingCountries } = useFetchAvailableEventCountries();
 
   // Fetch event locations for map view with same search parameters
   const { data: eventLocations, isLoading: isLoadingLocations } = useFetchEventLocations({
@@ -95,6 +100,11 @@ const Events = () => {
     });
   };
 
+  const handleClearEventTypes = () => {
+    const newFilters = { ...eventFilters, eventTypes: undefined };
+    handleFiltersChange(newFilters);
+  };
+
   const handleNewEventClick = () => {
     setIsEventModalOpen(true);
   };
@@ -138,6 +148,8 @@ const Events = () => {
             selectedCountries={selectedCountries}
             onCountriesChange={handleCountriesChange}
             isActive={selectedCountries.length > 0}
+            countryCodes={countriesData?.countryCodes || []}
+            isLoading={isLoadingCountries}
           />
         </div>
         <div className="flex-1 min-w-0">
@@ -158,10 +170,18 @@ const Events = () => {
         </div>
       </div>
 
-      {/* Active Filter Chip */}
-      {selectedCountries.length > 0 && (
-        <CountryFilterChip selectedCountries={selectedCountries} onClear={handleClearCountries} />
-      )}
+      {/* Active Filter Chips */}
+      <FilterChipsContainer>
+        {selectedCountries.length > 0 && (
+          <CountryFilterChip selectedCountries={selectedCountries} onClear={handleClearCountries} />
+        )}
+        {eventFilters.eventTypes && eventFilters.eventTypes.length > 0 && (
+          <EventTypesFilterChip
+            selectedEventTypes={eventFilters.eventTypes.filter((t): t is NonNullable<typeof t> => t !== undefined)}
+            onClear={handleClearEventTypes}
+          />
+        )}
+      </FilterChipsContainer>
 
       <Tabs
         aria-label="List / Map View"

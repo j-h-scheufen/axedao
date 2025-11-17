@@ -5,21 +5,25 @@ import { Button, Spinner, cn } from '@heroui/react';
 import { Globe } from 'lucide-react';
 import { isEqual } from 'lodash';
 
-import { useFetchAvailableCountries } from '@/query/group';
-import FilterPanel from '@/components/FilterPanel';
+import FilterPanel from './FilterPanel';
 import CountryFlagButton from './CountryFlagButton';
 
 type CountryFilterProps = {
   selectedCountries: string[];
   onCountriesChange: (countries: string[]) => void;
   isActive: boolean; // Whether any countries are selected
+  countryCodes: string[]; // Available country codes to display
+  isLoading: boolean; // Loading state for country codes
 };
 
-const CountryFilter = ({ selectedCountries, onCountriesChange, isActive }: CountryFilterProps) => {
+const CountryFilter = ({
+  selectedCountries,
+  onCountriesChange,
+  isActive,
+  countryCodes,
+  isLoading,
+}: CountryFilterProps) => {
   const [localSelection, setLocalSelection] = useState<string[]>(selectedCountries);
-  const { data, isLoading } = useFetchAvailableCountries();
-
-  const countryCodes = data?.countryCodes || [];
 
   // Sync local selection with prop changes
   useEffect(() => {

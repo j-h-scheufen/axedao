@@ -124,15 +124,18 @@ export async function POST(request: NextRequest) {
 
     const { offset = 0, pageSize = QUERY_DEFAULT_PAGE_SIZE, searchTerm, filters } = searchParams;
 
+    // Filter out undefined values from eventTypes array
+    const validEventTypes = filters?.eventTypes?.filter((t): t is NonNullable<typeof t> => t !== undefined);
+
     // Transform filters object to legacy format for database query
     const legacyParams = {
       offset,
       pageSize,
       searchTerm,
       countryCode: filters?.countryCodes?.[0], // TODO: Support multiple country codes in DB query
+      eventTypes: validEventTypes && validEventTypes.length > 0 ? validEventTypes : undefined,
       startDate: filters?.startDate ? new Date(filters.startDate) : undefined,
       endDate: filters?.endDate ? new Date(filters.endDate) : undefined,
-      // TODO: Add eventTypes filtering when database query supports it
     };
 
     const searchResults = await searchEvents(legacyParams);

@@ -3,9 +3,12 @@
 import { useState } from 'react';
 import { parseAsString, useQueryStates } from 'nuqs';
 
+import { FilterChipsContainer } from './filters';
+
 import SearchBar from './SearchBar';
 import UsersGrid from './UsersGrid';
 import UserFilters, { type UserFilterValues } from './users/UserFilters';
+import TitlesFilterChip from './users/TitlesFilterChip';
 import useUserSearchWithInfiniteScroll from '@/hooks/useUserSearchWithInfiniteScroll';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { PARAM_KEY_USER_QUERY } from '@/config/constants';
@@ -51,6 +54,11 @@ const Users = () => {
     });
   };
 
+  const handleClearTitles = () => {
+    const newFilters = { ...userFilters, titles: undefined };
+    handleFiltersChange(newFilters);
+  };
+
   return (
     <div className="flex flex-col gap-4 mt-1 sm:mt-3">
       <div className="flex gap-2 items-center">
@@ -70,6 +78,17 @@ const Users = () => {
           />
         </div>
       </div>
+
+      {/* Active Filter Chips */}
+      <FilterChipsContainer>
+        {userFilters.titles && userFilters.titles.length > 0 && (
+          <TitlesFilterChip
+            selectedTitles={userFilters.titles.filter((t): t is NonNullable<typeof t> => t !== undefined)}
+            onClear={handleClearTitles}
+          />
+        )}
+      </FilterChipsContainer>
+
       <div>
         Displaying {users?.length} of {totalCount} results
       </div>

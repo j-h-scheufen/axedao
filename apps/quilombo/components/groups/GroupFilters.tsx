@@ -7,7 +7,7 @@ import { isEqual } from 'lodash';
 
 import { styles } from '@/config/constants';
 import type { GroupFilters as GroupFilterValues } from '@/config/validation-schema';
-import FilterPanel from '@/components/FilterPanel';
+import { FilterPanel } from '@/components/filters';
 
 export type { GroupFilterValues };
 

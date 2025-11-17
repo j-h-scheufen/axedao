@@ -7,7 +7,7 @@ import { isEqual } from 'lodash';
 
 import { titles } from '@/config/constants';
 import type { UserFilters as UserFilterValues } from '@/config/validation-schema';
-import FilterPanel from '@/components/FilterPanel';
+import { FilterPanel } from '@/components/filters';
 
 export type { UserFilterValues };
 

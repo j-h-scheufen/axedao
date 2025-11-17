@@ -9,12 +9,16 @@ import type { Key } from 'react';
 import useGroupSearchWithInfiniteScroll from '@/hooks/useGroupSearchWithInfiniteScroll';
 import { filteredLocationsAtom } from '@/hooks/state/location';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
+import { useFetchAvailableCountries } from '@/query/group';
+
+import { CountryFilter, FilterChipsContainer } from '@/components/filters';
 
 import SearchBar from '@/components/SearchBar';
 import GroupsGrid from '@/components/groups/GroupsGrid';
 import GroupLocationsMap from '@/components/geocode/GroupLocationsMap';
-import CountryFilter from '@/components/groups/CountryFilter';
 import CountryFilterChip from '@/components/groups/CountryFilterChip';
+import StylesFilterChip from '@/components/groups/StylesFilterChip';
+import VerifiedFilterChip from '@/components/groups/VerifiedFilterChip';
 import GroupFilters, { type GroupFilterValues } from '@/components/groups/GroupFilters';
 import { PARAM_KEY_GROUP_QUERY } from '@/config/constants';
 
@@ -48,6 +52,9 @@ const Groups = () => {
   });
 
   const locations = useAtomValue(filteredLocationsAtom);
+
+  // Fetch available countries for the filter
+  const { data: countriesData, isLoading: isLoadingCountries } = useFetchAvailableCountries();
 
   // Scroll position restoration - only enabled for list view
   const scrollContainerRef = useScrollPosition({
@@ -85,6 +92,16 @@ const Groups = () => {
     });
   };
 
+  const handleClearStyles = () => {
+    const newFilters = { ...groupFilters, styles: undefined };
+    handleFiltersChange(newFilters);
+  };
+
+  const handleClearVerified = () => {
+    const newFilters = { ...groupFilters, verified: undefined };
+    handleFiltersChange(newFilters);
+  };
+
   const handleViewChange = (key: Key) => {
     const viewKey = String(key);
     setQueryStates({ view: viewKey === 'list' ? null : viewKey });
@@ -98,6 +115,8 @@ const Groups = () => {
             selectedCountries={selectedCountries}
             onCountriesChange={handleCountriesChange}
             isActive={selectedCountries.length > 0}
+            countryCodes={countriesData?.countryCodes || []}
+            isLoading={isLoadingCountries}
           />
         </div>
         <div className="flex-1 min-w-0">
@@ -117,10 +136,21 @@ const Groups = () => {
         </div>
       </div>
 
-      {/* Active Filter Chip */}
-      {selectedCountries.length > 0 && (
-        <CountryFilterChip selectedCountries={selectedCountries} onClear={handleClearCountries} />
-      )}
+      {/* Active Filter Chips */}
+      <FilterChipsContainer>
+        {selectedCountries.length > 0 && (
+          <CountryFilterChip selectedCountries={selectedCountries} onClear={handleClearCountries} />
+        )}
+        {groupFilters.styles && groupFilters.styles.length > 0 && (
+          <StylesFilterChip
+            selectedStyles={groupFilters.styles.filter((s): s is NonNullable<typeof s> => s !== undefined)}
+            onClear={handleClearStyles}
+          />
+        )}
+        {groupFilters.verified !== undefined && (
+          <VerifiedFilterChip verified={groupFilters.verified} onClear={handleClearVerified} />
+        )}
+      </FilterChipsContainer>
 
       <Tabs
         aria-label="List / Map View"
