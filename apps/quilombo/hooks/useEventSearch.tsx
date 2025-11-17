@@ -4,10 +4,16 @@ import { useState, useMemo, useEffect } from 'react';
 import { debounce } from 'lodash';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 
+import type { EventFilters } from '@/config/validation-schema';
 import { SEARCH_INPUT_DEBOUNCE, PARAM_KEY_EVENT_QUERY } from '@/config/constants';
 import { useSearchEvents } from '@/query/event';
 
-const useEventSearch = () => {
+type UseEventSearchOptions = {
+  filters?: Partial<EventFilters>;
+  showActiveOnly?: boolean;
+};
+
+const useEventSearch = (options?: UseEventSearchOptions) => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -17,7 +23,8 @@ const useEventSearch = () => {
 
   const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } = useSearchEvents({
     searchTerm,
-    showActiveOnly: true, // Only show active/upcoming events
+    showActiveOnly: options?.showActiveOnly !== undefined ? options.showActiveOnly : true, // Default to active only
+    filters: options?.filters,
   });
 
   // Sync URL search term with hook state on mount

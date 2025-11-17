@@ -164,22 +164,105 @@ export const searchParamsSchema = object({
 
 export type SearchParams = InferType<typeof searchParamsSchema>;
 
-export const userSearchParamsSchema = searchParamsSchema.concat(
+// ========================================
+// UNIFIED SEARCH FILTERS ARCHITECTURE
+// ========================================
+
+/**
+ * Base filters shared across all entity searches
+ */
+export const baseSearchFiltersSchema = object({
+  countryCodes: array().of(string().length(2, 'Country code must be 2 characters')).optional(),
+});
+
+export type BaseSearchFilters = InferType<typeof baseSearchFiltersSchema>;
+
+/**
+ * Group-specific search filters
+ */
+export const groupFiltersSchema = baseSearchFiltersSchema.concat(
+  object({
+    verified: boolean().optional(),
+    styles: array().of(string().oneOf(styles, 'Invalid style')).optional(),
+  })
+);
+
+export type GroupFilters = InferType<typeof groupFiltersSchema>;
+
+/**
+ * User-specific search filters
+ */
+export const userFiltersSchema = baseSearchFiltersSchema.concat(
   object({
     hasWallet: boolean().optional(),
+    titles: array().of(string().oneOf(titles, 'Invalid title')).optional(),
   })
 );
 
-export type UserSearchParams = InferType<typeof userSearchParamsSchema>;
+export type UserFilters = InferType<typeof userFiltersSchema>;
 
-export const groupSearchSchema = searchParamsSchema.concat(
+/**
+ * Event-specific search filters
+ */
+export const eventFiltersSchema = baseSearchFiltersSchema.concat(
   object({
-    country: string().optional(),
-    verified: boolean().optional(),
+    eventTypes: array().of(string().oneOf(eventTypes, 'Invalid event type')).optional(),
+    startDate: string()
+      .optional()
+      .test('is-valid-date', 'Invalid start date', (value) => {
+        if (!value) return true;
+        return isValidISO8601(value);
+      }),
+    endDate: string()
+      .optional()
+      .test('is-valid-date', 'Invalid end date', (value) => {
+        if (!value) return true;
+        return isValidISO8601(value);
+      }),
   })
 );
 
-export type GroupSearchParams = InferType<typeof groupSearchSchema>;
+export type EventFilters = InferType<typeof eventFiltersSchema>;
+
+/**
+ * Unified search params with filters for groups
+ */
+export const groupSearchParamsSchema = object({
+  offset: number().optional(),
+  pageSize: number().optional(),
+  searchTerm: string().optional(),
+  filters: groupFiltersSchema.optional(),
+});
+
+export type GroupSearchParamsWithFilters = InferType<typeof groupSearchParamsSchema>;
+
+/**
+ * Unified search params with filters for users
+ */
+export const userSearchParamsSchema = object({
+  offset: number().optional(),
+  pageSize: number().optional(),
+  searchTerm: string().optional(),
+  filters: userFiltersSchema.optional(),
+});
+
+export type UserSearchParamsWithFilters = InferType<typeof userSearchParamsSchema>;
+
+/**
+ * Unified search params with filters for events
+ */
+export const eventSearchParamsSchema = object({
+  offset: number().optional(),
+  pageSize: number().optional(),
+  searchTerm: string().optional(),
+  filters: eventFiltersSchema.optional(),
+});
+
+export type EventSearchParamsWithFilters = InferType<typeof eventSearchParamsSchema>;
+
+// Type aliases for backward compatibility with existing code
+export type UserSearchParams = UserSearchParamsWithFilters;
+export type GroupSearchParams = GroupSearchParamsWithFilters;
 
 export const membershipDelegateSchema = object({
   candidate: string()

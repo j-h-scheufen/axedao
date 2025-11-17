@@ -5,7 +5,7 @@
 
 import { and, eq, ilike, inArray, isNotNull, or, sql, type SQLWrapper } from 'drizzle-orm';
 
-import type { UserSearchParams } from '@/config/validation-schema';
+import type { UserSearchParamsWithFilters } from '@/config/validation-schema';
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import * as schema from '@/db/schema';
 import { db } from '@/db';
@@ -28,13 +28,14 @@ export async function isGlobalAdmin(userId: string) {
 /**
  * Searches users with optional filters and pagination.
  *
- * @param options - Search parameters including searchTerm, hasWallet, pagination
+ * @param options - Search parameters including searchTerm, filters, pagination
  * @returns Paginated list of users with total count
  */
 export async function searchUsers(
-  options: UserSearchParams
+  options: UserSearchParamsWithFilters
 ): Promise<{ rows: schema.SelectUser[]; totalCount: number }> {
-  const { pageSize = QUERY_DEFAULT_PAGE_SIZE, offset = 0, searchTerm, hasWallet } = options;
+  const { pageSize = QUERY_DEFAULT_PAGE_SIZE, offset = 0, searchTerm, filters } = options;
+  const { hasWallet, titles } = filters || {};
   const orFilters: (SQLWrapper | undefined)[] = [];
   const andFilters: (SQLWrapper | undefined)[] = [];
 
@@ -47,7 +48,15 @@ export async function searchUsers(
     andFilters.push(isNotNull(schema.users.walletAddress));
   }
 
-  // Combine filters: (searchTerm filters) AND (hasWallet filter)
+  if (titles && titles.length > 0) {
+    // Filter out undefined values and ensure we have a valid array
+    const validTitles = titles.filter((t): t is NonNullable<typeof t> => t !== undefined);
+    if (validTitles.length > 0) {
+      andFilters.push(inArray(schema.users.title, validTitles));
+    }
+  }
+
+  // Combine filters: (searchTerm filters) AND (hasWallet filter) AND (titles filter)
   const whereClause = and(orFilters.length ? or(...orFilters) : undefined, ...andFilters);
 
   const rawResults = await db

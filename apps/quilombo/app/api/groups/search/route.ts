@@ -3,18 +3,18 @@ import { type NextRequest, NextResponse } from 'next/server';
 
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { type UserSearchParamsWithFilters, userSearchParamsSchema } from '@/config/validation-schema';
-import { searchUsers } from '@/db';
-import type { UserSearchResult } from '@/types/model';
+import { type GroupSearchParamsWithFilters, groupSearchParamsSchema } from '@/config/validation-schema';
+import { searchGroups } from '@/db';
+import type { GroupSearchResult } from '@/types/model';
 
 /**
  * @openapi
- * /api/users/search:
+ * /api/groups/search:
  *   post:
- *     summary: Search users with filters
- *     description: POST endpoint for searching users with unified filters object
+ *     summary: Search groups with filters
+ *     description: POST endpoint for searching groups with unified filters object
  *     tags:
- *       - Users
+ *       - Groups
  *     requestBody:
  *       required: true
  *       content:
@@ -32,8 +32,8 @@ import type { UserSearchResult } from '@/types/model';
  *                 example: 20
  *               searchTerm:
  *                 type: string
- *                 description: Search term for user name
- *                 example: "John Doe"
+ *                 description: Search term for group name
+ *                 example: "Capoeira Brasil"
  *               filters:
  *                 type: object
  *                 description: Search filters
@@ -44,9 +44,14 @@ import type { UserSearchResult } from '@/types/model';
  *                       type: string
  *                       pattern: ^[A-Z]{2}$
  *                     example: ['BR', 'US', 'PT']
- *                   hasWallet:
+ *                   verified:
  *                     type: boolean
  *                     example: true
+ *                   styles:
+ *                     type: array
+ *                     items:
+ *                       type: string
+ *                     example: ['Angola', 'Regional']
  *     responses:
  *       200:
  *         description: Search results
@@ -58,7 +63,7 @@ import type { UserSearchResult } from '@/types/model';
  *                 data:
  *                   type: array
  *                   items:
- *                     $ref: '#/components/schemas/User'
+ *                     $ref: '#/components/schemas/Group'
  *                 totalCount:
  *                   type: number
  *                   example: 42
@@ -105,9 +110,9 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
 
     // Validate request body
-    let searchParams: UserSearchParamsWithFilters;
+    let searchParams: GroupSearchParamsWithFilters;
     try {
-      searchParams = await userSearchParamsSchema.validate(body);
+      searchParams = await groupSearchParamsSchema.validate(body);
     } catch (error) {
       console.error('Validation error:', error);
       const message =
@@ -119,7 +124,7 @@ export async function POST(request: NextRequest) {
 
     const { offset = 0, pageSize = QUERY_DEFAULT_PAGE_SIZE, searchTerm, filters } = searchParams;
 
-    const searchResults = await searchUsers({
+    const searchResults = await searchGroups({
       offset,
       pageSize,
       searchTerm,
@@ -134,18 +139,15 @@ export async function POST(request: NextRequest) {
       nextOffset = searchResults.totalCount;
     }
 
-    // Convert SelectUser to User by excluding updatedAt
-    const users = searchResults.rows.map(({ updatedAt, ...user }) => user);
-
-    const result: UserSearchResult = {
-      data: users,
+    const result: GroupSearchResult = {
+      data: searchResults.rows,
       totalCount: searchResults.totalCount,
       nextOffset,
     };
 
     return Response.json(result);
   } catch (error) {
-    console.error('Error searching users:', error);
-    return NextResponse.json({ error: 'Failed to search users' }, { status: 500 });
+    console.error('Error searching groups:', error);
+    return NextResponse.json({ error: 'Failed to search groups' }, { status: 500 });
   }
 }

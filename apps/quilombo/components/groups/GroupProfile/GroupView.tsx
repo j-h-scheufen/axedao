@@ -32,13 +32,15 @@ const GroupView = () => {
               adminCount={group.adminCount}
             />
           </div>
-          <div className="flex flex-col w-full">
-            <div className="flex justify-between">
+          <div className="flex flex-col w-full min-w-0 overflow-hidden">
+            <div className="flex justify-between items-start gap-2">
               <SubsectionHeading className="my-0 text-default-400">Description</SubsectionHeading>
-              <GroupActionsDropdown />
+              <div className="flex-shrink-0">
+                <GroupActionsDropdown />
+              </div>
             </div>
             {!!group.description && (
-              <p className="mt-1 text-small text-default-500 whitespace-pre-wrap">{group.description}</p>
+              <p className="mt-1 text-small text-default-500 whitespace-pre-wrap break-words">{group.description}</p>
             )}
           </div>
         </div>

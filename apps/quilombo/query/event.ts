@@ -68,6 +68,7 @@ const searchEvents = async ({
   startDate,
   endDate,
   showActiveOnly,
+  filters,
 }: {
   offset?: number;
   pageSize?: number;
@@ -79,7 +80,29 @@ const searchEvents = async ({
   startDate?: string;
   endDate?: string;
   showActiveOnly?: boolean;
+  filters?: import('@/config/validation-schema').EventFilters;
 }): Promise<EventSearchResult> => {
+  // Use POST /api/events/search when filters are provided
+  if (filters) {
+    const response = await axios.post('/api/events/search', {
+      offset,
+      pageSize,
+      searchTerm,
+      filters,
+    });
+    const rawData = response.data;
+
+    return {
+      ...rawData,
+      data: rawData.data.map((rawEvent: RawEvent) => ({
+        ...rawEvent,
+        start: parseAbsoluteToLocal(validateAndConvertDate(rawEvent.start, 'start').toISOString()),
+        end: rawEvent.end ? parseAbsoluteToLocal(validateAndConvertDate(rawEvent.end, 'end').toISOString()) : undefined,
+      })),
+    };
+  }
+
+  // Legacy GET request for backward compatibility
   const params = new URLSearchParams();
   if (offset !== undefined) params.append('offset', offset.toString());
   if (pageSize !== undefined) params.append('pageSize', pageSize.toString());
@@ -118,6 +141,7 @@ export const searchEventsOptions = ({
   startDate,
   endDate,
   showActiveOnly,
+  filters,
 }: {
   offset?: number;
   pageSize?: number;
@@ -129,6 +153,7 @@ export const searchEventsOptions = ({
   startDate?: string;
   endDate?: string;
   showActiveOnly?: boolean;
+  filters?: import('@/config/validation-schema').EventFilters;
 }) => {
   return {
     queryKey: [
@@ -141,6 +166,7 @@ export const searchEventsOptions = ({
       startDate,
       endDate,
       showActiveOnly,
+      filters,
     ],
     queryFn: async ({ pageParam }: { pageParam: number }) =>
       searchEvents({
@@ -154,6 +180,7 @@ export const searchEventsOptions = ({
         startDate,
         endDate,
         showActiveOnly,
+        filters,
       }),
     initialPageParam: offset || 0,
     getNextPageParam: (lastPage: EventSearchResult) => {
@@ -196,6 +223,7 @@ export const useSearchEvents = (params: {
   startDate?: string;
   endDate?: string;
   showActiveOnly?: boolean;
+  filters?: import('@/config/validation-schema').EventFilters;
 }) => {
   return useInfiniteQuery(infiniteQueryOptions(searchEventsOptions(params)));
 };
@@ -295,3 +323,14 @@ export const useFetchEventLocations = (params?: {
   endDate?: string;
   showActiveOnly?: boolean;
 }) => useQuery(queryOptions(fetchEventLocationsOptions(params)));
+
+const fetchAvailableEventCountries = async (): Promise<{ countryCodes: string[] }> =>
+  axios.get('/api/events/countries').then((response) => response.data);
+
+export const fetchAvailableEventCountriesOptions = {
+  queryKey: [QUERY_KEYS.event.getAvailableCountries],
+  queryFn: fetchAvailableEventCountries,
+  staleTime: QueryConfig.staleTimeGroup, // Countries don't change often
+} as const;
+
+export const useFetchAvailableEventCountries = () => useQuery(queryOptions(fetchAvailableEventCountriesOptions));

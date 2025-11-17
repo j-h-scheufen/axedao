@@ -3,7 +3,7 @@
  * Geographic locations and mapping for groups
  */
 
-import { and, count, eq } from 'drizzle-orm';
+import { and, count, eq, sql } from 'drizzle-orm';
 
 import * as schema from '@/db/schema';
 import { db } from '@/db';
@@ -129,4 +129,21 @@ export async function fetchAllGroupLocationsWithGroups(): Promise<
     })
     .from(schema.groupLocations)
     .innerJoin(schema.groups, eq(schema.groupLocations.groupId, schema.groups.id));
+}
+
+/**
+ * Get distinct country codes from group locations.
+ * Only returns countries that have at least one group.
+ * Results are sorted alphabetically.
+ *
+ * @returns Array of ISO 3166-1 alpha-2 country codes
+ */
+export async function getDistinctCountryCodes(): Promise<string[]> {
+  const results = await db
+    .selectDistinct({ countryCode: schema.groupLocations.countryCode })
+    .from(schema.groupLocations)
+    .where(sql`${schema.groupLocations.countryCode} IS NOT NULL`)
+    .orderBy(schema.groupLocations.countryCode);
+
+  return results.map((r) => r.countryCode).filter(Boolean) as string[];
 }

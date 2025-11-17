@@ -1,62 +1,12 @@
-import { isNil, omitBy } from 'lodash';
 import { getServerSession } from 'next-auth';
 import { type NextRequest, NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
 
-import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import { nextAuthOptions } from '@/config/next-auth-options';
-import {
-  type CreateNewGroupForm,
-  createNewGroupFormSchema,
-  type GroupSearchParams,
-  groupSearchSchema,
-} from '@/config/validation-schema';
-import { addGroupAdmin, fetchUser, insertGroup, searchGroups, updateUser } from '@/db';
-import type { GroupSearchResult } from '@/types/model';
+import { type CreateNewGroupForm, createNewGroupFormSchema } from '@/config/validation-schema';
+import { addGroupAdmin, fetchUser, insertGroup, updateUser } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import { sendGroupRegisteredEmail } from '@/utils/email';
-
-/**
- * Route handler for infinite (paginated) group search.
- * @param request - The request object
- * @param URLparams - pageSize, offset, searchTerm, city, country, verified
- * @returns { data: Group[], nextOffset: number }
- */
-export async function GET(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams;
-  const pageSize = Number(searchParams.get('pageSize')) || QUERY_DEFAULT_PAGE_SIZE;
-  const offset = Number(searchParams.get('offset'));
-  const searchTerm = searchParams.get('searchTerm');
-  let verified: string | null | boolean | undefined = searchParams.get('verified');
-  verified = verified === 'false' ? false : verified === 'true' || undefined;
-  let nextOffset = null;
-
-  let searchOptions: GroupSearchParams;
-  try {
-    searchOptions = groupSearchSchema.validateSync({
-      pageSize,
-      offset,
-      ...omitBy({ searchTerm, verified }, isNil),
-    });
-  } catch (error) {
-    console.error('Unable to validate input data', error);
-    return NextResponse.json({ error: 'Invalid input data' }, { status: 400 });
-  }
-
-  const searchResults = await searchGroups(searchOptions);
-
-  // Calculate nextOffset based on totalCount and offset
-  if (searchResults.totalCount > offset + pageSize) {
-    nextOffset = offset + pageSize;
-  } else if (searchResults.totalCount > offset) {
-    nextOffset = searchResults.totalCount;
-  } else {
-    nextOffset = null;
-  }
-
-  const result: GroupSearchResult = { data: searchResults.rows, totalCount: searchResults.totalCount, nextOffset };
-  return Response.json(result);
-}
 
 /**
  * Creates a new group and assigns the logged-in user as the admin of the group.

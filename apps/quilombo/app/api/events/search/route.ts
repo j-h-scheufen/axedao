@@ -3,18 +3,17 @@ import { type NextRequest, NextResponse } from 'next/server';
 
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { type UserSearchParamsWithFilters, userSearchParamsSchema } from '@/config/validation-schema';
-import { searchUsers } from '@/db';
-import type { UserSearchResult } from '@/types/model';
+import { type EventSearchParamsWithFilters, eventSearchParamsSchema } from '@/config/validation-schema';
+import { searchEvents } from '@/db';
 
 /**
  * @openapi
- * /api/users/search:
+ * /api/events/search:
  *   post:
- *     summary: Search users with filters
- *     description: POST endpoint for searching users with unified filters object
+ *     summary: Search events with filters
+ *     description: POST endpoint for searching events with unified filters object
  *     tags:
- *       - Users
+ *       - Events
  *     requestBody:
  *       required: true
  *       content:
@@ -32,8 +31,8 @@ import type { UserSearchResult } from '@/types/model';
  *                 example: 20
  *               searchTerm:
  *                 type: string
- *                 description: Search term for user name
- *                 example: "John Doe"
+ *                 description: Search term for event name
+ *                 example: "Batizado"
  *               filters:
  *                 type: object
  *                 description: Search filters
@@ -44,9 +43,19 @@ import type { UserSearchResult } from '@/types/model';
  *                       type: string
  *                       pattern: ^[A-Z]{2}$
  *                     example: ['BR', 'US', 'PT']
- *                   hasWallet:
- *                     type: boolean
- *                     example: true
+ *                   eventTypes:
+ *                     type: array
+ *                     items:
+ *                       type: string
+ *                     example: ['batizado', 'workshop']
+ *                   startDate:
+ *                     type: string
+ *                     format: date-time
+ *                     example: "2025-01-01T00:00:00.000Z"
+ *                   endDate:
+ *                     type: string
+ *                     format: date-time
+ *                     example: "2025-12-31T23:59:59.999Z"
  *     responses:
  *       200:
  *         description: Search results
@@ -58,7 +67,7 @@ import type { UserSearchResult } from '@/types/model';
  *                 data:
  *                   type: array
  *                   items:
- *                     $ref: '#/components/schemas/User'
+ *                     $ref: '#/components/schemas/Event'
  *                 totalCount:
  *                   type: number
  *                   example: 42
@@ -105,9 +114,9 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
 
     // Validate request body
-    let searchParams: UserSearchParamsWithFilters;
+    let searchParams: EventSearchParamsWithFilters;
     try {
-      searchParams = await userSearchParamsSchema.validate(body);
+      searchParams = await eventSearchParamsSchema.validate(body);
     } catch (error) {
       console.error('Validation error:', error);
       const message =
@@ -119,11 +128,21 @@ export async function POST(request: NextRequest) {
 
     const { offset = 0, pageSize = QUERY_DEFAULT_PAGE_SIZE, searchTerm, filters } = searchParams;
 
-    const searchResults = await searchUsers({
+    // Filter out undefined values from eventTypes array
+    const validEventTypes = filters?.eventTypes?.filter((t): t is NonNullable<typeof t> => t !== undefined);
+
+    // Filter out undefined values from countryCodes array
+    const validCountryCodes = filters?.countryCodes?.filter((c): c is string => !!c);
+
+    // Pass filters to database query
+    const searchResults = await searchEvents({
       offset,
       pageSize,
       searchTerm,
-      filters,
+      countryCodes: validCountryCodes && validCountryCodes.length > 0 ? validCountryCodes : undefined,
+      eventTypes: validEventTypes && validEventTypes.length > 0 ? validEventTypes : undefined,
+      startDate: filters?.startDate ? new Date(filters.startDate) : undefined,
+      endDate: filters?.endDate ? new Date(filters.endDate) : undefined,
     });
 
     // Calculate nextOffset based on totalCount and offset
@@ -134,18 +153,15 @@ export async function POST(request: NextRequest) {
       nextOffset = searchResults.totalCount;
     }
 
-    // Convert SelectUser to User by excluding updatedAt
-    const users = searchResults.rows.map(({ updatedAt, ...user }) => user);
-
-    const result: UserSearchResult = {
-      data: users,
+    const result = {
+      data: searchResults.rows,
       totalCount: searchResults.totalCount,
       nextOffset,
     };
 
     return Response.json(result);
   } catch (error) {
-    console.error('Error searching users:', error);
-    return NextResponse.json({ error: 'Failed to search users' }, { status: 500 });
+    console.error('Error searching events:', error);
+    return NextResponse.json({ error: 'Failed to search events' }, { status: 500 });
   }
 }

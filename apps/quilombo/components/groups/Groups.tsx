@@ -9,22 +9,52 @@ import type { Key } from 'react';
 import useGroupSearchWithInfiniteScroll from '@/hooks/useGroupSearchWithInfiniteScroll';
 import { filteredLocationsAtom } from '@/hooks/state/location';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
+import { useFetchAvailableCountries } from '@/query/group';
+
+import { CountryFilter, FilterChipsContainer } from '@/components/filters';
 
 import SearchBar from '@/components/SearchBar';
-import FilterButton from '@/components/FilterButton';
 import GroupsGrid from '@/components/groups/GroupsGrid';
 import GroupLocationsMap from '@/components/geocode/GroupLocationsMap';
+import CountryFilterChip from '@/components/groups/CountryFilterChip';
+import StylesFilterChip from '@/components/groups/StylesFilterChip';
+import VerifiedFilterChip from '@/components/groups/VerifiedFilterChip';
+import GroupFilters, { type GroupFilterValues } from '@/components/groups/GroupFilters';
 import { PARAM_KEY_GROUP_QUERY } from '@/config/constants';
 
 const Groups = () => {
-  const [{ view, [PARAM_KEY_GROUP_QUERY]: gq }, setQueryStates] = useQueryStates({
-    view: parseAsString.withDefault('list'),
-    [PARAM_KEY_GROUP_QUERY]: parseAsString.withDefault(''),
-  });
+  const [{ view, [PARAM_KEY_GROUP_QUERY]: gq, countries, styles: stylesParam, verified }, setQueryStates] =
+    useQueryStates({
+      view: parseAsString.withDefault('list'),
+      [PARAM_KEY_GROUP_QUERY]: parseAsString.withDefault(''),
+      countries: parseAsString.withDefault(''),
+      styles: parseAsString.withDefault(''),
+      verified: parseAsString.withDefault(''),
+    });
 
   const [inputValue, setInputValue] = useState(gq || '');
-  const { setSearchTerm, groups, totalCount, isLoading, scrollerRef } = useGroupSearchWithInfiniteScroll();
+  const selectedCountries = countries ? countries.split(',').filter(Boolean) : [];
+
+  // Parse filter values from URL params
+  const [groupFilters, setGroupFilters] = useState<Partial<GroupFilterValues>>({
+    styles: stylesParam
+      ? (stylesParam.split(',').filter(Boolean) as Array<'angola' | 'regional' | 'contemporânea'>)
+      : undefined,
+    verified: verified === 'true' ? true : verified === 'false' ? false : undefined,
+  });
+
+  const { setSearchTerm, groups, totalCount, isLoading, scrollerRef } = useGroupSearchWithInfiniteScroll({
+    filters: {
+      countryCodes: selectedCountries.length > 0 ? selectedCountries : undefined,
+      verified: groupFilters.verified,
+      styles: groupFilters.styles && groupFilters.styles.length > 0 ? groupFilters.styles : undefined,
+    },
+  });
+
   const locations = useAtomValue(filteredLocationsAtom);
+
+  // Fetch available countries for the filter
+  const { data: countriesData, isLoading: isLoadingCountries } = useFetchAvailableCountries();
 
   // Scroll position restoration - only enabled for list view
   const scrollContainerRef = useScrollPosition({
@@ -44,25 +74,84 @@ const Groups = () => {
     setQueryStates({ [PARAM_KEY_GROUP_QUERY]: null });
   };
 
+  const handleCountriesChange = (newCountries: string[]) => {
+    setQueryStates({
+      countries: newCountries.length > 0 ? newCountries.join(',') : null,
+    });
+  };
+
+  const handleClearCountries = () => {
+    setQueryStates({ countries: null });
+  };
+
+  const handleFiltersChange = (newFilters: Partial<GroupFilterValues>) => {
+    setGroupFilters(newFilters);
+    setQueryStates({
+      styles: newFilters.styles && newFilters.styles.length > 0 ? newFilters.styles.join(',') : null,
+      verified: newFilters.verified !== undefined ? String(newFilters.verified) : null,
+    });
+  };
+
+  const handleClearStyles = () => {
+    const newFilters = { ...groupFilters, styles: undefined };
+    handleFiltersChange(newFilters);
+  };
+
+  const handleClearVerified = () => {
+    const newFilters = { ...groupFilters, verified: undefined };
+    handleFiltersChange(newFilters);
+  };
+
   const handleViewChange = (key: Key) => {
     const viewKey = String(key);
     setQueryStates({ view: viewKey === 'list' ? null : viewKey });
   };
 
-  const handleFilterClick = () => {
-    // TODO: Implement filter functionality for groups
-    console.log('Group filter clicked');
-  };
-
   return (
     <div className="flex flex-col gap-2 sm:gap-4 mt-1 sm:mt-3">
-      <SearchBar
-        placeholder="Search by group name"
-        searchTerm={inputValue}
-        onSearchChange={handleSearchChange}
-        onClear={handleClear}
-        filterContent={<FilterButton onPress={handleFilterClick} />}
-      />
+      <div className="flex gap-2 items-center">
+        <div className="flex-shrink-0">
+          <CountryFilter
+            selectedCountries={selectedCountries}
+            onCountriesChange={handleCountriesChange}
+            isActive={selectedCountries.length > 0}
+            countryCodes={countriesData?.countryCodes || []}
+            isLoading={isLoadingCountries}
+          />
+        </div>
+        <div className="flex-1 min-w-0">
+          <SearchBar
+            placeholder="Search by group name"
+            searchTerm={inputValue}
+            onSearchChange={handleSearchChange}
+            onClear={handleClear}
+          />
+        </div>
+        <div className="flex-shrink-0">
+          <GroupFilters
+            filters={groupFilters}
+            onFiltersChange={handleFiltersChange}
+            isActive={(groupFilters.styles && groupFilters.styles.length > 0) || groupFilters.verified !== undefined}
+          />
+        </div>
+      </div>
+
+      {/* Active Filter Chips */}
+      <FilterChipsContainer>
+        {selectedCountries.length > 0 && (
+          <CountryFilterChip selectedCountries={selectedCountries} onClear={handleClearCountries} />
+        )}
+        {groupFilters.styles && groupFilters.styles.length > 0 && (
+          <StylesFilterChip
+            selectedStyles={groupFilters.styles.filter((s): s is NonNullable<typeof s> => s !== undefined)}
+            onClear={handleClearStyles}
+          />
+        )}
+        {groupFilters.verified !== undefined && (
+          <VerifiedFilterChip verified={groupFilters.verified} onClear={handleClearVerified} />
+        )}
+      </FilterChipsContainer>
+
       <Tabs
         aria-label="List / Map View"
         fullWidth

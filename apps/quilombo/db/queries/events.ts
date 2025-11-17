@@ -3,7 +3,7 @@
  * Event management and searching
  */
 
-import { and, count, eq, gte, ilike, isNotNull, lt, lte, or, sql, type SQLWrapper } from 'drizzle-orm';
+import { and, count, eq, gte, ilike, inArray, isNotNull, lt, lte, or, sql, type SQLWrapper } from 'drizzle-orm';
 
 import { QUERY_DEFAULT_PAGE_SIZE, type eventTypes } from '@/config/constants';
 import * as schema from '@/db/schema';
@@ -21,7 +21,9 @@ export async function searchEvents(options: {
   offset?: number;
   searchTerm?: string;
   type?: string;
-  countryCode?: string;
+  eventTypes?: Array<(typeof eventTypes)[number]>;
+  countryCode?: string; // Legacy support for single country code
+  countryCodes?: string[]; // New parameter for multiple country codes
   groupId?: string;
   userId?: string;
   startDate?: Date;
@@ -33,7 +35,9 @@ export async function searchEvents(options: {
     offset = 0,
     searchTerm,
     type,
+    eventTypes: eventTypesFilter,
     countryCode,
+    countryCodes,
     groupId,
     userId,
     startDate,
@@ -52,8 +56,28 @@ export async function searchEvents(options: {
     filters.push(or(...searchFilters));
   }
 
-  if (type) filters.push(eq(schema.events.type, type as (typeof eventTypes)[number]));
-  if (countryCode) filters.push(eq(schema.events.countryCode, countryCode));
+  // Support both single type and multiple eventTypes
+  if (type) {
+    filters.push(eq(schema.events.type, type as (typeof eventTypes)[number]));
+  } else if (eventTypesFilter && eventTypesFilter.length > 0) {
+    // Filter out undefined values and ensure we have a valid array
+    const validTypes = eventTypesFilter.filter((t): t is NonNullable<typeof t> => t !== undefined);
+    if (validTypes.length > 0) {
+      filters.push(inArray(schema.events.type, validTypes));
+    }
+  }
+
+  // Support both single countryCode (legacy) and multiple countryCodes
+  if (countryCodes && countryCodes.length > 0) {
+    // Filter out undefined/null values
+    const validCountryCodes = countryCodes.filter((c): c is string => !!c);
+    if (validCountryCodes.length > 0) {
+      filters.push(inArray(schema.events.countryCode, validCountryCodes));
+    }
+  } else if (countryCode) {
+    // Legacy single country code support
+    filters.push(eq(schema.events.countryCode, countryCode));
+  }
 
   // Handle date filtering
   if (showActiveOnly) {
@@ -166,4 +190,19 @@ export async function isEventCreator(eventId: string, userId: string): Promise<b
     .from(schema.events)
     .where(and(eq(schema.events.id, eventId), eq(schema.events.creatorId, userId)));
   return result.length > 0 && result[0].value > 0;
+}
+
+/**
+ * Gets distinct country codes from events.
+ *
+ * @returns Array of ISO 3166-1 alpha-2 country codes
+ */
+export async function getDistinctEventCountryCodes(): Promise<string[]> {
+  const results = await db
+    .selectDistinct({ countryCode: schema.events.countryCode })
+    .from(schema.events)
+    .where(sql`${schema.events.countryCode} IS NOT NULL`)
+    .orderBy(schema.events.countryCode);
+
+  return results.map((r) => r.countryCode).filter(Boolean) as string[];
 }
