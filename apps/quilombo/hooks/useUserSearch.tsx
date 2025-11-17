@@ -4,11 +4,13 @@ import { useState, useMemo, useEffect } from 'react';
 import { debounce } from 'lodash';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 
+import type { UserFilters } from '@/config/validation-schema';
 import { SEARCH_INPUT_DEBOUNCE, PARAM_KEY_USER_QUERY } from '@/config/constants';
 import { useSearchUsers } from '@/query/user';
 
 type UseUserSearchOptions = {
-  hasWallet?: boolean;
+  filters?: Partial<UserFilters>;
+  hasWallet?: boolean; // Backward compatibility - merged into filters
 };
 
 const useUserSearch = (options?: UseUserSearchOptions) => {
@@ -18,11 +20,16 @@ const useUserSearch = (options?: UseUserSearchOptions) => {
   const urlSearchTerm = searchParams.get(PARAM_KEY_USER_QUERY) || '';
 
   const [searchTerm, setSearchTerm] = useState<string | undefined>(urlSearchTerm);
+
+  // Merge hasWallet into filters for backward compatibility
+  const mergedFilters: Partial<UserFilters> = {
+    ...options?.filters,
+    ...(options?.hasWallet !== undefined && { hasWallet: options.hasWallet }),
+  };
+
   const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } = useSearchUsers({
     searchTerm,
-    filters: {
-      hasWallet: options?.hasWallet,
-    },
+    filters: mergedFilters,
   });
 
   // Sync URL search term with hook state on mount

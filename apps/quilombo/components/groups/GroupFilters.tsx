@@ -32,7 +32,9 @@ const GroupFilters = ({ filters, onFiltersChange, isActive }: GroupFiltersProps)
   };
 
   const handleClear = () => {
-    setLocalFilters({ styles: [], verified: undefined });
+    const clearedFilters = { styles: [], verified: undefined };
+    setLocalFilters(clearedFilters);
+    onFiltersChange(clearedFilters);
   };
 
   const handleStylesChange = (selectedStyles: string[]) => {
@@ -61,18 +63,6 @@ const GroupFilters = ({ filters, onFiltersChange, isActive }: GroupFiltersProps)
     >
       <Filter className={cn('h-4 w-4', isActive ? 'text-primary' : '')} />
     </Button>
-  );
-
-  // Footer with Clear and Apply buttons
-  const footer = (
-    <div className="flex justify-between gap-2">
-      <Button variant="bordered" size="sm" onPress={handleClear}>
-        Clear
-      </Button>
-      <Button color="primary" size="sm" isDisabled={!hasChanges} onPress={handleApply}>
-        Apply
-      </Button>
-    </div>
   );
 
   // Prepare checkbox values (filtering out undefined) and cast to string[]
@@ -115,7 +105,13 @@ const GroupFilters = ({ filters, onFiltersChange, isActive }: GroupFiltersProps)
   );
 
   return (
-    <FilterPanel trigger={trigger} title="Filter Groups" footer={footer}>
+    <FilterPanel
+      trigger={trigger}
+      title="Filter Groups"
+      onApply={handleApply}
+      onClear={handleClear}
+      hasChanges={hasChanges}
+    >
       {content}
     </FilterPanel>
   );

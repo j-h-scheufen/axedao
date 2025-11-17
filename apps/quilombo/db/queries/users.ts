@@ -35,7 +35,7 @@ export async function searchUsers(
   options: UserSearchParamsWithFilters
 ): Promise<{ rows: schema.SelectUser[]; totalCount: number }> {
   const { pageSize = QUERY_DEFAULT_PAGE_SIZE, offset = 0, searchTerm, filters } = options;
-  const { hasWallet } = filters || {};
+  const { hasWallet, titles } = filters || {};
   const orFilters: (SQLWrapper | undefined)[] = [];
   const andFilters: (SQLWrapper | undefined)[] = [];
 
@@ -48,7 +48,15 @@ export async function searchUsers(
     andFilters.push(isNotNull(schema.users.walletAddress));
   }
 
-  // Combine filters: (searchTerm filters) AND (hasWallet filter)
+  if (titles && titles.length > 0) {
+    // Filter out undefined values and ensure we have a valid array
+    const validTitles = titles.filter((t): t is NonNullable<typeof t> => t !== undefined);
+    if (validTitles.length > 0) {
+      andFilters.push(inArray(schema.users.title, validTitles));
+    }
+  }
+
+  // Combine filters: (searchTerm filters) AND (hasWallet filter) AND (titles filter)
   const whereClause = and(orFilters.length ? or(...orFilters) : undefined, ...andFilters);
 
   const rawResults = await db

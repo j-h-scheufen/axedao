@@ -195,6 +195,7 @@ export type GroupFilters = InferType<typeof groupFiltersSchema>;
 export const userFiltersSchema = baseSearchFiltersSchema.concat(
   object({
     hasWallet: boolean().optional(),
+    titles: array().of(string().oneOf(titles, 'Invalid title')).optional(),
   })
 );
 

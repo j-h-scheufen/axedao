@@ -33,7 +33,9 @@ const CountryFilter = ({ selectedCountries, onCountriesChange, isActive }: Count
   };
 
   const handleClear = () => {
-    setLocalSelection([]);
+    const cleared: string[] = [];
+    setLocalSelection(cleared);
+    onCountriesChange(cleared);
   };
 
   const handleToggle = (code: string) => {
@@ -75,20 +77,16 @@ const CountryFilter = ({ selectedCountries, onCountriesChange, isActive }: Count
     </div>
   );
 
-  // Footer buttons
-  const footer = (
-    <div className="flex justify-between gap-2">
-      <Button variant="bordered" size="sm" onPress={handleClear}>
-        Clear
-      </Button>
-      <Button color="primary" size="sm" isDisabled={!hasChanges} onPress={handleApply}>
-        Apply
-      </Button>
-    </div>
-  );
-
   return (
-    <FilterPanel trigger={trigger} title="Select Countries" footer={footer} width="560px" placement="bottom-start">
+    <FilterPanel
+      trigger={trigger}
+      title="Select Countries"
+      onApply={handleApply}
+      onClear={handleClear}
+      hasChanges={hasChanges}
+      width="560px"
+      placement="bottom-start"
+    >
       {content}
     </FilterPanel>
   );
