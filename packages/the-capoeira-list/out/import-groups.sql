@@ -6,9 +6,9 @@ BEGIN;
 
 -- Batch: batch-01.json (35 groups)
 
--- Group: Capoeira Cordao de Ouro
+-- Group: Capoeira Cordão de Ouro
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('2bd28679-399c-43dc-8fa4-18fb341eb32d', NOW(), NOW(), 'Capoeira Cordao de Ouro', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('2bd28679-399c-43dc-8fa4-18fb341eb32d', NOW(), NOW(), 'Capoeira Cordão de Ouro', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Leader: PROFESSOR Manhoso (Van Robbins)
 Notes: SOURCE: website facebook. 8/3/18', 'smithmr75@gmail.com', '[{"type":"website","url":"http://a2capoeira.wixsite.com/home"}]'::jsonb, NULL, NULL, NULL);
@@ -16,9 +16,9 @@ Notes: SOURCE: website facebook. 8/3/18', 'smithmr75@gmail.com', '[{"type":"webs
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('ef57ecef-f3eb-4b0b-bc5c-cca3f336aef0', '2bd28679-399c-43dc-8fa4-18fb341eb32d', 'Trotter Multicultural Center', 'Schedule: Wed & Thurs 6:00-8:00pm', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-83.7100389,42.2942142]},"properties":{"address":"University of Michigan","displayName":"University of Michigan, 500, South State Street, Old Fourth Ward, Ann Arbor, Washtenaw County, Michigan, 48109, United States of America","country_code":"US","boundingBox":[42.242226,42.3125148,-83.7502236,-83.6649743]}}'::jsonb);
 
--- Group: Axe Capoeira
+-- Group: Axé Capoeira
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('be54c8ef-0dd8-4bd3-811a-f0560a4589ef', NOW(), NOW(), 'Axe Capoeira', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('be54c8ef-0dd8-4bd3-811a-f0560a4589ef', NOW(), NOW(), 'Axé Capoeira', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Leader: Catatau (Bayu Wicaksono)
 Main Contact: - 240-281-7828
@@ -73,9 +73,9 @@ Notes: SOURCE: website 11/30/19', 'info@abadadc.org', '[{"type":"website","url":
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('1cf16623-9b8e-435a-ac28-525e6c926805', 'c7a420d4-eae5-479d-a284-637c58262eb5', 'Rendevouz Social Dance Studio', 'Schedule: Children: Tues & Thurs 5:30 – 6:30 pm; Sat 1:00-2:00pm; Adolescents / Adults:: Tues & Thurs7:30 – 9:00; Sat 2:00 – 3:30pm', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-77.1013265,39.0477777]},"properties":{"address":"11910 Parklawn Drive, Rockville, Maryland","displayName":"Maryland School of Dance, 11711, Parklawn Drive, Nebel District, Rockville, Montgomery County, Maryland, 20852, United States of America","country_code":"US","boundingBox":[39.0477277,39.0478277,-77.1013765,-77.1012765]}}'::jsonb);
 
--- Group: Grupo De Capoeira Sao Jose Dos Carpinteiros
+-- Group: Grupo De Capoeira São José Dos Carpinteiros
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('b0666513-fdfd-4cdb-9844-0ebff2a91d07', NOW(), NOW(), 'Grupo De Capoeira Sao Jose Dos Carpinteiros', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('b0666513-fdfd-4cdb-9844-0ebff2a91d07', NOW(), NOW(), 'Grupo De Capoeira São José Dos Carpinteiros', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Leader: INSTRUCTOR Polaco
 Main Contact: - 0772 390 9107
@@ -97,9 +97,9 @@ VALUES ('ede2ecc1-fd1f-4dcb-a303-82aac044d317', '87c2b6fa-f934-46b0-ab41-bd4b921
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('d383b1db-f305-47e8-82d8-303c858d0f1a', '87c2b6fa-f934-46b0-ab41-bd4b92170ffa', 'Windor Leisure Center', 'Schedule: Fri 7:00-8:30pm', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-0.6040419,51.4837886]},"properties":{"address":"Windsor, Berkshire, SL4 5JB, UK","displayName":"Windsor Castle, West Steps, Clewer New Town, Clewer Village, Windsor, Windsor and Maidenhead, England, SL4 1PR, United Kingdom","country_code":"GB","boundingBox":[51.4828451,51.484747,-0.608327,-0.5999439]}}'::jsonb);
 
--- Group: Cordao de Ouro, Birmingham Brazilian Cultural Centre
+-- Group: Cordão de Ouro, Birmingham Brazilian Cultural Centre
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('2653c88b-62ee-4e9f-b9ac-954e4030d33e', NOW(), NOW(), 'Cordao de Ouro, Birmingham Brazilian Cultural Centre', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('2653c88b-62ee-4e9f-b9ac-954e4030d33e', NOW(), NOW(), 'Cordão de Ouro, Birmingham Brazilian Cultural Centre', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Leader: PROFESSOR Mascote (Samuel Mascote)
 Main Contact: - +44 [0] 7812 99 17 69
@@ -296,9 +296,9 @@ Notes: Under Mestre Eclison de Jesus [Vancouver]. SOURCE: website 3/19/17 inform
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('b5ca2ceb-08fe-4b8d-89c1-daee6e8e3ee0', '186bcb79-cf2d-42bc-b746-f537d16b74b9', 'LifeWorks', 'Schedule: Tues & Thurs 5:30pm', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-115.3587906,51.094582]},"properties":{"address":"1412 Railway Ave, Canmore AB","displayName":"Railway Avenue, Railway, Palliser, Canmore, Town of Canmore, Alberta, T1W 1P6, Canada","country_code":"CA","boundingBox":[51.0932763,51.095891,-115.3589476,-115.3586444]}}'::jsonb);
 
--- Group: Gingarte Capoeira - Capoeira Cordao de Ouro
+-- Group: Gingarte Capoeira - Capoeira Cordão de Ouro
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('0313d66b-6791-49d1-8189-f2f455887f9d', NOW(), NOW(), 'Gingarte Capoeira - Capoeira Cordao de Ouro', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('0313d66b-6791-49d1-8189-f2f455887f9d', NOW(), NOW(), 'Gingarte Capoeira - Capoeira Cordão de Ouro', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Leader: MESTRA Marisa (Marisa Cordeiro)
 Main Contact: Mestra Marisa - 3l2-768-85O7
@@ -352,9 +352,9 @@ VALUES ('3eb721de-b50a-4e09-9a65-1feb24841842', '9661218c-f4ee-42f3-9bae-75b5a8d
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('b842ba41-4df0-46e9-b13b-64bd6aed8acb', '9661218c-f4ee-42f3-9bae-75b5a8d38757', 'Midleton Educate Together National School', NULL, '{"type":"Feature","geometry":{"type":"Point","coordinates":[-8.1828232,51.9262485]},"properties":{"address":"Mill Road, Midleton, County Cork, Ireland","displayName":"Mill Road, Midleton Rural, The Municipal District of East Cork, County Cork, Munster, P25 YY72, Éire / Ireland","country_code":"IE","boundingBox":[51.9223531,51.9310009,-8.1843203,-8.1796103]}}'::jsonb);
 
--- Group: Axe Capoeira Comox
+-- Group: Axé Capoeira Comox
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('96745d5f-f121-45d7-8264-9407ed9f5840', NOW(), NOW(), 'Axe Capoeira Comox', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('96745d5f-f121-45d7-8264-9407ed9f5840', NOW(), NOW(), 'Axé Capoeira Comox', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Leader: GRADUADA Alisha (Alicia Fennell)
 Main Contact: - 250-898-7918
@@ -388,9 +388,9 @@ VALUES ('6599575b-f6c9-4607-9914-3bf564683e70', 'b20342b3-b37a-453c-aafa-56e5a7d
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('5b490977-acbf-412e-85b0-a2cc2cf20731', 'b20342b3-b37a-453c-aafa-56e5a7d24849', 'Enshin Karate School', 'Schedule: Kids: Wed 6:00pm; Adult Beginners: Mon & Wed 7:00pm; Tues & Thurs 8:00pm; Intermediate: Wed 8:00pm', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-104.9135218,39.6785432]},"properties":{"address":"6441 E Evans Ave Denver CO","displayName":"6441, East Evans Avenue, Denver, Colorado, 80222, United States of America","country_code":"US","boundingBox":[39.6784932,39.6785932,-104.9135718,-104.9134718]}}'::jsonb);
 
--- Group: Roots Capoeira De Ouro - Cordao de Ouro
+-- Group: Roots Capoeira De Ouro - Cordão de Ouro
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('dbffd51e-8fc3-4cbf-a01c-e97a025fac6c', NOW(), NOW(), 'Roots Capoeira De Ouro - Cordao de Ouro', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('dbffd51e-8fc3-4cbf-a01c-e97a025fac6c', NOW(), NOW(), 'Roots Capoeira De Ouro - Cordão de Ouro', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Main Contact: - 1-515-661-4556
 Notes: Overseen by Mestre Chicote [Paris]. Monitora Caju "Rebecca Schleuger-Valadao", Graduada Dim Dim "Shalina Wallace", Graduado Piriquito "EJ Wallace". SOURCE: website 3/17/18', 'iowarootscapoeira@gmail.com', '[{"type":"website","url":"http://www.rootscapoeira.com"}]'::jsonb, NULL, NULL, NULL);
@@ -458,9 +458,9 @@ Notes: SOURCE: website 12/31/19', 'pelecandeias@hotmail.com', '[{"type":"website
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('0cdd0dae-d353-4ecd-820b-b2c00afbc14e', 'c0e1db60-8611-487a-81fe-5abff2dfefce', 'Carmelite Communite centre', 'Schedule: Beginners: Mon 9:00 to 10:00; Mixed With Roda. Wed 8:00 to 9:00', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-6.2660262,53.3399826]},"properties":{"address":"56 Aungier street, Dublin 2","displayName":"Carmelite Community Centre, 56, Aungier Street, Royal Exchange A Ward 1986, Dublin, County Dublin, Leinster, D02 RW67, Éire / Ireland","country_code":"IE","boundingBox":[53.3398635,53.3401797,-6.2661703,-6.2658673]}}'::jsonb);
 
--- Group: Mao no Chao Capoeira Angola
+-- Group: Mão no Chão Capoeira Angola
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('fcd40e32-c87a-4bad-9ecd-1189bd7820af', NOW(), NOW(), 'Mao no Chao Capoeira Angola', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('fcd40e32-c87a-4bad-9ecd-1189bd7820af', NOW(), NOW(), 'Mão no Chão Capoeira Angola', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Main Contact: Stephen - 07807 693298
 Notes: Associated with Mestre Marrom e Alunos [Rio de Janiero]. No longer appears to have classes in Dundee 12/30/19. SOURCE: website 6/20/13', 'maonochao.edinburgh@googlemail.com', '[{"type":"website","url":"https://maonochao.wordpress.com/"}]'::jsonb, NULL, NULL, NULL);
@@ -483,9 +483,9 @@ VALUES ('218158ea-58d1-4ffd-a79b-665953c38fa1', '1070ba00-3b41-4ca0-b75f-c2dc0ba
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('7412b214-1d2a-49c4-89dd-2788e9598496', '1070ba00-3b41-4ca0-b75f-c2dc0ba9dcc7', 'Brancepeth Village Hall', 'Schedule: Sun 10:00am-11:00am (Kids); Sun 11:00am-12:00pm (All Levels)', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-1.6563185557685909,54.73599369091818]},"properties":{"address":"The Village, Brancepeth, Durham, DH7 8DD","displayName":"The Village, Brancepeth, County Durham, North East, England, DH7 8DG, United Kingdom","country_code":"gb","boundingBox":[54.7356261,54.7363613,-1.6568973,-1.6557398]}}'::jsonb);
 
--- Group: Mao no Chao Capoeira Angola Edinburgh
+-- Group: Mão no Chão Capoeira Angola Edinburgh
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('467658e3-8c1b-4f01-a37e-87ba86e013be', NOW(), NOW(), 'Mao no Chao Capoeira Angola Edinburgh', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('467658e3-8c1b-4f01-a37e-87ba86e013be', NOW(), NOW(), 'Mão no Chão Capoeira Angola Edinburgh', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Notes: Associated with Mestre Marrom e Alunos [Rio de Janiero]. SOURCE: website 12/30', 'maonochao.edinburgh@googlemail.com', '[{"type":"website","url":"https://maonochao.wordpress.com/"}]'::jsonb, NULL, NULL, NULL);
 
@@ -530,9 +530,9 @@ Notes: Instructor: Girafa under Perere [Port Townsend WA]. SOURCE: website 3/17/
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('6489eff4-c90a-46d8-9307-04598898725f', '450fab0c-d357-4f05-9809-2383b38c6fa9', 'Maharishi University of Management Recreation Center', 'Schedule: Age 14 and up: Mon & Wed 7:30-9:00pm; Sat 3:00-4:30pm', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-91.963967,41.023532]},"properties":{"address":"Maharishi University of Management, Fairfield, IA 52557","displayName":"Maharishi International University, 1000, North 4th Street, Fairfield, Jefferson County, Iowa, 52557, United States of America","country_code":"US","boundingBox":[41.014892,41.0320579,-91.971762,-91.9586887]}}'::jsonb);
 
--- Group: Cordao de Ouro South Carolina
+-- Group: Cordão de Ouro South Carolina
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('ae9cc3b8-bdc4-4f04-bcd6-dd68e5f1cfd3', NOW(), NOW(), 'Cordao de Ouro South Carolina', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('ae9cc3b8-bdc4-4f04-bcd6-dd68e5f1cfd3', NOW(), NOW(), 'Cordão de Ouro South Carolina', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Leader: MESTRE Neguinho
 Notes: Greenville/Spartanburg, South Carolina. Mestre Neguinho. SOURCE: website 7/10/19', NULL, '[{"type":"website","url":"https://neguinhocdo.com/"}]'::jsonb, NULL, NULL, NULL);
@@ -720,9 +720,9 @@ Notes: San Antonio, Texas. Monitor Advogado (Nathan Sparrow) under Mestre Loka. 
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('2ddefe97-b211-432e-9074-2127cf738195', 'cbe6eab2-753d-4fa2-93c2-4146c22be100', 'CapuraGinga Capoeira', 'Schedule: Beg Kids Tues & Thurs 5:00pm; Adv Kids: Mon & Wed 6:00pm; Beg Adults: Tues & Thurs 6:00pm; Adults: Mon, Wed, & Fri 6:00am; Sat 10:am; Ad/Inter Adults: Mon, Tues & Wed7:00pm; RODA Thurs: 7:00pm', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-98.5259367,29.5144559]},"properties":{"address":"8005 West Avenue, San Antonio TX 78213","displayName":"West Avenue, San Antonio, Bexar County, Texas, 78213, United States of America","country_code":"US","boundingBox":[29.5141143,29.5147974,-98.5259399,-98.5259334]}}'::jsonb);
 
--- Group: Mao no Chao Capoeira Angola Glasgow
+-- Group: Mão no Chão Capoeira Angola Glasgow
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('50879efc-1153-4f93-afe8-21a7c6e21a77', NOW(), NOW(), 'Mao no Chao Capoeira Angola Glasgow', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('50879efc-1153-4f93-afe8-21a7c6e21a77', NOW(), NOW(), 'Mão no Chão Capoeira Angola Glasgow', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Notes: Associated with Mestre Marrom e Alunos [Rio de Janiero]. SOURCE: website 12/29/19', NULL, '[{"type":"website","url":"https://maonochao.wordpress.com/"}]'::jsonb, NULL, NULL, NULL);
 
@@ -731,9 +731,9 @@ VALUES ('79f403b7-393b-4c13-940b-f2eb3289c2d8', '50879efc-1153-4f93-afe8-21a7c6e
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('7aaaf996-8a8e-4305-befd-acfc05f4eacc', '50879efc-1153-4f93-afe8-21a7c6e21a77', 'Garnethill Multicultural Centre', 'Schedule: Kids and adults, Mon 7.30-9.30', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-4.2616269,55.866268]},"properties":{"address":"21 Rose Street, Glasgow","displayName":"Garnethill Multicultural Comunity Centre, 21, Rose Street, Garnethill, Glasgow, Glasgow City, Alba / Scotland, G3 6RE, United Kingdom","country_code":"GB","boundingBox":[55.8661786,55.8663572,-4.2617428,-4.2615101]}}'::jsonb);
 
--- Group: Grand Rapids Capoeira - West Michigan Cordao de Ouro
+-- Group: Grand Rapids Capoeira - West Michigan Cordão de Ouro
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('25e66398-3e4c-4999-90c6-f176c32b2b19', NOW(), NOW(), 'Grand Rapids Capoeira - West Michigan Cordao de Ouro', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('25e66398-3e4c-4999-90c6-f176c32b2b19', NOW(), NOW(), 'Grand Rapids Capoeira - West Michigan Cordão de Ouro', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Leader: MONITOR Talento
 Notes: Under the supervision of Instrutor Show Grande. Allendale. SOURCE: website 7/29/18', 'talentocdo@gmail.com', '[{"type":"website","url":"https://www.grcapoeira.com/"}]'::jsonb, NULL, NULL, NULL);
@@ -865,9 +865,9 @@ VALUES ('3d2e8126-b6dc-4cd8-b1f1-218edb88fee3', 'acfc336d-11de-4468-b9f3-0416261
 
 -- Batch: batch-03.json (38 groups)
 
--- Group: ASCAB [Associacao Santista de Capoeira Areia Branca]
+-- Group: ASCAB [Associação Santista de Capoeira Areia Branca]
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('cc5ac8ea-9deb-46d2-8532-e9aa9b8a6f5d', NOW(), NOW(), 'ASCAB [Associacao Santista de Capoeira Areia Branca]', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('cc5ac8ea-9deb-46d2-8532-e9aa9b8a6f5d', NOW(), NOW(), 'ASCAB [Associação Santista de Capoeira Areia Branca]', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Leader: MESTRE Doutor (Adenilson dos Santos)
 Main Contact: - 215-601-9117
@@ -1921,9 +1921,9 @@ INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('cea427f2-e040-4149-9b17-03b4ae8e5c59', '2c05ffef-8639-48fc-817f-8f07dcb91976', 'W Rhythm Fitness & Wellness Studio', 'Schedule: Sun 12:30pm
 Phone: [203] 788-7818', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-73.4782244,41.7227369]},"properties":{"address":"25 Main St. Kent, Ct 06757","displayName":"25, South Main Street, Kent, Northwest Hills Planning Region, Connecticut, 06757, United States of America","country_code":"US","boundingBox":[41.7226869,41.7227869,-73.4782744,-73.4781744]}}'::jsonb);
 
--- Group: Cordao de Ouro - Cedar Falls
+-- Group: Cordão de Ouro - Cedar Falls
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('908e7602-4ccb-42fd-b469-b06c02e41a99', NOW(), NOW(), 'Cordao de Ouro - Cedar Falls', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('908e7602-4ccb-42fd-b469-b06c02e41a99', NOW(), NOW(), 'Cordão de Ouro - Cedar Falls', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Main Contact: Alan Huynh - 319-215-1140
 Notes: Cedar Falls, Iowa. Contact: Busca Pe (Alan Huynh). Website has not been updated since 2015; facebook page is offline 3/14/18. Classes are on the schedule but do not agree with the above website 3/14/18. SOURCE: websites 3/14/18', 'cedarvalley@gmail.com', '[{"type":"website","url":"https://sites.google.com/site/cedarvalleycapoeira"}]'::jsonb, NULL, NULL, NULL);
@@ -1931,9 +1931,9 @@ Notes: Cedar Falls, Iowa. Contact: Busca Pe (Alan Huynh). Website has not been u
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('9c58a1cc-623d-489f-8078-5553ac25f63f', '908e7602-4ccb-42fd-b469-b06c02e41a99', 'Heinz Academy', NULL, '{"type":"Feature","geometry":{"type":"Point","coordinates":[-92.434082,42.5149668]},"properties":{"address":"6322 University Ave, Cedar Falls, IA 50613","displayName":"West Music, 6322, University Avenue, Cedar Falls, Black Hawk County, Iowa, 50613, United States of America","country_code":"US","boundingBox":[42.5148377,42.5152255,-92.4342076,-92.4339595]}}'::jsonb);
 
--- Group: Axe Richmond
+-- Group: Axé Richmond
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('06ef5e65-7652-4053-872f-b9ab5f598d06', NOW(), NOW(), 'Axe Richmond', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('06ef5e65-7652-4053-872f-b9ab5f598d06', NOW(), NOW(), 'Axé Richmond', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Leader: INSTRUTOR Polvo (Kenneth Clark)
 Notes: Richmond BC, Canada. Instrutor Polvo (Kenneth Clark) under Mestre Barrao [Vancouver]. SOURCE: website 4/25/17', NULL, '[{"type":"website","url":"https://richmondcapoeira.com"}]'::jsonb, NULL, NULL, NULL);
@@ -1965,21 +1965,21 @@ INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('afad97d4-f6d4-446a-82f7-85ba2df40895', '03c5cd12-34ab-4bb4-a87f-edb37890162d', 'Burton Wells Recreation Center', 'Schedule: Tues & Thurs 5:30-6:45
 Phone: 843-470-6200', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-80.6923169,32.3850708]},"properties":{"address":"Beaufort, SC 29906","displayName":"Beaufort County, South Carolina, United States of America","country_code":"US","boundingBox":[32.07689,32.704321,-81.016234,-80.3448069]}}'::jsonb);
 
--- Group: Axe Capoeira Toronto
+-- Group: Axé Capoeira Toronto
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('fa6a5353-b78d-416e-8b9f-702bb477cc7f', NOW(), NOW(), 'Axe Capoeira Toronto', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('fa6a5353-b78d-416e-8b9f-702bb477cc7f', NOW(), NOW(), 'Axé Capoeira Toronto', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Leader: PROFESSOR Paraiba (Marcos Martins)
 Main Contact: Professor Paraiba - 647.340.2293
 Notes: Toronto, Ontario, Canada. Professor Paraiba (Marcos Martins). SOURCE: website 4/26/17', 'axetoronto@gmail.com', '[{"type":"website","url":"http://www.axecapoeira-to.com/"}]'::jsonb, NULL, NULL, NULL);
 
 INSERT INTO group_locations (id, group_id, name, description, feature)
-VALUES ('00a32ac4-b239-42a6-b4d2-bff57e806291', 'fa6a5353-b78d-416e-8b9f-702bb477cc7f', 'Axe Capoeira Toronto Academy', 'Schedule: (Full schedule of classes. See website)
+VALUES ('00a32ac4-b239-42a6-b4d2-bff57e806291', 'fa6a5353-b78d-416e-8b9f-702bb477cc7f', 'Axé Capoeira Toronto Academy', 'Schedule: (Full schedule of classes. See website)
 Phone: 647.340.2293', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-79.4392291,43.6786681]},"properties":{"address":"1069 St Clair Ave West, Toronto, Ontario, M6E 1A6, Canada","displayName":"1069, St. Clair Avenue West, Corso Italia-Davenport, Davenport, Toronto, Golden Horseshoe, Ontario, M6E 1A3, Canada","country_code":"CA","boundingBox":[43.6786181,43.6787181,-79.4392791,-79.4391791]}}'::jsonb);
 
--- Group: Associacao Kadara Capoeira
+-- Group: Associação Kadara Capoeira
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('24910a62-6ad5-463c-8f5b-d74601e6466d', NOW(), NOW(), 'Associacao Kadara Capoeira', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('24910a62-6ad5-463c-8f5b-d74601e6466d', NOW(), NOW(), 'Associação Kadara Capoeira', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Leader: INSTRUCTOR Soquete
 Main Contact: Instructor Soquete - 647 522 4540
@@ -2001,12 +2001,12 @@ Notes: Toronto, Ontario, Canada. Contra Mestre Lua Branca (Waldecir de Souza). S
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('985af442-245a-4a62-8fab-bafe861df871', '4bc52e9f-4e20-4ce5-b22a-54b1a6b5f887', 'Wu Xing Martial Arts', 'Schedule: Mon 8:00-9:30pm; Wed 8:45-10:15pm; Fri 7:30-9:00pm', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-79.4105211,43.6744418]},"properties":{"address":"374 Dupont St.","displayName":"374, Dupont Street, Annex, University—Rosedale, Toronto, Golden Horseshoe, Ontario, M5R 1V9, Canada","country_code":"CA","boundingBox":[43.674259,43.6746194,-79.4107294,-79.4103342]}}'::jsonb);
 
--- Group: The Canadian Centre for Capoeira - Cordao de Ouro
+-- Group: The Canadian Centre for Capoeira - Cordão de Ouro
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('5a6f8b3b-7288-4b53-a7b0-2ba350a73106', NOW(), NOW(), 'The Canadian Centre for Capoeira - Cordao de Ouro', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('5a6f8b3b-7288-4b53-a7b0-2ba350a73106', NOW(), NOW(), 'The Canadian Centre for Capoeira - Cordão de Ouro', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Main Contact: - 647.892.5931
-Notes: Toronto, Ontario, Canada. The Canadian Centre for Capoeira - Cordao de Ouro. SOURCE: website 12/13/16', 'cdo.toronto@gmail.com', '[{"type":"website","url":"http://www.tcc4c.com/"}]'::jsonb, NULL, NULL, NULL);
+Notes: Toronto, Ontario, Canada. The Canadian Centre for Capoeira - Cordão de Ouro. SOURCE: website 12/13/16', 'cdo.toronto@gmail.com', '[{"type":"website","url":"http://www.tcc4c.com/"}]'::jsonb, NULL, NULL, NULL);
 
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('81e74781-ec26-46b8-82ba-48d09d27ad6c', '5a6f8b3b-7288-4b53-a7b0-2ba350a73106', 'hook up Muay Thai Boxing gym', 'Schedule: Adult: Mon & Wed 8:00-9:00pm;', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-79.4588478,43.7269869]},"properties":{"address":"288 Bridgeland Avenue, M6A 1Z4, Toronto, ON","displayName":"Bridgeland Avenue, Yorkdale-Glen Park, Eglinton—Lawrence, North York, Toronto, Golden Horseshoe, Ontario, M3K 1E4, Canada","country_code":"CA","boundingBox":[43.7269067,43.7270672,-79.4592586,-79.458437]}}'::jsonb);
@@ -2022,16 +2022,16 @@ Notes: Vancouver, British Columbia, Canada. Mestre Eclison de Jesus. SOURCE: web
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('4bb44512-d0ec-4b18-87a8-66718621058d', '4719a4fb-68bd-48cb-9a9e-23f7c5e640d2', 'Capoeira Ache Brasil Academy', 'Schedule: (Full schedule of classes)', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.097841,49.2629659]},"properties":{"address":"341 East Broadway, Vancouver BC V5T 1W5","displayName":"Capoeira Aché Brasil Academy, 341, East Broadway, Mount Pleasant, Vancouver, Metro Vancouver Regional District, British Columbia, V5T, Canada","country_code":"CA","boundingBox":[49.2629159,49.2630159,-123.097891,-123.097791]}}'::jsonb);
 
--- Group: AXE Capoeira Vancouver
+-- Group: AXÉ Capoeira Vancouver
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('575c95e6-5384-46bd-a06a-d6415de5ed4f', NOW(), NOW(), 'AXE Capoeira Vancouver', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('575c95e6-5384-46bd-a06a-d6415de5ed4f', NOW(), NOW(), 'AXÉ Capoeira Vancouver', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Leader: MESTRE Marcos Barrao
 Main Contact: Mestre Marcos Barrao - 604-537-8943, 604-761-4635
 Notes: Vancouver, British Columbia, Canada. Mestre Marcos Barrao. SOURCE: website 4/27/17', 'info@axecapoeira.com', '[{"type":"website","url":"http://www.axecapoeira.com"}]'::jsonb, NULL, NULL, NULL);
 
 INSERT INTO group_locations (id, group_id, name, description, feature)
-VALUES ('b959da98-b4b4-4b5b-afd2-478b930f7c5c', '575c95e6-5384-46bd-a06a-d6415de5ed4f', 'Axe Capoeira Academy', 'Schedule: (Full schedule of classes)', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.0699601,49.2768956]},"properties":{"address":"1739 Venables st, Vancouver, BC, v5L 2H3","displayName":"1739, Venables Street, Grandview-Woodland, Vancouver, Metro Vancouver Regional District, British Columbia, V5L, Canada","country_code":"CA","boundingBox":[49.2767563,49.277034,-123.0701996,-123.069698]}}'::jsonb);
+VALUES ('b959da98-b4b4-4b5b-afd2-478b930f7c5c', '575c95e6-5384-46bd-a06a-d6415de5ed4f', 'Axé Capoeira Academy', 'Schedule: (Full schedule of classes)', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.0699601,49.2768956]},"properties":{"address":"1739 Venables st, Vancouver, BC, v5L 2H3","displayName":"1739, Venables Street, Grandview-Woodland, Vancouver, Metro Vancouver Regional District, British Columbia, V5L, Canada","country_code":"CA","boundingBox":[49.2767563,49.277034,-123.0701996,-123.069698]}}'::jsonb);
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('6cc5dfb5-75d7-4758-84af-6a6a91cc3356', '575c95e6-5384-46bd-a06a-d6415de5ed4f', 'Seymour Dance', 'Phone: 604 929 6060', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.0004897,49.3144914]},"properties":{"address":"808 Lytton St, North Vancouver, BC V7H 2T1","displayName":"Lytton Street, Seymour Heights, Seymour, District of North Vancouver, Metro Vancouver Regional District, British Columbia, V7H 2M5, Canada","country_code":"CA","boundingBox":[49.3135999,49.315233,-123.001259,-123.0000177]}}'::jsonb);
 INSERT INTO group_locations (id, group_id, name, description, feature)
@@ -2041,16 +2041,16 @@ INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('0b4a0e42-5de1-4793-857a-e7029e005794', '575c95e6-5384-46bd-a06a-d6415de5ed4f', 'North Shore Neighbourhood House', 'Schedule: Kids Class [5-12yrs]: Mon 5:30-6:30pm
 Phone: 604-987-8138', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.073971,49.3106439]},"properties":{"address":"225 east 2nd street, North Vancouver, BC V7L 1C4","displayName":"North Shore Neighbourhood House, 225, East 2nd Street, The Shipyards Common, Lower Lonsdale, North Vancouver, Metro Vancouver Regional District, British Columbia, V7L, Canada","country_code":"CA","boundingBox":[49.3104443,49.3108417,-123.0743106,-123.0736315]}}'::jsonb);
 
--- Group: Grupo Axe Capoeira Victoria Academy
+-- Group: Grupo Axé Capoeira Victoria Academy
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('55998b1c-0f5f-4bae-8f80-c0793357a0cc', NOW(), NOW(), 'Grupo Axe Capoeira Victoria Academy', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('55998b1c-0f5f-4bae-8f80-c0793357a0cc', NOW(), NOW(), 'Grupo Axé Capoeira Victoria Academy', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Leader: CONTRA-MESTRE Testa (Kevin Bret)
 Main Contact: Contramestre Testa - 250.589-8293
 Notes: Victoria, British Columbia, Canada. Contramestre Testa (Kevin Bret). Instrutora Andrea [Kids Program]. SOURCE: website 5/6/17', 'testa@axecapoeira.tv', '[{"type":"website","url":"http://www.axecapoeira.tv/"}]'::jsonb, NULL, NULL, NULL);
 
 INSERT INTO group_locations (id, group_id, name, description, feature)
-VALUES ('1b62cc7d-3c5a-4bd3-956a-d73be7bc6eec', '55998b1c-0f5f-4bae-8f80-c0793357a0cc', 'Grupo Axe Capoeira Victoria Academy', 'Schedule: (Full schedule of classes)
+VALUES ('1b62cc7d-3c5a-4bd3-956a-d73be7bc6eec', '55998b1c-0f5f-4bae-8f80-c0793357a0cc', 'Grupo Axé Capoeira Victoria Academy', 'Schedule: (Full schedule of classes)
 Phone: [250] 884-7998
 Email: andrea@axecapoeira.tv', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.3641227,48.4260458]},"properties":{"address":"715 Yates Street Victoria, BC V8W 1L6","displayName":"715, Yates Street, Chinatown, Downtown, Victoria, Capital Regional District, British Columbia, V8W 0C8, Canada","country_code":"CA","boundingBox":[48.4259958,48.4260958,-123.3641727,-123.3640727]}}'::jsonb);
 
@@ -2099,9 +2099,9 @@ Notes: Tucson, Arizona. Mestra Luar do Sertao (Anne Pollack) directed and guided
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('8b1c0dde-df6d-46ad-9954-456cd27bdbe8', '9cf0c58c-746d-4607-919c-7b224201a07d', 'Capoeira Mandinga Tucson Academy', 'Schedule: Tykes[Ages 3-6] 9:30-10:10am; Kids [Ages 6-13]: Mon 5:00-6:15pm; Sat 10:00-11:15am; Adult & Teen: Mon 7:30-8:30pm; Tues 7:30-9:00pm; Thurs 7:00-8:30pm; Sat 11:30am-1:00pm; Women and kids ages 4+: Tues 6:00-7:15pm; Kids & Family [Ages 6+]: Thurs 5:15-6:30pm; OPEN RODA! 1st Sat 11:00am-12:00pm', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-110.9790004,32.254989]},"properties":{"address":"85705, Tucson, AZ","displayName":"85705, Miracle Manor, Tucson, Pima County, Arizona, United States of America","country_code":"US","boundingBox":[32.204989,32.304989,-111.0290004,-110.9290004]}}'::jsonb);
 
--- Group: Axe Capoeira Tucson
+-- Group: Axé Capoeira Tucson
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('8da9f69d-949b-48c8-a329-9b3c8c25a7a7', NOW(), NOW(), 'Axe Capoeira Tucson', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('8da9f69d-949b-48c8-a329-9b3c8c25a7a7', NOW(), NOW(), 'Axé Capoeira Tucson', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Main Contact: Instrutor Sombra (Aquil Joel Hameed) - 520-990-1820
 Notes: Tucson, Arizona. Instrutor Sombra (Aquil Joel Hameed). SOURCE: website 6/5/18', 'axesombra@gmail.com', '[{"type":"website","url":"https://www.tucsoncapoeira.com"}]'::jsonb, NULL, NULL, NULL);
@@ -2109,9 +2109,9 @@ Notes: Tucson, Arizona. Instrutor Sombra (Aquil Joel Hameed). SOURCE: website 6/
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('bdae2ef0-27e4-45f7-9ac1-9299384f01ec', '8da9f69d-949b-48c8-a329-9b3c8c25a7a7', 'Studio Axe', 'Schedule: Beginning Kids Tues & Thurs 4:30pm; Advanced Kids Tues & Thurs 5:30pm; All Level Kids Sat 11:00am; Beginning Adults/Teens: Mon 7:00pm; All Levels Adults/Teens: Tues & Thurs 7:00pm; Wed 11:00am; Sat 12:00pm', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-110.9287777,32.2214417]},"properties":{"address":"2928 East Broadway Blvd, Tucson, AZ, 85716","displayName":"2928, East Broadway Boulevard, Broadmoor-Broadway, Tucson, Pima County, Arizona, 85716, United States of America","country_code":"US","boundingBox":[32.2213917,32.2214917,-110.9288277,-110.9287277]}}'::jsonb);
 
--- Group: Mao no Chao Capoeira Angola Dundee
+-- Group: Mão no Chão Capoeira Angola Dundee
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('8ca76b53-7c09-4c88-a4e0-76e6227c0542', NOW(), NOW(), 'Mao no Chao Capoeira Angola Dundee', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('8ca76b53-7c09-4c88-a4e0-76e6227c0542', NOW(), NOW(), 'Mão no Chão Capoeira Angola Dundee', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Leader: MESTRE Marrom
 Main Contact: Katie - 07830 102039
@@ -2458,9 +2458,9 @@ Notes: SOURCE: website  5/11/19(', 'ficany@gmail.com', '[{"type":"website","url"
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('4d55259e-e22c-4284-91f2-ef2891feb2af', 'c0c4250e-6d36-4064-b18b-6f1fb996d828', 'Christopher Street', 'Schedule: Mon &Wed 7:00-9:00p; RODA! :3rd Sat 3:00-6:00pm', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-74.0079455,40.7328573]},"properties":{"address":"149 Christopher Street, New York, NY","displayName":"149, Christopher Street, West Village, Manhattan, New York County, City of New York, New York, 10014, United States of America","country_code":"US","boundingBox":[40.7328073,40.7329073,-74.0079955,-74.0078955]}}'::jsonb);
 
--- Group: Dendê Arts - Capoeira Cordao de Ouro
+-- Group: Dendê Arts - Capoeira Cordão de Ouro
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('7f8d6fb4-2cbe-4b8b-8f9f-fe7bd060aac2', NOW(), NOW(), 'Dendê Arts - Capoeira Cordao de Ouro', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('7f8d6fb4-2cbe-4b8b-8f9f-fe7bd060aac2', NOW(), NOW(), 'Dendê Arts - Capoeira Cordão de Ouro', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Leader: MESTRE Chris Rodriguez (under Contra-Mestre CebolinhaNewark)
 Main Contact: - 862-571- 7629
@@ -2469,9 +2469,9 @@ Notes: SOURCE: email 7/10/18', 'dende.arts@gmail.com', '[{"type":"website","url"
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('73b5fb19-b6b0-4ff9-9de7-88522e553112', '7f8d6fb4-2cbe-4b8b-8f9f-fe7bd060aac2', '24th St. Astoria', NULL, '{"type":"Feature","geometry":{"type":"Point","coordinates":[-73.9219081,40.7737369]},"properties":{"address":"27-24 24th St. Astoria, Queens, NY(","displayName":"24th Street, Astoria, Queens, Queens County, City of New York, New York, 11102, United States of America","country_code":"US","boundingBox":[40.7735424,40.773931,-73.92216,-73.921656]}}'::jsonb);
 
--- Group: Com Expressao
+-- Group: Com Expressão
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('6429cacd-5f53-40fb-b655-e9b0d1dc969d', NOW(), NOW(), 'Com Expressao', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('6429cacd-5f53-40fb-b655-e9b0d1dc969d', NOW(), NOW(), 'Com Expressão', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Leader: PROFESSOR Todd Russell
 Main Contact: - 1352
@@ -2690,9 +2690,9 @@ Notes: Alameda County, California. Instructor Busca He'' under Mestre Preguica. 
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('bc4fb653-31f0-4e1e-93af-433639e166be', 'eb94050b-6046-416a-9a93-e385429a1121', 'Malonga Casquelourd Center for the Arts', 'Schedule: Adults & Teens: Mon, Wed, & Fri 6:00-7:30pm; Youth: Mon, Wed, & Fri 5:00-6:00pm', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-122.2657717,37.8028162]},"properties":{"address":"1428 Alice Street, Oakland, CA","displayName":"Malonga Casquelourd Center for the Arts, 1428, Alice Street, Lakeside, Downtown Oakland, Oakland, Alameda County, California, 94612, United States of America","country_code":"US","boundingBox":[37.8025764,37.8030558,-122.266107,-122.2654364]}}'::jsonb);
 
--- Group: Capoeira Mestre Bimba Oakland - Associacao de Capoeira Mestre Bimba
+-- Group: Capoeira Mestre Bimba Oakland - Associação de Capoeira Mestre Bimba
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('ad6e148b-6ffc-43fb-93c8-8cc2bdf03fcb', NOW(), NOW(), 'Capoeira Mestre Bimba Oakland - Associacao de Capoeira Mestre Bimba', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('ad6e148b-6ffc-43fb-93c8-8cc2bdf03fcb', NOW(), NOW(), 'Capoeira Mestre Bimba Oakland - Associação de Capoeira Mestre Bimba', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Leader: INSTRUTOR Cacador (Jadson Souza)
 Main Contact: - [510] 926-1498
@@ -2738,9 +2738,9 @@ VALUES ('a372340a-780c-429c-9593-7ba357ffd24b', '5bbd8a04-dfc4-4735-994a-d77b1ac
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('faf4198e-811c-4e80-83a6-034b1d0d6f89', '5bbd8a04-dfc4-4735-994a-d77b1acf0d19', 'The Dance Spot', 'Schedule: Adults [13+ years]: Thurs: 5:30-6:30pm; Kids [4-12 years of age]: Thurs: 4:30-5:30pm', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-78.4810929,38.0301895]},"properties":{"address":"109 2nd St. SE, Charlottesville, VA 22902","displayName":"Jack Brown’s Beer & Burger Joint, 109, 2nd Street Southeast, North Downtown, Charlottesville, Virginia, 22902, United States of America","country_code":"US","boundingBox":[38.0301309,38.0302481,-78.4812048,-78.480981]}}'::jsonb);
 
--- Group: Capoeira Resistencia
+-- Group: Capoeira Resistência
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('75c92fd9-7aac-4194-8345-bc0cae4801fb', NOW(), NOW(), 'Capoeira Resistencia', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('75c92fd9-7aac-4194-8345-bc0cae4801fb', NOW(), NOW(), 'Capoeira Resistência', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Leader: MESTRE Panão (Robson Alexandre Pedro)
 Main Contact: - [803] 477-0768
@@ -2830,9 +2830,9 @@ Notes: District of Columbia (Washington DC). SOURCE: website 5/15/18', NULL, '[{
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('4e8c279d-5b51-4bdc-9d20-0c3eb5990326', '3b493147-201f-4a89-a7d7-a6148c73f7de', 'Emergence Community Arts Collective', 'Schedule: (Full schedule of classes. See website)', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-77.0237431,38.9243714]},"properties":{"address":"733 Euclid St. NW Washington DC.","displayName":"733, Euclid Street Northwest, Columbia Heights, Ward 1, Washington, District of Columbia, 20001, United States of America","country_code":"US","boundingBox":[38.9242103,38.9244569,-77.0238223,-77.0236526]}}'::jsonb);
 
--- Group: Capoeira Cordao de Ouro Perth
+-- Group: Capoeira Cordão de Ouro Perth
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('bd91c58a-f40a-43fc-b521-56bcd4d34621', NOW(), NOW(), 'Capoeira Cordao de Ouro Perth', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('bd91c58a-f40a-43fc-b521-56bcd4d34621', NOW(), NOW(), 'Capoeira Cordão de Ouro Perth', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Leader: CONTRA-MESTRE Kuata
 Main Contact: Ourico (Lee Coumbe) - 0408924490
@@ -2929,16 +2929,16 @@ Notes: Minneapolis, Minnesota. Instrutor Coruja (James Lynch) and Monitora Vespa
 INSERT INTO group_locations (id, group_id, name, description, feature)
 VALUES ('71a1778c-856a-4966-8d1a-86a2b580d5c4', '0a59fb9d-ec0d-4b4a-b58c-b1518793d74d', 'Minnesota Capoeira Academy', 'Schedule: (full schedule of classes)', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-93.2868223,44.8859142]},"properties":{"address":"6463 Lyndale Avenue South, Richfield, MN 55423","displayName":"6463, Lyndale Avenue South, Richfield, Hennepin County, Minnesota, 55423, United States of America","country_code":"US","boundingBox":[44.8858642,44.8859642,-93.2868723,-93.2867723]}}'::jsonb);
 
--- Group: Axe Capoeira Kansas City
+-- Group: Axé Capoeira Kansas City
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
-VALUES ('2623cdc4-48a2-4c46-805c-2df0485f3ea5', NOW(), NOW(), 'Axe Capoeira Kansas City', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
+VALUES ('2623cdc4-48a2-4c46-805c-2df0485f3ea5', NOW(), NOW(), 'Axé Capoeira Kansas City', 'This group and its data were imported from the public data collection at http://home.znet.com/capoeira_list/index.htm. If you have reason to object to this data being included here, kindly send an email to support@quilombo.net.
 
 Leader: GRADUADA Arara (Sonia Duncombe)
 Main Contact: Graduada Arara (Sonia Duncombe) - [816] 442-9907
 Notes: Kansas City, Missouri. Graduada Arara (Sonia Duncombe). SOURCE: website 3/19/18', 'axecapoeirakc1@gmail.com', '[{"type":"website","url":"http://www.capoeirakc.com"}]'::jsonb, NULL, NULL, NULL);
 
 INSERT INTO group_locations (id, group_id, name, description, feature)
-VALUES ('6b3f6c83-2a80-4107-b6e6-8742a42f9d6f', '2623cdc4-48a2-4c46-805c-2df0485f3ea5', 'Axe Capoeira Kansas City', 'Schedule: (Full schedule of classes)', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-94.5749955,39.010136]},"properties":{"address":"6430 Troost Ave, Kansas City, MO 64131","displayName":"6430, Troost Avenue, Oak Meyer Gardens, Kansas City, Jackson County, Missouri, 64131, United States of America","country_code":"US","boundingBox":[39.0100595,39.0102125,-94.5751173,-94.5748737]}}'::jsonb);
+VALUES ('6b3f6c83-2a80-4107-b6e6-8742a42f9d6f', '2623cdc4-48a2-4c46-805c-2df0485f3ea5', 'Axé Capoeira Kansas City', 'Schedule: (Full schedule of classes)', '{"type":"Feature","geometry":{"type":"Point","coordinates":[-94.5749955,39.010136]},"properties":{"address":"6430 Troost Ave, Kansas City, MO 64131","displayName":"6430, Troost Avenue, Oak Meyer Gardens, Kansas City, Jackson County, Missouri, 64131, United States of America","country_code":"US","boundingBox":[39.0100595,39.0102125,-94.5751173,-94.5748737]}}'::jsonb);
 
 -- Group: Capoeira Luanda of St. Louis
 INSERT INTO groups (id, created_at, updated_at, name, description, email, links, created_by, claimed_by, claimed_at)
