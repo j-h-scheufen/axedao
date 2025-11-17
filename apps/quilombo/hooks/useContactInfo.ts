@@ -1,6 +1,6 @@
 'use client';
 import { SiX } from '@icons-pack/react-simple-icons';
-import { Facebook, Instagram, LinkIcon, LinkedinIcon } from 'lucide-react';
+import { Facebook, Instagram, LinkIcon, LinkedinIcon, Globe } from 'lucide-react';
 import { useCallback } from 'react';
 
 const useContactInfo = () => {
@@ -14,6 +14,8 @@ const useContactInfo = () => {
         return LinkedinIcon;
       case 'twitter':
         return SiX;
+      case 'website':
+        return Globe;
       default:
         return LinkIcon;
     }

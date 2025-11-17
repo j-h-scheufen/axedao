@@ -14,16 +14,20 @@ const ContactInfo = ({ className = '', links = [], isLoading }: Props) => {
       {links.map((link, index) => {
         const { type, url } = link;
         const Icon = getLinkIcon(type ?? null);
+        const showUrl = !type || type === 'website';
+
         return (
-          // biome-ignore lint/suspicious/noArrayIndexKey: Safe to use the index as key here
-          <div key={`link-item-${index}`} className="flex gap-1 text-default-400 hover:text-primary">
-            <Icon href={url} className="pointer-events-none h-4 w-4 flex-shrink-0" strokeWidth={1.4} />
-            {!type && (
-              <a href={url} target="_blank" className="link" rel="noreferrer">
-                {url}
-              </a>
-            )}
-          </div>
+          <a
+            // biome-ignore lint/suspicious/noArrayIndexKey: Safe to use the index as key here
+            key={`link-item-${index}`}
+            href={url}
+            target="_blank"
+            rel="noreferrer"
+            className="flex gap-1 items-center text-default-400 hover:text-primary"
+          >
+            <Icon className="h-4 w-4 flex-shrink-0" strokeWidth={1.4} />
+            {showUrl && <span className="link">{url}</span>}
+          </a>
         );
       })}
     </div>

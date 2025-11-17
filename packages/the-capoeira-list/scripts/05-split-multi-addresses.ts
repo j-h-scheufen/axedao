@@ -301,7 +301,7 @@ async function geocodeAddress(address: string): Promise<GeocodeResult> {
         properties: {
           address,
           displayName: location.display_name,
-          countryCode: location.address?.country_code?.toUpperCase(),
+          country_code: location.address?.country_code?.toUpperCase(),
           boundingBox,
         },
       },
