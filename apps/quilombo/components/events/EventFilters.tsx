@@ -69,23 +69,6 @@ const EventFilters = ({ filters, onFiltersChange, isActive }: EventFiltersProps)
     public_roda: 'Public Roda',
   };
 
-  // Filter content
-  const content = (
-    <div className="flex flex-col gap-4">
-      {/* Event Types */}
-      <div>
-        <p className="text-sm font-semibold mb-2">Event Type</p>
-        <CheckboxGroup value={selectedEventTypes} onValueChange={handleEventTypesChange}>
-          {eventTypes.map((type) => (
-            <Checkbox key={type} value={type}>
-              <span className="text-sm">{eventTypeLabels[type] || type}</span>
-            </Checkbox>
-          ))}
-        </CheckboxGroup>
-      </div>
-    </div>
-  );
-
   return (
     <FilterPanel
       trigger={trigger}
@@ -94,7 +77,19 @@ const EventFilters = ({ filters, onFiltersChange, isActive }: EventFiltersProps)
       onClear={handleClear}
       hasChanges={hasChanges}
     >
-      {content}
+      <div className="flex flex-col gap-4">
+        {/* Event Types */}
+        <div>
+          <p className="text-sm font-semibold mb-2">Event Type</p>
+          <CheckboxGroup value={selectedEventTypes} onValueChange={handleEventTypesChange}>
+            {eventTypes.map((type) => (
+              <Checkbox key={type} value={type}>
+                <span className="text-sm">{eventTypeLabels[type] || type}</span>
+              </Checkbox>
+            ))}
+          </CheckboxGroup>
+        </div>
+      </div>
     </FilterPanel>
   );
 };

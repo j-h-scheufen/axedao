@@ -47,7 +47,7 @@ const GroupFilters = ({ filters, onFiltersChange, isActive }: GroupFiltersProps)
   const handleVerifiedChange = (checked: boolean) => {
     setLocalFilters((prev) => ({
       ...prev,
-      verified: prev.verified === undefined ? checked : prev.verified === checked ? undefined : checked,
+      verified: checked ? true : undefined,
     }));
   };
 
@@ -68,42 +68,6 @@ const GroupFilters = ({ filters, onFiltersChange, isActive }: GroupFiltersProps)
   // Prepare checkbox values (filtering out undefined) and cast to string[]
   const selectedStyles = (localFilters.styles || []).filter((s) => s !== undefined) as string[];
 
-  // Filter content
-  const content = (
-    <div className="flex flex-col gap-4">
-      {/* Verification Status */}
-      <div>
-        <p className="text-sm font-semibold mb-2">Verification Status</p>
-        <div className="flex flex-col gap-2">
-          <Checkbox
-            isSelected={localFilters.verified === true}
-            onValueChange={(checked) => handleVerifiedChange(checked)}
-          >
-            <span className="text-sm">Verified only</span>
-          </Checkbox>
-          <Checkbox
-            isSelected={localFilters.verified === false}
-            onValueChange={(checked) => handleVerifiedChange(!checked)}
-          >
-            <span className="text-sm">Unverified only</span>
-          </Checkbox>
-        </div>
-      </div>
-
-      {/* Styles */}
-      <div>
-        <p className="text-sm font-semibold mb-2">Style</p>
-        <CheckboxGroup value={selectedStyles} onValueChange={handleStylesChange}>
-          {styles.map((style) => (
-            <Checkbox key={style} value={style}>
-              <span className="text-sm capitalize">{style}</span>
-            </Checkbox>
-          ))}
-        </CheckboxGroup>
-      </div>
-    </div>
-  );
-
   return (
     <FilterPanel
       trigger={trigger}
@@ -112,7 +76,26 @@ const GroupFilters = ({ filters, onFiltersChange, isActive }: GroupFiltersProps)
       onClear={handleClear}
       hasChanges={hasChanges}
     >
-      {content}
+      <div className="flex flex-col gap-4">
+        {/* Verification Status */}
+        <div>
+          <Checkbox isSelected={localFilters.verified === true} onValueChange={handleVerifiedChange}>
+            <span className="text-sm">Verified only</span>
+          </Checkbox>
+        </div>
+
+        {/* Styles */}
+        <div>
+          <p className="text-sm font-semibold mb-2">Style</p>
+          <CheckboxGroup value={selectedStyles} onValueChange={handleStylesChange}>
+            {styles.map((style) => (
+              <Checkbox key={style} value={style}>
+                <span className="text-sm capitalize">{style}</span>
+              </Checkbox>
+            ))}
+          </CheckboxGroup>
+        </div>
+      </div>
     </FilterPanel>
   );
 };

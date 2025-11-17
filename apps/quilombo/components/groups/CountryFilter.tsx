@@ -56,27 +56,6 @@ const CountryFilter = ({ selectedCountries, onCountriesChange, isActive }: Count
     </Button>
   );
 
-  // Unified flag grid (responsive columns: 3 on mobile, 6 on desktop)
-  const content = (
-    <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
-      {isLoading ? (
-        <div className="col-span-3 sm:col-span-6 flex justify-center py-8">
-          <Spinner />
-        </div>
-      ) : (
-        countryCodes.map((code) => (
-          <CountryFlagButton
-            key={code}
-            countryCode={code}
-            isSelected={localSelection.includes(code)}
-            onToggle={handleToggle}
-            size="md"
-          />
-        ))
-      )}
-    </div>
-  );
-
   return (
     <FilterPanel
       trigger={trigger}
@@ -87,7 +66,23 @@ const CountryFilter = ({ selectedCountries, onCountriesChange, isActive }: Count
       width="560px"
       placement="bottom-start"
     >
-      {content}
+      <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
+        {isLoading ? (
+          <div className="col-span-3 sm:col-span-6 flex justify-center py-8">
+            <Spinner />
+          </div>
+        ) : (
+          countryCodes.map((code) => (
+            <CountryFlagButton
+              key={code}
+              countryCode={code}
+              isSelected={localSelection.includes(code)}
+              onToggle={handleToggle}
+              size="md"
+            />
+          ))
+        )}
+      </div>
     </FilterPanel>
   );
 };

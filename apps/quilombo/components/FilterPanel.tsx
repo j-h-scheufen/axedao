@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import {
   Drawer,
   DrawerContent,
@@ -27,8 +28,11 @@ type FilterPanelProps = {
 
 /**
  * Reusable filter panel component that renders as:
- * - Popover on desktop (sm and up)
+ * - Popover on desktop (sm breakpoint and up)
  * - Drawer on mobile
+ *
+ * Uses conditional rendering to only mount the appropriate version,
+ * avoiding state conflicts between Popover and Drawer.
  */
 const FilterPanel = ({
   trigger,
@@ -40,20 +44,27 @@ const FilterPanel = ({
   width = '400px',
   placement = 'bottom-end',
 }: FilterPanelProps) => {
-  // Separate disclosure states for desktop and mobile
-  const popoverDisclosure = useDisclosure();
-  const drawerDisclosure = useDisclosure();
+  const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  // Detect screen size (sm breakpoint = 640px)
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 640px)');
+    setIsDesktop(mediaQuery.matches);
+
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mediaQuery.addEventListener('change', handler);
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, []);
 
   const handleApply = () => {
     onApply();
-    popoverDisclosure.onClose();
-    drawerDisclosure.onClose();
+    onClose();
   };
 
   const handleClear = () => {
     onClear();
-    popoverDisclosure.onClose();
-    drawerDisclosure.onClose();
+    onClose();
   };
 
   const footer = (
@@ -67,25 +78,27 @@ const FilterPanel = ({
     </div>
   );
 
+  // Render desktop version (Popover)
+  if (isDesktop) {
+    return (
+      <Popover placement={placement} isOpen={isOpen} onOpenChange={onOpenChange}>
+        <PopoverTrigger>{trigger({})}</PopoverTrigger>
+        <PopoverContent className="p-0" style={{ width }}>
+          <div className="px-4 pt-4 pb-2">
+            <h3 className="text-lg font-semibold">{title}</h3>
+          </div>
+          <div className="px-4 py-3">{children}</div>
+          <div className="px-4 pb-4">{footer}</div>
+        </PopoverContent>
+      </Popover>
+    );
+  }
+
+  // Render mobile version (Drawer)
   return (
     <>
-      {/* Desktop: Popover (controlled) */}
-      <div className="hidden sm:block">
-        <Popover placement={placement} isOpen={popoverDisclosure.isOpen} onOpenChange={popoverDisclosure.onOpenChange}>
-          <PopoverTrigger>{trigger({})}</PopoverTrigger>
-          <PopoverContent className="p-0" style={{ width }}>
-            <div className="px-4 pt-4 pb-2">
-              <h3 className="text-lg font-semibold">{title}</h3>
-            </div>
-            <div className="px-4 py-3">{children}</div>
-            <div className="px-4 pb-4">{footer}</div>
-          </PopoverContent>
-        </Popover>
-      </div>
-
-      {/* Mobile: Drawer (controlled) */}
-      <div className="sm:hidden">{trigger({ onPress: drawerDisclosure.onOpen })}</div>
-      <Drawer isOpen={drawerDisclosure.isOpen} onOpenChange={drawerDisclosure.onOpenChange} placement="bottom">
+      {trigger({ onPress: onOpen })}
+      <Drawer isOpen={isOpen} onOpenChange={onOpenChange} placement="bottom">
         <DrawerContent>
           {() => (
             <>

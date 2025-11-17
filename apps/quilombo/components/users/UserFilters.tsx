@@ -61,25 +61,6 @@ const UserFilters = ({ filters, onFiltersChange, isActive }: UserFiltersProps) =
   // Prepare checkbox values (filtering out undefined) and cast to string[]
   const selectedTitles = (localFilters.titles || []).filter((t) => t !== undefined) as string[];
 
-  // Filter content
-  const content = (
-    <div className="flex flex-col gap-4">
-      {/* Titles */}
-      <div>
-        <p className="text-sm font-semibold mb-2">Title</p>
-        <CheckboxGroup value={selectedTitles} onValueChange={handleTitlesChange}>
-          <div className="grid grid-cols-2 gap-1">
-            {titles.map((title) => (
-              <Checkbox key={title} value={title}>
-                <span className="text-sm capitalize">{title}</span>
-              </Checkbox>
-            ))}
-          </div>
-        </CheckboxGroup>
-      </div>
-    </div>
-  );
-
   return (
     <FilterPanel
       trigger={trigger}
@@ -89,7 +70,21 @@ const UserFilters = ({ filters, onFiltersChange, isActive }: UserFiltersProps) =
       hasChanges={hasChanges}
       width="500px"
     >
-      {content}
+      <div className="flex flex-col gap-4">
+        {/* Titles */}
+        <div>
+          <p className="text-sm font-semibold mb-2">Title</p>
+          <CheckboxGroup value={selectedTitles} onValueChange={handleTitlesChange}>
+            <div className="grid grid-cols-2 gap-1">
+              {titles.map((title) => (
+                <Checkbox key={title} value={title}>
+                  <span className="text-sm capitalize">{title}</span>
+                </Checkbox>
+              ))}
+            </div>
+          </CheckboxGroup>
+        </div>
+      </div>
     </FilterPanel>
   );
 };
