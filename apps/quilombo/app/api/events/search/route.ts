@@ -119,7 +119,11 @@ export async function POST(request: NextRequest) {
       searchParams = await eventSearchParamsSchema.validate(body);
     } catch (error) {
       console.error('Validation error:', error);
-      return NextResponse.json({ error: 'Invalid search parameters' }, { status: 400 });
+      const message =
+        error && typeof error === 'object' && 'errors' in error && Array.isArray(error.errors)
+          ? error.errors[0]
+          : 'Invalid search parameters';
+      return NextResponse.json({ error: message }, { status: 400 });
     }
 
     const { offset = 0, pageSize = QUERY_DEFAULT_PAGE_SIZE, searchTerm, filters } = searchParams;
@@ -127,18 +131,19 @@ export async function POST(request: NextRequest) {
     // Filter out undefined values from eventTypes array
     const validEventTypes = filters?.eventTypes?.filter((t): t is NonNullable<typeof t> => t !== undefined);
 
-    // Transform filters object to legacy format for database query
-    const legacyParams = {
+    // Filter out undefined values from countryCodes array
+    const validCountryCodes = filters?.countryCodes?.filter((c): c is string => !!c);
+
+    // Pass filters to database query
+    const searchResults = await searchEvents({
       offset,
       pageSize,
       searchTerm,
-      countryCode: filters?.countryCodes?.[0], // TODO: Support multiple country codes in DB query
+      countryCodes: validCountryCodes && validCountryCodes.length > 0 ? validCountryCodes : undefined,
       eventTypes: validEventTypes && validEventTypes.length > 0 ? validEventTypes : undefined,
       startDate: filters?.startDate ? new Date(filters.startDate) : undefined,
       endDate: filters?.endDate ? new Date(filters.endDate) : undefined,
-    };
-
-    const searchResults = await searchEvents(legacyParams);
+    });
 
     // Calculate nextOffset based on totalCount and offset
     let nextOffset: number | null = null;

@@ -22,7 +22,8 @@ export async function searchEvents(options: {
   searchTerm?: string;
   type?: string;
   eventTypes?: Array<(typeof eventTypes)[number]>;
-  countryCode?: string;
+  countryCode?: string; // Legacy support for single country code
+  countryCodes?: string[]; // New parameter for multiple country codes
   groupId?: string;
   userId?: string;
   startDate?: Date;
@@ -36,6 +37,7 @@ export async function searchEvents(options: {
     type,
     eventTypes: eventTypesFilter,
     countryCode,
+    countryCodes,
     groupId,
     userId,
     startDate,
@@ -64,7 +66,18 @@ export async function searchEvents(options: {
       filters.push(inArray(schema.events.type, validTypes));
     }
   }
-  if (countryCode) filters.push(eq(schema.events.countryCode, countryCode));
+
+  // Support both single countryCode (legacy) and multiple countryCodes
+  if (countryCodes && countryCodes.length > 0) {
+    // Filter out undefined/null values
+    const validCountryCodes = countryCodes.filter((c): c is string => !!c);
+    if (validCountryCodes.length > 0) {
+      filters.push(inArray(schema.events.countryCode, validCountryCodes));
+    }
+  } else if (countryCode) {
+    // Legacy single country code support
+    filters.push(eq(schema.events.countryCode, countryCode));
+  }
 
   // Handle date filtering
   if (showActiveOnly) {

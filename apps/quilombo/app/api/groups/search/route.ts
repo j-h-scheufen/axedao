@@ -115,7 +115,11 @@ export async function POST(request: NextRequest) {
       searchParams = await groupSearchParamsSchema.validate(body);
     } catch (error) {
       console.error('Validation error:', error);
-      return NextResponse.json({ error: 'Invalid search parameters' }, { status: 400 });
+      const message =
+        error && typeof error === 'object' && 'errors' in error && Array.isArray(error.errors)
+          ? error.errors[0]
+          : 'Invalid search parameters';
+      return NextResponse.json({ error: message }, { status: 400 });
     }
 
     const { offset = 0, pageSize = QUERY_DEFAULT_PAGE_SIZE, searchTerm, filters } = searchParams;

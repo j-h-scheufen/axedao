@@ -1,13 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Button, Checkbox, CheckboxGroup, cn } from '@heroui/react';
-import { Filter } from 'lucide-react';
+import { Checkbox, CheckboxGroup } from '@heroui/react';
 import { isEqual } from 'lodash';
 
 import { titles } from '@/config/constants';
 import type { UserFilters as UserFilterValues } from '@/config/validation-schema';
-import { FilterPanel } from '@/components/filters';
+import { FilterPanel, FilterTriggerButton } from '@/components/filters';
 
 export type { UserFilterValues };
 
@@ -46,16 +45,7 @@ const UserFilters = ({ filters, onFiltersChange, isActive }: UserFiltersProps) =
 
   // Trigger button render function
   const trigger = ({ onPress }: { onPress?: () => void }) => (
-    <Button
-      isIconOnly
-      variant="bordered"
-      size="sm"
-      className={cn('flex-1 sm:flex-none', isActive && 'border-primary')}
-      aria-label="Filter users"
-      {...(onPress ? { onPress } : {})}
-    >
-      <Filter className={cn('h-4 w-4', isActive ? 'text-primary' : '')} />
-    </Button>
+    <FilterTriggerButton isActive={isActive} onPress={onPress} label="Filter users" />
   );
 
   // Prepare checkbox values (filtering out undefined) and cast to string[]
