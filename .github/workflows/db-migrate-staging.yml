@@ -1,4 +1,4 @@
-name: Staging Database Migration
+name: Staging Database Migration (Atlas)
 
 on:
   push:
@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   migrate:
-    name: Run Database Migrations
+    name: Run Atlas Migrations
     runs-on: ubuntu-latest
     environment: staging # Use GitHub environment for protection rules
     timeout-minutes: 10 # Fail if migration takes too long
@@ -21,6 +21,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Setup Atlas
+        uses: ariga/setup-atlas@v0
+        with:
+          cloud-token: ${{ secrets.ATLAS_CLOUD_TOKEN }}
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
@@ -36,18 +41,25 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Run staging migrations
+      - name: Lint migrations
         working-directory: apps/quilombo
         env:
-          DATABASE_URL: ${{ secrets.STAGING_DATABASE_URL }}
-          NEXT_PUBLIC_APP_ENV: development
+          STAGING_DATABASE_URL: ${{ secrets.STAGING_DATABASE_URL }}
+        run: |
+          echo "🔍 Linting migrations for safety..."
+          atlas migrate lint --env staging
+
+      - name: Apply migrations
+        working-directory: apps/quilombo
+        env:
+          STAGING_DATABASE_URL: ${{ secrets.STAGING_DATABASE_URL }}
         run: |
           echo "🚀 Starting staging database migration..."
           echo "Timestamp: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
           echo ""
 
-          # Run the migration script
-          pnpm tsx scripts/db-migrate-staging.ts
+          # Apply migrations
+          atlas migrate apply --env staging
 
           # Check exit code
           EXIT_CODE=$?
@@ -60,6 +72,15 @@ jobs:
 
           echo ""
           echo "✅ Migration completed successfully"
+
+      - name: Verify migration status
+        if: success()
+        working-directory: apps/quilombo
+        env:
+          STAGING_DATABASE_URL: ${{ secrets.STAGING_DATABASE_URL }}
+        run: |
+          echo "✅ Verifying migration status..."
+          atlas migrate status --env staging
 
       - name: Create migration report
         if: always()

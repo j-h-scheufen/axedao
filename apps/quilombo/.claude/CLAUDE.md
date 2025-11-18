@@ -22,7 +22,15 @@ Quilombo is the main DApp for the Axé DAO ecosystem, providing community functi
 # Development server on port 8080
 pnpm dev
 
-# Database operations
+# Database operations (Atlas - recommended)
+pnpm db:atlas:diff      # Generate migration from schema changes
+pnpm db:atlas:lint      # Lint migrations for safety issues
+pnpm db:atlas:preview   # Preview migration without applying (dry-run)
+pnpm db:atlas:apply     # Apply migrations to local database
+pnpm db:atlas:status    # Check migration status
+pnpm db:atlas:validate  # Validate migration files
+
+# Legacy database operations (Drizzle - deprecated)
 pnpm db:generate  # Generate migrations from schema changes
 pnpm db:migrate   # Apply migrations to database
 
@@ -45,16 +53,7 @@ pnpm lint
 pnpm format
 ```
 
-**Important**: Database commands (`db:generate`, `db:migrate`) require environment variables. Export them from `.env.local` first:
-
-```bash
-# Export all environment variables from .env.local
-export $(grep -v '^#' .env.local | xargs)
-
-# Then run database commands
-pnpm db:generate
-pnpm db:migrate
-```
+**Important**: Atlas commands automatically load environment variables from `.env` and `.env.local` using dotenv-cli.
 
 ## Database Setup
 
@@ -114,6 +113,160 @@ Some migrations are manually generated for features Drizzle doesn't support (fun
 2. Either:
    - Run `npx drizzle-kit push` to manually add the migration, OR
    - Add a new entry to `_journal.json` and run `npx drizzle-kit migrate`
+
+### Atlas Migration System
+
+**Status**: Active (recommended for all new migrations)
+
+Atlas is the migration management system that uses Drizzle ORM schema as the source of truth but provides enhanced safety, linting, and reliability features.
+
+#### Why Atlas?
+
+- **Idempotent by default**: Migrations include proper IF NOT EXISTS checks
+- **Safety linting**: Detects destructive changes, data loss risks, and backward incompatibilities
+- **Preview capabilities**: See exact SQL before applying migrations (dry-run mode)
+- **Better failure handling**: Tracks partial failures and provides clear recovery paths
+- **Migration integrity**: `atlas.sum` file prevents tampering with migration history
+
+#### Migration Workflow
+
+**1. Modify Schema** (`db/schema.ts`)
+```typescript
+// Make changes to your Drizzle schema
+export const myTable = pgTable('my_table', {
+  id: uuid('id').primaryKey(),
+  name: text('name').notNull(),
+});
+```
+
+**2. Generate Migration**
+```bash
+pnpm db:atlas:diff
+# Atlas will prompt for a migration name (e.g., "add_my_table")
+# Creates: atlas/migrations/YYYYMMDD_HHMMSS_add_my_table.sql
+```
+
+**3. Review & Lint**
+```bash
+# Preview the generated SQL
+cat atlas/migrations/*_add_my_table.sql
+
+# Lint for safety issues
+pnpm db:atlas:lint
+# ✓ Checks for destructive operations (DROP TABLE, DROP COLUMN)
+# ✓ Detects data-dependent changes (adding NOT NULL to nullable columns)
+# ✓ Warns about backward incompatibilities
+```
+
+**4. Test Locally**
+```bash
+# Preview without applying (dry-run)
+pnpm db:atlas:preview
+
+# Apply to local database
+pnpm db:atlas:apply
+
+# Verify status
+pnpm db:atlas:status
+```
+
+**5. Deploy to Staging/Production**
+```bash
+# Commit and push to develop → Auto-deploys to staging via GitHub Actions
+git add atlas/migrations/ db/schema.ts atlas.hcl
+git commit -m "feat: add my_table"
+git push origin develop
+
+# Merge to main → Auto-deploys to production via GitHub Actions
+```
+
+#### GitHub Actions Workflow
+
+**Staging** (on push to `develop`):
+1. Lints migrations for safety issues
+2. Applies migrations to staging database
+3. Verifies migration status
+4. Reports results in GitHub Actions summary
+
+**Production** (on push to `main`):
+1. Same as staging with stricter linting
+2. Blocks deployment on safety violations
+
+**Workflow triggers**: On every push to `develop` (staging) or `main` (production)
+- Atlas is idempotent - safe to run even when no migrations are pending
+- Ensures migrations are never missed due to path-based filtering issues
+- Manual trigger available via `workflow_dispatch` if needed
+
+#### Configuration
+
+**Atlas Config** (`atlas.hcl`):
+- **local**: Uses `DATABASE_URL` from `.env.local`, dev database via Docker
+- **staging**: Uses `STAGING_DATABASE_URL`, enables linting
+- **production**: Uses `PRODUCTION_DATABASE_URL`, strict linting
+
+**Environment Variables**:
+- `DATABASE_URL`: Local PostgreSQL connection string
+- `STAGING_DATABASE_URL`: Supabase staging database (GitHub secret)
+- `PRODUCTION_DATABASE_URL`: Supabase production database (GitHub secret)
+- `ATLAS_CLOUD_TOKEN`: Optional Atlas Cloud token for enhanced features (GitHub secret)
+
+#### Migration Best Practices
+
+1. **Always lint before committing**: `pnpm db:atlas:lint`
+2. **Preview migrations locally**: `pnpm db:atlas:preview`
+3. **Keep migrations small**: One logical change per migration
+4. **Test on fresh database**: Verify migrations work from scratch
+5. **Monitor CI logs**: Check GitHub Actions for linting warnings
+6. **Avoid manual SQL edits**: Let Atlas generate from schema changes
+
+#### Rollback Strategy
+
+Atlas generates forward-only migrations. For rollbacks:
+
+**Option 1**: Revert schema changes and generate new forward migration
+```bash
+git revert <commit-sha>
+pnpm db:atlas:diff  # Generates reverse migration
+```
+
+**Option 2**: Manual down migration (for critical issues)
+```bash
+atlas migrate new rollback_feature --edit
+# Write SQL to undo changes
+```
+
+**Option 3**: Point-in-time recovery (Supabase backup for production)
+
+#### Troubleshooting
+
+**"No migration applied yet"**: Normal for fresh databases, apply migrations:
+```bash
+pnpm db:atlas:apply
+```
+
+**Linting errors**: Review the specific error and adjust schema changes:
+```bash
+pnpm db:atlas:lint
+# Example: "Dropping column 'email' is destructive"
+# → Consider deprecating instead or creating data migration
+```
+
+**Migration conflicts**: Multiple developers created migrations from same base:
+```bash
+# atlas.sum checksum mismatch
+# → Merge main/develop first, regenerate migration
+git merge origin/develop
+pnpm db:atlas:diff
+```
+
+#### Legacy Drizzle Migrations
+
+**Existing migrations** (`db/migrations/0000-0028_*.sql`):
+- Preserved for historical reference
+- Already applied to staging/production
+- New migrations use Atlas exclusively
+
+**Baseline**: When Atlas is first deployed to staging/production, existing Drizzle migrations are marked as already applied using Atlas baseline feature.
 
 ## Architecture
 
