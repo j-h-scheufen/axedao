@@ -6,7 +6,7 @@ import {
   useQuery,
   useQueryClient,
 } from '@tanstack/react-query';
-import axios from 'axios';
+import axios from '@/utils/axios';
 
 import { QueryConfig } from '@/config/constants';
 import type {
@@ -29,14 +29,7 @@ import type { FileUploadParams, GroupAndLocationParams, GroupAndUserParams, UseF
  */
 
 const fetchGroup = async (id: string): Promise<Group> =>
-  axios.get(`/api/groups/${id}`).then((response) => {
-    const data = response.data;
-    // Convert lastVerifiedAt from ISO string to Date object
-    if (data.lastVerifiedAt) {
-      data.lastVerifiedAt = new Date(data.lastVerifiedAt);
-    }
-    return data;
-  });
+  axios.get(`/api/groups/${id}`).then((response) => response.data);
 export const fetchGroupOptions = (id: string | undefined) => {
   return {
     queryKey: [QUERY_KEYS.group.getGroup, id],
@@ -89,17 +82,8 @@ export const fetchAvailableCountriesOptions = {
   staleTime: QueryConfig.staleTimeGroup, // Countries don't change often
 } as const;
 
-const searchGroups = async (params: GroupSearchParamsWithFilters): Promise<GroupSearchResult> => {
-  return axios.post('/api/groups/search', params).then((response) => {
-    const result = response.data;
-    // Convert lastVerifiedAt from ISO string to Date object for each group
-    result.data = result.data.map((group: Group) => ({
-      ...group,
-      lastVerifiedAt: group.lastVerifiedAt ? new Date(group.lastVerifiedAt) : null,
-    }));
-    return result;
-  });
-};
+const searchGroups = async (params: GroupSearchParamsWithFilters): Promise<GroupSearchResult> =>
+  axios.post('/api/groups/search', params).then((response) => response.data);
 
 export const searchGroupsOptions = (params: GroupSearchParamsWithFilters) => {
   const { offset, pageSize, searchTerm, filters } = params;

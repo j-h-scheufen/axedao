@@ -1,5 +1,5 @@
 import { infiniteQueryOptions, queryOptions, useInfiniteQuery, useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+import axios from '@/utils/axios';
 
 import { QueryConfig } from '@/config/constants';
 import type { UserSearchParams } from '@/config/validation-schema';

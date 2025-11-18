@@ -6,7 +6,7 @@ import {
   useQuery,
   useQueryClient,
 } from '@tanstack/react-query';
-import axios from 'axios';
+import axios from '@/utils/axios';
 import { parseAbsoluteToLocal } from '@internationalized/date';
 
 import { QueryConfig } from '@/config/constants';
