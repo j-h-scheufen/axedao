@@ -18,7 +18,7 @@ type Props = {
   classname?: string;
   avatarProps?: Omit<AvatarProps, 'onClick' | 'onBlur' | 'ref'>;
   /**
-   * Aspect ratio for cropping (e.g., 16/9 for banner, 1 for avatar/logo)
+   * Aspect ratio for cropping (e.g., 4 for banner, 1 for avatar/logo)
    * If not provided, no cropping will be performed
    */
   cropAspect?: number;

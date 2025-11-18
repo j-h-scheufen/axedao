@@ -28,7 +28,7 @@ export interface ImageCropModalProps {
  * @param onClose - Callback when modal is closed
  * @param onCropComplete - Callback when crop is complete, receives cropped Blob and File
  * @param imageFile - The image file to crop
- * @param aspect - Aspect ratio (e.g., 16/9 for banner, 1 for avatar). When set to 1, shows circular crop overlay. Default: 16/9
+ * @param aspect - Aspect ratio (e.g., 4 for banner, 1 for avatar). When set to 1, shows circular crop overlay. Default: 4
  * @param title - Modal title. Default: "Crop Image"
  * @param maxSizeMB - Maximum file size in MB (for validation)
  */
@@ -37,7 +37,7 @@ export const ImageCropModal = ({
   onClose,
   onCropComplete,
   imageFile,
-  aspect = 16 / 9,
+  aspect = 4,
   title = 'Crop Image',
   maxSizeMB,
 }: ImageCropModalProps) => {
