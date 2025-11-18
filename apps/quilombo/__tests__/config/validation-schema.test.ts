@@ -274,7 +274,9 @@ describe('Custom Validation Functions', () => {
 
     it('should handle null and undefined gracefully', () => {
       // The function has `value || ''` so it handles these
+      // biome-ignore lint/suspicious/noExplicitAny: Testing edge case with invalid input types
       expect(testForAddress(null as any)).toBe(false);
+      // biome-ignore lint/suspicious/noExplicitAny: Testing edge case with invalid input types
       expect(testForAddress(undefined as any)).toBe(false);
     });
 
