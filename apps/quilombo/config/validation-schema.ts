@@ -45,8 +45,9 @@ export const isValidUrl = (url: string | undefined, validHostnames?: string[], r
     if (validHostnames?.length && !validHostnames.includes(parsedUrl.hostname)) {
       valid = false;
     }
-    if (regex) {
-      valid = regex.test(parsedUrl.pathname);
+    // AND regex check with existing valid state (don't overwrite)
+    if (regex && !regex.test(parsedUrl.pathname)) {
+      valid = false;
     }
     // biome-ignore lint/correctness/noUnusedVariables: Ignoring the error
   } catch (error) {

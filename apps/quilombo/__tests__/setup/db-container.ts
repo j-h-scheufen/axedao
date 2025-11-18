@@ -1,0 +1,113 @@
+/**
+ * Test database setup using Testcontainers
+ * Spins up a real PostgreSQL container with PostGIS for integration tests
+ */
+
+import { PostgreSqlContainer, type StartedPostgreSqlContainer } from '@testcontainers/postgresql';
+import { drizzle, type PostgresJsDatabase } from 'drizzle-orm/postgres-js';
+import { migrate } from 'drizzle-orm/postgres-js/migrator';
+import postgres from 'postgres';
+import * as schema from '@/db/schema';
+
+let container: StartedPostgreSqlContainer | null = null;
+let db: PostgresJsDatabase<typeof schema> | null = null;
+let client: ReturnType<typeof postgres> | null = null;
+
+/**
+ * Sets up a PostgreSQL test database with PostGIS extension
+ * - Starts Docker container with postgis/postgis:16-3.4 image
+ * - Runs all Drizzle migrations
+ * - Returns database instance for queries
+ */
+export async function setupTestDatabase() {
+  if (container && db) {
+    return { db, container };
+  }
+
+  console.log('🐳 Starting PostgreSQL container with PostGIS...');
+
+  // Start PostgreSQL container with PostGIS extension
+  container = await new PostgreSqlContainer('postgis/postgis:16-3.4')
+    .withExposedPorts(5432)
+    .withStartupTimeout(120_000) // 2 minutes for container startup
+    .start();
+
+  const connectionString = container.getConnectionUri();
+  console.log(`✅ PostgreSQL container started: ${container.getHost()}:${container.getPort()}`);
+
+  // Create database client and Drizzle instance
+  client = postgres(connectionString, { max: 1 }); // Single connection for tests
+  db = drizzle(client, { schema });
+
+  // Run migrations to set up schema
+  console.log('📦 Running database migrations...');
+  await migrate(db, { migrationsFolder: './db/migrations' });
+  console.log('✅ Migrations completed');
+
+  return { db, container };
+}
+
+/**
+ * Tears down the test database
+ * - Closes database connections
+ * - Stops and removes Docker container
+ */
+export async function teardownTestDatabase() {
+  if (client) {
+    console.log('🔌 Closing database connection...');
+    await client.end();
+    client = null;
+  }
+
+  if (container) {
+    console.log('🛑 Stopping PostgreSQL container...');
+    await container.stop();
+    container = null;
+  }
+
+  db = null;
+  console.log('✅ Test database torn down');
+}
+
+/**
+ * Clears all data from test database tables
+ * Useful for resetting state between tests
+ * Uses TRUNCATE CASCADE to handle foreign key constraints
+ */
+export async function clearTestDatabase() {
+  if (!db) {
+    throw new Error('Database not initialized. Call setupTestDatabase() first.');
+  }
+
+  console.log('🧹 Clearing test database...');
+
+  // Truncate all tables in reverse dependency order
+  // CASCADE automatically truncates dependent tables
+  await db.execute(`
+    TRUNCATE TABLE
+      group_verifications,
+      group_claims,
+      group_admins,
+      group_locations,
+      groups,
+      verification_tokens,
+      oauth_accounts,
+      users,
+      events,
+      invitations
+    CASCADE
+  `);
+
+  console.log('✅ Test database cleared');
+}
+
+/**
+ * Gets the current database instance
+ * Throws if database hasn't been set up
+ */
+export function getTestDatabase() {
+  if (!db) {
+    throw new Error('Database not initialized. Call setupTestDatabase() first.');
+  }
+  return db;
+}

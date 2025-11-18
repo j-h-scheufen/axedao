@@ -4,4 +4,4 @@ export type IconSvgProps = SVGProps<SVGSVGElement> & {
   size?: number;
 };
 
-export type EnvType = 'local' | 'development' | 'production';
+export type EnvType = 'local' | 'development' | 'production' | 'test';

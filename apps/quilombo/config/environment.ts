@@ -38,9 +38,10 @@ type ConfigType = {
   googleClientSecret: string;
 };
 
-const envMode: EnvType = process.env.NEXT_PUBLIC_APP_ENV?.toLowerCase() as EnvType;
+const envMode: EnvType = (process.env.NEXT_PUBLIC_APP_ENV?.toLowerCase() || 'development') as EnvType;
 
 const isServer = typeof window === 'undefined';
+const isTestMode = envMode === 'test';
 
 export const getBaseUrl = () => {
   let baseUrl: string | undefined;
@@ -108,8 +109,17 @@ const ENV: ConfigType = {
   pinataGatewayUrl: required(process.env.NEXT_PUBLIC_PINATA_GATEWAY_URL, 'NEXT_PUBLIC_PINATA_GATEWAY_URL'),
   pinataJwt: isServer ? required(process.env.PINATA_JWT, 'PINATA_JWT') : '',
   pinataFileGroupId: required(process.env.NEXT_PUBLIC_PINATA_FILE_GROUP_ID, 'NEXT_PUBLIC_PINATA_FILE_GROUP_ID'),
-  databaseUrl: isServer ? required(process.env.DATABASE_URL, 'DATABASE_URL') : '',
-  nextAuthSecret: isServer ? required(process.env.NEXTAUTH_SECRET, 'NEXTAUTH_SECRET') : '',
+  // In test mode, DATABASE_URL is set dynamically by Testcontainers - skip validation
+  databaseUrl: isServer
+    ? isTestMode
+      ? process.env.DATABASE_URL || ''
+      : required(process.env.DATABASE_URL, 'DATABASE_URL')
+    : '',
+  nextAuthSecret: isServer
+    ? isTestMode
+      ? process.env.NEXTAUTH_SECRET || ''
+      : required(process.env.NEXTAUTH_SECRET, 'NEXTAUTH_SECRET')
+    : '',
   graphApiKey: isServer ? required(process.env.GRAPH_API_KEY, 'GRAPH_API_KEY') : '',
   mapTilerKey: required(process.env.NEXT_PUBLIC_MAPTILER_KEY, 'NEXT_PUBLIC_MAPTILER_KEY'),
   axeDaoSiteUrl: required(process.env.NEXT_PUBLIC_DAO_SITE_URL, 'NEXT_PUBLIC_DAO_SITE_URL'),
