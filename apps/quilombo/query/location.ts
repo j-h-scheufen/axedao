@@ -1,5 +1,5 @@
 import { queryOptions, useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+import axios from '@/utils/axios';
 
 import { QueryConfig } from '@/config/constants';
 import type { GroupLocationFeatureCollection } from '@/types/model';

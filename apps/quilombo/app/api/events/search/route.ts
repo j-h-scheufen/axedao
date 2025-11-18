@@ -139,6 +139,7 @@ export async function POST(request: NextRequest) {
       offset,
       pageSize,
       searchTerm,
+      pastEvents: filters?.pastEvents === true, // Default to false (active events only)
       countryCodes: validCountryCodes && validCountryCodes.length > 0 ? validCountryCodes : undefined,
       eventTypes: validEventTypes && validEventTypes.length > 0 ? validEventTypes : undefined,
       startDate: filters?.startDate ? new Date(filters.startDate) : undefined,

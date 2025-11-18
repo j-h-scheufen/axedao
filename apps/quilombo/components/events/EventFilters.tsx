@@ -31,7 +31,7 @@ const EventFilters = ({ filters, onFiltersChange, isActive }: EventFiltersProps)
   };
 
   const handleClear = () => {
-    const clearedFilters = { eventTypes: [] };
+    const clearedFilters = { eventTypes: [], pastEvents: false };
     setLocalFilters(clearedFilters);
     onFiltersChange(clearedFilters);
   };
@@ -40,6 +40,13 @@ const EventFilters = ({ filters, onFiltersChange, isActive }: EventFiltersProps)
     setLocalFilters((prev) => ({
       ...prev,
       eventTypes: selectedEventTypes as Array<(typeof eventTypes)[number]>,
+    }));
+  };
+
+  const handlePastEventsChange = (checked: boolean) => {
+    setLocalFilters((prev) => ({
+      ...prev,
+      pastEvents: checked,
     }));
   };
 
@@ -68,6 +75,13 @@ const EventFilters = ({ filters, onFiltersChange, isActive }: EventFiltersProps)
       hasChanges={hasChanges}
     >
       <div className="flex flex-col gap-4">
+        {/* Past Events Toggle */}
+        <div>
+          <Checkbox isSelected={localFilters.pastEvents ?? false} onValueChange={handlePastEventsChange}>
+            <span className="text-sm">Show Past Events</span>
+          </Checkbox>
+        </div>
+
         {/* Event Types */}
         <div>
           <p className="text-sm font-semibold mb-2">Event Type</p>

@@ -6,23 +6,24 @@ import { GroupProfileClientState } from '@/components/groups/GroupProfile';
 import PageHeading from '@/components/PageHeading';
 import { PATHS } from '@/config/constants';
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { isGroupAdmin } from '@/db';
+import { fetchGroup, isGroupAdmin } from '@/db';
 import type { NextPageProps } from '@/app/layout';
 
 const GroupEditPage = async ({ params }: NextPageProps<{ groupId: string }>) => {
   const session = await getServerSession(nextAuthOptions);
   const { groupId } = await params;
 
-  // Redirect to login if not authenticated
-  if (!session?.user.id) {
-    redirect(PATHS.login);
-  }
+  // Note: Authentication is handled by middleware - session is guaranteed to exist here
+  // This page only handles authorization (who can edit this specific group)
+  const userId = session?.user.id ?? '';
+  const isGlobalAdmin = session?.user.isGlobalAdmin ?? false;
 
-  // Check if user is a group admin
-  const isAdmin = await isGroupAdmin(groupId, session.user.id);
+  // Check authorization: group admin OR global admin on unmanaged groups
+  const isAdmin = await isGroupAdmin(groupId, userId);
+  const group = await fetchGroup(groupId);
+  const canEditAsGlobalAdmin = isGlobalAdmin && group?.adminCount === 0;
 
-  // Redirect to group view page if not an admin
-  if (!isAdmin) {
+  if (!isAdmin && !canEditAsGlobalAdmin) {
     redirect(`${PATHS.groups}/${groupId}`);
   }
 

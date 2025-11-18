@@ -13,7 +13,13 @@ const ProfileEdit = () => {
     <div className="flex flex-col">
       <div className="flex justify-center w-full">
         {/* ownerId is ignored in the currentUser avatar mutation, so it can be empty */}
-        <ImageUpload value={avatar} ownerId="" useFileUploadMutation={useUpdateAvatarMutation} />
+        <ImageUpload
+          value={avatar}
+          ownerId=""
+          useFileUploadMutation={useUpdateAvatarMutation}
+          cropAspect={1}
+          cropTitle="Crop Avatar"
+        />
       </div>
       <ProfileForm />
     </div>

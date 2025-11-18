@@ -11,12 +11,15 @@ import GroupFormSkeleton from '@/components/skeletons/GroupSkeletons';
 import SubsectionHeading from '@/components/SubsectionHeading';
 import { GROUP_DESCRIPTION_MAX_LENGTH, PATHS, styles } from '@/config/constants';
 import { type UpdateGroupForm, updateGroupSchema } from '@/config/validation-schema';
-import { groupAtom } from '@/hooks/state/group';
+import { groupAtom, isCurrentUserGroupAdminAtom } from '@/hooks/state/group';
+import { currentUserIsGlobalAdminAtom } from '@/hooks/state/currentUser';
 import { useDeleteGroup, useUpdateGroup } from '@/hooks/useGroup';
 import { DeleteGroup } from '.';
 
 const GroupForm = () => {
   const { data: group, isFetching } = useAtomValue(groupAtom);
+  const isGroupAdmin = useAtomValue(isCurrentUserGroupAdminAtom);
+  const isGlobalAdmin = useAtomValue(currentUserIsGlobalAdminAtom);
   const router = useRouter();
   const { deleteGroup, isPending: isPendingDelete } = useDeleteGroup();
   const { updateGroup, isPending: isPendingUpdate } = useUpdateGroup();
@@ -43,6 +46,10 @@ const GroupForm = () => {
   );
 
   if (!group || isFetching) return <GroupFormSkeleton />;
+
+  const isUnmanaged = group.adminCount === 0;
+  const canDeleteAsGlobalAdmin = isGlobalAdmin && isUnmanaged;
+  const canDelete = isGroupAdmin || canDeleteAsGlobalAdmin;
 
   const initValues: UpdateGroupForm = {
     name: group?.name || '',
@@ -89,7 +96,7 @@ const GroupForm = () => {
           </FieldArray>
 
           <div className="flex flex-col mt-8 md:flex-row items-center gap-5">
-            <DeleteGroup deleteGroup={handleDeleteGroup} isDeleting={isPendingDelete} />
+            {canDelete ? <DeleteGroup deleteGroup={handleDeleteGroup} isDeleting={isPendingDelete} /> : null}
             <Button
               type="submit"
               className="flex w-full items-center"

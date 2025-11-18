@@ -1,5 +1,5 @@
 import { queryOptions, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import axios from 'axios';
+import axios from '@/utils/axios';
 
 import type { ProfileForm } from '@/config/validation-schema';
 import type { AuthMethods, User } from '@/types/model';

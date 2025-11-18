@@ -207,6 +207,7 @@ export type UserFilters = InferType<typeof userFiltersSchema>;
 export const eventFiltersSchema = baseSearchFiltersSchema.concat(
   object({
     eventTypes: array().of(string().oneOf(eventTypes, 'Invalid event type')).optional(),
+    pastEvents: boolean().optional(),
     startDate: string()
       .optional()
       .test('is-valid-date', 'Invalid start date', (value) => {
@@ -225,38 +226,44 @@ export const eventFiltersSchema = baseSearchFiltersSchema.concat(
 export type EventFilters = InferType<typeof eventFiltersSchema>;
 
 /**
- * Unified search params with filters for groups
+ * Base search params shared across all entity searches
  */
-export const groupSearchParamsSchema = object({
+export const baseSearchParamsSchema = object({
   offset: number().optional(),
   pageSize: number().optional(),
   searchTerm: string().optional(),
-  filters: groupFiltersSchema.optional(),
 });
+
+/**
+ * Unified search params with filters for groups
+ */
+export const groupSearchParamsSchema = baseSearchParamsSchema.concat(
+  object({
+    filters: groupFiltersSchema.optional(),
+  })
+);
 
 export type GroupSearchParamsWithFilters = InferType<typeof groupSearchParamsSchema>;
 
 /**
  * Unified search params with filters for users
  */
-export const userSearchParamsSchema = object({
-  offset: number().optional(),
-  pageSize: number().optional(),
-  searchTerm: string().optional(),
-  filters: userFiltersSchema.optional(),
-});
+export const userSearchParamsSchema = baseSearchParamsSchema.concat(
+  object({
+    filters: userFiltersSchema.optional(),
+  })
+);
 
 export type UserSearchParamsWithFilters = InferType<typeof userSearchParamsSchema>;
 
 /**
  * Unified search params with filters for events
  */
-export const eventSearchParamsSchema = object({
-  offset: number().optional(),
-  pageSize: number().optional(),
-  searchTerm: string().optional(),
-  filters: eventFiltersSchema.optional(),
-});
+export const eventSearchParamsSchema = baseSearchParamsSchema.concat(
+  object({
+    filters: eventFiltersSchema.optional(),
+  })
+);
 
 export type EventSearchParamsWithFilters = InferType<typeof eventSearchParamsSchema>;
 

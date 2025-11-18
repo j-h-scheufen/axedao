@@ -58,6 +58,12 @@ cd ../axedao-feature-auth
 # Install dependencies (each worktree needs its own node_modules)
 pnpm install
 
+# Copy environment variables from main repo
+cp ../axedao/apps/quilombo/.env.local apps/quilombo/.env.local
+
+# Copy Claude settings for consistent command permissions
+cp ../axedao/.claude/settings.local.json .claude/settings.local.json
+
 # Start Claude Code in this worktree
 claude
 ```
@@ -70,6 +76,8 @@ git worktree add ../axedao-fix-validation fix/validation-errors
 
 cd ../axedao-fix-validation
 pnpm install
+cp ../axedao/apps/quilombo/.env.local apps/quilombo/.env.local
+cp ../axedao/.claude/settings.local.json .claude/settings.local.json
 claude
 ```
 
@@ -131,12 +139,22 @@ After creating a worktree, **always** run:
 ```bash
 cd ../axedao-new-worktree
 pnpm install  # Install dependencies
+
+# Copy environment variables from main repo
+cp ../axedao/apps/quilombo/.env.local apps/quilombo/.env.local
+
+# Copy Claude settings (optional, but recommended for consistent command permissions)
+cp ../axedao/.claude/settings.local.json .claude/settings.local.json
 ```
 
-**Important**: Each worktree needs its own `node_modules` because:
+**Important**: Each worktree needs its own `node_modules`, `.env.local`, and `.claude/settings.local.json` because:
 - Different branches may have different dependencies
 - Builds and caches are isolated
+- Environment variables are required for Next.js builds
+- Claude settings are developer-specific and control command permissions
 - Prevents conflicts between parallel builds
+
+**Note**: `.env.local` and `.claude/settings.local.json` files are gitignored and must be copied manually to each worktree.
 
 ## Best Practices
 

@@ -6,7 +6,6 @@ import useEventSearch from './useEventSearch';
 
 type UseEventSearchWithInfiniteScrollOptions = {
   filters?: Partial<EventFilters>;
-  showActiveOnly?: boolean;
 };
 
 const useEventSearchWithInfiniteScroll = (options?: UseEventSearchWithInfiniteScrollOptions) => {

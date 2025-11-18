@@ -29,7 +29,7 @@ export const zonedEventAtom = atom<{ event: ZonedEvent | undefined; isLoading: b
 
 // Global event locations for map view - with default filters for active events
 export const eventLocationsAtom = atomWithQuery<EventLocationFeatureCollection>(() =>
-  fetchEventLocationsOptions({ showActiveOnly: true })
+  fetchEventLocationsOptions({ pastEvents: false })
 );
 
 // Filtered event locations that can be updated based on search/filter criteria
@@ -44,8 +44,8 @@ export const eventLocationSearchParamsAtom = atom<{
   userId?: string;
   startDate?: string;
   endDate?: string;
-  showActiveOnly?: boolean;
-}>({ showActiveOnly: true });
+  pastEvents?: boolean;
+}>({ pastEvents: false });
 
 // Derived atom that fetches event locations based on search parameters
 export const filteredEventLocationsQueryAtom = atomWithQuery((get) => {

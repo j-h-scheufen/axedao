@@ -6,7 +6,7 @@ import {
   useQuery,
   useQueryClient,
 } from '@tanstack/react-query';
-import axios from 'axios';
+import axios from '@/utils/axios';
 import { parseAbsoluteToLocal } from '@internationalized/date';
 
 import { QueryConfig } from '@/config/constants';
@@ -67,7 +67,7 @@ const searchEvents = async ({
   userId,
   startDate,
   endDate,
-  showActiveOnly,
+  pastEvents,
   filters,
 }: {
   offset?: number;
@@ -79,7 +79,7 @@ const searchEvents = async ({
   userId?: string;
   startDate?: string;
   endDate?: string;
-  showActiveOnly?: boolean;
+  pastEvents?: boolean;
   filters?: import('@/config/validation-schema').EventFilters;
 }): Promise<EventSearchResult> => {
   // Use POST /api/events/search when filters are provided
@@ -113,7 +113,7 @@ const searchEvents = async ({
   if (userId) params.append('userId', userId);
   if (startDate) params.append('startDate', startDate);
   if (endDate) params.append('endDate', endDate);
-  if (showActiveOnly) params.append('showActiveOnly', 'true');
+  if (pastEvents) params.append('pastEvents', 'true');
 
   const queryString = params.toString();
   const url = `/api/events${queryString ? `?${queryString}` : ''}`;
@@ -140,7 +140,7 @@ export const searchEventsOptions = ({
   userId,
   startDate,
   endDate,
-  showActiveOnly,
+  pastEvents,
   filters,
 }: {
   offset?: number;
@@ -152,7 +152,7 @@ export const searchEventsOptions = ({
   userId?: string;
   startDate?: string;
   endDate?: string;
-  showActiveOnly?: boolean;
+  pastEvents?: boolean;
   filters?: import('@/config/validation-schema').EventFilters;
 }) => {
   return {
@@ -165,7 +165,7 @@ export const searchEventsOptions = ({
       userId,
       startDate,
       endDate,
-      showActiveOnly,
+      pastEvents,
       filters,
     ],
     queryFn: async ({ pageParam }: { pageParam: number }) =>
@@ -179,7 +179,7 @@ export const searchEventsOptions = ({
         userId,
         startDate,
         endDate,
-        showActiveOnly,
+        pastEvents,
         filters,
       }),
     initialPageParam: offset || 0,
@@ -222,7 +222,7 @@ export const useSearchEvents = (params: {
   userId?: string;
   startDate?: string;
   endDate?: string;
-  showActiveOnly?: boolean;
+  pastEvents?: boolean;
   filters?: import('@/config/validation-schema').EventFilters;
 }) => {
   return useInfiniteQuery(infiniteQueryOptions(searchEventsOptions(params)));
@@ -280,7 +280,7 @@ const fetchEventLocations = async (params?: {
   userId?: string;
   startDate?: string;
   endDate?: string;
-  showActiveOnly?: boolean;
+  pastEvents?: boolean;
 }): Promise<EventLocationFeatureCollection> => {
   const searchParams = new URLSearchParams();
   if (params?.searchTerm) searchParams.append('searchTerm', params.searchTerm);
@@ -290,7 +290,7 @@ const fetchEventLocations = async (params?: {
   if (params?.userId) searchParams.append('userId', params.userId);
   if (params?.startDate) searchParams.append('startDate', params.startDate);
   if (params?.endDate) searchParams.append('endDate', params.endDate);
-  if (params?.showActiveOnly) searchParams.append('showActiveOnly', 'true');
+  if (params?.pastEvents) searchParams.append('pastEvents', 'true');
 
   const queryString = searchParams.toString();
   const url = `/api/events/locations${queryString ? `?${queryString}` : ''}`;
@@ -306,7 +306,7 @@ export const fetchEventLocationsOptions = (params?: {
   userId?: string;
   startDate?: string;
   endDate?: string;
-  showActiveOnly?: boolean;
+  pastEvents?: boolean;
 }) => ({
   queryKey: [QUERY_KEYS.event.getEventLocations, params],
   queryFn: () => fetchEventLocations(params),
@@ -321,7 +321,7 @@ export const useFetchEventLocations = (params?: {
   userId?: string;
   startDate?: string;
   endDate?: string;
-  showActiveOnly?: boolean;
+  pastEvents?: boolean;
 }) => useQuery(queryOptions(fetchEventLocationsOptions(params)));
 
 const fetchAvailableEventCountries = async (): Promise<{ countryCodes: string[] }> =>

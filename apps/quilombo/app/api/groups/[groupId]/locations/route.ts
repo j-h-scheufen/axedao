@@ -4,7 +4,7 @@ import type { Feature, Geometry } from 'geojson';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { createLocationFormSchema } from '@/config/validation-schema';
-import { fetchGroupLocations, insertGroupLocation, isGroupAdmin } from '@/db';
+import { canUserManageGroup, fetchGroupLocations, insertGroupLocation } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import type { RouteParamsGroup } from '@/types/routes';
 
@@ -44,11 +44,15 @@ export async function POST(request: NextRequest, { params }: RouteParamsGroup) {
   }
 
   const { groupId } = await params;
-  const isAdmin = await isGroupAdmin(groupId, session.user.id);
 
-  if (!isAdmin) {
+  // Check authorization
+  const canManage = await canUserManageGroup(groupId, session.user.id);
+  if (!canManage) {
     return Response.json(
-      { error: true, message: 'Unauthorized! Only group admins can add locations' },
+      {
+        error: true,
+        message: 'Unauthorized! Only group admins or global admins (for unmanaged groups) can add locations',
+      },
       {
         status: 403,
       }

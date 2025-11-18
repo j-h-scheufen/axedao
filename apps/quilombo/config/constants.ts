@@ -153,9 +153,9 @@ export type ImageProcessingInstructions = {
 };
 
 export const IMAGE_FORMATS: Record<ImageType, ImageProcessingInstructions> = {
-  userAvatar: { lossless: true, resizeOptions: { width: 300, height: 300 } },
-  groupLogo: { lossless: true, resizeOptions: { width: 200, height: 200 } },
-  groupBanner: { resizeOptions: { height: 250, width: 800, fit: 'cover', position: 'attention' } },
+  userAvatar: { lossless: true, resizeOptions: { width: 300, height: 300, fit: 'inside' } },
+  groupLogo: { lossless: true, resizeOptions: { width: 200, height: 200, fit: 'inside' } },
+  groupBanner: { resizeOptions: { width: 800 } },
   eventImage: {
     resizeOptions: {
       portrait: { width: 900, withoutEnlargement: true },

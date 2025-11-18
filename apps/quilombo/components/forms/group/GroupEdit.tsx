@@ -21,14 +21,22 @@ const GroupEdit = () => {
     <div className="flex flex-col">
       <div className="flex flex-col items-center mb-1 sm:mb-2">
         <h4 className="mb-1 sm:mb-2">Logo</h4>
-        <ImageUpload value={logo} ownerId={groupId} useFileUploadMutation={useUpdateLogoMutation} />
+        <ImageUpload
+          value={logo}
+          ownerId={groupId}
+          useFileUploadMutation={useUpdateLogoMutation}
+          cropAspect={1}
+          cropTitle="Crop Logo"
+        />
         <h4 className="my-1 sm:my-2">Banner</h4>
         <ImageUpload
           value={banner}
           ownerId={groupId}
           useFileUploadMutation={useUpdateBannerMutation}
-          classname="w-full"
+          classname="w-full aspect-[4/1]"
           avatarProps={{ radius: 'md' }}
+          cropAspect={4}
+          cropTitle="Crop Banner"
         />
       </div>
       <Spacer y={2} />
