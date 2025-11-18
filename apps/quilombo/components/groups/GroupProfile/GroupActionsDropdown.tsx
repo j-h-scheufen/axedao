@@ -8,6 +8,7 @@ import { useCallback } from 'react';
 import { useAtomValue } from 'jotai';
 
 import { groupIdAtom, groupAtom, isCurrentUserGroupAdminAtom, isCurrentUserGroupMemberAtom } from '@/hooks/state/group';
+import { currentUserIsGlobalAdminAtom } from '@/hooks/state/currentUser';
 import { useLeaveGroup } from '@/hooks/useCurrentUser';
 import LeaveGroupConfirmationModal from './LeaveGroupConfirmationModal';
 import VerifyGroupModal from './VerifyGroupModal';
@@ -18,6 +19,7 @@ const GroupActionsDropdown = () => {
   const { data: group } = useAtomValue(groupAtom);
   const isGroupAdmin = useAtomValue(isCurrentUserGroupAdminAtom);
   const isGroupMember = useAtomValue(isCurrentUserGroupMemberAtom);
+  const isGlobalAdmin = useAtomValue(currentUserIsGlobalAdminAtom);
   const pathname = usePathname();
   const { leaveGroup, isPending } = useLeaveGroup();
 
@@ -61,6 +63,9 @@ const GroupActionsDropdown = () => {
 
   const isUnclaimed = group.claimedBy === null;
   const canClaim = isUnclaimed && !isGroupAdmin;
+  const isUnmanaged = group.adminCount === 0;
+  const canEditAsGlobalAdmin = isGlobalAdmin && isUnmanaged;
+  const canEdit = isGroupAdmin || canEditAsGlobalAdmin;
 
   return (
     <>
@@ -81,7 +86,7 @@ const GroupActionsDropdown = () => {
             </DropdownItem>
           ) : null}
 
-          {isGroupAdmin ? (
+          {canEdit ? (
             <DropdownItem
               key="edit"
               as={Link}

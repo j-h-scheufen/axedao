@@ -6,7 +6,7 @@ import { type NextRequest, NextResponse } from 'next/server';
 import { nextAuthOptions } from '@/config/next-auth-options';
 import type { UpdateGroupForm } from '@/config/validation-schema';
 import { updateGroupSchema } from '@/config/validation-schema';
-import { deleteGroup, fetchGroup, fetchGroupAdminIds, isGroupAdmin, updateGroup } from '@/db';
+import { canUserManageGroup, deleteGroup, fetchGroup, updateGroup } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import type { RouteParamsGroup } from '@/types/routes';
 
@@ -53,15 +53,19 @@ export async function PATCH(request: NextRequest, { params }: RouteParamsGroup) 
   const group = await fetchGroup(groupId);
   if (!group) return notFound();
 
-  const isAdmin = await isGroupAdmin(groupId, session.user.id);
-
-  if (!isAdmin)
+  // Check authorization
+  const canManage = await canUserManageGroup(groupId, session.user.id);
+  if (!canManage) {
     return Response.json(
-      { error: true, message: 'Unauthorized! Only group admins can update a group' },
+      {
+        error: true,
+        message: 'Unauthorized! Only group admins or global admins (for unmanaged groups) can update a group',
+      },
       {
         status: 401,
       }
     );
+  }
 
   const body = await request.json();
   const isValid = await updateGroupSchema.validate(body);
@@ -109,9 +113,9 @@ export async function DELETE(_: NextRequest, { params }: RouteParamsGroup) {
     const group = await fetchGroup(groupId);
     if (!group) notFound();
 
-    const adminIds = await fetchGroupAdminIds(groupId);
-
-    if (!adminIds.some((id) => id === session.user.id)) {
+    // Check authorization
+    const canManage = await canUserManageGroup(groupId, session.user.id);
+    if (!canManage) {
       return Response.json(
         { error: true, message: 'Unauthorized to delete the group. Missing admin privileges.' },
         {

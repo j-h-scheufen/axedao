@@ -4,7 +4,13 @@ import type { Feature, Geometry } from 'geojson';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { updateLocationFormSchema } from '@/config/validation-schema';
-import { deleteGroupLocation, fetchGroupLocations, isGroupAdmin, isLocationInGroup, updateGroupLocation } from '@/db';
+import {
+  canUserManageGroup,
+  deleteGroupLocation,
+  fetchGroupLocations,
+  isLocationInGroup,
+  updateGroupLocation,
+} from '@/db';
 import { generateErrorMessage } from '@/utils';
 import type { RouteParamsGroupAndLocation } from '@/types/routes';
 import type * as schema from '@/db/schema';
@@ -24,11 +30,15 @@ export async function PATCH(request: NextRequest, { params }: RouteParamsGroupAn
   }
 
   const { groupId, locationId } = await params;
-  const isAdmin = await isGroupAdmin(groupId, session.user.id);
 
-  if (!isAdmin) {
+  // Check authorization
+  const canManage = await canUserManageGroup(groupId, session.user.id);
+  if (!canManage) {
     return Response.json(
-      { error: true, message: 'Unauthorized! Only group admins can update locations' },
+      {
+        error: true,
+        message: 'Unauthorized! Only group admins or global admins (for unmanaged groups) can update locations',
+      },
       {
         status: 403,
       }
@@ -97,11 +107,15 @@ export async function DELETE(_: NextRequest, { params }: RouteParamsGroupAndLoca
   }
 
   const { groupId, locationId } = await params;
-  const isAdmin = await isGroupAdmin(groupId, session.user.id);
 
-  if (!isAdmin) {
+  // Check authorization
+  const canManage = await canUserManageGroup(groupId, session.user.id);
+  if (!canManage) {
     return Response.json(
-      { error: true, message: 'Unauthorized! Only group admins can delete locations' },
+      {
+        error: true,
+        message: 'Unauthorized! Only group admins or global admins (for unmanaged groups) can delete locations',
+      },
       {
         status: 403,
       }

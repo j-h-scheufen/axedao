@@ -16,7 +16,8 @@ import { useAtomValue } from 'jotai';
 import { useCallback, useMemo, useState } from 'react';
 
 import { GroupLocationsSkeleton } from '@/components/skeletons/GroupSkeletons';
-import { groupIdAtom, groupLocationsAtom, isCurrentUserGroupAdminAtom } from '@/hooks/state/group';
+import { groupAtom, groupIdAtom, groupLocationsAtom, isCurrentUserGroupAdminAtom } from '@/hooks/state/group';
+import { currentUserIsGlobalAdminAtom } from '@/hooks/state/currentUser';
 import { useCreateGroupLocation, useDeleteGroupLocation, useUpdateGroupLocation } from '@/hooks/useGroup';
 import type { GroupLocation } from '@/types/model';
 import TableCellValue, { COLUMNS, type GroupLocationTableColumnKey } from './TableCellValue';
@@ -25,8 +26,10 @@ import type { CreateLocationForm, UpdateLocationForm } from '@/config/validation
 
 const GroupLocationsEdit = () => {
   const { data: groupLocations, isLoading } = useAtomValue(groupLocationsAtom);
+  const { data: group } = useAtomValue(groupAtom);
   const groupId = useAtomValue(groupIdAtom);
   const isGroupAdmin = useAtomValue(isCurrentUserGroupAdminAtom);
+  const isGlobalAdmin = useAtomValue(currentUserIsGlobalAdminAtom);
 
   const {
     isOpen: isLocationModalOpen,
@@ -98,17 +101,22 @@ const GroupLocationsEdit = () => {
   );
 
   // Show loading state if admin status is still being determined
-  if (isGroupAdmin === null || isLoading) {
+  if (isGroupAdmin === null || isLoading || !group) {
     return <GroupLocationsSkeleton />;
   }
 
-  const filteredColumns = [...COLUMNS].filter((column) => (isGroupAdmin ? true : column.uid !== 'actions'));
+  // Check if user can manage locations: group admin OR (global admin on unmanaged group)
+  const isUnmanaged = group.adminCount === 0;
+  const canManageAsGlobalAdmin = isGlobalAdmin && isUnmanaged;
+  const canManageLocations = isGroupAdmin || canManageAsGlobalAdmin;
+
+  const filteredColumns = [...COLUMNS].filter((column) => (canManageLocations ? true : column.uid !== 'actions'));
 
   return (
     <>
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-semibold">Locations</h3>
-        {isGroupAdmin && (
+        {canManageLocations && (
           <Button
             size="sm"
             color="primary"
@@ -142,8 +150,8 @@ const GroupLocationsEdit = () => {
                   <TableCellValue
                     groupLocation={item}
                     columnKey={columnKey as GroupLocationTableColumnKey}
-                    onEdit={isGroupAdmin ? () => handleEditLocation(item) : undefined}
-                    onDelete={isGroupAdmin ? () => handleDeleteLocation(item) : undefined}
+                    onEdit={canManageLocations ? () => handleEditLocation(item) : undefined}
+                    onDelete={canManageLocations ? () => handleDeleteLocation(item) : undefined}
                     isUpdating={isUpdating}
                     isDeleting={isDeleting}
                   />
