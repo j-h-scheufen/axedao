@@ -4,6 +4,9 @@ import { Card, CardBody, Skeleton } from '@heroui/react';
 import { Users, CheckCircle, UsersRound, Calendar } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import Link from 'next/link';
+
+import { PATHS } from '@/config/constants';
 
 interface PublicStats {
   activeUsers: number;
@@ -21,11 +24,17 @@ interface StatCardProps {
   icon: React.ReactNode;
   label: string;
   value: number;
+  href: string;
 }
 
-const StatCard = ({ icon, label, value }: StatCardProps) => {
+const StatCard = ({ icon, label, value, href }: StatCardProps) => {
   return (
-    <Card className="shadow-[0_4px_14px_0_rgba(0,0,0,0.25)] hover:shadow-[0_6px_20px_0_rgba(0,0,0,0.35)] sm:hover:scale-105 transition-all duration-200 border border-primary-200/60 dark:border-primary-800/40 border-t-primary-100/80 border-l-primary-100/80 dark:border-t-primary-900/30 dark:border-l-primary-900/30">
+    <Card
+      as={Link}
+      href={href}
+      isPressable
+      className="shadow-[0_4px_14px_0_rgba(0,0,0,0.25)] hover:shadow-[0_6px_20px_0_rgba(0,0,0,0.35)] sm:hover:scale-105 transition-all duration-200 border border-primary-200/60 dark:border-primary-800/40 border-t-primary-100/80 border-l-primary-100/80 dark:border-t-primary-900/30 dark:border-l-primary-900/30"
+    >
       <CardBody className="flex flex-col items-center gap-2 p-4">
         <div className="flex flex-row items-center gap-3">
           <div className="text-primary-400 dark:text-primary-500 border border-primary-300 dark:border-primary-600 rounded-md p-1.5 bg-gradient-to-br from-primary-50/50 to-transparent dark:from-primary-950/30 dark:to-transparent">
@@ -92,10 +101,30 @@ const StatisticsWidget = () => {
     <div className="w-full mx-auto">
       <h2 className="text-xl font-semibold text-default-900 mb-2 sm:mb-4 text-center">Statistics</h2>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <StatCard icon={<Users size={24} />} label="Active Users" value={stats.activeUsers} />
-        <StatCard icon={<UsersRound size={24} />} label="Total Groups" value={stats.totalGroups} />
-        <StatCard icon={<CheckCircle size={24} />} label="Verified Groups" value={stats.verifiedGroups} />
-        <StatCard icon={<Calendar size={24} />} label="Upcoming Events" value={stats.upcomingEvents} />
+        <StatCard
+          icon={<Users size={24} />}
+          label="Active Users"
+          value={stats.activeUsers}
+          href={`${PATHS.search}?tab=users`}
+        />
+        <StatCard
+          icon={<UsersRound size={24} />}
+          label="Total Groups"
+          value={stats.totalGroups}
+          href={`${PATHS.search}?tab=groups`}
+        />
+        <StatCard
+          icon={<CheckCircle size={24} />}
+          label="Verified Groups"
+          value={stats.verifiedGroups}
+          href={`${PATHS.search}?tab=groups&verified=true`}
+        />
+        <StatCard
+          icon={<Calendar size={24} />}
+          label="Upcoming Events"
+          value={stats.upcomingEvents}
+          href={`${PATHS.search}?tab=events`}
+        />
       </div>
     </div>
   );
