@@ -121,6 +121,9 @@ export const searchGroupsOptions = (params: GroupSearchParamsWithFilters) => {
 const createGroup = async (newGroup: CreateNewGroupForm): Promise<Group> =>
   axios.post('/api/groups', newGroup).then((response) => response.data);
 
+const createUnmanagedGroup = async (newGroup: CreateNewGroupForm): Promise<Group> =>
+  axios.post('/api/admin/groups', newGroup).then((response) => response.data);
+
 const deleteGroup = async (groupId: string): Promise<void> => axios.delete(`/api/groups/${groupId}`);
 
 const updateGroup = async (groupId: string, data: UpdateGroupForm): Promise<Group> =>
@@ -194,6 +197,18 @@ export const useCreateGroupMutation = () => {
       queryClient.setQueryData([QUERY_KEYS.group.getGroup, data.id], data);
       // The current user's groupId has changed as part of creating a new group
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.currentUser.getUser] });
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.searchGroups] });
+    },
+  });
+};
+
+export const useCreateUnmanagedGroupMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (newGroup: CreateNewGroupForm) => createUnmanagedGroup(newGroup),
+    onSuccess: (data) => {
+      queryClient.setQueryData([QUERY_KEYS.group.getGroup, data.id], data);
+      // Admin created unmanaged group - no user changes, only group list
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.searchGroups] });
     },
   });

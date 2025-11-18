@@ -37,3 +37,5 @@ export const currentUserWalletAddressAtom = atom<Address | undefined>(
 export const currentUserAvatarUrlAtom = atom<string | undefined>((get) =>
   getImageUrl(get(currentUserAtom).data?.avatar)
 );
+
+export const currentUserIsGlobalAdminAtom = atom<boolean>((get) => get(currentUserAtom).data?.isGlobalAdmin ?? false);

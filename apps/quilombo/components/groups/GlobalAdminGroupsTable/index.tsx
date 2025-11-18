@@ -18,6 +18,7 @@ import type React from 'react';
 import { useCallback, useState } from 'react';
 
 import VerificationChip from '@/components/VerificationChip';
+import CreateUnmanagedGroupModal from '@/components/groups/CreateUnmanagedGroupModal';
 import { PATHS } from '@/config/constants';
 import useGroupSearch from '@/hooks/useGroupSearch';
 import type { Group } from '@/types/model';
@@ -86,6 +87,9 @@ const GlobalAdminGroupsTable = () => {
   return (
     <div className="flex flex-col gap-4 -mt-5">
       {/* <Filters query={{ searchTerm }} setQuery={(query) => setSearchTerm(query.searchTerm)} /> */}
+      <div className="flex justify-end mb-2">
+        <CreateUnmanagedGroupModal />
+      </div>
       <div className="flex flex-col gap-3">
         <Table
           aria-label="Global admin groups table"

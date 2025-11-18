@@ -221,6 +221,37 @@ export async function isGroupAdmin(groupId: string, userId: string): Promise<boo
 }
 
 /**
+ * Checks if a user is authorized to manage a group (edit, delete, manage locations).
+ * Authorization rules:
+ * - User is a group admin, OR
+ * - User is a global admin AND group has no admins (unmanaged)
+ *
+ * Note: Always fetches current user state from DB to avoid stale session data.
+ *
+ * @param groupId - ID of the group
+ * @param userId - ID of the user
+ * @returns True if user is authorized to manage the group
+ */
+export async function canUserManageGroup(groupId: string, userId: string): Promise<boolean> {
+  // First check if user is a group admin (quick check)
+  const isAdmin = await isGroupAdmin(groupId, userId);
+  if (isAdmin) return true;
+
+  // If not group admin, check if global admin on unmanaged group
+  // Note: Fetch from DB to ensure we have current permissions, not stale session data
+  const user = await db
+    .select({ isGlobalAdmin: schema.users.isGlobalAdmin })
+    .from(schema.users)
+    .where(eq(schema.users.id, userId))
+    .limit(1);
+
+  if (!user[0]?.isGlobalAdmin) return false;
+
+  const group = await fetchGroup(groupId);
+  return group?.adminCount === 0;
+}
+
+/**
  * Fetches all members of a group.
  *
  * @param groupId - ID of the group

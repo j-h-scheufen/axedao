@@ -11,6 +11,7 @@ import {
   useAddAdminMutation,
   useCreateGroupLocationMutation,
   useCreateGroupMutation,
+  useCreateUnmanagedGroupMutation,
   useDeleteGroupLocationMutation,
   useDeleteGroupMutation,
   useRemoveAdminMutation,
@@ -26,6 +27,15 @@ export const useCreateGroup = () => {
       onError: (error) => enqueueSnackbar(`An error occured trying to create the group: ${error.message}`),
     });
   return { createGroup, error, isPending };
+};
+
+export const useCreateUnmanagedGroup = () => {
+  const { mutateAsync, error, isPending } = useCreateUnmanagedGroupMutation();
+  const createUnmanagedGroup = async (data: CreateNewGroupForm) =>
+    mutateAsync(data, {
+      onError: (error) => enqueueSnackbar(`An error occurred trying to create the unmanaged group: ${error.message}`),
+    });
+  return { createUnmanagedGroup, error, isPending };
 };
 
 export const useDeleteGroup = () => {

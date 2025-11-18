@@ -4,7 +4,7 @@ import { type NextRequest, NextResponse } from 'next/server';
 
 import { FILE_PREFIXES } from '@/config/constants';
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { fetchGroup, isGroupAdmin, updateGroup } from '@/db';
+import { canUserManageGroup, fetchGroup, updateGroup } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import { pinToGroup, unpin } from '@/utils/pinata';
 import type { RouteParamsGroup } from '@/types/routes';
@@ -29,10 +29,13 @@ export async function POST(request: NextRequest, { params }: RouteParamsGroup) {
     const group = await fetchGroup(groupId);
     if (!group) return notFound();
 
-    const isAdmin = await isGroupAdmin(groupId, session.user.id);
-    if (!isAdmin) {
+    // Check authorization
+    const canManage = await canUserManageGroup(groupId, session.user.id);
+    if (!canManage) {
       return NextResponse.json(
-        { error: 'Unauthorized! Only group admins can update the group banner' },
+        {
+          error: 'Unauthorized! Only group admins or global admins (for unmanaged groups) can update the group banner',
+        },
         { status: 403 }
       );
     }
@@ -85,10 +88,13 @@ export async function DELETE(_: NextRequest, { params }: RouteParamsGroup) {
     const group = await fetchGroup(groupId);
     if (!group) return notFound();
 
-    const isAdmin = await isGroupAdmin(groupId, session.user.id);
-    if (!isAdmin) {
+    // Check authorization
+    const canManage = await canUserManageGroup(groupId, session.user.id);
+    if (!canManage) {
       return NextResponse.json(
-        { error: 'Unauthorized! Only group admins can delete the group banner' },
+        {
+          error: 'Unauthorized! Only group admins or global admins (for unmanaged groups) can delete the group banner',
+        },
         { status: 403 }
       );
     }

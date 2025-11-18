@@ -15,7 +15,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
       userId,
       startDate,
       endDate,
-      showActiveOnly = 'false',
+      pastEvents = 'false',
     } = Object.fromEntries(searchParams.entries());
 
     const searchOptions = {
@@ -24,7 +24,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
       ...omitBy({ searchTerm, type, countryCode, groupId, userId }, isNil),
       ...(startDate && { startDate: new Date(startDate) }),
       ...(endDate && { endDate: new Date(endDate) }),
-      showActiveOnly: showActiveOnly === 'true',
+      pastEvents: pastEvents === 'true',
     };
 
     const searchResults = await searchEvents(searchOptions);
