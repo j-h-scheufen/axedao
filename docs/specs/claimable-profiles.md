@@ -10,13 +10,14 @@
 
 ## Executive Summary
 
-Enable global admins to create and manage user profiles on behalf of Capoeira practitioners who are not yet in the system (or are deceased). These "managed profiles" appear like normal user profiles throughout the app but are maintained by admins or designated community members until the actual person claims them. When claimed, the managed profile merges with the claimer's active account.
+Enable global admins to create and manage user profiles on behalf of Capoeira practitioners who are not yet in the system (or are deceased). These "managed profiles" (originally conceptualized as "virtual profiles") appear like normal user profiles throughout the app but are maintained by admins or designated community members until the actual person claims them. When claimed, the managed profile data merges into the claimer's active account.
 
 **Core Value Propositions:**
 1. **For the Community**: Build comprehensive Capoeira genealogy including deceased mestres and historical figures
 2. **For Users**: Find and reference important figures in their lineage (founders, teachers, influencers)
 3. **For Admins**: Curate accurate biographical and lineage information before people join
 4. **For Future Users**: Join the app and discover their profile already exists with pre-filled information
+5. **For Cultural Preservation**: Honor and preserve the legacy of the mestres and mestras who shaped, spread, and keep Capoeira alive - creating a living compendium of their lives and contributions
 
 **Example Use Cases:**
 - Create profile for Mestre Bimba (deceased 1974) to reference as founder of Capoeira Regional groups
@@ -120,6 +121,12 @@ The following design decisions were made based on stakeholder feedback:
    - Profile could be deleted or become inaccessible
    - Students lose ability to reference them in lineage
 
+5. **Cultural Preservation Gap**: No comprehensive digital record of Capoeira's masters
+   - Rich oral traditions and histories not systematically documented
+   - Biographical information scattered or lost over time
+   - Next generation loses connection to foundational figures
+   - Inspiration: Like the portrait galleries honoring old mestres in traditional schools (e.g., Mestre Perna's wall in Bremen), we need a digital space to honor and preserve their legacies
+
 ### User Stories
 
 **As a Global Admin:**
@@ -183,6 +190,8 @@ The following design decisions were made based on stakeholder feedback:
 **1. Managed Profiles ARE User Records**
 - Don't create separate `managed_profiles` table
 - Use existing `users` table with special `accountStatus = 'managed_profile'`
+- Managed profiles have all standard user features: avatar/profile picture, name, nickname, title
+- Can be referenced in groups (as leader/founder), events, and relationships
 - Rationale: Minimal code changes, consistent API, easier to merge later
 
 **2. Extended Profile Info for Everyone**
@@ -195,11 +204,31 @@ The following design decisions were made based on stakeholder feedback:
 - Create `profile_claims` table
 - Admin approval required
 
-**4. Merge Managed → Claimer (Not Reverse)**
-- Keep claimer's `users` record (has authentication)
+**4. Merge Direction: TBD (Two Valid Approaches)**
+
+Two approaches are possible, each with trade-offs:
+
+**Option A: "Takeover" (Merge Claimer INTO Managed)**
+- Keep managed profile's user record (has all existing business references)
+- Add authentication credentials from claimer to managed profile
+- Merge claimer's data into managed profile
+- Update claimer's references (likely fewer - new user)
+- Delete claimer's user record
+- **Pros**: Fewer updates if managed profile has accumulated many references (groups, events, relationships) - the common case for deceased mestres or long-existing profiles
+- **Cons**: Need to migrate auth infrastructure (sessions, OAuth, email verification)
+
+**Option B: Merge Managed INTO Claimer**
+- Keep claimer's user record (has authentication infrastructure)
 - Copy managed profile's extended data to claimer
-- Update all foreign key references to point to claimer
-- Delete managed profile's `users` record
+- Update managed profile's references (likely more - historical profile)
+- Delete managed profile's user record
+- **Pros**: Preserves auth setup, maintains claimer's identity/nickname, user expects to "keep their account"
+- **Cons**: More updates if managed profile has many references
+
+**Decision: TBD** - Both approaches are viable. Choice depends on:
+- Common case assumptions (is claimer usually brand new or established?)
+- Auth infrastructure complexity (easier to copy data or copy auth?)
+- Implementation during Phase 3 will determine optimal approach based on actual schema
 
 **5. Permissions Model**
 - Global admins: Can create, edit, delete any managed profile
@@ -1137,9 +1166,11 @@ export function ClaimProfileButton({ profileUserId }: { profileUserId: string })
 
 ## Phase 3: Account Merging
 
+> **Note**: The merge direction is TBD (see Design Decision #4). The algorithm below shows **Option B** (merge managed INTO claimer) as an example implementation. If Option A (takeover) is chosen, the algorithm would be reversed.
+
 ### Merge Logic Overview
 
-When a profile claim is approved, we need to merge the managed profile into the claimer's account:
+When a profile claim is approved, we need to merge accounts:
 
 ```
 BEFORE MERGE:
@@ -1895,6 +1926,40 @@ export const profileManagementRequests = pgTable('profile_management_requests', 
 - Auto-approve if verification passes
 
 **Time Estimate**: 2 weeks
+
+### Enhancement 7: Masters Gallery - A Living Compendium
+
+**Vision**: Transform managed profiles into a comprehensive, living compendium honoring the mestres and mestras who shaped Capoeira
+
+**Inspiration**: Traditional Capoeira schools often display portrait galleries of old mestres on their walls (such as Mestre Perna's school in Bremen) - a physical homage to those who came before. This digital equivalent would preserve and celebrate their legacies for future generations.
+
+**Goal**: Create a comprehensive, searchable collection documenting the lives, teachings, and contributions of Capoeira's masters - many of whom have no formal biographical records.
+
+**Features**:
+- **Gallery View**: Visual grid of master profiles with portraits, organized chronologically or by lineage
+- **Rich Biographies**: Detailed life stories, teaching philosophies, and historical context
+- **Multimedia**: Photos, videos of rodas, audio recordings of music/teachings
+- **Timeline**: Historical timeline showing evolution of Capoeira through its masters
+- **Contributions**: Document specific innovations, techniques, songs, or groups founded
+- **Stories & Memories**: Community-contributed anecdotes and personal memories
+- **Cultural Context**: Connect masters to historical events, migrations, and cultural movements
+- **Print/Export**: Generate memorial pages or downloadable biographies
+
+**Cultural Impact**:
+- Preserve oral histories before they're lost
+- Honor those who kept Capoeira alive through persecution and diaspora
+- Educate new generations about their art's roots
+- Create authoritative reference for researchers and practitioners
+- Ensure deceased mestres remain present in the community's memory
+
+**Implementation Considerations**:
+- Partner with Capoeira historians and elder mestres for accuracy
+- Respect cultural sensitivity around deceased individuals
+- Multilingual support (Portuguese, English, others)
+- Academic citations and source documentation
+- Community moderation for respectful content
+
+**Time Estimate**: Ongoing project - 4-6 weeks for initial gallery implementation, continuous community curation
 
 ---
 
