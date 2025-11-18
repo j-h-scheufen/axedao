@@ -28,7 +28,7 @@ export async function searchEvents(options: {
   userId?: string;
   startDate?: Date;
   endDate?: Date;
-  showActiveOnly?: boolean; // New parameter to show only active/upcoming events
+  pastEvents?: boolean; // When true, show all events including past ones; default (false) shows only active/upcoming
 }): Promise<{ rows: schema.SelectEvent[]; totalCount: number }> {
   const {
     pageSize = QUERY_DEFAULT_PAGE_SIZE,
@@ -42,7 +42,7 @@ export async function searchEvents(options: {
     userId,
     startDate,
     endDate,
-    showActiveOnly = false,
+    pastEvents = false,
   } = options;
 
   const filters: (SQLWrapper | undefined)[] = [];
@@ -80,23 +80,27 @@ export async function searchEvents(options: {
   }
 
   // Handle date filtering
-  if (showActiveOnly) {
-    // Show events that are either:
+  if (!pastEvents) {
+    // Default behavior: Show only active/upcoming events that are either:
     // 1. Starting in the future (start >= now)
-    // 2. Currently ongoing multi-day events (start < now AND end IS NOT NULL AND end >= now)
+    // 2. Currently ongoing or ending today (start < now AND end IS NOT NULL AND end >= startOfToday)
+    // This ensures events that ended earlier today still show (e.g., for after-party info)
     const now = new Date();
+    const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
+
     filters.push(
       or(
         gte(schema.events.start, now), // Future events
         and(
           lt(schema.events.start, now), // Started in the past
           isNotNull(schema.events.end), // Has an end date (multi-day event)
-          gte(schema.events.end, now) // End date is in the future
+          gte(schema.events.end, startOfToday) // End date is today or in the future
         )
       )
     );
   } else {
-    // Use explicit start/end date filters if provided
+    // When pastEvents is true, show all events (including past ones)
+    // Use explicit start/end date filters if provided for additional filtering
     if (startDate) filters.push(gte(schema.events.start, startDate));
     if (endDate) filters.push(lte(schema.events.end, endDate));
   }

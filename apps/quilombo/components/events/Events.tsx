@@ -3,7 +3,7 @@
 import { Tabs, Tab, Button } from '@heroui/react';
 import { Plus } from 'lucide-react';
 import { useState } from 'react';
-import { parseAsString, useQueryStates } from 'nuqs';
+import { parseAsString, parseAsBoolean, useQueryStates } from 'nuqs';
 import type { Key } from 'react';
 
 import useEventSearchWithInfiniteScroll from '@/hooks/useEventSearchWithInfiniteScroll';
@@ -23,13 +23,16 @@ import EventsGrid from './EventsGrid';
 import EventsMap from './EventsMap';
 
 const Events = () => {
-  const [{ view, [PARAM_KEY_EVENT_QUERY]: eq, countries, eventTypes: eventTypesParam }, setQueryStates] =
-    useQueryStates({
-      view: parseAsString.withDefault('list'),
-      [PARAM_KEY_EVENT_QUERY]: parseAsString.withDefault(''),
-      countries: parseAsString.withDefault(''),
-      eventTypes: parseAsString.withDefault(''),
-    });
+  const [
+    { view, [PARAM_KEY_EVENT_QUERY]: eq, countries, eventTypes: eventTypesParam, pastEvents: pastEventsParam },
+    setQueryStates,
+  ] = useQueryStates({
+    view: parseAsString.withDefault('list'),
+    [PARAM_KEY_EVENT_QUERY]: parseAsString.withDefault(''),
+    countries: parseAsString.withDefault(''),
+    eventTypes: parseAsString.withDefault(''),
+    pastEvents: parseAsBoolean.withDefault(false),
+  });
 
   const [inputValue, setInputValue] = useState(eq || '');
   const selectedCountries = countries ? countries.split(',').filter(Boolean) : [];
@@ -39,12 +42,14 @@ const Events = () => {
     eventTypes: eventTypesParam
       ? (eventTypesParam.split(',').filter(Boolean) as Array<'general' | 'workshop' | 'batizado' | 'public_roda'>)
       : undefined,
+    pastEvents: pastEventsParam,
   });
 
   const { setSearchTerm, events, totalCount, isLoading, scrollerRef } = useEventSearchWithInfiniteScroll({
     filters: {
       countryCodes: selectedCountries.length > 0 ? selectedCountries : undefined,
       eventTypes: eventFilters.eventTypes && eventFilters.eventTypes.length > 0 ? eventFilters.eventTypes : undefined,
+      pastEvents: eventFilters.pastEvents,
     },
   });
   const [isEventModalOpen, setIsEventModalOpen] = useState(false);
@@ -57,7 +62,7 @@ const Events = () => {
   // Fetch event locations for map view with same search parameters
   const { data: eventLocations, isLoading: isLoadingLocations } = useFetchEventLocations({
     searchTerm: eq || undefined,
-    showActiveOnly: true,
+    pastEvents: eventFilters.pastEvents,
   });
 
   // Scroll position restoration - only enabled for list view
@@ -97,6 +102,7 @@ const Events = () => {
     setEventFilters(newFilters);
     setQueryStates({
       eventTypes: newFilters.eventTypes && newFilters.eventTypes.length > 0 ? newFilters.eventTypes.join(',') : null,
+      pastEvents: newFilters.pastEvents || null,
     });
   };
 
@@ -165,7 +171,7 @@ const Events = () => {
           <EventFilters
             filters={eventFilters}
             onFiltersChange={handleFiltersChange}
-            isActive={!!(eventFilters.eventTypes && eventFilters.eventTypes.length > 0)}
+            isActive={!!(eventFilters.eventTypes && eventFilters.eventTypes.length > 0) || !!eventFilters.pastEvents}
           />
         </div>
       </div>

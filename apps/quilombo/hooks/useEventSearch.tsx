@@ -10,7 +10,6 @@ import { useSearchEvents } from '@/query/event';
 
 type UseEventSearchOptions = {
   filters?: Partial<EventFilters>;
-  showActiveOnly?: boolean;
 };
 
 const useEventSearch = (options?: UseEventSearchOptions) => {
@@ -23,7 +22,6 @@ const useEventSearch = (options?: UseEventSearchOptions) => {
 
   const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } = useSearchEvents({
     searchTerm,
-    showActiveOnly: options?.showActiveOnly !== undefined ? options.showActiveOnly : true, // Default to active only
     filters: options?.filters,
   });
 
