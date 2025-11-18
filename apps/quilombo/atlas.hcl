@@ -2,12 +2,12 @@
 # This configuration uses Drizzle ORM schema as the source of truth
 # and Atlas for migration planning and execution
 
-# External schema data source: Drizzle ORM schema with PostGIS extensions
-# The wrapper script ensures Atlas dev database has extensions enabled during validation
+# External schema data source using Drizzle Kit export
 data "external_schema" "drizzle" {
   program = [
-    "bash",
-    "db/atlas/export-with-extensions.sh"
+    "npx",
+    "drizzle-kit",
+    "export"
   ]
 }
 
@@ -19,17 +19,16 @@ env "local" {
 
   # Dev database for Atlas schema operations
   # Atlas uses this to plan and validate migrations
-  # Using postgis image for geometry type support (ARM64 compatible)
-  dev = "docker://postgis/17-3.5/dev"
+  dev = "docker://postgres/17/dev?search_path=public"
 
-  # Schema source: Drizzle ORM schema
+  # Schema source from Drizzle export
   schema {
     src = data.external_schema.drizzle.url
   }
 
   # Migration directory for Atlas-generated migrations
   migration {
-    dir = "file://db/atlas/migrations"
+    dir = "file://atlas/migrations"
   }
 }
 
@@ -38,14 +37,14 @@ env "staging" {
   # Staging database connection
   url = getenv("STAGING_DATABASE_URL")
 
-  # Schema source: Drizzle ORM schema
+  # Schema source from Drizzle export
   schema {
     src = data.external_schema.drizzle.url
   }
 
   # Migration directory
   migration {
-    dir = "file://db/atlas/migrations"
+    dir = "file://atlas/migrations"
   }
 
   # Enable linting for safety
@@ -61,7 +60,7 @@ env "staging" {
     }
 
     # Detect backward incompatible changes (renaming columns, changing types)
-    incompatible {
+    backward_incompatible {
       error = true
     }
   }
@@ -72,14 +71,14 @@ env "production" {
   # Production database connection
   url = getenv("PRODUCTION_DATABASE_URL")
 
-  # Schema source: Drizzle ORM schema
+  # Schema source from Drizzle export
   schema {
     src = data.external_schema.drizzle.url
   }
 
   # Migration directory
   migration {
-    dir = "file://db/atlas/migrations"
+    dir = "file://atlas/migrations"
   }
 
   # Strict linting for production
@@ -95,7 +94,7 @@ env "production" {
     }
 
     # Detect backward incompatible changes
-    incompatible {
+    backward_incompatible {
       error = true
     }
   }
