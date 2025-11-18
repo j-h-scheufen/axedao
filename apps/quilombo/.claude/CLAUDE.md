@@ -22,7 +22,7 @@ Quilombo is the main DApp for the Axé DAO ecosystem, providing community functi
 # Development server on port 8080
 pnpm dev
 
-# Database operations (Atlas - recommended)
+# Database migrations (Atlas)
 pnpm db:atlas:diff      # Generate migration from schema changes
 pnpm db:atlas:lint      # Lint migrations for safety issues
 pnpm db:atlas:preview   # Preview migration without applying (dry-run)
@@ -30,14 +30,10 @@ pnpm db:atlas:apply     # Apply migrations to local database
 pnpm db:atlas:status    # Check migration status
 pnpm db:atlas:validate  # Validate migration files
 
-# Legacy database operations (Drizzle - deprecated)
-pnpm db:generate  # Generate migrations from schema changes
-pnpm db:migrate   # Apply migrations to database
-
 # Local database (Docker)
 pnpm db:local:up      # Start PostgreSQL container
 pnpm db:local:down    # Stop PostgreSQL container
-pnpm db:local:reset   # Reset database (destroys data, runs migrations)
+pnpm db:local:reset   # Reset database (destroys data, runs Atlas migrations)
 pnpm db:local:seed    # Populate with test data
 pnpm db:local:logs    # View database logs
 pnpm db:local:psql    # Connect to PostgreSQL CLI
@@ -53,7 +49,10 @@ pnpm lint
 pnpm format
 ```
 
-**Important**: Atlas commands automatically load environment variables from `.env` and `.env.local` using dotenv-cli.
+**Important Notes:**
+- Atlas commands automatically load environment variables from `.env` and `.env.local` using dotenv-cli
+- **drizzle-kit is still installed** but only used internally by Atlas (via `drizzle-kit export`)
+- **Do not run drizzle-kit commands directly** - all migrations must go through Atlas for safety and consistency
 
 ## Database Setup
 
@@ -105,14 +104,15 @@ docker run --name drizzle-postgres -e POSTGRES_PASSWORD=mypassword -d -p 5432:54
   ALTER ROLE postgres SET search_path TO "$user", public, extensions, gis
   ```
 
-### Manual Migrations
+### Manual Migrations (Legacy - Do Not Use)
 
-Some migrations are manually generated for features Drizzle doesn't support (functions, triggers, etc.):
+**Deprecated**: This section describes the old Drizzle migration workflow. Do not use this approach.
 
-1. Create a new numbered migration file with DB changes
-2. Either:
-   - Run `npx drizzle-kit push` to manually add the migration, OR
-   - Add a new entry to `_journal.json` and run `npx drizzle-kit migrate`
+For features Atlas doesn't automatically detect (triggers, functions, stored procedures):
+1. Create the SQL manually in a file
+2. Use `atlas migrate new <name> --edit` to create a new migration
+3. Add your SQL to the generated file
+4. Follow normal Atlas workflow (lint, preview, apply)
 
 ### Atlas Migration System
 
