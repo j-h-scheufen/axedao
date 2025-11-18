@@ -93,8 +93,6 @@ export async function GET(request: Request) {
         'X-RateLimit-Limit': '10',
         'X-RateLimit-Remaining': String(rateLimitResult.remaining),
         'X-RateLimit-Reset': new Date(rateLimitResult.resetAt).toISOString(),
-        // Cache for 5 minutes on CDN/browser
-        'Cache-Control': 'public, max-age=300, s-maxage=300',
       },
     });
   } catch (error) {
