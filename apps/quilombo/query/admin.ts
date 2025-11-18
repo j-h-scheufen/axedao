@@ -1,5 +1,5 @@
 import { queryOptions, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import axios from 'axios';
+import axios from '@/utils/axios';
 
 import { QueryConfig } from '@/config/constants';
 import { QUERY_KEYS } from '.';
