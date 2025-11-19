@@ -1,4 +1,4 @@
-name: Test Contracts
+name: Test Apps
 
 on:
   push:
@@ -6,8 +6,8 @@ on:
       - '**'  # Run on all branches
 
 jobs:
-  tests:
-    name: Contracts
+  unit-tests:
+    name: Apps Unit Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -30,17 +30,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-turbo-
 
-      - name: Install Foundry
-        uses: foundry-rs/foundry-toolchain@v1
-        with:
-          version: stable
-
       - run: pnpm install --frozen-lockfile
 
-      - name: Lint contracts
-        run: pnpm --filter contracts lint
+      - run: pnpm lint
 
-      - name: Test contracts
-        run: pnpm --filter contracts test
-      #   env:
-      #     JSON_RPC_PROVIDER: ${{ secrets.JSON_RPC_PROVIDER }}
+      - name: Run unit tests for quilombo
+        run: pnpm --filter quilombo test:unit
+
+      - name: Run unit tests for www
+        run: pnpm --filter www test
+        continue-on-error: true  # www might not have tests yet

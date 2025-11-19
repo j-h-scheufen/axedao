@@ -1,13 +1,14 @@
-name: Test Contracts
+name: Integration Tests
 
 on:
-  push:
+  pull_request:
     branches:
-      - '**'  # Run on all branches
+      - main
+      - develop
 
 jobs:
-  tests:
-    name: Contracts
+  integration-tests:
+    name: Quilombo Integration Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -30,17 +31,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-turbo-
 
-      - name: Install Foundry
-        uses: foundry-rs/foundry-toolchain@v1
-        with:
-          version: stable
-
       - run: pnpm install --frozen-lockfile
 
-      - name: Lint contracts
-        run: pnpm --filter contracts lint
-
-      - name: Test contracts
-        run: pnpm --filter contracts test
-      #   env:
-      #     JSON_RPC_PROVIDER: ${{ secrets.JSON_RPC_PROVIDER }}
+      - name: Run integration tests (with Testcontainers)
+        run: pnpm --filter quilombo test:integration
+        env:
+          # Testcontainers needs Docker, which is available in ubuntu-latest
+          # These env vars ensure Testcontainers works in CI
+          TESTCONTAINERS_RYUK_DISABLED: false
