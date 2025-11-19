@@ -1,4 +1,4 @@
--- Update set_country_code_from_feature function to ensure UPPER case
+-- Update set_country_code_from_feature function to normalize to lowercase
 -- This function is used by both group_locations and events tables
 CREATE OR REPLACE FUNCTION set_country_code_from_feature()
 RETURNS trigger
@@ -6,7 +6,7 @@ SET search_path = public,extensions,gis
 AS $$
 BEGIN
   NEW.country_code :=
-    UPPER(
+    LOWER(
       COALESCE(
         NEW.feature->'properties'->>'country_code',
         (
