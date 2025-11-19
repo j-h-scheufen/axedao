@@ -4,6 +4,9 @@ node_modules
 # TypeScript build cache
 *.tsbuildinfo
 
+# Turborepo cache
+.turbo
+
 # backup files (NEVER commit these - may contain secrets)
 *.backup
 *.bak

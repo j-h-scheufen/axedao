@@ -1,0 +1,41 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env.*local"],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**", "dist/**", "out/**", "build/**", ".vercel/**"],
+      "env": [
+        "NEXT_PUBLIC_*",
+        "DATABASE_URL",
+        "NEXTAUTH_*",
+        "GOOGLE_*",
+        "MAILJET_*",
+        "PINATA_JWT",
+        "ETHERSCAN_API_KEY",
+        "GRAPH_API_KEY",
+        "NODE_ENV"
+      ]
+    },
+    "lint": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "format": {
+      "outputs": [],
+      "cache": false
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "outputs": ["coverage/**"],
+      "env": ["TEST_*", "DATABASE_URL"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "db:*": {
+      "cache": false
+    }
+  }
+}
