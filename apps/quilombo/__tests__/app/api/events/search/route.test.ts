@@ -157,6 +157,7 @@ describe('POST /api/events/search', () => {
         eventTypes: undefined,
         startDate: undefined,
         endDate: undefined,
+        pastEvents: false,
       });
       expect(body.totalCount).toBe(2);
       expect(body.nextOffset).toBe(2); // Returns totalCount when all results fit in one page
