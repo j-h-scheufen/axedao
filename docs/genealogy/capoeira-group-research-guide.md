@@ -501,7 +501,7 @@ Headquarters (Rio)
 **Or nucleus model**:
 ```
 Headquarters (Feira de Santana, Mestre Cláudio)
-├─ Núcleo Berlin (Treinel Xaxado)
+├─ Núcleo Berlin (Treinel Tito)
 ├─ Núcleo Paris (Contra-Mestre Stéph)
 ├─ Núcleo Helsinki (Contra-Mestre Bom Cabelo)
 └─ [20+ other núcleos...]
@@ -849,9 +849,16 @@ Generation 5: Current students/leaders
 
 ### 8.1 Style Classification
 
-**Primary style**:
+**Primary style** (based on IPHAN categories + additional classifications):
 ```typescript
-style: 'angola' | 'regional' | 'contemporanea' | 'mixed'
+style:
+  | 'angola'           // Traditional Capoeira Angola
+  | 'regional'         // Mestre Bimba's Regional style
+  | 'contemporanea'    // Contemporary/modern capoeira
+  | 'capoeira'         // Generic capoeira (style unspecified/unclassified)
+  | 'capoeira_de_rua'  // Street capoeira
+  | 'mixed'            // Groups teaching multiple distinct styles
+  | 'other'            // Other styles not fitting above categories
 
 style_details?: {
   angola?: {
@@ -868,9 +875,20 @@ style_details?: {
     blends: string[],            // What elements are blended
     modern_innovations: string[]
   },
+  capoeira?: {
+    reason_unspecified: string   // Why style not classified (e.g., "pre-dates Angola/Regional split")
+  },
+  capoeira_de_rua?: {
+    context: string,             // Urban/street context characteristics
+    formalization_level: 'informal' | 'semi_formal' | 'formal'
+  },
   mixed?: {
     teaches_both: boolean,       // Like Muzenza teaching Angola + Regional
     style_by_class: boolean      // Separate classes for each style
+  },
+  other?: {
+    description: string,         // Describe the unique style
+    influences: string[]         // What traditions/styles influence it
   }
 }
 ```
@@ -1054,7 +1072,7 @@ descended_from          // Historical descent (no current org tie)
 **Date**: YYYY-MM-DD
 **Founded**: [Year/Period]
 **Location**: [City, Country] ([X+ international locations])
-**Style**: [Angola/Regional/Contemporânea/Mixed]
+**Style**: [Angola/Regional/Contemporânea/Capoeira/Capoeira de Rua/Mixed/Other]
 **Scale**: [Local/National/International with countries]
 
 ---
@@ -1269,7 +1287,7 @@ Before considering a case study complete, verify:
 - [ ] Student-teacher chains mapped
 
 ### Cultural & Philosophy (Medium Priority)
-- [ ] Style confirmed (Angola/Regional/Contemporânea/Mixed)
+- [ ] Style confirmed (Angola/Regional/Contemporânea/Capoeira/Capoeira de Rua/Mixed/Other)
 - [ ] Unique practices documented
 - [ ] Social mission/philosophy captured (if stated)
 - [ ] Political dimensions noted (if any)
