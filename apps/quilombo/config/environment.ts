@@ -140,10 +140,10 @@ const ENV: ConfigType = {
 };
 
 function required(value: string | undefined, name: string): string {
-  if (!value) {
+  if (!value && !isTestMode) {
     throw new Error(`Missing required environment variable ${name}`);
   }
-  return value;
+  return value || '';
 }
 
 export default ENV;
