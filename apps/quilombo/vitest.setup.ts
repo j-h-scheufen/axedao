@@ -35,7 +35,9 @@ vi.mock('next/navigation', () => ({
     get: vi.fn(),
   }),
   usePathname: () => '',
-  notFound: vi.fn(),
+  notFound: vi.fn(() => {
+    throw new Error('NEXT_NOT_FOUND');
+  }),
 }));
 
 // Mock Next.js server functions
@@ -49,6 +51,7 @@ vi.mock('next/server', async () => {
         json: async () => data,
         status: init?.status || 200,
         ok: (init?.status || 200) < 400,
+        headers: new Headers(init?.headers || {}),
       })),
       next: vi.fn(),
     },
