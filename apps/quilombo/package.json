@@ -21,7 +21,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "biome check .",
-    "format": "biome format . --write"
+    "format": "biome format . --write",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "test:unit": "vitest run --coverage",
+    "test:watch": "vitest --watch",
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "test:integration:watch": "vitest watch --config vitest.integration.config.ts"
   },
   "dependencies": {
     "@deck.gl/geo-layers": "9.2.1",
@@ -81,19 +88,29 @@
   "devDependencies": {
     "@svgr/webpack": "8.1.0",
     "@tailwindcss/postcss": "4.1.14",
+    "@testcontainers/postgresql": "^11.8.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/bcrypt": "6.0.0",
     "@types/lodash": "4.17.20",
     "@types/node": "22.5.0",
     "@types/pg": "8.15.5",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
+    "@vitejs/plugin-react": "^5.1.1",
+    "@vitest/coverage-v8": "^4.0.10",
+    "@vitest/ui": "^4.0.10",
     "@wagmi/cli": "2.6.0",
     "dotenv": "17.2.3",
     "drizzle-kit": "0.31.5",
+    "happy-dom": "^20.0.10",
     "postcss": "8.5.6",
     "postcss-preset-env": "10.2.4",
     "tailwindcss": "4.1.14",
-    "tsx": "4.20.6"
+    "testcontainers": "^11.8.1",
+    "tsx": "4.20.6",
+    "vitest": "^4.0.10"
   },
   "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee"
 }

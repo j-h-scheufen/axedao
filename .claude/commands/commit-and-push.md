@@ -1,6 +1,6 @@
-# Commit and Push with Lint/Build Checks
+# Commit and Push with Lint/Build/Test Checks
 
-Automated workflow: lint → build → stage → commit (signed) → push
+Automated workflow: lint → build → test → stage → commit (signed) → push
 
 ## Flow:
 
@@ -8,9 +8,10 @@ Automated workflow: lint → build → stage → commit (signed) → push
 2. **You approve**: Review and approve/edit the commit message
 3. **Run pnpm lint**: Stops if linting fails
 4. **Run pnpm build**: Stops if build fails
-5. **Stage all files**: `git add -A` (stages changes across entire monorepo)
-6. **Commit with signature**: `git commit -S -m "message"`
-7. **Push to remote**: `git push`
+5. **Run pnpm test**: Stops if tests fail (unit tests only, excludes integration tests)
+6. **Stage all files**: `git add -A` (stages changes across entire monorepo)
+7. **Commit with signature**: `git commit -S -m "message"`
+8. **Push to remote**: `git push`
 
 ## ⚠️ CRITICAL: DO NOT MODIFY APPROVED COMMIT MESSAGE
 
@@ -48,7 +49,7 @@ I will:
 1. Check what files are staged (or stage all if none)
 2. Generate a commit message based on changes and recent session context that contributed to the staged changes
 3. Show you the message for approval
-4. Run lint and build checks
+4. Run lint, build, and test checks
 5. Commit with signature and push
 
 ---

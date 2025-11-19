@@ -17,22 +17,75 @@
  */
 
 import type { PostgresJsDatabase } from 'drizzle-orm/postgres-js';
+import type postgres from 'postgres';
 
 import ENV from '@/config/environment';
 import { createDatabaseConnection } from './connection';
 import type * as schema from './schema';
 
-// Create database connection using centralized factory
-const { client: postgresClient, db: drizzleClient } = createDatabaseConnection(ENV.databaseUrl);
+const isTestMode = process.env.NEXT_PUBLIC_APP_ENV === 'test';
 
-export const client = postgresClient;
+// In test mode, delay connection creation to allow DATABASE_URL injection
+// In production, create connection immediately (existing behavior)
+let _client: postgres.Sql | null = null;
+let _db: PostgresJsDatabase<typeof schema> | null = null;
+
+function initializeConnection() {
+  if (!_db) {
+    // In test mode, read DATABASE_URL from process.env at access time (after Testcontainers sets it)
+    // In production, use ENV.databaseUrl (validated at import time)
+    const dbUrl = isTestMode && process.env.DATABASE_URL ? process.env.DATABASE_URL : ENV.databaseUrl;
+    const connection = createDatabaseConnection(dbUrl);
+    _client = connection.client;
+    _db = connection.db;
+  }
+  return { client: _client, db: _db };
+}
+
+// Production: initialize immediately
+if (!isTestMode) {
+  initializeConnection();
+}
+
+// Export getters that initialize lazily in test mode
+export const client: postgres.Sql = new Proxy({} as postgres.Sql, {
+  get(_target, prop) {
+    const { client } = initializeConnection();
+    // biome-ignore lint/suspicious/noExplicitAny: Proxy pattern requires any for dynamic property access
+    return (client as any)[prop];
+  },
+  apply(_target, _thisArg, args) {
+    const { client } = initializeConnection();
+    // biome-ignore lint/suspicious/noExplicitAny: Proxy pattern requires any for function application
+    return (client as any)(...args);
+  },
+});
 
 declare global {
   var database: PostgresJsDatabase<typeof schema> | undefined;
 }
 
-export const db = global.database || drizzleClient;
-if (process.env.NODE_ENV !== 'production') global.database = db;
+const getDb = (): PostgresJsDatabase<typeof schema> => {
+  const { db } = initializeConnection();
+  // biome-ignore lint/style/noNonNullAssertion: db is guaranteed to be initialized after initializeConnection()
+  return global.database || db!;
+};
+
+// Create proxy for db to enable lazy initialization in test mode
+export const db: PostgresJsDatabase<typeof schema> = new Proxy({} as PostgresJsDatabase<typeof schema>, {
+  get(_target, prop) {
+    const database = getDb();
+    // biome-ignore lint/suspicious/noExplicitAny: Proxy pattern requires any for dynamic property access
+    const value = (database as any)[prop];
+    // Bind methods to the actual db instance
+    return typeof value === 'function' ? value.bind(database) : value;
+  },
+});
+
+if (process.env.NODE_ENV !== 'production' && !isTestMode) {
+  // biome-ignore lint/style/noNonNullAssertion: _db is guaranteed to be initialized in production mode
+  global.database = _db!;
+}
 
 // Domain modules
 export * from './queries/users';

@@ -101,13 +101,11 @@ export async function searchGroups(
     .limit(pageSize)
     .offset(offset);
 
-  // Convert lastVerifiedAt strings to Date objects, ensure adminCount is a number,
-  // and deduplicate country codes (defensive programming)
+  // Convert lastVerifiedAt strings to Date objects and ensure adminCount is a number
   const rows = results.map((row) => ({
     ...row,
     lastVerifiedAt: row.lastVerifiedAt ? new Date(row.lastVerifiedAt) : null,
     adminCount: Number(row.adminCount),
-    countryCodes: [...new Set(row.countryCodes)], // Ensure unique country codes
   })) as Group[];
 
   return {
@@ -170,14 +168,12 @@ export async function fetchGroup(groupId: string): Promise<Group | undefined> {
 
   if (!result[0]) return undefined;
 
-  // Convert lastVerifiedAt string to Date object, ensure adminCount is a number,
-  // and deduplicate country codes (defensive programming)
+  // Convert lastVerifiedAt string to Date object and ensure adminCount is a number
   const group = result[0];
   return {
     ...group,
     lastVerifiedAt: group.lastVerifiedAt ? new Date(group.lastVerifiedAt) : null,
     adminCount: Number(group.adminCount),
-    countryCodes: [...new Set(group.countryCodes)], // Ensure unique country codes
   } as Group;
 }
 
