@@ -6,7 +6,8 @@ import { cleanup } from '@testing-library/react';
 import dotenv from 'dotenv';
 import path from 'node:path';
 
-dotenv.config({ path: path.resolve(__dirname, '.env.test') });
+// Quiet mode prevents dotenv from polluting test output with thousands of messages
+dotenv.config({ path: path.resolve(__dirname, '.env.test'), quiet: true });
 
 // Extend timeout for tests that might take longer (e.g., database operations)
 beforeAll(() => {
