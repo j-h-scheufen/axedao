@@ -2,12 +2,12 @@
 # This configuration uses Drizzle ORM schema as the source of truth
 # and Atlas for migration planning and execution
 
-# External schema data source: Drizzle ORM schema
+# External schema data source: Drizzle ORM schema with PostGIS extensions
+# The wrapper script ensures Atlas dev database has extensions enabled during validation
 data "external_schema" "drizzle" {
   program = [
-    "npx",
-    "drizzle-kit",
-    "export"
+    "bash",
+    "db/atlas/export-with-extensions.sh"
   ]
 }
 
