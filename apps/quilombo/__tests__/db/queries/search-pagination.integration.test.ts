@@ -13,6 +13,17 @@ import { searchUsers } from '@/db/queries/users';
 import { searchEvents } from '@/db/queries/events';
 import * as schema from '@/db/schema';
 import { v4 as uuidv4 } from 'uuid';
+import type { Feature, Point } from 'geojson';
+
+// Default GeoJSON feature for test events
+const defaultEventFeature: Feature<Point> = {
+  type: 'Feature',
+  geometry: {
+    type: 'Point',
+    coordinates: [-122.4, 37.8], // San Francisco
+  },
+  properties: {},
+};
 
 describe('Search Pagination - Users and Events (Integration)', () => {
   let db: Awaited<ReturnType<typeof setupTestDatabase>>['db'];
@@ -144,6 +155,7 @@ describe('Search Pagination - Users and Events (Integration)', () => {
         creatorId: userId,
         type: 'batizado' as const,
         countryCode: 'US',
+        feature: defaultEventFeature,
       }));
       await db.insert(schema.events).values(events);
 
@@ -170,6 +182,7 @@ describe('Search Pagination - Users and Events (Integration)', () => {
         creatorId: userId,
         type: 'workshop' as const,
         countryCode: 'BR',
+        feature: defaultEventFeature,
       }));
       await db.insert(schema.events).values(events);
 
@@ -192,6 +205,7 @@ describe('Search Pagination - Users and Events (Integration)', () => {
           creatorId: userId,
           type: 'batizado',
           countryCode: 'BR',
+          feature: defaultEventFeature,
         },
         {
           id: uuidv4(),
@@ -200,6 +214,7 @@ describe('Search Pagination - Users and Events (Integration)', () => {
           creatorId: userId,
           type: 'batizado',
           countryCode: 'BR',
+          feature: defaultEventFeature,
         },
         {
           id: uuidv4(),
@@ -208,6 +223,7 @@ describe('Search Pagination - Users and Events (Integration)', () => {
           creatorId: userId,
           type: 'workshop',
           countryCode: 'BR',
+          feature: defaultEventFeature,
         },
       ]);
 
@@ -230,6 +246,7 @@ describe('Search Pagination - Users and Events (Integration)', () => {
           creatorId: userId,
           type: 'batizado',
           countryCode: 'BR',
+          feature: defaultEventFeature,
         },
         {
           id: uuidv4(),
@@ -238,6 +255,7 @@ describe('Search Pagination - Users and Events (Integration)', () => {
           creatorId: userId,
           type: 'batizado',
           countryCode: 'BR',
+          feature: defaultEventFeature,
         },
         {
           id: uuidv4(),
@@ -246,6 +264,7 @@ describe('Search Pagination - Users and Events (Integration)', () => {
           creatorId: userId,
           type: 'workshop',
           countryCode: 'US',
+          feature: defaultEventFeature,
         },
       ]);
 
@@ -273,6 +292,7 @@ describe('Search Pagination - Users and Events (Integration)', () => {
           creatorId: userId,
           type: 'batizado',
           countryCode: 'BR',
+          feature: defaultEventFeature,
         },
         {
           id: uuidv4(),
@@ -281,6 +301,7 @@ describe('Search Pagination - Users and Events (Integration)', () => {
           creatorId: userId,
           type: 'batizado',
           countryCode: 'BR',
+          feature: defaultEventFeature,
         },
         {
           id: uuidv4(),
@@ -289,6 +310,7 @@ describe('Search Pagination - Users and Events (Integration)', () => {
           creatorId: userId,
           type: 'workshop',
           countryCode: 'US',
+          feature: defaultEventFeature,
         },
       ]);
 
@@ -317,6 +339,7 @@ describe('Search Pagination - Users and Events (Integration)', () => {
           creatorId: userId,
           type: 'batizado',
           countryCode: 'BR',
+          feature: defaultEventFeature,
         },
         {
           id: uuidv4(),
@@ -325,6 +348,7 @@ describe('Search Pagination - Users and Events (Integration)', () => {
           creatorId: userId,
           type: 'batizado',
           countryCode: 'BR',
+          feature: defaultEventFeature,
         },
       ]);
 
@@ -357,6 +381,7 @@ describe('Search Pagination - Users and Events (Integration)', () => {
         creatorId: userId,
         type: 'batizado' as const,
         countryCode: 'BR',
+        feature: defaultEventFeature,
       }));
 
       await db.insert(schema.users).values(users);
