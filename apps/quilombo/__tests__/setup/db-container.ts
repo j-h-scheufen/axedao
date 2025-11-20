@@ -24,8 +24,6 @@ export async function setupTestDatabase() {
     return { db, container };
   }
 
-  console.log('🐳 Starting PostgreSQL container with PostGIS...');
-
   // Start PostgreSQL container with PostGIS extension
   container = await new PostgreSqlContainer('postgis/postgis:16-3.4')
     .withExposedPorts(5432)
@@ -33,19 +31,17 @@ export async function setupTestDatabase() {
     .start();
 
   const connectionString = container.getConnectionUri();
-  console.log(`✅ PostgreSQL container started: ${container.getHost()}:${container.getPort()}`);
 
   // Create database client and Drizzle instance
   client = postgres(connectionString, { max: 1 }); // Single connection for tests
   db = drizzle(client, { schema });
 
   // Set global database instance so query functions use Testcontainers DB
+  // Tests run sequentially (fileParallelism: false) to avoid conflicts
   global.database = db;
 
   // Run migrations to set up schema
-  console.log('📦 Running database migrations...');
   await migrate(db, { migrationsFolder: './db/migrations' });
-  console.log('✅ Migrations completed');
 
   return { db, container };
 }
@@ -57,20 +53,17 @@ export async function setupTestDatabase() {
  */
 export async function teardownTestDatabase() {
   if (client) {
-    console.log('🔌 Closing database connection...');
     await client.end();
     client = null;
   }
 
   if (container) {
-    console.log('🛑 Stopping PostgreSQL container...');
     await container.stop();
     container = null;
   }
 
   db = null;
   global.database = undefined;
-  console.log('✅ Test database torn down');
 }
 
 /**
