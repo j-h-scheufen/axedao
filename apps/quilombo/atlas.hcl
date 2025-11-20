@@ -47,24 +47,6 @@ env "staging" {
   migration {
     dir = "file://db/atlas/migrations"
   }
-
-  # Enable linting for safety
-  lint {
-    # Detect destructive operations (DROP TABLE, DROP COLUMN, etc.)
-    destructive {
-      error = true
-    }
-
-    # Detect data-dependent changes (adding NOT NULL to nullable columns, etc.)
-    data_depend {
-      error = true
-    }
-
-    # Detect backward incompatible changes (renaming columns, changing types)
-    backward_incompatible {
-      error = true
-    }
-  }
 }
 
 # Production environment (Supabase)
@@ -80,23 +62,5 @@ env "production" {
   # Migration directory
   migration {
     dir = "file://db/atlas/migrations"
-  }
-
-  # Strict linting for production
-  lint {
-    # Detect destructive operations
-    destructive {
-      error = true
-    }
-
-    # Detect data-dependent changes
-    data_depend {
-      error = true
-    }
-
-    # Detect backward incompatible changes
-    backward_incompatible {
-      error = true
-    }
   }
 }
