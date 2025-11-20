@@ -89,23 +89,27 @@ export async function searchGroups(
         WHERE ${schema.groupAdmins.groupId} = ${schema.groups.id}
       )`.as('admin_count'),
 
-      countryCodes: sql<string[]>`ARRAY_REMOVE(ARRAY_AGG(DISTINCT ${schema.groupLocations.countryCode}), NULL)`.as(
-        'country_codes'
-      ),
+      // Compute countryCodes as subquery (consistent with other computed fields)
+      countryCodes: sql<string[]>`(
+        SELECT ARRAY_REMOVE(ARRAY_AGG(DISTINCT ${schema.groupLocations.countryCode}), NULL)
+        FROM ${schema.groupLocations}
+        WHERE ${schema.groupLocations.groupId} = ${schema.groups.id}
+      )`.as('country_codes'),
+
+      // Total count using window function (works correctly without GROUP BY)
       count: sql<number>`count(*) over()`,
     })
     .from(schema.groups)
-    .leftJoin(schema.groupLocations, eq(schema.groups.id, schema.groupLocations.groupId))
     .where(sqlFilters.length ? and(...sqlFilters) : undefined)
-    .groupBy(schema.groups.id)
     .limit(pageSize)
     .offset(offset);
 
-  // Convert lastVerifiedAt strings to Date objects and ensure adminCount is a number
+  // Convert lastVerifiedAt strings to Date objects, ensure adminCount is a number
   const rows = results.map((row) => ({
     ...row,
     lastVerifiedAt: row.lastVerifiedAt ? new Date(row.lastVerifiedAt) : null,
     adminCount: Number(row.adminCount),
+    countryCodes: row.countryCodes || [], // Ensure array even if null
   })) as Group[];
 
   return {
