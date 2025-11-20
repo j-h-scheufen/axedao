@@ -126,7 +126,7 @@ export async function searchEvents(options: {
 
   return {
     rows: results.map((r) => r.record),
-    totalCount: results[0]?.count || 0,
+    totalCount: results[0]?.count ? Number(results[0].count) : 0,
   };
 }
 

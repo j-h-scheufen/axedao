@@ -13,8 +13,6 @@ export default defineConfig({
     // Longer timeout for integration tests (Docker startup, etc.)
     testTimeout: 120_000, // 2 minutes per test
     hookTimeout: 120_000, // 2 minutes for before/after hooks
-    // Run test files sequentially to avoid global.database conflicts
-    fileParallelism: false,
   },
   resolve: {
     alias: {

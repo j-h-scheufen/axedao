@@ -114,7 +114,7 @@ export async function searchGroups(
 
   return {
     rows,
-    totalCount: results.length > 0 ? results[0].count : 0,
+    totalCount: results.length > 0 ? Number(results[0].count) : 0,
   };
 }
 

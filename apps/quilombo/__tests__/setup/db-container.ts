@@ -32,13 +32,14 @@ export async function setupTestDatabase() {
 
   const connectionString = container.getConnectionUri();
 
-  // Create database client and Drizzle instance
+  // Set DATABASE_URL for this test file's container
+  // db/index.ts will lazily initialize using this URL in test mode
+  // This allows parallel test files to each have their own database
+  process.env.DATABASE_URL = connectionString;
+
+  // Create database client and Drizzle instance for direct queries in tests
   client = postgres(connectionString, { max: 1 }); // Single connection for tests
   db = drizzle(client, { schema });
-
-  // Set global database instance so query functions use Testcontainers DB
-  // Tests run sequentially (fileParallelism: false) to avoid conflicts
-  global.database = db;
 
   // Run migrations to set up schema
   await migrate(db, { migrationsFolder: './db/migrations' });
@@ -63,7 +64,6 @@ export async function teardownTestDatabase() {
   }
 
   db = null;
-  global.database = undefined;
 }
 
 /**
