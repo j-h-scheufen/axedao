@@ -197,6 +197,13 @@
       "when": 1763122010876,
       "tag": "0027_tired_zaran",
       "breakpoints": true
+    },
+    {
+      "idx": 28,
+      "version": "7",
+      "when": 1763200000000,
+      "tag": "0028_lowercase-country-code",
+      "breakpoints": true
     }
   ]
 }

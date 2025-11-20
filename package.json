@@ -9,10 +9,10 @@
   "scripts": {
     "dev:app": "pnpm --filter quilombo dev -p 8080",
     "dev:www": "pnpm --filter www dev",
-    "lint": "pnpm -r lint",
-    "format": "pnpm -r format",
-    "build": "pnpm -r build",
-    "test": "pnpm -r test",
+    "lint": "turbo lint",
+    "format": "turbo format",
+    "build": "turbo build",
+    "test": "turbo test",
     "prepare": "husky"
   },
   "engines": {
@@ -32,6 +32,7 @@
     "@commitlint/config-conventional": "19.8.1",
     "husky": "9.1.7",
     "lint-staged": "16.1.2",
+    "turbo": "^2.6.1",
     "typescript": "5.8.3"
   },
   "lint-staged": {

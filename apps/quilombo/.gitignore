@@ -43,3 +43,13 @@ next-env.d.ts
 
 # performance metrics
 .million
+
+# test coverage
+/coverage
+*.lcov
+.vitest
+
+# playwright
+/playwright-report
+/playwright/.auth
+/test-results
