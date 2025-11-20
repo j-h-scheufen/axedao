@@ -39,6 +39,9 @@ export async function setupTestDatabase() {
   client = postgres(connectionString, { max: 1 }); // Single connection for tests
   db = drizzle(client, { schema });
 
+  // Set global database instance so query functions use Testcontainers DB
+  global.database = db;
+
   // Run migrations to set up schema
   console.log('📦 Running database migrations...');
   await migrate(db, { migrationsFolder: './db/migrations' });
@@ -66,6 +69,7 @@ export async function teardownTestDatabase() {
   }
 
   db = null;
+  global.database = undefined;
   console.log('✅ Test database torn down');
 }
 
@@ -78,8 +82,6 @@ export async function clearTestDatabase() {
   if (!db) {
     throw new Error('Database not initialized. Call setupTestDatabase() first.');
   }
-
-  console.log('🧹 Clearing test database...');
 
   // Truncate all tables in reverse dependency order
   // CASCADE automatically truncates dependent tables
@@ -97,8 +99,6 @@ export async function clearTestDatabase() {
       invitations
     CASCADE
   `);
-
-  console.log('✅ Test database cleared');
 }
 
 /**
