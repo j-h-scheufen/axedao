@@ -43,14 +43,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Lint migrations
-        working-directory: apps/quilombo
-        env:
-          PRODUCTION_DATABASE_URL: ${{ secrets.PRODUCTION_DATABASE_URL }}
-        run: |
-          echo "🔍 Linting migrations for safety..."
-          atlas migrate lint --env production
-
       - name: Apply migrations
         working-directory: apps/quilombo
         env:

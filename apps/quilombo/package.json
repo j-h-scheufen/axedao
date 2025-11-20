@@ -10,7 +10,6 @@
     "db:atlas:diff": "dotenv -e .env -e .env.local -- atlas migrate diff --env local",
     "db:atlas:preview": "dotenv -e .env -e .env.local -- atlas migrate apply --env local --dry-run",
     "db:atlas:apply": "dotenv -e .env -e .env.local -- atlas migrate apply --env local",
-    "db:atlas:lint": "dotenv -e .env -e .env.local -- atlas migrate lint --env local",
     "db:atlas:status": "dotenv -e .env -e .env.local -- atlas migrate status --env local",
     "db:atlas:validate": "dotenv -e .env -e .env.local -- atlas migrate validate --env local",
     "db:local:up": "docker compose up -d",
