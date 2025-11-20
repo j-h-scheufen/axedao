@@ -2,7 +2,7 @@
 # This configuration uses Drizzle ORM schema as the source of truth
 # and Atlas for migration planning and execution
 
-# External schema data source using Drizzle Kit export
+# External schema data source: Drizzle ORM schema
 data "external_schema" "drizzle" {
   program = [
     "npx",
@@ -19,9 +19,10 @@ env "local" {
 
   # Dev database for Atlas schema operations
   # Atlas uses this to plan and validate migrations
-  dev = "docker://postgres/17/dev?search_path=public"
+  # Using postgis image for geometry type support (ARM64 compatible)
+  dev = "docker://postgis/17-3.5/dev"
 
-  # Schema source from Drizzle export
+  # Schema source: Drizzle ORM schema
   schema {
     src = data.external_schema.drizzle.url
   }
@@ -37,7 +38,7 @@ env "staging" {
   # Staging database connection
   url = getenv("STAGING_DATABASE_URL")
 
-  # Schema source from Drizzle export
+  # Schema source: Drizzle ORM schema
   schema {
     src = data.external_schema.drizzle.url
   }
@@ -71,7 +72,7 @@ env "production" {
   # Production database connection
   url = getenv("PRODUCTION_DATABASE_URL")
 
-  # Schema source from Drizzle export
+  # Schema source: Drizzle ORM schema
   schema {
     src = data.external_schema.drizzle.url
   }

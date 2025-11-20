@@ -3,8 +3,8 @@ import { config } from 'dotenv';
 
 // Load environment variables from .env and .env.local (local overrides .env)
 // This allows drizzle-kit commands to work without manually exporting DATABASE_URL
-config({ path: '.env' });
-config({ path: '.env.local', override: true });
+config({ path: '.env', quiet: true });
+config({ path: '.env.local', override: true, quiet: true });
 
 const databaseUrl = process.env.DATABASE_URL;
 
