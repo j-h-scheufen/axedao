@@ -28,7 +28,7 @@ env "local" {
 
   # Migration directory for Atlas-generated migrations
   migration {
-    dir = "file://atlas/migrations"
+    dir = "file://db/atlas/migrations"
   }
 }
 
@@ -44,7 +44,7 @@ env "staging" {
 
   # Migration directory
   migration {
-    dir = "file://atlas/migrations"
+    dir = "file://db/atlas/migrations"
   }
 
   # Enable linting for safety
@@ -78,7 +78,7 @@ env "production" {
 
   # Migration directory
   migration {
-    dir = "file://atlas/migrations"
+    dir = "file://db/atlas/migrations"
   }
 
   # Strict linting for production
