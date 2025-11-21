@@ -38,6 +38,9 @@ env "staging" {
   # Staging database connection
   url = getenv("STAGING_DATABASE_URL")
 
+  # Dev database for Atlas schema operations
+  dev = "docker://postgis/17-3.5/dev"
+
   # Schema source: Drizzle ORM schema
   schema {
     src = data.external_schema.drizzle.url
@@ -46,6 +49,7 @@ env "staging" {
   # Migration directory
   migration {
     dir = "file://db/atlas/migrations"
+    revisions_schema = "atlas_schema_revisions"
   }
 
   # Enable linting for safety
@@ -72,6 +76,9 @@ env "production" {
   # Production database connection
   url = getenv("PRODUCTION_DATABASE_URL")
 
+  # Dev database for Atlas schema operations
+  dev = "docker://postgis/17-3.5/dev"
+
   # Schema source: Drizzle ORM schema
   schema {
     src = data.external_schema.drizzle.url
@@ -80,6 +87,7 @@ env "production" {
   # Migration directory
   migration {
     dir = "file://db/atlas/migrations"
+    revisions_schema = "atlas_schema_revisions"
   }
 
   # Strict linting for production
