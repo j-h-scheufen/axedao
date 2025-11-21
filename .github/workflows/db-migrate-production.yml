@@ -53,7 +53,8 @@ jobs:
           echo ""
 
           # Apply migrations
-          atlas migrate apply --env production
+          # Use --allow-dirty because Supabase has built-in schemas (auth, storage, etc.)
+          atlas migrate apply --env production --allow-dirty
 
           # Check exit code
           EXIT_CODE=$?
