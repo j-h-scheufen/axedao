@@ -17,6 +17,7 @@ import { CountryFilter, FilterChipsContainer } from '@/components/filters';
 import SearchBar from '@/components/SearchBar';
 import CountryFilterChip from '@/components/groups/CountryFilterChip';
 import EventTypesFilterChip from './EventTypesFilterChip';
+import PastEventsFilterChip from './PastEventsFilterChip';
 import EventFilters, { type EventFilterValues } from './EventFilters';
 import CreateEventModal from './CreateEventModal';
 import EventsGrid from './EventsGrid';
@@ -111,6 +112,11 @@ const Events = () => {
     handleFiltersChange(newFilters);
   };
 
+  const handleClearPastEvents = () => {
+    const newFilters = { ...eventFilters, pastEvents: false };
+    handleFiltersChange(newFilters);
+  };
+
   const handleNewEventClick = () => {
     setIsEventModalOpen(true);
   };
@@ -186,6 +192,9 @@ const Events = () => {
             selectedEventTypes={eventFilters.eventTypes.filter((t): t is NonNullable<typeof t> => t !== undefined)}
             onClear={handleClearEventTypes}
           />
+        )}
+        {eventFilters.pastEvents && (
+          <PastEventsFilterChip pastEvents={eventFilters.pastEvents} onClear={handleClearPastEvents} />
         )}
       </FilterChipsContainer>
 
