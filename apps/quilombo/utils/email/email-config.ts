@@ -73,7 +73,8 @@ export const emailTemplates = {
       from: EMAIL_SENDERS.community,
     },
     getTemplate: (invitationCode: string, inviterName: string, invitedEmail: string): ReactElement => {
-      const inviteUrl = `${process.env.NEXT_PUBLIC_APP_URL}/auth/signup?code=${invitationCode}&email=${encodeURIComponent(invitedEmail)}`;
+      const baseUrl = getBaseUrl();
+      const inviteUrl = `${baseUrl}/auth/signup?code=${invitationCode}&email=${encodeURIComponent(invitedEmail)}`;
       return InvitationEmail({ inviteUrl, inviterName, invitedEmail });
     },
   },
