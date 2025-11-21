@@ -159,9 +159,9 @@ describe('Search Pagination - Users and Events (Integration)', () => {
       }));
       await db.insert(schema.events).values(events);
 
-      const page1 = await searchEvents({ pageSize: 20, offset: 0 });
-      const page2 = await searchEvents({ pageSize: 20, offset: 20 });
-      const page3 = await searchEvents({ pageSize: 20, offset: 40 });
+      const page1 = await searchEvents({ pageSize: 20, offset: 0, pastEvents: true });
+      const page2 = await searchEvents({ pageSize: 20, offset: 20, pastEvents: true });
+      const page3 = await searchEvents({ pageSize: 20, offset: 40, pastEvents: true });
 
       // All pages should report the same total count
       expect(page1.totalCount).toBe(60);
@@ -186,8 +186,8 @@ describe('Search Pagination - Users and Events (Integration)', () => {
       }));
       await db.insert(schema.events).values(events);
 
-      const result10 = await searchEvents({ pageSize: 10, offset: 0 });
-      const result25 = await searchEvents({ pageSize: 25, offset: 0 });
+      const result10 = await searchEvents({ pageSize: 10, offset: 0, pastEvents: true });
+      const result25 = await searchEvents({ pageSize: 25, offset: 0, pastEvents: true });
 
       expect(result10.totalCount).toBe(50);
       expect(result25.totalCount).toBe(50);
@@ -245,8 +245,7 @@ describe('Search Pagination - Users and Events (Integration)', () => {
           start: new Date(Date.now() + 86400000),
           creatorId: userId,
           type: 'batizado',
-          countryCode: 'BR',
-          feature: defaultEventFeature,
+          feature: { ...defaultEventFeature, properties: { country_code: 'BR' } },
         },
         {
           id: uuidv4(),
@@ -254,8 +253,7 @@ describe('Search Pagination - Users and Events (Integration)', () => {
           start: new Date(Date.now() + 172800000),
           creatorId: userId,
           type: 'batizado',
-          countryCode: 'BR',
-          feature: defaultEventFeature,
+          feature: { ...defaultEventFeature, properties: { country_code: 'BR' } },
         },
         {
           id: uuidv4(),
@@ -263,15 +261,14 @@ describe('Search Pagination - Users and Events (Integration)', () => {
           start: new Date(Date.now() + 259200000),
           creatorId: userId,
           type: 'workshop',
-          countryCode: 'US',
-          feature: defaultEventFeature,
+          feature: { ...defaultEventFeature, properties: { country_code: 'US' } },
         },
       ]);
 
       const result = await searchEvents({
         pageSize: 100,
         offset: 0,
-        countryCodes: ['BR'],
+        countryCode: 'BR', // Search query normalizes to lowercase
       });
 
       expect(result.totalCount).toBe(2);
@@ -390,8 +387,8 @@ describe('Search Pagination - Users and Events (Integration)', () => {
       const userPage1 = await searchUsers({ pageSize: 25, offset: 0 });
       const userPage2 = await searchUsers({ pageSize: 25, offset: 25 });
 
-      const eventPage1 = await searchEvents({ pageSize: 25, offset: 0 });
-      const eventPage2 = await searchEvents({ pageSize: 25, offset: 25 });
+      const eventPage1 = await searchEvents({ pageSize: 25, offset: 0, pastEvents: true });
+      const eventPage2 = await searchEvents({ pageSize: 25, offset: 25, pastEvents: true });
 
       // Both should have consistent pagination behavior
       expect(userPage1.rows).toHaveLength(25);

@@ -141,32 +141,47 @@ describe('searchGroups - Pagination and TotalCount (Integration)', () => {
         {
           groupId: group1Id,
           name: 'Location 1A',
-          feature: { type: 'Feature', geometry: { type: 'Point', coordinates: [-122.4, 37.8] }, properties: {} },
-          countryCode: 'US',
+          feature: {
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [-122.4, 37.8] },
+            properties: { country_code: 'US' },
+          },
         },
         {
           groupId: group1Id,
           name: 'Location 1B',
-          feature: { type: 'Feature', geometry: { type: 'Point', coordinates: [-73.9, 40.7] }, properties: {} },
-          countryCode: 'US',
+          feature: {
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [-73.9, 40.7] },
+            properties: { country_code: 'US' },
+          },
         },
         {
           groupId: group2Id,
           name: 'Location 2A',
-          feature: { type: 'Feature', geometry: { type: 'Point', coordinates: [-43.2, -22.9] }, properties: {} },
-          countryCode: 'BR',
+          feature: {
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [-43.2, -22.9] },
+            properties: { country_code: 'BR' },
+          },
         },
         {
           groupId: group2Id,
           name: 'Location 2B',
-          feature: { type: 'Feature', geometry: { type: 'Point', coordinates: [-46.6, -23.5] }, properties: {} },
-          countryCode: 'BR',
+          feature: {
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [-46.6, -23.5] },
+            properties: { country_code: 'BR' },
+          },
         },
         {
           groupId: group3Id,
           name: 'Location 3A',
-          feature: { type: 'Feature', geometry: { type: 'Point', coordinates: [-0.1, 51.5] }, properties: {} },
-          countryCode: 'GB',
+          feature: {
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [-0.1, 51.5] },
+            properties: { country_code: 'GB' },
+          },
         },
       ]);
 
@@ -176,11 +191,11 @@ describe('searchGroups - Pagination and TotalCount (Integration)', () => {
       expect(result.totalCount).toBe(3);
       expect(result.rows).toHaveLength(3);
 
-      // Verify countryCodes are properly aggregated
+      // Verify countryCodes are properly aggregated (lowercase due to trigger normalization)
       const group1 = result.rows.find((g) => g.id === group1Id);
       const group2 = result.rows.find((g) => g.id === group2Id);
-      expect(group1?.countryCodes).toEqual(['US']);
-      expect(group2?.countryCodes).toEqual(['BR']);
+      expect(group1?.countryCodes).toEqual(['us']);
+      expect(group2?.countryCodes).toEqual(['br']);
     });
   });
 
@@ -251,14 +266,20 @@ describe('searchGroups - Pagination and TotalCount (Integration)', () => {
         {
           groupId: group1Id,
           name: 'Brazil Location',
-          feature: { type: 'Feature', geometry: { type: 'Point', coordinates: [-43.2, -22.9] }, properties: {} },
-          countryCode: 'BR',
+          feature: {
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [-43.2, -22.9] },
+            properties: { country_code: 'BR' },
+          },
         },
         {
           groupId: group2Id,
           name: 'US Location',
-          feature: { type: 'Feature', geometry: { type: 'Point', coordinates: [-122.4, 37.8] }, properties: {} },
-          countryCode: 'US',
+          feature: {
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [-122.4, 37.8] },
+            properties: { country_code: 'US' },
+          },
         },
       ]);
 
