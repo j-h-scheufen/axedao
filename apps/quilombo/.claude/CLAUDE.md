@@ -104,6 +104,16 @@ docker run --name drizzle-postgres -e POSTGRES_PASSWORD=mypassword -d -p 5432:54
   ALTER ROLE postgres SET search_path TO "$user", public, extensions, gis
   ```
 
+**CRITICAL - Supabase Atlas Setup:**
+- Atlas stores migration revision tracking in a dedicated schema
+- The `atlas_schema_revisions` schema **MUST** be first in the search_path for Supabase databases
+- **Required for staging/production**:
+  ```sql
+  ALTER ROLE postgres SET search_path = atlas_schema_revisions, "$user", public, extensions, gis;
+  ```
+- Without this, Atlas will create the revisions table in the wrong schema and migrations will fail
+- This is due to Supabase's role-level search_path taking precedence over connection string parameters
+
 ### Manual Migrations (Legacy - Do Not Use)
 
 **Deprecated**: This section describes the old Drizzle migration workflow. Do not use this approach.
@@ -209,6 +219,15 @@ git push origin develop
 - `STAGING_DATABASE_URL`: Supabase staging database (GitHub secret)
 - `PRODUCTION_DATABASE_URL`: Supabase production database (GitHub secret)
 - `ATLAS_CLOUD_TOKEN`: Optional Atlas Cloud token for enhanced features (GitHub secret)
+
+**Supabase-Specific Requirements**:
+- The postgres role in Supabase MUST have `atlas_schema_revisions` as the first schema in search_path
+- Run this SQL in Supabase SQL Editor for both staging and production:
+  ```sql
+  ALTER ROLE postgres SET search_path = atlas_schema_revisions, "$user", public, extensions, gis;
+  ```
+- This ensures Atlas creates its revision tracking table in the correct schema
+- The `--allow-dirty` flag is required because Supabase has built-in schemas (auth, storage, etc.)
 
 #### Migration Best Practices
 

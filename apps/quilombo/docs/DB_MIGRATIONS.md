@@ -140,6 +140,56 @@ postgresql://postgres.[PROJECT-REF]:[PASSWORD]@aws-0-[REGION].pooler.supabase.co
 
 Get this from: **Supabase Project → Settings → Database → Connection string → Transaction pooler**
 
+## Supabase Database Setup
+
+### CRITICAL: Configure search_path for Atlas
+
+When setting up a new Supabase database (staging or production), you **MUST** configure the postgres role's search_path to include the `atlas_schema_revisions` schema as the first entry.
+
+**Run this SQL in Supabase SQL Editor:**
+
+```sql
+ALTER ROLE postgres SET search_path = atlas_schema_revisions, "$user", public, extensions, gis;
+```
+
+**Why is this required?**
+
+1. Atlas stores migration revision tracking in the `atlas_schema_revisions` schema
+2. PostgreSQL's `CREATE TABLE` without schema qualification uses the first schema in search_path
+3. In Supabase, the role-level search_path takes precedence over connection string parameters
+4. Without this configuration, Atlas will create the revisions table in `public` schema but look for it in `atlas_schema_revisions` schema, causing migration failures with: `pq: relation "atlas_schema_revisions.atlas_schema_revisions" does not exist`
+
+**What each schema is for:**
+- `atlas_schema_revisions` - Atlas migration tracking (MUST be first)
+- `"$user"` - User-specific schema (PostgreSQL default)
+- `public` - Application tables
+- `extensions` - PostgreSQL extensions
+- `gis` - PostGIS spatial functions and types
+
+**Verify the configuration:**
+
+```sql
+SELECT rolname, rolconfig FROM pg_roles WHERE rolname = current_user;
+```
+
+You should see: `{"search_path=atlas_schema_revisions, \"$user\", public, extensions, gis"}`
+
+### PostGIS Extension Note
+
+The application uses **basic PostGIS** for geometry types (Point). Only the `postgis` extension is required - **NOT** `postgis_topology`.
+
+The `postgis_topology` extension was removed from the baseline migration because:
+- It creates a `topology` schema with superuser ownership in Supabase
+- This causes permission errors: `pq: must be owner of schema topology`
+- We don't use topology features (TopoGeometry, etc.)
+
+If you see topology-related errors, verify that `db/atlas/extensions.sql` contains ONLY:
+
+```sql
+-- Enable PostGIS extension for spatial data types
+CREATE EXTENSION IF NOT EXISTS postgis;
+```
+
 ## Local Development
 
 ### Generate a New Migration

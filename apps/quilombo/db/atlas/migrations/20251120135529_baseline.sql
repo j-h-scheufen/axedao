@@ -1,10 +1,5 @@
 -- Enable PostGIS extension for spatial data types
 CREATE EXTENSION IF NOT EXISTS postgis;
-CREATE EXTENSION IF NOT EXISTS postgis_topology;
--- Add new schema named "topology"
-CREATE SCHEMA IF NOT EXISTS "topology";
--- Set comment to schema: "topology"
-COMMENT ON SCHEMA "topology" IS 'PostGIS Topology schema';
 -- Create enum type "account_status"
 CREATE TYPE "public"."account_status" AS ENUM ('pending_verification', 'active', 'disabled');
 -- Create enum type "event_type"
