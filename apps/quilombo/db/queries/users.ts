@@ -76,7 +76,7 @@ export async function searchUsers(
       ...result.record,
       groupName: result.groupName ?? undefined,
     })),
-    count: rawResults.length > 0 ? rawResults[0].count : 0,
+    count: rawResults.length > 0 ? Number(rawResults[0].count) : 0,
   };
 
   return {

@@ -46,11 +46,15 @@ export async function searchGroups(
 
   // Filter by country codes
   if (countryCodes && countryCodes.length > 0) {
-    sqlFilters.push(sql`EXISTS (
-      SELECT 1 FROM ${schema.groupLocations}
-      WHERE ${schema.groupLocations.groupId} = ${schema.groups.id}
-        AND ${schema.groupLocations.countryCode} IN ${countryCodes}
-    )`);
+    // Normalize country codes to lowercase for case-insensitive matching
+    const normalizedCountryCodes = countryCodes.filter((c): c is string => !!c).map((c) => c.toLowerCase());
+    if (normalizedCountryCodes.length > 0) {
+      sqlFilters.push(sql`EXISTS (
+        SELECT 1 FROM ${schema.groupLocations}
+        WHERE ${schema.groupLocations.groupId} = ${schema.groups.id}
+          AND ${schema.groupLocations.countryCode} IN ${normalizedCountryCodes}
+      )`);
+    }
   }
 
   // Filter by styles
@@ -89,9 +93,12 @@ export async function searchGroups(
         WHERE ${schema.groupAdmins.groupId} = ${schema.groups.id}
       )`.as('admin_count'),
 
+      // Compute countryCodes using JOIN + GROUP BY (same as fetchGroup)
       countryCodes: sql<string[]>`ARRAY_REMOVE(ARRAY_AGG(DISTINCT ${schema.groupLocations.countryCode}), NULL)`.as(
         'country_codes'
       ),
+
+      // Total count using window function (works correctly without GROUP BY)
       count: sql<number>`count(*) over()`,
     })
     .from(schema.groups)
@@ -101,16 +108,35 @@ export async function searchGroups(
     .limit(pageSize)
     .offset(offset);
 
-  // Convert lastVerifiedAt strings to Date objects and ensure adminCount is a number
+  // Convert lastVerifiedAt strings to Date objects, ensure adminCount is a number
   const rows = results.map((row) => ({
     ...row,
     lastVerifiedAt: row.lastVerifiedAt ? new Date(row.lastVerifiedAt) : null,
     adminCount: Number(row.adminCount),
+    countryCodes: row.countryCodes || [], // Ensure array even if null
   })) as Group[];
+
+  // If we have results, use the window function count
+  // If no results (offset beyond total), run a separate count query for correct totalCount
+  let totalCount = 0;
+  if (results.length > 0) {
+    totalCount = Number(results[0].count);
+  } else if (sqlFilters.length > 0) {
+    // Only run separate count if we have filters (otherwise it's just 0)
+    const countResult = await db
+      .select({ count: count() })
+      .from(schema.groups)
+      .where(and(...sqlFilters));
+    totalCount = Number(countResult[0]?.count || 0);
+  } else {
+    // No filters - count all groups
+    const countResult = await db.select({ count: count() }).from(schema.groups);
+    totalCount = Number(countResult[0]?.count || 0);
+  }
 
   return {
     rows,
-    totalCount: results.length > 0 ? results[0].count : 0,
+    totalCount,
   };
 }
 

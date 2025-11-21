@@ -61,7 +61,7 @@ env "staging" {
     }
 
     # Detect backward incompatible changes (renaming columns, changing types)
-    backward_incompatible {
+    incompatible {
       error = true
     }
   }
@@ -95,7 +95,7 @@ env "production" {
     }
 
     # Detect backward incompatible changes
-    backward_incompatible {
+    incompatible {
       error = true
     }
   }

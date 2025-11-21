@@ -253,7 +253,11 @@ export const groupLocations = pgTable(
       .notNull(),
     countryCode: varchar('country_code', { length: 2 }),
   },
-  (t) => [index('groups_location_gix').using('gist', t.location), index('country_code_idx').on(t.countryCode)]
+  (t) => [
+    index('group_id_idx').on(t.groupId), // For efficient subquery lookups
+    index('groups_location_gix').using('gist', t.location),
+    index('country_code_idx').on(t.countryCode),
+  ]
 );
 
 export const events = pgTable(
