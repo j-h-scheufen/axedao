@@ -77,7 +77,6 @@ export function createMockRequest(
   });
 
   // Override the json() method to return our body data
-  // biome-ignore lint/suspicious/noExplicitAny: Need to override NextRequest json method for testing
   (request as any).json = async () => bodyData || {};
 
   return request;

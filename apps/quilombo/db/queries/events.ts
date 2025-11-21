@@ -69,14 +69,14 @@ export async function searchEvents(options: {
 
   // Support both single countryCode (legacy) and multiple countryCodes
   if (countryCodes && countryCodes.length > 0) {
-    // Filter out undefined/null values
-    const validCountryCodes = countryCodes.filter((c): c is string => !!c);
+    // Filter out undefined/null values and normalize to lowercase
+    const validCountryCodes = countryCodes.filter((c): c is string => !!c).map((c) => c.toLowerCase());
     if (validCountryCodes.length > 0) {
       filters.push(inArray(schema.events.countryCode, validCountryCodes));
     }
   } else if (countryCode) {
-    // Legacy single country code support
-    filters.push(eq(schema.events.countryCode, countryCode));
+    // Legacy single country code support - normalize to lowercase
+    filters.push(eq(schema.events.countryCode, countryCode.toLowerCase()));
   }
 
   // Handle date filtering
@@ -126,7 +126,7 @@ export async function searchEvents(options: {
 
   return {
     rows: results.map((r) => r.record),
-    totalCount: results[0]?.count || 0,
+    totalCount: results[0]?.count ? Number(results[0].count) : 0,
   };
 }
 

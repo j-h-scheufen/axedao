@@ -24,8 +24,6 @@ export async function setupTestDatabase() {
     return { db, container };
   }
 
-  console.log('🐳 Starting PostgreSQL container with PostGIS...');
-
   // Start PostgreSQL container with PostGIS extension
   container = await new PostgreSqlContainer('postgis/postgis:16-3.4')
     .withExposedPorts(5432)
@@ -33,16 +31,18 @@ export async function setupTestDatabase() {
     .start();
 
   const connectionString = container.getConnectionUri();
-  console.log(`✅ PostgreSQL container started: ${container.getHost()}:${container.getPort()}`);
 
-  // Create database client and Drizzle instance
+  // Set DATABASE_URL for this test file's container
+  // db/index.ts will lazily initialize using this URL in test mode
+  // This allows parallel test files to each have their own database
+  process.env.DATABASE_URL = connectionString;
+
+  // Create database client and Drizzle instance for direct queries in tests
   client = postgres(connectionString, { max: 1 }); // Single connection for tests
   db = drizzle(client, { schema });
 
   // Run migrations to set up schema
-  console.log('📦 Running database migrations...');
   await migrate(db, { migrationsFolder: './db/migrations' });
-  console.log('✅ Migrations completed');
 
   return { db, container };
 }
@@ -54,19 +54,16 @@ export async function setupTestDatabase() {
  */
 export async function teardownTestDatabase() {
   if (client) {
-    console.log('🔌 Closing database connection...');
     await client.end();
     client = null;
   }
 
   if (container) {
-    console.log('🛑 Stopping PostgreSQL container...');
     await container.stop();
     container = null;
   }
 
   db = null;
-  console.log('✅ Test database torn down');
 }
 
 /**
@@ -78,8 +75,6 @@ export async function clearTestDatabase() {
   if (!db) {
     throw new Error('Database not initialized. Call setupTestDatabase() first.');
   }
-
-  console.log('🧹 Clearing test database...');
 
   // Truncate all tables in reverse dependency order
   // CASCADE automatically truncates dependent tables
@@ -97,8 +92,6 @@ export async function clearTestDatabase() {
       invitations
     CASCADE
   `);
-
-  console.log('✅ Test database cleared');
 }
 
 /**
