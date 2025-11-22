@@ -23,13 +23,15 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Trigger for group_locations table
+-- Trigger for group_locations table (drop if exists, then create)
+DROP TRIGGER IF EXISTS trg_set_country_code ON group_locations;
 CREATE TRIGGER trg_set_country_code
 BEFORE INSERT OR UPDATE ON group_locations
 FOR EACH ROW
 EXECUTE FUNCTION set_country_code_from_feature();
 
--- Trigger for events table
+-- Trigger for events table (drop if exists, then create)
+DROP TRIGGER IF EXISTS trg_set_country_code_events ON events;
 CREATE TRIGGER trg_set_country_code_events
 BEFORE INSERT OR UPDATE ON events
 FOR EACH ROW
