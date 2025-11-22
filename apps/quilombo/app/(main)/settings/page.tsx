@@ -10,6 +10,8 @@ import {
   ModalBody,
   ModalFooter,
   Button,
+  Checkbox,
+  Tooltip,
 } from '@heroui/react';
 import { useTheme } from 'next-themes';
 import { Mail } from 'lucide-react';
@@ -18,12 +20,14 @@ import { enqueueSnackbar } from 'notistack';
 
 import PageHeading from '@/components/PageHeading';
 import { ThemeSwitch, AuthenticationManagement } from '@/components/settings';
-import { useFetchAuthMethods } from '@/query/currentUser';
+import { useFetchAuthMethods, useUpdateCurrentUserMutation } from '@/query/currentUser';
+import { useAtomValue } from 'jotai';
+import { currentUserAtom } from '@/hooks/state/currentUser';
 
 const SettingsPage = () => {
   const { theme } = useTheme();
   const searchParams = useSearchParams();
-  const [expandedKeys, setExpandedKeys] = useState<Set<string>>(new Set(['auth-methods']));
+  const [expandedKeys, setExpandedKeys] = useState<Set<string>>(new Set([]));
   const [showEmailUpdateModal, setShowEmailUpdateModal] = useState(false);
   const [isConfirming, setIsConfirming] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -34,6 +38,10 @@ const SettingsPage = () => {
 
   // Fetch auth methods to get contact email
   const { data: authMethods } = useFetchAuthMethods();
+
+  // Fetch current user for privacy settings
+  const { data: user } = useAtomValue(currentUserAtom);
+  const { mutateAsync: updateProfile } = useUpdateCurrentUserMutation();
 
   // Avoid hydration mismatch with theme
   useEffect(() => {
@@ -127,6 +135,16 @@ const SettingsPage = () => {
     }
   };
 
+  const handleHideEmailChange = async (checked: boolean) => {
+    try {
+      await updateProfile({ hideEmail: checked, links: user?.links || [] });
+      enqueueSnackbar(checked ? 'Email hidden from profile' : 'Email visible on profile', { variant: 'success' });
+    } catch (error) {
+      console.error('Failed to update privacy setting:', error);
+      enqueueSnackbar('Failed to update privacy setting', { variant: 'error' });
+    }
+  };
+
   return (
     <>
       <PageHeading>Settings</PageHeading>
@@ -181,6 +199,37 @@ const SettingsPage = () => {
           >
             <div className="pb-4">
               <AuthenticationManagement />
+            </div>
+          </AccordionItem>
+
+          <AccordionItem
+            key="privacy"
+            aria-label="Privacy"
+            title="Privacy"
+            subtitle="Control what information is visible on your profile"
+            classNames={{
+              trigger: 'py-4',
+            }}
+          >
+            <div className="pb-4 space-y-4">
+              <div className="flex items-start justify-between">
+                <div className="flex-1">
+                  <Tooltip
+                    content="When enabled, your email address will not be shown on your public profile"
+                    placement="right"
+                    className="max-w-xs"
+                  >
+                    <Checkbox isSelected={user?.hideEmail || false} onValueChange={handleHideEmailChange} size="md">
+                      <div>
+                        <div className="font-medium">Hide Email from Profile</div>
+                        <div className="text-xs text-default-500 mt-1">
+                          Your email will not be visible to other users when they view your profile
+                        </div>
+                      </div>
+                    </Checkbox>
+                  </Tooltip>
+                </div>
+              </div>
             </div>
           </AccordionItem>
         </Accordion>

@@ -32,7 +32,7 @@ const UserProfile = () => {
             <h3 className="text-lg font-medium">{getUserDisplayName(user)}</h3>
           </div>
         </div>
-        {user.email && (
+        {user.email && !user.hideEmail && (
           <div className="flex gap-1 items-center text-default-400">
             <MailIcon className="h-4 w-4" />
             <Link

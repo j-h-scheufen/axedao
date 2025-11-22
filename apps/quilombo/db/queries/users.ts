@@ -10,6 +10,7 @@ import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import * as schema from '@/db/schema';
 import { db } from '@/db';
 import type { UserSession } from '@/types/model';
+import { applyUserPrivacyFilter } from '@/utils';
 
 /**
  * Checks if a user is a global administrator.
@@ -146,4 +147,52 @@ export async function searchUsersByAddresses(addresses: string[]) {
     where: (users) => inArray(users.walletAddress, addresses),
     orderBy: (users, { asc }) => [asc(users.id)],
   });
+}
+
+// ============================================================================
+// PUBLIC API FUNCTIONS
+// These functions apply privacy filters and are intended for public-facing
+// API endpoints where user data is exposed to other users.
+// ============================================================================
+
+/**
+ * Fetches a single user by ID with privacy filters applied.
+ * Use this for public-facing endpoints where user data is displayed to others.
+ * For internal operations (own profile, auth), use fetchUser() instead.
+ *
+ * @param userId - ID of the user to fetch
+ * @returns User record with email hidden if hideEmail is true, or undefined if not found
+ */
+export async function fetchPublicUser(userId: string): Promise<schema.SelectUser | undefined> {
+  const user = await fetchUser(userId);
+  return user ? applyUserPrivacyFilter(user) : undefined;
+}
+
+/**
+ * Searches users with privacy filters applied.
+ * Use this for public-facing endpoints. For internal operations, use searchUsers().
+ *
+ * @param options - Search parameters including searchTerm, filters, pagination
+ * @returns Paginated list of users with privacy filters applied
+ */
+export async function searchPublicUsers(
+  options: UserSearchParamsWithFilters
+): Promise<{ rows: schema.SelectUser[]; totalCount: number }> {
+  const results = await searchUsers(options);
+  return {
+    rows: applyUserPrivacyFilter(results.rows),
+    totalCount: results.totalCount,
+  };
+}
+
+/**
+ * Searches users by wallet addresses with privacy filters applied.
+ * Use this for public-facing endpoints. For internal operations, use searchUsersByAddresses().
+ *
+ * @param addresses - Array of wallet addresses to search for
+ * @returns List of matching users with privacy filters applied
+ */
+export async function searchPublicUsersByAddresses(addresses: string[]) {
+  const users = await searchUsersByAddresses(addresses);
+  return applyUserPrivacyFilter(users);
 }
