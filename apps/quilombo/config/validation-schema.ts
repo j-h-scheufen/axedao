@@ -92,6 +92,7 @@ export const profileFormSchema = object({
   email: string().email('Not a valid email').optional(),
   phone: string().optional(),
   links: linksSchema,
+  hideEmail: boolean().optional(),
 });
 
 export type ProfileForm = InferType<typeof profileFormSchema>;

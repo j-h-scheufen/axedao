@@ -24,11 +24,14 @@ vi.mock('@/db', () => ({
 describe('User Queries', () => {
   let isGlobalAdmin: (userId: string) => Promise<boolean | undefined>;
   let searchUsers: (options: any) => Promise<{ rows: schema.SelectUser[]; totalCount: number }>;
+  let searchPublicUsers: (options: any) => Promise<{ rows: schema.SelectUser[]; totalCount: number }>;
   let fetchSessionData: (walletAddress: string) => Promise<any | undefined>;
   let fetchUser: (userId: string) => Promise<schema.SelectUser | undefined>;
+  let fetchPublicUser: (userId: string) => Promise<schema.SelectUser | undefined>;
   let insertUser: (userValues: schema.InsertUser) => Promise<any>;
   let updateUser: (user: any) => Promise<any>;
   let searchUsersByAddresses: (addresses: string[]) => Promise<any[]>;
+  let searchPublicUsersByAddresses: (addresses: string[]) => Promise<any[]>;
 
   let mockDb: any;
 
@@ -44,11 +47,14 @@ describe('User Queries', () => {
     const queriesModule = await import('@/db/queries/users');
     isGlobalAdmin = queriesModule.isGlobalAdmin;
     searchUsers = queriesModule.searchUsers;
+    searchPublicUsers = queriesModule.searchPublicUsers;
     fetchSessionData = queriesModule.fetchSessionData;
     fetchUser = queriesModule.fetchUser;
+    fetchPublicUser = queriesModule.fetchPublicUser;
     insertUser = queriesModule.insertUser;
     updateUser = queriesModule.updateUser;
     searchUsersByAddresses = queriesModule.searchUsersByAddresses;
+    searchPublicUsersByAddresses = queriesModule.searchPublicUsersByAddresses;
   });
 
   afterEach(() => {
@@ -179,6 +185,103 @@ describe('User Queries', () => {
       const result = await searchUsers({ pageSize: 10, offset: 0 });
 
       expect(result.rows[1].groupName).toBeUndefined();
+    });
+  });
+
+  describe('searchPublicUsers', () => {
+    const mockUsers = [
+      {
+        record: {
+          id: 'user-1',
+          email: 'user1@example.com',
+          name: 'User One',
+          nickname: 'user1',
+          groupId: 'group-1',
+          hideEmail: false,
+        },
+        groupName: 'Test Group',
+        count: 2,
+      },
+      {
+        record: {
+          id: 'user-2',
+          email: 'user2@example.com',
+          name: 'User Two',
+          nickname: 'user2',
+          groupId: null,
+          hideEmail: true,
+        },
+        groupName: null,
+        count: 2,
+      },
+    ];
+
+    beforeEach(() => {
+      // Setup chain mocking for query builder
+      const mockChain = {
+        from: vi.fn().mockReturnThis(),
+        leftJoin: vi.fn().mockReturnThis(),
+        where: vi.fn().mockReturnThis(),
+        limit: vi.fn().mockReturnThis(),
+        offset: vi.fn().mockResolvedValue(mockUsers),
+      };
+      mockDb.select = vi.fn().mockReturnValue(mockChain);
+    });
+
+    it('should filter emails when hideEmail is true', async () => {
+      const result = await searchPublicUsers({ pageSize: 10, offset: 0 });
+
+      expect(result.rows).toHaveLength(2);
+      expect(result.totalCount).toBe(2);
+      expect(result.rows[0].email).toBe('user1@example.com');
+      expect(result.rows[0].hideEmail).toBe(false);
+      expect(result.rows[1].email).toBeNull();
+      expect(result.rows[1].hideEmail).toBe(true);
+    });
+
+    it('should preserve emails when hideEmail is false', async () => {
+      const allVisibleUsers = [
+        {
+          record: {
+            id: 'user-1',
+            email: 'user1@example.com',
+            name: 'User One',
+            hideEmail: false,
+          },
+          groupName: 'Test Group',
+          count: 1,
+        },
+      ];
+      const mockChain = {
+        from: vi.fn().mockReturnThis(),
+        leftJoin: vi.fn().mockReturnThis(),
+        where: vi.fn().mockReturnThis(),
+        limit: vi.fn().mockReturnThis(),
+        offset: vi.fn().mockResolvedValue(allVisibleUsers),
+      };
+      mockDb.select = vi.fn().mockReturnValue(mockChain);
+
+      const result = await searchPublicUsers({ pageSize: 10, offset: 0 });
+
+      expect(result.rows).toHaveLength(1);
+      expect(result.rows[0].email).toBe('user1@example.com');
+      expect(result.rows[0].hideEmail).toBe(false);
+    });
+
+    it('should handle empty results', async () => {
+      const mockChain = {
+        from: vi.fn().mockReturnThis(),
+        leftJoin: vi.fn().mockReturnThis(),
+        where: vi.fn().mockReturnThis(),
+        limit: vi.fn().mockReturnThis(),
+        offset: vi.fn().mockResolvedValue([]),
+      };
+      mockDb.select = vi.fn().mockReturnValue(mockChain);
+
+      const result = await searchPublicUsers({ pageSize: 10, offset: 0 });
+
+      expect(result.rows).toHaveLength(0);
+      expect(result.totalCount).toBe(0);
     });
   });
 
@@ -341,6 +444,141 @@ describe('User Queries', () => {
       mockDb.query.users.findMany.mockResolvedValue([]);
 
       const result = await searchUsersByAddresses([]);
+
+      expect(result).toEqual([]);
+    });
+  });
+
+  describe('fetchPublicUser', () => {
+    it('should return user with email when hideEmail is false', async () => {
+      const mockUser = {
+        id: 'user-123',
+        email: 'user@example.com',
+        name: 'Test User',
+        hideEmail: false,
+      };
+      mockDb.query.users.findFirst.mockResolvedValue(mockUser);
+
+      const result = await fetchPublicUser('user-123');
+
+      expect(result).toEqual(mockUser);
+      expect(result?.email).toBe('user@example.com');
+      expect(result?.hideEmail).toBe(false);
+    });
+
+    it('should return user with null email when hideEmail is true', async () => {
+      const mockUser = {
+        id: 'user-123',
+        email: 'user@example.com',
+        name: 'Test User',
+        hideEmail: true,
+      };
+      mockDb.query.users.findFirst.mockResolvedValue(mockUser);
+
+      const result = await fetchPublicUser('user-123');
+
+      expect(result?.email).toBeNull();
+      expect(result?.hideEmail).toBe(true);
+      expect(result?.id).toBe('user-123');
+      expect(result?.name).toBe('Test User');
+    });
+
+    it('should return undefined for non-existent user', async () => {
+      mockDb.query.users.findFirst.mockResolvedValue(null);
+
+      const result = await fetchPublicUser('non-existent');
+
+      expect(result).toBeUndefined();
+    });
+  });
+
+  describe('searchPublicUsersByAddresses', () => {
+    it('should filter emails when hideEmail is true', async () => {
+      const mockUsers = [
+        {
+          id: 'user-1',
+          walletAddress: '0x111',
+          email: 'user1@example.com',
+          name: 'User 1',
+          hideEmail: true,
+        },
+        {
+          id: 'user-2',
+          walletAddress: '0x222',
+          email: 'user2@example.com',
+          name: 'User 2',
+          hideEmail: true,
+        },
+      ];
+      mockDb.query.users.findMany.mockResolvedValue(mockUsers);
+
+      const result = await searchPublicUsersByAddresses(['0x111', '0x222']);
+
+      expect(result).toHaveLength(2);
+      expect(result[0].email).toBeNull();
+      expect(result[1].email).toBeNull();
+      expect(result[0].hideEmail).toBe(true);
+      expect(result[1].hideEmail).toBe(true);
+    });
+
+    it('should preserve emails when hideEmail is false', async () => {
+      const mockUsers = [
+        {
+          id: 'user-1',
+          walletAddress: '0x111',
+          email: 'user1@example.com',
+          name: 'User 1',
+          hideEmail: false,
+        },
+        {
+          id: 'user-2',
+          walletAddress: '0x222',
+          email: 'user2@example.com',
+          name: 'User 2',
+          hideEmail: false,
+        },
+      ];
+      mockDb.query.users.findMany.mockResolvedValue(mockUsers);
+
+      const result = await searchPublicUsersByAddresses(['0x111', '0x222']);
+
+      expect(result).toHaveLength(2);
+      expect(result[0].email).toBe('user1@example.com');
+      expect(result[1].email).toBe('user2@example.com');
+      expect(result[0].hideEmail).toBe(false);
+      expect(result[1].hideEmail).toBe(false);
+    });
+
+    it('should handle mixed privacy settings', async () => {
+      const mockUsers = [
+        {
+          id: 'user-1',
+          walletAddress: '0x111',
+          email: 'user1@example.com',
+          name: 'User 1',
+          hideEmail: true,
+        },
+        {
+          id: 'user-2',
+          walletAddress: '0x222',
+          email: 'user2@example.com',
+          name: 'User 2',
+          hideEmail: false,
+        },
+      ];
+      mockDb.query.users.findMany.mockResolvedValue(mockUsers);
+
+      const result = await searchPublicUsersByAddresses(['0x111', '0x222']);
+
+      expect(result).toHaveLength(2);
+      expect(result[0].email).toBeNull();
+      expect(result[1].email).toBe('user2@example.com');
+    });
+
+    it('should return empty array for no matches', async () => {
+      mockDb.query.users.findMany.mockResolvedValue([]);
+
+      const result = await searchPublicUsersByAddresses(['0xNonExistent']);
 
       expect(result).toEqual([]);
     });

@@ -1,6 +1,6 @@
 import type { NextRequest } from 'next/server';
 
-import { fetchUser } from '@/db';
+import { fetchPublicUser } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import { notFound } from 'next/navigation';
 import type { RouteParamsUser } from '@/types/routes';
@@ -15,7 +15,7 @@ export async function GET(_: NextRequest, { params }: RouteParamsUser) {
   const { userId } = await params;
 
   try {
-    const user = await fetchUser(userId);
+    const user = await fetchPublicUser(userId);
     if (!user) return notFound();
 
     return Response.json(user);

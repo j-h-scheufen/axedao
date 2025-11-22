@@ -4,7 +4,27 @@ import { AxiosError } from 'axios';
 import { QueryConfig } from '@/config/constants';
 import ENV from '@/config/environment';
 import type { GroupMemberRole, User } from '@/types/model';
+import type { SelectUser } from '@/db/schema';
 import { CID } from 'multiformats/cid';
+
+/**
+ * Applies privacy settings to user object(s) by setting email to null if hideEmail is true.
+ * This implements server-side privacy protection to prevent email addresses from being
+ * transmitted to the client when users have opted out.
+ *
+ * @param user - Single user or array of users to filter
+ * @returns User object(s) with email set to null if hideEmail is true
+ */
+export function applyUserPrivacyFilter<T extends SelectUser>(user: T): T;
+export function applyUserPrivacyFilter<T extends SelectUser>(users: T[]): T[];
+export function applyUserPrivacyFilter<T extends SelectUser>(input: T | T[]): T | T[] {
+  const filterUser = (user: T): T => ({
+    ...user,
+    email: user.hideEmail ? null : user.email,
+  });
+
+  return Array.isArray(input) ? input.map(filterUser) : filterUser(input);
+}
 
 export const generateErrorMessage = (error: unknown, defaultMessage: string) => {
   let message = defaultMessage;
@@ -102,8 +122,13 @@ export const getUserDisplayName = (user?: User): string => {
     return user.name;
   }
 
-  // Fallback to email
-  return user.email || '';
+  // Fallback to email (only if not hidden)
+  if (user.email && !user.hideEmail) {
+    return user.email;
+  }
+
+  // Final fallback if email is hidden
+  return 'Anonymous';
 };
 
 export const abbreviateAddress = (input: string): string => {

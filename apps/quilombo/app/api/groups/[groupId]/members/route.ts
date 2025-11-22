@@ -1,6 +1,6 @@
 import type { NextRequest } from 'next/server';
 
-import { fetchGroupMembers } from '@/db';
+import { fetchPublicGroupMembers } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import type { RouteParamsGroup } from '@/types/routes';
 
@@ -13,7 +13,8 @@ import type { RouteParamsGroup } from '@/types/routes';
 export async function GET(_: NextRequest, { params }: RouteParamsGroup) {
   try {
     const { groupId } = await params;
-    const members = await fetchGroupMembers(groupId);
+    const members = await fetchPublicGroupMembers(groupId);
+
     return Response.json(members);
   } catch (error) {
     const message = generateErrorMessage(error, 'An unexpected server error occurred while fetching group members');

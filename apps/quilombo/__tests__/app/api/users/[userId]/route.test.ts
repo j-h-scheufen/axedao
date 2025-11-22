@@ -41,10 +41,10 @@ describe('GET /api/users/[userId]', () => {
 
     // Mock database functions
     mockDb = {
-      fetchUser: vi.fn().mockResolvedValue(mockUser),
+      fetchPublicUser: vi.fn().mockResolvedValue(mockUser),
     };
 
-    (dbModule.fetchUser as typeof mockDb.fetchUser) = mockDb.fetchUser;
+    (dbModule.fetchPublicUser as typeof mockDb.fetchPublicUser) = mockDb.fetchPublicUser;
 
     notFound = vi.fn(() => {
       throw new Error('NEXT_NOT_FOUND');
@@ -69,7 +69,7 @@ describe('GET /api/users/[userId]', () => {
       const body = await getResponseJson(response);
 
       expect(response.status).toBe(200);
-      expect(mockDb.fetchUser).toHaveBeenCalledWith(testUserId);
+      expect(mockDb.fetchPublicUser).toHaveBeenCalledWith(testUserId);
       expect(body).toEqual(
         expect.objectContaining({
           id: testUserId,
@@ -82,7 +82,7 @@ describe('GET /api/users/[userId]', () => {
 
     it('should handle different user IDs', async () => {
       const differentUserId = 'user-456';
-      mockDb.fetchUser.mockResolvedValue({ ...mockUser, id: differentUserId });
+      mockDb.fetchPublicUser.mockResolvedValue({ ...mockUser, id: differentUserId });
 
       const request = new Request(`http://localhost/api/users/${differentUserId}`, {
         method: 'GET',
@@ -90,7 +90,7 @@ describe('GET /api/users/[userId]', () => {
 
       const response = await GET(request, { params: Promise.resolve({ userId: differentUserId }) });
 
-      expect(mockDb.fetchUser).toHaveBeenCalledWith(differentUserId);
+      expect(mockDb.fetchPublicUser).toHaveBeenCalledWith(differentUserId);
       expect(response.status).toBe(200);
     });
 
@@ -113,7 +113,7 @@ describe('GET /api/users/[userId]', () => {
 
   describe('Not Found', () => {
     it('should call notFound when user not found', async () => {
-      mockDb.fetchUser.mockResolvedValue(null);
+      mockDb.fetchPublicUser.mockResolvedValue(null);
 
       const request = new Request(`http://localhost/api/users/${testUserId}`, {
         method: 'GET',
@@ -124,14 +124,14 @@ describe('GET /api/users/[userId]', () => {
       const body = await getResponseJson(response);
 
       expect(response.status).toBe(500);
-      expect(mockDb.fetchUser).toHaveBeenCalledWith(testUserId);
+      expect(mockDb.fetchPublicUser).toHaveBeenCalledWith(testUserId);
       expect(notFound).toHaveBeenCalled();
       expect(body).toHaveProperty('error', true);
       expect(body).toHaveProperty('message', 'NEXT_NOT_FOUND');
     });
 
     it('should call notFound for non-existent user', async () => {
-      mockDb.fetchUser.mockResolvedValue(null);
+      mockDb.fetchPublicUser.mockResolvedValue(null);
 
       const request = new Request('http://localhost/api/users/non-existent', {
         method: 'GET',
@@ -150,7 +150,7 @@ describe('GET /api/users/[userId]', () => {
 
   describe('Error Handling', () => {
     it('should return 500 when database throws error', async () => {
-      mockDb.fetchUser.mockRejectedValue(new Error('Database connection failed'));
+      mockDb.fetchPublicUser.mockRejectedValue(new Error('Database connection failed'));
 
       const request = new Request(`http://localhost/api/users/${testUserId}`, {
         method: 'GET',
@@ -166,7 +166,7 @@ describe('GET /api/users/[userId]', () => {
     });
 
     it('should include error details in response', async () => {
-      mockDb.fetchUser.mockRejectedValue(new Error('Connection timeout'));
+      mockDb.fetchPublicUser.mockRejectedValue(new Error('Connection timeout'));
 
       const request = new Request(`http://localhost/api/users/${testUserId}`, {
         method: 'GET',
@@ -177,6 +177,48 @@ describe('GET /api/users/[userId]', () => {
 
       expect(body.error).toBe(true);
       expect(body.message).toBe('Connection timeout');
+    });
+  });
+
+  describe('Email Privacy', () => {
+    it('should return user with email when hideEmail is false', async () => {
+      const userWithVisibleEmail = {
+        ...mockUser,
+        hideEmail: false,
+        email: 'visible@example.com',
+      };
+      mockDb.fetchPublicUser.mockResolvedValue(userWithVisibleEmail);
+
+      const request = new Request(`http://localhost/api/users/${testUserId}`, {
+        method: 'GET',
+      });
+
+      const response = await GET(request, { params: Promise.resolve({ userId: testUserId }) });
+      const body = await getResponseJson(response);
+
+      expect(response.status).toBe(200);
+      expect(body.email).toBe('visible@example.com');
+      expect(body.hideEmail).toBe(false);
+    });
+
+    it('should return user with null email when hideEmail is true', async () => {
+      const userWithHiddenEmail = {
+        ...mockUser,
+        hideEmail: true,
+        email: null, // Privacy filter sets to null
+      };
+      mockDb.fetchPublicUser.mockResolvedValue(userWithHiddenEmail);
+
+      const request = new Request(`http://localhost/api/users/${testUserId}`, {
+        method: 'GET',
+      });
+
+      const response = await GET(request, { params: Promise.resolve({ userId: testUserId }) });
+      const body = await getResponseJson(response);
+
+      expect(response.status).toBe(200);
+      expect(body.email).toBeNull();
+      expect(body.hideEmail).toBe(true);
     });
   });
 });

@@ -5,9 +5,9 @@
 
 import { PostgreSqlContainer, type StartedPostgreSqlContainer } from '@testcontainers/postgresql';
 import { drizzle, type PostgresJsDatabase } from 'drizzle-orm/postgres-js';
-import { migrate } from 'drizzle-orm/postgres-js/migrator';
 import postgres from 'postgres';
 import * as schema from '@/db/schema';
+import { execSync } from 'node:child_process';
 
 let container: StartedPostgreSqlContainer | null = null;
 let db: PostgresJsDatabase<typeof schema> | null = null;
@@ -15,8 +15,8 @@ let client: ReturnType<typeof postgres> | null = null;
 
 /**
  * Sets up a PostgreSQL test database with PostGIS extension
- * - Starts Docker container with postgis/postgis:16-3.4 image
- * - Runs all Drizzle migrations
+ * - Starts Docker container with postgis/postgis:17-3.5 image
+ * - Applies all Atlas migrations
  * - Returns database instance for queries
  */
 export async function setupTestDatabase() {
@@ -25,7 +25,8 @@ export async function setupTestDatabase() {
   }
 
   // Start PostgreSQL container with PostGIS extension
-  container = await new PostgreSqlContainer('postgis/postgis:16-3.4')
+  // Using same PostGIS version as Atlas dev database (see atlas.hcl)
+  container = await new PostgreSqlContainer('postgis/postgis:17-3.5')
     .withExposedPorts(5432)
     .withStartupTimeout(120_000) // 2 minutes for container startup
     .start();
@@ -35,14 +36,21 @@ export async function setupTestDatabase() {
   // Set DATABASE_URL for this test file's container
   // db/index.ts will lazily initialize using this URL in test mode
   // This allows parallel test files to each have their own database
-  process.env.DATABASE_URL = connectionString;
+  // Disable SSL for test container (Atlas/postgres require sslmode to be explicit)
+  const connectionStringWithSSL = `${connectionString}?sslmode=disable`;
+  process.env.DATABASE_URL = connectionStringWithSSL;
 
   // Create database client and Drizzle instance for direct queries in tests
-  client = postgres(connectionString, { max: 1 }); // Single connection for tests
+  client = postgres(connectionStringWithSSL, { max: 1 }); // Single connection for tests
   db = drizzle(client, { schema });
 
-  // Run migrations to set up schema
-  await migrate(db, { migrationsFolder: './db/migrations' });
+  // Apply Atlas migrations to set up schema
+  // Atlas reads DATABASE_URL from environment (set above in atlas.hcl config)
+  // Use --allow-dirty because PostGIS container has pre-existing schemas (tiger, topology, etc.)
+  execSync('atlas migrate apply --env local --allow-dirty', {
+    env: process.env,
+    stdio: process.env.CI ? 'pipe' : 'inherit', // Suppress verbose output in CI
+  });
 
   return { db, container };
 }
