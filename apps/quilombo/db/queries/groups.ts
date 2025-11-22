@@ -94,13 +94,10 @@ export async function searchGroups(
         WHERE ${schema.groupAdmins.groupId} = ${schema.groups.id}
       )`.as('admin_count'),
 
-      // Compute countryCodes using JOIN + GROUP BY (same as fetchGroup)
+      // Compute countryCodes using JOIN + GROUP BY (correlated subquery doesn't work in Drizzle)
       countryCodes: sql<string[]>`ARRAY_REMOVE(ARRAY_AGG(DISTINCT ${schema.groupLocations.countryCode}), NULL)`.as(
         'country_codes'
       ),
-
-      // Total count using window function (works correctly without GROUP BY)
-      count: sql<number>`count(*) over()`,
     })
     .from(schema.groups)
     .leftJoin(schema.groupLocations, eq(schema.groups.id, schema.groupLocations.groupId))
@@ -117,13 +114,11 @@ export async function searchGroups(
     countryCodes: row.countryCodes || [], // Ensure array even if null
   })) as Group[];
 
-  // If we have results, use the window function count
-  // If no results (offset beyond total), run a separate count query for correct totalCount
+  // Calculate totalCount separately since window function doesn't work with GROUP BY + LEFT JOIN
+  // The window function would count joined rows (20) instead of groups (10) with multiple locations
+  // This requires a second query, but it's simpler and more maintainable than alternatives
   let totalCount = 0;
-  if (results.length > 0) {
-    totalCount = Number(results[0].count);
-  } else if (sqlFilters.length > 0) {
-    // Only run separate count if we have filters (otherwise it's just 0)
+  if (sqlFilters.length > 0) {
     const countResult = await db
       .select({ count: count() })
       .from(schema.groups)

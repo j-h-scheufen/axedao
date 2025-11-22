@@ -125,77 +125,60 @@ describe('searchGroups - Pagination and TotalCount (Integration)', () => {
     });
 
     it('should return correct totalCount with groups that have multiple locations', async () => {
-      // Create groups with multiple locations (tests the subquery approach)
-      const group1Id = uuidv4();
-      const group2Id = uuidv4();
-      const group3Id = uuidv4();
+      // Create 10 groups with multiple locations each
+      // This tests the CRITICAL bug: GROUP BY + LEFT JOIN + window function
+      // Bug: window function counts joined rows (20) instead of groups (10)
+      const groupIds = Array.from({ length: 10 }, () => uuidv4());
 
-      await db.insert(schema.groups).values([
-        { id: group1Id, name: 'Group 1', createdBy: userId, createdAt: new Date() },
-        { id: group2Id, name: 'Group 2', createdBy: userId, createdAt: new Date() },
-        { id: group3Id, name: 'Group 3', createdBy: userId, createdAt: new Date() },
-      ]);
+      await db.insert(schema.groups).values(
+        groupIds.map((id, i) => ({
+          id,
+          name: `Group ${i + 1}`,
+          createdBy: userId,
+          createdAt: new Date(),
+        }))
+      );
 
-      // Add multiple locations to each group
-      await db.insert(schema.groupLocations).values([
+      // Give each group 2 locations (20 total location rows after JOIN)
+      const locationData = groupIds.flatMap((groupId, i) => [
         {
-          groupId: group1Id,
-          name: 'Location 1A',
+          groupId,
+          name: `Location ${i + 1}A`,
           feature: {
             type: 'Feature',
-            geometry: { type: 'Point', coordinates: [-122.4, 37.8] },
-            properties: { country_code: 'US' },
+            geometry: { type: 'Point', coordinates: [-122.4 + i, 37.8] },
+            properties: { country_code: i % 2 === 0 ? 'US' : 'BR' },
           },
         },
         {
-          groupId: group1Id,
-          name: 'Location 1B',
+          groupId,
+          name: `Location ${i + 1}B`,
           feature: {
             type: 'Feature',
-            geometry: { type: 'Point', coordinates: [-73.9, 40.7] },
-            properties: { country_code: 'US' },
-          },
-        },
-        {
-          groupId: group2Id,
-          name: 'Location 2A',
-          feature: {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [-43.2, -22.9] },
-            properties: { country_code: 'BR' },
-          },
-        },
-        {
-          groupId: group2Id,
-          name: 'Location 2B',
-          feature: {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [-46.6, -23.5] },
-            properties: { country_code: 'BR' },
-          },
-        },
-        {
-          groupId: group3Id,
-          name: 'Location 3A',
-          feature: {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [-0.1, 51.5] },
-            properties: { country_code: 'GB' },
+            geometry: { type: 'Point', coordinates: [-122.3 + i, 37.9] },
+            properties: { country_code: i % 2 === 0 ? 'US' : 'BR' },
           },
         },
       ]);
+      await db.insert(schema.groupLocations).values(locationData);
 
-      const result = await searchGroups({ pageSize: 10, offset: 0 });
+      // Query first page with pageSize < totalCount
+      const page1 = await searchGroups({ pageSize: 3, offset: 0 });
 
-      // CRITICAL: Should count 3 groups, not 5 locations
-      expect(result.totalCount).toBe(3);
-      expect(result.rows).toHaveLength(3);
+      // CRITICAL: Should count 10 groups, NOT 20 locations (the bug)
+      // With broken window function + GROUP BY: would return 20
+      expect(page1.totalCount).toBe(10);
+      expect(page1.rows).toHaveLength(3);
 
-      // Verify countryCodes are properly aggregated (lowercase due to trigger normalization)
-      const group1 = result.rows.find((g) => g.id === group1Id);
-      const group2 = result.rows.find((g) => g.id === group2Id);
-      expect(group1?.countryCodes).toEqual(['us']);
-      expect(group2?.countryCodes).toEqual(['br']);
+      // Verify second page reports same totalCount
+      const page2 = await searchGroups({ pageSize: 3, offset: 3 });
+      expect(page2.totalCount).toBe(10);
+      expect(page2.rows).toHaveLength(3);
+
+      // Verify countryCodes are properly aggregated (both locations have same country)
+      const firstGroup = page1.rows[0];
+      expect(firstGroup.countryCodes).toHaveLength(1);
+      expect(['us', 'br']).toContain(firstGroup.countryCodes[0]);
     });
   });
 
