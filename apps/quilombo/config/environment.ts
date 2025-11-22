@@ -45,10 +45,10 @@ const isTestMode = envMode === 'test';
 
 export const getBaseUrl = () => {
   let baseUrl: string | undefined;
-  if (process.env.NEXT_PUBLIC_VERCEL_URL) {
-    baseUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
-  } else if (process.env.NEXT_PUBLIC_APP_URL) {
+  if (process.env.NEXT_PUBLIC_APP_URL) {
     baseUrl = process.env.NEXT_PUBLIC_APP_URL;
+  } else if (process.env.NEXT_PUBLIC_VERCEL_URL) {
+    baseUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
   }
   if (!baseUrl) throw new Error('No base URL found');
   return baseUrl;

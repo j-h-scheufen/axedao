@@ -65,6 +65,8 @@ export const users = pgTable(
     accountStatus: accountStatusEnum('account_status').default('active').notNull(),
     isGlobalAdmin: boolean('is_global_admin').default(false).notNull(),
     links: json('links').$type<SocialLink[]>().notNull().default([]),
+    // Privacy settings
+    hideEmail: boolean('hide_email').default(false).notNull(),
     // Invitation attribution - tracks who invited this user
     invitedBy: uuid('invited_by').references((): AnyPgColumn => users.id, { onDelete: 'set null' }),
   },

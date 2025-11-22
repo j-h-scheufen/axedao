@@ -2,7 +2,7 @@ import { getServerSession } from 'next-auth';
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { fetchGroupMembers, isGroupAdmin, isGroupMember, removeGroupMember } from '@/db';
+import { fetchPublicGroupMembers, isGroupAdmin, isGroupMember, removeGroupMember } from '@/db';
 import type { User } from '@/types/model';
 import type { RouteParamsGroupAndUser } from '@/types/routes';
 
@@ -36,7 +36,7 @@ export async function DELETE(_: NextRequest, { params }: RouteParamsGroupAndUser
 
   try {
     await removeGroupMember(memberId);
-    const groupMembers: User[] = await fetchGroupMembers(groupId);
+    const groupMembers: User[] = await fetchPublicGroupMembers(groupId);
     return NextResponse.json(groupMembers);
   } catch (error) {
     console.error(error);

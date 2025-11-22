@@ -10,6 +10,7 @@ import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import * as schema from '@/db/schema';
 import { db } from '@/db';
 import type { Group } from '@/types/model';
+import { applyUserPrivacyFilter } from '@/utils';
 
 /**
  * Searches groups with optional filters and pagination.
@@ -288,6 +289,18 @@ export async function fetchGroupMembers(groupId: string): Promise<schema.SelectU
     .select()
     .from(schema.users)
     .where(and(eq(schema.users.groupId, groupId)));
+}
+
+/**
+ * Fetches group members with privacy filters applied.
+ * Use this for public-facing endpoints. For internal operations, use fetchGroupMembers().
+ *
+ * @param groupId - ID of the group
+ * @returns List of group members with privacy filters applied
+ */
+export async function fetchPublicGroupMembers(groupId: string): Promise<schema.SelectUser[]> {
+  const members = await fetchGroupMembers(groupId);
+  return applyUserPrivacyFilter(members);
 }
 
 /**

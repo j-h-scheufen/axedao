@@ -57,10 +57,10 @@ describe('Group Members API Routes', () => {
 
       // Mock database functions
       mockDb = {
-        fetchGroupMembers: vi.fn().mockResolvedValue(mockMembers),
+        fetchPublicGroupMembers: vi.fn().mockResolvedValue(mockMembers),
       };
 
-      (dbModule.fetchGroupMembers as typeof mockDb.fetchGroupMembers) = mockDb.fetchGroupMembers;
+      (dbModule.fetchPublicGroupMembers as typeof mockDb.fetchPublicGroupMembers) = mockDb.fetchPublicGroupMembers;
 
       const routeModule = await import('@/app/api/groups/[groupId]/members/route');
       GET = routeModule.GET;
@@ -80,7 +80,7 @@ describe('Group Members API Routes', () => {
         const body = await getResponseJson(response);
 
         expect(response.status).toBe(200);
-        expect(mockDb.fetchGroupMembers).toHaveBeenCalledWith(testGroupId);
+        expect(mockDb.fetchPublicGroupMembers).toHaveBeenCalledWith(testGroupId);
         expect(body).toHaveLength(2);
         expect(body[0]).toEqual(
           expect.objectContaining({
@@ -92,7 +92,7 @@ describe('Group Members API Routes', () => {
       });
 
       it('should return empty array when no members', async () => {
-        mockDb.fetchGroupMembers.mockResolvedValue([]);
+        mockDb.fetchPublicGroupMembers.mockResolvedValue([]);
 
         const request = new Request(`http://localhost/api/groups/${testGroupId}/members`, {
           method: 'GET',
@@ -114,13 +114,13 @@ describe('Group Members API Routes', () => {
 
         await GET(request, { params: Promise.resolve({ groupId: differentGroupId }) });
 
-        expect(mockDb.fetchGroupMembers).toHaveBeenCalledWith(differentGroupId);
+        expect(mockDb.fetchPublicGroupMembers).toHaveBeenCalledWith(differentGroupId);
       });
     });
 
     describe('Error Handling', () => {
       it('should return 500 when database throws error', async () => {
-        mockDb.fetchGroupMembers.mockRejectedValue(new Error('Database error'));
+        mockDb.fetchPublicGroupMembers.mockRejectedValue(new Error('Database error'));
 
         const request = new Request(`http://localhost/api/groups/${testGroupId}/members`, {
           method: 'GET',
@@ -159,13 +159,13 @@ describe('Group Members API Routes', () => {
         isGroupAdmin: vi.fn().mockResolvedValue(true),
         isGroupMember: vi.fn().mockResolvedValue(true),
         removeGroupMember: vi.fn().mockResolvedValue(undefined),
-        fetchGroupMembers: vi.fn().mockResolvedValue([mockMembers[1]]), // After removal
+        fetchPublicGroupMembers: vi.fn().mockResolvedValue([mockMembers[1]]), // After removal
       };
 
       (dbModule.isGroupAdmin as typeof mockDb.isGroupAdmin) = mockDb.isGroupAdmin;
       (dbModule.isGroupMember as typeof mockDb.isGroupMember) = mockDb.isGroupMember;
       (dbModule.removeGroupMember as typeof mockDb.removeGroupMember) = mockDb.removeGroupMember;
-      (dbModule.fetchGroupMembers as typeof mockDb.fetchGroupMembers) = mockDb.fetchGroupMembers;
+      (dbModule.fetchPublicGroupMembers as typeof mockDb.fetchPublicGroupMembers) = mockDb.fetchPublicGroupMembers;
 
       // Default: authenticated admin user
       getServerSession.mockResolvedValue({
@@ -273,13 +273,13 @@ describe('Group Members API Routes', () => {
         expect(mockDb.isGroupAdmin).toHaveBeenCalledWith(testGroupId, testUserId);
         expect(mockDb.isGroupMember).toHaveBeenCalledWith(testGroupId, testMemberId);
         expect(mockDb.removeGroupMember).toHaveBeenCalledWith(testMemberId);
-        expect(mockDb.fetchGroupMembers).toHaveBeenCalledWith(testGroupId);
+        expect(mockDb.fetchPublicGroupMembers).toHaveBeenCalledWith(testGroupId);
         expect(body).toEqual([mockMembers[1]]);
         expect(body).toHaveLength(1);
       });
 
       it('should handle removing last member', async () => {
-        mockDb.fetchGroupMembers.mockResolvedValue([]);
+        mockDb.fetchPublicGroupMembers.mockResolvedValue([]);
 
         const request = new Request(`http://localhost/api/groups/${testGroupId}/members/${testMemberId}`, {
           method: 'DELETE',
@@ -315,7 +315,7 @@ describe('Group Members API Routes', () => {
       });
 
       it('should return 500 when fetchGroupMembers throws error after removal', async () => {
-        mockDb.fetchGroupMembers.mockRejectedValue(new Error('Database error'));
+        mockDb.fetchPublicGroupMembers.mockRejectedValue(new Error('Database error'));
 
         const request = new Request(`http://localhost/api/groups/${testGroupId}/members/${testMemberId}`, {
           method: 'DELETE',

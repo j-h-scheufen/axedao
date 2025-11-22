@@ -1,7 +1,7 @@
 'use client';
 
-import { Button, Spinner } from '@heroui/react';
-import { Field, FieldArray, Form, Formik, type FormikProps } from 'formik';
+import { Button, Checkbox, Spinner, Tooltip } from '@heroui/react';
+import { Field, FieldArray, Form, Formik, type FormikProps, type FieldProps } from 'formik';
 import { useAtomValue } from 'jotai';
 import { Mail, Phone } from 'lucide-react';
 import { useRouter } from 'next/navigation';
@@ -50,6 +50,7 @@ const ProfileForm = () => {
     email: authMethods?.notificationEmail || undefined,
     phone: user.phone || '',
     links: user.links || [],
+    hideEmail: user.hideEmail || false,
   };
 
   return (
@@ -67,15 +68,35 @@ const ProfileForm = () => {
               <Field name="title" as={StringSelect} options={titles} label="Title" />
               <Field name="nickname" label="Nickname" as={FieldInput} />
               <Field name="name" label="Fullname" as={FieldInput} />
-              <Field
-                name="email"
-                type="email"
-                label="Email"
-                placeholder="jane.doe@gmail.com"
-                as={FieldInput}
-                startContent={<Mail className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />}
-                disabled
-              />
+              <div className="flex flex-col gap-2">
+                <Field
+                  name="email"
+                  type="email"
+                  label="Email"
+                  placeholder="jane.doe@gmail.com"
+                  as={FieldInput}
+                  startContent={<Mail className="pointer-events-none h-4 w-4 flex-shrink-0 text-default-400" />}
+                  disabled
+                />
+                <Field name="hideEmail">
+                  {({ field, form }: FieldProps) => (
+                    <Tooltip
+                      content="When enabled, your email will not be shown on your public profile"
+                      placement="right"
+                      className="max-w-xs"
+                    >
+                      <Checkbox
+                        isSelected={field.value}
+                        onValueChange={(checked) => form.setFieldValue('hideEmail', checked)}
+                        size="sm"
+                        className="ml-1"
+                      >
+                        Hide Email from Profile
+                      </Checkbox>
+                    </Tooltip>
+                  )}
+                </Field>
+              </div>
               <Field
                 name="phone"
                 type="phone"

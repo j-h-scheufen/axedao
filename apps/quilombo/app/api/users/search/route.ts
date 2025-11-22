@@ -4,7 +4,7 @@ import { type NextRequest, NextResponse } from 'next/server';
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { type UserSearchParamsWithFilters, userSearchParamsSchema } from '@/config/validation-schema';
-import { searchUsers } from '@/db';
+import { searchPublicUsers } from '@/db';
 import type { UserSearchResult } from '@/types/model';
 
 /**
@@ -119,7 +119,7 @@ export async function POST(request: NextRequest) {
 
     const { offset = 0, pageSize = QUERY_DEFAULT_PAGE_SIZE, searchTerm, filters } = searchParams;
 
-    const searchResults = await searchUsers({
+    const searchResults = await searchPublicUsers({
       offset,
       pageSize,
       searchTerm,

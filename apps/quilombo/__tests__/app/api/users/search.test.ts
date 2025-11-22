@@ -48,10 +48,10 @@ describe('POST /api/users/search', () => {
 
     // Mock database functions
     mockDb = {
-      searchUsers: vi.fn().mockResolvedValue(mockSearchResults),
+      searchPublicUsers: vi.fn().mockResolvedValue(mockSearchResults),
     };
 
-    (dbModule.searchUsers as typeof mockDb.searchUsers) = mockDb.searchUsers;
+    (dbModule.searchPublicUsers as typeof mockDb.searchPublicUsers) = mockDb.searchPublicUsers;
 
     // Default: authenticated session
     getServerSession.mockResolvedValue({
@@ -146,7 +146,7 @@ describe('POST /api/users/search', () => {
       const body = await getResponseJson(response);
 
       expect(response.status).toBe(200);
-      expect(mockDb.searchUsers).toHaveBeenCalledWith({
+      expect(mockDb.searchPublicUsers).toHaveBeenCalledWith({
         offset: 0,
         pageSize: 25,
         searchTerm: undefined,
@@ -165,7 +165,7 @@ describe('POST /api/users/search', () => {
 
       await POST(request);
 
-      expect(mockDb.searchUsers).toHaveBeenCalledWith({
+      expect(mockDb.searchPublicUsers).toHaveBeenCalledWith({
         offset: 0,
         pageSize: 10,
         searchTerm: 'john',
@@ -184,7 +184,7 @@ describe('POST /api/users/search', () => {
 
       await POST(request);
 
-      expect(mockDb.searchUsers).toHaveBeenCalledWith({
+      expect(mockDb.searchPublicUsers).toHaveBeenCalledWith({
         offset: 0,
         pageSize: 10,
         searchTerm: undefined,
@@ -203,7 +203,7 @@ describe('POST /api/users/search', () => {
 
       await POST(request);
 
-      expect(mockDb.searchUsers).toHaveBeenCalledWith({
+      expect(mockDb.searchPublicUsers).toHaveBeenCalledWith({
         offset: 0,
         pageSize: 10,
         searchTerm: undefined,
@@ -226,7 +226,7 @@ describe('POST /api/users/search', () => {
 
       await POST(request);
 
-      expect(mockDb.searchUsers).toHaveBeenCalledWith({
+      expect(mockDb.searchPublicUsers).toHaveBeenCalledWith({
         offset: 0,
         pageSize: 10,
         searchTerm: 'test',
@@ -238,7 +238,7 @@ describe('POST /api/users/search', () => {
     });
 
     it('should return empty results when no users match', async () => {
-      mockDb.searchUsers.mockResolvedValue({ rows: [], totalCount: 0 });
+      mockDb.searchPublicUsers.mockResolvedValue({ rows: [], totalCount: 0 });
 
       const request = new Request('http://localhost/api/users/search', {
         method: 'POST',
@@ -279,7 +279,7 @@ describe('POST /api/users/search', () => {
 
       await POST(request);
 
-      expect(mockDb.searchUsers).toHaveBeenCalledWith({
+      expect(mockDb.searchPublicUsers).toHaveBeenCalledWith({
         offset: 20,
         pageSize: 5,
         searchTerm: undefined,
@@ -288,7 +288,7 @@ describe('POST /api/users/search', () => {
     });
 
     it('should calculate nextOffset when more results exist', async () => {
-      mockDb.searchUsers.mockResolvedValue({
+      mockDb.searchPublicUsers.mockResolvedValue({
         rows: [mockUser],
         totalCount: 100,
       });
@@ -305,7 +305,7 @@ describe('POST /api/users/search', () => {
     });
 
     it('should return totalCount as nextOffset when on last partial page', async () => {
-      mockDb.searchUsers.mockResolvedValue({
+      mockDb.searchPublicUsers.mockResolvedValue({
         rows: [mockUser],
         totalCount: 1,
       });
@@ -322,7 +322,7 @@ describe('POST /api/users/search', () => {
     });
 
     it('should return null nextOffset when offset equals totalCount', async () => {
-      mockDb.searchUsers.mockResolvedValue({
+      mockDb.searchPublicUsers.mockResolvedValue({
         rows: [],
         totalCount: 10,
       });
@@ -379,7 +379,7 @@ describe('POST /api/users/search', () => {
 
   describe('Error Handling', () => {
     it('should return 500 when database throws error', async () => {
-      mockDb.searchUsers.mockRejectedValue(new Error('Database error'));
+      mockDb.searchPublicUsers.mockRejectedValue(new Error('Database error'));
 
       const request = new Request('http://localhost/api/users/search', {
         method: 'POST',
