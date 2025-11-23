@@ -100,7 +100,7 @@ const useGroupSearch = (params?: UseGroupSearchParams): UseGroupSearchResult => 
     searchTerm,
     setSearchTerm: debouncedSetSearchTerm,
     groups: groupResults,
-    totalCount: groupResults.length,
+    totalCount: data?.pages[0]?.totalCount ?? 0,
     isLoading: isFetching || isFetchingNextPage,
     hasNextPage,
     fetchNextPage,
