@@ -230,9 +230,10 @@ Two approaches are possible, each with trade-offs:
 - Auth infrastructure complexity (easier to copy data or copy auth?)
 - Implementation during Phase 3 will determine optimal approach based on actual schema
 
-**5. Permissions Model**
+**5. Permissions Model (Multi-Manager)**
 - Global admins: Can create, edit, delete any managed profile
-- Designated managers: Can edit specific managed profiles (stored in `person_profiles.managedBy`)
+- Group admins: Can edit managed profiles that are leaders of their group (derived permission)
+- Explicit managers: Can edit specific managed profiles via `profile_managers` table grants
 - Regular users: Can view, search, reference managed profiles (read-only)
 
 ---
@@ -273,10 +274,11 @@ export const personProfiles = pgTable('person_profiles', {
 
   // Managed profile metadata (null for normal users)
   isManaged: boolean('is_managed').default(false).notNull(),
-  managedBy: uuid('managed_by').references((): AnyPgColumn => users.id, {
-    onDelete: 'set null',
-  }), // Who manages this profile
   managedReason: text('managed_reason'), // Why it's managed (e.g., "Deceased mestre")
+  // NOTE: Management permissions are handled via:
+  // 1. Global admins (isGlobalAdmin flag on users table)
+  // 2. Group admins - if profile is leader of a group, that group's admins can manage it
+  // 3. Explicit grants via profile_managers table (for cases outside group context)
 
   // Verification
   verifiedAt: timestamp('verified_at'),
@@ -292,18 +294,86 @@ export const personProfiles = pgTable('person_profiles', {
 }, (t) => [
   index('person_profiles_user_idx').on(t.userId),
   index('person_profiles_managed_idx').on(t.isManaged),
-  index('person_profiles_managed_by_idx').on(t.managedBy),
 ]);
 
 export type InsertPersonProfile = typeof personProfiles.$inferInsert;
 export type SelectPersonProfile = typeof personProfiles.$inferSelect;
+
+// profile_managers - Explicit management grants for managed profiles
+// Used when management rights are needed outside of group admin context
+export const profileManagers = pgTable('profile_managers', {
+  id: uuid('id').defaultRandom().primaryKey(),
+
+  // The managed profile being granted management rights
+  profileUserId: uuid('profile_user_id')
+    .references(() => users.id, { onDelete: 'cascade' })
+    .notNull(),
+
+  // The user granted management rights
+  managerUserId: uuid('manager_user_id')
+    .references(() => users.id, { onDelete: 'cascade' })
+    .notNull(),
+
+  // Who granted this permission and when
+  grantedBy: uuid('granted_by')
+    .references(() => users.id, { onDelete: 'set null' }),
+  grantedAt: timestamp('granted_at').notNull().defaultNow(),
+
+  // Optional context
+  notes: text('notes'), // Why this person was granted access
+}, (t) => [
+  index('profile_managers_profile_idx').on(t.profileUserId),
+  index('profile_managers_manager_idx').on(t.managerUserId),
+  // Prevent duplicate grants
+  uniqueIndex('profile_managers_unique').on(t.profileUserId, t.managerUserId),
+]);
+
+export type InsertProfileManager = typeof profileManagers.$inferInsert;
+export type SelectProfileManager = typeof profileManagers.$inferSelect;
 ```
 
 **Design Notes:**
 - `userId` references `users.id` - every profile belongs to a user
 - `isManaged = true` means this is an admin-managed profile
-- `managedBy` allows delegation (e.g., student manages deceased mestre's profile)
 - `biography` field available to ALL users, not just managed profiles (normal users can write their own bio)
+
+**Management Permissions (Multi-Manager Model):**
+
+A managed profile can be edited by multiple users through a layered permission model:
+
+1. **Global Admins**: Always have full access (via `users.isGlobalAdmin`)
+2. **Group Admins (Derived)**: If a managed profile is set as a group's `leader`, that group's admins automatically inherit management rights. This handles the common case of a group maintaining their mestre's profile.
+3. **Explicit Grants**: The `profile_managers` table handles cases where someone needs access but isn't a group admin (e.g., a student not affiliated with any group managing their deceased independent teacher's profile).
+
+**Permission Check Logic:**
+```typescript
+async function canManageProfile(userId: string, profileUserId: string): Promise<boolean> {
+  // 1. Global admin?
+  const user = await fetchUser(userId);
+  if (user?.isGlobalAdmin) return true;
+
+  // 2. Group admin of a group where this profile is leader?
+  const groupsLedByProfile = await db
+    .select({ groupId: groups.id })
+    .from(groups)
+    .where(eq(groups.leader, profileUserId));
+
+  for (const { groupId } of groupsLedByProfile) {
+    const isAdmin = await isGroupAdmin(userId, groupId);
+    if (isAdmin) return true;
+  }
+
+  // 3. Explicit grant?
+  const grant = await db.query.profileManagers.findFirst({
+    where: and(
+      eq(profileManagers.profileUserId, profileUserId),
+      eq(profileManagers.managerUserId, userId)
+    ),
+  });
+
+  return !!grant;
+}
+```
 
 #### 2. Profile Claims
 
@@ -433,18 +503,20 @@ export const accountStatusEnum = pgEnum('account_status', [
 
 **Time Estimate**: 1 week
 
-### Phase 4: Designated Managers
-**Goal**: Allow students to request and be granted management rights for deceased mestres' profiles
+### Phase 4: Management Rights System
+**Goal**: Allow multiple users to manage profiles through layered permissions
 
 **Deliverables:**
-1. Add `person_profiles.managedBy` field (already in schema)
-2. User UI: "Request Management Rights" button on managed profiles
-3. Request workflow: Similar to profile claims, requires admin approval
-4. Admin UI: Approve/reject management requests
-5. Admin UI: Manually assign/revoke manager
-6. Permissions: Manager can edit assigned profiles
-7. Global admin can always override/revoke management rights
-8. Use case: Student manages deceased mestre's profile
+1. Database migration: Add `profile_managers` table
+2. Implement `canManageProfile()` permission check (global admin → group admin → explicit grant)
+3. User UI: "Request Management Rights" button on managed profiles
+4. Request workflow: Similar to profile claims, requires admin approval
+5. Admin UI: Approve/reject management requests
+6. Admin UI: View/grant/revoke explicit management grants
+7. Permissions: Group admins can edit profiles that lead their group (derived)
+8. Permissions: Explicit managers can edit assigned profiles
+9. Global admin can always override/revoke management rights
+10. Use case: Group admins maintain their mestre's profile; independent students get explicit grants
 
 **Time Estimate**: 1 week
 
@@ -1563,15 +1635,16 @@ export async function PUT(
 
 ### Permission Matrix
 
-| Action | Global Admin | Designated Manager | Regular User | Anonymous |
-|--------|-------------|-------------------|--------------|-----------|
-| Create managed profile | ✅ | ❌ | ❌ | ❌ |
-| Edit managed profile | ✅ | ✅ (assigned only) | ❌ | ❌ |
-| Delete managed profile | ✅ | ❌ | ❌ | ❌ |
-| View managed profile | ✅ | ✅ | ✅ | ✅ |
-| Search managed profiles | ✅ | ✅ | ✅ | ✅ |
-| Submit profile claim | ❌ | ❌ | ✅ (active only) | ❌ |
-| Approve/reject claim | ✅ | ❌ | ❌ | ❌ |
+| Action | Global Admin | Group Admin | Explicit Manager | Regular User | Anonymous |
+|--------|-------------|-------------|------------------|--------------|-----------|
+| Create managed profile | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Edit managed profile | ✅ | ✅ (if profile leads their group) | ✅ (granted profiles) | ❌ | ❌ |
+| Delete managed profile | ✅ | ❌ | ❌ | ❌ | ❌ |
+| View managed profile | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Search managed profiles | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Submit profile claim | ❌ | ❌ | ❌ | ✅ (active only) | ❌ |
+| Approve/reject claim | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Grant management rights | ✅ | ❌ | ❌ | ❌ | ❌ |
 
 ### Access Control Implementation
 
@@ -1583,10 +1656,11 @@ if (!isUserGlobalAdmin) {
 }
 ```
 
-**Check 2: Designated Manager (Edit Assigned Profile)**
+**Check 2: Can Manage Profile (Edit Actions)**
 ```typescript
-const profile = await fetchPersonProfile(profileUserId);
-if (!isUserGlobalAdmin && profile.managedBy !== session.user.id) {
+// Uses the canManageProfile() function defined in Database Schema section
+const canManage = await canManageProfile(session.user.id, profileUserId);
+if (!canManage) {
   return NextResponse.json({ error: 'Not authorized to edit this profile' }, { status: 403 });
 }
 ```
