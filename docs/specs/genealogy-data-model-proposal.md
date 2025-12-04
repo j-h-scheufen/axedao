@@ -58,10 +58,12 @@ Extracted from 33 case studies, consolidated into core categories:
 
 | Predicate | Description | Case Study Examples |
 |-----------|-------------|---------------------|
-| `co_founded_with` | Equal partners in founding organization. | Oriaxé: Gytauna + Val Boa Morte |
 | `childhood_friends_with` | Pre-capoeira friendship context. | Oriaxé: childhood best friends |
 | `worked_together_with` | Professional collaboration outside direct lineage. | Various case studies |
-| `split_from` | Person left another's group/organization (may be amicable or not). | CB from Senzala; Oriaxé co-founders separating |
+
+> **Note:** `co_founded_with` was removed as redundant. Co-founders are derived from multiple `co_founded` person-to-group statements on the same group.
+>
+> **Note:** `split_from_person` was removed as redundant. Person splits from groups are captured by `departed_from` with `departure_type` property. Interpersonal context can be noted in the `reason` field.
 
 ---
 
@@ -73,10 +75,11 @@ Extracted from 33 case studies, consolidated into core categories:
 |-----------|-------------|---------------------|
 | `founded` | Created/established the group. | All 33 case studies |
 | `co_founded` | Equal partner in founding. | CB: 3 co-founders; Oriaxé: 2 co-founders |
-| `leads` | Current primary leader/coordinator. | Active leadership role |
+| `leads` | Current primary leader/coordinator. Use properties for role distinction. | Active leadership role |
 | `successor_leader_of` | Inherited leadership after founder. | Muzenza: Burguês after Paulão |
 | `regional_coordinator_of` | Coordinates region for international group. | ABADÁ: Camisa Roxa for Europe |
-| `international_representative_of` | Represents group in a country/region. | CDO's representative system |
+
+> **Note:** `international_representative_of` was removed. Representatives are captured by `teaches_at` or `leads` with timeline, plus `departed_from` when leaving.
 
 #### Membership & Teaching Roles
 
@@ -93,8 +96,9 @@ Extracted from 33 case studies, consolidated into core categories:
 | Predicate | Description | Case Study Examples |
 |-----------|-------------|---------------------|
 | `graduated_from` | Completed training/batizado at group (no longer member). | Lineage tracking |
-| `departed_from` | Left group (may or may not be blessed departure). | Split patterns |
-| `expelled_from` | Forced removal from group. | Rare but exists |
+| `departed_from` | Left group. Use `departure_type` property to specify context. | Split patterns |
+
+> **Note:** `expelled_from` was consolidated into `departed_from` with `departure_type: 'expelled'` property.
 
 ---
 
@@ -104,22 +108,27 @@ Extracted from 33 case studies, consolidated into core categories:
 
 | Predicate | Description | Case Study Examples |
 |-----------|-------------|---------------------|
-| `headquarters_of` | Parent HQ relationship to branch/filial. | ABADÁ's sede structure |
-| `branch_of` | Branch/filial of headquarters (inverse). | All hierarchical groups |
-| `nucleus_of` | Núcleo relationship - more autonomous than branch. | Angoleiros, Ngoma |
-| `affiliate_of` | Affiliated but independent identity. | CDO's affiliate network; Cai Na Capoeira |
-| `official_filial_of` | Officially documented parent-child (government registry, etc.). | Zimba's documented structure |
+| `part_of` | Hierarchical organizational relationship. Use `affiliation_type` property. | All hierarchical groups |
+
+> **Affiliation types for `part_of`:**
+> - `branch` - Close tie, low autonomy (filial)
+> - `nucleus` - More autonomous than branch
+> - `affiliate` - Independent identity but affiliated
+> - `official_filial` - Government-registered relationship
+>
+> **Note:** `headquarters_of` is derivable - any group with `part_of` relationships pointing to it is effectively HQ. Individual predicates (`branch_of`, `nucleus_of`, `affiliate_of`, `official_filial_of`) were consolidated into `part_of` with `affiliation_type` property.
 
 #### Evolution & Succession
 
 | Predicate | Description | Case Study Examples |
 |-----------|-------------|---------------------|
-| `split_from` | Group formed by splitting from parent. | CB from Senzala; many case studies |
-| `blessed_split_from` | Amicable split with blessing of elders. | CB from Senzala (formalized departure) |
+| `split_from_group` | Group formed by splitting from parent. Use `split_type` property to specify context. | CB from Senzala; many case studies |
 | `merged_into` | Group merged into another. | Candeias unification |
 | `absorbed` | Group absorbed another (inverse). | Rare but exists |
 | `succeeded` | Group continues legacy of defunct group. | Historical continuity cases |
 | `evolved_from` | Name change or significant transformation. | Ngoma from "Marrom e Alunos" |
+
+> **Note:** `blessed_split_from` was consolidated into `split_from_group` with `split_type: 'blessed'` property.
 
 #### Affiliation & Cooperation
 
@@ -417,10 +426,8 @@ export const predicateEnum = pgEnum('predicate', [
   'spouse_of',
 
   // Person-to-Person: Professional
-  'co_founded_with',
   'childhood_friends_with',
   'worked_together_with',
-  'split_from_person',
 
   // Person-to-Group: Founding & Leadership
   'founded',
@@ -428,7 +435,6 @@ export const predicateEnum = pgEnum('predicate', [
   'leads',
   'successor_leader_of',
   'regional_coordinator_of',
-  'international_representative_of',
 
   // Person-to-Group: Membership
   'member_of',
@@ -437,19 +443,13 @@ export const predicateEnum = pgEnum('predicate', [
   'studies_at',
   'cultural_pioneer_of',
   'graduated_from',
-  'departed_from',
-  'expelled_from',
+  'departed_from',  // Use departure_type property for context
 
   // Group-to-Group: Hierarchical
-  'headquarters_of',
-  'branch_of',
-  'nucleus_of',
-  'affiliate_of',
-  'official_filial_of',
+  'part_of',  // Use affiliation_type property: branch, nucleus, affiliate, official_filial
 
   // Group-to-Group: Evolution
-  'split_from_group',
-  'blessed_split_from',
+  'split_from_group',  // Use split_type property for context
   'merged_into',
   'absorbed',
   'succeeded',
@@ -475,6 +475,12 @@ interface StatementProperties {
     is_primary_location: boolean;
   };
 
+  // For 'leads'
+  leads?: {
+    role: 'founder' | 'president' | 'co_leader' | 'vice_president' | 'director' | 'coordinator';
+    is_primary: boolean;        // Distinguishes primary leader from co-leaders
+  };
+
   // For 'student_of' / 'trained_under'
   student_of?: {
     style_learned: StyleEnum;
@@ -482,11 +488,22 @@ interface StatementProperties {
     rank_achieved: TitleEnum;   // Highest rank under this teacher
   };
 
-  // For 'split_from_person' / 'split_from_group'
-  split_from?: {
-    is_amicable: boolean;
-    reason: string;
-    blessed_by: uuid[];         // IDs of mestres who blessed the split
+  // For 'departed_from' (person-to-group)
+  departed_from?: {
+    departure_type: 'neutral' | 'blessed' | 'contentious' | 'expelled';
+    reason?: string;
+  };
+
+  // For 'split_from_group' (group-to-group)
+  split_from_group?: {
+    split_type: 'neutral' | 'blessed' | 'contentious';
+    reason?: string;
+    blessed_by?: uuid[];        // IDs of mestres who blessed the split (if blessed)
+  };
+
+  // For 'part_of' (group-to-group hierarchical)
+  part_of?: {
+    affiliation_type: 'branch' | 'nucleus' | 'affiliate' | 'official_filial';
   };
 
   // For 'regional_coordinator_of'
