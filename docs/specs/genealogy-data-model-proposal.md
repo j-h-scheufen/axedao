@@ -32,35 +32,39 @@ Extracted from 33 case studies, consolidated into core categories:
 |-----------|-------------|---------------------|
 | `student_of` | Primary student-teacher relationship. The foundational lineage connection. | All case studies - universal pattern |
 | `trained_under` | Informal or short-term training. Workshops, seminars, guest instruction. | Areia trained under Casca Dura (CDO) |
-| `trained_alongside` | Peer relationship - trained together under same mestre. "Capoeira siblings." | GCAP's trained-together patterns, Zimba |
 | `influenced_by` | Studied methods/philosophy without direct training. Important for style evolution. | Senzala members influenced by multiple mestres |
-| `successor_to` | Designated or acknowledged successor in lineage/teaching authority. | João Pequeno → Pastinha legacy |
+
+> **Note:** `successor_to` (person-to-person) was removed. "Succession" lacks context without knowing which group/role the succession relates to. Leadership succession is derivable from sequential `leads` statements with timeline. Teaching lineage succession is implicit in `student_of` relationships.
+
+> **Note:** `trained_alongside` ("capoeira siblings") was removed. Peer relationships are derivable from temporal overlap of `student_of`/`trained_under` statements to the same mestre. Notable peer bonds can be mentioned in `biography` fields or statement `notes`.
 
 #### Mentorship & Recognition Relationships
 
 | Predicate | Description | Case Study Examples |
 |-----------|-------------|---------------------|
 | `mentored` | Informal guidance beyond formal student relationship. | Various case studies |
-| `granted_title_to` | Peer recognition - one mestre conferring title/recognition on another. | Zimba: peer mestre title conferral |
-| `blessed_departure` | Formal blessing from mestre for student to start own group/teaching. | Zimba: Boca do Rio's departure from GCAP |
-| `padrinho_of` | Godfather/godmother relationship - spiritual/ceremonial role. | Common in batizado ceremonies |
+| `granted_title_to` | Conferring title/rank. Use `title_grant` property specifying which title (uses existing `TitleEnum`). | Zimba: peer mestre title conferral |
+| `baptized` | Bestowed apelido (capoeira nickname) at batizado ceremony. Use `baptism` property with `apelido_given`. | Naming ceremonies |
+
+> **Note:** `blessed_departure` (person-to-person) was removed. Blessed departures are captured at the group level via `split_from_group` with `split_type: 'blessed'` and `blessed_by[]` property listing the mestres who gave their blessing.
 
 #### Family Relationships
 
 | Predicate | Description | Case Study Examples |
 |-----------|-------------|---------------------|
-| `biological_parent_of` | Direct biological parent relationship. | Bimba → Formiga (Candeias lineage) |
-| `biological_child_of` | Direct biological child relationship (inverse). | Formiga → Bimba |
-| `sibling_of` | Biological sibling relationship. | ABADÁ: Camisa + Camisa Roxa (brothers) |
-| `spouse_of` | Married or life partner (often co-teach). | Multiple couples in case studies |
+| `family_of` | Family relationship (biological or ceremonial). Use `family` property with `relationship_type`. | See below |
 
-#### Professional & Historical Relationships
+**`family_of` relationship types:**
+- `parent` - Biological parent (child relationship derived as inverse)
+- `sibling` - Biological sibling (symmetric)
+- `spouse` - Married or life partner (symmetric)
+- `padrinho` - Godfather/godmother in capoeira - spiritual/ceremonial role (directional)
+- `other` - Other family relationship (use `other_type` property to specify, e.g., "cousin", "uncle")
 
-| Predicate | Description | Case Study Examples |
-|-----------|-------------|---------------------|
-| `childhood_friends_with` | Pre-capoeira friendship context. | Oriaxé: childhood best friends |
-| `worked_together_with` | Professional collaboration outside direct lineage. | Various case studies |
+> **Note:** `biological_parent_of`, `biological_child_of`, `sibling_of`, `spouse_of`, and `padrinho_of` were consolidated into `family_of` with `relationship_type` property. Child relationships are derived as the inverse of parent.
 
+> **Note:** `childhood_friends_with` and `worked_together_with` were removed. Non-capoeira personal/professional relationships are not core to genealogy and can be captured in biography fields or statement notes. Peer training relationships are derivable from shared `student_of` statements to the same mestre.
+>
 > **Note:** `co_founded_with` was removed as redundant. Co-founders are derived from multiple `co_founded` person-to-group statements on the same group.
 >
 > **Note:** `split_from_person` was removed as redundant. Person splits from groups are captured by `departed_from` with `departure_type` property. Interpersonal context can be noted in the `reason` field.
@@ -76,20 +80,31 @@ Extracted from 33 case studies, consolidated into core categories:
 | `founded` | Created/established the group. | All 33 case studies |
 | `co_founded` | Equal partner in founding. | CB: 3 co-founders; Oriaxé: 2 co-founders |
 | `leads` | Current primary leader/coordinator. Use properties for role distinction. | Active leadership role |
-| `successor_leader_of` | Inherited leadership after founder. | Muzenza: Burguês after Paulão |
 | `regional_coordinator_of` | Coordinates region for international group. | ABADÁ: Camisa Roxa for Europe |
 
+> **Note:** `successor_leader_of` was removed. Leadership succession is derivable from sequential `leads` statements with timeline (Person A's `leads` ends when Person B's `leads` begins). The `leads.role` property can indicate if someone took over from a founder vs. was elected, etc.
+>
 > **Note:** `international_representative_of` was removed. Representatives are captured by `teaches_at` or `leads` with timeline, plus `departed_from` when leaving.
 
 #### Membership & Teaching Roles
 
 | Predicate | Description | Case Study Examples |
 |-----------|-------------|---------------------|
-| `member_of` | General formal membership. | Universal pattern |
-| `individual_member_of` | Non-formal affiliation (orphaned nodes, informal schools). | Marinheiro Russia pattern |
+| `member_of` | General formal membership (implies training). | Universal pattern |
 | `teaches_at` | Active instructor at group (with title/rank as property). | All teaching relationships |
-| `studies_at` | Currently training as student. | Active student membership |
 | `cultural_pioneer_of` | First to bring capoeira to region/country for this group. | Oriaxé: Argentina pioneers; many international expansion cases |
+| `associated_with` | Loose/informal affiliation. Use `association` property for type. | Supporters, patrons, honorary connections |
+
+> **Note:** `studies_at` was removed. Formal membership (`member_of`) implies training in capoeira context.
+>
+> **Note:** `individual_member_of` was replaced by `associated_with` with `association_type` property for flexibility.
+>
+> **Association types for `associated_with`:**
+> - `supporter` - Supports the group without formal membership
+> - `patron` - Financial or influential supporter
+> - `informal_affiliate` - Trains occasionally, not registered member
+> - `friend` - Friend of the group/mestre
+> - `honorary` - Honorary association (recognized but not active)
 
 #### Historical Roles
 
@@ -126,7 +141,9 @@ Extracted from 33 case studies, consolidated into core categories:
 | `merged_into` | Group merged into another. | Candeias unification |
 | `absorbed` | Group absorbed another (inverse). | Rare but exists |
 | `succeeded` | Group continues legacy of defunct group. | Historical continuity cases |
-| `evolved_from` | Name change or significant transformation. | Ngoma from "Marrom e Alunos" |
+| `evolved_from` | Significant organizational transformation (NOT simple name changes). | Group B emerges from restructured Group A |
+
+> **Note:** `evolved_from` is for genuine **organizational transformations** where a new entity emerges (e.g., after a major restructuring, reform, or reconstitution). For **name changes within the same organization** (like "Marrom e Alunos" → "Ngoma"), use the `name_history` field on the groups table instead. This avoids creating duplicate group entries for what is fundamentally the same organization.
 
 > **Note:** `blessed_split_from` was consolidated into `split_from_group` with `split_type: 'blessed'` property.
 
@@ -136,7 +153,8 @@ Extracted from 33 case studies, consolidated into core categories:
 |-----------|-------------|---------------------|
 | `affiliated_with` | Formal or cultural affiliation. | CDO network |
 | `cooperates_with` | Regular cooperation without formal structure. | Multi-group events |
-| `shares_lineage_with` | Same ancestral lineage (different groups). | All Senzala-derived groups |
+
+> **Note:** `shares_lineage_with` was removed. Shared lineage is derivable from the graph via `student_of`, `trained_under`, and group split relationships. Storing it explicitly would create explosion of redundant edges.
 
 ---
 
@@ -229,8 +247,17 @@ type TitleEnum =
 ```typescript
 interface NewGroupAttributes {
   // Identity enhancements (NEW)
-  name_aliases: string[];           // Alternative names, old names
+  name_aliases: string[];           // Alternative names, abbreviations
   acronym: string | null;           // GCAP, FICA, CB, etc.
+
+  // Name history for tracking name changes over time (NEW)
+  name_history: {
+    name: string;                   // The name used during this period
+    started_at: string;             // When this name started being used (ISO date)
+    ended_at?: string;              // When this name stopped being used (null if current)
+    change_reason?: 'political_statement' | 'rebranding' | 'legal' | 'merger' | 'founder_departure' | 'other';
+    context?: string;               // Additional context, e.g., "Reaffirm African origins"
+  }[];
 
   // Founding details (NEW)
   founded_at: Date | null;
@@ -406,60 +433,48 @@ export const sourceTypeEnum = pgEnum('source_type', [
 
 // All predicates in single enum
 export const predicateEnum = pgEnum('predicate', [
-  // Person-to-Person: Training & Lineage
+  // Person-to-Person: Training & Lineage (3)
   'student_of',
   'trained_under',
-  'trained_alongside',
   'influenced_by',
-  'successor_to',
 
-  // Person-to-Person: Mentorship & Recognition
+  // Person-to-Person: Mentorship & Recognition (3)
   'mentored',
   'granted_title_to',
-  'blessed_departure',
-  'padrinho_of',
+  'baptized',
 
-  // Person-to-Person: Family
-  'biological_parent_of',
-  'biological_child_of',
-  'sibling_of',
-  'spouse_of',
+  // Person-to-Person: Family (1 - use relationship_type property: parent, sibling, spouse, padrinho, other)
+  'family_of',
 
-  // Person-to-Person: Professional
-  'childhood_friends_with',
-  'worked_together_with',
-
-  // Person-to-Group: Founding & Leadership
+  // Person-to-Group: Founding & Leadership (4)
   'founded',
   'co_founded',
   'leads',
-  'successor_leader_of',
   'regional_coordinator_of',
 
-  // Person-to-Group: Membership
+  // Person-to-Group: Membership & Affiliation (6)
   'member_of',
-  'individual_member_of',
   'teaches_at',
-  'studies_at',
   'cultural_pioneer_of',
+  'associated_with',  // Use association_type property for context
   'graduated_from',
   'departed_from',  // Use departure_type property for context
 
-  // Group-to-Group: Hierarchical
+  // Group-to-Group: Hierarchical (1)
   'part_of',  // Use affiliation_type property: branch, nucleus, affiliate, official_filial
 
-  // Group-to-Group: Evolution
+  // Group-to-Group: Evolution (5)
   'split_from_group',  // Use split_type property for context
   'merged_into',
   'absorbed',
   'succeeded',
   'evolved_from',
 
-  // Group-to-Group: Affiliation
+  // Group-to-Group: Affiliation (2)
   'affiliated_with',
   'cooperates_with',
-  'shares_lineage_with',
 ]);
+// Total: 24 predicates (7 person-to-person + 10 person-to-group + 8 group-to-group)
 ```
 
 ### 3.3 Properties JSON Schema
@@ -469,10 +484,16 @@ The `properties` JSONB field allows typed additional data per relationship:
 ```typescript
 // Properties schemas by predicate type
 interface StatementProperties {
-  // For 'teaches_at' / 'studies_at'
+  // For 'teaches_at'
   teaches_at?: {
     title: TitleEnum;           // Their rank at this group
     is_primary_location: boolean;
+  };
+
+  // For 'associated_with' (loose/informal affiliations)
+  association?: {
+    association_type: 'supporter' | 'patron' | 'informal_affiliate' | 'friend' | 'honorary';
+    context?: string;           // Additional context about the association
   };
 
   // For 'leads'
@@ -525,11 +546,25 @@ interface StatementProperties {
     context: string;            // "Invited for cultural project"
   };
 
-  // For title conferrals
+  // For 'granted_title_to' (title conferrals)
   title_grant?: {
-    title_granted: TitleEnum;
-    ceremony_date: string;
-    ceremony_location: string;
+    title_granted: TitleEnum;   // Reuses existing title enum from apps/quilombo/config/constants.ts
+    ceremony_date?: string;
+    ceremony_location?: string;
+  };
+
+  // For 'baptized' (apelido naming ceremony)
+  baptism?: {
+    apelido_given: string;      // The capoeira nickname bestowed
+    ceremony_date?: string;
+    ceremony_location?: string;
+  };
+
+  // For 'family_of' (biological and ceremonial family relationships)
+  family?: {
+    relationship_type: 'parent' | 'sibling' | 'spouse' | 'padrinho' | 'other';
+    other_type?: string;        // Required when relationship_type is 'other' (e.g., "cousin", "uncle")
+    // Note: 'child' is derived as inverse of 'parent', not stored
   };
 }
 ```
@@ -853,12 +888,19 @@ INSERT INTO statements (
 
 ## Part 8: Implementation Recommendations
 
+> **⚠️ Implementation Note:** This proposal references several fields (e.g., `biography`, `achievements`, `style_notes`, `history`) that may not exist in the current `users` and `groups` tables. Before implementation, review the existing table structures in `apps/quilombo/db/schema/` to:
+> 1. Identify which proposed fields already exist
+> 2. Determine which new columns need to be added
+> 3. Decide if some data belongs in existing fields vs. new ones
+> 4. Evaluate if separate tables (e.g., `person_profiles`) are needed vs. extending existing tables
+
 ### 8.1 Phase 1: Schema Creation
 
-1. Add `statements` table with all enums
-2. Add new columns to `users` table for direct attributes
-3. Add new columns to `groups` table for direct attributes
-4. Create indexes for common query patterns
+1. **Audit existing schema** - Review current `users` and `groups` tables for overlap with proposed attributes
+2. Add `statements` table with all enums
+3. Add new columns to `users` table for direct attributes (or create `person_profiles` extension table)
+4. Add new columns to `groups` table for direct attributes
+5. Create indexes for common query patterns
 
 ### 8.2 Phase 2: Data Migration
 
