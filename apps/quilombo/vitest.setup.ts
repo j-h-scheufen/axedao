@@ -6,7 +6,8 @@ import { cleanup } from '@testing-library/react';
 import dotenv from 'dotenv';
 import path from 'node:path';
 
-dotenv.config({ path: path.resolve(__dirname, '.env.test') });
+// Quiet mode prevents dotenv from polluting test output with thousands of messages
+dotenv.config({ path: path.resolve(__dirname, '.env.test'), quiet: true });
 
 // Extend timeout for tests that might take longer (e.g., database operations)
 beforeAll(() => {
@@ -35,7 +36,9 @@ vi.mock('next/navigation', () => ({
     get: vi.fn(),
   }),
   usePathname: () => '',
-  notFound: vi.fn(),
+  notFound: vi.fn(() => {
+    throw new Error('NEXT_NOT_FOUND');
+  }),
 }));
 
 // Mock Next.js server functions
@@ -49,6 +52,7 @@ vi.mock('next/server', async () => {
         json: async () => data,
         status: init?.status || 200,
         ok: (init?.status || 200) < 400,
+        headers: new Headers(init?.headers || {}),
       })),
       next: vi.fn(),
     },

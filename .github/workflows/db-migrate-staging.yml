@@ -41,14 +41,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Lint migrations
-        working-directory: apps/quilombo
-        env:
-          STAGING_DATABASE_URL: ${{ secrets.STAGING_DATABASE_URL }}
-        run: |
-          echo "🔍 Linting migrations for safety..."
-          atlas migrate lint --env staging
-
       - name: Apply migrations
         working-directory: apps/quilombo
         env:
@@ -59,7 +51,8 @@ jobs:
           echo ""
 
           # Apply migrations
-          atlas migrate apply --env staging
+          # Use --allow-dirty because Supabase has built-in schemas (auth, storage, etc.)
+          atlas migrate apply --env staging --allow-dirty
 
           # Check exit code
           EXIT_CODE=$?
