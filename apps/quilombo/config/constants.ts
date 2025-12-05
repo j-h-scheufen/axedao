@@ -103,6 +103,75 @@ export const invitationStatuses = ['pending', 'accepted', 'expired'] as const;
 // Group claim statuses
 export const groupClaimStatuses = ['pending', 'approved', 'rejected'] as const;
 
+// ============================================================================
+// GENEALOGY SCHEMA CONSTANTS
+// ============================================================================
+
+// Entity types for statements (who can be subjects/objects)
+export const entityTypes = ['person', 'group'] as const;
+
+// Date precision for historical data with uncertainty
+export const datePrecisions = ['exact', 'month', 'year', 'decade', 'approximate', 'unknown'] as const;
+
+// Confidence levels for statement verification
+export const confidenceLevels = ['verified', 'likely', 'unverified', 'disputed', 'uncertain'] as const;
+
+// Legal structure types for groups
+export const legalStructures = [
+  'for_profit',
+  'non_profit',
+  'nonprofit_501c3',
+  'association_ev',
+  'association_loi1901',
+  'informal',
+  'mixed',
+] as const;
+
+// Relationship predicates (24 total)
+// Person-to-Person: Training & Lineage (3)
+// Person-to-Person: Mentorship & Recognition (3)
+// Person-to-Person: Family (1)
+// Person-to-Group: Founding & Leadership (4)
+// Person-to-Group: Membership & Affiliation (6)
+// Group-to-Group: Hierarchical (1)
+// Group-to-Group: Evolution (5)
+// Group-to-Group: Affiliation (2)
+export const predicates = [
+  // Person-to-Person: Training & Lineage (3)
+  'student_of',
+  'trained_under',
+  'influenced_by',
+  // Person-to-Person: Mentorship & Recognition (3)
+  'mentored',
+  'granted_title_to',
+  'baptized',
+  // Person-to-Person: Family (1)
+  'family_of',
+  // Person-to-Group: Founding & Leadership (4)
+  'founded',
+  'co_founded',
+  'leads',
+  'regional_coordinator_of',
+  // Person-to-Group: Membership & Affiliation (6)
+  'member_of',
+  'teaches_at',
+  'cultural_pioneer_of',
+  'associated_with',
+  'graduated_from',
+  'departed_from',
+  // Group-to-Group: Hierarchical (1)
+  'part_of',
+  // Group-to-Group: Evolution (5)
+  'split_from_group',
+  'merged_into',
+  'absorbed',
+  'succeeded',
+  'evolved_from',
+  // Group-to-Group: Affiliation (2)
+  'affiliated_with',
+  'cooperates_with',
+] as const;
+
 // Group verification cooldown period (in milliseconds)
 // Groups can only be verified once every 30 days
 export const GROUP_VERIFICATION_COOLDOWN_MS = 30 * 24 * 60 * 60 * 1000; // 30 days

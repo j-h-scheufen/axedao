@@ -96,3 +96,7 @@ export * from './queries/groupLocations';
 export * from './queries/events';
 export * from './queries/invitations';
 export * from './queries/stats';
+
+// Schema exports (for types and table references)
+export * from './schema';
+export * from './schema/genealogy';

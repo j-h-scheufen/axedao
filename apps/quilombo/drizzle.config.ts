@@ -13,7 +13,8 @@ if (!databaseUrl) {
 }
 
 export default {
-  schema: './db/schema.ts',
+  // Multi-schema support: glob pattern picks up public schema and genealogy schema
+  schema: ['./db/schema.ts', './db/schema/genealogy.ts'],
   out: './db/migrations',
   dialect: 'postgresql',
   dbCredentials: {
