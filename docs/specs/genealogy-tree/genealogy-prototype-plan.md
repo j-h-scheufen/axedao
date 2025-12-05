@@ -29,14 +29,14 @@ This prototype implements **Phase 1** of the migration sequence:
 4. ⏳ (Later) Migrate data from old columns to new tables
 5. ⏳ (Later) Drop old columns from `users` and `groups`
 
-**Key principle:** The prototype uses only the `genealogy` schema. It does NOT touch or depend on the existing `public.users` or `public.groups` tables for the visualization. Links to app entities (`persons.user_id`, `group_profiles.group_id`) are optional and not used in the prototype.
+**Key principle:** The prototype uses only the `genealogy` schema. The genealogy schema is **fully self-contained** with NO foreign keys pointing to the public schema. The FKs flow the other direction: `users.profile_id` → `person_profiles.id` and `groups.profile_id` → `group_profiles.id`. For the prototype, we don't need those FKs at all.
 
 ---
 
 ## Scope
 
 ### In Scope
-- Create `genealogy` schema with `persons`, `group_profiles`, and `statements` tables
+- Create `genealogy` schema with `person_profiles`, `group_profiles`, and `statements` tables
 - Select 3-5 groups with well-documented lineages from case studies
 - Manually populate seed data in the genealogy schema
 - Basic 3D force-directed graph visualization
@@ -64,8 +64,9 @@ This prototype implements **Phase 1** of the migration sequence:
 
 The schema follows the [Architecture Proposal](./genealogy-architecture-proposal.md). Key points:
 - Separate `genealogy` schema for all genealogy data
-- Self-contained: statements reference `persons.id` and `group_profiles.id` only
-- Optional FKs to public schema (`persons.user_id`, `group_profiles.group_id`) - not used in prototype
+- **Fully self-contained**: NO foreign keys pointing to public schema
+- Statements reference `person_profiles.id` and `group_profiles.id` only
+- FKs flow FROM public TO genealogy (not used in prototype)
 
 **Migration file:** `atlas/migrations/YYYYMMDD_HHMMSS_create_genealogy_schema.sql`
 
@@ -98,14 +99,11 @@ CREATE TYPE genealogy.predicate AS ENUM (
   'succeeded', 'evolved_from', 'affiliated_with', 'cooperates_with'
 );
 
--- Persons table
-CREATE TABLE genealogy.persons (
+-- Person profiles table (NO FK to public schema - fully self-contained)
+CREATE TABLE genealogy.person_profiles (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
 
-  -- Optional link to app user (not used in prototype)
-  user_id UUID REFERENCES public.users(id) ON DELETE SET NULL,
-
-  -- Identity
+  -- Identity (will be moved from users in production)
   name VARCHAR(255),
   apelido VARCHAR(100),
   title public.title,  -- reuse existing enum
@@ -123,50 +121,48 @@ CREATE TABLE genealogy.persons (
   updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
 
   -- Constraints
-  CONSTRAINT persons_user_unique UNIQUE (user_id),
-  CONSTRAINT persons_birth_before_death CHECK (
+  CONSTRAINT person_profiles_birth_before_death CHECK (
     death_year IS NULL OR birth_year IS NULL OR birth_year <= death_year
   )
 );
 
--- Group profiles table
+-- Group profiles table (NO FK to public schema - fully self-contained)
+-- NOTE: For prototype, we store group name here. In production, name stays in public.groups
+-- and group_profiles contains only capoeira identity fields.
 CREATE TABLE genealogy.group_profiles (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
 
-  -- Optional link to app group (not used in prototype)
-  group_id UUID REFERENCES public.groups(id) ON DELETE CASCADE,
+  -- For prototype: store name here for standalone visualization
+  -- In production: name stays in public.groups, queried via join
+  name VARCHAR(255) NOT NULL,  -- prototype only
 
-  -- Identity (for prototype, we store group info here directly)
-  name VARCHAR(255) NOT NULL,
+  -- Capoeira identity (will be moved from groups in production)
   description TEXT,
   style public.style,
   logo VARCHAR(500),
-
-  -- Extended data
   links JSONB DEFAULT '[]',
+
+  -- Genealogy-specific
   founded_year INTEGER,
   name_history JSONB DEFAULT '[]',
 
   -- Timestamps
   created_at TIMESTAMP NOT NULL DEFAULT NOW(),
-  updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
-
-  -- Constraints
-  CONSTRAINT group_profiles_group_unique UNIQUE (group_id)
+  updated_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
--- Statements table (relationships)
+-- Statements table (relationships) - NO FK to public schema
 CREATE TABLE genealogy.statements (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
 
-  -- Subject: references persons.id OR group_profiles.id
+  -- Subject: references person_profiles.id OR group_profiles.id
   subject_type genealogy.entity_type NOT NULL,
   subject_id UUID NOT NULL,
 
   -- Predicate
   predicate genealogy.predicate NOT NULL,
 
-  -- Object: references persons.id OR group_profiles.id
+  -- Object: references person_profiles.id OR group_profiles.id
   object_type genealogy.entity_type NOT NULL,
   object_id UUID NOT NULL,
 
@@ -185,7 +181,7 @@ CREATE TABLE genealogy.statements (
   -- Timestamps
   created_at TIMESTAMP NOT NULL DEFAULT NOW(),
   updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
-  created_by UUID REFERENCES public.users(id) ON DELETE SET NULL,
+  created_by UUID,  -- tracks who created (app user id, no FK constraint)
 
   -- Constraints
   CONSTRAINT statements_different_entities CHECK (
@@ -197,12 +193,12 @@ CREATE TABLE genealogy.statements (
 );
 
 -- Indexes
-CREATE INDEX persons_user_id_idx ON genealogy.persons(user_id);
-CREATE INDEX persons_apelido_idx ON genealogy.persons(apelido);
-CREATE INDEX persons_title_idx ON genealogy.persons(title);
+CREATE INDEX person_profiles_apelido_idx ON genealogy.person_profiles(apelido);
+CREATE INDEX person_profiles_title_idx ON genealogy.person_profiles(title);
+CREATE INDEX person_profiles_style_idx ON genealogy.person_profiles(style);
 
-CREATE INDEX group_profiles_group_id_idx ON genealogy.group_profiles(group_id);
 CREATE INDEX group_profiles_name_idx ON genealogy.group_profiles(name);
+CREATE INDEX group_profiles_style_idx ON genealogy.group_profiles(style);
 
 CREATE INDEX statements_subject_idx ON genealogy.statements(subject_type, subject_id);
 CREATE INDEX statements_object_idx ON genealogy.statements(object_type, object_id);
@@ -210,7 +206,7 @@ CREATE INDEX statements_predicate_idx ON genealogy.statements(predicate);
 CREATE INDEX statements_subject_predicate_idx ON genealogy.statements(subject_type, subject_id, predicate);
 
 -- Triggers for updated_at
-CREATE TRIGGER persons_updated_at BEFORE UPDATE ON genealogy.persons
+CREATE TRIGGER person_profiles_updated_at BEFORE UPDATE ON genealogy.person_profiles
   FOR EACH ROW EXECUTE FUNCTION public.update_updated_at_column();
 
 CREATE TRIGGER group_profiles_updated_at BEFORE UPDATE ON genealogy.group_profiles
@@ -227,7 +223,6 @@ CREATE TRIGGER statements_updated_at BEFORE UPDATE ON genealogy.statements
 ```typescript
 import {
   pgSchema,
-  pgEnum,
   uuid,
   varchar,
   text,
@@ -236,9 +231,8 @@ import {
   date,
   jsonb,
   index,
-  uniqueIndex,
 } from 'drizzle-orm/pg-core';
-import { users, groups, titleEnum, styleEnum, type SocialLink } from '../schema';
+import { titleEnum, styleEnum, type SocialLink } from '../schema';
 
 // Create the genealogy schema
 export const genealogySchema = pgSchema('genealogy');
@@ -263,19 +257,20 @@ export const predicateEnum = genealogySchema.enum('predicate', [
   'succeeded', 'evolved_from', 'affiliated_with', 'cooperates_with',
 ]);
 
-// Persons table
-export const persons = genealogySchema.table(
-  'persons',
+// Person profiles table (NO FK to public schema - fully self-contained)
+export const personProfiles = genealogySchema.table(
+  'person_profiles',
   {
     id: uuid('id').primaryKey().defaultRandom(),
-    userId: uuid('user_id').references(() => users.id, { onDelete: 'set null' }),
 
+    // Identity (moved from users)
     name: varchar('name', { length: 255 }),
     apelido: varchar('apelido', { length: 100 }),
     title: titleEnum('title'),
     avatar: varchar('avatar', { length: 500 }),
     links: jsonb('links').$type<SocialLink[]>().default([]),
 
+    // Capoeira-specific
     style: styleEnum('style'),
     birthYear: integer('birth_year'),
     deathYear: integer('death_year'),
@@ -285,25 +280,29 @@ export const persons = genealogySchema.table(
     updatedAt: timestamp('updated_at').notNull().defaultNow().$onUpdate(() => new Date()),
   },
   (t) => [
-    uniqueIndex('persons_user_id_idx').on(t.userId),
-    index('persons_apelido_idx').on(t.apelido),
-    index('persons_title_idx').on(t.title),
+    index('person_profiles_apelido_idx').on(t.apelido),
+    index('person_profiles_title_idx').on(t.title),
+    index('person_profiles_style_idx').on(t.style),
   ]
 );
 
-// Group profiles table
+// Group profiles table (NO FK to public schema - fully self-contained)
+// NOTE: For prototype, we store name here. In production, name stays in public.groups.
 export const groupProfiles = genealogySchema.table(
   'group_profiles',
   {
     id: uuid('id').primaryKey().defaultRandom(),
-    groupId: uuid('group_id').references(() => groups.id, { onDelete: 'cascade' }),
 
-    name: varchar('name', { length: 255 }).notNull(),
+    // For prototype: store name here for standalone visualization
+    name: varchar('name', { length: 255 }).notNull(),  // prototype only
+
+    // Capoeira identity (moved from groups)
     description: text('description'),
     style: styleEnum('style'),
     logo: varchar('logo', { length: 500 }),
-
     links: jsonb('links').$type<SocialLink[]>().default([]),
+
+    // Genealogy-specific
     foundedYear: integer('founded_year'),
     nameHistory: jsonb('name_history').$type<{
       name: string;
@@ -317,8 +316,8 @@ export const groupProfiles = genealogySchema.table(
     updatedAt: timestamp('updated_at').notNull().defaultNow().$onUpdate(() => new Date()),
   },
   (t) => [
-    uniqueIndex('group_profiles_group_id_idx').on(t.groupId),
     index('group_profiles_name_idx').on(t.name),
+    index('group_profiles_style_idx').on(t.style),
   ]
 );
 
@@ -338,7 +337,7 @@ export type StatementProperties = {
   context?: string;
 };
 
-// Statements table
+// Statements table (NO FK to public schema - fully self-contained)
 export const statements = genealogySchema.table(
   'statements',
   {
@@ -363,7 +362,7 @@ export const statements = genealogySchema.table(
 
     createdAt: timestamp('created_at').notNull().defaultNow(),
     updatedAt: timestamp('updated_at').notNull().defaultNow().$onUpdate(() => new Date()),
-    createdBy: uuid('created_by').references(() => users.id, { onDelete: 'set null' }),
+    createdBy: uuid('created_by'),  // tracks who created (app user id, no FK constraint)
   },
   (t) => [
     index('statements_subject_idx').on(t.subjectType, t.subjectId),
@@ -373,9 +372,12 @@ export const statements = genealogySchema.table(
   ]
 );
 
+// NOTE: No relations defined here - genealogy schema is fully self-contained
+// Relations are defined in public schema where FKs point TO genealogy
+
 // Types
-export type InsertPerson = typeof persons.$inferInsert;
-export type SelectPerson = typeof persons.$inferSelect;
+export type InsertPersonProfile = typeof personProfiles.$inferInsert;
+export type SelectPersonProfile = typeof personProfiles.$inferSelect;
 
 export type InsertGroupProfile = typeof groupProfiles.$inferInsert;
 export type SelectGroupProfile = typeof groupProfiles.$inferSelect;
@@ -421,16 +423,16 @@ Based on the case study review, we select groups with rich, well-documented line
 
 ```typescript
 import { db } from '../index';
-import { persons, groupProfiles, statements } from '../schema/genealogy';
+import { personProfiles, groupProfiles, statements } from '../schema/genealogy';
 
 export async function seedGenealogyPrototype() {
   console.log('Seeding genealogy prototype data...');
 
   // ============================================
-  // PERSONS - Historical Mestres
+  // PERSON PROFILES - Historical Mestres
   // ============================================
 
-  const [pastinha] = await db.insert(persons).values({
+  const [pastinha] = await db.insert(personProfiles).values({
     name: 'Vicente Ferreira Pastinha',
     apelido: 'Pastinha',
     title: 'mestre',
@@ -440,7 +442,7 @@ export async function seedGenealogyPrototype() {
     bio: 'Considered the father of modern Capoeira Angola. Founded the Centro Esportivo de Capoeira Angola (CECA) in 1941.',
   }).returning();
 
-  const [bimba] = await db.insert(persons).values({
+  const [bimba] = await db.insert(personProfiles).values({
     name: 'Manoel dos Reis Machado',
     apelido: 'Bimba',
     title: 'mestre',
@@ -450,7 +452,7 @@ export async function seedGenealogyPrototype() {
     bio: 'Creator of Capoeira Regional. Revolutionized capoeira by systematizing training and gaining government recognition.',
   }).returning();
 
-  const [joaoGrande] = await db.insert(persons).values({
+  const [joaoGrande] = await db.insert(personProfiles).values({
     name: 'João Oliveira dos Santos',
     apelido: 'João Grande',
     title: 'mestre',
@@ -459,7 +461,7 @@ export async function seedGenealogyPrototype() {
     bio: 'Student of Mestre Pastinha. Cultural pioneer who brought Capoeira Angola to the United States in 1990.',
   }).returning();
 
-  const [moraes] = await db.insert(persons).values({
+  const [moraes] = await db.insert(personProfiles).values({
     name: 'Pedro Moraes Trindade',
     apelido: 'Moraes',
     title: 'mestre',
@@ -468,7 +470,7 @@ export async function seedGenealogyPrototype() {
     bio: 'Founder of GCAP. Studied under João Grande and directly with Pastinha. Key figure in the Capoeira Angola renaissance.',
   }).returning();
 
-  const [camisa] = await db.insert(persons).values({
+  const [camisa] = await db.insert(personProfiles).values({
     name: 'José Tadeu Carneiro Cardoso',
     apelido: 'Camisa',
     title: 'mestre',
@@ -477,7 +479,7 @@ export async function seedGenealogyPrototype() {
     bio: 'Founder of ABADÁ-Capoeira. Former member of Grupo Senzala who left with blessing to start his own organization.',
   }).returning();
 
-  const [suassuna] = await db.insert(persons).values({
+  const [suassuna] = await db.insert(personProfiles).values({
     name: 'Reinaldo Ramos Suassuna',
     apelido: 'Suassuna',
     title: 'mestre',
@@ -486,7 +488,7 @@ export async function seedGenealogyPrototype() {
     bio: 'Founder of Cordão de Ouro. One of the "Sete Mestres" of Grupo Senzala who departed to create his own group.',
   }).returning();
 
-  const [peixinho] = await db.insert(persons).values({
+  const [peixinho] = await db.insert(personProfiles).values({
     name: 'Antônio Carlos',
     apelido: 'Peixinho',
     title: 'mestre',
@@ -495,7 +497,7 @@ export async function seedGenealogyPrototype() {
     bio: 'One of the founding "Sete Mestres" of Grupo Senzala. Remained with the group as a key leader.',
   }).returning();
 
-  console.log(`Created ${7} persons`);
+  console.log(`Created ${7} person profiles`);
 
   // ============================================
   // GROUP PROFILES
@@ -769,7 +771,7 @@ export async function seedGenealogyPrototype() {
 
 ```typescript
 import { db } from '@/db';
-import { persons, groupProfiles, statements } from '@/db/schema/genealogy';
+import { personProfiles, groupProfiles, statements } from '@/db/schema/genealogy';
 
 interface GraphNode {
   id: string;
@@ -815,9 +817,9 @@ export async function GET(request: Request) {
   const links: GraphLink[] = [];
   const nodeIds = new Set<string>();
 
-  // Fetch persons
+  // Fetch person profiles
   if (nodeTypes.includes('person')) {
-    const personData = await db.select().from(persons);
+    const personData = await db.select().from(personProfiles);
     for (const person of personData) {
       nodeIds.add(person.id);
       nodes.push({
@@ -902,7 +904,7 @@ export async function GET(request: Request) {
 ```typescript
 import { eq } from 'drizzle-orm';
 import { db } from '@/db';
-import { persons, groupProfiles, statements } from '@/db/schema/genealogy';
+import { personProfiles, groupProfiles, statements } from '@/db/schema/genealogy';
 
 /**
  * @openapi
@@ -929,8 +931,8 @@ export async function GET(
 ) {
   const { id } = await params;
 
-  // Try person first
-  const [person] = await db.select().from(persons).where(eq(persons.id, id));
+  // Try person profile first
+  const [person] = await db.select().from(personProfiles).where(eq(personProfiles.id, id));
 
   if (person) {
     const [outgoing, incoming] = await Promise.all([
@@ -1088,7 +1090,7 @@ See the [3D Network Visualization Spec](../../apps/quilombo/docs/specs/capoeira-
 
 ### Phase 1: Database Schema
 - [ ] Create Atlas migration for genealogy schema
-- [ ] Create `genealogy.persons` table
+- [ ] Create `genealogy.person_profiles` table
 - [ ] Create `genealogy.group_profiles` table
 - [ ] Create `genealogy.statements` table
 - [ ] Create enums (entity_type, confidence, predicate)
@@ -1133,7 +1135,7 @@ See the [3D Network Visualization Spec](../../apps/quilombo/docs/specs/capoeira-
 ## Success Criteria
 
 1. **Schema Deployed**: `genealogy` schema exists with all tables
-2. **Seed Data Loaded**: 7 persons, 6 groups, 17+ statements
+2. **Seed Data Loaded**: 7 person profiles, 6 group profiles, 17+ statements
 3. **API Working**: Both endpoints return correct data
 4. **Visualization Renders**: 3D graph displays nodes and links
 5. **Interactivity**: Click nodes to see details, use filters
@@ -1145,8 +1147,10 @@ See the [3D Network Visualization Spec](../../apps/quilombo/docs/specs/capoeira-
 
 After the prototype validates the data model:
 
-1. **Phase 2 of Architecture**: Update DB queries to join public ↔ genealogy
-2. **Data Migration**: Move user profile fields to genealogy.persons
-3. **Claiming System**: Implement simplified claimable profiles (just set `persons.user_id`)
-4. **Full CRUD**: Admin UI for managing genealogy data
-5. **Performance**: Optimize for larger networks
+1. **Phase 2 of Architecture**: Add `profile_id` FK columns to `public.users` and `public.groups`
+2. **Data Migration**: Move user profile fields to `genealogy.person_profiles`, group identity fields to `genealogy.group_profiles`
+3. **Update DB Queries**: Join public ↔ genealogy in all user/group queries
+4. **Claiming System**: Implement simplified claimable profiles (just set `users.profile_id`)
+5. **Drop Old Columns**: Remove migrated fields from `users` and `groups` tables
+6. **Full CRUD**: Admin UI for managing genealogy data
+7. **Performance**: Optimize for larger networks

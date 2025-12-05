@@ -1,21 +1,21 @@
 # Claimable Profiles: Person Profiles in the Genealogy System
 
-**Version:** 2.0
+**Version:** 3.0
 **Last Updated:** 2025-12-05
-**Status:** Specification (Updated to align with Genealogy Architecture)
+**Status:** Specification (Updated to align with Genealogy Architecture v2)
 **Target Platform:** Quilombo (Next.js 15 + PostgreSQL)
 **Depends On:**
-- [Genealogy Architecture Proposal](./genealogy-architecture-proposal.md)
-- [Genealogy Data Model Proposal](./genealogy-data-model-proposal.md)
+- [Genealogy Architecture Proposal](./genealogy-tree/genealogy-architecture-proposal.md)
+- [Genealogy Data Model Proposal](./genealogy-tree/genealogy-data-model-proposal.md)
 
 ---
 
 ## Executive Summary
 
-This spec defines how person profiles are created, managed, and claimed within the genealogy system. Unlike the previous approach that treated managed profiles as user records with special status, the new architecture cleanly separates:
+This spec defines how person profiles are created, managed, and claimed within the genealogy system. The architecture cleanly separates:
 
 - **`public.users`** = App accounts (authentication, authorization, sessions)
-- **`genealogy.persons`** = Capoeira identities (lineage, history, relationships)
+- **`genealogy.person_profiles`** = Capoeira identities (lineage, history, relationships)
 
 **Core Value Propositions:**
 1. **For the Community**: Build comprehensive Capoeira genealogy including deceased mestres and historical figures
@@ -25,77 +25,88 @@ This spec defines how person profiles are created, managed, and claimed within t
 5. **For Cultural Preservation**: Honor and preserve the legacy of the mestres and mestras who shaped, spread, and keep Capoeira alive
 
 **Key Simplification:**
-Claiming a profile is now trivial: just set `persons.user_id` to link the person record to the claiming user. No complex account merging required.
+Claiming a profile is trivial: just set `users.profile_id` to link the user to the person profile. No complex account merging required.
+
+**Key Architecture Principle:**
+The genealogy schema is **fully self-contained** - no foreign keys point OUT of genealogy. All FKs flow FROM public TO genealogy.
 
 ---
 
 ## Architecture Overview
 
 ```
-┌─────────────────────────────┐        ┌─────────────────────────────┐
-│ PUBLIC SCHEMA               │        │ GENEALOGY SCHEMA            │
-│ (App/Auth)                  │        │ (Capoeira Identity)         │
-├─────────────────────────────┤        ├─────────────────────────────┤
-│ users                       │        │ persons                     │
-│ ├── id (PK)                 │◄─ ─ ─ ─│ ├── id (PK)                 │
-│ ├── email                   │ (opt.) │ ├── user_id (FK)?           │ nullable
-│ ├── passwordHash            │        │ ├── name                    │
-│ ├── walletAddress           │        │ ├── apelido (nickname)      │
-│ ├── accountStatus           │        │ ├── title                   │
-│ └── ...auth fields          │        │ ├── avatar                  │
-│                             │        │ ├── links                   │
-│                             │        │ ├── bio                     │
-│                             │        │ ├── birth_year              │
-│                             │        │ ├── death_year              │
-│                             │        │ └── ...                     │
-├─────────────────────────────┤        ├─────────────────────────────┤
-│ profile_claims              │        │ statements                  │
-│ ├── person_id ──────────────┼────────│ ├── subject_id              │
-│ ├── claimer_user_id         │        │ ├── predicate               │
-│ ├── status                  │        │ ├── object_id               │
-│ └── ...                     │        │ └── ...                     │
-└─────────────────────────────┘        └─────────────────────────────┘
+PUBLIC SCHEMA (app/auth)              GENEALOGY SCHEMA (capoeira identity)
+┌─────────────────────────┐          ┌─────────────────────────────┐
+│ users                   │          │ person_profiles             │
+│ ├── id (PK)             │          │ ├── id (PK)◄────────────────┼─┐
+│ ├── email               │          │ ├── name                    │ │
+│ ├── passwordHash        │          │ ├── apelido                 │ │
+│ ├── walletAddress       │          │ ├── title                   │ │
+│ ├── accountStatus       │          │ ├── avatar                  │ │
+│ ├── isGlobalAdmin       │          │ ├── links                   │ │
+│ ├── profileId (FK)──────┼──────────┼─┘ (UNIQUE)                  │ │
+│ └── ...auth fields      │          │ ├── bio                     │ │
+├─────────────────────────┤          │ ├── birth_year              │ │
+│ profile_claims          │          │ ├── death_year              │ │
+│ ├── person_profile_id───┼──────────┼─► (references person_profiles)
+│ ├── claimer_user_id     │          │ └── ...                     │
+│ ├── status              │          ├─────────────────────────────┤
+│ └── ...                 │          │ statements                  │
+└─────────────────────────┘          │ ├── subject_id              │
+                                     │ ├── predicate               │
+                                     │ ├── object_id               │
+                                     │ └── ...                     │
+                                     └─────────────────────────────┘
+
+NOTES:
+• genealogy schema is FULLY SELF-CONTAINED (no FKs pointing out)
+• users.profile_id has UNIQUE constraint (one profile per user)
+• Historical figures exist only in person_profiles (no linked user)
+• All FKs flow FROM public TO genealogy
 
 CLAIM FLOW:
-┌──────────────┐                    ┌──────────────┐
-│ persons      │                    │ persons      │
-│ id: P1       │                    │ id: P1       │
-│ user_id: ∅   │  ──claim──►        │ user_id: U1  │ ← linked!
-│ apelido:     │                    │ apelido:     │
-│ "Mestre X"   │                    │ "Mestre X"   │
-└──────────────┘                    └──────────────┘
-                                           │
-┌──────────────┐                    ┌──────┴──────┐
-│ users        │                    │ users       │
-│ id: U1       │                    │ id: U1      │
-│ email: ...   │                    │ email: ...  │
-└──────────────┘                    └──────────────┘
+┌─────────────────┐                    ┌─────────────────┐
+│ person_profiles │                    │ person_profiles │
+│ id: P1          │                    │ id: P1          │
+│ apelido:        │                    │ apelido:        │
+│ "Mestre X"      │                    │ "Mestre X"      │
+└─────────────────┘                    └─────────────────┘
+                                              ▲
+┌─────────────┐                        ┌──────┴──────┐
+│ users       │                        │ users       │
+│ id: U1      │   ──claim──►           │ id: U1      │
+│ profile_id: │                        │ profile_id: │
+│ NULL        │                        │ P1          │ ← linked!
+│ email: ...  │                        │ email: ...  │
+└─────────────┘                        └─────────────┘
 
-No merge needed! Just set persons.user_id = users.id
+No merge needed! Just set users.profile_id = person_profiles.id
 ```
 
 ---
 
 ## Design Decisions
 
-### 1. Persons Exist Independently of Users
+### 1. Person Profiles Exist Independently of Users
 
-**Decision:** Person records live in `genealogy.persons` with an optional `user_id` link.
+**Decision:** Person profiles live in `genealogy.person_profiles` with no FK pointing back to users.
 
 **Rationale:**
-- Historical figures (Pastinha, Bimba) exist only in `persons` with `user_id = NULL`
-- Living practitioners who join the app have both: `users` record + linked `persons` record
-- Separation allows clean data modeling without polluting auth tables
+- Historical figures (Pastinha, Bimba) exist only in `person_profiles` with no linked user
+- Living practitioners who join the app have: `users` record with `profile_id` pointing to their `person_profiles` record
+- Genealogy schema is fully self-contained - cleaner separation of concerns
+- Profiles can exist before any user claims them
 
-### 2. Claiming = Setting user_id
+### 2. Claiming = Setting users.profile_id
 
-**Decision:** Claiming a profile is simply setting `persons.user_id` to link the record.
+**Decision:** Claiming a profile is simply setting `users.profile_id` to link the user to the profile.
 
 **Rationale:**
 - No complex merge algorithm needed
-- All relationships (statements) remain intact - they reference `persons.id`
+- All relationships (statements) remain intact - they reference `person_profiles.id`
 - User gains control of the profile immediately upon approval
-- Reversible if needed (admin can set `user_id = NULL`)
+- Reversible if needed (admin can set `profile_id = NULL`)
+- UNIQUE constraint on `profile_id` ensures one-to-one relationship
 
 ### 3. Management Rights for Unclaimed Profiles
 
@@ -123,7 +134,7 @@ No merge needed! Just set persons.user_id = users.id
 
 **Rationale:**
 - With the new architecture, unclaimed profiles don't exist in `users` at all
-- They exist only in `genealogy.persons` with `user_id = NULL`
+- They exist only in `genealogy.person_profiles` with no linked user
 - Simpler model: users are always real app accounts
 
 ---
@@ -141,7 +152,7 @@ CREATE TABLE profile_claims (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
 
   -- Which person profile is being claimed
-  person_id UUID NOT NULL REFERENCES genealogy.persons(id) ON DELETE CASCADE,
+  person_profile_id UUID NOT NULL REFERENCES genealogy.person_profiles(id) ON DELETE CASCADE,
 
   -- Who is claiming it (must be an active user)
   claimer_user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
@@ -161,21 +172,24 @@ CREATE TABLE profile_claims (
   created_at TIMESTAMP NOT NULL DEFAULT NOW(),
 
   -- Constraints
-  CONSTRAINT profile_claims_person_not_claimed CHECK (
-    -- Will be enforced at application level - person must have user_id = NULL
+  -- Note: Validation that profile is unclaimed is done at application level
+  -- by checking that no user has profile_id pointing to this person_profile_id
+  CONSTRAINT profile_claims_claimer_has_no_profile CHECK (
+    -- Will be enforced at application level - claimer must have profile_id = NULL
+    -- or this is a profile merge request
     true
   )
 );
 
 -- Indexes
-CREATE INDEX profile_claims_person_idx ON profile_claims(person_id);
+CREATE INDEX profile_claims_person_profile_idx ON profile_claims(person_profile_id);
 CREATE INDEX profile_claims_claimer_idx ON profile_claims(claimer_user_id);
 CREATE INDEX profile_claims_status_idx ON profile_claims(status);
 CREATE INDEX profile_claims_date_idx ON profile_claims(requested_at);
 
--- Prevent duplicate pending claims
+-- Prevent duplicate pending claims for same profile
 CREATE UNIQUE INDEX profile_claims_pending_unique
-  ON profile_claims(person_id, claimer_user_id)
+  ON profile_claims(person_profile_id, claimer_user_id)
   WHERE status = 'pending';
 ```
 
@@ -187,7 +201,7 @@ CREATE TABLE profile_managers (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
 
   -- The person profile being granted management rights
-  person_id UUID NOT NULL REFERENCES genealogy.persons(id) ON DELETE CASCADE,
+  person_profile_id UUID NOT NULL REFERENCES genealogy.person_profiles(id) ON DELETE CASCADE,
 
   -- The user granted management rights
   manager_user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
@@ -204,12 +218,12 @@ CREATE TABLE profile_managers (
 );
 
 -- Indexes
-CREATE INDEX profile_managers_person_idx ON profile_managers(person_id);
+CREATE INDEX profile_managers_person_profile_idx ON profile_managers(person_profile_id);
 CREATE INDEX profile_managers_manager_idx ON profile_managers(manager_user_id);
 
 -- Prevent duplicate grants
 CREATE UNIQUE INDEX profile_managers_unique
-  ON profile_managers(person_id, manager_user_id);
+  ON profile_managers(person_profile_id, manager_user_id);
 ```
 
 ### Drizzle Schema
@@ -218,8 +232,8 @@ CREATE UNIQUE INDEX profile_managers_unique
 // db/schema/profileClaims.ts
 
 import { pgTable, pgEnum, uuid, text, timestamp, jsonb, index, uniqueIndex } from 'drizzle-orm/pg-core';
-import { users } from './schema';
-import { persons } from './genealogy';
+import { users } from './public';
+import { personProfiles } from './genealogy';
 
 // Enums
 export const profileClaimStatusEnum = pgEnum('profile_claim_status', [
@@ -235,9 +249,9 @@ export const profileClaims = pgTable(
     id: uuid('id').primaryKey().defaultRandom(),
 
     // Which person profile is being claimed
-    personId: uuid('person_id')
+    personProfileId: uuid('person_profile_id')
       .notNull()
-      .references(() => persons.id, { onDelete: 'cascade' }),
+      .references(() => personProfiles.id, { onDelete: 'cascade' }),
 
     // Who is claiming it
     claimerUserId: uuid('claimer_user_id')
@@ -259,7 +273,7 @@ export const profileClaims = pgTable(
     createdAt: timestamp('created_at').notNull().defaultNow(),
   },
   (t) => [
-    index('profile_claims_person_idx').on(t.personId),
+    index('profile_claims_person_profile_idx').on(t.personProfileId),
     index('profile_claims_claimer_idx').on(t.claimerUserId),
     index('profile_claims_status_idx').on(t.status),
     index('profile_claims_date_idx').on(t.requestedAt),
@@ -273,9 +287,9 @@ export const profileManagers = pgTable(
     id: uuid('id').primaryKey().defaultRandom(),
 
     // The person profile
-    personId: uuid('person_id')
+    personProfileId: uuid('person_profile_id')
       .notNull()
-      .references(() => persons.id, { onDelete: 'cascade' }),
+      .references(() => personProfiles.id, { onDelete: 'cascade' }),
 
     // The manager
     managerUserId: uuid('manager_user_id')
@@ -291,9 +305,9 @@ export const profileManagers = pgTable(
     createdAt: timestamp('created_at').notNull().defaultNow(),
   },
   (t) => [
-    index('profile_managers_person_idx').on(t.personId),
+    index('profile_managers_person_profile_idx').on(t.personProfileId),
     index('profile_managers_manager_idx').on(t.managerUserId),
-    uniqueIndex('profile_managers_unique').on(t.personId, t.managerUserId),
+    uniqueIndex('profile_managers_unique').on(t.personProfileId, t.managerUserId),
   ]
 );
 
@@ -314,17 +328,17 @@ export type SelectProfileManager = typeof profileManagers.$inferSelect;
 **Goal:** Global admins can create person profiles for historical figures.
 
 **Deliverables:**
-1. API: `POST /api/admin/persons` - Create person in genealogy.persons
-2. API: `GET /api/admin/persons` - List unclaimed persons
-3. API: `PUT /api/admin/persons/[personId]` - Edit person
+1. API: `POST /api/admin/person-profiles` - Create person profile
+2. API: `GET /api/admin/person-profiles` - List unclaimed profiles
+3. API: `PUT /api/admin/person-profiles/[profileId]` - Edit profile
 4. UI: Admin dashboard - Person profiles section
-5. UI: Create/Edit person modal
-6. Search: Include all persons in genealogy search
+5. UI: Create/Edit person profile modal
+6. Search: Include all person profiles in genealogy search
 
 **Key Points:**
-- Creates record in `genealogy.persons` with `user_id = NULL`
-- No `users` table involvement
-- Person immediately available for statements (relationships)
+- Creates record in `genealogy.person_profiles`
+- No linked user (profile exists independently)
+- Profile immediately available for statements (relationships)
 
 ### Phase 2: Profile Claiming
 
@@ -332,11 +346,11 @@ export type SelectProfileManager = typeof profileManagers.$inferSelect;
 
 **Deliverables:**
 1. Database migration: Add `profile_claims` table
-2. API: `POST /api/persons/[personId]/claim` - Submit claim
+2. API: `POST /api/person-profiles/[profileId]/claim` - Submit claim
 3. API: `GET /api/admin/claims/profiles` - List pending claims
 4. API: `PUT /api/admin/claims/profiles/[claimId]/approve`
 5. API: `PUT /api/admin/claims/profiles/[claimId]/reject`
-6. UI: "Claim This Profile" button on unclaimed person pages
+6. UI: "Claim This Profile" button on unclaimed profiles
 7. UI: Claim request form
 8. UI: Admin claims dashboard
 9. Email: Notify admins of new claims
@@ -344,7 +358,7 @@ export type SelectProfileManager = typeof profileManagers.$inferSelect;
 
 ### Phase 3: Claim Approval (Linking)
 
-**Goal:** When admin approves, link person to user.
+**Goal:** When admin approves, link user to the person profile.
 
 **Implementation:**
 ```typescript
@@ -359,20 +373,20 @@ async function approveProfileClaim(claimId: string, adminUserId: string): Promis
       throw new Error('Invalid claim');
     }
 
-    // 2. Verify person is still unclaimed
-    const person = await tx.query.persons.findFirst({
-      where: eq(persons.id, claim.personId),
+    // 2. Verify profile is still unclaimed (no user has profile_id pointing to it)
+    const existingOwner = await tx.query.users.findFirst({
+      where: eq(users.profileId, claim.personProfileId),
     });
 
-    if (!person || person.userId !== null) {
-      throw new Error('Person already claimed');
+    if (existingOwner) {
+      throw new Error('Profile already claimed');
     }
 
-    // 3. Link person to user - THE ONLY ESSENTIAL STEP!
+    // 3. Link user to profile - THE ONLY ESSENTIAL STEP!
     await tx
-      .update(persons)
-      .set({ userId: claim.claimerUserId })
-      .where(eq(persons.id, claim.personId));
+      .update(users)
+      .set({ profileId: claim.personProfileId })
+      .where(eq(users.id, claim.claimerUserId));
 
     // 4. Update claim status
     await tx
@@ -387,14 +401,14 @@ async function approveProfileClaim(claimId: string, adminUserId: string): Promis
     // 5. Remove any management grants (user now owns profile)
     await tx
       .delete(profileManagers)
-      .where(eq(profileManagers.personId, claim.personId));
+      .where(eq(profileManagers.personProfileId, claim.personProfileId));
   });
 }
 ```
 
 **What Happens:**
-- `genealogy.persons.user_id` is set to the claimer's `users.id`
-- All existing statements (relationships) remain unchanged
+- `users.profile_id` is set to the claimed `person_profiles.id`
+- All existing statements (relationships) remain unchanged - they reference `person_profiles.id`
 - User can now edit their own profile
 - Any management grants are removed
 
@@ -404,33 +418,32 @@ async function approveProfileClaim(claimId: string, adminUserId: string): Promis
 
 **Deliverables:**
 1. Database migration: Add `profile_managers` table
-2. API: `POST /api/persons/[personId]/request-management` - Request rights
+2. API: `POST /api/person-profiles/[profileId]/request-management` - Request rights
 3. API: `GET /api/admin/management-requests` - List pending requests
 4. API: `PUT /api/admin/management-requests/[id]/approve`
-5. API: `GET /api/admin/persons/[personId]/managers` - List managers
-6. API: `POST /api/admin/persons/[personId]/managers` - Grant management
-7. API: `DELETE /api/admin/persons/[personId]/managers/[userId]` - Revoke
+5. API: `GET /api/admin/person-profiles/[profileId]/managers` - List managers
+6. API: `POST /api/admin/person-profiles/[profileId]/managers` - Grant management
+7. API: `DELETE /api/admin/person-profiles/[profileId]/managers/[userId]` - Revoke
 8. UI: "Request Management Rights" on unclaimed profiles
 9. UI: Admin management interface
 
 **Permission Check:**
 ```typescript
-async function canManagePerson(userId: string, personId: string): Promise<boolean> {
+async function canManagePersonProfile(userId: string, personProfileId: string): Promise<boolean> {
   // 1. Check if user owns this profile
-  const person = await db.query.persons.findFirst({
-    where: eq(persons.id, personId),
+  const user = await db.query.users.findFirst({
+    where: eq(users.id, userId),
   });
 
-  if (person?.userId === userId) return true;
+  if (user?.profileId === personProfileId) return true;
 
   // 2. Check if global admin
-  const user = await fetchUser(userId);
   if (user?.isGlobalAdmin) return true;
 
   // 3. Check explicit management grant
   const grant = await db.query.profileManagers.findFirst({
     where: and(
-      eq(profileManagers.personId, personId),
+      eq(profileManagers.personProfileId, personProfileId),
       eq(profileManagers.managerUserId, userId)
     ),
   });
@@ -474,7 +487,7 @@ async function canManagePerson(userId: string, personId: string): Promise<boolea
 6. System creates profile_claims record (status = pending)
 7. Admin receives notification
 8. Admin reviews and approves
-9. System sets persons.user_id = claimer.id
+9. System sets users.profile_id = person_profiles.id
 10. User now owns their profile with all existing relationships intact
 ```
 
@@ -495,9 +508,9 @@ async function canManagePerson(userId: string, personId: string): Promise<boolea
 
 ## API Routes
 
-### Create Person (Admin)
+### Create Person Profile (Admin)
 
-**Endpoint:** `POST /api/admin/persons`
+**Endpoint:** `POST /api/admin/person-profiles`
 
 **Request Body:**
 ```typescript
@@ -513,11 +526,11 @@ async function canManagePerson(userId: string, personId: string): Promise<boolea
 }
 ```
 
-**Response:** `{ personId: string }`
+**Response:** `{ personProfileId: string }`
 
 ### Submit Claim
 
-**Endpoint:** `POST /api/persons/[personId]/claim`
+**Endpoint:** `POST /api/person-profiles/[profileId]/claim`
 
 **Request Body:**
 ```typescript
@@ -529,8 +542,8 @@ async function canManagePerson(userId: string, personId: string): Promise<boolea
 
 **Validation:**
 - User must be authenticated with active account
-- Person must exist with `user_id = NULL`
-- User cannot have pending claim for this person
+- Profile must be unclaimed (no user has `profile_id` pointing to it)
+- User cannot have pending claim for this profile
 
 ### Approve Claim (Admin)
 
@@ -538,8 +551,8 @@ async function canManagePerson(userId: string, personId: string): Promise<boolea
 
 **Process:**
 1. Verify claim is pending
-2. Verify person still unclaimed
-3. Set `persons.user_id = claimer_user_id`
+2. Verify profile still unclaimed
+3. Set `users.profile_id = person_profiles.id`
 4. Mark claim as approved
 5. Remove any management grants
 6. Send email to claimer
@@ -552,10 +565,10 @@ async function canManagePerson(userId: string, personId: string): Promise<boolea
 
 | Action | Global Admin | Profile Owner | Manager | Regular User |
 |--------|--------------|---------------|---------|--------------|
-| Create person | ✅ | - | - | ❌ |
-| Edit person | ✅ | ✅ | ✅ | ❌ |
-| Delete person | ✅ | ❌ | ❌ | ❌ |
-| View person | ✅ | ✅ | ✅ | ✅ |
+| Create profile | ✅ | - | - | ❌ |
+| Edit profile | ✅ | ✅ | ✅ | ❌ |
+| Delete profile | ✅ | ❌ | ❌ | ❌ |
+| View profile | ✅ | ✅ | ✅ | ✅ |
 | Submit claim | ❌ | - | ❌ | ✅ |
 | Approve claim | ✅ | - | ❌ | ❌ |
 | Grant management | ✅ | - | ❌ | ❌ |
@@ -565,13 +578,17 @@ async function canManagePerson(userId: string, personId: string): Promise<boolea
 
 1. **Prevent claiming owned profiles:**
    ```typescript
-   if (person.userId !== null) {
+   // Check if any user has profile_id pointing to this profile
+   const existingOwner = await db.query.users.findFirst({
+     where: eq(users.profileId, personProfileId),
+   });
+   if (existingOwner) {
      return { error: 'Profile already claimed' };
    }
    ```
 
 2. **Prevent duplicate pending claims:**
-   - Database unique index on (person_id, claimer_user_id) WHERE status = 'pending'
+   - Database unique index on (person_profile_id, claimer_user_id) WHERE status = 'pending'
 
 3. **Transaction safety:**
    - All claim approval in single transaction
@@ -590,7 +607,7 @@ async function canManagePerson(userId: string, personId: string): Promise<boolea
 **Scenario:** User tries to claim a profile but already has one linked.
 
 **Handling:**
-- Check if user already has a `persons` record linked
+- Check if user already has a `profile_id` set
 - If yes, show error: "You already have a profile"
 - User would need to request profile merge (future feature)
 
@@ -601,17 +618,17 @@ async function canManagePerson(userId: string, personId: string): Promise<boolea
 **Handling:**
 - Both claims enter pending queue
 - Admin reviews both, approves the legitimate one
-- Approved claim links person to user
-- Other pending claims auto-rejected (person now claimed)
+- Approved claim sets user's profile_id to this profile
+- Other pending claims auto-rejected (profile now claimed)
 
 ### Edge Case 3: Profile Claimed While Claim Pending
 
 **Scenario:** Admin manually links profile while claim is pending.
 
 **Handling:**
-- On approval attempt, check if `user_id` is already set
+- On approval attempt, check if any user has `profile_id` set to this profile
 - If set, reject with "Profile already claimed"
-- Auto-reject all pending claims for this person
+- Auto-reject all pending claims for this profile
 
 ### Edge Case 4: Manager Tries to Claim
 
@@ -629,7 +646,7 @@ async function canManagePerson(userId: string, personId: string): Promise<boolea
 ### Unit Tests
 
 1. **Permission checks:**
-   - `canManagePerson()` returns correct boolean
+   - `canManagePersonProfile()` returns correct boolean
    - `isProfileClaimable()` validates unclaimed status
 
 2. **Claim validation:**
@@ -639,13 +656,13 @@ async function canManagePerson(userId: string, personId: string): Promise<boolea
 
 ### Integration Tests
 
-1. **Create person flow:**
-   - Admin creates person → appears in search
-   - Person has `user_id = NULL`
+1. **Create profile flow:**
+   - Admin creates profile → appears in search
+   - Profile has no linked user (no user.profile_id pointing to it)
 
 2. **Claim flow:**
    - Submit claim → pending status
-   - Approve claim → `user_id` linked
+   - Approve claim → user.profile_id linked
    - Statements remain unchanged
 
 3. **Management flow:**
@@ -655,7 +672,7 @@ async function canManagePerson(userId: string, personId: string): Promise<boolea
 ### Manual Testing Checklist
 
 - [ ] Admin can create person profile
-- [ ] Person appears in genealogy search
+- [ ] Profile appears in genealogy search
 - [ ] User can submit claim for unclaimed profile
 - [ ] Admin sees pending claim
 - [ ] Admin can approve claim
@@ -667,18 +684,19 @@ async function canManagePerson(userId: string, personId: string): Promise<boolea
 
 ---
 
-## Migration from v1.0 Spec
+## Migration from Previous Specs
 
-The previous spec (v1.0) used a different approach:
+The v1.0 spec used a different approach:
 - Managed profiles were user records with `accountStatus = 'managed_profile'`
 - Required complex account merging on claim approval
 
-**Migration not needed** - v1.0 was never implemented. This v2.0 spec starts fresh with the genealogy architecture.
+The v2.0 spec introduced genealogy schema separation but had FK direction pointing from genealogy to public.
 
-If you have any `accountStatus = 'managed_profile'` users from testing:
-1. Create corresponding `genealogy.persons` records
-2. Delete the managed user records
-3. Update any references
+**This v3.0 spec** reverses the FK direction:
+- `users.profile_id` → `genealogy.person_profiles.id`
+- Genealogy schema is fully self-contained (no FKs pointing out)
+
+**Migration not needed** - v1.0/v2.0 were never implemented. This v3.0 spec starts fresh.
 
 ---
 
@@ -688,7 +706,9 @@ If you have any `accountStatus = 'managed_profile'` users from testing:
 
 **Goal:** Allow merging duplicate person profiles.
 
-**Use Case:** Two profiles exist for same person (created before proper search).
+**Use Case:** User creates a new profile but later realizes they should claim an existing one.
+
+**Implementation:** Admin workflow to transfer statements from one profile to another, then delete orphan.
 
 ### Enhancement 2: Bulk Import
 
@@ -716,17 +736,17 @@ If you have any `accountStatus = 'managed_profile'` users from testing:
 ## Implementation Checklist
 
 ### Phase 1: Person Profile Creation
-- [ ] API: POST /api/admin/persons
-- [ ] API: GET /api/admin/persons
-- [ ] API: PUT /api/admin/persons/[personId]
-- [ ] UI: Admin persons list
-- [ ] UI: Create/Edit person modal
-- [ ] Validation: Person schema
+- [ ] API: POST /api/admin/person-profiles
+- [ ] API: GET /api/admin/person-profiles
+- [ ] API: PUT /api/admin/person-profiles/[profileId]
+- [ ] UI: Admin person profiles list
+- [ ] UI: Create/Edit profile modal
+- [ ] Validation: PersonProfile schema
 - [ ] Tests: Create, edit, list
 
 ### Phase 2: Profile Claiming
 - [ ] Database migration: profile_claims table
-- [ ] API: POST /api/persons/[personId]/claim
+- [ ] API: POST /api/person-profiles/[profileId]/claim
 - [ ] API: GET /api/admin/claims/profiles
 - [ ] UI: Claim button on unclaimed profiles
 - [ ] UI: Claim form modal
@@ -737,7 +757,7 @@ If you have any `accountStatus = 'managed_profile'` users from testing:
 ### Phase 3: Claim Approval
 - [ ] API: PUT /api/admin/claims/profiles/[claimId]/approve
 - [ ] API: PUT /api/admin/claims/profiles/[claimId]/reject
-- [ ] Linking logic: Set persons.user_id
+- [ ] Linking logic: Set users.profile_id
 - [ ] Email: Claim result notification
 - [ ] Tests: Approve, reject, link
 
@@ -747,7 +767,7 @@ If you have any `accountStatus = 'managed_profile'` users from testing:
 - [ ] API: Grant/revoke management
 - [ ] UI: Request management button
 - [ ] UI: Admin management interface
-- [ ] Permission check: canManagePerson()
+- [ ] Permission check: canManagePersonProfile()
 - [ ] Tests: Grant, revoke, check
 
 ---
