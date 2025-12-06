@@ -14,7 +14,8 @@
         "PINATA_JWT",
         "ETHERSCAN_API_KEY",
         "GRAPH_API_KEY",
-        "NODE_ENV"
+        "NODE_ENV",
+        "TURBO_TELEMETRY_DISABLED"
       ]
     },
     "lint": {
