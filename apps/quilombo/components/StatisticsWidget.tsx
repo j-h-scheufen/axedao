@@ -40,7 +40,9 @@ const StatCard = ({ icon, label, value, href }: StatCardProps) => {
           <div className="text-primary-400 dark:text-primary-500 border border-primary-300 dark:border-primary-600 rounded-md p-1.5 bg-gradient-to-br from-primary-50/50 to-transparent dark:from-primary-950/30 dark:to-transparent">
             {icon}
           </div>
-          <span className="text-2xl font-bold text-default-900 dark:text-default-800">{value.toLocaleString()}</span>
+          <span className="text-2xl font-bold text-default-900 dark:text-default-800">
+            {(value ?? 0).toLocaleString()}
+          </span>
         </div>
         <span className="text-sm text-default-500 dark:text-default-600 text-center">{label}</span>
       </CardBody>
