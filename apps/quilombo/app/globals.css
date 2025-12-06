@@ -3,28 +3,16 @@
 /*
  * TAILWIND V4 + HEROUI CONFIGURATION
  * ===================================
- *
- * We need BOTH @source AND @config:
- * - @source: Tells Tailwind v4 where to find HeroUI component classes (for layouts)
- * - @config: Loads darkMode: 'class' so HeroUI generates .dark CSS variables
- *
- * Tailwind v4 ignores the `content` array in tailwind.config.mjs - it uses
- * automatic content detection. The @source directive is required to include
- * classes from node_modules (which are excluded by default).
- *
- * FAILED APPROACHES:
- * - @plugin alone: No .dark CSS variables generated (no darkMode: 'class')
- * - @config alone: .dark variables work, but HeroUI component classes missing
- * - @plugin + @source: Component classes work, but no .dark variables
- *
- * See: https://github.com/tailwindlabs/tailwindcss/discussions/16369
- * See: https://stackoverflow.com/questions/79572864/how-to-config-hero-ui-with-tailwindcss-v4
+ * Using HeroUI's recommended @plugin approach for Tailwind v4.
  * See: https://www.heroui.com/docs/guide/tailwind-v4
+ *
+ * KNOWN ISSUE: On Vercel production builds, HeroUI's dark mode CSS variables
+ * and utilities get tree-shaken. We work around this with inline CSS below.
+ * See: docs/DARK_MODE_INVESTIGATION.md
  */
+@plugin "../config/heroui.mjs";
 @source "../../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
-@source inline("dark dark:bg-background dark:bg-background/20");
-@config "../tailwind.config.mjs";
-@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:is(.dark *));
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,

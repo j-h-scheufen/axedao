@@ -1,17 +1,8 @@
 import { heroui } from '@heroui/react';
 
-/**
- * HeroUI plugin configuration for Tailwind CSS v4.
- * This file is loaded via @plugin directive in globals.css.
- *
- * We extend the default dark/light themes to preserve HeroUI's base colors
- * (background, foreground, default, content1-4, etc.) while customizing
- * only primary and secondary colors.
- */
 export default heroui({
   themes: {
     dark: {
-      extend: 'dark',
       colors: {
         primary: {
           DEFAULT: '#79D91F',
@@ -44,7 +35,6 @@ export default heroui({
       },
     },
     light: {
-      extend: 'light',
       colors: {
         primary: {
           DEFAULT: '#7FD92A',
