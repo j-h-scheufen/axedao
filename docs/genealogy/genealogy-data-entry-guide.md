@@ -71,7 +71,43 @@ Gather information from these sources (in order of reliability):
 5. **Academic Papers** - For historical figures (IPHAN, university research)
 6. **Interviews / Videos** - Oral history, event footage
 
-### 1.2 Information to Extract
+### 1.2 Sourcing Images (Avatars & Logos)
+
+When collecting visual assets, prioritize these sources in order:
+
+**For Person Portraits (avatar field):**
+1. **Wikimedia Commons** - Public domain images of historical mestres
+   - Search: `https://commons.wikimedia.org/wiki/Special:Search?search=mestre+[name]`
+   - Use thumb URLs for appropriate sizes (e.g., `220px-` prefix)
+2. **Group Official Websites** - Often have leader/founder photos
+3. **Social Media Profiles** - Instagram/Facebook profile pictures (if public)
+4. **Documentary Screenshots** - From public YouTube videos
+5. **Event Photography** - Published event photos with attribution
+
+**For Group Logos:**
+1. **Wikimedia Commons** - Major groups often have logos uploaded
+   - Search: `https://commons.wikimedia.org/wiki/Special:Search?search=capoeira+[group+name]+logo`
+2. **Official Group Websites** - Usually in header or about page
+3. **Social Media** - Profile pictures on Facebook/Instagram
+4. **Lalaue.com / CapoeiraHub** - Group directory listings
+
+**Image Guidelines:**
+- Prefer publicly licensed images (CC0, CC-BY, public domain)
+- Use stable URLs (Wikipedia/Wikimedia are preferred for permanence)
+- Optimal size: 200-400px for avatars/logos (thumbnail URLs work well)
+- If no image available, leave field null (UI will show initials fallback)
+
+**Example URLs:**
+```
+# Wikimedia thumbnail URL pattern:
+https://upload.wikimedia.org/wikipedia/commons/thumb/[path]/220px-[filename]
+
+# Common capoeira images on Wikimedia:
+Mestre Pastinha: .../thumb/8/89/Mestre_Pastinha.jpg/220px-Mestre_Pastinha.jpg
+Mestre Bimba: .../thumb/c/c0/Mestre_Bimba.jpg/220px-Mestre_Bimba.jpg
+```
+
+### 1.3 Information to Extract
 
 For each group, collect:
 

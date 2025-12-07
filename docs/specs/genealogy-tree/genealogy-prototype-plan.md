@@ -1,8 +1,8 @@
 # Genealogy Visualization Prototype Plan
 
-**Status:** Planning
+**Status:** Phase 4 Complete, Phase 5 Pending
 **Created:** 2025-12-05
-**Updated:** 2025-12-05
+**Updated:** 2025-12-07
 **Related:**
 - [Genealogy Architecture Proposal](./genealogy-architecture-proposal.md) - **Primary reference for schema**
 - [Genealogy Data Model Proposal](./genealogy-data-model-proposal.md) - Predicates and relationships
@@ -1088,47 +1088,52 @@ See the [3D Network Visualization Spec](../../apps/quilombo/docs/specs/capoeira-
 
 ## Implementation Checklist
 
-### Phase 1: Database Schema
-- [ ] Create Atlas migration for genealogy schema
-- [ ] Create `genealogy.person_profiles` table
-- [ ] Create `genealogy.group_profiles` table
-- [ ] Create `genealogy.statements` table
-- [ ] Create enums (entity_type, confidence, predicate)
-- [ ] Run migration locally: `pnpm db:atlas:apply`
-- [ ] Verify schema: `pnpm db:atlas:status`
+### Phase 1: Database Schema ✅
+- [x] Create Atlas migration for genealogy schema
+- [x] Create `genealogy.person_profiles` table
+- [x] Create `genealogy.group_profiles` table
+- [x] Create `genealogy.statements` table
+- [x] Create enums (entity_type, confidence, predicate)
+- [x] Run migration locally: `pnpm db:atlas:apply`
+- [x] Verify schema: `pnpm db:atlas:status`
 
-### Phase 2: Drizzle Schema & Seed Data
-- [ ] Create `db/schema/genealogy.ts`
-- [ ] Export from `db/schema/index.ts`
-- [ ] Create `db/seed/genealogy-prototype.ts`
-- [ ] Add seed command to package.json
-- [ ] Run seed script
-- [ ] Verify data with psql queries
+### Phase 2: Drizzle Schema & Seed Data ✅
+- [x] Create `db/schema/genealogy.ts`
+- [x] Export from `db/schema/index.ts`
+- [x] Create `db/seed/genealogy-prototype.ts`
+- [x] Add seed command to package.json
+- [x] Run seed script
+- [x] Verify data with psql queries
 
-### Phase 3: API Endpoints
-- [ ] Create `/api/genealogy/graph/route.ts`
-- [ ] Create `/api/genealogy/node/[id]/route.ts`
-- [ ] Test endpoints with curl/Postman
-- [ ] Add to API documentation
+### Phase 3: API Endpoints ✅
+- [x] Create `/api/genealogy/graph/route.ts`
+- [x] Create `/api/genealogy/persons/[id]/route.ts`
+- [x] Create `/api/genealogy/groups/[id]/route.ts`
+- [x] Test endpoints with curl/Postman
+- [x] Add to API documentation (OpenAPI comments)
 
-### Phase 4: Visualization
-- [ ] Install dependencies (react-force-graph-3d, three)
-- [ ] Create types file
-- [ ] Create useGenealogyData hook
-- [ ] Create GenealogyGraph component (with dynamic import)
-- [ ] Create GraphControls component
-- [ ] Create NodeDetailsPanel component
-- [ ] Create GraphLegend component
-- [ ] Create main page.tsx
-- [ ] Test in browser
+### Phase 4: Visualization ✅
+- [x] Install dependencies (react-force-graph-3d, three)
+- [x] Create types file
+- [x] Create useGenealogyData hook
+- [x] Create GenealogyGraph component (with dynamic import)
+- [x] Create GraphControls component
+- [x] Create NodeDetailsPanel component
+- [x] Create GraphLegend component
+- [x] Create main page.tsx
+- [x] Create dedicated layout.tsx for full-width display
+- [x] Add middleware exclusions for /genealogy routes
+- [x] Add text labels showing "Title Apelido" below person nodes
+- [x] Add text labels showing group name below group nodes
+- [x] Test in browser
 
 ### Validation
-- [ ] All 24 predicates can be stored
-- [ ] Graph renders persons and groups
-- [ ] Links display with correct colors
-- [ ] Node click shows details panel
-- [ ] Filters work correctly
-- [ ] Performance acceptable (~50-100 nodes)
+- [x] All 25 predicates can be stored
+- [x] Graph renders persons and groups
+- [x] Links display with correct colors
+- [x] Node click shows details panel and centers camera
+- [x] Filters work correctly
+- [x] Performance acceptable (~50-100 nodes)
 
 ---
 
@@ -1140,6 +1145,86 @@ See the [3D Network Visualization Spec](../../apps/quilombo/docs/specs/capoeira-
 4. **Visualization Renders**: 3D graph displays nodes and links
 5. **Interactivity**: Click nodes to see details, use filters
 6. **Self-Contained**: No dependencies on public.users or public.groups data
+
+---
+
+## Phase 5: Image Storage & Display
+
+### 5.1 Pinata Storage Setup
+
+Create dedicated folders for genealogy assets in Pinata:
+```
+genealogy/
+├── avatars/     # Person portraits
+└── logos/       # Group logos
+```
+
+### 5.2 Image Upload API
+
+Extend or create a genealogy-specific image upload endpoint that:
+1. Accepts image uploads with entity type (person/group) and entity ID
+2. Stores images in appropriate Pinata folder
+3. Returns the IPFS URL
+4. Updates the `avatar` or `logo` field in the corresponding profile
+
+**API Route:** `POST /api/genealogy/images`
+```typescript
+// Request: multipart/form-data
+// - file: image file
+// - entityType: 'person' | 'group'
+// - entityId: UUID of the profile
+
+// Response: { url: string } (IPFS URL)
+```
+
+### 5.3 Display Implementation
+
+#### For Person Nodes (spheres with labels)
+- Continue using colored spheres based on title
+- Display "Title Apelido" label below sphere
+- Show avatar in the details panel when clicked
+
+#### For Group Nodes (textured spheres)
+- If logo exists: Apply logo as texture to sphere
+- If no logo: Use colored sphere with style-based color
+- Display group name as label below sphere
+- Show logo in details panel when clicked
+
+### 5.4 Implementation Steps
+
+1. **Pinata Setup** (manual)
+   - Create `genealogy/avatars` folder
+   - Create `genealogy/logos` folder
+   - Document folder IDs in environment config
+
+2. **API Development**
+   - Create `/api/genealogy/images` endpoint
+   - Handle authentication (require admin or owner)
+   - Validate image types (jpg, png, webp)
+   - Upload to Pinata with proper folder
+   - Update profile record with URL
+
+3. **Visualization Updates**
+   - Update `NodeDetailsPanel` to display avatar/logo
+   - Implement textured sphere rendering for groups with logos
+   - Add texture caching for performance
+
+4. **Data Entry Workflow**
+   - Document image sourcing guidelines (already in genealogy-data-entry-guide.md)
+   - Create admin UI or script for batch uploading
+   - Populate prototype seed data with real images
+
+### 5.5 Checklist
+
+- [ ] Create Pinata folders for genealogy assets
+- [ ] Document folder IDs in environment config
+- [ ] Create `/api/genealogy/images` upload endpoint
+- [ ] Add avatar display to person details panel
+- [ ] Add logo display to group details panel
+- [ ] Implement textured sphere for groups with logos
+- [ ] Upload test images for historical mestres
+- [ ] Upload test logos for major groups
+- [ ] Update seed script with Pinata URLs
 
 ---
 

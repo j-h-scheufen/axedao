@@ -38,6 +38,7 @@ export async function seedGenealogyPrototype() {
       apelido: 'Pastinha',
       title: 'mestre',
       style: 'angola',
+      // TODO: Add avatar after implementing image storage (Phase 5)
       birthYear: 1889,
       birthYearPrecision: 'year',
       birthPlace: 'Salvador, Bahia, Brazil',
@@ -60,6 +61,7 @@ export async function seedGenealogyPrototype() {
       apelido: 'Bimba',
       title: 'mestre',
       style: 'regional',
+      // TODO: Add avatar after implementing image storage (Phase 5)
       birthYear: 1899,
       birthYearPrecision: 'year',
       birthPlace: 'Salvador, Bahia, Brazil',
@@ -87,6 +89,7 @@ export async function seedGenealogyPrototype() {
       apelido: 'João Grande',
       title: 'mestre',
       style: 'angola',
+      // TODO: Add avatar after implementing image storage (Phase 5)
       birthYear: 1933,
       birthYearPrecision: 'exact',
       birthPlace: 'Itagi, Bahia, Brazil',
@@ -106,6 +109,7 @@ export async function seedGenealogyPrototype() {
       apelido: 'João Pequeno',
       title: 'mestre',
       style: 'angola',
+      // TODO: Add avatar after implementing image storage (Phase 5)
       birthYear: 1917,
       birthYearPrecision: 'year',
       birthPlace: 'Bahia, Brazil',
@@ -343,8 +347,9 @@ export async function seedGenealogyPrototype() {
   const [ceca] = await db
     .insert(groupProfiles)
     .values({
+      name: 'Centro Esportivo de Capoeira Angola',
       description:
-        'Centro Esportivo de Capoeira Angola - Founded by Mestre Pastinha in Salvador, Bahia. The birthplace of organized Capoeira Angola and source of the Pastinha lineage that dominates modern Angola tradition.',
+        'Founded by Mestre Pastinha in Salvador, Bahia. The birthplace of organized Capoeira Angola and source of the Pastinha lineage that dominates modern Angola tradition.',
       style: 'angola',
       foundedYear: 1941,
       foundedYearPrecision: 'year',
@@ -360,8 +365,9 @@ export async function seedGenealogyPrototype() {
   const [gcap] = await db
     .insert(groupProfiles)
     .values({
+      name: 'Grupo de Capoeira Angola Pelourinho',
       description:
-        'Grupo de Capoeira Angola Pelourinho - Founded by four co-founders (Moraes, Braga, Neco, Zé Carlos) in Rio de Janeiro in 1980. Led the revival of Capoeira Angola in the 1980s when the style was nearly extinct. Moved to Salvador in 1982 and established at Forte Santo Antônio Além do Carmo in 1983.',
+        'Founded by four co-founders (Moraes, Braga, Neco, Zé Carlos) in Rio de Janeiro in 1980. Led the revival of Capoeira Angola in the 1980s when the style was nearly extinct. Moved to Salvador in 1982 and established at Forte Santo Antônio Além do Carmo in 1983.',
       style: 'angola',
       foundedYear: 1980,
       foundedYearPrecision: 'year',
@@ -385,10 +391,12 @@ export async function seedGenealogyPrototype() {
   const [senzala] = await db
     .insert(groupProfiles)
     .values({
+      name: 'Grupo Senzala',
       description:
         'One of the most influential capoeira groups in history. Founded in Rio de Janeiro by the "Sete Mestres" (Seven Mestres) including the Flores brothers. Known for collaborative leadership model, open roda philosophy, and systematic teaching methodology. Source of many blessed splits including ABADÁ and Cordão de Ouro.',
       style: 'contemporanea',
       nameAliases: ['Senzala'],
+      // TODO: Add logo after implementing image storage (Phase 5)
       foundedYear: 1963,
       foundedYearPrecision: 'approximate',
       foundedLocation: 'Laranjeiras, Rio de Janeiro, Brazil',
@@ -412,10 +420,12 @@ export async function seedGenealogyPrototype() {
   const [abada] = await db
     .insert(groupProfiles)
     .values({
+      name: 'ABADÁ-Capoeira',
       description:
         "Associação Brasileira de Apoio e Desenvolvimento da Arte-Capoeira - The world's largest capoeira organization. Founded by brothers Mestre Camisa and Grão Mestre Camisa Roxa after a blessed departure from Grupo Senzala. Known for standardized graduation system and decentralized legal structure with cultural unity.",
       style: 'contemporanea',
       nameAliases: ['ABADÁ', 'Abada Capoeira'],
+      // TODO: Add logo after implementing image storage (Phase 5)
       foundedYear: 1988,
       foundedYearPrecision: 'year',
       foundedLocation: 'Rio de Janeiro, Brazil',
@@ -431,10 +441,12 @@ export async function seedGenealogyPrototype() {
   const [cordaoDeOuro] = await db
     .insert(groupProfiles)
     .values({
+      name: 'Cordão de Ouro',
       description:
         'Associação de Capoeira Cordão de Ouro - One of the oldest and most widespread international capoeira networks. Co-founded by Mestre Suassuna and Mestre Brasília. Known for formal certification system, registered trademark, and Academia Matriz model.',
       style: 'contemporanea',
       nameAliases: ['CDO', 'Golden Cord'],
+      // TODO: Add logo after implementing image storage (Phase 5)
       foundedYear: 1967,
       foundedYearPrecision: 'exact',
       foundedLocation: 'São Paulo, Brazil',
@@ -450,8 +462,9 @@ export async function seedGenealogyPrototype() {
   const [jgcac] = await db
     .insert(groupProfiles)
     .values({
+      name: 'Capoeira Angola Center of Mestre João Grande',
       description:
-        'Capoeira Angola Center of Mestre João Grande - Founded in NYC when Mestre João Grande settled permanently after successful US tour. First permanent Capoeira Angola school established by a 1st-generation Pastinha student in the United States. International network spanning 9 countries with 12+ locations.',
+        'Founded in NYC when Mestre João Grande settled permanently after successful US tour. First permanent Capoeira Angola school established by a 1st-generation Pastinha student in the United States. International network spanning 9 countries with 12+ locations.',
       style: 'angola',
       foundedYear: 1990,
       foundedYearPrecision: 'year',
@@ -480,8 +493,9 @@ export async function seedGenealogyPrototype() {
   const [icaf] = await db
     .insert(groupProfiles)
     .values({
+      name: 'International Capoeira Angola Foundation',
       description:
-        'International Capoeira Angola Foundation - Founded by Mestre Cobra Mansa, Mestre Jurandir, and Mestre Valmir after departing GCAP. Based in Washington D.C. with affiliate schools across USA, Brazil, Europe, Asia, and Africa.',
+        'Founded by Mestre Cobra Mansa, Mestre Jurandir, and Mestre Valmir after departing GCAP. Based in Washington D.C. with affiliate schools across USA, Brazil, Europe, Asia, and Africa.',
       style: 'angola',
       nameAliases: ['ICAF', 'FICA'],
       foundedYear: 1996,

@@ -126,6 +126,9 @@ export const groupProfiles = genealogySchema.table(
   {
     id: uuid('id').primaryKey().defaultRandom(),
 
+    // Identity (moved from groups)
+    name: varchar('name', { length: 255 }).notNull(),
+
     // Extended data (moved from groups)
     description: text('description'),
     style: genealogyStyleEnum('style'),
@@ -163,7 +166,11 @@ export const groupProfiles = genealogySchema.table(
       .defaultNow()
       .$onUpdate(() => new Date()),
   },
-  (t) => [index('group_profiles_style_idx').on(t.style), index('group_profiles_is_active_idx').on(t.isActive)]
+  (t) => [
+    index('group_profiles_name_idx').on(t.name),
+    index('group_profiles_style_idx').on(t.style),
+    index('group_profiles_is_active_idx').on(t.isActive),
+  ]
 );
 
 // ============================================================================

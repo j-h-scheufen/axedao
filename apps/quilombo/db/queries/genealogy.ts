@@ -451,6 +451,7 @@ export async function fetchGraphData(options?: { nodeTypes?: EntityType[]; predi
         type: 'person',
         metadata: {
           fullName: person.name,
+          apelido: person.apelido,
           title: person.title,
           style: person.style,
           birthYear: person.birthYear,
@@ -469,7 +470,7 @@ export async function fetchGraphData(options?: { nodeTypes?: EntityType[]; predi
       nodeIds.add(group.id);
       nodes.push({
         id: group.id,
-        name: group.description?.substring(0, 50) || 'Unknown Group',
+        name: group.name,
         type: 'group',
         metadata: {
           style: group.style,
