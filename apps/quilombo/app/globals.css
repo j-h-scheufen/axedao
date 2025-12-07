@@ -1,8 +1,18 @@
 @import "tailwindcss";
 
-@plugin '../config/heroui.mjs';
-
-@source '../../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+/*
+ * TAILWIND V4 + HEROUI CONFIGURATION
+ * ===================================
+ * Using HeroUI's recommended @plugin approach for Tailwind v4.
+ * See: https://www.heroui.com/docs/guide/tailwind-v4
+ *
+ * KNOWN ISSUE: On Vercel production builds, HeroUI's dark mode CSS variables
+ * and utilities get tree-shaken. We work around this with inline CSS below.
+ * See: docs/DARK_MODE_INVESTIGATION.md
+ */
+@plugin "../config/heroui.mjs";
+@source "../../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
+@custom-variant dark (&:is(.dark *));
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
@@ -16,6 +26,116 @@
   /* Default font for the application */
   :root {
     --font-sans: var(--font-open-sans);
+  }
+
+  /*
+   * WORKAROUND: Manually define .dark theme CSS variables
+   *
+   * The HeroUI plugin should generate these via addUtilities(), but on Vercel
+   * production builds they get stripped. This inline definition ensures dark
+   * mode works regardless of Tailwind's tree-shaking behavior.
+   *
+   * These values match HeroUI's default dark theme + our custom primary/secondary.
+   * See: docs/DARK_MODE_INVESTIGATION.md for full context.
+   */
+  .dark {
+    color-scheme: dark;
+    --heroui-background: 0 0% 0%;
+    --heroui-foreground: 210 5.56% 92.94%;
+    --heroui-foreground-50: 240 5.88% 10%;
+    --heroui-foreground-100: 240 3.7% 15.88%;
+    --heroui-foreground-200: 240 5.26% 26.08%;
+    --heroui-foreground-300: 240 5.2% 33.92%;
+    --heroui-foreground-400: 240 3.83% 46.08%;
+    --heroui-foreground-500: 240 5.03% 64.9%;
+    --heroui-foreground-600: 240 4.88% 83.92%;
+    --heroui-foreground-700: 240 5.88% 90%;
+    --heroui-foreground-800: 240 4.76% 95.88%;
+    --heroui-foreground-900: 0 0% 98.04%;
+    --heroui-divider: 0 0% 100%;
+    --heroui-focus: 212.02 100% 46.67%;
+    --heroui-overlay: 0 0% 0%;
+    --heroui-content1: 240 5.88% 10%;
+    --heroui-content1-foreground: 0 0% 98.04%;
+    --heroui-content2: 240 3.7% 15.88%;
+    --heroui-content2-foreground: 240 4.76% 95.88%;
+    --heroui-content3: 240 5.26% 26.08%;
+    --heroui-content3-foreground: 240 5.88% 90%;
+    --heroui-content4: 240 5.2% 33.92%;
+    --heroui-content4-foreground: 240 4.88% 83.92%;
+    --heroui-default: 240 5.26% 26.08%;
+    --heroui-default-foreground: 0 0% 100%;
+    --heroui-default-50: 240 5.88% 10%;
+    --heroui-default-100: 240 3.7% 15.88%;
+    --heroui-default-200: 240 5.26% 26.08%;
+    --heroui-default-300: 240 5.2% 33.92%;
+    --heroui-default-400: 240 3.83% 46.08%;
+    --heroui-default-500: 240 5.03% 64.9%;
+    --heroui-default-600: 240 4.88% 83.92%;
+    --heroui-default-700: 240 5.88% 90%;
+    --heroui-default-800: 240 4.76% 95.88%;
+    --heroui-default-900: 0 0% 98.04%;
+    /* Custom primary (green) */
+    --heroui-primary: 90.97 75% 48.63%;
+    --heroui-primary-foreground: 0 0% 0%;
+    --heroui-primary-50: 90.87 90.79% 29.8%;
+    --heroui-primary-100: 91.09 84.05% 31.96%;
+    --heroui-primary-200: 91.08 75.96% 35.88%;
+    --heroui-primary-300: 91.08 66.51% 40.98%;
+    --heroui-primary-400: 91.08 60.17% 45.29%;
+    --heroui-primary-500: 91.06 55.29% 50%;
+    --heroui-primary-600: 91.06 64.38% 57.06%;
+    --heroui-primary-700: 90.92 72.22% 64.71%;
+    --heroui-primary-800: 90.8 80.14% 72.35%;
+    --heroui-primary-900: 90.79 88.37% 83.14%;
+    /* Custom secondary (brown) */
+    --heroui-secondary: 29.23 31.45% 51.37%;
+    --heroui-secondary-foreground: 0 0% 0%;
+    --heroui-secondary-50: 30 31.25% 6.27%;
+    --heroui-secondary-100: 31.58 29.23% 12.75%;
+    --heroui-secondary-200: 29.23 29.77% 25.69%;
+    --heroui-secondary-300: 29.55 29.26% 44.9%;
+    --heroui-secondary-400: 29.23 31.45% 51.37%;
+    --heroui-secondary-500: 29.66 40.47% 57.84%;
+    --heroui-secondary-600: 29.66 52.73% 67.65%;
+    --heroui-secondary-700: 30 53.12% 74.9%;
+    --heroui-secondary-800: 29.39 53.85% 82.16%;
+    --heroui-secondary-900: 28.97 52.73% 89.22%;
+    /* Status colors */
+    --heroui-success: 145.96 79.46% 43.92%;
+    --heroui-success-foreground: 0 0% 0%;
+    --heroui-warning: 37.03 91.27% 55.1%;
+    --heroui-warning-foreground: 0 0% 0%;
+    --heroui-danger: 339.2 90.36% 51.18%;
+    --heroui-danger-foreground: 0 0% 100%;
+    /* Layout variables */
+    --heroui-divider-weight: 1px;
+    --heroui-disabled-opacity: 0.5;
+    --heroui-hover-opacity: 0.8;
+    --heroui-radius-small: 8px;
+    --heroui-radius-medium: 12px;
+    --heroui-radius-large: 14px;
+    --heroui-border-width-small: 1px;
+    --heroui-border-width-medium: 2px;
+    --heroui-border-width-large: 3px;
+    --heroui-box-shadow-small: 0px 0px 5px 0px rgba(0, 0, 0, 0.05), 0px 2px 10px 0px rgba(0, 0, 0, 0.2), inset 0px 0px 1px 0px rgba(255, 255, 255, 0.15);
+    --heroui-box-shadow-medium: 0px 0px 15px 0px rgba(0, 0, 0, 0.06), 0px 2px 30px 0px rgba(0, 0, 0, 0.22), inset 0px 0px 1px 0px rgba(255, 255, 255, 0.15);
+    --heroui-box-shadow-large: 0px 0px 30px 0px rgba(0, 0, 0, 0.07), 0px 30px 60px 0px rgba(0, 0, 0, 0.26), inset 0px 0px 1px 0px rgba(255, 255, 255, 0.15);
+  }
+
+  /*
+   * WORKAROUND: Navbar dark mode background
+   *
+   * HeroUI Navbar uses dark:bg-background/20 for the blurred navbar effect,
+   * but Vercel's Tailwind build doesn't generate this utility even with
+   * @source inline() safelist. We define it manually here.
+   *
+   * Using !important to override HeroUI's default bg-background/70.
+   *
+   * See: docs/DARK_MODE_INVESTIGATION.md
+   */
+  .dark .navbar-dark-bg {
+    background-color: hsl(var(--heroui-background) / 0.2) !important;
   }
 
   *,
@@ -40,6 +160,7 @@
 }
 
 @layer components {
+
   .link {
     &:hover {
       color: var(--color-primary);

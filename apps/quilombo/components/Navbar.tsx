@@ -61,6 +61,10 @@ const Navbar: React.FC = () => {
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
         classNames={{
+          // WORKAROUND: HeroUI Navbar doesn't output dark:bg-background/20 on Vercel builds
+          // We use a custom CSS class defined in globals.css instead
+          // See: docs/DARK_MODE_INVESTIGATION.md
+          base: ['navbar-dark-bg'],
           item: ['data-[active=true]:text-primary-400', 'data-[active=true]:dark:text-primary'],
           menuItem: ['data-[active=true]:text-primary-400', 'data-[active=true]:dark:text-primary'],
         }}

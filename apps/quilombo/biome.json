@@ -2,6 +2,6 @@
   "root": false,
   "extends": "//",
   "files": {
-    "includes": ["**", "!**/db/migrations/**/*", "!**/generated/**/*"]
+    "includes": ["**", "!**/db/migrations/**/*", "!**/generated/**/*", "!**/.next/**/*"]
   }
 }

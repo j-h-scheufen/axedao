@@ -3,12 +3,13 @@
 import { useState, useEffect } from 'react';
 
 const useScreenSize = () => {
+  // Use consistent default values for SSR to avoid hydration mismatch
   const [screenSize, setScreenSize] = useState<{
     width: number;
     height: number;
   }>({
-    width: typeof window !== 'undefined' ? window.innerWidth : 390,
-    height: typeof window !== 'undefined' ? window.innerHeight : 844,
+    width: 390,
+    height: 844,
   });
 
   useEffect(() => {
@@ -19,6 +20,7 @@ const useScreenSize = () => {
       });
     };
 
+    // Set actual size on mount
     handleResize();
     window.addEventListener('resize', handleResize);
 
