@@ -120,13 +120,15 @@ Some migrations are manually generated for features Drizzle doesn't support (fun
 
 Atlas is the migration management system that uses Drizzle ORM schema as the source of truth but provides enhanced safety, linting, and reliability features.
 
-#### Why Atlas?
-
-- **Idempotent by default**: Migrations include proper IF NOT EXISTS checks
-- **Safety linting**: Detects destructive changes, data loss risks, and backward incompatibilities
-- **Preview capabilities**: See exact SQL before applying migrations (dry-run mode)
-- **Better failure handling**: Tracks partial failures and provides clear recovery paths
-- **Migration integrity**: `atlas.sum` file prevents tampering with migration history
+**CRITICAL - Supabase Atlas Setup:**
+- Atlas stores migration revision tracking in a dedicated schema
+- The `atlas_schema_revisions` schema **MUST** be first in the search_path for Supabase databases
+- **Required for staging/production**:
+  ```sql
+  ALTER ROLE postgres SET search_path = atlas_schema_revisions, "$user", public, extensions, gis;
+  ```
+- Without this, Atlas will create the revisions table in the wrong schema and migrations will fail
+- This is due to Supabase's role-level search_path taking precedence over connection string parameters
 
 #### Migration Workflow
 

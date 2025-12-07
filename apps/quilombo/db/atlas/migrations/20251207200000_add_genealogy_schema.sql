@@ -192,3 +192,16 @@ ALTER TABLE "public"."groups" ADD COLUMN "profile_id" uuid NULL;
 ALTER TABLE "public"."groups" ADD CONSTRAINT "groups_profile_id_group_profiles_id_fk"
   FOREIGN KEY ("profile_id") REFERENCES "genealogy"."group_profiles" ("id") ON UPDATE NO ACTION ON DELETE SET NULL;
 CREATE INDEX "groups_profile_id_idx" ON "public"."groups" ("profile_id");
+
+-- ============================================================================
+-- UPDATE PUBLIC SCHEMA STYLE ENUM
+-- ============================================================================
+-- Recreate public.style enum with ASCII values (no diacritics) and add 'mixed'
+-- This ensures consistency between public and genealogy schemas
+
+-- Drop and recreate public.style enum
+DROP TYPE IF EXISTS "public"."style" CASCADE;
+CREATE TYPE "public"."style" AS ENUM ('angola', 'regional', 'contemporanea', 'mixed');
+
+-- Recreate the groups.style column that was dropped by CASCADE
+ALTER TABLE "public"."groups" ADD COLUMN "style" "public"."style";
