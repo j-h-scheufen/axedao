@@ -3,6 +3,7 @@ import { type NextRequest, NextResponse } from 'next/server';
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import { type GenealogyGroupSearchParams, genealogyGroupSearchParamsSchema } from '@/config/validation-schema';
 import { searchGroupProfiles } from '@/db';
+import { applyRateLimit, createRateLimitHeaders } from '@/utils/rate-limit';
 
 /**
  * @openapi
@@ -70,6 +71,17 @@ import { searchGroupProfiles } from '@/db';
  *               properties:
  *                 error:
  *                   type: string
+ *       429:
+ *         description: Too many requests - rate limit exceeded
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                 retryAfter:
+ *                   type: number
  *       500:
  *         description: Server error
  *         content:
@@ -81,6 +93,14 @@ import { searchGroupProfiles } from '@/db';
  *                   type: string
  */
 export async function POST(request: NextRequest) {
+  // Rate limit: 30 requests per minute
+  const RATE_LIMIT_MAX = 30;
+  const { response: rateLimitResponse, result: rateLimitResult } = applyRateLimit(request, {
+    maxRequests: RATE_LIMIT_MAX,
+    windowMs: 60 * 1000,
+  });
+  if (rateLimitResponse) return rateLimitResponse;
+
   try {
     const body = await request.json();
 
@@ -113,11 +133,14 @@ export async function POST(request: NextRequest) {
       nextOffset = offset + pageSize;
     }
 
-    return Response.json({
-      data: searchResults.rows,
-      totalCount: searchResults.totalCount,
-      nextOffset,
-    });
+    return Response.json(
+      {
+        data: searchResults.rows,
+        totalCount: searchResults.totalCount,
+        nextOffset,
+      },
+      { headers: createRateLimitHeaders(rateLimitResult, RATE_LIMIT_MAX) }
+    );
   } catch (error) {
     console.error('Error searching group profiles:', error);
     return NextResponse.json({ error: 'Failed to search group profiles' }, { status: 500 });

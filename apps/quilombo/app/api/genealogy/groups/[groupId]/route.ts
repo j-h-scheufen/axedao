@@ -1,6 +1,7 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { fetchGroupProfile, fetchStatementsByEntity } from '@/db';
+import { applyRateLimit, createRateLimitHeaders } from '@/utils/rate-limit';
 
 /**
  * @openapi
@@ -54,6 +55,17 @@ import { fetchGroupProfile, fetchStatementsByEntity } from '@/db';
  *               properties:
  *                 error:
  *                   type: string
+ *       429:
+ *         description: Too many requests - rate limit exceeded
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                 retryAfter:
+ *                   type: number
  *       500:
  *         description: Server error
  *         content:
@@ -65,6 +77,14 @@ import { fetchGroupProfile, fetchStatementsByEntity } from '@/db';
  *                   type: string
  */
 export async function GET(request: NextRequest, { params }: { params: Promise<{ groupId: string }> }) {
+  // Rate limit: 60 requests per minute
+  const RATE_LIMIT_MAX = 60;
+  const { response: rateLimitResponse, result: rateLimitResult } = applyRateLimit(request, {
+    maxRequests: RATE_LIMIT_MAX,
+    windowMs: 60 * 1000,
+  });
+  if (rateLimitResponse) return rateLimitResponse;
+
   try {
     const { groupId } = await params;
     const { searchParams } = new URL(request.url);
@@ -76,12 +96,14 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       return NextResponse.json({ error: 'Group profile not found' }, { status: 404 });
     }
 
+    const headers = createRateLimitHeaders(rateLimitResult, RATE_LIMIT_MAX);
+
     if (includeRelationships) {
       const relationships = await fetchStatementsByEntity('group', groupId);
-      return Response.json({ data: group, relationships });
+      return Response.json({ data: group, relationships }, { headers });
     }
 
-    return Response.json({ data: group });
+    return Response.json({ data: group }, { headers });
   } catch (error) {
     console.error('Error fetching group profile:', error);
     return NextResponse.json({ error: 'Failed to fetch group profile' }, { status: 500 });

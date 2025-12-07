@@ -3,6 +3,7 @@ import { type NextRequest, NextResponse } from 'next/server';
 import { entityTypes, predicates } from '@/config/constants';
 import { fetchGraphData } from '@/db';
 import type { EntityType, Predicate } from '@/db/schema/genealogy';
+import { applyRateLimit, createRateLimitHeaders } from '@/utils/rate-limit';
 
 /**
  * @openapi
@@ -82,6 +83,17 @@ import type { EntityType, Predicate } from '@/db/schema/genealogy';
  *               properties:
  *                 error:
  *                   type: string
+ *       429:
+ *         description: Too many requests - rate limit exceeded
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                 retryAfter:
+ *                   type: number
  *       500:
  *         description: Server error
  *         content:
@@ -93,6 +105,14 @@ import type { EntityType, Predicate } from '@/db/schema/genealogy';
  *                   type: string
  */
 export async function GET(request: NextRequest) {
+  // Rate limit: 20 requests per minute (graph query is expensive)
+  const RATE_LIMIT_MAX = 20;
+  const { response: rateLimitResponse, result: rateLimitResult } = applyRateLimit(request, {
+    maxRequests: RATE_LIMIT_MAX,
+    windowMs: 60 * 1000,
+  });
+  if (rateLimitResponse) return rateLimitResponse;
+
   try {
     const { searchParams } = new URL(request.url);
 
@@ -135,7 +155,9 @@ export async function GET(request: NextRequest) {
       predicates: predicateFilter,
     });
 
-    return Response.json(graphData);
+    return Response.json(graphData, {
+      headers: createRateLimitHeaders(rateLimitResult, RATE_LIMIT_MAX),
+    });
   } catch (error) {
     console.error('Error fetching graph data:', error);
     return NextResponse.json({ error: 'Failed to fetch graph data' }, { status: 500 });

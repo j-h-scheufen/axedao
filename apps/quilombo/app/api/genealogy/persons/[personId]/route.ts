@@ -1,6 +1,7 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { fetchPersonProfile, fetchStatementsByEntity } from '@/db';
+import { applyRateLimit, createRateLimitHeaders } from '@/utils/rate-limit';
 
 /**
  * @openapi
@@ -54,6 +55,17 @@ import { fetchPersonProfile, fetchStatementsByEntity } from '@/db';
  *               properties:
  *                 error:
  *                   type: string
+ *       429:
+ *         description: Too many requests - rate limit exceeded
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                 retryAfter:
+ *                   type: number
  *       500:
  *         description: Server error
  *         content:
@@ -65,6 +77,14 @@ import { fetchPersonProfile, fetchStatementsByEntity } from '@/db';
  *                   type: string
  */
 export async function GET(request: NextRequest, { params }: { params: Promise<{ personId: string }> }) {
+  // Rate limit: 60 requests per minute
+  const RATE_LIMIT_MAX = 60;
+  const { response: rateLimitResponse, result: rateLimitResult } = applyRateLimit(request, {
+    maxRequests: RATE_LIMIT_MAX,
+    windowMs: 60 * 1000,
+  });
+  if (rateLimitResponse) return rateLimitResponse;
+
   try {
     const { personId } = await params;
     const { searchParams } = new URL(request.url);
@@ -76,12 +96,14 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       return NextResponse.json({ error: 'Person profile not found' }, { status: 404 });
     }
 
+    const headers = createRateLimitHeaders(rateLimitResult, RATE_LIMIT_MAX);
+
     if (includeRelationships) {
       const relationships = await fetchStatementsByEntity('person', personId);
-      return Response.json({ data: person, relationships });
+      return Response.json({ data: person, relationships }, { headers });
     }
 
-    return Response.json({ data: person });
+    return Response.json({ data: person }, { headers });
   } catch (error) {
     console.error('Error fetching person profile:', error);
     return NextResponse.json({ error: 'Failed to fetch person profile' }, { status: 500 });

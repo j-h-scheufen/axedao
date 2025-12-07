@@ -3,6 +3,7 @@ import { type NextRequest, NextResponse } from 'next/server';
 import { entityTypes } from '@/config/constants';
 import { fetchStatementsByEntity } from '@/db';
 import type { EntityType } from '@/db/schema/genealogy';
+import { applyRateLimit, createRateLimitHeaders } from '@/utils/rate-limit';
 
 /**
  * @openapi
@@ -54,6 +55,17 @@ import type { EntityType } from '@/db/schema/genealogy';
  *               properties:
  *                 error:
  *                   type: string
+ *       429:
+ *         description: Too many requests - rate limit exceeded
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                 retryAfter:
+ *                   type: number
  *       500:
  *         description: Server error
  *         content:
@@ -65,9 +77,17 @@ import type { EntityType } from '@/db/schema/genealogy';
  *                   type: string
  */
 export async function GET(
-  _request: NextRequest,
+  request: NextRequest,
   { params }: { params: Promise<{ entityType: string; entityId: string }> }
 ) {
+  // Rate limit: 60 requests per minute
+  const RATE_LIMIT_MAX = 60;
+  const { response: rateLimitResponse, result: rateLimitResult } = applyRateLimit(request, {
+    maxRequests: RATE_LIMIT_MAX,
+    windowMs: 60 * 1000,
+  });
+  if (rateLimitResponse) return rateLimitResponse;
+
   try {
     const { entityType, entityId } = await params;
 
@@ -81,7 +101,9 @@ export async function GET(
 
     const relationships = await fetchStatementsByEntity(entityType as EntityType, entityId);
 
-    return Response.json(relationships);
+    return Response.json(relationships, {
+      headers: createRateLimitHeaders(rateLimitResult, RATE_LIMIT_MAX),
+    });
   } catch (error) {
     console.error('Error fetching relationships:', error);
     return NextResponse.json({ error: 'Failed to fetch relationships' }, { status: 500 });
