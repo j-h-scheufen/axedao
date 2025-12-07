@@ -1,11 +1,28 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ForceGraph3D, { type ForceGraphMethods } from 'react-force-graph-3d';
 import * as THREE from 'three';
+import { forceRadial } from 'd3-force-3d';
 
 import type { GraphData, GraphLink, GraphNode, GroupMetadata, PersonMetadata } from '../types';
 import { LINK_COLORS, NODE_COLORS, PREDICATE_LABELS } from '../types';
+
+/** Visual indicator opacity for nodes without known dates */
+const UNKNOWN_DATE_OPACITY = 0.6;
+
+// ============================================================================
+// RADIAL TEMPORAL LAYOUT CONSTANTS
+// ============================================================================
+
+/** Center year for the radial layout (oldest mestres) */
+const CENTER_YEAR = 1890;
+
+/** Distance units per decade from center */
+const DECADE_RADIUS = 100;
+
+/** Year to use for nodes without temporal data (outer shell) */
+const UNKNOWN_YEAR_RADIUS = 2010;
 
 interface GenealogyGraphProps {
   data: GraphData;
@@ -27,6 +44,8 @@ interface InternalNode extends GraphNode {
   fx?: number;
   fy?: number;
   fz?: number;
+  /** Whether this node has known temporal data */
+  hasTemporalData?: boolean;
 }
 
 interface InternalLink extends Omit<GraphLink, 'source' | 'target'> {
@@ -132,6 +151,87 @@ function getNodeLabel(node: GraphNode): string {
   return node.name;
 }
 
+// ============================================================================
+// TEMPORAL POSITIONING HELPERS
+// ============================================================================
+
+/**
+ * Get the temporal year for a node (birthYear for persons, foundedYear for groups).
+ * Returns null if no temporal data is available.
+ */
+function getNodeYear(node: GraphNode): number | null {
+  if (node.type === 'person') {
+    const metadata = node.metadata as PersonMetadata;
+    return metadata.birthYear ?? null;
+  }
+  if (node.type === 'group') {
+    const metadata = node.metadata as GroupMetadata;
+    return metadata.foundedYear ?? null;
+  }
+  return null;
+}
+
+/**
+ * Compute spherical coordinates for radial temporal layout.
+ * Oldest mestres at center, each decade expands outward as a spherical shell.
+ */
+function computeRadialPosition(year: number | null): { x: number; y: number; z: number; radius: number } {
+  const effectiveYear = year ?? UNKNOWN_YEAR_RADIUS;
+  const decadesFromCenter = (effectiveYear - CENTER_YEAR) / 10;
+  const radius = Math.max(10, decadesFromCenter * DECADE_RADIUS); // Minimum radius of 10
+
+  // Random spherical distribution for initial position
+  // theta = azimuthal angle (0 to 2π), phi = polar angle (0 to π)
+  const theta = Math.random() * 2 * Math.PI;
+  const phi = Math.acos(2 * Math.random() - 1); // Uniform distribution on sphere
+
+  return {
+    x: radius * Math.sin(phi) * Math.cos(theta),
+    y: radius * Math.sin(phi) * Math.sin(theta),
+    z: radius * Math.cos(phi),
+    radius,
+  };
+}
+
+/**
+ * Pre-process graph data for radial temporal layout.
+ * - Filters to persons only (no groups)
+ * - Filters to student_of relationships only
+ * - Positions nodes on spherical shells by birth decade
+ */
+function processGraphDataForRadialLayout(data: GraphData): InternalGraphData {
+  // Filter to persons only
+  const personNodes = data.nodes.filter((node) => node.type === 'person');
+
+  // Filter to student_of links only (and only between persons)
+  const personIds = new Set(personNodes.map((n) => n.id));
+  const studentOfLinks = data.links.filter(
+    (link) =>
+      (link.type === 'student_of' || link.type === 'trained_under') &&
+      personIds.has(link.source) &&
+      personIds.has(link.target)
+  );
+
+  // Process nodes with radial positions
+  const processedNodes: InternalNode[] = personNodes.map((node) => {
+    const year = getNodeYear(node);
+    const pos = computeRadialPosition(year);
+
+    return {
+      ...node,
+      x: pos.x,
+      y: pos.y,
+      z: pos.z,
+      hasTemporalData: year !== null,
+    };
+  });
+
+  return {
+    nodes: processedNodes,
+    links: studentOfLinks as InternalLink[],
+  };
+}
+
 /**
  * 3D Force-directed graph visualization for genealogy data.
  */
@@ -168,6 +268,55 @@ export function GenealogyGraph({
     window.addEventListener('resize', updateDimensions);
     return () => window.removeEventListener('resize', updateDimensions);
   }, [width, height]);
+
+  // Process graph data for radial temporal layout (persons + student_of only)
+  const graphData = useMemo(() => processGraphDataForRadialLayout(data), [data]);
+
+  // Apply radial force to keep nodes at their temporal shell
+  useEffect(() => {
+    if (!graphRef.current) return;
+
+    // Create radial force that pulls nodes toward their birth-year shell
+    // biome-ignore lint/suspicious/noExplicitAny: d3-force types don't align with react-force-graph internal types
+    const radialForce = forceRadial<any>()
+      .radius((node: InternalNode) => {
+        const year = getNodeYear(node);
+        const effectiveYear = year ?? UNKNOWN_YEAR_RADIUS;
+        const decadesFromCenter = (effectiveYear - CENTER_YEAR) / 10;
+        return Math.max(10, decadesFromCenter * DECADE_RADIUS);
+      })
+      .strength(0.8); // Strong pull to maintain spherical shells
+
+    // biome-ignore lint/suspicious/noExplicitAny: d3-force types don't align with react-force-graph internal types
+    graphRef.current.d3Force('radial', radialForce as any);
+
+    // Weaken the centering force so radial force dominates
+    const centerForce = graphRef.current.d3Force('center');
+    if (centerForce) {
+      // biome-ignore lint/suspicious/noExplicitAny: d3-force types don't align with react-force-graph internal types
+      (centerForce as any).strength?.(0.01);
+    }
+
+    // Adjust charge to spread nodes on their shells
+    const chargeForce = graphRef.current.d3Force('charge');
+    if (chargeForce) {
+      // biome-ignore lint/suspicious/noExplicitAny: d3-force types don't align with react-force-graph internal types
+      (chargeForce as any).strength(-50);
+    }
+
+    graphRef.current.d3ReheatSimulation();
+  }, []);
+
+  // Zoom to fit graph after initial load
+  useEffect(() => {
+    if (!graphRef.current) return;
+
+    const timer = setTimeout(() => {
+      graphRef.current?.zoomToFit(1000, 50);
+    }, 800);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   // Center camera on clicked node - maintain current viewing angle, just reposition
   const handleNodeClick = useCallback(
@@ -224,16 +373,18 @@ export function GenealogyGraph({
       const color = getNodeColor(node);
       const isSelected = node.id === selectedNodeId;
       const sphereRadius = node.type === 'group' ? 6 : 4;
+      const hasTemporalData = node.hasTemporalData !== false; // Default to true if undefined
 
       // Create a group to hold sphere and label
       const group = new THREE.Group();
 
-      // Create sphere
+      // Create sphere - reduce opacity for nodes without temporal data
       const geometry = new THREE.SphereGeometry(sphereRadius, 16, 16);
+      const baseOpacity = hasTemporalData ? 0.85 : UNKNOWN_DATE_OPACITY;
       const material = new THREE.MeshLambertMaterial({
         color: color,
         transparent: true,
-        opacity: isSelected ? 1.0 : 0.85,
+        opacity: isSelected ? 1.0 : baseOpacity,
       });
       const sphere = new THREE.Mesh(geometry, material);
 
@@ -246,6 +397,19 @@ export function GenealogyGraph({
         });
         const glowSphere = new THREE.Mesh(new THREE.SphereGeometry(sphereRadius * 1.3, 16, 16), glowMaterial);
         group.add(glowSphere);
+      }
+
+      // Add dashed ring indicator for nodes without temporal data
+      if (!hasTemporalData) {
+        const ringGeometry = new THREE.RingGeometry(sphereRadius * 1.4, sphereRadius * 1.6, 16);
+        const ringMaterial = new THREE.MeshBasicMaterial({
+          color: 0xffffff,
+          transparent: true,
+          opacity: 0.4,
+          side: THREE.DoubleSide,
+        });
+        const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+        group.add(ring);
       }
 
       group.add(sphere);
@@ -286,12 +450,6 @@ export function GenealogyGraph({
     },
     []
   );
-
-  // Transform data to internal format
-  const graphData: InternalGraphData = {
-    nodes: data.nodes as InternalNode[],
-    links: data.links as InternalLink[],
-  };
 
   return (
     <div ref={containerRef} className="h-full w-full" style={{ minHeight: 400 }}>
