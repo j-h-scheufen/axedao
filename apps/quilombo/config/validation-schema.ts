@@ -3,13 +3,16 @@ import { array, boolean, type InferType, mixed, number, object, string, ref } fr
 import type { Feature, Geometry, GeoJsonProperties } from 'geojson';
 
 import {
+  confidenceLevels,
+  entityTypes,
+  eventTypes,
+  invitationTypes,
   linkTypes,
+  MAX_IMAGE_UPLOAD_SIZE_MB,
+  predicates,
   styles,
   titles,
-  eventTypes,
   validFileExtensions,
-  MAX_IMAGE_UPLOAD_SIZE_MB,
-  invitationTypes,
 } from './constants';
 
 // ISO 8601 validation regex
@@ -472,3 +475,75 @@ export const verifyGroupFormSchema = object({
 
 export type ClaimGroupForm = InferType<typeof claimGroupFormSchema>;
 export type VerifyGroupForm = InferType<typeof verifyGroupFormSchema>;
+
+// ========================================
+// GENEALOGY SEARCH SCHEMAS
+// ========================================
+
+/**
+ * Person profile search filters
+ */
+export const genealogyPersonFiltersSchema = object({
+  style: string().oneOf(styles, 'Invalid style').optional(),
+  title: string().oneOf(titles, 'Invalid title').optional(),
+  includeDeceased: boolean().optional(),
+});
+
+export type GenealogyPersonFilters = InferType<typeof genealogyPersonFiltersSchema>;
+
+/**
+ * Person profile search params with filters
+ */
+export const genealogyPersonSearchParamsSchema = baseSearchParamsSchema.concat(
+  object({
+    filters: genealogyPersonFiltersSchema.optional(),
+  })
+);
+
+export type GenealogyPersonSearchParams = InferType<typeof genealogyPersonSearchParamsSchema>;
+
+/**
+ * Group profile search filters
+ */
+export const genealogyGroupFiltersSchema = object({
+  style: string().oneOf(styles, 'Invalid style').optional(),
+  isActive: boolean().optional(),
+});
+
+export type GenealogyGroupFilters = InferType<typeof genealogyGroupFiltersSchema>;
+
+/**
+ * Group profile search params with filters
+ */
+export const genealogyGroupSearchParamsSchema = baseSearchParamsSchema.concat(
+  object({
+    filters: genealogyGroupFiltersSchema.optional(),
+  })
+);
+
+export type GenealogyGroupSearchParams = InferType<typeof genealogyGroupSearchParamsSchema>;
+
+/**
+ * Entity type validation for genealogy
+ */
+export const genealogyEntityTypeSchema = string().oneOf(entityTypes, 'Invalid entity type').required();
+
+/**
+ * Relationships query params
+ */
+export const genealogyRelationshipsParamsSchema = object({
+  predicates: array().of(string().oneOf(predicates, 'Invalid predicate')).optional(),
+  confidence: array().of(string().oneOf(confidenceLevels, 'Invalid confidence level')).optional(),
+});
+
+export type GenealogyRelationshipsParams = InferType<typeof genealogyRelationshipsParamsSchema>;
+
+/**
+ * Graph data query params
+ */
+export const genealogyGraphParamsSchema = object({
+  nodeTypes: array().of(string().oneOf(entityTypes, 'Invalid entity type')).optional(),
+  predicates: array().of(string().oneOf(predicates, 'Invalid predicate')).optional(),
+});
+
+export type GenealogyGraphParams = InferType<typeof genealogyGraphParamsSchema>;

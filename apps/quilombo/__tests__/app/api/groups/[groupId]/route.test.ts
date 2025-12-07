@@ -284,7 +284,7 @@ describe('GET/PATCH/DELETE /api/groups/[groupId]', () => {
       });
 
       it('should accept all valid styles', async () => {
-        const validStyles = ['angola', 'regional', 'contemporânea'];
+        const validStyles = ['angola', 'regional', 'contemporanea'];
 
         for (const style of validStyles) {
           const request = createMockRequest(`http://localhost/api/groups/${testGroupId}`, {

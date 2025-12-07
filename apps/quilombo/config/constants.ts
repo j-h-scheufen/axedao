@@ -34,7 +34,7 @@ export const TitleEnum = titles.reduce<Record<string, number>>((acc, title, inde
   return acc;
 }, {});
 
-export const styles = ['angola', 'regional', 'contemporânea'] as const;
+export const styles = ['angola', 'regional', 'contemporanea', 'mixed'] as const;
 
 export const linkTypes = ['website', 'twitter', 'facebook', 'instagram', 'linkedin'] as const;
 
@@ -102,6 +102,74 @@ export const invitationStatuses = ['pending', 'accepted', 'expired'] as const;
 
 // Group claim statuses
 export const groupClaimStatuses = ['pending', 'approved', 'rejected'] as const;
+
+// ============================================================================
+// GENEALOGY SCHEMA CONSTANTS
+// ============================================================================
+
+// Entity types for statements (who can be subjects/objects)
+export const entityTypes = ['person', 'group'] as const;
+
+// Date precision for historical data with uncertainty
+export const datePrecisions = ['exact', 'month', 'year', 'decade', 'approximate', 'unknown'] as const;
+
+// Confidence levels for statement verification
+export const confidenceLevels = ['verified', 'likely', 'unverified', 'disputed', 'uncertain'] as const;
+
+// Legal structure types for groups
+export const legalStructures = [
+  'for_profit',
+  'non_profit',
+  'nonprofit_501c3',
+  'association_ev',
+  'association_loi1901',
+  'informal',
+  'mixed',
+] as const;
+
+// Relationship predicates (19 total)
+// Direction convention: predicates flow from "younger/newer" to "older/established"
+// (student → mestre, child → parent, new group → predecessor)
+//
+// Person-to-Person: Training & Lineage (3)
+// Person-to-Person: Recognition (2)
+// Person-to-Person: Family (1)
+// Person-to-Group: Founding & Leadership (4)
+// Person-to-Group: Membership & Affiliation (5)
+// Group-to-Group: Hierarchical (1)
+// Group-to-Group: Evolution (3)
+// Group-to-Group: Affiliation (2)
+export const predicates = [
+  // Person-to-Person: Training & Lineage (3)
+  'student_of',
+  'trained_under',
+  'influenced_by',
+  // Person-to-Person: Recognition (2)
+  'granted_title_to',
+  'baptized_by', // Person was baptized BY mestre (received apelido from)
+  // Person-to-Person: Family (1)
+  'family_of',
+  // Person-to-Group: Founding & Leadership (4)
+  'founded',
+  'co_founded',
+  'leads',
+  'regional_coordinator_of',
+  // Person-to-Group: Membership & Affiliation (5)
+  'member_of',
+  'teaches_at',
+  'cultural_pioneer_of',
+  'associated_with',
+  'departed_from',
+  // Group-to-Group: Hierarchical (1)
+  'part_of',
+  // Group-to-Group: Evolution (3)
+  'split_from_group',
+  'merged_into',
+  'evolved_from',
+  // Group-to-Group: Affiliation (2)
+  'affiliated_with',
+  'cooperates_with',
+] as const;
 
 // Group verification cooldown period (in milliseconds)
 // Groups can only be verified once every 30 days

@@ -5,6 +5,7 @@ import type {
   invitationTypes,
   invitationStatuses,
   accountStatuses,
+  styles,
   SEARCH_PARAM_KEYS,
 } from '@/config/constants';
 import type { SelectGroup, SelectUser, SelectGroupLocation, SelectEvent, SelectInvitation } from '../db/schema';
@@ -46,6 +47,8 @@ export type InvitationType = (typeof invitationTypes)[number];
 export type InvitationStatus = (typeof invitationStatuses)[number];
 
 export type AccountStatus = (typeof accountStatuses)[number];
+
+export type Style = (typeof styles)[number];
 
 export type SearchParamKey = keyof typeof SEARCH_PARAM_KEYS;
 

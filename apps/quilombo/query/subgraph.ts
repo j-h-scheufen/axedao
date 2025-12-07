@@ -73,13 +73,13 @@ const fetchProposals = async (): Promise<Proposal[]> => {
     const isCancelled = data.cancelProposals.some((cp: any) => cp.proposal === p.proposal);
 
     const proposal = {
-      id: parseInt(p.proposal.toString()),
+      id: parseInt(p.proposal.toString(), 10),
       proposalDataHash: p.proposalDataHash.toString() as `0x${string}`,
-      votingPeriod: parseInt(p.votingPeriod.toString()),
-      expiration: parseInt(p.expiration.toString()),
+      votingPeriod: parseInt(p.votingPeriod.toString(), 10),
+      expiration: parseInt(p.expiration.toString(), 10),
       details: p.details,
       status: calculateStatus(p, processResult, isCancelled, yesVotes, noVotes),
-      timestamp: parseInt(p.timestamp.toString()),
+      timestamp: parseInt(p.timestamp.toString(), 10),
     };
     return proposal;
   });

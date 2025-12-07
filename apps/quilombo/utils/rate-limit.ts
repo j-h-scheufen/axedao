@@ -113,3 +113,67 @@ export function getClientIp(request: Request): string {
 
   return 'unknown';
 }
+
+/**
+ * Creates rate limit headers for HTTP responses
+ * @param result - Rate limit result from rateLimit()
+ * @param maxRequests - Maximum requests for the X-RateLimit-Limit header
+ * @returns Headers object
+ */
+export function createRateLimitHeaders(result: RateLimitResult, maxRequests: number): HeadersInit {
+  const headers: HeadersInit = {
+    'X-RateLimit-Limit': String(maxRequests),
+    'X-RateLimit-Remaining': String(result.remaining),
+    'X-RateLimit-Reset': new Date(result.resetAt).toISOString(),
+  };
+
+  if (result.retryAfter !== undefined) {
+    headers['Retry-After'] = String(result.retryAfter);
+  }
+
+  return headers;
+}
+
+/**
+ * Applies rate limiting to a request and returns a 429 response if exceeded.
+ * Use at the start of API route handlers for consistent rate limiting.
+ *
+ * @param request - The incoming request
+ * @param config - Rate limit configuration
+ * @returns null if allowed, or a 429 Response if rate limited
+ *
+ * @example
+ * ```ts
+ * export async function GET(request: Request) {
+ *   const rateLimited = applyRateLimit(request, { maxRequests: 30, windowMs: 60000 });
+ *   if (rateLimited) return rateLimited;
+ *   // ... handle request
+ * }
+ * ```
+ */
+export function applyRateLimit(
+  request: Request,
+  config: RateLimitConfig = {}
+): { response: Response; result: RateLimitResult } | { response: null; result: RateLimitResult } {
+  const { maxRequests = 10, windowMs = 60000 } = config;
+  const clientIp = getClientIp(request);
+  const result = rateLimit(clientIp, { maxRequests, windowMs });
+
+  if (!result.allowed) {
+    return {
+      response: Response.json(
+        {
+          error: 'Too many requests. Please try again later.',
+          retryAfter: result.retryAfter,
+        },
+        {
+          status: 429,
+          headers: createRateLimitHeaders(result, maxRequests),
+        }
+      ),
+      result,
+    };
+  }
+
+  return { response: null, result };
+}

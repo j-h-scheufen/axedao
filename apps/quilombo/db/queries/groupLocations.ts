@@ -125,6 +125,7 @@ export async function fetchAllGroupLocationsWithGroups(): Promise<
         createdBy: schema.groups.createdBy,
         claimedBy: schema.groups.claimedBy,
         claimedAt: schema.groups.claimedAt,
+        profileId: schema.groups.profileId,
       },
     })
     .from(schema.groupLocations)

@@ -28,6 +28,9 @@ import {
 } from '@/config/constants';
 import type { Feature, Geometry } from 'geojson';
 
+// Import genealogy schema tables for FK references
+import { personProfiles, groupProfiles } from './schema/genealogy';
+
 export const titleEnum = pgEnum('title', titles);
 export const linkTypeEnum = pgEnum('link_type', linkTypes);
 export const styleEnum = pgEnum('style', styles);
@@ -69,6 +72,9 @@ export const users = pgTable(
     hideEmail: boolean('hide_email').default(false).notNull(),
     // Invitation attribution - tracks who invited this user
     invitedBy: uuid('invited_by').references((): AnyPgColumn => users.id, { onDelete: 'set null' }),
+    // Link to genealogy profile (nullable for users without profiles yet)
+    // A person_profile can only be claimed by ONE user (enforced by unique index)
+    profileId: uuid('profile_id').references(() => personProfiles.id, { onDelete: 'set null' }),
   },
   (t) => [
     index('nickname_idx').on(t.nickname),
@@ -80,6 +86,8 @@ export const users = pgTable(
     index('wallet_address_idx').on(t.walletAddress),
     // Index for invitation attribution queries
     index('invited_by_idx').on(t.invitedBy),
+    // UNIQUE index ensures a person_profile can only be claimed by ONE user
+    uniqueIndex('users_profile_id_idx').on(t.profileId),
   ]
 );
 
@@ -97,18 +105,23 @@ export const groups = pgTable(
     email: text('email'),
     logo: varchar('logo'),
     banner: varchar('banner'),
+    // @deprecated - Will be replaced by `leads` predicate in genealogy schema
     leader: uuid('leader_id').references((): AnyPgColumn => users.id, { onDelete: 'set null' }),
+    // @deprecated - Will be replaced by `founded` predicate in genealogy schema
     founder: varchar('founder'),
     links: json('links').$type<SocialLink[]>().notNull().default([]),
     // Group lifecycle tracking for registration & claiming
     createdBy: uuid('created_by').references((): AnyPgColumn => users.id, { onDelete: 'set null' }),
     claimedBy: uuid('claimed_by').references((): AnyPgColumn => users.id, { onDelete: 'set null' }),
     claimedAt: timestamp('claimed_at'),
+    // Link to genealogy profile (nullable for groups without profiles yet)
+    profileId: uuid('profile_id').references(() => groupProfiles.id, { onDelete: 'set null' }),
   },
   (t) => [
     index('name_idx').on(t.name),
     index('created_by_idx').on(t.createdBy),
     index('claimed_by_idx').on(t.claimedBy),
+    index('groups_profile_id_idx').on(t.profileId),
   ]
 );
 
@@ -233,6 +246,19 @@ export const userGroupRelations = relations(users, ({ one }) => ({
   group: one(groups, {
     fields: [users.groupId],
     references: [groups.id],
+  }),
+  // Relation to genealogy person profile
+  personProfile: one(personProfiles, {
+    fields: [users.profileId],
+    references: [personProfiles.id],
+  }),
+}));
+
+export const groupProfileRelations = relations(groups, ({ one }) => ({
+  // Relation to genealogy group profile
+  groupProfile: one(groupProfiles, {
+    fields: [groups.profileId],
+    references: [groupProfiles.id],
   }),
 }));
 

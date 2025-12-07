@@ -504,7 +504,7 @@ describe('Group Management (Integration Tests)', () => {
       await db
         .update(schema.groups)
         .set({
-          style: 'contemporânea',
+          style: 'contemporanea',
         })
         .where(eq(schema.groups.id, groupId));
 
@@ -512,7 +512,7 @@ describe('Group Management (Integration Tests)', () => {
         where: eq(schema.groups.id, groupId),
       });
 
-      expect(group?.style).toBe('contemporânea');
+      expect(group?.style).toBe('contemporanea');
     });
 
     it('should update group leader', async () => {
