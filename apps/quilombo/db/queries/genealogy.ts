@@ -456,7 +456,7 @@ export async function fetchGraphData(options?: { nodeTypes?: EntityType[]; predi
           style: person.style,
           birthYear: person.birthYear,
           deathYear: person.deathYear,
-          avatar: person.avatar,
+          portrait: person.portrait,
           bio: person.bio,
         },
       });

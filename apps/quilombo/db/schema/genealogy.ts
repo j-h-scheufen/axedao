@@ -65,12 +65,12 @@ export const personProfiles = genealogySchema.table(
   {
     id: uuid('id').primaryKey().defaultRandom(),
 
-    // Identity (moved from users)
+    // Identity
     name: varchar('name', { length: 255 }),
-    apelido: varchar('apelido', { length: 100 }), // capoeira nickname (was users.nickname)
+    apelido: varchar('apelido', { length: 100 }), // capoeira nickname
     title: genealogyTitleEnum('title'),
-    avatar: varchar('avatar', { length: 500 }),
-    links: jsonb('links').$type<SocialLink[]>().default([]),
+    portrait: varchar('portrait', { length: 500 }), // public-facing image for genealogy
+    publicLinks: jsonb('public_links').$type<SocialLink[]>().default([]), // public references (Wikipedia, articles)
 
     // Capoeira-specific (new)
     style: genealogyStyleEnum('style'),
