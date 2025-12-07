@@ -11,6 +11,7 @@
       "!**/artifacts",
       "!**/broadcast",
       "!**/out",
+      "!**/dist",
       "!**/lib",
       "!**/*.sol",
       "!**/typechain-types"

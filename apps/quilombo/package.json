@@ -16,6 +16,7 @@
     "db:local:down": "docker compose down",
     "db:local:reset": "docker compose down -v && docker compose up -d && sleep 3 && pnpm db:atlas:apply",
     "db:local:seed": "tsx scripts/db-seed.ts",
+    "db:seed:genealogy": "tsx db/seed/genealogy-prototype.ts",
     "db:local:logs": "docker compose logs -f postgres",
     "db:local:psql": "docker compose exec postgres psql -U postgres -d postgres",
     "wagmi:generate": "wagmi generate",

@@ -34,7 +34,7 @@ export const TitleEnum = titles.reduce<Record<string, number>>((acc, title, inde
   return acc;
 }, {});
 
-export const styles = ['angola', 'regional', 'contemporânea'] as const;
+export const styles = ['angola', 'regional', 'contemporanea', 'mixed'] as const;
 
 export const linkTypes = ['website', 'twitter', 'facebook', 'instagram', 'linkedin'] as const;
 
