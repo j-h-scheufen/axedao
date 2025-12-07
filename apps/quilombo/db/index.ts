@@ -14,6 +14,7 @@
  * - events: Event management
  * - invitations: Invitation system (email + QR codes)
  * - stats: Public statistics
+ * - genealogy: Person/group profiles and lineage statements
  */
 
 import type { PostgresJsDatabase } from 'drizzle-orm/postgres-js';
@@ -96,6 +97,7 @@ export * from './queries/groupLocations';
 export * from './queries/events';
 export * from './queries/invitations';
 export * from './queries/stats';
+export * from './queries/genealogy';
 
 // Schema exports (for types and table references)
 export * from './schema';

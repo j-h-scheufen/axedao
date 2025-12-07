@@ -79,6 +79,7 @@ export async function searchGroups(
       createdBy: schema.groups.createdBy,
       claimedBy: schema.groups.claimedBy,
       claimedAt: schema.groups.claimedAt,
+      profileId: schema.groups.profileId,
 
       // Compute lastVerifiedAt (returns string ISO timestamp)
       lastVerifiedAt: sql<string | null>`(
@@ -159,6 +160,7 @@ export async function fetchGroup(groupId: string): Promise<Group | undefined> {
       createdBy: schema.groups.createdBy,
       claimedBy: schema.groups.claimedBy,
       claimedAt: schema.groups.claimedAt,
+      profileId: schema.groups.profileId,
 
       // Get most recent verification date (returns string ISO timestamp)
       lastVerifiedAt: sql<string | null>`
