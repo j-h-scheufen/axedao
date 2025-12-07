@@ -1,0 +1,172 @@
+'use client';
+
+/**
+ * Base wrapper component for react-force-graph-3d.
+ *
+ * Provides common configuration and utilities for 3D graph visualization.
+ * Specialized graph views should use this as their foundation.
+ */
+
+import { useCallback, useEffect, useRef, useState } from 'react';
+import ForceGraph3D, { type ForceGraphMethods } from 'react-force-graph-3d';
+
+import { createDefaultNodeObject } from './nodeRenderers';
+import { getLinkColor } from './linkRenderers';
+import { useGraphCamera } from './useGraphCamera';
+import type { ForceGraph3DWrapperProps, ForceLink, ForceNode } from './types';
+
+/**
+ * Base wrapper for react-force-graph-3d with common configuration.
+ *
+ * Features:
+ * - Auto-sizing to container
+ * - Default node rendering with selection state
+ * - Default link styling
+ * - Camera controls via useGraphCamera hook
+ * - Support for custom forces
+ * - Auto-fit on load option
+ */
+export function ForceGraph3DWrapper({
+  graphData,
+  selectedNodeId,
+  onNodeClick,
+  onBackgroundClick,
+  nodeRenderer,
+  forces,
+  autoFitOnLoad = true,
+  autoFitDelay = 800,
+  autoFitPadding = 50,
+  backgroundColor = '#1a1a2e',
+  width,
+  height,
+  cooldownTicks = 100,
+  d3AlphaDecay = 0.02,
+  d3VelocityDecay = 0.3,
+  showLinkParticles = true,
+  showLinkArrows = true,
+}: ForceGraph3DWrapperProps) {
+  const graphRef = useRef<ForceGraphMethods<ForceNode, ForceLink> | undefined>(undefined);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [dimensions, setDimensions] = useState({ width: width || 800, height: height || 600 });
+
+  // Camera controls
+  const { zoomToFit, focusOnNode } = useGraphCamera(
+    graphRef as React.RefObject<ForceGraphMethods<ForceNode, ForceLink> | undefined>
+  );
+
+  // Handle container resize
+  useEffect(() => {
+    if (width && height) {
+      setDimensions({ width, height });
+      return;
+    }
+
+    const updateDimensions = () => {
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        setDimensions({
+          width: rect.width || 800,
+          height: rect.height || 600,
+        });
+      }
+    };
+
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+    return () => window.removeEventListener('resize', updateDimensions);
+  }, [width, height]);
+
+  // Apply custom forces
+  useEffect(() => {
+    if (!graphRef.current || !forces || forces.length === 0) return;
+
+    for (const forceConfig of forces) {
+      graphRef.current.d3Force(forceConfig.name, forceConfig.force);
+    }
+
+    graphRef.current.d3ReheatSimulation();
+  }, [forces]);
+
+  // Auto-fit on load
+  useEffect(() => {
+    if (!autoFitOnLoad) return;
+
+    const timer = setTimeout(() => {
+      zoomToFit(1000, autoFitPadding);
+    }, autoFitDelay);
+
+    return () => clearTimeout(timer);
+  }, [autoFitOnLoad, autoFitDelay, autoFitPadding, zoomToFit]);
+
+  // Handle node click with camera focus
+  const handleNodeClick = useCallback(
+    (node: ForceNode) => {
+      focusOnNode(node, 300, 1500);
+      onNodeClick?.(node);
+    },
+    [focusOnNode, onNodeClick]
+  );
+
+  // Handle background click
+  const handleBackgroundClick = useCallback(() => {
+    onBackgroundClick?.();
+  }, [onBackgroundClick]);
+
+  // Default node renderer
+  const defaultNodeThreeObject = useCallback(
+    (node: ForceNode) => {
+      const isSelected = node.id === selectedNodeId;
+
+      if (nodeRenderer) {
+        return nodeRenderer(node, isSelected);
+      }
+
+      return createDefaultNodeObject(node, isSelected);
+    },
+    [selectedNodeId, nodeRenderer]
+  );
+
+  // Link color resolver
+  const linkColorResolver = useCallback((link: ForceLink) => {
+    return getLinkColor(link);
+  }, []);
+
+  return (
+    <div ref={containerRef} className="h-full w-full" style={{ minHeight: 400 }}>
+      <ForceGraph3D
+        ref={graphRef}
+        graphData={graphData}
+        width={dimensions.width}
+        height={dimensions.height}
+        // Node configuration
+        nodeId="id"
+        nodeLabel={(node: ForceNode) => `${node.name} (${node.type})`}
+        nodeThreeObject={defaultNodeThreeObject}
+        nodeThreeObjectExtend={false}
+        // Link configuration
+        linkColor={linkColorResolver}
+        linkWidth={1.5}
+        linkOpacity={0.6}
+        linkDirectionalArrowLength={showLinkArrows ? 3 : 0}
+        linkDirectionalArrowRelPos={1}
+        linkDirectionalParticles={showLinkParticles ? 1 : 0}
+        linkDirectionalParticleWidth={2}
+        linkDirectionalParticleSpeed={0.005}
+        // Interaction
+        onNodeClick={handleNodeClick}
+        onBackgroundClick={handleBackgroundClick}
+        // Layout
+        cooldownTicks={cooldownTicks}
+        d3AlphaDecay={d3AlphaDecay}
+        d3VelocityDecay={d3VelocityDecay}
+        // Performance
+        enableNavigationControls
+        showNavInfo={false}
+        // Background
+        backgroundColor={backgroundColor}
+      />
+    </div>
+  );
+}
+
+export default ForceGraph3DWrapper;

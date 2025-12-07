@@ -4,21 +4,24 @@ import { Spinner } from '@heroui/react';
 import dynamic from 'next/dynamic';
 import { useCallback, useState } from 'react';
 
+import { GraphControls, GraphLegend, NodeDetailsPanel } from '@/components/genealogy/ui';
+import type { GraphFilters, GraphNode } from '@/components/genealogy/types';
 import { entityTypes } from '@/config/constants';
 
-import { GraphControls, GraphLegend, NodeDetailsPanel } from './components';
-import { useGenealogyGraph, useNodeDetails } from './hooks/useGenealogyData';
-import type { GraphFilters, GraphNode } from './types';
+import { useGenealogyGraph, useNodeDetails } from '@/hooks/useGenealogyData';
 
 // Dynamically import the 3D graph component (requires WebGL, client-side only)
-const GenealogyGraph = dynamic(() => import('./components/GenealogyGraph').then((mod) => mod.GenealogyGraph), {
-  ssr: false,
-  loading: () => (
-    <div className="flex h-full items-center justify-center">
-      <Spinner size="lg" label="Loading 3D graph..." />
-    </div>
-  ),
-});
+const StudentAncestryGraph = dynamic(
+  () => import('@/components/genealogy/graphs/StudentAncestryGraph').then((mod) => mod.StudentAncestryGraph),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex h-full items-center justify-center">
+        <Spinner size="lg" label="Loading 3D graph..." />
+      </div>
+    ),
+  }
+);
 
 export default function GenealogyPage() {
   // Filter state
@@ -105,7 +108,7 @@ export default function GenealogyPage() {
             </div>
           ) : graphData ? (
             <>
-              <GenealogyGraph
+              <StudentAncestryGraph
                 data={graphData}
                 selectedNodeId={selectedNode?.id || null}
                 onNodeClick={handleNodeClick}

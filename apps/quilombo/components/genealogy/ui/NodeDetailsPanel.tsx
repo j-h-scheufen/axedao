@@ -2,8 +2,15 @@
 
 import { Avatar, Button, Card, CardBody, CardHeader, Chip, Divider, Spinner } from '@heroui/react';
 
-import type { GraphNode, GroupDetails, GroupMetadata, PersonDetails, PersonMetadata, StatementDetail } from '../types';
-import { PREDICATE_LABELS } from '../types';
+import type {
+  GraphNode,
+  GroupDetails,
+  GroupMetadata,
+  PersonDetails,
+  PersonMetadata,
+  StatementDetail,
+} from '@/components/genealogy/types';
+import { PREDICATE_LABELS } from '@/components/genealogy/types';
 
 interface NodeDetailsPanelProps {
   node: GraphNode | null;

@@ -2,7 +2,7 @@
 
 import { useQuery } from '@tanstack/react-query';
 
-import type { GraphData, GraphFilters, NodeDetails } from '../types';
+import type { GraphData, GraphFilters, NodeDetails } from '@/components/genealogy/types';
 
 const QUERY_KEYS = {
   graph: (filters: GraphFilters) => ['genealogy-graph', filters] as const,

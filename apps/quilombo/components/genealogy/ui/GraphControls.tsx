@@ -5,8 +5,8 @@ import { Button, Card, CardBody, Checkbox, CheckboxGroup, Divider } from '@herou
 import { entityTypes, predicates } from '@/config/constants';
 import type { EntityType, Predicate } from '@/db/schema/genealogy';
 
-import type { GraphFilters, GraphStats } from '../types';
-import { PREDICATE_LABELS } from '../types';
+import type { GraphFilters, GraphStats } from '@/components/genealogy/types';
+import { PREDICATE_LABELS } from '@/components/genealogy/types';
 
 interface GraphControlsProps {
   filters: GraphFilters;

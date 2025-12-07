@@ -2,7 +2,7 @@
 
 import { Card, CardBody } from '@heroui/react';
 
-import { NODE_COLORS } from '../types';
+import { NODE_COLORS } from '@/components/genealogy/types';
 
 interface LegendItem {
   label: string;
