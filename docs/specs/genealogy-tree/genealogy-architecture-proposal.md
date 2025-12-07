@@ -330,17 +330,18 @@ CREATE TYPE genealogy.confidence AS ENUM (
   'uncertain'    -- Explicitly uncertain/unknown
 );
 
--- Predicates (24 total)
+-- Predicates (19 total)
+-- Direction convention: predicates flow from "younger/newer" to "older/established"
+-- (student → mestre, child → parent, new group → predecessor)
 CREATE TYPE genealogy.predicate AS ENUM (
   -- Person-to-Person: Training & Lineage (3)
   'student_of',
   'trained_under',
   'influenced_by',
 
-  -- Person-to-Person: Mentorship & Recognition (3)
-  'mentored',
+  -- Person-to-Person: Recognition (2)
   'granted_title_to',
-  'baptized',
+  'baptized_by',  -- Person was baptized BY mestre (received apelido from)
 
   -- Person-to-Person: Family (1)
   'family_of',
@@ -351,22 +352,19 @@ CREATE TYPE genealogy.predicate AS ENUM (
   'leads',
   'regional_coordinator_of',
 
-  -- Person-to-Group: Membership & Affiliation (6)
+  -- Person-to-Group: Membership & Affiliation (5)
   'member_of',
   'teaches_at',
   'cultural_pioneer_of',
   'associated_with',
-  'graduated_from',
   'departed_from',
 
   -- Group-to-Group: Hierarchical (1)
   'part_of',
 
-  -- Group-to-Group: Evolution (5)
+  -- Group-to-Group: Evolution (3)
   'split_from_group',
   'merged_into',
-  'absorbed',
-  'succeeded',
   'evolved_from',
 
   -- Group-to-Group: Affiliation (2)
@@ -753,17 +751,16 @@ export const legalStructureEnum = genealogySchema.enum('legal_structure', [
 ]);
 
 export const predicateEnum = genealogySchema.enum('predicate', [
-  // Person-to-Person (7)
+  // Person-to-Person (6)
   'student_of', 'trained_under', 'influenced_by',
-  'mentored', 'granted_title_to', 'baptized',
-  'family_of',
-  // Person-to-Group (10)
+  'granted_title_to', 'baptized_by', 'family_of',
+  // Person-to-Group (9)
   'founded', 'co_founded', 'leads', 'regional_coordinator_of',
   'member_of', 'teaches_at', 'cultural_pioneer_of',
-  'associated_with', 'graduated_from', 'departed_from',
-  // Group-to-Group (8)
-  'part_of', 'split_from_group', 'merged_into', 'absorbed',
-  'succeeded', 'evolved_from', 'affiliated_with', 'cooperates_with',
+  'associated_with', 'departed_from',
+  // Group-to-Group (6)
+  'part_of', 'split_from_group', 'merged_into',
+  'evolved_from', 'affiliated_with', 'cooperates_with',
 ]);
 
 // Person profiles table (NO FK to public schema - fully self-contained)
@@ -1509,16 +1506,16 @@ export const LEGAL_STRUCTURES = [
 ] as const;
 
 export const PREDICATES = [
-  // Person-to-Person (7)
+  // Person-to-Person (6)
   'student_of', 'trained_under', 'influenced_by',
-  'mentored', 'granted_title_to', 'baptized', 'family_of',
-  // Person-to-Group (10)
+  'granted_title_to', 'baptized_by', 'family_of',
+  // Person-to-Group (9)
   'founded', 'co_founded', 'leads', 'regional_coordinator_of',
   'member_of', 'teaches_at', 'cultural_pioneer_of',
-  'associated_with', 'graduated_from', 'departed_from',
-  // Group-to-Group (8)
-  'part_of', 'split_from_group', 'merged_into', 'absorbed',
-  'succeeded', 'evolved_from', 'affiliated_with', 'cooperates_with',
+  'associated_with', 'departed_from',
+  // Group-to-Group (6)
+  'part_of', 'split_from_group', 'merged_into',
+  'evolved_from', 'affiliated_with', 'cooperates_with',
 ] as const;
 
 // models.ts (or types/genealogy.ts)

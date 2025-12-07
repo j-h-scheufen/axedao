@@ -1,4 +1,4 @@
-h1:Bi2AiogtDnCiQgi8UGSrD/mcyrV3CAhUKae1FtqPhhQ=
+h1:Uv7h5MTExUEODNHgGZEfS9qdmAMRyH8/N2jCFN1+ZHk=
 20251120135529_baseline.sql h1:VdAR2xMYVIk6ANN5k0dR+oe44hwn8qrNABIiVQJFaCU=
 20251120151443_add_group_locations_group_id_index.sql h1:zlRv24jOLdtsv33AfafJmApf3nzxOyx8oOSiyTULUhY=
 20251121171600_users_hide_email_column.sql h1:73VKRXiTJAz5KFhAmPBHdeiD1vXjnB9qK8PgPG5seBs=
@@ -6,3 +6,5 @@ h1:Bi2AiogtDnCiQgi8UGSrD/mcyrV3CAhUKae1FtqPhhQ=
 20251205222008_add_genealogy_schema.sql h1:UGdLyirr1CvCXvwojiHb7pP5upBsB7px4QUx0J+7sZE=
 20251207081210_update_styles_enum_ascii.sql h1:ynuRrPTXzUZ2a9VB4+NLNGdblIEtU1uTeRoq+IWDSXw=
 20251207115042_add_group_profiles_name.sql h1:IyOzuPDb4KIOeGYfnBFYlMX7PWH/RU//7t7D3UIPbFc=
+20251207191755_cleanup_predicate_enum.sql h1:HH87T/bYNi1q23vseVpyKWOrbxCySIIYZsGK4cyXi1g=
+20251207192635_update_baptized_to_baptized_by.sql h1:gaThvIOtFZ6nk4qHJJyawGAbjF6UGFEPSza9q8G7H1c=

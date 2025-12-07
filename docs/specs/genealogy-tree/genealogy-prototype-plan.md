@@ -86,17 +86,16 @@ CREATE TYPE genealogy.confidence AS ENUM (
 );
 
 CREATE TYPE genealogy.predicate AS ENUM (
-  -- Person-to-Person (7)
+  -- Person-to-Person (6)
   'student_of', 'trained_under', 'influenced_by',
-  'mentored', 'granted_title_to', 'baptized',
-  'family_of',
-  -- Person-to-Group (10)
+  'granted_title_to', 'baptized_by', 'family_of',
+  -- Person-to-Group (9)
   'founded', 'co_founded', 'leads', 'regional_coordinator_of',
   'member_of', 'teaches_at', 'cultural_pioneer_of',
-  'associated_with', 'graduated_from', 'departed_from',
-  -- Group-to-Group (8)
-  'part_of', 'split_from_group', 'merged_into', 'absorbed',
-  'succeeded', 'evolved_from', 'affiliated_with', 'cooperates_with'
+  'associated_with', 'departed_from',
+  -- Group-to-Group (6)
+  'part_of', 'split_from_group', 'merged_into',
+  'evolved_from', 'affiliated_with', 'cooperates_with'
 );
 
 -- Person profiles table (NO FK to public schema - fully self-contained)
@@ -245,16 +244,16 @@ export const confidenceEnum = genealogySchema.enum('confidence', [
 ]);
 
 export const predicateEnum = genealogySchema.enum('predicate', [
-  // Person-to-Person (7)
+  // Person-to-Person (6)
   'student_of', 'trained_under', 'influenced_by',
-  'mentored', 'granted_title_to', 'baptized', 'family_of',
-  // Person-to-Group (10)
+  'granted_title_to', 'baptized_by', 'family_of',
+  // Person-to-Group (9)
   'founded', 'co_founded', 'leads', 'regional_coordinator_of',
   'member_of', 'teaches_at', 'cultural_pioneer_of',
-  'associated_with', 'graduated_from', 'departed_from',
-  // Group-to-Group (8)
-  'part_of', 'split_from_group', 'merged_into', 'absorbed',
-  'succeeded', 'evolved_from', 'affiliated_with', 'cooperates_with',
+  'associated_with', 'departed_from',
+  // Group-to-Group (6)
+  'part_of', 'split_from_group', 'merged_into',
+  'evolved_from', 'affiliated_with', 'cooperates_with',
 ]);
 
 // Person profiles table (NO FK to public schema - fully self-contained)

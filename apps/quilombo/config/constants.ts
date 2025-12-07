@@ -127,24 +127,26 @@ export const legalStructures = [
   'mixed',
 ] as const;
 
-// Relationship predicates (24 total)
+// Relationship predicates (19 total)
+// Direction convention: predicates flow from "younger/newer" to "older/established"
+// (student → mestre, child → parent, new group → predecessor)
+//
 // Person-to-Person: Training & Lineage (3)
-// Person-to-Person: Mentorship & Recognition (3)
+// Person-to-Person: Recognition (2)
 // Person-to-Person: Family (1)
 // Person-to-Group: Founding & Leadership (4)
-// Person-to-Group: Membership & Affiliation (6)
+// Person-to-Group: Membership & Affiliation (5)
 // Group-to-Group: Hierarchical (1)
-// Group-to-Group: Evolution (5)
+// Group-to-Group: Evolution (3)
 // Group-to-Group: Affiliation (2)
 export const predicates = [
   // Person-to-Person: Training & Lineage (3)
   'student_of',
   'trained_under',
   'influenced_by',
-  // Person-to-Person: Mentorship & Recognition (3)
-  'mentored',
+  // Person-to-Person: Recognition (2)
   'granted_title_to',
-  'baptized',
+  'baptized_by', // Person was baptized BY mestre (received apelido from)
   // Person-to-Person: Family (1)
   'family_of',
   // Person-to-Group: Founding & Leadership (4)
@@ -152,20 +154,17 @@ export const predicates = [
   'co_founded',
   'leads',
   'regional_coordinator_of',
-  // Person-to-Group: Membership & Affiliation (6)
+  // Person-to-Group: Membership & Affiliation (5)
   'member_of',
   'teaches_at',
   'cultural_pioneer_of',
   'associated_with',
-  'graduated_from',
   'departed_from',
   // Group-to-Group: Hierarchical (1)
   'part_of',
-  // Group-to-Group: Evolution (5)
+  // Group-to-Group: Evolution (3)
   'split_from_group',
   'merged_into',
-  'absorbed',
-  'succeeded',
   'evolved_from',
   // Group-to-Group: Affiliation (2)
   'affiliated_with',

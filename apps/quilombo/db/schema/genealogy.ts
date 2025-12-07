@@ -193,7 +193,7 @@ export type StatementProperties = {
     location?: string;
   };
 
-  // For baptized
+  // For baptized_by
   baptism?: {
     apelido_given: string;
     ceremony?: string;

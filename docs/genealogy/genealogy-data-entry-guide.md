@@ -16,19 +16,20 @@
 
 ## Quick Reference: Predicates
 
-### Person-to-Person (7)
+> **Direction Convention:** Predicates flow from "younger/newer" to "older/established" (student → mestre, child → parent, new group → predecessor).
+
+### Person-to-Person (6)
 
 | Predicate | Use When | Properties |
 |-----------|----------|------------|
 | `student_of` | Primary, ongoing teacher-student relationship | - |
 | `trained_under` | Historical/past training, workshops, seminars | - |
 | `influenced_by` | Studied philosophy/methods without direct training | - |
-| `mentored` | Informal guidance beyond formal student relationship | - |
 | `granted_title_to` | Mestre conferred a title/rank | `title_grant: { title, ceremony?, location? }` |
-| `baptized` | Bestowed apelido at batizado ceremony | `baptism: { apelido_given, ceremony?, location? }` |
+| `baptized_by` | Received apelido at batizado ceremony from this mestre | `baptism: { apelido_given, ceremony?, location? }` |
 | `family_of` | Biological or ceremonial family | `relationship_type: parent|sibling|spouse|padrinho|other` |
 
-### Person-to-Group (10)
+### Person-to-Group (9)
 
 | Predicate | Use When | Properties |
 |-----------|----------|------------|
@@ -40,18 +41,15 @@
 | `teaches_at` | Active instructor at the group | - |
 | `cultural_pioneer_of` | First to bring capoeira to region/country | `region?, country?, context?` |
 | `associated_with` | Loose/informal affiliation | `association_type: supporter|patron|informal_affiliate|friend|honorary` |
-| `graduated_from` | Completed training, no longer member | - |
 | `departed_from` | Left group | `departure_type: neutral|blessed|contentious|expelled` |
 
-### Group-to-Group (8)
+### Group-to-Group (6)
 
 | Predicate | Use When | Properties |
 |-----------|----------|------------|
 | `part_of` | Hierarchical organizational relationship | `affiliation_type: branch|nucleus|affiliate|official_filial` |
 | `split_from_group` | Group formed by splitting from parent | `split_type: neutral|blessed|contentious`, `blessed_by?: string[]` |
 | `merged_into` | Group merged into another | - |
-| `absorbed` | Group absorbed another (inverse of merged_into) | - |
-| `succeeded` | Group continues legacy of defunct group | - |
 | `evolved_from` | Major organizational transformation | - |
 | `affiliated_with` | Formal or cultural affiliation (non-hierarchical) | - |
 | `cooperates_with` | Regular cooperation without formal structure | - |
@@ -235,18 +233,19 @@ For each relationship found in research, determine:
 
 ### 3.2 Relationship Direction Rules
 
-Always enter relationships in the correct direction:
+Always enter relationships in the correct direction (younger/newer → older/established):
 
 | Relationship Type | Subject | Object |
 |-------------------|---------|--------|
 | Training | Student | Teacher |
+| Baptism | Person baptized | Mestre who baptized them |
+| Title conferral | Grantor | Recipient |
 | Founding | Founder | Group |
 | Leadership | Leader | Group |
 | Membership | Member | Group |
 | Group hierarchy | Child group | Parent group |
 | Group split | New group | Original group |
-| Mentorship | Mentor | Mentee |
-| Title conferral | Grantor | Recipient |
+| Group evolution | New group | Predecessor group |
 
 ### 3.3 Handle Ambiguity
 
@@ -378,7 +377,7 @@ BEGIN;
 
 -- --- Person-to-Person: Training & Lineage ---
 
--- --- Person-to-Person: Mentorship & Recognition ---
+-- --- Person-to-Person: Recognition ---
 
 -- --- Person-to-Person: Family ---
 

@@ -60,7 +60,7 @@ Good indexing strategy with subject/predicate and object/predicate composite ind
 // config/constants.ts
 export const PREDICATE_INVERSES: Partial<Record<Predicate, { inverse: string; label: string }>> = {
   student_of: { inverse: 'teacher_of', label: 'Students' },
-  mentored: { inverse: 'mentored_by', label: 'Mentored By' },
+  baptized_by: { inverse: 'baptized', label: 'Baptized' },
   founded: { inverse: 'founded_by', label: 'Founded By' },
   member_of: { inverse: 'has_member', label: 'Members' },
   leads: { inverse: 'led_by', label: 'Led By' },

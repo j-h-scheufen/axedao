@@ -17,15 +17,7 @@ interface GraphControlsProps {
 
 // Group predicates by category for better UX
 const PREDICATE_GROUPS = {
-  'Person → Person': [
-    'student_of',
-    'trained_under',
-    'influenced_by',
-    'mentored',
-    'granted_title_to',
-    'baptized',
-    'family_of',
-  ],
+  'Person → Person': ['student_of', 'trained_under', 'influenced_by', 'granted_title_to', 'baptized_by', 'family_of'],
   'Person → Group': [
     'founded',
     'co_founded',
@@ -35,19 +27,9 @@ const PREDICATE_GROUPS = {
     'teaches_at',
     'cultural_pioneer_of',
     'associated_with',
-    'graduated_from',
     'departed_from',
   ],
-  'Group → Group': [
-    'part_of',
-    'split_from_group',
-    'merged_into',
-    'absorbed',
-    'succeeded',
-    'evolved_from',
-    'affiliated_with',
-    'cooperates_with',
-  ],
+  'Group → Group': ['part_of', 'split_from_group', 'merged_into', 'evolved_from', 'affiliated_with', 'cooperates_with'],
 } as const;
 
 export function GraphControls({ filters, onFiltersChange, stats, isLoading }: GraphControlsProps) {

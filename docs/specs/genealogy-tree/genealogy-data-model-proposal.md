@@ -38,13 +38,14 @@ Extracted from 33 case studies, consolidated into core categories:
 
 > **Note:** `trained_alongside` ("capoeira siblings") was removed. Peer relationships are derivable from temporal overlap of `student_of`/`trained_under` statements to the same mestre. Notable peer bonds can be mentioned in `biography` fields or statement `notes`.
 
-#### Mentorship & Recognition Relationships
+#### Recognition Relationships
 
 | Predicate | Description | Case Study Examples |
 |-----------|-------------|---------------------|
-| `mentored` | Informal guidance beyond formal student relationship. | Various case studies |
 | `granted_title_to` | Conferring title/rank. Use `title_grant` property specifying which title (uses existing `TitleEnum`). | Zimba: peer mestre title conferral |
-| `baptized` | Bestowed apelido (capoeira nickname) at batizado ceremony. Use `baptism` property with `apelido_given`. | Naming ceremonies |
+| `baptized_by` | Received apelido (capoeira nickname) from this mestre at batizado ceremony. Use `baptism` property with `apelido_given`. Direction: student → mestre who baptized them. | Naming ceremonies |
+
+> **Note:** `mentored` was removed. Informal guidance beyond formal student relationship can be represented using `trained_under` (for those who trained but weren't formal students) or `influenced_by` (for those who studied methods/philosophy without direct training). Context can be added in statement `notes`.
 
 > **Note:** `blessed_departure` (person-to-person) was removed. Blessed departures are captured at the group level via `split_from_group` with `split_type: 'blessed'` and `blessed_by[]` property listing the mestres who gave their blessing.
 
@@ -110,10 +111,11 @@ Extracted from 33 case studies, consolidated into core categories:
 
 | Predicate | Description | Case Study Examples |
 |-----------|-------------|---------------------|
-| `graduated_from` | Completed training/batizado at group (no longer member). | Lineage tracking |
 | `departed_from` | Left group. Use `departure_type` property to specify context. | Split patterns |
 
 > **Note:** `expelled_from` was consolidated into `departed_from` with `departure_type: 'expelled'` property.
+>
+> **Note:** `graduated_from` was removed. "Graduation" in capoeira varies by group and can mean different things. Use `departed_from` with appropriate `departure_type` and context in `notes`. Historical membership is already captured by `member_of` with timeline.
 
 ---
 
@@ -139,11 +141,13 @@ Extracted from 33 case studies, consolidated into core categories:
 |-----------|-------------|---------------------|
 | `split_from_group` | Group formed by splitting from parent. Use `split_type` property to specify context. | CB from Senzala; many case studies |
 | `merged_into` | Group merged into another. | Candeias unification |
-| `absorbed` | Group absorbed another (inverse). | Rare but exists |
-| `succeeded` | Group continues legacy of defunct group. | Historical continuity cases |
 | `evolved_from` | Significant organizational transformation (NOT simple name changes). | Group B emerges from restructured Group A |
 
 > **Note:** `evolved_from` is for genuine **organizational transformations** where a new entity emerges (e.g., after a major restructuring, reform, or reconstitution). For **name changes within the same organization** (like "Marrom e Alunos" → "Ngoma"), use the `name_history` field on the groups table instead. This avoids creating duplicate group entries for what is fundamentally the same organization.
+>
+> **Note:** `absorbed` was removed. "Group A absorbed Group B" is the inverse of "Group B merged_into Group A". Use `merged_into` from the absorbed group's perspective.
+>
+> **Note:** `succeeded` was removed. Use `evolved_from` instead. Legacy continuation is a form of evolution.
 
 > **Note:** `blessed_split_from` was consolidated into `split_from_group` with `split_type: 'blessed'` property.
 
@@ -432,16 +436,17 @@ export const sourceTypeEnum = pgEnum('source_type', [
 ]);
 
 // All predicates in single enum
+// Direction convention: predicates flow from "younger/newer" to "older/established"
+// (student → mestre, child → parent, new group → predecessor)
 export const predicateEnum = pgEnum('predicate', [
   // Person-to-Person: Training & Lineage (3)
   'student_of',
   'trained_under',
   'influenced_by',
 
-  // Person-to-Person: Mentorship & Recognition (3)
-  'mentored',
+  // Person-to-Person: Recognition (2)
   'granted_title_to',
-  'baptized',
+  'baptized_by',  // Person was baptized BY mestre (received apelido from)
 
   // Person-to-Person: Family (1 - use relationship_type property: parent, sibling, spouse, padrinho, other)
   'family_of',
@@ -452,29 +457,26 @@ export const predicateEnum = pgEnum('predicate', [
   'leads',
   'regional_coordinator_of',
 
-  // Person-to-Group: Membership & Affiliation (6)
+  // Person-to-Group: Membership & Affiliation (5)
   'member_of',
   'teaches_at',
   'cultural_pioneer_of',
   'associated_with',  // Use association_type property for context
-  'graduated_from',
   'departed_from',  // Use departure_type property for context
 
   // Group-to-Group: Hierarchical (1)
   'part_of',  // Use affiliation_type property: branch, nucleus, affiliate, official_filial
 
-  // Group-to-Group: Evolution (5)
+  // Group-to-Group: Evolution (3)
   'split_from_group',  // Use split_type property for context
   'merged_into',
-  'absorbed',
-  'succeeded',
   'evolved_from',
 
   // Group-to-Group: Affiliation (2)
   'affiliated_with',
   'cooperates_with',
 ]);
-// Total: 24 predicates (7 person-to-person + 10 person-to-group + 8 group-to-group)
+// Total: 19 predicates (6 person-to-person + 9 person-to-group + 6 group-to-group)
 ```
 
 ### 3.3 Properties JSON Schema
@@ -533,12 +535,6 @@ interface StatementProperties {
     countries: string[];
   };
 
-  // For 'graduated_from'
-  graduated?: {
-    graduation_year: number;
-    final_rank: TitleEnum;
-  };
-
   // For 'cultural_pioneer_of'
   pioneer?: {
     region_or_country: string;
@@ -553,7 +549,7 @@ interface StatementProperties {
     ceremony_location?: string;
   };
 
-  // For 'baptized' (apelido naming ceremony)
+  // For 'baptized_by' (apelido naming ceremony)
   baptism?: {
     apelido_given: string;      // The capoeira nickname bestowed
     ceremony_date?: string;
