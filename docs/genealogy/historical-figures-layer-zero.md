@@ -181,20 +181,38 @@ The historical record of capoeira consists largely of arrest records, not lineag
 | Field | Value |
 |-------|-------|
 | Name | Adão |
-| Status | Pardo (mixed-race), enslaved |
-| Arrest Date | April 25, 1789 |
+| Status | Pardo (mixed-race), enslaved mulatto |
+| Owner | Manoel Cardoso Fontes |
+| Arrest Date | Late 1788 or early 1789 (inferred) |
+| Clemency Date | April 25, 1789 (documented) |
 | Location | Rio de Janeiro |
 | Charge | Being a capoeira |
 | Punishment | 500 lashes + 2 years forced labor |
+| Archival Source | Arquivo Nacional Rio de Janeiro (ANRJ) - Tribunal da Relação - códice 24, livro 10 |
+
+**Note on dates:** The archival record documents April 25, 1789 as the date the Tribunal approved the mercy petition. The arrest occurred "a few months" earlier per the narrative, placing it in late 1788 or early 1789.
 
 **The Record:**
-On April 25, 1789, the first police record mentioning capoeira documented the arrest of Adão. A fight had occurred between capoeiras, and one had been murdered. According to the law of the kingdom, "the gravest of crimes was the practice of capoeiragem." Adão was innocent of the murder charge, but his status as a capoeira was confirmed. As punishment he received 500 lashes and two years in public works.
+The original archival document, first identified by researcher Nireu Cavalcanti (2004), provides detailed context:
+
+Adão was a slave of Manoel Cardoso Fontes, purchased while still young. He was described as "a robust type, hardworking and very obedient to his master," serving in household tasks. Manoel decided to exploit him by renting him out to third parties as a construction worker, carrier, or other manual labor, making Adão a good source of income.
+
+Over time, the timid slave who had always lived at home "became more outgoing, independent and began to arrive home late." He had been associating with capoeira groups in the city's margins.
+
+On a day when a fight occurred between capoeiras and one was murdered, Adão was arrested "along with other troublemakers who practiced capoeira." These were very serious crimes under the laws of the kingdom: the practice of capoeira, resulting in death.
+
+During the trial it was established that Adão was innocent of the murder, but his status as a capoeira was confirmed. He was sentenced to 500 lashes and two years in public works.
+
+**The Mercy Petition:**
+After Adão had served a few months of work and been punished at the pillory, his master Manoel Cardoso Fontes petitioned the king "in the name of the Passion of Christ" to pardon the rest of the sentence, arguing he was a poor man dependent on his slave's income. He promised to ensure Adão would no longer associate with the capoeiras. The Tribunal approved the request on April 25, 1789.
 
 **Profile Type:** `historical_arrest_record`
 
 **Sources:**
 - [CapoeiraWiki: Chronology](https://capoeirawiki.org/wiki/Chronology_of_capoeira_in_Brazil)
 - [Wikipedia: Capoeira carioca](https://en.wikipedia.org/wiki/Capoeira_carioca)
+- [Portal Capoeira: Capoeira não existe. O capoeirista sim.](https://joaopequeno.portalcapoeira.com/portal-capoeira/capoeira-nao-existe-o-capoeirista-sim/)
+- Nireu Cavalcanti (2004) - original archival research
 
 ---
 
@@ -300,59 +318,96 @@ Despite capoeira being prohibited, Cyriaco demonstrated his techniques twice at 
 
 Named capoeiristas from the 1800s - the earliest documented practitioners outside of arrest records. Most were associated with the "capoeira carioca" tradition in Rio de Janeiro, which was largely destroyed after the 1890 criminalization.
 
-### Major Miguel Nunes Vidigal (early 19th century)
+### Major Miguel Nunes Vidigal (1745-1843)
 
 **Significance:** Paradoxically, the chief persecutor of capoeiristas was himself a master - the earliest named capoeira practitioner in documented history.
 
 | Field | Value |
 |-------|-------|
 | Full Name | Miguel Nunes Vidigal |
-| Title | Major |
-| Profession | Head of Royal Police Guard |
+| Title | Major (military), later Brigadier |
+| Born | December 1, 1745, Angra dos Reis, Brazil |
+| Died | July 10, 1843, Rio de Janeiro (age 98) |
+| Profession | Head of Royal Police Guard (1809-) |
 | Location | Rio de Janeiro |
-| Active | 1808-1820s |
+| Active | 1808-1843 |
 
 **Biography:**
-In 1809, Prince Regent Dom João VI established the Royal Police Guard with Major Nunes Vidigal as its head. He was an implacable persecutor of candomblés, samba gatherings, and especially capoeiristas, "for whom he reserved a special treatment, a type of beatings and torture that he called 'Ceia dos Camarões'" (Shrimp Supper).
+Miguel Nunes Vidigal was born in Angra dos Reis in the Captaincy of Rio de Janeiro. He enlisted young in a cavalry militia regiment and rose through the ranks: ensign (1782), lieutenant (1784), captain (1790), major (1797), lieutenant-colonel (1808), colonel (1808), honorary brigadier (1822), and brigadier (1824). He became the first Brazilian-born commander of military forces in the newly formed United Kingdom of Portugal, Brazil and the Algarves.
+
+In 1809, one year after the arrival of Dom João VI, the Police Secretariat was created and the Royal Police Guard was organized, with Major Vidigal appointed as its chief. He was an implacable persecutor of candomblés, samba gatherings, and especially capoeiristas, "for whom he reserved a special treatment, a type of beatings and torture that he called 'Ceia dos Camarões'" (Shrimp Supper). The name derived from how victims' skin turned pink like cooked shrimp after the lashing sessions.
 
 Ironically, Major Vidigal was himself an excellent capoeirista. He was described as "a tall, fat man, of a grenadier's caliber, slow, with a soft voice, but a skillful capoeira, with cold blood and agility beyond all proof, respected by the most fearsome thugs of his time. He played marvelously with the stick, knife, punch, and razor, and in head and foot blows he was unsurpassed."
 
 His reputation gave rise to the phrase "lá vem o Vidigal" (here comes Vidigal), meaning something terrible was coming.
+
+**The 1828 Mercenary Revolt - Capoeira's Turning Point:**
+
+On June 9, 1828, German mercenary soldiers in Rio revolted after Major Francisco Pedro Drago ordered one of their comrades brutally lashed, then doubled the punishment to 200 sword strokes. The Germans freed their comrade and attacked the officer. About 200 Irish mercenaries joined. For three days, the foreign soldiers—armed, drunk, seizing weapons—controlled large portions of Rio, advancing toward the King's palace and burning officers' homes. The imperial forces were overwhelmed.
+
+In this crisis, tradition holds that Vidigal called upon the very capoeiras he had persecuted. Slaveowners released their enslaved capoeiristas to form militias. An eyewitness recorded: "Many Germans in São Cristovão managed to assemble in one location. Those who didn't were confronted by a group of black capoeiras and engaged in deadly combat. Even when stationed and armed with rifles, the rebels couldn't withstand the fists, stones, and sticks. They fell in the streets and public squares, either wounded or dead."
+
+Within three days the revolt was crushed. The toll: ~240 mercenaries killed, 300+ wounded; ~120 defenders killed, 180 wounded. Revolt leader August von Steinhousen was condemned to death. A German observer noted that the enslaved "gained five decades' worth of confidence in just three days." Historian Carlos Eugênio Líbano Soares argues this was the single most important event in establishing capoeira's dominance over Rio's streets for the rest of the 19th century.
+
+After the mutiny, the Police Commissioner issued an edict prohibiting all blacks from carrying weapons—their very effectiveness had made them a greater threat.
+
+He was immortalized as "Major Vidigal" in Manuel Antônio de Almeida's 1854 novel "Memórias de um Sargento de Milícias," which described him as "more than the chief—he was the owner of the colonial police... the horror of the unprotected classes of Rio de Janeiro."
+
+In 1820, Benedictine monks granted him land at the foot of Morro Dois Irmãos. He died there on July 10, 1843, at age 98. The area is now known as the Vidigal neighborhood of Rio de Janeiro.
 
 **Note:** Who taught Vidigal is unknown. He represents the earliest named individual with documented capoeira skills.
 
 **Profile Type:** `historical_capoeirista`
 
 **Sources:**
+- [Wikipedia PT: Miguel Nunes Vidigal](https://pt.wikipedia.org/wiki/Miguel_Nunes_Vidigal)
 - [Wikipedia: Capoeira carioca](https://en.wikipedia.org/wiki/Capoeira_carioca)
 - [Portal Capoeira: Major Vidigal](https://portalcapoeira.com/capoeira/curiosidades/major-miguel-nunes-vidigal/)
+- [Rio Then: Vidigal Early 19th and 20th century](https://riothen.wordpress.com/2016/01/28/vidigal-early-19th-and-20th-century/)
+- [Wikipedia: Irish and German Mercenary Soldiers' revolt](https://en.wikipedia.org/wiki/Irish_and_German_Mercenary_Soldiers%27_revolt)
+- [Aventuras na História: Capoeira - A arte renegada](https://aventurasnahistoria.com.br/noticias/reportagem/capoeira-a-arte-renegada.phtml)
+- Carlos Eugênio Líbano Soares, "A Capoeira Escrava" (Unicamp, 2001)
 
 ---
 
-### Manduca da Praia / Manoel Alves (mid-19th century)
+### Manduca da Praia / Manoel Alves da Silva (mid-19th century)
 
-**Significance:** "The Elegant Capoeira Fighter" - respected businessman and one of the best martial artists in 19th-century Brazil.
+**Significance:** "The Elegant Capoeira Fighter" - Chief of Santa Luzia party (Nagoa federation), respected businessman, and one of the best martial artists in 19th-century Brazil.
 
 | Field | Value |
 |-------|-------|
-| Full Name | Manoel Alves |
+| Full Name | Manoel Alves da Silva |
 | Apelido | Manduca da Praia |
-| Profession | Fish seller, Political bodyguard |
-| Location | Rio de Janeiro |
-| Era | Mid-19th century |
+| Description | Pardo claro (light mulatto), tall, muscular |
+| Profession | Fish merchant (São José parish), Political bodyguard |
+| Residence | Cidade Nova, Rio de Janeiro |
+| Era | Active around 1850 |
+| Gang Affiliation | Chief of Santa Luzia party, Nagoa federation |
 
 **Biography:**
-Manduca da Praia was a tall man with a pointy beard and grey and copper-colored hair, always wearing his trademark white beaver hat and dressing elegantly. He earned a decent living from his fish counter on the market square and worked as a bodyguard for influential politicians.
+Manduca da Praia was a tall man described as "pardo claro" (light-skinned mulatto), powerfully built with a graying pointed beard. He always dressed elegantly: white beaver hat, leather jacket, pocket watch with gold chain, polished shoes, and his trademark walking cane - which doubled as his weapon.
 
-He was agile and very acrobatic, capable of fighting multiple opponents barehanded but also expert with weapons: knife, razor blade, wooden stick (petropolis), and his "walking" cane which accompanied him at all times.
+He earned a living from his fish counter in the São José parish marketplace, where he was known for holding court and sharing stories of his exploits. He supplemented this income with bodyguard work for politicians, building connections that would prove invaluable.
 
-He responded to 27 legal proceedings for grievous bodily harm but always got off free thanks to his well-connected associates. His famous fight with Portuguese Deputy Santana made his name legendary.
+According to Plácido de Abreu's 1886 book "Os Capoeiras," Manduca was chief of the Santa Luzia party within the Nagoa federation - one of the two great rival factions that divided Rio de Janeiro (the Nagoas wore white; their rivals the Guaiamú wore red).
+
+He started his career young at Lavadinho, making his name in the brutal sport of running with bulls. His weapons included the knife, razor blade, the "petrópolis" (a long hardwood cudgel), and his ever-present cane. His capoeira techniques were comprehensive: the banda and rasteira (sweeps), punches, headbutts, and the devastating rabo de arraia (stingray tail kick).
+
+The fight that cemented his legend was against Portuguese Deputy Santana, known for his strength and skill with the stick. These street fights were vicious - no rules, ending only with knockout or submission. Manduca won decisively, and the two reportedly became friends afterward.
+
+He faced 27 criminal charges for assault and grievous bodily harm. He was acquitted every single time thanks to his political connections. At the Penha festival, he once fought a group of armed pilgrims and left them all unconscious.
+
+**Contemporaries:**
+Among his contemporaries in Rio's capoeiragem were Mamede, Aleixo Açougueiro, Pedro Cobra, Bentevi, and Quebra Coco.
 
 **Profile Type:** `historical_capoeirista`
 
 **Sources:**
 - [Wikipedia: Manduca da Praia](https://en.wikipedia.org/wiki/Manduca_da_Praia)
 - [History of Fighting: Mestre Manduca da Praia](https://www.historyoffighting.com/mestre-manduca-da-praia.php)
+- [Raridades da Capoeira: Manduca da Praia](https://sites.google.com/view/raridadesdacapoeira/manduca-da-praia)
+- [Papoeira: Manduca da Praia Song](https://papoeira.com/en/capoeira-song-manduca-da-praia-lyrics-translation-history/)
+- Plácido de Abreu, "Os Capoeiras" (1886)
 
 ---
 

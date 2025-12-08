@@ -4,11 +4,38 @@
 
 **Input:** Person name (apelido or full name) and optionally a website/source URL
 
+**Output:** SQL file written to `docs/genealogy/sql-imports/persons/[apelido-lowercase].sql`
+
 ---
 
 ## Instructions
 
 You are researching **$ARGUMENTS** to create a complete person profile for the genealogy database.
+
+### CRITICAL: Research Requirements
+
+**You MUST perform extensive web research using WebSearch and WebFetch tools.** The Layer Zero document is only a starting point. For each person:
+
+1. Search multiple queries to find all available information
+2. Fetch and read the actual web pages from sources found
+3. Look for details not in Layer Zero: exact dates, places, relationships, teachers, students
+4. Search for archival sources, academic papers, historical records
+5. Cross-reference multiple sources to verify information
+6. Document ALL names discovered during research (other capoeiristas, teachers, students, etc.)
+
+### Phase 0: Check Layer Zero Document FIRST
+
+**BEFORE doing any web research**, read the file `docs/genealogy/historical-figures-layer-zero.md` and search for the person's name (or variations of it).
+
+If found in Layer Zero:
+1. Extract all available information from that document
+2. Note the sources listed there
+3. Use this as your **starting point** - the document provides summaries and source URLs
+4. Then proceed to Phase 1 to expand on this with deeper web research
+
+If NOT found in Layer Zero:
+- Proceed directly to Phase 1 (web research)
+- If the person turns out to be from the Layer Zero era (pre-1930s, historical figure), flag this at the end for potential addition to the Layer Zero document
 
 ### Phase 1: Research & Data Collection
 
@@ -45,8 +72,55 @@ Search for information using these source types (in order of reliability):
 #### Extended Content
 | Field | Column | Description |
 |-------|--------|-------------|
-| Bio | `bio` | 1-2 paragraph biography highlighting capoeira significance |
+| Bio | `bio` | Rich narrative biography (see guidelines below) |
 | Achievements | `achievements` | Awards, recognitions, notable accomplishments |
+
+**Bio Writing Guidelines:**
+
+The bio is where the person's story comes alive. Write a **narrative**, not a dry summary. You have the sources - tell the story they contain.
+
+Include:
+- **The human journey** - How did they find capoeira? What transformed them?
+- **Pivotal moments** - Key events, confrontations, turning points
+- **Historical context** - What was happening around them? What obstacles did they face?
+- **Relationships** - Teachers, students, rivals, allies (even if unnamed)
+- **The stakes** - What did they risk? What did they gain or lose?
+- **Quotes from sources** - Use direct quotes when they add power (e.g., "the gravest of crimes")
+- **The mystery** - What remains unknown? What happened next?
+- **Legacy** - Why does this person matter to capoeira history?
+
+**Do NOT embellish or invent.** Every detail must come from your sources. But present the facts as a compelling narrative, not a list. If a source describes someone as "robust, hardworking, and very obedient" who later "became more outgoing, independent, and began to arrive home late" - that's a transformation worth telling.
+
+For historical figures especially, the bio may be the only way users learn about these people. Make it worth reading.
+
+**CRITICAL: Tone and Authenticity**
+
+This database serves the capoeira community. Capoeiristas will read these bios and they can smell inauthenticity instantly.
+
+**AVOID:**
+- Poetic embellishments that sound like marketing copy ("hunted yet indestructible", "eternal flame of resistance")
+- Grandiose claims not supported by sources
+- Romanticizing violence or suffering
+- Treating capoeira as exotic or mysterious to outsiders
+- Flowery language that a mestre would never use
+
+**INSTEAD:**
+- Let the facts speak - they're dramatic enough on their own
+- Use the language of the sources (translated if needed)
+- Be direct about what we know and don't know
+- Respect the complexity - heroes had flaws, villains had skills
+- Write as if explaining to a fellow capoeirista, not a tourist
+
+**Handling Contradictions:**
+
+When sources contradict each other on names, dates, places, or facts:
+1. Choose the most reliable version for the main narrative (primary sources > secondary, multiple agreement > single claim)
+2. **Note the discrepancy briefly in the bio** - readers deserve to know when information is contested
+3. Use phrases like "sources disagree on..." or "also recorded as..." or "some accounts give..."
+
+Example: "His full name is recorded as Manoel Alves da Silva in most sources, though one account lists him as Arthur Bento dos Santos."
+
+This transparency builds trust and helps future researchers.
 
 #### Visual & Links
 | Field | Column | Description |
@@ -87,6 +161,36 @@ Collect this information for generating statements:
 
 ---
 
+### Phase 1b: Follow-up Research (CRITICAL)
+
+**After completing initial research, review your findings for "clues" that warrant deeper investigation.**
+
+Clues to look for:
+- **Named historical events** with dates (revolts, competitions, ceremonies, conflicts)
+- **Named individuals** mentioned in passing (teachers of teachers, rivals, witnesses)
+- **Specific incidents** described briefly that could have more detail
+- **Academic sources or books** cited that might contain primary accounts
+- **Eyewitness accounts** referenced but not quoted in full
+
+For each significant clue:
+1. Search specifically for that event/person/incident
+2. Look for primary sources, eyewitness accounts, casualty numbers, named participants
+3. Cross-reference multiple accounts for accuracy
+4. Extract vivid details and direct quotes that bring the story alive
+
+**Example:** If initial research mentions "the 1828 Mercenary Revolt where capoeiras helped suppress the uprising," that's a clue. Search specifically for:
+- "1828 mercenary revolt Rio de Janeiro capoeira"
+- The exact dates, trigger incident, named leaders
+- Eyewitness accounts of the fighting
+- Casualty numbers and aftermath
+- How this event changed capoeira's status
+
+This follow-up research often yields the most compelling narrative details—the difference between "capoeiras helped in a revolt" and a vivid eyewitness account of armed soldiers falling to "fists, stones, and sticks."
+
+**Do not skip this phase.** The richest stories come from following the clues.
+
+---
+
 ### Phase 2: Entity Tracking
 
 As you research, you will discover other persons and groups. Track them:
@@ -95,9 +199,10 @@ As you research, you will discover other persons and groups. Track them:
 Create a list of persons mentioned who are NOT the subject:
 ```
 ## Discovered Persons (for later import)
-| Apelido | Full Name | Title | Relationship to Subject | Already in Dataset? |
-|---------|-----------|-------|-------------------------|---------------------|
-| João Grande | João Oliveira dos Santos | mestre | teacher of subject | check |
+| Apelido | Full Name | Title | Relationship to Subject | Already in Dataset? | Import? |
+|---------|-----------|-------|-------------------------|---------------------|---------|
+| João Grande | João Oliveira dos Santos | mestre | teacher of subject | check | yes |
+| Manuel Cardoso Fontes | Manuel Cardoso Fontes | - | slave owner | no | no |
 ```
 
 Mark "Already in Dataset?" as:
@@ -105,14 +210,30 @@ Mark "Already in Dataset?" as:
 - `no` - needs future import
 - `check` - **ask me** if you're unsure
 
+Mark "Import?" as:
+- `yes` - Capoeirista or direct lineage figure, should be imported to genealogy
+- `no` - Not a capoeirista (historian, military figure, writer, slave owner, etc.) - do not import
+- `?` - Needs investigation to determine
+
 #### Discovered Groups
 Create a list of groups mentioned:
 ```
 ## Discovered Groups (for later import)
-| Name | Style | Relationship to Subject | Already in Dataset? |
-|------|-------|-------------------------|---------------------|
-| GCAP | angola | group led by subject | check |
+| Name | Style | Relationship to Subject | Already in Dataset? | Import? |
+|------|-------|-------------------------|---------------------|---------|
+| GCAP | angola | group led by subject | check | yes |
+| Santa Luzia Party | - | gang led by subject | no | no |
 ```
+
+Mark "Already in Dataset?" as:
+- `yes` - if you've already generated SQL for them
+- `no` - needs future import (if Import? = yes or ?)
+- `check` - **ask me** if you're unsure
+
+Mark "Import?" as:
+- `yes` - Capoeira group (academy, association, etc.) - should be imported to genealogy
+- `no` - Not a capoeira group (street gang, political party, non-capoeira organization) - do not import
+- `?` - Needs investigation to determine
 
 ---
 
@@ -143,15 +264,41 @@ Map all relationships found to predicates. Direction convention: predicates flow
 | `associated_with` | Loose/informal affiliation | `association_type` |
 | `departed_from` | Left group | `departure_type: neutral|blessed|contentious|expelled` |
 
-Create a mapping table:
+Create a mapping table with an additional **Import?** column to track whether the relationship should generate SQL:
+
 ```
-| Subject | Predicate | Object | Started | Ended | Properties | Confidence | Source |
-|---------|-----------|--------|---------|-------|------------|------------|--------|
+| Subject | Predicate | Object | Started | Ended | Properties | Confidence | Source | Import? |
+|---------|-----------|--------|---------|-------|------------|------------|--------|---------|
 ```
+
+**Import? column values:**
+- `yes` - Object exists in dataset OR is a capoeira entity that should be added to backlog → generate SQL when object is imported
+- `no` - Object is NOT a capoeira entity (e.g., a street gang, political party, non-capoeira group) → do NOT generate SQL, do NOT add to backlog
+- `?` - Unclear if object qualifies → add to backlog with `?` for later determination
+
+**Example:**
+```
+| Manduca da Praia | leads | Santa Luzia Party (Nagoa) | ~1850 | ? | - | likely | Plácido de Abreu 1886 | no |
+```
+*Reason: Santa Luzia Party was a street gang that used capoeira, not a capoeira group. No SQL generated, not added to groups backlog.*
+
+**SQL Generation Rules:**
+- Only generate statement SQL for relationships where `Import? = yes` AND the object already exists in the dataset
+- For `Import? = yes` but object not yet in dataset: note in SQL comments as "pending future import"
+- For `Import? = no`: do not generate SQL, do not add object to any backlog
+- For `Import? = ?`: add object to appropriate backlog with `?` status for later determination
 
 ---
 
-### Phase 4: SQL Generation
+### Phase 4: SQL Generation & File Output
+
+Generate SQL and **write it to a file**:
+
+**File path:** `docs/genealogy/sql-imports/persons/[apelido-lowercase].sql`
+- Use lowercase apelido with hyphens for spaces (e.g., `joao-grande.sql`, `cobrinha-verde.sql`)
+- For single-name historical figures, just use the name (e.g., `adao.sql`, `benedito.sql`)
+
+**Use the Write tool to create the SQL file.** Do not just display the SQL - actually write it to disk.
 
 Generate SQL in this format:
 
@@ -247,6 +394,9 @@ Present your findings in this structure:
 ```markdown
 # Person Import: [Apelido] ([Full Name])
 
+## Layer Zero Status
+[Was this person found in the Layer Zero document? What information was pre-existing vs newly discovered?]
+
 ## Research Summary
 [1-2 paragraph summary of who this person is and their significance]
 
@@ -255,18 +405,24 @@ Present your findings in this structure:
 
 ## Discovered Persons (for later import)
 [Table of persons to process later]
+**ACTION: Add any new persons with status `no` to `docs/genealogy/import-backlog/persons-backlog.md`**
 
 ## Discovered Groups (for later import)
 [Table of groups to process later]
+**ACTION: Add any new groups with status `no` to `docs/genealogy/import-backlog/groups-backlog.md`**
 
 ## Relationship Mapping
 [Predicate mapping table]
 
 ## Generated SQL
-[Complete SQL block]
+**ACTION: Write SQL to `docs/genealogy/sql-imports/persons/[apelido-lowercase].sql` using the Write tool**
+[Show the complete SQL block here AND write it to file]
 
 ## Notes & Uncertainties
 [Any conflicting information, gaps, questions]
+
+## Layer Zero Updates Needed
+[If this is a historical figure (pre-1930s) and new information was discovered that should be added to the Layer Zero document, list it here. Include any newly discovered names from this era.]
 
 ## Sources
 [List all sources consulted with URLs]
@@ -293,6 +449,58 @@ Present your findings in this structure:
 **Date Precision:** exact, month, year, decade, approximate, unknown
 
 **Confidence:** verified, likely, unverified, disputed, uncertain
+
+---
+
+### Historical Figures (Layer Zero Era)
+
+For persons from the pre-1930s era, special considerations apply:
+
+1. **Title field**: May be NULL or use historical terms - most were not formally titled in the modern sense
+2. **Style field**: Use NULL or note that style distinctions (Angola/Regional) didn't exist yet
+3. **Confidence**: Often `uncertain` or `likely` due to limited documentation
+4. **Sources**: Police/arrest records, historical newspapers, academic research are primary sources
+5. **New discoveries**: If you uncover names not in Layer Zero, flag them for addition to that document
+
+### Date Validation (CRITICAL)
+
+**Always cross-check dates for logical consistency.** Sources (including Layer Zero) may contain transcription errors where the same date appears multiple times when it shouldn't.
+
+**Red flags to watch for:**
+- Same date used for arrest AND clemency/release (unlikely - legal processes take time)
+- Same date for birth AND death events
+- Same date for training start AND title conferral (requires years of training)
+- Any date appearing twice in different contexts
+
+**When you find date inconsistencies:**
+1. Re-read the narrative context carefully - look for phrases like "after months of..." or "several years later..."
+2. Determine which event the date most likely belongs to (usually the documented archival record)
+3. Use logical deduction for the other date (e.g., "late 1788 or early 1789" if clemency was April 1789 and "months" passed)
+4. Note the uncertainty in the SQL comments
+5. Flag the inconsistency for potential correction in the source document
+
+---
+
+### Phase 6: File Actions (MANDATORY)
+
+After completing research and generating the report, you MUST perform these file operations:
+
+1. **Write SQL file**: Use the Write tool to create `docs/genealogy/sql-imports/persons/[apelido-lowercase].sql`
+
+2. **Update persons backlog**: Append discovered persons with `Import? = yes` or `Import? = ?` to `docs/genealogy/import-backlog/persons-backlog.md`
+   - Use the backlog table format with these columns: `Apelido | Full Name | Title | Discovered From | Status | Import | Notes`
+   - Set `Status` to `pending` for new entries
+   - Set `Import` column: `yes` or `?` based on whether they're a capoeirista
+   - **Do NOT add persons with `Import? = no`** - they don't belong in the genealogy
+
+3. **Update groups backlog**: Append discovered groups with `Import? = yes` or `Import? = ?` to `docs/genealogy/import-backlog/groups-backlog.md`
+   - **Do NOT add groups with `Import? = no`** (street gangs, political parties, non-capoeira organizations)
+
+4. **Update Layer Zero (if applicable)**: If new historical information was discovered for a pre-1930s figure, update `docs/genealogy/historical-figures-layer-zero.md`
+
+**Key principle:** The backlogs track capoeira entities pending import. Non-capoeira entities (Import? = no) should not be added - they are simply not part of the genealogy data model.
+
+**Failure to write the SQL file is a critical error. The SQL MUST be saved to disk.**
 
 ---
 

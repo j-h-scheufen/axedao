@@ -4,11 +4,24 @@
 
 **Input:** Group name and optionally a website/source URL
 
+**Output:** SQL file written to `docs/genealogy/sql-imports/groups/[group-name-lowercase].sql`
+
 ---
 
 ## Instructions
 
 You are researching **$ARGUMENTS** to create a complete group profile for the genealogy database.
+
+### CRITICAL: Research Requirements
+
+**You MUST perform extensive web research using WebSearch and WebFetch tools:**
+
+1. Search multiple queries to find all available information
+2. Fetch and read the actual web pages from sources found
+3. Look for founding details, history, philosophy, leadership
+4. Search for official websites, Wikipedia, capoeira directories
+5. Cross-reference multiple sources to verify information
+6. Document ALL names discovered during research (founders, leaders, teachers, notable members)
 
 ### Phase 1: Research & Data Collection
 
@@ -165,7 +178,15 @@ Create a mapping table:
 
 ---
 
-### Phase 4: SQL Generation
+### Phase 4: SQL Generation & File Output
+
+Generate SQL and **write it to a file**:
+
+**File path:** `docs/genealogy/sql-imports/groups/[group-name-lowercase].sql`
+- Use lowercase group name with hyphens for spaces (e.g., `grupo-senzala.sql`, `abada-capoeira.sql`)
+- For acronyms, use lowercase (e.g., `gcap.sql`, `ceca.sql`)
+
+**Use the Write tool to create the SQL file.** Do not just display the SQL - actually write it to disk.
 
 Generate SQL in this format:
 
@@ -276,15 +297,18 @@ Present your findings in this structure:
 
 ## Discovered Persons (for later import)
 [Table of persons to process later - founders, leaders, teachers]
+**ACTION: Add any new persons with status `no` to `docs/genealogy/import-backlog/persons-backlog.md`**
 
 ## Discovered Groups (for later import)
 [Table of related groups to process later]
+**ACTION: Add any new groups with status `no` to `docs/genealogy/import-backlog/groups-backlog.md`**
 
 ## Relationship Mapping
 [Predicate mapping table - focus on group-to-group]
 
 ## Generated SQL
-[Complete SQL block]
+**ACTION: Write SQL to `docs/genealogy/sql-imports/groups/[group-name-lowercase].sql` using the Write tool**
+[Show the complete SQL block here AND write it to file]
 
 ## Notes & Uncertainties
 [Any conflicting information, gaps, questions]
@@ -377,6 +401,20 @@ INSERT INTO genealogy.statements (
   'Source citation'
 );
 ```
+
+---
+
+### Phase 6: File Actions (MANDATORY)
+
+After completing research and generating the report, you MUST perform these file operations:
+
+1. **Write SQL file**: Use the Write tool to create `docs/genealogy/sql-imports/groups/[group-name-lowercase].sql`
+
+2. **Update persons backlog**: If any persons were discovered with status `no`, append them to `docs/genealogy/import-backlog/persons-backlog.md`
+
+3. **Update groups backlog**: If any groups were discovered with status `no`, append them to `docs/genealogy/import-backlog/groups-backlog.md`
+
+**Failure to write the SQL file is a critical error. The SQL MUST be saved to disk.**
 
 ---
 
