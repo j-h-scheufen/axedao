@@ -1,6 +1,6 @@
 'use client';
 
-import { Spinner } from '@heroui/react';
+import { Select, SelectItem, Spinner } from '@heroui/react';
 import dynamic from 'next/dynamic';
 import { useCallback, useState } from 'react';
 
@@ -10,7 +10,7 @@ import { entityTypes } from '@/config/constants';
 
 import { useGenealogyGraph, useNodeDetails } from '@/hooks/useGenealogyData';
 
-// Dynamically import the 3D graph component (requires WebGL, client-side only)
+// Dynamically import the 3D graph components (require WebGL, client-side only)
 const StudentAncestryGraph = dynamic(
   () => import('@/components/genealogy/graphs/StudentAncestryGraph').then((mod) => mod.StudentAncestryGraph),
   {
@@ -23,7 +23,29 @@ const StudentAncestryGraph = dynamic(
   }
 );
 
+const GeneralGenealogyGraph = dynamic(
+  () => import('@/components/genealogy/graphs/GeneralGenealogyGraph').then((mod) => mod.GeneralGenealogyGraph),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex h-full items-center justify-center">
+        <Spinner size="lg" label="Loading 3D graph..." />
+      </div>
+    ),
+  }
+);
+
+type GraphView = 'general' | 'student-ancestry';
+
+const GRAPH_VIEWS = [
+  { key: 'general', label: 'General View - All Nodes & Relationships' },
+  { key: 'student-ancestry', label: 'Student Ancestry - Radial Timeline' },
+] as const;
+
 export default function GenealogyPage() {
+  // Graph view state
+  const [graphView, setGraphView] = useState<GraphView>('general');
+
   // Filter state
   const [filters, setFilters] = useState<GraphFilters>({
     nodeTypes: [...entityTypes],
@@ -73,12 +95,37 @@ export default function GenealogyPage() {
     setFilters(newFilters);
   }, []);
 
+  // Handle graph view change - clear selection to reset state
+  const handleGraphViewChange = useCallback((newView: GraphView) => {
+    setGraphView(newView);
+    setSelectedNode(null); // Clear selection when switching views
+  }, []);
+
   return (
     <div className="flex h-[calc(100vh-4rem)] flex-col">
       {/* Header */}
       <div className="border-b border-default-200 px-4 py-3">
-        <h1 className="text-xl font-bold">Capoeira Genealogy</h1>
-        <p className="text-small text-default-500">Explore the lineages and relationships of the capoeira community</p>
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex-1">
+            <h1 className="text-xl font-bold">Capoeira Genealogy</h1>
+            <p className="text-small text-default-500">
+              Explore the lineages and relationships of the capoeira community
+            </p>
+          </div>
+          <div className="w-80">
+            <Select
+              label="Graph View"
+              selectedKeys={[graphView]}
+              onChange={(e) => handleGraphViewChange(e.target.value as GraphView)}
+              size="sm"
+              variant="bordered"
+            >
+              {GRAPH_VIEWS.map((view) => (
+                <SelectItem key={view.key}>{view.label}</SelectItem>
+              ))}
+            </Select>
+          </div>
+        </div>
       </div>
 
       {/* Main content */}
@@ -107,15 +154,24 @@ export default function GenealogyPage() {
               <Spinner size="lg" label="Loading genealogy data..." />
             </div>
           ) : graphData ? (
-            <>
-              <StudentAncestryGraph
-                data={graphData}
-                selectedNodeId={selectedNode?.id || null}
-                onNodeClick={handleNodeClick}
-                onBackgroundClick={handleBackgroundClick}
-              />
+            <div key={graphView} className="relative h-full w-full">
+              {graphView === 'general' ? (
+                <GeneralGenealogyGraph
+                  data={graphData}
+                  selectedNodeId={selectedNode?.id || null}
+                  onNodeClick={handleNodeClick}
+                  onBackgroundClick={handleBackgroundClick}
+                />
+              ) : (
+                <StudentAncestryGraph
+                  data={graphData}
+                  selectedNodeId={selectedNode?.id || null}
+                  onNodeClick={handleNodeClick}
+                  onBackgroundClick={handleBackgroundClick}
+                />
+              )}
               <GraphLegend />
-            </>
+            </div>
           ) : null}
         </div>
 
