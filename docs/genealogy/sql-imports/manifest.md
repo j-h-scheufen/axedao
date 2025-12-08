@@ -60,7 +60,7 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   updated_at = NOW();
 ```
 
-**Important**: All narrative content uses bilingual columns (`_en` / `_pt`). See `docs/genealogy/BILINGUAL_CONTENT.md` for details.
+**Important**: All narrative content uses bilingual columns (`_en` / `_pt`). This includes `bio`, `achievements`, `style_notes`, and `notes` (researcher notes for date estimates, source conflicts, caveats). See `docs/genealogy/BILINGUAL_CONTENT.md` for details.
 
 **Statements**: Use `ON CONFLICT DO NOTHING` to skip duplicates
 ```sql
@@ -125,10 +125,11 @@ Files are listed in recommended import order (dependencies first).
 When creating a new SQL import file:
 
 1. **Follow the template** in the `/import-person` or `/import-group` commands
-2. **Write bilingual content**: All narrative fields (`bio`, `description`, `achievements`, `history`, `philosophy`, `style_notes`, statement `notes`) must include both `_en` and `_pt` versions. See `docs/genealogy/BILINGUAL_CONTENT.md`
-3. **List dependencies** in the SQL file header comment and in the `import_log` INSERT
-4. **Use idempotent patterns**: `ON CONFLICT DO UPDATE` for profiles, `ON CONFLICT DO NOTHING` for statements
-5. **Test locally** before syncing to staging/production
+2. **Write bilingual content**: All narrative fields (`bio`, `description`, `achievements`, `history`, `philosophy`, `style_notes`, `notes`, statement `notes`) must include both `_en` and `_pt` versions. See `docs/genealogy/BILINGUAL_CONTENT.md`
+3. **Document researcher notes**: Use `notes_en` / `notes_pt` columns for birth/death year estimation reasoning, source conflicts, spelling variations, pending relationships, and other caveats
+4. **List dependencies** in the SQL file header comment and in the `import_log` INSERT
+5. **Use idempotent patterns**: `ON CONFLICT DO UPDATE` for profiles, `ON CONFLICT DO NOTHING` for statements
+6. **Test locally** before syncing to staging/production
 
 ## Re-running Imports After Edits
 

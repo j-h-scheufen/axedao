@@ -86,6 +86,7 @@ Before starting web searches, read `docs/genealogy/sources/research-sources.md` 
 | Bio | `bio_en`, `bio_pt` | Rich narrative biography in both languages |
 | Achievements | `achievements_en`, `achievements_pt` | Awards, recognitions in both languages |
 | Style Notes | `style_notes_en`, `style_notes_pt` | Style notes in both languages |
+| Researcher Notes | `notes_en`, `notes_pt` | Birth/death year estimation reasoning, source conflicts, name spelling variations, pending relationships, caveats |
 
 **IMPORTANT: All narrative content must be written in BOTH English and Brazilian Portuguese.**
 See `docs/genealogy/BILINGUAL_CONTENT.md` for the full convention.
@@ -130,12 +131,17 @@ This database serves the capoeira community. Capoeiristas will read these bios a
 
 When sources contradict each other on names, dates, places, or facts:
 1. Choose the most reliable version for the main narrative (primary sources > secondary, multiple agreement > single claim)
-2. **Note the discrepancy briefly in the bio** - readers deserve to know when information is contested
-3. Use phrases like "sources disagree on..." or "also recorded as..." or "some accounts give..."
+2. **Document details in `notes_en` / `notes_pt`** - record specific source conflicts, alternate spellings, and researcher reasoning for future reference
+3. **Keep the bio clean** - do NOT clutter the bio with source conflict explanations. The notes columns exist specifically for this metadata.
 
-Example: "His full name is recorded as Manoel Alves da Silva in most sources, though one account lists him as Arthur Bento dos Santos."
+Example in notes_en:
+```
+NAME: Full name recorded as Manoel Alves da Silva in most sources. One source (CEV, 1936) gives Arthur Bento dos Santos. Using majority spelling.
 
-This transparency builds trust and helps future researchers.
+DEATH DATE: February 1894 (exact day unknown). One source gives Feb 12, another just "February." Using month precision.
+```
+
+This approach keeps the bio focused on narrative while preserving research transparency in the notes.
 
 #### Visual & Links
 | Field | Column | Description |
@@ -368,7 +374,10 @@ INSERT INTO genealogy.person_profiles (
   bio_en,
   bio_pt,
   achievements_en,
-  achievements_pt
+  achievements_pt,
+  -- Researcher notes (bilingual) - for date estimates, source conflicts, caveats
+  notes_en,
+  notes_pt
 ) VALUES (
   -- Identity
   '[Full Name or NULL]',
@@ -380,7 +389,7 @@ INSERT INTO genealogy.person_profiles (
   '[style or NULL]'::genealogy.style,
   E'[Style notes in English or NULL]',
   E'[Notas de estilo em português or NULL]',
-  -- Life dates
+  -- Life dates (see header for estimation reasoning if applicable)
   [birth_year or NULL],
   '[precision]'::genealogy.date_precision,
   '[birth_place or NULL]',
@@ -391,7 +400,10 @@ INSERT INTO genealogy.person_profiles (
   E'[Bio in English]',
   E'[Biografia em português]',
   '[Achievements in English or NULL]',
-  '[Conquistas em português or NULL]'
+  '[Conquistas em português or NULL]',
+  -- Researcher notes (bilingual)
+  E'[Notes in English or NULL - birth year estimates, source conflicts, caveats]',
+  E'[Notas em português or NULL - estimativas de datas, conflitos de fontes, ressalvas]'
 )
 ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
@@ -411,6 +423,8 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   bio_pt = EXCLUDED.bio_pt,
   achievements_en = EXCLUDED.achievements_en,
   achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
 -- ============================================================
@@ -563,6 +577,74 @@ For persons from the pre-1930s era, special considerations apply:
 3. **Confidence**: Often `uncertain` or `likely` due to limited documentation
 4. **Sources**: Police/arrest records, historical newspapers, academic research are primary sources
 5. **Profile Type**: Use appropriate historical types (proto_mestre, historical_capoeirista, early_mestre, etc.) in the person report file
+
+### Estimating Birth Years for Historical Figures (IMPORTANT)
+
+**When no birth/death dates are available**, you MUST make an educated estimate using available evidence. Do not leave birth_year as NULL if any context clues exist. Use `decade` precision for estimates.
+
+**How to estimate:**
+
+1. **Look for anchor events** - If the person was "active" or "teaching" or "arrested" in year X, work backwards:
+   - Active as teacher/mestre → likely 25-50 years old
+   - Active as fighter/practitioner → likely 18-40 years old
+   - Mentioned as "young" → likely 15-25 years old
+   - Mentioned as "old" or "elder" → likely 50+ years old
+
+2. **Use student/teacher relationships**:
+   - If they taught someone born in year Y who started learning at age 12, the teacher was likely 25-40 years older
+   - Example: Bentinho taught Bimba (b. 1899) starting in 1911. If Bentinho was 30-50 when teaching, he was born ~1860-1880
+
+3. **Consider historical context**:
+   - African-born in early 1900s Brazil → born before 1850 (slavery ended 1888; most Africans came before)
+   - If someone was "African-born" and active in 1910, they were likely born 1840-1870
+
+4. **Document your reasoning** in TWO places:
+
+   a. **SQL file header** (after `-- DEPENDENCIES:` line) - brief summary for developers reading the file
+   b. **`notes_en` / `notes_pt` columns** - full bilingual reasoning stored in the database
+
+**Example - SQL file header (brief summary):**
+```sql
+-- ============================================================
+-- GENEALOGY PERSON IMPORT: Bentinho
+-- Generated: 2025-12-08
+-- Primary Source: [URL]
+-- ============================================================
+-- DEPENDENCIES: none
+-- ============================================================
+--
+-- BIRTH YEAR ESTIMATION (1870 with 'decade' precision):
+-- African-born captain teaching capoeira by 1911. If 35-45 when teaching
+-- 12-year-old Bimba in 1911, birth = ~1866-1876. Using 1870 as midpoint.
+--
+-- ============================================================
+```
+
+**Example - notes_en / notes_pt columns (full reasoning stored in DB):**
+```sql
+  -- Researcher notes (English)
+  E'BIRTH YEAR ESTIMATION (1870, decade precision): African-born; was a captain (established profession) and teaching capoeira by 1911. If he was 35-45 when teaching 12-year-old Bimba in 1911, birth = ~1866-1876. Using 1870 as midpoint estimate.
+
+DEATH: Unknown. No records of his death have been found.
+
+NAME: Also recorded as "Nozinho Bento" in some sources.
+
+PENDING RELATIONSHIPS (requires Mestre Bimba import):
+- Bimba student_of Bentinho (~1911-1915)',
+  -- Researcher notes (Portuguese)
+  E'ESTIMATIVA DO ANO DE NASCIMENTO (1870, precisão de década): Nascido na África; era capitão (profissão estabelecida) e ensinava capoeira por volta de 1911. Se tinha 35-45 anos quando ensinava Bimba de 12 anos em 1911, nascimento = ~1866-1876. Usando 1870 como estimativa do ponto médio.
+
+MORTE: Desconhecida. Nenhum registro de sua morte foi encontrado.
+
+NOME: Também registrado como "Nozinho Bento" em algumas fontes.
+
+RELACIONAMENTOS PENDENTES (requer importação de Mestre Bimba):
+- Bimba student_of Bentinho (~1911-1915)'
+```
+
+Also document in the person report's "Date Discrepancies" section for easy reference.
+
+**Key rule:** An educated estimate with `decade` precision is more useful for timeline visualization than NULL. Always prefer a documented estimate over missing data.
 
 ### Date Validation (CRITICAL)
 

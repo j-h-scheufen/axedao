@@ -37,7 +37,10 @@ INSERT INTO genealogy.person_profiles (
   bio_en,
   bio_pt,
   achievements_en,
-  achievements_pt
+  achievements_pt,
+  -- Researcher notes
+  notes_en,
+  notes_pt
 ) VALUES (
   -- Identity
   'José Nascimento da Silva',
@@ -94,7 +97,31 @@ Como concluiu uma fonte: "Hércules é um mito; Nascimento Grande realmente exis
   -- achievements_en
   'Granted title "Herói Popular" by Recife press; Never lost a fight; Killed Manezinho Camisa Preta at Largo da Carioca; Celebrated by Gilberto Freyre, Câmara Cascudo, José Lins do Rego; Immortalized in cordel poetry; His fighting style influenced frevo dance',
   -- achievements_pt
-  'Recebeu título de "Herói Popular" pela imprensa do Recife; Nunca perdeu uma luta; Matou Manezinho Camisa Preta no Largo da Carioca; Celebrado por Gilberto Freyre, Câmara Cascudo, José Lins do Rego; Imortalizado em poesia de cordel; Seu estilo de luta influenciou a dança do frevo'
+  'Recebeu título de "Herói Popular" pela imprensa do Recife; Nunca perdeu uma luta; Matou Manezinho Camisa Preta no Largo da Carioca; Celebrado por Gilberto Freyre, Câmara Cascudo, José Lins do Rego; Imortalizado em poesia de cordel; Seu estilo de luta influenciou a dança do frevo',
+  -- Researcher notes (English)
+  E'BIRTH DATE: 1842 - year precision only. Sources confirm he was 94 when he died in 1936.
+
+DEATH DATE: 1936 - year precision only. José Mariano reported his death in Jornal do Commercio, Recife, 20/02/1936.
+
+PHYSICAL DESCRIPTION: 2 meters tall, 120-130 kg. The name "Nascimento Grande" (Big Birth) came from his imposing size.
+
+WEAPON: Famous 15-kilogram cane he called "a volta" (the return).
+
+CORPO FECHADO: Believed to possess magical protection via an amulet containing a "Santo Lenço" (Holy Cloth).
+
+FREVO CONNECTION: Part of Recife''s carnival capoeira tradition. The capoeiristas who performed in front of military bands using ginga and kicks eventually transformed these into the "passo"—the dance of frevo.',
+  -- Researcher notes (Portuguese)
+  E'DATA DE NASCIMENTO: 1842 - precisão de ano apenas. Fontes confirmam que tinha 94 anos quando morreu em 1936.
+
+DATA DE MORTE: 1936 - precisão de ano apenas. José Mariano reportou sua morte no Jornal do Commercio, Recife, 20/02/1936.
+
+DESCRIÇÃO FÍSICA: 2 metros de altura, 120-130 kg. O nome "Nascimento Grande" veio de seu tamanho imponente.
+
+ARMA: Famosa bengala de 15 quilos que chamava de "a volta".
+
+CORPO FECHADO: Acreditava-se que possuía proteção mágica via amuleto contendo um "Santo Lenço".
+
+CONEXÃO COM O FREVO: Parte da tradição carnavalesca de capoeira do Recife. Os capoeiristas que se apresentavam na frente das bandas militares usando ginga e chutes eventualmente transformaram estes no "passo"—a dança do frevo.'
 )
 ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
@@ -114,6 +141,8 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   bio_pt = EXCLUDED.bio_pt,
   achievements_en = EXCLUDED.achievements_en,
   achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
 -- ============================================================

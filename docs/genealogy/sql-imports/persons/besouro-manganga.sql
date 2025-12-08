@@ -36,7 +36,10 @@ INSERT INTO genealogy.person_profiles (
   bio_en,
   bio_pt,
   achievements_en,
-  achievements_pt
+  achievements_pt,
+  -- Researcher notes
+  notes_en,
+  notes_pt
 ) VALUES (
   -- Identity
   'Manoel Henrique Pereira',
@@ -98,7 +101,27 @@ Pouco após sua morte, Besouro tornou-se um herói mítico da capoeira. Sua fama
   -- achievements_en
   'Folk hero celebrated in countless capoeira songs; subject of 2009 Brazilian film "Besouro"; teacher of Mestre Cobrinha Verde who carried his legacy to subsequent generations including Mestre João Grande and Mestre João Pequeno',
   -- achievements_pt
-  'Herói popular celebrado em inúmeras músicas de capoeira; tema do filme brasileiro de 2009 "Besouro"; professor de Mestre Cobrinha Verde que levou seu legado às gerações seguintes incluindo Mestre João Grande e Mestre João Pequeno'
+  'Herói popular celebrado em inúmeras músicas de capoeira; tema do filme brasileiro de 2009 "Besouro"; professor de Mestre Cobrinha Verde que levou seu legado às gerações seguintes incluindo Mestre João Grande e Mestre João Pequeno',
+  -- Researcher notes (English)
+  E'BIRTH YEAR: Most sources cite 1895; some say 1897. Death certificate states age 24 (suggesting birth ~1900), but this conflicts with oral history placing him teaching by 1912. Using 1895 as more consistent with timeline.
+
+DEATH: Stabbed July 6, 1924 at Maracangalha plantation; died July 8, 1924 at Santa Casa de Misericórdia hospital.
+
+TITLE: Left NULL because formal titles (Mestre, etc.) didn''t exist in the modern sense during his era. Called "Mestre" by reputation/legend, not formal conferral.
+
+PORTRAIT: No authentic historical photograph exists. The 2009 film features actor Ailton Carmo, not actual images of Besouro.
+
+ALTERNATE NAMES: Besouro Preto, Besouro Cordão de Ouro',
+  -- Researcher notes (Portuguese)
+  E'ANO DE NASCIMENTO: A maioria das fontes cita 1895; algumas dizem 1897. A certidão de óbito indica 24 anos (sugerindo nascimento ~1900), mas isso conflita com a história oral que o coloca ensinando em 1912. Usando 1895 como mais consistente com a linha do tempo.
+
+MORTE: Apunhalado em 6 de julho de 1924 na fazenda Maracangalha; morreu em 8 de julho de 1924 no hospital Santa Casa de Misericórdia.
+
+TÍTULO: Deixado NULL porque títulos formais (Mestre, etc.) não existiam no sentido moderno durante sua era. Chamado de "Mestre" por reputação/lenda, não por conferimento formal.
+
+RETRATO: Nenhuma fotografia histórica autêntica existe. O filme de 2009 apresenta o ator Ailton Carmo, não imagens reais de Besouro.
+
+NOMES ALTERNATIVOS: Besouro Preto, Besouro Cordão de Ouro'
 )
 ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
@@ -118,6 +141,8 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   bio_pt = EXCLUDED.bio_pt,
   achievements_en = EXCLUDED.achievements_en,
   achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
 -- ============================================================

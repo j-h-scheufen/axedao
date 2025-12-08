@@ -47,7 +47,10 @@ INSERT INTO genealogy.person_profiles (
   bio_en,
   bio_pt,
   achievements_en,
-  achievements_pt
+  achievements_pt,
+  -- Researcher notes
+  notes_en,
+  notes_pt
 ) VALUES (
   -- Identity
   'Manoel Alves da Silva',
@@ -105,7 +108,19 @@ O que distinguia Manduca não era apenas sua habilidade de luta - embora suposta
   -- achievements_en
   'Chief of Santa Luzia party (Nagoa federation); Undefeated in street fighting career; Acquitted of all 27 criminal charges; Famous victory over Portuguese Deputy Santana',
   -- achievements_pt
-  'Chefe do partido de Santa Luzia (federação Nagoa); Invicto em carreira de lutas de rua; Absolvido de todas as 27 acusações criminais; Famosa vitória sobre o deputado português Santana'
+  'Chefe do partido de Santa Luzia (federação Nagoa); Invicto em carreira de lutas de rua; Absolvido de todas as 27 acusações criminais; Famosa vitória sobre o deputado português Santana',
+  -- Researcher notes (English)
+  E'BIRTH YEAR ESTIMATION (1820, decade precision): Active around 1850 with a "graying pointed beard" and described as having started his career "young at Lavadinho." If he had a graying beard (suggesting 40s-50s) in 1850 and started young, birth decade estimated as 1820s.
+
+NAME: Full name recorded as Manoel Alves da Silva in most sources.
+
+DEATH: Unknown. No records of his death have been found.',
+  -- Researcher notes (Portuguese)
+  E'ESTIMATIVA DO ANO DE NASCIMENTO (1820, precisão de década): Ativo por volta de 1850 com uma "barba pontuda grisalha" e descrito como tendo começado sua carreira "jovem no Lavadinho." Se ele tinha barba grisalha (sugerindo 40-50 anos) em 1850 e começou jovem, década de nascimento estimada como 1820.
+
+NOME: Nome completo registrado como Manoel Alves da Silva na maioria das fontes.
+
+MORTE: Desconhecida. Nenhum registro de sua morte foi encontrado.'
 )
 ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
@@ -125,6 +140,8 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   bio_pt = EXCLUDED.bio_pt,
   achievements_en = EXCLUDED.achievements_en,
   achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
 -- ============================================================

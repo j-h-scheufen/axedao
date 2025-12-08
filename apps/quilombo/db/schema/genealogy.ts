@@ -92,6 +92,10 @@ export const personProfiles = genealogySchema.table(
     achievementsEn: text('achievements_en'),
     achievementsPt: text('achievements_pt'),
 
+    // Researcher notes (bilingual) - for date estimation reasoning, source conflicts, caveats
+    notesEn: text('notes_en'),
+    notesPt: text('notes_pt'),
+
     // Metadata
     createdAt: timestamp('created_at').notNull().defaultNow(),
     updatedAt: timestamp('updated_at')
@@ -160,6 +164,10 @@ export const groupProfiles = genealogySchema.table(
 
     // Name history for tracking name changes over time
     nameHistory: jsonb('name_history').$type<NameHistoryEntry[]>().default([]),
+
+    // Researcher notes (bilingual) - for founding date reasoning, source conflicts, caveats
+    notesEn: text('notes_en'),
+    notesPt: text('notes_pt'),
 
     // Organizational (new)
     legalStructure: legalStructureEnum('legal_structure'),

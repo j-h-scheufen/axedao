@@ -46,7 +46,10 @@ INSERT INTO genealogy.person_profiles (
   bio_en,
   bio_pt,
   achievements_en,
-  achievements_pt
+  achievements_pt,
+  -- Researcher notes
+  notes_en,
+  notes_pt
 ) VALUES (
   -- Identity
   'Alípio',
@@ -96,7 +99,29 @@ Nota: Algumas fontes afirmam que Alípio foi "condenado à morte" por ensinar ca
   -- achievements_en
   'Teacher of Besouro Mangangá; considered "the most famous master in Santo Amaro" by Mestre Cobrinha Verde; key link in the chain connecting African capoeira traditions to the documented lineage',
   -- achievements_pt
-  'Professor de Besouro Mangangá; considerado "o mestre mais famoso dentro de Santo Amaro" por Mestre Cobrinha Verde; elo fundamental na cadeia que conecta as tradições africanas de capoeira à linhagem documentada'
+  'Professor de Besouro Mangangá; considerado "o mestre mais famoso dentro de Santo Amaro" por Mestre Cobrinha Verde; elo fundamental na cadeia que conecta as tradições africanas de capoeira à linhagem documentada',
+  -- Researcher notes (English)
+  E'BIRTH YEAR ESTIMATION (1850, decade precision): Described as enslaved "while still young" and actively teaching Besouro Mangangá around 1908. If enslaved as a young man in the 1860s-1870s and still teaching in his 50s-60s in 1908, birth decade estimated as 1850s.
+
+DEATH: Unknown. Was living in Trapiche de Baixo, Santo Amaro after 1888 abolition.
+
+BIRTHPLACE: Listed as Dahomey (Benin), though technically his mother came from there. Source says "filho de uma negra que veio num tumbeiro trazida do Porto de São Jorge da Mina, do Daomé" which describes his mother''s origin. São Jorge da Mina (Elmina) is in present-day Ghana, while Dahomey is present-day Benin—different slave-trading regions. Listed as Dahomey for simplicity.
+
+"SENTENCED TO DEATH" CLAIM: Some secondary sources mention this but no primary sources have been found. Noted as unverified in the bio.
+
+PENDING RELATIONSHIPS:
+- student_of: Besouro Mangangá → Tio Alípio (defined in besouro-manganga.sql)',
+  -- Researcher notes (Portuguese)
+  E'ESTIMATIVA DO ANO DE NASCIMENTO (1850, precisão de década): Descrito como escravizado "ainda jovem" e ativamente ensinando Besouro Mangangá por volta de 1908. Se escravizado como jovem nos anos 1860-1870 e ainda ensinando nos seus 50-60 anos em 1908, década de nascimento estimada como 1850.
+
+MORTE: Desconhecida. Vivia em Trapiche de Baixo, Santo Amaro após a abolição de 1888.
+
+LOCAL DE NASCIMENTO: Listado como Daomé (Benin), embora tecnicamente sua mãe tenha vindo de lá. A fonte diz "filho de uma negra que veio num tumbeiro trazida do Porto de São Jorge da Mina, do Daomé" que descreve a origem de sua mãe. São Jorge da Mina (Elmina) fica no atual Gana, enquanto Daomé é o atual Benin—regiões diferentes do tráfico de escravos. Listado como Daomé por simplicidade.
+
+ALEGAÇÃO DE "CONDENADO À MORTE": Algumas fontes secundárias mencionam isso mas nenhuma fonte primária foi encontrada. Notado como não verificado na bio.
+
+RELACIONAMENTOS PENDENTES:
+- student_of: Besouro Mangangá → Tio Alípio (definido em besouro-manganga.sql)'
 )
 ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
@@ -116,6 +141,8 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   bio_pt = EXCLUDED.bio_pt,
   achievements_en = EXCLUDED.achievements_en,
   achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
 -- ============================================================
@@ -191,29 +218,3 @@ ON CONFLICT (entity_type, file_path) DO UPDATE SET
   notes = EXCLUDED.notes;
 
 COMMIT;
-
--- ============================================================
--- NOTES
--- ============================================================
---
--- Birth/death years unknown. Active in Santo Amaro from at least 1888
--- (after abolition) through early 1900s/1910s when teaching Besouro.
---
--- Birth place is listed as Dahomey (Benin), though technically his
--- mother came from there - he may have been born in Africa or Brazil.
--- The sources say "filho de uma negra que veio num tumbeiro trazida
--- do Porto de São Jorge da Mina, do Daomé" which describes his mother's
--- origin, not necessarily his birthplace. Listed as Dahomey for simplicity.
---
--- Geographic note: São Jorge da Mina (Elmina) is in present-day Ghana,
--- while Dahomey is present-day Benin. These were distinct slave-trading
--- regions, though slaves from Dahomey were sometimes processed through
--- Elmina. The source conflates these; the person's actual African origin
--- may have been anywhere in the Gold Coast/Slave Coast region.
---
--- "Sentenced to death" claim: Some secondary sources mention this but
--- no primary sources have been found. Noted as unverified in the bio.
---
--- Pending relationships to enable when Besouro file is re-run:
--- - student_of: Besouro Mangangá → Tio Alípio (in besouro-manganga.sql)
--- ============================================================

@@ -37,7 +37,10 @@ INSERT INTO genealogy.person_profiles (
   bio_en,
   bio_pt,
   achievements_en,
-  achievements_pt
+  achievements_pt,
+  -- Researcher notes
+  notes_en,
+  notes_pt
 ) VALUES (
   -- Identity
   'Rafael Alves França',
@@ -107,7 +110,35 @@ Em 1982, era o último "mestre velho" sobrevivente na Bahia. Morreu em 1983, dei
   -- achievements_en
   'Bridge between Besouro Mangangá and the modern lineage; introduced the floor-touching mandinga gesture to Capoeira Angola; collaborated with both Mestre Bimba and Mestre Pastinha; recorded landmark LP "Capoeira da Bahia" (1962); master of the Santa Maria razor technique; claimed to be first capoeirista to present outside Salvador',
   -- achievements_pt
-  'Ponte entre Besouro Mangangá e a linhagem moderna; introduziu o gesto de mandinga de tocar o chão na Capoeira Angola; colaborou tanto com Mestre Bimba quanto com Mestre Pastinha; gravou o LP marcante "Capoeira da Bahia" (1962); mestre da técnica de navalha Santa Maria; afirmou ser o primeiro capoeirista a se apresentar fora de Salvador'
+  'Ponte entre Besouro Mangangá e a linhagem moderna; introduziu o gesto de mandinga de tocar o chão na Capoeira Angola; colaborou tanto com Mestre Bimba quanto com Mestre Pastinha; gravou o LP marcante "Capoeira da Bahia" (1962); mestre da técnica de navalha Santa Maria; afirmou ser o primeiro capoeirista a se apresentar fora de Salvador',
+  -- Researcher notes (English)
+  E'BIRTH DATE: October 24, 1912 - confirmed in Mestre Pastinha''s official membership book (member #28, admitted August 12, 1955). Birth year is exact, not estimated.
+
+DEATH YEAR: 1983 - year precision only; exact date not found in sources.
+
+FAMILY RELATIONSHIP: Cobrinha Verde''s aunt Maria Haifa was Besouro Mangangá''s mother. Besouro was raised by Cobrinha''s mother Maria Narcisa Bispo, making them effectively brothers as well as cousins.
+
+PENDING RELATIONSHIPS (require SQL imports):
+- trained_under: Maitá, Licurí, Joité, Dendê, Gasolina, Siri de Mangue, Doze Homens, Esperidião, Juvêncio Grosso, Espinho Remoso, Neco Canário Pardo
+- trained_under: Tonha Rolo do Mar (razor technique)
+- influenced_by: Tio Pascoal (mandingas, corpo fechado)
+- associated_with: Mestre Bimba (helped teach at his academy 1935)
+- associated_with: Mestre Pastinha (member of CECA, collaborated)
+- founded: Centro Esportivo de Capoeira Angola Dois de Julho',
+  -- Researcher notes (Portuguese)
+  E'DATA DE NASCIMENTO: 24 de outubro de 1912 - confirmada no livro oficial de membros de Mestre Pastinha (membro #28, admitido em 12 de agosto de 1955). Ano de nascimento é exato, não estimado.
+
+ANO DE MORTE: 1983 - precisão de ano apenas; data exata não encontrada nas fontes.
+
+RELACIONAMENTO FAMILIAR: A tia de Cobrinha Verde, Maria Haifa, era mãe de Besouro Mangangá. Besouro foi criado pela mãe de Cobrinha, Maria Narcisa Bispo, tornando-os efetivamente irmãos além de primos.
+
+RELACIONAMENTOS PENDENTES (requerem importações SQL):
+- trained_under: Maitá, Licurí, Joité, Dendê, Gasolina, Siri de Mangue, Doze Homens, Esperidião, Juvêncio Grosso, Espinho Remoso, Neco Canário Pardo
+- trained_under: Tonha Rolo do Mar (técnica de navalha)
+- influenced_by: Tio Pascoal (mandingas, corpo fechado)
+- associated_with: Mestre Bimba (ajudou a ensinar em sua academia 1935)
+- associated_with: Mestre Pastinha (membro do CECA, colaborou)
+- founded: Centro Esportivo de Capoeira Angola Dois de Julho'
 )
 ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
@@ -127,6 +158,8 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   bio_pt = EXCLUDED.bio_pt,
   achievements_en = EXCLUDED.achievements_en,
   achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
 -- ============================================================
@@ -223,19 +256,3 @@ ON CONFLICT (entity_type, file_path) DO UPDATE SET
   notes = EXCLUDED.notes;
 
 COMMIT;
-
--- ============================================================
--- NOTES
--- ============================================================
---
--- Birth Year: Using October 24, 1912 based on Pastinha's official records.
---
--- Pending relationships (require SQL imports):
--- - trained_under: Maitá, Licurí, Joité, Dendê, Gasolina, Siri de Mangue,
---   Doze Homens, Esperidião, Juvêncio Grosso, Espinho Remoso, Neco Canário Pardo
--- - trained_under: Tonha Rolo do Mar (razor technique)
--- - influenced_by: Tio Pascoal (mandingas, corpo fechado)
--- - associated_with: Mestre Bimba (helped teach at his academy 1935)
--- - associated_with: Mestre Pastinha (member of CECA, collaborated)
--- - founded: Centro Esportivo de Capoeira Angola Dois de Julho
--- ============================================================

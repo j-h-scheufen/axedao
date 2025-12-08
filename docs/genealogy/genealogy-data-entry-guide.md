@@ -140,6 +140,7 @@ For each group, collect:
 - Bio (1-2 paragraphs) - **BILINGUAL: English AND Portuguese**
 - Achievements - **BILINGUAL: English AND Portuguese**
 - Style notes - **BILINGUAL: English AND Portuguese**
+- Researcher notes - **BILINGUAL: English AND Portuguese** (birth year estimation reasoning, source conflicts, pending relationships)
 - Avatar URL (if available)
 ```
 
@@ -286,13 +287,14 @@ For each NEW person (not already in database):
 
 ```sql
 -- Person: [Apelido] ([Full Name])
--- IMPORTANT: bio, achievements, style_notes are BILINGUAL (_en and _pt)
+-- IMPORTANT: bio, achievements, style_notes, notes are BILINGUAL (_en and _pt)
 INSERT INTO genealogy.person_profiles (
   id, name, apelido, title, style,
   birth_year, birth_year_precision, birth_place,
   death_year, death_year_precision, death_place,
   bio_en, bio_pt, achievements_en, achievements_pt,
   style_notes_en, style_notes_pt,
+  notes_en, notes_pt,
   portrait, public_links
 ) VALUES (
   gen_random_uuid(),
@@ -308,6 +310,8 @@ INSERT INTO genealogy.person_profiles (
   '[Conquistas em português]',
   '[Style notes in English]',
   '[Notas de estilo em português]',
+  E'[Researcher notes in English - birth year reasoning, source conflicts, etc.]',
+  E'[Notas do pesquisador em português - raciocínio do ano de nascimento, conflitos de fontes, etc.]',
   '[portrait_url]',
   '[]'::jsonb
 ) RETURNING id AS [variable_name];
@@ -319,7 +323,7 @@ For each NEW group (not already in database):
 
 ```sql
 -- Group: [Name]
--- IMPORTANT: description, philosophy, history, style_notes are BILINGUAL (_en and _pt)
+-- IMPORTANT: description, philosophy, history, style_notes, notes are BILINGUAL (_en and _pt)
 INSERT INTO genealogy.group_profiles (
   id, name, style,
   founded_year, founded_year_precision, founded_location,
@@ -327,6 +331,7 @@ INSERT INTO genealogy.group_profiles (
   philosophy_en, philosophy_pt,
   history_en, history_pt,
   style_notes_en, style_notes_pt,
+  notes_en, notes_pt,
   logo, links, is_active
 ) VALUES (
   gen_random_uuid(),
@@ -341,6 +346,8 @@ INSERT INTO genealogy.group_profiles (
   E'[História em português]',
   '[Style notes in English]',
   '[Notas de estilo em português]',
+  E'[Researcher notes in English - founding date reasoning, source conflicts, etc.]',
+  E'[Notas do pesquisador em português - raciocínio da data de fundação, conflitos de fontes, etc.]',
   '[logo_url]',
   '[{"type": "website", "url": "https://..."}]'::jsonb,
   true
@@ -517,6 +524,7 @@ Before submitting data, verify:
 - [ ] Confidence levels appropriate for evidence quality
 - [ ] No duplicate entities (check existing database first)
 - [ ] Timeline consistency (no end dates before start dates)
+- [ ] Researcher notes document: birth/death year estimation reasoning, source conflicts, pending relationships
 
 ---
 

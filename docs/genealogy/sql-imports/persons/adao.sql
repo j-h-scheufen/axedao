@@ -60,7 +60,10 @@ INSERT INTO genealogy.person_profiles (
   bio_en,
   bio_pt,
   achievements_en,
-  achievements_pt
+  achievements_pt,
+  -- Researcher notes
+  notes_en,
+  notes_pt
 ) VALUES (
   -- Identity
   NULL,
@@ -102,7 +105,19 @@ O que aconteceu com Adão após sua libertação permanece desconhecido. Mas seu
   -- Achievements (English)
   'First documented capoeirista in history (April 25, 1789); Subject of the earliest known police/judicial record specifically mentioning capoeira by name; Survived 500 lashes and forced labor; His case proves capoeira existed as an organized practice in 18th century Rio de Janeiro',
   -- Achievements (Portuguese)
-  'Primeiro capoeirista documentado da história (25 de abril de 1789); Sujeito do mais antigo registro policial/judicial conhecido que menciona especificamente a capoeira pelo nome; Sobreviveu a 500 açoites e trabalhos forçados; Seu caso prova que a capoeira existia como prática organizada no Rio de Janeiro do século XVIII'
+  'Primeiro capoeirista documentado da história (25 de abril de 1789); Sujeito do mais antigo registro policial/judicial conhecido que menciona especificamente a capoeira pelo nome; Sobreviveu a 500 açoites e trabalhos forçados; Seu caso prova que a capoeira existia como prática organizada no Rio de Janeiro do século XVIII',
+  -- Researcher notes (English)
+  E'BIRTH YEAR ESTIMATION (1760, decade precision): Described as purchased "while still young" and working as a "robust" construction worker/carrier at time of arrest (1789). Estimated to be in his 20s-30s in 1789, suggesting birth decade of 1760s. Using 1760 as representative year.
+
+ARCHIVAL SOURCE: Arquivo Nacional Rio de Janeiro (ANRJ) - Tribunal da Relação - códice 24, livro 10. Research by Nireu Cavalcanti (2004).
+
+DEATH: Unknown. After clemency was granted April 25, 1789, no further records exist.',
+  -- Researcher notes (Portuguese)
+  E'ESTIMATIVA DO ANO DE NASCIMENTO (1760, precisão de década): Descrito como comprado "ainda jovem" e trabalhando como trabalhador de construção "robusto" no momento da prisão (1789). Estimado ter entre 20-30 anos em 1789, sugerindo década de nascimento de 1760. Usando 1760 como ano representativo.
+
+FONTE ARQUIVÍSTICA: Arquivo Nacional Rio de Janeiro (ANRJ) - Tribunal da Relação - códice 24, livro 10. Pesquisa de Nireu Cavalcanti (2004).
+
+MORTE: Desconhecida. Após a clemência concedida em 25 de abril de 1789, não existem mais registros.'
 )
 ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
@@ -122,6 +137,8 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   bio_pt = EXCLUDED.bio_pt,
   achievements_en = EXCLUDED.achievements_en,
   achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
 -- ============================================================

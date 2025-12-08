@@ -52,7 +52,10 @@ INSERT INTO genealogy.person_profiles (
   bio_en,
   bio_pt,
   achievements_en,
-  achievements_pt
+  achievements_pt,
+  -- Researcher notes
+  notes_en,
+  notes_pt
 ) VALUES (
   -- Identity
   NULL,
@@ -112,7 +115,29 @@ Nada mais se sabe sobre a vida de Benedito além de seu papel como professor de 
   -- achievements_en
   'Teacher of Vicente Ferreira Pastinha (Mestre Pastinha), the founder of CECA and great preserver of Capoeira Angola. One of the "African-born generation" of teachers who transmitted capoeira traditions directly from Africa to Brazil.',
   -- achievements_pt
-  'Professor de Vicente Ferreira Pastinha (Mestre Pastinha), o fundador do CECA e grande preservador da Capoeira Angola. Um da "geração nascida na África" de professores que transmitiram tradições de capoeira diretamente da África para o Brasil.'
+  'Professor de Vicente Ferreira Pastinha (Mestre Pastinha), o fundador do CECA e grande preservador da Capoeira Angola. Um da "geração nascida na África" de professores que transmitiram tradições de capoeira diretamente da África para o Brasil.',
+  -- Researcher notes (English)
+  E'BIRTH YEAR ESTIMATION (1830, decade precision): Described as "elderly" when teaching Pastinha around 1899. If elderly (60+ years old) in 1899, birth decade estimated as 1830s. Slave trade to Brazil ended 1850, so he was likely born in Angola and brought as child/young man, or born in Brazil to African parents shortly after 1850.
+
+DEATH: Unknown. No records found.
+
+NAME: Only "Benedito" is recorded. Full name unknown.
+
+TEACHING METHOD: Taught capoeira without a berimbau, accompanying practice only with a drum (atabaque)—a method common in Bahian capoeira at that time. The berimbau did not become capoeira''s central instrument until the early 20th century.
+
+PENDING RELATIONSHIPS (requires Pastinha import):
+- Pastinha student_of Benedito (~1899-1902)',
+  -- Researcher notes (Portuguese)
+  E'ESTIMATIVA DO ANO DE NASCIMENTO (1830, precisão de década): Descrito como "idoso" quando ensinava Pastinha por volta de 1899. Se idoso (60+ anos) em 1899, década de nascimento estimada como 1830. O tráfico de escravos para o Brasil terminou em 1850, então ele provavelmente nasceu em Angola e foi trazido como criança/jovem, ou nasceu no Brasil de pais africanos pouco depois de 1850.
+
+MORTE: Desconhecida. Nenhum registro encontrado.
+
+NOME: Apenas "Benedito" está registrado. Nome completo desconhecido.
+
+MÉTODO DE ENSINO: Ensinava capoeira sem berimbau, acompanhando a prática apenas com um tambor (atabaque)—um método comum na capoeira baiana daquela época. O berimbau não se tornou o instrumento central da capoeira até o início do século XX.
+
+RELACIONAMENTOS PENDENTES (requer importação de Pastinha):
+- Pastinha student_of Benedito (~1899-1902)'
 )
 ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
@@ -132,6 +157,8 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   bio_pt = EXCLUDED.bio_pt,
   achievements_en = EXCLUDED.achievements_en,
   achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
 -- ============================================================

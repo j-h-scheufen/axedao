@@ -1,4 +1,4 @@
-h1:8DK5DfQOkKE3LGXstaksEtbd+dORC2v3kgya/Kk7nlc=
+h1:svyXQ9Vlgy6WleFAV2MInPwTk/ieyyKexryNh+5xYa8=
 20251120135529_baseline.sql h1:VdAR2xMYVIk6ANN5k0dR+oe44hwn8qrNABIiVQJFaCU=
 20251120151443_add_group_locations_group_id_index.sql h1:zlRv24jOLdtsv33AfafJmApf3nzxOyx8oOSiyTULUhY=
 20251121171600_users_hide_email_column.sql h1:73VKRXiTJAz5KFhAmPBHdeiD1vXjnB9qK8PgPG5seBs=
@@ -8,3 +8,4 @@ h1:8DK5DfQOkKE3LGXstaksEtbd+dORC2v3kgya/Kk7nlc=
 20251208120000_add_genealogy_import_log.sql h1:O4fj31I86U4nQx5y9YIg8W1xNQWtItihZA3XObixoc8=
 20251208132232_add_statements_date_precision.sql h1:e8b3Kw87T9l+NEUbOuT5JymhuNSzaJfIiW3e50EP6rY=
 20251208140001_add_bilingual_content_columns.sql h1:tGRylc6GwS2nIiGroIYfsR1Ib33jXOE/V5GDitnHfcM=
+20251208182016_add_notes_columns.sql h1:R7irFMJM5/uZzwC1WRoUWs2Udm6ijQ7EYrElajx5bA0=

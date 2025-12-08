@@ -51,7 +51,10 @@ INSERT INTO genealogy.person_profiles (
   bio_en,
   bio_pt,
   achievements_en,
-  achievements_pt
+  achievements_pt,
+  -- Researcher notes
+  notes_en,
+  notes_pt
 ) VALUES (
   -- Identity
   'Plácido de Abreu Morais',
@@ -136,7 +139,35 @@ Embora tenha morrido na obscuridade com aproximadamente 37 anos de idade, a obra
   -- achievements_en
   'Author of Os Capoeiras (1886) - the first book dedicated entirely to capoeira; Documented the Nagôas and Guaiamús maltas, their territories, leaders, and organizational structure; Created an extensive glossary of 19th-century capoeira slang; Provided eyewitness accounts of malta violence and training methods; His work is cited by historians including Carlos Eugênio Líbano Soares in A Negregada Instituição; Facilitated modern translations by Mestre Itapoan (Portuguese) and Matthias Röhrig Assunção (English)',
   -- achievements_pt
-  'Autor de Os Capoeiras (1886) - o primeiro livro dedicado inteiramente à capoeira; Documentou as maltas Nagôas e Guaiamús, seus territórios, líderes e estrutura organizacional; Criou um extenso glossário de gírias da capoeira do século XIX; Forneceu relatos de testemunha ocular sobre a violência e métodos de treinamento das maltas; Sua obra é citada por historiadores incluindo Carlos Eugênio Líbano Soares em A Negregada Instituição; Facilitou traduções modernas por Mestre Itapoan (português) e Matthias Röhrig Assunção (inglês)'
+  'Autor de Os Capoeiras (1886) - o primeiro livro dedicado inteiramente à capoeira; Documentou as maltas Nagôas e Guaiamús, seus territórios, líderes e estrutura organizacional; Criou um extenso glossário de gírias da capoeira do século XIX; Forneceu relatos de testemunha ocular sobre a violência e métodos de treinamento das maltas; Sua obra é citada por historiadores incluindo Carlos Eugênio Líbano Soares em A Negregada Instituição; Facilitou traduções modernas por Mestre Itapoan (português) e Matthias Röhrig Assunção (inglês)',
+  -- Researcher notes (English)
+  E'BIRTH DATE: 1857 - one source (CEV) gives March 12, 1857; most sources say simply "1857". Using year precision as most conservative.
+
+DEATH DATE: February 1894 (exact day unknown). Executed by firing squad near Copacabana tunnel. Using month precision.
+
+PROFILE TYPE: Historian/amateur capoeirista - he practiced capoeira in youth but his primary significance is as author of the first book on capoeira.
+
+PSEUDONYM: "Pompeo Steel" - used for literary works.
+
+LOST WORK: His second book "Nagôas e Guayamús" is now considered lost.
+
+1872 ARREST: Arrested in January 1872 during police crackdowns on capoeira gangs.
+
+1889 ASSASSINATION ATTEMPT: Implicated in June 1889 assassination attempt on Emperor Pedro II.',
+  -- Researcher notes (Portuguese)
+  E'DATA DE NASCIMENTO: 1857 - uma fonte (CEV) dá 12 de março de 1857; maioria das fontes diz simplesmente "1857". Usando precisão de ano como mais conservador.
+
+DATA DE MORTE: Fevereiro de 1894 (dia exato desconhecido). Executado por fuzilamento perto do túnel de Copacabana. Usando precisão de mês.
+
+TIPO DE PERFIL: Historiador/capoeirista amador - praticou capoeira na juventude mas sua importância principal é como autor do primeiro livro sobre capoeira.
+
+PSEUDÔNIMO: "Pompeo Steel" - usado para obras literárias.
+
+OBRA PERDIDA: Seu segundo livro "Nagôas e Guayamús" é agora considerado perdido.
+
+PRISÃO DE 1872: Preso em janeiro de 1872 durante repressões policiais às maltas de capoeira.
+
+TENTATIVA DE ASSASSINATO DE 1889: Implicado na tentativa de assassinato de junho de 1889 contra o Imperador Pedro II.'
 )
 ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
@@ -156,6 +187,8 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   bio_pt = EXCLUDED.bio_pt,
   achievements_en = EXCLUDED.achievements_en,
   achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
 -- ============================================================

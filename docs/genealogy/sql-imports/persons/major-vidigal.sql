@@ -34,7 +34,10 @@ INSERT INTO genealogy.person_profiles (
   bio_en,
   bio_pt,
   achievements_en,
-  achievements_pt
+  achievements_pt,
+  -- Researcher notes
+  notes_en,
+  notes_pt
 ) VALUES (
   -- Identity
   'Miguel Nunes Vidigal',
@@ -92,7 +95,27 @@ Quem ensinou capoeira a Vidigal permanece desconhecido—a trilha da linhagem te
   -- achievements_en
   'First Brazilian-born commander of military forces in the United Kingdom of Portugal, Brazil and the Algarves (1808). Chief of the Royal Police Guard of Rio de Janeiro (1809). Rose to rank of Brigadier (1824). Immortalized as a character in the classic Brazilian novel "Memórias de um Sargento de Milícias" (1854). The Vidigal neighborhood of Rio de Janeiro is named after him. Recognized by contemporaries as an unsurpassed master of capoeira, knife, stick, and razor fighting.',
   -- achievements_pt
-  'Primeiro comandante brasileiro nato das forças militares no Reino Unido de Portugal, Brasil e Algarves (1808). Chefe da Guarda Real de Polícia do Rio de Janeiro (1809). Alcançou o posto de Brigadeiro (1824). Imortalizado como personagem no clássico romance brasileiro "Memórias de um Sargento de Milícias" (1854). O bairro do Vidigal no Rio de Janeiro tem seu nome. Reconhecido pelos contemporâneos como mestre insuperável de capoeira, faca, pau e navalha.'
+  'Primeiro comandante brasileiro nato das forças militares no Reino Unido de Portugal, Brasil e Algarves (1808). Chefe da Guarda Real de Polícia do Rio de Janeiro (1809). Alcançou o posto de Brigadeiro (1824). Imortalizado como personagem no clássico romance brasileiro "Memórias de um Sargento de Milícias" (1854). O bairro do Vidigal no Rio de Janeiro tem seu nome. Reconhecido pelos contemporâneos como mestre insuperável de capoeira, faca, pau e navalha.',
+  -- Researcher notes (English)
+  E'BIRTH DATE: December 1, 1745 - exact date documented in historical sources.
+
+DEATH DATE: July 10, 1843 - exact date documented. Died at age 98.
+
+PARADOX: The most feared persecutor of capoeiristas in early 19th-century Rio de Janeiro was himself a documented master of capoeira. His detractors described him as "a skillful capoeira, with cold blood and agility beyond all proof."
+
+TEACHER: Unknown. The lineage trail ends with him—we do not know who taught Vidigal capoeira.
+
+MERCENARY REVOLT (1828): When German and Irish mercenary soldiers revolted, Vidigal called upon the very capoeiras he had persecuted. Within three days the revolt was crushed—largely thanks to the capoeiristas.',
+  -- Researcher notes (Portuguese)
+  E'DATA DE NASCIMENTO: 1º de dezembro de 1745 - data exata documentada em fontes históricas.
+
+DATA DE MORTE: 10 de julho de 1843 - data exata documentada. Morreu aos 98 anos.
+
+PARADOXO: O perseguidor mais temido dos capoeiristas no Rio de Janeiro do início do século XIX era ele próprio um mestre documentado de capoeira. Seus detratores o descreviam como "um hábil capoeira, de sangue frio e agilidade além de toda prova."
+
+PROFESSOR: Desconhecido. A trilha de linhagem termina com ele—não sabemos quem ensinou capoeira a Vidigal.
+
+REVOLTA DOS MERCENÁRIOS (1828): Quando soldados mercenários alemães e irlandeses se revoltaram, Vidigal convocou os próprios capoeiras que havia perseguido. Em três dias a revolta foi esmagada—em grande parte graças aos capoeiristas.'
 )
 ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
@@ -112,6 +135,8 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   bio_pt = EXCLUDED.bio_pt,
   achievements_en = EXCLUDED.achievements_en,
   achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
 -- ============================================================
