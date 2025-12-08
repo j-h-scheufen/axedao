@@ -7,7 +7,7 @@
 --   - https://portalcapoeira.com/capoeira/mestres/mestre-bimba/
 --   - https://papoeira.com/en/mestre-bimba-his-early-life-and-introduction-to-capoeira/
 -- ============================================================
--- DEPENDENCIES: none
+-- DEPENDENCIES: persons/bimba.sql (Bimba student_of Bentinho)
 -- ============================================================
 --
 -- BIRTH YEAR ESTIMATION (1870 with 'decade' precision):
@@ -176,7 +176,7 @@ VALUES (
   'person',
   'persons/bentinho.sql',
   NULL,
-  ARRAY[]::text[], -- No dependencies - foundational proto-mestre
+  ARRAY['persons/bimba.sql']::text[],  -- Bimba student_of Bentinho
   'Bentinho (Nozinho Bento); African captain of Companhia de Navegação Bahiana; teacher of Mestre Bimba'
 )
 ON CONFLICT (entity_type, file_path) DO UPDATE SET

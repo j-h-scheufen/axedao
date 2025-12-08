@@ -9,6 +9,8 @@
 --   - nossa-tribo.com/mestre-pastinha-o-pai-da-capoeira-angola/
 --   - capoeirahistory.com/the-origins-of-capoeira/
 -- ============================================================
+-- DEPENDENCIES: persons/pastinha.sql (Pastinha student_of Benedito)
+-- ============================================================
 --
 -- BIRTH YEAR ESTIMATION (1830 with 'decade' precision):
 -- Described as "elderly" when teaching Pastinha around 1899. If elderly
@@ -195,7 +197,7 @@ VALUES (
   'person',
   'persons/benedito.sql',
   NULL,
-  ARRAY[]::text[],
+  ARRAY['persons/pastinha.sql']::text[],  -- Pastinha student_of Benedito
   'African elder who taught Mestre Pastinha (~1899-1902); represents direct transmission from Angola'
 )
 ON CONFLICT (entity_type, file_path) DO UPDATE SET

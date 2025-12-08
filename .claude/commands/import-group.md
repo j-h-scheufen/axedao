@@ -543,4 +543,25 @@ After completing research and generating the report, you MUST perform these file
 
 ---
 
+### Phase 7: Output Verification (MANDATORY)
+
+**After completing all file writes, you MUST verify consistency between your console summary and the written files.**
+
+1. **Read back the written files**: Use the Read tool to re-read:
+   - `docs/genealogy/sql-imports/groups/[group-name-lowercase].sql`
+   - `docs/genealogy/group-reports/[group-name-lowercase].md`
+
+2. **Cross-check Sources**: Compare the "Sources" section in your console summary against:
+   - The `## Sources / Fontes` section in the .md file
+   - The `links` JSONB in the SQL file
+   - **Every source in the summary must appear in both written files**
+
+3. **Cross-check Discovered Entities**: Verify that all persons/groups listed in your summary's "Discovered Persons/Groups" tables were actually added to the backlogs.
+
+4. **Fix any discrepancies immediately**: If the written files are missing sources or entities that appear in your summary, edit the files to add them.
+
+**This verification step exists because context can be lost between research and file writing. Do not skip it.**
+
+---
+
 Now research **$ARGUMENTS** and generate the complete import package.

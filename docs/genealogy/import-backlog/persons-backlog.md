@@ -56,3 +56,38 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Tio Pascoal | - | - | Cobrinha Verde import | pending | yes | African mandingueiro; neighbor of Cobrinha's grandmother; taught mandingas, patuá, corpo fechado |
 | Canjiquinha | Washington Bruno da Silva | Mestre | Cobrinha Verde import | pending | yes | Salvador mestre; mentioned as one who followed Cobrinha in traveling outside Salvador |
 | Caiçara | - | Mestre | Cobrinha Verde import | pending | yes | Salvador mestre; mentioned as one who followed Cobrinha in traveling outside Salvador |
+| Sinhozinho | Agenor Moreira Sampaio | Mestre | Cyriaco import | pending | yes | Inspired by watching Cyriaco defeat Sada Miyako in 1909; important Rio capoeira figure; trained at Morro de Santo Antônio |
+| Onça Preta | Cícero Navarro | Mestre | Aberrê import | pending | yes | Contemporary of Aberrê; fought him in May 1936; allegedly Aberrê's student according to O Cruzeiro 1948; had rodas in Pau Miúdo and Alto das Pombas |
+| Geraldo Chapeleiro | - | - | Aberrê import | pending | yes | Contemporary of Aberrê in Matatu Preto training circle |
+| Creoni | - | - | Aberrê import | pending | yes | Contemporary of Aberrê in Matatu Preto training circle |
+| Chico Três Pedaços | - | - | Aberrê import | pending | yes | Contemporary of Aberrê in Matatu Preto training circle |
+| Antônio de Noronha | - | Mestre | Aberrê import | pending | yes | Possible teacher of Aberrê (distinct from Daniel Coutinho/Mestre Noronha) |
+| Aberrê de Santo Amaro | Antônio Rufino dos Santos | Mestre | Aberrê import | pending | ? | DISPUTED: Possible second "Aberrê" from Santo Amaro; teacher of Caiçara per his testimony; see person-reports/aberre-de-santo-amaro.md |
+| Adama | - | - | Multiple | done | yes | One of two greatest valentões of Recife; founder of Maracatu Oriente Pequeno; specialist in rasteira - SQL generated |
+| Eleutério de Souza | Eleutério de Souza | - | Adama import | pending | yes | Founder of primitive stevedore union in Pernambuco; valentão and political bodyguard; 1907 train incident |
+| Formigão | - | - | Adama import | pending | yes | Valentão of Recife; involved in 1907 train disturbance with Adama and Eleutério |
+| Neco Canário Pardo | - | - | Multiple | done | yes | Machete teacher to Cobrinha Verde; companion of Besouro; also taught Mestre Waldemar - SQL generated |
+| Boca de Siri | - | - | Neco Canário Pardo import | pending | yes | Companion of Besouro Mangangá at Trapiche de Baixo |
+| Noca de Jacó | - | - | Neco Canário Pardo import | pending | yes | Companion of Besouro Mangangá at Trapiche de Baixo |
+| Mestre Atenilo | - | Mestre | Neco Canário Pardo import | pending | ? | Alleged brother of Neco Canário Pardo; nicknamed "Relâmpago da Regional" and possibly "Cordão de Ouro" (disputed) |
+| Calabi de Periperi | - | - | Neco Canário Pardo import | pending | yes | Also known as Talabi; taught Mestre Waldemar alongside Neco Canário Pardo |
+| Ricardo of Ilha de Maré | - | - | Neco Canário Pardo import | pending | yes | Taught Mestre Waldemar; from Ilha de Maré |
+| Peripiri | - | - | Neco Canário Pardo import | pending | yes | Taught Mestre Waldemar |
+| Noronha | Daniel Coutinho | Mestre | Cândido Pequeno import | pending | yes | Student of Cândido Pequeno (1917); co-founder of Gengibirra; author of "O ABC da Capoeira Angola" manuscripts (1909-1977) |
+| Lúcio Pequeno | - | - | Cândido Pequeno import | pending | yes | Co-founder of Gengibirra; possible brother/relative of Cândido Pequeno (shared surname) |
+| Amorzinho | - | - | Gengibirra import | pending | yes | Civil guard; roda leader; one of four "owners and proprietors" of Gengibirra; passed leadership to Pastinha |
+| Totonho de Maré | Antonio Laurindo Neves | Mestre | Gengibirra import | pending | yes | One of four "owners and proprietors" of Gengibirra; 1894-?; recognized as one of "the best capoeiristas from Bahia" |
+| Livino | - | Mestre | Gengibirra import | pending | yes | Brother of Mestre Noronha; one of four "owners and proprietors" of Gengibirra; also known as Livinho |
+| Percílio | - | - | Gengibirra import | pending | yes | One of 22 founding mestres of Gengibirra |
+| Juvenal Engraxate | - | - | Gengibirra import | pending | yes | One of 22 founding mestres of Gengibirra |
+| Geraldo Pé de Abelha | - | - | Gengibirra import | pending | yes | One of 22 founding mestres of Gengibirra |
+| Zehí | - | - | Gengibirra import | pending | yes | One of 22 founding mestres of Gengibirra |
+| Feliciano Bigode de Seda | - | - | Gengibirra import | pending | yes | One of 22 founding mestres of Gengibirra |
+| Bom Nome | - | - | Gengibirra import | pending | yes | One of 22 founding mestres of Gengibirra; also spelled Bonome |
+| Henrique Cara Queimada | - | - | Gengibirra import | pending | yes | One of 22 founding mestres of Gengibirra |
+| Cimento | - | - | Gengibirra import | pending | yes | One of 22 founding mestres of Gengibirra |
+| Argemiro Grande | - | - | Gengibirra import | pending | yes | One of 22 founding mestres of Gengibirra; possibly same as or related to Olho de Pombo |
+| Olho de Pombo | - | - | Gengibirra import | pending | ? | One of 22 founding mestres of Gengibirra; may be same person as Argemiro Grande Olho de Pombo or Argemiro Olho de Pombo |
+| Antônio Galindeu | - | - | Gengibirra import | pending | yes | One of 22 founding mestres of Gengibirra; also known as Antonio Galindo |
+| Antônio Boca de Porco | - | - | Gengibirra import | pending | yes | One of 22 founding mestres of Gengibirra; worked as stevedore |
+| Paquete do Cabula | - | - | Gengibirra import | pending | yes | One of 22 founding mestres of Gengibirra |
