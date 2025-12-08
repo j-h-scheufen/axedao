@@ -9,6 +9,16 @@
 --   - nossa-tribo.com/mestre-pastinha-o-pai-da-capoeira-angola/
 --   - capoeirahistory.com/the-origins-of-capoeira/
 -- ============================================================
+--
+-- BIRTH YEAR ESTIMATION (1830 with 'decade' precision):
+-- Described as "elderly" when teaching Pastinha around 1899. If elderly
+-- (60+ years old) in 1899, birth decade estimated as 1830s. This aligns
+-- with historical context—slave trade to Brazil ended 1850, so he was
+-- likely born in Angola and brought to Brazil as a child/young man, or
+-- born in Brazil to African parents shortly after 1850. Using 1830 as
+-- representative year with 'decade' precision to enable temporal
+-- positioning in genealogy visualizations.
+-- ============================================================
 
 BEGIN;
 
@@ -57,8 +67,8 @@ INSERT INTO genealogy.person_profiles (
   -- style_notes_pt
   E'Anterior à distinção Angola/Regional. Ensinava capoeira usando apenas um tambor (atabaque), não um berimbau—uma prática comum na capoeira baiana daquela época. O berimbau não se tornou o instrumento central da capoeira até o início do século XX. Esta prática de usar apenas tambor sugere uma conexão com formas mais antigas e africanas da arte, possivelmente relacionadas às tradições do engolo da região de Cunene em Angola.',
   -- Life dates
-  NULL,
-  'unknown'::genealogy.date_precision,
+  1830,
+  'decade'::genealogy.date_precision,
   'Angola, Africa',
   NULL,
   'unknown'::genealogy.date_precision,
@@ -103,7 +113,26 @@ Nada mais se sabe sobre a vida de Benedito além de seu papel como professor de 
   'Teacher of Vicente Ferreira Pastinha (Mestre Pastinha), the founder of CECA and great preserver of Capoeira Angola. One of the "African-born generation" of teachers who transmitted capoeira traditions directly from Africa to Brazil.',
   -- achievements_pt
   'Professor de Vicente Ferreira Pastinha (Mestre Pastinha), o fundador do CECA e grande preservador da Capoeira Angola. Um da "geração nascida na África" de professores que transmitiram tradições de capoeira diretamente da África para o Brasil.'
-) RETURNING id AS benedito_id;
+)
+ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
+  updated_at = NOW();
 
 -- ============================================================
 -- STATEMENTS (Relationships)

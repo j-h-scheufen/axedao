@@ -9,6 +9,14 @@
 -- ============================================================
 -- DEPENDENCIES: groups/roda-de-trapiche-de-baixo.sql
 -- ============================================================
+--
+-- BIRTH YEAR ESTIMATION (1850 with 'decade' precision):
+-- Described as enslaved "while still young" and actively teaching Besouro
+-- Mangangá around 1908. If enslaved as a young man in the 1860s-1870s and
+-- still teaching in his 50s-60s in 1908, birth decade estimated as 1850s.
+-- Using 1850 as representative year with 'decade' precision to enable
+-- temporal positioning in genealogy visualizations.
+-- ============================================================
 
 BEGIN;
 
@@ -51,8 +59,8 @@ INSERT INTO genealogy.person_profiles (
   'Pre-codification era. Taught traditional capoeira that included knife techniques (facas) and spiritual practices (boas orações) as an integrated system.',
   'Era pré-codificação. Ensinava capoeira tradicional que incluía técnicas de faca (facas) e práticas espirituais (boas orações) como um sistema integrado.',
   -- Life dates
-  NULL, -- Birth year unknown
-  'unknown'::genealogy.date_precision,
+  1850,
+  'decade'::genealogy.date_precision,
   'Dahomey (present-day Benin), Africa',
   NULL, -- Death year unknown
   'unknown'::genealogy.date_precision,

@@ -15,6 +15,12 @@
 -- Though innocent of the murder, his status as a capoeira was confirmed.
 -- After months of punishment, his owner's mercy petition was approved on April 25, 1789.
 --
+-- BIRTH YEAR ESTIMATION (1760 with 'decade' precision):
+-- Described as purchased "while still young" and working as a "robust" construction
+-- worker/carrier at time of arrest (1789). Estimated to be in his 20s-30s in 1789,
+-- suggesting birth decade of 1760s. Using 1760 as representative year with 'decade'
+-- precision to enable temporal positioning in genealogy visualizations.
+--
 -- ADDITIONAL CONTEXT FROM RESEARCH:
 -- - Adão was a slave of Manoel Cardoso Fontes
 -- - Purchased young, described as "robust, hardworking, very obedient"
@@ -67,9 +73,9 @@ INSERT INTO genealogy.person_profiles (
   'Pre-codification era (1789); practiced what colonial authorities called "capoeiragem" in 18th century Rio de Janeiro. Style distinctions (Angola/Regional) would not exist for another 150 years.',
   'Era pré-codificação (1789); praticava o que as autoridades coloniais chamavam de "capoeiragem" no Rio de Janeiro do século XVIII. As distinções de estilo (Angola/Regional) não existiriam por mais 150 anos.',
   -- Life dates
-  NULL,
-  'unknown'::genealogy.date_precision,
-  NULL,
+  1760,
+  'decade'::genealogy.date_precision,
+  'Rio de Janeiro, Brazil',
   NULL,
   'unknown'::genealogy.date_precision,
   NULL,

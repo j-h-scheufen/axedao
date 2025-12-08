@@ -9,6 +9,15 @@
 -- ============================================================
 -- DEPENDENCIES: none
 -- ============================================================
+--
+-- BIRTH YEAR ESTIMATION (1820 with 'decade' precision):
+-- Active around 1850 with a "graying pointed beard" and described as having
+-- started his career "young at Lavadinho." If he had a graying beard
+-- (suggesting 40s-50s) in 1850 and started young, birth decade estimated
+-- as 1820s. This places him in early adulthood during the peak of malta
+-- activity in Rio de Janeiro. Using 1820 as representative year with
+-- 'decade' precision to enable temporal positioning in genealogy visualizations.
+-- ============================================================
 
 BEGIN;
 
@@ -51,9 +60,9 @@ INSERT INTO genealogy.person_profiles (
   'Active before the codification of capoeira styles. Practiced capoeira carioca during the malta era in Rio de Janeiro.',
   'Ativo antes da codificação dos estilos de capoeira. Praticava a capoeira carioca durante a era das maltas no Rio de Janeiro.',
   -- Life dates
-  NULL,  -- Birth year unknown; active around 1850
-  'unknown'::genealogy.date_precision,
-  'Rio de Janeiro, Brazil',  -- Presumed, as he was based there
+  1820,
+  'decade'::genealogy.date_precision,
+  'Rio de Janeiro, Brazil',
   NULL,  -- Death year unknown
   'unknown'::genealogy.date_precision,
   NULL,  -- Death place unknown

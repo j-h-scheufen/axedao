@@ -11,6 +11,7 @@
 | Field | Value |
 |-------|-------|
 | Name | Adão |
+| Birth Decade (est.) | 1760s (decade precision) |
 | Status | Pardo (mixed-race), enslaved mulatto |
 | Owner | Manoel Cardoso Fontes |
 | Arrest Date | Late 1788 or early 1789 (inferred) |
@@ -21,6 +22,10 @@
 | Archival Source | Arquivo Nacional Rio de Janeiro (ANRJ) - Tribunal da Relação - códice 24, livro 10 |
 
 **Note on dates:** The archival record documents April 25, 1789 as the date the Tribunal approved the mercy petition. The arrest occurred "a few months" earlier per the narrative, placing it in late 1788 or early 1789.
+
+**Birth year estimation:** Described as purchased "while still young" and working as a "robust" construction worker/carrier at time of arrest (1789). Estimated to be in his 20s-30s in 1789, suggesting birth decade of 1760s. Recorded with `decade` precision in database (not exact year).
+
+**Estimativa do ano de nascimento:** Descrito como comprado "ainda jovem" e trabalhando como um "robusto" trabalhador de construção/carregador no momento da prisão (1789). Estimado em seus 20-30 anos em 1789, sugerindo década de nascimento de 1760. Registrado com precisão de `década` no banco de dados (não ano exato).
 
 ## Biography
 

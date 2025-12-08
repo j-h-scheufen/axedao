@@ -13,15 +13,9 @@
  */
 
 import { useMemo } from 'react';
-import { forceManyBody, forceRadial } from 'd3-force-3d';
 
 import type { GraphData, GraphNode, GroupMetadata, PersonMetadata } from '@/components/genealogy/types';
-import {
-  ForceGraph3DWrapper,
-  type ForceConfig,
-  type ForceGraphData,
-  type ForceNode,
-} from '@/components/genealogy/core';
+import { ForceGraph3DWrapper, type ForceGraphData, type ForceNode } from '@/components/genealogy/core';
 
 // ============================================================================
 // RADIAL TEMPORAL LAYOUT CONSTANTS
@@ -64,17 +58,32 @@ function computeRadialDistance(year: number | null): number {
   return Math.max(10, decadesFromCenter * DECADE_RADIUS);
 }
 
-/**
- * Compute spherical coordinates for radial temporal layout.
- * Oldest mestres at center, each decade expands outward as a spherical shell.
- */
-function computeRadialPosition(year: number | null): { x: number; y: number; z: number } {
-  const radius = computeRadialDistance(year);
+// Keep track of node count per decade for even distribution
+const decadeNodeCounts = new Map<number, number>();
 
-  // Random spherical distribution for initial position
-  // theta = azimuthal angle (0 to 2π), phi = polar angle (0 to π)
-  const theta = Math.random() * 2 * Math.PI;
-  const phi = Math.acos(2 * Math.random() - 1); // Uniform distribution on sphere
+/**
+ * Compute spherical coordinates for radial temporal layout using Fibonacci sphere.
+ * Oldest mestres at center, each decade expands outward as a spherical shell.
+ * Uses Fibonacci spiral for even distribution on each shell.
+ */
+function computeRadialPosition(
+  year: number | null,
+  nodeIndex: number,
+  totalNodes: number
+): { x: number; y: number; z: number } {
+  const radius = computeRadialDistance(year);
+  const effectiveYear = year ?? UNKNOWN_YEAR_RADIUS;
+  const decade = Math.floor(effectiveYear / 10) * 10;
+
+  // Track how many nodes are on this decade shell
+  const currentCount = decadeNodeCounts.get(decade) || 0;
+  decadeNodeCounts.set(decade, currentCount + 1);
+
+  // Use Fibonacci sphere for even distribution on this shell
+  // Add nodeIndex to ensure different positions even for same decade
+  const i = currentCount + nodeIndex * 0.1;
+  const phi = Math.acos(1 - (2 * (i + 0.5)) / (totalNodes + 1));
+  const theta = Math.PI * (1 + Math.sqrt(5)) * i; // Golden angle
 
   return {
     x: radius * Math.sin(phi) * Math.cos(theta),
@@ -93,25 +102,53 @@ function processDataForStudentAncestry(data: GraphData): ForceGraphData {
   // Filter to persons only
   const personNodes = data.nodes.filter((node) => node.type === 'person');
 
+  // Reset decade counts for fresh distribution
+  decadeNodeCounts.clear();
+
   // Filter to student_of links only (and only between persons)
   const personIds = new Set(personNodes.map((n) => n.id));
-  const studentOfLinks = data.links.filter(
-    (link) =>
-      (link.type === 'student_of' || link.type === 'trained_under') &&
-      personIds.has(link.source) &&
-      personIds.has(link.target)
-  );
+
+  const studentOfLinks = data.links
+    .filter((link) => {
+      // Check if this is a student or training relationship
+      if (link.type !== 'student_of' && link.type !== 'trained_under') {
+        return false;
+      }
+
+      // Handle both string IDs (initial format) and object references (after react-force-graph mutation)
+      // react-force-graph mutates links by replacing string IDs with node object references
+      const sourceId = typeof link.source === 'string' ? link.source : (link.source as { id: string }).id;
+      const targetId = typeof link.target === 'string' ? link.target : (link.target as { id: string }).id;
+
+      // Only include links between persons
+      return personIds.has(sourceId) && personIds.has(targetId);
+    })
+    .map((link) => {
+      // Normalize links to use string IDs so react-force-graph can match them to our processed nodes
+      const sourceId = typeof link.source === 'string' ? link.source : (link.source as { id: string }).id;
+      const targetId = typeof link.target === 'string' ? link.target : (link.target as { id: string }).id;
+
+      return {
+        ...link,
+        source: sourceId,
+        target: targetId,
+      };
+    });
 
   // Process nodes with radial positions
-  const processedNodes: ForceNode[] = personNodes.map((node) => {
+  const totalNodes = personNodes.length;
+  const processedNodes: ForceNode[] = personNodes.map((node, index) => {
     const year = getNodeYear(node);
-    const pos = computeRadialPosition(year);
+    const pos = computeRadialPosition(year, index, totalNodes);
 
     return {
       ...node,
       x: pos.x,
       y: pos.y,
       z: pos.z,
+      fx: pos.x, // Fix x position to prevent force simulation from moving it
+      fy: pos.y, // Fix y position
+      fz: pos.z, // Fix z position
       hasTemporalData: year !== null,
     };
   });
@@ -120,33 +157,6 @@ function processDataForStudentAncestry(data: GraphData): ForceGraphData {
     nodes: processedNodes,
     links: studentOfLinks,
   };
-}
-
-/**
- * Create radial force configuration for temporal shells.
- */
-function createRadialForces(): ForceConfig[] {
-  // biome-ignore lint/suspicious/noExplicitAny: d3-force types don't align with react-force-graph internal types
-  const radialForce = forceRadial<any>()
-    .radius((node: ForceNode) => {
-      const year = getNodeYear(node);
-      return computeRadialDistance(year);
-    })
-    .strength(0.8); // Strong pull to maintain spherical shells
-
-  // biome-ignore lint/suspicious/noExplicitAny: d3-force types don't align with react-force-graph internal types
-  const chargeForce = forceManyBody<any>().strength(-50);
-
-  return [
-    {
-      name: 'radial',
-      force: radialForce,
-    },
-    {
-      name: 'charge',
-      force: chargeForce,
-    },
-  ];
 }
 
 // ============================================================================
@@ -184,11 +194,8 @@ export function StudentAncestryGraph({
   width,
   height,
 }: StudentAncestryGraphProps) {
-  // Process data for radial layout
+  // Process data for radial layout with fixed positions
   const graphData = useMemo(() => processDataForStudentAncestry(data), [data]);
-
-  // Create radial forces
-  const forces = useMemo(() => createRadialForces(), []);
 
   return (
     <ForceGraph3DWrapper
@@ -196,7 +203,7 @@ export function StudentAncestryGraph({
       selectedNodeId={selectedNodeId}
       onNodeClick={onNodeClick}
       onBackgroundClick={onBackgroundClick}
-      forces={forces}
+      forces={[]} // Empty - using fixed positions (fx, fy, fz) instead
       width={width}
       height={height}
       autoFitOnLoad

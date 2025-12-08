@@ -10,6 +10,7 @@
 |-------|-------|
 | Name | Alípio |
 | Apelido | Tio Alípio |
+| Birth Decade (est.) | 1850s (decade precision) |
 | Origin | Dahomey (present-day Benin), Africa |
 | Mother's Origin | Brought on slave ship from Port of São Jorge da Mina |
 | Enslaved At | Engenho de Pantaleão, Santo Amaro da Purificação, Bahia |
@@ -17,6 +18,10 @@
 | Spiritual Role | Babalaô (Candomblé priest) |
 | Role | Capoeira teacher |
 | Style | Pre-codification (Angola/Regional distinction didn't exist) |
+
+**Birth year estimation:** Described as enslaved "while still young" and actively teaching Besouro Mangangá around 1908. If enslaved as a young man in the 1860s-1870s and still teaching in his 50s-60s in 1908, birth decade estimated as 1850s. Recorded with `decade` precision in database (not exact year).
+
+**Estimativa do ano de nascimento:** Descrito como escravizado "ainda moço jovem" e ensinando ativamente Besouro Mangangá por volta de 1908. Se escravizado jovem nas décadas de 1860-1870 e ainda ensinando em seus 50-60 anos em 1908, década de nascimento estimada como 1850. Registrado com precisão de `década` no banco de dados (não ano exato).
 
 ## Biography
 

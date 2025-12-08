@@ -12,11 +12,16 @@
 |-------|-------|
 | Full Name | Manoel Alves da Silva |
 | Apelido | Manduca da Praia |
+| Birth Decade (est.) | 1820s (decade precision) |
 | Description | Pardo claro (light mulatto), tall, muscular |
 | Profession | Fish merchant (São José parish), Political bodyguard |
 | Residence | Cidade Nova, Rio de Janeiro |
 | Era | Active around 1850 |
 | Gang Affiliation | Chief of Santa Luzia party, Nagoa federation |
+
+**Birth year estimation:** Active around 1850 with a "graying pointed beard" and described as having started his career "young at Lavadinho." If he had a graying beard (suggesting 40s-50s) in 1850 and started young, birth decade estimated as 1820s. This places him in early adulthood during the peak of malta activity in Rio de Janeiro. Recorded with `decade` precision in database (not exact year).
+
+**Estimativa do ano de nascimento:** Ativo por volta de 1850 com uma "barba grisalha pontuda" e descrito como tendo começado sua carreira "jovem no Lavadinho." Se tinha barba grisalha (sugerindo 40-50 anos) em 1850 e começou jovem, década de nascimento estimada como 1820. Isso o coloca no início da idade adulta durante o auge da atividade das maltas no Rio de Janeiro. Registrado com precisão de `década` no banco de dados (não ano exato).
 
 ## Biography
 

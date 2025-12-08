@@ -10,11 +10,16 @@
 |-------|-------|
 | Name | Unknown |
 | Apelido | Benedito (also: Tio Benedito, Tio Benito, Mestre Benedito) |
+| Birth Decade (est.) | 1830s (decade precision) |
 | Origin | Angola, Africa |
 | Status | Africano liberto (freed African) |
 | Active | Late 19th century, Salvador, Bahia |
 | Location | Rua das Laranjeiras, n. 26, Pelourinho, Salvador |
 | Role | Capoeira teacher |
+
+**Birth year estimation:** Described as "elderly" when teaching Pastinha around 1899. If elderly (60+ years old) in 1899, birth decade estimated as 1830s. This aligns with historical context—slave trade to Brazil ended 1850, so he was likely born in Angola and brought to Brazil as a child/young man, or born in Brazil to African parents shortly after 1850. Recorded with `decade` precision in database (not exact year).
+
+**Estimativa do ano de nascimento:** Descrito como "idoso" quando ensinava Pastinha por volta de 1899. Se idoso (60+ anos) em 1899, década de nascimento estimada como 1830. Isso se alinha com o contexto histórico—o tráfico de escravos para o Brasil terminou em 1850, então ele provavelmente nasceu em Angola e foi trazido ao Brasil criança/jovem, ou nasceu no Brasil de pais africanos logo após 1850. Registrado com precisão de `década` no banco de dados (não ano exato).
 
 ## Historical Context: The African-Born Generation
 
