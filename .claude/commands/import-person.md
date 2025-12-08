@@ -44,14 +44,21 @@ You are researching **$ARGUMENTS** to create a complete person profile for the g
 
 ### Phase 1: Research & Data Collection
 
-Search for information using these source types (in order of reliability):
+**IMPORTANT: Read the research sources file first!**
 
-1. **Official sources** - Group websites, academy pages
-2. **Wikipedia / Wikimedia** - For historical figures
-3. **Capoeira directories** - Lalaue.com, CapoeiraHub.net
-4. **Social media** - Instagram, Facebook (for current activity)
-5. **Academic sources** - IPHAN, university research for historical figures
-6. **Videos/Interviews** - YouTube documentaries, oral history
+Before starting web searches, read `docs/genealogy/sources/research-sources.md` for:
+- Tier 1-4 source rankings by reliability
+- Specific URL patterns for each source
+- What data is available from each source
+- Tips for extracting information
+
+**Research priority by tier:**
+1. Start with **Tier 1** sources (highest reliability) - check all relevant ones
+2. Cross-reference with **Tier 2** sources for additional detail
+3. **Skip Tier 3** (social media) for historical figures - only use for living persons to verify current activity
+4. Consult **Tier 4** (academic) for historical figures and primary source citations
+
+**IMPORTANT:** Do NOT include social media accounts (Instagram, Facebook, Twitter) in `public_links` - these are too ephemeral for genealogy data. Social media is only for verifying current activity, not as a data source.
 
 **Collect ALL of the following data (maps to `genealogy.person_profiles` table):**
 
@@ -376,15 +383,56 @@ INSERT INTO genealogy.person_profiles (
   -- Extended content
   '[Bio text or NULL]',
   '[Achievements or NULL]'
-) RETURNING id AS [apelido_snake_case]_id;
+)
+ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes = EXCLUDED.style_notes,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio = EXCLUDED.bio,
+  achievements = EXCLUDED.achievements,
+  updated_at = NOW();
 
 -- ============================================================
 -- STATEMENTS (Relationships)
 -- Only generate for entities that EXIST in our dataset
+-- Use ON CONFLICT DO NOTHING for idempotent sync
 -- ============================================================
 
 -- --- Person-to-Person: Training & Lineage ---
--- (Only if the other person exists in dataset)
+-- Example with date precision columns:
+-- INSERT INTO genealogy.statements (
+--   subject_type, subject_id,
+--   predicate,
+--   object_type, object_id,
+--   started_at, started_at_precision,
+--   ended_at, ended_at_precision,
+--   properties, confidence, source, notes
+-- )
+-- SELECT
+--   'person'::genealogy.entity_type, s.id,
+--   'student_of'::genealogy.predicate,
+--   'person'::genealogy.entity_type, o.id,
+--   '1908-01-01'::date, 'year'::genealogy.date_precision,  -- Year-level precision
+--   '1924-07-08'::date, 'exact'::genealogy.date_precision, -- Exact date known
+--   '{}'::jsonb,
+--   'verified'::genealogy.confidence,
+--   'Source citation here',
+--   'Additional context about this relationship'
+-- FROM genealogy.person_profiles s, genealogy.person_profiles o
+-- WHERE s.apelido = '[Subject Apelido]' AND o.apelido = '[Object Apelido]'
+-- ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+--
+-- Date precision values: exact, month, year, decade, approximate, unknown
+-- Use started_at = NULL with started_at_precision = 'unknown' when date is completely unknown
 
 -- --- Person-to-Person: Recognition ---
 -- (Title grants, baptisms)
@@ -393,6 +441,24 @@ INSERT INTO genealogy.person_profiles (
 -- (Only if the group exists in dataset)
 
 -- --- Person-to-Group: Membership & Affiliation ---
+
+-- ============================================================
+-- IMPORT LOG
+-- ============================================================
+
+INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
+VALUES (
+  'person',
+  'persons/[apelido-lowercase].sql',
+  NULL,  -- Checksum computed by sync script
+  ARRAY['persons/dependency1.sql', 'persons/dependency2.sql'],  -- List dependencies or ARRAY[]::text[] if none
+  '[Brief description of who this person is]'
+)
+ON CONFLICT (entity_type, file_path) DO UPDATE SET
+  imported_at = NOW(),
+  checksum = EXCLUDED.checksum,
+  dependencies = EXCLUDED.dependencies,
+  notes = EXCLUDED.notes;
 
 COMMIT;
 ```

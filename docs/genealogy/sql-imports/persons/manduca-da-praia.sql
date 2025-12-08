@@ -7,11 +7,13 @@
 --   - https://www.historyoffighting.com/mestre-manduca-da-praia.php
 --   - https://papoeira.com/en/capoeira-song-manduca-da-praia-lyrics-translation-history/
 -- ============================================================
+-- DEPENDENCIES: none
+-- ============================================================
 
 BEGIN;
 
 -- ============================================================
--- PERSON PROFILE
+-- PERSON PROFILE (upsert pattern for idempotent sync)
 -- ============================================================
 -- Manduca da Praia was one of the most celebrated capoeiristas of
 -- 19th-century Rio de Janeiro. Chief of the Santa Luzia party within
@@ -57,7 +59,7 @@ INSERT INTO genealogy.person_profiles (
   'unknown'::genealogy.date_precision,
   NULL,  -- Death place unknown
   -- Extended content
-  'Manduca da Praia was a man who defied the expectations of his era. In mid-19th century Rio de Janeiro, capoeiristas typically fell into one of two paths: the violent underworld of the maltas or prison. Manduca navigated a third way.
+  E'Manduca da Praia was a man who defied the expectations of his era. In mid-19th century Rio de Janeiro, capoeiristas typically fell into one of two paths: the violent underworld of the maltas or prison. Manduca navigated a third way.
 
 His full name is recorded as Manoel Alves da Silva in most sources, though one account lists him as Arthur Bento dos Santos.
 
@@ -80,7 +82,23 @@ Among his contemporaries in the dangerous world of Rio capoeiragem were Mamede, 
 What set Manduca apart was not just his fighting ability - though he was reportedly undefeated - but his ability to command respect in multiple worlds: the violent street culture of the maltas, the respectable commerce of the marketplace, and the political sphere where he served as protector. In an era when capoeiristas were hunted and imprisoned, he built a life of relative prosperity and lasting fame.',
   -- Achievements
   'Chief of Santa Luzia party (Nagoa federation); Undefeated in street fighting career; Acquitted of all 27 criminal charges; Famous victory over Portuguese Deputy Santana'
-) RETURNING id AS manduca_da_praia_id;
+)
+ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes = EXCLUDED.style_notes,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio = EXCLUDED.bio,
+  achievements = EXCLUDED.achievements,
+  updated_at = NOW();
 
 -- ============================================================
 -- STATEMENTS (Relationships)
@@ -94,5 +112,23 @@ What set Manduca apart was not just his fighting ability - though he was reporte
 -- - Contemporary capoeiristas: Mamede, Aleixo Açougueiro, Pedro Cobra,
 --   Bentevi, Quebra Coco
 -- ============================================================
+
+-- ============================================================
+-- IMPORT LOG
+-- ============================================================
+
+INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
+VALUES (
+  'person',
+  'persons/manduca-da-praia.sql',
+  NULL,
+  ARRAY[]::text[],
+  'Chief of Nagôas malta (~1845-1905); most famous capoeirista of 19th century Rio'
+)
+ON CONFLICT (entity_type, file_path) DO UPDATE SET
+  imported_at = NOW(),
+  checksum = EXCLUDED.checksum,
+  dependencies = EXCLUDED.dependencies,
+  notes = EXCLUDED.notes;
 
 COMMIT;

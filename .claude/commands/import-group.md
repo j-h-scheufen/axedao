@@ -40,14 +40,22 @@ Before starting web research, check if we already have documentation on this gro
 
 ### Phase 1: Research & Data Collection
 
-Search for information using these source types (in order of reliability):
+**IMPORTANT: Read the research sources file first!**
 
-1. **Official website** - Group's own site, about page, history
-2. **Social media** - Instagram, Facebook, YouTube for current activity
-3. **Capoeira directories** - Lalaue.com, CapoeiraHub.net
-4. **Wikipedia / Wikimedia** - For established groups
-5. **Academic sources** - IPHAN, university research for historical groups
-6. **News articles** - Local coverage, event announcements
+Before starting web searches, read `docs/genealogy/sources/research-sources.md` for:
+- Tier 1-4 source rankings by reliability
+- Specific URL patterns for each source
+- What data is available from each source
+- Tips for extracting information
+
+**Research priority by tier:**
+1. **Always check the group's official website first** (if known)
+2. Then check **Tier 1** sources (highest reliability) - Wikipedia, Lalaue
+3. Cross-reference with **Tier 2** sources - IPHAN, Portal Capoeira, CapoeiraHub
+4. **Skip Tier 3** (social media) for historical groups - only use for active groups to verify current activity
+5. Consult **Tier 4** (academic) for historical groups and primary source citations
+
+**IMPORTANT:** Do NOT include social media accounts (Instagram, Facebook, Twitter) in `links` - these are too ephemeral for genealogy data. Social media is only for verifying current activity, not as a data source.
 
 **Collect ALL of the following data (maps to `genealogy.group_profiles` table):**
 
@@ -266,21 +274,75 @@ INSERT INTO genealogy.group_profiles (
   -- Status
   [true|false],  -- is_active
   [NULL or 'YYYY-MM-DD'::date]  -- dissolved_at
-) RETURNING id AS [group_snake_case]_id;
+)
+ON CONFLICT (name) DO UPDATE SET
+  description = EXCLUDED.description,
+  style = EXCLUDED.style,
+  style_notes = EXCLUDED.style_notes,
+  logo = EXCLUDED.logo,
+  links = EXCLUDED.links,
+  name_aliases = EXCLUDED.name_aliases,
+  name_history = EXCLUDED.name_history,
+  founded_year = EXCLUDED.founded_year,
+  founded_year_precision = EXCLUDED.founded_year_precision,
+  founded_location = EXCLUDED.founded_location,
+  philosophy = EXCLUDED.philosophy,
+  history = EXCLUDED.history,
+  legal_structure = EXCLUDED.legal_structure,
+  is_headquarters = EXCLUDED.is_headquarters,
+  is_active = EXCLUDED.is_active,
+  dissolved_at = EXCLUDED.dissolved_at,
+  updated_at = NOW();
 
 -- ============================================================
 -- STATEMENTS (Relationships)
 -- Only generate for entities that EXIST in our dataset
+-- Use ON CONFLICT DO NOTHING for idempotent sync
 -- ============================================================
 
 -- --- Group-to-Group: Evolution & Hierarchy ---
--- (Only if the other group exists in dataset)
-
--- Example: Split from parent group
--- INSERT INTO genealogy.statements (...)
--- VALUES (..., 'split_from_group'::genealogy.predicate, ...);
+-- Example: Split from parent group with date precision
+-- INSERT INTO genealogy.statements (
+--   subject_type, subject_id,
+--   predicate,
+--   object_type, object_id,
+--   started_at, started_at_precision,
+--   properties, confidence, source, notes
+-- )
+-- SELECT
+--   'group'::genealogy.entity_type, s.id,
+--   'split_from_group'::genealogy.predicate,
+--   'group'::genealogy.entity_type, o.id,
+--   '1980-01-01'::date, 'year'::genealogy.date_precision,
+--   '{"split_type": "blessed"}'::jsonb,
+--   'verified'::genealogy.confidence,
+--   'Source citation',
+--   'Additional context'
+-- FROM genealogy.group_profiles s, genealogy.group_profiles o
+-- WHERE s.name = '[Subject Name]' AND o.name = '[Object Name]'
+-- ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+--
+-- Date precision values: exact, month, year, decade, approximate, unknown
 
 -- --- Group-to-Group: Affiliation ---
+
+-- ============================================================
+-- IMPORT LOG
+-- ============================================================
+
+INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
+VALUES (
+  'group',
+  'groups/[group-name-lowercase].sql',
+  NULL,  -- Checksum computed by sync script
+  ARRAY['groups/dependency1.sql'],  -- List dependencies or ARRAY[]::text[] if none
+  '[Brief description of this group]'
+)
+ON CONFLICT (entity_type, file_path) DO UPDATE SET
+  imported_at = NOW(),
+  checksum = EXCLUDED.checksum,
+  dependencies = EXCLUDED.dependencies,
+  notes = EXCLUDED.notes;
 
 COMMIT;
 ```
@@ -368,35 +430,47 @@ Present your findings in this structure:
 ```sql
 -- NewGroup split from OriginalGroup
 INSERT INTO genealogy.statements (
-  id, subject_type, subject_id, predicate, object_type, object_id,
-  started_at, properties, confidence, source
-) VALUES (
-  gen_random_uuid(),
-  'group'::genealogy.entity_type, new_group_id,
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  properties, confidence, source, notes
+)
+SELECT
+  'group'::genealogy.entity_type, s.id,
   'split_from_group'::genealogy.predicate,
-  'group'::genealogy.entity_type, original_group_id,
-  '1980-01-01'::date,
-  '{"split_type": "blessed", "blessed_by": ["mestre-x-uuid"]}'::jsonb,
+  'group'::genealogy.entity_type, o.id,
+  '1980-01-01'::date, 'year'::genealogy.date_precision,
+  '{"split_type": "blessed"}'::jsonb,
   'verified'::genealogy.confidence,
-  'Source citation'
-);
+  'Source citation',
+  'Context about the split'
+FROM genealogy.group_profiles s, genealogy.group_profiles o
+WHERE s.name = 'New Group' AND o.name = 'Original Group'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
 ```
 
 #### Pattern 2: Branch/Nucleus Hierarchy
 ```sql
 -- LocalGroup is a branch of MainGroup
 INSERT INTO genealogy.statements (
-  id, subject_type, subject_id, predicate, object_type, object_id,
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
   properties, confidence, source
-) VALUES (
-  gen_random_uuid(),
-  'group'::genealogy.entity_type, local_group_id,
+)
+SELECT
+  'group'::genealogy.entity_type, s.id,
   'part_of'::genealogy.predicate,
-  'group'::genealogy.entity_type, main_group_id,
+  'group'::genealogy.entity_type, o.id,
+  '2000-01-01'::date, 'year'::genealogy.date_precision,
   '{"affiliation_type": "branch"}'::jsonb,
   'verified'::genealogy.confidence,
   'Source citation'
-);
+FROM genealogy.group_profiles s, genealogy.group_profiles o
+WHERE s.name = 'Local Group' AND o.name = 'Main Group'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
 ```
 
 #### Pattern 3: Organizational Evolution (NOT name change)
@@ -404,17 +478,23 @@ INSERT INTO genealogy.statements (
 -- Only for genuine transformations, NOT name changes
 -- Name changes go in name_history JSONB field
 INSERT INTO genealogy.statements (
-  id, subject_type, subject_id, predicate, object_type, object_id,
-  started_at, confidence, source
-) VALUES (
-  gen_random_uuid(),
-  'group'::genealogy.entity_type, new_organization_id,
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  confidence, source, notes
+)
+SELECT
+  'group'::genealogy.entity_type, s.id,
   'evolved_from'::genealogy.predicate,
-  'group'::genealogy.entity_type, predecessor_id,
-  '1990-01-01'::date,
+  'group'::genealogy.entity_type, o.id,
+  '1990-01-01'::date, 'year'::genealogy.date_precision,
   'verified'::genealogy.confidence,
-  'Source citation'
-);
+  'Source citation',
+  'Description of the organizational transformation'
+FROM genealogy.group_profiles s, genealogy.group_profiles o
+WHERE s.name = 'New Organization' AND o.name = 'Predecessor'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
 ```
 
 ---

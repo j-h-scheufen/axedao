@@ -27,7 +27,7 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Quebra Coco | - | - | Manduca da Praia import | pending | yes | Contemporary capoeirista in 19th century Rio |
 | Leandro Bonaparte | - | - | Manduca da Praia import | pending | yes | Chief of Saint Francis party (Guaiamú); capoeirista gang leader |
 | Jorge Marinha | - | - | Manduca da Praia import | pending | yes | Chief of Marinha gang; capoeirista gang leader |
-| Plácido de Abreu | Plácido de Abreu Morais | - | Manduca da Praia import | pending | ? | Author of "Os Capoeiras" (1886); amateur capoeirista but primarily historian |
+| Plácido de Abreu | Plácido de Abreu Morais | - | Manduca da Praia import | done | yes | Author of "Os Capoeiras" (1886); amateur capoeirista - SQL generated |
 | João Sabe Tudo | - | - | Nascimento Grande import | pending | yes | Rival and friend of Nascimento Grande; famous fight at Igreja do Carmo; knife fighter |
 | Corre Hoje | - | - | Nascimento Grande import | pending | yes | Enemy of Nascimento Grande; attacked with 7 men, killed by stray bullet |
 | Antonio Padroeiro | - | - | Nascimento Grande import | pending | yes | Enemy of Nascimento Grande; beaten to death after being disarmed |
@@ -37,4 +37,8 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Jovino dos Coelhos | - | - | Nascimento Grande import | pending | ? | Recife carnival valentão; unclear if formal capoeirista |
 | Nicolau do Poço | - | - | Nascimento Grande import | pending | ? | Recife carnival valentão; unclear if formal capoeirista |
 | João de Totó | - | - | Nascimento Grande import | pending | ? | Recife carnival valentão; unclear if formal capoeirista |
-| Besouro Mangangá | Manuel Henrique Pereira | - | Nascimento Grande import | pending | yes | Legendary capoeirista of Bahia (1895-1924); contemporary of Nascimento Grande |
+| Besouro Mangangá | Manoel Henrique Pereira | - | Nascimento Grande import | done | yes | Legendary capoeirista of Bahia (1895-1924); SQL generated |
+| Pinta Preta da Lapa | - | - | Plácido de Abreu import | pending | yes | Capoeirista killed in retaliation for murder at Rua dos Ourives; documented by Plácido de Abreu |
+| Jacó | - | - | Plácido de Abreu import | pending | yes | Capoeirista killed in retaliation; documented by Plácido de Abreu |
+| Alemãozinho | - | - | Plácido de Abreu import | pending | yes | Capoeirista killed in retaliation; documented by Plácido de Abreu |
+| Paulo Barroquinha | - | - | Besouro Mangangá import | pending | yes | Training companion of Besouro Mangangá in Santo Amaro; part of his Sunday training circle |

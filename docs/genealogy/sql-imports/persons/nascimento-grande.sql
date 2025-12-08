@@ -9,6 +9,8 @@
 --   - José Mariano, Jornal do Commercio, Recife, 20/02/1936
 --   - Portal Capoeira, Portal São Francisco (frevo history)
 -- ============================================================
+-- DEPENDENCIES: persons/manduca-da-praia.sql
+-- ============================================================
 -- NOTES:
 -- - Name discrepancy: Some sources list "José Antonio do Nascimento", others
 --   "José Nascimento da Silva". Both appear to refer to the same person.
@@ -24,7 +26,7 @@
 BEGIN;
 
 -- ============================================================
--- PERSON PROFILE
+-- PERSON PROFILE (upsert pattern for idempotent sync)
 -- ============================================================
 
 INSERT INTO genealogy.person_profiles (
@@ -93,10 +95,27 @@ Of all the valentões who left their names in Recife''s carnival history—Jovin
 
 As one source concluded: "Hercules is a myth; Nascimento Grande truly existed. His deeds are recorded in the newspapers of Recife."',
   'Granted title "Herói Popular" (Popular Hero) by the Recife press; Never lost a fight in his entire life; Killed rival Manezinho Camisa Preta in legendary fight at Largo da Carioca, Rio de Janeiro; Celebrated by Brazilian intellectuals including Gilberto Freyre, Câmara Cascudo, José Lins do Rego, and Gilberto Amado; Documented in Jornal do Commercio by abolitionist José Mariano (1936); Immortalized in cordel poetry by João Martins de Ataíde; His fighting style influenced the "passo" dance of frevo'
-) RETURNING id AS nascimento_grande_id;
+)
+ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes = EXCLUDED.style_notes,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio = EXCLUDED.bio,
+  achievements = EXCLUDED.achievements,
+  updated_at = NOW();
 
 -- ============================================================
 -- STATEMENTS (Relationships)
+-- Using ON CONFLICT DO NOTHING for idempotent sync
 -- ============================================================
 
 -- --- Person-to-Person: Contemporaries ---
@@ -126,7 +145,8 @@ SELECT
   'Multiple sources including History of Fighting, Grupo Capoeira Raça Negra, Nossa Tribo'
 FROM genealogy.person_profiles ng, genealogy.person_profiles mp
 WHERE ng.apelido = 'Nascimento Grande'
-  AND mp.apelido = 'Manduca da Praia';
+  AND mp.apelido = 'Manduca da Praia'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
 
 -- ============================================================
 -- PENDING RELATIONSHIPS (for future imports)
@@ -164,5 +184,23 @@ WHERE ng.apelido = 'Nascimento Grande'
 --
 -- Pirajé (Pará), Pajéu (Pernambuco sertão):
 --   These were challengers from other regions.
+
+-- ============================================================
+-- IMPORT LOG
+-- ============================================================
+
+INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
+VALUES (
+  'person',
+  'persons/nascimento-grande.sql',
+  NULL,
+  ARRAY['persons/manduca-da-praia.sql'],
+  'Most feared capoeirista of Pernambuco (1842-1936); influenced frevo dance'
+)
+ON CONFLICT (entity_type, file_path) DO UPDATE SET
+  imported_at = NOW(),
+  checksum = EXCLUDED.checksum,
+  dependencies = EXCLUDED.dependencies,
+  notes = EXCLUDED.notes;
 
 COMMIT;

@@ -5,6 +5,8 @@
 -- Archival Source: Arquivo Nacional Rio de Janeiro (ANRJ) - Tribunal da Relação - códice 24, livro 10
 -- Research: Nireu Cavalcanti (2004)
 -- ============================================================
+-- DEPENDENCIES: none
+-- ============================================================
 --
 -- HISTORICAL SIGNIFICANCE:
 -- Adão is the earliest known individual arrested for capoeira - the very first
@@ -27,7 +29,7 @@
 BEGIN;
 
 -- ============================================================
--- PERSON PROFILE (all columns from genealogy.person_profiles)
+-- PERSON PROFILE (upsert pattern for idempotent sync)
 -- ============================================================
 
 INSERT INTO genealogy.person_profiles (
@@ -68,7 +70,7 @@ INSERT INTO genealogy.person_profiles (
   'unknown'::genealogy.date_precision,
   NULL,
   -- Extended content
-  'The very first name in capoeira''s documented history. Adão was a pardo (mixed-race) enslaved mulatto owned by Manoel Cardoso Fontes in Rio de Janeiro. Purchased young, he was initially described as "robust, hardworking, and very obedient," serving household tasks. His owner rented him out as a construction worker and carrier, making him a valuable source of income.
+  E'The very first name in capoeira''s documented history. Adão was a pardo (mixed-race) enslaved mulatto owned by Manoel Cardoso Fontes in Rio de Janeiro. Purchased young, he was initially described as "robust, hardworking, and very obedient," serving household tasks. His owner rented him out as a construction worker and carrier, making him a valuable source of income.
 
 But over time, the once-timid slave who had always lived at home "became more outgoing, independent, and began to arrive home late." He had found the capoeiras - groups of practitioners gathering in the city''s margins.
 
@@ -78,7 +80,23 @@ After months at the pillory and in labor, his owner petitioned the king "in the 
 
 What became of Adão after his release remains unknown. But his case proves that by 1789, capoeira was already a recognized practice in colonial Brazil - one considered so dangerous that even association with capoeiras warranted brutal punishment.',
   'First documented capoeirista in history (April 25, 1789); Subject of the earliest known police/judicial record specifically mentioning capoeira by name; Survived 500 lashes and forced labor; His case proves capoeira existed as an organized practice in 18th century Rio de Janeiro'
-) RETURNING id AS adao_id;
+)
+ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes = EXCLUDED.style_notes,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio = EXCLUDED.bio,
+  achievements = EXCLUDED.achievements,
+  updated_at = NOW();
 
 -- ============================================================
 -- STATEMENTS (Relationships)
@@ -96,8 +114,6 @@ What became of Adão after his release remains unknown. But his case proves that
 -- exist in the dataset. The next documented practitioner is Major Vidigal,
 -- active nearly 20 years later (1808).
 
-COMMIT;
-
 -- ============================================================
 -- DISCOVERED ENTITIES (for backlog tracking)
 -- ============================================================
@@ -111,3 +127,23 @@ COMMIT;
 --
 -- NEXT CHRONOLOGICAL IMPORT: Major Miguel Nunes Vidigal (active 1808-1820s)
 -- ============================================================
+
+-- ============================================================
+-- IMPORT LOG
+-- ============================================================
+
+INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
+VALUES (
+  'person',
+  'persons/adao.sql',
+  NULL,
+  ARRAY[]::text[],
+  'First documented capoeirista (1789); earliest known arrest record'
+)
+ON CONFLICT (entity_type, file_path) DO UPDATE SET
+  imported_at = NOW(),
+  checksum = EXCLUDED.checksum,
+  dependencies = EXCLUDED.dependencies,
+  notes = EXCLUDED.notes;
+
+COMMIT;

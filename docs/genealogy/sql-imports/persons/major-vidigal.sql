@@ -3,11 +3,13 @@
 -- Generated: 2025-12-08
 -- Primary Source: https://pt.wikipedia.org/wiki/Miguel_Nunes_Vidigal
 -- ============================================================
+-- DEPENDENCIES: none
+-- ============================================================
 
 BEGIN;
 
 -- ============================================================
--- PERSON PROFILE
+-- PERSON PROFILE (upsert pattern for idempotent sync)
 -- ============================================================
 -- Major Miguel Nunes Vidigal (1745-1843)
 -- The earliest named capoeira practitioner in documented history.
@@ -82,7 +84,23 @@ In 1820, Benedictine monks granted Vidigal an extensive property at the foot of 
 Who taught Vidigal capoeira remains unknown. The trail ends with him—the earliest named individual with documented capoeira skills in history. He represents capoeira''s complex position in Brazilian society: criminalized by the state, yet so effective that when crisis came, even the chief persecutor had to call on the very people he had tortured.',
   -- Achievements
   'First Brazilian-born commander of military forces in the United Kingdom of Portugal, Brazil and the Algarves (1808). Chief of the Royal Police Guard of Rio de Janeiro (1809). Rose to rank of Brigadier (1824). Immortalized as a character in the classic Brazilian novel "Memórias de um Sargento de Milícias" (1854). The Vidigal neighborhood of Rio de Janeiro is named after him. Recognized by contemporaries as an unsurpassed master of capoeira, knife, stick, and razor fighting.'
-) RETURNING id AS major_vidigal_id;
+)
+ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes = EXCLUDED.style_notes,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio = EXCLUDED.bio,
+  achievements = EXCLUDED.achievements,
+  updated_at = NOW();
 
 -- ============================================================
 -- STATEMENTS (Relationships)
@@ -93,5 +111,23 @@ Who taught Vidigal capoeira remains unknown. The trail ends with him—the earli
 -- 3. No capoeira groups existed in this formal sense during his era
 -- 4. The Royal Police Guard was not a capoeira group
 -- ============================================================
+
+-- ============================================================
+-- IMPORT LOG
+-- ============================================================
+
+INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
+VALUES (
+  'person',
+  'persons/major-vidigal.sql',
+  NULL,
+  ARRAY[]::text[],
+  'Police chief and capoeira master (1745-1843); earliest named individual with documented capoeira skills'
+)
+ON CONFLICT (entity_type, file_path) DO UPDATE SET
+  imported_at = NOW(),
+  checksum = EXCLUDED.checksum,
+  dependencies = EXCLUDED.dependencies,
+  notes = EXCLUDED.notes;
 
 COMMIT;
