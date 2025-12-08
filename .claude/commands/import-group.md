@@ -12,6 +12,21 @@
 
 You are researching **$ARGUMENTS** to create a complete group profile for the genealogy database.
 
+### Phase 0: Check Group Reports Directory FIRST
+
+Before starting web research, check if we already have documentation on this group:
+
+1. **Check for individual file:** Look for `docs/genealogy/group-reports/[name-lowercase].md`
+   - Use lowercase with hyphens for spaces (e.g., `grupo-senzala.md`, `abada-capoeira.md`)
+   - For acronyms, use lowercase (e.g., `gcap.md`, `ceca.md`)
+
+2. **If individual file exists:** Read that file for existing research
+   - Use this as your starting point
+   - Verify and expand on existing information
+   - Note any discrepancies with new research
+
+3. **If no individual file exists:** Proceed to Phase 1
+
 ### CRITICAL: Research Requirements
 
 **You MUST perform extensive web research using WebSearch and WebFetch tools:**
@@ -410,11 +425,19 @@ After completing research and generating the report, you MUST perform these file
 
 1. **Write SQL file**: Use the Write tool to create `docs/genealogy/sql-imports/groups/[group-name-lowercase].sql`
 
-2. **Update persons backlog**: If any persons were discovered with status `no`, append them to `docs/genealogy/import-backlog/persons-backlog.md`
+2. **Create/Update group report file**: Write comprehensive research to `docs/genealogy/group-reports/[group-name-lowercase].md`
+   - Use lowercase with hyphens for spaces (e.g., `grupo-senzala.md`, `abada-capoeira.md`)
+   - For acronyms, use lowercase (e.g., `gcap.md`, `ceca.md`)
+   - Follow the template in `docs/genealogy/group-reports/README.md`
+   - Include: profile type, basic information table, history, founding & leadership, philosophy, notable members, lineage connections, sources
+   - Reference the SQL import file path
+   - If file already exists, UPDATE it with new research (preserve existing content, add new findings)
 
-3. **Update groups backlog**: If any groups were discovered with status `no`, append them to `docs/genealogy/import-backlog/groups-backlog.md`
+3. **Update persons backlog**: If any persons were discovered with status `no`, append them to `docs/genealogy/import-backlog/persons-backlog.md`
 
-**Failure to write the SQL file is a critical error. The SQL MUST be saved to disk.**
+4. **Update groups backlog**: If any groups were discovered with status `no`, append them to `docs/genealogy/import-backlog/groups-backlog.md`
+
+**Failure to write the SQL file AND the group report file is a critical error. Both MUST be saved to disk.**
 
 ---
 

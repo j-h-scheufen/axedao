@@ -23,19 +23,24 @@ You are researching **$ARGUMENTS** to create a complete person profile for the g
 5. Cross-reference multiple sources to verify information
 6. Document ALL names discovered during research (other capoeiristas, teachers, students, etc.)
 
-### Phase 0: Check Layer Zero Document FIRST
+### Phase 0: Check Person Reports Directory FIRST
 
-**BEFORE doing any web research**, read the file `docs/genealogy/historical-figures-layer-zero.md` and search for the person's name (or variations of it).
+**BEFORE doing any web research**, check if this person already has documentation:
 
-If found in Layer Zero:
-1. Extract all available information from that document
-2. Note the sources listed there
-3. Use this as your **starting point** - the document provides summaries and source URLs
-4. Then proceed to Phase 1 to expand on this with deeper web research
+1. **Check for individual file:** Look for `docs/genealogy/person-reports/[name-lowercase].md`
+   - Use Glob pattern: `docs/genealogy/person-reports/*.md` to list available files
+   - Check variations of the name (apelido, full name with hyphens)
 
-If NOT found in Layer Zero:
-- Proceed directly to Phase 1 (web research)
-- If the person turns out to be from the Layer Zero era (pre-1930s, historical figure), flag this at the end for potential addition to the Layer Zero document
+2. **If individual file exists:**
+   - Read that file for existing research
+   - Note the sources listed
+   - Check if SQL import already exists (noted in file header)
+   - Use this as your **starting point**
+   - Then proceed to Phase 1 to expand with deeper web research
+
+3. **If NOT found:**
+   - Proceed directly to Phase 1 (web research)
+   - A new person report file will be created in Phase 6
 
 ### Phase 1: Research & Data Collection
 
@@ -247,9 +252,25 @@ Map all relationships found to predicates. Direction convention: predicates flow
 | `student_of` | Primary, ongoing teacher-student relationship | - |
 | `trained_under` | Historical/past training, workshops, seminars | - |
 | `influenced_by` | Studied philosophy/methods without direct training | - |
+| `associated_with` | Documented connection between contemporaries (peers, collaborators, known associates) | `association_context` (REQUIRED - text explaining circumstances and sources) |
 | `granted_title_to` | Mestre conferred a title/rank (MESTRE grants to student) | `title_grant: { title, ceremony?, location? }` |
 | `baptized_by` | Received apelido at batizado ceremony from this mestre | `baptism: { apelido_given, ceremony?, location? }` |
 | `family_of` | Biological or ceremonial family | `relationship_type: parent|sibling|spouse|padrinho|other` |
+
+**About `associated_with` (Person-to-Person):**
+This predicate captures documented connections between capoeiristas who were contemporaries - people who knew each other, trained in the same environment, or had documented interactions without a formal teacher-student relationship. This is especially valuable for the "Layer Zero" era where oral tradition networks are crucial but formal lineages are undocumented.
+
+The `association_context` property is **required** and must explain:
+1. The nature of the connection (peers, trained together, rivals, collaborators)
+2. The evidence (source that documents this connection)
+3. The time/place context if known
+
+Example:
+```json
+{
+  "association_context": "Both trained at the port of Salvador in the 1910s; documented as peers in Abreu's 1886 account of the Nagoa-Guaiamum rivalry"
+}
+```
 
 #### Person-to-Group Predicates
 | Predicate | Use When | Properties |
@@ -394,8 +415,8 @@ Present your findings in this structure:
 ```markdown
 # Person Import: [Apelido] ([Full Name])
 
-## Layer Zero Status
-[Was this person found in the Layer Zero document? What information was pre-existing vs newly discovered?]
+## Person Report Status
+[Was this person found in the person-reports directory? What information was pre-existing vs newly discovered?]
 
 ## Research Summary
 [1-2 paragraph summary of who this person is and their significance]
@@ -421,8 +442,8 @@ Present your findings in this structure:
 ## Notes & Uncertainties
 [Any conflicting information, gaps, questions]
 
-## Layer Zero Updates Needed
-[If this is a historical figure (pre-1930s) and new information was discovered that should be added to the Layer Zero document, list it here. Include any newly discovered names from this era.]
+## Person Report File Update
+[Note whether the person-reports file was created or updated with new findings]
 
 ## Sources
 [List all sources consulted with URLs]
@@ -460,7 +481,7 @@ For persons from the pre-1930s era, special considerations apply:
 2. **Style field**: Use NULL or note that style distinctions (Angola/Regional) didn't exist yet
 3. **Confidence**: Often `uncertain` or `likely` due to limited documentation
 4. **Sources**: Police/arrest records, historical newspapers, academic research are primary sources
-5. **New discoveries**: If you uncover names not in Layer Zero, flag them for addition to that document
+5. **Profile Type**: Use appropriate historical types (proto_mestre, historical_capoeirista, early_mestre, etc.) in the person report file
 
 ### Date Validation (CRITICAL)
 
@@ -487,20 +508,25 @@ After completing research and generating the report, you MUST perform these file
 
 1. **Write SQL file**: Use the Write tool to create `docs/genealogy/sql-imports/persons/[apelido-lowercase].sql`
 
-2. **Update persons backlog**: Append discovered persons with `Import? = yes` or `Import? = ?` to `docs/genealogy/import-backlog/persons-backlog.md`
+2. **Create/Update person report file**: Write comprehensive research to `docs/genealogy/person-reports/[name-lowercase].md`
+   - Use lowercase with hyphens for spaces (e.g., `joao-grande.md`, `cobrinha-verde.md`)
+   - Follow the template in `docs/genealogy/person-reports/README.md`
+   - Include: profile type, basic information table, biography, connection to capoeira, sources
+   - Reference the SQL import file path
+   - If file already exists, UPDATE it with new research (preserve existing content, add new findings)
+
+3. **Update persons backlog**: Append discovered persons with `Import? = yes` or `Import? = ?` to `docs/genealogy/import-backlog/persons-backlog.md`
    - Use the backlog table format with these columns: `Apelido | Full Name | Title | Discovered From | Status | Import | Notes`
    - Set `Status` to `pending` for new entries
    - Set `Import` column: `yes` or `?` based on whether they're a capoeirista
    - **Do NOT add persons with `Import? = no`** - they don't belong in the genealogy
 
-3. **Update groups backlog**: Append discovered groups with `Import? = yes` or `Import? = ?` to `docs/genealogy/import-backlog/groups-backlog.md`
+4. **Update groups backlog**: Append discovered groups with `Import? = yes` or `Import? = ?` to `docs/genealogy/import-backlog/groups-backlog.md`
    - **Do NOT add groups with `Import? = no`** (street gangs, political parties, non-capoeira organizations)
-
-4. **Update Layer Zero (if applicable)**: If new historical information was discovered for a pre-1930s figure, update `docs/genealogy/historical-figures-layer-zero.md`
 
 **Key principle:** The backlogs track capoeira entities pending import. Non-capoeira entities (Import? = no) should not be added - they are simply not part of the genealogy data model.
 
-**Failure to write the SQL file is a critical error. The SQL MUST be saved to disk.**
+**Failure to write the SQL file AND the person report file is a critical error. Both MUST be saved to disk.**
 
 ---
 

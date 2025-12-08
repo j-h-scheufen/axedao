@@ -210,8 +210,11 @@ export type StatementProperties = {
   // For part_of
   affiliation_type?: 'branch' | 'nucleus' | 'affiliate' | 'official_filial';
 
-  // For associated_with
+  // For associated_with (Person-to-Group)
   association_type?: 'supporter' | 'patron' | 'informal_affiliate' | 'friend' | 'honorary';
+
+  // For associated_with (Person-to-Person) - REQUIRED for historical connections
+  association_context?: string; // Explains the connection: "Both trained in Salvador during 1920s" + source
 
   // For cultural_pioneer_of
   region?: string;
