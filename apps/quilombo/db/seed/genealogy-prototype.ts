@@ -52,8 +52,9 @@ export async function seedGenealogyPrototype() {
       deathYear: 1981,
       deathYearPrecision: 'year',
       deathPlace: 'Salvador, Bahia, Brazil',
-      bio: 'Considered the "Father of Capoeira Angola." Founded Centro Esportivo de Capoeira Angola (CECA) in 1941. Systematized and preserved the Angola tradition. Traveled to Senegal in 1966 for the First World Festival of Black Arts. Became blind in later years.',
-      achievements:
+      bioEn:
+        'Considered the "Father of Capoeira Angola." Founded Centro Esportivo de Capoeira Angola (CECA) in 1941. Systematized and preserved the Angola tradition. Traveled to Senegal in 1966 for the First World Festival of Black Arts. Became blind in later years.',
+      achievementsEn:
         'Founded CECA (1941). Represented Brazil at First World Festival of Black Arts, Senegal (1966). Systematized Capoeira Angola pedagogy.',
     })
     .returning();
@@ -75,8 +76,9 @@ export async function seedGenealogyPrototype() {
       deathYear: 1974,
       deathYearPrecision: 'year',
       deathPlace: 'Goiânia, Goiás, Brazil',
-      bio: 'Creator of Capoeira Regional. Revolutionized capoeira by systematizing training, introducing sequences, and gaining government recognition. First to receive official permission to teach capoeira (1937). Known for elevating capoeira from street practice to recognized martial art.',
-      achievements:
+      bioEn:
+        'Creator of Capoeira Regional. Revolutionized capoeira by systematizing training, introducing sequences, and gaining government recognition. First to receive official permission to teach capoeira (1937). Known for elevating capoeira from street practice to recognized martial art.',
+      achievementsEn:
         'Created Capoeira Regional. First government-recognized capoeira academy (1937). Developed systematic training methodology with sequences.',
     })
     .returning();
@@ -100,8 +102,9 @@ export async function seedGenealogyPrototype() {
       birthYear: 1933,
       birthYearPrecision: 'exact',
       birthPlace: 'Itagi, Bahia, Brazil',
-      bio: 'One of Mestre Pastinha\'s "two most learned students." Received diploma from Pastinha in 1968. Traveled with Pastinha to Senegal (1966). Moved to NYC in 1990, founding the Capoeira Angola Center of Mestre João Grande. US National Heritage Fellow (2001). Still actively teaching at age 92.',
-      achievements:
+      bioEn:
+        'One of Mestre Pastinha\'s "two most learned students." Received diploma from Pastinha in 1968. Traveled with Pastinha to Senegal (1966). Moved to NYC in 1990, founding the Capoeira Angola Center of Mestre João Grande. US National Heritage Fellow (2001). Still actively teaching at age 92.',
+      achievementsEn:
         'National Endowment for the Arts National Heritage Fellowship (2001). Doctorate of Humane Letters from Upsala College (1995). Subject of documentary "Mandinga em Manhattan."',
     })
     .returning();
@@ -123,8 +126,9 @@ export async function seedGenealogyPrototype() {
       deathYear: 2011,
       deathYearPrecision: 'year',
       deathPlace: 'Salvador, Bahia, Brazil',
-      bio: 'One of Mestre Pastinha\'s "two most learned students." Introduced João Grande to Pastinha. Ran Pastinha\'s academy alongside João Grande when Pastinha became blind. Founded CECA-Academia João Pequeno in 1982 at Forte Santo Antônio.',
-      achievements:
+      bioEn:
+        'One of Mestre Pastinha\'s "two most learned students." Introduced João Grande to Pastinha. Ran Pastinha\'s academy alongside João Grande when Pastinha became blind. Founded CECA-Academia João Pequeno in 1982 at Forte Santo Antônio.',
+      achievementsEn:
         "Founded CECA-Academia João Pequeno (1982). Kept Pastinha's academy running during difficult years.",
     })
     .returning();
@@ -147,8 +151,9 @@ export async function seedGenealogyPrototype() {
       birthYear: 1950,
       birthYearPrecision: 'exact',
       birthPlace: 'Ilha de Maré, Salvador, Bahia, Brazil',
-      bio: 'Known as "O Ressuscitador da Tradição" (The Resuscitator of Tradition). Founder of GCAP (1980). Trained under João Grande and João Pequeno at Pastinha\'s academy starting at age 8. Key figure in the 1980s revival of Capoeira Angola when it was nearly extinct. Academic: Master\'s in Social History, Doctorate in Culture and Society (UFBA).',
-      achievements:
+      bioEn:
+        'Known as "O Ressuscitador da Tradição" (The Resuscitator of Tradition). Founder of GCAP (1980). Trained under João Grande and João Pequeno at Pastinha\'s academy starting at age 8. Key figure in the 1980s revival of Capoeira Angola when it was nearly extinct. Academic: Master\'s in Social History, Doctorate in Culture and Society (UFBA).',
+      achievementsEn:
         'Founded GCAP (1980). Led revival of Capoeira Angola in 1980s. Grammy nomination for "Roda de Capoeira" album (1984). Master\'s and Doctorate from Universidade Federal da Bahia.',
     })
     .returning();
@@ -166,8 +171,9 @@ export async function seedGenealogyPrototype() {
       birthYear: 1960,
       birthYearPrecision: 'year',
       birthPlace: 'Duque de Caxias, Rio de Janeiro, Brazil',
-      bio: 'Top student of Mestre Moraes. Joined Moraes at age 14 (1974). Moved to Salvador with Moraes in 1982. Together with Moraes, convinced João Grande to return from retirement in mid-1980s. Left GCAP in 1996 to found ICAF (International Capoeira Angola Foundation) with Mestres Jurandir and Valmir.',
-      achievements:
+      bioEn:
+        'Top student of Mestre Moraes. Joined Moraes at age 14 (1974). Moved to Salvador with Moraes in 1982. Together with Moraes, convinced João Grande to return from retirement in mid-1980s. Left GCAP in 1996 to found ICAF (International Capoeira Angola Foundation) with Mestres Jurandir and Valmir.',
+      achievementsEn:
         'Co-founded ICAF (1996). Producer/consultant for "Mandinga em Manhattan" documentary. Traveled to west-central Africa to research capoeira\'s African roots.',
     })
     .returning();
@@ -190,7 +196,8 @@ export async function seedGenealogyPrototype() {
       birthYear: 1943,
       birthYearPrecision: 'decade',
       birthPlace: 'Rio de Janeiro, Brazil',
-      bio: 'One of the founding "Sete Mestres" (Seven Mestres) of Grupo Senzala. The founders visited Salvador to train under Mestre Bimba and observe street rodas. Remained with Senzala as a key leader. Known for collaborative leadership model emphasizing "interactivity between red belts."',
+      bioEn:
+        'One of the founding "Sete Mestres" (Seven Mestres) of Grupo Senzala. The founders visited Salvador to train under Mestre Bimba and observe street rodas. Remained with Senzala as a key leader. Known for collaborative leadership model emphasizing "interactivity between red belts."',
     })
     .returning();
 
@@ -204,7 +211,8 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
-      bio: 'One of the founding "Sete Mestres" of Grupo Senzala. Trained with Paulo Flores in the early days. Later became a padrinho (godfather) for Grupo Capoeira Brasil\'s blessed founding in 1989.',
+      bioEn:
+        'One of the founding "Sete Mestres" of Grupo Senzala. Trained with Paulo Flores in the early days. Later became a padrinho (godfather) for Grupo Capoeira Brasil\'s blessed founding in 1989.',
     })
     .returning();
 
@@ -220,7 +228,8 @@ export async function seedGenealogyPrototype() {
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
       birthPlace: 'Salvador, Bahia, Brazil',
-      bio: 'One of the three Flores brothers who moved from Salvador to Rio de Janeiro and founded Grupo Senzala. Part of the founding "Sete Mestres." Later became a padrinho for Grupo Capoeira Brasil.',
+      bioEn:
+        'One of the three Flores brothers who moved from Salvador to Rio de Janeiro and founded Grupo Senzala. Part of the founding "Sete Mestres." Later became a padrinho for Grupo Capoeira Brasil.',
     })
     .returning();
 
@@ -241,8 +250,9 @@ export async function seedGenealogyPrototype() {
       birthYear: 1956,
       birthYearPrecision: 'decade',
       birthPlace: 'Fazenda Estiva, Bahia, Brazil',
-      bio: "Founder and President of ABADÁ-Capoeira (1988), the world's largest capoeira organization. Started training under Mestre Bimba at age 12 with his brother Camisa Roxa. Former member of Grupo Senzala (early 1970s-1988). Left Senzala with blessing to create his own methodology following Bimba's innovative concepts.",
-      achievements:
+      bioEn:
+        "Founder and President of ABADÁ-Capoeira (1988), the world's largest capoeira organization. Started training under Mestre Bimba at age 12 with his brother Camisa Roxa. Former member of Grupo Senzala (early 1970s-1988). Left Senzala with blessing to create his own methodology following Bimba's innovative concepts.",
+      achievementsEn:
         'Founded ABADÁ-Capoeira (1988). Built organization to 40,000-80,000 members in 70+ countries. Only holder of White Cord (Diamond) rank in ABADÁ.',
     })
     .returning();
@@ -258,7 +268,8 @@ export async function seedGenealogyPrototype() {
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
       birthPlace: 'Fazenda Estiva, Bahia, Brazil',
-      bio: 'Co-founder of ABADÁ-Capoeira with his brother Mestre Camisa. Student of Mestre Bimba. Convinced their mother to let young José Tadeu (Camisa) attend Bimba\'s academy. Holds unique title of "Grão Mestre" (Grand Master) within ABADÁ.',
+      bioEn:
+        'Co-founder of ABADÁ-Capoeira with his brother Mestre Camisa. Student of Mestre Bimba. Convinced their mother to let young José Tadeu (Camisa) attend Bimba\'s academy. Holds unique title of "Grão Mestre" (Grand Master) within ABADÁ.',
     })
     .returning();
 
@@ -275,8 +286,9 @@ export async function seedGenealogyPrototype() {
       birthYear: 1938,
       birthYearPrecision: 'year',
       birthPlace: 'Brazil',
-      bio: 'Co-founder of Cordão de Ouro (1967) with Mestre Brasília. Student of three mestres: Sururu, Abiné, and Tonho Role. Part of the founding generation of Grupo Senzala before departing to focus on Capoeira Regional traditions. Known for musical innovation and international influence.',
-      achievements:
+      bioEn:
+        'Co-founder of Cordão de Ouro (1967) with Mestre Brasília. Student of three mestres: Sururu, Abiné, and Tonho Role. Part of the founding generation of Grupo Senzala before departing to focus on Capoeira Regional traditions. Known for musical innovation and international influence.',
+      achievementsEn:
         'Co-founded Cordão de Ouro (1967). Developed certification system with registered trademark. Built international network across multiple continents.',
     })
     .returning();
@@ -291,7 +303,8 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
-      bio: 'Co-founder of Cordão de Ouro (1967) with Mestre Suassuna. Part of the founding generation of Grupo Senzala before departing with Suassuna to establish their own organization.',
+      bioEn:
+        'Co-founder of Cordão de Ouro (1967) with Mestre Suassuna. Part of the founding generation of Grupo Senzala before departing with Suassuna to establish their own organization.',
     })
     .returning();
 
@@ -310,7 +323,8 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'angola',
       birthYearPrecision: 'unknown',
-      bio: 'One of the four co-founders of GCAP (1980) in Rio de Janeiro. Received mestre title from Moraes on December 16, 1978 at Parque Lage. Remained in Rio with full autonomy when Moraes moved GCAP to Salvador in 1982.',
+      bioEn:
+        'One of the four co-founders of GCAP (1980) in Rio de Janeiro. Received mestre title from Moraes on December 16, 1978 at Parque Lage. Remained in Rio with full autonomy when Moraes moved GCAP to Salvador in 1982.',
     })
     .returning();
 
@@ -324,7 +338,8 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'angola',
       birthYearPrecision: 'unknown',
-      bio: 'One of the four co-founders of GCAP (1980) in Rio de Janeiro. Originated the idea for GCAP. Received mestre title from Moraes on December 16, 1978 at Parque Lage. Remained in Rio with full autonomy when Moraes moved to Salvador in 1982.',
+      bioEn:
+        'One of the four co-founders of GCAP (1980) in Rio de Janeiro. Originated the idea for GCAP. Received mestre title from Moraes on December 16, 1978 at Parque Lage. Remained in Rio with full autonomy when Moraes moved to Salvador in 1982.',
     })
     .returning();
 
@@ -338,7 +353,8 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'angola',
       birthYearPrecision: 'unknown',
-      bio: 'One of the four co-founders of GCAP (1980) in Rio de Janeiro. Received mestre title from Moraes on December 16, 1978 at Parque Lage. Remained in Rio with full autonomy when Moraes moved to Salvador in 1982.',
+      bioEn:
+        'One of the four co-founders of GCAP (1980) in Rio de Janeiro. Received mestre title from Moraes on December 16, 1978 at Parque Lage. Remained in Rio with full autonomy when Moraes moved to Salvador in 1982.',
     })
     .returning();
 
@@ -358,7 +374,8 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
-      bio: 'Co-founder of Grupo Capoeira Brasil (1989). Trained under Mestre Camisa at Grupo Senzala where he earned the red cord. Left Senzala with blessing from padrinhos (Gato, Peixinho, Rafael Flores, Suassuna, Itapoã, Ezekiel) to found Grupo Capoeira Brasil with Paulinho Sabiá and Paulão Ceará. Primary visible leader of the group with branches in 40+ countries.',
+      bioEn:
+        'Co-founder of Grupo Capoeira Brasil (1989). Trained under Mestre Camisa at Grupo Senzala where he earned the red cord. Left Senzala with blessing from padrinhos (Gato, Peixinho, Rafael Flores, Suassuna, Itapoã, Ezekiel) to found Grupo Capoeira Brasil with Paulinho Sabiá and Paulão Ceará. Primary visible leader of the group with branches in 40+ countries.',
     })
     .returning();
 
@@ -373,7 +390,8 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
-      bio: 'Co-founder of Grupo Capoeira Brasil (1989). Trained under Mestre Camisa at Grupo Senzala where he earned the red cord. Left Senzala with blessing to found Grupo Capoeira Brasil with Boneco and Paulão Ceará.',
+      bioEn:
+        'Co-founder of Grupo Capoeira Brasil (1989). Trained under Mestre Camisa at Grupo Senzala where he earned the red cord. Left Senzala with blessing to found Grupo Capoeira Brasil with Boneco and Paulão Ceará.',
     })
     .returning();
 
@@ -388,7 +406,8 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
-      bio: 'Co-founder of Grupo Capoeira Brasil (1989). Trained under Mestre Camisa at Grupo Senzala where he earned the red cord. Left Senzala with blessing to found Grupo Capoeira Brasil with Boneco and Paulinho Sabiá.',
+      bioEn:
+        'Co-founder of Grupo Capoeira Brasil (1989). Trained under Mestre Camisa at Grupo Senzala where he earned the red cord. Left Senzala with blessing to found Grupo Capoeira Brasil with Boneco and Paulinho Sabiá.',
     })
     .returning();
 
@@ -402,7 +421,8 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
-      bio: 'Respected elder who served as padrinho (godfather) at the founding of Grupo Capoeira Brasil in 1989, blessing the new group alongside other masters.',
+      bioEn:
+        'Respected elder who served as padrinho (godfather) at the founding of Grupo Capoeira Brasil in 1989, blessing the new group alongside other masters.',
     })
     .returning();
 
@@ -415,7 +435,8 @@ export async function seedGenealogyPrototype() {
       apelido: 'Ezekiel',
       title: 'mestre',
       birthYearPrecision: 'unknown',
-      bio: 'Respected elder (deceased) who served as padrinho (godfather) at the founding of Grupo Capoeira Brasil in 1989, blessing the new group alongside other masters.',
+      bioEn:
+        'Respected elder (deceased) who served as padrinho (godfather) at the founding of Grupo Capoeira Brasil in 1989, blessing the new group alongside other masters.',
     })
     .returning();
 
@@ -435,7 +456,8 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
-      bio: 'Teacher of Mestre Paulão (the founder of Grupo Muzenza). Notable for the family relationship - Mintirinha taught his brother Paulão, who then founded one of the largest capoeira organizations in the world.',
+      bioEn:
+        'Teacher of Mestre Paulão (the founder of Grupo Muzenza). Notable for the family relationship - Mintirinha taught his brother Paulão, who then founded one of the largest capoeira organizations in the world.',
     })
     .returning();
 
@@ -451,7 +473,8 @@ export async function seedGenealogyPrototype() {
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
       birthPlace: 'Rio de Janeiro, Brazil',
-      bio: 'Founder of Grupo Muzenza de Capoeira (May 5, 1972). Came from Capoarte de Obaluaê and trained under his brother Mestre Mintirinha. Led Muzenza until 1978 when Mestre Burguês became president. Current status unknown.',
+      bioEn:
+        'Founder of Grupo Muzenza de Capoeira (May 5, 1972). Came from Capoarte de Obaluaê and trained under his brother Mestre Mintirinha. Led Muzenza until 1978 when Mestre Burguês became president. Current status unknown.',
     })
     .returning();
 
@@ -466,8 +489,9 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
-      bio: 'President of Grupo Muzenza de Capoeira since 1978. Moved to Curitiba in 1975 and massively expanded the group to 61 countries and 706 registered instructors. Known for developing a modern and stylized style while researching traditional fundamentals. Created 22 choreographed sequences methodology. Founded ENCAMUZENZA academic program (2013+).',
-      achievements:
+      bioEn:
+        'President of Grupo Muzenza de Capoeira since 1978. Moved to Curitiba in 1975 and massively expanded the group to 61 countries and 706 registered instructors. Known for developing a modern and stylized style while researching traditional fundamentals. Created 22 choreographed sequences methodology. Founded ENCAMUZENZA academic program (2013+).',
+      achievementsEn:
         'Expanded Muzenza to 61 countries with 706+ registered instructors. 20,000+ students through Curitiba location alone. Established ENCAMUZENZA academic/research program.',
     })
     .returning();
@@ -488,7 +512,8 @@ export async function seedGenealogyPrototype() {
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
       birthPlace: 'Recife, Brazil',
-      bio: 'Founder and leader of Grupo Axé Capoeira (1982). Emigrated from Brazil to Canada and grew the network internationally. One of the larger international Capoeira networks with locations across Canada, USA, Brazil, and other countries.',
+      bioEn:
+        'Founder and leader of Grupo Axé Capoeira (1982). Emigrated from Brazil to Canada and grew the network internationally. One of the larger international Capoeira networks with locations across Canada, USA, Brazil, and other countries.',
     })
     .returning();
 
@@ -502,7 +527,8 @@ export async function seedGenealogyPrototype() {
       title: 'contra-mestre',
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
-      bio: "Biological son of Mestre Barrão. Active leader in Grupo Axé Capoeira and apparent successor to his father. Example of family succession in Capoeira leadership, where he is both Barrão's son AND his student.",
+      bioEn:
+        "Biological son of Mestre Barrão. Active leader in Grupo Axé Capoeira and apparent successor to his father. Example of family succession in Capoeira leadership, where he is both Barrão's son AND his student.",
     })
     .returning();
 
@@ -522,7 +548,8 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'Salvador, Bahia, Brazil',
-      bio: 'Traditional Angola mestre from Salvador. Teacher of Mestre Laércio (GCFA co-founder) from 1978 when Laércio was 12 years old. Part of the Pastinha lineage of Capoeira Angola.',
+      bioEn:
+        'Traditional Angola mestre from Salvador. Teacher of Mestre Laércio (GCFA co-founder) from 1978 when Laércio was 12 years old. Part of the Pastinha lineage of Capoeira Angola.',
     })
     .returning();
 
@@ -538,7 +565,8 @@ export async function seedGenealogyPrototype() {
       birthYear: 1964,
       birthYearPrecision: 'exact',
       birthPlace: 'Salvador, Bahia, Brazil',
-      bio: 'Co-founder of Grupo Capoeira Filhos de Angola (GCFA) in 1984. Started Capoeira Angola at age 14. Currently based in Stockholm, Sweden, where he coordinates GCFA Sverige (founded 1997). One of four co-founders who later separated geographically while maintaining the GCFA network.',
+      bioEn:
+        'Co-founder of Grupo Capoeira Filhos de Angola (GCFA) in 1984. Started Capoeira Angola at age 14. Currently based in Stockholm, Sweden, where he coordinates GCFA Sverige (founded 1997). One of four co-founders who later separated geographically while maintaining the GCFA network.',
     })
     .returning();
 
@@ -555,7 +583,8 @@ export async function seedGenealogyPrototype() {
       birthYear: 1966,
       birthYearPrecision: 'exact',
       birthPlace: 'Salvador, Bahia, Brazil',
-      bio: 'Co-founder of Grupo Capoeira Filhos de Angola (GCFA) in 1984. Started training in 1978 (age 12) with Mestre Caiçara, later trained under MANY Angola mestres including João Grande, João Pequeno, Canjiquinha, Valdemar, Boca Rica, and others. Currently based in Berlin, Germany, coordinates 25+ GCFA núcleos throughout Europe and Asia. Co-founded ABCA (Associação Brasileira de Capoeira Angola) in 1991.',
+      bioEn:
+        'Co-founder of Grupo Capoeira Filhos de Angola (GCFA) in 1984. Started training in 1978 (age 12) with Mestre Caiçara, later trained under MANY Angola mestres including João Grande, João Pequeno, Canjiquinha, Valdemar, Boca Rica, and others. Currently based in Berlin, Germany, coordinates 25+ GCFA núcleos throughout Europe and Asia. Co-founded ABCA (Associação Brasileira de Capoeira Angola) in 1991.',
     })
     .returning();
 
@@ -569,7 +598,8 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'angola',
       birthYearPrecision: 'unknown',
-      bio: 'Co-founder of Grupo Capoeira Filhos de Angola (GCFA) in 1984 alongside Roberval, Laércio, and Rosalvo. Current activity and location unknown.',
+      bioEn:
+        'Co-founder of Grupo Capoeira Filhos de Angola (GCFA) in 1984 alongside Roberval, Laércio, and Rosalvo. Current activity and location unknown.',
     })
     .returning();
 
@@ -585,7 +615,8 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'Salvador, Bahia, Brazil',
-      bio: 'Co-founder of Grupo Capoeira Filhos de Angola (GCFA) in 1984. Trained under Mestre Cobra Mansa from age 15. Received Contramestre diploma from Cobra Mansa in 1991, named Mestre by João Pequeno and João Grande in 2002. Founded Academia Jangada in Berlin (1997), described as first European academy for Capoeira Angola. Now operates independently from GCFA network.',
+      bioEn:
+        'Co-founder of Grupo Capoeira Filhos de Angola (GCFA) in 1984. Trained under Mestre Cobra Mansa from age 15. Received Contramestre diploma from Cobra Mansa in 1991, named Mestre by João Pequeno and João Grande in 2002. Founded Academia Jangada in Berlin (1997), described as first European academy for Capoeira Angola. Now operates independently from GCFA network.',
     })
     .returning();
 
@@ -600,7 +631,8 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'Salvador, Bahia, Brazil',
-      bio: 'Legendary Capoeira Angola mestre from Salvador. One of many Angola mestres who trained Mestre Laércio (GCFA co-founder). Known for traditional Angola practice and preservation.',
+      bioEn:
+        'Legendary Capoeira Angola mestre from Salvador. One of many Angola mestres who trained Mestre Laércio (GCFA co-founder). Known for traditional Angola practice and preservation.',
     })
     .returning();
 
@@ -615,7 +647,8 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'Salvador, Bahia, Brazil',
-      bio: 'Traditional Capoeira Angola mestre from Salvador. Trained Mestre Laércio (GCFA co-founder). Co-founder of ABCA (Associação Brasileira de Capoeira Angola) in 1991 alongside João Pequeno, Paulo dos Anjos, Boca Rica, and others.',
+      bioEn:
+        'Traditional Capoeira Angola mestre from Salvador. Trained Mestre Laércio (GCFA co-founder). Co-founder of ABCA (Associação Brasileira de Capoeira Angola) in 1991 alongside João Pequeno, Paulo dos Anjos, Boca Rica, and others.',
     })
     .returning();
 
@@ -630,7 +663,8 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'Salvador, Bahia, Brazil',
-      bio: 'Traditional Capoeira Angola mestre from Salvador. Trained Mestre Laércio (GCFA co-founder). Co-founder of ABCA (Associação Brasileira de Capoeira Angola) in 1991.',
+      bioEn:
+        'Traditional Capoeira Angola mestre from Salvador. Trained Mestre Laércio (GCFA co-founder). Co-founder of ABCA (Associação Brasileira de Capoeira Angola) in 1991.',
     })
     .returning();
 
@@ -644,7 +678,8 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'angola',
       birthYearPrecision: 'unknown',
-      bio: 'Traditional Capoeira Angola mestre. Co-founder of ABCA (Associação Brasileira de Capoeira Angola) in 1991 alongside João Pequeno, Laércio, Valdemar, Boca Rica, and others. Important figure in Angola preservation movement.',
+      bioEn:
+        'Traditional Capoeira Angola mestre. Co-founder of ABCA (Associação Brasileira de Capoeira Angola) in 1991 alongside João Pequeno, Laércio, Valdemar, Boca Rica, and others. Important figure in Angola preservation movement.',
     })
     .returning();
 
@@ -664,7 +699,8 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'Angola, Africa',
-      bio: 'Native of Angola, Africa. Taught young Vicente Ferreira Pastinha (age 10, ~1899) when Pastinha was being bullied by an older boy. Known as "Tio Benito" (Uncle Benito) by Pastinha. Represents the DIRECT AFRICAN ORIGIN of the Pastinha Angola lineage. Lived at Rua das Laranjeiras, #26, Salvador, Bahia.',
+      bioEn:
+        'Native of Angola, Africa. Taught young Vicente Ferreira Pastinha (age 10, ~1899) when Pastinha was being bullied by an older boy. Known as "Tio Benito" (Uncle Benito) by Pastinha. Represents the DIRECT AFRICAN ORIGIN of the Pastinha Angola lineage. Lived at Rua das Laranjeiras, #26, Salvador, Bahia.',
     })
     .returning();
 
@@ -679,8 +715,9 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'angola',
       birthYearPrecision: 'unknown',
-      bio: 'Current leader of CECA/Academia João Pequeno de Pastinha. Started training in São Paulo, founded first group in Mococa-SP (1989). First lesson with João Pequeno at USP in 1991. Moved to Salvador 1996 to be close to João Pequeno. Received mestre title from João Pequeno. Founded CEDANZE. Designated by João Pequeno to "keep CECA alive". Now coordinates CEDANZE Internacional - Academia João Pequeno de Pastinha - CECA with 15+ locations worldwide.',
-      achievements:
+      bioEn:
+        'Current leader of CECA/Academia João Pequeno de Pastinha. Started training in São Paulo, founded first group in Mococa-SP (1989). First lesson with João Pequeno at USP in 1991. Moved to Salvador 1996 to be close to João Pequeno. Received mestre title from João Pequeno. Founded CEDANZE. Designated by João Pequeno to "keep CECA alive". Now coordinates CEDANZE Internacional - Academia João Pequeno de Pastinha - CECA with 15+ locations worldwide.',
+      achievementsEn:
         'General Coordinator of CEDANZE Internacional. Expanded CECA to Europe (France, Italy, Belgium, Spain, Portugal, Switzerland) and Latin America (Uruguay).',
     })
     .returning();
@@ -695,7 +732,8 @@ export async function seedGenealogyPrototype() {
       apelido: 'Decânio',
       title: 'mestre',
       birthYearPrecision: 'unknown',
-      bio: 'Doctor (Dr.) and mestre. Member of CECA/CEDANZE Council of Honor with lifetime position. Important figure in Capoeira Angola documentation and preservation.',
+      bioEn:
+        'Doctor (Dr.) and mestre. Member of CECA/CEDANZE Council of Honor with lifetime position. Important figure in Capoeira Angola documentation and preservation.',
     })
     .returning();
 
@@ -708,7 +746,8 @@ export async function seedGenealogyPrototype() {
       apelido: 'Jair Moura',
       title: 'mestre',
       birthYearPrecision: 'unknown',
-      bio: 'Filmmaker and writer. Member of CECA/CEDANZE Council of Honor with lifetime position. Important contributor to Capoeira documentation through film and writing.',
+      bioEn:
+        'Filmmaker and writer. Member of CECA/CEDANZE Council of Honor with lifetime position. Important contributor to Capoeira documentation through film and writing.',
     })
     .returning();
 
@@ -723,8 +762,9 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'Alagoinhas, Bahia, Brazil',
-      bio: 'Trained with Mestre Pastinha as young boy until Pastinha passed away. Founded ECAIG (Escola de Capoeira Angola Irmãos Gêmeos) in 1960 in Alagoinhas, Bahia. Pure Capoeira Angola organization. International network including Banda do Saci (Mexico) which affiliated with ECAIG in 1997.',
-      achievements:
+      bioEn:
+        'Trained with Mestre Pastinha as young boy until Pastinha passed away. Founded ECAIG (Escola de Capoeira Angola Irmãos Gêmeos) in 1960 in Alagoinhas, Bahia. Pure Capoeira Angola organization. International network including Banda do Saci (Mexico) which affiliated with ECAIG in 1997.',
+      achievementsEn:
         'Founded ECAIG (1960). Pastinha lineage. Direct student representing another branch of the original CECA lineage.',
     })
     .returning();
@@ -745,7 +785,8 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'angola',
       birthYearPrecision: 'unknown',
-      bio: 'Co-founder and President of ICAF/FICA (International Capoeira Angola Foundation). Trained under Mestre Moraes at GCAP. Known for emphasis on music and cultural aspects. Based in USA, travels internationally. Part of the Generation 3 lineage from Pastinha.',
+      bioEn:
+        'Co-founder and President of ICAF/FICA (International Capoeira Angola Foundation). Trained under Mestre Moraes at GCAP. Known for emphasis on music and cultural aspects. Based in USA, travels internationally. Part of the Generation 3 lineage from Pastinha.',
     })
     .returning();
 
@@ -761,7 +802,8 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'Salvador, Bahia, Brazil',
-      bio: 'Co-founder of ICAF/FICA. Trained under Mestre Moraes at GCAP. Based in Salvador, Bahia, leads FICA activities in Brazil. Part of the Generation 3 lineage from Pastinha.',
+      bioEn:
+        'Co-founder of ICAF/FICA. Trained under Mestre Moraes at GCAP. Based in Salvador, Bahia, leads FICA activities in Brazil. Part of the Generation 3 lineage from Pastinha.',
     })
     .returning();
 
@@ -776,7 +818,8 @@ export async function seedGenealogyPrototype() {
       title: 'instrutor',
       style: 'angola',
       birthYearPrecision: 'unknown',
-      bio: 'Founder and leader of FICA Hawaii (2005). Trained under Mestre Jurandir Nascimento and Mestre Silvinho. Teaches in Hilo and Pahoa on the Big Island of Hawaii. Uses the ICAF title "Trenel" (advanced instructor level). Has maintained FICA Hawaii for 20 years.',
+      bioEn:
+        'Founder and leader of FICA Hawaii (2005). Trained under Mestre Jurandir Nascimento and Mestre Silvinho. Teaches in Hilo and Pahoa on the Big Island of Hawaii. Uses the ICAF title "Trenel" (advanced instructor level). Has maintained FICA Hawaii for 20 years.',
     })
     .returning();
 
@@ -796,7 +839,8 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'Bahia, Brazil',
-      bio: 'Founder of Grupo de Capoeira Angola Irmãos Guerreiros (GCAIG) in 1983. Migrated from Bahia to São Paulo, built house in Taboão da Serra in 1970s that became Senzalinha headquarters. Father of Mestre Marrom who he trained from age 8. Co-founded with son Marrom and brothers Guerreiro and Macete.',
+      bioEn:
+        'Founder of Grupo de Capoeira Angola Irmãos Guerreiros (GCAIG) in 1983. Migrated from Bahia to São Paulo, built house in Taboão da Serra in 1970s that became Senzalinha headquarters. Father of Mestre Marrom who he trained from age 8. Co-founded with son Marrom and brothers Guerreiro and Macete.',
     })
     .returning();
 
@@ -812,7 +856,8 @@ export async function seedGenealogyPrototype() {
       birthYear: 1970,
       birthYearPrecision: 'approximate',
       birthPlace: 'São Paulo, Brazil',
-      bio: 'Co-founder of GCAIG (1983) at age 13. Son of Mestre Baixinho who trained him from age 8. Currently "at the forefront of group activities" in São Paulo. Graduated Physical Education in 2012. Leads Senzalinha headquarters. Represents second-generation leadership in family-founded group.',
+      bioEn:
+        'Co-founder of GCAIG (1983) at age 13. Son of Mestre Baixinho who trained him from age 8. Currently "at the forefront of group activities" in São Paulo. Graduated Physical Education in 2012. Leads Senzalinha headquarters. Represents second-generation leadership in family-founded group.',
     })
     .returning();
 
@@ -827,7 +872,8 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'Taboão da Serra, São Paulo, Brazil',
-      bio: 'European coordinator for GCAIG. Started training at age 9 with Mestre Baixinho and Mestre Marrom at Senzalinha. Moved to Bremen, Germany in 2002, bringing GCAIG to Europe. Founded Centro Cultural Cazuá e.V. in 2004. Received mestre title during GCAIG 30th anniversary in 2013. Coordinates European núcleos across Portugal, Germany, Austria, Poland, Slovakia, Norway.',
+      bioEn:
+        'European coordinator for GCAIG. Started training at age 9 with Mestre Baixinho and Mestre Marrom at Senzalinha. Moved to Bremen, Germany in 2002, bringing GCAIG to Europe. Founded Centro Cultural Cazuá e.V. in 2004. Received mestre title during GCAIG 30th anniversary in 2013. Coordinates European núcleos across Portugal, Germany, Austria, Poland, Slovakia, Norway.',
     })
     .returning();
 
@@ -842,7 +888,8 @@ export async function seedGenealogyPrototype() {
       title: 'contra-mestre',
       style: 'angola',
       birthYearPrecision: 'unknown',
-      bio: 'Co-leads GCAIG European expansion from Vienna. Trained at GCAP under Mestre Moraes from 1987 in Salvador. Moved to Vienna 2003 to teach independently. Joined GCAIG in 2008, becoming "right hand" of Mestre Perna in Europe. Brings GCAP lineage into GCAIG. Organizes annual Suncamp event.',
+      bioEn:
+        'Co-leads GCAIG European expansion from Vienna. Trained at GCAP under Mestre Moraes from 1987 in Salvador. Moved to Vienna 2003 to teach independently. Joined GCAIG in 2008, becoming "right hand" of Mestre Perna in Europe. Brings GCAP lineage into GCAIG. Organizes annual Suncamp event.',
     })
     .returning();
 
@@ -863,7 +910,8 @@ export async function seedGenealogyPrototype() {
       birthYearPrecision: 'unknown',
       birthPlace: 'Salvador, Bahia, Brazil',
       deathYearPrecision: 'unknown',
-      bio: "Mestre de Bateria (Master of Music) at Mestre Pastinha's CECA academy. Key figure in preserving Angola musical traditions. Teacher of Mestre Gato Preto.",
+      bioEn:
+        "Mestre de Bateria (Master of Music) at Mestre Pastinha's CECA academy. Key figure in preserving Angola musical traditions. Teacher of Mestre Gato Preto.",
     })
     .returning();
 
@@ -878,7 +926,8 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'Bahia, Brazil',
-      bio: 'Known as "Berimbau de Ouro da Bahía" (Golden Berimbau of Bahia). Student of Mestre Cobrinha Verde. Primary Angola teacher of Mestre Anastácio Marrom. Key link in the Pastinha lineage through the musical tradition.',
+      bioEn:
+        'Known as "Berimbau de Ouro da Bahía" (Golden Berimbau of Bahia). Student of Mestre Cobrinha Verde. Primary Angola teacher of Mestre Anastácio Marrom. Key link in the Pastinha lineage through the musical tradition.',
     })
     .returning();
 
@@ -893,7 +942,8 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'Bahia, Brazil',
-      bio: 'Traditional Angola mestre. Major influence and reference for Mestre Anastácio Marrom in his transition to Angola.',
+      bioEn:
+        'Traditional Angola mestre. Major influence and reference for Mestre Anastácio Marrom in his transition to Angola.',
     })
     .returning();
 
@@ -908,7 +958,7 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'Bahia, Brazil',
-      bio: 'Traditional Angola mestre. Reference and influence for Mestre Anastácio Marrom.',
+      bioEn: 'Traditional Angola mestre. Reference and influence for Mestre Anastácio Marrom.',
     })
     .returning();
 
@@ -923,7 +973,8 @@ export async function seedGenealogyPrototype() {
       style: 'regional',
       birthYearPrecision: 'unknown',
       birthPlace: 'Rio de Janeiro, Brazil',
-      bio: 'Based in Engenho Novo, Rio de Janeiro. First formal capoeira teacher of young Anastácio Marrom in the 1970s.',
+      bioEn:
+        'Based in Engenho Novo, Rio de Janeiro. First formal capoeira teacher of young Anastácio Marrom in the 1970s.',
     })
     .returning();
 
@@ -940,10 +991,11 @@ export async function seedGenealogyPrototype() {
       birthYear: 1963,
       birthYearPrecision: 'exact',
       birthPlace: 'Itabuna, Bahia, Brazil',
-      styleNotes:
+      styleNotesEn:
         'Trained Regional (1970s-1990) under Mestre Canela and Mestre Peixinho at Senzala (red belt). Transitioned to Angola in 1990, studying under Mestre Gato Preto (primary), Angolinha, Nô, and João Grande.',
-      bio: 'Founder of Ngoma Capoeira Angola (1990, originally "Marrom Capoeira & Alunos"). Based in Morro da Babilônia favela, Rio de Janeiro for 25+ years. Renamed group to "Ngoma" in 2018 as political statement reaffirming African origins. Opened Casa Ngoma community space in 2020. Known for autonomous continuation model where students establish independent groups while maintaining cultural connection.',
-      achievements:
+      bioEn:
+        'Founder of Ngoma Capoeira Angola (1990, originally "Marrom Capoeira & Alunos"). Based in Morro da Babilônia favela, Rio de Janeiro for 25+ years. Renamed group to "Ngoma" in 2018 as political statement reaffirming African origins. Opened Casa Ngoma community space in 2020. Known for autonomous continuation model where students establish independent groups while maintaining cultural connection.',
+      achievementsEn:
         'Founded Ngoma Capoeira Angola (1990). Opened Casa Ngoma sociocultural space (2020). Network spans 15+ locations across 8 countries.',
     })
     .returning();
@@ -958,7 +1010,8 @@ export async function seedGenealogyPrototype() {
       title: 'contra-mestre',
       style: 'angola',
       birthYearPrecision: 'unknown',
-      bio: "Co-founder of Ngoma Capoeira Angola in Rio de Janeiro. Started Capoeira at age 14. Co-producer of all school projects. Recognized for strengthening and valuing women's leadership in Capoeira culture. Unlike most groups, Ngoma has explicit co-leadership emphasizing women's role.",
+      bioEn:
+        "Co-founder of Ngoma Capoeira Angola in Rio de Janeiro. Started Capoeira at age 14. Co-producer of all school projects. Recognized for strengthening and valuing women's leadership in Capoeira culture. Unlike most groups, Ngoma has explicit co-leadership emphasizing women's role.",
     })
     .returning();
 
@@ -974,7 +1027,8 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'Belém do Pará, Brazil',
-      bio: 'Made Contra-Mestre by Mestre Anastácio Marrom in Rio (2004), later elevated to Mestre. Spent ~15 years in Rio training. Actor, percussionist, and Capoeira Angola mestre. Moved to Hannover, Germany, later Berlin. Leads Forum Brasil and Capoeira Angola Hannover. Known for cross-visitation arrangements between Berlin Ngoma locations.',
+      bioEn:
+        'Made Contra-Mestre by Mestre Anastácio Marrom in Rio (2004), later elevated to Mestre. Spent ~15 years in Rio training. Actor, percussionist, and Capoeira Angola mestre. Moved to Hannover, Germany, later Berlin. Leads Forum Brasil and Capoeira Angola Hannover. Known for cross-visitation arrangements between Berlin Ngoma locations.',
     })
     .returning();
 
@@ -988,7 +1042,8 @@ export async function seedGenealogyPrototype() {
       title: 'contra-mestre',
       style: 'angola',
       birthYearPrecision: 'unknown',
-      bio: 'Started capoeira in 1998. Spent 15+ years training in Rio with Mestre Anastácio Marrom. Founded Association Oyà in Paris (2018) representing Ngoma. Created scholarship system for refugees and people in precarious situations. Hosts Filhas de Dandara Afro-feminist collective.',
+      bioEn:
+        'Started capoeira in 1998. Spent 15+ years training in Rio with Mestre Anastácio Marrom. Founded Association Oyà in Paris (2018) representing Ngoma. Created scholarship system for refugees and people in precarious situations. Hosts Filhas de Dandara Afro-feminist collective.',
     })
     .returning();
 
@@ -1004,7 +1059,8 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'Brazil',
-      bio: 'Longtime student of Mestre Anastácio Marrom. Experience teaching in Brazil and Finland. Co-leads Tambor Vivo / Ngoma Capoeira Angola in Helsinki with CM Carcará.',
+      bioEn:
+        'Longtime student of Mestre Anastácio Marrom. Experience teaching in Brazil and Finland. Co-leads Tambor Vivo / Ngoma Capoeira Angola in Helsinki with CM Carcará.',
     })
     .returning();
 
@@ -1018,7 +1074,8 @@ export async function seedGenealogyPrototype() {
       title: 'contra-mestre',
       style: 'angola',
       birthYearPrecision: 'unknown',
-      bio: 'Founded "Mão No Chão" (Hand on the Ground) in Edinburgh ~2002. Later rebranded as Ngoma Scotland (Edinburgh, Glasgow, Inverness). Now based in Athens/Crete, Greece. Student of Mestre Anastácio Marrom.',
+      bioEn:
+        'Founded "Mão No Chão" (Hand on the Ground) in Edinburgh ~2002. Later rebranded as Ngoma Scotland (Edinburgh, Glasgow, Inverness). Now based in Athens/Crete, Greece. Student of Mestre Anastácio Marrom.',
     })
     .returning();
 
@@ -1038,7 +1095,8 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'Feira de Santana, Bahia, Brazil',
-      bio: 'Capoeira mestre from Feira de Santana. Initial teacher of Mestre Cláudio Costa (founder of Angoleiros do Sertão).',
+      bioEn:
+        'Capoeira mestre from Feira de Santana. Initial teacher of Mestre Cláudio Costa (founder of Angoleiros do Sertão).',
     })
     .returning();
 
@@ -1055,8 +1113,9 @@ export async function seedGenealogyPrototype() {
       birthYear: 1966,
       birthYearPrecision: 'exact',
       birthPlace: 'Feira de Santana, Bahia, Brazil',
-      bio: 'Founder of Escola de Capoeira Angoleiros do Sertão in the 1980s. Initially trained under Mestre Di Mola, then primarily through street experience in Feira de Santana. Emphasizes "compromisso" (ethical commitment) philosophy. Known for strict discipline, musical excellence, and integration of Samba Rural into practice. Weekly public rodas on main avenue median strip.',
-      achievements:
+      bioEn:
+        'Founder of Escola de Capoeira Angoleiros do Sertão in the 1980s. Initially trained under Mestre Di Mola, then primarily through street experience in Feira de Santana. Emphasizes "compromisso" (ethical commitment) philosophy. Known for strict discipline, musical excellence, and integration of Samba Rural into practice. Weekly public rodas on main avenue median strip.',
+      achievementsEn:
         'Founded Angoleiros do Sertão (1980s). Network of 20+ núcleos across 6+ countries. Album "Angoleiros do Sertão e do Recôncavo" with Mestre Felipe de Santo Amaro (2004).',
     })
     .returning();
@@ -1072,7 +1131,8 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'Santo Amaro, Bahia, Brazil',
-      bio: 'Traditional Angola mestre from the Recôncavo region of Bahia (coastal area around Salvador). Collaborated with Mestre Cláudio Costa on album "Angoleiros do Sertão e do Recôncavo" (2004) - a collaboration between different regional Angola traditions (Sertão interior + Recôncavo coastal).',
+      bioEn:
+        'Traditional Angola mestre from the Recôncavo region of Bahia (coastal area around Salvador). Collaborated with Mestre Cláudio Costa on album "Angoleiros do Sertão e do Recôncavo" (2004) - a collaboration between different regional Angola traditions (Sertão interior + Recôncavo coastal).',
     })
     .returning();
 
@@ -1086,7 +1146,8 @@ export async function seedGenealogyPrototype() {
       title: 'treinel',
       style: 'angola',
       birthYearPrecision: 'unknown',
-      bio: 'Long time student of Mestre Cláudio in Brazil. Established Berlin nucleus of Angoleiros do Sertão in 2015. Leads classes for adults and children in Neukölln district.',
+      bioEn:
+        'Long time student of Mestre Cláudio in Brazil. Established Berlin nucleus of Angoleiros do Sertão in 2015. Leads classes for adults and children in Neukölln district.',
     })
     .returning();
 
@@ -1110,7 +1171,8 @@ export async function seedGenealogyPrototype() {
       birthPlace: 'Rio de Janeiro, Brazil',
       deathYear: 2007,
       deathYearPrecision: 'exact',
-      bio: 'Rio de Janeiro capoeira community figure, Regional-oriented. First teacher of Nestor Capoeira (1965-1967) before Nestor moved to Grupo Senzala.',
+      bioEn:
+        'Rio de Janeiro capoeira community figure, Regional-oriented. First teacher of Nestor Capoeira (1965-1967) before Nestor moved to Grupo Senzala.',
     })
     .returning();
 
@@ -1126,7 +1188,8 @@ export async function seedGenealogyPrototype() {
       style: 'regional',
       birthYearPrecision: 'unknown',
       birthPlace: 'Bahia, Brazil',
-      bio: "Formado from Mestre Bimba's academy in Bahia. Came to Rio de Janeiro with Acordeon's folk show and stayed, becoming one of the founders of Grupo Senzala. Key influence on Nestor Capoeira, who received red cord from him in 1969.",
+      bioEn:
+        "Formado from Mestre Bimba's academy in Bahia. Came to Rio de Janeiro with Acordeon's folk show and stayed, becoming one of the founders of Grupo Senzala. Key influence on Nestor Capoeira, who received red cord from him in 1969.",
     })
     .returning();
 
@@ -1146,10 +1209,11 @@ export async function seedGenealogyPrototype() {
       deathYear: 2025,
       deathYearPrecision: 'exact',
       deathPlace: 'Rio de Janeiro, Brazil',
-      styleNotes:
+      styleNotesEn:
         'Started under Mestre Leopoldina (1965-1967), then Grupo Senzala (1968-1990). Developed own Contemporânea approach emphasizing traditional and modern aspects after founding own school in 1990.',
-      bio: 'The most academically accomplished capoeira mestre documented. PhD in Communication and Culture (2001), postdoctoral degree from PUC/SP. Author of 10 books with 120,000+ copies sold worldwide, translated into multiple languages. International pioneer who first brought Senzala Capoeira to Great Britain in 1971 (London School of Contemporary Dance). Received red cord (highest rank) from Senzala in 1969 after only one year. Founded Escola Nestor Capoeira in 1990/1992.',
-      achievements:
+      bioEn:
+        'The most academically accomplished capoeira mestre documented. PhD in Communication and Culture (2001), postdoctoral degree from PUC/SP. Author of 10 books with 120,000+ copies sold worldwide, translated into multiple languages. International pioneer who first brought Senzala Capoeira to Great Britain in 1971 (London School of Contemporary Dance). Received red cord (highest rank) from Senzala in 1969 after only one year. Founded Escola Nestor Capoeira in 1990/1992.',
+      achievementsEn:
         'PhD in Communication and Culture (2001). Postdoctoral degree (PUC/SP). 10 published books, 120,000+ copies sold. First Senzala mestre in UK (1971). Engineering degree UFRJ (1969). Performed at Kennedy Center, theaters in London, Amsterdam, Copenhagen, Hamburg.',
     })
     .returning();
@@ -1165,8 +1229,9 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
-      bio: "Son of Mestre Nestor Capoeira and filmmaker Rose Lacreta. First mestre trained by Escola Nestor Capoeira. Created 'Movimento Orgânico' (Organic Movement / Organicflow) method - a physical and mental training system developed over 20 years combining capoeira fundamentals with other body techniques. Pioneer in spreading capoeira via internet/video channel.",
-      achievements:
+      bioEn:
+        "Son of Mestre Nestor Capoeira and filmmaker Rose Lacreta. First mestre trained by Escola Nestor Capoeira. Created 'Movimento Orgânico' (Organic Movement / Organicflow) method - a physical and mental training system developed over 20 years combining capoeira fundamentals with other body techniques. Pioneer in spreading capoeira via internet/video channel.",
+      achievementsEn:
         'First mestre graduated from Escola Nestor Capoeira. Created Movimento Orgânico method. Digital pioneer for capoeira instruction.',
     })
     .returning();
@@ -1182,7 +1247,8 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
-      bio: "Coordinates Escola Nestor Capoeira - Belo Horizonte (founded 2018). Established branch in Mestre Nestor's birthplace. Created 'Núcleo de Estudo e Prática da Capoeira - NECA' extension project with UEMG university.",
+      bioEn:
+        "Coordinates Escola Nestor Capoeira - Belo Horizonte (founded 2018). Established branch in Mestre Nestor's birthplace. Created 'Núcleo de Estudo e Prática da Capoeira - NECA' extension project with UEMG university.",
     })
     .returning();
 
@@ -1203,7 +1269,8 @@ export async function seedGenealogyPrototype() {
       style: 'regional',
       birthYearPrecision: 'unknown',
       birthPlace: 'Salvador, Bahia, Brazil',
-      bio: "Student of Mestre Bimba from 1953. When Bimba left Salvador, Vermelho 27 took over the academy. After Bimba's death (1974), renamed it to 'Associação de Capoeira Mestre Bimba' (1975). Key link in preserving the original Regional lineage.",
+      bioEn:
+        "Student of Mestre Bimba from 1953. When Bimba left Salvador, Vermelho 27 took over the academy. After Bimba's death (1974), renamed it to 'Associação de Capoeira Mestre Bimba' (1975). Key link in preserving the original Regional lineage.",
     })
     .returning();
 
@@ -1220,9 +1287,10 @@ export async function seedGenealogyPrototype() {
       birthYear: 1945,
       birthYearPrecision: 'exact',
       birthPlace: 'Ibicaraí, South Bahia, Brazil',
-      styleNotes:
+      styleNotesEn:
         'Multi-style training: Started with Mestre Antônio Cabeceiro (streets of Ilhéus), trained with Mestre Gato (Escola Baiana de Capoeira Angola), and Mestre Vermelho 27 (Regional, Bimba lineage).',
-      bio: 'Founded Associação de Capoeira Mestre Boa Gente in 1981. Independent organization with direct Bimba lineage through Vermelho 27. Multi-style background combining Angola and Regional. Awarded Mestre title to Mestre Borracha (2015).',
+      bioEn:
+        'Founded Associação de Capoeira Mestre Boa Gente in 1981. Independent organization with direct Bimba lineage through Vermelho 27. Multi-style background combining Angola and Regional. Awarded Mestre title to Mestre Borracha (2015).',
     })
     .returning();
 
@@ -1238,8 +1306,9 @@ export async function seedGenealogyPrototype() {
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
       birthPlace: 'Acre, Brazil',
-      bio: 'First capoeirista to perform double back somersault without sprung floor or gym mats (1992). Came to Sydney in 1997 as Grupo Capoeira Brasil teacher. Founded independent group Capoeiracre (2005), renamed to Capoeira Aruanda (2007). Awarded Mestre belt by Mestre Boa Gente in 2015 (not through Capoeira Brasil hierarchy). 20+ years teaching in Australia.',
-      achievements:
+      bioEn:
+        'First capoeirista to perform double back somersault without sprung floor or gym mats (1992). Came to Sydney in 1997 as Grupo Capoeira Brasil teacher. Founded independent group Capoeiracre (2005), renamed to Capoeira Aruanda (2007). Awarded Mestre belt by Mestre Boa Gente in 2015 (not through Capoeira Brasil hierarchy). 20+ years teaching in Australia.',
+      achievementsEn:
         'First double back somersault without mats (1992). Founded Capoeira Aruanda Australia (2005). Mestre title from Boa Gente (2015). Regional NSW presence: Sydney East, Sydney West, Newcastle.',
     })
     .returning();
@@ -1263,7 +1332,8 @@ export async function seedGenealogyPrototype() {
       birthYear: 1959,
       birthYearPrecision: 'exact',
       birthPlace: 'São Paulo, Brazil',
-      bio: 'Trained under Mestre Suassuna at Cordão de Ouro. One of the last generation to train directly with Suassuna. Left Brazil in 1984, moved to Oakland, California. One of only three people teaching capoeira in USA at that time. Founded Associação de Capoeira Senzala Grande (1984), renamed to Capoeira Mandinga (1995). International expansion: USA, New Zealand, Israel, China, Taiwan, Japan, Italy, Iceland, Mexico, Brazil.',
+      bioEn:
+        'Trained under Mestre Suassuna at Cordão de Ouro. One of the last generation to train directly with Suassuna. Left Brazil in 1984, moved to Oakland, California. One of only three people teaching capoeira in USA at that time. Founded Associação de Capoeira Senzala Grande (1984), renamed to Capoeira Mandinga (1995). International expansion: USA, New Zealand, Israel, China, Taiwan, Japan, Italy, Iceland, Mexico, Brazil.',
     })
     .returning();
 
@@ -1281,7 +1351,8 @@ export async function seedGenealogyPrototype() {
       birthYear: 1965,
       birthYearPrecision: 'exact',
       birthPlace: 'Alagoinhas, Bahia, Brazil',
-      bio: 'Started capoeira 1982 at Forte Santo Antônio with Mestre João Pequeno. Nicknamed by Mestre João Grande (1983): "Jogo de Dentro" (Inside Game). Founded Semente do Jogo de Angola (September 9, 1990). Recognized as Mestre by João Pequeno (February 27, 1994). Author of "Capoeira Angola e Ancestralidade" (2020). Key influence on Capoeira Mandinga Aotearoa Angola transition.',
+      bioEn:
+        'Started capoeira 1982 at Forte Santo Antônio with Mestre João Pequeno. Nicknamed by Mestre João Grande (1983): "Jogo de Dentro" (Inside Game). Founded Semente do Jogo de Angola (September 9, 1990). Recognized as Mestre by João Pequeno (February 27, 1994). Author of "Capoeira Angola e Ancestralidade" (2020). Key influence on Capoeira Mandinga Aotearoa Angola transition.',
     })
     .returning();
 
@@ -1298,7 +1369,8 @@ export async function seedGenealogyPrototype() {
       birthYear: 1969,
       birthYearPrecision: 'exact',
       birthPlace: 'Ilha de Veracruz, Bahia, Brazil',
-      bio: 'Founded ECAMAR (Escola de Capoeira Angola Mato Rasteiro) in Salvador (1998). Mestre title from Mestre Virgilio (2002). Immigrated to Australia (2006), establishing ECAMAR Sydney. First Bahia Angola master to establish school in Australia. Founded Project Bantu (youth engagement). Key supporter and inspiration for Capoeira Mandinga Aotearoa Angola evolution.',
+      bioEn:
+        'Founded ECAMAR (Escola de Capoeira Angola Mato Rasteiro) in Salvador (1998). Mestre title from Mestre Virgilio (2002). Immigrated to Australia (2006), establishing ECAMAR Sydney. First Bahia Angola master to establish school in Australia. Founded Project Bantu (youth engagement). Key supporter and inspiration for Capoeira Mandinga Aotearoa Angola evolution.',
     })
     .returning();
 
@@ -1314,10 +1386,11 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'New Zealand',
-      styleNotes:
+      styleNotesEn:
         'Trained Regional/Contemporânea under Mestre Marcelo Caveirinha (1984-2004). Organization transitioned to pure Capoeira Angola around 2004 through influences from João Pequeno, Jogo de Dentro, and Roxinho.',
-      bio: 'First capoeira master in New Zealand history (mestre title 2007). Met Mestre Marcelo Caveirinha in USA (1983), began training (1984). Returned to NZ (November 1991). Founded Capoeira Mandinga Aotearoa (1992) - first capoeira ever taught in New Zealand. Professor title (1999). Mestre title from Caveirinha (April 21, 2007). 33+ years training relationship with Mestre Marcelo.',
-      achievements:
+      bioEn:
+        'First capoeira master in New Zealand history (mestre title 2007). Met Mestre Marcelo Caveirinha in USA (1983), began training (1984). Returned to NZ (November 1991). Founded Capoeira Mandinga Aotearoa (1992) - first capoeira ever taught in New Zealand. Professor title (1999). Mestre title from Caveirinha (April 21, 2007). 33+ years training relationship with Mestre Marcelo.',
+      achievementsEn:
         'First person to bring capoeira to New Zealand (1992). First New Zealand capoeira master (2007). National organization with 4 cities: Auckland, Wellington, Taranaki, Christchurch.',
     })
     .returning();
@@ -1340,8 +1413,9 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'Kenya',
-      bio: "Founded Capoeira Angola Center Kibera (CACK) in 2015 - first East African branch of Mestre João Grande's network. Trained with João Grande in NYC from 1995 (20+ years). Returned to Kenya in 2014. Also yoga instructor and event producer. Organized Mandinga Ancestral festival (2017) bringing João Grande to Africa for first time in 51 years. Operates programs in Kibera slum (Nairobi) and Luanda (Angola).",
-      achievements:
+      bioEn:
+        "Founded Capoeira Angola Center Kibera (CACK) in 2015 - first East African branch of Mestre João Grande's network. Trained with João Grande in NYC from 1995 (20+ years). Returned to Kenya in 2014. Also yoga instructor and event producer. Organized Mandinga Ancestral festival (2017) bringing João Grande to Africa for first time in 51 years. Operates programs in Kibera slum (Nairobi) and Luanda (Angola).",
+      achievementsEn:
         'Founded first East African Capoeira Angola center (2015). Organized Mandinga Ancestral festival (2017). Trained 200+ students. Pioneer of "reverse diaspora" - bringing capoeira home to Africa.',
     })
     .returning();
@@ -1361,8 +1435,9 @@ export async function seedGenealogyPrototype() {
       apelido: 'Formiga',
       title: 'mestre',
       style: 'regional',
-      bio: 'Biological son of Mestre Bimba (founder of Capoeira Regional). Taught Carlinhos Chuchu who founded Grupo Candeias. Important figure in transmitting Bimba lineage to next generation, particularly in Goiás region.',
-      achievements:
+      bioEn:
+        'Biological son of Mestre Bimba (founder of Capoeira Regional). Taught Carlinhos Chuchu who founded Grupo Candeias. Important figure in transmitting Bimba lineage to next generation, particularly in Goiás region.',
+      achievementsEn:
         'Biological son of Mestre Bimba. Key link in Bimba lineage transmission to Centro-Oeste Brazil. Teacher of Carlinhos Chuchu.',
     })
     .returning();
@@ -1377,8 +1452,9 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'regional',
       birthYearPrecision: 'unknown',
-      bio: 'Pioneer of capoeira in Goiânia, Goiás (late 1960s). Taught at Jóquei Clube, Colégio Carlos Chagas, and an academy in downtown Goiânia. Made historic contribution by bringing Mestre Bimba himself to Goiânia for the first graduation ceremony of his students - a landmark moment connecting Goiás directly to the legendary founder of Capoeira Regional.',
-      achievements:
+      bioEn:
+        'Pioneer of capoeira in Goiânia, Goiás (late 1960s). Taught at Jóquei Clube, Colégio Carlos Chagas, and an academy in downtown Goiânia. Made historic contribution by bringing Mestre Bimba himself to Goiânia for the first graduation ceremony of his students - a landmark moment connecting Goiás directly to the legendary founder of Capoeira Regional.',
+      achievementsEn:
         "Pioneer of capoeira in Goiás (late 1960s). Organized Mestre Bimba's historic visit to Goiânia. Subject of book 'A História da Capoeira de Goiás Contada Por Seus Pioneiros'.",
     })
     .returning();
@@ -1393,8 +1469,9 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'regional',
       birthYearPrecision: 'unknown',
-      bio: 'Pioneer of capoeira in Goiânia, Goiás (late 1960s). Conducted open rodas at Praça Cívica and Feira Hippie in central Goiânia. Made and sold capoeira instruments. Together with Mestre Osvaldo, planted the first seeds of capoeira culture in Goiás.',
-      achievements:
+      bioEn:
+        'Pioneer of capoeira in Goiânia, Goiás (late 1960s). Conducted open rodas at Praça Cívica and Feira Hippie in central Goiânia. Made and sold capoeira instruments. Together with Mestre Osvaldo, planted the first seeds of capoeira culture in Goiás.',
+      achievementsEn:
         "Pioneer of capoeira in Goiás (late 1960s). Promoted capoeira publicly in Goiânia. Instrument maker. Subject of book 'A História da Capoeira de Goiás Contada Por Seus Pioneiros'.",
     })
     .returning();
@@ -1410,8 +1487,9 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'regional',
       birthYearPrecision: 'unknown',
-      bio: "Physical Education student who founded what became Grupo Candeias. In 1975, negotiated with SESC Universitário to establish formal capoeira training space - creating sustainable funding model where SESC members trained free while others paid directly. Formally established Grupo de Capoeira Anglo-Regional in 1977. Student of Formiga (Mestre Bimba's son), giving him direct biological lineage to Bimba.",
-      achievements:
+      bioEn:
+        "Physical Education student who founded what became Grupo Candeias. In 1975, negotiated with SESC Universitário to establish formal capoeira training space - creating sustainable funding model where SESC members trained free while others paid directly. Formally established Grupo de Capoeira Anglo-Regional in 1977. Student of Formiga (Mestre Bimba's son), giving him direct biological lineage to Bimba.",
+      achievementsEn:
         'Founded Grupo Candeias (1977, originally Anglo-Regional). Established SESC partnership model. Direct student of Formiga (Bimba lineage). Pioneered capoeira institutionalization in Goiás.',
     })
     .returning();
@@ -1426,8 +1504,9 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'regional',
       birthYearPrecision: 'unknown',
-      bio: 'Second leader of what became Grupo Candeias. Assumed leadership in 1978 and renamed the group to Grupo São Bento Pequeno (after traditional capoeira rhythm). Led during critical early expansion period before passing leadership to Mestre Suíno in 1981.',
-      achievements:
+      bioEn:
+        'Second leader of what became Grupo Candeias. Assumed leadership in 1978 and renamed the group to Grupo São Bento Pequeno (after traditional capoeira rhythm). Led during critical early expansion period before passing leadership to Mestre Suíno in 1981.',
+      achievementsEn:
         'Second leader of Grupo Candeias (1978-1981). Renamed group to São Bento Pequeno. Part of early leadership that built foundation for later expansion.',
     })
     .returning();
@@ -1444,8 +1523,9 @@ export async function seedGenealogyPrototype() {
       style: 'regional',
       birthYearPrecision: 'unknown',
       birthPlace: 'Goiás, Brazil',
-      bio: 'First mestre trained/graduated by Grupo Candeias itself. Assumed leadership at SESC in 1981. Primary architect of the group\'s expansion and systematization. Led unification in 1991 when competing graduate-led groups consolidated under "Candeias" name. Implemented six operational areas (historical-cultural, technical, musical, philosophical, pedagogical, administrative). Current president of Associação de Capoeira Candeias. Under his leadership: 6 consecutive JEBS championships (1983-1988), expansion to 13 Brazilian states and 17 countries, 10,000+ students.',
-      achievements:
+      bioEn:
+        'First mestre trained/graduated by Grupo Candeias itself. Assumed leadership at SESC in 1981. Primary architect of the group\'s expansion and systematization. Led unification in 1991 when competing graduate-led groups consolidated under "Candeias" name. Implemented six operational areas (historical-cultural, technical, musical, philosophical, pedagogical, administrative). Current president of Associação de Capoeira Candeias. Under his leadership: 6 consecutive JEBS championships (1983-1988), expansion to 13 Brazilian states and 17 countries, 10,000+ students.',
+      achievementsEn:
         'First mestre graduated by Candeias. President since 1981 (44+ years). Six consecutive JEBS championships (1983-1988). Built organization to 10,000+ students, 17 countries. Published 7 books, 4 CDs.',
     })
     .returning();
@@ -1469,8 +1549,9 @@ export async function seedGenealogyPrototype() {
       birthYear: 1954,
       birthYearPrecision: 'exact',
       birthPlace: 'Rio de Janeiro, Brazil',
-      bio: 'Started capoeira 1972 in Rio de Janeiro. Received mestre title 1989 with dual recognition from both Mestre Moraes (GCAP) and Mestre Cobra Mansa (FICA). Founded first Capoeira Angola school in Belo Horizonte (1989). Moved to Germany 1990, co-founded ACAD (1992) - one of first Angola organizations in Europe. Currently lives in Düsseldorf, teaches regularly in Frankfurt, Kassel, Hamburg, Freiburg.',
-      achievements:
+      bioEn:
+        'Started capoeira 1972 in Rio de Janeiro. Received mestre title 1989 with dual recognition from both Mestre Moraes (GCAP) and Mestre Cobra Mansa (FICA). Founded first Capoeira Angola school in Belo Horizonte (1989). Moved to Germany 1990, co-founded ACAD (1992) - one of first Angola organizations in Europe. Currently lives in Düsseldorf, teaches regularly in Frankfurt, Kassel, Hamburg, Freiburg.',
+      achievementsEn:
         'First Capoeira Angola school in Belo Horizonte (1989). Co-founded ACAD (1992) - early European Angola presence. Dual lineage recognition from GCAP and FICA. 11+ locations across 3 countries.',
     })
     .returning();
@@ -1488,8 +1569,9 @@ export async function seedGenealogyPrototype() {
       birthYear: 1963,
       birthYearPrecision: 'exact',
       birthPlace: 'Várzea da Palma, Minas Gerais, Brazil',
-      bio: 'Co-founded ACAD in 1992 with Mestre Rogério in Kassel, Germany. At founding was not yet mestre (likely Contramestre or Professor). Received mestre title in 2004 from Mestre Rogério - 12 years after co-founding ACAD. Invited Rogério to Germany in 1990.',
-      achievements: 'Co-founded ACAD (1992). Titled Mestre 2004 by co-founder Rogério.',
+      bioEn:
+        'Co-founded ACAD in 1992 with Mestre Rogério in Kassel, Germany. At founding was not yet mestre (likely Contramestre or Professor). Received mestre title in 2004 from Mestre Rogério - 12 years after co-founding ACAD. Invited Rogério to Germany in 1990.',
+      achievementsEn: 'Co-founded ACAD (1992). Titled Mestre 2004 by co-founder Rogério.',
     })
     .returning();
 
@@ -1510,8 +1592,9 @@ export async function seedGenealogyPrototype() {
       style: 'regional',
       birthYearPrecision: 'unknown',
       birthPlace: 'Sete Lagoas, Minas Gerais, Brazil',
-      bio: 'Leads Cordão de Ouro nucleus in Sete Lagoas, Minas Gerais, Brazil. Trained Contra Mestre Cabeção starting in 1996. Supervises Cai Na Capoeira (Hudson Valley, NY) remotely from Brazil, maintaining CDO lineage and standards.',
-      achievements: 'Leads CDO Sete Lagoas. Trained Contra Mestre Cabeção. Remote supervision of US affiliate.',
+      bioEn:
+        'Leads Cordão de Ouro nucleus in Sete Lagoas, Minas Gerais, Brazil. Trained Contra Mestre Cabeção starting in 1996. Supervises Cai Na Capoeira (Hudson Valley, NY) remotely from Brazil, maintaining CDO lineage and standards.',
+      achievementsEn: 'Leads CDO Sete Lagoas. Trained Contra Mestre Cabeção. Remote supervision of US affiliate.',
     })
     .returning();
 
@@ -1527,8 +1610,9 @@ export async function seedGenealogyPrototype() {
       style: 'regional',
       birthYearPrecision: 'unknown',
       birthPlace: 'Brazil',
-      bio: "Started training with Mestre Esquilo in Sete Lagoas, Minas Gerais (June 1996). Bachelor's degree in Physical Education (Uni-BH). 25+ years capoeira experience. Moved to USA April 2011, started teaching Hudson Valley NY area. Founded Cai Na Capoeira January 2012. International experience in Brazil, Israel, USA.",
-      achievements:
+      bioEn:
+        "Started training with Mestre Esquilo in Sete Lagoas, Minas Gerais (June 1996). Bachelor's degree in Physical Education (Uni-BH). 25+ years capoeira experience. Moved to USA April 2011, started teaching Hudson Valley NY area. Founded Cai Na Capoeira January 2012. International experience in Brazil, Israel, USA.",
+      achievementsEn:
         "Founded Cai Na Capoeira (2012). Bachelor's in Physical Education. 25+ years capoeira. 5+ locations in Hudson Valley NY.",
     })
     .returning();
@@ -1555,8 +1639,9 @@ export async function seedGenealogyPrototype() {
       deathYear: 1924,
       deathYearPrecision: 'year',
       deathPlace: 'Maracangalha, Bahia, Brazil',
-      bio: 'Legendary capoeirista of the Recôncavo Baiano region. Known as "Besouro Cordão de Ouro" (Golden Cord Beetle). Famous for his skill and mystical abilities. Died young (age ~27) but became one of most legendary figures in capoeira history. Trained under Tio Alípio. Teacher of Mestre Cobrinha Verde (his cousin).',
-      achievements:
+      bioEn:
+        'Legendary capoeirista of the Recôncavo Baiano region. Known as "Besouro Cordão de Ouro" (Golden Cord Beetle). Famous for his skill and mystical abilities. Died young (age ~27) but became one of most legendary figures in capoeira history. Trained under Tio Alípio. Teacher of Mestre Cobrinha Verde (his cousin).',
+      achievementsEn:
         'Legendary status in capoeira history. Cultural icon. Teacher of Cobrinha Verde. Subject of films and songs.',
     })
     .returning();
@@ -1574,8 +1659,9 @@ export async function seedGenealogyPrototype() {
       birthYear: 1938,
       birthYearPrecision: 'year',
       birthPlace: 'Salvador/Cachoeira, Bahia, Brazil',
-      bio: "From Bahia angoleiro tradition. Came to Rio de Janeiro in 1956 via Navy, settled in Pavão/Pavãozinho favela (between Ipanema and Copacabana). Founded 'Filhos de Angola' (Sons of Angola) in 1960 - one of the founding lineages of capoeira contemporânea in Rio. Known for 'Line of São Bento' - faster Angola style. Described as running a 'quilombo' in the most expensive area of Rio.",
-      achievements:
+      bioEn:
+        "From Bahia angoleiro tradition. Came to Rio de Janeiro in 1956 via Navy, settled in Pavão/Pavãozinho favela (between Ipanema and Copacabana). Founded 'Filhos de Angola' (Sons of Angola) in 1960 - one of the founding lineages of capoeira contemporânea in Rio. Known for 'Line of São Bento' - faster Angola style. Described as running a 'quilombo' in the most expensive area of Rio.",
+      achievementsEn:
         "Founded Filhos de Angola (1960). Pioneer of capoeira in Rio's South Zone favelas. One of founding lineages of capoeira contemporânea. Trained Adilson, Paulo Siqueira, and others.",
     })
     .returning();
@@ -1594,8 +1680,9 @@ export async function seedGenealogyPrototype() {
       birthYearPrecision: 'year',
       birthPlace: 'Morro do Cantagalo, Rio de Janeiro, Brazil',
       deathYearPrecision: 'decade',
-      bio: "Student of Mestre Roque. Took over leadership of Filhos de Angola school in 1970s. Direct teacher of Mestre Paulo Siqueira. Worked with Paulo in theatrical productions at venues like 'Bahia Saravá' show and Intercontinental Hotel Vidigal. Granted Paulo the mestre title. Died in the 1990s.",
-      achievements: 'Led Filhos de Angola school. Trained and titled Mestre Paulo Siqueira. Theatrical performer.',
+      bioEn:
+        "Student of Mestre Roque. Took over leadership of Filhos de Angola school in 1970s. Direct teacher of Mestre Paulo Siqueira. Worked with Paulo in theatrical productions at venues like 'Bahia Saravá' show and Intercontinental Hotel Vidigal. Granted Paulo the mestre title. Died in the 1990s.",
+      achievementsEn: 'Led Filhos de Angola school. Trained and titled Mestre Paulo Siqueira. Theatrical performer.',
     })
     .returning();
 
@@ -1612,8 +1699,9 @@ export async function seedGenealogyPrototype() {
       birthYear: 1955,
       birthYearPrecision: 'exact',
       birthPlace: 'Rio de Janeiro, Brazil',
-      bio: "Started capoeira ~1972 at Mestre Roque's academy on Morro do Pavão. Trained under Mestre Roque and Mestre Adilson Camisa Preta. Also studied classical ballet with Mercedes Baptista (first Black dancer at Rio Municipal Theatre). Performed professionally. Moved to Germany 1980, permanent 1985. Founded Escola de Capoeira Angola Nzinga in Hamburg 1985. Organized Capoeira Sommer-Meeting 1987-2004 (300-600 participants, largest capoeira event outside Brazil). Pioneer of capoeira in Europe.",
-      achievements:
+      bioEn:
+        "Started capoeira ~1972 at Mestre Roque's academy on Morro do Pavão. Trained under Mestre Roque and Mestre Adilson Camisa Preta. Also studied classical ballet with Mercedes Baptista (first Black dancer at Rio Municipal Theatre). Performed professionally. Moved to Germany 1980, permanent 1985. Founded Escola de Capoeira Angola Nzinga in Hamburg 1985. Organized Capoeira Sommer-Meeting 1987-2004 (300-600 participants, largest capoeira event outside Brazil). Pioneer of capoeira in Europe.",
+      achievementsEn:
         'Founded Nzinga Germany (1985). Organized Capoeira Sommer-Meeting 17 years (1987-2004). Pioneer of European capoeira. 40+ years teaching in Hamburg. Writing book on European capoeira history.',
     })
     .returning();
@@ -1636,8 +1724,9 @@ export async function seedGenealogyPrototype() {
       style: 'regional',
       birthYearPrecision: 'unknown',
       birthPlace: 'Bahia, Brazil',
-      bio: "Disciple of Mestre Suassuna. When Suassuna moved to São Paulo seeking better life, Medicina remained in Bahia. 'At that time was not yet a mestre' but later 'began forming disciples throughout Bahia'. Key intermediary generation transmitting Suassuna lineage in Bahia. Taught Mestre Tarzan (founder of Beira-Mar).",
-      achievements:
+      bioEn:
+        "Disciple of Mestre Suassuna. When Suassuna moved to São Paulo seeking better life, Medicina remained in Bahia. 'At that time was not yet a mestre' but later 'began forming disciples throughout Bahia'. Key intermediary generation transmitting Suassuna lineage in Bahia. Taught Mestre Tarzan (founder of Beira-Mar).",
+      achievementsEn:
         'Preserved and transmitted Suassuna lineage in Bahia while Suassuna built São Paulo presence. Trained Mestre Tarzan and others.',
     })
     .returning();
@@ -1653,8 +1742,9 @@ export async function seedGenealogyPrototype() {
       style: 'regional',
       birthYearPrecision: 'unknown',
       birthPlace: 'Brazil',
-      bio: "Direct lineage from Bimba through Suassuna and Medicina (generation 4). 1974: Arrived in Campinas, São Paulo 'by indication of Mestre Suassuna' - suggests Suassuna sent him to establish presence. Founded Associação Desportiva e Cultural de Capoeira Beira Mar with schools in Araçatuba and Campinas. 200+ students in Brazil. 35+ years experience. Visits USA when possible.",
-      achievements:
+      bioEn:
+        "Direct lineage from Bimba through Suassuna and Medicina (generation 4). 1974: Arrived in Campinas, São Paulo 'by indication of Mestre Suassuna' - suggests Suassuna sent him to establish presence. Founded Associação Desportiva e Cultural de Capoeira Beira Mar with schools in Araçatuba and Campinas. 200+ students in Brazil. 35+ years experience. Visits USA when possible.",
+      achievementsEn:
         'Founded Beira-Mar Brazil (1970s-80s). 200+ students. 35+ years experience. Established international organization spanning Brazil, USA, South Korea.',
     })
     .returning();
@@ -1670,8 +1760,9 @@ export async function seedGenealogyPrototype() {
       style: 'regional',
       birthYearPrecision: 'unknown',
       birthPlace: 'Brazil',
-      bio: "Started training 1984 under Mestre Tarzan (first mestre). Also trained under Mestres Canhão, Gladson, Burguês, Paulo Gomes, Ananias. 1990: Professor title under Caiçara and Lampião. Contra-Mestre title from Mestre Ananias before moving to USA. Founded Grupo Bantu in Jacksonville, FL (independent). Maintained contact with Tarzan, later renamed to 'Bantu Beira-Mar', then full merger as US representative.",
-      achievements:
+      bioEn:
+        "Started training 1984 under Mestre Tarzan (first mestre). Also trained under Mestres Canhão, Gladson, Burguês, Paulo Gomes, Ananias. 1990: Professor title under Caiçara and Lampião. Contra-Mestre title from Mestre Ananias before moving to USA. Founded Grupo Bantu in Jacksonville, FL (independent). Maintained contact with Tarzan, later renamed to 'Bantu Beira-Mar', then full merger as US representative.",
+      achievementsEn:
         'US representative for Beira-Mar Capoeira. Founded Grupo Bantu → merged back with master organization. 5+ USA locations across Florida, Kentucky, Colorado.',
     })
     .returning();
@@ -1693,8 +1784,9 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'Argentina',
-      bio: 'Argentine who brought capoeira to Mexico. March 16, 1992: Taught first formal capoeira class in Mexico at Antiguo Colegio de San Ildefonso, Mexico City (organized by UNAM Dance Department). 1994: First batizado in Mexico with Mestre Delei. 1995: Founded Ollin-Bao (Afro-American cultures promotion). 1996: Founded Banda do Saci - first registered capoeira group in Mexico. 1997: Affiliated with ECAIG (Mestre Curiò). 1998: Banda do Saci became exclusively Capoeira Angola.',
-      achievements:
+      bioEn:
+        'Argentine who brought capoeira to Mexico. March 16, 1992: Taught first formal capoeira class in Mexico at Antiguo Colegio de San Ildefonso, Mexico City (organized by UNAM Dance Department). 1994: First batizado in Mexico with Mestre Delei. 1995: Founded Ollin-Bao (Afro-American cultures promotion). 1996: Founded Banda do Saci - first registered capoeira group in Mexico. 1997: Affiliated with ECAIG (Mestre Curiò). 1998: Banda do Saci became exclusively Capoeira Angola.',
+      achievementsEn:
         'First capoeira teacher in Mexico (1992). Founded first registered capoeira group in Mexico (Banda do Saci, 1996). Pioneer who planted capoeira in Mexico.',
     })
     .returning();
@@ -1712,8 +1804,9 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'Bahia, Brazil',
-      bio: "Capoeira Angola mestre. Directs OuroVerde cultural farm in Bahia, Brazil. Directs Barracão d'Angola cultural center in Serra Grande, Bahia. Representatives in 5 locations (Brazil, Mexico, USA). 2008: Recognized Longe do Mar professor graduations alongside Mestre Acordeón - dual validation from Angola tradition.",
-      achievements:
+      bioEn:
+        "Capoeira Angola mestre. Directs OuroVerde cultural farm in Bahia, Brazil. Directs Barracão d'Angola cultural center in Serra Grande, Bahia. Representatives in 5 locations (Brazil, Mexico, USA). 2008: Recognized Longe do Mar professor graduations alongside Mestre Acordeón - dual validation from Angola tradition.",
+      achievementsEn:
         "Directs OuroVerde cultural farm. Directs Barracão d'Angola. Validated Longe do Mar graduations (2008) - dual recognition with Regional mestre.",
     })
     .returning();
@@ -1729,8 +1822,10 @@ export async function seedGenealogyPrototype() {
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
       birthPlace: 'Mexico',
-      bio: 'First Mexican to achieve Mestre rank. Currently co-leading Longe do Mar. Represents achievement of highest capoeira rank by Mexican-trained capoeirista. Trained under Mariano Andrade tradition, graduated through Longe do Mar system with dual lineage recognition (Regional via Acordeón, Angola via Cabello).',
-      achievements: 'First Mexican mestre. Co-leads Longe do Mar. Historic achievement for Mexican capoeira community.',
+      bioEn:
+        'First Mexican to achieve Mestre rank. Currently co-leading Longe do Mar. Represents achievement of highest capoeira rank by Mexican-trained capoeirista. Trained under Mariano Andrade tradition, graduated through Longe do Mar system with dual lineage recognition (Regional via Acordeón, Angola via Cabello).',
+      achievementsEn:
+        'First Mexican mestre. Co-leads Longe do Mar. Historic achievement for Mexican capoeira community.',
     })
     .returning();
 
@@ -1747,8 +1842,9 @@ export async function seedGenealogyPrototype() {
       birthYear: 1943,
       birthYearPrecision: 'year',
       birthPlace: 'Salvador, Bahia, Brazil',
-      bio: 'Student of Mestre Bimba (founder of Capoeira Regional). Came to the United States in 1978 and established himself as a major figure in spreading Capoeira Regional internationally. Founded the United Capoeira Association (UCA). Recognized authority in Regional lineage. 2005: Granted Contra-Mestre title to Adolfo Flores of Longe do Mar, providing Regional lineage validation. Co-validated Longe do Mar professor graduations in 2008 alongside Angola Mestre Cabello.',
-      achievements:
+      bioEn:
+        'Student of Mestre Bimba (founder of Capoeira Regional). Came to the United States in 1978 and established himself as a major figure in spreading Capoeira Regional internationally. Founded the United Capoeira Association (UCA). Recognized authority in Regional lineage. 2005: Granted Contra-Mestre title to Adolfo Flores of Longe do Mar, providing Regional lineage validation. Co-validated Longe do Mar professor graduations in 2008 alongside Angola Mestre Cabello.',
+      achievementsEn:
         'Direct student of Mestre Bimba. Founded UCA. International Regional authority. Validated Mexican capoeira graduations.',
     })
     .returning();
@@ -1765,8 +1861,9 @@ export async function seedGenealogyPrototype() {
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
       birthPlace: 'Mexico',
-      bio: 'First Mexican woman to achieve Contra-Mestre rank. Co-founder of Longe do Mar (May 1998). Student of Mariano Andrade. Founding member of Banda do Saci. Left with two others to found Longe do Mar when Banda do Saci shifted to exclusive Capoeira Angola. Currently co-leading Longe do Mar.',
-      achievements:
+      bioEn:
+        'First Mexican woman to achieve Contra-Mestre rank. Co-founder of Longe do Mar (May 1998). Student of Mariano Andrade. Founding member of Banda do Saci. Left with two others to found Longe do Mar when Banda do Saci shifted to exclusive Capoeira Angola. Currently co-leading Longe do Mar.',
+      achievementsEn:
         "First Mexican woman contra-mestre. Co-founded Longe do Mar (1998). Women's leadership in capoeira.",
     })
     .returning();
@@ -1783,8 +1880,9 @@ export async function seedGenealogyPrototype() {
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
       birthPlace: 'Mexico',
-      bio: 'Co-founder of Longe do Mar (May 1998). Became director of Longe do Mar from founding. Student of Mariano Andrade. Founding member of Banda do Saci. 2005: Received Contra-Mestre rank from Mestre Acordeón (Regional lineage). Still active as of 2025.',
-      achievements:
+      bioEn:
+        'Co-founder of Longe do Mar (May 1998). Became director of Longe do Mar from founding. Student of Mariano Andrade. Founding member of Banda do Saci. 2005: Received Contra-Mestre rank from Mestre Acordeón (Regional lineage). Still active as of 2025.',
+      achievementsEn:
         'Co-founded Longe do Mar (1998). Director since founding. Contra-Mestre title from Mestre Acordeón (2005).',
     })
     .returning();
@@ -1799,8 +1897,9 @@ export async function seedGenealogyPrototype() {
       name: 'Iñaki Garrido',
       birthYearPrecision: 'unknown',
       birthPlace: 'Mexico',
-      bio: 'Co-founder of Longe do Mar (May 1998). Student of Mariano Andrade. Founding member of Banda do Saci. One of three who left to found Longe do Mar when parent group shifted to exclusive Angola style.',
-      achievements: 'Co-founded Longe do Mar (1998).',
+      bioEn:
+        'Co-founder of Longe do Mar (May 1998). Student of Mariano Andrade. Founding member of Banda do Saci. One of three who left to found Longe do Mar when parent group shifted to exclusive Angola style.',
+      achievementsEn: 'Co-founded Longe do Mar (1998).',
     })
     .returning();
 
@@ -1823,8 +1922,9 @@ export async function seedGenealogyPrototype() {
       birthYear: 1959,
       birthYearPrecision: 'year',
       birthPlace: 'São Paulo, Brazil',
-      bio: 'Founder of Capoeira Mandinga. Student of Mestre Suassuna (CDO co-founder). In 1984, was one of only three people teaching capoeira in the entire United States. Pioneer who brought capoeira to Oakland, California.',
-      achievements:
+      bioEn:
+        'Founder of Capoeira Mandinga. Student of Mestre Suassuna (CDO co-founder). In 1984, was one of only three people teaching capoeira in the entire United States. Pioneer who brought capoeira to Oakland, California.',
+      achievementsEn:
         '30+ years teaching. Founded Associação de Capoeira Senzala Grande (1984) renamed Capoeira Mandinga (1995). Built international network spanning 15+ countries.',
     })
     .returning();
@@ -1840,8 +1940,9 @@ export async function seedGenealogyPrototype() {
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
       birthPlace: 'Italy',
-      bio: 'Italian capoeirista who became the first person to teach capoeira in China (Shanghai, 2005). Chief instructor of Capoeira Mandinga Shanghai. Student of Mestre Marcelo Caveirinha.',
-      achievements:
+      bioEn:
+        'Italian capoeirista who became the first person to teach capoeira in China (Shanghai, 2005). Chief instructor of Capoeira Mandinga Shanghai. Student of Mestre Marcelo Caveirinha.',
+      achievementsEn:
         'First capoeira instructor in China (2005). Established capoeira as an art form in a country of 1.4 billion people. Taught Instrutor Alex who expanded to multiple Chinese cities.',
     })
     .returning();
@@ -1858,8 +1959,9 @@ export async function seedGenealogyPrototype() {
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
       birthPlace: 'Russia',
-      bio: 'Russian capoeirista who lived 25 years in China. Founded Capoeira Mandinga Hangzhou (2014) and supervised branches in Hefei, Chengdu, and Wenzhou. Self-described "pioneer of capoeira in China". Also founder/editor of Magazeta (Russian-language China magazine). Certified by Mestre Edan and Mestre Cueca (CDO mestres). Relocated to Thailand in 2023 due to family crisis.',
-      achievements:
+      bioEn:
+        'Russian capoeirista who lived 25 years in China. Founded Capoeira Mandinga Hangzhou (2014) and supervised branches in Hefei, Chengdu, and Wenzhou. Self-described "pioneer of capoeira in China". Also founder/editor of Magazeta (Russian-language China magazine). Certified by Mestre Edan and Mestre Cueca (CDO mestres). Relocated to Thailand in 2023 due to family crisis.',
+      achievementsEn:
         'Blue belt/Instrutor (2019). Founded or supervised 4+ branches in China. Created online course reaching thousands across China. Trained students who became teachers leading their own groups.',
     })
     .returning();
@@ -1874,8 +1976,9 @@ export async function seedGenealogyPrototype() {
       title: 'mestra',
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
-      bio: 'Female mestre who founded Capoeira Mandinga Tucson (1996). One of the few female mestres in the Mandinga network. Student of Mestre Marcelo Caveirinha.',
-      achievements: 'Founded Capoeira Mandinga Tucson (1996). Leads Capoeira Institute Southwest.',
+      bioEn:
+        'Female mestre who founded Capoeira Mandinga Tucson (1996). One of the few female mestres in the Mandinga network. Student of Mestre Marcelo Caveirinha.',
+      achievementsEn: 'Founded Capoeira Mandinga Tucson (1996). Leads Capoeira Institute Southwest.',
     })
     .returning();
 
@@ -1890,8 +1993,9 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
-      bio: 'CDO (Cordão de Ouro) mestre who founded CDO in Russia in early 1990s. Part of the Capoeira Instructors Course that certified Instrutor Alex, revealing hidden CDO connections even in separate organizations like Mandinga.',
-      achievements: 'Founded CDO Russia (early 1990s). Certified instructors across multiple organizations.',
+      bioEn:
+        'CDO (Cordão de Ouro) mestre who founded CDO in Russia in early 1990s. Part of the Capoeira Instructors Course that certified Instrutor Alex, revealing hidden CDO connections even in separate organizations like Mandinga.',
+      achievementsEn: 'Founded CDO Russia (early 1990s). Certified instructors across multiple organizations.',
     })
     .returning();
 
@@ -1905,8 +2009,9 @@ export async function seedGenealogyPrototype() {
       title: 'mestre',
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
-      bio: 'CDO mestre who leads CDO Moscow with 30+ training halls. Part of the certification system that trained Instrutor Alex, demonstrating cross-organizational connections within the CDO lineage network.',
-      achievements: 'Leads CDO Moscow with 30+ halls. Certified instructors across multiple organizations.',
+      bioEn:
+        'CDO mestre who leads CDO Moscow with 30+ training halls. Part of the certification system that trained Instrutor Alex, demonstrating cross-organizational connections within the CDO lineage network.',
+      achievementsEn: 'Leads CDO Moscow with 30+ halls. Certified instructors across multiple organizations.',
     })
     .returning();
 
@@ -1921,8 +2026,9 @@ export async function seedGenealogyPrototype() {
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
       birthPlace: 'Cape Town, South Africa',
-      bio: 'South African capoeirista who taught capoeira in Beijing, China. Part of the early wave of non-Brazilian instructors bringing capoeira to Asia.',
-      achievements:
+      bioEn:
+        'South African capoeirista who taught capoeira in Beijing, China. Part of the early wave of non-Brazilian instructors bringing capoeira to Asia.',
+      achievementsEn:
         'Taught capoeira at Workers Stadium area in Beijing. Mixed classes with Chinese and foreign students.',
     })
     .returning();
@@ -1945,8 +2051,9 @@ export async function seedGenealogyPrototype() {
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
       birthPlace: 'San Diego, California, USA',
-      bio: 'American capoeirista who moved to Tokyo in 1999 to teach professionally. Founded Capoeira Zoador Academy in 2003. First non-Brazilian to produce original capoeira music. M.A. from Waseda University (2012) with thesis on "Globalization of Afro-Brazilian Popular Culture in Japan". Author of two books on capoeira philosophy. Self-described "pioneer of capoeira in Asia". Training lineage unknown despite research.',
-      achievements:
+      bioEn:
+        'American capoeirista who moved to Tokyo in 1999 to teach professionally. Founded Capoeira Zoador Academy in 2003. First non-Brazilian to produce original capoeira music. M.A. from Waseda University (2012) with thesis on "Globalization of Afro-Brazilian Popular Culture in Japan". Author of two books on capoeira philosophy. Self-described "pioneer of capoeira in Asia". Training lineage unknown despite research.',
+      achievementsEn:
         'Founded Capoeira Zoador (2003). First non-Brazilian capoeira music producer. M.A. in International Relations (Waseda, 2012). Published "The Path of Capoeira" (2014) and "Capoeira Fire" (2022). 26+ years teaching in Japan.',
     })
     .returning();
@@ -1961,8 +2068,9 @@ export async function seedGenealogyPrototype() {
       title: 'contra-mestre',
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
-      bio: 'Co-instructor at Capoeira Zoador in Tokyo. Long-term student of Mestre Sucuri. Teaches at Ota-ku and Harajuku locations.',
-      achievements: 'Achieved Contramestre rank. Co-instructs at Capoeira Zoador.',
+      bioEn:
+        'Co-instructor at Capoeira Zoador in Tokyo. Long-term student of Mestre Sucuri. Teaches at Ota-ku and Harajuku locations.',
+      achievementsEn: 'Achieved Contramestre rank. Co-instructs at Capoeira Zoador.',
     })
     .returning();
 
@@ -1986,8 +2094,9 @@ export async function seedGenealogyPrototype() {
       deathYear: 1990,
       deathYearPrecision: 'year',
       birthPlace: 'Ilha de Maré, Bahia, Brazil',
-      bio: 'Legendary Capoeira Angola master from Liberdade neighborhood, Salvador. Started capoeira in 1936. Trained under multiple masters: Canário Pardo, Peripiri, Talabi, Siri-de-Mangue, Ricardo. Independent Angola lineage parallel to Mestre Pastinha. Also influenced Mestre Bimba and Cobrinha Verde, demonstrating cross-lineage impact on both Angola and Regional traditions.',
-      achievements:
+      bioEn:
+        'Legendary Capoeira Angola master from Liberdade neighborhood, Salvador. Started capoeira in 1936. Trained under multiple masters: Canário Pardo, Peripiri, Talabi, Siri-de-Mangue, Ricardo. Independent Angola lineage parallel to Mestre Pastinha. Also influenced Mestre Bimba and Cobrinha Verde, demonstrating cross-lineage impact on both Angola and Regional traditions.',
+      achievementsEn:
         'Legendary Angola master representing traditional Bahian lineage independent of Pastinha school. Cross-influenced both Angola and Regional development.',
     })
     .returning();
@@ -2004,8 +2113,9 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'Salvador, Bahia, Brazil',
-      bio: 'Brazilian Angola mestre, student of Mestre Waldemar and Mestre Avila in Liberdade, Salvador. Founded Brasil Brasil Cultural Center in Santa Monica, California (1989). Choreographer for "Only the Strong" (1993) - major Hollywood film that brought capoeira to mainstream American awareness. Also choreographed "Kickboxer IV". Regular visits to Japan for batizados since 2009.',
-      achievements:
+      bioEn:
+        'Brazilian Angola mestre, student of Mestre Waldemar and Mestre Avila in Liberdade, Salvador. Founded Brasil Brasil Cultural Center in Santa Monica, California (1989). Choreographer for "Only the Strong" (1993) - major Hollywood film that brought capoeira to mainstream American awareness. Also choreographed "Kickboxer IV". Regular visits to Japan for batizados since 2009.',
+      achievementsEn:
         'Founded Brasil Brasil Cultural Center (1989, LA). 35+ years teaching. Film choreographer ("Only the Strong" 1993). Established Japan branch (2009). Carries Mestre Waldemar lineage internationally.',
     })
     .returning();
@@ -2021,8 +2131,9 @@ export async function seedGenealogyPrototype() {
       title: 'contra-mestre',
       style: 'angola',
       birthYearPrecision: 'unknown',
-      bio: 'Female Contra Mestra in Japan branch of Capoeira Batuque. Specializes in choreography. Student of Mestre Amen. Notable as female leader in traditionally male-dominated Angola tradition. Part of distributed leadership model in Japan with four co-equal senior instructors.',
-      achievements:
+      bioEn:
+        'Female Contra Mestra in Japan branch of Capoeira Batuque. Specializes in choreography. Student of Mestre Amen. Notable as female leader in traditionally male-dominated Angola tradition. Part of distributed leadership model in Japan with four co-equal senior instructors.',
+      achievementsEn:
         'Achieved Contra Mestra rank (13+ years training). Choreography specialty. Senior instructor in Japan.',
     })
     .returning();
@@ -2038,8 +2149,9 @@ export async function seedGenealogyPrototype() {
       title: 'contra-mestre',
       style: 'angola',
       birthYearPrecision: 'unknown',
-      bio: 'Japanese Contra Mestre in Japan branch of Capoeira Batuque. Student of Mestre Amen. Part of distributed leadership model with four co-equal senior instructors.',
-      achievements: 'Achieved Contra Mestre rank (13+ years training). Senior instructor in Japan.',
+      bioEn:
+        'Japanese Contra Mestre in Japan branch of Capoeira Batuque. Student of Mestre Amen. Part of distributed leadership model with four co-equal senior instructors.',
+      achievementsEn: 'Achieved Contra Mestre rank (13+ years training). Senior instructor in Japan.',
     })
     .returning();
 
@@ -2053,8 +2165,9 @@ export async function seedGenealogyPrototype() {
       name: 'MILE',
       style: 'angola',
       birthYearPrecision: 'unknown',
-      bio: 'Professor in Japan branch of Capoeira Batuque. Student of Mestre Amen. Part of distributed leadership model.',
-      achievements: 'Achieved Professor rank (13+ years training required). Instructor in Japan.',
+      bioEn:
+        'Professor in Japan branch of Capoeira Batuque. Student of Mestre Amen. Part of distributed leadership model.',
+      achievementsEn: 'Achieved Professor rank (13+ years training required). Instructor in Japan.',
     })
     .returning();
 
@@ -2069,8 +2182,9 @@ export async function seedGenealogyPrototype() {
       title: 'instrutor',
       style: 'angola',
       birthYearPrecision: 'unknown',
-      bio: 'Female Instructora in Japan branch of Capoeira Batuque. Student of Mestre Amen. Notable as female instructor in traditionally male-dominated Angola tradition. Part of distributed leadership model with 50% female representation among senior instructors.',
-      achievements: 'Achieved Instructora rank. Female instructor representing gender balance in Japan branch.',
+      bioEn:
+        'Female Instructora in Japan branch of Capoeira Batuque. Student of Mestre Amen. Notable as female instructor in traditionally male-dominated Angola tradition. Part of distributed leadership model with 50% female representation among senior instructors.',
+      achievementsEn: 'Achieved Instructora rank. Female instructor representing gender balance in Japan branch.',
     })
     .returning();
 
@@ -2093,8 +2207,9 @@ export async function seedGenealogyPrototype() {
       birthYear: 1985,
       birthYearPrecision: 'approximate',
       birthPlace: 'Angola',
-      bio: 'Angolan capoeirista who went into exile at age 15 during the 27-year civil war (1975-2002). Returned to Angola in 2014 to "help bring about change in the country". Founded Escola de Capoeira Angola Okupandula in Luanda - the FIRST Capoeira Angola school in the country of Angola. Student of Mestre Moraes (GCAP). Started with Capoeira Regional but switched to Angola after 7 years, saying "Why would I keep training Regional when I can go to the roots of my country?" Also works as a social worker.',
-      achievements:
+      bioEn:
+        'Angolan capoeirista who went into exile at age 15 during the 27-year civil war (1975-2002). Returned to Angola in 2014 to "help bring about change in the country". Founded Escola de Capoeira Angola Okupandula in Luanda - the FIRST Capoeira Angola school in the country of Angola. Student of Mestre Moraes (GCAP). Started with Capoeira Regional but switched to Angola after 7 years, saying "Why would I keep training Regional when I can go to the roots of my country?" Also works as a social worker.',
+      achievementsEn:
         'Founded first Capoeira Angola school in Angola (2014). Fulfilled Mestre Pastinha\'s prophecy that "Capoeira Angola will return to Angola". Achieved Contramestre rank under Mestre Moraes. Combines social work with cultural education.',
     })
     .returning();
@@ -2116,7 +2231,8 @@ export async function seedGenealogyPrototype() {
       style: 'regional',
       birthYearPrecision: 'unknown',
       birthPlace: 'São Bernardo do Campo, São Paulo, Brazil',
-      bio: 'São Paulo Regional mestre. Teacher of Mestre Albino in São Bernardo do Campo during early 1970s. Representative of São Paulo Capoeira Federation organizational model. Lineage incomplete - his own teachers unknown.',
+      bioEn:
+        'São Paulo Regional mestre. Teacher of Mestre Albino in São Bernardo do Campo during early 1970s. Representative of São Paulo Capoeira Federation organizational model. Lineage incomplete - his own teachers unknown.',
     })
     .returning();
 
@@ -2132,8 +2248,9 @@ export async function seedGenealogyPrototype() {
       style: 'regional',
       birthYearPrecision: 'unknown',
       birthPlace: 'Piauí, Brazil',
-      bio: 'Migrated from Piauí to São Bernardo do Campo, São Paulo in early 1970s (typical Nordestino migration pattern). Trained under Mestre Zé da Volks. Returned to Teresina, Piauí in 1977 with both capoeira techniques and organizational knowledge. Founded Grupo Escravos Brancos and Federação Piauiense de Capoeira (FPC) the same year. Represents "circular migration cultural transfer" pattern - economic migration repurposed for cultural transmission.',
-      achievements:
+      bioEn:
+        'Migrated from Piauí to São Bernardo do Campo, São Paulo in early 1970s (typical Nordestino migration pattern). Trained under Mestre Zé da Volks. Returned to Teresina, Piauí in 1977 with both capoeira techniques and organizational knowledge. Founded Grupo Escravos Brancos and Federação Piauiense de Capoeira (FPC) the same year. Represents "circular migration cultural transfer" pattern - economic migration repurposed for cultural transmission.',
+      achievementsEn:
         'Founded Escravos Brancos (1977). Founded Federação Piauiense de Capoeira (1977). President of ACCEB since 2005. 48+ years teaching. Brought São Paulo Federation model to Piauí.',
     })
     .returning();
@@ -2155,8 +2272,9 @@ export async function seedGenealogyPrototype() {
       style: 'regional',
       birthYearPrecision: 'unknown',
       birthPlace: 'Salvador, Bahia, Brazil',
-      bio: 'Bahian mestre based in Liberdade neighborhood, Salvador. Trained under Mestre Saci and Mestre Paulo dos Anjos. Teacher of childhood best friends Mestre Marcos Gytauna and Mestre Val Boa Morte, who became "three times champions of Bahian capoeira" together before each becoming pioneers in different countries (Argentina and Australia respectively).',
-      achievements:
+      bioEn:
+        'Bahian mestre based in Liberdade neighborhood, Salvador. Trained under Mestre Saci and Mestre Paulo dos Anjos. Teacher of childhood best friends Mestre Marcos Gytauna and Mestre Val Boa Morte, who became "three times champions of Bahian capoeira" together before each becoming pioneers in different countries (Argentina and Australia respectively).',
+      achievementsEn:
         'Trained Mestre Marcos Gytauna (Argentina pioneer) and Mestre Val Boa Morte (Australia pioneer). His students produced three-time Bahian champions.',
     })
     .returning();
@@ -2173,8 +2291,9 @@ export async function seedGenealogyPrototype() {
       style: 'regional',
       birthYearPrecision: 'unknown',
       birthPlace: 'São Salvador, Bahia, Brazil',
-      bio: 'Started capoeira 1975 in Liberdade, Salvador under Mestre Alfredo. Childhood best friend of Mestre Val Boa Morte - together they were "three times champions of Bahian capoeira". Arrived Argentina January 10, 1987 with Val, invited by actress Egle Martin for "Ritos y Candombe" cultural project (planned 5 days, stayed 38+ years). First student actor Adrián Ghio encouraged him to stay. Worked with Val 1987-1989, then Val returned to Brazil. Composed capoeira songs: "Berimbau de Fe", "Capoeira Me Chama", "Ser Capoeira".',
-      achievements:
+      bioEn:
+        'Started capoeira 1975 in Liberdade, Salvador under Mestre Alfredo. Childhood best friend of Mestre Val Boa Morte - together they were "three times champions of Bahian capoeira". Arrived Argentina January 10, 1987 with Val, invited by actress Egle Martin for "Ritos y Candombe" cultural project (planned 5 days, stayed 38+ years). First student actor Adrián Ghio encouraged him to stay. Worked with Val 1987-1989, then Val returned to Brazil. Composed capoeira songs: "Berimbau de Fe", "Capoeira Me Chama", "Ser Capoeira".',
+      achievementsEn:
         'Founded oldest capoeira institution in Argentina (AAC 1995). Pioneer - first capoeira in Argentina (1987). 3x Bahian champion with Val. 38+ years teaching in Argentina. Composed original capoeira songs.',
     })
     .returning();
@@ -2197,8 +2316,9 @@ export async function seedGenealogyPrototype() {
       style: 'angola',
       birthYearPrecision: 'unknown',
       birthPlace: 'Boca do Rio neighborhood, Salvador, Bahia, Brazil',
-      bio: 'Started training at GCAP in 1983 under Mestre Moraes. Graduated as Contra-Mestre in 1996 alongside Mestre Cobra Mansa. Left GCAP shortly after to teach independently (blessed departure). Founded Grupo de Capoeira Angola Zimba in 1998 in Salvador. Received Mestre title in 2007 from his former classmate Mestre Cobra Mansa (peer recognition). Moved to Santiago de Compostela, Spain in 2007 and continues coordinating Zimba internationally from there.',
-      achievements:
+      bioEn:
+        'Started training at GCAP in 1983 under Mestre Moraes. Graduated as Contra-Mestre in 1996 alongside Mestre Cobra Mansa. Left GCAP shortly after to teach independently (blessed departure). Founded Grupo de Capoeira Angola Zimba in 1998 in Salvador. Received Mestre title in 2007 from his former classmate Mestre Cobra Mansa (peer recognition). Moved to Santiago de Compostela, Spain in 2007 and continues coordinating Zimba internationally from there.',
+      achievementsEn:
         'Founded Grupo Zimba (1998). Received Mestre title from peer (Cobra Mansa, 2007). 15 years training at GCAP. Coordinates international network from Spain. "Zimba" means "Supreme God" in African languages.',
     })
     .returning();
@@ -2213,8 +2333,9 @@ export async function seedGenealogyPrototype() {
       name: 'Celso de Brito',
       style: 'angola',
       birthYearPrecision: 'unknown',
-      bio: 'PhD in Social Anthropology (UFRGS). Assistant Professor at Federal University of Piauí (UFPI), Social Sciences department. Co-founded Zimba Teresina núcleo in 2018 with Andrea Pace Rodriguez. Represents academic-practitioner model - bridges traditional oral transmission with scholarly documentation. Published research on capoeira politics in Teresina, lineages, and federations.',
-      achievements:
+      bioEn:
+        'PhD in Social Anthropology (UFRGS). Assistant Professor at Federal University of Piauí (UFPI), Social Sciences department. Co-founded Zimba Teresina núcleo in 2018 with Andrea Pace Rodriguez. Represents academic-practitioner model - bridges traditional oral transmission with scholarly documentation. Published research on capoeira politics in Teresina, lineages, and federations.',
+      achievementsEn:
         'Founded Zimba Teresina núcleo (2018). PhD Social Anthropology. UFPI professor. Published academic research on capoeira in Teresina.',
     })
     .returning();
@@ -2236,8 +2357,9 @@ export async function seedGenealogyPrototype() {
       style: 'regional',
       birthYearPrecision: 'unknown',
       birthPlace: 'Salvador, Bahia, Brazil',
-      bio: "Direct student of Mestre Bimba (founder of Capoeira Regional). Legendary Regional authority and keeper of Bimba's tradition. Granted Grão Mestre title to Mestre Chuvisco in December 2017 - described as 'third and final level' of Grão Mestre recognition for decades of dedication to capoeira.",
-      achievements:
+      bioEn:
+        "Direct student of Mestre Bimba (founder of Capoeira Regional). Legendary Regional authority and keeper of Bimba's tradition. Granted Grão Mestre title to Mestre Chuvisco in December 2017 - described as 'third and final level' of Grão Mestre recognition for decades of dedication to capoeira.",
+      achievementsEn:
         'Direct student of Mestre Bimba. Legendary Regional authority. Grants Grão Mestre titles to recognized masters of the Regional tradition.',
     })
     .returning();
@@ -2254,8 +2376,9 @@ export async function seedGenealogyPrototype() {
       style: 'contemporanea',
       birthYearPrecision: 'unknown',
       birthPlace: 'Belo Horizonte, Minas Gerais, Brazil',
-      bio: "Started capoeira at age 8 (family tradition - father was capoeirista). Graduated to Mestre in 1977. Founded Mandingueiros dos Palmares the same year (June 7, 1977) in Belo Horizonte. Brought capoeira to Boston, Massachusetts in 1995 - claims 'Boston's First Capoeira School'. Received Grão Mestre title from legendary Mestre Itapoan in December 2017. 50+ years in capoeira, 40+ years teaching. Three-generation family tradition continuing through sons Mestre Chuvisquinho and Guthemberg Teixeira.",
-      achievements:
+      bioEn:
+        "Started capoeira at age 8 (family tradition - father was capoeirista). Graduated to Mestre in 1977. Founded Mandingueiros dos Palmares the same year (June 7, 1977) in Belo Horizonte. Brought capoeira to Boston, Massachusetts in 1995 - claims 'Boston's First Capoeira School'. Received Grão Mestre title from legendary Mestre Itapoan in December 2017. 50+ years in capoeira, 40+ years teaching. Three-generation family tradition continuing through sons Mestre Chuvisquinho and Guthemberg Teixeira.",
+      achievementsEn:
         "Founded Mandingueiros dos Palmares (1977). 'Boston's First Capoeira School' (1995). Grão Mestre title (2017, from Mestre Itapoan). 50+ years practice. Three-generation family tradition.",
     })
     .returning();
@@ -2273,13 +2396,13 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Centro Esportivo de Capoeira Angola',
-      description:
+      descriptionEn:
         'Founded by Mestre Pastinha in Salvador, Bahia. The birthplace of organized Capoeira Angola and source of the Pastinha lineage that dominates modern Angola tradition.',
       style: 'angola',
       foundedYear: 1941,
       foundedYearPrecision: 'year',
       foundedLocation: 'Salvador, Bahia, Brazil',
-      philosophy: 'Capoeira Angola as a path of self-knowledge and mastery. Preservation of African cultural roots.',
+      philosophyEn: 'Capoeira Angola as a path of self-knowledge and mastery. Preservation of African cultural roots.',
       isActive: false,
     })
     .returning();
@@ -2291,13 +2414,13 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Grupo de Capoeira Angola Pelourinho',
-      description:
+      descriptionEn:
         'Founded by four co-founders (Moraes, Braga, Neco, Zé Carlos) in Rio de Janeiro in 1980. Led the revival of Capoeira Angola in the 1980s when the style was nearly extinct. Moved to Salvador in 1982 and established at Forte Santo Antônio Além do Carmo in 1983.',
       style: 'angola',
       foundedYear: 1980,
       foundedYearPrecision: 'year',
       foundedLocation: 'Rio de Janeiro, Brazil',
-      philosophy:
+      philosophyEn:
         "Return to capoeira's African roots. Anti-commercialization stance. Cultural resistance against persecution of African culture.",
       isActive: true,
       nameHistory: [
@@ -2317,7 +2440,7 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Grupo Senzala',
-      description:
+      descriptionEn:
         'One of the most influential capoeira groups in history. Founded in Rio de Janeiro by the "Sete Mestres" (Seven Mestres) including the Flores brothers. Known for collaborative leadership model, open roda philosophy, and systematic teaching methodology. Source of many blessed splits including ABADÁ and Cordão de Ouro.',
       style: 'contemporanea',
       nameAliases: ['Senzala'],
@@ -2325,7 +2448,7 @@ export async function seedGenealogyPrototype() {
       foundedYear: 1963,
       foundedYearPrecision: 'approximate',
       foundedLocation: 'Laranjeiras, Rio de Janeiro, Brazil',
-      philosophy:
+      philosophyEn:
         'Balance between systematic structure and creative spontaneity. Open weekly rodas where every capoeirista is welcome. Collaborative leadership among red belts.',
       isActive: true,
       nameHistory: [
@@ -2346,7 +2469,7 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'ABADÁ-Capoeira',
-      description:
+      descriptionEn:
         "Associação Brasileira de Apoio e Desenvolvimento da Arte-Capoeira - The world's largest capoeira organization. Founded by brothers Mestre Camisa and Grão Mestre Camisa Roxa after a blessed departure from Grupo Senzala. Known for standardized graduation system and decentralized legal structure with cultural unity.",
       style: 'contemporanea',
       nameAliases: ['ABADÁ', 'Abada Capoeira'],
@@ -2354,7 +2477,7 @@ export async function seedGenealogyPrototype() {
       foundedYear: 1988,
       foundedYearPrecision: 'year',
       foundedLocation: 'Rio de Janeiro, Brazil',
-      philosophy:
+      philosophyEn:
         "Follows Bimba's innovative concepts while incorporating Angola practices. Strong sense of family and community. Contemporary synthesis approach.",
       isActive: true,
     })
@@ -2367,7 +2490,7 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Cordão de Ouro',
-      description:
+      descriptionEn:
         'Associação de Capoeira Cordão de Ouro - One of the oldest and most widespread international capoeira networks. Co-founded by Mestre Suassuna and Mestre Brasília. Known for formal certification system, registered trademark, and Academia Matriz model.',
       style: 'contemporanea',
       nameAliases: ['CDO', 'Golden Cord'],
@@ -2375,7 +2498,7 @@ export async function seedGenealogyPrototype() {
       foundedYear: 1967,
       foundedYearPrecision: 'exact',
       foundedLocation: 'São Paulo, Brazil',
-      philosophy:
+      philosophyEn:
         'Contemporânea style blending Angola and Regional traditions. Formal certification and quality control.',
       isActive: true,
     })
@@ -2388,13 +2511,13 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Capoeira Angola Center of Mestre João Grande',
-      description:
+      descriptionEn:
         'Founded in NYC when Mestre João Grande settled permanently after successful US tour. First permanent Capoeira Angola school established by a 1st-generation Pastinha student in the United States. International network spanning 9 countries with 12+ locations.',
       style: 'angola',
       foundedYear: 1990,
       foundedYearPrecision: 'year',
       foundedLocation: 'New York City, USA',
-      philosophy:
+      philosophyEn:
         'Teaches in the African style, as a way of life, following Mestre Pastinha\'s tradition. Anti-anglicization stance. Nature-based teaching methodology. "Capoeira is a game not about fighting, but about philosophy, culture, community, and playing together."',
       isActive: true,
       nameHistory: [
@@ -2419,14 +2542,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'International Capoeira Angola Foundation',
-      description:
+      descriptionEn:
         'Founded by Mestre Cobra Mansa, Mestre Jurandir, and Mestre Valmir after departing GCAP. Based in Washington D.C. with affiliate schools across USA, Brazil, Europe, Asia, and Africa.',
       style: 'angola',
       nameAliases: ['ICAF', 'FICA'],
       foundedYear: 1996,
       foundedYearPrecision: 'year',
       foundedLocation: 'Washington D.C., USA',
-      philosophy: 'Traditional Angola preservation with international reach. African roots focus.',
+      philosophyEn: 'Traditional Angola preservation with international reach. African roots focus.',
       isActive: true,
     })
     .returning();
@@ -2438,14 +2561,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Grupo Capoeira Brasil',
-      description:
+      descriptionEn:
         'Founded January 14, 1989 by three Senzala red cords (Boneco, Paulinho Sabiá, Paulão Ceará) with blessing from padrinhos (Gato, Peixinho, Rafael Flores, Suassuna, Itapoã, Ezekiel). A "blessed split" from Senzala due to ideological differences. Known for Regional Contemporânea style and international reach across 40+ countries. Operates as 501(c)(3) non-profit in USA.',
       style: 'contemporanea',
       nameAliases: ['Capoeira Brasil', 'GCB'],
       foundedYear: 1989,
       foundedYearPrecision: 'exact',
       foundedLocation: 'Rio de Janeiro, Brazil',
-      philosophy:
+      philosophyEn:
         'Regional Contemporânea style blending Regional and Angola traditions. Community-focused cultural preservation with emphasis on youth education.',
       isActive: true,
     })
@@ -2458,14 +2581,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Grupo Muzenza de Capoeira',
-      description:
+      descriptionEn:
         'One of the largest Capoeira organizations worldwide. Founded May 5, 1972 in Rio de Janeiro by Mestre Paulão. Expanded massively under Mestre Burguês (president since 1978) from Curitiba base. Known for standardized methodology (22 sequences), academic focus (ENCAMUZENZA), and massive international reach.',
       style: 'contemporanea',
       nameAliases: ['Muzenza'],
       foundedYear: 1972,
       foundedYearPrecision: 'exact',
       foundedLocation: 'Rio de Janeiro, Brazil',
-      philosophy:
+      philosophyEn:
         'Contemporary blend of traditional and modern capoeira. "Capoeira é capoeira, para que você possa entender melhor essa definição deve vivê-la" (Capoeira is capoeira, to truly understand this definition you must live it).',
       isActive: true,
       nameHistory: [
@@ -2485,14 +2608,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Grupo Axé Capoeira',
-      description:
+      descriptionEn:
         'One of the larger international Capoeira networks. Founded in 1982 in Recife, Brazil by Mestre Barrão. Now based internationally with locations across Canada, USA, Brazil, and other countries. Known for centralized brand control with uniform naming convention across all locations.',
       style: 'contemporanea',
       nameAliases: ['Axé Capoeira'],
       foundedYear: 1982,
       foundedYearPrecision: 'year',
       foundedLocation: 'Recife, Brazil',
-      philosophy: 'Regional/Contemporânea style with strong central identity and network-wide consistency.',
+      philosophyEn: 'Regional/Contemporânea style with strong central identity and network-wide consistency.',
       isActive: true,
     })
     .returning();
@@ -2504,14 +2627,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Grupo Capoeira Filhos de Angola',
-      description:
+      descriptionEn:
         'Traditional Angola group founded March 20, 1984 in Salvador, Bahia by four co-founders: Roberval, Laércio, Cabore, and Rosalvo. Now an international network with 25+ núcleos across Europe and Asia, coordinated by Mestre Laércio from Berlin. Co-founders later separated geographically, with some operating independently (Academia Jangada) and others within the GCFA network.',
       style: 'angola',
       nameAliases: ['GCFA', 'Filhos de Angola'],
       foundedYear: 1984,
       foundedYearPrecision: 'exact',
       foundedLocation: 'Salvador, Bahia, Brazil',
-      philosophy:
+      philosophyEn:
         'Traditional Capoeira Angola preservation. Art, knowledge, philosophy and awareness. Non-profit cultural association without belt/cord system (traditional Angola approach).',
       isActive: true,
     })
@@ -2524,14 +2647,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Grupo de Capoeira Angola Irmãos Guerreiros',
-      description:
+      descriptionEn:
         'Family-founded Angola group from São Paulo periphery. Founded 1983 in Taboão da Serra by Bahian family: Mestre Baixinho (father), Mestre Marrom (son), and uncles Guerreiro and Macete. Headquarters at Senzalinha (family garage). International expansion since 2002 with European hub in Bremen (Centro Cultural Cazuá). Known for community focus in marginalized areas and integration of multiple Afro-Brazilian practices.',
       style: 'angola',
       nameAliases: ['GCAIG', 'Irmãos Guerreiros'],
       foundedYear: 1983,
       foundedYearPrecision: 'exact',
       foundedLocation: 'Taboão da Serra, São Paulo, Brazil',
-      philosophy:
+      philosophyEn:
         'Preserve and disseminate Capoeira Angola and Afro-Brazilian traditions. Using popular culture as engine for social change. Colors: Brown (earth/strength) and White (peace).',
       isActive: true,
     })
@@ -2544,14 +2667,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Ngoma Capoeira Angola',
-      description:
+      descriptionEn:
         'Founded 1990 in Rio de Janeiro by Mestre Anastácio Marrom (originally as "Marrom Capoeira & Alunos"). Renamed to "Ngoma" (African/Bantu word) in 2018 as political statement reaffirming African origins. Based in Morro da Babilônia favela for 25+ years. Opened Casa Ngoma community space (2020). Known for "autonomous continuation" model where students maintain cultural connection across 15+ locations in 8 countries. Emphasizes women\'s leadership through co-founder Contra-Mestra Tatiana.',
       style: 'angola',
       nameAliases: ['Marrom Capoeira & Alunos', 'Casa Ngoma'],
       foundedYear: 1990,
       foundedYearPrecision: 'exact',
       foundedLocation: 'Rio de Janeiro, Brazil',
-      philosophy:
+      philosophyEn:
         'Political reaffirmation of Black and African origins of Capoeira Angola. Social justice focus, community integration, women\'s leadership. "Compromisso" (commitment) philosophy - ethical responsibilities extending beyond the roda into life.',
       isActive: true,
       nameHistory: [
@@ -2577,14 +2700,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Escola de Capoeira Angoleiros do Sertão',
-      description:
+      descriptionEn:
         'Founded in the 1980s in Feira de Santana, Bahia by Mestre Cláudio Costa. "Angoleiros do Sertão" means "Capoeira Angola Players of the Backlands" - emphasizing rural, interior identity distinct from coastal Salvador. Known for nucleus (núcleo) organizational model with 20+ semi-autonomous branches across 6+ countries. Unique for integrating Samba Rural into practice and weekly public rodas on main avenue.',
       style: 'angola',
       nameAliases: ['Angoleiros do Sertão'],
       foundedYear: 1985,
       foundedYearPrecision: 'approximate',
       foundedLocation: 'Feira de Santana, Bahia, Brazil',
-      philosophy:
+      philosophyEn:
         '"Compromisso" (ethical commitment) - responsibilities extend beyond the roda. Strict discipline, musical excellence, cultural preservation. "You don\'t need to be rich to be clean; you just need self-respect."',
       isActive: true,
       isHeadquarters: true,
@@ -2598,14 +2721,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Escola Nestor Capoeira',
-      description:
+      descriptionEn:
         'Founded 1990/1992 in Rio de Janeiro by Mestre Nestor Capoeira after 22 years with Grupo Senzala. Personal school model named after founder (PhD, 10 books, 120,000+ copies sold). Based at Planetário da Gávea / Galpão das Artes Urbanas. Known for academic-mission approach with books as primary knowledge transmission. Branches in Belo Horizonte (2018) and France.',
       style: 'contemporanea',
       nameAliases: ['ENC', 'ENC-BH'],
       foundedYear: 1992,
       foundedYearPrecision: 'exact',
       foundedLocation: 'Rio de Janeiro, Brazil',
-      philosophy:
+      philosophyEn:
         'Unique pedagogical approach emphasizing both traditional and contemporary aspects. Balance of structure and spontaneity (Senzala influence). Capoeira as philosophy and way of life. Academic rigor and cultural depth. "Malícia" as philosophical wisdom.',
       isActive: true,
       nameHistory: [
@@ -2630,14 +2753,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Capoeira Aruanda Australia',
-      description:
+      descriptionEn:
         'Founded 2005 as Capoeiracre, renamed to Capoeira Aruanda in 2007. Founded by Mestre Borracha after 8 years teaching for Grupo Capoeira Brasil in Sydney. Regional presence in NSW: Sydney East (headquarters), Sydney West, Newcastle (Team Novo Flow). "Aruanda" is a mutation of Luanda (Angola capital) - symbolizing African homeland and freedom.',
       style: 'contemporanea',
       nameAliases: ['Capoeiracre', 'Aruanda Australia', 'Team Novo Flow'],
       foundedYear: 2005,
       foundedYearPrecision: 'exact',
       foundedLocation: 'Sydney, NSW, Australia',
-      philosophy:
+      philosophyEn:
         'Contemporary style blending Angola and Regional. "Aruanda" name represents African roots and freedom. Professional approach with corporate workshops and team building programs.',
       isActive: true,
       nameHistory: [
@@ -2665,14 +2788,15 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Capoeira Mandinga',
-      description:
+      descriptionEn:
         'International capoeira organization founded by Mestre Marcelo Caveirinha. Originally Associação de Capoeira Senzala Grande (1984 in Oakland, CA), renamed to Capoeira Mandinga (1995). Presence in USA, New Zealand, Israel, China, Taiwan, Japan, Italy, Iceland, Mexico, Brazil.',
       style: 'contemporanea',
       nameAliases: ['Senzala Grande'],
       foundedYear: 1995,
       foundedYearPrecision: 'exact',
       foundedLocation: 'Oakland, California, USA',
-      philosophy: 'International expansion of capoeira, maintaining Brazilian roots while adapting to global contexts.',
+      philosophyEn:
+        'International expansion of capoeira, maintaining Brazilian roots while adapting to global contexts.',
       isActive: true,
       nameHistory: [
         {
@@ -2697,14 +2821,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Capoeira Mandinga Aotearoa',
-      description:
+      descriptionEn:
         "New Zealand's national capoeira organization. Founded 1992 in Auckland by Mestre Brabo (Grant Cole) - first capoeira ever taught in New Zealand. Chapter of Capoeira Mandinga. Transitioned from Regional/Contemporânea to Capoeira Angola around 2004. Four cities: Auckland (HQ), Wellington, Taranaki, Christchurch.",
       style: 'angola',
       nameAliases: ['Mandinga NZ', 'Mandinga Aotearoa'],
       foundedYear: 1992,
       foundedYearPrecision: 'exact',
       foundedLocation: 'Auckland, New Zealand',
-      philosophy:
+      philosophyEn:
         'Originally Regional/Contemporânea (1992-2004), evolved to pure Capoeira Angola tradition through influences from João Pequeno, Jogo de Dentro, and Roxinho. Community-first philosophy.',
       isActive: true,
     })
@@ -2717,7 +2841,7 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'ECAMAR',
-      description:
+      descriptionEn:
         'Escola de Capoeira Angola Mato Rasteiro. Founded 1998 in Salvador by Mestre Roxinho. Expanded to Sydney, Australia (2006) - first Bahia Angola master to establish school in Australia. Also has Auckland chapter. Youth engagement through Project Bantu.',
       style: 'angola',
       nameAliases: ['Escola de Capoeira Angola Mato Rasteiro', 'ECAMAR Sydney', 'ECAMAR Auckland'],
@@ -2735,14 +2859,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Capoeira Angola Center Kibera',
-      description:
+      descriptionEn:
         'First East African branch of Mestre João Grande\'s Capoeira Angola Center network. Founded 2015 in Kibera slum, Nairobi, Kenya by Contra-Mestre Salim Rollins. Part of Inuka Cultural Center NGO. Represents "reverse diaspora" - capoeira returning to Africa. Hosted Mandinga Ancestral festival (2017) bringing João Grande to Africa for first time in 51 years.',
       style: 'angola',
       nameAliases: ['CACK', 'Capoeira Angola Center Kenya'],
       foundedYear: 2015,
       foundedYearPrecision: 'exact',
       foundedLocation: 'Kibera, Nairobi, Kenya',
-      philosophy:
+      philosophyEn:
         'Youth empowerment through traditional Capoeira Angola in extreme poverty contexts. Free programs for slum youth. "Reconnecting Grand Mestre João Grande with Africa." Cultural arts as pathway out of poverty.',
       isActive: true,
     })
@@ -2755,14 +2879,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Grupo Candeias de Capoeira',
-      description:
+      descriptionEn:
         'Regional powerhouse founded 1977 in Goiânia, Goiás. Direct Bimba lineage through his son Formiga. Six consecutive Brazilian School Games championships (1983-1988). Systematized pedagogy with six operational areas. Scale: 13 Brazilian states, 17 countries, 10,000+ students, 21+ mestres. Headquarters-centric model maintaining Goiânia (GYN) as symbolic and operational center.',
       style: 'regional',
       nameAliases: ['Candeias', 'Anglo-Regional', 'São Bento Pequeno', 'Grupo de Capoeira do SESC'],
       foundedYear: 1977,
       foundedYearPrecision: 'exact',
       foundedLocation: 'Goiânia, Goiás, Brazil',
-      philosophy:
+      philosophyEn:
         'Estudar para melhorar o mundo, respeitar para ser honrado, trabalhar para ter dignidade e amar para ter fé (Study to improve the world, respect to be honored, work for dignity, love for faith). Six operational areas: historical-cultural, technical-tactical, musical, philosophical, pedagogical, administrative.',
       isActive: true,
       nameHistory: [
@@ -2801,14 +2925,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Associação de Capoeira Angola Dobrada',
-      description:
+      descriptionEn:
         'Founded 1992 in Kassel, Germany by Mestre Rogério and Mestre Índio - one of first Capoeira Angola organizations founded in Europe. Named after "Angola Dobrada" berimbau rhythm (doubled variation). Dual lineage from GCAP (Moraes) and FICA (Cobra Mansa). Scale: 11+ locations across Germany, Italy, and Brazil. Three annual international meetings rotating between Freiburg (May), Cesena (July/Sept), and Belo Horizonte (November).',
       style: 'angola',
       nameAliases: ['ACAD', 'Angola Dobrada'],
       foundedYear: 1992,
       foundedYearPrecision: 'exact',
       foundedLocation: 'Kassel, Germany',
-      philosophy:
+      philosophyEn:
         'To cultivate, spread and maintain the art and rituals of Capoeira Angola in accordance with the tradition, without deforming it. Preservation of traditional practices while spreading Angola internationally.',
       isActive: true,
     })
@@ -2821,13 +2945,13 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Cai Na Capoeira',
-      description:
+      descriptionEn:
         'Small regional CDO affiliate founded 2012 in Hudson Valley, New York. Founded by Contra Mestre Cabeção under supervision of Mestre Esquilo (CDO Sete Lagoas, Brazil). Name means "Join Capoeira" or "Fall into Capoeira". 5+ locations across Westchester, Rockland, Orange, and Dutchess counties. Exemplifies instructor migration pattern - Brazilian instructor establishing supervised affiliate while maintaining parent organization connection.',
       style: 'regional',
       foundedYear: 2012,
       foundedYearPrecision: 'exact',
       foundedLocation: 'Ossining, New York, USA',
-      philosophy:
+      philosophyEn:
         'Promote capoeira and all elements: music, culture, health, dance, arts. CDO methodology with Jogo do Miudinho emphasis. Community-focused bringing capoeira to suburban/small town areas.',
       isActive: true,
     })
@@ -2840,13 +2964,13 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Filhos de Angola',
-      description:
+      descriptionEn:
         "Founded 1960 by Mestre Roque in Pavão/Pavãozinho favela (Rio's South Zone). One of the founding lineages of capoeira contemporânea in Rio de Janeiro. Known for 'Line of São Bento' - faster Angola style. Described as a 'quilombo' in the most expensive area of the city. Trained Mestre Adilson Camisa Preta and Mestre Paulo Siqueira. Important in the evolution of Rio's distinctive capoeira culture.",
       style: 'angola',
       foundedYear: 1960,
       foundedYearPrecision: 'year',
       foundedLocation: 'Pavão/Pavãozinho favela, Rio de Janeiro, Brazil',
-      philosophy:
+      philosophyEn:
         'Community-based capoeira in favela context. Cultural resistance. Quilombo spirit - community of resistance.',
       isActive: false,
     })
@@ -2859,14 +2983,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Escola de Capoeira Angola Nzinga',
-      description:
+      descriptionEn:
         'Founded 1985 in Hamburg, Germany by Mestre Paulo Siqueira - pioneer of capoeira in Europe. Named after Queen Nzinga (1581-1663) of Angola who led 40-year resistance to Portuguese. Filhos de Angola lineage from Rio. Organized Capoeira Sommer-Meeting 1987-2004 (300-600 participants annually, largest capoeira event outside Brazil at the time). 3 locations: Hamburg (HQ since 1985), Hannover (1994, first capoeira school in city), Kiel (2000).',
       style: 'angola',
       nameAliases: ['Nzinga Germany', 'Capoeuropa'],
       foundedYear: 1985,
       foundedYearPrecision: 'exact',
       foundedLocation: 'Hamburg, Germany',
-      philosophy:
+      philosophyEn:
         'Combination of multiple cultural expressions: dance, music, combat, theater, play and spiritual practice. Pioneer mission bringing authentic Brazilian capoeira to Europe.',
       isActive: true,
     })
@@ -2879,14 +3003,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Associação Desportiva e Cultural de Capoeira Beira Mar',
-      description:
+      descriptionEn:
         'Founded by Mestre Tarzan in São Paulo state (Araçatuba, Campinas). Direct Regional lineage: Bimba → Suassuna → Medicina → Tarzan (gen 4). 200+ students in Brazil. USA presence established by Contra-Mestre Bundo who founded Grupo Bantu independently, then reunited as Beira-Mar USA. 8+ locations across Brazil, USA (Florida, Kentucky, Colorado), South Korea. Unique reunion/merger pattern showing voluntary reintegration with master organization.',
       style: 'regional',
       nameAliases: ['Beira-Mar', 'Grupo Bantu', 'Bantu Beira-Mar'],
       foundedYear: 1975,
       foundedYearPrecision: 'decade',
       foundedLocation: 'Campinas, São Paulo, Brazil',
-      philosophy:
+      philosophyEn:
         'Preserves the rich cultural heritage and practice of Capoeira, fosters cultural citizenship, and promotes health and physical fitness to all ages and races through the practice of Capoeira.',
       isActive: true,
       nameHistory: [
@@ -2920,14 +3044,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Escola de Capoeira Angola Irmãos Gêmeos',
-      description:
+      descriptionEn:
         'Founded 1960 by Mestre Curiò in Alagoinhas, Bahia. Pure Capoeira Angola organization with Pastinha lineage. International network including Banda do Saci (Mexico) affiliation in 1997.',
       style: 'angola',
       nameAliases: ['ECAIG', 'Irmãos Gêmeos'],
       foundedYear: 1960,
       foundedYearPrecision: 'year',
       foundedLocation: 'Alagoinhas, Bahia, Brazil',
-      philosophy: 'Pure Capoeira Angola preservation. Pastinha lineage transmission.',
+      philosophyEn: 'Pure Capoeira Angola preservation. Pastinha lineage transmission.',
       isActive: true,
     })
     .returning();
@@ -2939,13 +3063,13 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Banda do Saci',
-      description:
+      descriptionEn:
         'First registered capoeira group in Mexico, founded 1996 by Mariano Andrade. Mixed style initially. 1997: Affiliated with ECAIG (Mestre Curiò). 1998: Became exclusively Capoeira Angola. This shift to pure Angola style caused the split that created Longe do Mar.',
       style: 'angola',
       foundedYear: 1996,
       foundedYearPrecision: 'exact',
       foundedLocation: 'Mexico City, Mexico',
-      philosophy: 'Pure Capoeira Angola (since 1998). ECAIG affiliation.',
+      philosophyEn: 'Pure Capoeira Angola (since 1998). ECAIG affiliation.',
       isActive: true,
       nameHistory: [
         {
@@ -2970,14 +3094,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Academia de Capoeira Longe do Mar',
-      description:
+      descriptionEn:
         'Founded May 1998 in Mexico City by three co-founders who split from Banda do Saci seeking "capoeira without labels" (mixed style vs. pure Angola). First Mexican mestres: Mestre Cigano (first Mexican mestre), Contra-Mestre Rosita (first Mexican woman contra-mestre). Dual lineage recognition: Regional (Acordeón) + Angola (Cabello). 27 consecutive years of annual Encuentro Nacional (1998-2025). 9+ cities across Mexico, 300+ students. "Un grupo de capoeira orgullosamente mexicano" (proudly Mexican).',
       style: 'contemporanea',
       nameAliases: ['Longe do Mar', 'LDM'],
       foundedYear: 1998,
       foundedYearPrecision: 'exact',
       foundedLocation: 'Mexico City, Mexico',
-      philosophy:
+      philosophyEn:
         'Capoeira para todos (Capoeira for all). Capoeira without labels - mixed/contemporary approach not restricted to pure Angola or Regional. Values: Loyalty, Harmony, Social Work. Artistic and cultural emphasis beyond sport.',
       legalStructure: 'non_profit',
       isActive: true,
@@ -2991,14 +3115,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Capoeira Mandinga',
-      description:
+      descriptionEn:
         'Founded 1984 in Oakland, California by Mestre Marcelo Caveirinha (student of Mestre Suassuna). Originally named Associação de Capoeira Senzala Grande, renamed to Capoeira Mandinga in 1995. At founding, Mestre Marcelo was one of only three people teaching capoeira in the entire USA. International network spanning 15+ countries with 20+ cities. "Mandinga" means sorcery/magic/trickery in Portuguese - central to capoeira philosophy.',
       style: 'contemporanea',
       nameAliases: ['Mandinga', 'Capoeira Mandinga Academy'],
       foundedYear: 1984,
       foundedYearPrecision: 'year',
       foundedLocation: 'Oakland, California, USA',
-      philosophy:
+      philosophyEn:
         'CDO (Cordão de Ouro) tradition via Mestre Suassuna. Emphasis on musicality, acrobatics, and game flow. Decentralized network with local autonomy - each location operates independently.',
       legalStructure: 'non_profit',
       isActive: true,
@@ -3026,13 +3150,13 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Capoeira Mandinga Shanghai',
-      description:
+      descriptionEn:
         'First group to teach capoeira in China, founded 2005 by Diego Pappalardo (Italian). Historic expansion to Asia. Less than 200 capoeiristas in entire China as of 2014 (population 1.4 billion). Classes at Fuxing Zhong Lu and Xikang Lu (Jogo Space). Mix of Chinese nationals and expatriates.',
       style: 'contemporanea',
       foundedYear: 2005,
       foundedYearPrecision: 'year',
       foundedLocation: 'Shanghai, China',
-      philosophy:
+      philosophyEn:
         'Capoeira Mandinga tradition. "Not only a great physical activity, but also involves music and culture." Cultural education alongside physical training.',
       isActive: true,
     })
@@ -3045,14 +3169,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Capoeira Mandinga Hangzhou',
-      description:
+      descriptionEn:
         'Founded 2014 by Instrutor Alex (Alex Maltsev), a Russian who lived 25 years in China. "Passionate, non-profit collective of capoeira enthusiasts." Location: Guodu Commercial Building, 21F, Room 2101, Fengqi Rd. Chinese name: 杭州巴西战舞 (Hangzhou Brazilian War Dance). Supervised branches in Hefei, Chengdu, Wenzhou. Featured on TV (Alibaba Group, 2017). Status uncertain after founder relocated to Thailand (2023).',
       style: 'contemporanea',
       nameAliases: ['杭州巴西战舞', 'Hangzhou Bāxī Zhànwǔ'],
       foundedYear: 2014,
       foundedYearPrecision: 'year',
       foundedLocation: 'Hangzhou, Zhejiang, China',
-      philosophy:
+      philosophyEn:
         'Celebrate and share the art of capoeira by enjoying the game and spreading knowledge of its rich Afro-Brazilian traditions. Inclusivity - welcomes beginners and people of all fitness levels, ages, and backgrounds.',
       isActive: true,
     })
@@ -3065,14 +3189,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Capoeira Zoador',
-      description:
+      descriptionEn:
         'Founded 2003 in Tokyo by Mestre Sucuri (American from San Diego). Claims "longest-running professional Capoeira school in Asia" and "pioneer of capoeira in Asia". Three locations in Tokyo metropolitan area: Ota-ku, Harajuku (Studio Worcle), and Yokohama. Contemporary style combining traditional rituals/philosophy with modern training concepts. "Zoador" means "one who zooms/flies" in Portuguese. Founder lineage unknown.',
       style: 'contemporanea',
       nameAliases: ['Zoador', 'Capoeira Zoador Academy'],
       foundedYear: 2003,
       foundedYearPrecision: 'year',
       foundedLocation: 'Tokyo, Japan',
-      philosophy:
+      philosophyEn:
         'Contemporary approach combining rituals and philosophy of traditional Capoeira with modern training concepts and balanced beauty of movements. Inclusive - students ages 3-50, all nationalities, all walks of life.',
       isActive: true,
     })
@@ -3085,13 +3209,13 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Brasil Brasil Cultural Center',
-      description:
+      descriptionEn:
         'Founded 1989 in Santa Monica, California by Mestre Amen (Joselito do Espirito Santo). Cultural center emphasizing broader Afro-Brazilian culture beyond capoeira. Mestre Amen trained under Mestre Waldemar in Liberdade, Salvador. Choreographed "Only the Strong" (1993) which brought capoeira to mainstream American awareness. 35+ years of operations. Headquarters for Japan branch (Capoeira Batuque Japão).',
       style: 'angola',
       foundedYear: 1989,
       foundedYearPrecision: 'year',
       foundedLocation: 'Santa Monica, California, USA',
-      philosophy:
+      philosophyEn:
         'Preservation of Mestre Waldemar lineage and traditional Bahian Angola. Cultural center for broader Afro-Brazilian arts education. Long-term development (13+ years to Professor Level 3).',
       legalStructure: 'non_profit',
       isActive: true,
@@ -3105,14 +3229,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Capoeira Batuque Japão',
-      description:
+      descriptionEn:
         'Japan branch of Brasil Brasil Cultural Center, established circa 2009. Mestre Amen (LA) visits for batizados. Four co-equal senior instructors lead day-to-day operations: Contra Mestra Pomba (Yoko), Contra Mestre Pensador (Jun Ishibashi), Professor Esperto (MILE), Instructora Lua Cheia (HiRO). Locations in Kanto region (Tokyo, Yokohama, Chiba) and Kochi (Shikoku). "Batuque" = traditional Afro-Brazilian dance/music form. 50% female leadership among senior instructors.',
       style: 'angola',
       nameAliases: ['Batuque Japão', 'Capoeira Batuque Japan'],
       foundedYear: 2009,
       foundedYearPrecision: 'approximate',
       foundedLocation: 'Tokyo, Japan',
-      philosophy:
+      philosophyEn:
         'Traditional Angola (Mestre Waldemar lineage). Musical foundation with batuque/percussion emphasis. Long-term development - 13+ years minimum to Professor Level 3. Distributed leadership model.',
       isActive: true,
     })
@@ -3125,14 +3249,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Escola de Capoeira Angola Okupandula',
-      description:
+      descriptionEn:
         'FIRST Capoeira Angola school in the country of Angola, founded 2014 in Luanda by Contramestre Kimbundo (Lucio Ngungi). Name "Okupandula" is Kimbundu language meaning "Thank you to you and your ancestors". Fulfills Mestre Pastinha\'s prophecy from 1981: "Capoeira Angola is here in Brazil and will return to Angola again." Founder went into exile at age 15 during 27-year civil war, returned in 2014 to rebuild country through cultural education. Small but keen cohort of students. Classes 3x per week.',
       style: 'angola',
       nameAliases: ['Okupandula', 'Grupo Okupandula'],
       foundedYear: 2014,
       foundedYearPrecision: 'year',
       foundedLocation: 'Luanda, Angola',
-      philosophy:
+      philosophyEn:
         'Cultural reclamation - reconnecting Angolans with pre-slavery African heritage. Reverse diaspora (Brazil → Africa). Post-conflict nation building. Ritualistic Angola style emphasizing tradition, African roots, and historical education.',
       isActive: true,
     })
@@ -3145,14 +3269,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Associação Cultural de Capoeira Escravos Brancos',
-      description:
+      descriptionEn:
         'Founded 1977 in Teresina, Piauí by Mestre Albino upon his return from São Paulo. Represents "invisible majority" pattern - regional group with significant local impact but no expansion beyond Piauí state. Founded at Centro Social Urbano da Primavera (CSU Primavera), zona norte. "Escravos Brancos" = "White Slaves" (significance unclear). 48+ years of operation. CNPJ: 03.368.992/0001-00.',
       style: 'regional',
       nameAliases: ['Escravos Brancos', 'ACCEB'],
       foundedYear: 1977,
       foundedYearPrecision: 'year',
       foundedLocation: 'Teresina, Piauí, Brazil',
-      philosophy:
+      philosophyEn:
         'São Paulo Capoeira Federation model. Sporting competition emphasis. Formal graduation system with cords. Regional identity focus (Piauí capoeira).',
       legalStructure: 'non_profit',
       isActive: true,
@@ -3166,14 +3290,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Federação Piauiense de Capoeira',
-      description:
+      descriptionEn:
         'State capoeira federation for Piauí, founded 1977 by Mestre Albino. Model imported from São Paulo Capoeira Federation. Initially only Escravos Brancos graduates became members. Faced opposition from Senzala/Abadá lineage practitioners who founded competing Federação de Capoeira Piauiense (FECAPI). Represents regional federation politics pattern.',
       style: 'regional',
       nameAliases: ['FPC'],
       foundedYear: 1977,
       foundedYearPrecision: 'year',
       foundedLocation: 'Teresina, Piauí, Brazil',
-      philosophy: 'Graduation system. Sporting competition rules. Standardized approach following São Paulo model.',
+      philosophyEn: 'Graduation system. Sporting competition rules. Standardized approach following São Paulo model.',
       isActive: true,
     })
     .returning();
@@ -3185,14 +3309,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Asociación Argentina de Capoeira',
-      description:
+      descriptionEn:
         "Oldest capoeira institution in Argentina. Founded May 14, 1995 in Buenos Aires by Mestre Marcos Gytauna (teaching since 1987). Pioneer status - first capoeira in Argentina when art was completely unknown (confused with food/drinks). Marcos arrived with childhood best friend Mestre Val Boa Morte (January 10, 1987) for 5-day cultural project 'Ritos y Candombe' but stayed 38+ years. Val returned to Brazil (1989), later founded Filhos da Bahia International in Australia. 22+ batizados. 30th anniversary 2025.",
       style: 'regional',
       nameAliases: ['AAC', 'Grupo Oriaxé', 'Oriaxé Internacional'],
       foundedYear: 1995,
       foundedYearPrecision: 'exact',
       foundedLocation: 'Buenos Aires, Argentina',
-      philosophy:
+      philosophyEn:
         'Capoeira as "philosophy of life" beyond physical practice. Cultural ambassador bringing Brazilian culture to Argentina. Dedicated to the diffusion of Brazilian culture.',
       legalStructure: 'non_profit',
       isActive: true,
@@ -3206,14 +3330,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Grupo de Capoeira Angola Zimba',
-      description:
+      descriptionEn:
         'Founded 1998 in Salvador, Bahia by Mestre Boca do Rio after blessed departure from GCAP. "Zimba" means "Supreme God" in African languages. International núcleo network: 8+ locations across Brazil (Salvador HQ, Porto Alegre, Curitiba, Teresina), Europe (Santiago de Compostela, Paris, Warsaw), and Latin America (Xalapa). Mestre Boca do Rio has coordinated remotely from Spain since 2007. Second-generation GCAP lineage (Pastinha → Moraes → Boca do Rio). IPHAN registered with Salvador as main entity, others as filiais.',
       style: 'angola',
       nameAliases: ['Zimba', 'GCA Zimba'],
       foundedYear: 1998,
       foundedYearPrecision: 'year',
       foundedLocation: 'Salvador, Bahia, Brazil',
-      philosophy:
+      philosophyEn:
         'Continuation of Mestre Pastinha lineage via GCAP. Traditional Angola style preservation. Núcleo network model with semi-autonomous branches under shared identity. African cultural heritage connection (name "Zimba" from African languages).',
       isActive: true,
     })
@@ -3226,14 +3350,14 @@ export async function seedGenealogyPrototype() {
     .insert(groupProfiles)
     .values({
       name: 'Associação de Capoeira Mandingueiros dos Palmares',
-      description:
+      descriptionEn:
         "Founded June 7, 1977 in Belo Horizonte, Minas Gerais by Grão Mestre Chuvisco (same year as his mestre graduation). Name references Quilombo dos Palmares (17th century maroon settlement) and mandinga (Candomblé spiritual power). US presence established 1995 in Massachusetts - claims 'Boston's First Capoeira School'. Dual headquarters: Belo Horizonte (origin) + Cambridge, MA (diaspora). Three-generation family tradition: Chuvisco's father → Chuvisco → sons Chuvisquinho (Mestre 2014) and Guthemberg Teixeira. Founder received Grão Mestre title from Mestre Itapoan (student of Bimba) in 2017. 48+ years founder leadership.",
       style: 'contemporanea',
       nameAliases: ['Mandingueiros dos Palmares', 'MdP', 'Capoeira MdP'],
       foundedYear: 1977,
       foundedYearPrecision: 'exact',
       foundedLocation: 'Belo Horizonte, Minas Gerais, Brazil',
-      philosophy:
+      philosophyEn:
         'Preservation of capoeira and Afro-Brazilian culture through education. Capoeira Contemporânea based on Regional tradition. Cultural pride through name referencing Palmares quilombo resistance.',
       legalStructure: 'non_profit',
       isActive: true,
@@ -3265,7 +3389,7 @@ export async function seedGenealogyPrototype() {
       endedAt: '1981-01-01',
       confidence: 'verified' as const,
       source: 'Historical records, NEA Heritage Fellowship documentation, Smithsonian',
-      notes: "Joined Pastinha's academy at age 20 in 1953. Received diploma from Pastinha in 1968.",
+      notesEn: "Joined Pastinha's academy at age 20 in 1953. Received diploma from Pastinha in 1968.",
     },
 
     // João Pequeno student_of Pastinha (Generation 0 → 1)
@@ -3277,7 +3401,7 @@ export async function seedGenealogyPrototype() {
       objectId: pastinha.id,
       confidence: 'verified' as const,
       source: 'Historical records, Wikipedia',
-      notes: 'One of Pastinha\'s "two most learned students."',
+      notesEn: 'One of Pastinha\'s "two most learned students."',
     },
 
     // Moraes trained_under João Grande (Generation 1 → 2)
@@ -3290,7 +3414,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1958-01-01',
       confidence: 'verified' as const,
       source: 'GCAP documentation, case study research',
-      notes:
+      notesEn:
         'Started at Pastinha\'s academy age 8 (~1958). Moraes states he is "truly the student of João Grande due to the inspiring way that João Grande played capoeira."',
     },
 
@@ -3305,7 +3429,7 @@ export async function seedGenealogyPrototype() {
       endedAt: '1981-01-01',
       confidence: 'verified' as const,
       source: 'Historical records',
-      notes: 'Trained at CECA while Pastinha was still alive but blind. Limited direct instruction.',
+      notesEn: 'Trained at CECA while Pastinha was still alive but blind. Limited direct instruction.',
     },
 
     // Moraes trained_under João Pequeno
@@ -3318,7 +3442,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1958-01-01',
       confidence: 'verified' as const,
       source: 'GCAP documentation',
-      notes: "João Pequeno and João Grande ran Pastinha's academy together.",
+      notesEn: "João Pequeno and João Grande ran Pastinha's academy together.",
     },
 
     // Cobra Mansa student_of Moraes (Generation 2 → 3)
@@ -3331,7 +3455,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1974-01-01',
       confidence: 'verified' as const,
       source: 'GCAP documentation, Wikipedia',
-      notes: 'Became student of Moraes at age 14 (1974). Top student.',
+      notesEn: 'Became student of Moraes at age 14 (1974). Top student.',
     },
 
     // --- Regional/Contemporânea Lineage ---
@@ -3344,7 +3468,7 @@ export async function seedGenealogyPrototype() {
       objectId: bimba.id,
       confidence: 'likely' as const,
       source: 'Senzala history',
-      notes: 'The founders visited Salvador to train under Mestre Bimba and observe street rodas.',
+      notesEn: 'The founders visited Salvador to train under Mestre Bimba and observe street rodas.',
     },
 
     // Camisa student_of Bimba
@@ -3357,7 +3481,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1968-01-01', // Started at age 12, born ~1956
       confidence: 'verified' as const,
       source: 'ABADÁ DC documentation, Wikipedia',
-      notes: 'Started training under Mestre Bimba at age 12 after brother Camisa Roxa convinced their mother.',
+      notesEn: 'Started training under Mestre Bimba at age 12 after brother Camisa Roxa convinced their mother.',
     },
 
     // Camisa Roxa student_of Bimba
@@ -3369,7 +3493,7 @@ export async function seedGenealogyPrototype() {
       objectId: bimba.id,
       confidence: 'verified' as const,
       source: 'ABADÁ DC documentation',
-      notes: 'Both brothers trained under Bimba in Salvador.',
+      notesEn: 'Both brothers trained under Bimba in Salvador.',
     },
 
     // ============================================================
@@ -3386,7 +3510,7 @@ export async function seedGenealogyPrototype() {
       properties: { relationship_type: 'sibling' } as StatementProperties,
       confidence: 'verified' as const,
       source: 'ABADÁ documentation',
-      notes: 'Biological brothers who co-founded ABADÁ.',
+      notesEn: 'Biological brothers who co-founded ABADÁ.',
     },
 
     // ============================================================
@@ -3406,7 +3530,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'GCAP case study research',
-      notes: 'Formal mestre title granting ceremony two years before GCAP founding.',
+      notesEn: 'Formal mestre title granting ceremony two years before GCAP founding.',
     },
 
     // Moraes granted_title_to Neco
@@ -3466,7 +3590,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1980-01-01',
       confidence: 'verified' as const,
       source: 'GCAP case study research',
-      notes: 'Primary leader among four co-founders.',
+      notesEn: 'Primary leader among four co-founders.',
     },
 
     // Braga co_founded GCAP
@@ -3491,7 +3615,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1980-01-01',
       confidence: 'verified' as const,
       source: 'GCAP case study research',
-      notes: 'Originated the idea for GCAP.',
+      notesEn: 'Originated the idea for GCAP.',
     },
 
     // Zé Carlos co_founded GCAP
@@ -3566,7 +3690,7 @@ export async function seedGenealogyPrototype() {
       endedAt: '1967-01-01',
       confidence: 'verified' as const,
       source: 'CDO and Senzala history',
-      notes: 'Part of founding generation before departing to create Cordão de Ouro.',
+      notesEn: 'Part of founding generation before departing to create Cordão de Ouro.',
     },
 
     // Brasília co_founded Senzala (before departing)
@@ -3617,7 +3741,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1988-01-01',
       confidence: 'verified' as const,
       source: 'ABADÁ documentation',
-      notes: 'President and founder. Only holder of White Cord (Diamond) rank.',
+      notesEn: 'President and founder. Only holder of White Cord (Diamond) rank.',
     },
 
     // --- Cordão de Ouro founding ---
@@ -3693,7 +3817,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1996-01-01',
       confidence: 'verified' as const,
       source: 'Wikipedia, ICAF documentation',
-      notes: 'Co-founded with Mestres Jurandir and Valmir.',
+      notesEn: 'Co-founded with Mestres Jurandir and Valmir.',
     },
 
     // Cobra Mansa leads ICAF
@@ -3885,7 +4009,7 @@ export async function seedGenealogyPrototype() {
       objectId: camisa.id,
       confidence: 'verified' as const,
       source: 'Capoeira Brasil history',
-      notes: 'Trained under Mestre Camisa at Grupo Senzala, earning red cord.',
+      notesEn: 'Trained under Mestre Camisa at Grupo Senzala, earning red cord.',
     },
 
     // Paulinho Sabiá student_of Camisa
@@ -3897,7 +4021,7 @@ export async function seedGenealogyPrototype() {
       objectId: camisa.id,
       confidence: 'verified' as const,
       source: 'Capoeira Brasil history',
-      notes: 'Trained under Mestre Camisa at Grupo Senzala, earning red cord.',
+      notesEn: 'Trained under Mestre Camisa at Grupo Senzala, earning red cord.',
     },
 
     // Paulão Ceará student_of Camisa
@@ -3909,7 +4033,7 @@ export async function seedGenealogyPrototype() {
       objectId: camisa.id,
       confidence: 'verified' as const,
       source: 'Capoeira Brasil history',
-      notes: 'Trained under Mestre Camisa at Grupo Senzala, earning red cord.',
+      notesEn: 'Trained under Mestre Camisa at Grupo Senzala, earning red cord.',
     },
 
     // ============================================================
@@ -4010,7 +4134,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1989-01-14',
       confidence: 'verified' as const,
       source: 'Capoeira Brasil documentation',
-      notes: 'Primary visible leader among the three co-founders.',
+      notesEn: 'Primary visible leader among the three co-founders.',
     },
 
     // Paulinho Sabiá co_founded Capoeira Brasil
@@ -4047,7 +4171,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1989-01-14',
       confidence: 'verified' as const,
       source: 'Capoeira Brasil documentation',
-      notes: 'Primary visible leader with regional "arms" under his supervision.',
+      notesEn: 'Primary visible leader with regional "arms" under his supervision.',
     },
 
     // ============================================================
@@ -4063,7 +4187,7 @@ export async function seedGenealogyPrototype() {
       objectId: mintirinha.id,
       confidence: 'verified' as const,
       source: 'Muzenza history',
-      notes: "Mintirinha is Paulão's brother - family teaching relationship.",
+      notesEn: "Mintirinha is Paulão's brother - family teaching relationship.",
     },
 
     // Paulão and Mintirinha are brothers
@@ -4076,7 +4200,7 @@ export async function seedGenealogyPrototype() {
       properties: { relationship_type: 'sibling' } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Muzenza history',
-      notes: 'Biological brothers - Mintirinha taught Paulão.',
+      notesEn: 'Biological brothers - Mintirinha taught Paulão.',
     },
 
     // Paulão founded Muzenza
@@ -4102,7 +4226,7 @@ export async function seedGenealogyPrototype() {
       endedAt: '1978-01-01',
       confidence: 'verified' as const,
       source: 'Muzenza official history',
-      notes: 'Led the group until Burguês became president in 1978.',
+      notesEn: 'Led the group until Burguês became president in 1978.',
     },
 
     // Burguês member_of Muzenza
@@ -4115,7 +4239,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1975-10-01',
       confidence: 'verified' as const,
       source: 'Muzenza official history',
-      notes: 'Joined/moved to Curitiba in October 1975.',
+      notesEn: 'Joined/moved to Curitiba in October 1975.',
     },
 
     // Burguês leads Muzenza (since 1978)
@@ -4128,7 +4252,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1978-01-01',
       confidence: 'verified' as const,
       source: 'Muzenza official history',
-      notes: 'President since 1978 (47+ years). Massively expanded the organization.',
+      notesEn: 'President since 1978 (47+ years). Massively expanded the organization.',
     },
 
     // ============================================================
@@ -4168,7 +4292,7 @@ export async function seedGenealogyPrototype() {
       objectId: barrao.id,
       confidence: 'verified' as const,
       source: 'Axé Capoeira network information',
-      notes: 'Both son AND student of Mestre Barrão.',
+      notesEn: 'Both son AND student of Mestre Barrão.',
     },
 
     // Barrãozinho and Barrão are father-son
@@ -4181,7 +4305,7 @@ export async function seedGenealogyPrototype() {
       properties: { relationship_type: 'parent' } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Axé Capoeira network information',
-      notes: 'Barrãozinho is the biological son of Barrão (subject has parent relationship with object).',
+      notesEn: 'Barrãozinho is the biological son of Barrão (subject has parent relationship with object).',
     },
 
     // Barrãozinho member_of Axé Capoeira
@@ -4193,7 +4317,7 @@ export async function seedGenealogyPrototype() {
       objectId: axeCapoeira.id,
       confidence: 'verified' as const,
       source: 'Axé Capoeira network information',
-      notes: 'Active leader and apparent successor to his father.',
+      notesEn: 'Active leader and apparent successor to his father.',
     },
 
     // ============================================================
@@ -4210,7 +4334,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1978-01-01',
       confidence: 'verified' as const,
       source: 'GCFA documentation',
-      notes: 'Started training at age 12 with Caiçara as initial teacher.',
+      notesEn: 'Started training at age 12 with Caiçara as initial teacher.',
     },
 
     // Laércio trained_under João Grande
@@ -4222,7 +4346,7 @@ export async function seedGenealogyPrototype() {
       objectId: joaoGrande.id,
       confidence: 'verified' as const,
       source: 'GCFA documentation',
-      notes: 'One of many Angola mestres who trained Laércio.',
+      notesEn: 'One of many Angola mestres who trained Laércio.',
     },
 
     // Laércio trained_under João Pequeno
@@ -4234,7 +4358,7 @@ export async function seedGenealogyPrototype() {
       objectId: joaoPequeno.id,
       confidence: 'verified' as const,
       source: 'GCFA documentation',
-      notes: 'One of many Angola mestres who trained Laércio.',
+      notesEn: 'One of many Angola mestres who trained Laércio.',
     },
 
     // Laércio trained_under Canjiquinha
@@ -4279,7 +4403,7 @@ export async function seedGenealogyPrototype() {
       objectId: cobraMansa.id,
       confidence: 'verified' as const,
       source: 'Academia Jangada documentation',
-      notes: 'Trained under Cobra Mansa from age 15. Received Contramestre diploma in 1991.',
+      notesEn: 'Trained under Cobra Mansa from age 15. Received Contramestre diploma in 1991.',
     },
 
     // João Pequeno granted_title_to Rosalvo
@@ -4295,7 +4419,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Academia Jangada documentation',
-      notes: 'Named Mestre by João Pequeno and João Grande in 2002.',
+      notesEn: 'Named Mestre by João Pequeno and João Grande in 2002.',
     },
 
     // João Grande granted_title_to Rosalvo
@@ -4311,7 +4435,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Academia Jangada documentation',
-      notes: 'Named Mestre by João Pequeno and João Grande in 2002.',
+      notesEn: 'Named Mestre by João Pequeno and João Grande in 2002.',
     },
 
     // Roberval co_founded GCFA
@@ -4371,7 +4495,7 @@ export async function seedGenealogyPrototype() {
       objectId: gcfa.id,
       confidence: 'verified' as const,
       source: 'GCFA documentation',
-      notes: 'Current international coordinator based in Berlin, coordinates 25+ núcleos.',
+      notesEn: 'Current international coordinator based in Berlin, coordinates 25+ núcleos.',
     },
 
     // Caiçara student_of Pastinha (lineage connection)
@@ -4383,7 +4507,7 @@ export async function seedGenealogyPrototype() {
       objectId: pastinha.id,
       confidence: 'likely' as const,
       source: 'Historical Angola lineage',
-      notes: 'Part of the Pastinha lineage of Capoeira Angola.',
+      notesEn: 'Part of the Pastinha lineage of Capoeira Angola.',
     },
 
     // ============================================================
@@ -4400,7 +4524,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1899-01-01',
       confidence: 'verified' as const,
       source: "Pastinha's own account, CECA documentation",
-      notes:
+      notesEn:
         'Taught by Benedito (from Angola, Africa) when Pastinha was 10 years old. This is the DIRECT AFRICAN ORIGIN of the Angola lineage.',
     },
 
@@ -4414,7 +4538,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1991-01-01',
       confidence: 'verified' as const,
       source: 'CECA/CEDANZE documentation',
-      notes: 'First lesson at USP in 1991. Moved to Salvador 1996 to be close to master.',
+      notesEn: 'First lesson at USP in 1991. Moved to Salvador 1996 to be close to master.',
     },
 
     // João Pequeno granted_title_to Faísca
@@ -4429,7 +4553,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'CECA/CEDANZE documentation',
-      notes: 'Received mestre title from João Pequeno at Academia do Forte.',
+      notesEn: 'Received mestre title from João Pequeno at Academia do Forte.',
     },
 
     // Faísca leads CECA (current leader, designated successor)
@@ -4442,7 +4566,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2011-01-01',
       confidence: 'verified' as const,
       source: 'CECA/CEDANZE documentation',
-      notes: 'Designated by João Pequeno to "keep CECA alive". Current General Coordinator.',
+      notesEn: 'Designated by João Pequeno to "keep CECA alive". Current General Coordinator.',
     },
 
     // Curió student_of Pastinha
@@ -4454,7 +4578,7 @@ export async function seedGenealogyPrototype() {
       objectId: pastinha.id,
       confidence: 'verified' as const,
       source: 'Historical records',
-      notes: 'Began training with Pastinha as young boy and trained until Pastinha passed away.',
+      notesEn: 'Began training with Pastinha as young boy and trained until Pastinha passed away.',
     },
 
     // ============================================================
@@ -4470,7 +4594,7 @@ export async function seedGenealogyPrototype() {
       objectId: moraes.id,
       confidence: 'verified' as const,
       source: 'ICAF documentation',
-      notes: 'Trained at GCAP. Generation 3 from Pastinha.',
+      notesEn: 'Trained at GCAP. Generation 3 from Pastinha.',
     },
 
     // Valmir student_of Moraes
@@ -4482,7 +4606,7 @@ export async function seedGenealogyPrototype() {
       objectId: moraes.id,
       confidence: 'verified' as const,
       source: 'ICAF documentation',
-      notes: 'Trained at GCAP. Generation 3 from Pastinha.',
+      notesEn: 'Trained at GCAP. Generation 3 from Pastinha.',
     },
 
     // Jurandir co_founded ICAF
@@ -4495,7 +4619,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1996-01-01',
       confidence: 'verified' as const,
       source: 'ICAF documentation',
-      notes: 'ICAF President. Blessed split from GCAP.',
+      notesEn: 'ICAF President. Blessed split from GCAP.',
     },
 
     // Valmir co_founded ICAF
@@ -4508,7 +4632,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1996-01-01',
       confidence: 'verified' as const,
       source: 'ICAF documentation',
-      notes: 'Leads FICA activities in Salvador, Brazil.',
+      notesEn: 'Leads FICA activities in Salvador, Brazil.',
     },
 
     // Trenel Joe student_of Jurandir
@@ -4520,7 +4644,7 @@ export async function seedGenealogyPrototype() {
       objectId: jurandir.id,
       confidence: 'verified' as const,
       source: 'FICA Hawaii website',
-      notes: 'Trained under Jurandir and Mestre Silvinho.',
+      notesEn: 'Trained under Jurandir and Mestre Silvinho.',
     },
 
     // Trenel Joe member_of ICAF
@@ -4533,7 +4657,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2005-01-01',
       confidence: 'verified' as const,
       source: 'FICA Hawaii website',
-      notes: 'Founded FICA Hawaii chapter in 2005.',
+      notesEn: 'Founded FICA Hawaii chapter in 2005.',
     },
 
     // ============================================================
@@ -4550,7 +4674,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1978-01-01',
       confidence: 'verified' as const,
       source: 'GCAIG documentation',
-      notes: 'Trained by father from age 8. Biological son.',
+      notesEn: 'Trained by father from age 8. Biological son.',
     },
 
     // Marrom family_of Baixinho (father-son)
@@ -4563,7 +4687,7 @@ export async function seedGenealogyPrototype() {
       properties: { relationship_type: 'parent' } as StatementProperties,
       confidence: 'verified' as const,
       source: 'GCAIG documentation',
-      notes: 'Marrom is the biological son of Baixinho (subject has parent relationship with object).',
+      notesEn: 'Marrom is the biological son of Baixinho (subject has parent relationship with object).',
     },
 
     // Baixinho founded GCAIG
@@ -4576,7 +4700,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1983-01-01',
       confidence: 'verified' as const,
       source: 'GCAIG documentation',
-      notes: 'Co-founded with son Marrom and brothers Guerreiro and Macete.',
+      notesEn: 'Co-founded with son Marrom and brothers Guerreiro and Macete.',
     },
 
     // Marrom co_founded GCAIG (at age 13)
@@ -4589,7 +4713,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1983-01-01',
       confidence: 'verified' as const,
       source: 'GCAIG documentation',
-      notes: 'Child co-founder at age 13. Now leads São Paulo operations.',
+      notesEn: 'Child co-founder at age 13. Now leads São Paulo operations.',
     },
 
     // Marrom leads GCAIG (current leader)
@@ -4601,7 +4725,7 @@ export async function seedGenealogyPrototype() {
       objectId: gcaig.id,
       confidence: 'verified' as const,
       source: 'GCAIG documentation',
-      notes: 'Currently "at the forefront of group activities" in São Paulo.',
+      notesEn: 'Currently "at the forefront of group activities" in São Paulo.',
     },
 
     // Perna student_of Baixinho
@@ -4613,7 +4737,7 @@ export async function seedGenealogyPrototype() {
       objectId: baixinho.id,
       confidence: 'verified' as const,
       source: 'GCAIG documentation',
-      notes: 'Started training at age 9 at Senzalinha.',
+      notesEn: 'Started training at age 9 at Senzalinha.',
     },
 
     // Perna student_of Marrom
@@ -4625,7 +4749,7 @@ export async function seedGenealogyPrototype() {
       objectId: marrom.id,
       confidence: 'verified' as const,
       source: 'GCAIG documentation',
-      notes: 'Trained under both Baixinho and Marrom.',
+      notesEn: 'Trained under both Baixinho and Marrom.',
     },
 
     // Perna member_of GCAIG
@@ -4637,7 +4761,7 @@ export async function seedGenealogyPrototype() {
       objectId: gcaig.id,
       confidence: 'verified' as const,
       source: 'GCAIG documentation',
-      notes: 'European coordinator since 2002. Titled mestre 2013.',
+      notesEn: 'European coordinator since 2002. Titled mestre 2013.',
     },
 
     // Kenneth student_of Moraes (external lineage)
@@ -4650,7 +4774,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1987-01-01',
       confidence: 'verified' as const,
       source: 'GCAIG documentation',
-      notes: 'Trained at GCAP in Salvador before joining GCAIG.',
+      notesEn: 'Trained at GCAP in Salvador before joining GCAIG.',
     },
 
     // Kenneth member_of GCAIG (joined 2008)
@@ -4663,7 +4787,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2008-01-01',
       confidence: 'verified' as const,
       source: 'GCAIG documentation',
-      notes: '"Right hand" of Mestre Perna in Europe. Brings GCAP lineage.',
+      notesEn: '"Right hand" of Mestre Perna in Europe. Brings GCAP lineage.',
     },
 
     // ============================================================
@@ -4681,7 +4805,7 @@ export async function seedGenealogyPrototype() {
       objectId: pastinha.id,
       confidence: 'verified' as const,
       source: 'Ngoma case study research',
-      notes: 'Mestre de Bateria (Master of Music) at CECA. Key musical lineage.',
+      notesEn: 'Mestre de Bateria (Master of Music) at CECA. Key musical lineage.',
     },
 
     // Gato Preto student_of Cobrinha Verde
@@ -4693,7 +4817,7 @@ export async function seedGenealogyPrototype() {
       objectId: cobrinhaVerde.id,
       confidence: 'verified' as const,
       source: 'Ngoma case study research',
-      notes: 'Known as "Berimbau de Ouro da Bahía".',
+      notesEn: 'Known as "Berimbau de Ouro da Bahía".',
     },
 
     // --- Anastácio Marrom's Regional period (1970s-1990) ---
@@ -4708,7 +4832,7 @@ export async function seedGenealogyPrototype() {
       endedAt: '1980-01-01',
       confidence: 'verified' as const,
       source: 'Ngoma case study research',
-      notes: 'First formal capoeira teacher in Engenho Novo, Rio.',
+      notesEn: 'First formal capoeira teacher in Engenho Novo, Rio.',
     },
 
     // Anastácio Marrom student_of Peixinho (Regional period)
@@ -4722,7 +4846,7 @@ export async function seedGenealogyPrototype() {
       endedAt: '1990-01-01',
       confidence: 'verified' as const,
       source: 'Ngoma case study research',
-      notes: 'Trained at Grupo Senzala, received red belt. Regional period before transition to Angola.',
+      notesEn: 'Trained at Grupo Senzala, received red belt. Regional period before transition to Angola.',
     },
 
     // --- Anastácio Marrom's Angola period (1990-present) ---
@@ -4736,7 +4860,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1990-01-01',
       confidence: 'verified' as const,
       source: 'Ngoma case study research',
-      notes: 'Primary Angola teacher. Key link to Pastinha lineage through musical tradition.',
+      notesEn: 'Primary Angola teacher. Key link to Pastinha lineage through musical tradition.',
     },
 
     // Anastácio Marrom trained_under Angolinha
@@ -4749,7 +4873,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1990-01-01',
       confidence: 'verified' as const,
       source: 'Ngoma case study research',
-      notes: 'Major Angola influence and reference.',
+      notesEn: 'Major Angola influence and reference.',
     },
 
     // Anastácio Marrom trained_under Nô
@@ -4762,7 +4886,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1990-01-01',
       confidence: 'verified' as const,
       source: 'Ngoma case study research',
-      notes: 'Angola influence and reference.',
+      notesEn: 'Angola influence and reference.',
     },
 
     // Anastácio Marrom trained_under João Grande
@@ -4775,7 +4899,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1990-01-01',
       confidence: 'verified' as const,
       source: 'Ngoma case study research',
-      notes: 'Angola influence and reference.',
+      notesEn: 'Angola influence and reference.',
     },
 
     // --- Ngoma founding and leadership ---
@@ -4789,7 +4913,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1990-01-01',
       confidence: 'verified' as const,
       source: 'Ngoma case study research',
-      notes: 'Originally "Marrom Capoeira & Alunos". Renamed to Ngoma in 2018.',
+      notesEn: 'Originally "Marrom Capoeira & Alunos". Renamed to Ngoma in 2018.',
     },
 
     // Tatiana co_founded Ngoma
@@ -4802,7 +4926,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1990-01-01',
       confidence: 'verified' as const,
       source: 'Ngoma case study research',
-      notes: "Co-founder and co-producer of all school projects. Women's leadership advocate.",
+      notesEn: "Co-founder and co-producer of all school projects. Women's leadership advocate.",
     },
 
     // Anastácio Marrom leads Ngoma
@@ -4815,7 +4939,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1990-01-01',
       confidence: 'verified' as const,
       source: 'Current',
-      notes: 'Primary leader for 30+ years.',
+      notesEn: 'Primary leader for 30+ years.',
     },
 
     // --- Ngoma students (autonomous continuation model) ---
@@ -4830,7 +4954,7 @@ export async function seedGenealogyPrototype() {
       endedAt: '2004-01-01',
       confidence: 'verified' as const,
       source: 'Ngoma case study research',
-      notes: '~15 years training in Rio. Made Contra-Mestre in 2004.',
+      notesEn: '~15 years training in Rio. Made Contra-Mestre in 2004.',
     },
 
     // Anastácio Marrom granted_title_to Forró
@@ -4858,7 +4982,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1990-01-01',
       confidence: 'verified' as const,
       source: 'Ngoma case study research',
-      notes: 'Leads Forum Brasil (Berlin) and Capoeira Angola Hannover.',
+      notesEn: 'Leads Forum Brasil (Berlin) and Capoeira Angola Hannover.',
     },
 
     // Stéph student_of Anastácio Marrom
@@ -4871,7 +4995,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1998-01-01',
       confidence: 'verified' as const,
       source: 'Ngoma case study research',
-      notes: '15+ years training in Rio.',
+      notesEn: '15+ years training in Rio.',
     },
 
     // Stéph member_of Ngoma
@@ -4884,7 +5008,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1998-01-01',
       confidence: 'verified' as const,
       source: 'Ngoma case study research',
-      notes: 'Founded Association Oyà in Paris (2018) representing Ngoma.',
+      notesEn: 'Founded Association Oyà in Paris (2018) representing Ngoma.',
     },
 
     // Bom Cabelo student_of Anastácio Marrom
@@ -4896,7 +5020,7 @@ export async function seedGenealogyPrototype() {
       objectId: anastacioMarrom.id,
       confidence: 'verified' as const,
       source: 'Ngoma case study research',
-      notes: 'Longtime student.',
+      notesEn: 'Longtime student.',
     },
 
     // Bom Cabelo member_of Ngoma
@@ -4908,7 +5032,7 @@ export async function seedGenealogyPrototype() {
       objectId: ngoma.id,
       confidence: 'verified' as const,
       source: 'Ngoma case study research',
-      notes: 'Co-leads Tambor Vivo / Ngoma Capoeira Angola in Helsinki.',
+      notesEn: 'Co-leads Tambor Vivo / Ngoma Capoeira Angola in Helsinki.',
     },
 
     // Dion Dragas student_of Anastácio Marrom
@@ -4932,7 +5056,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2002-01-01',
       confidence: 'verified' as const,
       source: 'Ngoma case study research',
-      notes: 'Founded Mão No Chão in Edinburgh ~2002. Rebranded to Ngoma Scotland. Now based in Athens/Crete.',
+      notesEn: 'Founded Mão No Chão in Edinburgh ~2002. Rebranded to Ngoma Scotland. Now based in Athens/Crete.',
     },
 
     // ============================================================
@@ -4949,7 +5073,7 @@ export async function seedGenealogyPrototype() {
       objectId: diMola.id,
       confidence: 'verified' as const,
       source: 'Angoleiros do Sertão case study research',
-      notes: 'Initial training. Also learned through street experience in Feira de Santana.',
+      notesEn: 'Initial training. Also learned through street experience in Feira de Santana.',
     },
 
     // Cláudio Costa founded Angoleiros do Sertão
@@ -4962,7 +5086,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1985-01-01',
       confidence: 'verified' as const,
       source: 'Angoleiros do Sertão case study research',
-      notes: 'Founded in 1980s, exact year uncertain.',
+      notesEn: 'Founded in 1980s, exact year uncertain.',
     },
 
     // Cláudio Costa leads Angoleiros do Sertão
@@ -4975,7 +5099,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1985-01-01',
       confidence: 'verified' as const,
       source: 'Current',
-      notes: 'Headquarters in Feira de Santana. Oversees 20+ núcleos worldwide.',
+      notesEn: 'Headquarters in Feira de Santana. Oversees 20+ núcleos worldwide.',
     },
 
     // Tito Casal student_of Cláudio Costa
@@ -4987,7 +5111,7 @@ export async function seedGenealogyPrototype() {
       objectId: claudioCosta.id,
       confidence: 'verified' as const,
       source: 'Angoleiros do Sertão case study research',
-      notes: 'Long time student. Trained in Feira de Santana.',
+      notesEn: 'Long time student. Trained in Feira de Santana.',
     },
 
     // Tito Casal member_of Angoleiros do Sertão
@@ -5000,7 +5124,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2015-01-01',
       confidence: 'verified' as const,
       source: 'Angoleiros do Sertão case study research',
-      notes: 'Established Berlin nucleus in 2015. Leads classes in Neukölln district.',
+      notesEn: 'Established Berlin nucleus in 2015. Leads classes in Neukölln district.',
     },
 
     // Cláudio Costa associated_with Felipe de Santo Amaro (album collaboration)
@@ -5017,7 +5141,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Spotify/Apple Music',
-      notes: 'Collaboration between different regional Angola traditions (Sertão interior + Recôncavo coastal).',
+      notesEn: 'Collaboration between different regional Angola traditions (Sertão interior + Recôncavo coastal).',
     },
 
     // ============================================================
@@ -5034,7 +5158,7 @@ export async function seedGenealogyPrototype() {
       objectId: bimba.id,
       confidence: 'verified' as const,
       source: 'Escola Nestor Capoeira case study research',
-      notes: "Formado from Bimba's academy. Came to Rio with Acordeon's folk show.",
+      notesEn: "Formado from Bimba's academy. Came to Rio with Acordeon's folk show.",
     },
 
     // Preguiça member_of Senzala
@@ -5046,7 +5170,7 @@ export async function seedGenealogyPrototype() {
       objectId: senzala.id,
       confidence: 'verified' as const,
       source: 'Escola Nestor Capoeira case study research',
-      notes: 'Stayed in Rio and became Senzala founder.',
+      notesEn: 'Stayed in Rio and became Senzala founder.',
     },
 
     // Nestor student_of Leopoldina (first teacher, 1965-1967)
@@ -5060,7 +5184,7 @@ export async function seedGenealogyPrototype() {
       endedAt: '1967-01-01',
       confidence: 'verified' as const,
       source: 'Escola Nestor Capoeira case study research',
-      notes: 'Initial teacher in Rio de Janeiro. Regional-oriented.',
+      notesEn: 'Initial teacher in Rio de Janeiro. Regional-oriented.',
     },
 
     // Nestor trained_under Preguiça (Senzala, graduated 1969)
@@ -5074,7 +5198,7 @@ export async function seedGenealogyPrototype() {
       endedAt: '1990-01-01',
       confidence: 'verified' as const,
       source: 'Escola Nestor Capoeira case study research',
-      notes: 'Received red cord (highest rank) in 1969. One of the mestres who graduated Nestor.',
+      notesEn: 'Received red cord (highest rank) in 1969. One of the mestres who graduated Nestor.',
     },
 
     // Nestor trained_under Gato (Senzala)
@@ -5088,7 +5212,7 @@ export async function seedGenealogyPrototype() {
       endedAt: '1990-01-01',
       confidence: 'verified' as const,
       source: 'Escola Nestor Capoeira case study research',
-      notes: 'One of the mestres who graduated Nestor to red cord in 1969.',
+      notesEn: 'One of the mestres who graduated Nestor to red cord in 1969.',
     },
 
     // Nestor member_of Senzala (1968-1990)
@@ -5102,7 +5226,7 @@ export async function seedGenealogyPrototype() {
       endedAt: '1990-01-01',
       confidence: 'verified' as const,
       source: 'Escola Nestor Capoeira case study research',
-      notes: '22 years with Senzala. Left to found own school.',
+      notesEn: '22 years with Senzala. Left to found own school.',
     },
 
     // Nestor departed_from Senzala (1990)
@@ -5119,7 +5243,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Escola Nestor Capoeira case study research',
-      notes: 'No evidence of conflict - mature independence.',
+      notesEn: 'No evidence of conflict - mature independence.',
     },
 
     // Nestor founded Escola Nestor Capoeira
@@ -5132,7 +5256,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1992-01-01',
       confidence: 'verified' as const,
       source: 'Escola Nestor Capoeira case study research',
-      notes: 'Formal establishment at Planetário da Gávea after Denmark trip.',
+      notesEn: 'Formal establishment at Planetário da Gávea after Denmark trip.',
     },
 
     // Nestor leads Escola Nestor Capoeira
@@ -5146,7 +5270,7 @@ export async function seedGenealogyPrototype() {
       endedAt: '2025-03-29',
       confidence: 'verified' as const,
       source: 'Escola Nestor Capoeira case study research',
-      notes: 'Led until death on March 29, 2025.',
+      notesEn: 'Led until death on March 29, 2025.',
     },
 
     // Jorge Itapuã student_of Nestor (son and first mestre)
@@ -5158,7 +5282,7 @@ export async function seedGenealogyPrototype() {
       objectId: nestorCapoeira.id,
       confidence: 'verified' as const,
       source: 'Escola Nestor Capoeira case study research',
-      notes: 'Biological son. First mestre trained by Escola Nestor Capoeira.',
+      notesEn: 'Biological son. First mestre trained by Escola Nestor Capoeira.',
     },
 
     // Jorge Itapuã family_of Nestor (son)
@@ -5173,7 +5297,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Escola Nestor Capoeira case study research',
-      notes: 'Son of Nestor and filmmaker Rose Lacreta.',
+      notesEn: 'Son of Nestor and filmmaker Rose Lacreta.',
     },
 
     // Nestor granted_title_to Jorge Itapuã (first mestre from ENC)
@@ -5188,7 +5312,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Escola Nestor Capoeira case study research',
-      notes: 'First mestre graduated from Escola Nestor Capoeira.',
+      notesEn: 'First mestre graduated from Escola Nestor Capoeira.',
     },
 
     // Jorge Itapuã member_of Escola Nestor Capoeira
@@ -5200,7 +5324,7 @@ export async function seedGenealogyPrototype() {
       objectId: escolaNestor.id,
       confidence: 'verified' as const,
       source: 'Escola Nestor Capoeira case study research',
-      notes: 'First mestre. Potential successor.',
+      notesEn: 'First mestre. Potential successor.',
     },
 
     // Roberto Coelho student_of Nestor
@@ -5224,7 +5348,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2018-01-01',
       confidence: 'verified' as const,
       source: 'Escola Nestor Capoeira case study research',
-      notes: 'Founded Belo Horizonte branch in 2018. UEMG university partnership.',
+      notesEn: 'Founded Belo Horizonte branch in 2018. UEMG university partnership.',
     },
 
     // ============================================================
@@ -5242,7 +5366,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1953-01-01',
       confidence: 'verified' as const,
       source: 'Capoeira Aruanda case study research',
-      notes:
+      notesEn:
         "Took over Bimba's academy when Bimba left Salvador. Renamed to Associação de Capoeira Mestre Bimba in 1975.",
     },
 
@@ -5255,7 +5379,7 @@ export async function seedGenealogyPrototype() {
       objectId: vermelho27.id,
       confidence: 'verified' as const,
       source: 'Capoeira Aruanda case study research',
-      notes: 'Regional training at Bimba lineage academy.',
+      notesEn: 'Regional training at Bimba lineage academy.',
     },
 
     // Boa Gente trained_under Gato (Angola lineage, different from Senzala Gato)
@@ -5281,7 +5405,7 @@ export async function seedGenealogyPrototype() {
       endedAt: '2005-01-01',
       confidence: 'verified' as const,
       source: 'Capoeira Aruanda case study research',
-      notes: 'Sent to Sydney as CB teacher. 8 years teaching for CB.',
+      notesEn: 'Sent to Sydney as CB teacher. 8 years teaching for CB.',
     },
 
     // Borracha departed_from Capoeira Brasil
@@ -5298,7 +5422,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Capoeira Aruanda case study research',
-      notes: 'Nature of split unknown (blessed vs conflict not documented).',
+      notesEn: 'Nature of split unknown (blessed vs conflict not documented).',
     },
 
     // Borracha founded Capoeira Aruanda
@@ -5311,7 +5435,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2005-01-01',
       confidence: 'verified' as const,
       source: 'Capoeira Aruanda case study research',
-      notes: 'Originally named Capoeiracre, renamed to Capoeira Aruanda in 2007.',
+      notesEn: 'Originally named Capoeiracre, renamed to Capoeira Aruanda in 2007.',
     },
 
     // Borracha leads Capoeira Aruanda
@@ -5324,7 +5448,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2005-01-01',
       confidence: 'verified' as const,
       source: 'Current',
-      notes: '20+ years teaching in Australia.',
+      notesEn: '20+ years teaching in Australia.',
     },
 
     // Boa Gente granted_title_to Borracha (mestre 2015)
@@ -5340,7 +5464,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Capoeira Aruanda case study research',
-      notes: 'Independent graduation outside Capoeira Brasil hierarchy. Direct Bimba lineage through Vermelho 27.',
+      notesEn: 'Independent graduation outside Capoeira Brasil hierarchy. Direct Bimba lineage through Vermelho 27.',
     },
 
     // ============================================================
@@ -5357,7 +5481,7 @@ export async function seedGenealogyPrototype() {
       objectId: bimba.id,
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Aotearoa case study research',
-      notes: 'Trained under Bimba. Co-founded Cordão de Ouro (1967).',
+      notesEn: 'Trained under Bimba. Co-founded Cordão de Ouro (1967).',
     },
 
     // Caveirinha student_of Suassuna
@@ -5369,7 +5493,7 @@ export async function seedGenealogyPrototype() {
       objectId: suassuna.id,
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Aotearoa case study research',
-      notes: 'Trained at Cordão de Ouro. One of last generation to train directly with Suassuna.',
+      notesEn: 'Trained at Cordão de Ouro. One of last generation to train directly with Suassuna.',
     },
 
     // Caveirinha founded Capoeira Mandinga
@@ -5382,7 +5506,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1984-01-01',
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Aotearoa case study research',
-      notes: 'Originally Senzala Grande (1984), renamed Capoeira Mandinga (1995).',
+      notesEn: 'Originally Senzala Grande (1984), renamed Capoeira Mandinga (1995).',
     },
 
     // Caveirinha leads Capoeira Mandinga
@@ -5406,7 +5530,7 @@ export async function seedGenealogyPrototype() {
       objectId: pastinha.id,
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Aotearoa case study research',
-      notes: "One of two principal heirs to Pastinha's legacy (with João Grande).",
+      notesEn: "One of two principal heirs to Pastinha's legacy (with João Grande).",
     },
 
     // Jogo de Dentro student_of João Pequeno
@@ -5419,7 +5543,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1982-01-01',
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Aotearoa case study research',
-      notes: 'Started at Forte Santo Antônio with João Pequeno.',
+      notesEn: 'Started at Forte Santo Antônio with João Pequeno.',
     },
 
     // João Pequeno granted_title_to Jogo de Dentro
@@ -5447,7 +5571,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1998-01-01',
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Aotearoa case study research',
-      notes: 'Founded in Salvador. Expanded to Sydney (2006).',
+      notesEn: 'Founded in Salvador. Expanded to Sydney (2006).',
     },
 
     // Roxinho leads ECAMAR
@@ -5472,7 +5596,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1984-01-01',
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Aotearoa case study research',
-      notes: 'Met in USA (1983), began training (1984). 33+ year relationship.',
+      notesEn: 'Met in USA (1983), began training (1984). 33+ year relationship.',
     },
 
     // Brabo trained_under João Pequeno
@@ -5485,7 +5609,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2004-01-01',
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Aotearoa case study research',
-      notes: 'Traveled to Brazil for Angola training. Part of style transition.',
+      notesEn: 'Traveled to Brazil for Angola training. Part of style transition.',
     },
 
     // Brabo trained_under Jogo de Dentro
@@ -5498,7 +5622,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2004-01-01',
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Aotearoa case study research',
-      notes: 'Key influence on Angola transition. Traveled to Bahia for training.',
+      notesEn: 'Key influence on Angola transition. Traveled to Bahia for training.',
     },
 
     // Brabo founded Mandinga Aotearoa
@@ -5511,7 +5635,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1992-01-01',
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Aotearoa case study research',
-      notes: 'First capoeira ever taught in New Zealand.',
+      notesEn: 'First capoeira ever taught in New Zealand.',
     },
 
     // Brabo leads Mandinga Aotearoa
@@ -5524,7 +5648,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1992-01-01',
       confidence: 'verified' as const,
       source: 'Current',
-      notes: '33+ years leading NZ capoeira.',
+      notesEn: '33+ years leading NZ capoeira.',
     },
 
     // Caveirinha granted_title_to Brabo (mestre 2007)
@@ -5540,7 +5664,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Aotearoa case study research',
-      notes: 'First capoeira master in New Zealand history. Also received Professor title (1999).',
+      notesEn: 'First capoeira master in New Zealand history. Also received Professor title (1999).',
     },
 
     // Mandinga Aotearoa part_of Mandinga (chapter relationship)
@@ -5556,7 +5680,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Aotearoa case study research',
-      notes: 'NZ chapter of international Capoeira Mandinga. Maintains stylistic autonomy (Angola focus).',
+      notesEn: 'NZ chapter of international Capoeira Mandinga. Maintains stylistic autonomy (Angola focus).',
     },
 
     // ============================================================
@@ -5574,7 +5698,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1995-01-01',
       confidence: 'verified' as const,
       source: 'CACK case study research',
-      notes: '20+ years training with João Grande in NYC before returning to Kenya.',
+      notesEn: '20+ years training with João Grande in NYC before returning to Kenya.',
     },
 
     // Salim Rollins founded CACK
@@ -5587,7 +5711,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2015-01-01',
       confidence: 'verified' as const,
       source: 'CACK case study research',
-      notes: 'First East African branch of João Grande network.',
+      notesEn: 'First East African branch of João Grande network.',
     },
 
     // Salim Rollins leads CACK
@@ -5600,7 +5724,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2015-01-01',
       confidence: 'verified' as const,
       source: 'Current',
-      notes: 'Also operates program in Luanda, Angola.',
+      notesEn: 'Also operates program in Luanda, Angola.',
     },
 
     // CACK part_of JGCAC (João Grande Capoeira Angola Center)
@@ -5616,7 +5740,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'CACK case study research',
-      notes: 'Official African branch of João Grande network. Only African location in network.',
+      notesEn: 'Official African branch of João Grande network. Only African location in network.',
     },
 
     // ============================================================
@@ -5636,7 +5760,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Grupo Candeias case study research',
-      notes: 'Biological son of Mestre Bimba (founder of Capoeira Regional).',
+      notesEn: 'Biological son of Mestre Bimba (founder of Capoeira Regional).',
     },
 
     // Formiga trained_under Bimba (learned from father)
@@ -5648,7 +5772,7 @@ export async function seedGenealogyPrototype() {
       objectId: bimba.id,
       confidence: 'likely' as const,
       source: 'Grupo Candeias case study research',
-      notes: 'As biological son, likely trained directly under Bimba.',
+      notesEn: 'As biological son, likely trained directly under Bimba.',
     },
 
     // Carlinhos Chuchu student_of Formiga
@@ -5660,7 +5784,7 @@ export async function seedGenealogyPrototype() {
       objectId: formiga.id,
       confidence: 'verified' as const,
       source: 'Grupo Candeias case study research',
-      notes: "Trained under Formiga (Bimba's son), giving direct biological lineage to Bimba.",
+      notesEn: "Trained under Formiga (Bimba's son), giving direct biological lineage to Bimba.",
     },
 
     // Carlinhos Chuchu founded Grupo Candeias
@@ -5673,7 +5797,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1977-01-01',
       confidence: 'verified' as const,
       source: 'Grupo Candeias case study research',
-      notes: 'Founded as Grupo de Capoeira Anglo-Regional in 1977. Earlier SESC program from 1975.',
+      notesEn: 'Founded as Grupo de Capoeira Anglo-Regional in 1977. Earlier SESC program from 1975.',
     },
 
     // Passarinho member_of Grupo Candeias
@@ -5699,7 +5823,7 @@ export async function seedGenealogyPrototype() {
       endedAt: '1981-01-01',
       confidence: 'verified' as const,
       source: 'Grupo Candeias case study research',
-      notes: 'Renamed group to São Bento Pequeno during his leadership.',
+      notesEn: 'Renamed group to São Bento Pequeno during his leadership.',
     },
 
     // Suíno student_of Carlinhos Chuchu (first mestre graduated by group)
@@ -5711,7 +5835,7 @@ export async function seedGenealogyPrototype() {
       objectId: carlinhosChuchu.id,
       confidence: 'likely' as const,
       source: 'Grupo Candeias case study research',
-      notes: 'First mestre trained/graduated by Grupo Candeias itself.',
+      notesEn: 'First mestre trained/graduated by Grupo Candeias itself.',
     },
 
     // Suíno member_of Grupo Candeias
@@ -5736,7 +5860,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1981-01-01',
       confidence: 'verified' as const,
       source: 'Grupo Candeias case study research',
-      notes: 'President since 1981 (44+ years). Primary architect of expansion. Led 1991 unification.',
+      notesEn: 'President since 1981 (44+ years). Primary architect of expansion. Led 1991 unification.',
     },
 
     // Mestre Osvaldo cultural_pioneer_of Goiás (connected to Bimba visit)
@@ -5754,7 +5878,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Grupo Candeias case study research',
-      notes:
+      notesEn:
         "Pre-dates formal group founding. Brought Mestre Bimba to Goiânia. Subject of book 'A História da Capoeira de Goiás'.",
     },
 
@@ -5773,7 +5897,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Grupo Candeias case study research',
-      notes: "Pre-dates formal group founding. Subject of book 'A História da Capoeira de Goiás'.",
+      notesEn: "Pre-dates formal group founding. Subject of book 'A História da Capoeira de Goiás'.",
     },
 
     // Mestre Osvaldo and Mestre Sabú as co-pioneers (associated_with each other)
@@ -5790,7 +5914,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Grupo Candeias case study research',
-      notes: "Both honored in book 'A História da Capoeira de Goiás Contada Por Seus Pioneiros'.",
+      notesEn: "Both honored in book 'A História da Capoeira de Goiás Contada Por Seus Pioneiros'.",
     },
 
     // ============================================================
@@ -5808,7 +5932,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1972-01-01',
       confidence: 'verified' as const,
       source: 'ACAD case study research',
-      notes: 'Trained at GCAP. Part of dual lineage recognition (GCAP + FICA).',
+      notesEn: 'Trained at GCAP. Part of dual lineage recognition (GCAP + FICA).',
     },
 
     // Rogério trained_under Cobra Mansa
@@ -5820,7 +5944,7 @@ export async function seedGenealogyPrototype() {
       objectId: cobraMansa.id,
       confidence: 'verified' as const,
       source: 'ACAD case study research',
-      notes: 'Part of dual lineage recognition (GCAP + FICA).',
+      notesEn: 'Part of dual lineage recognition (GCAP + FICA).',
     },
 
     // Moraes granted_title_to Rogério (1989)
@@ -5836,7 +5960,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'ACAD case study research',
-      notes: 'Dual recognition - titled by both Moraes (GCAP) and Cobra Mansa (FICA) in 1989.',
+      notesEn: 'Dual recognition - titled by both Moraes (GCAP) and Cobra Mansa (FICA) in 1989.',
     },
 
     // Cobra Mansa granted_title_to Rogério (1989)
@@ -5852,7 +5976,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'ACAD case study research',
-      notes: 'Dual recognition - titled by both Moraes (GCAP) and Cobra Mansa (FICA) in 1989.',
+      notesEn: 'Dual recognition - titled by both Moraes (GCAP) and Cobra Mansa (FICA) in 1989.',
     },
 
     // Índio student_of Rogério
@@ -5865,7 +5989,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1990-01-01',
       confidence: 'verified' as const,
       source: 'ACAD case study research',
-      notes: 'Trained under Rogério after inviting him to Germany in 1990.',
+      notesEn: 'Trained under Rogério after inviting him to Germany in 1990.',
     },
 
     // Rogério granted_title_to Índio (2004)
@@ -5881,7 +6005,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'ACAD case study research',
-      notes: 'Titled 12 years after co-founding ACAD together.',
+      notesEn: 'Titled 12 years after co-founding ACAD together.',
     },
 
     // Rogério co_founded ACAD
@@ -5894,7 +6018,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1992-01-01',
       confidence: 'verified' as const,
       source: 'ACAD case study research',
-      notes: 'Co-founded in Kassel, Germany - one of first Angola orgs in Europe.',
+      notesEn: 'Co-founded in Kassel, Germany - one of first Angola orgs in Europe.',
     },
 
     // Índio co_founded ACAD
@@ -5907,7 +6031,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1992-01-01',
       confidence: 'verified' as const,
       source: 'ACAD case study research',
-      notes: 'Co-founded when not yet mestre (titled 2004).',
+      notesEn: 'Co-founded when not yet mestre (titled 2004).',
     },
 
     // Rogério leads ACAD
@@ -5920,7 +6044,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1992-01-01',
       confidence: 'verified' as const,
       source: 'ACAD case study research',
-      notes: 'Primary traveling teacher. Lives in Düsseldorf, teaches across Germany.',
+      notesEn: 'Primary traveling teacher. Lives in Düsseldorf, teaches across Germany.',
     },
 
     // ============================================================
@@ -5937,7 +6061,7 @@ export async function seedGenealogyPrototype() {
       objectId: suassuna.id,
       confidence: 'likely' as const,
       source: 'Cai Na Capoeira case study research',
-      notes: 'CDO lineage - leads CDO nucleus in Sete Lagoas.',
+      notesEn: 'CDO lineage - leads CDO nucleus in Sete Lagoas.',
     },
 
     // Esquilo member_of CDO
@@ -5949,7 +6073,7 @@ export async function seedGenealogyPrototype() {
       objectId: cordaoDeOuro.id,
       confidence: 'verified' as const,
       source: 'Cai Na Capoeira case study research',
-      notes: 'Leads CDO Sete Lagoas nucleus.',
+      notesEn: 'Leads CDO Sete Lagoas nucleus.',
     },
 
     // Cabeção student_of Esquilo
@@ -5962,7 +6086,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1996-06-01',
       confidence: 'verified' as const,
       source: 'Cai Na Capoeira case study research',
-      notes: 'Trained in Sete Lagoas, Minas Gerais from June 1996.',
+      notesEn: 'Trained in Sete Lagoas, Minas Gerais from June 1996.',
     },
 
     // Cabeção founded Cai Na Capoeira
@@ -5975,7 +6099,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2012-01-01',
       confidence: 'verified' as const,
       source: 'Cai Na Capoeira case study research',
-      notes: 'Started teaching in Ossining, NY. First batizado October 2012.',
+      notesEn: 'Started teaching in Ossining, NY. First batizado October 2012.',
     },
 
     // Cabeção leads Cai Na Capoeira
@@ -5988,7 +6112,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2012-01-01',
       confidence: 'verified' as const,
       source: 'Cai Na Capoeira case study research',
-      notes: 'Under supervision of Mestre Esquilo in Brazil.',
+      notesEn: 'Under supervision of Mestre Esquilo in Brazil.',
     },
 
     // Cai Na Capoeira part_of CDO (affiliate relationship)
@@ -6004,7 +6128,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Cai Na Capoeira case study research',
-      notes: 'Supervised affiliate - follows CDO methodology, graduation system. Remote supervision from Brazil.',
+      notesEn: 'Supervised affiliate - follows CDO methodology, graduation system. Remote supervision from Brazil.',
     },
 
     // ============================================================
@@ -6021,7 +6145,7 @@ export async function seedGenealogyPrototype() {
       objectId: besouro.id,
       confidence: 'verified' as const,
       source: 'Nzinga Germany case study research',
-      notes: 'Cobrinha Verde was cousin and student of Besouro Mangangá.',
+      notesEn: 'Cobrinha Verde was cousin and student of Besouro Mangangá.',
     },
 
     // Cobrinha Verde family_of Besouro (cousins)
@@ -6037,7 +6161,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Nzinga Germany case study research',
-      notes: 'Cobrinha Verde was cousin of Besouro Mangangá.',
+      notesEn: 'Cobrinha Verde was cousin of Besouro Mangangá.',
     },
 
     // Roque founded Filhos de Angola Rio
@@ -6050,7 +6174,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1960-01-01',
       confidence: 'verified' as const,
       source: 'Nzinga Germany case study research',
-      notes: 'Founded in Pavão/Pavãozinho favela. One of founding lineages of capoeira contemporânea in Rio.',
+      notesEn: 'Founded in Pavão/Pavãozinho favela. One of founding lineages of capoeira contemporânea in Rio.',
     },
 
     // Roque leads Filhos de Angola Rio
@@ -6074,7 +6198,7 @@ export async function seedGenealogyPrototype() {
       objectId: mestreRoque.id,
       confidence: 'verified' as const,
       source: 'Nzinga Germany case study research',
-      notes: 'Trained at Morro do Pavão. Later took over leadership.',
+      notesEn: 'Trained at Morro do Pavão. Later took over leadership.',
     },
 
     // Adilson member_of Filhos de Angola Rio
@@ -6098,7 +6222,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1975-01-01',
       confidence: 'likely' as const,
       source: 'Nzinga Germany case study research',
-      notes: 'Took over leadership in 1970s.',
+      notesEn: 'Took over leadership in 1970s.',
     },
 
     // Paulo Siqueira student_of Adilson
@@ -6111,7 +6235,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1972-01-01',
       confidence: 'verified' as const,
       source: 'Nzinga Germany case study research',
-      notes: 'Primary teacher. Also trained under Roque at same academy.',
+      notesEn: 'Primary teacher. Also trained under Roque at same academy.',
     },
 
     // Paulo Siqueira trained_under Roque
@@ -6124,7 +6248,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1972-01-01',
       confidence: 'verified' as const,
       source: 'Nzinga Germany case study research',
-      notes: "Started at Roque's academy, also trained directly under supervising mestre.",
+      notesEn: "Started at Roque's academy, also trained directly under supervising mestre.",
     },
 
     // Adilson granted_title_to Paulo Siqueira
@@ -6139,7 +6263,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Nzinga Germany case study research',
-      notes: 'Paulo was titled by his direct teacher Adilson.',
+      notesEn: 'Paulo was titled by his direct teacher Adilson.',
     },
 
     // Paulo Siqueira founded Nzinga Germany
@@ -6152,7 +6276,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1985-01-01',
       confidence: 'verified' as const,
       source: 'Nzinga Germany case study research',
-      notes: 'Founded in Hamburg at Zeppelin Theater. Pioneer of capoeira in Europe.',
+      notesEn: 'Founded in Hamburg at Zeppelin Theater. Pioneer of capoeira in Europe.',
     },
 
     // Paulo Siqueira leads Nzinga Germany
@@ -6165,7 +6289,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1985-01-01',
       confidence: 'verified' as const,
       source: 'Nzinga Germany case study research',
-      notes: '40+ years leading the school. Teaches in Hamburg, Hannover, Kiel.',
+      notesEn: '40+ years leading the school. Teaches in Hamburg, Hannover, Kiel.',
     },
 
     // ============================================================
@@ -6182,7 +6306,7 @@ export async function seedGenealogyPrototype() {
       objectId: suassuna.id,
       confidence: 'verified' as const,
       source: 'Beira-Mar case study research',
-      notes: 'Disciple of Suassuna. Remained in Bahia when Suassuna moved to São Paulo.',
+      notesEn: 'Disciple of Suassuna. Remained in Bahia when Suassuna moved to São Paulo.',
     },
 
     // Tarzan student_of Medicina
@@ -6194,7 +6318,7 @@ export async function seedGenealogyPrototype() {
       objectId: medicina.id,
       confidence: 'verified' as const,
       source: 'Beira-Mar case study research',
-      notes: 'Direct lineage: Bimba → Suassuna → Medicina → Tarzan (gen 4).',
+      notesEn: 'Direct lineage: Bimba → Suassuna → Medicina → Tarzan (gen 4).',
     },
 
     // Tarzan founded Beira-Mar
@@ -6207,7 +6331,8 @@ export async function seedGenealogyPrototype() {
       startedAt: '1975-01-01',
       confidence: 'verified' as const,
       source: 'Beira-Mar case study research',
-      notes: "1974: Arrived in Campinas 'by indication of Mestre Suassuna'. Founded schools in Araçatuba and Campinas.",
+      notesEn:
+        "1974: Arrived in Campinas 'by indication of Mestre Suassuna'. Founded schools in Araçatuba and Campinas.",
     },
 
     // Tarzan leads Beira-Mar
@@ -6220,7 +6345,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1975-01-01',
       confidence: 'verified' as const,
       source: 'Beira-Mar case study research',
-      notes: 'Overall founder and leader. Based in Brazil. Visits USA when possible.',
+      notesEn: 'Overall founder and leader. Based in Brazil. Visits USA when possible.',
     },
 
     // Bundo student_of Tarzan
@@ -6233,7 +6358,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1984-01-01',
       confidence: 'verified' as const,
       source: 'Beira-Mar case study research',
-      notes: 'First mestre. Also trained under 5+ other mestres in Brazil.',
+      notesEn: 'First mestre. Also trained under 5+ other mestres in Brazil.',
     },
 
     // Bundo member_of Beira-Mar
@@ -6246,7 +6371,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1984-01-01',
       confidence: 'verified' as const,
       source: 'Beira-Mar case study research',
-      notes: 'Founded Grupo Bantu independently, later merged back as US representative.',
+      notesEn: 'Founded Grupo Bantu independently, later merged back as US representative.',
     },
 
     // Bundo leads Beira-Mar (US operations)
@@ -6259,7 +6384,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2005-01-01',
       confidence: 'verified' as const,
       source: 'Beira-Mar case study research',
-      notes: 'US representative. Day-to-day USA operations leadership. Reports to/coordinates with Tarzan.',
+      notesEn: 'US representative. Day-to-day USA operations leadership. Reports to/coordinates with Tarzan.',
     },
 
     // ============================================================
@@ -6276,7 +6401,7 @@ export async function seedGenealogyPrototype() {
       objectId: pastinha.id,
       confidence: 'verified' as const,
       source: 'Longe do Mar case study research',
-      notes: 'Pastinha lineage. Founded ECAIG 1960.',
+      notesEn: 'Pastinha lineage. Founded ECAIG 1960.',
     },
 
     // Curiò founded ECAIG
@@ -6289,7 +6414,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1960-01-01',
       confidence: 'verified' as const,
       source: 'Longe do Mar case study research',
-      notes: 'Founded in Alagoinhas, Bahia. Pure Capoeira Angola.',
+      notesEn: 'Founded in Alagoinhas, Bahia. Pure Capoeira Angola.',
     },
 
     // Curiò leads ECAIG
@@ -6314,7 +6439,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1996-01-01',
       confidence: 'verified' as const,
       source: 'Longe do Mar case study research',
-      notes: 'First registered capoeira group in Mexico. First capoeira class in Mexico March 16, 1992.',
+      notesEn: 'First registered capoeira group in Mexico. First capoeira class in Mexico March 16, 1992.',
     },
 
     // Mariano Andrade leads Banda do Saci
@@ -6342,7 +6467,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Longe do Mar case study research',
-      notes: '1997 affiliation triggered shift to exclusive Capoeira Angola in 1998.',
+      notesEn: '1997 affiliation triggered shift to exclusive Capoeira Angola in 1998.',
     },
 
     // Rosita student_of Mariano Andrade
@@ -6354,7 +6479,7 @@ export async function seedGenealogyPrototype() {
       objectId: marianoAndrade.id,
       confidence: 'verified' as const,
       source: 'Longe do Mar case study research',
-      notes: 'Founding member of Banda do Saci. Left to co-found Longe do Mar.',
+      notesEn: 'Founding member of Banda do Saci. Left to co-found Longe do Mar.',
     },
 
     // Adolfo Flores student_of Mariano Andrade
@@ -6366,7 +6491,7 @@ export async function seedGenealogyPrototype() {
       objectId: marianoAndrade.id,
       confidence: 'verified' as const,
       source: 'Longe do Mar case study research',
-      notes: 'Founding member of Banda do Saci. Left to co-found Longe do Mar.',
+      notesEn: 'Founding member of Banda do Saci. Left to co-found Longe do Mar.',
     },
 
     // Iñaki Garrido student_of Mariano Andrade
@@ -6378,7 +6503,7 @@ export async function seedGenealogyPrototype() {
       objectId: marianoAndrade.id,
       confidence: 'verified' as const,
       source: 'Longe do Mar case study research',
-      notes: 'Founding member of Banda do Saci. Left to co-found Longe do Mar.',
+      notesEn: 'Founding member of Banda do Saci. Left to co-found Longe do Mar.',
     },
 
     // Rosita co_founded Longe do Mar
@@ -6391,7 +6516,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1998-05-01',
       confidence: 'verified' as const,
       source: 'Longe do Mar case study research',
-      notes: 'One of three co-founders seeking "capoeira without labels".',
+      notesEn: 'One of three co-founders seeking "capoeira without labels".',
     },
 
     // Adolfo Flores co_founded Longe do Mar
@@ -6404,7 +6529,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1998-05-01',
       confidence: 'verified' as const,
       source: 'Longe do Mar case study research',
-      notes: 'One of three co-founders. Became director.',
+      notesEn: 'One of three co-founders. Became director.',
     },
 
     // Iñaki Garrido co_founded Longe do Mar
@@ -6417,7 +6542,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1998-05-01',
       confidence: 'verified' as const,
       source: 'Longe do Mar case study research',
-      notes: 'One of three co-founders.',
+      notesEn: 'One of three co-founders.',
     },
 
     // Longe do Mar split_from_group Banda do Saci
@@ -6434,7 +6559,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Longe do Mar case study research',
-      notes:
+      notesEn:
         'Three founding members of Banda do Saci left to found Longe do Mar when parent shifted to exclusive Angola.',
     },
 
@@ -6451,7 +6576,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Longe do Mar case study research',
-      notes: 'Regional lineage recognition. 7 years after founding.',
+      notesEn: 'Regional lineage recognition. 7 years after founding.',
     },
 
     // Cabello associated_with Longe do Mar (2008 validation)
@@ -6468,7 +6593,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Longe do Mar case study research',
-      notes: 'Angola mestre validated Longe do Mar graduations alongside Regional mestre Acordeón.',
+      notesEn: 'Angola mestre validated Longe do Mar graduations alongside Regional mestre Acordeón.',
     },
 
     // Cigano member_of Longe do Mar
@@ -6480,7 +6605,7 @@ export async function seedGenealogyPrototype() {
       objectId: longeDoMar.id,
       confidence: 'verified' as const,
       source: 'Longe do Mar case study research',
-      notes: 'First Mexican mestre. Currently co-leads Longe do Mar.',
+      notesEn: 'First Mexican mestre. Currently co-leads Longe do Mar.',
     },
 
     // Cigano leads Longe do Mar
@@ -6492,7 +6617,7 @@ export async function seedGenealogyPrototype() {
       objectId: longeDoMar.id,
       confidence: 'verified' as const,
       source: 'Longe do Mar case study research',
-      notes: 'Co-leads with Rosita and Adolfo Flores.',
+      notesEn: 'Co-leads with Rosita and Adolfo Flores.',
     },
 
     // Rosita leads Longe do Mar
@@ -6505,7 +6630,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1998-05-01',
       confidence: 'verified' as const,
       source: 'Longe do Mar case study research',
-      notes: 'Co-leads. First Mexican woman contra-mestre.',
+      notesEn: 'Co-leads. First Mexican woman contra-mestre.',
     },
 
     // Adolfo Flores leads Longe do Mar
@@ -6518,7 +6643,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1998-05-01',
       confidence: 'verified' as const,
       source: 'Longe do Mar case study research',
-      notes: 'Director since founding. Still active 2025.',
+      notesEn: 'Director since founding. Still active 2025.',
     },
 
     // ============================================================
@@ -6535,7 +6660,7 @@ export async function seedGenealogyPrototype() {
       objectId: suassuna.id,
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Hangzhou case study research',
-      notes: 'CDO co-founder Suassuna trained Marcelo before 1984.',
+      notesEn: 'CDO co-founder Suassuna trained Marcelo before 1984.',
     },
 
     // Marcelo Caveirinha founded Capoeira Mandinga
@@ -6548,7 +6673,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1984-01-01',
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Hangzhou case study research',
-      notes: 'Founded as Associação de Capoeira Senzala Grande, renamed to Capoeira Mandinga 1995.',
+      notesEn: 'Founded as Associação de Capoeira Senzala Grande, renamed to Capoeira Mandinga 1995.',
     },
 
     // Capoeira Mandinga split_from_group Cordão de Ouro (blessed split)
@@ -6566,7 +6691,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Hangzhou case study research',
-      notes: 'Forced blessed split due to CDO tradition. Maintains CDO lineage culturally.',
+      notesEn: 'Forced blessed split due to CDO tradition. Maintains CDO lineage culturally.',
     },
 
     // Marcelo Caveirinha leads Capoeira Mandinga
@@ -6579,7 +6704,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1984-01-01',
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Hangzhou case study research',
-      notes: 'Continues to lead 30+ years later.',
+      notesEn: 'Continues to lead 30+ years later.',
     },
 
     // Luar do Sertão student_of Marcelo Caveirinha
@@ -6603,7 +6728,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1996-01-01',
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Hangzhou case study research',
-      notes: 'Founded Tucson branch.',
+      notesEn: 'Founded Tucson branch.',
     },
 
     // Diego Pappalardo student_of Marcelo Caveirinha
@@ -6627,7 +6752,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2005-01-01',
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Hangzhou case study research',
-      notes: 'First capoeira instruction in China.',
+      notesEn: 'First capoeira instruction in China.',
     },
 
     // Diego Pappalardo leads Mandinga Shanghai
@@ -6640,7 +6765,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2005-01-01',
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Hangzhou case study research',
-      notes: 'Chief instructor.',
+      notesEn: 'Chief instructor.',
     },
 
     // Mandinga Shanghai part_of Capoeira Mandinga network
@@ -6668,7 +6793,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2007-01-01',
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Hangzhou case study research',
-      notes: 'Started training ~2007-2009. Diego was his first teacher.',
+      notesEn: 'Started training ~2007-2009. Diego was his first teacher.',
     },
 
     // Alex Maltsev trained_under Mestre Edan (CDO cross-certification)
@@ -6680,7 +6805,8 @@ export async function seedGenealogyPrototype() {
       objectId: mestreEdan.id,
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Hangzhou case study research',
-      notes: 'Certified via Capoeira Instructors Course. Reveals hidden CDO network connections across organizations.',
+      notesEn:
+        'Certified via Capoeira Instructors Course. Reveals hidden CDO network connections across organizations.',
     },
 
     // Alex Maltsev trained_under Mestre Cueca (CDO cross-certification)
@@ -6692,7 +6818,7 @@ export async function seedGenealogyPrototype() {
       objectId: mestreCueca.id,
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Hangzhou case study research',
-      notes: 'Certified via Capoeira Instructors Course alongside Mestre Edan.',
+      notesEn: 'Certified via Capoeira Instructors Course alongside Mestre Edan.',
     },
 
     // Alex Maltsev founded Mandinga Hangzhou
@@ -6718,7 +6844,7 @@ export async function seedGenealogyPrototype() {
       endedAt: '2023-01-01',
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Hangzhou case study research',
-      notes: 'Led until relocating to Thailand due to family crisis. Current leadership uncertain.',
+      notesEn: 'Led until relocating to Thailand due to family crisis. Current leadership uncertain.',
     },
 
     // Mandinga Hangzhou part_of Capoeira Mandinga network
@@ -6745,7 +6871,7 @@ export async function seedGenealogyPrototype() {
       objectId: cordaoDeOuro.id,
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Hangzhou case study research',
-      notes: 'CDO mestre who founded CDO Russia.',
+      notesEn: 'CDO mestre who founded CDO Russia.',
     },
 
     // Mestre Cueca member_of Cordão de Ouro
@@ -6757,7 +6883,7 @@ export async function seedGenealogyPrototype() {
       objectId: cordaoDeOuro.id,
       confidence: 'verified' as const,
       source: 'Capoeira Mandinga Hangzhou case study research',
-      notes: 'CDO mestre who leads CDO Moscow.',
+      notesEn: 'CDO mestre who leads CDO Moscow.',
     },
 
     // ============================================================
@@ -6775,7 +6901,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2003-01-01',
       confidence: 'verified' as const,
       source: 'Capoeira Zoador case study research',
-      notes: 'American founder from San Diego. Claims "pioneer of capoeira in Asia".',
+      notesEn: 'American founder from San Diego. Claims "pioneer of capoeira in Asia".',
     },
 
     // Mestre Sucuri leads Capoeira Zoador
@@ -6788,7 +6914,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2003-01-01',
       confidence: 'verified' as const,
       source: 'Capoeira Zoador case study research',
-      notes: 'Continues to lead 22+ years later.',
+      notesEn: 'Continues to lead 22+ years later.',
     },
 
     // Linguica student_of Mestre Sucuri
@@ -6800,7 +6926,7 @@ export async function seedGenealogyPrototype() {
       objectId: mestreSucuri.id,
       confidence: 'verified' as const,
       source: 'Capoeira Zoador case study research',
-      notes: 'Long-term student. Achieved Contramestre rank.',
+      notesEn: 'Long-term student. Achieved Contramestre rank.',
     },
 
     // Linguica member_of Capoeira Zoador
@@ -6812,7 +6938,7 @@ export async function seedGenealogyPrototype() {
       objectId: capoeirZoador.id,
       confidence: 'verified' as const,
       source: 'Capoeira Zoador case study research',
-      notes: 'Co-instructor at Ota-ku and Harajuku locations.',
+      notesEn: 'Co-instructor at Ota-ku and Harajuku locations.',
     },
 
     // ============================================================
@@ -6829,7 +6955,7 @@ export async function seedGenealogyPrototype() {
       objectId: waldemar.id,
       confidence: 'verified' as const,
       source: 'Capoeira Batuque Japão case study research',
-      notes: 'Trained in Liberdade neighborhood, Salvador, Bahia.',
+      notesEn: 'Trained in Liberdade neighborhood, Salvador, Bahia.',
     },
 
     // Mestre Amen founded Brasil Brasil Cultural Center
@@ -6842,7 +6968,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1989-01-01',
       confidence: 'verified' as const,
       source: 'Capoeira Batuque Japão case study research',
-      notes: 'Santa Monica, California. Cultural center for Afro-Brazilian arts.',
+      notesEn: 'Santa Monica, California. Cultural center for Afro-Brazilian arts.',
     },
 
     // Mestre Amen leads Brasil Brasil Cultural Center
@@ -6855,7 +6981,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1989-01-01',
       confidence: 'verified' as const,
       source: 'Capoeira Batuque Japão case study research',
-      notes: '35+ years leading.',
+      notesEn: '35+ years leading.',
     },
 
     // Batuque Japão part_of Brasil Brasil (branch)
@@ -6871,7 +6997,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Capoeira Batuque Japão case study research',
-      notes: 'Japan branch with semi-autonomous day-to-day operations. Founder visits for batizados.',
+      notesEn: 'Japan branch with semi-autonomous day-to-day operations. Founder visits for batizados.',
     },
 
     // Pomba student_of Mestre Amen
@@ -6883,7 +7009,7 @@ export async function seedGenealogyPrototype() {
       objectId: mestreAmen.id,
       confidence: 'verified' as const,
       source: 'Capoeira Batuque Japão case study research',
-      notes: '13+ years training to reach Contra Mestra rank.',
+      notesEn: '13+ years training to reach Contra Mestra rank.',
     },
 
     // Pomba member_of Batuque Japão
@@ -6895,7 +7021,7 @@ export async function seedGenealogyPrototype() {
       objectId: batuqueJapao.id,
       confidence: 'verified' as const,
       source: 'Capoeira Batuque Japão case study research',
-      notes: 'Senior instructor in Japan. Choreography specialty.',
+      notesEn: 'Senior instructor in Japan. Choreography specialty.',
     },
 
     // Pensador student_of Mestre Amen
@@ -6907,7 +7033,7 @@ export async function seedGenealogyPrototype() {
       objectId: mestreAmen.id,
       confidence: 'verified' as const,
       source: 'Capoeira Batuque Japão case study research',
-      notes: '13+ years training to reach Contra Mestre rank.',
+      notesEn: '13+ years training to reach Contra Mestre rank.',
     },
 
     // Pensador member_of Batuque Japão
@@ -6919,7 +7045,7 @@ export async function seedGenealogyPrototype() {
       objectId: batuqueJapao.id,
       confidence: 'verified' as const,
       source: 'Capoeira Batuque Japão case study research',
-      notes: 'Senior instructor in Japan.',
+      notesEn: 'Senior instructor in Japan.',
     },
 
     // Esperto student_of Mestre Amen
@@ -6931,7 +7057,7 @@ export async function seedGenealogyPrototype() {
       objectId: mestreAmen.id,
       confidence: 'verified' as const,
       source: 'Capoeira Batuque Japão case study research',
-      notes: '13+ years training required for Professor rank.',
+      notesEn: '13+ years training required for Professor rank.',
     },
 
     // Esperto member_of Batuque Japão
@@ -6943,7 +7069,7 @@ export async function seedGenealogyPrototype() {
       objectId: batuqueJapao.id,
       confidence: 'verified' as const,
       source: 'Capoeira Batuque Japão case study research',
-      notes: 'Instructor in Japan.',
+      notesEn: 'Instructor in Japan.',
     },
 
     // Lua Cheia student_of Mestre Amen
@@ -6966,7 +7092,7 @@ export async function seedGenealogyPrototype() {
       objectId: batuqueJapao.id,
       confidence: 'verified' as const,
       source: 'Capoeira Batuque Japão case study research',
-      notes: 'Female instructor representing 50% gender balance in leadership.',
+      notesEn: 'Female instructor representing 50% gender balance in leadership.',
     },
 
     // ============================================================
@@ -6984,7 +7110,7 @@ export async function seedGenealogyPrototype() {
       objectId: moraes.id,
       confidence: 'verified' as const,
       source: 'Escola de Capoeira Angola Okupandula case study research',
-      notes:
+      notesEn:
         'Specifically sought out Mestre Moraes for Angola training. Earned Contramestre rank. Generation 4 from Pastinha.',
     },
 
@@ -6998,7 +7124,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2014-01-01',
       confidence: 'verified' as const,
       source: 'Escola de Capoeira Angola Okupandula case study research',
-      notes:
+      notesEn:
         "First Capoeira Angola school in the country of Angola. Fulfills Pastinha's prophecy. Returned from exile to rebuild country.",
     },
 
@@ -7012,7 +7138,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2014-01-01',
       confidence: 'verified' as const,
       source: 'Escola de Capoeira Angola Okupandula case study research',
-      notes: 'Single founder-led model. Also works as social worker.',
+      notesEn: 'Single founder-led model. Also works as social worker.',
     },
 
     // Okupandula associated_with GCAP (cultural connection, not formal branch)
@@ -7025,7 +7151,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2014-01-01',
       confidence: 'verified' as const,
       source: 'Escola de Capoeira Angola Okupandula case study research',
-      notes:
+      notesEn:
         'Instagram bio states "Orientação: Mestre Moraes". Cultural/lineage connection but operates independently. Not a formal GCAP branch.',
     },
 
@@ -7045,7 +7171,7 @@ export async function seedGenealogyPrototype() {
       endedAt: '1977-01-01',
       confidence: 'verified' as const,
       source: 'Escravos Brancos case study research',
-      notes: 'Trained in São Bernardo do Campo, São Paulo. ~7 years before returning to Piauí.',
+      notesEn: 'Trained in São Bernardo do Campo, São Paulo. ~7 years before returning to Piauí.',
     },
 
     // Mestre Albino founded Escravos Brancos
@@ -7058,7 +7184,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1977-01-01',
       confidence: 'verified' as const,
       source: 'Escravos Brancos case study research',
-      notes: 'Founded upon return from São Paulo at CSU Primavera, zona norte.',
+      notesEn: 'Founded upon return from São Paulo at CSU Primavera, zona norte.',
     },
 
     // Mestre Albino founded Federação Piauiense de Capoeira
@@ -7071,7 +7197,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1977-01-01',
       confidence: 'verified' as const,
       source: 'Escravos Brancos case study research',
-      notes: 'State federation model imported from São Paulo Capoeira Federation.',
+      notesEn: 'State federation model imported from São Paulo Capoeira Federation.',
     },
 
     // Mestre Albino leads Escravos Brancos
@@ -7084,7 +7210,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1977-01-01',
       confidence: 'verified' as const,
       source: 'Escravos Brancos case study research',
-      notes: 'President of ACCEB since 2005. 48+ years leading.',
+      notesEn: 'President of ACCEB since 2005. 48+ years leading.',
     },
 
     // Escravos Brancos associated_with FPC
@@ -7097,7 +7223,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1977-01-01',
       confidence: 'verified' as const,
       source: 'Escravos Brancos case study research',
-      notes: 'Initially only Escravos Brancos graduates became FPC members. Founding group of federation.',
+      notesEn: 'Initially only Escravos Brancos graduates became FPC members. Founding group of federation.',
     },
 
     // ============================================================
@@ -7119,7 +7245,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Grupo Oriaxé case study research',
-      notes: 'Primary teacher relationship in Salvador, Bahia.',
+      notesEn: 'Primary teacher relationship in Salvador, Bahia.',
     },
 
     // Mestre Marcos Gytauna founded AAC/Oriaxé
@@ -7132,7 +7258,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1995-05-14',
       confidence: 'verified' as const,
       source: 'Grupo Oriaxé case study research',
-      notes: 'Officially founded AAC on Serrano street (now Jorge Luis Borges), Buenos Aires. Teaching since 1987.',
+      notesEn: 'Officially founded AAC on Serrano street (now Jorge Luis Borges), Buenos Aires. Teaching since 1987.',
     },
 
     // Mestre Marcos Gytauna leads AAC/Oriaxé
@@ -7145,7 +7271,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1995-05-14',
       confidence: 'verified' as const,
       source: 'Grupo Oriaxé case study research',
-      notes: 'Founder and director since founding. 30+ years leading.',
+      notesEn: 'Founder and director since founding. 30+ years leading.',
     },
 
     // ============================================================
@@ -7168,7 +7294,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Grupo Zimba case study research',
-      notes: 'Primary teacher relationship. Graduated alongside Mestre Cobra Mansa.',
+      notesEn: 'Primary teacher relationship. Graduated alongside Mestre Cobra Mansa.',
     },
 
     // Mestre Boca do Rio departed_from GCAP (blessed departure)
@@ -7185,7 +7311,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Grupo Zimba case study research',
-      notes: 'Traditional Angola succession pattern - graduates establish own groups with blessing.',
+      notesEn: 'Traditional Angola succession pattern - graduates establish own groups with blessing.',
     },
 
     // Mestre Boca do Rio founded Grupo Zimba
@@ -7198,7 +7324,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1998-01-01',
       confidence: 'verified' as const,
       source: 'Grupo Zimba case study research',
-      notes: 'Founded in Salvador, Bahia. Established at Rua dos Andradas, 1780/6º andar - CIA DE ARTE.',
+      notesEn: 'Founded in Salvador, Bahia. Established at Rua dos Andradas, 1780/6º andar - CIA DE ARTE.',
     },
 
     // Mestre Boca do Rio leads Grupo Zimba
@@ -7211,7 +7337,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1998-01-01',
       confidence: 'verified' as const,
       source: 'Grupo Zimba case study research',
-      notes: 'Coordinates remotely from Santiago de Compostela, Spain since 2007.',
+      notesEn: 'Coordinates remotely from Santiago de Compostela, Spain since 2007.',
     },
 
     // Grupo Zimba split_from_group GCAP (blessed departure)
@@ -7229,7 +7355,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Grupo Zimba case study research',
-      notes: 'Second-generation GCAP lineage. Maintains respectful independence from parent organization.',
+      notesEn: 'Second-generation GCAP lineage. Maintains respectful independence from parent organization.',
     },
 
     // Celso de Brito member_of Grupo Zimba
@@ -7242,7 +7368,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '2018-01-01',
       confidence: 'verified' as const,
       source: 'Grupo Zimba case study research',
-      notes: 'Co-founded Teresina núcleo in 2018 with Andrea Pace Rodriguez. Academic-practitioner model.',
+      notesEn: 'Co-founded Teresina núcleo in 2018 with Andrea Pace Rodriguez. Academic-practitioner model.',
     },
 
     // ============================================================
@@ -7263,7 +7389,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Mandingueiros dos Palmares case study research',
-      notes: 'Legendary Regional authority and keeper of Bimba tradition.',
+      notesEn: 'Legendary Regional authority and keeper of Bimba tradition.',
     },
 
     // Mestre Itapoan granted_title_to Grão Mestre Chuvisco
@@ -7282,7 +7408,7 @@ export async function seedGenealogyPrototype() {
       } as StatementProperties,
       confidence: 'verified' as const,
       source: 'Mandingueiros dos Palmares case study research',
-      notes: 'External validation from legendary mestre. Honorary/recognition connection.',
+      notesEn: 'External validation from legendary mestre. Honorary/recognition connection.',
     },
 
     // Grão Mestre Chuvisco founded Mandingueiros dos Palmares
@@ -7295,7 +7421,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1977-06-07',
       confidence: 'verified' as const,
       source: 'Mandingueiros dos Palmares case study research',
-      notes: 'Founded same year as mestre graduation. Sole founder.',
+      notesEn: 'Founded same year as mestre graduation. Sole founder.',
     },
 
     // Grão Mestre Chuvisco leads Mandingueiros dos Palmares
@@ -7308,7 +7434,7 @@ export async function seedGenealogyPrototype() {
       startedAt: '1977-06-07',
       confidence: 'verified' as const,
       source: 'Mandingueiros dos Palmares case study research',
-      notes: '48+ years founder leadership. Still leading. Based in Massachusetts/Brazil.',
+      notesEn: '48+ years founder leadership. Still leading. Based in Massachusetts/Brazil.',
     },
   ];
 

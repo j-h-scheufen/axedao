@@ -30,6 +30,8 @@ These three African teachers form the bridge between capoeira's African origins 
 
 ## Biography
 
+### English
+
 Benedito was an elderly African man, described in historical accounts as a "negro natural de Angola" (Black man native to Angola), who lived at Rua das Laranjeiras, number 26, in the Pelourinho neighborhood of Salvador, Bahia. As a freed African ("africano liberto") in late 19th century Brazil, he represents one of the last generation who directly transmitted fighting traditions from Africa to Brazil.
 
 The trans-Atlantic slave trade to Brazil was abolished in 1850. If Benedito was "elderly" when he taught Pastinha in 1899, he was likely born in the 1830s-1850s—either in Angola and brought to Brazil as a child or young man, or born to African parents in Brazil shortly after abolition. At that time, 80% of enslaved Africans in Brazil came from Central West Africa (present-day Angola and both Congos).
@@ -46,7 +48,27 @@ Benedito's teaching philosophy emphasized patience and restraint. He counseled h
 
 When Vicente finally confronted his bully again, a single blow was sufficient. The older boy became his friend out of admiration and respect.
 
+### Português
+
+Benedito era um homem africano idoso, descrito em relatos históricos como um "negro natural de Angola", que morava na Rua das Laranjeiras, número 26, no bairro do Pelourinho em Salvador, Bahia. Como um africano liberto no Brasil do final do século XIX, ele representa uma das últimas gerações que transmitiu diretamente tradições de luta da África para o Brasil.
+
+O tráfico transatlântico de escravos para o Brasil foi abolido em 1850. Se Benedito era "idoso" quando ensinou Pastinha em 1899, ele provavelmente nasceu entre 1830 e 1850—seja em Angola e trazido ao Brasil como criança ou jovem, ou nascido de pais africanos no Brasil logo após a abolição. Naquela época, 80% dos africanos escravizados no Brasil vinham da África Centro-Ocidental (atual Angola e ambos os Congos).
+
+Por volta de 1899, Benedito observou de sua janela uma cena recorrente em sua rua: um menino frágil de cerca de 8-10 anos perdendo repetidamente brigas para um menino maior e mais velho. Um dia, após ver o menino menor chorar de raiva depois de outra derrota, Benedito chamou-o:
+
+> "Você não pode vencê-lo, sabe, porque ele é maior e mais velho que você. O tempo que você perde soltando pipas, venha à minha casa e eu lhe ensinarei algo de grande valor."
+
+Aquele menino era Vicente Ferreira, que se tornaria Mestre Pastinha, o grande preservador da Capoeira Angola. Vicente tornou-se discípulo de Benedito, visitando sua casa todos os dias com o grande interesse que a capoeira havia despertado nele. Pelos próximos dois a três anos (as fontes variam), Benedito ensinou-lhe tudo o que sabia—não apenas as técnicas físicas como a ginga, mas também a mandinga (a astúcia, malícia e aspectos espirituais da arte), disciplina e respeito aos mais velhos.
+
+A filosofia de ensino de Benedito enfatizava paciência e contenção. Ele aconselhou seu jovem aluno:
+
+> "Não provoque, menino. Faça-o perceber o que você sabe bem devagar."
+
+Quando Vicente finalmente confrontou seu agressor novamente, um único golpe foi suficiente. O menino mais velho tornou-se seu amigo por admiração e respeito.
+
 ## Teaching Methods: The Drum-Only Era
+
+### English
 
 Notably, Benedito taught capoeira without a berimbau, accompanying the practice only with a drum (atabaque)—a method common in Bahian capoeira at that time. Historical records confirm:
 
@@ -56,7 +78,19 @@ The berimbau did not become capoeira's central instrument until the early 20th c
 
 The atabaque originated in East Africa, where it was used in religious ceremonies and to inspire warriors before battle. Both the capoeira drum and the musical bow with its style of play are clearly of Angolan provenance.
 
+### Português
+
+Notavelmente, Benedito ensinava capoeira sem berimbau, acompanhando a prática apenas com um tambor (atabaque)—um método comum na capoeira baiana daquela época. Registros históricos confirmam:
+
+> "Nos primeiros tempos, a capoeira era acompanhada apenas pelo grande tambor (conhecido como ngoma, conga ou atabaque), palmas e canto."
+
+O berimbau não se tornou o instrumento central da capoeira até o início do século XX. Esta prática de usar apenas tambor conecta o ensino de Benedito a tradições africanas mais antigas, onde tambores como o ngoma eram usados para transmitir mensagens aos guerreiros "em uma linguagem que lhes era familiar."
+
+O atabaque originou-se na África Oriental, onde era usado em cerimônias religiosas e para inspirar guerreiros antes da batalha. Tanto o tambor da capoeira quanto o arco musical com seu estilo de tocar são claramente de procedência angolana.
+
 ## Connection to African Origins: Engolo
+
+### English
 
 In 1965, the Luso-Angolan painter Albano Neves e Sousa visited Mestre Pastinha's academy in Salvador and showed him drawings of **engolo** (also called n'golo)—a combat game he had documented among the Nkhumbi people of the Cunene region in southwestern Angola in the 1950s. Watching capoeira, Neves e Sousa declared: "N'golo is capoeira."
 
@@ -66,9 +100,17 @@ Though Pastinha's vision was already failing from cataracts by the time of Neves
 
 The engolo tradition is practiced by the Nyaneka-Nkhumbi peoples of the Cunene region. Research estimates approximately 11,880 Nkhumbi were enslaved and brought to Brazil, potentially influencing capoeira's development.
 
-## Pastinha's Testimony
+### Português
 
-Throughout his long life, Pastinha spoke of Benedito with profound gratitude:
+Em 1965, o pintor luso-angolano Albano Neves e Sousa visitou a academia de Mestre Pastinha em Salvador e mostrou-lhe desenhos do **engolo** (também chamado n'golo)—um jogo de combate que ele havia documentado entre o povo Nkhumbi da região de Cunene no sudoeste de Angola nos anos 1950. Assistindo à capoeira, Neves e Sousa declarou: "N'golo é capoeira."
+
+O engolo é conhecido como a "dança da zebra" porque seus chutes imitam a forma como as zebras lutam. O estilo de combate abrange chutes, esquivas e derrubadas, com ênfase particular em posições invertidas. Muitas técnicas icônicas da capoeira—meia lua de compasso, rabo de arraia, chute de escorpião, chapa, rasteira—foram originalmente desenvolvidas dentro do engolo.
+
+Embora a visão de Pastinha já estivesse falhando devido a cataratas na época da visita de Neves e Sousa, este encontro forneceu evidência visual do que a tradição oral sempre afirmara: que a capoeira originou-se em Angola. Benedito, como nativo de Angola, representa um elo direto nessa cadeia de transmissão.
+
+A tradição do engolo é praticada pelos povos Nyaneka-Nkhumbi da região de Cunene. Pesquisas estimam que aproximadamente 11.880 Nkhumbi foram escravizados e trazidos ao Brasil, potencialmente influenciando o desenvolvimento da capoeira.
+
+## Pastinha's Testimony
 
 **1964 (J.B. Colmenero's account):**
 > "He speaks to us with words filled with the purest gratitude about Mestre Benedito, a Black man native to Angola with whom he began the practice of Capoeira, and at that time the boy Vicente Pastinha was 10 years old."
@@ -90,7 +132,13 @@ Documented that "Tio Benedito" lived at Rua das Laranjeiras, n. 26.
 
 ## Legacy
 
+### English
+
 Nothing more is known of Benedito's life beyond his role as Pastinha's teacher. We do not know his full name, how he came to Brazil, who taught him capoeira in Africa, or when he died. But through his patient instruction of a bullied child on a Salvador street, he became the source of one of capoeira's most important lineages—and a living connection to the art's African roots.
+
+### Português
+
+Nada mais se sabe sobre a vida de Benedito além de seu papel como professor de Pastinha. Não sabemos seu nome completo, como veio para o Brasil, quem lhe ensinou capoeira na África, ou quando morreu. Mas através de sua instrução paciente a um menino intimidado em uma rua de Salvador, ele se tornou a fonte de uma das linhagens mais importantes da capoeira—e uma conexão viva com as raízes africanas da arte.
 
 ## Student
 

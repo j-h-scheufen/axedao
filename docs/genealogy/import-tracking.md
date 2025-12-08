@@ -137,6 +137,7 @@ These can be added to your import SQL immediately.
 2. **Run import command** - `/import-person Mestre João Grande`
 3. **Review output**
    - Copy SQL to `docs/genealogy/import-sql/2025-01-15_person_joao-grande.sql`
+   - **Ensure bilingual content**: Verify both `_en` and `_pt` fields are populated for bio, achievements, style_notes (persons) or description, history, philosophy, style_notes (groups)
    - Add discovered persons to `persons-backlog.md`
    - Add discovered groups to `groups-backlog.md`
    - Mark João Grande as `done` in `persons-backlog.md`
@@ -153,6 +154,7 @@ These can be added to your import SQL immediately.
 4. **Verify before import** - Review all SQL before running against database
 5. **Run imports in transaction** - Keep `BEGIN;` and `COMMIT;` wrapper
 6. **Save UUIDs** - After import, capture actual UUIDs for future reference
+7. **Capture bilingual content** - All narrative fields require both English (`_en`) and Portuguese (`_pt`) versions. See `BILINGUAL_CONTENT.md` for details
 
 ---
 

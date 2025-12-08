@@ -7,6 +7,8 @@
 --   - https://velhosmestres.com/en/besouro-1888
 --   - Mestre Cobrinha Verde interview (via Velhos Mestres)
 -- ============================================================
+-- DEPENDENCIES: groups/roda-de-trapiche-de-baixo.sql
+-- ============================================================
 
 BEGIN;
 
@@ -23,7 +25,8 @@ INSERT INTO genealogy.person_profiles (
   public_links,
   -- Capoeira-specific
   style,
-  style_notes,
+  style_notes_en,
+  style_notes_pt,
   -- Life dates
   birth_year,
   birth_year_precision,
@@ -32,8 +35,10 @@ INSERT INTO genealogy.person_profiles (
   death_year_precision,
   death_place,
   -- Extended content
-  bio,
-  achievements
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt
 ) VALUES (
   -- Identity
   'Alípio',
@@ -44,6 +49,7 @@ INSERT INTO genealogy.person_profiles (
   -- Capoeira-specific
   NULL, -- Pre-codification; Angola/Regional distinction didn't exist yet
   'Pre-codification era. Taught traditional capoeira that included knife techniques (facas) and spiritual practices (boas orações) as an integrated system.',
+  'Era pré-codificação. Ensinava capoeira tradicional que incluía técnicas de faca (facas) e práticas espirituais (boas orações) como um sistema integrado.',
   -- Life dates
   NULL, -- Birth year unknown
   'unknown'::genealogy.date_precision,
@@ -51,7 +57,7 @@ INSERT INTO genealogy.person_profiles (
   NULL, -- Death year unknown
   'unknown'::genealogy.date_precision,
   'Santo Amaro da Purificação, Bahia, Brazil', -- Presumed; he was living there after abolition
-  -- Extended content
+  -- bio_en
   E'Tio Alípio was an African man who was brought to Brazil in chains to work at the Engenho Pantaleão sugar mill in Santo Amaro da Purificação, Bahia. According to historical accounts preserved by Mestre Cobrinha Verde, he was "the most famous master in Santo Amaro."
 
 His mother came from Africa on a slave ship that departed from the Port of São Jorge da Mina in Dahomey (present-day Benin). Alípio was enslaved while still young by a wealthy family. At the plantation, he endured the sufferings of slavery until abolition in 1888.
@@ -65,7 +71,24 @@ His most famous student was the young Manoel Henrique Pereira, later known as Be
 The significance of Tio Alípio extends beyond his own life. He represents the direct transmission of African martial and spiritual traditions to Brazilian soil. Through his student Besouro, and Besouro''s student Cobrinha Verde, his teachings eventually reached Mestre João Grande and Mestre João Pequeno—creating a lineage that connects living masters to the era of slavery.
 
 Note: Some sources claim Alípio was "sentenced to death" for teaching capoeira. This has not been verified in any primary sources and may be a later embellishment. What is documented is that during this period, capoeira practitioners faced severe legal penalties including imprisonment and internal exile.',
-  'Teacher of Besouro Mangangá; considered "the most famous master in Santo Amaro" by Mestre Cobrinha Verde; key link in the chain connecting African capoeira traditions to the documented lineage'
+  -- bio_pt
+  E'Tio Alípio foi um africano que foi trazido para o Brasil acorrentado para trabalhar no Engenho Pantaleão em Santo Amaro da Purificação, Bahia. Segundo relatos históricos preservados por Mestre Cobrinha Verde, ele era "o mestre mais famoso dentro de Santo Amaro."
+
+Sua mãe veio da África em um navio negreiro que partiu do Porto de São Jorge da Mina no Daomé (atual Benin). Alípio foi escravizado ainda jovem por uma família rica. Na fazenda, ele suportou os sofrimentos da escravidão até a abolição em 1888.
+
+Além de sua habilidade como capoeirista, Alípio era um Babalaô—um sacerdote espiritual na tradição do Candomblé. Esse duplo papel de professor de artes marciais e líder espiritual era comum entre os mestres de capoeira africanos, que transmitiam tanto técnicas de luta quanto práticas religiosas como um sistema cultural integrado.
+
+Após a Lei Áurea abolir a escravidão em maio de 1888, Alípio se mudou para Trapiche de Baixo, o bairro mais pobre de Santo Amaro. Lá ele continuou a praticar e ensinar capoeira, embora a arte permanecesse criminalizada pelo Código Penal de 1890.
+
+Seu aluno mais famoso foi o jovem Manoel Henrique Pereira, mais tarde conhecido como Besouro Mangangá. Besouro veio estudar com Alípio por volta de 1908, quando tinha cerca de treze anos. O velho africano lhe ensinou "os mistérios da capoeira, do jogo, das facas e das boas orações" nos canaviais ao redor da fazenda. O ensino acontecia em segredo, pois ser pego significava punição severa.
+
+A importância de Tio Alípio se estende além de sua própria vida. Ele representa a transmissão direta das tradições marciais e espirituais africanas para o solo brasileiro. Através de seu aluno Besouro, e do aluno de Besouro, Cobrinha Verde, seus ensinamentos eventualmente chegaram a Mestre João Grande e Mestre João Pequeno—criando uma linhagem que conecta mestres vivos à era da escravidão.
+
+Nota: Algumas fontes afirmam que Alípio foi "condenado à morte" por ensinar capoeira. Isso não foi verificado em nenhuma fonte primária e pode ser um embelezamento posterior. O que está documentado é que durante esse período, praticantes de capoeira enfrentavam penalidades legais severas incluindo prisão e exílio interno.',
+  -- achievements_en
+  'Teacher of Besouro Mangangá; considered "the most famous master in Santo Amaro" by Mestre Cobrinha Verde; key link in the chain connecting African capoeira traditions to the documented lineage',
+  -- achievements_pt
+  'Professor de Besouro Mangangá; considerado "o mestre mais famoso dentro de Santo Amaro" por Mestre Cobrinha Verde; elo fundamental na cadeia que conecta as tradições africanas de capoeira à linhagem documentada'
 )
 ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
@@ -73,15 +96,18 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   portrait = EXCLUDED.portrait,
   public_links = EXCLUDED.public_links,
   style = EXCLUDED.style,
-  style_notes = EXCLUDED.style_notes,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
   birth_year = EXCLUDED.birth_year,
   birth_year_precision = EXCLUDED.birth_year_precision,
   birth_place = EXCLUDED.birth_place,
   death_year = EXCLUDED.death_year,
   death_year_precision = EXCLUDED.death_year_precision,
   death_place = EXCLUDED.death_place,
-  bio = EXCLUDED.bio,
-  achievements = EXCLUDED.achievements,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
   updated_at = NOW();
 
 -- ============================================================
@@ -96,7 +122,8 @@ INSERT INTO genealogy.statements (
   predicate,
   object_type, object_id,
   started_at, started_at_precision,
-  confidence, source, notes
+  confidence, source,
+  notes_en, notes_pt
 )
 SELECT
   'person'::genealogy.entity_type, p.id,
@@ -105,7 +132,8 @@ SELECT
   '1888-01-01'::date, 'year'::genealogy.date_precision,
   'likely'::genealogy.confidence,
   'Velhos Mestres: "Em 1888, Alípio mudou para Trapiche de Baixo"',
-  'After abolition in 1888, Tio Alípio moved to Trapiche de Baixo neighborhood where he lived and continued practicing/teaching capoeira.'
+  'After abolition in 1888, Tio Alípio moved to Trapiche de Baixo neighborhood where he lived and continued practicing/teaching capoeira.',
+  'Após a abolição em 1888, Tio Alípio se mudou para o bairro de Trapiche de Baixo onde viveu e continuou praticando/ensinando capoeira.'
 FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Tio Alípio' AND g.name = 'Roda de Trapiche de Baixo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
@@ -116,7 +144,8 @@ INSERT INTO genealogy.statements (
   predicate,
   object_type, object_id,
   started_at, started_at_precision,
-  confidence, source, notes
+  confidence, source,
+  notes_en, notes_pt
 )
 SELECT
   'person'::genealogy.entity_type, p.id,
@@ -125,7 +154,8 @@ SELECT
   '1888-01-01'::date, 'year'::genealogy.date_precision,
   'likely'::genealogy.confidence,
   'Velhos Mestres, Cobrinha Verde interview: "O mestre mais famoso dentro de Santo Amaro chamava-se Alípio"',
-  'Tio Alípio was the primary capoeira teacher in Santo Amaro area, teaching in the sugarcane fields and Trapiche de Baixo neighborhood.'
+  'Tio Alípio was the primary capoeira teacher in Santo Amaro area, teaching in the sugarcane fields and Trapiche de Baixo neighborhood.',
+  'Tio Alípio foi o principal professor de capoeira na região de Santo Amaro, ensinando nos canaviais e no bairro de Trapiche de Baixo.'
 FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Tio Alípio' AND g.name = 'Roda de Trapiche de Baixo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;

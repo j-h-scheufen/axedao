@@ -69,7 +69,6 @@ Before starting web searches, read `docs/genealogy/sources/research-sources.md` 
 | Apelido* | `apelido` | Capoeira nickname - **required** |
 | Title | `title` | Current highest rank (enum below) |
 | Style | `style` | Primary style (angola, regional, contemporanea, mixed) |
-| Style Notes | `style_notes` | e.g., "Transitioned from Regional to Angola in 1985" |
 
 #### Life Dates & Places
 | Field | Column | Description |
@@ -81,11 +80,15 @@ Before starting web searches, read `docs/genealogy/sources/research-sources.md` 
 | Death Year Precision | `death_year_precision` | exact, month, year, decade, approximate, unknown |
 | Death Place | `death_place` | "City, Country" |
 
-#### Extended Content
-| Field | Column | Description |
-|-------|--------|-------------|
-| Bio | `bio` | Rich narrative biography (see guidelines below) |
-| Achievements | `achievements` | Awards, recognitions, notable accomplishments |
+#### Extended Content (BILINGUAL - English and Portuguese)
+| Field | Columns | Description |
+|-------|---------|-------------|
+| Bio | `bio_en`, `bio_pt` | Rich narrative biography in both languages |
+| Achievements | `achievements_en`, `achievements_pt` | Awards, recognitions in both languages |
+| Style Notes | `style_notes_en`, `style_notes_pt` | Style notes in both languages |
+
+**IMPORTANT: All narrative content must be written in BOTH English and Brazilian Portuguese.**
+See `docs/genealogy/BILINGUAL_CONTENT.md` for the full convention.
 
 **Bio Writing Guidelines:**
 
@@ -352,7 +355,8 @@ INSERT INTO genealogy.person_profiles (
   public_links,
   -- Capoeira-specific
   style,
-  style_notes,
+  style_notes_en,
+  style_notes_pt,
   -- Life dates
   birth_year,
   birth_year_precision,
@@ -360,9 +364,11 @@ INSERT INTO genealogy.person_profiles (
   death_year,
   death_year_precision,
   death_place,
-  -- Extended content
-  bio,
-  achievements
+  -- Extended content (bilingual)
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt
 ) VALUES (
   -- Identity
   '[Full Name or NULL]',
@@ -372,7 +378,8 @@ INSERT INTO genealogy.person_profiles (
   '[{"type": "website", "url": "..."}]'::jsonb,
   -- Capoeira-specific
   '[style or NULL]'::genealogy.style,
-  '[style_notes or NULL]',
+  E'[Style notes in English or NULL]',
+  E'[Notas de estilo em português or NULL]',
   -- Life dates
   [birth_year or NULL],
   '[precision]'::genealogy.date_precision,
@@ -380,9 +387,11 @@ INSERT INTO genealogy.person_profiles (
   [death_year or NULL],
   '[precision]'::genealogy.date_precision,
   '[death_place or NULL]',
-  -- Extended content
-  '[Bio text or NULL]',
-  '[Achievements or NULL]'
+  -- Extended content (bilingual)
+  E'[Bio in English]',
+  E'[Biografia em português]',
+  '[Achievements in English or NULL]',
+  '[Conquistas em português or NULL]'
 )
 ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
@@ -390,15 +399,18 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   portrait = EXCLUDED.portrait,
   public_links = EXCLUDED.public_links,
   style = EXCLUDED.style,
-  style_notes = EXCLUDED.style_notes,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
   birth_year = EXCLUDED.birth_year,
   birth_year_precision = EXCLUDED.birth_year_precision,
   birth_place = EXCLUDED.birth_place,
   death_year = EXCLUDED.death_year,
   death_year_precision = EXCLUDED.death_year_precision,
   death_place = EXCLUDED.death_place,
-  bio = EXCLUDED.bio,
-  achievements = EXCLUDED.achievements,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
   updated_at = NOW();
 
 -- ============================================================
@@ -408,14 +420,15 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
 -- ============================================================
 
 -- --- Person-to-Person: Training & Lineage ---
--- Example with date precision columns:
+-- Example with date precision columns and bilingual notes:
 -- INSERT INTO genealogy.statements (
 --   subject_type, subject_id,
 --   predicate,
 --   object_type, object_id,
 --   started_at, started_at_precision,
 --   ended_at, ended_at_precision,
---   properties, confidence, source, notes
+--   properties, confidence, source,
+--   notes_en, notes_pt
 -- )
 -- SELECT
 --   'person'::genealogy.entity_type, s.id,
@@ -426,13 +439,15 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
 --   '{}'::jsonb,
 --   'verified'::genealogy.confidence,
 --   'Source citation here',
---   'Additional context about this relationship'
+--   'Relationship context in English',
+--   'Contexto do relacionamento em português'
 -- FROM genealogy.person_profiles s, genealogy.person_profiles o
 -- WHERE s.apelido = '[Subject Apelido]' AND o.apelido = '[Object Apelido]'
 -- ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
 --
 -- Date precision values: exact, month, year, decade, approximate, unknown
 -- Use started_at = NULL with started_at_precision = 'unknown' when date is completely unknown
+-- IMPORTANT: notes_en and notes_pt should both be provided for bilingual support
 
 -- --- Person-to-Person: Recognition ---
 -- (Title grants, baptisms)

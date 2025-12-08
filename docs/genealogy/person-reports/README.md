@@ -75,39 +75,93 @@ Each person file should indicate their profile type:
 
 ## File Template
 
-Each person file should follow this structure:
+Each person file should follow this **bilingual structure** (English and Brazilian Portuguese):
 
 ```markdown
 # [Name] / [Full Name] ([Years])
 
-**Significance:** [One-line summary]
+**SQL Import:** `docs/genealogy/sql-imports/persons/[name].sql`
+
+**Significance / Significância:**
+- EN: [One-line summary in English]
+- PT: [Resumo em português]
 
 **Profile Type:** `[type]`
 
-## Basic Information
+## Basic Information / Informações Básicas
 
-| Field | Value |
-|-------|-------|
-| Full Name | |
+| Field / Campo | Value / Valor |
+|---------------|---------------|
+| Full Name / Nome Completo | |
 | Apelido | |
-| Born | |
-| Died | |
-| Location | |
-| Profession | |
+| Born / Nascimento | |
+| Died / Falecimento | |
+| Location / Local | |
+| Title / Título | |
+| Style / Estilo | |
 
-## Biography
+## Biography / Biografia
 
-[Detailed narrative biography]
+### English
+[Detailed narrative biography in English]
 
-## Connection to Capoeira
+### Português
+[Biografia detalhada em português]
 
-[Specific connection - teacher/student relationships, lineage, cultural impact]
+## Achievements / Conquistas
 
-## Sources
+### English
+[Awards, recognitions, notable accomplishments]
+
+### Português
+[Prêmios, reconhecimentos, conquistas notáveis]
+
+## Style Notes / Notas de Estilo
+
+### English
+[Notes about their capoeira style, if applicable]
+
+### Português
+[Notas sobre o estilo de capoeira, se aplicável]
+
+## Teachers / Mestres
+
+- [Name] - [relationship notes EN/PT]
+
+## Students / Alunos
+
+- [Name] - [relationship notes EN/PT]
+
+## Connections / Conexões
+
+[Other relationships - peers, associates, rivals]
+
+## Date Discrepancies / Discrepâncias de Datas
+
+| Field | Primary | Alternative | Notes |
+|-------|---------|-------------|-------|
+| | | | |
+
+## Sources / Fontes
 
 - [Source 1](url)
 - [Source 2](url)
 ```
+
+### Bilingual Content Guidelines
+
+**All narrative content should be written in both languages:**
+- `bio` / `biografia` - The main biography section
+- `achievements` / `conquistas` - Notable accomplishments
+- `style_notes` / `notas_de_estilo` - Style descriptions
+- Statement notes - Relationship context
+
+**What stays in one language:**
+- Names and apelidos (proper nouns)
+- Place names (use original language, typically Portuguese)
+- Source citations (keep in original language of source)
+
+**Research tip:** Many sources are already in Portuguese. When researching, capture the Portuguese text first, then translate to English. This ensures authenticity.
 
 ---
 

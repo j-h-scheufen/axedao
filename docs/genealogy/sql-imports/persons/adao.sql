@@ -41,7 +41,8 @@ INSERT INTO genealogy.person_profiles (
   public_links,
   -- Capoeira-specific
   style,
-  style_notes,
+  style_notes_en,
+  style_notes_pt,
   -- Life dates
   birth_year,
   birth_year_precision,
@@ -50,8 +51,10 @@ INSERT INTO genealogy.person_profiles (
   death_year_precision,
   death_place,
   -- Extended content
-  bio,
-  achievements
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt
 ) VALUES (
   -- Identity
   NULL,
@@ -62,6 +65,7 @@ INSERT INTO genealogy.person_profiles (
   -- Capoeira-specific
   NULL,
   'Pre-codification era (1789); practiced what colonial authorities called "capoeiragem" in 18th century Rio de Janeiro. Style distinctions (Angola/Regional) would not exist for another 150 years.',
+  'Era pré-codificação (1789); praticava o que as autoridades coloniais chamavam de "capoeiragem" no Rio de Janeiro do século XVIII. As distinções de estilo (Angola/Regional) não existiriam por mais 150 anos.',
   -- Life dates
   NULL,
   'unknown'::genealogy.date_precision,
@@ -69,7 +73,7 @@ INSERT INTO genealogy.person_profiles (
   NULL,
   'unknown'::genealogy.date_precision,
   NULL,
-  -- Extended content
+  -- Extended content (English)
   E'The very first name in capoeira''s documented history. Adão was a pardo (mixed-race) enslaved mulatto owned by Manoel Cardoso Fontes in Rio de Janeiro. Purchased young, he was initially described as "robust, hardworking, and very obedient," serving household tasks. His owner rented him out as a construction worker and carrier, making him a valuable source of income.
 
 But over time, the once-timid slave who had always lived at home "became more outgoing, independent, and began to arrive home late." He had found the capoeiras - groups of practitioners gathering in the city''s margins.
@@ -79,7 +83,20 @@ On a fateful day, a fight broke out between capoeiras. One was killed. Adão was
 After months at the pillory and in labor, his owner petitioned the king "in the name of the Passion of Christ" to pardon the remaining sentence, pleading poverty and dependence on his slave''s earnings. He promised Adão would never again associate with the capoeiras. On April 25, 1789, the Tribunal approved the mercy petition - creating the first documented record of the word "capoeira" to describe a practitioner.
 
 What became of Adão after his release remains unknown. But his case proves that by 1789, capoeira was already a recognized practice in colonial Brazil - one considered so dangerous that even association with capoeiras warranted brutal punishment.',
-  'First documented capoeirista in history (April 25, 1789); Subject of the earliest known police/judicial record specifically mentioning capoeira by name; Survived 500 lashes and forced labor; His case proves capoeira existed as an organized practice in 18th century Rio de Janeiro'
+  -- Extended content (Portuguese)
+  E'O primeiro nome da história documentada da capoeira. Adão era um pardo, mulato escravizado, propriedade de Manoel Cardoso Fontes no Rio de Janeiro. Comprado ainda jovem, foi inicialmente descrito como "tipo robusto, trabalhador e muito obediente ao seu senhor", servindo em tarefas domésticas. Seu dono o alugava como trabalhador de construção e carregador, fazendo dele uma valiosa fonte de renda.
+
+Mas com o tempo, o escravo antes tímido que sempre vivera em casa "foi se tornando mais solto, independente e passou a chegar em casa mais tarde". Ele havia encontrado os capoeiras - grupos de praticantes que se reuniam nas margens da cidade.
+
+Em um dia fatídico, uma briga estourou entre capoeiras. Um foi morto. Adão foi preso "junto com outros desordeiros que praticavam capoeira". Sob a lei colonial, "o mais grave dos crimes era a prática da capoeiragem". Embora a investigação o tenha inocentado do assassinato, sua identidade como capoeira foi confirmada. A sentença: 500 açoites e dois anos de trabalhos forçados em obras públicas.
+
+Após meses no pelourinho e em trabalhos forçados, seu dono peticionou ao rei "em nome da Paixão de Cristo" para perdoar o restante da sentença, alegando pobreza e dependência dos ganhos de seu escravo. Prometeu que Adão nunca mais se associaria aos capoeiras. Em 25 de abril de 1789, o Tribunal aprovou o pedido de clemência - criando o primeiro registro documentado da palavra "capoeira" para descrever um praticante.
+
+O que aconteceu com Adão após sua libertação permanece desconhecido. Mas seu caso prova que em 1789, a capoeira já era uma prática reconhecida no Brasil colonial - uma considerada tão perigosa que até mesmo a associação com capoeiras justificava punição brutal.',
+  -- Achievements (English)
+  'First documented capoeirista in history (April 25, 1789); Subject of the earliest known police/judicial record specifically mentioning capoeira by name; Survived 500 lashes and forced labor; His case proves capoeira existed as an organized practice in 18th century Rio de Janeiro',
+  -- Achievements (Portuguese)
+  'Primeiro capoeirista documentado da história (25 de abril de 1789); Sujeito do mais antigo registro policial/judicial conhecido que menciona especificamente a capoeira pelo nome; Sobreviveu a 500 açoites e trabalhos forçados; Seu caso prova que a capoeira existia como prática organizada no Rio de Janeiro do século XVIII'
 )
 ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
@@ -87,15 +104,18 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   portrait = EXCLUDED.portrait,
   public_links = EXCLUDED.public_links,
   style = EXCLUDED.style,
-  style_notes = EXCLUDED.style_notes,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
   birth_year = EXCLUDED.birth_year,
   birth_year_precision = EXCLUDED.birth_year_precision,
   birth_place = EXCLUDED.birth_place,
   death_year = EXCLUDED.death_year,
   death_year_precision = EXCLUDED.death_year_precision,
   death_place = EXCLUDED.death_place,
-  bio = EXCLUDED.bio,
-  achievements = EXCLUDED.achievements,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
   updated_at = NOW();
 
 -- ============================================================

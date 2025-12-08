@@ -63,10 +63,8 @@ Before starting web searches, read `docs/genealogy/sources/research-sources.md` 
 | Field | Column | Description |
 |-------|--------|-------------|
 | Name* | `name` | Official group name - **required** |
-| Description* | `description` | 1-2 paragraph description - **required** |
 | Name Aliases | `name_aliases` | Array of alternative names, abbreviations (e.g., ["GCAP", "Pelourinho"]) |
 | Style | `style` | Primary style (angola, regional, contemporanea, mixed) |
-| Style Notes | `style_notes` | e.g., "Originally Regional, evolved to Contemporânea" |
 
 #### Founding Details
 | Field | Column | Description |
@@ -75,11 +73,16 @@ Before starting web searches, read `docs/genealogy/sources/research-sources.md` 
 | Founded Year Precision | `founded_year_precision` | exact, month, year, decade, approximate, unknown |
 | Founded Location | `founded_location` | "City, Country" |
 
-#### Extended Content
-| Field | Column | Description |
-|-------|--------|-------------|
-| Philosophy | `philosophy` | Group's stated philosophy/mission statement |
-| History | `history` | Long-form group history narrative |
+#### Extended Content (BILINGUAL - English and Portuguese)
+| Field | Columns | Description |
+|-------|---------|-------------|
+| Description* | `description_en`, `description_pt` | 1-2 paragraph description in both languages - **required** |
+| Style Notes | `style_notes_en`, `style_notes_pt` | Style evolution notes in both languages |
+| Philosophy | `philosophy_en`, `philosophy_pt` | Group's philosophy/mission in both languages |
+| History | `history_en`, `history_pt` | Long-form group history in both languages |
+
+**IMPORTANT: All narrative content must be written in BOTH English and Brazilian Portuguese.**
+See `docs/genealogy/BILINGUAL_CONTENT.md` for the full convention.
 
 #### Name History (for groups that changed names)
 | Field | Column | Description |
@@ -229,9 +232,7 @@ BEGIN;
 INSERT INTO genealogy.group_profiles (
   -- Identity
   name,
-  description,
   style,
-  style_notes,
   logo,
   links,
   -- Identity enhancements
@@ -241,9 +242,15 @@ INSERT INTO genealogy.group_profiles (
   founded_year,
   founded_year_precision,
   founded_location,
-  -- Extended content
-  philosophy,
-  history,
+  -- Extended content (bilingual)
+  description_en,
+  description_pt,
+  style_notes_en,
+  style_notes_pt,
+  philosophy_en,
+  philosophy_pt,
+  history_en,
+  history_pt,
   -- Organizational
   legal_structure,
   is_headquarters,
@@ -253,9 +260,7 @@ INSERT INTO genealogy.group_profiles (
 ) VALUES (
   -- Identity
   '[Name]',
-  '[Description]',
   '[style or NULL]'::genealogy.style,
-  '[style_notes or NULL]',
   '[logo_url or NULL]',
   '[{"type": "website", "url": "..."}]'::jsonb,
   -- Identity enhancements
@@ -265,9 +270,15 @@ INSERT INTO genealogy.group_profiles (
   [founded_year or NULL],
   '[precision]'::genealogy.date_precision,
   '[founded_location or NULL]',
-  -- Extended content
-  '[philosophy or NULL]',
-  '[history or NULL]',
+  -- Extended content (bilingual)
+  E'[Description in English]',
+  E'[Descrição em português]',
+  E'[Style notes in English or NULL]',
+  E'[Notas de estilo em português or NULL]',
+  E'[Philosophy in English or NULL]',
+  E'[Filosofia em português or NULL]',
+  E'[History in English or NULL]',
+  E'[História em português or NULL]',
   -- Organizational
   '[legal_structure or NULL]'::genealogy.legal_structure,
   [true|false],  -- is_headquarters
@@ -276,9 +287,7 @@ INSERT INTO genealogy.group_profiles (
   [NULL or 'YYYY-MM-DD'::date]  -- dissolved_at
 )
 ON CONFLICT (name) DO UPDATE SET
-  description = EXCLUDED.description,
   style = EXCLUDED.style,
-  style_notes = EXCLUDED.style_notes,
   logo = EXCLUDED.logo,
   links = EXCLUDED.links,
   name_aliases = EXCLUDED.name_aliases,
@@ -286,8 +295,14 @@ ON CONFLICT (name) DO UPDATE SET
   founded_year = EXCLUDED.founded_year,
   founded_year_precision = EXCLUDED.founded_year_precision,
   founded_location = EXCLUDED.founded_location,
-  philosophy = EXCLUDED.philosophy,
-  history = EXCLUDED.history,
+  description_en = EXCLUDED.description_en,
+  description_pt = EXCLUDED.description_pt,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  philosophy_en = EXCLUDED.philosophy_en,
+  philosophy_pt = EXCLUDED.philosophy_pt,
+  history_en = EXCLUDED.history_en,
+  history_pt = EXCLUDED.history_pt,
   legal_structure = EXCLUDED.legal_structure,
   is_headquarters = EXCLUDED.is_headquarters,
   is_active = EXCLUDED.is_active,
@@ -301,13 +316,14 @@ ON CONFLICT (name) DO UPDATE SET
 -- ============================================================
 
 -- --- Group-to-Group: Evolution & Hierarchy ---
--- Example: Split from parent group with date precision
+-- Example: Split from parent group with date precision and bilingual notes
 -- INSERT INTO genealogy.statements (
 --   subject_type, subject_id,
 --   predicate,
 --   object_type, object_id,
 --   started_at, started_at_precision,
---   properties, confidence, source, notes
+--   properties, confidence, source,
+--   notes_en, notes_pt
 -- )
 -- SELECT
 --   'group'::genealogy.entity_type, s.id,
@@ -317,12 +333,14 @@ ON CONFLICT (name) DO UPDATE SET
 --   '{"split_type": "blessed"}'::jsonb,
 --   'verified'::genealogy.confidence,
 --   'Source citation',
---   'Additional context'
+--   'Context in English',
+--   'Contexto em português'
 -- FROM genealogy.group_profiles s, genealogy.group_profiles o
 -- WHERE s.name = '[Subject Name]' AND o.name = '[Object Name]'
 -- ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
 --
 -- Date precision values: exact, month, year, decade, approximate, unknown
+-- IMPORTANT: notes_en and notes_pt should both be provided for bilingual support
 
 -- --- Group-to-Group: Affiliation ---
 
@@ -428,13 +446,14 @@ Present your findings in this structure:
 
 #### Pattern 1: Split from Parent Group
 ```sql
--- NewGroup split from OriginalGroup
+-- NewGroup split from OriginalGroup (bilingual notes)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
   object_type, object_id,
   started_at, started_at_precision,
-  properties, confidence, source, notes
+  properties, confidence, source,
+  notes_en, notes_pt
 )
 SELECT
   'group'::genealogy.entity_type, s.id,
@@ -444,7 +463,8 @@ SELECT
   '{"split_type": "blessed"}'::jsonb,
   'verified'::genealogy.confidence,
   'Source citation',
-  'Context about the split'
+  'Context about the split in English',
+  'Contexto sobre a separação em português'
 FROM genealogy.group_profiles s, genealogy.group_profiles o
 WHERE s.name = 'New Group' AND o.name = 'Original Group'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
@@ -482,7 +502,8 @@ INSERT INTO genealogy.statements (
   predicate,
   object_type, object_id,
   started_at, started_at_precision,
-  confidence, source, notes
+  confidence, source,
+  notes_en, notes_pt
 )
 SELECT
   'group'::genealogy.entity_type, s.id,
@@ -491,7 +512,8 @@ SELECT
   '1990-01-01'::date, 'year'::genealogy.date_precision,
   'verified'::genealogy.confidence,
   'Source citation',
-  'Description of the organizational transformation'
+  'Description of the organizational transformation in English',
+  'Descrição da transformação organizacional em português'
 FROM genealogy.group_profiles s, genealogy.group_profiles o
 WHERE s.name = 'New Organization' AND o.name = 'Predecessor'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;

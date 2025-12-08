@@ -38,7 +38,8 @@ INSERT INTO genealogy.person_profiles (
   public_links,
   -- Capoeira-specific
   style,
-  style_notes,
+  style_notes_en,
+  style_notes_pt,
   -- Life dates
   birth_year,
   birth_year_precision,
@@ -47,8 +48,10 @@ INSERT INTO genealogy.person_profiles (
   death_year_precision,
   death_place,
   -- Extended content
-  bio,
-  achievements
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt
 ) VALUES (
   -- Identity
   'Plácido de Abreu Morais',
@@ -62,6 +65,7 @@ INSERT INTO genealogy.person_profiles (
   -- Capoeira-specific
   NULL,
   'Amateur capoeirista in his youth; participated in Rio de Janeiro capoeira rodas during the 1870s. His primary significance is as historian and chronicler rather than practitioner. Style distinctions (Angola/Regional) did not yet exist in his era.',
+  'Capoeirista amador em sua juventude; participou de rodas de capoeira no Rio de Janeiro durante a década de 1870. Sua importância principal é como historiador e cronista, não como praticante. Distinções de estilo (Angola/Regional) ainda não existiam em sua era.',
   -- Life dates
   1857,
   'year'::genealogy.date_precision,
@@ -69,7 +73,7 @@ INSERT INTO genealogy.person_profiles (
   1894,
   'month'::genealogy.date_precision,
   'Rio de Janeiro, Brazil',
-  -- Extended content
+  -- bio_en
   E'Plácido de Abreu Morais was born in Portugal in 1857 and immigrated to Brazil as a teenager during the 1870s, like many Portuguese seeking economic opportunity in the New World. After arriving in Rio de Janeiro, he found work as a clerk (caixeiro) and later as a typographer in a printing house that published newspapers and small literary works.
 
 Like many young immigrants of his time, Abreu was drawn into the street culture of the city and participated in capoeira rodas, becoming what sources describe as an "amateur capoeirista." In January 1872, during intense police repression led by Ludgero Gonçalves da Silva, he was arrested for investigation regarding a homicide—though the outcome of this case is not recorded.
@@ -99,7 +103,40 @@ After the proclamation of the Republic in November 1889, Abreu grew disillusione
 In February 1894, Plácido de Abreu was executed by firing squad near the Copacabana tunnel. According to Coelho Neto''s account, he "died with the heroism of an amouco, shot in the Copacabana tunnel" while walking in darkness. He was betrayed by an officer and shot in the back. Despite weakening from prolonged imprisonment, he attempted to stand after falling against the wall, grinding his teeth as he faced his executioners. Some historians believe his murder was politically motivated due to his activism and opposition to the Floriano regime.
 
 Though he died in obscurity at approximately 37 years of age, Abreu''s work has gained renewed recognition among historians and capoeira scholars. Os Capoeiras remains one of the earliest and most detailed contemporary accounts of capoeira, its practitioners, and its place in Brazilian society at the end of the 19th century—a rare window into the world of the maltas before the republican purge that would scatter them to Fernando de Noronha and drive capoeira underground.',
-  'Author of Os Capoeiras (1886) - the first book dedicated entirely to capoeira; Documented the Nagôas and Guaiamús maltas, their territories, leaders, and organizational structure; Created an extensive glossary of 19th-century capoeira slang; Provided eyewitness accounts of malta violence and training methods; His work is cited by historians including Carlos Eugênio Líbano Soares in A Negregada Instituição; Facilitated modern translations by Mestre Itapoan (Portuguese) and Matthias Röhrig Assunção (English)'
+  -- bio_pt
+  E'Plácido de Abreu Morais nasceu em Portugal em 1857 e imigrou para o Brasil ainda adolescente durante a década de 1870, como muitos portugueses em busca de oportunidades econômicas no Novo Mundo. Após chegar ao Rio de Janeiro, encontrou trabalho como caixeiro e depois como tipógrafo em uma casa impressora que publicava jornais e pequenas obras literárias.
+
+Como muitos jovens imigrantes de seu tempo, Abreu foi atraído pela cultura de rua da cidade e participou de rodas de capoeira, tornando-se o que as fontes descrevem como um "capoeirista amador." Em janeiro de 1872, durante intensa repressão policial liderada por Ludgero Gonçalves da Silva, foi preso para investigação sobre um homicídio—embora o resultado deste caso não esteja registrado.
+
+Seu contemporâneo Coelho Neto o descreveu como "poeta, dramaturgo e jornalista" e colega de figuras republicanas notáveis como Lopes Trovão e Pardal Mallet no combativo jornal O Combate. Outro contemporâneo o descreveu como "uma mistura de capoeira, ativista republicano e escritor."
+
+Abreu fez a transição das lutas de rua para atividades literárias, aprendendo tipografia e escrevendo romances, peças teatrais e poesia. Sua obra mais significativa, Os Capoeiras, foi publicada em 1886 pela Tipografia José Alves Editor no Rio de Janeiro. É considerado o primeiro livro dedicado inteiramente à capoeira. A obra é dividida em duas partes: a primeira é um estudo semi-etnográfico que funciona como ensaio sociológico sobre a cena da capoeira, e a segunda é uma novela ficcional ambientada no submundo da capoeira.
+
+Em sua introdução, intitulada "Duas Palavras," Abreu escreveu: "Quando comecei este livro, meu objetivo era descrever as atrocidades cometidas pelos capoeiras desde os tempos antigos. É uma tarefa difícil estudar a capoeiragem, desde seus tempos primitivos, porque sua origem não é bem conhecida."
+
+O livro documentou as duas grandes maltas (gangues) rivais do Rio de Janeiro: os Guaiamús (cuja cor era vermelha) e os Nagôas (cuja cor era branca). Ele registrou que os Guaiamú estavam centrados na igreja de São Francisco sob o famoso chefe Leandro Bonaparte, com locais secundários em Santa Rita, Ouro Preto, Marinha e São Domingos de Gusmão. Treinavam no morro do Livramento em um local chamado Mangueira. Os Nagôas estavam centrados na igreja de Santa Lucia sob a liderança de Manduca da Praia, com locais secundários em São José, Lapa, Santa Ana, Moura e Bolinha de Prata. Treinavam na praia do Russell e no morro do Pinto.
+
+Abreu documentou como ambos os grupos operavam hierarquicamente com chefes, assistentes, "policiais" e soldados rasos. O treinamento progredia de exercícios com as mãos nuas para armas de madeira e lâminas afiadas, com sessões frequentemente se tornando sangrentas. Ele registrou vários assassinatos, incluindo a morte de um membro Nagoa por Jorge-Marinha na Rua dos Ourives e as mortes retaliatórias subsequentes de Pinta Preta da Lapa, Jacó e Alemãozinho.
+
+Ele também forneceu um extenso glossário de gírias da capoeira: distorcer (disfarçar), tungar (ferir), lamparina (um tapa), chifrada (cabeçada), jangada (cadeia da polícia) e palácio de cristal (casa de detenção).
+
+Notavelmente, Abreu rejeitou a tradição oral das origens africanas: "Na África não conhecemos a capoeiragem, mas apenas algumas cabeçadas." Ele similarmente descartou a atribuição indígena, notando que os povos nativos não possuíam as técnicas específicas de ataque e defesa que os capoeiras empregavam. Esta posição é agora entendida como incorreta.
+
+Embora Abreu tenha praticado capoeira em sua juventude, mais tarde a denunciou em seus escritos como uma prática associada à criminalidade e violência urbana. Sua relação complexa com a capoeira reflete tensões mais amplas na sociedade brasileira durante a transição do Império para a República.
+
+Um republicano fervoroso, Abreu colaborou com Sampaio Ferraz no jornal Correio do Povo e com Lopes Trovão no O Combate—o mesmo Sampaio Ferraz que, como Chefe de Polícia após 1889, se tornaria o mais implacável perseguidor de capoeiras da história brasileira. Abreu foi implicado na tentativa de assassinato de junho de 1889 contra o Imperador Pedro II, embora o atacante real fosse Adriano Augusto do Valle.
+
+Seu segundo livro, Nagôas e Guayamús, é agora considerado perdido.
+
+Após a proclamação da República em novembro de 1889, Abreu ficou desiludido com o autoritarismo do Presidente Floriano Peixoto, que inconstitucionalmente se recusou a convocar eleições após assumir o poder. Quando a Revolta da Armada eclodiu em setembro de 1893—uma revolta naval liderada pelos Almirantes Custódio José de Melo e Saldanha da Gama contra o regime—Abreu apoiou os insurgentes.
+
+Em fevereiro de 1894, Plácido de Abreu foi executado por fuzilamento perto do túnel de Copacabana. Segundo o relato de Coelho Neto, ele "morreu com o heroísmo de um amouco, fuzilado no túnel de Copacabana" enquanto caminhava na escuridão. Foi traído por um oficial e baleado pelas costas. Apesar de enfraquecido pelo longo aprisionamento, tentou se levantar após cair contra a parede, rangendo os dentes enquanto enfrentava seus executores. Alguns historiadores acreditam que seu assassinato foi politicamente motivado devido ao seu ativismo e oposição ao regime florianista.
+
+Embora tenha morrido na obscuridade com aproximadamente 37 anos de idade, a obra de Abreu ganhou reconhecimento renovado entre historiadores e estudiosos da capoeira. Os Capoeiras permanece como um dos relatos contemporâneos mais antigos e detalhados da capoeira, seus praticantes e seu lugar na sociedade brasileira no final do século XIX—uma rara janela para o mundo das maltas antes do expurgo republicano que os dispersaria para Fernando de Noronha e levaria a capoeira à clandestinidade.',
+  -- achievements_en
+  'Author of Os Capoeiras (1886) - the first book dedicated entirely to capoeira; Documented the Nagôas and Guaiamús maltas, their territories, leaders, and organizational structure; Created an extensive glossary of 19th-century capoeira slang; Provided eyewitness accounts of malta violence and training methods; His work is cited by historians including Carlos Eugênio Líbano Soares in A Negregada Instituição; Facilitated modern translations by Mestre Itapoan (Portuguese) and Matthias Röhrig Assunção (English)',
+  -- achievements_pt
+  'Autor de Os Capoeiras (1886) - o primeiro livro dedicado inteiramente à capoeira; Documentou as maltas Nagôas e Guaiamús, seus territórios, líderes e estrutura organizacional; Criou um extenso glossário de gírias da capoeira do século XIX; Forneceu relatos de testemunha ocular sobre a violência e métodos de treinamento das maltas; Sua obra é citada por historiadores incluindo Carlos Eugênio Líbano Soares em A Negregada Instituição; Facilitou traduções modernas por Mestre Itapoan (português) e Matthias Röhrig Assunção (inglês)'
 )
 ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
@@ -107,15 +144,18 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   portrait = EXCLUDED.portrait,
   public_links = EXCLUDED.public_links,
   style = EXCLUDED.style,
-  style_notes = EXCLUDED.style_notes,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
   birth_year = EXCLUDED.birth_year,
   birth_year_precision = EXCLUDED.birth_year_precision,
   birth_place = EXCLUDED.birth_place,
   death_year = EXCLUDED.death_year,
   death_year_precision = EXCLUDED.death_year_precision,
   death_place = EXCLUDED.death_place,
-  bio = EXCLUDED.bio,
-  achievements = EXCLUDED.achievements,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
   updated_at = NOW();
 
 -- ============================================================
@@ -144,7 +184,10 @@ SELECT
   'person',
   mp.id,
   '{
-    "association_context": "Plácido de Abreu documented Manduca da Praia extensively in Os Capoeiras (1886) as the chief of the Santa Lucia party (Nagôas). As an amateur capoeirista in Rio during the 1870s-1880s, Abreu had insider knowledge of the malta world and documented Manduca''s exploits and leadership."
+    "association_context": {
+      "en": "Plácido de Abreu documented Manduca da Praia extensively in Os Capoeiras (1886) as the chief of the Santa Lucia party (Nagôas). As an amateur capoeirista in Rio during the 1870s-1880s, Abreu had insider knowledge of the malta world and documented Manduca''s exploits and leadership.",
+      "pt": "Plácido de Abreu documentou Manduca da Praia extensivamente em Os Capoeiras (1886) como o chefe do partido de Santa Lucia (Nagôas). Como capoeirista amador no Rio durante as décadas de 1870-1880, Abreu tinha conhecimento interno do mundo das maltas e documentou as façanhas e liderança de Manduca."
+    }
   }'::jsonb,
   'verified'::genealogy.confidence,
   'Plácido de Abreu, Os Capoeiras (1886); CapoeiraWiki; Capoeira History'

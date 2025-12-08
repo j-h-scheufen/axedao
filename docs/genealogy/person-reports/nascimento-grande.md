@@ -25,6 +25,8 @@
 
 ## Biography
 
+### English
+
 José Nascimento da Silva—known as "O Capoeira" in his time—was the most feared capoeirista in Pernambuco's history. His imposing 2-meter, 120-130kg frame earned him the nickname "Nascimento Grande." He worked as a stevedore at the Port of Recife, capable of carrying two 60-kilo sacks simultaneously.
 
 Despite his fearsome reputation, contemporaries described him as gentle, courteous, and well-educated with "a Bruce Lee-like gaze." One account said he had "a heart as big as the Capibaribe River," was "extremely honest—even his enemies recognized this"—and would "cry like melted butter at the most ordinary things in life." He always wore a large hat, carried a rubber cape on his arm, and wielded a famous 15kg cane he called "a volta."
@@ -35,11 +37,31 @@ His fame attracted challengers from across Brazil: Pirajé from Pará, Manezinho
 
 His most famous rivalry was with João Sabe Tudo ("João Knows Everything"), paradoxically also his friend. They avoided each other, but one Sunday morning they ran into each other near the bridge at Largo da Paz. João drew a peixeira (knife), Nascimento his cane, and the fight moved through the streets until they found themselves inside Igreja do Carmo. A vicar demanded they cease fighting in "the house of God." They shook hands and never fought again—but continued hosting parties together at Hotel Sobrado Grande on Rua Camboa do Carmo in Santo Antônio.
 
+### Português
+
+José Nascimento da Silva—conhecido como "O Capoeira" em seu tempo—foi o capoeirista mais temido da história de Pernambuco. Sua imponente estatura de 2 metros e 120-130kg lhe rendeu o apelido "Nascimento Grande." Trabalhava como estivador no Porto do Recife, capaz de carregar dois sacos de 60 quilos simultaneamente.
+
+Apesar de sua temível reputação, contemporâneos o descreviam como gentil, cortês e bem-educado com "um olhar à la Bruce Lee." Um relato dizia que tinha "um coração tão grande quanto o Rio Capibaribe," era "extremamente honesto—até seus inimigos reconheciam isso"—e "chorava como manteiga derretida pelas coisas mais ordinárias da vida." Sempre usava um grande chapéu, carregava uma capa de borracha no braço, e empunhava uma famosa bengala de 15kg que chamava de "a volta."
+
+Acreditava-se que possuía "corpo fechado," protegido por um amuleto contendo um "Santo Lenço." Frequentava a igreja regularmente e consultava um Pai de Santo, praticando defumação. A imprensa concedeu-lhe o título de "Herói Popular" porque só lutava em legítima defesa. Nunca perdeu uma luta e nunca recusou uma.
+
+Sua fama atraía desafiantes de todo o Brasil: Pirajé do Pará, Manezinho Camisa Preta do Rio de Janeiro, e Pajeú do sertão. Seus inimigos Corre Hoje (morto por bala perdida ao atacar com 7 homens) e Antonio Padroeiro (espancado até a morte) ambos morreram tentando matá-lo. Durante uma viagem ao Rio de Janeiro, Nascimento Grande matou Manezinho Camisa Preta em uma lendária luta mortal no Largo da Carioca—descrita como transformando a praça no "Peloponeso."
+
+Sua rivalidade mais famosa foi com João Sabe Tudo, paradoxalmente também seu amigo. Evitavam-se, mas num domingo de manhã encontraram-se perto da ponte no Largo da Paz. João sacou uma peixeira, Nascimento sua bengala, e a luta moveu-se pelas ruas até que se encontraram dentro da Igreja do Carmo. Um vigário exigiu que parassem de lutar na "casa de Deus." Apertaram as mãos e nunca mais lutaram—mas continuaram dando festas juntos no Hotel Sobrado Grande na Rua Camboa do Carmo em Santo Antônio.
+
 ## Carnival and Frevo Connection
+
+### English
 
 In the mid-19th century, two military bands dominated Recife's carnival: the Espanha band (National Guard Corps, named for its Spanish conductor) and the Quarto band (4th Artillery Battalion, which departed for the Paraguay War in 1865). These bands spawned rival capoeira factions: the "Partido do 4º" (also called "Banha Cheirosa") and the "Partido Espanha" (also called "Cabeças Secas"). These capoeiristas, known as "Brabos e Valentões," performed in front of the bands using ginga and kicks that were eventually transformed into the "passo"—the foundational dance of frevo. Of all the valentões of Recife's carnival—Jovino dos Coelhos, Nicolau do Poço, João de Totó—Nascimento Grande was the most feared.
 
+### Português
+
+Em meados do século XIX, duas bandas militares dominavam o carnaval do Recife: a banda Espanha (Corpo da Guarda Nacional, nomeada por seu maestro espanhol) e a banda do Quarto (4º Batalhão de Artilharia, que partiu para a Guerra do Paraguai em 1865). Essas bandas geraram facções rivais de capoeira: o "Partido do 4º" (também chamado "Banha Cheirosa") e o "Partido Espanha" (também chamado "Cabeças Secas"). Esses capoeiristas, conhecidos como "Brabos e Valentões," se apresentavam na frente das bandas usando ginga e chutes que eventualmente foram transformados no "passo"—a dança fundamental do frevo. De todos os valentões do carnaval do Recife—Jovino dos Coelhos, Nicolau do Poço, João de Totó—Nascimento Grande era o mais temido.
+
 ## Intellectual Recognition
+
+### English
 
 Nascimento Grande was celebrated by Brazil's intellectual elite. Sociologist Gilberto Freyre, novelist José Lins do Rego, folklorist Câmara Cascudo, and writer Gilberto Amado all knew him personally. José Mariano—the famous abolitionist politician and father of poet Olegário Mariano (elected "Prince of Brazilian Poets" in 1938)—documented his exploits in the Jornal do Commercio (Recife, February 20, 1936).
 
@@ -48,6 +70,16 @@ José Mariano recorded one remarkable incident: at age 93, Nascimento Grande wen
 When he died at 94 in Jacarepaguá, Rio de Janeiro, in 1936, Gilberto Freyre petitioned the government for an official tribute. The cordel poet João Martins de Ataíde (1880-1959), the greatest editor of cordel literature of his time, immortalized him in verse: "Nascimento aged / His hair turned white / But his wrinkled face / Never took a blow."
 
 As one source concluded: "Hercules is a myth; Nascimento Grande truly existed. His deeds are recorded in the newspapers of Recife."
+
+### Português
+
+Nascimento Grande foi celebrado pela elite intelectual brasileira. O sociólogo Gilberto Freyre, o romancista José Lins do Rego, o folclorista Câmara Cascudo e o escritor Gilberto Amado o conheciam pessoalmente. José Mariano—o famoso político abolicionista e pai do poeta Olegário Mariano (eleito "Príncipe dos Poetas Brasileiros" em 1938)—documentou suas façanhas no Jornal do Commercio (Recife, 20 de fevereiro de 1936).
+
+José Mariano registrou um incidente notável: aos 93 anos, Nascimento Grande foi ao mercado aberto de Paraguaçu e comprou um abacaxi de um vendedor português. O vendedor, notando sua idade avançada, o enganou com uma fruta que tinha uma parte podre. Quando Nascimento voltou para reclamar, o vendedor o dispensou e desafiou o velho. Nascimento "foi direto na garganta dele, do jeito que os capoeiristas do Recife lidavam com marinheiros." O vendedor sobreviveu apenas porque foi deixado "mal respirando."
+
+Quando morreu aos 94 anos em Jacarepaguá, Rio de Janeiro, em 1936, Gilberto Freyre peticionou ao governo por uma homenagem oficial. O poeta de cordel João Martins de Ataíde (1880-1959), o maior editor de literatura de cordel de seu tempo, o imortalizou em versos: "Nascimento envelheceu / Seus cabelos branquearam / Mas seu rosto enrugado / Nunca levou um golpe."
+
+Como concluiu uma fonte: "Hércules é um mito; Nascimento Grande realmente existiu. Suas façanhas estão registradas nos jornais do Recife."
 
 ## Spiritual Beliefs
 

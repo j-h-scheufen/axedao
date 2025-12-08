@@ -56,7 +56,7 @@ Each group file should indicate their profile type:
 
 ## File Template
 
-Each group file should follow this structure:
+Each group file should follow this structure. **Important:** All narrative sections require bilingual content (English and Brazilian Portuguese). See `docs/genealogy/BILINGUAL_CONTENT.md` for details.
 
 ```markdown
 # [Group Name] ([Founded Year])
@@ -81,7 +81,11 @@ Each group file should follow this structure:
 
 ## History
 
-[Detailed narrative history]
+### English
+[Detailed narrative history in English]
+
+### Português
+[História narrativa detalhada em português]
 
 ## Founding & Leadership
 
@@ -92,7 +96,27 @@ Each group file should follow this structure:
 
 ## Philosophy
 
-[Group's stated philosophy/mission]
+### English
+[Group's stated philosophy/mission in English]
+
+### Português
+[Filosofia/missão declarada do grupo em português]
+
+## Description
+
+### English
+[Brief group description in English]
+
+### Português
+[Breve descrição do grupo em português]
+
+## Style Notes
+
+### English
+[Notes about the group's capoeira style in English]
+
+### Português
+[Notas sobre o estilo de capoeira do grupo em português]
 
 ## Notable Members
 

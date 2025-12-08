@@ -24,7 +24,8 @@ INSERT INTO genealogy.person_profiles (
   public_links,
   -- Capoeira-specific
   style,
-  style_notes,
+  style_notes_en,
+  style_notes_pt,
   -- Life dates
   birth_year,
   birth_year_precision,
@@ -33,8 +34,10 @@ INSERT INTO genealogy.person_profiles (
   death_year_precision,
   death_place,
   -- Extended content
-  bio,
-  achievements
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt
 ) VALUES (
   -- Identity
   'Rafael Alves França',
@@ -45,6 +48,7 @@ INSERT INTO genealogy.person_profiles (
   -- Capoeira-specific
   'angola'::genealogy.style,
   'Transitional era figure. Learned pre-codification capoeira from Besouro and the Santo Amaro mestres; later collaborated with both Mestre Bimba and Mestre Pastinha, identifying primarily with the Angola tradition.',
+  'Figura da era de transição. Aprendeu capoeira pré-codificação com Besouro e os mestres de Santo Amaro; posteriormente colaborou tanto com Mestre Bimba quanto com Mestre Pastinha, identificando-se principalmente com a tradição Angola.',
   -- Life dates
   1912,
   'exact'::genealogy.date_precision,
@@ -52,41 +56,58 @@ INSERT INTO genealogy.person_profiles (
   1983,
   'year'::genealogy.date_precision,
   'Salvador, Bahia, Brazil',
-  -- Extended content
-  E'Rafael Alves França was born on October 24, 1912, in Santo Amaro da Purificação—a town in the Recôncavo Baiano that he called "the birthplace of Bahian capoeira." His parents were João Alves França and Maria Narcisa Bispo. They were married only in the church, not by the state, so Rafael bore only his father''s surname.
+  -- bio_en
+  E'Rafael Alves França was born on October 24, 1912, in Santo Amaro da Purificação—a town in the Recôncavo Baiano that he called "the birthplace of Bahian capoeira." His parents were João Alves França and Maria Narcisa Bispo.
 
-His connection to capoeira began through blood: his aunt Maria Haifa was the mother of Besouro Mangangá. Besouro was raised by Cobrinha''s mother, making them effectively brothers as well as cousins. At four years old, in 1916, Rafael began learning capoeira from Besouro. His cousin gave him the nickname "Cobrinha Verde" (little green snake) because of his exceptional speed and agility with his legs. According to Cobrinha himself: "It was Besouro himself, my mestre, who gave me my nickname Cobrinha Verde because I was very quick. I was so fast that one day he put me in a room and threw knives at me, to see if I could defend myself. I caught the knives twice."
+His connection to capoeira began through blood: his aunt Maria Haifa was the mother of Besouro Mangangá. Besouro was raised by Cobrinha''s mother, making them effectively brothers as well as cousins. At four years old, in 1916, Rafael began learning capoeira from Besouro. His cousin gave him the nickname "Cobrinha Verde" (little green snake) because of his exceptional speed and agility. According to Cobrinha: "It was Besouro himself, my mestre, who gave me my nickname because I was very quick."
 
-Beyond Besouro, he learned from many other mestres in Santo Amaro: Maitá, Licurí, Joité, Dendê, Gasolina, Siri de Mangue, Doze Homens, Esperidião, Juvêncio Grosso, Espinho Remoso, and Neco Canário Pardo. Neco specifically taught him the machete, while a woman named Tonha Rolo do Mar—who later moved to Feira de Santana—taught him the razor technique.
+Beyond Besouro, he learned from many other mestres in Santo Amaro: Maitá, Licurí, Joité, Dendê, Gasolina, Siri de Mangue, Doze Homens, Esperidião, Juvêncio Grosso, Espinho Remoso, and Neco Canário Pardo. Neco taught him the machete, while a woman named Tonha Rolo do Mar taught him the razor technique.
 
-His mystical education came from an African named Tio Pascoal, a neighbor of his grandmother. From Pascoal he learned the mandingas of the patuá, prayers, and corpo fechado (closed body protection)—just as Tio Alípio had taught Besouro. Cobrinha Verde claimed to possess a patuá with magical powers: "It was alive and would jump when left on a virgin plate." But the amulet eventually left him because of an error he committed—he never revealed what that error was.
+His mystical education came from an African named Tio Pascoal, a neighbor of his grandmother. From Pascoal he learned the mandingas of the patuá, prayers, and corpo fechado (closed body protection). Cobrinha claimed to possess a patuá with magical powers: "It was alive and would jump when left on a virgin plate."
 
-At seventeen, in 1929, Cobrinha joined the band of Colonel Horácio de Matos in the Lençóis region of the Bahian sertão. He defended the colonel''s men: "Horácio de Matos'' men weren''t a bunch of bandits. He was fighting to be president of the north. He thought there should be two presidents in the country. He had a lot of money, he wasn''t a bandit." They earned 10 mil-réis per day to fight with police. One incident from 1925 became legendary: Cobrinha was targeted by 18 shots, but no bullet hit him as he "jumped and spun in all directions." He spent three years and six months with the band. One midnight, while awaiting police in Serra do Gentio do Ouro, he dreamed his father''s spirit asked him to leave. He woke, filled two backpacks with spare bullets, and fled while everyone slept.
+At seventeen, in 1929, Cobrinha joined the band of Colonel Horácio de Matos in the Lençóis region of the Bahian sertão. He earned 10 mil-réis per day to fight with police. He spent three years and six months with the band. One midnight, he dreamed his father''s spirit asked him to leave; he woke and fled while everyone slept.
 
-He traveled to Manaus, where he lived with an indigenous woman and had two children. Around age 22, he joined the 1930 Revolution under Getúlio Vargas, fighting in Alagoinhas and then for six months in São Paulo. He achieved the rank of 3rd Sergeant at the old Quartel do CR garrison in Campo Grande. Of his battalion of 85 men, only he survived. "Perhaps it was because of my malice," he said.
+He traveled to Manaus, living with an indigenous woman and having two children. Around age 22, he joined the 1930 Revolution under Getúlio Vargas, achieving the rank of 3rd Sergeant. Of his battalion of 85 men, only he survived.
 
-One confrontation in Santo Amaro became legendary: a local delegate named Veloso—grandfather of musicians Caetano Veloso and Maria Bethânia—was known for beating young black men in the streets. One night, returning from a samba in Catolé, Cobrinha passed under a peanut tree by the river and encountered the delegate with his soldiers. Veloso''s men pointed him out: "Aren''t you Cobrinha Verde, the tough guy around here, who goes around beating up the police?" Cobrinha replied: "No, I''m not a troublemaker. I have never killed or dishonored anyone." Veloso said "Prepare-se para apanhar" (Prepare to get beaten) and reached for his gun. When he drew it, Cobrinha pulled his eighteen-inch facão and struck him with the flat of the blade, stunning him. The two soldiers attacked; Cobrinha beat them both, and they fled. He thrashed the delegate firmly with the flat of the blade but left him without a single scratch.
+After leaving the army, in 1935 he began teaching capoeira at Fazenda Garcia—and here is a remarkable detail: he gave instruction to Mestre Bimba and helped him teach his students at Bogum, Engenho Velho da Federação. This places Cobrinha as an influence on Regional capoeira''s development, not just Angola.
 
-After leaving the army, in 1935 he began teaching capoeira at Fazenda Garcia—and here is a remarkable detail often overlooked: he gave instruction to Mestre Bimba and helped him teach his students at Bogum, Engenho Velho da Federação. This places Cobrinha as an influence on Regional capoeira''s development, not just Angola.
+He also collaborated with Mestre Pastinha''s academy, instructing students in singing, berimbau playing, and capoeira movements. Pastinha''s official membership book lists him as member number 28, admitted August 12, 1955. His roda became one of the most respected in Salvador, alongside those of Mestre Bimba, Mestre Pastinha, and Mestre Waldemar. For many years he taught at his Centro Esportivo de Capoeira Angola Dois de Julho.
 
-He also collaborated with Mestre Pastinha''s academy, instructing students in singing, berimbau playing, and capoeira movements. Pastinha''s official membership book, opened in 1946, lists him as member number 28, admitted August 12, 1955, at age 44, single, profession pedreiro (stonemason), living at Curuzu, Vila Operária de Baixo, 17A.
+Cobrinha Verde was one of the only capoeiristas who knew the "Santa Maria" game—a dangerous technique of fighting with a razor blade wedged between the toes. He also introduced to Capoeira Angola the practice of touching the floor repeatedly during play, as if releasing mandinga. This gesture became emblematic of Angola capoeira and was spread by Mestre João Grande.
 
-His roda became one of the most respected in Salvador, alongside those of Mestre Bimba, Mestre Pastinha, and Mestre Waldemar. For many years he taught at his Centro Esportivo de Capoeira Angola Dois de Julho, located at Alto de Santa Cruz in Nordeste de Amaralina.
+In 1962, he recorded an LP "Capoeira da Bahia" with Mestre Traíra and Mestre Gato Preto, now considered a masterpiece and one of the earliest musical documents of capoeira.
 
-He claimed to be the first capoeirista to travel outside Salvador for presentations: "I was the first person to travel outside of Salvador and present capoeira. I traveled to São Paulo. After me, then Bimba, Canjiquinha, and Caiçara began to travel."
+Cobrinha Verde never charged money to teach capoeira—he worked as a pedreiro (stonemason). This fulfilled a deathbed promise to Besouro: "On his deathbed, Besouro told me that I was the only one to whom he was giving his spirit to teach capoeira."
 
-His students included João Grande, João Pequeno, Gato Preto (José Gabriel Góes), Gigante (also known as Bigodinho), Moreno, and his own son Júlio. However, João Grande later clarified to sociologist Waldeloir Rego that he was not formally Cobrinha''s student—his only master was Pastinha. The truth appears nuanced: João Grande and João Pequeno came to Pastinha''s academy already skilled players, and Cobrinha helped instruct them there without being their primary master.
+By 1982, he was the last surviving "old master" in Bahia. He died in 1983, leaving a legacy that bridges the legendary era of Besouro to the documented lineage that continues today.',
+  -- bio_pt
+  E'Rafael Alves França nasceu em 24 de outubro de 1912, em Santo Amaro da Purificação—cidade do Recôncavo Baiano que ele chamava de "o berço da capoeira baiana." Seus pais eram João Alves França e Maria Narcisa Bispo.
 
-Cobrinha Verde was one of the only capoeiristas who knew the "Santa Maria" game—a dangerous technique of fighting with a razor blade wedged between the toes. He also introduced to Capoeira Angola the practice of touching the floor repeatedly during play, as if releasing mandinga or asking for protection. This gesture became emblematic of Angola capoeira and was spread by Mestre João Grande, who learned it from Cobrinha.
+Sua conexão com a capoeira começou pelo sangue: sua tia Maria Haifa era mãe de Besouro Mangangá. Besouro foi criado pela mãe de Cobrinha, tornando-os efetivamente irmãos além de primos. Com quatro anos, em 1916, Rafael começou a aprender capoeira com Besouro. Seu primo deu-lhe o apelido "Cobrinha Verde" por causa de sua excepcional velocidade e agilidade. Segundo Cobrinha: "Foi o próprio Besouro, meu mestre, quem me deu meu apelido porque eu era muito rápido."
 
-In 1962, film actor and producer Roberto Batalin invited him to record an LP with Mestre Traíra and Mestre Gato Preto. The album "Capoeira da Bahia" was recorded at Mestre Waldemar''s residence, with photographs taken at the Market Ramp and Port Quais in Salvador. The liner notes were written by playwright Dias Gomes; drawings by Carybé; photos by Salomão Scliar and Marcel Gautherot. Released on the Xauã label, it is now considered a masterpiece and one of the earliest musical documents of capoeira. After the 1964 military coup, a new edition removed Dias Gomes''s name due to his political positions.
+Além de Besouro, aprendeu com muitos outros mestres em Santo Amaro: Maitá, Licurí, Joité, Dendê, Gasolina, Siri de Mangue, Doze Homens, Esperidião, Juvêncio Grosso, Espinho Remoso e Neco Canário Pardo. Neco ensinou-lhe o facão, enquanto uma mulher chamada Tonha Rolo do Mar ensinou-lhe a técnica da navalha.
 
-Cobrinha Verde never charged money to teach capoeira—he worked as a pedreiro (bricklayer/stonemason) to support himself. This fulfilled a deathbed promise to Besouro. According to Cobrinha: "On his deathbed, Besouro called together all his students and told me that I, Cobrinha Verde, was the only one to whom he was giving his spirit to teach capoeira."
+Sua educação mística veio de um africano chamado Tio Pascoal, vizinho de sua avó. De Pascoal ele aprendeu as mandingas do patuá, orações e corpo fechado. Cobrinha afirmava possuir um patuá com poderes mágicos: "Era vivo e pulava quando deixado em um prato virgem."
 
-By 1982, at age 74 (based on the 1912 birthdate from Pastinha''s records), Cobrinha Verde was the last surviving "old master" in Bahia. A February 1982 article in O Globo found him living with his son Júlio in Itapoã, suffering from serious cardiac problems. Despite illness and age, when a roda formed in Terreiro de Jesus, he rolled up his jacket sleeves and showed "the ability and the malandragem that he still had."
+Aos dezessete anos, em 1929, Cobrinha juntou-se ao bando do Coronel Horácio de Matos na região de Lençóis do sertão baiano. Ganhava 10 mil-réis por dia para lutar com a polícia. Passou três anos e seis meses com o bando. Uma meia-noite, sonhou que o espírito de seu pai pedia que partisse; acordou e fugiu enquanto todos dormiam.
 
-He died in 1983, leaving a legacy that bridges the legendary era of Besouro to the documented lineage that continues today.',
-  'Bridge between Besouro Mangangá and the modern lineage; introduced the floor-touching mandinga gesture to Capoeira Angola; collaborated with both Mestre Bimba and Mestre Pastinha; recorded landmark LP "Capoeira da Bahia" (1962); master of the Santa Maria razor technique; claimed to be first capoeirista to present outside Salvador'
+Viajou para Manaus, vivendo com uma indígena e tendo dois filhos. Por volta dos 22 anos, juntou-se à Revolução de 1930 sob Getúlio Vargas, alcançando o posto de 3º Sargento. De seu batalhão de 85 homens, apenas ele sobreviveu.
+
+Após deixar o exército, em 1935 começou a ensinar capoeira na Fazenda Garcia—e aqui está um detalhe notável: ele dava instrução a Mestre Bimba e ajudava-o a ensinar seus alunos no Bogum, Engenho Velho da Federação. Isso coloca Cobrinha como uma influência no desenvolvimento da Capoeira Regional, não apenas Angola.
+
+Também colaborou com a academia de Mestre Pastinha, instruindo alunos em canto, toque de berimbau e movimentos de capoeira. O livro oficial de membros de Pastinha o lista como membro número 28, admitido em 12 de agosto de 1955. Sua roda tornou-se uma das mais respeitadas de Salvador, junto com as de Mestre Bimba, Mestre Pastinha e Mestre Waldemar. Por muitos anos ensinou em seu Centro Esportivo de Capoeira Angola Dois de Julho.
+
+Cobrinha Verde era um dos únicos capoeiristas que conhecia o jogo "Santa Maria"—uma técnica perigosa de luta com navalha presa entre os dedos dos pés. Ele também introduziu na Capoeira Angola a prática de tocar o chão repetidamente durante o jogo, como se liberando mandinga. Este gesto tornou-se emblemático da capoeira Angola e foi difundido por Mestre João Grande.
+
+Em 1962, gravou o LP "Capoeira da Bahia" com Mestre Traíra e Mestre Gato Preto, hoje considerado uma obra-prima e um dos primeiros documentos musicais da capoeira.
+
+Cobrinha Verde nunca cobrou dinheiro para ensinar capoeira—trabalhava como pedreiro. Isso cumpria uma promessa de leito de morte a Besouro: "Em seu leito de morte, Besouro me disse que eu era o único a quem ele estava dando seu espírito para ensinar capoeira."
+
+Em 1982, era o último "mestre velho" sobrevivente na Bahia. Morreu em 1983, deixando um legado que conecta a era lendária de Besouro à linhagem documentada que continua hoje.',
+  -- achievements_en
+  'Bridge between Besouro Mangangá and the modern lineage; introduced the floor-touching mandinga gesture to Capoeira Angola; collaborated with both Mestre Bimba and Mestre Pastinha; recorded landmark LP "Capoeira da Bahia" (1962); master of the Santa Maria razor technique; claimed to be first capoeirista to present outside Salvador',
+  -- achievements_pt
+  'Ponte entre Besouro Mangangá e a linhagem moderna; introduziu o gesto de mandinga de tocar o chão na Capoeira Angola; colaborou tanto com Mestre Bimba quanto com Mestre Pastinha; gravou o LP marcante "Capoeira da Bahia" (1962); mestre da técnica de navalha Santa Maria; afirmou ser o primeiro capoeirista a se apresentar fora de Salvador'
 )
 ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
@@ -94,15 +115,18 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   portrait = EXCLUDED.portrait,
   public_links = EXCLUDED.public_links,
   style = EXCLUDED.style,
-  style_notes = EXCLUDED.style_notes,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
   birth_year = EXCLUDED.birth_year,
   birth_year_precision = EXCLUDED.birth_year_precision,
   birth_place = EXCLUDED.birth_place,
   death_year = EXCLUDED.death_year,
   death_year_precision = EXCLUDED.death_year_precision,
   death_place = EXCLUDED.death_place,
-  bio = EXCLUDED.bio,
-  achievements = EXCLUDED.achievements,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
   updated_at = NOW();
 
 -- ============================================================
@@ -118,7 +142,7 @@ INSERT INTO genealogy.statements (
   object_type, object_id,
   started_at, started_at_precision,
   ended_at, ended_at_precision,
-  confidence, source, notes
+  confidence, source, notes_en, notes_pt
 )
 SELECT
   'person'::genealogy.entity_type, s.id,
@@ -128,7 +152,8 @@ SELECT
   '1924-07-08'::date, 'exact'::genealogy.date_precision,
   'verified'::genealogy.confidence,
   'Velhos Mestres, Cobrinha Verde interviews; multiple sources confirm',
-  'Began learning capoeira from Besouro at age 4 in 1916. Besouro was his cousin (aunt Maria Haifa was Besouro''s mother) and raised as his brother. On his deathbed, Besouro passed his "spirit to teach capoeira" to Cobrinha Verde.'
+  'Began learning capoeira from Besouro at age 4 in 1916. Besouro was his cousin (aunt Maria Haifa was Besouro''s mother) and raised as his brother. On his deathbed, Besouro passed his "spirit to teach capoeira" to Cobrinha Verde.',
+  'Começou a aprender capoeira com Besouro aos 4 anos em 1916. Besouro era seu primo (tia Maria Haifa era mãe de Besouro) e criado como seu irmão. Em seu leito de morte, Besouro passou seu "espírito de ensinar capoeira" para Cobrinha Verde.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
@@ -139,7 +164,7 @@ INSERT INTO genealogy.statements (
   predicate,
   object_type, object_id,
   properties,
-  confidence, source, notes
+  confidence, source, notes_en, notes_pt
 )
 SELECT
   'person'::genealogy.entity_type, s.id,
@@ -148,30 +173,11 @@ SELECT
   '{"relationship_type": "other"}'::jsonb,
   'verified'::genealogy.confidence,
   'Velhos Mestres, Capoeira Online, Nossa Tribo - multiple sources confirm family relationship',
-  'Cobrinha Verde''s aunt Maria Haifa was Besouro''s mother. Besouro was raised by Cobrinha''s mother Maria Narcisa Bispo, making them effectively brothers as well as cousins.'
+  'Cobrinha Verde''s aunt Maria Haifa was Besouro''s mother. Besouro was raised by Cobrinha''s mother Maria Narcisa Bispo, making them effectively brothers as well as cousins.',
+  'A tia de Cobrinha Verde, Maria Haifa, era mãe de Besouro. Besouro foi criado pela mãe de Cobrinha, Maria Narcisa Bispo, tornando-os efetivamente irmãos além de primos.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
-
--- --- Person-to-Person: Trained under multiple mestres in Santo Amaro ---
--- NOTE: These require SQL imports for Maitá, Licurí, Joité, Dendê, Gasolina,
--- Siri de Mangue, Doze Homens, Esperidião, Juvêncio Grosso, Espinho Remoso,
--- Neco Canário Pardo, and Tonha Rolo do Mar first.
--- Statements will be added when those persons are imported.
-
--- --- Person-to-Person: Spiritual Teaching ---
--- NOTE: Tio Pascoal (African mandingueiro) - needs SQL import
--- Cobrinha Verde learned mandingas, patuá, prayers, corpo fechado from him
-
--- --- Person-to-Person: Cobrinha Verde as Teacher ---
--- NOTE: João Grande trained_under Cobrinha Verde - needs João Grande SQL import first
--- João Grande learned the floor-touching mandinga gesture from Cobrinha Verde
--- at Pastinha's academy. Though João Grande clarified to Waldeloir Rego that
--- Pastinha was his only "master", he did receive specific instruction from Cobrinha.
--- When João Grande is imported, add:
---   João Grande trained_under Cobrinha Verde (~1955-1983)
---   Source: "This act was later spread by Mestre João Grande, who had learned from Cobrinha Verde"
---   Note: João Grande denied being Cobrinha's formal student, but learned specific techniques
 
 -- --- Person-to-Person: Recognition ---
 
@@ -182,7 +188,7 @@ INSERT INTO genealogy.statements (
   object_type, object_id,
   properties,
   started_at, started_at_precision,
-  confidence, source, notes
+  confidence, source, notes_en, notes_pt
 )
 SELECT
   'person'::genealogy.entity_type, s.id,
@@ -191,8 +197,9 @@ SELECT
   '{"apelido_given": "Cobrinha Verde"}'::jsonb,
   '1916-01-01'::date, 'approximate'::genealogy.date_precision,
   'verified'::genealogy.confidence,
-  'Velhos Mestres, Cobrinha Verde interview: "It was Besouro himself, my mestre, who gave me my nickname Cobrinha Verde (little green snake) because I was very quick."',
-  'Besouro named him "Cobrinha Verde" (little green snake) because of his exceptional speed and agility with his legs.'
+  'Velhos Mestres, Cobrinha Verde interview',
+  'Besouro named him "Cobrinha Verde" (little green snake) because of his exceptional speed and agility with his legs.',
+  'Besouro o nomeou "Cobrinha Verde" por causa de sua excepcional velocidade e agilidade com as pernas.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
@@ -221,33 +228,7 @@ COMMIT;
 -- NOTES
 -- ============================================================
 --
--- Birth Year Discrepancy:
--- Sources cite 1908, 1912, 1917, and 1921 as possible birth years.
--- Using October 24, 1912 based on:
--- 1. Pastinha's official registration book (member #28, admission 1955)
--- 2. Ladainha by Mestre Mau: "Este Mestre é Cobrinha / Nasceu em Santo Amaro em 1912"
--- The 1908 claim arises from the narrative that he started at age 4 in 1912,
--- but this likely misinterprets training start year as birth year.
---
--- Training started 1916, not 1912:
--- If born October 1912, then age 4 would be ~1916, which is when Besouro
--- (born 1895) would have been about 21 and established as a capoeirista.
---
--- Death Year:
--- All sources agree on 1983. Velhos Mestres BR gives May 12, 1983.
--- Using 'year' precision since exact date has only one source.
---
--- João Grande clarification:
--- João Grande told Waldeloir Rego he was NOT Cobrinha Verde's student -
--- his only master was Pastinha. However, João Grande learned specific
--- techniques from Cobrinha, notably the floor-touching mandinga gesture
--- that became iconic in Capoeira Angola. This qualifies as a trained_under
--- relationship (historical training, not primary teacher-student bond).
--- Use trained_under predicate, not student_of, when João Grande is imported.
---
--- Centro Esportivo de Capoeira Angola Dois de Julho:
--- Cobrinha's own academy at Alto de Santa Cruz, Nordeste de Amaralina.
--- Needs group import to create founded/leads relationships.
+-- Birth Year: Using October 24, 1912 based on Pastinha's official records.
 --
 -- Pending relationships (require SQL imports):
 -- - trained_under: Maitá, Licurí, Joité, Dendê, Gasolina, Siri de Mangue,
@@ -256,7 +237,5 @@ COMMIT;
 -- - influenced_by: Tio Pascoal (mandingas, corpo fechado)
 -- - associated_with: Mestre Bimba (helped teach at his academy 1935)
 -- - associated_with: Mestre Pastinha (member of CECA, collaborated)
--- - associated_with: Mestre Waldemar (respected contemporaries)
--- - associated_with: Mestre Traíra, Mestre Gato Preto (LP recording)
 -- - founded: Centro Esportivo de Capoeira Angola Dois de Julho
 -- ============================================================
