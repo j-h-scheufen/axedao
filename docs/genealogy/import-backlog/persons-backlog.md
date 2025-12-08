@@ -42,3 +42,17 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Jacó | - | - | Plácido de Abreu import | pending | yes | Capoeirista killed in retaliation; documented by Plácido de Abreu |
 | Alemãozinho | - | - | Plácido de Abreu import | pending | yes | Capoeirista killed in retaliation; documented by Plácido de Abreu |
 | Paulo Barroquinha | - | - | Besouro Mangangá import | pending | yes | Training companion of Besouro Mangangá in Santo Amaro; part of his Sunday training circle |
+| Cobrinha Verde | Rafael Alves França | Mestre | Multiple | done | yes | Cousin and student of Besouro; bridge to documented lineage - SQL generated |
+| Mestre Gato Preto | José Gabriel Góes (or Góes/Chagas) | Mestre | Cobrinha Verde import | pending | yes | Student of Cobrinha Verde; recorded LP with him; represented Brazil at 1966 Dakar festival |
+| Mestre Traíra | João Ramos do Nascimento | Mestre | Cobrinha Verde import | pending | yes | Recorded LP "Capoeira da Bahia" with Cobrinha Verde (1962); student of Waldemar |
+| Mestre Waldemar | Waldemar da Paixão | Mestre | Cobrinha Verde import | pending | yes | Respected contemporary of Cobrinha; LP recorded at his residence |
+| Mestre Pastinha | Vicente Ferreira Pastinha | Mestre | Cobrinha Verde import | pending | yes | Founder of CECA; Cobrinha was member #28; collaborated on teaching |
+| Mestre Bimba | Manuel dos Reis Machado | Mestre | Cobrinha Verde import | pending | yes | Received instruction from Cobrinha in 1935 at Fazenda Garcia |
+| João Grande | João Oliveira dos Santos | Mestre | Cobrinha Verde import | pending | yes | Learned floor-touching mandinga from Cobrinha at Pastinha's academy |
+| João Pequeno | João Pereira dos Santos | Mestre | Cobrinha Verde import | pending | yes | Instructed by Cobrinha at Pastinha's academy |
+| Gigante (Bigodinho) | - | - | Cobrinha Verde import | pending | yes | Student of Cobrinha Verde; also known as Bigodinho |
+| Moreno | - | - | Cobrinha Verde import | pending | yes | Student of Cobrinha Verde |
+| Júlio França | - | - | Cobrinha Verde import | pending | yes | Son and disciple of Cobrinha Verde; skilled capoeirista |
+| Tio Pascoal | - | - | Cobrinha Verde import | pending | yes | African mandingueiro; neighbor of Cobrinha's grandmother; taught mandingas, patuá, corpo fechado |
+| Canjiquinha | Washington Bruno da Silva | Mestre | Cobrinha Verde import | pending | yes | Salvador mestre; mentioned as one who followed Cobrinha in traveling outside Salvador |
+| Caiçara | - | Mestre | Cobrinha Verde import | pending | yes | Salvador mestre; mentioned as one who followed Cobrinha in traveling outside Salvador |

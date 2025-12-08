@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-Seven major platforms attempt to catalog Capoeira groups, mestres, and lineages. Scale varies dramatically from **6 groups (Lalaue Article) to 1,446 groups (Brazilian Government Registry)**. None have successfully implemented comprehensive lineage tree visualization combined with organizational structure modeling.
+Eight major platforms attempt to catalog Capoeira groups, mestres, and lineages. Scale varies dramatically from **6 groups (Lalaue Article) to 1,446 groups (Brazilian Government Registry)**. None have successfully implemented comprehensive lineage tree visualization combined with organizational structure modeling.
 
 ### Platform Comparison at a Glance
 
@@ -21,6 +21,7 @@ Seven major platforms attempt to catalog Capoeira groups, mestres, and lineages.
 | **CapoeiraWiki** | Unknown (dozens) | Encyclopedia | Narrative only | Community wiki |
 | **Lalaue Article** | 6 groups | Editorial content | Narrative descriptions | Journalistic |
 | **Onde Acho Capoeira** | ~15 groups | Brazilian classifieds directory | None | User-contributed |
+| **Capoeira da Bahia** | 103 groups | Bahia state registry | None | User-contributed |
 
 ---
 
@@ -503,6 +504,7 @@ Seven major platforms attempt to catalog Capoeira groups, mestres, and lineages.
 | **CapoeiraWiki** | Narrative only | ❌ 0 | ❌ No | ❌ No (articles only) |
 | **Lalaue** | Narrative descriptions | ❌ 0 | ⚠️ Founding years | ❌ No (article) |
 | **Onde Acho Capoeira** | None | ❌ 0 | ⚠️ Founding years | ⚠️ Partial (by ID, category) |
+| **Capoeira da Bahia** | None | ❌ 0 | ⚠️ Founding dates | ⚠️ Partial (by municipality, style) |
 | **Quilombo (Planned)** | Structured graph | ✅ 7+ types | ✅ Yes | ✅ Yes |
 
 ### Organization/Group Data
@@ -516,6 +518,7 @@ Seven major platforms attempt to catalog Capoeira groups, mestres, and lineages.
 | **CapoeiraWiki** | Unknown (dozens) | ❌ Flat organizations | ⚠️ Described in text | ❌ Wiki (anyone can edit) |
 | **Lalaue** | 6 (curated) | ❌ N/A | ❌ Not modeled | ✅ Editorial curation |
 | **Onde Acho Capoeira** | ~15 | ❌ Flat groups | ❌ Not modeled | ❌ Unknown |
+| **Capoeira da Bahia** | 103 | ❌ Flat groups | ❌ Not modeled | ❌ Unknown |
 | **Quilombo (Planned)** | Hundreds+ | ✅ Multiple types | ✅ Parent-child, affiliations | ✅ Verification badges |
 
 ### Geographic Coverage
@@ -529,6 +532,7 @@ Seven major platforms attempt to catalog Capoeira groups, mestres, and lineages.
 | **CapoeiraWiki** | Global | None (articles mention locations) | Unknown |
 | **Lalaue** | Global (editorial focus) | None (article) | 6 |
 | **Onde Acho Capoeira** | Brazil-only | Category browsing, ID-based | ~15 |
+| **Capoeira da Bahia** | Bahia state only | Municipality + style filters | 103 |
 | **Quilombo (Planned)** | Global | Map + filters | Hundreds+ |
 
 ---
@@ -751,6 +755,123 @@ Seven major platforms attempt to catalog Capoeira groups, mestres, and lineages.
 
 ---
 
+## Platform 7: Capoeira da Bahia (Bahia State Registry)
+
+**URL**: https://capoeiradabahia.com.br/grupos/
+
+### Overview
+
+**Purpose**: Cultural preservation and promotional registry for Capoeira groups in Bahia state
+
+**Scale**: **103 groups** (third largest after IPHAN and Portal Capoeira)
+
+**Scope**: Capoeira groups primarily in Bahia, with emphasis on Salvador and surrounding municipalities
+
+### Data Model
+
+**Group Fields Captured**:
+```typescript
+{
+  // Identity
+  name: string,                // Organization name
+
+  // Leadership
+  mestre: string,              // Mestre/master name
+
+  // Classification
+  style: 'Angola' | 'Regional' | 'Contemporânea' | string,
+
+  // Location
+  municipality: string,        // Amargosa, Camaçari, Salvador, etc.
+
+  // Founding
+  foundingDate?: Date,
+
+  // Contact (optional)
+  website?: string,
+  email?: string,
+  phone?: string,
+  address?: string,
+  whatsapp?: string,
+  instagram?: string,
+  facebook?: string,
+
+  // Media
+  photo?: string,              // Group photo upload
+}
+```
+
+**Discovery Features**:
+- Filter by municipality (Amargosa, Camaçari, Salvador, etc.)
+- Filter by style (Angola, Regional, Contemporânea)
+- Free registration for groups
+
+**Lineage/Relationship Modeling**: ❌ **None detected**
+- Documents contemporary group affiliations only
+- No historical master-student genealogies
+- Mestre names captured as text (not linked entities)
+
+### Approach
+
+**Regional Cultural Preservation + Promotion**:
+- Aims to "strengthen [groups'] image and that of Capoeira in Bahia"
+- Free group registration system
+- Community resource hub beyond just directory
+- Combines registry with educational and commercial features
+
+**Additional Platform Features**:
+- **Roteiros** (Routes): Customizable capoeira experience booking
+- **Cursos** (Courses): Educational content and courses
+- **Repositório**: Document/resource repository
+- **Loja** (Shop): E-commerce integration for capoeira products
+
+### Strengths
+
+1. **✅ Significant regional scale**: 103 groups focused on Bahia (birthplace of capoeira)
+2. **✅ Rich data fields**: Leadership, style, founding date, multiple contact methods
+3. **✅ Free registration**: Low barrier to entry for groups
+4. **✅ Municipal filtering**: Geographic discovery within Bahia
+5. **✅ Ecosystem approach**: Courses, routes, shop, repository beyond directory
+6. **✅ Social media integration**: Instagram, Facebook, WhatsApp links
+7. **✅ Cultural focus**: Bahia-centric preserves capoeira's origins
+
+### Limitations
+
+1. **❌ Bahia-only**: No coverage outside Bahia state
+2. **❌ No lineage**: No teacher-student relationship tracking
+3. **❌ No organizational hierarchies**: Can't model group networks
+4. **❌ No verification system**: Quality control unclear
+5. **❌ Mestre as text**: Not linked to mestre profiles
+6. **❌ No visual discovery**: No map or lineage tree visualization
+
+### Relevance for Quilombo
+
+**Data Source Potential**:
+- 103 Bahia groups could supplement IPHAN data
+- Strong coverage of capoeira's birthplace (culturally significant)
+- Municipal-level geographic data useful
+- Founding dates and style classification align with our model
+
+**Model Validation**:
+- Confirms ecosystem approach has value (courses, routes, shop)
+- Free registration drives participation
+- Social media integration important for modern groups
+- Regional focus can coexist with broader registries
+
+**Differentiation**:
+- Quilombo's global scope vs. Bahia-only
+- Quilombo's structured lineage vs. none
+- Quilombo's verification system vs. unclear quality control
+- Quilombo's mestre profiles linked to groups vs. text names
+
+**Lessons**:
+- Bahia-focused registry validates importance of origin region
+- Ecosystem features (courses, routes) add value beyond directory
+- Free registration lowers barriers to data contribution
+- Social media links important for contemporary groups
+
+---
+
 ## Data Sources for Quilombo Import
 
 ### High-Priority Import Candidates
@@ -780,6 +901,12 @@ Seven major platforms attempt to catalog Capoeira groups, mestres, and lineages.
 - **Cons**: Unstructured, small scale, narrative-only
 - **Import strategy**: Manual curation for historical mestres (Bimba, Pastinha, etc.)
 - **Use case**: Seed data for managed profiles (deceased legends)
+
+**5. Capoeira da Bahia** (103 groups)
+- **Pros**: Strong Bahia coverage (capoeira's birthplace), founding dates, style data, social media links
+- **Cons**: Bahia-only, no lineage, limited overlap with IPHAN unclear
+- **Import strategy**: Supplement IPHAN data for Bahia region, cross-reference for duplicates
+- **Fields to map**: mestre → leadership, municipality → geolocation, style → `style`
 
 ---
 
@@ -848,6 +975,12 @@ Seven major platforms attempt to catalog Capoeira groups, mestres, and lineages.
 - ✅ Membership size and geographic spread are important metrics
 - ✅ Ranking/comparison features (biggest, oldest, etc.)
 - ✅ Historical connections to legends (Bimba, Pastinha) are emphasized
+
+**From Capoeira da Bahia**:
+- ✅ Regional focus on capoeira's birthplace validates cultural heritage importance
+- ✅ Free registration lowers barriers to data contribution
+- ✅ Social media integration (Instagram, WhatsApp) important for contemporary groups
+- ✅ Ecosystem features (courses, routes, shop) add value beyond directory
 
 ---
 
@@ -928,7 +1061,7 @@ Seven major platforms attempt to catalog Capoeira groups, mestres, and lineages.
 
 **Quilombo can be the first platform to deliver all of this**.
 
-The research validates the need (6 platforms attempting this), confirms our case study selection (4/6 biggest groups), and reveals the gaps we can fill.
+The research validates the need (8 platforms attempting this), confirms our case study selection (4/6 biggest groups), and reveals the gaps we can fill.
 
 **Next steps**:
 1. Reach out to IPHAN for official data partnership
