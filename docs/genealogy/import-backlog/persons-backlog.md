@@ -57,7 +57,7 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Canjiquinha | Washington Bruno da Silva | Mestre | Cobrinha Verde import | pending | yes | Salvador mestre; mentioned as one who followed Cobrinha in traveling outside Salvador |
 | Caiçara | - | Mestre | Cobrinha Verde import | pending | yes | Salvador mestre; mentioned as one who followed Cobrinha in traveling outside Salvador |
 | Sinhozinho | Agenor Moreira Sampaio | Mestre | Cyriaco import | pending | yes | Inspired by watching Cyriaco defeat Sada Miyako in 1909; important Rio capoeira figure; trained at Morro de Santo Antônio |
-| Onça Preta | Cícero Navarro | Mestre | Aberrê import | pending | yes | Contemporary of Aberrê; fought him in May 1936; allegedly Aberrê's student according to O Cruzeiro 1948; had rodas in Pau Miúdo and Alto das Pombas |
+| Onça Preta | Cícero Navarro | Mestre | Multiple | pending | yes | Bahian (1909-2006); came to Rio 1950s; contemporary of Aberrê; fought him May 1936; allegedly Aberrê's student per O Cruzeiro 1948 |
 | Geraldo Chapeleiro | - | - | Aberrê import | pending | yes | Contemporary of Aberrê in Matatu Preto training circle |
 | Creoni | - | - | Aberrê import | pending | yes | Contemporary of Aberrê in Matatu Preto training circle |
 | Chico Três Pedaços | - | - | Aberrê import | pending | yes | Contemporary of Aberrê in Matatu Preto training circle |
@@ -79,7 +79,7 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Totonho de Maré | Antonio Laurindo Neves | Mestre | Gengibirra import | pending | yes | One of four "owners and proprietors" of Gengibirra; 1894-?; recognized as one of "the best capoeiristas from Bahia" |
 | Livino | - | Mestre | Gengibirra import | pending | yes | Brother of Mestre Noronha; one of four "owners and proprietors" of Gengibirra; also known as Livinho |
 | Percílio | - | - | Gengibirra import | pending | yes | One of 22 founding mestres of Gengibirra |
-| Juvenal Engraxate | - | - | Gengibirra import | pending | yes | One of 22 founding mestres of Gengibirra |
+| Juvenal Engraxate | - | Mestre | Multiple | pending | yes | "Juvenal the Shoeshine"; one of 22 founding mestres of Gengibirra; second-generation Bahian mestre alongside Cobrinha Verde, Noronha, Waldemar |
 | Geraldo Pé de Abelha | - | - | Gengibirra import | pending | yes | One of 22 founding mestres of Gengibirra |
 | Zehí | - | - | Gengibirra import | pending | yes | One of 22 founding mestres of Gengibirra |
 | Feliciano Bigode de Seda | - | - | Gengibirra import | pending | yes | One of 22 founding mestres of Gengibirra |
@@ -91,3 +91,28 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Antônio Galindeu | - | - | Gengibirra import | pending | yes | One of 22 founding mestres of Gengibirra; also known as Antonio Galindo |
 | Antônio Boca de Porco | - | - | Gengibirra import | pending | yes | One of 22 founding mestres of Gengibirra; worked as stevedore |
 | Paquete do Cabula | - | - | Gengibirra import | pending | yes | One of 22 founding mestres of Gengibirra |
+| Siri de Mangue | - | - | Multiple | done | yes | Saveirista and capoeirista from Recôncavo; training companion of Besouro; teacher of Cobrinha Verde and Waldemar - SQL generated |
+| Maria Doze Homens | - | - | Siri de Mangue import | pending | yes | Female capoeirista; training companion of Besouro in Santo Amaro; part of his Sunday training circle |
+| Siri de Coroa | - | - | Siri de Mangue import | pending | ? | Mentioned in ladainha alongside Siri de Mangue; may be Rio capoeirista (Gamboa reference); unclear if distinct person |
+| Mestre Madeira | - | Mestre | Siri de Mangue import | pending | ? | Contemporary mestre; founded Grupo Siri de Mangue in São Luís, Maranhão; trained under Mestre Waldemar |
+| Sete Coroas | - | - | Multiple | done | yes | Baiano malandro in Rio (~1885-1923); teacher of Madame Satã; subject of Sinhô's 1921 samba - SQL generated |
+| Madame Satã | João Francisco dos Santos | - | Sete Coroas import | pending | yes | Legendary malandro (1900-1976); student of Sete Coroas; bridge between old capoeira carioca and modern era |
+| Quinzinho | - | - | Sete Coroas import | pending | yes | Teacher of Leopoldina; contemporary of Sete Coroas in Rio's malandro/capoeira world; ~1925-1950 active |
+| Leopoldina | - | Mestre | Multiple | pending | yes | Student of Quinzinho; major Rio lineage; one of "five main lineages" in contemporary Rio capoeira |
+| Camisa | - | - | Sete Coroas import | pending | ? | Companion of Sete Coroas; described as "terrible"; died before 1923 - unclear if capoeirista |
+| Benedito (Rio) | - | - | Sete Coroas import | pending | ? | Companion of Sete Coroas; described as "terrible"; died before 1923 - unclear if capoeirista |
+| Edgar | - | - | Sete Coroas import | pending | yes | Capoeirista imprisoned at Dois Rios alongside Sete Coroas; mentioned in Madame Satã's prison memoirs |
+| Americano | - | - | Sete Coroas import | pending | yes | Capoeirista imprisoned at Dois Rios alongside Sete Coroas; mentioned in Madame Satã's prison memoirs |
+| Prata Preta | Horácio José da Silva | - | Multiple | done | yes | Leader of 1904 Vaccine Revolt in Rio (1874-?); stevedore and capoeirista; deported to Acre - SQL generated |
+| Miguel Camisa Preta | Alfredo Francisco Soares | - | Prata Preta import | pending | yes | Famous Rio malandro and capoeirista; assassinated July 12, 1912; became Umbanda entity |
+| Leão do Norte | - | - | Prata Preta import | pending | yes | Great friend of Miguel Camisa Preta; capoeirista killed by police officer Elpídio |
+| Paraná | Oswaldo Lisboa dos Santos | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Bahian mestre (1910/1911-1972); came to Rio in 1945; major lineage figure |
+| Joel Lourenço | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Bahian; important role in Rio capoeira in 1950s |
+| Artur Emídio | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Contemporary Rio generation (born 1930s); major lineage figure |
+| Mário Buscapé | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Major lineage figure in Rio |
+| Djalma Bandeira | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Contemporary Rio generation |
+| Roque | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Major lineage figure in Rio |
+| Paulo Gomes | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Contemporary Rio generation |
+| Celso do Engenho | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Contemporary Rio generation |
+| Samuel Querido de Deus | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Bahian first-generation mestre; recognized alongside Besouro, Bimba, Pastinha |
+| Antônio Maré | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Bahian first-generation mestre |

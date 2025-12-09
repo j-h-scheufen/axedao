@@ -17,3 +17,4 @@
 | Centro de Capoeira Angola (Conceição da Praia) | Angola | Aberrê import | pending | Precursor to Gengibirra roda; co-founded by Aberrê, Amorzinho, Totonho de Maré per Noronha's manuscripts |
 | Gengibirra / Centro Nacional de Capoeira de Origem Angola | Angola | Aberrê import | done | Legendary roda at Ladeira de Pedra/Gengibirra, Liberdade; founded 1920s; handed to Pastinha 1941 - SQL generated |
 | Conjunto Folclórico Aberrê | Angola | Aberrê import | pending | Founded by Mestre Canjiquinha in tribute to his teacher Aberrê |
+| Grupo Siri de Mangue | Mixed | Siri de Mangue import | pending | Contemporary group founded by Mestre Madeira in São Luís, Maranhão; named after historical Siri de Mangue; presence in Brazil, Austria, Tanzania, Colombia |
