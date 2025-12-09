@@ -175,6 +175,12 @@ export function ForceGraph3DWrapper({
     return getLinkColor(link);
   }, []);
 
+  // Link visibility resolver - hides links marked as invisible
+  // These links still participate in the force simulation (gravity) but aren't rendered
+  const linkVisibilityResolver = useCallback((link: ForceLink) => {
+    return !link.invisible;
+  }, []);
+
   return (
     <div ref={containerRef} className="h-full w-full" style={{ minHeight: 400 }}>
       <ForceGraph3D
@@ -188,6 +194,7 @@ export function ForceGraph3DWrapper({
         nodeThreeObject={defaultNodeThreeObject}
         nodeThreeObjectExtend={false}
         // Link configuration
+        linkVisibility={linkVisibilityResolver}
         linkColor={linkColorResolver}
         linkWidth={1.5}
         linkOpacity={0.6}

@@ -165,7 +165,7 @@ SELECT
   'Professor Leiteiro account via velhosmestres.com/br/besouro'
 FROM genealogy.person_profiles ncp, genealogy.person_profiles besouro
 WHERE ncp.apelido = 'Neco Canário Pardo' AND besouro.apelido = 'Besouro Mangangá'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Cobrinha Verde trained_under Neco Canário Pardo (machete specifically)
 INSERT INTO genealogy.statements (
@@ -184,7 +184,7 @@ SELECT
   'Cobrinha Verde autobiography: "Neco Canário Pardo was my machete teacher" (capoeira-connection.com, capoeira.online)'
 FROM genealogy.person_profiles cv, genealogy.person_profiles ncp
 WHERE cv.apelido = 'Cobrinha Verde' AND ncp.apelido = 'Neco Canário Pardo'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================
 -- PENDING STATEMENTS (Relationships with entities not yet imported)

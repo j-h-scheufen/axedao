@@ -66,7 +66,7 @@ const RADIAL_FORCE_STRENGTH = 0.9;
 // ============================================================================
 
 /** Minimum radius from center (prevents nodes at exact center) */
-const MIN_RADIUS = 50;
+const MIN_RADIUS = 20;
 
 /** Radius increment per era band */
 const ERA_BAND_RADIUS = 40;
@@ -207,13 +207,20 @@ function processDataForStudentAncestry(data: GraphData): AncestryGraphData {
   // Reset band counts for fresh distribution
   bandNodeCounts.clear();
 
-  // Filter to student_of links only (and only between persons)
+  // Filter to lineage-relevant links (and only between persons)
+  // Include: student_of, trained_under (visible)
+  // Include: associated_with (invisible - for gravity/clustering only)
   const personIds = new Set(personNodes.map((n) => n.id));
 
-  const studentOfLinks = data.links
+  // Predicates that create visible connections (teaching lineage)
+  const VISIBLE_PREDICATES = new Set(['student_of', 'trained_under']);
+  // Predicates that create invisible connections (gravity/clustering only)
+  const GRAVITY_ONLY_PREDICATES = new Set(['associated_with']);
+
+  const ancestryLinks = data.links
     .filter((link) => {
-      // Check if this is a student or training relationship
-      if (link.type !== 'student_of' && link.type !== 'trained_under') {
+      // Check if this is a lineage-relevant relationship
+      if (!VISIBLE_PREDICATES.has(link.type) && !GRAVITY_ONLY_PREDICATES.has(link.type)) {
         return false;
       }
 
@@ -230,13 +237,17 @@ function processDataForStudentAncestry(data: GraphData): AncestryGraphData {
       const sourceId = typeof link.source === 'string' ? link.source : (link.source as { id: string }).id;
       const targetId = typeof link.target === 'string' ? link.target : (link.target as { id: string }).id;
 
+      // Mark gravity-only links as invisible
+      const invisible = GRAVITY_ONLY_PREDICATES.has(link.type);
+
       // Swap source/target for student_of and trained_under so arrows/particles flow from teacher to student
       // (data model: student -> teacher, but visually we want: teacher -> student)
-      if (link.type === 'student_of' || link.type === 'trained_under') {
+      if (VISIBLE_PREDICATES.has(link.type)) {
         return {
           ...link,
           source: targetId,
           target: sourceId,
+          invisible,
         };
       }
 
@@ -244,6 +255,7 @@ function processDataForStudentAncestry(data: GraphData): AncestryGraphData {
         ...link,
         source: sourceId,
         target: targetId,
+        invisible,
       };
     });
 
@@ -269,7 +281,7 @@ function processDataForStudentAncestry(data: GraphData): AncestryGraphData {
 
   return {
     nodes: processedNodes,
-    links: studentOfLinks,
+    links: ancestryLinks,
   };
 }
 

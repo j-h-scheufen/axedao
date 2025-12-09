@@ -227,7 +227,7 @@ SELECT
 FROM genealogy.person_profiles pa, genealogy.person_profiles mp
 WHERE pa.apelido = 'Plácido de Abreu'
   AND mp.apelido = 'Manduca da Praia'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================
 -- PENDING RELATIONSHIPS (for future imports)

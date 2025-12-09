@@ -170,7 +170,7 @@ SELECT
   'Aprendeu capoeira com Tio Alípio no Trapiche de Baixo, Santo Amaro, desde jovem. Tio Alípio era um ex-escravo africano e Babalaô que trabalhava no Engenho de Pantaleão.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Besouro Mangangá' AND o.apelido = 'Tio Alípio'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Cobrinha Verde was student of Besouro
 -- NOTE: Pending - Cobrinha Verde needs SQL import first
@@ -204,7 +204,7 @@ SELECT
   'Besouro mudou-se para o Trapiche de Baixo aos 13 anos (~1908) e treinou/ensinou lá até sua morte em 1924. O bairro "tornou-se sua escola."'
 FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Besouro Mangangá' AND g.name = 'Roda de Trapiche de Baixo'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Besouro teaches_at Roda de Trapiche de Baixo
 INSERT INTO genealogy.statements (
@@ -227,7 +227,7 @@ SELECT
   'Besouro ensinava capoeira em segredo no Trapiche de Baixo. Quando a polícia aparecia, ele mandava os alunos embora e enfrentava as autoridades sozinho.'
 FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Besouro Mangangá' AND g.name = 'Roda de Trapiche de Baixo'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- --- Person-to-Person: Recognition ---
 

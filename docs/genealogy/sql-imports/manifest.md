@@ -66,8 +66,10 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
 ```sql
 INSERT INTO genealogy.statements (...)
 SELECT ...
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 ```
+
+**Note**: The COALESCE expression is required because the unique index uses it to handle NULL `started_at` values (PostgreSQL treats NULL != NULL).
 
 This allows files to be re-run safely without creating duplicates.
 
@@ -107,8 +109,13 @@ Files are listed in recommended import order (dependencies first).
 | 3 | persons/manduca-da-praia.sql | none | Chief of Nagôas malta, Rio de Janeiro |
 | 4 | persons/nascimento-grande.sql | manduca-da-praia | Legendary Pernambuco capoeirista (1842-1936) |
 | 5 | persons/placido-de-abreu.sql | manduca-da-praia | First capoeira historian (1857-1894) |
-| 6 | persons/tio-alipio.sql | roda-de-trapiche-de-baixo | African proto-mestre, teacher of Besouro Mangangá |
-| 7 | persons/besouro-manganga.sql | roda-de-trapiche-de-baixo | Legendary Bahia capoeirista (1895-1924) |
+| 6 | persons/mamede.sql | manduca-da-praia | Dangerous capoeirista of 1850s Rio |
+| 7 | persons/aleixo-acougueiro.sql | manduca-da-praia, mamede | "The Butcher" - dangerous capoeirista of 1850s Rio |
+| 8 | persons/pedro-cobra.sql | manduca-da-praia, mamede, aleixo-acougueiro | "The Snake" - dangerous capoeirista of 1850s Rio |
+| 9 | persons/bentevi.sql | manduca-da-praia, mamede, aleixo-acougueiro, pedro-cobra | Named after bem-te-vi bird - dangerous capoeirista of 1850s Rio |
+| 10 | persons/quebra-coco.sql | manduca-da-praia, mamede, aleixo-acougueiro, pedro-cobra, bentevi | "Coconut Breaker" - dangerous capoeirista of 1850s Rio |
+| 11 | persons/tio-alipio.sql | roda-de-trapiche-de-baixo | African proto-mestre, teacher of Besouro Mangangá |
+| 12 | persons/besouro-manganga.sql | roda-de-trapiche-de-baixo | Legendary Bahia capoeirista (1895-1924) |
 
 ---
 

@@ -189,7 +189,7 @@ SELECT
   'Começou a aprender capoeira com Besouro aos 4 anos em 1916. Besouro era seu primo (tia Maria Haifa era mãe de Besouro) e criado como seu irmão. Em seu leito de morte, Besouro passou seu "espírito de ensinar capoeira" para Cobrinha Verde.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Besouro Mangangá'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Cobrinha Verde was family_of Besouro Mangangá (cousins)
 INSERT INTO genealogy.statements (
@@ -210,7 +210,7 @@ SELECT
   'A tia de Cobrinha Verde, Maria Haifa, era mãe de Besouro. Besouro foi criado pela mãe de Cobrinha, Maria Narcisa Bispo, tornando-os efetivamente irmãos além de primos.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Besouro Mangangá'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- --- Person-to-Person: Recognition ---
 
@@ -235,7 +235,7 @@ SELECT
   'Besouro o nomeou "Cobrinha Verde" por causa de sua excepcional velocidade e agilidade com as pernas.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Besouro Mangangá'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================
 -- IMPORT LOG

@@ -317,6 +317,9 @@ export const statements = genealogySchema.table(
     index('statements_subject_predicate_idx').on(t.subjectType, t.subjectId, t.predicate),
     index('statements_object_predicate_idx').on(t.objectType, t.objectId, t.predicate),
     // Prevent exact duplicates (same subject-predicate-object-startedAt)
+    // NOTE: Actual DB index uses COALESCE(started_at, '0001-01-01') for NULL handling
+    // This allows ON CONFLICT to work when started_at is NULL
+    // See migration 0029_fix-statements-unique-idx.sql
     uniqueIndex('statements_unique_idx').on(
       t.subjectType,
       t.subjectId,

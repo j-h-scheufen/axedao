@@ -165,7 +165,7 @@ SELECT
   '[Contexto do relacionamento em português]'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = '[Subject Apelido]' AND o.apelido = '[Object Apelido]'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================
 -- IMPORT LOG

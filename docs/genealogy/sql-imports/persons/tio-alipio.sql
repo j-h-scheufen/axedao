@@ -171,7 +171,7 @@ SELECT
   'Após a abolição em 1888, Tio Alípio se mudou para o bairro de Trapiche de Baixo onde viveu e continuou praticando/ensinando capoeira.'
 FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Tio Alípio' AND g.name = 'Roda de Trapiche de Baixo'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Tio Alípio teaches_at Roda de Trapiche de Baixo
 INSERT INTO genealogy.statements (
@@ -193,7 +193,7 @@ SELECT
   'Tio Alípio foi o principal professor de capoeira na região de Santo Amaro, ensinando nos canaviais e no bairro de Trapiche de Baixo.'
 FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Tio Alípio' AND g.name = 'Roda de Trapiche de Baixo'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- --- Person-to-Person: Teacher relationship ---
 -- NOTE: The student_of statement (Besouro → Tio Alípio) is defined in besouro-manganga.sql

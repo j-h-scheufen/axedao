@@ -194,7 +194,7 @@ SELECT
   'Parte do círculo de capoeiristas de Besouro em Santo Amaro que incluía Paulo Barroquinha, Canário Pardo e Maria Doze Homens. Descrito como "uma gangue de lutadores de resistência da capoeira."'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Siri de Mangue' AND o.apelido = 'Besouro Mangangá'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Cobrinha Verde was student_of Siri de Mangue
 INSERT INTO genealogy.statements (
@@ -217,7 +217,7 @@ SELECT
   'Cobrinha Verde aprendeu com múltiplos mestres de Santo Amaro após a morte de Besouro em 1924. Siri de Mangue estava entre eles junto com Maitá, Licurí, Joité, Dendê e outros.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Siri de Mangue'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- NOTE: Mestre Waldemar relationship pending - requires Waldemar SQL import
 -- Waldemar learned from Siri de Mangue starting ~1936; stated this in interviews

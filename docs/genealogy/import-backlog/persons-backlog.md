@@ -20,11 +20,11 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Apelido | Full Name | Title | Discovered From | Status | Import | Notes |
 |---------|-----------|-------|-----------------|--------|--------|-------|
 | Deputy Santana | - | Deputy | Manduca da Praia import | pending | ? | Portuguese deputy, famous opponent of Manduca; street fighter but unclear if capoeirista |
-| Mamede | - | - | Manduca da Praia import | pending | yes | Contemporary capoeirista in 19th century Rio |
-| Aleixo Açougueiro | - | - | Manduca da Praia import | pending | yes | Contemporary capoeirista in 19th century Rio |
-| Pedro Cobra | - | - | Manduca da Praia import | pending | yes | Contemporary capoeirista in 19th century Rio |
-| Bentevi | - | - | Manduca da Praia import | pending | yes | Contemporary capoeirista in 19th century Rio |
-| Quebra Coco | - | - | Manduca da Praia import | pending | yes | Contemporary capoeirista in 19th century Rio |
+| Mamede | - | - | Manduca da Praia import | done | yes | Contemporary capoeirista in 19th century Rio - SQL generated |
+| Aleixo Açougueiro | - | - | Manduca da Praia import | done | yes | Contemporary capoeirista in 19th century Rio - SQL generated |
+| Pedro Cobra | - | - | Manduca da Praia import | done | yes | Contemporary capoeirista in 19th century Rio - SQL generated |
+| Bentevi | - | - | Manduca da Praia import | done | yes | Contemporary capoeirista in 19th century Rio - SQL generated |
+| Quebra Coco | - | - | Manduca da Praia import | done | yes | Contemporary capoeirista in 19th century Rio - SQL generated |
 | Leandro Bonaparte | - | - | Manduca da Praia import | pending | yes | Chief of Saint Francis party (Guaiamú); capoeirista gang leader |
 | Jorge Marinha | - | - | Manduca da Praia import | pending | yes | Chief of Marinha gang; capoeirista gang leader |
 | Plácido de Abreu | Plácido de Abreu Morais | - | Manduca da Praia import | done | yes | Author of "Os Capoeiras" (1886); amateur capoeirista - SQL generated |
@@ -97,8 +97,8 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Mestre Madeira | - | Mestre | Siri de Mangue import | pending | ? | Contemporary mestre; founded Grupo Siri de Mangue in São Luís, Maranhão; trained under Mestre Waldemar |
 | Sete Coroas | - | - | Multiple | done | yes | Baiano malandro in Rio (~1885-1923); teacher of Madame Satã; subject of Sinhô's 1921 samba - SQL generated |
 | Madame Satã | João Francisco dos Santos | - | Sete Coroas import | done | yes | Legendary malandro (1900-1976); student of Sete Coroas; bridge between old capoeira carioca and modern era - SQL generated |
-| Quinzinho | - | - | Sete Coroas import | pending | yes | Teacher of Leopoldina; contemporary of Sete Coroas in Rio's malandro/capoeira world; ~1925-1950 active |
-| Leopoldina | - | Mestre | Multiple | pending | yes | Student of Quinzinho; major Rio lineage; one of "five main lineages" in contemporary Rio capoeira |
+| Quinzinho | Joaquim Felix de Souza | - | Multiple | done | yes | Premodern Rio capoeira figure (~1927-1954); teacher of Mestre Leopoldina; practiced tiririca - SQL generated |
+| Leopoldina | Demerval Lopes de Lacerda | Mestre | Multiple | pending | yes | Student of Quinzinho (1933-2007); major Rio lineage; one of "five main lineages" in contemporary Rio capoeira |
 | Camisa | - | - | Sete Coroas import | pending | ? | Companion of Sete Coroas; described as "terrible"; died before 1923 - unclear if capoeirista |
 | Benedito (Rio) | - | - | Sete Coroas import | pending | ? | Companion of Sete Coroas; described as "terrible"; died before 1923 - unclear if capoeirista |
 | Edgar | - | - | Sete Coroas import | pending | yes | Capoeirista imprisoned at Dois Rios alongside Sete Coroas; mentioned in Madame Satã's prison memoirs |
@@ -108,7 +108,7 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Leão do Norte | - | - | Prata Preta import | pending | yes | Great friend of Miguel Camisa Preta; capoeirista killed by police officer Elpídio |
 | Paraná | Oswaldo Lisboa dos Santos | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Bahian mestre (1910/1911-1972); came to Rio in 1945; major lineage figure |
 | Joel Lourenço | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Bahian; important role in Rio capoeira in 1950s |
-| Artur Emídio | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Contemporary Rio generation (born 1930s); major lineage figure |
+| Artur Emídio | Artur Emídio de Oliveira | Mestre | Multiple | pending | yes | Bahian mestre (1930-2011); came to Rio 1955; major lineage figure; second teacher of Leopoldina |
 | Mário Buscapé | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Major lineage figure in Rio |
 | Djalma Bandeira | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Contemporary Rio generation |
 | Roque | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Major lineage figure in Rio |
@@ -116,3 +116,7 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Celso do Engenho | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Contemporary Rio generation |
 | Samuel Querido de Deus | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Bahian first-generation mestre; recognized alongside Besouro, Bimba, Pastinha |
 | Antônio Maré | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Bahian first-generation mestre |
+| Nestor Capoeira | - | Mestre | Quinzinho import | pending | yes | Student of Mestre Leopoldina; director of 2005 documentary "Mestre Leopoldina, a Fina Flor da Malandragem"; author |
+| Juvenil | - | - | Quinzinho import | pending | ? | Sparring partner who trained with Leopoldina under Quinzinho in early 1950s; unclear if became capoeirista |
+| Valdemar Santana | - | - | Quinzinho import | pending | ? | Famous fighter who brought Artur Emídio to Rio; not primarily a capoeirista but connected to capoeira history |
+| Luiz Cândido Machado | Luiz Cândido Machado | - | Mestre Bimba lineage | pending | yes | Father of Mestre Bimba; champion of Batuque; former enslaved person of Bantu origin; taught Bimba batuque techniques incorporated into Capoeira Regional. The relationship is Bimba trained_under Luiz Cândido Machado with properties { "discipline": "batuque" } , family_of with properties { "relationship_type": "parent" } |

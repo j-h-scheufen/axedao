@@ -160,7 +160,7 @@ SELECT
   'Oscar Mello, "Recife Sangrento" (1937); Academia.edu: Capoeira e capoeiras entre a Guarda Negra'
 FROM genealogy.person_profiles adama, genealogy.person_profiles ng
 WHERE adama.apelido = 'Adama' AND ng.apelido = 'Nascimento Grande'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================
 -- PENDING STATEMENTS (Relationships with entities not yet imported)

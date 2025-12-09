@@ -29,6 +29,11 @@ export interface ForceNode extends GraphNode {
 export interface ForceLink extends Omit<GraphLink, 'source' | 'target'> {
   source: string | ForceNode;
   target: string | ForceNode;
+  /**
+   * If true, link participates in force simulation but is not rendered.
+   * Useful for creating gravitational clustering without visual connections.
+   */
+  invisible?: boolean;
 }
 
 /**

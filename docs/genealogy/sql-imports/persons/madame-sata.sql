@@ -232,7 +232,7 @@ SELECT
   'Relação primária professor-aluno. Sete Coroas ensinou a Madame Satã "a fina arte da malandragem": capoeira, luta de navalha, papo, rasteira e valentia. Quando Sete Coroas morreu em 1923, deixou Satã como seu sucessor na Lapa e na Saúde.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Madame Satã' AND o.apelido = 'Sete Coroas'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================
 -- IMPORT LOG

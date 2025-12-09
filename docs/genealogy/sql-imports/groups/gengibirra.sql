@@ -137,7 +137,7 @@ SELECT
   'Um dos 22 mestres fundadores; reconhecido como "campeão da capoeira do Estado da Bahia"'
 FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Cândido Pequeno' AND g.name = 'Gengibirra'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Aberrê co_founded Gengibirra (person exists - Raimundo ABR in founding list)
 INSERT INTO genealogy.statements (
@@ -160,7 +160,7 @@ SELECT
   'Um dos 22 mestres fundadores; listado como "Raimundo ABR"; posteriormente apresentou Pastinha à roda em 1941'
 FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Aberrê' AND g.name = 'Gengibirra'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================
 -- PENDING PERSON-TO-GROUP STATEMENTS (require person imports first)

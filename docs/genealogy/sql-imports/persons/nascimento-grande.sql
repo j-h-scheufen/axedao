@@ -166,7 +166,7 @@ SELECT
   'Multiple sources including History of Fighting, Grupo Capoeira Raça Negra'
 FROM genealogy.person_profiles ng, genealogy.person_profiles mp
 WHERE ng.apelido = 'Nascimento Grande' AND mp.apelido = 'Manduca da Praia'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================
 -- IMPORT LOG
