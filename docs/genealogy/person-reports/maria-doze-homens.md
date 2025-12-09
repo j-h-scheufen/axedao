@@ -20,3 +20,4 @@ The origin of her nickname is disputed:
 
 **Sources:**
 - [CapoeiraWiki: Women in capoeira](https://capoeirawiki.org/wiki/Women_in_capoeira)
+- [Raridades Da Capoeira - Maria 12 Homens](https://sites.google.com/view/raridadesdacapoeira/maria-12-homens)

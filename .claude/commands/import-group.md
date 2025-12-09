@@ -531,7 +531,11 @@ After completing research and generating the report, you MUST perform these file
    - Use lowercase with hyphens for spaces (e.g., `grupo-senzala.md`, `abada-capoeira.md`)
    - For acronyms, use lowercase (e.g., `gcap.md`, `ceca.md`)
    - Follow the template in `docs/genealogy/group-reports/README.md`
-   - Include: profile type, basic information table, history, founding & leadership, philosophy, notable members, lineage connections, sources
+   - **CRITICAL: The .md file must be BILINGUAL (EN/PT) just like the SQL file**
+     - Use bilingual section headers: `## History / História`, `## Philosophy / Filosofia`, etc.
+     - Include `### English` and `### Português` subsections for narrative content
+     - See person reports (e.g., `docs/genealogy/person-reports/adama.md`) as the reference structure
+   - Include: profile type, basic information table, history (EN+PT), philosophy (EN+PT), notable members, lineage connections, sources
    - Reference the SQL import file path
    - If file already exists, UPDATE it with new research (preserve existing content, add new findings)
 

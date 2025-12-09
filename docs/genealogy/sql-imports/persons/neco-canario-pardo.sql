@@ -55,8 +55,8 @@ INSERT INTO genealogy.person_profiles (
   'Pre-modern era capoeira; practiced before style distinctions (Angola/Regional) existed. Known for machete expertise and the traditional capoeira of Santo Amaro da Purificação.',
   'Capoeira da era pré-moderna; praticava antes das distinções de estilo (Angola/Regional). Conhecido pela perícia com o facão e pela capoeira tradicional de Santo Amaro da Purificação.',
   -- Life dates
-  NULL,
-  'unknown'::genealogy.date_precision,
+  1880,
+  'decade'::genealogy.date_precision,
   'Santo Amaro da Purificação, Bahia, Brazil',
   NULL,
   'unknown'::genealogy.date_precision,
@@ -90,7 +90,11 @@ Diferente de seu aluno Cobrinha Verde que passou a ensinar publicamente e deixar
   -- achievements_pt
   'Mestre de facão de Mestre Cobrinha Verde; Mestre de Mestre Waldemar da Paixão; Companheiro de Besouro Mangangá nas rodas do Trapiche de Baixo',
   -- Researcher notes (English)
-  E'NAME VARIATION: Some sources list "Neco" and "Canário Pardo" as separate individuals, while Cobrinha Verde''s direct testimony treats "Neco Canário Pardo" as a single person. We follow Cobrinha''s testimony as the primary source.
+  E'BIRTH YEAR ESTIMATION: c. 1880 (decade precision). Neco Canário Pardo was a companion of Besouro Mangangá (born 1895) at Trapiche de Baixo. He taught Cobrinha Verde (born 1912) machete from ~1916, and also taught Mestre Waldemar starting 1936. To be an established adult companion of Besouro in the 1910s-1920s, he was likely 10-20 years older than Besouro. If born ~1875-1885, he would be ~30-40 when teaching Cobrinha, ~40-50 during Besouro''s prime, and ~50-60 when teaching Waldemar. Using midpoint: c. 1880.
+
+DEATH DATE: Unknown.
+
+NAME VARIATION: Some sources list "Neco" and "Canário Pardo" as separate individuals, while Cobrinha Verde''s direct testimony treats "Neco Canário Pardo" as a single person. We follow Cobrinha''s testimony as the primary source.
 
 BROTHER: According to some sources, Mestre Atenilo ("Relâmpago da Regional") was his brother and may have been known as "Cordão de Ouro." However, Mestre Waldemar attributed the name Cordão de Ouro to Besouro himself. This remains disputed.
 
@@ -102,7 +106,11 @@ TEACHING TIMELINE: Taught Cobrinha Verde in the 1910s-1920s (Cobrinha born 1912,
 
 SOURCES: Primary sources include Cobrinha Verde''s autobiography (velhosmestres.com), Mestre Waldemar interview, Professor Leiteiro''s accounts.',
   -- Researcher notes (Portuguese)
-  E'VARIAÇÃO DE NOME: Algumas fontes listam "Neco" e "Canário Pardo" como indivíduos separados, enquanto o testemunho direto de Cobrinha Verde trata "Neco Canário Pardo" como uma única pessoa. Seguimos o testemunho de Cobrinha como fonte primária.
+  E'ESTIMATIVA DO ANO DE NASCIMENTO: c. 1880 (precisão de década). Neco Canário Pardo era companheiro de Besouro Mangangá (nascido em 1895) no Trapiche de Baixo. Ensinou facão a Cobrinha Verde (nascido em 1912) a partir de ~1916, e também ensinou Mestre Waldemar a partir de 1936. Para ser um companheiro adulto estabelecido de Besouro nos anos 1910-1920, ele provavelmente era 10-20 anos mais velho que Besouro. Se nascido ~1875-1885, teria ~30-40 anos ensinando Cobrinha, ~40-50 durante o auge de Besouro, e ~50-60 ensinando Waldemar. Usando ponto médio: c. 1880.
+
+DATA DE MORTE: Desconhecida.
+
+VARIAÇÃO DE NOME: Algumas fontes listam "Neco" e "Canário Pardo" como indivíduos separados, enquanto o testemunho direto de Cobrinha Verde trata "Neco Canário Pardo" como uma única pessoa. Seguimos o testemunho de Cobrinha como fonte primária.
 
 IRMÃO: Segundo algumas fontes, Mestre Atenilo ("Relâmpago da Regional") era seu irmão e pode ter sido conhecido como "Cordão de Ouro." No entanto, Mestre Waldemar atribuiu o nome Cordão de Ouro ao próprio Besouro. Isto permanece disputado.
 

@@ -54,8 +54,8 @@ INSERT INTO genealogy.person_profiles (
   'Pre-modern era capoeira; practiced when capoeira was illegal in Brazil. Style distinctions (Angola/Regional) did not yet exist. Associated with Recife''s carnival capoeira tradition and Pernambuco''s valentão culture.',
   'Capoeira da era pré-moderna; praticava quando a capoeira era ilegal no Brasil. Distinções de estilo (Angola/Regional) ainda não existiam. Associado à tradição carnavalesca de capoeira do Recife e à cultura dos valentões de Pernambuco.',
   -- Life dates
-  NULL,
-  'unknown'::genealogy.date_precision,
+  1870,
+  'decade'::genealogy.date_precision,
   'Recife, Pernambuco, Brazil',
   NULL,
   'unknown'::genealogy.date_precision,
@@ -89,7 +89,9 @@ Entre os lendários valentões do Recife—Jovino dos Coelhos, Nicolau do Poço,
   -- achievements_pt
   'Fundador e diretor do Maracatu "Oriente Pequeno"; Um dos dois maiores valentões do Recife; Especialista em rasteira e luta com faca; Impunha respeito em toda a cultura carnavalesca do Recife',
   -- Researcher notes (English)
-  E'BIRTH/DEATH DATES: Unknown. Active period documented as 1890s-1908.
+  E'BIRTH YEAR ESTIMATION: c. 1870 (decade precision). Adama was documented as active 1890s-1908. In 1907 he was involved in a train disturbance - at this time he would have been a mature, established valentão, likely 30-40 years old. In 1908 his Maracatu had its final conflicts, suggesting peak career. If approximately 35-40 years old in 1907, birth would be around 1867-1877. Using midpoint: c. 1870.
+
+DEATH DATE: Unknown.
 
 ILLITERACY: Documented in "Livro de Entrada e Saída de Presos" (Book of Entry and Exit of Prisoners).
 
@@ -101,7 +103,9 @@ MARACATU CONNECTION: Founded and directed Maracatu "Oriente Pequeno." The group'
 
 SOURCES: Primary source is Oscar Mello''s "Recife Sangrento" (1937, 1953 editions). Academic study by Israel Ozanam "Capoeira e capoeiras entre a Guarda Negra e a Educação Física no Recife" provides additional context.',
   -- Researcher notes (Portuguese)
-  E'DATAS DE NASCIMENTO/MORTE: Desconhecidas. Período de atividade documentado como 1890s-1908.
+  E'ESTIMATIVA DO ANO DE NASCIMENTO: c. 1870 (precisão de década). Adama foi documentado como ativo no período de 1890s-1908. Em 1907 ele se envolveu em um distúrbio em um trem - neste momento ele seria um valentão maduro e estabelecido, provavelmente com 30-40 anos. Em 1908 seu Maracatu teve seus últimos conflitos, sugerindo auge da carreira. Se tinha aproximadamente 35-40 anos em 1907, nascimento seria por volta de 1867-1877. Usando ponto médio: c. 1870.
+
+DATA DE MORTE: Desconhecida.
 
 ANALFABETISMO: Documentado no "Livro de Entrada e Saída de Presos."
 

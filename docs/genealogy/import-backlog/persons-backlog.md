@@ -96,7 +96,7 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Siri de Coroa | - | - | Siri de Mangue import | pending | ? | Mentioned in ladainha alongside Siri de Mangue; may be Rio capoeirista (Gamboa reference); unclear if distinct person |
 | Mestre Madeira | - | Mestre | Siri de Mangue import | pending | ? | Contemporary mestre; founded Grupo Siri de Mangue in São Luís, Maranhão; trained under Mestre Waldemar |
 | Sete Coroas | - | - | Multiple | done | yes | Baiano malandro in Rio (~1885-1923); teacher of Madame Satã; subject of Sinhô's 1921 samba - SQL generated |
-| Madame Satã | João Francisco dos Santos | - | Sete Coroas import | pending | yes | Legendary malandro (1900-1976); student of Sete Coroas; bridge between old capoeira carioca and modern era |
+| Madame Satã | João Francisco dos Santos | - | Sete Coroas import | done | yes | Legendary malandro (1900-1976); student of Sete Coroas; bridge between old capoeira carioca and modern era - SQL generated |
 | Quinzinho | - | - | Sete Coroas import | pending | yes | Teacher of Leopoldina; contemporary of Sete Coroas in Rio's malandro/capoeira world; ~1925-1950 active |
 | Leopoldina | - | Mestre | Multiple | pending | yes | Student of Quinzinho; major Rio lineage; one of "five main lineages" in contemporary Rio capoeira |
 | Camisa | - | - | Sete Coroas import | pending | ? | Companion of Sete Coroas; described as "terrible"; died before 1923 - unclear if capoeirista |

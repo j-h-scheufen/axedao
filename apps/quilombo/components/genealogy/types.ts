@@ -164,36 +164,37 @@ export const NODE_COLORS = {
  * Visual styling configuration for links.
  */
 export const LINK_COLORS = {
-  // Person-to-Person
-  student_of: '#FF6B6B',
-  trained_under: '#F06595',
-  influenced_by: '#CC5DE8',
-  mentored: '#845EF7',
-  granted_title_to: '#5C7CFA',
-  baptized: '#339AF0',
-  family_of: '#22B8CF',
-  // Person-to-Group
-  founded: '#20C997',
-  co_founded: '#51CF66',
-  leads: '#94D82D',
-  regional_coordinator_of: '#FCC419',
-  member_of: '#FF922B',
-  teaches_at: '#F76707',
-  cultural_pioneer_of: '#FA5252',
-  associated_with: '#E64980',
-  graduated_from: '#BE4BDB',
-  departed_from: '#7950F2',
-  // Group-to-Group
-  part_of: '#4C6EF5',
-  split_from_group: '#228BE6',
-  merged_into: '#15AABF',
-  absorbed: '#12B886',
-  succeeded: '#40C057',
-  evolved_from: '#82C91E',
-  affiliated_with: '#FAB005',
-  cooperates_with: '#FD7E14',
+  // Person-to-Person: Training & Lineage
+  student_of: '#FFD700', // Gold - most important relationship
+  trained_under: '#F06595', // Pink
+  influenced_by: '#CC5DE8', // Purple
+  // Person-to-Person: Recognition
+  granted_title_to: '#5C7CFA', // Blue
+  baptized_by: '#339AF0', // Light blue
+  // Person-to-Person: Family
+  family_of: '#22B8CF', // Cyan
+  // Person-to-Group: Founding & Leadership
+  founded: '#20C997', // Teal
+  co_founded: '#51CF66', // Green
+  leads: '#94D82D', // Lime
+  regional_coordinator_of: '#FCC419', // Yellow
+  // Person-to-Group: Membership & Affiliation
+  member_of: '#FF922B', // Orange
+  teaches_at: '#F76707', // Dark orange
+  cultural_pioneer_of: '#FA5252', // Red
+  associated_with: '#E64980', // Pink-red
+  departed_from: '#7950F2', // Violet
+  // Group-to-Group: Hierarchical
+  part_of: '#4C6EF5', // Indigo
+  // Group-to-Group: Evolution
+  split_from_group: '#228BE6', // Blue
+  merged_into: '#15AABF', // Cyan
+  evolved_from: '#82C91E', // Lime green
+  // Group-to-Group: Affiliation
+  affiliated_with: '#FAB005', // Amber
+  cooperates_with: '#FD7E14', // Orange
   // Default
-  default: '#868E96',
+  default: '#868E96', // Gray
 } as const;
 
 /**

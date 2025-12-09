@@ -1,4 +1,4 @@
-# Neco Canário Pardo (late 19th - early 20th century)
+# Neco Canário Pardo (c. 1880)
 
 **SQL Import:** `docs/genealogy/sql-imports/persons/neco-canario-pardo.sql`
 
@@ -14,7 +14,7 @@
 |---------------|---------------|
 | Full Name / Nome Completo | Unknown |
 | Apelido | Neco Canário Pardo |
-| Born / Nascimento | Unknown |
+| Born / Nascimento | c. 1880 (decade precision) |
 | Died / Falecimento | Unknown |
 | Location / Local | Trapiche de Baixo, Santo Amaro da Purificação, Bahia, Brazil |
 | Title / Título | - |
@@ -103,8 +103,45 @@ No documented teachers. Likely learned from the same generation as Besouro Manga
 
 | Field | Primary | Alternative | Notes |
 |-------|---------|-------------|-------|
-| Birth/Death | Unknown | - | No dates documented |
+| Birth year | c. 1880 | - | Estimated from relationship timeline (see birth year estimation below) |
+| Death | Unknown | - | No date documented |
 | "Cordão de Ouro" identity | Brother Atenilo | Besouro himself | Sources disagree on who held this name |
+
+## Birth Year Estimation / Estimativa do Ano de Nascimento
+
+### English
+**Estimated birth year: c. 1880 (decade precision)**
+
+Reasoning:
+- Neco Canário Pardo was a companion of Besouro Mangangá (born 1895, died 1924) - they trained together at Trapiche de Baixo
+- He taught Cobrinha Verde (born 1912) machete technique starting around 1916 when Cobrinha was 4 years old
+- He also taught Mestre Waldemar da Paixão, who began learning in 1936
+- To be an established adult companion of Besouro in the 1910s-1920s, he was likely 10-20 years older than Besouro
+- To still be teaching Waldemar in 1936, he couldn't have been too old - being ~55-60 is reasonable
+- If born around 1875-1885, he would be:
+  - ~30-40 years old when teaching Cobrinha (1916) - experienced adult teacher
+  - ~40-50 years old during Besouro's prime (1910s-1924) - senior companion
+  - ~50-60 years old when teaching Waldemar (1936) - elder mestre
+- Using the midpoint of this range: **c. 1880**
+
+This estimate is recorded with `decade` precision in the database, acknowledging the uncertainty while providing a reasonable anchor for temporal visualization.
+
+### Português
+**Ano de nascimento estimado: c. 1880 (precisão de década)**
+
+Raciocínio:
+- Neco Canário Pardo era companheiro de Besouro Mangangá (nascido em 1895, morto em 1924) - treinavam juntos no Trapiche de Baixo
+- Ele ensinou técnica de facão a Cobrinha Verde (nascido em 1912) a partir de ~1916, quando Cobrinha tinha 4 anos
+- Ele também ensinou Mestre Waldemar da Paixão, que começou a aprender em 1936
+- Para ser um companheiro adulto estabelecido de Besouro nos anos 1910-1920, ele provavelmente era 10-20 anos mais velho que Besouro
+- Para ainda estar ensinando Waldemar em 1936, ele não poderia ser muito velho - ter ~55-60 anos é razoável
+- Se nascido por volta de 1875-1885, ele teria:
+  - ~30-40 anos quando ensinou Cobrinha (1916) - professor adulto experiente
+  - ~40-50 anos durante o auge de Besouro (1910s-1924) - companheiro sênior
+  - ~50-60 anos quando ensinou Waldemar (1936) - mestre mais velho
+- Usando o ponto médio desta faixa: **c. 1880**
+
+Esta estimativa é registrada com precisão de `década` no banco de dados, reconhecendo a incerteza enquanto fornece uma âncora razoável para visualização temporal.
 
 ## Name Variation / Variação de Nome
 

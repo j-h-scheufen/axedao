@@ -674,7 +674,11 @@ After completing research and generating the report, you MUST perform these file
 2. **Create/Update person report file**: Write comprehensive research to `docs/genealogy/person-reports/[name-lowercase].md`
    - Use lowercase with hyphens for spaces (e.g., `joao-grande.md`, `cobrinha-verde.md`)
    - Follow the template in `docs/genealogy/person-reports/README.md`
-   - Include: profile type, basic information table, biography, connection to capoeira, sources
+   - **CRITICAL: The .md file must be BILINGUAL (EN/PT) just like the SQL file**
+     - Use bilingual section headers: `## Biography / Biografia`, `## Achievements / Conquistas`, etc.
+     - Include `### English` and `### Português` subsections for narrative content
+     - See `docs/genealogy/person-reports/adama.md` as the reference example
+   - Include: profile type, basic information table, biography (EN+PT), achievements (EN+PT), sources
    - Reference the SQL import file path
    - If file already exists, UPDATE it with new research (preserve existing content, add new findings)
 

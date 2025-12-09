@@ -66,10 +66,10 @@ const RADIAL_FORCE_STRENGTH = 0.9;
 const MIN_RADIUS = 50;
 
 /** Radius increment per era band */
-const ERA_BAND_RADIUS = 60;
+const ERA_BAND_RADIUS = 40;
 
 /** Additional radius per decade in modern era (post-1900) */
-const MODERN_DECADE_RADIUS = 40;
+const MODERN_DECADE_RADIUS = 30;
 
 /**
  * Era configuration for the radial layout.
@@ -226,6 +226,16 @@ function processDataForStudentAncestry(data: GraphData): AncestryGraphData {
       // Normalize links to use string IDs so react-force-graph can match them to our processed nodes
       const sourceId = typeof link.source === 'string' ? link.source : (link.source as { id: string }).id;
       const targetId = typeof link.target === 'string' ? link.target : (link.target as { id: string }).id;
+
+      // Swap source/target for student_of and trained_under so arrows/particles flow from teacher to student
+      // (data model: student -> teacher, but visually we want: teacher -> student)
+      if (link.type === 'student_of' || link.type === 'trained_under') {
+        return {
+          ...link,
+          source: targetId,
+          target: sourceId,
+        };
+      }
 
       return {
         ...link,
