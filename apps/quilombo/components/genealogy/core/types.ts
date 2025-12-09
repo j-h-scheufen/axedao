@@ -91,6 +91,17 @@ export interface ForceConfig {
 }
 
 /**
+ * Custom scene objects to add to the 3D scene.
+ * These are added once when the graph initializes.
+ */
+export interface CustomSceneObject {
+  /** Unique identifier for the object (for cleanup/updates) */
+  id: string;
+  /** The Three.js object to add to the scene */
+  object: THREE.Object3D;
+}
+
+/**
  * Props for the base ForceGraph3DWrapper component.
  */
 export interface ForceGraph3DWrapperProps {
@@ -114,6 +125,9 @@ export interface ForceGraph3DWrapperProps {
 
   /** Additional forces to apply */
   forces?: ForceConfig[];
+
+  /** Custom Three.js objects to add to the scene (e.g., era shells, guides) */
+  customSceneObjects?: CustomSceneObject[];
 
   /** Whether to auto-fit graph on load */
   autoFitOnLoad?: boolean;

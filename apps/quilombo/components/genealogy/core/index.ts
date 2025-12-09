@@ -10,6 +10,7 @@ export { getDefaultLinkStyle, getLinkColor, getMinimalLinkStyle } from './linkRe
 export type {
   CameraConfig,
   CameraPosition,
+  CustomSceneObject,
   ForceConfig,
   ForceGraph3DWrapperProps,
   ForceGraphData,

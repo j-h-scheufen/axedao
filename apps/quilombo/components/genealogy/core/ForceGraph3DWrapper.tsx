@@ -33,6 +33,7 @@ export function ForceGraph3DWrapper({
   onBackgroundClick,
   nodeRenderer,
   forces,
+  customSceneObjects,
   autoFitOnLoad = true,
   autoFitDelay = 800,
   autoFitPadding = 50,
@@ -47,6 +48,7 @@ export function ForceGraph3DWrapper({
 }: ForceGraph3DWrapperProps) {
   const graphRef = useRef<ForceGraphMethods<ForceNode, ForceLink> | undefined>(undefined);
   const containerRef = useRef<HTMLDivElement>(null);
+  const addedObjectIdsRef = useRef<Set<string>>(new Set());
   const [dimensions, setDimensions] = useState({ width: width || 800, height: height || 600 });
 
   // Camera controls
@@ -97,6 +99,48 @@ export function ForceGraph3DWrapper({
 
     return () => clearTimeout(timer);
   }, [autoFitOnLoad, autoFitDelay, autoFitPadding, zoomToFit]);
+
+  // Add custom scene objects
+  useEffect(() => {
+    if (!graphRef.current || !customSceneObjects || customSceneObjects.length === 0) return;
+
+    const scene = graphRef.current.scene();
+    if (!scene) return;
+
+    // Track which objects we need to add/remove
+    const newObjectIds = new Set(customSceneObjects.map((obj) => obj.id));
+
+    // Remove objects that are no longer in the list
+    for (const existingId of addedObjectIdsRef.current) {
+      if (!newObjectIds.has(existingId)) {
+        const objectToRemove = scene.getObjectByName(existingId);
+        if (objectToRemove) {
+          scene.remove(objectToRemove);
+        }
+        addedObjectIdsRef.current.delete(existingId);
+      }
+    }
+
+    // Add new objects
+    for (const { id, object } of customSceneObjects) {
+      if (!addedObjectIdsRef.current.has(id)) {
+        object.name = id; // Set name for later retrieval
+        scene.add(object);
+        addedObjectIdsRef.current.add(id);
+      }
+    }
+
+    // Cleanup on unmount
+    return () => {
+      for (const id of addedObjectIdsRef.current) {
+        const objectToRemove = scene.getObjectByName(id);
+        if (objectToRemove) {
+          scene.remove(objectToRemove);
+        }
+      }
+      addedObjectIdsRef.current.clear();
+    };
+  }, [customSceneObjects]);
 
   // Handle node click with camera focus
   const handleNodeClick = useCallback(

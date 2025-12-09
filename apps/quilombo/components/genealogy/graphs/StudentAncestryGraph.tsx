@@ -6,7 +6,8 @@
  * Specialized 3D visualization showing capoeira lineages through student-teacher relationships.
  *
  * Features:
- * - Radial spherical layout: oldest mestres at center, decades expand outward
+ * - Flat radial layout: oldest mestres at center, decades expand outward as concentric rings
+ * - All nodes placed in XZ plane (y=0) aligned with era rings
  * - Filters to persons only (no groups)
  * - Shows student_of and trained_under relationships
  * - Temporal positioning based on birth year
@@ -14,11 +15,13 @@
  */
 
 import { useMemo } from 'react';
+import * as THREE from 'three';
 import { forceRadial as forceRadial3d, forceCollide as forceCollide3d } from 'd3-force-3d';
 
 import type { GraphData, GraphNode, GroupMetadata, PersonMetadata } from '@/components/genealogy/types';
 import {
   ForceGraph3DWrapper,
+  type CustomSceneObject,
   type ForceConfig,
   type ForceGraphData,
   type ForceNode,
@@ -153,33 +156,33 @@ function computeRadialDistance(year: number | null): number {
 const bandNodeCounts = new Map<number, number>();
 
 /**
- * Compute spherical coordinates for radial temporal layout using Fibonacci sphere.
- * Oldest mestres at center, each era band expands outward as a spherical shell.
- * Uses Fibonacci spiral for even distribution on each shell.
+ * Compute flat 2D radial coordinates for temporal layout.
+ * All nodes placed in the XZ plane (y=0) to align with era rings.
+ * Uses golden angle distribution for even spacing on each ring.
  */
 function computeRadialPosition(
   year: number | null,
   nodeIndex: number,
-  totalNodes: number
+  _totalNodes: number
 ): { x: number; y: number; z: number } {
   const effectiveYear = year ?? ERA_CONFIG.unknownYear;
   const radius = computeRadialDistance(year);
   const band = getEraBand(effectiveYear);
 
-  // Track how many nodes are on this band's shell
+  // Track how many nodes are on this band's ring
   const currentCount = bandNodeCounts.get(band) || 0;
   bandNodeCounts.set(band, currentCount + 1);
 
-  // Use Fibonacci sphere for even distribution on this shell
-  // Add nodeIndex to ensure different positions even for same band
+  // Use golden angle for even distribution around the ring
+  // Add nodeIndex * 0.1 to ensure different positions even for same band
   const i = currentCount + nodeIndex * 0.1;
-  const phi = Math.acos(1 - (2 * (i + 0.5)) / (totalNodes + 1));
   const theta = Math.PI * (1 + Math.sqrt(5)) * i; // Golden angle
 
+  // Flat layout: all nodes at y=0 (XZ plane)
   return {
-    x: radius * Math.sin(phi) * Math.cos(theta),
-    y: radius * Math.sin(phi) * Math.sin(theta),
-    z: radius * Math.cos(phi),
+    x: radius * Math.cos(theta),
+    y: 0,
+    z: radius * Math.sin(theta),
   };
 }
 
@@ -271,6 +274,155 @@ function processDataForStudentAncestry(data: GraphData): AncestryGraphData {
 }
 
 // ============================================================================
+// ERA RING VISUALIZATION (Path 1 - Flat 2D Radial Layout)
+// ============================================================================
+
+/** Ring visual configuration */
+const RING_CONFIG = {
+  /** Line color (subtle grey) */
+  lineColor: 0x888888,
+  /** Line opacity */
+  lineOpacity: 0.5,
+  /** Number of segments for ring geometry (smoothness) */
+  segments: 64,
+  /** Label font size */
+  labelFontSize: 12,
+  /** Label color */
+  labelColor: 'rgba(200, 200, 200, 0.9)',
+} as const;
+
+/**
+ * Era ring definition with label and radius.
+ */
+interface EraRing {
+  id: string;
+  label: string;
+  radius: number;
+  band: number;
+}
+
+/**
+ * Generate era ring definitions for all eras that have data.
+ * Returns rings from foundation eras through 2020s.
+ */
+function generateEraRings(): EraRing[] {
+  const rings: EraRing[] = [];
+
+  // Foundation eras (bands 0-2)
+  for (const era of ERA_CONFIG.foundation) {
+    rings.push({
+      id: `era-ring-${era.band}`,
+      label: era.label,
+      radius: computeRadialDistance(era.startYear === -Infinity ? 1750 : era.startYear),
+      band: era.band,
+    });
+  }
+
+  // Modern era decades (1900s through 2020s)
+  for (let decade = 1900; decade <= 2020; decade += 10) {
+    const band = getEraBand(decade);
+    rings.push({
+      id: `era-ring-${band}`,
+      label: `${decade}s`,
+      radius: computeRadialDistance(decade),
+      band,
+    });
+  }
+
+  return rings;
+}
+
+/**
+ * Create a text sprite for era labels.
+ * Positioned at the edge of the ring on the X axis.
+ */
+function createEraLabelSprite(text: string, radius: number): THREE.Sprite {
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d') as CanvasRenderingContext2D;
+
+  // Set canvas size
+  const fontSize = RING_CONFIG.labelFontSize * 4; // Scale up for clarity
+  context.font = `bold ${fontSize}px Arial`;
+  const metrics = context.measureText(text);
+  const textWidth = metrics.width;
+
+  canvas.width = textWidth + 24;
+  canvas.height = fontSize * 1.4;
+
+  // Draw semi-transparent background
+  context.fillStyle = 'rgba(26, 26, 46, 0.75)';
+  context.roundRect(0, 0, canvas.width, canvas.height, 6);
+  context.fill();
+
+  // Draw text
+  context.font = `bold ${fontSize}px Arial`;
+  context.fillStyle = RING_CONFIG.labelColor;
+  context.textAlign = 'center';
+  context.textBaseline = 'middle';
+  context.fillText(text, canvas.width / 2, canvas.height / 2);
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.needsUpdate = true;
+
+  const material = new THREE.SpriteMaterial({
+    map: texture,
+    transparent: true,
+    depthTest: false,
+    depthWrite: false,
+  });
+
+  const sprite = new THREE.Sprite(material);
+  sprite.scale.set(canvas.width / 10, canvas.height / 10, 1);
+  // Position at edge of ring on X axis, slightly outside
+  sprite.position.set(radius + 12, 0, 0);
+  sprite.renderOrder = 1000;
+
+  return sprite;
+}
+
+/**
+ * Create a single horizontal ring (circle) at y=0 for an era.
+ */
+function createEraRingObject(ring: EraRing): THREE.Group {
+  const group = new THREE.Group();
+
+  // Create the ring as a circle in the XZ plane (y=0)
+  const points: THREE.Vector3[] = [];
+  for (let i = 0; i <= RING_CONFIG.segments; i++) {
+    const theta = (i / RING_CONFIG.segments) * Math.PI * 2;
+    points.push(new THREE.Vector3(ring.radius * Math.cos(theta), 0, ring.radius * Math.sin(theta)));
+  }
+
+  const geometry = new THREE.BufferGeometry().setFromPoints(points);
+  const material = new THREE.LineBasicMaterial({
+    color: RING_CONFIG.lineColor,
+    transparent: true,
+    opacity: RING_CONFIG.lineOpacity,
+  });
+
+  const line = new THREE.Line(geometry, material);
+  group.add(line);
+
+  // Add label at edge of ring
+  const label = createEraLabelSprite(ring.label, ring.radius);
+  group.add(label);
+
+  return group;
+}
+
+/**
+ * Generate all era ring scene objects.
+ */
+function generateEraRingObjects(): CustomSceneObject[] {
+  const rings = generateEraRings();
+
+  return rings.map((ring) => ({
+    id: ring.id,
+    object: createEraRingObject(ring),
+  }));
+}
+
+// ============================================================================
 // COMPONENT
 // ============================================================================
 
@@ -287,6 +439,8 @@ interface StudentAncestryGraphProps {
   width?: number;
   /** Fixed height (auto-sizes if not provided) */
   height?: number;
+  /** Show translucent era shells with labels (default: true) */
+  showEraShells?: boolean;
 }
 
 /**
@@ -305,14 +459,15 @@ export function StudentAncestryGraph({
   onBackgroundClick,
   width,
   height,
+  showEraShells = true,
 }: StudentAncestryGraphProps) {
   // Process data for radial layout with target radius per node
   const graphData = useMemo(() => processDataForStudentAncestry(data), [data]);
 
-  // Create forces for radial constraint and collision prevention
+  // Create forces for radial constraint, collision prevention, and Y-plane constraint
   const forces = useMemo((): ForceConfig[] => {
-    // Radial force: constrains nodes to their target radius (sphere shell)
-    // but allows them to move freely on the shell surface
+    // Radial force: constrains nodes to their target radius
+    // but allows them to move freely around the ring
     const radialForce = forceRadial3d((node: AncestryForceNode) => node.targetRadius ?? MIN_RADIUS).strength(
       RADIAL_FORCE_STRENGTH
     );
@@ -320,13 +475,40 @@ export function StudentAncestryGraph({
     // Collision force: prevents nodes from overlapping
     const collideForce = forceCollide3d(NODE_COLLISION_RADIUS);
 
+    // Custom force to pin nodes to y=0 plane
+    // This runs on each simulation tick and resets y and vy to 0
+    const flattenForce = () => {
+      const force = (_alpha: number) => {
+        // Access nodes from the simulation (will be set by d3-force)
+        const nodes = force.nodes || [];
+        for (const node of nodes) {
+          // Pin to y=0 plane
+          node.y = 0;
+          node.vy = 0;
+        }
+      };
+      // d3-force calls initialize() with nodes array
+      force.initialize = (nodes: AncestryForceNode[]) => {
+        force.nodes = nodes;
+      };
+      force.nodes = [] as AncestryForceNode[];
+      return force;
+    };
+
     return [
       { name: 'radial', force: radialForce },
       { name: 'collide', force: collideForce },
+      { name: 'flatten', force: flattenForce() },
       // Note: The default 'link' force is already enabled by react-force-graph
       // and will pull connected nodes toward each other
     ];
   }, []);
+
+  // Generate era ring scene objects (concentric circles with labels)
+  const eraRingObjects = useMemo(() => {
+    if (!showEraShells) return undefined;
+    return generateEraRingObjects();
+  }, [showEraShells]);
 
   return (
     <ForceGraph3DWrapper
@@ -335,6 +517,7 @@ export function StudentAncestryGraph({
       onNodeClick={onNodeClick}
       onBackgroundClick={onBackgroundClick}
       forces={forces}
+      customSceneObjects={eraRingObjects}
       width={width}
       height={height}
       autoFitOnLoad
