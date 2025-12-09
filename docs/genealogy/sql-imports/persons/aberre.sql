@@ -9,7 +9,7 @@
 -- 2. Antônio Rufino dos Santos (Santo Amaro) - teacher of Mestre Caiçara
 -- This import focuses on the documented figure from Salvador.
 -- ============================================================
--- DEPENDENCIES: persons/pastinha.sql, persons/noronha.sql, persons/canjiquinha.sql, persons/caiçara.sql, groups/gengibirra.sql
+-- DEPENDENCIES: persons/pastinha.sql, persons/noronha.sql, persons/canjiquinha.sql, persons/caiçara.sql, groups/gengibirra.sql, persons/onca-preta.sql, persons/geraldo-chapeleiro.sql, persons/totonho-de-mare.sql, persons/creoni.sql, persons/chico-tres-pedacos.sql, persons/paulo-barroquinha.sql, persons/barboza.sql
 -- ============================================================
 
 BEGIN;
@@ -122,7 +122,28 @@ Co-fundador do Centro de Capoeira Angola na Conceição da Praia (precursor de G
   'CONTROVERSY: Two different individuals may have been named "Aberrê" - (1) Antônio Raimundo Argolo of Salvador who invited Pastinha to Gengibirra, and (2) Antônio Rufino dos Santos of Santo Amaro who may have taught Caiçara. Both Canjiquinha and Caiçara denied connection to Pastinha''s lineage. Sources: ipcb-rj.com.br, velhosmestres.com. Full name from birth records per velhosmestres.com. Death circumstances recorded by both Mestre Canjiquinha and Mestre Onça Preta. Possible appearance in Ruth Landes photographs (October 23, 1938) but unconfirmed.',
   -- notes_pt
   'CONTROVÉRSIA: Dois indivíduos diferentes podem ter sido chamados "Aberrê" - (1) Antônio Raimundo Argolo de Salvador que convidou Pastinha para Gengibirra, e (2) Antônio Rufino dos Santos de Santo Amaro que pode ter ensinado Caiçara. Tanto Canjiquinha quanto Caiçara negaram conexão com a linhagem de Pastinha. Fontes: ipcb-rj.com.br, velhosmestres.com. Nome completo de registros de nascimento conforme velhosmestres.com. Circunstâncias da morte registradas por Mestre Canjiquinha e Mestre Onça Preta. Possível aparição em fotografias de Ruth Landes (23 de outubro de 1938) mas não confirmado.'
-) RETURNING id AS aberre_id;
+)
+ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
+  updated_at = NOW();
 
 -- ============================================================
 -- STATEMENTS (Relationships)
@@ -146,6 +167,183 @@ Co-fundador do Centro de Capoeira Angola na Conceição da Praia (precursor de G
 -- Not yet in dataset (pending groups import)
 -- PENDING: Generate statement when group is imported
 
+-- --- Matatu Preto Training Group (1930s) ---
+
+-- Aberrê associated_with Onça Preta (Matatu Preto training group)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1930-01-01'::date, 'decade'::genealogy.date_precision,
+  '1942-09-01'::date, 'month'::genealogy.date_precision,
+  '{"association_context": "Both were part of the Matatu Preto Sunday training group in Salvador during the 1930s; documented in Canjiquinha''s 1989 testimony"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Canjiquinha testimony 1989; velhosmestres.com/br/destaques-2',
+  'Led the Sunday training sessions at Matatu Preto; challenged Onça Preta in 1936',
+  'Liderou as sessões de treino de domingo no Matatu Preto; desafiou Onça Preta em 1936'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Aberrê' AND o.apelido = 'Onça Preta'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Aberrê associated_with Geraldo Chapeleiro (Matatu Preto training group)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1930-01-01'::date, 'decade'::genealogy.date_precision,
+  '1942-09-01'::date, 'month'::genealogy.date_precision,
+  '{"association_context": "Both were part of the Matatu Preto Sunday training group in Salvador during the 1930s; documented in Canjiquinha''s 1989 testimony"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Canjiquinha testimony 1989; velhosmestres.com/br/destaques-2',
+  'Contemporaries at Matatu Preto in the 1930s',
+  'Contemporâneos no Matatu Preto nos anos 1930'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Aberrê' AND o.apelido = 'Geraldo Chapeleiro'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Aberrê associated_with Totonho de Maré (Matatu Preto training group)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1930-01-01'::date, 'decade'::genealogy.date_precision,
+  '1942-09-01'::date, 'month'::genealogy.date_precision,
+  '{"association_context": "Both were part of the Matatu Preto Sunday training group in Salvador during the 1930s; both also co-founded Gengibirra; documented in Canjiquinha''s 1989 testimony"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Canjiquinha testimony 1989; velhosmestres.com/br/destaques-2',
+  'Contemporaries at Matatu Preto; both involved in founding Gengibirra',
+  'Contemporâneos no Matatu Preto; ambos envolvidos na fundação da Gengibirra'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Aberrê' AND o.apelido = 'Totonho de Maré'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Aberrê associated_with Creoni (Matatu Preto training group)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1930-01-01'::date, 'decade'::genealogy.date_precision,
+  '1942-09-01'::date, 'month'::genealogy.date_precision,
+  '{"association_context": "Both were part of the Matatu Preto Sunday training group in Salvador during the 1930s; documented in Canjiquinha''s 1989 testimony"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Canjiquinha testimony 1989; velhosmestres.com/br/destaques-2',
+  'Contemporaries at Matatu Preto in the 1930s',
+  'Contemporâneos no Matatu Preto nos anos 1930'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Aberrê' AND o.apelido = 'Creoni'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Aberrê associated_with Chico Três Pedaços (Matatu Preto training group)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1930-01-01'::date, 'decade'::genealogy.date_precision,
+  '1942-09-01'::date, 'month'::genealogy.date_precision,
+  '{"association_context": "Both were part of the Matatu Preto Sunday training group in Salvador during the 1930s; documented in Canjiquinha''s 1989 testimony"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Canjiquinha testimony 1989; velhosmestres.com/br/destaques-2',
+  'Contemporaries at Matatu Preto in the 1930s',
+  'Contemporâneos no Matatu Preto nos anos 1930'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Aberrê' AND o.apelido = 'Chico Três Pedaços'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Aberrê associated_with Paulo Barroquinha (Matatu Preto training group)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1930-01-01'::date, 'decade'::genealogy.date_precision,
+  '1942-09-01'::date, 'month'::genealogy.date_precision,
+  '{"association_context": "Both were part of the Matatu Preto Sunday training group in Salvador during the 1930s; documented in Canjiquinha''s 1989 testimony"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Canjiquinha testimony 1989; velhosmestres.com/br/destaques-2',
+  'Contemporaries at Matatu Preto in the 1930s',
+  'Contemporâneos no Matatu Preto nos anos 1930'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Aberrê' AND o.apelido = 'Paulo Barroquinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Aberrê associated_with Barboza (Matatu Preto training group)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1930-01-01'::date, 'decade'::genealogy.date_precision,
+  '1942-09-01'::date, 'month'::genealogy.date_precision,
+  '{"association_context": "Both were part of the Matatu Preto Sunday training group in Salvador during the 1930s; documented in Canjiquinha''s 1989 testimony"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Canjiquinha testimony 1989; velhosmestres.com/br/destaques-2',
+  'Contemporaries at Matatu Preto in the 1930s',
+  'Contemporâneos no Matatu Preto nos anos 1930'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Aberrê' AND o.apelido = 'Barboza'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- IMPORT LOG
 -- ============================================================
@@ -155,8 +353,8 @@ VALUES (
   'person',
   'persons/aberre.sql',
   NULL,
-  ARRAY['persons/pastinha.sql', 'persons/noronha.sql', 'persons/canjiquinha.sql', 'persons/caiçara.sql', 'groups/gengibirra.sql']::text[],
-  'Pivotal figure who invited Pastinha to Gengibirra 1941; trained Canjiquinha; controversial identity with possible second Aberrê de Santo Amaro'
+  ARRAY['persons/pastinha.sql', 'persons/noronha.sql', 'persons/canjiquinha.sql', 'persons/caiçara.sql', 'groups/gengibirra.sql', 'persons/onca-preta.sql', 'persons/geraldo-chapeleiro.sql', 'persons/totonho-de-mare.sql', 'persons/creoni.sql', 'persons/chico-tres-pedacos.sql', 'persons/paulo-barroquinha.sql', 'persons/barboza.sql']::text[],
+  'Pivotal figure who invited Pastinha to Gengibirra 1941; trained Canjiquinha; led Matatu Preto training group; controversial identity with possible second Aberrê de Santo Amaro'
 )
 ON CONFLICT (entity_type, file_path) DO UPDATE SET
   imported_at = NOW(),

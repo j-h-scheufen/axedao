@@ -9,7 +9,7 @@
 --   - https://4capoeirathoughts.wordpress.com/2009/10/17/mestre-waldemar-da-paixao/
 --   - Documentary: "Memórias do Recôncavo: Besouro e Outros Capoeiras" (2008), dir. Pedro Abib
 -- ============================================================
--- DEPENDENCIES: persons/besouro-manganga.sql, persons/cobrinha-verde.sql
+-- DEPENDENCIES: persons/besouro-manganga.sql, persons/cobrinha-verde.sql, persons/paulo-barroquinha.sql, persons/neco-canario-pardo.sql, persons/doze-homens.sql
 -- ============================================================
 --
 -- BIRTH YEAR ESTIMATION (1880, decade precision):
@@ -222,6 +222,81 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- NOTE: Mestre Waldemar relationship pending - requires Waldemar SQL import
 -- Waldemar learned from Siri de Mangue starting ~1936; stated this in interviews
 
+-- Siri de Mangue associated_with Paulo Barroquinha (Besouro's circle)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1910-01-01'::date, 'approximate'::genealogy.date_precision,
+  '1924-07-08'::date, 'exact'::genealogy.date_precision,
+  '{"association_context": "Both part of Besouro''s circle in Santo Amaro/Recôncavo; described as ''a gang of capoeira resistance fighters who trained together on Sundays''"}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Papoeira.com; velhosmestres.com/br/besouro',
+  'Part of Besouro''s network in Santo Amaro/Recôncavo',
+  'Parte da rede de Besouro em Santo Amaro/Recôncavo'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Siri de Mangue' AND o.apelido = 'Paulo Barroquinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Siri de Mangue associated_with Neco Canário Pardo (both from Recôncavo, both taught Waldemar)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1910-01-01'::date, 'approximate'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"association_context": "Both from Santo Amaro/Recôncavo region; both companions of Besouro; both later taught Mestre Waldemar"}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Mestre Waldemar interview: "I learned Capoeira from Siri de Mangue, Canário Pardo, Calabi de Periperi..."',
+  'Both from Recôncavo region; companions of Besouro; both taught Mestre Waldemar',
+  'Ambos da região do Recôncavo; companheiros de Besouro; ambos ensinaram Mestre Waldemar'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Siri de Mangue' AND o.apelido = 'Neco Canário Pardo'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Siri de Mangue associated_with Doze Homens (Besouro's circle / Recôncavo)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1910-01-01'::date, 'approximate'::genealogy.date_precision,
+  '1924-07-08'::date, 'exact'::genealogy.date_precision,
+  '{"association_context": "Both from Besouro''s circle in Santo Amaro/Recôncavo region; both taught capoeira to others"}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Papoeira.com; velhosmestres.com/br/besouro',
+  'Both part of Besouro''s extended network in the Recôncavo region',
+  'Ambos parte da rede estendida de Besouro na região do Recôncavo'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Siri de Mangue' AND o.apelido = 'Doze Homens'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- IMPORT LOG
 -- ============================================================
@@ -231,7 +306,7 @@ VALUES (
   'person',
   'persons/siri-de-mangue.sql',
   NULL,
-  ARRAY['persons/besouro-manganga.sql', 'persons/cobrinha-verde.sql'],
+  ARRAY['persons/besouro-manganga.sql', 'persons/cobrinha-verde.sql', 'persons/paulo-barroquinha.sql', 'persons/neco-canario-pardo.sql', 'persons/doze-homens.sql'],
   'Siri de Mangue - saveirista (boatman) and capoeirista from the Recôncavo; training companion of Besouro; teacher of Cobrinha Verde and Mestre Waldemar'
 )
 ON CONFLICT (entity_type, file_path) DO UPDATE SET

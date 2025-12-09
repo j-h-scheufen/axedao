@@ -18,3 +18,9 @@
 | Gengibirra / Centro Nacional de Capoeira de Origem Angola | Angola | Aberrê import | done | Legendary roda at Ladeira de Pedra/Gengibirra, Liberdade; founded 1920s; handed to Pastinha 1941 - SQL generated |
 | Conjunto Folclórico Aberrê | Angola | Aberrê import | pending | Founded by Mestre Canjiquinha in tribute to his teacher Aberrê |
 | Grupo Siri de Mangue | Mixed | Siri de Mangue import | pending | Contemporary group founded by Mestre Madeira in São Luís, Maranhão; named after historical Siri de Mangue; presence in Brazil, Austria, Tanzania, Colombia |
+| Filhos de Angola (Rio 1960) | Angola | Onça Preta import | pending | Founded July 21, 1960 in Rio de Janeiro by Mucungê, Dois de Ouro, Baleado, Onça Preta, Imagem do Cão, and Roque. DISTINCT from Grupo Capoeira Filhos de Angola (GCFA) founded 1984 in Salvador. |
+| Joel Lourenço's Capoeira Angola group | Angola | Onça Preta import | pending | Rio de Janeiro group; Onça Preta was member in 1962; led by Mestre Joel Lourenço do Espírito Santo |
+| Centro de Cultura Física e Luta Regional | Regional | Mestre Bimba import | pending | First official capoeira academy in Brazil; founded 1932 by Mestre Bimba at Engenho de Brotas, Salvador; state certified June 9, 1937 |
+| Associação de Capoeira Mestre Bimba | Regional | Mestre Bimba import | pending | Second academy at Terreiro de Jesus, Rua das Laranjeiras (1942); still operational; succession: Vermelho 27 → Almiro → Bamba |
+| Fundação Mestre Bimba (FUMEB) | Regional | Mestre Bimba import | pending | Founded 1994 by Mestre Nenel; preserves Bimba's legacy; Municipal and State Public Utility status |
+| Filhos de Bimba | Regional | Mestre Bimba import | pending | Founded 1986 by Mestre Nenel; schools in North America, South America, Europe |

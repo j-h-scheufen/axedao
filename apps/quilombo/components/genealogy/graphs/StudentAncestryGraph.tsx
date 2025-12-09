@@ -16,7 +16,7 @@
 
 import { useMemo } from 'react';
 import * as THREE from 'three';
-import { forceRadial as forceRadial3d, forceCollide as forceCollide3d } from 'd3-force-3d';
+import { forceCollide as forceCollide3d, forceLink as forceLink3d } from 'd3-force-3d';
 
 import type { GraphData, GraphNode, GroupMetadata, PersonMetadata } from '@/components/genealogy/types';
 import {
@@ -46,8 +46,28 @@ interface AncestryForceNode extends ForceNode {
 /** Node collision radius for preventing overlap */
 const NODE_COLLISION_RADIUS = 12;
 
-/** Strength of the radial force (0-1, higher = stronger constraint to shell) */
-const RADIAL_FORCE_STRENGTH = 0.9;
+/**
+ * Link force strength by predicate type.
+ * - student_of/trained_under: Zero strength to prevent pulling across generations
+ * - associated_with: Low strength for angular clustering of contemporaries
+ */
+const LINK_FORCE_STRENGTH_BY_TYPE: Record<string, number> = {
+  student_of: 0.6,
+  trained_under: 0.4,
+  associated_with: 0.025,
+  influenced_by: 0.02,
+  default: 0, // Very light default
+};
+
+/** Distance for link force - how far apart linked nodes want to be */
+const LINK_FORCE_DISTANCE = 30;
+
+/**
+ * Years to add to birth year for positioning.
+ * Capoeiristas typically started training around age 10-15, so we offset
+ * to show them in the era when they were actively practicing.
+ */
+const BIRTH_YEAR_OFFSET = 10;
 
 // ============================================================================
 // ERA-BASED RADIAL TEMPORAL LAYOUT
@@ -129,27 +149,53 @@ function getEraBand(year: number): number {
 }
 
 /**
- * Compute the radial distance for a given year using era-based bands.
+ * Compute the radial distance for a given calendar year (no offset applied).
+ * Used for drawing era rings at their actual decade positions.
  *
- * The formula creates concentric shells:
- * - Band 0 (Pre-1800): MIN_RADIUS
- * - Band 1 (1800-1849): MIN_RADIUS + ERA_BAND_RADIUS
- * - Band 2 (1850-1899): MIN_RADIUS + 2 * ERA_BAND_RADIUS
- * - Band 3+ (1900s+): MIN_RADIUS + 3 * ERA_BAND_RADIUS + (band - 3) * MODERN_DECADE_RADIUS
+ * Uses continuous proportional placement within each era band:
+ * - Foundation eras (pre-1900): Proportional within 50-year bands
+ * - Modern era (1900+): Proportional within 10-year decades
  */
-function computeRadialDistance(year: number | null): number {
-  const effectiveYear = year ?? ERA_CONFIG.unknownYear;
-  const band = getEraBand(effectiveYear);
+function computeRadialDistanceForYear(year: number): number {
+  // Foundation eras (pre-1900)
+  for (const era of ERA_CONFIG.foundation) {
+    if (year >= era.startYear && year <= era.endYear) {
+      const bandStartRadius = MIN_RADIUS + era.band * ERA_BAND_RADIUS;
+      const bandEndRadius = MIN_RADIUS + (era.band + 1) * ERA_BAND_RADIUS;
 
-  if (band < ERA_CONFIG.modernStartBand) {
-    // Foundation era bands
-    return MIN_RADIUS + band * ERA_BAND_RADIUS;
+      // Handle Pre-1800 era (infinite start)
+      if (era.startYear === -Infinity) {
+        const eraStart = 1700;
+        const eraEnd = era.endYear;
+        const proportion = Math.max(0, Math.min(1, (year - eraStart) / (eraEnd - eraStart)));
+        return bandStartRadius + proportion * (bandEndRadius - bandStartRadius);
+      }
+
+      // Normal foundation era - proportional placement
+      const proportion = (year - era.startYear) / (era.endYear - era.startYear);
+      return bandStartRadius + proportion * (bandEndRadius - bandStartRadius);
+    }
   }
 
-  // Modern era bands (post-1900)
+  // Modern era (1900+) - proportional within decades
+  const decadesSince1900 = (year - ERA_CONFIG.modernStartYear) / 10;
   const foundationRadius = MIN_RADIUS + ERA_CONFIG.modernStartBand * ERA_BAND_RADIUS;
-  const modernBands = band - ERA_CONFIG.modernStartBand;
-  return foundationRadius + modernBands * MODERN_DECADE_RADIUS;
+  return foundationRadius + decadesSince1900 * MODERN_DECADE_RADIUS;
+}
+
+/**
+ * Compute the radial distance for a given birth year using PROPORTIONAL placement.
+ *
+ * Applies BIRTH_YEAR_OFFSET to position nodes at their "active capoeira years"
+ * rather than birth year (capoeiristas typically started training around age 10-15).
+ *
+ * Example: birth year 1889 + 10 offset = 1899 → placed near the END of band 2 (1850-1899),
+ * very close to the 1900s ring, not at the start of band 2.
+ */
+function computeRadialDistanceForBirthYear(birthYear: number | null): number {
+  // Apply offset to convert birth year to "active capoeira year"
+  const effectiveYear = birthYear !== null ? birthYear + BIRTH_YEAR_OFFSET : ERA_CONFIG.unknownYear;
+  return computeRadialDistanceForYear(effectiveYear);
 }
 
 // Keep track of node count per era band for even distribution
@@ -161,12 +207,13 @@ const bandNodeCounts = new Map<number, number>();
  * Uses golden angle distribution for even spacing on each ring.
  */
 function computeRadialPosition(
-  year: number | null,
+  birthYear: number | null,
   nodeIndex: number,
   _totalNodes: number
 ): { x: number; y: number; z: number } {
-  const effectiveYear = year ?? ERA_CONFIG.unknownYear;
-  const radius = computeRadialDistance(year);
+  // Apply offset to convert birth year to "active capoeira year"
+  const effectiveYear = birthYear !== null ? birthYear + BIRTH_YEAR_OFFSET : ERA_CONFIG.unknownYear;
+  const radius = computeRadialDistanceForBirthYear(birthYear);
   const band = getEraBand(effectiveYear);
 
   // Track how many nodes are on this band's ring
@@ -215,7 +262,7 @@ function processDataForStudentAncestry(data: GraphData): AncestryGraphData {
   // Predicates that create visible connections (teaching lineage)
   const VISIBLE_PREDICATES = new Set(['student_of', 'trained_under']);
   // Predicates that create invisible connections (gravity/clustering only)
-  const GRAVITY_ONLY_PREDICATES = new Set(['associated_with']);
+  const GRAVITY_ONLY_PREDICATES = new Set(['associated_with', 'influenced_by']);
 
   const ancestryLinks = data.links
     .filter((link) => {
@@ -264,7 +311,7 @@ function processDataForStudentAncestry(data: GraphData): AncestryGraphData {
   const totalNodes = personNodes.length;
   const processedNodes: AncestryForceNode[] = personNodes.map((node, index) => {
     const year = getNodeYear(node);
-    const targetRadius = computeRadialDistance(year);
+    const targetRadius = computeRadialDistanceForBirthYear(year);
     const pos = computeRadialPosition(year, index, totalNodes);
 
     return {
@@ -320,23 +367,26 @@ interface EraRing {
 function generateEraRings(): EraRing[] {
   const rings: EraRing[] = [];
 
-  // Foundation eras (bands 0-2)
+  // Foundation eras (bands 1-2 only) - skip Pre-1800 (band 0) as it clutters the center
   for (const era of ERA_CONFIG.foundation) {
+    // Skip Pre-1800 era ring
+    if (era.startYear === -Infinity) continue;
+
     rings.push({
       id: `era-ring-${era.band}`,
       label: era.label,
-      radius: computeRadialDistance(era.startYear === -Infinity ? 1750 : era.startYear),
+      radius: computeRadialDistanceForYear(era.startYear),
       band: era.band,
     });
   }
 
-  // Modern era decades (1900s through 2020s)
+  // Modern era decades (1900s through 2020s) - use actual decade positions (no birth offset)
   for (let decade = 1900; decade <= 2020; decade += 10) {
     const band = getEraBand(decade);
     rings.push({
       id: `era-ring-${band}`,
       label: `${decade}s`,
-      radius: computeRadialDistance(decade),
+      radius: computeRadialDistanceForYear(decade),
       band,
     });
   }
@@ -478,28 +528,59 @@ export function StudentAncestryGraph({
 
   // Create forces for radial constraint, collision prevention, and Y-plane constraint
   const forces = useMemo((): ForceConfig[] => {
-    // Radial force: constrains nodes to their target radius
-    // but allows them to move freely around the ring
-    const radialForce = forceRadial3d((node: AncestryForceNode) => node.targetRadius ?? MIN_RADIUS).strength(
-      RADIAL_FORCE_STRENGTH
-    );
-
     // Collision force: prevents nodes from overlapping
     const collideForce = forceCollide3d(NODE_COLLISION_RADIUS);
 
-    // Custom force to pin nodes to y=0 plane
-    // This runs on each simulation tick and resets y and vy to 0
-    const flattenForce = () => {
-      const force = (_alpha: number) => {
-        // Access nodes from the simulation (will be set by d3-force)
+    // Link force: per-link strength based on predicate type
+    // student_of/trained_under have zero strength (don't pull across generations)
+    // associated_with has light strength (cluster contemporaries angularly)
+    const linkForce = forceLink3d(graphData.links)
+      // biome-ignore lint/suspicious/noExplicitAny: d3-force-3d types are complex
+      .id((node: any) => node.id)
+      // biome-ignore lint/suspicious/noExplicitAny: d3-force-3d link type
+      .strength((link: any) => {
+        const linkType = link.type as string;
+        return LINK_FORCE_STRENGTH_BY_TYPE[linkType] ?? LINK_FORCE_STRENGTH_BY_TYPE.default;
+      })
+      .distance(LINK_FORCE_DISTANCE);
+
+    // Custom force: pin nodes to y=0 plane AND fix radial distance
+    // This converts all forces to angular-only movement on the XZ plane
+    // Nodes can slide around their era ring but cannot move closer/further from center
+    const constrainForce = () => {
+      // biome-ignore lint/suspicious/noExplicitAny: custom d3-force implementation
+      const force: any = (_alpha: number) => {
         const nodes = force.nodes || [];
         for (const node of nodes) {
           // Pin to y=0 plane
           node.y = 0;
           node.vy = 0;
+
+          // Fix radial distance: project position onto target radius circle
+          const targetRadius = node.targetRadius ?? MIN_RADIUS;
+          const currentRadius = Math.sqrt(node.x * node.x + node.z * node.z);
+
+          if (currentRadius > 0.001) {
+            // Scale position to target radius (preserves angle, fixes distance)
+            const scale = targetRadius / currentRadius;
+            node.x *= scale;
+            node.z *= scale;
+
+            // Also project velocity to be tangential only (remove radial component)
+            // This allows nodes to slide around the ring but not move in/out
+            const vRadial = (node.vx * node.x + node.vz * node.z) / currentRadius;
+            const normalX = node.x / currentRadius;
+            const normalZ = node.z / currentRadius;
+            node.vx -= vRadial * normalX;
+            node.vz -= vRadial * normalZ;
+          } else {
+            // Node at center - place at target radius with small random angle
+            const angle = Math.random() * Math.PI * 2;
+            node.x = targetRadius * Math.cos(angle);
+            node.z = targetRadius * Math.sin(angle);
+          }
         }
       };
-      // d3-force calls initialize() with nodes array
       force.initialize = (nodes: AncestryForceNode[]) => {
         force.nodes = nodes;
       };
@@ -508,13 +589,11 @@ export function StudentAncestryGraph({
     };
 
     return [
-      { name: 'radial', force: radialForce },
       { name: 'collide', force: collideForce },
-      { name: 'flatten', force: flattenForce() },
-      // Note: The default 'link' force is already enabled by react-force-graph
-      // and will pull connected nodes toward each other
+      { name: 'link', force: linkForce },
+      { name: 'constrain', force: constrainForce() }, // Runs last: fixes y=0 and radial distance
     ];
-  }, []);
+  }, [graphData.links]);
 
   // Generate era ring scene objects (concentric circles with labels)
   const eraRingObjects = useMemo(() => {

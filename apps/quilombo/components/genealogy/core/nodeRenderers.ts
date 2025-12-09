@@ -118,7 +118,7 @@ export function createDefaultNodeObject(
   isSelected: boolean,
   options: DefaultNodeOptions = {}
 ): THREE.Group {
-  const { showLabel = true, labelFontSize = 10 } = options;
+  const { showLabel = true, labelFontSize = 14 } = options;
 
   const color = getNodeColor(node);
   const sphereRadius = options.sphereRadius ?? (node.type === 'group' ? 6 : 4);

@@ -457,7 +457,10 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
 --   'Contexto do relacionamento em português'
 -- FROM genealogy.person_profiles s, genealogy.person_profiles o
 -- WHERE s.apelido = '[Subject Apelido]' AND o.apelido = '[Object Apelido]'
--- ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
+-- ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+--
+-- IMPORTANT: The COALESCE expression is REQUIRED because the unique index uses it to handle NULL started_at values
+-- (PostgreSQL treats NULL != NULL, so without COALESCE the conflict detection would fail for NULL dates)
 --
 -- Date precision values: exact, month, year, decade, approximate, unknown
 -- Use started_at = NULL with started_at_precision = 'unknown' when date is completely unknown
