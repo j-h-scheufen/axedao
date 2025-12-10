@@ -163,7 +163,7 @@ RELACIONAMENTOS PENDENTES (requerem importação de Mestre Bimba):
 RELACIONAMENTO FAMILIAR PENDENTE (disputado, não importado):
 - Atenilo family_of Neco Canário Pardo (irmão - cronologicamente problemático)'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

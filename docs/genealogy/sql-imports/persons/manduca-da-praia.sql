@@ -122,7 +122,7 @@ NOME: Nome completo registrado como Manoel Alves da Silva na maioria das fontes.
 
 MORTE: Desconhecida. Nenhum registro de sua morte foi encontrado.'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

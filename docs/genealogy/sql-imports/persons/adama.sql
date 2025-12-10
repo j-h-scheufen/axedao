@@ -117,7 +117,7 @@ INCIDENTE DO TREM DE 1907: Envolvido em distúrbios em um trem que retornava de 
 
 FONTES: Fonte primária é "Recife Sangrento" de Oscar Mello (edições de 1937 e 1953). Estudo acadêmico de Israel Ozanam "Capoeira e capoeiras entre a Guarda Negra e a Educação Física no Recife" fornece contexto adicional.'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

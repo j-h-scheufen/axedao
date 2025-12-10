@@ -80,7 +80,7 @@ INSERT INTO genealogy.person_profiles (
   -- Researcher notes (Portuguese)
   E'ANO DE NASCIMENTO: ~1850 - estimativa de precisão de década. Nenhuma evidência direta existe. Baseado na linha do tempo típica de carreira de lutador e suposição de que estava em seu auge (20-40 anos) ao confrontar Nascimento Grande no final do século XIX.\n\nANO DE MORTE: ~1890 - estimativa de precisão de década. Morreu durante confronto com Nascimento Grande. Nenhuma data específica registrada. Dado a longa carreira de Nascimento Grande (1860s-1930s), a morte provavelmente ocorreu durante o período de pico de rivalidade de 1870s-1900s.\n\nCIRCUNSTÂNCIAS DA MORTE: De acordo com fonte primária (Educando com Ginga), "Antonio Padroeiro, após ser desarmado, morreu de tanto apanhar".\n\nFONTES LIMITADAS: Mencionado apenas em relação a Nascimento Grande. Nenhuma informação biográfica independente encontrada apesar de múltiplas buscas em fontes portuguesas e inglesas.'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

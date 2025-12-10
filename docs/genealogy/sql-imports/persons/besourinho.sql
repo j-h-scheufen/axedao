@@ -114,7 +114,7 @@ RELACIONAMENTO: Professor de Onça Preta. Onça Preta listou "pulei com... Besou
 
 ESTILO: Desconhecido. Anterior à distinção Angola/Regional (anos 1930). Provavelmente praticava o estilo proto-Angola comum em Salvador na época.'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

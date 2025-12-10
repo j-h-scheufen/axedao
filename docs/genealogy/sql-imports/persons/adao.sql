@@ -119,7 +119,7 @@ FONTE ARQUIVÍSTICA: Arquivo Nacional Rio de Janeiro (ANRJ) - Tribunal da Relaç
 
 MORTE: Desconhecida. Após a clemência concedida em 25 de abril de 1789, não existem mais registros.'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

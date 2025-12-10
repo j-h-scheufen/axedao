@@ -137,7 +137,7 @@ RELACIONAMENTOS PENDENTES (quando outros contemporâneos forem importados):
 - associated_with Bentevi (contemporâneos no Rio dos anos 1850)
 - associated_with Quebra Coco (contemporâneos no Rio dos anos 1850)'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

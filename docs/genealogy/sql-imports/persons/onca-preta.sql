@@ -3,7 +3,7 @@
 -- Generated: 2025-12-09
 -- Primary Source: https://velhosmestres.com/br/destaques-34
 -- ============================================================
--- DEPENDENCIES: aberre.sql (for Aberrê relationship)
+-- DEPENDENCIES: persons/aberre.sql, groups/gengibirra.sql, groups/roda-do-matatu-preto.sql
 -- ============================================================
 --
 -- DEATH YEAR NOTE (2006):
@@ -153,7 +153,7 @@ RELACIONAMENTOS PENDENTES (entidades ainda não no dataset):
 - co_founded Filhos de Angola (grupo) 1960
 - member_of CECA (grupo) 1941'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,
@@ -264,10 +264,61 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- - Artur Emídio (announced encounter, 1955)
 --
 -- GROUPS (member_of or co_founded):
--- - CECA (member_of, 1941 founding)
--- - Gengibirra roda (member_of, founding member per Noronha manuscripts)
--- - Filhos de Angola (co_founded, 1960)
--- - Joel Lourenço's Capoeira Angola group (member_of, 1962)
+-- - CECA (member_of, 1941 founding) - pending group import
+-- - Filhos de Angola (co_founded, 1960) - pending group import
+-- - Joel Lourenço's Capoeira Angola group (member_of, 1962) - pending group import
+
+-- --- Person-to-Group: Membership at Roda do Matatu Preto ---
+
+-- Onça Preta member_of Roda do Matatu Preto
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, p.id,
+  'member_of'::genealogy.predicate,
+  'group'::genealogy.entity_type, g.id,
+  '1930-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"membership_context": "Regular participant in Sunday training sessions at Matatu Preto in the 1930s."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Canjiquinha testimony (1989); velhosmestres.com/br/destaques-2',
+  'Part of the Matatu Preto Sunday training group in Salvador during the 1930s, alongside Aberrê, Geraldo Chapeleiro, Totonho de Maré, and others. Per O Cruzeiro (1948), was a student of Aberrê.',
+  'Parte do grupo de treino de domingo no Matatu Preto em Salvador durante os anos 1930, ao lado de Aberrê, Geraldo Chapeleiro, Totonho de Maré e outros. Segundo O Cruzeiro (1948), era aluno de Aberrê.'
+FROM genealogy.person_profiles p, genealogy.group_profiles g
+WHERE p.apelido = 'Onça Preta' AND g.name = 'Roda do Matatu Preto'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- --- Person-to-Group: Co-founded Gengibirra ---
+
+-- Onça Preta co_founded Gengibirra
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, p.id,
+  'co_founded'::genealogy.predicate,
+  'group'::genealogy.entity_type, g.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  '{}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Noronha manuscripts via velhosmestres.com',
+  'One of 22 founding mestres of the Centro de Capoeira Angola at Ladeira de Pedra (Gengibirra).',
+  'Um dos 22 mestres fundadores do Centro de Capoeira Angola na Ladeira de Pedra (Gengibirra).'
+FROM genealogy.person_profiles p, genealogy.group_profiles g
+WHERE p.apelido = 'Onça Preta' AND g.name = 'Gengibirra'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================
 -- IMPORT LOG
@@ -278,7 +329,7 @@ VALUES (
   'person',
   'persons/onca-preta.sql',
   NULL,
-  ARRAY['persons/aberre.sql'],
+  ARRAY['persons/aberre.sql', 'groups/gengibirra.sql', 'groups/roda-do-matatu-preto.sql'],
   'Cícero Navarro "Onça Preta" (1909-2006): Bahian Angola mestre, bridge between first and second generations. Survived Pedrito persecution. Co-founder of CECA (1941) and Filhos de Angola (1960). Featured in Jorge Amado works and Ruth Landes photographs.'
 )
 ON CONFLICT (entity_type, file_path) DO UPDATE SET

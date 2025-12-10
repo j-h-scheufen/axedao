@@ -123,7 +123,7 @@ ALEGAÇÃO DE "CONDENADO À MORTE": Algumas fontes secundárias mencionam isso m
 RELACIONAMENTOS PENDENTES:
 - student_of: Besouro Mangangá → Tio Alípio (definido em besouro-manganga.sql)'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

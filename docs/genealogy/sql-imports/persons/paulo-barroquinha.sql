@@ -10,7 +10,8 @@
 --   - https://velhosmestres.com/br/destaques-2
 --   - Antonio Liberac Cardoso Simões Pires research on Besouro Mangangá
 -- ============================================================
--- DEPENDENCIES: persons/besouro-manganga.sql
+-- DEPENDENCIES: persons/besouro-manganga.sql, groups/roda-de-trapiche-de-baixo.sql, groups/roda-do-matatu-preto.sql
+-- NOTE: Person-to-person dependencies removed; co-attendance now via group membership
 -- ============================================================
 --
 -- BIRTH YEAR ESTIMATION (1890, decade precision):
@@ -148,7 +149,7 @@ DOIS POSSÍVEIS CONTEXTOS:
 
 POSSÍVEL RECONCILIAÇÃO: Após a morte de Besouro em 1924, muitos capoeiristas de Santo Amaro se mudaram para Salvador. Paulo Barroquinha pode ter sido um deles, aparecendo posteriormente nas sessões de treino do Matatu Preto.'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,
@@ -201,7 +202,14 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Paulo Barroquinha' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Paulo Barroquinha associated_with Siri de Mangue (training companions)
+-- NOTE: Generic "trained together at Trapiche de Baixo" associations removed.
+-- Co-attendance is now captured via member_of Roda de Trapiche de Baixo.
+-- Only specific documented interactions should be person-to-person.
+
+-- --- Person-to-Group: Membership at Roda do Matatu Preto ---
+
+-- Paulo Barroquinha member_of Roda do Matatu Preto
+-- Note: Canjiquinha's testimony refers to "Pedro Paulo Barroquinha" - likely same person
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -212,86 +220,46 @@ INSERT INTO genealogy.statements (
   confidence, source, notes_en, notes_pt
 )
 SELECT
-  'person'::genealogy.entity_type, s.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1910-01-01'::date, 'approximate'::genealogy.date_precision,
+  'person'::genealogy.entity_type, p.id,
+  'member_of'::genealogy.predicate,
+  'group'::genealogy.entity_type, g.id,
+  '1930-01-01'::date, 'decade'::genealogy.date_precision,
   NULL, 'unknown'::genealogy.date_precision,
-  '{"association_context": "Both were part of Besouro Mangangá''s training circle at Trapiche de Baixo, Santo Amaro. Trained together on Sundays and holidays."}'::jsonb,
-  'verified'::genealogy.confidence,
-  'Multiple sources list both as training companions of Besouro at Trapiche de Baixo',
-  'Fellow members of Besouro''s Sunday training circle in Santo Amaro.',
-  'Companheiros do círculo de treino de domingo de Besouro em Santo Amaro.'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Paulo Barroquinha' AND o.apelido = 'Siri de Mangue'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
--- Paulo Barroquinha associated_with Neco Canário Pardo (training companions)
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties,
-  confidence, source, notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1910-01-01'::date, 'approximate'::genealogy.date_precision,
-  NULL, 'unknown'::genealogy.date_precision,
-  '{"association_context": "Both were part of Besouro Mangangá''s training circle at Trapiche de Baixo, Santo Amaro. José Brigido Dorneles Antunes listed both as Besouro''s companions."}'::jsonb,
-  'verified'::genealogy.confidence,
-  'José Brigido Dorneles Antunes (via Antonio Liberac); Professor Leiteiro',
-  'Fellow members of Besouro''s circle alongside Boca de Siri, Noca de Jacó, and Doze Homens.',
-  'Companheiros do círculo de Besouro ao lado de Boca de Siri, Noca de Jacó e Doze Homens.'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Paulo Barroquinha' AND o.apelido = 'Neco Canário Pardo'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
--- NOTE: Relationships with Boca de Siri, Noca de Jacó, Doze Homens pending - require their SQL imports
-
--- ============================================================
--- SALVADOR MATATU PRETO RELATIONSHIPS (1930s)
--- These assume Paulo Barroquinha = Pedro Paulo Barroquinha (likely same person)
--- ============================================================
-
--- Paulo Barroquinha associated_with Onça Preta (Matatu Preto training companions)
--- NOTE: Assessment is "likely" same person based on: name pattern (Pedro Paulo → Paulo),
--- timeline (Santo Amaro 1910s-1924, Salvador 1930s), migration pattern (many Santo Amaro
--- capoeiristas moved to Salvador after Besouro's death), and rare apelido occurrence.
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties,
-  confidence, source, notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1930-01-01'::date, 'approximate'::genealogy.date_precision,
-  NULL, 'unknown'::genealogy.date_precision,
-  '{"association_context": "Both trained at Matatu Preto, Salvador, in the 1930s. Part of the Sunday training group around Mestre Aberrê. Identity based on assessment that Paulo Barroquinha (Santo Amaro) and Pedro Paulo Barroquinha (Salvador) are the same person."}'::jsonb,
+  '{"membership_context": "Regular participant in Sunday training sessions at Matatu Preto in the 1930s. Mentioned as ''Pedro Paulo Barroquinha'' in Canjiquinha''s testimony."}'::jsonb,
   'likely'::genealogy.confidence,
-  'Mestre Canjiquinha testimony (1989); Velhos Mestres; Esquiva Wordpress',
-  'IF Paulo Barroquinha = Pedro Paulo Barroquinha: Both were part of the Matatu Preto Sunday training group in the 1930s with Aberrê, Geraldo Chapeleiro, Totonho Maré, Creoni, Chico Três Pedaços, and Barboza.',
-  'SE Paulo Barroquinha = Pedro Paulo Barroquinha: Ambos faziam parte do grupo de treino de domingo no Matatu Preto nos anos 1930 com Aberrê, Geraldo Chapeleiro, Totonho Maré, Creoni, Chico Três Pedaços e Barboza.'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Paulo Barroquinha' AND o.apelido = 'Onça Preta'
+  'Mestre Canjiquinha testimony (1989); velhosmestres.com/br/destaques-2',
+  'Mentioned as "Pedro Paulo Barroquinha" in Canjiquinha''s testimony about Matatu Preto. Likely the same person as Paulo Barroquinha of Trapiche de Baixo who moved to Salvador after Besouro''s death in 1924.',
+  'Mencionado como "Pedro Paulo Barroquinha" no testemunho de Canjiquinha sobre o Matatu Preto. Provavelmente a mesma pessoa que Paulo Barroquinha do Trapiche de Baixo que se mudou para Salvador após a morte de Besouro em 1924.'
+FROM genealogy.person_profiles p, genealogy.group_profiles g
+WHERE p.apelido = 'Paulo Barroquinha' AND g.name = 'Roda do Matatu Preto'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- NOTE: Additional Matatu Preto relationships pending - require imports of:
--- - Geraldo Chapeleiro
--- - Totonho de Maré
--- - Creoni
--- - Chico Três Pedaços
--- - Barboza
+-- --- Person-to-Group: Membership at Roda de Trapiche de Baixo ---
+
+-- Paulo Barroquinha member_of Roda de Trapiche de Baixo
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, p.id,
+  'member_of'::genealogy.predicate,
+  'group'::genealogy.entity_type, g.id,
+  '1910-01-01'::date, 'approximate'::genealogy.date_precision,
+  '1924-07-08'::date, 'exact'::genealogy.date_precision,
+  '{"membership_context": "Training companion at Trapiche de Baixo. Part of Besouro''s circle that met on Sundays and holidays."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'José Brigido Dorneles Antunes (via Antonio Liberac); Velhos Mestres; Papoeira.com',
+  'One of Besouro''s companions at Trapiche de Baixo alongside Boca de Siri, Noca de Jacó, Doze Homens, and Canário Pardo. They were a gang of capoeira resistance fighters who trained together on Sundays.',
+  'Um dos companheiros de Besouro no Trapiche de Baixo ao lado de Boca de Siri, Noca de Jacó, Doze Homens e Canário Pardo. Eram uma turma de lutadores de resistência da capoeira que treinavam juntos aos domingos.'
+FROM genealogy.person_profiles p, genealogy.group_profiles g
+WHERE p.apelido = 'Paulo Barroquinha' AND g.name = 'Roda de Trapiche de Baixo'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================
 -- IMPORT LOG
@@ -302,7 +270,7 @@ VALUES (
   'person',
   'persons/paulo-barroquinha.sql',
   NULL,
-  ARRAY['persons/besouro-manganga.sql', 'persons/siri-de-mangue.sql', 'persons/neco-canario-pardo.sql', 'persons/onca-preta.sql'],
+  ARRAY['persons/besouro-manganga.sql', 'groups/roda-de-trapiche-de-baixo.sql', 'groups/roda-do-matatu-preto.sql'],
   'Paulo Barroquinha - training companion of Besouro Mangangá at Trapiche de Baixo, Santo Amaro (1910s-1924); likely same person as Pedro Paulo Barroquinha at Matatu Preto, Salvador (1930s); one of the timeless figures of the Recôncavo'
 )
 ON CONFLICT (entity_type, file_path) DO UPDATE SET

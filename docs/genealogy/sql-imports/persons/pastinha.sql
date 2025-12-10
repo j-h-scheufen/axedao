@@ -204,7 +204,7 @@ RELACIONAMENTOS PENDENTES (requerem importações futuras):
 - Roberto Satanás student_of Pastinha
 - Camafeu de Oxossi student_of Pastinha'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,
@@ -367,12 +367,37 @@ FROM genealogy.person_profiles p, genealogy.person_profiles t
 WHERE p.apelido = 'Pastinha' AND t.apelido = 'Totonho de Maré'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- --- Person-to-Group: Founding & Leadership ---
+-- --- Person-to-Group: Gengibirra ---
 
--- NOTE: CECA and Gengibirra groups not yet in dataset
+-- Pastinha member_of Gengibirra (invited in 1941, took leadership)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, p.id,
+  'member_of'::genealogy.predicate,
+  'group'::genealogy.entity_type, g.id,
+  '1941-02-23'::date, 'exact'::genealogy.date_precision,
+  '1941-12-31'::date, 'year'::genealogy.date_precision,
+  '{"membership_context": "Invited by Aberrê to attend Sunday roda at Ladeira de Gengibirra in February 1941. Amorzinho asked him to assume leadership. Later registered the center officially as CECA and relocated to Pelourinho."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Noronha manuscripts; Pastinha interviews; velhosmestres.com',
+  'On Feb 23, 1941, Aberrê brought Pastinha to the Gengibirra roda. Amorzinho asked Pastinha to preserve traditional capoeira angola. After Amorzinho''s death, the mestres handed leadership to Pastinha, who registered it as CECA.',
+  'Em 23 de fevereiro de 1941, Aberrê levou Pastinha à roda do Gengibirra. Amorzinho pediu a Pastinha para preservar a capoeira angola tradicional. Após a morte de Amorzinho, os mestres passaram a liderança para Pastinha, que a registrou como CECA.'
+FROM genealogy.person_profiles p, genealogy.group_profiles g
+WHERE p.apelido = 'Pastinha' AND g.name = 'Gengibirra'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- --- Person-to-Group: CECA ---
+-- NOTE: CECA group not yet in dataset
 -- PENDING: Pastinha founded CECA (1941)
 -- PENDING: Pastinha leads CECA (1941-1971)
--- PENDING: Pastinha leads Gengibirra (from 1941)
 
 -- ============================================================
 -- IMPORT LOG

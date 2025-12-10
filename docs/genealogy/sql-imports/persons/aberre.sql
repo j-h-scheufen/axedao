@@ -9,7 +9,7 @@
 -- 2. Antônio Rufino dos Santos (Santo Amaro) - teacher of Mestre Caiçara
 -- This import focuses on the documented figure from Salvador.
 -- ============================================================
--- DEPENDENCIES: persons/pastinha.sql, persons/noronha.sql, persons/canjiquinha.sql, persons/caiçara.sql, groups/gengibirra.sql, persons/onca-preta.sql, persons/geraldo-chapeleiro.sql, persons/totonho-de-mare.sql, persons/creoni.sql, persons/chico-tres-pedacos.sql, persons/paulo-barroquinha.sql, persons/barboza.sql
+-- DEPENDENCIES: persons/pastinha.sql, persons/noronha.sql, persons/canjiquinha.sql, persons/caiçara.sql, groups/gengibirra.sql, groups/roda-do-matatu-preto.sql, persons/onca-preta.sql, persons/geraldo-chapeleiro.sql, persons/totonho-de-mare.sql, persons/creoni.sql, persons/chico-tres-pedacos.sql, persons/paulo-barroquinha.sql, persons/barboza.sql
 -- ============================================================
 
 BEGIN;
@@ -123,7 +123,7 @@ Co-fundador do Centro de Capoeira Angola na Conceição da Praia (precursor de G
   -- notes_pt
   'CONTROVÉRSIA: Dois indivíduos diferentes podem ter sido chamados "Aberrê" - (1) Antônio Raimundo Argolo de Salvador que convidou Pastinha para Gengibirra, e (2) Antônio Rufino dos Santos de Santo Amaro que pode ter ensinado Caiçara. Tanto Canjiquinha quanto Caiçara negaram conexão com a linhagem de Pastinha. Fontes: ipcb-rj.com.br, velhosmestres.com. Nome completo de registros de nascimento conforme velhosmestres.com. Circunstâncias da morte registradas por Mestre Canjiquinha e Mestre Onça Preta. Possível aparição em fotografias de Ruth Landes (23 de outubro de 1938) mas não confirmado.'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,
@@ -167,7 +167,34 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
 -- Not yet in dataset (pending groups import)
 -- PENDING: Generate statement when group is imported
 
--- --- Matatu Preto Training Group (1930s) ---
+-- --- Person-to-Group: Membership at Roda do Matatu Preto ---
+
+-- Aberrê member_of Roda do Matatu Preto
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, p.id,
+  'member_of'::genealogy.predicate,
+  'group'::genealogy.entity_type, g.id,
+  '1930-01-01'::date, 'decade'::genealogy.date_precision,
+  '1942-09-01'::date, 'month'::genealogy.date_precision,
+  '{"membership_context": "Central figure at the Sunday training sessions at Matatu Preto in the 1930s. Led the sessions and taught young Canjiquinha here."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Canjiquinha testimony (1989); velhosmestres.com/br/destaques-2',
+  'Led the Matatu Preto Sunday training sessions in Salvador during the 1930s. Taught Canjiquinha here starting in 1935.',
+  'Liderou as sessões de treino de domingo no Matatu Preto em Salvador durante os anos 1930. Ensinou Canjiquinha aqui a partir de 1935.'
+FROM genealogy.person_profiles p, genealogy.group_profiles g
+WHERE p.apelido = 'Aberrê' AND g.name = 'Roda do Matatu Preto'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- --- Matatu Preto Training Group (1930s) - Associated Persons ---
 
 -- Aberrê associated_with Onça Preta (Matatu Preto training group)
 INSERT INTO genealogy.statements (
@@ -353,7 +380,7 @@ VALUES (
   'person',
   'persons/aberre.sql',
   NULL,
-  ARRAY['persons/pastinha.sql', 'persons/noronha.sql', 'persons/canjiquinha.sql', 'persons/caiçara.sql', 'groups/gengibirra.sql', 'persons/onca-preta.sql', 'persons/geraldo-chapeleiro.sql', 'persons/totonho-de-mare.sql', 'persons/creoni.sql', 'persons/chico-tres-pedacos.sql', 'persons/paulo-barroquinha.sql', 'persons/barboza.sql']::text[],
+  ARRAY['persons/pastinha.sql', 'persons/noronha.sql', 'persons/canjiquinha.sql', 'persons/caiçara.sql', 'groups/gengibirra.sql', 'groups/roda-do-matatu-preto.sql', 'persons/onca-preta.sql', 'persons/geraldo-chapeleiro.sql', 'persons/totonho-de-mare.sql', 'persons/creoni.sql', 'persons/chico-tres-pedacos.sql', 'persons/paulo-barroquinha.sql', 'persons/barboza.sql']::text[],
   'Pivotal figure who invited Pastinha to Gengibirra 1941; trained Canjiquinha; led Matatu Preto training group; controversial identity with possible second Aberrê de Santo Amaro'
 )
 ON CONFLICT (entity_type, file_path) DO UPDATE SET

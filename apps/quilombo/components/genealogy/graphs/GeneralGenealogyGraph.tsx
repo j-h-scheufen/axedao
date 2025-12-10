@@ -45,6 +45,16 @@ const NODE_COLLISION_RADIUS = 12;
 /** Radial force strength - soft constraint allows movement while maintaining temporal order */
 const RADIAL_FORCE_STRENGTH = 0.95;
 
+/**
+ * Custom link force strength by predicate type.
+ * Override defaults or add new predicates as needed.
+ */
+const LINK_FORCE_STRENGTH: Record<string, number> = {
+  ...DEFAULT_LINK_FORCE_STRENGTH,
+  member_of: 0.3,
+  co_founded: 0.2,
+};
+
 // ============================================================================
 // EXTENDED NODE TYPE
 // ============================================================================
@@ -173,7 +183,7 @@ export function GeneralGenealogyGraph({
     const linkForce = forceLink3d(graphData.links)
       // biome-ignore lint/suspicious/noExplicitAny: d3-force-3d types are complex
       .id((node: any) => node.id)
-      .strength(createLinkStrengthResolver(DEFAULT_LINK_FORCE_STRENGTH))
+      .strength(createLinkStrengthResolver(LINK_FORCE_STRENGTH))
       .distance(DEFAULT_LINK_DISTANCE);
 
     // Radial force: soft constraint pulls nodes toward their temporal position

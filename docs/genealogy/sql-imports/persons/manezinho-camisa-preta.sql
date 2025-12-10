@@ -87,7 +87,7 @@ INSERT INTO genealogy.person_profiles (
   -- Researcher notes (Portuguese)
   E'DATA DE NASCIMENTO: Desconhecida. Estimada década de 1860 (precisão de década) baseada na provável linha do tempo de desafiar Nascimento Grande (n. 1842) durante o final do século XIX.\n\nDATA DE MORTE: Ano exato desconhecido. Morreu no Largo da Carioca, Rio de Janeiro, morto por Nascimento Grande. A luta provavelmente ocorreu no final do século XIX ou início do século XX durante uma das viagens de Nascimento Grande ao Rio.\n\nDISTINÇÃO DE MIGUELZINHO CAMISA PRETA: Este NÃO é a mesma pessoa que Miguelzinho Camisa Preta (Alfredo Francisco Soares), que foi assassinado pelo policial Elpídio Ribeiro da Rocha em 12 de julho de 1912. Aquele Miguelzinho nasceu por volta de 1880-1890 e morreu em 1912. Nosso Manezinho Camisa Preta morreu antes em uma luta com Nascimento Grande.\n\nLARGO DA CARIOCA: Uma praça pública histórica no Rio de Janeiro, local de uma grande fonte de água (construída em 1723, demolida em 1925) e local conhecido para atividade de capoeira e confrontos no século XIX.\n\nREFERÊNCIA AO PELOPONESO: A descrição da luta transformando a praça no "Peloponeso" é um floreio literário comparando a batalha à guerra grega antiga, enfatizando sua escala e intensidade lendárias.'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

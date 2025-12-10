@@ -3,7 +3,8 @@
 -- Generated: 2025-12-09
 -- Primary Source: https://velhosmestres.com/br/besouro
 -- ============================================================
--- DEPENDENCIES: persons/besouro-manganga.sql, persons/neco-canario-pardo.sql
+-- DEPENDENCIES: persons/besouro-manganga.sql, groups/roda-de-trapiche-de-baixo.sql
+-- NOTE: Person-to-person dependencies removed; co-attendance now via group membership
 -- ============================================================
 --
 -- BIRTH YEAR ESTIMATION (1890 with 'decade' precision):
@@ -74,7 +75,7 @@ INSERT INTO genealogy.person_profiles (
   E'BIRTH YEAR ESTIMATION (1890, decade precision): Companion of Besouro Mangangá (b. 1895, d. 1924) in Trapiche de Baixo rodas. As a contemporary adult companion, likely within 5-10 years of Besouro''s age. Using 1890 as midpoint estimate.\n\nDEATH: Unknown. No records found.\n\nNAME: "Boca de Siri" means "Crab''s Mouth." Also the name of a capoeira takedown technique.\n\nPENDING RELATIONSHIPS:\n- Boca de Siri associated_with Besouro Mangangá (companions at Trapiche de Baixo)\n- Boca de Siri associated_with Paulo Barroquinha (companions at Trapiche de Baixo)\n- Boca de Siri associated_with Noca de Jacó (companions at Trapiche de Baixo)\n- Boca de Siri associated_with Doze Homens (companions at Trapiche de Baixo)\n- Boca de Siri associated_with Neco Canário Pardo (companions at Trapiche de Baixo)',
   E'ESTIMATIVA DO ANO DE NASCIMENTO (1890, precisão de década): Companheiro de Besouro Mangangá (n. 1895, m. 1924) nas rodas do Trapiche de Baixo. Como companheiro adulto contemporâneo, provavelmente dentro de 5-10 anos da idade de Besouro. Usando 1890 como estimativa do ponto médio.\n\nMORTE: Desconhecida. Nenhum registro encontrado.\n\nNOME: "Boca de Siri" significa "Boca de Siri." Também o nome de uma técnica de queda na capoeira.\n\nRELACIONAMENTOS PENDENTES:\n- Boca de Siri associated_with Besouro Mangangá (companheiros no Trapiche de Baixo)\n- Boca de Siri associated_with Paulo Barroquinha (companheiros no Trapiche de Baixo)\n- Boca de Siri associated_with Noca de Jacó (companheiros no Trapiche de Baixo)\n- Boca de Siri associated_with Doze Homens (companheiros no Trapiche de Baixo)\n- Boca de Siri associated_with Neco Canário Pardo (companheiros no Trapiche de Baixo)'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,
@@ -125,54 +126,35 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Boca de Siri' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Boca de Siri associated_with Neco Canário Pardo
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1910-01-01'::date, 'decade'::genealogy.date_precision,
-  NULL, 'unknown'::genealogy.date_precision,
-  '{"association_context": "Training companions at Trapiche de Baixo capoeira rodas in Santo Amaro da Purificação; documented by Professor Leiteiro"}'::jsonb,
-  'verified'::genealogy.confidence,
-  'Velhos Mestres - Besouro (velhosmestres.com/br/besouro)',
-  'Fellow companions of Besouro at Trapiche de Baixo',
-  'Companheiros de Besouro no Trapiche de Baixo'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Boca de Siri' AND o.apelido = 'Neco Canário Pardo'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+-- NOTE: Generic "trained together at Trapiche de Baixo" associations removed.
+-- Co-attendance is now captured via member_of Roda de Trapiche de Baixo.
+-- Only specific documented interactions should be person-to-person.
 
--- Boca de Siri associated_with Paulo Barroquinha
+-- --- Person-to-Group: Membership at Roda de Trapiche de Baixo ---
+
+-- Boca de Siri member_of Roda de Trapiche de Baixo
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
   object_type, object_id,
   started_at, started_at_precision,
   ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
+  properties,
+  confidence, source, notes_en, notes_pt
 )
 SELECT
-  'person'::genealogy.entity_type, s.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1910-01-01'::date, 'decade'::genealogy.date_precision,
-  NULL, 'unknown'::genealogy.date_precision,
-  '{"association_context": "Training companions at Trapiche de Baixo capoeira rodas in Santo Amaro da Purificação; documented by Professor Leiteiro"}'::jsonb,
+  'person'::genealogy.entity_type, p.id,
+  'member_of'::genealogy.predicate,
+  'group'::genealogy.entity_type, g.id,
+  '1910-01-01'::date, 'approximate'::genealogy.date_precision,
+  '1924-07-08'::date, 'exact'::genealogy.date_precision,
+  '{"membership_context": "Training companion at Trapiche de Baixo. Part of Besouro''s circle that met on Sundays and holidays."}'::jsonb,
   'verified'::genealogy.confidence,
-  'Velhos Mestres - Besouro (velhosmestres.com/br/besouro)',
-  'Fellow companions of Besouro at Trapiche de Baixo',
-  'Companheiros de Besouro no Trapiche de Baixo'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Boca de Siri' AND o.apelido = 'Paulo Barroquinha'
+  'José Brigido Dorneles Antunes (via Antonio Liberac); Velhos Mestres; Professor Leiteiro',
+  'One of Besouro''s companions at Trapiche de Baixo alongside Paulo Barroquinha, Noca de Jacó, Doze Homens, and Canário Pardo. They were a gang of capoeira resistance fighters who trained together on Sundays.',
+  'Um dos companheiros de Besouro no Trapiche de Baixo ao lado de Paulo Barroquinha, Noca de Jacó, Doze Homens e Canário Pardo. Eram uma turma de lutadores de resistência da capoeira que treinavam juntos aos domingos.'
+FROM genealogy.person_profiles p, genealogy.group_profiles g
+WHERE p.apelido = 'Boca de Siri' AND g.name = 'Roda de Trapiche de Baixo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================
@@ -184,7 +166,7 @@ VALUES (
   'person',
   'persons/boca-de-siri.sql',
   NULL,
-  ARRAY['persons/besouro-manganga.sql', 'persons/neco-canario-pardo.sql', 'persons/paulo-barroquinha.sql'],
+  ARRAY['persons/besouro-manganga.sql', 'groups/roda-de-trapiche-de-baixo.sql'],
   'Companion of Besouro Mangangá at Trapiche de Baixo capoeira rodas in Santo Amaro'
 )
 ON CONFLICT (entity_type, file_path) DO UPDATE SET

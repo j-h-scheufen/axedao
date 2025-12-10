@@ -77,7 +77,7 @@ INSERT INTO genealogy.person_profiles (
   -- Researcher notes (Portuguese)
   E'RELATOS CONFLITANTES DA MORTE: Existem duas narrativas diferentes sobre como Corre Hoje morreu:\n1. Baleado por Nascimento Grande com uma pistola durante o ataque (fonte Educando com Ginga)\n2. Atingido por uma bala perdida destinada a Nascimento Grande (fonte Mestre Brizola)\n\nESTIMATIVAS DE NASCIMENTO/MORTE: Nenhuma data fornecida em qualquer fonte. Estimativas baseadas em:\n- Nascimento Grande nasceu em 1842, ativo de 1860s-1930s\n- Incidente provavelmente ocorreu durante o auge da era da capoeira no Recife (1880s-1890s)\n- Corre Hoje deve ter sido estabelecido o suficiente para organizar 7 seguidores\n- Estimativa conservadora: nascido ~1850s, morreu ~1890s (ambos precisão de década)\n\nNENHUM DADO BIOGRÁFICO: Nome verdadeiro, família, ocupação, outras atividades completamente desconhecidas. Apenas mencionado no contexto do ataque a Nascimento Grande.\n\nCONTEXTO HISTÓRICO: Durante esta era, a capoeira era ilegal (código penal de 1890). Muitos capoeiristas estavam envolvidos em disputas territoriais, conflitos de bandas de carnaval e atividades do submundo criminal no Recife.'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

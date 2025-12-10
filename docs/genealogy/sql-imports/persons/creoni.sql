@@ -3,7 +3,7 @@
 -- Generated: 2025-12-09
 -- Primary Source: https://velhosmestres.com/br/destaques-2
 -- ============================================================
--- DEPENDENCIES: none
+-- DEPENDENCIES: groups/roda-do-matatu-preto.sql
 -- ============================================================
 --
 -- BIRTH YEAR ESTIMATION (1905 with 'decade' precision):
@@ -75,7 +75,7 @@ INSERT INTO genealogy.person_profiles (
   E'BIRTH YEAR ESTIMATION (1905, decade precision): Active capoeirista at Matatu Preto training circle in 1935. If 25-40 years old when active in 1935, birth = ~1895-1910. Using 1905 as midpoint estimate.\n\nDEATH: Unknown. No records of his death have been found.\n\nNAME: Only known by the apelido "Creoni." Origin of nickname unknown.\n\nSOURCES: Sole source is Mestre Canjiquinha''s testimony (1989) about the Matatu Preto gatherings circa 1935. No other documentation found.\n\nLIMITED INFORMATION: Unlike other Matatu Preto contemporaries (Geraldo Chapeleiro, Chico Três Pedaços), Creoni does not appear in other historical records, suggesting he may have been less prominent or left capoeira earlier.',
   E'ESTIMATIVA DO ANO DE NASCIMENTO (1905, precisão de década): Capoeirista ativo no círculo de treino do Matatu Preto em 1935. Se tinha 25-40 anos quando ativo em 1935, nascimento = ~1895-1910. Usando 1905 como estimativa do ponto médio.\n\nMORTE: Desconhecida. Nenhum registro de sua morte foi encontrado.\n\nNOME: Conhecido apenas pelo apelido "Creoni." Origem do apelido desconhecida.\n\nFONTES: Única fonte é o depoimento de Mestre Canjiquinha (1989) sobre os encontros do Matatu Preto por volta de 1935. Nenhuma outra documentação encontrada.\n\nINFORMAÇÕES LIMITADAS: Diferente de outros contemporâneos do Matatu Preto (Geraldo Chapeleiro, Chico Três Pedaços), Creoni não aparece em outros registros históricos, sugerindo que pode ter sido menos proeminente ou deixou a capoeira mais cedo.'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,
@@ -100,6 +100,33 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
 -- ============================================================
 -- STATEMENTS (Relationships)
 -- ============================================================
+
+-- --- Person-to-Group: Membership at Roda do Matatu Preto ---
+
+-- Creoni member_of Roda do Matatu Preto
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, p.id,
+  'member_of'::genealogy.predicate,
+  'group'::genealogy.entity_type, g.id,
+  '1930-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"membership_context": "Regular participant in Sunday training sessions at Matatu Preto in the 1930s."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Canjiquinha testimony (1989); velhosmestres.com/br/destaques-2',
+  'Part of the Matatu Preto Sunday training group in Salvador during the 1930s, alongside Aberrê, Onça Preta, Geraldo Chapeleiro, Totonho de Maré, Chico Três Pedaços, Paulo Barroquinha, and Barboza.',
+  'Parte do grupo de treino de domingo no Matatu Preto em Salvador durante os anos 1930, ao lado de Aberrê, Onça Preta, Geraldo Chapeleiro, Totonho de Maré, Chico Três Pedaços, Paulo Barroquinha e Barboza.'
+FROM genealogy.person_profiles p, genealogy.group_profiles g
+WHERE p.apelido = 'Creoni' AND g.name = 'Roda do Matatu Preto'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- --- Person-to-Person: Associations ---
 
@@ -212,7 +239,7 @@ VALUES (
   'person',
   'persons/creoni.sql',
   NULL,
-  ARRAY[]::text[],
+  ARRAY['groups/roda-do-matatu-preto.sql']::text[],
   'Capoeirista active at Matatu Preto training circle in 1935; contemporary of Aberrê'
 )
 ON CONFLICT (entity_type, file_path) DO UPDATE SET

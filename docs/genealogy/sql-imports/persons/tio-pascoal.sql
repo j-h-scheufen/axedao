@@ -145,7 +145,7 @@ RELACIONAMENTO COM COBRINHA VERDE: O predicado influenced_by é apropriado já q
 
 MENÇÕES A ISÍDIO: O relato menciona "um discípulo velho de nome Isídio" na Igreja do Bonfim que forneceu materiais para o patuá. Esta pessoa pode ter sido aluno do próprio Pascoal ou colega praticante.'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

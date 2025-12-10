@@ -123,7 +123,7 @@ RETRATO: Nenhuma fotografia histórica autêntica existe. O filme de 2009 aprese
 
 NOMES ALTERNATIVOS: Besouro Preto, Besouro Cordão de Ouro'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

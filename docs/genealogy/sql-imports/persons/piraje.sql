@@ -72,7 +72,7 @@ INSERT INTO genealogy.person_profiles (
   -- Researcher notes (Portuguese)
   E'ANO DE NASCIMENTO: Estimado 1860 com precisão de década. Não existe documentação sobre o nascimento de Pirajé. Estimativa baseada em:\n- Período ativo de Nascimento Grande (1860s-1920s)\n- O provável período em que Pirajé teria estabelecido sua reputação (1880s-1890s)\n- Idade típica para lutadores em seu auge (20-30 anos)\n\nNOME COMPLETO: Desconhecido.\n\nMORTE: Desconhecida. Nenhum registro de sua morte ou do resultado de qualquer desafio a Nascimento Grande.\n\nFONTES LIMITADAS: Mencionado apenas no contexto da fama de Nascimento Grande. Nenhuma informação biográfica independente encontrada apesar de buscas extensivas.\n\nSIGNIFICÂNCIA REGIONAL: Sua proeminência do Pará indica que a cultura da capoeira se estendia bem além dos centros tradicionais do Rio de Janeiro e Bahia. Isso apoia pesquisas mostrando que a capoeira era praticada em várias regiões incluindo Pernambuco, Pará e Maranhão.\n\nRESULTADO DO DESAFIO: Desconhecido se algum desafio real ocorreu. Fontes apenas mencionam que ele "cobiçava" desafiar Nascimento Grande.'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

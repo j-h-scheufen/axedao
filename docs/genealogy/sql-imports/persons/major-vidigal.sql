@@ -117,7 +117,7 @@ PROFESSOR: Desconhecido. A trilha de linhagem termina com ele—não sabemos que
 
 REVOLTA DOS MERCENÁRIOS (1828): Quando soldados mercenários alemães e irlandeses se revoltaram, Vidigal convocou os próprios capoeiras que havia perseguido. Em três dias a revolta foi esmagada—em grande parte graças aos capoeiristas.'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

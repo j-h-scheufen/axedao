@@ -131,7 +131,7 @@ COMPANHIA DE NAVEGAÇÃO BAHIANA: Fundada em 1853 através da fusão de empresas
 RELACIONAMENTOS PENDENTES (requer importação de Mestre Bimba):
 - Bimba student_of Bentinho (~1911-1915)'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

@@ -150,7 +150,7 @@ CARTUNS DO O MALHO: A revista publicou cartuns políticos usando a vitória de C
 
 LEGADO: Assistir à vitória de Cyriaco inspirou Sinhozinho a aprender capoeira. Biblioteca "Biblioteca Comunitária Francisco da Silva Cyríaco" existe em Campos dos Goytacazes.'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

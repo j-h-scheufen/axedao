@@ -3,7 +3,7 @@
 -- Generated: 2025-12-09
 -- Primary Source: https://velhosmestres.com/br/destaques-2
 -- ============================================================
--- DEPENDENCIES: none
+-- DEPENDENCIES: groups/gengibirra.sql, groups/roda-do-matatu-preto.sql
 -- ============================================================
 --
 -- BIRTH YEAR ESTIMATION (1900 with 'decade' precision):
@@ -75,7 +75,7 @@ INSERT INTO genealogy.person_profiles (
   E'BIRTH YEAR ESTIMATION (1900, decade precision): Active capoeirista at Matatu Preto training circle in 1935. Co-founder of Centro de Capoeira Angola at Ladeira de Pedra in 1920s. If 25-45 years old when founding in early 1920s, birth = ~1875-1900. If 35-50 when active at Matatu Preto in 1935, birth = ~1885-1900. Using 1900 as reasonable estimate.\n\nDEATH: Unknown. No records of his death have been found.\n\nNAME: Only known by the apelido "Geraldo Chapeleiro." "Chapeleiro" means hatmaker/hatter in Portuguese, likely indicating his profession.\n\nSOURCES: Primary source is Mestre Canjiquinha''s testimony (1989) about the Matatu Preto gatherings circa 1935, and Mestre Noronha''s manuscripts about the Gengibirra founding.',
   E'ESTIMATIVA DO ANO DE NASCIMENTO (1900, precisão de década): Capoeirista ativo no círculo de treino do Matatu Preto em 1935. Cofundador do Centro de Capoeira Angola na Ladeira de Pedra nos anos 1920. Se tinha 25-45 anos quando fundou no início dos anos 1920, nascimento = ~1875-1900. Se tinha 35-50 anos quando ativo no Matatu Preto em 1935, nascimento = ~1885-1900. Usando 1900 como estimativa razoável.\n\nMORTE: Desconhecida. Nenhum registro de sua morte foi encontrado.\n\nNOME: Conhecido apenas pelo apelido "Geraldo Chapeleiro." "Chapeleiro" significa fabricante de chapéus em português, provavelmente indicando sua profissão.\n\nFONTES: Fonte primária é o depoimento de Mestre Canjiquinha (1989) sobre os encontros do Matatu Preto por volta de 1935, e os manuscritos de Mestre Noronha sobre a fundação da Gengibirra.'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,
@@ -101,87 +101,61 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
 -- STATEMENTS (Relationships)
 -- ============================================================
 
--- --- Person-to-Person: Associations ---
+-- NOTE: Generic "trained together at Matatu Preto" associations removed.
+-- Co-attendance is now captured via member_of Roda de Trapiche de Baixo.
+-- Only specific documented interactions should be person-to-person.
 
--- Geraldo Chapeleiro associated_with Aberrê (Matatu Preto training circle)
+-- --- Person-to-Group: Co-founded Gengibirra ---
+
+-- Geraldo Chapeleiro co_founded Gengibirra
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, p.id,
+  'co_founded'::genealogy.predicate,
+  'group'::genealogy.entity_type, g.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  '{}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Noronha manuscripts via velhosmestres.com',
+  'One of 22 founding mestres of the Centro de Capoeira Angola at Ladeira de Pedra (Gengibirra).',
+  'Um dos 22 mestres fundadores do Centro de Capoeira Angola na Ladeira de Pedra (Gengibirra).'
+FROM genealogy.person_profiles p, genealogy.group_profiles g
+WHERE p.apelido = 'Geraldo Chapeleiro' AND g.name = 'Gengibirra'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- --- Person-to-Group: Membership at Roda do Matatu Preto ---
+
+-- Geraldo Chapeleiro member_of Roda do Matatu Preto
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
   object_type, object_id,
   started_at, started_at_precision,
   ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
+  properties,
+  confidence, source, notes_en, notes_pt
 )
 SELECT
-  'person'::genealogy.entity_type, s.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1935-01-01'::date, 'year'::genealogy.date_precision,
+  'person'::genealogy.entity_type, p.id,
+  'member_of'::genealogy.predicate,
+  'group'::genealogy.entity_type, g.id,
+  '1930-01-01'::date, 'decade'::genealogy.date_precision,
   NULL, 'unknown'::genealogy.date_precision,
-  '{"association_context": "Both were regular participants in the Sunday rodas at Matatu Preto in Salvador; documented in Mestre Canjiquinha''s testimony (1989)"}'::jsonb,
-  'likely'::genealogy.confidence,
-  'Mestre Canjiquinha testimony (1989), velhosmestres.com',
-  'Fellow capoeiristas who trained together at Matatu Preto training circle',
-  'Capoeiristas que treinavam juntos no círculo de treino do Matatu Preto'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Geraldo Chapeleiro' AND o.apelido = 'Aberrê'
+  '{"membership_context": "Regular participant in Sunday training sessions at Matatu Preto in the 1930s."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Canjiquinha testimony (1989); velhosmestres.com',
+  'Regular at the Matatu Preto Sunday training sessions in Salvador during the 1930s, alongside Aberrê, Onça Preta, Totonho de Maré, and others.',
+  'Frequentador das sessões de treino de domingo no Matatu Preto em Salvador durante os anos 1930, ao lado de Aberrê, Onça Preta, Totonho de Maré e outros.'
+FROM genealogy.person_profiles p, genealogy.group_profiles g
+WHERE p.apelido = 'Geraldo Chapeleiro' AND g.name = 'Roda do Matatu Preto'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
--- Geraldo Chapeleiro associated_with Onça Preta (Matatu Preto training circle)
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1935-01-01'::date, 'year'::genealogy.date_precision,
-  NULL, 'unknown'::genealogy.date_precision,
-  '{"association_context": "Both were regular participants in the Sunday rodas at Matatu Preto in Salvador; documented in Mestre Canjiquinha''s testimony (1989)"}'::jsonb,
-  'likely'::genealogy.confidence,
-  'Mestre Canjiquinha testimony (1989), velhosmestres.com',
-  'Fellow capoeiristas who trained together at Matatu Preto training circle',
-  'Capoeiristas que treinavam juntos no círculo de treino do Matatu Preto'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Geraldo Chapeleiro' AND o.apelido = 'Onça Preta'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
--- Geraldo Chapeleiro associated_with Paulo Barroquinha (Matatu Preto training circle)
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1935-01-01'::date, 'year'::genealogy.date_precision,
-  NULL, 'unknown'::genealogy.date_precision,
-  '{"association_context": "Both were regular participants in the Sunday rodas at Matatu Preto in Salvador; documented in Mestre Canjiquinha''s testimony (1989)"}'::jsonb,
-  'likely'::genealogy.confidence,
-  'Mestre Canjiquinha testimony (1989), velhosmestres.com',
-  'Fellow capoeiristas who trained together at Matatu Preto training circle',
-  'Capoeiristas que treinavam juntos no círculo de treino do Matatu Preto'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Geraldo Chapeleiro' AND o.apelido = 'Paulo Barroquinha'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
--- --- Person-to-Group: Founding & Membership ---
--- NOTE: Gengibirra (Centro de Capoeira Angola) group import pending
--- When imported, add: Geraldo Chapeleiro co_founded Gengibirra (1920s)
--- When imported, add: Geraldo Chapeleiro member_of Gengibirra
 
 -- ============================================================
 -- IMPORT LOG
@@ -192,7 +166,7 @@ VALUES (
   'person',
   'persons/geraldo-chapeleiro.sql',
   NULL,
-  ARRAY[]::text[],
+  ARRAY['groups/gengibirra.sql', 'groups/roda-do-matatu-preto.sql']::text[],
   'Founding mestre of Centro de Capoeira Angola (Gengibirra) 1920s; regular at Matatu Preto training circle 1935'
 )
 ON CONFLICT (entity_type, file_path) DO UPDATE SET

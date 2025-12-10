@@ -143,7 +143,7 @@ RELACIONAMENTOS ATIVOS (entidades já importadas):
 - Besouro Mangangá: associated_with como companheiros de treino
 - Cobrinha Verde: student_of Siri de Mangue (pós-1924)'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

@@ -3,7 +3,7 @@
 -- Generated: 2025-12-09
 -- Primary Source: https://issuu.com/revistacapoeirando/docs/capoeirando_ed_3/s/29434691
 -- ============================================================
--- DEPENDENCIES: none
+-- DEPENDENCIES: groups/roda-do-matatu-preto.sql
 -- ============================================================
 --
 -- BIRTH YEAR ESTIMATION (1895 with 'decade' precision):
@@ -76,7 +76,7 @@ INSERT INTO genealogy.person_profiles (
   E'BIRTH YEAR ESTIMATION (1895, decade precision): First documented legal case is from 1923 (attacking police officer). Second documented case is from July 23, 1927 (headbutt assault). If 25-35 years old during these incidents, birth = ~1888-1902. Using 1895 as midpoint estimate.\n\nDEATH: Unknown. No records of his death have been found.\n\nNAME: Full name João Francisco Pires documented in court records. "Três Pedaços" meaning "Three Pieces" - origin of nickname unclear but likely related to his fighting prowess.\n\nLEGAL RECORDS: Four cases in Arquivo Público do Estado da Bahia - one theft, three bodily harm. Additional case from 1923 involving police officer Ludgero Alves de Sant''Anna.\n\nSOURCES: Primary sources are court records via Revista Capoeirando article, Mestre Canjiquinha''s testimony (1989) about Matatu Preto gatherings, and Mestre Pastinha''s 1967 interview listing legendary capoeiristas.',
   E'ESTIMATIVA DO ANO DE NASCIMENTO (1895, precisão de década): Primeiro caso legal documentado é de 1923 (atacando policial). Segundo caso documentado é de 23 de julho de 1927 (agressão com cabeçada). Se tinha 25-35 anos durante esses incidentes, nascimento = ~1888-1902. Usando 1895 como estimativa do ponto médio.\n\nMORTE: Desconhecida. Nenhum registro de sua morte foi encontrado.\n\nNOME: Nome completo João Francisco Pires documentado em registros judiciais. "Três Pedaços" significando "Três Pedaços" - origem do apelido incerta mas provavelmente relacionada à sua habilidade de luta.\n\nREGISTROS LEGAIS: Quatro casos no Arquivo Público do Estado da Bahia - um furto, três lesões corporais. Caso adicional de 1923 envolvendo policial Ludgero Alves de Sant''Anna.\n\nFONTES: Fontes primárias são registros judiciais via artigo da Revista Capoeirando, depoimento de Mestre Canjiquinha (1989) sobre os encontros do Matatu Preto, e entrevista de Mestre Pastinha de 1967 listando capoeiristas lendários.'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,
@@ -101,6 +101,33 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
 -- ============================================================
 -- STATEMENTS (Relationships)
 -- ============================================================
+
+-- --- Person-to-Group: Membership at Roda do Matatu Preto ---
+
+-- Chico Três Pedaços member_of Roda do Matatu Preto
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, p.id,
+  'member_of'::genealogy.predicate,
+  'group'::genealogy.entity_type, g.id,
+  '1930-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"membership_context": "Regular participant in Sunday training sessions at Matatu Preto in the 1930s."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Canjiquinha testimony (1989); velhosmestres.com/br/destaques-2',
+  'Part of the Matatu Preto Sunday training group in Salvador during the 1930s, alongside Aberrê, Onça Preta, Geraldo Chapeleiro, Totonho de Maré, Creoni, Paulo Barroquinha, and Barboza.',
+  'Parte do grupo de treino de domingo no Matatu Preto em Salvador durante os anos 1930, ao lado de Aberrê, Onça Preta, Geraldo Chapeleiro, Totonho de Maré, Creoni, Paulo Barroquinha e Barboza.'
+FROM genealogy.person_profiles p, genealogy.group_profiles g
+WHERE p.apelido = 'Chico Três Pedaços' AND g.name = 'Roda do Matatu Preto'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- --- Person-to-Person: Associations ---
 
@@ -238,7 +265,7 @@ VALUES (
   'person',
   'persons/chico-tres-pedacos.sql',
   NULL,
-  ARRAY[]::text[],
+  ARRAY['groups/roda-do-matatu-preto.sql']::text[],
   'Notorious Salvador capoeirista (1920s-1930s); legal records document multiple incidents; regular at Matatu Preto training circle; listed by Mestre Pastinha among legendary figures'
 )
 ON CONFLICT (entity_type, file_path) DO UPDATE SET

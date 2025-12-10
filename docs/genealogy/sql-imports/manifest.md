@@ -52,13 +52,15 @@ All SQL files use idempotent patterns:
 **Profiles**: Use `ON CONFLICT ... DO UPDATE` to upsert
 ```sql
 INSERT INTO genealogy.person_profiles (...) VALUES (...)
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   bio_en = EXCLUDED.bio_en,
   bio_pt = EXCLUDED.bio_pt,
   ...
   updated_at = NOW();
 ```
+
+**Note**: The ON CONFLICT clause uses `COALESCE(apelido_context, '')` to match the composite unique index, allowing multiple people with the same apelido as long as they have different contexts (or one has NULL context).
 
 **Important**: All narrative content uses bilingual columns (`_en` / `_pt`). This includes `bio`, `achievements`, `style_notes`, and `notes` (researcher notes for date estimates, source conflicts, caveats). See `docs/genealogy/BILINGUAL_CONTENT.md` for details.
 
@@ -124,6 +126,7 @@ Files are listed in recommended import order (dependencies first).
 | Order | File | Dependencies | Description |
 |-------|------|--------------|-------------|
 | 1 | groups/roda-de-trapiche-de-baixo.sql | none | Informal capoeira community in Santo Amaro (~1888-1924) |
+| 2 | groups/roda-do-matatu-preto.sql | none | Informal Sunday training circle in Salvador (1930s) |
 
 ---
 

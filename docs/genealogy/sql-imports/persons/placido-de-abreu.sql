@@ -169,7 +169,7 @@ PRISÃO DE 1872: Preso em janeiro de 1872 durante repressões policiais às malt
 
 TENTATIVA DE ASSASSINATO DE 1889: Implicado na tentativa de assassinato de junho de 1889 contra o Imperador Pedro II.'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

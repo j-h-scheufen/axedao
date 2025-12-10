@@ -128,7 +128,7 @@ FONTE DOCUMENTAL: O depoimento de Leopoldina a Nestor Capoeira aparece no docume
 RELACIONAMENTOS PENDENTES (requer importações):
 - Leopoldina student_of Quinzinho (~1950-1954)'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

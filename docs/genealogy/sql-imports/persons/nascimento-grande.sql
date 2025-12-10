@@ -123,7 +123,7 @@ CORPO FECHADO: Acreditava-se que possuía proteção mágica via amuleto contend
 
 CONEXÃO COM O FREVO: Parte da tradição carnavalesca de capoeira do Recife. Os capoeiristas que se apresentavam na frente das bandas militares usando ginga e chutes eventualmente transformaram estes no "passo"—a dança do frevo.'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

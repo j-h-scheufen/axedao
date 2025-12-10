@@ -141,7 +141,7 @@ MÉTODO DE ENSINO: Ensinava capoeira sem berimbau, acompanhando a prática apena
 RELACIONAMENTOS PENDENTES (requer importação de Pastinha):
 - Pastinha student_of Benedito (~1899-1902)'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

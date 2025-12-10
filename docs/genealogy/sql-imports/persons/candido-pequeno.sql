@@ -77,7 +77,7 @@ INSERT INTO genealogy.person_profiles (
   E'BIRTH YEAR ESTIMATION (1870, decade precision): Referred to as "o velho Cândido Pequeno" (the old Cândido Pequeno) when teaching 8-year-old Noronha in 1917. If he was 40-55 years old when teaching in 1917, birth = ~1862-1877. Using 1870 as midpoint estimate.\n\nORIGIN: Described as "negro descendente de Angola" suggesting African-born or first-generation descendant. Combined with the earring tradition documented by Manuel Querino, indicates strong African cultural identity.\n\nNAME: Also known as "Argolinha de Ouro" (Golden Little Ring) due to the small gold earring he wore. Full name recorded as Cândido da Costa.\n\nDEATH: Unknown. No records of his death have been found. Last documented activity was co-founding Gengibirra in the 1920s.\n\nPOSSIBLE RELATIVE: Lúcio Pequeno, also a founding mestre of Gengibirra, may be a brother or relative given the shared surname.\n\nPENDING RELATIONSHIPS (require future imports):\n- Noronha student_of Cândido Pequeno (1917-?)\n- Cândido Pequeno co_founded Gengibirra (1920s)',
   E'ESTIMATIVA DO ANO DE NASCIMENTO (1870, precisão de década): Referido como "o velho Cândido Pequeno" quando ensinava Noronha de 8 anos em 1917. Se tinha 40-55 anos quando ensinava em 1917, nascimento = ~1862-1877. Usando 1870 como estimativa do ponto médio.\n\nORIGEM: Descrito como "negro descendente de Angola" sugerindo nascido na África ou descendente de primeira geração. Combinado com a tradição do brinco documentada por Manuel Querino, indica forte identidade cultural africana.\n\nNOME: Também conhecido como "Argolinha de Ouro" (Pequena Argola de Ouro) devido ao pequeno brinco de ouro que usava. Nome completo registrado como Cândido da Costa.\n\nMORTE: Desconhecida. Nenhum registro de sua morte foi encontrado. Última atividade documentada foi a co-fundação do Gengibirra na década de 1920.\n\nPOSSÍVEL PARENTE: Lúcio Pequeno, também mestre fundador do Gengibirra, pode ser irmão ou parente dado o sobrenome compartilhado.\n\nRELACIONAMENTOS PENDENTES (requerem importações futuras):\n- Noronha student_of Cândido Pequeno (1917-?)\n- Cândido Pequeno co_founded Gengibirra (década de 1920)'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,
@@ -101,15 +101,36 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
 
 -- ============================================================
 -- STATEMENTS (Relationships)
--- Only generate for entities that EXIST in our dataset
 -- ============================================================
 
--- No statements can be generated yet:
--- - Noronha (student) not yet imported
--- - Gengibirra (group) not yet imported
--- - Lúcio Pequeno (possible relative) not yet imported
---
--- PENDING RELATIONSHIPS (for future imports):
+-- --- Person-to-Group: Co-founded Gengibirra ---
+
+-- Cândido Pequeno co_founded Gengibirra
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, p.id,
+  'co_founded'::genealogy.predicate,
+  'group'::genealogy.entity_type, g.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  '{}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Noronha manuscripts via velhosmestres.com',
+  'One of 22 founding mestres of the Centro de Capoeira Angola at Ladeira de Pedra (Gengibirra). Recognized as "champion of capoeira in the State of Bahia."',
+  'Um dos 22 mestres fundadores do Centro de Capoeira Angola na Ladeira de Pedra (Gengibirra). Reconhecido como "campeão da capoeira do Estado da Bahia."'
+FROM genealogy.person_profiles p, genealogy.group_profiles g
+WHERE p.apelido = 'Cândido Pequeno' AND g.name = 'Gengibirra'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (for future imports)
+-- ============================================================
 --
 -- 1. Noronha student_of Cândido Pequeno
 --    Started: 1917 (year precision)
@@ -117,12 +138,7 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
 --    Source: Noronha's manuscripts via velhosmestres.com
 --    Notes: Noronha began training at age 8 in Beco de Xaréu
 --
--- 2. Cândido Pequeno co_founded Gengibirra
---    Started: ~1920s (decade precision)
---    Source: Noronha's manuscripts
---    Notes: One of 22 founding mestres
---
--- 3. Cândido Pequeno associated_with Lúcio Pequeno
+-- 2. Cândido Pequeno associated_with Lúcio Pequeno
 --    Type: Possible family (brother)
 --    Confidence: uncertain
 --    Source: Shared surname; both founding mestres of Gengibirra

@@ -70,7 +70,7 @@ INSERT INTO genealogy.person_profiles (
   -- Researcher notes (Portuguese)
   E'ANO DE NASCIMENTO: Estimado 1860 com precisão de década. Não existe documentação sobre o nascimento de Pajéu. Estimativa baseada em:\n- Ativo como desafiante de Nascimento Grande (nascido em 1842)\n- Contemporâneo com outros desafiantes do período 1880s-1900s\n- Precisaria ser lutador adulto durante este período\n- Precisão de década (1860s) reflete a incerteza\n\nNOME COMPLETO: Desconhecido. Comum para malfeitores e valentões desta era, especialmente aqueles do sertão, serem conhecidos apenas pelo apelido.\n\nMORTE: Desconhecida. Nenhum registro do destino de Pajéu após a humilhação por Nascimento Grande.\n\nLOCAL: Bairro São José, Recife, Pernambuco. Um dos bairros mais antigos e históricos do Recife.\n\nCLASSIFICAÇÃO: Não era um capoeirista legítimo apesar das pretensões. Conhecido por luta de faca com peixeira ao invés de técnica de capoeira. Representa o tipo de falso capoeirista que os verdadeiros praticantes desprezavam.\n\nPEIXEIRA: Um tipo de faca tradicional do sertão brasileiro, com lâmina longa e fina. Arma comum entre sertanejos e valentões.'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

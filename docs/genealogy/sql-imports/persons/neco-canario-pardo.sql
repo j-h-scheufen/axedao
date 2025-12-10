@@ -6,7 +6,8 @@
 --   - https://velhosmestres.com/br/besouro
 --   - https://capoeira-connection.com/capoeira/2011/10/interview-with-mestre-waldemar/
 -- ============================================================
--- DEPENDENCIES: persons/besouro-manganga.sql, persons/cobrinha-verde.sql, persons/paulo-barroquinha.sql, persons/boca-de-siri.sql, persons/noca-de-jaco.sql, persons/doze-homens.sql, persons/siri-de-mangue.sql
+-- DEPENDENCIES: persons/besouro-manganga.sql, persons/cobrinha-verde.sql, groups/roda-de-trapiche-de-baixo.sql
+-- NOTE: Person-to-person dependencies removed; co-attendance now via group membership
 -- ============================================================
 
 BEGIN;
@@ -122,7 +123,7 @@ LINHA DO TEMPO DE ENSINO: Ensinou Cobrinha Verde nos anos 1910-1920 (Cobrinha na
 
 FONTES: Fontes primárias incluem autobiografia de Cobrinha Verde (velhosmestres.com), entrevista de Mestre Waldemar, relatos do Professor Leiteiro.'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,
@@ -186,129 +187,35 @@ FROM genealogy.person_profiles cv, genealogy.person_profiles ncp
 WHERE cv.apelido = 'Cobrinha Verde' AND ncp.apelido = 'Neco Canário Pardo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Neco Canário Pardo associated_with Paulo Barroquinha (Trapiche de Baixo)
+-- NOTE: Generic "trained together at Trapiche de Baixo" associations removed.
+-- Co-attendance is now captured via member_of Roda de Trapiche de Baixo.
+-- Only specific documented interactions should be person-to-person.
+
+-- --- Person-to-Group: Membership at Roda de Trapiche de Baixo ---
+
+-- Neco Canário Pardo member_of Roda de Trapiche de Baixo
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
   object_type, object_id,
   started_at, started_at_precision,
   ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
+  properties,
+  confidence, source, notes_en, notes_pt
 )
 SELECT
-  'person'::genealogy.entity_type, s.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1910-01-01'::date, 'decade'::genealogy.date_precision,
+  'person'::genealogy.entity_type, p.id,
+  'member_of'::genealogy.predicate,
+  'group'::genealogy.entity_type, g.id,
+  '1910-01-01'::date, 'approximate'::genealogy.date_precision,
   '1924-07-08'::date, 'exact'::genealogy.date_precision,
-  '{"association_context": "Companions at Trapiche de Baixo in Santo Amaro; both part of Besouro Mangangá''s circle; documented by Professor Leiteiro"}'::jsonb,
-  'likely'::genealogy.confidence,
-  'Professor Leiteiro account via velhosmestres.com/br/besouro',
-  'Part of Besouro''s training circle at Trapiche de Baixo, Santo Amaro',
-  'Parte do círculo de treino de Besouro no Trapiche de Baixo, Santo Amaro'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Neco Canário Pardo' AND o.apelido = 'Paulo Barroquinha'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
--- Neco Canário Pardo associated_with Boca de Siri (Trapiche de Baixo)
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1910-01-01'::date, 'decade'::genealogy.date_precision,
-  '1924-07-08'::date, 'exact'::genealogy.date_precision,
-  '{"association_context": "Companions at Trapiche de Baixo in Santo Amaro; both part of Besouro Mangangá''s circle; documented by Professor Leiteiro"}'::jsonb,
-  'likely'::genealogy.confidence,
-  'Professor Leiteiro account via velhosmestres.com/br/besouro',
-  'Part of Besouro''s training circle at Trapiche de Baixo, Santo Amaro',
-  'Parte do círculo de treino de Besouro no Trapiche de Baixo, Santo Amaro'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Neco Canário Pardo' AND o.apelido = 'Boca de Siri'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
--- Neco Canário Pardo associated_with Noca de Jacó (Trapiche de Baixo)
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1910-01-01'::date, 'decade'::genealogy.date_precision,
-  '1924-07-08'::date, 'exact'::genealogy.date_precision,
-  '{"association_context": "Companions at Trapiche de Baixo in Santo Amaro; both part of Besouro Mangangá''s circle; documented by Professor Leiteiro"}'::jsonb,
-  'likely'::genealogy.confidence,
-  'Professor Leiteiro account via velhosmestres.com/br/besouro',
-  'Part of Besouro''s training circle at Trapiche de Baixo, Santo Amaro',
-  'Parte do círculo de treino de Besouro no Trapiche de Baixo, Santo Amaro'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Neco Canário Pardo' AND o.apelido = 'Noca de Jacó'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
--- Neco Canário Pardo associated_with Doze Homens (Trapiche de Baixo)
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1910-01-01'::date, 'decade'::genealogy.date_precision,
-  '1925-01-01'::date, 'year'::genealogy.date_precision,
-  '{"association_context": "Companions at Trapiche de Baixo in Santo Amaro; both part of Besouro Mangangá''s circle; documented by Professor Leiteiro"}'::jsonb,
-  'likely'::genealogy.confidence,
-  'Professor Leiteiro account via velhosmestres.com/br/besouro',
-  'Part of Besouro''s training circle at Trapiche de Baixo, Santo Amaro; Doze Homens killed during Pedrito persecution',
-  'Parte do círculo de treino de Besouro no Trapiche de Baixo, Santo Amaro; Doze Homens morto durante perseguição de Pedrito'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Neco Canário Pardo' AND o.apelido = 'Doze Homens'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
--- Neco Canário Pardo associated_with Siri de Mangue (both taught Waldemar, both from Recôncavo)
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1910-01-01'::date, 'decade'::genealogy.date_precision,
-  NULL, 'unknown'::genealogy.date_precision,
-  '{"association_context": "Both from Santo Amaro/Recôncavo region; both companions of Besouro; both later taught Mestre Waldemar"}'::jsonb,
-  'likely'::genealogy.confidence,
-  'Mestre Waldemar interview: "I learned Capoeira from Siri de Mangue, Canário Pardo, Calabi de Periperi..."',
-  'Both from Recôncavo region; companions of Besouro; both taught Mestre Waldemar',
-  'Ambos da região do Recôncavo; companheiros de Besouro; ambos ensinaram Mestre Waldemar'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Neco Canário Pardo' AND o.apelido = 'Siri de Mangue'
+  '{"membership_context": "Training companion at Trapiche de Baixo. Part of Besouro''s circle that met on Sundays and holidays."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'José Brigido Dorneles Antunes (via Antonio Liberac); Velhos Mestres; Professor Leiteiro',
+  'One of Besouro''s companions at Trapiche de Baixo alongside Paulo Barroquinha, Boca de Siri, Noca de Jacó, and Doze Homens. They were a gang of capoeira resistance fighters who trained together on Sundays.',
+  'Um dos companheiros de Besouro no Trapiche de Baixo ao lado de Paulo Barroquinha, Boca de Siri, Noca de Jacó e Doze Homens. Eram uma turma de lutadores de resistência da capoeira que treinavam juntos aos domingos.'
+FROM genealogy.person_profiles p, genealogy.group_profiles g
+WHERE p.apelido = 'Neco Canário Pardo' AND g.name = 'Roda de Trapiche de Baixo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================
@@ -326,7 +233,7 @@ VALUES (
   'person',
   'persons/neco-canario-pardo.sql',
   NULL,
-  ARRAY['persons/besouro-manganga.sql', 'persons/cobrinha-verde.sql', 'persons/paulo-barroquinha.sql', 'persons/boca-de-siri.sql', 'persons/noca-de-jaco.sql', 'persons/doze-homens.sql', 'persons/siri-de-mangue.sql'],
+  ARRAY['persons/besouro-manganga.sql', 'persons/cobrinha-verde.sql', 'groups/roda-de-trapiche-de-baixo.sql'],
   'Machete teacher to Cobrinha Verde; companion of Besouro at Trapiche de Baixo; also taught Mestre Waldemar'
 )
 ON CONFLICT (entity_type, file_path) DO UPDATE SET

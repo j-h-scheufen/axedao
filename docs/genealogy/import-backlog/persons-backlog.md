@@ -38,9 +38,9 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Nicolau do Poço | - | - | Nascimento Grande import | pending | ? | Recife carnival valentão; unclear if formal capoeirista |
 | João de Totó | - | - | Nascimento Grande import | pending | ? | Recife carnival valentão; unclear if formal capoeirista |
 | Besouro Mangangá | Manoel Henrique Pereira | - | Nascimento Grande import | done | yes | Legendary capoeirista of Bahia (1895-1924); SQL generated |
-| Pinta Preta da Lapa | - | - | Plácido de Abreu import | pending | yes | Capoeirista killed in retaliation for murder at Rua dos Ourives; documented by Plácido de Abreu |
-| Jacó | - | - | Plácido de Abreu import | pending | yes | Capoeirista killed in retaliation; documented by Plácido de Abreu |
-| Alemãozinho | - | - | Plácido de Abreu import | pending | yes | Capoeirista killed in retaliation; documented by Plácido de Abreu |
+| Pinta Preta da Lapa | Antônio da Rocha Azevedo | - | Plácido de Abreu import | done | yes | Chief of Glória capoeiras; National Guard member; killed Jan 7 1870; first documented Nagoas-Guaiamús conflict - SQL generated |
+| Jacó | - | - | Plácido de Abreu import | done | yes | Caboclo Jacó; killed at Paula Matos/Riachuelo 1870; second in vendetta cycle - SQL generated |
+| Alemãozinho | - | - | Plácido de Abreu import | done | yes | Little German; killed at Teatro Lírico do Campo 1870 by César-Maneta; third in vendetta cycle - SQL generated |
 | Paulo Barroquinha | - | - | Besouro Mangangá import | done | yes | Training companion of Besouro Mangangá in Santo Amaro; part of his Sunday training circle - SQL generated |
 | Cobrinha Verde | Rafael Alves França | Mestre | Multiple | done | yes | Cousin and student of Besouro; bridge to documented lineage - SQL generated |
 | Gato Preto | José Gabriel Góes (or Góes/Chagas) | Mestre | Cobrinha Verde import | pending | yes | Student of Cobrinha Verde; recorded LP with him; represented Brazil at 1966 Dakar festival |
@@ -204,3 +204,6 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | José Custódio dos Santos | - | - | Mestre Bimba import | pending | yes | "Zé I"; fellow capoeirista; one of Bimba's 1936 challenge opponents; defeated 15-2 |
 | Tiburcinho | - | Mestre | Mestre Bimba import | pending | yes | Brought to Bimba by Decânio; helped Bimba remember songs and maculelê choreographies |
 | Lúcio Barra Preta | - | - | Mestre Bimba import | pending | ? | Police chief who allegedly ambushed Bimba after 1936 match; lost money on bets; unclear if capoeirista |
+| César-Maneta | - | - | Alemãozinho import | done | yes | Famous capoeirista who killed Alemãozinho at Teatro Lírico do Campo 1870; later killed by João-Lagalhé on Praia do Peixe - SQL generated |
+| João-Lagalhé | - | - | Alemãozinho import | done | yes | Capoeirista who killed César-Maneta on Praia do Peixe 1870; continuing the vendetta cycle - SQL generated |
+| Manduca Tambor | Manuel Maria Trindade | - | Pinta Preta da Lapa import | pending | ? | Killed Pinta Preta da Lapa in Jan 1870; unclear if capoeirista or just street fighter |

@@ -145,7 +145,7 @@ PRISÃO: Cumpriu pena na Colônia Correcional de Dois Rios, Ilha Grande, onde er
 
 STATUS RELIGIOSO: Elevado a entidade Exu na religião afro-brasileira (umbanda).'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

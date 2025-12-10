@@ -182,7 +182,7 @@ OBRAS: "Memórias de Madame Satã" (1972), narradas a Sylvan Paezzo.
 
 FILMES SOBRE ELE: "Rainha Diaba" (1974); "Madame Satã" (2002, dir. Karim Aïnouz, com Lázaro Ramos).'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

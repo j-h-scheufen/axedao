@@ -8,6 +8,8 @@
 --   - https://capoeira-connection.com/capoeira/2011/10/capoeira-and-mandingas-mestre-cobrinha-verde-1921-1983/
 --   - https://nossa-tribo.com/mestre-cobrinha-verde-o-primo-de-besouro-manganga/
 -- ============================================================
+-- DEPENDENCIES: persons/besouro-manganga.sql, groups/roda-de-trapiche-de-baixo.sql
+-- ============================================================
 
 BEGIN;
 
@@ -140,7 +142,7 @@ RELACIONAMENTOS PENDENTES (requerem importações SQL):
 - associated_with: Mestre Pastinha (membro do CECA, colaborou)
 - founded: Centro Esportivo de Capoeira Angola Dois de Julho'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,
@@ -237,6 +239,33 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- --- Person-to-Group: Membership at Roda de Trapiche de Baixo ---
+
+-- Cobrinha Verde member_of Roda de Trapiche de Baixo
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, p.id,
+  'member_of'::genealogy.predicate,
+  'group'::genealogy.entity_type, g.id,
+  '1916-01-01'::date, 'approximate'::genealogy.date_precision,
+  '1924-07-08'::date, 'exact'::genealogy.date_precision,
+  '{"membership_context": "Began training with cousin Besouro at age 4 (1912/1916). Part of the Trapiche de Baixo community until Besouro''s death in 1924."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Velhos Mestres; Nossa Tribo; Cobrinha Verde interviews',
+  'Began training with his cousin Besouro Mangangá at Trapiche de Baixo around age 4 (1912-1916). Cobrinha Verde was the youngest member of the community, trained until Besouro''s death in 1924.',
+  'Começou a treinar com seu primo Besouro Mangangá no Trapiche de Baixo por volta dos 4 anos de idade (1912-1916). Cobrinha Verde era o membro mais jovem da comunidade, treinou até a morte de Besouro em 1924.'
+FROM genealogy.person_profiles p, genealogy.group_profiles g
+WHERE p.apelido = 'Cobrinha Verde' AND g.name = 'Roda de Trapiche de Baixo'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- IMPORT LOG
 -- ============================================================
@@ -246,7 +275,7 @@ VALUES (
   'person',
   'persons/cobrinha-verde.sql',
   NULL,
-  ARRAY['persons/besouro-manganga.sql'],
+  ARRAY['persons/besouro-manganga.sql', 'groups/roda-de-trapiche-de-baixo.sql'],
   'Mestre Cobrinha Verde (1912-1983); cousin and student of Besouro; bridge between legendary era and documented lineage'
 )
 ON CONFLICT (entity_type, file_path) DO UPDATE SET

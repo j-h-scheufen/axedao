@@ -151,7 +151,7 @@ ALUNOS (documentados):
 RELACIONAMENTO FAMILIAR (relevante para capoeira):
 - Pai: Marechal Floriano Peixoto - documentado como praticante de capoeiragem (não na genealogia pois era principalmente uma figura política/militar)'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

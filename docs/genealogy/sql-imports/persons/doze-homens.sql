@@ -3,7 +3,8 @@
 -- Generated: 2025-12-09
 -- Primary Source: https://velhosmestres.com/br/besouro
 -- ============================================================
--- DEPENDENCIES: persons/besouro-manganga.sql, persons/besourinho.sql, persons/paulo-barroquinha.sql, persons/boca-de-siri.sql, persons/noca-de-jaco.sql, persons/neco-canario-pardo.sql, persons/siri-de-mangue.sql
+-- DEPENDENCIES: persons/besouro-manganga.sql, persons/besourinho.sql, groups/roda-de-trapiche-de-baixo.sql
+-- NOTE: Person-to-person dependencies removed; co-attendance now via group membership
 -- ============================================================
 --
 -- BIRTH YEAR ESTIMATION (1890 with 'decade' precision):
@@ -75,7 +76,7 @@ INSERT INTO genealogy.person_profiles (
   E'BIRTH YEAR ESTIMATION (1890, decade precision): Contemporary of Besouro (b. 1895) at Trapiche de Baixo; teacher of women in 1920s; killed during Pedrito persecution (1920-1926). If teaching adults in 1920s, likely born 1880-1900. Using 1890.\n\nDEATH YEAR ESTIMATION (~1925): Killed during Pedrito persecution which ran 1920-1926. Using midpoint.\n\nNAME: "Doze Homens" means "Twelve Men." The origin of the name is unknown - possibly referring to fighting prowess.\n\nDISTINCT FROM MARIA DOZE HOMENS: This is the male capoeirista teacher; Maria Doze Homens was a separate female capoeirista who may have trained under him (see person-reports/maria-doze-homens.md).\n\nSTUDENTS: Salomé and Maria dos Anjos (per Mestre Atenilo testimony to Bira Almeida).\n\nPENDING RELATIONSHIPS:\n- Doze Homens associated_with Besouro Mangangá (companions at Trapiche de Baixo)\n- Doze Homens associated_with Besourinho (fellow Pedrito persecution victim)',
   E'ESTIMATIVA DO ANO DE NASCIMENTO (1890, precisão de década): Contemporâneo de Besouro (n. 1895) no Trapiche de Baixo; professor de mulheres nos anos 1920; morto durante perseguição de Pedrito (1920-1926). Se ensinava adultos nos anos 1920, provavelmente nasceu 1880-1900. Usando 1890.\n\nESTIMATIVA DO ANO DE MORTE (~1925): Morto durante perseguição de Pedrito que durou 1920-1926. Usando ponto médio.\n\nNOME: "Doze Homens" significa "Doze Homens." A origem do nome é desconhecida - possivelmente referindo-se à proeza de luta.\n\nDISTINTO DE MARIA DOZE HOMENS: Este é o capoeirista homem professor; Maria Doze Homens era uma capoeirista mulher separada que pode ter treinado com ele (ver person-reports/maria-doze-homens.md).\n\nALUNOS: Salomé e Maria dos Anjos (per testemunho de Mestre Atenilo para Bira Almeida).\n\nRELACIONAMENTOS PENDENTES:\n- Doze Homens associated_with Besouro Mangangá (companheiros no Trapiche de Baixo)\n- Doze Homens associated_with Besourinho (vítimas da perseguição de Pedrito)'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,
@@ -151,129 +152,35 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Doze Homens' AND o.apelido = 'Besourinho'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Doze Homens associated_with Paulo Barroquinha (Trapiche de Baixo)
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1910-01-01'::date, 'decade'::genealogy.date_precision,
-  '1924-07-08'::date, 'exact'::genealogy.date_precision,
-  '{"association_context": "Companions at Trapiche de Baixo in Santo Amaro; both part of Besouro Mangangá''s circle; documented by Professor Leiteiro"}'::jsonb,
-  'likely'::genealogy.confidence,
-  'Professor Leiteiro account via velhosmestres.com/br/besouro',
-  'Part of Besouro''s training circle at Trapiche de Baixo, Santo Amaro',
-  'Parte do círculo de treino de Besouro no Trapiche de Baixo, Santo Amaro'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Doze Homens' AND o.apelido = 'Paulo Barroquinha'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+-- NOTE: Generic "trained together at Trapiche de Baixo" associations removed.
+-- Co-attendance is now captured via member_of Roda de Trapiche de Baixo.
+-- Only specific documented interactions should be person-to-person.
 
--- Doze Homens associated_with Boca de Siri (Trapiche de Baixo)
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1910-01-01'::date, 'decade'::genealogy.date_precision,
-  '1924-07-08'::date, 'exact'::genealogy.date_precision,
-  '{"association_context": "Companions at Trapiche de Baixo in Santo Amaro; both part of Besouro Mangangá''s circle; documented by Professor Leiteiro"}'::jsonb,
-  'likely'::genealogy.confidence,
-  'Professor Leiteiro account via velhosmestres.com/br/besouro',
-  'Part of Besouro''s training circle at Trapiche de Baixo, Santo Amaro',
-  'Parte do círculo de treino de Besouro no Trapiche de Baixo, Santo Amaro'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Doze Homens' AND o.apelido = 'Boca de Siri'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+-- --- Person-to-Group: Membership at Roda de Trapiche de Baixo ---
 
--- Doze Homens associated_with Noca de Jacó (Trapiche de Baixo)
+-- Doze Homens member_of Roda de Trapiche de Baixo
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
   object_type, object_id,
   started_at, started_at_precision,
   ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
+  properties,
+  confidence, source, notes_en, notes_pt
 )
 SELECT
-  'person'::genealogy.entity_type, s.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1910-01-01'::date, 'decade'::genealogy.date_precision,
+  'person'::genealogy.entity_type, p.id,
+  'member_of'::genealogy.predicate,
+  'group'::genealogy.entity_type, g.id,
+  '1910-01-01'::date, 'approximate'::genealogy.date_precision,
   '1924-07-08'::date, 'exact'::genealogy.date_precision,
-  '{"association_context": "Companions at Trapiche de Baixo in Santo Amaro; both part of Besouro Mangangá''s circle; documented by Professor Leiteiro"}'::jsonb,
-  'likely'::genealogy.confidence,
-  'Professor Leiteiro account via velhosmestres.com/br/besouro',
-  'Part of Besouro''s training circle at Trapiche de Baixo, Santo Amaro',
-  'Parte do círculo de treino de Besouro no Trapiche de Baixo, Santo Amaro'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Doze Homens' AND o.apelido = 'Noca de Jacó'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
--- Doze Homens associated_with Neco Canário Pardo (Trapiche de Baixo)
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1910-01-01'::date, 'decade'::genealogy.date_precision,
-  '1924-07-08'::date, 'exact'::genealogy.date_precision,
-  '{"association_context": "Companions at Trapiche de Baixo in Santo Amaro; both part of Besouro Mangangá''s circle; documented by Professor Leiteiro"}'::jsonb,
-  'likely'::genealogy.confidence,
-  'Professor Leiteiro account via velhosmestres.com/br/besouro',
-  'Part of Besouro''s training circle at Trapiche de Baixo, Santo Amaro',
-  'Parte do círculo de treino de Besouro no Trapiche de Baixo, Santo Amaro'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Doze Homens' AND o.apelido = 'Neco Canário Pardo'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
--- Doze Homens associated_with Siri de Mangue (Trapiche de Baixo / Recôncavo)
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1910-01-01'::date, 'decade'::genealogy.date_precision,
-  '1924-07-08'::date, 'exact'::genealogy.date_precision,
-  '{"association_context": "Both from Besouro''s circle in Santo Amaro/Recôncavo region; Siri de Mangue was training companion of Besouro; Doze Homens also taught women in the region"}'::jsonb,
-  'likely'::genealogy.confidence,
-  'Papoeira.com; velhosmestres.com/br/besouro',
-  'Both part of Besouro''s extended network in the Recôncavo region',
-  'Ambos parte da rede estendida de Besouro na região do Recôncavo'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Doze Homens' AND o.apelido = 'Siri de Mangue'
+  '{"membership_context": "Training companion at Trapiche de Baixo. Part of Besouro''s circle that met on Sundays and holidays."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'José Brigido Dorneles Antunes (via Antonio Liberac); Velhos Mestres; Professor Leiteiro',
+  'One of Besouro''s companions at Trapiche de Baixo alongside Paulo Barroquinha, Boca de Siri, Noca de Jacó, and Canário Pardo. They were a gang of capoeira resistance fighters who trained together on Sundays.',
+  'Um dos companheiros de Besouro no Trapiche de Baixo ao lado de Paulo Barroquinha, Boca de Siri, Noca de Jacó e Canário Pardo. Eram uma turma de lutadores de resistência da capoeira que treinavam juntos aos domingos.'
+FROM genealogy.person_profiles p, genealogy.group_profiles g
+WHERE p.apelido = 'Doze Homens' AND g.name = 'Roda de Trapiche de Baixo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================
@@ -285,7 +192,7 @@ VALUES (
   'person',
   'persons/doze-homens.sql',
   NULL,
-  ARRAY['persons/besouro-manganga.sql', 'persons/besourinho.sql', 'persons/paulo-barroquinha.sql', 'persons/boca-de-siri.sql', 'persons/noca-de-jaco.sql', 'persons/neco-canario-pardo.sql', 'persons/siri-de-mangue.sql'],
+  ARRAY['persons/besouro-manganga.sql', 'persons/besourinho.sql', 'groups/roda-de-trapiche-de-baixo.sql'],
   'Companion of Besouro at Trapiche de Baixo; teacher of Salomé and Maria dos Anjos; killed during Pedrito persecution'
 )
 ON CONFLICT (entity_type, file_path) DO UPDATE SET

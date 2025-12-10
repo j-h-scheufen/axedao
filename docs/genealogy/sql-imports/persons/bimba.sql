@@ -247,7 +247,7 @@ FAMÍLIA:
 RIVALIDADES:
 - Relacionamento com Mestre Pastinha era complexo; eles se respeitavam publicamente mas Atenilo e Itapoan relatam que Bimba às vezes instruía alunos a bater nos alunos de Pastinha em rodas compartilhadas.'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,

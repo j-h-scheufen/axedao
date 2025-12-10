@@ -148,7 +148,7 @@ OUTROS DEPORTADOS (sem conexão com capoeira confirmada): Rato Branco, Truvisco,
 
 RELACIONAMENTOS PENDENTES: Nenhum estabelecido. Sem relações documentadas de mestre-aluno. Contemporâneo da geração de malandros/capoeiristas que incluía Sete Coroas e posteriormente Madame Satã, mas sem conexão direta documentada.'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,
