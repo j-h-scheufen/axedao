@@ -94,7 +94,8 @@ No documented teachers. Likely learned from the same generation as Besouro Manga
 
 ### Fellow Teachers of Waldemar
 - **Siri de Mangue** - Also taught Mestre Waldemar
-- **Calabi de Periperi** (Talabi) - Also taught Mestre Waldemar
+- **Talabi** (also known as Calabi de Periperi, Zé Talabi, Talavi) - Also taught Mestre Waldemar; from Periperi neighborhood
+- **Ricardo de Ilha de Maré** - Also taught Mestre Waldemar; from Waldemar's birthplace
 
 ### Family
 - **Mestre Atenilo** ("Relâmpago da Regional" / "Cordão de Ouro") - Alleged brother (disputed)

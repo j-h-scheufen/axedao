@@ -24,3 +24,6 @@
 | Associação de Capoeira Mestre Bimba | Regional | Mestre Bimba import | pending | Second academy at Terreiro de Jesus, Rua das Laranjeiras (1942); still operational; succession: Vermelho 27 → Almiro → Bamba |
 | Fundação Mestre Bimba (FUMEB) | Regional | Mestre Bimba import | pending | Founded 1994 by Mestre Nenel; preserves Bimba's legacy; Municipal and State Public Utility status |
 | Filhos de Bimba | Regional | Mestre Bimba import | pending | Founded 1986 by Mestre Nenel; schools in North America, South America, Europe |
+| Barracão de Waldemar | Angola | Waldemar import | pending | Informal training space founded 1940 on Estrada da Liberdade (Corta-Braço/Liberdade neighborhood); operated until 1968; legendary Sunday roda location |
+| Escola Zacarias Boa Morte | Angola | Waldemar import | pending | Founded 1999 by Mestre Zacarias Boa Morte, student of Waldemar |
+| Grupo Resistência | Angola | Waldemar import | pending | Founded in 1960s by Bigodinho in Lapinha neighborhood, Salvador |

@@ -162,16 +162,62 @@ FROM genealogy.person_profiles adama, genealogy.person_profiles ng
 WHERE adama.apelido = 'Adama' AND ng.apelido = 'Nascimento Grande'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- Association with Eleutério de Souza (1907 train incident)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  properties,
+  confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person', adama.id,
+  'associated_with',
+  'person', eleuterio.id,
+  '1907-01-01'::date, 'year'::genealogy.date_precision,
+  '{"association_context": {"en": "Fellow valentões involved in disturbances on a train returning from a religious festival in 1907. Both were part of Recife''s network of capoeiristas and tough men during the First Republic era.", "pt": "Valentões companheiros envolvidos em distúrbios em um trem que retornava de uma festividade religiosa em 1907. Ambos faziam parte da rede de capoeiristas e valentões do Recife durante a era da Primeira República."}}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Israel Ozanam, "Capoeira e capoeiras entre a Guarda Negra e a Educação Física no Recife"; Jornal Pequeno Nov 9, 1938',
+  'Documented association from 1907 train incident returning from religious festival.',
+  'Associação documentada do incidente do trem de 1907 retornando de festividade religiosa.'
+FROM genealogy.person_profiles adama, genealogy.person_profiles eleuterio
+WHERE adama.apelido = 'Adama' AND eleuterio.apelido = 'Eleutério'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Association with Formigão (1907 train incident)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  properties,
+  confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person', adama.id,
+  'associated_with',
+  'person', formigao.id,
+  '1907-01-01'::date, 'year'::genealogy.date_precision,
+  '{"association_context": {"en": "Fellow valentões involved in disturbances on a train returning from a religious festival in 1907. Both were part of Recife''s network of capoeiristas and tough men during the First Republic era.", "pt": "Valentões companheiros envolvidos em distúrbios em um trem que retornava de uma festividade religiosa em 1907. Ambos faziam parte da rede de capoeiristas e valentões do Recife durante a era da Primeira República."}}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Israel Ozanam, "Capoeira e capoeiras entre a Guarda Negra e a Educação Física no Recife"',
+  'Documented association from 1907 train incident returning from religious festival.',
+  'Associação documentada do incidente do trem de 1907 retornando de festividade religiosa.'
+FROM genealogy.person_profiles adama, genealogy.person_profiles formigao
+WHERE adama.apelido = 'Adama' AND formigao.apelido = 'Formigão'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING STATEMENTS (Relationships with entities not yet imported)
 -- ============================================================
 
 -- The following relationships cannot be created until these persons are imported:
--- 1. associated_with -> Eleutério de Souza (train incident 1907)
--- 2. associated_with -> Formigão (train incident 1907)
--- 3. associated_with -> Jovino dos Coelhos (contemporary valentão)
--- 4. associated_with -> Nicolau do Poço (contemporary valentão)
--- 5. associated_with -> João de Totó (contemporary valentão)
+-- 1. associated_with -> Jovino dos Coelhos (contemporary valentão)
+-- 2. associated_with -> Nicolau do Poço (contemporary valentão)
+-- 3. associated_with -> João de Totó (contemporary valentão)
 
 -- ============================================================
 -- IMPORT LOG
@@ -182,7 +228,7 @@ VALUES (
   'person',
   'persons/adama.sql',
   NULL,
-  ARRAY['persons/nascimento-grande.sql'],
+  ARRAY['persons/nascimento-grande.sql', 'persons/eleuterio-de-souza.sql', 'persons/formigao.sql'],
   'One of the two greatest valentões of Recife; founder of Maracatu Oriente Pequeno; specialist in rasteira and knife fighting'
 )
 ON CONFLICT (entity_type, file_path) DO UPDATE SET

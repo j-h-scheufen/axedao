@@ -44,13 +44,13 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Paulo Barroquinha | - | - | Besouro Mangangá import | done | yes | Training companion of Besouro Mangangá in Santo Amaro; part of his Sunday training circle - SQL generated |
 | Cobrinha Verde | Rafael Alves França | Mestre | Multiple | done | yes | Cousin and student of Besouro; bridge to documented lineage - SQL generated |
 | Gato Preto | José Gabriel Góes (or Góes/Chagas) | Mestre | Cobrinha Verde import | pending | yes | Student of Cobrinha Verde; recorded LP with him; represented Brazil at 1966 Dakar festival |
-| Traíra | João Ramos do Nascimento | Mestre | Cobrinha Verde import | pending | yes | Recorded LP "Capoeira da Bahia" with Cobrinha Verde (1962); student of Waldemar |
-| Waldemar | Waldemar da Paixão | Mestre | Cobrinha Verde import | pending | yes | Respected contemporary of Cobrinha; LP recorded at his residence |
+| Traíra | João Ramos do Nascimento | Mestre | Multiple | pending | yes | Recorded LP "Capoeira da Bahia" with Cobrinha Verde (1962); student of Waldemar from 1947; managed Waldemar's roda |
+| Waldemar | Waldemar Rodrigues da Paixão | Mestre | Multiple | done | yes | Legendary Angola mestre (1916-1990); founder of Barracão in Liberdade; inventor of painted berimbaus - SQL generated as waldemar.sql |
 | Pastinha | Vicente Ferreira Pastinha | Mestre | Cobrinha Verde import | done | yes | Founder of CECA; Cobrinha was member #28; collaborated on teaching - SQL generated as pastinha.sql |
 | Bimba | Manuel dos Reis Machado | Mestre | Cobrinha Verde import | done | yes | Founder of Capoeira Regional (1932); SQL generated as bimba.sql |
 | João Grande | João Oliveira dos Santos | Mestre | Cobrinha Verde import | pending | yes | Learned floor-touching mandinga from Cobrinha at Pastinha's academy |
 | João Pequeno | João Pereira dos Santos | Mestre | Cobrinha Verde import | pending | yes | Instructed by Cobrinha at Pastinha's academy |
-| Gigante (Bigodinho) | - | - | Cobrinha Verde import | pending | yes | Student of Cobrinha Verde; also known as Bigodinho |
+| Bigodinho | Reinaldo Santana | Mestre | Multiple | pending | yes | Student of Waldemar from 1950; frequented Barracão 25+ years; coordinated Grupo Resistência in Lapinha; also known as Gigante |
 | Moreno | - | - | Cobrinha Verde import | pending | yes | Student of Cobrinha Verde |
 | Júlio França | - | - | Cobrinha Verde import | pending | yes | Son and disciple of Cobrinha Verde; skilled capoeirista |
 | Tio Pascoal | Pascoal | - | Cobrinha Verde import | done | yes | African mandingueiro; neighbor of Cobrinha's grandmother; taught mandingas, patuá, corpo fechado - SQL generated |
@@ -62,18 +62,17 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Geraldo Chapeleiro | - | - | Aberrê import | done | yes | Co-founder of Gengibirra (1920s); contemporary of Aberrê in Matatu Preto training circle - SQL generated |
 | Creoni | - | - | Aberrê import | done | yes | Contemporary of Aberrê in Matatu Preto training circle - SQL generated |
 | Chico Três Pedaços | João Francisco Pires | - | Aberrê import | done | yes | Notorious Salvador valentão (1920s-1930s); contemporary of Aberrê in Matatu Preto training circle; documented court records - SQL generated |
-| Antônio de Noronha | - | Mestre | Aberrê import | pending | yes | Possible teacher of Aberrê (distinct from Daniel Coutinho/Mestre Noronha) |
+| Antônio de Noronha | - | Mestre | Aberrê import | done | yes | Teacher of Aberrê (distinct from Daniel Coutinho/Mestre Noronha); SQL generated as antonio-de-noronha.sql |
 | Aberrê de Santo Amaro | Antônio Rufino dos Santos | Mestre | Aberrê import | pending | ? | DISPUTED: Possible second "Aberrê" from Santo Amaro; teacher of Caiçara per his testimony; see person-reports/aberre-de-santo-amaro.md |
 | Adama | - | - | Multiple | done | yes | One of two greatest valentões of Recife; founder of Maracatu Oriente Pequeno; specialist in rasteira - SQL generated |
-| Eleutério de Souza | Eleutério de Souza | - | Adama import | pending | yes | Founder of primitive stevedore union in Pernambuco; valentão and political bodyguard; 1907 train incident |
-| Formigão | - | - | Adama import | pending | yes | Valentão of Recife; involved in 1907 train disturbance with Adama and Eleutério |
+| Eleutério de Souza | Eleutério de Souza | - | Adama import | done | yes | Founder of primitive stevedore union in Pernambuco; valentão and political bodyguard; 1907 train incident - SQL generated |
+| Formigão | - | - | Adama import | done | yes | Valentão of Recife; involved in 1907 train disturbance with Adama and Eleutério - SQL generated |
 | Neco Canário Pardo | - | - | Multiple | done | yes | Machete teacher to Cobrinha Verde; companion of Besouro; also taught Mestre Waldemar - SQL generated |
 | Boca de Siri | - | - | Neco Canário Pardo import | done | yes | Companion of Besouro Mangangá at Trapiche de Baixo - SQL generated |
 | Noca de Jacó | Ernesto Ferreira da Silva | - | Neco Canário Pardo import | done | yes | Companion of Besouro Mangangá at Trapiche de Baixo - SQL generated |
 | Atenilo | Altenisio dos Santos | Mestre | Neco Canário Pardo import | done | yes | Oldest student of Mestre Bimba (1929-1986); witness to founding of Regional at Bogum; alleged brother of Neco Canário Pardo (disputed, ~38-year age gap) - SQL generated |
-| Calabi de Periperi | - | - | Neco Canário Pardo import | pending | yes | Also known as Talabi; taught Mestre Waldemar alongside Neco Canário Pardo |
-| Ricardo of Ilha de Maré | - | - | Neco Canário Pardo import | pending | yes | Taught Mestre Waldemar; from Ilha de Maré |
-| Peripiri | - | - | Neco Canário Pardo import | pending | yes | Taught Mestre Waldemar |
+| Talabi | - | - | Neco Canário Pardo import | done | yes | Also known as Calabi de Periperi, Zé Talabi, Talavi, Telabi; taught Mestre Waldemar; "de Periperi" indicates neighborhood origin - SQL generated |
+| Ricardo de Ilha de Maré | - | - | Neco Canário Pardo import | done | yes | Taught Mestre Waldemar; from Ilha de Maré where Waldemar was born - SQL generated |
 | Noronha | Daniel Coutinho | Mestre | Cândido Pequeno import | pending | yes | Student of Cândido Pequeno (1917); co-founder of Gengibirra; author of "O ABC da Capoeira Angola" manuscripts (1909-1977) |
 | Lúcio Pequeno | - | - | Cândido Pequeno import | pending | yes | Co-founder of Gengibirra; possible brother/relative of Cândido Pequeno (shared surname) |
 | Amorzinho | - | - | Gengibirra import | pending | yes | Civil guard; roda leader; one of four "owners and proprietors" of Gengibirra; passed leadership to Pastinha |
@@ -207,3 +206,7 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | César-Maneta | - | - | Alemãozinho import | done | yes | Famous capoeirista who killed Alemãozinho at Teatro Lírico do Campo 1870; later killed by João-Lagalhé on Praia do Peixe - SQL generated |
 | João-Lagalhé | - | - | Alemãozinho import | done | yes | Capoeirista who killed César-Maneta on Praia do Peixe 1870; continuing the vendetta cycle - SQL generated |
 | Manduca Tambor | Manuel Maria Trindade | - | Pinta Preta da Lapa import | pending | ? | Killed Pinta Preta da Lapa in Jan 1870; unclear if capoeirista or just street fighter |
+| Silvestre | Silvestre Vitório Ferreira | Mestre | Antonio de Noronha import | pending | yes | Known as "Ferrerinha"; founder of Associação Capoeira Vera Cruz (São Paulo); student of Waldemar, Pastinha, Bimba, and Caiçara; key source for Antonio de Noronha lineage claim |
+| Zacarias Boa Morte | - | Mestre | Waldemar import | pending | yes | Student of Waldemar from 1942 (his first student); founded Escola Zacarias Boa Morte (1999); died Nov 3, 2000; photographed by Pierre Verger (1948) |
+| José Cabelo Bom | - | - | Waldemar import | pending | yes | Primary student of Waldemar; mentioned as continuing his tradition alongside Zacarias Boa Morte |
+| Olavo | - | - | Waldemar import | pending | yes | Student of Waldemar from 1958 |
