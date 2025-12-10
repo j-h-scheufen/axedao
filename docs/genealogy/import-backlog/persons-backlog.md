@@ -28,12 +28,12 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Leandro Bonaparte | - | - | Manduca da Praia import | pending | yes | Chief of Saint Francis party (Guaiamú); capoeirista gang leader |
 | Jorge Marinha | - | - | Manduca da Praia import | pending | yes | Chief of Marinha gang; capoeirista gang leader |
 | Plácido de Abreu | Plácido de Abreu Morais | - | Manduca da Praia import | done | yes | Author of "Os Capoeiras" (1886); amateur capoeirista - SQL generated |
-| João Sabe Tudo | - | - | Nascimento Grande import | pending | yes | Rival and friend of Nascimento Grande; famous fight at Igreja do Carmo; knife fighter |
-| Corre Hoje | - | - | Nascimento Grande import | pending | yes | Enemy of Nascimento Grande; attacked with 7 men, killed by stray bullet |
-| Antonio Padroeiro | - | - | Nascimento Grande import | pending | yes | Enemy of Nascimento Grande; beaten to death after being disarmed |
-| Pajéu | - | - | Nascimento Grande import | pending | yes | Criminal from Pernambuco sertão who challenged Nascimento Grande |
-| Pirajé | - | - | Nascimento Grande import | pending | yes | Valentão from Pará who sought to challenge Nascimento Grande |
-| Manezinho Camisa Preta | - | - | Nascimento Grande import | pending | yes | Valentão from Rio de Janeiro who sought to challenge Nascimento Grande |
+| João Sabe Tudo | - | - | Nascimento Grande import | done | yes | Rival and friend of Nascimento Grande; famous fight at Igreja do Carmo; knife fighter - SQL generated |
+| Corre Hoje | - | - | Nascimento Grande import | done | yes | Enemy of Nascimento Grande; attacked with 7 men, killed by stray bullet - SQL generated |
+| Antonio Padroeiro | - | - | Nascimento Grande import | done | yes | Enemy of Nascimento Grande; beaten to death after being disarmed - SQL generated |
+| Pajéu | - | - | Nascimento Grande import | done | yes | Criminal from Pernambuco sertão who challenged Nascimento Grande - SQL generated |
+| Pirajé | - | - | Nascimento Grande import | done | yes | Valentão from Pará who sought to challenge Nascimento Grande - SQL generated |
+| Manezinho Camisa Preta | - | - | Nascimento Grande import | done | yes | Valentão from Rio de Janeiro who sought to challenge Nascimento Grande - SQL generated |
 | Jovino dos Coelhos | - | - | Nascimento Grande import | pending | ? | Recife carnival valentão; unclear if formal capoeirista |
 | Nicolau do Poço | - | - | Nascimento Grande import | pending | ? | Recife carnival valentão; unclear if formal capoeirista |
 | João de Totó | - | - | Nascimento Grande import | pending | ? | Recife carnival valentão; unclear if formal capoeirista |
