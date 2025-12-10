@@ -19,7 +19,8 @@ cat db/atlas/extensions.sql
 npx drizzle-kit export | sed \
   -E 's/([^".])date_precision( DEFAULT)/\1"genealogy"."date_precision"\2/g' | \
 sed '/CREATE UNIQUE INDEX "statements_unique_idx"/d' | \
-sed '/CREATE UNIQUE INDEX "person_profiles_apelido_unique_idx"/d'
+sed '/CREATE UNIQUE INDEX "person_profiles_apelido_unique_idx"/d' | \
+sed '/CREATE INDEX "person_profiles_apelido_context_idx"/d'
 
 # Append correct index definitions that Drizzle can't express
 cat << 'EOF'
@@ -35,6 +36,14 @@ CREATE UNIQUE INDEX "statements_unique_idx" ON "genealogy"."statements" (
   COALESCE("started_at", '0001-01-01'::date)
 );
 
--- person_profiles_apelido_unique_idx: Partial unique index (only when apelido is NOT NULL)
-CREATE UNIQUE INDEX "person_profiles_apelido_unique_idx" ON "genealogy"."person_profiles" ("apelido") WHERE "apelido" IS NOT NULL;
+-- person_profiles_apelido_unique_idx: Composite unique on (apelido, apelido_context) with COALESCE
+-- This allows multiple people with the same apelido if they have different contexts
+-- Examples: "Mestre Cobra" (Salvador) vs "Mestre Cobra" (São Paulo)
+CREATE UNIQUE INDEX "person_profiles_apelido_unique_idx" ON "genealogy"."person_profiles" (
+  "apelido",
+  COALESCE("apelido_context", '')
+) WHERE "apelido" IS NOT NULL;
+
+-- person_profiles_apelido_context_idx: For faster lookups when context is specified
+CREATE INDEX "person_profiles_apelido_context_idx" ON "genealogy"."person_profiles" ("apelido_context") WHERE "apelido_context" IS NOT NULL;
 EOF

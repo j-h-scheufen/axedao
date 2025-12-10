@@ -30,12 +30,20 @@ Maintain two tracking files in `docs/genealogy/import-backlog/`:
 
 ## Backlog
 
-| Apelido | Full Name | Title | Discovered From | Status | Notes |
-|---------|-----------|-------|-----------------|--------|-------|
-| João Grande | João Oliveira dos Santos | mestre | GCAP import | pending | |
-| Moraes | Pedro Moraes Trindade | mestre | GCAP import | pending | |
-| Pastinha | Vicente Ferreira Pastinha | mestre | João Grande import | done | Historical figure |
+| Apelido | Apelido Context | Full Name | Title | Discovered From | Status | Notes |
+|---------|-----------------|-----------|-------|-----------------|--------|-------|
+| João Grande | | João Oliveira dos Santos | mestre | GCAP import | pending | |
+| Moraes | | Pedro Moraes Trindade | mestre | GCAP import | pending | |
+| Pastinha | | Vicente Ferreira Pastinha | mestre | João Grande import | done | Historical figure |
+| Mestre Cobra | Salvador (Senzala) | | mestre | | pending | Needs context - multiple Cobras exist |
+| Mestre Cobra | São Paulo (ABADÁ) | | mestre | | pending | Different person, same apelido |
 ```
+
+**Note on Apelido Context:** When multiple capoeiristas share the same apelido, use `apelido_context` to disambiguate. Examples:
+- Geographic: "Salvador", "São Paulo", "Rio de Janeiro"
+- Group: "Senzala", "ABADÁ", "GCAP"
+- Era: "19th century", "modern"
+- Combined: "Salvador (Senzala)", "19th century Rio"
 
 ### `groups-backlog.md` - Groups to Import
 
@@ -155,6 +163,57 @@ These can be added to your import SQL immediately.
 5. **Run imports in transaction** - Keep `BEGIN;` and `COMMIT;` wrapper
 6. **Save UUIDs** - After import, capture actual UUIDs for future reference
 7. **Capture bilingual content** - All narrative fields require both English (`_en`) and Portuguese (`_pt`) versions. See `BILINGUAL_CONTENT.md` for details
+8. **Use apelido_context for duplicates** - When importing someone with a common apelido, add context to disambiguate
+
+---
+
+## Handling Duplicate Apelidos
+
+The database uses a composite unique index on `(apelido, apelido_context)`. This allows multiple people with the same apelido as long as they have different contexts.
+
+### When to Use apelido_context
+
+- **Required**: When the apelido already exists in the database with NULL context
+- **Recommended**: For common apelidos like "Mestre Cobra", "Mestre Gato", "Mestre Nô"
+- **Optional**: For historically unique apelidos like "Pastinha", "Bimba", "Nascimento Grande"
+
+### SQL Import Pattern for Disambiguation
+
+```sql
+-- Standard import (unique apelido, no context needed)
+INSERT INTO genealogy.person_profiles (apelido, apelido_context, ...)
+VALUES ('Pastinha', NULL, ...)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL
+DO UPDATE SET ...;
+
+-- Import with context (duplicate apelido)
+INSERT INTO genealogy.person_profiles (apelido, apelido_context, ...)
+VALUES ('Mestre Cobra', 'Salvador (Senzala)', ...)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL
+DO UPDATE SET ...;
+```
+
+### Referencing in Statements
+
+When creating statements, include context in the WHERE clause if the person has one:
+
+```sql
+-- Reference person without context
+WHERE p.apelido = 'Pastinha' AND p.apelido_context IS NULL
+
+-- Reference person with context
+WHERE p.apelido = 'Mestre Cobra' AND p.apelido_context = 'Salvador (Senzala)'
+```
+
+### Context Naming Conventions
+
+| Pattern | Example | When to Use |
+|---------|---------|-------------|
+| City | `Salvador` | When city is sufficient |
+| City (Group) | `Salvador (Senzala)` | When multiple in same city |
+| Era | `19th century` | For historical disambiguation |
+| Era + City | `19th century Rio` | For historical figures in specific locations |
+| Group only | `ABADÁ` | When group affiliation is the key differentiator |
 
 ---
 

@@ -60,6 +60,11 @@ export const genealogyStyleEnum = genealogySchema.enum('style', [...styles]);
  * Person profiles for capoeira identity/lineage data.
  * Linked from public.users via users.profile_id FK.
  * Historical figures exist only here with no linked user.
+ *
+ * APELIDO UNIQUENESS: The combination of (apelido, apelido_context) must be unique.
+ * - apelido_context disambiguates common nicknames (e.g., "Mestre Cobra" exists in multiple groups)
+ * - For unique apelidos, apelido_context can be NULL
+ * - Examples: apelido="Mestre Cobra", apelido_context="Salvador (Senzala)"
  */
 export const personProfiles = genealogySchema.table(
   'person_profiles',
@@ -69,6 +74,7 @@ export const personProfiles = genealogySchema.table(
     // Identity
     name: varchar('name', { length: 255 }),
     apelido: varchar('apelido', { length: 100 }), // capoeira nickname
+    apelidoContext: varchar('apelido_context', { length: 100 }), // disambiguation for duplicate apelidos (e.g., "Salvador (Senzala)", "19th century Rio")
     title: genealogyTitleEnum('title'),
     portrait: varchar('portrait', { length: 500 }), // public-facing image for genealogy
     publicLinks: jsonb('public_links').$type<SocialLink[]>().default([]), // public references (Wikipedia, articles)
@@ -108,7 +114,9 @@ export const personProfiles = genealogySchema.table(
     index('person_profiles_title_idx').on(t.title),
     index('person_profiles_style_idx').on(t.style),
     // Note: person_profiles_apelido_unique_idx is created manually in migration
-    // with WHERE apelido IS NOT NULL (partial index not supported by Drizzle)
+    // as a composite unique index on (apelido, COALESCE(apelido_context, ''))
+    // This allows multiple people with the same apelido if they have different contexts
+    // Drizzle doesn't support COALESCE in indexes, so this is managed via raw SQL
   ]
 );
 
