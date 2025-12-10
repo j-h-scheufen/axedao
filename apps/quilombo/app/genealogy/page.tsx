@@ -154,9 +154,10 @@ export default function GenealogyPage() {
               <Spinner size="lg" label="Loading genealogy data..." />
             </div>
           ) : graphData ? (
-            <div key={graphView} className="relative h-full w-full">
+            <div className="relative h-full w-full">
               {graphView === 'general' ? (
                 <GeneralGenealogyGraph
+                  key="general-graph"
                   data={graphData}
                   selectedNodeId={selectedNode?.id || null}
                   onNodeClick={handleNodeClick}
@@ -164,6 +165,7 @@ export default function GenealogyPage() {
                 />
               ) : (
                 <StudentAncestryGraph
+                  key="student-ancestry-graph"
                   data={graphData}
                   selectedNodeId={selectedNode?.id || null}
                   onNodeClick={handleNodeClick}

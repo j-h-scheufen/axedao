@@ -45,6 +45,7 @@ export function ForceGraph3DWrapper({
   d3VelocityDecay = 0.3,
   showLinkParticles = true,
   showLinkArrows = true,
+  initialCameraPosition,
 }: ForceGraph3DWrapperProps) {
   const graphRef = useRef<ForceGraphMethods<ForceNode, ForceLink> | undefined>(undefined);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -88,6 +89,17 @@ export function ForceGraph3DWrapper({
 
     graphRef.current.d3ReheatSimulation();
   }, [forces]);
+
+  // Set initial camera position
+  useEffect(() => {
+    if (!graphRef.current || !initialCameraPosition) return;
+
+    const camera = graphRef.current.camera();
+    if (camera) {
+      camera.position.set(initialCameraPosition.x, initialCameraPosition.y, initialCameraPosition.z);
+      camera.lookAt(0, 0, 0);
+    }
+  }, [initialCameraPosition]);
 
   // Auto-fit on load
   useEffect(() => {

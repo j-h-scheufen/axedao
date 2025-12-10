@@ -43,11 +43,29 @@ function formatYear(year: number | null | undefined, precision?: string | null):
   }
 }
 
+/**
+ * Maximum reasonable human lifespan for determining if someone is likely deceased.
+ * If born more than this many years ago, show "Unknown" instead of "Present" for missing death date.
+ */
+const MAX_LIFESPAN_YEARS = 120;
+
+/**
+ * Get the appropriate label for a missing death year.
+ * Shows "Present" for people who could reasonably still be alive,
+ * and "Unknown" for historical figures.
+ */
+function getDeathYearLabel(birthYear: number | null | undefined): string {
+  if (!birthYear) return 'Unknown';
+  const currentYear = new Date().getFullYear();
+  const age = currentYear - birthYear;
+  return age > MAX_LIFESPAN_YEARS ? 'Unknown' : 'Present';
+}
+
 function PersonCard({ data }: { data: PersonDetails }) {
   const displayName = data.apelido || data.name || 'Unknown';
   const lifespan =
     data.birthYear || data.deathYear
-      ? `${formatYear(data.birthYear, data.birthYearPrecision)} - ${data.deathYear ? formatYear(data.deathYear, data.deathYearPrecision) : 'Present'}`
+      ? `${formatYear(data.birthYear, data.birthYearPrecision)} - ${data.deathYear ? formatYear(data.deathYear, data.deathYearPrecision) : getDeathYearLabel(data.birthYear)}`
       : null;
 
   return (

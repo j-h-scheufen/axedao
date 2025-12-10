@@ -166,4 +166,7 @@ export interface ForceGraph3DWrapperProps {
 
   /** Show link directional arrows */
   showLinkArrows?: boolean;
+
+  /** Initial camera position (x, y, z coordinates) */
+  initialCameraPosition?: CameraPosition;
 }
