@@ -6,13 +6,15 @@ import { useCallback, useState } from 'react';
 
 import { GraphControls, GraphLegend, NodeDetailsPanel } from '@/components/genealogy/ui';
 import type { GraphFilters, GraphNode } from '@/components/genealogy/types';
+import type { GraphViewMode } from '@/components/genealogy/graphs/GenealogyGraph';
 import { entityTypes } from '@/config/constants';
 
 import { useGenealogyGraph, useNodeDetails } from '@/hooks/useGenealogyData';
 
-// Dynamically import the 3D graph components (require WebGL, client-side only)
-const StudentAncestryGraph = dynamic(
-  () => import('@/components/genealogy/graphs/StudentAncestryGraph').then((mod) => mod.StudentAncestryGraph),
+// Dynamically import the 3D graph component (requires WebGL, client-side only)
+// Single component instance - view mode changes don't cause remount
+const GenealogyGraph = dynamic(
+  () => import('@/components/genealogy/graphs/GenealogyGraph').then((mod) => mod.GenealogyGraph),
   {
     ssr: false,
     loading: () => (
@@ -22,20 +24,6 @@ const StudentAncestryGraph = dynamic(
     ),
   }
 );
-
-const GeneralGenealogyGraph = dynamic(
-  () => import('@/components/genealogy/graphs/GeneralGenealogyGraph').then((mod) => mod.GeneralGenealogyGraph),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="flex h-full items-center justify-center">
-        <Spinner size="lg" label="Loading 3D graph..." />
-      </div>
-    ),
-  }
-);
-
-type GraphView = 'general' | 'student-ancestry';
 
 const GRAPH_VIEWS = [
   { key: 'general', label: 'General View - All Nodes & Relationships' },
@@ -44,7 +32,7 @@ const GRAPH_VIEWS = [
 
 export default function GenealogyPage() {
   // Graph view state
-  const [graphView, setGraphView] = useState<GraphView>('general');
+  const [graphView, setGraphView] = useState<GraphViewMode>('general');
 
   // Filter state
   const [filters, setFilters] = useState<GraphFilters>({
@@ -95,10 +83,11 @@ export default function GenealogyPage() {
     setFilters(newFilters);
   }, []);
 
-  // Handle graph view change - clear selection to reset state
-  const handleGraphViewChange = useCallback((newView: GraphView) => {
+  // Handle graph view change - clear selection when switching views
+  // Note: This does NOT remount the graph component, just changes its viewMode prop
+  const handleGraphViewChange = useCallback((newView: GraphViewMode) => {
     setGraphView(newView);
-    setSelectedNode(null); // Clear selection when switching views
+    setSelectedNode(null);
   }, []);
 
   return (
@@ -116,7 +105,7 @@ export default function GenealogyPage() {
             <Select
               label="Graph View"
               selectedKeys={[graphView]}
-              onChange={(e) => handleGraphViewChange(e.target.value as GraphView)}
+              onChange={(e) => handleGraphViewChange(e.target.value as GraphViewMode)}
               size="sm"
               variant="bordered"
             >
@@ -155,23 +144,13 @@ export default function GenealogyPage() {
             </div>
           ) : graphData ? (
             <div className="relative h-full w-full">
-              {graphView === 'general' ? (
-                <GeneralGenealogyGraph
-                  key="general-graph"
-                  data={graphData}
-                  selectedNodeId={selectedNode?.id || null}
-                  onNodeClick={handleNodeClick}
-                  onBackgroundClick={handleBackgroundClick}
-                />
-              ) : (
-                <StudentAncestryGraph
-                  key="student-ancestry-graph"
-                  data={graphData}
-                  selectedNodeId={selectedNode?.id || null}
-                  onNodeClick={handleNodeClick}
-                  onBackgroundClick={handleBackgroundClick}
-                />
-              )}
+              <GenealogyGraph
+                data={graphData}
+                viewMode={graphView}
+                selectedNodeId={selectedNode?.id || null}
+                onNodeClick={handleNodeClick}
+                onBackgroundClick={handleBackgroundClick}
+              />
               <GraphLegend />
             </div>
           ) : null}

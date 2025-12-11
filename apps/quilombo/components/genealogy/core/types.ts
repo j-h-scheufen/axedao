@@ -169,4 +169,29 @@ export interface ForceGraph3DWrapperProps {
 
   /** Initial camera position (x, y, z coordinates) */
   initialCameraPosition?: CameraPosition;
+
+  /**
+   * Configuration for the library's built-in link force.
+   * Use this to customize per-predicate strength/distance without replacing the force.
+   */
+  linkForceConfig?: LinkForceConfig;
+}
+
+/**
+ * Configuration for customizing the built-in link force.
+ * Applied to react-force-graph's internal link force after initialization.
+ */
+export interface LinkForceConfig {
+  /**
+   * Link force distance - how far apart linked nodes want to be.
+   * Can be a number or a function that returns a number per link.
+   */
+  distance?: number | ((link: ForceLink) => number);
+
+  /**
+   * Link force strength - how strongly links pull nodes together.
+   * Can be a number or a function that returns a number per link.
+   * Use this for per-predicate strength (e.g., student_of: 0.6, member_of: 0.3).
+   */
+  strength?: number | ((link: ForceLink) => number);
 }

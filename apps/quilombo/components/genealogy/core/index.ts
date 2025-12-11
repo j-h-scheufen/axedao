@@ -43,6 +43,7 @@ export type {
   ForceGraphData,
   ForceLink,
   ForceNode,
+  LinkForceConfig,
   LinkStyle,
   LinkStyleResolver,
   NodeRenderer,

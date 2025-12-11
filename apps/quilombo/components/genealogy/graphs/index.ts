@@ -1,5 +1,5 @@
 /**
- * Specialized graph visualization components.
+ * Graph visualization components.
  */
 
-export { StudentAncestryGraph } from './StudentAncestryGraph';
+export { GenealogyGraph, type GraphViewMode } from './GenealogyGraph';

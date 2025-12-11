@@ -7,7 +7,7 @@
  * Specialized graph views should use this as their foundation.
  */
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ForceGraph3D, { type ForceGraphMethods } from 'react-force-graph-3d';
 
 import { createDefaultNodeObject } from './nodeRenderers';
@@ -46,6 +46,7 @@ export function ForceGraph3DWrapper({
   showLinkParticles = true,
   showLinkArrows = true,
   initialCameraPosition,
+  linkForceConfig,
 }: ForceGraph3DWrapperProps) {
   const graphRef = useRef<ForceGraphMethods<ForceNode, ForceLink> | undefined>(undefined);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -79,16 +80,38 @@ export function ForceGraph3DWrapper({
     return () => window.removeEventListener('resize', updateDimensions);
   }, [width, height]);
 
-  // Apply custom forces
+  // Apply custom forces (collision, radial, etc.)
+  // Note: We skip the 'link' force here because react-force-graph-3d manages its own link force.
+  // Replacing it causes "node not found" errors. Use linkForceConfig to customize it instead.
   useEffect(() => {
     if (!graphRef.current || !forces || forces.length === 0) return;
 
     for (const forceConfig of forces) {
+      // Skip link force - let react-force-graph-3d manage it internally
+      if (forceConfig.name === 'link') continue;
       graphRef.current.d3Force(forceConfig.name, forceConfig.force);
     }
 
     graphRef.current.d3ReheatSimulation();
   }, [forces]);
+
+  // Configure the library's built-in link force with custom strength/distance resolvers
+  // This allows per-predicate configuration (e.g., student_of links stronger than member_of)
+  useEffect(() => {
+    if (!graphRef.current || !linkForceConfig) return;
+
+    const linkForce = graphRef.current.d3Force('link');
+    if (!linkForce) return;
+
+    if (linkForceConfig.strength !== undefined) {
+      linkForce.strength(linkForceConfig.strength);
+    }
+    if (linkForceConfig.distance !== undefined) {
+      linkForce.distance(linkForceConfig.distance);
+    }
+
+    graphRef.current.d3ReheatSimulation();
+  }, [linkForceConfig]);
 
   // Set initial camera position
   useEffect(() => {
@@ -168,10 +191,18 @@ export function ForceGraph3DWrapper({
     onBackgroundClick?.();
   }, [onBackgroundClick]);
 
+  // Validate selectedNodeId exists in current graph data
+  // This prevents issues when switching views where the selected node might not exist
+  const validSelectedNodeId = useMemo(() => {
+    if (!selectedNodeId) return null;
+    const nodeExists = graphData.nodes.some((n) => n.id === selectedNodeId);
+    return nodeExists ? selectedNodeId : null;
+  }, [selectedNodeId, graphData.nodes]);
+
   // Default node renderer
   const defaultNodeThreeObject = useCallback(
     (node: ForceNode) => {
-      const isSelected = node.id === selectedNodeId;
+      const isSelected = node.id === validSelectedNodeId;
 
       if (nodeRenderer) {
         return nodeRenderer(node, isSelected);
@@ -179,7 +210,7 @@ export function ForceGraph3DWrapper({
 
       return createDefaultNodeObject(node, isSelected);
     },
-    [selectedNodeId, nodeRenderer]
+    [validSelectedNodeId, nodeRenderer]
   );
 
   // Link color resolver
