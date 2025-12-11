@@ -116,6 +116,13 @@ export interface ForceGraph3DWrapperProps {
   /** Currently selected node ID */
   selectedNodeId?: string | null;
 
+  /**
+   * Whether to auto-focus camera on selected node when selectedNodeId changes.
+   * When true, camera will animate to focus on the newly selected node.
+   * Default: true
+   */
+  focusOnSelection?: boolean;
+
   /** Callback when a node is clicked */
   onNodeClick?: (node: ForceNode) => void;
 

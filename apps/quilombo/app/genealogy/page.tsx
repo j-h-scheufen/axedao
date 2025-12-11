@@ -8,7 +8,7 @@ import { useCallback, useMemo } from 'react';
 import { type GraphViewMode, GRAPH_VIEW_OPTIONS, getViewConfig } from '@/components/genealogy/config';
 import { graphFiltersAtom, graphViewModeAtom, selectedNodeIdAtom } from '@/components/genealogy/state';
 import type { GraphNode } from '@/components/genealogy/types';
-import { GraphControls, GraphLegend, NodeDetailsPanel } from '@/components/genealogy/ui';
+import { GraphControls, GraphLegend, NodeDetailsPanel, NodeSearch } from '@/components/genealogy/ui';
 
 import { useGenealogyGraph, useNodeDetails } from '@/hooks/useGenealogyData';
 
@@ -42,30 +42,33 @@ export default function GenealogyPage() {
     return graphData.nodes.find((n) => n.id === selectedNodeId) || null;
   }, [selectedNodeId, graphData]);
 
-  // Compute filtered stats for display in GraphControls
+  // Compute filtered nodes and stats for display in GraphControls
   // This mirrors the filtering logic in GenealogyGraph
-  const filteredStats = useMemo(() => {
-    if (!graphData) return undefined;
+  const { filteredNodes, filteredStats } = useMemo(() => {
+    if (!graphData) return { filteredNodes: [], filteredStats: undefined };
 
     const nodeTypeSet = new Set(filters.nodeTypes);
     const predicateSet = new Set(filters.predicates);
 
-    const filteredNodes = graphData.nodes.filter((node) => nodeTypeSet.has(node.type));
-    const filteredNodeIds = new Set(filteredNodes.map((n) => n.id));
+    const nodes = graphData.nodes.filter((node) => nodeTypeSet.has(node.type));
+    const nodeIds = new Set(nodes.map((n) => n.id));
 
-    const filteredLinks = graphData.links.filter((link) => {
+    const links = graphData.links.filter((link) => {
       const sourceId = typeof link.source === 'string' ? link.source : (link.source as { id: string }).id;
       const targetId = typeof link.target === 'string' ? link.target : (link.target as { id: string }).id;
-      if (!filteredNodeIds.has(sourceId) || !filteredNodeIds.has(targetId)) return false;
+      if (!nodeIds.has(sourceId) || !nodeIds.has(targetId)) return false;
       if (!predicateSet.has(link.type)) return false;
       return true;
     });
 
     return {
-      totalNodes: filteredNodes.length,
-      totalLinks: filteredLinks.length,
-      personCount: filteredNodes.filter((n) => n.type === 'person').length,
-      groupCount: filteredNodes.filter((n) => n.type === 'group').length,
+      filteredNodes: nodes,
+      filteredStats: {
+        totalNodes: nodes.length,
+        totalLinks: links.length,
+        personCount: nodes.filter((n) => n.type === 'person').length,
+        groupCount: nodes.filter((n) => n.type === 'group').length,
+      },
     };
   }, [graphData, filters]);
 
@@ -101,6 +104,14 @@ export default function GenealogyPage() {
     [setSelectedNodeId]
   );
 
+  // Handle search selection
+  const handleSearchSelect = useCallback(
+    (nodeId: string | null) => {
+      setSelectedNodeId(nodeId);
+    },
+    [setSelectedNodeId]
+  );
+
   // Handle graph view change - clear selection when switching views
   const handleGraphViewChange = useCallback(
     (newView: string) => {
@@ -122,13 +133,22 @@ export default function GenealogyPage() {
       {/* Header */}
       <div className="border-b border-default-200 px-4 py-3">
         <div className="flex items-center justify-between gap-4">
-          <div className="flex-1">
+          <div className="shrink-0">
             <h1 className="text-xl font-bold">Capoeira Genealogy</h1>
             <p className="text-small text-default-500">
               Explore the lineages and relationships of the capoeira community
             </p>
           </div>
-          <div className="w-80">
+          <div className="flex-1 flex justify-center">
+            <NodeSearch
+              nodes={filteredNodes}
+              selectedNodeId={selectedNodeId}
+              onNodeSelect={handleSearchSelect}
+              isLoading={isGraphLoading}
+              isDisabled={!graphData}
+            />
+          </div>
+          <div className="w-72 shrink-0">
             <Select
               label="Graph View"
               selectedKeys={[graphView]}

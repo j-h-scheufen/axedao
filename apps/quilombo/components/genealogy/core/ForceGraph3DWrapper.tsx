@@ -29,6 +29,7 @@ import type { ForceGraph3DWrapperProps, ForceLink, ForceNode } from './types';
 export function ForceGraph3DWrapper({
   graphData,
   selectedNodeId,
+  focusOnSelection = true,
   onNodeClick,
   onBackgroundClick,
   nodeRenderer,
@@ -51,6 +52,8 @@ export function ForceGraph3DWrapper({
   const graphRef = useRef<ForceGraphMethods<ForceNode, ForceLink> | undefined>(undefined);
   const containerRef = useRef<HTMLDivElement>(null);
   const addedObjectIdsRef = useRef<Set<string>>(new Set());
+  const prevSelectedNodeIdRef = useRef<string | null>(null);
+  const isClickFocusRef = useRef(false);
   const [dimensions, setDimensions] = useState({ width: width || 800, height: height || 600 });
 
   // Camera controls
@@ -180,6 +183,8 @@ export function ForceGraph3DWrapper({
   // Handle node click with camera focus
   const handleNodeClick = useCallback(
     (node: ForceNode) => {
+      // Mark that focus is coming from a click (to avoid double-focusing in the effect)
+      isClickFocusRef.current = true;
       focusOnNode(node, 300, 1500);
       onNodeClick?.(node);
     },
@@ -198,6 +203,35 @@ export function ForceGraph3DWrapper({
     const nodeExists = graphData.nodes.some((n) => n.id === selectedNodeId);
     return nodeExists ? selectedNodeId : null;
   }, [selectedNodeId, graphData.nodes]);
+
+  // Focus on selected node when it changes from external source (e.g., search)
+  // Skip if the change came from clicking a node (handleNodeClick already focuses)
+  useEffect(() => {
+    if (!focusOnSelection || !validSelectedNodeId) {
+      prevSelectedNodeIdRef.current = validSelectedNodeId;
+      return;
+    }
+
+    // Skip if selection hasn't changed
+    if (validSelectedNodeId === prevSelectedNodeIdRef.current) {
+      return;
+    }
+
+    // Skip if this change came from a click (already focused in handleNodeClick)
+    if (isClickFocusRef.current) {
+      isClickFocusRef.current = false;
+      prevSelectedNodeIdRef.current = validSelectedNodeId;
+      return;
+    }
+
+    // Find the node and focus on it
+    const node = graphData.nodes.find((n) => n.id === validSelectedNodeId);
+    if (node) {
+      focusOnNode(node, 300, 1500);
+    }
+
+    prevSelectedNodeIdRef.current = validSelectedNodeId;
+  }, [validSelectedNodeId, focusOnSelection, graphData.nodes, focusOnNode]);
 
   // Default node renderer
   const defaultNodeThreeObject = useCallback(
