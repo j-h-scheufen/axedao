@@ -64,7 +64,7 @@ export const DEFAULT_LINK_FORCE_STRENGTH: Record<string, number> = {
 };
 
 /** Default distance for link force - how far apart linked nodes want to be */
-export const DEFAULT_LINK_DISTANCE = 30;
+export const DEFAULT_LINK_DISTANCE = 35;
 
 // ============================================================================
 // ERA BAND COMPUTATION

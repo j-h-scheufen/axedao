@@ -66,15 +66,24 @@ const bandNodeCounts = new Map<number, number>();
  * Compute flat 2D radial coordinates for temporal layout.
  * All nodes placed in the XZ plane (y=0) to align with era rings.
  * Uses golden angle distribution for even spacing on each ring.
+ *
+ * @param birthYear - Birth year or null if unknown
+ * @param nodeIndex - Index of node for angle distribution
+ * @param _totalNodes - Total node count (unused but kept for signature consistency)
+ * @param applyOffset - If true, adds BIRTH_YEAR_OFFSET to position nodes at "active" years
  */
 function computeRadialPosition(
   birthYear: number | null,
   nodeIndex: number,
-  _totalNodes: number
+  _totalNodes: number,
+  applyOffset: boolean = false
 ): { x: number; y: number; z: number } {
-  // Apply offset to convert birth year to "active capoeira year"
-  const effectiveYear = birthYear !== null ? birthYear + BIRTH_YEAR_OFFSET : ERA_CONFIG.unknownYear;
-  const radius = computeRadialDistanceForEntityYear(birthYear);
+  // Optionally apply offset to convert birth year to "active capoeira year"
+  const offset = applyOffset ? BIRTH_YEAR_OFFSET : 0;
+  const effectiveYear = birthYear !== null ? birthYear + offset : ERA_CONFIG.unknownYear;
+  const radius = applyOffset
+    ? computeRadialDistanceForEntityYear(birthYear)
+    : computeRadialDistanceForYear(birthYear ?? ERA_CONFIG.unknownYear);
   const band = getEraBand(effectiveYear);
 
   // Track how many nodes are on this band's ring
@@ -114,8 +123,11 @@ const ANCESTRY_PREDICATES = new Set([...VISIBLE_PREDICATES, ...GRAVITY_ONLY_PRED
  * - Filters to student_of and trained_under relationships only
  * - Sets initial positions and target radius for radial force constraint
  * - Does NOT fix positions - allows force simulation to adjust angular positioning
+ *
+ * @param data - Raw graph data
+ * @param applyOffset - If true, positions nodes at "active" years (+10 from birth). Default: false
  */
-function processDataForStudentAncestry(data: GraphData): AncestryGraphData {
+function processDataForStudentAncestry(data: GraphData, applyOffset: boolean = false): AncestryGraphData {
   // Filter to persons only
   const personNodes = data.nodes.filter((node) => node.type === 'person');
 
@@ -150,8 +162,11 @@ function processDataForStudentAncestry(data: GraphData): AncestryGraphData {
   const totalNodes = personNodes.length;
   const processedNodes: AncestryForceNode[] = personNodes.map((node, index) => {
     const year = getNodeYear(node);
-    const targetRadius = computeRadialDistanceForEntityYear(year);
-    const pos = computeRadialPosition(year, index, totalNodes);
+    // Calculate target radius based on offset mode
+    const targetRadius = applyOffset
+      ? computeRadialDistanceForEntityYear(year)
+      : computeRadialDistanceForYear(year ?? ERA_CONFIG.unknownYear);
+    const pos = computeRadialPosition(year, index, totalNodes, applyOffset);
 
     return {
       ...node,
@@ -187,6 +202,32 @@ const RING_CONFIG = {
   labelFontSize: 12,
   /** Label color */
   labelColor: 'rgba(200, 200, 200, 0.9)',
+} as const;
+
+/**
+ * Slavery era visualization configuration.
+ *
+ * Slavery was officially abolished in Brazil on May 13, 1888 (Lei Áurea / Golden Law).
+ * This visualization honors the historical context of Capoeira's origins as a form
+ * of resistance developed by enslaved Africans.
+ */
+const SLAVERY_ERA_CONFIG = {
+  /** Year of abolition (Lei Áurea) */
+  abolitionYear: 1888,
+  /** Fill color for the slavery period disc (deep sepia/earth tone) */
+  discColor: 0x3d2817,
+  /** Opacity of the slavery period disc */
+  discOpacity: 0.18,
+  /** Abolition ring color (golden - referencing "Lei Áurea" / Golden Law) */
+  abolitionRingColor: 0xc9a227,
+  /** Abolition ring opacity */
+  abolitionRingOpacity: 0.85,
+  /** Tube radius for the 3D torus ring (thickness) */
+  abolitionRingTubeRadius: 1.2,
+  /** Label for the abolition marker */
+  abolitionLabel: '1888 · Abolição',
+  /** Label color (golden to match ring) */
+  labelColor: 'rgba(201, 162, 39, 0.95)',
 } as const;
 
 /**
@@ -282,6 +323,112 @@ function createEraLabelSprite(text: string, radius: number): THREE.Sprite {
 }
 
 /**
+ * Create a label sprite for the abolition ring.
+ * Positioned at the edge of the ring, styled with golden color.
+ */
+function createAbolitionLabelSprite(radius: number): THREE.Sprite {
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d') as CanvasRenderingContext2D;
+
+  const text = SLAVERY_ERA_CONFIG.abolitionLabel;
+  const fontSize = RING_CONFIG.labelFontSize * 4; // Scale up for clarity
+  context.font = `bold ${fontSize}px Arial`;
+  const metrics = context.measureText(text);
+  const textWidth = metrics.width;
+
+  canvas.width = textWidth + 24;
+  canvas.height = fontSize * 1.4;
+
+  // Draw semi-transparent dark background
+  context.fillStyle = 'rgba(26, 26, 46, 0.85)';
+  context.roundRect(0, 0, canvas.width, canvas.height, 6);
+  context.fill();
+
+  // Draw golden text
+  context.font = `bold ${fontSize}px Arial`;
+  context.fillStyle = SLAVERY_ERA_CONFIG.labelColor;
+  context.textAlign = 'center';
+  context.textBaseline = 'middle';
+  context.fillText(text, canvas.width / 2, canvas.height / 2);
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.needsUpdate = true;
+
+  const material = new THREE.SpriteMaterial({
+    map: texture,
+    transparent: true,
+    depthTest: false,
+    depthWrite: false,
+  });
+
+  const sprite = new THREE.Sprite(material);
+  sprite.scale.set(canvas.width / 10, canvas.height / 10, 1);
+  // Position at opposite side from era labels (negative X) to avoid overlap
+  sprite.position.set(-(radius + 18), 0, 0);
+  sprite.renderOrder = 1001; // Above era labels
+
+  return sprite;
+}
+
+/**
+ * Create the slavery era visualization: a filled disc and abolition ring.
+ *
+ * The disc represents the period of slavery in Brazil, from the earliest
+ * historical records (center of graph) to 1888 (abolition).
+ * The golden ring marks the Lei Áurea (Golden Law) that abolished slavery.
+ */
+function createSlaveryEraObject(): THREE.Group {
+  const group = new THREE.Group();
+  const abolitionRadius = computeRadialDistanceForYear(SLAVERY_ERA_CONFIG.abolitionYear);
+
+  // 1. Create filled disc for the slavery period
+  // Using CircleGeometry rotated to lie in the XZ plane
+  const discGeometry = new THREE.CircleGeometry(abolitionRadius, RING_CONFIG.segments);
+  const discMaterial = new THREE.MeshBasicMaterial({
+    color: SLAVERY_ERA_CONFIG.discColor,
+    transparent: true,
+    opacity: SLAVERY_ERA_CONFIG.discOpacity,
+    side: THREE.DoubleSide,
+    depthWrite: false,
+  });
+  const disc = new THREE.Mesh(discGeometry, discMaterial);
+  // Rotate to lie flat in XZ plane (default CircleGeometry is in XY plane)
+  disc.rotation.x = -Math.PI / 2;
+  // Place slightly below y=0 so era rings render on top
+  disc.position.y = -0.1;
+  disc.renderOrder = -1; // Render behind everything else
+  group.add(disc);
+
+  // 2. Create the abolition ring as a 3D torus (golden ring at 1888)
+  // TorusGeometry creates a donut shape that protrudes from the disc
+  const torusGeometry = new THREE.TorusGeometry(
+    abolitionRadius, // radius from center to tube center
+    SLAVERY_ERA_CONFIG.abolitionRingTubeRadius, // tube radius (thickness)
+    16, // radial segments (around the tube cross-section)
+    RING_CONFIG.segments // tubular segments (around the ring)
+  );
+  const torusMaterial = new THREE.MeshBasicMaterial({
+    color: SLAVERY_ERA_CONFIG.abolitionRingColor,
+    transparent: true,
+    opacity: SLAVERY_ERA_CONFIG.abolitionRingOpacity,
+  });
+
+  const ring = new THREE.Mesh(torusGeometry, torusMaterial);
+  // Rotate to lie flat in XZ plane (torus default is in XY plane)
+  ring.rotation.x = Math.PI / 2;
+  // Position slightly above the disc so it protrudes
+  ring.position.y = SLAVERY_ERA_CONFIG.abolitionRingTubeRadius * 0.5;
+  ring.renderOrder = 100; // Above the disc, below nodes
+  group.add(ring);
+
+  // 3. Add abolition label
+  const label = createAbolitionLabelSprite(abolitionRadius);
+  group.add(label);
+
+  return group;
+}
+
+/**
  * Create a single horizontal ring (circle) at y=0 for an era.
  */
 function createEraRingObject(ring: EraRing): THREE.Group {
@@ -312,15 +459,27 @@ function createEraRingObject(ring: EraRing): THREE.Group {
 }
 
 /**
- * Generate all era ring scene objects.
+ * Generate all era ring scene objects, including the slavery era visualization.
  */
 function generateEraRingObjects(): CustomSceneObject[] {
-  const rings = generateEraRings();
+  const objects: CustomSceneObject[] = [];
 
-  return rings.map((ring) => ({
-    id: ring.id,
-    object: createEraRingObject(ring),
-  }));
+  // 1. Add slavery era visualization first (renders behind era rings)
+  objects.push({
+    id: 'slavery-era',
+    object: createSlaveryEraObject(),
+  });
+
+  // 2. Add era rings on top
+  const rings = generateEraRings();
+  for (const ring of rings) {
+    objects.push({
+      id: ring.id,
+      object: createEraRingObject(ring),
+    });
+  }
+
+  return objects;
 }
 
 // ============================================================================

@@ -43,7 +43,7 @@ import {
 const NODE_COLLISION_RADIUS = 12;
 
 /** Radial force strength - soft constraint allows movement while maintaining temporal order */
-const RADIAL_FORCE_STRENGTH = 0.95;
+const RADIAL_FORCE_STRENGTH = 1;
 
 /**
  * Custom link force strength by predicate type.
