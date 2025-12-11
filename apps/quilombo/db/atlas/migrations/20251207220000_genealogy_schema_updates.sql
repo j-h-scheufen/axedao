@@ -1,11 +1,12 @@
 -- Consolidated genealogy schema updates (branch: feat/mestre-graph)
--- This migration consolidates 6 incremental changes made after the baseline:
+-- This migration consolidates all incremental changes made after the baseline:
 -- 1. Rename person_profiles columns (avatar→portrait, links→public_links)
 -- 2. Add import_log table with partial unique indexes
 -- 3. Add date precision columns to statements
 -- 4. Convert text columns to bilingual (_en/_pt) format
 -- 5. Add researcher notes columns
 -- 6. Fix statements_unique_idx with COALESCE for NULL handling
+-- 7. Add apelido_context column for disambiguation of duplicate apelidos
 
 -- ============================================================================
 -- PERSON PROFILES: Rename columns for clearer semantics
@@ -138,3 +139,36 @@ CREATE UNIQUE INDEX "statements_unique_idx" ON "genealogy"."statements" (
   "object_id",
   COALESCE("started_at", '0001-01-01'::date)
 );
+
+-- ============================================================================
+-- APELIDO CONTEXT: Add column for disambiguation of duplicate apelidos
+-- ============================================================================
+
+-- Add apelido_context column for disambiguation
+-- Multiple capoeiristas can share the same apelido (e.g., "Mestre Cobra" exists
+-- in Salvador, São Paulo, etc.). This column allows disambiguation.
+ALTER TABLE "genealogy"."person_profiles"
+ADD COLUMN "apelido_context" character varying(100) NULL;
+
+-- Drop the old single-column unique index
+DROP INDEX IF EXISTS "genealogy"."person_profiles_apelido_unique_idx";
+
+-- Create new composite unique index with COALESCE for NULL handling
+-- This allows:
+--   ('Mestre Cobra', NULL) - unique
+--   ('Mestre Cobra', 'Salvador') - unique (different from NULL context)
+--   ('Mestre Cobra', 'São Paulo') - unique (different from Salvador)
+-- But prevents:
+--   ('Mestre Cobra', NULL) twice - conflict
+--   ('Mestre Cobra', 'Salvador') twice - conflict
+CREATE UNIQUE INDEX "person_profiles_apelido_unique_idx"
+ON "genealogy"."person_profiles" (
+  "apelido",
+  COALESCE("apelido_context", '')
+)
+WHERE "apelido" IS NOT NULL;
+
+-- Add index on apelido_context for faster lookups
+CREATE INDEX "person_profiles_apelido_context_idx"
+ON "genealogy"."person_profiles" ("apelido_context")
+WHERE "apelido_context" IS NOT NULL;
