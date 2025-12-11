@@ -364,12 +364,12 @@ export interface LinkProcessingConfig {
    * Predicates whose source/target should be swapped for visual direction.
    * Arrows and particles will flow in the reversed direction.
    */
-  reversedPredicates?: Set<string>;
+  reversedPredicates?: ReadonlySet<string>;
 
   /**
    * Predicates that should be invisible (not rendered but still affect forces).
    */
-  invisiblePredicates?: Set<string>;
+  invisiblePredicates?: ReadonlySet<string>;
 }
 
 /**

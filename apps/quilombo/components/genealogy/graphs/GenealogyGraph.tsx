@@ -12,10 +12,17 @@
  * - useMemo for stable data references
  */
 
+import { useAtomValue } from 'jotai';
 import { useMemo } from 'react';
 import * as THREE from 'three';
 import { forceCollide as forceCollide3d } from 'd3-force-3d';
 
+import {
+  STUDENT_ANCESTRY_ALL_PREDICATES,
+  STUDENT_ANCESTRY_GRAVITY_ONLY_PREDICATES,
+  STUDENT_ANCESTRY_VISIBLE_PREDICATES,
+} from '@/components/genealogy/config';
+import { graphFiltersAtom, graphViewModeAtom } from '@/components/genealogy/state';
 import type { GraphData, GraphNode } from '@/components/genealogy/types';
 import {
   ForceGraph3DWrapper,
@@ -44,13 +51,9 @@ import {
 // TYPES
 // ============================================================================
 
-export type GraphViewMode = 'general' | 'student-ancestry';
-
 interface GenealogyGraphProps {
   /** Raw graph data from API */
   data: GraphData;
-  /** View mode determines filtering, layout, and visual style */
-  viewMode: GraphViewMode;
   /** Currently selected node ID */
   selectedNodeId: string | null;
   /** Callback when a node is clicked */
@@ -87,11 +90,6 @@ const GENERAL_LINK_STRENGTH: Record<string, number> = {
   member_of: 0.3,
   co_founded: 0.2,
 };
-
-// Student ancestry predicates
-const VISIBLE_PREDICATES = new Set(['student_of', 'trained_under']);
-const GRAVITY_ONLY_PREDICATES = new Set(['associated_with', 'influenced_by']);
-const ANCESTRY_PREDICATES = new Set([...VISIBLE_PREDICATES, ...GRAVITY_ONLY_PREDICATES]);
 
 // ============================================================================
 // DATA PROCESSING
@@ -183,15 +181,15 @@ function processForStudentAncestryView(data: GraphData): ProcessedGraphData {
 
   // Filter to ancestry-relevant links between persons
   const filteredLinks = data.links.filter((link) => {
-    if (!ANCESTRY_PREDICATES.has(link.type)) return false;
+    if (!STUDENT_ANCESTRY_ALL_PREDICATES.has(link.type)) return false;
     const sourceId = typeof link.source === 'string' ? link.source : (link.source as { id: string }).id;
     const targetId = typeof link.target === 'string' ? link.target : (link.target as { id: string }).id;
     return personIds.has(sourceId) && personIds.has(targetId);
   });
 
   const ancestryLinks = processLinks(filteredLinks, {
-    reversedPredicates: VISIBLE_PREDICATES,
-    invisiblePredicates: GRAVITY_ONLY_PREDICATES,
+    reversedPredicates: STUDENT_ANCESTRY_VISIBLE_PREDICATES,
+    invisiblePredicates: STUDENT_ANCESTRY_GRAVITY_ONLY_PREDICATES,
   });
 
   const processedNodes: TemporalForceNode[] = personNodes.map((node, index) => {
@@ -406,26 +404,75 @@ function generateEraRingObjects(): CustomSceneObject[] {
 /**
  * Unified Genealogy Graph - supports multiple view modes without remounting.
  *
+ * Filtering is applied in two stages:
+ * 1. View-mode filtering: Each view has inherent constraints (e.g., student-ancestry shows only persons)
+ * 2. User filtering: Additional filtering based on user selections in GraphControls
+ *
+ * TODO: When dataset grows significantly (10,000+ nodes), consider moving filtering to server-side
+ *
  * View modes:
  * - general: All nodes and relationships, 3D spherical temporal layout
  * - student-ancestry: Persons only, flat radial timeline with era rings
  */
 export function GenealogyGraph({
   data,
-  viewMode,
   selectedNodeId,
   onNodeClick,
   onBackgroundClick,
   width,
   height,
 }: GenealogyGraphProps) {
-  // Process data based on view mode
+  // Jotai state
+  const viewMode = useAtomValue(graphViewModeAtom);
+  const filters = useAtomValue(graphFiltersAtom);
+
+  // Apply user filters to the raw data first
+  // Empty arrays mean "show none" - filters are always explicit
+  const filteredData = useMemo((): GraphData => {
+    const nodeTypeSet = new Set(filters.nodeTypes);
+    const predicateSet = new Set(filters.predicates);
+
+    // Filter nodes by type
+    const filteredNodes = data.nodes.filter((node) => nodeTypeSet.has(node.type));
+    const filteredNodeIds = new Set(filteredNodes.map((n) => n.id));
+
+    // Filter links: must connect filtered nodes and match predicate filter
+    const filteredLinks = data.links.filter((link) => {
+      const sourceId = typeof link.source === 'string' ? link.source : (link.source as { id: string }).id;
+      const targetId = typeof link.target === 'string' ? link.target : (link.target as { id: string }).id;
+
+      // Both endpoints must exist in filtered nodes
+      if (!filteredNodeIds.has(sourceId) || !filteredNodeIds.has(targetId)) {
+        return false;
+      }
+
+      // Link type must be in the selected predicates
+      if (!predicateSet.has(link.type)) {
+        return false;
+      }
+
+      return true;
+    });
+
+    return {
+      nodes: filteredNodes,
+      links: filteredLinks,
+      stats: {
+        totalNodes: filteredNodes.length,
+        totalLinks: filteredLinks.length,
+        personCount: filteredNodes.filter((n) => n.type === 'person').length,
+        groupCount: filteredNodes.filter((n) => n.type === 'group').length,
+      },
+    };
+  }, [data, filters]);
+
+  // Process filtered data based on view mode (applies view-specific transformations)
   const graphData = useMemo((): ProcessedGraphData => {
     if (viewMode === 'student-ancestry') {
-      return processForStudentAncestryView(data);
+      return processForStudentAncestryView(filteredData);
     }
-    return processForGeneralView(data);
-  }, [data, viewMode]);
+    return processForGeneralView(filteredData);
+  }, [filteredData, viewMode]);
 
   // Create forces based on view mode
   const forces = useMemo((): ForceConfig[] => {

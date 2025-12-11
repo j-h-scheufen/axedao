@@ -1,13 +1,14 @@
 'use client';
 
 import { Select, SelectItem, Spinner } from '@heroui/react';
+import { useAtom } from 'jotai';
 import dynamic from 'next/dynamic';
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo } from 'react';
 
+import { type GraphViewMode, GRAPH_VIEW_OPTIONS, getViewConfig } from '@/components/genealogy/config';
+import { graphFiltersAtom, graphViewModeAtom, selectedNodeIdAtom } from '@/components/genealogy/state';
+import type { GraphNode } from '@/components/genealogy/types';
 import { GraphControls, GraphLegend, NodeDetailsPanel } from '@/components/genealogy/ui';
-import type { GraphFilters, GraphNode } from '@/components/genealogy/types';
-import type { GraphViewMode } from '@/components/genealogy/graphs/GenealogyGraph';
-import { entityTypes } from '@/config/constants';
 
 import { useGenealogyGraph, useNodeDetails } from '@/hooks/useGenealogyData';
 
@@ -25,26 +26,48 @@ const GenealogyGraph = dynamic(
   }
 );
 
-const GRAPH_VIEWS = [
-  { key: 'general', label: 'General View - All Nodes & Relationships' },
-  { key: 'student-ancestry', label: 'Student Ancestry - Radial Timeline' },
-] as const;
-
 export default function GenealogyPage() {
-  // Graph view state
-  const [graphView, setGraphView] = useState<GraphViewMode>('general');
+  // Jotai state
+  const [graphView, setGraphView] = useAtom(graphViewModeAtom);
+  const [filters, setFilters] = useAtom(graphFiltersAtom);
+  const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
 
-  // Filter state
-  const [filters, setFilters] = useState<GraphFilters>({
-    nodeTypes: [...entityTypes],
-    predicates: [],
-  });
+  // Fetch all graph data (no server-side filtering)
+  // TODO: Re-enable server-side filtering when dataset grows significantly (10,000+ nodes)
+  const { data: graphData, isLoading: isGraphLoading, error: graphError } = useGenealogyGraph();
 
-  // Selected node state
-  const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
+  // Find selected node from graph data
+  const selectedNode = useMemo(() => {
+    if (!selectedNodeId || !graphData) return null;
+    return graphData.nodes.find((n) => n.id === selectedNodeId) || null;
+  }, [selectedNodeId, graphData]);
 
-  // Fetch graph data
-  const { data: graphData, isLoading: isGraphLoading, error: graphError } = useGenealogyGraph(filters);
+  // Compute filtered stats for display in GraphControls
+  // This mirrors the filtering logic in GenealogyGraph
+  const filteredStats = useMemo(() => {
+    if (!graphData) return undefined;
+
+    const nodeTypeSet = new Set(filters.nodeTypes);
+    const predicateSet = new Set(filters.predicates);
+
+    const filteredNodes = graphData.nodes.filter((node) => nodeTypeSet.has(node.type));
+    const filteredNodeIds = new Set(filteredNodes.map((n) => n.id));
+
+    const filteredLinks = graphData.links.filter((link) => {
+      const sourceId = typeof link.source === 'string' ? link.source : (link.source as { id: string }).id;
+      const targetId = typeof link.target === 'string' ? link.target : (link.target as { id: string }).id;
+      if (!filteredNodeIds.has(sourceId) || !filteredNodeIds.has(targetId)) return false;
+      if (!predicateSet.has(link.type)) return false;
+      return true;
+    });
+
+    return {
+      totalNodes: filteredNodes.length,
+      totalLinks: filteredLinks.length,
+      personCount: filteredNodes.filter((n) => n.type === 'person').length,
+      groupCount: filteredNodes.filter((n) => n.type === 'group').length,
+    };
+  }, [graphData, filters]);
 
   // Fetch details for selected node
   const { data: nodeDetails, isLoading: isDetailsLoading } = useNodeDetails(
@@ -53,42 +76,46 @@ export default function GenealogyPage() {
   );
 
   // Handle node selection from graph
-  const handleNodeClick = useCallback((node: GraphNode) => {
-    setSelectedNode(node);
-  }, []);
+  const handleNodeClick = useCallback(
+    (node: GraphNode) => {
+      setSelectedNodeId(node.id);
+    },
+    [setSelectedNodeId]
+  );
 
   // Handle background click (deselect)
   const handleBackgroundClick = useCallback(() => {
-    setSelectedNode(null);
-  }, []);
+    setSelectedNodeId(null);
+  }, [setSelectedNodeId]);
 
   // Handle close details panel
   const handleCloseDetails = useCallback(() => {
-    setSelectedNode(null);
-  }, []);
+    setSelectedNodeId(null);
+  }, [setSelectedNodeId]);
 
   // Handle selecting a related node from the details panel
   const handleNodeSelectFromDetails = useCallback(
     (_entityType: string, entityId: string) => {
-      const node = graphData?.nodes.find((n) => n.id === entityId);
-      if (node) {
-        setSelectedNode(node);
-      }
+      setSelectedNodeId(entityId);
     },
-    [graphData?.nodes]
+    [setSelectedNodeId]
   );
 
-  // Handle filter changes
-  const handleFiltersChange = useCallback((newFilters: GraphFilters) => {
-    setFilters(newFilters);
-  }, []);
-
   // Handle graph view change - clear selection when switching views
-  // Note: This does NOT remount the graph component, just changes its viewMode prop
-  const handleGraphViewChange = useCallback((newView: GraphViewMode) => {
-    setGraphView(newView);
-    setSelectedNode(null);
-  }, []);
+  const handleGraphViewChange = useCallback(
+    (newView: string) => {
+      const viewMode = newView as GraphViewMode;
+      const newConfig = getViewConfig(viewMode);
+      setGraphView(viewMode);
+      setSelectedNodeId(null);
+      // Reset filters to new view's defaults
+      setFilters({
+        nodeTypes: [...newConfig.allowedNodeTypes],
+        predicates: [...newConfig.allowedPredicates],
+      });
+    },
+    [setGraphView, setSelectedNodeId, setFilters]
+  );
 
   return (
     <div className="flex h-[calc(100vh-4rem)] flex-col">
@@ -105,11 +132,11 @@ export default function GenealogyPage() {
             <Select
               label="Graph View"
               selectedKeys={[graphView]}
-              onChange={(e) => handleGraphViewChange(e.target.value as GraphViewMode)}
+              onChange={(e) => handleGraphViewChange(e.target.value)}
               size="sm"
               variant="bordered"
             >
-              {GRAPH_VIEWS.map((view) => (
+              {GRAPH_VIEW_OPTIONS.map((view) => (
                 <SelectItem key={view.key}>{view.label}</SelectItem>
               ))}
             </Select>
@@ -121,12 +148,7 @@ export default function GenealogyPage() {
       <div className="relative flex min-h-0 flex-1">
         {/* Left panel - Filters */}
         <div className="w-64 shrink-0 overflow-hidden border-r border-default-200">
-          <GraphControls
-            filters={filters}
-            onFiltersChange={handleFiltersChange}
-            stats={graphData?.stats}
-            isLoading={isGraphLoading}
-          />
+          <GraphControls stats={filteredStats} isLoading={isGraphLoading} />
         </div>
 
         {/* Center - Graph */}
@@ -146,8 +168,7 @@ export default function GenealogyPage() {
             <div className="relative h-full w-full">
               <GenealogyGraph
                 data={graphData}
-                viewMode={graphView}
-                selectedNodeId={selectedNode?.id || null}
+                selectedNodeId={selectedNodeId}
                 onNodeClick={handleNodeClick}
                 onBackgroundClick={handleBackgroundClick}
               />
