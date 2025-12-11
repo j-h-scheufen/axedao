@@ -9,7 +9,6 @@ import {
   CardBody,
   CardHeader,
   Chip,
-  Link,
   Spinner,
   Tooltip,
 } from '@heroui/react';
@@ -291,9 +290,16 @@ function RelationshipsList({
     return PREDICATE_LABELS_INVERSE[rel.predicate] || rel.predicate;
   };
 
+  // Sort relationships alphabetically by predicate label
+  const sortedRelationships = [...relationships].sort((a, b) => {
+    const labelA = direction === 'outgoing' ? PREDICATE_LABELS[a.predicate] || a.predicate : getInverseLabel(a);
+    const labelB = direction === 'outgoing' ? PREDICATE_LABELS[b.predicate] || b.predicate : getInverseLabel(b);
+    return labelA.localeCompare(labelB);
+  });
+
   return (
     <Accordion selectionMode="multiple" variant="splitted" className="px-0">
-      {relationships.map((rel) => {
+      {sortedRelationships.map((rel) => {
         const targetType = direction === 'outgoing' ? rel.objectType : rel.subjectType;
         const targetId = direction === 'outgoing' ? rel.objectId : rel.subjectId;
         const targetNode = nodeMap.get(targetId);
@@ -323,15 +329,25 @@ function RelationshipsList({
                   {rel.confidence || 'unverified'}
                 </Chip>
                 <Tooltip content={`Go to ${targetName}`} placement="left">
-                  <Link
-                    as="button"
-                    color="primary"
-                    className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground"
-                    onPress={() => onNodeSelect(targetType, targetId)}
+                  {/* biome-ignore lint/a11y/useSemanticElements: Cannot use button here - it's inside AccordionItem title which renders inside a button element. Nested buttons are invalid HTML. */}
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    className="flex h-6 w-6 shrink-0 cursor-pointer items-center justify-center rounded-full bg-primary text-primary-foreground hover:opacity-80"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onNodeSelect(targetType, targetId);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.stopPropagation();
+                        onNodeSelect(targetType, targetId);
+                      }
+                    }}
                     aria-label={`Navigate to ${targetName}`}
                   >
                     <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
+                  </div>
                 </Tooltip>
               </div>
             }
@@ -376,7 +392,7 @@ export function NodeDetailsPanel({ node, details, allNodes, isLoading, onClose, 
 
   return (
     <>
-      <Card className="h-full overflow-auto">
+      <Card>
         <CardHeader className="flex items-center justify-between pb-0">
           <div className="flex items-center gap-2">
             {needsRefocus && refocusCallback && (

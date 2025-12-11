@@ -58,6 +58,7 @@ export function ForceGraph3DWrapper({
   const prevSelectedNodeIdRef = useRef<string | null>(null);
   const isClickFocusRef = useRef(false);
   const isFocusingRef = useRef(false); // True while camera is animating to a node
+  const focusEndTimeRef = useRef(0); // Timestamp when last focus animation ended
   const [dimensions, setDimensions] = useState({ width: width || 800, height: height || 600 });
 
   // Jotai setters for refocus state
@@ -202,6 +203,7 @@ export function ForceGraph3DWrapper({
       // Clear focusing flag after animation completes
       setTimeout(() => {
         isFocusingRef.current = false;
+        focusEndTimeRef.current = Date.now();
       }, 1600);
     },
     [focusOnNode, onNodeClick, setNeedsRefocus]
@@ -252,6 +254,7 @@ export function ForceGraph3DWrapper({
       // Clear focusing flag after animation completes
       setTimeout(() => {
         isFocusingRef.current = false;
+        focusEndTimeRef.current = Date.now();
       }, 1600);
     }
 
@@ -295,6 +298,7 @@ export function ForceGraph3DWrapper({
 
       setTimeout(() => {
         isFocusingRef.current = false;
+        focusEndTimeRef.current = Date.now(); // Record when animation ended
       }, 1600);
     }
   }, [validSelectedNodeId, graphData.nodes, focusOnNode, setNeedsRefocus]);
@@ -319,10 +323,15 @@ export function ForceGraph3DWrapper({
     const nodeZ = node.z;
 
     let lastCameraPos = getCameraPosition();
+    let interval: ReturnType<typeof setInterval> | null = null;
 
     const checkCameraMove = () => {
-      // Don't check while we're actively focusing
+      // Don't check while we're actively focusing or within 1 second after focus ends
       if (isFocusingRef.current) return;
+      if (Date.now() - focusEndTimeRef.current < 1000) {
+        lastCameraPos = getCameraPosition(); // Reset baseline
+        return;
+      }
 
       const currentPos = getCameraPosition();
       if (!currentPos || !lastCameraPos) {
@@ -336,7 +345,7 @@ export function ForceGraph3DWrapper({
       const dz = currentPos.z - lastCameraPos.z;
       const cameraMoveDistance = Math.sqrt(dx * dx + dy * dy + dz * dz);
 
-      if (cameraMoveDistance > 15) {
+      if (cameraMoveDistance > 125) {
         // Camera has moved, check if node is still centered
         // Calculate vector from camera to node
         const toNodeX = nodeX - currentPos.x;
@@ -357,8 +366,11 @@ export function ForceGraph3DWrapper({
       }
     };
 
-    const interval = setInterval(checkCameraMove, 200);
-    return () => clearInterval(interval);
+    interval = setInterval(checkCameraMove, 200);
+
+    return () => {
+      if (interval) clearInterval(interval);
+    };
   }, [validSelectedNodeId, graphData.nodes, getCameraPosition, setNeedsRefocus]);
 
   return (

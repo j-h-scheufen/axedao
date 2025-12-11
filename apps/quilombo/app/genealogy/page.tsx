@@ -198,7 +198,7 @@ export default function GenealogyPage() {
         </div>
 
         {/* Right panel - Details */}
-        <div className="w-80 shrink-0 overflow-hidden border-l border-default-200">
+        <div className="h-full w-80 shrink-0 overflow-y-auto border-l border-default-200">
           <NodeDetailsPanel
             node={selectedNode}
             details={nodeDetails || null}
