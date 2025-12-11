@@ -1,25 +1,28 @@
 -- ============================================================
 -- GENEALOGY DATA MIGRATION
--- Generated: 2025-12-11T17:53:53.930Z
+-- Generated: 2025-12-11T21:34:11.214Z
 -- ============================================================
 --
--- New files: 74
--- Changed files: 0
--- Unchanged files: 0
+-- New entity files: 74
+-- Changed entity files: 0
+-- New statement files: 62
+-- Changed statement files: 0
 -- Deleted files: 0
---
--- Entities to upsert: 74
--- Statements to insert: 143
--- Statements to delete: 0
+-- Unchanged files: 0
 -- ============================================================
 
 BEGIN;
 
 -- ============================================================
--- PHASE 2: UPSERT ENTITIES
+-- PHASE 1: UPSERT ENTITIES
 -- ============================================================
 
--- From: persons/aberre.sql (Aberrê)
+-- Source: entities/persons/aberre.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Aberrê
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -147,7 +150,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/adama.sql (Adama)
+-- Source: entities/persons/adama.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Adama
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -273,7 +281,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/adao.sql (Adão)
+-- Source: entities/persons/adao.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Adão
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -377,7 +390,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/aleixo-acougueiro.sql (Aleixo Açougueiro)
+-- Source: entities/persons/aleixo-acougueiro.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Aleixo Açougueiro
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -507,7 +525,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/alemaozinho.sql (Alemãozinho)
+-- Source: entities/persons/alemaozinho.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Alemãozinho
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -643,7 +666,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/amorzinho.sql (Amorzinho)
+-- Source: entities/persons/amorzinho.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Amorzinho
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -791,7 +819,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/antonio-de-noronha.sql (Antônio de Noronha)
+-- Source: entities/persons/antonio-de-noronha.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Antônio de Noronha
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -873,7 +906,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/antonio-padroeiro.sql (Antonio Padroeiro)
+-- Source: entities/persons/antonio-padroeiro.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Antonio Padroeiro
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -945,7 +983,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/atenilo.sql (Atenilo)
+-- Source: entities/persons/atenilo.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Atenilo
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -1100,7 +1143,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/barboza.sql (Barboza)
+-- Source: entities/persons/barboza.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Barboza
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -1176,7 +1224,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/benedito.sql (Benedito)
+-- Source: entities/persons/benedito.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Benedito
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -1308,7 +1361,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/bentevi.sql (Bentevi)
+-- Source: entities/persons/bentevi.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Bentevi
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -1438,7 +1496,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/bentinho.sql (Bentinho)
+-- Source: entities/persons/bentinho.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Bentinho
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -1568,7 +1631,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/besourinho.sql (Besourinho)
+-- Source: entities/persons/besourinho.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Besourinho
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -1680,7 +1748,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/besouro-manganga.sql (Besouro Mangangá)
+-- Source: entities/persons/besouro-manganga.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Besouro Mangangá
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -1812,7 +1885,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/bimba.sql (Bimba)
+-- Source: entities/persons/bimba.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Bimba
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -2058,7 +2136,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/boca-de-siri.sql (Boca de Siri)
+-- Source: entities/persons/boca-de-siri.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Boca de Siri
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -2134,7 +2217,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/candido-pequeno.sql (Cândido Pequeno)
+-- Source: entities/persons/candido-pequeno.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Cândido Pequeno
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -2211,7 +2299,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/cesar-maneta.sql (César-Maneta)
+-- Source: entities/persons/cesar-maneta.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: César-Maneta
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -2359,7 +2452,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/chico-tres-pedacos.sql (Chico Três Pedaços)
+-- Source: entities/persons/chico-tres-pedacos.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Chico Três Pedaços
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -2436,7 +2534,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/cirandinha.sql (Cirandinha)
+-- Source: entities/persons/cirandinha.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Cirandinha
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -2578,7 +2681,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/cobrinha-verde.sql (Cobrinha Verde)
+-- Source: entities/persons/cobrinha-verde.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Cobrinha Verde
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -2726,7 +2834,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/corre-hoje.sql (Corre Hoje)
+-- Source: entities/persons/corre-hoje.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Corre Hoje
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -2798,7 +2911,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/creoni.sql (Creoni)
+-- Source: entities/persons/creoni.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Creoni
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -2875,7 +2993,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/cyriaco.sql (Cyriaco)
+-- Source: entities/persons/cyriaco.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Cyriaco
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -3019,7 +3142,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/doze-homens.sql (Doze Homens)
+-- Source: entities/persons/doze-homens.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Doze Homens
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -3095,7 +3223,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/eleuterio-de-souza.sql (Eleutério de Souza)
+-- Source: entities/persons/eleuterio-de-souza.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Eleutério de Souza
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -3217,7 +3350,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/formigao.sql (Formigão)
+-- Source: entities/persons/formigao.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Formigão
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -3331,7 +3469,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/gasolina.sql (Gasolina)
+-- Source: entities/persons/gasolina.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Gasolina
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -3465,7 +3608,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/geraldo-chapeleiro.sql (Geraldo Chapeleiro)
+-- Source: entities/persons/geraldo-chapeleiro.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Geraldo Chapeleiro
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -3542,7 +3690,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/jaco.sql (Jacó (Caboclo Jacó))
+-- Source: entities/persons/jaco.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Jacó (Caboclo Jacó)
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -3670,7 +3823,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/joao-lagalhe.sql (João-Lagalhé)
+-- Source: entities/persons/joao-lagalhe.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: João-Lagalhé
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -3810,7 +3968,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/joao-sabe-tudo.sql (João Sabe Tudo)
+-- Source: entities/persons/joao-sabe-tudo.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: João Sabe Tudo
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -3892,7 +4055,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/leao-do-norte.sql (Leão do Norte)
+-- Source: entities/persons/leao-do-norte.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Leão do Norte
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -4016,7 +4184,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/livino.sql (Livino)
+-- Source: entities/persons/livino.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Livino
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -4160,7 +4333,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/luiz-candido-machado.sql (Luiz Cândido Machado)
+-- Source: entities/persons/luiz-candido-machado.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Luiz Cândido Machado
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -4308,7 +4486,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/madame-sata.sql (Madame Satã)
+-- Source: entities/persons/madame-sata.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Madame Satã
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -4484,7 +4667,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/major-vidigal.sql (Major Vidigal)
+-- Source: entities/persons/major-vidigal.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Major Vidigal
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -4612,7 +4800,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/mamede.sql (Mamede)
+-- Source: entities/persons/mamede.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Mamede
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -4738,7 +4931,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/manduca-da-praia.sql (Manduca da Praia)
+-- Source: entities/persons/manduca-da-praia.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Manduca da Praia
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -4858,7 +5056,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/manezinho-camisa-preta.sql (Manezinho Camisa Preta)
+-- Source: entities/persons/manezinho-camisa-preta.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Manezinho Camisa Preta
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -4938,7 +5141,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/maria-doze-homens.sql (Maria Doze Homens)
+-- Source: entities/persons/maria-doze-homens.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Maria Doze Homens
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -5014,7 +5222,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/miguel-camisa-preta.sql (Miguel Camisa Preta)
+-- Source: entities/persons/miguel-camisa-preta.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Miguel Camisa Preta
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -5156,7 +5369,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/nascimento-grande.sql (Nascimento Grande)
+-- Source: entities/persons/nascimento-grande.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Nascimento Grande
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -5287,7 +5505,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/neco-canario-pardo.sql (Neco Canário Pardo)
+-- Source: entities/persons/neco-canario-pardo.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Neco Canário Pardo
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -5417,7 +5640,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/noca-de-jaco.sql (Noca de Jacó)
+-- Source: entities/persons/noca-de-jaco.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Noca de Jacó
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -5493,7 +5721,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/noronha.sql (Noronha (Daniel Coutinho))
+-- Source: entities/persons/noronha.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Noronha (Daniel Coutinho)
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -5655,7 +5888,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/onca-preta.sql (Onça Preta)
+-- Source: entities/persons/onca-preta.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Onça Preta
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -5809,7 +6047,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/pajeu.sql (Pajéu)
+-- Source: entities/persons/pajeu.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Pajéu
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -5872,7 +6115,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/pastinha.sql (Pastinha)
+-- Source: entities/persons/pastinha.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Pastinha
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -6080,7 +6328,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/paulo-barroquinha.sql (Paulo Barroquinha)
+-- Source: entities/persons/paulo-barroquinha.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Paulo Barroquinha
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -6204,7 +6457,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/pedro-cobra.sql (Pedro Cobra)
+-- Source: entities/persons/pedro-cobra.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Pedro Cobra
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -6334,7 +6592,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/pinta-preta-da-lapa.sql (Pinta Preta da Lapa)
+-- Source: entities/persons/pinta-preta-da-lapa.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Pinta Preta da Lapa
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -6466,7 +6729,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/piraje.sql (Pirajé)
+-- Source: entities/persons/piraje.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Pirajé
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -6529,7 +6797,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/placido-de-abreu.sql (Plácido de Abreu)
+-- Source: entities/persons/placido-de-abreu.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Plácido de Abreu
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -6692,7 +6965,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/prata-preta.sql (Prata Preta)
+-- Source: entities/persons/prata-preta.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Prata Preta
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -6832,7 +7110,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/quebra-coco.sql (Quebra Coco)
+-- Source: entities/persons/quebra-coco.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Quebra Coco
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -6962,7 +7245,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/querido-de-deus.sql (Querido de Deus)
+-- Source: entities/persons/querido-de-deus.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Querido de Deus
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -7136,7 +7424,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/quinzinho.sql (Quinzinho)
+-- Source: entities/persons/quinzinho.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Quinzinho
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -7261,7 +7554,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/ricardo-de-ilha-de-mare.sql (Ricardo de Ilha de Maré)
+-- Source: entities/persons/ricardo-de-ilha-de-mare.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Ricardo de Ilha de Maré
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -7403,7 +7701,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/salome.sql (Salomé)
+-- Source: entities/persons/salome.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Salomé
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -7479,7 +7782,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/sete-coroas.sql (Sete Coroas)
+-- Source: entities/persons/sete-coroas.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Sete Coroas
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -7615,7 +7923,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/sinhozinho.sql (Sinhozinho)
+-- Source: entities/persons/sinhozinho.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Sinhozinho
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -7815,7 +8128,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/siri-de-mangue.sql (Siri de Mangue)
+-- Source: entities/persons/siri-de-mangue.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Siri de Mangue
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -7949,7 +8267,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/talabi.sql (Talabi)
+-- Source: entities/persons/talabi.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Talabi
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -8101,7 +8424,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/tio-alipio.sql (Tio Alípio)
+-- Source: entities/persons/tio-alipio.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Tio Alípio
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -8223,7 +8551,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/tio-pascoal.sql (Tio Pascoal)
+-- Source: entities/persons/tio-pascoal.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Tio Pascoal
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -8363,7 +8696,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/totonho-de-mare.sql (Totonho de Maré)
+-- Source: entities/persons/totonho-de-mare.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Totonho de Maré
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -8439,7 +8777,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/vitor-agau.sql (Vitor Agaú)
+-- Source: entities/persons/vitor-agau.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Vitor Agaú
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -8601,7 +8944,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/waldemar.sql (Waldemar)
+-- Source: entities/persons/waldemar.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Waldemar
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -8809,7 +9157,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: persons/zeca-floriano.sql (Zeca Floriano)
+-- Source: entities/persons/zeca-floriano.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Zeca Floriano
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.person_profiles (
   -- Identity
   name,
@@ -8949,7 +9302,12 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
--- From: groups/gengibirra.sql (Gengibirra)
+-- Source: entities/groups/gengibirra.sql (NEW)
+-- ============================================================
+-- GENEALOGY GROUP: Gengibirra (Centro Nacional de Capoeira de Origem Angola)
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.group_profiles (
   -- Identity
   name,
@@ -9033,7 +9391,12 @@ ON CONFLICT (name) DO UPDATE SET
   dissolved_at = EXCLUDED.dissolved_at,
   updated_at = NOW();
 
--- From: groups/roda-de-trapiche-de-baixo.sql (Roda de Trapiche de Baixo)
+-- Source: entities/groups/roda-de-trapiche-de-baixo.sql (NEW)
+-- ============================================================
+-- GENEALOGY GROUP: Roda de Trapiche de Baixo
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.group_profiles (
   -- Identity
   name,
@@ -9132,7 +9495,12 @@ ON CONFLICT (name) DO UPDATE SET
   dissolved_at = EXCLUDED.dissolved_at,
   updated_at = NOW();
 
--- From: groups/roda-do-matatu-preto.sql (Roda do Matatu Preto)
+-- Source: entities/groups/roda-do-matatu-preto.sql (NEW)
+-- ============================================================
+-- GENEALOGY GROUP: Roda do Matatu Preto
+-- Migrated: 2025-12-11
+-- ============================================================
+
 INSERT INTO genealogy.group_profiles (
   -- Identity
   name,
@@ -9216,13 +9584,18 @@ ON CONFLICT (name) DO UPDATE SET
   updated_at = NOW();
 
 -- ============================================================
--- PHASE 3: INSERT NEW STATEMENTS
+-- PHASE 2: UPSERT STATEMENTS
 -- ============================================================
 
--- From: persons/aberre.sql
--- Statements: Aberrê co_founded Gengibirra, Aberrê member_of Roda do Matatu Preto, Aberrê associated_with Onça Preta, Aberrê associated_with Geraldo Chapeleiro, Aberrê associated_with Totonho de Maré, Aberrê associated_with Creoni, Aberrê associated_with Chico Três Pedaços, Aberrê associated_with Paulo Barroquinha, Aberrê associated_with Barboza
+-- Source: statements/persons/aberre.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Aberrê
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Aberrê is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- NOTE: Duplicate statements also exist in gengibirra.sql - ON CONFLICT ensures idempotency
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9245,7 +9618,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Aberrê' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Aberrê member_of Roda do Matatu Preto
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9270,7 +9642,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Aberrê' AND g.name = 'Roda do Matatu Preto'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Aberrê associated_with Onça Preta (Matatu Preto training group)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9295,7 +9666,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Aberrê' AND o.apelido = 'Onça Preta'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Aberrê associated_with Geraldo Chapeleiro (Matatu Preto training group)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9320,7 +9690,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Aberrê' AND o.apelido = 'Geraldo Chapeleiro'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Aberrê associated_with Totonho de Maré (Matatu Preto training group)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9345,7 +9714,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Aberrê' AND o.apelido = 'Totonho de Maré'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Aberrê associated_with Creoni (Matatu Preto training group)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9370,7 +9738,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Aberrê' AND o.apelido = 'Creoni'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Aberrê associated_with Chico Três Pedaços (Matatu Preto training group)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9395,7 +9762,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Aberrê' AND o.apelido = 'Chico Três Pedaços'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Aberrê associated_with Paulo Barroquinha (Matatu Preto training group)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9420,7 +9786,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Aberrê' AND o.apelido = 'Paulo Barroquinha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Aberrê associated_with Barboza (Matatu Preto training group)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9445,10 +9810,88 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Aberrê' AND o.apelido = 'Barboza'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/aleixo-acougueiro.sql
--- Statements: Aleixo Açougueiro associated_with Manduca da Praia, Aleixo Açougueiro associated_with Mamede
+-- Source: statements/persons/adama.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Adama
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Adama is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- --- Person-to-Person: Association with Manduca da Praia ---
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  properties,
+  confidence, source
+)
+SELECT
+  'person', adama.id,
+  'associated_with',
+  'person', ng.id,
+  '{"association_context": {"en": "Both were among the legendary valentões of Recife during the First Republic era. Sources describe them as the two greatest valentões of the city. Both were capoeiristas who dominated the carnival culture and street life of Recife.", "pt": "Ambos estavam entre os lendários valentões do Recife durante a era da Primeira República. Fontes os descrevem como os dois maiores valentões da cidade. Ambos eram capoeiristas que dominavam a cultura carnavalesca e a vida nas ruas do Recife."}}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Oscar Mello, "Recife Sangrento" (1937); Academia.edu: Capoeira e capoeiras entre a Guarda Negra'
+FROM genealogy.person_profiles adama, genealogy.person_profiles ng
+WHERE adama.apelido = 'Adama' AND ng.apelido = 'Nascimento Grande'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  properties,
+  confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person', adama.id,
+  'associated_with',
+  'person', eleuterio.id,
+  '1907-01-01'::date, 'year'::genealogy.date_precision,
+  '{"association_context": {"en": "Fellow valentões involved in disturbances on a train returning from a religious festival in 1907. Both were part of Recife''s network of capoeiristas and tough men during the First Republic era.", "pt": "Valentões companheiros envolvidos em distúrbios em um trem que retornava de uma festividade religiosa em 1907. Ambos faziam parte da rede de capoeiristas e valentões do Recife durante a era da Primeira República."}}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Israel Ozanam, "Capoeira e capoeiras entre a Guarda Negra e a Educação Física no Recife"; Jornal Pequeno Nov 9, 1938',
+  'Documented association from 1907 train incident returning from religious festival.',
+  'Associação documentada do incidente do trem de 1907 retornando de festividade religiosa.'
+FROM genealogy.person_profiles adama, genealogy.person_profiles eleuterio
+WHERE adama.apelido = 'Adama' AND eleuterio.apelido = 'Eleutério'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  properties,
+  confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person', adama.id,
+  'associated_with',
+  'person', formigao.id,
+  '1907-01-01'::date, 'year'::genealogy.date_precision,
+  '{"association_context": {"en": "Fellow valentões involved in disturbances on a train returning from a religious festival in 1907. Both were part of Recife''s network of capoeiristas and tough men during the First Republic era.", "pt": "Valentões companheiros envolvidos em distúrbios em um trem que retornava de uma festividade religiosa em 1907. Ambos faziam parte da rede de capoeiristas e valentões do Recife durante a era da Primeira República."}}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Israel Ozanam, "Capoeira e capoeiras entre a Guarda Negra e a Educação Física no Recife"',
+  'Documented association from 1907 train incident returning from religious festival.',
+  'Associação documentada do incidente do trem de 1907 retornando de festividade religiosa.'
+FROM genealogy.person_profiles adama, genealogy.person_profiles formigao
+WHERE adama.apelido = 'Adama' AND formigao.apelido = 'Formigão'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Source: statements/persons/aleixo-acougueiro.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Aleixo Açougueiro
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Aleixo Açougueiro is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
+
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9473,7 +9916,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Aleixo Açougueiro' AND o.apelido = 'Manduca da Praia'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- --- Person-to-Person: Association with Mamede ---
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9498,8 +9940,14 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Aleixo Açougueiro' AND o.apelido = 'Mamede'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/alemaozinho.sql
--- Statements: Alemãozinho associated_with Pinta Preta da Lapa, Alemãozinho associated_with Jacó
+-- Source: statements/persons/alemaozinho.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Alemãozinho
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Alemãozinho is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
@@ -9549,10 +9997,135 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Alemãozinho' AND o.apelido = 'Jacó'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/amorzinho.sql
--- Statements: Amorzinho co_founded Gengibirra, Amorzinho leads Gengibirra
+-- Source: statements/persons/amorzinho.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Amorzinho
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Amorzinho is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Amorzinho co_founded Gengibirra (1920s) - as dono e proprietário
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, a.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, n.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  '1943-01-01'::date, 'year'::genealogy.date_precision,
+  '{"association_context": "Both were among the four ''donos e proprietários'' (owners and proprietors) of the Centro Nacional de Capoeira de Origem Angola at Gengibirra in the 1920s, alongside Livino and Totonho de Maré. Amorzinho led the rodas while Noronha provided organizational support."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Noronha manuscripts; velhosmestres.com; nossa-tribo.com',
+  'Amorzinho and Noronha were two of the four "owners and proprietors" of Gengibirra, co-founding the first organized Capoeira Angola center in Bahia. Noronha later documented Amorzinho''s role in his manuscripts.',
+  'Amorzinho e Noronha foram dois dos quatro "donos e proprietários" do Gengibirra, co-fundando o primeiro centro organizado de Capoeira Angola na Bahia. Noronha depois documentou o papel de Amorzinho em seus manuscritos.'
+FROM genealogy.person_profiles a, genealogy.person_profiles n
+WHERE a.apelido = 'Amorzinho' AND n.apelido = 'Noronha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, a.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, t.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  '1943-01-01'::date, 'year'::genealogy.date_precision,
+  '{"association_context": "Both were among the four ''donos e proprietários'' (owners and proprietors) of the Centro Nacional de Capoeira de Origem Angola at Gengibirra in the 1920s, alongside Noronha and Livino."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Noronha manuscripts; velhosmestres.com; nossa-tribo.com',
+  'Amorzinho and Totonho de Maré were two of the four "owners and proprietors" of Gengibirra, co-founding the first organized Capoeira Angola center in Bahia.',
+  'Amorzinho e Totonho de Maré foram dois dos quatro "donos e proprietários" do Gengibirra, co-fundando o primeiro centro organizado de Capoeira Angola na Bahia.'
+FROM genealogy.person_profiles a, genealogy.person_profiles t
+WHERE a.apelido = 'Amorzinho' AND t.apelido = 'Totonho de Maré'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, a.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, l.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  '1943-01-01'::date, 'year'::genealogy.date_precision,
+  '{"association_context": "Both were among the four ''donos e proprietários'' (owners and proprietors) of the Centro Nacional de Capoeira de Origem Angola at Gengibirra in the 1920s, alongside Noronha and Totonho de Maré."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Noronha manuscripts; velhosmestres.com; nossa-tribo.com',
+  'Amorzinho and Livino were two of the four "owners and proprietors" of Gengibirra, co-founding the first organized Capoeira Angola center in Bahia.',
+  'Amorzinho e Livino foram dois dos quatro "donos e proprietários" do Gengibirra, co-fundando o primeiro centro organizado de Capoeira Angola na Bahia.'
+FROM genealogy.person_profiles a, genealogy.person_profiles l
+WHERE a.apelido = 'Amorzinho' AND l.apelido = 'Livino'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, a.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, p.id,
+  '1941-02-23'::date, 'exact'::genealogy.date_precision,
+  '1943-01-01'::date, 'year'::genealogy.date_precision,
+  '{"association_context": "Amorzinho handed leadership of the Centro Nacional de Capoeira de Origem Angola (Gengibirra) to Pastinha on February 23, 1941. According to Pastinha: ''Amorzinho in the grip of my hand went and handed over capoeira for me to take care of.'' Amorzinho reportedly said: ''I have been waiting a long time to give you this capoeira for you to master.''"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Pastinha account; Mestre Noronha manuscripts; velhosmestres.com; jogodavidaweb.wordpress.com',
+  'Amorzinho passed leadership of Capoeira Angola to Pastinha in 1941. This transfer (whether on the day or after Amorzinho''s death in 1943) was foundational to CECA''s establishment.',
+  'Amorzinho passou a liderança da Capoeira Angola para Pastinha em 1941. Esta transferência (seja no dia ou após a morte de Amorzinho em 1943) foi fundamental para o estabelecimento do CECA.'
+FROM genealogy.person_profiles a, genealogy.person_profiles p
+WHERE a.apelido = 'Amorzinho' AND p.apelido = 'Pastinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, a.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, ab.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  '1942-09-01'::date, 'month'::genealogy.date_precision,
+  '{"association_context": "Aberrê was one of the 22 founding mestres of Gengibirra (listed as ''Raimundo ABR'' in Noronha''s manuscripts) and a key associate of Amorzinho. In 1941, Aberrê brought Pastinha to the Gengibirra roda and introduced him to Amorzinho, facilitating the transfer of leadership. Aberrê died in September 1942, shortly before Amorzinho died in 1943."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Noronha manuscripts; Pastinha account; Portal Capoeira',
+  'Aberrê was a founding mestre of Gengibirra who brought Pastinha to meet Amorzinho in 1941. Both died within months of each other (Aberrê Sept 1942, Amorzinho 1943).',
+  'Aberrê era um mestre fundador do Gengibirra que trouxe Pastinha para conhecer Amorzinho em 1941. Ambos morreram com meses de diferença (Aberrê set. 1942, Amorzinho 1943).'
+FROM genealogy.person_profiles a, genealogy.person_profiles ab
+WHERE a.apelido = 'Amorzinho' AND ab.apelido = 'Aberrê'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9577,7 +10150,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Amorzinho' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Amorzinho leads Gengibirra (1920s-1943) - organizational leadership AND roda leader
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9602,10 +10174,15 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Amorzinho' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/antonio-de-noronha.sql
--- Statements: Aberrê student_of Antônio de Noronha
+-- Source: statements/persons/antonio-de-noronha.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Antônio de Noronha
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Antônio de Noronha is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Note: Direction is FROM student TO teacher (younger → older)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9631,10 +10208,42 @@ WHERE s.apelido = 'Aberrê'
   AND o.apelido = 'Antônio de Noronha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/atenilo.sql
--- Statements: Atenilo associated_with Neco Canário Pardo
+-- Source: statements/persons/antonio-padroeiro.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Antonio Padroeiro
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Antonio Padroeiro is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Note: Creating as associated_with rather than family_of due to chronological concerns
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  properties,
+  confidence, source
+)
+SELECT
+  'person', ap.id,
+  'associated_with',
+  'person', ng.id,
+  '{"association_context": {"en": "Dangerous adversary who attempted to kill Nascimento Grande. After being disarmed in their confrontation, Padroeiro was beaten to death. One of only two enemies explicitly named as Nascimento Grande''s most dangerous challengers (alongside Corre Hoje).", "pt": "Adversário perigoso que tentou matar Nascimento Grande. Depois de ser desarmado em seu confronto, Padroeiro foi espancado até a morte. Um dos únicos dois inimigos explicitamente nomeados como os desafiantes mais perigosos de Nascimento Grande (junto com Corre Hoje)."}}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Educando com Ginga: Nascimento Grande biography'
+FROM genealogy.person_profiles ap, genealogy.person_profiles ng
+WHERE ap.apelido = 'Antonio Padroeiro' AND ng.apelido = 'Nascimento Grande'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Source: statements/persons/atenilo.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Atenilo
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Atenilo is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
+
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9659,10 +10268,15 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Atenilo' AND o.apelido = 'Neco Canário Pardo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/barboza.sql
--- Statements: Barboza member_of Roda do Matatu Preto, Barboza associated_with Aberrê, Barboza associated_with Onça Preta, Barboza associated_with Paulo Barroquinha, Barboza associated_with Totonho de Maré
+-- Source: statements/persons/barboza.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Barboza
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Barboza is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Barboza member_of Roda do Matatu Preto
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9687,7 +10301,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Barboza' AND g.name = 'Roda do Matatu Preto'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Barboza associated_with Aberrê (Matatu Preto training group)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9712,7 +10325,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Barboza' AND o.apelido = 'Aberrê'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Barboza associated_with Onça Preta (Matatu Preto training group)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9737,7 +10349,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Barboza' AND o.apelido = 'Onça Preta'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Barboza associated_with Paulo Barroquinha (Matatu Preto training group)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9762,7 +10373,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Barboza' AND o.apelido = 'Paulo Barroquinha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Barboza associated_with Totonho de Maré (Matatu Preto training group)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9787,10 +10397,15 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Barboza' AND o.apelido = 'Totonho de Maré'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/bentevi.sql
--- Statements: Bentevi associated_with Manduca da Praia, Bentevi associated_with Mamede, Bentevi associated_with Aleixo Açougueiro, Bentevi associated_with Pedro Cobra
+-- Source: statements/persons/bentevi.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Bentevi
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Bentevi is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- --- Person-to-Person: Association with Manduca da Praia ---
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9815,7 +10430,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Bentevi' AND o.apelido = 'Manduca da Praia'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- --- Person-to-Person: Association with Mamede ---
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9840,7 +10454,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Bentevi' AND o.apelido = 'Mamede'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- --- Person-to-Person: Association with Aleixo Açougueiro ---
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9865,7 +10478,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Bentevi' AND o.apelido = 'Aleixo Açougueiro'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- --- Person-to-Person: Association with Pedro Cobra ---
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9890,10 +10502,15 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Bentevi' AND o.apelido = 'Pedro Cobra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/besourinho.sql
--- Statements: Onça Preta student_of Besourinho
+-- Source: statements/persons/besourinho.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Besourinho
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Besourinho is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- NOTE: Relationship direction is subject (younger) -> object (teacher)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9918,10 +10535,15 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Onça Preta' AND o.apelido = 'Besourinho'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/besouro-manganga.sql
--- Statements: Besouro Mangangá student_of Tio Alípio, Besouro Mangangá member_of Roda de Trapiche de Baixo, Besouro Mangangá teaches_at Roda de Trapiche de Baixo
+-- Source: statements/persons/besouro-manganga.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Besouro Mangangá
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Besouro Mangangá is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Besouro was student of Tio Alípio
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9942,7 +10564,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Besouro Mangangá' AND o.apelido = 'Tio Alípio'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Besouro was member_of Roda de Trapiche de Baixo
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9965,7 +10586,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Besouro Mangangá' AND g.name = 'Roda de Trapiche de Baixo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Besouro teaches_at Roda de Trapiche de Baixo
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -9988,10 +10608,15 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Besouro Mangangá' AND g.name = 'Roda de Trapiche de Baixo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/bimba.sql
--- Statements: Bimba student_of Bentinho, Bimba trained_under Cobrinha Verde, Atenilo student_of Bimba, Bimba associated_with Besouro Mangangá
+-- Source: statements/persons/bimba.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Bimba
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Bimba is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Mestre Bimba student_of Bentinho (primary capoeira teacher)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10016,7 +10641,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Bimba' AND o.apelido = 'Bentinho'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Mestre Bimba trained_under Cobrinha Verde (received instruction in 1935)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10041,7 +10665,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Bimba' AND o.apelido = 'Cobrinha Verde'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Mestre Atenilo student_of Mestre Bimba (oldest student)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10066,7 +10689,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Atenilo' AND o.apelido = 'Bimba'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- NOTE: No direct student/teacher relationship documented, but Besouro died in 1924 before Bimba founded his academy
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10091,10 +10713,15 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Bimba' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/boca-de-siri.sql
--- Statements: Boca de Siri associated_with Besouro Mangangá, Boca de Siri member_of Roda de Trapiche de Baixo
+-- Source: statements/persons/boca-de-siri.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Boca de Siri
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Boca de Siri is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Boca de Siri associated_with Besouro Mangangá
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10119,7 +10746,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Boca de Siri' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Boca de Siri member_of Roda de Trapiche de Baixo
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10144,10 +10770,15 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Boca de Siri' AND g.name = 'Roda de Trapiche de Baixo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/candido-pequeno.sql
--- Statements: Cândido Pequeno co_founded Gengibirra
+-- Source: statements/persons/candido-pequeno.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Cândido Pequeno
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Cândido Pequeno is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Cândido Pequeno co_founded Gengibirra (as founding_mestre, not one of 4 donos)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10170,8 +10801,14 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Cândido Pequeno' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/cesar-maneta.sql
--- Statements: César-Maneta associated_with Alemãozinho, César-Maneta associated_with Jacó, César-Maneta associated_with Pinta Preta da Lapa
+-- Source: statements/persons/cesar-maneta.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: César-Maneta
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where César-Maneta is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
@@ -10245,10 +10882,15 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'César-Maneta' AND o.apelido = 'Pinta Preta da Lapa'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/chico-tres-pedacos.sql
--- Statements: Chico Três Pedaços member_of Roda do Matatu Preto, Chico Três Pedaços associated_with Aberrê, Chico Três Pedaços associated_with Geraldo Chapeleiro, Chico Três Pedaços associated_with Onça Preta, Chico Três Pedaços associated_with Paulo Barroquinha, Chico Três Pedaços associated_with Creoni
+-- Source: statements/persons/chico-tres-pedacos.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Chico Três Pedaços
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Chico Três Pedaços is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Chico Três Pedaços member_of Roda do Matatu Preto
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10273,7 +10915,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Chico Três Pedaços' AND g.name = 'Roda do Matatu Preto'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Chico Três Pedaços associated_with Aberrê (Matatu Preto training circle)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10298,7 +10939,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Chico Três Pedaços' AND o.apelido = 'Aberrê'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Chico Três Pedaços associated_with Geraldo Chapeleiro (Matatu Preto training circle)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10323,7 +10963,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Chico Três Pedaços' AND o.apelido = 'Geraldo Chapeleiro'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Chico Três Pedaços associated_with Onça Preta (Matatu Preto training circle)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10348,7 +10987,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Chico Três Pedaços' AND o.apelido = 'Onça Preta'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Chico Três Pedaços associated_with Paulo Barroquinha (Matatu Preto training circle)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10373,7 +11011,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Chico Três Pedaços' AND o.apelido = 'Paulo Barroquinha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Chico Três Pedaços associated_with Creoni (Matatu Preto training circle)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10398,10 +11035,15 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Chico Três Pedaços' AND o.apelido = 'Creoni'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/cirandinha.sql
--- Statements: Cirandinha student_of Sinhozinho
+-- Source: statements/persons/cirandinha.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Cirandinha
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Cirandinha is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Cirandinha student_of Sinhozinho
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10426,10 +11068,15 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cirandinha' AND o.apelido = 'Sinhozinho'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/cobrinha-verde.sql
--- Statements: Cobrinha Verde student_of Besouro Mangangá, Cobrinha Verde family_of Besouro Mangangá, Cobrinha Verde baptized_by Besouro Mangangá, Cobrinha Verde member_of Roda de Trapiche de Baixo
+-- Source: statements/persons/cobrinha-verde.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Cobrinha Verde
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Cobrinha Verde is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Cobrinha Verde was student_of Besouro Mangangá (primary teacher)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10452,7 +11099,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Cobrinha Verde was family_of Besouro Mangangá (cousins)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10473,7 +11119,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Besouro baptized Cobrinha Verde (gave him his apelido)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10496,7 +11141,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Cobrinha Verde member_of Roda de Trapiche de Baixo
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10521,10 +11165,42 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Cobrinha Verde' AND g.name = 'Roda de Trapiche de Baixo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/creoni.sql
--- Statements: Creoni member_of Roda do Matatu Preto, Creoni associated_with Aberrê, Creoni associated_with Geraldo Chapeleiro, Creoni associated_with Onça Preta, Creoni associated_with Paulo Barroquinha
+-- Source: statements/persons/corre-hoje.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Corre Hoje
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Corre Hoje is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Creoni member_of Roda do Matatu Preto
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  properties,
+  confidence, source
+)
+SELECT
+  'person', ch.id,
+  'associated_with',
+  'person', ng.id,
+  '{"association_context": {"en": "Enemy of Nascimento Grande. Organized an attack with seven men to kill him but was killed in the attempt. Sources conflict on whether he was shot by Nascimento Grande in self-defense or struck by a stray bullet intended for Nascimento.", "pt": "Inimigo de Nascimento Grande. Organizou um ataque com sete homens para matá-lo mas foi morto na tentativa. Fontes conflitam se foi baleado por Nascimento Grande em legítima defesa ou atingido por uma bala perdida destinada a Nascimento."}}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Educando com Ginga (https://educando-com-ginga.webnode.page/), Mestre Brizola (https://mestrebrizola.webnode.com.br/)'
+FROM genealogy.person_profiles ch, genealogy.person_profiles ng
+WHERE ch.apelido = 'Corre Hoje' AND ng.apelido = 'Nascimento Grande'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Source: statements/persons/creoni.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Creoni
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Creoni is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
+
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10549,7 +11225,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Creoni' AND g.name = 'Roda do Matatu Preto'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Creoni associated_with Aberrê (Matatu Preto training circle)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10574,7 +11249,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Creoni' AND o.apelido = 'Aberrê'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Creoni associated_with Geraldo Chapeleiro (Matatu Preto training circle)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10599,7 +11273,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Creoni' AND o.apelido = 'Geraldo Chapeleiro'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Creoni associated_with Onça Preta (Matatu Preto training circle)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10624,7 +11297,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Creoni' AND o.apelido = 'Onça Preta'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Creoni associated_with Paulo Barroquinha (Matatu Preto training circle)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10649,10 +11321,15 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Creoni' AND o.apelido = 'Paulo Barroquinha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/doze-homens.sql
--- Statements: Doze Homens associated_with Besouro Mangangá, Doze Homens associated_with Besourinho, Doze Homens member_of Roda de Trapiche de Baixo
+-- Source: statements/persons/doze-homens.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Doze Homens
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Doze Homens is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Doze Homens associated_with Besouro Mangangá
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10677,7 +11354,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Doze Homens' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Doze Homens associated_with Besourinho (fellow Pedrito persecution victim)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10702,7 +11378,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Doze Homens' AND o.apelido = 'Besourinho'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Doze Homens member_of Roda de Trapiche de Baixo
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10727,10 +11402,125 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Doze Homens' AND g.name = 'Roda de Trapiche de Baixo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/gasolina.sql
--- Statements: Onça Preta student_of Gasolina, Cobrinha Verde trained_under Gasolina, Gasolina associated_with Besouro Mangangá, Gasolina associated_with Siri de Mangue, Gasolina associated_with Doze Homens, Gasolina associated_with Neco Canário Pardo
+-- Source: statements/persons/eleuterio-de-souza.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Eleutério de Souza
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Eleutério de Souza is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- "Não tive um mestre, mas vários" (I didn't have one mestre, but many)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  properties,
+  confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person', eleuterio.id,
+  'associated_with',
+  'person', adama.id,
+  '1907-01-01'::date, 'year'::genealogy.date_precision,
+  '{"association_context": {"en": "Fellow valentões involved in disturbances on a train returning from a religious festival in 1907. Both were part of Recife''s network of capoeiristas and tough men during the First Republic era.", "pt": "Valentões companheiros envolvidos em distúrbios em um trem que retornava de uma festividade religiosa em 1907. Ambos faziam parte da rede de capoeiristas e valentões do Recife durante a era da Primeira República."}}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Israel Ozanam, "Capoeira e capoeiras entre a Guarda Negra e a Educação Física no Recife"; Jornal Pequeno Nov 9, 1938',
+  'Documented association from 1907 train incident returning from religious festival.',
+  'Associação documentada do incidente do trem de 1907 retornando de festividade religiosa.'
+FROM genealogy.person_profiles eleuterio, genealogy.person_profiles adama
+WHERE eleuterio.apelido = 'Eleutério' AND adama.apelido = 'Adama'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  properties,
+  confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person', eleuterio.id,
+  'associated_with',
+  'person', formigao.id,
+  '1907-01-01'::date, 'year'::genealogy.date_precision,
+  '{"association_context": {"en": "Fellow valentões involved in disturbances on a train returning from a religious festival in 1907. Both were part of Recife''s network of capoeiristas and tough men during the First Republic era.", "pt": "Valentões companheiros envolvidos em distúrbios em um trem que retornava de uma festividade religiosa em 1907. Ambos faziam parte da rede de capoeiristas e valentões do Recife durante a era da Primeira República."}}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Israel Ozanam, "Capoeira e capoeiras entre a Guarda Negra e a Educação Física no Recife"',
+  'Documented association from 1907 train incident returning from religious festival.',
+  'Associação documentada do incidente do trem de 1907 retornando de festividade religiosa.'
+FROM genealogy.person_profiles eleuterio, genealogy.person_profiles formigao
+WHERE eleuterio.apelido = 'Eleutério' AND formigao.apelido = 'Formigão'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Source: statements/persons/formigao.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Formigão
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Formigão is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  properties,
+  confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person', formigao.id,
+  'associated_with',
+  'person', adama.id,
+  '1907-01-01'::date, 'year'::genealogy.date_precision,
+  '{"association_context": {"en": "Fellow valentões involved in disturbances on a train returning from a religious festival in 1907. Both were part of Recife''s network of capoeiristas and tough men during the First Republic era.", "pt": "Valentões companheiros envolvidos em distúrbios em um trem que retornava de uma festividade religiosa em 1907. Ambos faziam parte da rede de capoeiristas e valentões do Recife durante a era da Primeira República."}}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Israel Ozanam, "Capoeira e capoeiras entre a Guarda Negra e a Educação Física no Recife"',
+  'Documented association from 1907 train incident returning from religious festival.',
+  'Associação documentada do incidente do trem de 1907 retornando de festividade religiosa.'
+FROM genealogy.person_profiles formigao, genealogy.person_profiles adama
+WHERE formigao.apelido = 'Formigão' AND adama.apelido = 'Adama'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  properties,
+  confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person', formigao.id,
+  'associated_with',
+  'person', eleuterio.id,
+  '1907-01-01'::date, 'year'::genealogy.date_precision,
+  '{"association_context": {"en": "Fellow valentões involved in disturbances on a train returning from a religious festival in 1907. Both were part of Recife''s network of capoeiristas and tough men during the First Republic era.", "pt": "Valentões companheiros envolvidos em distúrbios em um trem que retornava de uma festividade religiosa em 1907. Ambos faziam parte da rede de capoeiristas e valentões do Recife durante a era da Primeira República."}}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Israel Ozanam, "Capoeira e capoeiras entre a Guarda Negra e a Educação Física no Recife"',
+  'Documented association from 1907 train incident returning from religious festival.',
+  'Associação documentada do incidente do trem de 1907 retornando de festividade religiosa.'
+FROM genealogy.person_profiles formigao, genealogy.person_profiles eleuterio
+WHERE formigao.apelido = 'Formigão' AND eleuterio.apelido = 'Eleutério'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Source: statements/persons/gasolina.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Gasolina
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Gasolina is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
+
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10755,7 +11545,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Onça Preta' AND o.apelido = 'Gasolina'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- but I learned from many mestres in Santo Amaro" - Besouro was student_of, others trained_under
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10780,7 +11569,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Gasolina'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Gasolina associated_with Besouro Mangangá (contemporaries in Santo Amaro)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10805,7 +11593,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Gasolina' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Gasolina associated_with Siri de Mangue (contemporaries in Santo Amaro)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10830,7 +11617,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Gasolina' AND o.apelido = 'Siri de Mangue'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Gasolina associated_with Doze Homens (contemporaries; both Pedrito victims)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10855,7 +11641,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Gasolina' AND o.apelido = 'Doze Homens'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Gasolina associated_with Neco Canário Pardo (contemporaries in Santo Amaro)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10880,10 +11665,15 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Gasolina' AND o.apelido = 'Neco Canário Pardo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/geraldo-chapeleiro.sql
--- Statements: Geraldo Chapeleiro co_founded Gengibirra, Geraldo Chapeleiro member_of Roda do Matatu Preto
+-- Source: statements/persons/geraldo-chapeleiro.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Geraldo Chapeleiro
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Geraldo Chapeleiro is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Geraldo Chapeleiro co_founded Gengibirra (as founding_mestre, not one of 4 donos)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10906,7 +11696,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Geraldo Chapeleiro' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Geraldo Chapeleiro member_of Roda do Matatu Preto
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -10931,8 +11720,14 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Geraldo Chapeleiro' AND g.name = 'Roda do Matatu Preto'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/jaco.sql
--- Statements: Jacó associated_with Pinta Preta da Lapa
+-- Source: statements/persons/jaco.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Jacó (Caboclo Jacó)
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Jacó (Caboclo Jacó) is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
@@ -10958,8 +11753,14 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Jacó' AND o.apelido = 'Pinta Preta da Lapa'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/joao-lagalhe.sql
--- Statements: João-Lagalhé associated_with César-Maneta, João-Lagalhé associated_with Alemãozinho, João-Lagalhé associated_with Jacó, João-Lagalhé associated_with Pinta Preta da Lapa
+-- Source: statements/persons/joao-lagalhe.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: João-Lagalhé
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where João-Lagalhé is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
@@ -11057,10 +11858,186 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'João-Lagalhé' AND o.apelido = 'Pinta Preta da Lapa'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/livino.sql
--- Statements: Livino co_founded Gengibirra, Livino leads Gengibirra
+-- Source: statements/persons/joao-sabe-tudo.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: João Sabe Tudo
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where João Sabe Tudo is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Livino co_founded Gengibirra (1920s) - as dono e proprietário
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  properties,
+  confidence, source
+)
+SELECT
+  'person', jst.id,
+  'associated_with',
+  'person', ng.id,
+  '{"association_context": {"en": "Fierce rival and paradoxical friend. João Sabe Tudo was described as one of Nascimento Grande''s most fierce adversaries and one of the most feared fighters of Recife. He constantly challenged Nascimento to scheduled fights with specific times and places. Their legendary battle near the Largo da Paz bridge moved through the streets until they entered Igreja do Carmo, where a vicar intervened and they shook hands, never fighting again. Despite their rivalry, they were friends who organized parties together at Hotel Sobrado Grande on Rua Camboa do Carmo in Santo Antônio.", "pt": "Rival feroz e amigo paradoxal. João Sabe Tudo foi descrito como um dos adversários mais ferozes de Nascimento Grande e um dos lutadores mais temidos do Recife. Constantemente desafiava Nascimento para lutas marcadas com hora e local específicos. Sua batalha lendária perto da ponte do Largo da Paz moveu-se pelas ruas até entrarem na Igreja do Carmo, onde um vigário interveio e eles apertaram as mãos, nunca mais lutando. Apesar da rivalidade, eram amigos que organizavam festas juntos no Hotel Sobrado Grande na Rua Camboa do Carmo em Santo Antônio."}}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Educando com Ginga; Grupo Capoeira Raça Negra; Various historical accounts of Recife valentões'
+FROM genealogy.person_profiles jst, genealogy.person_profiles ng
+WHERE jst.apelido = 'João Sabe Tudo' AND ng.apelido = 'Nascimento Grande'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Source: statements/persons/livino.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Livino
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Livino is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, l.id,
+  'family_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, n.id,
+  NULL, 'unknown'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"relationship_type": "sibling"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Noronha manuscripts via velhosmestres.com/en/featured-9',
+  'Brothers. Together they co-founded Gengibirra and Centro de Capoeira Angola da Conceição da Praia; taught at Maciel de Baixo, n° 31, Salvador.',
+  'Irmãos. Juntos co-fundaram o Gengibirra e o Centro de Capoeira Angola da Conceição da Praia; ensinaram no Maciel de Baixo, n° 31, Salvador.'
+FROM genealogy.person_profiles l, genealogy.person_profiles n
+WHERE l.apelido = 'Livino' AND n.apelido = 'Noronha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, l.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, t.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"association_context": "Both were among the four ''donos e proprietários'' (owners and proprietors) of the Centro Nacional de Capoeira de Origem Angola at Gengibirra in the 1920s, alongside Noronha and Amorzinho."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Noronha manuscripts; velhosmestres.com; nossa-tribo.com',
+  'Livino and Totonho de Maré were two of the four "owners and proprietors" of Gengibirra, co-founding the first organized Capoeira Angola center in Bahia.',
+  'Livino e Totonho de Maré foram dois dos quatro "donos e proprietários" do Gengibirra, co-fundando o primeiro centro organizado de Capoeira Angola na Bahia.'
+FROM genealogy.person_profiles l, genealogy.person_profiles t
+WHERE l.apelido = 'Livino' AND t.apelido = 'Totonho de Maré'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, l.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, p.id,
+  '1941-02-23'::date, 'exact'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"association_context": "Livino was among the mestres who handed the Centro Nacional de Capoeira de Origem Angola (Gengibirra) to Pastinha in 1941. Pastinha listed ''Livino Diogo'' among the CECA founders."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Pastinha account via jogodavidaweb.wordpress.com; Mestre Noronha manuscripts',
+  'Livino was one of the Gengibirra founders who handed leadership to Pastinha in 1941. Pastinha listed him as "Livino Diogo" among those who helped establish CECA.',
+  'Livino foi um dos fundadores do Gengibirra que passou a liderança para Pastinha em 1941. Pastinha o listou como "Livino Diogo" entre aqueles que ajudaram a estabelecer o CECA.'
+FROM genealogy.person_profiles l, genealogy.person_profiles p
+WHERE l.apelido = 'Livino' AND p.apelido = 'Pastinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, l.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, a.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"association_context": "Both were among the 22 founding mestres of the Centro Nacional de Capoeira de Origem Angola at Gengibirra in the 1920s. Aberrê (listed as ''Raimundo ABR'') later introduced Pastinha to the roda in 1941."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Noronha manuscripts; velhosmestres.com',
+  'Livino and Aberrê were both founding mestres of Gengibirra in the 1920s.',
+  'Livino e Aberrê foram ambos mestres fundadores do Gengibirra na década de 1920.'
+FROM genealogy.person_profiles l, genealogy.person_profiles a
+WHERE l.apelido = 'Livino' AND a.apelido = 'Aberrê'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, l.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"association_context": "Both were among the 22 founding mestres of the Centro Nacional de Capoeira de Origem Angola at Gengibirra in the 1920s."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Noronha manuscripts; velhosmestres.com',
+  'Livino and Onça Preta were both founding mestres of Gengibirra in the 1920s.',
+  'Livino e Onça Preta foram ambos mestres fundadores do Gengibirra na década de 1920.'
+FROM genealogy.person_profiles l, genealogy.person_profiles o
+WHERE l.apelido = 'Livino' AND o.apelido = 'Onça Preta'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, l.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, g.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"association_context": "Both were among the 22 founding mestres of the Centro Nacional de Capoeira de Origem Angola at Gengibirra in the 1920s."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Noronha manuscripts; velhosmestres.com',
+  'Livino and Geraldo Chapeleiro were both founding mestres of Gengibirra in the 1920s.',
+  'Livino e Geraldo Chapeleiro foram ambos mestres fundadores do Gengibirra na década de 1920.'
+FROM genealogy.person_profiles l, genealogy.person_profiles g
+WHERE l.apelido = 'Livino' AND g.apelido = 'Geraldo Chapeleiro'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11085,7 +12062,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Livino' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Livino leads Gengibirra (1920s-1941) - organizational leadership
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11110,10 +12086,39 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Livino' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/luiz-candido-machado.sql
--- Statements: Bimba trained_under Luiz Cândido Machado, Bimba family_of Luiz Cândido Machado
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, l.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, a.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  '1943-01-01'::date, 'year'::genealogy.date_precision,
+  '{"association_context": "Both were among the four ''donos e proprietários'' (owners and proprietors) of the Centro Nacional de Capoeira de Origem Angola at Gengibirra in the 1920s, alongside Noronha and Totonho de Maré."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Noronha manuscripts; velhosmestres.com; nossa-tribo.com',
+  'Livino and Amorzinho were two of the four "owners and proprietors" of Gengibirra, co-founding the first organized Capoeira Angola center in Bahia. Amorzinho died in 1943.',
+  'Livino e Amorzinho foram dois dos quatro "donos e proprietários" do Gengibirra, co-fundando o primeiro centro organizado de Capoeira Angola na Bahia. Amorzinho morreu em 1943.'
+FROM genealogy.person_profiles l, genealogy.person_profiles a
+WHERE l.apelido = 'Livino' AND a.apelido = 'Amorzinho'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Mestre Bimba trained_under Luiz Cândido Machado (batuque)
+-- Source: statements/persons/luiz-candido-machado.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Luiz Cândido Machado
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Luiz Cândido Machado is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
+
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11138,7 +12143,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Bimba' AND o.apelido = 'Luiz Cândido Machado'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Mestre Bimba family_of Luiz Cândido Machado (son-father relationship)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11163,10 +12167,15 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Bimba' AND o.apelido = 'Luiz Cândido Machado'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/madame-sata.sql
--- Statements: Madame Satã student_of Sete Coroas
+-- Source: statements/persons/madame-sata.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Madame Satã
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Madame Satã is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Sete Coroas taught him from age 9 until his death in 1923
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11191,8 +12200,14 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Madame Satã' AND o.apelido = 'Sete Coroas'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/mamede.sql
--- Statements: Mamede associated_with Manduca da Praia
+-- Source: statements/persons/mamede.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Mamede
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Mamede is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
@@ -11218,10 +12233,42 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Mamede' AND o.apelido = 'Manduca da Praia'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/maria-doze-homens.sql
--- Statements: Maria Doze Homens associated_with Besouro Mangangá
+-- Source: statements/persons/manezinho-camisa-preta.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Manezinho Camisa Preta
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Manezinho Camisa Preta is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Note: Some sources list her in his training circle but this is not universally confirmed
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  properties,
+  confidence, source
+)
+SELECT
+  'person', mc.id,
+  'associated_with',
+  'person', ng.id,
+  '{"association_context": {"en": "Legendary Rio de Janeiro valentão who challenged Nascimento Grande to a fight to the death at Largo da Carioca. The battle was so intense it was described as transforming the plaza into the Peloponnese. Nascimento Grande killed him in this epic confrontation.", "pt": "Lendário valentão do Rio de Janeiro que desafiou Nascimento Grande para um combate de morte no Largo da Carioca. A batalha foi tão intensa que foi descrita como transformando a praça no Peloponeso. Nascimento Grande o matou neste confronto épico."}}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Multiple sources about Nascimento Grande including Casa do Engenho, Educando com Ginga, Grupo Capoeira Raça Negra'
+FROM genealogy.person_profiles mc, genealogy.person_profiles ng
+WHERE mc.apelido = 'Manezinho Camisa Preta' AND ng.apelido = 'Nascimento Grande'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Source: statements/persons/maria-doze-homens.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Maria Doze Homens
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Maria Doze Homens is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
+
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11246,10 +12293,15 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Maria Doze Homens' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/miguel-camisa-preta.sql
--- Statements: Miguel Camisa Preta associated_with Leão do Norte
+-- Source: statements/persons/miguel-camisa-preta.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Miguel Camisa Preta
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Miguel Camisa Preta is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Miguel Camisa Preta associated_with Leão do Norte (great friends)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11274,10 +12326,42 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Miguel Camisa Preta' AND o.apelido = 'Leão do Norte'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/neco-canario-pardo.sql
--- Statements: Neco Canário Pardo unknown Besouro Mangangá, Neco Canário Pardo member_of Roda de Trapiche de Baixo
+-- Source: statements/persons/nascimento-grande.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Nascimento Grande
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Nascimento Grande is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Association with Besouro Mangangá (companions at Trapiche de Baixo)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  properties,
+  confidence, source
+)
+SELECT
+  'person', ng.id,
+  'associated_with',
+  'person', mp.id,
+  '{"association_context": {"en": "Contemporaries representing regional capoeira legends. Nascimento Grande dominated Pernambuco while Manduca da Praia dominated Rio de Janeiro.", "pt": "Contemporâneos representando lendas regionais da capoeira. Nascimento Grande dominava Pernambuco enquanto Manduca da Praia dominava o Rio de Janeiro."}}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Multiple sources including History of Fighting, Grupo Capoeira Raça Negra'
+FROM genealogy.person_profiles ng, genealogy.person_profiles mp
+WHERE ng.apelido = 'Nascimento Grande' AND mp.apelido = 'Manduca da Praia'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Source: statements/persons/neco-canario-pardo.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Neco Canário Pardo
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Neco Canário Pardo is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
+
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11296,7 +12380,24 @@ FROM genealogy.person_profiles ncp, genealogy.person_profiles besouro
 WHERE ncp.apelido = 'Neco Canário Pardo' AND besouro.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Neco Canário Pardo member_of Roda de Trapiche de Baixo
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  properties,
+  confidence, source
+)
+SELECT
+  'person', cv.id,
+  'trained_under',
+  'person', ncp.id,
+  '{"training_type": {"en": "Machete (facão) technique", "pt": "Técnica de facão"}}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Cobrinha Verde autobiography: "Neco Canário Pardo was my machete teacher" (capoeira-connection.com, capoeira.online)'
+FROM genealogy.person_profiles cv, genealogy.person_profiles ncp
+WHERE cv.apelido = 'Cobrinha Verde' AND ncp.apelido = 'Neco Canário Pardo'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11321,10 +12422,15 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Neco Canário Pardo' AND g.name = 'Roda de Trapiche de Baixo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/noca-de-jaco.sql
--- Statements: Noca de Jacó associated_with Besouro Mangangá, Noca de Jacó member_of Roda de Trapiche de Baixo
+-- Source: statements/persons/noca-de-jaco.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Noca de Jacó
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Noca de Jacó is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Noca de Jacó associated_with Besouro Mangangá
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11349,7 +12455,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Noca de Jacó' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Noca de Jacó member_of Roda de Trapiche de Baixo
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11374,10 +12479,15 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Noca de Jacó' AND g.name = 'Roda de Trapiche de Baixo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/noronha.sql
--- Statements: Noronha student_of Cândido Pequeno, Noronha co_founded Gengibirra, Noronha leads Gengibirra
+-- Source: statements/persons/noronha.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Noronha (Daniel Coutinho)
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Noronha (Daniel Coutinho) is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Noronha student_of Cândido Pequeno (started 1917)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11402,7 +12512,126 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Noronha' AND o.apelido = 'Cândido Pequeno'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Noronha co_founded Gengibirra (1920s) - as dono e proprietário
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, n.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, p.id,
+  '1941-02-23'::date, 'exact'::genealogy.date_precision,
+  '1977-11-17'::date, 'exact'::genealogy.date_precision,
+  '{"association_context": "One of the mestres who handed the Centro Nacional de Capoeira de Origem Angola (Gengibirra) to Pastinha in 1941. Noronha documented this transition in his manuscripts: ''Because of the death of Amorzinho, the guard, we handed over the Centre to Mestre Pastinha.''"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Noronha manuscripts; velhosmestres.com',
+  'Noronha was one of the Gengibirra founders who handed leadership to Pastinha in 1941 after Amorzinho''s death. Both trained at CECA and were contemporaries in the Bahian capoeira angola community.',
+  'Noronha foi um dos fundadores do Gengibirra que passou a liderança para Pastinha em 1941 após a morte de Amorzinho. Ambos treinaram no CECA e foram contemporâneos na comunidade de capoeira angola baiana.'
+FROM genealogy.person_profiles n, genealogy.person_profiles p
+WHERE n.apelido = 'Noronha' AND p.apelido = 'Pastinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, n.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, t.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"association_context": "Both were among the four ''donos e proprietários'' (owners and proprietors) of the Centro Nacional de Capoeira de Origem Angola at Gengibirra in the 1920s, alongside Livino and Amorzinho."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Noronha manuscripts; velhosmestres.com; nossa-tribo.com',
+  'Noronha and Totonho de Maré were two of the four "owners and proprietors" of Gengibirra, co-founding the first organized Capoeira Angola center in Bahia.',
+  'Noronha e Totonho de Maré foram dois dos quatro "donos e proprietários" do Gengibirra, co-fundando o primeiro centro organizado de Capoeira Angola na Bahia.'
+FROM genealogy.person_profiles n, genealogy.person_profiles t
+WHERE n.apelido = 'Noronha' AND t.apelido = 'Totonho de Maré'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, n.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, a.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"association_context": "Both were among the 22 founding mestres of the Centro Nacional de Capoeira de Origem Angola at Gengibirra in the 1920s. Aberrê (listed as ''Raimundo ABR'') later introduced Pastinha to the roda in 1941."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Noronha manuscripts; velhosmestres.com',
+  'Noronha and Aberrê were both founding mestres of Gengibirra in the 1920s. Aberrê later brought Pastinha to witness the roda in February 1941.',
+  'Noronha e Aberrê foram ambos mestres fundadores do Gengibirra na década de 1920. Aberrê depois trouxe Pastinha para assistir à roda em fevereiro de 1941.'
+FROM genealogy.person_profiles n, genealogy.person_profiles a
+WHERE n.apelido = 'Noronha' AND a.apelido = 'Aberrê'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, n.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, g.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"association_context": "Both were among the 22 founding mestres of the Centro Nacional de Capoeira de Origem Angola at Gengibirra in the 1920s."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Noronha manuscripts; velhosmestres.com',
+  'Noronha and Geraldo Chapeleiro were both founding mestres of Gengibirra in the 1920s.',
+  'Noronha e Geraldo Chapeleiro foram ambos mestres fundadores do Gengibirra na década de 1920.'
+FROM genealogy.person_profiles n, genealogy.person_profiles g
+WHERE n.apelido = 'Noronha' AND g.apelido = 'Geraldo Chapeleiro'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, n.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"association_context": "Both were among the 22 founding mestres of the Centro Nacional de Capoeira de Origem Angola at Gengibirra in the 1920s."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Noronha manuscripts; velhosmestres.com',
+  'Noronha and Onça Preta were both founding mestres of Gengibirra in the 1920s.',
+  'Noronha e Onça Preta foram ambos mestres fundadores do Gengibirra na década de 1920.'
+FROM genealogy.person_profiles n, genealogy.person_profiles o
+WHERE n.apelido = 'Noronha' AND o.apelido = 'Onça Preta'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11427,7 +12656,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Noronha' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Noronha leads Gengibirra (1920s-1941) - organizational leadership
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11452,10 +12680,39 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Noronha' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/onca-preta.sql
--- Statements: Onça Preta student_of Aberrê, Onça Preta student_of Pastinha, Onça Preta associated_with Aberrê, Onça Preta member_of Roda do Matatu Preto, Onça Preta co_founded Gengibirra
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, n.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, a.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  '1943-01-01'::date, 'year'::genealogy.date_precision,
+  '{"association_context": "Both were among the four ''donos e proprietários'' (owners and proprietors) of the Centro Nacional de Capoeira de Origem Angola at Gengibirra in the 1920s, alongside Livino and Totonho de Maré. Amorzinho provided protection as civil guard and led rodas."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Noronha manuscripts; velhosmestres.com; nossa-tribo.com',
+  'Noronha and Amorzinho were two of the four "owners and proprietors" of Gengibirra, co-founding the first organized Capoeira Angola center in Bahia. Amorzinho died in 1943.',
+  'Noronha e Amorzinho foram dois dos quatro "donos e proprietários" do Gengibirra, co-fundando o primeiro centro organizado de Capoeira Angola na Bahia. Amorzinho morreu em 1943.'
+FROM genealogy.person_profiles n, genealogy.person_profiles a
+WHERE n.apelido = 'Noronha' AND a.apelido = 'Amorzinho'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- "Não tive um mestre, mas vários" (I didn't have one mestre, but many)
+-- Source: statements/persons/onca-preta.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Onça Preta
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Onça Preta is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
+
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11480,7 +12737,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Onça Preta' AND o.apelido = 'Aberrê'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- "Não tive um mestre, mas vários" (I didn't have one mestre, but many)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11505,7 +12761,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Onça Preta' AND o.apelido = 'Pastinha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Note: This captures the peer relationship beyond the student relationship above
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11530,7 +12785,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Onça Preta' AND o.apelido = 'Aberrê'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Onça Preta member_of Roda do Matatu Preto
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11555,7 +12809,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Onça Preta' AND g.name = 'Roda do Matatu Preto'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Onça Preta co_founded Gengibirra (as founding_mestre, not one of 4 donos)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11578,10 +12831,50 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Onça Preta' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/pastinha.sql
--- Statements: Pastinha student_of Benedito, Aberrê trained_under Pastinha, Pastinha member_of Gengibirra
+-- Source: statements/persons/pajeu.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Pajéu
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Pajéu is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Benedito IS in dataset
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  properties,
+  confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, p.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, ng.id,
+  jsonb_build_object(
+    'association_context', jsonb_build_object(
+      'en', 'Pajéu attacked Nascimento Grande with a peixeira (knife) and was swiftly disarmed in two seconds. Nascimento Grande then beat him and publicly humiliated him by forcing him to wear women''s clothing and parade through the streets of Old Recife. The prostitutes, who loved Nascimento Grande and despised Pajéu for beating women, applauded his disgrace. This incident exemplified Nascimento Grande''s theatrical demonstrations of dominance over challengers.',
+      'pt', 'Pajéu atacou Nascimento Grande com uma peixeira e foi rapidamente desarmado em dois segundos. Nascimento Grande então o espancou e publicamente o humilhou ao forçá-lo a vestir roupas de mulher e desfilar pelas ruas do Recife Velho. As prostitutas, que amavam Nascimento Grande e desprezavam Pajéu por bater em mulheres, aplaudiram sua desgraça. Este incidente exemplificou as demonstrações teatrais de dominância de Nascimento Grande sobre desafiantes.'
+    )
+  ),
+  'likely'::genealogy.confidence,
+  'Multiple sources including Educando com Ginga, Grupo Capoeira Raça Negra, Casa do Engenho',
+  'Challenger who was defeated and humiliated. Known as a malfeitor from São José neighborhood who pretended to be a capoeirista and beat women. Attack occurred likely in late 1800s or early 1900s.',
+  'Desafiante que foi derrotado e humilhado. Conhecido como malfeitor do bairro São José que fingia ser capoeirista e batia em mulheres. Ataque ocorreu provavelmente no final dos anos 1800 ou início dos anos 1900.'
+FROM genealogy.person_profiles p, genealogy.person_profiles ng
+WHERE p.apelido = 'Pajéu' AND ng.apelido = 'Nascimento Grande'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Source: statements/persons/pastinha.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Pastinha
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Pastinha is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
+
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11606,7 +12899,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Pastinha' AND o.apelido = 'Benedito'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Aberrê IS in dataset
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11631,7 +12923,78 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Aberrê' AND o.apelido = 'Pastinha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Pastinha member_of Gengibirra (invited in 1941, took leadership)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, cv.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, p.id,
+  '1955-08-12'::date, 'exact'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"association_context": "Member #28 at CECA; admitted August 12, 1955; shared teaching duties with Pastinha, instructing students in singing, berimbau, and movements"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Pastinha''s official membership book; velhosmestres.com/br/cobrinha-1912-1',
+  'Cobrinha Verde was member #28 at CECA, sharing teaching responsibilities with Pastinha. Taught João Grande and João Pequeno specific techniques including floor-touching mandinga.',
+  'Cobrinha Verde era membro #28 no CECA, compartilhando responsabilidades de ensino com Pastinha. Ensinou a João Grande e João Pequeno técnicas específicas incluindo a mandinga de tocar o chão.'
+FROM genealogy.person_profiles cv, genealogy.person_profiles p
+WHERE cv.apelido = 'Cobrinha Verde' AND p.apelido = 'Pastinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, p.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, b.id,
+  '1941-01-01'::date, 'year'::genealogy.date_precision,
+  '1973-01-01'::date, 'year'::genealogy.date_precision,
+  '{"association_context": "The two great mestres of Salvador: Pastinha preserved traditional Capoeira Angola while Bimba modernized with Capoeira Regional. Their complementary approaches defined 20th century capoeira. Publicly respectful though some reported tensions."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Multiple sources; Wikipedia; papoeira.com; lalaue.com',
+  'The "two fathers" of modern capoeira: Pastinha (Angola) and Bimba (Regional). Both operated academies in Salvador simultaneously (1941-1973).',
+  'Os "dois pais" da capoeira moderna: Pastinha (Angola) e Bimba (Regional). Ambos operavam academias em Salvador simultaneamente (1941-1973).'
+FROM genealogy.person_profiles p, genealogy.person_profiles b
+WHERE p.apelido = 'Pastinha' AND b.apelido = 'Bimba'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, p.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, t.id,
+  '1941-02-23'::date, 'exact'::genealogy.date_precision,
+  '1974-01-01'::date, 'year'::genealogy.date_precision,
+  '{"association_context": "Both were among the founders/leaders of Gengibirra roda and CECA. Totonho was one of the ''four owners and proprietors'' who passed leadership to Pastinha in 1941."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com; nossa-tribo.com; ceca-riovermelho.org.br',
+  'Totonho de Maré was one of the four mestres who handed leadership of Gengibirra to Pastinha in 1941. Both trained at CECA.',
+  'Totonho de Maré foi um dos quatro mestres que passaram a liderança de Gengibirra para Pastinha em 1941. Ambos treinavam no CECA.'
+FROM genealogy.person_profiles p, genealogy.person_profiles t
+WHERE p.apelido = 'Pastinha' AND t.apelido = 'Totonho de Maré'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11656,10 +13019,15 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Pastinha' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/paulo-barroquinha.sql
--- Statements: Paulo Barroquinha associated_with Besouro Mangangá, Paulo Barroquinha member_of Roda do Matatu Preto, Paulo Barroquinha member_of Roda de Trapiche de Baixo
+-- Source: statements/persons/paulo-barroquinha.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Paulo Barroquinha
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Paulo Barroquinha is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Paulo Barroquinha associated_with Besouro Mangangá (training companions)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11684,7 +13052,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Paulo Barroquinha' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Note: Canjiquinha's testimony refers to "Pedro Paulo Barroquinha" - likely same person
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11709,7 +13076,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Paulo Barroquinha' AND g.name = 'Roda do Matatu Preto'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Paulo Barroquinha member_of Roda de Trapiche de Baixo
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11734,10 +13100,15 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Paulo Barroquinha' AND g.name = 'Roda de Trapiche de Baixo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/pedro-cobra.sql
--- Statements: Pedro Cobra associated_with Manduca da Praia, Pedro Cobra associated_with Mamede, Pedro Cobra associated_with Aleixo Açougueiro
+-- Source: statements/persons/pedro-cobra.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Pedro Cobra
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Pedro Cobra is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- --- Person-to-Person: Association with Manduca da Praia ---
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11762,7 +13133,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Pedro Cobra' AND o.apelido = 'Manduca da Praia'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- --- Person-to-Person: Association with Mamede ---
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11787,7 +13157,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Pedro Cobra' AND o.apelido = 'Mamede'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- --- Person-to-Person: Association with Aleixo Açougueiro ---
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11812,8 +13181,14 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Pedro Cobra' AND o.apelido = 'Aleixo Açougueiro'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/pinta-preta-da-lapa.sql
--- Statements: Pinta Preta da Lapa associated_with Manduca da Praia
+-- Source: statements/persons/pinta-preta-da-lapa.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Pinta Preta da Lapa
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Pinta Preta da Lapa is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
@@ -11839,10 +13214,88 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Pinta Preta da Lapa' AND o.apelido = 'Manduca da Praia'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/quebra-coco.sql
--- Statements: Quebra Coco associated_with Manduca da Praia, Quebra Coco associated_with Mamede, Quebra Coco associated_with Aleixo Açougueiro, Quebra Coco associated_with Pedro Cobra, Quebra Coco associated_with Bentevi
+-- Source: statements/persons/piraje.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Pirajé
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Pirajé is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- --- Person-to-Person: Association with Manduca da Praia ---
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  properties,
+  confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, p.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, ng.id,
+  jsonb_build_object(
+    'association_context', jsonb_build_object(
+      'en', 'Pirajé from Pará was among the most renowned fighters whose fame led him to covet challenging Nascimento Grande. Historical sources place him alongside other legendary valentões—Manezinho Camisa Preta, Pajeú, João Sabe Tudo—who sought to test themselves against Nascimento Grande''s undefeated reputation. The outcome of any actual challenge is not documented.',
+      'pt', 'Pirajé do Pará estava entre os lutadores mais renomados cuja fama o levou a cobiçar desafiar Nascimento Grande. Fontes históricas o colocam ao lado de outros lendários valentões—Manezinho Camisa Preta, Pajeú, João Sabe Tudo—que buscaram se testar contra a reputação invicta de Nascimento Grande. O resultado de qualquer desafio real não está documentado.'
+    )
+  ),
+  'uncertain'::genealogy.confidence,
+  'Educando com Ginga; Grupo Capoeira Raça Negra',
+  'Famous valentão from Pará who coveted challenging Nascimento Grande. No details of actual confrontation recorded. His fame indicates capoeira culture extended to northern Brazil.',
+  'Famoso valentão do Pará que cobiçava desafiar Nascimento Grande. Nenhum detalhe de confronto real registrado. Sua fama indica que a cultura da capoeira se estendia ao norte do Brasil.'
+FROM genealogy.person_profiles p, genealogy.person_profiles ng
+WHERE p.apelido = 'Pirajé' AND ng.apelido = 'Nascimento Grande'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Source: statements/persons/placido-de-abreu.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Plácido de Abreu
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Plácido de Abreu is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
+
+INSERT INTO genealogy.statements (
+  subject_type,
+  subject_id,
+  predicate,
+  object_type,
+  object_id,
+  properties,
+  confidence,
+  source
+)
+SELECT
+  'person',
+  pa.id,
+  'associated_with',
+  'person',
+  mp.id,
+  '{
+    "association_context": {
+      "en": "Plácido de Abreu documented Manduca da Praia extensively in Os Capoeiras (1886) as the chief of the Santa Lucia party (Nagôas). As an amateur capoeirista in Rio during the 1870s-1880s, Abreu had insider knowledge of the malta world and documented Manduca''s exploits and leadership.",
+      "pt": "Plácido de Abreu documentou Manduca da Praia extensivamente em Os Capoeiras (1886) como o chefe do partido de Santa Lucia (Nagôas). Como capoeirista amador no Rio durante as décadas de 1870-1880, Abreu tinha conhecimento interno do mundo das maltas e documentou as façanhas e liderança de Manduca."
+    }
+  }'::jsonb,
+  'verified'::genealogy.confidence,
+  'Plácido de Abreu, Os Capoeiras (1886); CapoeiraWiki; Capoeira History'
+FROM genealogy.person_profiles pa, genealogy.person_profiles mp
+WHERE pa.apelido = 'Plácido de Abreu'
+  AND mp.apelido = 'Manduca da Praia'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Source: statements/persons/quebra-coco.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Quebra Coco
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Quebra Coco is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
+
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11867,7 +13320,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Quebra Coco' AND o.apelido = 'Manduca da Praia'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- --- Person-to-Person: Association with Mamede ---
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11892,7 +13344,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Quebra Coco' AND o.apelido = 'Mamede'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- --- Person-to-Person: Association with Aleixo Açougueiro ---
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11917,7 +13368,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Quebra Coco' AND o.apelido = 'Aleixo Açougueiro'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- --- Person-to-Person: Association with Pedro Cobra ---
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11942,7 +13392,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Quebra Coco' AND o.apelido = 'Pedro Cobra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- --- Person-to-Person: Association with Bentevi ---
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11967,10 +13416,120 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Quebra Coco' AND o.apelido = 'Bentevi'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/quinzinho.sql
--- Statements: Quinzinho associated_with Sete Coroas, Quinzinho associated_with Madame Satã
+-- Source: statements/persons/querido-de-deus.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Querido de Deus
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Querido de Deus is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Both were part of the premodern Rio malandro/capoeira generation
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, q.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1937-01-14'::date, 'exact'::genealogy.date_precision,
+  '1938-09-18'::date, 'exact'::genealogy.date_precision,
+  '{"association_context": "Famous contemporaries in 1930s Salvador. Played together at the II Afro-Brazilian Congress (January 14, 1937) witnessed by Edison Carneiro and Jorge Amado. Also played together in Ruth Landes'' documented roda at Itapagipe (September 18, 1938). Onça Preta trained under Samuel alongside other mestres."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Ruth Landes "The City of Women" (1947); Smithsonian Institution photographs; velhosmestres.com',
+  'Samuel and Onça Preta played together at major documented events: the 1937 Afro-Brazilian Congress and the 1938 Itapagipe roda photographed by Ruth Landes. Onça Preta listed Samuel as one of his teachers.',
+  'Samuel e Onça Preta jogaram juntos em eventos documentados importantes: o Congresso Afro-Brasileiro de 1937 e a roda de Itapagipe de 1938 fotografada por Ruth Landes. Onça Preta listou Samuel como um de seus professores.'
+FROM genealogy.person_profiles q, genealogy.person_profiles o
+WHERE q.apelido = 'Querido de Deus' AND o.apelido = 'Onça Preta'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, o.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, q.id,
+  NULL, 'unknown'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Onça Preta interview 1972 (O Dia newspaper); velhosmestres.com',
+  'Onça Preta (b. 1909) stated in interviews that he trained under multiple mestres as a boy in Salvador, including "Samuel" (Samuel Querido de Deus). He recalled: "I had not one, but many mestres... Still a boy, I jumped with Samuel, with Pastinha, Besourinho, Vitor Agaú, Gasolina, Aberrê..."',
+  'Onça Preta (n. 1909) declarou em entrevistas que treinou com múltiplos mestres quando menino em Salvador, incluindo "Samuel" (Samuel Querido de Deus). Ele recordou: "Não tive um, mas muitos mestres... Ainda menino, pulei com Samuel, com Pastinha, Besourinho, Vitor Agaú, Gasolina, Aberrê..."'
+FROM genealogy.person_profiles o, genealogy.person_profiles q
+WHERE o.apelido = 'Onça Preta' AND q.apelido = 'Querido de Deus'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, q.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, b.id,
+  '1936-03-12'::date, 'exact'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"association_context": "Public challenge between the two masters in 1936 over the title of maximum capoeira master of Bahia. Reported in O Imparcial (March 12) and Diário da Bahia (March 13). Bimba''s measured response suggested arranging a fight ''so people are not deceived.'' No record of actual fight occurring. Represented opposing poles of Bahian capoeira: Samuel''s traditional Angola vs Bimba''s modernizing Regional."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'O Imparcial (March 12, 1936); Diário da Bahia (March 13, 1936); velhosmestres.com',
+  'Public challenge over the title of "maximum capoeira master" of Bahia. Bimba responded that Samuel should arrange a fight "so people are not deceived." No record of the fight occurring.',
+  'Desafio público pelo título de "mestre máximo da capoeira" da Bahia. Bimba respondeu que Samuel deveria arranjar uma luta "para que o povo não seja enganado." Sem registro de luta acontecendo.'
+FROM genealogy.person_profiles q, genealogy.person_profiles b
+WHERE q.apelido = 'Querido de Deus' AND b.apelido = 'Bimba'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, q.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, p.id,
+  '1930-01-01'::date, 'decade'::genealogy.date_precision,
+  '1947-01-01'::date, 'decade'::genealogy.date_precision,
+  '{"association_context": "Both were first-generation mestres of modern capoeira Angola in Salvador. Onça Preta trained under both of them. While Pastinha would later codify and institutionalize Capoeira Angola at CECA, Samuel was recognized as the greatest practitioner of the 1930s without founding an academy."}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Onça Preta interviews; velhosmestres.com; capoeirahistory.com',
+  'Both recognized as first-generation mestres of Capoeira Angola in Salvador. Onça Preta trained under both. Samuel was the dominant figure of the 1930s while Pastinha would later codify the style.',
+  'Ambos reconhecidos como mestres da primeira geração da Capoeira Angola em Salvador. Onça Preta treinou com ambos. Samuel era a figura dominante dos anos 1930 enquanto Pastinha mais tarde codificaria o estilo.'
+FROM genealogy.person_profiles q, genealogy.person_profiles p
+WHERE q.apelido = 'Querido de Deus' AND p.apelido = 'Pastinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Source: statements/persons/quinzinho.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Quinzinho
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Quinzinho is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
+
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -11995,7 +13554,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Quinzinho' AND o.apelido = 'Sete Coroas'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Both part of same premodern generation
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12020,10 +13578,46 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Quinzinho' AND o.apelido = 'Madame Satã'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/salome.sql
--- Statements: Salomé student_of Doze Homens
+-- Source: statements/persons/ricardo-de-ilha-de-mare.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Ricardo de Ilha de Maré
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Ricardo de Ilha de Maré is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Salomé student_of Doze Homens
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, r.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, t.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  '{"association_context": "Both capoeiristas from Ilha de Maré during overlapping time periods. Totonho de Maré (1894-1974) was an established figure from the island who ''reigned in Ilha de Maré for many years.'' Ricardo was teaching on the island in the 1930s-1940s. Given the small size of the island community, they likely knew each other and may have trained together."}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Geographic proximity and temporal overlap; Totonho''s documented presence on Ilha de Maré',
+  'Both were capoeiristas from the small island community of Ilha de Maré during overlapping time periods. Likely knew each other given the close-knit nature of the island.',
+  'Ambos eram capoeiristas da pequena comunidade da Ilha de Maré durante períodos sobrepostos. Provavelmente se conheciam dada a natureza próxima da ilha.'
+FROM genealogy.person_profiles r, genealogy.person_profiles t
+WHERE r.apelido = 'Ricardo de Ilha de Maré' AND t.apelido = 'Totonho de Maré'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Source: statements/persons/salome.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Salomé
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Salomé is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
+
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12048,10 +13642,15 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Salomé' AND o.apelido = 'Doze Homens'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/sinhozinho.sql
--- Statements: Sinhozinho influenced_by Cyriaco, Sinhozinho trained_under Zeca Floriano
+-- Source: statements/persons/sinhozinho.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Sinhozinho
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Sinhozinho is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Sinhozinho influenced_by Cyriaco (witnessed 1909 fight that inspired him)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12076,7 +13675,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Sinhozinho' AND o.apelido = 'Cyriaco'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Sinhozinho trained_under Zeca Floriano (pernada/capoeira carioca)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12101,10 +13699,15 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Sinhozinho' AND o.apelido = 'Zeca Floriano'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/siri-de-mangue.sql
--- Statements: Siri de Mangue associated_with Besouro Mangangá, Cobrinha Verde trained_under Siri de Mangue, Siri de Mangue associated_with Paulo Barroquinha, Siri de Mangue associated_with Neco Canário Pardo, Siri de Mangue associated_with Doze Homens
+-- Source: statements/persons/siri-de-mangue.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Siri de Mangue
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Siri de Mangue is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Siri de Mangue associated_with Besouro Mangangá (training companions)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12129,7 +13732,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Siri de Mangue' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Cobrinha Verde was student_of Siri de Mangue
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12152,7 +13754,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Siri de Mangue'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Siri de Mangue associated_with Paulo Barroquinha (Besouro's circle)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12177,7 +13778,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Siri de Mangue' AND o.apelido = 'Paulo Barroquinha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Siri de Mangue associated_with Neco Canário Pardo (both from Recôncavo, both taught Waldemar)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12202,7 +13802,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Siri de Mangue' AND o.apelido = 'Neco Canário Pardo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Siri de Mangue associated_with Doze Homens (Besouro's circle / Recôncavo)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12227,10 +13826,15 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Siri de Mangue' AND o.apelido = 'Doze Homens'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/talabi.sql
--- Statements: Talabi associated_with Siri de Mangue, Talabi associated_with Neco Canário Pardo
+-- Source: statements/persons/talabi.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Talabi
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Talabi is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Talabi associated_with Siri de Mangue (both taught Waldemar at Periperi roda)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12255,7 +13859,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Talabi' AND s.apelido_context = 'de Periperi' AND o.apelido = 'Siri de Mangue'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Talabi associated_with Neco Canário Pardo (both taught Waldemar; Canário also from Recôncavo region)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12280,10 +13883,15 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Talabi' AND s.apelido_context = 'de Periperi' AND o.apelido = 'Neco Canário Pardo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/tio-alipio.sql
--- Statements: Tio Alípio member_of Roda de Trapiche de Baixo, Tio Alípio teaches_at Roda de Trapiche de Baixo
+-- Source: statements/persons/tio-alipio.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Tio Alípio
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Tio Alípio is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Tio Alípio was member_of Roda de Trapiche de Baixo (from 1888 after abolition)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12305,7 +13913,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Tio Alípio' AND g.name = 'Roda de Trapiche de Baixo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Tio Alípio teaches_at Roda de Trapiche de Baixo
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12327,10 +13934,15 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Tio Alípio' AND g.name = 'Roda de Trapiche de Baixo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/tio-pascoal.sql
--- Statements: Cobrinha Verde influenced_by Tio Pascoal
+-- Source: statements/persons/tio-pascoal.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Tio Pascoal
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Tio Pascoal is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Cobrinha Verde was influenced_by Tio Pascoal (mandinga, not capoeira)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12354,10 +13966,15 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Tio Pascoal'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/totonho-de-mare.sql
--- Statements: Totonho de Maré member_of Roda do Matatu Preto, Totonho de Maré co_founded Gengibirra, Totonho de Maré leads Gengibirra, Totonho de Maré associated_with Querido de Deus
+-- Source: statements/persons/totonho-de-mare.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Totonho de Maré
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Totonho de Maré is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Totonho de Maré member_of Roda do Matatu Preto
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12382,7 +13999,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Totonho de Maré' AND g.name = 'Roda do Matatu Preto'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Totonho de Maré co_founded Gengibirra
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12405,7 +14021,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Totonho de Maré' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Totonho de Maré leads Gengibirra (1920s-1941) - organizational leadership
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12430,7 +14045,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Totonho de Maré' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Totonho de Maré associated_with Querido de Deus
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12453,10 +14067,15 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Totonho de Maré' AND o.apelido = 'Querido de Deus'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/vitor-agau.sql
--- Statements: Onça Preta student_of Vitor Agaú
+-- Source: statements/persons/vitor-agau.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Vitor Agaú
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Vitor Agaú is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- "Não tive um mestre, mas vários" (I didn't have one mestre, but many)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12481,10 +14100,39 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Onça Preta' AND o.apelido = 'Vitor Agaú'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: persons/waldemar.sql
--- Statements: Waldemar student_of Siri de Mangue, Waldemar student_of Neco Canário Pardo, Waldemar student_of Talabi, Waldemar student_of Ricardo de Ilha de Maré, Waldemar associated_with Pastinha, Waldemar associated_with Bimba, Waldemar associated_with Totonho de Maré, Waldemar associated_with Cobrinha Verde
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, v.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, p.id,
+  '1941-02-23'::date, 'exact'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"association_context": "Both present at the founding of CECA on February 23, 1941 at Ladeira de Pedra in Gengibirra. Vitor H.D. is listed in Mestre Pastinha''s account of the mestres present when Amorzinho passed leadership to Pastinha."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Pastinha account via jogodavidaweb.wordpress.com; capoeira.fandom.com/wiki/Mestre_Pastinha',
+  E'Both were among the mestres present when civil guard Amorzinho passed leadership of the traditional roda at Gengibirra to Pastinha, founding CECA on February 23, 1941.',
+  E'Ambos estavam entre os mestres presentes quando o guarda civil Amorzinho passou a liderança da roda tradicional no Gengibirra para Pastinha, fundando o CECA em 23 de fevereiro de 1941.'
+FROM genealogy.person_profiles v, genealogy.person_profiles p
+WHERE v.apelido = 'Vitor Agaú' AND p.apelido = 'Pastinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Waldemar student_of Siri de Mangue (first teacher)
+-- Source: statements/persons/waldemar.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Waldemar
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Waldemar is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
+
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12509,7 +14157,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Waldemar' AND o.apelido = 'Siri de Mangue'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Waldemar student_of Neco Canário Pardo (second teacher)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12534,7 +14181,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Waldemar' AND o.apelido = 'Neco Canário Pardo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Waldemar student_of Talabi (third teacher)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12559,7 +14205,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Waldemar' AND o.apelido = 'Talabi' AND o.apelido_context = 'de Periperi'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Waldemar student_of Ricardo de Ilha de Maré (fourth teacher)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12584,7 +14229,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Waldemar' AND o.apelido = 'Ricardo de Ilha de Maré'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Waldemar associated_with Pastinha (practiced together)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12607,7 +14251,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Waldemar' AND o.apelido = 'Pastinha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Waldemar associated_with Bimba (practiced together)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12630,7 +14273,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Waldemar' AND o.apelido = 'Bimba'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Waldemar associated_with Totonho de Maré (practiced together, both from Ilha de Maré)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12653,7 +14295,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Waldemar' AND o.apelido = 'Totonho de Maré'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Waldemar associated_with Cobrinha Verde (influenced each other)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12676,10 +14317,15 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Waldemar' AND o.apelido = 'Cobrinha Verde'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- From: groups/gengibirra.sql
--- Statements: Cândido Pequeno co_founded Gengibirra, Aberrê co_founded Gengibirra, Geraldo Chapeleiro co_founded Gengibirra, Onça Preta co_founded Gengibirra, Totonho de Maré co_founded Gengibirra, Totonho de Maré leads Gengibirra, Amorzinho co_founded Gengibirra, Amorzinho leads Gengibirra
+-- Source: statements/groups/gengibirra.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Gengibirra (Centro Nacional de Capoeira de Origem Angola)
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Gengibirra (Centro Nacional de Capoeira de Origem Angola) is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
 
--- Cândido Pequeno co_founded Gengibirra (founding mestre)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12702,7 +14348,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Cândido Pequeno' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Aberrê co_founded Gengibirra (founding mestre)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12725,7 +14370,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Aberrê' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Geraldo Chapeleiro co_founded Gengibirra (founding mestre)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12748,7 +14392,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Geraldo Chapeleiro' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Onça Preta co_founded Gengibirra (founding mestre)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12771,7 +14414,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Onça Preta' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Totonho de Maré co_founded Gengibirra (dono e proprietário)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12794,7 +14436,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Totonho de Maré' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Totonho de Maré leads Gengibirra (1920s-1941)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12819,7 +14460,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Totonho de Maré' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Amorzinho co_founded Gengibirra (dono e proprietário)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12842,7 +14482,6 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Amorzinho' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Amorzinho leads Gengibirra (1920s-1943) - organizational leadership AND roda leader
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -12866,1128 +14505,5 @@ SELECT
 FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Amorzinho' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
--- ============================================================
--- PHASE 4: UPDATE IMPORT LOG
--- ============================================================
-
--- From: persons/aberre.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/aberre.sql',
-  NULL,
-  ARRAY['persons/pastinha.sql', 'persons/noronha.sql', 'persons/canjiquinha.sql', 'persons/caiçara.sql', 'groups/gengibirra.sql', 'groups/roda-do-matatu-preto.sql', 'persons/onca-preta.sql', 'persons/geraldo-chapeleiro.sql', 'persons/totonho-de-mare.sql', 'persons/creoni.sql', 'persons/chico-tres-pedacos.sql', 'persons/paulo-barroquinha.sql', 'persons/barboza.sql']::text[],
-  'Pivotal figure who invited Pastinha to Gengibirra 1941; trained Canjiquinha; led Matatu Preto training group; controversial identity with possible second Aberrê de Santo Amaro'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/adama.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/adama.sql',
-  NULL,
-  ARRAY['persons/nascimento-grande.sql', 'persons/eleuterio-de-souza.sql', 'persons/formigao.sql'],
-  'One of the two greatest valentões of Recife; founder of Maracatu Oriente Pequeno; specialist in rasteira and knife fighting'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/adao.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/adao.sql',
-  NULL,
-  ARRAY[]::text[],
-  'First documented capoeirista (1789); earliest known arrest record'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/aleixo-acougueiro.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/aleixo-acougueiro.sql',
-  NULL,
-  ARRAY['persons/manduca-da-praia.sql', 'persons/mamede.sql']::text[],
-  'One of the dangerous capoeiristas of 1850s Rio de Janeiro; "The Butcher" - possibly profession or nickname'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/alemaozinho.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/alemaozinho.sql',
-  NULL,
-  ARRAY['persons/jaco.sql', 'persons/pinta-preta-da-lapa.sql', 'persons/placido-de-abreu.sql']::text[],
-  'Alemãozinho (Little German) - capoeirista killed at Teatro Lírico do Campo in 1870 vendetta cycle by César-Maneta; documented by Plácido de Abreu'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/amorzinho.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/amorzinho.sql',
-  NULL,
-  ARRAY['groups/gengibirra.sql', 'persons/noronha.sql', 'persons/livino.sql', 'persons/totonho-de-mare.sql', 'persons/pastinha.sql', 'persons/aberre.sql']::text[],
-  'Civil guard (~1895-1943); one of four "donos e proprietários" of Gengibirra; roda leader; passed leadership to Pastinha; his protection enabled capoeira during criminalization era'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/antonio-de-noronha.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/antonio-de-noronha.sql',
-  NULL,
-  ARRAY['persons/aberre.sql']::text[],
-  'Historical mestre who taught Aberrê c. 1910-1912; known through oral lineage claims from Caiçara, Silvestre, and Grupo Gingarte'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/antonio-padroeiro.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/antonio-padroeiro.sql',
-  NULL,
-  ARRAY['persons/nascimento-grande.sql'],
-  'Dangerous enemy of Nascimento Grande; beaten to death after being disarmed (~1890s)'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/atenilo.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/atenilo.sql',
-  NULL,
-  ARRAY['persons/neco-canario-pardo.sql'],
-  'Oldest student of Mestre Bimba (1929-1986); witness to founding of Capoeira Regional at Bogum; primary source for Itapoan''s book; pandeiro specialist in Bimba''s charanga'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/barboza.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/barboza.sql',
-  NULL,
-  ARRAY['persons/aberre.sql', 'groups/roda-do-matatu-preto.sql', 'persons/onca-preta.sql', 'persons/paulo-barroquinha.sql', 'persons/totonho-de-mare.sql'],
-  'Historical capoeirista from Matatu Preto training group (1930s Salvador); only known from Canjiquinha''s testimony'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/benedito.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/benedito.sql',
-  NULL,
-  ARRAY['persons/pastinha.sql']::text[],  -- Pastinha student_of Benedito
-  'African elder who taught Mestre Pastinha (~1899-1902); represents direct transmission from Angola'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/bentevi.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/bentevi.sql',
-  NULL,
-  ARRAY['persons/manduca-da-praia.sql', 'persons/mamede.sql', 'persons/aleixo-acougueiro.sql', 'persons/pedro-cobra.sql']::text[],
-  'One of the dangerous capoeiristas of 1850s Rio de Janeiro; Named after the bem-te-vi bird'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/bentinho.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/bentinho.sql',
-  NULL,
-  ARRAY['persons/bimba.sql']::text[],  -- Bimba student_of Bentinho
-  'Bentinho (Nozinho Bento); African captain of Companhia de Navegação Bahiana; teacher of Mestre Bimba'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/besourinho.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/besourinho.sql',
-  NULL,
-  ARRAY['persons/onca-preta.sql'],
-  'Besourinho: Salvador capoeirista (~1880-~1925); teacher of Onça Preta; killed during Pedrito persecution.'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/besouro-manganga.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/besouro-manganga.sql',
-  NULL,
-  ARRAY['groups/roda-de-trapiche-de-baixo.sql', 'persons/tio-alipio.sql'],
-  'Legendary capoeirista (1895-1924); learned from Tio Alípio; taught Cobrinha Verde; member of Roda de Trapiche de Baixo'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/bimba.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/bimba.sql',
-  NULL,
-  ARRAY['persons/bentinho.sql', 'persons/cobrinha-verde.sql', 'persons/atenilo.sql'],
-  'Founder of Capoeira Regional; creator of first capoeira academy (1932); father of modern capoeira'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/boca-de-siri.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/boca-de-siri.sql',
-  NULL,
-  ARRAY['persons/besouro-manganga.sql', 'groups/roda-de-trapiche-de-baixo.sql'],
-  'Companion of Besouro Mangangá at Trapiche de Baixo capoeira rodas in Santo Amaro'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/candido-pequeno.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/candido-pequeno.sql',
-  NULL,
-  ARRAY['persons/noronha.sql', 'groups/gengibirra.sql']::text[],
-  'Champion of capoeira in the State of Bahia; teacher of Mestre Noronha; co-founder of Gengibirra; known as Argolinha de Ouro'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/cesar-maneta.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/cesar-maneta.sql',
-  NULL,
-  ARRAY['persons/alemaozinho.sql', 'persons/jaco.sql', 'persons/pinta-preta-da-lapa.sql', 'persons/placido-de-abreu.sql']::text[],
-  'César-Maneta - famous one-armed capoeirista who killed Alemãozinho at Teatro Lírico do Campo in 1870; killed on Praia do Peixe by João-Lagalhé; documented by Plácido de Abreu'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/chico-tres-pedacos.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/chico-tres-pedacos.sql',
-  NULL,
-  ARRAY['groups/roda-do-matatu-preto.sql']::text[],
-  'Notorious Salvador capoeirista (1920s-1930s); legal records document multiple incidents; regular at Matatu Preto training circle; listed by Mestre Pastinha among legendary figures'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/cirandinha.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/cirandinha.sql',
-  NULL,
-  ARRAY['persons/sinhozinho.sql']::text[],
-  'Heavyweight capoeirista and weightlifter (100kg); student of Sinhozinho; "Brazilian capoeira champion"; KO''d Jurandir 1949; lost to Carlson Gracie 1953'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/cobrinha-verde.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/cobrinha-verde.sql',
-  NULL,
-  ARRAY['persons/besouro-manganga.sql', 'groups/roda-de-trapiche-de-baixo.sql'],
-  'Mestre Cobrinha Verde (1912-1983); cousin and student of Besouro; bridge between legendary era and documented lineage'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/corre-hoje.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/corre-hoje.sql',
-  NULL,
-  ARRAY['persons/nascimento-grande.sql'],
-  'Enemy of Nascimento Grande; killed during failed assassination attempt with 7 men (~1890s)'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/creoni.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/creoni.sql',
-  NULL,
-  ARRAY['groups/roda-do-matatu-preto.sql']::text[],
-  'Capoeirista active at Matatu Preto training circle in 1935; contemporary of Aberrê'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/cyriaco.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/cyriaco.sql',
-  NULL,
-  ARRAY['persons/sinhozinho.sql']::text[],  -- Sinhozinho was inspired by Cyriaco's 1909 victory
-  'First Vale Tudo champion; defeated jiu-jitsu fighter Sada Miyako 1909; capoeira carioca master'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/doze-homens.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/doze-homens.sql',
-  NULL,
-  ARRAY['persons/besouro-manganga.sql', 'persons/besourinho.sql', 'groups/roda-de-trapiche-de-baixo.sql'],
-  'Companion of Besouro at Trapiche de Baixo; teacher of Salomé and Maria dos Anjos; killed during Pedrito persecution'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/eleuterio-de-souza.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/eleuterio-de-souza.sql',
-  NULL,
-  ARRAY['persons/adama.sql', 'persons/formigao.sql'],
-  'Founder of primitive stevedore work in Pernambuco; political bodyguard; 1907 train incident with Adama and Formigão'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/formigao.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/formigao.sql',
-  NULL,
-  ARRAY['persons/adama.sql', 'persons/eleuterio-de-souza.sql'],
-  'Valentão of Recife; involved in 1907 train disturbance with Adama and Eleutério de Souza'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/gasolina.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/gasolina.sql',
-  NULL,
-  ARRAY['persons/cobrinha-verde.sql', 'persons/besouro-manganga.sql', 'persons/onca-preta.sql', 'persons/siri-de-mangue.sql', 'persons/doze-homens.sql', 'persons/neco-canario-pardo.sql'],
-  'Gasolina - capoeira teacher from Santo Amaro and Salvador; taught Cobrinha Verde and Onça Preta; killed during Pedrito persecution (~1925)'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/geraldo-chapeleiro.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/geraldo-chapeleiro.sql',
-  NULL,
-  ARRAY['groups/gengibirra.sql', 'groups/roda-do-matatu-preto.sql']::text[],
-  'Founding mestre of Centro de Capoeira Angola (Gengibirra) 1920s; regular at Matatu Preto training circle 1935'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/jaco.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/jaco.sql',
-  NULL,
-  ARRAY['persons/pinta-preta-da-lapa.sql', 'persons/placido-de-abreu.sql']::text[],
-  'Caboclo Jacó - capoeirista killed at Paula Matos/Riachuelo in 1870 vendetta cycle; documented by Plácido de Abreu'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/joao-lagalhe.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/joao-lagalhe.sql',
-  NULL,
-  ARRAY['persons/cesar-maneta.sql', 'persons/alemaozinho.sql', 'persons/jaco.sql', 'persons/pinta-preta-da-lapa.sql', 'persons/placido-de-abreu.sql']::text[],
-  'João-Lagalhé - capoeirista who killed the famous César-Maneta on Praia do Peixe in 1870; last named figure in vendetta cycle documented by Plácido de Abreu'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/joao-sabe-tudo.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/joao-sabe-tudo.sql',
-  NULL,
-  ARRAY['persons/nascimento-grande.sql'],
-  'One of the most feared fighters of Recife; fierce rival and friend of Nascimento Grande; part of valentão culture'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/leao-do-norte.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/leao-do-norte.sql',
-  NULL,
-  ARRAY[]::text[],  -- No dependencies; relationship to Miguel is documented in Miguel''s file
-  'Leão do Norte (~1875-1911) - Carioca capoeirista; great friend of Miguel Camisa Preta; killed by Cabo Elpídio Ribeiro da Rocha'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/livino.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/livino.sql',
-  NULL,
-  ARRAY['groups/gengibirra.sql', 'persons/noronha.sql', 'persons/totonho-de-mare.sql', 'persons/pastinha.sql', 'persons/aberre.sql', 'persons/onca-preta.sql', 'persons/geraldo-chapeleiro.sql', 'persons/amorzinho.sql']::text[],
-  'Brother of Mestre Noronha; one of four "donos e proprietários" of Gengibirra; co-founder of Centro de Capoeira Angola da Conceição da Praia; also known as Livinho, Livino Boca da Barra, Livino Malvadeza, Livino Diogo'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/luiz-candido-machado.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/luiz-candido-machado.sql',
-  NULL,
-  ARRAY['persons/bimba.sql'],
-  'Father of Mestre Bimba; champion of batuque; formerly enslaved person of Bantu descent; his batuque techniques became foundational to Capoeira Regional'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/madame-sata.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/madame-sata.sql',
-  NULL,
-  ARRAY['persons/sete-coroas.sql']::text[],
-  'Madame Satã (1900-1976) - Legendary Rio malandro and capoeirista; student of Sete Coroas; transformista and LGBTQ+ pioneer; subject of 2002 film'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/major-vidigal.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/major-vidigal.sql',
-  NULL,
-  ARRAY[]::text[],
-  'Police chief and capoeira master (1745-1843); earliest named individual with documented capoeira skills'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/mamede.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/mamede.sql',
-  NULL,
-  ARRAY['persons/manduca-da-praia.sql']::text[],
-  'One of the dangerous capoeiristas of 1850s Rio de Janeiro; contemporary of Manduca da Praia'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/manduca-da-praia.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/manduca-da-praia.sql',
-  NULL,
-  ARRAY[]::text[],
-  'Chief of Nagôas malta (~1845-1905); most famous capoeirista of 19th century Rio'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/manezinho-camisa-preta.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/manezinho-camisa-preta.sql',
-  NULL,
-  ARRAY['persons/nascimento-grande.sql'],
-  'Rio de Janeiro valentão killed by Nascimento Grande at Largo da Carioca'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/maria-doze-homens.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/maria-doze-homens.sql',
-  NULL,
-  ARRAY['persons/besouro-manganga.sql'],
-  'One of the earliest documented female capoeiristas; active 1920s-1930s; name origin disputed (defeated 12 men vs trained under Mestre Doze Homens)'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/miguel-camisa-preta.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/miguel-camisa-preta.sql',
-  NULL,
-  ARRAY['persons/leao-do-norte.sql']::text[],
-  'Miguel Camisa Preta (Alfredo Francisco Soares, ~1880-1912) - "Príncipe dos bambas"; famous Rio malandro/capoeirista; killed by police officer Elpídio; became Umbanda entity'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/nascimento-grande.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/nascimento-grande.sql',
-  NULL,
-  ARRAY['persons/manduca-da-praia.sql'],
-  'Most feared capoeirista of Pernambuco (1842-1936); influenced frevo dance'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/neco-canario-pardo.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/neco-canario-pardo.sql',
-  NULL,
-  ARRAY['persons/besouro-manganga.sql', 'persons/cobrinha-verde.sql', 'groups/roda-de-trapiche-de-baixo.sql'],
-  'Machete teacher to Cobrinha Verde; companion of Besouro at Trapiche de Baixo; also taught Mestre Waldemar'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/noca-de-jaco.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/noca-de-jaco.sql',
-  NULL,
-  ARRAY['persons/besouro-manganga.sql', 'groups/roda-de-trapiche-de-baixo.sql'],
-  'Companion of Besouro Mangangá at Trapiche de Baixo capoeira rodas in Santo Amaro; full name Ernesto Ferreira da Silva'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/noronha.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/noronha.sql',
-  NULL,
-  ARRAY['persons/candido-pequeno.sql', 'groups/gengibirra.sql', 'persons/pastinha.sql', 'persons/totonho-de-mare.sql', 'persons/aberre.sql', 'persons/geraldo-chapeleiro.sql', 'persons/onca-preta.sql', 'persons/amorzinho.sql']::text[],
-  'Daniel Coutinho (1909-1977); historian of Capoeira Angola; one of four founders of Gengibirra; author of "O ABC da Capoeira Angola" manuscripts'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/onca-preta.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/onca-preta.sql',
-  NULL,
-  ARRAY['persons/aberre.sql', 'persons/pastinha.sql', 'groups/gengibirra.sql', 'groups/roda-do-matatu-preto.sql'],
-  'Cícero Navarro "Onça Preta" (1909-2006): Bahian Angola mestre, bridge between first and second generations. Survived Pedrito persecution. Co-founder of CECA (1941) and Filhos de Angola (1960). Featured in Jorge Amado works and Ruth Landes photographs.'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/pajeu.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/pajeu.sql',
-  NULL,
-  ARRAY['persons/nascimento-grande.sql'],
-  'Valentão from Pernambuco sertão who challenged and was humiliated by Nascimento Grande (late 1800s/early 1900s)'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/pastinha.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/pastinha.sql',
-  NULL,
-  ARRAY['persons/benedito.sql', 'persons/aberre.sql', 'persons/cobrinha-verde.sql', 'persons/bimba.sql', 'persons/totonho-de-mare.sql', 'groups/ceca.sql', 'groups/gengibirra.sql']::text[],
-  'Vicente Ferreira Pastinha (1889-1981); Father of Capoeira Angola; Founder of CECA; Codifier of traditional style'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/paulo-barroquinha.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/paulo-barroquinha.sql',
-  NULL,
-  ARRAY['persons/besouro-manganga.sql', 'groups/roda-de-trapiche-de-baixo.sql', 'groups/roda-do-matatu-preto.sql'],
-  'Paulo Barroquinha - training companion of Besouro Mangangá at Trapiche de Baixo, Santo Amaro (1910s-1924); likely same person as Pedro Paulo Barroquinha at Matatu Preto, Salvador (1930s); one of the timeless figures of the Recôncavo'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/pedro-cobra.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/pedro-cobra.sql',
-  NULL,
-  ARRAY['persons/manduca-da-praia.sql', 'persons/mamede.sql', 'persons/aleixo-acougueiro.sql']::text[],
-  'One of the dangerous capoeiristas of 1850s Rio de Janeiro; "The Snake" - fighting nickname'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/pinta-preta-da-lapa.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/pinta-preta-da-lapa.sql',
-  NULL,
-  ARRAY['persons/manduca-da-praia.sql', 'persons/placido-de-abreu.sql']::text[],
-  'Chief of Glória capoeiras; member of National Guard; killed Jan 1870; first documented Nagoas-Guaiamús conflict; triggered vendetta cycle'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/piraje.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/piraje.sql',
-  NULL,
-  ARRAY['persons/nascimento-grande.sql'],
-  'Renowned valentão from Pará who coveted challenging Nascimento Grande; represents capoeira culture in northern Brazil'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/placido-de-abreu.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/placido-de-abreu.sql',
-  NULL,
-  ARRAY['persons/manduca-da-praia.sql'],
-  'First capoeira historian; author of Os Capoeiras (1886)'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/prata-preta.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/prata-preta.sql',
-  NULL,
-  ARRAY[]::text[],  -- No dependencies; no relationships to generate
-  'Prata Preta (Horácio José da Silva, 1874-?) - Capoeirista and stevedore; leader of the Porto Arthur barricade during the 1904 Vaccine Revolt; deported to Acre'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/quebra-coco.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/quebra-coco.sql',
-  NULL,
-  ARRAY['persons/manduca-da-praia.sql', 'persons/mamede.sql', 'persons/aleixo-acougueiro.sql', 'persons/pedro-cobra.sql', 'persons/bentevi.sql']::text[],
-  'One of the dangerous capoeiristas of 1850s Rio de Janeiro; "Coconut Breaker" - likely referenced headbutt expertise'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/querido-de-deus.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/querido-de-deus.sql',
-  NULL,
-  ARRAY['persons/onca-preta.sql', 'persons/bimba.sql', 'persons/pastinha.sql']::text[],
-  'Samuel Francisco Barreto de Souza (Querido de Deus); "The greatest capoeirista of 1930s Salvador"; Fisherman; Featured in Jorge Amado works; Photographed by Ruth Landes (1938)'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/quinzinho.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/quinzinho.sql',
-  NULL,
-  ARRAY[]::text[],
-  'Premodern Rio capoeira figure; teacher of Mestre Leopoldina; practiced tiririca (capoeira without berimbau); murdered in prison ~1954'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/ricardo-de-ilha-de-mare.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/ricardo-de-ilha-de-mare.sql',
-  NULL,
-  ARRAY['persons/totonho-de-mare.sql'],
-  'One of four teachers of Mestre Waldemar; representative of Ilha de Maré capoeira tradition'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/salome.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/salome.sql',
-  NULL,
-  ARRAY['persons/doze-homens.sql'],
-  'Valentona of 1920s-1930s Salvador; student of Doze Homens; immortalized in corrido "Adão, Adão"'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/sete-coroas.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/sete-coroas.sql',
-  NULL,
-  ARRAY['persons/madame-sata.sql']::text[],
-  'Sete Coroas (~1885-1923) - Baiano malandro in Rio; teacher of Madame Satã; subject of Sinhô''s 1921 samba; elevated to Exu status'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/sinhozinho.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/sinhozinho.sql',
-  NULL,
-  ARRAY['persons/cyriaco.sql', 'persons/zeca-floriano.sql']::text[],
-  'Main exponent of capoeira carioca in Rio de Janeiro (1891-1962); combat-focused style; hand-to-hand instructor for Policia Especial'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/siri-de-mangue.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/siri-de-mangue.sql',
-  NULL,
-  ARRAY['persons/besouro-manganga.sql', 'persons/cobrinha-verde.sql', 'persons/paulo-barroquinha.sql', 'persons/neco-canario-pardo.sql', 'persons/doze-homens.sql'],
-  'Siri de Mangue - saveirista (boatman) and capoeirista from the Recôncavo; training companion of Besouro; teacher of Cobrinha Verde and Mestre Waldemar'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/talabi.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/talabi.sql',
-  NULL,
-  ARRAY['persons/siri-de-mangue.sql', 'persons/neco-canario-pardo.sql'],
-  'Talabi de Periperi - mestre at the famous "roda danada" in Periperi; one of the four teachers of Mestre Waldemar da Paixão'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/tio-alipio.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/tio-alipio.sql',
-  NULL,
-  ARRAY['groups/roda-de-trapiche-de-baixo.sql'],
-  'African ex-slave, Babalaô, and teacher of Besouro Mangangá; "the most famous master in Santo Amaro" per Cobrinha Verde'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/tio-pascoal.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/tio-pascoal.sql',
-  NULL,
-  ARRAY['persons/cobrinha-verde.sql'],
-  'African mandingueiro; spiritual teacher of Mestre Cobrinha Verde; taught mandinga, patuá, corpo fechado, 65 prayers; NOT a capoeirista'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/totonho-de-mare.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/totonho-de-mare.sql',
-  NULL,
-  ARRAY['groups/gengibirra.sql', 'groups/roda-do-matatu-preto.sql', 'persons/querido-de-deus.sql'],
-  'Co-founder of Gengibirra (1941); contemporary of Bimba and Pastinha; featured in Dança de Guerra documentary (1968); also known as Antônio Maré, Maré'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/vitor-agau.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/vitor-agau.sql',
-  NULL,
-  ARRAY['persons/onca-preta.sql', 'persons/pastinha.sql']::text[],
-  'Vitor Agaú (also Vitor H.D., Victor H.U.): Early Salvador mestre (~1880-~1960); teacher of Onça Preta and Gaguinho Preto; present at CECA founding Feb 23, 1941.'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/waldemar.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/waldemar.sql',
-  NULL,
-  ARRAY[
-    'persons/siri-de-mangue.sql',
-    'persons/neco-canario-pardo.sql',
-    'persons/talabi.sql',
-    'persons/ricardo-de-ilha-de-mare.sql',
-    'persons/pastinha.sql',
-    'persons/bimba.sql',
-    'persons/cobrinha-verde.sql',
-    'persons/totonho-de-mare.sql'
-  ],
-  'Mestre Waldemar da Paixão (1916-1990) - Legendary capoeira Angola mestre from Ilha de Maré; founder of Barracão de Waldemar in Liberdade; inventor of painted berimbaus; known as "O Herói da Liberdade"'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: persons/zeca-floriano.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/zeca-floriano.sql',
-  NULL,
-  ARRAY[]::text[],
-  'Sportsman, circus director, and capoeirista (1887-~1970); son of President Floriano Peixoto; taught Sinhozinho pernada/capoeira carioca'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: groups/gengibirra.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'group',
-  'groups/gengibirra.sql',
-  NULL,
-  ARRAY['persons/noronha.sql', 'persons/livino.sql', 'persons/totonho-de-mare.sql', 'persons/amorzinho.sql', 'groups/ceca.sql']::text[],
-  'First organized center for Capoeira Angola in Bahia; founded 1920s at Ladeira de Pedra, Liberdade, Salvador; handed to Pastinha in 1941'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: groups/roda-de-trapiche-de-baixo.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'group',
-  'groups/roda-de-trapiche-de-baixo.sql',
-  NULL,
-  ARRAY[]::text[],
-  'First proto-group in genealogy: informal capoeira community in Santo Amaro centered around Besouro Mangangá (~1908-1924)'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
--- From: groups/roda-do-matatu-preto.sql
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'group',
-  'groups/roda-do-matatu-preto.sql',
-  NULL,
-  ARRAY[]::text[],
-  'Informal Sunday training circle in Salvador (1930s); documented by Mestre Canjiquinha testimony'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
 
 COMMIT;

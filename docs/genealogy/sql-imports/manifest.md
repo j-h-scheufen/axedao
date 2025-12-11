@@ -1,176 +1,198 @@
 # Genealogy SQL Import Manifest
 
-This manifest documents the SQL import files and their dependencies. The actual import process is handled by the `sync.sh` script.
+This manifest documents the SQL import files and their migration workflow.
 
-## Sync Script Usage
+## Directory Structure
 
-```bash
-# Show current import status
-./sync.sh --status
-
-# Dry run (show what would be done)
-./sync.sh --dry-run
-
-# Sync to local database (uses DATABASE_URL env var)
-./sync.sh
-
-# Sync to specific database
-./sync.sh "postgres://user:pass@host:port/db"
-
-# Sync to staging
-./sync.sh "$STAGING_DATABASE_URL"
-
-# Sync to production
-./sync.sh "$PRODUCTION_DATABASE_URL"
-
-# Force re-run ALL files (useful after adding new persons)
-./sync.sh --force
+```
+sql-imports/
+├── entities/
+│   ├── persons/           # 71 person profiles
+│   └── groups/            # 3 group profiles
+├── statements/
+│   ├── persons/           # 61 person statement files
+│   └── groups/            # 1 group statement file
+├── build/
+│   ├── generate-migration.ts
+│   ├── pending-migration.sql
+│   └── pending-state.json
+├── deployed-state.json    # Last deployed checksums
+├── README.md
+└── manifest.md            # This file
 ```
 
-## How Sync Works
+## Migration Workflow
 
-The sync script determines which files need to be imported based on:
+### Generate Migration
 
-1. **New files**: Files not yet in `genealogy.import_log`
-2. **Changed files**: Files where the MD5 checksum differs from stored value
-3. **Forced**: All files when `--force` flag is used
+```bash
+# Generate migration (compares files to deployed-state.json)
+pnpm db:genealogy:build
 
-### When to Use --force
+# Preview only (no files written)
+pnpm db:genealogy:build:dry-run
+```
 
-Use `--force` after adding new persons/groups when you want to create statements that reference them. For example:
+### Deploy Migration
 
-1. Import `besouro-manganga.sql` (references Nascimento Grande who doesn't exist yet) → profile created, statement skipped
-2. Import `nascimento-grande.sql` → profile created
-3. Run `./sync.sh --force` → re-runs Besouro's file, statement now created
+1. Push to `develop` → GitHub Action applies `pending-migration.sql` to staging
+2. Verify staging data is correct
+3. Promote state: `mv build/pending-state.json deployed-state.json`
+4. Commit and push `deployed-state.json`
+5. Merge to `main` → GitHub Action applies to production
 
-The `ON CONFLICT DO NOTHING` pattern ensures re-runs are safe and idempotent.
+### Local Testing
 
-### Idempotent SQL Pattern
+```bash
+# Generate migration from current files
+pnpm db:genealogy:build
 
-All SQL files use idempotent patterns:
+# Apply migration to local database
+pnpm db:genealogy:apply
+```
 
-**Profiles**: Use `ON CONFLICT ... DO UPDATE` to upsert
+## File Format
+
+### Entity Files (`entities/persons/*.sql`, `entities/groups/*.sql`)
+
+Each entity file contains ONLY the profile INSERT with ON CONFLICT upsert:
+
 ```sql
-INSERT INTO genealogy.person_profiles (...) VALUES (...)
+-- ============================================================
+-- GENEALOGY PERSON: [Apelido]
+-- Generated: [Date]
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (...)
+VALUES (...)
 ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
-  name = EXCLUDED.name,
-  bio_en = EXCLUDED.bio_en,
-  bio_pt = EXCLUDED.bio_pt,
   ...
   updated_at = NOW();
 ```
 
-**Note**: The ON CONFLICT clause uses `COALESCE(apelido_context, '')` to match the composite unique index, allowing multiple people with the same apelido as long as they have different contexts (or one has NULL context).
+No statements, no import_log, no BEGIN/COMMIT.
 
-**Important**: All narrative content uses bilingual columns (`_en` / `_pt`). This includes `bio`, `achievements`, `style_notes`, and `notes` (researcher notes for date estimates, source conflicts, caveats). See `docs/genealogy/BILINGUAL_CONTENT.md` for details.
+### Statement Files (`statements/persons/*.sql`, `statements/groups/*.sql`)
 
-**Statements**: Use `ON CONFLICT DO NOTHING` to skip duplicates
+Each statement file contains ALL relationships where the entity is the SUBJECT:
+
 ```sql
+-- ============================================================
+-- STATEMENTS FOR: [Apelido]
+-- Generated: [Date]
+-- ============================================================
+
+-- [Subject] student_of [Object]
 INSERT INTO genealogy.statements (...)
 SELECT ...
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+ON CONFLICT (...) DO NOTHING;
+
+-- [Subject] member_of [Group]
+INSERT INTO genealogy.statements (...)
+SELECT ...
+ON CONFLICT (...) DO NOTHING;
 ```
 
-**Note**: The COALESCE expression is required because the unique index uses it to handle NULL `started_at` values (PostgreSQL treats NULL != NULL).
+Statements use `ON CONFLICT DO NOTHING` for idempotency.
 
-This allows files to be re-run safely without creating duplicates.
+## Ownership Rules
 
-## Checking Import Status
+**Key principle: Each statement lives in ONE file only - the subject's file.**
 
-```sql
--- See all imported files
-SELECT entity_type, file_path, imported_at, checksum, dependencies
-FROM genealogy.import_log
-ORDER BY imported_at;
+- `Bimba student_of Bentinho` → lives in `statements/persons/bimba.sql`
+- `GCAP part_of GCAP-HQ` → lives in `statements/groups/gcap.sql`
 
--- Check if a specific file was imported
-SELECT * FROM genealogy.import_log
-WHERE file_path = 'persons/manduca-da-praia.sql';
-
--- Find files that depend on a specific file
-SELECT file_path
-FROM genealogy.import_log
-WHERE 'persons/manduca-da-praia.sql' = ANY(dependencies);
-
--- Count imports by type
-SELECT entity_type, COUNT(*)
-FROM genealogy.import_log
-GROUP BY entity_type;
-```
+This prevents duplicate statements and makes ownership clear.
 
 ---
 
-## Persons Import Reference
+## Current Import Summary
 
-Files are listed in recommended import order (dependencies first).
+### Persons (71 entities, 61 statement files)
 
-| Order | File | Dependencies | Description |
-|-------|------|--------------|-------------|
-| 1 | persons/adao.sql | none | First documented capoeirista (1789) |
-| 2 | persons/major-vidigal.sql | none | Police chief & capoeira master (1745-1843) |
-| 3 | persons/manduca-da-praia.sql | none | Chief of Nagôas malta, Rio de Janeiro |
-| 4 | persons/nascimento-grande.sql | manduca-da-praia | Legendary Pernambuco capoeirista (1842-1936) |
-| 5 | persons/placido-de-abreu.sql | manduca-da-praia | First capoeira historian (1857-1894) |
-| 6 | persons/mamede.sql | manduca-da-praia | Dangerous capoeirista of 1850s Rio |
-| 7 | persons/aleixo-acougueiro.sql | manduca-da-praia, mamede | "The Butcher" - dangerous capoeirista of 1850s Rio |
-| 8 | persons/pedro-cobra.sql | manduca-da-praia, mamede, aleixo-acougueiro | "The Snake" - dangerous capoeirista of 1850s Rio |
-| 9 | persons/bentevi.sql | manduca-da-praia, mamede, aleixo-acougueiro, pedro-cobra | Named after bem-te-vi bird - dangerous capoeirista of 1850s Rio |
-| 10 | persons/quebra-coco.sql | manduca-da-praia, mamede, aleixo-acougueiro, pedro-cobra, bentevi | "Coconut Breaker" - dangerous capoeirista of 1850s Rio |
-| 11 | persons/tio-alipio.sql | roda-de-trapiche-de-baixo | African proto-mestre, teacher of Besouro Mangangá |
-| 12 | persons/besouro-manganga.sql | roda-de-trapiche-de-baixo | Legendary Bahia capoeirista (1895-1924) |
+| Count | Category | Examples |
+|-------|----------|----------|
+| 25 | Layer Zero (pre-1900) | Adão, Manduca da Praia, Cyriaco |
+| 35 | Early Mestres (1900-1940) | Bimba, Pastinha, Waldemar |
+| 11 | Proto-Mestres (teachers of mestres) | Bentinho, Tio Alípio, Noronha |
 
----
+### Groups (3 entities, 1 statement file)
 
-## Groups Import Reference
-
-| Order | File | Dependencies | Description |
-|-------|------|--------------|-------------|
-| 1 | groups/roda-de-trapiche-de-baixo.sql | none | Informal capoeira community in Santo Amaro (~1888-1924) |
-| 2 | groups/roda-do-matatu-preto.sql | none | Informal Sunday training circle in Salvador (1930s) |
+| Name | Type | Period |
+|------|------|--------|
+| Roda de Trapiche de Baixo | Informal community | ~1888-1924 |
+| Roda do Matatu Preto | Sunday training circle | 1930s |
+| Gengibirra | Informal group | 1920s |
 
 ---
 
 ## Adding New Imports
 
-When creating a new SQL import file:
+1. **Use slash commands**: `/import-person [name]` or `/import-group [name]`
+2. **Two files generated**:
+   - `entities/[type]/[name].sql` - Profile INSERT
+   - `statements/[type]/[name].sql` - Relationship INSERTs (if any)
+3. **Build migration**: `pnpm db:genealogy:build`
+4. **Test locally**: `pnpm db:genealogy:apply`
+5. **Review**: Check `build/pending-migration.sql`
+6. **Commit**: All changes including build/ files
 
-1. **Follow the template** in the `/import-person` or `/import-group` commands
-2. **Write bilingual content**: All narrative fields (`bio`, `description`, `achievements`, `history`, `philosophy`, `style_notes`, `notes`, statement `notes`) must include both `_en` and `_pt` versions. See `docs/genealogy/BILINGUAL_CONTENT.md`
-3. **Document researcher notes**: Use `notes_en` / `notes_pt` columns for birth/death year estimation reasoning, source conflicts, spelling variations, pending relationships, and other caveats
-4. **List dependencies** in the SQL file header comment and in the `import_log` INSERT
-5. **Use idempotent patterns**: `ON CONFLICT DO UPDATE` for profiles, `ON CONFLICT DO NOTHING` for statements
-6. **Test locally** before syncing to staging/production
+## Bilingual Content
 
-## Re-running Imports After Edits
+All narrative fields must include both English (`_en`) and Portuguese (`_pt`) versions:
 
-If you edit a SQL file:
+- Person profiles: `bio`, `achievements`, `style_notes`, `notes`
+- Group profiles: `description`, `philosophy`, `history`, `style_notes`
+- Statements: `notes`
 
-1. The sync script will detect the checksum change
-2. Running `./sync.sh` will re-import the file
-3. The upsert pattern ensures profiles are updated, not duplicated
-4. The `ON CONFLICT DO NOTHING` pattern ensures statements aren't duplicated
+See `docs/genealogy/BILINGUAL_CONTENT.md` for details.
 
-## Workflow Example
+## Idempotent SQL Patterns
 
-```bash
-# 1. Check current status
-./sync.sh --status
+**Profiles** use `ON CONFLICT ... DO UPDATE`:
+```sql
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  ...
+  updated_at = NOW();
+```
 
-# 2. Add a new person import file
-# (use /import-person command)
+**Statements** use `ON CONFLICT ... DO NOTHING`:
+```sql
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+```
 
-# 3. Preview what will be imported
-./sync.sh --dry-run
+The `COALESCE` expressions match the unique indexes and handle NULL values correctly.
 
-# 4. Import to local database
-./sync.sh
+## Checking Database State
 
-# 5. Verify the import
-./sync.sh --status
+```sql
+-- Count entities by type
+SELECT
+  'persons' as type, COUNT(*) FROM genealogy.person_profiles
+UNION ALL
+SELECT
+  'groups' as type, COUNT(*) FROM genealogy.group_profiles
+UNION ALL
+SELECT
+  'statements' as type, COUNT(*) FROM genealogy.statements;
 
-# 6. When ready, sync to staging
-./sync.sh "$STAGING_DATABASE_URL"
+-- List all persons
+SELECT apelido, name, title, birth_year
+FROM genealogy.person_profiles
+ORDER BY apelido;
 
-# 7. After verification, sync to production
-./sync.sh "$PRODUCTION_DATABASE_URL"
+-- List all statements for a person
+SELECT
+  s.predicate,
+  CASE s.object_type
+    WHEN 'person' THEN p.apelido
+    WHEN 'group' THEN g.name
+  END as object,
+  s.confidence
+FROM genealogy.statements s
+JOIN genealogy.person_profiles subj ON s.subject_id = subj.id AND s.subject_type = 'person'
+LEFT JOIN genealogy.person_profiles p ON s.object_id = p.id AND s.object_type = 'person'
+LEFT JOIN genealogy.group_profiles g ON s.object_id = g.id AND s.object_type = 'group'
+WHERE subj.apelido = 'Bimba';
 ```

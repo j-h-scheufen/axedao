@@ -5,44 +5,37 @@ This document describes how to deploy genealogy data (persons, groups, statement
 ## Overview
 
 The deployment system uses a **stateful migration generator** that:
-- Compares current `.sql` files against the last deployed state
+- Compares current `.sql` files against the last deployed state (checksums)
 - Generates a single consolidated migration with only the changes (delta)
-- Tracks statement signatures to detect additions and deletions
+- Concatenates entity files first, then statement files
 - Produces idempotent SQL safe for re-runs
 
-## Files
+## Directory Structure
 
 ```
 docs/genealogy/sql-imports/
-├── persons/*.sql              # Individual person import files
-├── groups/*.sql               # Individual group import files
-├── sync.sh                    # Local dev sync (direct to localhost DB)
-├── deployed-state.json        # Baseline state from last deployment
+├── entities/
+│   ├── persons/*.sql           # Person profile INSERTs
+│   └── groups/*.sql            # Group profile INSERTs
+├── statements/
+│   ├── persons/*.sql           # Person relationship INSERTs
+│   └── groups/*.sql            # Group relationship INSERTs
+├── deployed-state.json         # Baseline state from last deployment
 └── build/
-    ├── generate-migration.ts  # Migration generator script
-    ├── pending-migration.sql  # Generated: SQL to apply
-    └── pending-state.json     # Generated: state after migration
+    ├── generate-migration.ts   # Migration generator script
+    ├── pending-migration.sql   # Generated: SQL to apply
+    └── pending-state.json      # Generated: state after migration
 ```
 
 ## Workflow
 
 ### 1. Edit SQL Files
 
-Make changes to files in `persons/` or `groups/`. Use the `/import-person` or `/import-group` commands to generate new files.
+Make changes to files in `entities/` or `statements/`. Use the `/import-person` or `/import-group` commands to generate new files.
 
-### 2. Test Locally
+**Key principle**: Each statement lives in ONE file only - the subject's file in `statements/`.
 
-Sync changes to your local database:
-
-```bash
-pnpm db:genealogy:sync        # Apply new/changed files
-pnpm db:genealogy:sync:force  # Re-apply all files
-pnpm db:genealogy:status      # Check sync status
-```
-
-### 3. Generate Migration
-
-Once local testing looks good, generate the deployment migration:
+### 2. Generate Migration
 
 ```bash
 pnpm db:genealogy:build           # Generate migration files
@@ -53,18 +46,23 @@ This creates:
 - `build/pending-migration.sql` - The SQL to run on staging/production
 - `build/pending-state.json` - Snapshot of state after migration applies
 
+### 3. Test Locally
+
+Apply the migration to your local database:
+
+```bash
+pnpm db:genealogy:apply
+```
+
 ### 4. Review the Migration
 
 Inspect `build/pending-migration.sql` to verify:
 - Correct entities are being upserted
 - Expected statements are being inserted
-- Any statement deletions are intentional
 
-The migration has four phases:
-1. DELETE orphaned statements (from removed/changed files)
-2. UPSERT entities (persons first, then groups)
-3. INSERT new statements
-4. UPDATE import_log entries
+The migration has two phases:
+1. UPSERT entities (persons first, then groups)
+2. INSERT statements (with ON CONFLICT DO NOTHING)
 
 ### 5. Commit and Push to Staging
 
@@ -118,13 +116,16 @@ All SQL uses `ON CONFLICT` clauses, making it safe to re-run:
 - Entity INSERTs use `ON CONFLICT DO UPDATE`
 - Statement INSERTs use `ON CONFLICT DO NOTHING`
 
-### Statement Deletion
+### No SQL Parsing
 
-When you remove a statement from a `.sql` file, the migration generator detects this and generates a DELETE statement. This is tracked via "statement signatures" (subject + predicate + object + startedAt).
+The new structure eliminates SQL parsing complexity:
+- Entity files contain only the profile INSERT
+- Statement files contain only relationship INSERTs
+- Migration generator just concatenates files based on checksum diffs
 
 ### Entity Preservation
 
-Entities (persons, groups) are **never auto-deleted**, even if you delete their `.sql` file. Only statements from deleted files are removed. To delete an entity, you must do so manually in the database.
+Entities (persons, groups) are **never auto-deleted**, even if you delete their `.sql` file. Deleted files generate a warning but require manual database cleanup.
 
 ### Forgetting to Confirm
 
@@ -142,14 +143,10 @@ Both GitHub workflows support `workflow_dispatch` for manual triggering:
 
 The `deployed-state.json` is empty or missing. This happens on first deployment or if the file was reset. The migration will include all entities and statements.
 
-### Statement not being deleted
+### Statement not inserted
 
-Check that the statement signature matches exactly. The signature includes:
-- Subject type and identifier (apelido/name)
-- Predicate
-- Object type and identifier
-- started_at date (or NULL)
+Check that the referenced entities exist. Statements use SELECT to look up IDs by apelido/name - if the entity doesn't exist, the INSERT returns 0 rows.
 
-### Parsing warnings
+### Duplicate statement warnings
 
-If you see "Could not extract entity block" warnings, the SQL file format may not match expected patterns. Ensure files follow the standard template from `/import-person` or `/import-group`.
+With the new structure, each statement should exist in exactly one file (the subject's file). If you see duplicates, check that you haven't added the same relationship in multiple files.

@@ -6,72 +6,78 @@ This directory contains SQL import scripts for populating the genealogy schema w
 
 ```
 sql-imports/
-├── README.md                    # This file
-├── persons/                     # Person profile imports
-│   └── [person-name].sql
-└── groups/                      # Group profile imports
-    └── [group-name].sql
+├── README.md                           # This file
+├── deployed-state.json                 # Last deployed state (checksums)
+├── entities/
+│   ├── persons/                        # Person profile INSERTs only
+│   │   └── [person-name].sql
+│   └── groups/                         # Group profile INSERTs only
+│       └── [group-name].sql
+├── statements/
+│   ├── persons/                        # All statements WHERE subject = person
+│   │   └── [person-name].sql
+│   └── groups/                         # All statements WHERE subject = group
+│       └── [group-name].sql
+└── build/
+    ├── generate-migration.ts           # Migration generator script
+    ├── pending-migration.sql           # Generated migration (uncommitted state)
+    └── pending-state.json              # State snapshot after pending migration
 ```
 
-## Bilingual Content Convention
+## Key Principles
 
-**All narrative fields must include both English (_en) and Portuguese (_pt) versions:**
+1. **Entities and statements are separate files**
+   - Entity files contain ONLY the INSERT for person_profiles or group_profiles
+   - Statement files contain ALL relationships WHERE that entity is the SUBJECT
 
-### Person Profiles
-| Column | Description |
-|--------|-------------|
-| `bio_en` | Biography in English |
-| `bio_pt` | Biografia em português |
-| `achievements_en` | Achievements in English |
-| `achievements_pt` | Conquistas em português |
-| `style_notes_en` | Style notes in English |
-| `style_notes_pt` | Notas de estilo em português |
+2. **One subject per file**
+   - `statements/persons/bimba.sql` contains all statements where Bimba is the subject
+   - This makes ownership clear and prevents duplicate statements
 
-### Group Profiles
-| Column | Description |
-|--------|-------------|
-| `description_en` | Description in English |
-| `description_pt` | Descrição em português |
-| `philosophy_en` | Philosophy in English |
-| `philosophy_pt` | Filosofia em português |
-| `history_en` | History in English |
-| `history_pt` | História em português |
-| `style_notes_en` | Style notes in English |
-| `style_notes_pt` | Notas de estilo em português |
+3. **No SQL parsing needed**
+   - Migration generation uses file checksums, not SQL parsing
+   - Changed files are simply concatenated into the migration
 
-### Statements
-| Column | Description |
-|--------|-------------|
-| `notes_en` | Relationship notes in English |
-| `notes_pt` | Notas de relacionamento em português |
+## Workflow
 
-### JSONB Properties (BilingualText)
-For `properties.context` and `properties.association_context`:
-```json
-{
-  "context": {
-    "en": "Context in English",
-    "pt": "Contexto em português"
-  }
-}
+### Adding a New Person/Group
+
+1. Use `/import-person` or `/import-group` slash command
+2. Two files are generated:
+   - `entities/[type]/[name].sql` - Profile INSERT
+   - `statements/[type]/[name].sql` - Relationship INSERTs (if any)
+3. Generate migration: `pnpm db:genealogy:build`
+4. Test locally: `pnpm db:genealogy:apply`
+5. Review `build/pending-migration.sql`
+6. Commit all changes
+
+### Building Migrations
+
+```bash
+# Generate migration comparing current files to deployed-state.json
+pnpm db:genealogy:build
+
+# Preview what would be generated without writing files
+pnpm db:genealogy:build:dry-run
 ```
+
+### Deploying Migrations
+
+1. Push to `develop` branch → GitHub Action applies to staging
+2. Verify staging data is correct
+3. Promote state: `mv build/pending-state.json deployed-state.json`
+4. Commit deployed-state.json
+5. Merge to `main` → GitHub Action applies to production
 
 ---
 
-## SQL Template: Person Import
+## SQL Template: Entity File (Person)
 
 ```sql
 -- ============================================================
--- GENEALOGY PERSON IMPORT: [Name]
+-- GENEALOGY PERSON: [Apelido]
 -- Generated: [Date]
--- Primary Sources:
---   - [Source URL or citation]
--- ============================================================
-
-BEGIN;
-
--- ============================================================
--- PERSON PROFILE
+-- Primary Source: [URL]
 -- ============================================================
 
 INSERT INTO genealogy.person_profiles (
@@ -96,32 +102,32 @@ INSERT INTO genealogy.person_profiles (
   bio_en,
   bio_pt,
   achievements_en,
-  achievements_pt
+  achievements_pt,
+  notes_en,
+  notes_pt
 ) VALUES (
-  -- Identity
   '[Full Name]',
   '[Apelido]',
-  '[title enum or NULL]',
+  '[title enum or NULL]'::genealogy.title,
   NULL, -- portrait URL if available
   '[{"type": "website", "url": "..."}]'::jsonb,
-  -- Capoeira-specific
-  '[style enum or NULL]',
+  '[style enum or NULL]'::genealogy.style,
   E'[Style notes in English]',
   E'[Notas de estilo em português]',
-  -- Life dates
   [year or NULL],
   '[precision]'::genealogy.date_precision,
   '[City, State, Country]',
   [year or NULL],
   '[precision]'::genealogy.date_precision,
   '[City, State, Country]',
-  -- Extended content (bilingual)
-  E'[Biography in English - use E'' for escaping single quotes]',
-  E'[Biografia em português - use E'' para escapar aspas simples]',
+  E'[Biography in English]',
+  E'[Biografia em português]',
   '[Achievements in English]',
-  '[Conquistas em português]'
+  '[Conquistas em português]',
+  E'[Researcher notes in English]',
+  E'[Notas de pesquisador em português]'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,
@@ -139,13 +145,25 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   bio_pt = EXCLUDED.bio_pt,
   achievements_en = EXCLUDED.achievements_en,
   achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
+```
 
+---
+
+## SQL Template: Statements File (Person)
+
+```sql
 -- ============================================================
--- STATEMENTS (Relationships)
+-- STATEMENTS FOR: [Apelido]
+-- Generated: [Date]
+-- ============================================================
+-- This file contains all relationships where [Apelido] is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
 -- ============================================================
 
--- Example: Person was student_of another Person
+-- [Apelido] student_of [Teacher]
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -166,154 +184,43 @@ SELECT
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = '[Subject Apelido]' AND o.apelido = '[Object Apelido]'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
--- ============================================================
--- IMPORT LOG
--- ============================================================
-
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/[filename].sql',
-  NULL,
-  ARRAY['[dependency files]'],
-  '[Brief description]'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
-COMMIT;
-
--- ============================================================
--- NOTES
--- ============================================================
---
--- [Document any uncertainties, date discrepancies, pending relationships]
---
--- ============================================================
 ```
 
 ---
 
-## SQL Template: Group Import
+## Bilingual Content Convention
 
-```sql
--- ============================================================
--- GENEALOGY GROUP IMPORT: [Name]
--- Generated: [Date]
--- Primary Sources:
---   - [Source URL or citation]
--- ============================================================
+**All narrative fields must include both English (_en) and Portuguese (_pt) versions:**
 
-BEGIN;
+### Person Profiles
+| Column | Description |
+|--------|-------------|
+| `bio_en` | Biography in English |
+| `bio_pt` | Biografia em português |
+| `achievements_en` | Achievements in English |
+| `achievements_pt` | Conquistas em português |
+| `style_notes_en` | Style notes in English |
+| `style_notes_pt` | Notas de estilo em português |
+| `notes_en` | Researcher notes in English |
+| `notes_pt` | Notas de pesquisador em português |
 
--- ============================================================
--- GROUP PROFILE
--- ============================================================
+### Group Profiles
+| Column | Description |
+|--------|-------------|
+| `description_en` | Description in English |
+| `description_pt` | Descrição em português |
+| `philosophy_en` | Philosophy in English |
+| `philosophy_pt` | Filosofia em português |
+| `history_en` | History in English |
+| `history_pt` | História em português |
+| `style_notes_en` | Style notes in English |
+| `style_notes_pt` | Notas de estilo em português |
 
-INSERT INTO genealogy.group_profiles (
-  -- Identity
-  name,
-  name_aliases,
-  logo,
-  links,
-  -- Style
-  style,
-  style_notes_en,
-  style_notes_pt,
-  -- Founding
-  founded_year,
-  founded_year_precision,
-  founded_location,
-  -- Extended content (bilingual)
-  description_en,
-  description_pt,
-  philosophy_en,
-  philosophy_pt,
-  history_en,
-  history_pt,
-  -- Status
-  is_active,
-  dissolved_at,
-  legal_structure,
-  is_headquarters
-) VALUES (
-  '[Group Name]',
-  ARRAY['[Alias 1]', '[Alias 2]'],
-  NULL, -- logo URL if available
-  '[{"type": "website", "url": "..."}]'::jsonb,
-  -- Style
-  '[style enum or NULL]',
-  E'[Style notes in English]',
-  E'[Notas de estilo em português]',
-  -- Founding
-  [year or NULL],
-  '[precision]'::genealogy.date_precision,
-  '[City, State, Country]',
-  -- Extended content (bilingual)
-  E'[Description in English]',
-  E'[Descrição em português]',
-  E'[Philosophy in English]',
-  E'[Filosofia em português]',
-  E'[History in English]',
-  E'[História em português]',
-  -- Status
-  true, -- is_active
-  NULL, -- dissolved_at
-  NULL, -- legal_structure
-  false -- is_headquarters
-)
-ON CONFLICT (name) DO UPDATE SET
-  name_aliases = EXCLUDED.name_aliases,
-  logo = EXCLUDED.logo,
-  links = EXCLUDED.links,
-  style = EXCLUDED.style,
-  style_notes_en = EXCLUDED.style_notes_en,
-  style_notes_pt = EXCLUDED.style_notes_pt,
-  founded_year = EXCLUDED.founded_year,
-  founded_year_precision = EXCLUDED.founded_year_precision,
-  founded_location = EXCLUDED.founded_location,
-  description_en = EXCLUDED.description_en,
-  description_pt = EXCLUDED.description_pt,
-  philosophy_en = EXCLUDED.philosophy_en,
-  philosophy_pt = EXCLUDED.philosophy_pt,
-  history_en = EXCLUDED.history_en,
-  history_pt = EXCLUDED.history_pt,
-  is_active = EXCLUDED.is_active,
-  dissolved_at = EXCLUDED.dissolved_at,
-  legal_structure = EXCLUDED.legal_structure,
-  is_headquarters = EXCLUDED.is_headquarters,
-  updated_at = NOW();
-
--- ============================================================
--- STATEMENTS (Relationships)
--- ============================================================
-
--- [Add relationship statements as needed]
-
--- ============================================================
--- IMPORT LOG
--- ============================================================
-
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'group',
-  'groups/[filename].sql',
-  NULL,
-  ARRAY[]::text[],
-  '[Brief description]'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
-COMMIT;
-```
+### Statements
+| Column | Description |
+|--------|-------------|
+| `notes_en` | Relationship notes in English |
+| `notes_pt` | Notas de relacionamento em português |
 
 ---
 
@@ -335,19 +242,30 @@ COMMIT;
 
 ### predicates (person-to-person)
 - `student_of` - Formal student-teacher relationship
+- `trained_under` - Historical/past training, workshops
+- `influenced_by` - Studied philosophy without direct training
 - `family_of` - Family relationship (see properties.relationship_type)
 - `baptized_by` - Received apelido from
+- `granted_title_to` - Conferred a title/rank
 - `associated_with` - Informal connection (see properties.association_context)
 
 ### predicates (person-to-group)
-- `founder_of` - Founded the group
+- `founded` - Founded the group (sole founder)
+- `co_founded` - Equal partner in founding
+- `leads` - Current primary leader
 - `member_of` - Member of the group
 - `teaches_at` - Teaches at the group
+- `regional_coordinator_of` - Coordinates a region
+- `cultural_pioneer_of` - First to bring capoeira to region/country
 - `departed_from` - Left the group (see properties.departure_type)
 
 ### predicates (group-to-group)
-- `part_of` - Branch or affiliate
+- `part_of` - Branch or affiliate (see properties.affiliation_type)
 - `split_from_group` - Separated from (see properties.split_type)
+- `merged_into` - Group merged into another
+- `evolved_from` - Major organizational transformation
+- `affiliated_with` - Formal affiliation (non-hierarchical)
+- `cooperates_with` - Regular cooperation without formal structure
 
 ---
 
@@ -357,8 +275,8 @@ COMMIT;
 
 2. **Escape single quotes**: Use `E'...'` syntax and escape single quotes as `''` (double single quote).
 
-3. **Dependencies**: List all SQL files that must be imported before this one for relationship statements to work.
+3. **Date precision**: Be explicit about uncertainty. Use `approximate` for "around 1900" and `year` for "1900".
 
-4. **Date precision**: Be explicit about uncertainty. Use `approximate` for "around 1900" and `year` for "1900".
+4. **Researcher notes**: Use `notes_en`/`notes_pt` columns for date estimation reasoning, source conflicts, and caveats.
 
-5. **Notes section**: Document uncertainties, source conflicts, and pending relationships at the end of the file.
+5. **ON CONFLICT clauses**: Entity files use upsert (DO UPDATE), statement files use idempotent insert (DO NOTHING).

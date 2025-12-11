@@ -206,27 +206,31 @@ Create a mapping table:
 
 ### Phase 4: SQL Generation & File Output
 
-Generate SQL and **write it to a file**:
+Generate SQL and **write it to TWO files**:
 
-**File path:** `docs/genealogy/sql-imports/groups/[group-name-lowercase].sql`
+**Entity file:** `docs/genealogy/sql-imports/entities/groups/[group-name-lowercase].sql`
+- Contains ONLY the group_profiles INSERT with ON CONFLICT upsert
+- No BEGIN/COMMIT wrappers
+- No statements, no import_log
+
+**Statements file:** `docs/genealogy/sql-imports/statements/groups/[group-name-lowercase].sql`
+- Contains ALL statements where this group is the SUBJECT
+- Each statement uses ON CONFLICT DO NOTHING for idempotency
+- If no relationships exist, either omit the file or create an empty one with just a header
+
+**Filename convention:**
 - Use lowercase group name with hyphens for spaces (e.g., `grupo-senzala.sql`, `abada-capoeira.sql`)
 - For acronyms, use lowercase (e.g., `gcap.sql`, `ceca.sql`)
 
-**Use the Write tool to create the SQL file.** Do not just display the SQL - actually write it to disk.
+**Use the Write tool to create BOTH SQL files.** Do not just display the SQL - actually write them to disk.
 
-Generate SQL in this format:
+#### Entity File Format
 
 ```sql
 -- ============================================================
--- GENEALOGY GROUP IMPORT: [Group Name]
+-- GENEALOGY GROUP: [Group Name]
 -- Generated: [Date]
 -- Primary Source: [URL]
--- ============================================================
-
-BEGIN;
-
--- ============================================================
--- GROUP PROFILE (all columns from genealogy.group_profiles)
 -- ============================================================
 
 INSERT INTO genealogy.group_profiles (
@@ -308,61 +312,48 @@ ON CONFLICT (name) DO UPDATE SET
   is_active = EXCLUDED.is_active,
   dissolved_at = EXCLUDED.dissolved_at,
   updated_at = NOW();
+```
 
+#### Statements File Format
+
+```sql
 -- ============================================================
--- STATEMENTS (Relationships)
--- Only generate for entities that EXIST in our dataset
--- Use ON CONFLICT DO NOTHING for idempotent sync
+-- STATEMENTS FOR: [Group Name]
+-- Generated: [Date]
+-- ============================================================
+-- This file contains all relationships where [Group Name] is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
 -- ============================================================
 
 -- --- Group-to-Group: Evolution & Hierarchy ---
--- Example: Split from parent group with date precision and bilingual notes
--- INSERT INTO genealogy.statements (
---   subject_type, subject_id,
---   predicate,
---   object_type, object_id,
---   started_at, started_at_precision,
---   properties, confidence, source,
---   notes_en, notes_pt
--- )
--- SELECT
---   'group'::genealogy.entity_type, s.id,
---   'split_from_group'::genealogy.predicate,
---   'group'::genealogy.entity_type, o.id,
---   '1980-01-01'::date, 'year'::genealogy.date_precision,
---   '{"split_type": "blessed"}'::jsonb,
---   'verified'::genealogy.confidence,
---   'Source citation',
---   'Context in English',
---   'Contexto em português'
--- FROM genealogy.group_profiles s, genealogy.group_profiles o
--- WHERE s.name = '[Subject Name]' AND o.name = '[Object Name]'
--- ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, started_at) DO NOTHING;
---
+
+-- [Group Name] split_from_group [Parent Group]
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'group'::genealogy.entity_type, s.id,
+  'split_from_group'::genealogy.predicate,
+  'group'::genealogy.entity_type, o.id,
+  '1980-01-01'::date, 'year'::genealogy.date_precision,
+  '{"split_type": "blessed"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Source citation',
+  'Context in English',
+  'Contexto em português'
+FROM genealogy.group_profiles s, genealogy.group_profiles o
+WHERE s.name = '[Subject Name]' AND o.name = '[Object Name]'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- Date precision values: exact, month, year, decade, approximate, unknown
 -- IMPORTANT: notes_en and notes_pt should both be provided for bilingual support
 
 -- --- Group-to-Group: Affiliation ---
-
--- ============================================================
--- IMPORT LOG
--- ============================================================
-
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'group',
-  'groups/[group-name-lowercase].sql',
-  NULL,  -- Checksum computed by sync script
-  ARRAY['groups/dependency1.sql'],  -- List dependencies or ARRAY[]::text[] if none
-  '[Brief description of this group]'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
-COMMIT;
 ```
 
 **Important Rules:**
@@ -402,8 +393,9 @@ Present your findings in this structure:
 [Predicate mapping table - focus on group-to-group]
 
 ## Generated SQL
-**ACTION: Write SQL to `docs/genealogy/sql-imports/groups/[group-name-lowercase].sql` using the Write tool**
-[Show the complete SQL block here AND write it to file]
+**ACTION: Write entity SQL to `docs/genealogy/sql-imports/entities/groups/[group-name-lowercase].sql`**
+**ACTION: Write statements SQL to `docs/genealogy/sql-imports/statements/groups/[group-name-lowercase].sql`**
+[Show the complete SQL blocks here AND write them to files]
 
 ## Notes & Uncertainties
 [Any conflicting information, gaps, questions]
@@ -525,9 +517,14 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, starte
 
 After completing research and generating the report, you MUST perform these file operations:
 
-1. **Write SQL file**: Use the Write tool to create `docs/genealogy/sql-imports/groups/[group-name-lowercase].sql`
+1. **Write entity SQL file**: Use the Write tool to create `docs/genealogy/sql-imports/entities/groups/[group-name-lowercase].sql`
+   - Contains ONLY the group_profiles INSERT with ON CONFLICT upsert
 
-2. **Create/Update group report file**: Write comprehensive research to `docs/genealogy/group-reports/[group-name-lowercase].md`
+2. **Write statements SQL file**: Use the Write tool to create `docs/genealogy/sql-imports/statements/groups/[group-name-lowercase].sql`
+   - Contains ALL statements where this group is the subject
+   - If no relationships exist, either omit the file or create an empty one with header only
+
+3. **Create/Update group report file**: Write comprehensive research to `docs/genealogy/group-reports/[group-name-lowercase].md`
    - Use lowercase with hyphens for spaces (e.g., `grupo-senzala.md`, `abada-capoeira.md`)
    - For acronyms, use lowercase (e.g., `gcap.md`, `ceca.md`)
    - Follow the template in `docs/genealogy/group-reports/README.md`
@@ -539,11 +536,11 @@ After completing research and generating the report, you MUST perform these file
    - Reference the SQL import file path
    - If file already exists, UPDATE it with new research (preserve existing content, add new findings)
 
-3. **Update persons backlog**: If any persons were discovered with status `no`, append them to `docs/genealogy/import-backlog/persons-backlog.md`
+4. **Update persons backlog**: If any persons were discovered with status `no`, append them to `docs/genealogy/import-backlog/persons-backlog.md`
 
-4. **Update groups backlog**: If any groups were discovered with status `no`, append them to `docs/genealogy/import-backlog/groups-backlog.md`
+5. **Update groups backlog**: If any groups were discovered with status `no`, append them to `docs/genealogy/import-backlog/groups-backlog.md`
 
-**Failure to write the SQL file AND the group report file is a critical error. Both MUST be saved to disk.**
+**Failure to write the SQL files AND the group report file is a critical error. ALL must be saved to disk.**
 
 ---
 
@@ -552,13 +549,14 @@ After completing research and generating the report, you MUST perform these file
 **After completing all file writes, you MUST verify consistency between your console summary and the written files.**
 
 1. **Read back the written files**: Use the Read tool to re-read:
-   - `docs/genealogy/sql-imports/groups/[group-name-lowercase].sql`
+   - `docs/genealogy/sql-imports/entities/groups/[group-name-lowercase].sql`
+   - `docs/genealogy/sql-imports/statements/groups/[group-name-lowercase].sql` (if created)
    - `docs/genealogy/group-reports/[group-name-lowercase].md`
 
 2. **Cross-check Sources**: Compare the "Sources" section in your console summary against:
    - The `## Sources / Fontes` section in the .md file
-   - The `links` JSONB in the SQL file
-   - **Every source in the summary must appear in both written files**
+   - The `links` JSONB in the entity SQL file
+   - **Every source in the summary must appear in the written files**
 
 3. **Cross-check Discovered Entities**: Verify that all persons/groups listed in your summary's "Discovered Persons/Groups" tables were actually added to the backlogs.
 

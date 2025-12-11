@@ -329,27 +329,31 @@ Create a mapping table with an additional **Import?** column to track whether th
 
 ### Phase 4: SQL Generation & File Output
 
-Generate SQL and **write it to a file**:
+Generate SQL and **write it to TWO files**:
 
-**File path:** `docs/genealogy/sql-imports/persons/[apelido-lowercase].sql`
+**Entity file:** `docs/genealogy/sql-imports/entities/persons/[apelido-lowercase].sql`
+- Contains ONLY the person_profiles INSERT with ON CONFLICT upsert
+- No BEGIN/COMMIT wrappers
+- No statements, no import_log
+
+**Statements file:** `docs/genealogy/sql-imports/statements/persons/[apelido-lowercase].sql`
+- Contains ALL statements where this person is the SUBJECT
+- Each statement uses ON CONFLICT DO NOTHING for idempotency
+- If no relationships exist, either omit the file or create an empty one with just a header
+
+**Filename convention:**
 - Use lowercase apelido with hyphens for spaces (e.g., `joao-grande.sql`, `cobrinha-verde.sql`)
 - For single-name historical figures, just use the name (e.g., `adao.sql`, `benedito.sql`)
 
-**Use the Write tool to create the SQL file.** Do not just display the SQL - actually write it to disk.
+**Use the Write tool to create BOTH SQL files.** Do not just display the SQL - actually write them to disk.
 
-Generate SQL in this format:
+#### Entity File Format
 
 ```sql
 -- ============================================================
--- GENEALOGY PERSON IMPORT: [Apelido]
+-- GENEALOGY PERSON: [Apelido]
 -- Generated: [Date]
 -- Primary Source: [URL]
--- ============================================================
-
-BEGIN;
-
--- ============================================================
--- PERSON PROFILE (all columns from genealogy.person_profiles)
 -- ============================================================
 
 INSERT INTO genealogy.person_profiles (
@@ -405,7 +409,7 @@ INSERT INTO genealogy.person_profiles (
   E'[Notes in English or NULL - birth year estimates, source conflicts, caveats]',
   E'[Notas em português or NULL - estimativas de datas, conflitos de fontes, ressalvas]'
 )
-ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
   portrait = EXCLUDED.portrait,
@@ -426,39 +430,46 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
   notes_en = EXCLUDED.notes_en,
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
+```
 
+#### Statements File Format
+
+```sql
 -- ============================================================
--- STATEMENTS (Relationships)
--- Only generate for entities that EXIST in our dataset
--- Use ON CONFLICT DO NOTHING for idempotent sync
+-- STATEMENTS FOR: [Apelido]
+-- Generated: [Date]
+-- ============================================================
+-- This file contains all relationships where [Apelido] is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
 -- ============================================================
 
 -- --- Person-to-Person: Training & Lineage ---
--- Example with date precision columns and bilingual notes:
--- INSERT INTO genealogy.statements (
---   subject_type, subject_id,
---   predicate,
---   object_type, object_id,
---   started_at, started_at_precision,
---   ended_at, ended_at_precision,
---   properties, confidence, source,
---   notes_en, notes_pt
--- )
--- SELECT
---   'person'::genealogy.entity_type, s.id,
---   'student_of'::genealogy.predicate,
---   'person'::genealogy.entity_type, o.id,
---   '1908-01-01'::date, 'year'::genealogy.date_precision,  -- Year-level precision
---   '1924-07-08'::date, 'exact'::genealogy.date_precision, -- Exact date known
---   '{}'::jsonb,
---   'verified'::genealogy.confidence,
---   'Source citation here',
---   'Relationship context in English',
---   'Contexto do relacionamento em português'
--- FROM genealogy.person_profiles s, genealogy.person_profiles o
--- WHERE s.apelido = '[Subject Apelido]' AND o.apelido = '[Object Apelido]'
--- ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
---
+
+-- [Apelido] student_of [Teacher]
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1908-01-01'::date, 'year'::genealogy.date_precision,
+  '1924-07-08'::date, 'exact'::genealogy.date_precision,
+  '{}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Source citation here',
+  'Relationship context in English',
+  'Contexto do relacionamento em português'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = '[Subject Apelido]' AND o.apelido = '[Object Apelido]'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- IMPORTANT: The COALESCE expression is REQUIRED because the unique index uses it to handle NULL started_at values
 -- (PostgreSQL treats NULL != NULL, so without COALESCE the conflict detection would fail for NULL dates)
 --
@@ -473,26 +484,6 @@ ON CONFLICT (apelido) WHERE apelido IS NOT NULL DO UPDATE SET
 -- (Only if the group exists in dataset)
 
 -- --- Person-to-Group: Membership & Affiliation ---
-
--- ============================================================
--- IMPORT LOG
--- ============================================================
-
-INSERT INTO genealogy.import_log (entity_type, file_path, checksum, dependencies, notes)
-VALUES (
-  'person',
-  'persons/[apelido-lowercase].sql',
-  NULL,  -- Checksum computed by sync script
-  ARRAY['persons/dependency1.sql', 'persons/dependency2.sql'],  -- List dependencies or ARRAY[]::text[] if none
-  '[Brief description of who this person is]'
-)
-ON CONFLICT (entity_type, file_path) DO UPDATE SET
-  imported_at = NOW(),
-  checksum = EXCLUDED.checksum,
-  dependencies = EXCLUDED.dependencies,
-  notes = EXCLUDED.notes;
-
-COMMIT;
 ```
 
 **Important Rules:**
@@ -534,8 +525,9 @@ Present your findings in this structure:
 [Predicate mapping table]
 
 ## Generated SQL
-**ACTION: Write SQL to `docs/genealogy/sql-imports/persons/[apelido-lowercase].sql` using the Write tool**
-[Show the complete SQL block here AND write it to file]
+**ACTION: Write entity SQL to `docs/genealogy/sql-imports/entities/persons/[apelido-lowercase].sql`**
+**ACTION: Write statements SQL to `docs/genealogy/sql-imports/statements/persons/[apelido-lowercase].sql`**
+[Show the complete SQL blocks here AND write them to files]
 
 ## Notes & Uncertainties
 [Any conflicting information, gaps, questions]
@@ -672,9 +664,14 @@ Also document in the person report's "Date Discrepancies" section for easy refer
 
 After completing research and generating the report, you MUST perform these file operations:
 
-1. **Write SQL file**: Use the Write tool to create `docs/genealogy/sql-imports/persons/[apelido-lowercase].sql`
+1. **Write entity SQL file**: Use the Write tool to create `docs/genealogy/sql-imports/entities/persons/[apelido-lowercase].sql`
+   - Contains ONLY the person_profiles INSERT with ON CONFLICT upsert
 
-2. **Create/Update person report file**: Write comprehensive research to `docs/genealogy/person-reports/[name-lowercase].md`
+2. **Write statements SQL file**: Use the Write tool to create `docs/genealogy/sql-imports/statements/persons/[apelido-lowercase].sql`
+   - Contains ALL statements where this person is the subject
+   - If no relationships exist, either omit the file or create an empty one with header only
+
+3. **Create/Update person report file**: Write comprehensive research to `docs/genealogy/person-reports/[name-lowercase].md`
    - Use lowercase with hyphens for spaces (e.g., `joao-grande.md`, `cobrinha-verde.md`)
    - Follow the template in `docs/genealogy/person-reports/README.md`
    - **CRITICAL: The .md file must be BILINGUAL (EN/PT) just like the SQL file**
@@ -685,18 +682,18 @@ After completing research and generating the report, you MUST perform these file
    - Reference the SQL import file path
    - If file already exists, UPDATE it with new research (preserve existing content, add new findings)
 
-3. **Update persons backlog**: Append discovered persons with `Import? = yes` or `Import? = ?` to `docs/genealogy/import-backlog/persons-backlog.md`
+4. **Update persons backlog**: Append discovered persons with `Import? = yes` or `Import? = ?` to `docs/genealogy/import-backlog/persons-backlog.md`
    - Use the backlog table format with these columns: `Apelido | Full Name | Title | Discovered From | Status | Import | Notes`
    - Set `Status` to `pending` for new entries
    - Set `Import` column: `yes` or `?` based on whether they're a capoeirista
    - **Do NOT add persons with `Import? = no`** - they don't belong in the genealogy
 
-4. **Update groups backlog**: Append discovered groups with `Import? = yes` or `Import? = ?` to `docs/genealogy/import-backlog/groups-backlog.md`
+5. **Update groups backlog**: Append discovered groups with `Import? = yes` or `Import? = ?` to `docs/genealogy/import-backlog/groups-backlog.md`
    - **Do NOT add groups with `Import? = no`** (street gangs, political parties, non-capoeira organizations)
 
 **Key principle:** The backlogs track capoeira entities pending import. Non-capoeira entities (Import? = no) should not be added - they are simply not part of the genealogy data model.
 
-**Failure to write the SQL file AND the person report file is a critical error. Both MUST be saved to disk.**
+**Failure to write the SQL files AND the person report file is a critical error. ALL must be saved to disk.**
 
 ---
 
@@ -705,13 +702,14 @@ After completing research and generating the report, you MUST perform these file
 **After completing all file writes, you MUST verify consistency between your console summary and the written files.**
 
 1. **Read back the written files**: Use the Read tool to re-read:
-   - `docs/genealogy/sql-imports/persons/[apelido-lowercase].sql`
+   - `docs/genealogy/sql-imports/entities/persons/[apelido-lowercase].sql`
+   - `docs/genealogy/sql-imports/statements/persons/[apelido-lowercase].sql` (if created)
    - `docs/genealogy/person-reports/[name-lowercase].md`
 
 2. **Cross-check Sources**: Compare the "Sources" section in your console summary against:
    - The `## Sources / Fontes` section in the .md file
-   - The `public_links` JSONB in the SQL file
-   - **Every source in the summary must appear in both written files**
+   - The `public_links` JSONB in the entity SQL file
+   - **Every source in the summary must appear in the written files**
 
 3. **Cross-check Discovered Entities**: Verify that all persons/groups listed in your summary's "Discovered Persons/Groups" tables were actually added to the backlogs.
 
