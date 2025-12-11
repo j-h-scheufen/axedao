@@ -1,0 +1,1717 @@
+{
+  "deployedAt": "",
+  "commit": null,
+  "files": {
+    "persons/aberre.sql": {
+      "fileChecksum": "31007b32c6344358f61bb9a9e20c35de",
+      "entityChecksum": "341d833abdbbdc39314102a03cf39646",
+      "entityType": "person",
+      "identifier": "Aberrê",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Aberrê",
+          "predicate": "co_founded",
+          "objectType": "group",
+          "objectApelido": "Gengibirra",
+          "startedAt": "1920-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Aberrê",
+          "predicate": "member_of",
+          "objectType": "group",
+          "objectApelido": "Roda do Matatu Preto",
+          "startedAt": "1930-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Aberrê",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Onça Preta",
+          "startedAt": "1930-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Aberrê",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Geraldo Chapeleiro",
+          "startedAt": "1930-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Aberrê",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Totonho de Maré",
+          "startedAt": "1930-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Aberrê",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Creoni",
+          "startedAt": "1930-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Aberrê",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Chico Três Pedaços",
+          "startedAt": "1930-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Aberrê",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Paulo Barroquinha",
+          "startedAt": "1930-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Aberrê",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Barboza",
+          "startedAt": "1930-01-01"
+        }
+      ]
+    },
+    "persons/adama.sql": {
+      "fileChecksum": "138938910634747b73d813b5786b0056",
+      "entityChecksum": "6277b510e948632a67131587f97484e8",
+      "entityType": "person",
+      "identifier": "Adama",
+      "statements": []
+    },
+    "persons/adao.sql": {
+      "fileChecksum": "0d0ee5318ed7691de644ffdac9551364",
+      "entityChecksum": "651b44351c3002deca12082d28dd6875",
+      "entityType": "person",
+      "identifier": "Adão",
+      "statements": []
+    },
+    "persons/aleixo-acougueiro.sql": {
+      "fileChecksum": "8eb0238b7935084d87516d4325d7ea23",
+      "entityChecksum": "ec64b839e54bf3df1e59d7b00a1b9ce9",
+      "entityType": "person",
+      "identifier": "Aleixo Açougueiro",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Aleixo Açougueiro",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Manduca da Praia",
+          "startedAt": "1850-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Aleixo Açougueiro",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Mamede",
+          "startedAt": "1850-01-01"
+        }
+      ]
+    },
+    "persons/alemaozinho.sql": {
+      "fileChecksum": "0706df022064c62ccfa8121320d26121",
+      "entityChecksum": "0337c440d24da84c3e0171dd03a8e601",
+      "entityType": "person",
+      "identifier": "Alemãozinho",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Alemãozinho",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Pinta Preta da Lapa",
+          "startedAt": "1870-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Alemãozinho",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Jacó",
+          "startedAt": "1870-01-01"
+        }
+      ]
+    },
+    "persons/amorzinho.sql": {
+      "fileChecksum": "c3b5b202388330751acacd28cf463277",
+      "entityChecksum": "05659504d37bdf5405f920a51c3fc02b",
+      "entityType": "person",
+      "identifier": "Amorzinho",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Amorzinho",
+          "predicate": "co_founded",
+          "objectType": "group",
+          "objectApelido": "Gengibirra",
+          "startedAt": "1920-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Amorzinho",
+          "predicate": "leads",
+          "objectType": "group",
+          "objectApelido": "Gengibirra",
+          "startedAt": "1920-01-01"
+        }
+      ]
+    },
+    "persons/antonio-de-noronha.sql": {
+      "fileChecksum": "fa53a539efeb2fe4902e327cb80a4bfd",
+      "entityChecksum": "87f08e3523adc735e99bea88f8f14cbc",
+      "entityType": "person",
+      "identifier": "Antônio de Noronha",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Aberrê",
+          "predicate": "student_of",
+          "objectType": "person",
+          "objectApelido": "Antônio de Noronha",
+          "startedAt": "1910-01-01"
+        }
+      ]
+    },
+    "persons/antonio-padroeiro.sql": {
+      "fileChecksum": "8c1b1798196267564d3fb844c8b7b409",
+      "entityChecksum": "7b6fbe719b0e9d7e7b7d7b5173595073",
+      "entityType": "person",
+      "identifier": "Antonio Padroeiro",
+      "statements": []
+    },
+    "persons/atenilo.sql": {
+      "fileChecksum": "6ea15ee5f216a86155981091625c851f",
+      "entityChecksum": "d0dce7193eb197046b519aac6004939c",
+      "entityType": "person",
+      "identifier": "Atenilo",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Atenilo",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Neco Canário Pardo",
+          "startedAt": null
+        }
+      ]
+    },
+    "persons/barboza.sql": {
+      "fileChecksum": "bc0d2703b805fd89b0e6fae90296cfb5",
+      "entityChecksum": "dd429b91aa97863999b757057bba19a0",
+      "entityType": "person",
+      "identifier": "Barboza",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Barboza",
+          "predicate": "member_of",
+          "objectType": "group",
+          "objectApelido": "Roda do Matatu Preto",
+          "startedAt": "1930-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Barboza",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Aberrê",
+          "startedAt": "1930-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Barboza",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Onça Preta",
+          "startedAt": "1930-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Barboza",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Paulo Barroquinha",
+          "startedAt": "1930-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Barboza",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Totonho de Maré",
+          "startedAt": "1930-01-01"
+        }
+      ]
+    },
+    "persons/benedito.sql": {
+      "fileChecksum": "09ba001d2292a10142ff188eb8a985d3",
+      "entityChecksum": "3591ebe4eb42c203890bedd43a1d126e",
+      "entityType": "person",
+      "identifier": "Benedito",
+      "statements": []
+    },
+    "persons/bentevi.sql": {
+      "fileChecksum": "04b09c78c28adda3c64047ef0a22f38c",
+      "entityChecksum": "1e945070d5a49328e77045db44d4264a",
+      "entityType": "person",
+      "identifier": "Bentevi",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Bentevi",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Manduca da Praia",
+          "startedAt": "1850-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Bentevi",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Mamede",
+          "startedAt": "1850-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Bentevi",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Aleixo Açougueiro",
+          "startedAt": "1850-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Bentevi",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Pedro Cobra",
+          "startedAt": "1850-01-01"
+        }
+      ]
+    },
+    "persons/bentinho.sql": {
+      "fileChecksum": "e72ed029b81e8a1dc3bafabd6ab9ad82",
+      "entityChecksum": "a34790e54f3994e30a3a38353653cb3e",
+      "entityType": "person",
+      "identifier": "Bentinho",
+      "statements": []
+    },
+    "persons/besourinho.sql": {
+      "fileChecksum": "981633fe9ddcc52c309519e91bc0d6c5",
+      "entityChecksum": "00a3196bc58bedb87b669362f0ec655c",
+      "entityType": "person",
+      "identifier": "Besourinho",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Onça Preta",
+          "predicate": "student_of",
+          "objectType": "person",
+          "objectApelido": "Besourinho",
+          "startedAt": "1915-01-01"
+        }
+      ]
+    },
+    "persons/besouro-manganga.sql": {
+      "fileChecksum": "518e85dfcef225484c921d75ea111feb",
+      "entityChecksum": "7afa59a670a31a02a359ec3c3dad92db",
+      "entityType": "person",
+      "identifier": "Besouro Mangangá",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Besouro Mangangá",
+          "predicate": "student_of",
+          "objectType": "person",
+          "objectApelido": "Tio Alípio",
+          "startedAt": "1908-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Besouro Mangangá",
+          "predicate": "member_of",
+          "objectType": "group",
+          "objectApelido": "Roda de Trapiche de Baixo",
+          "startedAt": "1908-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Besouro Mangangá",
+          "predicate": "teaches_at",
+          "objectType": "group",
+          "objectApelido": "Roda de Trapiche de Baixo",
+          "startedAt": "1912-01-01"
+        }
+      ]
+    },
+    "persons/bimba.sql": {
+      "fileChecksum": "e7a16254681d2488e50a6ef4c03aaad8",
+      "entityChecksum": "29c3fcb2242f98fe0e349e5b25377280",
+      "entityType": "person",
+      "identifier": "Bimba",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Bimba",
+          "predicate": "student_of",
+          "objectType": "person",
+          "objectApelido": "Bentinho",
+          "startedAt": "1911-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Bimba",
+          "predicate": "trained_under",
+          "objectType": "person",
+          "objectApelido": "Cobrinha Verde",
+          "startedAt": "1935-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Atenilo",
+          "predicate": "student_of",
+          "objectType": "person",
+          "objectApelido": "Bimba",
+          "startedAt": "1929-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Bimba",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Besouro Mangangá",
+          "startedAt": "1911-01-01"
+        }
+      ]
+    },
+    "persons/boca-de-siri.sql": {
+      "fileChecksum": "17269f2d4aac6ff5cdd027400af9630a",
+      "entityChecksum": "c563c4537c496b989781252b424abeb0",
+      "entityType": "person",
+      "identifier": "Boca de Siri",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Boca de Siri",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Besouro Mangangá",
+          "startedAt": "1910-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Boca de Siri",
+          "predicate": "member_of",
+          "objectType": "group",
+          "objectApelido": "Roda de Trapiche de Baixo",
+          "startedAt": "1910-01-01"
+        }
+      ]
+    },
+    "persons/candido-pequeno.sql": {
+      "fileChecksum": "ec9e7970c1d95666bce471a4589866d0",
+      "entityChecksum": "c53f496e7991d0e09333282fa6c2e0df",
+      "entityType": "person",
+      "identifier": "Cândido Pequeno",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Cândido Pequeno",
+          "predicate": "co_founded",
+          "objectType": "group",
+          "objectApelido": "Gengibirra",
+          "startedAt": "1920-01-01"
+        }
+      ]
+    },
+    "persons/cesar-maneta.sql": {
+      "fileChecksum": "9e7578a384a1a41f4da74a70518794cd",
+      "entityChecksum": "7cf96ad0a2e5f690177a9d1d25df4a6a",
+      "entityType": "person",
+      "identifier": "César-Maneta",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "César-Maneta",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Alemãozinho",
+          "startedAt": "1870-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "César-Maneta",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Jacó",
+          "startedAt": "1870-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "César-Maneta",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Pinta Preta da Lapa",
+          "startedAt": "1870-01-01"
+        }
+      ]
+    },
+    "persons/chico-tres-pedacos.sql": {
+      "fileChecksum": "74c489959a6c90004775d7e131dfeae5",
+      "entityChecksum": "c74405cf89e4399b6ac3148bd9b9c9c4",
+      "entityType": "person",
+      "identifier": "Chico Três Pedaços",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Chico Três Pedaços",
+          "predicate": "member_of",
+          "objectType": "group",
+          "objectApelido": "Roda do Matatu Preto",
+          "startedAt": "1930-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Chico Três Pedaços",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Aberrê",
+          "startedAt": "1935-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Chico Três Pedaços",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Geraldo Chapeleiro",
+          "startedAt": "1935-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Chico Três Pedaços",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Onça Preta",
+          "startedAt": "1935-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Chico Três Pedaços",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Paulo Barroquinha",
+          "startedAt": "1935-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Chico Três Pedaços",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Creoni",
+          "startedAt": "1935-01-01"
+        }
+      ]
+    },
+    "persons/cirandinha.sql": {
+      "fileChecksum": "497c4867deff947e8b62584297c4de70",
+      "entityChecksum": "9ae29a46218d0dd3e7aff308d22acc6a",
+      "entityType": "person",
+      "identifier": "Cirandinha",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Cirandinha",
+          "predicate": "student_of",
+          "objectType": "person",
+          "objectApelido": "Sinhozinho",
+          "startedAt": null
+        }
+      ]
+    },
+    "persons/cobrinha-verde.sql": {
+      "fileChecksum": "3fc604dd62afa11f6b2e174c2202ebab",
+      "entityChecksum": "091cef89a0f9c4d3ba2de8a30beac34e",
+      "entityType": "person",
+      "identifier": "Cobrinha Verde",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Cobrinha Verde",
+          "predicate": "student_of",
+          "objectType": "person",
+          "objectApelido": "Besouro Mangangá",
+          "startedAt": "1916-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Cobrinha Verde",
+          "predicate": "family_of",
+          "objectType": "person",
+          "objectApelido": "Besouro Mangangá",
+          "startedAt": null
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Cobrinha Verde",
+          "predicate": "baptized_by",
+          "objectType": "person",
+          "objectApelido": "Besouro Mangangá",
+          "startedAt": "1916-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Cobrinha Verde",
+          "predicate": "member_of",
+          "objectType": "group",
+          "objectApelido": "Roda de Trapiche de Baixo",
+          "startedAt": "1916-01-01"
+        }
+      ]
+    },
+    "persons/corre-hoje.sql": {
+      "fileChecksum": "18554b3a177fb5260470ad0fe5025999",
+      "entityChecksum": "046e864849175b489125c2fdeb0cf196",
+      "entityType": "person",
+      "identifier": "Corre Hoje",
+      "statements": []
+    },
+    "persons/creoni.sql": {
+      "fileChecksum": "452666dad6fddfed0d06eb450a92c388",
+      "entityChecksum": "1b55bdaf9d0cf94de137279cc45c6415",
+      "entityType": "person",
+      "identifier": "Creoni",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Creoni",
+          "predicate": "member_of",
+          "objectType": "group",
+          "objectApelido": "Roda do Matatu Preto",
+          "startedAt": "1930-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Creoni",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Aberrê",
+          "startedAt": "1935-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Creoni",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Geraldo Chapeleiro",
+          "startedAt": "1935-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Creoni",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Onça Preta",
+          "startedAt": "1935-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Creoni",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Paulo Barroquinha",
+          "startedAt": "1935-01-01"
+        }
+      ]
+    },
+    "persons/cyriaco.sql": {
+      "fileChecksum": "86ecd257a8f36083ab23e4a907c884a0",
+      "entityChecksum": "e9ba9f32c4a7d0cbd728c220b493b0c9",
+      "entityType": "person",
+      "identifier": "Cyriaco",
+      "statements": []
+    },
+    "persons/doze-homens.sql": {
+      "fileChecksum": "b269cf93ae88a93f0e1f4abe094d862a",
+      "entityChecksum": "f68817e04bd3d93db86a44369bcd2ca8",
+      "entityType": "person",
+      "identifier": "Doze Homens",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Doze Homens",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Besouro Mangangá",
+          "startedAt": "1910-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Doze Homens",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Besourinho",
+          "startedAt": "1920-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Doze Homens",
+          "predicate": "member_of",
+          "objectType": "group",
+          "objectApelido": "Roda de Trapiche de Baixo",
+          "startedAt": "1910-01-01"
+        }
+      ]
+    },
+    "persons/eleuterio-de-souza.sql": {
+      "fileChecksum": "65c974db17b226cd66df7e2fa0497258",
+      "entityChecksum": "cc6555e802e5af42f8b4e2453d4f5465",
+      "entityType": "person",
+      "identifier": "Eleutério de Souza",
+      "statements": []
+    },
+    "persons/formigao.sql": {
+      "fileChecksum": "eeebdcba9957b9e0f14d99c5279fa805",
+      "entityChecksum": "1c8044c001fc83148c84cc628e1f51b9",
+      "entityType": "person",
+      "identifier": "Formigão",
+      "statements": []
+    },
+    "persons/gasolina.sql": {
+      "fileChecksum": "2ef975bd79f25ee90d907e2f0bfb1fc8",
+      "entityChecksum": "abf06d95c35c8df5ff61b01afa8478bd",
+      "entityType": "person",
+      "identifier": "Gasolina",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Onça Preta",
+          "predicate": "student_of",
+          "objectType": "person",
+          "objectApelido": "Gasolina",
+          "startedAt": "1915-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Cobrinha Verde",
+          "predicate": "trained_under",
+          "objectType": "person",
+          "objectApelido": "Gasolina",
+          "startedAt": "1924-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Gasolina",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Besouro Mangangá",
+          "startedAt": "1910-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Gasolina",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Siri de Mangue",
+          "startedAt": "1910-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Gasolina",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Doze Homens",
+          "startedAt": "1910-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Gasolina",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Neco Canário Pardo",
+          "startedAt": "1910-01-01"
+        }
+      ]
+    },
+    "persons/geraldo-chapeleiro.sql": {
+      "fileChecksum": "d5ff54bf2b5188a346efc6ac304b5ded",
+      "entityChecksum": "9cfbce994dc59c61ed1ea2a93680a1d3",
+      "entityType": "person",
+      "identifier": "Geraldo Chapeleiro",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Geraldo Chapeleiro",
+          "predicate": "co_founded",
+          "objectType": "group",
+          "objectApelido": "Gengibirra",
+          "startedAt": "1920-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Geraldo Chapeleiro",
+          "predicate": "member_of",
+          "objectType": "group",
+          "objectApelido": "Roda do Matatu Preto",
+          "startedAt": "1930-01-01"
+        }
+      ]
+    },
+    "persons/jaco.sql": {
+      "fileChecksum": "ab90f57d2b45a2841cb4fa9cdbfd6e24",
+      "entityChecksum": "edbe256841893e53d7816b129f69bfca",
+      "entityType": "person",
+      "identifier": "Jacó (Caboclo Jacó)",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Jacó",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Pinta Preta da Lapa",
+          "startedAt": "1870-01-01"
+        }
+      ]
+    },
+    "persons/joao-lagalhe.sql": {
+      "fileChecksum": "a26973c25b1336ad5da4a7f89b5dfa65",
+      "entityChecksum": "1afa78f1d9e11146a47da6753cdf979a",
+      "entityType": "person",
+      "identifier": "João-Lagalhé",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "João-Lagalhé",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "César-Maneta",
+          "startedAt": "1870-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "João-Lagalhé",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Alemãozinho",
+          "startedAt": "1870-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "João-Lagalhé",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Jacó",
+          "startedAt": "1870-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "João-Lagalhé",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Pinta Preta da Lapa",
+          "startedAt": "1870-01-01"
+        }
+      ]
+    },
+    "persons/joao-sabe-tudo.sql": {
+      "fileChecksum": "56af452e4668857194cf206283912c6e",
+      "entityChecksum": "5ed750918847908c95e580ef41f34969",
+      "entityType": "person",
+      "identifier": "João Sabe Tudo",
+      "statements": []
+    },
+    "persons/leao-do-norte.sql": {
+      "fileChecksum": "64284dcdf9e12fdc354249aa8bca19c4",
+      "entityChecksum": "34daf3f1f8a6d9d9235a5777380ae5f5",
+      "entityType": "person",
+      "identifier": "Leão do Norte",
+      "statements": []
+    },
+    "persons/livino.sql": {
+      "fileChecksum": "31c68867f0d3a8a3771f50e2b31350f4",
+      "entityChecksum": "51c24e5b1492bed295511de896614838",
+      "entityType": "person",
+      "identifier": "Livino",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Livino",
+          "predicate": "co_founded",
+          "objectType": "group",
+          "objectApelido": "Gengibirra",
+          "startedAt": "1920-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Livino",
+          "predicate": "leads",
+          "objectType": "group",
+          "objectApelido": "Gengibirra",
+          "startedAt": "1920-01-01"
+        }
+      ]
+    },
+    "persons/luiz-candido-machado.sql": {
+      "fileChecksum": "cd736b882714debaf20ed90acd9e2ccc",
+      "entityChecksum": "3ac0deacb7fce51f37b396aeb5821696",
+      "entityType": "person",
+      "identifier": "Luiz Cândido Machado",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Bimba",
+          "predicate": "trained_under",
+          "objectType": "person",
+          "objectApelido": "Luiz Cândido Machado",
+          "startedAt": null
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Bimba",
+          "predicate": "family_of",
+          "objectType": "person",
+          "objectApelido": "Luiz Cândido Machado",
+          "startedAt": "1899-11-23"
+        }
+      ]
+    },
+    "persons/madame-sata.sql": {
+      "fileChecksum": "c48d22323e3758d42cae946b1b494296",
+      "entityChecksum": "b648280a7fa58986cfbf0f97a709d9b7",
+      "entityType": "person",
+      "identifier": "Madame Satã",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Madame Satã",
+          "predicate": "student_of",
+          "objectType": "person",
+          "objectApelido": "Sete Coroas",
+          "startedAt": "1909-01-01"
+        }
+      ]
+    },
+    "persons/major-vidigal.sql": {
+      "fileChecksum": "48653283ed22031aa69e046d622a6e91",
+      "entityChecksum": "d78b3464134071dedd6610135ff38f41",
+      "entityType": "person",
+      "identifier": "Major Vidigal",
+      "statements": []
+    },
+    "persons/mamede.sql": {
+      "fileChecksum": "ccde5a18809c438f16580c17e98a9ad5",
+      "entityChecksum": "ef0bd04f8f52261f12e66d3b369230b1",
+      "entityType": "person",
+      "identifier": "Mamede",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Mamede",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Manduca da Praia",
+          "startedAt": "1850-01-01"
+        }
+      ]
+    },
+    "persons/manduca-da-praia.sql": {
+      "fileChecksum": "7a7d2a9668baaa3a7d3c10abce1b4f17",
+      "entityChecksum": "02f8ec9bd16ca56147d23ee42ec2bb1c",
+      "entityType": "person",
+      "identifier": "Manduca da Praia",
+      "statements": []
+    },
+    "persons/manezinho-camisa-preta.sql": {
+      "fileChecksum": "73023fadbf3428c212e85bb3f1a843bf",
+      "entityChecksum": "7b6a412c963da6e0d7db532db28156c7",
+      "entityType": "person",
+      "identifier": "Manezinho Camisa Preta",
+      "statements": []
+    },
+    "persons/maria-doze-homens.sql": {
+      "fileChecksum": "3c3cc19ce647f3e64abcd5172ad69142",
+      "entityChecksum": "cba1949c75ed3811ea66c0fbfc02b6fc",
+      "entityType": "person",
+      "identifier": "Maria Doze Homens",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Maria Doze Homens",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Besouro Mangangá",
+          "startedAt": "1915-01-01"
+        }
+      ]
+    },
+    "persons/miguel-camisa-preta.sql": {
+      "fileChecksum": "506cdfc28b04826304769e4aef43ccb5",
+      "entityChecksum": "4e111d4cabb9f3f2e9c41cd83ea82265",
+      "entityType": "person",
+      "identifier": "Miguel Camisa Preta",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Miguel Camisa Preta",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Leão do Norte",
+          "startedAt": "1911-01-01"
+        }
+      ]
+    },
+    "persons/nascimento-grande.sql": {
+      "fileChecksum": "991af34f323882e4d68813a99cc0cdd6",
+      "entityChecksum": "b0fc43cb18f023f2283136565c7dbd86",
+      "entityType": "person",
+      "identifier": "Nascimento Grande",
+      "statements": []
+    },
+    "persons/neco-canario-pardo.sql": {
+      "fileChecksum": "286fabf6191a401697184e6dd4ae1b51",
+      "entityChecksum": "adb4435e74301b0ef5d87c4f23f07ef9",
+      "entityType": "person",
+      "identifier": "Neco Canário Pardo",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Neco Canário Pardo",
+          "predicate": "unknown",
+          "objectType": "person",
+          "objectApelido": "Besouro Mangangá",
+          "startedAt": null
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Neco Canário Pardo",
+          "predicate": "member_of",
+          "objectType": "group",
+          "objectApelido": "Roda de Trapiche de Baixo",
+          "startedAt": "1910-01-01"
+        }
+      ]
+    },
+    "persons/noca-de-jaco.sql": {
+      "fileChecksum": "2aa155ea04c5d3ee2440a0c704adc032",
+      "entityChecksum": "76766d2be26f9e60443feb7a716770c7",
+      "entityType": "person",
+      "identifier": "Noca de Jacó",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Noca de Jacó",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Besouro Mangangá",
+          "startedAt": "1910-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Noca de Jacó",
+          "predicate": "member_of",
+          "objectType": "group",
+          "objectApelido": "Roda de Trapiche de Baixo",
+          "startedAt": "1910-01-01"
+        }
+      ]
+    },
+    "persons/noronha.sql": {
+      "fileChecksum": "dfe2b3a58bdc270de27df5329419aaa0",
+      "entityChecksum": "18aa74f5af8c9fc866503d8560b527e0",
+      "entityType": "person",
+      "identifier": "Noronha (Daniel Coutinho)",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Noronha",
+          "predicate": "student_of",
+          "objectType": "person",
+          "objectApelido": "Cândido Pequeno",
+          "startedAt": "1917-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Noronha",
+          "predicate": "co_founded",
+          "objectType": "group",
+          "objectApelido": "Gengibirra",
+          "startedAt": "1920-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Noronha",
+          "predicate": "leads",
+          "objectType": "group",
+          "objectApelido": "Gengibirra",
+          "startedAt": "1920-01-01"
+        }
+      ]
+    },
+    "persons/onca-preta.sql": {
+      "fileChecksum": "e6721810707ec7257bd50bb456db75a3",
+      "entityChecksum": "e013f5d103d7aec198ae883106a5f98d",
+      "entityType": "person",
+      "identifier": "Onça Preta",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Onça Preta",
+          "predicate": "student_of",
+          "objectType": "person",
+          "objectApelido": "Aberrê",
+          "startedAt": null
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Onça Preta",
+          "predicate": "student_of",
+          "objectType": "person",
+          "objectApelido": "Pastinha",
+          "startedAt": "1915-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Onça Preta",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Aberrê",
+          "startedAt": "1936-05-16"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Onça Preta",
+          "predicate": "member_of",
+          "objectType": "group",
+          "objectApelido": "Roda do Matatu Preto",
+          "startedAt": "1930-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Onça Preta",
+          "predicate": "co_founded",
+          "objectType": "group",
+          "objectApelido": "Gengibirra",
+          "startedAt": "1920-01-01"
+        }
+      ]
+    },
+    "persons/pajeu.sql": {
+      "fileChecksum": "3b7a0283e80c710cbcfd8d38d5b93f19",
+      "entityChecksum": "e274471f91d182e81eefa070a67f46f4",
+      "entityType": "person",
+      "identifier": "Pajéu",
+      "statements": []
+    },
+    "persons/pastinha.sql": {
+      "fileChecksum": "be11580b21a4bb3deb65fb2249ec0af9",
+      "entityChecksum": "a80a886b9c47973617e913616a5988bc",
+      "entityType": "person",
+      "identifier": "Pastinha",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Pastinha",
+          "predicate": "student_of",
+          "objectType": "person",
+          "objectApelido": "Benedito",
+          "startedAt": "1899-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Aberrê",
+          "predicate": "trained_under",
+          "objectType": "person",
+          "objectApelido": "Pastinha",
+          "startedAt": "1910-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Pastinha",
+          "predicate": "member_of",
+          "objectType": "group",
+          "objectApelido": "Gengibirra",
+          "startedAt": "1941-02-23"
+        }
+      ]
+    },
+    "persons/paulo-barroquinha.sql": {
+      "fileChecksum": "3444dc93d0efaacae859283845bc083a",
+      "entityChecksum": "9904dd6ea3576418abc3179396862378",
+      "entityType": "person",
+      "identifier": "Paulo Barroquinha",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Paulo Barroquinha",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Besouro Mangangá",
+          "startedAt": "1910-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Paulo Barroquinha",
+          "predicate": "member_of",
+          "objectType": "group",
+          "objectApelido": "Roda do Matatu Preto",
+          "startedAt": "1930-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Paulo Barroquinha",
+          "predicate": "member_of",
+          "objectType": "group",
+          "objectApelido": "Roda de Trapiche de Baixo",
+          "startedAt": "1910-01-01"
+        }
+      ]
+    },
+    "persons/pedro-cobra.sql": {
+      "fileChecksum": "11f2a513d3745c6ef10a815826029a43",
+      "entityChecksum": "522017376930b02885ad3fca86f6beba",
+      "entityType": "person",
+      "identifier": "Pedro Cobra",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Pedro Cobra",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Manduca da Praia",
+          "startedAt": "1850-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Pedro Cobra",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Mamede",
+          "startedAt": "1850-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Pedro Cobra",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Aleixo Açougueiro",
+          "startedAt": "1850-01-01"
+        }
+      ]
+    },
+    "persons/pinta-preta-da-lapa.sql": {
+      "fileChecksum": "397edf7f0d836655decb6871a1ab091a",
+      "entityChecksum": "9355969b38808286148f1947934c2cbc",
+      "entityType": "person",
+      "identifier": "Pinta Preta da Lapa",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Pinta Preta da Lapa",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Manduca da Praia",
+          "startedAt": "1860-01-01"
+        }
+      ]
+    },
+    "persons/piraje.sql": {
+      "fileChecksum": "e79d1011de5444653830f020cf8e201e",
+      "entityChecksum": "7a4ca3c97d41464207f3fc73824e9004",
+      "entityType": "person",
+      "identifier": "Pirajé",
+      "statements": []
+    },
+    "persons/placido-de-abreu.sql": {
+      "fileChecksum": "5ffa88b16972f8916e06ccc922a195af",
+      "entityChecksum": "14595e63fbd24d24512e3a70f6d593ea",
+      "entityType": "person",
+      "identifier": "Plácido de Abreu",
+      "statements": []
+    },
+    "persons/prata-preta.sql": {
+      "fileChecksum": "258bc10e1c0b5dd7ae1acfb66d80c9db",
+      "entityChecksum": "4cc5d7f13e5ef3a5cde526dbc61d9938",
+      "entityType": "person",
+      "identifier": "Prata Preta",
+      "statements": []
+    },
+    "persons/quebra-coco.sql": {
+      "fileChecksum": "5237fbdafe131c6ff2354123471a1080",
+      "entityChecksum": "3005a5bfd50e2bce8a46980635dd6f2c",
+      "entityType": "person",
+      "identifier": "Quebra Coco",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Quebra Coco",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Manduca da Praia",
+          "startedAt": "1850-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Quebra Coco",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Mamede",
+          "startedAt": "1850-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Quebra Coco",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Aleixo Açougueiro",
+          "startedAt": "1850-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Quebra Coco",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Pedro Cobra",
+          "startedAt": "1850-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Quebra Coco",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Bentevi",
+          "startedAt": "1850-01-01"
+        }
+      ]
+    },
+    "persons/querido-de-deus.sql": {
+      "fileChecksum": "f609e668e0316407435f5916f40f5387",
+      "entityChecksum": "2ec53362f436fa3c5008f39b0153e82d",
+      "entityType": "person",
+      "identifier": "Querido de Deus",
+      "statements": []
+    },
+    "persons/quinzinho.sql": {
+      "fileChecksum": "8e6944a9a69c104dda5d95abd4eb45b3",
+      "entityChecksum": "62590c395bfd1c507443c8ba13689291",
+      "entityType": "person",
+      "identifier": "Quinzinho",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Quinzinho",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Sete Coroas",
+          "startedAt": null
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Quinzinho",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Madame Satã",
+          "startedAt": null
+        }
+      ]
+    },
+    "persons/ricardo-de-ilha-de-mare.sql": {
+      "fileChecksum": "087f40f4308e9ccdef08d18149c2a6d6",
+      "entityChecksum": "abe12dc3af2a5411684d5769703b6034",
+      "entityType": "person",
+      "identifier": "Ricardo de Ilha de Maré",
+      "statements": []
+    },
+    "persons/salome.sql": {
+      "fileChecksum": "85997aa0e56c3c078bd04763c4e05b35",
+      "entityChecksum": "1d870041f21fefdf4458e671a6969070",
+      "entityType": "person",
+      "identifier": "Salomé",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Salomé",
+          "predicate": "student_of",
+          "objectType": "person",
+          "objectApelido": "Doze Homens",
+          "startedAt": "1920-01-01"
+        }
+      ]
+    },
+    "persons/sete-coroas.sql": {
+      "fileChecksum": "f15deebc1316e1f902439a4501cee766",
+      "entityChecksum": "a5533d874384d864bcf561846a647957",
+      "entityType": "person",
+      "identifier": "Sete Coroas",
+      "statements": []
+    },
+    "persons/sinhozinho.sql": {
+      "fileChecksum": "46881c66d4f11f35889f99b2684c3263",
+      "entityChecksum": "5bc669e10e2378137a2ed14e5c967607",
+      "entityType": "person",
+      "identifier": "Sinhozinho",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Sinhozinho",
+          "predicate": "influenced_by",
+          "objectType": "person",
+          "objectApelido": "Cyriaco",
+          "startedAt": "1909-05-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Sinhozinho",
+          "predicate": "trained_under",
+          "objectType": "person",
+          "objectApelido": "Zeca Floriano",
+          "startedAt": "1908-01-01"
+        }
+      ]
+    },
+    "persons/siri-de-mangue.sql": {
+      "fileChecksum": "f7df8ee83d36d1eefecea6621dcf02ce",
+      "entityChecksum": "cc0f8f55d2f9638faa902cc29bc735c0",
+      "entityType": "person",
+      "identifier": "Siri de Mangue",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Siri de Mangue",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Besouro Mangangá",
+          "startedAt": "1910-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Cobrinha Verde",
+          "predicate": "trained_under",
+          "objectType": "person",
+          "objectApelido": "Siri de Mangue",
+          "startedAt": "1924-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Siri de Mangue",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Paulo Barroquinha",
+          "startedAt": "1910-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Siri de Mangue",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Neco Canário Pardo",
+          "startedAt": "1910-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Siri de Mangue",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Doze Homens",
+          "startedAt": "1910-01-01"
+        }
+      ]
+    },
+    "persons/talabi.sql": {
+      "fileChecksum": "e158a87895e40d0c57c63549c45754bf",
+      "entityChecksum": "489b5c3e696b51fb043d90e8505b5749",
+      "entityType": "person",
+      "identifier": "Talabi",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Talabi",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Siri de Mangue",
+          "startedAt": "1930-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Talabi",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Neco Canário Pardo",
+          "startedAt": "1930-01-01"
+        }
+      ]
+    },
+    "persons/tio-alipio.sql": {
+      "fileChecksum": "0cdc52e4d705b19c5e18f2c30658b5e2",
+      "entityChecksum": "056f9f4199594ee1bef1c889ed96a6cd",
+      "entityType": "person",
+      "identifier": "Tio Alípio",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Tio Alípio",
+          "predicate": "member_of",
+          "objectType": "group",
+          "objectApelido": "Roda de Trapiche de Baixo",
+          "startedAt": "1888-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Tio Alípio",
+          "predicate": "teaches_at",
+          "objectType": "group",
+          "objectApelido": "Roda de Trapiche de Baixo",
+          "startedAt": "1888-01-01"
+        }
+      ]
+    },
+    "persons/tio-pascoal.sql": {
+      "fileChecksum": "11eb59736dce4d0c20b55d31f8b995df",
+      "entityChecksum": "1d14060a6796f38c0d0216ac7fdcca27",
+      "entityType": "person",
+      "identifier": "Tio Pascoal",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Cobrinha Verde",
+          "predicate": "influenced_by",
+          "objectType": "person",
+          "objectApelido": "Tio Pascoal",
+          "startedAt": "1920-01-01"
+        }
+      ]
+    },
+    "persons/totonho-de-mare.sql": {
+      "fileChecksum": "ea70e06e92225404b648868dfa53b3d7",
+      "entityChecksum": "24b733dbfda1a5b6de57d2d1b1ef25dd",
+      "entityType": "person",
+      "identifier": "Totonho de Maré",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Totonho de Maré",
+          "predicate": "member_of",
+          "objectType": "group",
+          "objectApelido": "Roda do Matatu Preto",
+          "startedAt": "1930-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Totonho de Maré",
+          "predicate": "co_founded",
+          "objectType": "group",
+          "objectApelido": "Gengibirra",
+          "startedAt": "1920-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Totonho de Maré",
+          "predicate": "leads",
+          "objectType": "group",
+          "objectApelido": "Gengibirra",
+          "startedAt": "1920-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Totonho de Maré",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Querido de Deus",
+          "startedAt": "1936-01-01"
+        }
+      ]
+    },
+    "persons/vitor-agau.sql": {
+      "fileChecksum": "de12ae4d6f1805d94246f951aae94a83",
+      "entityChecksum": "51883a38f75ac5e0dcc8dc0b7dbaeb93",
+      "entityType": "person",
+      "identifier": "Vitor Agaú",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Onça Preta",
+          "predicate": "student_of",
+          "objectType": "person",
+          "objectApelido": "Vitor Agaú",
+          "startedAt": "1915-01-01"
+        }
+      ]
+    },
+    "persons/waldemar.sql": {
+      "fileChecksum": "791523ec59716fb1890560292ada65c5",
+      "entityChecksum": "0141d5d46d8f01806dc9ff3d312587ea",
+      "entityType": "person",
+      "identifier": "Waldemar",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Waldemar",
+          "predicate": "student_of",
+          "objectType": "person",
+          "objectApelido": "Siri de Mangue",
+          "startedAt": "1936-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Waldemar",
+          "predicate": "student_of",
+          "objectType": "person",
+          "objectApelido": "Neco Canário Pardo",
+          "startedAt": "1936-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Waldemar",
+          "predicate": "student_of",
+          "objectType": "person",
+          "objectApelido": "Talabi",
+          "startedAt": "1936-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Waldemar",
+          "predicate": "student_of",
+          "objectType": "person",
+          "objectApelido": "Ricardo de Ilha de Maré",
+          "startedAt": "1936-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Waldemar",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Pastinha",
+          "startedAt": "1940-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Waldemar",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Bimba",
+          "startedAt": "1940-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Waldemar",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Totonho de Maré",
+          "startedAt": "1940-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Waldemar",
+          "predicate": "associated_with",
+          "objectType": "person",
+          "objectApelido": "Cobrinha Verde",
+          "startedAt": "1940-01-01"
+        }
+      ]
+    },
+    "persons/zeca-floriano.sql": {
+      "fileChecksum": "934958b686992878de9aba8ecfaa0fd6",
+      "entityChecksum": "f0fa543097c15dc0d230f3f89a06cba8",
+      "entityType": "person",
+      "identifier": "Zeca Floriano",
+      "statements": []
+    },
+    "groups/gengibirra.sql": {
+      "fileChecksum": "5ba7fb29a199d8196d6e46507ce3f7cc",
+      "entityChecksum": "4190d37ec1466f52a33eacbf8712c34a",
+      "entityType": "group",
+      "identifier": "Gengibirra",
+      "statements": [
+        {
+          "subjectType": "person",
+          "subjectApelido": "Cândido Pequeno",
+          "predicate": "co_founded",
+          "objectType": "group",
+          "objectApelido": "Gengibirra",
+          "startedAt": "1920-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Aberrê",
+          "predicate": "co_founded",
+          "objectType": "group",
+          "objectApelido": "Gengibirra",
+          "startedAt": "1920-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Geraldo Chapeleiro",
+          "predicate": "co_founded",
+          "objectType": "group",
+          "objectApelido": "Gengibirra",
+          "startedAt": "1920-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Onça Preta",
+          "predicate": "co_founded",
+          "objectType": "group",
+          "objectApelido": "Gengibirra",
+          "startedAt": "1920-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Totonho de Maré",
+          "predicate": "co_founded",
+          "objectType": "group",
+          "objectApelido": "Gengibirra",
+          "startedAt": "1920-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Totonho de Maré",
+          "predicate": "leads",
+          "objectType": "group",
+          "objectApelido": "Gengibirra",
+          "startedAt": "1920-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Amorzinho",
+          "predicate": "co_founded",
+          "objectType": "group",
+          "objectApelido": "Gengibirra",
+          "startedAt": "1920-01-01"
+        },
+        {
+          "subjectType": "person",
+          "subjectApelido": "Amorzinho",
+          "predicate": "leads",
+          "objectType": "group",
+          "objectApelido": "Gengibirra",
+          "startedAt": "1920-01-01"
+        }
+      ]
+    },
+    "groups/roda-de-trapiche-de-baixo.sql": {
+      "fileChecksum": "823ebf36e0e13090a81e0053be55c90a",
+      "entityChecksum": "9ef71b8ad12022ac77a3bcb382477060",
+      "entityType": "group",
+      "identifier": "Roda de Trapiche de Baixo",
+      "statements": []
+    },
+    "groups/roda-do-matatu-preto.sql": {
+      "fileChecksum": "d0959265c16d395a175b86a68877e646",
+      "entityChecksum": "4c2eb5b14177a106c5e63b63b47302e0",
+      "entityType": "group",
+      "identifier": "Roda do Matatu Preto",
+      "statements": []
+    }
+  }
+}

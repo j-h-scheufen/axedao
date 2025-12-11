@@ -20,6 +20,8 @@
     "db:genealogy:status": "dotenv -e .env -e .env.local -- ../../docs/genealogy/sql-imports/sync.sh --status",
     "db:genealogy:sync": "dotenv -e .env -e .env.local -- ../../docs/genealogy/sql-imports/sync.sh",
     "db:genealogy:sync:force": "dotenv -e .env -e .env.local -- ../../docs/genealogy/sql-imports/sync.sh --force",
+    "db:genealogy:build": "tsx ../../docs/genealogy/sql-imports/build/generate-migration.ts",
+    "db:genealogy:build:dry-run": "tsx ../../docs/genealogy/sql-imports/build/generate-migration.ts --dry-run",
     "db:local:logs": "docker compose logs -f postgres",
     "db:local:psql": "docker compose exec postgres psql -U postgres -d postgres",
     "wagmi:generate": "wagmi generate",
