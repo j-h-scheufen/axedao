@@ -1,12 +1,12 @@
 'use client';
 
-import { Button, Card, CardBody, Checkbox, CheckboxGroup, Divider } from '@heroui/react';
+import { Button, Card, CardBody, Checkbox, CheckboxGroup, Divider, Switch } from '@heroui/react';
 import { useAtom, useAtomValue } from 'jotai';
 
 import type { EntityType, Predicate } from '@/db/schema/genealogy';
 
 import { getFilteredPredicateGroups } from '@/components/genealogy/config';
-import { graphFiltersAtom, viewConfigAtom } from '@/components/genealogy/state';
+import { graphFiltersAtom, graphSettingsAtom, viewConfigAtom } from '@/components/genealogy/state';
 import type { GraphStats } from '@/components/genealogy/types';
 import { PREDICATE_LABELS } from '@/components/genealogy/types';
 
@@ -34,6 +34,7 @@ export function GraphControls({ stats, isLoading }: GraphControlsProps) {
   // Jotai state
   const viewConfig = useAtomValue(viewConfigAtom);
   const [filters, setFilters] = useAtom(graphFiltersAtom);
+  const [settings, setSettings] = useAtom(graphSettingsAtom);
 
   // Get predicate groups filtered to this view's allowed predicates
   const viewPredicateGroups = getFilteredPredicateGroups(viewConfig);
@@ -177,6 +178,21 @@ export function GraphControls({ stats, isLoading }: GraphControlsProps) {
             </div>
           </>
         )}
+
+        <Divider />
+
+        {/* Graph Settings */}
+        <div className="space-y-2">
+          <h3 className="text-small font-semibold">Settings</h3>
+          <Switch
+            size="sm"
+            isSelected={settings.showAnimations}
+            onValueChange={(value) => setSettings({ ...settings, showAnimations: value })}
+            isDisabled={isLoading}
+          >
+            Show Animations
+          </Switch>
+        </div>
 
         <Divider />
 

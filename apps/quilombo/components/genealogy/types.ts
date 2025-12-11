@@ -139,6 +139,81 @@ export interface StatementDetail {
 }
 
 /**
+ * Full person profile with all bilingual fields.
+ * Used for the Full Details modal display.
+ */
+export interface PersonFullProfile {
+  id: string;
+  name?: string | null;
+  apelido?: string | null;
+  apelidoContext?: string | null;
+  title?: string | null;
+  portrait?: string | null;
+  publicLinks?: Array<{ type: string; url: string }> | null;
+  style?: string | null;
+  styleNotesEn?: string | null;
+  styleNotesPt?: string | null;
+  birthYear?: number | null;
+  birthYearPrecision?: string | null;
+  birthPlace?: string | null;
+  deathYear?: number | null;
+  deathYearPrecision?: string | null;
+  deathPlace?: string | null;
+  bioEn?: string | null;
+  bioPt?: string | null;
+  achievementsEn?: string | null;
+  achievementsPt?: string | null;
+  notesEn?: string | null;
+  notesPt?: string | null;
+  createdAt?: string | null;
+  updatedAt?: string | null;
+}
+
+/**
+ * Name history entry for groups.
+ */
+export interface NameHistoryEntry {
+  name: string;
+  startedAt: string;
+  endedAt?: string;
+  changeReason?: string;
+  context?: string;
+}
+
+/**
+ * Full group profile with all bilingual fields.
+ * Used for the Full Details modal display.
+ */
+export interface GroupFullProfile {
+  id: string;
+  name: string;
+  descriptionEn?: string | null;
+  descriptionPt?: string | null;
+  style?: string | null;
+  styleNotesEn?: string | null;
+  styleNotesPt?: string | null;
+  logo?: string | null;
+  links?: Array<{ type: string; url: string }> | null;
+  nameAliases?: string[] | null;
+  foundedYear?: number | null;
+  foundedYearPrecision?: string | null;
+  foundedLocation?: string | null;
+  philosophyEn?: string | null;
+  philosophyPt?: string | null;
+  historyEn?: string | null;
+  historyPt?: string | null;
+  nameHistory?: NameHistoryEntry[] | null;
+  notesEn?: string | null;
+  notesPt?: string | null;
+  legalStructure?: string | null;
+  isHeadquarters?: boolean | null;
+  isActive?: boolean | null;
+  dissolvedAt?: string | null;
+  createdAt?: string | null;
+  updatedAt?: string | null;
+}
+
+/**
  * Visual styling configuration for nodes.
  */
 export const NODE_COLORS = {
@@ -149,7 +224,7 @@ export const NODE_COLORS = {
     instrutor: '#51CF66', // Green
     graduado: '#868E96', // Gray
     aluno: '#ADB5BD', // Light gray
-    default: '#74C0FC', // Default blue
+    default: '#A0522D', // Warm bronze/sepia - historical figures pre-title system
   },
   group: {
     angola: '#FA5252', // Red
@@ -198,7 +273,8 @@ export const LINK_COLORS = {
 } as const;
 
 /**
- * Human-readable labels for predicates.
+ * Human-readable labels for predicates (outgoing direction).
+ * E.g., "A is student_of B" → "Student of"
  */
 export const PREDICATE_LABELS: Record<Predicate, string> = {
   // Person-to-Person
@@ -223,6 +299,37 @@ export const PREDICATE_LABELS: Record<Predicate, string> = {
   split_from_group: 'Split from',
   merged_into: 'Merged into',
   evolved_from: 'Evolved from',
+  affiliated_with: 'Affiliated with',
+  cooperates_with: 'Cooperates with',
+};
+
+/**
+ * Human-readable labels for predicates (incoming/inverse direction).
+ * E.g., "A is student_of B" from B's perspective → "Teacher of"
+ */
+export const PREDICATE_LABELS_INVERSE: Record<Predicate, string> = {
+  // Person-to-Person
+  student_of: 'Teacher of',
+  trained_under: 'Trained',
+  influenced_by: 'Influenced',
+  granted_title_to: 'Title granted by',
+  baptized_by: 'Baptized',
+  family_of: 'Family of',
+  // Person-to-Group
+  founded: 'Founded by',
+  co_founded: 'Co-founded by',
+  leads: 'Led by',
+  regional_coordinator_of: 'Regional coordinator',
+  member_of: 'Member',
+  teaches_at: 'Teacher',
+  cultural_pioneer_of: 'Cultural pioneer',
+  associated_with: 'Associated with',
+  departed_from: 'Departed by',
+  // Group-to-Group
+  part_of: 'Contains',
+  split_from_group: 'Split into',
+  merged_into: 'Merged from',
+  evolved_from: 'Evolved into',
   affiliated_with: 'Affiliated with',
   cooperates_with: 'Cooperates with',
 };

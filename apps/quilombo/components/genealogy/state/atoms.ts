@@ -33,3 +33,29 @@ export const graphFiltersAtom = atom<GraphFilters>({
  * Currently selected node ID (for highlighting and details panel).
  */
 export const selectedNodeIdAtom = atom<string | null>(null);
+
+/**
+ * Tracks whether the selected node needs refocusing (camera moved away).
+ */
+export const needsRefocusAtom = atom<boolean>(false);
+
+/**
+ * Holds the refocus callback function set by the graph component.
+ * When called, it will center the camera on the selected node.
+ */
+export const refocusCallbackAtom = atom<(() => void) | null>(null);
+
+/**
+ * Graph settings - independent of view configuration.
+ */
+export interface GraphSettings {
+  /** Show link particle animations */
+  showAnimations: boolean;
+}
+
+/**
+ * User graph settings (persisted across view changes).
+ */
+export const graphSettingsAtom = atom<GraphSettings>({
+  showAnimations: false,
+});

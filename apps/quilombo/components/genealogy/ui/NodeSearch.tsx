@@ -4,7 +4,8 @@ import { Autocomplete, AutocompleteItem } from '@heroui/react';
 import { SearchIcon } from 'lucide-react';
 import { useMemo, useState } from 'react';
 
-import type { GraphNode, PersonMetadata } from '@/components/genealogy/types';
+import type { GraphNode, GroupMetadata, PersonMetadata } from '@/components/genealogy/types';
+import { NODE_COLORS } from '@/components/genealogy/types';
 
 interface NodeSearchProps {
   /** All nodes available for searching */
@@ -68,16 +69,27 @@ export function NodeSearch({
   const getNodeDisplayInfo = (node: GraphNode) => {
     if (node.type === 'person') {
       const meta = node.metadata as PersonMetadata;
+      const title = meta.title as keyof (typeof NODE_COLORS)['person'] | undefined;
+      const color = title && NODE_COLORS.person[title] ? NODE_COLORS.person[title] : NODE_COLORS.person.default;
+      // Capitalize first letter of title, or show "Historical" for no title
+      const badge = meta.title ? meta.title.charAt(0).toUpperCase() + meta.title.slice(1) : 'Historical';
       return {
         primary: node.name,
         secondary: meta.fullName && meta.fullName !== node.name ? meta.fullName : null,
-        badge: meta.title || 'Person',
+        badge,
+        color,
       };
     }
+    // Group
+    const meta = node.metadata as GroupMetadata;
+    const style = meta.style as keyof (typeof NODE_COLORS)['group'] | undefined;
+    const color = style && NODE_COLORS.group[style] ? NODE_COLORS.group[style] : NODE_COLORS.group.default;
+    const badge = meta.style ? meta.style.charAt(0).toUpperCase() + meta.style.slice(1) : 'Group';
     return {
       primary: node.name,
       secondary: null,
-      badge: 'Group',
+      badge,
+      color,
     };
   };
 
@@ -130,9 +142,8 @@ export function NodeSearch({
                 {info.secondary && <span className="text-tiny text-default-400 truncate">{info.secondary}</span>}
               </div>
               <span
-                className={`text-tiny px-1.5 py-0.5 rounded shrink-0 ${
-                  node.type === 'person' ? 'bg-primary-100 text-primary-700' : 'bg-secondary-100 text-secondary-700'
-                }`}
+                className="text-tiny px-1.5 py-0.5 rounded shrink-0 text-white"
+                style={{ backgroundColor: info.color }}
               >
                 {info.badge}
               </span>

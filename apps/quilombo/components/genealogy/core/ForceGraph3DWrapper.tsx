@@ -7,8 +7,11 @@
  * Specialized graph views should use this as their foundation.
  */
 
+import { useSetAtom } from 'jotai';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ForceGraph3D, { type ForceGraphMethods } from 'react-force-graph-3d';
+
+import { needsRefocusAtom, refocusCallbackAtom } from '@/components/genealogy/state';
 
 import { createDefaultNodeObject } from './nodeRenderers';
 import { getLinkColor } from './linkRenderers';
@@ -54,10 +57,15 @@ export function ForceGraph3DWrapper({
   const addedObjectIdsRef = useRef<Set<string>>(new Set());
   const prevSelectedNodeIdRef = useRef<string | null>(null);
   const isClickFocusRef = useRef(false);
+  const isFocusingRef = useRef(false); // True while camera is animating to a node
   const [dimensions, setDimensions] = useState({ width: width || 800, height: height || 600 });
 
+  // Jotai setters for refocus state
+  const setNeedsRefocus = useSetAtom(needsRefocusAtom);
+  const setRefocusCallback = useSetAtom(refocusCallbackAtom);
+
   // Camera controls
-  const { zoomToFit, focusOnNode } = useGraphCamera(
+  const { zoomToFit, focusOnNode, getCameraPosition } = useGraphCamera(
     graphRef as React.RefObject<ForceGraphMethods<ForceNode, ForceLink> | undefined>
   );
 
@@ -185,16 +193,25 @@ export function ForceGraph3DWrapper({
     (node: ForceNode) => {
       // Mark that focus is coming from a click (to avoid double-focusing in the effect)
       isClickFocusRef.current = true;
+      isFocusingRef.current = true;
+      setNeedsRefocus(false);
+
       focusOnNode(node, 300, 1500);
       onNodeClick?.(node);
+
+      // Clear focusing flag after animation completes
+      setTimeout(() => {
+        isFocusingRef.current = false;
+      }, 1600);
     },
-    [focusOnNode, onNodeClick]
+    [focusOnNode, onNodeClick, setNeedsRefocus]
   );
 
   // Handle background click
   const handleBackgroundClick = useCallback(() => {
+    setNeedsRefocus(false);
     onBackgroundClick?.();
-  }, [onBackgroundClick]);
+  }, [onBackgroundClick, setNeedsRefocus]);
 
   // Validate selectedNodeId exists in current graph data
   // This prevents issues when switching views where the selected node might not exist
@@ -209,6 +226,7 @@ export function ForceGraph3DWrapper({
   useEffect(() => {
     if (!focusOnSelection || !validSelectedNodeId) {
       prevSelectedNodeIdRef.current = validSelectedNodeId;
+      setNeedsRefocus(false);
       return;
     }
 
@@ -227,11 +245,18 @@ export function ForceGraph3DWrapper({
     // Find the node and focus on it
     const node = graphData.nodes.find((n) => n.id === validSelectedNodeId);
     if (node) {
+      isFocusingRef.current = true;
+      setNeedsRefocus(false);
       focusOnNode(node, 300, 1500);
+
+      // Clear focusing flag after animation completes
+      setTimeout(() => {
+        isFocusingRef.current = false;
+      }, 1600);
     }
 
     prevSelectedNodeIdRef.current = validSelectedNodeId;
-  }, [validSelectedNodeId, focusOnSelection, graphData.nodes, focusOnNode]);
+  }, [validSelectedNodeId, focusOnSelection, graphData.nodes, focusOnNode, setNeedsRefocus]);
 
   // Default node renderer
   const defaultNodeThreeObject = useCallback(
@@ -257,6 +282,84 @@ export function ForceGraph3DWrapper({
   const linkVisibilityResolver = useCallback((link: ForceLink) => {
     return !link.invisible;
   }, []);
+
+  // Refocus callback - centers camera on the currently selected node
+  const refocusOnSelectedNode = useCallback(() => {
+    if (!validSelectedNodeId) return;
+
+    const node = graphData.nodes.find((n) => n.id === validSelectedNodeId);
+    if (node) {
+      isFocusingRef.current = true;
+      setNeedsRefocus(false);
+      focusOnNode(node, 300, 1500);
+
+      setTimeout(() => {
+        isFocusingRef.current = false;
+      }, 1600);
+    }
+  }, [validSelectedNodeId, graphData.nodes, focusOnNode, setNeedsRefocus]);
+
+  // Register the refocus callback in global state for NodeDetailsPanel to use
+  useEffect(() => {
+    setRefocusCallback(() => refocusOnSelectedNode);
+    return () => setRefocusCallback(null);
+  }, [refocusOnSelectedNode, setRefocusCallback]);
+
+  // Detect camera movement when a node is selected (user dragged/rotated the view)
+  // We poll the camera position periodically to detect if it has moved away from the node
+  useEffect(() => {
+    if (!validSelectedNodeId || !graphRef.current) return;
+
+    const node = graphData.nodes.find((n) => n.id === validSelectedNodeId);
+    if (!node || node.x === undefined || node.y === undefined || node.z === undefined) return;
+
+    // Capture node position at effect setup time (TypeScript narrowing doesn't work in closures)
+    const nodeX = node.x;
+    const nodeY = node.y;
+    const nodeZ = node.z;
+
+    let lastCameraPos = getCameraPosition();
+
+    const checkCameraMove = () => {
+      // Don't check while we're actively focusing
+      if (isFocusingRef.current) return;
+
+      const currentPos = getCameraPosition();
+      if (!currentPos || !lastCameraPos) {
+        lastCameraPos = currentPos;
+        return;
+      }
+
+      // Check if camera moved significantly
+      const dx = currentPos.x - lastCameraPos.x;
+      const dy = currentPos.y - lastCameraPos.y;
+      const dz = currentPos.z - lastCameraPos.z;
+      const cameraMoveDistance = Math.sqrt(dx * dx + dy * dy + dz * dz);
+
+      if (cameraMoveDistance > 15) {
+        // Camera has moved, check if node is still centered
+        // Calculate vector from camera to node
+        const toNodeX = nodeX - currentPos.x;
+        const toNodeY = nodeY - currentPos.y;
+        const toNodeZ = nodeZ - currentPos.z;
+
+        // Get camera's forward direction (it looks at the controls target, usually origin or last lookAt)
+        // For simplicity, we just check if the node is roughly in front of the camera
+        // by checking if the distance from camera to node changed significantly
+        const distToNode = Math.sqrt(toNodeX * toNodeX + toNodeY * toNodeY + toNodeZ * toNodeZ);
+
+        // If we're far from the node or have rotated significantly, show refocus button
+        if (distToNode > 400 || cameraMoveDistance > 50) {
+          setNeedsRefocus(true);
+        }
+
+        lastCameraPos = currentPos;
+      }
+    };
+
+    const interval = setInterval(checkCameraMove, 200);
+    return () => clearInterval(interval);
+  }, [validSelectedNodeId, graphData.nodes, getCameraPosition, setNeedsRefocus]);
 
   return (
     <div ref={containerRef} className="h-full w-full" style={{ minHeight: 400 }}>

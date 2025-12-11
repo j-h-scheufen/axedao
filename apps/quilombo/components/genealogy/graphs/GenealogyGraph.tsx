@@ -22,7 +22,7 @@ import {
   STUDENT_ANCESTRY_GRAVITY_ONLY_PREDICATES,
   STUDENT_ANCESTRY_VISIBLE_PREDICATES,
 } from '@/components/genealogy/config';
-import { graphFiltersAtom, graphViewModeAtom } from '@/components/genealogy/state';
+import { graphFiltersAtom, graphSettingsAtom, graphViewModeAtom } from '@/components/genealogy/state';
 import type { GraphData, GraphNode } from '@/components/genealogy/types';
 import {
   ForceGraph3DWrapper,
@@ -425,6 +425,7 @@ export function GenealogyGraph({
   // Jotai state
   const viewMode = useAtomValue(graphViewModeAtom);
   const filters = useAtomValue(graphFiltersAtom);
+  const settings = useAtomValue(graphSettingsAtom);
 
   // Apply user filters to the raw data first
   // Empty arrays mean "show none" - filters are always explicit
@@ -549,7 +550,7 @@ export function GenealogyGraph({
       height={height}
       autoFitOnLoad
       autoFitDelay={800}
-      showLinkParticles
+      showLinkParticles={settings.showAnimations}
       showLinkArrows
       d3AlphaDecay={0.01}
       d3VelocityDecay={0.2}

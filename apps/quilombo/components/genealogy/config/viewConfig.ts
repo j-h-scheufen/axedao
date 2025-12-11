@@ -107,6 +107,7 @@ const PERSON_TITLE_LEGEND: LegendCategory = {
     { label: 'Instrutor', color: NODE_COLORS.person.instrutor },
     { label: 'Graduado', color: NODE_COLORS.person.graduado },
     { label: 'Aluno', color: NODE_COLORS.person.aluno },
+    { label: 'Historical', color: NODE_COLORS.person.default },
   ],
 };
 

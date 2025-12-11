@@ -202,6 +202,7 @@ export default function GenealogyPage() {
           <NodeDetailsPanel
             node={selectedNode}
             details={nodeDetails || null}
+            allNodes={graphData?.nodes || []}
             isLoading={isDetailsLoading}
             onClose={handleCloseDetails}
             onNodeSelect={handleNodeSelectFromDetails}
