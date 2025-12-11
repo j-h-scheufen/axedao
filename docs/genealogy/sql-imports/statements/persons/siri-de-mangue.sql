@@ -30,27 +30,7 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Siri de Mangue' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  confidence, source, notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'trained_under'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1924-01-01'::date, 'approximate'::genealogy.date_precision,
-  NULL, 'unknown'::genealogy.date_precision,
-  'verified'::genealogy.confidence,
-  'Velhos Mestres, Capoeira Online, Nossa Tribo, Lalaue - multiple sources confirm Siri de Mangue as one of Cobrinha Verde''s teachers',
-  'Cobrinha Verde learned from multiple Santo Amaro mestres after Besouro''s death in 1924. Siri de Mangue was among them alongside Maitá, Licurí, Joité, Dendê, and others.',
-  'Cobrinha Verde aprendeu com múltiplos mestres de Santo Amaro após a morte de Besouro em 1924. Siri de Mangue estava entre eles junto com Maitá, Licurí, Joité, Dendê e outros.'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Siri de Mangue'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+-- NOTE: Cobrinha Verde trained_under Siri de Mangue is in statements/persons/cobrinha-verde.sql (subject's file)
 
 INSERT INTO genealogy.statements (
   subject_type, subject_id,

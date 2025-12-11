@@ -6,53 +6,8 @@
 -- Each statement uses ON CONFLICT DO NOTHING for idempotency.
 -- ============================================================
 
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'student_of'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1915-01-01'::date, 'decade'::genealogy.date_precision,
-  '1925-01-01'::date, 'approximate'::genealogy.date_precision,
-  '{}'::jsonb,
-  'verified'::genealogy.confidence,
-  'Velhos Mestres - Onça Preta biography: "as a boy, he trained with Samuel, Pastinha, Besourinho, Vitor Agaú, Gasolina, Aberrê, and many others who are now dead"',
-  E'Onça Preta (b. 1909) listed Gasolina among his mestres. Gasolina was killed during Pedrito persecution (~1925).',
-  E'Onça Preta (n. 1909) listou Gasolina entre seus mestres. Gasolina foi morto durante a perseguição de Pedrito (~1925).'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Onça Preta' AND o.apelido = 'Gasolina'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'trained_under'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1924-01-01'::date, 'approximate'::genealogy.date_precision,
-  '1925-01-01'::date, 'approximate'::genealogy.date_precision,
-  '{}'::jsonb,
-  'verified'::genealogy.confidence,
-  'Cobrinha Verde interview: "My true mestre was Besouro, but I learned from many mestres in Santo Amaro: Maitá, Licurí, Joité, Dendê, Gasolina..." (Capoeira Online, La Laue, Capoeira Connection)',
-  E'Cobrinha Verde learned from Gasolina as part of his training with multiple Santo Amaro mestres after Besouro''s death in 1924. Training ended with Gasolina''s death during Pedrito persecution.',
-  E'Cobrinha Verde aprendeu com Gasolina como parte de seu treinamento com múltiplos mestres de Santo Amaro após a morte de Besouro em 1924. Treinamento terminou com a morte de Gasolina durante perseguição de Pedrito.'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Gasolina'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+-- NOTE: Onça Preta student_of Gasolina is in statements/persons/onca-preta.sql (subject's file)
+-- NOTE: Cobrinha Verde trained_under Gasolina is in statements/persons/cobrinha-verde.sql (subject's file)
 
 INSERT INTO genealogy.statements (
   subject_type, subject_id,

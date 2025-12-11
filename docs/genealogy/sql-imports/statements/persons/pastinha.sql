@@ -30,53 +30,8 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Pastinha' AND o.apelido = 'Benedito'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'trained_under'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1910-01-01'::date, 'year'::genealogy.date_precision,
-  '1912-01-01'::date, 'year'::genealogy.date_precision,
-  '{}'::jsonb,
-  'disputed'::genealogy.confidence,
-  'velhosmestres.com; esquiva.wordpress.com; Multiple sources conflict on direction of relationship',
-  'Disputed: Some sources say Aberrê was Pastinha''s first student (1910-1912); others say Aberrê''s teacher. Aberrê later invited Pastinha to Gengibirra in 1941.',
-  'Disputado: Algumas fontes dizem que Aberrê foi o primeiro aluno de Pastinha (1910-1912); outras dizem que foi professor de Aberrê. Aberrê depois convidou Pastinha para Gengibirra em 1941.'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Aberrê' AND o.apelido = 'Pastinha'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, cv.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, p.id,
-  '1955-08-12'::date, 'exact'::genealogy.date_precision,
-  NULL, 'unknown'::genealogy.date_precision,
-  '{"association_context": "Member #28 at CECA; admitted August 12, 1955; shared teaching duties with Pastinha, instructing students in singing, berimbau, and movements"}'::jsonb,
-  'verified'::genealogy.confidence,
-  'Pastinha''s official membership book; velhosmestres.com/br/cobrinha-1912-1',
-  'Cobrinha Verde was member #28 at CECA, sharing teaching responsibilities with Pastinha. Taught João Grande and João Pequeno specific techniques including floor-touching mandinga.',
-  'Cobrinha Verde era membro #28 no CECA, compartilhando responsabilidades de ensino com Pastinha. Ensinou a João Grande e João Pequeno técnicas específicas incluindo a mandinga de tocar o chão.'
-FROM genealogy.person_profiles cv, genealogy.person_profiles p
-WHERE cv.apelido = 'Cobrinha Verde' AND p.apelido = 'Pastinha'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+-- NOTE: Aberrê trained_under Pastinha is in statements/persons/aberre.sql (subject's file)
+-- NOTE: Cobrinha Verde associated_with Pastinha is in statements/persons/cobrinha-verde.sql (subject's file)
 
 INSERT INTO genealogy.statements (
   subject_type, subject_id,

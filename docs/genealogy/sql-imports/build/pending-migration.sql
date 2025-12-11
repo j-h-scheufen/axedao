@@ -1,6 +1,6 @@
 -- ============================================================
 -- GENEALOGY DATA MIGRATION
--- Generated: 2025-12-11T21:34:11.214Z
+-- Generated: 2025-12-11T22:42:19.539Z
 -- ============================================================
 --
 -- New entity files: 74
@@ -1093,11 +1093,9 @@ SPECIALTY: Pandeiro player in Bimba''s charanga (one berimbau + two pandeiros en
 
 BOOK: Mestre Itapoan wrote "Atenilo, o Relâmpago da Capoeira Regional" (1988, UFBA) based on Atenilo''s testimonies.
 
-PENDING RELATIONSHIPS (require Mestre Bimba import):
-- Atenilo student_of Mestre Bimba (1929-1974)
-
-PENDING FAMILY RELATIONSHIP (disputed, not imported):
-- Atenilo family_of Neco Canário Pardo (brother - chronologically problematic)',
+RELATIONSHIPS ACTIVE (see statements/persons/atenilo.sql):
+- Atenilo student_of Bimba (1929-1974)
+- Atenilo associated_with Neco Canário Pardo (disputed brother claim)',
   -- Researcher notes (Portuguese)
   E'DATA DE NASCIMENTO: 16 de julho de 1918 - data exata do testemunho de Atenilo para Mestre Itapoan: "Nasci em 16 de julho de 1918 em Oliveira, Distrito de Santo Amaro da Purificação, Bahia, e comecei a aprender Capoeira em 1929."
 
@@ -1115,11 +1113,9 @@ ESPECIALIDADE: Pandeirista na charanga de Bimba (conjunto de um berimbau + dois 
 
 LIVRO: Mestre Itapoan escreveu "Atenilo, o Relâmpago da Capoeira Regional" (1988, UFBA) baseado nos testemunhos de Atenilo.
 
-RELACIONAMENTOS PENDENTES (requerem importação de Mestre Bimba):
-- Atenilo student_of Mestre Bimba (1929-1974)
-
-RELACIONAMENTO FAMILIAR PENDENTE (disputado, não importado):
-- Atenilo family_of Neco Canário Pardo (irmão - cronologicamente problemático)'
+RELACIONAMENTOS ATIVOS (ver statements/persons/atenilo.sql):
+- Atenilo student_of Bimba (1929-1974)
+- Atenilo associated_with Neco Canário Pardo (alegação disputada de irmão)'
 )
 ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
@@ -4288,9 +4284,16 @@ IDENTITY CLARIFICATION: Some sources list "Livino Diogo" separately among histor
 
 RELATIONSHIP TO NORONHA: Brother. Both co-founded Gengibirra and Centro da Conceição da Praia; taught together at Maciel de Baixo.
 
-PENDING RELATIONSHIPS:
-- Livino family_of Noronha (brother) - requires relationship creation
-- Livino associated_with Amorzinho (co-founder of Gengibirra) - pending Amorzinho import',
+RELATIONSHIPS ACTIVE (see statements/persons/livino.sql):
+- Livino family_of Noronha (brother)
+- Livino associated_with Amorzinho (co-founder of Gengibirra)
+- Livino associated_with Totonho de Maré (co-founder of Gengibirra)
+- Livino associated_with Pastinha (handed Gengibirra to him in 1941)
+- Livino associated_with Aberrê (founding mestre of Gengibirra)
+- Livino associated_with Onça Preta (founding mestre of Gengibirra)
+- Livino associated_with Geraldo Chapeleiro (founding mestre of Gengibirra)
+- Livino co_founded Gengibirra
+- Livino leads Gengibirra (1920s-1941)',
   -- notes_pt
   E'ESTIMATIVA DO ANO DE NASCIMENTO (1905, precisão de década): Nenhuma data de nascimento documentada. Como irmão de Noronha (nascido em 1909), Livino provavelmente nasceu alguns anos próximos a ele. Era líder organizacional do Gengibirra fundado na década de 1920, sugerindo que era um adulto estabelecido na época. Mestre Barba Branca afirmou que ele era "mais velho que Pastinha" (n. 1889), o que contradiz ser irmão mais novo de Noronha—isso pode indicar confusão entre fontes ou que "mais velho" se referia à experiência, não à idade. Usando 1905 como estimativa do ponto médio.
 
@@ -4307,9 +4310,16 @@ ESCLARECIMENTO DE IDENTIDADE: Algumas fontes listam "Livino Diogo" separadamente
 
 RELAÇÃO COM NORONHA: Irmão. Ambos co-fundaram o Gengibirra e o Centro da Conceição da Praia; ensinaram juntos no Maciel de Baixo.
 
-RELACIONAMENTOS PENDENTES:
-- Livino family_of Noronha (irmão) - requer criação de relacionamento
-- Livino associated_with Amorzinho (co-fundador do Gengibirra) - pendente importação de Amorzinho'
+RELACIONAMENTOS ATIVOS (ver statements/persons/livino.sql):
+- Livino family_of Noronha (irmão)
+- Livino associated_with Amorzinho (co-fundador do Gengibirra)
+- Livino associated_with Totonho de Maré (co-fundador do Gengibirra)
+- Livino associated_with Pastinha (entregou Gengibirra a ele em 1941)
+- Livino associated_with Aberrê (mestre fundador do Gengibirra)
+- Livino associated_with Onça Preta (mestre fundador do Gengibirra)
+- Livino associated_with Geraldo Chapeleiro (mestre fundador do Gengibirra)
+- Livino co_founded Gengibirra
+- Livino leads Gengibirra (1920s-1941)'
 )
 ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
@@ -8061,10 +8071,9 @@ CHALLENGE EVENTS:
 - March 17, 1953: Vale tudo vs Gracie family at Vasco da Gama (1 draw, 1 loss)
 - June 29, 1953: Hermanny vs Artur Emídio (Hermanny won by KO)
 
-PENDING RELATIONSHIPS:
+RELATIONSHIPS ACTIVE (see statements/persons/sinhozinho.sql):
 - Sinhozinho influenced_by Cyriaco (witnessed 1909 fight)
-- No clear primary teacher for capoeira can be identified; his training was eclectic
-- Zeca Floriano taught him pernada/capoeira carioca (statement added)',
+- Sinhozinho trained_under Zeca Floriano (pernada/capoeira carioca)',
   -- Researcher notes (Portuguese)
   E'ANO DE NASCIMENTO (1891): Confirmado por múltiplas fontes incluindo capoeirahistory.com, Wikipedia e arquivos de jornais brasileiros. Nasceu em Santos, São Paulo, filho do Ten. Cel. José Moreira de Sampaio.
 
@@ -9810,6 +9819,56 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Aberrê' AND o.apelido = 'Barboza'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- Aberrê student_of Antônio de Noronha
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1910-01-01'::date, 'year'::genealogy.date_precision,
+  '1912-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb,
+  'likely'::genealogy.confidence,
+  'velhosmestres.com/en/featured-2; esquiva.wordpress.com; testimony of Mestre Caiçara and Mestre Silvestre',
+  'Aberrê learned capoeira from Mestre Antônio de Noronha around 1910-1912 in Salvador. Some sources also mention Pastinha as a teacher during this period. Testimony from Mestre Caiçara and Mestre Silvestre confirms the lineage: "Mestre Aberrê is the second mestre in my lineage, above him comes Mestre Antônio de Noronha."',
+  'Aberrê aprendeu capoeira com Mestre Antônio de Noronha por volta de 1910-1912 em Salvador. Algumas fontes também mencionam Pastinha como professor durante este período. Testemunho de Mestre Caiçara e Mestre Silvestre confirma a linhagem: "Mestre Aberrê é o segundo mestre da minha linhagem, acima dele vem Mestre Antônio de Noronha."'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Aberrê' AND o.apelido = 'Antônio de Noronha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Aberrê trained_under Pastinha
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1910-01-01'::date, 'year'::genealogy.date_precision,
+  '1912-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb,
+  'disputed'::genealogy.confidence,
+  'velhosmestres.com; esquiva.wordpress.com; Multiple sources conflict on direction of relationship',
+  'Disputed: Some sources say Aberrê was Pastinha''s first student (1910-1912); others say Aberrê''s teacher. Aberrê later invited Pastinha to Gengibirra in 1941.',
+  'Disputado: Algumas fontes dizem que Aberrê foi o primeiro aluno de Pastinha (1910-1912); outras dizem que foi professor de Aberrê. Aberrê depois convidou Pastinha para Gengibirra em 1941.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Aberrê' AND o.apelido = 'Pastinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- Source: statements/persons/adama.sql (NEW)
 -- ============================================================
 -- STATEMENTS FOR: Adama
@@ -10183,30 +10242,8 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Each statement uses ON CONFLICT DO NOTHING for idempotency.
 -- ============================================================
 
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties,
-  confidence, source, notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'student_of'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1910-01-01'::date, 'year'::genealogy.date_precision,
-  '1912-01-01'::date, 'year'::genealogy.date_precision,
-  '{}'::jsonb,
-  'likely'::genealogy.confidence,
-  'velhosmestres.com/en/featured-2; esquiva.wordpress.com; testimony of Mestre Caiçara and Mestre Silvestre',
-  'Aberrê learned capoeira from Mestre Antônio de Noronha around 1910-1912 in Salvador. Some sources also mention Pastinha as a teacher during this period. Testimony from Mestre Caiçara and Mestre Silvestre confirms the lineage: "Mestre Aberrê is the second mestre in my lineage, above him comes Mestre Antônio de Noronha."',
-  'Aberrê aprendeu capoeira com Mestre Antônio de Noronha por volta de 1910-1912 em Salvador. Algumas fontes também mencionam Pastinha como professor durante este período. Testemunho de Mestre Caiçara e Mestre Silvestre confirma a linhagem: "Mestre Aberrê é o segundo mestre da minha linhagem, acima dele vem Mestre Antônio de Noronha."'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Aberrê'
-  AND o.apelido = 'Antônio de Noronha'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+-- NOTE: Aberrê student_of Antônio de Noronha is in statements/persons/aberre.sql (subject's file)
+-- No statements where Antônio de Noronha is the subject have been documented yet.
 
 -- Source: statements/persons/antonio-padroeiro.sql (NEW)
 -- ============================================================
@@ -10266,6 +10303,31 @@ SELECT
   'Alegados irmãos segundo algumas fontes. Cronologicamente problemático: diferença de ~38 anos sugere meio-irmãos no máximo. Pode ser errôneo.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Atenilo' AND o.apelido = 'Neco Canário Pardo'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Atenilo student_of Bimba
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1929-01-01'::date, 'year'::genealogy.date_precision,
+  '1974-02-05'::date, 'exact'::genealogy.date_precision,
+  '{}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Itapoan''s book "Atenilo, o Relampago da Capoeira Regional" (1988); velhosmestres.com',
+  E'Atenilo was Bimba''s oldest student, starting in 1929 before the academy was officially founded. Witnessed the creation of Capoeira Regional at Bogum. He remained Bimba''s student for 45 years until Bimba''s death in 1974.',
+  E'Atenilo foi o aluno mais velho de Bimba, começando em 1929 antes da academia ser oficialmente fundada. Testemunhou a criação da Capoeira Regional no Bogum. Permaneceu aluno de Bimba por 45 anos até a morte de Bimba em 1974.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Atenilo' AND o.apelido = 'Bimba'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Source: statements/persons/barboza.sql (NEW)
@@ -10511,29 +10573,8 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Each statement uses ON CONFLICT DO NOTHING for idempotency.
 -- ============================================================
 
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'student_of'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1915-01-01'::date, 'decade'::genealogy.date_precision,
-  '1925-01-01'::date, 'decade'::genealogy.date_precision,
-  '{}'::jsonb,
-  'likely'::genealogy.confidence,
-  'Onça Preta testimony, velhosmestres.com/br/destaques-34 (1972 interview)',
-  E'Onça Preta (b. 1909) stated he "jumped with" (pulei com) Besourinho as a boy in Salvador. Training ended when Besourinho was killed during Pedrito persecution.',
-  E'Onça Preta (n. 1909) afirmou que "pulou com" Besourinho quando menino em Salvador. O treino terminou quando Besourinho foi morto durante a perseguição de Pedrito.'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Onça Preta' AND o.apelido = 'Besourinho'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+-- NOTE: Onça Preta student_of Besourinho is in statements/persons/onca-preta.sql (subject's file)
+-- No statements where Besourinho is the subject have been documented yet.
 
 -- Source: statements/persons/besouro-manganga.sql (NEW)
 -- ============================================================
@@ -10665,29 +10706,7 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Bimba' AND o.apelido = 'Cobrinha Verde'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'student_of'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1929-01-01'::date, 'year'::genealogy.date_precision,
-  '1974-02-05'::date, 'exact'::genealogy.date_precision,
-  '{}'::jsonb,
-  'verified'::genealogy.confidence,
-  'Mestre Itapoan''s book "Atenilo, o Relampago da Capoeira Regional" (1988)',
-  'Atenilo was Bimba''s oldest student, starting in 1929 before the academy was officially founded. Witnessed the creation of Capoeira Regional at Bogum.',
-  'Atenilo foi o aluno mais velho de Bimba, começando em 1929 antes da academia ser oficialmente fundada. Testemunhou a criação da Capoeira Regional no Bogum.'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Atenilo' AND o.apelido = 'Bimba'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+-- NOTE: Atenilo student_of Bimba is in statements/persons/atenilo.sql (subject's file)
 
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
@@ -10711,6 +10730,56 @@ SELECT
   'Besouro e Bimba foram contemporâneos na cena de capoeira baiana. Besouro morreu em 1924, antes de Bimba fundar sua academia em 1932.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Bimba' AND o.apelido = 'Besouro Mangangá'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Bimba trained_under Luiz Cândido Machado (batuque)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, 'unknown'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"discipline": "batuque"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Multiple sources; Bimba credited father for batuque training; Waldeloir Rego 1968',
+  'Bimba learned batuque techniques from his father, who was a champion of this combat sport. These techniques (banda armada, banda fechada, encruzilhada, rapa, cruz de carreira, baú) were later incorporated into Capoeira Regional.',
+  'Bimba aprendeu técnicas de batuque de seu pai, que era campeão deste esporte de combate. Essas técnicas (banda armada, banda fechada, encruzilhada, rapa, cruz de carreira, baú) foram posteriormente incorporadas à Capoeira Regional.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Bimba' AND o.apelido = 'Luiz Cândido Machado'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Bimba family_of Luiz Cândido Machado (son)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'family_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1899-11-23'::date, 'exact'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"relationship_type": "parent"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Multiple sources; universally documented as Bimba''s father',
+  'Luiz Cândido Machado was Mestre Bimba''s father. Bimba was born November 23, 1899.',
+  'Luiz Cândido Machado foi o pai de Mestre Bimba. Bimba nasceu em 23 de novembro de 1899.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Bimba' AND o.apelido = 'Luiz Cândido Machado'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Source: statements/persons/boca-de-siri.sql (NEW)
@@ -11165,6 +11234,103 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Cobrinha Verde' AND g.name = 'Roda de Trapiche de Baixo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- Cobrinha Verde trained_under Gasolina
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1924-01-01'::date, 'approximate'::genealogy.date_precision,
+  '1925-01-01'::date, 'approximate'::genealogy.date_precision,
+  '{}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Cobrinha Verde interview: "My true mestre was Besouro, but I learned from many mestres in Santo Amaro: Maitá, Licurí, Joité, Dendê, Gasolina..." (Capoeira Online, La Laue, Capoeira Connection)',
+  E'Cobrinha Verde learned from Gasolina as part of his training with multiple Santo Amaro mestres after Besouro''s death in 1924. Training ended with Gasolina''s death during Pedrito persecution.',
+  E'Cobrinha Verde aprendeu com Gasolina como parte de seu treinamento com múltiplos mestres de Santo Amaro após a morte de Besouro em 1924. Treinamento terminou com a morte de Gasolina durante perseguição de Pedrito.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Gasolina'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Cobrinha Verde trained_under Siri de Mangue
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1924-01-01'::date, 'approximate'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  'verified'::genealogy.confidence,
+  'Velhos Mestres, Capoeira Online, Nossa Tribo, Lalaue - multiple sources confirm Siri de Mangue as one of Cobrinha Verde''s teachers',
+  'Cobrinha Verde learned from multiple Santo Amaro mestres after Besouro''s death in 1924. Siri de Mangue was among them alongside Maitá, Licurí, Joité, Dendê, and others.',
+  'Cobrinha Verde aprendeu com múltiplos mestres de Santo Amaro após a morte de Besouro em 1924. Siri de Mangue estava entre eles junto com Maitá, Licurí, Joité, Dendê e outros.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Siri de Mangue'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Cobrinha Verde influenced_by Tio Pascoal
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  properties,
+  confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'influenced_by'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  '{"discipline": "mandinga"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Marcelino dos Santos, "Capoeira e Mandingas: Cobrinha Verde" (1991); Cobrinha Verde interview',
+  'Pascoal taught Cobrinha Verde spiritual practices (mandinga): 65 prayers, patuá creation, corpo fechado. He was not a capoeira teacher but a mandingueiro who transmitted African-Brazilian mystical traditions. Cobrinha said: "The person who gave me this amulet was an African who, to this day, when I speak of him, my eyes fill with tears. He was called Uncle Pascoal."',
+  'Pascoal ensinou a Cobrinha Verde práticas espirituais (mandinga): 65 orações, criação de patuá, corpo fechado. Ele não era professor de capoeira, mas um mandingueiro que transmitiu tradições místicas afro-brasileiras. Cobrinha disse: "A pessoa que me deu este amuleto foi um africano que, até hoje, quando falo dele, meus olhos se enchem de lágrimas. Ele se chamava Tio Pascoal."'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Tio Pascoal'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Cobrinha Verde associated_with Pastinha (CECA membership)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, cv.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, p.id,
+  '1955-08-12'::date, 'exact'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"association_context": "Member #28 at CECA; admitted August 12, 1955; shared teaching duties with Pastinha, instructing students in singing, berimbau, and movements"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Pastinha''s official membership book; velhosmestres.com/br/cobrinha-1912-1',
+  'Cobrinha Verde was member #28 at CECA, sharing teaching responsibilities with Pastinha. Taught João Grande and João Pequeno specific techniques including floor-touching mandinga.',
+  'Cobrinha Verde era membro #28 no CECA, compartilhando responsabilidades de ensino com Pastinha. Ensinou a João Grande e João Pequeno técnicas específicas incluindo a mandinga de tocar o chão.'
+FROM genealogy.person_profiles cv, genealogy.person_profiles p
+WHERE cv.apelido = 'Cobrinha Verde' AND p.apelido = 'Pastinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- Source: statements/persons/corre-hoje.sql (NEW)
 -- ============================================================
 -- STATEMENTS FOR: Corre Hoje
@@ -11521,53 +11687,8 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Each statement uses ON CONFLICT DO NOTHING for idempotency.
 -- ============================================================
 
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'student_of'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1915-01-01'::date, 'decade'::genealogy.date_precision,
-  '1925-01-01'::date, 'approximate'::genealogy.date_precision,
-  '{}'::jsonb,
-  'verified'::genealogy.confidence,
-  'Velhos Mestres - Onça Preta biography: "as a boy, he trained with Samuel, Pastinha, Besourinho, Vitor Agaú, Gasolina, Aberrê, and many others who are now dead"',
-  E'Onça Preta (b. 1909) listed Gasolina among his mestres. Gasolina was killed during Pedrito persecution (~1925).',
-  E'Onça Preta (n. 1909) listou Gasolina entre seus mestres. Gasolina foi morto durante a perseguição de Pedrito (~1925).'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Onça Preta' AND o.apelido = 'Gasolina'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'trained_under'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1924-01-01'::date, 'approximate'::genealogy.date_precision,
-  '1925-01-01'::date, 'approximate'::genealogy.date_precision,
-  '{}'::jsonb,
-  'verified'::genealogy.confidence,
-  'Cobrinha Verde interview: "My true mestre was Besouro, but I learned from many mestres in Santo Amaro: Maitá, Licurí, Joité, Dendê, Gasolina..." (Capoeira Online, La Laue, Capoeira Connection)',
-  E'Cobrinha Verde learned from Gasolina as part of his training with multiple Santo Amaro mestres after Besouro''s death in 1924. Training ended with Gasolina''s death during Pedrito persecution.',
-  E'Cobrinha Verde aprendeu com Gasolina como parte de seu treinamento com múltiplos mestres de Santo Amaro após a morte de Besouro em 1924. Treinamento terminou com a morte de Gasolina durante perseguição de Pedrito.'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Gasolina'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+-- NOTE: Onça Preta student_of Gasolina is in statements/persons/onca-preta.sql (subject's file)
+-- NOTE: Cobrinha Verde trained_under Gasolina is in statements/persons/cobrinha-verde.sql (subject's file)
 
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
@@ -12119,53 +12240,9 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Each statement uses ON CONFLICT DO NOTHING for idempotency.
 -- ============================================================
 
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'trained_under'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  NULL, 'unknown'::genealogy.date_precision,
-  NULL, 'unknown'::genealogy.date_precision,
-  '{"discipline": "batuque"}'::jsonb,
-  'verified'::genealogy.confidence,
-  'Multiple sources; Bimba credited father for batuque training; Waldeloir Rego 1968',
-  'Bimba learned batuque techniques from his father, who was a champion of this combat sport. These techniques (banda armada, banda fechada, encruzilhada, rapa, cruz de carreira, baú) were later incorporated into Capoeira Regional.',
-  'Bimba aprendeu técnicas de batuque de seu pai, que era campeão deste esporte de combate. Essas técnicas (banda armada, banda fechada, encruzilhada, rapa, cruz de carreira, baú) foram posteriormente incorporadas à Capoeira Regional.'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Bimba' AND o.apelido = 'Luiz Cândido Machado'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'family_of'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1899-11-23'::date, 'exact'::genealogy.date_precision,
-  NULL, 'unknown'::genealogy.date_precision,
-  '{"relationship_type": "parent"}'::jsonb,
-  'verified'::genealogy.confidence,
-  'Multiple sources; universally documented as Bimba''s father',
-  'Luiz Cândido Machado was Mestre Bimba''s father. Bimba was born November 23, 1899.',
-  'Luiz Cândido Machado foi o pai de Mestre Bimba. Bimba nasceu em 23 de novembro de 1899.'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Bimba' AND o.apelido = 'Luiz Cândido Machado'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+-- NOTE: Bimba trained_under Luiz Cândido Machado is in statements/persons/bimba.sql (subject's file)
+-- NOTE: Bimba family_of Luiz Cândido Machado is in statements/persons/bimba.sql (subject's file)
+-- No statements where Luiz Cândido Machado is the subject have been documented yet.
 
 -- Source: statements/persons/madame-sata.sql (NEW)
 -- ============================================================
@@ -12831,6 +12908,81 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Onça Preta' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- Onça Preta student_of Besourinho
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1915-01-01'::date, 'decade'::genealogy.date_precision,
+  '1925-01-01'::date, 'decade'::genealogy.date_precision,
+  '{}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Onça Preta testimony, velhosmestres.com/br/destaques-34 (1972 interview)',
+  E'Onça Preta (b. 1909) stated he "jumped with" (pulei com) Besourinho as a boy in Salvador. Training ended when Besourinho was killed during Pedrito persecution.',
+  E'Onça Preta (n. 1909) afirmou que "pulou com" Besourinho quando menino em Salvador. O treino terminou quando Besourinho foi morto durante a perseguição de Pedrito.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Onça Preta' AND o.apelido = 'Besourinho'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Onça Preta student_of Gasolina
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1915-01-01'::date, 'decade'::genealogy.date_precision,
+  '1925-01-01'::date, 'approximate'::genealogy.date_precision,
+  '{}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Velhos Mestres - Onça Preta biography: "as a boy, he trained with Samuel, Pastinha, Besourinho, Vitor Agaú, Gasolina, Aberrê, and many others who are now dead"',
+  E'Onça Preta (b. 1909) listed Gasolina among his mestres. Gasolina was killed during Pedrito persecution (~1925).',
+  E'Onça Preta (n. 1909) listou Gasolina entre seus mestres. Gasolina foi morto durante a perseguição de Pedrito (~1925).'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Onça Preta' AND o.apelido = 'Gasolina'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Onça Preta student_of Vitor Agaú
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1915-01-01'::date, 'decade'::genealogy.date_precision,
+  '1925-01-01'::date, 'decade'::genealogy.date_precision,
+  '{}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Onça Preta testimony, velhosmestres.com/br/destaques-34; O Dia newspaper 1972',
+  E'Onça Preta (b. 1909) stated: "Still a boy, I jumped with Samuel, with Pastinha, Besourinho, Vitor Agaú, Gasolina, Aberrê... I had not one, but many mestres." Training was through public rodas rather than formal apprenticeship.',
+  E'Onça Preta (n. 1909) afirmou: "Garoto ainda, pulei com Samuel, com Pastinha, Besourinho, Vitor Agaú, Gasolina, Aberrê... Não tive um, mas muitos mestres." O treino era através de rodas públicas em vez de aprendizado formal.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Onça Preta' AND o.apelido = 'Vitor Agaú'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- Source: statements/persons/pajeu.sql (NEW)
 -- ============================================================
 -- STATEMENTS FOR: Pajéu
@@ -12899,53 +13051,8 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Pastinha' AND o.apelido = 'Benedito'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'trained_under'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1910-01-01'::date, 'year'::genealogy.date_precision,
-  '1912-01-01'::date, 'year'::genealogy.date_precision,
-  '{}'::jsonb,
-  'disputed'::genealogy.confidence,
-  'velhosmestres.com; esquiva.wordpress.com; Multiple sources conflict on direction of relationship',
-  'Disputed: Some sources say Aberrê was Pastinha''s first student (1910-1912); others say Aberrê''s teacher. Aberrê later invited Pastinha to Gengibirra in 1941.',
-  'Disputado: Algumas fontes dizem que Aberrê foi o primeiro aluno de Pastinha (1910-1912); outras dizem que foi professor de Aberrê. Aberrê depois convidou Pastinha para Gengibirra em 1941.'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Aberrê' AND o.apelido = 'Pastinha'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, cv.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, p.id,
-  '1955-08-12'::date, 'exact'::genealogy.date_precision,
-  NULL, 'unknown'::genealogy.date_precision,
-  '{"association_context": "Member #28 at CECA; admitted August 12, 1955; shared teaching duties with Pastinha, instructing students in singing, berimbau, and movements"}'::jsonb,
-  'verified'::genealogy.confidence,
-  'Pastinha''s official membership book; velhosmestres.com/br/cobrinha-1912-1',
-  'Cobrinha Verde was member #28 at CECA, sharing teaching responsibilities with Pastinha. Taught João Grande and João Pequeno specific techniques including floor-touching mandinga.',
-  'Cobrinha Verde era membro #28 no CECA, compartilhando responsabilidades de ensino com Pastinha. Ensinou a João Grande e João Pequeno técnicas específicas incluindo a mandinga de tocar o chão.'
-FROM genealogy.person_profiles cv, genealogy.person_profiles p
-WHERE cv.apelido = 'Cobrinha Verde' AND p.apelido = 'Pastinha'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+-- NOTE: Aberrê trained_under Pastinha is in statements/persons/aberre.sql (subject's file)
+-- NOTE: Cobrinha Verde associated_with Pastinha is in statements/persons/cobrinha-verde.sql (subject's file)
 
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
@@ -13732,27 +13839,7 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Siri de Mangue' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  confidence, source, notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'trained_under'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1924-01-01'::date, 'approximate'::genealogy.date_precision,
-  NULL, 'unknown'::genealogy.date_precision,
-  'verified'::genealogy.confidence,
-  'Velhos Mestres, Capoeira Online, Nossa Tribo, Lalaue - multiple sources confirm Siri de Mangue as one of Cobrinha Verde''s teachers',
-  'Cobrinha Verde learned from multiple Santo Amaro mestres after Besouro''s death in 1924. Siri de Mangue was among them alongside Maitá, Licurí, Joité, Dendê, and others.',
-  'Cobrinha Verde aprendeu com múltiplos mestres de Santo Amaro após a morte de Besouro em 1924. Siri de Mangue estava entre eles junto com Maitá, Licurí, Joité, Dendê e outros.'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Siri de Mangue'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+-- NOTE: Cobrinha Verde trained_under Siri de Mangue is in statements/persons/cobrinha-verde.sql (subject's file)
 
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
@@ -13943,28 +14030,8 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Each statement uses ON CONFLICT DO NOTHING for idempotency.
 -- ============================================================
 
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  properties,
-  confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'influenced_by'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1920-01-01'::date, 'decade'::genealogy.date_precision,
-  '{"discipline": "mandinga"}'::jsonb,
-  'verified'::genealogy.confidence,
-  'Marcelino dos Santos, "Capoeira e Mandingas: Cobrinha Verde" (1991); Cobrinha Verde interview',
-  'Pascoal taught Cobrinha Verde spiritual practices (mandinga): 65 prayers, patuá creation, corpo fechado. He was not a capoeira teacher but a mandingueiro who transmitted African-Brazilian mystical traditions. Cobrinha said: "The person who gave me this amulet was an African who, to this day, when I speak of him, my eyes fill with tears. He was called Uncle Pascoal."',
-  'Pascoal ensinou a Cobrinha Verde práticas espirituais (mandinga): 65 orações, criação de patuá, corpo fechado. Ele não era professor de capoeira, mas um mandingueiro que transmitiu tradições místicas afro-brasileiras. Cobrinha disse: "A pessoa que me deu este amuleto foi um africano que, até hoje, quando falo dele, meus olhos se enchem de lágrimas. Ele se chamava Tio Pascoal."'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Tio Pascoal'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+-- NOTE: Cobrinha Verde influenced_by Tio Pascoal is in statements/persons/cobrinha-verde.sql (subject's file)
+-- No statements where Tio Pascoal is the subject have been documented yet.
 
 -- Source: statements/persons/totonho-de-mare.sql (NEW)
 -- ============================================================
@@ -14076,29 +14143,7 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Each statement uses ON CONFLICT DO NOTHING for idempotency.
 -- ============================================================
 
-INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'student_of'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1915-01-01'::date, 'decade'::genealogy.date_precision,
-  '1925-01-01'::date, 'decade'::genealogy.date_precision,
-  '{}'::jsonb,
-  'likely'::genealogy.confidence,
-  'Onça Preta testimony, velhosmestres.com/br/destaques-34; O Dia newspaper 1972',
-  E'Onça Preta (b. 1909) stated: "Still a boy, I jumped with Samuel, with Pastinha, Besourinho, Vitor Agaú, Gasolina, Aberrê... I had not one, but many mestres." Training was through public rodas rather than formal apprenticeship.',
-  E'Onça Preta (n. 1909) afirmou: "Garoto ainda, pulei com Samuel, com Pastinha, Besourinho, Vitor Agaú, Gasolina, Aberrê... Não tive um, mas muitos mestres." O treino era através de rodas públicas em vez de aprendizado formal.'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Onça Preta' AND o.apelido = 'Vitor Agaú'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+-- NOTE: Onça Preta student_of Vitor Agaú is in statements/persons/onca-preta.sql (subject's file)
 
 INSERT INTO genealogy.statements (
   subject_type, subject_id,

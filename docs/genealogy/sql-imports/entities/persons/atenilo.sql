@@ -107,11 +107,9 @@ SPECIALTY: Pandeiro player in Bimba''s charanga (one berimbau + two pandeiros en
 
 BOOK: Mestre Itapoan wrote "Atenilo, o Relâmpago da Capoeira Regional" (1988, UFBA) based on Atenilo''s testimonies.
 
-PENDING RELATIONSHIPS (require Mestre Bimba import):
-- Atenilo student_of Mestre Bimba (1929-1974)
-
-PENDING FAMILY RELATIONSHIP (disputed, not imported):
-- Atenilo family_of Neco Canário Pardo (brother - chronologically problematic)',
+RELATIONSHIPS ACTIVE (see statements/persons/atenilo.sql):
+- Atenilo student_of Bimba (1929-1974)
+- Atenilo associated_with Neco Canário Pardo (disputed brother claim)',
   -- Researcher notes (Portuguese)
   E'DATA DE NASCIMENTO: 16 de julho de 1918 - data exata do testemunho de Atenilo para Mestre Itapoan: "Nasci em 16 de julho de 1918 em Oliveira, Distrito de Santo Amaro da Purificação, Bahia, e comecei a aprender Capoeira em 1929."
 
@@ -129,11 +127,9 @@ ESPECIALIDADE: Pandeirista na charanga de Bimba (conjunto de um berimbau + dois 
 
 LIVRO: Mestre Itapoan escreveu "Atenilo, o Relâmpago da Capoeira Regional" (1988, UFBA) baseado nos testemunhos de Atenilo.
 
-RELACIONAMENTOS PENDENTES (requerem importação de Mestre Bimba):
-- Atenilo student_of Mestre Bimba (1929-1974)
-
-RELACIONAMENTO FAMILIAR PENDENTE (disputado, não importado):
-- Atenilo family_of Neco Canário Pardo (irmão - cronologicamente problemático)'
+RELACIONAMENTOS ATIVOS (ver statements/persons/atenilo.sql):
+- Atenilo student_of Bimba (1929-1974)
+- Atenilo associated_with Neco Canário Pardo (alegação disputada de irmão)'
 )
 ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,

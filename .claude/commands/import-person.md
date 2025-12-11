@@ -338,6 +338,7 @@ Generate SQL and **write it to TWO files**:
 
 **Statements file:** `docs/genealogy/sql-imports/statements/persons/[apelido-lowercase].sql`
 - Contains ALL statements where this person is the SUBJECT
+- **CRITICAL OWNERSHIP RULE:** Every statement must be in the file named after its SUBJECT. For example, `Atenilo student_of Bimba` goes in `atenilo.sql`, NOT `bimba.sql`. This prevents duplicates and ensures each relationship has a single authoritative location.
 - Each statement uses ON CONFLICT DO NOTHING for idempotency
 - If no relationships exist, either omit the file or create an empty one with just a header
 

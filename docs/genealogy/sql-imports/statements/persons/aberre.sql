@@ -219,3 +219,53 @@ SELECT
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Aberrê' AND o.apelido = 'Barboza'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Aberrê student_of Antônio de Noronha
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1910-01-01'::date, 'year'::genealogy.date_precision,
+  '1912-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb,
+  'likely'::genealogy.confidence,
+  'velhosmestres.com/en/featured-2; esquiva.wordpress.com; testimony of Mestre Caiçara and Mestre Silvestre',
+  'Aberrê learned capoeira from Mestre Antônio de Noronha around 1910-1912 in Salvador. Some sources also mention Pastinha as a teacher during this period. Testimony from Mestre Caiçara and Mestre Silvestre confirms the lineage: "Mestre Aberrê is the second mestre in my lineage, above him comes Mestre Antônio de Noronha."',
+  'Aberrê aprendeu capoeira com Mestre Antônio de Noronha por volta de 1910-1912 em Salvador. Algumas fontes também mencionam Pastinha como professor durante este período. Testemunho de Mestre Caiçara e Mestre Silvestre confirma a linhagem: "Mestre Aberrê é o segundo mestre da minha linhagem, acima dele vem Mestre Antônio de Noronha."'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Aberrê' AND o.apelido = 'Antônio de Noronha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Aberrê trained_under Pastinha
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1910-01-01'::date, 'year'::genealogy.date_precision,
+  '1912-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb,
+  'disputed'::genealogy.confidence,
+  'velhosmestres.com; esquiva.wordpress.com; Multiple sources conflict on direction of relationship',
+  'Disputed: Some sources say Aberrê was Pastinha''s first student (1910-1912); others say Aberrê''s teacher. Aberrê later invited Pastinha to Gengibirra in 1941.',
+  'Disputado: Algumas fontes dizem que Aberrê foi o primeiro aluno de Pastinha (1910-1912); outras dizem que foi professor de Aberrê. Aberrê depois convidou Pastinha para Gengibirra em 1941.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Aberrê' AND o.apelido = 'Pastinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

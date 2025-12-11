@@ -215,6 +215,7 @@ Generate SQL and **write it to TWO files**:
 
 **Statements file:** `docs/genealogy/sql-imports/statements/groups/[group-name-lowercase].sql`
 - Contains ALL statements where this group is the SUBJECT
+- **CRITICAL OWNERSHIP RULE:** Every statement must be in the file named after its SUBJECT. For example, `ABADÁ split_from_group Senzala` goes in `abada.sql`, NOT `senzala.sql`. This prevents duplicates and ensures each relationship has a single authoritative location.
 - Each statement uses ON CONFLICT DO NOTHING for idempotency
 - If no relationships exist, either omit the file or create an empty one with just a header
 

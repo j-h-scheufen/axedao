@@ -101,9 +101,16 @@ IDENTITY CLARIFICATION: Some sources list "Livino Diogo" separately among histor
 
 RELATIONSHIP TO NORONHA: Brother. Both co-founded Gengibirra and Centro da Conceição da Praia; taught together at Maciel de Baixo.
 
-PENDING RELATIONSHIPS:
-- Livino family_of Noronha (brother) - requires relationship creation
-- Livino associated_with Amorzinho (co-founder of Gengibirra) - pending Amorzinho import',
+RELATIONSHIPS ACTIVE (see statements/persons/livino.sql):
+- Livino family_of Noronha (brother)
+- Livino associated_with Amorzinho (co-founder of Gengibirra)
+- Livino associated_with Totonho de Maré (co-founder of Gengibirra)
+- Livino associated_with Pastinha (handed Gengibirra to him in 1941)
+- Livino associated_with Aberrê (founding mestre of Gengibirra)
+- Livino associated_with Onça Preta (founding mestre of Gengibirra)
+- Livino associated_with Geraldo Chapeleiro (founding mestre of Gengibirra)
+- Livino co_founded Gengibirra
+- Livino leads Gengibirra (1920s-1941)',
   -- notes_pt
   E'ESTIMATIVA DO ANO DE NASCIMENTO (1905, precisão de década): Nenhuma data de nascimento documentada. Como irmão de Noronha (nascido em 1909), Livino provavelmente nasceu alguns anos próximos a ele. Era líder organizacional do Gengibirra fundado na década de 1920, sugerindo que era um adulto estabelecido na época. Mestre Barba Branca afirmou que ele era "mais velho que Pastinha" (n. 1889), o que contradiz ser irmão mais novo de Noronha—isso pode indicar confusão entre fontes ou que "mais velho" se referia à experiência, não à idade. Usando 1905 como estimativa do ponto médio.
 
@@ -120,9 +127,16 @@ ESCLARECIMENTO DE IDENTIDADE: Algumas fontes listam "Livino Diogo" separadamente
 
 RELAÇÃO COM NORONHA: Irmão. Ambos co-fundaram o Gengibirra e o Centro da Conceição da Praia; ensinaram juntos no Maciel de Baixo.
 
-RELACIONAMENTOS PENDENTES:
-- Livino family_of Noronha (irmão) - requer criação de relacionamento
-- Livino associated_with Amorzinho (co-fundador do Gengibirra) - pendente importação de Amorzinho'
+RELACIONAMENTOS ATIVOS (ver statements/persons/livino.sql):
+- Livino family_of Noronha (irmão)
+- Livino associated_with Amorzinho (co-fundador do Gengibirra)
+- Livino associated_with Totonho de Maré (co-fundador do Gengibirra)
+- Livino associated_with Pastinha (entregou Gengibirra a ele em 1941)
+- Livino associated_with Aberrê (mestre fundador do Gengibirra)
+- Livino associated_with Onça Preta (mestre fundador do Gengibirra)
+- Livino associated_with Geraldo Chapeleiro (mestre fundador do Gengibirra)
+- Livino co_founded Gengibirra
+- Livino leads Gengibirra (1920s-1941)'
 )
 ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,

@@ -135,10 +135,9 @@ CHALLENGE EVENTS:
 - March 17, 1953: Vale tudo vs Gracie family at Vasco da Gama (1 draw, 1 loss)
 - June 29, 1953: Hermanny vs Artur Emídio (Hermanny won by KO)
 
-PENDING RELATIONSHIPS:
+RELATIONSHIPS ACTIVE (see statements/persons/sinhozinho.sql):
 - Sinhozinho influenced_by Cyriaco (witnessed 1909 fight)
-- No clear primary teacher for capoeira can be identified; his training was eclectic
-- Zeca Floriano taught him pernada/capoeira carioca (statement added)',
+- Sinhozinho trained_under Zeca Floriano (pernada/capoeira carioca)',
   -- Researcher notes (Portuguese)
   E'ANO DE NASCIMENTO (1891): Confirmado por múltiplas fontes incluindo capoeirahistory.com, Wikipedia e arquivos de jornais brasileiros. Nasceu em Santos, São Paulo, filho do Ten. Cel. José Moreira de Sampaio.
 
