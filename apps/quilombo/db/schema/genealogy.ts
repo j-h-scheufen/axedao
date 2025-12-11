@@ -15,7 +15,6 @@ import {
   integer,
   jsonb,
   pgSchema,
-  serial,
   text,
   timestamp,
   uniqueIndex,
@@ -340,47 +339,8 @@ export const statements = genealogySchema.table(
 );
 
 // ============================================================================
-// IMPORT LOG TABLE
-// ============================================================================
-
-/**
- * Tracks which SQL import files have been applied to the genealogy schema.
- * Supports dependency-aware sync: when a dependency is imported after a file,
- * that file should be re-run to create any statements that previously failed
- * due to missing referenced entities.
- */
-export const importLog = genealogySchema.table(
-  'import_log',
-  {
-    id: serial('id').primaryKey(),
-
-    // Import identification
-    entityType: entityTypeEnum('entity_type').notNull(), // 'person' or 'group'
-    filePath: varchar('file_path', { length: 255 }).notNull(), // e.g., 'persons/placido-de-abreu.sql'
-
-    // Tracking
-    importedAt: timestamp('imported_at', { withTimezone: true }).notNull().defaultNow(),
-    checksum: varchar('checksum', { length: 64 }), // MD5 hash of file content for change detection
-
-    // Dependencies (other files that must exist for statements to work)
-    dependencies: text('dependencies').array().default([]), // e.g., ['persons/manduca-da-praia.sql']
-
-    // Metadata
-    notes: text('notes'), // Optional notes about the import
-  },
-  (t) => [
-    uniqueIndex('import_log_entity_file_idx').on(t.entityType, t.filePath),
-    index('import_log_entity_type_idx').on(t.entityType),
-    index('import_log_imported_at_idx').on(t.importedAt),
-  ]
-);
-
-// ============================================================================
 // TYPE EXPORTS
 // ============================================================================
-
-export type InsertImportLog = typeof importLog.$inferInsert;
-export type SelectImportLog = typeof importLog.$inferSelect;
 
 export type InsertPersonProfile = typeof personProfiles.$inferInsert;
 export type SelectPersonProfile = typeof personProfiles.$inferSelect;

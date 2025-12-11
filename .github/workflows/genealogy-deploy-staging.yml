@@ -1,11 +1,13 @@
 name: Deploy Genealogy Data (Staging)
 
 on:
-  push:
+  # Run after Atlas staging migration completes successfully
+  workflow_run:
+    workflows: ["Staging Database Migration (Atlas)"]
+    types:
+      - completed
     branches:
       - develop
-    paths:
-      - 'docs/genealogy/sql-imports/build/pending-migration.sql'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -24,20 +26,41 @@ jobs:
     runs-on: ubuntu-latest
     environment: staging
     timeout-minutes: 10
+    # Only run if Atlas workflow succeeded (or if manually triggered)
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # Need history to check for changes
 
       - name: Check for pending migration
         id: check
         run: |
-          if [ -f "docs/genealogy/sql-imports/build/pending-migration.sql" ]; then
-            echo "has_migration=true" >> $GITHUB_OUTPUT
-            echo "Migration file found"
-          else
+          MIGRATION_FILE="docs/genealogy/sql-imports/build/pending-migration.sql"
+
+          # Check if file exists
+          if [ ! -f "$MIGRATION_FILE" ]; then
             echo "has_migration=false" >> $GITHUB_OUTPUT
             echo "No migration file found - nothing to deploy"
+            exit 0
+          fi
+
+          # For workflow_dispatch, always deploy if file exists
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "has_migration=true" >> $GITHUB_OUTPUT
+            echo "Manual trigger - migration file found"
+            exit 0
+          fi
+
+          # For workflow_run, check if the migration file was changed in the triggering commit
+          if git diff --name-only HEAD~1 HEAD 2>/dev/null | grep -q "$MIGRATION_FILE"; then
+            echo "has_migration=true" >> $GITHUB_OUTPUT
+            echo "Migration file was changed in this commit"
+          else
+            echo "has_migration=false" >> $GITHUB_OUTPUT
+            echo "Migration file exists but was not changed in this commit - skipping"
           fi
 
       - name: Show migration contents (dry run)
@@ -78,9 +101,7 @@ jobs:
             UNION ALL
             SELECT 'group_profiles', COUNT(*) FROM genealogy.group_profiles
             UNION ALL
-            SELECT 'statements', COUNT(*) FROM genealogy.statements
-            UNION ALL
-            SELECT 'import_log', COUNT(*) FROM genealogy.import_log;
+            SELECT 'statements', COUNT(*) FROM genealogy.statements;
           "
 
       - name: Create deployment report
