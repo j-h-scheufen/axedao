@@ -14,6 +14,7 @@
 |---------------|---------------|
 | Full Name / Nome Completo | Antonio Laurindo das Neves |
 | Apelido | Totonho de Maré |
+| Aliases / Outros nomes | Antônio Maré, Maré, Mestre Maré |
 | Born / Nascimento | September 17, 1894, Ilha de Maré, Salvador, Bahia |
 | Died / Falecimento | October 18, 1974, Salvador, Bahia |
 | Parents / Pais | Manoel Gasparino Neves and Margarida Neves |
@@ -119,9 +120,9 @@ Capoeira Angola; nunca fundou uma academia mas ensinou informalmente em festas d
 - **Barboza** - Contemporary
 
 ### Other Contemporaries
-- **Mestre Pastinha** - Received leadership of Gengibirra (1941)
+- **Mestre Pastinha** - Received leadership of Gengibirra (1941); Maré intervened saying "There's no escaping it, Pastinha, you are the one who will be in charge of this"
 - **Mestre Bimba** - Praised him as "a great mestre"
-- **Samuel Querido de Deus** - Declared Maré deserving of championship over Bimba
+- **Samuel Querido de Deus** - Edison Carneiro named them together as "the aces of capoeira in Bahia" (the fisherman Samuel and the docker Maré); Querido de Deus also declared that the Bahian championship "deservedly belongs to Maré" over Bimba (1936)
 
 ## Date Discrepancies / Discrepâncias de Datas
 
@@ -130,6 +131,15 @@ Capoeira Angola; nunca fundou uma academia mas ensinou informalmente em festas d
 | Start of capoeira | 1911 | 1918 | nossa-tribo says 1911; velhosmestres says 1918 |
 | Birth date | Sept 17, 1894 | - | Confirmed in multiple sources |
 | Death date | Oct 18, 1974 | - | Confirmed in multiple sources |
+
+## Name Variants / Variantes de Nome
+
+- **Totonho de Maré** - Primary apelido; "Totonho" is a diminutive of Antônio, "de Maré" refers to Ilha de Maré where he was born and "reigned"
+- **Antônio Maré** - Formal variant using full first name; appears in historical sources including the 1941 CECA founding (Pastinha's account)
+- **Maré** - Short form used in Edison Carneiro's writings ("the docker Maré") and Mestre Noronha's manuscripts
+- **Mestre Maré** - Respectful form with title
+
+The backlog entry "Antônio Maré" from capoeirahistory.com refers to this same person.
 
 ## Notable Quotes / Citações Notáveis
 

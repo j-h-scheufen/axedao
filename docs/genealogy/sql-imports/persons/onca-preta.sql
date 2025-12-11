@@ -3,7 +3,7 @@
 -- Generated: 2025-12-09
 -- Primary Source: https://velhosmestres.com/br/destaques-34
 -- ============================================================
--- DEPENDENCIES: persons/aberre.sql, groups/gengibirra.sql, groups/roda-do-matatu-preto.sql
+-- DEPENDENCIES: persons/aberre.sql, persons/pastinha.sql, groups/gengibirra.sql, groups/roda-do-matatu-preto.sql
 -- ============================================================
 --
 -- DEATH YEAR NOTE (2006):
@@ -183,7 +183,9 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
 
 -- --- Person-to-Person: Training & Lineage ---
 
--- Onça Preta trained_under Aberrê (per O Cruzeiro 1948)
+-- Onça Preta student_of Aberrê (per O Cruzeiro 1948)
+-- Note: Using student_of because Onça Preta explicitly called these his "mestres":
+-- "Não tive um mestre, mas vários" (I didn't have one mestre, but many)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -195,7 +197,7 @@ INSERT INTO genealogy.statements (
 )
 SELECT
   'person'::genealogy.entity_type, s.id,
-  'trained_under'::genealogy.predicate,
+  'student_of'::genealogy.predicate,
   'person'::genealogy.entity_type, o.id,
   NULL, 'unknown'::genealogy.date_precision,
   NULL, 'unknown'::genealogy.date_precision,
@@ -206,6 +208,33 @@ SELECT
   E'O Cruzeiro (1948) identifica Onça Preta como aluno de Aberrê. Porém, o próprio Onça Preta afirmou em entrevista de 1972 que teve "outras referências" além de Aberrê, sugerindo múltiplos professores.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Onça Preta' AND o.apelido = 'Aberrê'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Onça Preta student_of Pastinha (per his own testimony)
+-- Note: Using student_of because Onça Preta explicitly called these his "mestres":
+-- "Não tive um mestre, mas vários" (I didn't have one mestre, but many)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1915-01-01'::date, 'decade'::genealogy.date_precision,
+  '1925-01-01'::date, 'decade'::genealogy.date_precision,
+  '{}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Onça Preta testimony, velhosmestres.com/br/destaques-34',
+  E'Onça Preta (b. 1909) stated he trained under multiple mestres as a boy: "Still a boy, I jumped with Samuel, with Pastinha, Besourinho, Vitor Agaú, Gasolina, Aberrê... I had not one, but many mestres." Learning was through public rodas rather than formal apprenticeship.',
+  E'Onça Preta (n. 1909) afirmou que treinou com múltiplos mestres quando menino: "Garoto ainda, pulei com Samuel, com Pastinha, Besourinho, Vitor Agaú, Gasolina, Aberrê... Não tive um, mas muitos mestres." O aprendizado era através de rodas públicas em vez de aprendizado formal.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Onça Preta' AND o.apelido = 'Pastinha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- --- Person-to-Person: Peers/Associates ---
@@ -243,11 +272,14 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- The following relationships require entities that are not yet imported:
 --
 -- TEACHERS (student_of or trained_under):
--- - Samuel Querido de Deus (major influence, famous 1937 game)
--- - Vicente Pastinha (listed as one of his teachers)
--- - Besourinho (listed as teacher, killed by Pedrito)
--- - Vitor Agaú (also spelled Vitor H.Ú or Vitor H.D.)
--- - Gasolina (listed as teacher, killed by Pedrito)
+-- - Gasolina (listed as teacher, killed by Pedrito) - no SQL import yet
+--
+-- IMPLEMENTED TEACHERS:
+-- - Aberrê (in this file)
+-- - Pastinha (in this file)
+-- - Samuel Querido de Deus (in querido-de-deus.sql)
+-- - Besourinho (in besourinho.sql)
+-- - Vitor Agaú (in vitor-agau.sql)
 --
 -- PEERS (associated_with):
 -- - Daniel Noronha (co-founder of CECA 1941)
@@ -296,8 +328,9 @@ WHERE p.apelido = 'Onça Preta' AND g.name = 'Roda do Matatu Preto'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- --- Person-to-Group: Co-founded Gengibirra ---
+-- NOTE: Duplicate statements also exist in gengibirra.sql - ON CONFLICT ensures idempotency
 
--- Onça Preta co_founded Gengibirra
+-- Onça Preta co_founded Gengibirra (as founding_mestre, not one of 4 donos)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -311,11 +344,11 @@ SELECT
   'co_founded'::genealogy.predicate,
   'group'::genealogy.entity_type, g.id,
   '1920-01-01'::date, 'decade'::genealogy.date_precision,
-  '{}'::jsonb,
+  '{"founding_role": "founding_mestre"}'::jsonb,
   'verified'::genealogy.confidence,
   'Mestre Noronha manuscripts via velhosmestres.com',
-  'One of 22 founding mestres of the Centro de Capoeira Angola at Ladeira de Pedra (Gengibirra).',
-  'Um dos 22 mestres fundadores do Centro de Capoeira Angola na Ladeira de Pedra (Gengibirra).'
+  'One of 22 founding mestres of the Centro Nacional de Capoeira de Origem Angola at Ladeira de Pedra (Gengibirra).',
+  'Um dos 22 mestres fundadores do Centro Nacional de Capoeira de Origem Angola na Ladeira de Pedra (Gengibirra).'
 FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Onça Preta' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
@@ -329,7 +362,7 @@ VALUES (
   'person',
   'persons/onca-preta.sql',
   NULL,
-  ARRAY['persons/aberre.sql', 'groups/gengibirra.sql', 'groups/roda-do-matatu-preto.sql'],
+  ARRAY['persons/aberre.sql', 'persons/pastinha.sql', 'groups/gengibirra.sql', 'groups/roda-do-matatu-preto.sql'],
   'Cícero Navarro "Onça Preta" (1909-2006): Bahian Angola mestre, bridge between first and second generations. Survived Pedrito persecution. Co-founder of CECA (1941) and Filhos de Angola (1960). Featured in Jorge Amado works and Ruth Landes photographs.'
 )
 ON CONFLICT (entity_type, file_path) DO UPDATE SET

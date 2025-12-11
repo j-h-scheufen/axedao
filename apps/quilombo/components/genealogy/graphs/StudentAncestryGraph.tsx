@@ -223,7 +223,7 @@ const SLAVERY_ERA_CONFIG = {
   /** Abolition ring opacity */
   abolitionRingOpacity: 0.85,
   /** Tube radius for the 3D torus ring (thickness) */
-  abolitionRingTubeRadius: 1.2,
+  abolitionRingTubeRadius: 1.888,
   /** Label for the abolition marker */
   abolitionLabel: '1888 · Abolição',
   /** Label color (golden to match ring) */
@@ -399,25 +399,22 @@ function createSlaveryEraObject(): THREE.Group {
   disc.renderOrder = -1; // Render behind everything else
   group.add(disc);
 
-  // 2. Create the abolition ring as a 3D torus (golden ring at 1888)
-  // TorusGeometry creates a donut shape that protrudes from the disc
-  const torusGeometry = new THREE.TorusGeometry(
-    abolitionRadius, // radius from center to tube center
-    SLAVERY_ERA_CONFIG.abolitionRingTubeRadius, // tube radius (thickness)
-    16, // radial segments (around the tube cross-section)
-    RING_CONFIG.segments // tubular segments (around the ring)
-  );
-  const torusMaterial = new THREE.MeshBasicMaterial({
+  // 2. Create the abolition ring (golden circle at 1888)
+  const ringPoints: THREE.Vector3[] = [];
+  for (let i = 0; i <= RING_CONFIG.segments; i++) {
+    const theta = (i / RING_CONFIG.segments) * Math.PI * 2;
+    ringPoints.push(new THREE.Vector3(abolitionRadius * Math.cos(theta), 0, abolitionRadius * Math.sin(theta)));
+  }
+
+  const ringGeometry = new THREE.BufferGeometry().setFromPoints(ringPoints);
+  const ringMaterial = new THREE.LineBasicMaterial({
     color: SLAVERY_ERA_CONFIG.abolitionRingColor,
     transparent: true,
     opacity: SLAVERY_ERA_CONFIG.abolitionRingOpacity,
+    linewidth: SLAVERY_ERA_CONFIG.abolitionRingWidth, // Note: linewidth only works in WebGLRenderer with certain conditions
   });
 
-  const ring = new THREE.Mesh(torusGeometry, torusMaterial);
-  // Rotate to lie flat in XZ plane (torus default is in XY plane)
-  ring.rotation.x = Math.PI / 2;
-  // Position slightly above the disc so it protrudes
-  ring.position.y = SLAVERY_ERA_CONFIG.abolitionRingTubeRadius * 0.5;
+  const ring = new THREE.Line(ringGeometry, ringMaterial);
   ring.renderOrder = 100; // Above the disc, below nodes
   group.add(ring);
 

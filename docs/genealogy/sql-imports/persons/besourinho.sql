@@ -144,7 +144,9 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
 
 -- --- Person-to-Person: Training & Lineage ---
 
--- Onça Preta trained_under Besourinho (per Onça Preta's testimony)
+-- Onça Preta student_of Besourinho (per Onça Preta's testimony)
+-- Note: Using student_of because Onça Preta explicitly called these his "mestres":
+-- "Não tive um mestre, mas vários" (I didn't have one mestre, but many)
 -- NOTE: Relationship direction is subject (younger) -> object (teacher)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
@@ -157,7 +159,7 @@ INSERT INTO genealogy.statements (
 )
 SELECT
   'person'::genealogy.entity_type, s.id,
-  'trained_under'::genealogy.predicate,
+  'student_of'::genealogy.predicate,
   'person'::genealogy.entity_type, o.id,
   '1915-01-01'::date, 'decade'::genealogy.date_precision,
   '1925-01-01'::date, 'decade'::genealogy.date_precision,

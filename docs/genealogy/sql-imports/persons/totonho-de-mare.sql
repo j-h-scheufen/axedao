@@ -127,7 +127,8 @@ FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Totonho de Maré' AND g.name = 'Roda do Matatu Preto'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- --- Person-to-Group: Co-founded Gengibirra (as owner/proprietor) ---
+-- --- Person-to-Group: Co-founded Gengibirra (as dono e proprietário) ---
+-- NOTE: Duplicate statements also exist in gengibirra.sql - ON CONFLICT ensures idempotency
 
 -- Totonho de Maré co_founded Gengibirra
 INSERT INTO genealogy.statements (
@@ -143,13 +144,63 @@ SELECT
   'co_founded'::genealogy.predicate,
   'group'::genealogy.entity_type, g.id,
   '1920-01-01'::date, 'decade'::genealogy.date_precision,
-  '{"founder_role": "owner"}'::jsonb,
+  '{"founding_role": "dono_proprietario"}'::jsonb,
   'verified'::genealogy.confidence,
-  'Mestre Noronha manuscripts via velhosmestres.com',
-  'One of four "donos e proprietários" (owners and proprietors) of Gengibirra, alongside Noronha, Livino, and Amorzinho. One of 22 founding mestres of the Centro de Capoeira Angola at Ladeira de Pedra.',
-  'Um dos quatro "donos e proprietários" do Gengibirra, ao lado de Noronha, Livino e Amorzinho. Um dos 22 mestres fundadores do Centro de Capoeira Angola na Ladeira de Pedra.'
+  'Mestre Noronha manuscripts via velhosmestres.com; nossa-tribo.com',
+  'One of four "donos e proprietários" (organizational leaders) of Gengibirra alongside Noronha, Livino, and Amorzinho. One of 22 founding mestres of the Centro Nacional de Capoeira de Origem Angola at Ladeira de Pedra.',
+  'Um dos quatro "donos e proprietários" (líderes organizacionais) do Gengibirra ao lado de Noronha, Livino e Amorzinho. Um dos 22 mestres fundadores do Centro Nacional de Capoeira de Origem Angola na Ladeira de Pedra.'
 FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Totonho de Maré' AND g.name = 'Gengibirra'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Totonho de Maré leads Gengibirra (1920s-1941) - organizational leadership
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, p.id,
+  'leads'::genealogy.predicate,
+  'group'::genealogy.entity_type, g.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  '1941-02-23'::date, 'exact'::genealogy.date_precision,
+  '{"leadership_role": "dono_proprietario", "context": "One of four organizational leaders recognized by Noronha; leadership ended when center was handed to Pastinha"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Noronha manuscripts via velhosmestres.com; nossa-tribo.com/mestre-totonho-de-mare/',
+  'One of four "donos e proprietários" providing organizational leadership. Term indicates custodianship/leadership, not property ownership (Ladeira de Pedra was a public street).',
+  'Um dos quatro "donos e proprietários" fornecendo liderança organizacional. O termo indica custódia/liderança, não propriedade (Ladeira de Pedra era uma rua pública).'
+FROM genealogy.person_profiles p, genealogy.group_profiles g
+WHERE p.apelido = 'Totonho de Maré' AND g.name = 'Gengibirra'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- --- Person-to-Person: Contemporary "aces of capoeira" (Edison Carneiro) ---
+
+-- Totonho de Maré associated_with Querido de Deus
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1936-01-01'::date, 'year'::genealogy.date_precision,
+  '{"association_context": "Edison Carneiro named them together as the two aces of capoeira in Bahia: the fisherman Samuel Querido de Deus and the docker Maré."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Edison Carneiro, Negros Bantus (1937); velhosmestres.com',
+  'Edison Carneiro declared in 1936-1937 that "the aces of capoeira in Bahia were the fisherman Samuel Querido de Deus and the docker Maré." Both were first-generation mestres active in Salvador in the 1930s.',
+  'Edison Carneiro declarou em 1936-1937 que "os ases da capoeira na Bahia eram o pescador Samuel Querido de Deus e o estivador Maré." Ambos eram mestres da primeira geração ativos em Salvador nos anos 1930.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Totonho de Maré' AND o.apelido = 'Querido de Deus'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================
@@ -161,8 +212,8 @@ VALUES (
   'person',
   'persons/totonho-de-mare.sql',
   NULL,
-  ARRAY['groups/gengibirra.sql', 'groups/roda-do-matatu-preto.sql'],
-  'Co-founder of Gengibirra (1941); contemporary of Bimba and Pastinha; featured in Dança de Guerra documentary (1968)'
+  ARRAY['groups/gengibirra.sql', 'groups/roda-do-matatu-preto.sql', 'persons/querido-de-deus.sql'],
+  'Co-founder of Gengibirra (1941); contemporary of Bimba and Pastinha; featured in Dança de Guerra documentary (1968); also known as Antônio Maré, Maré'
 )
 ON CONFLICT (entity_type, file_path) DO UPDATE SET
   imported_at = NOW(),

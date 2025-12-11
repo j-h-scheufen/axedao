@@ -104,8 +104,9 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
 -- ============================================================
 
 -- --- Person-to-Group: Co-founded Gengibirra ---
+-- NOTE: Duplicate statements also exist in gengibirra.sql - ON CONFLICT ensures idempotency
 
--- Cândido Pequeno co_founded Gengibirra
+-- Cândido Pequeno co_founded Gengibirra (as founding_mestre, not one of 4 donos)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
@@ -119,11 +120,11 @@ SELECT
   'co_founded'::genealogy.predicate,
   'group'::genealogy.entity_type, g.id,
   '1920-01-01'::date, 'decade'::genealogy.date_precision,
-  '{}'::jsonb,
+  '{"founding_role": "founding_mestre"}'::jsonb,
   'verified'::genealogy.confidence,
   'Mestre Noronha manuscripts via velhosmestres.com',
-  'One of 22 founding mestres of the Centro de Capoeira Angola at Ladeira de Pedra (Gengibirra). Recognized as "champion of capoeira in the State of Bahia."',
-  'Um dos 22 mestres fundadores do Centro de Capoeira Angola na Ladeira de Pedra (Gengibirra). Reconhecido como "campeão da capoeira do Estado da Bahia."'
+  'One of 22 founding mestres of the Centro Nacional de Capoeira de Origem Angola at Ladeira de Pedra (Gengibirra). Recognized as "champion of capoeira in the State of Bahia."',
+  'Um dos 22 mestres fundadores do Centro Nacional de Capoeira de Origem Angola na Ladeira de Pedra (Gengibirra). Reconhecido como "campeão da capoeira do Estado da Bahia."'
 FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Cândido Pequeno' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

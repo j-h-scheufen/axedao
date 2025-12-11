@@ -73,11 +73,11 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Atenilo | Altenisio dos Santos | Mestre | Neco Canário Pardo import | done | yes | Oldest student of Mestre Bimba (1929-1986); witness to founding of Regional at Bogum; alleged brother of Neco Canário Pardo (disputed, ~38-year age gap) - SQL generated |
 | Talabi | - | - | Neco Canário Pardo import | done | yes | Also known as Calabi de Periperi, Zé Talabi, Talavi, Telabi; taught Mestre Waldemar; "de Periperi" indicates neighborhood origin - SQL generated |
 | Ricardo de Ilha de Maré | - | - | Neco Canário Pardo import | done | yes | Taught Mestre Waldemar; from Ilha de Maré where Waldemar was born - SQL generated |
-| Noronha | Daniel Coutinho | Mestre | Cândido Pequeno import | pending | yes | Student of Cândido Pequeno (1917); co-founder of Gengibirra; author of "O ABC da Capoeira Angola" manuscripts (1909-1977) |
+| Noronha | Daniel Coutinho | Mestre | Cândido Pequeno import | done | yes | Student of Cândido Pequeno (1917); co-founder of Gengibirra; author of "O ABC da Capoeira Angola" manuscripts (1909-1977) - SQL generated |
 | Lúcio Pequeno | - | - | Cândido Pequeno import | pending | yes | Co-founder of Gengibirra; possible brother/relative of Cândido Pequeno (shared surname) |
-| Amorzinho | - | - | Gengibirra import | pending | yes | Civil guard; roda leader; one of four "owners and proprietors" of Gengibirra; passed leadership to Pastinha |
+| Amorzinho | - | Mestre | Gengibirra import | done | yes | Civil guard (~1895-1943); roda leader; one of four "owners and proprietors" of Gengibirra; passed leadership to Pastinha - SQL generated |
 | Totonho de Maré | Antonio Laurindo das Neves | Mestre | Gengibirra import | done | yes | One of four "owners and proprietors" of Gengibirra (1894-1974); praised by Edison Carneiro as one of "the best capoeiristas from Bahia" - SQL generated |
-| Livino | - | Mestre | Gengibirra import | pending | yes | Brother of Mestre Noronha; one of four "owners and proprietors" of Gengibirra; also known as Livinho |
+| Livino | - | Mestre | Gengibirra import | done | yes | Brother of Mestre Noronha; one of four "owners and proprietors" of Gengibirra; also known as Livinho, Livino Boca da Barra, Livino Malvadeza, Livino Diogo - SQL generated |
 | Percílio | - | - | Gengibirra import | pending | yes | One of 22 founding mestres of Gengibirra |
 | Juvenal Engraxate | - | Mestre | Multiple | pending | yes | "Juvenal the Shoeshine"; one of 22 founding mestres of Gengibirra; second-generation Bahian mestre alongside Cobrinha Verde, Noronha, Waldemar |
 | Geraldo Pé de Abelha | - | - | Gengibirra import | pending | yes | One of 22 founding mestres of Gengibirra |
@@ -104,8 +104,8 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Edgar | - | - | Sete Coroas import | pending | yes | Capoeirista imprisoned at Dois Rios alongside Sete Coroas; mentioned in Madame Satã's prison memoirs |
 | Americano | - | - | Sete Coroas import | pending | yes | Capoeirista imprisoned at Dois Rios alongside Sete Coroas; mentioned in Madame Satã's prison memoirs |
 | Prata Preta | Horácio José da Silva | - | Multiple | done | yes | Leader of 1904 Vaccine Revolt in Rio (1874-?); stevedore and capoeirista; deported to Acre - SQL generated |
-| Miguel Camisa Preta | Alfredo Francisco Soares | - | Prata Preta import | pending | yes | Famous Rio malandro and capoeirista; assassinated July 12, 1912; became Umbanda entity |
-| Leão do Norte | - | - | Prata Preta import | pending | yes | Great friend of Miguel Camisa Preta; capoeirista killed by police officer Elpídio |
+| Miguel Camisa Preta | Alfredo Francisco Soares | - | Prata Preta import | done | yes | Famous Rio malandro and capoeirista; assassinated July 12, 1912; became Umbanda entity - SQL generated |
+| Leão do Norte | - | - | Miguel Camisa Preta import | done | yes | Great friend of Miguel Camisa Preta; capoeirista killed by police officer Elpídio ~1911 - SQL generated |
 | Paraná | Oswaldo Lisboa dos Santos | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Bahian mestre (1910/1911-1972); came to Rio in 1945; major lineage figure |
 | Joel Lourenço | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Bahian; important role in Rio capoeira in 1950s |
 | Artur Emídio | Artur Emídio de Oliveira | Mestre | Multiple | pending | yes | Bahian mestre (1930-2011); came to Rio 1955; major lineage figure; second teacher of Leopoldina |
@@ -114,12 +114,12 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Roque | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Major lineage figure in Rio |
 | Paulo Gomes | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Contemporary Rio generation |
 | Celso do Engenho | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Contemporary Rio generation |
-| Samuel Querido de Deus | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Bahian first-generation mestre; recognized alongside Besouro, Bimba, Pastinha |
-| Antônio Maré | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Bahian first-generation mestre |
+| Samuel Querido de Deus | Samuel Francisco Barreto de Souza | Mestre | capoeirahistory.com/masters-in-rio | done | yes | Bahian first-generation mestre; recognized alongside Besouro, Bimba, Pastinha - SQL generated as querido-de-deus.sql |
+| Antônio Maré | Antonio Laurindo das Neves | Mestre | capoeirahistory.com/masters-in-rio | done | yes | **DUPLICATE**: Same person as Totonho de Maré - "Antônio Maré" is an alternate name; SQL exists as totonho-de-mare.sql |
 | Nestor Capoeira | - | Mestre | Quinzinho import | pending | yes | Student of Mestre Leopoldina; director of 2005 documentary "Mestre Leopoldina, a Fina Flor da Malandragem"; author |
 | Juvenil | - | - | Quinzinho import | pending | ? | Sparring partner who trained with Leopoldina under Quinzinho in early 1950s; unclear if became capoeirista |
 | Valdemar Santana | - | - | Quinzinho import | pending | ? | Famous fighter who brought Artur Emídio to Rio; not primarily a capoeirista but connected to capoeira history |
-| Luiz Cândido Machado | Luiz Cândido Machado | - | Mestre Bimba lineage | pending | yes | Father of Mestre Bimba; champion of Batuque; former enslaved person of Bantu origin; taught Bimba batuque techniques incorporated into Capoeira Regional. The relationship is Bimba trained_under Luiz Cândido Machado with properties { "discipline": "batuque" } , family_of with properties { "relationship_type": "parent" } |
+| Luiz Cândido Machado | Luiz Cândido Machado | - | Mestre Bimba lineage | done | yes | Father of Mestre Bimba; champion of Batuque; formerly enslaved person of Bantu descent; taught batuque to Bimba - SQL generated as luiz-candido-machado.sql |
 | Zeca Floriano | José Floriano Peixoto | - | Sinhozinho import | done | yes | Son of President Floriano Peixoto; taught Sinhozinho pernada/capoeira carioca (1908+); verified capoeirista per capoeirahistory.com - SQL generated |
 | Rudolf Hermanny | Rudolf de Otero Hermanny | - | Sinhozinho import | pending | ? | Student of Sinhozinho; judo champion, physical educator, 1966 World Cup football coach; fought in 1949 and 1953 challenges - unclear if should be in genealogy |
 | Cirandinha | Luiz Pereira de Aguiar | - | Sinhozinho import | done | yes | Student of Sinhozinho; weightlifter, "Brazilian capoeira champion"; fought in 1949 and 1953 challenges - SQL generated |
@@ -128,7 +128,7 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Dois de Ouro | - | Mestre | Onça Preta import | pending | yes | Co-founder of Grupo Filhos de Angola (Rio, 1960); Bahian angoleiro |
 | Baleado | - | Mestre | Onça Preta import | pending | yes | Co-founder of Grupo Filhos de Angola (Rio, 1960); Bahian angoleiro |
 | Imagem do Cão | - | Mestre | Onça Preta import | pending | yes | Co-founder of Grupo Filhos de Angola (Rio, 1960); Bahian angoleiro |
-| Vitor Agaú | - | Mestre | Onça Preta import | pending | yes | Teacher of Onça Preta; also spelled Vitor H.Ú or Vitor H.D.; co-founder of CECA 1941 |
+| Vitor Agaú | - | Mestre | Onça Preta import | done | yes | Teacher of Onça Preta; also spelled Vitor H.Ú or Vitor H.D.; present at CECA founding 1941 - SQL generated |
 | Besourinho | - | - | Onça Preta import | done | yes | Teacher of Onça Preta; killed during Pedrito persecution (1920s) - SQL generated |
 | Doze Homens | - | - | Onça Preta import | done | yes | Companion of Besouro; teacher of Salomé and Maria dos Anjos; killed during Pedrito persecution (1920s) - SQL generated |
 | Mãozinha | - | - | Onça Preta import | pending | yes | Capoeirista killed during Pedrito persecution (1920s); remembered by Onça Preta |
@@ -210,3 +210,8 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Zacarias Boa Morte | - | Mestre | Waldemar import | pending | yes | Student of Waldemar from 1942 (his first student); founded Escola Zacarias Boa Morte (1999); died Nov 3, 2000; photographed by Pierre Verger (1948) |
 | José Cabelo Bom | - | - | Waldemar import | pending | yes | Primary student of Waldemar; mentioned as continuing his tradition alongside Zacarias Boa Morte |
 | Olavo | - | - | Waldemar import | pending | yes | Student of Waldemar from 1958 |
+| Juvenal (Juvenal Engraxate) | Juvenal Hermenegildo da Cruz | Mestre | Querido de Deus import | pending | yes | Student of Querido de Deus; formally received mestre title from Samuel; taught at Mercado Modelo ramp (1919-1998); photographed by Pierre Verger (1947) |
+| Gaguinho Preto | Everaldo Arcanjo de Assis | - | Vitor Agaú import | pending | yes | Student of Vitor Agaú, Menino Gordo, and Roque in Curva Grande (1934-2002); also trained at CECA and with Zeca do Uruguai |
+| Menino Gordo da Curva Grande | - | - | Vitor Agaú import | pending | yes | Teacher of Gaguinho Preto alongside Roque and Vitor Agaú in Curva Grande neighborhood |
+| Zeca do Uruguai | - | Mestre | Vitor Agaú import | pending | yes | Teacher of Gaguinho Preto; first cousin of Gato Preto; cousin of Cobrinha Verde; from Santo Amaro; students include Pierrô and Nilton |
+| Juvelino | - | - | Gasolina import | pending | yes | Capoeirista killed during Pedrito persecution (1920s); listed by Onça Preta among the fallen |

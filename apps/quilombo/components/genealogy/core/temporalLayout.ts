@@ -21,7 +21,7 @@ import type { GraphNode, GroupMetadata, PersonMetadata } from '@/components/gene
 export const MIN_RADIUS = 20;
 
 /** Radius increment per era band (foundation eras) */
-export const ERA_BAND_RADIUS = 40;
+export const ERA_BAND_RADIUS = 50;
 
 /** Additional radius per decade in modern era (post-1900) */
 export const MODERN_DECADE_RADIUS = 30;
