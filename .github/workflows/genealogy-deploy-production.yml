@@ -1,0 +1,115 @@
+name: Deploy Genealogy Data (Production)
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/genealogy/sql-imports/build/pending-migration.sql'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (show SQL without applying)'
+        type: boolean
+        default: false
+
+# Prevent concurrent deployments
+concurrency:
+  group: genealogy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy Genealogy Data to Production
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check for pending migration
+        id: check
+        run: |
+          if [ -f "docs/genealogy/sql-imports/build/pending-migration.sql" ]; then
+            echo "has_migration=true" >> $GITHUB_OUTPUT
+            echo "Migration file found"
+          else
+            echo "has_migration=false" >> $GITHUB_OUTPUT
+            echo "No migration file found - nothing to deploy"
+          fi
+
+      - name: Show migration contents (dry run)
+        if: steps.check.outputs.has_migration == 'true' && (github.event.inputs.dry_run == 'true' || github.event_name == 'workflow_dispatch')
+        run: |
+          echo "=== Migration SQL Contents ==="
+          cat docs/genealogy/sql-imports/build/pending-migration.sql
+
+      - name: Apply migration to production
+        if: steps.check.outputs.has_migration == 'true' && github.event.inputs.dry_run != 'true'
+        env:
+          PRODUCTION_DATABASE_URL: ${{ secrets.PRODUCTION_DATABASE_URL }}
+        run: |
+          echo "Applying genealogy data migration to production..."
+          echo "Timestamp: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          echo ""
+
+          psql "$PRODUCTION_DATABASE_URL" -f docs/genealogy/sql-imports/build/pending-migration.sql
+
+          EXIT_CODE=$?
+          if [ $EXIT_CODE -ne 0 ]; then
+            echo ""
+            echo "Migration failed with exit code $EXIT_CODE"
+            exit 1
+          fi
+
+          echo ""
+          echo "Migration completed successfully"
+
+      - name: Verify deployment
+        if: steps.check.outputs.has_migration == 'true' && github.event.inputs.dry_run != 'true'
+        env:
+          PRODUCTION_DATABASE_URL: ${{ secrets.PRODUCTION_DATABASE_URL }}
+        run: |
+          echo "=== Genealogy Data Statistics ==="
+          psql "$PRODUCTION_DATABASE_URL" -c "
+            SELECT 'person_profiles' as table_name, COUNT(*) as count FROM genealogy.person_profiles
+            UNION ALL
+            SELECT 'group_profiles', COUNT(*) FROM genealogy.group_profiles
+            UNION ALL
+            SELECT 'statements', COUNT(*) FROM genealogy.statements
+            UNION ALL
+            SELECT 'import_log', COUNT(*) FROM genealogy.import_log;
+          "
+
+      - name: Create deployment report
+        if: always()
+        run: |
+          echo "# Genealogy Production Deployment Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Repository:** ${{ github.repository }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Branch:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Triggered by:** ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Timestamp:** $(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ "${{ steps.check.outputs.has_migration }}" != "true" ]; then
+            echo "No pending-migration.sql file found. Nothing to deploy." >> $GITHUB_STEP_SUMMARY
+          elif [ "${{ github.event.inputs.dry_run }}" == "true" ]; then
+            echo "**Status:** Dry run completed (no changes applied)" >> $GITHUB_STEP_SUMMARY
+          elif [ "${{ job.status }}" = "success" ]; then
+            echo "**Status:** Deployment successful" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "The genealogy data is now live in production." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "**Status:** Deployment failed" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Check the logs above for error details." >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "::error::Genealogy production deployment failed. Check the logs above for details."

@@ -15,6 +15,7 @@ import {
   integer,
   jsonb,
   pgSchema,
+  serial,
   text,
   timestamp,
   uniqueIndex,
@@ -59,22 +60,29 @@ export const genealogyStyleEnum = genealogySchema.enum('style', [...styles]);
  * Person profiles for capoeira identity/lineage data.
  * Linked from public.users via users.profile_id FK.
  * Historical figures exist only here with no linked user.
+ *
+ * APELIDO UNIQUENESS: The combination of (apelido, apelido_context) must be unique.
+ * - apelido_context disambiguates common nicknames (e.g., "Mestre Cobra" exists in multiple groups)
+ * - For unique apelidos, apelido_context can be NULL
+ * - Examples: apelido="Mestre Cobra", apelido_context="Salvador (Senzala)"
  */
 export const personProfiles = genealogySchema.table(
   'person_profiles',
   {
     id: uuid('id').primaryKey().defaultRandom(),
 
-    // Identity (moved from users)
+    // Identity
     name: varchar('name', { length: 255 }),
-    apelido: varchar('apelido', { length: 100 }), // capoeira nickname (was users.nickname)
+    apelido: varchar('apelido', { length: 100 }), // capoeira nickname
+    apelidoContext: varchar('apelido_context', { length: 100 }), // disambiguation for duplicate apelidos (e.g., "Salvador (Senzala)", "19th century Rio")
     title: genealogyTitleEnum('title'),
-    avatar: varchar('avatar', { length: 500 }),
-    links: jsonb('links').$type<SocialLink[]>().default([]),
+    portrait: varchar('portrait', { length: 500 }), // public-facing image for genealogy
+    publicLinks: jsonb('public_links').$type<SocialLink[]>().default([]), // public references (Wikipedia, articles)
 
-    // Capoeira-specific (new)
+    // Capoeira-specific
     style: genealogyStyleEnum('style'),
-    styleNotes: text('style_notes'), // e.g., "Transitioned from Regional to Angola in 1985"
+    styleNotesEn: text('style_notes_en'), // e.g., "Transitioned from Regional to Angola in 1985"
+    styleNotesPt: text('style_notes_pt'),
 
     // Life dates
     birthYear: integer('birth_year'),
@@ -84,9 +92,15 @@ export const personProfiles = genealogySchema.table(
     deathYearPrecision: datePrecisionEnum('death_year_precision').default('unknown'),
     deathPlace: varchar('death_place', { length: 255 }),
 
-    // Extended content
-    bio: text('bio'), // Biography/background
-    achievements: text('achievements'), // Awards, recognitions, notable accomplishments
+    // Extended content (bilingual: _en = English, _pt = Brazilian Portuguese)
+    bioEn: text('bio_en'),
+    bioPt: text('bio_pt'),
+    achievementsEn: text('achievements_en'),
+    achievementsPt: text('achievements_pt'),
+
+    // Researcher notes (bilingual) - for date estimation reasoning, source conflicts, caveats
+    notesEn: text('notes_en'),
+    notesPt: text('notes_pt'),
 
     // Metadata
     createdAt: timestamp('created_at').notNull().defaultNow(),
@@ -99,6 +113,10 @@ export const personProfiles = genealogySchema.table(
     index('person_profiles_apelido_idx').on(t.apelido),
     index('person_profiles_title_idx').on(t.title),
     index('person_profiles_style_idx').on(t.style),
+    // Note: person_profiles_apelido_unique_idx is created manually in migration
+    // as a composite unique index on (apelido, COALESCE(apelido_context, ''))
+    // This allows multiple people with the same apelido if they have different contexts
+    // Drizzle doesn't support COALESCE in indexes, so this is managed via raw SQL
   ]
 );
 
@@ -129,10 +147,12 @@ export const groupProfiles = genealogySchema.table(
     // Identity (moved from groups)
     name: varchar('name', { length: 255 }).notNull(),
 
-    // Extended data (moved from groups)
-    description: text('description'),
+    // Extended data (bilingual: _en = English, _pt = Brazilian Portuguese)
+    descriptionEn: text('description_en'),
+    descriptionPt: text('description_pt'),
     style: genealogyStyleEnum('style'),
-    styleNotes: text('style_notes'), // e.g., "Originally Regional, evolved to Contemporânea"
+    styleNotesEn: text('style_notes_en'), // e.g., "Originally Regional, evolved to Contemporânea"
+    styleNotesPt: text('style_notes_pt'),
     logo: varchar('logo', { length: 500 }),
     links: jsonb('links').$type<SocialLink[]>().default([]),
 
@@ -144,12 +164,18 @@ export const groupProfiles = genealogySchema.table(
     foundedYearPrecision: datePrecisionEnum('founded_year_precision').default('unknown'),
     foundedLocation: varchar('founded_location', { length: 255 }), // City, Country
 
-    // Extended content (new)
-    philosophy: text('philosophy'), // group's stated philosophy/mission
-    history: text('history'), // long-form group history
+    // Extended content (bilingual: _en = English, _pt = Brazilian Portuguese)
+    philosophyEn: text('philosophy_en'), // group's stated philosophy/mission
+    philosophyPt: text('philosophy_pt'),
+    historyEn: text('history_en'), // long-form group history
+    historyPt: text('history_pt'),
 
     // Name history for tracking name changes over time
     nameHistory: jsonb('name_history').$type<NameHistoryEntry[]>().default([]),
+
+    // Researcher notes (bilingual) - for founding date reasoning, source conflicts, caveats
+    notesEn: text('notes_en'),
+    notesPt: text('notes_pt'),
 
     // Organizational (new)
     legalStructure: legalStructureEnum('legal_structure'),
@@ -170,12 +196,23 @@ export const groupProfiles = genealogySchema.table(
     index('group_profiles_name_idx').on(t.name),
     index('group_profiles_style_idx').on(t.style),
     index('group_profiles_is_active_idx').on(t.isActive),
+    // Unique constraint for upsert pattern in SQL imports
+    uniqueIndex('group_profiles_name_unique_idx').on(t.name),
   ]
 );
 
 // ============================================================================
 // STATEMENT PROPERTIES TYPES
 // ============================================================================
+
+/**
+ * Bilingual text for JSONB properties.
+ * Used for context fields that need English and Portuguese versions.
+ */
+export type BilingualText = {
+  en?: string;
+  pt?: string;
+};
 
 /**
  * Properties for the statements table JSONB column.
@@ -210,15 +247,19 @@ export type StatementProperties = {
   // For part_of
   affiliation_type?: 'branch' | 'nucleus' | 'affiliate' | 'official_filial';
 
-  // For associated_with
+  // For associated_with (Person-to-Group)
   association_type?: 'supporter' | 'patron' | 'informal_affiliate' | 'friend' | 'honorary';
+
+  // For associated_with (Person-to-Person) - REQUIRED for historical connections
+  // Bilingual: { en: "Both trained in Salvador during 1920s", pt: "Ambos treinaram em Salvador nos anos 1920" }
+  association_context?: BilingualText;
 
   // For cultural_pioneer_of
   region?: string;
   country?: string;
 
-  // Generic
-  context?: string;
+  // Generic context (bilingual)
+  context?: BilingualText;
 };
 
 // ============================================================================
@@ -255,7 +296,9 @@ export const statements = genealogySchema.table(
 
     // Timeline
     startedAt: date('started_at'),
+    startedAtPrecision: datePrecisionEnum('started_at_precision').default('unknown'),
     endedAt: date('ended_at'),
+    endedAtPrecision: datePrecisionEnum('ended_at_precision').default('unknown'),
 
     // Properties (predicate-specific data as JSONB)
     properties: jsonb('properties').$type<StatementProperties>().default({}),
@@ -263,7 +306,8 @@ export const statements = genealogySchema.table(
     // Verification
     confidence: confidenceEnum('confidence').default('unverified'),
     source: varchar('source', { length: 500 }), // citation or reference
-    notes: text('notes'),
+    notesEn: text('notes_en'), // bilingual: _en = English, _pt = Brazilian Portuguese
+    notesPt: text('notes_pt'),
 
     // Metadata
     createdAt: timestamp('created_at').notNull().defaultNow(),
@@ -281,6 +325,9 @@ export const statements = genealogySchema.table(
     index('statements_subject_predicate_idx').on(t.subjectType, t.subjectId, t.predicate),
     index('statements_object_predicate_idx').on(t.objectType, t.objectId, t.predicate),
     // Prevent exact duplicates (same subject-predicate-object-startedAt)
+    // NOTE: Actual DB index uses COALESCE(started_at, '0001-01-01') for NULL handling
+    // This allows ON CONFLICT to work when started_at is NULL
+    // See migration 0029_fix-statements-unique-idx.sql
     uniqueIndex('statements_unique_idx').on(
       t.subjectType,
       t.subjectId,
@@ -293,8 +340,47 @@ export const statements = genealogySchema.table(
 );
 
 // ============================================================================
+// IMPORT LOG TABLE
+// ============================================================================
+
+/**
+ * Tracks which SQL import files have been applied to the genealogy schema.
+ * Supports dependency-aware sync: when a dependency is imported after a file,
+ * that file should be re-run to create any statements that previously failed
+ * due to missing referenced entities.
+ */
+export const importLog = genealogySchema.table(
+  'import_log',
+  {
+    id: serial('id').primaryKey(),
+
+    // Import identification
+    entityType: entityTypeEnum('entity_type').notNull(), // 'person' or 'group'
+    filePath: varchar('file_path', { length: 255 }).notNull(), // e.g., 'persons/placido-de-abreu.sql'
+
+    // Tracking
+    importedAt: timestamp('imported_at', { withTimezone: true }).notNull().defaultNow(),
+    checksum: varchar('checksum', { length: 64 }), // MD5 hash of file content for change detection
+
+    // Dependencies (other files that must exist for statements to work)
+    dependencies: text('dependencies').array().default([]), // e.g., ['persons/manduca-da-praia.sql']
+
+    // Metadata
+    notes: text('notes'), // Optional notes about the import
+  },
+  (t) => [
+    uniqueIndex('import_log_entity_file_idx').on(t.entityType, t.filePath),
+    index('import_log_entity_type_idx').on(t.entityType),
+    index('import_log_imported_at_idx').on(t.importedAt),
+  ]
+);
+
+// ============================================================================
 // TYPE EXPORTS
 // ============================================================================
+
+export type InsertImportLog = typeof importLog.$inferInsert;
+export type SelectImportLog = typeof importLog.$inferSelect;
 
 export type InsertPersonProfile = typeof personProfiles.$inferInsert;
 export type SelectPersonProfile = typeof personProfiles.$inferSelect;

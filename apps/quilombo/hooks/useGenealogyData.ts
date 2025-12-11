@@ -2,30 +2,29 @@
 
 import { useQuery } from '@tanstack/react-query';
 
-import type { GraphData, GraphFilters, NodeDetails } from '@/components/genealogy/types';
+import type { GraphData, NodeDetails } from '@/components/genealogy/types';
 
 const QUERY_KEYS = {
-  graph: (filters: GraphFilters) => ['genealogy-graph', filters] as const,
+  graph: ['genealogy-graph'] as const,
   nodeDetails: (entityType: string, entityId: string) => ['genealogy-node', entityType, entityId] as const,
 };
 
 /**
- * Fetch graph data with optional filters.
+ * Fetch all graph data for visualization.
+ *
+ * Returns all nodes and links without server-side filtering.
+ * Filtering is applied client-side based on view mode and user selections.
+ *
+ * TODO: When the dataset grows significantly (10,000+ nodes), consider:
+ * - Re-enabling server-side filtering via API query params
+ * - Implementing pagination or lazy loading
+ * - Using a more efficient data transfer format
  */
-export function useGenealogyGraph(filters: GraphFilters) {
+export function useGenealogyGraph() {
   return useQuery<GraphData>({
-    queryKey: QUERY_KEYS.graph(filters),
+    queryKey: QUERY_KEYS.graph,
     queryFn: async () => {
-      const params = new URLSearchParams();
-
-      if (filters.nodeTypes.length > 0) {
-        params.set('nodeTypes', filters.nodeTypes.join(','));
-      }
-      if (filters.predicates.length > 0) {
-        params.set('predicates', filters.predicates.join(','));
-      }
-
-      const res = await fetch(`/api/genealogy/graph?${params.toString()}`);
+      const res = await fetch('/api/genealogy/graph');
       if (!res.ok) {
         const error = await res.json();
         throw new Error(error.error || 'Failed to fetch graph data');

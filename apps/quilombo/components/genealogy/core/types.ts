@@ -29,6 +29,11 @@ export interface ForceNode extends GraphNode {
 export interface ForceLink extends Omit<GraphLink, 'source' | 'target'> {
   source: string | ForceNode;
   target: string | ForceNode;
+  /**
+   * If true, link participates in force simulation but is not rendered.
+   * Useful for creating gravitational clustering without visual connections.
+   */
+  invisible?: boolean;
 }
 
 /**
@@ -91,6 +96,17 @@ export interface ForceConfig {
 }
 
 /**
+ * Custom scene objects to add to the 3D scene.
+ * These are added once when the graph initializes.
+ */
+export interface CustomSceneObject {
+  /** Unique identifier for the object (for cleanup/updates) */
+  id: string;
+  /** The Three.js object to add to the scene */
+  object: THREE.Object3D;
+}
+
+/**
  * Props for the base ForceGraph3DWrapper component.
  */
 export interface ForceGraph3DWrapperProps {
@@ -99,6 +115,13 @@ export interface ForceGraph3DWrapperProps {
 
   /** Currently selected node ID */
   selectedNodeId?: string | null;
+
+  /**
+   * Whether to auto-focus camera on selected node when selectedNodeId changes.
+   * When true, camera will animate to focus on the newly selected node.
+   * Default: true
+   */
+  focusOnSelection?: boolean;
 
   /** Callback when a node is clicked */
   onNodeClick?: (node: ForceNode) => void;
@@ -114,6 +137,9 @@ export interface ForceGraph3DWrapperProps {
 
   /** Additional forces to apply */
   forces?: ForceConfig[];
+
+  /** Custom Three.js objects to add to the scene (e.g., era shells, guides) */
+  customSceneObjects?: CustomSceneObject[];
 
   /** Whether to auto-fit graph on load */
   autoFitOnLoad?: boolean;
@@ -147,4 +173,32 @@ export interface ForceGraph3DWrapperProps {
 
   /** Show link directional arrows */
   showLinkArrows?: boolean;
+
+  /** Initial camera position (x, y, z coordinates) */
+  initialCameraPosition?: CameraPosition;
+
+  /**
+   * Configuration for the library's built-in link force.
+   * Use this to customize per-predicate strength/distance without replacing the force.
+   */
+  linkForceConfig?: LinkForceConfig;
+}
+
+/**
+ * Configuration for customizing the built-in link force.
+ * Applied to react-force-graph's internal link force after initialization.
+ */
+export interface LinkForceConfig {
+  /**
+   * Link force distance - how far apart linked nodes want to be.
+   * Can be a number or a function that returns a number per link.
+   */
+  distance?: number | ((link: ForceLink) => number);
+
+  /**
+   * Link force strength - how strongly links pull nodes together.
+   * Can be a number or a function that returns a number per link.
+   * Use this for per-predicate strength (e.g., student_of: 0.6, member_of: 0.3).
+   */
+  strength?: number | ((link: ForceLink) => number);
 }

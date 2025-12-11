@@ -1,66 +1,100 @@
 'use client';
 
 import { Card, CardBody } from '@heroui/react';
+import { useAtomValue } from 'jotai';
+import { useMemo } from 'react';
 
-import { NODE_COLORS } from '@/components/genealogy/types';
+import type { EntityType } from '@/db/schema/genealogy';
 
-interface LegendItem {
-  label: string;
-  color: string;
-}
+import type { LegendCategory } from '@/components/genealogy/config';
+import { graphFiltersAtom, viewConfigAtom } from '@/components/genealogy/state';
 
-const NODE_LEGEND: { category: string; items: LegendItem[] }[] = [
-  {
-    category: 'Person Titles',
-    items: [
-      { label: 'Mestre', color: NODE_COLORS.person.mestre },
-      { label: 'Contra-Mestre', color: NODE_COLORS.person['contra-mestre'] },
-      { label: 'Professor', color: NODE_COLORS.person.professor },
-      { label: 'Instrutor', color: NODE_COLORS.person.instrutor },
-      { label: 'Graduado', color: NODE_COLORS.person.graduado },
-      { label: 'Aluno', color: NODE_COLORS.person.aluno },
-    ],
-  },
-  {
-    category: 'Group Styles',
-    items: [
-      { label: 'Angola', color: NODE_COLORS.group.angola },
-      { label: 'Regional', color: NODE_COLORS.group.regional },
-      { label: 'Contemporânea', color: NODE_COLORS.group.contemporanea },
-      { label: 'Mixed', color: NODE_COLORS.group.mixed },
-    ],
-  },
-];
+/** Maps legend category names to the node type they require */
+const LEGEND_CATEGORY_REQUIRED_TYPE: Record<string, EntityType> = {
+  'Person Titles': 'person',
+  'Group Styles': 'group',
+  // Lineage Links is person-only but doesn't require filtering (student-ancestry view is person-only)
+};
 
 function ColorDot({ color }: { color: string }) {
   return <span className="inline-block h-3 w-3 shrink-0 rounded-full" style={{ backgroundColor: color }} />;
 }
 
+function LegendSection({ category }: { category: LegendCategory }) {
+  return (
+    <div>
+      <p className="mb-1 text-tiny font-medium text-default-500">{category.category}</p>
+      <div className="grid grid-cols-2 gap-x-3 gap-y-1">
+        {category.items.map((item) => (
+          <div key={item.label} className="flex items-center gap-1.5">
+            <ColorDot color={item.color} />
+            <span className="text-tiny">{item.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function GraphLegend() {
+  // Jotai state
+  const viewConfig = useAtomValue(viewConfigAtom);
+  const filters = useAtomValue(graphFiltersAtom);
+
+  const { nodeCategories, showNodeShapes, nodeShapes } = viewConfig.legend;
+
+  // Filter legend categories based on selected node types
+  const visibleCategories = useMemo(() => {
+    return nodeCategories.filter((category) => {
+      const requiredType = LEGEND_CATEGORY_REQUIRED_TYPE[category.category];
+      // If no required type mapping, always show
+      if (!requiredType) return true;
+      // Only show if the required node type is in the current filter selection
+      return filters.nodeTypes.includes(requiredType);
+    });
+  }, [nodeCategories, filters.nodeTypes]);
+
+  // Filter node shapes based on selected node types
+  const visibleNodeShapes = useMemo(() => {
+    if (!showNodeShapes || !nodeShapes) return [];
+    return nodeShapes.filter((shape) => {
+      // Map shape label to entity type
+      const typeMap: Record<string, EntityType> = {
+        Person: 'person',
+        Group: 'group',
+      };
+      const requiredType = typeMap[shape.label];
+      if (!requiredType) return true;
+      return filters.nodeTypes.includes(requiredType);
+    });
+  }, [showNodeShapes, nodeShapes, filters.nodeTypes]);
+
+  // Don't render if no categories visible
+  if (visibleCategories.length === 0 && visibleNodeShapes.length === 0) {
+    return null;
+  }
+
   return (
     <Card className="absolute bottom-4 left-4 z-10 max-w-xs">
       <CardBody className="gap-3 p-3">
         <h3 className="text-small font-semibold">Legend</h3>
-        {NODE_LEGEND.map((group) => (
-          <div key={group.category}>
-            <p className="mb-1 text-tiny font-medium text-default-500">{group.category}</p>
-            <div className="grid grid-cols-2 gap-x-3 gap-y-1">
-              {group.items.map((item) => (
-                <div key={item.label} className="flex items-center gap-1.5">
-                  <ColorDot color={item.color} />
-                  <span className="text-tiny">{item.label}</span>
-                </div>
+
+        {visibleCategories.map((category) => (
+          <LegendSection key={category.category} category={category} />
+        ))}
+
+        {showNodeShapes && visibleNodeShapes.length > 0 && (
+          <div>
+            <p className="mb-1 text-tiny font-medium text-default-500">Node Shapes</p>
+            <div className="flex gap-3 text-tiny">
+              {visibleNodeShapes.map((shape) => (
+                <span key={shape.label}>
+                  {shape.symbol} {shape.label}
+                </span>
               ))}
             </div>
           </div>
-        ))}
-        <div>
-          <p className="mb-1 text-tiny font-medium text-default-500">Node Shapes</p>
-          <div className="flex gap-3 text-tiny">
-            <span>&#x25CF; Person</span>
-            <span>&#x2B21; Group</span>
-          </div>
-        </div>
+        )}
       </CardBody>
     </Card>
   );

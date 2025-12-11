@@ -1,0 +1,11 @@
+-- ============================================================
+-- STATEMENTS FOR: Luiz Cândido Machado
+-- Migrated: 2025-12-11
+-- ============================================================
+-- This file contains all relationships where Luiz Cândido Machado is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
+
+-- NOTE: Bimba trained_under Luiz Cândido Machado is in statements/persons/bimba.sql (subject's file)
+-- NOTE: Bimba family_of Luiz Cândido Machado is in statements/persons/bimba.sql (subject's file)
+-- No statements where Luiz Cândido Machado is the subject have been documented yet.

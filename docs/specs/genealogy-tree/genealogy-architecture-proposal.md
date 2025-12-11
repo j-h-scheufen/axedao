@@ -1,11 +1,59 @@
 # Genealogy Schema Architecture Proposal
 
-**Status:** Draft
+**Status:** Draft → **REVISED 2025-12-07**
 **Created:** 2025-12-05
+**Updated:** 2025-12-07
 **Related:**
 - [Genealogy Data Model Proposal](./genealogy-data-model-proposal.md)
-- [Claimable Profiles Spec](./claimable-profiles.md)
+- [User Flows Overview](./user-flows/00-overview.md) ← **NEW**
 - [3D Network Visualization Spec](../../apps/quilombo/docs/specs/capoeira-network-visualization.md)
+
+---
+
+## ⚠️ IMPORTANT UPDATE (2025-12-07)
+
+### Pivot: Separate Data Domains, Not Merged Queries
+
+The original proposal below described merging user and genealogy data via JOIN queries at the database layer. **This approach has been revised** after recognizing a critical privacy concern:
+
+**The Problem:**
+- `public.users` contains private account data (email, phone, personal social links)
+- `genealogy.person_profiles` is intended for public historical records
+- Merging them via JOINs conflates these different consent models
+- Users haven't consented to having their personal data (name, links) automatically published
+
+**The New Approach:**
+
+1. **Keep data separate** - User queries return only `users` data; genealogy queries return only `person_profiles` data
+2. **Opt-in publishing** - Users explicitly choose to create a genealogy profile via a "Publish to Genealogy" wizard
+3. **One-time data selection** - During publishing, users select which data to share (can differ from private profile)
+4. **Separate edit contexts** - Profile edit page for private data, genealogy edit page for public data
+5. **Claims for existing profiles** - Mestres finding themselves in genealogy can claim ownership via admin-approved process
+
+### What Changed:
+
+| Aspect | Original Proposal | Current Approach |
+|--------|------------------|------------------|
+| User queries | JOIN with person_profiles | Query users only |
+| Profile fields | Migrate to person_profiles | Keep in both (separate values) |
+| Data sync | Automatic via queries | Opt-in prompts when user edits |
+| New user flow | Auto-create profile | Explicit publish wizard |
+| person_profiles.avatar | Moved from users | Renamed to `portrait` |
+| person_profiles.links | Moved from users | Renamed to `public_links` |
+
+### User Flow Documents:
+
+- `user-flows/01-publish-profile-to-genealogy.md` - Creating new genealogy profile
+- `user-flows/02-claim-existing-genealogy-profile.md` - Claiming community-created profile
+- `user-flows/03-group-claiming-management.md` - Group genealogy integration
+
+### Schema Changes Applied:
+
+```sql
+-- Column renames for clarity
+ALTER TABLE genealogy.person_profiles RENAME COLUMN avatar TO portrait;
+ALTER TABLE genealogy.person_profiles RENAME COLUMN links TO public_links;
+```
 
 ---
 
@@ -17,66 +65,71 @@ Introduce a separate `genealogy` database schema to cleanly separate capoeira id
 2. **Clean claiming model** - linking a `person` to a `user` rather than merging user records
 3. **Consistent relationship tracking** via the statements/predicates model
 4. **Future-proof architecture** for the genealogy visualization and beyond
+5. **Privacy-respecting opt-in** - Users explicitly choose to publish to public genealogy
 
-**Key Principle:** The API contract stays unchanged. Only the DB layer changes.
+**Key Principle:** ~~The API contract stays unchanged. Only the DB layer changes.~~ **REVISED:** Users and genealogy are separate data domains with separate APIs. Publishing is an explicit user action, not an automatic merge.
 
 ---
 
 ## Architecture Overview
 
 ```
-PUBLIC SCHEMA (app/auth)              GENEALOGY SCHEMA (capoeira identity)
+PUBLIC SCHEMA (private app data)      GENEALOGY SCHEMA (public historical data)
 ┌─────────────────────────┐          ┌─────────────────────────┐
 │ users                   │          │ person_profiles         │
 │ ├── id (PK)             │          │ ├── id (PK)◄────────────┼─┐
-│ ├── email               │          │ ├── name                │ │ ← moved
-│ ├── passwordHash        │          │ ├── apelido             │ │ ← was nickname
-│ ├── walletAddress       │          │ ├── title               │ │ ← moved
-│ ├── emailVerifiedAt     │          │ ├── avatar              │ │ ← moved
-│ ├── accountStatus       │          │ ├── links               │ │ ← moved
-│ ├── isGlobalAdmin       │          │ ├── birth_year          │ │ new
-│ ├── phone               │          │ ├── death_year          │ │ new
-│ ├── invitedBy (FK)      │          │ ├── bio                 │ │ new
-│ ├── groupId (FK)────┐   │          │ ├── style               │ │ new
-│ ├── profileId (FK)──┼───┼──────────┼─┘                       │ │ nullable for historical
-│ └── timestamps      │   │          │ └── timestamps          │ │
+│ ├── email (private)     │          │ ├── name (public)       │ │
+│ ├── passwordHash        │          │ ├── apelido (public)    │ │
+│ ├── walletAddress       │          │ ├── title (public)      │ │
+│ ├── name (private)      │          │ ├── portrait (public)   │ │ ← renamed from avatar
+│ ├── nickname (private)  │          │ ├── public_links        │ │ ← renamed from links
+│ ├── avatar (private)    │          │ ├── birth_year          │ │
+│ ├── links (private)     │          │ ├── death_year          │ │
+│ ├── phone (private)     │          │ ├── bio                 │ │
+│ ├── emailVerifiedAt     │          │ ├── style               │ │
+│ ├── accountStatus       │          │ │                       │ │
+│ ├── isGlobalAdmin       │          │ └── timestamps          │ │
+│ ├── hideEmail           │          │                         │ │
+│ ├── invitedBy (FK)      │          │ (historical figures     │ │
+│ ├── groupId (FK)────┐   │          │  exist only here with   │ │
+│ ├── profileId (FK)──┼───┼──OPT-IN──┼─┘ no linked user)       │ │
+│ └── timestamps      │   │          │                         │ │
 ├─────────────────────┼───┤          ├─────────────────────────┤ │
 │ groups              │   │          │ group_profiles          │ │
 │ ├── id (PK)◄────────┘   │          │ ├── id (PK)◄────────────┼─┼─┐
-│ ├── name                │          │ ├── description         │ │ │ ← moved
-│ ├── email               │          │ ├── style               │ │ │ ← moved
-│ ├── banner              │          │ ├── logo                │ │ │ ← moved
-│                         │          │ ├── links               │ │ │ ← moved
-│                         │          │ ├── founded_year        │ │ │ new
-│                         │          │ ├── name_history        │ │ │ new (JSONB)
-│ ├── createdBy (FK)      │          │ └── timestamps          │ │ │
-│ ├── claimedBy (FK)      │          ├─────────────────────────┤ │ │
-│ ├── claimedAt           │          │ statements              │ │ │
-│ └── profileId (FK)──────┼──────────┼─────────────────────────┘ │ │
-├─────────────────────────┤          │ ├── id (PK)             │ │ │
-│ groupAdmins             │          │ ├── subject_type        │ │ │ 'person'|'group'
-│ groupClaims             │          │ ├── subject_id ─────────┼─┘ │ ► person_profiles.id OR
-│ groupVerifications      │          │ ├── predicate           │   │   group_profiles.id
-│ groupLocations          │          │ ├── object_type         │   │
-│ (app workflow tables)   │          │ ├── object_id ──────────┼───┘ ► person_profiles.id OR
-└─────────────────────────┘          │ ├── started_at          │       group_profiles.id
+│ ├── name                │          │ ├── name                │ │ │
+│ ├── email               │          │ ├── description         │ │ │
+│ ├── style               │          │ ├── style               │ │ │
+│ ├── banner              │          │ ├── logo                │ │ │
+│ ├── verified            │          │ ├── links               │ │ │
+│ ├── createdBy (FK)      │          │ ├── founded_year        │ │ │
+│ ├── claimedBy (FK)      │          │ ├── history             │ │ │
+│ ├── claimedAt           │          │ └── timestamps          │ │ │
+│ └── profileId (FK)──────┼──LINK────┼─────────────────────────┘ │ │
+├─────────────────────────┤          ├─────────────────────────┤ │ │
+│ groupAdmins             │          │ statements              │ │ │
+│ groupClaims             │          │ ├── id (PK)             │ │ │
+│ groupVerifications      │          │ ├── subject_type        │ │ │ 'person'|'group'
+│ groupLocations          │          │ ├── subject_id ─────────┼─┘ │
+│ groupMembers            │          │ ├── predicate           │   │
+│ (app workflow tables)   │          │ ├── object_type         │   │
+└─────────────────────────┘          │ ├── object_id ──────────┼───┘
+                                     │ ├── started_at          │
                                      │ ├── ended_at            │
-                                     │ ├── properties          │ JSONB
+                                     │ ├── properties (JSONB)  │
                                      │ ├── confidence          │
-                                     │ ├── source              │
                                      │ └── timestamps          │
                                      └─────────────────────────┘
 
-NOTES:
-• genealogy schema is FULLY SELF-CONTAINED - no FKs pointing to public schema
-• users.profile_id is NULLABLE - historical figures exist only in person_profiles (no user)
-• users.profile_id has UNIQUE constraint - a person_profile can only be claimed by ONE user
-• groups.profile_id is NULLABLE - allows groups to exist without genealogy data initially
-• statements reference person_profiles.id and group_profiles.id (within genealogy schema)
-• All FKs flow FROM public TO genealogy (not the other way)
-• users.groupId kept for current UI compatibility (will deprecate later)
-• groups.leader REMOVED - was not used in UI, will be replaced by `leads` predicate
-• groups.description, groups.style, groups.logo moved to group_profiles
+KEY POINTS (REVISED):
+• Users keep ALL their profile fields - data is NOT migrated to genealogy
+• users.profile_id is OPT-IN link - set via "Publish to Genealogy" wizard
+• person_profiles can exist without linked user (historical figures)
+• person_profiles.portrait and .public_links are SEPARATE from users.avatar and .links
+• Groups can exist in public schema without genealogy entry (legacy groups)
+• Groups can exist in genealogy without public entry (historical groups)
+• All FKs flow FROM public TO genealogy (genealogy has no outbound FKs)
+• Membership can be in both: groupMembers (app) and statements/member_of (genealogy)
 ```
 
 ---

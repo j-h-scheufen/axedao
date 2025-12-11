@@ -1,6 +1,24 @@
 'use client';
 
-import { Avatar, Button, Card, CardBody, CardHeader, Chip, Divider, Spinner } from '@heroui/react';
+import {
+  Accordion,
+  AccordionItem,
+  Avatar,
+  Button,
+  Card,
+  CardBody,
+  CardHeader,
+  Chip,
+  Spinner,
+  Tooltip,
+} from '@heroui/react';
+import { useAtomValue } from 'jotai';
+import { ArrowLeft, ArrowRight, FileText } from 'lucide-react';
+import { useState } from 'react';
+
+import { needsRefocusAtom, refocusCallbackAtom } from '@/components/genealogy/state';
+
+import { FullDetailsModal } from './FullDetailsModal';
 
 import type {
   GraphNode,
@@ -10,7 +28,7 @@ import type {
   PersonMetadata,
   StatementDetail,
 } from '@/components/genealogy/types';
-import { PREDICATE_LABELS } from '@/components/genealogy/types';
+import { PREDICATE_LABELS, PREDICATE_LABELS_INVERSE } from '@/components/genealogy/types';
 
 interface NodeDetailsPanelProps {
   node: GraphNode | null;
@@ -22,6 +40,8 @@ interface NodeDetailsPanelProps {
       incoming: StatementDetail[];
     };
   } | null;
+  /** All graph nodes for looking up names by ID */
+  allNodes: GraphNode[];
   isLoading: boolean;
   onClose: () => void;
   onNodeSelect: (entityType: string, entityId: string) => void;
@@ -43,26 +63,44 @@ function formatYear(year: number | null | undefined, precision?: string | null):
   }
 }
 
+/**
+ * Maximum reasonable human lifespan for determining if someone is likely deceased.
+ * If born more than this many years ago, show "Unknown" instead of "Present" for missing death date.
+ */
+const MAX_LIFESPAN_YEARS = 120;
+
+/**
+ * Get the appropriate label for a missing death year.
+ * Shows "Present" for people who could reasonably still be alive,
+ * and "Unknown" for historical figures.
+ */
+function getDeathYearLabel(birthYear: number | null | undefined): string {
+  if (!birthYear) return 'Unknown';
+  const currentYear = new Date().getFullYear();
+  const age = currentYear - birthYear;
+  return age > MAX_LIFESPAN_YEARS ? 'Unknown' : 'Present';
+}
+
 function PersonCard({ data }: { data: PersonDetails }) {
-  const displayName = data.apelido || data.name || 'Unknown';
+  // Build display name with title prefix if available
+  const baseName = data.apelido || data.name || 'Unknown';
+  const displayName =
+    data.title && data.apelido
+      ? `${data.title.charAt(0).toUpperCase() + data.title.slice(1)} ${data.apelido}`
+      : baseName;
   const lifespan =
     data.birthYear || data.deathYear
-      ? `${formatYear(data.birthYear, data.birthYearPrecision)} - ${data.deathYear ? formatYear(data.deathYear, data.deathYearPrecision) : 'Present'}`
+      ? `${formatYear(data.birthYear, data.birthYearPrecision)} - ${data.deathYear ? formatYear(data.deathYear, data.deathYearPrecision) : getDeathYearLabel(data.birthYear)}`
       : null;
 
   return (
     <div className="space-y-3">
       <div className="flex items-start gap-3">
-        <Avatar src={data.avatar || undefined} name={displayName} size="lg" className="shrink-0" />
+        <Avatar src={data.avatar || undefined} name={baseName} size="lg" className="shrink-0" />
         <div className="min-w-0 flex-1">
           <h3 className="text-lg font-bold">{displayName}</h3>
           {data.name && data.name !== data.apelido && <p className="text-small text-default-500">{data.name}</p>}
           <div className="mt-1 flex flex-wrap gap-1">
-            {data.title && (
-              <Chip size="sm" variant="flat" color="primary">
-                {data.title}
-              </Chip>
-            )}
             {data.style && (
               <Chip size="sm" variant="flat" color="secondary">
                 {data.style}
@@ -158,50 +196,190 @@ function GroupCard({ data }: { data: GroupDetails }) {
   );
 }
 
+/**
+ * Format a date string for display.
+ */
+function formatDate(dateStr: string | null | undefined): string | null {
+  if (!dateStr) return null;
+  try {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+  } catch {
+    return dateStr;
+  }
+}
+
+/**
+ * Render relationship metadata fields in a readable format.
+ */
+function RelationshipMetadata({ rel }: { rel: StatementDetail }) {
+  const hasMetadata = rel.startedAt || rel.endedAt || rel.source || rel.notes || rel.properties;
+
+  if (!hasMetadata) {
+    return <p className="text-tiny text-default-400 italic">No additional details available</p>;
+  }
+
+  return (
+    <div className="space-y-2 text-small">
+      {(rel.startedAt || rel.endedAt) && (
+        <div>
+          <p className="text-tiny font-semibold text-default-500">Period</p>
+          <p>
+            {formatDate(rel.startedAt) || 'Unknown'} — {formatDate(rel.endedAt) || 'Present'}
+          </p>
+        </div>
+      )}
+      {rel.source && (
+        <div>
+          <p className="text-tiny font-semibold text-default-500">Source</p>
+          <p className="text-default-600">{rel.source}</p>
+        </div>
+      )}
+      {rel.notes && (
+        <div>
+          <p className="text-tiny font-semibold text-default-500">Notes</p>
+          <p className="text-default-600">{rel.notes}</p>
+        </div>
+      )}
+      {rel.properties && Object.keys(rel.properties).length > 0 && (
+        <div>
+          <p className="text-tiny font-semibold text-default-500">Additional Info</p>
+          <div className="space-y-1">
+            {Object.entries(rel.properties).map(([key, value]) => (
+              <p key={key} className="text-default-600">
+                <span className="font-medium capitalize">{key.replace(/_/g, ' ')}</span>: {String(value)}
+              </p>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function RelationshipsList({
   relationships,
   direction,
+  allNodes,
   onNodeSelect,
 }: {
   relationships: StatementDetail[];
   direction: 'outgoing' | 'incoming';
+  allNodes: GraphNode[];
   onNodeSelect: (entityType: string, entityId: string) => void;
 }) {
   if (relationships.length === 0) {
     return <p className="text-small text-default-400">No {direction} relationships</p>;
   }
 
+  // Create lookup maps for node data
+  const nodeMap = new Map(allNodes.map((n) => [n.id, n]));
+
+  // Get the inverse label, with special handling for student_of when object is a mestre
+  const getInverseLabel = (rel: StatementDetail): string => {
+    if (rel.predicate === 'student_of') {
+      // For student_of, check if the current node (object) is a mestre
+      const objectNode = nodeMap.get(rel.objectId);
+      if (objectNode?.type === 'person') {
+        const meta = objectNode.metadata as PersonMetadata;
+        if (meta.title === 'mestre') {
+          return 'Mestre of';
+        }
+      }
+    }
+    return PREDICATE_LABELS_INVERSE[rel.predicate] || rel.predicate;
+  };
+
+  // Sort relationships alphabetically by predicate label
+  const sortedRelationships = [...relationships].sort((a, b) => {
+    const labelA = direction === 'outgoing' ? PREDICATE_LABELS[a.predicate] || a.predicate : getInverseLabel(a);
+    const labelB = direction === 'outgoing' ? PREDICATE_LABELS[b.predicate] || b.predicate : getInverseLabel(b);
+    return labelA.localeCompare(labelB);
+  });
+
   return (
-    <div className="space-y-2">
-      {relationships.map((rel) => {
+    <Accordion selectionMode="multiple" variant="splitted" className="px-0">
+      {sortedRelationships.map((rel) => {
         const targetType = direction === 'outgoing' ? rel.objectType : rel.subjectType;
         const targetId = direction === 'outgoing' ? rel.objectId : rel.subjectId;
-        const label = PREDICATE_LABELS[rel.predicate] || rel.predicate;
+        const targetNode = nodeMap.get(targetId);
+        const targetName = targetNode?.name || `${targetType} (unknown)`;
+
+        // Use appropriate label based on direction
+        const label =
+          direction === 'outgoing' ? PREDICATE_LABELS[rel.predicate] || rel.predicate : getInverseLabel(rel);
 
         return (
-          <button
-            type="button"
+          <AccordionItem
             key={rel.id}
-            className="flex w-full cursor-pointer items-center justify-between rounded-lg border border-default-200 p-2 text-left transition-colors hover:bg-default-100"
-            onClick={() => onNodeSelect(targetType, targetId)}
+            aria-label={`${label}: ${targetName}`}
+            classNames={{
+              base: 'py-0',
+              trigger: 'py-2',
+              title: 'text-small',
+              content: 'pt-0 pb-3',
+            }}
+            title={
+              <div className="flex items-center gap-2 pr-2">
+                <div className="min-w-0 flex-1">
+                  <p className="text-small font-medium">{label}</p>
+                  <p className="truncate text-tiny text-default-500">{targetName}</p>
+                </div>
+                <Chip size="sm" variant="flat" color={rel.confidence === 'verified' ? 'success' : 'default'}>
+                  {rel.confidence || 'unverified'}
+                </Chip>
+                <Tooltip content={`Go to ${targetName}`} placement="left">
+                  {/* biome-ignore lint/a11y/useSemanticElements: Cannot use button here - it's inside AccordionItem title which renders inside a button element. Nested buttons are invalid HTML. */}
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    className="flex h-6 w-6 shrink-0 cursor-pointer items-center justify-center rounded-full bg-primary text-primary-foreground hover:opacity-80"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onNodeSelect(targetType, targetId);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.stopPropagation();
+                        onNodeSelect(targetType, targetId);
+                      }
+                    }}
+                    aria-label={`Navigate to ${targetName}`}
+                  >
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </div>
+                </Tooltip>
+              </div>
+            }
           >
-            <div className="min-w-0 flex-1">
-              <p className="text-small font-medium">{direction === 'outgoing' ? label : `${label} by`}</p>
-              <p className="truncate text-tiny text-default-500">
-                {targetType} • {targetId.slice(0, 8)}...
-              </p>
-            </div>
-            <Chip size="sm" variant="flat" color={rel.confidence === 'verified' ? 'success' : 'default'}>
-              {rel.confidence || 'unverified'}
-            </Chip>
-          </button>
+            <RelationshipMetadata rel={rel} />
+          </AccordionItem>
         );
       })}
-    </div>
+    </Accordion>
   );
 }
 
-export function NodeDetailsPanel({ node, details, isLoading, onClose, onNodeSelect }: NodeDetailsPanelProps) {
+/**
+ * Get display name for a node, using "Title Apelido" format for persons with titles.
+ */
+function getNodeDisplayName(node: GraphNode): string {
+  if (node.type === 'person') {
+    const meta = node.metadata as PersonMetadata;
+    if (meta.title && meta.apelido) {
+      const titleCap = meta.title.charAt(0).toUpperCase() + meta.title.slice(1);
+      return `${titleCap} ${meta.apelido}`;
+    }
+    if (meta.apelido) return meta.apelido;
+  }
+  return node.name;
+}
+
+export function NodeDetailsPanel({ node, details, allNodes, isLoading, onClose, onNodeSelect }: NodeDetailsPanelProps) {
+  const [isFullDetailsOpen, setIsFullDetailsOpen] = useState(false);
+  const needsRefocus = useAtomValue(needsRefocusAtom);
+  const refocusCallback = useAtomValue(refocusCallbackAtom);
+
   if (!node) {
     return (
       <Card className="h-full">
@@ -213,69 +391,108 @@ export function NodeDetailsPanel({ node, details, isLoading, onClose, onNodeSele
   }
 
   return (
-    <Card className="h-full overflow-auto">
-      <CardHeader className="flex items-center justify-between pb-0">
-        <h2 className="font-semibold">{node.name}</h2>
-        <Button isIconOnly size="sm" variant="light" onPress={onClose}>
-          <span className="text-lg">&times;</span>
-        </Button>
-      </CardHeader>
-      <CardBody className="gap-4">
-        {isLoading ? (
-          <div className="flex items-center justify-center py-8">
-            <Spinner size="lg" />
-          </div>
-        ) : details ? (
-          <>
-            {details.type === 'person' ? (
-              <PersonCard data={details.data as PersonDetails} />
-            ) : (
-              <GroupCard data={details.data as GroupDetails} />
+    <>
+      <Card>
+        <CardHeader className="flex items-center justify-between pb-0">
+          <div className="flex items-center gap-2">
+            {needsRefocus && refocusCallback && (
+              <Tooltip content="Refocus" placement="bottom">
+                <Button
+                  isIconOnly
+                  size="sm"
+                  variant="flat"
+                  color="primary"
+                  onPress={refocusCallback}
+                  aria-label="Refocus on selected node"
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                </Button>
+              </Tooltip>
             )}
-
-            <Divider />
-
-            {/* Relationships */}
-            <div className="space-y-4">
-              <div>
-                <h4 className="mb-2 text-small font-semibold">Outgoing ({details.relationships.outgoing.length})</h4>
-                <RelationshipsList
-                  relationships={details.relationships.outgoing}
-                  direction="outgoing"
-                  onNodeSelect={onNodeSelect}
-                />
-              </div>
-
-              <div>
-                <h4 className="mb-2 text-small font-semibold">Incoming ({details.relationships.incoming.length})</h4>
-                <RelationshipsList
-                  relationships={details.relationships.incoming}
-                  direction="incoming"
-                  onNodeSelect={onNodeSelect}
-                />
-              </div>
+            <h2 className="font-semibold">{getNodeDisplayName(node)}</h2>
+          </div>
+          <Button isIconOnly size="sm" variant="light" onPress={onClose}>
+            <span className="text-lg">&times;</span>
+          </Button>
+        </CardHeader>
+        <CardBody className="gap-4">
+          {isLoading ? (
+            <div className="flex items-center justify-center py-8">
+              <Spinner size="lg" />
             </div>
-          </>
-        ) : (
-          <div className="space-y-2">
-            <p className="text-small">Type: {node.type}</p>
-            {node.type === 'person' && (
-              <>
-                {(node.metadata as PersonMetadata).title && (
-                  <p className="text-small">Title: {(node.metadata as PersonMetadata).title}</p>
-                )}
-                {(node.metadata as PersonMetadata).style && (
-                  <p className="text-small">Style: {(node.metadata as PersonMetadata).style}</p>
-                )}
-              </>
-            )}
-            {node.type === 'group' && (node.metadata as GroupMetadata).style && (
-              <p className="text-small">Style: {(node.metadata as GroupMetadata).style}</p>
-            )}
-          </div>
-        )}
-      </CardBody>
-    </Card>
+          ) : details ? (
+            <>
+              {details.type === 'person' ? (
+                <PersonCard data={details.data as PersonDetails} />
+              ) : (
+                <GroupCard data={details.data as GroupDetails} />
+              )}
+
+              {/* Full Details Button - replaces divider */}
+              <Button
+                size="md"
+                variant="flat"
+                color="secondary"
+                startContent={<FileText className="h-4 w-4" />}
+                onPress={() => setIsFullDetailsOpen(true)}
+                className="w-full"
+              >
+                Full Details
+              </Button>
+
+              {/* Relationships */}
+              <div className="space-y-4">
+                <div>
+                  <h4 className="mb-2 text-small font-semibold">Outgoing ({details.relationships.outgoing.length})</h4>
+                  <RelationshipsList
+                    relationships={details.relationships.outgoing}
+                    direction="outgoing"
+                    allNodes={allNodes}
+                    onNodeSelect={onNodeSelect}
+                  />
+                </div>
+
+                <div>
+                  <h4 className="mb-2 text-small font-semibold">Incoming ({details.relationships.incoming.length})</h4>
+                  <RelationshipsList
+                    relationships={details.relationships.incoming}
+                    direction="incoming"
+                    allNodes={allNodes}
+                    onNodeSelect={onNodeSelect}
+                  />
+                </div>
+              </div>
+            </>
+          ) : (
+            <div className="space-y-2">
+              <p className="text-small">Type: {node.type}</p>
+              {node.type === 'person' && (
+                <>
+                  {(node.metadata as PersonMetadata).title && (
+                    <p className="text-small">Title: {(node.metadata as PersonMetadata).title}</p>
+                  )}
+                  {(node.metadata as PersonMetadata).style && (
+                    <p className="text-small">Style: {(node.metadata as PersonMetadata).style}</p>
+                  )}
+                </>
+              )}
+              {node.type === 'group' && (node.metadata as GroupMetadata).style && (
+                <p className="text-small">Style: {(node.metadata as GroupMetadata).style}</p>
+              )}
+            </div>
+          )}
+        </CardBody>
+      </Card>
+
+      {/* Full Details Modal */}
+      <FullDetailsModal
+        isOpen={isFullDetailsOpen}
+        onClose={() => setIsFullDetailsOpen(false)}
+        entityType={node.type as 'person' | 'group'}
+        entityId={node.id}
+        entityName={node.name}
+      />
+    </>
   );
 }
 

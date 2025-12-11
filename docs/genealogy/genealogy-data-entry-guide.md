@@ -11,6 +11,7 @@
 - [Genealogy Data Model Proposal](../specs/genealogy-tree/genealogy-data-model-proposal.md)
 - [Genealogy Architecture Proposal](../specs/genealogy-tree/genealogy-architecture-proposal.md)
 - [Case Study Review Instructions](./case-study-review-instructions.md)
+- [Bilingual Content Convention](./BILINGUAL_CONTENT.md) - **IMPORTANT: All narrative content must be in both English and Portuguese**
 
 ---
 
@@ -18,13 +19,14 @@
 
 > **Direction Convention:** Predicates flow from "younger/newer" to "older/established" (student → mestre, child → parent, new group → predecessor).
 
-### Person-to-Person (6)
+### Person-to-Person (7)
 
 | Predicate | Use When | Properties |
 |-----------|----------|------------|
 | `student_of` | Primary, ongoing teacher-student relationship | - |
 | `trained_under` | Historical/past training, workshops, seminars | - |
 | `influenced_by` | Studied philosophy/methods without direct training | - |
+| `associated_with` | Documented connection between contemporaries (peers, collaborators, known associates) | `association_context` (REQUIRED - text explaining circumstances and sources) |
 | `granted_title_to` | Mestre conferred a title/rank | `title_grant: { title, ceremony?, location? }` |
 | `baptized_by` | Received apelido at batizado ceremony from this mestre | `baptism: { apelido_given, ceremony?, location? }` |
 | `family_of` | Biological or ceremonial family | `relationship_type: parent|sibling|spouse|padrinho|other` |
@@ -116,8 +118,10 @@ For each group, collect:
 - Style (angola | regional | contemporânea)
 - Founded year (and precision: exact, year, decade, approximate)
 - Founded location (City, Country)
-- Description (1-2 paragraphs)
-- Philosophy/mission statement (if stated)
+- Description (1-2 paragraphs) - **BILINGUAL: English AND Portuguese**
+- Philosophy/mission statement - **BILINGUAL: English AND Portuguese**
+- History (long-form) - **BILINGUAL: English AND Portuguese**
+- Style notes - **BILINGUAL: English AND Portuguese**
 - Logo URL (if available)
 - Social links (website, Instagram, Facebook, etc.)
 - Is active? (yes/no)
@@ -133,7 +137,10 @@ For each group, collect:
 - Birth year (and precision)
 - Death year (if deceased, and precision)
 - Birth place
-- Bio (1-2 paragraphs)
+- Bio (1-2 paragraphs) - **BILINGUAL: English AND Portuguese**
+- Achievements - **BILINGUAL: English AND Portuguese**
+- Style notes - **BILINGUAL: English AND Portuguese**
+- Researcher notes - **BILINGUAL: English AND Portuguese** (birth year estimation reasoning, source conflicts, pending relationships)
 - Avatar URL (if available)
 ```
 
@@ -280,11 +287,15 @@ For each NEW person (not already in database):
 
 ```sql
 -- Person: [Apelido] ([Full Name])
+-- IMPORTANT: bio, achievements, style_notes, notes are BILINGUAL (_en and _pt)
 INSERT INTO genealogy.person_profiles (
   id, name, apelido, title, style,
   birth_year, birth_year_precision, birth_place,
   death_year, death_year_precision, death_place,
-  bio, avatar, links
+  bio_en, bio_pt, achievements_en, achievements_pt,
+  style_notes_en, style_notes_pt,
+  notes_en, notes_pt,
+  portrait, public_links
 ) VALUES (
   gen_random_uuid(),
   '[Full Name]',
@@ -293,8 +304,15 @@ INSERT INTO genealogy.person_profiles (
   '[style]'::genealogy.style,
   [birth_year], '[precision]'::genealogy.date_precision, '[birth_place]',
   [death_year], '[precision]'::genealogy.date_precision, '[death_place]',
-  '[Bio text]',
-  '[avatar_url]',
+  E'[Bio in English]',
+  E'[Biografia em português]',
+  '[Achievements in English]',
+  '[Conquistas em português]',
+  '[Style notes in English]',
+  '[Notas de estilo em português]',
+  E'[Researcher notes in English - birth year reasoning, source conflicts, etc.]',
+  E'[Notas do pesquisador em português - raciocínio do ano de nascimento, conflitos de fontes, etc.]',
+  '[portrait_url]',
   '[]'::jsonb
 ) RETURNING id AS [variable_name];
 ```
@@ -305,17 +323,31 @@ For each NEW group (not already in database):
 
 ```sql
 -- Group: [Name]
+-- IMPORTANT: description, philosophy, history, style_notes, notes are BILINGUAL (_en and _pt)
 INSERT INTO genealogy.group_profiles (
-  id, description, style, style_notes,
+  id, name, style,
   founded_year, founded_year_precision, founded_location,
-  philosophy, logo, links, is_active
+  description_en, description_pt,
+  philosophy_en, philosophy_pt,
+  history_en, history_pt,
+  style_notes_en, style_notes_pt,
+  notes_en, notes_pt,
+  logo, links, is_active
 ) VALUES (
   gen_random_uuid(),
-  '[Description]',
+  '[Name]',
   '[style]'::genealogy.style,
-  '[style_notes]',
   [founded_year], '[precision]'::genealogy.date_precision, '[location]',
-  '[philosophy]',
+  E'[Description in English]',
+  E'[Descrição em português]',
+  E'[Philosophy in English]',
+  E'[Filosofia em português]',
+  E'[History in English]',
+  E'[História em português]',
+  '[Style notes in English]',
+  '[Notas de estilo em português]',
+  E'[Researcher notes in English - founding date reasoning, source conflicts, etc.]',
+  E'[Notas do pesquisador em português - raciocínio da data de fundação, conflitos de fontes, etc.]',
   '[logo_url]',
   '[{"type": "website", "url": "https://..."}]'::jsonb,
   true
@@ -328,9 +360,12 @@ For each relationship:
 
 ```sql
 -- [Subject] [predicate] [Object]
+-- IMPORTANT: notes are BILINGUAL (notes_en and notes_pt)
 INSERT INTO genealogy.statements (
   id, subject_type, subject_id, predicate, object_type, object_id,
-  started_at, ended_at, properties, confidence, source, notes
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
 ) VALUES (
   gen_random_uuid(),
   '[person|group]'::genealogy.entity_type,
@@ -339,11 +374,14 @@ INSERT INTO genealogy.statements (
   '[person|group]'::genealogy.entity_type,
   [object_id],
   '[YYYY-MM-DD]'::date,
+  '[precision]'::genealogy.date_precision,
   [NULL or 'YYYY-MM-DD'::date],
+  '[precision or NULL]'::genealogy.date_precision,
   '[{}]'::jsonb,
   '[confidence]'::genealogy.confidence,
   '[source citation]',
-  '[additional notes]'
+  '[notes in English]',
+  '[notas em português]'
 );
 ```
 
@@ -486,6 +524,7 @@ Before submitting data, verify:
 - [ ] Confidence levels appropriate for evidence quality
 - [ ] No duplicate entities (check existing database first)
 - [ ] Timeline consistency (no end dates before start dates)
+- [ ] Researcher notes document: birth/death year estimation reasoning, source conflicts, pending relationships
 
 ---
 

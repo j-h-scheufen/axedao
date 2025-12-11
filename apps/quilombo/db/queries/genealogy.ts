@@ -62,7 +62,8 @@ export async function searchPersonProfiles(options: {
       or(
         ilike(personProfiles.name, `%${searchTerm}%`),
         ilike(personProfiles.apelido, `%${searchTerm}%`),
-        ilike(personProfiles.bio, `%${searchTerm}%`)
+        ilike(personProfiles.bioEn, `%${searchTerm}%`),
+        ilike(personProfiles.bioPt, `%${searchTerm}%`)
       )
     );
   }
@@ -181,9 +182,13 @@ export async function searchGroupProfiles(options: {
   if (searchTerm) {
     filters.push(
       or(
-        ilike(groupProfiles.description, `%${searchTerm}%`),
-        ilike(groupProfiles.philosophy, `%${searchTerm}%`),
-        ilike(groupProfiles.history, `%${searchTerm}%`)
+        ilike(groupProfiles.name, `%${searchTerm}%`),
+        ilike(groupProfiles.descriptionEn, `%${searchTerm}%`),
+        ilike(groupProfiles.descriptionPt, `%${searchTerm}%`),
+        ilike(groupProfiles.philosophyEn, `%${searchTerm}%`),
+        ilike(groupProfiles.philosophyPt, `%${searchTerm}%`),
+        ilike(groupProfiles.historyEn, `%${searchTerm}%`),
+        ilike(groupProfiles.historyPt, `%${searchTerm}%`)
       )
     );
   }
@@ -456,8 +461,9 @@ export async function fetchGraphData(options?: { nodeTypes?: EntityType[]; predi
           style: person.style,
           birthYear: person.birthYear,
           deathYear: person.deathYear,
-          avatar: person.avatar,
-          bio: person.bio,
+          portrait: person.portrait,
+          bioEn: person.bioEn,
+          bioPt: person.bioPt,
         },
       });
     }
@@ -476,7 +482,8 @@ export async function fetchGraphData(options?: { nodeTypes?: EntityType[]; predi
           style: group.style,
           foundedYear: group.foundedYear,
           logo: group.logo,
-          description: group.description,
+          descriptionEn: group.descriptionEn,
+          descriptionPt: group.descriptionPt,
           isActive: group.isActive,
         },
       });
