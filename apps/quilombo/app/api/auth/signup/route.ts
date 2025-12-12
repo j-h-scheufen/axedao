@@ -126,12 +126,14 @@ export async function POST(request: Request) {
     const passwordHash = await hashPassword(password);
 
     // Create user with pending verification status
+    // TODO: TEMPORARY INVITE-ONLY - Track who invited this user
     const userId = uuidv4();
     await db.insert(users).values({
       id: userId,
       email: email.toLowerCase(),
       passwordHash,
       accountStatus: 'pending_verification',
+      invitedBy: invitation.createdBy,
     });
 
     // Generate verification token

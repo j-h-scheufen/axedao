@@ -60,12 +60,21 @@ const useAuth = () => {
   /**
    * Sign in with Human Wallet (SIWE)
    * @param email - Optional email for first-time wallet users (auto-fetched from SDK if not provided)
+   *
+   * Flow:
+   * 1. Sign SIWE message with wallet
+   * 2. Try NextAuth signIn (handles existing users)
+   * 3. If user doesn't exist (signIn fails), call /api/auth/siwe-signup to register
+   * 4. If signup succeeds, call signIn again to create session
    */
   const signIn = async (email?: string) => {
     try {
       if (!address || !chainId) return;
 
       setState((x) => ({ ...x, loading: true, error: undefined, emailRequired: false }));
+
+      // Track if email came from SDK (trusted) vs provided externally
+      let emailFromSdk = false;
 
       // Auto-fetch email from Human Wallet SDK if not provided
       // Human Wallet stores verified emails, so we can trust this value
@@ -75,10 +84,11 @@ const useAuth = () => {
           if (silkConnector) {
             const provider = (await silkConnector.getProvider()) as SilkEthereumProviderInterface;
             email = (await provider.requestEmail()) as string;
+            emailFromSdk = true; // Mark as SDK-sourced (trusted)
           }
         } catch (error) {
           console.warn('Could not fetch email from Human Wallet:', error);
-          // Continue without email - backend will request it if needed
+          // Continue without email - will prompt for it if needed
         }
       }
 
@@ -94,52 +104,124 @@ const useAuth = () => {
       });
 
       const preparedMessage = message.prepareMessage();
+      const messageJson = JSON.stringify(message);
 
       const signature = await signMessageAsync({
         message: preparedMessage,
       });
 
+      // Try to sign in (works for existing users)
       const res = await nextAuthSignIn('ethereum', {
-        message: JSON.stringify(message),
+        message: messageJson,
         signature,
         email: email || undefined,
         callbackUrl,
         redirect: false,
       });
 
-      if (res?.error === AUTH_ERRORS.EMAIL_REQUIRED) {
-        // First-time wallet user needs to provide email
-        setState((x) => ({ ...x, loading: false, emailRequired: true }));
-        return;
-      }
-
-      if (res?.error === AUTH_ERRORS.REGISTRATION_FAILED) {
-        // Generic error to prevent user enumeration
-        setState((x) => ({
-          ...x,
-          loading: false,
-          error: new Error(
-            'Unable to create account. If you already have an account, please sign in or use the forgot password link.'
-          ),
-        }));
-        return;
-      }
-
+      // Handle successful login
       if (res?.ok && !res.error) {
         const session = await getSession();
         console.info('User signed in:', session?.user?.id);
         setCurrentUserId(session?.user?.id);
         setState((x) => ({ ...x, loading: false }));
-        // Redirect to callbackUrl after successful login
         router.push(callbackUrl);
         return;
-      } else if (res?.error) {
-        const msg = `An error occurred while signin in. Code: ${res.status} - ${res.error}`;
-        console.error(msg);
-        setState((x) => ({ ...x, error: new Error(res.error || 'Unable to authenticate the message') }));
       }
 
-      setState((x) => ({ ...x, loading: false }));
+      // Handle specific errors
+      if (res?.error === AUTH_ERRORS.REGISTRATION_FAILED) {
+        setState((x) => ({
+          ...x,
+          loading: false,
+          error: new Error(
+            'Unable to sign in. The email associated with this wallet does not match. Please use the correct wallet.'
+          ),
+        }));
+        return;
+      }
+
+      // If signIn returned error (user doesn't exist), try to register via API
+      // This happens when authorize() returns null for new users
+      if (res?.error === 'CredentialsSignin' || !res?.ok) {
+        // First-time user - need email for registration
+        if (!email) {
+          setState((x) => ({ ...x, loading: false, emailRequired: true }));
+          return;
+        }
+
+        // Call signup API
+        const signupRes = await fetch('/api/auth/siwe-signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: messageJson,
+            signature,
+            email,
+            emailFromSdk,
+          }),
+        });
+
+        const signupData = await signupRes.json();
+
+        if (!signupRes.ok) {
+          // Handle signup errors
+          setState((x) => ({
+            ...x,
+            loading: false,
+            error: new Error(signupData.error || 'Failed to create account'),
+          }));
+          return;
+        }
+
+        // Check if email verification is required
+        if (signupData.requiresVerification) {
+          router.push(`${PATHS.verifyEmail}/sent?email=${encodeURIComponent(signupData.email)}`);
+          setState((x) => ({ ...x, loading: false }));
+          return;
+        }
+
+        // Signup successful, now sign in to create session
+        // Need to refetch nonce first as it may have been consumed
+        await fetchNonce();
+
+        // Small delay to ensure nonce is updated in state
+        await new Promise((resolve) => setTimeout(resolve, 100));
+
+        const loginRes = await nextAuthSignIn('ethereum', {
+          message: messageJson,
+          signature,
+          email,
+          callbackUrl,
+          redirect: false,
+        });
+
+        if (loginRes?.ok && !loginRes.error) {
+          const session = await getSession();
+          console.info('User signed in after signup:', session?.user?.id);
+          setCurrentUserId(session?.user?.id);
+          setState((x) => ({ ...x, loading: false }));
+          router.push(callbackUrl);
+          return;
+        }
+
+        // If login after signup failed, show error
+        console.error('Login after signup failed:', loginRes?.error);
+        setState((x) => ({
+          ...x,
+          loading: false,
+          error: new Error('Account created but failed to sign in. Please try signing in again.'),
+        }));
+        return;
+      }
+
+      // Fallback error handling
+      if (res?.error) {
+        console.error('Sign in error:', res.error);
+        setState((x) => ({ ...x, loading: false, error: new Error(res.error || 'Unable to sign in') }));
+      } else {
+        setState((x) => ({ ...x, loading: false }));
+      }
     } catch (error) {
       setState((x) => ({ ...x, loading: false, error: error as Error, nonce: undefined }));
       fetchNonce();
