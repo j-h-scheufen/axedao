@@ -26,13 +26,19 @@ jobs:
     runs-on: ubuntu-latest
     environment: staging
     timeout-minutes: 10
-    # Only run if Atlas workflow succeeded (or if manually triggered)
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    # Only run if:
+    # - Manual trigger (workflow_dispatch), OR
+    # - Atlas workflow succeeded AND was triggered from develop branch
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_branch == 'develop')
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
+          ref: develop  # Always deploy from develop branch
           fetch-depth: 2  # Need history to check for changes
 
       - name: Check for pending migration
