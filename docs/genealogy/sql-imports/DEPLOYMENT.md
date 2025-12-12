@@ -91,7 +91,7 @@ Once staging looks good, update the baseline state:
 ```bash
 mv docs/genealogy/sql-imports/build/pending-state.json docs/genealogy/sql-imports/deployed-state.json
 git add docs/genealogy/sql-imports/deployed-state.json
-git commit -m "chore(genealogy): confirm staging deployment"
+git commit -m "chore(genealogy): confirm genealogy data staging deployment"
 ```
 
 This "locks in" the current state as the baseline for future migrations.
