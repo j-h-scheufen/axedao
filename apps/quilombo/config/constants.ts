@@ -84,6 +84,11 @@ export const AUTH_ERRORS = {
   EMAIL_REQUIRED: 'EMAIL_REQUIRED',
   REGISTRATION_FAILED: 'REGISTRATION_FAILED',
   ACCOUNT_EXISTS: 'ACCOUNT_EXISTS',
+  // TODO: TEMPORARY INVITE-ONLY - Invitation-related errors
+  INVITATION_REQUIRED: 'INVITATION_REQUIRED',
+  INVALID_INVITATION: 'INVALID_INVITATION',
+  INVITATION_EMAIL_MISMATCH: 'INVITATION_EMAIL_MISMATCH',
+  EMAIL_VERIFICATION_REQUIRED: 'EMAIL_VERIFICATION_REQUIRED',
 } as const;
 
 // Authentication cookie names
@@ -91,6 +96,8 @@ export const AUTH_COOKIES = {
   GOOGLE_LINKING: 'quilombo_google_linking',
   GOOGLE_LINKING_USER: 'quilombo_google_linking_user',
   PENDING_OAUTH_LINK: 'quilombo_pending_oauth_link',
+  // TODO: TEMPORARY INVITE-ONLY - Cookie for OAuth/wallet invitation flow
+  INVITATION_CODE: 'quilombo_invitation_code',
 } as const;
 
 // Account statuses for user accounts

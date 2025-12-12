@@ -8,7 +8,7 @@ import { sql, eq, and } from 'drizzle-orm';
 
 import { PATHS, AUTH_ERRORS, AUTH_COOKIES, accountStatuses } from '@/config/constants';
 import ENV from '@/config/environment';
-import { db, fetchSessionData, insertUser } from '@/db';
+import { db, fetchSessionData, insertUser, findValidInvitation, markInvitationAccepted } from '@/db';
 import { users, oauthAccounts } from '@/db/schema';
 import { verifyPassword } from '@/utils/auth/password';
 import { getEmailProvider } from '@/utils/email';
@@ -37,6 +37,11 @@ const providers = [
         type: 'text',
         placeholder: 'email@example.com',
       },
+      // TODO: TEMPORARY INVITE-ONLY - Track if email came from SDK (trusted) or manual entry
+      emailFromSdk: {
+        label: 'Email From SDK',
+        type: 'text',
+      },
     },
 
     // Note: 'req' is not used atm, but the nonce should come from its headers. See problem and workaround below
@@ -60,9 +65,10 @@ const providers = [
         const result = await siwe.verify(verificationParams);
 
         if (result.success) {
+          // Check if user exists by wallet address
           let user = await fetchSessionData(siwe.address);
 
-          // If wallet is already linked to a user, verify email matches
+          // If wallet is already linked to a user, verify email matches (if provided)
           // This prevents identity confusion when switching wallet providers
           if (user && credentials.email) {
             const existingUser = await db.query.users.findFirst({
@@ -78,19 +84,17 @@ const providers = [
             }
           }
 
-          if (!user) {
-            // First-time wallet user - require email
-            if (!credentials.email) {
-              throw new Error(AUTH_ERRORS.EMAIL_REQUIRED);
-            }
-
-            // Check if user with this email already exists (case-insensitive)
+          if (!user && credentials.email) {
+            // Wallet not registered - check if email exists (for wallet linking to existing account)
             const existingUser = await db.query.users.findFirst({
               where: sql`LOWER(${users.email}) = LOWER(${credentials.email})`,
             });
 
             if (existingUser) {
               // Link wallet to existing email account
+              // NOTE: we completely trust the Wallet email provided and don't re-verify email ownership.
+              // This means that instead of first linking the wallet via Settings before allowing to use it
+              // for sign-in, we let the user sign-in and auto-link.
               // This handles cases where:
               // 1. User signed up with email/pwd but never verified → wallet login activates account
               // 2. User has active email/pwd account → adds wallet as additional auth method
@@ -120,28 +124,12 @@ const providers = [
                 walletAddress: siwe.address,
                 isGlobalAdmin: existingUser.isGlobalAdmin || false,
               } as UserSession;
-            } else {
-              // Create new user with wallet + email
-              const { id, walletAddress, isGlobalAdmin } = await insertUser({
-                id: uuidv4(),
-                walletAddress: siwe.address,
-                email: credentials.email.toLowerCase(),
-                accountStatus: accountStatuses[1], // 'active'
-                emailVerifiedAt: new Date(), // Wallet signature proves ownership
-              });
-
-              // Send welcome email for new user
-              try {
-                const emailProvider = getEmailProvider();
-                await emailProvider.sendWelcomeEmail(credentials.email);
-              } catch (emailError) {
-                console.error('Failed to send welcome email:', emailError);
-              }
-
-              user = { id, walletAddress, isGlobalAdmin: isGlobalAdmin || false } as UserSession;
             }
+            // If no existing user by email either, return null - client should use /api/auth/siwe-signup
           }
-          return user;
+
+          // Return user if found (login success), or null if new user needs to signup via API
+          return user || null;
         }
 
         return null;
@@ -400,12 +388,41 @@ export const nextAuthOptions: AuthOptions = {
           }
 
           // No existing user - create new account
+          // TODO: TEMPORARY INVITE-ONLY - Require invitation for new users
+          const invitationCode = cookieStore.get(AUTH_COOKIES.INVITATION_CODE)?.value;
+
+          if (!invitationCode) {
+            // No invitation code - redirect to signup with error
+            return `/auth/signup?error=${encodeURIComponent('Invitation required to create an account')}`;
+          }
+
+          // Validate invitation
+          const invitation = await findValidInvitation(invitationCode, email);
+
+          if (!invitation) {
+            return `/auth/signup?error=${encodeURIComponent('Invalid or expired invitation')}`;
+          }
+
+          // For email-bound invitations, verify email matches
+          if (invitation.type === 'email_bound' && invitation.invitedEmail !== email) {
+            return `/auth/signup?error=${encodeURIComponent(`This invitation was sent to ${invitation.invitedEmail}. Please use that email address.`)}`;
+          }
+
           const newUser = await insertUser({
             id: uuidv4(),
             email,
             accountStatus: accountStatuses[1], // 'active'
             emailVerifiedAt: new Date(), // Google pre-verifies emails
+            invitedBy: invitation.createdBy,
           });
+
+          // Mark email-bound invitation as accepted
+          if (invitation.type === 'email_bound') {
+            await markInvitationAccepted(invitationCode, newUser.id);
+          }
+
+          // Clear invitation cookie after successful signup
+          cookieStore.delete(AUTH_COOKIES.INVITATION_CODE);
 
           // Link OAuth account to new user
           await db.insert(oauthAccounts).values({
