@@ -39,7 +39,7 @@ SELECT
   'person'::genealogy.entity_type, s.id,
   'family_of'::genealogy.predicate,
   'person'::genealogy.entity_type, o.id,
-  '{"relationship_type": "other"}'::jsonb,
+  '{"relationship_type": "other", "other_type": "cousin"}'::jsonb,
   'verified'::genealogy.confidence,
   'Velhos Mestres, Capoeira Online, Nossa Tribo - multiple sources confirm family relationship',
   'Cobrinha Verde''s aunt Maria Haifa was Besouro''s mother. Besouro was raised by Cobrinha''s mother Maria Narcisa Bispo, making them effectively brothers as well as cousins.',
