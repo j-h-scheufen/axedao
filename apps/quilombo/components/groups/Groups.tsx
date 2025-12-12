@@ -21,6 +21,7 @@ import StylesFilterChip from '@/components/groups/StylesFilterChip';
 import VerifiedFilterChip from '@/components/groups/VerifiedFilterChip';
 import GroupFilters, { type GroupFilterValues } from '@/components/groups/GroupFilters';
 import { PARAM_KEY_GROUP_QUERY } from '@/config/constants';
+import type { Style } from '@/types/model';
 
 const Groups = () => {
   const [{ view, [PARAM_KEY_GROUP_QUERY]: gq, countries, styles: stylesParam, verified }, setQueryStates] =
@@ -37,9 +38,7 @@ const Groups = () => {
 
   // Parse filter values from URL params
   const [groupFilters, setGroupFilters] = useState<Partial<GroupFilterValues>>({
-    styles: stylesParam
-      ? (stylesParam.split(',').filter(Boolean) as Array<'angola' | 'regional' | 'contemporânea'>)
-      : undefined,
+    styles: stylesParam ? (stylesParam.split(',').filter(Boolean) as Style[]) : undefined,
     verified: verified === 'true' ? true : verified === 'false' ? false : undefined,
   });
 

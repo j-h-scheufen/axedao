@@ -6,6 +6,7 @@ import { isEqual } from 'lodash';
 
 import { styles } from '@/config/constants';
 import type { GroupFilters as GroupFilterValues } from '@/config/validation-schema';
+import type { Style } from '@/types/model';
 import { FilterPanel, FilterTriggerButton } from '@/components/filters';
 
 export type { GroupFilterValues };
@@ -39,7 +40,7 @@ const GroupFilters = ({ filters, onFiltersChange, isActive }: GroupFiltersProps)
   const handleStylesChange = (selectedStyles: string[]) => {
     setLocalFilters((prev) => ({
       ...prev,
-      styles: selectedStyles as Array<'angola' | 'regional' | 'contemporânea'>,
+      styles: selectedStyles as Style[],
     }));
   };
 

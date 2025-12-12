@@ -22,7 +22,7 @@ Quilombo is the main DApp for the Axé DAO ecosystem, providing community functi
 # Development server on port 8080
 pnpm dev
 
-# Database migrations (Atlas)
+# Database operations (Atlas - recommended)
 pnpm db:atlas:diff      # Generate migration from schema changes
 pnpm db:atlas:lint      # Lint migrations for safety issues
 pnpm db:atlas:preview   # Preview migration without applying (dry-run)
@@ -30,10 +30,14 @@ pnpm db:atlas:apply     # Apply migrations to local database
 pnpm db:atlas:status    # Check migration status
 pnpm db:atlas:validate  # Validate migration files
 
+# Legacy database operations (Drizzle - deprecated)
+pnpm db:generate  # Generate migrations from schema changes
+pnpm db:migrate   # Apply migrations to database
+
 # Local database (Docker)
 pnpm db:local:up      # Start PostgreSQL container
 pnpm db:local:down    # Stop PostgreSQL container
-pnpm db:local:reset   # Reset database (destroys data, runs Atlas migrations)
+pnpm db:local:reset   # Reset database (destroys data, runs migrations)
 pnpm db:local:seed    # Populate with test data
 pnpm db:local:logs    # View database logs
 pnpm db:local:psql    # Connect to PostgreSQL CLI
@@ -49,10 +53,7 @@ pnpm lint
 pnpm format
 ```
 
-**Important Notes:**
-- Atlas commands automatically load environment variables from `.env` and `.env.local` using dotenv-cli
-- **drizzle-kit is still installed** but only used internally by Atlas (via `drizzle-kit export`)
-- **Do not run drizzle-kit commands directly** - all migrations must go through Atlas for safety and consistency
+**Important**: Atlas commands automatically load environment variables from `.env` and `.env.local` using dotenv-cli.
 
 ## Database Setup
 
@@ -104,6 +105,21 @@ docker run --name drizzle-postgres -e POSTGRES_PASSWORD=mypassword -d -p 5432:54
   ALTER ROLE postgres SET search_path TO "$user", public, extensions, gis
   ```
 
+### Manual Migrations
+
+Some migrations are manually generated for features Drizzle doesn't support (functions, triggers, etc.):
+
+1. Create a new numbered migration file with DB changes
+2. Either:
+   - Run `npx drizzle-kit push` to manually add the migration, OR
+   - Add a new entry to `_journal.json` and run `npx drizzle-kit migrate`
+
+### Atlas Migration System
+
+**Status**: Active (recommended for all new migrations)
+
+Atlas is the migration management system that uses Drizzle ORM schema as the source of truth but provides enhanced safety, linting, and reliability features.
+
 **CRITICAL - Supabase Atlas Setup:**
 - Atlas stores migration revision tracking in a dedicated schema
 - The `atlas_schema_revisions` schema **MUST** be first in the search_path for Supabase databases
@@ -113,30 +129,6 @@ docker run --name drizzle-postgres -e POSTGRES_PASSWORD=mypassword -d -p 5432:54
   ```
 - Without this, Atlas will create the revisions table in the wrong schema and migrations will fail
 - This is due to Supabase's role-level search_path taking precedence over connection string parameters
-
-### Manual Migrations (Legacy - Do Not Use)
-
-**Deprecated**: This section describes the old Drizzle migration workflow. Do not use this approach.
-
-For features Atlas doesn't automatically detect (triggers, functions, stored procedures):
-1. Create the SQL manually in a file
-2. Use `atlas migrate new <name> --edit` to create a new migration
-3. Add your SQL to the generated file
-4. Follow normal Atlas workflow (lint, preview, apply)
-
-### Atlas Migration System
-
-**Status**: Active (recommended for all new migrations)
-
-Atlas is the migration management system that uses Drizzle ORM schema as the source of truth but provides enhanced safety, linting, and reliability features.
-
-#### Why Atlas?
-
-- **Idempotent by default**: Migrations include proper IF NOT EXISTS checks
-- **Safety linting**: Detects destructive changes, data loss risks, and backward incompatibilities
-- **Preview capabilities**: See exact SQL before applying migrations (dry-run mode)
-- **Better failure handling**: Tracks partial failures and provides clear recovery paths
-- **Migration integrity**: `atlas.sum` file prevents tampering with migration history
 
 #### Migration Workflow
 
@@ -219,15 +211,6 @@ git push origin develop
 - `STAGING_DATABASE_URL`: Supabase staging database (GitHub secret)
 - `PRODUCTION_DATABASE_URL`: Supabase production database (GitHub secret)
 - `ATLAS_CLOUD_TOKEN`: Optional Atlas Cloud token for enhanced features (GitHub secret)
-
-**Supabase-Specific Requirements**:
-- The postgres role in Supabase MUST have `atlas_schema_revisions` as the first schema in search_path
-- Run this SQL in Supabase SQL Editor for both staging and production:
-  ```sql
-  ALTER ROLE postgres SET search_path = atlas_schema_revisions, "$user", public, extensions, gis;
-  ```
-- This ensures Atlas creates its revision tracking table in the correct schema
-- The `--allow-dirty` flag is required because Supabase has built-in schemas (auth, storage, etc.)
 
 #### Migration Best Practices
 

@@ -67,7 +67,7 @@ const BreadcrumbTracker = () => {
     setBreadcrumbs([newBreadcrumb]);
   }, [pathname, searchParams, breadcrumbs, setBreadcrumbs, lastBreadcrumb]);
 
-  return <></>;
+  return null;
 };
 
 export default BreadcrumbTracker;

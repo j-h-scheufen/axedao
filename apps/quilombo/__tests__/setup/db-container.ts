@@ -86,6 +86,7 @@ export async function clearTestDatabase() {
 
   // Truncate all tables in reverse dependency order
   // CASCADE automatically truncates dependent tables
+  // Note: genealogy tables must be truncated first since users/groups have FKs to them
   await db.execute(`
     TRUNCATE TABLE
       group_verifications,
@@ -97,7 +98,10 @@ export async function clearTestDatabase() {
       oauth_accounts,
       users,
       events,
-      invitations
+      invitations,
+      genealogy.statements,
+      genealogy.person_profiles,
+      genealogy.group_profiles
     CASCADE
   `);
 }

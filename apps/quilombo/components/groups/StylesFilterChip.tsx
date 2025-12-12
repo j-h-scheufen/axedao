@@ -1,9 +1,10 @@
 'use client';
 
 import { FilterChip } from '@/components/filters';
+import type { Style } from '@/types/model';
 
 type StylesFilterChipProps = {
-  selectedStyles: Array<'angola' | 'regional' | 'contemporânea'>;
+  selectedStyles: Style[];
   onClear: () => void;
   onChipClick?: () => void;
 };

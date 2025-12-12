@@ -94,7 +94,7 @@ For detailed package-specific commands, refer to each package's `.claude/CLAUDE.
   - **Validation**: Shared validation rules should be centralized in `config/validation-schema.ts`
   - **Location**: Extract to the most appropriate shared location (types/, utils/, config/)
 - **Environment variables**: Use centralized config/environment.ts files in apps, not direct process.env access.
-- **Database access** (Quilombo): Centralized in db/index.ts - all DB functions must be added there.
+- **Database access** (Quilombo): Centralized in db/index.ts and subdirectories - all DB functions must be added there.
 
 ## JavaScript/TypeScript
 
@@ -130,7 +130,6 @@ Organize imports in this order:
 - Documentation by component can be accessed with this pattern: https://www.heroui.com/docs/components/<ComponentName>
 - Implement responsive design (mobile-first approach)
 - Use content variables for static content outside render functions
-- Minimize 'use client', 'useEffect', and 'setState' - favor RSC
 - Use Formik for forms, Yup for validation
 - Use dynamic loading for non-critical components
 - Optimize images: WebP format, size data, lazy loading

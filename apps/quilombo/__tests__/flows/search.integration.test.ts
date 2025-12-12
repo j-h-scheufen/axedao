@@ -14,6 +14,8 @@ import { describe, it, expect, beforeAll, afterAll, beforeEach } from 'vitest';
 import { eq } from 'drizzle-orm';
 import { setupTestDatabase, teardownTestDatabase, clearTestDatabase } from '../setup/db-container';
 import * as schema from '@/db/schema';
+import { styles } from '@/config/constants';
+import type { Style } from '@/types/model';
 import { v4 as uuidv4 } from 'uuid';
 
 describe('Search and Filtering (Integration Tests)', () => {
@@ -97,7 +99,7 @@ describe('Search and Filtering (Integration Tests)', () => {
         id: group3Id,
         name: 'Contemporânea Group',
         description: 'Contemporary style group',
-        style: 'contemporânea',
+        style: 'contemporanea',
         createdBy: user3Id,
         createdAt: new Date('2024-03-01'),
       },
@@ -517,7 +519,7 @@ describe('Search and Filtering (Integration Tests)', () => {
         id: uuidv4(),
         name: `Group ${i}`,
         description: `Description for group ${i}`,
-        style: ['angola', 'regional', 'contemporânea'][i % 3] as 'angola' | 'regional' | 'contemporânea',
+        style: styles[i % 3] as Style,
         createdBy: user1Id,
         createdAt: new Date(),
       }));
