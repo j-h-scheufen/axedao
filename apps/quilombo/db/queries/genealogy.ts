@@ -528,3 +528,77 @@ export async function fetchGraphData(options?: { nodeTypes?: EntityType[]; predi
     },
   };
 }
+
+// ============================================================================
+// APELIDO UNIQUENESS CHECK
+// ============================================================================
+
+/**
+ * Result of apelido uniqueness check.
+ */
+export type ApelidoCheckResult = {
+  /** Whether the apelido (with context) is available */
+  isAvailable: boolean;
+  /** Whether context is required (apelido exists in genealogy) */
+  requiresContext: boolean;
+};
+
+/**
+ * Checks if an apelido (with optional context) is available for use.
+ *
+ * The database has a unique constraint on (apelido, COALESCE(apelido_context, '')).
+ * This function checks:
+ * 1. If the exact combination is already taken
+ * 2. If the apelido exists (to suggest user adds context)
+ *
+ * @param apelido - The apelido to check
+ * @param apelidoContext - Optional context to disambiguate
+ * @param excludeProfileId - Profile ID to exclude (for edits)
+ * @returns Availability status
+ */
+export async function checkApelidoAvailability(
+  apelido: string,
+  apelidoContext?: string | null,
+  excludeProfileId?: string
+): Promise<ApelidoCheckResult> {
+  // Find all profiles with the same apelido
+  const filters: SQLWrapper[] = [eq(personProfiles.apelido, apelido)];
+
+  if (excludeProfileId) {
+    filters.push(sql`${personProfiles.id} != ${excludeProfileId}`);
+  }
+
+  const existingProfiles = await db
+    .select({
+      apelidoContext: personProfiles.apelidoContext,
+    })
+    .from(personProfiles)
+    .where(and(...filters));
+
+  if (existingProfiles.length === 0) {
+    // No profiles with this apelido - it's available
+    return {
+      isAvailable: true,
+      requiresContext: false,
+    };
+  }
+
+  // Check if the exact combination (apelido, context) is taken
+  // Using COALESCE to match the database constraint behavior
+  const normalizedContext = apelidoContext || '';
+  const exactMatch = existingProfiles.find((p) => (p.apelidoContext || '') === normalizedContext);
+
+  if (exactMatch) {
+    // Exact combination is taken
+    return {
+      isAvailable: false,
+      requiresContext: !apelidoContext, // If no context provided, suggest adding one
+    };
+  }
+
+  // Apelido exists but with different context - available but context recommended
+  return {
+    isAvailable: true,
+    requiresContext: !apelidoContext, // Suggest context if not provided
+  };
+}

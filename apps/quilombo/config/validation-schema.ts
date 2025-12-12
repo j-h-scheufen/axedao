@@ -547,3 +547,36 @@ export const genealogyGraphParamsSchema = object({
 });
 
 export type GenealogyGraphParams = InferType<typeof genealogyGraphParamsSchema>;
+
+// ========================================
+// GENEALOGY PROFILE FORM SCHEMAS
+// ========================================
+
+/**
+ * Schema for user publishing/editing their genealogy profile.
+ * Includes sync toggles and genealogy-specific fields.
+ */
+export const genealogyProfileFormSchema = object({
+  // Sync toggles
+  syncPortrait: boolean().default(true),
+  syncApelido: boolean().default(true),
+  syncTitle: boolean().default(true),
+
+  // Syncable fields
+  portrait: string().nullable(),
+  apelido: string().required('Apelido is required'),
+  apelidoContext: string().nullable(),
+  title: string()
+    .nullable()
+    .oneOf([...titles, null, ''], 'Invalid title'),
+
+  // Genealogy-only fields
+  style: string()
+    .nullable()
+    .oneOf([...styles, null, ''], 'Invalid style'),
+  bioEn: string().nullable().max(5000, 'Bio must be less than 5000 characters'),
+  bioPt: string().nullable().max(5000, 'Bio must be less than 5000 characters'),
+  publicLinks: linksSchema,
+});
+
+export type GenealogyProfileForm = InferType<typeof genealogyProfileFormSchema>;
