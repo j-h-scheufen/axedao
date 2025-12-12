@@ -87,6 +87,13 @@ const SignInForm = () => {
       <div className="auth-container-py">
         <h2 className="text-3xl text-default-700 sm:text-default-800 mb-2 text-center">Login</h2>
 
+        {/* TODO: TEMPORARY INVITE-ONLY - Show invite-only info banner */}
+        <div className="mb-4 p-3 bg-secondary-800/20 rounded-lg border border-secondary-600/50">
+          <p className="text-sm text-secondary-200 dark:text-secondary-700 text-center">
+            Quilombo is currently invite-only. Don't have an account? Ask an existing member to send you an invitation.
+          </p>
+        </div>
+
         {/* Email/Password Form */}
         <Formik
           initialValues={{ email: '', password: '' }}

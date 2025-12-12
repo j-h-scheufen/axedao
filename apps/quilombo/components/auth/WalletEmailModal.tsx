@@ -11,13 +11,22 @@ type WalletEmailModalProps = {
   onEmailSubmit: (email: string) => Promise<void>;
   onClose: () => void;
   error?: string | null;
+  // TODO: TEMPORARY INVITE-ONLY - Pre-fill email for open invitations
+  initialEmail?: string;
 };
 
 /**
  * Modal for collecting email from first-time Human Wallet users
  * Displayed when a wallet connects that hasn't been registered before
  */
-const WalletEmailModal = ({ isOpen, walletAddress, onEmailSubmit, onClose, error }: WalletEmailModalProps) => {
+const WalletEmailModal = ({
+  isOpen,
+  walletAddress,
+  onEmailSubmit,
+  onClose,
+  error,
+  initialEmail,
+}: WalletEmailModalProps) => {
   const handleSubmit = async (
     values: WalletSignupEmailForm,
     { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
@@ -31,7 +40,12 @@ const WalletEmailModal = ({ isOpen, walletAddress, onEmailSubmit, onClose, error
     <Modal isOpen={isOpen} onClose={onClose} isDismissable={false} hideCloseButton>
       <ModalContent>
         <ModalHeader>Complete Your Signup</ModalHeader>
-        <Formik initialValues={{ email: '' }} validationSchema={walletSignupEmailSchema} onSubmit={handleSubmit}>
+        <Formik
+          initialValues={{ email: initialEmail || '' }}
+          validationSchema={walletSignupEmailSchema}
+          onSubmit={handleSubmit}
+          enableReinitialize
+        >
           {({ errors, touched, isSubmitting, handleChange, handleBlur, values }) => (
             <Form>
               <ModalBody>

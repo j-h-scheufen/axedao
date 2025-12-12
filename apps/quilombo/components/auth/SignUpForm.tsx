@@ -1,13 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Button, Link, Divider } from '@heroui/react';
+import { Button, Link, Divider, Spinner } from '@heroui/react';
 import { signIn as nextAuthSignIn, useSession } from 'next-auth/react';
 import { useAccount } from 'wagmi';
 import { Formik, Form, Field } from 'formik';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { setCookie } from 'cookies-next';
 
-import { PATHS } from '@/config/constants';
+import { PATHS, AUTH_COOKIES } from '@/config/constants';
 import { signupSchema, type SignupForm as SignupFormValues } from '@/config/validation-schema';
 import ErrorText from '@/components/ErrorText';
 import FieldInput from '@/components/forms/FieldInput';
@@ -15,6 +16,16 @@ import useAuth from '@/hooks/useAuth';
 import * as auth from '@/query/auth';
 import { PasswordRequirements } from './PasswordRequirements';
 import WalletEmailModal from './WalletEmailModal';
+
+// TODO: TEMPORARY INVITE-ONLY - Types for invitation validation
+type InvitationType = 'email_bound' | 'open';
+type InvitationValidation = {
+  valid: boolean;
+  type: InvitationType;
+  inviterName: string;
+  expiresAt: string;
+  invitedEmail?: string;
+};
 
 const SignUpForm = () => {
   const router = useRouter();
@@ -31,6 +42,11 @@ const SignUpForm = () => {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
+  // TODO: TEMPORARY INVITE-ONLY - Invitation validation state
+  const [invitationValid, setInvitationValid] = useState<boolean | null>(null);
+  const [inviterName, setInviterName] = useState<string>('');
+  const [invitationType, setInvitationType] = useState<InvitationType | null>(null);
+
   // Use signup mutation from query layer
   const signupMutation = auth.useSignupMutation();
 
@@ -42,6 +58,44 @@ const SignUpForm = () => {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // TODO: TEMPORARY INVITE-ONLY - Validate invitation on mount
+  useEffect(() => {
+    if (!mounted) return;
+
+    if (!invitationCode) {
+      setInvitationValid(false);
+      return;
+    }
+
+    // Validate invitation via API
+    fetch('/api/invitations/validate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code: invitationCode, email: invitedEmail }),
+    })
+      .then((res) => res.json())
+      .then((data: InvitationValidation | { error: string }) => {
+        if ('valid' in data && data.valid) {
+          setInvitationValid(true);
+          setInviterName(data.inviterName);
+          setInvitationType(data.type);
+          // Set cookie for OAuth/wallet flows (1 hour expiry)
+          setCookie(AUTH_COOKIES.INVITATION_CODE, invitationCode, {
+            path: '/',
+            maxAge: 3600,
+            sameSite: 'lax',
+          });
+        } else {
+          setInvitationValid(false);
+          setError('error' in data ? data.error : 'Invalid or expired invitation');
+        }
+      })
+      .catch(() => {
+        setInvitationValid(false);
+        setError('Failed to validate invitation');
+      });
+  }, [mounted, invitationCode, invitedEmail]);
 
   // Redirect already authenticated users
   useEffect(() => {
@@ -56,7 +110,7 @@ const SignUpForm = () => {
     try {
       await signupMutation.mutateAsync({
         ...values,
-        ...(invitationCode && { invitationCode }),
+        invitationCode: invitationCode || '',
       });
 
       setSuccess(true);
@@ -95,11 +149,56 @@ const SignUpForm = () => {
     await signIn(email);
   };
 
+  // TODO: TEMPORARY INVITE-ONLY - Handle wallet signup with email-bound invites
+  const handleWalletSignUp = () => {
+    if (invitationType === 'email_bound' && invitedEmail) {
+      // Skip modal - use the invitation email directly
+      signIn(invitedEmail);
+    } else {
+      // Normal flow - will auto-fetch from SDK or show modal
+      signIn();
+    }
+  };
+
   // Show loading state during hydration to prevent mismatch
   if (!mounted) {
     return (
       <div className="auth-container-py">
         <div className="text-center">Loading...</div>
+      </div>
+    );
+  }
+
+  // TODO: TEMPORARY INVITE-ONLY - Show loading while validating invitation
+  if (invitationValid === null && invitationCode) {
+    return (
+      <div className="auth-container-py items-center text-center">
+        <Spinner size="lg" />
+        <p className="mt-4 text-default-500">Validating invitation...</p>
+      </div>
+    );
+  }
+
+  // TODO: TEMPORARY INVITE-ONLY - Show invite-only message when no valid invitation
+  if (invitationValid === false) {
+    return (
+      <div className="auth-container-py items-center text-center">
+        <h2 className="text-2xl text-default-700 mb-4">Invite Only</h2>
+        <div className="p-4 bg-secondary-800/20 rounded-lg border border-secondary-600/50 max-w-md">
+          {error ? (
+            <p className="text-danger-600 mb-4">{error}</p>
+          ) : (
+            <p className="text-secondary-200 dark:text-secondary-700 mb-4">
+              Quilombo is currently invite-only. To join, you need an invitation from an existing member.
+            </p>
+          )}
+          <p className="text-sm text-default-500">
+            Already have an account?{' '}
+            <Link href={PATHS.login} color="secondary">
+              Sign in
+            </Link>
+          </p>
+        </div>
       </div>
     );
   }
@@ -124,29 +223,39 @@ const SignUpForm = () => {
         onEmailSubmit={handleWalletEmailSubmit}
         onClose={() => {}}
         error={authError?.message}
+        initialEmail={invitationType === 'open' ? invitedEmail || undefined : undefined}
       />
 
       <div className="auth-container-py">
         <h2 className="text-3xl text-default-700 sm:text-default-800 mb-2 text-center">Create Your Account</h2>
 
-        {invitationCode && (
+        {/* TODO: TEMPORARY INVITE-ONLY - Show invitation banner */}
+        {invitationValid && (
           <div className="mb-4 p-3 bg-success-50 rounded-lg border border-success-200">
             <p className="text-sm text-success-700 text-center">
-              ✓ You're signing up with a valid invitation
-              {invitedEmail && ` for ${invitedEmail}`}
+              {inviterName ? `You were invited by ${inviterName}` : "You're signing up with a valid invitation"}
+              {invitedEmail && invitationType === 'email_bound' && ` for ${invitedEmail}`}
             </p>
           </div>
         )}
 
         {/* Email/Password Form */}
         <Formik
-          initialValues={{ email: invitedEmail || '', password: '' }}
+          initialValues={{ email: invitedEmail || '', password: '', invitationCode: invitationCode || '' }}
           validationSchema={signupSchema}
           onSubmit={handleEmailPasswordSubmit}
         >
           {({ isSubmitting, values }) => (
             <Form className="flex flex-col gap-4">
-              <Field name="email" type="email" label="Email" placeholder="your@email.com" isRequired as={FieldInput} />
+              <Field
+                name="email"
+                type="email"
+                label="Email"
+                placeholder="your@email.com"
+                isRequired
+                isDisabled={invitationType === 'email_bound'}
+                as={FieldInput}
+              />
               <Field
                 name="password"
                 type="password"
@@ -231,7 +340,7 @@ const SignUpForm = () => {
               color="primary"
               variant="flat"
               className="w-full"
-              onPress={() => signIn()}
+              onPress={handleWalletSignUp}
               isLoading={!!loading}
             >
               Sign Up with Wallet

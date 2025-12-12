@@ -397,8 +397,8 @@ export type ValidateInvitationForm = InferType<typeof validateInvitationSchema>;
 export const signupSchema = object({
   email: string().email('Invalid email address').required('Email is required').lowercase().trim(),
   password: passwordField(),
-  // TODO: TEMPORARY - Will be required for invite-only mode once UI is implemented
-  invitationCode: string().uuid('Invalid invitation code').optional(),
+  // TODO: TEMPORARY INVITE-ONLY - Required for invite-only mode
+  invitationCode: string().uuid('Invalid invitation code').required('Invitation code is required'),
 });
 
 export const loginSchema = object({
