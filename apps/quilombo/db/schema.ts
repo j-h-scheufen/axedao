@@ -242,6 +242,33 @@ export const groupClaims = pgTable(
   ]
 );
 
+// Person profile claims - tracks claim requests for genealogy person profiles
+// Reuses groupClaimStatusEnum since claim statuses are identical
+export const personClaims = pgTable(
+  'person_claims',
+  {
+    id: uuid('id').defaultRandom().primaryKey(),
+    personProfileId: uuid('person_profile_id')
+      .notNull()
+      .references(() => personProfiles.id, { onDelete: 'cascade' }),
+    userId: uuid('user_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'set null' }),
+    status: groupClaimStatusEnum('status').notNull().default('pending'),
+    requestedAt: timestamp('requested_at').notNull().defaultNow(),
+    processedAt: timestamp('processed_at'),
+    processedBy: uuid('processed_by').references(() => users.id, { onDelete: 'set null' }),
+    userMessage: text('user_message').notNull(), // Why they are this person
+    adminNotes: text('admin_notes'), // Admin's decision notes
+  },
+  (t) => [
+    index('person_claim_profile_idx').on(t.personProfileId),
+    index('person_claim_user_idx').on(t.userId),
+    index('person_claim_status_idx').on(t.status),
+    index('person_claim_date_idx').on(t.requestedAt),
+  ]
+);
+
 export const userGroupRelations = relations(users, ({ one }) => ({
   group: one(groups, {
     fields: [users.groupId],
@@ -357,3 +384,6 @@ export type SelectGroupVerification = typeof groupVerifications.$inferSelect;
 
 export type InsertGroupClaim = typeof groupClaims.$inferInsert;
 export type SelectGroupClaim = typeof groupClaims.$inferSelect;
+
+export type InsertPersonClaim = typeof personClaims.$inferInsert;
+export type SelectPersonClaim = typeof personClaims.$inferSelect;

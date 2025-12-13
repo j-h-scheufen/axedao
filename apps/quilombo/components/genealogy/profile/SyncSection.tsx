@@ -57,15 +57,25 @@ const SyncSection = ({ user, existingData, excludeProfileId }: SyncSectionProps)
     }
   }, [syncApelidoField.value, user.nickname, apelidoContextField.value, checkApelido]);
 
-  // Detect stale data (existing genealogy doesn't match current user profile)
-  const isPortraitStale = existingData?.portrait && existingData.portrait !== user.avatar;
-  const isApelidoStale = existingData?.apelido && existingData.apelido !== user.nickname;
-  const isTitleStale = existingData?.title && existingData.title !== user.title;
+  // Detect stale/out-of-sync data (genealogy value differs from user profile)
+  // This includes: genealogy has value but user differs, OR user has value but genealogy is empty
+  const isPortraitStale = existingData
+    ? existingData.portrait !== user.avatar && (existingData.portrait || user.avatar)
+    : false;
+  const isApelidoStale = existingData
+    ? existingData.apelido !== user.nickname && (existingData.apelido || user.nickname)
+    : false;
+  const isTitleStale = existingData ? existingData.title !== user.title && (existingData.title || user.title) : false;
 
   // Compute what will be published based on sync toggles
   const publishedPortrait = syncPortraitField.value ? user.avatar : null;
   const publishedApelido = syncApelidoField.value ? user.nickname : null;
   const publishedTitle = syncTitleField.value ? user.title : null;
+
+  // For preview: show user value if syncing, otherwise show current genealogy value
+  const previewPortrait = syncPortraitField.value ? user.avatar : existingData?.portrait;
+  const previewApelido = syncApelidoField.value ? user.nickname : existingData?.apelido;
+  const previewTitle = syncTitleField.value ? user.title : existingData?.title;
 
   // Update form values when sync toggles change
   useEffect(() => {
@@ -222,10 +232,13 @@ const SyncSection = ({ user, existingData, excludeProfileId }: SyncSectionProps)
           <SyncCheckboxes />
           <Divider />
           <GenealogyPreviewCard
-            portrait={publishedPortrait}
-            apelido={publishedApelido}
-            title={publishedTitle}
-            label="Preview"
+            portrait={previewPortrait}
+            apelido={previewApelido}
+            title={previewTitle}
+            label="Genealogy Preview"
+            isPortraitStale={Boolean(isPortraitStale && !syncPortraitField.value)}
+            isApelidoStale={Boolean(isApelidoStale && !syncApelidoField.value)}
+            isTitleStale={Boolean(isTitleStale && !syncTitleField.value)}
           />
         </div>
 
@@ -234,10 +247,13 @@ const SyncSection = ({ user, existingData, excludeProfileId }: SyncSectionProps)
           <UserProfileCard />
           <SyncCheckboxes />
           <GenealogyPreviewCard
-            portrait={publishedPortrait}
-            apelido={publishedApelido}
-            title={publishedTitle}
+            portrait={previewPortrait}
+            apelido={previewApelido}
+            title={previewTitle}
             label="Genealogy Preview"
+            isPortraitStale={Boolean(isPortraitStale && !syncPortraitField.value)}
+            isApelidoStale={Boolean(isApelidoStale && !syncApelidoField.value)}
+            isTitleStale={Boolean(isTitleStale && !syncTitleField.value)}
           />
         </div>
       </CardBody>

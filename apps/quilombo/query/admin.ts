@@ -26,7 +26,8 @@ export type RejectClaimParams = {
   notes: string;
 };
 
-const fetchClaims = async (): Promise<GroupClaim[]> => axios.get('/api/admin/claims').then((response) => response.data);
+const fetchClaims = async (): Promise<GroupClaim[]> =>
+  axios.get('/api/admin/claims/groups').then((response) => response.data);
 
 export const fetchClaimsOptions = () => {
   return {
@@ -37,10 +38,10 @@ export const fetchClaimsOptions = () => {
 };
 
 const approveClaim = async ({ claimId, notes }: ApproveClaimParams): Promise<void> =>
-  axios.put(`/api/admin/claims/${claimId}/approve`, { notes }).then((response) => response.data);
+  axios.put(`/api/admin/claims/groups/${claimId}/approve`, { notes }).then((response) => response.data);
 
 const rejectClaim = async ({ claimId, notes }: RejectClaimParams): Promise<void> =>
-  axios.put(`/api/admin/claims/${claimId}/reject`, { notes }).then((response) => response.data);
+  axios.put(`/api/admin/claims/groups/${claimId}/reject`, { notes }).then((response) => response.data);
 
 // HOOKS
 export const useFetchClaims = () => useQuery(queryOptions(fetchClaimsOptions()));
@@ -65,6 +66,68 @@ export const useRejectClaimMutation = () => {
     onSuccess: () => {
       // Invalidate claims list to refresh after rejection
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.admin.getClaims] });
+    },
+  });
+};
+
+// ============================================================================
+// PERSON PROFILE CLAIMS
+// ============================================================================
+
+export type PersonClaim = {
+  id: string;
+  personProfileId: string;
+  profileApelido: string | null;
+  profileName: string | null;
+  profileTitle: string | null;
+  profilePortrait: string | null;
+  userId: string;
+  userName: string;
+  userEmail: string;
+  requestedAt: string;
+  userMessage: string;
+  status: 'pending' | 'approved' | 'rejected';
+};
+
+const fetchPersonClaims = async (): Promise<PersonClaim[]> =>
+  axios.get('/api/admin/claims/persons').then((response) => response.data);
+
+export const fetchPersonClaimsOptions = () => {
+  return {
+    queryKey: [QUERY_KEYS.admin.getPersonClaims],
+    queryFn: () => fetchPersonClaims(),
+    staleTime: QueryConfig.staleTimeDefault,
+  } as const;
+};
+
+const approvePersonClaim = async ({ claimId }: { claimId: string }): Promise<void> =>
+  axios.put(`/api/admin/claims/persons/${claimId}/approve`).then((response) => response.data);
+
+const rejectPersonClaim = async ({ claimId, notes }: RejectClaimParams): Promise<void> =>
+  axios.put(`/api/admin/claims/persons/${claimId}/reject`, { notes }).then((response) => response.data);
+
+export const useFetchPersonClaims = () => useQuery(queryOptions(fetchPersonClaimsOptions()));
+
+export const useApprovePersonClaimMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (params: { claimId: string }) => approvePersonClaim(params),
+    onSuccess: () => {
+      // Invalidate person claims list to refresh after approval
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.admin.getPersonClaims] });
+      // Invalidate genealogy data since profile might now be claimed
+      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.genealogy.all() });
+    },
+  });
+};
+
+export const useRejectPersonClaimMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (params: RejectClaimParams) => rejectPersonClaim(params),
+    onSuccess: () => {
+      // Invalidate person claims list to refresh after rejection
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.admin.getPersonClaims] });
     },
   });
 };

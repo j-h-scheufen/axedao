@@ -488,6 +488,15 @@ export const verifyGroupFormSchema = object({
 export type ClaimGroupForm = InferType<typeof claimGroupFormSchema>;
 export type VerifyGroupForm = InferType<typeof verifyGroupFormSchema>;
 
+// Person Profile Claiming validation schema
+export const claimPersonFormSchema = object({
+  userMessage: string()
+    .required('Please explain why this is your profile')
+    .min(20, 'Message must be at least 20 characters'),
+});
+
+export type ClaimPersonForm = InferType<typeof claimPersonFormSchema>;
+
 // ========================================
 // GENEALOGY SEARCH SCHEMAS
 // ========================================

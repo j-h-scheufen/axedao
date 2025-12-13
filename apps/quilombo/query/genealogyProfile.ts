@@ -100,8 +100,17 @@ type GroupSearchResult = {
   isActive: boolean;
 };
 
-const searchPersons = async (searchTerm: string): Promise<PersonSearchResult[]> =>
-  axios.get(`/api/genealogy/persons/search?q=${encodeURIComponent(searchTerm)}`).then((response) => response.data);
+type SearchPersonsOptions = {
+  claimableOnly?: boolean;
+};
+
+const searchPersons = async (searchTerm: string, options?: SearchPersonsOptions): Promise<PersonSearchResult[]> => {
+  const params = new URLSearchParams({ q: searchTerm });
+  if (options?.claimableOnly) {
+    params.set('claimableOnly', 'true');
+  }
+  return axios.get(`/api/genealogy/persons/search?${params.toString()}`).then((response) => response.data);
+};
 
 const searchGroups = async (searchTerm: string): Promise<GroupSearchResult[]> =>
   axios.get(`/api/genealogy/groups/search?q=${encodeURIComponent(searchTerm)}`).then((response) => response.data);
@@ -191,10 +200,10 @@ export const useDeleteRelationship = () => {
 // SEARCH HOOKS
 // ============================================================================
 
-export const useSearchPersons = (searchTerm: string, options?: { enabled?: boolean }) =>
+export const useSearchPersons = (searchTerm: string, options?: { enabled?: boolean; claimableOnly?: boolean }) =>
   useQuery({
-    queryKey: ['genealogy', 'search', 'persons', searchTerm],
-    queryFn: () => searchPersons(searchTerm),
+    queryKey: ['genealogy', 'search', 'persons', searchTerm, options?.claimableOnly ?? false],
+    queryFn: () => searchPersons(searchTerm, { claimableOnly: options?.claimableOnly }),
     staleTime: QueryConfig.staleTimeDefault,
     enabled: options?.enabled ?? searchTerm.length > 2,
   });
@@ -206,3 +215,81 @@ export const useSearchGroups = (searchTerm: string, options?: { enabled?: boolea
     staleTime: QueryConfig.staleTimeDefault,
     enabled: options?.enabled ?? searchTerm.length > 2,
   });
+
+// ============================================================================
+// PERSON PROFILE CLAIMING
+// ============================================================================
+
+type ClaimStatus = {
+  isClaimable: boolean;
+  reason: 'not_found' | 'deceased' | 'already_claimed' | 'claimable';
+};
+
+type PendingClaim = {
+  id: string;
+  personProfileId: string;
+  profileApelido: string | null;
+  profileName: string | null;
+  profileTitle: string | null;
+  profilePortrait: string | null;
+  requestedAt: string;
+  status: 'pending';
+};
+
+type ClaimPersonRequest = {
+  personProfileId: string;
+  userMessage: string;
+};
+
+type ClaimPersonResponse = {
+  claimId: string;
+  message: string;
+};
+
+const fetchClaimStatus = async (profileId: string): Promise<ClaimStatus> =>
+  axios.get(`/api/genealogy/persons/${profileId}/claim-status`).then((response) => response.data);
+
+const fetchPendingClaim = async (): Promise<PendingClaim | null> =>
+  axios.get('/api/profile/person-claim').then((response) => response.data);
+
+const claimPerson = async ({ personProfileId, userMessage }: ClaimPersonRequest): Promise<ClaimPersonResponse> =>
+  axios.post(`/api/genealogy/persons/${personProfileId}/claim`, { userMessage }).then((response) => response.data);
+
+/**
+ * Fetch the claim status of a person profile.
+ * Returns whether the profile is claimable and the reason if not.
+ */
+export const usePersonClaimStatus = (profileId: string | null | undefined) =>
+  useQuery({
+    queryKey: QUERY_KEYS.genealogy.claimStatus(profileId || ''),
+    queryFn: () => fetchClaimStatus(profileId as string),
+    staleTime: QueryConfig.staleTimeDefault,
+    enabled: !!profileId,
+  });
+
+/**
+ * Fetch the current user's pending person profile claim (if any).
+ */
+export const usePendingPersonClaim = () =>
+  useQuery({
+    queryKey: [QUERY_KEYS.genealogy.pendingClaim],
+    queryFn: fetchPendingClaim,
+    staleTime: QueryConfig.staleTimeDefault,
+  });
+
+/**
+ * Mutation to claim a person profile.
+ */
+export const useClaimPersonMutation = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (data: ClaimPersonRequest) => claimPerson(data),
+    onSuccess: (_, variables) => {
+      // Invalidate pending claim to show the new pending status
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.genealogy.pendingClaim] });
+      // Invalidate claim status for the specific profile
+      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.genealogy.claimStatus(variables.personProfileId) });
+    },
+  });
+};

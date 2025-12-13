@@ -120,6 +120,10 @@ import { applyRateLimit, createRateLimitHeaders } from '@/utils/rate-limit';
 /**
  * GET - Lightweight type-ahead search (for dropdowns/autocomplete)
  * Returns simplified results: id, name, apelido, title, portrait
+ *
+ * Query params:
+ * - q: search term (required, min 3 chars)
+ * - claimableOnly: if "true", excludes deceased and already-claimed profiles
  */
 export async function GET(request: NextRequest) {
   const RATE_LIMIT_MAX = 60;
@@ -132,6 +136,7 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const searchTerm = searchParams.get('q');
+    const claimableOnly = searchParams.get('claimableOnly') === 'true';
 
     if (!searchTerm || searchTerm.length < 3) {
       return NextResponse.json({ error: 'Search term must be at least 3 characters' }, { status: 400 });
@@ -141,6 +146,7 @@ export async function GET(request: NextRequest) {
       offset: 0,
       pageSize: 10, // Limit for type-ahead
       searchTerm,
+      claimableOnly,
     });
 
     // Return simplified results for type-ahead

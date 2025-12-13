@@ -43,7 +43,9 @@ export const QUERY_KEYS = {
     getProposals: 'dao.getProposals',
   },
   admin: {
-    getClaims: 'admin.getClaims',
+    getClaims: 'admin.getClaims', // Group claims - legacy key for backwards compatibility
+    getGroupClaims: 'admin.claims.groups',
+    getPersonClaims: 'admin.claims.persons',
   },
   invitation: {
     getInvitations: 'invitation.getInvitations',
@@ -57,6 +59,8 @@ export const QUERY_KEYS = {
       }
       return ['genealogy', 'relationships'] as const;
     },
+    claimStatus: (profileId: string) => ['genealogy', 'claimStatus', profileId] as const,
+    pendingClaim: 'genealogy.pendingClaim',
   },
   profile: ['profile'] as const,
 } as const;

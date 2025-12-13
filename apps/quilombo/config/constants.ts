@@ -77,6 +77,7 @@ export const PATHS = {
   groups: '/groups',
   events: '/events',
   settings: '/settings',
+  genealogy: '/genealogy',
 };
 
 // Authentication error codes

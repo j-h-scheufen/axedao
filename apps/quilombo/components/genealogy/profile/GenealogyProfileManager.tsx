@@ -7,14 +7,24 @@ import { currentUserAtom } from '@/hooks/state/currentUser';
 import { useGenealogyProfile } from '@/query/genealogyProfile';
 import GenealogyExplainer from './GenealogyExplainer';
 import GenealogyProfileForm from './GenealogyProfileForm';
+import ProfileCheckStep from './ProfileCheckStep';
+
+type WizardStep = 'explainer' | 'check' | 'form';
 
 /**
  * Manager component for genealogy profile publishing.
- * Handles the flow between explainer (for new users) and form (for editing).
+ * Handles the flow: explainer -> check for existing profile -> form.
+ *
+ * Flow for new users:
+ * 1. GenealogyExplainer - Educate about publishing
+ * 2. ProfileCheckStep - Check if profile exists (auto-search with apelido)
+ * 3. GenealogyProfileForm - Create new profile OR user claims existing
+ *
+ * Returning users (with profileId) skip directly to the form.
  */
 const GenealogyProfileManager = () => {
   const { data: user, isFetching: isUserFetching } = useAtomValue(currentUserAtom);
-  const [hasAcknowledgedExplainer, setHasAcknowledgedExplainer] = useState(false);
+  const [wizardStep, setWizardStep] = useState<WizardStep>('explainer');
 
   // Fetch existing genealogy profile if user has profileId
   const { data: genealogyProfile, isFetching: isProfileFetching } = useGenealogyProfile(user?.profileId);
@@ -30,13 +40,25 @@ const GenealogyProfileManager = () => {
 
   const hasExistingProfile = !!user.profileId;
 
-  // Show explainer for first-time users who haven't acknowledged it
-  if (!hasExistingProfile && !hasAcknowledgedExplainer) {
-    return <GenealogyExplainer onContinue={() => setHasAcknowledgedExplainer(true)} />;
+  // Users with existing profile skip directly to form
+  if (hasExistingProfile) {
+    return <GenealogyProfileForm existingData={genealogyProfile} />;
   }
 
-  // Show form for returning users or after acknowledging explainer
-  return <GenealogyProfileForm existingData={genealogyProfile} />;
+  // New user wizard flow
+  switch (wizardStep) {
+    case 'explainer':
+      return <GenealogyExplainer onContinue={() => setWizardStep('check')} />;
+
+    case 'check':
+      return <ProfileCheckStep userApelido={user.nickname} onProceedToCreate={() => setWizardStep('form')} />;
+
+    case 'form':
+      return <GenealogyProfileForm existingData={null} />;
+
+    default:
+      return <GenealogyExplainer onContinue={() => setWizardStep('check')} />;
+  }
 };
 
 export default GenealogyProfileManager;
