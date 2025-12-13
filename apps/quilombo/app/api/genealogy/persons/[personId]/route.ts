@@ -100,10 +100,10 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
 
     if (includeRelationships) {
       const relationships = await fetchStatementsByEntity('person', personId);
-      return Response.json({ data: person, relationships }, { headers });
+      return Response.json({ ...person, relationships }, { headers });
     }
 
-    return Response.json({ data: person }, { headers });
+    return Response.json(person, { headers });
   } catch (error) {
     console.error('Error fetching person profile:', error);
     return NextResponse.json({ error: 'Failed to fetch person profile' }, { status: 500 });

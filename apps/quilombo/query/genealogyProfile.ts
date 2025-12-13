@@ -8,7 +8,13 @@ import axios from '@/utils/axios';
 
 import { QueryConfig } from '@/config/constants';
 import type { GenealogyProfileForm } from '@/config/validation-schema';
-import type { SelectPersonProfile } from '@/db/schema/genealogy';
+import type {
+  SelectPersonProfile,
+  SelectStatement,
+  EntityType,
+  Predicate,
+  StatementProperties,
+} from '@/db/schema/genealogy';
 import { QUERY_KEYS } from './keys';
 
 /**
@@ -47,6 +53,58 @@ const updateGenealogyProfile = async (
 
 const deleteGenealogyProfile = async (): Promise<{ message: string }> =>
   axios.delete('/api/profile/genealogy').then((response) => response.data);
+
+// ============================================================================
+// RELATIONSHIPS
+// ============================================================================
+
+type RelationshipWithDetails = SelectStatement & {
+  objectName?: string;
+};
+
+type AddRelationshipRequest = {
+  predicate: Predicate;
+  objectType: EntityType;
+  objectId: string;
+  startedAt?: string;
+  endedAt?: string;
+  properties?: StatementProperties;
+};
+
+const fetchRelationships = async (): Promise<RelationshipWithDetails[]> =>
+  axios.get('/api/profile/genealogy/relationships').then((response) => response.data);
+
+const addRelationship = async (data: AddRelationshipRequest): Promise<{ id: string; message: string }> =>
+  axios.post('/api/profile/genealogy/relationships', data).then((response) => response.data);
+
+const deleteRelationship = async (statementId: string): Promise<{ message: string }> =>
+  axios.delete(`/api/profile/genealogy/relationships/${statementId}`).then((response) => response.data);
+
+// ============================================================================
+// SEARCH (for AddRelationshipModal)
+// ============================================================================
+
+type PersonSearchResult = {
+  id: string;
+  name: string | null;
+  apelido: string | null;
+  title: string | null;
+  portrait: string | null;
+};
+
+type GroupSearchResult = {
+  id: string;
+  name: string;
+  style: string | null;
+  logo: string | null;
+  isActive: boolean;
+};
+
+const searchPersons = async (searchTerm: string): Promise<PersonSearchResult[]> =>
+  axios.get(`/api/genealogy/persons/search?q=${encodeURIComponent(searchTerm)}`).then((response) => response.data);
+
+const searchGroups = async (searchTerm: string): Promise<GroupSearchResult[]> =>
+  axios.get(`/api/genealogy/groups/search?q=${encodeURIComponent(searchTerm)}`).then((response) => response.data);
 
 // HOOKS
 
@@ -92,3 +150,59 @@ export const useDeleteGenealogyProfile = () => {
     },
   });
 };
+
+// ============================================================================
+// RELATIONSHIPS HOOKS
+// ============================================================================
+
+export const useRelationships = (profileId?: string) =>
+  useQuery({
+    queryKey: QUERY_KEYS.genealogy.relationships(profileId || ''),
+    queryFn: fetchRelationships,
+    staleTime: QueryConfig.staleTimeDefault,
+    enabled: !!profileId,
+  });
+
+export const useAddRelationship = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (data: AddRelationshipRequest) => addRelationship(data),
+    onSuccess: () => {
+      // Invalidate relationships to refetch the list
+      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.genealogy.relationships() });
+    },
+  });
+};
+
+export const useDeleteRelationship = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (statementId: string) => deleteRelationship(statementId),
+    onSuccess: () => {
+      // Invalidate relationships to refetch the list
+      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.genealogy.relationships() });
+    },
+  });
+};
+
+// ============================================================================
+// SEARCH HOOKS
+// ============================================================================
+
+export const useSearchPersons = (searchTerm: string, options?: { enabled?: boolean }) =>
+  useQuery({
+    queryKey: ['genealogy', 'search', 'persons', searchTerm],
+    queryFn: () => searchPersons(searchTerm),
+    staleTime: QueryConfig.staleTimeDefault,
+    enabled: options?.enabled ?? searchTerm.length > 2,
+  });
+
+export const useSearchGroups = (searchTerm: string, options?: { enabled?: boolean }) =>
+  useQuery({
+    queryKey: ['genealogy', 'search', 'groups', searchTerm],
+    queryFn: () => searchGroups(searchTerm),
+    staleTime: QueryConfig.staleTimeDefault,
+    enabled: options?.enabled ?? searchTerm.length > 2,
+  });

@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Card, CardBody, CardHeader, Divider } from '@heroui/react';
+import { Button, Card, CardBody } from '@heroui/react';
 import { Form, Formik, type FormikProps } from 'formik';
 import { useAtomValue } from 'jotai';
 import { useRouter } from 'next/navigation';
@@ -9,10 +9,16 @@ import { useCallback, useMemo, useState } from 'react';
 import { PATHS } from '@/config/constants';
 import { genealogyProfileFormSchema, type GenealogyProfileForm as FormType } from '@/config/validation-schema';
 import { currentUserAtom } from '@/hooks/state/currentUser';
-import { useCreateGenealogyProfile, useUpdateGenealogyProfile } from '@/query/genealogyProfile';
+import {
+  useCreateGenealogyProfile,
+  useUpdateGenealogyProfile,
+  useRelationships,
+  useDeleteRelationship,
+} from '@/query/genealogyProfile';
 import DeleteProfileModal from './DeleteProfileModal';
 import SyncSection from './SyncSection';
 import GenealogyFieldsSection from './GenealogyFieldsSection';
+import RelationshipsSection from './RelationshipsSection';
 
 type ExistingGenealogyData = {
   portrait?: string | null;
@@ -49,6 +55,10 @@ const GenealogyProfileForm = ({ existingData }: GenealogyProfileFormProps) => {
 
   const createMutation = useCreateGenealogyProfile();
   const updateMutation = useUpdateGenealogyProfile();
+
+  // Fetch relationships if user has a profile
+  const { data: relationships = [], isLoading: relationshipsLoading } = useRelationships(user?.profileId || undefined);
+  const deleteRelationshipMutation = useDeleteRelationship();
 
   const handleSubmit = useCallback(
     async (values: FormType) => {
@@ -162,19 +172,15 @@ const GenealogyProfileForm = ({ existingData }: GenealogyProfileFormProps) => {
             {/* Genealogy-Only Fields */}
             <GenealogyFieldsSection />
 
-            {/* TODO: Relationships Section - Phase 5 */}
-            <Card>
-              <CardHeader>
-                <div className="flex flex-col">
-                  <p className="text-md font-semibold">Relationships</p>
-                  <p className="text-small text-default-500">Declare your connections to mestres and groups</p>
-                </div>
-              </CardHeader>
-              <Divider />
-              <CardBody>
-                <p className="text-default-400 text-center py-4">Relationships management coming in Phase 5</p>
-              </CardBody>
-            </Card>
+            {/* Relationships Section */}
+            <RelationshipsSection
+              profileId={user?.profileId || undefined}
+              relationships={relationships}
+              isLoading={relationshipsLoading}
+              onDelete={(statementId) => {
+                deleteRelationshipMutation.mutate(statementId);
+              }}
+            />
 
             {/* Actions */}
             <div className="flex justify-between items-center pt-4">

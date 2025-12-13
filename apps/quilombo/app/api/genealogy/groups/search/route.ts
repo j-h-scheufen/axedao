@@ -8,6 +8,27 @@ import { applyRateLimit, createRateLimitHeaders } from '@/utils/rate-limit';
 /**
  * @openapi
  * /api/genealogy/groups/search:
+ *   get:
+ *     summary: Quick search for group profiles (type-ahead)
+ *     description: Lightweight search for use in dropdowns and autocomplete fields
+ *     tags:
+ *       - Genealogy
+ *     parameters:
+ *       - in: query
+ *         name: q
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Search term (minimum 3 characters)
+ *     responses:
+ *       200:
+ *         description: Search results (max 10 items)
+ *       400:
+ *         description: Search term too short
+ *       429:
+ *         description: Rate limit exceeded
+ *       500:
+ *         description: Server error
  *   post:
  *     summary: Search group profiles
  *     description: Search genealogy group profiles with filters and pagination
@@ -92,6 +113,51 @@ import { applyRateLimit, createRateLimitHeaders } from '@/utils/rate-limit';
  *                 error:
  *                   type: string
  */
+
+/**
+ * GET - Lightweight type-ahead search (for dropdowns/autocomplete)
+ * Returns simplified results: id, name, style, logo, isActive
+ */
+export async function GET(request: NextRequest) {
+  const RATE_LIMIT_MAX = 60;
+  const { response: rateLimitResponse, result: rateLimitResult } = applyRateLimit(request, {
+    maxRequests: RATE_LIMIT_MAX,
+    windowMs: 60 * 1000,
+  });
+  if (rateLimitResponse) return rateLimitResponse;
+
+  try {
+    const { searchParams } = new URL(request.url);
+    const searchTerm = searchParams.get('q');
+
+    if (!searchTerm || searchTerm.length < 3) {
+      return NextResponse.json({ error: 'Search term must be at least 3 characters' }, { status: 400 });
+    }
+
+    const searchResults = await searchGroupProfiles({
+      offset: 0,
+      pageSize: 10, // Limit for type-ahead
+      searchTerm,
+    });
+
+    // Return simplified results for type-ahead
+    const results = searchResults.rows.map((group) => ({
+      id: group.id,
+      name: group.name,
+      style: group.style,
+      logo: group.logo,
+      isActive: group.isActive,
+    }));
+
+    return Response.json(results, {
+      headers: createRateLimitHeaders(rateLimitResult, RATE_LIMIT_MAX),
+    });
+  } catch (error) {
+    console.error('Error searching group profiles:', error);
+    return NextResponse.json({ error: 'Failed to search group profiles' }, { status: 500 });
+  }
+}
+
 export async function POST(request: NextRequest) {
   // Rate limit: 30 requests per minute
   const RATE_LIMIT_MAX = 30;

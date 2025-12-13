@@ -120,8 +120,26 @@ export const entityTypes = ['person', 'group'] as const;
 // Date precision for historical data with uncertainty
 export const datePrecisions = ['exact', 'month', 'year', 'decade', 'approximate', 'unknown'] as const;
 
-// Confidence levels for statement verification
-export const confidenceLevels = ['verified', 'likely', 'unverified', 'disputed', 'uncertain'] as const;
+// Confidence levels for statement verification (object as source of truth)
+export const ConfidenceLevel = {
+  VERIFIED: 'verified',
+  LIKELY: 'likely',
+  UNVERIFIED: 'unverified',
+  DISPUTED: 'disputed',
+  UNCERTAIN: 'uncertain',
+} as const;
+
+// Array for Drizzle schema (must be a const tuple for type inference)
+export const confidenceLevels = [
+  ConfidenceLevel.VERIFIED,
+  ConfidenceLevel.LIKELY,
+  ConfidenceLevel.UNVERIFIED,
+  ConfidenceLevel.DISPUTED,
+  ConfidenceLevel.UNCERTAIN,
+] as const;
+
+// Default confidence level for self-declared relationships
+export const SELF_DECLARED_CONFIDENCE = ConfidenceLevel.LIKELY;
 
 // Legal structure types for groups
 export const legalStructures = [

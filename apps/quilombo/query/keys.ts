@@ -51,6 +51,12 @@ export const QUERY_KEYS = {
   genealogy: {
     all: () => ['genealogy'] as const,
     profile: (profileId: string) => ['genealogy', 'profile', profileId] as const,
+    relationships: (profileId?: string) => {
+      if (profileId) {
+        return ['genealogy', 'relationships', profileId] as const;
+      }
+      return ['genealogy', 'relationships'] as const;
+    },
   },
   profile: ['profile'] as const,
 } as const;

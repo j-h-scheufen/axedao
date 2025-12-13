@@ -58,14 +58,8 @@ export async function searchPersonProfiles(options: {
   const filters: (SQLWrapper | undefined)[] = [];
 
   if (searchTerm) {
-    filters.push(
-      or(
-        ilike(personProfiles.name, `%${searchTerm}%`),
-        ilike(personProfiles.apelido, `%${searchTerm}%`),
-        ilike(personProfiles.bioEn, `%${searchTerm}%`),
-        ilike(personProfiles.bioPt, `%${searchTerm}%`)
-      )
-    );
+    // Search on identity fields only (apelido, name) - not bio content
+    filters.push(or(ilike(personProfiles.apelido, `%${searchTerm}%`), ilike(personProfiles.name, `%${searchTerm}%`)));
   }
 
   if (style) {
@@ -180,15 +174,15 @@ export async function searchGroupProfiles(options: {
   const filters: (SQLWrapper | undefined)[] = [];
 
   if (searchTerm) {
+    // Search on identity fields: name, nameAliases array, nameHistory JSONB array
+    const searchPattern = `%${searchTerm}%`;
     filters.push(
       or(
-        ilike(groupProfiles.name, `%${searchTerm}%`),
-        ilike(groupProfiles.descriptionEn, `%${searchTerm}%`),
-        ilike(groupProfiles.descriptionPt, `%${searchTerm}%`),
-        ilike(groupProfiles.philosophyEn, `%${searchTerm}%`),
-        ilike(groupProfiles.philosophyPt, `%${searchTerm}%`),
-        ilike(groupProfiles.historyEn, `%${searchTerm}%`),
-        ilike(groupProfiles.historyPt, `%${searchTerm}%`)
+        ilike(groupProfiles.name, searchPattern),
+        // Search in nameAliases text array (case-insensitive)
+        sql`EXISTS (SELECT 1 FROM unnest(${groupProfiles.nameAliases}) AS alias WHERE alias ILIKE ${searchPattern})`,
+        // Search in nameHistory JSONB array's 'name' field (case-insensitive)
+        sql`EXISTS (SELECT 1 FROM jsonb_array_elements(${groupProfiles.nameHistory}) AS entry WHERE entry->>'name' ILIKE ${searchPattern})`
       )
     );
   }
