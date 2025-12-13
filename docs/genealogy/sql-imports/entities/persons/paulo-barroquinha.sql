@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Paulo Barroquinha',
   NULL, -- No formal title in his era
   NULL, -- No portrait available
-  '[{"type": "website", "url": "https://velhosmestres.com/br/besouro"}, {"type": "website", "url": "https://papoeira.com/en/who-was-besouro-preto-de-manganga/"}]'::jsonb,
+  ARRAY['https://velhosmestres.com/br/besouro', 'https://papoeira.com/en/who-was-besouro-preto-de-manganga/']::text[],
   -- Capoeira-specific
   NULL, -- Pre-codification era; Angola/Regional distinction didn't exist
   'Pre-codification era. Practiced traditional Bahian capoeira before the Angola/Regional split. The capoeira of Trapiche de Baixo was practical and street-oriented.',

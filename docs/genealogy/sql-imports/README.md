@@ -110,7 +110,7 @@ INSERT INTO genealogy.person_profiles (
   '[Apelido]',
   '[title enum or NULL]'::genealogy.title,
   NULL, -- portrait URL if available
-  '[{"type": "website", "url": "..."}]'::jsonb,
+  ARRAY['https://...']::text[], -- or ARRAY[]::text[] if no links
   '[style enum or NULL]'::genealogy.style,
   E'[Style notes in English]',
   E'[Notas de estilo em português]',

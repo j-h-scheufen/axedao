@@ -35,9 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Eleutério',
   NULL,
   NULL,
-  '[
-    {"type": "website", "url": "https://www.academia.edu/7186292/Capoeira_e_capoeiras_entre_a_Guarda_Negra_e_a_Educação_Física_no_Recife"}
-  ]'::jsonb,
+  ARRAY['https://www.academia.edu/7186292/Capoeira_e_capoeiras_entre_a_Guarda_Negra_e_a_Educação_Física_no_Recife']::text[],
   -- Capoeira-specific
   NULL,
   'Pre-modern era capoeira; practiced when capoeira was illegal in Brazil. Style distinctions (Angola/Regional) did not yet exist. Associated with Recife''s valentão culture and dock worker traditions.',

@@ -40,7 +40,7 @@ INSERT INTO genealogy.group_profiles (
   'Traditional capoeira Angola. The 1930s was the transition period when Bimba was developing Regional and Pastinha was consolidating Angola. Many at Matatu Preto were also connected to Gengibirra.',
   'Capoeira Angola tradicional. Os anos 1930 foram o período de transição quando Bimba estava desenvolvendo a Regional e Pastinha estava consolidando a Angola. Muitos no Matatu Preto também tinham conexão com a Gengibirra.',
   NULL, -- No logo for informal historical group
-  '[{"type": "website", "url": "https://velhosmestres.com/br/destaques-2"}]'::jsonb,
+  ARRAY['https://velhosmestres.com/br/destaques-2']::text[],
   -- Identity enhancements
   ARRAY['Matatu Preto', 'Treino do Matatu'],
   '[]'::jsonb, -- No name changes

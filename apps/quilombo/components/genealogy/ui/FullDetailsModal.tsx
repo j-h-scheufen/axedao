@@ -250,16 +250,16 @@ function PersonFullDetails({ profile, lang }: PersonFullDetailsProps) {
           <Divider />
           <FieldDisplay label={getLabel('publicLinks', lang)}>
             <div className="flex flex-col gap-1">
-              {profile.publicLinks.map((link) => (
+              {profile.publicLinks.map((url) => (
                 <Link
-                  key={`${link.type}-${link.url}`}
-                  href={link.url}
+                  key={url}
+                  href={url}
                   isExternal
                   showAnchorIcon
                   anchorIcon={<ExternalLink className="ml-1 h-3 w-3" />}
                   className="text-small truncate"
                 >
-                  {link.url}
+                  {url}
                 </Link>
               ))}
             </div>
@@ -443,16 +443,16 @@ function GroupFullDetails({ profile, lang }: GroupFullDetailsProps) {
           <Divider />
           <FieldDisplay label={getLabel('links', lang)}>
             <div className="flex flex-col gap-1">
-              {profile.links.map((link) => (
+              {profile.links.map((url) => (
                 <Link
-                  key={`${link.type}-${link.url}`}
-                  href={link.url}
+                  key={url}
+                  href={url}
                   isExternal
                   showAnchorIcon
                   anchorIcon={<ExternalLink className="ml-1 h-3 w-3" />}
                   className="text-small truncate"
                 >
-                  {link.url}
+                  {url}
                 </Link>
               ))}
             </div>

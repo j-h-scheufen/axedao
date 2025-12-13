@@ -147,9 +147,7 @@ This approach keeps the bio focused on narrative while preserving research trans
 | Field | Column | Description |
 |-------|--------|-------------|
 | Portrait | `portrait` | URL to public-facing image (prefer Wikimedia, 200-400px) |
-| Public Links | `public_links` | JSONB array: `[{"type": "website", "url": "..."}]` |
-
-**Link types:** website (use this for all stable web pages)
+| Public Links | `public_links` | Text array: `ARRAY['https://...', 'https://...']` |
 
 **IMPORTANT - Populate public_links from research sources:**
 Include stable, authoritative web pages about this person:
@@ -161,11 +159,11 @@ Include stable, authoritative web pages about this person:
 Do NOT include social media accounts (Instagram, Facebook, Twitter) - these are too ephemeral for genealogy data.
 
 Example:
-```json
-[
-  {"type": "website", "url": "https://en.wikipedia.org/wiki/Mestre_Pastinha"},
-  {"type": "website", "url": "https://capoeirahub.net/person/pastinha"}
-]
+```sql
+ARRAY[
+  'https://en.wikipedia.org/wiki/Mestre_Pastinha',
+  'https://capoeirahub.net/person/pastinha'
+]::text[]
 ```
 
 #### Capoeira History (for relationships, not profile fields)
@@ -389,7 +387,7 @@ INSERT INTO genealogy.person_profiles (
   '[Apelido]',
   '[title or NULL]'::genealogy.title,
   '[portrait_url or NULL]',
-  '[{"type": "website", "url": "..."}]'::jsonb,
+  ARRAY['https://...']::text[],  -- or ARRAY[]::text[] if no links
   -- Capoeira-specific
   '[style or NULL]'::genealogy.style,
   E'[Style notes in English or NULL]',

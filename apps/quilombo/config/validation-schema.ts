@@ -89,6 +89,17 @@ export const linkSchema = object({
 
 export const linksSchema = array().of(linkSchema).default([]);
 
+// Simple URL array schema for genealogy public links (no type field needed)
+export const urlArraySchema = array()
+  .of(
+    string()
+      .required()
+      .test('is-valid-url', 'Enter a valid URL incl. https://', (value) => isValidUrl(value))
+  )
+  .default([]);
+
+export type UrlArray = InferType<typeof urlArraySchema>;
+
 export const profileFormSchema = object({
   title: string().nullable().oneOf(titles, 'Not a valid title'),
   name: string().nullable(),
@@ -583,7 +594,7 @@ export const genealogyProfileFormSchema = object({
     .oneOf([...datePrecisions, null, ''], 'Invalid precision'),
   bioEn: string().nullable().max(5000, 'Bio must be less than 5000 characters'),
   bioPt: string().nullable().max(5000, 'Bio must be less than 5000 characters'),
-  publicLinks: linksSchema,
+  publicLinks: urlArraySchema,
 });
 
 export type GenealogyProfileForm = InferType<typeof genealogyProfileFormSchema>;

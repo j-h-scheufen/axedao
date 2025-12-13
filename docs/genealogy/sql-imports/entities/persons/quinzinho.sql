@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Quinzinho',
   NULL,  -- No formal title in the modern sense
   NULL,  -- No portrait found
-  '[{"type": "website", "url": "https://capoeirahistory.com/general/master-leopoldina-part-2/"}]'::jsonb,
+  ARRAY['https://capoeirahistory.com/general/master-leopoldina-part-2/']::text[],
   -- Capoeira-specific
   NULL,  -- Pre-style era; tiririca predates Angola/Regional distinction
   E'Taught "tiririca," the capoeira without berimbau practiced by carioca malandros. This was the street capoeira descended from the 19th-century maltas - focused on combat effectiveness rather than musical accompaniment. The training method was informal: demonstration during sparring with verbal cues ("Do it like this... do it like that"), followed by harsh beatings to "get smart." Despite lacking formal structure, Quinzinho maintained "an impeccable work ethic" as an instructor.',

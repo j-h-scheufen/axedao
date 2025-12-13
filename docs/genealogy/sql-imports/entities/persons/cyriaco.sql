@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Cyriaco',
   NULL,  -- Pre-formal title era
   NULL,  -- No historical portrait available
-  '[{"type": "website", "url": "https://pt.wikipedia.org/wiki/Cyriaco"}]'::jsonb,
+  ARRAY['https://pt.wikipedia.org/wiki/Cyriaco']::text[],
   -- Capoeira-specific
   NULL,  -- Pre-Angola/Regional distinction
   'Practiced capoeira carioca (Rio de Janeiro style) in the early 1900s, before the codification of modern styles. Known for mastery of the rabo de arraia (stingray tail kick).',

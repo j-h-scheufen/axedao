@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Maria Doze Homens',
   NULL,
   NULL,
-  '[{"type": "website", "url": "https://sites.google.com/view/raridadesdacapoeira/maria-12-homens"}]'::jsonb,
+  ARRAY['https://sites.google.com/view/raridadesdacapoeira/maria-12-homens']::text[],
   -- Capoeira-specific
   NULL,
   E'Pre-modern/early modern era capoeira. Active during the period when capoeira was still persecuted and transitioning to legalization.',

@@ -3,7 +3,7 @@
 import { Card, CardBody, CardHeader, Divider, Select, SelectItem, Textarea } from '@heroui/react';
 import { FieldArray, useField, useFormikContext } from 'formik';
 
-import { LinksArray } from '@/components/forms';
+import { UrlArray } from '@/components/forms';
 import { styles } from '@/config/constants';
 import type { GenealogyProfileForm } from '@/config/validation-schema';
 import BirthDateField from './BirthDateField';
@@ -94,8 +94,8 @@ const GenealogyFieldsSection = () => {
           </p>
           <FieldArray name="publicLinks">
             {(helpers) => (
-              <LinksArray
-                links={values.publicLinks}
+              <UrlArray
+                urls={values.publicLinks}
                 actions={{ remove: helpers.remove, add: helpers.push }}
                 placeholder="https://example.com/article-or-video"
               />

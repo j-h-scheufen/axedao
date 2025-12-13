@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Vitor Agaú',
   'mestre'::genealogy.title,
   NULL,
-  '[{"type": "website", "url": "https://velhosmestres.com/br/destaques-34"}]'::jsonb,
+  ARRAY['https://velhosmestres.com/br/destaques-34']::text[],
   -- Capoeira-specific
   NULL,
   E'Pre-dates the Angola/Regional stylistic distinction. Associated with the Capoeira Angola tradition through his presence at CECA founding.',

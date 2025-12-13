@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Tio Pascoal',
   NULL, -- Not a capoeira mestre; mandingueiro/spiritual teacher
   NULL, -- No images exist of this historical figure
-  '[{"type": "website", "url": "https://capoeira.online/history/mestres/cobrinha-verde/"}, {"type": "website", "url": "https://nossa-tribo.com/mestre-cobrinha-verde-o-primo-de-besouro-manganga/"}]'::jsonb,
+  ARRAY['https://capoeira.online/history/mestres/cobrinha-verde/', 'https://nossa-tribo.com/mestre-cobrinha-verde-o-primo-de-besouro-manganga/']::text[],
   -- Capoeira-specific
   NULL, -- Not a capoeirista; mandingueiro (spiritual practitioner)
   'Not a capoeirista. Mandingueiro who taught spiritual practices (prayers, patuá, corpo fechado) but not capoeira fighting techniques. Parallel to Tio Alípio teaching Besouro, Pascoal transmitted African-Brazilian mystical traditions to Cobrinha Verde.',

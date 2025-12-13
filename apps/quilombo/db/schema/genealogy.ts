@@ -31,7 +31,6 @@ import {
   styles,
   titles,
 } from '@/config/constants';
-import type { SocialLink } from '../schema';
 
 // Create the genealogy schema
 export const genealogySchema = pgSchema('genealogy');
@@ -76,7 +75,7 @@ export const personProfiles = genealogySchema.table(
     apelidoContext: varchar('apelido_context', { length: 100 }), // disambiguation for duplicate apelidos (e.g., "Salvador (Senzala)", "19th century Rio")
     title: genealogyTitleEnum('title'),
     portrait: varchar('portrait', { length: 500 }), // public-facing image for genealogy
-    publicLinks: jsonb('public_links').$type<SocialLink[]>().default([]), // public references (Wikipedia, articles)
+    publicLinks: text('public_links').array().default([]), // public references (Wikipedia, articles) - simple URL array
 
     // Capoeira-specific
     style: genealogyStyleEnum('style'),
@@ -153,7 +152,7 @@ export const groupProfiles = genealogySchema.table(
     styleNotesEn: text('style_notes_en'), // e.g., "Originally Regional, evolved to Contemporânea"
     styleNotesPt: text('style_notes_pt'),
     logo: varchar('logo', { length: 500 }),
-    links: jsonb('links').$type<SocialLink[]>().default([]),
+    links: text('links').array().default([]), // simple URL array for public references
 
     // Identity enhancements (new)
     nameAliases: text('name_aliases').array(), // alternative names, abbreviations (e.g., ["GCAP"])

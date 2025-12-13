@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Geraldo Chapeleiro',
   NULL,
   NULL,
-  '[]'::jsonb,
+  ARRAY[]::text[],
   -- Capoeira-specific
   'angola'::genealogy.style,
   E'Traditional capoeira Angola practitioner from Salvador, Bahia. Active in the Gengibirra era. Style distinctions (Angola/Regional) were just emerging during his active period.',

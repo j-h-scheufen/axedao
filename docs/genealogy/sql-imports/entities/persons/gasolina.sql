@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Gasolina',
   NULL, -- Proto-mestre; formal titles didn't exist in his era
   NULL, -- No portrait available
-  '[{"type": "website", "url": "https://velhosmestres.com/en/featured-34"}]'::jsonb,
+  ARRAY['https://velhosmestres.com/en/featured-34']::text[],
   -- Capoeira-specific
   NULL, -- Pre-codification era; Angola/Regional distinction didn't exist
   E'Pre-codification era. Practiced traditional Bahian capoeira before the Angola/Regional split. His style would have been the undifferentiated capoeira of the Recôncavo and Salvador.',

@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Adão',
   NULL,
   NULL,
-  '[{"type": "website", "url": "https://capoeirawiki.org/wiki/Chronology_of_capoeira_in_Brazil"}, {"type": "website", "url": "https://joaopequeno.portalcapoeira.com/portal-capoeira/capoeira-nao-existe-o-capoeirista-sim/"}]'::jsonb,
+  ARRAY['https://capoeirawiki.org/wiki/Chronology_of_capoeira_in_Brazil', 'https://joaopequeno.portalcapoeira.com/portal-capoeira/capoeira-nao-existe-o-capoeirista-sim/']::text[],
   -- Capoeira-specific
   NULL,
   'Pre-codification era (1789); practiced what colonial authorities called "capoeiragem" in 18th century Rio de Janeiro. Style distinctions (Angola/Regional) would not exist for another 150 years.',

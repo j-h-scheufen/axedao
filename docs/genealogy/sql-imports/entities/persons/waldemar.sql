@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Waldemar',
   'mestre'::genealogy.title,
   NULL, -- No freely licensed portrait available
-  '[{"type": "website", "url": "https://velhosmestres.com/br/waldemar"}, {"type": "website", "url": "https://capoeira.online/history/mestres/mestre-waldemar/"}]'::jsonb,
+  ARRAY['https://velhosmestres.com/br/waldemar', 'https://capoeira.online/history/mestres/mestre-waldemar/']::text[],
   -- Capoeira-specific
   'angola'::genealogy.style,
   E'Waldemar practiced and taught Capoeira Angola exclusively. He was known for his slow, low game with intricate footwork and head movements. He emphasized the traditional style learned from the old mestres of the Recôncavo and Periperi, preferring the strategic, patient approach over acrobatic displays. His style emphasized mandinga, malícia, and body control.',

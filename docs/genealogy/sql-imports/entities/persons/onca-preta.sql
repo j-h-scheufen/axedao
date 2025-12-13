@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Onça Preta',
   'mestre'::genealogy.title,
   NULL,
-  '[{"type": "website", "url": "https://velhosmestres.com/br/destaques-34"}]'::jsonb,
+  ARRAY['https://velhosmestres.com/br/destaques-34']::text[],
   -- Capoeira-specific
   'angola'::genealogy.style,
   E'Deeply traditional Angola practitioner. Strongly opposed to Capoeira Regional: "The real capoeira, for me, is only Angola." Known as a master of berimbau rhythms and capoeira music.',

@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Aleixo Açougueiro',
   NULL,  -- Pre-formal title era
   NULL,  -- No historical portrait available
-  '[]'::jsonb,  -- No dedicated web pages about this individual
+  ARRAY[]::text[],  -- No dedicated web pages about this individual
   -- Capoeira-specific
   NULL,  -- Pre-Angola/Regional distinction
   'Active before the codification of capoeira styles. Practiced capoeira carioca during the malta era in Rio de Janeiro. The name "Açougueiro" (butcher) suggests possible profession - Portuguese butchers were known for introducing navalha (razor) fighting to the maltas.',

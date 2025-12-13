@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Totonho de Maré',
   'mestre'::genealogy.title,
   NULL,
-  '[{"type": "website", "url": "https://velhosmestres.com/en/featured-12"}, {"type": "website", "url": "https://nossa-tribo.com/mestre-totonho-de-mare/"}, {"type": "website", "url": "https://www.lalaue.com/learn-capoeira/mestre-totonho-de-mare/"}]'::jsonb,
+  ARRAY['https://velhosmestres.com/en/featured-12', 'https://nossa-tribo.com/mestre-totonho-de-mare/', 'https://www.lalaue.com/learn-capoeira/mestre-totonho-de-mare/']::text[],
   -- Capoeira-specific
   'angola'::genealogy.style,
   E'Capoeira Angola; never founded an academy but taught informally at street parties; known for coining "galanteria da capoeira" to describe the nobility of old Bahian capoeiristas.',

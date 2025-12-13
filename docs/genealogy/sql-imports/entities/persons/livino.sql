@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Livino',
   'mestre'::genealogy.title,
   NULL,
-  '[{"type": "website", "url": "https://velhosmestres.com/en/featured-9"}, {"type": "website", "url": "https://nossa-tribo.com/mestre-totonho-de-mare/"}, {"type": "website", "url": "https://capoeirahistory.com/general/classical-texts-of-capoeira-history-the-manuscripts-of-mestre-noronha/"}]'::jsonb,
+  ARRAY['https://velhosmestres.com/en/featured-9', 'https://nossa-tribo.com/mestre-totonho-de-mare/', 'https://capoeirahistory.com/general/classical-texts-of-capoeira-history-the-manuscripts-of-mestre-noronha/']::text[],
   -- Capoeira-specific
   'angola'::genealogy.style,
   E'Traditional capoeira angola; active during the era of criminalization. Was among the founding generation who established the first organized Capoeira Angola center in Bahia.',

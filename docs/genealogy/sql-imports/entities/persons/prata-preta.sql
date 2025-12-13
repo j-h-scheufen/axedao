@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Prata Preta',
   NULL, -- Proto-mestre; no formal title in that era
   NULL, -- No historical portrait known
-  '[{"type": "website", "url": "https://capoeirahistory.com/prata-preta-an-exiled-capoeira/"}, {"type": "website", "url": "https://riomemorias.com.br/memoria/prata-preta/"}]'::jsonb,
+  ARRAY['https://capoeirahistory.com/prata-preta-an-exiled-capoeira/', 'https://riomemorias.com.br/memoria/prata-preta/']::text[],
   -- Capoeira-specific
   NULL, -- Pre-codification era; style distinctions did not exist
   'Pre-codification carioca capoeira. Known as a skilled capoeirista who used his combat abilities to defend the barricades of Porto Arthur during the 1904 Vaccine Revolt. Part of the generation of Rio dockworkers (estivadores) who practiced capoeira despite its criminalization in 1890.',

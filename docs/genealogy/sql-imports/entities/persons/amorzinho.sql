@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Amorzinho',
   'mestre'::genealogy.title,
   NULL,
-  '[{"type": "website", "url": "https://velhosmestres.com/en/featured-9"}, {"type": "website", "url": "https://nossa-tribo.com/mestre-totonho-de-mare/"}, {"type": "website", "url": "https://jogodavidaweb.wordpress.com/2017/02/23/criacao-do-centro-esportivo-de-capoeira-angola/"}, {"type": "website", "url": "https://portalcapoeira.com/capoeira/c-e-c-a-1-seculo-de-capoeira/"}, {"type": "website", "url": "https://papoeira.com/en/who-was-mestre-pastinha/"}, {"type": "website", "url": "https://www.lalaue.com/learn-capoeira/mestre-pastinha/"}]'::jsonb,
+  ARRAY['https://velhosmestres.com/en/featured-9', 'https://nossa-tribo.com/mestre-totonho-de-mare/', 'https://jogodavidaweb.wordpress.com/2017/02/23/criacao-do-centro-esportivo-de-capoeira-angola/', 'https://portalcapoeira.com/capoeira/c-e-c-a-1-seculo-de-capoeira/', 'https://papoeira.com/en/who-was-mestre-pastinha/', 'https://www.lalaue.com/learn-capoeira/mestre-pastinha/']::text[],
   -- Capoeira-specific
   'angola'::genealogy.style,
   E'Traditional capoeira angola. Mestre Noronha remembered Amorzinho as skilled in "cabeceiro" (headwork/head techniques). He was known as one of "the greatest mestres of Bahia" in his era.',

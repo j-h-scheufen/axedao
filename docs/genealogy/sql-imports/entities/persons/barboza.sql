@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Barboza',
   NULL,
   NULL,
-  '[{"type": "website", "url": "https://velhosmestres.com/br/destaques-2"}]'::jsonb,
+  ARRAY['https://velhosmestres.com/br/destaques-2']::text[],
   -- Capoeira-specific
   NULL,
   E'Pre-modern era capoeira; practiced before style distinctions (Angola/Regional) became formalized. Part of the Matatu Preto training group in Salvador.',

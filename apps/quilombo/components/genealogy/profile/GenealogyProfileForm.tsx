@@ -7,11 +7,7 @@ import { useRouter } from 'next/navigation';
 import { useCallback, useMemo } from 'react';
 
 import { PATHS } from '@/config/constants';
-import {
-  genealogyProfileFormSchema,
-  type GenealogyProfileForm as FormType,
-  type LinkTypes,
-} from '@/config/validation-schema';
+import { genealogyProfileFormSchema, type GenealogyProfileForm as FormType } from '@/config/validation-schema';
 import { currentUserAtom } from '@/hooks/state/currentUser';
 import SyncSection from './SyncSection';
 import GenealogyFieldsSection from './GenealogyFieldsSection';
@@ -26,7 +22,7 @@ type ExistingGenealogyData = {
   birthYearPrecision?: string | null;
   bioEn?: string | null;
   bioPt?: string | null;
-  publicLinks?: Array<{ type?: LinkTypes; url: string }>;
+  publicLinks?: string[] | null;
 };
 
 type GenealogyProfileFormProps = {

@@ -40,7 +40,7 @@ INSERT INTO genealogy.group_profiles (
   'Pre-codification era. Practiced traditional Bahian capoeira before the Angola/Regional split. Included knife techniques, mandinga, and spiritual practices (corpo fechado).',
   'Era pré-codificação. Praticava capoeira baiana tradicional antes da divisão Angola/Regional. Incluía técnicas de faca, mandinga e práticas espirituais (corpo fechado).',
   NULL, -- No logo for informal historical group
-  '[{"type": "website", "url": "https://velhosmestres.com/en/besouro"}, {"type": "website", "url": "https://papoeira.com/en/who-was-besouro-preto-de-manganga/"}]'::jsonb,
+  ARRAY['https://velhosmestres.com/en/besouro', 'https://papoeira.com/en/who-was-besouro-preto-de-manganga/']::text[],
   -- Identity enhancements
   ARRAY['Capoeira do Trapiche de Baixo'],
   '[]'::jsonb, -- No name changes

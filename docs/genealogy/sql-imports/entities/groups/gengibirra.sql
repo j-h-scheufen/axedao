@@ -36,7 +36,7 @@ INSERT INTO genealogy.group_profiles (
   'Gengibirra',
   'angola'::genealogy.style,
   NULL,  -- No logo available for historical group
-  '[{"type": "website", "url": "https://velhosmestres.com/en/featured-9"}, {"type": "website", "url": "https://nossa-tribo.com/mestre-totonho-de-mare/"}, {"type": "website", "url": "https://capoeirahistory.com/classical-texts-of-capoeira-history-the-manuscripts-of-mestre-noronha/"}, {"type": "website", "url": "https://en.wikipedia.org/wiki/Capoeira_Angola"}]'::jsonb,
+  ARRAY['https://velhosmestres.com/en/featured-9', 'https://nossa-tribo.com/mestre-totonho-de-mare/', 'https://capoeirahistory.com/classical-texts-of-capoeira-history-the-manuscripts-of-mestre-noronha/', 'https://en.wikipedia.org/wiki/Capoeira_Angola']::text[],
   -- Identity enhancements
   ARRAY['Centro Nacional de Capoeira de Origem Angola', 'Centro de Capoeira Angola', 'Roda do Gengibirra', 'Roda de Gengibirra', 'Jinjibirra'],
   '[{"name": "Centro Nacional de Capoeira de Origem Angola", "startedAt": "1920-01-01", "endedAt": "1941-02-23", "context": "Original name used by founders"}, {"name": "CECA (handed to Pastinha)", "startedAt": "1941-02-23", "context": "Transitioned to Mestre Pastinha, registered as Centro Esportivo de Capoeira Angola"}]'::jsonb,
