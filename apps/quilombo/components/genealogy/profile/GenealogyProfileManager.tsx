@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useAtomValue } from 'jotai';
 
 import { currentUserAtom } from '@/hooks/state/currentUser';
+import { useGenealogyProfile } from '@/query/genealogyProfile';
 import GenealogyExplainer from './GenealogyExplainer';
 import GenealogyProfileForm from './GenealogyProfileForm';
 
@@ -12,11 +13,14 @@ import GenealogyProfileForm from './GenealogyProfileForm';
  * Handles the flow between explainer (for new users) and form (for editing).
  */
 const GenealogyProfileManager = () => {
-  const { data: user, isFetching } = useAtomValue(currentUserAtom);
+  const { data: user, isFetching: isUserFetching } = useAtomValue(currentUserAtom);
   const [hasAcknowledgedExplainer, setHasAcknowledgedExplainer] = useState(false);
 
+  // Fetch existing genealogy profile if user has profileId
+  const { data: genealogyProfile, isFetching: isProfileFetching } = useGenealogyProfile(user?.profileId);
+
   // Loading state
-  if (!user || isFetching) {
+  if (!user || isUserFetching || (user.profileId && isProfileFetching)) {
     return (
       <div className="flex items-center justify-center py-12">
         <div className="animate-pulse text-default-400">Loading...</div>
@@ -32,7 +36,7 @@ const GenealogyProfileManager = () => {
   }
 
   // Show form for returning users or after acknowledging explainer
-  return <GenealogyProfileForm profileId={user.profileId} />;
+  return <GenealogyProfileForm existingData={genealogyProfile} />;
 };
 
 export default GenealogyProfileManager;

@@ -48,4 +48,9 @@ export const QUERY_KEYS = {
   invitation: {
     getInvitations: 'invitation.getInvitations',
   },
+  genealogy: {
+    all: () => ['genealogy'] as const,
+    profile: (profileId: string) => ['genealogy', 'profile', profileId] as const,
+  },
+  profile: ['profile'] as const,
 } as const;
