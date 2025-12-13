@@ -13,6 +13,13 @@ import type { NextPageProps } from '@/app/layout';
 const UserProfilePage = async ({ params }: NextPageProps<{ userId: string }>) => {
   const { userId } = await params;
   if (!userId) throw Error('This page must be placed on a dynamic path containing [userId]');
+
+  // Validate UUID format (reject IPFS CIDs and other invalid formats)
+  const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  if (!uuidRegex.test(userId)) {
+    throw notFound();
+  }
+
   const user = await fetchUser(userId);
   const group = user?.groupId ? await fetchGroup(user.groupId) : undefined;
   if (!user) throw notFound();
