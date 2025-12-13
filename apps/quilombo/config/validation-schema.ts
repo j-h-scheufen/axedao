@@ -4,6 +4,7 @@ import type { Feature, Geometry, GeoJsonProperties } from 'geojson';
 
 import {
   confidenceLevels,
+  datePrecisions,
   entityTypes,
   eventTypes,
   invitationTypes,
@@ -574,6 +575,12 @@ export const genealogyProfileFormSchema = object({
   style: string()
     .nullable()
     .oneOf([...styles, null, ''], 'Invalid style'),
+  // Birth year with precision (stored as string in form due to HeroUI Select bug with numeric keys)
+  // Will be converted to number on submit
+  birthYear: string().nullable(),
+  birthYearPrecision: string()
+    .nullable()
+    .oneOf([...datePrecisions, null, ''], 'Invalid precision'),
   bioEn: string().nullable().max(5000, 'Bio must be less than 5000 characters'),
   bioPt: string().nullable().max(5000, 'Bio must be less than 5000 characters'),
   publicLinks: linksSchema,

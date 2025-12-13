@@ -11,7 +11,11 @@ import type { LinkType, SocialLink } from '@/db/schema';
 import { getLinkIcon } from '../_utils';
 
 type LinkTypeSelection = { icon: ReactNode; key: string; label: string };
-type Props = { links: SocialLink[]; actions?: { remove?: (index: number) => void; add: (link: SocialLink) => void } };
+type Props = {
+  links: SocialLink[];
+  actions?: { remove?: (index: number) => void; add: (link: SocialLink) => void };
+  placeholder?: string;
+};
 
 const defaultTypeOption: LinkTypeSelection = { key: 'other', icon: getLinkIcon(undefined), label: 'Other' };
 const selectedTypeAtom = atom<LinkTypeSelection>(defaultTypeOption);
@@ -37,7 +41,7 @@ const LinkItem = ({ link, index, actions }: { link: Link; index: number; actions
   </div>
 );
 
-const LinksArray = ({ links, actions }: Props) => {
+const LinksArray = ({ links, actions, placeholder = 'https://facebook.com/my-handle' }: Props) => {
   const [typeSelection, setTypeSelection] = useAtom(selectedTypeAtom);
   const [url, setUrl] = useAtom(inputUrlAtom);
   const [urlValid, setUrlValid] = useAtom(isValidUrlAtom);
@@ -68,7 +72,7 @@ const LinksArray = ({ links, actions }: Props) => {
           </span>
           <div className="flex flex-row gap-1 sm:gap-2 items-start justify-end">
             <Input
-              placeholder="https://facebook.com/my-handle"
+              placeholder={placeholder}
               type="text"
               isInvalid={!urlValid}
               value={url}

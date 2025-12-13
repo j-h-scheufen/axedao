@@ -7,7 +7,11 @@ import { useRouter } from 'next/navigation';
 import { useCallback, useMemo } from 'react';
 
 import { PATHS } from '@/config/constants';
-import { genealogyProfileFormSchema, type GenealogyProfileForm as FormType } from '@/config/validation-schema';
+import {
+  genealogyProfileFormSchema,
+  type GenealogyProfileForm as FormType,
+  type LinkTypes,
+} from '@/config/validation-schema';
 import { currentUserAtom } from '@/hooks/state/currentUser';
 import SyncSection from './SyncSection';
 import GenealogyFieldsSection from './GenealogyFieldsSection';
@@ -18,9 +22,11 @@ type ExistingGenealogyData = {
   apelidoContext?: string | null;
   title?: string | null;
   style?: string | null;
+  birthYear?: number | null; // From DB as number
+  birthYearPrecision?: string | null;
   bioEn?: string | null;
   bioPt?: string | null;
-  publicLinks?: Array<{ type: string; url: string }>;
+  publicLinks?: Array<{ type?: LinkTypes; url: string }>;
 };
 
 type GenealogyProfileFormProps = {
@@ -70,6 +76,8 @@ const GenealogyProfileForm = ({ profileId, existingData }: GenealogyProfileFormP
         apelidoContext: '',
         title: '',
         style: '',
+        birthYear: '',
+        birthYearPrecision: '',
         bioEn: '',
         bioPt: '',
         publicLinks: [],
@@ -96,6 +104,8 @@ const GenealogyProfileForm = ({ profileId, existingData }: GenealogyProfileFormP
 
         // Genealogy-only fields from existing data
         style: existingData.style || '',
+        birthYear: existingData.birthYear ? String(existingData.birthYear) : '',
+        birthYearPrecision: existingData.birthYearPrecision || '',
         bioEn: existingData.bioEn || '',
         bioPt: existingData.bioPt || '',
         publicLinks: existingData.publicLinks || [],
@@ -112,6 +122,8 @@ const GenealogyProfileForm = ({ profileId, existingData }: GenealogyProfileFormP
       apelidoContext: '',
       title: '',
       style: '',
+      birthYear: '',
+      birthYearPrecision: '',
       bioEn: '',
       bioPt: '',
       publicLinks: [],
@@ -128,7 +140,7 @@ const GenealogyProfileForm = ({ profileId, existingData }: GenealogyProfileFormP
       {({ dirty, isValid, isSubmitting }: FormikProps<FormType>) => (
         <Form className="space-y-6">
           {/* Sync Section */}
-          <SyncSection user={user} existingData={existingData} excludeProfileId={profileId || undefined} />
+          {user && <SyncSection user={user} existingData={existingData} excludeProfileId={profileId || undefined} />}
 
           {/* Genealogy-Only Fields */}
           <GenealogyFieldsSection />

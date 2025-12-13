@@ -6,10 +6,11 @@ import { FieldArray, useField, useFormikContext } from 'formik';
 import { LinksArray } from '@/components/forms';
 import { styles } from '@/config/constants';
 import type { GenealogyProfileForm } from '@/config/validation-schema';
+import BirthDateField from './BirthDateField';
 
 /**
  * Section for genealogy-only fields (not synced from user profile).
- * Includes style, bio (EN/PT), and public links.
+ * Includes style, birth date, bio (EN/PT), and public links.
  */
 const GenealogyFieldsSection = () => {
   const { values, setFieldValue } = useFormikContext<GenealogyProfileForm>();
@@ -27,26 +28,39 @@ const GenealogyFieldsSection = () => {
       </CardHeader>
       <Divider />
       <CardBody className="gap-4">
-        {/* Style */}
-        <Select
-          {...styleField}
-          label="Capoeira Style"
-          placeholder="Select your style"
-          selectedKeys={styleField.value ? [styleField.value] : []}
-          onSelectionChange={(keys) => {
-            const value = Array.from(keys)[0] as string;
-            setFieldValue('style', value || null);
-          }}
-          classNames={{ trigger: 'capitalize' }}
-          isInvalid={styleMeta.touched && !!styleMeta.error}
-          errorMessage={styleMeta.touched && styleMeta.error ? styleMeta.error : undefined}
-        >
-          {styles.map((style) => (
-            <SelectItem key={style} className="capitalize">
-              {style}
-            </SelectItem>
-          ))}
-        </Select>
+        {/* Style & Birth Year - side by side on desktop with visual separation */}
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+          {/* Style - flexible width */}
+          <div className="sm:flex-[2]">
+            <Select
+              {...styleField}
+              label="Capoeira Style"
+              placeholder="Select your style"
+              selectedKeys={styleField.value ? [styleField.value] : []}
+              onSelectionChange={(keys) => {
+                const value = Array.from(keys)[0] as string;
+                setFieldValue('style', value || null);
+              }}
+              classNames={{ trigger: 'capitalize' }}
+              isInvalid={styleMeta.touched && !!styleMeta.error}
+              errorMessage={styleMeta.touched && styleMeta.error ? styleMeta.error : undefined}
+            >
+              {styles.map((style) => (
+                <SelectItem key={style} className="capitalize">
+                  {style}
+                </SelectItem>
+              ))}
+            </Select>
+          </div>
+
+          {/* Divider - desktop only */}
+          <div className="hidden sm:block w-px bg-divider self-stretch" />
+
+          {/* Birth Date fields group */}
+          <div className="sm:flex-[3]">
+            <BirthDateField />
+          </div>
+        </div>
 
         {/* Bio (English) */}
         <Textarea
@@ -80,7 +94,11 @@ const GenealogyFieldsSection = () => {
           </p>
           <FieldArray name="publicLinks">
             {(helpers) => (
-              <LinksArray links={values.publicLinks} actions={{ remove: helpers.remove, add: helpers.push }} />
+              <LinksArray
+                links={values.publicLinks}
+                actions={{ remove: helpers.remove, add: helpers.push }}
+                placeholder="https://example.com/article-or-video"
+              />
             )}
           </FieldArray>
         </div>
