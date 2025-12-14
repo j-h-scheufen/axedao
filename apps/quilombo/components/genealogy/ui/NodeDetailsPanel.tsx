@@ -81,7 +81,10 @@ function getDeathYearLabel(birthYear: number | null | undefined): string {
   return age > MAX_LIFESPAN_YEARS ? 'Unknown' : 'Present';
 }
 
-function PersonCard({ data }: { data: PersonDetails }) {
+function PersonCard({ data }: { data: PersonDetails | undefined }) {
+  if (!data) {
+    return <p className="text-small text-default-400">No person data available</p>;
+  }
   // Build display name with title prefix if available
   const baseName = data.apelido || data.name || 'Unknown';
   const displayName =
@@ -142,7 +145,10 @@ function PersonCard({ data }: { data: PersonDetails }) {
   );
 }
 
-function GroupCard({ data }: { data: GroupDetails }) {
+function GroupCard({ data }: { data: GroupDetails | undefined }) {
+  if (!data) {
+    return <p className="text-small text-default-400">No group data available</p>;
+  }
   return (
     <div className="space-y-3">
       <div className="flex items-start gap-3">
