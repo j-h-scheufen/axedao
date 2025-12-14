@@ -2,13 +2,12 @@
 
 import { Button, Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, SelectItem } from '@heroui/react';
 import { Field, Form, Formik } from 'formik';
-import { debounce } from 'lodash';
-import { useEffect, useMemo, useState } from 'react';
 import { object, string } from 'yup';
 
 import FieldInput from '@/components/forms/FieldInput';
 import FieldSelect from '@/components/forms/FieldSelect';
-import { predicates } from '@/config/constants';
+import { ENTITY_TYPE, entityTypes, predicates } from '@/config/constants';
+import { useDebouncedSearch } from '@/hooks/useDebouncedSearch';
 import { PREDICATE_LABELS } from '@/components/genealogy/types';
 import type { EntityType, Predicate } from '@/db/schema/genealogy';
 import { useAddRelationship, useSearchPersons, useSearchGroups } from '@/query/genealogyProfile';
@@ -32,9 +31,7 @@ type FormValues = {
 };
 
 const validationSchema = object().shape({
-  objectType: string()
-    .oneOf(['person', 'group'] as const)
-    .required('Type is required'),
+  objectType: string().oneOf(entityTypes, 'Invalid entity type').required('Type is required'),
   predicate: string().oneOf(predicates).required('Relationship type is required'),
   objectId: string().required('Please select a person or group'),
   startedAt: string(),
@@ -52,11 +49,10 @@ type AddRelationshipModalProps = {
  * Includes search functionality to find persons/groups.
  */
 const AddRelationshipModal = ({ isOpen, onClose, profileId }: AddRelationshipModalProps) => {
-  const [_searchTerm, _setSearchTerm] = useState('');
   const addRelationshipMutation = useAddRelationship();
 
   const initialValues: FormValues = {
-    objectType: 'person',
+    objectType: ENTITY_TYPE.PERSON,
     predicate: '',
     objectId: '',
     searchTerm: '',
@@ -91,7 +87,7 @@ const AddRelationshipModal = ({ isOpen, onClose, profileId }: AddRelationshipMod
           <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
             {({ values, setFieldValue, isSubmitting, isValid }) => {
               const availablePredicates =
-                values.objectType === 'person' ? PERSON_TO_PERSON_PREDICATES : PERSON_TO_GROUP_PREDICATES;
+                values.objectType === ENTITY_TYPE.PERSON ? PERSON_TO_PERSON_PREDICATES : PERSON_TO_GROUP_PREDICATES;
 
               return (
                 <Form>
@@ -192,29 +188,13 @@ type SearchAndSelectProps = {
  * Uses React Query to search genealogy data.
  */
 const SearchAndSelect = ({ objectType, selectedId, onSelect }: SearchAndSelectProps) => {
-  const [inputValue, setInputValue] = useState('');
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
-
-  // Debounce search term updates (300ms)
-  const debouncedSetSearch = useMemo(() => debounce((term: string) => setDebouncedSearchTerm(term), 300), []);
-
-  // Cleanup debounce on unmount
-  useEffect(() => {
-    return () => {
-      debouncedSetSearch.cancel();
-    };
-  }, [debouncedSetSearch]);
-
-  // Update debounced search when input changes
-  useEffect(() => {
-    debouncedSetSearch(inputValue);
-  }, [inputValue, debouncedSetSearch]);
+  const { inputValue, setInputValue, debouncedSearchTerm } = useDebouncedSearch();
 
   const { data: personResults } = useSearchPersons(debouncedSearchTerm, {
-    enabled: objectType === 'person' && debouncedSearchTerm.length > 2,
+    enabled: objectType === ENTITY_TYPE.PERSON && debouncedSearchTerm.length > 2,
   });
   const { data: groupResults } = useSearchGroups(debouncedSearchTerm, {
-    enabled: objectType === 'group' && debouncedSearchTerm.length > 2,
+    enabled: objectType === ENTITY_TYPE.GROUP && debouncedSearchTerm.length > 2,
   });
 
   // Get display name for an item (person or group)
@@ -223,7 +203,7 @@ const SearchAndSelect = ({ objectType, selectedId, onSelect }: SearchAndSelectPr
   };
 
   // Render for person results
-  if (objectType === 'person') {
+  if (objectType === ENTITY_TYPE.PERSON) {
     const selectedPerson = personResults?.find((p) => p.id === selectedId);
 
     return (

@@ -114,12 +114,23 @@ export const groupClaimStatuses = ['pending', 'approved', 'rejected'] as const;
 // Group claim types (genealogy_group = claiming existing genealogy profile, new_group = registering new group)
 export const groupClaimTypes = ['genealogy_group', 'new_group'] as const;
 
+// Person claim statuses (same as group claim statuses, but separate for semantic clarity)
+export const personClaimStatuses = ['pending', 'approved', 'rejected'] as const;
+
+// Reasons why a person profile may or may not be claimable (returned from getPersonProfileClaimStatus)
+export const personClaimStatusReasons = ['not_found', 'deceased', 'already_claimed', 'claimable'] as const;
+
 // ============================================================================
 // GENEALOGY SCHEMA CONSTANTS
 // ============================================================================
 
 // Entity types for statements (who can be subjects/objects)
-export const entityTypes = ['person', 'group'] as const;
+export const ENTITY_TYPE = {
+  PERSON: 'person',
+  GROUP: 'group',
+} as const;
+
+export const entityTypes = [ENTITY_TYPE.PERSON, ENTITY_TYPE.GROUP] as const;
 
 // Date precision for historical data with uncertainty
 export const datePrecisions = ['exact', 'month', 'year', 'decade', 'approximate', 'unknown'] as const;

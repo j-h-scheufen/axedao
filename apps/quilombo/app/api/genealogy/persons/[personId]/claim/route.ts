@@ -1,6 +1,7 @@
 import { getServerSession } from 'next-auth';
 import { type NextRequest, NextResponse } from 'next/server';
 
+import { personClaimStatusReasons } from '@/config/constants';
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { claimPersonFormSchema } from '@/config/validation-schema';
 import {
@@ -11,6 +12,9 @@ import {
   fetchUser,
 } from '@/db';
 import { generateErrorMessage } from '@/utils';
+
+// Destructure status reason constants for cleaner code
+const [, DECEASED, ALREADY_CLAIMED] = personClaimStatusReasons;
 
 type RouteParams = {
   params: Promise<{ personId: string }>;
@@ -155,9 +159,9 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
     const claimStatus = await getPersonProfileClaimStatus(personId);
     if (!claimStatus.isClaimable) {
       let errorMessage = 'This profile is not claimable.';
-      if (claimStatus.reason === 'deceased') {
+      if (claimStatus.reason === DECEASED) {
         errorMessage = 'This is a historical profile and cannot be claimed.';
-      } else if (claimStatus.reason === 'already_claimed') {
+      } else if (claimStatus.reason === ALREADY_CLAIMED) {
         errorMessage = 'This profile is already linked to another account.';
       }
       return NextResponse.json({ error: errorMessage }, { status: 403 });
@@ -179,6 +183,15 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
             ? error.message
             : 'Invalid input data';
       return NextResponse.json({ error: message }, { status: 400 });
+    }
+
+    // Re-check claimability right before creating claim (prevents race condition)
+    const recheckStatus = await getPersonProfileClaimStatus(personId);
+    if (!recheckStatus.isClaimable) {
+      return NextResponse.json(
+        { error: 'This profile is no longer available for claiming. Please try again.' },
+        { status: 409 }
+      );
     }
 
     // Create claim record

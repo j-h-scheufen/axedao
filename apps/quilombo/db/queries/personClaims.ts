@@ -6,6 +6,8 @@
 
 import { and, eq } from 'drizzle-orm';
 
+import { personClaimStatuses, personClaimStatusReasons } from '@/config/constants';
+import type { PersonClaimStatusReason } from '@/types/model';
 import * as schema from '@/db/schema';
 import { personProfiles, type SelectPersonProfile } from '@/db/schema/genealogy';
 import { db } from '@/db';
@@ -67,6 +69,10 @@ export async function isPersonProfileClaimable(profileId: string): Promise<boole
   return claimedByUser.length === 0;
 }
 
+// Destructure status reason constants for cleaner code
+const [NOT_FOUND, DECEASED, ALREADY_CLAIMED, CLAIMABLE] = personClaimStatusReasons;
+const [PENDING, APPROVED, REJECTED] = personClaimStatuses;
+
 /**
  * Gets detailed claimability status for a person profile.
  *
@@ -75,7 +81,7 @@ export async function isPersonProfileClaimable(profileId: string): Promise<boole
  */
 export async function getPersonProfileClaimStatus(profileId: string): Promise<{
   isClaimable: boolean;
-  reason: 'not_found' | 'deceased' | 'already_claimed' | 'claimable';
+  reason: PersonClaimStatusReason;
   claimedByUserId?: string;
 }> {
   // First check if profile exists
@@ -90,12 +96,12 @@ export async function getPersonProfileClaimStatus(profileId: string): Promise<{
     .limit(1);
 
   if (profile.length === 0) {
-    return { isClaimable: false, reason: 'not_found' };
+    return { isClaimable: false, reason: NOT_FOUND };
   }
 
   // Deceased profiles (explicit or presumed by age) cannot be claimed
   if (isPresumedDeceased(profile[0].birthYear, profile[0].deathYear)) {
-    return { isClaimable: false, reason: 'deceased' };
+    return { isClaimable: false, reason: DECEASED };
   }
 
   // Check if any user has already claimed this profile
@@ -106,10 +112,10 @@ export async function getPersonProfileClaimStatus(profileId: string): Promise<{
     .limit(1);
 
   if (claimedByUser.length > 0) {
-    return { isClaimable: false, reason: 'already_claimed', claimedByUserId: claimedByUser[0].id };
+    return { isClaimable: false, reason: ALREADY_CLAIMED, claimedByUserId: claimedByUser[0].id };
   }
 
-  return { isClaimable: true, reason: 'claimable' };
+  return { isClaimable: true, reason: CLAIMABLE };
 }
 
 /**
@@ -127,7 +133,7 @@ export async function createPersonClaim(userId: string, profileId: string, messa
       userId,
       personProfileId: profileId,
       userMessage: message,
-      status: 'pending',
+      status: PENDING,
       requestedAt: new Date(),
     })
     .returning({ id: schema.personClaims.id });
@@ -160,7 +166,7 @@ export async function getPendingPersonClaims(): Promise<
     .from(schema.personClaims)
     .leftJoin(personProfiles, eq(schema.personClaims.personProfileId, personProfiles.id))
     .leftJoin(schema.users, eq(schema.personClaims.userId, schema.users.id))
-    .where(eq(schema.personClaims.status, 'pending'))
+    .where(eq(schema.personClaims.status, PENDING))
     .orderBy(schema.personClaims.requestedAt);
 
   return results.map((r) => ({
@@ -217,7 +223,7 @@ export async function getUserPendingPersonClaim(
     })
     .from(schema.personClaims)
     .leftJoin(personProfiles, eq(schema.personClaims.personProfileId, personProfiles.id))
-    .where(and(eq(schema.personClaims.userId, userId), eq(schema.personClaims.status, 'pending')))
+    .where(and(eq(schema.personClaims.userId, userId), eq(schema.personClaims.status, PENDING)))
     .limit(1);
 
   if (result.length === 0) {
@@ -257,7 +263,7 @@ export async function approvePersonClaim(claimId: string, adminId: string): Prom
   await db
     .update(schema.personClaims)
     .set({
-      status: 'approved',
+      status: APPROVED,
       processedAt: new Date(),
       processedBy: adminId,
     })
@@ -286,7 +292,7 @@ export async function rejectPersonClaim(claimId: string, adminId: string, notes:
   await db
     .update(schema.personClaims)
     .set({
-      status: 'rejected',
+      status: REJECTED,
       processedAt: new Date(),
       processedBy: adminId,
       adminNotes: notes,

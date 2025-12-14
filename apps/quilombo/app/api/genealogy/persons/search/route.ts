@@ -1,6 +1,8 @@
+import { getServerSession } from 'next-auth';
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
+import { nextAuthOptions } from '@/config/next-auth-options';
 import { type GenealogyPersonSearchParams, genealogyPersonSearchParamsSchema } from '@/config/validation-schema';
 import { searchPersonProfiles } from '@/db';
 
@@ -26,6 +28,15 @@ import { searchPersonProfiles } from '@/db';
  *         description: Search results (max 10 items)
  *       400:
  *         description: Search term too short
+ *       401:
+ *         description: Unauthorized - user not authenticated
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
  *       500:
  *         description: Server error
  *   post:
@@ -96,6 +107,15 @@ import { searchPersonProfiles } from '@/db';
  *               properties:
  *                 error:
  *                   type: string
+ *       401:
+ *         description: Unauthorized - user not authenticated
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
  *       500:
  *         description: Server error
  *         content:
@@ -116,6 +136,11 @@ import { searchPersonProfiles } from '@/db';
  * - claimableOnly: if "true", excludes deceased and already-claimed profiles
  */
 export async function GET(request: NextRequest) {
+  const session = await getServerSession(nextAuthOptions);
+  if (!session?.user.id) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
   try {
     const { searchParams } = new URL(request.url);
     const searchTerm = searchParams.get('q');
@@ -149,6 +174,11 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  const session = await getServerSession(nextAuthOptions);
+  if (!session?.user.id) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
   try {
     const body = await request.json();
 

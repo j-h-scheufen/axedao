@@ -38,6 +38,32 @@ export const generateErrorMessage = (error: unknown, defaultMessage: string) => 
   return message;
 };
 
+/**
+ * Extracts the first validation error from a Yup validation error.
+ * Used in API routes to return user-friendly validation error messages.
+ *
+ * @param error - The error object (typically from a Yup validate() catch block)
+ * @param fallbackMessage - The default message if no validation error can be extracted
+ * @returns The first validation error message or the fallback message
+ */
+export const extractValidationError = (error: unknown, fallbackMessage: string): string => {
+  // Check for Yup validation error (has errors array)
+  if (
+    error &&
+    typeof error === 'object' &&
+    'errors' in error &&
+    Array.isArray(error.errors) &&
+    error.errors.length > 0
+  ) {
+    return error.errors[0];
+  }
+  // Fall back to error message if it's an Error instance
+  if (error instanceof Error) {
+    return error.message;
+  }
+  return fallbackMessage;
+};
+
 export const removeTrailingSlash = (val: string) => (val.endsWith('/') ? val.substring(0, val.length - 1) : val);
 
 export const isUUID = (str: string) => {
@@ -62,6 +88,25 @@ export const getHostname = (url: string): string | undefined => {
     return domain.split('.')[0];
   } catch (_error) {}
   return undefined;
+};
+
+/**
+ * Returns the display name for a genealogy person profile.
+ * Priority order:
+ * 1. Apelido (nickname/capoeira name)
+ * 2. Full name
+ * 3. Fallback value (default: 'Unknown')
+ *
+ * @param person - Object with optional apelido and name properties
+ * @param fallback - The fallback string if no name is available (default: 'Unknown')
+ * @returns The display name for the person
+ */
+export const getPersonDisplayName = (
+  person: { apelido?: string | null; name?: string | null } | null | undefined,
+  fallback = 'Unknown'
+): string => {
+  if (!person) return fallback;
+  return person.apelido || person.name || fallback;
 };
 
 /**

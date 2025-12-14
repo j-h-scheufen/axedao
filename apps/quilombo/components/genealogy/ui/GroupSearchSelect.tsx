@@ -1,10 +1,10 @@
 'use client';
 
 import { Avatar, Chip, Input, Spinner } from '@heroui/react';
-import { debounce } from 'lodash';
 import { CheckCircle, Search, X } from 'lucide-react';
-import { useEffect, useMemo, useState } from 'react';
+import { useState } from 'react';
 
+import { useDebouncedSearch } from '@/hooks/useDebouncedSearch';
 import { useSearchGroups } from '@/query/genealogyProfile';
 
 type GroupSearchResult = {
@@ -42,24 +42,8 @@ const GroupSearchSelect = ({
   placeholder = 'Type to search by group name...',
   memberOfGroupIds = [],
 }: GroupSearchSelectProps) => {
-  const [inputValue, setInputValue] = useState('');
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+  const { inputValue, setInputValue, debouncedSearchTerm, clearSearch } = useDebouncedSearch();
   const [selectedGroup, setSelectedGroup] = useState<GroupSearchResult | null>(null);
-
-  // Debounce search term updates (300ms)
-  const debouncedSetSearch = useMemo(() => debounce((term: string) => setDebouncedSearchTerm(term), 300), []);
-
-  // Cleanup debounce on unmount
-  useEffect(() => {
-    return () => {
-      debouncedSetSearch.cancel();
-    };
-  }, [debouncedSetSearch]);
-
-  // Update debounced search when input changes
-  useEffect(() => {
-    debouncedSetSearch(inputValue);
-  }, [inputValue, debouncedSetSearch]);
 
   const { data: searchResults, isFetching } = useSearchGroups(debouncedSearchTerm, {
     enabled: debouncedSearchTerm.length > 2,
@@ -68,15 +52,13 @@ const GroupSearchSelect = ({
 
   const handleSelect = (group: GroupSearchResult) => {
     setSelectedGroup(group);
-    setInputValue('');
-    setDebouncedSearchTerm('');
+    clearSearch();
     onSelect(group);
   };
 
   const handleClear = () => {
     setSelectedGroup(null);
-    setInputValue('');
-    setDebouncedSearchTerm('');
+    clearSearch();
     onClear?.();
   };
 

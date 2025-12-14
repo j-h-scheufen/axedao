@@ -8,6 +8,8 @@ import type {
   styles,
   groupClaimStatuses,
   groupClaimTypes,
+  personClaimStatuses,
+  personClaimStatusReasons,
   SEARCH_PARAM_KEYS,
 } from '@/config/constants';
 import type { SelectGroup, SelectUser, SelectGroupLocation, SelectEvent, SelectInvitation } from '../db/schema';
@@ -147,6 +149,10 @@ export type ImageType = (typeof IMAGE_TYPES)[number];
 export type GroupClaimStatus = (typeof groupClaimStatuses)[number];
 
 export type GroupClaimType = (typeof groupClaimTypes)[number];
+
+export type PersonClaimStatus = (typeof personClaimStatuses)[number];
+
+export type PersonClaimStatusReason = (typeof personClaimStatusReasons)[number];
 
 export type UserSearchResult = {
   data: User[];

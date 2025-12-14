@@ -1,10 +1,10 @@
 'use client';
 
 import { Avatar, Input, Spinner } from '@heroui/react';
-import { debounce } from 'lodash';
 import { Search, X } from 'lucide-react';
-import { useEffect, useMemo, useState } from 'react';
+import { useState } from 'react';
 
+import { useDebouncedSearch } from '@/hooks/useDebouncedSearch';
 import { useSearchPersons } from '@/query/genealogyProfile';
 
 type PersonSearchResult = {
@@ -51,24 +51,11 @@ const PersonSearchSelect = ({
   filterResults,
   claimableOnly = false,
 }: PersonSearchSelectProps) => {
-  const [inputValue, setInputValue] = useState(initialSearchTerm);
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(autoSearch ? initialSearchTerm : '');
+  const { inputValue, setInputValue, debouncedSearchTerm, clearSearch } = useDebouncedSearch({
+    initialValue: initialSearchTerm,
+    initialSearch: autoSearch ? initialSearchTerm : '',
+  });
   const [selectedPerson, setSelectedPerson] = useState<PersonSearchResult | null>(null);
-
-  // Debounce search term updates (300ms)
-  const debouncedSetSearch = useMemo(() => debounce((term: string) => setDebouncedSearchTerm(term), 300), []);
-
-  // Cleanup debounce on unmount
-  useEffect(() => {
-    return () => {
-      debouncedSetSearch.cancel();
-    };
-  }, [debouncedSetSearch]);
-
-  // Update debounced search when input changes
-  useEffect(() => {
-    debouncedSetSearch(inputValue);
-  }, [inputValue, debouncedSetSearch]);
 
   const { data: searchResults, isFetching } = useSearchPersons(debouncedSearchTerm, {
     enabled: debouncedSearchTerm.length > 2,
@@ -84,15 +71,13 @@ const PersonSearchSelect = ({
 
   const handleSelect = (person: PersonSearchResult) => {
     setSelectedPerson(person);
-    setInputValue(''); // Clear search input
-    setDebouncedSearchTerm(''); // Clear search results
+    clearSearch();
     onSelect(person);
   };
 
   const handleClear = () => {
     setSelectedPerson(null);
-    setInputValue('');
-    setDebouncedSearchTerm('');
+    clearSearch();
     onClear?.();
   };
 
