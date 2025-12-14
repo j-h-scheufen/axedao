@@ -194,8 +194,6 @@ export const groupProfiles = genealogySchema.table(
     index('group_profiles_name_idx').on(t.name),
     index('group_profiles_style_idx').on(t.style),
     index('group_profiles_is_active_idx').on(t.isActive),
-    // Unique constraint for upsert pattern in SQL imports
-    uniqueIndex('group_profiles_name_unique_idx').on(t.name),
   ]
 );
 
