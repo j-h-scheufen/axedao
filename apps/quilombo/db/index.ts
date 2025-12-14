@@ -98,6 +98,7 @@ export * from './queries/invitations';
 export * from './queries/stats';
 export * from './queries/genealogy';
 export * from './queries/personClaims';
+export * from './queries/images';
 
 // Schema exports (for types and table references)
 export * from './schema';

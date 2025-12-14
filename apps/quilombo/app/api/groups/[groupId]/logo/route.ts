@@ -5,10 +5,10 @@ import { type NextRequest, NextResponse } from 'next/server';
 import { FILE_PREFIXES } from '@/config/constants';
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { canUserManageGroup, fetchGroup, updateGroup } from '@/db';
-import { generateErrorMessage } from '@/utils';
-import { pinToGroup, unpin } from '@/utils/pinata';
 import type { RouteParamsGroup } from '@/types/routes';
+import { generateErrorMessage } from '@/utils';
 import { createImageBuffer } from '@/utils/images';
+import { pinToGroup, unpinIfNotReferenced } from '@/utils/pinata';
 
 /**
  * Updates or sets the group's logo.
@@ -46,14 +46,26 @@ export async function POST(request: NextRequest, { params }: RouteParamsGroup) {
       return NextResponse.json({ error: 'Invalid input data. No file found.' }, { status: 400 });
     }
 
+    // 1. Save old logo CID
+    const oldLogo = group.logo;
+
+    // 2. Upload new file
     const imageBuffer = await createImageBuffer(file, 'groupLogo');
-    const { cid, error, errorStatus } = await pinToGroup(imageBuffer, filename, group.logo);
+    const { cid, error, errorStatus } = await pinToGroup(imageBuffer, filename);
 
     if (error) {
       return NextResponse.json({ error }, { status: errorStatus ?? 500 });
     }
 
+    // 3. Update group record (removes reference to old CID)
     const updatedGroup = await updateGroup({ ...group, logo: cid });
+
+    // 4. Safely unpin old logo (only if not referenced elsewhere)
+    if (oldLogo && oldLogo !== cid) {
+      await unpinIfNotReferenced(oldLogo).catch((err) => {
+        console.error('Failed to unpin old logo:', err.message);
+      });
+    }
 
     return NextResponse.json(updatedGroup);
   } catch (error) {
@@ -96,8 +108,16 @@ export async function DELETE(_: NextRequest, { params }: RouteParamsGroup) {
     }
 
     if (group.logo) {
-      await unpin(group.logo);
+      const logoCid = group.logo;
+
+      // 1. Update group record first (removes reference)
       const updatedGroup = await updateGroup({ ...group, logo: null });
+
+      // 2. Safely unpin (only if not referenced elsewhere)
+      await unpinIfNotReferenced(logoCid).catch((err) => {
+        console.error('Failed to unpin logo:', err.message);
+      });
+
       return NextResponse.json(updatedGroup);
     }
 

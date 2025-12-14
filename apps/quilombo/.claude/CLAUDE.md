@@ -597,6 +597,8 @@ export async function POST(request: Request) {
 
 11. **Server-Side Query Hydration**: Pre-populate QueryClient server-side, access via Jotai atoms client-side
 
+12. **IPFS Image Unpinning**: Always update DB first, then call `unpinIfNotReferenced()`. See `docs/IPFS_IMAGE_HANDLING.md`
+
 ## Key File Locations
 
 - Auth config: `/config/next-auth-options.ts`

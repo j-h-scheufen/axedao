@@ -6,8 +6,8 @@ import { FILE_PREFIXES } from '@/config/constants';
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { fetchUser, updateUser } from '@/db';
 import { generateErrorMessage } from '@/utils';
-import { pinToGroup, unpin } from '@/utils/pinata';
 import { createImageBuffer } from '@/utils/images';
+import { pinToGroup, unpinIfNotReferenced } from '@/utils/pinata';
 
 /**
  * Updates or sets the user's avatar.
@@ -34,14 +34,27 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Invalid input data. No file found.' }, { status: 400 });
     }
 
+    // 1. Save old CID before uploading new file
+    const oldAvatar = user.avatar;
+
+    // 2. Upload new file to IPFS
     const imageBuffer = await createImageBuffer(file, 'userAvatar');
-    const { cid, error, errorStatus } = await pinToGroup(imageBuffer, filename, user.avatar);
+    const { cid, error, errorStatus } = await pinToGroup(imageBuffer, filename);
 
     if (error) {
       return NextResponse.json({ error }, { status: errorStatus ?? 500 });
     }
 
+    // 3. Update user record (removes reference to old CID)
     const updatedUser = await updateUser({ ...user, avatar: cid });
+
+    // 4. Safely unpin old CID (only if not referenced elsewhere, e.g., synced portrait)
+    if (oldAvatar && oldAvatar !== cid) {
+      await unpinIfNotReferenced(oldAvatar).catch((err) => {
+        console.error('Failed to unpin old avatar:', err.message);
+        // Don't fail the request - the avatar was successfully updated
+      });
+    }
 
     return NextResponse.json(updatedUser);
   } catch (error) {
@@ -68,8 +81,17 @@ export async function DELETE() {
     if (!user) return notFound();
 
     if (user.avatar) {
-      await unpin(user.avatar);
+      const avatarCid = user.avatar;
+
+      // 1. Update user record first (removes reference to CID)
       const updatedUser = await updateUser({ ...user, avatar: null });
+
+      // 2. Safely unpin (only if not referenced elsewhere, e.g., synced portrait)
+      await unpinIfNotReferenced(avatarCid).catch((err) => {
+        console.error('Failed to unpin avatar:', err.message);
+        // Don't fail the request - the avatar was successfully removed from user
+      });
+
       return NextResponse.json(updatedUser);
     }
 

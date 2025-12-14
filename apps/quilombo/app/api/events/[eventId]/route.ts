@@ -4,11 +4,11 @@ import { type NextRequest, NextResponse } from 'next/server';
 
 import { FILE_PREFIXES } from '@/config/constants';
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { updateEventFormSchema, type UpdateEventForm } from '@/config/validation-schema';
+import { type UpdateEventForm, updateEventFormSchema } from '@/config/validation-schema';
 import { deleteEvent, fetchEvent, isEventCreator, updateEvent } from '@/db';
 import { generateErrorMessage } from '@/utils';
-import { pinToGroup } from '@/utils/pinata';
 import { createImageBuffer } from '@/utils/images';
+import { pinToGroup, unpinIfNotReferenced } from '@/utils/pinata';
 
 /**
  * Fetches a single event by ID.
@@ -123,6 +123,9 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
       updateData.end = new Date(validatedEventData.end);
     }
 
+    // Save old image CID for potential unpinning
+    const oldImage = existingEvent.image;
+
     // Handle image upload if provided
     if (imageFile) {
       const filename = `${FILE_PREFIXES.eventImage}-${eventId}`;
@@ -142,6 +145,14 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
     const updatedEvent = await updateEvent(eventId, updateData);
     if (!updatedEvent) {
       throw new Error('Failed to update event');
+    }
+
+    // Safely unpin old image if it changed
+    const newImage = updatedEvent.image;
+    if (oldImage && oldImage !== newImage) {
+      await unpinIfNotReferenced(oldImage).catch((err) => {
+        console.error('Failed to unpin old event image:', err.message);
+      });
     }
 
     return NextResponse.json(updatedEvent);
@@ -184,7 +195,17 @@ export async function DELETE(_: NextRequest, { params }: { params: Promise<{ eve
       return NextResponse.json({ error: 'Only the event creator can delete this event' }, { status: 403 });
     }
 
+    // Save image CID before deletion
+    const imageCid = existingEvent.image;
+
     await deleteEvent(eventId);
+
+    // Safely unpin event image (only if not referenced elsewhere)
+    if (imageCid) {
+      await unpinIfNotReferenced(imageCid).catch((err) => {
+        console.error('Failed to unpin event image:', err.message);
+      });
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {

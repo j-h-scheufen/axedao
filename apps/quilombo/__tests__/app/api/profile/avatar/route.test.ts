@@ -15,7 +15,7 @@ vi.mock('next/navigation', () => ({
 }));
 vi.mock('@/utils/pinata', () => ({
   pinToGroup: vi.fn(),
-  unpin: vi.fn(),
+  unpinIfNotReferenced: vi.fn(),
 }));
 vi.mock('@/utils/images', () => ({
   createImageBuffer: vi.fn(),
@@ -74,9 +74,11 @@ describe('Avatar API Routes', () => {
       // Mock IPFS/Pinata functions
       mockPinata = {
         pinToGroup: vi.fn().mockResolvedValue({ cid: 'cid123', error: null, errorStatus: null }),
+        unpinIfNotReferenced: vi.fn().mockResolvedValue(true),
       };
 
       (pinataModule.pinToGroup as typeof mockPinata.pinToGroup) = mockPinata.pinToGroup;
+      (pinataModule.unpinIfNotReferenced as typeof mockPinata.unpinIfNotReferenced) = mockPinata.unpinIfNotReferenced;
 
       // Mock image processing
       mockImages = {
@@ -201,11 +203,8 @@ describe('Avatar API Routes', () => {
 
         expect(response.status).toBe(200);
         expect(mockImages.createImageBuffer).toHaveBeenCalled();
-        expect(mockPinata.pinToGroup).toHaveBeenCalledWith(
-          Buffer.from('fake-image-data'),
-          'user-avatar-user-123',
-          null
-        );
+        // pinToGroup now takes only 2 params (buffer, filename)
+        expect(mockPinata.pinToGroup).toHaveBeenCalledWith(Buffer.from('fake-image-data'), 'user-avatar-user-123');
         expect(mockDb.updateUser).toHaveBeenCalledWith(
           expect.objectContaining({
             id: testUserId,
@@ -215,7 +214,7 @@ describe('Avatar API Routes', () => {
         expect(body.avatar).toBe('cid123');
       });
 
-      it('should replace existing avatar when user already has one', async () => {
+      it('should replace existing avatar and unpin old one', async () => {
         const userWithAvatar = { ...mockUser, avatar: 'old-cid' };
         mockDb.fetchUser.mockResolvedValue(userWithAvatar);
 
@@ -230,11 +229,10 @@ describe('Avatar API Routes', () => {
         const response = await POST(request);
 
         expect(response.status).toBe(200);
-        expect(mockPinata.pinToGroup).toHaveBeenCalledWith(
-          Buffer.from('fake-image-data'),
-          'user-avatar-user-123',
-          'old-cid'
-        );
+        // pinToGroup takes only 2 params now
+        expect(mockPinata.pinToGroup).toHaveBeenCalledWith(Buffer.from('fake-image-data'), 'user-avatar-user-123');
+        // Old avatar should be unpinned after DB update
+        expect(mockPinata.unpinIfNotReferenced).toHaveBeenCalledWith('old-cid');
       });
 
       it('should process image buffer before uploading', async () => {
@@ -372,10 +370,10 @@ describe('Avatar API Routes', () => {
 
       // Mock IPFS/Pinata functions
       mockPinata = {
-        unpin: vi.fn().mockResolvedValue(undefined),
+        unpinIfNotReferenced: vi.fn().mockResolvedValue(true),
       };
 
-      (pinataModule.unpin as typeof mockPinata.unpin) = mockPinata.unpin;
+      (pinataModule.unpinIfNotReferenced as typeof mockPinata.unpinIfNotReferenced) = mockPinata.unpinIfNotReferenced;
 
       // Mock notFound() to throw error
       notFound.mockImplementation(() => {
@@ -443,13 +441,14 @@ describe('Avatar API Routes', () => {
         const body = await getResponseJson(response);
 
         expect(response.status).toBe(200);
-        expect(mockPinata.unpin).toHaveBeenCalledWith('cid123');
+        // DB is updated first (removes reference), then unpin is called
         expect(mockDb.updateUser).toHaveBeenCalledWith(
           expect.objectContaining({
             id: testUserId,
             avatar: null,
           })
         );
+        expect(mockPinata.unpinIfNotReferenced).toHaveBeenCalledWith('cid123');
         expect(body.avatar).toBeNull();
       });
 
@@ -460,22 +459,24 @@ describe('Avatar API Routes', () => {
         const body = await getResponseJson(response);
 
         expect(response.status).toBe(200);
-        expect(mockPinata.unpin).not.toHaveBeenCalled();
+        expect(mockPinata.unpinIfNotReferenced).not.toHaveBeenCalled();
         expect(mockDb.updateUser).not.toHaveBeenCalled();
         expect(body.avatar).toBeNull();
       });
     });
 
     describe('Error Handling', () => {
-      it('should return 500 when unpin throws error', async () => {
-        mockPinata.unpin.mockRejectedValue(new Error('IPFS error'));
+      // Note: unpinIfNotReferenced catches errors and logs them, doesn't throw
+      // So we test that the route still returns success even if unpin fails
+      it('should return success even when unpin fails (errors are logged)', async () => {
+        mockPinata.unpinIfNotReferenced.mockRejectedValue(new Error('IPFS error'));
 
         const response = await DELETE();
         const body = await getResponseJson(response);
 
-        expect(response.status).toBe(500);
-        expect(body).toHaveProperty('error', true);
-        expect(body).toHaveProperty('message');
+        // Route catches unpin errors and continues
+        expect(response.status).toBe(200);
+        expect(body.avatar).toBeNull();
       });
 
       it('should return 500 when database throws error', async () => {

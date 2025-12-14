@@ -167,6 +167,7 @@ import {
   updateUser,
 } from '@/db';
 import type { InsertPersonProfile } from '@/db/schema/genealogy';
+import { unpinIfNotReferenced } from '@/utils/pinata';
 
 /**
  * POST - Create new genealogy profile (first publish only)
@@ -310,6 +311,9 @@ export async function PATCH(request: Request) {
     const birthYear = formData.birthYear ? Number.parseInt(formData.birthYear, 10) : undefined;
     const birthYearParsed = birthYear && !Number.isNaN(birthYear) ? birthYear : undefined;
 
+    // Save old portrait for potential unpinning
+    const oldPortrait = existingProfile.portrait;
+
     // Prepare genealogy profile data
     // Note: formData has been validated by Yup schema, so types are safe
     const profileData: Partial<InsertPersonProfile> = {
@@ -329,6 +333,14 @@ export async function PATCH(request: Request) {
     const updated = await updatePersonProfile(user.profileId, profileData);
     if (!updated) {
       return NextResponse.json({ error: 'Failed to update profile' }, { status: 500 });
+    }
+
+    // Safely unpin old portrait if it changed
+    const newPortrait = updated.portrait;
+    if (oldPortrait && oldPortrait !== newPortrait) {
+      await unpinIfNotReferenced(oldPortrait).catch((err) => {
+        console.error('Failed to unpin old portrait:', err.message);
+      });
     }
 
     return NextResponse.json({
@@ -376,11 +388,21 @@ export async function DELETE() {
       return NextResponse.json({ error: 'Profile ownership mismatch' }, { status: 403 });
     }
 
+    // Save portrait CID before deletion
+    const portraitCid = existingProfile.portrait;
+
     // Delete the genealogy profile (also deletes related statements via deletePersonProfile)
     await deletePersonProfile(user.profileId);
 
     // Unlink from user in public.users table
     await updateUser({ id: session.user.id, profileId: null });
+
+    // Safely unpin portrait (only if not referenced elsewhere)
+    if (portraitCid) {
+      await unpinIfNotReferenced(portraitCid).catch((err) => {
+        console.error('Failed to unpin portrait:', err.message);
+      });
+    }
 
     return NextResponse.json({ message: 'Profile deleted successfully' });
   } catch (error) {
