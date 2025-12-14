@@ -77,26 +77,4 @@ Por volta de 1912, Besouro começou a ensinar seu primo Cobrinha Verde (4 anos).
   -- Status
   false, -- Dissolved
   '1924-07-08'::date -- Besouro's death effectively ended the community
-)
-ON CONFLICT (name) DO UPDATE SET
-  description_en = EXCLUDED.description_en,
-  description_pt = EXCLUDED.description_pt,
-  style = EXCLUDED.style,
-  style_notes_en = EXCLUDED.style_notes_en,
-  style_notes_pt = EXCLUDED.style_notes_pt,
-  logo = EXCLUDED.logo,
-  public_links = EXCLUDED.public_links,
-  name_aliases = EXCLUDED.name_aliases,
-  name_history = EXCLUDED.name_history,
-  founded_year = EXCLUDED.founded_year,
-  founded_year_precision = EXCLUDED.founded_year_precision,
-  founded_location = EXCLUDED.founded_location,
-  philosophy_en = EXCLUDED.philosophy_en,
-  philosophy_pt = EXCLUDED.philosophy_pt,
-  history_en = EXCLUDED.history_en,
-  history_pt = EXCLUDED.history_pt,
-  legal_structure = EXCLUDED.legal_structure,
-  is_headquarters = EXCLUDED.is_headquarters,
-  is_active = EXCLUDED.is_active,
-  dissolved_at = EXCLUDED.dissolved_at,
-  updated_at = NOW();
+);
