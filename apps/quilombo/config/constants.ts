@@ -65,6 +65,8 @@ export const PATHS = {
   login: '/auth/login',
   signup: '/auth/signup',
   verifyEmail: '/auth/verify-email',
+  verifyEmailSuccess: '/auth/verify-email/success',
+  verifyEmailExpired: '/auth/verify-email/expired',
   forgotPassword: '/auth/forgot-password',
   resetPassword: '/auth/reset-password',
   search: '/search',

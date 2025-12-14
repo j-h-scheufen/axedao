@@ -18,9 +18,9 @@ BEGIN;
 -- ============================================================
 -- Order matters: statements has FKs to person_profiles and group_profiles
 
-TRUNCATE TABLE genealogy.statements CASCADE;
-TRUNCATE TABLE genealogy.person_profiles CASCADE;
-TRUNCATE TABLE genealogy.group_profiles CASCADE;
+TRUNCATE TABLE genealogy.statements;
+TRUNCATE TABLE genealogy.person_profiles;
+TRUNCATE TABLE genealogy.group_profiles;
 
 -- ============================================================
 -- PHASE 1: UPSERT ENTITIES

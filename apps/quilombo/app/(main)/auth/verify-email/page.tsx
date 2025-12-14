@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Spinner } from '@heroui/react';
 
+import { PATHS } from '@/config/constants';
+
 const VerifyEmailPage = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -15,7 +17,7 @@ const VerifyEmailPage = () => {
 
       if (!token) {
         setError('No verification token provided');
-        setTimeout(() => router.push('/auth/verify-email/expired'), 2000);
+        setTimeout(() => router.push(PATHS.verifyEmailExpired), 2000);
         return;
       }
 
@@ -28,22 +30,22 @@ const VerifyEmailPage = () => {
 
         if (response.ok) {
           // Success - redirect to success page
-          router.push('/auth/verify-email/success');
+          router.push(PATHS.verifyEmailSuccess);
         } else {
           const data = await response.json();
 
           // Check if token is expired or invalid
           if (response.status === 400 || response.status === 410) {
-            router.push('/auth/verify-email/expired');
+            router.push(PATHS.verifyEmailExpired);
           } else {
             setError(data.error || 'Verification failed');
-            setTimeout(() => router.push('/auth/verify-email/expired'), 3000);
+            setTimeout(() => router.push(PATHS.verifyEmailExpired), 3000);
           }
         }
       } catch (err) {
         console.error('Verification error:', err);
         setError('An error occurred during verification');
-        setTimeout(() => router.push('/auth/verify-email/expired'), 3000);
+        setTimeout(() => router.push(PATHS.verifyEmailExpired), 3000);
       }
     };
 
