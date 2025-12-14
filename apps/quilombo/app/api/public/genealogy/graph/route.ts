@@ -7,7 +7,7 @@ import { applyRateLimit, createRateLimitHeaders } from '@/utils/rate-limit';
 
 /**
  * @openapi
- * /api/genealogy/graph:
+ * /api/public/genealogy/graph:
  *   get:
  *     summary: Get graph data for visualization
  *     description: Retrieves all nodes (persons and groups) and links (statements) for graph visualization

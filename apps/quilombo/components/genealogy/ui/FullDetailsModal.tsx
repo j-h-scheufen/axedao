@@ -510,7 +510,7 @@ export function FullDetailsModal({ isOpen, onClose, entityType, entityId, entity
     setIsLoading(true);
     setError(null);
 
-    fetch(`/api/genealogy/${entityType}s/${entityId}`)
+    fetch(`/api/public/genealogy/${entityType}s/${entityId}`)
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch profile');
         return res.json();

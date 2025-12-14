@@ -3,16 +3,17 @@ import { type NextRequest, NextResponse } from 'next/server';
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import { type GenealogyGroupSearchParams, genealogyGroupSearchParamsSchema } from '@/config/validation-schema';
 import { searchGroupProfiles } from '@/db';
-import { applyRateLimit, createRateLimitHeaders } from '@/utils/rate-limit';
 
 /**
  * @openapi
  * /api/genealogy/groups/search:
  *   get:
  *     summary: Quick search for group profiles (type-ahead)
- *     description: Lightweight search for use in dropdowns and autocomplete fields
+ *     description: Lightweight search for use in dropdowns and autocomplete fields. Requires authentication.
  *     tags:
  *       - Genealogy
+ *     security:
+ *       - session: []
  *     parameters:
  *       - in: query
  *         name: q
@@ -25,15 +26,15 @@ import { applyRateLimit, createRateLimitHeaders } from '@/utils/rate-limit';
  *         description: Search results (max 10 items)
  *       400:
  *         description: Search term too short
- *       429:
- *         description: Rate limit exceeded
  *       500:
  *         description: Server error
  *   post:
  *     summary: Search group profiles
- *     description: Search genealogy group profiles with filters and pagination
+ *     description: Search genealogy group profiles with filters and pagination. Requires authentication.
  *     tags:
  *       - Genealogy
+ *     security:
+ *       - session: []
  *     requestBody:
  *       required: true
  *       content:
@@ -92,17 +93,6 @@ import { applyRateLimit, createRateLimitHeaders } from '@/utils/rate-limit';
  *               properties:
  *                 error:
  *                   type: string
- *       429:
- *         description: Too many requests - rate limit exceeded
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
- *                 retryAfter:
- *                   type: number
  *       500:
  *         description: Server error
  *         content:
@@ -123,13 +113,6 @@ import { applyRateLimit, createRateLimitHeaders } from '@/utils/rate-limit';
  * - activeOnly: if "true", only returns active groups (default: false)
  */
 export async function GET(request: NextRequest) {
-  const RATE_LIMIT_MAX = 60;
-  const { response: rateLimitResponse, result: rateLimitResult } = applyRateLimit(request, {
-    maxRequests: RATE_LIMIT_MAX,
-    windowMs: 60 * 1000,
-  });
-  if (rateLimitResponse) return rateLimitResponse;
-
   try {
     const { searchParams } = new URL(request.url);
     const searchTerm = searchParams.get('q');
@@ -155,9 +138,7 @@ export async function GET(request: NextRequest) {
       isActive: group.isActive,
     }));
 
-    return Response.json(results, {
-      headers: createRateLimitHeaders(rateLimitResult, RATE_LIMIT_MAX),
-    });
+    return Response.json(results);
   } catch (error) {
     console.error('Error searching group profiles:', error);
     return NextResponse.json({ error: 'Failed to search group profiles' }, { status: 500 });
@@ -165,14 +146,6 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  // Rate limit: 30 requests per minute
-  const RATE_LIMIT_MAX = 30;
-  const { response: rateLimitResponse, result: rateLimitResult } = applyRateLimit(request, {
-    maxRequests: RATE_LIMIT_MAX,
-    windowMs: 60 * 1000,
-  });
-  if (rateLimitResponse) return rateLimitResponse;
-
   try {
     const body = await request.json();
 
@@ -205,14 +178,11 @@ export async function POST(request: NextRequest) {
       nextOffset = offset + pageSize;
     }
 
-    return Response.json(
-      {
-        data: searchResults.rows,
-        totalCount: searchResults.totalCount,
-        nextOffset,
-      },
-      { headers: createRateLimitHeaders(rateLimitResult, RATE_LIMIT_MAX) }
-    );
+    return Response.json({
+      data: searchResults.rows,
+      totalCount: searchResults.totalCount,
+      nextOffset,
+    });
   } catch (error) {
     console.error('Error searching group profiles:', error);
     return NextResponse.json({ error: 'Failed to search group profiles' }, { status: 500 });

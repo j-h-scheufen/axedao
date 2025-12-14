@@ -1,40 +1,40 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
-import { fetchPersonProfile, fetchStatementsByEntity } from '@/db';
+import { fetchGroupProfile, fetchStatementsByEntity } from '@/db';
 import { applyRateLimit, createRateLimitHeaders } from '@/utils/rate-limit';
 
 /**
  * @openapi
- * /api/genealogy/persons/{personId}:
+ * /api/public/genealogy/groups/{groupId}:
  *   get:
- *     summary: Get a person profile by ID
- *     description: Retrieves a single person profile from the genealogy schema with optional relationships
+ *     summary: Get a group profile by ID
+ *     description: Retrieves a single group profile from the genealogy schema with optional relationships
  *     tags:
  *       - Genealogy
  *     parameters:
  *       - in: path
- *         name: personId
+ *         name: groupId
  *         required: true
  *         schema:
  *           type: string
  *           format: uuid
- *         description: The person profile ID
+ *         description: The group profile ID
  *       - in: query
  *         name: includeRelationships
  *         required: false
  *         schema:
  *           type: boolean
- *         description: Whether to include relationships (statements) for this person
+ *         description: Whether to include relationships (statements) for this group
  *     responses:
  *       200:
- *         description: Person profile found
+ *         description: Group profile found
  *         content:
  *           application/json:
  *             schema:
  *               type: object
  *               properties:
  *                 data:
- *                   $ref: '#/components/schemas/PersonProfile'
+ *                   $ref: '#/components/schemas/GroupProfile'
  *                 relationships:
  *                   type: object
  *                   properties:
@@ -47,7 +47,7 @@ import { applyRateLimit, createRateLimitHeaders } from '@/utils/rate-limit';
  *                       items:
  *                         $ref: '#/components/schemas/Statement'
  *       404:
- *         description: Person profile not found
+ *         description: Group profile not found
  *         content:
  *           application/json:
  *             schema:
@@ -76,7 +76,7 @@ import { applyRateLimit, createRateLimitHeaders } from '@/utils/rate-limit';
  *                 error:
  *                   type: string
  */
-export async function GET(request: NextRequest, { params }: { params: Promise<{ personId: string }> }) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ groupId: string }> }) {
   // Rate limit: 60 requests per minute
   const RATE_LIMIT_MAX = 60;
   const { response: rateLimitResponse, result: rateLimitResult } = applyRateLimit(request, {
@@ -86,26 +86,26 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
   if (rateLimitResponse) return rateLimitResponse;
 
   try {
-    const { personId } = await params;
+    const { groupId } = await params;
     const { searchParams } = new URL(request.url);
     const includeRelationships = searchParams.get('includeRelationships') === 'true';
 
-    const person = await fetchPersonProfile(personId);
+    const group = await fetchGroupProfile(groupId);
 
-    if (!person) {
-      return NextResponse.json({ error: 'Person profile not found' }, { status: 404 });
+    if (!group) {
+      return NextResponse.json({ error: 'Group profile not found' }, { status: 404 });
     }
 
     const headers = createRateLimitHeaders(rateLimitResult, RATE_LIMIT_MAX);
 
     if (includeRelationships) {
-      const relationships = await fetchStatementsByEntity('person', personId);
-      return Response.json({ ...person, relationships }, { headers });
+      const relationships = await fetchStatementsByEntity('group', groupId);
+      return Response.json({ data: group, relationships }, { headers });
     }
 
-    return Response.json(person, { headers });
+    return Response.json({ data: group }, { headers });
   } catch (error) {
-    console.error('Error fetching person profile:', error);
-    return NextResponse.json({ error: 'Failed to fetch person profile' }, { status: 500 });
+    console.error('Error fetching group profile:', error);
+    return NextResponse.json({ error: 'Failed to fetch group profile' }, { status: 500 });
   }
 }

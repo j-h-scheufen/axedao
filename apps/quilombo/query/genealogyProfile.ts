@@ -25,7 +25,7 @@ import { QUERY_KEYS } from './keys';
 
 const fetchGenealogyProfile = async (profileId: string): Promise<SelectPersonProfile | null> =>
   axios
-    .get(`/api/genealogy/persons/${profileId}`)
+    .get(`/api/public/genealogy/persons/${profileId}`)
     .then((response) => response.data)
     .catch((error) => {
       if (error.response?.status === 404) return null;
@@ -312,7 +312,7 @@ import type { GenealogyGroupProfileUpdate } from '@/config/validation-schema';
 
 const fetchGenealogyGroupProfile = async (profileId: string): Promise<SelectGroupProfile | null> =>
   axios
-    .get(`/api/genealogy/groups/${profileId}`)
+    .get(`/api/public/genealogy/groups/${profileId}`)
     .then((response) => response.data.data)
     .catch((error) => {
       if (error.response?.status === 404) return null;

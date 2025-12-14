@@ -2,7 +2,6 @@ import { type NextRequest, NextResponse } from 'next/server';
 import { object, string } from 'yup';
 
 import { checkApelidoAvailability } from '@/db';
-import { applyRateLimit, createRateLimitHeaders } from '@/utils/rate-limit';
 
 const checkApelidoSchema = object({
   apelido: string().required('Apelido is required'),
@@ -19,8 +18,11 @@ const checkApelidoSchema = object({
  *       Checks if an apelido (with optional context) is available for use.
  *       The database has a unique constraint on (apelido, COALESCE(apelido_context, '')).
  *       This endpoint checks both the exact combination and suggests when context is needed.
+ *       Requires authentication.
  *     tags:
  *       - Genealogy
+ *     security:
+ *       - session: []
  *     requestBody:
  *       required: true
  *       content:
@@ -67,20 +69,10 @@ const checkApelidoSchema = object({
  *               properties:
  *                 error:
  *                   type: string
- *       429:
- *         description: Rate limit exceeded
  *       500:
  *         description: Server error
  */
 export async function POST(request: NextRequest) {
-  // Rate limit: 60 requests per minute (higher since this is called on typing)
-  const RATE_LIMIT_MAX = 60;
-  const { response: rateLimitResponse, result: rateLimitResult } = applyRateLimit(request, {
-    maxRequests: RATE_LIMIT_MAX,
-    windowMs: 60 * 1000,
-  });
-  if (rateLimitResponse) return rateLimitResponse;
-
   try {
     const body = await request.json();
 
@@ -103,7 +95,7 @@ export async function POST(request: NextRequest) {
       params.excludeProfileId || undefined
     );
 
-    return Response.json(result, { headers: createRateLimitHeaders(rateLimitResult, RATE_LIMIT_MAX) });
+    return Response.json(result);
   } catch (error) {
     console.error('Error checking apelido availability:', error);
     return NextResponse.json({ error: 'Failed to check apelido availability' }, { status: 500 });
