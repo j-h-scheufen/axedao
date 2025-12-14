@@ -14,6 +14,15 @@
 BEGIN;
 
 -- ============================================================
+-- PHASE 0: TRUNCATE ALL GENEALOGY TABLES
+-- ============================================================
+-- Order matters: statements has FKs to person_profiles and group_profiles
+
+TRUNCATE TABLE genealogy.statements CASCADE;
+TRUNCATE TABLE genealogy.person_profiles CASCADE;
+TRUNCATE TABLE genealogy.group_profiles CASCADE;
+
+-- ============================================================
 -- PHASE 1: UPSERT ENTITIES
 -- ============================================================
 
