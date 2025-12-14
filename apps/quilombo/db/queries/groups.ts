@@ -3,12 +3,12 @@
  * Group CRUD operations and membership management
  */
 
-import { and, count, eq, ilike, ne, notExists, sql, type SQLWrapper } from 'drizzle-orm';
+import { and, count, eq, ilike, sql, type SQLWrapper } from 'drizzle-orm';
 
 import type { GroupSearchParamsWithFilters } from '@/config/validation-schema';
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import * as schema from '@/db/schema';
-import { groupProfiles } from '@/db/schema/genealogy';
+import { groupProfiles, statements } from '@/db/schema/genealogy';
 import { db } from '@/db';
 import type { Group } from '@/types/model';
 import { applyUserPrivacyFilter } from '@/utils';
@@ -211,31 +211,47 @@ export async function fetchGroup(groupId: string): Promise<Group | undefined> {
 }
 
 /**
- * Checks if a user is a regular member of a group (not leader or admin).
+ * Checks if a user is a member of a group via genealogy relationship.
+ * Membership is defined by a `member_of` statement from user's person profile to the group's profile.
  *
- * @param groupId - ID of the group
+ * @param groupId - ID of the public.groups entry
  * @param userId - ID of the user
- * @returns True if user is a regular member (not leader/admin)
+ * @returns True if user has a member_of relationship to the group
  */
 export async function isGroupMember(groupId: string, userId: string): Promise<boolean> {
-  const result = await db
-    .select()
+  // Get user's genealogy profileId and group's genealogy profileId
+  const user = await db
+    .select({ profileId: schema.users.profileId })
     .from(schema.users)
-    .fullJoin(schema.groups, eq(schema.groups.id, groupId))
+    .where(eq(schema.users.id, userId))
+    .limit(1);
+
+  const group = await db
+    .select({ profileId: schema.groups.profileId })
+    .from(schema.groups)
+    .where(eq(schema.groups.id, groupId))
+    .limit(1);
+
+  if (!user[0]?.profileId || !group[0]?.profileId) {
+    return false;
+  }
+
+  // Check for member_of statement
+  const membership = await db
+    .select({ id: statements.id })
+    .from(statements)
     .where(
       and(
-        eq(schema.users.id, userId),
-        eq(schema.users.groupId, groupId),
-        ne(schema.groups.leader, userId),
-        notExists(
-          db
-            .select()
-            .from(schema.groupAdmins)
-            .where(and(eq(schema.groupAdmins.userId, userId), eq(schema.groupAdmins.groupId, groupId)))
-        )
+        eq(statements.subjectType, 'person'),
+        eq(statements.subjectId, user[0].profileId),
+        eq(statements.predicate, 'member_of'),
+        eq(statements.objectType, 'group'),
+        eq(statements.objectId, group[0].profileId)
       )
-    );
-  return !!result.length;
+    )
+    .limit(1);
+
+  return membership.length > 0;
 }
 
 /**
@@ -285,16 +301,59 @@ export async function canUserManageGroup(groupId: string, userId: string): Promi
 }
 
 /**
- * Fetches all members of a group.
+ * Fetches all members of a group via genealogy relationships.
+ * Members are users whose person profile has a `member_of` statement to the group's profile.
  *
- * @param groupId - ID of the group
- * @returns List of users in the group
+ * @param groupId - ID of the public.groups entry
+ * @returns List of users who are members of the group
  */
 export async function fetchGroupMembers(groupId: string): Promise<schema.SelectUser[]> {
-  return await db
-    .select()
-    .from(schema.users)
-    .where(and(eq(schema.users.groupId, groupId)));
+  // Get group's genealogy profileId
+  const group = await db
+    .select({ profileId: schema.groups.profileId })
+    .from(schema.groups)
+    .where(eq(schema.groups.id, groupId))
+    .limit(1);
+
+  if (!group[0]?.profileId) {
+    return [];
+  }
+
+  // Find all person profiles with member_of relationship to this group profile
+  // Then join to users who have claimed those person profiles
+  const members = await db
+    .select({
+      id: schema.users.id,
+      createdAt: schema.users.createdAt,
+      updatedAt: schema.users.updatedAt,
+      name: schema.users.name,
+      nickname: schema.users.nickname,
+      title: schema.users.title,
+      avatar: schema.users.avatar,
+      email: schema.users.email,
+      phone: schema.users.phone,
+      walletAddress: schema.users.walletAddress,
+      passwordHash: schema.users.passwordHash,
+      emailVerifiedAt: schema.users.emailVerifiedAt,
+      accountStatus: schema.users.accountStatus,
+      isGlobalAdmin: schema.users.isGlobalAdmin,
+      links: schema.users.links,
+      hideEmail: schema.users.hideEmail,
+      invitedBy: schema.users.invitedBy,
+      profileId: schema.users.profileId,
+    })
+    .from(statements)
+    .innerJoin(schema.users, eq(schema.users.profileId, statements.subjectId))
+    .where(
+      and(
+        eq(statements.subjectType, 'person'),
+        eq(statements.predicate, 'member_of'),
+        eq(statements.objectType, 'group'),
+        eq(statements.objectId, group[0].profileId)
+      )
+    );
+
+  return members;
 }
 
 /**
@@ -344,12 +403,47 @@ export async function deleteGroup(groupId: string) {
 }
 
 /**
- * Removes a user from their group by setting groupId to null.
+ * Removes a user's membership from a group by deleting the genealogy statement.
+ * Membership is tracked via genealogy statements with predicate 'member_of'.
  *
+ * @param groupId - ID of the group (public.groups)
  * @param memberId - ID of the user to remove from group
+ * @returns true if membership was removed, false if no membership found
  */
-export async function removeGroupMember(memberId: string) {
-  await db.update(schema.users).set({ groupId: null }).where(eq(schema.users.id, memberId));
+export async function removeGroupMember(groupId: string, memberId: string): Promise<boolean> {
+  // Get user's profileId
+  const user = await db
+    .select({ profileId: schema.users.profileId })
+    .from(schema.users)
+    .where(eq(schema.users.id, memberId))
+    .limit(1);
+
+  if (!user[0]?.profileId) return false;
+
+  // Get group's profileId
+  const group = await db
+    .select({ profileId: schema.groups.profileId })
+    .from(schema.groups)
+    .where(eq(schema.groups.id, groupId))
+    .limit(1);
+
+  if (!group[0]?.profileId) return false;
+
+  // Delete the member_of statement
+  const result = await db
+    .delete(statements)
+    .where(
+      and(
+        eq(statements.subjectType, 'person'),
+        eq(statements.subjectId, user[0].profileId),
+        eq(statements.predicate, 'member_of'),
+        eq(statements.objectType, 'group'),
+        eq(statements.objectId, group[0].profileId)
+      )
+    )
+    .returning({ id: statements.id });
+
+  return result.length > 0;
 }
 
 /**
@@ -414,4 +508,95 @@ export async function canUserManageGenealogyGroupProfile(profileId: string, user
   if (!groupId) return false;
 
   return canUserManageGroup(groupId, userId);
+}
+
+/**
+ * Fetches all groups where a user is an admin.
+ * Used to display "Groups I Manage" section on user profile.
+ *
+ * @param userId - ID of the user
+ * @returns List of groups where user is admin
+ */
+export async function fetchGroupsWhereUserIsAdmin(userId: string): Promise<Group[]> {
+  const results = await db
+    .select({
+      id: schema.groups.id,
+      createdAt: schema.groups.createdAt,
+      // Identity fields from genealogy (source of truth)
+      name: groupProfiles.name,
+      description: groupProfiles.descriptionEn,
+      style: groupProfiles.style,
+      logo: groupProfiles.logo,
+      // Operational fields from public.groups
+      links: schema.groups.links,
+      email: schema.groups.email,
+      banner: schema.groups.banner,
+      leader: schema.groups.leader,
+      founder: schema.groups.founder,
+      createdBy: schema.groups.createdBy,
+      claimedBy: schema.groups.claimedBy,
+      claimedAt: schema.groups.claimedAt,
+      profileId: schema.groups.profileId,
+    })
+    .from(schema.groupAdmins)
+    .innerJoin(schema.groups, eq(schema.groupAdmins.groupId, schema.groups.id))
+    .innerJoin(groupProfiles, eq(schema.groups.profileId, groupProfiles.id))
+    .where(eq(schema.groupAdmins.userId, userId));
+
+  return results as Group[];
+}
+
+/**
+ * Fetches all groups where a user is a member via genealogy statements.
+ * Membership is defined by a `member_of` statement from user's person profile to the group's profile.
+ *
+ * @param userId - ID of the user
+ * @returns List of groups where user has member_of relationship
+ */
+export async function fetchGroupMembershipsForUser(userId: string): Promise<Group[]> {
+  // Get user's genealogy profileId
+  const user = await db
+    .select({ profileId: schema.users.profileId })
+    .from(schema.users)
+    .where(eq(schema.users.id, userId))
+    .limit(1);
+
+  if (!user[0]?.profileId) {
+    return [];
+  }
+
+  // Find all groups the user's person profile is a member_of
+  const results = await db
+    .select({
+      id: schema.groups.id,
+      createdAt: schema.groups.createdAt,
+      // Identity fields from genealogy (source of truth)
+      name: groupProfiles.name,
+      description: groupProfiles.descriptionEn,
+      style: groupProfiles.style,
+      logo: groupProfiles.logo,
+      // Operational fields from public.groups
+      links: schema.groups.links,
+      email: schema.groups.email,
+      banner: schema.groups.banner,
+      leader: schema.groups.leader,
+      founder: schema.groups.founder,
+      createdBy: schema.groups.createdBy,
+      claimedBy: schema.groups.claimedBy,
+      claimedAt: schema.groups.claimedAt,
+      profileId: schema.groups.profileId,
+    })
+    .from(statements)
+    .innerJoin(groupProfiles, eq(statements.objectId, groupProfiles.id))
+    .innerJoin(schema.groups, eq(schema.groups.profileId, groupProfiles.id))
+    .where(
+      and(
+        eq(statements.subjectType, 'person'),
+        eq(statements.subjectId, user[0].profileId),
+        eq(statements.predicate, 'member_of'),
+        eq(statements.objectType, 'group')
+      )
+    );
+
+  return results as Group[];
 }

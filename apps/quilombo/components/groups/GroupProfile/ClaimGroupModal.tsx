@@ -10,9 +10,11 @@ import { group } from '@/query';
 
 type Props = {
   isOpen: boolean;
-  onOpenChange: () => void;
+  onOpenChange: (open: boolean) => void;
   /** ID of the genealogy group profile to claim */
   profileId: string | undefined;
+  /** Callback after successful claim submission */
+  onSuccess?: () => void;
 };
 
 /**
@@ -20,7 +22,7 @@ type Props = {
  * Used when a user wants to become admin of a group that exists in genealogy
  * but has not yet been claimed (no corresponding public.groups entry).
  */
-const ClaimGroupModal = ({ isOpen, onOpenChange, profileId }: Props) => {
+const ClaimGroupModal = ({ isOpen, onOpenChange, profileId, onSuccess }: Props) => {
   const claimGroupMutation = group.useClaimGenealogyGroupMutation();
 
   const handleSubmit = async (values: ClaimGroupForm) => {
@@ -29,7 +31,8 @@ const ClaimGroupModal = ({ isOpen, onOpenChange, profileId }: Props) => {
     try {
       await claimGroupMutation.mutateAsync({ profileId, data: values });
       enqueueSnackbar("Claim submitted! We'll review and email you.", { variant: 'success' });
-      onOpenChange();
+      onOpenChange(false);
+      onSuccess?.();
     } catch (error) {
       console.error('Error submitting claim:', error);
       enqueueSnackbar((error as Error).message || 'An error occurred while submitting your claim', {

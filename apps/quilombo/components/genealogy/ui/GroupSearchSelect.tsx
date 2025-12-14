@@ -1,8 +1,8 @@
 'use client';
 
-import { Avatar, Input, Spinner } from '@heroui/react';
+import { Avatar, Chip, Input, Spinner } from '@heroui/react';
 import { debounce } from 'lodash';
-import { Search, X } from 'lucide-react';
+import { CheckCircle, Search, X } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 
 import { useSearchGroups } from '@/query/genealogyProfile';
@@ -26,6 +26,8 @@ type GroupSearchSelectProps = {
   label?: string;
   /** Placeholder text */
   placeholder?: string;
+  /** Group profile IDs that the user is already a member of (disabled in results) */
+  memberOfGroupIds?: string[];
 };
 
 /**
@@ -38,6 +40,7 @@ const GroupSearchSelect = ({
   selectedId,
   label = 'Search Group',
   placeholder = 'Type to search by group name...',
+  memberOfGroupIds = [],
 }: GroupSearchSelectProps) => {
   const [inputValue, setInputValue] = useState('');
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
@@ -60,6 +63,7 @@ const GroupSearchSelect = ({
 
   const { data: searchResults, isFetching } = useSearchGroups(debouncedSearchTerm, {
     enabled: debouncedSearchTerm.length > 2,
+    activeOnly: true, // Only show active groups (exclude historical/dissolved)
   });
 
   const handleSelect = (group: GroupSearchResult) => {
@@ -114,22 +118,31 @@ const GroupSearchSelect = ({
           {/* Search results */}
           {debouncedSearchTerm.length > 2 && searchResults && searchResults.length > 0 && (
             <div className="max-h-64 overflow-y-auto border border-default-200 rounded-lg divide-y divide-default-100">
-              {searchResults.map((group) => (
-                <button
-                  key={group.id}
-                  type="button"
-                  className={`w-full text-left p-3 hover:bg-default-100 transition-colors flex items-center gap-3 ${
-                    selectedId === group.id ? 'bg-primary-50' : ''
-                  }`}
-                  onClick={() => handleSelect(group)}
-                >
-                  <Avatar src={group.logo || undefined} name={group.name} size="sm" className="flex-shrink-0" />
-                  <div className="flex-grow min-w-0">
-                    <p className="text-sm font-medium truncate">{group.name}</p>
-                    {group.style && <p className="text-xs text-default-400 truncate capitalize">{group.style}</p>}
-                  </div>
-                </button>
-              ))}
+              {searchResults.map((group) => {
+                const isAlreadyMember = memberOfGroupIds.includes(group.id);
+                return (
+                  <button
+                    key={group.id}
+                    type="button"
+                    disabled={isAlreadyMember}
+                    className={`w-full text-left p-3 transition-colors flex items-center gap-3 ${
+                      isAlreadyMember ? 'bg-default-50 cursor-not-allowed opacity-70' : 'hover:bg-default-100'
+                    } ${selectedId === group.id ? 'bg-primary-50' : ''}`}
+                    onClick={() => !isAlreadyMember && handleSelect(group)}
+                  >
+                    <Avatar src={group.logo || undefined} name={group.name} size="sm" className="flex-shrink-0" />
+                    <div className="flex-grow min-w-0">
+                      <p className="text-sm font-medium truncate">{group.name}</p>
+                      {group.style && <p className="text-xs text-default-400 truncate capitalize">{group.style}</p>}
+                    </div>
+                    {isAlreadyMember && (
+                      <Chip size="sm" color="success" variant="flat" startContent={<CheckCircle className="h-3 w-3" />}>
+                        Member
+                      </Chip>
+                    )}
+                  </button>
+                );
+              })}
             </div>
           )}
 

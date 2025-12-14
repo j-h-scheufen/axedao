@@ -317,6 +317,29 @@ export const useUpdateBannerMutation: UseFileUploadMutation = () => {
   });
 };
 
+// GROUP ADMIN CLAIMABILITY CHECK
+
+const checkGroupAdminClaimable = async (groupId: string): Promise<boolean> =>
+  axios.get(`/api/genealogy/groups/${groupId}/claimable`).then((response) => response.data.isClaimable);
+
+export const fetchGroupAdminClaimableOptions = (groupId: string | null) => ({
+  queryKey: QUERY_KEYS.group.isClaimable(groupId ?? ''),
+  queryFn: async () => checkGroupAdminClaimable(groupId ?? ''),
+  staleTime: QueryConfig.staleTimeDefault,
+  enabled: !!groupId,
+});
+
+/**
+ * Hook to check if a genealogy group profile can be admin-claimed.
+ * A group is admin-claimable if there's no corresponding entry in public.groups
+ * (i.e., no one has claimed admin rights yet).
+ *
+ * Note: This is different from whether a group is "active" (isActive field).
+ * Historical groups may still be admin-claimable even if they're no longer operating.
+ */
+export const useGroupClaimable = (groupId: string | null) =>
+  useQuery(queryOptions(fetchGroupAdminClaimableOptions(groupId)));
+
 // GROUP VERIFICATION AND CLAIMING
 
 type ClaimResponse = { claimId: string; message: string };

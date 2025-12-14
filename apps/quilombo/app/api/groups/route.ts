@@ -4,14 +4,14 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { type CreateNewGroupForm, createNewGroupFormSchema } from '@/config/validation-schema';
-import { addGroupAdmin, fetchUser, insertGroup, updateUser } from '@/db';
+import { addGroupAdmin, fetchUser, insertGroup } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import { sendGroupRegisteredEmail } from '@/utils/email';
 
 /**
  * Creates a new group and assigns the logged-in user as the admin of the group.
- * The user must not be a member of any other group.
  * Sets createdBy field. Leaves claimedBy/claimedAt NULL (claiming is only for imported groups).
+ * Note: Group membership is handled via genealogy statements, not users.groupId.
  * @param request - CreateNewGroupForm
  * @returns
  */
@@ -23,18 +23,6 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const user = await fetchUser(session.user.id);
-    if (!user) {
-      throw new Error('No entry for logged-in user in DB. This should not be possible.');
-    }
-
-    if (user.groupId) {
-      return NextResponse.json(
-        { error: 'You cannot create a new group while being a member of an existing group' },
-        { status: 403 }
-      );
-    }
-
     const body = await request.json();
     const isValid = await createNewGroupFormSchema.validate(body);
     if (!isValid) {
@@ -50,11 +38,11 @@ export async function POST(request: NextRequest) {
     });
     if (!group) throw Error('Unable to create the group');
 
-    await updateUser({ id: session.user.id, groupId: newGroupId });
     await addGroupAdmin({ groupId: group.id, userId: session.user.id });
 
     // Send welcome email (don't block on email failure)
-    if (user.email) {
+    const user = await fetchUser(session.user.id);
+    if (user?.email) {
       sendGroupRegisteredEmail(user.email, group.name, group.id, user.name || 'Member').catch((emailError) => {
         console.error('Failed to send group registration email:', emailError);
       });

@@ -7,7 +7,7 @@ import {
   createGenealogyGroupClaim,
   createNewGroupClaim,
   getUserGroupClaims,
-  isGenealogyGroupClaimable,
+  isGroupAdminClaimable,
   hasPendingGenealogyGroupClaim,
 } from '@/db';
 import { generateErrorMessage } from '@/utils';
@@ -202,8 +202,8 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ error: error.errors?.[0] || 'Validation failed' }, { status: 400 });
       }
 
-      // Check if group is claimable
-      const isClaimable = await isGenealogyGroupClaimable(profileId);
+      // Check if group is admin-claimable
+      const isClaimable = await isGroupAdminClaimable(profileId);
       if (!isClaimable) {
         return NextResponse.json({ error: 'This group has already been claimed' }, { status: 409 });
       }

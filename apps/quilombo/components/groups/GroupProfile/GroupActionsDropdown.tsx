@@ -1,47 +1,42 @@
 'use client';
 
 import { useDisclosure } from '@heroui/react';
-import { CircleCheckIcon, SettingsIcon, LogOutIcon } from 'lucide-react';
+import { CircleCheckIcon, SettingsIcon } from 'lucide-react';
 import { usePathname } from 'next/navigation';
-import { useCallback } from 'react';
 import { useAtomValue } from 'jotai';
 
-import { groupIdAtom, groupAtom, isCurrentUserGroupAdminAtom, isCurrentUserGroupMemberAtom } from '@/hooks/state/group';
+import { groupIdAtom, groupAtom, isCurrentUserGroupAdminAtom } from '@/hooks/state/group';
 import { currentUserIsGlobalAdminAtom } from '@/hooks/state/currentUser';
-import { useLeaveGroup } from '@/hooks/useCurrentUser';
 import { ActionsDropdown, type ActionItem } from '@/components/ui';
-import LeaveGroupConfirmationModal from './LeaveGroupConfirmationModal';
 import VerifyGroupModal from './VerifyGroupModal';
 
+/**
+ * Actions dropdown for group profile page.
+ *
+ * Note: Leave group functionality has been removed.
+ * Group membership is now managed via genealogy statements (member_of predicate).
+ * Users manage their membership through their genealogy profile.
+ */
 const GroupActionsDropdown = () => {
   const groupId = useAtomValue(groupIdAtom);
   const { data: group } = useAtomValue(groupAtom);
   const isGroupAdmin = useAtomValue(isCurrentUserGroupAdminAtom);
-  const isGroupMember = useAtomValue(isCurrentUserGroupMemberAtom);
   const isGlobalAdmin = useAtomValue(currentUserIsGlobalAdminAtom);
   const pathname = usePathname();
-  const { leaveGroup, isPending } = useLeaveGroup();
 
-  const { isOpen: isLeaveModalOpen, onOpen: onLeaveModalOpen, onOpenChange: onLeaveModalOpenChange } = useDisclosure();
   const {
     isOpen: isVerifyModalOpen,
     onOpen: onVerifyModalOpen,
     onOpenChange: onVerifyModalOpenChange,
   } = useDisclosure();
 
-  const handleGroupExit = useCallback(async () => {
-    if (!groupId) return;
-    await leaveGroup(groupId);
-  }, [leaveGroup, groupId]);
-
   // Show loading state only if group data is not loaded yet
-  // Treat null admin/member status as false (happens when no user is logged in or for imported groups)
+  // Treat null admin status as false (happens when no user is logged in or for imported groups)
   const isLoading = !group;
 
   const isUnmanaged = group?.adminCount === 0;
   const canEditAsGlobalAdmin = isGlobalAdmin && isUnmanaged;
   const canEdit = isGroupAdmin || canEditAsGlobalAdmin;
-  const canLeave = isGroupMember && !isGroupAdmin;
 
   const items: ActionItem[] = [
     {
@@ -57,27 +52,11 @@ const GroupActionsDropdown = () => {
       href: `${pathname}/edit`,
       hidden: !canEdit,
     },
-    {
-      key: 'leave',
-      label: 'Leave Group',
-      icon: <LogOutIcon className="h-4 w-4" />,
-      color: 'danger',
-      onAction: onLeaveModalOpen,
-      hidden: !canLeave,
-    },
   ];
 
   return (
     <>
       <ActionsDropdown items={items} isLoading={isLoading} ariaLabel="Group actions" />
-
-      <LeaveGroupConfirmationModal
-        isOpen={isLeaveModalOpen}
-        onOpenChange={onLeaveModalOpenChange}
-        onDelete={handleGroupExit}
-        isDeleting={isPending}
-      />
-
       <VerifyGroupModal isOpen={isVerifyModalOpen} onOpenChange={onVerifyModalOpenChange} groupId={groupId} />
     </>
   );

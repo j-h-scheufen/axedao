@@ -117,6 +117,10 @@ import { applyRateLimit, createRateLimitHeaders } from '@/utils/rate-limit';
 /**
  * GET - Lightweight type-ahead search (for dropdowns/autocomplete)
  * Returns simplified results: id, name, style, logo, isActive
+ *
+ * Query params:
+ * - q: search term (required, min 3 chars)
+ * - activeOnly: if "true", only returns active groups (default: false)
  */
 export async function GET(request: NextRequest) {
   const RATE_LIMIT_MAX = 60;
@@ -129,6 +133,7 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const searchTerm = searchParams.get('q');
+    const activeOnly = searchParams.get('activeOnly') === 'true';
 
     if (!searchTerm || searchTerm.length < 3) {
       return NextResponse.json({ error: 'Search term must be at least 3 characters' }, { status: 400 });
@@ -138,6 +143,7 @@ export async function GET(request: NextRequest) {
       offset: 0,
       pageSize: 10, // Limit for type-ahead
       searchTerm,
+      isActive: activeOnly ? true : undefined,
     });
 
     // Return simplified results for type-ahead

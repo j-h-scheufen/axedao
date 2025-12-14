@@ -63,26 +63,16 @@ export async function searchUsers(
   const rawResults = await db
     .select({
       record: schema.users,
-      groupName: schema.groups.name,
       count: sql<number>`count(*) over()`,
     })
     .from(schema.users)
-    .leftJoin(schema.groups, eq(schema.users.groupId, schema.groups.id))
     .where(whereClause)
     .limit(pageSize)
     .offset(offset);
 
-  const mappedResult = {
-    records: rawResults.map((result) => ({
-      ...result.record,
-      groupName: result.groupName ?? undefined,
-    })),
-    count: rawResults.length > 0 ? Number(rawResults[0].count) : 0,
-  };
-
   return {
-    rows: mappedResult.records,
-    totalCount: mappedResult.count,
+    rows: rawResults.map((result) => result.record),
+    totalCount: rawResults.length > 0 ? Number(rawResults[0].count) : 0,
   };
 }
 

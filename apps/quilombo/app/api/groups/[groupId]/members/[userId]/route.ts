@@ -35,7 +35,13 @@ export async function DELETE(_: NextRequest, { params }: RouteParamsGroupAndUser
   }
 
   try {
-    await removeGroupMember(memberId);
+    const removed = await removeGroupMember(groupId, memberId);
+    if (!removed) {
+      return NextResponse.json(
+        { error: 'Could not remove membership - user or group profile not found' },
+        { status: 400 }
+      );
+    }
     const groupMembers: User[] = await fetchPublicGroupMembers(groupId);
     return NextResponse.json(groupMembers);
   } catch (error) {

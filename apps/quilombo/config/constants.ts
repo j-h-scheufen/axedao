@@ -111,6 +111,9 @@ export const invitationStatuses = ['pending', 'accepted', 'expired'] as const;
 // Group claim statuses
 export const groupClaimStatuses = ['pending', 'approved', 'rejected'] as const;
 
+// Group claim types (genealogy_group = claiming existing genealogy profile, new_group = registering new group)
+export const groupClaimTypes = ['genealogy_group', 'new_group'] as const;
+
 // ============================================================================
 // GENEALOGY SCHEMA CONSTANTS
 // ============================================================================

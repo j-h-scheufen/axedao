@@ -60,7 +60,6 @@ export const users = pgTable(
     title: titleEnum('title'),
     avatar: varchar('avatar'),
     email: text('email'),
-    groupId: uuid('group_id').references((): AnyPgColumn => groups.id, { onDelete: 'set null' }),
     phone: varchar('phone'),
     walletAddress: varchar('wallet_address'),
     passwordHash: text('password_hash'),
@@ -79,7 +78,6 @@ export const users = pgTable(
   (t) => [
     index('nickname_idx').on(t.nickname),
     index('title_idx').on(t.title),
-    index('group_idx').on(t.groupId),
     uniqueIndex('email_idx').on(t.email),
     // Note: walletAddress is NOT unique - same wallet can be linked to multiple accounts
     // Wallet connection doesn't prove ownership, only SIWE signature does
@@ -276,11 +274,7 @@ export const personClaims = pgTable(
   ]
 );
 
-export const userGroupRelations = relations(users, ({ one }) => ({
-  group: one(groups, {
-    fields: [users.groupId],
-    references: [groups.id],
-  }),
+export const userProfileRelations = relations(users, ({ one }) => ({
   // Relation to genealogy person profile
   personProfile: one(personProfiles, {
     fields: [users.profileId],

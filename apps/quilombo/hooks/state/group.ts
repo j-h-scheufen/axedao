@@ -10,7 +10,7 @@ import {
 } from '@/query/group';
 import type { Group, GroupLocation, User } from '@/types/model';
 import { getImageUrl, isUUID } from '@/utils';
-import { currentUserGroupIdAtom, currentUserIdAtom } from './currentUser';
+import { currentUserIdAtom } from './currentUser';
 
 // This atom is special because it's used to trigger the loading of a group profile
 export const triggerGroupIdAtom = atom<string | undefined>();
@@ -67,17 +67,9 @@ export const isCurrentUserGroupAdminAtom = atom<boolean | null>((get) => {
   return groupAdminIds.data?.includes(currentUserId) ?? false;
 });
 
-export const isCurrentUserGroupMemberAtom = atom<boolean | null>((get) => {
-  const group = get(groupAtom);
-  const currentUserGroupId = get(currentUserGroupIdAtom);
-
-  // Return null if still loading or if currentUserGroupId is not available
-  if (group.isLoading || group.isError || !currentUserGroupId) {
-    return null;
-  }
-
-  return group.data?.id === currentUserGroupId;
-});
+// Note: isCurrentUserGroupMemberAtom has been removed.
+// Group membership is now tracked via genealogy statements (member_of predicate).
+// To check if user is a member, query the genealogy statements API.
 
 // Legacy atoms for backward compatibility (deprecated - use the ones above)
 export const isCurrentUserGroupAdminAtomLegacy = atom<boolean>(

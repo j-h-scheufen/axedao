@@ -158,7 +158,7 @@ describe('Group Members API Routes', () => {
       mockDb = {
         isGroupAdmin: vi.fn().mockResolvedValue(true),
         isGroupMember: vi.fn().mockResolvedValue(true),
-        removeGroupMember: vi.fn().mockResolvedValue(undefined),
+        removeGroupMember: vi.fn().mockResolvedValue(true), // Returns boolean indicating success
         fetchPublicGroupMembers: vi.fn().mockResolvedValue([mockMembers[1]]), // After removal
       };
 
@@ -272,7 +272,7 @@ describe('Group Members API Routes', () => {
         expect(response.status).toBe(200);
         expect(mockDb.isGroupAdmin).toHaveBeenCalledWith(testGroupId, testUserId);
         expect(mockDb.isGroupMember).toHaveBeenCalledWith(testGroupId, testMemberId);
-        expect(mockDb.removeGroupMember).toHaveBeenCalledWith(testMemberId);
+        expect(mockDb.removeGroupMember).toHaveBeenCalledWith(testGroupId, testMemberId);
         expect(mockDb.fetchPublicGroupMembers).toHaveBeenCalledWith(testGroupId);
         expect(body).toEqual([mockMembers[1]]);
         expect(body).toHaveLength(1);
@@ -296,6 +296,24 @@ describe('Group Members API Routes', () => {
     });
 
     describe('Error Handling', () => {
+      it('should return 400 when removeGroupMember returns false (profile not found)', async () => {
+        mockDb.removeGroupMember.mockResolvedValue(false);
+
+        const request = new Request(`http://localhost/api/groups/${testGroupId}/members/${testMemberId}`, {
+          method: 'DELETE',
+        });
+
+        const response = await DELETE(request, {
+          params: Promise.resolve({ groupId: testGroupId, userId: testMemberId }),
+        });
+        const body = await getResponseJson(response);
+
+        expect(response.status).toBe(400);
+        expect(body).toEqual({
+          error: 'Could not remove membership - user or group profile not found',
+        });
+      });
+
       it('should return 500 when removeGroupMember throws error', async () => {
         mockDb.removeGroupMember.mockRejectedValue(new Error('Database error'));
 

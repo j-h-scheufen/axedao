@@ -2,7 +2,11 @@
  * API Route Tests: POST /api/groups
  *
  * Tests the create group endpoint with mocked authentication and database.
- * Verifies authorization, user group membership validation, and multi-step creation workflow.
+ * Verifies authorization and multi-step creation workflow.
+ *
+ * Note: Group membership is now handled via genealogy statements (member_of predicate),
+ * not via users.groupId. Creating a group makes the user an admin but does NOT
+ * automatically set membership.
  */
 
 import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
@@ -21,7 +25,6 @@ describe('POST /api/groups', () => {
   let getServerSession: ReturnType<typeof vi.fn>;
   let fetchUser: ReturnType<typeof vi.fn>;
   let insertGroup: ReturnType<typeof vi.fn>;
-  let updateUser: ReturnType<typeof vi.fn>;
   let addGroupAdmin: ReturnType<typeof vi.fn>;
   let sendGroupRegisteredEmail: ReturnType<typeof vi.fn>;
 
@@ -44,7 +47,6 @@ describe('POST /api/groups', () => {
     getServerSession = vi.fn();
     fetchUser = vi.fn();
     insertGroup = vi.fn();
-    updateUser = vi.fn();
     addGroupAdmin = vi.fn();
     sendGroupRegisteredEmail = vi.fn();
 
@@ -52,7 +54,6 @@ describe('POST /api/groups', () => {
     (nextAuth.getServerSession as typeof getServerSession) = getServerSession;
     (db.fetchUser as typeof fetchUser) = fetchUser;
     (db.insertGroup as typeof insertGroup) = insertGroup;
-    (db.updateUser as typeof updateUser) = updateUser;
     (db.addGroupAdmin as typeof addGroupAdmin) = addGroupAdmin;
     (emailUtils.sendGroupRegisteredEmail as typeof sendGroupRegisteredEmail) = sendGroupRegisteredEmail;
 
@@ -110,54 +111,13 @@ describe('POST /api/groups', () => {
       });
     });
 
-    it('should throw error when user does not exist in database', async () => {
-      fetchUser.mockResolvedValue(null); // User not found
-
-      const request = createMockRequest('http://localhost/api/groups', {
-        method: 'POST',
-        body: validGroupData,
-      });
-
-      const response = await POST(request);
-      const body = await getResponseJson(response);
-
-      expect(response.status).toBe(500);
-      expect(body).toHaveProperty('error', true);
-      expect(body).toHaveProperty('message');
-      expect((body as { message: string }).message).toContain('logged-in user');
-      expect(fetchUser).toHaveBeenCalledWith(testUserId);
-    });
-
-    it('should return 403 when user is already member of a group', async () => {
+    it('should send welcome email when user has email', async () => {
       fetchUser.mockResolvedValue({
         id: testUserId,
         email: 'user@example.com',
-        groupId: 'existing-group-123', // User already in a group
-      });
-
-      const request = createMockRequest('http://localhost/api/groups', {
-        method: 'POST',
-        body: validGroupData,
-      });
-
-      const response = await POST(request);
-      const body = await getResponseJson(response);
-
-      expect(response.status).toBe(403);
-      expect(body).toEqual({
-        error: 'You cannot create a new group while being a member of an existing group',
-      });
-      expect(insertGroup).not.toHaveBeenCalled();
-    });
-
-    it('should proceed when user exists and is not in a group', async () => {
-      fetchUser.mockResolvedValue({
-        id: testUserId,
-        email: 'user@example.com',
-        groupId: null, // Not in any group
+        name: 'Test User',
       });
       insertGroup.mockResolvedValue({ id: testGroupId, ...validGroupData, createdBy: testUserId });
-      updateUser.mockResolvedValue(undefined);
       addGroupAdmin.mockResolvedValue(undefined);
 
       const request = createMockRequest('http://localhost/api/groups', {
@@ -169,6 +129,27 @@ describe('POST /api/groups', () => {
 
       expect(response.status).toBe(200);
       expect(fetchUser).toHaveBeenCalledWith(testUserId);
+      expect(sendGroupRegisteredEmail).toHaveBeenCalled();
+    });
+
+    it('should proceed without welcome email when user has no email', async () => {
+      fetchUser.mockResolvedValue({
+        id: testUserId,
+        email: null,
+        name: 'Test User',
+      });
+      insertGroup.mockResolvedValue({ id: testGroupId, ...validGroupData, createdBy: testUserId });
+      addGroupAdmin.mockResolvedValue(undefined);
+
+      const request = createMockRequest('http://localhost/api/groups', {
+        method: 'POST',
+        body: validGroupData,
+      });
+
+      const response = await POST(request);
+
+      expect(response.status).toBe(200);
+      expect(sendGroupRegisteredEmail).not.toHaveBeenCalled();
     });
   });
 
@@ -181,7 +162,6 @@ describe('POST /api/groups', () => {
       fetchUser.mockResolvedValue({
         id: testUserId,
         email: 'user@example.com',
-        groupId: null,
       });
     });
 
@@ -202,7 +182,6 @@ describe('POST /api/groups', () => {
 
     it('should accept valid group data with name only', async () => {
       insertGroup.mockResolvedValue({ id: testGroupId, name: 'Test Group', createdBy: testUserId });
-      updateUser.mockResolvedValue(undefined);
       addGroupAdmin.mockResolvedValue(undefined);
 
       const request = createMockRequest('http://localhost/api/groups', {
@@ -221,7 +200,6 @@ describe('POST /api/groups', () => {
         ...validGroupData,
         createdBy: testUserId,
       });
-      updateUser.mockResolvedValue(undefined);
       addGroupAdmin.mockResolvedValue(undefined);
 
       const request = createMockRequest('http://localhost/api/groups', {
@@ -245,7 +223,6 @@ describe('POST /api/groups', () => {
         id: testUserId,
         email: 'user@example.com',
         name: 'Test User',
-        groupId: null,
       });
     });
 
@@ -257,7 +234,6 @@ describe('POST /api/groups', () => {
       };
 
       insertGroup.mockResolvedValue(createdGroup);
-      updateUser.mockResolvedValue(undefined);
       addGroupAdmin.mockResolvedValue(undefined);
 
       const request = createMockRequest('http://localhost/api/groups', {
@@ -274,21 +250,12 @@ describe('POST /api/groups', () => {
         createdBy: testUserId,
       });
 
-      // Verify updateUser was called to set user's groupId
-      expect(updateUser).toHaveBeenCalledWith({
-        id: testUserId,
-        groupId: testGroupId,
-      });
-
       // Verify addGroupAdmin was called to make user admin
+      // Note: Membership is handled via genealogy statements, not users.groupId
       expect(addGroupAdmin).toHaveBeenCalledWith({
         groupId: testGroupId,
         userId: testUserId,
       });
-
-      // Verify call order
-      expect(insertGroup).toHaveBeenCalledBefore(updateUser);
-      expect(updateUser).toHaveBeenCalledBefore(addGroupAdmin);
     });
 
     it('should return created group data on success', async () => {
@@ -301,7 +268,6 @@ describe('POST /api/groups', () => {
       };
 
       insertGroup.mockResolvedValue(createdGroup);
-      updateUser.mockResolvedValue(undefined);
       addGroupAdmin.mockResolvedValue(undefined);
 
       const request = createMockRequest('http://localhost/api/groups', {
@@ -324,7 +290,6 @@ describe('POST /api/groups', () => {
       };
 
       insertGroup.mockResolvedValue(createdGroup);
-      updateUser.mockResolvedValue(undefined);
       addGroupAdmin.mockResolvedValue(undefined);
 
       const request = createMockRequest('http://localhost/api/groups', {
@@ -350,7 +315,6 @@ describe('POST /api/groups', () => {
       };
 
       insertGroup.mockResolvedValue(createdGroup);
-      updateUser.mockResolvedValue(undefined);
       addGroupAdmin.mockResolvedValue(undefined);
       sendGroupRegisteredEmail.mockRejectedValue(new Error('Email service down'));
 
@@ -384,7 +348,6 @@ describe('POST /api/groups', () => {
       };
 
       insertGroup.mockResolvedValue(createdGroup);
-      updateUser.mockResolvedValue(undefined);
       addGroupAdmin.mockResolvedValue(undefined);
 
       const request = createMockRequest('http://localhost/api/groups', {
@@ -412,7 +375,6 @@ describe('POST /api/groups', () => {
       fetchUser.mockResolvedValue({
         id: testUserId,
         email: 'user@example.com',
-        groupId: null,
       });
     });
 
@@ -450,27 +412,8 @@ describe('POST /api/groups', () => {
       expect((body as { message: string }).message).toBe('Database constraint violation');
     });
 
-    it('should return 500 when updateUser fails', async () => {
-      insertGroup.mockResolvedValue({ id: testGroupId, ...validGroupData, createdBy: testUserId });
-      updateUser.mockRejectedValue(new Error('Failed to update user'));
-
-      const request = createMockRequest('http://localhost/api/groups', {
-        method: 'POST',
-        body: validGroupData,
-      });
-
-      const response = await POST(request);
-      const body = await getResponseJson(response);
-
-      expect(response.status).toBe(500);
-      expect(body).toHaveProperty('error', true);
-      expect(body).toHaveProperty('message');
-      expect((body as { message: string }).message).toBe('Failed to update user');
-    });
-
     it('should return 500 when addGroupAdmin fails', async () => {
       insertGroup.mockResolvedValue({ id: testGroupId, ...validGroupData, createdBy: testUserId });
-      updateUser.mockResolvedValue(undefined);
       addGroupAdmin.mockRejectedValue(new Error('Failed to add admin'));
 
       const request = createMockRequest('http://localhost/api/groups', {

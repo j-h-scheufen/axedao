@@ -112,8 +112,13 @@ const searchPersons = async (searchTerm: string, options?: SearchPersonsOptions)
   return axios.get(`/api/genealogy/persons/search?${params.toString()}`).then((response) => response.data);
 };
 
-const searchGroups = async (searchTerm: string): Promise<GroupSearchResult[]> =>
-  axios.get(`/api/genealogy/groups/search?q=${encodeURIComponent(searchTerm)}`).then((response) => response.data);
+const searchGroups = async (searchTerm: string, options?: { activeOnly?: boolean }): Promise<GroupSearchResult[]> => {
+  const params = new URLSearchParams({ q: searchTerm });
+  if (options?.activeOnly) {
+    params.set('activeOnly', 'true');
+  }
+  return axios.get(`/api/genealogy/groups/search?${params.toString()}`).then((response) => response.data);
+};
 
 // HOOKS
 
@@ -177,9 +182,13 @@ export const useAddRelationship = () => {
 
   return useMutation({
     mutationFn: async (data: AddRelationshipRequest) => addRelationship(data),
-    onSuccess: () => {
+    onSuccess: (_data, variables) => {
       // Invalidate relationships to refetch the list
       queryClient.invalidateQueries({ queryKey: QUERY_KEYS.genealogy.relationships() });
+      // If adding a member_of relationship, also invalidate user groups query
+      if (variables.predicate === 'member_of') {
+        queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.currentUser.getGroups] });
+      }
     },
   });
 };
@@ -208,10 +217,10 @@ export const useSearchPersons = (searchTerm: string, options?: { enabled?: boole
     enabled: options?.enabled ?? searchTerm.length > 2,
   });
 
-export const useSearchGroups = (searchTerm: string, options?: { enabled?: boolean }) =>
+export const useSearchGroups = (searchTerm: string, options?: { enabled?: boolean; activeOnly?: boolean }) =>
   useQuery({
-    queryKey: ['genealogy', 'search', 'groups', searchTerm],
-    queryFn: () => searchGroups(searchTerm),
+    queryKey: ['genealogy', 'search', 'groups', searchTerm, options?.activeOnly ?? false],
+    queryFn: () => searchGroups(searchTerm, { activeOnly: options?.activeOnly }),
     staleTime: QueryConfig.staleTimeDefault,
     enabled: options?.enabled ?? searchTerm.length > 2,
   });

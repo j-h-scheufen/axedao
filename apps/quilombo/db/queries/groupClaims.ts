@@ -91,12 +91,17 @@ export async function createNewGroupClaim(
 // ============================================================================
 
 /**
- * Checks if a genealogy group profile is claimable (not already managed in app).
+ * Checks if a genealogy group profile can be admin-claimed.
+ * A group is admin-claimable if there's no corresponding entry in public.groups
+ * (i.e., no one has claimed admin rights yet).
+ *
+ * Note: This is different from "joinable" - a historical/inactive group
+ * may still be admin-claimable even if users shouldn't declare membership.
  *
  * @param profileId - ID of the genealogy group profile
- * @returns True if group is claimable, false otherwise
+ * @returns True if group can be admin-claimed, false otherwise
  */
-export async function isGenealogyGroupClaimable(profileId: string): Promise<boolean> {
+export async function isGroupAdminClaimable(profileId: string): Promise<boolean> {
   // Check if a public.groups entry exists that references this profile
   const result = await db
     .select({ id: schema.groups.id })
@@ -104,9 +109,14 @@ export async function isGenealogyGroupClaimable(profileId: string): Promise<bool
     .where(eq(schema.groups.profileId, profileId))
     .limit(1);
 
-  // Claimable if no groups entry exists
+  // Admin-claimable if no groups entry exists
   return result.length === 0;
 }
+
+/**
+ * @deprecated Use isGroupAdminClaimable instead. This alias exists for backward compatibility.
+ */
+export const isGenealogyGroupClaimable = isGroupAdminClaimable;
 
 /**
  * Checks if user has a pending claim for a genealogy group profile.
@@ -406,8 +416,8 @@ export async function approveGroupClaim(
   // Add claimant as admin
   await addGroupAdmin({ groupId, userId: claim.userId });
 
-  // Optionally add user to the group
-  await db.update(schema.users).set({ groupId }).where(eq(schema.users.id, claim.userId));
+  // Note: Membership is handled via genealogy statements, not users.groupId
+  // The user can declare membership separately if desired
 
   // Update claim status
   await db

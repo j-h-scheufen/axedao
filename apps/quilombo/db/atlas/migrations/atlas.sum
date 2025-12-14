@@ -1,4 +1,4 @@
-h1:uzY3ButSFRKMGBMr0pugykwISrwfef+XlL4RMRd/qgo=
+h1:WZnaKxFh5/yuhGlPQke0Jaa8vn2ZKt9NrzL3eH//zQ4=
 20251120135529_baseline.sql h1:VdAR2xMYVIk6ANN5k0dR+oe44hwn8qrNABIiVQJFaCU=
 20251120151443_add_group_locations_group_id_index.sql h1:zlRv24jOLdtsv33AfafJmApf3nzxOyx8oOSiyTULUhY=
 20251121171600_users_hide_email_column.sql h1:73VKRXiTJAz5KFhAmPBHdeiD1vXjnB9qK8PgPG5seBs=
@@ -9,3 +9,4 @@ h1:uzY3ButSFRKMGBMr0pugykwISrwfef+XlL4RMRd/qgo=
 20251213115047_genealogy_publiclinks_to_text_array.sql h1:FH/3h3ywP70pG1rttcKIwqbmI2Srt3LW0rurvd6xLok=
 20251213172513_add_person_claims.sql h1:6dtRzmCu20WyD4LYkqosAV38oF1Kd1dHYFtEYRs6RDk=
 20251213221253_group_claims_and_publiclinks.sql h1:sZnxfEeITIdbHj1hTmjFxTJGV8pVsg92Pk18HaDdLIg=
+20251214014802_drop_users_group_id.sql h1:9rbRXCz2NBBYTcucu6qDlDGQ946jpPRmNJ0OMaOD3BI=

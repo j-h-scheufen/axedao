@@ -2,18 +2,37 @@ import { queryOptions, useMutation, useQuery, useQueryClient } from '@tanstack/r
 import axios from '@/utils/axios';
 
 import { QueryConfig } from '@/config/constants';
+import type { GroupClaimStatus, GroupClaimType } from '@/types/model';
 import { QUERY_KEYS } from '.';
 
+/**
+ * Matches the GroupClaimWithDetails type from the API.
+ * genealogy_group claims have profileId and groupProfile,
+ * new_group claims have proposedName.
+ */
 export type GroupClaim = {
   id: string;
-  groupId: string;
-  groupName: string;
+  type: GroupClaimType;
+  profileId: string | null;
+  proposedName: string | null;
+  proposedStyle: string | null;
+  website: string | null;
   userId: string;
-  userName: string;
-  userEmail: string;
+  status: GroupClaimStatus;
   requestedAt: string;
   userMessage: string;
-  status: 'pending' | 'approved' | 'rejected';
+  user: {
+    id: string;
+    name: string | null;
+    nickname: string | null;
+    avatar: string | null;
+  } | null;
+  groupProfile: {
+    id: string;
+    name: string;
+    style: string | null;
+    logo: string | null;
+  } | null;
 };
 
 export type ApproveClaimParams = {
