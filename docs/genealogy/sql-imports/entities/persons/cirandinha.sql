@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Cirandinha',
   NULL,  -- No formal title found
   NULL,  -- No historical portrait found
-  '[{"type": "website", "url": "https://capoeirahistory.com/mestre/master-sinhozinho-1891-1962/"}]'::jsonb,
+  ARRAY['https://capoeirahistory.com/mestre/master-sinhozinho-1891-1962/']::text[],
   -- Capoeira-specific
   NULL,  -- Capoeira carioca was distinct from Angola/Regional
   E'Cirandinha practiced capoeira carioca under Mestre Sinhozinho, a combat-focused style distinct from both Angola and Regional. His training emphasized fighting effectiveness, incorporating Greco-Roman wrestling, judo, and boxing elements. He was also trained by judoka Augusto Cordeiro, Sinhozinho''s combat consultant. His fighting style combined capoeira kicks with wrestling takedowns and ground control.',

@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Luiz Cândido Machado',
   NULL,
   NULL,
-  '[]'::jsonb,
+  ARRAY[]::text[],
   -- Capoeira-specific
   NULL,
   E'Practitioner of batuque, an extinct Afro-Brazilian combat sport of predominantly Angolan origins. Batuque was a wrestling-like game played in Bahia where one player stood in the center in a defensive position while attackers attempted to knock them down using leg sweeps (rasteiras), hip strikes, and techniques such as rapa, baú, banda lisa, and encruzilhada. The game was played to berimbau, tambourine, scraper, and singing. Luiz Cândido was a local champion who taught batuque to his son Mestre Bimba.',

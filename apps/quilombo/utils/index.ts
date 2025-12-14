@@ -3,7 +3,7 @@ import { AxiosError } from 'axios';
 
 import { QueryConfig } from '@/config/constants';
 import ENV from '@/config/environment';
-import type { GroupMemberRole, User } from '@/types/model';
+import type { User } from '@/types/model';
 import type { SelectUser } from '@/db/schema';
 import { CID } from 'multiformats/cid';
 
@@ -39,33 +39,29 @@ export const generateErrorMessage = (error: unknown, defaultMessage: string) => 
 };
 
 /**
- * Returns an array of roles for a user in a group by comparing the user id with the various
- * fields in the group.
- * Note: The 'member' role not returned, because it is implied that the user is a member of the group.
- * @param userId
- * @param founder
- * @param leader
- * @param adminIds
- * @returns
+ * Extracts the first validation error from a Yup validation error.
+ * Used in API routes to return user-friendly validation error messages.
+ *
+ * @param error - The error object (typically from a Yup validate() catch block)
+ * @param fallbackMessage - The default message if no validation error can be extracted
+ * @returns The first validation error message or the fallback message
  */
-export const getGroupMemberRoles = (
-  userId: string,
-  founder?: string | null,
-  leader?: string | null,
-  adminIds?: string[]
-): GroupMemberRole[] => {
-  const roles: GroupMemberRole[] = [];
-  if (userId === founder) {
-    roles.push('founder');
+export const extractValidationError = (error: unknown, fallbackMessage: string): string => {
+  // Check for Yup validation error (has errors array)
+  if (
+    error &&
+    typeof error === 'object' &&
+    'errors' in error &&
+    Array.isArray(error.errors) &&
+    error.errors.length > 0
+  ) {
+    return error.errors[0];
   }
-  if (userId === leader) {
-    roles.push('leader');
+  // Fall back to error message if it's an Error instance
+  if (error instanceof Error) {
+    return error.message;
   }
-  if (adminIds?.includes(userId)) {
-    roles.push('admin');
-  }
-  // roles.push('member');
-  return roles;
+  return fallbackMessage;
 };
 
 export const removeTrailingSlash = (val: string) => (val.endsWith('/') ? val.substring(0, val.length - 1) : val);
@@ -92,6 +88,25 @@ export const getHostname = (url: string): string | undefined => {
     return domain.split('.')[0];
   } catch (_error) {}
   return undefined;
+};
+
+/**
+ * Returns the display name for a genealogy person profile.
+ * Priority order:
+ * 1. Apelido (nickname/capoeira name)
+ * 2. Full name
+ * 3. Fallback value (default: 'Unknown')
+ *
+ * @param person - Object with optional apelido and name properties
+ * @param fallback - The fallback string if no name is available (default: 'Unknown')
+ * @returns The display name for the person
+ */
+export const getPersonDisplayName = (
+  person: { apelido?: string | null; name?: string | null } | null | undefined,
+  fallback = 'Unknown'
+): string => {
+  if (!person) return fallback;
+  return person.apelido || person.name || fallback;
 };
 
 /**

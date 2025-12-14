@@ -149,7 +149,7 @@ export interface PersonFullProfile {
   apelidoContext?: string | null;
   title?: string | null;
   portrait?: string | null;
-  publicLinks?: Array<{ type: string; url: string }> | null;
+  publicLinks?: string[] | null;
   style?: string | null;
   styleNotesEn?: string | null;
   styleNotesPt?: string | null;
@@ -193,7 +193,7 @@ export interface GroupFullProfile {
   styleNotesEn?: string | null;
   styleNotesPt?: string | null;
   logo?: string | null;
-  links?: Array<{ type: string; url: string }> | null;
+  publicLinks?: string[] | null;
   nameAliases?: string[] | null;
   foundedYear?: number | null;
   foundedYearPrecision?: string | null;

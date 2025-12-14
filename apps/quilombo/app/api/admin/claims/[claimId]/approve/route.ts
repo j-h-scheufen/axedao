@@ -2,7 +2,7 @@ import { getServerSession } from 'next-auth';
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { isGlobalAdmin, approveClaim, fetchUser, fetchGroup, getGroupClaim } from '@/db';
+import { isGlobalAdmin, approveGroupClaim, fetchUser, getGroupClaimById } from '@/db';
 import { getEmailProvider } from '@/utils/email';
 import { generateErrorMessage } from '@/utils';
 import { NotFoundError } from '@/utils/errors';
@@ -99,27 +99,33 @@ export async function PUT(_: NextRequest, { params }: RouteParams) {
     const { claimId } = await params;
 
     // Fetch claim details before approving (for email)
-    const claim = await getGroupClaim(claimId);
+    const claim = await getGroupClaimById(claimId);
     if (!claim) {
       return NextResponse.json({ error: 'Claim not found' }, { status: 404 });
     }
 
-    // Fetch user and group details for email
+    // Fetch user details for email
     const user = await fetchUser(claim.userId);
-    const group = await fetchGroup(claim.groupId);
-
-    if (!user || !group) {
-      return NextResponse.json({ error: 'User or group not found' }, { status: 404 });
+    if (!user) {
+      return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
     // Approve the claim (handles all database updates)
-    await approveClaim(claimId, session.user.id);
+    const { groupId } = await approveGroupClaim(claimId, session.user.id);
+
+    // Get group name for email
+    const groupName = claim.type === 'genealogy_group' ? claim.groupProfile?.name : claim.proposedName;
 
     // Send approval email to claimer
     if (user.email) {
       try {
         const emailProvider = getEmailProvider();
-        await emailProvider.sendClaimApprovedEmail(user.email, group.name, group.id, user.name || user.email);
+        await emailProvider.sendClaimApprovedEmail(
+          user.email,
+          groupName || 'Unknown',
+          groupId,
+          user.name || user.email
+        );
       } catch (emailError) {
         console.error('Failed to send approval email:', emailError);
         // Don't fail the request if email fails

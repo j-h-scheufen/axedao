@@ -96,9 +96,7 @@ describe('User Queries', () => {
           email: 'user1@example.com',
           name: 'User One',
           nickname: 'user1',
-          groupId: 'group-1',
         },
-        groupName: 'Test Group',
         count: 2,
       },
       {
@@ -107,9 +105,7 @@ describe('User Queries', () => {
           email: 'user2@example.com',
           name: 'User Two',
           nickname: 'user2',
-          groupId: null,
         },
-        groupName: null,
         count: 2,
       },
     ];
@@ -118,7 +114,6 @@ describe('User Queries', () => {
       // Setup chain mocking for query builder
       const mockChain = {
         from: vi.fn().mockReturnThis(),
-        leftJoin: vi.fn().mockReturnThis(),
         where: vi.fn().mockReturnThis(),
         limit: vi.fn().mockReturnThis(),
         offset: vi.fn().mockResolvedValue(mockUsers),
@@ -132,13 +127,12 @@ describe('User Queries', () => {
       expect(result.rows).toHaveLength(2);
       expect(result.totalCount).toBe(2);
       expect(result.rows[0]).toHaveProperty('id', 'user-1');
-      expect(result.rows[0]).toHaveProperty('groupName', 'Test Group');
+      expect(result.rows[0]).toHaveProperty('name', 'User One');
     });
 
     it('should handle empty results', async () => {
       const mockChain = {
         from: vi.fn().mockReturnThis(),
-        leftJoin: vi.fn().mockReturnThis(),
         where: vi.fn().mockReturnThis(),
         limit: vi.fn().mockReturnThis(),
         offset: vi.fn().mockResolvedValue([]),
@@ -180,12 +174,6 @@ describe('User Queries', () => {
 
       expect(mockDb.select).toHaveBeenCalled();
     });
-
-    it('should handle users without group names', async () => {
-      const result = await searchUsers({ pageSize: 10, offset: 0 });
-
-      expect(result.rows[1].groupName).toBeUndefined();
-    });
   });
 
   describe('searchPublicUsers', () => {
@@ -196,10 +184,8 @@ describe('User Queries', () => {
           email: 'user1@example.com',
           name: 'User One',
           nickname: 'user1',
-          groupId: 'group-1',
           hideEmail: false,
         },
-        groupName: 'Test Group',
         count: 2,
       },
       {
@@ -208,10 +194,8 @@ describe('User Queries', () => {
           email: 'user2@example.com',
           name: 'User Two',
           nickname: 'user2',
-          groupId: null,
           hideEmail: true,
         },
-        groupName: null,
         count: 2,
       },
     ];
@@ -220,7 +204,6 @@ describe('User Queries', () => {
       // Setup chain mocking for query builder
       const mockChain = {
         from: vi.fn().mockReturnThis(),
-        leftJoin: vi.fn().mockReturnThis(),
         where: vi.fn().mockReturnThis(),
         limit: vi.fn().mockReturnThis(),
         offset: vi.fn().mockResolvedValue(mockUsers),
@@ -248,13 +231,11 @@ describe('User Queries', () => {
             name: 'User One',
             hideEmail: false,
           },
-          groupName: 'Test Group',
           count: 1,
         },
       ];
       const mockChain = {
         from: vi.fn().mockReturnThis(),
-        leftJoin: vi.fn().mockReturnThis(),
         where: vi.fn().mockReturnThis(),
         limit: vi.fn().mockReturnThis(),
         offset: vi.fn().mockResolvedValue(allVisibleUsers),
@@ -271,7 +252,6 @@ describe('User Queries', () => {
     it('should handle empty results', async () => {
       const mockChain = {
         from: vi.fn().mockReturnThis(),
-        leftJoin: vi.fn().mockReturnThis(),
         where: vi.fn().mockReturnThis(),
         limit: vi.fn().mockReturnThis(),
         offset: vi.fn().mockResolvedValue([]),

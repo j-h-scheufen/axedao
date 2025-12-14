@@ -89,7 +89,7 @@ export async function clearTestDatabase() {
   // Note: genealogy tables must be truncated first since users/groups have FKs to them
   await db.execute(`
     TRUNCATE TABLE
-      group_verifications,
+      person_claims,
       group_claims,
       group_admins,
       group_locations,

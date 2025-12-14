@@ -3,7 +3,7 @@
  * Tests search functionality with pagination and filters using real database
  *
  * Entity Types Tested:
- * - Groups: search by name, filter by country, style, verified status
+ * - Groups: search by name, filter by country, style
  * - Users: search by name/email, filter by country, wallet status
  * - Combined: pagination consistency across different search results
  *
@@ -165,24 +165,6 @@ describe('Search and Filtering (Integration Tests)', () => {
 
       expect(results).toHaveLength(0);
     });
-
-    it('should search groups with verified status filter', async () => {
-      // Add verification for group1
-      await db.insert(schema.groupVerifications).values({
-        groupId: group1Id,
-        userId: user1Id,
-        notes: 'Verified group',
-      });
-
-      // Query groups with at least one verification
-      const verifiedGroups = await db
-        .selectDistinct({ id: schema.groups.id, name: schema.groups.name })
-        .from(schema.groups)
-        .innerJoin(schema.groupVerifications, eq(schema.groups.id, schema.groupVerifications.groupId));
-
-      expect(verifiedGroups).toHaveLength(1);
-      expect(verifiedGroups[0].id).toBe(group1Id);
-    });
   });
 
   describe('User Search', () => {
@@ -244,26 +226,13 @@ describe('Search and Filtering (Integration Tests)', () => {
     });
   });
 
-  describe('Group Membership Search', () => {
+  describe('Group Admin Search', () => {
     beforeEach(async () => {
-      // Add user1 as member of group1
-      await db.update(schema.users).set({ groupId: group1Id }).where(eq(schema.users.id, user1Id));
-
       // Add user2 as admin of group2
-      await db.update(schema.users).set({ groupId: group2Id }).where(eq(schema.users.id, user2Id));
       await db.insert(schema.groupAdmins).values({
         groupId: group2Id,
         userId: user2Id,
       });
-    });
-
-    it('should find users by group membership', async () => {
-      const results = await db.query.users.findMany({
-        where: eq(schema.users.groupId, group1Id),
-      });
-
-      expect(results).toHaveLength(1);
-      expect(results[0].id).toBe(user1Id);
     });
 
     it('should find group admins', async () => {
@@ -281,18 +250,6 @@ describe('Search and Filtering (Integration Tests)', () => {
       expect(admins).toHaveLength(1);
       expect(admins[0].userId).toBe(user2Id);
       expect(admins[0].userName).toBe('Bob Johnson');
-    });
-
-    it('should find groups with members', async () => {
-      const groupsWithMembers = await db
-        .selectDistinct({ id: schema.groups.id, name: schema.groups.name })
-        .from(schema.groups)
-        .innerJoin(schema.users, eq(schema.groups.id, schema.users.groupId));
-
-      expect(groupsWithMembers.length).toBeGreaterThanOrEqual(2);
-      const ids = groupsWithMembers.map((g) => g.id);
-      expect(ids).toContain(group1Id);
-      expect(ids).toContain(group2Id);
     });
   });
 
@@ -360,30 +317,17 @@ describe('Search and Filtering (Integration Tests)', () => {
 
   describe('Complex Multi-Entity Search', () => {
     beforeEach(async () => {
-      // Set up complex relationships
-      await db.update(schema.users).set({ groupId: group1Id }).where(eq(schema.users.id, user1Id));
-
+      // Set up admin relationship
       await db.insert(schema.groupAdmins).values({
         groupId: group1Id,
         userId: user1Id,
       });
-
-      await db.insert(schema.groupVerifications).values({
-        groupId: group1Id,
-        userId: user2Id,
-        notes: 'Verified by Bob',
-      });
     });
 
-    it('should find groups with their members and admins', async () => {
+    it('should find groups with their admins', async () => {
       // Find group
       const group = await db.query.groups.findFirst({
         where: eq(schema.groups.id, group1Id),
-      });
-
-      // Find members
-      const members = await db.query.users.findMany({
-        where: eq(schema.users.groupId, group1Id),
       });
 
       // Find admins
@@ -392,46 +336,8 @@ describe('Search and Filtering (Integration Tests)', () => {
       });
 
       expect(group).toBeTruthy();
-      expect(members).toHaveLength(1);
       expect(admins).toHaveLength(1);
       expect(admins[0].userId).toBe(user1Id);
-    });
-
-    it('should find verified groups with verification history', async () => {
-      // Find group
-      const group = await db.query.groups.findFirst({
-        where: eq(schema.groups.id, group1Id),
-      });
-
-      // Find verifications with user details
-      const verifications = await db
-        .select({
-          userId: schema.groupVerifications.userId,
-          notes: schema.groupVerifications.notes,
-          userName: schema.users.name,
-        })
-        .from(schema.groupVerifications)
-        .innerJoin(schema.users, eq(schema.groupVerifications.userId, schema.users.id))
-        .where(eq(schema.groupVerifications.groupId, group1Id));
-
-      expect(group).toBeTruthy();
-      expect(verifications).toHaveLength(1);
-      expect(verifications[0].userId).toBe(user2Id);
-      expect(verifications[0].notes).toBe('Verified by Bob');
-      expect(verifications[0].userName).toBe('Bob Johnson');
-    });
-
-    it('should search users with their group and admin status', async () => {
-      const userWithGroup = await db.query.users.findFirst({
-        where: eq(schema.users.id, user1Id),
-        with: {
-          group: true,
-        },
-      });
-
-      expect(userWithGroup).toBeTruthy();
-      expect(userWithGroup?.group).toBeTruthy();
-      expect(userWithGroup?.group?.id).toBe(group1Id);
     });
 
     it('should find all admins across all groups', async () => {

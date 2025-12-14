@@ -4,257 +4,403 @@
 
 This flow allows app users to opt-in to the public Capoeira Genealogy by creating a `genealogy.person_profiles` entry and linking it to their `public.users` account via `profile_id`.
 
-**Key Principle**: User profile data (`public.users`) is private; genealogy data (`genealogy.person_profiles`) is public. Publishing is a conscious, one-time decision with explicit field selection.
+**Key Principle**: User profile data (`public.users`) is private; genealogy data (`genealogy.person_profiles`) is public. Publishing is a conscious decision with explicit field syncing.
+
+## CRITICAL: User Education & Consent
+
+### The Explainer Box (REQUIRED)
+
+Every first-time visitor to `/profile/genealogy` (user without `profileId`) MUST see a prominent explainer box before the form. This is not optional - users need to understand what they're opting into.
+
+#### Explainer Content
+
+**Heading**: "Join the Capoeira Genealogy"
+
+**Body Text**:
+> The Capoeira Genealogy is a **publicly accessible database** documenting the history, lineages, and connections within the global Capoeira community.
+>
+> By publishing your profile, you are contributing to this living historical record. The information you share here will be:
+>
+> - **Publicly visible** to anyone browsing the genealogy (including non-registered users)
+> - **Searchable** as part of the lineage network
+> - **Permanent** (though you can delete your profile later, cached copies may exist)
+>
+> **What gets published:**
+> - Your Capoeira name (apelido), title, and portrait
+> - Your biography and style
+> - Your declared relationships (mestre, students, group affiliations)
+>
+> **What stays private:**
+> - Your email, phone, and personal contact information
+> - Your wallet address
+> - Your private social media links
+
+**Actions**:
+- "I understand, continue" → Shows the form
+- "Cancel" → Returns to `/profile`
+
+#### Visual Design
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│ 🌍 JOIN THE CAPOEIRA GENEALOGY                                          │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  The Capoeira Genealogy is a publicly accessible database               │
+│  documenting the history, lineages, and connections within              │
+│  the global Capoeira community.                                         │
+│                                                                         │
+│  By publishing your profile, you are contributing to this               │
+│  living historical record.                                              │
+│                                                                         │
+│  ┌───────────────────────────────────────────────────────────────────┐  │
+│  │ ⚠️  IMPORTANT: The information you share will be:                 │  │
+│  │                                                                   │  │
+│  │  • Publicly visible to anyone (including non-registered users)   │  │
+│  │  • Searchable as part of the lineage network                      │  │
+│  │  • Part of the permanent historical record                        │  │
+│  └───────────────────────────────────────────────────────────────────┘  │
+│                                                                         │
+│  ✅ What gets published:                                                │
+│     • Your Capoeira name (apelido), title, and portrait                │
+│     • Your biography and style                                          │
+│     • Your declared relationships (mestres, groups)                     │
+│                                                                         │
+│  🔒 What stays private:                                                 │
+│     • Your email, phone, and contact information                        │
+│     • Your wallet address                                               │
+│     • Your personal social media links                                  │
+│                                                                         │
+├─────────────────────────────────────────────────────────────────────────┤
+│                    [Cancel]  [I Understand, Continue →]                 │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+#### Implementation Notes
+
+- Use a Card component with `bg-warning-50` or similar attention-grabbing but not alarming color
+- The explainer should NOT appear for returning users (those with existing `profileId`)
+- Store consent acknowledgment in form state, not separately tracked
+- Make the "I Understand" button primary, "Cancel" secondary
 
 ## User Journey
 
-### Entry Points
+### Entry Point
 
-1. **Account Settings**: "Join Capoeira Genealogy" button in profile/settings
-2. **Genealogy Page**: "Publish Your Profile" CTA when viewing the genealogy tree
-3. **Onboarding**: Optional step during new user registration
+**Profile Actions Dropdown** (similar to `GroupActionsDropdown`):
+- Add `ProfileActionsDropdown` component to `/profile` page
+- Menu items:
+  - "Edit Profile" → `/profile/edit` (existing private profile)
+  - "Genealogy Profile" → `/profile/genealogy` (new page)
+    - Label changes based on state:
+      - No `profileId`: "Publish to Genealogy"
+      - Has `profileId`: "Edit Genealogy Profile"
 
-### Flow Steps
+### Page: `/profile/genealogy`
 
-#### Step 1: Introduction Screen
+A dedicated page for managing the user's genealogy presence.
 
-**Purpose**: Explain what publishing means
-
-**Content**:
-```
-Join the Capoeira Genealogy
-
-The Capoeira Genealogy is a public historical record of our community's
-lineages and traditions. By publishing your profile, you become part
-of this living documentation.
-
-What gets published:
-- Your capoeira name (apelido) and title
-- Your training lineage (who taught you)
-- Group affiliations
-- A public portrait (optional)
-- Public references (Wikipedia, articles, not personal social media)
-
-What stays private:
-- Your email and phone
-- Your personal social media links
-- Your wallet address
-- All other account settings
-
-[Continue] [Cancel]
-```
-
-#### Step 2: Profile Information
-
-**Purpose**: Collect/confirm genealogy-specific data
-
-**Form Fields**:
-
-| Field | Source | Required | Notes |
-|-------|--------|----------|-------|
-| Name (fullname) | User input (can prefill from users.name) | No | "How you want to appear in historical records" |
-| Apelido | User input (can prefill from users.nickname) | Yes | "Your capoeira name" |
-| Title | Dropdown (genealogy.title enum) | No | Pre-selected from users.title if set |
-| Portrait | Upload new | No | "A public-facing image for the genealogy (can differ from your profile avatar)" |
-| Bio | Textarea | No | "Brief biography for the genealogy record" |
-| Public Links | URL list | No | "Wikipedia, articles, group websites - not personal social media" |
-
-**Validation**:
-- Apelido required (this is the primary identifier in genealogy)
-- Portrait must be image (max 2MB)
-- Public links must be valid URLs, suggest filtering out social media domains
-
-#### Step 3: Lineage Declaration (Optional)
-
-**Purpose**: Connect to training lineage
-
-**UI**: Searchable person selector
+#### Layout Structure
 
 ```
-Who taught you capoeira?
-
-Search for your mestre/teacher in the genealogy...
-[Search field with autocomplete]
-
-Found: Mestre [Name]
-- Not found? You can add this later
-
-Your primary group:
-[Search field for groups]
-
-[Skip for now] [Continue]
+┌─────────────────────────────────────────────────────────────┐
+│ PageHeading: "Genealogy Profile" (back → /profile)          │
+├─────────────────────────────────────────────────────────────┤
+│ SYNC SECTION (side-by-side)                                 │
+│ ┌─────────────────┬──────────┬─────────────────┐            │
+│ │ Your Profile    │  Sync    │ Genealogy       │            │
+│ ├─────────────────┼──────────┼─────────────────┤            │
+│ │ [Avatar]        │ [Switch] │ [Portrait]      │            │
+│ │ nickname        │ [Switch] │ apelido *       │            │
+│ │                 │          │ apelidoContext  │  (if needed)
+│ │ name            │ [Switch] │ name            │            │
+│ │ title           │ [Switch] │ title           │            │
+│ └─────────────────┴──────────┴─────────────────┘            │
+├─────────────────────────────────────────────────────────────┤
+│ GENEALOGY-ONLY FIELDS (enabled after initial publish)       │
+│ ┌─────────────────────────────────────────────────────────┐ │
+│ │ Style: [Select]                                         │ │
+│ │ Bio (EN): [Textarea]                                    │ │
+│ │ Bio (PT): [Textarea]                                    │ │
+│ │ Public Links: [LinksArray]                              │ │
+│ └─────────────────────────────────────────────────────────┘ │
+├─────────────────────────────────────────────────────────────┤
+│ RELATIONSHIPS SECTION (enabled after initial publish)       │
+│ ┌─────────────────────────────────────────────────────────┐ │
+│ │ [+ Add Relationship]                                    │ │
+│ │                                                         │ │
+│ │ ┌─────────────────────────────────────────────────────┐ │ │
+│ │ │ student_of → Mestre X          [unverified] [Delete]│ │ │
+│ │ │ member_of → Group Y            [unverified] [Delete]│ │ │
+│ │ └─────────────────────────────────────────────────────┘ │ │
+│ └─────────────────────────────────────────────────────────┘ │
+├─────────────────────────────────────────────────────────────┤
+│ ACTIONS                                                     │
+│ [Save/Publish]                    [Delete Genealogy Profile]│
+└─────────────────────────────────────────────────────────────┘
 ```
 
-**Backend**:
-- If teacher selected: Create `student_of` predicate with `confidence: 'unverified'`
-- If group selected: Create `member_of` predicate with `confidence: 'unverified'`
+#### Sync Section Behavior
 
-#### Step 4: Review & Confirm
+**Switch States:**
+- OFF: Genealogy field is editable independently
+- ON: Genealogy field mirrors user data (read-only, grayed out)
 
-**Purpose**: Final review before publishing
+**On Toggle ON:**
+- Copy current user value to genealogy field
+- Genealogy field becomes read-only
 
-```
-Review Your Genealogy Profile
+**On Toggle OFF:**
+- Genealogy field becomes editable
+- Value remains (not cleared)
 
-Name: [displayed name]
-Apelido: [apelido]
-Title: [title]
-Portrait: [thumbnail]
-Bio: [bio preview]
-Links: [list of links]
+**Apelido Uniqueness Check:**
+- On blur/change of apelido field, check if apelido exists in `person_profiles`
+- If exists: Show `apelidoContext` field with message "This apelido already exists. Please provide context to distinguish yourself."
+- If unique: Hide `apelidoContext` field
 
-Teacher: [teacher name or "Not specified"]
-Primary Group: [group name or "Not specified"]
+#### Person-to-Person Predicates (for relationships)
+- `student_of` - "I am/was a student of..."
+- `trained_under` - "I train/trained under..."
+- `influenced_by` - "I am/was influenced by..."
+- `family_of` - "I am family of..."
 
-This information will be publicly visible in the Capoeira Genealogy.
+#### Person-to-Group Predicates (for relationships)
+- `member_of` - "I am/was a member of..."
+- `associated_with` - "I am/was associated with..."
+- `departed_from` - "I departed from..."
 
-[Edit] [Cancel] [Publish Profile]
-```
+**Note**: Leadership predicates (`teaches_at`, `founded`, `co_founded`, `leads`, `regional_coordinator_of`, `cultural_pioneer_of`) are managed from the Group side when group admins designate teachers and leaders. Users should not self-declare these relationships.
 
-#### Step 5: Success
-
-```
-Welcome to the Genealogy!
-
-Your profile has been published. You can now:
-- View your genealogy profile
-- Add more lineage connections
-- Update your genealogy data anytime
-
-[View My Genealogy Profile] [Return to Dashboard]
-```
+#### Confidence Level
+- All self-declared relationships are created with `confidence: 'unverified'`
 
 ## Technical Implementation
+
+### New Files
+
+```
+apps/quilombo/
+├── app/(main)/profile/
+│   └── genealogy/
+│       └── page.tsx                    # New page
+├── components/
+│   ├── Profile/
+│   │   ├── ProfileActionsDropdown.tsx  # New (similar to GroupActionsDropdown)
+│   │   └── index.ts                    # Update exports
+│   └── genealogy/
+│       └── profile/
+│           ├── GenealogyProfileForm.tsx    # Main Formik form
+│           ├── SyncSection.tsx             # Side-by-side sync UI
+│           ├── SyncField.tsx               # Individual sync row
+│           ├── GenealogyFieldsSection.tsx  # Bio, style, links
+│           ├── RelationshipsSection.tsx    # Manage relationships
+│           ├── AddRelationshipModal.tsx    # Modal to add relationship
+│           ├── DeleteProfileModal.tsx      # Confirmation modal
+│           └── index.ts
+├── query/
+│   └── genealogyProfile.ts             # React Query hooks
+└── config/
+    └── validation-schema.ts            # Add genealogy form schema
+```
 
 ### Database Operations
 
 ```sql
--- Transaction: Create profile and link to user
-BEGIN;
-
--- 1. Insert person_profile
+-- Create new person profile (on first publish)
 INSERT INTO genealogy.person_profiles (
-  name, apelido, title, portrait, public_links, bio
-) VALUES (
-  $name, $apelido, $title, $portrait, $publicLinks, $bio
-) RETURNING id;
+  apelido, apelido_context, name, title, portrait, style, bio_en, bio_pt, public_links
+) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+RETURNING id;
 
--- 2. Link to user
-UPDATE public.users
-SET profile_id = $profileId
-WHERE id = $userId;
+-- Link to user
+UPDATE public.users SET profile_id = $profileId WHERE id = $userId;
 
--- 3. Create lineage predicates if provided
+-- Add relationship
 INSERT INTO genealogy.statements (
   subject_type, subject_id, predicate, object_type, object_id, confidence, created_by
-) VALUES
-  ('person', $profileId, 'student_of', 'person', $teacherId, 'unverified', $userId),
-  ('person', $profileId, 'member_of', 'group', $groupId, 'unverified', $userId);
+) VALUES ('person', $profileId, $predicate, $objectType, $objectId, 'unverified', $userId);
 
-COMMIT;
+-- Delete profile (handled by deletePersonProfile in db/queries/genealogy.ts)
+-- Already deletes related statements
 ```
 
 ### API Endpoints
 
-#### POST /api/genealogy/publish-profile
+#### POST /api/profile/genealogy
+Create or update the current user's genealogy profile.
 
-**Request**:
+**Request:**
 ```typescript
-interface PublishProfileRequest {
-  name?: string;
+interface GenealogyProfileRequest {
+  // Syncable fields
+  portrait?: string;
   apelido: string;  // required
+  apelidoContext?: string;
+  name?: string;
   title?: Title;
-  portrait?: string;  // URL from image upload
-  bio?: string;
-  publicLinks?: string[];
-  teacherId?: string;  // UUID of teacher's person_profile
-  groupId?: string;    // UUID of group_profile
+  // Genealogy-only fields
+  style?: Style;
+  bioEn?: string;
+  bioPt?: string;
+  publicLinks?: SocialLink[];
 }
 ```
 
-**Response**:
+**Response:**
 ```typescript
-interface PublishProfileResponse {
+interface GenealogyProfileResponse {
   profileId: string;
   message: string;
 }
 ```
 
-**Validation**:
-- User must be authenticated
-- User must NOT already have a profile_id (use claim flow instead)
-- Apelido required and non-empty
-- Portrait URL must be valid if provided
-- Teacher/group IDs must exist if provided
+#### DELETE /api/profile/genealogy
+Delete the current user's genealogy profile.
 
-### Frontend Components
+#### GET /api/genealogy/persons/check-apelido?apelido=X
+Check if apelido exists.
 
-```
-/components/genealogy/
-  PublishWizard/
-    index.tsx           # Main wizard container
-    IntroStep.tsx       # Step 1
-    ProfileInfoStep.tsx # Step 2 (with form)
-    LineageStep.tsx     # Step 3
-    ReviewStep.tsx      # Step 4
-    SuccessStep.tsx     # Step 5
-    types.ts            # Shared types
-```
-
-### State Management
-
-Use Formik for multi-step form with persistence:
-
+**Response:**
 ```typescript
-interface PublishWizardState {
-  currentStep: 1 | 2 | 3 | 4 | 5;
-  profileData: {
-    name?: string;
-    apelido: string;
-    title?: Title;
-    portrait?: File | string;
-    bio?: string;
-    publicLinks: string[];
-  };
-  lineageData: {
-    teacherId?: string;
-    teacherName?: string;
-    groupId?: string;
-    groupName?: string;
-  };
+{ exists: boolean; profiles?: { id: string; name: string; apelidoContext?: string }[] }
+```
+
+#### POST /api/profile/genealogy/relationships
+Add a relationship.
+
+**Request:**
+```typescript
+interface AddRelationshipRequest {
+  predicate: Predicate;
+  objectType: 'person' | 'group';
+  objectId: string;
+  properties?: StatementProperties;
+  startedAt?: string;
+  endedAt?: string;
 }
 ```
 
+#### DELETE /api/profile/genealogy/relationships/[statementId]
+Delete a relationship.
+
+#### GET /api/profile/genealogy/relationships
+Get current user's genealogy relationships (where they are the subject).
+
+### State Management
+
+**User data access:** Use same pattern as `/profile/edit`:
+```typescript
+const { data: user } = useAtomValue(currentUserAtom);
+```
+
+**Genealogy profile:** Use React Query:
+```typescript
+// Fetch genealogy profile if user has profileId
+const { data: genealogyProfile } = useQuery({
+  queryKey: ['genealogy', 'profile', user?.profileId],
+  queryFn: () => fetchPersonProfile(user!.profileId!),
+  enabled: !!user?.profileId,
+});
+```
+
+### Form State (Formik)
+
+```typescript
+interface GenealogyProfileFormValues {
+  // Sync toggles
+  syncPortrait: boolean;
+  syncApelido: boolean;
+  syncName: boolean;
+  syncTitle: boolean;
+  // Profile data
+  portrait?: string;
+  apelido: string;
+  apelidoContext?: string;
+  name?: string;
+  title?: Title;
+  style?: Style;
+  bioEn?: string;
+  bioPt?: string;
+  publicLinks: SocialLink[];
+}
+```
+
+### Validation Schema
+
+```typescript
+export const genealogyProfileSchema = object().shape({
+  apelido: string().required('Apelido is required'),
+  apelidoContext: string().when('apelidoExists', {
+    is: true,
+    then: (schema) => schema.required('Context is required when apelido already exists'),
+  }),
+  name: string().nullable(),
+  title: string().oneOf([...titles, undefined]).nullable(),
+  style: string().oneOf([...styles, undefined]).nullable(),
+  bioEn: string().max(5000, 'Bio must be less than 5000 characters').nullable(),
+  bioPt: string().max(5000, 'Bio must be less than 5000 characters').nullable(),
+  publicLinks: array().of(socialLinkSchema),
+});
+```
+
+## User's Public Profile Enhancement
+
+On `/users/[userId]` page, if the viewed user has a `profileId`:
+- Show "View Genealogy Profile" button
+- Opens `FullDetailsModal` component (already exists and handles sparse data)
+
 ## Edge Cases
 
-### User Already Has profile_id
+### Apelido Already Exists
+- Auto-detect on blur
+- Show `apelidoContext` field
+- Validate that context is provided before save
 
-If user already has `users.profile_id` set:
-- Redirect to genealogy profile edit page
-- Show message: "You've already published your genealogy profile"
+### User Deletes Genealogy Profile
+- Confirmation modal with warning
+- Deletes `person_profiles` entry and all related statements
+- Sets `users.profile_id` to null
+- User can re-publish later
 
-### Duplicate Apelido Check
+### Portrait Sync
+- Uses same `ImageUpload` component as profile edit
+- When synced, displays user's avatar
+- When unsynced, can upload different image
 
-Before publishing:
-- Search for existing person_profiles with same apelido
-- If found, warn user: "There's already a profile with this name. Is this you?"
-- Offer to claim instead (redirect to claim flow)
+## Implementation Order
 
-### Portrait Upload Failure
+1. **Phase 1: Core Structure**
+   - Create `ProfileActionsDropdown` component
+   - Create `/profile/genealogy` page skeleton
+   - Add route and navigation
 
-- Allow continuing without portrait
-- Save progress and retry option
-- Don't block the publish flow
+2. **Phase 2: Sync Section**
+   - Implement `SyncSection` and `SyncField` components
+   - Apelido uniqueness check API
+   - Basic form with Formik
 
-## Security Considerations
+3. **Phase 3: Save/Publish**
+   - API endpoint for create/update
+   - Link `profileId` to user
+   - Success/error handling
 
-1. **Authentication Required**: All endpoints require valid session
-2. **Rate Limiting**: Limit profile creation to prevent spam
-3. **Input Sanitization**: Sanitize bio and links for XSS
-4. **Image Validation**: Validate uploaded images (type, size, dimensions)
+4. **Phase 4: Genealogy Fields**
+   - Style selector
+   - Bio textareas (EN/PT)
+   - Public links array
 
-## Success Metrics
+5. **Phase 5: Relationships**
+   - Relationships list component
+   - Add relationship modal with person/group search
+   - Predicate selector (filtered by object type)
+   - Delete relationship
 
-- Conversion rate: Users who start wizard → complete publishing
-- Drop-off points: Which step has highest abandonment
-- Lineage completeness: % of published profiles with teacher/group connections
+6. **Phase 6: Delete Profile**
+   - Delete confirmation modal
+   - API endpoint
+   - Cleanup and redirect
+
+7. **Phase 7: Public Profile Enhancement**
+   - Add "View Genealogy Profile" button to `/users/[userId]`
+   - Integrate `FullDetailsModal`

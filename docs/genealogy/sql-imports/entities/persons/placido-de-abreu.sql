@@ -35,10 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Plácido de Abreu',
   NULL,
   NULL,
-  '[
-    {"type": "website", "url": "https://capoeirawiki.org/wiki/Pl%C3%A1cido_de_Abreu"},
-    {"type": "website", "url": "https://capoeirahistory.com/classical-texts-of-capoeira-history-placido-de-abreu-1886/"}
-  ]'::jsonb,
+  ARRAY['https://capoeirawiki.org/wiki/Pl%C3%A1cido_de_Abreu', 'https://capoeirahistory.com/classical-texts-of-capoeira-history-placido-de-abreu-1886/']::text[],
   -- Capoeira-specific
   NULL,
   'Amateur capoeirista in his youth; participated in Rio de Janeiro capoeira rodas during the 1870s. His primary significance is as historian and chronicler rather than practitioner. Style distinctions (Angola/Regional) did not yet exist in his era.',

@@ -39,8 +39,6 @@ import { generateErrorMessage } from '@/utils';
  *               email:
  *                 type: string
  *                 format: email
- *               founder:
- *                 type: string
  *               links:
  *                 type: array
  *                 items:

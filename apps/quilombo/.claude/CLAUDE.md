@@ -333,20 +333,39 @@ pnpm db:atlas:diff
 
 ### Database Architecture (Drizzle ORM)
 
+**Dual-Schema Architecture**: The app uses two PostgreSQL schemas:
+
+1. **Public Schema** (`db/schema.ts`) - App identity and features:
+   - `users` - App accounts (auth, email, wallet, permissions, `profile_id` FK to genealogy)
+   - `groups` - In-app group entities (admins, locations, `profile_id` FK to genealogy)
+   - `groupAdmins`, `groupLocations`, `events`, `invitations`, `verificationTokens`, etc.
+   - `groupClaims`, `personClaims` - Claim requests for genealogy profiles
+
+2. **Genealogy Schema** (`db/schema/genealogy.ts`) - Public capoeira lineage data:
+   - `genealogy.person_profiles` - Historical and contemporary figures (apelido, title, bio, dates)
+   - `genealogy.group_profiles` - Groups with history, founding info, philosophy
+   - `genealogy.statements` - Relationships via subject-predicate-object triples
+
+**FK Direction**: Public → Genealogy (allows genealogy data to exist independently)
+- `users.profile_id` → `genealogy.person_profiles.id` (user claims a profile)
+- `groups.profile_id` → `genealogy.group_profiles.id` (app group links to genealogy)
+
 **Pattern**: Database query functions organized by domain in `/db/queries/` (server-side only)
 
 **Module Structure**:
-- `db/index.ts` - Thin re-export layer (30 lines)
+- `db/index.ts` - Thin re-export layer
 - `db/connection.ts` - Database connection factory
 - `db/queries/` - Domain-based query modules:
-  - `users.ts` - User management and authentication (~140 lines)
-  - `groups.ts` - Group CRUD and membership (~260 lines)
-  - `groupClaims.ts` - Group ownership claiming workflow (~220 lines)
-  - `groupVerifications.ts` - Group verification system (~110 lines)
-  - `groupLocations.ts` - Geographic locations and mapping (~130 lines)
-  - `events.ts` - Event creation and querying (~170 lines)
-  - `invitations.ts` - Email-bound and open (QR code) invitations (~165 lines)
-  - `stats.ts` - Public statistics for homepage (~60 lines)
+  - `users.ts` - User management and authentication
+  - `groups.ts` - Group CRUD and membership
+  - `groupClaims.ts` - Group claim workflow (claim genealogy profiles or register new groups)
+  - `personClaims.ts` - Person profile claiming workflow
+  - `groupLocations.ts` - Geographic locations and mapping
+  - `events.ts` - Event creation and querying
+  - `invitations.ts` - Email-bound and open (QR code) invitations
+  - `images.ts` - IPFS image management and unpinning
+  - `stats.ts` - Public statistics for homepage
+  - `genealogy.ts` - Genealogy profile and statement queries
 
 **Adding New Database Functions**:
 1. Identify the appropriate domain module in `db/queries/`
@@ -364,20 +383,32 @@ import { fetchUser, searchGroups, createGroupClaim } from '@/db';
 // ❌ import { fetchUser } from '@/db/queries/users';
 ```
 
-**Schema** (`/db/schema.ts`):
+**Public Schema** (`/db/schema.ts`):
 - PostgreSQL with drizzle-orm 0.44.6
 - **Tables**:
-  - `users` - Core user with wallet, email, password hash, avatar, social links
-  - `groups` - DAO groups with verified status, logo, banner, leader
+  - `users` - App accounts with wallet, email, password hash, avatar, social links, `profile_id` FK
+  - `groups` - App groups with logo, banner, `profile_id` FK, `claimedBy`, `claimedAt`
   - `groupAdmins` - Composite key join table
   - `groupLocations` - PostGIS geography type for location data
   - `events` - Group events with location
-  - `groupMembers` - Join table for group membership
   - `verificationTokens` - Email verification and password reset tokens
   - `oauthAccounts` - OAuth provider mappings
-- **Enums**: accountStatus, tokenType, oauthProvider, titles, linkTypes, styles, eventTypes
-- **Indexes**: On nickname, email, wallet_address (unique), group_id, title
+  - `invitations` - Email-bound and open invitations
+  - `groupClaims` - Requests to claim genealogy group profiles or register new groups
+  - `personClaims` - Requests to claim genealogy person profiles
+- **Enums**: accountStatus, tokenType, oauthProvider, titles, linkTypes, styles, eventTypes, invitationType, invitationStatus, groupClaimStatus
+- **Indexes**: On nickname, email, wallet_address, profile_id (unique for users), etc.
 - **Email handling**: All lowercase for case-insensitive lookups
+
+**Genealogy Schema** (`/db/schema/genealogy.ts`):
+- Separate `genealogy` schema for public profile data
+- **Tables**:
+  - `person_profiles` - Apelido, title, style, birth/death years, bio (bilingual _en/_pt), achievements, notes
+  - `group_profiles` - Name, style, founded year/location, description, philosophy, history (bilingual), name_history
+  - `statements` - Subject-predicate-object triples for relationships (student_of, founded, leads, etc.)
+- **Enums**: entityType, datePrecision, confidence, legalStructure, predicate, title, style
+- **Bilingual fields**: All narrative content has `_en` and `_pt` variants
+- **Key predicates**: student_of, trained_under, founded, co_founded, leads, member_of, split_from_group, part_of, etc.
 
 **Key Functions** (`/db/index.ts`):
 - `fetchSessionData(walletAddress)` - Quick session fetch for auth
@@ -491,7 +522,6 @@ export async function POST(request: Request) {
 | PATCH  | groups/[groupId]                    | UpdateGroupForm        | Group           |              |
 | DELETE | groups/[groupId]                    |                        | null, 204       |              |
 | GET    | groups/[groupId]/members            |                        | User[]          |              |
-| DELETE | groups/[groupId]/members/[userId]   |                        | User[]          |              |
 | GET    | groups/[groupId]/admins             |                        | string[]        |              |
 | PUT    | groups/[groupId]/admins/[userId]    |                        | string[]        |              |
 | DELETE | groups/[groupId]/admins/[userId]    |                        | string[]        |              |
@@ -597,6 +627,8 @@ export async function POST(request: Request) {
 10. **Nuqs for URL State**: URL search params managed by Nuqs adapter for pagination/filters
 
 11. **Server-Side Query Hydration**: Pre-populate QueryClient server-side, access via Jotai atoms client-side
+
+12. **IPFS Image Unpinning**: Always update DB first, then call `unpinIfNotReferenced()`. See `docs/IPFS_IMAGE_HANDLING.md`
 
 ## Key File Locations
 

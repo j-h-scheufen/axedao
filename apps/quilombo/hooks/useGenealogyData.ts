@@ -24,7 +24,7 @@ export function useGenealogyGraph() {
   return useQuery<GraphData>({
     queryKey: QUERY_KEYS.graph,
     queryFn: async () => {
-      const res = await fetch('/api/genealogy/graph');
+      const res = await fetch('/api/public/genealogy/graph');
       if (!res.ok) {
         const error = await res.json();
         throw new Error(error.error || 'Failed to fetch graph data');
@@ -47,7 +47,7 @@ export function useNodeDetails(entityType: string | null, entityId: string | nul
         throw new Error('Entity type and ID are required');
       }
 
-      const res = await fetch(`/api/genealogy/${entityType}s/${entityId}?includeRelationships=true`);
+      const res = await fetch(`/api/public/genealogy/${entityType}s/${entityId}?includeRelationships=true`);
       if (!res.ok) {
         const error = await res.json();
         throw new Error(error.error || 'Failed to fetch node details');

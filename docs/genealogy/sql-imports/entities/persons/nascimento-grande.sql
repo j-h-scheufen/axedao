@@ -35,10 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Nascimento Grande',
   NULL,
   NULL,
-  '[
-    {"type": "website", "url": "https://en.wikipedia.org/wiki/Nascimento_Grande"},
-    {"type": "website", "url": "https://www.historyoffighting.com/mestre-jose-antonio-do-nascimento.php"}
-  ]'::jsonb,
+  ARRAY['https://en.wikipedia.org/wiki/Nascimento_Grande', 'https://www.historyoffighting.com/mestre-jose-antonio-do-nascimento.php']::text[],
   -- Capoeira-specific
   NULL,
   'Pre-modern era capoeira; practiced when capoeira was illegal in Brazil. Style distinctions (Angola/Regional) did not yet exist. Associated with Recife''s carnival capoeira tradition.',

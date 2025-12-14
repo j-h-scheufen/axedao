@@ -12,7 +12,43 @@ import { describe, it, expect, beforeAll, afterAll, beforeEach } from 'vitest';
 import { setupTestDatabase, teardownTestDatabase, clearTestDatabase } from '../../setup/db-container';
 import { searchGroups } from '@/db/queries/groups';
 import * as schema from '@/db/schema';
+import * as genealogySchema from '@/db/schema/genealogy';
 import { v4 as uuidv4 } from 'uuid';
+
+/**
+ * Helper function to create groups with their required genealogy profiles.
+ * Since searchGroups now requires groups to have a linked genealogy profile,
+ * all test groups must be created with this helper.
+ */
+async function createGroupsWithProfiles(
+  db: Awaited<ReturnType<typeof setupTestDatabase>>['db'],
+  groupDefs: Array<{
+    id: string;
+    name: string;
+    createdBy: string;
+    style?: schema.SelectGroup['style'];
+  }>
+) {
+  // First create genealogy profiles
+  const profiles = groupDefs.map((g) => ({
+    id: uuidv4(),
+    name: g.name,
+    style: g.style || null,
+    descriptionEn: `Description for ${g.name}`,
+  }));
+  await db.insert(genealogySchema.groupProfiles).values(profiles);
+
+  // Then create groups that reference the profiles
+  const groups = groupDefs.map((g, i) => ({
+    id: g.id,
+    name: g.name,
+    style: g.style || null,
+    profileId: profiles[i].id,
+    createdBy: g.createdBy,
+    createdAt: new Date(),
+  }));
+  await db.insert(schema.groups).values(groups);
+}
 
 describe('searchGroups - Pagination and TotalCount (Integration)', () => {
   let db: Awaited<ReturnType<typeof setupTestDatabase>>['db'];
@@ -42,14 +78,13 @@ describe('searchGroups - Pagination and TotalCount (Integration)', () => {
 
   describe('TotalCount Correctness', () => {
     it('should return correct totalCount when results fit in one page', async () => {
-      // Create 10 groups
-      const groups = Array.from({ length: 10 }, (_, i) => ({
+      // Create 10 groups with profiles
+      const groupDefs = Array.from({ length: 10 }, (_, i) => ({
         id: uuidv4(),
         name: `Group ${i + 1}`,
         createdBy: userId,
-        createdAt: new Date(),
       }));
-      await db.insert(schema.groups).values(groups);
+      await createGroupsWithProfiles(db, groupDefs);
 
       const result = await searchGroups({ pageSize: 25, offset: 0 });
 
@@ -58,14 +93,13 @@ describe('searchGroups - Pagination and TotalCount (Integration)', () => {
     });
 
     it('should return correct totalCount when results span multiple pages', async () => {
-      // Create 50 groups
-      const groups = Array.from({ length: 50 }, (_, i) => ({
+      // Create 50 groups with profiles
+      const groupDefs = Array.from({ length: 50 }, (_, i) => ({
         id: uuidv4(),
         name: `Group ${i + 1}`,
         createdBy: userId,
-        createdAt: new Date(),
       }));
-      await db.insert(schema.groups).values(groups);
+      await createGroupsWithProfiles(db, groupDefs);
 
       const result = await searchGroups({ pageSize: 25, offset: 0 });
 
@@ -75,14 +109,13 @@ describe('searchGroups - Pagination and TotalCount (Integration)', () => {
     });
 
     it('should return same totalCount across different pages', async () => {
-      // Create 75 groups
-      const groups = Array.from({ length: 75 }, (_, i) => ({
+      // Create 75 groups with profiles
+      const groupDefs = Array.from({ length: 75 }, (_, i) => ({
         id: uuidv4(),
         name: `Group ${i + 1}`,
         createdBy: userId,
-        createdAt: new Date(),
       }));
-      await db.insert(schema.groups).values(groups);
+      await createGroupsWithProfiles(db, groupDefs);
 
       const page1 = await searchGroups({ pageSize: 25, offset: 0 });
       const page2 = await searchGroups({ pageSize: 25, offset: 25 });
@@ -100,14 +133,13 @@ describe('searchGroups - Pagination and TotalCount (Integration)', () => {
     });
 
     it('should return correct totalCount with different page sizes', async () => {
-      // Create 100 groups
-      const groups = Array.from({ length: 100 }, (_, i) => ({
+      // Create 100 groups with profiles
+      const groupDefs = Array.from({ length: 100 }, (_, i) => ({
         id: uuidv4(),
         name: `Group ${i + 1}`,
         createdBy: userId,
-        createdAt: new Date(),
       }));
-      await db.insert(schema.groups).values(groups);
+      await createGroupsWithProfiles(db, groupDefs);
 
       const result10 = await searchGroups({ pageSize: 10, offset: 0 });
       const result25 = await searchGroups({ pageSize: 25, offset: 0 });
@@ -128,16 +160,13 @@ describe('searchGroups - Pagination and TotalCount (Integration)', () => {
       // Create 10 groups with multiple locations each
       // This tests the CRITICAL bug: GROUP BY + LEFT JOIN + window function
       // Bug: window function counts joined rows (20) instead of groups (10)
-      const groupIds = Array.from({ length: 10 }, () => uuidv4());
-
-      await db.insert(schema.groups).values(
-        groupIds.map((id, i) => ({
-          id,
-          name: `Group ${i + 1}`,
-          createdBy: userId,
-          createdAt: new Date(),
-        }))
-      );
+      const groupDefs = Array.from({ length: 10 }, (_, i) => ({
+        id: uuidv4(),
+        name: `Group ${i + 1}`,
+        createdBy: userId,
+      }));
+      await createGroupsWithProfiles(db, groupDefs);
+      const groupIds = groupDefs.map((g) => g.id);
 
       // Give each group 2 locations (20 total location rows after JOIN)
       const locationData = groupIds.flatMap((groupId, i) => [
@@ -184,14 +213,13 @@ describe('searchGroups - Pagination and TotalCount (Integration)', () => {
 
   describe('Pagination Consistency', () => {
     beforeEach(async () => {
-      // Create 50 groups for pagination testing
-      const groups = Array.from({ length: 50 }, (_, i) => ({
+      // Create 50 groups with profiles for pagination testing
+      const groupDefs = Array.from({ length: 50 }, (_, i) => ({
         id: uuidv4(),
         name: `Group ${String(i + 1).padStart(3, '0')}`, // Padded for consistent ordering
         createdBy: userId,
-        createdAt: new Date(Date.now() + i * 1000), // Different timestamps for ordering
       }));
-      await db.insert(schema.groups).values(groups);
+      await createGroupsWithProfiles(db, groupDefs);
     });
 
     it('should not have overlapping results between pages', async () => {
@@ -232,18 +260,23 @@ describe('searchGroups - Pagination and TotalCount (Integration)', () => {
   });
 
   describe('TotalCount with Filters', () => {
+    let group1Id: string;
+    let group2Id: string;
+
     beforeEach(async () => {
-      const group1Id = uuidv4();
-      const group2Id = uuidv4();
+      group1Id = uuidv4();
+      group2Id = uuidv4();
       const group3Id = uuidv4();
       const group4Id = uuidv4();
 
-      await db.insert(schema.groups).values([
-        { id: group1Id, name: 'Angola Group 1', style: 'angola', createdBy: userId, createdAt: new Date() },
-        { id: group2Id, name: 'Angola Group 2', style: 'angola', createdBy: userId, createdAt: new Date() },
-        { id: group3Id, name: 'Regional Group 1', style: 'regional', createdBy: userId, createdAt: new Date() },
-        { id: group4Id, name: 'Regional Group 2', style: 'regional', createdBy: userId, createdAt: new Date() },
-      ]);
+      // Create groups with profiles - need style on the profile
+      const groupDefs = [
+        { id: group1Id, name: 'Angola Group 1', style: 'angola' as const, createdBy: userId },
+        { id: group2Id, name: 'Angola Group 2', style: 'angola' as const, createdBy: userId },
+        { id: group3Id, name: 'Regional Group 1', style: 'regional' as const, createdBy: userId },
+        { id: group4Id, name: 'Regional Group 2', style: 'regional' as const, createdBy: userId },
+      ];
+      await createGroupsWithProfiles(db, groupDefs);
 
       await db.insert(schema.groupLocations).values([
         {
@@ -265,8 +298,6 @@ describe('searchGroups - Pagination and TotalCount (Integration)', () => {
           },
         },
       ]);
-
-      await db.insert(schema.groupVerifications).values([{ groupId: group1Id, userId, notes: 'Verified' }]);
     });
 
     it('should return correct totalCount when filtering by style', async () => {
@@ -289,28 +320,6 @@ describe('searchGroups - Pagination and TotalCount (Integration)', () => {
 
       expect(brResult.totalCount).toBe(1);
       expect(brResult.rows).toHaveLength(1);
-    });
-
-    it('should return correct totalCount when filtering by verified status', async () => {
-      const verifiedResult = await searchGroups({
-        pageSize: 10,
-        offset: 0,
-        filters: { verified: true },
-      });
-
-      expect(verifiedResult.totalCount).toBe(1);
-      expect(verifiedResult.rows).toHaveLength(1);
-    });
-
-    it('should return correct totalCount when combining filters', async () => {
-      const result = await searchGroups({
-        pageSize: 10,
-        offset: 0,
-        filters: { styles: ['angola'], verified: true },
-      });
-
-      expect(result.totalCount).toBe(1);
-      expect(result.rows).toHaveLength(1);
     });
 
     it('should return correct totalCount with search term', async () => {
@@ -345,12 +354,7 @@ describe('searchGroups - Pagination and TotalCount (Integration)', () => {
     });
 
     it('should handle single group correctly', async () => {
-      await db.insert(schema.groups).values({
-        id: uuidv4(),
-        name: 'Only Group',
-        createdBy: userId,
-        createdAt: new Date(),
-      });
+      await createGroupsWithProfiles(db, [{ id: uuidv4(), name: 'Only Group', createdBy: userId }]);
 
       const result = await searchGroups({ pageSize: 25, offset: 0 });
 
@@ -359,13 +363,12 @@ describe('searchGroups - Pagination and TotalCount (Integration)', () => {
     });
 
     it('should handle pageSize larger than total results', async () => {
-      const groups = Array.from({ length: 10 }, (_, i) => ({
+      const groupDefs = Array.from({ length: 10 }, (_, i) => ({
         id: uuidv4(),
         name: `Group ${i + 1}`,
         createdBy: userId,
-        createdAt: new Date(),
       }));
-      await db.insert(schema.groups).values(groups);
+      await createGroupsWithProfiles(db, groupDefs);
 
       const result = await searchGroups({ pageSize: 100, offset: 0 });
 
@@ -374,13 +377,12 @@ describe('searchGroups - Pagination and TotalCount (Integration)', () => {
     });
 
     it('should handle very large page sizes', async () => {
-      const groups = Array.from({ length: 5 }, (_, i) => ({
+      const groupDefs = Array.from({ length: 5 }, (_, i) => ({
         id: uuidv4(),
         name: `Group ${i + 1}`,
         createdBy: userId,
-        createdAt: new Date(),
       }));
-      await db.insert(schema.groups).values(groups);
+      await createGroupsWithProfiles(db, groupDefs);
 
       const result = await searchGroups({ pageSize: 1000, offset: 0 });
 

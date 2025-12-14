@@ -33,7 +33,7 @@ INSERT INTO genealogy.person_profiles (
   'Antonio Padroeiro',
   NULL,
   NULL,
-  '[]'::jsonb,
+  ARRAY[]::text[],
   -- Capoeira-specific
   NULL,
   'Pre-modern era capoeira; practiced when capoeira was illegal in Brazil. Style distinctions (Angola/Regional) did not yet exist. Associated with Recife''s late 19th century capoeira tradition.',

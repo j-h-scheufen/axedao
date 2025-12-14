@@ -1,4 +1,4 @@
-h1:Z2YCeu9sL+t8w9zL2+vcwMtNMSY4jl7OBnd0+Ccl+YY=
+h1:mIahLL1+BYI/x0ydE7vzt9lbRqgQahm4+L1QPKi3EI0=
 20251120135529_baseline.sql h1:VdAR2xMYVIk6ANN5k0dR+oe44hwn8qrNABIiVQJFaCU=
 20251120151443_add_group_locations_group_id_index.sql h1:zlRv24jOLdtsv33AfafJmApf3nzxOyx8oOSiyTULUhY=
 20251121171600_users_hide_email_column.sql h1:73VKRXiTJAz5KFhAmPBHdeiD1vXjnB9qK8PgPG5seBs=
@@ -6,3 +6,4 @@ h1:Z2YCeu9sL+t8w9zL2+vcwMtNMSY4jl7OBnd0+Ccl+YY=
 20251207200000_add_genealogy_schema.sql h1:TPRwfzB8ooHgzfauGZCrAXmC+hhaNLPU31VNT0kE2fQ=
 20251207220000_genealogy_schema_updates.sql h1:MCub5hf66LP+hyIO8O4JcFEcJNTLA/6Nc5ZS2bXhZZg=
 20251211235418_drop_import_log.sql h1:ylc170saTcO5aSHt6MRdw3X9r8MMVj4LaXKWrAgAOr4=
+20251214165106_profile_claiming_and_schema_cleanup.sql h1:7pny3q/9iz8J/MAYvOXtit0pHOG2He+8Ob6KahmjGm8=

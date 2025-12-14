@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Aberrê',
   'mestre'::genealogy.title,
   NULL,
-  '[{"type": "website", "url": "https://velhosmestres.com/en/featured-2"}, {"type": "website", "url": "https://esquiva.wordpress.com/mestres/mestre-aberre/"}, {"type": "website", "url": "https://nossa-tribo.com/mestre-aberre/"}]'::jsonb,
+  ARRAY['https://velhosmestres.com/en/featured-2', 'https://esquiva.wordpress.com/mestres/mestre-aberre/', 'https://nossa-tribo.com/mestre-aberre/']::text[],
   -- Capoeira-specific
   'angola'::genealogy.style,
   'Practiced the pre-codified capoeira of early 20th century Salvador. His teaching emphasized practical self-defense: negativa, queda de rim, and falling techniques. He explained students needed to know how to fall if pushed in the street.',

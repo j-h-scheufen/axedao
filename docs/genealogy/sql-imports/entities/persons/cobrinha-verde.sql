@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Cobrinha Verde',
   'mestre'::genealogy.title,
   NULL, -- No public domain portrait available
-  '[{"type": "website", "url": "https://velhosmestres.com/en/cobrinhaverde"}, {"type": "website", "url": "https://capoeira.online/history/mestres/cobrinha-verde/"}]'::jsonb,
+  ARRAY['https://velhosmestres.com/en/cobrinhaverde', 'https://capoeira.online/history/mestres/cobrinha-verde/']::text[],
   -- Capoeira-specific
   'angola'::genealogy.style,
   'Transitional era figure. Learned pre-codification capoeira from Besouro and the Santo Amaro mestres; later collaborated with both Mestre Bimba and Mestre Pastinha, identifying primarily with the Angola tradition.',

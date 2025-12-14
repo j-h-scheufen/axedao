@@ -77,6 +77,7 @@ export const PATHS = {
   groups: '/groups',
   events: '/events',
   settings: '/settings',
+  genealogy: '/genealogy',
 };
 
 // Authentication error codes
@@ -110,18 +111,50 @@ export const invitationStatuses = ['pending', 'accepted', 'expired'] as const;
 // Group claim statuses
 export const groupClaimStatuses = ['pending', 'approved', 'rejected'] as const;
 
+// Group claim types (genealogy_group = claiming existing genealogy profile, new_group = registering new group)
+export const groupClaimTypes = ['genealogy_group', 'new_group'] as const;
+
+// Person claim statuses (same as group claim statuses, but separate for semantic clarity)
+export const personClaimStatuses = ['pending', 'approved', 'rejected'] as const;
+
+// Reasons why a person profile may or may not be claimable (returned from getPersonProfileClaimStatus)
+export const personClaimStatusReasons = ['not_found', 'deceased', 'already_claimed', 'claimable'] as const;
+
 // ============================================================================
 // GENEALOGY SCHEMA CONSTANTS
 // ============================================================================
 
 // Entity types for statements (who can be subjects/objects)
-export const entityTypes = ['person', 'group'] as const;
+export const ENTITY_TYPE = {
+  PERSON: 'person',
+  GROUP: 'group',
+} as const;
+
+export const entityTypes = [ENTITY_TYPE.PERSON, ENTITY_TYPE.GROUP] as const;
 
 // Date precision for historical data with uncertainty
 export const datePrecisions = ['exact', 'month', 'year', 'decade', 'approximate', 'unknown'] as const;
 
-// Confidence levels for statement verification
-export const confidenceLevels = ['verified', 'likely', 'unverified', 'disputed', 'uncertain'] as const;
+// Confidence levels for statement verification (object as source of truth)
+export const ConfidenceLevel = {
+  VERIFIED: 'verified',
+  LIKELY: 'likely',
+  UNVERIFIED: 'unverified',
+  DISPUTED: 'disputed',
+  UNCERTAIN: 'uncertain',
+} as const;
+
+// Array for Drizzle schema (must be a const tuple for type inference)
+export const confidenceLevels = [
+  ConfidenceLevel.VERIFIED,
+  ConfidenceLevel.LIKELY,
+  ConfidenceLevel.UNVERIFIED,
+  ConfidenceLevel.DISPUTED,
+  ConfidenceLevel.UNCERTAIN,
+] as const;
+
+// Default confidence level for self-declared relationships
+export const SELF_DECLARED_CONFIDENCE = ConfidenceLevel.LIKELY;
 
 // Legal structure types for groups
 export const legalStructures = [
@@ -178,12 +211,8 @@ export const predicates = [
   'cooperates_with',
 ] as const;
 
-// Group verification cooldown period (in milliseconds)
-// Groups can only be verified once every 30 days
-export const GROUP_VERIFICATION_COOLDOWN_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
-
 // Note: The order of these roles in the array is used to sort group members by role in the UI
-export const GROUP_ROLES = ['founder', 'leader', 'admin', 'member'] as const;
+export const GROUP_ROLES = ['admin', 'member'] as const;
 
 export const QUERY_DEFAULT_PAGE_SIZE = 25;
 

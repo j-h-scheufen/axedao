@@ -6,6 +6,10 @@ import type {
   invitationStatuses,
   accountStatuses,
   styles,
+  groupClaimStatuses,
+  groupClaimTypes,
+  personClaimStatuses,
+  personClaimStatusReasons,
   SEARCH_PARAM_KEYS,
 } from '@/config/constants';
 import type { SelectGroup, SelectUser, SelectGroupLocation, SelectEvent, SelectInvitation } from '../db/schema';
@@ -20,13 +24,10 @@ import type Supercluster from 'supercluster';
 
 export type Group = Omit<SelectGroup, 'updatedAt'> & {
   countryCodes: string[];
-  lastVerifiedAt: Date | null;
   adminCount: number;
 };
 
-export type User = Omit<SelectUser, 'updatedAt'> & {
-  groupName?: string;
-};
+export type User = Omit<SelectUser, 'updatedAt'>;
 
 export type GroupLocation = Omit<SelectGroupLocation, 'updatedAt'>;
 
@@ -144,6 +145,14 @@ export type GroupMemberRole = (typeof GROUP_ROLES)[number];
 export type GroupMember = User & { roles: GroupMemberRole[] };
 
 export type ImageType = (typeof IMAGE_TYPES)[number];
+
+export type GroupClaimStatus = (typeof groupClaimStatuses)[number];
+
+export type GroupClaimType = (typeof groupClaimTypes)[number];
+
+export type PersonClaimStatus = (typeof personClaimStatuses)[number];
+
+export type PersonClaimStatusReason = (typeof personClaimStatusReasons)[number];
 
 export type UserSearchResult = {
   data: User[];

@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Tio Alípio',
   NULL, -- Pre-formal title era; no titles existed in this period
   NULL, -- No images exist of this historical figure
-  '[{"type": "website", "url": "https://velhosmestres.com/br/besouro-1908"}, {"type": "website", "url": "https://velhosmestres.com/en/besouro"}]'::jsonb,
+  ARRAY['https://velhosmestres.com/br/besouro-1908', 'https://velhosmestres.com/en/besouro']::text[],
   -- Capoeira-specific
   NULL, -- Pre-codification; Angola/Regional distinction didn't exist yet
   'Pre-codification era. Taught traditional capoeira that included knife techniques (facas) and spiritual practices (boas orações) as an integrated system.',

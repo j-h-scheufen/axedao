@@ -41,10 +41,16 @@ This is a **pnpm monorepo** comprising apps/ and packages/ to support the Axé D
 - `apps/quilombo` - DApp to access community functions (main application)
 - `packages/contracts` - Solidity contracts using Foundry/Forge
 - `packages/subgraph-moloch-v3` - Subgraph for Moloch v3 DAO
+- `packages/the-capoeira-list` - One-time import of verified active groups from legacy "The Capoeira List" project
+
+**Documentation & Research Tools**:
+- `docs/genealogy/` - Ongoing genealogy research and import pipeline for historical capoeira figures and lineage data. Uses Claude commands (`/import-person`, `/import-group`) to research, generate reports, and produce SQL imports.
 
 **Package-Specific Documentation**: Each package has its own `.claude/CLAUDE.md` file with detailed technical information:
 - `apps/quilombo/.claude/CLAUDE.md` - Quilombo app architecture, authentication, database, state management, API routes
 - `packages/contracts/.claude/CLAUDE.md` - Smart contracts, deployment, testing with Foundry/Forge
+- `packages/the-capoeira-list/README.md` - Data processing pipeline documentation
+- `docs/genealogy/sql-imports/README.md` - SQL import workflow and templates
 
 # Common Commands
 
@@ -207,6 +213,34 @@ See `packages/contracts/.claude/CLAUDE.md` for deployment workflows and testing 
 ### packages/subgraph-moloch-v3 (Subgraph)
 - GraphQL subgraph for Moloch v3 DAO
 - Query layer for on-chain DAO data
+
+## Data Architecture: App Identity vs Public Genealogy
+
+The Quilombo app uses a **dual-schema architecture** to separate private app identity from public genealogy data:
+
+### Public Schema (App Identity)
+Tables for app authentication, permissions, and app-specific features:
+- `users` - App accounts (auth, email, wallet, permissions)
+- `groups` - In-app group entities (admins, locations, events)
+- `group_locations`, `events`, `invitations`, etc.
+
+### Genealogy Schema (Public Profiles)
+Tables for publicly viewable capoeira lineage and historical data:
+- `genealogy.person_profiles` - Historical and contemporary capoeira figures
+- `genealogy.group_profiles` - Capoeira groups with history, founding info
+- `genealogy.statements` - Relationships using subject-predicate-object triples (student_of, founded, leads, etc.)
+
+### FK Direction: Public → Genealogy
+- `users.profile_id` → `genealogy.person_profiles.id` (user claims a public profile)
+- `groups.profile_id` → `genealogy.group_profiles.id` (app group links to genealogy profile)
+
+This allows genealogy data to exist independently (historical figures, unclaimed profiles) while app users can optionally claim and link their identity to public profiles.
+
+### Claim Workflows
+- **Person claims**: Users request to claim a genealogy person profile as their own
+- **Group claims**: Users request to claim/manage a genealogy group profile
+
+See `apps/quilombo/.claude/CLAUDE.md` for detailed database architecture.
 
 ## Development Workflow
 

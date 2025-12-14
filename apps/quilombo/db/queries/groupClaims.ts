@@ -1,58 +1,50 @@
 /**
  * GROUP CLAIMS QUERIES
- * Group ownership claiming workflow with admin approval
+ * Group claiming workflow for genealogy groups and new group registration
+ *
+ * Two scenarios:
+ * 1. Claim existing genealogy group (profileId is set)
+ * 2. Register new group (proposedName is set)
  */
 
-import { eq } from 'drizzle-orm';
+import { and, eq } from 'drizzle-orm';
 
 import * as schema from '@/db/schema';
+import { groupProfiles, type SelectGroupProfile } from '@/db/schema/genealogy';
 import { db } from '@/db';
 import { NotFoundError } from '@/utils/errors';
 import { addGroupAdmin } from './groups';
 
-/**
- * Checks if a group is claimable (claimedBy IS NULL AND no admins exist).
- *
- * @param groupId - ID of the group to check
- * @returns True if group is claimable, false otherwise
- */
-export async function isGroupClaimable(groupId: string): Promise<boolean> {
-  // Single query with left join to check both conditions at once
-  const result = await db
-    .select({
-      claimedBy: schema.groups.claimedBy,
-      adminUserId: schema.groupAdmins.userId,
-    })
-    .from(schema.groups)
-    .leftJoin(schema.groupAdmins, eq(schema.groups.id, schema.groupAdmins.groupId))
-    .where(eq(schema.groups.id, groupId))
-    .limit(1);
+// ============================================================================
+// TYPES
+// ============================================================================
 
-  // If no group found, not claimable
-  if (result.length === 0) {
-    return false;
-  }
+export type GroupClaimType = 'genealogy_group' | 'new_group';
 
-  const { claimedBy, adminUserId } = result[0];
+export type GroupClaimWithDetails = schema.SelectGroupClaim & {
+  type: GroupClaimType;
+  user: Pick<schema.SelectUser, 'id' | 'name' | 'nickname' | 'avatar'> | null;
+  groupProfile: SelectGroupProfile | null;
+};
 
-  // Group is claimable only if claimedBy IS NULL AND no admins exist
-  return claimedBy === null && adminUserId === null;
-}
+// ============================================================================
+// CLAIM CREATION
+// ============================================================================
 
 /**
- * Creates a new group claim request.
+ * Creates a claim for an existing genealogy group profile.
  *
  * @param userId - ID of the user claiming the group
- * @param groupId - ID of the group being claimed
- * @param message - User's explanation for why they should be admin
+ * @param profileId - ID of the genealogy group profile
+ * @param message - User's explanation for why they should manage this group
  * @returns The created claim ID
  */
-export async function createGroupClaim(userId: string, groupId: string, message: string): Promise<string> {
+export async function createGenealogyGroupClaim(userId: string, profileId: string, message: string): Promise<string> {
   const result = await db
     .insert(schema.groupClaims)
     .values({
       userId,
-      groupId,
+      profileId,
       userMessage: message,
       status: 'pending',
       requestedAt: new Date(),
@@ -63,17 +55,106 @@ export async function createGroupClaim(userId: string, groupId: string, message:
 }
 
 /**
- * Fetches all pending group claims for admin review.
+ * Creates a claim to register a new group (not in genealogy).
  *
- * @returns Array of pending claims with group and user info
+ * @param userId - ID of the user registering the group
+ * @param data - New group data
+ * @returns The created claim ID
  */
-export async function getPendingClaims(): Promise<
-  Array<schema.SelectGroupClaim & { group: schema.SelectGroup | null; user: schema.SelectUser | null }>
-> {
+export async function createNewGroupClaim(
+  userId: string,
+  data: {
+    proposedName: string;
+    proposedStyle?: schema.SelectGroup['style'];
+    website?: string;
+    userMessage: string;
+  }
+): Promise<string> {
+  const result = await db
+    .insert(schema.groupClaims)
+    .values({
+      userId,
+      proposedName: data.proposedName,
+      proposedStyle: data.proposedStyle,
+      website: data.website,
+      userMessage: data.userMessage,
+      status: 'pending',
+      requestedAt: new Date(),
+    })
+    .returning({ id: schema.groupClaims.id });
+
+  return result[0].id;
+}
+
+// ============================================================================
+// CLAIM QUERIES
+// ============================================================================
+
+/**
+ * Checks if a genealogy group profile can be admin-claimed.
+ * A group is admin-claimable if there's no corresponding entry in public.groups
+ * (i.e., no one has claimed admin rights yet).
+ *
+ * Note: This is different from "joinable" - a historical/inactive group
+ * may still be admin-claimable even if users shouldn't declare membership.
+ *
+ * @param profileId - ID of the genealogy group profile
+ * @returns True if group can be admin-claimed, false otherwise
+ */
+export async function isGroupAdminClaimable(profileId: string): Promise<boolean> {
+  // Check if a public.groups entry exists that references this profile
+  const result = await db
+    .select({ id: schema.groups.id })
+    .from(schema.groups)
+    .where(eq(schema.groups.profileId, profileId))
+    .limit(1);
+
+  // Admin-claimable if no groups entry exists
+  return result.length === 0;
+}
+
+/**
+ * @deprecated Use isGroupAdminClaimable instead. This alias exists for backward compatibility.
+ */
+export const isGenealogyGroupClaimable = isGroupAdminClaimable;
+
+/**
+ * Checks if user has a pending claim for a genealogy group profile.
+ *
+ * @param userId - ID of the user
+ * @param profileId - ID of the genealogy group profile
+ * @returns True if user has pending claim
+ */
+export async function hasPendingGenealogyGroupClaim(userId: string, profileId: string): Promise<boolean> {
+  const result = await db
+    .select({ id: schema.groupClaims.id })
+    .from(schema.groupClaims)
+    .where(
+      and(
+        eq(schema.groupClaims.userId, userId),
+        eq(schema.groupClaims.profileId, profileId),
+        eq(schema.groupClaims.status, 'pending')
+      )
+    )
+    .limit(1);
+
+  return result.length > 0;
+}
+
+/**
+ * Fetches a single claim by ID with full details.
+ *
+ * @param claimId - ID of the claim to fetch
+ * @returns The claim with details or null if not found
+ */
+export async function getGroupClaimById(claimId: string): Promise<GroupClaimWithDetails | null> {
   const results = await db
     .select({
       id: schema.groupClaims.id,
-      groupId: schema.groupClaims.groupId,
+      profileId: schema.groupClaims.profileId,
+      proposedName: schema.groupClaims.proposedName,
+      proposedStyle: schema.groupClaims.proposedStyle,
+      website: schema.groupClaims.website,
       userId: schema.groupClaims.userId,
       status: schema.groupClaims.status,
       requestedAt: schema.groupClaims.requestedAt,
@@ -81,18 +162,29 @@ export async function getPendingClaims(): Promise<
       processedBy: schema.groupClaims.processedBy,
       userMessage: schema.groupClaims.userMessage,
       adminNotes: schema.groupClaims.adminNotes,
-      group: schema.groups,
-      user: schema.users,
+      userName: schema.users.name,
+      userNickname: schema.users.nickname,
+      userAvatar: schema.users.avatar,
+      groupProfileName: groupProfiles.name,
+      groupProfileStyle: groupProfiles.style,
+      groupProfileLogo: groupProfiles.logo,
+      groupProfileDescriptionEn: groupProfiles.descriptionEn,
     })
     .from(schema.groupClaims)
-    .leftJoin(schema.groups, eq(schema.groupClaims.groupId, schema.groups.id))
     .leftJoin(schema.users, eq(schema.groupClaims.userId, schema.users.id))
-    .where(eq(schema.groupClaims.status, 'pending'))
-    .orderBy(schema.groupClaims.requestedAt);
+    .leftJoin(groupProfiles, eq(schema.groupClaims.profileId, groupProfiles.id))
+    .where(eq(schema.groupClaims.id, claimId))
+    .limit(1);
 
-  return results.map((r) => ({
+  if (results.length === 0) return null;
+
+  const r = results[0];
+  return {
     id: r.id,
-    groupId: r.groupId,
+    profileId: r.profileId,
+    proposedName: r.proposedName,
+    proposedStyle: r.proposedStyle,
+    website: r.website,
     userId: r.userId,
     status: r.status,
     requestedAt: r.requestedAt,
@@ -100,39 +192,232 @@ export async function getPendingClaims(): Promise<
     processedBy: r.processedBy,
     userMessage: r.userMessage,
     adminNotes: r.adminNotes,
-    group: r.group,
-    user: r.user,
+    type: r.profileId ? 'genealogy_group' : 'new_group',
+    user: r.userId ? { id: r.userId, name: r.userName, nickname: r.userNickname, avatar: r.userAvatar } : null,
+    groupProfile: r.profileId
+      ? ({
+          id: r.profileId,
+          name: r.groupProfileName,
+          style: r.groupProfileStyle,
+          logo: r.groupProfileLogo,
+          descriptionEn: r.groupProfileDescriptionEn,
+        } as SelectGroupProfile)
+      : null,
+  };
+}
+
+/**
+ * Fetches all pending group claims for admin review.
+ *
+ * @returns Array of pending claims with details
+ */
+export async function getPendingGroupClaims(): Promise<GroupClaimWithDetails[]> {
+  const results = await db
+    .select({
+      id: schema.groupClaims.id,
+      profileId: schema.groupClaims.profileId,
+      proposedName: schema.groupClaims.proposedName,
+      proposedStyle: schema.groupClaims.proposedStyle,
+      website: schema.groupClaims.website,
+      userId: schema.groupClaims.userId,
+      status: schema.groupClaims.status,
+      requestedAt: schema.groupClaims.requestedAt,
+      processedAt: schema.groupClaims.processedAt,
+      processedBy: schema.groupClaims.processedBy,
+      userMessage: schema.groupClaims.userMessage,
+      adminNotes: schema.groupClaims.adminNotes,
+      userName: schema.users.name,
+      userNickname: schema.users.nickname,
+      userAvatar: schema.users.avatar,
+      groupProfileName: groupProfiles.name,
+      groupProfileStyle: groupProfiles.style,
+      groupProfileLogo: groupProfiles.logo,
+      groupProfileDescriptionEn: groupProfiles.descriptionEn,
+    })
+    .from(schema.groupClaims)
+    .leftJoin(schema.users, eq(schema.groupClaims.userId, schema.users.id))
+    .leftJoin(groupProfiles, eq(schema.groupClaims.profileId, groupProfiles.id))
+    .where(eq(schema.groupClaims.status, 'pending'))
+    .orderBy(schema.groupClaims.requestedAt);
+
+  return results.map((r) => ({
+    id: r.id,
+    profileId: r.profileId,
+    proposedName: r.proposedName,
+    proposedStyle: r.proposedStyle,
+    website: r.website,
+    userId: r.userId,
+    status: r.status,
+    requestedAt: r.requestedAt,
+    processedAt: r.processedAt,
+    processedBy: r.processedBy,
+    userMessage: r.userMessage,
+    adminNotes: r.adminNotes,
+    type: (r.profileId ? 'genealogy_group' : 'new_group') as GroupClaimType,
+    user: r.userId ? { id: r.userId, name: r.userName, nickname: r.userNickname, avatar: r.userAvatar } : null,
+    groupProfile: r.profileId
+      ? ({
+          id: r.profileId,
+          name: r.groupProfileName,
+          style: r.groupProfileStyle,
+          logo: r.groupProfileLogo,
+          descriptionEn: r.groupProfileDescriptionEn,
+        } as SelectGroupProfile)
+      : null,
   }));
 }
 
 /**
- * Fetches a single claim by ID.
+ * Fetches claims submitted by a specific user.
  *
- * @param claimId - ID of the claim to fetch
- * @returns The claim or null if not found
+ * @param userId - ID of the user
+ * @returns Array of user's claims
  */
-export async function getGroupClaim(claimId: string): Promise<schema.SelectGroupClaim | null> {
-  const claim = await db.query.groupClaims.findFirst({
-    where: eq(schema.groupClaims.id, claimId),
-  });
+export async function getUserGroupClaims(userId: string): Promise<GroupClaimWithDetails[]> {
+  const results = await db
+    .select({
+      id: schema.groupClaims.id,
+      profileId: schema.groupClaims.profileId,
+      proposedName: schema.groupClaims.proposedName,
+      proposedStyle: schema.groupClaims.proposedStyle,
+      website: schema.groupClaims.website,
+      userId: schema.groupClaims.userId,
+      status: schema.groupClaims.status,
+      requestedAt: schema.groupClaims.requestedAt,
+      processedAt: schema.groupClaims.processedAt,
+      processedBy: schema.groupClaims.processedBy,
+      userMessage: schema.groupClaims.userMessage,
+      adminNotes: schema.groupClaims.adminNotes,
+      groupProfileName: groupProfiles.name,
+      groupProfileStyle: groupProfiles.style,
+      groupProfileLogo: groupProfiles.logo,
+      groupProfileDescriptionEn: groupProfiles.descriptionEn,
+    })
+    .from(schema.groupClaims)
+    .leftJoin(groupProfiles, eq(schema.groupClaims.profileId, groupProfiles.id))
+    .where(eq(schema.groupClaims.userId, userId))
+    .orderBy(schema.groupClaims.requestedAt);
 
-  return claim || null;
+  return results.map((r) => ({
+    id: r.id,
+    profileId: r.profileId,
+    proposedName: r.proposedName,
+    proposedStyle: r.proposedStyle,
+    website: r.website,
+    userId: r.userId,
+    status: r.status,
+    requestedAt: r.requestedAt,
+    processedAt: r.processedAt,
+    processedBy: r.processedBy,
+    userMessage: r.userMessage,
+    adminNotes: r.adminNotes,
+    type: (r.profileId ? 'genealogy_group' : 'new_group') as GroupClaimType,
+    user: null, // Not needed for user's own claims
+    groupProfile: r.profileId
+      ? ({
+          id: r.profileId,
+          name: r.groupProfileName,
+          style: r.groupProfileStyle,
+          logo: r.groupProfileLogo,
+          descriptionEn: r.groupProfileDescriptionEn,
+        } as SelectGroupProfile)
+      : null,
+  }));
 }
 
+// ============================================================================
+// CLAIM PROCESSING
+// ============================================================================
+
 /**
- * Approves a group claim: marks it approved, adds user as admin, sets claimedBy/At.
+ * Approves a group claim.
+ *
+ * For genealogy group claims: Creates public.groups entry linked to profile.
+ * For new group claims: Creates genealogy.group_profiles AND public.groups.
+ *
+ * Both cases: Add user as admin, set claimedBy/claimedAt.
  *
  * @param claimId - ID of the claim to approve
- * @param adminId - ID of the admin approving the claim
+ * @param adminId - ID of the admin approving
+ * @param adminNotes - Optional admin notes
  * @throws NotFoundError if claim not found
  */
-export async function approveClaim(claimId: string, adminId: string): Promise<void> {
-  // Get the claim details
-  const claim = await getGroupClaim(claimId);
-
+export async function approveGroupClaim(
+  claimId: string,
+  adminId: string,
+  adminNotes?: string
+): Promise<{ groupId: string; profileId: string }> {
+  const claim = await getGroupClaimById(claimId);
   if (!claim) {
     throw new NotFoundError('Claim', claimId);
   }
+
+  if (claim.status !== 'pending') {
+    throw new Error(`Claim is not pending (status: ${claim.status})`);
+  }
+
+  let profileId: string;
+  let groupId: string;
+
+  if (claim.type === 'genealogy_group') {
+    // Claim existing genealogy group - just create public.groups entry
+    // profileId is guaranteed to be set when type is 'genealogy_group' (enforced by DB constraint)
+    // biome-ignore lint/style/noNonNullAssertion: DB constraint ensures profileId is set for genealogy_group type
+    profileId = claim.profileId!;
+
+    const groupResult = await db
+      .insert(schema.groups)
+      .values({
+        id: crypto.randomUUID(),
+        profileId,
+        createdBy: claim.userId,
+        claimedBy: claim.userId,
+        claimedAt: new Date(),
+        // Legacy fields - will be removed in Flow 4
+        name: claim.groupProfile?.name || 'Unknown',
+      })
+      .returning({ id: schema.groups.id });
+
+    groupId = groupResult[0].id;
+  } else {
+    // Register new group - create both genealogy profile AND groups entry
+    // proposedName is guaranteed to be set when type is 'new_group' (enforced by DB constraint)
+    // biome-ignore lint/style/noNonNullAssertion: DB constraint ensures proposedName is set for new_group type
+    const proposedName = claim.proposedName!;
+
+    const profileResult = await db
+      .insert(groupProfiles)
+      .values({
+        name: proposedName,
+        style: claim.proposedStyle,
+        publicLinks: claim.website ? [claim.website] : [],
+      })
+      .returning({ id: groupProfiles.id });
+
+    profileId = profileResult[0].id;
+
+    const groupResult = await db
+      .insert(schema.groups)
+      .values({
+        id: crypto.randomUUID(),
+        profileId,
+        createdBy: claim.userId,
+        claimedBy: claim.userId,
+        claimedAt: new Date(),
+        // Legacy fields - will be removed in Flow 4
+        name: proposedName,
+        style: claim.proposedStyle,
+      })
+      .returning({ id: schema.groups.id });
+
+    groupId = groupResult[0].id;
+  }
+
+  // Add claimant as admin
+  await addGroupAdmin({ groupId, userId: claim.userId });
+
+  // Note: Membership is handled via genealogy statements, not users.groupId
+  // The user can declare membership separately if desired
 
   // Update claim status
   await db
@@ -141,41 +426,29 @@ export async function approveClaim(claimId: string, adminId: string): Promise<vo
       status: 'approved',
       processedAt: new Date(),
       processedBy: adminId,
+      adminNotes,
     })
     .where(eq(schema.groupClaims.id, claimId));
 
-  // Add user as group admin
-  await addGroupAdmin({ groupId: claim.groupId, userId: claim.userId });
-
-  // Update group's claimedBy and claimedAt
-  await db
-    .update(schema.groups)
-    .set({
-      claimedBy: claim.userId,
-      claimedAt: new Date(),
-    })
-    .where(eq(schema.groups.id, claim.groupId));
-
-  // Add user to the group
-  await db.update(schema.users).set({ groupId: claim.groupId }).where(eq(schema.users.id, claim.userId));
+  return { groupId, profileId };
 }
 
 /**
  * Rejects a group claim with admin notes.
  *
  * @param claimId - ID of the claim to reject
- * @param adminId - ID of the admin rejecting the claim
- * @param notes - Admin's reason for rejection
+ * @param adminId - ID of the admin rejecting
+ * @param adminNotes - Reason for rejection
  * @throws NotFoundError if claim not found
  */
-export async function rejectClaim(claimId: string, adminId: string, notes: string): Promise<void> {
-  // Get the claim details
-  const claim = await db.query.groupClaims.findFirst({
-    where: eq(schema.groupClaims.id, claimId),
-  });
-
+export async function rejectGroupClaim(claimId: string, adminId: string, adminNotes: string): Promise<void> {
+  const claim = await getGroupClaimById(claimId);
   if (!claim) {
     throw new NotFoundError('Claim', claimId);
+  }
+
+  if (claim.status !== 'pending') {
+    throw new Error(`Claim is not pending (status: ${claim.status})`);
   }
 
   await db
@@ -184,48 +457,7 @@ export async function rejectClaim(claimId: string, adminId: string, notes: strin
       status: 'rejected',
       processedAt: new Date(),
       processedBy: adminId,
-      adminNotes: notes,
+      adminNotes,
     })
     .where(eq(schema.groupClaims.id, claimId));
-}
-
-/**
- * Fetches all claims for a specific group (for history/audit).
- *
- * @param groupId - ID of the group
- * @returns Array of all claims for this group
- */
-export async function getGroupClaims(
-  groupId: string
-): Promise<Array<schema.SelectGroupClaim & { user: schema.SelectUser | null }>> {
-  const results = await db
-    .select({
-      id: schema.groupClaims.id,
-      groupId: schema.groupClaims.groupId,
-      userId: schema.groupClaims.userId,
-      status: schema.groupClaims.status,
-      requestedAt: schema.groupClaims.requestedAt,
-      processedAt: schema.groupClaims.processedAt,
-      processedBy: schema.groupClaims.processedBy,
-      userMessage: schema.groupClaims.userMessage,
-      adminNotes: schema.groupClaims.adminNotes,
-      user: schema.users,
-    })
-    .from(schema.groupClaims)
-    .leftJoin(schema.users, eq(schema.groupClaims.userId, schema.users.id))
-    .where(eq(schema.groupClaims.groupId, groupId))
-    .orderBy(schema.groupClaims.requestedAt);
-
-  return results.map((r) => ({
-    id: r.id,
-    groupId: r.groupId,
-    userId: r.userId,
-    status: r.status,
-    requestedAt: r.requestedAt,
-    processedAt: r.processedAt,
-    processedBy: r.processedBy,
-    userMessage: r.userMessage,
-    adminNotes: r.adminNotes,
-    user: r.user,
-  }));
 }

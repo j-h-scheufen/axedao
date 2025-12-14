@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Zeca Floriano',
   NULL,  -- Not formally titled as capoeira mestre
   NULL,  -- No public domain portrait found
-  '[{"type": "website", "url": "https://www.scielo.br/j/heduc/a/xThjX4DzwVwkbbqT65Y8DPc/"}, {"type": "website", "url": "https://www.tapology.com/fightcenter/fighters/267234-jose-floriano-peixoto-zeca"}]'::jsonb,
+  ARRAY['https://www.scielo.br/j/heduc/a/xThjX4DzwVwkbbqT65Y8DPc/', 'https://www.tapology.com/fightcenter/fighters/267234-jose-floriano-peixoto-zeca']::text[],
   -- Capoeira-specific
   NULL,  -- Style distinctions (Angola/Regional) did not exist in his era
   E'Zeca Floriano was a versatile martial artist who practiced capoeira carioca/pernada alongside boxing, Greco-Roman wrestling, jiu-jitsu, and savate. His approach to fighting was cross-disciplinary, typical of early 20th century sportsmen who combined multiple combat traditions. He transmitted pernada (the leg-sweep fighting game) and capoeira carioca to students like Sinhozinho around 1908. His capoeira practice likely came from his father Marshal Floriano Peixoto, who was documented as a capoeiragem practitioner.',

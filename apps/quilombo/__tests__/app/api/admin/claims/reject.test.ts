@@ -17,37 +17,38 @@ describe('PUT /api/admin/claims/[claimId]/reject', () => {
   let PUT: (request: Request, context: { params: Promise<{ claimId: string }> }) => Promise<Response>;
   let getServerSession: ReturnType<typeof vi.fn>;
   let isGlobalAdmin: ReturnType<typeof vi.fn>;
-  let getGroupClaim: ReturnType<typeof vi.fn>;
+  let getGroupClaimById: ReturnType<typeof vi.fn>;
   let fetchUser: ReturnType<typeof vi.fn>;
-  let fetchGroup: ReturnType<typeof vi.fn>;
-  let rejectClaim: ReturnType<typeof vi.fn>;
+  let rejectGroupClaim: ReturnType<typeof vi.fn>;
   let getEmailProvider: ReturnType<typeof vi.fn>;
   let NotFoundError: any;
 
   const testAdminId = 'admin-user-123';
   const testClaimId = 'claim-456';
   const testUserId = 'claimer-789';
-  const testGroupId = 'group-101';
+  const testProfileId = 'profile-202';
   const validNotes = 'Group information could not be verified';
 
+  // New claim structure with type and groupProfile
   const mockClaim = {
     id: testClaimId,
     userId: testUserId,
-    groupId: testGroupId,
+    type: 'genealogy_group' as const,
+    profileId: testProfileId,
+    proposedName: null,
     userMessage: 'I am the founder of this group',
     status: 'pending' as const,
     createdAt: new Date(),
+    groupProfile: {
+      id: testProfileId,
+      name: 'Test Capoeira Group',
+    },
   };
 
   const mockUser = {
     id: testUserId,
     email: 'claimer@example.com',
     name: 'Claimer User',
-  };
-
-  const mockGroup = {
-    id: testGroupId,
-    name: 'Test Capoeira Group',
   };
 
   beforeEach(async () => {
@@ -61,10 +62,9 @@ describe('PUT /api/admin/claims/[claimId]/reject', () => {
 
     getServerSession = vi.fn();
     isGlobalAdmin = vi.fn();
-    getGroupClaim = vi.fn();
+    getGroupClaimById = vi.fn();
     fetchUser = vi.fn();
-    fetchGroup = vi.fn();
-    rejectClaim = vi.fn();
+    rejectGroupClaim = vi.fn();
     getEmailProvider = vi.fn();
     NotFoundError = errors.NotFoundError;
 
@@ -74,10 +74,9 @@ describe('PUT /api/admin/claims/[claimId]/reject', () => {
 
     (nextAuth.getServerSession as typeof getServerSession) = getServerSession;
     (db.isGlobalAdmin as typeof isGlobalAdmin) = isGlobalAdmin;
-    (db.getGroupClaim as typeof getGroupClaim) = getGroupClaim;
+    (db.getGroupClaimById as typeof getGroupClaimById) = getGroupClaimById;
     (db.fetchUser as typeof fetchUser) = fetchUser;
-    (db.fetchGroup as typeof fetchGroup) = fetchGroup;
-    (db.rejectClaim as typeof rejectClaim) = rejectClaim;
+    (db.rejectGroupClaim as typeof rejectGroupClaim) = rejectGroupClaim;
     (emailUtils.getEmailProvider as typeof getEmailProvider) = getEmailProvider;
 
     getEmailProvider.mockReturnValue(mockEmailProvider);
@@ -104,7 +103,7 @@ describe('PUT /api/admin/claims/[claimId]/reject', () => {
 
       expect(response.status).toBe(401);
       expect(body).toEqual({ error: 'Unauthorized, try to login again' });
-      expect(rejectClaim).not.toHaveBeenCalled();
+      expect(rejectGroupClaim).not.toHaveBeenCalled();
     });
 
     it('should return 403 when user is not a global admin', async () => {
@@ -124,7 +123,7 @@ describe('PUT /api/admin/claims/[claimId]/reject', () => {
 
       expect(response.status).toBe(403);
       expect(body).toEqual({ error: 'Missing permission. Global admin access required.' });
-      expect(rejectClaim).not.toHaveBeenCalled();
+      expect(rejectGroupClaim).not.toHaveBeenCalled();
     });
   });
 
@@ -148,7 +147,7 @@ describe('PUT /api/admin/claims/[claimId]/reject', () => {
 
       expect(response.status).toBe(400);
       expect(body).toEqual({ error: 'Rejection notes are required' });
-      expect(rejectClaim).not.toHaveBeenCalled();
+      expect(rejectGroupClaim).not.toHaveBeenCalled();
     });
 
     it('should return 400 when notes are empty string', async () => {
@@ -178,10 +177,9 @@ describe('PUT /api/admin/claims/[claimId]/reject', () => {
     });
 
     it('should accept valid notes', async () => {
-      getGroupClaim.mockResolvedValue(mockClaim);
+      getGroupClaimById.mockResolvedValue(mockClaim);
       fetchUser.mockResolvedValue(mockUser);
-      fetchGroup.mockResolvedValue(mockGroup);
-      rejectClaim.mockResolvedValue(undefined);
+      rejectGroupClaim.mockResolvedValue(undefined);
 
       const request = createMockRequest(`http://localhost/api/admin/claims/${testClaimId}/reject`, {
         method: 'PUT',
@@ -204,7 +202,7 @@ describe('PUT /api/admin/claims/[claimId]/reject', () => {
     });
 
     it('should return 404 when claim does not exist', async () => {
-      getGroupClaim.mockResolvedValue(null);
+      getGroupClaimById.mockResolvedValue(null);
 
       const request = createMockRequest(`http://localhost/api/admin/claims/${testClaimId}/reject`, {
         method: 'PUT',
@@ -216,13 +214,12 @@ describe('PUT /api/admin/claims/[claimId]/reject', () => {
 
       expect(response.status).toBe(404);
       expect(body).toEqual({ error: 'Claim not found' });
-      expect(rejectClaim).not.toHaveBeenCalled();
+      expect(rejectGroupClaim).not.toHaveBeenCalled();
     });
 
     it('should return 404 when user does not exist', async () => {
-      getGroupClaim.mockResolvedValue(mockClaim);
+      getGroupClaimById.mockResolvedValue(mockClaim);
       fetchUser.mockResolvedValue(null);
-      fetchGroup.mockResolvedValue(mockGroup);
 
       const request = createMockRequest(`http://localhost/api/admin/claims/${testClaimId}/reject`, {
         method: 'PUT',
@@ -233,25 +230,8 @@ describe('PUT /api/admin/claims/[claimId]/reject', () => {
       const body = await getResponseJson(response);
 
       expect(response.status).toBe(404);
-      expect(body).toEqual({ error: 'User or group not found' });
-      expect(rejectClaim).not.toHaveBeenCalled();
-    });
-
-    it('should return 404 when group does not exist', async () => {
-      getGroupClaim.mockResolvedValue(mockClaim);
-      fetchUser.mockResolvedValue(mockUser);
-      fetchGroup.mockResolvedValue(null);
-
-      const request = createMockRequest(`http://localhost/api/admin/claims/${testClaimId}/reject`, {
-        method: 'PUT',
-        body: { notes: validNotes },
-      });
-
-      const response = await PUT(request, { params: Promise.resolve({ claimId: testClaimId }) });
-      const body = await getResponseJson(response);
-
-      expect(response.status).toBe(404);
-      expect(body).toEqual({ error: 'User or group not found' });
+      expect(body).toEqual({ error: 'User not found' });
+      expect(rejectGroupClaim).not.toHaveBeenCalled();
     });
   });
 
@@ -262,13 +242,12 @@ describe('PUT /api/admin/claims/[claimId]/reject', () => {
         expires: '2025-12-31',
       });
       isGlobalAdmin.mockResolvedValue(true);
-      getGroupClaim.mockResolvedValue(mockClaim);
+      getGroupClaimById.mockResolvedValue(mockClaim);
       fetchUser.mockResolvedValue(mockUser);
-      fetchGroup.mockResolvedValue(mockGroup);
-      rejectClaim.mockResolvedValue(undefined);
+      rejectGroupClaim.mockResolvedValue(undefined);
     });
 
-    it('should call rejectClaim with correct parameters', async () => {
+    it('should call rejectGroupClaim with correct parameters', async () => {
       const request = createMockRequest(`http://localhost/api/admin/claims/${testClaimId}/reject`, {
         method: 'PUT',
         body: { notes: validNotes },
@@ -276,7 +255,7 @@ describe('PUT /api/admin/claims/[claimId]/reject', () => {
 
       await PUT(request, { params: Promise.resolve({ claimId: testClaimId }) });
 
-      expect(rejectClaim).toHaveBeenCalledWith(testClaimId, testAdminId, validNotes);
+      expect(rejectGroupClaim).toHaveBeenCalledWith(testClaimId, testAdminId, validNotes);
     });
 
     it('should send rejection email with notes', async () => {
@@ -294,7 +273,37 @@ describe('PUT /api/admin/claims/[claimId]/reject', () => {
 
       expect(mockEmailProvider.sendClaimRejectedEmail).toHaveBeenCalledWith(
         'claimer@example.com',
-        'Test Capoeira Group',
+        'Test Capoeira Group', // From claim.groupProfile.name
+        'Claimer User',
+        validNotes
+      );
+    });
+
+    it('should use proposedName for new_group type claims', async () => {
+      const newGroupClaim = {
+        ...mockClaim,
+        type: 'new_group' as const,
+        profileId: null,
+        groupProfile: null,
+        proposedName: 'My New Group',
+      };
+      getGroupClaimById.mockResolvedValue(newGroupClaim);
+
+      const mockEmailProvider = {
+        sendClaimRejectedEmail: vi.fn().mockResolvedValue(undefined),
+      };
+      getEmailProvider.mockReturnValue(mockEmailProvider);
+
+      const request = createMockRequest(`http://localhost/api/admin/claims/${testClaimId}/reject`, {
+        method: 'PUT',
+        body: { notes: validNotes },
+      });
+
+      await PUT(request, { params: Promise.resolve({ claimId: testClaimId }) });
+
+      expect(mockEmailProvider.sendClaimRejectedEmail).toHaveBeenCalledWith(
+        'claimer@example.com',
+        'My New Group', // From claim.proposedName
         'Claimer User',
         validNotes
       );
@@ -350,7 +359,7 @@ describe('PUT /api/admin/claims/[claimId]/reject', () => {
       const response = await PUT(request, { params: Promise.resolve({ claimId: testClaimId }) });
 
       expect(response.status).toBe(200);
-      expect(rejectClaim).toHaveBeenCalled();
+      expect(rejectGroupClaim).toHaveBeenCalled();
     });
 
     it('should skip email when user has no email address', async () => {
@@ -380,13 +389,12 @@ describe('PUT /api/admin/claims/[claimId]/reject', () => {
         expires: '2025-12-31',
       });
       isGlobalAdmin.mockResolvedValue(true);
-      getGroupClaim.mockResolvedValue(mockClaim);
+      getGroupClaimById.mockResolvedValue(mockClaim);
       fetchUser.mockResolvedValue(mockUser);
-      fetchGroup.mockResolvedValue(mockGroup);
     });
 
-    it('should return 404 when rejectClaim throws NotFoundError', async () => {
-      rejectClaim.mockRejectedValue(new NotFoundError('Claim', testClaimId));
+    it('should return 404 when rejectGroupClaim throws NotFoundError', async () => {
+      rejectGroupClaim.mockRejectedValue(new NotFoundError('Claim', testClaimId));
 
       const request = createMockRequest(`http://localhost/api/admin/claims/${testClaimId}/reject`, {
         method: 'PUT',
@@ -400,8 +408,8 @@ describe('PUT /api/admin/claims/[claimId]/reject', () => {
       expect(body).toEqual({ error: `Claim with id '${testClaimId}' not found` });
     });
 
-    it('should return 500 when rejectClaim throws generic error', async () => {
-      rejectClaim.mockRejectedValue(new Error('Database constraint violation'));
+    it('should return 500 when rejectGroupClaim throws generic error', async () => {
+      rejectGroupClaim.mockRejectedValue(new Error('Database constraint violation'));
 
       const request = createMockRequest(`http://localhost/api/admin/claims/${testClaimId}/reject`, {
         method: 'PUT',

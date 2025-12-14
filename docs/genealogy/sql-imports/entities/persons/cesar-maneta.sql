@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'César-Maneta',
   NULL,  -- Pre-formal title era
   NULL,  -- No historical portrait available
-  '[{"type": "website", "url": "https://capoeirahistory.com/classical-texts-of-capoeira-history-placido-de-abreu-1886/"}]'::jsonb,
+  ARRAY['https://capoeirahistory.com/classical-texts-of-capoeira-history-placido-de-abreu-1886/']::text[],
   -- Capoeira-specific
   NULL,  -- Pre-Angola/Regional distinction
   'Active before the codification of capoeira styles. Practiced capoeira carioca during the malta era in Rio de Janeiro. Famous enough to be specifically named by Plácido de Abreu in 1886.',

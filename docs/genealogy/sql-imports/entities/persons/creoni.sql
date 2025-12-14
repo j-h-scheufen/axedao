@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Creoni',
   NULL,
   NULL,
-  '[]'::jsonb,
+  ARRAY[]::text[],
   -- Capoeira-specific
   'angola'::genealogy.style,
   E'Traditional capoeira practitioner from Salvador, Bahia. Active in the Matatu Preto training circle during the 1930s. Style distinctions (Angola/Regional) were just emerging during his active period.',

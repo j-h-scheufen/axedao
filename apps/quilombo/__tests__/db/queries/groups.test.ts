@@ -78,34 +78,33 @@ describe('canUserManageGroup - Authorization Logic (Unit Tests)', () => {
           };
         }
 
-        // Third call: fetchGroup to get adminCount
+        // Third call: fetchGroup to get adminCount (now uses innerJoin for group_profiles)
         if (callCount === 3) {
           return {
             from: vi.fn().mockReturnValue({
-              leftJoin: vi.fn().mockReturnValue({
-                where: vi.fn().mockReturnValue({
-                  groupBy: vi.fn().mockReturnValue({
-                    limit: vi.fn().mockResolvedValue([
-                      {
-                        id: groupId,
-                        name: 'Test Group',
-                        description: null,
-                        style: null,
-                        email: null,
-                        logo: null,
-                        banner: null,
-                        leader: null,
-                        founder: null,
-                        links: null,
-                        createdBy: null,
-                        claimedBy: null,
-                        claimedAt: null,
-                        createdAt: new Date(),
-                        lastVerifiedAt: null,
-                        adminCount: 0, // Unmanaged group
-                        countryCodes: [],
-                      },
-                    ]),
+              innerJoin: vi.fn().mockReturnValue({
+                leftJoin: vi.fn().mockReturnValue({
+                  where: vi.fn().mockReturnValue({
+                    groupBy: vi.fn().mockReturnValue({
+                      limit: vi.fn().mockResolvedValue([
+                        {
+                          id: groupId,
+                          name: 'Test Group',
+                          description: null,
+                          style: null,
+                          email: null,
+                          logo: null,
+                          banner: null,
+                          links: null,
+                          createdBy: null,
+                          claimedBy: null,
+                          claimedAt: null,
+                          createdAt: new Date(),
+                          adminCount: 0, // Unmanaged group
+                          countryCodes: [],
+                        },
+                      ]),
+                    }),
                   }),
                 }),
               }),
@@ -160,34 +159,33 @@ describe('canUserManageGroup - Authorization Logic (Unit Tests)', () => {
           };
         }
 
-        // Third call: fetchGroup - has admins (managed)
+        // Third call: fetchGroup - has admins (managed) - now uses innerJoin
         if (callCount === 3) {
           return {
             from: vi.fn().mockReturnValue({
-              leftJoin: vi.fn().mockReturnValue({
-                where: vi.fn().mockReturnValue({
-                  groupBy: vi.fn().mockReturnValue({
-                    limit: vi.fn().mockResolvedValue([
-                      {
-                        id: groupId,
-                        name: 'Test Group',
-                        description: null,
-                        style: null,
-                        email: null,
-                        logo: null,
-                        banner: null,
-                        leader: null,
-                        founder: null,
-                        links: null,
-                        createdBy: null,
-                        claimedBy: null,
-                        claimedAt: null,
-                        createdAt: new Date(),
-                        lastVerifiedAt: null,
-                        adminCount: 2, // Managed group
-                        countryCodes: [],
-                      },
-                    ]),
+              innerJoin: vi.fn().mockReturnValue({
+                leftJoin: vi.fn().mockReturnValue({
+                  where: vi.fn().mockReturnValue({
+                    groupBy: vi.fn().mockReturnValue({
+                      limit: vi.fn().mockResolvedValue([
+                        {
+                          id: groupId,
+                          name: 'Test Group',
+                          description: null,
+                          style: null,
+                          email: null,
+                          logo: null,
+                          banner: null,
+                          links: null,
+                          createdBy: null,
+                          claimedBy: null,
+                          claimedAt: null,
+                          createdAt: new Date(),
+                          adminCount: 2, // Managed group
+                          countryCodes: [],
+                        },
+                      ]),
+                    }),
                   }),
                 }),
               }),
@@ -336,14 +334,16 @@ describe('canUserManageGroup - Authorization Logic (Unit Tests)', () => {
           };
         }
 
-        // Third call: fetchGroup - group not found (empty array)
+        // Third call: fetchGroup - group not found (empty array) - now uses innerJoin
         if (callCount === 3) {
           return {
             from: vi.fn().mockReturnValue({
-              leftJoin: vi.fn().mockReturnValue({
-                where: vi.fn().mockReturnValue({
-                  groupBy: vi.fn().mockReturnValue({
-                    limit: vi.fn().mockResolvedValue([]), // Group not found
+              innerJoin: vi.fn().mockReturnValue({
+                leftJoin: vi.fn().mockReturnValue({
+                  where: vi.fn().mockReturnValue({
+                    groupBy: vi.fn().mockReturnValue({
+                      limit: vi.fn().mockResolvedValue([]), // Group not found
+                    }),
                   }),
                 }),
               }),

@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Bentinho',
   NULL, -- No formal title in the modern sense; proto-mestre era
   NULL, -- No portrait available
-  '[]'::jsonb, -- No stable web pages specifically about Bentinho
+  ARRAY[]::text[], -- No stable web pages specifically about Bentinho
   -- Capoeira-specific
   NULL, -- Style distinctions didn't exist yet
   'Practiced what Mestre Bimba later described as "capoeira de Angola" or "capoeira antiga" (ancient capoeira). Predates the Angola/Regional codification.',

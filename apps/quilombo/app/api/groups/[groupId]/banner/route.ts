@@ -5,10 +5,10 @@ import { type NextRequest, NextResponse } from 'next/server';
 import { FILE_PREFIXES } from '@/config/constants';
 import { nextAuthOptions } from '@/config/next-auth-options';
 import { canUserManageGroup, fetchGroup, updateGroup } from '@/db';
-import { generateErrorMessage } from '@/utils';
-import { pinToGroup, unpin } from '@/utils/pinata';
 import type { RouteParamsGroup } from '@/types/routes';
+import { generateErrorMessage } from '@/utils';
 import { createImageBuffer } from '@/utils/images';
+import { pinToGroup, unpinIfNotReferenced } from '@/utils/pinata';
 
 /**
  * Updates or sets the group's banner.
@@ -48,14 +48,26 @@ export async function POST(request: NextRequest, { params }: RouteParamsGroup) {
       return NextResponse.json({ error: 'Invalid input data. No file found.' }, { status: 400 });
     }
 
+    // 1. Save old banner CID
+    const oldBanner = group.banner;
+
+    // 2. Upload new file
     const imageBuffer = await createImageBuffer(file, 'groupBanner');
-    const { cid, error, errorStatus } = await pinToGroup(imageBuffer, filename, group.banner);
+    const { cid, error, errorStatus } = await pinToGroup(imageBuffer, filename);
 
     if (error) {
       return NextResponse.json({ error }, { status: errorStatus ?? 500 });
     }
 
+    // 3. Update group record (removes reference to old CID)
     const updatedGroup = await updateGroup({ ...group, banner: cid });
+
+    // 4. Safely unpin old banner (only if not referenced elsewhere)
+    if (oldBanner && oldBanner !== cid) {
+      await unpinIfNotReferenced(oldBanner).catch((err) => {
+        console.error('Failed to unpin old banner:', err.message);
+      });
+    }
 
     return NextResponse.json(updatedGroup);
   } catch (error) {
@@ -100,8 +112,16 @@ export async function DELETE(_: NextRequest, { params }: RouteParamsGroup) {
     }
 
     if (group.banner) {
-      await unpin(group.banner);
+      const bannerCid = group.banner;
+
+      // 1. Update group record first (removes reference)
       const updatedGroup = await updateGroup({ ...group, banner: null });
+
+      // 2. Safely unpin (only if not referenced elsewhere)
+      await unpinIfNotReferenced(bannerCid).catch((err) => {
+        console.error('Failed to unpin banner:', err.message);
+      });
+
       return NextResponse.json(updatedGroup);
     }
 

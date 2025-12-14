@@ -29,7 +29,6 @@ const CreateUnmanagedGroupModal = () => {
 
   const initValues: FormType = {
     name: '',
-    verified: false,
   };
 
   return (

@@ -35,10 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Atenilo',
   'mestre'::genealogy.title,
   NULL,
-  '[
-    {"type": "website", "url": "https://www.recantodasletras.com.br/artigos-de-esporte/7729009"},
-    {"type": "website", "url": "https://www.recantodasletras.com.br/artigos-de-esporte/6737383"}
-  ]'::jsonb,
+  ARRAY['https://www.recantodasletras.com.br/artigos-de-esporte/7729009', 'https://www.recantodasletras.com.br/artigos-de-esporte/6737383']::text[],
   -- Capoeira-specific
   'regional'::genealogy.style,
   E'Originally trained in Angola before Bimba formalized Regional. Became one of the most traditional practitioners of Capoeira Regional. Known for a deliberate, slow playing style despite his ironic nickname "Relâmpago" (Lightning). His style was described as "tardo, lerdo, ingênuo" (slow, sluggish, naive) - a contrast that became his trademark. Specialist on the pandeiro (tambourine) in the charanga (Bimba''s minimal berimbau + two pandeiros ensemble).',

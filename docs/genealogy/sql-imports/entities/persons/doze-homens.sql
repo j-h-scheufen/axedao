@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Doze Homens',
   NULL,
   NULL,
-  '[]'::jsonb,
+  ARRAY[]::text[],
   -- Capoeira-specific
   NULL,
   E'Pre-modern era capoeira; practiced before style distinctions (Angola/Regional) existed. Part of the oral tradition era in Salvador and Santo Amaro.',

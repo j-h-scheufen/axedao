@@ -10,20 +10,29 @@ import { group } from '@/query';
 
 type Props = {
   isOpen: boolean;
-  onOpenChange: () => void;
-  groupId: string | undefined;
+  onOpenChange: (open: boolean) => void;
+  /** ID of the genealogy group profile to claim */
+  profileId: string | undefined;
+  /** Callback after successful claim submission */
+  onSuccess?: () => void;
 };
 
-const ClaimGroupModal = ({ isOpen, onOpenChange, groupId }: Props) => {
-  const claimGroupMutation = group.useClaimGroupMutation();
+/**
+ * Modal for claiming an existing genealogy group profile.
+ * Used when a user wants to become admin of a group that exists in genealogy
+ * but has not yet been claimed (no corresponding public.groups entry).
+ */
+const ClaimGroupModal = ({ isOpen, onOpenChange, profileId, onSuccess }: Props) => {
+  const claimGroupMutation = group.useClaimGenealogyGroupMutation();
 
   const handleSubmit = async (values: ClaimGroupForm) => {
-    if (!groupId) return;
+    if (!profileId) return;
 
     try {
-      await claimGroupMutation.mutateAsync({ groupId, data: values });
+      await claimGroupMutation.mutateAsync({ profileId, data: values });
       enqueueSnackbar("Claim submitted! We'll review and email you.", { variant: 'success' });
-      onOpenChange();
+      onOpenChange(false);
+      onSuccess?.();
     } catch (error) {
       console.error('Error submitting claim:', error);
       enqueueSnackbar((error as Error).message || 'An error occurred while submitting your claim', {

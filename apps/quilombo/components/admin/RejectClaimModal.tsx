@@ -5,18 +5,29 @@ import { enqueueSnackbar } from 'notistack';
 import { useState } from 'react';
 
 import * as admin from '@/query/admin';
-
-type GroupClaim = {
-  id: string;
-  groupName: string;
-  userName: string;
-};
+import type { GroupClaim } from '@/query/admin';
 
 type Props = {
   isOpen: boolean;
   onOpenChange: () => void;
   claim: GroupClaim;
   onSuccess: () => void;
+};
+
+/** Helper to get the display name for a claim's group */
+const getGroupName = (claim: GroupClaim): string => {
+  if (claim.type === 'genealogy_group' && claim.groupProfile) {
+    return claim.groupProfile.name;
+  }
+  return claim.proposedName || 'Unknown Group';
+};
+
+/** Helper to get the display name for a claim's user */
+const getUserName = (claim: GroupClaim): string => {
+  if (claim.user) {
+    return claim.user.nickname || claim.user.name || 'Unknown User';
+  }
+  return 'Unknown User';
 };
 
 const RejectClaimModal = ({ isOpen, onOpenChange, claim, onSuccess }: Props) => {
@@ -47,6 +58,9 @@ const RejectClaimModal = ({ isOpen, onOpenChange, claim, onSuccess }: Props) => 
     onOpenChange();
   };
 
+  const userName = getUserName(claim);
+  const groupName = getGroupName(claim);
+
   return (
     <Modal isOpen={isOpen} onOpenChange={handleClose} size="lg">
       <ModalContent>
@@ -55,7 +69,7 @@ const RejectClaimModal = ({ isOpen, onOpenChange, claim, onSuccess }: Props) => 
             <ModalHeader>Reject Claim</ModalHeader>
             <ModalBody>
               <p className="text-default-600 mb-4">
-                Reject <strong>{claim.userName}</strong>'s claim for <strong>{claim.groupName}</strong>?
+                Reject <strong>{userName}</strong>'s claim for <strong>{groupName}</strong>?
               </p>
               <Textarea
                 label="Reason for rejection"

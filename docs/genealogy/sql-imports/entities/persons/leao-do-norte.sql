@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Leão do Norte',
   NULL, -- No formal title; proto-mestre era
   NULL, -- No portrait available
-  '[{"type": "website", "url": "https://capoeirahistory.com/black-shirt/"}]'::jsonb,
+  ARRAY['https://capoeirahistory.com/black-shirt/']::text[],
   -- Capoeira-specific
   NULL, -- Pre-codification era
   'Pre-codification carioca capoeira. Described as "um capoeira valente das ruas" (a tough/brave capoeira from the streets). Part of the generation of Rio de Janeiro street capoeiristas who practiced despite criminalization in 1890.',

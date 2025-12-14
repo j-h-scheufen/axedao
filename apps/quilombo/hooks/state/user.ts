@@ -2,20 +2,18 @@ import { atom } from 'jotai';
 import { atomWithQuery } from 'jotai-tanstack-query';
 
 import type { SocialLink } from '@/db/schema';
-import { fetchGroupOptions } from '@/query/group';
 import { fetchUserOptions } from '@/query/user';
-import type { Group, User } from '@/types/model';
+import type { User } from '@/types/model';
 import { getImageUrl } from '@/utils';
 
 export const triggerUserIdAtom = atom<string | undefined>();
 
 export const userAtom = atomWithQuery<User | undefined>((get) => fetchUserOptions(get(triggerUserIdAtom)));
 
-export const userGroupAtom = atomWithQuery<Group | undefined>((get) => fetchGroupOptions(get(userGroupIdAtom)));
-
 export const userIdAtom = atom<string | undefined>((get) => get(userAtom).data?.id);
 
-export const userGroupIdAtom = atom<string | undefined>((get) => get(userAtom).data?.groupId ?? undefined);
+// Note: userGroupIdAtom and userGroupAtom have been removed.
+// Group membership is now tracked via genealogy statements (member_of predicate).
 
 export const userLinksAtom = atom<SocialLink[] | undefined>((get) => get(userAtom).data?.links);
 

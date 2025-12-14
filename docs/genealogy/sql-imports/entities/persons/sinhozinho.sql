@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Sinhozinho',
   'mestre'::genealogy.title,
   NULL,  -- No historical portrait found in public domain
-  '[{"type": "website", "url": "https://en.wikipedia.org/wiki/Agenor_Moreira_Sampaio"}, {"type": "website", "url": "https://capoeirahistory.com/mestre/master-sinhozinho-1891-1962/"}, {"type": "website", "url": "https://www.lalaue.com/learn-capoeira/mestre-sinhozinho/"}]'::jsonb,
+  ARRAY['https://en.wikipedia.org/wiki/Agenor_Moreira_Sampaio', 'https://capoeirahistory.com/mestre/master-sinhozinho-1891-1962/', 'https://www.lalaue.com/learn-capoeira/mestre-sinhozinho/']::text[],
   -- Capoeira-specific
   NULL,  -- Capoeira carioca was distinct from Angola/Regional
   E'Sinhozinho developed and taught "capoeira carioca" (Carioca style), a combat-focused variant distinct from both Angola and Bimba''s Regional. He stripped away music and rituals, emphasizing combat effectiveness. His ginga was adapted from boxing footwork, and he incorporated Greco-Roman wrestling, savate, and judo techniques. Training included weapons (razor and cane) and the traditional Cariocan pernada. His style died with him because he never systematized his teaching methods.',

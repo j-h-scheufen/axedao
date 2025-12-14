@@ -4,15 +4,16 @@ import { notFound } from 'next/navigation';
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
-import type { UpdateGroupForm } from '@/config/validation-schema';
-import { updateGroupSchema } from '@/config/validation-schema';
-import { canUserManageGroup, deleteGroup, fetchGroup, updateGroup } from '@/db';
+import { groupEditApiSchema } from '@/config/validation-schema';
+import { canUserManageGroup, deleteGroup, fetchGroup, updateGroup, updateGroupProfile } from '@/db';
 import { generateErrorMessage } from '@/utils';
 import type { RouteParamsGroup } from '@/types/routes';
 
 /**
  * Returns a Group object for a given group ID.
- * It is allowed to send partial data, i.e. only the fields that need to be updated. To 'unset' a field, send it as null.
+ * The returned data combines identity fields from genealogy.group_profiles
+ * with operational fields from public.groups.
+ *
  * @param _ - The request object (not used)
  * @returns a Group or 404 if not found
  */
@@ -36,7 +37,17 @@ export async function GET(_: NextRequest, { params }: RouteParamsGroup) {
 
 /**
  * Updates the group with the specified ID.
- * @param request - UpdateGroupForm
+ * This endpoint handles updates to both genealogy identity fields and operational fields
+ * in a coordinated manner. Supports partial updates - only send fields that need to change.
+ *
+ * Identity fields (stored in genealogy.group_profiles):
+ * - name, style, descriptionEn, descriptionPt, philosophyEn, philosophyPt,
+ *   historyEn, historyPt, publicLinks, isActive
+ *
+ * Operational fields (stored in public.groups):
+ * - email, links (social links)
+ *
+ * @param request - Partial GroupEditForm data (all fields optional)
  * @param groupId - PATH parameter. The id of the group
  * @returns the updated Group or 404 if not found
  */
@@ -68,21 +79,54 @@ export async function PATCH(request: NextRequest, { params }: RouteParamsGroup) 
   }
 
   const body = await request.json();
-  const isValid = await updateGroupSchema.validate(body);
-  if (!isValid) {
-    return Response.json(
-      { error: true, message: 'Invalid profile data' },
-      {
-        status: 400,
-      }
-    );
+
+  // Validate input (uses partial schema - all fields optional for PATCH)
+  try {
+    await groupEditApiSchema.validate(body);
+  } catch (validationError) {
+    const error = validationError as { errors?: string[] };
+    return NextResponse.json({ error: error.errors?.[0] || 'Validation failed' }, { status: 400 });
   }
 
   try {
-    const groupData = body as Omit<UpdateGroupForm, 'id' | 'logo' | 'banner'>;
-    const cleanedGroupData = omitBy(groupData, isUndefined);
+    // Update genealogy profile (identity fields)
+    if (group.profileId) {
+      const genealogyData = omitBy(
+        {
+          name: body.name,
+          style: body.style || null,
+          descriptionEn: body.descriptionEn,
+          descriptionPt: body.descriptionPt,
+          philosophyEn: body.philosophyEn,
+          philosophyPt: body.philosophyPt,
+          historyEn: body.historyEn,
+          historyPt: body.historyPt,
+          publicLinks: body.publicLinks,
+          isActive: body.isActive,
+        },
+        isUndefined
+      );
 
-    const updatedGroup = await updateGroup({ ...cleanedGroupData, id: groupId });
+      await updateGroupProfile(group.profileId, genealogyData);
+    }
+
+    // Update operational fields in public.groups
+    const operationalData = omitBy(
+      {
+        email: body.email,
+        links: body.links,
+        // Keep legacy fields in sync for backwards compatibility
+        name: body.name,
+        style: body.style || null,
+        description: body.descriptionEn || null,
+      },
+      isUndefined
+    );
+
+    await updateGroup({ ...operationalData, id: groupId });
+
+    // Fetch and return the updated group
+    const updatedGroup = await fetchGroup(groupId);
     return Response.json(updatedGroup);
   } catch (error) {
     console.error(error);
