@@ -32,6 +32,13 @@ This is a pnpm monorepo containing:
 | [`apps/www`](./apps/www) | Public marketing website | Next.js, i18next |
 | [`packages/contracts`](./packages/contracts) | Smart contracts for AXE token and DAO | Solidity, Foundry, Hardhat |
 | [`packages/subgraph-moloch-v3`](./packages/subgraph-moloch-v3) | GraphQL API for DAO data | The Graph |
+| [`packages/the-capoeira-list`](./packages/the-capoeira-list) | Legacy data import from The Capoeira List | Node.js, jq |
+
+### Research & Data Tools
+
+| Location | Description |
+|----------|-------------|
+| [`docs/genealogy`](./docs/genealogy) | Genealogy research and import pipeline for historical capoeira figures and lineage data |
 
 > **Note**: For current package versions, refer to the respective `package.json` files in each package directory.
 
@@ -97,6 +104,7 @@ For package-specific commands and detailed setup instructions, see each package'
 
 **Backend**:
 - PostgreSQL with PostGIS for geospatial data
+- Dual-schema architecture: public (app identity) + genealogy (capoeira lineage)
 - Drizzle ORM for type-safe database access
 - NextAuth for multi-provider authentication
 
@@ -110,6 +118,8 @@ For package-specific commands and detailed setup instructions, see each package'
 
 - **Multi-Provider Authentication**: SIWE wallet auth, email/password, Google OAuth
 - **Geospatial Mapping**: Find groups and events using PostGIS
+- **Genealogy Tree**: Track capoeira lineage with person/group profiles and relationships
+- **Profile Claiming**: Users can claim public genealogy profiles as their identity
 - **State Management**: Jotai atoms + React-Query for efficient data fetching
 - **Type Safety**: End-to-end TypeScript from frontend to database
 - **Mobile-First Design**: Responsive UI optimized for all devices
@@ -166,6 +176,8 @@ pnpm test
 - [Quilombo DApp Documentation](./apps/quilombo/README.md)
 - [Smart Contracts Documentation](./packages/contracts/README.md)
 - [Public Website Documentation](./apps/www/README.md)
+- [Genealogy Import Pipeline](./docs/genealogy/sql-imports/README.md)
+- [The Capoeira List Processing](./packages/the-capoeira-list/README.md)
 - [Contributing Guidelines](./CONTRIBUTING.md) _(coming soon)_
 - [Code of Conduct](./CODE_OF_CONDUCT.md) _(coming soon)_
 
