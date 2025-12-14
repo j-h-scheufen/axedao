@@ -75,3 +75,11 @@ ALTER TABLE "public"."groups" DROP COLUMN "leader_id", DROP COLUMN "founder";
 
 -- Drop group_verifications table (replaced by genealogy relationships)
 DROP TABLE "public"."group_verifications";
+
+-- ============================================================================
+-- GENEALOGY SCHEMA: Allow duplicate group names
+-- ============================================================================
+
+-- Drop unique constraint on group_profiles.name
+-- (Multiple app groups can have the same name, e.g., "Capoeira Angola" in different cities)
+DROP INDEX IF EXISTS genealogy.group_profiles_name_unique_idx;

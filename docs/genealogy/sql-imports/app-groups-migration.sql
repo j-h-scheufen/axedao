@@ -1,18 +1,30 @@
--- Migrate existing groups to genealogy profiles
--- Creates a genealogy.group_profiles entry for each public.groups entry without profile_id
--- Handles duplicate names by creating separate profiles for each group
--- Note: logo is NOT migrated (IPFS files cannot be copied)
--- Website links are migrated to public_links array
+-- ============================================================
+-- APP GROUPS TO GENEALOGY MIGRATION
+-- Run AFTER historical genealogy data import completes
+-- ============================================================
+--
+-- This migration creates genealogy.group_profiles entries for app groups
+-- (from the-capoeira-list import) that don't yet have a profile_id.
+--
+-- Prerequisites:
+-- 1. Atlas migrations applied (schema ready)
+-- 2. Historical genealogy pending-migration applied (mestres imported)
+-- 3. App groups exist in public.groups (from the-capoeira-list)
+--
+-- Usage:
+-- 1. Include this in the next genealogy pending-migration build
+-- 2. Or run directly: pnpm db:local:psql < docs/genealogy/sql-imports/app-groups-migration.sql
+-- ============================================================
 
--- Drop unique constraint on group_profiles.name (groups can have duplicate names)
-DROP INDEX IF EXISTS genealogy.group_profiles_name_unique_idx;
+BEGIN;
 
--- Part 1: Create new profiles for groups without profile_id
+-- Create genealogy profiles for app groups without profile_id
 DO $$
 DECLARE
   g RECORD;
   new_profile_id UUID;
   website_urls TEXT[];
+  groups_processed INT := 0;
 BEGIN
   FOR g IN
     SELECT id, name, description, style, links
@@ -42,17 +54,20 @@ BEGIN
     UPDATE public.groups
     SET profile_id = new_profile_id
     WHERE id = g.id;
+
+    groups_processed := groups_processed + 1;
   END LOOP;
 
-  RAISE NOTICE 'Part 1 complete: created genealogy profiles for groups without profile_id';
+  RAISE NOTICE 'Created genealogy profiles for % app groups', groups_processed;
 END $$;
 
--- Part 2: Update existing profiles that have empty public_links
--- (for groups that were migrated before website extraction was added)
+-- Update existing profiles that have empty public_links
+-- (for groups that were linked before website extraction was added)
 DO $$
 DECLARE
   g RECORD;
   website_urls TEXT[];
+  profiles_updated INT := 0;
 BEGIN
   FOR g IN
     SELECT gr.id AS group_id, gr.profile_id, gr.links, gp.public_links
@@ -76,8 +91,12 @@ BEGIN
       UPDATE genealogy.group_profiles
       SET public_links = website_urls, updated_at = NOW()
       WHERE id = g.profile_id;
+
+      profiles_updated := profiles_updated + 1;
     END IF;
   END LOOP;
 
-  RAISE NOTICE 'Part 2 complete: updated existing profiles with website URLs';
+  RAISE NOTICE 'Updated % existing profiles with website URLs', profiles_updated;
 END $$;
+
+COMMIT;
