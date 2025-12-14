@@ -9,7 +9,6 @@
  * - users: User management and authentication
  * - groups: Group CRUD and membership
  * - groupClaims: Group ownership claiming workflow
- * - groupVerifications: Group verification system
  * - groupLocations: Geographic locations for groups
  * - events: Event management
  * - invitations: Invitation system (email + QR codes)
@@ -93,7 +92,6 @@ if (process.env.NODE_ENV !== 'production' && !isTestMode) {
 export * from './queries/users';
 export * from './queries/groups';
 export * from './queries/groupClaims';
-export * from './queries/groupVerifications';
 export * from './queries/groupLocations';
 export * from './queries/events';
 export * from './queries/invitations';

@@ -1,6 +1,19 @@
 'use client';
 
-import { Button, Card, CardBody, CardHeader, Chip, Divider } from '@heroui/react';
+import {
+  Button,
+  Card,
+  CardBody,
+  CardHeader,
+  Chip,
+  Divider,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  useDisclosure,
+} from '@heroui/react';
 import { PlusIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 
@@ -30,6 +43,26 @@ type RelationshipsSectionProps = {
  */
 const RelationshipsSection = ({ profileId, relationships, isLoading, onDelete }: RelationshipsSectionProps) => {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [relationshipToDelete, setRelationshipToDelete] = useState<RelationshipsWithDetails | null>(null);
+  const { isOpen: isDeleteModalOpen, onOpen: onDeleteModalOpen, onClose: onDeleteModalClose } = useDisclosure();
+
+  const handleDeleteClick = (relationship: RelationshipsWithDetails) => {
+    setRelationshipToDelete(relationship);
+    onDeleteModalOpen();
+  };
+
+  const handleConfirmDelete = () => {
+    if (relationshipToDelete) {
+      onDelete(relationshipToDelete.id);
+      onDeleteModalClose();
+      setRelationshipToDelete(null);
+    }
+  };
+
+  const handleCancelDelete = () => {
+    onDeleteModalClose();
+    setRelationshipToDelete(null);
+  };
 
   return (
     <>
@@ -69,13 +102,19 @@ const RelationshipsSection = ({ profileId, relationships, isLoading, onDelete }:
           ) : (
             <div className="space-y-2">
               {relationships.map((rel) => (
-                <RelationshipItem key={rel.id} relationship={rel} onDelete={() => onDelete(rel.id)} />
+                <RelationshipItem key={rel.id} relationship={rel} onDelete={() => handleDeleteClick(rel)} />
               ))}
             </div>
           )}
         </CardBody>
       </Card>
       <AddRelationshipModal isOpen={isAddModalOpen} onClose={() => setIsAddModalOpen(false)} profileId={profileId} />
+      <DeleteRelationshipModal
+        isOpen={isDeleteModalOpen}
+        onClose={handleCancelDelete}
+        onConfirm={handleConfirmDelete}
+        relationship={relationshipToDelete}
+      />
     </>
   );
 };
@@ -131,6 +170,48 @@ const RelationshipItem = ({ relationship, onDelete }: RelationshipItemProps) => 
         <XMarkIcon className="w-4 h-4" />
       </Button>
     </div>
+  );
+};
+
+type DeleteRelationshipModalProps = {
+  isOpen: boolean;
+  onClose: () => void;
+  onConfirm: () => void;
+  relationship: RelationshipsWithDetails | null;
+};
+
+/**
+ * Confirmation modal for deleting a relationship.
+ */
+const DeleteRelationshipModal = ({ isOpen, onClose, onConfirm, relationship }: DeleteRelationshipModalProps) => {
+  if (!relationship) return null;
+
+  const predicateLabel = PREDICATE_LABELS[relationship.predicate as Predicate];
+
+  return (
+    <Modal isOpen={isOpen} onClose={onClose} size="md">
+      <ModalContent>
+        <ModalHeader>Delete Relationship</ModalHeader>
+        <ModalBody>
+          <p className="text-default-700">Are you sure you want to delete this relationship?</p>
+          <div className="bg-default-100 rounded-lg p-3 mt-2">
+            <p className="text-sm">
+              <span className="font-medium">{predicateLabel}</span>
+              <span className="text-default-600"> → </span>
+              <span className="font-semibold">{relationship.objectName || 'Unknown'}</span>
+            </p>
+          </div>
+        </ModalBody>
+        <ModalFooter>
+          <Button variant="light" onPress={onClose}>
+            Cancel
+          </Button>
+          <Button color="danger" onPress={onConfirm}>
+            Delete
+          </Button>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
   );
 };
 

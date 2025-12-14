@@ -491,7 +491,6 @@ export async function POST(request: Request) {
 | PATCH  | groups/[groupId]                    | UpdateGroupForm        | Group           |              |
 | DELETE | groups/[groupId]                    |                        | null, 204       |              |
 | GET    | groups/[groupId]/members            |                        | User[]          |              |
-| DELETE | groups/[groupId]/members/[userId]   |                        | User[]          |              |
 | GET    | groups/[groupId]/admins             |                        | string[]        |              |
 | PUT    | groups/[groupId]/admins/[userId]    |                        | string[]        |              |
 | DELETE | groups/[groupId]/admins/[userId]    |                        | string[]        |              |

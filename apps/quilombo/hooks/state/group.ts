@@ -9,7 +9,7 @@ import {
   fetchGroupOptions,
 } from '@/query/group';
 import type { Group, GroupLocation, User } from '@/types/model';
-import { getImageUrl, isUUID } from '@/utils';
+import { getImageUrl } from '@/utils';
 import { currentUserIdAtom } from './currentUser';
 
 // This atom is special because it's used to trigger the loading of a group profile
@@ -29,10 +29,6 @@ export const groupAdminIdsAtom = atomWithQuery<string[]>((get) => {
 export const groupIdAtom = atom<string | undefined>((get) => get(groupAtom).data?.id);
 
 export const groupLinksAtom = atom<SocialLink[] | undefined>((get) => get(groupAtom).data?.links);
-
-export const groupFounderAtom = atom<string | null | undefined>((get) => get(groupAtom).data?.founder);
-
-export const groupLeaderAtom = atom<string | null | undefined>((get) => get(groupAtom).data?.leader);
 
 export const groupLogoAtom = atom<string | undefined>((get) => get(groupAtom).data?.logo ?? undefined);
 
@@ -75,8 +71,6 @@ export const isCurrentUserGroupAdminAtom = atom<boolean | null>((get) => {
 export const isCurrentUserGroupAdminAtomLegacy = atom<boolean>(
   (get) => get(groupAdminIdsAtom)?.data?.includes(get(currentUserIdAtom) ?? '') ?? false
 );
-
-export const isFounderUuidAtom = atom<boolean>((get) => isUUID(get(groupFounderAtom) ?? ''));
 
 export const groupLocationsAtom = atomWithQuery<GroupLocation[]>((get) =>
   fetchGroupLocationsOptions(get(triggerGroupIdAtom))

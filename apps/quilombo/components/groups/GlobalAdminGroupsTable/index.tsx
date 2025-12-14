@@ -17,7 +17,6 @@ import { MapPinIcon } from 'lucide-react';
 import type React from 'react';
 import { useCallback, useState } from 'react';
 
-import VerificationChip from '@/components/VerificationChip';
 import CreateUnmanagedGroupModal from '@/components/groups/CreateUnmanagedGroupModal';
 import { PATHS } from '@/config/constants';
 import useGroupSearch from '@/hooks/useGroupSearch';
@@ -54,16 +53,10 @@ const columns: Column<Group>[] = [
     columnProps: { allowsSorting: true },
   },
   {
-    key: 'lastVerifiedAt',
-    label: 'VERIFICATION',
+    key: 'style',
+    label: 'STYLE',
     cell: ({ item }) => {
-      const isVerified = item.lastVerifiedAt !== null;
-      return (
-        <VerificationChip
-          verified={isVerified}
-          // className="position top-[1px]"
-        />
-      );
+      return <span className="capitalize">{item.style || 'N/A'}</span>;
     },
     columnProps: { allowsSorting: true },
   },

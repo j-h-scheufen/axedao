@@ -136,7 +136,6 @@ export type ImageUploadForm = InferType<typeof imageUploadSchema>;
 
 export const createNewGroupFormSchema = object({
   name: string().required('Group name is required'),
-  verified: boolean().default(false),
 });
 
 export type CreateNewGroupForm = InferType<typeof createNewGroupFormSchema>;
@@ -208,7 +207,6 @@ export type GroupEditForm = InferType<typeof groupEditFormSchema>;
 // Legacy schema - keep for backwards compatibility with existing API
 export const updateGroupSchema = object({
   name: string().required('Group name is required'),
-  founder: string().optional().nullable(),
   email: string().email().optional().nullable(),
   description: string().test('max-chars', 'Description cannot exceed 500 characters', (value: string | undefined) =>
     value ? value.length <= 500 : true
@@ -245,7 +243,6 @@ export type BaseSearchFilters = InferType<typeof baseSearchFiltersSchema>;
  */
 export const groupFiltersSchema = baseSearchFiltersSchema.concat(
   object({
-    verified: boolean().optional(),
     styles: array().of(string().oneOf(styles, 'Invalid style')).optional(),
   })
 );
@@ -552,13 +549,8 @@ export const registerGroupFormSchema = object({
     .min(20, 'Message must be at least 20 characters'),
 });
 
-export const verifyGroupFormSchema = object({
-  notes: string().optional(),
-});
-
 export type ClaimGroupForm = InferType<typeof claimGroupFormSchema>;
 export type RegisterGroupForm = InferType<typeof registerGroupFormSchema>;
-export type VerifyGroupForm = InferType<typeof verifyGroupFormSchema>;
 
 // Person Profile Claiming validation schema
 export const claimPersonFormSchema = object({

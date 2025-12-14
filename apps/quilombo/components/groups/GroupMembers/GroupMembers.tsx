@@ -16,27 +16,22 @@ import { useCallback, useMemo } from 'react';
 
 import { GroupMembersSkeleton } from '@/components/skeletons/GroupSkeletons';
 import { TitleEnum } from '@/config/constants';
-import {
-  groupAdminIdsAtom,
-  groupFounderAtom,
-  groupLeaderAtom,
-  groupMembersAtom,
-  isCurrentUserGroupAdminAtom,
-} from '@/hooks/state/group';
+import { groupAdminIdsAtom, groupMembersAtom, isCurrentUserGroupAdminAtom } from '@/hooks/state/group';
 import type { GroupMemberRole } from '@/types/model';
-import { getGroupMemberRoles } from '@/utils';
 import TableCellValue, { COLUMNS, type GroupMemberTableColumnKey } from './TableCellValue';
 
 const GroupMembers = () => {
   const { data: groupMembers, isLoading } = useAtomValue(groupMembersAtom);
-  const groupFounder = useAtomValue(groupFounderAtom);
-  const groupLeader = useAtomValue(groupLeaderAtom);
   const { data: groupAdminIds } = useAtomValue(groupAdminIdsAtom);
   const isGroupAdmin = useAtomValue(isCurrentUserGroupAdminAtom);
 
   const getMemberRoles = useCallback(
-    (userId: string): GroupMemberRole[] => getGroupMemberRoles(userId, groupFounder, groupLeader, groupAdminIds),
-    [groupFounder, groupLeader, groupAdminIds]
+    (userId: string): GroupMemberRole[] => {
+      const roles: GroupMemberRole[] = [];
+      if (groupAdminIds?.includes(userId)) roles.push('admin');
+      return roles;
+    },
+    [groupAdminIds]
   );
 
   const sortedGroupMembers = useMemo(

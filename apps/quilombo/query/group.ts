@@ -15,7 +15,6 @@ import type {
   CreateNewGroupForm,
   GroupSearchParamsWithFilters,
   GroupEditForm,
-  VerifyGroupForm,
   ClaimGroupForm,
   RegisterGroupForm,
 } from '@/config/validation-schema';
@@ -113,9 +112,6 @@ const deleteGroup = async (groupId: string): Promise<void> => axios.delete(`/api
 
 const updateGroup = async (groupId: string, data: GroupEditForm): Promise<Group> =>
   axios.patch(`/api/groups/${groupId}`, data).then((response) => response.data);
-
-const removeMember = async (groupId: string, userId: string): Promise<User[]> =>
-  axios.delete(`/api/groups/${groupId}/members/${userId}`).then((response) => response.data);
 
 const addAdmin = async (groupId: string, userId: string): Promise<string[]> =>
   axios.put(`/api/groups/${groupId}/admins/${userId}`).then((response) => response.data);
@@ -225,16 +221,6 @@ export const useUpdateGroupMutation = () => {
   });
 };
 
-export const useRemoveMemberMutation = () => {
-  const queryClient = useQueryClient();
-  return useMutation({
-    mutationFn: async ({ groupId, userId }: GroupAndUserParams) => removeMember(groupId, userId),
-    onSuccess: (data, variables) => {
-      queryClient.setQueryData([QUERY_KEYS.group.getGroupMembers, variables.groupId], data);
-    },
-  });
-};
-
 export const useAddAdminMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
@@ -340,12 +326,9 @@ export const fetchGroupAdminClaimableOptions = (groupId: string | null) => ({
 export const useGroupClaimable = (groupId: string | null) =>
   useQuery(queryOptions(fetchGroupAdminClaimableOptions(groupId)));
 
-// GROUP VERIFICATION AND CLAIMING
+// GROUP CLAIMING
 
 type ClaimResponse = { claimId: string; message: string };
-
-const verifyGroup = async (groupId: string, data: VerifyGroupForm): Promise<{ success: boolean }> =>
-  axios.post(`/api/groups/${groupId}/verify`, data).then((response) => response.data);
 
 /**
  * Claim an existing genealogy group profile.
@@ -371,19 +354,6 @@ const registerNewGroup = async (data: RegisterGroupForm): Promise<ClaimResponse>
       ...data,
     })
     .then((response) => response.data);
-
-export const useVerifyGroupMutation = () => {
-  const queryClient = useQueryClient();
-  return useMutation({
-    mutationFn: async ({ groupId, data }: { groupId: string; data: VerifyGroupForm }) => verifyGroup(groupId, data),
-    onSuccess: (_data, variables) => {
-      // Invalidate the group query to refresh verification status and lastVerifiedAt
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroup, variables.groupId] });
-      // Invalidate search results to update verification badges
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.searchGroups] });
-    },
-  });
-};
 
 /**
  * Mutation to claim an existing genealogy group profile.

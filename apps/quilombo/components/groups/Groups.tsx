@@ -18,20 +18,17 @@ import GroupsGrid from '@/components/groups/GroupsGrid';
 import GroupLocationsMap from '@/components/geocode/GroupLocationsMap';
 import CountryFilterChip from '@/components/groups/CountryFilterChip';
 import StylesFilterChip from '@/components/groups/StylesFilterChip';
-import VerifiedFilterChip from '@/components/groups/VerifiedFilterChip';
 import GroupFilters, { type GroupFilterValues } from '@/components/groups/GroupFilters';
 import { PARAM_KEY_GROUP_QUERY } from '@/config/constants';
 import type { Style } from '@/types/model';
 
 const Groups = () => {
-  const [{ view, [PARAM_KEY_GROUP_QUERY]: gq, countries, styles: stylesParam, verified }, setQueryStates] =
-    useQueryStates({
-      view: parseAsString.withDefault('list'),
-      [PARAM_KEY_GROUP_QUERY]: parseAsString.withDefault(''),
-      countries: parseAsString.withDefault(''),
-      styles: parseAsString.withDefault(''),
-      verified: parseAsString.withDefault(''),
-    });
+  const [{ view, [PARAM_KEY_GROUP_QUERY]: gq, countries, styles: stylesParam }, setQueryStates] = useQueryStates({
+    view: parseAsString.withDefault('list'),
+    [PARAM_KEY_GROUP_QUERY]: parseAsString.withDefault(''),
+    countries: parseAsString.withDefault(''),
+    styles: parseAsString.withDefault(''),
+  });
 
   const [inputValue, setInputValue] = useState(gq || '');
   const selectedCountries = countries ? countries.split(',').filter(Boolean) : [];
@@ -39,13 +36,11 @@ const Groups = () => {
   // Parse filter values from URL params
   const [groupFilters, setGroupFilters] = useState<Partial<GroupFilterValues>>({
     styles: stylesParam ? (stylesParam.split(',').filter(Boolean) as Style[]) : undefined,
-    verified: verified === 'true' ? true : verified === 'false' ? false : undefined,
   });
 
   const { setSearchTerm, groups, totalCount, isLoading, scrollerRef } = useGroupSearchWithInfiniteScroll({
     filters: {
       countryCodes: selectedCountries.length > 0 ? selectedCountries : undefined,
-      verified: groupFilters.verified,
       styles: groupFilters.styles && groupFilters.styles.length > 0 ? groupFilters.styles : undefined,
     },
   });
@@ -87,17 +82,11 @@ const Groups = () => {
     setGroupFilters(newFilters);
     setQueryStates({
       styles: newFilters.styles && newFilters.styles.length > 0 ? newFilters.styles.join(',') : null,
-      verified: newFilters.verified !== undefined ? String(newFilters.verified) : null,
     });
   };
 
   const handleClearStyles = () => {
     const newFilters = { ...groupFilters, styles: undefined };
-    handleFiltersChange(newFilters);
-  };
-
-  const handleClearVerified = () => {
-    const newFilters = { ...groupFilters, verified: undefined };
     handleFiltersChange(newFilters);
   };
 
@@ -130,7 +119,7 @@ const Groups = () => {
           <GroupFilters
             filters={groupFilters}
             onFiltersChange={handleFiltersChange}
-            isActive={(groupFilters.styles && groupFilters.styles.length > 0) || groupFilters.verified !== undefined}
+            isActive={!!(groupFilters.styles && groupFilters.styles.length > 0)}
           />
         </div>
       </div>
@@ -145,9 +134,6 @@ const Groups = () => {
             selectedStyles={groupFilters.styles.filter((s): s is NonNullable<typeof s> => s !== undefined)}
             onClear={handleClearStyles}
           />
-        )}
-        {groupFilters.verified !== undefined && (
-          <VerifiedFilterChip verified={groupFilters.verified} onClear={handleClearVerified} />
         )}
       </FilterChipsContainer>
 

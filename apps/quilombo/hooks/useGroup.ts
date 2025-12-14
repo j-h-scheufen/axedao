@@ -15,7 +15,6 @@ import {
   useDeleteGroupLocationMutation,
   useDeleteGroupMutation,
   useRemoveAdminMutation,
-  useRemoveMemberMutation,
   useUpdateGroupLocationMutation,
   useUpdateGroupMutation,
 } from '@/query/group';
@@ -74,16 +73,6 @@ export const useRemoveAdmin = () => {
         enqueueSnackbar(`An error occured trying to remove the admin from the group: ${error.message}`),
     });
   return { removeAdmin, error, isPending };
-};
-
-export const useRemoveMember = () => {
-  const { mutateAsync, error, isPending } = useRemoveMemberMutation();
-  const removeMember = async (params: GroupAndUserParams) =>
-    mutateAsync(params, {
-      onError: (error) =>
-        enqueueSnackbar(`An error occured trying to remove the member from the group: ${error.message}`),
-    });
-  return { removeMember, error, isPending };
 };
 
 export const useCreateGroupLocation = () => {

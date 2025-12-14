@@ -22,7 +22,6 @@ import type Supercluster from 'supercluster';
 
 export type Group = Omit<SelectGroup, 'updatedAt'> & {
   countryCodes: string[];
-  lastVerifiedAt: Date | null;
   adminCount: number;
 };
 

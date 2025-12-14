@@ -15,7 +15,7 @@ import { applyUserPrivacyFilter } from '@/utils';
 
 /**
  * Searches groups with optional filters and pagination.
- * Includes country codes and verification status.
+ * Includes country codes.
  *
  * @param options - Search parameters including searchTerm, filters, pagination
  * @returns Paginated list of groups with total count
@@ -24,27 +24,10 @@ export async function searchGroups(
   options: GroupSearchParamsWithFilters
 ): Promise<{ rows: Group[]; totalCount: number }> {
   const { pageSize = QUERY_DEFAULT_PAGE_SIZE, offset = 0, searchTerm, filters } = options;
-  const { verified, countryCodes, styles } = filters || {};
+  const { countryCodes, styles } = filters || {};
 
   const sqlFilters: (SQLWrapper | undefined)[] = [];
   if (searchTerm) sqlFilters.push(ilike(schema.groups.name, `%${searchTerm}%`));
-
-  // Filter by verification status using subquery on group_verifications
-  if (typeof verified === 'boolean') {
-    if (verified) {
-      // Show only verified groups (have at least one verification)
-      sqlFilters.push(sql`EXISTS (
-        SELECT 1 FROM ${schema.groupVerifications}
-        WHERE ${schema.groupVerifications.groupId} = ${schema.groups.id}
-      )`);
-    } else {
-      // Show only unverified groups (no verifications)
-      sqlFilters.push(sql`NOT EXISTS (
-        SELECT 1 FROM ${schema.groupVerifications}
-        WHERE ${schema.groupVerifications.groupId} = ${schema.groups.id}
-      )`);
-    }
-  }
 
   // Filter by country codes
   if (countryCodes && countryCodes.length > 0) {
@@ -77,19 +60,10 @@ export async function searchGroups(
       links: schema.groups.links, // SocialLinks (ephemeral contact/social info)
       email: schema.groups.email,
       banner: schema.groups.banner,
-      leader: schema.groups.leader,
-      founder: schema.groups.founder,
       createdBy: schema.groups.createdBy,
       claimedBy: schema.groups.claimedBy,
       claimedAt: schema.groups.claimedAt,
       profileId: schema.groups.profileId,
-
-      // Compute lastVerifiedAt (returns string ISO timestamp)
-      lastVerifiedAt: sql<string | null>`(
-        SELECT MAX(${schema.groupVerifications.verifiedAt})
-        FROM ${schema.groupVerifications}
-        WHERE ${schema.groupVerifications.groupId} = ${schema.groups.id}
-      )`.as('last_verified_at'),
 
       // Compute adminCount
       adminCount: sql<number>`(
@@ -111,10 +85,9 @@ export async function searchGroups(
     .limit(pageSize)
     .offset(offset);
 
-  // Convert lastVerifiedAt strings to Date objects, ensure adminCount is a number
+  // Ensure adminCount is a number
   const rows = results.map((row) => ({
     ...row,
-    lastVerifiedAt: row.lastVerifiedAt ? new Date(row.lastVerifiedAt) : null,
     adminCount: Number(row.adminCount),
     countryCodes: row.countryCodes || [], // Ensure array even if null
   })) as Group[];
@@ -163,21 +136,10 @@ export async function fetchGroup(groupId: string): Promise<Group | undefined> {
       links: schema.groups.links, // SocialLinks (ephemeral contact/social info)
       email: schema.groups.email,
       banner: schema.groups.banner,
-      leader: schema.groups.leader,
-      founder: schema.groups.founder,
       createdBy: schema.groups.createdBy,
       claimedBy: schema.groups.claimedBy,
       claimedAt: schema.groups.claimedAt,
       profileId: schema.groups.profileId,
-
-      // Get most recent verification date (returns string ISO timestamp)
-      lastVerifiedAt: sql<string | null>`
-        (
-          SELECT MAX(${schema.groupVerifications.verifiedAt})
-          FROM ${schema.groupVerifications}
-          WHERE ${schema.groupVerifications.groupId} = ${schema.groups.id}
-        )
-      `.as('last_verified_at'),
 
       // Get admin count
       adminCount: sql<number>`
@@ -201,11 +163,10 @@ export async function fetchGroup(groupId: string): Promise<Group | undefined> {
 
   if (!result[0]) return undefined;
 
-  // Convert lastVerifiedAt string to Date object and ensure adminCount is a number
+  // Ensure adminCount is a number
   const group = result[0];
   return {
     ...group,
-    lastVerifiedAt: group.lastVerifiedAt ? new Date(group.lastVerifiedAt) : null,
     adminCount: Number(group.adminCount),
   } as Group;
 }
@@ -403,50 +364,6 @@ export async function deleteGroup(groupId: string) {
 }
 
 /**
- * Removes a user's membership from a group by deleting the genealogy statement.
- * Membership is tracked via genealogy statements with predicate 'member_of'.
- *
- * @param groupId - ID of the group (public.groups)
- * @param memberId - ID of the user to remove from group
- * @returns true if membership was removed, false if no membership found
- */
-export async function removeGroupMember(groupId: string, memberId: string): Promise<boolean> {
-  // Get user's profileId
-  const user = await db
-    .select({ profileId: schema.users.profileId })
-    .from(schema.users)
-    .where(eq(schema.users.id, memberId))
-    .limit(1);
-
-  if (!user[0]?.profileId) return false;
-
-  // Get group's profileId
-  const group = await db
-    .select({ profileId: schema.groups.profileId })
-    .from(schema.groups)
-    .where(eq(schema.groups.id, groupId))
-    .limit(1);
-
-  if (!group[0]?.profileId) return false;
-
-  // Delete the member_of statement
-  const result = await db
-    .delete(statements)
-    .where(
-      and(
-        eq(statements.subjectType, 'person'),
-        eq(statements.subjectId, user[0].profileId),
-        eq(statements.predicate, 'member_of'),
-        eq(statements.objectType, 'group'),
-        eq(statements.objectId, group[0].profileId)
-      )
-    )
-    .returning({ id: statements.id });
-
-  return result.length > 0;
-}
-
-/**
  * Updates an existing group.
  *
  * @param group - Partial group data to update (must include id)
@@ -531,8 +448,6 @@ export async function fetchGroupsWhereUserIsAdmin(userId: string): Promise<Group
       links: schema.groups.links,
       email: schema.groups.email,
       banner: schema.groups.banner,
-      leader: schema.groups.leader,
-      founder: schema.groups.founder,
       createdBy: schema.groups.createdBy,
       claimedBy: schema.groups.claimedBy,
       claimedAt: schema.groups.claimedAt,
@@ -579,8 +494,6 @@ export async function fetchGroupMembershipsForUser(userId: string): Promise<Grou
       links: schema.groups.links,
       email: schema.groups.email,
       banner: schema.groups.banner,
-      leader: schema.groups.leader,
-      founder: schema.groups.founder,
       createdBy: schema.groups.createdBy,
       claimedBy: schema.groups.claimedBy,
       claimedAt: schema.groups.claimedAt,

@@ -3,7 +3,7 @@ import { AxiosError } from 'axios';
 
 import { QueryConfig } from '@/config/constants';
 import ENV from '@/config/environment';
-import type { GroupMemberRole, User } from '@/types/model';
+import type { User } from '@/types/model';
 import type { SelectUser } from '@/db/schema';
 import { CID } from 'multiformats/cid';
 
@@ -36,36 +36,6 @@ export const generateErrorMessage = (error: unknown, defaultMessage: string) => 
   }
 
   return message;
-};
-
-/**
- * Returns an array of roles for a user in a group by comparing the user id with the various
- * fields in the group.
- * Note: The 'member' role not returned, because it is implied that the user is a member of the group.
- * @param userId
- * @param founder
- * @param leader
- * @param adminIds
- * @returns
- */
-export const getGroupMemberRoles = (
-  userId: string,
-  founder?: string | null,
-  leader?: string | null,
-  adminIds?: string[]
-): GroupMemberRole[] => {
-  const roles: GroupMemberRole[] = [];
-  if (userId === founder) {
-    roles.push('founder');
-  }
-  if (userId === leader) {
-    roles.push('leader');
-  }
-  if (adminIds?.includes(userId)) {
-    roles.push('admin');
-  }
-  // roles.push('member');
-  return roles;
 };
 
 export const removeTrailingSlash = (val: string) => (val.endsWith('/') ? val.substring(0, val.length - 1) : val);

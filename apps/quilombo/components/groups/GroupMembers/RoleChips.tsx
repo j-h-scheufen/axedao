@@ -5,8 +5,6 @@ import type { GroupMemberRole } from '@/types/model';
 const roleChipClasses: Record<string, string | string[]> = {
   member: 'default',
   admin: 'bg-secondary-500 dark:bg-secondary-200',
-  leader: 'bg-secondary-600 dark:bg-secondary-400',
-  founder: 'bg-secondary-700 dark:bg-secondary-500',
 };
 
 type Props = { roles: GroupMemberRole[] };

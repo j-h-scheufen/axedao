@@ -27,9 +27,6 @@ import { rateLimit, getClientIp } from '@/utils/rate-limit';
  *                 totalGroups:
  *                   type: number
  *                   description: Total number of groups
- *                 verifiedGroups:
- *                   type: number
- *                   description: Number of verified groups
  *                 upcomingEvents:
  *                   type: number
  *                   description: Number of upcoming events

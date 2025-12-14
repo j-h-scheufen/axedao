@@ -21,7 +21,7 @@ describe('Group Claims API', () => {
   let getUserGroupClaims: ReturnType<typeof vi.fn>;
   let createGenealogyGroupClaim: ReturnType<typeof vi.fn>;
   let createNewGroupClaim: ReturnType<typeof vi.fn>;
-  let isGenealogyGroupClaimable: ReturnType<typeof vi.fn>;
+  let isGroupAdminClaimable: ReturnType<typeof vi.fn>;
   let hasPendingGenealogyGroupClaim: ReturnType<typeof vi.fn>;
 
   const testUserId = 'test-user-456';
@@ -41,7 +41,7 @@ describe('Group Claims API', () => {
     getUserGroupClaims = vi.fn();
     createGenealogyGroupClaim = vi.fn();
     createNewGroupClaim = vi.fn();
-    isGenealogyGroupClaimable = vi.fn();
+    isGroupAdminClaimable = vi.fn();
     hasPendingGenealogyGroupClaim = vi.fn();
 
     // Setup mocks
@@ -49,7 +49,7 @@ describe('Group Claims API', () => {
     (db.getUserGroupClaims as typeof getUserGroupClaims) = getUserGroupClaims;
     (db.createGenealogyGroupClaim as typeof createGenealogyGroupClaim) = createGenealogyGroupClaim;
     (db.createNewGroupClaim as typeof createNewGroupClaim) = createNewGroupClaim;
-    (db.isGenealogyGroupClaimable as typeof isGenealogyGroupClaimable) = isGenealogyGroupClaimable;
+    (db.isGroupAdminClaimable as typeof isGroupAdminClaimable) = isGroupAdminClaimable;
     (db.hasPendingGenealogyGroupClaim as typeof hasPendingGenealogyGroupClaim) = hasPendingGenealogyGroupClaim;
 
     // Import route handler AFTER mocks are set up
@@ -182,7 +182,7 @@ describe('Group Claims API', () => {
     });
 
     it('should return 409 when group is already claimed', async () => {
-      isGenealogyGroupClaimable.mockResolvedValue(false);
+      isGroupAdminClaimable.mockResolvedValue(false);
 
       const request = createMockRequest('http://localhost/api/groups/claims', {
         method: 'POST',
@@ -197,7 +197,7 @@ describe('Group Claims API', () => {
     });
 
     it('should return 409 when user already has pending claim', async () => {
-      isGenealogyGroupClaimable.mockResolvedValue(true);
+      isGroupAdminClaimable.mockResolvedValue(true);
       hasPendingGenealogyGroupClaim.mockResolvedValue(true);
 
       const request = createMockRequest('http://localhost/api/groups/claims', {
@@ -213,7 +213,7 @@ describe('Group Claims API', () => {
     });
 
     it('should create genealogy group claim successfully', async () => {
-      isGenealogyGroupClaimable.mockResolvedValue(true);
+      isGroupAdminClaimable.mockResolvedValue(true);
       hasPendingGenealogyGroupClaim.mockResolvedValue(false);
       createGenealogyGroupClaim.mockResolvedValue(testClaimId);
 
@@ -324,7 +324,7 @@ describe('Group Claims API', () => {
         user: { id: testUserId },
         expires: '2025-12-31',
       });
-      isGenealogyGroupClaimable.mockResolvedValue(true);
+      isGroupAdminClaimable.mockResolvedValue(true);
       hasPendingGenealogyGroupClaim.mockResolvedValue(false);
     });
 

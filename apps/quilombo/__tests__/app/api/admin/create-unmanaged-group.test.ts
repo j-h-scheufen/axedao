@@ -25,7 +25,6 @@ describe('POST /api/admin/groups', () => {
     description: 'A group created by admin',
     style: 'Angola' as const,
     email: 'group@example.com',
-    founder: 'John Doe',
     links: [{ type: 'website', url: 'https://example.com' }],
   };
 

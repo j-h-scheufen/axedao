@@ -1,13 +1,13 @@
 import { Button, Link, Tooltip, User } from '@heroui/react';
 import { useAtomValue } from 'jotai';
 import { has } from 'lodash';
-import { ArrowDownIcon, ArrowUpIcon, UserXIcon } from 'lucide-react';
+import { ArrowDownIcon, ArrowUpIcon } from 'lucide-react';
 import { useCallback, useMemo } from 'react';
 
 import { PATHS } from '@/config/constants';
 import { currentUserIdAtom } from '@/hooks/state/currentUser';
 import { groupAdminIdsAtom, groupIdAtom, isCurrentUserGroupAdminAtom } from '@/hooks/state/group';
-import { useAddAdmin, useRemoveAdmin, useRemoveMember } from '@/hooks/useGroup';
+import { useAddAdmin, useRemoveAdmin } from '@/hooks/useGroup';
 import type { GroupMember } from '@/types/model';
 import { getImageUrl, getUserDisplayName } from '@/utils';
 import RoleChips from './RoleChips';
@@ -29,7 +29,6 @@ const TableCellValue = ({ groupMember, columnKey }: Props) => {
   const groupId = useAtomValue(groupIdAtom);
   const { addAdmin, isPending: isAddAdminPending } = useAddAdmin();
   const { removeAdmin, isPending: isRemoveAdminPending } = useRemoveAdmin();
-  const { removeMember, isPending: isRemoveMemberPending } = useRemoveMember();
 
   const handleAddAdmin = useCallback(
     async (userId: string) => {
@@ -42,12 +41,6 @@ const TableCellValue = ({ groupMember, columnKey }: Props) => {
       return groupId ? removeAdmin({ groupId, userId }) : null;
     },
     [removeAdmin, groupId]
-  );
-  const handleRemoveMember = useCallback(
-    async (userId: string) => {
-      return groupId ? removeMember({ groupId, userId }) : null;
-    },
-    [removeMember, groupId]
   );
 
   const { avatar, title, roles, id } = groupMember;
@@ -115,18 +108,6 @@ const TableCellValue = ({ groupMember, columnKey }: Props) => {
                 </Button>
               </Tooltip>
             )}
-            <Tooltip content="Remove member from group">
-              <Button
-                variant="ghost"
-                size="sm"
-                className="text-default-400 h-7 w-7 min-w-7 cursor-pointer active:opacity-50"
-                onPress={() => handleRemoveMember(id)}
-                isLoading={isRemoveMemberPending}
-                isIconOnly
-              >
-                <UserXIcon className="w-4" />
-              </Button>
-            </Tooltip>
           </div>
         );
       }
