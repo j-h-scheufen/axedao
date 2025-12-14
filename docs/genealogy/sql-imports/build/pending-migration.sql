@@ -1,6 +1,6 @@
 -- ============================================================
 -- GENEALOGY DATA MIGRATION
--- Generated: 2025-12-13T11:59:53.799Z
+-- Generated: 2025-12-13T23:59:23.574Z
 -- ============================================================
 --
 -- New entity files: 74
@@ -14,9 +14,8 @@
 BEGIN;
 
 -- ============================================================
--- TRUNCATE EXISTING DATA (for staging/production re-import)
+-- TRUNCATE ALL GENEALOGY TABLES (for clean staging/production deploy)
 -- ============================================================
--- Note: Cascade will delete statements that reference these entities
 TRUNCATE TABLE genealogy.statements CASCADE;
 TRUNCATE TABLE genealogy.group_profiles CASCADE;
 TRUNCATE TABLE genealogy.person_profiles CASCADE;
@@ -9311,7 +9310,7 @@ INSERT INTO genealogy.group_profiles (
   name,
   style,
   logo,
-  links,
+  public_links,
   -- Identity enhancements
   name_aliases,
   name_history,
@@ -9369,7 +9368,7 @@ INSERT INTO genealogy.group_profiles (
 ON CONFLICT (name) DO UPDATE SET
   style = EXCLUDED.style,
   logo = EXCLUDED.logo,
-  links = EXCLUDED.links,
+  public_links = EXCLUDED.public_links,
   name_aliases = EXCLUDED.name_aliases,
   name_history = EXCLUDED.name_history,
   founded_year = EXCLUDED.founded_year,
@@ -9404,7 +9403,7 @@ INSERT INTO genealogy.group_profiles (
   style_notes_en,
   style_notes_pt,
   logo,
-  links,
+  public_links,
   -- Identity enhancements
   name_aliases,
   name_history,
@@ -9477,7 +9476,7 @@ ON CONFLICT (name) DO UPDATE SET
   style_notes_en = EXCLUDED.style_notes_en,
   style_notes_pt = EXCLUDED.style_notes_pt,
   logo = EXCLUDED.logo,
-  links = EXCLUDED.links,
+  public_links = EXCLUDED.public_links,
   name_aliases = EXCLUDED.name_aliases,
   name_history = EXCLUDED.name_history,
   founded_year = EXCLUDED.founded_year,
@@ -9508,7 +9507,7 @@ INSERT INTO genealogy.group_profiles (
   style_notes_en,
   style_notes_pt,
   logo,
-  links,
+  public_links,
   -- Identity enhancements
   name_aliases,
   name_history,
@@ -9565,7 +9564,7 @@ ON CONFLICT (name) DO UPDATE SET
   style_notes_en = EXCLUDED.style_notes_en,
   style_notes_pt = EXCLUDED.style_notes_pt,
   logo = EXCLUDED.logo,
-  links = EXCLUDED.links,
+  public_links = EXCLUDED.public_links,
   name_aliases = EXCLUDED.name_aliases,
   name_history = EXCLUDED.name_history,
   founded_year = EXCLUDED.founded_year,

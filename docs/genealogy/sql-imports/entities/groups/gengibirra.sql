@@ -8,7 +8,7 @@ INSERT INTO genealogy.group_profiles (
   name,
   style,
   logo,
-  links,
+  public_links,
   -- Identity enhancements
   name_aliases,
   name_history,
@@ -66,7 +66,7 @@ INSERT INTO genealogy.group_profiles (
 ON CONFLICT (name) DO UPDATE SET
   style = EXCLUDED.style,
   logo = EXCLUDED.logo,
-  links = EXCLUDED.links,
+  public_links = EXCLUDED.public_links,
   name_aliases = EXCLUDED.name_aliases,
   name_history = EXCLUDED.name_history,
   founded_year = EXCLUDED.founded_year,

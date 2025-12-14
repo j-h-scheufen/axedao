@@ -193,7 +193,7 @@ export interface GroupFullProfile {
   styleNotesEn?: string | null;
   styleNotesPt?: string | null;
   logo?: string | null;
-  links?: string[] | null;
+  publicLinks?: string[] | null;
   nameAliases?: string[] | null;
   foundedYear?: number | null;
   foundedYearPrecision?: string | null;

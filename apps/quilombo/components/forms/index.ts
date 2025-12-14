@@ -15,3 +15,6 @@ export { default as UserSelect } from './UserSelect';
 
 // Event-specific Formik field components
 export { EventDateTimeField, EventLocationField, EventTypeField, EventUrlField } from './event/shared';
+
+// Group-specific components
+export { default as RegisterGroupForm } from './group/RegisterGroupForm';

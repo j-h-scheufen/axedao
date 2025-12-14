@@ -49,7 +49,6 @@ const FIELD_LABELS: Record<string, Record<Language, string>> = {
   legalStructure: { en: 'Legal Structure', pt: 'Estrutura Legal' },
   status: { en: 'Status', pt: 'Status' },
   dissolvedAt: { en: 'Dissolved', pt: 'Dissolvido' },
-  links: { en: 'Links', pt: 'Links' },
   // Common
   createdAt: { en: 'Record Created', pt: 'Registro Criado' },
   updatedAt: { en: 'Last Updated', pt: 'Última Atualização' },
@@ -437,13 +436,13 @@ function GroupFullDetails({ profile, lang }: GroupFullDetailsProps) {
         </>
       )}
 
-      {/* Links */}
-      {profile.links && profile.links.length > 0 && (
+      {/* Public Links / References */}
+      {profile.publicLinks && profile.publicLinks.length > 0 && (
         <>
           <Divider />
-          <FieldDisplay label={getLabel('links', lang)}>
+          <FieldDisplay label={getLabel('publicLinks', lang)}>
             <div className="flex flex-col gap-1">
-              {profile.links.map((url) => (
+              {profile.publicLinks.map((url) => (
                 <Link
                   key={url}
                   href={url}

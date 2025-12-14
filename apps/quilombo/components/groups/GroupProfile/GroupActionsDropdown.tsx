@@ -1,7 +1,7 @@
 'use client';
 
 import { useDisclosure } from '@heroui/react';
-import { CircleCheckIcon, UserPlusIcon, SettingsIcon, LogOutIcon } from 'lucide-react';
+import { CircleCheckIcon, SettingsIcon, LogOutIcon } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useCallback } from 'react';
 import { useAtomValue } from 'jotai';
@@ -12,7 +12,6 @@ import { useLeaveGroup } from '@/hooks/useCurrentUser';
 import { ActionsDropdown, type ActionItem } from '@/components/ui';
 import LeaveGroupConfirmationModal from './LeaveGroupConfirmationModal';
 import VerifyGroupModal from './VerifyGroupModal';
-import ClaimGroupModal from './ClaimGroupModal';
 
 const GroupActionsDropdown = () => {
   const groupId = useAtomValue(groupIdAtom);
@@ -29,7 +28,6 @@ const GroupActionsDropdown = () => {
     onOpen: onVerifyModalOpen,
     onOpenChange: onVerifyModalOpenChange,
   } = useDisclosure();
-  const { isOpen: isClaimModalOpen, onOpen: onClaimModalOpen, onOpenChange: onClaimModalOpenChange } = useDisclosure();
 
   const handleGroupExit = useCallback(async () => {
     if (!groupId) return;
@@ -40,8 +38,6 @@ const GroupActionsDropdown = () => {
   // Treat null admin/member status as false (happens when no user is logged in or for imported groups)
   const isLoading = !group;
 
-  const isUnclaimed = group?.claimedBy === null;
-  const canClaim = isUnclaimed && !isGroupAdmin;
   const isUnmanaged = group?.adminCount === 0;
   const canEditAsGlobalAdmin = isGlobalAdmin && isUnmanaged;
   const canEdit = isGroupAdmin || canEditAsGlobalAdmin;
@@ -53,13 +49,6 @@ const GroupActionsDropdown = () => {
       label: 'Verify Group',
       icon: <CircleCheckIcon className="h-4 w-4" />,
       onAction: onVerifyModalOpen,
-    },
-    {
-      key: 'claim',
-      label: 'Claim Group',
-      icon: <UserPlusIcon className="h-4 w-4" />,
-      onAction: onClaimModalOpen,
-      hidden: !canClaim,
     },
     {
       key: 'edit',
@@ -90,8 +79,6 @@ const GroupActionsDropdown = () => {
       />
 
       <VerifyGroupModal isOpen={isVerifyModalOpen} onOpenChange={onVerifyModalOpenChange} groupId={groupId} />
-
-      <ClaimGroupModal isOpen={isClaimModalOpen} onOpenChange={onClaimModalOpenChange} groupId={groupId} />
     </>
   );
 };

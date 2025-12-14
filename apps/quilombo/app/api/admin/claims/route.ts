@@ -2,7 +2,7 @@ import { getServerSession } from 'next-auth';
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { isGlobalAdmin, getPendingClaims } from '@/db';
+import { isGlobalAdmin, getPendingGroupClaims } from '@/db';
 import { generateErrorMessage } from '@/utils';
 
 /**
@@ -89,16 +89,17 @@ export async function GET(_: NextRequest) {
   }
 
   try {
-    const pendingClaims = await getPendingClaims();
+    const pendingClaims = await getPendingGroupClaims();
 
-    // Transform data to flatten group and user info
+    // Transform data for backwards compatibility
     const transformedClaims = pendingClaims.map((claim) => ({
       id: claim.id,
-      groupId: claim.groupId,
-      groupName: claim.group?.name || 'Unknown Group',
+      type: claim.type,
+      profileId: claim.profileId,
+      proposedName: claim.proposedName,
+      groupName: claim.type === 'genealogy_group' ? claim.groupProfile?.name : claim.proposedName || 'New Group',
       userId: claim.userId,
       userName: claim.user?.name || 'Unknown User',
-      userEmail: claim.user?.email || '',
       requestedAt: claim.requestedAt,
       userMessage: claim.userMessage,
       status: claim.status,

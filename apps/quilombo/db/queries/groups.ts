@@ -8,6 +8,7 @@ import { and, count, eq, ilike, ne, notExists, sql, type SQLWrapper } from 'driz
 import type { GroupSearchParamsWithFilters } from '@/config/validation-schema';
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import * as schema from '@/db/schema';
+import { groupProfiles } from '@/db/schema/genealogy';
 import { db } from '@/db';
 import type { Group } from '@/types/model';
 import { applyUserPrivacyFilter } from '@/utils';
@@ -67,15 +68,17 @@ export async function searchGroups(
     .select({
       id: schema.groups.id,
       createdAt: schema.groups.createdAt,
-      name: schema.groups.name,
-      description: schema.groups.description,
-      style: schema.groups.style,
+      // Identity fields from genealogy (source of truth)
+      name: groupProfiles.name,
+      description: groupProfiles.descriptionEn,
+      style: groupProfiles.style,
+      logo: groupProfiles.logo,
+      // Operational fields from public.groups
+      links: schema.groups.links, // SocialLinks (ephemeral contact/social info)
       email: schema.groups.email,
-      logo: schema.groups.logo,
       banner: schema.groups.banner,
       leader: schema.groups.leader,
       founder: schema.groups.founder,
-      links: schema.groups.links,
       createdBy: schema.groups.createdBy,
       claimedBy: schema.groups.claimedBy,
       claimedAt: schema.groups.claimedAt,
@@ -101,9 +104,10 @@ export async function searchGroups(
       ),
     })
     .from(schema.groups)
+    .innerJoin(groupProfiles, eq(schema.groups.profileId, groupProfiles.id))
     .leftJoin(schema.groupLocations, eq(schema.groups.id, schema.groupLocations.groupId))
     .where(sqlFilters.length ? and(...sqlFilters) : undefined)
-    .groupBy(schema.groups.id)
+    .groupBy(schema.groups.id, groupProfiles.id)
     .limit(pageSize)
     .offset(offset);
 
@@ -139,6 +143,8 @@ export async function searchGroups(
 
 /**
  * Efficiently fetch a single group and its countryCodes using a single query with aggregation.
+ * Identity data (name, description, style, logo, links) is pulled from genealogy.group_profiles
+ * as the source of truth. All groups must have a linked genealogy profile.
  *
  * @param groupId - ID of the group to fetch
  * @returns Group with country codes or undefined if not found
@@ -148,15 +154,17 @@ export async function fetchGroup(groupId: string): Promise<Group | undefined> {
     .select({
       id: schema.groups.id,
       createdAt: schema.groups.createdAt,
-      name: schema.groups.name,
-      description: schema.groups.description,
-      style: schema.groups.style,
+      // Identity fields from genealogy (source of truth)
+      name: groupProfiles.name,
+      description: groupProfiles.descriptionEn,
+      style: groupProfiles.style,
+      logo: groupProfiles.logo,
+      // Operational fields from public.groups
+      links: schema.groups.links, // SocialLinks (ephemeral contact/social info)
       email: schema.groups.email,
-      logo: schema.groups.logo,
       banner: schema.groups.banner,
       leader: schema.groups.leader,
       founder: schema.groups.founder,
-      links: schema.groups.links,
       createdBy: schema.groups.createdBy,
       claimedBy: schema.groups.claimedBy,
       claimedAt: schema.groups.claimedAt,
@@ -185,9 +193,10 @@ export async function fetchGroup(groupId: string): Promise<Group | undefined> {
       ),
     })
     .from(schema.groups)
+    .innerJoin(groupProfiles, eq(schema.groups.profileId, groupProfiles.id))
     .leftJoin(schema.groupLocations, eq(schema.groups.id, schema.groupLocations.groupId))
     .where(eq(schema.groups.id, groupId))
-    .groupBy(schema.groups.id)
+    .groupBy(schema.groups.id, groupProfiles.id)
     .limit(1);
 
   if (!result[0]) return undefined;
@@ -373,4 +382,36 @@ export async function removeGroupAdmin(groupId: string, adminId: string) {
   await db
     .delete(schema.groupAdmins)
     .where(and(eq(schema.groupAdmins.groupId, groupId), eq(schema.groupAdmins.userId, adminId)));
+}
+
+/**
+ * Finds the public.groups entry that references a genealogy profile.
+ *
+ * @param profileId - ID of the genealogy group profile
+ * @returns The group ID or null if no groups entry references this profile
+ */
+export async function findGroupByProfileId(profileId: string): Promise<string | null> {
+  const result = await db
+    .select({ id: schema.groups.id })
+    .from(schema.groups)
+    .where(eq(schema.groups.profileId, profileId))
+    .limit(1);
+
+  return result.length > 0 ? result[0].id : null;
+}
+
+/**
+ * Checks if a user can manage a genealogy group profile.
+ * A user can manage a genealogy profile if they are an admin of the public.groups entry
+ * that references this profile.
+ *
+ * @param profileId - ID of the genealogy group profile
+ * @param userId - ID of the user
+ * @returns True if user is authorized to manage the genealogy profile
+ */
+export async function canUserManageGenealogyGroupProfile(profileId: string, userId: string): Promise<boolean> {
+  const groupId = await findGroupByProfileId(profileId);
+  if (!groupId) return false;
+
+  return canUserManageGroup(groupId, userId);
 }

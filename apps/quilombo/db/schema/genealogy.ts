@@ -152,7 +152,7 @@ export const groupProfiles = genealogySchema.table(
     styleNotesEn: text('style_notes_en'), // e.g., "Originally Regional, evolved to Contemporânea"
     styleNotesPt: text('style_notes_pt'),
     logo: varchar('logo', { length: 500 }),
-    links: text('links').array().default([]), // simple URL array for public references
+    publicLinks: text('public_links').array().default([]), // public references (Wikipedia, articles) - simple URL array
 
     // Identity enhancements (new)
     nameAliases: text('name_aliases').array(), // alternative names, abbreviations (e.g., ["GCAP"])

@@ -2,7 +2,7 @@ import { getServerSession } from 'next-auth';
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { isGlobalAdmin, approveClaim, fetchUser, fetchGroup, getGroupClaim } from '@/db';
+import { isGlobalAdmin, approveGroupClaim, getGroupClaimById, fetchUser } from '@/db';
 import { getEmailProvider } from '@/utils/email';
 import { generateErrorMessage } from '@/utils';
 import { NotFoundError } from '@/utils/errors';
@@ -18,11 +18,9 @@ type RouteParams = {
  *     summary: Approve a group claim request
  *     description: |
  *       Approves a pending group claim request.
- *       - Updates claim status to 'approved'
- *       - Adds user as group admin
- *       - Sets groups.claimedBy and groups.claimedAt
- *       - Adds user to group (users.groupId)
- *       - Sends approval email to claimer
+ *       For genealogy group claims: Creates public.groups entry linked to profile.
+ *       For new group claims: Creates genealogy.group_profiles AND public.groups.
+ *       Both cases: Add user as admin, set claimedBy/claimedAt, send approval email.
  *       Requires global admin privileges.
  *     tags:
  *       - Admin
@@ -36,6 +34,15 @@ type RouteParams = {
  *         schema:
  *           type: string
  *           format: uuid
+ *     requestBody:
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               adminNotes:
+ *                 type: string
+ *                 description: Optional notes from admin
  *     responses:
  *       200:
  *         description: Claim approved successfully
@@ -46,44 +53,22 @@ type RouteParams = {
  *               properties:
  *                 message:
  *                   type: string
+ *                 groupId:
+ *                   type: string
+ *                   format: uuid
+ *                 profileId:
+ *                   type: string
+ *                   format: uuid
  *       401:
  *         description: Unauthorized - user not authenticated
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
  *       403:
  *         description: Forbidden - user is not a global admin
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
  *       404:
  *         description: Claim not found
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
  *       500:
  *         description: Server error
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
  */
-export async function PUT(_: NextRequest, { params }: RouteParams) {
+export async function PUT(request: NextRequest, { params }: RouteParams) {
   const session = await getServerSession(nextAuthOptions);
 
   if (!session?.user.id) {
@@ -97,29 +82,37 @@ export async function PUT(_: NextRequest, { params }: RouteParams) {
 
   try {
     const { claimId } = await params;
+    const body = await request.json().catch(() => ({}));
+    const adminNotes = body.adminNotes;
 
     // Fetch claim details before approving (for email)
-    const claim = await getGroupClaim(claimId);
+    const claim = await getGroupClaimById(claimId);
     if (!claim) {
       return NextResponse.json({ error: 'Claim not found' }, { status: 404 });
     }
 
-    // Fetch user and group details for email
+    // Fetch user details for email
     const user = await fetchUser(claim.userId);
-    const group = await fetchGroup(claim.groupId);
-
-    if (!user || !group) {
-      return NextResponse.json({ error: 'User or group not found' }, { status: 404 });
+    if (!user) {
+      return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
     // Approve the claim (handles all database updates)
-    await approveClaim(claimId, session.user.id);
+    const { groupId, profileId } = await approveGroupClaim(claimId, session.user.id, adminNotes);
+
+    // Get group name for email
+    const groupName = claim.type === 'genealogy_group' ? claim.groupProfile?.name : claim.proposedName;
 
     // Send approval email to claimer
     if (user.email) {
       try {
         const emailProvider = getEmailProvider();
-        await emailProvider.sendClaimApprovedEmail(user.email, group.name, group.id, user.name || user.email);
+        await emailProvider.sendClaimApprovedEmail(
+          user.email,
+          groupName || 'Unknown',
+          groupId,
+          user.name || user.email
+        );
       } catch (emailError) {
         console.error('Failed to send approval email:', emailError);
         // Don't fail the request if email fails
@@ -128,11 +121,12 @@ export async function PUT(_: NextRequest, { params }: RouteParams) {
 
     return NextResponse.json({
       message: 'Claim approved successfully. User has been added as group admin.',
+      groupId,
+      profileId,
     });
   } catch (error) {
     console.error('Error approving claim:', error);
 
-    // Handle not found error
     if (error instanceof NotFoundError) {
       return NextResponse.json({ error: error.message }, { status: 404 });
     }

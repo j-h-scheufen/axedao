@@ -1,8 +1,10 @@
 /**
- * API Route Tests: POST /api/groups/[groupId]/claim
+ * API Route Tests: POST /api/groups/claims and GET /api/groups/claims
  *
- * Tests the group claim endpoint with mocked authentication and database.
- * Verifies authorization, claimability validation, input validation, and success responses.
+ * Tests the group claim endpoints with mocked authentication and database.
+ * Supports two claim types:
+ *   - genealogy_group: Claim an existing genealogy group profile
+ *   - new_group: Register a new group not in genealogy
  */
 
 import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
@@ -12,15 +14,18 @@ import { createMockRequest, getResponseJson } from '../../../setup/api-helpers';
 vi.mock('next-auth');
 vi.mock('@/db');
 
-describe('POST /api/groups/[groupId]/claim', () => {
-  let POST: (request: Request, context: { params: Promise<{ groupId: string }> }) => Promise<Response>;
+describe('Group Claims API', () => {
+  let GET: (request: Request) => Promise<Response>;
+  let POST: (request: Request) => Promise<Response>;
   let getServerSession: ReturnType<typeof vi.fn>;
-  let isGroupClaimable: ReturnType<typeof vi.fn>;
-  let createGroupClaim: ReturnType<typeof vi.fn>;
-  let fetchGroup: ReturnType<typeof vi.fn>;
+  let getUserGroupClaims: ReturnType<typeof vi.fn>;
+  let createGenealogyGroupClaim: ReturnType<typeof vi.fn>;
+  let createNewGroupClaim: ReturnType<typeof vi.fn>;
+  let isGenealogyGroupClaimable: ReturnType<typeof vi.fn>;
+  let hasPendingGenealogyGroupClaim: ReturnType<typeof vi.fn>;
 
-  const testGroupId = 'test-group-123';
   const testUserId = 'test-user-456';
+  const testProfileId = 'profile-123';
   const testClaimId = 'claim-789';
   const validUserMessage = 'I am the founder of this group and would like to claim admin access.';
 
@@ -33,18 +38,23 @@ describe('POST /api/groups/[groupId]/claim', () => {
     const db = await import('@/db');
 
     getServerSession = vi.fn();
-    isGroupClaimable = vi.fn();
-    createGroupClaim = vi.fn();
-    fetchGroup = vi.fn();
+    getUserGroupClaims = vi.fn();
+    createGenealogyGroupClaim = vi.fn();
+    createNewGroupClaim = vi.fn();
+    isGenealogyGroupClaimable = vi.fn();
+    hasPendingGenealogyGroupClaim = vi.fn();
 
     // Setup mocks
     (nextAuth.getServerSession as typeof getServerSession) = getServerSession;
-    (db.isGroupClaimable as typeof isGroupClaimable) = isGroupClaimable;
-    (db.createGroupClaim as typeof createGroupClaim) = createGroupClaim;
-    (db.fetchGroup as typeof fetchGroup) = fetchGroup;
+    (db.getUserGroupClaims as typeof getUserGroupClaims) = getUserGroupClaims;
+    (db.createGenealogyGroupClaim as typeof createGenealogyGroupClaim) = createGenealogyGroupClaim;
+    (db.createNewGroupClaim as typeof createNewGroupClaim) = createNewGroupClaim;
+    (db.isGenealogyGroupClaimable as typeof isGenealogyGroupClaimable) = isGenealogyGroupClaimable;
+    (db.hasPendingGenealogyGroupClaim as typeof hasPendingGenealogyGroupClaim) = hasPendingGenealogyGroupClaim;
 
     // Import route handler AFTER mocks are set up
-    const routeModule = await import('@/app/api/groups/[groupId]/claim/route');
+    const routeModule = await import('@/app/api/groups/claims/route');
+    GET = routeModule.GET;
     POST = routeModule.POST;
   });
 
@@ -52,259 +62,296 @@ describe('POST /api/groups/[groupId]/claim', () => {
     vi.clearAllMocks();
   });
 
-  describe('Authentication', () => {
+  describe('GET /api/groups/claims', () => {
     it('should return 401 when user is not authenticated', async () => {
       getServerSession.mockResolvedValue(null);
 
-      const request = createMockRequest(`http://localhost/api/groups/${testGroupId}/claim`, {
-        method: 'POST',
-        body: { userMessage: validUserMessage },
-      });
-
-      const response = await POST(request, { params: Promise.resolve({ groupId: testGroupId }) });
-      const body = await getResponseJson(response);
-
-      expect(response.status).toBe(401);
-      expect(body).toEqual({ error: 'Unauthorized, try to login again' });
-      expect(isGroupClaimable).not.toHaveBeenCalled();
-      expect(createGroupClaim).not.toHaveBeenCalled();
-    });
-
-    it('should return 401 when session has no user ID', async () => {
-      getServerSession.mockResolvedValue({ user: {}, expires: '2025-12-31' });
-
-      const request = createMockRequest(`http://localhost/api/groups/${testGroupId}/claim`, {
-        method: 'POST',
-        body: { userMessage: validUserMessage },
-      });
-
-      const response = await POST(request, { params: Promise.resolve({ groupId: testGroupId }) });
+      const request = createMockRequest('http://localhost/api/groups/claims', { method: 'GET' });
+      const response = await GET(request);
       const body = await getResponseJson(response);
 
       expect(response.status).toBe(401);
       expect(body).toEqual({ error: 'Unauthorized, try to login again' });
     });
-  });
 
-  describe('Group Existence Validation', () => {
-    it('should return 404 when group does not exist', async () => {
+    it('should return user claims', async () => {
       getServerSession.mockResolvedValue({
-        user: { id: testUserId, email: 'user@example.com' },
+        user: { id: testUserId },
         expires: '2025-12-31',
       });
-      fetchGroup.mockResolvedValue(null);
+      getUserGroupClaims.mockResolvedValue([
+        { id: 'claim-1', type: 'genealogy_group', status: 'pending' },
+        { id: 'claim-2', type: 'new_group', status: 'approved' },
+      ]);
 
-      const request = createMockRequest(`http://localhost/api/groups/${testGroupId}/claim`, {
-        method: 'POST',
-        body: { userMessage: validUserMessage },
-      });
-
-      const response = await POST(request, { params: Promise.resolve({ groupId: testGroupId }) });
+      const request = createMockRequest('http://localhost/api/groups/claims', { method: 'GET' });
+      const response = await GET(request);
       const body = await getResponseJson(response);
-
-      expect(response.status).toBe(404);
-      expect(body).toEqual({ error: 'Group not found' });
-      expect(fetchGroup).toHaveBeenCalledWith(testGroupId);
-      expect(isGroupClaimable).not.toHaveBeenCalled();
-      expect(createGroupClaim).not.toHaveBeenCalled();
-    });
-  });
-
-  describe('Claimability Validation', () => {
-    beforeEach(() => {
-      getServerSession.mockResolvedValue({
-        user: { id: testUserId, email: 'user@example.com' },
-        expires: '2025-12-31',
-      });
-      fetchGroup.mockResolvedValue({ id: testGroupId, name: 'Test Group' });
-    });
-
-    it('should return 403 when group is not claimable', async () => {
-      isGroupClaimable.mockResolvedValue(false); // Group already claimed or has admins
-
-      const request = createMockRequest(`http://localhost/api/groups/${testGroupId}/claim`, {
-        method: 'POST',
-        body: { userMessage: validUserMessage },
-      });
-
-      const response = await POST(request, { params: Promise.resolve({ groupId: testGroupId }) });
-      const body = await getResponseJson(response);
-
-      expect(response.status).toBe(403);
-      expect(body).toEqual({
-        error: 'This group is not claimable. It may already be claimed or have existing admins.',
-      });
-      expect(isGroupClaimable).toHaveBeenCalledWith(testGroupId);
-      expect(createGroupClaim).not.toHaveBeenCalled();
-    });
-
-    it('should proceed when group is claimable', async () => {
-      isGroupClaimable.mockResolvedValue(true);
-      createGroupClaim.mockResolvedValue(testClaimId);
-
-      const request = createMockRequest(`http://localhost/api/groups/${testGroupId}/claim`, {
-        method: 'POST',
-        body: { userMessage: validUserMessage },
-      });
-
-      const response = await POST(request, { params: Promise.resolve({ groupId: testGroupId }) });
 
       expect(response.status).toBe(200);
-      expect(isGroupClaimable).toHaveBeenCalledWith(testGroupId);
-      expect(createGroupClaim).toHaveBeenCalled();
+      expect(body).toHaveLength(2);
+      expect(getUserGroupClaims).toHaveBeenCalledWith(testUserId);
     });
   });
 
-  describe('Input Validation', () => {
+  describe('POST /api/groups/claims - Authentication', () => {
+    it('should return 401 when user is not authenticated', async () => {
+      getServerSession.mockResolvedValue(null);
+
+      const request = createMockRequest('http://localhost/api/groups/claims', {
+        method: 'POST',
+        body: { type: 'genealogy_group', profileId: testProfileId, userMessage: validUserMessage },
+      });
+
+      const response = await POST(request);
+      const body = await getResponseJson(response);
+
+      expect(response.status).toBe(401);
+      expect(body).toEqual({ error: 'Unauthorized, try to login again' });
+    });
+  });
+
+  describe('POST /api/groups/claims - Type Validation', () => {
     beforeEach(() => {
       getServerSession.mockResolvedValue({
-        user: { id: testUserId, email: 'user@example.com' },
+        user: { id: testUserId },
         expires: '2025-12-31',
       });
-      fetchGroup.mockResolvedValue({ id: testGroupId, name: 'Test Group' });
-      isGroupClaimable.mockResolvedValue(true);
     });
 
-    it('should return 400 when userMessage is missing', async () => {
-      const request = createMockRequest(`http://localhost/api/groups/${testGroupId}/claim`, {
+    it('should return 400 when type is missing', async () => {
+      const request = createMockRequest('http://localhost/api/groups/claims', {
         method: 'POST',
-        body: {},
+        body: { profileId: testProfileId, userMessage: validUserMessage },
       });
 
-      const response = await POST(request, { params: Promise.resolve({ groupId: testGroupId }) });
+      const response = await POST(request);
       const body = await getResponseJson(response);
 
       expect(response.status).toBe(400);
-      expect(body).toHaveProperty('error');
-      expect((body as { error: string }).error).toContain('admin of this group');
-      expect(createGroupClaim).not.toHaveBeenCalled();
+      expect(body).toEqual({ error: 'Invalid claim type. Must be "genealogy_group" or "new_group"' });
+    });
+
+    it('should return 400 when type is invalid', async () => {
+      const request = createMockRequest('http://localhost/api/groups/claims', {
+        method: 'POST',
+        body: { type: 'invalid_type', profileId: testProfileId, userMessage: validUserMessage },
+      });
+
+      const response = await POST(request);
+      const body = await getResponseJson(response);
+
+      expect(response.status).toBe(400);
+      expect(body).toEqual({ error: 'Invalid claim type. Must be "genealogy_group" or "new_group"' });
+    });
+  });
+
+  describe('POST /api/groups/claims - Genealogy Group Claims', () => {
+    beforeEach(() => {
+      getServerSession.mockResolvedValue({
+        user: { id: testUserId },
+        expires: '2025-12-31',
+      });
+    });
+
+    it('should return 400 when profileId is missing', async () => {
+      const request = createMockRequest('http://localhost/api/groups/claims', {
+        method: 'POST',
+        body: { type: 'genealogy_group', userMessage: validUserMessage },
+      });
+
+      const response = await POST(request);
+      const body = await getResponseJson(response);
+
+      expect(response.status).toBe(400);
+      expect(body).toEqual({ error: 'profileId is required for genealogy group claims' });
     });
 
     it('should return 400 when userMessage is too short', async () => {
-      const request = createMockRequest(`http://localhost/api/groups/${testGroupId}/claim`, {
+      const request = createMockRequest('http://localhost/api/groups/claims', {
         method: 'POST',
-        body: { userMessage: 'Too short' }, // Less than 20 chars
+        body: { type: 'genealogy_group', profileId: testProfileId, userMessage: 'Too short' },
       });
 
-      const response = await POST(request, { params: Promise.resolve({ groupId: testGroupId }) });
+      const response = await POST(request);
       const body = await getResponseJson(response);
 
       expect(response.status).toBe(400);
       expect(body).toHaveProperty('error');
       expect((body as { error: string }).error).toContain('at least 20 characters');
-      expect(createGroupClaim).not.toHaveBeenCalled();
     });
 
-    it('should accept userMessage with exactly 20 characters', async () => {
-      createGroupClaim.mockResolvedValue(testClaimId);
+    it('should return 409 when group is already claimed', async () => {
+      isGenealogyGroupClaimable.mockResolvedValue(false);
 
-      const request = createMockRequest(`http://localhost/api/groups/${testGroupId}/claim`, {
+      const request = createMockRequest('http://localhost/api/groups/claims', {
         method: 'POST',
-        body: { userMessage: '12345678901234567890' }, // Exactly 20 chars
+        body: { type: 'genealogy_group', profileId: testProfileId, userMessage: validUserMessage },
       });
 
-      const response = await POST(request, { params: Promise.resolve({ groupId: testGroupId }) });
+      const response = await POST(request);
+      const body = await getResponseJson(response);
 
-      expect(response.status).toBe(200);
-      expect(createGroupClaim).toHaveBeenCalledWith(testUserId, testGroupId, '12345678901234567890');
+      expect(response.status).toBe(409);
+      expect(body).toEqual({ error: 'This group has already been claimed' });
     });
 
-    it('should accept valid userMessage', async () => {
-      createGroupClaim.mockResolvedValue(testClaimId);
+    it('should return 409 when user already has pending claim', async () => {
+      isGenealogyGroupClaimable.mockResolvedValue(true);
+      hasPendingGenealogyGroupClaim.mockResolvedValue(true);
 
-      const request = createMockRequest(`http://localhost/api/groups/${testGroupId}/claim`, {
+      const request = createMockRequest('http://localhost/api/groups/claims', {
         method: 'POST',
-        body: { userMessage: validUserMessage },
+        body: { type: 'genealogy_group', profileId: testProfileId, userMessage: validUserMessage },
       });
 
-      const response = await POST(request, { params: Promise.resolve({ groupId: testGroupId }) });
+      const response = await POST(request);
+      const body = await getResponseJson(response);
 
-      expect(response.status).toBe(200);
-      expect(createGroupClaim).toHaveBeenCalledWith(testUserId, testGroupId, validUserMessage);
-    });
-  });
-
-  describe('Successful Claim Submission', () => {
-    beforeEach(() => {
-      getServerSession.mockResolvedValue({
-        user: { id: testUserId, email: 'user@example.com' },
-        expires: '2025-12-31',
-      });
-      fetchGroup.mockResolvedValue({ id: testGroupId, name: 'Test Group' });
-      isGroupClaimable.mockResolvedValue(true);
-      createGroupClaim.mockResolvedValue(testClaimId);
+      expect(response.status).toBe(409);
+      expect(body).toEqual({ error: 'You already have a pending claim for this group' });
     });
 
-    it('should return 200 with claimId and success message', async () => {
-      const request = createMockRequest(`http://localhost/api/groups/${testGroupId}/claim`, {
+    it('should create genealogy group claim successfully', async () => {
+      isGenealogyGroupClaimable.mockResolvedValue(true);
+      hasPendingGenealogyGroupClaim.mockResolvedValue(false);
+      createGenealogyGroupClaim.mockResolvedValue(testClaimId);
+
+      const request = createMockRequest('http://localhost/api/groups/claims', {
         method: 'POST',
-        body: { userMessage: validUserMessage },
+        body: { type: 'genealogy_group', profileId: testProfileId, userMessage: validUserMessage },
       });
 
-      const response = await POST(request, { params: Promise.resolve({ groupId: testGroupId }) });
-      const body = (await getResponseJson(response)) as {
-        claimId: string;
-        message: string;
-      };
+      const response = await POST(request);
+      const body = (await getResponseJson(response)) as { claimId: string; message: string };
 
-      expect(response.status).toBe(200);
-      expect(body).toHaveProperty('claimId', testClaimId);
-      expect(body).toHaveProperty('message');
+      expect(response.status).toBe(201);
+      expect(body.claimId).toBe(testClaimId);
       expect(body.message).toContain('submitted successfully');
-
-      expect(createGroupClaim).toHaveBeenCalledWith(testUserId, testGroupId, validUserMessage);
-    });
-
-    it('should create claim with all required parameters', async () => {
-      const customMessage = 'I have been leading this group for 5 years and would like admin access.';
-
-      const request = createMockRequest(`http://localhost/api/groups/${testGroupId}/claim`, {
-        method: 'POST',
-        body: { userMessage: customMessage },
-      });
-
-      await POST(request, { params: Promise.resolve({ groupId: testGroupId }) });
-
-      expect(createGroupClaim).toHaveBeenCalledWith(testUserId, testGroupId, customMessage);
-      expect(createGroupClaim).toHaveBeenCalledTimes(1);
+      expect(createGenealogyGroupClaim).toHaveBeenCalledWith(testUserId, testProfileId, validUserMessage);
     });
   });
 
-  describe('Error Handling', () => {
+  describe('POST /api/groups/claims - New Group Registration', () => {
     beforeEach(() => {
       getServerSession.mockResolvedValue({
-        user: { id: testUserId, email: 'user@example.com' },
+        user: { id: testUserId },
         expires: '2025-12-31',
       });
-      fetchGroup.mockResolvedValue({ id: testGroupId, name: 'Test Group' });
-      isGroupClaimable.mockResolvedValue(true);
     });
 
-    it('should return 500 when createGroupClaim throws error', async () => {
-      createGroupClaim.mockRejectedValue(new Error('Database connection failed'));
-
-      const request = createMockRequest(`http://localhost/api/groups/${testGroupId}/claim`, {
+    it('should return 400 when proposedName is missing', async () => {
+      const request = createMockRequest('http://localhost/api/groups/claims', {
         method: 'POST',
-        body: { userMessage: validUserMessage },
+        body: { type: 'new_group', userMessage: validUserMessage },
       });
 
-      const response = await POST(request, { params: Promise.resolve({ groupId: testGroupId }) });
+      const response = await POST(request);
+      const body = await getResponseJson(response);
+
+      expect(response.status).toBe(400);
+      expect(body).toHaveProperty('error');
+    });
+
+    it('should return 400 when proposedName is too short', async () => {
+      const request = createMockRequest('http://localhost/api/groups/claims', {
+        method: 'POST',
+        body: { type: 'new_group', proposedName: 'A', userMessage: validUserMessage },
+      });
+
+      const response = await POST(request);
+      const body = await getResponseJson(response);
+
+      expect(response.status).toBe(400);
+      expect(body).toHaveProperty('error');
+    });
+
+    it('should create new group claim successfully', async () => {
+      createNewGroupClaim.mockResolvedValue(testClaimId);
+
+      const request = createMockRequest('http://localhost/api/groups/claims', {
+        method: 'POST',
+        body: {
+          type: 'new_group',
+          proposedName: 'My New Group',
+          proposedStyle: 'angola',
+          website: 'https://example.com',
+          userMessage: validUserMessage,
+        },
+      });
+
+      const response = await POST(request);
+      const body = (await getResponseJson(response)) as { claimId: string; message: string };
+
+      expect(response.status).toBe(201);
+      expect(body.claimId).toBe(testClaimId);
+      expect(body.message).toContain('submitted successfully');
+      expect(createNewGroupClaim).toHaveBeenCalledWith(testUserId, {
+        proposedName: 'My New Group',
+        proposedStyle: 'angola',
+        website: 'https://example.com',
+        userMessage: validUserMessage,
+      });
+    });
+
+    it('should create new group claim without optional fields', async () => {
+      createNewGroupClaim.mockResolvedValue(testClaimId);
+
+      const request = createMockRequest('http://localhost/api/groups/claims', {
+        method: 'POST',
+        body: {
+          type: 'new_group',
+          proposedName: 'My New Group',
+          userMessage: validUserMessage,
+        },
+      });
+
+      const response = await POST(request);
+
+      expect(response.status).toBe(201);
+      expect(createNewGroupClaim).toHaveBeenCalledWith(testUserId, {
+        proposedName: 'My New Group',
+        proposedStyle: null,
+        website: undefined,
+        userMessage: validUserMessage,
+      });
+    });
+  });
+
+  describe('POST /api/groups/claims - Error Handling', () => {
+    beforeEach(() => {
+      getServerSession.mockResolvedValue({
+        user: { id: testUserId },
+        expires: '2025-12-31',
+      });
+      isGenealogyGroupClaimable.mockResolvedValue(true);
+      hasPendingGenealogyGroupClaim.mockResolvedValue(false);
+    });
+
+    it('should return 500 when createGenealogyGroupClaim throws error', async () => {
+      createGenealogyGroupClaim.mockRejectedValue(new Error('Database connection failed'));
+
+      const request = createMockRequest('http://localhost/api/groups/claims', {
+        method: 'POST',
+        body: { type: 'genealogy_group', profileId: testProfileId, userMessage: validUserMessage },
+      });
+
+      const response = await POST(request);
       const body = await getResponseJson(response);
 
       expect(response.status).toBe(500);
       expect(body).toHaveProperty('error');
-      expect((body as { error: string }).error).toBe('Database connection failed');
     });
 
-    it('should return 500 when isGroupClaimable throws error', async () => {
-      isGroupClaimable.mockRejectedValue(new Error('Database error'));
+    it('should return 500 when createNewGroupClaim throws error', async () => {
+      createNewGroupClaim.mockRejectedValue(new Error('Database error'));
 
-      const request = createMockRequest(`http://localhost/api/groups/${testGroupId}/claim`, {
+      const request = createMockRequest('http://localhost/api/groups/claims', {
         method: 'POST',
-        body: { userMessage: validUserMessage },
+        body: { type: 'new_group', proposedName: 'My New Group', userMessage: validUserMessage },
       });
 
-      const response = await POST(request, { params: Promise.resolve({ groupId: testGroupId }) });
+      const response = await POST(request);
       const body = await getResponseJson(response);
 
       expect(response.status).toBe(500);

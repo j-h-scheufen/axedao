@@ -358,17 +358,17 @@
       "entityType": "person"
     },
     "entities/groups/gengibirra.sql": {
-      "checksum": "cb18fec2d8837b2f022eaf7a4686d3f7",
+      "checksum": "69887e9aea1436034c4d35153380d5e6",
       "category": "entity",
       "entityType": "group"
     },
     "entities/groups/roda-de-trapiche-de-baixo.sql": {
-      "checksum": "4f7ad8c48717dacb700a46e35cd9c7d2",
+      "checksum": "863aeb194faecb5d330057c1a0e2220e",
       "category": "entity",
       "entityType": "group"
     },
     "entities/groups/roda-do-matatu-preto.sql": {
-      "checksum": "560bc2adc68b849de9b5d7e8d36532ef",
+      "checksum": "647ea12526ac38f0c3112f85dabf053c",
       "category": "entity",
       "entityType": "group"
     },

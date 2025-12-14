@@ -293,3 +293,58 @@ export const useClaimPersonMutation = () => {
     },
   });
 };
+
+// ============================================================================
+// GROUP PROFILE QUERIES
+// ============================================================================
+
+import type { SelectGroupProfile } from '@/db/schema/genealogy';
+import type { GenealogyGroupProfileUpdate } from '@/config/validation-schema';
+
+const fetchGenealogyGroupProfile = async (profileId: string): Promise<SelectGroupProfile | null> =>
+  axios
+    .get(`/api/genealogy/groups/${profileId}`)
+    .then((response) => response.data.data)
+    .catch((error) => {
+      if (error.response?.status === 404) return null;
+      throw error;
+    });
+
+export const fetchGenealogyGroupProfileOptions = (profileId: string | null | undefined) => {
+  return {
+    queryKey: QUERY_KEYS.genealogy.groupProfile(profileId || ''),
+    queryFn: async () => fetchGenealogyGroupProfile(profileId ?? ''),
+    staleTime: QueryConfig.staleTimeDefault,
+    enabled: !!profileId,
+  } as const;
+};
+
+const updateGenealogyGroupProfile = async (
+  profileId: string,
+  formData: GenealogyGroupProfileUpdate
+): Promise<SelectGroupProfile> => axios.patch(`/api/genealogy/groups/${profileId}`, formData).then((r) => r.data);
+
+/**
+ * Hook to fetch a group genealogy profile by ID.
+ */
+export const useGenealogyGroupProfile = (profileId: string | null | undefined) =>
+  useQuery(queryOptions(fetchGenealogyGroupProfileOptions(profileId)));
+
+/**
+ * Mutation to update a group's genealogy profile.
+ * User must be an admin of the public.groups entry that references this profile.
+ */
+export const useUpdateGenealogyGroupProfile = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async ({ profileId, data }: { profileId: string; data: GenealogyGroupProfileUpdate }) =>
+      updateGenealogyGroupProfile(profileId, data),
+    onSuccess: (data, variables) => {
+      // Update the cache with the new data
+      queryClient.setQueryData(QUERY_KEYS.genealogy.groupProfile(variables.profileId), data);
+      // Invalidate group query since name/style may have changed
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroup] });
+    },
+  });
+};

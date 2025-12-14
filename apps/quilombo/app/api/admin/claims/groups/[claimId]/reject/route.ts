@@ -2,7 +2,7 @@ import { getServerSession } from 'next-auth';
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { isGlobalAdmin, rejectClaim, fetchUser, fetchGroup, getGroupClaim } from '@/db';
+import { isGlobalAdmin, rejectGroupClaim, fetchUser, getGroupClaimById } from '@/db';
 import { getEmailProvider } from '@/utils/email';
 import { generateErrorMessage } from '@/utils';
 import { NotFoundError } from '@/utils/errors';
@@ -49,58 +49,16 @@ type RouteParams = {
  *     responses:
  *       200:
  *         description: Claim rejected successfully
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
  *       400:
  *         description: Invalid input - notes required
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
  *       401:
  *         description: Unauthorized - user not authenticated
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
  *       403:
  *         description: Forbidden - user is not a global admin
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
  *       404:
  *         description: Claim not found
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
  *       500:
  *         description: Server error
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
  */
 export async function PUT(request: NextRequest, { params }: RouteParams) {
   const session = await getServerSession(nextAuthOptions);
@@ -124,27 +82,33 @@ export async function PUT(request: NextRequest, { params }: RouteParams) {
     }
 
     // Fetch claim details before rejecting (for email)
-    const claim = await getGroupClaim(claimId);
+    const claim = await getGroupClaimById(claimId);
     if (!claim) {
       return NextResponse.json({ error: 'Claim not found' }, { status: 404 });
     }
 
-    // Fetch user and group details for email
+    // Fetch user details for email
     const user = await fetchUser(claim.userId);
-    const group = await fetchGroup(claim.groupId);
-
-    if (!user || !group) {
-      return NextResponse.json({ error: 'User or group not found' }, { status: 404 });
+    if (!user) {
+      return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
     // Reject the claim
-    await rejectClaim(claimId, session.user.id, body.notes);
+    await rejectGroupClaim(claimId, session.user.id, body.notes);
+
+    // Get group name for email
+    const groupName = claim.type === 'genealogy_group' ? claim.groupProfile?.name : claim.proposedName;
 
     // Send rejection email to claimer
     if (user.email) {
       try {
         const emailProvider = getEmailProvider();
-        await emailProvider.sendClaimRejectedEmail(user.email, group.name, user.name || user.email, body.notes);
+        await emailProvider.sendClaimRejectedEmail(
+          user.email,
+          groupName || 'Unknown',
+          user.name || user.email,
+          body.notes
+        );
       } catch (emailError) {
         console.error('Failed to send rejection email:', emailError);
         // Don't fail the request if email fails
@@ -157,7 +121,6 @@ export async function PUT(request: NextRequest, { params }: RouteParams) {
   } catch (error) {
     console.error('Error rejecting claim:', error);
 
-    // Handle not found error
     if (error instanceof NotFoundError) {
       return NextResponse.json({ error: error.message }, { status: 404 });
     }

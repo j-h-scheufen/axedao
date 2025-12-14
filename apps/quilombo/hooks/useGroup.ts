@@ -3,7 +3,7 @@ import { enqueueSnackbar } from 'notistack';
 import type {
   CreateLocationForm,
   CreateNewGroupForm,
-  UpdateGroupForm,
+  GroupEditForm,
   UpdateLocationForm,
 } from '@/config/validation-schema';
 import type { GroupAndLocationParams, GroupAndUserParams } from '@/query';
@@ -49,7 +49,7 @@ export const useDeleteGroup = () => {
 
 export const useUpdateGroup = () => {
   const { mutateAsync, error, isPending } = useUpdateGroupMutation();
-  const updateGroup = async (params: { groupId: string; data: UpdateGroupForm }) => {
+  const updateGroup = async (params: { groupId: string; data: GroupEditForm }) => {
     return mutateAsync(params, {
       onError: (error) => enqueueSnackbar(`An error occured trying to update the group: ${error.message}`),
     });

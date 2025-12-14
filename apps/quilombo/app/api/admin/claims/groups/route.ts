@@ -2,7 +2,7 @@ import { getServerSession } from 'next-auth';
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
-import { isGlobalAdmin, getPendingClaims } from '@/db';
+import { isGlobalAdmin, getPendingGroupClaims } from '@/db';
 import { generateErrorMessage } from '@/utils';
 
 /**
@@ -11,7 +11,7 @@ import { generateErrorMessage } from '@/utils';
  *   get:
  *     summary: List all pending group claims
  *     description: |
- *       Returns all pending group claim requests.
+ *       Returns all pending group claim requests (both genealogy group claims and new group registrations).
  *       Requires global admin privileges.
  *     tags:
  *       - Admin
@@ -31,18 +31,41 @@ import { generateErrorMessage } from '@/utils';
  *                   id:
  *                     type: string
  *                     format: uuid
- *                   groupId:
+ *                   type:
+ *                     type: string
+ *                     enum: [genealogy_group, new_group]
+ *                   profileId:
  *                     type: string
  *                     format: uuid
- *                   groupName:
+ *                     nullable: true
+ *                   proposedName:
  *                     type: string
+ *                     nullable: true
+ *                   website:
+ *                     type: string
+ *                     nullable: true
  *                   userId:
  *                     type: string
  *                     format: uuid
- *                   userEmail:
- *                     type: string
- *                   userName:
- *                     type: string
+ *                   user:
+ *                     type: object
+ *                     properties:
+ *                       id:
+ *                         type: string
+ *                       name:
+ *                         type: string
+ *                       nickname:
+ *                         type: string
+ *                   groupProfile:
+ *                     type: object
+ *                     nullable: true
+ *                     properties:
+ *                       id:
+ *                         type: string
+ *                       name:
+ *                         type: string
+ *                       style:
+ *                         type: string
  *                   requestedAt:
  *                     type: string
  *                     format: date-time
@@ -50,31 +73,10 @@ import { generateErrorMessage } from '@/utils';
  *                     type: string
  *       401:
  *         description: Unauthorized - user not authenticated
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
  *       403:
  *         description: Forbidden - user is not a global admin
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
  *       500:
  *         description: Server error
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: string
  */
 export async function GET(_: NextRequest) {
   const session = await getServerSession(nextAuthOptions);
@@ -89,22 +91,8 @@ export async function GET(_: NextRequest) {
   }
 
   try {
-    const pendingClaims = await getPendingClaims();
-
-    // Transform data to flatten group and user info
-    const transformedClaims = pendingClaims.map((claim) => ({
-      id: claim.id,
-      groupId: claim.groupId,
-      groupName: claim.group?.name || 'Unknown Group',
-      userId: claim.userId,
-      userName: claim.user?.name || 'Unknown User',
-      userEmail: claim.user?.email || '',
-      requestedAt: claim.requestedAt,
-      userMessage: claim.userMessage,
-      status: claim.status,
-    }));
-
-    return NextResponse.json(transformedClaims);
+    const pendingClaims = await getPendingGroupClaims();
+    return NextResponse.json(pendingClaims);
   } catch (error) {
     console.error('Error fetching pending claims:', error);
     return NextResponse.json(

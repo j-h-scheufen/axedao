@@ -12,7 +12,7 @@ INSERT INTO genealogy.group_profiles (
   style_notes_en,
   style_notes_pt,
   logo,
-  links,
+  public_links,
   -- Identity enhancements
   name_aliases,
   name_history,
@@ -69,7 +69,7 @@ ON CONFLICT (name) DO UPDATE SET
   style_notes_en = EXCLUDED.style_notes_en,
   style_notes_pt = EXCLUDED.style_notes_pt,
   logo = EXCLUDED.logo,
-  links = EXCLUDED.links,
+  public_links = EXCLUDED.public_links,
   name_aliases = EXCLUDED.name_aliases,
   name_history = EXCLUDED.name_history,
   founded_year = EXCLUDED.founded_year,

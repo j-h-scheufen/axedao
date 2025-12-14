@@ -216,14 +216,21 @@ export const groupVerifications = pgTable(
   ]
 );
 
-// Group claims - tracks all claim requests (pending, approved, rejected)
+// Group claims - tracks claim requests for genealogy group profiles or new group registrations
+// Two scenarios:
+// 1. Claim existing genealogy group: profileId is set, proposedName is null
+// 2. Register new group: profileId is null, proposedName is set
 export const groupClaims = pgTable(
   'group_claims',
   {
     id: uuid('id').defaultRandom().primaryKey(),
-    groupId: uuid('group_id')
-      .notNull()
-      .references(() => groups.id, { onDelete: 'cascade' }),
+    // For claiming existing genealogy groups (Flow 3B)
+    profileId: uuid('profile_id').references(() => groupProfiles.id, { onDelete: 'cascade' }),
+    // For registering new groups (Flow 3A)
+    proposedName: varchar('proposed_name', { length: 255 }),
+    proposedStyle: styleEnum('proposed_style'),
+    website: varchar('website', { length: 500 }),
+    // Claimant
     userId: uuid('user_id')
       .notNull()
       .references(() => users.id, { onDelete: 'set null' }),
@@ -231,11 +238,11 @@ export const groupClaims = pgTable(
     requestedAt: timestamp('requested_at').notNull().defaultNow(),
     processedAt: timestamp('processed_at'),
     processedBy: uuid('processed_by').references(() => users.id, { onDelete: 'set null' }),
-    userMessage: text('user_message').notNull(), // Why they should be admin
+    userMessage: text('user_message').notNull(), // Why they should manage this group
     adminNotes: text('admin_notes'), // Admin's decision notes
   },
   (t) => [
-    index('group_claim_group_idx').on(t.groupId),
+    index('group_claim_profile_idx').on(t.profileId),
     index('group_claim_user_idx').on(t.userId),
     index('group_claim_status_idx').on(t.status),
     index('group_claim_date_idx').on(t.requestedAt),

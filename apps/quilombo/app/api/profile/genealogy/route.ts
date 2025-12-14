@@ -195,18 +195,20 @@ export async function POST(request: Request) {
       );
     }
 
-    // Check apelido availability
-    const apelidoCheck = await checkApelidoAvailability(formData.apelido, formData.apelidoContext || null);
+    // Check apelido availability (only if apelido is provided)
+    if (formData.apelido) {
+      const apelidoCheck = await checkApelidoAvailability(formData.apelido, formData.apelidoContext || null);
 
-    if (!apelidoCheck.isAvailable) {
-      return NextResponse.json(
-        {
-          error: apelidoCheck.requiresContext
-            ? 'This apelido is already taken. Please provide context.'
-            : 'This apelido with context is already taken',
-        },
-        { status: 409 }
-      );
+      if (!apelidoCheck.isAvailable) {
+        return NextResponse.json(
+          {
+            error: apelidoCheck.requiresContext
+              ? 'This apelido is already taken. Please provide context.'
+              : 'This apelido with context is already taken',
+          },
+          { status: 409 }
+        );
+      }
     }
 
     // Convert birthYear from string to number if provided
@@ -284,22 +286,24 @@ export async function PATCH(request: Request) {
       return NextResponse.json({ error: 'Profile ownership mismatch' }, { status: 403 });
     }
 
-    // Check apelido availability (excluding current profile)
-    const apelidoCheck = await checkApelidoAvailability(
-      formData.apelido,
-      formData.apelidoContext || null,
-      user.profileId
-    );
-
-    if (!apelidoCheck.isAvailable) {
-      return NextResponse.json(
-        {
-          error: apelidoCheck.requiresContext
-            ? 'This apelido is already taken. Please provide context.'
-            : 'This apelido with context is already taken',
-        },
-        { status: 409 }
+    // Check apelido availability (excluding current profile, only if apelido is provided)
+    if (formData.apelido) {
+      const apelidoCheck = await checkApelidoAvailability(
+        formData.apelido,
+        formData.apelidoContext || null,
+        user.profileId
       );
+
+      if (!apelidoCheck.isAvailable) {
+        return NextResponse.json(
+          {
+            error: apelidoCheck.requiresContext
+              ? 'This apelido is already taken. Please provide context.'
+              : 'This apelido with context is already taken',
+          },
+          { status: 409 }
+        );
+      }
     }
 
     // Convert birthYear from string to number if provided
