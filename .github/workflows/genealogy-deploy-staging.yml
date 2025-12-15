@@ -8,6 +8,7 @@ on:
       - completed
     branches:
       - develop
+  # Manual trigger - must be run from develop branch
   workflow_dispatch:
     inputs:
       dry_run:
@@ -26,15 +27,24 @@ jobs:
     runs-on: ubuntu-latest
     environment: staging
     timeout-minutes: 10
-    # Only run if:
-    # - Manual trigger (workflow_dispatch), OR
+    # Only run if triggered from develop branch:
+    # - Manual trigger (workflow_dispatch) from develop, OR
     # - Atlas workflow succeeded AND was triggered from develop branch
     if: |
-      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/develop') ||
       (github.event.workflow_run.conclusion == 'success' &&
        github.event.workflow_run.head_branch == 'develop')
 
     steps:
+      - name: Verify branch
+        run: |
+          echo "Workflow triggered from: ${{ github.ref }}"
+          echo "Event: ${{ github.event_name }}"
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ github.ref }}" != "refs/heads/develop" ]]; then
+            echo "::error::Staging deployment can only be triggered from the develop branch. Current branch: ${{ github.ref }}"
+            exit 1
+          fi
+
       - name: Checkout repository
         uses: actions/checkout@v4
         with:

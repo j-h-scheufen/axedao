@@ -79,7 +79,14 @@ export const STUDENT_ANCESTRY_ALL_PREDICATES: ReadonlySet<string> = new Set([
  * Used for organizing filter controls.
  */
 export const PREDICATE_GROUPS: Record<string, Predicate[]> = {
-  'Person → Person': ['student_of', 'trained_under', 'influenced_by', 'granted_title_to', 'baptized_by', 'family_of'],
+  'Person → Person': [
+    'student_of',
+    'trained_under',
+    'influenced_by',
+    'received_title_from',
+    'baptized_by',
+    'family_of',
+  ],
   'Person → Group': [
     'founded',
     'co_founded',
@@ -144,7 +151,7 @@ export const GENERAL_VIEW_CONFIG: GraphViewConfig = {
     'student_of',
     'trained_under',
     'influenced_by',
-    'granted_title_to',
+    'received_title_from',
     'baptized_by',
     'family_of',
     // Person-to-Group

@@ -63,7 +63,7 @@
 | Predicate | Description |
 |-----------|-------------|
 | `mentored` | Informal guidance beyond formal student relationship |
-| `granted_title_to` | Conferring title/rank. Use `title_grant` property with `TitleEnum` |
+| `received_title_from` | Person received title/rank FROM mestre. Use `title_grant` property with `TitleEnum` |
 | `baptized` | Bestowed apelido (nickname) at batizado. Use `baptism` property with `apelido_given` |
 
 > **Note:** `blessed_departure` was removed. Blessed departures are captured at the group level via `split_from_group` with `split_type: 'blessed'` and `blessed_by[]` property.

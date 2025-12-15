@@ -6,6 +6,7 @@
 INSERT INTO genealogy.group_profiles (
   -- Identity
   name,
+  name_context,
   style,
   logo,
   public_links,
@@ -34,6 +35,7 @@ INSERT INTO genealogy.group_profiles (
 ) VALUES (
   -- Identity
   'Gengibirra',
+  NULL, -- name_context: unique name, no disambiguation needed
   'angola'::genealogy.style,
   NULL,  -- No logo available for historical group
   ARRAY['https://velhosmestres.com/en/featured-9', 'https://nossa-tribo.com/mestre-totonho-de-mare/', 'https://capoeirahistory.com/classical-texts-of-capoeira-history-the-manuscripts-of-mestre-noronha/', 'https://en.wikipedia.org/wiki/Capoeira_Angola']::text[],
@@ -62,4 +64,26 @@ INSERT INTO genealogy.group_profiles (
   -- Status
   false,  -- is_active (transitioned to CECA in 1941)
   '1941-02-23'::date  -- dissolved_at (handed to Pastinha)
-);
+)
+ON CONFLICT (name, COALESCE(name_context, '')) WHERE name IS NOT NULL DO UPDATE SET
+  style = EXCLUDED.style,
+  logo = EXCLUDED.logo,
+  public_links = EXCLUDED.public_links,
+  name_aliases = EXCLUDED.name_aliases,
+  name_history = EXCLUDED.name_history,
+  founded_year = EXCLUDED.founded_year,
+  founded_year_precision = EXCLUDED.founded_year_precision,
+  founded_location = EXCLUDED.founded_location,
+  description_en = EXCLUDED.description_en,
+  description_pt = EXCLUDED.description_pt,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  philosophy_en = EXCLUDED.philosophy_en,
+  philosophy_pt = EXCLUDED.philosophy_pt,
+  history_en = EXCLUDED.history_en,
+  history_pt = EXCLUDED.history_pt,
+  legal_structure = EXCLUDED.legal_structure,
+  is_headquarters = EXCLUDED.is_headquarters,
+  is_active = EXCLUDED.is_active,
+  dissolved_at = EXCLUDED.dissolved_at,
+  updated_at = NOW();

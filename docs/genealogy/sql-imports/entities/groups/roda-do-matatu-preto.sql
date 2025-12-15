@@ -6,6 +6,7 @@
 INSERT INTO genealogy.group_profiles (
   -- Identity
   name,
+  name_context,
   description_en,
   description_pt,
   style,
@@ -34,6 +35,7 @@ INSERT INTO genealogy.group_profiles (
 ) VALUES (
   -- Identity
   'Roda do Matatu Preto',
+  NULL, -- name_context: unique name, no disambiguation needed
   'An informal Sunday training circle in the Matatu neighborhood of Salvador, Bahia, during the 1930s. According to Mestre Canjiquinha''s 1989 testimony, capoeiristas including Aberrê, Onça Preta, Geraldo Chapeleiro, Totonho de Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha, and Barboza would gather there on Sundays. This proto-group represents the continuation of traditional capoeira practice in Salvador during the transition era before and during the emergence of formal academies.',
   'Um círculo informal de treino aos domingos no bairro do Matatu em Salvador, Bahia, durante os anos 1930. Segundo o testemunho de Mestre Canjiquinha de 1989, capoeiristas incluindo Aberrê, Onça Preta, Geraldo Chapeleiro, Totonho de Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha e Barboza se reuniam lá aos domingos. Este proto-grupo representa a continuação da prática tradicional de capoeira em Salvador durante a era de transição antes e durante o surgimento das academias formais.',
   'angola'::genealogy.style,
@@ -61,4 +63,26 @@ INSERT INTO genealogy.group_profiles (
   -- Status
   false, -- Dissolved (informal group, no longer active)
   NULL -- Exact dissolution unknown
-);
+)
+ON CONFLICT (name, COALESCE(name_context, '')) WHERE name IS NOT NULL DO UPDATE SET
+  description_en = EXCLUDED.description_en,
+  description_pt = EXCLUDED.description_pt,
+  style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  logo = EXCLUDED.logo,
+  public_links = EXCLUDED.public_links,
+  name_aliases = EXCLUDED.name_aliases,
+  name_history = EXCLUDED.name_history,
+  founded_year = EXCLUDED.founded_year,
+  founded_year_precision = EXCLUDED.founded_year_precision,
+  founded_location = EXCLUDED.founded_location,
+  philosophy_en = EXCLUDED.philosophy_en,
+  philosophy_pt = EXCLUDED.philosophy_pt,
+  history_en = EXCLUDED.history_en,
+  history_pt = EXCLUDED.history_pt,
+  legal_structure = EXCLUDED.legal_structure,
+  is_headquarters = EXCLUDED.is_headquarters,
+  is_active = EXCLUDED.is_active,
+  dissolved_at = EXCLUDED.dissolved_at,
+  updated_at = NOW();
