@@ -8,6 +8,7 @@ on:
       - completed
     branches:
       - main
+  # Manual trigger - must be run from main branch
   workflow_dispatch:
     inputs:
       dry_run:
@@ -26,15 +27,24 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     timeout-minutes: 10
-    # Only run if:
-    # - Manual trigger (workflow_dispatch), OR
+    # Only run if triggered from main branch:
+    # - Manual trigger (workflow_dispatch) from main, OR
     # - Atlas workflow succeeded AND was triggered from main branch
     if: |
-      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main') ||
       (github.event.workflow_run.conclusion == 'success' &&
        github.event.workflow_run.head_branch == 'main')
 
     steps:
+      - name: Verify branch
+        run: |
+          echo "Workflow triggered from: ${{ github.ref }}"
+          echo "Event: ${{ github.event_name }}"
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ github.ref }}" != "refs/heads/main" ]]; then
+            echo "::error::Production deployment can only be triggered from the main branch. Current branch: ${{ github.ref }}"
+            exit 1
+          fi
+
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
