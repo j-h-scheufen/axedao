@@ -4,18 +4,29 @@ import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from
 import { enqueueSnackbar } from 'notistack';
 
 import * as admin from '@/query/admin';
-
-type GroupClaim = {
-  id: string;
-  groupName: string;
-  userName: string;
-};
+import type { GroupClaim } from '@/query/admin';
 
 type Props = {
   isOpen: boolean;
   onOpenChange: () => void;
   claim: GroupClaim;
   onSuccess: () => void;
+};
+
+/** Helper to get the display name for a claim's group */
+const getGroupName = (claim: GroupClaim): string => {
+  if (claim.type === 'genealogy_group' && claim.groupProfile) {
+    return claim.groupProfile.name;
+  }
+  return claim.proposedName || 'Unknown Group';
+};
+
+/** Helper to get the display name for a claim's user */
+const getUserName = (claim: GroupClaim): string => {
+  if (claim.user) {
+    return claim.user.nickname || claim.user.name || 'Unknown User';
+  }
+  return 'Unknown User';
 };
 
 const ApproveClaimModal = ({ isOpen, onOpenChange, claim, onSuccess }: Props) => {
@@ -33,6 +44,9 @@ const ApproveClaimModal = ({ isOpen, onOpenChange, claim, onSuccess }: Props) =>
     }
   };
 
+  const userName = getUserName(claim);
+  const groupName = getGroupName(claim);
+
   return (
     <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
       <ModalContent>
@@ -41,7 +55,7 @@ const ApproveClaimModal = ({ isOpen, onOpenChange, claim, onSuccess }: Props) =>
             <ModalHeader>Approve Claim</ModalHeader>
             <ModalBody>
               <p className="text-default-600">
-                Approve <strong>{claim.userName}</strong> as admin of <strong>{claim.groupName}</strong>?
+                Approve <strong>{userName}</strong> as admin of <strong>{groupName}</strong>?
               </p>
               <p className="text-small text-default-500 mt-2">
                 This will add the user as a group admin and send them a confirmation email.

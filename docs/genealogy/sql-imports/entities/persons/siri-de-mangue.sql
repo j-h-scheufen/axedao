@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Siri de Mangue',
   NULL, -- Proto-mestre; formal titles didn't exist in his era
   NULL, -- No portrait available
-  '[{"type": "website", "url": "https://www.wiki.urucungo.com.br/linhagem-do-urucungo-capoeira/mestre-siri-de-mangue"}, {"type": "website", "url": "https://biriba.io/en/songs/38"}]'::jsonb,
+  ARRAY['https://www.wiki.urucungo.com.br/linhagem-do-urucungo-capoeira/mestre-siri-de-mangue', 'https://biriba.io/en/songs/38']::text[],
   -- Capoeira-specific
   NULL, -- Pre-codification era; Angola/Regional distinction didn't exist
   'Pre-codification era. Practiced traditional Bahian capoeira before the Angola/Regional split. His style would have been the undifferentiated capoeira of the Recôncavo.',

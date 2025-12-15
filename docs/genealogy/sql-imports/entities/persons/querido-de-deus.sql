@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Querido de Deus',
   'mestre'::genealogy.title,
   NULL,
-  '[{"type": "website", "url": "https://velhosmestres.com/br/destaques-36"}, {"type": "website", "url": "https://velhosmestres.com/en/featured-36"}, {"type": "website", "url": "https://capoeirawiki.org/wiki/Querido_de_Deus"}, {"type": "website", "url": "https://nossa-tribo.com/mestre-samuel-querido-de-deus/"}]'::jsonb,
+  ARRAY['https://velhosmestres.com/br/destaques-36', 'https://velhosmestres.com/en/featured-36', 'https://capoeirawiki.org/wiki/Querido_de_Deus', 'https://nossa-tribo.com/mestre-samuel-querido-de-deus/']::text[],
   -- Capoeira-specific
   'angola'::genealogy.style,
   E'Pure traditional Capoeira Angola. Known for his exceptional rabo-de-arraia (stingray tail kick) which Jorge Amado described as having "elegance" unmatched by any other capoeirista. Mestre Waldemar characterized him as a "sopeiro" (one who waits for openings) and "crocodilo" - patient, waiting for opponents to attack before delivering devastating counterstrikes like headbutts. Unlike Bimba''s Regional which emphasized clinching and grappling, Samuel''s game remained purely Angola.',

@@ -9,8 +9,8 @@ import {
   fetchGroupOptions,
 } from '@/query/group';
 import type { Group, GroupLocation, User } from '@/types/model';
-import { getImageUrl, isUUID } from '@/utils';
-import { currentUserGroupIdAtom, currentUserIdAtom } from './currentUser';
+import { getImageUrl } from '@/utils';
+import { currentUserIdAtom } from './currentUser';
 
 // This atom is special because it's used to trigger the loading of a group profile
 export const triggerGroupIdAtom = atom<string | undefined>();
@@ -29,10 +29,6 @@ export const groupAdminIdsAtom = atomWithQuery<string[]>((get) => {
 export const groupIdAtom = atom<string | undefined>((get) => get(groupAtom).data?.id);
 
 export const groupLinksAtom = atom<SocialLink[] | undefined>((get) => get(groupAtom).data?.links);
-
-export const groupFounderAtom = atom<string | null | undefined>((get) => get(groupAtom).data?.founder);
-
-export const groupLeaderAtom = atom<string | null | undefined>((get) => get(groupAtom).data?.leader);
 
 export const groupLogoAtom = atom<string | undefined>((get) => get(groupAtom).data?.logo ?? undefined);
 
@@ -67,24 +63,14 @@ export const isCurrentUserGroupAdminAtom = atom<boolean | null>((get) => {
   return groupAdminIds.data?.includes(currentUserId) ?? false;
 });
 
-export const isCurrentUserGroupMemberAtom = atom<boolean | null>((get) => {
-  const group = get(groupAtom);
-  const currentUserGroupId = get(currentUserGroupIdAtom);
-
-  // Return null if still loading or if currentUserGroupId is not available
-  if (group.isLoading || group.isError || !currentUserGroupId) {
-    return null;
-  }
-
-  return group.data?.id === currentUserGroupId;
-});
+// Note: isCurrentUserGroupMemberAtom has been removed.
+// Group membership is now tracked via genealogy statements (member_of predicate).
+// To check if user is a member, query the genealogy statements API.
 
 // Legacy atoms for backward compatibility (deprecated - use the ones above)
 export const isCurrentUserGroupAdminAtomLegacy = atom<boolean>(
   (get) => get(groupAdminIdsAtom)?.data?.includes(get(currentUserIdAtom) ?? '') ?? false
 );
-
-export const isFounderUuidAtom = atom<boolean>((get) => isUUID(get(groupFounderAtom) ?? ''));
 
 export const groupLocationsAtom = atomWithQuery<GroupLocation[]>((get) =>
   fetchGroupLocationsOptions(get(triggerGroupIdAtom))

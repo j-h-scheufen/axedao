@@ -30,7 +30,7 @@ INSERT INTO genealogy.person_profiles (
   'Pirajé',
   NULL,
   NULL,
-  '[]'::jsonb,
+  ARRAY[]::text[],
   -- Capoeira-specific
   NULL,
   'Pre-modern era capoeira from northern Brazil (Pará). Style distinctions (Angola/Regional) did not yet exist. Represents the geographic spread of capoeira culture beyond Rio and Bahia.',

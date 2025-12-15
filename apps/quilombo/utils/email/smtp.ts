@@ -165,4 +165,48 @@ export class SMTPProvider implements EmailProvider {
     console.log(`[SMTP] Sent group registered email to ${to}`);
     console.log(`[SMTP] Group: ${groupName} (${groupId})`);
   }
+
+  async sendPersonClaimApprovedEmail(
+    to: string,
+    profileDisplayName: string,
+    profileId: string,
+    claimerName: string
+  ): Promise<void> {
+    const config = emailTemplates.personClaimApproved;
+    const template = config.getTemplate(profileDisplayName, profileId, claimerName);
+    const { html, text } = await renderEmailTemplate(template);
+
+    await this.transporter.sendMail({
+      from: `"${config.metadata.from.name}" <${config.metadata.from.email}>`,
+      to,
+      subject: config.metadata.subject,
+      text,
+      html,
+    });
+
+    console.log(`[SMTP] Sent person claim approved email to ${to}`);
+    console.log(`[SMTP] Profile: ${profileDisplayName} (${profileId})`);
+  }
+
+  async sendPersonClaimRejectedEmail(
+    to: string,
+    profileDisplayName: string,
+    claimerName: string,
+    reason: string
+  ): Promise<void> {
+    const config = emailTemplates.personClaimRejected;
+    const template = config.getTemplate(profileDisplayName, claimerName, reason);
+    const { html, text } = await renderEmailTemplate(template);
+
+    await this.transporter.sendMail({
+      from: `"${config.metadata.from.name}" <${config.metadata.from.email}>`,
+      to,
+      subject: config.metadata.subject,
+      text,
+      html,
+    });
+
+    console.log(`[SMTP] Sent person claim rejected email to ${to}`);
+    console.log(`[SMTP] Profile: ${profileDisplayName}`);
+  }
 }

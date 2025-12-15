@@ -1,17 +1,20 @@
 'use client';
 
-import { Avatar, Spinner } from '@heroui/react';
+import { Avatar, Button, Spinner } from '@heroui/react';
 import { useAtomValue } from 'jotai';
-import { Camera, MailIcon } from 'lucide-react';
+import { Camera, GlobeIcon, MailIcon } from 'lucide-react';
 import Link from 'next/link';
+import { useState } from 'react';
 
 import ContactInfo from '@/components/ContactInfo';
+import { FullDetailsModal } from '@/components/genealogy/ui';
 import { userAtom, userAvatarUrlAtom } from '@/hooks/state/user';
 import { getUserDisplayName } from '@/utils';
 
 const UserProfile = () => {
   const { data: user, isFetching } = useAtomValue(userAtom);
   const avatarUrl = useAtomValue(userAvatarUrlAtom);
+  const [showGenealogyModal, setShowGenealogyModal] = useState(false);
 
   if (!user || isFetching) return <Spinner />;
 
@@ -31,6 +34,16 @@ const UserProfile = () => {
             </div>
             <h3 className="text-lg font-medium">{getUserDisplayName(user)}</h3>
           </div>
+          {user.profileId && (
+            <Button
+              size="sm"
+              variant="bordered"
+              startContent={<GlobeIcon className="h-4 w-4" />}
+              onPress={() => setShowGenealogyModal(true)}
+            >
+              View Genealogy Profile
+            </Button>
+          )}
         </div>
         {user.email && !user.hideEmail && (
           <div className="flex gap-1 items-center text-default-400">
@@ -45,6 +58,15 @@ const UserProfile = () => {
         )}
         <ContactInfo links={user.links} />
       </div>
+      {user.profileId && (
+        <FullDetailsModal
+          isOpen={showGenealogyModal}
+          onClose={() => setShowGenealogyModal(false)}
+          entityType="person"
+          entityId={user.profileId}
+          entityName={getUserDisplayName(user)}
+        />
+      )}
     </div>
   );
 };

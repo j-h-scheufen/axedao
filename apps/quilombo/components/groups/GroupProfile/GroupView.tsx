@@ -8,14 +8,12 @@ import ContactInfo from '@/components/ContactInfo';
 import { GroupMembers } from '@/components/groups/GroupMembers';
 import GroupLocations from '@/components/groups/GroupLocations/GroupLocations';
 import SubsectionHeading from '@/components/SubsectionHeading';
-import UserCardWithFetch from '@/components/UserCardWithFetch';
-import { groupAtom, isFounderUuidAtom } from '@/hooks/state/group';
+import { groupAtom } from '@/hooks/state/group';
 import { getImageUrl } from '@/utils';
 import { GroupActionsDropdown, GroupBanner, GroupLogo } from '.';
 
 const GroupView = () => {
   const { data: group, isLoading } = useAtomValue(groupAtom);
-  const isFounderUuid = useAtomValue(isFounderUuidAtom);
 
   if (!group || isLoading) return <Spinner />;
 
@@ -26,11 +24,7 @@ const GroupView = () => {
       <div className="flex flex-col px-2 mt-4 gap-2 sm:gap-3">
         <div className="flex gap-3 sm:gap-4 w-full px-1">
           <div className="shrink-0">
-            <GroupLogo
-              url={getImageUrl(group.logo)}
-              lastVerifiedAt={group.lastVerifiedAt}
-              adminCount={group.adminCount}
-            />
+            <GroupLogo url={getImageUrl(group.logo)} adminCount={group.adminCount} />
           </div>
           <div className="flex flex-col w-full min-w-0 overflow-hidden">
             <div className="flex justify-between items-start gap-2">
@@ -64,16 +58,6 @@ const GroupView = () => {
             </div>
           )}
         </div>
-        {group.founder && (
-          <>
-            <SubsectionHeading>Founder</SubsectionHeading>
-            {isFounderUuid ? (
-              <UserCardWithFetch userId={group.founder} />
-            ) : (
-              <div className="text-default-500">{group.founder}</div>
-            )}
-          </>
-        )}
         <GroupLocations />
         <GroupMembers />
       </div>

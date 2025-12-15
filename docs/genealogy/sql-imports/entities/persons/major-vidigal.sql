@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Major Vidigal',
   NULL, -- Military title "Major" is not a capoeira rank
   NULL, -- No verified public domain portrait found
-  '[{"type": "website", "url": "https://pt.wikipedia.org/wiki/Miguel_Nunes_Vidigal"}, {"type": "website", "url": "https://portalcapoeira.com/capoeira/curiosidades/major-miguel-nunes-vidigal/"}]'::jsonb,
+  ARRAY['https://pt.wikipedia.org/wiki/Miguel_Nunes_Vidigal', 'https://portalcapoeira.com/capoeira/curiosidades/major-miguel-nunes-vidigal/']::text[],
   -- Capoeira-specific
   NULL, -- Pre-style-distinction era
   'Pre-codification era. Style distinctions (Angola/Regional) did not exist. Vidigal practiced what would later be called capoeira carioca - the violent urban street form of Rio de Janeiro.',

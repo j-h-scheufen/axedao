@@ -145,13 +145,6 @@ const Navbar: React.FC = () => {
                 <DropdownItem key="my-profile" href={PATHS.profile}>
                   My Profile
                 </DropdownItem>
-                <DropdownItem
-                  key="my-group"
-                  href={`${PATHS.groups}/${user.groupId || ''}`}
-                  className={user.groupId ? '' : 'hidden'}
-                >
-                  My Group
-                </DropdownItem>
                 <DropdownItem key="invites" href={PATHS.invites}>
                   Invite Friends
                 </DropdownItem>

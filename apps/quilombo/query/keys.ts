@@ -20,6 +20,7 @@ export const QUERY_KEYS = {
     getGroupLocations: 'group.getGroupLocations',
     searchGroups: 'groups.search',
     getAvailableCountries: 'groups.getAvailableCountries',
+    isClaimable: (profileId: string) => ['group', 'isClaimable', profileId] as const,
   },
   location: {
     getLocations: 'location.getLocations',
@@ -33,6 +34,7 @@ export const QUERY_KEYS = {
   currentUser: {
     getUser: 'currentUser.getUser',
     getAuthMethods: 'currentUser.getAuthMethods',
+    getGroups: 'currentUser.getGroups',
   },
   membership: {
     getCandidateChanges: 'getCandidateChanges',
@@ -43,9 +45,25 @@ export const QUERY_KEYS = {
     getProposals: 'dao.getProposals',
   },
   admin: {
-    getClaims: 'admin.getClaims',
+    getClaims: 'admin.getClaims', // Group claims - legacy key for backwards compatibility
+    getGroupClaims: 'admin.claims.groups',
+    getPersonClaims: 'admin.claims.persons',
   },
   invitation: {
     getInvitations: 'invitation.getInvitations',
   },
+  genealogy: {
+    all: () => ['genealogy'] as const,
+    profile: (profileId: string) => ['genealogy', 'profile', profileId] as const,
+    groupProfile: (profileId: string) => ['genealogy', 'groupProfile', profileId] as const,
+    relationships: (profileId?: string) => {
+      if (profileId) {
+        return ['genealogy', 'relationships', profileId] as const;
+      }
+      return ['genealogy', 'relationships'] as const;
+    },
+    claimStatus: (profileId: string) => ['genealogy', 'claimStatus', profileId] as const,
+    pendingClaim: 'genealogy.pendingClaim',
+  },
+  profile: ['profile'] as const,
 } as const;

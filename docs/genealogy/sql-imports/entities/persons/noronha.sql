@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Noronha',
   'mestre'::genealogy.title,
   NULL,
-  '[{"type": "website", "url": "https://velhosmestres.com/en/featured-9"}, {"type": "website", "url": "https://www.lalaue.com/learn-capoeira/mestre-noronha/"}, {"type": "website", "url": "https://nossa-tribo.com/mestre-noronha/"}, {"type": "website", "url": "https://capoeirahistory.com/classical-texts-of-capoeira-history-the-manuscripts-of-mestre-noronha/"}]'::jsonb,
+  ARRAY['https://velhosmestres.com/en/featured-9', 'https://www.lalaue.com/learn-capoeira/mestre-noronha/', 'https://nossa-tribo.com/mestre-noronha/', 'https://capoeirahistory.com/classical-texts-of-capoeira-history-the-manuscripts-of-mestre-noronha/']::text[],
   -- Capoeira-specific
   'angola'::genealogy.style,
   E'Traditional capoeira angola as taught by Mestre Cândido Pequeno. Noronha learned the "difficult art of capoeira, the art of the solta and the rabo-de-arraia" from his teacher. He practiced during the era of criminalization and helped preserve the art through formal organization at Gengibirra.',

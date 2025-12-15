@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Besouro Mangangá',
   NULL, -- Mestre by reputation, not formal title; title enum doesn't apply to pre-codification era
   NULL, -- No verified historical portrait exists
-  '[{"type": "website", "url": "https://en.wikipedia.org/wiki/Besouro_Mangang%C3%A1"}, {"type": "website", "url": "https://velhosmestres.com/en/besouro"}, {"type": "website", "url": "https://www.lalaue.com/learn-capoeira/besouro/"}]'::jsonb,
+  ARRAY['https://en.wikipedia.org/wiki/Besouro_Mangang%C3%A1', 'https://velhosmestres.com/en/besouro', 'https://www.lalaue.com/learn-capoeira/besouro/']::text[],
   -- Capoeira-specific
   NULL, -- Pre-codification; Angola/Regional distinction didn't exist yet
   'Pre-codification era. Practiced traditional Bahian capoeira before the Angola/Regional split. Sometimes referred to as "Angola tradition" by later mestres.',

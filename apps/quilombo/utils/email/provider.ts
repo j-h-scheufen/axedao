@@ -77,4 +77,32 @@ export interface EmailProvider {
    * @param userName - Name of the user for personalization
    */
   sendGroupRegisteredEmail(to: string, groupName: string, groupId: string, userName: string): Promise<void>;
+
+  /**
+   * Sends an approval notification email for a person profile claim
+   * @param to - Claimer's email address
+   * @param profileDisplayName - Display name of the claimed profile (apelido or name)
+   * @param profileId - ID of the profile for generating profile URL
+   * @param claimerName - Name of the claimer for personalization
+   */
+  sendPersonClaimApprovedEmail(
+    to: string,
+    profileDisplayName: string,
+    profileId: string,
+    claimerName: string
+  ): Promise<void>;
+
+  /**
+   * Sends a rejection notification email for a person profile claim
+   * @param to - Claimer's email address
+   * @param profileDisplayName - Display name of the claimed profile (apelido or name)
+   * @param claimerName - Name of the claimer for personalization
+   * @param reason - Admin's reason for rejection
+   */
+  sendPersonClaimRejectedEmail(
+    to: string,
+    profileDisplayName: string,
+    claimerName: string,
+    reason: string
+  ): Promise<void>;
 }

@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Quebra Coco',
   NULL,  -- Pre-formal title era
   NULL,  -- No historical portrait available
-  '[]'::jsonb,  -- No dedicated web pages about this individual
+  ARRAY[]::text[],  -- No dedicated web pages about this individual
   -- Capoeira-specific
   NULL,  -- Pre-Angola/Regional distinction
   'Active before the codification of capoeira styles. Practiced capoeira carioca during the malta era in Rio de Janeiro. The name "Quebra Coco" (Coconut Breaker) likely references expertise in headbutts (cabeçadas), the primary fighting technique of the era.',

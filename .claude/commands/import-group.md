@@ -109,9 +109,7 @@ Format:
 | Field | Column | Description |
 |-------|--------|-------------|
 | Logo | `logo` | URL to group logo (prefer Wikimedia, 200-400px) |
-| Links | `links` | JSONB array: `[{"type": "website", "url": "..."}]` |
-
-**Link types:** website (use this for all stable web pages)
+| Links | `links` | Text array: `ARRAY['https://...', 'https://...']` |
 
 **IMPORTANT - Populate links from research sources:**
 Include stable, authoritative web pages about this group:
@@ -122,11 +120,11 @@ Include stable, authoritative web pages about this group:
 Do NOT include social media accounts (Instagram, Facebook, Twitter) - these are too ephemeral for genealogy data.
 
 Example:
-```json
-[
-  {"type": "website", "url": "https://www.abadacapoeira.com.br"},
-  {"type": "website", "url": "https://en.wikipedia.org/wiki/ABADA-Capoeira"}
-]
+```sql
+ARRAY[
+  'https://www.abadacapoeira.com.br',
+  'https://en.wikipedia.org/wiki/ABADA-Capoeira'
+]::text[]
 ```
 
 #### Information for Relationships (not profile fields)
@@ -267,7 +265,7 @@ INSERT INTO genealogy.group_profiles (
   '[Name]',
   '[style or NULL]'::genealogy.style,
   '[logo_url or NULL]',
-  '[{"type": "website", "url": "..."}]'::jsonb,
+  ARRAY['https://...']::text[],  -- or ARRAY[]::text[] if no links
   -- Identity enhancements
   ARRAY['alias1', 'alias2'],  -- or ARRAY[]::text[] if none
   '[{"name": "...", "startedAt": "..."}]'::jsonb,  -- or '[]'::jsonb if no history

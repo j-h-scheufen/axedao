@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Besourinho',
   NULL,
   NULL,
-  '[{"type": "website", "url": "https://velhosmestres.com/br/destaques-34"}]'::jsonb,
+  ARRAY['https://velhosmestres.com/br/destaques-34']::text[],
   -- Capoeira-specific
   NULL,
   NULL,

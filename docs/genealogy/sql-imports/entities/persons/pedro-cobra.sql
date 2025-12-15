@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Pedro Cobra',
   NULL,  -- Pre-formal title era
   NULL,  -- No historical portrait available
-  '[]'::jsonb,  -- No dedicated web pages about this individual
+  ARRAY[]::text[],  -- No dedicated web pages about this individual
   -- Capoeira-specific
   NULL,  -- Pre-Angola/Regional distinction
   'Active before the codification of capoeira styles. Practiced capoeira carioca during the malta era in Rio de Janeiro. The name "Cobra" (snake) likely references fighting style - speed, agility, or unpredictability.',

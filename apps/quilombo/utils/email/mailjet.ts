@@ -183,4 +183,52 @@ export class MailjetProvider implements EmailProvider {
       ],
     });
   }
+
+  async sendPersonClaimApprovedEmail(
+    to: string,
+    profileDisplayName: string,
+    profileId: string,
+    claimerName: string
+  ): Promise<void> {
+    const config = emailTemplates.personClaimApproved;
+    const template = config.getTemplate(profileDisplayName, profileId, claimerName);
+    const { html, text } = await renderEmailTemplate(template);
+
+    await this.client.post('send', { version: 'v3.1' }).request({
+      Messages: [
+        {
+          From: { Email: config.metadata.from.email, Name: config.metadata.from.name },
+          To: [{ Email: to, Name: claimerName }],
+          Subject: config.metadata.subject,
+          TextPart: text,
+          HTMLPart: html,
+          CustomID: config.metadata.customId,
+        },
+      ],
+    });
+  }
+
+  async sendPersonClaimRejectedEmail(
+    to: string,
+    profileDisplayName: string,
+    claimerName: string,
+    reason: string
+  ): Promise<void> {
+    const config = emailTemplates.personClaimRejected;
+    const template = config.getTemplate(profileDisplayName, claimerName, reason);
+    const { html, text } = await renderEmailTemplate(template);
+
+    await this.client.post('send', { version: 'v3.1' }).request({
+      Messages: [
+        {
+          From: { Email: config.metadata.from.email, Name: config.metadata.from.name },
+          To: [{ Email: to, Name: claimerName }],
+          Subject: config.metadata.subject,
+          TextPart: text,
+          HTMLPart: html,
+          CustomID: config.metadata.customId,
+        },
+      ],
+    });
+  }
 }

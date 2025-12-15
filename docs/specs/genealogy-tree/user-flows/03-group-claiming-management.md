@@ -2,149 +2,196 @@
 
 ## Overview
 
-Groups have a different relationship with genealogy than users because group information is inherently public. This document covers:
+Groups have a different relationship with genealogy than users: **all groups must have a genealogy profile**. Unlike users (where a genealogy profile is optional), group identity data lives exclusively in genealogy.
 
-1. **Existing groups** (`public.groups`): Adding genealogy profiles
-2. **Unmanaged genealogy groups**: Creating `public.groups` when claimed
-3. **Group-genealogy data synchronization**: What stays where
+This document covers:
+
+1. **Flow 3A**: Register a new group (not in genealogy) via claim request
+2. **Flow 3B**: Claim an existing genealogy group to manage in app
+3. **Flow 3C**: Profile management (post-linking)
 
 ## Key Principles
+
+### All Groups Require Genealogy Profile
+
+Unlike users, groups cannot exist in `public.groups` without a corresponding `genealogy.group_profiles` entry. The genealogy profile is the **source of truth** for group identity.
 
 ### Data Location
 
 | Data | Location | Reason |
 |------|----------|--------|
 | Group name | `genealogy.group_profiles.name` | Public identity |
-| Description | `genealogy.group_profiles.description` | Public documentation |
+| Description | `genealogy.group_profiles.description_en/pt` | Public documentation |
 | Style | `genealogy.group_profiles.style` | Public identity |
 | Logo | `genealogy.group_profiles.logo` | Public identity |
+| Links | `genealogy.group_profiles.links` | Public references |
 | Founded year | `genealogy.group_profiles.founded_year` | Historical data |
 | Philosophy/History | `genealogy.group_profiles` | Public documentation |
 | Lineage (predicates) | `genealogy.statements` | Relationship data |
-| Locations | `public.groups` via `group_locations` | Operational data |
-| Admins | `public.groups` via `group_admins` | App management |
+| Locations | `public.group_locations` | Operational data |
+| Admins | `public.group_admins` | App management |
 | Members | `genealogy.statements` (member_of) | Public genealogy |
 | Verification status | `public.groups.verified` | App trust signal |
+| Banner | `public.groups.banner` | App-specific display |
+| Email | `public.groups.email` | Operational contact |
 
 ### Relationship
 
 ```
 genealogy.group_profiles          public.groups
-├── id ◄─────────────────────── profile_id
+├── id ◄─────────────────────── profile_id (required)
 ├── name (source of truth)      ├── id
-├── style                       ├── (created_by, admins)
-├── founded_year                ├── locations[]
-├── history                     └── verified
+├── style                       ├── created_by
+├── logo                        ├── email
+├── founded_year                ├── banner
+├── history_en/pt               ├── verified
+├── philosophy_en/pt            └── (group_locations, group_admins)
 └── statements[]
 ```
 
-## Flow 3A: Publish Existing Group to Genealogy
+## Flow 3A: Register New Group (Not in Genealogy)
 
-**Scenario**: Group already exists in `public.groups` (legacy group), admin wants to add it to genealogy.
+**Scenario**: User wants to register a group that doesn't exist in the genealogy database.
 
 ### User Journey
 
 #### Entry Point
 
-Group admin views their group page:
+User navigates to "Register a Group" from groups page or navigation:
 
 ```
-[Group Name]
-[Logo]
+Register a New Group
 
-Style: [style]
-Locations: [list]
-Members: [count]
+Is your group already in the Capoeira Genealogy?
+[Search Genealogy] - Find and claim an existing group
 
-Genealogy Status: Not Published
-[Publish to Genealogy]
+Or register a new group:
+[Register New Group]
 ```
 
-#### Step 1: Review Current Data
+#### Step 1: Search Confirmation
+
+Before allowing new registration, prompt user to search:
 
 ```
-Publish Group to Genealogy
+Search Existing Groups
 
-Current group information:
+Before registering a new group, please search to see if
+your group is already in the genealogy database.
 
-Name: [name]
-Style: [style]
-Description: [description]
+Group Name: [search input]
+[Search]
 
-This information will be copied to the Capoeira Genealogy
-as public historical data.
-
-You can add more genealogy-specific information in the next step.
-
-[Cancel] [Continue]
+No results found? You can register a new group below.
+[Register New Group]
 ```
 
-#### Step 2: Genealogy-Specific Data
+#### Step 2: Claim Submission (New Group)
 
 ```
-Add Genealogy Details
+Register Group
 
-Founding Information:
-Founded Year: [input, optional]
-Founded Location: [input, optional]
+Group Information:
+Name: [input, required]
+Website: [input, helps verify legitimacy]
+Style: [dropdown, optional]
 
-History & Philosophy:
-Group History: [textarea]
-Philosophy/Mission: [textarea]
+Your Connection:
+[ ] I am a founder/leader of this group
+[ ] I am an administrator of this group
+[ ] I have authorization from group leadership
 
-Founder(s):
-Search for founder in genealogy: [search]
-[Add another founder]
+Supporting Information:
+[Textarea: Describe your role and why you should manage this group]
 
-[Skip for now] [Publish]
+This request will be reviewed by our team to verify the group
+is a legitimate, active capoeira organization.
+
+[Submit Registration Request]
 ```
 
-#### Step 3: Success
+#### Step 3: Pending Review
 
 ```
-Group Published!
+Registration Submitted!
 
-[Group Name] is now part of the Capoeira Genealogy.
+Your request to register "[Group Name]" has been submitted.
 
-Next steps:
-- Add lineage connections (parent group, affiliations)
-- Invite members to join the genealogy
-- Add historical information
+What happens next:
+- Our team will review your request
+- We'll verify this is an active capoeira group
+- You'll be notified when approved
 
-[View Genealogy Profile] [Manage Group]
+Typical review time: 1-3 business days
+
+[View My Pending Claims]
 ```
 
-### Technical Implementation
+### Admin Review
+
+Admin sees claim in `/admin/group-claims`:
+
+```
+New Group Registration
+
+Submitted by: [User Name]
+Requested: [date]
+
+Proposed Group:
+  Name: [name]
+  Website: [url]
+  Style: [style]
+
+User's Message:
+"[their justification]"
+
+User Role: Administrator
+
+Actions:
+[Approve] [Reject] [Request More Info]
+
+Admin Notes:
+[Textarea for admin notes]
+```
+
+### Technical Implementation (On Claim Approval)
 
 ```sql
 BEGIN;
 
--- 1. Create group_profile
+-- 1. Create genealogy profile
 INSERT INTO genealogy.group_profiles (
-  name, description, style, logo, links, founded_year,
-  founded_year_precision, founded_location, history, philosophy
+  name, style, links
 ) VALUES (
-  $name, $description, $style, $logo, $links, $foundedYear,
-  $precision, $foundedLocation, $history, $philosophy
-) RETURNING id;
+  $proposedName, $style, ARRAY[$website]
+) RETURNING id AS profile_id;
 
--- 2. Link to public.groups
-UPDATE public.groups
-SET profile_id = $profileId
-WHERE id = $groupId;
+-- 2. Create public.groups entry linked to profile
+INSERT INTO public.groups (
+  id, profile_id, created_by, claimed_by, claimed_at, verified
+) VALUES (
+  gen_random_uuid(), $profileId, $userId, $userId, now(), false
+) RETURNING id AS group_id;
 
--- 3. Create founder predicates
-INSERT INTO genealogy.statements (
-  subject_type, subject_id, predicate, object_type, object_id, confidence, created_by
-) VALUES
-  ('person', $founderId, 'founded', 'group', $profileId, 'unverified', $userId);
+-- 3. Add claimant as admin
+INSERT INTO public.group_admins (group_id, user_id)
+VALUES ($groupId, $userId);
+
+-- 4. Update claim status
+UPDATE public.group_claims
+SET
+  status = 'approved',
+  processed_by = $adminId,
+  processed_at = now(),
+  admin_notes = $notes
+WHERE id = $claimId;
 
 COMMIT;
 ```
 
-## Flow 3B: Claim Unmanaged Genealogy Group
+## Flow 3B: Claim Existing Genealogy Group
 
-**Scenario**: Group exists only in genealogy (community-curated), user wants to manage it in the app.
+**Scenario**: Group exists in genealogy (community-curated data), user wants to manage it in the app.
 
 ### User Journey
 
@@ -160,8 +207,26 @@ Style: Angola
 Founded: 1980, Salvador
 Founder: Mestre [Name]
 
-Locations: None (not managed in app)
-[Claim to Manage This Group]
+Status: Not managed in Quilombo
+[Claim This Group]
+```
+
+Or from search results:
+
+```
+Search Results for "Senzala"
+
+1. Grupo Senzala
+   Style: Regional
+   Founded: 1963
+   Status: Not managed
+   [Claim]
+
+2. Senzala de Santos
+   Style: Contemporânea
+   Founded: 1985
+   Status: Managed by @username
+   [View]
 ```
 
 #### Step 1: Claim Submission
@@ -173,23 +238,22 @@ You're requesting to manage "[Group Name]" in Quilombo.
 
 This will allow you to:
 - Add training locations to the map
-- Manage group members
+- Manage group membership
 - Update group information
 - Create events
 
-Verification Required:
-[ ] I am a leader/administrator of this group
+Your Connection:
+[ ] I am a founder/leader of this group
+[ ] I am an administrator of this group
 [ ] I have authorization from group leadership
 
 Your Role: [dropdown: founder, leader, coordinator, administrator, authorized representative]
 
 Supporting Information:
-[Textarea: optional notes for admin review]
+[Textarea: Why should you manage this group?]
 
 [Submit Claim]
 ```
-
-This uses the **existing group claims mechanism** (`public.group_claims`).
 
 #### Step 2: Admin Review
 
@@ -210,11 +274,11 @@ Let's set up your group:
 1. Add your training locations
    [Add Location]
 
-2. Invite members
-   [Create Invite Link]
+2. Complete operational details
+   [Edit Group Settings]
 
-3. Complete your group profile
-   [Edit Group]
+3. View your genealogy profile
+   [View Genealogy Profile]
 
 [Skip Setup] [Continue]
 ```
@@ -224,25 +288,24 @@ Let's set up your group:
 ```sql
 BEGIN;
 
--- 1. Get genealogy profile info
-SELECT name, style, logo, links, description
-FROM genealogy.group_profiles
-WHERE id = $genealogyProfileId;
-
--- 2. Create public.groups entry
+-- 1. Create public.groups entry linked to existing profile
 INSERT INTO public.groups (
-  name, style, logo, links, description, profile_id, created_by, verified
+  id, profile_id, created_by, claimed_by, claimed_at, verified
 ) VALUES (
-  $name, $style, $logo, $links, $description, $genealogyProfileId, $userId, false
-) RETURNING id;
+  gen_random_uuid(), $genealogyProfileId, $userId, $userId, now(), false
+) RETURNING id AS group_id;
 
--- 3. Add claimant as admin
+-- 2. Add claimant as admin
 INSERT INTO public.group_admins (group_id, user_id)
-VALUES ($newGroupId, $userId);
+VALUES ($groupId, $userId);
 
--- 4. Update claim status
+-- 3. Update claim status
 UPDATE public.group_claims
-SET status = 'approved', reviewed_by = $adminId, reviewed_at = now()
+SET
+  status = 'approved',
+  processed_by = $adminId,
+  processed_at = now(),
+  admin_notes = $notes
 WHERE id = $claimId;
 
 COMMIT;
@@ -250,7 +313,7 @@ COMMIT;
 
 ## Flow 3C: Profile Management (Post-Linking)
 
-**Scenario**: Group exists in both schemas, admin manages data.
+**Scenario**: Group exists in both schemas (profile_id is set), admin manages data.
 
 ### Two Edit Contexts
 
@@ -261,6 +324,10 @@ COMMIT;
 
 Group Settings
 
+Contact & Display:
+Email: [input]
+Banner Image: [upload]
+
 Locations:
 [List of locations with edit/delete]
 [Add Location]
@@ -269,15 +336,13 @@ Administrators:
 [List of admins with remove]
 [Add Admin]
 
-Invite Settings:
-- Open invitations: [toggle]
-- Invite link: [copy button]
-
 Verification Status: [Verified/Unverified]
 [Request Verification]
+
+[Save Changes]
 ```
 
-#### 2. Genealogy Profile (Historical)
+#### 2. Genealogy Profile (Identity & Historical)
 
 ```
 /groups/[groupId]/genealogy
@@ -287,146 +352,274 @@ Genealogy Profile
 Basic Information:
 Name: [input]
 Style: [dropdown]
+Logo: [upload]
+Website/Links: [multi-input]
+
+Founding Information:
 Founded Year: [input]
 Founded Location: [input]
 
 Description:
-[textarea]
+English: [textarea]
+Portuguese: [textarea]
 
 History:
-[textarea]
+English: [textarea]
+Portuguese: [textarea]
 
 Philosophy:
-[textarea]
+English: [textarea]
+Portuguese: [textarea]
 
 Lineage Connections:
 - Parent Group: [search/select]
 - Split from: [search/select]
 - Affiliations: [list with add/remove]
 
-Founder(s):
-[list with search/add]
+Founders:
+[list with search/add from person_profiles]
+
+Current Leaders:
+[list with search/add from person_profiles]
 
 [Save Changes]
 ```
 
-### Sync Prompts
+## Database Schema Changes
 
-When user edits shared fields (name, style, logo, description) in one context:
+### Updates to `group_claims` Table
+
+The existing `group_claims` table needs modification to support both scenarios:
+
+```sql
+ALTER TABLE public.group_claims
+  -- For claiming existing genealogy groups
+  ADD COLUMN profile_id UUID REFERENCES genealogy.group_profiles(id),
+  -- For registering new groups
+  ADD COLUMN proposed_name VARCHAR(255),
+  ADD COLUMN proposed_style style,
+  ADD COLUMN website VARCHAR(500),
+  -- Remove group_id column (groups cannot exist without genealogy profile)
+  DROP COLUMN group_id;
+
+-- Add constraint: either profile_id OR proposed_name must be set
+ALTER TABLE public.group_claims
+ADD CONSTRAINT group_claims_target_check CHECK (
+  (profile_id IS NOT NULL) OR
+  (proposed_name IS NOT NULL)
+);
+
+-- Index for genealogy profile claims
+CREATE INDEX group_claims_profile_idx ON public.group_claims(profile_id);
+```
+
+### Claim Types
+
+| Scenario | profile_id | proposed_name |
+|----------|------------|---------------|
+| Claim genealogy group (Flow 3B) | set | null |
+| Register new group (Flow 3A) | null | set |
+
+Note: There is no "claim existing `public.groups`" scenario because groups cannot exist without a genealogy profile.
+
+## API Endpoints
+
+### POST /api/groups/claims
+
+Submit a claim request (handles both scenarios).
+
+**Request Body**:
+```typescript
+// Claim genealogy group (Flow 3B)
+{ profileId: string; userMessage: string }
+
+// Register new group (Flow 3A)
+{
+  proposedName: string;
+  website?: string;
+  style?: Style;
+  userMessage: string;
+}
+```
+
+**Response**: `{ claimId: string; status: 'pending' }`
+
+### GET /api/admin/group-claims
+
+List pending claims (existing endpoint, now includes all claim types).
+
+**Response** includes claim type indicator:
+```typescript
+{
+  claims: Array<{
+    id: string;
+    type: 'genealogy_group' | 'new_group';
+    profileId?: string;
+    proposedName?: string;
+    website?: string;
+    style?: string;
+    user: { id: string; name: string };
+    userMessage: string;
+    requestedAt: string;
+  }>
+}
+```
+
+### PUT /api/admin/group-claims/:claimId/approve
+
+Approve a claim (handles both scenarios).
+
+**For new group (Flow 3A)**:
+1. Create `genealogy.group_profiles`
+2. Create `public.groups` with `profile_id`, set `claimed_by` and `claimed_at`
+3. Add claimant as admin
+
+**For genealogy group (Flow 3B)**:
+1. Create `public.groups` with `profile_id`, set `claimed_by` and `claimed_at`
+2. Add claimant as admin
+
+### PUT /api/admin/group-claims/:claimId/reject
+
+Reject a claim with admin notes.
+
+### PATCH /api/genealogy/groups/:profileId
+
+Update genealogy-specific group data.
+
+**Request Body**:
+```typescript
+{
+  name?: string;
+  descriptionEn?: string;
+  descriptionPt?: string;
+  style?: Style;
+  logo?: string;
+  links?: string[];
+  foundedYear?: number;
+  foundedLocation?: string;
+  historyEn?: string;
+  historyPt?: string;
+  philosophyEn?: string;
+  philosophyPt?: string;
+}
+```
+
+## Component Structure
 
 ```
-Update Genealogy Profile?
+/components/groups/
+  claims/
+    RegisterGroupForm.tsx     # Flow 3A: New group registration
+    ClaimGroupModal.tsx       # Flow 3B: Claim existing genealogy group
+    ClaimStatusBadge.tsx      # Shows pending/approved/rejected
+    PostApprovalSetup.tsx     # Setup wizard after approval
 
-You've changed the group name. Would you like to
-update the genealogy record as well?
+  GenealogyProfile/
+    index.tsx                 # Main genealogy profile editor
+    BasicInfoForm.tsx         # Name, style, logo, links
+    FoundingForm.tsx          # Founded year, location
+    ContentForm.tsx           # Description, history, philosophy (bilingual)
+    LineageConnections.tsx    # Parent group, affiliations
+    FoundersList.tsx          # Founder relationships
+    LeadersList.tsx           # Current leader relationships
 
-[Yes, update genealogy] [No, keep different] [Always sync]
+  GroupSettings/
+    index.tsx                 # Operational settings editor
+    ContactForm.tsx           # Email
+    BannerUpload.tsx          # Banner image
+    LocationsList.tsx         # Training locations
+    AdminsList.tsx            # Group administrators
 ```
+
+## Page Routes
+
+| Route | Purpose |
+|-------|---------|
+| `/groups/register` | Flow 3A: Register new group |
+| `/groups/[groupId]` | Group profile view |
+| `/groups/[groupId]/edit` | Group settings (operational) |
+| `/groups/[groupId]/genealogy` | Genealogy profile editor (Flow 3C) |
+| `/genealogy/groups/[profileId]` | Genealogy-only group view (no app entry) |
+| `/genealogy/groups/[profileId]/claim` | Flow 3B: Claim genealogy group |
+| `/admin/group-claims` | Admin review of all claims |
 
 ## Special Cases
 
-### Unmanaged Groups with Locations
-
-**Current state**: ~250 groups in `public.groups` with locations but not in genealogy.
-
-**Migration approach**:
-1. Keep these groups as-is in `public.groups`
-2. When genealogy data is curated, create `genealogy.group_profiles`
-3. Link via `profile_id`
-4. No user action required; admin/curator process
-
-### Group Without App Entry (Genealogy Only)
+### Genealogy-Only Groups
 
 Valid state for:
 - Historical groups (dissolved, no longer active)
 - Groups not yet managed in app
 - International groups with no local representation
 
-These groups appear in genealogy but not on the app's group map.
+These groups:
+- Appear in genealogy views
+- Show "Claim This Group" button
+- Do NOT appear on the app's group map
 
-### Membership via Predicates
-
-When a user publishes their profile and declares group membership:
-
-```sql
-INSERT INTO genealogy.statements (
-  subject_type, subject_id, predicate, object_type, object_id, confidence
-) VALUES (
-  'person', $personProfileId, 'member_of', 'group', $groupProfileId, 'unverified'
-);
-```
-
-This replaces the `public.group_members` for genealogy purposes (though both may coexist during transition).
-
-## API Endpoints
-
-### POST /api/groups/:groupId/publish-genealogy
-
-Create genealogy profile for existing `public.groups` entry.
-
-### POST /api/genealogy/groups/:profileId/claim
-
-Submit claim to manage an unmanaged genealogy group.
-
-### GET /api/admin/group-claims
-
-Existing endpoint, now includes genealogy claims.
-
-### PUT /api/admin/group-claims/:claimId/approve
-
-Extended to create `public.groups` when approving genealogy claims.
-
-### PATCH /api/genealogy/groups/:profileId
-
-Update genealogy-specific group data.
-
-## Component Structure
+### Group Without App Entry (Genealogy Only)
 
 ```
-/components/groups/
-  PublishToGenealogy/
-    index.tsx
-    ReviewStep.tsx
-    DetailsStep.tsx
-    SuccessStep.tsx
+/genealogy/groups/[profileId]
 
-  GenealogyProfile/
-    index.tsx
-    BasicInfoForm.tsx
-    HistoryForm.tsx
-    LineageConnections.tsx
-    FoundersList.tsx
+[Group Name]
+[Logo]
 
-  ClaimGroup/
-    index.tsx               # For unmanaged genealogy groups
-    ClaimModal.tsx
-    SetupWizard.tsx        # Post-approval setup
+Style: Angola
+Founded: 1980, Salvador
+
+This group is not yet managed in Quilombo.
+[Claim to Manage This Group]
+
+Lineage:
+- Founder: Mestre [Name]
+- Parent Group: [linked]
+
+History:
+[historical text]
 ```
+
+### Legacy Groups (1 in production)
+
+Production has only 1 existing group without `profile_id`:
+- Will be migrated in Flow 4 (trivial single-row migration)
+- Until then, existing group continues to work
 
 ## Migration Considerations
 
-### Existing Groups (~250)
+### New Groups
 
-1. Initially: `profile_id = NULL` (not in genealogy)
-2. Curator creates `genealogy.group_profiles` entries
-3. Links via `UPDATE public.groups SET profile_id = ...`
-4. No impact on existing locations, admins, members
+All new groups created via this flow will have:
+- `genealogy.group_profiles` entry (always)
+- `public.groups` entry with `profile_id` set (always)
 
-### Future Schema Cleanup
+### Existing Groups
 
-After genealogy is fully adopted:
-- `public.groups.name` → derived from genealogy
-- `public.groups.style` → derived from genealogy
-- `public.groups.description` → derived from genealogy
-- `public.groups.logo` → derived from genealogy
+**Deferred to Flow 4**: Migration of the 1 existing production group to have a genealogy profile (trivial).
 
-Keep in `public.groups`:
-- `id`, `created_by`, `verified`, `profile_id`
-- Relationships: `group_locations`, `group_admins`
+Until Flow 4:
+- The one existing group continues to work without `profile_id`
+- New groups follow the new flow
+- Group edit form shows genealogy fields only if `profile_id` is set
 
 ## Success Metrics
 
-- Groups published to genealogy
-- Claims submitted vs approved
-- Genealogy completeness (% with founded year, history, etc.)
-- Member declarations (member_of predicates)
+- New group registrations submitted and processed
+- Genealogy group claims submitted and processed
+- Average claim review time
+- Claim approval rate
+- Post-approval setup completion rate
+
+## Dependencies
+
+- **Flow 1 & 2**: Person profiles must exist for founder/leader relationships
+- **Genealogy schema**: `genealogy.group_profiles` and `genealogy.statements` tables
+
+## Future Work (Flow 4)
+
+The following will be addressed in Flow 4 (Groups Schema Migration):
+
+1. Migrate existing groups to have genealogy profiles
+2. Remove duplicate columns from `public.groups`
+3. Update all queries to JOIN to genealogy
+4. Convert leader/founder to predicate-based queries

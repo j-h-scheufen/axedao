@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Manduca da Praia',
   NULL,  -- Pre-formal title era
   NULL,  -- No historical portrait available
-  '[{"type": "website", "url": "https://en.wikipedia.org/wiki/Manduca_da_Praia"}, {"type": "website", "url": "https://www.historyoffighting.com/mestre-manduca-da-praia.php"}]'::jsonb,
+  ARRAY['https://en.wikipedia.org/wiki/Manduca_da_Praia', 'https://www.historyoffighting.com/mestre-manduca-da-praia.php']::text[],
   -- Capoeira-specific
   NULL,  -- Pre-Angola/Regional distinction
   'Active before the codification of capoeira styles. Practiced capoeira carioca during the malta era in Rio de Janeiro.',

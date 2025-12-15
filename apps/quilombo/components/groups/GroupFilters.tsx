@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Checkbox, CheckboxGroup } from '@heroui/react';
 import { isEqual } from 'lodash';
 
@@ -32,7 +32,7 @@ const GroupFilters = ({ filters, onFiltersChange, isActive }: GroupFiltersProps)
   };
 
   const handleClear = () => {
-    const clearedFilters = { styles: [], verified: undefined };
+    const clearedFilters = { styles: [] };
     setLocalFilters(clearedFilters);
     onFiltersChange(clearedFilters);
   };
@@ -41,13 +41,6 @@ const GroupFilters = ({ filters, onFiltersChange, isActive }: GroupFiltersProps)
     setLocalFilters((prev) => ({
       ...prev,
       styles: selectedStyles as Style[],
-    }));
-  };
-
-  const handleVerifiedChange = (checked: boolean) => {
-    setLocalFilters((prev) => ({
-      ...prev,
-      verified: checked ? true : undefined,
     }));
   };
 
@@ -68,13 +61,6 @@ const GroupFilters = ({ filters, onFiltersChange, isActive }: GroupFiltersProps)
       hasChanges={hasChanges}
     >
       <div className="flex flex-col gap-4">
-        {/* Verification Status */}
-        <div>
-          <Checkbox isSelected={localFilters.verified === true} onValueChange={handleVerifiedChange}>
-            <span className="text-sm">Verified only</span>
-          </Checkbox>
-        </div>
-
         {/* Styles */}
         <div>
           <p className="text-sm font-semibold mb-2">Style</p>

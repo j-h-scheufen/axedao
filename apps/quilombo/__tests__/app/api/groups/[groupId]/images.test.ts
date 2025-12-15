@@ -68,7 +68,7 @@ describe('Group Images (Logo/Banner) API Routes', () => {
       // Mock Pinata functions
       mockPinata = {
         pinToGroup: vi.fn().mockResolvedValue({ cid: testCID, error: null }),
-        unpin: vi.fn().mockResolvedValue(undefined),
+        unpinIfNotReferenced: vi.fn().mockResolvedValue(true),
       };
 
       // Mock image processing
@@ -80,7 +80,7 @@ describe('Group Images (Logo/Banner) API Routes', () => {
       (dbModule.canUserManageGroup as typeof mockDb.canUserManageGroup) = mockDb.canUserManageGroup;
       (dbModule.updateGroup as typeof mockDb.updateGroup) = mockDb.updateGroup;
       (pinataModule.pinToGroup as typeof mockPinata.pinToGroup) = mockPinata.pinToGroup;
-      (pinataModule.unpin as typeof mockPinata.unpin) = mockPinata.unpin;
+      (pinataModule.unpinIfNotReferenced as typeof mockPinata.unpinIfNotReferenced) = mockPinata.unpinIfNotReferenced;
       (imagesModule.createImageBuffer as typeof mockImages.createImageBuffer) = mockImages.createImageBuffer;
 
       // Mock notFound() to throw error
@@ -197,7 +197,7 @@ describe('Group Images (Logo/Banner) API Routes', () => {
 
         expect(response.status).toBe(200);
         expect(mockImages.createImageBuffer).toHaveBeenCalledWith(expect.any(File), 'groupLogo');
-        expect(mockPinata.pinToGroup).toHaveBeenCalledWith(mockImageBuffer, expect.stringContaining(testGroupId), null);
+        expect(mockPinata.pinToGroup).toHaveBeenCalledWith(mockImageBuffer, expect.stringContaining(testGroupId));
         expect(mockDb.updateGroup).toHaveBeenCalledWith({
           ...mockGroup,
           logo: testCID,
@@ -210,7 +210,7 @@ describe('Group Images (Logo/Banner) API Routes', () => {
         );
       });
 
-      it('should replace existing logo', async () => {
+      it('should replace existing logo and unpin old one', async () => {
         const existingCID = 'QmOldLogo123';
         mockDb.fetchGroup.mockResolvedValue({ ...mockGroup, logo: existingCID });
 
@@ -224,7 +224,10 @@ describe('Group Images (Logo/Banner) API Routes', () => {
 
         await POST(request, { params: Promise.resolve(mockParams) });
 
-        expect(mockPinata.pinToGroup).toHaveBeenCalledWith(mockImageBuffer, expect.any(String), existingCID);
+        // pinToGroup only takes 2 params now (buffer, filename)
+        expect(mockPinata.pinToGroup).toHaveBeenCalledWith(mockImageBuffer, expect.any(String));
+        // Old logo should be unpinned after DB update
+        expect(mockPinata.unpinIfNotReferenced).toHaveBeenCalledWith(existingCID);
       });
     });
 
@@ -303,13 +306,13 @@ describe('Group Images (Logo/Banner) API Routes', () => {
 
       // Mock Pinata functions
       mockPinata = {
-        unpin: vi.fn().mockResolvedValue(undefined),
+        unpinIfNotReferenced: vi.fn().mockResolvedValue(true),
       };
 
       (dbModule.fetchGroup as typeof mockDb.fetchGroup) = mockDb.fetchGroup;
       (dbModule.canUserManageGroup as typeof mockDb.canUserManageGroup) = mockDb.canUserManageGroup;
       (dbModule.updateGroup as typeof mockDb.updateGroup) = mockDb.updateGroup;
-      (pinataModule.unpin as typeof mockPinata.unpin) = mockPinata.unpin;
+      (pinataModule.unpinIfNotReferenced as typeof mockPinata.unpinIfNotReferenced) = mockPinata.unpinIfNotReferenced;
 
       // Mock notFound() to throw error
       notFound.mockImplementation(() => {
@@ -390,11 +393,12 @@ describe('Group Images (Logo/Banner) API Routes', () => {
         const body = await getResponseJson(response);
 
         expect(response.status).toBe(200);
-        expect(mockPinata.unpin).toHaveBeenCalledWith(testCID);
+        // DB is updated first (removes reference), then unpin is called
         expect(mockDb.updateGroup).toHaveBeenCalledWith({
           ...mockGroup,
           logo: null,
         });
+        expect(mockPinata.unpinIfNotReferenced).toHaveBeenCalledWith(testCID);
         expect(body).toEqual(
           expect.objectContaining({
             id: testGroupId,
@@ -414,7 +418,7 @@ describe('Group Images (Logo/Banner) API Routes', () => {
         const body = await getResponseJson(response);
 
         expect(response.status).toBe(200);
-        expect(mockPinata.unpin).not.toHaveBeenCalled();
+        expect(mockPinata.unpinIfNotReferenced).not.toHaveBeenCalled();
         expect(mockDb.updateGroup).not.toHaveBeenCalled();
         expect(body).toEqual(expect.objectContaining({ id: testGroupId }));
       });
@@ -553,13 +557,13 @@ describe('Group Images (Logo/Banner) API Routes', () => {
       };
 
       mockPinata = {
-        unpin: vi.fn().mockResolvedValue(undefined),
+        unpinIfNotReferenced: vi.fn().mockResolvedValue(true),
       };
 
       (dbModule.fetchGroup as typeof mockDb.fetchGroup) = mockDb.fetchGroup;
       (dbModule.canUserManageGroup as typeof mockDb.canUserManageGroup) = mockDb.canUserManageGroup;
       (dbModule.updateGroup as typeof mockDb.updateGroup) = mockDb.updateGroup;
-      (pinataModule.unpin as typeof mockPinata.unpin) = mockPinata.unpin;
+      (pinataModule.unpinIfNotReferenced as typeof mockPinata.unpinIfNotReferenced) = mockPinata.unpinIfNotReferenced;
 
       getServerSession.mockResolvedValue({
         user: { id: testUserId, email: 'user@example.com' },
@@ -583,10 +587,12 @@ describe('Group Images (Logo/Banner) API Routes', () => {
       const body = await getResponseJson(response);
 
       expect(response.status).toBe(200);
+      // DB is updated first (removes reference), then unpin is called
       expect(mockDb.updateGroup).toHaveBeenCalledWith({
         ...mockGroup,
         banner: null,
       });
+      expect(mockPinata.unpinIfNotReferenced).toHaveBeenCalledWith(testCID);
       expect(body).toEqual(
         expect.objectContaining({
           id: testGroupId,

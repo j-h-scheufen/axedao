@@ -35,9 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'João Sabe Tudo',
   NULL,
   NULL,
-  '[
-    {"type": "website", "url": "https://capoeiraracanegra.webnode.page/lendas-da-capoeira/nascimento-grande/"}
-  ]'::jsonb,
+  ARRAY['https://capoeiraracanegra.webnode.page/lendas-da-capoeira/nascimento-grande/']::text[],
   -- Capoeira-specific
   NULL,
   'Pre-modern era capoeira; practiced when capoeira was illegal in Brazil. Style distinctions (Angola/Regional) did not yet exist. Associated with Recife''s valentão culture and street fighting tradition.',

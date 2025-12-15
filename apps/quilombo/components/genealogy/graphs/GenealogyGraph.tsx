@@ -150,7 +150,7 @@ function processForGeneralView(data: GraphData): ProcessedGraphData {
   const processedNodes: TemporalForceNode[] = data.nodes.map((node, index) => {
     const year = getNodeYear(node);
     const hasTemporalData = year !== null;
-    const targetRadius = hasTemporalData ? computeRadialDistanceForEntityYear(year) : undefined;
+    const targetRadius = computeRadialDistanceForEntityYear(year); // null -> 2020 default
     const pos = computeSphericalPosition(year, index, totalNodes);
 
     return {
@@ -496,7 +496,7 @@ export function GenealogyGraph({
     const radialForce = createRadialForce({
       strength: 1.0,
       constrainToPlane: false,
-      onlyTemporalNodes: true,
+      onlyTemporalNodes: false, // Constrain all nodes, including those without dates (default to 2020)
     });
     return [
       { name: 'collide', force: collideForce },

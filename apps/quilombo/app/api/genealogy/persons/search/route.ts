@@ -1,18 +1,51 @@
+import { getServerSession } from 'next-auth';
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
+import { nextAuthOptions } from '@/config/next-auth-options';
 import { type GenealogyPersonSearchParams, genealogyPersonSearchParamsSchema } from '@/config/validation-schema';
 import { searchPersonProfiles } from '@/db';
-import { applyRateLimit, createRateLimitHeaders } from '@/utils/rate-limit';
 
 /**
  * @openapi
  * /api/genealogy/persons/search:
- *   post:
- *     summary: Search person profiles
- *     description: Search genealogy person profiles with filters and pagination
+ *   get:
+ *     summary: Quick search for person profiles (type-ahead)
+ *     description: Lightweight search for use in dropdowns and autocomplete fields. Requires authentication.
  *     tags:
  *       - Genealogy
+ *     security:
+ *       - session: []
+ *     parameters:
+ *       - in: query
+ *         name: q
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Search term (minimum 3 characters)
+ *     responses:
+ *       200:
+ *         description: Search results (max 10 items)
+ *       400:
+ *         description: Search term too short
+ *       401:
+ *         description: Unauthorized - user not authenticated
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *       500:
+ *         description: Server error
+ *   post:
+ *     summary: Search person profiles
+ *     description: Search genealogy person profiles with filters and pagination. Requires authentication.
+ *     tags:
+ *       - Genealogy
+ *     security:
+ *       - session: []
  *     requestBody:
  *       required: true
  *       content:
@@ -74,8 +107,8 @@ import { applyRateLimit, createRateLimitHeaders } from '@/utils/rate-limit';
  *               properties:
  *                 error:
  *                   type: string
- *       429:
- *         description: Too many requests - rate limit exceeded
+ *       401:
+ *         description: Unauthorized - user not authenticated
  *         content:
  *           application/json:
  *             schema:
@@ -83,8 +116,6 @@ import { applyRateLimit, createRateLimitHeaders } from '@/utils/rate-limit';
  *               properties:
  *                 error:
  *                   type: string
- *                 retryAfter:
- *                   type: number
  *       500:
  *         description: Server error
  *         content:
@@ -95,14 +126,58 @@ import { applyRateLimit, createRateLimitHeaders } from '@/utils/rate-limit';
  *                 error:
  *                   type: string
  */
+
+/**
+ * GET - Lightweight type-ahead search (for dropdowns/autocomplete)
+ * Returns simplified results: id, name, apelido, title, portrait
+ *
+ * Query params:
+ * - q: search term (required, min 3 chars)
+ * - claimableOnly: if "true", excludes deceased and already-claimed profiles
+ */
+export async function GET(request: NextRequest) {
+  const session = await getServerSession(nextAuthOptions);
+  if (!session?.user.id) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
+  try {
+    const { searchParams } = new URL(request.url);
+    const searchTerm = searchParams.get('q');
+    const claimableOnly = searchParams.get('claimableOnly') === 'true';
+
+    if (!searchTerm || searchTerm.length < 3) {
+      return NextResponse.json({ error: 'Search term must be at least 3 characters' }, { status: 400 });
+    }
+
+    const searchResults = await searchPersonProfiles({
+      offset: 0,
+      pageSize: 10, // Limit for type-ahead
+      searchTerm,
+      claimableOnly,
+    });
+
+    // Return simplified results for type-ahead
+    const results = searchResults.rows.map((person) => ({
+      id: person.id,
+      name: person.name,
+      apelido: person.apelido,
+      title: person.title,
+      portrait: person.portrait,
+    }));
+
+    return Response.json(results);
+  } catch (error) {
+    console.error('Error searching person profiles:', error);
+    return NextResponse.json({ error: 'Failed to search person profiles' }, { status: 500 });
+  }
+}
+
 export async function POST(request: NextRequest) {
-  // Rate limit: 30 requests per minute
-  const RATE_LIMIT_MAX = 30;
-  const { response: rateLimitResponse, result: rateLimitResult } = applyRateLimit(request, {
-    maxRequests: RATE_LIMIT_MAX,
-    windowMs: 60 * 1000,
-  });
-  if (rateLimitResponse) return rateLimitResponse;
+  const session = await getServerSession(nextAuthOptions);
+  if (!session?.user.id) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
 
   try {
     const body = await request.json();
@@ -137,14 +212,11 @@ export async function POST(request: NextRequest) {
       nextOffset = offset + pageSize;
     }
 
-    return Response.json(
-      {
-        data: searchResults.rows,
-        totalCount: searchResults.totalCount,
-        nextOffset,
-      },
-      { headers: createRateLimitHeaders(rateLimitResult, RATE_LIMIT_MAX) }
-    );
+    return Response.json({
+      data: searchResults.rows,
+      totalCount: searchResults.totalCount,
+      nextOffset,
+    });
   } catch (error) {
     console.error('Error searching person profiles:', error);
     return NextResponse.json({ error: 'Failed to search person profiles' }, { status: 500 });

@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Antônio de Noronha',
   'mestre'::genealogy.title,
   NULL,
-  '[{"type": "website", "url": "https://velhosmestres.com/en/featured-2"}, {"type": "website", "url": "https://esquiva.wordpress.com/mestres/mestre-aberre/"}]'::jsonb,
+  ARRAY['https://velhosmestres.com/en/featured-2', 'https://esquiva.wordpress.com/mestres/mestre-aberre/']::text[],
   -- Capoeira-specific
   'angola'::genealogy.style,
   'Practiced the pre-codified capoeira of late 19th and early 20th century Salvador. Part of the generation that learned capoeira when it was first criminalized in Brazil (1890).',

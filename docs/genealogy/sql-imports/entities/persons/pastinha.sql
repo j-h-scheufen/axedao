@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Pastinha',
   'mestre'::genealogy.title,
   NULL,
-  '[{"type": "website", "url": "https://en.wikipedia.org/wiki/Vicente_Ferreira_Pastinha"}, {"type": "website", "url": "https://velhosmestres.com/br/pastinha-1899"}, {"type": "website", "url": "https://papoeira.com/en/who-was-mestre-pastinha/"}, {"type": "website", "url": "https://ceca-riovermelho.org.br/mestres/mestre-pastinha/?lang=en"}, {"type": "website", "url": "https://www.lalaue.com/learn-capoeira/mestre-pastinha/"}]'::jsonb,
+  ARRAY['https://en.wikipedia.org/wiki/Vicente_Ferreira_Pastinha', 'https://velhosmestres.com/br/pastinha-1899', 'https://papoeira.com/en/who-was-mestre-pastinha/', 'https://ceca-riovermelho.org.br/mestres/mestre-pastinha/?lang=en', 'https://www.lalaue.com/learn-capoeira/mestre-pastinha/']::text[],
   -- Capoeira-specific
   'angola'::genealogy.style,
   E'Codifier of Capoeira Angola as a distinct style. Preserved traditional African-rooted techniques: low-to-the-ground movements, strategic play, mandinga (cunning/trickery), and emphasis on spiritual and cultural connection. Adopted yellow and black colors (from Esporte Clube Ypiranga) as the hallmark uniform of Angola capoeira. Created teaching methodology emphasizing that "Capoeira de Angola can only be taught without forcing the person''s natural expression."',

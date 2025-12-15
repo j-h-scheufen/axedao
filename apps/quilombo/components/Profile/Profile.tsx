@@ -1,16 +1,16 @@
 'use client';
 
-import { Avatar, Button } from '@heroui/react';
+import { Avatar } from '@heroui/react';
 import { useAtomValue } from 'jotai';
-import { Camera, Edit, MailIcon } from 'lucide-react';
+import { Camera, MailIcon } from 'lucide-react';
 import Link from 'next/link';
 
 import ContactInfo from '@/components/ContactInfo';
 import { ProfileSkeleton } from '@/components/skeletons/ProfileSkeletons';
-import { PATHS } from '@/config/constants';
 import { currentUserAtom } from '@/hooks/state/currentUser';
 import { useFetchAuthMethods } from '@/query/currentUser';
 import { getImageUrl, getUserDisplayName } from '@/utils';
+import ProfileActionsDropdown from './ProfileActionsDropdown';
 
 const Profile = () => {
   const { data: user, isFetching } = useAtomValue(currentUserAtom);
@@ -37,15 +37,7 @@ const Profile = () => {
             <h3 className="text-lg font-medium">{getUserDisplayName(user)}</h3>
           </div>
           <div className="sm:mb-auto sm:ml-auto">
-            <Button
-              as={Link}
-              href={`${PATHS.profile}/edit`}
-              startContent={<Edit className="h-4 w-4" />}
-              size="sm"
-              variant="bordered"
-            >
-              Edit profile
-            </Button>
+            <ProfileActionsDropdown />
           </div>
         </div>
         {authMethods?.notificationEmail && (

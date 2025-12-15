@@ -6,10 +6,11 @@
  * No foreign keys point from genealogy to public schema.
  */
 
-import { and, eq, ilike, inArray, or, sql, type SQLWrapper } from 'drizzle-orm';
+import { and, eq, gt, ilike, inArray, isNull, or, sql, type SQLWrapper } from 'drizzle-orm';
 
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import { db } from '@/db';
+import * as schema from '@/db/schema';
 import {
   groupProfiles,
   personProfiles,
@@ -43,6 +44,7 @@ export async function fetchPersonProfile(profileId: string): Promise<SelectPerso
  * Searches person profiles with optional filters and pagination.
  *
  * @param options - Search parameters
+ * @param options.claimableOnly - If true, excludes deceased profiles and profiles already claimed by a user
  * @returns Paginated list of person profiles with total count
  */
 export async function searchPersonProfiles(options: {
@@ -52,20 +54,23 @@ export async function searchPersonProfiles(options: {
   style?: string;
   title?: string;
   includeDeceased?: boolean;
+  claimableOnly?: boolean;
 }): Promise<{ rows: SelectPersonProfile[]; totalCount: number }> {
-  const { pageSize = QUERY_DEFAULT_PAGE_SIZE, offset = 0, searchTerm, style, title, includeDeceased = true } = options;
+  const {
+    pageSize = QUERY_DEFAULT_PAGE_SIZE,
+    offset = 0,
+    searchTerm,
+    style,
+    title,
+    includeDeceased = true,
+    claimableOnly = false,
+  } = options;
 
   const filters: (SQLWrapper | undefined)[] = [];
 
   if (searchTerm) {
-    filters.push(
-      or(
-        ilike(personProfiles.name, `%${searchTerm}%`),
-        ilike(personProfiles.apelido, `%${searchTerm}%`),
-        ilike(personProfiles.bioEn, `%${searchTerm}%`),
-        ilike(personProfiles.bioPt, `%${searchTerm}%`)
-      )
-    );
+    // Search on identity fields only (apelido, name) - not bio content
+    filters.push(or(ilike(personProfiles.apelido, `%${searchTerm}%`), ilike(personProfiles.name, `%${searchTerm}%`)));
   }
 
   if (style) {
@@ -76,8 +81,25 @@ export async function searchPersonProfiles(options: {
     filters.push(sql`${personProfiles.title} = ${title}`);
   }
 
-  if (!includeDeceased) {
-    filters.push(sql`${personProfiles.deathYear} IS NULL`);
+  // claimableOnly implies not deceased
+  if (!includeDeceased || claimableOnly) {
+    filters.push(isNull(personProfiles.deathYear));
+  }
+
+  // For claimable profiles, apply additional filters
+  if (claimableOnly) {
+    // Exclude profiles already claimed by a user (users.profileId references them)
+    const claimedProfileIds = db
+      .select({ profileId: schema.users.profileId })
+      .from(schema.users)
+      .where(sql`${schema.users.profileId} IS NOT NULL`);
+    filters.push(sql`${personProfiles.id} NOT IN (${claimedProfileIds})`);
+
+    // Exclude profiles with birth year > 100 years ago (presumed deceased historical figures)
+    // This mirrors the heuristic used in the genealogy graph UI
+    const currentYear = new Date().getFullYear();
+    const presumedDeceasedThreshold = currentYear - 100;
+    filters.push(or(isNull(personProfiles.birthYear), gt(personProfiles.birthYear, presumedDeceasedThreshold)));
   }
 
   const results = await db
@@ -180,15 +202,15 @@ export async function searchGroupProfiles(options: {
   const filters: (SQLWrapper | undefined)[] = [];
 
   if (searchTerm) {
+    // Search on identity fields: name, nameAliases array, nameHistory JSONB array
+    const searchPattern = `%${searchTerm}%`;
     filters.push(
       or(
-        ilike(groupProfiles.name, `%${searchTerm}%`),
-        ilike(groupProfiles.descriptionEn, `%${searchTerm}%`),
-        ilike(groupProfiles.descriptionPt, `%${searchTerm}%`),
-        ilike(groupProfiles.philosophyEn, `%${searchTerm}%`),
-        ilike(groupProfiles.philosophyPt, `%${searchTerm}%`),
-        ilike(groupProfiles.historyEn, `%${searchTerm}%`),
-        ilike(groupProfiles.historyPt, `%${searchTerm}%`)
+        ilike(groupProfiles.name, searchPattern),
+        // Search in nameAliases text array (case-insensitive)
+        sql`EXISTS (SELECT 1 FROM unnest(${groupProfiles.nameAliases}) AS alias WHERE alias ILIKE ${searchPattern})`,
+        // Search in nameHistory JSONB array's 'name' field (case-insensitive)
+        sql`EXISTS (SELECT 1 FROM jsonb_array_elements(${groupProfiles.nameHistory}) AS entry WHERE entry->>'name' ILIKE ${searchPattern})`
       )
     );
   }
@@ -526,5 +548,79 @@ export async function fetchGraphData(options?: { nodeTypes?: EntityType[]; predi
       personCount: nodes.filter((n) => n.type === 'person').length,
       groupCount: nodes.filter((n) => n.type === 'group').length,
     },
+  };
+}
+
+// ============================================================================
+// APELIDO UNIQUENESS CHECK
+// ============================================================================
+
+/**
+ * Result of apelido uniqueness check.
+ */
+export type ApelidoCheckResult = {
+  /** Whether the apelido (with context) is available */
+  isAvailable: boolean;
+  /** Whether context is required (apelido exists in genealogy) */
+  requiresContext: boolean;
+};
+
+/**
+ * Checks if an apelido (with optional context) is available for use.
+ *
+ * The database has a unique constraint on (apelido, COALESCE(apelido_context, '')).
+ * This function checks:
+ * 1. If the exact combination is already taken
+ * 2. If the apelido exists (to suggest user adds context)
+ *
+ * @param apelido - The apelido to check
+ * @param apelidoContext - Optional context to disambiguate
+ * @param excludeProfileId - Profile ID to exclude (for edits)
+ * @returns Availability status
+ */
+export async function checkApelidoAvailability(
+  apelido: string,
+  apelidoContext?: string | null,
+  excludeProfileId?: string
+): Promise<ApelidoCheckResult> {
+  // Find all profiles with the same apelido
+  const filters: SQLWrapper[] = [eq(personProfiles.apelido, apelido)];
+
+  if (excludeProfileId) {
+    filters.push(sql`${personProfiles.id} != ${excludeProfileId}`);
+  }
+
+  const existingProfiles = await db
+    .select({
+      apelidoContext: personProfiles.apelidoContext,
+    })
+    .from(personProfiles)
+    .where(and(...filters));
+
+  if (existingProfiles.length === 0) {
+    // No profiles with this apelido - it's available
+    return {
+      isAvailable: true,
+      requiresContext: false,
+    };
+  }
+
+  // Check if the exact combination (apelido, context) is taken
+  // Using COALESCE to match the database constraint behavior
+  const normalizedContext = apelidoContext || '';
+  const exactMatch = existingProfiles.find((p) => (p.apelidoContext || '') === normalizedContext);
+
+  if (exactMatch) {
+    // Exact combination is taken
+    return {
+      isAvailable: false,
+      requiresContext: !apelidoContext, // If no context provided, suggest adding one
+    };
+  }
+
+  // Apelido exists but with different context - available but context recommended
+  return {
+    isAvailable: true,
+    requiresContext: !apelidoContext, // Suggest context if not provided
   };
 }

@@ -9,12 +9,12 @@
  * - users: User management and authentication
  * - groups: Group CRUD and membership
  * - groupClaims: Group ownership claiming workflow
- * - groupVerifications: Group verification system
  * - groupLocations: Geographic locations for groups
  * - events: Event management
  * - invitations: Invitation system (email + QR codes)
  * - stats: Public statistics
  * - genealogy: Person/group profiles and lineage statements
+ * - personClaims: Person profile claiming workflow
  */
 
 import type { PostgresJsDatabase } from 'drizzle-orm/postgres-js';
@@ -92,12 +92,13 @@ if (process.env.NODE_ENV !== 'production' && !isTestMode) {
 export * from './queries/users';
 export * from './queries/groups';
 export * from './queries/groupClaims';
-export * from './queries/groupVerifications';
 export * from './queries/groupLocations';
 export * from './queries/events';
 export * from './queries/invitations';
 export * from './queries/stats';
 export * from './queries/genealogy';
+export * from './queries/personClaims';
+export * from './queries/images';
 
 // Schema exports (for types and table references)
 export * from './schema';

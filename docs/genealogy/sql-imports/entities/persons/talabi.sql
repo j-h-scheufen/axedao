@@ -37,7 +37,7 @@ INSERT INTO genealogy.person_profiles (
   'de Periperi', -- Location-based context to distinguish from other Talabis
   NULL, -- Proto-mestre; formal titles didn't exist in his era
   NULL, -- No portrait available
-  '[{"type": "website", "url": "https://velhosmestres.com/br/waldemar-1989-2"}, {"type": "website", "url": "http://velhosmestres.com/br/waldemar-1970"}]'::jsonb,
+  ARRAY['https://velhosmestres.com/br/waldemar-1989-2', 'http://velhosmestres.com/br/waldemar-1970']::text[],
   -- Capoeira-specific
   NULL, -- Pre-codification era; Angola/Regional distinction didn't exist
   'Pre-codification era. Practiced traditional Bahian capoeira before the Angola/Regional split. His capoeira would have been the undifferentiated style of urban Salvador in the 1920s-1930s.',

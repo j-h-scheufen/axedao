@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Madame Satã',
   NULL, -- No formal capoeira title; malandro/proto-mestre figure
   'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Madame_Sat%C3%A3_%281972%29.tiff/lossy-page1-220px-Madame_Sat%C3%A3_%281972%29.tiff.jpg',
-  '[{"type": "website", "url": "https://en.wikipedia.org/wiki/Madame_Sat%C3%A3"}, {"type": "website", "url": "https://capoeirawiki.org/wiki/Madame_Sat%C3%A3"}, {"type": "website", "url": "https://capoeirahistory.com/general/madame-satan/"}]'::jsonb,
+  ARRAY['https://en.wikipedia.org/wiki/Madame_Sat%C3%A3', 'https://capoeirawiki.org/wiki/Madame_Sat%C3%A3', 'https://capoeirahistory.com/general/madame-satan/']::text[],
   -- Capoeira-specific
   NULL, -- Pre-codification; carioca capoeira
   'Carioca capoeira combined with navalha (straight razor) fighting - the characteristic combat style of Rio''s malandros. Trained by Sete Coroas in "the fine art of malandragem": the game, the razor, the smooth talk, the rasteira (leg sweep), and valentia (bravado). His physical prowess and agility were legendary - in combat "his hands turned to feet and his feet, in tumbling turns, attacked with the violence of a piledriver."',

@@ -30,7 +30,7 @@ INSERT INTO genealogy.person_profiles (
   'Pajéu',
   NULL, -- Not a legitimate capoeirista; no formal title
   NULL, -- No historical portrait exists
-  '[]'::jsonb,
+  ARRAY[]::text[],
   -- Capoeira-specific
   NULL, -- Not a true capoeirista; pretended to be one
   'Not a legitimate capoeirista despite pretensions. Known for knife fighting (peixeira) rather than capoeira technique. Represented the type of valentão (tough guy) who falsely claimed capoeira skill.',

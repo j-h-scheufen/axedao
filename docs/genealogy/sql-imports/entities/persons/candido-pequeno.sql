@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Cândido Pequeno',
   NULL,  -- No formal title system existed; was recognized as "champion" but this was informal
   NULL,  -- No known portrait
-  '[{"type": "website", "url": "https://velhosmestres.com/en/featured-9"}, {"type": "website", "url": "https://capoeirahistory.com/classical-texts-of-capoeira-history-the-manuscripts-of-mestre-noronha/"}]'::jsonb,
+  ARRAY['https://velhosmestres.com/en/featured-9', 'https://capoeirahistory.com/classical-texts-of-capoeira-history-the-manuscripts-of-mestre-noronha/']::text[],
   -- Capoeira-specific
   'angola'::genealogy.style,
   E'Pre-stylistic era; taught what would later be called Capoeira Angola. Noronha credits him with teaching the solta and rabo-de-arraia techniques.',

@@ -2,7 +2,7 @@ import { queryOptions, useMutation, useQuery, useQueryClient } from '@tanstack/r
 import axios from '@/utils/axios';
 
 import type { ProfileForm } from '@/config/validation-schema';
-import type { AuthMethods, User } from '@/types/model';
+import type { AuthMethods, Group, User } from '@/types/model';
 import { useSession } from 'next-auth/react';
 import type { FileUploadParams, UseFileUploadMutation } from '.';
 import { QUERY_KEYS } from '.';
@@ -33,11 +33,9 @@ export const fetchAuthMethodsOptions = (userId: string | undefined) => {
 const updateCurrentUser = async (data: ProfileForm): Promise<User> =>
   axios.patch('/api/profile', data).then((response) => response.data);
 
-const joinGroup = (groupId: string): Promise<User> =>
-  axios.put(`/api/profile/group/${groupId}`).then((response) => response.data);
-
-const leaveGroup = (groupId: string): Promise<User> =>
-  axios.delete(`/api/profile/group/${groupId}`).then((response) => response.data);
+// Note: Join/leave group functionality has been removed.
+// Group membership is now handled via genealogy statements (member_of predicate).
+// See the genealogy API endpoints for membership management.
 
 export const updateAvatar = async ({ file }: FileUploadParams): Promise<User> => {
   const data = new FormData();
@@ -75,27 +73,8 @@ export const useUpdateCurrentUserMutation = () => {
   });
 };
 
-export const useJoinGroupMutation = () => {
-  const queryClient = useQueryClient();
-  return useMutation({
-    mutationFn: (groupId: string) => joinGroup(groupId),
-    onSuccess: (data) => {
-      queryClient.setQueryData([QUERY_KEYS.currentUser.getUser], data);
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroupMembers, data.groupId] });
-    },
-  });
-};
-
-export const useLeaveGroupMutation = () => {
-  const queryClient = useQueryClient();
-  return useMutation({
-    mutationFn: (groupId: string) => leaveGroup(groupId),
-    onSuccess: (data) => {
-      queryClient.setQueryData([QUERY_KEYS.currentUser.getUser], data);
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroupMembers, data.groupId] });
-    },
-  });
-};
+// Note: useJoinGroupMutation and useLeaveGroupMutation have been removed.
+// Group membership is now handled via genealogy statements (member_of predicate).
 
 export const useUpdateAvatarMutation: UseFileUploadMutation = () => {
   const queryClient = useQueryClient();
@@ -109,4 +88,26 @@ export const useUpdateAvatarMutation: UseFileUploadMutation = () => {
       });
     },
   });
+};
+
+// User's group associations (admin groups and member groups)
+export type UserGroupsResponse = {
+  adminGroups: Group[];
+  memberGroups: Group[];
+};
+
+const fetchUserGroups = (): Promise<UserGroupsResponse> =>
+  axios.get('/api/profile/groups').then((response) => response.data);
+
+export const fetchUserGroupsOptions = (userId: string | undefined) => {
+  return {
+    queryKey: [QUERY_KEYS.currentUser.getGroups],
+    queryFn: () => fetchUserGroups(),
+    enabled: !!userId,
+  } as const;
+};
+
+export const useFetchUserGroups = () => {
+  const { data: session } = useSession();
+  return useQuery(queryOptions(fetchUserGroupsOptions(session?.user.id)));
 };

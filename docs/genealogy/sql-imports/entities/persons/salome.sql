@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Salomé',
   NULL,
   NULL,
-  '[{"type": "website", "url": "https://capoeiraespeto.wordpress.com/2017/11/25/a-mulher-na-capoeira/"}, {"type": "website", "url": "https://www.gratidaocapoeira.com/la-femme-et-la-capoeira/"}]'::jsonb,
+  ARRAY['https://capoeiraespeto.wordpress.com/2017/11/25/a-mulher-na-capoeira/', 'https://www.gratidaocapoeira.com/la-femme-et-la-capoeira/']::text[],
   -- Capoeira-specific
   NULL,
   E'Pre-modern era capoeira; practiced before style distinctions (Angola/Regional) existed. Known for rasteira (leg sweep) technique and batuque skills.',

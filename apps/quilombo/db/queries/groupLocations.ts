@@ -119,8 +119,6 @@ export async function fetchAllGroupLocationsWithGroups(): Promise<
         email: schema.groups.email,
         logo: schema.groups.logo,
         banner: schema.groups.banner,
-        leader: schema.groups.leader,
-        founder: schema.groups.founder,
         links: schema.groups.links,
         createdBy: schema.groups.createdBy,
         claimedBy: schema.groups.claimedBy,

@@ -71,10 +71,7 @@ const UserSelect = ({ disableCurrentUser = true, keyMode = 'id', onSelect, users
         const key = keyMode === 'walletAddress' ? user.walletAddress : user.id;
         return (
           <AutocompleteItem key={key} aria-label={`User ${displayName}`} textValue={displayName}>
-            <div className="flex items-baseline gap-2">
-              <span className="font-medium">{displayName}</span>
-              {user.groupName && <span className="text-xs text-default-400 flex-shrink-0">• {user.groupName}</span>}
-            </div>
+            <span className="font-medium">{displayName}</span>
           </AutocompleteItem>
         );
       }}

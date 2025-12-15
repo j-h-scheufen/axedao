@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Chico Três Pedaços',
   NULL,
   NULL,
-  '[{"type": "website", "url": "https://issuu.com/revistacapoeirando/docs/capoeirando_ed_3/s/29434691"}]'::jsonb,
+  ARRAY['https://issuu.com/revistacapoeirando/docs/capoeirando_ed_3/s/29434691']::text[],
   -- Capoeira-specific
   'angola'::genealogy.style,
   E'Traditional capoeira practitioner from Salvador, Bahia. Active in the First Republic era (1920s-1930s). Known for his street fighting skills and use of capoeira techniques including the cabeçada (headbutt). Style distinctions (Angola/Regional) were just emerging during his active period.',

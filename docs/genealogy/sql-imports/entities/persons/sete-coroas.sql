@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Sete Coroas',
   NULL, -- Proto-mestre; informal malandro teacher
   NULL, -- No portrait available
-  '[{"type": "website", "url": "https://capoeirahistory.com/general/seven-crowns/"}, {"type": "website", "url": "https://vermelho.org.br/2016/02/05/o-samba-transgressor-e-a-vitoria-do-sete-coroas/"}]'::jsonb,
+  ARRAY['https://capoeirahistory.com/general/seven-crowns/', 'https://vermelho.org.br/2016/02/05/o-samba-transgressor-e-a-vitoria-do-sete-coroas/']::text[],
   -- Capoeira-specific
   NULL, -- Pre-codification; carioca capoeira
   'Carioca capoeira of the First Republic era. Known for combining capoeira techniques with navalha (razor) fighting - the characteristic combat style of Rio''s malandros. Part of the older generation that preserved street capoeira after its criminalization in 1890.',

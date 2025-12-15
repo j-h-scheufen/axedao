@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Miguel Camisa Preta',
   NULL, -- Proto-mestre; no formal title in that era
   NULL, -- No historical portrait known
-  '[{"type": "website", "url": "https://capoeirahistory.com/black-shirt/"}]'::jsonb,
+  ARRAY['https://capoeirahistory.com/black-shirt/']::text[],
   -- Capoeira-specific
   NULL, -- Pre-codification era; style distinctions did not exist
   'Pre-codification carioca capoeira. One of the most famous capoeiristas/malandros of early 20th century Rio de Janeiro. Combined capoeira techniques with navalha (razor) fighting, the characteristic combat style of Rio''s street warriors. Also served as cabo eleitoral (electoral agent) in the 1909 elections, continuing the tradition of capoeiristas in political violence.',

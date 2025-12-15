@@ -122,11 +122,14 @@ describe('Profile API Routes', () => {
     });
 
     describe('User Not Found', () => {
-      it('should return 500 when user not found (notFound caught by try-catch)', async () => {
+      it('should return 404 when user not found', async () => {
         mockDb.fetchUser.mockResolvedValue(null);
 
-        await expect(GET()).rejects.toThrow('NEXT_NOT_FOUND');
-        expect(notFound).toHaveBeenCalled();
+        const response = await GET();
+        const body = await getResponseJson(response);
+
+        expect(response.status).toBe(404);
+        expect(body).toEqual({ error: 'Profile not found' });
       });
     });
   });
@@ -273,7 +276,7 @@ describe('Profile API Routes', () => {
     });
 
     describe('User Not Found', () => {
-      it('should throw notFound when user does not exist', async () => {
+      it('should return 404 when user does not exist', async () => {
         mockDb.fetchUser.mockResolvedValue(null);
 
         const request = createMockRequest('http://localhost/api/profile', {
@@ -281,8 +284,11 @@ describe('Profile API Routes', () => {
           body: { name: 'Updated Name' },
         });
 
-        await expect(PATCH(request)).rejects.toThrow('NEXT_NOT_FOUND');
-        expect(notFound).toHaveBeenCalled();
+        const response = await PATCH(request);
+        const body = await getResponseJson(response);
+
+        expect(response.status).toBe(404);
+        expect(body).toEqual({ error: 'Profile not found' });
       });
     });
 

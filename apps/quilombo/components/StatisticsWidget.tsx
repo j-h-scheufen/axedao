@@ -1,7 +1,7 @@
 'use client';
 
 import { Card, CardBody, Skeleton } from '@heroui/react';
-import { Users, CheckCircle, UsersRound, Calendar } from 'lucide-react';
+import { Users, UsersRound, Calendar } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import Link from 'next/link';
@@ -11,7 +11,6 @@ import { PATHS } from '@/config/constants';
 interface PublicStats {
   activeUsers: number;
   totalGroups: number;
-  verifiedGroups: number;
   upcomingEvents: number;
 }
 
@@ -85,8 +84,7 @@ const StatisticsWidget = () => {
     return (
       <div className="w-full mx-auto">
         <h2 className="text-xl font-semibold text-default-900 mb-2 sm:mb-4 text-center">Statistics</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <StatCardSkeleton />
+        <div className="grid grid-cols-3 gap-4">
           <StatCardSkeleton />
           <StatCardSkeleton />
           <StatCardSkeleton />
@@ -102,7 +100,7 @@ const StatisticsWidget = () => {
   return (
     <div className="w-full mx-auto">
       <h2 className="text-xl font-semibold text-default-900 mb-2 sm:mb-4 text-center">Statistics</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div className="grid grid-cols-3 gap-4">
         <StatCard
           icon={<Users size={24} />}
           label="Active Users"
@@ -114,12 +112,6 @@ const StatisticsWidget = () => {
           label="Total Groups"
           value={stats.totalGroups}
           href={`${PATHS.search}?tab=groups`}
-        />
-        <StatCard
-          icon={<CheckCircle size={24} />}
-          label="Verified Groups"
-          value={stats.verifiedGroups}
-          href={`${PATHS.search}?tab=groups&verified=true`}
         />
         <StatCard
           icon={<Calendar size={24} />}

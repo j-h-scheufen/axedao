@@ -8,6 +8,8 @@ import { ClaimSubmittedEmail } from './templates/claim-submitted-email';
 import { ClaimApprovedEmail } from './templates/claim-approved-email';
 import { ClaimRejectedEmail } from './templates/claim-rejected-email';
 import { GroupRegisteredEmail } from './templates/group-registered-email';
+import { PersonClaimApprovedEmail } from './templates/person-claim-approved-email';
+import { PersonClaimRejectedEmail } from './templates/person-claim-rejected-email';
 
 /**
  * Email metadata and configuration
@@ -126,6 +128,28 @@ export const emailTemplates = {
       const baseUrl = getBaseUrl();
       const groupManagementUrl = `${baseUrl}/groups/${groupId}/edit`;
       return GroupRegisteredEmail({ groupName, groupId, userName, groupManagementUrl });
+    },
+  },
+  personClaimApproved: {
+    metadata: {
+      subject: 'Your genealogy profile claim has been approved',
+      from: EMAIL_SENDERS.support,
+      customId: 'person-claim-approved',
+    },
+    getTemplate: (profileDisplayName: string, profileId: string, claimerName: string): ReactElement => {
+      const baseUrl = getBaseUrl();
+      const profileUrl = `${baseUrl}/genealogy/${profileId}`;
+      return PersonClaimApprovedEmail({ profileDisplayName, profileId, claimerName, profileUrl });
+    },
+  },
+  personClaimRejected: {
+    metadata: {
+      subject: 'Your genealogy profile claim has been reviewed',
+      from: EMAIL_SENDERS.support,
+      customId: 'person-claim-rejected',
+    },
+    getTemplate: (profileDisplayName: string, claimerName: string, reason: string): ReactElement => {
+      return PersonClaimRejectedEmail({ profileDisplayName, claimerName, reason });
     },
   },
 } as const;

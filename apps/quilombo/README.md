@@ -374,10 +374,8 @@ For detailed architecture documentation, see [`.claude/CLAUDE.md`](./.claude/CLA
 | DELETE | `/api/groups/[groupId]/logo` | Delete group logo |
 | POST | `/api/groups/[groupId]/banner` | Upload group banner |
 | DELETE | `/api/groups/[groupId]/banner` | Delete group banner |
-| POST | `/api/groups/[groupId]/verify` | Submit group verification |
 | POST | `/api/groups/[groupId]/claim` | Claim group ownership |
 | GET | `/api/groups/[groupId]/members` | List group members |
-| DELETE | `/api/groups/[groupId]/members/[userId]` | Remove member from group |
 | GET | `/api/groups/[groupId]/admins` | List group admins |
 | PUT | `/api/groups/[groupId]/admins/[userId]` | Add group admin |
 | DELETE | `/api/groups/[groupId]/admins/[userId]` | Remove group admin |

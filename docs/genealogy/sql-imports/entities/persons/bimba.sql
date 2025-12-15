@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Bimba',
   'mestre'::genealogy.title,
   'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Mestre_Bimba.jpg/220px-Mestre_Bimba.jpg',
-  '[{"type": "website", "url": "https://en.wikipedia.org/wiki/Manuel_dos_Reis_Machado"}, {"type": "website", "url": "https://www.lalaue.com/learn-capoeira/mestre-bimba/"}, {"type": "website", "url": "https://capoeira.online/history/mestres/mestre-bimba/"}, {"type": "website", "url": "https://fundacaomestrebimba.org.br/"}]'::jsonb,
+  ARRAY['https://en.wikipedia.org/wiki/Manuel_dos_Reis_Machado', 'https://www.lalaue.com/learn-capoeira/mestre-bimba/', 'https://capoeira.online/history/mestres/mestre-bimba/', 'https://fundacaomestrebimba.org.br/']::text[],
   -- Capoeira-specific
   'regional'::genealogy.style,
   E'Creator and founder of Capoeira Regional (Luta Regional Baiana). Synthesized traditional capoeira from his teacher Bentinho with batuque techniques from his father, adding elements of his own invention. Created the first systematic teaching method for capoeira including the "sequências de ensino" (teaching sequences), "cintura desprezada" (grappling sequences), and the charanga bateria (one berimbau, two pandeiros).',

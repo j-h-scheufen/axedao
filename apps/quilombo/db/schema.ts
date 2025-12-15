@@ -60,7 +60,6 @@ export const users = pgTable(
     title: titleEnum('title'),
     avatar: varchar('avatar'),
     email: text('email'),
-    groupId: uuid('group_id').references((): AnyPgColumn => groups.id, { onDelete: 'set null' }),
     phone: varchar('phone'),
     walletAddress: varchar('wallet_address'),
     passwordHash: text('password_hash'),
@@ -79,7 +78,6 @@ export const users = pgTable(
   (t) => [
     index('nickname_idx').on(t.nickname),
     index('title_idx').on(t.title),
-    index('group_idx').on(t.groupId),
     uniqueIndex('email_idx').on(t.email),
     // Note: walletAddress is NOT unique - same wallet can be linked to multiple accounts
     // Wallet connection doesn't prove ownership, only SIWE signature does
@@ -105,10 +103,6 @@ export const groups = pgTable(
     email: text('email'),
     logo: varchar('logo'),
     banner: varchar('banner'),
-    // @deprecated - Will be replaced by `leads` predicate in genealogy schema
-    leader: uuid('leader_id').references((): AnyPgColumn => users.id, { onDelete: 'set null' }),
-    // @deprecated - Will be replaced by `founded` predicate in genealogy schema
-    founder: varchar('founder'),
     links: json('links').$type<SocialLink[]>().notNull().default([]),
     // Group lifecycle tracking for registration & claiming
     createdBy: uuid('created_by').references((): AnyPgColumn => users.id, { onDelete: 'set null' }),
@@ -195,35 +189,21 @@ export const invitations = pgTable(
   ]
 );
 
-// Group verification history - tracks all verifications for future rewards
-export const groupVerifications = pgTable(
-  'group_verifications',
-  {
-    id: uuid('id').defaultRandom().primaryKey(),
-    groupId: uuid('group_id')
-      .notNull()
-      .references(() => groups.id, { onDelete: 'cascade' }),
-    userId: uuid('user_id')
-      .notNull()
-      .references(() => users.id, { onDelete: 'set null' }),
-    verifiedAt: timestamp('verified_at').notNull().defaultNow(),
-    notes: text('notes'), // Optional - what was verified
-  },
-  (t) => [
-    index('group_verification_group_idx').on(t.groupId),
-    index('group_verification_user_idx').on(t.userId),
-    index('group_verification_date_idx').on(t.verifiedAt),
-  ]
-);
-
-// Group claims - tracks all claim requests (pending, approved, rejected)
+// Group claims - tracks claim requests for genealogy group profiles or new group registrations
+// Two scenarios:
+// 1. Claim existing genealogy group: profileId is set, proposedName is null
+// 2. Register new group: profileId is null, proposedName is set
 export const groupClaims = pgTable(
   'group_claims',
   {
     id: uuid('id').defaultRandom().primaryKey(),
-    groupId: uuid('group_id')
-      .notNull()
-      .references(() => groups.id, { onDelete: 'cascade' }),
+    // For claiming existing genealogy groups (Flow 3B)
+    profileId: uuid('profile_id').references(() => groupProfiles.id, { onDelete: 'cascade' }),
+    // For registering new groups (Flow 3A)
+    proposedName: varchar('proposed_name', { length: 255 }),
+    proposedStyle: styleEnum('proposed_style'),
+    website: varchar('website', { length: 500 }),
+    // Claimant
     userId: uuid('user_id')
       .notNull()
       .references(() => users.id, { onDelete: 'set null' }),
@@ -231,22 +211,45 @@ export const groupClaims = pgTable(
     requestedAt: timestamp('requested_at').notNull().defaultNow(),
     processedAt: timestamp('processed_at'),
     processedBy: uuid('processed_by').references(() => users.id, { onDelete: 'set null' }),
-    userMessage: text('user_message').notNull(), // Why they should be admin
+    userMessage: text('user_message').notNull(), // Why they should manage this group
     adminNotes: text('admin_notes'), // Admin's decision notes
   },
   (t) => [
-    index('group_claim_group_idx').on(t.groupId),
+    index('group_claim_profile_idx').on(t.profileId),
     index('group_claim_user_idx').on(t.userId),
     index('group_claim_status_idx').on(t.status),
     index('group_claim_date_idx').on(t.requestedAt),
   ]
 );
 
-export const userGroupRelations = relations(users, ({ one }) => ({
-  group: one(groups, {
-    fields: [users.groupId],
-    references: [groups.id],
-  }),
+// Person profile claims - tracks claim requests for genealogy person profiles
+// Reuses groupClaimStatusEnum since claim statuses are identical
+export const personClaims = pgTable(
+  'person_claims',
+  {
+    id: uuid('id').defaultRandom().primaryKey(),
+    personProfileId: uuid('person_profile_id')
+      .notNull()
+      .references(() => personProfiles.id, { onDelete: 'cascade' }),
+    userId: uuid('user_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'set null' }),
+    status: groupClaimStatusEnum('status').notNull().default('pending'),
+    requestedAt: timestamp('requested_at').notNull().defaultNow(),
+    processedAt: timestamp('processed_at'),
+    processedBy: uuid('processed_by').references(() => users.id, { onDelete: 'set null' }),
+    userMessage: text('user_message').notNull(), // Why they are this person
+    adminNotes: text('admin_notes'), // Admin's decision notes
+  },
+  (t) => [
+    index('person_claim_profile_idx').on(t.personProfileId),
+    index('person_claim_user_idx').on(t.userId),
+    index('person_claim_status_idx').on(t.status),
+    index('person_claim_date_idx').on(t.requestedAt),
+  ]
+);
+
+export const userProfileRelations = relations(users, ({ one }) => ({
   // Relation to genealogy person profile
   personProfile: one(personProfiles, {
     fields: [users.profileId],
@@ -352,8 +355,8 @@ export type SelectOAuthAccount = typeof oauthAccounts.$inferSelect;
 export type InsertInvitation = typeof invitations.$inferInsert;
 export type SelectInvitation = typeof invitations.$inferSelect;
 
-export type InsertGroupVerification = typeof groupVerifications.$inferInsert;
-export type SelectGroupVerification = typeof groupVerifications.$inferSelect;
-
 export type InsertGroupClaim = typeof groupClaims.$inferInsert;
 export type SelectGroupClaim = typeof groupClaims.$inferSelect;
+
+export type InsertPersonClaim = typeof personClaims.$inferInsert;
+export type SelectPersonClaim = typeof personClaims.$inferSelect;

@@ -23,8 +23,11 @@ export const MIN_RADIUS = 20;
 /** Radius increment per era band (foundation eras) */
 export const ERA_BAND_RADIUS = 50;
 
-/** Additional radius per decade in modern era (post-1900) */
+/** Additional radius per decade in modern era (1900-1979) */
 export const MODERN_DECADE_RADIUS = 30;
+
+/** Additional radius per decade in contemporary era (1980+) - larger to accommodate group explosion */
+export const CONTEMPORARY_DECADE_RADIUS = 60;
 
 /**
  * Years to add to birth year for positioning.
@@ -44,11 +47,14 @@ export const ERA_CONFIG = {
     { label: '1800-1849', startYear: 1800, endYear: 1849, band: 1 },
     { label: '1850-1899', startYear: 1850, endYear: 1899, band: 2 },
   ],
-  // Modern era starts at band 3 (year 1900)
+  // Modern era starts at band 3 (year 1900), ends at 1979
   modernStartBand: 3,
   modernStartYear: 1900,
-  // Unknown birth years go to this pseudo-decade
-  unknownYear: 2020,
+  modernEndYear: 1979,
+  // Contemporary era starts at 1980 (larger spacing for group explosion)
+  contemporaryStartYear: 1980,
+  // Unknown birth years go to this pseudo-decade (beyond current timeline)
+  unknownYear: 2030,
 } as const;
 
 /**
@@ -72,10 +78,10 @@ export const DEFAULT_LINK_DISTANCE = 35;
 
 /**
  * Get the era band index for a given year.
- * Foundation eras (pre-1900) use 50-year bands; modern era uses decades.
+ * Foundation eras (pre-1900) use 50-year bands; modern/contemporary eras use decades.
  *
  * @param year - Calendar year to get band for
- * @returns Band index (0 = pre-1800, 1 = 1800-1849, 2 = 1850-1899, 3+ = decades from 1900)
+ * @returns Band index (0 = pre-1800, 1 = 1800-1849, 2 = 1850-1899, 3-10 = 1900s-1970s, 11+ = 1980s+)
  */
 export function getEraBand(year: number): number {
   // Check foundation eras first
@@ -100,7 +106,8 @@ export function getEraBand(year: number): number {
  *
  * Uses continuous proportional placement within each era band:
  * - Foundation eras (pre-1900): Proportional within 50-year bands
- * - Modern era (1900+): Proportional within 10-year decades
+ * - Modern era (1900-1979): Proportional within 10-year decades
+ * - Contemporary era (1980+): Larger spacing per decade
  *
  * @param year - Calendar year to compute radius for
  * @returns Radial distance from center
@@ -126,9 +133,22 @@ export function computeRadialDistanceForYear(year: number): number {
     }
   }
 
-  // Modern era (1900+) - proportional within decades
-  const decadesSince1900 = (year - ERA_CONFIG.modernStartYear) / 10;
+  // Calculate base radius at end of foundation eras
   const foundationRadius = MIN_RADIUS + ERA_CONFIG.modernStartBand * ERA_BAND_RADIUS;
+
+  // Contemporary era (1980+) - larger spacing per decade
+  if (year >= ERA_CONFIG.contemporaryStartYear) {
+    // Modern era spans 8 decades (1900-1979)
+    const modernDecades = (ERA_CONFIG.contemporaryStartYear - ERA_CONFIG.modernStartYear) / 10;
+    const modernRadius = foundationRadius + modernDecades * MODERN_DECADE_RADIUS;
+
+    // Add contemporary era spacing
+    const decadesSince1980 = (year - ERA_CONFIG.contemporaryStartYear) / 10;
+    return modernRadius + decadesSince1980 * CONTEMPORARY_DECADE_RADIUS;
+  }
+
+  // Modern era (1900-1979) - proportional within decades
+  const decadesSince1900 = (year - ERA_CONFIG.modernStartYear) / 10;
   return foundationRadius + decadesSince1900 * MODERN_DECADE_RADIUS;
 }
 

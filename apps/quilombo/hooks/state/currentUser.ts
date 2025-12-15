@@ -4,8 +4,7 @@ import type { Address } from 'viem';
 
 import type { SocialLink } from '@/db/schema';
 import { fetchCurrentUserOptions } from '@/query/currentUser';
-import { fetchGroupOptions } from '@/query/group';
-import type { Group, User } from '@/types/model';
+import type { User } from '@/types/model';
 import { getImageUrl, getUserDisplayName } from '@/utils';
 
 export const triggerCurrentUserIdAtom = atom<string | undefined>();
@@ -14,17 +13,9 @@ export const currentUserAtom = atomWithQuery<User | undefined>((get) =>
   fetchCurrentUserOptions(get(triggerCurrentUserIdAtom))
 );
 
-export const currentUserGroupAtom = atomWithQuery<Group | undefined>((get) =>
-  fetchGroupOptions(get(currentUserGroupIdAtom))
-);
-
 export const currentUserDisplayNameAtom = atom<string>((get) => getUserDisplayName(get(currentUserAtom).data));
 
 export const currentUserIdAtom = atom<string | undefined>((get) => get(currentUserAtom).data?.id);
-
-export const currentUserGroupIdAtom = atom<string | undefined>(
-  (get) => get(currentUserAtom).data?.groupId ?? undefined
-);
 
 export const currentUserLinksAtom = atom<SocialLink[] | undefined>((get) => get(currentUserAtom).data?.links);
 

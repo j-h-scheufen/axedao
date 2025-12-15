@@ -2,6 +2,7 @@
  * API Route Tests: GET/PATCH/DELETE /api/groups/[groupId]
  *
  * Tests group retrieval, updates, and deletion with authentication and authorization.
+ * PATCH now handles combined updates to both genealogy.group_profiles and public.groups.
  */
 
 import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
@@ -23,22 +24,23 @@ describe('GET/PATCH/DELETE /api/groups/[groupId]', () => {
   let mockDb: any;
 
   const testGroupId = 'group-123';
+  const testProfileId = 'profile-456';
   const testUserId = 'user-123';
   const _testAdminId = 'admin-456';
 
   const mockGroup = {
     id: testGroupId,
+    profileId: testProfileId,
     name: 'Test Group',
     description: 'A test group',
-    founder: 'John Doe',
     email: 'group@example.com',
     style: 'angola',
-    verified: true,
     links: [{ type: 'website', url: 'https://example.com' }],
     createdAt: new Date('2025-01-01'),
     claimedAt: new Date('2025-01-02'),
     createdBy: testUserId,
     claimedBy: testUserId,
+    adminCount: 1,
   };
 
   const mockParams = { groupId: testGroupId };
@@ -61,12 +63,14 @@ describe('GET/PATCH/DELETE /api/groups/[groupId]', () => {
       fetchGroup: vi.fn().mockResolvedValue(mockGroup),
       canUserManageGroup: vi.fn().mockResolvedValue(true),
       updateGroup: vi.fn().mockResolvedValue({ ...mockGroup, name: 'Updated Group' }),
+      updateGroupProfile: vi.fn().mockResolvedValue(undefined),
       deleteGroup: vi.fn().mockResolvedValue(undefined),
     };
 
     (dbModule.fetchGroup as typeof mockDb.fetchGroup) = mockDb.fetchGroup;
     (dbModule.canUserManageGroup as typeof mockDb.canUserManageGroup) = mockDb.canUserManageGroup;
     (dbModule.updateGroup as typeof mockDb.updateGroup) = mockDb.updateGroup;
+    (dbModule.updateGroupProfile as typeof mockDb.updateGroupProfile) = mockDb.updateGroupProfile;
     (dbModule.deleteGroup as typeof mockDb.deleteGroup) = mockDb.deleteGroup;
 
     // Mock notFound() to throw error (simulating Next.js behavior)
@@ -157,12 +161,21 @@ describe('GET/PATCH/DELETE /api/groups/[groupId]', () => {
   });
 
   describe('PATCH /api/groups/[groupId]', () => {
+    // New combined schema: identity fields (genealogy) + operational fields (public.groups)
     const validUpdateData = {
+      // Identity fields (genealogy.group_profiles)
       name: 'Updated Group',
-      description: 'Updated description',
-      founder: 'Jane Doe',
-      email: 'updated@example.com',
       style: 'regional',
+      descriptionEn: 'Updated description in English',
+      descriptionPt: 'Descrição atualizada em Português',
+      philosophyEn: 'Our philosophy',
+      philosophyPt: 'Nossa filosofia',
+      historyEn: 'Our history',
+      historyPt: 'Nossa história',
+      publicLinks: ['https://wikipedia.org/example'],
+      isActive: true,
+      // Operational fields (public.groups)
+      email: 'updated@example.com',
       links: [{ url: 'https://updated.com', type: 'website' }],
     };
 
@@ -247,49 +260,102 @@ describe('GET/PATCH/DELETE /api/groups/[groupId]', () => {
     });
 
     describe('Input Validation', () => {
-      it('should throw validation error when name is missing', async () => {
+      it('should accept partial updates (all fields optional)', async () => {
+        // New API allows partial updates - only send what needs to change
         const request = createMockRequest(`http://localhost/api/groups/${testGroupId}`, {
           method: 'PATCH',
-          body: { description: 'Updated description' },
+          body: { descriptionEn: 'Only updating description' },
         });
 
-        await expect(PATCH(request, { params: Promise.resolve(mockParams) })).rejects.toThrow();
+        const response = await PATCH(request, { params: Promise.resolve(mockParams) });
+        expect(response.status).toBe(200);
       });
 
-      it('should throw validation error when email is invalid', async () => {
+      it('should return 400 when email is invalid', async () => {
         const request = createMockRequest(`http://localhost/api/groups/${testGroupId}`, {
           method: 'PATCH',
-          body: { ...validUpdateData, email: 'not-an-email' },
+          body: { email: 'not-an-email' },
         });
 
-        await expect(PATCH(request, { params: Promise.resolve(mockParams) })).rejects.toThrow();
+        const response = await PATCH(request, { params: Promise.resolve(mockParams) });
+        const body = await getResponseJson(response);
+
+        expect(response.status).toBe(400);
+        expect(body).toHaveProperty('error');
       });
 
-      it('should throw validation error when description exceeds 500 characters', async () => {
+      it('should return 400 when descriptionEn exceeds 2000 characters', async () => {
         const request = createMockRequest(`http://localhost/api/groups/${testGroupId}`, {
           method: 'PATCH',
-          body: { ...validUpdateData, description: 'a'.repeat(501) },
+          body: { descriptionEn: 'a'.repeat(2001) },
         });
 
-        await expect(PATCH(request, { params: Promise.resolve(mockParams) })).rejects.toThrow();
+        const response = await PATCH(request, { params: Promise.resolve(mockParams) });
+        const body = await getResponseJson(response);
+
+        expect(response.status).toBe(400);
+        expect(body).toHaveProperty('error');
       });
 
-      it('should throw validation error when style is invalid', async () => {
+      it('should return 400 when philosophyEn exceeds 5000 characters', async () => {
         const request = createMockRequest(`http://localhost/api/groups/${testGroupId}`, {
           method: 'PATCH',
-          body: { ...validUpdateData, style: 'invalid-style' },
+          body: { philosophyEn: 'a'.repeat(5001) },
         });
 
-        await expect(PATCH(request, { params: Promise.resolve(mockParams) })).rejects.toThrow();
+        const response = await PATCH(request, { params: Promise.resolve(mockParams) });
+        const body = await getResponseJson(response);
+
+        expect(response.status).toBe(400);
+        expect(body).toHaveProperty('error');
+      });
+
+      it('should return 400 when historyEn exceeds 10000 characters', async () => {
+        const request = createMockRequest(`http://localhost/api/groups/${testGroupId}`, {
+          method: 'PATCH',
+          body: { historyEn: 'a'.repeat(10001) },
+        });
+
+        const response = await PATCH(request, { params: Promise.resolve(mockParams) });
+        const body = await getResponseJson(response);
+
+        expect(response.status).toBe(400);
+        expect(body).toHaveProperty('error');
+      });
+
+      it('should return 400 when name is less than 2 characters', async () => {
+        const request = createMockRequest(`http://localhost/api/groups/${testGroupId}`, {
+          method: 'PATCH',
+          body: { name: 'A' },
+        });
+
+        const response = await PATCH(request, { params: Promise.resolve(mockParams) });
+        const body = await getResponseJson(response);
+
+        expect(response.status).toBe(400);
+        expect(body).toHaveProperty('error');
+      });
+
+      it('should return 400 when style is invalid', async () => {
+        const request = createMockRequest(`http://localhost/api/groups/${testGroupId}`, {
+          method: 'PATCH',
+          body: { style: 'invalid-style' },
+        });
+
+        const response = await PATCH(request, { params: Promise.resolve(mockParams) });
+        const body = await getResponseJson(response);
+
+        expect(response.status).toBe(400);
+        expect(body).toHaveProperty('error');
       });
 
       it('should accept all valid styles', async () => {
-        const validStyles = ['angola', 'regional', 'contemporanea'];
+        const validStyles = ['angola', 'regional', 'contemporanea', 'mixed'];
 
         for (const style of validStyles) {
           const request = createMockRequest(`http://localhost/api/groups/${testGroupId}`, {
             method: 'PATCH',
-            body: { ...validUpdateData, style },
+            body: { style },
           });
 
           const response = await PATCH(request, { params: Promise.resolve(mockParams) });
@@ -297,71 +363,109 @@ describe('GET/PATCH/DELETE /api/groups/[groupId]', () => {
         }
       });
 
-      it('should accept nullable fields', async () => {
+      it('should accept nullable style', async () => {
         const request = createMockRequest(`http://localhost/api/groups/${testGroupId}`, {
           method: 'PATCH',
-          body: {
-            name: 'Updated Group',
-            founder: null,
-            email: null,
-            style: null,
-          },
+          body: { style: null },
         });
 
         const response = await PATCH(request, { params: Promise.resolve(mockParams) });
-
         expect(response.status).toBe(200);
       });
     });
 
-    describe('Business Logic', () => {
-      it('should update group with all fields', async () => {
+    describe('Business Logic - Combined Updates', () => {
+      it('should update both genealogy profile and operational fields', async () => {
         const request = createMockRequest(`http://localhost/api/groups/${testGroupId}`, {
           method: 'PATCH',
           body: validUpdateData,
         });
 
         const response = await PATCH(request, { params: Promise.resolve(mockParams) });
-        const body = await getResponseJson(response);
 
         expect(response.status).toBe(200);
-        expect(mockDb.updateGroup).toHaveBeenCalledWith({
-          ...validUpdateData,
-          id: testGroupId,
-        });
-        expect(body).toEqual(
+
+        // Should update genealogy profile with identity fields
+        expect(mockDb.updateGroupProfile).toHaveBeenCalledWith(
+          testProfileId,
+          expect.objectContaining({
+            name: 'Updated Group',
+            style: 'regional',
+            descriptionEn: 'Updated description in English',
+            descriptionPt: 'Descrição atualizada em Português',
+          })
+        );
+
+        // Should update public.groups with operational fields + legacy sync
+        expect(mockDb.updateGroup).toHaveBeenCalledWith(
           expect.objectContaining({
             id: testGroupId,
+            email: 'updated@example.com',
+            links: [{ url: 'https://updated.com', type: 'website' }],
+            // Legacy sync fields
             name: 'Updated Group',
+            style: 'regional',
           })
         );
       });
 
-      it('should accept partial updates', async () => {
-        const partialUpdate = {
-          name: 'Partially Updated',
-          description: 'New description',
-        };
+      it('should only update genealogy profile when identity fields change', async () => {
+        const request = createMockRequest(`http://localhost/api/groups/${testGroupId}`, {
+          method: 'PATCH',
+          body: { name: 'New Name', descriptionEn: 'New description' },
+        });
+
+        await PATCH(request, { params: Promise.resolve(mockParams) });
+
+        expect(mockDb.updateGroupProfile).toHaveBeenCalledWith(
+          testProfileId,
+          expect.objectContaining({
+            name: 'New Name',
+            descriptionEn: 'New description',
+          })
+        );
+      });
+
+      it('should only update operational fields when only email/links change', async () => {
+        const request = createMockRequest(`http://localhost/api/groups/${testGroupId}`, {
+          method: 'PATCH',
+          body: { email: 'new@example.com' },
+        });
+
+        await PATCH(request, { params: Promise.resolve(mockParams) });
+
+        // Genealogy profile update called but only with non-identity fields filtered out
+        expect(mockDb.updateGroup).toHaveBeenCalledWith(
+          expect.objectContaining({
+            id: testGroupId,
+            email: 'new@example.com',
+          })
+        );
+      });
+
+      it('should skip genealogy update when group has no profileId', async () => {
+        // Simulate a legacy group without genealogy profile
+        mockDb.fetchGroup.mockResolvedValue({ ...mockGroup, profileId: null });
 
         const request = createMockRequest(`http://localhost/api/groups/${testGroupId}`, {
           method: 'PATCH',
-          body: partialUpdate,
+          body: { name: 'Updated', email: 'new@example.com' },
         });
 
-        const response = await PATCH(request, { params: Promise.resolve(mockParams) });
+        await PATCH(request, { params: Promise.resolve(mockParams) });
 
-        expect(response.status).toBe(200);
-        expect(mockDb.updateGroup).toHaveBeenCalledWith({
-          ...partialUpdate,
-          id: testGroupId,
-        });
+        // Should NOT call updateGroupProfile
+        expect(mockDb.updateGroupProfile).not.toHaveBeenCalled();
+
+        // Should still update public.groups
+        expect(mockDb.updateGroup).toHaveBeenCalled();
       });
 
       it('should remove undefined fields from update', async () => {
         const updateWithUndefined = {
           name: 'Updated',
-          description: 'New description',
-          founder: undefined, // Should be removed
+          descriptionEn: 'New description',
+          email: undefined, // Should be removed
         };
 
         const request = createMockRequest(`http://localhost/api/groups/${testGroupId}`, {
@@ -371,19 +475,30 @@ describe('GET/PATCH/DELETE /api/groups/[groupId]', () => {
 
         await PATCH(request, { params: Promise.resolve(mockParams) });
 
-        // Check that undefined fields are not passed to updateGroup
-        const updateCall = mockDb.updateGroup.mock.calls[0][0];
-        expect(updateCall).not.toHaveProperty('founder');
-        expect(updateCall).toEqual({
-          name: 'Updated',
-          description: 'New description',
-          id: testGroupId,
-        });
+        // Check that undefined fields are not passed
+        const genealogyCall = mockDb.updateGroupProfile.mock.calls[0][1];
+        expect(genealogyCall).not.toHaveProperty('email');
       });
     });
 
     describe('Error Handling', () => {
-      it('should return 500 when database throws error', async () => {
+      it('should return 500 when updateGroupProfile throws error', async () => {
+        mockDb.updateGroupProfile.mockRejectedValue(new Error('Database error'));
+
+        const request = createMockRequest(`http://localhost/api/groups/${testGroupId}`, {
+          method: 'PATCH',
+          body: validUpdateData,
+        });
+
+        const response = await PATCH(request, { params: Promise.resolve(mockParams) });
+        const body = await getResponseJson(response);
+
+        expect(response.status).toBe(500);
+        expect(body).toHaveProperty('error', true);
+        expect(body).toHaveProperty('message');
+      });
+
+      it('should return 500 when updateGroup throws error', async () => {
         mockDb.updateGroup.mockRejectedValue(new Error('Database error'));
 
         const request = createMockRequest(`http://localhost/api/groups/${testGroupId}`, {

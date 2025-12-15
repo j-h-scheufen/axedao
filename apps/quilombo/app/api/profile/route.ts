@@ -1,6 +1,5 @@
 import { isUndefined, omitBy } from 'lodash';
 import { getServerSession } from 'next-auth';
-import { notFound } from 'next/navigation';
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { nextAuthOptions } from '@/config/next-auth-options';
@@ -20,7 +19,9 @@ export async function GET() {
   }
 
   const user = await fetchUser(session.user.id);
-  if (!user) return notFound();
+  if (!user) {
+    return NextResponse.json({ error: 'Profile not found' }, { status: 404 });
+  }
 
   return Response.json(user);
 }
@@ -49,7 +50,9 @@ export async function PATCH(request: NextRequest) {
   }
 
   const existingUser = await fetchUser(session.user.id);
-  if (!existingUser) return notFound();
+  if (!existingUser) {
+    return NextResponse.json({ error: 'Profile not found' }, { status: 404 });
+  }
   try {
     const profileData = formData as Omit<ProfileForm, 'id' | 'avatar'>;
     const cleanedProfileData = omitBy(profileData, isUndefined);

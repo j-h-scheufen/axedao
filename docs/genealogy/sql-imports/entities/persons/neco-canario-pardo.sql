@@ -35,9 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Neco Canário Pardo',
   NULL,
   NULL,
-  '[
-    {"type": "website", "url": "https://velhosmestres.com/br/besouro"}
-  ]'::jsonb,
+  ARRAY['https://velhosmestres.com/br/besouro']::text[],
   -- Capoeira-specific
   NULL,
   'Pre-modern era capoeira; practiced before style distinctions (Angola/Regional) existed. Known for machete expertise and the traditional capoeira of Santo Amaro da Purificação.',

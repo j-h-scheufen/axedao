@@ -8,7 +8,7 @@ INSERT INTO genealogy.group_profiles (
   name,
   style,
   logo,
-  links,
+  public_links,
   -- Identity enhancements
   name_aliases,
   name_history,
@@ -36,7 +36,7 @@ INSERT INTO genealogy.group_profiles (
   'Gengibirra',
   'angola'::genealogy.style,
   NULL,  -- No logo available for historical group
-  '[{"type": "website", "url": "https://velhosmestres.com/en/featured-9"}, {"type": "website", "url": "https://nossa-tribo.com/mestre-totonho-de-mare/"}, {"type": "website", "url": "https://capoeirahistory.com/classical-texts-of-capoeira-history-the-manuscripts-of-mestre-noronha/"}, {"type": "website", "url": "https://en.wikipedia.org/wiki/Capoeira_Angola"}]'::jsonb,
+  ARRAY['https://velhosmestres.com/en/featured-9', 'https://nossa-tribo.com/mestre-totonho-de-mare/', 'https://capoeirahistory.com/classical-texts-of-capoeira-history-the-manuscripts-of-mestre-noronha/', 'https://en.wikipedia.org/wiki/Capoeira_Angola']::text[],
   -- Identity enhancements
   ARRAY['Centro Nacional de Capoeira de Origem Angola', 'Centro de Capoeira Angola', 'Roda do Gengibirra', 'Roda de Gengibirra', 'Jinjibirra'],
   '[{"name": "Centro Nacional de Capoeira de Origem Angola", "startedAt": "1920-01-01", "endedAt": "1941-02-23", "context": "Original name used by founders"}, {"name": "CECA (handed to Pastinha)", "startedAt": "1941-02-23", "context": "Transitioned to Mestre Pastinha, registered as Centro Esportivo de Capoeira Angola"}]'::jsonb,
@@ -62,26 +62,4 @@ INSERT INTO genealogy.group_profiles (
   -- Status
   false,  -- is_active (transitioned to CECA in 1941)
   '1941-02-23'::date  -- dissolved_at (handed to Pastinha)
-)
-ON CONFLICT (name) DO UPDATE SET
-  style = EXCLUDED.style,
-  logo = EXCLUDED.logo,
-  links = EXCLUDED.links,
-  name_aliases = EXCLUDED.name_aliases,
-  name_history = EXCLUDED.name_history,
-  founded_year = EXCLUDED.founded_year,
-  founded_year_precision = EXCLUDED.founded_year_precision,
-  founded_location = EXCLUDED.founded_location,
-  description_en = EXCLUDED.description_en,
-  description_pt = EXCLUDED.description_pt,
-  style_notes_en = EXCLUDED.style_notes_en,
-  style_notes_pt = EXCLUDED.style_notes_pt,
-  philosophy_en = EXCLUDED.philosophy_en,
-  philosophy_pt = EXCLUDED.philosophy_pt,
-  history_en = EXCLUDED.history_en,
-  history_pt = EXCLUDED.history_pt,
-  legal_structure = EXCLUDED.legal_structure,
-  is_headquarters = EXCLUDED.is_headquarters,
-  is_active = EXCLUDED.is_active,
-  dissolved_at = EXCLUDED.dissolved_at,
-  updated_at = NOW();
+);

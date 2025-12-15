@@ -62,7 +62,7 @@ function convertDates(obj: unknown): unknown {
  *
  * // Date fields are automatically converted
  * const response = await axios.get('/api/groups/123');
- * // response.data.lastVerifiedAt is a Date object, not a string
+ * // response.data.createdAt is a Date object, not a string
  */
 axios.interceptors.response.use(
   (response) => {

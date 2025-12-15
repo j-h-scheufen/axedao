@@ -3,18 +3,19 @@
  * Group CRUD operations and membership management
  */
 
-import { and, count, eq, ilike, ne, notExists, sql, type SQLWrapper } from 'drizzle-orm';
+import { and, count, eq, ilike, sql, type SQLWrapper } from 'drizzle-orm';
 
 import type { GroupSearchParamsWithFilters } from '@/config/validation-schema';
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import * as schema from '@/db/schema';
+import { groupProfiles, statements } from '@/db/schema/genealogy';
 import { db } from '@/db';
 import type { Group } from '@/types/model';
 import { applyUserPrivacyFilter } from '@/utils';
 
 /**
  * Searches groups with optional filters and pagination.
- * Includes country codes and verification status.
+ * Includes country codes.
  *
  * @param options - Search parameters including searchTerm, filters, pagination
  * @returns Paginated list of groups with total count
@@ -23,27 +24,10 @@ export async function searchGroups(
   options: GroupSearchParamsWithFilters
 ): Promise<{ rows: Group[]; totalCount: number }> {
   const { pageSize = QUERY_DEFAULT_PAGE_SIZE, offset = 0, searchTerm, filters } = options;
-  const { verified, countryCodes, styles } = filters || {};
+  const { countryCodes, styles } = filters || {};
 
   const sqlFilters: (SQLWrapper | undefined)[] = [];
   if (searchTerm) sqlFilters.push(ilike(schema.groups.name, `%${searchTerm}%`));
-
-  // Filter by verification status using subquery on group_verifications
-  if (typeof verified === 'boolean') {
-    if (verified) {
-      // Show only verified groups (have at least one verification)
-      sqlFilters.push(sql`EXISTS (
-        SELECT 1 FROM ${schema.groupVerifications}
-        WHERE ${schema.groupVerifications.groupId} = ${schema.groups.id}
-      )`);
-    } else {
-      // Show only unverified groups (no verifications)
-      sqlFilters.push(sql`NOT EXISTS (
-        SELECT 1 FROM ${schema.groupVerifications}
-        WHERE ${schema.groupVerifications.groupId} = ${schema.groups.id}
-      )`);
-    }
-  }
 
   // Filter by country codes
   if (countryCodes && countryCodes.length > 0) {
@@ -67,26 +51,19 @@ export async function searchGroups(
     .select({
       id: schema.groups.id,
       createdAt: schema.groups.createdAt,
-      name: schema.groups.name,
-      description: schema.groups.description,
-      style: schema.groups.style,
+      // Identity fields from genealogy (source of truth)
+      name: groupProfiles.name,
+      description: groupProfiles.descriptionEn,
+      style: groupProfiles.style,
+      logo: groupProfiles.logo,
+      // Operational fields from public.groups
+      links: schema.groups.links, // SocialLinks (ephemeral contact/social info)
       email: schema.groups.email,
-      logo: schema.groups.logo,
       banner: schema.groups.banner,
-      leader: schema.groups.leader,
-      founder: schema.groups.founder,
-      links: schema.groups.links,
       createdBy: schema.groups.createdBy,
       claimedBy: schema.groups.claimedBy,
       claimedAt: schema.groups.claimedAt,
       profileId: schema.groups.profileId,
-
-      // Compute lastVerifiedAt (returns string ISO timestamp)
-      lastVerifiedAt: sql<string | null>`(
-        SELECT MAX(${schema.groupVerifications.verifiedAt})
-        FROM ${schema.groupVerifications}
-        WHERE ${schema.groupVerifications.groupId} = ${schema.groups.id}
-      )`.as('last_verified_at'),
 
       // Compute adminCount
       adminCount: sql<number>`(
@@ -101,16 +78,16 @@ export async function searchGroups(
       ),
     })
     .from(schema.groups)
+    .innerJoin(groupProfiles, eq(schema.groups.profileId, groupProfiles.id))
     .leftJoin(schema.groupLocations, eq(schema.groups.id, schema.groupLocations.groupId))
     .where(sqlFilters.length ? and(...sqlFilters) : undefined)
-    .groupBy(schema.groups.id)
+    .groupBy(schema.groups.id, groupProfiles.id)
     .limit(pageSize)
     .offset(offset);
 
-  // Convert lastVerifiedAt strings to Date objects, ensure adminCount is a number
+  // Ensure adminCount is a number
   const rows = results.map((row) => ({
     ...row,
-    lastVerifiedAt: row.lastVerifiedAt ? new Date(row.lastVerifiedAt) : null,
     adminCount: Number(row.adminCount),
     countryCodes: row.countryCodes || [], // Ensure array even if null
   })) as Group[];
@@ -139,6 +116,8 @@ export async function searchGroups(
 
 /**
  * Efficiently fetch a single group and its countryCodes using a single query with aggregation.
+ * Identity data (name, description, style, logo, links) is pulled from genealogy.group_profiles
+ * as the source of truth. All groups must have a linked genealogy profile.
  *
  * @param groupId - ID of the group to fetch
  * @returns Group with country codes or undefined if not found
@@ -148,28 +127,19 @@ export async function fetchGroup(groupId: string): Promise<Group | undefined> {
     .select({
       id: schema.groups.id,
       createdAt: schema.groups.createdAt,
-      name: schema.groups.name,
-      description: schema.groups.description,
-      style: schema.groups.style,
+      // Identity fields from genealogy (source of truth)
+      name: groupProfiles.name,
+      description: groupProfiles.descriptionEn,
+      style: groupProfiles.style,
+      logo: groupProfiles.logo,
+      // Operational fields from public.groups
+      links: schema.groups.links, // SocialLinks (ephemeral contact/social info)
       email: schema.groups.email,
-      logo: schema.groups.logo,
       banner: schema.groups.banner,
-      leader: schema.groups.leader,
-      founder: schema.groups.founder,
-      links: schema.groups.links,
       createdBy: schema.groups.createdBy,
       claimedBy: schema.groups.claimedBy,
       claimedAt: schema.groups.claimedAt,
       profileId: schema.groups.profileId,
-
-      // Get most recent verification date (returns string ISO timestamp)
-      lastVerifiedAt: sql<string | null>`
-        (
-          SELECT MAX(${schema.groupVerifications.verifiedAt})
-          FROM ${schema.groupVerifications}
-          WHERE ${schema.groupVerifications.groupId} = ${schema.groups.id}
-        )
-      `.as('last_verified_at'),
 
       // Get admin count
       adminCount: sql<number>`
@@ -185,48 +155,64 @@ export async function fetchGroup(groupId: string): Promise<Group | undefined> {
       ),
     })
     .from(schema.groups)
+    .innerJoin(groupProfiles, eq(schema.groups.profileId, groupProfiles.id))
     .leftJoin(schema.groupLocations, eq(schema.groups.id, schema.groupLocations.groupId))
     .where(eq(schema.groups.id, groupId))
-    .groupBy(schema.groups.id)
+    .groupBy(schema.groups.id, groupProfiles.id)
     .limit(1);
 
   if (!result[0]) return undefined;
 
-  // Convert lastVerifiedAt string to Date object and ensure adminCount is a number
+  // Ensure adminCount is a number
   const group = result[0];
   return {
     ...group,
-    lastVerifiedAt: group.lastVerifiedAt ? new Date(group.lastVerifiedAt) : null,
     adminCount: Number(group.adminCount),
   } as Group;
 }
 
 /**
- * Checks if a user is a regular member of a group (not leader or admin).
+ * Checks if a user is a member of a group via genealogy relationship.
+ * Membership is defined by a `member_of` statement from user's person profile to the group's profile.
  *
- * @param groupId - ID of the group
+ * @param groupId - ID of the public.groups entry
  * @param userId - ID of the user
- * @returns True if user is a regular member (not leader/admin)
+ * @returns True if user has a member_of relationship to the group
  */
 export async function isGroupMember(groupId: string, userId: string): Promise<boolean> {
-  const result = await db
-    .select()
+  // Get user's genealogy profileId and group's genealogy profileId
+  const user = await db
+    .select({ profileId: schema.users.profileId })
     .from(schema.users)
-    .fullJoin(schema.groups, eq(schema.groups.id, groupId))
+    .where(eq(schema.users.id, userId))
+    .limit(1);
+
+  const group = await db
+    .select({ profileId: schema.groups.profileId })
+    .from(schema.groups)
+    .where(eq(schema.groups.id, groupId))
+    .limit(1);
+
+  if (!user[0]?.profileId || !group[0]?.profileId) {
+    return false;
+  }
+
+  // Check for member_of statement
+  const membership = await db
+    .select({ id: statements.id })
+    .from(statements)
     .where(
       and(
-        eq(schema.users.id, userId),
-        eq(schema.users.groupId, groupId),
-        ne(schema.groups.leader, userId),
-        notExists(
-          db
-            .select()
-            .from(schema.groupAdmins)
-            .where(and(eq(schema.groupAdmins.userId, userId), eq(schema.groupAdmins.groupId, groupId)))
-        )
+        eq(statements.subjectType, 'person'),
+        eq(statements.subjectId, user[0].profileId),
+        eq(statements.predicate, 'member_of'),
+        eq(statements.objectType, 'group'),
+        eq(statements.objectId, group[0].profileId)
       )
-    );
-  return !!result.length;
+    )
+    .limit(1);
+
+  return membership.length > 0;
 }
 
 /**
@@ -276,16 +262,59 @@ export async function canUserManageGroup(groupId: string, userId: string): Promi
 }
 
 /**
- * Fetches all members of a group.
+ * Fetches all members of a group via genealogy relationships.
+ * Members are users whose person profile has a `member_of` statement to the group's profile.
  *
- * @param groupId - ID of the group
- * @returns List of users in the group
+ * @param groupId - ID of the public.groups entry
+ * @returns List of users who are members of the group
  */
 export async function fetchGroupMembers(groupId: string): Promise<schema.SelectUser[]> {
-  return await db
-    .select()
-    .from(schema.users)
-    .where(and(eq(schema.users.groupId, groupId)));
+  // Get group's genealogy profileId
+  const group = await db
+    .select({ profileId: schema.groups.profileId })
+    .from(schema.groups)
+    .where(eq(schema.groups.id, groupId))
+    .limit(1);
+
+  if (!group[0]?.profileId) {
+    return [];
+  }
+
+  // Find all person profiles with member_of relationship to this group profile
+  // Then join to users who have claimed those person profiles
+  const members = await db
+    .select({
+      id: schema.users.id,
+      createdAt: schema.users.createdAt,
+      updatedAt: schema.users.updatedAt,
+      name: schema.users.name,
+      nickname: schema.users.nickname,
+      title: schema.users.title,
+      avatar: schema.users.avatar,
+      email: schema.users.email,
+      phone: schema.users.phone,
+      walletAddress: schema.users.walletAddress,
+      passwordHash: schema.users.passwordHash,
+      emailVerifiedAt: schema.users.emailVerifiedAt,
+      accountStatus: schema.users.accountStatus,
+      isGlobalAdmin: schema.users.isGlobalAdmin,
+      links: schema.users.links,
+      hideEmail: schema.users.hideEmail,
+      invitedBy: schema.users.invitedBy,
+      profileId: schema.users.profileId,
+    })
+    .from(statements)
+    .innerJoin(schema.users, eq(schema.users.profileId, statements.subjectId))
+    .where(
+      and(
+        eq(statements.subjectType, 'person'),
+        eq(statements.predicate, 'member_of'),
+        eq(statements.objectType, 'group'),
+        eq(statements.objectId, group[0].profileId)
+      )
+    );
+
+  return members;
 }
 
 /**
@@ -335,15 +364,6 @@ export async function deleteGroup(groupId: string) {
 }
 
 /**
- * Removes a user from their group by setting groupId to null.
- *
- * @param memberId - ID of the user to remove from group
- */
-export async function removeGroupMember(memberId: string) {
-  await db.update(schema.users).set({ groupId: null }).where(eq(schema.users.id, memberId));
-}
-
-/**
  * Updates an existing group.
  *
  * @param group - Partial group data to update (must include id)
@@ -373,4 +393,123 @@ export async function removeGroupAdmin(groupId: string, adminId: string) {
   await db
     .delete(schema.groupAdmins)
     .where(and(eq(schema.groupAdmins.groupId, groupId), eq(schema.groupAdmins.userId, adminId)));
+}
+
+/**
+ * Finds the public.groups entry that references a genealogy profile.
+ *
+ * @param profileId - ID of the genealogy group profile
+ * @returns The group ID or null if no groups entry references this profile
+ */
+export async function findGroupByProfileId(profileId: string): Promise<string | null> {
+  const result = await db
+    .select({ id: schema.groups.id })
+    .from(schema.groups)
+    .where(eq(schema.groups.profileId, profileId))
+    .limit(1);
+
+  return result.length > 0 ? result[0].id : null;
+}
+
+/**
+ * Checks if a user can manage a genealogy group profile.
+ * A user can manage a genealogy profile if they are an admin of the public.groups entry
+ * that references this profile.
+ *
+ * @param profileId - ID of the genealogy group profile
+ * @param userId - ID of the user
+ * @returns True if user is authorized to manage the genealogy profile
+ */
+export async function canUserManageGenealogyGroupProfile(profileId: string, userId: string): Promise<boolean> {
+  const groupId = await findGroupByProfileId(profileId);
+  if (!groupId) return false;
+
+  return canUserManageGroup(groupId, userId);
+}
+
+/**
+ * Fetches all groups where a user is an admin.
+ * Used to display "Groups I Manage" section on user profile.
+ *
+ * @param userId - ID of the user
+ * @returns List of groups where user is admin
+ */
+export async function fetchGroupsWhereUserIsAdmin(userId: string): Promise<Group[]> {
+  const results = await db
+    .select({
+      id: schema.groups.id,
+      createdAt: schema.groups.createdAt,
+      // Identity fields from genealogy (source of truth)
+      name: groupProfiles.name,
+      description: groupProfiles.descriptionEn,
+      style: groupProfiles.style,
+      logo: groupProfiles.logo,
+      // Operational fields from public.groups
+      links: schema.groups.links,
+      email: schema.groups.email,
+      banner: schema.groups.banner,
+      createdBy: schema.groups.createdBy,
+      claimedBy: schema.groups.claimedBy,
+      claimedAt: schema.groups.claimedAt,
+      profileId: schema.groups.profileId,
+    })
+    .from(schema.groupAdmins)
+    .innerJoin(schema.groups, eq(schema.groupAdmins.groupId, schema.groups.id))
+    .innerJoin(groupProfiles, eq(schema.groups.profileId, groupProfiles.id))
+    .where(eq(schema.groupAdmins.userId, userId));
+
+  return results as Group[];
+}
+
+/**
+ * Fetches all groups where a user is a member via genealogy statements.
+ * Membership is defined by a `member_of` statement from user's person profile to the group's profile.
+ *
+ * @param userId - ID of the user
+ * @returns List of groups where user has member_of relationship
+ */
+export async function fetchGroupMembershipsForUser(userId: string): Promise<Group[]> {
+  // Get user's genealogy profileId
+  const user = await db
+    .select({ profileId: schema.users.profileId })
+    .from(schema.users)
+    .where(eq(schema.users.id, userId))
+    .limit(1);
+
+  if (!user[0]?.profileId) {
+    return [];
+  }
+
+  // Find all groups the user's person profile is a member_of
+  const results = await db
+    .select({
+      id: schema.groups.id,
+      createdAt: schema.groups.createdAt,
+      // Identity fields from genealogy (source of truth)
+      name: groupProfiles.name,
+      description: groupProfiles.descriptionEn,
+      style: groupProfiles.style,
+      logo: groupProfiles.logo,
+      // Operational fields from public.groups
+      links: schema.groups.links,
+      email: schema.groups.email,
+      banner: schema.groups.banner,
+      createdBy: schema.groups.createdBy,
+      claimedBy: schema.groups.claimedBy,
+      claimedAt: schema.groups.claimedAt,
+      profileId: schema.groups.profileId,
+    })
+    .from(statements)
+    .innerJoin(groupProfiles, eq(statements.objectId, groupProfiles.id))
+    .innerJoin(schema.groups, eq(schema.groups.profileId, groupProfiles.id))
+    .where(
+      and(
+        eq(statements.subjectType, 'person'),
+        eq(statements.subjectId, user[0].profileId),
+        eq(statements.predicate, 'member_of'),
+        eq(statements.objectType, 'group')
+      )
+    );
+
+  return results as Group[];
 }

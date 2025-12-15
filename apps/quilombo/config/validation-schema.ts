@@ -4,6 +4,7 @@ import type { Feature, Geometry, GeoJsonProperties } from 'geojson';
 
 import {
   confidenceLevels,
+  datePrecisions,
   entityTypes,
   eventTypes,
   invitationTypes,
@@ -88,6 +89,17 @@ export const linkSchema = object({
 
 export const linksSchema = array().of(linkSchema).default([]);
 
+// Simple URL array schema for genealogy public links (no type field needed)
+export const urlArraySchema = array()
+  .of(
+    string()
+      .required()
+      .test('is-valid-url', 'Enter a valid URL incl. https://', (value) => isValidUrl(value))
+  )
+  .default([]);
+
+export type UrlArray = InferType<typeof urlArraySchema>;
+
 export const profileFormSchema = object({
   title: string().nullable().oneOf(titles, 'Not a valid title'),
   name: string().nullable(),
@@ -124,16 +136,9 @@ export type ImageUploadForm = InferType<typeof imageUploadSchema>;
 
 export const createNewGroupFormSchema = object({
   name: string().required('Group name is required'),
-  verified: boolean().default(false),
 });
 
 export type CreateNewGroupForm = InferType<typeof createNewGroupFormSchema>;
-
-export const joinGroupFormSchema = object({
-  id: string().required('Please select a group'),
-});
-
-export type JoinGroupForm = InferType<typeof joinGroupFormSchema>;
 
 export const axeTransferForm = object({
   amount: string()
@@ -148,9 +153,60 @@ export const axeTransferForm = object({
 
 export type AxeTransferForm = InferType<typeof axeTransferForm>;
 
+/**
+ * Schema for operational group data in public.groups.
+ * These are ephemeral/contact fields, not identity fields.
+ */
+export const updateGroupOperationalSchema = object({
+  email: string().email('Invalid email').optional().nullable(),
+  links: linksSchema, // Social/contact links
+});
+
+export type UpdateGroupOperationalForm = InferType<typeof updateGroupOperationalSchema>;
+
+/**
+ * Base schema for group edit fields.
+ * All fields optional to support partial PATCH updates from API clients.
+ */
+const groupEditFieldsSchema = object({
+  // Identity fields (stored in genealogy.group_profiles)
+  name: string().min(2, 'Group name must be at least 2 characters'),
+  style: string()
+    .nullable()
+    .oneOf([...styles, null, ''], 'Invalid style'),
+  descriptionEn: string().nullable().max(2000, 'Description must be less than 2000 characters'),
+  descriptionPt: string().nullable().max(2000, 'Description must be less than 2000 characters'),
+  philosophyEn: string().nullable().max(5000, 'Philosophy must be less than 5000 characters'),
+  philosophyPt: string().nullable().max(5000, 'Philosophy must be less than 5000 characters'),
+  historyEn: string().nullable().max(10000, 'History must be less than 10000 characters'),
+  historyPt: string().nullable().max(10000, 'History must be less than 10000 characters'),
+  publicLinks: urlArraySchema, // Public references (Wikipedia, articles)
+  isActive: boolean(),
+
+  // Operational fields (stored in public.groups)
+  email: string().email('Invalid email').optional().nullable(),
+  links: linksSchema, // Social/contact links
+});
+
+/**
+ * Schema for the group edit form UI.
+ * Requires name field for form validation.
+ */
+export const groupEditFormSchema = groupEditFieldsSchema.shape({
+  name: string().required('Group name is required').min(2, 'Group name must be at least 2 characters'),
+});
+
+/**
+ * Schema for PATCH API - allows partial updates.
+ * All fields optional; omitBy(isUndefined) strips absent fields.
+ */
+export const groupEditApiSchema = groupEditFieldsSchema;
+
+export type GroupEditForm = InferType<typeof groupEditFormSchema>;
+
+// Legacy schema - keep for backwards compatibility with existing API
 export const updateGroupSchema = object({
   name: string().required('Group name is required'),
-  founder: string().optional().nullable(),
   email: string().email().optional().nullable(),
   description: string().test('max-chars', 'Description cannot exceed 500 characters', (value: string | undefined) =>
     value ? value.length <= 500 : true
@@ -187,7 +243,6 @@ export type BaseSearchFilters = InferType<typeof baseSearchFiltersSchema>;
  */
 export const groupFiltersSchema = baseSearchFiltersSchema.concat(
   object({
-    verified: boolean().optional(),
     styles: array().of(string().oneOf(styles, 'Invalid style')).optional(),
   })
 );
@@ -463,18 +518,48 @@ export type LinkWalletForm = InferType<typeof linkWalletSchema>;
 export type RemoveMethodForm = InferType<typeof removeMethodSchema>;
 
 // Group Claiming & Verification validation schemas
+
+/**
+ * Schema for claiming an existing genealogy group profile.
+ * User explains why they should be the admin of this group.
+ */
 export const claimGroupFormSchema = object({
   userMessage: string()
     .required('Please explain why you should be the admin of this group')
     .min(20, 'Message must be at least 20 characters'),
 });
 
-export const verifyGroupFormSchema = object({
-  notes: string().optional(),
+/**
+ * Schema for registering a new group (not in genealogy).
+ * Creates both genealogy profile and groups entry on approval.
+ */
+export const registerGroupFormSchema = object({
+  proposedName: string().required('Group name is required').min(2, 'Group name must be at least 2 characters'),
+  proposedStyle: string()
+    .nullable()
+    .oneOf([...styles, null, ''], 'Invalid style'),
+  website: string()
+    .optional()
+    .test('is-valid-url', 'Enter a valid URL incl. https://', (value) => {
+      if (!value) return true;
+      return isValidUrl(value);
+    }),
+  userMessage: string()
+    .required('Please explain why you want to register this group')
+    .min(20, 'Message must be at least 20 characters'),
 });
 
 export type ClaimGroupForm = InferType<typeof claimGroupFormSchema>;
-export type VerifyGroupForm = InferType<typeof verifyGroupFormSchema>;
+export type RegisterGroupForm = InferType<typeof registerGroupFormSchema>;
+
+// Person Profile Claiming validation schema
+export const claimPersonFormSchema = object({
+  userMessage: string()
+    .required('Please explain why this is your profile')
+    .min(20, 'Message must be at least 20 characters'),
+});
+
+export type ClaimPersonForm = InferType<typeof claimPersonFormSchema>;
 
 // ========================================
 // GENEALOGY SEARCH SCHEMAS
@@ -547,3 +632,79 @@ export const genealogyGraphParamsSchema = object({
 });
 
 export type GenealogyGraphParams = InferType<typeof genealogyGraphParamsSchema>;
+
+// ========================================
+// GENEALOGY PROFILE FORM SCHEMAS
+// ========================================
+
+/**
+ * Schema for user publishing/editing their genealogy profile.
+ * Includes sync toggles and genealogy-specific fields.
+ */
+export const genealogyProfileFormSchema = object({
+  // Sync toggles
+  syncPortrait: boolean().default(true),
+  syncApelido: boolean().default(true),
+  syncTitle: boolean().default(true),
+
+  // Syncable fields
+  portrait: string().nullable(),
+  apelido: string().nullable(), // Optional - beginners may not have received their apelido yet
+  apelidoContext: string().nullable(),
+  title: string()
+    .nullable()
+    .oneOf([...titles, null, ''], 'Invalid title'),
+
+  // Genealogy-only fields
+  style: string()
+    .nullable()
+    .oneOf([...styles, null, ''], 'Invalid style'),
+  // Birth year with precision (stored as string in form due to HeroUI Select bug with numeric keys)
+  // Will be converted to number on submit
+  birthYear: string().nullable(),
+  birthYearPrecision: string()
+    .nullable()
+    .oneOf([...datePrecisions, null, ''], 'Invalid precision'),
+  bioEn: string().nullable().max(5000, 'Bio must be less than 5000 characters'),
+  bioPt: string().nullable().max(5000, 'Bio must be less than 5000 characters'),
+  publicLinks: urlArraySchema,
+});
+
+export type GenealogyProfileForm = InferType<typeof genealogyProfileFormSchema>;
+
+// ========================================
+// GENEALOGY GROUP PROFILE FORM SCHEMA
+// ========================================
+
+/**
+ * Schema for group admin editing their genealogy group profile.
+ * All fields are optional for partial updates.
+ */
+export const genealogyGroupProfileFormSchema = object({
+  // Core identity
+  name: string().min(2, 'Group name must be at least 2 characters'),
+  style: string()
+    .nullable()
+    .oneOf([...styles, null, ''], 'Invalid style'),
+  logo: string().nullable(),
+  publicLinks: urlArraySchema,
+
+  // Descriptions (bilingual)
+  descriptionEn: string().nullable().max(2000, 'Description must be less than 2000 characters'),
+  descriptionPt: string().nullable().max(2000, 'Description must be less than 2000 characters'),
+
+  // Philosophy and history (bilingual)
+  philosophyEn: string().nullable().max(5000, 'Philosophy must be less than 5000 characters'),
+  philosophyPt: string().nullable().max(5000, 'Philosophy must be less than 5000 characters'),
+  historyEn: string().nullable().max(10000, 'History must be less than 10000 characters'),
+  historyPt: string().nullable().max(10000, 'History must be less than 10000 characters'),
+
+  // Status
+  isActive: boolean(),
+});
+
+// Make all fields optional for PATCH updates
+export const genealogyGroupProfileUpdateSchema = genealogyGroupProfileFormSchema.partial();
+
+export type GenealogyGroupProfileForm = InferType<typeof genealogyGroupProfileFormSchema>;
+export type GenealogyGroupProfileUpdate = InferType<typeof genealogyGroupProfileUpdateSchema>;

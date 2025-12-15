@@ -14,9 +14,9 @@ import type {
   UpdateLocationForm,
   CreateNewGroupForm,
   GroupSearchParamsWithFilters,
-  UpdateGroupForm,
-  VerifyGroupForm,
+  GroupEditForm,
   ClaimGroupForm,
+  RegisterGroupForm,
 } from '@/config/validation-schema';
 import type { Group, GroupLocation, GroupSearchResult, User } from '@/types/model';
 import { QUERY_KEYS } from './keys';
@@ -110,11 +110,8 @@ const createUnmanagedGroup = async (newGroup: CreateNewGroupForm): Promise<Group
 
 const deleteGroup = async (groupId: string): Promise<void> => axios.delete(`/api/groups/${groupId}`);
 
-const updateGroup = async (groupId: string, data: UpdateGroupForm): Promise<Group> =>
+const updateGroup = async (groupId: string, data: GroupEditForm): Promise<Group> =>
   axios.patch(`/api/groups/${groupId}`, data).then((response) => response.data);
-
-const removeMember = async (groupId: string, userId: string): Promise<User[]> =>
-  axios.delete(`/api/groups/${groupId}/members/${userId}`).then((response) => response.data);
 
 const addAdmin = async (groupId: string, userId: string): Promise<string[]> =>
   axios.put(`/api/groups/${groupId}/admins/${userId}`).then((response) => response.data);
@@ -214,20 +211,12 @@ export const useDeleteGroupMutation = () => {
 export const useUpdateGroupMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async ({ groupId, data }: { groupId: string; data: UpdateGroupForm }) => updateGroup(groupId, data),
+    mutationFn: async ({ groupId, data }: { groupId: string; data: GroupEditForm }) => updateGroup(groupId, data),
     onSuccess: (data, variables) => {
       queryClient.setQueryData([QUERY_KEYS.group.getGroup, variables.groupId], data);
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.searchGroups] });
-    },
-  });
-};
-
-export const useRemoveMemberMutation = () => {
-  const queryClient = useQueryClient();
-  return useMutation({
-    mutationFn: async ({ groupId, userId }: GroupAndUserParams) => removeMember(groupId, userId),
-    onSuccess: (data, variables) => {
-      queryClient.setQueryData([QUERY_KEYS.group.getGroupMembers, variables.groupId], data);
+      // Invalidate genealogy profile cache since identity fields may have changed
+      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.genealogy.all() });
     },
   });
 };
@@ -314,32 +303,83 @@ export const useUpdateBannerMutation: UseFileUploadMutation = () => {
   });
 };
 
-// GROUP VERIFICATION AND CLAIMING
+// GROUP ADMIN CLAIMABILITY CHECK
 
-const verifyGroup = async (groupId: string, data: VerifyGroupForm): Promise<{ success: boolean }> =>
-  axios.post(`/api/groups/${groupId}/verify`, data).then((response) => response.data);
+const checkGroupAdminClaimable = async (groupId: string): Promise<boolean> =>
+  axios.get(`/api/genealogy/groups/${groupId}/claimable`).then((response) => response.data.isClaimable);
 
-const claimGroup = async (groupId: string, data: ClaimGroupForm): Promise<{ success: boolean }> =>
-  axios.post(`/api/groups/${groupId}/claim`, data).then((response) => response.data);
+export const fetchGroupAdminClaimableOptions = (groupId: string | null) => ({
+  queryKey: QUERY_KEYS.group.isClaimable(groupId ?? ''),
+  queryFn: async () => checkGroupAdminClaimable(groupId ?? ''),
+  staleTime: QueryConfig.staleTimeDefault,
+  enabled: !!groupId,
+});
 
-export const useVerifyGroupMutation = () => {
+/**
+ * Hook to check if a genealogy group profile can be admin-claimed.
+ * A group is admin-claimable if there's no corresponding entry in public.groups
+ * (i.e., no one has claimed admin rights yet).
+ *
+ * Note: This is different from whether a group is "active" (isActive field).
+ * Historical groups may still be admin-claimable even if they're no longer operating.
+ */
+export const useGroupClaimable = (groupId: string | null) =>
+  useQuery(queryOptions(fetchGroupAdminClaimableOptions(groupId)));
+
+// GROUP CLAIMING
+
+type ClaimResponse = { claimId: string; message: string };
+
+/**
+ * Claim an existing genealogy group profile.
+ * Creates a claim request for admin review.
+ */
+const claimGenealogyGroup = async (profileId: string, data: ClaimGroupForm): Promise<ClaimResponse> =>
+  axios
+    .post('/api/groups/claims', {
+      type: 'genealogy_group',
+      profileId,
+      userMessage: data.userMessage,
+    })
+    .then((response) => response.data);
+
+/**
+ * Register a new group not in genealogy.
+ * Creates a claim request for admin review.
+ */
+const registerNewGroup = async (data: RegisterGroupForm): Promise<ClaimResponse> =>
+  axios
+    .post('/api/groups/claims', {
+      type: 'new_group',
+      ...data,
+    })
+    .then((response) => response.data);
+
+/**
+ * Mutation to claim an existing genealogy group profile.
+ * Used when a user wants to become admin of a group that exists in genealogy but not in public.groups.
+ */
+export const useClaimGenealogyGroupMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async ({ groupId, data }: { groupId: string; data: VerifyGroupForm }) => verifyGroup(groupId, data),
-    onSuccess: (_data, variables) => {
-      // Invalidate the group query to refresh verification status and lastVerifiedAt
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.getGroup, variables.groupId] });
-      // Invalidate search results to update verification badges
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.group.searchGroups] });
+    mutationFn: async ({ profileId, data }: { profileId: string; data: ClaimGroupForm }) =>
+      claimGenealogyGroup(profileId, data),
+    onSuccess: () => {
+      // Invalidate admin claims list if user is admin
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.admin.getClaims] });
     },
   });
 };
 
-export const useClaimGroupMutation = () => {
+/**
+ * Mutation to register a new group that doesn't exist in genealogy.
+ * Creates a claim request for admin review. On approval, creates both genealogy profile and groups entry.
+ */
+export const useRegisterNewGroupMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async ({ groupId, data }: { groupId: string; data: ClaimGroupForm }) => claimGroup(groupId, data),
-    onSuccess: (_data, _variables) => {
+    mutationFn: async (data: RegisterGroupForm) => registerNewGroup(data),
+    onSuccess: () => {
       // Invalidate admin claims list if user is admin
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.admin.getClaims] });
     },

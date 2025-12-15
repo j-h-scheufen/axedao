@@ -13,26 +13,34 @@ describe('GET /api/admin/claims', () => {
   let GET: (request: Request) => Promise<Response>;
   let getServerSession: ReturnType<typeof vi.fn>;
   let isGlobalAdmin: ReturnType<typeof vi.fn>;
-  let getPendingClaims: ReturnType<typeof vi.fn>;
+  let getPendingGroupClaims: ReturnType<typeof vi.fn>;
 
   const testAdminId = 'admin-123';
+
+  // New claim structure with type and groupProfile
   const mockClaims = [
     {
       id: 'claim-1',
-      groupId: 'group-1',
+      type: 'genealogy_group' as const,
+      profileId: 'profile-1',
+      proposedName: null,
       userId: 'user-1',
       userMessage: 'I am the founder',
-      createdAt: new Date(),
-      group: { name: 'Test Group 1' },
+      status: 'pending' as const,
+      requestedAt: new Date(),
+      groupProfile: { id: 'profile-1', name: 'Test Group 1' },
       user: { name: 'User One', email: 'user1@example.com' },
     },
     {
       id: 'claim-2',
-      groupId: 'group-2',
+      type: 'new_group' as const,
+      profileId: null,
+      proposedName: 'My New Group',
       userId: 'user-2',
       userMessage: 'I lead this group',
-      createdAt: new Date(),
-      group: { name: 'Test Group 2' },
+      status: 'pending' as const,
+      requestedAt: new Date(),
+      groupProfile: null,
       user: { name: null, email: 'user2@example.com' },
     },
   ];
@@ -46,11 +54,11 @@ describe('GET /api/admin/claims', () => {
 
     getServerSession = vi.fn();
     isGlobalAdmin = vi.fn();
-    getPendingClaims = vi.fn();
+    getPendingGroupClaims = vi.fn();
 
     (nextAuth.getServerSession as typeof getServerSession) = getServerSession;
     (db.isGlobalAdmin as typeof isGlobalAdmin) = isGlobalAdmin;
-    (db.getPendingClaims as typeof getPendingClaims) = getPendingClaims;
+    (db.getPendingGroupClaims as typeof getPendingGroupClaims) = getPendingGroupClaims;
 
     const routeModule = await import('@/app/api/admin/claims/route');
     GET = routeModule.GET;
@@ -86,7 +94,7 @@ describe('GET /api/admin/claims', () => {
   it('should return empty array when no pending claims', async () => {
     getServerSession.mockResolvedValue({ user: { id: testAdminId }, expires: '2025-12-31' });
     isGlobalAdmin.mockResolvedValue(true);
-    getPendingClaims.mockResolvedValue([]);
+    getPendingGroupClaims.mockResolvedValue([]);
 
     const request = createMockRequest('http://localhost/api/admin/claims', { method: 'GET' });
     const response = await GET(request);
@@ -99,7 +107,7 @@ describe('GET /api/admin/claims', () => {
   it('should return transformed pending claims', async () => {
     getServerSession.mockResolvedValue({ user: { id: testAdminId }, expires: '2025-12-31' });
     isGlobalAdmin.mockResolvedValue(true);
-    getPendingClaims.mockResolvedValue(mockClaims);
+    getPendingGroupClaims.mockResolvedValue(mockClaims);
 
     const request = createMockRequest('http://localhost/api/admin/claims', { method: 'GET' });
     const response = await GET(request);
@@ -107,16 +115,21 @@ describe('GET /api/admin/claims', () => {
 
     expect(response.status).toBe(200);
     expect(body).toHaveLength(2);
+    // First claim - genealogy_group type uses groupProfile.name
     expect(body[0]).toHaveProperty('id', 'claim-1');
+    expect(body[0]).toHaveProperty('type', 'genealogy_group');
     expect(body[0]).toHaveProperty('groupName', 'Test Group 1');
     expect(body[0]).toHaveProperty('userName', 'User One');
+    // Second claim - new_group type uses proposedName, user name fallback
+    expect(body[1]).toHaveProperty('type', 'new_group');
+    expect(body[1]).toHaveProperty('groupName', 'My New Group');
     expect(body[1]).toHaveProperty('userName', 'Unknown User'); // Fallback when name is null
   });
 
-  it('should return 500 when getPendingClaims throws error', async () => {
+  it('should return 500 when getPendingGroupClaims throws error', async () => {
     getServerSession.mockResolvedValue({ user: { id: testAdminId }, expires: '2025-12-31' });
     isGlobalAdmin.mockResolvedValue(true);
-    getPendingClaims.mockRejectedValue(new Error('Database error'));
+    getPendingGroupClaims.mockRejectedValue(new Error('Database error'));
 
     const request = createMockRequest('http://localhost/api/admin/claims', { method: 'GET' });
     const response = await GET(request);

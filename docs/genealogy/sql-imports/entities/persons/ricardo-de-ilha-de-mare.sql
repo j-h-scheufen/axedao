@@ -35,7 +35,7 @@ INSERT INTO genealogy.person_profiles (
   'Ricardo de Ilha de Maré',
   NULL, -- Proto-mestre; formal title system didn't exist in his era
   NULL, -- No portrait available
-  '[{"type": "website", "url": "http://velhosmestres.com/en/waldemar-1989-2"}, {"type": "website", "url": "https://capoeira-connection.com/capoeira/2011/10/interview-with-mestre-waldemar/"}]'::jsonb,
+  ARRAY['http://velhosmestres.com/en/waldemar-1989-2', 'https://capoeira-connection.com/capoeira/2011/10/interview-with-mestre-waldemar/']::text[],
   -- Capoeira-specific
   NULL, -- Pre-codification era; Angola/Regional distinction didn't exist
   'Pre-codification era. Practiced traditional Bahian capoeira before the Angola/Regional split. His style would have been the undifferentiated capoeira of Ilha de Maré.',

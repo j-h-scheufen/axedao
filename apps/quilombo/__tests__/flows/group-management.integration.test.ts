@@ -121,109 +121,10 @@ describe('Group Management (Integration Tests)', () => {
 
       expect(groups[0].style).toBeNull();
     });
-
-    it('should create group with leader reference', async () => {
-      const newGroupId = uuidv4();
-      const groups = await db
-        .insert(schema.groups)
-        .values({
-          id: newGroupId,
-          name: 'Group with Leader',
-          createdBy: user1Id,
-          leader: user2Id,
-        })
-        .returning();
-
-      expect(groups[0].leader).toBe(user2Id);
-    });
   });
 
-  describe('Member Management', () => {
-    it('should add user as member to group', async () => {
-      await db.update(schema.users).set({ groupId }).where(eq(schema.users.id, user1Id));
-
-      const member = await db.query.users.findFirst({
-        where: eq(schema.users.id, user1Id),
-      });
-
-      expect(member?.groupId).toBe(groupId);
-    });
-
-    it('should add multiple users to same group', async () => {
-      await db
-        .update(schema.users)
-        .set({ groupId })
-        .where(and(eq(schema.users.id, user1Id), eq(schema.users.id, user2Id), eq(schema.users.id, user3Id)));
-
-      // Add them individually since the above won't work with OR logic
-      await db.update(schema.users).set({ groupId }).where(eq(schema.users.id, user1Id));
-      await db.update(schema.users).set({ groupId }).where(eq(schema.users.id, user2Id));
-      await db.update(schema.users).set({ groupId }).where(eq(schema.users.id, user3Id));
-
-      const members = await db.query.users.findMany({
-        where: eq(schema.users.groupId, groupId),
-      });
-
-      expect(members).toHaveLength(3);
-      const memberIds = members.map((m) => m.id);
-      expect(memberIds).toContain(user1Id);
-      expect(memberIds).toContain(user2Id);
-      expect(memberIds).toContain(user3Id);
-    });
-
-    it('should remove user from group', async () => {
-      // First add user to group
-      await db.update(schema.users).set({ groupId }).where(eq(schema.users.id, user1Id));
-
-      // Verify they're a member
-      let member = await db.query.users.findFirst({
-        where: eq(schema.users.id, user1Id),
-      });
-      expect(member?.groupId).toBe(groupId);
-
-      // Remove from group
-      await db.update(schema.users).set({ groupId: null }).where(eq(schema.users.id, user1Id));
-
-      // Verify they're no longer a member
-      member = await db.query.users.findFirst({
-        where: eq(schema.users.id, user1Id),
-      });
-      expect(member?.groupId).toBeNull();
-    });
-
-    it('should allow user to change groups', async () => {
-      const group2Id = uuidv4();
-      await db.insert(schema.groups).values({
-        id: group2Id,
-        name: 'Second Group',
-        createdBy: user2Id,
-      });
-
-      // Add user to first group
-      await db.update(schema.users).set({ groupId }).where(eq(schema.users.id, user1Id));
-
-      // Move user to second group
-      await db.update(schema.users).set({ groupId: group2Id }).where(eq(schema.users.id, user1Id));
-
-      const member = await db.query.users.findFirst({
-        where: eq(schema.users.id, user1Id),
-      });
-
-      expect(member?.groupId).toBe(group2Id);
-    });
-
-    it('should get all members of a group', async () => {
-      // Add multiple members
-      await db.update(schema.users).set({ groupId }).where(eq(schema.users.id, user1Id));
-      await db.update(schema.users).set({ groupId }).where(eq(schema.users.id, user2Id));
-
-      const members = await db.query.users.findMany({
-        where: eq(schema.users.groupId, groupId),
-      });
-
-      expect(members).toHaveLength(2);
-    });
-  });
+  // Note: Direct group membership via users.groupId was removed.
+  // Group membership is now managed through the genealogy system.
 
   describe('Admin Management', () => {
     it('should add user as group admin', async () => {
@@ -326,72 +227,6 @@ describe('Group Management (Integration Tests)', () => {
       });
 
       expect(admin).toBeUndefined();
-    });
-  });
-
-  describe('Member and Admin Combined', () => {
-    it('should make user both member and admin', async () => {
-      // Add as member
-      await db.update(schema.users).set({ groupId }).where(eq(schema.users.id, user1Id));
-
-      // Add as admin
-      await db.insert(schema.groupAdmins).values({
-        groupId,
-        userId: user1Id,
-      });
-
-      const member = await db.query.users.findFirst({
-        where: eq(schema.users.id, user1Id),
-      });
-
-      const admin = await db.query.groupAdmins.findFirst({
-        where: and(eq(schema.groupAdmins.groupId, groupId), eq(schema.groupAdmins.userId, user1Id)),
-      });
-
-      expect(member?.groupId).toBe(groupId);
-      expect(admin?.userId).toBe(user1Id);
-    });
-
-    it('should allow user to be admin without being member', async () => {
-      // Add as admin only (not member)
-      await db.insert(schema.groupAdmins).values({
-        groupId,
-        userId: user1Id,
-      });
-
-      const member = await db.query.users.findFirst({
-        where: eq(schema.users.id, user1Id),
-      });
-
-      const admin = await db.query.groupAdmins.findFirst({
-        where: and(eq(schema.groupAdmins.groupId, groupId), eq(schema.groupAdmins.userId, user1Id)),
-      });
-
-      expect(member?.groupId).toBeNull();
-      expect(admin?.userId).toBe(user1Id);
-    });
-
-    it('should remove member but keep admin role', async () => {
-      // Add as both member and admin
-      await db.update(schema.users).set({ groupId }).where(eq(schema.users.id, user1Id));
-      await db.insert(schema.groupAdmins).values({
-        groupId,
-        userId: user1Id,
-      });
-
-      // Remove as member
-      await db.update(schema.users).set({ groupId: null }).where(eq(schema.users.id, user1Id));
-
-      const member = await db.query.users.findFirst({
-        where: eq(schema.users.id, user1Id),
-      });
-
-      const admin = await db.query.groupAdmins.findFirst({
-        where: and(eq(schema.groupAdmins.groupId, groupId), eq(schema.groupAdmins.userId, user1Id)),
-      });
-
-      expect(member?.groupId).toBeNull();
-      expect(admin?.userId).toBe(user1Id);
     });
   });
 
@@ -515,21 +350,6 @@ describe('Group Management (Integration Tests)', () => {
       expect(group?.style).toBe('contemporanea');
     });
 
-    it('should update group leader', async () => {
-      await db
-        .update(schema.groups)
-        .set({
-          leader: user2Id,
-        })
-        .where(eq(schema.groups.id, groupId));
-
-      const group = await db.query.groups.findFirst({
-        where: eq(schema.groups.id, groupId),
-      });
-
-      expect(group?.leader).toBe(user2Id);
-    });
-
     it('should track updatedAt timestamp', async () => {
       const initialGroup = await db.query.groups.findFirst({
         where: eq(schema.groups.id, groupId),
@@ -564,21 +384,6 @@ describe('Group Management (Integration Tests)', () => {
       expect(group).toBeUndefined();
     });
 
-    it('should set members groupId to null when group is deleted', async () => {
-      // Add member
-      await db.update(schema.users).set({ groupId }).where(eq(schema.users.id, user1Id));
-
-      // Delete group
-      await db.delete(schema.groups).where(eq(schema.groups.id, groupId));
-
-      // Member should have null groupId
-      const member = await db.query.users.findFirst({
-        where: eq(schema.users.id, user1Id),
-      });
-
-      expect(member?.groupId).toBeNull();
-    });
-
     it('should delete all admins when group is deleted', async () => {
       // Add admins
       await db.insert(schema.groupAdmins).values([
@@ -598,49 +403,7 @@ describe('Group Management (Integration Tests)', () => {
     });
   });
 
-  describe('Complex Membership Scenarios', () => {
-    it('should handle user joining multiple groups over time', async () => {
-      const group2Id = uuidv4();
-      const group3Id = uuidv4();
-
-      await db.insert(schema.groups).values([
-        {
-          id: group2Id,
-          name: 'Group 2',
-          createdBy: user2Id,
-        },
-        {
-          id: group3Id,
-          name: 'Group 3',
-          createdBy: user3Id,
-        },
-      ]);
-
-      // Join group 1
-      await db.update(schema.users).set({ groupId }).where(eq(schema.users.id, user1Id));
-
-      let member = await db.query.users.findFirst({
-        where: eq(schema.users.id, user1Id),
-      });
-      expect(member?.groupId).toBe(groupId);
-
-      // Move to group 2
-      await db.update(schema.users).set({ groupId: group2Id }).where(eq(schema.users.id, user1Id));
-
-      member = await db.query.users.findFirst({
-        where: eq(schema.users.id, user1Id),
-      });
-      expect(member?.groupId).toBe(group2Id);
-
-      // Move to group 3
-      await db.update(schema.users).set({ groupId: group3Id }).where(eq(schema.users.id, user1Id));
-
-      member = await db.query.users.findFirst({
-        where: eq(schema.users.id, user1Id),
-      });
-      expect(member?.groupId).toBe(group3Id);
-    });
-
+  describe('Complex Admin Scenarios', () => {
     it('should handle user being admin of multiple groups', async () => {
       const group2Id = uuidv4();
       await db.insert(schema.groups).values({
