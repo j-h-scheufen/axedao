@@ -28,3 +28,6 @@
 | Roda de São Felix (Juvencio) | Angola | Traíra import | pending | Proto-group: Informal dock rodas during Igreja de São Deus Menino and Senhor São Félix festivals (~1930s-40s); led by dock worker Juvencio; attended by young Traíra, Ananias; "no one gave classes... everyone got together and played" |
 | Escola Zacarias Boa Morte | Angola | Waldemar import | pending | Founded 1999 by Mestre Zacarias Boa Morte, student of Waldemar |
 | Grupo Resistência | Angola | Waldemar import | pending | Founded in 1960s by Bigodinho in Lapinha neighborhood, Salvador |
+| Capoeiras do Bonfim | Mixed | Roque import | pending | Folkloric group of Mário Buscapé; Roque joined this group; performed shows in Rio |
+| Escola de Capoeira Nzinga | Angola | Roque import | pending | Founded 1985 in Hamburg, Germany by Mestre Paulo Siqueira (student of Roque); branches in Hamburg, Hannover, Kiel |
+| Grupo Bantus de Capoeira | Angola | Roque import | pending | Founded by Mestre Roque; where Mestra Sandrinha taught in the 1970s |
