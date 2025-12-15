@@ -7,8 +7,59 @@ import type { UserSession } from './types/model';
 
 const adminPathRegex = /^\/admin(\/|$)/;
 
+/**
+ * Check if the app is in maintenance/shutdown mode.
+ * Uses NEXT_PUBLIC_ prefix so it's available in Edge runtime.
+ */
+const isAppShutdown = () => process.env.NEXT_PUBLIC_APP_SHUTDOWN?.toLowerCase() === 'true';
+
+/**
+ * Paths that should still work during maintenance mode.
+ */
+const maintenanceAllowedPaths = [
+  '/maintenance',
+  '/_next',
+  '/favicon',
+  '/quilombo-icon',
+  '/images',
+  '/logos',
+  '/assets',
+];
+
+/**
+ * Check if a path should bypass maintenance mode.
+ */
+function isMaintenanceAllowedPath(pathname: string): boolean {
+  return maintenanceAllowedPaths.some((path) => pathname.startsWith(path));
+}
+
+/**
+ * Handle maintenance mode - redirect pages, return 503 for API.
+ */
+function handleMaintenanceMode(request: NextRequest): NextResponse | null {
+  if (!isAppShutdown()) return null;
+
+  const pathname = request.nextUrl.pathname;
+
+  // Allow maintenance page and static assets
+  if (isMaintenanceAllowedPath(pathname)) return null;
+
+  // API routes get 503 Service Unavailable
+  if (pathname.startsWith('/api/')) {
+    return NextResponse.json({ error: 'Service temporarily unavailable for maintenance' }, { status: 503 });
+  }
+
+  // All other pages redirect to maintenance
+  const maintenanceUrl = new URL('/maintenance', request.url);
+  return NextResponse.redirect(maintenanceUrl);
+}
+
 export default withAuth(
   async function middleware(request: NextRequest) {
+    // Check maintenance mode first - before any auth logic
+    const maintenanceResponse = handleMaintenanceMode(request);
+    if (maintenanceResponse) return maintenanceResponse;
+
     const token = (await getToken({ req: request })) as (JWT & { user: UserSession }) | null;
     const pathname = request.nextUrl.pathname;
 
@@ -27,7 +78,10 @@ export default withAuth(
   },
   {
     callbacks: {
-      authorized({ token }) {
+      authorized({ token, req }) {
+        // During maintenance mode, allow all requests through to middleware
+        // (middleware will handle the redirect)
+        if (isAppShutdown()) return true;
         return !!token;
       },
     },
@@ -41,6 +95,11 @@ export const config = {
   // Do not run the middleware on static assets, auth pages, and public API routes
   // Excludes: Next.js internals, static files with extensions in root, specific directories, auth pages, and public APIs
   // Note: Public APIs should be placed under /api/public/ to be excluded from authentication
-  matcher:
-    '/((?!_next/static|_next/image|manifest.json|.*\\.(?:ico|png|jpg|jpeg|svg|webp|gif)|assets|favicon*|images|logos|auth|api/stats|api/public|genealogy).+)',
+  // Note: /maintenance is excluded so it can be accessed without auth during shutdown
+  matcher: [
+    // Root path
+    '/',
+    // All other paths except exclusions (.* instead of .+ to also catch single-segment paths)
+    '/((?!_next/static|_next/image|manifest.json|.*\\.(?:ico|png|jpg|jpeg|svg|webp|gif)|assets|favicon*|images|logos|auth|api/stats|api/public|maintenance).+)',
+  ],
 };

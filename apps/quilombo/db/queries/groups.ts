@@ -95,16 +95,21 @@ export async function searchGroups(
   // Calculate totalCount separately since window function doesn't work with GROUP BY + LEFT JOIN
   // The window function would count joined rows (20) instead of groups (10) with multiple locations
   // This requires a second query, but it's simpler and more maintainable than alternatives
+  // NOTE: Must use same INNER JOIN as main query to count only groups with genealogy profiles
   let totalCount = 0;
   if (sqlFilters.length > 0) {
     const countResult = await db
       .select({ count: count() })
       .from(schema.groups)
+      .innerJoin(groupProfiles, eq(schema.groups.profileId, groupProfiles.id))
       .where(and(...sqlFilters));
     totalCount = Number(countResult[0]?.count || 0);
   } else {
-    // No filters - count all groups
-    const countResult = await db.select({ count: count() }).from(schema.groups);
+    // No filters - count all groups with genealogy profiles
+    const countResult = await db
+      .select({ count: count() })
+      .from(schema.groups)
+      .innerJoin(groupProfiles, eq(schema.groups.profileId, groupProfiles.id));
     totalCount = Number(countResult[0]?.count || 0);
   }
 

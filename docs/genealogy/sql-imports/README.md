@@ -67,7 +67,7 @@ pnpm db:genealogy:build:dry-run
 2. Verify staging data is correct
 3. Promote state: `mv build/pending-state.json deployed-state.json`
 4. Commit deployed-state.json
-5. Merge to `main` → GitHub Action applies to production
+5. Merge `develop` to `main` → GitHub Action applies to production
 
 ---
 
