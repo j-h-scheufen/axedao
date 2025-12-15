@@ -27,7 +27,7 @@ export const ERA_BAND_RADIUS = 50;
 export const MODERN_DECADE_RADIUS = 30;
 
 /** Additional radius per decade in contemporary era (1980+) - larger to accommodate group explosion */
-export const CONTEMPORARY_DECADE_RADIUS = 60;
+export const CONTEMPORARY_DECADE_RADIUS = 75;
 
 /**
  * Years to add to birth year for positioning.

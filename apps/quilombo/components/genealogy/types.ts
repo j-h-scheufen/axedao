@@ -244,7 +244,7 @@ export const LINK_COLORS = {
   trained_under: '#F06595', // Pink
   influenced_by: '#CC5DE8', // Purple
   // Person-to-Person: Recognition
-  granted_title_to: '#5C7CFA', // Blue
+  received_title_from: '#5C7CFA', // Blue
   baptized_by: '#339AF0', // Light blue
   // Person-to-Person: Family
   family_of: '#22B8CF', // Cyan
@@ -281,7 +281,7 @@ export const PREDICATE_LABELS: Record<Predicate, string> = {
   student_of: 'Student of',
   trained_under: 'Trained under',
   influenced_by: 'Influenced by',
-  granted_title_to: 'Granted title to',
+  received_title_from: 'Received title from',
   baptized_by: 'Baptized by',
   family_of: 'Family of',
   // Person-to-Group
@@ -312,7 +312,7 @@ export const PREDICATE_LABELS_INVERSE: Record<Predicate, string> = {
   student_of: 'Teacher of',
   trained_under: 'Trained',
   influenced_by: 'Influenced',
-  granted_title_to: 'Title granted by',
+  received_title_from: 'Granted title to',
   baptized_by: 'Baptized',
   family_of: 'Family of',
   // Person-to-Group

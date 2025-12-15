@@ -219,7 +219,7 @@ export type StatementProperties = {
   relationship_type?: 'parent' | 'sibling' | 'spouse' | 'padrinho' | 'other';
   other_type?: string;
 
-  // For granted_title_to
+  // For received_title_from
   title_grant?: {
     title: string;
     ceremony?: string;

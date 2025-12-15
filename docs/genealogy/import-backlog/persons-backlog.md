@@ -44,7 +44,7 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Paulo Barroquinha | - | - | Besouro Mangangá import | done | yes | Training companion of Besouro Mangangá in Santo Amaro; part of his Sunday training circle - SQL generated |
 | Cobrinha Verde | Rafael Alves França | Mestre | Multiple | done | yes | Cousin and student of Besouro; bridge to documented lineage - SQL generated |
 | Gato Preto | José Gabriel Góes (or Góes/Chagas) | Mestre | Cobrinha Verde import | pending | yes | Student of Cobrinha Verde; recorded LP with him; represented Brazil at 1966 Dakar festival |
-| Traíra | João Ramos do Nascimento | Mestre | Multiple | pending | yes | Recorded LP "Capoeira da Bahia" with Cobrinha Verde (1962); student of Waldemar from 1947; managed Waldemar's roda |
+| Traíra | João Ramos do Nascimento | Mestre | Multiple | done | yes | Recorded LP "Capoeira da Bahia" with Cobrinha Verde (1962); student of Waldemar from 1947; managed Waldemar's roda - SQL generated as traira.sql |
 | Waldemar | Waldemar Rodrigues da Paixão | Mestre | Multiple | done | yes | Legendary Angola mestre (1916-1990); founder of Barracão in Liberdade; inventor of painted berimbaus - SQL generated as waldemar.sql |
 | Pastinha | Vicente Ferreira Pastinha | Mestre | Cobrinha Verde import | done | yes | Founder of CECA; Cobrinha was member #28; collaborated on teaching - SQL generated as pastinha.sql |
 | Bimba | Manuel dos Reis Machado | Mestre | Cobrinha Verde import | done | yes | Founder of Capoeira Regional (1932); SQL generated as bimba.sql |
@@ -215,3 +215,7 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Menino Gordo da Curva Grande | - | - | Vitor Agaú import | pending | yes | Teacher of Gaguinho Preto alongside Roque and Vitor Agaú in Curva Grande neighborhood |
 | Zeca do Uruguai | - | Mestre | Vitor Agaú import | pending | yes | Teacher of Gaguinho Preto; first cousin of Gato Preto; cousin of Cobrinha Verde; from Santo Amaro; students include Pierrô and Nilton |
 | Juvelino | - | - | Gasolina import | pending | yes | Capoeirista killed during Pedrito persecution (1920s); listed by Onça Preta among the fallen |
+| Juvencio | - | Mestre | Traira import | pending | yes | Dock worker mestre in Sao Felix; had rodas at Igreja de Sao Deus Menino; trained Traira (~1938), Ananias (1938), Joao Pequeno; foundational figure in Reconcavo |
+| Severo do Pelourinho | - | - | Traira import | pending | yes | Mestre from Pelourinho district of Salvador; additional teacher of Traira; timing unknown |
+| Barba Branca | Gilberto Reis Ferreira dos Santos Filho | Mestre | Traira import | pending | yes | Student of Traira (~1970-1971); later studied with Joao Pequeno 15 years; mestre 1991; founder of GCAC; (1957-2021) |
+| Ananias | - | Mestre | Traira import | pending | yes | Born Dec 1924 in Sao Felix; began capoeira 1938 in Juvencio's rodas; encountered Traira there around 1938 |

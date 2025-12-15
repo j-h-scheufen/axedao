@@ -393,7 +393,7 @@ CREATE TYPE genealogy.predicate AS ENUM (
   'influenced_by',
 
   -- Person-to-Person: Recognition (2)
-  'granted_title_to',
+  'received_title_from',
   'baptized_by',  -- Person was baptized BY mestre (received apelido from)
 
   -- Person-to-Person: Family (1)
@@ -806,7 +806,7 @@ export const legalStructureEnum = genealogySchema.enum('legal_structure', [
 export const predicateEnum = genealogySchema.enum('predicate', [
   // Person-to-Person (6)
   'student_of', 'trained_under', 'influenced_by',
-  'granted_title_to', 'baptized_by', 'family_of',
+  'received_title_from', 'baptized_by', 'family_of',
   // Person-to-Group (9)
   'founded', 'co_founded', 'leads', 'regional_coordinator_of',
   'member_of', 'teaches_at', 'cultural_pioneer_of',
@@ -914,7 +914,7 @@ export type StatementProperties = {
   relationship_type?: 'parent' | 'sibling' | 'spouse' | 'padrinho' | 'other';
   other_type?: string;
 
-  // For granted_title_to
+  // For received_title_from
   title_grant?: {
     title: string;
     ceremony?: string;
@@ -1561,7 +1561,7 @@ export const LEGAL_STRUCTURES = [
 export const PREDICATES = [
   // Person-to-Person (6)
   'student_of', 'trained_under', 'influenced_by',
-  'granted_title_to', 'baptized_by', 'family_of',
+  'received_title_from', 'baptized_by', 'family_of',
   // Person-to-Group (9)
   'founded', 'co_founded', 'leads', 'regional_coordinator_of',
   'member_of', 'teaches_at', 'cultural_pioneer_of',

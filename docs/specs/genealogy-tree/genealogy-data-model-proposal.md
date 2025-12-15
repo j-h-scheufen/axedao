@@ -42,7 +42,7 @@ Extracted from 33 case studies, consolidated into core categories:
 
 | Predicate | Description | Case Study Examples |
 |-----------|-------------|---------------------|
-| `granted_title_to` | Conferring title/rank. Use `title_grant` property specifying which title (uses existing `TitleEnum`). | Zimba: peer mestre title conferral |
+| `received_title_from` | Person received title/rank FROM mestre. Use `title_grant` property specifying which title. | Zimba: peer mestre title conferral |
 | `baptized_by` | Received apelido (capoeira nickname) from this mestre at batizado ceremony. Use `baptism` property with `apelido_given`. Direction: student → mestre who baptized them. | Naming ceremonies |
 
 > **Note:** `mentored` was removed. Informal guidance beyond formal student relationship can be represented using `trained_under` (for those who trained but weren't formal students) or `influenced_by` (for those who studied methods/philosophy without direct training). Context can be added in statement `notes`.
@@ -445,7 +445,7 @@ export const predicateEnum = pgEnum('predicate', [
   'influenced_by',
 
   // Person-to-Person: Recognition (2)
-  'granted_title_to',
+  'received_title_from',
   'baptized_by',  // Person was baptized BY mestre (received apelido from)
 
   // Person-to-Person: Family (1 - use relationship_type property: parent, sibling, spouse, padrinho, other)
@@ -542,7 +542,7 @@ interface StatementProperties {
     context: string;            // "Invited for cultural project"
   };
 
-  // For 'granted_title_to' (title conferrals)
+  // For 'received_title_from' (title conferrals)
   title_grant?: {
     title_granted: TitleEnum;   // Reuses existing title enum from apps/quilombo/config/constants.ts
     ceremony_date?: string;

@@ -246,7 +246,7 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 - `influenced_by` - Studied philosophy without direct training
 - `family_of` - Family relationship (see properties.relationship_type)
 - `baptized_by` - Received apelido from
-- `granted_title_to` - Conferred a title/rank
+- `received_title_from` - Received a title/rank from mestre
 - `associated_with` - Informal connection (see properties.association_context)
 
 ### predicates (person-to-group)

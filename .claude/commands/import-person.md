@@ -267,7 +267,7 @@ Map all relationships found to predicates. Direction convention: predicates flow
 | `trained_under` | Historical/past training, workshops, seminars | - |
 | `influenced_by` | Studied philosophy/methods without direct training | - |
 | `associated_with` | Documented connection between contemporaries (peers, collaborators, known associates) | `association_context` (REQUIRED - text explaining circumstances and sources) |
-| `granted_title_to` | Mestre conferred a title/rank (MESTRE grants to student) | `title_grant: { title, ceremony?, location? }` |
+| `received_title_from` | Person received title FROM mestre | `title_grant: { title, ceremony?, location? }` |
 | `baptized_by` | Received apelido at batizado ceremony from this mestre | `baptism: { apelido_given, ceremony?, location? }` |
 | `family_of` | Biological or ceremonial family | `relationship_type: parent|sibling|spouse|padrinho|other` |
 
