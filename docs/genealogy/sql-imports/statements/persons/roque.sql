@@ -77,6 +77,98 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Roque' AND o.apelido = 'Onça Preta'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- ------------------------------------------------------------
+-- Roque influenced_by Chico Preto (father - capoeirista)
+-- No direct evidence of formal training, but family context
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'influenced_by'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1948-01-01'::date, 'year'::genealogy.date_precision,
+  NULL::date, NULL::genealogy.date_precision,
+  '{}'::jsonb, 'uncertain'::genealogy.confidence,
+  'https://capoeirahistory.com/mestre/master-roque-1938/',
+  E'Chico Preto was a capoeirista who facilitated Roque''s introduction to capoeira. He connected Roque to his first formal teacher (unnamed tailor on Peru hill) and gave him access to the Mercado Modelo capoeira community. No direct evidence of formal training, but influence through family environment is culturally reasonable.',
+  E'Chico Preto era um capoeirista que facilitou a introdução de Roque à capoeira. Ele conectou Roque ao seu primeiro professor formal (um alfaiate no Morro do Peru) e deu-lhe acesso à comunidade de capoeira do Mercado Modelo. Sem evidência direta de treinamento formal, mas influência através do ambiente familiar é culturalmente razoável.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Roque' AND o.apelido = 'Chico Preto'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Roque influenced_by Zé Bedeu (uncle - capoeirista)
+-- No direct evidence of formal training, but family context
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'influenced_by'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL::date, NULL::genealogy.date_precision,
+  NULL::date, NULL::genealogy.date_precision,
+  '{}'::jsonb, 'uncertain'::genealogy.confidence,
+  'https://capoeuropa.org/historia-da-escola/',
+  E'Zé Bedeu was Roque''s uncle and a capoeirista who taught his own son Marco Buscapé. Growing up in a family where both father and uncle practiced capoeira, Roque was exposed to the art from childhood. No direct evidence of formal training from Zé Bedeu, but family influence is culturally reasonable.',
+  E'Zé Bedeu era tio de Roque e um capoeirista que ensinou seu próprio filho Marco Buscapé. Crescendo em uma família onde tanto o pai quanto o tio praticavam capoeira, Roque foi exposto à arte desde a infância. Sem evidência direta de treinamento formal de Zé Bedeu, mas influência familiar é culturalmente razoável.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Roque' AND o.apelido = 'Zé Bedeu'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Roque family_of Chico Preto (father)
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'family_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1938-01-01'::date, 'year'::genealogy.date_precision,
+  NULL::date, NULL::genealogy.date_precision,
+  '{"relationship_type": "son"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'https://capoeirahistory.com/mestre/master-roque-1938/',
+  E'Roque is the son of Chico Preto (Liberato Francisco Xavier). He was born in 1938 in Cachoeira and raised in the Nazaré neighborhood of Salvador.',
+  E'Roque é filho de Chico Preto (Liberato Francisco Xavier). Nasceu em 1938 em Cachoeira e foi criado no bairro de Nazaré em Salvador.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Roque' AND o.apelido = 'Chico Preto'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Roque family_of Zé Bedeu (uncle)
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'family_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL::date, NULL::genealogy.date_precision,
+  NULL::date, NULL::genealogy.date_precision,
+  '{"relationship_type": "nephew"}'::jsonb,
+  'likely'::genealogy.confidence,
+  'https://capoeuropa.org/historia-da-escola/',
+  E'Zé Bedeu is Roque''s uncle - brother of his father Chico Preto. Both brothers were capoeiristas in Salvador.',
+  E'Zé Bedeu é tio de Roque - irmão de seu pai Chico Preto. Ambos os irmãos eram capoeiristas em Salvador.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Roque' AND o.apelido = 'Zé Bedeu'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
@@ -85,11 +177,6 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Roque's primary teacher was an unnamed tailor who lived on Peru hill
 -- near Largo do Tanque - a friend of his father. Cannot create statement
 -- until this person is identified.
---
--- FAMILY RELATIONSHIPS:
--- Roque family_of Chico Preto (father - Liberato Francisco Xavier)
--- Roque family_of Zé Bedeu (uncle)
--- Both need to be imported first.
 --
 -- TEACHERS/INFLUENCES (need import):
 -- Roque trained_under Mucungê (learned berimbau from him)

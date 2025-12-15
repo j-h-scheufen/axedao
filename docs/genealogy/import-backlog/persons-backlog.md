@@ -219,12 +219,12 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Severo do Pelourinho | - | - | Traira import | pending | yes | Mestre from Pelourinho district of Salvador; additional teacher of Traira; timing unknown |
 | Barba Branca | Gilberto Reis Ferreira dos Santos Filho | Mestre | Traira import | pending | yes | Student of Traira (~1970-1971); later studied with Joao Pequeno 15 years; mestre 1991; founder of GCAC; (1957-2021) |
 | Ananias | - | Mestre | Traira import | pending | yes | Born Dec 1924 in Sao Felix; began capoeira 1938 in Juvencio's rodas; encountered Traira there around 1938 |
-| Chico Preto | Liberato Francisco Xavier | - | Roque import | pending | yes | Father of Mestre Roque; capoeirista; fishmonger at Modelo Market, Salvador; friend of Cobrinha Verde's family |
-| Zé Bedeu | - | - | Roque import | pending | yes | Uncle of Mestre Roque; capoeirista; father of Marco Buscapé |
-| Marco Buscapé | - | Mestre | Roque import | pending | ? | Son of Zé Bedeu (Roque's uncle); mentioned in capoeuropa.org; needs verification |
+| Chico Preto | Liberato Francisco Xavier | - | Roque import | done | yes | Father of Mestre Roque; capoeirista; fishmonger at Modelo Market, Salvador - SQL generated |
+| Zé Bedeu | - | - | Roque import | done | yes | Uncle of Mestre Roque; capoeirista; father of Marco Buscapé - SQL generated |
+| Marco Buscapé | - | ? | Roque import | pending | ? | Son of Zé Bedeu (Roque's uncle); mentioned in capoeuropa.org; DISTINCT from Mário Buscapé (son of José Bidel); needs verification |
 | Sandrinha | Sandra Eugênia Feitosa | Mestra | Roque import | pending | yes | Student of Roque; possibly first female capoeira mestra in Brazil (1970s); taught at Grupo Bantus de Capoeira |
-| Adilson (Camisa Preta) | - | Mestre | Roque import | pending | yes | Senior student of Roque; took over Pavãozinho academy (1970s); deceased 1990s; master of malandragem |
-| Paulo Siqueira | Paulo Siqueira | Mestre | Roque import | pending | yes | Student of Roque (1972+); founded Escola de Capoeira Nzinga in Germany (1985); pioneer of capoeira in Europe; founded Capoeira Sommer-Meeting (1987) |
+| Adilson (Camisa Preta) | - | Mestre | Roque import | done | yes | Senior student of Roque; took over Pavãozinho academy (1970s); deceased 1990s; master of malandragem - SQL generated as adilson-camisa-preta.sql |
+| Paulo Siqueira | Paulo Siqueira | Mestre | Roque import | done | yes | Student of Roque/Adilson (1972+); founded Escola de Capoeira Nzinga in Germany (1985); pioneer of capoeira in Europe; Capoeira Sommer-Meeting (1987-2004) - SQL generated |
 | Poeira | - | Mestre | Roque import | pending | yes | Student of Roque; lineage continues through Cebu Torpedo Capoeira (Mestre Poeira → Mestre Cabeça → Mestre Torpedo) |
 | Derli | - | Mestre | Roque import | pending | yes | Student of Roque; appears in MIS RJ "Memória da Capoeira" with Roque |
 | Lapinha | - | Mestre | Roque import | pending | yes | Student of Roque; accompanied Roque at later stage of his teaching |
