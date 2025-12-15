@@ -183,6 +183,17 @@ const groupEditFieldsSchema = object({
   publicLinks: urlArraySchema, // Public references (Wikipedia, articles)
   isActive: boolean(),
 
+  // Founding details (stored in genealogy.group_profiles)
+  foundedYear: number()
+    .nullable()
+    .integer('Year must be a whole number')
+    .min(1800, 'Year must be 1800 or later')
+    .max(new Date().getFullYear(), 'Year cannot be in the future'),
+  foundedYearPrecision: string()
+    .nullable()
+    .oneOf([...datePrecisions, null, ''], 'Invalid precision'),
+  foundedLocation: string().nullable().max(255, 'Location must be less than 255 characters'),
+
   // Operational fields (stored in public.groups)
   email: string().email('Invalid email').optional().nullable(),
   links: linksSchema, // Social/contact links

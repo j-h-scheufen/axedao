@@ -1,7 +1,8 @@
 'use client';
 
-import { Button, Switch, Textarea } from '@heroui/react';
+import { Button, Input, Select, SelectItem, Switch, Textarea } from '@heroui/react';
 import { Field, FieldArray, type FieldProps, Form, Formik, type FormikProps } from 'formik';
+import type { Key } from 'react';
 import { useAtomValue } from 'jotai';
 import { useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
@@ -87,6 +88,10 @@ const GroupForm = () => {
     historyPt: genealogyProfile?.historyPt || '',
     publicLinks: genealogyProfile?.publicLinks || [],
     isActive: genealogyProfile?.isActive ?? true,
+    // Founding details from genealogy profile
+    foundedYear: genealogyProfile?.foundedYear ?? null,
+    foundedYearPrecision: genealogyProfile?.foundedYearPrecision || '',
+    foundedLocation: genealogyProfile?.foundedLocation || '',
     // Operational fields from public.groups
     email: group.email || '',
     links: group.links || [],
@@ -124,6 +129,64 @@ const GroupForm = () => {
                 {values.isActive ? 'The group is currently active' : 'The group is no longer active'}
               </span>
             </div>
+          </section>
+
+          {/* Founding Details Section */}
+          <section className="space-y-4">
+            <SubsectionHeading>Founding Details</SubsectionHeading>
+            <p className="text-default-500 text-sm">When and where was the group founded?</p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Field name="foundedYear">
+                {({ field, form, meta }: FieldProps<number | null, GroupEditForm>) => (
+                  <Input
+                    {...field}
+                    type="number"
+                    label="Founded Year"
+                    placeholder="e.g. 1974"
+                    value={field.value?.toString() ?? ''}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      form.setFieldValue('foundedYear', val ? Number.parseInt(val, 10) : null);
+                    }}
+                    isInvalid={meta.touched && !!meta.error}
+                    errorMessage={meta.touched && meta.error ? meta.error : undefined}
+                    className="sm:flex-1"
+                  />
+                )}
+              </Field>
+              <Field name="foundedYearPrecision">
+                {({ field, form, meta }: FieldProps<string, GroupEditForm>) => {
+                  const selectedKeys = field.value ? [field.value] : [];
+                  return (
+                    <Select
+                      {...field}
+                      label="Precision"
+                      placeholder="Select precision"
+                      selectedKeys={selectedKeys}
+                      onSelectionChange={(keys: 'all' | Set<Key>) => {
+                        const value = keys === 'all' ? '' : Array.from(keys)[0]?.toString() || '';
+                        form.setFieldValue('foundedYearPrecision', value);
+                      }}
+                      isInvalid={meta.touched && !!meta.error}
+                      errorMessage={meta.touched && meta.error ? meta.error : undefined}
+                      className="sm:flex-1"
+                    >
+                      <SelectItem key="exact">Exact</SelectItem>
+                      <SelectItem key="year">Approximately this year</SelectItem>
+                      <SelectItem key="decade">This decade</SelectItem>
+                      <SelectItem key="approximate">Approximate</SelectItem>
+                      <SelectItem key="unknown">Unknown</SelectItem>
+                    </Select>
+                  );
+                }}
+              </Field>
+            </div>
+            <Field
+              name="foundedLocation"
+              label="Founded Location"
+              placeholder="e.g. Salvador, Bahia, Brazil"
+              as={FieldInput}
+            />
           </section>
 
           {/* Descriptions Section */}
