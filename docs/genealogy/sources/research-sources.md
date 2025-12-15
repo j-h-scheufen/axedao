@@ -2,7 +2,7 @@
 
 This file documents known web sources for capoeira genealogy research. Import commands (`/import-person`, `/import-group`) should consult these sources during research.
 
-**Last Updated:** 2025-12-08
+**Last Updated:** 2025-12-15
 
 ---
 
@@ -112,6 +112,33 @@ For each source, follow the specific instructions on what data can be extracted 
 - Group: `lalaue.com/learn-capoeira/[group-name]/`
 
 **Best For:** Besouro, Pastinha, Bimba, major historical figures; song lyrics for cultural context
+
+---
+
+### Capoeira History (capoeirahistory.com)
+
+**URL:** https://capoeirahistory.com
+**Languages:** English (primary)
+**Focus:** Historical mestres with emphasis on Rio de Janeiro lineages, research-backed biographies
+**Reliability:** High - emphasizes research-backed content with project consultants
+
+**Data Available:**
+- Birth/death years with precision
+- Portrait photographs
+- Generational classifications (1st, 2nd generation)
+- Teacher-student relationships
+- Biographical narratives
+- Rio de Janeiro historical context
+
+**How to Access:**
+- Masters A-Z index: `capoeirahistory.com/masters-a-z-3/`
+- Individual pages: `capoeirahistory.com/mestre/[master-name-and-years]/`
+  - Example: `capoeirahistory.com/mestre/master-dentinho-1952-2011/`
+- Filter by generation or surname initial
+
+**Best For:** Rio de Janeiro mestres, generational lineages, 20th century figures, cross-referencing Bahian sources
+
+**Note:** Complements velhosmestres.com (Bahia-focused) with Rio de Janeiro perspective
 
 ---
 
@@ -363,6 +390,7 @@ Quick reference for constructing URLs:
 | Source | Person Pattern | Group Pattern |
 |--------|----------------|---------------|
 | Velhos Mestres | `velhosmestres.com/en/[apelido]` | N/A |
+| Capoeira History | `capoeirahistory.com/mestre/[name-years]/` | N/A |
 | Wikipedia EN | `en.wikipedia.org/wiki/[Name]` | `en.wikipedia.org/wiki/[Group_Name]` |
 | Wikipedia PT | `pt.wikipedia.org/wiki/[Name]` | `pt.wikipedia.org/wiki/[Group_Name]` |
 | CapoeiraHub | `capoeirahub.net/mestres/[id]-[name]` | Limited |

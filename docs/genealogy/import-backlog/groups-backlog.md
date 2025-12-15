@@ -25,5 +25,6 @@
 | Fundação Mestre Bimba (FUMEB) | Regional | Mestre Bimba import | pending | Founded 1994 by Mestre Nenel; preserves Bimba's legacy; Municipal and State Public Utility status |
 | Filhos de Bimba | Regional | Mestre Bimba import | pending | Founded 1986 by Mestre Nenel; schools in North America, South America, Europe |
 | Barracão de Waldemar | Angola | Waldemar import | pending | Informal training space founded 1940 on Estrada da Liberdade (Corta-Braço/Liberdade neighborhood); operated until 1968; legendary Sunday roda location |
+| Roda de São Felix (Juvencio) | Angola | Traíra import | pending | Proto-group: Informal dock rodas during Igreja de São Deus Menino and Senhor São Félix festivals (~1930s-40s); led by dock worker Juvencio; attended by young Traíra, Ananias; "no one gave classes... everyone got together and played" |
 | Escola Zacarias Boa Morte | Angola | Waldemar import | pending | Founded 1999 by Mestre Zacarias Boa Morte, student of Waldemar |
 | Grupo Resistência | Angola | Waldemar import | pending | Founded in 1960s by Bigodinho in Lapinha neighborhood, Salvador |

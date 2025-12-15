@@ -36,12 +36,12 @@ If not found: proceed to Phase 1.
 - Document ALL names discovered (other capoeiristas for later import)
 
 **Read `docs/genealogy/sources/research-sources.md` first** for source tiering:
-- **Tier 1** (highest reliability): Velhos Mestres, Wikipedia, CapoeiraHub, Lalaue, Papoeira
+- **Tier 1** (highest reliability): Velhos Mestres (Bahia), Capoeira History (Rio), Wikipedia, CapoeiraHub, Lalaue, Papoeira
 - **Tier 2**: Portal Capoeira, IPHAN, CapoeiraWiki
 - **Tier 3** (social media): Instagram/Facebook—for verifying activity only, NOT for `public_links`
 - **Tier 4** (academic): Research papers, university publications
 
-**PARALLEL EXECUTION:** Fetch multiple Tier 1 sources simultaneously using parallel WebFetch calls for: Wikipedia EN, Wikipedia PT, Velhos Mestres, Lalaue, Papoeira.
+**PARALLEL EXECUTION:** Fetch multiple Tier 1 sources simultaneously using parallel WebFetch calls for: Wikipedia EN, Wikipedia PT, Velhos Mestres, Capoeira History, Lalaue, Papoeira.
 
 ### Follow-up Research (CRITICAL)
 
@@ -92,6 +92,42 @@ Consolidate results before proceeding to data collection.
 
 **Bilingual content is REQUIRED.** See `docs/genealogy/BILINGUAL_CONTENT.md`.
 
+### Researcher Notes Structure (CRITICAL)
+
+The `notes_en`/`notes_pt` columns serve as **structured research documentation** for database queries and future researchers. Include ALL of the following sections when applicable:
+
+```
+BIRTH YEAR ESTIMATION ([year], [precision]):
+[Reasoning and sources]
+
+DEATH YEAR ESTIMATION ([year], [precision]):
+[Reasoning and sources]
+
+NAME DISCREPANCY:
+- "[Name 1]" - source1, source2 (MAJORITY)
+- "[Name 2]" - source3
+[Which used and why]
+
+TEACHERS:
+- Mestre [Name] ([context], ~[year], [location])
+- ...
+
+STUDENTS:
+- Mestre [Name] ([full name if known], began ~[year])
+- ...
+
+MEDIA APPEARANCES:
+- [Year]: [Description] (film/photo/interview/LP/publication)
+- [Year]: [Description]
+- ...
+
+RODA LOCATION: [Address], [Neighborhood], [City]
+
+[Any other relevant structured data]
+```
+
+**Why this matters:** The .md report is for human reading, but `notes_en`/`notes_pt` persist in the database and enable queries like "find all mestres photographed by Pierre Verger" or "list all media appearances from 1954".
+
 ### Capoeira History (for relationships)
 
 Also collect for statement generation:
@@ -115,6 +151,17 @@ The bio tells the person's story. Write a **narrative**, not a dry summary.
 
 **Include:** Human journey, pivotal moments, historical context, relationships, stakes, direct quotes from sources, mysteries, legacy.
 
+**CRITICAL - Narrative Richness (DO NOT SACRIFICE FOR COMPACTNESS):**
+- Include **direct quotes** from primary sources (with attribution)
+- Document **media appearances** chronologically: films, photographs, recordings, publications
+- Name **specific locations**: street addresses, neighborhood names, church names
+- Capture **colorful details**: description of rodas, environment, intensity
+- Include **transformation stories**: before/after capoeira, prison to mestre, etc.
+- Reference **academic studies** that mention the person (e.g., Waldeloir Rego 1968)
+
+**Example of good detail (from Traíra bio):**
+> "His rodas were notorious for their intensity - Mestre Barba Branca recalled them as 'violent,' with constant headbutts to the face and rasteiras. The roda took place on packed dirt, and chickens would cross through the middle while people played."
+
 **CRITICAL - Tone:**
 - Let facts speak—they're dramatic enough
 - Use source language (translated if needed)
@@ -130,6 +177,20 @@ The bio tells the person's story. Write a **narrative**, not a dry summary.
 
 Include stable, authoritative pages: Wikipedia, group website bios, Lalaue, CapoeiraHub.
 **Do NOT include social media accounts**—too ephemeral.
+
+**CRITICAL - Primary Source Verification:**
+If you used **velhosmestres.com** or **capoeirahistory.com** during research, you MUST include it in `public_links`. This is the most authoritative source for historical mestres. Check for:
+- Person-specific page: `velhosmestres.com/en/featured-[number]` or `velhosmestres.com/pt/destaque-[number]`
+- Interview pages mentioning the person
+- LP/recording documentation pages, media appearences
+
+**Order in public_links array:** Primary sources first, then secondary:
+1. velhosmestres.com (if applicable)
+2. Wikipedia (EN/PT)
+3. CapoeiraWiki
+4. Lalaue/CapoeiraHub
+5. Group official websites
+6. Other stable sources
 
 ### Portrait Sourcing
 
@@ -181,6 +242,29 @@ As you research, track discovered entities for later import.
 
 **In Dataset?**: `yes`/`no`/`check` (ask if unsure)
 **Import?**: `yes` (capoeira entity), `no` (not capoeira—do not add to backlog), `?` (needs investigation)
+
+### Proto-Group Detection (CRITICAL)
+
+When researching a person's history, watch for mentions of **informal gatherings** that may qualify as proto-groups:
+
+**Detection triggers:**
+- Regular rodas at specific locations (docks, churches, street corners, markets)
+- Festival gatherings with recurring capoeira activity
+- Informal training spaces without formal academy structure
+- Named leaders of informal groups ("Juvencio held rodas on the docks")
+- Phrases like "no one gave classes... everyone got together and played"
+
+**Examples of proto-groups:**
+- `Roda de São Felix (Juvencio)` - dock rodas during church festivals
+- `Roda da Gengibirra` - street corner gatherings in Liberdade
+- `Roda da Rampa do Mercado` - market ramp gatherings
+
+**When detected:**
+1. Add to groups-backlog with `Proto-group:` prefix in Notes
+2. Include: location, leader (if known), era, nature of gatherings, source quote
+3. Format: `| Roda de [Location] ([Leader]) | Angola | [Person] import | pending | Proto-group: [description] |`
+
+**These informal gatherings are historically significant** - they represent the organic transmission of capoeira before formal academies existed.
 
 ---
 
@@ -345,6 +429,29 @@ After writing files, verify consistency:
 2. **Cross-check sources:** Every source in your summary must appear in written files
 3. **Cross-check entities:** All discovered persons/groups with `Import? = yes/?` must be in backlogs
 4. **Fix discrepancies immediately**
+
+### Source Verification Checklist (CRITICAL)
+
+For EVERY source used during research, verify it appears in the correct location(s):
+
+| Source Type | Must Appear In |
+|-------------|----------------|
+| velhosmestres.com page | `public_links` array, .md Sources section |
+| Wikipedia page | `public_links` array, .md Sources section |
+| Other Tier 1/2 web sources | .md Sources section (evaluate for `public_links`) |
+| Academic papers/books | .md Sources section, bio text attribution |
+| Film/documentary | bio text, notes_en MEDIA APPEARANCES |
+| Photograph (with photographer) | bio text, notes_en MEDIA APPEARANCES |
+| LP/recording | bio text, notes_en MEDIA APPEARANCES |
+| Interview/oral history | bio text attribution, .md Sources section |
+
+**Verification process:**
+1. List all sources you used during research
+2. For each source, check the table above
+3. Verify it appears in ALL required locations
+4. If missing, add it before completing
+
+**Common omission to avoid:** Using velhosmestres.com during research but forgetting to add it to `public_links`.
 
 **Data quality checks:**
 - Person has at least: apelido, bio (bilingual)

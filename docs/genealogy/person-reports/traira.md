@@ -26,15 +26,19 @@
 
 ### English
 
-João Ramos do Nascimento, known as Mestre Traíra, was one of the most elegant and formidable angoleiros of mid-20th century Bahia. A "caboclo seco e de pouco falar, feito de músculos" (a dry, taciturn caboclo, made of muscles), as Jorge Amado described him in 1945, he left an indelible mark on capoeira Angola through his masterful game, musical contributions, and the intensity of his rodas.
+João Ramos do Nascimento was born around 1925 in Cachoeira, in the Recôncavo Baiano. Before becoming one of the most elegant angoleiros of his generation, he carried a darker history: he had served eleven years and six months in prison for killing a man over a woman.
 
-Born in Cachoeira around 1925, Traíra first encountered capoeira in the rodas of Mestre Juvencio in nearby São Felix around 1938. The dock worker Juvencio held informal gatherings on the docks during festivals at Igreja de São Deus Menino and Senhor São Félix. There, alongside future luminaries like Mestre Ananias, young Traíra began his journey. As Ananias recalled, "no one gave classes... everyone got together and played, there wasn't this business of finding a mestre." Yet Juvencio was recognized as "the real master."
+His first exposure to capoeira came in the rodas of Mestre Juvencio in nearby São Felix, where Mestre Ananias encountered him around 1938. The dock worker Juvencio held informal gatherings on the docks during festivals at Igreja de São Deus Menino and Senhor São Félix. There, alongside future luminaries like Ananias, young Traíra began his journey. As Ananias recalled, "no one gave classes... everyone got together and played, there wasn't this business of finding a mestre." Yet Juvencio was recognized as "the real master."
 
-In 1947, Traíra began studying formally with Mestre Waldemar at his Escola de Capoeira Angola in the Liberdade neighborhood of Salvador. The Barracão de Waldemar served as a cradle for some of Bahia's greatest capoeiristas for over 40 years. Traíra became so trusted that he managed Waldemar's roda. As Waldemar later recalled: "The late Traíra is who managed the roda. I'd arrive, give orders, then have beer." Traíra also received teachings from Severo do Pelourinho, another old mestre of Salvador about whom little is known.
+But it was after his release from prison, in 1947, that Traíra sought out Mestre Waldemar in Salvador during a roda held for Otávio Mangabeira's gubernatorial campaign. According to Waldemar: "Who made Traíra ready was me. He spent eleven years and six months in jail, he was an assassin. He killed a man because of a woman. When he got out he came to see me... He befriended me and said I should make him ready, so I did."
 
-By the 1950s, Traíra had established himself as a regular presence at Waldemar's rodas and maintained his own roda in the backyard of his home on Rua do Céu in Liberdade. His rodas were famous for their raw intensity. Mestre Barba Branca, who would begin learning from Traíra around 1970, remembered: "The roda was violent, with many headbutts to the face, leg sweeps... Many people left injured, which is why my mother wouldn't let me go. The roda happened in Traíra's backyard, on the bare earth. There were even chickens crossing through the roda among the people."
+Waldemar transformed the ex-convict into a master. Traíra also learned from Severo do Pelourinho and became a regular presence at the legendary Barracão de Waldemar in Liberdade. He became so trusted that Waldemar delegated the management of the roda to him: "The deceased Traíra was who took care of the roda. I went there, gave my order and went to have a beer."
 
-Traíra's reputation reached Jorge Amado, who immortalized him in "Bahia de Todos os Santos" (1945): "Traíra, a dry caboclo of few words, all muscles, a great master of capoeira. Watching him play is a true aesthetic pleasure. He seems like a dancer and only Pastinha can compete with him in the beauty of movements, in agility, in the quickness of strikes."
+By 1945, even before completing his training with Waldemar, Jorge Amado had already noticed him. In "Bahia de Todos os Santos," Amado immortalized Traíra: "Um caboclo seco e de pouco falar, feito de músculos, um grande mestre de capoeira" (A dry caboclo of few words, made of muscles, a great capoeira master). Amado declared that "only Pastinha can compete with him in the beauty of movements, in agility, in the precision of strikes."
+
+Traíra also maintained his own roda in the backyard of his house on Rua do Céu in the Liberdade neighborhood. His rodas were notorious for their intensity - Mestre Barba Branca, who began learning from him around 1970-1971, recalled them as "violent," with constant headbutts to the face and rasteiras. The roda took place on packed dirt, and chickens would cross through the middle while people played. Traíra taught only by invitation - a select group of adults and children.
+
+In Waldeloir Rego's 1968 ethnographic study "Capoeira Angola: ensaio sócio-etnográfico," Traíra's school in Liberdade was mentioned alongside the major capoeira institutions of Salvador.
 
 The 1950s brought photographic documentation. Pierre Verger captured Traíra at Waldemar's Barracão around 1955, playing berimbau alongside other masters. Marcel Gautherot and Alice Brill also photographed him during this period. In 1954, Traíra participated in the pioneering film "Vadiação" by Alexandre Robatto Filho, alongside Bimba, Waldemar, Caiçara, Curió, Crispim, and Nagé—a remarkable gathering of Bahian capoeira's greatest names.
 
@@ -46,15 +50,19 @@ Traíra died in Salvador around 1975, victim of liver cirrhosis. Though one of t
 
 ### Português
 
-João Ramos do Nascimento, conhecido como Mestre Traíra, foi um dos angoleiros mais elegantes e formidáveis da Bahia de meados do século XX. Um "caboclo seco e de pouco falar, feito de músculos," como Jorge Amado o descreveu em 1945, ele deixou uma marca indelével na capoeira Angola através de seu jogo magistral, contribuições musicais e a intensidade de suas rodas.
+João Ramos do Nascimento nasceu por volta de 1925 em Cachoeira, no Recôncavo Baiano. Antes de se tornar um dos angoleiros mais elegantes de sua geração, carregava uma história mais sombria: cumprira onze anos e seis meses de prisão por matar um homem por causa de uma mulher.
 
-Nascido em Cachoeira por volta de 1925, Traíra encontrou a capoeira pela primeira vez nas rodas de Mestre Juvencio na vizinha São Felix por volta de 1938. O estivador Juvencio realizava encontros informais nas docas durante as festas da Igreja de São Deus Menino e Senhor São Félix. Ali, ao lado de futuros luminares como Mestre Ananias, o jovem Traíra começou sua jornada. Como Ananias recordou, "ninguém dava aulas... todo mundo se juntava e jogava, não tinha esse negócio de procurar mestre." Mas Juvencio era reconhecido como "o verdadeiro mestre."
+Seu primeiro contato com a capoeira foi nas rodas de Mestre Juvencio em São Felix, onde Mestre Ananias o encontrou por volta de 1938. O estivador Juvencio realizava encontros informais nas docas durante as festas da Igreja de São Deus Menino e Senhor São Félix. Ali, ao lado de futuros luminares como Ananias, o jovem Traíra começou sua jornada. Como Ananias recordou, "ninguém dava aulas... todo mundo se juntava e jogava, não tinha esse negócio de procurar mestre." Mas Juvencio era reconhecido como "o verdadeiro mestre."
 
-Em 1947, Traíra começou a estudar formalmente com Mestre Waldemar em sua Escola de Capoeira Angola no bairro da Liberdade em Salvador. O Barracão de Waldemar serviu como berço para alguns dos maiores capoeiristas da Bahia por mais de 40 anos. Traíra tornou-se tão confiável que administrava a roda de Waldemar. Como Waldemar mais tarde recordou: "O finado Traíra é que tomava conta da roda. Eu chegava, dava as ordens e ia tomar cerveja." Traíra também recebeu ensinamentos de Severo do Pelourinho, outro velho mestre de Salvador sobre quem pouco se sabe.
+Mas foi após sua saída da prisão, em 1947, que Traíra procurou Mestre Waldemar em Salvador durante uma roda realizada para a campanha de Otávio Mangabeira ao governo. Segundo Waldemar: "Quem fez Traíra foi eu. Ele passou onze anos e seis meses preso, era assassino. Matou um homem por causa de mulher. Quando saiu veio me ver... Fez amizade comigo e disse que eu o fizesse, então eu o fiz."
 
-Nos anos 1950, Traíra havia se estabelecido como presença regular nas rodas de Waldemar e mantinha sua própria roda no quintal de sua casa na Rua do Céu na Liberdade. Suas rodas eram famosas por sua intensidade crua. Mestre Barba Branca, que começaria a aprender com Traíra por volta de 1970, lembrava: "A roda era violenta, com muitas cabeçadas no rosto, rasteiras... Muita gente saía machucada, por isso minha mãe não me deixava ir. A roda acontecia no quintal de Traíra, no chão de terra batida. Até galinha passava pela roda no meio das pessoas."
+Waldemar transformou o ex-presidiário em mestre. Traíra também aprendeu com Severo do Pelourinho e tornou-se presença constante no lendário Barracão de Waldemar na Liberdade. Tornou-se tão confiável que Waldemar delegava a ele a gestão da roda: "O finado Traíra é que tomava conta da roda. Eu chegava lá, dava minha ordem e ia tomar minha cerveja."
 
-A reputação de Traíra chegou a Jorge Amado, que o imortalizou em "Bahia de Todos os Santos" (1945): "Traíra, um caboclo seco e de pouco falar, feito de músculos, um grande mestre de capoeira. Vê-lo jogar é um verdadeiro prazer estético. Parece um bailarino e só mesmo Pastinha pode competir com ele na beleza dos movimentos, na agilidade, na rigidez dos golpes."
+Por volta de 1945, mesmo antes de completar seu treinamento com Waldemar, Jorge Amado já o havia notado. Em "Bahia de Todos os Santos," Amado imortalizou Traíra: "Um caboclo seco e de pouco falar, feito de músculos, um grande mestre de capoeira." Amado declarou que "só mesmo Pastinha pode competir com ele na beleza dos movimentos, na agilidade, na rigidez dos golpes."
+
+Traíra também mantinha sua própria roda no quintal de sua casa na Rua do Céu, no bairro da Liberdade. Suas rodas eram notórias pela intensidade - Mestre Barba Branca, que começou a aprender com ele por volta de 1970-1971, lembrava-as como "violentas," com constantes cabeçadas no rosto e rasteiras. A roda acontecia em terra batida, e galinhas cruzavam o meio enquanto as pessoas jogavam. Traíra ensinava apenas por convite - um grupo seleto de adultos e crianças.
+
+No estudo etnográfico de Waldeloir Rego de 1968, "Capoeira Angola: ensaio sócio-etnográfico," a escola de Traíra na Liberdade foi mencionada ao lado das principais instituições de capoeira de Salvador.
 
 Os anos 1950 trouxeram documentação fotográfica. Pierre Verger fotografou Traíra no Barracão de Waldemar por volta de 1955, tocando berimbau ao lado de outros mestres. Marcel Gautherot e Alice Brill também o fotografaram durante este período. Em 1954, Traíra participou do pioneiro filme "Vadiação" de Alexandre Robatto Filho, ao lado de Bimba, Waldemar, Caiçara, Curió, Crispim e Nagé—uma reunião notável dos maiores nomes da capoeira baiana.
 
@@ -169,13 +177,16 @@ Conhecido por um estilo de jogo excepcionalmente elegante. Jorge Amado escreveu 
 
 ## Sources / Fontes
 
+- [Velhos Mestres: Mestre Traíra](https://velhosmestres.com/en/featured-37) - Primary source with timeline
+- [Velhos Mestres: Waldemar 1989 Interview](https://velhosmestres.com/en/waldemar-1989-2) - Waldemar's testimony about Traíra
+- [Velhos Mestres: 1962 LP Recording](https://velhosmestres.com/en/cobrinha-1962) - LP details and participants
 - [CapoeiraWiki: Mestre Traíra](https://capoeirawiki.org/wiki/Mestre_Tra%C3%ADra)
-- [Capoeira Online: Mestre Trairá](https://capoeira.online/history/mestres/mestre-traira/)
-- [Nossa Tribo: Mestre Traira](https://nossa-tribo.com/mestre-traira/)
-- [Cachoeira Bahia: Mestre Traíra](https://cachoeirabahia.jethsys.com/mestre-traira/)
-- [De Capoeira: Mestre Traira](https://decapoeira.org/en/mestre-traira/)
-- [Angoleiro's Blog: Mestre Traira](https://angoleiro.wordpress.com/tag/mestre-traira/)
-- [Velhos Mestres: LP Capoeira (1962)](https://velhosmestres.com/en/cobrinha-1962)
+- [Capoeira Online: Mestre Traíra](https://capoeira.online/history/mestres/mestre-traira/)
+- [Nossa Tribo: Mestre Traíra](https://nossa-tribo.com/mestre-traira/) - Detailed biography
+- [Cachoeira Bahia: Mestre Traíra](https://cachoeirabahia.jethsys.com/mestre-traira/) - Local history
+- [De Capoeira: Mestre Traíra](https://decapoeira.org/en/mestre-traira/)
+- [Angoleiro's Blog: Mestre Traíra](https://angoleiro.wordpress.com/tag/mestre-traira/)
+- [GCAC História](https://www.gcac-capoeira.org/historia) - Barba Branca's lineage
 - [Capoeira Connection: Interview with Mestre Ananias](https://capoeira-connection.com/capoeira/2011/10/interview-with-mestre-ananias/)
 - [Capoeira Fandom: Mestre Barba Branca](https://capoeira.fandom.com/wiki/Mestre_Barba_Branca)
 - Jorge Amado, "Bahia de Todos os Santos: Guia de Ruas e Mistérios" (1945)
