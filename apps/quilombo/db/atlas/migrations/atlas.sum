@@ -1,4 +1,4 @@
-h1:dTkqhMIX+WqIhvZRq03AVjQZ28oeZ3Ygl1eRqpmyZ/M=
+h1:AQtGfzb0pqrr2iQn9ywO/wASOdzAk+VZsGi/nS9g+gc=
 20251120135529_baseline.sql h1:VdAR2xMYVIk6ANN5k0dR+oe44hwn8qrNABIiVQJFaCU=
 20251120151443_add_group_locations_group_id_index.sql h1:zlRv24jOLdtsv33AfafJmApf3nzxOyx8oOSiyTULUhY=
 20251121171600_users_hide_email_column.sql h1:73VKRXiTJAz5KFhAmPBHdeiD1vXjnB9qK8PgPG5seBs=
@@ -8,3 +8,4 @@ h1:dTkqhMIX+WqIhvZRq03AVjQZ28oeZ3Ygl1eRqpmyZ/M=
 20251211235418_drop_import_log.sql h1:ylc170saTcO5aSHt6MRdw3X9r8MMVj4LaXKWrAgAOr4=
 20251214165106_profile_claiming_and_schema_cleanup.sql h1:7pny3q/9iz8J/MAYvOXtit0pHOG2He+8Ob6KahmjGm8=
 20251215120000_rename_granted_title_predicate.sql h1:4rlzzeNndLWcfk9948xQJB2a3ir9R4Do61O3LQ05vFQ=
+20251215180000_add_group_name_context.sql h1:1whOUqEa4ANhYKFIdluzeT3kt7kDc6Q2GHF9vW6wWz0=

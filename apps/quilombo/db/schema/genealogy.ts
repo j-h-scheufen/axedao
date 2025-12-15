@@ -136,6 +136,11 @@ export type NameHistoryEntry = {
 /**
  * Group profiles for capoeira identity/lineage data.
  * Linked from public.groups via groups.profile_id FK.
+ *
+ * NAME UNIQUENESS: The combination of (name, name_context) must be unique.
+ * - name_context disambiguates groups with the same name (e.g., "Filhos de Angola" Rio vs Salvador)
+ * - For unique names, name_context can be NULL
+ * - Examples: name="Filhos de Angola", name_context="Rio 1960"
  */
 export const groupProfiles = genealogySchema.table(
   'group_profiles',
@@ -144,6 +149,7 @@ export const groupProfiles = genealogySchema.table(
 
     // Identity (moved from groups)
     name: varchar('name', { length: 255 }).notNull(),
+    nameContext: varchar('name_context', { length: 100 }), // disambiguation for duplicate names (e.g., "Rio 1960", "Salvador 1984")
 
     // Extended data (bilingual: _en = English, _pt = Brazilian Portuguese)
     descriptionEn: text('description_en'),

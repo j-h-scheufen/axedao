@@ -63,6 +63,7 @@ Before starting web searches, read `docs/genealogy/sources/research-sources.md` 
 | Field | Column | Description |
 |-------|--------|-------------|
 | Name* | `name` | Official group name - **required** |
+| Name Context | `name_context` | Disambiguation text for duplicate names (e.g., "Salvador, Bahia", "Berlin chapter"). Use NULL if name is unique. |
 | Name Aliases | `name_aliases` | Array of alternative names, abbreviations (e.g., ["GCAP", "Pelourinho"]) |
 | Style | `style` | Primary style (angola, regional, contemporanea, mixed) |
 
@@ -235,9 +236,10 @@ Generate SQL and **write it to TWO files**:
 INSERT INTO genealogy.group_profiles (
   -- Identity
   name,
+  name_context,
   style,
   logo,
-  links,
+  public_links,
   -- Identity enhancements
   name_aliases,
   name_history,
@@ -263,6 +265,7 @@ INSERT INTO genealogy.group_profiles (
 ) VALUES (
   -- Identity
   '[Name]',
+  NULL, -- name_context: unique name, no disambiguation needed (or '[disambiguation text]' if needed)
   '[style or NULL]'::genealogy.style,
   '[logo_url or NULL]',
   ARRAY['https://...']::text[],  -- or ARRAY[]::text[] if no links
@@ -289,10 +292,10 @@ INSERT INTO genealogy.group_profiles (
   [true|false],  -- is_active
   [NULL or 'YYYY-MM-DD'::date]  -- dissolved_at
 )
-ON CONFLICT (name) DO UPDATE SET
+ON CONFLICT (name, COALESCE(name_context, '')) WHERE name IS NOT NULL DO UPDATE SET
   style = EXCLUDED.style,
   logo = EXCLUDED.logo,
-  links = EXCLUDED.links,
+  public_links = EXCLUDED.public_links,
   name_aliases = EXCLUDED.name_aliases,
   name_history = EXCLUDED.name_history,
   founded_year = EXCLUDED.founded_year,
