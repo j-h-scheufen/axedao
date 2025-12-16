@@ -187,7 +187,7 @@ export const predicates = [
   'trained_under',
   'influenced_by',
   // Person-to-Person: Recognition (2)
-  'granted_title_to',
+  'received_title_from', // Person received title FROM mestre (consistent with subject-receives-from-object pattern)
   'baptized_by', // Person was baptized BY mestre (received apelido from)
   // Person-to-Person: Family (1)
   'family_of',

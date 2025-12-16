@@ -36,27 +36,11 @@ person-reports/
 - `concepts.md` - Cultural concepts (Mandinka, corpo fechado, patuá, Ogum, etc.)
 - `lineage-overview.md` - Lineage tree diagram and oral transmission networks
 
-**Persons with SQL Imports (processed):**
-- `adao.md` - First documented capoeirista (1789)
-- `major-vidigal.md` - Earliest named practitioner
-- `manduca-da-praia.md` - 19th century Rio legend
-- `nascimento-grande.md` - Pernambuco legend
-
-**By Category:**
-- Inspirational: `queen-nzinga.md`, `aqualtune.md`, `ganga-zumba.md`, `zumbi-dos-palmares.md`
-- Proto-Mestres: `benedito.md`, `bentinho.md`, `tio-alipio.md`, `candido-pequeno.md`
-- Gengibirra: `noronha.md`, `totonho-de-mare.md`, `amorzinho.md`, `livino.md`, `aberre.md`
-- Rio de Janeiro: `major-vidigal.md`, `manduca-da-praia.md`, `adao.md`, `prata-preta.md`, `madame-sata.md`, `sete-coroas.md`
-- Pernambuco: `nascimento-grande.md`, `joao-sabe-tudo.md`, and many valentões
-- Bahia: `besouro-manganga.md`, `cobrinha-verde.md`
-- Women: `maria-felipa.md`, `maria-doze-homens.md`, `tonha-rolo-do-mar.md`, etc.
-- Historians: `frede-abreu.md`, `waldeloir-rego.md`, `manuel-querino.md`, etc.
-
 ---
 
 ## Profile Types
 
-Each person file should indicate their profile type:
+Each person file should indicate their profile type
 
 | Type | Description | Import to DB? |
 |------|-------------|---------------|
@@ -161,7 +145,7 @@ Each person file should follow this **bilingual structure** (English and Brazili
 - Place names (use original language, typically Portuguese)
 - Source citations (keep in original language of source)
 
-**Research tip:** Many sources are already in Portuguese. When researching, capture the Portuguese text first, then translate to English. This ensures authenticity.
+**Research tip:** Many sources are already in Portuguese. When researching, capture the Portuguese text first, then translate to English. This ensures authenticity!
 
 ---
 
@@ -199,7 +183,8 @@ When documenting, clearly distinguish:
 | Colonial | 1500-1822 | Slavery, quilombos, proto-capoeira |
 | Imperial | 1822-1889 | Criminalization, maltas, urban capoeira |
 | Old Republic | 1889-1930 | Brutal suppression, near-extinction |
-| Modern | 1930+ | Bimba's legalization, academies |
+| Modern | 1930-1979 | Bimba's legalization, academies |
+| Contemporary | 1980+ | Start of global diaspora |
 
 Layer Zero primarily covers the Colonial, Imperial, and Old Republic eras.
 

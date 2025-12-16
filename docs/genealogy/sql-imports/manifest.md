@@ -149,10 +149,18 @@ See `docs/genealogy/BILINGUAL_CONTENT.md` for details.
 
 ## Idempotent SQL Patterns
 
-**Profiles** use `ON CONFLICT ... DO UPDATE`:
+**Person Profiles** use `ON CONFLICT ... DO UPDATE`:
 ```sql
 ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
+  ...
+  updated_at = NOW();
+```
+
+**Group Profiles** use `ON CONFLICT ... DO UPDATE`:
+```sql
+ON CONFLICT (name, COALESCE(name_context, '')) WHERE name IS NOT NULL DO UPDATE SET
+  style = EXCLUDED.style,
   ...
   updated_at = NOW();
 ```

@@ -88,7 +88,7 @@ CREATE TYPE genealogy.confidence AS ENUM (
 CREATE TYPE genealogy.predicate AS ENUM (
   -- Person-to-Person (6)
   'student_of', 'trained_under', 'influenced_by',
-  'granted_title_to', 'baptized_by', 'family_of',
+  'received_title_from', 'baptized_by', 'family_of',
   -- Person-to-Group (9)
   'founded', 'co_founded', 'leads', 'regional_coordinator_of',
   'member_of', 'teaches_at', 'cultural_pioneer_of',
@@ -246,7 +246,7 @@ export const confidenceEnum = genealogySchema.enum('confidence', [
 export const predicateEnum = genealogySchema.enum('predicate', [
   // Person-to-Person (6)
   'student_of', 'trained_under', 'influenced_by',
-  'granted_title_to', 'baptized_by', 'family_of',
+  'received_title_from', 'baptized_by', 'family_of',
   // Person-to-Group (9)
   'founded', 'co_founded', 'leads', 'regional_coordinator_of',
   'member_of', 'teaches_at', 'cultural_pioneer_of',

@@ -533,7 +533,7 @@ Núcleo Teresina (Celso de Brito, 2018)
 **Person-to-Person:**
 - `student_of`: Mestre Boca do Rio → Mestre Moraes (15 years, 1983-1998)
 - `trained_alongside`: Mestre Boca do Rio ↔ Mestre Cobra Mansa (graduated together 1996)
-- `granted_title_to`: Mestre Cobra Mansa → Mestre Boca do Rio (Mestre title, 2007)
+- `received_title_from`: Mestre Boca do Rio → Mestre Cobra Mansa (Mestre title, 2007)
 - `student_of`: Celso de Brito → Mestre Boca do Rio (via Zimba)
 
 **Person-to-Group:**
@@ -745,7 +745,7 @@ academic_position?: string,  // "Assistant Professor, UFPI"
 academic_field?: string,  // "Social Anthropology"
 
 // person_relationships table
-relationship_type: add 'granted_title_to' (peer recognition, not teacher-student)
+relationship_type: add 'received_title_from' (peer recognition, not teacher-student)
 relationship_type: add 'trained_alongside' (classmates)
 relationship_type: add 'blessed_departure' (left with approval)
 ```

@@ -26,7 +26,7 @@ import { QUERY_KEYS } from './keys';
 const fetchGenealogyProfile = async (profileId: string): Promise<SelectPersonProfile | null> =>
   axios
     .get(`/api/public/genealogy/persons/${profileId}`)
-    .then((response) => response.data)
+    .then((response) => response.data.data)
     .catch((error) => {
       if (error.response?.status === 404) return null;
       throw error;

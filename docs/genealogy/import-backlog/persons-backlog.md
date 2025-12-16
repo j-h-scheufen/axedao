@@ -44,7 +44,7 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Paulo Barroquinha | - | - | Besouro Mangangá import | done | yes | Training companion of Besouro Mangangá in Santo Amaro; part of his Sunday training circle - SQL generated |
 | Cobrinha Verde | Rafael Alves França | Mestre | Multiple | done | yes | Cousin and student of Besouro; bridge to documented lineage - SQL generated |
 | Gato Preto | José Gabriel Góes (or Góes/Chagas) | Mestre | Cobrinha Verde import | pending | yes | Student of Cobrinha Verde; recorded LP with him; represented Brazil at 1966 Dakar festival |
-| Traíra | João Ramos do Nascimento | Mestre | Multiple | pending | yes | Recorded LP "Capoeira da Bahia" with Cobrinha Verde (1962); student of Waldemar from 1947; managed Waldemar's roda |
+| Traíra | João Ramos do Nascimento | Mestre | Multiple | done | yes | Recorded LP "Capoeira da Bahia" with Cobrinha Verde (1962); student of Waldemar from 1947; managed Waldemar's roda - SQL generated as traira.sql |
 | Waldemar | Waldemar Rodrigues da Paixão | Mestre | Multiple | done | yes | Legendary Angola mestre (1916-1990); founder of Barracão in Liberdade; inventor of painted berimbaus - SQL generated as waldemar.sql |
 | Pastinha | Vicente Ferreira Pastinha | Mestre | Cobrinha Verde import | done | yes | Founder of CECA; Cobrinha was member #28; collaborated on teaching - SQL generated as pastinha.sql |
 | Bimba | Manuel dos Reis Machado | Mestre | Cobrinha Verde import | done | yes | Founder of Capoeira Regional (1932); SQL generated as bimba.sql |
@@ -111,7 +111,7 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Artur Emídio | Artur Emídio de Oliveira | Mestre | Multiple | pending | yes | Bahian mestre (1930-2011); came to Rio 1955; major lineage figure; second teacher of Leopoldina |
 | Mário Buscapé | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Major lineage figure in Rio |
 | Djalma Bandeira | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Contemporary Rio generation |
-| Roque | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Major lineage figure in Rio |
+| Roque | Roque Mendes dos Santos | Mestre | capoeirahistory.com/masters-in-rio | done | yes | Major lineage figure in Rio; co-founder Filhos de Angola (1960); SQL generated |
 | Paulo Gomes | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Contemporary Rio generation |
 | Celso do Engenho | - | Mestre | capoeirahistory.com/masters-in-rio | pending | yes | Contemporary Rio generation |
 | Samuel Querido de Deus | Samuel Francisco Barreto de Souza | Mestre | capoeirahistory.com/masters-in-rio | done | yes | Bahian first-generation mestre; recognized alongside Besouro, Bimba, Pastinha - SQL generated as querido-de-deus.sql |
@@ -215,3 +215,23 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Menino Gordo da Curva Grande | - | - | Vitor Agaú import | pending | yes | Teacher of Gaguinho Preto alongside Roque and Vitor Agaú in Curva Grande neighborhood |
 | Zeca do Uruguai | - | Mestre | Vitor Agaú import | pending | yes | Teacher of Gaguinho Preto; first cousin of Gato Preto; cousin of Cobrinha Verde; from Santo Amaro; students include Pierrô and Nilton |
 | Juvelino | - | - | Gasolina import | pending | yes | Capoeirista killed during Pedrito persecution (1920s); listed by Onça Preta among the fallen |
+| Juvencio | - | Mestre | Traira import | pending | yes | Dock worker mestre in Sao Felix; had rodas at Igreja de Sao Deus Menino; trained Traira (~1938), Ananias (1938), Joao Pequeno; foundational figure in Reconcavo |
+| Severo do Pelourinho | - | - | Traira import | pending | yes | Mestre from Pelourinho district of Salvador; additional teacher of Traira; timing unknown |
+| Barba Branca | Gilberto Reis Ferreira dos Santos Filho | Mestre | Traira import | pending | yes | Student of Traira (~1970-1971); later studied with Joao Pequeno 15 years; mestre 1991; founder of GCAC; (1957-2021) |
+| Ananias | - | Mestre | Traira import | pending | yes | Born Dec 1924 in Sao Felix; began capoeira 1938 in Juvencio's rodas; encountered Traira there around 1938 |
+| Chico Preto | Liberato Francisco Xavier | - | Roque import | done | yes | Father of Mestre Roque; capoeirista; fishmonger at Modelo Market, Salvador - SQL generated |
+| Zé Bedeu | - | - | Roque import | done | yes | Uncle of Mestre Roque; capoeirista; father of Marco Buscapé - SQL generated |
+| Marco Buscapé | - | ? | Roque import | pending | ? | Son of Zé Bedeu (Roque's uncle); mentioned in capoeuropa.org; DISTINCT from Mário Buscapé (son of José Bidel); needs verification |
+| Sandrinha | Sandra Eugênia Feitosa | Mestra | Roque import | pending | yes | Student of Roque; possibly first female capoeira mestra in Brazil (1970s); taught at Grupo Bantus de Capoeira |
+| Adilson (Camisa Preta) | - | Mestre | Roque import | done | yes | Senior student of Roque; took over Pavãozinho academy (1970s); deceased 1990s; master of malandragem - SQL generated as adilson-camisa-preta.sql |
+| Paulo Siqueira | Paulo Siqueira | Mestre | Roque import | done | yes | Student of Roque/Adilson (1972+); founded Escola de Capoeira Nzinga in Germany (1985); pioneer of capoeira in Europe; Capoeira Sommer-Meeting (1987-2004) - SQL generated |
+| Poeira | - | Mestre | Roque import | pending | yes | Student of Roque; lineage continues through Cebu Torpedo Capoeira (Mestre Poeira → Mestre Cabeça → Mestre Torpedo) |
+| Derli | - | Mestre | Roque import | pending | yes | Student of Roque; appears in MIS RJ "Memória da Capoeira" with Roque |
+| Lapinha | - | Mestre | Roque import | pending | yes | Student of Roque; accompanied Roque at later stage of his teaching |
+| Cosme | - | Mestre | Roque import | pending | yes | Student of Roque; lives near Roque's Vilar do Teles academy |
+| Gajé | - | - | Roque import | pending | ? | Famous capoeirista in Salvador (1940s-50s); Roque socialized with him at Modelo Market |
+| Índio | - | - | Roque import | pending | ? | Famous capoeirista in Salvador (1940s-50s); Roque socialized with him at Modelo Market |
+| Tatu Bola | - | - | Roque import | pending | ? | Famous capoeirista in Salvador (1940s-50s); Roque socialized with him at Modelo Market |
+| Bom Cabrito | - | - | Roque import | pending | ? | Famous capoeirista in Salvador (1940s-50s); Roque socialized with him at Modelo Market |
+| Boca de Fumaça | - | - | Roque import | pending | ? | Famous capoeirista in Salvador (1940s-50s); Roque socialized with him at Modelo Market |
+| Capoeiras do Bonfim | - | Group | Roque import | pending | yes | NOT A PERSON - transfer to groups backlog: Folkloric group of Mário Buscapé; Roque joined this group |

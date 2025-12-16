@@ -6,6 +6,7 @@
 INSERT INTO genealogy.group_profiles (
   -- Identity
   name,
+  name_context,
   description_en,
   description_pt,
   style,
@@ -34,6 +35,7 @@ INSERT INTO genealogy.group_profiles (
 ) VALUES (
   -- Identity
   'Roda de Trapiche de Baixo',
+  NULL, -- name_context: unique name, no disambiguation needed
   'An informal community of capoeiristas in Santo Amaro da Purificação, Bahia, centered around Besouro Mangangá and his companions. NOT a formal school—Trapiche de Baixo was a neighborhood where capoeiristas lived, trained together on Sundays and at folk festivals, and held memorable rodas. This proto-group represents the social structure through which capoeira was transmitted from African ex-slaves (Tio Alípio) to the legendary Besouro and his generation, and onward to Cobrinha Verde.',
   'Uma comunidade informal de capoeiristas em Santo Amaro da Purificação, Bahia, centrada em Besouro Mangangá e seus companheiros. NÃO era uma escola formal—Trapiche de Baixo era um bairro onde os capoeiristas viviam, treinavam juntos aos domingos e nas festas populares, e realizavam rodas memoráveis. Este proto-grupo representa a estrutura social através da qual a capoeira foi transmitida de ex-escravos africanos (Tio Alípio) ao lendário Besouro e sua geração, e daí para Cobrinha Verde.',
   NULL, -- Pre-codification; Angola/Regional distinction didn't exist
@@ -77,4 +79,26 @@ Por volta de 1912, Besouro começou a ensinar seu primo Cobrinha Verde (4 anos).
   -- Status
   false, -- Dissolved
   '1924-07-08'::date -- Besouro's death effectively ended the community
-);
+)
+ON CONFLICT (name, COALESCE(name_context, '')) WHERE name IS NOT NULL DO UPDATE SET
+  description_en = EXCLUDED.description_en,
+  description_pt = EXCLUDED.description_pt,
+  style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  logo = EXCLUDED.logo,
+  public_links = EXCLUDED.public_links,
+  name_aliases = EXCLUDED.name_aliases,
+  name_history = EXCLUDED.name_history,
+  founded_year = EXCLUDED.founded_year,
+  founded_year_precision = EXCLUDED.founded_year_precision,
+  founded_location = EXCLUDED.founded_location,
+  philosophy_en = EXCLUDED.philosophy_en,
+  philosophy_pt = EXCLUDED.philosophy_pt,
+  history_en = EXCLUDED.history_en,
+  history_pt = EXCLUDED.history_pt,
+  legal_structure = EXCLUDED.legal_structure,
+  is_headquarters = EXCLUDED.is_headquarters,
+  is_active = EXCLUDED.is_active,
+  dissolved_at = EXCLUDED.dissolved_at,
+  updated_at = NOW();

@@ -152,6 +152,100 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
 
 ---
 
+## SQL Template: Entity File (Group)
+
+```sql
+-- ============================================================
+-- GENEALOGY GROUP: [Group Name]
+-- Generated: [Date]
+-- Primary Source: [URL]
+-- ============================================================
+
+INSERT INTO genealogy.group_profiles (
+  -- Identity
+  name,
+  name_context,
+  description_en,
+  description_pt,
+  style,
+  style_notes_en,
+  style_notes_pt,
+  logo,
+  public_links,
+  -- Identity enhancements
+  name_aliases,
+  name_history,
+  -- Founding details
+  founded_year,
+  founded_year_precision,
+  founded_location,
+  -- Extended content
+  philosophy_en,
+  philosophy_pt,
+  history_en,
+  history_pt,
+  -- Organizational
+  legal_structure,
+  is_headquarters,
+  -- Status
+  is_active,
+  dissolved_at
+) VALUES (
+  -- Identity
+  '[Group Name]',
+  NULL, -- name_context: unique name, no disambiguation needed (or '[disambiguation text]' if needed)
+  E'[Description in English]',
+  E'[Descrição em português]',
+  '[style or NULL]'::genealogy.style,
+  E'[Style notes in English or NULL]',
+  E'[Notas de estilo em português or NULL]',
+  NULL, -- logo URL if available
+  ARRAY['https://...']::text[], -- or ARRAY[]::text[] if no links
+  -- Identity enhancements
+  ARRAY['alias1', 'alias2']::text[], -- or ARRAY[]::text[] if none
+  '[]'::jsonb, -- name_history, or '[{"name": "...", "startedAt": "..."}]'::jsonb
+  -- Founding details
+  [year or NULL],
+  '[precision]'::genealogy.date_precision,
+  '[City, State, Country]',
+  -- Extended content
+  E'[Philosophy in English or NULL]',
+  E'[Filosofia em português or NULL]',
+  E'[History in English or NULL]',
+  E'[História em português or NULL]',
+  -- Organizational
+  '[legal_structure or NULL]'::genealogy.legal_structure,
+  [true|false], -- is_headquarters
+  -- Status
+  [true|false], -- is_active
+  [NULL or 'YYYY-MM-DD'::date] -- dissolved_at
+)
+ON CONFLICT (name, COALESCE(name_context, '')) WHERE name IS NOT NULL DO UPDATE SET
+  description_en = EXCLUDED.description_en,
+  description_pt = EXCLUDED.description_pt,
+  style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  logo = EXCLUDED.logo,
+  public_links = EXCLUDED.public_links,
+  name_aliases = EXCLUDED.name_aliases,
+  name_history = EXCLUDED.name_history,
+  founded_year = EXCLUDED.founded_year,
+  founded_year_precision = EXCLUDED.founded_year_precision,
+  founded_location = EXCLUDED.founded_location,
+  philosophy_en = EXCLUDED.philosophy_en,
+  philosophy_pt = EXCLUDED.philosophy_pt,
+  history_en = EXCLUDED.history_en,
+  history_pt = EXCLUDED.history_pt,
+  legal_structure = EXCLUDED.legal_structure,
+  is_headquarters = EXCLUDED.is_headquarters,
+  is_active = EXCLUDED.is_active,
+  dissolved_at = EXCLUDED.dissolved_at,
+  updated_at = NOW();
+```
+
+---
+
 ## SQL Template: Statements File (Person)
 
 ```sql
@@ -246,7 +340,7 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 - `influenced_by` - Studied philosophy without direct training
 - `family_of` - Family relationship (see properties.relationship_type)
 - `baptized_by` - Received apelido from
-- `granted_title_to` - Conferred a title/rank
+- `received_title_from` - Received a title/rank from mestre
 - `associated_with` - Informal connection (see properties.association_context)
 
 ### predicates (person-to-group)
