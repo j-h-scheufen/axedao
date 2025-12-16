@@ -1,0 +1,34 @@
+-- ============================================================
+-- STATEMENTS FOR: Isídio
+-- Generated: 2025-12-15
+-- ============================================================
+-- Contains all relationships where Isídio is the SUBJECT.
+--
+-- NOTE: There are no confirmed relationships where Isídio is the subject.
+-- The only documented connection is that Cobrinha Verde obtained patuá
+-- materials FROM Isídio, meaning Cobrinha Verde is the subject of that
+-- relationship. That statement belongs in cobrinha-verde.sql.
+-- ============================================================
+
+-- NO STATEMENTS TO GENERATE
+--
+-- Isídio's role was passive/recipient: he provided materials to Cobrinha Verde.
+-- The relationship direction is: Cobrinha Verde → obtained_materials_from → Isídio
+-- However, "obtained_materials_from" is not a valid predicate in our schema.
+--
+-- The most appropriate modeling is:
+-- - Isídio associated_with Tio Pascoal (if they were fellow practitioners)
+-- - However, this is speculative - we only know Pascoal knew of Isídio
+--
+-- Given the uncertainty, no statements are generated for Isídio.
+-- His existence is documented but relationships are uncertain.
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset OR uncertain)
+-- ============================================================
+-- Isídio associated_with Tio Pascoal - SPECULATIVE: Pascoal knew how to
+--   direct Cobrinha Verde to Isídio, suggesting a connection, but the
+--   nature of this connection is unknown. Could be: teacher-student,
+--   fellow practitioners, members of same religious brotherhood, or
+--   simply acquaintances within the mandingueiro network.
+--   NOT GENERATING due to insufficient evidence.

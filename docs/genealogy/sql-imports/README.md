@@ -259,18 +259,17 @@ ON CONFLICT (name, COALESCE(name_context, '')) WHERE name IS NOT NULL DO UPDATE 
 
 -- [Apelido] student_of [Teacher]
 INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  confidence, source,
-  notes_en, notes_pt
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
 )
 SELECT
   'person'::genealogy.entity_type, s.id,
   'student_of'::genealogy.predicate,
   'person'::genealogy.entity_type, o.id,
-  '[YYYY-MM-DD]'::date, '[precision]'::genealogy.date_precision,
+  '[YYYY-MM-DD or NULL]'::date, '[precision]'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb,
   '[confidence]'::genealogy.confidence,
   '[Source citation]',
   '[Relationship context in English]',
