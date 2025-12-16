@@ -102,15 +102,41 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Traíra' AND o.apelido = 'Pastinha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- ------------------------------------------------------------
+-- Traíra trained_under Juvêncio
+-- First capoeira encounters ~1938 in São Félix rodas
+-- Informal training before formal study with Waldemar
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1938-01-01'::date, 'year'::genealogy.date_precision,
+  '1947-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb, 'likely'::genealogy.confidence,
+  'Velhos Mestres; Capoeira Connection (Ananias interview); CapoeiraWiki',
+  'Traíra''s first exposure to capoeira was in the rodas of Mestre Juvêncio in São Félix, around 1938. Mestre Ananias encountered Traíra at these gatherings on the docks during festivals. Informal training before his formal study with Waldemar beginning in 1947.',
+  'O primeiro contato de Traíra com a capoeira foi nas rodas de Mestre Juvêncio em São Félix, por volta de 1938. Mestre Ananias encontrou Traíra nesses encontros nas docas durante as festas. Treinamento informal antes de seu estudo formal com Waldemar começando em 1947.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Traíra'
+  AND o.apelido = 'Juvêncio' AND o.apelido_context = 'São Félix'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
 
--- Traíra trained_under Juvencio - PENDING
--- First capoeira encounters ~1938 in São Felix rodas
--- Juvencio was a dock worker who held informal rodas during festivals
--- Object 'Juvencio' needs import first - see persons-backlog.md
+-- GROUP RELATIONSHIPS
+-- Traíra member_of Roda de São Félix - PENDING
+-- Participated in Juvêncio's dock rodas (~1938) before formal training with Waldemar
+-- Group 'Roda de São Félix (Juvêncio)' needs import first - see groups-backlog.md
 
+-- PERSON RELATIONSHIPS
 -- Traíra trained_under Severo do Pelourinho - PENDING
 -- Mentioned by Traíra as another teacher
 -- Little is known about Severo do Pelourinho

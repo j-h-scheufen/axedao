@@ -23,8 +23,8 @@
 
 | Predicate | Use When | Properties |
 |-----------|----------|------------|
-| `student_of` | Primary, ongoing teacher-student relationship | - |
-| `trained_under` | Historical/past training, workshops, seminars | - |
+| `student_of` | Serious, sustained student-teacher relationship over a significant period of the student's life. This is a lineage relationship. | - |
+| `trained_under` | Occasional training: workshops, seminars, short-term visits, or informal exposure without sustained commitment | - |
 | `influenced_by` | Studied philosophy/methods without direct training | - |
 | `associated_with` | Documented connection between contemporaries (peers, collaborators, known associates) | `association_context` (REQUIRED - text explaining circumstances and sources) |
 | `received_title_from` | Person received title FROM mestre | `title_grant: { title, ceremony?, location? }` |
