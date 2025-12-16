@@ -1,13 +1,12 @@
 name: Deploy Genealogy Data (Production)
 
 on:
-  # Run after Atlas production migration completes successfully
-  workflow_run:
-    workflows: ["Production Database Migration (Atlas)"]
-    types:
-      - completed
+  # Run when migration file changes on main
+  push:
     branches:
       - main
+    paths:
+      - 'docs/genealogy/sql-imports/build/pending-migration.sql'
   # Manual trigger - must be run from main branch
   workflow_dispatch:
     inputs:
@@ -27,13 +26,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     timeout-minutes: 10
-    # Only run if triggered from main branch:
-    # - Manual trigger (workflow_dispatch) from main, OR
-    # - Atlas workflow succeeded AND was triggered from main branch
-    if: |
-      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main') ||
-      (github.event.workflow_run.conclusion == 'success' &&
-       github.event.workflow_run.head_branch == 'main')
+    # Only run if triggered from main branch
+    if: github.ref == 'refs/heads/main'
 
     steps:
       - name: Verify branch
@@ -49,7 +43,55 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main  # Always deploy from main branch
-          fetch-depth: 2  # Need history to check for changes
+
+      - name: Wait for Atlas migration to complete
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "Waiting for Atlas production migration to complete..."
+          WORKFLOW_NAME="Production Database Migration (Atlas)"
+          MAX_WAIT=300  # 5 minutes max wait
+          POLL_INTERVAL=10
+          ELAPSED=0
+
+          while [ $ELAPSED -lt $MAX_WAIT ]; do
+            # Check for in_progress or queued runs of Atlas workflow on this commit
+            RUNNING=$(gh run list \
+              --workflow="$WORKFLOW_NAME" \
+              --branch=main \
+              --json status,conclusion,headSha \
+              --jq "[.[] | select(.headSha==\"${{ github.sha }}\" and (.status==\"in_progress\" or .status==\"queued\"))] | length")
+
+            if [ "$RUNNING" = "0" ]; then
+              echo "No Atlas workflow running - checking if it completed successfully..."
+
+              # Check if Atlas completed successfully for this commit
+              RESULT=$(gh run list \
+                --workflow="$WORKFLOW_NAME" \
+                --branch=main \
+                --json status,conclusion,headSha \
+                --jq "[.[] | select(.headSha==\"${{ github.sha }}\" and .status==\"completed\")] | first | .conclusion // \"not_found\"")
+
+              if [ "$RESULT" = "success" ]; then
+                echo "Atlas migration completed successfully"
+                exit 0
+              elif [ "$RESULT" = "not_found" ]; then
+                echo "Atlas workflow not found for this commit - proceeding (may not have schema changes)"
+                exit 0
+              else
+                echo "::error::Atlas migration did not succeed (status: $RESULT)"
+                exit 1
+              fi
+            fi
+
+            echo "Atlas workflow still running... waiting ${POLL_INTERVAL}s (${ELAPSED}s elapsed)"
+            sleep $POLL_INTERVAL
+            ELAPSED=$((ELAPSED + POLL_INTERVAL))
+          done
+
+          echo "::error::Timeout waiting for Atlas migration to complete"
+          exit 1
 
       - name: Check for pending migration
         id: check
@@ -63,21 +105,10 @@ jobs:
             exit 0
           fi
 
+          # For push events, the paths filter already ensures the file changed
           # For workflow_dispatch, always deploy if file exists
-          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            echo "has_migration=true" >> $GITHUB_OUTPUT
-            echo "Manual trigger - migration file found"
-            exit 0
-          fi
-
-          # For workflow_run, check if the migration file was changed in the triggering commit
-          if git diff --name-only HEAD~1 HEAD 2>/dev/null | grep -q "$MIGRATION_FILE"; then
-            echo "has_migration=true" >> $GITHUB_OUTPUT
-            echo "Migration file was changed in this commit"
-          else
-            echo "has_migration=false" >> $GITHUB_OUTPUT
-            echo "Migration file exists but was not changed in this commit - skipping"
-          fi
+          echo "has_migration=true" >> $GITHUB_OUTPUT
+          echo "Migration file found - proceeding with deployment"
 
       - name: Show migration contents (dry run)
         if: steps.check.outputs.has_migration == 'true' && (github.event.inputs.dry_run == 'true' || github.event_name == 'workflow_dispatch')
