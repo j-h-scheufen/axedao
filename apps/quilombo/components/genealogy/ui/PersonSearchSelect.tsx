@@ -34,6 +34,8 @@ type PersonSearchSelectProps = {
   filterResults?: (person: PersonSearchResult) => boolean;
   /** Only show claimable profiles (excludes deceased and already-claimed) */
   claimableOnly?: boolean;
+  /** Profile ID to exclude from results (e.g., current user's profile) */
+  excludeProfileId?: string | null;
 };
 
 /**
@@ -50,6 +52,7 @@ const PersonSearchSelect = ({
   autoSearch = false,
   filterResults,
   claimableOnly = false,
+  excludeProfileId,
 }: PersonSearchSelectProps) => {
   const { inputValue, setInputValue, debouncedSearchTerm, clearSearch } = useDebouncedSearch({
     initialValue: initialSearchTerm,
@@ -62,8 +65,12 @@ const PersonSearchSelect = ({
     claimableOnly,
   });
 
-  // Filter results if a filter function is provided
-  const filteredResults = filterResults ? searchResults?.filter(filterResults) : searchResults;
+  // Filter results: exclude specified profile ID and apply custom filter if provided
+  const filteredResults = searchResults?.filter((person) => {
+    if (excludeProfileId && person.id === excludeProfileId) return false;
+    if (filterResults && !filterResults(person)) return false;
+    return true;
+  });
 
   const getDisplayName = (person: PersonSearchResult) => {
     return person.apelido || person.name || 'Unknown';
@@ -94,7 +101,7 @@ const PersonSearchSelect = ({
           />
           <div className="flex-grow min-w-0">
             {selectedPerson.title && (
-              <p className="text-xs text-primary-600 uppercase tracking-wide">{selectedPerson.title}</p>
+              <p className="text-xs text-primary-600 capitalize tracking-wide">{selectedPerson.title}</p>
             )}
             <p className="text-sm font-semibold text-primary-900 truncate">{getDisplayName(selectedPerson)}</p>
             {selectedPerson.name && selectedPerson.apelido && (
@@ -143,7 +150,9 @@ const PersonSearchSelect = ({
                     className="flex-shrink-0"
                   />
                   <div className="flex-grow min-w-0">
-                    {person.title && <p className="text-xs text-default-500 uppercase tracking-wide">{person.title}</p>}
+                    {person.title && (
+                      <p className="text-xs text-default-500 capitalize tracking-wide">{person.title}</p>
+                    )}
                     <p className="text-sm font-medium truncate">{getDisplayName(person)}</p>
                     {person.name && person.apelido && (
                       <p className="text-xs text-default-400 truncate">{person.name}</p>

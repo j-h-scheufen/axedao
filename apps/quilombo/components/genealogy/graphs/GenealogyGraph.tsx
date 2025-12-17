@@ -22,8 +22,17 @@ import {
   STUDENT_ANCESTRY_GRAVITY_ONLY_PREDICATES,
   STUDENT_ANCESTRY_VISIBLE_PREDICATES,
 } from '@/components/genealogy/config';
-import { graphFiltersAtom, graphSettingsAtom, graphViewModeAtom } from '@/components/genealogy/state';
-import type { GraphData, GraphNode } from '@/components/genealogy/types';
+import {
+  ancestryMinTitleLevelAtom,
+  graphFiltersAtom,
+  graphSettingsAtom,
+  graphViewModeAtom,
+  showYourselfAtom,
+} from '@/components/genealogy/state';
+import type { GraphData, GraphNode, PersonMetadata } from '@/components/genealogy/types';
+import { currentUserProfileIdAtom } from '@/hooks/state/currentUser';
+import { useUserAncestry } from '@/hooks/useGenealogyData';
+import { isTitleAtOrAboveLevel } from '@/utils';
 import {
   ForceGraph3DWrapper,
   type CameraPosition,
@@ -427,6 +436,17 @@ export function GenealogyGraph({
   const filters = useAtomValue(graphFiltersAtom);
   const settings = useAtomValue(graphSettingsAtom);
 
+  // "Show Yourself" feature state
+  const showYourself = useAtomValue(showYourselfAtom);
+  const minTitleLevel = useAtomValue(ancestryMinTitleLevelAtom);
+  const userProfileId = useAtomValue(currentUserProfileIdAtom);
+  const isStudentAncestryView = viewMode === 'student-ancestry';
+
+  // Fetch user's ancestry when "Show Yourself" is enabled
+  const { data: ancestryData } = useUserAncestry(userProfileId, {
+    enabled: showYourself && isStudentAncestryView && !!userProfileId,
+  });
+
   // Apply user filters to the raw data first
   // Empty arrays mean "show none" - filters are always explicit
   const filteredData = useMemo((): GraphData => {
@@ -536,10 +556,43 @@ export function GenealogyGraph({
     return undefined; // Auto-fit for general view
   }, [viewMode]);
 
+  // Compute highlighted node IDs for "Show Yourself" feature
+  // When enabled, user's node + filtered ancestors are highlighted, others are dimmed
+  const highlightedNodeIds = useMemo((): ReadonlySet<string> | undefined => {
+    // Only compute when feature is enabled in student ancestry view
+    if (!showYourself || !isStudentAncestryView || !userProfileId) {
+      return undefined;
+    }
+
+    const highlighted = new Set<string>();
+
+    // Always include the user's node
+    highlighted.add(userProfileId);
+
+    // Add ancestors filtered by title level
+    // Historical figures without titles (null) are always included to preserve lineage continuity
+    if (ancestryData?.ancestorIds) {
+      for (const ancestorId of ancestryData.ancestorIds) {
+        // Find the node in the graph data to check its title
+        const node = data.nodes.find((n) => n.id === ancestorId);
+        if (node && node.type === 'person') {
+          const title = (node.metadata as PersonMetadata).title;
+          // Include if: title meets level threshold OR title is null (historical figure)
+          if (title === null || isTitleAtOrAboveLevel(title, minTitleLevel)) {
+            highlighted.add(ancestorId);
+          }
+        }
+      }
+    }
+
+    return highlighted;
+  }, [showYourself, isStudentAncestryView, userProfileId, ancestryData, data.nodes, minTitleLevel]);
+
   return (
     <ForceGraph3DWrapper
       graphData={graphData}
       selectedNodeId={selectedNodeId}
+      highlightedNodeIds={highlightedNodeIds}
       onNodeClick={onNodeClick}
       onBackgroundClick={onBackgroundClick}
       forces={forces}

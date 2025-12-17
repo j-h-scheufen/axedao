@@ -6,6 +6,7 @@ import { useMemo, useState } from 'react';
 
 import type { GraphNode, GroupMetadata, PersonMetadata } from '@/components/genealogy/types';
 import { NODE_COLORS } from '@/components/genealogy/types';
+import { matchesNormalized } from '@/utils';
 
 interface NodeSearchProps {
   /** All nodes available for searching */
@@ -34,28 +35,26 @@ export function NodeSearch({
 }: NodeSearchProps) {
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Filter nodes based on search term
+  // Filter nodes based on search term (accent-insensitive)
   const filteredNodes = useMemo(() => {
     if (!searchTerm.trim()) {
       return [];
     }
 
-    const term = searchTerm.toLowerCase();
-
     return nodes
       .filter((node) => {
-        // Always match against the primary name
-        if (node.name.toLowerCase().includes(term)) {
+        // Always match against the primary name (accent-insensitive)
+        if (matchesNormalized(node.name, searchTerm)) {
           return true;
         }
 
         // For persons, also match against fullName and apelido in metadata
         if (node.type === 'person') {
           const meta = node.metadata as PersonMetadata;
-          if (meta.fullName?.toLowerCase().includes(term)) {
+          if (matchesNormalized(meta.fullName, searchTerm)) {
             return true;
           }
-          if (meta.apelido?.toLowerCase().includes(term)) {
+          if (matchesNormalized(meta.apelido, searchTerm)) {
             return true;
           }
         }

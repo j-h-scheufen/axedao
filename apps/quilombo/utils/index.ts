@@ -224,3 +224,17 @@ export const getEventTypeLabel = (eventType: string): string => {
 };
 
 export { formatCountryChipLabel } from './country';
+
+// String utilities
+export { normalizeString, matchesNormalized } from './normalizeString';
+
+// Genealogy utilities
+export {
+  TITLE_LEVELS,
+  TITLE_LEVEL_OPTIONS,
+  getTitleLevel,
+  getTitlesAtOrAboveLevel,
+  filterByTitleLevel,
+  isTitleAtOrAboveLevel,
+  getTitleLevelLabel,
+} from './genealogy';

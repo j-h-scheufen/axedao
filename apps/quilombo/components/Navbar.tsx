@@ -26,7 +26,7 @@ import { PATHS } from '@/config/constants';
 import { currentUserAtom, currentUserAvatarUrlAtom } from '@/hooks/state/currentUser';
 import useAuth from '@/hooks/useAuth';
 import { getUserDisplayName } from '@/utils';
-import OnboardingModal from './OnboardingModal';
+import { OnboardingWizard } from './onboarding';
 import { useSyncManager } from '@/hooks/useSyncManager';
 
 const Navbar: React.FC = () => {
@@ -178,7 +178,7 @@ const Navbar: React.FC = () => {
           ))}
         </NavbarMenu>
       </NextUINavbar>
-      <OnboardingModal />
+      <OnboardingWizard />
     </>
   );
 };

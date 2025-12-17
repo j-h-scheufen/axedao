@@ -3,7 +3,7 @@
  * User management and authentication
  */
 
-import { and, eq, ilike, inArray, isNotNull, or, sql, type SQLWrapper } from 'drizzle-orm';
+import { and, eq, inArray, isNotNull, or, sql, type SQLWrapper } from 'drizzle-orm';
 
 import type { UserSearchParamsWithFilters } from '@/config/validation-schema';
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
@@ -41,8 +41,10 @@ export async function searchUsers(
   const andFilters: (SQLWrapper | undefined)[] = [];
 
   if (searchTerm) {
-    orFilters.push(ilike(schema.users.name, `%${searchTerm}%`));
-    orFilters.push(ilike(schema.users.nickname, `%${searchTerm}%`));
+    // Use unaccent() for accent-insensitive search (e.g., "Jose" matches "José")
+    const searchPattern = `%${searchTerm}%`;
+    orFilters.push(sql`unaccent(${schema.users.name}) ILIKE unaccent(${searchPattern})`);
+    orFilters.push(sql`unaccent(${schema.users.nickname}) ILIKE unaccent(${searchPattern})`);
   }
 
   if (hasWallet) {

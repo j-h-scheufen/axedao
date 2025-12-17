@@ -30,3 +30,6 @@ export const currentUserAvatarUrlAtom = atom<string | undefined>((get) =>
 );
 
 export const currentUserIsGlobalAdminAtom = atom<boolean>((get) => get(currentUserAtom).data?.isGlobalAdmin ?? false);
+
+/** Current user's genealogy person profile ID (null if not linked to a genealogy profile) */
+export const currentUserProfileIdAtom = atom<string | null>((get) => get(currentUserAtom).data?.profileId ?? null);

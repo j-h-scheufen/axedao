@@ -3,7 +3,7 @@
  * Group CRUD operations and membership management
  */
 
-import { and, count, eq, ilike, sql, type SQLWrapper } from 'drizzle-orm';
+import { and, count, eq, sql, type SQLWrapper } from 'drizzle-orm';
 
 import type { GroupSearchParamsWithFilters } from '@/config/validation-schema';
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
@@ -27,7 +27,12 @@ export async function searchGroups(
   const { countryCodes, styles } = filters || {};
 
   const sqlFilters: (SQLWrapper | undefined)[] = [];
-  if (searchTerm) sqlFilters.push(ilike(schema.groups.name, `%${searchTerm}%`));
+  if (searchTerm) {
+    // Note: Group name comes from genealogy.group_profiles (joined below)
+    // Use unaccent() for accent-insensitive search (e.g., "Senzala" matches "Senzalã")
+    const searchPattern = `%${searchTerm}%`;
+    sqlFilters.push(sql`unaccent(${groupProfiles.name}) ILIKE unaccent(${searchPattern})`);
+  }
 
   // Filter by country codes
   if (countryCodes && countryCodes.length > 0) {

@@ -6,7 +6,7 @@
  * No foreign keys point from genealogy to public schema.
  */
 
-import { and, eq, gt, ilike, inArray, isNull, or, sql, type SQLWrapper } from 'drizzle-orm';
+import { and, eq, gt, inArray, isNull, or, sql, type SQLWrapper } from 'drizzle-orm';
 
 import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import { db } from '@/db';
@@ -70,7 +70,11 @@ export async function searchPersonProfiles(options: {
 
   if (searchTerm) {
     // Search on identity fields only (apelido, name) - not bio content
-    filters.push(or(ilike(personProfiles.apelido, `%${searchTerm}%`), ilike(personProfiles.name, `%${searchTerm}%`)));
+    // Use unaccent() for accent-insensitive search (e.g., "Jose" matches "José")
+    const searchPattern = `%${searchTerm}%`;
+    filters.push(
+      sql`(unaccent(${personProfiles.apelido}) ILIKE unaccent(${searchPattern}) OR unaccent(${personProfiles.name}) ILIKE unaccent(${searchPattern}))`
+    );
   }
 
   if (style) {
@@ -203,14 +207,15 @@ export async function searchGroupProfiles(options: {
 
   if (searchTerm) {
     // Search on identity fields: name, nameAliases array, nameHistory JSONB array
+    // Use unaccent() for accent-insensitive search (e.g., "Senzala" matches "Senzalã")
     const searchPattern = `%${searchTerm}%`;
     filters.push(
       or(
-        ilike(groupProfiles.name, searchPattern),
-        // Search in nameAliases text array (case-insensitive)
-        sql`EXISTS (SELECT 1 FROM unnest(${groupProfiles.nameAliases}) AS alias WHERE alias ILIKE ${searchPattern})`,
-        // Search in nameHistory JSONB array's 'name' field (case-insensitive)
-        sql`EXISTS (SELECT 1 FROM jsonb_array_elements(${groupProfiles.nameHistory}) AS entry WHERE entry->>'name' ILIKE ${searchPattern})`
+        sql`unaccent(${groupProfiles.name}) ILIKE unaccent(${searchPattern})`,
+        // Search in nameAliases text array (case-insensitive, accent-insensitive)
+        sql`EXISTS (SELECT 1 FROM unnest(${groupProfiles.nameAliases}) AS alias WHERE unaccent(alias) ILIKE unaccent(${searchPattern}))`,
+        // Search in nameHistory JSONB array's 'name' field (case-insensitive, accent-insensitive)
+        sql`EXISTS (SELECT 1 FROM jsonb_array_elements(${groupProfiles.nameHistory}) AS entry WHERE unaccent(entry->>'name') ILIKE unaccent(${searchPattern}))`
       )
     );
   }
@@ -549,6 +554,69 @@ export async function fetchGraphData(options?: { nodeTypes?: EntityType[]; predi
       groupCount: nodes.filter((n) => n.type === 'group').length,
     },
   };
+}
+
+// ============================================================================
+// ANCESTRY QUERIES (for lineage visualization)
+// ============================================================================
+
+/**
+ * Fetches all ancestor IDs for a person by traversing student_of and trained_under relationships.
+ * Uses a recursive CTE to walk up the lineage chain.
+ *
+ * @param personId - The starting person's profile ID
+ * @param options - Query options
+ * @param options.maxDepth - Maximum traversal depth (default: 50)
+ * @param options.predicates - Predicates to follow (default: ['student_of', 'trained_under'])
+ * @returns Array of unique ancestor person profile IDs (not including the starting person)
+ *
+ * @example
+ * const ancestors = await fetchAncestorIds('person-123');
+ * // Returns ['mestre-abc', 'mestre-xyz', ...]
+ */
+export async function fetchAncestorIds(
+  personId: string,
+  options?: {
+    maxDepth?: number;
+    predicates?: ('student_of' | 'trained_under')[];
+  }
+): Promise<string[]> {
+  const { maxDepth = 50, predicates: predicateList = ['student_of', 'trained_under'] } = options || {};
+
+  // Build the recursive CTE query
+  // Using raw SQL for the recursive CTE as Drizzle doesn't natively support WITH RECURSIVE
+  const result = await db.execute(sql`
+    WITH RECURSIVE ancestors AS (
+      -- Base case: direct ancestors of the starting person
+      SELECT s.object_id as person_id, 1 as depth
+      FROM genealogy.statements s
+      WHERE s.subject_id = ${personId}
+        AND s.subject_type = 'person'
+        AND s.object_type = 'person'
+        AND s.predicate IN (${sql.join(
+          predicateList.map((p) => sql`${p}`),
+          sql`, `
+        )})
+
+      UNION
+
+      -- Recursive case: ancestors of ancestors
+      SELECT s.object_id, a.depth + 1
+      FROM genealogy.statements s
+      JOIN ancestors a ON s.subject_id = a.person_id
+      WHERE s.subject_type = 'person'
+        AND s.object_type = 'person'
+        AND s.predicate IN (${sql.join(
+          predicateList.map((p) => sql`${p}`),
+          sql`, `
+        )})
+        AND a.depth < ${maxDepth}
+    )
+    SELECT DISTINCT person_id FROM ancestors
+  `);
+
+  // Extract the IDs from the result - postgres-js returns an array-like RowList
+  return (result as unknown as Array<{ person_id: string }>).map((row) => row.person_id);
 }
 
 // ============================================================================

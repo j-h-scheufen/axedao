@@ -563,14 +563,18 @@ export function FullDetailsModal({ isOpen, onClose, entityType, entityId, entity
               <span>{reportTitle}</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-small font-normal text-default-500">EN</span>
+              <span className="text-base" title="English">
+                🇬🇧
+              </span>
               <Switch
                 size="sm"
                 isSelected={language === 'pt'}
                 onValueChange={(selected) => setLanguage(selected ? 'pt' : 'en')}
                 aria-label="Toggle language"
               />
-              <span className="text-small font-normal text-default-500">PT</span>
+              <span className="text-base" title="Português">
+                🇧🇷
+              </span>
             </div>
           </div>
         </ModalHeader>

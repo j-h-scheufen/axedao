@@ -117,6 +117,13 @@ export interface ForceGraph3DWrapperProps {
   selectedNodeId?: string | null;
 
   /**
+   * Set of node IDs to highlight (for lineage highlighting).
+   * When provided, nodes NOT in this set will be dimmed.
+   * Links connecting highlighted nodes will remain bright.
+   */
+  highlightedNodeIds?: ReadonlySet<string>;
+
+  /**
    * Whether to auto-focus camera on selected node when selectedNodeId changes.
    * When true, camera will animate to focus on the newly selected node.
    * Default: true
