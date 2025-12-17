@@ -43,6 +43,7 @@ export async function GET(_: NextRequest, { params }: RouteParamsGroup) {
  * Identity fields (stored in genealogy.group_profiles):
  * - name, style, descriptionEn, descriptionPt, philosophyEn, philosophyPt,
  *   historyEn, historyPt, publicLinks, isActive
+ * - foundedYear, foundedYearPrecision, foundedLocation
  *
  * Operational fields (stored in public.groups):
  * - email, links (social links)
@@ -103,6 +104,9 @@ export async function PATCH(request: NextRequest, { params }: RouteParamsGroup) 
           historyPt: body.historyPt,
           publicLinks: body.publicLinks,
           isActive: body.isActive,
+          foundedYear: body.foundedYear,
+          foundedYearPrecision: body.foundedYearPrecision || null,
+          foundedLocation: body.foundedLocation,
         },
         isUndefined
       );

@@ -1,0 +1,44 @@
+-- ============================================================
+-- STATEMENTS FOR: Imagem do Cão
+-- Generated: 2025-12-16
+-- ============================================================
+-- Contains all relationships where Imagem do Cão is the SUBJECT.
+--
+-- NOTE: Imagem do Cão has minimal documentation. The only confirmed
+-- relationship is as co-founder of Grupo Filhos de Angola (1960).
+-- No teachers, students, or other relationships are documented.
+-- ============================================================
+
+-- Imagem do Cão co_founded Grupo Filhos de Angola (Rio 1960)
+-- NOTE: Group not yet in dataset - pending import from groups-backlog.md
+-- INSERT INTO genealogy.statements (
+--   subject_type, subject_id, predicate, object_type, object_id,
+--   started_at, started_at_precision, ended_at, ended_at_precision,
+--   properties, confidence, source, notes_en, notes_pt
+-- )
+-- SELECT
+--   'person'::genealogy.entity_type, s.id,
+--   'co_founded'::genealogy.predicate,
+--   'group'::genealogy.entity_type, o.id,
+--   '1960-07-21'::date, 'exact'::genealogy.date_precision,
+--   NULL, NULL,
+--   '{}'::jsonb, 'verified'::genealogy.confidence,
+--   'velhosmestres.com/br/destaques-51',
+--   'Co-founded Grupo Filhos de Angola in Rio de Janeiro on July 21, 1960 together with Mucungê, Dois de Ouro, Baleado, Onça Preta, and Roque',
+--   'Co-fundou o Grupo Filhos de Angola no Rio de Janeiro em 21 de julho de 1960 junto com Mucungê, Dois de Ouro, Baleado, Onça Preta e Roque'
+-- FROM genealogy.person_profiles s, genealogy.group_profiles o
+-- WHERE s.apelido = 'Imagem do Cão' AND o.name = 'Filhos de Angola (Rio 1960)'
+-- ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- Imagem do Cão co_founded Filhos de Angola (Rio 1960) - group pending import
+--
+-- ============================================================
+-- UNKNOWN RELATIONSHIPS (not documented)
+-- ============================================================
+-- No teachers documented
+-- No students documented
+-- No training companions documented (may have trained with Filhos de Angola co-founders)
+-- Possibly participated in Roda da Central (1950s-1983) but not confirmed

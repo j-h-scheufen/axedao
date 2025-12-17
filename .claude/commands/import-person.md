@@ -1,720 +1,509 @@
-# Import Person to Genealogy Database
+# Import Person to Genealogy Database (v2)
 
-**Purpose:** Research a capoeira person and generate SQL to import their profile and relationships into the genealogy schema.
+Research a capoeira person and generate SQL to import their profile and relationships.
 
-**Input:** Person name (apelido or full name) and optionally a website/source URL
+**Input:** $ARGUMENTS (person name/apelido, optionally a source URL)
 
-**Output:** SQL file written to `docs/genealogy/sql-imports/persons/[apelido-lowercase].sql`
+**Output:**
+- Entity SQL → `docs/genealogy/sql-imports/entities/persons/[apelido-lowercase].sql`
+- Statements SQL → `docs/genealogy/sql-imports/statements/persons/[apelido-lowercase].sql`
+- Report → `docs/genealogy/person-reports/[name-lowercase].md`
 
 ---
 
-## Instructions
+## Phase 0: Check Existing Documentation
 
-You are researching **$ARGUMENTS** to create a complete person profile for the genealogy database.
+**BEFORE any research**, check for existing work:
+
+1. Glob `docs/genealogy/person-reports/*.md` for name variations
+2. Check `docs/genealogy/sql-imports/entities/persons/[name].sql`
+
+If found: use as starting point, note what's pre-existing vs newly discovered.
+If not found: proceed to Phase 1.
+
+---
+
+## Phase 1: Research & Data Collection
 
 ### CRITICAL: Research Requirements
 
-**You MUST perform extensive web research using WebSearch and WebFetch tools.** The Layer Zero document is only a starting point. For each person:
+**You MUST perform extensive web research.** Use WebSearch and WebFetch to:
+- Search multiple queries for all available information
+- Fetch actual web pages, not just snippets
+- Find exact dates, places, relationships, teachers, students
+- Search archival sources, academic papers, historical records
+- Cross-reference multiple sources
+- Document ALL names discovered (other capoeiristas for later import)
 
-1. Search multiple queries to find all available information
-2. Fetch and read the actual web pages from sources found
-3. Look for details not in Layer Zero: exact dates, places, relationships, teachers, students
-4. Search for archival sources, academic papers, historical records
-5. Cross-reference multiple sources to verify information
-6. Document ALL names discovered during research (other capoeiristas, teachers, students, etc.)
+**Read `docs/genealogy/sources/research-sources.md` first** for source tiering:
+- **Tier 1** (highest reliability): Velhos Mestres (Bahia), Capoeira History (Rio), Wikipedia, CapoeiraHub, Lalaue, Papoeira
+- **Tier 2**: Portal Capoeira, IPHAN, CapoeiraWiki
+- **Tier 3** (social media): Instagram/Facebook—for verifying activity only, NOT for `public_links`
+- **Tier 4** (academic): Research papers, university publications
 
-### Phase 0: Check Person Reports Directory FIRST
+**PARALLEL EXECUTION:** Fetch multiple Tier 1 sources simultaneously using parallel WebFetch calls for: Wikipedia EN, Wikipedia PT, Velhos Mestres, Capoeira History, Lalaue, Papoeira.
 
-**BEFORE doing any web research**, check if this person already has documentation:
+### Follow-up Research (CRITICAL)
 
-1. **Check for individual file:** Look for `docs/genealogy/person-reports/[name-lowercase].md`
-   - Use Glob pattern: `docs/genealogy/person-reports/*.md` to list available files
-   - Check variations of the name (apelido, full name with hyphens)
+After initial research, look for "clues" that warrant deeper investigation:
+- Named historical events with dates (revolts, competitions, ceremonies)
+- Named individuals mentioned in passing (teachers of teachers, rivals)
+- Academic sources or books cited
+- Eyewitness accounts referenced
 
-2. **If individual file exists:**
-   - Read that file for existing research
-   - Note the sources listed
-   - Check if SQL import already exists (noted in file header)
-   - Use this as your **starting point**
-   - Then proceed to Phase 1 to expand with deeper web research
+For each significant clue: search specifically, find primary sources, extract vivid details and direct quotes. **Do not skip this phase.**
 
-3. **If NOT found:**
-   - Proceed directly to Phase 1 (web research)
-   - A new person report file will be created in Phase 6
-
-### Phase 1: Research & Data Collection
-
-**IMPORTANT: Read the research sources file first!**
-
-Before starting web searches, read `docs/genealogy/sources/research-sources.md` for:
-- Tier 1-4 source rankings by reliability
-- Specific URL patterns for each source
-- What data is available from each source
-- Tips for extracting information
-
-**Research priority by tier:**
-1. Start with **Tier 1** sources (highest reliability) - check all relevant ones
-2. Cross-reference with **Tier 2** sources for additional detail
-3. **Skip Tier 3** (social media) for historical figures - only use for living persons to verify current activity
-4. Consult **Tier 4** (academic) for historical figures and primary source citations
-
-**IMPORTANT:** Do NOT include social media accounts (Instagram, Facebook, Twitter) in `public_links` - these are too ephemeral for genealogy data. Social media is only for verifying current activity, not as a data source.
-
-**Collect ALL of the following data (maps to `genealogy.person_profiles` table):**
-
-#### Core Identity (REQUIRED fields marked with *)
-| Field | Column | Description |
-|-------|--------|-------------|
-| Full Name | `name` | Legal name if known |
-| Apelido* | `apelido` | Capoeira nickname - **required** |
-| Title | `title` | Current highest rank (enum below) |
-| Style | `style` | Primary style (angola, regional, contemporanea, mixed) |
-
-#### Life Dates & Places
-| Field | Column | Description |
-|-------|--------|-------------|
-| Birth Year | `birth_year` | Integer year |
-| Birth Year Precision | `birth_year_precision` | exact, month, year, decade, approximate, unknown |
-| Birth Place | `birth_place` | "City, Country" or just "Country" |
-| Death Year | `death_year` | Integer year (NULL if alive) |
-| Death Year Precision | `death_year_precision` | exact, month, year, decade, approximate, unknown |
-| Death Place | `death_place` | "City, Country" |
-
-#### Extended Content (BILINGUAL - English and Portuguese)
-| Field | Columns | Description |
-|-------|---------|-------------|
-| Bio | `bio_en`, `bio_pt` | Rich narrative biography in both languages |
-| Achievements | `achievements_en`, `achievements_pt` | Awards, recognitions in both languages |
-| Style Notes | `style_notes_en`, `style_notes_pt` | Style notes in both languages |
-| Researcher Notes | `notes_en`, `notes_pt` | Birth/death year estimation reasoning, source conflicts, name spelling variations, pending relationships, caveats |
-
-**IMPORTANT: All narrative content must be written in BOTH English and Brazilian Portuguese.**
-See `docs/genealogy/BILINGUAL_CONTENT.md` for the full convention.
-
-**Bio Writing Guidelines:**
-
-The bio is where the person's story comes alive. Write a **narrative**, not a dry summary. You have the sources - tell the story they contain.
-
-Include:
-- **The human journey** - How did they find capoeira? What transformed them?
-- **Pivotal moments** - Key events, confrontations, turning points
-- **Historical context** - What was happening around them? What obstacles did they face?
-- **Relationships** - Teachers, students, rivals, allies (even if unnamed)
-- **The stakes** - What did they risk? What did they gain or lose?
-- **Quotes from sources** - Use direct quotes when they add power (e.g., "the gravest of crimes")
-- **The mystery** - What remains unknown? What happened next?
-- **Legacy** - Why does this person matter to capoeira history?
-
-**Do NOT embellish or invent.** Every detail must come from your sources. But present the facts as a compelling narrative, not a list. If a source describes someone as "robust, hardworking, and very obedient" who later "became more outgoing, independent, and began to arrive home late" - that's a transformation worth telling.
-
-For historical figures especially, the bio may be the only way users learn about these people. Make it worth reading.
-
-**CRITICAL: Tone and Authenticity**
-
-This database serves the capoeira community. Capoeiristas will read these bios and they can smell inauthenticity instantly.
-
-**AVOID:**
-- Poetic embellishments that sound like marketing copy ("hunted yet indestructible", "eternal flame of resistance")
-- Grandiose claims not supported by sources
-- Romanticizing violence or suffering
-- Treating capoeira as exotic or mysterious to outsiders
-- Flowery language that a mestre would never use
-
-**INSTEAD:**
-- Let the facts speak - they're dramatic enough on their own
-- Use the language of the sources (translated if needed)
-- Be direct about what we know and don't know
-- Respect the complexity - heroes had flaws, villains had skills
-- Write as if explaining to a fellow capoeirista, not a tourist
-
-**Handling Contradictions:**
-
-When sources contradict each other on names, dates, places, or facts:
-1. Choose the most reliable version for the main narrative (primary sources > secondary, multiple agreement > single claim)
-2. **Document details in `notes_en` / `notes_pt`** - record specific source conflicts, alternate spellings, and researcher reasoning for future reference
-3. **Keep the bio clean** - do NOT clutter the bio with source conflict explanations. The notes columns exist specifically for this metadata.
-
-Example in notes_en:
+**PARALLEL EXECUTION:** When you have 2+ clues, spawn parallel Task agents (subagent_type=Explore) to investigate each clue simultaneously. Example:
 ```
-NAME: Full name recorded as Manoel Alves da Silva in most sources. One source (CEV, 1936) gives Arthur Bento dos Santos. Using majority spelling.
+Task 1: "Research the 1828 Mercenary Revolt Rio de Janeiro capoeira involvement"
+Task 2: "Find academic paper by Frede Abreu about [person]"
+Task 3: "Identify training companions of [person] in Salvador 1910s"
+```
+Consolidate results before proceeding to data collection.
 
-DEATH DATE: February 1894 (exact day unknown). One source gives Feb 12, another just "February." Using month precision.
+---
+
+## Phase 2: Data to Collect
+
+### Person Profile Fields (`genealogy.person_profiles`)
+
+| Field | Column | Required |
+|-------|--------|----------|
+| Full Name | `name` | No |
+| Apelido | `apelido` | **Yes** |
+| Title | `title` | No |
+| Style | `style` | No |
+| Portrait URL | `portrait` | No |
+| Public Links | `public_links` | No |
+| Birth Year | `birth_year` | Estimate if clues exist |
+| Birth Year Precision | `birth_year_precision` | Required if birth_year set |
+| Birth Place | `birth_place` | No |
+| Death Year | `death_year` | No |
+| Death Year Precision | `death_year_precision` | Required if death_year set |
+| Death Place | `death_place` | No |
+| Bio EN | `bio_en` | **Yes** |
+| Bio PT | `bio_pt` | **Yes** |
+| Achievements EN | `achievements_en` | No |
+| Achievements PT | `achievements_pt` | No |
+| Style Notes EN | `style_notes_en` | No |
+| Style Notes PT | `style_notes_pt` | No |
+| Researcher Notes EN | `notes_en` | Date estimates, source conflicts, name variations |
+| Researcher Notes PT | `notes_pt` | Date estimates, source conflicts, name variations |
+
+**Bilingual content is REQUIRED.** See `docs/genealogy/BILINGUAL_CONTENT.md`.
+
+### Researcher Notes Structure (CRITICAL)
+
+The `notes_en`/`notes_pt` columns serve as **structured research documentation** for database queries and future researchers. Include ALL of the following sections when applicable:
+
+```
+BIRTH YEAR ESTIMATION ([year], [precision]):
+[Reasoning and sources]
+
+DEATH YEAR ESTIMATION ([year], [precision]):
+[Reasoning and sources]
+
+NAME DISCREPANCY:
+- "[Name 1]" - source1, source2 (MAJORITY)
+- "[Name 2]" - source3
+[Which used and why]
+
+TEACHERS:
+- Mestre [Name] ([context], ~[year], [location])
+- ...
+
+STUDENTS:
+- Mestre [Name] ([full name if known], began ~[year])
+- ...
+
+MEDIA APPEARANCES:
+- [Year]: [Description] (film/photo/interview/LP/publication)
+- [Year]: [Description]
+- ...
+
+RODA LOCATION: [Address], [Neighborhood], [City]
+
+[Any other relevant structured data]
 ```
 
-This approach keeps the bio focused on narrative while preserving research transparency in the notes.
+**Why this matters:** The .md report is for human reading, but `notes_en`/`notes_pt` persist in the database and enable queries like "find all mestres photographed by Pierre Verger" or "list all media appearances from 1954".
 
-#### Visual & Links
-| Field | Column | Description |
-|-------|--------|-------------|
-| Portrait | `portrait` | URL to public-facing image (prefer Wikimedia, 200-400px) |
-| Public Links | `public_links` | Text array: `ARRAY['https://...', 'https://...']` |
+### Capoeira History (for relationships)
 
-**IMPORTANT - Populate public_links from research sources:**
-Include stable, authoritative web pages about this person:
-- **Wikipedia** - If person has a Wikipedia page
-- **Group website** - If their group has a bio/about page for them
-- **Capoeira directories** - Lalaue.com, CapoeiraHub profile pages
-- **Academic/cultural sources** - IPHAN pages for historical figures
-
-Do NOT include social media accounts (Instagram, Facebook, Twitter) - these are too ephemeral for genealogy data.
-
-Example:
-```sql
-ARRAY[
-  'https://en.wikipedia.org/wiki/Mestre_Pastinha',
-  'https://capoeirahub.net/person/pastinha'
-]::text[]
-```
-
-#### Capoeira History (for relationships, not profile fields)
-Collect this information for generating statements:
-- Training timeline: who they trained under, when, where
+Also collect for statement generation:
+- Training timeline: who, when, where
 - Primary teacher(s) vs. workshop influences
-- Titles received: when, by whom, ceremony details
-- Baptism: who gave them their apelido, when, where
-- Groups founded/co-founded
-- Groups they lead or have led
-- Groups they teach/taught at
-- Groups they are/were members of
-- Family relationships in capoeira
+- Titles received: when, by whom
+- Baptism: who gave apelido, when
+- Groups founded/led/taught/member
+
+### Historical Figures (Pre-1930s)
+
+For Layer Zero figures:
+- **Title:** Often NULL—formal titles didn't exist in modern sense
+- **Style:** NULL—Angola/Regional distinction came later
+- **Confidence:** Often `uncertain` or `likely` due to limited documentation
+- **Sources:** Police/arrest records, newspapers, academic research are primary
+
+### Bio Writing Guidelines
+
+The bio tells the person's story. Write a **narrative**, not a dry summary.
+
+**Include:** Human journey, pivotal moments, historical context, relationships, stakes, direct quotes from sources, mysteries, legacy.
+
+**CRITICAL - Narrative Richness (DO NOT SACRIFICE FOR COMPACTNESS):**
+- Include **direct quotes** from primary sources (with attribution)
+- Document **media appearances** chronologically: films, photographs, recordings, publications
+- Name **specific locations**: street addresses, neighborhood names, church names
+- Capture **colorful details**: description of rodas, environment, intensity
+- Include **transformation stories**: before/after capoeira, prison to mestre, etc.
+- Reference **academic studies** that mention the person (e.g., Waldeloir Rego 1968)
+
+**Example of good detail (from Traíra bio):**
+> "His rodas were notorious for their intensity - Mestre Barba Branca recalled them as 'violent,' with constant headbutts to the face and rasteiras. The roda took place on packed dirt, and chickens would cross through the middle while people played."
+
+**CRITICAL - Tone:**
+- Let facts speak—they're dramatic enough
+- Use source language (translated if needed)
+- Be direct about what we know and don't know
+- Write as if explaining to a fellow capoeirista, not a tourist
+- Don't speculate on origins of apelido, only comment
+
+**AVOID:** Poetic embellishments ("hunted yet indestructible"), grandiose unsupported claims, romanticizing violence, treating capoeira as exotic, flowery language.
+
+**Source conflicts:** Choose most reliable version for narrative, document conflicts in `notes_en`/`notes_pt`. Keep bio clean.
+
+### Public Links
+
+Include stable, authoritative pages: Wikipedia, group website bios, Lalaue, CapoeiraHub.
+**Do NOT include social media accounts**—too ephemeral.
+
+**CRITICAL - Primary Source Verification:**
+If you used **velhosmestres.com** or **capoeirahistory.com** during research, you MUST include it in `public_links`. This is the most authoritative source for historical mestres. Check for:
+- Person-specific page: `velhosmestres.com/en/featured-[number]` or `velhosmestres.com/pt/destaque-[number]`
+- Interview pages mentioning the person
+- LP/recording documentation pages, media appearences
+
+**Order in public_links array:** Primary sources first, then secondary:
+1. velhosmestres.com (if applicable)
+2. Wikipedia (EN/PT)
+3. CapoeiraWiki
+4. Lalaue/CapoeiraHub
+5. Group official websites
+6. Other stable sources
+
+### Portrait Sourcing
+
+Priority order for finding images:
+1. **Wikimedia Commons** - Public domain, stable URLs. Pattern: `commons.wikimedia.org/wiki/Special:Search?search=mestre+[name]`
+2. **Group official websites** - Leader/founder photos
+3. **Documentary screenshots** - Public YouTube videos
+
+**Guidelines:** Prefer public domain/CC-licensed, use stable URLs (Wikimedia preferred), optimal size 200-400px. If none available, leave NULL.
+
+### Historical Figures: Birth Year Estimation
+
+**When no birth date available, estimate using evidence.** Use `decade` precision.
+
+Method:
+1. **Anchor events:** If active/teaching in year X, work backwards (teacher likely 25-50, fighter 18-40)
+2. **Relationships:** If taught someone born in Y who started learning at 12, teacher was 25-40 years older
+3. **Historical context:** African-born in early 1900s Brazil → born before 1850
+
+Document reasoning in **both**:
+- SQL file header comment (brief)
+- `notes_en`/`notes_pt` columns (full bilingual reasoning)
+
+**An estimate with `decade` precision is more useful than NULL.**
+
+### Date Validation (CRITICAL)
+
+Cross-check dates for logical consistency. Watch for:
+- Same date for arrest AND release (unlikely)
+- Same date for training start AND title conferral
+- Any date appearing twice in different contexts
+
+When inconsistent: re-read context, determine which event the date belongs to, use logical deduction for the other, note uncertainty.
 
 ---
 
-### Phase 1b: Follow-up Research (CRITICAL)
+## Phase 3: Entity Tracking
 
-**After completing initial research, review your findings for "clues" that warrant deeper investigation.**
+As you research, track discovered entities for later import.
 
-Clues to look for:
-- **Named historical events** with dates (revolts, competitions, ceremonies, conflicts)
-- **Named individuals** mentioned in passing (teachers of teachers, rivals, witnesses)
-- **Specific incidents** described briefly that could have more detail
-- **Academic sources or books** cited that might contain primary accounts
-- **Eyewitness accounts** referenced but not quoted in full
+**CRITICAL: Add EVERY capoeira person/group name you encounter to this table.** This includes names in:
+- Historic photos ("photo shows X with A, B, C, D...")
+- Quotes listing contemporaries ("the notable capoeiristas were...")
+- Training companions mentioned in passing
+- Academies, rodas, or groups where the subject trained/performed
 
-For each significant clue:
-1. Search specifically for that event/person/incident
-2. Look for primary sources, eyewitness accounts, casualty numbers, named participants
-3. Cross-reference multiple accounts for accuracy
-4. Extract vivid details and direct quotes that bring the story alive
+If it's a capoeira-related name, it goes in this table. Decide `Import? = yes/?/no` for each.
 
-**Example:** If initial research mentions "the 1828 Mercenary Revolt where capoeiras helped suppress the uprising," that's a clue. Search specifically for:
-- "1828 mercenary revolt Rio de Janeiro capoeira"
-- The exact dates, trigger incident, named leaders
-- Eyewitness accounts of the fighting
-- Casualty numbers and aftermath
-- How this event changed capoeira's status
+### Discovered Entities Table
 
-This follow-up research often yields the most compelling narrative details—the difference between "capoeiras helped in a revolt" and a vivid eyewitness account of armed soldiers falling to "fists, stones, and sticks."
+| Type | Apelido/Name | Full Name | Title | Relationship | In Dataset? | Import? | Notes |
+|------|--------------|-----------|-------|--------------|-------------|---------|-------|
+| person | João Grande | João Oliveira dos Santos | mestre | teacher of subject | check | yes | |
+| person | Manuel Cardoso | - | - | slave owner | no | **no** | Not capoeirista |
+| group | GCAP | - | - | led by subject | check | yes | |
+| group | Santa Luzia Party | - | - | gang led by subject | no | **no** | Street gang |
 
-**Do not skip this phase.** The richest stories come from following the clues.
+**In Dataset?**: `yes`/`no`/`check` (ask if unsure)
+**Import?**: `yes` (capoeira entity), `no` (not capoeira—do not add to backlog), `?` (needs investigation)
 
----
+### Proto-Group Detection (CRITICAL)
 
-### Phase 2: Entity Tracking
+When researching a person's history, watch for mentions of **informal gatherings** that may qualify as proto-groups:
 
-As you research, you will discover other persons and groups. Track them:
+**Detection triggers:**
+- Regular rodas at specific locations (docks, churches, street corners, markets)
+- Festival gatherings with recurring capoeira activity
+- Informal training spaces without formal academy structure
+- Named leaders of informal groups ("Juvencio held rodas on the docks")
+- Phrases like "no one gave classes... everyone got together and played"
 
-#### Discovered Persons
-Create a list of persons mentioned who are NOT the subject:
-```
-## Discovered Persons (for later import)
-| Apelido | Full Name | Title | Relationship to Subject | Already in Dataset? | Import? |
-|---------|-----------|-------|-------------------------|---------------------|---------|
-| João Grande | João Oliveira dos Santos | mestre | teacher of subject | check | yes |
-| Manuel Cardoso Fontes | Manuel Cardoso Fontes | - | slave owner | no | no |
-```
+**Examples of proto-groups:**
+- `Roda de São Felix (Juvencio)` - dock rodas during church festivals
+- `Roda da Gengibirra` - street corner gatherings in Liberdade
+- `Roda da Rampa do Mercado` - market ramp gatherings
 
-Mark "Already in Dataset?" as:
-- `yes` - if you've already generated SQL for them
-- `no` - needs future import
-- `check` - **ask me** if you're unsure
+**When detected:**
+1. Add to groups-backlog with `Proto-group:` prefix in Notes
+2. Include: location, leader (if known), era, nature of gatherings, source quote
+3. Format: `| Roda de [Location] ([Leader]) | Angola | [Person] import | pending | Proto-group: [description] |`
 
-Mark "Import?" as:
-- `yes` - Capoeirista or direct lineage figure, should be imported to genealogy
-- `no` - Not a capoeirista (historian, military figure, writer, slave owner, etc.) - do not import
-- `?` - Needs investigation to determine
-
-#### Discovered Groups
-Create a list of groups mentioned:
-```
-## Discovered Groups (for later import)
-| Name | Style | Relationship to Subject | Already in Dataset? | Import? |
-|------|-------|-------------------------|---------------------|---------|
-| GCAP | angola | group led by subject | check | yes |
-| Santa Luzia Party | - | gang led by subject | no | no |
-```
-
-Mark "Already in Dataset?" as:
-- `yes` - if you've already generated SQL for them
-- `no` - needs future import (if Import? = yes or ?)
-- `check` - **ask me** if you're unsure
-
-Mark "Import?" as:
-- `yes` - Capoeira group (academy, association, etc.) - should be imported to genealogy
-- `no` - Not a capoeira group (street gang, political party, non-capoeira organization) - do not import
-- `?` - Needs investigation to determine
+**These informal gatherings are historically significant** - they represent the organic transmission of capoeira before formal academies existed.
 
 ---
 
-### Phase 3: Relationship Mapping
+## Phase 4: Relationship Mapping
 
-Map all relationships found to predicates. Direction convention: predicates flow from "younger/newer" to "older/established".
+Map all relationships. **Direction:** predicates flow from "younger/newer" to "older/established".
 
-#### Person-to-Person Predicates
+### Person-to-Person Predicates
+
 | Predicate | Use When | Properties |
 |-----------|----------|------------|
-| `student_of` | Primary, ongoing teacher-student relationship | - |
-| `trained_under` | Historical/past training, workshops, seminars | - |
-| `influenced_by` | Studied philosophy/methods without direct training | - |
-| `associated_with` | Documented connection between contemporaries (peers, collaborators, known associates) | `association_context` (REQUIRED - text explaining circumstances and sources) |
-| `received_title_from` | Person received title FROM mestre | `title_grant: { title, ceremony?, location? }` |
-| `baptized_by` | Received apelido at batizado ceremony from this mestre | `baptism: { apelido_given, ceremony?, location? }` |
-| `family_of` | Biological or ceremonial family | `relationship_type: parent|sibling|spouse|padrinho|other` |
+| `student_of` | Primary ongoing teacher-student | - |
+| `trained_under` | Historical/past, workshops, seminars | - |
+| `influenced_by` | Studied philosophy without direct training | - |
+| `associated_with` | Documented connection between contemporaries | `association_context` (**required**) |
+| `received_title_from` | Person received title FROM mestre | `title_grant: {title, ceremony?, location?}` |
+| `baptized_by` | Received apelido at batizado | `baptism: {apelido_given, ceremony?, location?}` |
+| `family_of` | Biological/ceremonial family | `relationship_type` |
 
-**About `associated_with` (Person-to-Person):**
-This predicate captures documented connections between capoeiristas who were contemporaries - people who knew each other, trained in the same environment, or had documented interactions without a formal teacher-student relationship. This is especially valuable for the "Layer Zero" era where oral tradition networks are crucial but formal lineages are undocumented.
+### Person-to-Group Predicates
 
-The `association_context` property is **required** and must explain:
-1. The nature of the connection (peers, trained together, rivals, collaborators)
-2. The evidence (source that documents this connection)
-3. The time/place context if known
-
-Example:
-```json
-{
-  "association_context": "Both trained at the port of Salvador in the 1910s; documented as peers in Abreu's 1886 account of the Nagoa-Guaiamum rivalry"
-}
-```
-
-#### Person-to-Group Predicates
 | Predicate | Use When | Properties |
 |-----------|----------|------------|
-| `founded` | Created/established the group (sole founder) | - |
+| `founded` | Sole founder | - |
 | `co_founded` | Equal partner in founding | - |
-| `leads` | Current primary leader/coordinator | - |
+| `leads` | Current primary leader | - |
+| `member_of` | Formal membership | - |
+| `teaches_at` | Active instructor | - |
 | `regional_coordinator_of` | Coordinates a region for international group | `region?, country?` |
-| `member_of` | Formal membership (implies training) | - |
-| `teaches_at` | Active instructor at the group | - |
-| `cultural_pioneer_of` | First to bring capoeira to region/country | `region?, country?, context?` |
+| `cultural_pioneer_of` | First to bring capoeira to region | `region?, country?, context?` |
 | `associated_with` | Loose/informal affiliation | `association_type` |
-| `departed_from` | Left group | `departure_type: neutral|blessed|contentious|expelled` |
+| `departed_from` | Left group | `departure_type: neutral/blessed/contentious/expelled` |
 
-Create a mapping table with an additional **Import?** column to track whether the relationship should generate SQL:
+### Relationship Table
 
-```
 | Subject | Predicate | Object | Started | Ended | Properties | Confidence | Source | Import? |
 |---------|-----------|--------|---------|-------|------------|------------|--------|---------|
-```
 
-**Import? column values:**
-- `yes` - Object exists in dataset OR is a capoeira entity that should be added to backlog → generate SQL when object is imported
-- `no` - Object is NOT a capoeira entity (e.g., a street gang, political party, non-capoeira group) → do NOT generate SQL, do NOT add to backlog
-- `?` - Unclear if object qualifies → add to backlog with `?` for later determination
+**Import? column:** `yes` (object exists or should be imported), `no` (not capoeira entity—no SQL, no backlog), `?` (add to backlog with ? status)
 
-**Example:**
-```
-| Manduca da Praia | leads | Santa Luzia Party (Nagoa) | ~1850 | ? | - | likely | Plácido de Abreu 1886 | no |
-```
-*Reason: Santa Luzia Party was a street gang that used capoeira, not a capoeira group. No SQL generated, not added to groups backlog.*
-
-**SQL Generation Rules:**
-- Only generate statement SQL for relationships where `Import? = yes` AND the object already exists in the dataset
-- For `Import? = yes` but object not yet in dataset: note in SQL comments as "pending future import"
-- For `Import? = no`: do not generate SQL, do not add object to any backlog
-- For `Import? = ?`: add object to appropriate backlog with `?` status for later determination
+**CRITICAL OWNERSHIP RULE:** Every statement goes in the file named after its **SUBJECT**. Example: `Atenilo student_of Bimba` goes in `atenilo.sql`, NOT `bimba.sql`. This prevents duplicates.
 
 ---
 
-### Phase 4: SQL Generation & File Output
+## Phase 5: SQL Generation
 
-Generate SQL and **write it to TWO files**:
-
-**Entity file:** `docs/genealogy/sql-imports/entities/persons/[apelido-lowercase].sql`
-- Contains ONLY the person_profiles INSERT with ON CONFLICT upsert
-- No BEGIN/COMMIT wrappers
-- No statements, no import_log
-
-**Statements file:** `docs/genealogy/sql-imports/statements/persons/[apelido-lowercase].sql`
-- Contains ALL statements where this person is the SUBJECT
-- **CRITICAL OWNERSHIP RULE:** Every statement must be in the file named after its SUBJECT. For example, `Atenilo student_of Bimba` goes in `atenilo.sql`, NOT `bimba.sql`. This prevents duplicates and ensures each relationship has a single authoritative location.
-- Each statement uses ON CONFLICT DO NOTHING for idempotency
-- If no relationships exist, either omit the file or create an empty one with just a header
-
-**Filename convention:**
-- Use lowercase apelido with hyphens for spaces (e.g., `joao-grande.sql`, `cobrinha-verde.sql`)
-- For single-name historical figures, just use the name (e.g., `adao.sql`, `benedito.sql`)
-
-**Use the Write tool to create BOTH SQL files.** Do not just display the SQL - actually write them to disk.
-
-#### Entity File Format
+### Entity File: `docs/genealogy/sql-imports/entities/persons/[apelido].sql`
 
 ```sql
 -- ============================================================
 -- GENEALOGY PERSON: [Apelido]
 -- Generated: [Date]
--- Primary Source: [URL]
+-- ============================================================
+-- [Optional: BIRTH YEAR ESTIMATION reasoning if applicable]
 -- ============================================================
 
 INSERT INTO genealogy.person_profiles (
-  -- Identity
-  name,
-  apelido,
-  title,
-  portrait,
-  public_links,
-  -- Capoeira-specific
-  style,
-  style_notes_en,
-  style_notes_pt,
-  -- Life dates
-  birth_year,
-  birth_year_precision,
-  birth_place,
-  death_year,
-  death_year_precision,
-  death_place,
-  -- Extended content (bilingual)
-  bio_en,
-  bio_pt,
-  achievements_en,
-  achievements_pt,
-  -- Researcher notes (bilingual) - for date estimates, source conflicts, caveats
-  notes_en,
-  notes_pt
+  name, apelido, title, portrait, public_links,
+  style, style_notes_en, style_notes_pt,
+  birth_year, birth_year_precision, birth_place,
+  death_year, death_year_precision, death_place,
+  bio_en, bio_pt, achievements_en, achievements_pt,
+  notes_en, notes_pt
 ) VALUES (
-  -- Identity
-  '[Full Name or NULL]',
-  '[Apelido]',
-  '[title or NULL]'::genealogy.title,
-  '[portrait_url or NULL]',
-  ARRAY['https://...']::text[],  -- or ARRAY[]::text[] if no links
-  -- Capoeira-specific
-  '[style or NULL]'::genealogy.style,
-  E'[Style notes in English or NULL]',
-  E'[Notas de estilo em português or NULL]',
-  -- Life dates (see header for estimation reasoning if applicable)
-  [birth_year or NULL],
-  '[precision]'::genealogy.date_precision,
-  '[birth_place or NULL]',
-  [death_year or NULL],
-  '[precision]'::genealogy.date_precision,
-  '[death_place or NULL]',
-  -- Extended content (bilingual)
-  E'[Bio in English]',
-  E'[Biografia em português]',
-  '[Achievements in English or NULL]',
-  '[Conquistas em português or NULL]',
-  -- Researcher notes (bilingual)
-  E'[Notes in English or NULL - birth year estimates, source conflicts, caveats]',
-  E'[Notas em português or NULL - estimativas de datas, conflitos de fontes, ressalvas]'
+  '[name or NULL]', '[apelido]', '[title]'::genealogy.title, '[portrait or NULL]',
+  ARRAY['https://...']::text[],
+  '[style]'::genealogy.style, E'[style notes EN]', E'[style notes PT]',
+  [birth_year], '[precision]'::genealogy.date_precision, '[birth_place]',
+  [death_year], '[precision]'::genealogy.date_precision, '[death_place]',
+  E'[bio EN]', E'[bio PT]', '[achievements EN]', '[achievements PT]',
+  E'[notes EN]', E'[notes PT]'
 )
 ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
-  name = EXCLUDED.name,
-  title = EXCLUDED.title,
-  portrait = EXCLUDED.portrait,
-  public_links = EXCLUDED.public_links,
-  style = EXCLUDED.style,
-  style_notes_en = EXCLUDED.style_notes_en,
-  style_notes_pt = EXCLUDED.style_notes_pt,
-  birth_year = EXCLUDED.birth_year,
-  birth_year_precision = EXCLUDED.birth_year_precision,
-  birth_place = EXCLUDED.birth_place,
-  death_year = EXCLUDED.death_year,
-  death_year_precision = EXCLUDED.death_year_precision,
-  death_place = EXCLUDED.death_place,
-  bio_en = EXCLUDED.bio_en,
-  bio_pt = EXCLUDED.bio_pt,
-  achievements_en = EXCLUDED.achievements_en,
-  achievements_pt = EXCLUDED.achievements_pt,
-  notes_en = EXCLUDED.notes_en,
-  notes_pt = EXCLUDED.notes_pt,
-  updated_at = NOW();
+  name = EXCLUDED.name, title = EXCLUDED.title, portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links, style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en, style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year, birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place, death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision, death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en, bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en, achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en, notes_pt = EXCLUDED.notes_pt, updated_at = NOW();
 ```
 
-#### Statements File Format
+### Statements File: `docs/genealogy/sql-imports/statements/persons/[apelido].sql`
 
 ```sql
 -- ============================================================
 -- STATEMENTS FOR: [Apelido]
 -- Generated: [Date]
 -- ============================================================
--- This file contains all relationships where [Apelido] is the subject.
--- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- Contains all relationships where [Apelido] is the SUBJECT.
 -- ============================================================
 
--- --- Person-to-Person: Training & Lineage ---
-
--- [Apelido] student_of [Teacher]
+-- [Subject] student_of [Teacher]
 INSERT INTO genealogy.statements (
-  subject_type, subject_id,
-  predicate,
-  object_type, object_id,
-  started_at, started_at_precision,
-  ended_at, ended_at_precision,
-  properties, confidence, source,
-  notes_en, notes_pt
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
 )
 SELECT
   'person'::genealogy.entity_type, s.id,
   'student_of'::genealogy.predicate,
   'person'::genealogy.entity_type, o.id,
-  '1908-01-01'::date, 'year'::genealogy.date_precision,
-  '1924-07-08'::date, 'exact'::genealogy.date_precision,
-  '{}'::jsonb,
-  'verified'::genealogy.confidence,
-  'Source citation here',
-  'Relationship context in English',
-  'Contexto do relacionamento em português'
+  '[date]'::date, '[precision]'::genealogy.date_precision,
+  '[date]'::date, '[precision]'::genealogy.date_precision,
+  '{}'::jsonb, '[confidence]'::genealogy.confidence,
+  '[source]', '[notes EN]', '[notes PT]'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = '[Subject Apelido]' AND o.apelido = '[Object Apelido]'
+WHERE s.apelido = '[Subject]' AND o.apelido = '[Object]'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- IMPORTANT: The COALESCE expression is REQUIRED because the unique index uses it to handle NULL started_at values
--- (PostgreSQL treats NULL != NULL, so without COALESCE the conflict detection would fail for NULL dates)
---
--- Date precision values: exact, month, year, decade, approximate, unknown
--- Use started_at = NULL with started_at_precision = 'unknown' when date is completely unknown
--- IMPORTANT: notes_en and notes_pt should both be provided for bilingual support
-
--- --- Person-to-Person: Recognition ---
--- (Title grants, baptisms)
-
--- --- Person-to-Group: Founding & Leadership ---
--- (Only if the group exists in dataset)
-
--- --- Person-to-Group: Membership & Affiliation ---
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- [Subject] student_of [Missing Teacher] - needs import first
+-- [Subject] associated_with [Missing Peer] - needs import first
 ```
 
-**Important Rules:**
-1. Only generate statement SQL for entities that already exist in the dataset
-2. For new entities, list them in "Discovered Persons/Groups" sections
-3. Use appropriate confidence levels based on source quality
-4. Always cite sources in the `source` field
-5. Use `NULL` for unknown values, not empty strings
-6. Date precision: `exact`, `month`, `year`, `decade`, `approximate`, `unknown`
-7. Confidence: `verified`, `likely`, `unverified`, `disputed`, `uncertain`
+**Important:**
+- Only generate statements for entities that already exist in dataset
+- **PENDING RELATIONSHIPS:** Add comment section at end of statement file for relationships where object doesn't exist yet
+- Use `NULL` for unknown values, not empty strings
+- COALESCE in ON CONFLICT is required (handles NULL started_at)
 
----
+### Enum Values
 
-### Phase 5: Output Format
-
-Present your findings in this structure:
-
-```markdown
-# Person Import: [Apelido] ([Full Name])
-
-## Person Report Status
-[Was this person found in the person-reports directory? What information was pre-existing vs newly discovered?]
-
-## Research Summary
-[1-2 paragraph summary of who this person is and their significance]
-
-## Profile Data
-[Structured data collected]
-
-## Discovered Persons (for later import)
-[Table of persons to process later]
-**ACTION: Add any new persons with status `no` to `docs/genealogy/import-backlog/persons-backlog.md`**
-
-## Discovered Groups (for later import)
-[Table of groups to process later]
-**ACTION: Add any new groups with status `no` to `docs/genealogy/import-backlog/groups-backlog.md`**
-
-## Relationship Mapping
-[Predicate mapping table]
-
-## Generated SQL
-**ACTION: Write entity SQL to `docs/genealogy/sql-imports/entities/persons/[apelido-lowercase].sql`**
-**ACTION: Write statements SQL to `docs/genealogy/sql-imports/statements/persons/[apelido-lowercase].sql`**
-[Show the complete SQL blocks here AND write them to files]
-
-## Notes & Uncertainties
-[Any conflicting information, gaps, questions]
-
-## Person Report File Update
-[Note whether the person-reports file was created or updated with new findings]
-
-## Sources
-[List all sources consulted with URLs]
-```
-
----
-
-### Confidence Guidelines
-
-- **verified**: Multiple reliable sources agree (Wikipedia + official source)
-- **likely**: Single reliable source (official group website)
-- **unverified**: Claimed but not independently verified (social media only)
-- **disputed**: Conflicting information exists (note in source field)
-- **uncertain**: Low confidence, needs investigation
-
----
-
-### Available Enum Values
-
-**Titles:** mestra, mestre, contra-mestra, contra-mestre, mestranda, mestrando, professora, professor, instrutora, instrutor, graduada, graduado, formada, formado, estagiaria, estagiario, estagianda, estagiando, monitora, monitor, treinel, aluna, aluno, iniciante
+**Titles:** mestra, mestre, contra-mestra, contra-mestre, mestranda, mestrando, professora, professor, instrutora, instrutor, graduada, graduado, formada, formado, estagiaria, estagiario, monitora, monitor, treinel, aluna, aluno, iniciante
 
 **Styles:** angola, regional, contemporanea, mixed
 
 **Date Precision:** exact, month, year, decade, approximate, unknown
 
-**Confidence:** verified, likely, unverified, disputed, uncertain
+**Confidence:** verified (multiple reliable sources), likely (single reliable), unverified (social media only), disputed (conflicting info), uncertain (low confidence)
 
 ---
 
-### Historical Figures (Layer Zero Era)
+## Phase 6: File Actions (MANDATORY)
 
-For persons from the pre-1930s era, special considerations apply:
+You MUST perform ALL of these file operations:
 
-1. **Title field**: May be NULL or use historical terms - most were not formally titled in the modern sense
-2. **Style field**: Use NULL or note that style distinctions (Angola/Regional) didn't exist yet
-3. **Confidence**: Often `uncertain` or `likely` due to limited documentation
-4. **Sources**: Police/arrest records, historical newspapers, academic research are primary sources
-5. **Profile Type**: Use appropriate historical types (proto_mestre, historical_capoeirista, early_mestre, etc.) in the person report file
+1. **Write entity SQL:** `docs/genealogy/sql-imports/entities/persons/[apelido-lowercase].sql`
+2. **Write statements SQL:** `docs/genealogy/sql-imports/statements/persons/[apelido-lowercase].sql` (if relationships exist)
+3. **Create/update person report:** `docs/genealogy/person-reports/[name-lowercase].md`
+   - Follow template in `docs/genealogy/person-reports/README.md`
+   - **Must be bilingual (EN/PT)** - see `adama.md` as reference
+4. **Update backlogs:**
+   - Add `Import? = yes` or `?` persons to `docs/genealogy/import-backlog/persons-backlog.md`
+   - Add `Import? = yes` or `?` groups to `docs/genealogy/import-backlog/groups-backlog.md`
+   - **Do NOT add `Import? = no` entities**
 
-### Estimating Birth Years for Historical Figures (IMPORTANT)
+**Failure to write all required files is a critical error.**
 
-**When no birth/death dates are available**, you MUST make an educated estimate using available evidence. Do not leave birth_year as NULL if any context clues exist. Use `decade` precision for estimates.
+---
 
-**How to estimate:**
+## Phase 7: Output Verification (MANDATORY)
 
-1. **Look for anchor events** - If the person was "active" or "teaching" or "arrested" in year X, work backwards:
-   - Active as teacher/mestre → likely 25-50 years old
-   - Active as fighter/practitioner → likely 18-40 years old
-   - Mentioned as "young" → likely 15-25 years old
-   - Mentioned as "old" or "elder" → likely 50+ years old
+After writing files, verify consistency:
 
-2. **Use student/teacher relationships**:
-   - If they taught someone born in year Y who started learning at age 12, the teacher was likely 25-40 years older
-   - Example: Bentinho taught Bimba (b. 1899) starting in 1911. If Bentinho was 30-50 when teaching, he was born ~1860-1880
+1. **Read back** the written entity SQL, statements SQL, and .md report
+   - **PARALLEL:** Read all three files simultaneously
+2. **Cross-check sources:** Every source in your summary must appear in written files
+3. **Cross-check entities:** All discovered persons/groups with `Import? = yes/?` must be in backlogs
+4. **Fix discrepancies immediately**
 
-3. **Consider historical context**:
-   - African-born in early 1900s Brazil → born before 1850 (slavery ended 1888; most Africans came before)
-   - If someone was "African-born" and active in 1910, they were likely born 1840-1870
+### Source Verification Checklist (CRITICAL)
 
-4. **Document your reasoning** in TWO places:
+For EVERY source used during research, verify it appears in the correct location(s):
 
-   a. **SQL file header** (after `-- DEPENDENCIES:` line) - brief summary for developers reading the file
-   b. **`notes_en` / `notes_pt` columns** - full bilingual reasoning stored in the database
+| Source Type | Must Appear In |
+|-------------|----------------|
+| velhosmestres.com page | `public_links` array, .md Sources section |
+| Wikipedia page | `public_links` array, .md Sources section |
+| Other Tier 1/2 web sources | .md Sources section (evaluate for `public_links`) |
+| Academic papers/books | .md Sources section, bio text attribution |
+| Film/documentary | bio text, notes_en MEDIA APPEARANCES |
+| Photograph (with photographer) | bio text, notes_en MEDIA APPEARANCES |
+| LP/recording | bio text, notes_en MEDIA APPEARANCES |
+| Interview/oral history | bio text attribution, .md Sources section |
 
-**Example - SQL file header (brief summary):**
-```sql
--- ============================================================
--- GENEALOGY PERSON IMPORT: Bentinho
--- Generated: 2025-12-08
--- Primary Source: [URL]
--- ============================================================
--- DEPENDENCIES: none
--- ============================================================
---
--- BIRTH YEAR ESTIMATION (1870 with 'decade' precision):
--- African-born captain teaching capoeira by 1911. If 35-45 when teaching
--- 12-year-old Bimba in 1911, birth = ~1866-1876. Using 1870 as midpoint.
---
--- ============================================================
+**Verification process:**
+1. List all sources you used during research
+2. For each source, check the table above
+3. Verify it appears in ALL required locations
+4. If missing, add it before completing
+
+**Common omission to avoid:** Using velhosmestres.com during research but forgetting to add it to `public_links`.
+
+**Data quality checks:**
+- Person has at least: apelido, bio (bilingual)
+- If deceased: death_year is set
+- If mestre/teacher: at least one `student_of`, `trained_under`, `received_title_from`, `baptized_by` relationship (unless Layer Zero orphan)
+- Timeline consistency: no end dates before start dates
+
+**Cross-reference existing reports:**
+- For each teacher/student/associate already in dataset, check their person-report and entity SQL
+- Verify dates and facts are consistent (e.g., if you say Traira trained under Waldemar from 1947, check waldemar.sql/waldemar.md mentions this)
+- If inconsistencies found: determine which version is correct based on sources, update both files if needed, note discrepancy in researcher notes
+
+---
+
+## Console Output Format
+
+```markdown
+# Person Import: [Apelido] ([Full Name])
+
+## Report Status
+[Pre-existing vs newly discovered?]
+
+## Research Summary
+[1-2 paragraph summary]
+
+## Discovered Entities
+[Table from Phase 3]
+
+## Relationship Mapping
+[Table from Phase 4]
+
+## SQL Files Written
+- Entity: `docs/genealogy/sql-imports/entities/persons/[apelido].sql`
+- Statements: `docs/genealogy/sql-imports/statements/persons/[apelido].sql`
+
+## Person Report
+`docs/genealogy/person-reports/[name].md`
+
+## Notes & Uncertainties
+[Conflicts, gaps, questions]
+
+## Sources
+[All sources consulted with URLs]
 ```
-
-**Example - notes_en / notes_pt columns (full reasoning stored in DB):**
-```sql
-  -- Researcher notes (English)
-  E'BIRTH YEAR ESTIMATION (1870, decade precision): African-born; was a captain (established profession) and teaching capoeira by 1911. If he was 35-45 when teaching 12-year-old Bimba in 1911, birth = ~1866-1876. Using 1870 as midpoint estimate.
-
-DEATH: Unknown. No records of his death have been found.
-
-NAME: Also recorded as "Nozinho Bento" in some sources.
-
-PENDING RELATIONSHIPS (requires Mestre Bimba import):
-- Bimba student_of Bentinho (~1911-1915)',
-  -- Researcher notes (Portuguese)
-  E'ESTIMATIVA DO ANO DE NASCIMENTO (1870, precisão de década): Nascido na África; era capitão (profissão estabelecida) e ensinava capoeira por volta de 1911. Se tinha 35-45 anos quando ensinava Bimba de 12 anos em 1911, nascimento = ~1866-1876. Usando 1870 como estimativa do ponto médio.
-
-MORTE: Desconhecida. Nenhum registro de sua morte foi encontrado.
-
-NOME: Também registrado como "Nozinho Bento" em algumas fontes.
-
-RELACIONAMENTOS PENDENTES (requer importação de Mestre Bimba):
-- Bimba student_of Bentinho (~1911-1915)'
-```
-
-Also document in the person report's "Date Discrepancies" section for easy reference.
-
-**Key rule:** An educated estimate with `decade` precision is more useful for timeline visualization than NULL. Always prefer a documented estimate over missing data.
-
-### Date Validation (CRITICAL)
-
-**Always cross-check dates for logical consistency.** Sources (including Layer Zero) may contain transcription errors where the same date appears multiple times when it shouldn't.
-
-**Red flags to watch for:**
-- Same date used for arrest AND clemency/release (unlikely - legal processes take time)
-- Same date for birth AND death events
-- Same date for training start AND title conferral (requires years of training)
-- Any date appearing twice in different contexts
-
-**When you find date inconsistencies:**
-1. Re-read the narrative context carefully - look for phrases like "after months of..." or "several years later..."
-2. Determine which event the date most likely belongs to (usually the documented archival record)
-3. Use logical deduction for the other date (e.g., "late 1788 or early 1789" if clemency was April 1789 and "months" passed)
-4. Note the uncertainty in the SQL comments
-5. Flag the inconsistency for potential correction in the source document
-
----
-
-### Phase 6: File Actions (MANDATORY)
-
-After completing research and generating the report, you MUST perform these file operations:
-
-1. **Write entity SQL file**: Use the Write tool to create `docs/genealogy/sql-imports/entities/persons/[apelido-lowercase].sql`
-   - Contains ONLY the person_profiles INSERT with ON CONFLICT upsert
-
-2. **Write statements SQL file**: Use the Write tool to create `docs/genealogy/sql-imports/statements/persons/[apelido-lowercase].sql`
-   - Contains ALL statements where this person is the subject
-   - If no relationships exist, either omit the file or create an empty one with header only
-
-3. **Create/Update person report file**: Write comprehensive research to `docs/genealogy/person-reports/[name-lowercase].md`
-   - Use lowercase with hyphens for spaces (e.g., `joao-grande.md`, `cobrinha-verde.md`)
-   - Follow the template in `docs/genealogy/person-reports/README.md`
-   - **CRITICAL: The .md file must be BILINGUAL (EN/PT) just like the SQL file**
-     - Use bilingual section headers: `## Biography / Biografia`, `## Achievements / Conquistas`, etc.
-     - Include `### English` and `### Português` subsections for narrative content
-     - See `docs/genealogy/person-reports/adama.md` as the reference example
-   - Include: profile type, basic information table, biography (EN+PT), achievements (EN+PT), sources
-   - Reference the SQL import file path
-   - If file already exists, UPDATE it with new research (preserve existing content, add new findings)
-
-4. **Update persons backlog**: Append discovered persons with `Import? = yes` or `Import? = ?` to `docs/genealogy/import-backlog/persons-backlog.md`
-   - Use the backlog table format with these columns: `Apelido | Full Name | Title | Discovered From | Status | Import | Notes`
-   - Set `Status` to `pending` for new entries
-   - Set `Import` column: `yes` or `?` based on whether they're a capoeirista
-   - **Do NOT add persons with `Import? = no`** - they don't belong in the genealogy
-
-5. **Update groups backlog**: Append discovered groups with `Import? = yes` or `Import? = ?` to `docs/genealogy/import-backlog/groups-backlog.md`
-   - **Do NOT add groups with `Import? = no`** (street gangs, political parties, non-capoeira organizations)
-
-**Key principle:** The backlogs track capoeira entities pending import. Non-capoeira entities (Import? = no) should not be added - they are simply not part of the genealogy data model.
-
-**Failure to write the SQL files AND the person report file is a critical error. ALL must be saved to disk.**
-
----
-
-### Phase 7: Output Verification (MANDATORY)
-
-**After completing all file writes, you MUST verify consistency between your console summary and the written files.**
-
-1. **Read back the written files**: Use the Read tool to re-read:
-   - `docs/genealogy/sql-imports/entities/persons/[apelido-lowercase].sql`
-   - `docs/genealogy/sql-imports/statements/persons/[apelido-lowercase].sql` (if created)
-   - `docs/genealogy/person-reports/[name-lowercase].md`
-
-2. **Cross-check Sources**: Compare the "Sources" section in your console summary against:
-   - The `## Sources / Fontes` section in the .md file
-   - The `public_links` JSONB in the entity SQL file
-   - **Every source in the summary must appear in the written files**
-
-3. **Cross-check Discovered Entities**: Verify that all persons/groups listed in your summary's "Discovered Persons/Groups" tables were actually added to the backlogs.
-
-4. **Fix any discrepancies immediately**: If the written files are missing sources or entities that appear in your summary, edit the files to add them.
-
-**This verification step exists because context can be lost between research and file writing. Do not skip it.**
 
 ---
 

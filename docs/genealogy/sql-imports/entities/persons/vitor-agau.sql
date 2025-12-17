@@ -105,13 +105,16 @@ STYLE: Pre-dates Angola/Regional distinction (1930s). Associated with traditiona
 
 SOURCES: Primary source is Onça Preta''s testimony recorded in velhosmestres.com and 1972 O Dia newspaper interview. Secondary sources include Mestre Pastinha''s account of CECA founders and Gaguinho Preto''s biographical information.
 
+RESOLVED RELATIONSHIPS (see vitor-agau.sql statements):
+- associated_with Pastinha (CECA founding)
+- associated_with Aberrê (CECA founding)
+- associated_with Noronha (CECA founding)
+- associated_with Amorzinho (Gengibirra/CECA founding)
+- associated_with Livino (CECA founding)
+
 PENDING RELATIONSHIPS (require future imports):
 - taught Gaguinho Preto (Everaldo Arcanjo de Assis)
 - associated_with Samuel Querido de Deus
-- associated_with Aberrê
-- associated_with Noronha (Daniel Coutinho)
-- associated_with Amorzinho
-- associated_with Livino
 - associated_with Mestre Roque
 - member_of CECA (founding member 1941)',
   -- notes_pt
@@ -132,13 +135,16 @@ ESTILO: Anterior à distinção Angola/Regional (anos 1930). Associado à Capoei
 
 FONTES: Fonte primária é o testemunho de Onça Preta registrado em velhosmestres.com e entrevista ao jornal O Dia de 1972. Fontes secundárias incluem o relato de Mestre Pastinha sobre os fundadores do CECA e informações biográficas de Gaguinho Preto.
 
+RELACIONAMENTOS RESOLVIDOS (ver statements vitor-agau.sql):
+- associated_with Pastinha (fundação CECA)
+- associated_with Aberrê (fundação CECA)
+- associated_with Noronha (fundação CECA)
+- associated_with Amorzinho (fundação Gengibirra/CECA)
+- associated_with Livino (fundação CECA)
+
 RELACIONAMENTOS PENDENTES (requerem importações futuras):
 - taught Gaguinho Preto (Everaldo Arcanjo de Assis)
 - associated_with Samuel Querido de Deus
-- associated_with Aberrê
-- associated_with Noronha (Daniel Coutinho)
-- associated_with Amorzinho
-- associated_with Livino
 - associated_with Mestre Roque
 - member_of CECA (membro fundador 1941)'
 )

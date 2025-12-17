@@ -1,6 +1,6 @@
 # Aberrê de Santo Amaro / Antônio Rufino dos Santos (late 19th - mid 20th century)
 
-**SQL Import:** Not yet generated (pending further research)
+**SQL Import:** `docs/genealogy/sql-imports/entities/persons/aberre-de-santo-amaro.sql`
 
 **Significance / Significância:**
 - EN: Possible second capoeirista named "Aberrê" from Santo Amaro; teacher of Mestre Caiçara according to Caiçara's own testimony. Existence disputed—may be same person as Aberrê de Salvador or a distinct individual.
@@ -8,7 +8,7 @@
 
 **Profile Type:** `proto_mestre` (if distinct) or `disputed_identity`
 
-**Status:** UNCONFIRMED - Research ongoing into "Two Aberrês" theory
+**Status:** SQL GENERATED - Treated as likely distinct person with disputed confidence
 
 ## Basic Information / Informações Básicas
 
