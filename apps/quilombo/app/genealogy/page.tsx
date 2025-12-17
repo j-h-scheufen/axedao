@@ -1,6 +1,6 @@
 'use client';
 
-import { Select, SelectItem, Spinner } from '@heroui/react';
+import { Chip, Link, Select, SelectItem, Spinner } from '@heroui/react';
 import { useAtom } from 'jotai';
 import dynamic from 'next/dynamic';
 import { useCallback, useMemo } from 'react';
@@ -138,6 +138,17 @@ export default function GenealogyPage() {
             <p className="text-small text-default-500">
               Explore the lineages and relationships of the capoeira community
             </p>
+          </div>
+          <div className="flex shrink-0 items-center gap-3 self-center rounded-xl border border-warning-200 px-3 py-1.5 text-small text-default-500">
+            <Chip size="sm" color="warning" variant="flat">
+              BETA
+            </Chip>
+            <span>
+              Under actively development. Interested in helping?{' '}
+              <Link href="mailto:support@quilombo.net" size="sm" underline="hover">
+                Get in touch
+              </Link>
+            </span>
           </div>
           <div className="flex-1 flex justify-center">
             <NodeSearch

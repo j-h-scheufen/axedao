@@ -167,7 +167,13 @@ The bio tells the person's story. Write a **narrative**, not a dry summary.
 - Use source language (translated if needed)
 - Be direct about what we know and don't know
 - Write as if explaining to a fellow capoeirista, not a tourist
-- Don't speculate on origins of apelido, only comment
+- Don't speculate on origins of apelido—only state facts (e.g., "his apelido suggests he worked in stables" is acceptable, but lengthy speculation paragraphs are not)
+
+**CRITICAL - Brazilian Portuguese Spelling:**
+- **ALWAYS preserve Brazilian Portuguese spelling with accents** when writing person names, place names, apelidos, and literal quotes in textual content (bio, notes, achievements)
+- Examples: Bastião (not Bastiao), César (not Cesar), Calçada (not Calcada), São Paulo (not Sao Paulo)
+- This applies to both English and Portuguese text—proper nouns retain their original spelling
+- Only exception: SQL identifiers and file names use ASCII (e.g., `bastiao.sql`)
 
 **AVOID:** Poetic embellishments ("hunted yet indestructible"), grandiose unsupported claims, romanticizing violence, treating capoeira as exotic, flowery language.
 
