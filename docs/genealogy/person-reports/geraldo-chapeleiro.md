@@ -111,6 +111,14 @@ Unknown - no records of his students have been found.
 |-------|---------|-------------|-------|
 | Birth Year | ~1900 | ~1890-1910 | Estimated based on activity period; no documentation |
 
+## Historiographical Discrepancy / Discrepância Historiográfica
+
+**Conflicting sources on death circumstances:**
+
+Mestre Onça Preta's 1972 testimony (O Dia newspaper) lists "Geraldo Chapeleiro" among capoeiristas killed during the Pedrito persecution (1920-1927). However, other sources indicate he was among the mestres who participated in Gengibirra through 1941.
+
+This discrepancy parallels the case of Antônio Galindeu, who appears on both the Gengibirra founders list and Onça Preta's victim list. Both testimonies were recorded decades after the events, and no scholarly analysis has reconciled them.
+
 ## Sources / Fontes
 
 - [Velhos Mestres - O ABC de Grandes Mestres de Capoeira](https://velhosmestres.com/br/destaques-2)

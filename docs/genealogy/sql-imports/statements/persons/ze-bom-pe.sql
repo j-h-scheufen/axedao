@@ -1,0 +1,32 @@
+-- ============================================================
+-- STATEMENTS FOR: Zé Bom Pé
+-- Generated: 2025-12-17
+-- ============================================================
+-- Contains all relationships where Zé Bom Pé is the SUBJECT.
+--
+-- NOTE: This is a single-source profile (Pastinha's 1967 interview).
+-- No specific relationships are documented where Zé Bom Pé is the subject.
+-- His teachers, students, and group affiliations are unknown.
+-- ============================================================
+
+-- No statements to insert at this time.
+-- Zé Bom Pé is known only from Pastinha's mention of him as a deceased
+-- practitioner of "pure Capoeira de Angola" in February 1967.
+
+-- ============================================================
+-- RELATIONSHIPS WHERE ZÉ BOM PÉ IS THE OBJECT (for reference)
+-- These statements belong in OTHER entities' statement files.
+-- ============================================================
+-- Pastinha associated_with Zé Bom Pé - Listed him among legendary angoleiros
+--   (This would go in pastinha.sql if we chose to document it)
+--
+-- Note: The "associated_with" predicate with Pastinha is implicit through
+-- Pastinha's testimony, but Zé Bom Pé may have died before Pastinha
+-- formalized CECA (1941). No direct evidence of interaction exists.
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (no documentation exists)
+-- ============================================================
+-- Zé Bom Pé student_of [Unknown Teacher] - No teacher documented
+-- Zé Bom Pé member_of [Unknown Group] - No group affiliation documented
+-- Zé Bom Pé associated_with [Unknown Contemporaries] - No documented associates

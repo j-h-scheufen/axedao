@@ -85,6 +85,12 @@ Before starting web searches, read `docs/genealogy/sources/research-sources.md` 
 **IMPORTANT: All narrative content must be written in BOTH English and Brazilian Portuguese.**
 See `docs/genealogy/BILINGUAL_CONTENT.md` for the full convention.
 
+**CRITICAL - Brazilian Portuguese Spelling:**
+- **ALWAYS preserve Brazilian Portuguese spelling with accents** when writing person names, place names, group names, and literal quotes in textual content (description, history, notes)
+- Examples: Bastião (not Bastiao), César (not Cesar), Calçada (not Calcada), São Paulo (not Sao Paulo)
+- This applies to both English and Portuguese text—proper nouns retain their original spelling
+- Only exception: SQL identifiers and file names use ASCII (e.g., `sao-paulo.sql`)
+
 #### Name History (for groups that changed names)
 | Field | Column | Description |
 |-------|--------|-------------|

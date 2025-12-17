@@ -132,21 +132,21 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Vitor Agaú | - | Mestre | Onça Preta import | done | yes | Teacher of Onça Preta; also spelled Vitor H.Ú or Vitor H.D.; present at CECA founding 1941 - SQL generated |
 | Besourinho | - | - | Onça Preta import | done | yes | Teacher of Onça Preta; killed during Pedrito persecution (1920s) - SQL generated |
 | Doze Homens | - | - | Onça Preta import | done | yes | Companion of Besouro; teacher of Salomé and Maria dos Anjos; killed during Pedrito persecution (1920s) - SQL generated |
-| Mãozinha | - | - | Onça Preta import | pending | yes | Capoeirista killed during Pedrito persecution (1920s); remembered by Onça Preta |
-| Antônio Galindéu | - | - | Onça Preta import | pending | yes | Capoeirista killed during Pedrito persecution (1920s); remembered by Onça Preta; also founding mestre of Gengibirra |
-| Finado Manteiga | - | - | Onça Preta import | pending | yes | Capoeirista killed during Pedrito persecution (1920s); remembered by Onça Preta |
-| Nagé | - | - | Onça Preta import | pending | yes | Capoeirista killed during Pedrito persecution (1920s); remembered by Onça Preta |
-| Paulo César de Moura | - | - | Onça Preta import | pending | yes | Capoeirista killed during Pedrito persecution (1920s); remembered by Onça Preta |
+| Mãozinha | - | - | Onça Preta import | done | yes | Capoeirista killed during Pedrito persecution (1920s); remembered by Onça Preta - SQL generated |
+| Antônio Galindéu | - | - | Onça Preta import | done | yes | SAME PERSON as Antonio Galindeu (Gengibirra founder); historiographical discrepancy documented in existing profile - Onça Preta's 1972 testimony lists him as Pedrito victim, but Noronha's manuscripts say he died at 80 |
+| Finado Manteiga | - | - | Onça Preta import | done | yes | Capoeirista killed during Pedrito persecution (1920s); remembered by Onça Preta - SQL generated |
+| Nagé (Pedrito victim) | - | - | Onça Preta import | done | yes | Capoeirista killed during Pedrito persecution (1920s); DISTINCT from Mestre Nagé (José Anastácio de Santana, 1923-1958); uses apelido_context - SQL generated as nage-pedrito-victim.sql |
+| Paulo César de Moura | Paulo César de Moura | - | Onça Preta import | done | yes | Capoeirista killed during Pedrito persecution (1920s); unusually recorded with full name - SQL generated |
 | Barboza | - | - | Paulo Barroquinha import | done | yes | Part of Matatu Preto Sunday training group with Aberrê; mentioned in Canjiquinha's testimony as "finado Barboza" - SQL generated |
-| Pedro Porreta | - | - | Chico Três Pedaços import | pending | yes | Salvador valentão (1920s-1930s); defended by Cosme de Farias alongside Chico Três Pedaços; documented court records |
-| Bastião | - | - | Chico Três Pedaços import | pending | yes | Salvador capoeirista defended by Cosme de Farias; documented in Bahia historiography |
-| Samuel da Calçada | - | - | Chico Três Pedaços import | pending | yes | Salvador capoeirista defended by Cosme de Farias; documented in Bahia historiography |
-| Nozinho da Cocheira | - | - | Chico Três Pedaços import | pending | yes | Salvador capoeirista defended by Cosme de Farias; documented in Bahia historiography |
-| Duquinha | - | - | Chico Três Pedaços import | pending | yes | Salvador capoeirista defended by Cosme de Farias; documented in Bahia historiography |
-| Scalvino | - | - | Chico Três Pedaços import | pending | yes | Salvador capoeirista defended by Cosme de Farias; documented in Bahia historiography |
-| Américo Ciência | - | - | Pastinha import | pending | yes | Legendary capoeirista listed by Mestre Pastinha (1967); pure capoeira de Angola |
-| Bugalho | - | - | Pastinha import | pending | yes | Legendary capoeirista listed by Mestre Pastinha (1967); pure capoeira de Angola |
-| Zé Bom Pé | - | - | Pastinha import | pending | yes | Legendary capoeirista listed by Mestre Pastinha (1967); pure capoeira de Angola |
+| Pedro Porreta | Pedro Celestino dos Santos | - | Chico Três Pedaços import | done | yes | Salvador valentão (1920s-1930s); fish seller at Mercado de Santa Bárbara; dominated Baixa dos Sapateiros; defended by Cosme de Farias; killed by Chicão (~1930) - SQL generated |
+| Bastião | Sebastião de Souza (unconfirmed) | - | Chico Três Pedaços import | done | yes | Salvador capoeirista defended by Cosme de Farias; may have worked as political capanga; no dedicated book chapter - SQL generated |
+| Samuel da Calçada | - | - | Chico Três Pedaços import | done | yes | "O capadócio da política" (The political rogue); worked as capanga; defended by Cosme de Farias; has dedicated chapter in "Mestres e capoeiras famosos da Bahia" - SQL generated |
+| Nozinho da Cocheira | - | - | Chico Três Pedaços import | done | yes | "Valente trabalhador" (Brave worker); defended by Cosme de Farias; has dedicated chapter in "Mestres e capoeiras famosos da Bahia" - SQL generated |
+| Duquinha | - | - | Chico Três Pedaços import | done | yes | "Os irmãos terror" with Escalvino (The terror brothers); worked as political capanga; defended by Cosme de Farias - SQL generated |
+| Escalvino | Luís Escalvino | - | Chico Três Pedaços import | done | yes | "Os irmãos terror" with Duquinha (The terror brothers); protected by influential patrons; defended by Cosme de Farias - SQL generated (also spelled Scalvino) |
+| Américo Ciência | - | - | Pastinha import | done | yes | Legendary capoeirista listed by Mestre Pastinha (1967); pure capoeira de Angola; fought Bimba 1936 - SQL generated |
+| Bugalho | Edmundo Joaquim | - | Pastinha import | done | yes | Legendary capoeirista listed by Mestre Pastinha (1967); pure capoeira de Angola; dock worker; renowned berimbau virtuoso; teacher of Pelé da Bomba; photographed by Pierre Verger (~1955); filmed in "Voyage sans passeport" (1960) - SQL generated |
+| Zé Bom Pé | - | - | Pastinha import | done | yes | Legendary capoeirista listed by Mestre Pastinha (1967); pure capoeira de Angola - SQL generated |
 | Tibirici da Folha Grossa | - | - | Pastinha import | pending | yes | Legendary capoeirista listed by Mestre Pastinha (1967); pure capoeira de Angola |
 | Inimigo Sem Tripa | - | - | Pastinha import | pending | yes | Legendary capoeirista listed by Mestre Pastinha (1967); pure capoeira de Angola |
 | Zé do U | - | - | Pastinha import | pending | yes | Legendary capoeirista listed by Mestre Pastinha (1967); pure capoeira de Angola |
@@ -161,11 +161,12 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Crispim | - | - | Atenilo import | pending | ? | Eldest son and disciple of Mestre Bimba; companion of Atenilo - need to verify if he should be imported as capoeirista |
 | Pintor | - | Mestre | Atenilo import | pending | yes | Founder of Grupo Bantus Capoeira; trained under Atenilo, Waldemar, Canjiquinha, Curio, Caicara, Gigante, Joao Grande and others in Bahia |
 | Maria Salome | - | - | Atenilo import | done | yes | Valentona of 1920s-30s; student of Doze Homens (NOT Maria Doze Homens); SQL generated as salome.sql |
-| Jurandir | - | - | Cirandinha import | pending | yes | Student of Mestre Bimba; also practiced judo; lost to Cirandinha by KO in Round 1 at 1949 Capoeira Challenge at Estadio Carioca |
+| Jurandir (Bimba 1949) | - | - | Cirandinha import | done | yes | Student of Mestre Bimba; also practiced judo; lost to Cirandinha by KO in Round 1 at 1949 Capoeira Challenge at Estadio Carioca - SQL generated as jurandir-bimba-1949.sql; DISTINCT from Jurandir Nascimento (GCAP) and Jurandir Santos (João Grande's son) |
 | Fernando Rodrigues Perez | - | - | Cirandinha import | pending | yes | Student of Mestre Bimba (Regional); lost to Rudolf Hermanny in 2 minutes at 1949 Capoeira Challenge at Estadio Carioca |
 | Maria dos Anjos | - | - | Salomé import | pending | yes | Fellow student of Doze Homens alongside Salomé; contemporary valentona of 1920s-1930s Salvador; may be origin of "Maria Doze Homens" nickname |
 | Angélica Endiabrada | - | - | Salomé import | pending | yes | "Valentona da Bahia" of 1910-1920; contemporary of Salomé and other legendary female capoeiristas |
-| Chicão | Francisca Albino dos Santos | - | Salomé import | pending | yes | Famous valentona; defeated Pedro Porreta in 1929; contemporary of Salomé |
+| Chicão | Francisca Albino dos Santos | - | Salomé import | pending | yes | Famous valentona; defeated Pedro Porreta on Sept 28, 1929; suspected of murdering Porreta shortly after; contemporary of Salomé |
+| Piroca | Pedro de Alcântara | - | Pedro Porreta import | pending | yes | Brother of Pedro Porreta; known together as "Os donos do quarteirão" (The owners of the block); participated in Dec 1920 attack on Guruxinha |
 | Rosa Palmeirão | - | - | Salomé import | pending | ? | Legendary valentona; inspired Jorge Amado character in "Mar Morto"; needs investigation if actual capoeirista or literary figure |
 | Massú | - | - | Salomé import | pending | ? | Listed among legendary female capoeiristas of Bahia; needs investigation |
 | Catu | - | - | Salomé import | pending | ? | Listed among legendary female capoeiristas of Bahia; needs investigation |
@@ -269,13 +270,13 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Paulinha | Paula Barreto | Mestra | Moraes import | pending | yes | Student of Moraes/GCAP early 1980s; contramestra 1990; co-founded Nzinga; PhD sociology; professor at UFBA |
 | Poloca | Paulo Barreto | Mestre | Moraes import | pending | yes | Contramestre at GCAP since founding; co-founded Nzinga 1995; leads Nzinga Salvador branch |
 | Valmir | Valmir Santos Damasceno | Mestre | Moraes import | pending | yes | Student of GCAP from 1982; contramestre 1992; left GCAP 1994; mestre 2003; leads FICA-Salvador |
-| Jurandir | - | Mestre | Moraes import | pending | yes | Pioneer of GCAP; founded N'GOLO Angola group in Minas Gerais 1990; later affiliated with FICA |
+| Jurandir Nascimento | Jurandir Nascimento | Mestre | Moraes import | pending | yes | Pioneer of GCAP; founded N'GOLO Angola group in Minas Gerais 1990; co-founded FICA 1995/1996 with Cobra Mansa and Valmir; ICAF president; born in Rio de Janeiro (some sources say Minas Gerais); started capoeira 1970; DISTINCT from Jurandir (Bimba 1949) and Jurandir Santos (João Grande's son) |
 | Jelon Vieira | - | Mestre | João Grande import | pending | yes | NEA Heritage Fellow; invited João Grande to tour USA in 1989; introduced capoeira to New York in 1970s with Viva Bahia |
 | Menino Gordo | - | Mestre | João Grande import | pending | yes | Present at first roda João Grande witnessed in Salvador 1953; mentioned alongside João Pequeno, Barbosa, Cobrinha Verde |
 | Roberto Satanás | Roberto Pereira | Mestre | João Grande import | pending | yes | Member of Dakar 1966 delegation with Pastinha and João Grande |
 | Gildo Alfinete | - | Mestre | João Grande import | pending | yes | Member of Dakar 1966 delegation; played berimbau at Daniel Soreno Theatre |
 | Camafeu de Oxossi | - | Mestre | João Grande import | pending | yes | Member of Dakar 1966 delegation; played berimbau; Pastinha student |
-| Jurandir Santos | - | Mestre | João Grande import | pending | ? | Listed as João Grande's son and student per CapoeiraHub; needs verification |
+| Jurandir Santos | Jurandir Souza dos Santos | Mestre | João Grande import | pending | yes | Son and student of Mestre João Grande; trained from early childhood; listed on CapoeiraHub; DISTINCT from Jurandir (Bimba 1949) and Jurandir Nascimento (GCAP) |
 | Marquinho | - | Mestre | João Grande import | pending | yes | Began training with João Grande in 2000; listed on CapoeiraHub lineage |
 | Josias da Silva | - | - | Cobra Mansa import | pending | ? | First capoeira teacher of Cobra Mansa (1973) in Duque de Caxias; unclear if mestre or street capoeirista |
 | Raimundo (Duque de Caxias) | - | - | Cobra Mansa import | pending | ? | Early teacher of Cobra Mansa (1973) in Duque de Caxias; unclear if mestre or street capoeirista |
@@ -401,3 +402,9 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Olegário | - | - | gen.campodemandinga.com.br lineage | pending | yes | Teacher of Gato Preto; appears in Campo de Mandinga genealogy |
 | Rafael Flores | - | - | gen.campodemandinga.com.br lineage | pending | yes | Teacher of Mestre Peixinho (Senzala founder); appears in Campo de Mandinga genealogy alongside Mestre Gato |
 | Eutíquio | Eutíquio Lúcio Góes | - | Gato Preto import | pending | yes | Father of Gato Preto; taught him capoeira from age 8 (1938) in Santo Amaro da Purificação; stopped teaching after powerful cabeçada incident; mentioned in Gato Preto statements as pending import |
+| Bulgário | - | - | Américo Ciência import | pending | yes | Mestre at Liberdade/Gengibirra roda (pre-1941); contemporary of Américo Ciência; NOT among 22 Gengibirra founders |
+| Domingos Magalhães | - | - | Américo Ciência import | pending | yes | Mestre at Liberdade/Gengibirra roda (pre-1941); contemporary of Américo Ciência; NOT among 22 Gengibirra founders |
+| Eulâmpio | - | - | Américo Ciência import | pending | yes | Mestre at Liberdade/Gengibirra roda (pre-1941); contemporary of Américo Ciência; NOT among 22 Gengibirra founders |
+| Butique | - | - | Américo Ciência import | pending | yes | Mestre at Liberdade/Gengibirra roda (pre-1941); contemporary of Américo Ciência; NOT among 22 Gengibirra founders |
+| Pelé da Bomba | Natalício Neves da Silva | Mestre | Bugalho import | pending | yes | "Gogó de Ouro" (Golden Throat) of Bahia; born Dec 25, 1934; died Oct 26, 2024; student of Bugalho from 1946; began at Mercado Modelo ramp age 12; mestre 1958; taught Army, Fire Dept, Military Police; member ABCA Council of Masters |
+| Nelson (Waldemar barracão) | - | - | Bugalho import | pending | ? | Berimbau player at Mestre Waldemar's barracão; photographed by Pierre Verger (~1955) alongside Bugalho and Traíra; unclear if significant capoeirista or casual participant; use apelido_context |

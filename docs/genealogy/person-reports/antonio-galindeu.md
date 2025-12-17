@@ -104,6 +104,21 @@ No students documented. / Nenhum aluno documentado.
 | Birth Year | ~1860 | 1850-1870 range | Estimated based on dying at age 80 and being founding mestre in 1920s |
 | Death Year | ~1940 | 1930-1950 range | Estimated based on birth year and documented age at death (80 years) |
 
+## Historiographical Discrepancy / Discrepância Historiográfica
+
+**Conflicting sources on death circumstances:**
+
+1. **Mestre Noronha's manuscripts** (1976): States Galindeu "died at eighty years old" with no mention of violent death.
+
+2. **Mestre Onça Preta's testimony** (O Dia, 1972): Lists "Antônio Galindéu" among capoeiristas killed during the Pedrito persecution (1920-1927), alongside Besourinho, Doze Homens, Mãozinha, Geraldo Chapeleiro, and others.
+
+**Possible explanations:**
+- Memory conflation in oral history (both sources recorded 40-50 years after events)
+- Onça Preta's list may represent deaths during the persecution era from any cause, not exclusively murders
+- Two different individuals with the same nickname (less likely given the unusual name)
+
+No scholarly analysis has reconciled these testimonies. This report follows Noronha's account (natural death at 80) as the primary source, while acknowledging Onça Preta's contradictory recollection.
+
 ## Sources / Fontes
 
 ### Primary / Primárias
