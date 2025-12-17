@@ -82,7 +82,7 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Percílio | - | - | Gengibirra import | done | yes | One of 22 founding mestres of Gengibirra - SQL generated |
 | Juvenal Engraxate | Juvenal Hermenegildo da Cruz | Mestre | Multiple | done | yes | "Juvenal the Shoeshine"; one of 22 founding mestres of Gengibirra; second-generation Bahian mestre; student of Querido de Deus - SQL generated |
 | Geraldo Pé de Abelha | - | - | Gengibirra import | done | yes | One of 22 founding mestres of Gengibirra - SQL generated |
-| Zehí | - | - | Gengibirra import | done | yes | One of 22 founding mestres of Gengibirra - SQL generated |
+| Zehí | - | - | Multiple | done | yes | Also spelled Zei; one of 22 founding mestres of Gengibirra; pre-Pastinha era practitioner listed on Mapa da Capoeira alongside Querido de Deus, Ambrósio, Barroso - SQL generated |
 | Feliciano Bigode de Seda | - | - | Gengibirra import | done | yes | One of 22 founding mestres of Gengibirra - SQL generated |
 | Bom Nome | - | - | Gengibirra import | done | yes | One of 22 founding mestres of Gengibirra; also spelled Bonome - SQL generated |
 | Henrique Cara Queimada | Henrique | - | Gengibirra import | done | yes | One of 22 founding mestres of Gengibirra - SQL generated |
@@ -210,7 +210,8 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Zacarias Boa Morte | - | Mestre | Waldemar import | pending | yes | Student of Waldemar from 1942 (his first student); founded Escola Zacarias Boa Morte (1999); died Nov 3, 2000; photographed by Pierre Verger (1948) |
 | José Cabelo Bom | - | - | Waldemar import | pending | yes | Primary student of Waldemar; mentioned as continuing his tradition alongside Zacarias Boa Morte |
 | Olavo | - | - | Waldemar import | pending | yes | Student of Waldemar from 1958 |
-| Juvenal (Juvenal Engraxate) | Juvenal Hermenegildo da Cruz | Mestre | Querido de Deus import | pending | yes | Student of Querido de Deus; formally received mestre title from Samuel; taught at Mercado Modelo ramp (1919-1998); photographed by Pierre Verger (1947) |
+| Ambrósio | - | - | Mapa da Capoeira | pending | yes | Pre-Pastinha era practitioner; developed Capoeira Angola alongside Samuel Querido de Deus, Barbosa, Onça Preta, Juvenal, Zepelin, Neném, Zei, Barroso, Damião |
+| Barroso | - | - | Mapa da Capoeira | pending | yes | Pre-Pastinha era practitioner; developed Capoeira Angola alongside Samuel Querido de Deus; DISTINCT from Barbosa |
 | Gaguinho Preto | Everaldo Arcanjo de Assis | - | Vitor Agaú import | pending | yes | Student of Vitor Agaú, Menino Gordo, and Roque in Curva Grande (1934-2002); also trained at CECA and with Zeca do Uruguai |
 | Menino Gordo da Curva Grande | - | - | Vitor Agaú import | pending | yes | Teacher of Gaguinho Preto alongside Roque and Vitor Agaú in Curva Grande neighborhood |
 | Zeca do Uruguai | - | Mestre | Vitor Agaú import | pending | yes | Teacher of Gaguinho Preto; first cousin of Gato Preto; cousin of Cobrinha Verde; from Santo Amaro; students include Pierrô and Nilton |
@@ -237,7 +238,7 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Capoeiras do Bonfim | - | Group | Roque import | pending | yes | NOT A PERSON - transfer to groups backlog: Folkloric group of Mário Buscapé; Roque joined this group |
 | Faísca | Luís Roberto Ricardo | Mestre | João Pequeno import | pending | yes | Designated successor of João Pequeno; current leader of CECA/CEDANZE; created CEDANZE 1989/2003 |
 | Barbosa (Salvador) | - | - | João Pequeno import | done | yes | Dock worker (porter at Largo Dois de Julho) from Cachoeira; introduced João Pequeno (1943); participated in 1937 Congress; informant for Edison Carneiro - SQL generated as barbosa.sql with apelido_context |
-| Zeppelin | - | - | Barbosa import | pending | ? | Informant for Edison Carneiro's research on capoeira de Angola (1937); participated in II Congresso Afro-Brasileiro; contemporary of Barbosa and Querido de Deus |
+| Zeppelin | - | - | Multiple | pending | yes | Also spelled Zepelin; pre-Pastinha era practitioner; informant for Edison Carneiro's research (1937); participated in II Congresso Afro-Brasileiro; contemporary of Barbosa and Querido de Deus; listed on Mapa da Capoeira alongside Ambrósio, Barroso, Neném, Zei, Damião |
 | Mestre Mau | Marcelino | Mestre | Gato Preto import | pending | yes | Student of Gato Preto; co-founded Capoeira 3 Amigos (1974) with Mestre Zeca and Mestre Mala; student of Cobrinha Verde |
 | Mestre Boa Gente | - | Mestre | Gato Preto import | pending | yes | Student of Gato Preto at Escola Baiana de Capoeira Angola; later trained with Mestre Vermelho 27; MMA champion of Bahia 1974; founded Associação de Capoeira Mestre Boa Gente (1981) |
 | Contramestre Pinguim | Luiz Antonio Nascimento Cardoso | Contramestre | Gato Preto import | pending | yes | Student of Gato Preto; received contramestre title 2001 at Terreiro do Bogum; founder of Guerreiros de Senzala at USP; artistic director of Núcleo de Artes Afro-Brasileiras at USP |
