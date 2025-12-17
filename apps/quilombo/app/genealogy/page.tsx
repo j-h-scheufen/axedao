@@ -3,10 +3,16 @@
 import { Chip, Link, Select, SelectItem, Spinner } from '@heroui/react';
 import { useAtom } from 'jotai';
 import dynamic from 'next/dynamic';
-import { useCallback, useMemo } from 'react';
+import { parseAsBoolean, parseAsString, useQueryStates } from 'nuqs';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { type GraphViewMode, GRAPH_VIEW_OPTIONS, getViewConfig } from '@/components/genealogy/config';
-import { graphFiltersAtom, graphViewModeAtom, selectedNodeIdAtom } from '@/components/genealogy/state';
+import {
+  graphFiltersAtom,
+  graphViewModeAtom,
+  selectedNodeIdAtom,
+  showYourselfAtom,
+} from '@/components/genealogy/state';
 import type { GraphNode } from '@/components/genealogy/types';
 import { GraphControls, GraphLegend, NodeDetailsPanel, NodeSearch } from '@/components/genealogy/ui';
 
@@ -27,10 +33,64 @@ const GenealogyGraph = dynamic(
 );
 
 export default function GenealogyPage() {
+  // URL query params for deep linking
+  const [queryParams, setQueryParams] = useQueryStates({
+    view: parseAsString.withDefault('general'),
+    node: parseAsString,
+    showYourself: parseAsBoolean.withDefault(false),
+  });
+
+  // Track if initial URL state has been applied (use state, not ref, to trigger re-render)
+  const initializedRef = useRef(false);
+  const [isInitialized, setIsInitialized] = useState(false);
+
   // Jotai state
   const [graphView, setGraphView] = useAtom(graphViewModeAtom);
   const [filters, setFilters] = useAtom(graphFiltersAtom);
   const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
+  const [showYourself, setShowYourself] = useAtom(showYourselfAtom);
+
+  // Initialize state from URL params on mount
+  useEffect(() => {
+    if (initializedRef.current) return;
+    initializedRef.current = true;
+
+    // Apply view mode from URL
+    if (queryParams.view && queryParams.view !== graphView) {
+      const viewMode = queryParams.view as GraphViewMode;
+      const newConfig = getViewConfig(viewMode);
+      setGraphView(viewMode);
+      setFilters({
+        nodeTypes: [...newConfig.allowedNodeTypes],
+        predicates: [...newConfig.allowedPredicates],
+      });
+    }
+
+    // Apply showYourself from URL (only in student-ancestry view)
+    if (queryParams.showYourself && queryParams.view === 'student-ancestry') {
+      setShowYourself(true);
+    }
+
+    // Apply node selection from URL (after data loads)
+    if (queryParams.node) {
+      setSelectedNodeId(queryParams.node);
+    }
+
+    // Mark initialization complete after a brief delay to let state settle
+    // This prevents the graph from rendering with stale state
+    setTimeout(() => setIsInitialized(true), 50);
+  }, [queryParams, graphView, setGraphView, setFilters, setShowYourself, setSelectedNodeId]);
+
+  // Sync showYourself atom changes to URL (after initial load)
+  useEffect(() => {
+    // Skip during initialization
+    if (!initializedRef.current) return;
+
+    // Only sync if different from current URL state
+    if (showYourself !== queryParams.showYourself) {
+      setQueryParams((prev) => ({ ...prev, showYourself }));
+    }
+  }, [showYourself, queryParams.showYourself, setQueryParams]);
 
   // Fetch all graph data (no server-side filtering)
   // TODO: Re-enable server-side filtering when dataset grows significantly (10,000+ nodes)
@@ -82,34 +142,39 @@ export default function GenealogyPage() {
   const handleNodeClick = useCallback(
     (node: GraphNode) => {
       setSelectedNodeId(node.id);
+      setQueryParams((prev) => ({ ...prev, node: node.id }));
     },
-    [setSelectedNodeId]
+    [setSelectedNodeId, setQueryParams]
   );
 
   // Handle background click (deselect)
   const handleBackgroundClick = useCallback(() => {
     setSelectedNodeId(null);
-  }, [setSelectedNodeId]);
+    setQueryParams((prev) => ({ ...prev, node: null }));
+  }, [setSelectedNodeId, setQueryParams]);
 
   // Handle close details panel
   const handleCloseDetails = useCallback(() => {
     setSelectedNodeId(null);
-  }, [setSelectedNodeId]);
+    setQueryParams((prev) => ({ ...prev, node: null }));
+  }, [setSelectedNodeId, setQueryParams]);
 
   // Handle selecting a related node from the details panel
   const handleNodeSelectFromDetails = useCallback(
     (_entityType: string, entityId: string) => {
       setSelectedNodeId(entityId);
+      setQueryParams((prev) => ({ ...prev, node: entityId }));
     },
-    [setSelectedNodeId]
+    [setSelectedNodeId, setQueryParams]
   );
 
   // Handle search selection
   const handleSearchSelect = useCallback(
     (nodeId: string | null) => {
       setSelectedNodeId(nodeId);
+      setQueryParams((prev) => ({ ...prev, node: nodeId }));
     },
-    [setSelectedNodeId]
+    [setSelectedNodeId, setQueryParams]
   );
 
   // Handle graph view change - clear selection when switching views
@@ -119,13 +184,16 @@ export default function GenealogyPage() {
       const newConfig = getViewConfig(viewMode);
       setGraphView(viewMode);
       setSelectedNodeId(null);
+      setShowYourself(false); // Reset showYourself when changing views
       // Reset filters to new view's defaults
       setFilters({
         nodeTypes: [...newConfig.allowedNodeTypes],
         predicates: [...newConfig.allowedPredicates],
       });
+      // Update URL params
+      setQueryParams({ view: viewMode, node: null, showYourself: false });
     },
-    [setGraphView, setSelectedNodeId, setFilters]
+    [setGraphView, setSelectedNodeId, setShowYourself, setFilters, setQueryParams]
   );
 
   return (
@@ -191,7 +259,7 @@ export default function GenealogyPage() {
                 <p className="text-small text-default-500">{String(graphError)}</p>
               </div>
             </div>
-          ) : isGraphLoading ? (
+          ) : !isInitialized || isGraphLoading ? (
             <div className="flex h-full items-center justify-center">
               <Spinner size="lg" label="Loading genealogy data..." />
             </div>

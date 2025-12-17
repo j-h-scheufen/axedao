@@ -133,6 +133,7 @@ const AddRelationshipModal = ({ isOpen, onClose, profileId }: AddRelationshipMod
                         objectType={values.objectType}
                         selectedId={values.objectId}
                         onSelect={(id) => setFieldValue('objectId', id)}
+                        excludeProfileId={profileId}
                       />
 
                       {/* Optional: Timeline */}
@@ -181,21 +182,25 @@ type SearchAndSelectProps = {
   objectType: EntityType;
   selectedId: string;
   onSelect: (id: string) => void;
+  excludeProfileId?: string;
 };
 
 /**
  * Search component for finding persons or groups.
  * Uses React Query to search genealogy data.
  */
-const SearchAndSelect = ({ objectType, selectedId, onSelect }: SearchAndSelectProps) => {
+const SearchAndSelect = ({ objectType, selectedId, onSelect, excludeProfileId }: SearchAndSelectProps) => {
   const { inputValue, setInputValue, debouncedSearchTerm } = useDebouncedSearch();
 
-  const { data: personResults } = useSearchPersons(debouncedSearchTerm, {
+  const { data: personResultsRaw } = useSearchPersons(debouncedSearchTerm, {
     enabled: objectType === ENTITY_TYPE.PERSON && debouncedSearchTerm.length > 2,
   });
   const { data: groupResults } = useSearchGroups(debouncedSearchTerm, {
     enabled: objectType === ENTITY_TYPE.GROUP && debouncedSearchTerm.length > 2,
   });
+
+  // Filter out the current user's profile from person results
+  const personResults = personResultsRaw?.filter((p) => p.id !== excludeProfileId);
 
   // Get display name for an item (person or group)
   const getDisplayName = (item: { id: string; name: string | null; apelido?: string | null }) => {
@@ -216,7 +221,7 @@ const SearchAndSelect = ({ objectType, selectedId, onSelect }: SearchAndSelectPr
         />
         {selectedPerson && (
           <div className="p-2 bg-primary-50 rounded-md">
-            {selectedPerson.title && <p className="text-xs text-default-500">{selectedPerson.title}</p>}
+            {selectedPerson.title && <p className="text-xs text-default-500 capitalize">{selectedPerson.title}</p>}
             <p className="text-sm font-medium">{getDisplayName(selectedPerson)}</p>
           </div>
         )}
@@ -229,7 +234,7 @@ const SearchAndSelect = ({ objectType, selectedId, onSelect }: SearchAndSelectPr
                 className="w-full text-left p-2 hover:bg-default-100 transition-colors"
                 onClick={() => onSelect(person.id)}
               >
-                {person.title && <p className="text-xs text-default-500">{person.title}</p>}
+                {person.title && <p className="text-xs text-default-500 capitalize">{person.title}</p>}
                 <p className="text-sm font-medium">{getDisplayName(person)}</p>
               </button>
             ))}

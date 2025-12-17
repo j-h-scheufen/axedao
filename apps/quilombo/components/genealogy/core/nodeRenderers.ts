@@ -13,6 +13,9 @@ import type { ForceNode } from './types';
 /** Visual indicator opacity for nodes without known dates */
 const UNKNOWN_DATE_OPACITY = 0.6;
 
+/** Opacity multiplier for dimmed nodes (when highlighting lineage) */
+const DIMMED_OPACITY_MULTIPLIER = 0.5;
+
 /**
  * Get node color based on type and style/title.
  */
@@ -53,7 +56,8 @@ export function createTextSprite(
   text: string,
   fontSize: number = 12,
   textColor: string = 'white',
-  backgroundColor?: string
+  backgroundColor?: string,
+  opacity: number = 1.0
 ): THREE.Sprite {
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d') as CanvasRenderingContext2D;
@@ -87,6 +91,7 @@ export function createTextSprite(
   const material = new THREE.SpriteMaterial({
     map: texture,
     transparent: true,
+    opacity,
     depthTest: false, // Always render on top of other objects
     depthWrite: false, // Don't write to depth buffer
   });
@@ -108,6 +113,8 @@ export interface DefaultNodeOptions {
   showLabel?: boolean;
   /** Font size for the label */
   labelFontSize?: number;
+  /** Whether the node should be dimmed (for lineage highlighting) */
+  isDimmed?: boolean;
 }
 
 /**
@@ -118,7 +125,7 @@ export function createDefaultNodeObject(
   isSelected: boolean,
   options: DefaultNodeOptions = {}
 ): THREE.Group {
-  const { showLabel = true, labelFontSize = 14 } = options;
+  const { showLabel = true, labelFontSize = 14, isDimmed = false } = options;
 
   const color = getNodeColor(node);
   const sphereRadius = options.sphereRadius ?? (node.type === 'group' ? 6 : 4);
@@ -128,8 +135,12 @@ export function createDefaultNodeObject(
   const group = new THREE.Group();
 
   // Create sphere - reduce opacity for nodes without temporal data
+  // Apply additional dimming for lineage highlighting mode
   const geometry = new THREE.SphereGeometry(sphereRadius, 16, 16);
-  const baseOpacity = hasTemporalData ? 0.85 : UNKNOWN_DATE_OPACITY;
+  let baseOpacity = hasTemporalData ? 0.85 : UNKNOWN_DATE_OPACITY;
+  if (isDimmed && !isSelected) {
+    baseOpacity *= DIMMED_OPACITY_MULTIPLIER;
+  }
   const material = new THREE.MeshLambertMaterial({
     color: color,
     transparent: true,
@@ -166,7 +177,8 @@ export function createDefaultNodeObject(
   // Create text label
   if (showLabel) {
     const label = getNodeLabel(node);
-    const textSprite = createTextSprite(label, labelFontSize);
+    const labelOpacity = isDimmed && !isSelected ? DIMMED_OPACITY_MULTIPLIER : 1.0;
+    const textSprite = createTextSprite(label, labelFontSize, 'white', undefined, labelOpacity);
     textSprite.position.set(0, -(sphereRadius + 5), 0); // Position below sphere
     group.add(textSprite);
   }

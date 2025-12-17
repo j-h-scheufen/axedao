@@ -59,3 +59,24 @@ export interface GraphSettings {
 export const graphSettingsAtom = atom<GraphSettings>({
   showAnimations: false,
 });
+
+// ============================================================================
+// "Show Yourself" Feature - Display user's node with filtered ancestors
+// ============================================================================
+
+/**
+ * Whether to show the current user's node on the graph.
+ * When enabled, displays user's person profile + filtered ancestors.
+ * Only applicable in 'student-ancestry' view mode.
+ */
+export const showYourselfAtom = atom<boolean>(false);
+
+/**
+ * Minimum title level for filtering ancestors in "Show Yourself" mode.
+ * Lower number = higher rank (0 = mestre, 1 = contra-mestre, etc.).
+ * Default: 1 (contra-mestre and above).
+ *
+ * This determines which ancestors are displayed when showYourselfAtom is true.
+ * Ancestors with titles at or above this level are included in the view.
+ */
+export const ancestryMinTitleLevelAtom = atom<number>(1);

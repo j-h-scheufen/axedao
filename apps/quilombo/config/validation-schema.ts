@@ -101,7 +101,10 @@ export const urlArraySchema = array()
 export type UrlArray = InferType<typeof urlArraySchema>;
 
 export const profileFormSchema = object({
-  title: string().nullable().oneOf(titles, 'Not a valid title'),
+  title: string()
+    .nullable()
+    .transform((value) => (value === '' ? null : value))
+    .oneOf([...titles, null], 'Not a valid title'),
   name: string().nullable(),
   nickname: string().nullable(),
   email: string().email('Not a valid email').optional(),

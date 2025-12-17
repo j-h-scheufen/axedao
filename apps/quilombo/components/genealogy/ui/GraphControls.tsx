@@ -1,12 +1,19 @@
 'use client';
 
-import { Button, Card, CardBody, Checkbox, CheckboxGroup, Divider, Switch } from '@heroui/react';
+import { Button, Card, CardBody, Checkbox, CheckboxGroup, Divider, Switch, Tooltip } from '@heroui/react';
 import { useAtom, useAtomValue } from 'jotai';
 
 import type { EntityType, Predicate } from '@/db/schema/genealogy';
+import { currentUserProfileIdAtom } from '@/hooks/state/currentUser';
 
 import { getFilteredPredicateGroups } from '@/components/genealogy/config';
-import { graphFiltersAtom, graphSettingsAtom, viewConfigAtom } from '@/components/genealogy/state';
+import {
+  graphFiltersAtom,
+  graphSettingsAtom,
+  graphViewModeAtom,
+  showYourselfAtom,
+  viewConfigAtom,
+} from '@/components/genealogy/state';
 import type { GraphStats } from '@/components/genealogy/types';
 import { PREDICATE_LABELS } from '@/components/genealogy/types';
 
@@ -32,9 +39,16 @@ const PREDICATE_GROUP_REQUIRED_TYPES: Record<string, EntityType[]> = {
 
 export function GraphControls({ stats, isLoading }: GraphControlsProps) {
   // Jotai state
+  const viewMode = useAtomValue(graphViewModeAtom);
   const viewConfig = useAtomValue(viewConfigAtom);
   const [filters, setFilters] = useAtom(graphFiltersAtom);
   const [settings, setSettings] = useAtom(graphSettingsAtom);
+
+  // "Show Yourself" feature state
+  const [showYourself, setShowYourself] = useAtom(showYourselfAtom);
+  const userProfileId = useAtomValue(currentUserProfileIdAtom);
+  const hasGenealogyProfile = !!userProfileId;
+  const isStudentAncestryView = viewMode === 'student-ancestry';
 
   // Get predicate groups filtered to this view's allowed predicates
   const viewPredicateGroups = getFilteredPredicateGroups(viewConfig);
@@ -113,6 +127,37 @@ export function GraphControls({ stats, isLoading }: GraphControlsProps) {
               {viewConfig.allowedNodeTypes.includes('group') && <span>Groups: {stats.groupCount}</span>}
             </div>
           </div>
+        )}
+
+        {/* Your Lineage - only in student-ancestry view */}
+        {isStudentAncestryView && (
+          <>
+            <Divider />
+            <div className="space-y-2">
+              <h3 className="text-small font-semibold">Your Lineage</h3>
+              <Tooltip
+                content="Link your account to a genealogy profile to see yourself on the graph"
+                isDisabled={hasGenealogyProfile}
+                placement="bottom"
+              >
+                <div className="w-fit">
+                  <Switch
+                    size="sm"
+                    isSelected={showYourself}
+                    onValueChange={setShowYourself}
+                    isDisabled={isLoading || !hasGenealogyProfile}
+                  >
+                    Show Yourself
+                  </Switch>
+                </div>
+              </Tooltip>
+              {showYourself && hasGenealogyProfile && (
+                <p className="text-tiny text-default-400">
+                  Showing your node with ancestors filtered to contra-mestre and above
+                </p>
+              )}
+            </div>
+          </>
         )}
 
         {hasMultipleNodeTypes && (

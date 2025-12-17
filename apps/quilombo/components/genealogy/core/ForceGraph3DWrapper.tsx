@@ -29,9 +29,13 @@ import type { ForceGraph3DWrapperProps, ForceLink, ForceNode } from './types';
  * - Support for custom forces
  * - Auto-fit on load option
  */
+/** Opacity multiplier for dimmed links (when highlighting lineage) */
+const DIMMED_LINK_OPACITY = 0.1;
+
 export function ForceGraph3DWrapper({
   graphData,
   selectedNodeId,
+  highlightedNodeIds,
   focusOnSelection = true,
   onNodeClick,
   onBackgroundClick,
@@ -265,20 +269,43 @@ export function ForceGraph3DWrapper({
   const defaultNodeThreeObject = useCallback(
     (node: ForceNode) => {
       const isSelected = node.id === validSelectedNodeId;
+      // Dim nodes when highlighting is active and this node is not in the highlighted set
+      const isDimmed = highlightedNodeIds ? !highlightedNodeIds.has(node.id) : false;
 
       if (nodeRenderer) {
         return nodeRenderer(node, isSelected);
       }
 
-      return createDefaultNodeObject(node, isSelected);
+      return createDefaultNodeObject(node, isSelected, { isDimmed });
     },
-    [validSelectedNodeId, nodeRenderer]
+    [validSelectedNodeId, nodeRenderer, highlightedNodeIds]
   );
 
-  // Link color resolver
-  const linkColorResolver = useCallback((link: ForceLink) => {
-    return getLinkColor(link);
-  }, []);
+  // Link color resolver - includes opacity via rgba when highlighting is active
+  const linkColorResolver = useCallback(
+    (link: ForceLink) => {
+      const baseColor = getLinkColor(link);
+
+      if (!highlightedNodeIds) return baseColor; // No highlighting active
+
+      const sourceId = typeof link.source === 'string' ? link.source : (link.source as ForceNode).id;
+      const targetId = typeof link.target === 'string' ? link.target : (link.target as ForceNode).id;
+
+      // Both endpoints must be highlighted for the link to remain bright
+      const isHighlighted = highlightedNodeIds.has(sourceId) && highlightedNodeIds.has(targetId);
+
+      if (isHighlighted) return baseColor;
+
+      // Dim the link by returning rgba with low alpha
+      // Convert hex to rgba with dimmed opacity
+      const hex = baseColor.replace('#', '');
+      const r = Number.parseInt(hex.substring(0, 2), 16);
+      const g = Number.parseInt(hex.substring(2, 4), 16);
+      const b = Number.parseInt(hex.substring(4, 6), 16);
+      return `rgba(${r}, ${g}, ${b}, ${DIMMED_LINK_OPACITY})`;
+    },
+    [highlightedNodeIds]
+  );
 
   // Link visibility resolver - hides links marked as invisible
   // These links still participate in the force simulation (gravity) but aren't rendered
