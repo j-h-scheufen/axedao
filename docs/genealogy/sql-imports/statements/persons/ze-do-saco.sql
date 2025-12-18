@@ -1,0 +1,28 @@
+-- ============================================================
+-- STATEMENTS FOR: Zé do Saco
+-- Generated: 2025-12-18
+-- ============================================================
+-- Contains all relationships where Zé do Saco is the SUBJECT.
+--
+-- NOTE: Zé do Saco is a single-source profile based entirely on
+-- Mestre Pastinha's 1967 Revista Realidade interview. No teachers,
+-- students, or specific relationships have been documented.
+-- ============================================================
+
+-- No statements to generate at this time.
+-- Zé do Saco was listed by Pastinha among deceased "angoleiros de briga"
+-- but without specific relationship information.
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet documented)
+-- ============================================================
+-- None identified. Zé do Saco appears only in Pastinha's list of
+-- deceased angoleiros without specific teacher/student or
+-- associative relationships documented.
+--
+-- If future research reveals:
+-- - Who taught Zé do Saco
+-- - Who learned from Zé do Saco
+-- - His association with specific rodas or groups (e.g., Cais do Porto)
+-- These statements should be added here.
+-- ============================================================
