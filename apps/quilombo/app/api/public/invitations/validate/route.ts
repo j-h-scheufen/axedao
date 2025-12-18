@@ -10,7 +10,7 @@ import { getUserDisplayName } from '@/utils';
 
 /**
  * @openapi
- * /api/invitations/validate:
+ * /api/public/invitations/validate:
  *   post:
  *     summary: Validate an invitation code
  *     description: |

@@ -1,34 +1,23 @@
 'use client';
 
-import { useEffect } from 'react';
 import { Button } from '@heroui/react';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { CheckCircle2 } from 'lucide-react';
 
 import { PATHS } from '@/config/constants';
 
 const VerifyEmailSuccessPage = () => {
-  const router = useRouter();
-
-  useEffect(() => {
-    // Auto-redirect after 3 seconds
-    const timeout = setTimeout(() => {
-      router.push(PATHS.login);
-    }, 3000);
-
-    return () => clearTimeout(timeout);
-  }, [router]);
-
   return (
     <div className="auth-container-py items-center text-center">
       <div className="mb-6 flex justify-center">
         <CheckCircle2 className="w-20 h-20 text-success" strokeWidth={1.5} />
       </div>
       <h2 className="text-3xl text-success font-semibold">Email Verified!</h2>
-      <p className="text-default-600">Your email has been successfully verified.</p>
-      <p className="text-default-500 text-sm">Redirecting you to login...</p>
+      <p className="text-default-600 mt-2">Your email has been confirmed.</p>
+      <p className="text-default-500 mt-4">You can close this tab and return to your sign-up window.</p>
+      <p className="text-default-400 text-sm mt-1">Or log in below if you&apos;ve closed that tab.</p>
 
-      <Button color="primary" onPress={() => router.push(PATHS.login)} className="mt-4">
+      <Button as={Link} href={PATHS.login} color="primary" variant="bordered" className="mt-6">
         Go to Login
       </Button>
     </div>
