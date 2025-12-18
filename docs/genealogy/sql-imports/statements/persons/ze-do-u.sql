@@ -1,0 +1,28 @@
+-- ============================================================
+-- STATEMENTS FOR: Zé do U
+-- Generated: 2025-12-18
+-- ============================================================
+-- Contains all relationships where Zé do U is the SUBJECT.
+--
+-- NOTE: Zé do U is a single-source profile based entirely on
+-- Mestre Pastinha's 1967 Revista Realidade interview. No teachers,
+-- students, or specific relationships have been documented.
+-- ============================================================
+
+-- No statements to generate at this time.
+-- Zé do U was listed by Pastinha among deceased "angoleiros de briga"
+-- but without specific relationship information.
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet documented)
+-- ============================================================
+-- None identified. Zé do U appears only in Pastinha's list of
+-- deceased angoleiros without specific teacher/student or
+-- associative relationships documented.
+--
+-- If future research reveals:
+-- - Who taught Zé do U
+-- - Who learned from Zé do U
+-- - His association with specific rodas or groups
+-- These statements should be added here.
+-- ============================================================

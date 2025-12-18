@@ -1,0 +1,59 @@
+-- ============================================================
+-- STATEMENTS FOR: Tibiriçá da Folha Grossa
+-- Generated: 2025-12-18
+-- ============================================================
+-- Contains all relationships where Tibiriçá da Folha Grossa is the SUBJECT.
+-- ============================================================
+
+-- NO DOCUMENTED RELATIONSHIPS
+--
+-- Tibiriçá da Folha Grossa is known only from Mestre Pastinha's 1967
+-- interview where he was listed among fifteen deceased practitioners
+-- of "pure Capoeira de Angola." No teachers, students, group affiliations,
+-- or specific relationships have been documented.
+--
+-- The following figures were listed alongside Tibiriçá in Pastinha's 1967
+-- list of deceased angoleiros (for reference, not as documented relationships):
+-- - Bigode de Seda
+-- - Américo Ciência
+-- - Bugalho
+-- - Amorzinho
+-- - Zé Bom Pé
+-- - Chico Três Pedaços
+-- - Doze Homens
+-- - Inimigo Sem Tripa
+-- - Zé do U
+-- - Vitorino Braço Torto
+-- - Zé do Saco
+-- - Bené do Correio
+-- - Sete Mortes
+-- - Chico Me Dá
+-- - Júlia Fogareira
+-- - Maria Homem
+--
+-- Without documented evidence of specific interactions, we do not create
+-- "associated_with" or "contemporary_of" statements purely from co-listing.
+--
+-- If future research uncovers relationships, add statements here following
+-- the standard pattern:
+--
+-- INSERT INTO genealogy.statements (
+--   subject_type, subject_id, predicate, object_type, object_id,
+--   started_at, started_at_precision, ended_at, ended_at_precision,
+--   properties, confidence, source, notes_en, notes_pt
+-- )
+-- SELECT
+--   'person'::genealogy.entity_type, s.id,
+--   '[predicate]'::genealogy.predicate,
+--   'person'::genealogy.entity_type, o.id,
+--   NULL, NULL, NULL, NULL,
+--   '{}'::jsonb, '[confidence]'::genealogy.confidence,
+--   '[source]', '[notes EN]', '[notes PT]'
+-- FROM genealogy.person_profiles s, genealogy.person_profiles o
+-- WHERE s.apelido = 'Tibiriçá da Folha Grossa' AND o.apelido = '[Object]'
+-- ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- None identified - no documented relationships exist for this person.
