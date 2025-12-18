@@ -144,7 +144,7 @@ export default function GenealogyPage() {
               BETA
             </Chip>
             <span>
-              Under actively development. Interested in helping?{' '}
+              Under active development. Interested?{' '}
               <Link href="mailto:support@quilombo.net" size="sm" underline="hover">
                 Get in touch
               </Link>
