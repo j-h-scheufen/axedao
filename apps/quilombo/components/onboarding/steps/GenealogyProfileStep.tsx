@@ -1,15 +1,16 @@
 'use client';
 
-import { Card, CardBody, Select, SelectItem } from '@heroui/react';
+import { Button, Card, CardBody, Select, SelectItem } from '@heroui/react';
 import { useAtomValue } from 'jotai';
+import { ArrowLeft } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import GenealogyPreviewCard from '@/components/genealogy/profile/GenealogyPreviewCard';
 import { currentUserAtom, currentUserAvatarAtom } from '@/hooks/state/currentUser';
+import { useCreateGenealogyProfile } from '@/query/genealogyProfile';
 
 import { useOnboarding } from '../contexts/OnboardingContext';
 import { SyncCheckboxes } from '../shared/SyncCheckboxes';
-import { WizardNavigationFooter } from '../shared/WizardNavigationFooter';
 
 // Precision options for birth year
 const PRECISION_OPTIONS = [
@@ -37,11 +38,15 @@ interface ApelidoCheckResult {
  * Handles apelido uniqueness checking with context disambiguation.
  */
 export function GenealogyProfileStep() {
-  const { state, goToStep, updateGenealogyProfile, setCreatedProfileId, setError, setSubmitting } = useOnboarding();
+  const { state, goToStep, goBack, canGoBack, updateGenealogyProfile, setCreatedProfileId, setError, setSubmitting } =
+    useOnboarding();
   const { draftGenealogyProfile, isSubmitting, error } = state;
 
   const { data: user } = useAtomValue(currentUserAtom);
   const avatar = useAtomValue(currentUserAvatarAtom);
+
+  // Use the mutation hook to ensure proper query invalidation
+  const createProfileMutation = useCreateGenealogyProfile();
 
   // Local state for form fields
   const [syncPortrait, setSyncPortrait] = useState(draftGenealogyProfile.syncPortrait);
@@ -117,42 +122,33 @@ export function GenealogyProfileStep() {
       }
     }
 
-    // Must have at least apelido to publish
-    if (!syncApelido || !user?.nickname) {
-      setError('An apelido (capoeira nickname) is required to publish your genealogy profile.');
-      return;
-    }
-
     setSubmitting(true);
     setError(null);
 
     try {
-      // Prepare the genealogy profile data
-      const profileData: Record<string, unknown> = {
-        apelido: user.nickname,
-        apelidoContext: apelidoContext || null,
+      // Prepare the genealogy profile data (matching GenealogyProfileForm type)
+      const profileData = {
+        syncPortrait,
+        syncApelido,
+        syncTitle,
+        apelido: syncApelido && user?.nickname ? user.nickname : null,
+        apelidoContext: syncApelido && apelidoContext ? apelidoContext : null,
         title: syncTitle && user?.title ? user.title : null,
         portrait: syncPortrait && avatar ? avatar : null,
+        style: null,
         birthYear: birthYear || null,
         birthYearPrecision: birthYearPrecision || null,
+        bioEn: null,
+        bioPt: null,
+        publicLinks: [],
       };
 
-      // Submit to create genealogy profile
-      const response = await fetch('/api/profile/genealogy', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(profileData),
-      });
+      // Use the mutation to create genealogy profile (ensures query invalidation)
+      const result = await createProfileMutation.mutateAsync(profileData);
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to create genealogy profile');
-      }
-
-      // Extract the created profile ID from the response
-      const responseData = await response.json();
-      if (responseData.profileId) {
-        setCreatedProfileId(responseData.profileId);
+      // Store the created profile ID in wizard context
+      if (result.profileId) {
+        setCreatedProfileId(result.profileId);
       }
 
       // Update context with the sync settings
@@ -174,20 +170,22 @@ export function GenealogyProfileStep() {
   };
 
   // Determine if Next should be disabled
+  // Only block if apelido is being synced but has availability issues
   const isNextDisabled =
     isSubmitting ||
     isCheckingApelido ||
-    !syncApelido ||
-    !user?.nickname ||
-    (apelidoCheckResult && !apelidoCheckResult.isAvailable) ||
-    (apelidoCheckResult?.requiresContext && !apelidoContext.trim());
+    (syncApelido && apelidoCheckResult && !apelidoCheckResult.isAvailable) ||
+    (syncApelido && apelidoCheckResult?.requiresContext && !apelidoContext.trim());
 
   return (
     <div className="space-y-6">
       {/* Intro */}
       <div className="text-center mb-6">
         <h2 className="text-xl font-semibold mb-2">Your Genealogy Profile</h2>
-        <p className="text-default-500">Choose what to publish from your profile. Your apelido is required.</p>
+        <p className="text-default-500">
+          Choose what to publish. We recommend at least your <strong>title</strong> and <strong>apelido</strong> if you
+          have one. Don't have an apelido yet? No problem — you can add it later.
+        </p>
       </div>
 
       {/* Sync options */}
@@ -270,15 +268,28 @@ export function GenealogyProfileStep() {
       {/* Error message */}
       {error && <div className="text-danger text-sm text-center">{error}</div>}
 
-      {/* Navigation */}
-      <WizardNavigationFooter
-        showBack={true}
-        showSkip={false}
-        isLoading={isSubmitting}
-        isNextDisabled={isNextDisabled}
-        onNext={handleNext}
-        nextLabel="Publish & Continue"
-      />
+      {/* CTA button */}
+      <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+        <Button
+          color="primary"
+          size="lg"
+          onPress={handleNext}
+          isDisabled={isNextDisabled}
+          isLoading={isSubmitting}
+          className="min-w-[180px]"
+        >
+          Publish & Continue
+        </Button>
+      </div>
+
+      {/* Back button - fixed on mobile */}
+      {canGoBack && (
+        <div className="fixed bottom-0 left-0 right-0 z-50 bg-background pb-4 px-2 sm:px-4 pt-3 border-t border-default-200 md:static md:z-auto md:bg-transparent md:pb-0 md:px-0 md:pt-4 md:border-t-0">
+          <Button variant="light" color="default" startContent={<ArrowLeft className="w-4 h-4" />} onPress={goBack}>
+            Back
+          </Button>
+        </div>
+      )}
     </div>
   );
 }

@@ -82,70 +82,60 @@ export function SyncCheckboxes({
         <div className="text-xs font-medium text-default-500 uppercase tracking-wide mb-2 hidden md:block">{title}</div>
       )}
 
-      {/* Portrait sync */}
-      <div className="flex items-center justify-between gap-2">
+      {/* Checkboxes - horizontal layout */}
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+        {/* Portrait sync */}
         <div className="flex items-center gap-2">
           <Checkbox isSelected={syncPortrait} onValueChange={onSyncPortraitChange} size="sm" isDisabled={!user.avatar}>
             <span className="text-sm">Portrait</span>
           </Checkbox>
           {!user.avatar && <span className="text-xs text-default-400 italic">(not set)</span>}
+          {isPortraitStale && !syncPortrait && <StaleWarning />}
         </div>
-        {isPortraitStale && !syncPortrait && <StaleWarning />}
-      </div>
 
-      {/* Apelido sync */}
-      <div className="space-y-2">
-        <div className="flex items-center justify-between gap-2">
-          <div className="flex items-center gap-2 flex-wrap">
-            <Checkbox
-              isSelected={syncApelido}
-              onValueChange={onSyncApelidoChange}
-              size="sm"
-              isDisabled={!user.nickname}
-            >
-              <span className="text-sm">Apelido</span>
-            </Checkbox>
-            {!user.nickname && <span className="text-xs text-default-400 italic">(not set)</span>}
-            {isCheckingApelido && <Spinner size="sm" />}
-            {needsApelidoContext && syncApelido && (
-              <Chip size="sm" color="warning" variant="flat">
-                Context needed
-              </Chip>
-            )}
-            {hasApelidoError && syncApelido && (
-              <Chip size="sm" color="danger" variant="flat">
-                Taken
-              </Chip>
-            )}
-          </div>
+        {/* Apelido sync */}
+        <div className="flex items-center gap-2 flex-wrap">
+          <Checkbox isSelected={syncApelido} onValueChange={onSyncApelidoChange} size="sm" isDisabled={!user.nickname}>
+            <span className="text-sm">Apelido</span>
+          </Checkbox>
+          {!user.nickname && <span className="text-xs text-default-400 italic">(not set)</span>}
+          {isCheckingApelido && <Spinner size="sm" />}
+          {needsApelidoContext && syncApelido && (
+            <Chip size="sm" color="warning" variant="flat">
+              Context needed
+            </Chip>
+          )}
+          {hasApelidoError && syncApelido && (
+            <Chip size="sm" color="danger" variant="flat">
+              Taken
+            </Chip>
+          )}
           {isApelidoStale && !syncApelido && <StaleWarning />}
         </div>
 
-        {/* Apelido context input (shown when needed) */}
-        {apelidoCheckResult?.requiresContext && syncApelido && (
-          <div className="ml-6">
-            <p className="text-xs text-default-500 mb-1">This apelido exists. Add context to distinguish yourself:</p>
-            <Input
-              size="sm"
-              value={apelidoContext || ''}
-              onChange={(e) => onApelidoContextChange(e.target.value)}
-              placeholder="e.g., Salvador, Grupo Senzala"
-              classNames={{ input: 'text-sm' }}
-            />
-          </div>
-        )}
-      </div>
-
-      {/* Title sync */}
-      <div className="flex items-center justify-between gap-2">
+        {/* Title sync */}
         <div className="flex items-center gap-2">
           <Checkbox isSelected={syncTitle} onValueChange={onSyncTitleChange} size="sm" isDisabled={!user.title}>
             <span className="text-sm">Title</span>
           </Checkbox>
           {!user.title && <span className="text-xs text-default-400 italic">(not set)</span>}
+          {isTitleStale && !syncTitle && <StaleWarning />}
         </div>
-        {isTitleStale && !syncTitle && <StaleWarning />}
       </div>
+
+      {/* Apelido context input (shown when needed) */}
+      {apelidoCheckResult?.requiresContext && syncApelido && (
+        <div>
+          <p className="text-xs text-default-500 mb-1">This apelido exists. Add context to distinguish yourself:</p>
+          <Input
+            size="sm"
+            value={apelidoContext || ''}
+            onChange={(e) => onApelidoContextChange(e.target.value)}
+            placeholder="e.g., Salvador, Grupo Senzala"
+            classNames={{ input: 'text-sm' }}
+          />
+        </div>
+      )}
     </div>
   );
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { Card, CardBody } from '@heroui/react';
+import { Construction } from 'lucide-react';
 
 import { useOnboarding, type WizardStep } from '../contexts/OnboardingContext';
 import { WizardNavigationFooter } from '../shared/WizardNavigationFooter';
@@ -59,17 +59,24 @@ export function PlaceholderStep({ stepName, onComplete }: PlaceholderStepProps) 
   const isFinal = currentStep === 'final';
 
   return (
-    <div className="space-y-6">
-      <Card>
-        <CardBody className="text-center py-12">
-          <div className="text-6xl mb-4">🚧</div>
-          <h2 className="text-xl font-semibold mb-2">{stepName}</h2>
-          <p className="text-default-500">This step will be implemented soon.</p>
-          <p className="text-small text-default-400 mt-2">
-            Current step: <code className="bg-default-100 px-2 py-0.5 rounded">{currentStep}</code>
-          </p>
-        </CardBody>
-      </Card>
+    <div className="space-y-5">
+      {/* Placeholder message */}
+      <div className="text-center">
+        <div className="flex justify-center mb-3">
+          <div className="p-3 rounded-full bg-default-100">
+            <Construction className="w-8 h-8 text-default-500" />
+          </div>
+        </div>
+        <h2 className="text-xl font-semibold mb-2">{stepName}</h2>
+        <p className="text-sm text-default-500">This step will be implemented soon.</p>
+      </div>
+
+      {/* Current step info */}
+      <div className="p-4 rounded-xl bg-default-100/50 dark:bg-default-100/10">
+        <p className="text-xs text-default-400 text-center">
+          Current step: <code className="bg-default-200 dark:bg-default-100 px-2 py-0.5 rounded">{currentStep}</code>
+        </p>
+      </div>
 
       <WizardNavigationFooter
         showBack={currentStep !== 'basic-profile'}

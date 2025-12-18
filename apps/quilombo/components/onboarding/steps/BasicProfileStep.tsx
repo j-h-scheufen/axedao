@@ -30,13 +30,17 @@ export function BasicProfileStep() {
   const avatar = useAtomValue(currentUserAvatarAtom);
 
   // Initialize draft from user data if not already set
-  // Default to 'iniciante' if no title is set
-  const title = draftProfile.title ?? user?.title ?? 'iniciante';
+  // Default to 'iniciante' only for new users (title is undefined, not null)
+  const title =
+    draftProfile.title !== undefined ? draftProfile.title : user?.title !== undefined ? user.title : 'iniciante';
   const nickname = draftProfile.nickname ?? user?.nickname ?? '';
+
+  // Special key for null title selection
+  const NONE_KEY = 'none';
 
   const handleTitleChange = useCallback(
     (value: string) => {
-      updateProfile({ title: value === '' ? null : (value as typeof draftProfile.title) });
+      updateProfile({ title: value === NONE_KEY ? null : (value as typeof draftProfile.title) });
     },
     [updateProfile]
   );
@@ -109,35 +113,20 @@ export function BasicProfileStep() {
       <Card>
         <CardBody className="space-y-6 p-4 sm:p-6">
           {/* Avatar */}
-          <div className="flex justify-center">
-            <ImageUpload
-              value={avatar}
-              ownerId=""
-              useFileUploadMutation={useUpdateAvatarMutation}
-              cropAspect={1}
-              cropTitle="Crop Avatar"
-            />
-          </div>
-
-          {/* Title */}
           <div className="space-y-2">
-            <p className="text-sm text-default-600">
-              <span className="font-medium">What is your title?</span> If you&apos;re a beginner, choose
-              &quot;Iniciante&quot;
+            <p className="text-sm text-default-600 text-center">
+              <span className="font-medium sm:hidden">Take or upload a picture</span>
+              <span className="font-medium hidden sm:inline">Upload a picture</span>
             </p>
-            <Select
-              label="Title"
-              placeholder="Select your title"
-              selectedKeys={title ? [title] : []}
-              onChange={(e) => handleTitleChange(e.target.value)}
-              classNames={{ value: 'capitalize' }}
-            >
-              {titles.map((t) => (
-                <SelectItem key={t} className="capitalize">
-                  {t}
-                </SelectItem>
-              ))}
-            </Select>
+            <div className="flex justify-center">
+              <ImageUpload
+                value={avatar}
+                ownerId=""
+                useFileUploadMutation={useUpdateAvatarMutation}
+                cropAspect={1}
+                cropTitle="Crop Avatar"
+              />
+            </div>
           </div>
 
           {/* Nickname/Apelido */}
@@ -152,6 +141,30 @@ export function BasicProfileStep() {
               onChange={(e) => handleNicknameChange(e.target.value)}
               description="You can add this later if you haven't received one yet"
             />
+          </div>
+
+          {/* Title */}
+          <div className="space-y-2">
+            <p className="text-sm text-default-600">
+              <span className="font-medium">Do you have a title?</span>
+            </p>
+            <Select
+              label="Title"
+              placeholder="Select your title"
+              selectedKeys={[title === null ? NONE_KEY : title]}
+              onChange={(e) => handleTitleChange(e.target.value)}
+              classNames={{ value: 'capitalize' }}
+              description="If you're a beginner, choose 'Iniciante'"
+            >
+              {[
+                ...titles.map((t) => (
+                  <SelectItem key={t} className="capitalize">
+                    {t}
+                  </SelectItem>
+                )),
+                <SelectItem key={NONE_KEY}>None</SelectItem>,
+              ]}
+            </Select>
           </div>
         </CardBody>
       </Card>
