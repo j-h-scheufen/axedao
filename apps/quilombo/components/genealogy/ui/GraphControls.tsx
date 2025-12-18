@@ -129,37 +129,6 @@ export function GraphControls({ stats, isLoading }: GraphControlsProps) {
           </div>
         )}
 
-        {/* Your Lineage - only in student-ancestry view */}
-        {isStudentAncestryView && (
-          <>
-            <Divider />
-            <div className="space-y-2">
-              <h3 className="text-small font-semibold">Your Lineage</h3>
-              <Tooltip
-                content="Link your account to a genealogy profile to see yourself on the graph"
-                isDisabled={hasGenealogyProfile}
-                placement="bottom"
-              >
-                <div className="w-fit">
-                  <Switch
-                    size="sm"
-                    isSelected={showYourself}
-                    onValueChange={setShowYourself}
-                    isDisabled={isLoading || !hasGenealogyProfile}
-                  >
-                    Show Yourself
-                  </Switch>
-                </div>
-              </Tooltip>
-              {showYourself && hasGenealogyProfile && (
-                <p className="text-tiny text-default-400">
-                  Showing your node with ancestors filtered to contra-mestre and above
-                </p>
-              )}
-            </div>
-          </>
-        )}
-
         {hasMultipleNodeTypes && (
           <>
             <Divider />
@@ -237,6 +206,24 @@ export function GraphControls({ stats, isLoading }: GraphControlsProps) {
           >
             Show Animations
           </Switch>
+          {isStudentAncestryView && (
+            <Tooltip
+              content="Link your account to a genealogy profile to see yourself on the graph"
+              isDisabled={hasGenealogyProfile}
+              placement="bottom"
+            >
+              <div className="w-fit">
+                <Switch
+                  size="sm"
+                  isSelected={showYourself}
+                  onValueChange={setShowYourself}
+                  isDisabled={isLoading || !hasGenealogyProfile}
+                >
+                  Highlight Your Lineage
+                </Switch>
+              </div>
+            </Tooltip>
+          )}
         </div>
 
         <Divider />

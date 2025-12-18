@@ -41,16 +41,15 @@ import {
   type ForceGraphData,
   type ForceNode,
   type LinkForceConfig,
+  type TemporalLayout,
+  type TemporalLayoutConfig,
 } from '@/components/genealogy/core';
 import {
   BIRTH_YEAR_OFFSET,
-  DEFAULT_LINK_DISTANCE,
   DEFAULT_LINK_FORCE_STRENGTH,
   ERA_CONFIG,
-  computeRadialDistanceForEntityYear,
-  computeRadialDistanceForYear,
   createLinkStrengthResolver,
-  createRadialForce,
+  createTemporalLayout,
   getEraBand,
   getNodeYear,
   processLinks,
@@ -100,6 +99,25 @@ const GENERAL_LINK_STRENGTH: Record<string, number> = {
   co_founded: 0.2,
 };
 
+/**
+ * Temporal layout config for the General view (3D spherical).
+ * Uses default spacing - adjust as needed for optimal 3D distribution.
+ */
+const GENERAL_VIEW_LAYOUT_CONFIG: Partial<TemporalLayoutConfig> = {
+  modernDecadeRadius: 40,
+  contemporaryDecadeRadius: 90,
+  linkDistance: 45,
+};
+
+/**
+ * Temporal layout config for Student Ancestry view (flat radial).
+ * Uses default spacing - adjust as needed for flat timeline visualization.
+ */
+const STUDENT_ANCESTRY_LAYOUT_CONFIG: Partial<TemporalLayoutConfig> = {
+  // Uses defaults - can customize here if needed
+  // Example: contemporaryDecadeRadius: 100, // larger spacing for more groups
+};
+
 // ============================================================================
 // DATA PROCESSING
 // ============================================================================
@@ -108,11 +126,12 @@ const GENERAL_LINK_STRENGTH: Record<string, number> = {
  * Compute initial 3D spherical coordinates (for general view).
  */
 function computeSphericalPosition(
+  layout: TemporalLayout,
   year: number | null,
   nodeIndex: number,
   totalNodes: number
 ): { x: number; y: number; z: number } {
-  const radius = computeRadialDistanceForEntityYear(year);
+  const radius = layout.computeRadialDistanceForEntityYear(year);
   const goldenRatio = (1 + Math.sqrt(5)) / 2;
   const theta = 2 * Math.PI * nodeIndex * goldenRatio;
   const phi = Math.acos(1 - (2 * (nodeIndex + 0.5)) / totalNodes);
@@ -129,12 +148,13 @@ function computeSphericalPosition(
  * All nodes in XZ plane (y=0).
  */
 function computeFlatRadialPosition(
+  layout: TemporalLayout,
   birthYear: number | null,
   nodeIndex: number,
   bandNodeCounts: Map<number, number>
 ): { x: number; y: number; z: number } {
   const effectiveYear = birthYear !== null ? birthYear + BIRTH_YEAR_OFFSET : ERA_CONFIG.unknownYear;
-  const radius = computeRadialDistanceForEntityYear(birthYear);
+  const radius = layout.computeRadialDistanceForEntityYear(birthYear);
   const band = getEraBand(effectiveYear);
 
   const currentCount = bandNodeCounts.get(band) || 0;
@@ -153,14 +173,14 @@ function computeFlatRadialPosition(
 /**
  * Process data for General view - all nodes, 3D spherical layout.
  */
-function processForGeneralView(data: GraphData): ProcessedGraphData {
+function processForGeneralView(layout: TemporalLayout, data: GraphData): ProcessedGraphData {
   const totalNodes = data.nodes.length;
 
   const processedNodes: TemporalForceNode[] = data.nodes.map((node, index) => {
     const year = getNodeYear(node);
     const hasTemporalData = year !== null;
-    const targetRadius = computeRadialDistanceForEntityYear(year); // null -> 2020 default
-    const pos = computeSphericalPosition(year, index, totalNodes);
+    const targetRadius = layout.computeRadialDistanceForEntityYear(year); // null -> 2020 default
+    const pos = computeSphericalPosition(layout, year, index, totalNodes);
 
     return {
       ...node,
@@ -180,7 +200,7 @@ function processForGeneralView(data: GraphData): ProcessedGraphData {
 /**
  * Process data for Student Ancestry view - persons only, flat radial layout.
  */
-function processForStudentAncestryView(data: GraphData): ProcessedGraphData {
+function processForStudentAncestryView(layout: TemporalLayout, data: GraphData): ProcessedGraphData {
   // Filter to persons only
   const personNodes = data.nodes.filter((node) => node.type === 'person');
   const personIds = new Set(personNodes.map((n) => n.id));
@@ -203,8 +223,8 @@ function processForStudentAncestryView(data: GraphData): ProcessedGraphData {
 
   const processedNodes: TemporalForceNode[] = personNodes.map((node, index) => {
     const year = getNodeYear(node);
-    const targetRadius = computeRadialDistanceForYear(year ?? ERA_CONFIG.unknownYear);
-    const pos = computeFlatRadialPosition(year, index, bandNodeCounts);
+    const targetRadius = layout.computeRadialDistanceForYear(year ?? ERA_CONFIG.unknownYear);
+    const pos = computeFlatRadialPosition(layout, year, index, bandNodeCounts);
 
     return {
       ...node,
@@ -248,7 +268,7 @@ interface EraRing {
   band: number;
 }
 
-function generateEraRings(): EraRing[] {
+function generateEraRings(layout: TemporalLayout): EraRing[] {
   const rings: EraRing[] = [];
 
   for (const era of ERA_CONFIG.foundation) {
@@ -256,7 +276,7 @@ function generateEraRings(): EraRing[] {
     rings.push({
       id: `era-ring-${era.band}`,
       label: era.label,
-      radius: computeRadialDistanceForYear(era.startYear),
+      radius: layout.computeRadialDistanceForYear(era.startYear),
       band: era.band,
     });
   }
@@ -266,7 +286,7 @@ function generateEraRings(): EraRing[] {
     rings.push({
       id: `era-ring-${band}`,
       label: `${decade}s`,
-      radius: computeRadialDistanceForYear(decade),
+      radius: layout.computeRadialDistanceForYear(decade),
       band,
     });
   }
@@ -314,9 +334,9 @@ function createTextSprite(text: string, radius: number, color: string, xOffset: 
   return sprite;
 }
 
-function createSlaveryEraObject(): THREE.Group {
+function createSlaveryEraObject(layout: TemporalLayout): THREE.Group {
   const group = new THREE.Group();
-  const abolitionRadius = computeRadialDistanceForYear(SLAVERY_ERA_CONFIG.abolitionYear);
+  const abolitionRadius = layout.computeRadialDistanceForYear(SLAVERY_ERA_CONFIG.abolitionYear);
 
   // Filled disc for slavery period
   const discGeometry = new THREE.CircleGeometry(abolitionRadius, RING_CONFIG.segments);
@@ -387,15 +407,15 @@ function createEraRingObject(ring: EraRing): THREE.Group {
   return group;
 }
 
-function generateEraRingObjects(): CustomSceneObject[] {
+function generateEraRingObjects(layout: TemporalLayout): CustomSceneObject[] {
   const objects: CustomSceneObject[] = [];
 
   objects.push({
     id: 'slavery-era',
-    object: createSlaveryEraObject(),
+    object: createSlaveryEraObject(layout),
   });
 
-  const rings = generateEraRings();
+  const rings = generateEraRings(layout);
   for (const ring of rings) {
     objects.push({
       id: ring.id,
@@ -447,6 +467,13 @@ export function GenealogyGraph({
     enabled: showYourself && isStudentAncestryView && !!userProfileId,
   });
 
+  // Create temporal layouts for each view mode
+  const generalLayout = useMemo(() => createTemporalLayout(GENERAL_VIEW_LAYOUT_CONFIG), []);
+  const studentAncestryLayout = useMemo(() => createTemporalLayout(STUDENT_ANCESTRY_LAYOUT_CONFIG), []);
+
+  // Select the appropriate layout for the current view
+  const currentLayout = isStudentAncestryView ? studentAncestryLayout : generalLayout;
+
   // Apply user filters to the raw data first
   // Empty arrays mean "show none" - filters are always explicit
   const filteredData = useMemo((): GraphData => {
@@ -490,10 +517,10 @@ export function GenealogyGraph({
   // Process filtered data based on view mode (applies view-specific transformations)
   const graphData = useMemo((): ProcessedGraphData => {
     if (viewMode === 'student-ancestry') {
-      return processForStudentAncestryView(filteredData);
+      return processForStudentAncestryView(studentAncestryLayout, filteredData);
     }
-    return processForGeneralView(filteredData);
-  }, [filteredData, viewMode]);
+    return processForGeneralView(generalLayout, filteredData);
+  }, [filteredData, viewMode, generalLayout, studentAncestryLayout]);
 
   // Create forces based on view mode
   const forces = useMemo((): ForceConfig[] => {
@@ -501,7 +528,7 @@ export function GenealogyGraph({
 
     if (viewMode === 'student-ancestry') {
       // Hard radial constraint + plane constraint for flat layout
-      const radialForce = createRadialForce({
+      const radialForce = studentAncestryLayout.createRadialForce({
         strength: 1.0,
         constrainToPlane: true,
         onlyTemporalNodes: false,
@@ -513,7 +540,7 @@ export function GenealogyGraph({
     }
 
     // General view: soft radial constraint, full 3D
-    const radialForce = createRadialForce({
+    const radialForce = generalLayout.createRadialForce({
       strength: 1.0,
       constrainToPlane: false,
       onlyTemporalNodes: false, // Constrain all nodes, including those without dates (default to 2020)
@@ -522,7 +549,7 @@ export function GenealogyGraph({
       { name: 'collide', force: collideForce },
       { name: 'radial', force: radialForce },
     ];
-  }, [viewMode]);
+  }, [viewMode, generalLayout, studentAncestryLayout]);
 
   // Link force configuration based on view mode
   const linkForceConfig = useMemo((): LinkForceConfig => {
@@ -531,16 +558,16 @@ export function GenealogyGraph({
         ? createLinkStrengthResolver(GENERAL_LINK_STRENGTH)
         : createLinkStrengthResolver(DEFAULT_LINK_FORCE_STRENGTH);
 
-    return { strength, distance: DEFAULT_LINK_DISTANCE };
-  }, [viewMode]);
+    return { strength, distance: currentLayout.config.linkDistance };
+  }, [viewMode, currentLayout]);
 
   // Scene objects (era rings) - only for student ancestry view
   const customSceneObjects = useMemo((): CustomSceneObject[] | undefined => {
     if (viewMode === 'student-ancestry') {
-      return generateEraRingObjects();
+      return generateEraRingObjects(studentAncestryLayout);
     }
     return undefined;
-  }, [viewMode]);
+  }, [viewMode, studentAncestryLayout]);
 
   // Camera position - different per view
   const initialCameraPosition = useMemo((): CameraPosition | undefined => {

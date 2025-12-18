@@ -47,6 +47,83 @@ interface NodeDetailsPanelProps {
   onNodeSelect: (entityType: string, entityId: string) => void;
 }
 
+/**
+ * Format a key string for display (e.g., "time_and_place" -> "Time And Place").
+ */
+function formatKey(key: string): string {
+  return key.replace(/[-_]/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+/**
+ * Recursively render a value as indented text.
+ * Handles primitives, arrays, and nested objects.
+ */
+function FormattedValue({ value, depth = 0 }: { value: unknown; depth?: number }) {
+  const indent = depth > 0 ? 'ml-3' : '';
+
+  // Null/undefined
+  if (value === null || value === undefined) {
+    return <span className="text-default-400 italic">none</span>;
+  }
+
+  // Primitives
+  if (typeof value !== 'object') {
+    return <span>{String(value)}</span>;
+  }
+
+  // Arrays
+  if (Array.isArray(value)) {
+    if (value.length === 0) {
+      return <span className="text-default-400 italic">empty</span>;
+    }
+    // For arrays of primitives, join with commas
+    if (value.every((item) => typeof item !== 'object' || item === null)) {
+      return <span>{value.join(', ')}</span>;
+    }
+    // For arrays of objects, render each on its own line
+    return (
+      <div className={indent}>
+        {value.map((item, index) => (
+          // biome-ignore lint/suspicious/noArrayIndexKey: generic rendering of unknown data without stable IDs
+          <div key={index} className="mt-1">
+            <FormattedValue value={item} depth={depth + 1} />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  // Objects
+  const entries = Object.entries(value);
+  if (entries.length === 0) {
+    return <span className="text-default-400 italic">empty</span>;
+  }
+
+  return (
+    <div className={indent}>
+      {entries.map(([key, val]) => {
+        const isNestedObject = val !== null && typeof val === 'object' && !Array.isArray(val);
+        const isNestedArray = Array.isArray(val) && val.some((item) => typeof item === 'object' && item !== null);
+
+        return (
+          <div key={key} className="mt-1 first:mt-0">
+            <span className="font-medium">{formatKey(key)}</span>
+            {isNestedObject || isNestedArray ? (
+              <>
+                :<FormattedValue value={val} depth={depth + 1} />
+              </>
+            ) : (
+              <>
+                : <FormattedValue value={val} depth={depth + 1} />
+              </>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 function formatYear(year: number | null | undefined, precision?: string | null): string {
   if (!year) return 'Unknown';
   switch (precision) {
@@ -250,12 +327,8 @@ function RelationshipMetadata({ rel }: { rel: StatementDetail }) {
       {rel.properties && Object.keys(rel.properties).length > 0 && (
         <div>
           <p className="text-tiny font-semibold text-default-500">Additional Info</p>
-          <div className="space-y-1">
-            {Object.entries(rel.properties).map(([key, value]) => (
-              <p key={key} className="text-default-600">
-                <span className="font-medium capitalize">{key.replace(/_/g, ' ')}</span>: {String(value)}
-              </p>
-            ))}
+          <div className="text-default-600">
+            <FormattedValue value={rel.properties} />
           </div>
         </div>
       )}

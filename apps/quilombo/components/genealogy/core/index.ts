@@ -9,15 +9,15 @@ export { getDefaultLinkStyle, getLinkColor, getMinimalLinkStyle } from './linkRe
 
 // Temporal layout utilities
 export {
-  // Configuration constants
+  // Configuration
+  DEFAULT_TEMPORAL_LAYOUT_CONFIG,
+  // Factory
+  createTemporalLayout,
+  // Constants
   BIRTH_YEAR_OFFSET,
-  DEFAULT_LINK_DISTANCE,
   DEFAULT_LINK_FORCE_STRENGTH,
-  ERA_BAND_RADIUS,
   ERA_CONFIG,
-  MIN_RADIUS,
-  MODERN_DECADE_RADIUS,
-  // Computation functions
+  // Computation functions (deprecated - use createTemporalLayout)
   computeNodeTargetRadius,
   computeRadialDistanceForEntityYear,
   computeRadialDistanceForYear,
@@ -49,4 +49,10 @@ export type {
   NodeRenderer,
 } from './types';
 
-export type { LinkProcessingConfig, RadialForceConfig, TemporalForceNode } from './temporalLayout';
+export type {
+  LinkProcessingConfig,
+  RadialForceConfig,
+  TemporalForceNode,
+  TemporalLayout,
+  TemporalLayoutConfig,
+} from './temporalLayout';
