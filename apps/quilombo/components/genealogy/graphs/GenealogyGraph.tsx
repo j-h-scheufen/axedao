@@ -481,7 +481,30 @@ export function GenealogyGraph({
     const predicateSet = new Set(filters.predicates);
 
     // Filter nodes by type
-    const filteredNodes = data.nodes.filter((node) => nodeTypeSet.has(node.type));
+    let filteredNodes = data.nodes.filter((node) => nodeTypeSet.has(node.type));
+
+    // In student-ancestry view, additionally filter by title level
+    // Only show persons at or above the minimum title level (e.g., contra-mestre and above)
+    // Historical figures (null title) are included to preserve lineage continuity
+    // The logged-in user's node is always included regardless of their title
+    if (isStudentAncestryView) {
+      filteredNodes = filteredNodes.filter((node) => {
+        // Always include the user's own node
+        if (userProfileId && node.id === userProfileId) {
+          return true;
+        }
+
+        // For persons, apply title level filtering
+        if (node.type === 'person') {
+          const title = (node.metadata as PersonMetadata).title;
+          // Include historical figures (null title) and those meeting the level threshold
+          return title === null || isTitleAtOrAboveLevel(title, minTitleLevel);
+        }
+
+        return true;
+      });
+    }
+
     const filteredNodeIds = new Set(filteredNodes.map((n) => n.id));
 
     // Filter links: must connect filtered nodes and match predicate filter
@@ -512,7 +535,7 @@ export function GenealogyGraph({
         groupCount: filteredNodes.filter((n) => n.type === 'group').length,
       },
     };
-  }, [data, filters]);
+  }, [data, filters, isStudentAncestryView, userProfileId, minTitleLevel]);
 
   // Process filtered data based on view mode (applies view-specific transformations)
   const graphData = useMemo((): ProcessedGraphData => {
@@ -583,8 +606,9 @@ export function GenealogyGraph({
     return undefined; // Auto-fit for general view
   }, [viewMode]);
 
-  // Compute highlighted node IDs for "Show Yourself" feature
-  // When enabled, user's node + filtered ancestors are highlighted, others are dimmed
+  // Compute highlighted node IDs for "Highlight Your Lineage" feature
+  // When enabled, user's node + ancestors are highlighted, others are dimmed
+  // Title-level filtering is already applied at the view level (filteredData)
   const highlightedNodeIds = useMemo((): ReadonlySet<string> | undefined => {
     // Only compute when feature is enabled in student ancestry view
     if (!showYourself || !isStudentAncestryView || !userProfileId) {
@@ -593,27 +617,18 @@ export function GenealogyGraph({
 
     const highlighted = new Set<string>();
 
-    // Always include the user's node
+    // Include the user's node
     highlighted.add(userProfileId);
 
-    // Add ancestors filtered by title level
-    // Historical figures without titles (null) are always included to preserve lineage continuity
+    // Include all ancestors (only those in the filtered view will be visible anyway)
     if (ancestryData?.ancestorIds) {
       for (const ancestorId of ancestryData.ancestorIds) {
-        // Find the node in the graph data to check its title
-        const node = data.nodes.find((n) => n.id === ancestorId);
-        if (node && node.type === 'person') {
-          const title = (node.metadata as PersonMetadata).title;
-          // Include if: title meets level threshold OR title is null (historical figure)
-          if (title === null || isTitleAtOrAboveLevel(title, minTitleLevel)) {
-            highlighted.add(ancestorId);
-          }
-        }
+        highlighted.add(ancestorId);
       }
     }
 
     return highlighted;
-  }, [showYourself, isStudentAncestryView, userProfileId, ancestryData, data.nodes, minTitleLevel]);
+  }, [showYourself, isStudentAncestryView, userProfileId, ancestryData]);
 
   return (
     <ForceGraph3DWrapper
