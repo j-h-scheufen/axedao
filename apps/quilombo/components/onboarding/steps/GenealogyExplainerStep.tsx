@@ -1,34 +1,28 @@
 'use client';
 
-import { Button, Card, CardBody } from '@heroui/react';
-import { GitBranch, Globe, Search, Users } from 'lucide-react';
+import { Button } from '@heroui/react';
+import { ArrowLeft, GitBranch, Globe, Heart } from 'lucide-react';
 
 import { useOnboarding } from '../contexts/OnboardingContext';
-import { WizardNavigationFooter } from '../shared/WizardNavigationFooter';
 
 /**
- * Value proposition features for the genealogy.
+ * Value proposition features for the genealogy (condensed to 3).
  */
 const GENEALOGY_FEATURES = [
   {
     icon: GitBranch,
     title: 'Preserve Your Lineage',
-    description: 'Document your training history and connections to mestres throughout capoeira history.',
+    description: 'Document your training history and connections to mestres.',
   },
   {
     icon: Globe,
-    title: 'Global Community',
-    description: 'Connect with capoeiristas worldwide and discover how lineages interweave across continents.',
+    title: 'Connect Worldwide',
+    description: 'Discover how lineages interweave across the global capoeira family.',
   },
   {
-    icon: Search,
-    title: 'Discover Connections',
-    description: 'Find unexpected connections between groups and practitioners in the global capoeira family.',
-  },
-  {
-    icon: Users,
+    icon: Heart,
     title: 'Honor Your Teachers',
-    description: 'Acknowledge the mestres and teachers who shaped your journey in capoeira.',
+    description: 'Acknowledge those who shaped your journey in capoeira.',
   },
 ];
 
@@ -39,7 +33,7 @@ const GENEALOGY_FEATURES = [
  * User can choose to "Publish Profile" or "Maybe Later".
  */
 export function GenealogyExplainerStep() {
-  const { goToStep, setPublishGenealogy, canGoBack } = useOnboarding();
+  const { goToStep, setPublishGenealogy, goBack, canGoBack } = useOnboarding();
 
   const handlePublish = () => {
     setPublishGenealogy(true);
@@ -52,80 +46,63 @@ export function GenealogyExplainerStep() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       {/* Intro */}
-      <div className="text-center mb-6">
+      <div className="text-center">
         <h2 className="text-xl font-semibold mb-2">Join the Capoeira Genealogy</h2>
-        <p className="text-default-500">
-          The Quilombo Genealogy is a collaborative project to document the lineages and relationships within the global
-          capoeira community.
+        <p className="text-sm text-default-500">
+          A collaborative project to document lineages and relationships within the global capoeira community.
         </p>
       </div>
 
-      {/* Feature cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {/* Features - clean minimal design */}
+      <div className="space-y-3">
         {GENEALOGY_FEATURES.map((feature) => (
-          <Card key={feature.title} className="bg-default-50 dark:bg-default-100/10">
-            <CardBody className="flex flex-row gap-4 p-3 sm:p-4">
-              <div className="shrink-0 p-2 rounded-lg bg-primary/10">
-                <feature.icon className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-default-700">{feature.title}</h4>
-                <p className="text-sm text-default-500 mt-1">{feature.description}</p>
-              </div>
-            </CardBody>
-          </Card>
+          <div
+            key={feature.title}
+            className="flex items-start gap-3 p-3 rounded-xl bg-gradient-to-r from-primary/5 to-transparent"
+          >
+            <div className="shrink-0 p-2 rounded-full bg-primary/10">
+              <feature.icon className="w-4 h-4 text-primary" />
+            </div>
+            <div className="min-w-0">
+              <p className="font-medium text-default-700 text-sm">{feature.title}</p>
+              <p className="text-xs text-default-500">{feature.description}</p>
+            </div>
+          </div>
         ))}
       </div>
 
-      {/* What gets published */}
-      <Card>
-        <CardBody className="p-3 sm:p-4">
-          <h4 className="font-semibold text-default-700 mb-2">What gets published?</h4>
-          <ul className="space-y-2 text-sm text-default-500">
-            <li className="flex items-start gap-2">
-              <span className="text-primary">•</span>
-              <span>Your capoeira nickname (apelido) and title</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-primary">•</span>
-              <span>Connections to your teachers and groups</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-primary">•</span>
-              <span>Your profile photo (optional)</span>
-            </li>
-          </ul>
-          <p className="text-xs text-default-400 mt-3">Your personal email and login details are never published.</p>
-        </CardBody>
-      </Card>
+      {/* Privacy reassurance */}
+      <div className="p-4 rounded-xl bg-default-100/50 dark:bg-default-100/10 space-y-2">
+        <p className="text-sm text-default-600">
+          <strong>Only your capoeira identity</strong> is published — title and apelido if you have one. No personal
+          info, no email, no account details.
+        </p>
+        <p className="text-xs text-default-500">
+          After joining, you can declare connections to your teachers and groups to build out your lineage.
+        </p>
+      </div>
 
       {/* CTA buttons */}
-      <div className="flex flex-col sm:flex-row gap-3 justify-center">
+      <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
         <Button color="primary" size="lg" onPress={handlePublish} className="min-w-[180px]">
           Publish My Profile
         </Button>
-        <Button variant="light" color="default" size="lg" onPress={handleMaybeLater} className="min-w-[180px]">
+        <Button variant="flat" color="default" size="lg" onPress={handleMaybeLater} className="min-w-[180px]">
           Maybe Later
         </Button>
       </div>
 
       {/* Note */}
-      <p className="text-small text-default-400 text-center">
-        You can always publish your genealogy profile later from your profile settings.
-      </p>
+      <p className="text-xs text-default-400 text-center">You can always publish later from your profile settings.</p>
 
-      {/* Back button only */}
+      {/* Back button - fixed on mobile */}
       {canGoBack && (
-        <div className="border-t border-default-200 pt-4">
-          <WizardNavigationFooter
-            showBack={true}
-            showSkip={false}
-            nextLabel=""
-            isNextDisabled={true}
-            onNext={() => {}}
-          />
+        <div className="fixed bottom-0 left-0 right-0 z-50 bg-background pb-4 px-2 sm:px-4 pt-3 border-t border-default-200 md:static md:z-auto md:bg-transparent md:pb-0 md:px-0 md:pt-4 md:border-t-0">
+          <Button variant="light" color="default" startContent={<ArrowLeft className="w-4 h-4" />} onPress={goBack}>
+            Back
+          </Button>
         </div>
       )}
     </div>

@@ -33,6 +33,31 @@ export type WizardStep =
 export const HIGH_RANKING_TITLES = ['mestra', 'mestre', 'contra-mestra', 'contra-mestre'] as const;
 
 /**
+ * First step for each wizard mode (no back button on these).
+ */
+const FIRST_STEP_BY_MODE: Record<WizardMode, WizardStep> = {
+  'new-user': 'basic-profile',
+  'genealogy-only': 'genealogy-explainer',
+};
+
+/**
+ * Default back destinations for each step.
+ * Used when step history is empty (e.g., after page reload).
+ * Returns null for steps that shouldn't have a back button.
+ */
+const DEFAULT_BACK_DESTINATION: Record<WizardStep, WizardStep | null> = {
+  'basic-profile': null,
+  'claim-check': 'basic-profile',
+  'genealogy-explainer': 'basic-profile', // Could be claim-check, but basic-profile is safer fallback
+  'genealogy-profile': 'genealogy-explainer',
+  'group-or-teacher': 'genealogy-profile',
+  'find-group': 'group-or-teacher',
+  'find-teacher': 'group-or-teacher',
+  'add-more': 'group-or-teacher',
+  final: null, // No back on final step
+};
+
+/**
  * Draft profile data collected during onboarding.
  */
 export interface DraftProfile {
@@ -253,8 +278,39 @@ export function OnboardingProvider({
   }, []);
 
   const goBack = useCallback(() => {
-    dispatch({ type: 'GO_BACK' });
-  }, []);
+    // If we have history, use it
+    if (state.stepHistory.length > 0) {
+      // Get the previous step from history
+      const previousStep = state.stepHistory[state.stepHistory.length - 1];
+
+      // If genealogy was published, don't allow going back to genealogy-explainer
+      // (the decision to publish has been made)
+      if (createdProfileId && previousStep === 'genealogy-explainer') {
+        // Skip genealogy-explainer, go to its parent instead
+        const skipToStep = DEFAULT_BACK_DESTINATION['genealogy-explainer'];
+        if (skipToStep) {
+          dispatch({ type: 'GO_TO_STEP', step: skipToStep });
+        }
+        return;
+      }
+
+      dispatch({ type: 'GO_BACK' });
+      return;
+    }
+
+    // Otherwise, use default back destination (fallback for page reloads)
+    let defaultBack = DEFAULT_BACK_DESTINATION[state.currentStep];
+
+    // If genealogy was published, skip genealogy-explainer in the back chain
+    if (createdProfileId && defaultBack === 'genealogy-explainer') {
+      defaultBack = DEFAULT_BACK_DESTINATION['genealogy-explainer'];
+    }
+
+    if (defaultBack) {
+      // Don't push to history when using fallback - just navigate
+      dispatch({ type: 'GO_TO_STEP', step: defaultBack });
+    }
+  }, [state.stepHistory, state.currentStep, createdProfileId]);
 
   const updateProfile = useCallback((profile: Partial<DraftProfile>) => {
     dispatch({ type: 'UPDATE_DRAFT_PROFILE', profile });
@@ -302,12 +358,18 @@ export function OnboardingProvider({
     !!state.draftProfile.title &&
     HIGH_RANKING_TITLES.includes(state.draftProfile.title as (typeof HIGH_RANKING_TITLES)[number]);
 
+  // Determine if back navigation is possible
+  // True if: we have history, OR we're not on the first step for this mode AND there's a default back destination
+  const isFirstStep = state.currentStep === FIRST_STEP_BY_MODE[state.mode];
+  const hasDefaultBack = DEFAULT_BACK_DESTINATION[state.currentStep] !== null;
+  const canGoBack = state.stepHistory.length > 0 || (!isFirstStep && hasDefaultBack);
+
   const value: OnboardingContextType = {
     state,
     dispatch,
     goToStep,
     goBack,
-    canGoBack: state.stepHistory.length > 0,
+    canGoBack,
     updateProfile,
     setPublishGenealogy,
     updateGenealogyProfile,

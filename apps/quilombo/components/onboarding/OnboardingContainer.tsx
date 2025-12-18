@@ -43,7 +43,7 @@ export function OnboardingContainer({ isOpen, title, children, showProgress = tr
     return (
       <div className="fixed inset-0 z-50 flex flex-col bg-background">
         {/* Header */}
-        <div className="shrink-0 border-b border-default-200 px-2 sm:px-4 py-4">
+        <div className="shrink-0 px-2 sm:px-4 py-4">
           <h1 className="text-xl font-bold">{title}</h1>
           {showProgress && (
             <div className="mt-3">
@@ -52,8 +52,8 @@ export function OnboardingContainer({ isOpen, title, children, showProgress = tr
           )}
         </div>
 
-        {/* Content */}
-        <div className="flex-1 overflow-y-auto px-2 sm:px-4 py-4 pb-20">{children}</div>
+        {/* Content - extra bottom padding for fixed navigation footer */}
+        <div className="flex-1 overflow-y-auto px-2 sm:px-4 py-4 pb-24">{children}</div>
       </div>
     );
   }
