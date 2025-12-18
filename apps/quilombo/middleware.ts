@@ -78,7 +78,7 @@ export default withAuth(
   },
   {
     callbacks: {
-      authorized({ token, req }) {
+      authorized({ token, req: _req }) {
         // During maintenance mode, allow all requests through to middleware
         // (middleware will handle the redirect)
         if (isAppShutdown()) return true;
