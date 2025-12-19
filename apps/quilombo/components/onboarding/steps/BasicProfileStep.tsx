@@ -15,10 +15,10 @@ import { WizardNavigationFooter } from '../shared/WizardNavigationFooter';
 /**
  * Page 1: Basic Profile Step
  *
- * Collects optional profile fields:
- * - Avatar (profile photo)
- * - Title (mestre, contra-mestre, etc.)
- * - Apelido (capoeira nickname)
+ * Collects profile fields in order of progressive commitment:
+ * 1. Apelido/Username (required) - lowest friction, essential
+ * 2. Title (optional) - quick selection
+ * 3. Avatar (optional) - highest friction, privacy-sensitive
  *
  * Note: Style is part of the genealogy profile, not the user profile.
  * Context-aware intro message based on wizard mode.
@@ -107,24 +107,7 @@ export function BasicProfileStep() {
       {/* Profile form */}
       <Card>
         <CardBody className="space-y-6 p-4 sm:p-6">
-          {/* Avatar */}
-          <div className="space-y-2">
-            <p className="text-sm text-default-600 text-center">
-              <span className="font-medium sm:hidden">Take or upload a picture</span>
-              <span className="font-medium hidden sm:inline">Upload a picture</span>
-            </p>
-            <div className="flex justify-center">
-              <ImageUpload
-                value={avatar}
-                ownerId=""
-                useFileUploadMutation={useUpdateAvatarMutation}
-                cropAspect={1}
-                cropTitle="Crop Avatar"
-              />
-            </div>
-          </div>
-
-          {/* Nickname/Apelido */}
+          {/* 1. Nickname/Apelido (required) */}
           <div className="space-y-2">
             <p className="text-sm text-default-600">
               <span className="font-medium">
@@ -140,7 +123,7 @@ export function BasicProfileStep() {
             />
           </div>
 
-          {/* Title */}
+          {/* 2. Title (optional) */}
           <div className="space-y-2">
             <p className="text-sm text-default-600">
               <span className="font-medium">Do you have a title?</span>
@@ -162,6 +145,23 @@ export function BasicProfileStep() {
                 <SelectItem key={NONE_KEY}>None</SelectItem>,
               ]}
             </Select>
+          </div>
+
+          {/* 3. Avatar (optional) */}
+          <div className="space-y-2">
+            <p className="text-sm text-default-600 text-center">
+              <span className="font-medium sm:hidden">Add a profile picture (optional)</span>
+              <span className="font-medium hidden sm:inline">Upload a profile picture (optional)</span>
+            </p>
+            <div className="flex justify-center">
+              <ImageUpload
+                value={avatar}
+                ownerId=""
+                useFileUploadMutation={useUpdateAvatarMutation}
+                cropAspect={1}
+                cropTitle="Crop Avatar"
+              />
+            </div>
           </div>
         </CardBody>
       </Card>
