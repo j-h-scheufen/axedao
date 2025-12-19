@@ -1,6 +1,18 @@
 'use client';
 
-import { Button, Card, CardBody, Select, SelectItem } from '@heroui/react';
+import {
+  Button,
+  Card,
+  CardBody,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  Select,
+  SelectItem,
+  useDisclosure,
+} from '@heroui/react';
 import { useAtomValue } from 'jotai';
 import { ArrowLeft } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -47,6 +59,9 @@ export function GenealogyProfileStep() {
 
   // Use the mutation hook to ensure proper query invalidation
   const createProfileMutation = useCreateGenealogyProfile();
+
+  // Modal for birth year confirmation
+  const { isOpen: isBirthYearModalOpen, onOpen: openBirthYearModal, onClose: closeBirthYearModal } = useDisclosure();
 
   // Local state for form fields
   const [syncPortrait, setSyncPortrait] = useState(draftGenealogyProfile.syncPortrait);
@@ -108,20 +123,8 @@ export function GenealogyProfileStep() {
     return () => clearTimeout(timer);
   }, [checkApelido]);
 
-  // Handle form submission
-  const handleNext = async () => {
-    // Validate apelido availability
-    if (syncApelido && apelidoCheckResult) {
-      if (!apelidoCheckResult.isAvailable) {
-        setError('This apelido is already taken. Please add context to distinguish yourself.');
-        return;
-      }
-      if (apelidoCheckResult.requiresContext && !apelidoContext.trim()) {
-        setError('Please add context to distinguish your apelido (e.g., your city or group name).');
-        return;
-      }
-    }
-
+  // Submit the genealogy profile
+  const submitProfile = async () => {
     setSubmitting(true);
     setError(null);
 
@@ -171,6 +174,36 @@ export function GenealogyProfileStep() {
     } finally {
       setSubmitting(false);
     }
+  };
+
+  // Handle form submission - validates and may show confirmation modal
+  const handleNext = async () => {
+    // Validate apelido availability
+    if (syncApelido && apelidoCheckResult) {
+      if (!apelidoCheckResult.isAvailable) {
+        setError('This apelido is already taken. Please add context to distinguish yourself.');
+        return;
+      }
+      if (apelidoCheckResult.requiresContext && !apelidoContext.trim()) {
+        setError('Please add context to distinguish your apelido (e.g., your city or group name).');
+        return;
+      }
+    }
+
+    // Check if birth year is missing - show confirmation modal
+    if (!birthYear) {
+      openBirthYearModal();
+      return;
+    }
+
+    // Birth year is set, proceed directly
+    await submitProfile();
+  };
+
+  // Handle "Publish Anyway" from modal
+  const handlePublishAnyway = async () => {
+    closeBirthYearModal();
+    await submitProfile();
   };
 
   // Determine if Next should be disabled
@@ -294,6 +327,28 @@ export function GenealogyProfileStep() {
           </Button>
         </div>
       )}
+
+      {/* Birth year confirmation modal */}
+      <Modal isOpen={isBirthYearModalOpen} onClose={closeBirthYearModal} placement="center">
+        <ModalContent>
+          <ModalHeader>No Birth Year Specified</ModalHeader>
+          <ModalBody>
+            <p className="text-default-600">
+              You haven&apos;t specified a birth year or decade. Without this information, your profile won&apos;t
+              appear accurately on the genealogy timeline.
+            </p>
+            <p className="text-default-500 text-sm mt-2">You can always add this later in your genealogy profile.</p>
+          </ModalBody>
+          <ModalFooter>
+            <Button variant="flat" onPress={closeBirthYearModal}>
+              Go Back & Edit
+            </Button>
+            <Button color="primary" onPress={handlePublishAnyway} isLoading={isSubmitting}>
+              Publish Anyway
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </div>
   );
 }
