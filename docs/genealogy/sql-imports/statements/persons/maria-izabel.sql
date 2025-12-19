@@ -1,0 +1,28 @@
+-- ============================================================
+-- STATEMENTS FOR: Maria Izabel
+-- Generated: 2025-12-19
+-- ============================================================
+-- Contains all relationships where Maria Izabel is the SUBJECT.
+-- ============================================================
+-- NOTE: Maria Izabel has no documented relationships to specific
+-- individuals. She is known only from a single newspaper record
+-- (Gazeta do Povo, Dec 2, 1914). Her profile serves as a memorial
+-- to the hundreds of anonymous women documented by Paula Juliana
+-- Foltran's research.
+-- ============================================================
+
+-- No statements to generate - only one archival trace exists.
+-- She was contemporary with other valentonas of the 1910s-1920s
+-- but no specific connections are documented.
+
+-- ============================================================
+-- POTENTIAL RELATIONSHIPS (unverifiable)
+-- ============================================================
+-- Maria Izabel was arrested in 1914, the same era as:
+-- - Angélica Endiabrada (active 1910-1920)
+-- - Salomé (active 1920s-1930s)
+-- - Maria Doze Homens
+-- - Chicão, Rosa Palmeirão, Massú, Catu, etc.
+--
+-- However, without documented connection, no statements are created.
+-- Her value is as a representative figure, not for specific lineage.

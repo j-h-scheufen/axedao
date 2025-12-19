@@ -166,6 +166,25 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Pintor' AND o.apelido = 'João Grande'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- Pintor trained_under Curió (Bahia training period)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL, NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'https://taylorsbantus.wordpress.com/gbc-masters-teachers/mestre-pintor/',
+  E'As a teenager, Pintor traveled to Bahia and trained under Curió among other mestres. Curió was a disciple of Mestre Pastinha, guardian of the Angola tradition.',
+  E'Na adolescência, Pintor viajou para a Bahia e treinou com Curió entre outros mestres. Curió era discípulo de Mestre Pastinha, guardião da tradição Angola.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Pintor' AND o.apelido = 'Curió'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- GROUP RELATIONSHIPS
 -- ============================================================
@@ -178,7 +197,6 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
--- Pintor trained_under Curió - Curió (Jaime Martins dos Santos) not yet imported
 -- Pintor trained_under Boa Gente - not yet imported
 -- Pintor trained_under Bom Cabrito (Mário Bom Cabrito) - not yet imported
 -- Pintor trained_under Medicina - not yet imported

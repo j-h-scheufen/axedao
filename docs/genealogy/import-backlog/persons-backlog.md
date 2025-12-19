@@ -25,26 +25,25 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Professor Sarapó | Christoph | Professor | Madeira import | pending | yes | Student of Mestre Madeira; leads Grupo Siri de Mangue branches in Vienna and Linz, Austria; 18+ years experience |
 | Camisa | - | - | Sete Coroas import | pending | ? | Companion of Sete Coroas; described as "terrible"; died before 1923 - unclear if capoeirista |
 | Benedito (Rio) | - | - | Sete Coroas import | pending | ? | Companion of Sete Coroas; described as "terrible"; died before 1923 - unclear if capoeirista |
-| Juvenil | - | - | Quinzinho import | pending | ? | Sparring partner who trained with Leopoldina under Quinzinho in early 1950s; unclear if became capoeirista |
 | Valdemar Santana | - | - | Quinzinho import | pending | ? | Famous fighter who brought Artur Emídio to Rio; not primarily a capoeirista but connected to capoeira history |
-| Fernando Rodrigues Perez | - | - | Cirandinha import | pending | yes | Student of Mestre Bimba (Regional); lost to Rudolf Hermanny in 2 minutes at 1949 Capoeira Challenge at Estadio Carioca |
-| Maria dos Anjos | - | - | Salomé import | pending | yes | Fellow student of Doze Homens alongside Salomé; contemporary valentona of 1920s-1930s Salvador; may be origin of "Maria Doze Homens" nickname |
-| Angélica Endiabrada | - | - | Salomé import | pending | yes | "Valentona da Bahia" of 1910-1920; contemporary of Salomé and other legendary female capoeiristas |
-| Chicão | Francisca Albino dos Santos | - | Salomé import | pending | yes | Famous valentona; defeated Pedro Porreta on Sept 28, 1929; suspected of murdering Porreta shortly after; contemporary of Salomé |
-| Piroca | Pedro de Alcântara | - | Pedro Porreta import | pending | yes | Brother of Pedro Porreta; known together as "Os donos do quarteirão" (The owners of the block); participated in Dec 1920 attack on Guruxinha |
-| Rosa Palmeirão | - | - | Salomé import | pending | ? | Legendary valentona; inspired Jorge Amado character in "Mar Morto"; needs investigation if actual capoeirista or literary figure |
+| Almerinda | - | - | Angélica Endiabrada import | pending | ? | Documented female capoeirista in Pedro Abib's research; contemporary of Angélica Endiabrada (1910s-1920s) |
+| Menininha | - | - | Angélica Endiabrada import | pending | ? | Documented female capoeirista in Pedro Abib's research; contemporary of Angélica Endiabrada (1910s-1920s) |
+| Adelaide Presepeira | - | - | Angélica Endiabrada import | pending | ? | Troublemaker with navalha during 2 de Julho celebrations (1920s-1930s); contemporary of Angélica Endiabrada |
+| Idalina | Idalina Maria do Sacramento | - | Angélica Endiabrada import | done | yes | Legendary valentona 1910s-1920s; fought multiple guards simultaneously (1917); namesake of Mestre Bimba's toque "Idalina"; documented in Paula Foltran thesis |
+| Zeferina | - | - | Idalina import | pending | yes | Rival of Idalina; documented conflicts 1917-1920 over prostitution territory; charged with capoeiragem multiple times; Jornal de Notícias |
+| Firmina | - | - | Idalina import | pending | ? | Companion of Idalina; defended by Idalina in 1917 incident; unclear if capoeirista |
 | Massú | - | - | Salomé import | pending | ? | Listed among legendary female capoeiristas of Bahia; needs investigation |
 | Catu | - | - | Salomé import | pending | ? | Listed among legendary female capoeiristas of Bahia; needs investigation |
-| Curió | Jaime Martins dos Santos | Mestre | Multiple (Pastinha, Pintor imports) | pending | yes | Student of Mestre Pastinha (b. Jan 23, 1937, Candeias); still active at 88; founded ECAIG (1982); trained Mestre Pintor; family of capoeiristas (grandfather Pedro Virício/Curió Velho); Zumbi dos Palmares Medal (2016) |
-| Albertino da Hora | - | Mestre | Pastinha import | pending | yes | Student of Mestre Pastinha at CECA |
-| Valdomiro Malvadeza | - | Mestre | Pastinha import | pending | yes | Student of Mestre Pastinha at CECA |
-| Gildo Alfinete | - | Mestre | Pastinha import | pending | yes | Student of Mestre Pastinha; went to Dakar 1966 |
-| Boca Rica | Manoel Silva | Mestre | Pastinha import | pending | yes | Student of Mestre Pastinha (b. 1936); traveled to 40+ countries |
+| Curió | Jaime Martins dos Santos | Mestre | Multiple (Pastinha, Pintor imports) | done | yes | Student of Mestre Pastinha (b. Jan 23, 1937, Candeias); still active at 88; founded ECAIG (1982); trained Mestre Pintor; family of capoeiristas (grandfather Pedro Virício/Curió Velho); Zumbi dos Palmares Medal (2016) |
+| Albertino da Hora | - | Mestre | Pastinha import | done | yes | Student of Mestre Pastinha at CECA; also known as "Moreno"; documented in O Cruzeiro 1963 and Belo Horizonte 1964 trip; bateria player; DISTINCT from Cobrinha Verde's student Moreno |
+| Valdomiro Malvadeza | - | Mestre | Pastinha import | done | yes | Student of Mestre Pastinha at CECA; singer on 1969 LP; bateria player alongside João Pequeno, Albertino, Gato Preto; still active 1999 at Cruzeiro/Pelourinho; DISTINCT from José Martins "Malvadeza" (apelido_context='CECA student') |
+| Gildo Alfinete | Gildo Lemos Couto | Mestre | Pastinha import | done | yes | Student of Mestre Pastinha (1959-1981); diploma 1963; went to Dakar 1966; archivist of 3000+ photos; died 2015 |
+| Boca Rica | Manoel Silva | Mestre | Pastinha import | done | yes | Student of Mestre Pastinha (b. Nov 26, 1936); founder ECAB (1970); 50+ countries; Thomé de Souza Medal 2018; 14+ albums |
 | Bola Sete | - | Mestre | Pastinha import | pending | yes | Student of Mestre Pastinha at CECA |
 | Roberto Satanás | Roberto Pereira | Mestre | Pastinha import | pending | yes | Student of Mestre Pastinha; went to Dakar 1966 |
 | Camafeu de Oxossi | - | Mestre | Pastinha import | pending | yes | Student of Mestre Pastinha; played berimbau at Dakar 1966 |
 | Maria Homem | - | - | Pastinha import | pending | yes | Female capoeirista listed by Mestre Pastinha (1967); one of two women among legendary practitioners |
-| Bigode de Seda | Feliciano? | - | Pastinha import | pending | yes | Legendary capoeirista listed by Mestre Pastinha (1967); may be same as Feliciano Bigode de Seda from Gengibirra |
+| Bigode de Seda | Feliciano? | - | Pastinha import | pending | yes | Legendary capoeirista listed by Mestre Pastinha (1967); may be same as Feliciano Bigode de Seda from Gengibirra, needs examination |
 | Acordeon | Bira Almeida | Mestre | Mestre Bimba import | pending | yes | Student of Mestre Bimba; major lineage figure; author of "Capoeira: A Brazilian Art Form" |
 | Decânio | Angelo Augusto Decânio Filho | Mestre | Mestre Bimba import | pending | yes | One of only four students formally graduated to mestre by Bimba (white handkerchief); author; researcher |
 | Jair Moura | - | Mestre | Mestre Bimba import | pending | yes | One of only four students formally graduated to mestre by Bimba; author of "Mestre Bimba, a crônica da capoeiragem" (1991) |
@@ -272,3 +271,20 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Edvaldo Rosa | - | - | Crispim import | pending | ? | Brother of Crispim; son of Mestre Bimba and Maria dos Anjos; unclear if practiced capoeira |
 | Papo de Santo Amaro | - | Mestre | Pintor import | pending | ? | Bahian mestre; trained Mestre Pintor during his Bahia period; "de Santo Amaro" suggests origin from Santo Amaro da Purificação; needs investigation |
 | Contramestre Grão | Fabiano França | Contramestre | Pintor import | pending | ? | Student of Mestre Pintor; born 1980s in Belo Horizonte; main teacher at Bantus Capoeira Australia (Perth); relocated to Perth 2007; also trained in batucada, carnival percussion, maracatu, Afro dance; known for youth outreach programs |
+| Jararaca | Valdelice Santos de Jesus | Mestra | Curió import | pending | yes | First woman mestra in Capoeira Angola; born ~1974; titled by Mestre Curió January 2001 in grand roda; started age 11 with sister Ritinha under João Pequeno; returned to capoeira 1989; trained under Curió at ECAIG |
+| Augusto Januário | - | Mestre | Curió import | pending | yes | Born 1956 in Caboto, Candeias, Bahia; disciple of Curió for many years; met Curió at Academia 1º de Maio in Fazenda Grande do Retiro; founded LINISI (1987); author of "A Capuêra e a Arte da Capueragem" (2003) |
+| Marcelo Angola | Luiz Marcelo Santos Moraes | Mestre | Curió import | pending | yes | Born Nov 30, 1965 Salvador; began training under Curió August 1985 in Pelourinho; treinel 1990; contramestre 1994; mestre 1999; founded Angoleiros do Mar (1999) in Barra Grande, Itaparica Island |
+| Pedro Virício | Curió Velho | - | Curió import | done | yes | Also known as "Curió Velho" or "Curió Grande"; grandfather of Mestre Curió; capoeirista from Santo Amaro; passed apelido "Curió" to grandson |
+| José Martins dos Santos | Malvadeza | - | Curió import | done | yes | Also known as "Malvadeza" or "Martim da Pemba"; father of Mestre Curió; capoeirista; violeiro of Mestre Pastinha; second cousin of Besouro Mangangá; taught Curió from 1943 |
+| Maria Bispo | Pequena | - | Curió import | done | yes | Known as "Pequena"; mother of Mestre Curió; capoeirista; normalista (teacher); family of angoleiros from Santo Amaro |
+| Bobó | - | Mestre | Curió import | pending | yes | 1988 Velha Guarda participant in Florianópolis with Curió, João Pequeno, Nó, Boa Gente |
+| Nó | - | Mestre | Curió import | pending | yes | 1988 Velha Guarda participant in Florianópolis with Curió, João Pequeno, Bobó, Boa Gente |
+| Boa Gente | - | Mestre | Curió import | pending | yes | 1988 Velha Guarda participant in Florianópolis with Curió, João Pequeno, Bobó, Nó; also trained Mestre Pintor |
+| Gigante | - | Mestre | Curió import | pending | yes | 1980 First Regional Capoeira Seminar participant with Curió, Cobrinha Verde, João Grande; student of Waldemar |
+| Raimundo Natividade | Raimundo da Virgem Natividade | - | Albertino da Hora import | pending | yes | Musician and companion of Mestre Pastinha; documented in O Cruzeiro 1963 alongside João Grande, Albertino da Hora, Manuel de Carvalho |
+| Manuel de Carvalho | - | - | Albertino da Hora import | pending | yes | Musician and companion of Mestre Pastinha; documented in O Cruzeiro 1963 alongside João Grande, Albertino da Hora, Raimundo Natividade |
+| Toinho | - | - | Albertino da Hora import | pending | yes | Companion of Mestre Pastinha; participated in 1964 Belo Horizonte trip with Pastinha, Gildo Alfinete, Roberto Satanás, João Grande, Albertino da Hora |
+| Genésio Meio-Quilo | Genésio | Mestre | Gildo Alfinete import | pending | yes | Brother of Gildo Alfinete; Mestre; compiled Gildo's archive (3000+ photos + notebooks) into 2020 book "Capoeira Angola Mundo Afora - Uma Jornada com o Mestre Pastinha" |
+| Valu | - | Mestre | Boca Rica import | pending | yes | Student of Mestre Boca Rica; leads Grupo Balança Capoeira in Salvador, Bahia |
+| Carol Canguçu | Carolina Canguçu | Contramestra | Boca Rica import | pending | yes | Student of Mestre Boca Rica; current coordinator/support in Salvador; ECAB contact; listed as registrant on IPHAN entry |
+| Thércio (Coelho) | Thercio Fabio Ponte Sabino | Contramestre | Boca Rica import | pending | ? | CM Coelho / Berimbatida; co-author of Boca Rica biography (2020); promoting Boca Rica since 2005; unclear if capoeira lineage |
