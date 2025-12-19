@@ -17,7 +17,8 @@ export type WizardMode = 'new-user' | 'genealogy-only';
  */
 export type WizardStep =
   | 'basic-profile'
-  | 'claim-check' // Check if user might already be in genealogy (for high-ranking titles)
+  | 'claim-check' // Shows matching claimable profiles if any exist
+  | 'claim-form' // Form to submit claim message for selected profile
   | 'genealogy-explainer'
   | 'genealogy-profile'
   | 'group-or-teacher'
@@ -25,12 +26,6 @@ export type WizardStep =
   | 'find-teacher'
   | 'add-more'
   | 'final';
-
-/**
- * High-ranking titles that warrant checking for existing profiles.
- * Users with these titles are likely already in the genealogy database.
- */
-export const HIGH_RANKING_TITLES = ['mestra', 'mestre', 'contra-mestra', 'contra-mestre'] as const;
 
 /**
  * First step for each wizard mode (no back button on these).
@@ -47,8 +42,9 @@ const FIRST_STEP_BY_MODE: Record<WizardMode, WizardStep> = {
  */
 const DEFAULT_BACK_DESTINATION: Record<WizardStep, WizardStep | null> = {
   'basic-profile': null,
-  'claim-check': 'basic-profile',
-  'genealogy-explainer': 'basic-profile', // Could be claim-check, but basic-profile is safer fallback
+  'claim-check': 'genealogy-explainer',
+  'claim-form': 'claim-check',
+  'genealogy-explainer': 'basic-profile',
   'genealogy-profile': 'genealogy-explainer',
   'group-or-teacher': 'genealogy-profile',
   'find-group': 'group-or-teacher',
@@ -89,6 +85,17 @@ export interface AddedRelationship {
 }
 
 /**
+ * Claimable profile found during search.
+ */
+export interface ClaimableProfile {
+  id: string;
+  name: string | null;
+  apelido: string | null;
+  title: string | null;
+  portrait: string | null;
+}
+
+/**
  * Submitted claim info (when user claims an existing profile).
  */
 export interface SubmittedClaim {
@@ -107,6 +114,10 @@ export interface OnboardingState {
   publishGenealogy: boolean;
   draftGenealogyProfile: DraftGenealogyProfile;
   addedRelationships: AddedRelationship[];
+  /** Claimable profiles found matching user's apelido (set by GenealogyExplainerStep) */
+  claimableProfiles: ClaimableProfile[];
+  /** Profile selected by user to claim (set by ClaimCheckStep) */
+  selectedClaimProfile: ClaimableProfile | null;
   /** If user submitted a claim for an existing profile instead of creating new */
   submittedClaim: SubmittedClaim | null;
   isSubmitting: boolean;
@@ -125,6 +136,8 @@ type OnboardingAction =
   | { type: 'UPDATE_GENEALOGY_PROFILE'; profile: Partial<DraftGenealogyProfile> }
   | { type: 'ADD_RELATIONSHIP'; relationship: AddedRelationship }
   | { type: 'REMOVE_RELATIONSHIP'; objectId: string }
+  | { type: 'SET_CLAIMABLE_PROFILES'; profiles: ClaimableProfile[] }
+  | { type: 'SET_SELECTED_CLAIM_PROFILE'; profile: ClaimableProfile | null }
   | { type: 'SET_SUBMITTED_CLAIM'; claim: SubmittedClaim | null }
   | { type: 'SET_SUBMITTING'; isSubmitting: boolean }
   | { type: 'SET_ERROR'; error: string | null }
@@ -140,11 +153,13 @@ const initialState: OnboardingState = {
   draftProfile: {},
   publishGenealogy: false,
   draftGenealogyProfile: {
-    syncPortrait: true,
+    syncPortrait: false, // User must consciously choose to publish their portrait
     syncApelido: true,
     syncTitle: true,
   },
   addedRelationships: [],
+  claimableProfiles: [],
+  selectedClaimProfile: null,
   submittedClaim: null,
   isSubmitting: false,
   error: null,
@@ -205,6 +220,12 @@ function onboardingReducer(state: OnboardingState, action: OnboardingAction): On
         addedRelationships: state.addedRelationships.filter((r) => r.objectId !== action.objectId),
       };
 
+    case 'SET_CLAIMABLE_PROFILES':
+      return { ...state, claimableProfiles: action.profiles };
+
+    case 'SET_SELECTED_CLAIM_PROFILE':
+      return { ...state, selectedClaimProfile: action.profile };
+
     case 'SET_SUBMITTED_CLAIM':
       return { ...state, submittedClaim: action.claim };
 
@@ -237,6 +258,8 @@ interface OnboardingContextType {
   updateGenealogyProfile: (profile: Partial<DraftGenealogyProfile>) => void;
   addRelationship: (relationship: AddedRelationship) => void;
   removeRelationship: (objectId: string) => void;
+  setClaimableProfiles: (profiles: ClaimableProfile[]) => void;
+  setSelectedClaimProfile: (profile: ClaimableProfile | null) => void;
   setSubmittedClaim: (claim: SubmittedClaim | null) => void;
   setSubmitting: (isSubmitting: boolean) => void;
   setError: (error: string | null) => void;
@@ -246,8 +269,6 @@ interface OnboardingContextType {
   setCreatedProfileId: (id: string | null) => void;
   // Computed values
   hasTeacherRelationship: boolean;
-  /** Whether the user's title warrants checking for existing profile */
-  shouldCheckForExistingProfile: boolean;
 }
 
 const OnboardingContext = createContext<OnboardingContextType | null>(null);
@@ -332,6 +353,14 @@ export function OnboardingProvider({
     dispatch({ type: 'REMOVE_RELATIONSHIP', objectId });
   }, []);
 
+  const setClaimableProfiles = useCallback((profiles: ClaimableProfile[]) => {
+    dispatch({ type: 'SET_CLAIMABLE_PROFILES', profiles });
+  }, []);
+
+  const setSelectedClaimProfile = useCallback((profile: ClaimableProfile | null) => {
+    dispatch({ type: 'SET_SELECTED_CLAIM_PROFILE', profile });
+  }, []);
+
   const setSubmittedClaim = useCallback((claim: SubmittedClaim | null) => {
     dispatch({ type: 'SET_SUBMITTED_CLAIM', claim });
   }, []);
@@ -353,11 +382,6 @@ export function OnboardingProvider({
     (r) => r.predicate === 'student_of' || r.predicate === 'trained_under'
   );
 
-  // Check if user's title warrants checking for existing profile
-  const shouldCheckForExistingProfile =
-    !!state.draftProfile.title &&
-    HIGH_RANKING_TITLES.includes(state.draftProfile.title as (typeof HIGH_RANKING_TITLES)[number]);
-
   // Determine if back navigation is possible
   // True if: we have history, OR we're not on the first step for this mode AND there's a default back destination
   const isFirstStep = state.currentStep === FIRST_STEP_BY_MODE[state.mode];
@@ -375,6 +399,8 @@ export function OnboardingProvider({
     updateGenealogyProfile,
     addRelationship,
     removeRelationship,
+    setClaimableProfiles,
+    setSelectedClaimProfile,
     setSubmittedClaim,
     setSubmitting,
     setError,
@@ -382,7 +408,6 @@ export function OnboardingProvider({
     createdProfileId,
     setCreatedProfileId,
     hasTeacherRelationship,
-    shouldCheckForExistingProfile,
   };
 
   return <OnboardingContext.Provider value={value}>{children}</OnboardingContext.Provider>;

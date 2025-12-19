@@ -45,6 +45,7 @@ export async function fetchPersonProfile(profileId: string): Promise<SelectPerso
  *
  * @param options - Search parameters
  * @param options.claimableOnly - If true, excludes deceased profiles and profiles already claimed by a user
+ * @param options.includeHistorical - If true, includes historical persons (born 100+ years ago). Default: false
  * @returns Paginated list of person profiles with total count
  */
 export async function searchPersonProfiles(options: {
@@ -55,6 +56,7 @@ export async function searchPersonProfiles(options: {
   title?: string;
   includeDeceased?: boolean;
   claimableOnly?: boolean;
+  includeHistorical?: boolean;
 }): Promise<{ rows: SelectPersonProfile[]; totalCount: number }> {
   const {
     pageSize = QUERY_DEFAULT_PAGE_SIZE,
@@ -64,6 +66,7 @@ export async function searchPersonProfiles(options: {
     title,
     includeDeceased = true,
     claimableOnly = false,
+    includeHistorical = false,
   } = options;
 
   const filters: (SQLWrapper | undefined)[] = [];
@@ -85,25 +88,25 @@ export async function searchPersonProfiles(options: {
     filters.push(sql`${personProfiles.title} = ${title}`);
   }
 
-  // claimableOnly implies not deceased
-  if (!includeDeceased || claimableOnly) {
+  // Exclude historical persons (born 100+ years ago) unless includeHistorical is true
+  // claimableOnly also implies !includeHistorical
+  if (!includeHistorical || claimableOnly) {
+    filters.push(isNull(personProfiles.deathYear));
+    const currentYear = new Date().getFullYear();
+    const historicalThreshold = currentYear - 100;
+    filters.push(or(isNull(personProfiles.birthYear), gt(personProfiles.birthYear, historicalThreshold)));
+  } else if (!includeDeceased) {
+    // Only filter deceased if not already filtered by historical exclusion
     filters.push(isNull(personProfiles.deathYear));
   }
 
-  // For claimable profiles, apply additional filters
+  // For claimable profiles, also exclude profiles already claimed by another user
   if (claimableOnly) {
-    // Exclude profiles already claimed by a user (users.profileId references them)
     const claimedProfileIds = db
       .select({ profileId: schema.users.profileId })
       .from(schema.users)
       .where(sql`${schema.users.profileId} IS NOT NULL`);
     filters.push(sql`${personProfiles.id} NOT IN (${claimedProfileIds})`);
-
-    // Exclude profiles with birth year > 100 years ago (presumed deceased historical figures)
-    // This mirrors the heuristic used in the genealogy graph UI
-    const currentYear = new Date().getFullYear();
-    const presumedDeceasedThreshold = currentYear - 100;
-    filters.push(or(isNull(personProfiles.birthYear), gt(personProfiles.birthYear, presumedDeceasedThreshold)));
   }
 
   const results = await db

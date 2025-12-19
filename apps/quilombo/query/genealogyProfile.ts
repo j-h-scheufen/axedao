@@ -102,12 +102,20 @@ type GroupSearchResult = {
 
 type SearchPersonsOptions = {
   claimableOnly?: boolean;
+  includeHistorical?: boolean;
+  title?: string;
 };
 
 const searchPersons = async (searchTerm: string, options?: SearchPersonsOptions): Promise<PersonSearchResult[]> => {
   const params = new URLSearchParams({ q: searchTerm });
   if (options?.claimableOnly) {
     params.set('claimableOnly', 'true');
+  }
+  if (options?.includeHistorical) {
+    params.set('includeHistorical', 'true');
+  }
+  if (options?.title) {
+    params.set('title', options.title);
   }
   return axios.get(`/api/genealogy/persons/search?${params.toString()}`).then((response) => response.data);
 };
@@ -209,10 +217,26 @@ export const useDeleteRelationship = () => {
 // SEARCH HOOKS
 // ============================================================================
 
-export const useSearchPersons = (searchTerm: string, options?: { enabled?: boolean; claimableOnly?: boolean }) =>
+export const useSearchPersons = (
+  searchTerm: string,
+  options?: { enabled?: boolean; claimableOnly?: boolean; includeHistorical?: boolean; title?: string }
+) =>
   useQuery({
-    queryKey: ['genealogy', 'search', 'persons', searchTerm, options?.claimableOnly ?? false],
-    queryFn: () => searchPersons(searchTerm, { claimableOnly: options?.claimableOnly }),
+    queryKey: [
+      'genealogy',
+      'search',
+      'persons',
+      searchTerm,
+      options?.claimableOnly ?? false,
+      options?.includeHistorical ?? false,
+      options?.title ?? null,
+    ],
+    queryFn: () =>
+      searchPersons(searchTerm, {
+        claimableOnly: options?.claimableOnly,
+        includeHistorical: options?.includeHistorical,
+        title: options?.title,
+      }),
     staleTime: QueryConfig.staleTimeDefault,
     enabled: options?.enabled ?? searchTerm.length > 2,
   });

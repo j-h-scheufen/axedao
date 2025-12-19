@@ -14,10 +14,14 @@ import { OnboardingProvider, useOnboarding, type WizardMode, type WizardStep } f
 // Step components
 import { BasicProfileStep } from './steps/BasicProfileStep';
 import { ClaimCheckStep } from './steps/ClaimCheckStep';
+import { ClaimFormStep } from './steps/ClaimFormStep';
 import { GenealogyExplainerStep } from './steps/GenealogyExplainerStep';
 import { GenealogyProfileStep } from './steps/GenealogyProfileStep';
+import { GroupOrTeacherStep } from './steps/GroupOrTeacherStep';
+import { FindGroupStep } from './steps/FindGroupStep';
+import { FindTeacherStep } from './steps/FindTeacherStep';
+import { AddMoreStep } from './steps/AddMoreStep';
 import { FinalStep } from './steps/FinalStep';
-import { PlaceholderStep } from './steps/PlaceholderStep';
 
 // Pages where it's appropriate to show the onboarding wizard
 const ONBOARDING_ALLOWED_PATHS = [PATHS.profile, PATHS.search];
@@ -39,22 +43,24 @@ function WizardContent({ onComplete }: { onComplete: () => void }) {
         return <BasicProfileStep />;
       case 'claim-check':
         return <ClaimCheckStep />;
+      case 'claim-form':
+        return <ClaimFormStep />;
       case 'genealogy-explainer':
         return <GenealogyExplainerStep />;
       case 'genealogy-profile':
         return <GenealogyProfileStep />;
       case 'group-or-teacher':
-        return <PlaceholderStep stepName="Group or Teacher Selection" />;
+        return <GroupOrTeacherStep />;
       case 'find-group':
-        return <PlaceholderStep stepName="Find Your Group" />;
+        return <FindGroupStep />;
       case 'find-teacher':
-        return <PlaceholderStep stepName="Find Your Teacher" />;
+        return <FindTeacherStep />;
       case 'add-more':
-        return <PlaceholderStep stepName="Add More Relations" />;
+        return <AddMoreStep />;
       case 'final':
         return <FinalStep onComplete={onComplete} />;
       default:
-        return <PlaceholderStep stepName="Unknown Step" />;
+        return null;
     }
   };
 
@@ -69,7 +75,9 @@ function getStepTitle(step: WizardStep, mode: WizardMode): string {
     case 'basic-profile':
       return mode === 'new-user' ? 'Welcome to Quilombo!' : 'Update Your Profile';
     case 'claim-check':
-      return 'Check for Existing Profile';
+      return 'Existing Profile Found';
+    case 'claim-form':
+      return 'Claim Your Profile';
     case 'genealogy-explainer':
       return 'Join the Genealogy';
     case 'genealogy-profile':

@@ -9,7 +9,7 @@ import { titles } from '@/config/constants';
 import { currentUserAtom, currentUserAvatarAtom } from '@/hooks/state/currentUser';
 import { useUpdateAvatarMutation } from '@/query/currentUser';
 
-import { HIGH_RANKING_TITLES, useOnboarding } from '../contexts/OnboardingContext';
+import { useOnboarding } from '../contexts/OnboardingContext';
 import { WizardNavigationFooter } from '../shared/WizardNavigationFooter';
 
 /**
@@ -53,6 +53,12 @@ export function BasicProfileStep() {
   );
 
   const handleNext = async () => {
+    // Validate nickname is required
+    if (!nickname.trim()) {
+      setError('Apelido or username is required');
+      return;
+    }
+
     setSubmitting(true);
     setError(null);
 
@@ -72,16 +78,8 @@ export function BasicProfileStep() {
         throw new Error(data.error || 'Failed to save profile');
       }
 
-      // Check if title is high-ranking - if so, offer to check for existing profile
-      const isHighRanking = title && HIGH_RANKING_TITLES.includes(title as (typeof HIGH_RANKING_TITLES)[number]);
-
-      if (isHighRanking) {
-        // Route to claim-check step for mestres/contra-mestres
-        goToStep('claim-check');
-      } else {
-        // Proceed to normal genealogy flow
-        goToStep('genealogy-explainer');
-      }
+      // Proceed to genealogy explainer (claim check happens there if user chooses to publish)
+      goToStep('genealogy-explainer');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to save profile');
     } finally {
@@ -96,10 +94,7 @@ export function BasicProfileStep() {
         {mode === 'new-user' ? (
           <>
             <h2 className="text-xl font-semibold mb-2">Que bom te ver!</h2>
-            <p className="text-default-500">
-              Let&apos;s set up your profile so the community knows who you are. All fields are optional - add as much
-              or as little as you like.
-            </p>
+            <p className="text-default-500">Let&apos;s set up your profile so the community knows who you are.</p>
           </>
         ) : (
           <>
@@ -132,14 +127,16 @@ export function BasicProfileStep() {
           {/* Nickname/Apelido */}
           <div className="space-y-2">
             <p className="text-sm text-default-600">
-              <span className="font-medium">Do you have a Capoeira name (apelido)?</span>
+              <span className="font-medium">
+                Do you have an apelido (nickname)? Otherwise, enter a username by which you want to be known.
+              </span>
             </p>
             <Input
-              label="Apelido"
-              placeholder="Your capoeira nickname"
+              label="Apelido / Username"
+              placeholder="Your capoeira nickname or username"
               value={nickname}
               onChange={(e) => handleNicknameChange(e.target.value)}
-              description="You can add this later if you haven't received one yet"
+              isRequired
             />
           </div>
 
@@ -173,7 +170,13 @@ export function BasicProfileStep() {
       {error && <div className="text-danger text-sm text-center">{error}</div>}
 
       {/* Navigation */}
-      <WizardNavigationFooter showBack={false} showSkip={false} isLoading={isSubmitting} onNext={handleNext} />
+      <WizardNavigationFooter
+        showBack={false}
+        showSkip={false}
+        isLoading={isSubmitting}
+        isNextDisabled={!nickname.trim()}
+        onNext={handleNext}
+      />
     </div>
   );
 }

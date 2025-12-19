@@ -1,130 +1,44 @@
 'use client';
 
-import {
-  Avatar,
-  Button,
-  Card,
-  CardBody,
-  CardHeader,
-  Divider,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  Spinner,
-  addToast,
-} from '@heroui/react';
-import { Field, Form, Formik, type FormikHelpers } from 'formik';
-import { AlertCircleIcon, ClockIcon, SearchIcon, UserCheckIcon } from 'lucide-react';
+import { Button, Card, CardBody, CardHeader, Divider, Spinner } from '@heroui/react';
+import { useAtomValue } from 'jotai';
+import { ArrowLeft, ClockIcon, UserCheckIcon } from 'lucide-react';
 import Image from 'next/image';
-import { useState } from 'react';
 
-import FieldTextarea from '@/components/forms/FieldTextarea';
-import PersonSearchSelect from '@/components/genealogy/ui/PersonSearchSelect';
-import { claimPersonFormSchema } from '@/config/validation-schema';
-import { useClaimPersonMutation, usePendingPersonClaim, useSearchPersons } from '@/query/genealogyProfile';
+import { currentUserAtom } from '@/hooks/state/currentUser';
+import { usePendingPersonClaim } from '@/query/genealogyProfile';
 
-import { HIGH_RANKING_TITLES, useOnboarding } from '../contexts/OnboardingContext';
-import { WizardNavigationFooter } from '../shared/WizardNavigationFooter';
-
-type PersonProfile = {
-  id: string;
-  name: string | null;
-  apelido: string | null;
-  title: string | null;
-  portrait: string | null;
-};
-
-type ClaimFormValues = {
-  userMessage: string;
-};
+import { useOnboarding } from '../contexts/OnboardingContext';
 
 /**
- * Onboarding step that checks if user might already exist in the genealogy.
- * Shown for users with high-ranking titles (mestre/mestra, contra-mestre/contra-mestra).
+ * ClaimCheckStep - Shows matching claimable profiles
  *
- * - Auto-searches if user entered an apelido
- * - Allows manual search
- * - Shows pending claim status if user already has one
- * - If user claims a profile, skips to final step (no new genealogy profile created)
- * - If no match, proceeds to normal genealogy-explainer flow
+ * Displays pre-fetched claimable profiles from context (set by GenealogyExplainerStep).
+ * User can select a profile to claim or proceed to create a new profile.
+ *
+ * Flow:
+ * - If user has a pending claim: show status and allow continuing
+ * - Otherwise: show matching profiles from context
+ * - Click on profile → store selection → goToStep('claim-form')
+ * - "None of these are me" → goToStep('genealogy-profile')
  */
 export function ClaimCheckStep() {
-  const { state, goToStep, goBack, canGoBack, setSubmittedClaim } = useOnboarding();
-  const { draftProfile } = state;
-  const [selectedProfile, setSelectedProfile] = useState<PersonProfile | null>(null);
-  const [isClaimModalOpen, setIsClaimModalOpen] = useState(false);
-
-  const claimMutation = useClaimPersonMutation();
+  const { state, goToStep, goBack, canGoBack, setSelectedClaimProfile, setSubmittedClaim } = useOnboarding();
+  const { claimableProfiles } = state;
+  const { data: user } = useAtomValue(currentUserAtom);
 
   // Check if user already has a pending claim
   const { data: pendingClaim, isLoading: isLoadingPendingClaim } = usePendingPersonClaim();
 
-  // Auto-search with user's apelido if available (only claimable profiles)
-  const userApelido = draftProfile.nickname || '';
-  const hasApelido = userApelido.length > 2;
-  const { data: autoSearchResults, isFetching: isAutoSearching } = useSearchPersons(userApelido, {
-    enabled: hasApelido,
-    claimableOnly: true,
-  });
-
-  // Get display title for intro message
-  const titleDisplay = draftProfile.title
-    ? HIGH_RANKING_TITLES.includes(draftProfile.title as (typeof HIGH_RANKING_TITLES)[number])
-      ? draftProfile.title
-      : null
-    : null;
-
-  const handleProfileSelect = (profile: PersonProfile) => {
-    setSelectedProfile(profile);
-    setIsClaimModalOpen(true);
-  };
-
-  const handleClaimSubmit = async (values: ClaimFormValues, helpers: FormikHelpers<ClaimFormValues>) => {
-    if (!selectedProfile) return;
-
-    try {
-      await claimMutation.mutateAsync({
-        personProfileId: selectedProfile.id,
-        userMessage: values.userMessage.trim(),
-      });
-
-      addToast({
-        title: 'Claim submitted',
-        description: 'Your request to claim this profile has been submitted for review.',
-        color: 'success',
-      });
-
-      // Save claim info to context for final step messaging
-      setSubmittedClaim({
-        profileId: selectedProfile.id,
-        profileApelido: selectedProfile.apelido,
-      });
-
-      helpers.resetForm();
-      setIsClaimModalOpen(false);
-      setSelectedProfile(null);
-
-      // Skip genealogy creation, go directly to final step
-      goToStep('final');
-    } catch (error) {
-      const message = error instanceof Error ? error.message : 'Failed to submit claim';
-      addToast({
-        title: 'Error',
-        description: message,
-        color: 'danger',
-      });
-    }
+  const handleProfileSelect = (profile: (typeof claimableProfiles)[0]) => {
+    setSelectedClaimProfile(profile);
+    goToStep('claim-form');
   };
 
   const handleNotMe = () => {
-    // Proceed to normal genealogy flow
-    goToStep('genealogy-explainer');
-  };
-
-  const getDisplayName = (profile: PersonProfile) => {
-    return profile.apelido || profile.name || 'this profile';
+    // Clear any previously selected profile and proceed to create new
+    setSelectedClaimProfile(null);
+    goToStep('genealogy-profile');
   };
 
   // Loading state while checking for pending claims
@@ -171,241 +85,121 @@ export function ClaimCheckStep() {
         </Card>
 
         {/* Store claim info and proceed to final */}
-        <WizardNavigationFooter
-          showBack={canGoBack}
-          showSkip={false}
-          nextLabel="Continue"
-          onBack={goBack}
-          onNext={() => {
-            setSubmittedClaim({
-              profileId: pendingClaim.personProfileId,
-              profileApelido: pendingClaim.profileApelido,
-            });
-            goToStep('final');
-          }}
-        />
+        <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+          <Button
+            color="primary"
+            size="lg"
+            onPress={() => {
+              setSubmittedClaim({
+                profileId: pendingClaim.personProfileId,
+                profileApelido: pendingClaim.profileApelido,
+              });
+              goToStep('final');
+            }}
+            className="min-w-[180px]"
+          >
+            Continue
+          </Button>
+        </div>
+
+        {/* Back button */}
+        {canGoBack && (
+          <div className="fixed bottom-0 left-0 right-0 z-50 bg-background pb-4 px-2 sm:px-4 pt-3 border-t border-default-200 md:static md:z-auto md:bg-transparent md:pb-0 md:px-0 md:pt-4 md:border-t-0">
+            <Button variant="light" color="default" startContent={<ArrowLeft className="w-4 h-4" />} onPress={goBack}>
+              Back
+            </Button>
+          </div>
+        )}
       </div>
     );
   }
 
+  // Show matching claimable profiles
   return (
-    <>
-      <div className="space-y-6">
-        {/* Intro message */}
-        <div className="text-center mb-4">
-          <h2 className="text-xl font-semibold mb-2">Are You Already in the Genealogy?</h2>
-          <p className="text-default-500">
-            {titleDisplay ? (
-              <>
-                As a <span className="font-medium capitalize">{titleDisplay}</span>, there&apos;s a good chance
-                you&apos;re already in our Capoeira Genealogy database.
-              </>
-            ) : (
-              <>Check if your profile already exists in our Capoeira Genealogy database.</>
-            )}
-          </p>
-        </div>
-
-        <Card>
-          <CardBody className="gap-4 p-3 sm:p-4">
-            <p className="text-default-600">
-              If you find yourself in the list below, you can <strong>claim your profile</strong> instead of creating a
-              new one. This helps us avoid duplicates and preserves your lineage connections.
-            </p>
-
-            <div className="p-3 bg-primary-50 dark:bg-primary-900/20 rounded-lg border border-primary-200 dark:border-primary-800">
-              <p className="text-sm text-primary-700 dark:text-primary-300">
-                <strong>Note:</strong> Profile claims require admin approval. This is an asynchronous process -
-                you&apos;ll receive an email when your claim is reviewed.
-              </p>
-            </div>
-
-            {/* Auto-search results section */}
-            {hasApelido && (
-              <div className="space-y-3 mt-4">
-                <div className="flex items-center gap-2">
-                  <UserCheckIcon className="h-5 w-5 text-primary" />
-                  <span className="font-medium">Profiles matching &quot;{userApelido}&quot;</span>
-                </div>
-
-                {isAutoSearching ? (
-                  <div className="flex items-center justify-center py-6">
-                    <Spinner size="sm" />
-                    <span className="ml-2 text-default-500">Searching...</span>
-                  </div>
-                ) : autoSearchResults && autoSearchResults.length > 0 ? (
-                  <div className="space-y-2">
-                    <p className="text-sm text-default-500">
-                      We found profiles that might be you. Click to claim if one is yours:
-                    </p>
-                    <div className="max-h-64 overflow-y-auto border border-default-200 rounded-lg divide-y divide-default-100">
-                      {autoSearchResults.map((person) => (
-                        <button
-                          key={person.id}
-                          type="button"
-                          className="w-full text-left p-3 hover:bg-default-100 transition-colors flex items-center gap-3"
-                          onClick={() => handleProfileSelect(person)}
-                        >
-                          <div className="h-10 w-10 rounded-full bg-default-200 flex items-center justify-center overflow-hidden flex-shrink-0 relative">
-                            {person.portrait ? (
-                              <Image
-                                src={person.portrait}
-                                alt={person.apelido || person.name || 'Profile'}
-                                fill
-                                className="object-cover"
-                                sizes="40px"
-                              />
-                            ) : (
-                              <span className="text-default-500 text-lg">
-                                {(person.apelido || person.name || '?')[0].toUpperCase()}
-                              </span>
-                            )}
-                          </div>
-                          <div className="flex-grow min-w-0">
-                            {person.title && (
-                              <p className="text-xs text-default-500 uppercase tracking-wide">{person.title}</p>
-                            )}
-                            <p className="text-sm font-medium truncate">{person.apelido || person.name || 'Unknown'}</p>
-                            {person.name && person.apelido && (
-                              <p className="text-xs text-default-400 truncate">{person.name}</p>
-                            )}
-                          </div>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                ) : (
-                  <div className="p-3 sm:p-4 bg-default-50 rounded-lg border border-default-200">
-                    <p className="text-sm text-default-500">
-                      No profiles found matching your apelido. You can search by a different name below, or proceed to
-                      create a new profile.
-                    </p>
-                  </div>
-                )}
-              </div>
-            )}
-
-            {/* Manual search section */}
-            <div className="space-y-3">
-              <Divider className="my-2" />
-              <div className="flex items-center gap-2">
-                <SearchIcon className="h-5 w-5 text-default-500" />
-                <span className="font-medium text-default-700">
-                  {hasApelido ? 'Search by different name' : 'Search for your profile'}
-                </span>
-              </div>
-              <p className="text-sm text-default-500">
-                {hasApelido
-                  ? 'If your profile uses a different apelido or civil name, search for it here:'
-                  : 'Search by your apelido or civil name:'}
-              </p>
-              <PersonSearchSelect
-                label="Search genealogy profiles"
-                placeholder="Type at least 3 characters..."
-                onSelect={handleProfileSelect}
-                onClear={() => setSelectedProfile(null)}
-                claimableOnly
-              />
-            </div>
-
-            {/* Not found info */}
-            <div className="flex items-start gap-2 p-3 bg-default-50 dark:bg-default-100/10 rounded-lg mt-2">
-              <AlertCircleIcon className="h-5 w-5 text-default-500 flex-shrink-0 mt-0.5" />
-              <p className="text-sm text-default-600">
-                <strong>Can&apos;t find your profile?</strong> No problem! You can create a new genealogy profile in the
-                next steps.
-              </p>
-            </div>
-          </CardBody>
-        </Card>
-
-        {/* Navigation */}
-        <WizardNavigationFooter
-          showBack={canGoBack}
-          showSkip={false}
-          nextLabel="None of these are me"
-          onBack={goBack}
-          onNext={handleNotMe}
-        />
+    <div className="space-y-5">
+      {/* Intro message */}
+      <div className="text-center">
+        <h2 className="text-xl font-semibold mb-2">Is This You?</h2>
+        <p className="text-sm text-default-500">
+          We found {claimableProfiles.length === 1 ? 'a profile' : 'profiles'} matching &quot;
+          {user?.nickname}&quot; in our genealogy database.
+        </p>
       </div>
 
-      {/* Claim Modal */}
-      {selectedProfile && (
-        <Modal isOpen={isClaimModalOpen} onClose={() => setIsClaimModalOpen(false)} size="lg">
-          <ModalContent>
-            <Formik<ClaimFormValues>
-              initialValues={{ userMessage: '' }}
-              validationSchema={claimPersonFormSchema}
-              onSubmit={handleClaimSubmit}
-            >
-              {({ isSubmitting }) => (
-                <Form>
-                  <ModalHeader className="flex flex-col gap-1">
-                    <h3 className="text-lg font-semibold">Claim This Profile</h3>
-                    <p className="text-sm text-default-500 font-normal">
-                      Request to link this genealogy profile to your account
-                    </p>
-                  </ModalHeader>
+      {/* Info card */}
+      <div className="p-4 rounded-xl bg-gradient-to-r from-primary/10 to-transparent">
+        <p className="text-sm text-default-600">
+          If one of these is you, you can <strong>claim your profile</strong> instead of creating a new one. This
+          preserves your existing lineage connections.
+        </p>
+        <p className="text-xs text-default-500 mt-2">
+          Profile claims require admin approval. You&apos;ll receive an email when your claim is reviewed.
+        </p>
+      </div>
 
-                  <ModalBody className="gap-4">
-                    {/* Profile preview */}
-                    <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-default-100 rounded-lg">
-                      <Avatar
-                        src={selectedProfile.portrait || undefined}
-                        name={getDisplayName(selectedProfile)}
-                        size="lg"
-                        className="flex-shrink-0"
-                      />
-                      <div className="flex-grow min-w-0">
-                        {selectedProfile.title && (
-                          <p className="text-xs text-default-500 uppercase tracking-wide">{selectedProfile.title}</p>
-                        )}
-                        <p className="text-lg font-semibold truncate">{getDisplayName(selectedProfile)}</p>
-                        {selectedProfile.name && selectedProfile.apelido && (
-                          <p className="text-sm text-default-500 truncate">{selectedProfile.name}</p>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Explanation */}
-                    <p className="text-sm text-default-600">
-                      To claim this profile, please explain how you can verify that this is your profile. An
-                      administrator will review your request.
-                    </p>
-
-                    {/* Message field */}
-                    <Field
-                      as={FieldTextarea}
-                      name="userMessage"
-                      label="Verification message"
-                      placeholder="E.g., I was batizado by Mestre X in 2010 at event Y. My group is Z and I can provide..."
-                      minRows={4}
-                      description="Minimum 20 characters. Provide details that help verify your identity."
+      {/* Matching profiles list */}
+      <Card>
+        <CardHeader className="flex gap-2 px-3 sm:px-4 py-3">
+          <UserCheckIcon className="h-5 w-5 text-primary" />
+          <span className="font-medium text-default-700">Select your profile</span>
+        </CardHeader>
+        <Divider />
+        <CardBody className="p-0">
+          <div className="divide-y divide-default-100">
+            {claimableProfiles.map((profile) => (
+              <div key={profile.id} className="w-full p-3 sm:p-4 flex items-center gap-3">
+                <div className="h-12 w-12 rounded-full bg-default-200 flex items-center justify-center overflow-hidden flex-shrink-0 relative">
+                  {profile.portrait ? (
+                    <Image
+                      src={profile.portrait}
+                      alt={profile.apelido || profile.name || 'Profile'}
+                      fill
+                      className="object-cover"
+                      sizes="48px"
                     />
-                  </ModalBody>
+                  ) : (
+                    <span className="text-default-500 text-xl">
+                      {(profile.apelido || profile.name || '?')[0].toUpperCase()}
+                    </span>
+                  )}
+                </div>
+                <div className="flex-grow min-w-0">
+                  {profile.title && <p className="text-xs text-default-500 uppercase tracking-wide">{profile.title}</p>}
+                  <p className="text-base font-medium truncate">{profile.apelido || profile.name || 'Unknown'}</p>
+                  {profile.name && profile.apelido && (
+                    <p className="text-sm text-default-400 truncate">{profile.name}</p>
+                  )}
+                </div>
+                <Button color="primary" variant="flat" size="sm" onPress={() => handleProfileSelect(profile)}>
+                  Claim
+                </Button>
+              </div>
+            ))}
+          </div>
+        </CardBody>
+      </Card>
 
-                  <ModalFooter>
-                    <Button
-                      variant="light"
-                      onPress={() => {
-                        setIsClaimModalOpen(false);
-                        setSelectedProfile(null);
-                      }}
-                      isDisabled={isSubmitting}
-                    >
-                      Cancel
-                    </Button>
-                    <Button color="primary" type="submit" isLoading={isSubmitting}>
-                      Submit Claim Request
-                    </Button>
-                  </ModalFooter>
-                </Form>
-              )}
-            </Formik>
-          </ModalContent>
-        </Modal>
+      {/* CTA buttons */}
+      <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+        <Button color="primary" variant="flat" size="lg" onPress={handleNotMe} className="min-w-[180px]">
+          None of These Are Me
+        </Button>
+      </div>
+
+      {/* Note */}
+      <p className="text-xs text-default-400 text-center">
+        You&apos;ll be able to create a new genealogy profile in the next step.
+      </p>
+
+      {/* Back button */}
+      {canGoBack && (
+        <div className="fixed bottom-0 left-0 right-0 z-50 bg-background pb-4 px-2 sm:px-4 pt-3 border-t border-default-200 md:static md:z-auto md:bg-transparent md:pb-0 md:px-0 md:pt-4 md:border-t-0">
+          <Button variant="light" color="default" startContent={<ArrowLeft className="w-4 h-4" />} onPress={goBack}>
+            Back
+          </Button>
+        </div>
       )}
-    </>
+    </div>
   );
 }
 

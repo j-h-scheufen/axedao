@@ -106,7 +106,7 @@ export const profileFormSchema = object({
     .transform((value) => (value === '' ? null : value))
     .oneOf([...titles, null], 'Not a valid title'),
   name: string().nullable(),
-  nickname: string().nullable(),
+  nickname: string().required('Apelido or username is required').min(1, 'Apelido or username is required'),
   email: string().email('Not a valid email').optional(),
   phone: string().optional(),
   links: linksSchema,
@@ -657,7 +657,7 @@ export type GenealogyGraphParams = InferType<typeof genealogyGraphParamsSchema>;
  */
 export const genealogyProfileFormSchema = object({
   // Sync toggles
-  syncPortrait: boolean().default(true),
+  syncPortrait: boolean().default(false),
   syncApelido: boolean().default(true),
   syncTitle: boolean().default(true),
 

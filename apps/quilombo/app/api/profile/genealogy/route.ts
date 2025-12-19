@@ -7,7 +7,7 @@
  *       Creates a new genealogy profile for a user who doesn't have one yet.
  *       User must NOT have an existing profileId.
  *       Creates person_profiles entry and updates users.profile_id to link them.
- *       Validates apelido uniqueness.
+ *       Validates apelido uniqueness if provided.
  *     tags:
  *       - Profile
  *       - Genealogy
@@ -17,14 +17,14 @@
  *         application/json:
  *           schema:
  *             type: object
- *             required:
- *               - apelido
  *             properties:
  *               portrait:
  *                 type: string
  *                 nullable: true
  *               apelido:
  *                 type: string
+ *                 nullable: true
+ *                 description: Optional - beginners may not have received their apelido yet
  *               apelidoContext:
  *                 type: string
  *                 nullable: true
@@ -86,14 +86,14 @@
  *         application/json:
  *           schema:
  *             type: object
- *             required:
- *               - apelido
  *             properties:
  *               portrait:
  *                 type: string
  *                 nullable: true
  *               apelido:
  *                 type: string
+ *                 nullable: true
+ *                 description: Optional - beginners may not have received their apelido yet
  *               apelidoContext:
  *                 type: string
  *                 nullable: true

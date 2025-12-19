@@ -19,11 +19,11 @@ import { useState } from 'react';
 
 import type { Predicate, SelectStatement } from '@/db/schema/genealogy';
 import { PREDICATE_LABELS } from '@/components/genealogy/types';
-import { SELF_DECLARED_CONFIDENCE } from '@/config/constants';
 import AddRelationshipModal from './AddRelationshipModal';
 
 type RelationshipsWithDetails = SelectStatement & {
   objectName?: string; // Name of the person/group
+  objectTitle?: string | null; // Title of the person (for person relationships)
 };
 
 type RelationshipsSectionProps = {
@@ -72,7 +72,7 @@ const RelationshipsSection = ({ profileId, relationships, isLoading, onDelete }:
             <div className="flex justify-between items-center">
               <div>
                 <p className="text-md font-semibold">Relationships</p>
-                <p className="text-small text-default-500">Declare your connections to mestres and groups</p>
+                <p className="text-small text-default-500">Declare your connections to teachers and groups</p>
               </div>
               {profileId && (
                 <Button
@@ -125,11 +125,22 @@ type RelationshipItemProps = {
 };
 
 /**
+ * Capitalize the first letter of a string.
+ */
+const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
+
+/**
  * Individual relationship item display.
  */
 const RelationshipItem = ({ relationship, onDelete }: RelationshipItemProps) => {
   const predicateLabel = PREDICATE_LABELS[relationship.predicate as Predicate];
   const objectTypeLabel = relationship.objectType === 'person' ? 'Person' : 'Group';
+
+  // For persons, prefix the name with their capitalized title
+  const displayName =
+    relationship.objectType === 'person' && relationship.objectTitle
+      ? `${capitalize(relationship.objectTitle)} ${relationship.objectName || 'Unknown'}`
+      : relationship.objectName || 'Unknown';
 
   return (
     <div className="flex items-center justify-between p-3 bg-default-100 rounded-lg">
@@ -138,32 +149,21 @@ const RelationshipItem = ({ relationship, onDelete }: RelationshipItemProps) => 
           <div className="flex items-center gap-2">
             <span className="text-sm font-medium">{predicateLabel}</span>
             <span className="text-sm text-default-600">→</span>
-            <span className="text-sm font-semibold">{relationship.objectName || 'Unknown'}</span>
+            <span className="text-sm font-semibold">{displayName}</span>
             <Chip size="sm" variant="flat" color="default">
               {objectTypeLabel}
             </Chip>
           </div>
-          <div className="flex items-center gap-2">
-            <Chip
-              size="sm"
-              variant="flat"
-              color={
-                relationship.confidence === 'verified'
-                  ? 'success'
-                  : relationship.confidence === SELF_DECLARED_CONFIDENCE
-                    ? 'primary'
-                    : 'warning'
-              }
-            >
-              {relationship.confidence || SELF_DECLARED_CONFIDENCE}
-            </Chip>
-            {relationship.startedAt && (
-              <span className="text-xs text-default-500">From {new Date(relationship.startedAt).getFullYear()}</span>
-            )}
-            {relationship.endedAt && (
-              <span className="text-xs text-default-500">to {new Date(relationship.endedAt).getFullYear()}</span>
-            )}
-          </div>
+          {(relationship.startedAt || relationship.endedAt) && (
+            <div className="flex items-center gap-2">
+              {relationship.startedAt && (
+                <span className="text-xs text-default-500">From {new Date(relationship.startedAt).getFullYear()}</span>
+              )}
+              {relationship.endedAt && (
+                <span className="text-xs text-default-500">to {new Date(relationship.endedAt).getFullYear()}</span>
+              )}
+            </div>
+          )}
         </div>
       </div>
       <Button isIconOnly size="sm" variant="light" color="danger" onPress={onDelete} aria-label="Delete relationship">
@@ -188,6 +188,12 @@ const DeleteRelationshipModal = ({ isOpen, onClose, onConfirm, relationship }: D
 
   const predicateLabel = PREDICATE_LABELS[relationship.predicate as Predicate];
 
+  // For persons, prefix the name with their capitalized title
+  const displayName =
+    relationship.objectType === 'person' && relationship.objectTitle
+      ? `${capitalize(relationship.objectTitle)} ${relationship.objectName || 'Unknown'}`
+      : relationship.objectName || 'Unknown';
+
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="md">
       <ModalContent>
@@ -198,7 +204,7 @@ const DeleteRelationshipModal = ({ isOpen, onClose, onConfirm, relationship }: D
             <p className="text-sm">
               <span className="font-medium">{predicateLabel}</span>
               <span className="text-default-600"> → </span>
-              <span className="font-semibold">{relationship.objectName || 'Unknown'}</span>
+              <span className="font-semibold">{displayName}</span>
             </p>
           </div>
         </ModalBody>
