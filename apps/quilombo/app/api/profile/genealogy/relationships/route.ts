@@ -221,13 +221,16 @@ export async function GET() {
     // Fetch all statements where user's profile is the subject
     const statements = await fetchStatementsBySubject('person', user.profileId);
 
-    // Enrich with object names
+    // Enrich with object names and titles
     const enrichedStatements = await Promise.all(
       statements.map(async (stmt) => {
         let objectName = 'Unknown';
+        let objectTitle: string | null = null;
+
         if (stmt.objectType === 'person') {
           const person = await fetchPersonProfile(stmt.objectId);
           objectName = person?.apelido || person?.name || 'Unknown';
+          objectTitle = person?.title || null;
         } else if (stmt.objectType === 'group') {
           const group = await fetchGroupProfile(stmt.objectId);
           objectName = group?.name || 'Unknown';
@@ -236,6 +239,7 @@ export async function GET() {
         return {
           ...stmt,
           objectName,
+          objectTitle,
         };
       })
     );

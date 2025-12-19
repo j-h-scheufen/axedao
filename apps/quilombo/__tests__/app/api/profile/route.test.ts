@@ -229,7 +229,7 @@ describe('Profile API Routes', () => {
       it('should return 400 for invalid email', async () => {
         const request = createMockRequest('http://localhost/api/profile', {
           method: 'PATCH',
-          body: { email: 'not-an-email' },
+          body: { nickname: 'TestUser', email: 'not-an-email' },
         });
 
         const response = await PATCH(request);
@@ -242,7 +242,20 @@ describe('Profile API Routes', () => {
       it('should return 400 for invalid title', async () => {
         const request = createMockRequest('http://localhost/api/profile', {
           method: 'PATCH',
-          body: { title: 'InvalidTitle' },
+          body: { nickname: 'TestUser', title: 'InvalidTitle' },
+        });
+
+        const response = await PATCH(request);
+        const body = await getResponseJson(response);
+
+        expect(response.status).toBe(400);
+        expect(body).toEqual({ error: 'Invalid input data' });
+      });
+
+      it('should return 400 for missing nickname', async () => {
+        const request = createMockRequest('http://localhost/api/profile', {
+          method: 'PATCH',
+          body: { name: 'Test Name' },
         });
 
         const response = await PATCH(request);
@@ -255,7 +268,7 @@ describe('Profile API Routes', () => {
       it('should accept valid titles', async () => {
         const request = createMockRequest('http://localhost/api/profile', {
           method: 'PATCH',
-          body: { title: 'mestre' },
+          body: { nickname: 'TestUser', title: 'mestre' },
         });
 
         const response = await PATCH(request);
@@ -266,7 +279,7 @@ describe('Profile API Routes', () => {
       it('should accept null values for optional fields', async () => {
         const request = createMockRequest('http://localhost/api/profile', {
           method: 'PATCH',
-          body: { name: null, title: null },
+          body: { nickname: 'TestUser', name: null, title: null },
         });
 
         const response = await PATCH(request);
@@ -281,7 +294,7 @@ describe('Profile API Routes', () => {
 
         const request = createMockRequest('http://localhost/api/profile', {
           method: 'PATCH',
-          body: { name: 'Updated Name' },
+          body: { nickname: 'TestUser', name: 'Updated Name' },
         });
 
         const response = await PATCH(request);
@@ -339,6 +352,7 @@ describe('Profile API Routes', () => {
         const request = createMockRequest('http://localhost/api/profile', {
           method: 'PATCH',
           body: {
+            nickname: 'TestUser',
             name: 'NewName',
             title: undefined,
           },
@@ -356,6 +370,7 @@ describe('Profile API Routes', () => {
         const request = createMockRequest('http://localhost/api/profile', {
           method: 'PATCH',
           body: {
+            nickname: 'TestUser',
             links: [
               { type: 'website', url: 'https://example.com' },
               { type: 'instagram', url: 'https://instagram.com/user' },
@@ -383,7 +398,7 @@ describe('Profile API Routes', () => {
 
         const request = createMockRequest('http://localhost/api/profile', {
           method: 'PATCH',
-          body: { name: 'Updated Name' },
+          body: { nickname: 'TestUser', name: 'Updated Name' },
         });
 
         const response = await PATCH(request);

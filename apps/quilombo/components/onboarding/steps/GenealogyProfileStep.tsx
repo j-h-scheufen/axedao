@@ -163,7 +163,11 @@ export function GenealogyProfileStep() {
       // Proceed to next step (group or teacher selection)
       goToStep('group-or-teacher');
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to create profile');
+      // Extract error message from axios response or Error object
+      const errorMessage =
+        (err as { response?: { data?: { error?: string } } })?.response?.data?.error ||
+        (err instanceof Error ? err.message : 'Failed to create profile');
+      setError(errorMessage);
     } finally {
       setSubmitting(false);
     }
@@ -183,8 +187,8 @@ export function GenealogyProfileStep() {
       <div className="text-center mb-6">
         <h2 className="text-xl font-semibold mb-2">Your Genealogy Profile</h2>
         <p className="text-default-500">
-          Choose what to publish. We recommend at least your <strong>title</strong> and <strong>apelido</strong> if you
-          have one. Don't have an apelido yet? No problem — you can add it later.
+          Choose what to publish. We recommend at least your <strong>title</strong> and{' '}
+          <strong>apelido / username</strong>
         </p>
       </div>
 

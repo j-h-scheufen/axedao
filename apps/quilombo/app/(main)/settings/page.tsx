@@ -137,7 +137,7 @@ const SettingsPage = () => {
 
   const handleHideEmailChange = async (checked: boolean) => {
     try {
-      await updateProfile({ hideEmail: checked, links: user?.links || [] });
+      await updateProfile({ hideEmail: checked, nickname: user?.nickname || '', links: user?.links || [] });
       enqueueSnackbar(checked ? 'Email hidden from profile' : 'Email visible on profile', { variant: 'success' });
     } catch (error) {
       console.error('Failed to update privacy setting:', error);

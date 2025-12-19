@@ -17,19 +17,19 @@ const SUGGESTIONS = [
   {
     icon: Search,
     title: 'Search People',
-    description: 'Find capoeiristas and explore the community.',
-    path: `${PATHS.search}?tab=people`,
+    description: 'Search for your friends and how to reach them.',
+    path: `${PATHS.search}?tab=users`,
   },
   {
     icon: Users,
     title: 'Browse Groups',
-    description: 'Discover capoeira groups around the world.',
+    description: 'Find groups where you live and get in touch.',
     path: `${PATHS.search}?tab=groups`,
   },
   {
     icon: MapPin,
     title: 'Find Events',
-    description: 'Explore workshops, batizados, and rodas.',
+    description: "Browse events in your area or where you're planning to go.",
     path: `${PATHS.search}?tab=events`,
   },
 ];

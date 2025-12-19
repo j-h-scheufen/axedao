@@ -134,6 +134,8 @@ import { searchPersonProfiles } from '@/db';
  * Query params:
  * - q: search term (required, min 3 chars)
  * - claimableOnly: if "true", excludes deceased and already-claimed profiles
+ * - includeHistorical: if "true", includes historical persons (born 100+ years ago). Default: false
+ * - title: if provided, filters by exact title match (case-insensitive)
  */
 export async function GET(request: NextRequest) {
   const session = await getServerSession(nextAuthOptions);
@@ -145,6 +147,8 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const searchTerm = searchParams.get('q');
     const claimableOnly = searchParams.get('claimableOnly') === 'true';
+    const includeHistorical = searchParams.get('includeHistorical') === 'true';
+    const title = searchParams.get('title') || undefined;
 
     if (!searchTerm || searchTerm.length < 3) {
       return NextResponse.json({ error: 'Search term must be at least 3 characters' }, { status: 400 });
@@ -155,6 +159,8 @@ export async function GET(request: NextRequest) {
       pageSize: 10, // Limit for type-ahead
       searchTerm,
       claimableOnly,
+      includeHistorical,
+      title,
     });
 
     // Return simplified results for type-ahead
