@@ -157,6 +157,31 @@ WHERE s.apelido = 'Crispim' AND s.apelido_context IS NULL
   AND o.apelido = 'Caiçara' AND o.apelido_context IS NULL
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- ------------------------------------------------------------
+-- Crispim associated_with Bugalho
+-- Both participated in film Vadiação (1954)
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1954-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Both participated in the pioneering 1954 film Vadiação, documenting Salvador capoeira masters"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'capoeiraceaca.wordpress.com; sementedojogodeangoladf.wordpress.com',
+  E'Both appeared in "Vadiação" (1954) by Alexandre Robatto Filho, a pioneering documentary of Salvador capoeira masters.',
+  E'Ambos apareceram em "Vadiação" (1954) de Alexandre Robatto Filho, um documentário pioneiro dos mestres de capoeira de Salvador.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Crispim' AND s.apelido_context IS NULL
+  AND o.apelido = 'Bugalho' AND o.apelido_context IS NULL
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
@@ -164,4 +189,3 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Crispim associated_with Nagé - Both in Vadiação (1954); Nagé not yet imported (distinct from Nagé Pedrito victim)
 -- Crispim associated_with Zacarias Boa Morte - Both in Vadiação (1954); needs import
 -- Crispim associated_with Rosendo - Both in Vadiação (1954); needs import
--- Crispim associated_with Bugalho - Both in Vadiação (1954); needs import (Bugalho may already exist - verify apelido)

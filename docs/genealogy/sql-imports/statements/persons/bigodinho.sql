@@ -45,6 +45,30 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Bigodinho' AND o.apelido = 'Auvelino' AND o.apelido_context = 'Salvador'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- ------------------------------------------------------------
+-- Bigodinho associated_with Boca Rica
+-- Recorded CD "Capoeira Angola" together (2000/2002)
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '2000-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Recorded CD ''Capoeira Angola'' together (2000/2002); both from the old guard of Pastinha/Waldemar generation"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com; lalaue.com',
+  E'Recorded CD "Capoeira Angola" together around 2000-2002. Both were elder mestres from the old guard of the Pastinha/Waldemar generation, representing the Angola tradition''s continuity.',
+  E'Gravaram juntos o CD "Capoeira Angola" por volta de 2000-2002. Ambos eram mestres da velha guarda da geração Pastinha/Waldemar, representando a continuidade da tradição Angola.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Bigodinho' AND o.apelido = 'Boca Rica'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
@@ -58,11 +82,6 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Bigodinho associated_with Zacarias Boa Morte
 -- Both frequented Waldemar's Barracão together. Zacarias was Waldemar's first student (1942).
 -- Zacarias Boa Morte is NOT in the database - in persons backlog as pending.
-
--- Bigodinho associated_with Boca Rica
--- Recorded CD "Capoeira Angola" together (2000/2002). Both were from Pastinha/Waldemar generation.
--- Boca Rica is in backlog (pending import as Pastinha student).
--- Statement would be: associated_with, properties: association_context = "Recorded CD together"
 
 -- Bigodinho associated_with Lua Rasta
 -- Close friend who encouraged Bigodinho's return to capoeira in 1997, organized 2007 tribute.

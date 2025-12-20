@@ -147,6 +147,54 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Gato Preto' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- ------------------------------------------------------------
+-- Gato Preto associated_with Canjiquinha
+-- 1970 Berimbau de Ouro competition rivals
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1970-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Competitors at 1970 Berimbau de Ouro competition; both prominent berimbau masters of their era"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com; CapoeiraWiki',
+  E'Both competed in the 1970 Berimbau de Ouro competition in Salvador. Both were renowned berimbau masters of their generation, representing different lineages of the Angola tradition.',
+  E'Ambos competiram no concurso Berimbau de Ouro de 1970 em Salvador. Ambos eram renomados mestres de berimbau de sua geração, representando diferentes linhagens da tradição Angola.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Gato Preto' AND o.apelido = 'Canjiquinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Gato Preto associated_with Vermelho 27
+-- 1970 Berimbau de Ouro competition rivals
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1970-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Competitors at 1970 Berimbau de Ouro competition"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com; CapoeiraWiki',
+  E'Both competed in the 1970 Berimbau de Ouro competition in Salvador. Vermelho 27 was a student of Bimba while Gato Preto came from the Angola lineage.',
+  E'Ambos competiram no concurso Berimbau de Ouro de 1970 em Salvador. Vermelho 27 era aluno de Bimba enquanto Gato Preto vinha da linhagem Angola.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Gato Preto' AND o.apelido = 'Vermelho 27'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
@@ -176,31 +224,12 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- - Mestre Gato II (Sinésio, son) student_of Gato Preto
 -- - Mestre Zé Baiano trained_under Gato Preto (from 1984)
 
--- PERSON RELATIONSHIPS - ASSOCIATES (not in dataset)
-
--- Gato Preto associated_with João Grande - PENDING
--- Part of Dakar 1966 delegation together; contemporaries at CECA
--- Object 'João Grande' needs import - see persons-backlog.md
-
--- Gato Preto associated_with Gildo Alfinete - PENDING
--- Part of Dakar 1966 delegation together
--- Object 'Gildo Alfinete' needs import
-
--- Gato Preto associated_with Roberto Satanás - PENDING
--- Part of Dakar 1966 delegation together; performed capoeira alongside each other
--- Object 'Roberto Satanás' needs import
-
--- Gato Preto associated_with Camafeu de Oxossi - PENDING
--- Part of Dakar 1966 delegation; played berimbau at festival
--- Object 'Camafeu de Oxossi' needs import
-
--- Gato Preto associated_with Canjiquinha - PENDING
--- Competed against Canjiquinha for Berimbau de Ouro (1970)
--- Object 'Canjiquinha' needs import - see persons-backlog.md
-
--- Gato Preto associated_with Vermelho 27 - PENDING
--- Competed against Vermelho 27 for Berimbau de Ouro (1970)
--- Object 'Vermelho 27' needs import - see persons-backlog.md
+-- PERSON RELATIONSHIPS - ASSOCIATES (Dakar 1966 delegation - covered from other sides)
+-- Note: The following Dakar 1966 relationships are already defined in other files:
+-- - Roberto Satanás associated_with Gato Preto (in roberto-satanas.sql)
+-- - Camafeu de Oxossi associated_with Gato Preto (in camafeu-de-oxossi.sql)
+-- - Gildo Alfinete associated_with Gato Preto (in gildo-alfinete.sql)
+-- - João Grande associated_with Gato Preto (in joao-grande.sql)
 
 -- GROUP RELATIONSHIPS (not in dataset)
 

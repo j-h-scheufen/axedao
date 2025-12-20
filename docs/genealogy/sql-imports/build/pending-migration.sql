@@ -1,21 +1,281 @@
 -- ============================================================
 -- GENEALOGY DATA MIGRATION
--- Generated: 2025-12-19T15:07:44.258Z
+-- Generated: 2025-12-20T14:43:17.344Z
 -- ============================================================
 --
--- New entity files: 17
+-- New entity files: 38
 -- Changed entity files: 0
--- New statement files: 17
--- Changed statement files: 1
--- Deleted files: 0
--- Unchanged files: 313
+-- New statement files: 38
+-- Changed statement files: 9
+-- Deleted files: 2
+-- Unchanged files: 303
 -- ============================================================
 
 BEGIN;
 
 -- ============================================================
+-- PHASE 0: DELETE REMOVED ENTITIES AND STATEMENTS
+-- ============================================================
+-- These files were removed from the source directory.
+-- Deleting corresponding records from the database FIRST
+-- to properly handle renames (old apelido → new apelido).
+-- ============================================================
+
+-- Deleting statements for removed file: statements/persons/feliciano-bigode-de-seda.sql
+-- Subject apelido derived from filename: "Feliciano Bigode de Seda"
+DELETE FROM genealogy.statements
+WHERE subject_type = 'person'::genealogy.entity_type
+  AND subject_id IN (
+    SELECT id FROM genealogy.person_profiles WHERE apelido = 'Feliciano Bigode de Seda'
+  );
+
+-- Deleting entity for removed file: entities/persons/feliciano-bigode-de-seda.sql
+-- Apelido derived from filename: "Feliciano Bigode de Seda"
+DELETE FROM genealogy.person_profiles WHERE apelido = 'Feliciano Bigode de Seda';
+
+-- ============================================================
 -- PHASE 1: UPSERT ENTITIES
 -- ============================================================
+
+-- Source: entities/persons/acordeon.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Acordeon
+-- Generated: 2025-12-20
+-- ============================================================
+-- Birth date: August 30, 1943 (exact, per Velhos Mestres)
+-- Still alive as of 2025 (81 years old)
+-- One of ten mestres certified by Mestre Bimba
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  name, apelido, title, portrait, public_links,
+  style, style_notes_en, style_notes_pt,
+  birth_year, birth_year_precision, birth_place,
+  death_year, death_year_precision, death_place,
+  bio_en, bio_pt, achievements_en, achievements_pt,
+  notes_en, notes_pt
+) VALUES (
+  'Ubirajara Guimarães Almeida',
+  'Acordeon',
+  'mestre'::genealogy.title,
+  NULL,
+  ARRAY[
+    'https://velhosmestres.com/br/destaques-76',
+    'https://www.lalaue.com/learn-capoeira/mestre-acordeon/',
+    'https://folkways.si.edu/mestre-acordeon/the-music-of-capoeira/african-american-music-latin-world/album/smithsonian',
+    'https://mesacapoeira.com/bira-almeida-aka-mestre-acordeon',
+    'https://lohpdigitalarchive.omeka.net/exhibits/show/lohp/bira-almedia'
+  ]::text[],
+  'regional'::genealogy.style,
+  E'Mestre Acordeon trained directly with Mestre Bimba, becoming one of only ten mestres certified by the founder of Capoeira Regional. His approach emphasizes the athletic and artistic aspects of capoeira, combining rigorous physical conditioning with deep musical knowledge. He is renowned as a multi-instrumentalist (berimbau, pandeiro, piano, guitar) and composer with over 150 songs to his credit. His style reflects the pure Capoeira Regional of Mestre Bimba while incorporating his own artistic innovations, particularly in the theatrical presentation of capoeira through shows like "Vem Camará: Histórias de Capoeira" which influenced a new generation and established the modern "grupo de capoeira" concept.',
+  E'Mestre Acordeon treinou diretamente com Mestre Bimba, tornando-se um dos apenas dez mestres certificados pelo fundador da Capoeira Regional. Sua abordagem enfatiza os aspectos atléticos e artísticos da capoeira, combinando condicionamento físico rigoroso com profundo conhecimento musical. É reconhecido como multi-instrumentista (berimbau, pandeiro, piano, violão) e compositor com mais de 150 músicas. Seu estilo reflete a Capoeira Regional pura de Mestre Bimba enquanto incorpora suas próprias inovações artísticas, particularmente na apresentação teatral da capoeira através de espetáculos como "Vem Camará: Histórias de Capoeira" que influenciou uma nova geração e estabeleceu o conceito moderno de "grupo de capoeira".',
+  1943,
+  'exact'::genealogy.date_precision,
+  'Salvador, Bahia, Brazil',
+  NULL,
+  NULL,
+  NULL,
+  E'Ubirajara Guimarães Almeida, known as Mestre Acordeon (meaning "accordion" in Portuguese, reflecting his musical talents), was born on August 30, 1943, in Salvador, Bahia, Brazil.
+
+In 1958, at fifteen years old, Acordeon began his capoeira journey when he entered the academy of the legendary Mestre Bimba. His path in capoeira led him to make his mark with what he describes as "the total involvement of body and soul, ARTE-LUTA" (art-fight). He excelled in the athletic and competitive aspects of capoeira while developing exceptional musical abilities.
+
+By 1959, just one year after starting, Acordeon opened his first academy at his residence in Boa Vista de Brotas, Salvador. He quickly attracted students seeking a different approach—one that demanded rigorous physical conditioning combined with artistic values and music.
+
+In 1964, Acordeon founded and directed the Grupo Folclórico da Bahia, pioneering the theatrical presentation of capoeira. In 1966, the group premiered "Vem Camará: Histórias de Capoeira" at Teatro Jovem in Rio de Janeiro—a show that would prove transformative for the art form. The production presented an approach that influenced a new generation of young capoeiristas and affirmed the concept of "grupo de capoeira" as a performing ensemble, not just a training academy.
+
+In 1968, along with Mestre Onça (Ayrton Neves Moura), Acordeon co-founded the K-poeira academy in São Paulo, expanding capoeira''s presence beyond Bahia into Brazil''s largest city.
+
+During the 1970s, Acordeon participated in national capoeira tournaments sponsored by the Brazilian National Confederation of Sports and the Ministry of Education. He won three Brazilian National Championships, establishing himself as one of the premier competitors of his era. In 1975, he represented Bahia in the 1st Troféu Brasil de Capoeira held in São Paulo.
+
+At the end of 1978, Acordeon made a decision that would change capoeira''s global trajectory: he relocated to San Francisco, California. Arriving with his musical group Corpo Santo, he introduced capoeira to the American West Coast in 1979. He was one of two Brazilians who brought capoeira to the United States, and his impact would prove extraordinary.
+
+Beyond teaching capoeira, Acordeon helped co-found the Mission District''s Carnival street celebration in San Francisco in 1979—bringing Brazilian carnival culture to California.
+
+In 1981, Acordeon published "Capoeira: A Brazilian Art Form: History, Philosophy, and Practice" through North Atlantic Books—the first capoeira book ever written in English. This groundbreaking work introduced countless English speakers to the art form and remains influential today.
+
+In 1985, he recorded "The Music of Capoeira: Mestre Acordeon" for Smithsonian Folkways Records (catalog FW04332), featuring tracks like "Saudação aos Mestres" and "Homage to Mestre Bimba: Corridos de Capoeira Regional." The album featured collaborations with Mestre Suassuna and Dennis Broughton.
+
+In 1994, Acordeon became the first "artist" to receive the Tinker Visiting Professorship at the University of Wisconsin-Madison—a significant recognition of capoeira as an academic discipline. The following year, he collaborated with master drummer CK Ladzepko on "Warriors at the Edge of the Rain Forest."
+
+In 1998, Acordeon co-founded the Capoeira Arts Café in downtown Berkeley, California, with Mestre Rã (Cassio Martinho). Together they established the United Capoeira Association (UCA), an organization born from their shared philosophical ideals while preserving their individual identities. The UCA grew to include schools across the United States, Ciudad Juarez in Mexico, and academies in Brazil.
+
+Acordeon also founded the Capoeira Arts Foundation in Berkeley, a 501(c)(3) nonprofit that sponsors the UCA and Projeto Kirimurê—a social program for at-risk children in the Itapoã neighborhood of Salvador, Bahia. The project has been supported since 2005, serving a community where many families live on approximately $8.75 per day.
+
+In 2008, recognizing thirty years of continuous work on the West Coast, the City of Berkeley proclaimed October 18 as "Mestre Acordeon Day."
+
+At age 70, on Labor Day 2013, Acordeon, his wife Suellen Einarsen (Mestra Suelly—the first American woman to earn the mestre title, in 2000), and nine disciples embarked on an extraordinary journey: a 6,500-mile bicycle ride from Berkeley to Salvador, Brazil. The purpose was to raise funds and awareness for Projeto Kirimurê while documenting capoeira''s development in the Americas.
+
+In 2019, Acordeon retired from the Capoeira Arts Foundation and relocated to Albuquerque, New Mexico. In December 2023, he celebrated his 80th birthday with performances at the Freight & Salvage and Casa de Cultura in Berkeley, featuring an ensemble including Grammy Award-winning violinist Evan Price.
+
+His son, Alexandre "Sanfona" Almeida, serves as president of Instituto Mestre Acordeon, continuing the family''s capoeira legacy.',
+  E'Ubirajara Guimarães Almeida, conhecido como Mestre Acordeon (refletindo seus talentos musicais), nasceu em 30 de agosto de 1943, em Salvador, Bahia, Brasil.
+
+Em 1958, aos quinze anos, Acordeon iniciou sua jornada na capoeira quando entrou na academia do lendário Mestre Bimba. Seu caminho na capoeira o levou a fazer sua marca com o que ele descreve como "o envolvimento total de corpo e alma, ARTE-LUTA." Destacou-se nos aspectos atléticos e competitivos da capoeira enquanto desenvolvia habilidades musicais excepcionais.
+
+Em 1959, apenas um ano após começar, Acordeon abriu sua primeira academia em sua residência na Boa Vista de Brotas, Salvador. Rapidamente atraiu alunos buscando uma abordagem diferente—uma que exigia condicionamento físico rigoroso combinado com valores artísticos e música.
+
+Em 1964, Acordeon fundou e dirigiu o Grupo Folclórico da Bahia, pioneiro na apresentação teatral da capoeira. Em 1966, o grupo estreou "Vem Camará: Histórias de Capoeira" no Teatro Jovem no Rio de Janeiro—um espetáculo que se provaria transformador para a arte. A produção apresentou uma abordagem que influenciou uma nova geração de jovens capoeiristas e afirmou o conceito de "grupo de capoeira" como um conjunto de apresentação, não apenas uma academia de treinamento.
+
+Em 1968, junto com Mestre Onça (Ayrton Neves Moura), Acordeon co-fundou a academia K-poeira em São Paulo, expandindo a presença da capoeira para além da Bahia na maior cidade do Brasil.
+
+Durante os anos 1970, Acordeon participou de torneios nacionais de capoeira patrocinados pela Confederação Brasileira de Desportos e pelo Ministério da Educação. Venceu três Campeonatos Brasileiros, estabelecendo-se como um dos principais competidores de sua era. Em 1975, representou a Bahia no 1º Troféu Brasil de Capoeira realizado em São Paulo.
+
+No final de 1978, Acordeon tomou uma decisão que mudaria a trajetória global da capoeira: mudou-se para San Francisco, Califórnia. Chegando com seu grupo musical Corpo Santo, introduziu a capoeira na Costa Oeste americana em 1979. Foi um dos dois brasileiros que trouxeram a capoeira para os Estados Unidos, e seu impacto se provaria extraordinário.
+
+Além de ensinar capoeira, Acordeon ajudou a co-fundar a celebração do Carnaval de rua do Mission District em San Francisco em 1979—trazendo a cultura do carnaval brasileiro para a Califórnia.
+
+Em 1981, Acordeon publicou "Capoeira: A Brazilian Art Form: History, Philosophy, and Practice" pela North Atlantic Books—o primeiro livro de capoeira escrito em inglês. Esta obra pioneira introduziu inúmeros falantes de inglês à arte e permanece influente até hoje.
+
+Em 1985, gravou "The Music of Capoeira: Mestre Acordeon" para a Smithsonian Folkways Records (catálogo FW04332), com faixas como "Saudação aos Mestres" e "Homenagem a Mestre Bimba: Corridos de Capoeira Regional." O álbum contou com colaborações de Mestre Suassuna e Dennis Broughton.
+
+Em 1994, Acordeon tornou-se o primeiro "artista" a receber a Cátedra Visitante Tinker na Universidade de Wisconsin-Madison—um reconhecimento significativo da capoeira como disciplina acadêmica. No ano seguinte, colaborou com o mestre percussionista CK Ladzepko em "Warriors at the Edge of the Rain Forest."
+
+Em 1998, Acordeon co-fundou o Capoeira Arts Café no centro de Berkeley, Califórnia, com Mestre Rã (Cassio Martinho). Juntos estabeleceram a United Capoeira Association (UCA), uma organização nascida de seus ideais filosóficos compartilhados enquanto preservava suas identidades individuais. A UCA cresceu para incluir escolas nos Estados Unidos, Ciudad Juarez no México e academias no Brasil.
+
+Acordeon também fundou a Capoeira Arts Foundation em Berkeley, uma organização sem fins lucrativos 501(c)(3) que patrocina a UCA e o Projeto Kirimurê—um programa social para crianças em risco no bairro de Itapoã em Salvador, Bahia. O projeto é apoiado desde 2005, servindo uma comunidade onde muitas famílias vivem com aproximadamente R$35 por dia.
+
+Em 2008, reconhecendo trinta anos de trabalho contínuo na Costa Oeste, a Cidade de Berkeley proclamou 18 de outubro como "Dia do Mestre Acordeon."
+
+Aos 70 anos, no Labor Day de 2013, Acordeon, sua esposa Suellen Einarsen (Mestra Suelly—a primeira mulher americana a ganhar o título de mestra, em 2000) e nove discípulos embarcaram em uma jornada extraordinária: uma viagem de bicicleta de 10.000 km de Berkeley a Salvador, Brasil. O objetivo era arrecadar fundos e conscientização para o Projeto Kirimurê enquanto documentavam o desenvolvimento da capoeira nas Américas.
+
+Em 2019, Acordeon se aposentou da Capoeira Arts Foundation e mudou-se para Albuquerque, Novo México. Em dezembro de 2023, celebrou seu 80º aniversário com apresentações no Freight & Salvage e Casa de Cultura em Berkeley, com um conjunto incluindo o violinista vencedor do Grammy Evan Price.
+
+Seu filho, Alexandre "Sanfona" Almeida, atua como presidente do Instituto Mestre Acordeon, continuando o legado de capoeira da família.',
+  E'- One of ten mestres certified by Mestre Bimba, Patron of Capoeira
+- Author of "Capoeira: A Brazilian Art Form" (1981) - first capoeira book in English
+- Three-time Brazilian National Capoeira Champion (1970s)
+- Founded Grupo Folclórico da Bahia (1966)
+- Premiered "Vem Camará: Histórias de Capoeira" at Teatro Jovem, Rio de Janeiro (1966)
+- First "artist" to receive Tinker Visiting Professorship at University of Wisconsin-Madison (1994)
+- "Mestre Acordeon Day" proclaimed by City of Berkeley (October 18, 2008)
+- Co-founded United Capoeira Association (UCA) with Mestre Rã
+- Co-founded Capoeira Arts Café, Berkeley (1998)
+- Founded Capoeira Arts Foundation (nonprofit)
+- Founded Projeto Kirimurê social program for at-risk youth in Itapoã, Salvador
+- Co-founded K-poeira academy in São Paulo with Mestre Onça (1968)
+- Co-founder of IBEC (Brazilian Institute for the Study of Capoeira)
+- Council member of ABCP (Brazilian Association of Capoeira Teachers)
+- Recorded "The Music of Capoeira" for Smithsonian Folkways (1985)
+- Over 150 compositions credited
+- 9 CDs and 3 DVDs produced
+- Co-founded San Francisco Mission District Carnival (1979)
+- 6,500-mile bicycle journey Berkeley to Salvador, Brazil (2013, age 70)',
+  E'- Um dos dez mestres certificados por Mestre Bimba, Patrono da Capoeira
+- Autor de "Capoeira: A Brazilian Art Form" (1981) - primeiro livro de capoeira em inglês
+- Tricampeão Brasileiro de Capoeira (anos 1970)
+- Fundou o Grupo Folclórico da Bahia (1966)
+- Estreou "Vem Camará: Histórias de Capoeira" no Teatro Jovem, Rio de Janeiro (1966)
+- Primeiro "artista" a receber a Cátedra Visitante Tinker na Universidade de Wisconsin-Madison (1994)
+- "Dia do Mestre Acordeon" proclamado pela Cidade de Berkeley (18 de outubro de 2008)
+- Co-fundou a United Capoeira Association (UCA) com Mestre Rã
+- Co-fundou o Capoeira Arts Café, Berkeley (1998)
+- Fundou a Capoeira Arts Foundation (organização sem fins lucrativos)
+- Fundou o Projeto Kirimurê, programa social para jovens em risco em Itapoã, Salvador
+- Co-fundou a academia K-poeira em São Paulo com Mestre Onça (1968)
+- Co-fundador do IBEC (Instituto Brasileiro para o Estudo da Capoeira)
+- Membro do conselho da ABCP (Associação Brasileira de Capoeira Professores)
+- Gravou "The Music of Capoeira" para Smithsonian Folkways (1985)
+- Mais de 150 composições creditadas
+- 9 CDs e 3 DVDs produzidos
+- Co-fundou o Carnaval do Mission District de San Francisco (1979)
+- Jornada de bicicleta de 10.000 km de Berkeley a Salvador, Brasil (2013, aos 70 anos)',
+  E'Also known as Bira Almeida, Mestre Bira.
+
+TRAINING:
+- Mestre Bimba (1958+) - Primary teacher; one of ten certified mestres
+
+TITLE:
+- Certified mestre by Mestre Bimba (date unknown, likely early 1960s based on opening first academy in 1959)
+
+MEDIA APPEARANCES:
+- 1966: "Vem Camará: Histórias de Capoeira" theatrical show, Teatro Jovem, Rio de Janeiro
+- 1985: "The Music of Capoeira: Mestre Acordeon" album, Smithsonian Folkways (FW04332)
+- 1990: Photographed with Mestre Cobra Mansa (Velhos Mestres)
+- 2002: "Eh Capoeira" CD release
+- 2012: "Capoeira Voices Vol 1" and "Capoeira Bahia" CD releases
+- 2013: Documentary footage from Berkeley-to-Salvador bicycle journey
+
+STUDENTS (promoted to mestre):
+- Mestra Suelly (Suellen Einarsen) - 2000; first American woman to earn mestre title; began training 1982
+- Mestre Rã (Cassio Martinho) - UCA co-founder; began training in Brazil
+- Mestre Besouro - December 2022
+- Mestre Recruta (Chris Montiel) - September 2016
+- Mestre Avestruz - began training 1981
+- Mestre Mata Mosquito (Silver Cruz) - recent promotion
+
+FAMILY:
+- Wife: Mestra Suelly (Suellen Einarsen)
+- Son: Alexandre "Sanfona" Almeida (president of Instituto Mestre Acordeon)
+
+GROUPS/ORGANIZATIONS:
+- Grupo Folclórico da Bahia (founder, 1964/1966)
+- K-poeira São Paulo (co-founder with Mestre Onça, 1968)
+- United Capoeira Association/UCA (co-founder with Mestre Rã)
+- Capoeira Arts Foundation, Berkeley (founder)
+- Capoeira Arts Café, Berkeley (co-founder with Mestre Rã, 1998)
+- Corpo Santo band (musical group)
+- IBEC/Brazilian Institute for the Study of Capoeira (co-founder)
+- ABCP/Brazilian Association of Capoeira Teachers (council member)
+- Grupo Folclórico da Politécnica (toured Europe - from book author bio)
+- World Capoeira Association (founder and first president - from book author bio)
+
+Other sources mention he won Grupo Folclórico awards in Argentina and Ecuador.
+
+Currently living in Albuquerque, New Mexico (as of 2019).',
+  E'Também conhecido como Bira Almeida, Mestre Bira.
+
+TREINAMENTO:
+- Mestre Bimba (1958+) - Mestre principal; um dos dez mestres certificados
+
+TÍTULO:
+- Mestre certificado por Mestre Bimba (data desconhecida, provavelmente início dos anos 1960 baseado na abertura da primeira academia em 1959)
+
+APARIÇÕES NA MÍDIA:
+- 1966: Espetáculo teatral "Vem Camará: Histórias de Capoeira", Teatro Jovem, Rio de Janeiro
+- 1985: Álbum "The Music of Capoeira: Mestre Acordeon", Smithsonian Folkways (FW04332)
+- 1990: Fotografado com Mestre Cobra Mansa (Velhos Mestres)
+- 2002: Lançamento do CD "Eh Capoeira"
+- 2012: Lançamento dos CDs "Capoeira Voices Vol 1" e "Capoeira Bahia"
+- 2013: Filmagem de documentário da jornada de bicicleta Berkeley-Salvador
+
+ALUNOS (promovidos a mestre):
+- Mestra Suelly (Suellen Einarsen) - 2000; primeira mulher americana a ganhar título de mestra; começou treinamento em 1982
+- Mestre Rã (Cassio Martinho) - co-fundador da UCA; começou treinamento no Brasil
+- Mestre Besouro - dezembro de 2022
+- Mestre Recruta (Chris Montiel) - setembro de 2016
+- Mestre Avestruz - começou treinamento em 1981
+- Mestre Mata Mosquito (Silver Cruz) - promoção recente
+
+FAMÍLIA:
+- Esposa: Mestra Suelly (Suellen Einarsen)
+- Filho: Alexandre "Sanfona" Almeida (presidente do Instituto Mestre Acordeon)
+
+GRUPOS/ORGANIZAÇÕES:
+- Grupo Folclórico da Bahia (fundador, 1964/1966)
+- K-poeira São Paulo (co-fundador com Mestre Onça, 1968)
+- United Capoeira Association/UCA (co-fundador com Mestre Rã)
+- Capoeira Arts Foundation, Berkeley (fundador)
+- Capoeira Arts Café, Berkeley (co-fundador com Mestre Rã, 1998)
+- Banda Corpo Santo (grupo musical)
+- IBEC/Instituto Brasileiro para o Estudo da Capoeira (co-fundador)
+- ABCP/Associação Brasileira de Capoeira Professores (membro do conselho)
+- Grupo Folclórico da Politécnica (turnê Europa - da biografia do autor do livro)
+- World Capoeira Association (fundador e primeiro presidente - da biografia do autor do livro)
+
+Outras fontes mencionam que ganhou prêmios do Grupo Folclórico na Argentina e Equador.
+
+Atualmente morando em Albuquerque, Novo México (desde 2019).'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name, title = EXCLUDED.title, portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links, style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en, style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year, birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place, death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision, death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en, bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en, achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en, notes_pt = EXCLUDED.notes_pt, updated_at = NOW();
 
 -- Source: entities/persons/albertino-da-hora.sql (NEW)
 -- ============================================================
@@ -168,6 +428,76 @@ INSERT INTO genealogy.person_profiles (
   -- Researcher notes
   E'BIRTH YEAR ESTIMATION (1885, decade precision):\nActive as valentona from 1910-1920 per newspaper records. If in prime fighting age (25-35) during this period, birth = ~1875-1895. Using 1885 as midpoint.\n\nFULL NAME: Anna Angélica (per Espeto Capoeira article). Surname unknown.\n\nDEATH: Unknown. No death records found.\n\nAPELIDO MEANING: "Endiabrada" = "possessed by the devil" or "wild/devilish." Given as adjective to women skilled in physical combat.\n\nKEY INCIDENT: Confronted civil guard, resisted arrest, struck officer breaking his mouth. This incident earned her the "Endiabrada" epithet.\n\nNEWSPAPER RECORDS: Frequently appeared in Salvador newspaper headlines and police records between 1910-1920.\n\nBOOK CHAPTER: "Maria Doze Homem e Angélica Endiabrada: Briga por moqueca" in "Mestres e capoeiras famosos da Bahia" (JSTOR, Pedro Abib 2009).\n\nCORDEL LITERATURE: Remembered in literatura de cordel alongside Besouro Mangangá, Inocêncio Sete Mortes, Maria Doze Homem.\n\nCAVEAT: No direct proof she practiced capoeira formally. Newspapers/police labeled valentonas as capoeiristas. Weapon mastery (navalha, canivete, faca, punhal) suggests connection to capoeiragem culture.\n\nCONTEMPORARY VALENTONAS (1910s-1920s):\n- Salomé (active 1920s-1930s)\n- Maria Doze Homens\n- Chicão (Francisca Albino dos Santos, killed Pedro Porreta 1929)\n- Rosa Palmeirão (Cândida Rosa de Jesus)\n- Massú\n- Catu\n- Almerinda\n- Menininha\n- Adelaide Presepeira (1920s-1930s)\n- Idalina (arrested multiple times 1910s-1920s)\n\nPRIMARY SOURCES:\n- Antônio Vianna, "Casos e coisas da Bahia" (1950, 1984)\n- Pedro Abib, "Mestres e capoeiras famosos da Bahia" (2009)\n- Paula Juliana Foltran, "Mulheres incorrigíveis" PhD thesis (UnB, 2019)\n- Newspaper archives: Jornal de Notícias, Gazeta do Povo (1910s-1920s)',
   E'ESTIMATIVA DO ANO DE NASCIMENTO (1885, precisão de década):\nAtiva como valentona de 1910-1920 segundo registros de jornais. Se estava em idade de luta (25-35) durante este período, nascimento = ~1875-1895. Usando 1885 como ponto médio.\n\nNOME COMPLETO: Anna Angélica (segundo artigo Espeto Capoeira). Sobrenome desconhecido.\n\nMORTE: Desconhecida. Nenhum registro de óbito encontrado.\n\nSIGNIFICADO DO APELIDO: "Endiabrada" = "possuída pelo diabo" ou "selvagem/diabólica." Dado como adjetivo a mulheres hábeis no combate físico.\n\nINCIDENTE PRINCIPAL: Enfrentou guarda civil, resistiu à prisão, bateu no oficial quebrando sua boca. Este incidente lhe rendeu o epíteto "Endiabrada."\n\nREGISTROS DE JORNAIS: Aparecia frequentemente nas manchetes dos jornais de Salvador e registros policiais entre 1910-1920.\n\nCAPÍTULO DE LIVRO: "Maria Doze Homem e Angélica Endiabrada: Briga por moqueca" em "Mestres e capoeiras famosos da Bahia" (JSTOR, Pedro Abib 2009).\n\nLITERATURA DE CORDEL: Lembrada na literatura de cordel ao lado de Besouro Mangangá, Inocêncio Sete Mortes, Maria Doze Homem.\n\nRESALVA: Nenhuma prova direta de que praticava capoeira formalmente. Jornais/polícia rotulavam valentonas como capoeiristas. Domínio de armas (navalha, canivete, faca, punhal) sugere conexão com a cultura da capoeiragem.\n\nVALENTONAS CONTEMPORÂNEAS (1910s-1920s):\n- Salomé (ativa 1920s-1930s)\n- Maria Doze Homens\n- Chicão (Francisca Albino dos Santos, matou Pedro Porreta 1929)\n- Rosa Palmeirão (Cândida Rosa de Jesus)\n- Massú\n- Catu\n- Almerinda\n- Menininha\n- Adelaide Presepeira (1920s-1930s)\n- Idalina (presa várias vezes 1910s-1920s)\n\nFONTES PRIMÁRIAS:\n- Antônio Vianna, "Casos e coisas da Bahia" (1950, 1984)\n- Pedro Abib, "Mestres e capoeiras famosos da Bahia" (2009)\n- Paula Juliana Foltran, "Mulheres incorrigíveis" tese PhD (UnB, 2019)\n- Arquivos de jornais: Jornal de Notícias, Gazeta do Povo (1910s-1920s)'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
+  updated_at = NOW();
+
+-- Source: entities/persons/bigode-de-seda.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Feliciano Bigode de Seda
+-- Generated: 2025-12-15
+-- Updated: 2025-12-20 (added Pastinha 1967 interview context)
+-- ============================================================
+-- BIRTH YEAR ESTIMATION:
+-- As a founding mestre of Gengibirra in the 1920s, Feliciano was likely
+-- an established practitioner by that time (age 25-40). This suggests
+-- a birth year around 1880-1900. Using mid-point estimate with decade
+-- precision: ~1890.
+--
+-- DEATH YEAR ESTIMATION:
+-- Pastinha confirmed in 1967 interview that Bigode de Seda was "already dead."
+-- Given he was a founding mestre of Gengibirra (~1920s), he was likely
+-- born ~1890 and would have died sometime between 1940s-1960s.
+-- Using 1960 as estimate with decade precision.
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  name, apelido, title, portrait, public_links,
+  style, style_notes_en, style_notes_pt,
+  birth_year, birth_year_precision, birth_place,
+  death_year, death_year_precision, death_place,
+  bio_en, bio_pt, achievements_en, achievements_pt,
+  notes_en, notes_pt
+) VALUES (
+  'Feliciano',
+  'Bigode de Seda',
+  NULL,
+  NULL,
+  ARRAY['https://velhosmestres.com/en/pastinha-1967', 'https://capoeirahistory.com/classical-texts-of-capoeira-history-the-manuscripts-of-mestre-noronha/']::text[],
+  'angola'::genealogy.style,
+  NULL,
+  NULL,
+  1890,
+  'decade'::genealogy.date_precision,
+  'Salvador, Bahia, Brazil',
+  1960,
+  'decade'::genealogy.date_precision,
+  NULL,
+  E'Bigode de Seda ("Silk Mustache") was one of the legendary capoeiristas of Bahia''s golden era. In a 1967 interview with Revista Realidade, Mestre Pastinha remembered him among the great capoeiristas of the past: "Bigode de Seda, Américo Ciência, Bugalho, Amorzinho, Zé Bom Pé, Chico Três Pedaços, Tibirici da Folha Grossa, Doze Homens, Inimigo Sem Tripa, Zé do U, Vitorino Braço Torto, Zé do Saco, Bené do Correio, Sete Mortes, Chico Me Dá." Pastinha noted that "pelo apelido dá para saber como eram, como lutavam" (from the nicknames alone you can know who they were, how they fought).\n\nBigode de Seda was one of the 22 founding mestres of the Centro Nacional de Capoeira de Origem Angola, the historic gathering at Ladeira de Pedra in the Gengibirra area of Salvador''s Liberdade neighborhood. This center, established in the 1920s during the era when capoeira was still criminalized in Brazil, served as the primary meeting place for traditional capoeira angola practitioners.\n\nMestre Noronha, who documented the history of Gengibirra in his manuscripts (later published as "O ABC da Capoeira Angola" in 1993), listed him among the founding mestres attracted to the first organized Capoeira Centre. The center, led by four "donos e proprietários" (Noronha, Livino, Totonho de Maré, and Amorzinho), used the green and yellow colors of the Brazilian flag as their symbolic colors.\n\nBigode de Seda was present at the historic gathering when, on February 23, 1941, Mestre Aberrê introduced Mestre Pastinha to the roda at Gengibirra, leading to Pastinha''s assumption of leadership and the eventual transformation into CECA (Centro Esportivo de Capoeira Angola). By 1967, Pastinha confirmed that Bigode de Seda, like all of that legendary generation, had passed away.',
+  E'Bigode de Seda ("Bigode de Seda") foi um dos lendários capoeiristas da era de ouro da Bahia. Em uma entrevista de 1967 à Revista Realidade, Mestre Pastinha o lembrou entre os grandes capoeiristas do passado: "Bigode de Seda, Américo Ciência, Bugalho, Amorzinho, Zé Bom Pé, Chico Três Pedaços, Tibirici da Folha Grossa, Doze Homens, Inimigo Sem Tripa, Zé do U, Vitorino Braço Torto, Zé do Saco, Bené do Correio, Sete Mortes, Chico Me Dá." Pastinha observou que "pelo apelido dá para saber como eram, como lutavam" (pelos apelidos dá para saber quem eram, como lutavam).\n\nBigode de Seda foi um dos 22 mestres fundadores do Centro Nacional de Capoeira de Origem Angola, a histórica reunião na Ladeira de Pedra, na área do Gengibirra, no bairro da Liberdade em Salvador. Este centro, estabelecido na década de 1920 durante a era em que a capoeira ainda era criminalizada no Brasil, serviu como o principal ponto de encontro dos praticantes de capoeira angola tradicional.\n\nMestre Noronha, que documentou a história do Gengibirra em seus manuscritos (posteriormente publicados como "O ABC da Capoeira Angola" em 1993), o listou entre os mestres fundadores atraídos ao primeiro Centro de Capoeira organizado. O centro, liderado por quatro "donos e proprietários" (Noronha, Livino, Totonho de Maré e Amorzinho), usava as cores verde e amarela da bandeira brasileira como suas cores simbólicas.\n\nBigode de Seda esteve presente na histórica reunião quando, em 23 de fevereiro de 1941, Mestre Aberrê apresentou Mestre Pastinha à roda do Gengibirra, levando à assunção da liderança por Pastinha e à eventual transformação em CECA (Centro Esportivo de Capoeira Angola). Em 1967, Pastinha confirmou que Bigode de Seda, como toda aquela geração lendária, havia falecido.',
+  E'Co-founder of the Centro Nacional de Capoeira de Origem Angola (Gengibirra), the first organized center for Capoeira Angola in the state of Bahia.',
+  E'Cofundador do Centro Nacional de Capoeira de Origem Angola (Gengibirra), o primeiro centro organizado de Capoeira Angola no estado da Bahia.',
+  E'BIRTH YEAR ESTIMATION (1890, decade):\nAs a founding mestre of Gengibirra in the 1920s, he was likely an established practitioner by that time (age 25-40), suggesting birth ~1880-1900.\n\nDEATH YEAR ESTIMATION (1960, decade):\nPastinha confirmed in 1967 interview (Revista Realidade) that Bigode de Seda was "já morto" (already dead). Given his activity in 1920s-1941, death likely occurred 1940s-1960s.\n\nNAME VARIATION:\n- "Bigode de Seda" - Pastinha 1967 interview, most sources (used as apelido)\n- "Feliciano Bigode de Seda" - Noronha manuscripts, some sources\nThese refer to the SAME PERSON. "Feliciano" is kept as given name; "Bigode de Seda" used as apelido for consistency with how Pastinha referred to him.\n\nMEDIA APPEARANCES:\n- 1967: Named by Mestre Pastinha in Revista Realidade interview as one of the legendary capoeiristas of the past.\n- 1993: Listed in "O ABC da Capoeira Angola" (Noronha manuscripts compiled by Frede Abreu) as founding mestre of Gengibirra.',
+  E'ESTIMATIVA DO ANO DE NASCIMENTO (1890, década):\nComo mestre fundador do Gengibirra na década de 1920, era provavelmente um praticante estabelecido naquela época (25-40 anos), sugerindo nascimento ~1880-1900.\n\nESTIMATIVA DO ANO DE MORTE (1960, década):\nPastinha confirmou em entrevista de 1967 (Revista Realidade) que Bigode de Seda estava "já morto". Dada sua atividade de 1920 a 1941, a morte provavelmente ocorreu entre 1940-1960.\n\nVARIAÇÃO DE NOME:\n- "Bigode de Seda" - entrevista de Pastinha 1967, maioria das fontes (usado como apelido)\n- "Feliciano Bigode de Seda" - manuscritos de Noronha, algumas fontes\nReferem-se à MESMA PESSOA. "Feliciano" mantido como nome de batismo; "Bigode de Seda" usado como apelido para consistência com como Pastinha se referia a ele.\n\nAPARIÇÕES NA MÍDIA:\n- 1967: Nomeado por Mestre Pastinha em entrevista à Revista Realidade como um dos lendários capoeiristas do passado.\n- 1993: Listado em "O ABC da Capoeira Angola" (manuscritos de Noronha compilados por Frede Abreu) como mestre fundador do Gengibirra.'
 )
 ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
@@ -398,6 +728,953 @@ LOCAL DA RODA: Forte da Capoeira, Largo de Santo Antônio Além do Carmo, Salvad
 
 RELACIONAMENTOS PENDENTES:
 - Boca Rica associated_with Viva Bahia (grupo folclórico; listado junto com muitos mestres que passaram)'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
+  updated_at = NOW();
+
+-- Source: entities/persons/bola-sete.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Bola Sete
+-- Generated: 2025-12-20
+-- ============================================================
+-- APELIDO ORIGIN: Received "Bola Sete" (Seven Ball) because he
+-- trained entirely dressed in black, like the solid black 8-ball
+-- on a billiards table. (Per Portal Capoeira interview: "Bola
+-- Sete recebeu esse nome por treinar todo vestido de preto")
+--
+-- TRAINING TIMELINE:
+-- - 1962: Began self-training capoeira on streets of Salvador
+-- - 1968: Started formal training with Pessoa Bababá
+-- - 1969: Entered Mestre Pastinha's academy (CECA) as Field Supervisor
+-- - 1979: Graduated by Mestre Pastinha (diploma received)
+-- - 1980: Founded Centro de Cultura da Capoeira Tradicional Bahia
+--
+-- STUDENT OF PASTINHA: Trained under Mestre Pastinha for 13 years
+-- (1969-1981, until Pastinha's death). Received the role of
+-- "Fiscal de Campo" (Field Supervisor) at CECA.
+--
+-- BOOKS PUBLISHED:
+-- 1. "A Capoeira Angola na Bahia" (Pallas, 1997/2006, 197pp)
+-- 2. "Capoeira Angola do iniciante ao mestre"
+-- 3. "Histórias e Estórias da Capoeiragem" (P555 Edições, 2006)
+--
+-- AUDIO CD: "Aqui só Angola" - recorded at his academy with students
+--
+-- ABCA: President of the Council of Mestres of the Associação
+-- Brasileira de Capoeira Angola (ABCA).
+--
+-- EMPLOYMENT: Transportation Sector, Office of Industry, Trade,
+-- and Mining (Secretaria de Indústria, Comércio e Mineração)
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  name, apelido, title, portrait, public_links,
+  style, style_notes_en, style_notes_pt,
+  birth_year, birth_year_precision, birth_place,
+  death_year, death_year_precision, death_place,
+  bio_en, bio_pt, achievements_en, achievements_pt,
+  notes_en, notes_pt
+) VALUES (
+  'José Luiz Oliveira Cruz',
+  'Bola Sete',
+  'mestre'::genealogy.title,
+  NULL, -- No portrait available
+  ARRAY['https://capoeira-connection.com/capoeira/2011/10/interview-with-mestre-bola-sete/', 'https://portalcapoeira.com/capoeira/mestres/entrevista-exclusiva-com-jose-luiz-oliveira-cruz-mestre-bola-sete/', 'https://nossa-tribo.com/mestre-bola-sete/', 'https://www.capoeirahub.net/mestres/bola-sete']::text[],
+  'angola'::genealogy.style,
+  E'Trained in traditional Capoeira Angola under Mestre Pastinha. Emphasizes defense over attack as capoeira''s fundamental principle. Critic of modern acrobatic approaches, advocating for the preservation of traditional values and the unique individual style each student developed at CECA. Teaches at Centro de Cultura da Capoeira Tradicional Bahiana in Salvador.',
+  E'Treinado na tradicional Capoeira Angola sob Mestre Pastinha. Enfatiza a defesa sobre o ataque como princípio fundamental da capoeira. Crítico das abordagens acrobáticas modernas, defendendo a preservação dos valores tradicionais e do estilo individual único que cada aluno desenvolvia no CECA. Ensina no Centro de Cultura da Capoeira Tradicional Bahiana em Salvador.',
+  1950,
+  'exact'::genealogy.date_precision,
+  'Santo Antônio de Jesus, Bahia, Brazil',
+  NULL, -- Still alive as of last documentation
+  NULL,
+  NULL,
+  -- bio_en
+  E'José Luiz Oliveira Cruz, known as Mestre Bola Sete, was born on May 31, 1950, in Santo Antônio de Jesus, a town in the Recôncavo Baiano region of Bahia. His journey into capoeira began in 1962, at age twelve, when he started teaching himself the art through observation and practice on the streets of Salvador.
+
+His formal training commenced in 1968 when he began studying under the great capoeirista Pessoa Bababá, a merchant marine sailor and disciple of Mestre Pastinha. Pessoa Bababá was known as "muito forte e valente" (very strong and brave) and a "perigoso marinheiro" (dangerous sailor). He taught the old game the old way: in a small, poorly-lit basement space, with low light, full attention, and emphasis on ritual, measure, and defense over show. Bola Sete trained under Pessoa Bababá for approximately one year.
+
+In 1969, Bola Sete entered the academy of Vicente Ferreira Pastinha—the Centro Esportivo de Capoeira Angola (CECA) at Largo do Pelourinho—assuming the crucial role of "Fiscal de Campo" (Field Supervisor). His nickname "Bola Sete" (Seven Ball) came from his habit of training entirely dressed in black, reminiscent of the solid balls in billiards.
+
+For thirteen years, until Pastinha''s death in 1981, Bola Sete dedicated himself to learning under the master. The moment he remembers with the most affection was a chamada during which Pastinha held his head with both hands, leaned it against his own, and said: "Zé Luiz… you have a twin soul to mine!" In 1979, his unwavering dedication culminated in his graduation by Mestre Pastinha himself.
+
+In 1980, shortly before Pastinha''s death, Bola Sete founded his own academy: the Centro de Cultura da Capoeira Tradicional Bahia (Center for Traditional Bahian Capoeira Culture). The academy operates at Passeio Público grounds near Campo Grande in Salvador, with classes on Saturdays (9:30 AM - 12:00 PM) and Sundays (4:30 PM - 6:00 PM).
+
+Mestre Bola Sete is a prolific author. His first book, "A Capoeira Angola na Bahia" (Capoeira Angola in Bahia), was published by Pallas in 1997, with subsequent editions in 2000, 2001, 2005, and 2006. The 197-page work originated from his experience practicing capoeira and knowledge acquired through contact with great capoeiristas, especially Mestre Pastinha. It includes songs (cantigas), photographs of movements, and rhythms for playing the berimbau. His second book, "Histórias e Estórias da Capoeiragem" (Stories and Tales of Capoeiragem), published in 2006 by P555 Edições in Salvador, seeks to preserve the history of capoeira and the names of capoeiristas who might otherwise be forgotten, such as Pessoa Bababá, Bobó, and Valdomiro Malvadeza. He also wrote "Capoeira Angola do iniciante ao mestre" (Capoeira Angola from Beginner to Master) and recorded an audio CD titled "Aqui só Angola" (Here Only Angola) at his academy with his students.
+
+In October 2006, Mestres Bola Sete and Gildo Alfinete gave a lecture at the Associação Brasileira de Capoeira Angola (ABCA) in Salvador. During this lecture, Bola Sete observed that today some people say capoeira angola is non-contact, when in the old days the games were really rough. He noted that in Pastinha''s academy, each of the students had a different, unique style of playing; today many angoleiros are all playing the same way. He called capoeira Brazilian since it arose on Brazilian soil, although its roots are African. He also explained that the term "angola" did not arise in the 1930s to differentiate traditional capoeira from Bimba''s style—the term "capoeira de angola" appears in manuscripts from 1920 and earlier, and referred to the fact that practitioners were mainly Africans from the Angolan region.
+
+Mestre Bola Sete emphasizes that "humility was the greatest lesson I learned in those 37 years of Capoeira Angola." He criticizes modern practice: "The capoeira practiced today is not authentic, because it is done just to impress people with its acrobatic and aggressive flips." For him, "defense, not attack" remains capoeira''s primary fundamental principle.
+
+Today, Mestre Bola Sete holds the esteemed position of President of the Council of Mestres of the Associação Brasileira de Capoeira Angola (ABCA), founded in 1987. Through his continuous efforts in teaching, writing, and advocacy, he has played a pivotal role in safeguarding and disseminating the cultural significance of traditional Capoeira Angola to future generations. He was listed among the habilitados (qualified candidates) for the "Prêmio Viva Meu Mestre" (Live My Master Award) in 2010, awarded by Brazil''s Institute of National Historical and Artistic Heritage (IPHAN).',
+  -- bio_pt
+  E'José Luiz Oliveira Cruz, conhecido como Mestre Bola Sete, nasceu em 31 de maio de 1950, em Santo Antônio de Jesus, uma cidade na região do Recôncavo Baiano. Sua jornada na capoeira começou em 1962, aos doze anos, quando começou a ensinar a si mesmo a arte através de observação e prática nas ruas de Salvador.
+
+Seu treinamento formal começou em 1968 quando começou a estudar sob o grande capoeirista Pessoa Bababá, um marinheiro da Marinha Mercante e discípulo de Mestre Pastinha. Pessoa Bababá era conhecido como "muito forte e valente" e um "perigoso marinheiro". Ele ensinava o jogo antigo da maneira antiga: em um pequeno espaço mal iluminado no porão, com pouca luz, atenção plena e ênfase no ritual, na medida e na defesa sobre o espetáculo. Bola Sete treinou sob Pessoa Bababá por aproximadamente um ano.
+
+Em 1969, Bola Sete ingressou na academia de Vicente Ferreira Pastinha—o Centro Esportivo de Capoeira Angola (CECA) no Largo do Pelourinho—assumindo o papel crucial de "Fiscal de Campo". Seu apelido "Bola Sete" veio de seu hábito de treinar totalmente vestido de preto, lembrando as bolas sólidas do bilhar.
+
+Por treze anos, até a morte de Pastinha em 1981, Bola Sete se dedicou a aprender sob o mestre. O momento que ele lembra com mais carinho foi uma chamada durante a qual Pastinha segurou sua cabeça com as duas mãos, encostou-a na sua própria e disse: "Zé Luiz… você tem uma alma gêmea à minha!" Em 1979, sua dedicação inabalável culminou em sua formatura pelo próprio Mestre Pastinha.
+
+Em 1980, pouco antes da morte de Pastinha, Bola Sete fundou sua própria academia: o Centro de Cultura da Capoeira Tradicional Bahia. A academia funciona no Passeio Público perto do Campo Grande em Salvador, com aulas aos sábados (9:30 - 12:00) e domingos (16:30 - 18:00).
+
+Mestre Bola Sete é um autor prolífico. Seu primeiro livro, "A Capoeira Angola na Bahia", foi publicado pela Pallas em 1997, com edições subsequentes em 2000, 2001, 2005 e 2006. A obra de 197 páginas originou-se de sua experiência praticando capoeira e do conhecimento adquirido através do contato com grandes capoeiristas, especialmente Mestre Pastinha. Inclui cantigas, fotografias de movimentos e toques para tocar berimbau. Seu segundo livro, "Histórias e Estórias da Capoeiragem", publicado em 2006 pela P555 Edições em Salvador, busca preservar a história da capoeira e os nomes de capoeiristas que poderiam ser esquecidos, como Pessoa Bababá, Bobó e Valdomiro Malvadeza. Ele também escreveu "Capoeira Angola do iniciante ao mestre" e gravou um CD de áudio intitulado "Aqui só Angola" em sua academia com seus alunos.
+
+Em outubro de 2006, os Mestres Bola Sete e Gildo Alfinete deram uma palestra na Associação Brasileira de Capoeira Angola (ABCA) em Salvador. Durante esta palestra, Bola Sete observou que hoje algumas pessoas dizem que a capoeira angola é sem contato, quando antigamente os jogos eram realmente duros. Ele notou que na academia de Pastinha, cada um dos alunos tinha um estilo diferente e único de jogar; hoje muitos angoleiros estão todos jogando da mesma maneira. Ele chamou a capoeira de brasileira já que surgiu em solo brasileiro, embora suas raízes sejam africanas. Ele também explicou que o termo "angola" não surgiu nos anos 1930 para diferenciar a capoeira tradicional do estilo de Bimba—o termo "capoeira de angola" aparece em manuscritos de 1920 e anteriores, e se referia ao fato de que os praticantes eram principalmente africanos da região angolana.
+
+Mestre Bola Sete enfatiza que "a humildade foi a maior lição que aprendi nesses 37 anos de Capoeira Angola." Ele critica a prática moderna: "A capoeira praticada hoje não é autêntica, porque é feita apenas para impressionar as pessoas com suas piruetas acrobáticas e agressivas." Para ele, "defesa, não ataque" permanece o princípio fundamental primário da capoeira.
+
+Hoje, Mestre Bola Sete ocupa a estimada posição de Presidente do Conselho de Mestres da Associação Brasileira de Capoeira Angola (ABCA), fundada em 1987. Através de seus esforços contínuos no ensino, escrita e advocacia, ele desempenhou um papel fundamental na salvaguarda e disseminação do significado cultural da tradicional Capoeira Angola para as gerações futuras. Ele foi listado entre os habilitados para o "Prêmio Viva Meu Mestre" em 2010, concedido pelo Instituto do Patrimônio Histórico e Artístico Nacional (IPHAN).',
+  -- achievements_en
+  E'Trained under Mestre Pastinha at CECA for 13 years (1969-1981)
+Graduated by Mestre Pastinha in 1979 (diploma received)
+Founded Centro de Cultura da Capoeira Tradicional Bahia (1980)
+President of the Council of Mestres, Associação Brasileira de Capoeira Angola (ABCA)
+Author: "A Capoeira Angola na Bahia" (Pallas, 1997/2006)
+Author: "Histórias e Estórias da Capoeiragem" (P555 Edições, 2006)
+Author: "Capoeira Angola do iniciante ao mestre"
+Recorded CD "Aqui só Angola"
+Habilitado for Prêmio Viva Meu Mestre (IPHAN, 2010)',
+  -- achievements_pt
+  E'Treinou sob Mestre Pastinha no CECA por 13 anos (1969-1981)
+Formado por Mestre Pastinha em 1979 (diploma recebido)
+Fundou o Centro de Cultura da Capoeira Tradicional Bahia (1980)
+Presidente do Conselho de Mestres, Associação Brasileira de Capoeira Angola (ABCA)
+Autor: "A Capoeira Angola na Bahia" (Pallas, 1997/2006)
+Autor: "Histórias e Estórias da Capoeiragem" (P555 Edições, 2006)
+Autor: "Capoeira Angola do iniciante ao mestre"
+Gravou CD "Aqui só Angola"
+Habilitado para o Prêmio Viva Meu Mestre (IPHAN, 2010)',
+  -- notes_en
+  E'APELIDO ORIGIN: "Bola Sete" (Seven Ball) - received because he trained entirely dressed in black, like the solid balls in billiards. Per Portal Capoeira interview: "Bola Sete recebeu esse nome por treinar todo vestido de preto."
+
+NAME VARIATIONS: Some sources spell first name as "Osé" (likely a typographical error for "José").
+
+TEACHERS:
+- Pessoa Bababá (~1968-1969, approximately one year, in basement in Salvador)
+- Mestre Pastinha (1969-1981, 13 years, at CECA, graduated 1979)
+
+ROLE AT CECA: "Fiscal de Campo" (Field Supervisor) from 1969
+
+TRAINING LOCATION WITH PESSOA BABABÁ:
+"A small, poorly-lit space in the basement of a building" in Salvador. Pessoa Bababá taught "the old game the old way: low light, small room, full attention."
+
+ABCA ROLE: President of Council of Mestres. ABCA founded 1987 by mestres João Pequeno de Pastinha, Paulo dos Anjos, Waldemar da Paixão, Boca Rica, Ferreirinha de Santo Amaro, Nô, René, Curió, Papo Amarelo, Calazans.
+
+CENTRO DE CULTURA ADDRESS:
+Rua Beco da Coruja, Cond. Florestal - Ville BL. 3, Saboeiro, Salvador, BA
+Also listed as: Passeio Público grounds near Campo Grande
+Schedule: Saturdays 9:30 AM - 12:00 PM, Sundays 4:30 PM - 6:00 PM
+~30 students
+
+EMPLOYMENT: Transportation Sector, Office of Industry, Trade, and Mining (Secretaria de Indústria, Comércio e Mineração)
+
+CONTEMPORARIES AT CECA:
+- João Grande, João Pequeno, Gildo Alfinete, Roberto Satanás, Boca Rica, Curió, Gato Preto, Valdomiro Malvadeza, Albertino da Hora
+
+COLLEAGUES WHO GAVE JOINT LECTURE (Oct 25, 2006):
+- Mestre Gildo Alfinete - at ABCA in Salvador
+
+BOOKS PUBLISHED:
+1. "A Capoeira Angola na Bahia" - Pallas, 1997 (2nd ed), editions 2000, 2001, 2005, 2006; 197 pages; ISBN-13: 9788534702713
+2. "Histórias e Estórias da Capoeiragem" - P555 Edições, Salvador, 2006
+3. "Capoeira Angola do iniciante ao mestre" - Pallas/EDUFBA (partnership mentioned in sources)
+
+AUDIO CD: "Aqui só Angola" - recorded at his academy with students
+
+MEDIA APPEARANCES:
+- 2006: Lecture at ABCA with Gildo Alfinete (Oct 25, 2006)
+- 2010: Listed among habilitados for Prêmio Viva Meu Mestre (IPHAN)
+
+KEY QUOTE FROM PASTINHA: "Zé Luiz… you have a twin soul to mine!" (during a chamada, holding Bola Sete''s head against his own)
+
+CAPOEIRISTAS DOCUMENTED IN HIS BOOKS (mentioned as otherwise forgotten):
+- Pessoa Bababá
+- Bobó
+- Valdomiro Malvadeza',
+  -- notes_pt
+  E'ORIGEM DO APELIDO: "Bola Sete" - recebeu porque treinava todo vestido de preto, como as bolas sólidas no bilhar. Conforme entrevista no Portal Capoeira: "Bola Sete recebeu esse nome por treinar todo vestido de preto."
+
+VARIAÇÕES DE NOME: Algumas fontes grafam o primeiro nome como "Osé" (provavelmente erro tipográfico para "José").
+
+MESTRES:
+- Pessoa Bababá (~1968-1969, aproximadamente um ano, em porão em Salvador)
+- Mestre Pastinha (1969-1981, 13 anos, no CECA, formado 1979)
+
+FUNÇÃO NO CECA: "Fiscal de Campo" a partir de 1969
+
+LOCAL DE TREINAMENTO COM PESSOA BABABÁ:
+"Um pequeno espaço mal iluminado no porão de um prédio" em Salvador. Pessoa Bababá ensinava "o jogo antigo da maneira antiga: pouca luz, sala pequena, atenção total."
+
+FUNÇÃO NA ABCA: Presidente do Conselho de Mestres. ABCA fundada em 1987 pelos mestres João Pequeno de Pastinha, Paulo dos Anjos, Waldemar da Paixão, Boca Rica, Ferreirinha de Santo Amaro, Nô, René, Curió, Papo Amarelo, Calazans.
+
+ENDEREÇO DO CENTRO DE CULTURA:
+Rua Beco da Coruja, Cond. Florestal - Ville BL. 3, Saboeiro, Salvador, BA
+Também listado como: terrenos do Passeio Público perto do Campo Grande
+Horário: Sábados 9:30 - 12:00, Domingos 16:30 - 18:00
+~30 alunos
+
+EMPREGO: Setor de Transporte, Secretaria de Indústria, Comércio e Mineração
+
+CONTEMPORÂNEOS NO CECA:
+- João Grande, João Pequeno, Gildo Alfinete, Roberto Satanás, Boca Rica, Curió, Gato Preto, Valdomiro Malvadeza, Albertino da Hora
+
+COLEGA QUE DEU PALESTRA CONJUNTA (25 Out 2006):
+- Mestre Gildo Alfinete - na ABCA em Salvador
+
+LIVROS PUBLICADOS:
+1. "A Capoeira Angola na Bahia" - Pallas, 1997 (2ª ed), edições 2000, 2001, 2005, 2006; 197 páginas; ISBN-13: 9788534702713
+2. "Histórias e Estórias da Capoeiragem" - P555 Edições, Salvador, 2006
+3. "Capoeira Angola do iniciante ao mestre" - Pallas/EDUFBA (parceria mencionada nas fontes)
+
+CD DE ÁUDIO: "Aqui só Angola" - gravado em sua academia com seus alunos
+
+APARIÇÕES NA MÍDIA:
+- 2006: Palestra na ABCA com Gildo Alfinete (25 out 2006)
+- 2010: Listado entre os habilitados para o Prêmio Viva Meu Mestre (IPHAN)
+
+FRASE MARCANTE DE PASTINHA: "Zé Luiz… você tem uma alma gêmea à minha!" (durante uma chamada, segurando a cabeça de Bola Sete contra a sua)
+
+CAPOEIRISTAS DOCUMENTADOS EM SEUS LIVROS (mencionados como esquecidos):
+- Pessoa Bababá
+- Bobó
+- Valdomiro Malvadeza'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name, title = EXCLUDED.title, portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links, style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en, style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year, birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place, death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision, death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en, bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en, achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en, notes_pt = EXCLUDED.notes_pt, updated_at = NOW();
+
+-- Source: entities/persons/brasilia.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Brasília
+-- Generated: 2025-12-20
+-- ============================================================
+-- "50 anos sem tirar a mão do chão" (50 years without taking hand off the ground)
+-- Co-founder of Cordão de Ouro; Pioneer of capoeira in São Paulo
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  -- Identity
+  name,
+  apelido,
+  title,
+  portrait,
+  public_links,
+  -- Capoeira-specific
+  style,
+  style_notes_en,
+  style_notes_pt,
+  -- Life dates
+  birth_year,
+  birth_year_precision,
+  birth_place,
+  death_year,
+  death_year_precision,
+  death_place,
+  -- Extended content
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt,
+  -- Researcher notes
+  notes_en,
+  notes_pt
+) VALUES (
+  -- Identity
+  'Antônio Cardoso Andrade',
+  'Brasília',
+  'mestre'::genealogy.title,
+  NULL,
+  ARRAY['https://velhosmestres.com/br/destaques-64', 'https://portalcapoeira.com/capoeira/publicacoes-e-artigos/entrevista-com-mestre-brasilia/', 'https://pt.wikipedia.org/wiki/Mestre_Bras%C3%ADlia']::text[],
+  -- Capoeira-specific
+  'mixed'::genealogy.style,
+  E'Brasília trained primarily in Capoeira Angola under Mestre Canjiquinha but became versatile in both styles. At Cordão de Ouro, he taught Capoeira Angola while Mestre Suassuna taught Capoeira Regional within the same space, demonstrating the complementary nature of the two traditions. His teaching encompasses the foundations of Capoeira Angola, Capoeira Regional, and contemporary Capoeira. He also integrated other Brazilian cultural manifestations into his work, including Maculelê, Samba de Roda, and Puxada de Rede.',
+  E'Brasília treinou principalmente em Capoeira Angola sob Mestre Canjiquinha, mas se tornou versátil em ambos os estilos. No Cordão de Ouro, ele ensinava Capoeira Angola enquanto Mestre Suassuna ensinava Capoeira Regional no mesmo espaço, demonstrando a natureza complementar das duas tradições. Seu ensino abrange os fundamentos da Capoeira Angola, Capoeira Regional e Capoeira contemporânea. Ele também integrou outras manifestações culturais brasileiras em seu trabalho, incluindo Maculelê, Samba de Roda e Puxada de Rede.',
+  -- Life dates
+  1942,
+  'exact'::genealogy.date_precision,
+  'Alagoinhas, Bahia, Brazil',
+  NULL,
+  NULL,
+  NULL,
+  -- Extended content (bio_en)
+  E'Antônio Cardoso Andrade was born on May 29, 1942, in Alagoinhas, Bahia, into a humble family. As a child, he moved to Pedrão at age 6, then to Salvador at age 13, where his life would be transformed by capoeira. Before discovering his calling, he worked various trades: water carrier, bread vendor, luggage carrier, shoemaker, metalworker, mechanic, bricklayer, and painter. Raised by a single mother, he faced social prejudice but developed resilience that would serve him throughout his life.
+
+At age 14, after a street fight, Brasília first witnessed capoeira but did not begin training until age 19. In 1961, after seeing a festival performance by Mestre Canjiquinha - the legendary "Joy of Capoeira" - he was captivated and became Canjiquinha''s disciple. For six years, he performed throughout Bahia and other Brazilian states, absorbing the art and philosophy of his master.
+
+In 1965, at age 23 (some sources say 25), Brasília left Bahia for São Paulo with dreams of establishing capoeira in Brazil''s largest city. The beginning was hard - he arrived without connections, working as a mason while seeking his place in the capoeira world. His fortune changed when people from his hometown of Itabuna introduced him to Zé de Freitas''s academy, where he met Mestre Suassuna.
+
+On September 1, 1967, Brasília and Suassuna together founded the Associação de Capoeira Cordão de Ouro in Vila Mariana, São Paulo. In an innovative arrangement, Brasília taught Capoeira Angola while Suassuna taught Capoeira Regional within the same space - a model that respected both traditions. After a short period, in 1969, Brasília decided to establish his own group: Associação de Capoeira São Bento Grande, which continues today as Escola de Capoeira Ginga Brasília.
+
+Brasília was one of the "Grupo dos Nove" (Group of Nine) - Bahian capoeiristas who came to São Paulo in the 1960s and pioneered the art in the state. Ten years later, they received certificates from Mestre Bimba himself, recognizing them as precursors and creators of Capoeira in São Paulo - a remarkable honor from the founder of Capoeira Regional.
+
+In 1981, Brasília honored his master by creating the Troféu Mestre Canjiquinha with support from the Federação Paulista de Capoeira (São Paulo Capoeira Federation). This trophy continues to recognize excellence in capoeira, keeping Canjiquinha''s memory alive.
+
+From the 1970s, Brasília began international expansion. He lived in Japan for three years (1973-1975), returning multiple times (1986, 2000, 2002, 2008-2010). He also taught in Germany (1987), the United States (1995, 1997, 2008), Italy (1999), Korea, Belgium, Spain, England, and China - spreading Brazilian culture across continents.
+
+Beyond teaching, Brasília is a prolific composer of capoeira music, samba, puxada de rede, maculelê, and other Brazilian rhythms. He recorded six albums: "Ginga Original" (1990), "Ginga Original II" (1993), "50 anos sem tirar a mão do chão" (2011), "Capoeira é de valor" (2015), and "Sorriso no rosto" (2020). His book "Vivência e Fundamentos de um Mestre de Capoeira" (Experience and Foundations of a Capoeira Master), published by Editora Circuito LW, documents his trajectory and philosophy.
+
+Throughout his career, Brasília trained over 50,000 students through his academies. He holds positions as Vice-President of the Federação de Capoeira do Estado de São Paulo and is a member of the Honor Board of the Superior Council of Masters of São Paulo.
+
+Despite taking different paths, Brasília and Suassuna remain friends, their partnership and friendship evident to this day. In 2010, Brasília celebrated 50 years in capoeira with a milestone event titled "50 ANOS SEM TIRAR A MÃO DO CHÃO" (50 Years Without Taking Hand Off the Ground) - reflecting his lifelong dedication to the art.
+
+Brasília views capoeira holistically: "Capoeira is not just sport, it is a Brazilian cultural manifestation with very broad content: we have rhythm, poetry, music, choreography, defense, attack, spectacle, struggle and sport." This vision has guided his teaching for over six decades.',
+  -- bio_pt
+  E'Antônio Cardoso Andrade nasceu em 29 de maio de 1942, em Alagoinhas, Bahia, em uma família humilde. Quando criança, mudou-se para Pedrão aos 6 anos, depois para Salvador aos 13 anos, onde sua vida seria transformada pela capoeira. Antes de descobrir sua vocação, trabalhou em vários ofícios: carregador de água, vendedor de pão, carregador de bagagem, sapateiro, funileiro, mecânico, pedreiro e pintor. Criado por mãe solteira, enfrentou preconceito social, mas desenvolveu resiliência que o serviria ao longo de sua vida.
+
+Aos 14 anos, após uma briga de rua, Brasília presenciou a capoeira pela primeira vez, mas não começou a treinar até os 19 anos. Em 1961, após ver uma apresentação de festival de Mestre Canjiquinha - a lendária "Alegria da Capoeira" - ele ficou cativado e se tornou discípulo de Canjiquinha. Por seis anos, ele se apresentou por toda a Bahia e outros estados brasileiros, absorvendo a arte e filosofia de seu mestre.
+
+Em 1965, aos 23 anos (algumas fontes dizem 25), Brasília deixou a Bahia para São Paulo com sonhos de estabelecer a capoeira na maior cidade do Brasil. O início foi difícil - chegou sem conexões, trabalhando como pedreiro enquanto buscava seu lugar no mundo da capoeira. Sua sorte mudou quando pessoas de sua cidade natal de Itabuna o apresentaram à academia de Zé de Freitas, onde conheceu Mestre Suassuna.
+
+Em 1° de setembro de 1967, Brasília e Suassuna juntos fundaram a Associação de Capoeira Cordão de Ouro em Vila Mariana, São Paulo. Em um arranjo inovador, Brasília ensinava Capoeira Angola enquanto Suassuna ensinava Capoeira Regional no mesmo espaço - um modelo que respeitava ambas as tradições. Após um curto período, em 1969, Brasília decidiu estabelecer seu próprio grupo: Associação de Capoeira São Bento Grande, que continua hoje como Escola de Capoeira Ginga Brasília.
+
+Brasília foi um dos "Grupo dos Nove" - capoeiristas baianos que vieram para São Paulo nos anos 1960 e foram pioneiros da arte no estado. Dez anos depois, eles receberam certificados do próprio Mestre Bimba, reconhecendo-os como precursores e criadores da Capoeira em São Paulo - uma honra notável do fundador da Capoeira Regional.
+
+Em 1981, Brasília honrou seu mestre criando o Troféu Mestre Canjiquinha com apoio da Federação Paulista de Capoeira. Este troféu continua a reconhecer a excelência na capoeira, mantendo viva a memória de Canjiquinha.
+
+A partir dos anos 1970, Brasília iniciou sua expansão internacional. Ele viveu no Japão por três anos (1973-1975), retornando múltiplas vezes (1986, 2000, 2002, 2008-2010). Também ensinou na Alemanha (1987), Estados Unidos (1995, 1997, 2008), Itália (1999), Coreia, Bélgica, Espanha, Inglaterra e China - espalhando a cultura brasileira pelos continentes.
+
+Além de ensinar, Brasília é um compositor prolífico de música de capoeira, samba, puxada de rede, maculelê e outros ritmos brasileiros. Ele gravou seis álbuns: "Ginga Original" (1990), "Ginga Original II" (1993), "50 anos sem tirar a mão do chão" (2011), "Capoeira é de valor" (2015) e "Sorriso no rosto" (2020). Seu livro "Vivência e Fundamentos de um Mestre de Capoeira", publicado pela Editora Circuito LW, documenta sua trajetória e filosofia.
+
+Ao longo de sua carreira, Brasília treinou mais de 50.000 alunos através de suas academias. Ele ocupa posições como Vice-Presidente da Federação de Capoeira do Estado de São Paulo e é membro do Conselho de Honra do Conselho Superior de Mestres de São Paulo.
+
+Apesar de terem tomado caminhos diferentes, Brasília e Suassuna permanecem amigos, sua parceria e amizade evidente até hoje. Em 2010, Brasília celebrou 50 anos na capoeira com um evento marcante intitulado "50 ANOS SEM TIRAR A MÃO DO CHÃO" - refletindo sua dedicação vitalícia à arte.
+
+Brasília vê a capoeira de forma holística: "A capoeira não é só esporte, é uma manifestação cultural brasileira com conteúdo muito amplo: temos ritmo, poesia, música, coreografia, defesa, ataque, espetáculo, luta e esporte." Essa visão guiou seu ensino por mais de seis décadas.',
+  -- achievements_en
+  E'1961: Began training under Mestre Canjiquinha at age 19
+1965: Migrated to São Paulo; pioneer of capoeira in the state
+1967 (September 1): Co-founded Associação de Capoeira Cordão de Ouro with Mestre Suassuna in Vila Mariana, São Paulo
+1969: Founded Associação de Capoeira São Bento Grande (now Ginga Brasília)
+1970s: Received certificate from Mestre Bimba as precursor of Capoeira in São Paulo (as part of Grupo dos Nove)
+1973-1975: Lived and taught in Japan for three years
+1981: Created Troféu Mestre Canjiquinha with Federação Paulista de Capoeira
+1990: Released first album "Ginga Original"
+1993: Released "Ginga Original II"
+2010: Celebrated "50 Anos Sem Tirar a Mão do Chão" milestone event
+2011: Released album "50 anos sem tirar a mão do chão"
+2015: Released album "Capoeira é de valor"
+2020: Released album "Sorriso no rosto"
+Published book "Vivência e Fundamentos de um Mestre de Capoeira" (Editora Circuito LW)
+Vice-President of Federação de Capoeira do Estado de São Paulo
+Member of Honor Board of Superior Council of Masters of São Paulo
+Trained over 50,000 students through his academies
+International teaching in Japan, Germany, USA, Italy, Korea, Belgium, Spain, England, and China',
+  -- achievements_pt
+  E'1961: Iniciou treinamento com Mestre Canjiquinha aos 19 anos
+1965: Migrou para São Paulo; pioneiro da capoeira no estado
+1967 (1° de setembro): Co-fundou Associação de Capoeira Cordão de Ouro com Mestre Suassuna em Vila Mariana, São Paulo
+1969: Fundou Associação de Capoeira São Bento Grande (atual Ginga Brasília)
+Anos 1970: Recebeu certificado de Mestre Bimba como precursor da Capoeira em São Paulo (como parte do Grupo dos Nove)
+1973-1975: Viveu e ensinou no Japão por três anos
+1981: Criou o Troféu Mestre Canjiquinha com a Federação Paulista de Capoeira
+1990: Lançou primeiro álbum "Ginga Original"
+1993: Lançou "Ginga Original II"
+2010: Celebrou evento marco "50 Anos Sem Tirar a Mão do Chão"
+2011: Lançou álbum "50 anos sem tirar a mão do chão"
+2015: Lançou álbum "Capoeira é de valor"
+2020: Lançou álbum "Sorriso no rosto"
+Publicou livro "Vivência e Fundamentos de um Mestre de Capoeira" (Editora Circuito LW)
+Vice-Presidente da Federação de Capoeira do Estado de São Paulo
+Membro do Conselho de Honra do Conselho Superior de Mestres de São Paulo
+Treinou mais de 50.000 alunos através de suas academias
+Ensino internacional no Japão, Alemanha, EUA, Itália, Coreia, Bélgica, Espanha, Inglaterra e China',
+  -- notes_en
+  E'BIRTH DATE: May 29, 1942 (exact per velhosmestres.com, Wikipedia PT, SpCultura). Birthplace is Alagoinhas, Bahia (some sources emphasize he is "Baiano de Alagoinhas"). Moved to Pedrão age 6, then Salvador age 13.
+
+NAME VARIATIONS:
+- "Antônio Cardoso Andrade" (velhosmestres.com, Wikipedia PT)
+- "Antonio Cardoso de Andrade" (Portal Capoeira)
+Both forms appear in sources; using accented "Antônio" for consistency with Brazilian Portuguese.
+
+TEACHER:
+- Mestre Canjiquinha (Washington Bruno da Silva) - primary teacher from 1961; trained for 6 years performing throughout Bahia before moving to São Paulo in 1965
+
+ASSOCIATIONS:
+- Lived/trained with Mestres Bimba, Waldemar, João Pequeno, João Grande, Onça, Limão, Silvestre, Joel, Zé de Freitas
+
+CORDÃO DE OURO FOUNDING:
+- Founded September 1, 1967 in Vila Mariana, São Paulo with Mestre Suassuna
+- Innovative arrangement: Brasília taught Angola, Suassuna taught Regional in same space
+- Brasília departed ~1968-1969 to found São Bento Grande
+
+GROUP EVOLUTION:
+- 1969: Founded Associação de Capoeira São Bento Grande
+- Later renamed to Escola de Capoeira Ginga Brasília (current name)
+- Grupo dos Nove: Bahian capoeiristas who pioneered capoeira in São Paulo 1960s
+
+BIMBA CERTIFICATE:
+- Received in 1970s (approximately 10 years after arriving in SP)
+- Recognition as "precursors and creators of Capoeira in São Paulo"
+- Significant honor from founder of Capoeira Regional
+
+JAPAN TRIPS:
+- 1973-1975: Lived 3 years
+- 1986, 2000, 2002, 2008-2010: Return visits
+
+DISCOGRAPHY:
+- 1990: "Ginga Original"
+- 1993: "Ginga Original II"
+- 2011: "50 anos sem tirar a mão do chão"
+- 2015: "Capoeira é de valor"
+- 2020: "Sorriso no rosto"
+(6 albums total per velhosmestres.com)',
+  -- notes_pt
+  E'DATA DE NASCIMENTO: 29 de maio de 1942 (exata conforme velhosmestres.com, Wikipedia PT, SpCultura). Local de nascimento é Alagoinhas, Bahia (algumas fontes enfatizam que ele é "Baiano de Alagoinhas"). Mudou-se para Pedrão aos 6 anos, depois Salvador aos 13.
+
+VARIAÇÕES DE NOME:
+- "Antônio Cardoso Andrade" (velhosmestres.com, Wikipedia PT)
+- "Antonio Cardoso de Andrade" (Portal Capoeira)
+Ambas as formas aparecem nas fontes; usando "Antônio" acentuado por consistência com português brasileiro.
+
+MESTRE:
+- Mestre Canjiquinha (Washington Bruno da Silva) - professor principal desde 1961; treinou por 6 anos se apresentando por toda a Bahia antes de se mudar para São Paulo em 1965
+
+ASSOCIAÇÕES:
+- Viveu/treinou com Mestres Bimba, Waldemar, João Pequeno, João Grande, Onça, Limão, Silvestre, Joel, Zé de Freitas
+
+FUNDAÇÃO DO CORDÃO DE OURO:
+- Fundado 1° de setembro de 1967 em Vila Mariana, São Paulo com Mestre Suassuna
+- Arranjo inovador: Brasília ensinava Angola, Suassuna ensinava Regional no mesmo espaço
+- Brasília saiu ~1968-1969 para fundar São Bento Grande
+
+EVOLUÇÃO DO GRUPO:
+- 1969: Fundou Associação de Capoeira São Bento Grande
+- Posteriormente renomeado para Escola de Capoeira Ginga Brasília (nome atual)
+- Grupo dos Nove: capoeiristas baianos que foram pioneiros da capoeira em São Paulo anos 1960
+
+CERTIFICADO DE BIMBA:
+- Recebido nos anos 1970 (aproximadamente 10 anos após chegar em SP)
+- Reconhecimento como "precursores e criadores da Capoeira em São Paulo"
+- Honra significativa do fundador da Capoeira Regional
+
+VIAGENS AO JAPÃO:
+- 1973-1975: Viveu 3 anos
+- 1986, 2000, 2002, 2008-2010: Visitas de retorno
+
+DISCOGRAFIA:
+- 1990: "Ginga Original"
+- 1993: "Ginga Original II"
+- 2011: "50 anos sem tirar a mão do chão"
+- 2015: "Capoeira é de valor"
+- 2020: "Sorriso no rosto"
+(6 álbuns no total conforme velhosmestres.com)'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
+  updated_at = NOW();
+
+-- Source: entities/persons/camafeu-de-oxossi.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Camafeu de Oxóssi
+-- Generated: 2025-12-20
+-- ============================================================
+-- Ápio Patrocínio da Conceição (1915-1994), known as Camafeu de
+-- Oxóssi, was one of Salvador's most iconic cultural figures—a
+-- capoeira mestre, renowned berimbau player, president of the
+-- Filhos de Gandhi afoxé, Obá de Xangô in candomblé, and owner
+-- of the famous restaurant at Mercado Modelo.
+--
+-- Member of the 1966 Dakar delegation alongside Mestre Pastinha,
+-- João Grande, Gato Preto, Gildo Alfinete, and Roberto Satanás.
+-- At the festival, he played berimbau while the others performed,
+-- as Pastinha was too frail to participate actively.
+--
+-- DEATH DATE DISCREPANCY:
+-- - March 26, 1994: Wikipedia, velhosmestres.com, most sources
+-- - March 27, 1994: Some sources list burial date as March 27
+-- Using March 26, 1994 as death date (most sources agree).
+--
+-- APELIDO ORIGIN:
+-- As a child, he begged for money outside Cinema Olímpia to watch
+-- the film serial "Camafeu Amarelo" (Yellow Cameo). The film's
+-- protagonist wore a cameo jewel and was clever, so neighbors
+-- began calling Ápio "Camafeu" for his similar resourcefulness.
+-- Later, he added "de Oxóssi" in tribute to the orixá Oxóssi
+-- (syncretized with São Jorge) who was his protector.
+--
+-- CAPOEIRA TRAINING:
+-- No formal teacher is documented. Sources indicate he learned
+-- capoeira and berimbau from the "velhos mestres" (old masters)
+-- in the streets of Salvador. He is described as self-taught
+-- through lived experience in Pelourinho and the rodas of the city.
+--
+-- NICKNAME "BESOURO-VIVO":
+-- Some sources describe him as "Besouro-Vivo" (Living Besouro),
+-- suggesting comparison to the legendary Besouro Mangangá.
+--
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  name, apelido, title, portrait, public_links,
+  style, style_notes_en, style_notes_pt,
+  birth_year, birth_year_precision, birth_place,
+  death_year, death_year_precision, death_place,
+  bio_en, bio_pt, achievements_en, achievements_pt,
+  notes_en, notes_pt
+) VALUES (
+  'Ápio Patrocínio da Conceição',
+  'Camafeu de Oxóssi',
+  'mestre'::genealogy.title,
+  NULL,
+  ARRAY[
+    'https://velhosmestres.com/en/featured-15',
+    'https://velhosmestres.com/br/destaques-15',
+    'https://capoeirawiki.org/wiki/Camafeu_de_Ox%C3%B3ssi',
+    'https://en.wikipedia.org/wiki/Camafeu_de_Ox%C3%B3ssi'
+  ]::text[],
+  'angola'::genealogy.style,
+  E'Camafeu de Oxóssi was renowned as one of the greatest berimbau players in Bahian history. Composer Dorival Caymmi declared, "With a berimbau in his hands, nobody surpasses Camafeu de Oxóssi." He was proficient not only with the berimbau but also pandeiro, agogô, atabaque, reco-reco, and improvised instruments like plates, spoons, and matchboxes. At the 1966 Dakar festival, it was Camafeu who played the berimbau while the other capoeiristas performed. His two albums—"Berimbaus da Bahia" (1967) and "Camafeu de Oxóssi" (1968)—combined capoeira songs with Candomblé orixá chants.',
+  E'Camafeu de Oxóssi era renomado como um dos maiores tocadores de berimbau da história baiana. O compositor Dorival Caymmi declarou: "Com um berimbau nas mãos, ninguém supera Camafeu de Oxóssi." Ele era proficiente não apenas no berimbau, mas também no pandeiro, agogô, atabaque, reco-reco e instrumentos improvisados como pratos, colheres e caixas de fósforos. No festival de Dacar em 1966, foi Camafeu quem tocou o berimbau enquanto os outros capoeiristas se apresentavam. Seus dois álbuns—"Berimbaus da Bahia" (1967) e "Camafeu de Oxóssi" (1968)—combinavam cantigas de capoeira com cantos de orixás do Candomblé.',
+  1915,
+  'exact'::genealogy.date_precision,
+  'Salvador (Nazaré), Bahia, Brazil',
+  1994,
+  'exact'::genealogy.date_precision,
+  'Salvador, Bahia, Brazil',
+  -- bio_en
+  E'Ápio Patrocínio da Conceição was born on October 4, 1915, on Rua Gravatá in the Nazaré neighborhood of Salvador, Bahia. His father, Faustino José do Patrocínio, was a master stonemason who died when Ápio was only seven years old. His mother, Maria Firmina da Conceição, from Camamu, sold sweets and snacks from a street stand to raise her sixteen children alone.\n\nOrphaned young, Ápio grew up in the streets of Pelourinho. He learned to survive as a shoe shiner, newspaper vendor, shoelace seller, and later as a stevedore at Companhia Docas da Bahia. It was in these streets that he acquired his famous apelido. As a child, he would beg for coins outside Cinema Olímpia to watch the film serial "Camafeu Amarelo" (Yellow Cameo), whose resourceful protagonist wore a cameo jewel. The neighborhood began calling the clever boy "Camafeu" for his similar cunning and luck. Later, as a devotee of the orixá Oxóssi—syncretized with São Jorge—he added "de Oxóssi" to his name.\n\nFrom his street life, Camafeu absorbed capoeira and the art of the berimbau from the old mestres of Salvador. He never named a specific teacher—his education came from the rodas of the city itself. He frequented the circles where mestres gathered, including those around Mestre Pastinha at CECA in the Pelourinho. The composer Dorival Caymmi, no small authority on Bahian culture, declared: "Com um berimbau nas mãos, ninguém supera Camafeu de Oxóssi" (With a berimbau in his hands, nobody surpasses Camafeu de Oxóssi). The scholar Waldeloir Rego countered that Mestre Gato was the greatest berimbau player—a friendly rivalry that underscored both men''s mastery.\n\nIn 1945, Camafeu obtained his first stall at the Mercado Modelo, selling berimbaus and Candomblé religious items. This became his commercial home for decades. He also directed several samba schools, including Gato Preto, Só Falta Você, and Deixa Pra Lá.\n\nDeeply connected to Afro-Brazilian religion, Camafeu became an Obá de Xangô—specifically Osi Obá Aresá—at the Ilê Axé Opô Afonjá terreiro, one of Salvador''s most prestigious Candomblé houses. This honor placed him alongside other luminaries like the painter Carybé, writers Jorge Amado and Dorival Caymmi, and later Gilberto Gil. He was reportedly a nephew of the legendary Mãe Aninha and was initiated by Mãe Senhora.\n\nFrom 1961 to 1964, Camafeu was among the first students of the Yoruba language course offered by the Centro de Estudos Afro-Orientais at the Universidade Federal da Bahia, taught by Nigerian instructor Benese Lasebikan de Tundê. He attended classes on Tuesdays and Thursdays for four years, mastering Yoruba to a degree that would prove significant.\n\nIn April 1966, Camafeu joined the most important journey of his life. He traveled to Dakar, Senegal, as part of the Brazilian delegation to the First World Festival of Black Arts. The capoeira delegation—led by the nearly blind 77-year-old Mestre Pastinha—included João Grande, Gato Preto, Gildo Alfinete, and Roberto Satanás. At the festival, Pastinha was too frail to perform. Instead, his students—Gato, Roberto, and Gildo—played capoeira while Camafeu provided the berimbau accompaniment. Their presentation before 10,000 people at Friendship Stadium was received with tremendous applause. Camafeu later recalled that his Yoruba skills facilitated communication with Nigerian delegates, and that the Brazilian capoeira and music "reached the Africans'' senses more than the sambas sung by Ataulfo Alves and Elizeth Cardoso."\n\nUpon returning to Brazil, Camafeu recorded two albums that became classics. In 1967, Continental Records released "Berimbaus da Bahia" with liner notes by Jorge Amado, combining capoeira songs on Side A with orixá chants on Side B. The following year, Philips released "Camafeu de Oxóssi," continuing the fusion of capoeira and Candomblé music.\n\nTragedy struck on August 1, 1969, when fire destroyed the old Mercado Modelo, taking everything Camafeu owned. With help from friends like Jorge Amado and Carybé, he rebuilt. In 1971 (or 1972), when the new Mercado Modelo opened in the former customs house building, Camafeu inaugurated a restaurant on the upper floor with his wife Toninha—a woman from São Gonçalo dos Campos whom he called his true partner. The restaurant "Camafeu de Oxóssi" became one of Salvador''s most beloved establishments, famous for Bahian cuisine and impeccable service. It remains open today, with a terrace overlooking the Baía de Todos-os-Santos.\n\nFrom 1976 to 1982, Camafeu served as president of the Afoxé Filhos de Gandhi, the historic bloco founded by dockworkers in 1949, the year of Mahatma Gandhi''s assassination. When Camafeu took over, the institution was in crisis—it had not paraded at Carnival since 1973. Under his leadership, with support from artists like Gilberto Gil, the Filhos de Gandhi revived. In 1976, approximately 80 men returned to the streets. By the time he left the presidency, the afoxé had grown to become the massive cultural force it remains today.\n\nWriter Jorge Amado is said to have based characters on Camafeu in at least four novels: Teresa Batista, Tenda dos Milagres, Dona Flor e Seus Dois Maridos, Tieta do Agreste, and the guide Bahia de Todos os Santos. Musicians including Martinho da Vila, Originais do Samba, and Candeia mentioned him in songs. In 1966, the Brazilian Cultural Division directed filmmaker Rui Polanah to seek him out for a documentary about Bahia.\n\nCamafeu had an adopted son named Chico, the child of his friend Chico da Gameleira, whom he raised and educated.\n\nBy the 1990s, Camafeu had become an icon—"uma memória viva das ruas de Salvador" (a living memory of Salvador''s streets). But he was ill. Throat cancer slowly claimed him. On March 26, 1994, at age 78, Ápio Patrocínio da Conceição—Camafeu de Oxóssi—died at Hospital Aristides Maltez.\n\nHis funeral the following day was one of the most notable in Salvador''s history. At the cemetery of the Ordem Terceira de São Francisco, as Catholic prayers were offered, the babalorixá Luís da Muriçoca lifted a Yoruba song to the skies, and all present joined in. It was a fitting farewell for a man who had embodied the synthesis of African, Catholic, and Brazilian traditions that defines Bahia.',
+  -- bio_pt
+  E'Ápio Patrocínio da Conceição nasceu em 4 de outubro de 1915, na Rua Gravatá, no bairro de Nazaré, em Salvador, Bahia. Seu pai, Faustino José do Patrocínio, era mestre pedreiro e faleceu quando Ápio tinha apenas sete anos. Sua mãe, Maria Firmina da Conceição, de Camamu, vendia doces e quitutes em uma banca de rua para criar sozinha seus dezesseis filhos.\n\nÓrfão desde cedo, Ápio cresceu nas ruas do Pelourinho. Aprendeu a sobreviver como engraxate, vendedor de jornais, vendedor de cadarços e, mais tarde, como estivador na Companhia Docas da Bahia. Foi nessas ruas que adquiriu seu famoso apelido. Quando criança, pedia moedas na porta do Cinema Olímpia para assistir ao seriado "Camafeu Amarelo", cujo protagonista engenhoso usava uma joia de camafeu. A vizinhança começou a chamar o menino esperto de "Camafeu" por sua semelhante astúcia e sorte. Mais tarde, como devoto do orixá Oxóssi—sincretizado com São Jorge—acrescentou "de Oxóssi" ao seu nome.\n\nDe sua vida nas ruas, Camafeu absorveu a capoeira e a arte do berimbau dos velhos mestres de Salvador. Ele nunca nomeou um professor específico—sua educação veio das rodas da própria cidade. Frequentava os círculos onde os mestres se reuniam, incluindo aqueles ao redor de Mestre Pastinha no CECA, no Pelourinho. O compositor Dorival Caymmi, autoridade nada pequena na cultura baiana, declarou: "Com um berimbau nas mãos, ninguém supera Camafeu de Oxóssi." O estudioso Waldeloir Rego contestou que Mestre Gato era o maior tocador de berimbau—uma rivalidade amigável que ressaltava a maestria de ambos.\n\nEm 1945, Camafeu obteve sua primeira barraca no Mercado Modelo, vendendo berimbaus e artigos religiosos de Candomblé. Este se tornou seu lar comercial por décadas. Ele também dirigiu várias escolas de samba, incluindo Gato Preto, Só Falta Você e Deixa Pra Lá.\n\nProfundamente conectado à religião afro-brasileira, Camafeu tornou-se Obá de Xangô—especificamente Osi Obá Aresá—no Ilê Axé Opô Afonjá, uma das casas de Candomblé mais prestigiosas de Salvador. Esta honra o colocou ao lado de outras luminárias como o pintor Carybé, os escritores Jorge Amado e Dorival Caymmi, e mais tarde Gilberto Gil. Era supostamente sobrinho da lendária Mãe Aninha e foi iniciado por Mãe Senhora.\n\nDe 1961 a 1964, Camafeu esteve entre os primeiros alunos do curso de língua iorubá oferecido pelo Centro de Estudos Afro-Orientais da Universidade Federal da Bahia, ministrado pelo professor nigeriano Benese Lasebikan de Tundê. Frequentou aulas às terças e quintas-feiras por quatro anos, dominando o iorubá a um grau que se mostraria significativo.\n\nEm abril de 1966, Camafeu empreendeu a viagem mais importante de sua vida. Viajou para Dacar, Senegal, como parte da delegação brasileira ao Primeiro Festival Mundial de Artes Negras. A delegação de capoeira—liderada pelo quase cego Mestre Pastinha de 77 anos—incluía João Grande, Gato Preto, Gildo Alfinete e Roberto Satanás. No festival, Pastinha estava fraco demais para se apresentar. Em vez disso, seus alunos—Gato, Roberto e Gildo—jogaram capoeira enquanto Camafeu fornecia o acompanhamento de berimbau. Sua apresentação diante de 10.000 pessoas no Estádio da Amizade foi recebida com tremendo aplauso. Camafeu depois recordou que suas habilidades em iorubá facilitaram a comunicação com delegados nigerianos, e que a capoeira e música brasileiras "alcançaram os sentidos dos africanos mais do que os sambas cantados por Ataulfo Alves e Elizeth Cardoso."\n\nAo retornar ao Brasil, Camafeu gravou dois álbuns que se tornaram clássicos. Em 1967, a Continental Records lançou "Berimbaus da Bahia" com texto de contracapa de Jorge Amado, combinando cantigas de capoeira no Lado A com cânticos de orixás no Lado B. No ano seguinte, a Philips lançou "Camafeu de Oxóssi", continuando a fusão de música de capoeira e Candomblé.\n\nA tragédia chegou em 1º de agosto de 1969, quando um incêndio destruiu o antigo Mercado Modelo, levando tudo que Camafeu possuía. Com ajuda de amigos como Jorge Amado e Carybé, ele reconstruiu. Em 1971 (ou 1972), quando o novo Mercado Modelo abriu no prédio da antiga alfândega, Camafeu inaugurou um restaurante no andar superior com sua esposa Toninha—uma mulher de São Gonçalo dos Campos que ele chamava de sua verdadeira companheira. O restaurante "Camafeu de Oxóssi" tornou-se um dos estabelecimentos mais queridos de Salvador, famoso pela culinária baiana e serviço impecável. Permanece aberto até hoje, com um terraço com vista para a Baía de Todos-os-Santos.\n\nDe 1976 a 1982, Camafeu serviu como presidente do Afoxé Filhos de Gandhi, o histórico bloco fundado por estivadores em 1949, ano do assassinato de Mahatma Gandhi. Quando Camafeu assumiu, a instituição estava em crise—não desfilava no Carnaval desde 1973. Sob sua liderança, com apoio de artistas como Gilberto Gil, os Filhos de Gandhi reviveram. Em 1976, aproximadamente 80 homens retornaram às ruas. Quando deixou a presidência, o afoxé havia crescido para se tornar a força cultural massiva que permanece hoje.\n\nDiz-se que o escritor Jorge Amado baseou personagens em Camafeu em pelo menos quatro romances: Teresa Batista, Tenda dos Milagres, Dona Flor e Seus Dois Maridos, Tieta do Agreste, e o guia Bahia de Todos os Santos. Músicos incluindo Martinho da Vila, Originais do Samba e Candeia o mencionaram em canções. Em 1966, a Divisão Cultural Brasileira direcionou o cineasta Rui Polanah a procurá-lo para um documentário sobre a Bahia.\n\nCamafeu tinha um filho adotivo chamado Chico, filho de seu amigo Chico da Gameleira, a quem criou e educou.\n\nNos anos 1990, Camafeu havia se tornado um ícone—"uma memória viva das ruas de Salvador." Mas estava doente. O câncer de garganta lentamente o consumiu. Em 26 de março de 1994, aos 78 anos, Ápio Patrocínio da Conceição—Camafeu de Oxóssi—faleceu no Hospital Aristides Maltez.\n\nSeu funeral no dia seguinte foi um dos mais notáveis da história de Salvador. No cemitério da Ordem Terceira de São Francisco, enquanto orações católicas eram oferecidas, o babalorixá Luís da Muriçoca elevou um canto em iorubá aos céus, e todos os presentes se juntaram. Foi uma despedida apropriada para um homem que havia incorporado a síntese das tradições africanas, católicas e brasileiras que definem a Bahia.',
+  -- achievements_en
+  E'Member of the Brazilian delegation to the First World Festival of Black Arts, Dakar, Senegal (1966)\nRecorded two classic albums: "Berimbaus da Bahia" (1967) and "Camafeu de Oxóssi" (1968)\nPresident of the Afoxé Filhos de Gandhi (1976-1982), reviving the institution from crisis\nObá de Xangô (Osi Obá Aresá) at Ilê Axé Opô Afonjá terreiro\nAmong first students of Yoruba language at UFBA (1961-1964)\nFounded iconic restaurant "Camafeu de Oxóssi" at Mercado Modelo (1971/1972)\nInspired characters in Jorge Amado novels\nNicknamed "Besouro-Vivo" for his mastery',
+  -- achievements_pt
+  E'Membro da delegação brasileira ao Primeiro Festival Mundial de Artes Negras, Dacar, Senegal (1966)\nGravou dois álbuns clássicos: "Berimbaus da Bahia" (1967) e "Camafeu de Oxóssi" (1968)\nPresidente do Afoxé Filhos de Gandhi (1976-1982), revivendo a instituição de uma crise\nObá de Xangô (Osi Obá Aresá) no terreiro Ilê Axé Opô Afonjá\nEntre os primeiros alunos de língua iorubá na UFBA (1961-1964)\nFundou o icônico restaurante "Camafeu de Oxóssi" no Mercado Modelo (1971/1972)\nInspirou personagens em romances de Jorge Amado\nApelidado "Besouro-Vivo" por sua maestria',
+  -- notes_en
+  E'TEACHERS:\n- No formal capoeira teacher documented. Learned from "velhos mestres" (old masters) in the streets of Salvador. Self-taught through lived experience in Pelourinho and the rodas of the city.\n- Studied Yoruba 1961-1964 at UFBA under Nigerian professor Benese Lasebikan de Tundê\n\nCAPOEIRA ASSOCIATIONS:\n- Played with Mestre Pastinha and others at CECA Pelourinho\n- Member of the 1966 Dakar delegation (played berimbau while others performed)\n- Played alongside João Grande, Gato Preto, Gildo Alfinete, Roberto Satanás\n- At Dakar, Pastinha was too frail to perform; Camafeu provided berimbau accompaniment\n\nFAMILY:\n- Father: Faustino José do Patrocínio (master stonemason, died when Ápio ~7)\n- Mother: Maria Firmina da Conceição (street vendor, 16 children)\n- Wife: Toninha (from São Gonçalo dos Campos)\n- Adopted son: Chico (son of friend Chico da Gameleira)\n\nAPELIDO ORIGIN:\n- "Camafeu" from film serial "Camafeu Amarelo" at Cinema Olímpia\n- "de Oxóssi" added in tribute to his orixá protector (Oxóssi/São Jorge)\n\nMEDIA APPEARANCES:\n- 1966: First World Festival of Black Arts (Dakar, Senegal) - berimbau player\n- 1967: LP "Berimbaus da Bahia" (Continental Records; text by Jorge Amado)\n- 1968: LP "Camafeu de Oxóssi" (Philips Records, catalog 632916-L)\n- TV Educativa documentary\n- Mentioned in songs by Martinho da Vila, Originais do Samba, Candeia\n- Inspired characters in Jorge Amado novels\n\nOTHER ROLES:\n- First market stall at Mercado Modelo (1945) - sold berimbaus and Candomblé items\n- Directed samba schools: Gato Preto, Só Falta Você, Deixa Pra Lá\n- Obá de Xangô (Osi Obá Aresá) at Ilê Axé Opô Afonjá (nephew of Mãe Aninha, initiated by Mãe Senhora)\n- President, Filhos de Gandhi afoxé (1976-1982)\n- Restaurant owner at Mercado Modelo (opened 1971/1972 with wife Toninha)\n- Former occupations: shoe shiner, newspaper vendor, shoelace seller, stevedore, foundry worker\n\nDEATH:\n- March 26, 1994 (some sources say March 27)\n- Hospital Aristides Maltez, Salvador\n- Cause: throat cancer\n- Funeral at Cemitério da Ordem Terceira de São Francisco\n- Babalorixá Luís da Muriçoca sang Yoruba songs at funeral\n\nBERIMBAU MASTERY:\n- Dorival Caymmi: "Com um berimbau nas mãos, ninguém supera Camafeu de Oxóssi"\n- Waldeloir Rego countered that Mestre Gato was the greatest (friendly rivalry)\n- Proficient with: berimbau, pandeiro, agogô, atabaque, reco-reco, plates, spoons, matchboxes',
+  -- notes_pt
+  E'MESTRES:\n- Nenhum mestre formal de capoeira documentado. Aprendeu com os "velhos mestres" nas ruas de Salvador. Autodidata através da vivência no Pelourinho e nas rodas da cidade.\n- Estudou iorubá 1961-1964 na UFBA com o professor nigeriano Benese Lasebikan de Tundê\n\nASSOCIAÇÕES DE CAPOEIRA:\n- Tocava com Mestre Pastinha e outros no CECA Pelourinho\n- Membro da delegação de Dacar 1966 (tocava berimbau enquanto outros se apresentavam)\n- Tocou ao lado de João Grande, Gato Preto, Gildo Alfinete, Roberto Satanás\n- Em Dacar, Pastinha estava fraco demais para se apresentar; Camafeu forneceu o acompanhamento de berimbau\n\nFAMÍLIA:\n- Pai: Faustino José do Patrocínio (mestre pedreiro, faleceu quando Ápio tinha ~7 anos)\n- Mãe: Maria Firmina da Conceição (vendedora ambulante, 16 filhos)\n- Esposa: Toninha (de São Gonçalo dos Campos)\n- Filho adotivo: Chico (filho do amigo Chico da Gameleira)\n\nORIGEM DO APELIDO:\n- "Camafeu" do seriado de cinema "Camafeu Amarelo" no Cinema Olímpia\n- "de Oxóssi" acrescentado em tributo ao seu orixá protetor (Oxóssi/São Jorge)\n\nAPARIÇÕES NA MÍDIA:\n- 1966: Primeiro Festival Mundial de Artes Negras (Dacar, Senegal) - tocador de berimbau\n- 1967: LP "Berimbaus da Bahia" (Continental Records; texto de Jorge Amado)\n- 1968: LP "Camafeu de Oxóssi" (Philips Records, catálogo 632916-L)\n- Documentário da TV Educativa\n- Mencionado em canções de Martinho da Vila, Originais do Samba, Candeia\n- Inspirou personagens em romances de Jorge Amado\n\nOUTROS PAPÉIS:\n- Primeira barraca no Mercado Modelo (1945) - vendia berimbaus e artigos de Candomblé\n- Dirigiu escolas de samba: Gato Preto, Só Falta Você, Deixa Pra Lá\n- Obá de Xangô (Osi Obá Aresá) no Ilê Axé Opô Afonjá (sobrinho de Mãe Aninha, iniciado por Mãe Senhora)\n- Presidente do afoxé Filhos de Gandhi (1976-1982)\n- Dono de restaurante no Mercado Modelo (aberto em 1971/1972 com esposa Toninha)\n- Profissões anteriores: engraxate, jornaleiro, vendedor de cadarços, estivador, fundidor\n\nFALECIMENTO:\n- 26 de março de 1994 (algumas fontes dizem 27 de março)\n- Hospital Aristides Maltez, Salvador\n- Causa: câncer de garganta\n- Funeral no Cemitério da Ordem Terceira de São Francisco\n- Babalorixá Luís da Muriçoca cantou em iorubá no funeral\n\nMAESTRIA NO BERIMBAU:\n- Dorival Caymmi: "Com um berimbau nas mãos, ninguém supera Camafeu de Oxóssi"\n- Waldeloir Rego contestou que Mestre Gato era o maior (rivalidade amigável)\n- Proficiente em: berimbau, pandeiro, agogô, atabaque, reco-reco, pratos, colheres, caixas de fósforos'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name, title = EXCLUDED.title, portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links, style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en, style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year, birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place, death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision, death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en, bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en, achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en, notes_pt = EXCLUDED.notes_pt, updated_at = NOW();
+
+-- Source: entities/persons/camisa-roxa.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Camisa Roxa
+-- Generated: 2025-12-20
+-- ============================================================
+-- Grão-Mestre Camisa Roxa (Edvaldo Carneiro e Silva)
+-- Born January 7, 1944 at Fazenda Estiva, Jacobina, Bahia
+-- Died April 18, 2013 in Salvador
+-- Considered the best student of Mestre Bimba
+-- Pioneer of capoeira's international expansion to Europe
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  -- Identity
+  name,
+  apelido,
+  title,
+  portrait,
+  public_links,
+  -- Capoeira-specific
+  style,
+  style_notes_en,
+  style_notes_pt,
+  -- Life dates
+  birth_year,
+  birth_year_precision,
+  birth_place,
+  death_year,
+  death_year_precision,
+  death_place,
+  -- Extended content (bilingual)
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt,
+  -- Researcher notes
+  notes_en,
+  notes_pt
+) VALUES (
+  -- Identity
+  'Edvaldo Carneiro e Silva',
+  'Camisa Roxa',
+  'mestre'::genealogy.title,
+  NULL,
+  ARRAY['https://velhosmestres.com/en/featured-73', 'https://velhosmestres.com/br/destaques-73', 'https://abada-capoeira-ba.wixsite.com/salvador/camisa-roxa']::text[],
+  -- Capoeira-specific
+  'regional'::genealogy.style,
+  E'Grão-Mestre Camisa Roxa was one of the finest Regional players of his time. According to Matthias Röhrig Assunção in "Capoeira: A History of an Afro-Brazilian Martial Art," he was "at the time considered to be one of the best Regional players of Brazil." However, Camisa Roxa thought of capoeira as a whole, bringing together Regional and Angola styles. He also enjoyed playing in the traditional rodas at Mestre Pastinha''s academy and in the rodas of Mestres Waldemar and Traíra on Rua Pero Vaz, where he was highly respected for his posture and his great knowledge of capoeira fundamentals.',
+  E'Grão-Mestre Camisa Roxa foi um dos melhores jogadores de Regional de sua época. Segundo Matthias Röhrig Assunção em "Capoeira: A History of an Afro-Brazilian Martial Art," ele era "na época considerado um dos melhores jogadores de Regional do Brasil." No entanto, Camisa Roxa pensava na capoeira como um todo, reunindo os estilos Regional e Angola. Ele também gostava de jogar nas rodas tradicionais da academia de Mestre Pastinha e nas rodas dos Mestres Waldemar e Traíra na Rua Pero Vaz, onde era muito respeitado por sua postura e seu grande conhecimento dos fundamentos da capoeira.',
+  -- Life dates
+  1944,
+  'exact'::genealogy.date_precision,
+  'Fazenda Estiva, Jacobina, Bahia, Brazil',
+  2013,
+  'exact'::genealogy.date_precision,
+  'Salvador, Bahia, Brazil',
+  -- bio_en
+  E'Edvaldo Carneiro e Silva, known as Grão-Mestre Camisa Roxa, was born on January 7, 1944, at Fazenda Estiva, a farm in the interior of Jacobina, Bahia. He was the eldest of ten children, and he was greatly respected by his younger siblings, a number of whom followed in his footsteps in life and in capoeira.
+
+At the age of ten in 1954, Camisa Roxa began to play capoeira. At the time, it was only one of the many games he played to entertain himself and pass the long hours of childhood on the farm. He had no idea that nineteen years later he would be a professional capoeirista and the first to carry his art outside of Brazil, first to Europe and then around the world.
+
+In the 1960s, Camisa Roxa left his family ranch for the capital city of Salvador in order to complete his high school education. In 1962 or 1963, he entered Mestre Bimba''s academy. He was an apt and hard-working pupil, and eventually gained recognition as Bimba''s best student. His distinctive purple shirt, which he regularly wore to capoeira rodas in Bahia, earned him the nickname "Camisa Roxa" (Purple Shirt).
+
+Beyond his training with Mestre Bimba, Camisa Roxa sought out other capoeiristas. He enjoyed playing in the traditional rodas at Mestre Pastinha''s academy and in the rodas of Mestres Waldemar and Traíra on Rua Pero Vaz in Liberdade. His ability to bridge Regional and Angola styles earned him great respect throughout the Salvador capoeira community. He thought of capoeira as a whole, bringing together both traditions.
+
+When he was 21, Camisa Roxa''s father died, and he became the patriarch of his family. He took on the responsibility of educating his brothers and sisters and providing for their general welfare. He became their second father and was greatly admired by all. In fact, three of his brothers—Ermival, Pedrinho, and José Tadeu (later known as Mestre Camisa)—followed in his footsteps, training capoeira with Mestre Bimba at his academy in Salvador. Like their brother, all three became alunos formados—graduated students—of the Academia de Mestre Bimba.
+
+Inspired by the idea of spreading capoeira, Camisa Roxa helped form the folkloric dance company Olodum Maré in 1972, a traveling performance group that promoted traditional arts, including capoeira, throughout Brazil. After completing a yearlong tour of the country, the group planned a tour of Europe under the name "Brasil Tropical."
+
+In 1973, Camisa Roxa founded Brasil Tropical and made his first trip to Europe, introducing capoeira and Brazilian culture to European audiences. Few people believed that his voyage would meet with success. Yet, trusting in his vision, his talent, and in the power of capoeira, Camisa Roxa made the journey and was very well received. According to Matthias Röhrig Assunção, "Important for the diffusion of capoeira in Europe during the 1970s was Brazil Tropical, a company headed by the dancer and choreographer Domingos Campos and M. Camisa Roxa. Camisa Roxa, a student of M. Bimba, was at the time considered to be one of the best Regional players of Brazil."
+
+In 1974, the Brasil Tropical show was transmitted worldwide during the opening of the World Cup. From 1975 onwards, Camisa Roxa gave capoeira demonstrations in martial arts academies in Paris, Cannes, Brussels, Munich, and other cities across Europe. In 1979, he established a headquarters in Munich, Germany, and later in Salzburg, Austria (1985-86), consolidating capoeira in various European countries.
+
+In 1989, Camisa Roxa received the title of Grão-Mestre (Grand Master) of Abadá-Capoeira, the highest rank in the organization—a lifetime title chosen by a council of masters of notable knowledge. His function became that of guide and counselor for the international organization. While his younger brother Mestre Camisa founded Abadá-Capoeira in 1988 and built its organizational structure, Camisa Roxa became the spiritual elder and European coordinator.
+
+In 1992, Camisa Roxa organized the first Spring Encounter in Salzburg, Austria, with Mestre Camisa, Mestre Moraes, and Mestre Santana—an event that would become a tradition in the European capoeira calendar. He coordinated Abadá-Capoeira activities throughout Europe, regularly organizing workshops for instructors and professors. He was also the organizer of the Spring Capoeira Encounter in Europe and of the Abadá-Capoeira European Games, events aimed at integrating and updating capoeiristas.
+
+In 2010, Camisa Roxa organized the first Festa da Capoeira (Capoeira Festival) in Salvador, celebrating the art he had dedicated his life to spreading. Over his career, he is estimated to have performed in more than 10,000 presentations involving approximately one million spectators worldwide.
+
+Grão-Mestre Camisa Roxa spent his last years in Austria, where he continued to coordinate Abadá-Capoeira centers across Europe and organize the European Games. On April 18, 2013, he died in Salvador, Bahia. Though the art of capoeira remains firmly rooted in Brazil, it has been planted in more than 50 countries around the world—largely as a result of the travels and work of Grão-Mestre Camisa Roxa.',
+  -- bio_pt
+  E'Edvaldo Carneiro e Silva, conhecido como Grão-Mestre Camisa Roxa, nasceu em 7 de janeiro de 1944 na Fazenda Estiva, uma fazenda no interior de Jacobina, Bahia. Era o mais velho de dez filhos e era muito respeitado por seus irmãos mais novos, vários dos quais seguiram seus passos na vida e na capoeira.
+
+Aos dez anos, em 1954, Camisa Roxa começou a jogar capoeira. Na época, era apenas uma das muitas brincadeiras que praticava para se divertir e passar as longas horas de infância na fazenda. Ele não tinha ideia de que, dezenove anos depois, seria um capoeirista profissional e o primeiro a levar sua arte para fora do Brasil, primeiro para a Europa e depois para o mundo inteiro.
+
+Na década de 1960, Camisa Roxa deixou a fazenda da família e foi para a capital, Salvador, para completar seus estudos secundários. Em 1962 ou 1963, ingressou na academia de Mestre Bimba. Era um aluno apto e trabalhador, e eventualmente ganhou reconhecimento como o melhor aluno de Bimba. Sua distintiva camisa roxa, que ele usava regularmente nas rodas de capoeira da Bahia, lhe rendeu o apelido de "Camisa Roxa."
+
+Além de seu treinamento com Mestre Bimba, Camisa Roxa procurou outros capoeiristas. Gostava de jogar nas rodas tradicionais da academia de Mestre Pastinha e nas rodas dos Mestres Waldemar e Traíra na Rua Pero Vaz, na Liberdade. Sua capacidade de unir os estilos Regional e Angola lhe rendeu grande respeito em toda a comunidade capoeirista de Salvador. Ele pensava na capoeira como um todo, reunindo ambas as tradições.
+
+Quando tinha 21 anos, o pai de Camisa Roxa morreu, e ele se tornou o patriarca da família. Assumiu a responsabilidade de educar seus irmãos e prover seu bem-estar geral. Tornou-se um segundo pai e era muito admirado por todos. De fato, três de seus irmãos—Ermival, Pedrinho e José Tadeu (mais tarde conhecido como Mestre Camisa)—seguiram seus passos, treinando capoeira com Mestre Bimba em sua academia em Salvador. Como seu irmão, todos os três se tornaram alunos formados da Academia de Mestre Bimba.
+
+Inspirado pela ideia de difundir a capoeira, Camisa Roxa ajudou a formar a companhia de dança folclórica Olodum Maré em 1972, um grupo itinerante de apresentações que promovia as artes tradicionais, incluindo a capoeira, por todo o Brasil. Após completar uma turnê de um ano pelo país, o grupo planejou uma turnê pela Europa sob o nome "Brasil Tropical."
+
+Em 1973, Camisa Roxa fundou o Brasil Tropical e fez sua primeira viagem à Europa, apresentando a capoeira e a cultura brasileira ao público europeu. Poucos acreditavam que sua viagem teria sucesso. No entanto, confiando em sua visão, seu talento e no poder da capoeira, Camisa Roxa fez a jornada e foi muito bem recebido. Segundo Matthias Röhrig Assunção, "Importante para a difusão da capoeira na Europa durante os anos 1970 foi o Brasil Tropical, uma companhia liderada pelo dançarino e coreógrafo Domingos Campos e M. Camisa Roxa. Camisa Roxa, um aluno de M. Bimba, era na época considerado um dos melhores jogadores de Regional do Brasil."
+
+Em 1974, o show do Brasil Tropical foi transmitido mundialmente durante a abertura da Copa do Mundo. A partir de 1975, Camisa Roxa fez demonstrações de capoeira em academias de artes marciais em Paris, Cannes, Bruxelas, Munique e outras cidades da Europa. Em 1979, estabeleceu uma sede em Munique, Alemanha, e depois em Salzburg, Áustria (1985-86), consolidando a capoeira em vários países europeus.
+
+Em 1989, Camisa Roxa recebeu o título de Grão-Mestre da Abadá-Capoeira, o mais alto posto da organização—um título vitalício escolhido por um conselho de mestres de notável conhecimento. Sua função tornou-se a de guia e conselheiro para a organização internacional. Enquanto seu irmão mais novo Mestre Camisa fundou a Abadá-Capoeira em 1988 e construiu sua estrutura organizacional, Camisa Roxa tornou-se o ancião espiritual e coordenador europeu.
+
+Em 1992, Camisa Roxa organizou o primeiro Encontro de Primavera em Salzburg, Áustria, com Mestre Camisa, Mestre Moraes e Mestre Santana—um evento que se tornaria tradição no calendário capoeirístico europeu. Ele coordenou as atividades da Abadá-Capoeira em toda a Europa, organizando regularmente workshops para instrutores e professores. Foi também organizador do Encontro de Capoeira de Primavera na Europa e dos Jogos Europeus da Abadá-Capoeira, eventos voltados para integrar e atualizar os capoeiristas.
+
+Em 2010, Camisa Roxa organizou a primeira Festa da Capoeira em Salvador, celebrando a arte à qual dedicou sua vida a difundir. Ao longo de sua carreira, estima-se que tenha se apresentado em mais de 10.000 apresentações envolvendo aproximadamente um milhão de espectadores em todo o mundo.
+
+Grão-Mestre Camisa Roxa passou seus últimos anos na Áustria, onde continuou a coordenar os centros da Abadá-Capoeira em toda a Europa e organizar os Jogos Europeus. Em 18 de abril de 2013, faleceu em Salvador, Bahia. Embora a arte da capoeira permaneça firmemente enraizada no Brasil, ela foi plantada em mais de 50 países ao redor do mundo—em grande parte como resultado das viagens e do trabalho de Grão-Mestre Camisa Roxa.',
+  -- achievements_en
+  E'Considered the best student of Mestre Bimba; First to bring capoeira outside of Brazil to Europe and the world (1973); Founded Brasil Tropical folkloric group (1973); Received title of Grão-Mestre of Abadá-Capoeira (1989); Established capoeira headquarters in Munich (1979) and Salzburg (1985-86); Organized first Spring Encounter in Salzburg (1992); Coordinated Abadá-Capoeira throughout Europe; Organized Abadá-Capoeira European Games; Estimated 10,000+ presentations to 1 million+ spectators; Brought capoeira to 50+ countries; First Festa da Capoeira in Salvador (2010); One of the best Regional players of Brazil in the 1970s (per Matthias Röhrig Assunção); Bridged Regional and Angola styles',
+  -- achievements_pt
+  E'Considerado o melhor aluno de Mestre Bimba; Primeiro a levar a capoeira para fora do Brasil, para a Europa e o mundo (1973); Fundou o grupo folclórico Brasil Tropical (1973); Recebeu o título de Grão-Mestre da Abadá-Capoeira (1989); Estabeleceu sedes de capoeira em Munique (1979) e Salzburg (1985-86); Organizou o primeiro Encontro de Primavera em Salzburg (1992); Coordenou a Abadá-Capoeira em toda a Europa; Organizou os Jogos Europeus da Abadá-Capoeira; Estimadas 10.000+ apresentações para 1 milhão+ de espectadores; Levou a capoeira para mais de 50 países; Primeira Festa da Capoeira em Salvador (2010); Um dos melhores jogadores de Regional do Brasil nos anos 1970 (segundo Matthias Röhrig Assunção); Uniu os estilos Regional e Angola',
+  -- notes_en
+  E'BIRTH DATE: January 7, 1944, Fazenda Estiva, Jacobina, Bahia - confirmed by velhosmestres.com and Abadá sources.
+
+DEATH DATE: April 18, 2013, in Salvador, Bahia - confirmed by Portal Capoeira obituary and multiple sources. Some sources mention April 19, but April 18 is the most frequently cited date.
+
+DEATH CIRCUMSTANCES: According to Portal Capoeira obituary, he "suffered a fall from a roof, resulting in his death."
+
+NAME DISCREPANCY:
+- "Edvaldo Carneiro e Silva" - velhosmestres.com, Abadá sources (MAJORITY)
+- "Edvaldo Canreiro e Silva" - some sources (likely typo)
+- "Edvaldo Carneiro da Silva" - some English sources
+Used "Edvaldo Carneiro e Silva" as most authoritative.
+
+FAMILY (Carneiro family of capoeiristas):
+- Father: died when Camisa Roxa was 21
+- Brothers who trained with Bimba: Ermival, Pedrinho, José Tadeu (Mestre Camisa)
+- All three brothers became alunos formados (graduated students) of Mestre Bimba
+- Was eldest of 10 children
+
+TEACHERS:
+- Mestre Bimba (primary, 1962/1963-?, Salvador) - considered his best student
+- Also trained/played in rodas of: Mestre Pastinha, Mestre Waldemar, Mestre Traíra
+
+STUDENTS:
+- Instrutor Tuiuiú (mentioned in photo captions at velhosmestres.com)
+- Multiple instructors and professors trained through European workshops
+
+CAREER TIMELINE:
+- 1954: Began capoeira at age 10
+- 1962/1963: Entered Mestre Bimba''s academy in Salvador
+- 1964: Participated in Grupo Olodum (folkloric group)
+- 1967: Traveled to Argentina (earliest documented international trip)
+- 1972: Founded Olodum Maré, Brazil tour
+- 1973: Founded Brasil Tropical, first trip to Europe
+- 1974: Brasil Tropical show transmitted during World Cup opening
+- 1975+: Demonstrations in Paris, Cannes, Brussels, Munich
+- 1979: Established headquarters in Munich, Germany
+- 1985-86: Established headquarters in Salzburg, Austria
+- 1989: Received title of Grão-Mestre from Abadá-Capoeira
+- 1992: First Spring Encounter with Mestre Camisa, Mestre Moraes, Mestre Santana in Salzburg
+- 1998+: Participated in various European Games
+- 2010: First Festa da Capoeira in Salvador
+- 2013: Died in Salvador
+
+MEDIA APPEARANCES:
+- Photos with Instrutor Tuiuiú (velhosmestres.com)
+- Photos with Mestre João Grande, Mestre Catitu, Mestre Edna Lima (velhosmestres.com)
+
+GROUPS/ORGANIZATIONS:
+- Olodum (participation 1964)
+- Olodum Maré (co-founded 1972)
+- Brasil Tropical (founded 1973)
+- Abadá-Capoeira (Grão-Mestre from 1989)
+
+RODA LOCATIONS IN SALVADOR:
+- Mestre Bimba''s academy
+- Mestre Pastinha''s academy
+- Rua Pero Vaz (Liberdade neighborhood) - rodas of Waldemar and Traíra
+
+APELIDO ORIGIN: His nickname comes from the fact that he always wore a purple shirt (camisa roxa) to capoeira rodas in Bahia, which he really liked.
+
+INTERNATIONAL WORK: Lived last years in Austria; coordinated Abadá centers in Europe; organized European Spring Meeting and European Games; presented capoeira in over 50 countries (some sources say 60).',
+  -- notes_pt
+  E'DATA DE NASCIMENTO: 7 de janeiro de 1944, Fazenda Estiva, Jacobina, Bahia - confirmado por velhosmestres.com e fontes da Abadá.
+
+DATA DE FALECIMENTO: 18 de abril de 2013, em Salvador, Bahia - confirmado pelo obituário do Portal Capoeira e múltiplas fontes. Algumas fontes mencionam 19 de abril, mas 18 de abril é a data mais citada.
+
+CIRCUNSTÂNCIAS DA MORTE: Segundo o obituário do Portal Capoeira, ele "sofreu uma queda de um telhado, resultando em sua morte."
+
+DISCREPÂNCIA DE NOME:
+- "Edvaldo Carneiro e Silva" - velhosmestres.com, fontes da Abadá (MAIORIA)
+- "Edvaldo Canreiro e Silva" - algumas fontes (provável erro de digitação)
+- "Edvaldo Carneiro da Silva" - algumas fontes em inglês
+Usado "Edvaldo Carneiro e Silva" como mais autoritativo.
+
+FAMÍLIA (família Carneiro de capoeiristas):
+- Pai: faleceu quando Camisa Roxa tinha 21 anos
+- Irmãos que treinaram com Bimba: Ermival, Pedrinho, José Tadeu (Mestre Camisa)
+- Todos os três irmãos se tornaram alunos formados de Mestre Bimba
+- Era o mais velho de 10 filhos
+
+PROFESSORES:
+- Mestre Bimba (principal, 1962/1963-?, Salvador) - considerado seu melhor aluno
+- Também treinou/jogou nas rodas de: Mestre Pastinha, Mestre Waldemar, Mestre Traíra
+
+ALUNOS:
+- Instrutor Tuiuiú (mencionado em legendas de fotos em velhosmestres.com)
+- Múltiplos instrutores e professores treinados através de workshops europeus
+
+LINHA DO TEMPO DA CARREIRA:
+- 1954: Começou capoeira aos 10 anos
+- 1962/1963: Entrou na academia de Mestre Bimba em Salvador
+- 1964: Participou do Grupo Olodum (grupo folclórico)
+- 1967: Viajou para Argentina (primeira viagem internacional documentada)
+- 1972: Fundou Olodum Maré, turnê pelo Brasil
+- 1973: Fundou Brasil Tropical, primeira viagem à Europa
+- 1974: Show do Brasil Tropical transmitido durante abertura da Copa do Mundo
+- 1975+: Demonstrações em Paris, Cannes, Bruxelas, Munique
+- 1979: Estabeleceu sede em Munique, Alemanha
+- 1985-86: Estabeleceu sede em Salzburg, Áustria
+- 1989: Recebeu título de Grão-Mestre da Abadá-Capoeira
+- 1992: Primeiro Encontro de Primavera com Mestre Camisa, Mestre Moraes, Mestre Santana em Salzburg
+- 1998+: Participou de vários Jogos Europeus
+- 2010: Primeira Festa da Capoeira em Salvador
+- 2013: Faleceu em Salvador
+
+APARIÇÕES NA MÍDIA:
+- Fotos com Instrutor Tuiuiú (velhosmestres.com)
+- Fotos com Mestre João Grande, Mestre Catitu, Mestre Edna Lima (velhosmestres.com)
+
+GRUPOS/ORGANIZAÇÕES:
+- Olodum (participação 1964)
+- Olodum Maré (cofundou 1972)
+- Brasil Tropical (fundou 1973)
+- Abadá-Capoeira (Grão-Mestre a partir de 1989)
+
+LOCAIS DE RODA EM SALVADOR:
+- Academia de Mestre Bimba
+- Academia de Mestre Pastinha
+- Rua Pero Vaz (bairro da Liberdade) - rodas de Waldemar e Traíra
+
+ORIGEM DO APELIDO: Seu apelido vem do fato de que ele sempre frequentava as rodas de capoeira da Bahia vestindo uma camisa roxa da qual gostava muito.
+
+TRABALHO INTERNACIONAL: Viveu últimos anos na Áustria; coordenou centros da Abadá na Europa; organizou Encontro de Primavera Europeu e Jogos Europeus; apresentou capoeira em mais de 50 países (algumas fontes dizem 60).'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
+  updated_at = NOW();
+
+-- Source: entities/persons/campanhao.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Campanhão
+-- Generated: 2025-12-20
+-- ============================================================
+-- BIRTH YEAR ESTIMATION (1900, decade precision):
+-- The Os Malandros de Mestre Touro lineage states birth year as 1900.
+-- This is plausible given:
+-- - Prata Preta (b. 1874) was deported in 1904 when Campanhão would be ~4
+-- - Quinzinho (b. ~1925) could have trained under Campanhão in the 1940s
+--   when Campanhão would be in his 40s
+-- - However, this timeline raises questions about when/how Campanhão
+--   learned from Prata Preta, who was exiled in 1904
+-- Only one source documents this figure; confidence is uncertain.
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  -- Identity
+  name,
+  apelido,
+  title,
+  portrait,
+  public_links,
+  -- Capoeira-specific
+  style,
+  style_notes_en,
+  style_notes_pt,
+  -- Life dates
+  birth_year,
+  birth_year_precision,
+  birth_place,
+  death_year,
+  death_year_precision,
+  death_place,
+  -- Extended content (bilingual)
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt,
+  -- Researcher notes (bilingual)
+  notes_en,
+  notes_pt
+) VALUES (
+  -- Identity
+  NULL, -- Full name unknown
+  'Campanhão',
+  NULL, -- No formal title in pre-codification era
+  NULL, -- No portrait known
+  ARRAY[]::text[], -- No stable online sources about Campanhão specifically
+  -- Capoeira-specific
+  NULL, -- Pre-codification era; style distinctions did not exist
+  E'Pre-codification carioca capoeira. Practiced tiririca, the violent street capoeira of Rio de Janeiro that existed before formalization. Bridge figure between Prata Preta''s generation (late 19th century maltas) and Quinzinho''s generation (mid-20th century malandros).',
+  E'Capoeira carioca pré-codificação. Praticava tiririca, a violenta capoeira de rua do Rio de Janeiro que existia antes da formalização. Figura de transição entre a geração de Prata Preta (maltas do final do século XIX) e a geração de Quinzinho (malandros de meados do século XX).',
+  -- Life dates
+  1900,
+  'decade'::genealogy.date_precision,
+  'Rio de Janeiro, Brazil',
+  NULL, -- Death year unknown
+  'unknown'::genealogy.date_precision,
+  NULL, -- Death place unknown
+  -- bio_en
+  E'Campanhão is an obscure figure in the history of carioca capoeira, known only through the lineage preserved by Os Malandros de Mestre Touro. According to their family tree, Campanhão was born around 1900 in Rio de Janeiro and served as the critical link between Prata Preta—the legendary capoeirista deported to Acre after the 1904 Vaccine Revolt—and Quinzinho, who would later become Mestre Leopoldina''s first teacher.
+
+Almost nothing is documented about Campanhão''s life. The source states he was born "around 1900," but for a meaningful training relationship with Prata Preta (who was deported in December 1904), Campanhão was likely born somewhat earlier—perhaps in the early-to-mid 1890s—which would make him a teenager when Prata Preta was still active in Rio''s port district.
+
+What we can infer is that Campanhão was part of the generation that kept carioca capoeira alive during its most dangerous period. The practice had been criminalized in 1890 under Article 402 of the Penal Code, and practitioners faced imprisonment and deportation. Yet in the favelas and docks of Rio, in the shadows of Central do Brasil station and the port district, men like Campanhão continued to practice and transmit tiririca—the violent, musicless capoeira of the streets.
+
+By the time Quinzinho emerged in the late 1940s as a feared malandro and gang leader around Central do Brasil, the old knowledge had survived. Quinzinho would teach the young Demerval Lopes de Lacerda—future Mestre Leopoldina—in front of his house, using the same informal methods: "Do it like this... do it like that." Through this chain of transmission, the premodern Rio lineage survived into the modern era.
+
+Campanhão''s name appears only in the lineage documentation of Os Malandros de Mestre Touro, making him a "ghost" figure in capoeira history—essential to the chain but almost invisible to the historical record. His story represents the countless unnamed capoeiristas who preserved the art through oral tradition and physical practice during decades of persecution.',
+  -- bio_pt
+  E'Campanhão é uma figura obscura na história da capoeira carioca, conhecida apenas através da linhagem preservada pelos Os Malandros de Mestre Touro. Segundo sua árvore genealógica, Campanhão nasceu por volta de 1900 no Rio de Janeiro e serviu como elo crítico entre Prata Preta—o lendário capoeirista deportado para o Acre após a Revolta da Vacina de 1904—e Quinzinho, que mais tarde se tornaria o primeiro professor de Mestre Leopoldina.
+
+Quase nada está documentado sobre a vida de Campanhão. A fonte indica que ele nasceu "por volta de 1900", mas para uma relação de treinamento significativa com Prata Preta (que foi deportado em dezembro de 1904), Campanhão provavelmente nasceu um pouco antes—talvez no início ou meados dos anos 1890—o que o tornaria adolescente quando Prata Preta ainda estava ativo na região portuária do Rio.
+
+O que podemos inferir é que Campanhão fazia parte da geração que manteve a capoeira carioca viva durante seu período mais perigoso. A prática havia sido criminalizada em 1890 sob o Artigo 402 do Código Penal, e os praticantes enfrentavam prisão e deportação. Ainda assim, nas favelas e docas do Rio, nas sombras da estação Central do Brasil e do distrito portuário, homens como Campanhão continuaram a praticar e transmitir a tiririca—a violenta capoeira sem música das ruas.
+
+Quando Quinzinho emergiu no final dos anos 1940 como um temido malandro e líder de gangue ao redor da Central do Brasil, o antigo conhecimento havia sobrevivido. Quinzinho ensinaria o jovem Demerval Lopes de Lacerda—futuro Mestre Leopoldina—na frente de sua casa, usando os mesmos métodos informais: "Faz assim... faz assim." Através dessa cadeia de transmissão, a linhagem pré-moderna do Rio sobreviveu até a era moderna.
+
+O nome de Campanhão aparece apenas na documentação de linhagem dos Os Malandros de Mestre Touro, tornando-o uma figura "fantasma" na história da capoeira—essencial para a cadeia, mas quase invisível no registro histórico. Sua história representa os incontáveis capoeiristas sem nome que preservaram a arte através da tradição oral e prática física durante décadas de perseguição.',
+  -- achievements_en
+  NULL, -- No documented achievements
+  -- achievements_pt
+  NULL, -- No documented achievements
+  -- notes_en
+  E'BIRTH YEAR ESTIMATION (1900, decade precision):
+Only source for this figure is the Os Malandros de Mestre Touro lineage (malandros-touro.com). Their family tree states birth year as "around 1900" in Rio de Janeiro. However, for a meaningful training relationship with Prata Preta (who was deported in December 1904), Campanhão was likely born somewhat earlier—perhaps in the early-to-mid 1890s—which would make him a teenager when Prata Preta was still active. The "decade" precision accommodates this uncertainty while preserving the source''s approximate timeframe.
+
+DEATH: Unknown. No documentation.
+
+NAME: Only apelido "Campanhão" is known. No full name documented.
+
+SINGLE SOURCE WARNING: This entire profile is based on the Os Malandros de Mestre Touro lineage documentation. No corroborating sources have been found in academic literature, newspaper archives, or other capoeira historical sources (capoeirahistory.com, velhosmestres.com, etc.).
+
+LINEAGE:
+Prata Preta (b. 1874) → Campanhão (b. ~1900) → Quinzinho (b. ~1925) → Leopoldina (b. 1933) → Celso Pepe (b. 1949) → Mestre Touro (b. 1950)
+
+TEACHERS:
+- Prata Preta (Horácio José da Silva) - per Os Malandros lineage; timing uncertain due to 1904 deportation
+
+STUDENTS:
+- Quinzinho (Joaquim Felix de Souza, b. ~1925) - per Os Malandros lineage',
+  -- notes_pt
+  E'ESTIMATIVA DE ANO DE NASCIMENTO (1900, precisão de década):
+Única fonte para esta figura é a linhagem dos Os Malandros de Mestre Touro (malandros-touro.com). Sua árvore genealógica indica ano de nascimento como "por volta de 1900" no Rio de Janeiro. No entanto, para uma relação de treinamento significativa com Prata Preta (que foi deportado em dezembro de 1904), Campanhão provavelmente nasceu um pouco antes—talvez no início ou meados dos anos 1890—o que o tornaria adolescente quando Prata Preta ainda estava ativo. A precisão de "década" acomoda essa incerteza enquanto preserva o período aproximado da fonte.
+
+MORTE: Desconhecida. Sem documentação.
+
+NOME: Apenas o apelido "Campanhão" é conhecido. Nenhum nome completo documentado.
+
+AVISO DE FONTE ÚNICA: Todo este perfil é baseado na documentação de linhagem dos Os Malandros de Mestre Touro. Nenhuma fonte corroboradora foi encontrada em literatura acadêmica, arquivos de jornais ou outras fontes históricas de capoeira (capoeirahistory.com, velhosmestres.com, etc.).
+
+LINHAGEM:
+Prata Preta (n. 1874) → Campanhão (n. ~1900) → Quinzinho (n. ~1925) → Leopoldina (n. 1933) → Celso Pepe (n. 1949) → Mestre Touro (n. 1950)
+
+MESTRES:
+- Prata Preta (Horácio José da Silva) - conforme linhagem Os Malandros; cronologia incerta devido à deportação de 1904
+
+ALUNOS:
+- Quinzinho (Joaquim Felix de Souza, n. ~1925) - conforme linhagem Os Malandros'
 )
 ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
@@ -921,6 +2198,499 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
+-- Source: entities/persons/decanio.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Decânio
+-- Generated: 2025-12-20
+-- ============================================================
+-- One of only four students formally graduated to mestre level
+-- (white handkerchief / lenço branco) by Mestre Bimba.
+-- Medical doctor, author, researcher, and philosopher of capoeira.
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  -- Identity
+  name,
+  apelido,
+  title,
+  portrait,
+  public_links,
+  -- Capoeira-specific
+  style,
+  style_notes_en,
+  style_notes_pt,
+  -- Life dates
+  birth_year,
+  birth_year_precision,
+  birth_place,
+  death_year,
+  death_year_precision,
+  death_place,
+  -- Extended content (bilingual)
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt,
+  -- Researcher notes
+  notes_en,
+  notes_pt
+) VALUES (
+  -- Identity
+  'Angelo Augusto Decânio Filho',
+  'Decânio',
+  'mestre'::genealogy.title,
+  NULL,
+  ARRAY['https://velhosmestres.com', 'https://portalcapoeira.com/capoeira/cronicas-da-capoeiragem/mestre-decanio-o-doutor-da-capoeira/', 'https://capoeira.fandom.com/wiki/Mestre_Decanio']::text[],
+  -- Capoeira-specific
+  'regional'::genealogy.style,
+  E'One of the founding pillars of Capoeira Regional alongside Sisnando. As a medical doctor and academic, he helped give capoeira a new institutional legitimacy. Contributed to systematizing Bimba''s teaching methodology and academy organization, including uniforms, training schedules, baptisms, and specialization courses. Known for developing the theory of "Transe Capoeirano" (Capoeira Trance), applying scientific principles to explain the altered states of consciousness achieved during capoeira practice.',
+  E'Um dos pilares fundadores da Capoeira Regional ao lado de Sisnando. Como médico e acadêmico, ajudou a dar à capoeira uma nova legitimidade institucional. Contribuiu para sistematizar a metodologia de ensino e organização da academia de Bimba, incluindo uniformes, horários de treino, batizados e cursos de especialização. Conhecido por desenvolver a teoria do "Transe Capoeirano", aplicando princípios científicos para explicar os estados alterados de consciência alcançados durante a prática da capoeira.',
+  -- Life dates
+  1923,
+  'exact'::genealogy.date_precision,
+  'Salvador, Bahia, Brazil',
+  2011,
+  'exact'::genealogy.date_precision,
+  'Salvador, Bahia, Brazil',
+  -- bio_en
+  E'Angelo Augusto Decânio Filho was born on February 12, 1923, in Salvador, Bahia, the son of Dr. Ângelo Augusto Decânio and Georgina de Barros Decânio. He would become one of the most significant figures in the preservation and documentation of Capoeira Regional.
+
+In 1938, while studying medicine at university, the sixteen-year-old Decânio met Mestre Bimba and joined his academy—a fact he initially kept secret from his family. From that first day, Bimba adopted him "like a son," beginning a relationship that would span 36 years until the master''s death in 1974.
+
+During those decades, Decânio became far more than a student. He provided Bimba with "filial attention, medical care, advisory on academy administration, study of new techniques and counter-techniques, and establishment of norms and rules for improved teaching of the art." As a result of this intimate collaboration, Decânio had the privilege of being "the sole keeper of the Master''s secrets and tricks."
+
+Together with Sisnando Lima—another university-educated student who had trained in judo under Mitsuyo Maeda—Decânio formed one of the two pillars upon which Bimba built Capoeira Regional during its crucial Initial Phase (1930-1937) and Consolidation Phase (1938-1966). These academics helped transform capoeira from a street practice into a respectable institution, implementing structured academy operations with uniforms, training schedules, events, baptisms, exhibition rodas, and specialization courses.
+
+Bimba formally graduated only four students to the level of mestre (white handkerchief) during his lifetime: Decânio, Jair Moura, Miranda, and Edinho. This was the highest honor in the Capoeira Regional graduation system, reserved for those who had dedicated many years to both training and teaching the art.
+
+In 1969, when Bimba was invited to participate in the I Simpósio Brasileiro de Capoeira at Galeão Air Base in Rio de Janeiro—an event aimed at formulating sporting rules for capoeira—he sent Decânio as his official representative rather than attending himself.
+
+As a physician and intellectual, Decânio formulated the theory of "Transe Capoeirano" (Capoeira Trance), described as "a physical-psychological state that the capoeirista reaches during the game, due to stimuli from the musicality, the rhythm of the atabaques and agogôs, and the atmosphere provided by the ritual of the capoeira roda." He published this theory in "Transe Capoeirano, um estudo sobre a estrutura do ser humano e modificações de estados de consciência durante a prática da capoeira" (Salvador, 2002). His work drew comparisons between the trance state in capoeira and that experienced in Candomblé ceremonies.
+
+Decânio authored several books on capoeira, compiled in the self-published Coleção São Salomão: "A Herança de Mestre Bimba" (1996, 2nd edition revised with dialectal glossary 1997), "Manuscritos e Desenhos de Pastinha," "A Herança de Pastinha," and "Falando em Capoeira." His work was cited by Mestre Damião as "the true Bible of Capoeira."
+
+Notably, despite being Bimba''s closest disciple, Decânio showed profound respect for Mestre Pastinha and Capoeira Angola. In "A Herança de Mestre Bimba," he exalted Pastinha, the master of Capoeira Angola. He was also responsible for publishing Pastinha''s manuscripts, preserving essential documents for the Angola tradition.
+
+In his later years, Decânio lived at Sítio Vivendas Yemanjá in the Praia de Tubarão neighborhood of Paripe, in Salvador''s Subúrbio Ferroviário, where he remained a welcoming figure for capoeiristas who sought his knowledge. He was close neighbors and friends with Mestre João Pequeno. When CEDANZE (the academy continuing João Pequeno''s work) was formalized in 2003, Decânio served on its Council of Honor as one of the "advisors of highest expression of Capoeira in Bahia."
+
+He held various titles in medicine, academic career, judo, and Candomblé. He also created the website "Capoeira da Bahia," which was later migrated to Portal Capoeira after his death.
+
+On Wednesday, February 1, 2011—the eve of the Festa de Yemanjá—Mestre Decânio passed away, just days before his 88th birthday. Described as "the greatest authority in the world on Mestre Bimba''s Capoeira Regional," he left behind an immense legacy of documentation, research, and philosophical contribution to capoeira.
+
+As he wrote: "A capoeira na sua origem é uma só... Cada mestre cria um estilo próprio." (Capoeira at its origin is one... Each master creates his own style.)',
+  -- bio_pt
+  E'Angelo Augusto Decânio Filho nasceu em 12 de fevereiro de 1923, em Salvador, Bahia, filho do Dr. Ângelo Augusto Decânio e Georgina de Barros Decânio. Ele se tornaria uma das figuras mais significativas na preservação e documentação da Capoeira Regional.
+
+Em 1938, enquanto estudava medicina na universidade, o jovem Decânio de dezesseis anos conheceu Mestre Bimba e se juntou à sua academia—um fato que inicialmente manteve em segredo de sua família. Desde o primeiro dia, Bimba o adotou "como filho", iniciando um relacionamento que duraria 36 anos até a morte do mestre em 1974.
+
+Durante essas décadas, Decânio tornou-se muito mais que um aluno. Ele oferecia a Bimba "atenção filial, cuidados médicos, assessoria na administração da academia, estudo de novos golpes e contragolpes, e estabelecimento de normas e regras para o aperfeiçoamento do ensino da luta." Como resultado dessa colaboração íntima, Decânio teve o privilégio de ser "o único guardião dos segredos e truques do Mestre."
+
+Juntamente com Sisnando Lima—outro aluno universitário que havia treinado judô com Mitsuyo Maeda—Decânio formou um dos dois pilares sobre os quais Bimba construiu a Capoeira Regional durante suas fases cruciais: Fase Inicial (1930-1937) e Fase de Consolidação (1938-1966). Esses acadêmicos ajudaram a transformar a capoeira de uma prática de rua em uma instituição respeitável, implementando operações estruturadas de academia com uniformes, horários de treino, eventos, batizados, rodas de exibição e cursos de especialização.
+
+Bimba graduou formalmente apenas quatro alunos ao nível de mestre (lenço branco) durante sua vida: Decânio, Jair Moura, Miranda e Edinho. Esta era a maior honra no sistema de graduação da Capoeira Regional, reservada para aqueles que haviam dedicado muitos anos tanto ao treinamento quanto ao ensino da arte.
+
+Em 1969, quando Bimba foi convidado para participar do I Simpósio Brasileiro de Capoeira na Base Aérea do Galeão, no Rio de Janeiro—um evento que visava formular regras esportivas para a capoeira—ele enviou Decânio como seu representante oficial ao invés de comparecer pessoalmente.
+
+Como médico e intelectual, Decânio formulou a teoria do "Transe Capoeirano", descrita como "um estado físico-psíquico que o capoeirista atinge durante o jogo, devido aos estímulos da musicalidade, do ritmo dos atabaques e agogôs, e da atmosfera proporcionada pelo ritual da roda de capoeira." Publicou essa teoria em "Transe Capoeirano, um estudo sobre a estrutura do ser humano e modificações de estados de consciência durante a prática da capoeira" (Salvador, 2002). Seu trabalho traçou comparações entre o estado de transe na capoeira e aquele vivenciado nas cerimônias de Candomblé.
+
+Decânio escreveu vários livros sobre capoeira, compilados na Coleção São Salomão, publicada por ele mesmo: "A Herança de Mestre Bimba" (1996, 2ª edição revisada com glossário dialetal 1997), "Manuscritos e Desenhos de Pastinha," "A Herança de Pastinha," e "Falando em Capoeira." Sua obra foi citada por Mestre Damião como "a verdadeira Bíblia da Capoeira."
+
+Notavelmente, apesar de ser o discípulo mais próximo de Bimba, Decânio demonstrou profundo respeito por Mestre Pastinha e pela Capoeira Angola. Em "A Herança de Mestre Bimba," ele exalta Pastinha, o mestre da Capoeira Angola. Ele também foi responsável pela publicação dos manuscritos de Pastinha, preservando documentos essenciais para a tradição Angola.
+
+Em seus últimos anos, Decânio viveu no Sítio Vivendas Yemanjá no bairro da Praia de Tubarão em Paripe, no Subúrbio Ferroviário de Salvador, onde permaneceu uma figura acolhedora para capoeiristas que buscavam seu conhecimento. Era vizinho próximo e amigo de Mestre João Pequeno. Quando o CEDANZE (a academia que continua o trabalho de João Pequeno) foi formalizado em 2003, Decânio serviu em seu Conselho de Honra como um dos "conselheiros de maior expressão da Capoeira na Bahia."
+
+Ele possuía vários títulos em medicina, carreira acadêmica, judô e Candomblé. Também criou o site "Capoeira da Bahia", que foi posteriormente migrado para o Portal Capoeira após sua morte.
+
+Na quarta-feira, 1º de fevereiro de 2011—véspera da Festa de Yemanjá—Mestre Decânio faleceu, apenas dias antes de seu 88º aniversário. Descrito como "a maior autoridade no mundo sobre a Capoeira Regional de Mestre Bimba," ele deixou um imenso legado de documentação, pesquisa e contribuição filosófica para a capoeira.
+
+Como ele escreveu: "A capoeira na sua origem é uma só... Cada mestre cria um estilo próprio."',
+  -- achievements_en
+  E'One of only four students formally graduated to mestre (white handkerchief) by Mestre Bimba; Medical doctor who provided healthcare and institutional guidance to Bimba''s academy; Co-pillar (with Sisnando) in founding Capoeira Regional; Official representative of Mestre Bimba at 1969 I Simpósio Brasileiro de Capoeira; Formulated the theory of "Transe Capoeirano" (Capoeira Trance); Author of Coleção São Salomão book series; Published Mestre Pastinha''s manuscripts; Considered "the greatest authority in the world on Mestre Bimba''s Capoeira Regional"; Council of Honor member at CEDANZE (João Pequeno academy); Created "Capoeira da Bahia" website (now preserved at Portal Capoeira)',
+  -- achievements_pt
+  E'Um dos apenas quatro alunos formalmente graduados a mestre (lenço branco) por Mestre Bimba; Médico que ofereceu cuidados de saúde e orientação institucional para a academia de Bimba; Co-pilar (com Sisnando) na fundação da Capoeira Regional; Representante oficial de Mestre Bimba no I Simpósio Brasileiro de Capoeira de 1969; Formulou a teoria do "Transe Capoeirano"; Autor da série de livros Coleção São Salomão; Publicou os manuscritos de Mestre Pastinha; Considerado "a maior autoridade no mundo sobre a Capoeira Regional de Mestre Bimba"; Membro do Conselho de Honra do CEDANZE (academia de João Pequeno); Criou o site "Capoeira da Bahia" (agora preservado no Portal Capoeira)',
+  -- notes_en
+  E'BIRTH DATE (1923-02-12, exact):
+February 12, 1923 - confirmed by velhosmestres.com birthday registry and Portal Capoeira article by Mestre Jean Pangolin.
+
+DEATH DATE (2011-02-01, exact):
+February 1, 2011 - confirmed by memorial article (mastermarciomendes.wordpress.com, Feb 8, 2012) which states "Last Wednesday, February 1 2011, Master Decânio passed away." Some sources incorrectly state 2012 due to confusion with memorial publication date.
+
+PARENTS:
+- Father: Dr. Ângelo Augusto Decânio (medical doctor)
+- Mother: Georgina de Barros Decânio
+
+SPOUSE:
+- Maria Isabel Pereira Decânio (known as "Bel")
+
+RESIDENCE:
+Sítio Vivendas Yemanjá, Praia de Tubarão, Paripe, Salvador, Bahia (Subúrbio Ferroviário)
+
+TEACHERS:
+- Mestre Bimba (1938-1974) - primary and only capoeira teacher; 36 years of training
+
+FOUR WHITE HANDKERCHIEF GRADUATES OF BIMBA:
+1. Angelo Augusto Decânio Filho (Decânio)
+2. Jair Moura
+3. Miranda (deceased before Bimba)
+4. Edinho (deceased before Bimba)
+
+PUBLICATIONS (Coleção São Salomão):
+- 1996: "A Herança de Mestre Bimba" (1st edition)
+- 1997: "A Herança de Mestre Bimba" (2nd edition, revised with dialectal glossary)
+- "Manuscritos e Desenhos de Pastinha"
+- "A Herança de Pastinha"
+- "Falando em Capoeira"
+- 2002: "Transe Capoeirano, um estudo sobre a estrutura do ser humano e modificações de estados de consciência durante a prática da capoeira"
+
+TRAINING COMPANIONS AT BIMBA''S ACADEMY:
+- Sisnando Lima (José Cisnando Lima) - fellow academic, co-pillar of Regional
+- Jair Moura - fellow white handkerchief recipient
+- Mestre Saci - contemporary at Bimba''s academy
+- Mestre Gigante - musician at Bimba''s academy
+
+MENTORSHIP/INFLUENCE:
+- Mestre Jean Pangolin (mentored by Decânio)
+- Mestra Brisa (visited Decânio at Tubarão residence)
+
+CONTEMPORARIES/ASSOCIATES:
+- Mestre João Pequeno - neighbor and close friend in Paripe
+- Tiburcinho - brought to Bimba by Decânio; helped remember songs and maculelê
+
+ADDITIONAL TITLES/CREDENTIALS:
+- Medical doctor
+- University professor
+- Judo practitioner
+- Candomblé initiate
+
+HISTORICAL REPRESENTATION:
+- 1969: Represented Mestre Bimba at I Simpósio Brasileiro de Capoeira, Galeão Air Base, Rio de Janeiro (Bimba did not attend personally)
+
+DIGITAL LEGACY:
+- Created website "Capoeira da Bahia" - archived at Portal Capoeira after his death by Luciano Milani
+
+COUNCIL POSITIONS:
+- 2003: Council of Honor, CEDANZE (João Pequeno academy)',
+  -- notes_pt
+  E'DATA DE NASCIMENTO (1923-02-12, exata):
+12 de fevereiro de 1923 - confirmado pelo registro de aniversários do velhosmestres.com e artigo do Portal Capoeira por Mestre Jean Pangolin.
+
+DATA DE FALECIMENTO (2011-02-01, exata):
+1º de fevereiro de 2011 - confirmado por artigo memorial (mastermarciomendes.wordpress.com, 8 de fev de 2012) que afirma "Na última quarta-feira, 1º de fevereiro de 2011, Mestre Decânio faleceu." Algumas fontes incorretamente indicam 2012 devido à confusão com a data de publicação do memorial.
+
+PAIS:
+- Pai: Dr. Ângelo Augusto Decânio (médico)
+- Mãe: Georgina de Barros Decânio
+
+ESPOSA:
+- Maria Isabel Pereira Decânio (conhecida como "Bel")
+
+RESIDÊNCIA:
+Sítio Vivendas Yemanjá, Praia de Tubarão, Paripe, Salvador, Bahia (Subúrbio Ferroviário)
+
+MESTRES:
+- Mestre Bimba (1938-1974) - professor único de capoeira; 36 anos de treinamento
+
+QUATRO GRADUADOS DE LENÇO BRANCO DE BIMBA:
+1. Angelo Augusto Decânio Filho (Decânio)
+2. Jair Moura
+3. Miranda (falecido antes de Bimba)
+4. Edinho (falecido antes de Bimba)
+
+PUBLICAÇÕES (Coleção São Salomão):
+- 1996: "A Herança de Mestre Bimba" (1ª edição)
+- 1997: "A Herança de Mestre Bimba" (2ª edição, revisada com glossário dialetal)
+- "Manuscritos e Desenhos de Pastinha"
+- "A Herança de Pastinha"
+- "Falando em Capoeira"
+- 2002: "Transe Capoeirano, um estudo sobre a estrutura do ser humano e modificações de estados de consciência durante a prática da capoeira"
+
+COMPANHEIROS DE TREINO NA ACADEMIA DE BIMBA:
+- Sisnando Lima (José Cisnando Lima) - colega acadêmico, co-pilar da Regional
+- Jair Moura - colega recipiente do lenço branco
+- Mestre Saci - contemporâneo na academia de Bimba
+- Mestre Gigante - músico na academia de Bimba
+
+MENTORIA/INFLUÊNCIA:
+- Mestre Jean Pangolin (orientado por Decânio)
+- Mestra Brisa (visitou Decânio em sua residência em Tubarão)
+
+CONTEMPORÂNEOS/ASSOCIADOS:
+- Mestre João Pequeno - vizinho e amigo próximo em Paripe
+- Tiburcinho - apresentado a Bimba por Decânio; ajudou a lembrar músicas e maculelê
+
+TÍTULOS/CREDENCIAIS ADICIONAIS:
+- Médico
+- Professor universitário
+- Praticante de judô
+- Iniciado no Candomblé
+
+REPRESENTAÇÃO HISTÓRICA:
+- 1969: Representou Mestre Bimba no I Simpósio Brasileiro de Capoeira, Base Aérea do Galeão, Rio de Janeiro (Bimba não compareceu pessoalmente)
+
+LEGADO DIGITAL:
+- Criou o site "Capoeira da Bahia" - arquivado no Portal Capoeira após sua morte por Luciano Milani
+
+CARGOS EM CONSELHOS:
+- 2003: Conselho de Honra, CEDANZE (academia de João Pequeno)'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
+  updated_at = NOW();
+
+-- Source: entities/persons/ezequiel.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Ezequiel
+-- Generated: 2025-12-20
+-- ============================================================
+-- BIRTH DATE: October 18, 1941 per Velhos Mestres (primary source)
+-- Alternative: April 18, 1941 per CapoeiraNews - using October as
+-- Velhos Mestres is Tier 1 source
+-- DEATH DATE: March 26, 1997 per Velhos Mestres, March 27 per Omar source
+-- DEATH CAUSE: Heart attack (most sources); one source mentions car
+-- accident from epileptic seizure - using heart attack as majority
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  -- Identity
+  name,
+  apelido,
+  title,
+  portrait,
+  public_links,
+  -- Capoeira-specific
+  style,
+  style_notes_en,
+  style_notes_pt,
+  -- Life dates
+  birth_year,
+  birth_year_precision,
+  birth_place,
+  death_year,
+  death_year_precision,
+  death_place,
+  -- Extended content (bilingual)
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt,
+  -- Researcher notes
+  notes_en,
+  notes_pt
+) VALUES (
+  -- Identity
+  'Eziquiel Martins Marinho',
+  'Ezequiel',
+  'mestre'::genealogy.title,
+  NULL,
+  ARRAY['https://velhosmestres.com/br/destaques-16', 'https://www.lalaue.com/learn-capoeira/mestre-eziquiel/', 'http://www.capoeira-paris.org/ezequiel.php', 'https://www.capoeiranews.com.br/2017/06/mestre-ezequiel-1941-1997-texto-boa-alma.html']::text[],
+  -- Capoeira-specific
+  'regional'::genealogy.style,
+  E'Faithful disciple of Mestre Bimba who dedicated his life to preserving and spreading the Regional style. Known for his exceptional singing voice, mandinga-filled game, and mastery of the berimbau. Recorded albums that became relics of capoeira music. His approach combined technical excellence with the philosophy that "respect in the rodas ensures the student disciplines themselves toward others."',
+  E'Discípulo fiel de Mestre Bimba que dedicou sua vida a preservar e difundir o estilo Regional. Conhecido por sua voz excepcional, jogo cheio de mandinga e maestria no berimbau. Gravou álbuns que se tornaram relíquias da música de capoeira. Sua abordagem combinava excelência técnica com a filosofia de que "o respeito nas rodas faz o aluno disciplinar-se em relação aos outros."',
+  -- Life dates
+  1941,
+  'exact'::genealogy.date_precision,
+  'São Gonçalo dos Campos, Bahia, Brazil',
+  1997,
+  'exact'::genealogy.date_precision,
+  'Salvador, Bahia, Brazil',
+  -- bio_en
+  E'Eziquiel Martins Marinho, known as Mestre Ezequiel or affectionately as "Zica" by friends and "Jiqué" by Mestre Bimba, was born on October 18, 1941, in São Gonçalo dos Campos in the Recôncavo Baiano region of Bahia. He came from a modest family and grew up observing capoeira at street rodas—learning "de oitiva" (by ear and observation) before formal training.
+
+Before dedicating himself fully to capoeira, Ezequiel served as a military police officer in Salvador. It was through this profession, in the mid-1960s, that he met Mestre Saci (Josevaldo Lima de Jesus), one of the great disciples of Mestre Bimba. Saci introduced Ezequiel to Capoeira Regional, training him at the Quartel dos Dendezeiros, the Military Police barracks in the Itapagipe neighborhood. Saci then brought him to Mestre Bimba''s Centro de Cultura Física e Luta Regional.
+
+At Bimba''s academy, Ezequiel found his calling. He graduated with the lenço azul (blue handkerchief), the mark of a formado in Capoeira Regional, alongside Luciano Figueiredo (Mestre Galo). His encounter with Mestre Bimba transformed what had been merely "a dream of being a famous capoeirista" into "an unconditional passion for this genuinely Brazilian art."
+
+In 1964, while still training at Bimba''s academy, Ezequiel began teaching his friends who noticed his new physical agility. As their numbers grew, he founded Grupo Luanda with his student Mestre Franklin. The group was formally registered as Grupo Folclórico Luanda in 1974. The name "Luanda"—the capital of Angola—honored the ports from which enslaved Africans said their last goodbyes to their homeland, while also meaning "the junction of the moon and the earth" in Yoruba.
+
+When Mestre Bimba left Salvador for Goiânia in 1972, disillusioned by lack of governmental support, Ezequiel was chosen alongside Mestre Vermelho 27 to maintain the historic academy at Terreiro de Jesus. For several years after Bimba''s death in 1974, Ezequiel continued teaching at the school in Pelourinho and at Forte de Santo Antônio (now Forte da Capoeira).
+
+Ezequiel became one of capoeira''s most renowned singers, musicians, and composers. Those who knew him said he "cantava com emoção" (sang with emotion). His distinctive voice and unique singing style made him, alongside Mestre Itapoan, one of the most responsible for spreading Mestre Bimba''s philosophy throughout the capoeira world. In 1989, he recorded the album "Capoeira, Arte e Ofício" with 16 tracks, now considered a relic. He also recorded "Programa Nacional de Capoeira Volume 2" the same year.
+
+His competitive achievements were equally impressive. Ezequiel was two-time Brazilian Capoeira Champion in 1976 and 1977, and received a trophy for "best ginga" in 1976. He participated in folkloric groups Olodum and Olodumaré, representing Bahia and Brazil at international festivals in Salta (Argentina) and Quito (Ecuador), winning gold medals and the prestigious "Humanaua de Oro" awards.
+
+Ezequiel''s approach to capoeira emphasized discipline and respect. He was deeply concerned about violence in the rodas, believing that internal conflicts between groups were destructive to the art. He warned that inexperienced capoeiristas could damage capoeira''s foundational principles.
+
+Among his students, the most famous is Mestre Jelon Vieira, who trained under him in Salvador before moving to New York in 1975, becoming one of the first to introduce capoeira to the United States. Mestre Omar da Conceição, born in 1957, began training with Ezequiel at age 12 at the Escola de Capoeira Mestre Bimba. On August 30, 1996, Ezequiel traveled to Baden, Switzerland, to inaugurate Mestre Omar''s Academia de Capoeira União and personally elevated Omar to mestre status.
+
+Mestre Ezequiel died on March 26, 1997, at age 55, suffering a heart attack despite being in excellent physical condition and at the height of his capoeira mastery. As the obituary in Capoeira Paris noted, his heart was "fatigued by the many emotions lived through countless rodas." His death left "um vazio nas rodas da terra" (a void in the circles of the earth). Many mestres have since dedicated songs in his memory.
+
+His legacy continues through Grupo Luanda, which today operates in Brazil, Switzerland, France, Germany, Hawaii, and across the Americas, pursuing his foundational concept of "educação com base na capoeira" (education based on capoeira).',
+  -- bio_pt
+  E'Eziquiel Martins Marinho, conhecido como Mestre Ezequiel ou carinhosamente como "Zica" pelos amigos e "Jiqué" por Mestre Bimba, nasceu em 18 de outubro de 1941, em São Gonçalo dos Campos, no Recôncavo Baiano. Vindo de uma família humilde, cresceu observando a capoeira nas rodas de rua—aprendendo "de oitiva" antes do treinamento formal.
+
+Antes de se dedicar inteiramente à capoeira, Ezequiel serviu como policial militar em Salvador. Foi através desta profissão, em meados dos anos 1960, que conheceu Mestre Saci (Josevaldo Lima de Jesus), um dos grandes discípulos de Mestre Bimba. Saci apresentou Ezequiel à Capoeira Regional, treinando-o no Quartel dos Dendezeiros, o quartel da Polícia Militar no bairro de Itapagipe. Saci então o levou ao Centro de Cultura Física e Luta Regional de Mestre Bimba.
+
+Na academia de Bimba, Ezequiel encontrou sua vocação. Formou-se com o lenço azul, a marca de um formado na Capoeira Regional, ao lado de Luciano Figueiredo (Mestre Galo). Seu encontro com Mestre Bimba transformou o que tinha sido apenas "um sonho de ser um capoeirista famoso" em "uma paixão incondicional por esta arte genuinamente brasileira."
+
+Em 1964, ainda treinando na academia de Bimba, Ezequiel começou a ensinar seus amigos que notaram sua nova agilidade física. Conforme o número crescia, fundou o Grupo Luanda com seu aluno Mestre Franklin. O grupo foi formalmente registrado como Grupo Folclórico Luanda em 1974. O nome "Luanda"—a capital de Angola—homenageava os portos de onde os africanos escravizados deram seus últimos adeuses à sua terra natal, significando também "a junção da lua e da terra" em iorubá.
+
+Quando Mestre Bimba deixou Salvador para Goiânia em 1972, desiludido com a falta de apoio governamental, Ezequiel foi escolhido junto com Mestre Vermelho 27 para manter a histórica academia no Terreiro de Jesus. Por vários anos após a morte de Bimba em 1974, Ezequiel continuou ensinando na escola no Pelourinho e no Forte de Santo Antônio (hoje Forte da Capoeira).
+
+Ezequiel tornou-se um dos mais renomados cantores, músicos e compositores da capoeira. Aqueles que o conheceram diziam que ele "cantava com emoção." Sua voz distintiva e estilo único de cantar fizeram dele, junto com Mestre Itapoan, um dos mais responsáveis por espalhar a filosofia de Mestre Bimba pelo mundo da capoeira. Em 1989, gravou o álbum "Capoeira, Arte e Ofício" com 16 faixas, hoje considerado uma relíquia. Também gravou "Programa Nacional de Capoeira Volume 2" no mesmo ano.
+
+Suas conquistas competitivas foram igualmente impressionantes. Ezequiel foi bicampeão Brasileiro de Capoeira em 1976 e 1977, e recebeu um troféu de "melhor ginga" em 1976. Participou dos grupos folclóricos Olodum e Olodumaré, representando a Bahia e o Brasil em festivais internacionais em Salta (Argentina) e Quito (Equador), ganhando medalhas de ouro e os prestigiosos prêmios "Humanaua de Oro."
+
+A abordagem de Ezequiel à capoeira enfatizava disciplina e respeito. Ele estava profundamente preocupado com a violência nas rodas, acreditando que conflitos internos entre grupos eram destrutivos para a arte. Alertava que capoeiristas inexperientes poderiam danificar os princípios fundamentais da capoeira.
+
+Entre seus alunos, o mais famoso é Mestre Jelon Vieira, que treinou sob sua orientação em Salvador antes de se mudar para Nova York em 1975, tornando-se um dos primeiros a introduzir a capoeira nos Estados Unidos. Mestre Omar da Conceição, nascido em 1957, começou a treinar com Ezequiel aos 12 anos na Escola de Capoeira Mestre Bimba. Em 30 de agosto de 1996, Ezequiel viajou para Baden, Suíça, para inaugurar a Academia de Capoeira União de Mestre Omar e pessoalmente elevou Omar ao status de mestre.
+
+Mestre Ezequiel morreu em 26 de março de 1997, aos 55 anos, sofrendo um ataque cardíaco apesar de estar em excelente condição física e no auge de sua maestria na capoeira. Como observou o obituário na Capoeira Paris, seu coração estava "fatigado pelas muitas emoções vividas em incontáveis rodas." Sua morte deixou "um vazio nas rodas da terra." Muitos mestres desde então dedicaram canções em sua memória.
+
+Seu legado continua através do Grupo Luanda, que hoje opera no Brasil, Suíça, França, Alemanha, Havaí e nas Américas, perseguindo seu conceito fundamental de "educação com base na capoeira."',
+  -- achievements_en
+  E'Two-time Brazilian Capoeira Champion (1976, 1977); Best Ginga trophy (1976); Co-maintained Mestre Bimba''s academy at Terreiro de Jesus after 1972; Founded Grupo Luanda (1964) with Mestre Franklin; Recorded album "Capoeira, Arte e Ofício" (1989); Represented Brazil at International Folklore Festivals in Salta (Argentina) and Quito (Ecuador); Won gold medals and "Humanaua de Oro" awards; Participated in XVI Brazilian School Games (JEBs) in Brasília (1987); Participated in I Cultural Journey of Capoeira in Ouro Preto (1987); Personally graduated Mestre Omar to mestre status (1996)',
+  -- achievements_pt
+  E'Bicampeão Brasileiro de Capoeira (1976, 1977); Troféu de melhor ginga (1976); Co-manteve a academia de Mestre Bimba no Terreiro de Jesus após 1972; Fundou o Grupo Luanda (1964) com Mestre Franklin; Gravou o álbum "Capoeira, Arte e Ofício" (1989); Representou o Brasil nos Festivais Internacionais de Folclore em Salta (Argentina) e Quito (Equador); Ganhou medalhas de ouro e prêmios "Humanaua de Oro"; Participou do XVI Jogos Escolares Brasileiros (JEBs) em Brasília (1987); Participou da I Jornada Cultural da Capoeira em Ouro Preto (1987); Pessoalmente graduou Mestre Omar ao status de mestre (1996)',
+  -- notes_en
+  E'BIRTH DATE (1941, exact):
+- October 18, 1941 per Velhos Mestres (Tier 1 source)
+- April 18, 1941 per CapoeiraNews (authored by Boa Alma)
+Using October 18 as Velhos Mestres is highest reliability.
+
+DEATH DATE (1997, exact):
+- March 26, 1997 per Velhos Mestres and most sources
+- March 27, 1997 per Mestre Omar source
+
+DEATH CAUSE DISCREPANCY:
+- Heart attack (infarctus) per Capoeira Paris, CapoeiraNews (MAJORITY)
+- Car accident due to epileptic seizure per Mestre Omar source (MINORITY)
+Using heart attack as majority of sources confirm this.
+
+APELIDO VARIATIONS:
+- "Ezequiel" (most common spelling)
+- "Eziquiel" (alternative spelling, used by Velhos Mestres)
+- "Zica" / "Velho Zica" (nickname by friends)
+- "Jiqué" (nickname given by Mestre Bimba)
+- "Carneiro" (mentioned in Velhos Mestres)
+
+TEACHERS:
+- Mestre Saci (Josevaldo Lima de Jesus) - first formal training at Quartel dos Dendezeiros, mid-1960s
+- Mestre Bimba - primary teacher at CCFR
+
+STUDENTS:
+- Mestre Jelon Vieira (most famous; introduced capoeira to NYC 1975)
+- Mestre Omar da Conceição (born 1957; began age 12; elevated to mestre Aug 30, 1996)
+- Mestre Franklin (co-founded Grupo Luanda)
+
+TRAINING COMPANION:
+- Luciano Figueiredo (Mestre Galo) - graduated lenço azul together
+
+COLLABORATORS:
+- Mestre Vermelho 27 (1972-1974, maintaining Bimba''s academy)
+
+MEDIA APPEARANCES:
+- 1976: Trophy for "best ginga" at Brazilian championship
+- 1987 (July 16-19): XVI JEBs in Brasília, coordinated by Mestre Tabosa
+- 1987 (Dec 18-20): I Cultural Journey of Capoeira in Ouro Preto
+- 1989: Album "Capoeira, Arte e Ofício" (16 tracks)
+- 1989: Album "Programa Nacional de Capoeira Volume 2" (vinyl LP)
+- 1996 (Aug 30): Elevated Mestre Omar to mestre in Baden, Switzerland
+
+INTERNATIONAL FESTIVALS:
+- Festival in Salta, Argentina (with Olodum/Olodumaré)
+- Festival in Quito, Ecuador (with Olodum/Olodumaré)
+
+GRUPO LUANDA:
+- Founded 1964 with Mestre Franklin in Salvador
+- Formally registered as Grupo Folclórico Luanda 1974
+- Headquarters in Resgate neighborhood, Cabula region
+- Today operates in Brazil, Switzerland, France, Germany, Hawaii',
+  -- notes_pt
+  E'DATA DE NASCIMENTO (1941, exata):
+- 18 de outubro de 1941 conforme Velhos Mestres (fonte Tier 1)
+- 18 de abril de 1941 conforme CapoeiraNews (autoria de Boa Alma)
+Usando 18 de outubro pois Velhos Mestres tem maior confiabilidade.
+
+DATA DE MORTE (1997, exata):
+- 26 de março de 1997 conforme Velhos Mestres e maioria das fontes
+- 27 de março de 1997 conforme fonte Mestre Omar
+
+DISCREPÂNCIA NA CAUSA DA MORTE:
+- Ataque cardíaco (infarto) conforme Capoeira Paris, CapoeiraNews (MAIORIA)
+- Acidente de carro devido a convulsão epiléptica conforme fonte Mestre Omar (MINORIA)
+Usando ataque cardíaco pois maioria das fontes confirma isto.
+
+VARIAÇÕES DO APELIDO:
+- "Ezequiel" (grafia mais comum)
+- "Eziquiel" (grafia alternativa, usada por Velhos Mestres)
+- "Zica" / "Velho Zica" (apelido pelos amigos)
+- "Jiqué" (apelido dado por Mestre Bimba)
+- "Carneiro" (mencionado no Velhos Mestres)
+
+PROFESSORES:
+- Mestre Saci (Josevaldo Lima de Jesus) - primeiro treinamento formal no Quartel dos Dendezeiros, meados dos anos 1960
+- Mestre Bimba - professor principal no CCFR
+
+ALUNOS:
+- Mestre Jelon Vieira (mais famoso; introduziu capoeira em NYC 1975)
+- Mestre Omar da Conceição (nascido 1957; começou aos 12 anos; elevado a mestre 30 ago 1996)
+- Mestre Franklin (co-fundou Grupo Luanda)
+
+COMPANHEIRO DE TREINO:
+- Luciano Figueiredo (Mestre Galo) - formou-se com lenço azul juntos
+
+COLABORADORES:
+- Mestre Vermelho 27 (1972-1974, mantendo a academia de Bimba)
+
+APARIÇÕES NA MÍDIA:
+- 1976: Troféu de "melhor ginga" no campeonato brasileiro
+- 1987 (16-19 julho): XVI JEBs em Brasília, coordenado por Mestre Tabosa
+- 1987 (18-20 dez): I Jornada Cultural da Capoeira em Ouro Preto
+- 1989: Álbum "Capoeira, Arte e Ofício" (16 faixas)
+- 1989: Álbum "Programa Nacional de Capoeira Volume 2" (LP vinil)
+- 1996 (30 ago): Elevou Mestre Omar a mestre em Baden, Suíça
+
+FESTIVAIS INTERNACIONAIS:
+- Festival em Salta, Argentina (com Olodum/Olodumaré)
+- Festival em Quito, Equador (com Olodum/Olodumaré)
+
+GRUPO LUANDA:
+- Fundado 1964 com Mestre Franklin em Salvador
+- Formalmente registrado como Grupo Folclórico Luanda 1974
+- Sede no bairro do Resgate, região do Cabula
+- Hoje opera no Brasil, Suíça, França, Alemanha, Havaí'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
+  updated_at = NOW();
+
 -- Source: entities/persons/fernando-rodrigues-perez.sql (NEW)
 -- ============================================================
 -- GENEALOGY PERSON: Fernando Rodrigues Perez
@@ -1403,6 +3173,264 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
+-- Source: entities/persons/jair-moura.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Jair Moura
+-- Generated: 2025-12-20
+-- ============================================================
+-- One of only four students formally graduated to mestre level
+-- (white handkerchief / lenço branco) by Mestre Bimba.
+-- The LAST capoeirista to receive this honor from Bimba.
+-- Historian, filmmaker, writer, and pioneer of capoeira research.
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  -- Identity
+  name,
+  apelido,
+  title,
+  portrait,
+  public_links,
+  -- Capoeira-specific
+  style,
+  style_notes_en,
+  style_notes_pt,
+  -- Life dates
+  birth_year,
+  birth_year_precision,
+  birth_place,
+  death_year,
+  death_year_precision,
+  death_place,
+  -- Extended content (bilingual)
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt,
+  -- Researcher notes
+  notes_en,
+  notes_pt
+) VALUES (
+  -- Identity
+  'Jair Fernandes Moura',
+  'Jair Moura',
+  'mestre'::genealogy.title,
+  NULL,
+  ARRAY['https://capoeirawiki.org/wiki/Jair_Moura', 'https://velhosmestres.com/en/featured-12', 'https://portalcapoeira.com/capoeira/noticias-atualidades/nota-de-falecimento-mestre-jair-moura/']::text[],
+  -- Capoeira-specific
+  'regional'::genealogy.style,
+  E'Trained directly under Mestre Bimba from the late 1950s. Became one of only four students to receive the lenço branco (white handkerchief), the highest distinction in Capoeira Regional, directly from Bimba''s hands. According to Mestre Nenel (Bimba''s son), Jair Moura was the LAST capoeirista to receive this honor from his father. Beyond his role as practitioner, he became the foremost historian and documentarian of capoeira, pioneering research that inspired generations.',
+  E'Treinou diretamente com Mestre Bimba desde o final dos anos 1950. Tornou-se um dos apenas quatro alunos a receber o lenço branco, a maior distinção na Capoeira Regional, diretamente das mãos de Bimba. Segundo Mestre Nenel (filho de Bimba), Jair Moura foi o ÚLTIMO capoeirista a receber essa honra de seu pai. Além de seu papel como praticante, tornou-se o principal historiador e documentarista da capoeira, sendo pioneiro em pesquisas que inspiraram gerações.',
+  -- Life dates
+  1936,
+  'exact'::genealogy.date_precision,
+  'Salvador, Bahia, Brazil',
+  2020,
+  'exact'::genealogy.date_precision,
+  'Salvador, Bahia, Brazil',
+  -- bio_en
+  E'Jair Fernandes Moura was born on August 27, 1936, in Salvador, Bahia. He would become one of the most important figures in the preservation and documentation of capoeira history—a pioneer whose meticulous research and documentation set the standard for all who followed.
+
+In the late 1950s, young Jair Moura joined Mestre Bimba''s academy, beginning a relationship that would define both his practice and his life''s work. According to Mestre Nenel, Bimba''s son: "He was a student of my father since the 1950s and was the last capoeirista to receive the Lenço Branco from my father."
+
+Nenel further emphasized Jair Moura''s significance: "Mestre Jair was perhaps the guy who started this preservation of the history of Capoeira. He was always an observant guy and very honest. He was one of the guys most well-regarded by my father. I considered him like an older brother."
+
+Mestre Bimba formally graduated only four students to the level of mestre (white handkerchief) during his lifetime: Decânio, Jair Moura, Miranda, and Edinho. Of these, Jair Moura was reportedly the last to receive this distinction. This was the highest honor in Capoeira Regional—the lenço branco (white handkerchief) symbolized the silk handkerchiefs that primitive capoeiristas wore around their necks to protect themselves from razor cuts.
+
+In 1968, Jair Moura directed the documentary "Dança de Guerra" (Dance of War), a groundbreaking historical and cultural film featuring Mestre Bimba, Mestre Tiburcinho, Mestre Totonho de Maré, Mestre Noronha, and other prominent capoeiristas. This documentary captured unique footage of legendary masters at the height of their powers and remains an invaluable historical record. A soundtrack album was also released.
+
+Jair Moura lived in Rio de Janeiro during the 1980s, where he conducted extensive research on the history of capoeira in that city. He returned to Salvador in the 1990s. In both cities, he published numerous articles in newspapers and magazines, becoming a recognized voice on capoeira''s historical development.
+
+In 1970, he published an article titled "Tiburcio e o Batuque" in the newspaper A Tarde, documenting Mestre Tiburcinho''s life and knowledge of batuque, a precursor fighting form to capoeira. This exemplified his commitment to capturing the testimonies of old masters before their knowledge was lost.
+
+Among his most celebrated works are "Mestre Bimba: Uma Vida Consagrada à Capoeiragem" (later editions titled "Uma Vida Dedicada à Capoeiragem"), a definitive book bringing together archives, stories, and anecdotes about the creator of Capoeira Regional. He also authored "A Capoeiragem no Rio de Janeiro Através dos Séculos," which documents the history and development of capoeira in Rio de Janeiro from colonial times through various evolutionary phases.
+
+In 1980, Jair Moura participated as a presenter at the First Regional Capoeira Seminar, organized in Salvador alongside other prominent figures including Carlos Sena, Albano Marinho, Itapoan, and Ordep Serra. This seminar brought together the main Bahian masters of different lineages and styles.
+
+Jair Moura also worked at the Instituto Geográfico e Histórico da Bahia (IGHB), where he served as editor, director, writer, and essayist. In 2007, he participated alongside Frede Abreu in the evaluation panel for Capoeira Viva projects.
+
+He owned an extensive personal library with substantial material on Capoeira Regional, and was also a skilled photographer who documented Mestre Bimba and other capoeiristas from Bahia and Rio de Janeiro. His close relationship with fellow researcher Frederico José de Abreu (Frede, 1947-2013) solidified his role in preserving capoeira''s history.
+
+In Jair Moura''s honor, Frede Abreu founded the Instituto Jair Moura, which housed a collection of over 40,000 titles on capoeira and Afro-Brazilian culture—books, newspaper clippings, magazines, CDs, photos, and videos.
+
+Jair Moura was also friends with the famous Brazilian filmmaker Glauber Rocha. They would meet regularly in front of the Colégio Central da Bahia in the Nazaré district where Rocha studied.
+
+On August 19, 2020, Mestre Jair Moura died at 84 years old in Salvador, a victim of COVID-19. He was hospitalized at Hospital Santa Izabel. He is survived by two sons, Jacir Moura and Moacir Moura.
+
+The Bahia State Culture Department (SecultBA) issued an official note recognizing "the immense contribution of Jair Moura to the preservation of the history of capoeira and the achievements of significant masters," noting that "his legacy remains and stimulates other generations of researchers, masters and intellectuals."',
+  -- bio_pt
+  E'Jair Fernandes Moura nasceu em 27 de agosto de 1936, em Salvador, Bahia. Ele se tornaria uma das figuras mais importantes na preservação e documentação da história da capoeira—um pioneiro cuja pesquisa meticulosa e documentação estabeleceram o padrão para todos que o seguiram.
+
+No final dos anos 1950, o jovem Jair Moura ingressou na academia de Mestre Bimba, iniciando uma relação que definiria tanto sua prática quanto o trabalho de sua vida. Segundo Mestre Nenel, filho de Bimba: "Ele era aluno de meu pai desde a década de 1950 e foi o último capoeirista a receber o Lenço Branco de meu pai."
+
+Nenel enfatizou ainda a importância de Jair Moura: "Mestre Jair foi, talvez, o cara que iniciou essa preservação do histórico da Capoeira. Ele sempre foi um cara observador e muito íntegro. Foi um dos caras mais bem considerados pelo meu pai. Eu considerava ele como um irmão mais velho."
+
+Mestre Bimba formalmente graduou apenas quatro alunos ao nível de mestre (lenço branco) durante sua vida: Decânio, Jair Moura, Miranda e Edinho. Destes, Jair Moura foi supostamente o último a receber essa distinção. Esta era a maior honra na Capoeira Regional—o lenço branco simbolizava os lenços de seda que os capoeiristas primitivos usavam no pescoço para se proteger de cortes de navalha.
+
+Em 1968, Jair Moura dirigiu o documentário "Dança de Guerra", um filme histórico e cultural inovador com Mestre Bimba, Mestre Tiburcinho, Mestre Totonho de Maré, Mestre Noronha e outros capoeiristas proeminentes. Este documentário capturou filmagens únicas de mestres lendários no auge de seus poderes e permanece como um registro histórico inestimável. Um álbum com a trilha sonora também foi lançado.
+
+Jair Moura viveu no Rio de Janeiro durante a década de 1980, onde conduziu extensa pesquisa sobre a história da capoeira naquela cidade. Retornou a Salvador nos anos 1990. Em ambas as cidades, publicou numerosos artigos em jornais e revistas, tornando-se uma voz reconhecida sobre o desenvolvimento histórico da capoeira.
+
+Em 1970, publicou um artigo intitulado "Tiburcio e o Batuque" no jornal A Tarde, documentando a vida de Mestre Tiburcinho e seu conhecimento do batuque, uma forma de luta precursora da capoeira. Isso exemplificou seu compromisso em capturar os testemunhos de velhos mestres antes que seu conhecimento se perdesse.
+
+Entre suas obras mais celebradas estão "Mestre Bimba: Uma Vida Consagrada à Capoeiragem" (edições posteriores intituladas "Uma Vida Dedicada à Capoeiragem"), um livro definitivo reunindo arquivos, histórias e anedotas sobre o criador da Capoeira Regional. Também escreveu "A Capoeiragem no Rio de Janeiro Através dos Séculos," que documenta a história e desenvolvimento da capoeira no Rio de Janeiro desde os tempos coloniais através de várias fases evolutivas.
+
+Em 1980, Jair Moura participou como apresentador no Primeiro Seminário Regional de Capoeira, organizado em Salvador junto com outras figuras proeminentes incluindo Carlos Sena, Albano Marinho, Itapoan e Ordep Serra. Este seminário reuniu os principais mestres baianos de diferentes linhagens e estilos.
+
+Jair Moura também trabalhou no Instituto Geográfico e Histórico da Bahia (IGHB), onde atuou como editor, diretor, escritor e ensaísta. Em 2007, participou junto com Frede Abreu da banca de avaliação de projetos do Capoeira Viva.
+
+Ele possuía uma extensa biblioteca pessoal com farto material sobre Capoeira Regional, e também era um fotógrafo habilidoso que documentou Mestre Bimba e outros capoeiristas da Bahia e do Rio de Janeiro. Sua estreita relação com o pesquisador Frederico José de Abreu (Frede, 1947-2013) consolidou seu papel na preservação da história da capoeira.
+
+Em homenagem a Jair Moura, Frede Abreu fundou o Instituto Jair Moura, que abrigou uma coleção de mais de 40.000 títulos sobre capoeira e cultura afro-brasileira—livros, recortes de jornal, revistas, CDs, fotos e vídeos.
+
+Jair Moura também era amigo do famoso cineasta brasileiro Glauber Rocha. Eles se encontravam regularmente em frente ao Colégio Central da Bahia no bairro de Nazaré, onde Rocha estudava.
+
+Em 19 de agosto de 2020, Mestre Jair Moura faleceu aos 84 anos em Salvador, vítima de COVID-19. Estava hospitalizado no Hospital Santa Izabel. Deixou dois filhos, Jacir Moura e Moacir Moura.
+
+A Secretaria de Cultura do Estado da Bahia (SecultBA) emitiu nota oficial reconhecendo "a imensa contribuição de Jair Moura para a preservação da história da capoeira e das conquistas de mestres significativos," observando que "seu legado permanece e estimula outras gerações de pesquisadores, mestres e intelectuais."',
+  -- achievements_en
+  E'One of only four students formally graduated to mestre (white handkerchief / lenço branco) by Mestre Bimba—and the LAST to receive this honor; Directed the documentary "Dança de Guerra" (1968), featuring Mestres Bimba, Tiburcinho, Totonho de Maré, and Noronha; Author of "Mestre Bimba: Uma Vida Consagrada à Capoeiragem"; Author of "A Capoeiragem no Rio de Janeiro Através dos Séculos"; Pioneer in capoeira history research and documentation; Member and contributor at Instituto Geográfico e Histórico da Bahia (IGHB); Presenter at the 1980 First Regional Capoeira Seminar; Instituto Jair Moura established in his honor by Frede Abreu (40,000+ item archive); Photographer documenting masters from Bahia and Rio de Janeiro; Recognized by SecultBA for immense contribution to capoeira history preservation',
+  -- achievements_pt
+  E'Um dos apenas quatro alunos formalmente graduados a mestre (lenço branco) por Mestre Bimba—e o ÚLTIMO a receber essa honra; Dirigiu o documentário "Dança de Guerra" (1968), com Mestres Bimba, Tiburcinho, Totonho de Maré e Noronha; Autor de "Mestre Bimba: Uma Vida Consagrada à Capoeiragem"; Autor de "A Capoeiragem no Rio de Janeiro Através dos Séculos"; Pioneiro na pesquisa e documentação da história da capoeira; Membro e colaborador do Instituto Geográfico e Histórico da Bahia (IGHB); Apresentador no Primeiro Seminário Regional de Capoeira de 1980; Instituto Jair Moura estabelecido em sua homenagem por Frede Abreu (acervo de 40.000+ itens); Fotógrafo documentando mestres da Bahia e Rio de Janeiro; Reconhecido pela SecultBA pela imensa contribuição à preservação da história da capoeira',
+  -- notes_en
+  E'BIRTH DATE (1936-08-27, exact):
+August 27, 1936 - confirmed by CapoeiraWiki, obituary sources (Correio 24 Horas, OffNews), and SecultBA official note.
+
+DEATH DATE (2020-08-19, exact):
+August 19, 2020 - confirmed by multiple obituary sources. Died at Hospital Santa Izabel, Salvador. Cause: COVID-19.
+
+FOUR WHITE HANDKERCHIEF GRADUATES OF BIMBA:
+1. Angelo Augusto Decânio Filho (Decânio) - living at time of Bimba''s death
+2. Jair Moura - THE LAST to receive this honor from Bimba
+3. Miranda (deceased before Bimba)
+4. Edinho (deceased before Bimba)
+
+TEACHERS:
+- Mestre Bimba (late 1950s until Bimba''s death 1974) - primary and only capoeira teacher
+
+DOCUMENTARY:
+- 1968: "Dança de Guerra" (Dance of War) - directed by Jair Moura
+  - Featured: Mestre Bimba, Mestre Tiburcinho, Mestre Totonho de Maré, Mestre Noronha
+  - Also includes João Pequeno and João Grande according to some sources
+  - Soundtrack album released
+
+PUBLICATIONS:
+- "Mestre Bimba: Uma Vida Consagrada à Capoeiragem" (also "Uma Vida Dedicada à Capoeiragem")
+  - 2nd edition (2017): 110 pages, limited collector''s edition
+- "A Capoeiragem no Rio de Janeiro Através dos Séculos"
+- 1970: "Tiburcio e o Batuque" - article in A Tarde newspaper (Feb 28, 1970)
+- 1981: Interview in Jornal da Capoeira, Year I, Issue VI
+- Various articles in newspapers and magazines in Rio and Salvador
+
+LOCATIONS:
+- Salvador (1936-1980s): Birth and early career
+- Rio de Janeiro (1980s): Research on Rio capoeira history
+- Salvador (1990s-2020): Returned to Bahia; death
+
+INSTITUTIONAL AFFILIATIONS:
+- Instituto Geográfico e Histórico da Bahia (IGHB) - editor, director, writer, essayist
+- 2007: Capoeira Viva evaluation panel (with Frede Abreu)
+
+ARCHIVE COLLECTIONS:
+- Personal library with substantial Capoeira Regional material
+- Photo collection documenting mestres from Bahia and Rio de Janeiro
+- Acervo de Jair Moura - cited as source for historical photographs
+
+FRIENDSHIP WITH GLAUBER ROCHA:
+Met regularly in front of Colégio Central da Bahia in Nazaré district.
+
+FAMILY:
+- Sons: Jacir Moura, Moacir Moura
+
+INSTITUTO JAIR MOURA:
+Founded by Frede Abreu (Frederico José de Abreu, 1947-2013) in honor of his friend.
+Collection: 40,000+ titles including books, newspaper clippings, magazines, CDs, photos, videos.
+At Mandinga NGO space in Salvador, the collection was available for consultation.
+
+QUOTE FROM MESTRE NENEL:
+"Ele era aluno de meu pai desde a década de 1950 e foi o último capoeirista a receber o Lenço Branco de meu pai."
+"Mestre Jair foi, talvez, o cara que iniciou essa preservação do histórico da Capoeira. Ele sempre foi um cara observador e muito íntegro. Foi um dos caras mais bem considerados pelo meu pai. Eu considerava ele como um irmão mais velho."',
+  -- notes_pt
+  E'DATA DE NASCIMENTO (1936-08-27, exata):
+27 de agosto de 1936 - confirmado pela CapoeiraWiki, fontes obituárias (Correio 24 Horas, OffNews) e nota oficial da SecultBA.
+
+DATA DE FALECIMENTO (2020-08-19, exata):
+19 de agosto de 2020 - confirmado por múltiplas fontes obituárias. Faleceu no Hospital Santa Izabel, Salvador. Causa: COVID-19.
+
+QUATRO GRADUADOS DE LENÇO BRANCO DE BIMBA:
+1. Angelo Augusto Decânio Filho (Decânio) - vivo na época da morte de Bimba
+2. Jair Moura - O ÚLTIMO a receber essa honra de Bimba
+3. Miranda (falecido antes de Bimba)
+4. Edinho (falecido antes de Bimba)
+
+MESTRES:
+- Mestre Bimba (final dos anos 1950 até a morte de Bimba em 1974) - único professor de capoeira
+
+DOCUMENTÁRIO:
+- 1968: "Dança de Guerra" - dirigido por Jair Moura
+  - Participações: Mestre Bimba, Mestre Tiburcinho, Mestre Totonho de Maré, Mestre Noronha
+  - Também inclui João Pequeno e João Grande segundo algumas fontes
+  - Álbum da trilha sonora lançado
+
+PUBLICAÇÕES:
+- "Mestre Bimba: Uma Vida Consagrada à Capoeiragem" (também "Uma Vida Dedicada à Capoeiragem")
+  - 2ª edição (2017): 110 páginas, edição de colecionador limitada
+- "A Capoeiragem no Rio de Janeiro Através dos Séculos"
+- 1970: "Tiburcio e o Batuque" - artigo no jornal A Tarde (28 de fev de 1970)
+- 1981: Entrevista no Jornal da Capoeira, Ano I, Edição VI
+- Diversos artigos em jornais e revistas no Rio e Salvador
+
+LOCAIS:
+- Salvador (1936-anos 1980): Nascimento e início de carreira
+- Rio de Janeiro (anos 1980): Pesquisa sobre história da capoeira carioca
+- Salvador (anos 1990-2020): Retornou à Bahia; falecimento
+
+AFILIAÇÕES INSTITUCIONAIS:
+- Instituto Geográfico e Histórico da Bahia (IGHB) - editor, diretor, escritor, ensaísta
+- 2007: Banca de avaliação do Capoeira Viva (com Frede Abreu)
+
+COLEÇÕES DE ARQUIVO:
+- Biblioteca pessoal com farto material sobre Capoeira Regional
+- Coleção de fotos documentando mestres da Bahia e Rio de Janeiro
+- Acervo de Jair Moura - citado como fonte para fotografias históricas
+
+AMIZADE COM GLAUBER ROCHA:
+Encontravam-se regularmente em frente ao Colégio Central da Bahia no bairro de Nazaré.
+
+FAMÍLIA:
+- Filhos: Jacir Moura, Moacir Moura
+
+INSTITUTO JAIR MOURA:
+Fundado por Frede Abreu (Frederico José de Abreu, 1947-2013) em homenagem a seu amigo.
+Acervo: 40.000+ títulos incluindo livros, recortes de jornal, revistas, CDs, fotos, vídeos.
+No espaço da ONG Mandinga em Salvador, a coleção estava disponível para consulta.
+
+CITAÇÃO DE MESTRE NENEL:
+"Ele era aluno de meu pai desde a década de 1950 e foi o último capoeirista a receber o Lenço Branco de meu pai."
+"Mestre Jair foi, talvez, o cara que iniciou essa preservação do histórico da Capoeira. Ele sempre foi um cara observador e muito íntegro. Foi um dos caras mais bem considerados pelo meu pai. Eu considerava ele como um irmão mais velho."'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
+  updated_at = NOW();
+
 -- Source: entities/persons/juvenil.sql (NEW)
 -- ============================================================
 -- GENEALOGY PERSON: Juvenil
@@ -1818,6 +3846,50 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
+-- Source: entities/persons/maria-homem.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Maria Homem
+-- Generated: 2025-12-20
+-- ============================================================
+-- BIRTH YEAR ESTIMATION (~1875-1890, decade precision):
+-- Pastinha testified in 1969 that between 1902-1911, famous women
+-- capoeiristas including Maria Homem were practicing. If she was
+-- an adult practitioner (20-35) during that period, she would
+-- have been born approximately 1867-1891. Using midpoint ~1880
+-- with decade precision. Listed alongside Júlia Fogareira and
+-- fighters like Besouro (1895-1924), suggesting same generation.
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  name, apelido, title, portrait, public_links,
+  style, style_notes_en, style_notes_pt,
+  birth_year, birth_year_precision, birth_place,
+  death_year, death_year_precision, death_place,
+  bio_en, bio_pt, achievements_en, achievements_pt,
+  notes_en, notes_pt
+) VALUES (
+  NULL, 'Maria Homem', NULL, NULL,
+  ARRAY['https://velhosmestres.com/en/pastinha-1969-2', 'https://velhosmestres.com/br/pastinha-1976', 'https://papoeira.com/en/dona-maria-do-camboata-capoeira-song-lyrics-meaning-and-history/']::text[],
+  'angola'::genealogy.style, NULL, NULL,
+  1880, 'decade'::genealogy.date_precision, 'Salvador, Bahia, Brazil',
+  NULL, NULL, NULL,
+  E'Maria Homem was one of the most formidable female capoeiristas of early twentieth-century Bahia, whose legendary feats against police officers became part of Salvador''s oral tradition. Her apelido, "Maria the Man," speaks to the reputation she earned in a male-dominated world through sheer fighting ability.\n\nThe primary account of Maria Homem comes from Mestre Pastinha in a 1969 interview with Diário Popular. She frequented a "birosca" (small bar) at Largo do Pelourinho, where she liked to "tomar uns tragos" (have some drinks). Her reputation was such that "até o delegado tinha mêdo"—even the police delegate feared her—and "não havia polícia que a prendesse" (no police could arrest her).\n\nPastinha recounted a specific confrontation: An "outsider corporal" (cabo forasteiro) tried to prove himself by arresting the intoxicated Maria Homem. The local officers, knowing her reputation, refused to obey his order. Undeterred, the corporal attempted the arrest himself. According to Pastinha, "he flew six meters" and his companions fled. The stubborn corporal returned with reinforcements, only to suffer the same fate—witnesses across the Pelourinho slope saw "soldado avoando" (soldiers flying) down the hillside.\n\nMaria Homem was active during what Pastinha described as a golden era for women in capoeira. Between 1902 and 1911, Salvador witnessed "an exhibition of real mestras of capoeira Angola, who were as agile and able as the men." These women adapted their restrictive clothing to practice: they tore their floor-length skirts on the sides, connecting front and back with a string at the waist to create improvised pants—"enough to play capoeira with any guy," as Pastinha noted.\n\nIn his 1988 book *Capoeira Angola*, Pastinha named only two female capoeiristas when honoring the practitioners of his era: "Júlia Fogareiro e Maria Homem" (p. 18). In 1976, when O Globo interviewed him about the generation of "angoleiros de briga" (fighting angoleiros) who came before him, Maria Homem appeared alongside legendary names: Bigode de Seda, Bugalho, Américo Ciência, Besouro, Tibiriçá, Amorzinho, Três Pedaços, Doze Homens, Inimigos Sem Tripa, Zé do U, Sete Mortes, Chico Me Dá, and Júlia Fogareira. That Maria Homem was one of only two women in this roster speaks to her exceptional skill.\n\nPastinha lamented that women of Maria Homem''s caliber no longer existed: "É pena que não haja mais mulheres de tal estofo, pois a mulher deve também compartilhar da defesa de seu lar" (It''s a pity there are no more women of such material, because women should also share in defending their home).\n\nMaria Homem is sometimes confused with other legendary female capoeiristas, particularly Maria Doze Homens (Maria Twelve Men), but sources distinguish them as separate figures. Her story represents the often-forgotten history of women in early capoeira, who broke gender barriers in a male-dominated practice.',
+  E'Maria Homem foi uma das mais formidáveis capoeiristas do início do século XX na Bahia, cujos feitos lendários contra policiais tornaram-se parte da tradição oral de Salvador. Seu apelido, "Maria Homem," fala da reputação que ela conquistou em um mundo dominado por homens através de pura habilidade de luta.\n\nO principal relato sobre Maria Homem vem de Mestre Pastinha em uma entrevista de 1969 ao Diário Popular. Ela frequentava uma "birosca" no Largo do Pelourinho, onde gostava de "tomar uns tragos." Sua reputação era tal que "até o delegado tinha mêdo" e "não havia polícia que a prendesse."\n\nPastinha contou um confronto específico: Um "cabo forasteiro" tentou se provar prendendo a embriagada Maria Homem. Os policiais locais, conhecendo sua reputação, recusaram obedecer à sua ordem. Sem se intimidar, o cabo tentou a prisão ele mesmo. Segundo Pastinha, "ele voou uns seis metros" e seus companheiros fugiram. O teimoso cabo voltou com reforço, apenas para sofrer o mesmo destino—testemunhas por toda a ladeira do Pelourinho viram "soldado avoando" pela encosta.\n\nMaria Homem estava ativa durante o que Pastinha descreveu como uma era dourada para mulheres na capoeira. Entre 1902 e 1911, Salvador testemunhou "uma exibição de verdadeiras mestras de capoeira Angola, tão ágeis e hábeis quanto os homens." Essas mulheres adaptaram suas roupas restritivas para praticar: rasgavam suas saias que arrastavam no chão nos lados, conectando frente e trás com uma prezilha na cintura para criar calções improvisados—"suficiente para jogar capoeira com qualquer homem," como Pastinha observou.\n\nEm seu livro de 1988 *Capoeira Angola*, Pastinha nomeou apenas duas mulheres capoeiristas ao homenagear os praticantes de sua era: "Júlia Fogareiro e Maria Homem" (p. 18). Em 1976, quando O Globo o entrevistou sobre a geração de "angoleiros de briga" que vieram antes dele, Maria Homem apareceu ao lado de nomes lendários: Bigode de Seda, Bugalho, Américo Ciência, Besouro, Tibiriçá, Amorzinho, Três Pedaços, Doze Homens, Inimigos Sem Tripa, Zé do U, Sete Mortes, Chico Me Dá e Júlia Fogareira. Que Maria Homem foi uma das únicas duas mulheres nesta lista fala de sua habilidade excepcional.\n\nPastinha lamentava que mulheres do calibre de Maria Homem não existiam mais: "É pena que não haja mais mulheres de tal estofo, pois a mulher deve também compartilhar da defesa de seu lar."\n\nMaria Homem às vezes é confundida com outras lendárias capoeiristas, particularmente Maria Doze Homens, mas as fontes as distinguem como figuras separadas. Sua história representa a frequentemente esquecida história das mulheres na capoeira antiga, que quebraram barreiras de gênero em uma prática dominada por homens.',
+  NULL, NULL,
+  E'BIRTH YEAR ESTIMATION (1880, decade):\nPastinha testified in 1969 that between 1902-1911, famous women capoeiristas including Maria Homem were practicing. If she was an adult practitioner (20-35) during peak activity, born approximately 1867-1891. Using 1880 as midpoint with decade precision.\n\nNAME:\nApelido "Maria Homem" translates as "Maria the Man" - indicating her reputation for masculine fighting prowess. No civil name documented.\n\nDISTINCTION FROM OTHER MARIAS:\n- Maria Homem (this profile) - DISTINCT from Maria Doze Homens\n- Maria Doze Homens (Maria Twelve Men) - different person; earned nickname for knocking out 12 men; associated with Mercado Modelo and Cais Dourado\n- Maria do Camboatá - DISTINCT; subject of famous capoeira song\n- Maria Felipa de Oliveira - DISTINCT; 19th century independence fighter\nPapoeira.com explicitly states these are different individuals.\n\nMEDIA APPEARANCES:\n- 1967: Testimony by Mestre Pastinha (Museu da Imagem e do Som) - named among legendary practitioners\n- 1969: Diário Popular newspaper article (Nov 16, 1969) - detailed story of police confrontation\n- 1976: O Globo interview with Pastinha (Apr 11, 1976) - included in list of angoleiros de briga\n- 1988: Published in Pastinha''s book "Capoeira Angola" p. 18\n\nRODA LOCATION: Largo do Pelourinho, Salvador, Bahia (frequented bar there)\n\nTEACHERS:\n- Multiple unspecified masters of the 1900-1911 era\n- Possibly Mestre Pastinha (among others) - Pastinha stated women of this era "learned the art not only with Mestre Pastinha but also with other masters of the time"\n\nCONTEMPORARIES:\n- Júlia Fogareira (fellow female capoeirista; only other woman named by Pastinha)\n- Palmeirona (fellow female capoeirista of 1902-1911 era)\n- Maria Pernambucana (fellow female capoeirista of 1902-1911 era)\n- Bigode de Seda, Bugalho, Américo Ciência, Besouro, Tibiriçá, Amorzinho, Três Pedaços, Doze Homens, Inimigos Sem Tripa, Zé do U, Sete Mortes, Chico Me Dá (male contemporaries in angoleiros de briga list)\n\nHISTORICAL CONTEXT:\nWomen in early 20th century capoeira had to break gender boundaries in a male-dominated practice. The era 1902-1911 was reportedly "a tough time for the Don Juans and for the police."\n\nSOURCE QUALITY:\n- Primary: Mestre Pastinha interviews (1967, 1969, 1976) and book (1988) - high reliability\n- Secondary: Academic papers note uncertainty about exact biographical details due to oral tradition\n- Documentation gap: No known photographs, arrest records, or independent contemporary newspaper mentions',
+  E'ESTIMATIVA DE ANO DE NASCIMENTO (1880, década):\nPastinha testemunhou em 1969 que entre 1902-1911, famosas mulheres capoeiristas incluindo Maria Homem estavam praticando. Se ela era uma praticante adulta (20-35) durante o pico de atividade, nascida aproximadamente 1867-1891. Usando 1880 como ponto médio com precisão de década.\n\nNOME:\nApelido "Maria Homem" traduz-se como "Maria o Homem" - indicando sua reputação por proeza de luta masculina. Nenhum nome civil documentado.\n\nDISTINÇÃO DE OUTRAS MARIAS:\n- Maria Homem (este perfil) - DISTINTA de Maria Doze Homens\n- Maria Doze Homens - pessoa diferente; ganhou apelido por nocautear 12 homens; associada ao Mercado Modelo e Cais Dourado\n- Maria do Camboatá - DISTINTA; tema de famosa música de capoeira\n- Maria Felipa de Oliveira - DISTINTA; lutadora pela independência do século XIX\nPapoeira.com explicitamente afirma que são indivíduos diferentes.\n\nAPARIÇÕES NA MÍDIA:\n- 1967: Testemunho de Mestre Pastinha (Museu da Imagem e do Som) - nomeada entre praticantes lendários\n- 1969: Artigo do Diário Popular (16 nov 1969) - história detalhada do confronto com a polícia\n- 1976: Entrevista do O Globo com Pastinha (11 abr 1976) - incluída na lista de angoleiros de briga\n- 1988: Publicada no livro de Pastinha "Capoeira Angola" p. 18\n\nLOCAL DE RODA: Largo do Pelourinho, Salvador, Bahia (frequentava bar lá)\n\nMESTRES:\n- Múltiplos mestres não especificados da era 1900-1911\n- Possivelmente Mestre Pastinha (entre outros) - Pastinha afirmou que mulheres desta era "aprenderam a arte não só com Mestre Pastinha mas também com outros mestres da época"\n\nCONTEMPORÂNEOS:\n- Júlia Fogareira (companheira capoeirista; única outra mulher nomeada por Pastinha)\n- Palmeirona (companheira capoeirista da era 1902-1911)\n- Maria Pernambucana (companheira capoeirista da era 1902-1911)\n- Bigode de Seda, Bugalho, Américo Ciência, Besouro, Tibiriçá, Amorzinho, Três Pedaços, Doze Homens, Inimigos Sem Tripa, Zé do U, Sete Mortes, Chico Me Dá (contemporâneos masculinos na lista de angoleiros de briga)\n\nCONTEXTO HISTÓRICO:\nMulheres na capoeira do início do século XX tiveram que quebrar fronteiras de gênero em uma prática dominada por homens. A era 1902-1911 foi supostamente "dura para os Don Juans e para a polícia."\n\nQUALIDADE DAS FONTES:\n- Primária: Entrevistas de Mestre Pastinha (1967, 1969, 1976) e livro (1988) - alta confiabilidade\n- Secundária: Artigos acadêmicos notam incerteza sobre detalhes biográficos exatos devido à tradição oral\n- Lacuna documental: Sem fotografias conhecidas, registros de prisão, ou menções contemporâneas independentes'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name, title = EXCLUDED.title, portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links, style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en, style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year, birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place, death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision, death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en, bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en, achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en, notes_pt = EXCLUDED.notes_pt, updated_at = NOW();
+
 -- Source: entities/persons/maria-izabel.sql (NEW)
 -- ============================================================
 -- GENEALOGY PERSON: Maria Izabel
@@ -1883,6 +3955,759 @@ INSERT INTO genealogy.person_profiles (
   -- Researcher notes
   E'REPRESENTATIVE FIGURE: Maria Izabel''s profile serves as a memorial to the hundreds of anonymous women documented in police records and newspapers of 1900-1920 Salvador. Her single archival trace represents all those whose names were lost.\n\nARREST RECORD: Gazeta do Povo, December 2, 1914 - arrested for street disorder ("desordem") while carrying a knife.\n\nBIRTH YEAR ESTIMATION (1890, decade precision): If arrested as an adult (20-30 years old) in 1914, birth would be approximately 1884-1894. Using 1890 as midpoint.\n\nNO APELIDO: Unlike legendary figures who earned nicknames (Angélica "Endiabrada," Maria "Doze Homens"), Maria Izabel''s record preserves only her given name - typical of the anonymous majority.\n\nACademic source: Paula Juliana Foltran, "Mulheres incorrigíveis: capoeiragem, desordem e valentia nas ladeiras da Bahia (1900-1920)" PhD thesis, Universidade de Brasília, 2019. Research conducted at Arquivo Público do Estado da Bahia.\n\nCONTEXT: The thesis identified hundreds of similar cases - women arrested for street fighting, carrying weapons, causing "disorder." Most remain anonymous; Maria Izabel''s name survived by chance in a single newspaper record.\n\nSIGNIFICANCE: Her inclusion acknowledges that capoeira history includes not just legendary figures but the countless ordinary practitioners whose stories were systematically erased.',
   E'FIGURA REPRESENTATIVA: O perfil de Maria Izabel serve como memorial às centenas de mulheres anônimas documentadas em registros policiais e jornais de Salvador de 1900-1920. Seu único rastro arquivístico representa todas aquelas cujos nomes foram perdidos.\n\nREGISTRO DE PRISÃO: Gazeta do Povo, 2 de dezembro de 1914 - presa por desordem na rua enquanto portava uma faca.\n\nESTIMATIVA DO ANO DE NASCIMENTO (1890, precisão de década): Se foi presa como adulta (20-30 anos) em 1914, o nascimento seria aproximadamente 1884-1894. Usando 1890 como ponto médio.\n\nSEM APELIDO: Diferente das figuras lendárias que ganharam apelidos (Angélica "Endiabrada," Maria "Doze Homens"), o registro de Maria Izabel preserva apenas seu nome - típico da maioria anônima.\n\nFONTE ACADÊMICA: Paula Juliana Foltran, "Mulheres incorrigíveis: capoeiragem, desordem e valentia nas ladeiras da Bahia (1900-1920)" tese de doutorado, Universidade de Brasília, 2019. Pesquisa realizada no Arquivo Público do Estado da Bahia.\n\nCONTEXTO: A tese identificou centenas de casos similares - mulheres presas por brigar nas ruas, portar armas, causar "desordem." A maioria permanece anônima; o nome de Maria Izabel sobreviveu por acaso em um único registro de jornal.\n\nSIGNIFICÂNCIA: Sua inclusão reconhece que a história da capoeira inclui não apenas figuras lendárias, mas os inúmeros praticantes comuns cujas histórias foram sistematicamente apagadas.'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
+  updated_at = NOW();
+
+-- Source: entities/persons/nenel.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Nenel
+-- Generated: 2025-12-20
+-- ============================================================
+-- Mestre Nenel (Manoel Nascimento Machado) - son of Mestre Bimba
+-- Born September 26, 1960 in Salvador, Bahia
+-- Living guardian of Capoeira Regional legacy
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  -- Identity
+  name,
+  apelido,
+  title,
+  portrait,
+  public_links,
+  -- Capoeira-specific
+  style,
+  style_notes_en,
+  style_notes_pt,
+  -- Life dates
+  birth_year,
+  birth_year_precision,
+  birth_place,
+  death_year,
+  death_year_precision,
+  death_place,
+  -- Extended content (bilingual)
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt,
+  -- Researcher notes
+  notes_en,
+  notes_pt
+) VALUES (
+  -- Identity
+  'Manoel Nascimento Machado',
+  'Nenel',
+  'mestre'::genealogy.title,
+  NULL,
+  ARRAY['https://fundacaomestrebimba.org.br/mestre-nenel/', 'https://www.capoeirabayarea.com/our-mestres-teachers', 'https://www.capoeiradet.org/capoeira-regional/mestre-nenel', 'https://capoeiraatl.com/capoeira-regional/mestre-nenel/', 'https://papoeira.com/en/interview-with-mestre-nenel-son-of-mestre-bimba/', 'https://www.loc.gov/pictures/item/2020638871/']::text[],
+  -- Capoeira-specific
+  'regional'::genealogy.style,
+  E'Mestre Nenel is the definitive authority on authentic Capoeira Regional as taught by his father, Mestre Bimba. He insists on preserving the complete methodology: methods (teaching sequences), rituals (ceremonies, protocols), and principles (philosophical foundations). He rescued and organized the 12 toques of Capoeira Regional from his father''s legacy—work that could only have been accomplished by someone who lived alongside Mestre Bimba. He is a master of the berimbau and teaches specialized courses in berimbau musicality. His teaching preserves the charanga bateria (one berimbau, two pandeiros), the eight teaching sequences, cintura desprezada, and the graduation system (colored handkerchiefs).',
+  E'Mestre Nenel é a autoridade definitiva sobre a autêntica Capoeira Regional como ensinada por seu pai, Mestre Bimba. Ele insiste na preservação da metodologia completa: métodos (sequências de ensino), rituais (cerimônias, protocolos) e princípios (fundamentos filosóficos). Ele resgatou e organizou os 12 toques da Capoeira Regional do legado de seu pai—trabalho que só poderia ter sido realizado por alguém que viveu ao lado de Mestre Bimba. É mestre do berimbau e ministra cursos especializados em musicalidade do berimbau. Seu ensino preserva a bateria charanga (um berimbau, dois pandeiros), as oito sequências de ensino, cintura desprezada e o sistema de graduação (lenços coloridos).',
+  -- Life dates
+  1960,
+  'exact'::genealogy.date_precision,
+  'Salvador, Bahia, Brazil',
+  NULL,
+  NULL,
+  NULL,
+  -- bio_en
+  E'Manoel Nascimento Machado, known as Mestre Nenel, was born on September 26, 1960, in Salvador, Bahia—the son of Manoel dos Reis Machado (Mestre Bimba), the legendary creator of Capoeira Regional, and Berenice da Conceição Nascimento. He was raised by Alice Maria da Cruz, known as Mãe Alice, a woman deeply connected to both Bimba''s academy and Bahian spiritual traditions.
+
+Mãe Alice was one of the main Ialorixás (Candomblé priestesses) of the Nordeste de Amaralina region. She worked helping Mestre Bimba at his academy on Terreiro de Jesus, behind the church of São Domingos, performing general services and earning extra money washing and organizing students'' clothes. Bimba later bought land for her to establish her terreiro, and in 1962 she founded Oiá Padê da Riméia in Alto da Santa Cruz. Before establishing her own terreiro, she organized the folkloric Candomblé presentations during Bimba''s baptism and graduation parties—a testament to the deep connection between capoeira and Afro-Brazilian spiritual traditions.
+
+As a young child, Nenel spent many of his days in his father''s academy, the Centro de Cultura Física Regional. At six years old in 1966, he formally began capoeira training, earning his blue scarf after completing the basic course. He graduated in June 1967 alongside his brother Demerval dos Santos Machado (known as Formiga), at only seven years of age. Even at this young age, he participated in demonstration groups performing capoeira, samba duro, maculelê, and puxada de rede, traveling with his father throughout Bahia and beyond.
+
+In 1972, Mestre Bimba and his family moved to Goiânia in the state of Goiás, disappointed by the lack of government support in Bahia. When his father''s health declined, Nenel and his brother Formiga taught classes in Goiânia, carrying on the Regional methodology. Mestre Bimba died on February 5, 1974, leaving fourteen-year-old Nenel to assume custodianship of his father''s legacy.
+
+Nenel, like many of his siblings, worked various occupations to make ends meet—a period of hardship that tested his commitment to capoeira. Then, in 1975, he heard the call of capoeira. Despite financial difficulties, he moved to Brasília where he founded his first academy: Associação de Capoeira Mestre Bimba Filho. That same year, at just fifteen years old, he was consecrated mestre de capoeira in Brasília—a recognition of both his lineage and his demonstrated mastery.
+
+In September 1977, Nenel returned to Salvador. He competed in capoeira championships, played street capoeira, and performed in folkloric shows while continuing to work various jobs. In the 1977 and 1978 Campeonato Baiano de Capoeira, he became bi-campeão (two-time champion), competing in sports format while representing Ginga Associação de Capoeira.
+
+From 1984 to 1986, he administered classes at Mestre Moise Sucuiba''s academy, gradually building his reputation as a transmitter of Mestre Bimba''s authentic methodology. On June 10, 1986, he founded the Associação de Capoeira Filhos de Bimba, based at the Fitness Academy of Genivaldo Garcia in the Amaralina neighborhood of Salvador. In 1989, the school was transferred to the School of Arts and Trades as part of an educational project. In 1998, the school was renamed Filhos de Bimba – Escola de Capoeira.
+
+The Fundação Mestre Bimba (FUMEB) was conceived by Bimba''s disciples and admirers, under Mestre Nenel''s leadership, starting in April 1993 and officially established as a non-profit institution on November 30, 1994. Recognized as Municipal and State Public Utility, the Foundation operates from a historic building at Rua Maciel de Baixo, 51 in Salvador''s Pelourinho district. It preserves and displays historical artifacts including Mestre Bimba''s famous berimbau from the 1960s, the Thomé de Souza Medal, and the Doctor Honoris Causa diploma issued by UFBA.
+
+Mestre Nenel''s most significant scholarly contribution is the rescue and organization of the 12 toques (rhythms) of Capoeira Regional. These distinct berimbau rhythms—including São Bento Grande da Regional, Iúna, Cavalaria, and the Hino da Capoeira Regional—were left by his father but could only have been systematically organized by someone who lived with Mestre Bimba and understood his methodology intimately.
+
+In 2018, Mestre Nenel, with organizer Lia Sfoggia, published "Bimba: Um século da Capoeira Regional" (Bimba: A Century of Capoeira Regional) through EDUFBA, the Federal University of Bahia''s publishing house. This bilingual book (Portuguese/English) exposes the trajectories of both Bimba and Nenel, documenting the practices, clothing, musical instruments, and philosophy of authentic Capoeira Regional.
+
+Today, Mestre Nenel resides in Salvador with his partner, Mestra Preguiça (not to be confused with the Senzala mestre of the same name)—the first woman to receive the white scarf in Capoeira Regional. Mestra Preguiça, who has been trained at Filhos de Bimba since 1995 and was consecrated mestra in 2010, is recognized as a symbol of Black women''s resistance in capoeira and has worked with children through Projeto Capoerê since 1994.
+
+Mestre Nenel is the Executive President of both the Fundação Mestre Bimba and Filhos de Bimba Escola de Capoeira, as well as coordinator of the Projeto Social Capoerê—a free initiative that has served over 8,000 children and adolescents in Bahia, São Paulo, Minas Gerais, and Santa Catarina. He is also a founding member of the Associação Brasileira de Capoeira Regional (Brazilian Association of Capoeira Regional).
+
+By 2022—marking the school''s 36th anniversary—Filhos de Bimba had expanded to schools in six Brazilian states and international locations including England, Belgium, Italy, Canada, Croatia, Germany, and Lebanon. In the United States, there are branches in Fort Worth (Texas), the Bay Area (California), Atlanta (Georgia), and Detroit (Michigan).
+
+Mestre Nenel has successfully fulfilled his father''s vision that Capoeira Regional was created for the world. He participates in seminars and festivals, teaches courses internationally, and closely follows the work of his disciples across the globe. In an interview, he reflected on his relationship with his father: "At the same time that he was a father, he was a mestre too... Though he is physically absent, he continues being my mestre."',
+  -- bio_pt
+  E'Manoel Nascimento Machado, conhecido como Mestre Nenel, nasceu em 26 de setembro de 1960, em Salvador, Bahia—filho de Manoel dos Reis Machado (Mestre Bimba), o lendário criador da Capoeira Regional, e Berenice da Conceição Nascimento. Foi criado por Alice Maria da Cruz, conhecida como Mãe Alice, uma mulher profundamente conectada tanto à academia de Bimba quanto às tradições espirituais baianas.
+
+Mãe Alice foi uma das principais Ialorixás do bairro de Nordeste de Amaralina. Ela trabalhava ajudando Mestre Bimba em sua academia no Terreiro de Jesus, atrás da igreja de São Domingos, realizando serviços gerais e ganhando dinheiro extra lavando e organizando as roupas dos alunos. Bimba posteriormente comprou um terreno para ela estabelecer seu terreiro, e em 1962 ela fundou o Oiá Padê da Riméia no Alto da Santa Cruz. Antes de estabelecer seu próprio terreiro, ela organizava as apresentações folclóricas de Candomblé durante as festas de batizado e formatura de Bimba—um testemunho da profunda conexão entre a capoeira e as tradições espirituais afro-brasileiras.
+
+Quando criança, Nenel passava muitos de seus dias na academia de seu pai, o Centro de Cultura Física Regional. Aos seis anos, em 1966, começou formalmente o treinamento de capoeira, conquistando seu lenço azul após completar o curso básico. Formou-se em junho de 1967 junto com seu irmão Demerval dos Santos Machado (conhecido como Formiga), com apenas sete anos de idade. Mesmo tão jovem, participava de grupos de demonstração apresentando capoeira, samba duro, maculelê e puxada de rede, viajando com seu pai pela Bahia e além.
+
+Em 1972, Mestre Bimba e sua família mudaram-se para Goiânia, no estado de Goiás, desapontados com a falta de apoio governamental na Bahia. Quando a saúde de seu pai declinou, Nenel e seu irmão Formiga ministravam aulas em Goiânia, continuando a metodologia Regional. Mestre Bimba morreu em 5 de fevereiro de 1974, deixando Nenel, então com quatorze anos, como guardião do legado de seu pai.
+
+Nenel, como muitos de seus irmãos, trabalhou em diversas ocupações para sobreviver—um período de dificuldades que testou seu compromisso com a capoeira. Então, em 1975, ouviu o chamado da capoeira. Apesar das dificuldades financeiras, mudou-se para Brasília onde fundou sua primeira academia: Associação de Capoeira Mestre Bimba Filho. No mesmo ano, com apenas quinze anos, foi consagrado mestre de capoeira em Brasília—um reconhecimento tanto de sua linhagem quanto de sua maestria demonstrada.
+
+Em setembro de 1977, Nenel retornou a Salvador. Competiu em campeonatos de capoeira, jogou capoeira de rua e se apresentou em shows folclóricos enquanto continuava trabalhando em diversos empregos. Nos Campeonatos Baianos de Capoeira de 1977 e 1978, tornou-se bicampeão, competindo em formato esportivo representando a Ginga Associação de Capoeira.
+
+De 1984 a 1986, administrou aulas na academia de Mestre Moise Sucuiba, construindo gradualmente sua reputação como transmissor da metodologia autêntica de Mestre Bimba. Em 10 de junho de 1986, fundou a Associação de Capoeira Filhos de Bimba, sediada na Academia de Fitness de Genivaldo Garcia no bairro de Amaralina em Salvador. Em 1989, a escola foi transferida para a Escola de Artes e Ofícios como parte de um projeto educacional. Em 1998, a escola foi renomeada para Filhos de Bimba – Escola de Capoeira.
+
+A Fundação Mestre Bimba (FUMEB) foi concebida pelos discípulos e admiradores de Bimba, sob a liderança de Mestre Nenel, a partir de abril de 1993, sendo oficialmente estabelecida como instituição sem fins lucrativos em 30 de novembro de 1994. Reconhecida como Utilidade Pública Municipal e Estadual, a Fundação opera a partir de um edifício histórico na Rua Maciel de Baixo, 51, no bairro do Pelourinho em Salvador. Ela preserva e exibe artefatos históricos incluindo o famoso berimbau de Mestre Bimba dos anos 1960, a Medalha Thomé de Souza e o diploma de Doutor Honoris Causa emitido pela UFBA.
+
+A contribuição acadêmica mais significativa de Mestre Nenel é o resgate e organização dos 12 toques (ritmos) da Capoeira Regional. Esses ritmos distintos de berimbau—incluindo São Bento Grande da Regional, Iúna, Cavalaria e o Hino da Capoeira Regional—foram deixados por seu pai, mas só poderiam ter sido sistematicamente organizados por alguém que viveu com Mestre Bimba e compreendeu sua metodologia intimamente.
+
+Em 2018, Mestre Nenel, com a organizadora Lia Sfoggia, publicou "Bimba: Um século da Capoeira Regional" pela EDUFBA, a editora da Universidade Federal da Bahia. Este livro bilíngue (português/inglês) expõe as trajetórias de Bimba e Nenel, documentando as práticas, vestimentas, instrumentos musicais e filosofia da autêntica Capoeira Regional.
+
+Hoje, Mestre Nenel reside em Salvador com sua companheira, Mestra Preguiça (não confundir com o mestre da Senzala de mesmo nome)—a primeira mulher a receber o lenço branco na Capoeira Regional. Mestra Preguiça, que treina na Filhos de Bimba desde 1995 e foi consagrada mestra em 2010, é reconhecida como símbolo da resistência das mulheres negras na capoeira e trabalha com crianças através do Projeto Capoerê desde 1994.
+
+Mestre Nenel é o Presidente Executivo tanto da Fundação Mestre Bimba quanto da Filhos de Bimba Escola de Capoeira, além de coordenador do Projeto Social Capoerê—uma iniciativa gratuita que já atendeu mais de 8.000 crianças e adolescentes na Bahia, São Paulo, Minas Gerais e Santa Catarina. Ele também é membro fundador da Associação Brasileira de Capoeira Regional.
+
+Em 2022—marcando o 36º aniversário da escola—a Filhos de Bimba expandiu para escolas em seis estados brasileiros e locais internacionais incluindo Inglaterra, Bélgica, Itália, Canadá, Croácia, Alemanha e Líbano. Nos Estados Unidos, há filiais em Fort Worth (Texas), Bay Area (Califórnia), Atlanta (Geórgia) e Detroit (Michigan).
+
+Mestre Nenel cumpriu com sucesso a visão de seu pai de que a Capoeira Regional foi criada para o mundo. Ele participa de seminários e festivais, ministra cursos internacionalmente e acompanha de perto o trabalho de seus discípulos ao redor do globo. Em uma entrevista, ele refletiu sobre seu relacionamento com seu pai: "Ao mesmo tempo que ele era um pai, ele era um mestre também... Embora ele esteja fisicamente ausente, ele continua sendo meu mestre."',
+  -- achievements_en
+  E'Rescued and systematized the 12 toques (rhythms) of Capoeira Regional; Two-time Bahian Capoeira Champion (1977, 1978); Founded Filhos de Bimba Escola de Capoeira (1986); Co-founded and serves as Executive President of Fundação Mestre Bimba (1994); Author of "Bimba: Um século da Capoeira Regional" (2018, EDUFBA); Coordinator of Projeto Social Capoerê (8,000+ youth served); Founding member of Associação Brasileira de Capoeira Regional; Expanded Filhos de Bimba to 6 Brazilian states and 8+ countries; Master berimbau player and specialized instructor; Served as judge at multiple capoeira festivals; Recognized as the global reference and living authority on authentic Capoeira Regional',
+  -- achievements_pt
+  E'Resgatou e sistematizou os 12 toques (ritmos) da Capoeira Regional; Bicampeão Baiano de Capoeira (1977, 1978); Fundou a Filhos de Bimba Escola de Capoeira (1986); Cofundou e é Presidente Executivo da Fundação Mestre Bimba (1994); Autor de "Bimba: Um século da Capoeira Regional" (2018, EDUFBA); Coordenador do Projeto Social Capoerê (8.000+ jovens atendidos); Membro fundador da Associação Brasileira de Capoeira Regional; Expandiu a Filhos de Bimba para 6 estados brasileiros e 8+ países; Mestre de berimbau e instrutor especializado; Atuou como juiz em vários festivais de capoeira; Reconhecido como a referência global e autoridade viva da autêntica Capoeira Regional',
+  -- notes_en
+  E'BIRTH DATE: September 26, 1960, Salvador, Bahia - confirmed across multiple sources (Fundação Mestre Bimba official site, Papoeira interview, Capoeira Bay Area, Capoeira Detroit, Library of Congress).
+
+FAMILY:
+- Father: Mestre Bimba (Manoel dos Reis Machado) - creator of Capoeira Regional
+- Mother: Berenice da Conceição Nascimento
+- Raised by: Alice Maria da Cruz (Mãe Alice) - Ialorixá, Candomblé priestess, founded Oiá Padê da Riméia in 1962
+- Brother: Formiga (Demerval dos Santos Machado) - graduated alongside Nenel in June 1967
+- Partner: Mestra Preguiça - first woman mestra in Capoeira Regional (consecrated 2010)
+
+MESTRE BIMBA HAD 12 REGISTERED CHILDREN (many more illegitimate). Nenel and Formiga are the sons who continued his capoeira legacy.
+
+TRAINING TIMELINE:
+- 1966: Began formal capoeira training at age 6
+- 1967 (June): Graduated with blue scarf alongside brother Formiga
+- 1967-1974: Participated in demonstration groups, traveled with father
+- 1975: Consecrated mestre in Brasília at age 15
+
+CAREER TIMELINE:
+- 1975: Founded first academy in Brasília (Associação de Capoeira Mestre Bimba Filho)
+- 1977 (September): Returned to Salvador
+- 1977, 1978: Bi-campeão (two-time champion) Campeonato Baiano de Capoeira
+- 1984-1986: Taught at Mestre Moise Sucuiba''s academy
+- 1986 (June 10): Founded Associação de Capoeira Filhos de Bimba in Amaralina
+- 1989: Transferred school to School of Arts and Trades
+- 1993 (April 22): Began conception of Fundação Mestre Bimba
+- 1994 (November 30): FUMEB officially established
+- 1998: School renamed to Filhos de Bimba – Escola de Capoeira
+- 2018: Published "Bimba: Um século da Capoeira Regional" (EDUFBA)
+
+MAE ALICE (Alice Maria da Cruz):
+- Raised Nenel
+- Worked at Bimba''s academy at Terreiro de Jesus
+- One of main Ialorixás of Nordeste de Amaralina
+- Founded Oiá Padê da Riméia in Alto da Santa Cruz (1962)
+- Organized folkloric Candomblé presentations for Bimba''s batizado/graduation parties
+- Bimba bought her land to establish her terreiro
+
+12 TOQUES OF CAPOEIRA REGIONAL (rescued by Nenel):
+Nenel is credited with rescuing and systematizing the 12 berimbau rhythms of Regional that his father created, including São Bento Grande da Regional, Iúna, Cavalaria, Idalina, and the Hino da Capoeira Regional.
+
+PUBLICATIONS:
+- "Bimba: Um século da Capoeira Regional" (2018, EDUFBA) - organized by Lia Sfoggia, bilingual Portuguese/English
+
+MEDIA APPEARANCES:
+- 2008: Photographed by André Cypriano for "Capoeira" portfolio (Library of Congress collection)
+
+PROJETO CAPOERÊ:
+- Social initiative offering free capoeira classes to underprivileged youth
+- Served 8,000+ children and adolescents
+- Operating in Bahia, São Paulo, Minas Gerais, Santa Catarina
+
+FILHOS DE BIMBA INTERNATIONAL LOCATIONS (as of 2022):
+- Brazil: 6 states
+- USA: Fort Worth TX, Bay Area CA, Atlanta GA, Detroit MI
+- Europe: England, Belgium, Italy, Croatia, Germany
+- Middle East: Lebanon
+- Americas: Canada
+
+MESTRA PREGUIÇA:
+- Full name unknown
+- First woman to receive white scarf in Capoeira Regional
+- Training at Filhos de Bimba since 1995
+- Consecrated mestra in 2010
+- Working with Projeto Capoerê since 1994
+- DISTINCT from Mestre Preguiça (Walmir Oliveira) of Grupo Senzala',
+  -- notes_pt
+  E'DATA DE NASCIMENTO: 26 de setembro de 1960, Salvador, Bahia - confirmado em múltiplas fontes (site oficial da Fundação Mestre Bimba, entrevista Papoeira, Capoeira Bay Area, Capoeira Detroit, Library of Congress).
+
+FAMÍLIA:
+- Pai: Mestre Bimba (Manoel dos Reis Machado) - criador da Capoeira Regional
+- Mãe: Berenice da Conceição Nascimento
+- Criado por: Alice Maria da Cruz (Mãe Alice) - Ialorixá, sacerdotisa do Candomblé, fundou Oiá Padê da Riméia em 1962
+- Irmão: Formiga (Demerval dos Santos Machado) - formou-se junto com Nenel em junho de 1967
+- Companheira: Mestra Preguiça - primeira mulher mestra na Capoeira Regional (consagrada 2010)
+
+MESTRE BIMBA TEVE 12 FILHOS REGISTRADOS (muitos mais ilegítimos). Nenel e Formiga são os filhos que continuaram seu legado na capoeira.
+
+LINHA DO TEMPO DE TREINAMENTO:
+- 1966: Começou treinamento formal de capoeira aos 6 anos
+- 1967 (junho): Formou-se com lenço azul junto com irmão Formiga
+- 1967-1974: Participou de grupos de demonstração, viajou com o pai
+- 1975: Consagrado mestre em Brasília aos 15 anos
+
+LINHA DO TEMPO DA CARREIRA:
+- 1975: Fundou primeira academia em Brasília (Associação de Capoeira Mestre Bimba Filho)
+- 1977 (setembro): Retornou a Salvador
+- 1977, 1978: Bicampeão do Campeonato Baiano de Capoeira
+- 1984-1986: Ensinou na academia de Mestre Moise Sucuiba
+- 1986 (10 de junho): Fundou Associação de Capoeira Filhos de Bimba em Amaralina
+- 1989: Transferiu escola para Escola de Artes e Ofícios
+- 1993 (22 de abril): Iniciou concepção da Fundação Mestre Bimba
+- 1994 (30 de novembro): FUMEB oficialmente estabelecida
+- 1998: Escola renomeada para Filhos de Bimba – Escola de Capoeira
+- 2018: Publicou "Bimba: Um século da Capoeira Regional" (EDUFBA)
+
+MÃE ALICE (Alice Maria da Cruz):
+- Criou Nenel
+- Trabalhava na academia de Bimba no Terreiro de Jesus
+- Uma das principais Ialorixás do Nordeste de Amaralina
+- Fundou Oiá Padê da Riméia no Alto da Santa Cruz (1962)
+- Organizava apresentações folclóricas de Candomblé para festas de batizado/formatura de Bimba
+- Bimba comprou terreno para ela estabelecer seu terreiro
+
+12 TOQUES DA CAPOEIRA REGIONAL (resgatados por Nenel):
+Nenel é creditado por resgatar e sistematizar os 12 ritmos de berimbau da Regional que seu pai criou, incluindo São Bento Grande da Regional, Iúna, Cavalaria, Idalina e o Hino da Capoeira Regional.
+
+PUBLICAÇÕES:
+- "Bimba: Um século da Capoeira Regional" (2018, EDUFBA) - organizado por Lia Sfoggia, bilíngue português/inglês
+
+APARIÇÕES NA MÍDIA:
+- 2008: Fotografado por André Cypriano para portfólio "Capoeira" (coleção Library of Congress)
+
+PROJETO CAPOERÊ:
+- Iniciativa social oferecendo aulas gratuitas de capoeira para jovens carentes
+- Atendeu 8.000+ crianças e adolescentes
+- Operando na Bahia, São Paulo, Minas Gerais, Santa Catarina
+
+FILHOS DE BIMBA LOCALIZAÇÕES INTERNACIONAIS (até 2022):
+- Brasil: 6 estados
+- EUA: Fort Worth TX, Bay Area CA, Atlanta GA, Detroit MI
+- Europa: Inglaterra, Bélgica, Itália, Croácia, Alemanha
+- Oriente Médio: Líbano
+- Américas: Canadá
+
+MESTRA PREGUIÇA:
+- Nome completo desconhecido
+- Primeira mulher a receber lenço branco na Capoeira Regional
+- Treinando na Filhos de Bimba desde 1995
+- Consagrada mestra em 2010
+- Trabalhando com Projeto Capoerê desde 1994
+- DISTINTA de Mestre Preguiça (Walmir Oliveira) do Grupo Senzala'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
+  updated_at = NOW();
+
+-- Source: entities/persons/nenem-itabuna.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Neném (Itabuna)
+-- Generated: 2025-12-20
+-- ============================================================
+-- BIRTH YEAR ESTIMATION (1860, decade precision):
+-- Neném is described as "of African origin" / "de origem africana"
+-- indicating he was born in Africa. Brazil's transatlantic slave trade
+-- effectively ended in 1850 (though illegal trafficking continued until
+-- the 1880s). If he was teaching Paizinho (Teodoro Ramos) who in turn
+-- trained Artur Emídio starting 1937, and Paizinho was an established
+-- mestre by the late 1800s/early 1900s, Neném would have been 30-50
+-- when teaching. Working backwards from Paizinho's likely birth
+-- (~1890-1910), Neném was likely born 1850-1880. Using 1860 as midpoint
+-- with decade precision.
+--
+-- IDENTITY CLARIFICATION:
+-- This person "Neném (Itabuna)" from the southern Bahia region is
+-- DISTINCT from:
+-- 1. Neném (1937 Congress) - participant in II Congresso Afro-Brasileiro
+--    demonstration in Salvador (Jan 14, 1937). Whether this is the same
+--    person is UNCERTAIN - geographically separated (Itabuna vs Salvador)
+--    but chronologically possible if elderly.
+-- 2. Mestre Noronha's father - was named José Coutinho, NOT Neném.
+--
+-- Using apelido_context='Itabuna' to distinguish from other Nenéms.
+--
+-- SIGNIFICANCE: Layer Zero figure; anchor of the Itabuna capoeira
+-- lineage that produced Artur Emídio and the entire Rio de Janeiro
+-- contemporary capoeira school. One of the few documented African-born
+-- capoeiristas in the genealogical record.
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  -- Identity
+  name,
+  apelido,
+  apelido_context,
+  title,
+  portrait,
+  public_links,
+  -- Capoeira-specific
+  style,
+  style_notes_en,
+  style_notes_pt,
+  -- Life dates
+  birth_year,
+  birth_year_precision,
+  birth_place,
+  death_year,
+  death_year_precision,
+  death_place,
+  -- Extended content (bilingual)
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt,
+  -- Researcher notes (bilingual)
+  notes_en,
+  notes_pt
+) VALUES (
+  -- Identity
+  NULL,  -- Full name unknown
+  'Neném',
+  'Itabuna',  -- Context to distinguish from other Nenéms
+  NULL,  -- No formal title in this era
+  NULL,  -- No portrait available
+  ARRAY[
+    'https://velhosmestres.com/en/featured-69',
+    'https://capoeirahistory.com/mestre/master-paulo-gomes/'
+  ]::text[],
+  -- Capoeira-specific
+  NULL,  -- Style classification not applicable for pre-codification era
+  E'Neném taught in Itabuna during the era when capoeira was criminalized in Brazil (1890-1937). His students, notably Paizinho (Teodoro Ramos), trained "on top of hills, in alleyways, at night and always hidden" according to Artur Emídio''s testimony. The training methods were necessarily clandestine, with practitioners facing arrest and imprisonment. This underground tradition in southern Bahia predated and operated independently from the Salvador-based formalization that would later produce Capoeira Regional and Angola as distinct styles.',
+  E'Neném ensinava em Itabuna durante a era em que a capoeira era criminalizada no Brasil (1890-1937). Seus alunos, notadamente Paizinho (Teodoro Ramos), treinavam "no alto dos morros, nos becos, à noite e sempre escondidos" segundo o testemunho de Artur Emídio. Os métodos de treinamento eram necessariamente clandestinos, com praticantes enfrentando prisão e encarceramento. Esta tradição subterrânea no sul da Bahia antecedeu e operava independentemente da formalização sediada em Salvador que mais tarde produziria a Capoeira Regional e Angola como estilos distintos.',
+  -- Life dates
+  1860,
+  'decade'::genealogy.date_precision,
+  'Africa (unspecified region)',
+  NULL,  -- Death year unknown
+  NULL,
+  NULL,  -- Death place unknown
+  -- Extended content (English)
+  E'Mestre Neném was an African-born capoeirista who taught in Itabuna, in the southern Bahia region of Brazil. He represents one of the most significant yet obscure figures in capoeira genealogy—a Layer Zero practitioner who anchors an entire lineage that would eventually transform capoeira in Rio de Janeiro and beyond.
+
+Almost nothing is known about Neném except through the testimony of his descendants in the art. He is described simply as "an African" or "of African origin," indicating he was born on the African continent and brought to Brazil, likely during the final decades of the transatlantic slave trade or as a child of enslaved parents.
+
+What we know comes primarily from Mestre Artur Emídio (1930-2011), who learned capoeira from Mestre Paizinho (Teodoro Ramos), who was in turn a direct disciple of Neném. In Artur Emídio''s recounting: "The practice of Capoeira was prohibited. They trained on top of hills, in alleyways, at night and always hidden. Many were the times that my Master was arrested. But the next day the bail was paid, and he would leave. And at night, he would return to teach Capoeira, practiced for love!"
+
+This description of clandestine training, arrests, and perseverance applies to the entire lineage from Neném through Paizinho. The southern Bahia region, particularly around Itabuna and Ilhéus in the cocoa-growing belt, developed its own capoeira tradition separate from the more documented Salvador schools. This tradition was characterized by:
+
+1. Strict secrecy due to criminalization
+2. Training in remote locations (hilltops, back alleys)
+3. Night-time practice to avoid police
+4. Strong master-student bonds formed under persecution
+5. The willingness to accept repeated arrest rather than abandon the art
+
+The lineage Neném established would prove remarkably influential. Through Paizinho, his teachings reached Artur Emídio, who became a pioneer of capoeira in Rio de Janeiro. Artur Emídio is considered one of the "four main lineages" of contemporary Rio capoeira (alongside Paraná, Mário Buscapé, and Roque), and was likely the first capoeirista to perform internationally.
+
+Neném''s legacy thus extends from the African continent through the persecution era of Brazilian capoeira to the global art form it became in the late 20th century. As Mestre Paulo Gomes''s genealogy records: he was "''Great-grandson'' of Mestre Neném" through the chain Neném → Paizinho → Artur Emídio → Paulo Gomes.',
+  -- Extended content (Portuguese)
+  E'Mestre Neném foi um capoeirista nascido na África que ensinava em Itabuna, na região sul da Bahia. Ele representa uma das figuras mais significativas, porém obscuras, na genealogia da capoeira—um praticante da Camada Zero que ancora toda uma linhagem que eventualmente transformaria a capoeira no Rio de Janeiro e além.
+
+Quase nada se sabe sobre Neném exceto através do testemunho de seus descendentes na arte. Ele é descrito simplesmente como "um africano" ou "de origem africana," indicando que nasceu no continente africano e foi trazido ao Brasil, provavelmente durante as décadas finais do tráfico transatlântico de escravos ou como filho de pais escravizados.
+
+O que sabemos vem principalmente de Mestre Artur Emídio (1930-2011), que aprendeu capoeira com Mestre Paizinho (Teodoro Ramos), que por sua vez era discípulo direto de Neném. No relato de Artur Emídio: "A prática da Capoeira era proibida. Treinavam no alto dos morros, nos becos, à noite e sempre escondidos. Muitas foram as vezes que meu Mestre foi preso. Mas no dia seguinte a fiança era paga, e ele saía. E à noite, voltava a ensinar Capoeira, praticada por amor!"
+
+Esta descrição de treinamento clandestino, prisões e perseverança se aplica a toda a linhagem de Neném passando por Paizinho. A região sul da Bahia, particularmente em torno de Itabuna e Ilhéus na zona cacaueira, desenvolveu sua própria tradição de capoeira separada das escolas mais documentadas de Salvador. Esta tradição era caracterizada por:
+
+1. Sigilo estrito devido à criminalização
+2. Treinamento em locais remotos (topos de morros, becos)
+3. Prática noturna para evitar a polícia
+4. Fortes laços mestre-aluno formados sob perseguição
+5. A disposição de aceitar prisão repetida em vez de abandonar a arte
+
+A linhagem que Neném estabeleceu se provaria notavelmente influente. Através de Paizinho, seus ensinamentos chegaram a Artur Emídio, que se tornou pioneiro da capoeira no Rio de Janeiro. Artur Emídio é considerado uma das "quatro principais linhagens" da capoeira contemporânea do Rio (ao lado de Paraná, Mário Buscapé e Roque), e foi provavelmente o primeiro capoeirista a se apresentar internacionalmente.
+
+O legado de Neném assim se estende do continente africano através da era de perseguição da capoeira brasileira até a forma de arte global que se tornou no final do século XX. Como registra a genealogia de Mestre Paulo Gomes: ele era "''Bisneto'' de Mestre Neném" através da cadeia Neném → Paizinho → Artur Emídio → Paulo Gomes.',
+  -- Achievements (English)
+  E'- African-born anchor of the Itabuna capoeira lineage
+- Teacher of Mestre Paizinho (Teodoro Ramos), who continued the tradition
+- Preserved and transmitted capoeira during the criminalization period (1890-1937)
+- His lineage produced Mestre Artur Emídio, one of four founding lineages of contemporary Rio de Janeiro capoeira
+- Represents direct African-to-Brazil transmission of martial arts/cultural practices',
+  -- Achievements (Portuguese)
+  E'- Âncora nascida na África da linhagem de capoeira de Itabuna
+- Professor de Mestre Paizinho (Teodoro Ramos), que continuou a tradição
+- Preservou e transmitiu a capoeira durante o período de criminalização (1890-1937)
+- Sua linhagem produziu Mestre Artur Emídio, uma das quatro linhagens fundadoras da capoeira contemporânea do Rio de Janeiro
+- Representa transmissão direta da África para o Brasil de práticas culturais/artes marciais',
+  -- Researcher notes (English)
+  E'BIRTH YEAR ESTIMATION (1860, decade precision):
+Working backwards from known dates:
+- Artur Emídio began training with Paizinho in 1937 (age 7)
+- Paizinho was an established mestre by 1937, likely 30-50 years old
+- This places Paizinho''s birth approximately 1887-1907
+- If Neném taught Paizinho from childhood (age 10-20), and was 30-50 at the time
+- Neném was likely born between 1850-1880
+- Using 1860 as midpoint estimate
+- "African origin" designation indicates Africa-born, consistent with someone born before or during final decades of slave trade (Brazil abolished slavery 1888)
+
+BIRTH PLACE:
+Described as "of African origin" / "an African" but specific region not documented. Could be from any region involved in late-period slave trade to Bahia (primarily West African coast, Angola/Congo region).
+
+DEATH YEAR:
+Unknown. No documentation found.
+
+NAME DISCREPANCY:
+"Neném" is a diminutive form in Brazilian Portuguese, similar to "Baby" or "Little One" - commonly used as an affectionate nickname. Full name unknown.
+
+IDENTITY CLARIFICATION - THREE POSSIBLE "NENÉM" FIGURES:
+1. Neném (Itabuna) - THIS PROFILE - African-born teacher of Paizinho in southern Bahia
+2. Neném (1937 Congress) - Participant in II Congresso Afro-Brasileiro capoeira demonstration, Salvador, January 14, 1937. Listed alongside Querido de Deus, Barbosa, Zeppelin, Bugaia, Fernandes, Eutychio, Zei, Ambrósio, Barroso, Arthur Mattos, Raphael, Edgard, Damião.
+3. Confusion with Noronha''s father - RESOLVED: Mestre Noronha (Daniel Coutinho, 1909-1977) had father named José Coutinho, NOT Neném.
+
+Whether Neném (Itabuna) and Neném (1937 Congress) are the same person is UNCERTAIN:
+- Geographically separated: Itabuna (~300km south of Salvador) vs Salvador
+- Chronologically possible: If born ~1860, would be ~77 in 1937 - elderly but possible
+- Insufficient evidence to confirm or deny
+
+STUDENTS:
+- Paizinho (Teodoro Ramos, ?-1945/1946) - Primary student; continued lineage in Itabuna
+
+LINEAGE CHAIN:
+Neném (African, ~1860-?) → Paizinho (Teodoro Ramos, ?-1945) → Artur Emídio (1930-2011) → [Leopoldina, Djalma Bandeira, Paulo Gomes, Celso do Engenho, etc.]
+
+SOURCES CONSULTED:
+- velhosmestres.com/en/featured-69 (Artur Emídio profile)
+- capoeirahistory.com/mestre/master-artur-emidio-1930-2011/
+- capoeirahistory.com/mestre/master-paulo-gomes/
+- portalcapoeira.com/capoeira/noticias-atualidades/nota-de-falecimento-mestre-artur-emidio/
+- nossa-tribo.com/mestre-artur-emidio/
+- velhosmestres.com/br/destaques-38 (1937 Congress participants)',
+  -- Researcher notes (Portuguese)
+  E'ESTIMATIVA DE ANO DE NASCIMENTO (1860, precisão de década):
+Trabalhando de trás para frente a partir de datas conhecidas:
+- Artur Emídio começou a treinar com Paizinho em 1937 (aos 7 anos)
+- Paizinho era um mestre estabelecido em 1937, provavelmente com 30-50 anos
+- Isso coloca o nascimento de Paizinho aproximadamente em 1887-1907
+- Se Neném ensinou Paizinho desde a infância (idade 10-20), e tinha 30-50 na época
+- Neném provavelmente nasceu entre 1850-1880
+- Usando 1860 como estimativa do ponto médio
+- Designação de "origem africana" indica nascido na África, consistente com alguém nascido antes ou durante as décadas finais do tráfico de escravos (Brasil aboliu escravidão em 1888)
+
+LOCAL DE NASCIMENTO:
+Descrito como "de origem africana" / "um africano" mas região específica não documentada. Poderia ser de qualquer região envolvida no tráfico de escravos tardio para a Bahia (principalmente costa da África Ocidental, região de Angola/Congo).
+
+ANO DE MORTE:
+Desconhecido. Nenhuma documentação encontrada.
+
+DISCREPÂNCIA DE NOME:
+"Neném" é uma forma diminutiva em português brasileiro, similar a "Bebê" ou "Pequenino" - comumente usado como apelido afetuoso. Nome completo desconhecido.
+
+ESCLARECIMENTO DE IDENTIDADE - TRÊS POSSÍVEIS FIGURAS "NENÉM":
+1. Neném (Itabuna) - ESTE PERFIL - Professor nascido na África de Paizinho no sul da Bahia
+2. Neném (1937 Congress) - Participante da demonstração de capoeira do II Congresso Afro-Brasileiro, Salvador, 14 de janeiro de 1937. Listado ao lado de Querido de Deus, Barbosa, Zeppelin, Bugaia, Fernandes, Eutychio, Zei, Ambrósio, Barroso, Arthur Mattos, Raphael, Edgard, Damião.
+3. Confusão com pai de Noronha - RESOLVIDO: Mestre Noronha (Daniel Coutinho, 1909-1977) tinha pai chamado José Coutinho, NÃO Neném.
+
+Se Neném (Itabuna) e Neném (1937 Congress) são a mesma pessoa é INCERTO:
+- Geograficamente separados: Itabuna (~300km ao sul de Salvador) vs Salvador
+- Cronologicamente possível: Se nascido ~1860, teria ~77 em 1937 - idoso mas possível
+- Evidência insuficiente para confirmar ou negar
+
+ALUNOS:
+- Paizinho (Teodoro Ramos, ?-1945/1946) - Aluno principal; continuou a linhagem em Itabuna
+
+CADEIA DE LINHAGEM:
+Neném (Africano, ~1860-?) → Paizinho (Teodoro Ramos, ?-1945) → Artur Emídio (1930-2011) → [Leopoldina, Djalma Bandeira, Paulo Gomes, Celso do Engenho, etc.]
+
+FONTES CONSULTADAS:
+- velhosmestres.com/en/featured-69 (perfil de Artur Emídio)
+- capoeirahistory.com/mestre/master-artur-emidio-1930-2011/
+- capoeirahistory.com/mestre/master-paulo-gomes/
+- portalcapoeira.com/capoeira/noticias-atualidades/nota-de-falecimento-mestre-artur-emidio/
+- nossa-tribo.com/mestre-artur-emidio/
+- velhosmestres.com/br/destaques-38 (participantes do Congresso de 1937)'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
+  updated_at = NOW();
+
+-- Source: entities/persons/paizinho.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Paizinho (Teodoro Ramos)
+-- Generated: 2025-12-20
+-- ============================================================
+-- BIRTH YEAR ESTIMATION (1890, decade precision):
+-- Paizinho was an established mestre teaching young Artur Emídio
+-- from 1937. If he was teaching a 7-year-old and running an academy,
+-- he was likely 30-50 years old at that time. Working backwards:
+-- - Teaching from 1937, died 1945/1946
+-- - If he was 45-55 at death, born ~1890-1900
+-- - If he was 30-40 when teaching in 1937, born ~1897-1907
+-- Using 1890 as estimate with decade precision to allow for the
+-- probability he was an established older mestre when teaching.
+--
+-- DEATH YEAR DISCREPANCY (1945 vs 1946):
+-- - capoeirahistory.com: 1945
+-- - velhosmestres.com: 1946 (mentions meningitis)
+-- Using 1945 as primary (majority of sources), noting discrepancy.
+--
+-- DEATH CIRCUMSTANCES:
+-- Primary account (Artur Emídio): "morte morrida" - died of meningitis
+-- Legendary account: On moonlit nights attempted to fly from a coconut
+-- tree using palm leaves as wings like Icarus; fell to his death.
+-- The Icarus legend appears to be local folklore rather than fact.
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  -- Identity
+  name,
+  apelido,
+  apelido_context,
+  title,
+  portrait,
+  public_links,
+  -- Capoeira-specific
+  style,
+  style_notes_en,
+  style_notes_pt,
+  -- Life dates
+  birth_year,
+  birth_year_precision,
+  birth_place,
+  death_year,
+  death_year_precision,
+  death_place,
+  -- Extended content (bilingual)
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt,
+  -- Researcher notes (bilingual)
+  notes_en,
+  notes_pt
+) VALUES (
+  -- Identity
+  'Teodoro Ramos',
+  'Paizinho',
+  NULL,  -- No context needed; unique apelido
+  NULL,  -- No formal title documented (pre-formal title era)
+  NULL,  -- No portrait available
+  ARRAY[
+    'https://velhosmestres.com/en/featured-69',
+    'https://capoeirahistory.com/mestre/master-artur-emidio-1930-2011/'
+  ]::text[],
+  -- Capoeira-specific
+  NULL,  -- Style classification not applicable for pre-codification era
+  E'Paizinho taught capoeira in Itabuna during the height of the criminalization period (1890-1937). His training methods were necessarily clandestine—he trained students "on hilltops, in alleyways, at night and always hidden" according to his student Artur Emídio. He woke his young students at 6 AM for practice before authorities were active. Despite numerous arrests, he returned to teaching the same evening after bail was paid, driven by love for the art. His capoeira predated the Angola/Regional distinction, representing the organic pre-codification tradition of the southern Bahia cocoa region.',
+  E'Paizinho ensinava capoeira em Itabuna durante o auge do período de criminalização (1890-1937). Seus métodos de treinamento eram necessariamente clandestinos—treinava alunos "no alto dos morros, nos becos, à noite e sempre escondidos" segundo seu aluno Artur Emídio. Acordava seus jovens alunos às 6 da manhã para treinar antes que as autoridades estivessem ativas. Apesar de inúmeras prisões, voltava a ensinar na mesma noite após o pagamento da fiança, movido pelo amor à arte. Sua capoeira antecedeu a distinção Angola/Regional, representando a tradição orgânica pré-codificação da região cacaueira do sul da Bahia.',
+  -- Life dates
+  1890,
+  'decade'::genealogy.date_precision,
+  NULL,  -- Birth place unknown (likely southern Bahia region)
+  1945,
+  'year'::genealogy.date_precision,
+  'Itabuna, Bahia',
+  -- Extended content (English)
+  E'Mestre Paizinho, born Teodoro Ramos, was a capoeirista who taught in Itabuna, in the southern Bahia cocoa belt, during the era when capoeira was criminalized in Brazil. He represents a crucial link in one of the most important lineages in capoeira history, connecting the African-born Mestre Neném to Mestre Artur Emídio, who would become one of the four founding lineages of contemporary capoeira in Rio de Janeiro.
+
+Paizinho was a disciple of Mestre Neném, described as "an African" or "of African origin," making Paizinho a second-generation practitioner from the African diaspora. Almost nothing is known about his early life or how he came to study under Neném, but he established himself as a teacher in Itabuna during the prohibition era.
+
+What we know of Paizinho comes primarily from the testimony of his most famous student, Artur Emídio de Oliveira, who began training with him in 1937 at age seven. Paizinho would go to Artur''s house on Rua Direita in the Pontalzinho neighborhood at 6 AM each morning to wake him for training. The training took place "in the street, on the pavement" but also in secret locations due to the legal prohibition.
+
+In Artur Emídio''s recounting: "The practice of Capoeira was prohibited. They trained on top of hills, in alleyways, at night and always hidden. Many were the times that my Master was arrested. But the next day the bail was paid, and he would leave. And at night, he would return to teach Capoeira, practiced for love!"
+
+This vivid account captures the dangerous conditions under which Paizinho preserved and transmitted capoeira. The southern Bahia region, particularly around Itabuna and Ilhéus in the cocoa-growing belt, developed its own capoeira tradition separate from the more documented Salvador schools. This tradition was characterized by strict secrecy, training in remote locations, night-time practice, and strong master-student bonds forged under persecution.
+
+Paizinho ran a capoeira academy in Itabuna—one of the few formal training spaces outside of Salvador during this period. His willingness to be repeatedly arrested rather than abandon teaching demonstrates the depth of his commitment to the art.
+
+He died in 1945, struck by meningitis according to Artur Emídio. However, local legend tells a more fantastical story: that on moonlit nights in Itabuna and Ilhéus, Paizinho attempted to fly from the top of a coconut tree using palm leaves as wings, like Icarus in Greek mythology, and fell to his death. Artur Emídio dismissed this as legend, describing Paizinho''s death as "morte morrida" (natural death).
+
+After Paizinho''s death, the fifteen-year-old Artur Emídio took over his master''s academy and began teaching Paizinho''s former students. Despite his youth, he quickly gained recognition, even receiving visiting students from Salvador. This act of continuation ensured that Paizinho''s lineage would survive and eventually flourish in Rio de Janeiro, where Artur Emídio would become one of the most influential figures in contemporary capoeira history.',
+  -- Extended content (Portuguese)
+  E'Mestre Paizinho, nascido Teodoro Ramos, foi um capoeirista que ensinou em Itabuna, na zona cacaueira do sul da Bahia, durante a era em que a capoeira era criminalizada no Brasil. Ele representa um elo crucial em uma das linhagens mais importantes da história da capoeira, conectando o africano Mestre Neném a Mestre Artur Emídio, que se tornaria uma das quatro linhagens fundadoras da capoeira contemporânea no Rio de Janeiro.
+
+Paizinho foi discípulo de Mestre Neném, descrito como "um africano" ou "de origem africana," fazendo de Paizinho um praticante de segunda geração da diáspora africana. Quase nada se sabe sobre sua vida inicial ou como veio a estudar com Neném, mas ele se estabeleceu como professor em Itabuna durante a era de proibição.
+
+O que sabemos de Paizinho vem principalmente do testemunho de seu aluno mais famoso, Artur Emídio de Oliveira, que começou a treinar com ele em 1937 aos sete anos. Paizinho ia à casa de Artur na Rua Direita, no bairro do Pontalzinho, às 6 da manhã cada dia para acordá-lo para o treino. O treinamento acontecia "na rua, no passeio" mas também em locais secretos devido à proibição legal.
+
+No relato de Artur Emídio: "A prática da Capoeira era proibida. Treinavam no alto dos morros, nos becos, à noite e sempre escondidos. Muitas foram as vezes que meu Mestre foi preso. Mas no dia seguinte a fiança era paga, e ele saía. E à noite, voltava a ensinar Capoeira, praticada por amor!"
+
+Este relato vívido captura as condições perigosas sob as quais Paizinho preservou e transmitiu a capoeira. A região sul da Bahia, particularmente em torno de Itabuna e Ilhéus na zona cacaueira, desenvolveu sua própria tradição de capoeira separada das escolas mais documentadas de Salvador. Esta tradição era caracterizada por sigilo estrito, treinamento em locais remotos, prática noturna e fortes laços mestre-aluno forjados sob perseguição.
+
+Paizinho dirigia uma academia de capoeira em Itabuna—um dos poucos espaços formais de treinamento fora de Salvador durante este período. Sua disposição em ser repetidamente preso em vez de abandonar o ensino demonstra a profundidade de seu compromisso com a arte.
+
+Ele morreu em 1945, vítima de meningite segundo Artur Emídio. No entanto, a lenda local conta uma história mais fantástica: que em noites de lua em Itabuna e Ilhéus, Paizinho tentou voar do alto de um coqueiro usando folhas de palmeira como asas, como Ícaro na mitologia grega, e caiu para a morte. Artur Emídio descartou isso como lenda, descrevendo a morte de Paizinho como "morte morrida" (morte natural).
+
+Após a morte de Paizinho, o jovem Artur Emídio de quinze anos assumiu a academia de seu mestre e começou a ensinar os antigos alunos de Paizinho. Apesar da pouca idade, rapidamente ganhou reconhecimento, recebendo até alunos visitantes de Salvador. Este ato de continuação garantiu que a linhagem de Paizinho sobrevivesse e eventualmente florescesse no Rio de Janeiro, onde Artur Emídio se tornaria uma das figuras mais influentes na história da capoeira contemporânea.',
+  -- Achievements (English)
+  E'- Disciple of Mestre Neném (African-born), second generation from African diaspora
+- Established capoeira academy in Itabuna during criminalization period
+- Primary teacher of Mestre Artur Emídio (1937-1945)
+- Preserved and transmitted capoeira under persecution (multiple arrests)
+- Anchor of lineage that produced one of four founding lineages of contemporary Rio de Janeiro capoeira
+- Early morning training regimen (6 AM daily) with young students
+- Continued teaching same evening after each arrest—"practiced for love"',
+  -- Achievements (Portuguese)
+  E'- Discípulo de Mestre Neném (nascido na África), segunda geração da diáspora africana
+- Estabeleceu academia de capoeira em Itabuna durante período de criminalização
+- Professor principal de Mestre Artur Emídio (1937-1945)
+- Preservou e transmitiu capoeira sob perseguição (múltiplas prisões)
+- Âncora da linhagem que produziu uma das quatro linhagens fundadoras da capoeira contemporânea do Rio de Janeiro
+- Regime de treinamento matinal (6 da manhã diariamente) com jovens alunos
+- Continuava ensinando na mesma noite após cada prisão—"praticada por amor"',
+  -- Researcher notes (English)
+  E'BIRTH YEAR ESTIMATION (1890, decade precision):
+Paizinho was an established mestre teaching young Artur Emídio from 1937. If he was teaching a 7-year-old and running an academy, he was likely 30-50 years old at that time.
+- Teaching from 1937, died 1945/1946
+- If 45-55 at death, born ~1890-1900
+- If 30-40 when teaching started (1937), born ~1897-1907
+- Using 1890 as midpoint estimate with decade precision
+
+DEATH YEAR DISCREPANCY:
+- capoeirahistory.com, nossa-tribo.com, portalcapoeira.com: 1945
+- velhosmestres.com: 1946
+Using 1945 as primary (majority of sources).
+
+DEATH CIRCUMSTANCES:
+Two accounts exist:
+1. Primary (Artur Emídio): "morte morrida" - natural death from meningitis
+2. Legend: Attempted to fly from coconut tree using palm leaves as wings like Icarus; fell to death
+Artur Emídio explicitly rejected the Icarus legend. Using meningitis as documented cause.
+
+TEACHER:
+- Mestre Neném (apelido_context=''Itabuna'') - African-born; Layer Zero figure
+
+STUDENTS:
+- Artur Emídio de Oliveira (1930-2011) - began training 1937, age 7; took over academy 1945
+
+TRAINING CONDITIONS:
+- Location: Itabuna, Bahia (cocoa belt region)
+- Training sites: "hilltops, alleyways, at night, always hidden"
+- Street training: "in the street, on the pavement"
+- Time: 6 AM daily (before authorities active)
+- Ran formal academy in Itabuna
+
+ARRESTS:
+Multiple arrests documented. Pattern: arrested, bail paid next day, returned to teaching same evening.
+Quote (Artur Emídio): "Many were the times that my Master was arrested. But the next day the bail was paid, and he would leave. And at night, he would return to teach Capoeira, practiced for love!"
+
+ICARUS LEGEND CONTEXT:
+Described as occurring "on moonlit nights in Itabuna and Ilhéus." Appears to be local folklore; Artur Emídio''s direct testimony disputes it. May reflect community mythologizing of a mysterious teacher figure.
+
+LINEAGE CHAIN:
+Neném (African, ~1860-?) → Paizinho (Teodoro Ramos, ~1890-1945) → Artur Emídio (1930-2011) → [Leopoldina, Djalma Bandeira, Paulo Gomes, Celso do Engenho, Mendonça, etc.]
+
+SOURCES CONSULTED:
+- velhosmestres.com/en/featured-69 (Artur Emídio profile - primary)
+- capoeirahistory.com/mestre/master-artur-emidio-1930-2011/
+- capoeirahistory.com/mestre/master-paulo-gomes/
+- nossa-tribo.com/mestre-artur-emidio/
+- portalcapoeira.com/capoeira/noticias-atualidades/nota-de-falecimento-mestre-artur-emidio/
+- capoeirahistory.com/from-the-ring-to-the-stage-a-movie-about-master-artur-emidio/ (documentary)',
+  -- Researcher notes (Portuguese)
+  E'ESTIMATIVA DE ANO DE NASCIMENTO (1890, precisão de década):
+Paizinho era um mestre estabelecido ensinando o jovem Artur Emídio a partir de 1937. Se estava ensinando uma criança de 7 anos e dirigindo uma academia, provavelmente tinha 30-50 anos naquela época.
+- Ensinando a partir de 1937, morreu 1945/1946
+- Se tinha 45-55 na morte, nasceu ~1890-1900
+- Se tinha 30-40 quando começou a ensinar (1937), nasceu ~1897-1907
+- Usando 1890 como estimativa do ponto médio com precisão de década
+
+DISCREPÂNCIA DE ANO DE MORTE:
+- capoeirahistory.com, nossa-tribo.com, portalcapoeira.com: 1945
+- velhosmestres.com: 1946
+Usando 1945 como primário (maioria das fontes).
+
+CIRCUNSTÂNCIAS DA MORTE:
+Existem dois relatos:
+1. Primário (Artur Emídio): "morte morrida" - morte natural por meningite
+2. Lenda: Tentou voar de um coqueiro usando folhas de palmeira como asas como Ícaro; caiu para a morte
+Artur Emídio explicitamente rejeitou a lenda de Ícaro. Usando meningite como causa documentada.
+
+PROFESSOR:
+- Mestre Neném (apelido_context=''Itabuna'') - Nascido na África; figura da Camada Zero
+
+ALUNOS:
+- Artur Emídio de Oliveira (1930-2011) - começou a treinar em 1937, aos 7 anos; assumiu a academia em 1945
+
+CONDIÇÕES DE TREINAMENTO:
+- Local: Itabuna, Bahia (região cacaueira)
+- Locais de treino: "topos de morros, becos, à noite, sempre escondidos"
+- Treino de rua: "na rua, no passeio"
+- Horário: 6 da manhã diariamente (antes das autoridades estarem ativas)
+- Dirigia academia formal em Itabuna
+
+PRISÕES:
+Múltiplas prisões documentadas. Padrão: preso, fiança paga no dia seguinte, voltava a ensinar na mesma noite.
+Citação (Artur Emídio): "Muitas foram as vezes que meu Mestre foi preso. Mas no dia seguinte a fiança era paga, e ele saía. E à noite, voltava a ensinar Capoeira, praticada por amor!"
+
+CONTEXTO DA LENDA DE ÍCARO:
+Descrito como ocorrendo "em noites de lua em Itabuna e Ilhéus." Parece ser folclore local; o testemunho direto de Artur Emídio o disputa. Pode refletir a mitologização comunitária de uma figura de mestre misteriosa.
+
+CADEIA DE LINHAGEM:
+Neném (Africano, ~1860-?) → Paizinho (Teodoro Ramos, ~1890-1945) → Artur Emídio (1930-2011) → [Leopoldina, Djalma Bandeira, Paulo Gomes, Celso do Engenho, Mendonça, etc.]
+
+FONTES CONSULTADAS:
+- velhosmestres.com/en/featured-69 (perfil de Artur Emídio - primária)
+- capoeirahistory.com/mestre/master-artur-emidio-1930-2011/
+- capoeirahistory.com/mestre/master-paulo-gomes/
+- nossa-tribo.com/mestre-artur-emidio/
+- portalcapoeira.com/capoeira/noticias-atualidades/nota-de-falecimento-mestre-artur-emidio/
+- capoeirahistory.com/from-the-ring-to-the-stage-a-movie-about-master-artur-emidio/ (documentário)'
 )
 ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
@@ -2063,6 +4888,177 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
+-- Source: entities/persons/pessoa-bababa.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Pessoa Bababá
+-- Generated: 2025-12-20
+-- ============================================================
+-- APELIDO VARIANT: Also spelled "Pessoa Bá-Bá-Bá" in some sources
+-- (Pastinha report lists him among "Additional Named Students")
+--
+-- BIOGRAPHICAL SUMMARY:
+-- Merchant marine sailor who trained under Mestre Pastinha at CECA.
+-- Known as a "perigoso marinheiro" (dangerous sailor), "muito forte
+-- e valente" (very strong and brave). Taught Mestre Bola Sete in
+-- 1968-1969 in a basement space in Salvador before Bola Sete
+-- entered Pastinha's academy.
+--
+-- BIRTH YEAR ESTIMATION (~1920s, decade precision):
+-- If Pessoa Bababá was teaching Bola Sete (born 1950) in 1968,
+-- he would likely have been between 30-50 years old at that time.
+-- As a student of Pastinha and active teacher in 1968, and described
+-- as an experienced merchant marine sailor, a birth year in the
+-- 1920s-1930s is reasonable. Using 1920s estimate (decade precision).
+--
+-- PRIMARY SOURCE:
+-- "Mestres e capoeiras famosos da Bahia" (Pedro Abib, EDUFBA, 2013)
+-- Chapter: "Pessoa Bababá: Perigoso marinheiro"
+-- Available on JSTOR: jstor.org/stable/10.7476/9788523208745
+--
+-- ORAL HISTORY SOURCE:
+-- Mestre Bola Sete's interviews and his book "Histórias e Estórias
+-- da Capoeiragem" (2006) which explicitly documents Pessoa Bababá
+-- as one of the capoeiristas who might otherwise be forgotten.
+--
+-- NO DEATH YEAR AVAILABLE - status unknown
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  name, apelido, title, portrait, public_links,
+  style, style_notes_en, style_notes_pt,
+  birth_year, birth_year_precision, birth_place,
+  death_year, death_year_precision, death_place,
+  bio_en, bio_pt, achievements_en, achievements_pt,
+  notes_en, notes_pt
+) VALUES (
+  NULL, -- Full name unknown
+  'Pessoa Bababá',
+  NULL, -- No formal title documented
+  NULL, -- No portrait available
+  ARRAY['https://books.scielo.org/id/pvm8g', 'https://www.jstor.org/stable/10.7476/9788523208745', 'https://capoeira-connection.com/capoeira/2011/10/interview-with-mestre-bola-sete/']::text[],
+  'angola'::genealogy.style,
+  E'Traditional Capoeira Angola practitioner. Described as teaching "the old game the old way" with emphasis on ritual, measure, and defense over spectacle. Taught in a small, poorly-lit basement space—an informal setting that represented the traditional transmission of capoeira before formal academies.',
+  E'Praticante tradicional de Capoeira Angola. Descrito como ensinando "o jogo antigo da maneira antiga" com ênfase no ritual, na medida e na defesa sobre o espetáculo. Ensinava em um pequeno espaço mal iluminado no porão—um ambiente informal que representava a transmissão tradicional da capoeira antes das academias formais.',
+  1925,
+  'decade'::genealogy.date_precision,
+  'Salvador, Bahia, Brazil', -- Assumed based on context
+  NULL, -- Death year unknown
+  NULL,
+  NULL,
+  -- bio_en
+  E'Pessoa Bababá was a merchant marine sailor and student of Mestre Pastinha, known in capoeira circles as a "perigoso marinheiro" (dangerous sailor). The maritime nickname captures his dual identity: a working sailor on the merchant navy ships that traversed Brazil''s coast, and a formidable capoeirista whose reputation preceded him.
+
+He was described as "muito forte e valente" (very strong and brave)—a traditional capoeirista who embodied the values of the old Bahian capoeiragem. Unlike the structured academy environment that would later become standard, Pessoa Bababá taught in the manner of the old mestres: in a small, poorly-lit basement space somewhere in Salvador, with low light, full attention, and emphasis on ritual, measure, and defense over show.
+
+In 1968, a young José Luiz Oliveira Cruz—who would later become known as Mestre Bola Sete—began studying under Pessoa Bababá. Bola Sete, then 18 years old, had already been teaching himself capoeira on the streets of Salvador for six years. Under Pessoa Bababá''s tutelage, he received his first formal instruction in the traditional art. The training lasted approximately one year.
+
+This period with Pessoa Bababá proved foundational. In 1969, Bola Sete transitioned to Mestre Pastinha''s Centro Esportivo de Capoeira Angola (CECA) at Largo do Pelourinho, where he would train for another thirteen years until Pastinha''s death in 1981. The connection between Pessoa Bababá and Pastinha—both teacher and student of the master—illustrates the interconnected web of Capoeira Angola lineage in mid-20th century Salvador.
+
+Pessoa Bababá appears in the book "Mestres e capoeiras famosos da Bahia" (Famous Masters and Capoeiras of Bahia), compiled by Professor Pedro Abib and the MEL Group at the Federal University of Bahia. The chapter dedicated to him bears the subtitle "Perigoso marinheiro" (Dangerous Sailor). Mestre Bola Sete specifically mentioned Pessoa Bababá in his own book "Histórias e Estórias da Capoeiragem" (2006) as one of the capoeiristas who might otherwise be forgotten by history.
+
+The maritime connection was not unusual for capoeiristas of this era. Salvador''s port areas—the docks, the Mercado Modelo, the Cais Dourado—were gathering places for capoeira practitioners. Sailors moved between ports, and capoeira knowledge traveled with them. Pessoa Bababá represented this tradition of capoeira among maritime workers that stretches back to the art''s earliest documented history in Brazil.',
+  -- bio_pt
+  E'Pessoa Bababá era um marinheiro da Marinha Mercante e aluno de Mestre Pastinha, conhecido nos círculos da capoeira como um "perigoso marinheiro". O apelido marítimo captura sua identidade dupla: um trabalhador nos navios mercantes que atravessavam a costa brasileira, e um formidável capoeirista cuja reputação o precedia.
+
+Ele era descrito como "muito forte e valente"—um capoeirista tradicional que incorporava os valores da antiga capoeiragem baiana. Diferente do ambiente estruturado de academia que mais tarde se tornaria padrão, Pessoa Bababá ensinava à maneira dos velhos mestres: em um pequeno espaço mal iluminado no porão em algum lugar de Salvador, com pouca luz, atenção plena e ênfase no ritual, na medida e na defesa sobre o espetáculo.
+
+Em 1968, um jovem José Luiz Oliveira Cruz—que mais tarde se tornaria conhecido como Mestre Bola Sete—começou a estudar com Pessoa Bababá. Bola Sete, então com 18 anos, já vinha ensinando capoeira a si mesmo nas ruas de Salvador por seis anos. Sob a tutela de Pessoa Bababá, recebeu sua primeira instrução formal na arte tradicional. O treinamento durou aproximadamente um ano.
+
+Este período com Pessoa Bababá provou ser fundamental. Em 1969, Bola Sete fez a transição para o Centro Esportivo de Capoeira Angola (CECA) de Mestre Pastinha no Largo do Pelourinho, onde treinaria por mais treze anos até a morte de Pastinha em 1981. A conexão entre Pessoa Bababá e Pastinha—ambos professor e aluno do mestre—ilustra a teia interconectada da linhagem da Capoeira Angola na Salvador de meados do século XX.
+
+Pessoa Bababá aparece no livro "Mestres e capoeiras famosos da Bahia", compilado pelo Professor Pedro Abib e o Grupo MEL da Universidade Federal da Bahia. O capítulo dedicado a ele traz o subtítulo "Perigoso marinheiro". Mestre Bola Sete mencionou especificamente Pessoa Bababá em seu próprio livro "Histórias e Estórias da Capoeiragem" (2006) como um dos capoeiristas que poderiam ser esquecidos pela história.
+
+A conexão marítima não era incomum para capoeiristas desta época. As áreas portuárias de Salvador—as docas, o Mercado Modelo, o Cais Dourado—eram pontos de encontro para praticantes de capoeira. Marinheiros moviam-se entre portos, e o conhecimento da capoeira viajava com eles. Pessoa Bababá representava esta tradição de capoeira entre trabalhadores marítimos que remonta à história mais antiga documentada da arte no Brasil.',
+  -- achievements_en
+  E'Student of Mestre Pastinha at CECA
+Merchant marine sailor ("perigoso marinheiro")
+Teacher of Mestre Bola Sete (1968-1969)
+Documented in "Mestres e capoeiras famosos da Bahia" (Pedro Abib, EDUFBA)
+Preserved traditional teaching methods in informal basement setting
+Mentioned in Bola Sete''s "Histórias e Estórias da Capoeiragem" (2006)',
+  -- achievements_pt
+  E'Aluno de Mestre Pastinha no CECA
+Marinheiro da Marinha Mercante ("perigoso marinheiro")
+Professor de Mestre Bola Sete (1968-1969)
+Documentado em "Mestres e capoeiras famosos da Bahia" (Pedro Abib, EDUFBA)
+Preservou métodos tradicionais de ensino em ambiente informal de porão
+Mencionado no livro de Bola Sete "Histórias e Estórias da Capoeiragem" (2006)',
+  -- notes_en
+  E'BIRTH YEAR ESTIMATION (1925, decade):
+Pessoa Bababá was teaching Bola Sete (born 1950) in 1968. As an experienced merchant marine sailor and student of Pastinha who was already teaching, he was likely 30-50 years old at that time. Estimating birth in the 1920s with decade precision.
+
+APELIDO VARIATION:
+- "Pessoa Bababá" - most common spelling (Bola Sete interviews, JSTOR book)
+- "Pessoa Bá-Bá-Bá" - appears in Pastinha report under Additional Named Students
+
+TEACHERS:
+- Mestre Pastinha (at CECA, timing unknown)
+
+STUDENTS:
+- Mestre Bola Sete (José Luiz Oliveira Cruz, 1968-1969, approximately one year)
+
+TRAINING LOCATION:
+Small, poorly-lit basement space in Salvador. Exact address unknown. Described as informal teaching environment emphasizing "the old game the old way."
+
+OCCUPATION:
+Merchant marine sailor (Marinha Mercante). Worked on ships traveling Brazil''s coast.
+
+CHARACTER DESCRIPTION:
+- "perigoso marinheiro" (dangerous sailor) - chapter title in Pedro Abib book
+- "muito forte e valente" (very strong and brave) - per Bola Sete interview
+- Traditional capoeirista emphasizing ritual, measure, defense over spectacle
+
+PRIMARY SOURCES:
+1. "Mestres e capoeiras famosos da Bahia" (Pedro Abib, EDUFBA, 2013) - Chapter: "Pessoa Bababá: Perigoso marinheiro"
+2. Mestre Bola Sete interviews (Capoeira Connection 2011, Portal Capoeira)
+3. "Histórias e Estórias da Capoeiragem" (Bola Sete, P555 Edições, 2006)
+
+DEATH STATUS:
+Unknown. No death date documented in available sources.',
+  -- notes_pt
+  E'ESTIMATIVA DE ANO DE NASCIMENTO (1925, década):
+Pessoa Bababá estava ensinando Bola Sete (nascido em 1950) em 1968. Como um experiente marinheiro da Marinha Mercante e aluno de Pastinha que já estava ensinando, provavelmente tinha entre 30-50 anos naquela época. Estimando nascimento nos anos 1920 com precisão de década.
+
+VARIAÇÃO DE APELIDO:
+- "Pessoa Bababá" - grafia mais comum (entrevistas de Bola Sete, livro JSTOR)
+- "Pessoa Bá-Bá-Bá" - aparece no relatório de Pastinha sob Alunos Adicionais
+
+MESTRES:
+- Mestre Pastinha (no CECA, período desconhecido)
+
+ALUNOS:
+- Mestre Bola Sete (José Luiz Oliveira Cruz, 1968-1969, aproximadamente um ano)
+
+LOCAL DE TREINAMENTO:
+Pequeno espaço mal iluminado em porão em Salvador. Endereço exato desconhecido. Descrito como ambiente de ensino informal enfatizando "o jogo antigo da maneira antiga."
+
+OCUPAÇÃO:
+Marinheiro da Marinha Mercante. Trabalhava em navios que viajavam pela costa do Brasil.
+
+DESCRIÇÃO DE CARÁTER:
+- "perigoso marinheiro" - título do capítulo no livro de Pedro Abib
+- "muito forte e valente" - conforme entrevista de Bola Sete
+- Capoeirista tradicional enfatizando ritual, medida, defesa sobre espetáculo
+
+FONTES PRIMÁRIAS:
+1. "Mestres e capoeiras famosos da Bahia" (Pedro Abib, EDUFBA, 2013) - Capítulo: "Pessoa Bababá: Perigoso marinheiro"
+2. Entrevistas de Mestre Bola Sete (Capoeira Connection 2011, Portal Capoeira)
+3. "Histórias e Estórias da Capoeiragem" (Bola Sete, P555 Edições, 2006)
+
+STATUS DE MORTE:
+Desconhecido. Nenhuma data de morte documentada nas fontes disponíveis.'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name, title = EXCLUDED.title, portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links, style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en, style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year, birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place, death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision, death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en, bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en, achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en, notes_pt = EXCLUDED.notes_pt, updated_at = NOW();
+
 -- Source: entities/persons/piroca.sql (NEW)
 -- ============================================================
 -- GENEALOGY PERSON: Piroca
@@ -2149,6 +5145,52 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
+-- Source: entities/persons/roberto-satanas.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Roberto Satanás
+-- Generated: 2025-12-20
+-- ============================================================
+-- Roberto Satanás was a student of Mestre Pastinha at CECA,
+-- one of the six capoeiristas who traveled to the 1966 World
+-- Festival of Black Arts in Dakar, Senegal, and a singer on
+-- Pastinha's 1969 LP. After returning from Senegal, he left
+-- capoeira to pursue a career in architecture and karate.
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  name, apelido, title, portrait, public_links,
+  style, style_notes_en, style_notes_pt,
+  birth_year, birth_year_precision, birth_place,
+  death_year, death_year_precision, death_place,
+  bio_en, bio_pt, achievements_en, achievements_pt,
+  notes_en, notes_pt
+) VALUES (
+  'Roberto Barreto Pereira', 'Roberto Satanás', NULL, NULL,
+  ARRAY[
+    'https://velhosmestres.com/en/featured-63',
+    'https://velhosmestres.com/br/destaques-63'
+  ]::text[],
+  'angola'::genealogy.style, NULL, NULL,
+  1943, 'exact'::genealogy.date_precision, 'Salvador, Bahia, Brazil',
+  NULL, NULL, NULL,
+  E'Roberto Barreto Pereira, known as Roberto Satanás, was born on December 23, 1943, in Salvador, Bahia, to Alexandre Pereira and Dona Magnólia Barreto Pereira. He joined Mestre Pastinha''s Centro Esportivo de Capoeira Angola (CECA) on September 20, 1960, becoming part of the academy''s golden generation of students.\n\nWithin three years of enrollment, Roberto Satanás demonstrated sufficient mastery to receive his diploma from Mestre Pastinha on March 31, 1963. That same year, he began appearing in photographs documenting the academy''s activities and performances.\n\nIn 1961, Roberto Satanás participated in the TV show "Grande Ginkana Kibon" in Rio de Janeiro alongside other Bahian capoeiristas, bringing Capoeira Angola to a national television audience. He appeared in photographs from the Folklore Congress in Belo Horizonte in 1964, and was featured in Pastinha''s seminal 1965 book.\n\nThe pinnacle of Roberto Satanás''s capoeira career came in April 1966, when he was selected as one of six capoeiristas to accompany Mestre Pastinha to the First World Festival of Black Arts in Dakar, Senegal. The delegation included Mestres João Grande, Gildo Alfinete, Gato Preto, and Camafeu de Oxóssi. When the 77-year-old, nearly blind Pastinha struggled to climb the stairs at Piedade to obtain his passport, Roberto Satanás and Gildo Alfinete helped him climb the stairs.\n\nAt the Dakar festival, Pastinha was too frail to play. Instead, his students - Gato, Roberto, and Gildo - performed while Camafeu played the berimbau. Their presentation was met with tremendous applause from the African audience, representing a symbolic return of capoeira to its continental roots.\n\nIn 1969, Roberto Satanás was one of the singers on Mestre Pastinha''s historic LP "Capoeira Angola - Mestre Pastinha e sua Academia," recorded live at Teatro Castro Alves in Salvador alongside Pastinha and Waldomiro Malvadeza.\n\nRemarkably, shortly after the triumphant Dakar journey, Roberto Satanás left capoeira entirely. He pursued higher education, graduating in architecture, and later became a karate master. On September 24, 1970, he co-founded ARKA Empreendimentos Ltd., and by 2014 was serving as President of the Bidding Committee of DERBA (Bahia''s Department of Transportation Infrastructure).\n\nRoberto Satanás represents a fascinating figure in capoeira history - a highly skilled practitioner who participated in some of the art''s most significant historical moments before choosing a different path in life.',
+  E'Roberto Barreto Pereira, conhecido como Roberto Satanás, nasceu em 23 de dezembro de 1943, em Salvador, Bahia, filho de Alexandre Pereira e Dona Magnólia Barreto Pereira. Ele ingressou no Centro Esportivo de Capoeira Angola (CECA) de Mestre Pastinha em 20 de setembro de 1960, tornando-se parte da geração de ouro de alunos da academia.\n\nEm três anos de matrícula, Roberto Satanás demonstrou maestria suficiente para receber seu diploma de Mestre Pastinha em 31 de março de 1963. No mesmo ano, começou a aparecer em fotografias documentando as atividades e apresentações da academia.\n\nEm 1961, Roberto Satanás participou do programa de TV "Grande Ginkana Kibon" no Rio de Janeiro junto com outros capoeiristas baianos, levando a Capoeira Angola para uma audiência televisiva nacional. Ele apareceu em fotografias do Congresso de Folclore em Belo Horizonte em 1964, e foi destaque no livro seminal de Pastinha em 1965.\n\nO auge da carreira de capoeira de Roberto Satanás veio em abril de 1966, quando foi selecionado como um dos seis capoeiristas para acompanhar Mestre Pastinha ao Primeiro Festival Mundial de Artes Negras em Dacar, Senegal. A delegação incluía os Mestres João Grande, Gildo Alfinete, Gato Preto e Camafeu de Oxóssi. Quando o Pastinha de 77 anos, quase cego, teve dificuldades para subir as escadas na Piedade para obter seu passaporte, Roberto Satanás e Gildo Alfinete ajudaram-no a subir as escadas.\n\nNo festival de Dacar, Pastinha estava fraco demais para jogar. Em vez disso, seus alunos - Gato, Roberto e Gildo - se apresentaram enquanto Camafeu tocava o berimbau. A apresentação foi recebida com tremendo aplauso do público africano, representando um retorno simbólico da capoeira às suas raízes continentais.\n\nEm 1969, Roberto Satanás foi um dos cantores no histórico LP de Mestre Pastinha "Capoeira Angola - Mestre Pastinha e sua Academia," gravado ao vivo no Teatro Castro Alves em Salvador, junto com Pastinha e Waldomiro Malvadeza.\n\nNotavelmente, pouco depois da triunfante viagem a Dacar, Roberto Satanás deixou a capoeira completamente. Ele buscou educação superior, formando-se em arquitetura, e mais tarde tornou-se mestre de karatê. Em 24 de setembro de 1970, ele co-fundou a ARKA Empreendimentos Ltda., e em 2014 estava servindo como Presidente da Comissão de Licitação do DERBA (Departamento de Infraestrutura de Transportes da Bahia).\n\nRoberto Satanás representa uma figura fascinante na história da capoeira - um praticante altamente habilidoso que participou de alguns dos momentos históricos mais significativos da arte antes de escolher um caminho diferente na vida.',
+  E'Member of the Brazilian delegation to the First World Festival of Black Arts, Dakar, Senegal (1966)\nSinger on Mestre Pastinha''s LP "Capoeira Angola" (1969)\nReceived diploma from Mestre Pastinha (1963)\nParticipated in TV show "Grande Ginkana Kibon" (1961)\nFeatured in Folklore Congress, Belo Horizonte (1964)',
+  E'Membro da delegação brasileira ao Primeiro Festival Mundial de Artes Negras, Dacar, Senegal (1966)\nCantor no LP de Mestre Pastinha "Capoeira Angola" (1969)\nRecebeu diploma de Mestre Pastinha (1963)\nParticipou do programa de TV "Grande Ginkana Kibon" (1961)\nDestaque no Congresso de Folclore, Belo Horizonte (1964)',
+  E'TEACHERS:\n- Mestre Pastinha (CECA, admitted September 20, 1960; diploma March 31, 1963)\n\nTRAINING COMPANIONS:\n- João Grande (Dakar 1966, CECA)\n- Gildo Alfinete (Dakar 1966, CECA, helped Pastinha climb stairs at Piedade)\n- Gato Preto (Dakar 1966, CECA)\n- Camafeu de Oxóssi (Dakar 1966, played berimbau)\n\nMEDIA APPEARANCES:\n- 1961: TV show "Grande Ginkana Kibon" (Rio de Janeiro)\n- 1964: Folklore Congress photographs (Belo Horizonte)\n- 1965: Featured in Mestre Pastinha''s book\n- 1966: First World Festival of Black Arts (Dakar, Senegal) - performed as player\n- 1969: Singer on LP "Capoeira Angola" (Teatro Castro Alves, Salvador)\n\nPOST-CAPOEIRA CAREER:\n- Left capoeira after returning from Senegal (1966)\n- Graduated in architecture\n- Became karate master\n- Co-founded ARKA Empreendimentos Ltd. (September 24, 1970)\n- President, Bidding Committee of DERBA (2014)\n\nPARENTS:\n- Father: Alexandre Pereira\n- Mother: Dona Magnólia Barreto Pereira\n\nNOTE: No evidence of death date found; appears to have been alive as of 2014.',
+  E'MESTRES:\n- Mestre Pastinha (CECA, admitido em 20 de setembro de 1960; diploma em 31 de março de 1963)\n\nCOMPANHEIROS DE TREINO:\n- João Grande (Dacar 1966, CECA)\n- Gildo Alfinete (Dacar 1966, CECA, ajudou Pastinha a subir as escadas na Piedade)\n- Gato Preto (Dacar 1966, CECA)\n- Camafeu de Oxóssi (Dacar 1966, tocou berimbau)\n\nAPARIÇÕES NA MÍDIA:\n- 1961: Programa de TV "Grande Ginkana Kibon" (Rio de Janeiro)\n- 1964: Fotografias do Congresso de Folclore (Belo Horizonte)\n- 1965: Destaque no livro de Mestre Pastinha\n- 1966: Primeiro Festival Mundial de Artes Negras (Dacar, Senegal) - apresentou-se como jogador\n- 1969: Cantor no LP "Capoeira Angola" (Teatro Castro Alves, Salvador)\n\nCARREIRA PÓS-CAPOEIRA:\n- Deixou a capoeira após retornar do Senegal (1966)\n- Formou-se em arquitetura\n- Tornou-se mestre de karatê\n- Co-fundou ARKA Empreendimentos Ltda. (24 de setembro de 1970)\n- Presidente da Comissão de Licitação do DERBA (2014)\n\nPAIS:\n- Pai: Alexandre Pereira\n- Mãe: Dona Magnólia Barreto Pereira\n\nNOTA: Nenhuma evidência de data de falecimento encontrada; parece ter estado vivo em 2014.'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name, title = EXCLUDED.title, portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links, style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en, style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year, birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place, death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision, death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en, bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en, achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en, notes_pt = EXCLUDED.notes_pt, updated_at = NOW();
+
 -- Source: entities/persons/rosa-palmeirao.sql (NEW)
 -- ============================================================
 -- GENEALOGY PERSON: Rosa Palmeirão
@@ -2214,6 +5256,491 @@ INSERT INTO genealogy.person_profiles (
   -- Researcher notes (bilingual)
   E'BIRTH YEAR ESTIMATION (1885, decade precision): Active as valentona "em meados de 1910" (around 1910-1915). Defeated Pedro Mineiro before his death on Jan 18, 1915. If in prime (25-35) during this period, birth = ~1875-1890. Using 1885 as midpoint.\n\nDEATH: Unknown. No records found of her death.\n\nNAME:\n- Full name: Cândida Rosa de Jesus\n- Apelido: Rosa Palmeirão (from the rosa palmeirão flower she wore on her dress)\n- The rosa palmeirão is a red Brazilian rose resistant to sun, with short stems\n\nHISTORICAL VS. LITERARY:\n- Rosa Palmeirão was a REAL historical figure who inspired Jorge Amado''s character\n- Confirmed as participant in capoeira rodas with documented police records\n- The 1936 novel "Mar Morto" fictionalized her life with embellishments\n\nPEDRO MINEIRO CONFRONTATION:\n- Pedro Mineiro: Pedro José Vieira (1887-1915), maritime loader, police informant\n- His body was "coberto de cicatrizes de navalhas e facas" (covered with scars from razors and knives)\n- Rosa Palmeirão "bateu impiedosamente em Pedro Mineiro, acabando com sua fama de valente"\n- This occurred before his death on Jan 18, 1915\n\nCONTEMPORARIES (Female Valentonas 1900s-1920s):\n- Salomé (student of Doze Homens)\n- Maria Doze Homens\n- Chicão (Francisca Albino dos Santos)\n- Angélica Endiabrada (1910-1920s)\n- Massú\n- Catu\n- Almerinda\n- Menininha\n- Adelaide Presepeira\n- Maria Izabel\n\nLITERARY LEGACY:\n- Novel: "Mar Morto" by Jorge Amado (1936)\n- Chapter: "Acalanto de Rosa Palmeirão"\n- TV adaptation: "Porto dos Milagres" (Globo, 2001) - actress Luiza Tomé\n- Music: "Rosa Palmeirão" on album "Jorge Amado Letra e Música" (2000)\n- Academic study: Tese UFT "Uma leitura arquetípica do feminino em Mar Morto"\n\nACADEMIC SOURCES:\n- Paula Juliana Foltran, "Mulheres Incorrigíveis" (thesis 2019, book 2021, Editora Dandara)\n- Section: "Rosa Palmeirão e os Capoeiras: gênero, raça e classe na constituição histórica de significados"\n- Adriana Albert Dias, "A Malandragem da Mandinga: o cotidiano dos capoeiristas em Salvador na República Velha (1910-1925)" (EDUFBA, 2004)\n- Pedro Abib, "Mestres e capoeiras famosos da Bahia" (EDUFBA, 2009) - mentioned alongside Massú\n\nNOTE ON MARIA FELIPA DE OLIVEIRA: Some sources erroneously conflate Rosa Palmeirão with Maria Felipa de Oliveira (died July 4, 1873), the independence heroine from Itaparica. These are DISTINCT historical figures from different eras.',
   E'ESTIMATIVA DO ANO DE NASCIMENTO (1885, precisão de década): Ativa como valentona "em meados de 1910" (por volta de 1910-1915). Derrotou Pedro Mineiro antes de sua morte em 18 de janeiro de 1915. Se estava no auge (25-35 anos) durante este período, nascimento = ~1875-1890. Usando 1885 como ponto médio.\n\nMORTE: Desconhecida. Nenhum registro encontrado de sua morte.\n\nNOME:\n- Nome completo: Cândida Rosa de Jesus\n- Apelido: Rosa Palmeirão (da flor rosa palmeirão que ela usava no vestido)\n- A rosa palmeirão é uma rosa brasileira vermelha resistente ao sol, com hastes curtas\n\nHISTÓRICA VS. LITERÁRIA:\n- Rosa Palmeirão foi uma figura histórica REAL que inspirou a personagem de Jorge Amado\n- Confirmada como participante das rodas de capoeira com registros policiais documentados\n- O romance "Mar Morto" de 1936 ficcionalizou sua vida com embelezamentos\n\nCONFRONTO COM PEDRO MINEIRO:\n- Pedro Mineiro: Pedro José Vieira (1887-1915), trabalhador marítimo, informante da polícia\n- Seu corpo era "coberto de cicatrizes de navalhas e facas"\n- Rosa Palmeirão "bateu impiedosamente em Pedro Mineiro, acabando com sua fama de valente"\n- Isto ocorreu antes de sua morte em 18 de janeiro de 1915\n\nCONTEMPORÂNEAS (Valentonas 1900s-1920s):\n- Salomé (aluna de Doze Homens)\n- Maria Doze Homens\n- Chicão (Francisca Albino dos Santos)\n- Angélica Endiabrada (1910-1920s)\n- Massú\n- Catu\n- Almerinda\n- Menininha\n- Adelaide Presepeira\n- Maria Izabel\n\nLEGADO LITERÁRIO:\n- Romance: "Mar Morto" de Jorge Amado (1936)\n- Capítulo: "Acalanto de Rosa Palmeirão"\n- Adaptação TV: "Porto dos Milagres" (Globo, 2001) - atriz Luiza Tomé\n- Música: "Rosa Palmeirão" no álbum "Jorge Amado Letra e Música" (2000)\n- Estudo acadêmico: Tese UFT "Uma leitura arquetípica do feminino em Mar Morto"\n\nFONTES ACADÊMICAS:\n- Paula Juliana Foltran, "Mulheres Incorrigíveis" (tese 2019, livro 2021, Editora Dandara)\n- Seção: "Rosa Palmeirão e os Capoeiras: gênero, raça e classe na constituição histórica de significados"\n- Adriana Albert Dias, "A Malandragem da Mandinga: o cotidiano dos capoeiristas em Salvador na República Velha (1910-1925)" (EDUFBA, 2004)\n- Pedro Abib, "Mestres e capoeiras famosos da Bahia" (EDUFBA, 2009) - mencionada junto com Massú\n\nNOTA SOBRE MARIA FELIPA DE OLIVEIRA: Algumas fontes erroneamente confundem Rosa Palmeirão com Maria Felipa de Oliveira (falecida em 4 de julho de 1873), a heroína da independência de Itaparica. São figuras históricas DISTINTAS de eras diferentes.'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
+  updated_at = NOW();
+
+-- Source: entities/persons/silvestre.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Silvestre
+-- Generated: 2025-12-20
+-- ============================================================
+-- BIRTH YEAR ESTIMATION (1935, decade precision):
+-- - Learned capoeira "in the second half of the 1950s" (~1955-1960)
+-- - Known as "Ferreirinha" in Salvador in the 1960s (young man apelido)
+-- - Came to São Paulo in 1966 as established capoeirista
+-- - If he was 20-25 when learning in late 1950s, born ~1935
+-- - If he was 30-35 when coming to SP, born ~1931-1936
+-- - Using 1935 as midpoint estimate with decade precision
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  -- Identity
+  name,
+  apelido,
+  title,
+  portrait,
+  public_links,
+  -- Capoeira-specific
+  style,
+  style_notes_en,
+  style_notes_pt,
+  -- Life dates
+  birth_year,
+  birth_year_precision,
+  birth_place,
+  death_year,
+  death_year_precision,
+  death_place,
+  -- Extended content (bilingual)
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt,
+  -- Researcher notes (bilingual)
+  notes_en,
+  notes_pt
+) VALUES (
+  -- Identity
+  'Silvestre Vitório Ferreira',
+  'Silvestre',
+  'mestre'::genealogy.title,
+  NULL, -- No freely licensed portrait available
+  ARRAY['https://matumbecapoeira.com/mestres/', 'https://velhosmestres.com/br/destaques-39']::text[],
+  -- Capoeira-specific
+  'angola'::genealogy.style,
+  E'Silvestre trained in the traditional Bahian capoeira angola tradition under multiple masters. His primary training was with Mestres Waldemar da Liberdade and Caiçara, and he regularly frequented Mestre Pastinha''s CECA. He also trained with Mestre Bimba, giving him exposure to both angola and regional styles. Known as Ferreirinha in Salvador during the 1960s, he later became a founding figure of capoeira in São Paulo.',
+  E'Silvestre treinou na tradição bahiana de capoeira angola sob múltiplos mestres. Sua formação principal foi com Mestres Waldemar da Liberdade e Caiçara, e frequentava regularmente o CECA de Mestre Pastinha. Também treinou com Mestre Bimba, dando-lhe exposição aos estilos angola e regional. Conhecido como Ferreirinha em Salvador durante a década de 1960, tornou-se uma figura fundadora da capoeira em São Paulo.',
+  -- Life dates
+  1935,
+  'decade'::genealogy.date_precision,
+  'Salvador, Bahia, Brazil',
+  NULL,
+  'unknown'::genealogy.date_precision,
+  NULL,
+  -- bio_en
+  E'Silvestre Vitório Ferreira, known in Bahia as Ferreirinha and later as Mestre Silvestre, was a pivotal figure in bringing capoeira from Salvador to São Paulo. In the late 1950s, he learned capoeira from Mestres Waldemar da Liberdade and Caiçara, and was a regular at the Centro Esportivo de Capoeira Angola (CECA), Mestre Pastinha''s legendary academy. He also trained with Mestre Bimba, making him one of the few capoeiristas of his generation to have studied under all four of Bahia''s most legendary masters.\n\nIn Salvador during the 1960s, he was known as Ferreirinha. As a contra-mestre under Mestre Caiçara, he held the authority to sign diplomas for other students—a significant responsibility in the traditional capoeira hierarchy. Among those whose diplomas he signed was Fernandinho (Fernando Olímpio Paes Filho), who later built his reputation in Rio de Janeiro.\n\nSilvestre was one of the members of the group that Mestre Caiçara took to São Paulo to record the LP "Academia de Capoeira de Angola São Jorge dos Irmãos Unidos do Mestre Caiçara," though the personnel on that recording remain incompletely documented.\n\nIn 1966, Silvestre brought his capoeira to São Paulo, part of the wave of Bahian mestres who migrated to the industrial capital during that era. He founded the Grupo de Capoeira Vera Cruz (later formalized as Associação de Capoeira Vera Cruz in 1981) and taught for many years at Praça da Árvore in the Jabaquara district.\n\nIn 1972, he was one of the founding mestres of the Federação Paulista de Capoeira, the state capoeira federation. This was a pivotal year—capoeira was officially recognized as a sport in Brazil, and the federation represented capoeira''s push for legitimacy as "Brazilian martial art."\n\nSilvestre trained a generation of capoeiristas who spread the art to new regions. His most notable student was Julival do Espírito Santo (Mestre Gato de Silvestre), born 1952 in Goiás, who became the 1971 São Paulo State Capoeira Champion through Vera Cruz. At the end of the 1970s, Silvestre traveled to Manaus to participate in the I Encontro de Capoeira da Amazônia (First Amazon Capoeira Meeting), where he awarded Mestre Gato his mestre diploma through the Associação de Capoeira Vera Cruz.\n\nMestre Gato subsequently became the pioneer of capoeira in the Amazon region, founding the first academy in Amazonas called "Zumbí dos Palmares" in February 1972 and spreading capoeira to Bolivia, Colombia, and Panama.\n\nSilvestre''s testimony is a crucial source for understanding the Antônio de Noronha lineage. Along with Mestre Caiçara, he provided the lineage claim that places Mestre Antônio de Noronha at the top of the chain that runs through Aberrê to Canjiquinha. The Grupo Gingarte website cites this testimony directly: "Mestre Aberrê is the second mestre in my lineage, above him comes Mestre Antônio de Noronha—this affirmation came from Mestre Caiçara and Mestre Silvestre."',
+  -- bio_pt
+  E'Silvestre Vitório Ferreira, conhecido na Bahia como Ferreirinha e depois como Mestre Silvestre, foi uma figura central em levar a capoeira de Salvador para São Paulo. No final da década de 1950, aprendeu capoeira com Mestres Waldemar da Liberdade e Caiçara, e frequentava regularmente o Centro Esportivo de Capoeira Angola (CECA), a lendária academia de Mestre Pastinha. Também treinou com Mestre Bimba, tornando-se um dos poucos capoeiristas de sua geração a ter estudado sob os quatro mestres mais lendários da Bahia.\n\nEm Salvador durante a década de 1960, era conhecido como Ferreirinha. Como contra-mestre de Mestre Caiçara, tinha a autoridade de assinar diplomas para outros alunos—uma responsabilidade significativa na hierarquia tradicional da capoeira. Entre aqueles cujos diplomas ele assinou estava Fernandinho (Fernando Olímpio Paes Filho), que mais tarde construiu sua reputação no Rio de Janeiro.\n\nSilvestre foi um dos membros do grupo que Mestre Caiçara levou a São Paulo para gravar o LP "Academia de Capoeira de Angola São Jorge dos Irmãos Unidos do Mestre Caiçara," embora os participantes dessa gravação permaneçam incompletamente documentados.\n\nEm 1966, Silvestre trouxe sua capoeira para São Paulo, parte da onda de mestres baianos que migraram para a capital industrial durante essa época. Fundou o Grupo de Capoeira Vera Cruz (formalizado mais tarde como Associação de Capoeira Vera Cruz em 1981) e ensinou por muitos anos na Praça da Árvore no bairro do Jabaquara.\n\nEm 1972, foi um dos mestres fundadores da Federação Paulista de Capoeira, a federação estadual de capoeira. Este foi um ano decisivo—a capoeira foi oficialmente reconhecida como esporte no Brasil, e a federação representou o impulso da capoeira por legitimidade como "arte marcial brasileira."\n\nSilvestre treinou uma geração de capoeiristas que espalharam a arte para novas regiões. Seu aluno mais notável foi Julival do Espírito Santo (Mestre Gato de Silvestre), nascido em 1952 em Goiás, que se tornou Campeão Paulista de Capoeira de 1971 pela Vera Cruz. No final da década de 1970, Silvestre viajou a Manaus para participar do I Encontro de Capoeira da Amazônia, onde concedeu a Mestre Gato seu diploma de mestre pela Associação de Capoeira Vera Cruz.\n\nMestre Gato posteriormente se tornou o pioneiro da capoeira na região amazônica, fundando a primeira academia no Amazonas chamada "Zumbí dos Palmares" em fevereiro de 1972 e espalhando a capoeira para Bolívia, Colômbia e Panamá.\n\nO testemunho de Silvestre é uma fonte crucial para entender a linhagem de Antônio de Noronha. Junto com Mestre Caiçara, ele forneceu a reivindicação de linhagem que coloca Mestre Antônio de Noronha no topo da cadeia que passa por Aberrê até Canjiquinha. O site do Grupo Gingarte cita este testemunho diretamente: "Mestre Aberrê é o segundo mestre da minha linhagem, acima dele vem Mestre Antônio de Noronha—esta afirmação veio de Mestre Caiçara e Mestre Silvestre."',
+  -- achievements_en
+  E'Late 1950s: Learned capoeira from Mestres Waldemar da Liberdade and Caiçara; frequented CECA (Pastinha''s academy); trained with Mestre Bimba
+1960s: Known as Ferreirinha in Salvador; served as contra-mestre under Mestre Caiçara with authority to sign diplomas
+1960s: Participated in recording session for Mestre Caiçara''s LP "Academia de Capoeira de Angola São Jorge dos Irmãos Unidos"
+1966: Brought capoeira to São Paulo; founded Grupo de Capoeira Vera Cruz; taught at Praça da Árvore, Jabaquara
+1972: Co-founded Federação Paulista de Capoeira
+Late 1970s: Traveled to Manaus for I Encontro de Capoeira da Amazônia; awarded Mestre Gato his mestre diploma
+1981: Associação de Capoeira Vera Cruz formally registered (CNPJ 45.875.952/0001-97)
+Trained Mestre Gato de Silvestre (1971 São Paulo State Champion), who pioneered capoeira in Amazonas and spread it to Bolivia, Colombia, Panama
+Key source (with Mestre Caiçara) for Antônio de Noronha lineage claim',
+  -- achievements_pt
+  E'Final dos anos 1950: Aprendeu capoeira com Mestres Waldemar da Liberdade e Caiçara; frequentou o CECA (academia de Pastinha); treinou com Mestre Bimba
+Anos 1960: Conhecido como Ferreirinha em Salvador; serviu como contra-mestre de Mestre Caiçara com autoridade para assinar diplomas
+Anos 1960: Participou da sessão de gravação do LP de Mestre Caiçara "Academia de Capoeira de Angola São Jorge dos Irmãos Unidos"
+1966: Trouxe a capoeira para São Paulo; fundou o Grupo de Capoeira Vera Cruz; ensinou na Praça da Árvore, Jabaquara
+1972: Co-fundou a Federação Paulista de Capoeira
+Final dos anos 1970: Viajou a Manaus para o I Encontro de Capoeira da Amazônia; concedeu diploma de mestre a Mestre Gato
+1981: Associação de Capoeira Vera Cruz formalmente registrada (CNPJ 45.875.952/0001-97)
+Treinou Mestre Gato de Silvestre (Campeão Paulista de 1971), que foi pioneiro da capoeira no Amazonas e a espalhou para Bolívia, Colômbia, Panamá
+Fonte chave (com Mestre Caiçara) para reivindicação de linhagem de Antônio de Noronha',
+  -- notes_en
+  E'BIRTH YEAR ESTIMATION (1935, decade precision):
+- Learned capoeira "in the second half of the 1950s" (~1955-1960)
+- Known as "Ferreirinha" in Salvador in the 1960s (suggests youth)
+- Came to São Paulo in 1966 as established capoeirista
+- If 20-25 when learning in late 1950s, born ~1935
+- If 30-35 when coming to SP, born ~1931-1936
+- Using 1935 as midpoint estimate
+
+NAME VARIANTS:
+- "Silvestre" (apelido used in São Paulo)
+- "Ferreirinha" (apelido used in Salvador during 1960s)
+- "Silvestre Vitório Ferreira" (full name)
+- "Silvestre Vitório Ferreiro" (alternate spelling in some sources)
+
+TEACHERS:
+- Mestre Waldemar da Liberdade - primary teacher (late 1950s)
+- Mestre Caiçara - primary teacher (late 1950s); Silvestre became his contra-mestre
+- Mestre Pastinha - frequented CECA regularly; possible training relationship
+- Mestre Bimba - trained with him (extent unclear)
+
+CONTRA-MESTRE ROLE:
+Velhosmestres.com confirms Silvestre (Ferreirinha) was one of Caiçara''s contra-mestres, with authority to sign diplomas. He signed the diploma of Fernandinho (Fernando Olímpio Paes Filho, 1948-2001).
+
+STUDENTS:
+- Mestre Gato de Silvestre (Julival do Espírito Santo, b. Dec 30, 1952) - 1971 São Paulo State Champion; received mestre diploma late 1970s; pioneered capoeira in Amazonas
+- Fernandinho (diploma signed by Silvestre)
+- Others unnamed
+
+LP RECORDING:
+Sources state Silvestre was part of the group Caiçara took to São Paulo to record the 1969 LP "Academia de Capoeira de Angola São Jorge dos Irmãos Unidos do Mestre Caiçara." However, the LP liner notes (from Discogs, Acervo Origens) do not explicitly list all participants. Confirmed: Mestre Caiçara and Grácia Maria (vocalist). Silvestre''s participation mentioned in secondary sources.
+
+FEDERAÇÃO PAULISTA DE CAPOEIRA:
+Co-founded in 1972. Other founding mestres include Mestre Gladson. The federation adopted national flag colors for its graduation system.
+
+ANTÔNIO DE NORONHA LINEAGE TESTIMONY:
+Esquiva.wordpress.com quotes: "Mestre Aberrê is the second mestre in my lineage, above him comes Mestre Antônio de Noronha—this affirmation came from Mestre Caiçara and Mestre Silvestre." This makes Silvestre a key source for the lineage: Antônio de Noronha → Aberrê → Canjiquinha/Caiçara.
+
+VERA CRUZ ASSOCIATION:
+- Founded: 1966 (informal) / May 29, 1981 (formal CNPJ registration)
+- Address: Avenida Jabaquara, 123 - Jabaquara, São Paulo - SP
+- Status: BAIXADA (closed/inactive) as of recent records
+- Activity: Social, sports and similar clubs (CNAE R-9312-3/00)',
+  -- notes_pt
+  E'ESTIMATIVA DO ANO DE NASCIMENTO (1935, precisão de década):
+- Aprendeu capoeira "na segunda metade dos anos 1950" (~1955-1960)
+- Conhecido como "Ferreirinha" em Salvador nos anos 1960 (sugere juventude)
+- Veio para São Paulo em 1966 como capoeirista estabelecido
+- Se 20-25 quando aprendeu no final dos anos 1950, nascido ~1935
+- Se 30-35 quando veio para SP, nascido ~1931-1936
+- Usando 1935 como estimativa de ponto médio
+
+VARIANTES DO NOME:
+- "Silvestre" (apelido usado em São Paulo)
+- "Ferreirinha" (apelido usado em Salvador durante os anos 1960)
+- "Silvestre Vitório Ferreira" (nome completo)
+- "Silvestre Vitório Ferreiro" (grafia alternativa em algumas fontes)
+
+MESTRES:
+- Mestre Waldemar da Liberdade - professor principal (final dos anos 1950)
+- Mestre Caiçara - professor principal (final dos anos 1950); Silvestre tornou-se seu contra-mestre
+- Mestre Pastinha - frequentou o CECA regularmente; possível relação de treinamento
+- Mestre Bimba - treinou com ele (extensão incerta)
+
+PAPEL DE CONTRA-MESTRE:
+Velhosmestres.com confirma que Silvestre (Ferreirinha) era um dos contra-mestres de Caiçara, com autoridade para assinar diplomas. Ele assinou o diploma de Fernandinho (Fernando Olímpio Paes Filho, 1948-2001).
+
+ALUNOS:
+- Mestre Gato de Silvestre (Julival do Espírito Santo, n. 30 dez 1952) - Campeão Paulista 1971; recebeu diploma de mestre final anos 1970; pioneiro da capoeira no Amazonas
+- Fernandinho (diploma assinado por Silvestre)
+- Outros não nomeados
+
+GRAVAÇÃO DE LP:
+Fontes afirmam que Silvestre fazia parte do grupo que Caiçara levou a São Paulo para gravar o LP de 1969 "Academia de Capoeira de Angola São Jorge dos Irmãos Unidos do Mestre Caiçara." No entanto, os encartes do LP (do Discogs, Acervo Origens) não listam explicitamente todos os participantes. Confirmados: Mestre Caiçara e Grácia Maria (vocalista). Participação de Silvestre mencionada em fontes secundárias.
+
+FEDERAÇÃO PAULISTA DE CAPOEIRA:
+Co-fundada em 1972. Outros mestres fundadores incluem Mestre Gladson. A federação adotou as cores da bandeira nacional para seu sistema de graduação.
+
+TESTEMUNHO DE LINHAGEM DE ANTÔNIO DE NORONHA:
+Esquiva.wordpress.com cita: "Mestre Aberrê é o segundo mestre da minha linhagem, acima dele vem Mestre Antônio de Noronha—esta afirmação veio de Mestre Caiçara e Mestre Silvestre." Isso faz de Silvestre uma fonte chave para a linhagem: Antônio de Noronha → Aberrê → Canjiquinha/Caiçara.
+
+ASSOCIAÇÃO VERA CRUZ:
+- Fundação: 1966 (informal) / 29 maio 1981 (registro formal CNPJ)
+- Endereço: Avenida Jabaquara, 123 - Jabaquara, São Paulo - SP
+- Status: BAIXADA (fechada/inativa) conforme registros recentes
+- Atividade: Clubes sociais, esportivos e similares (CNAE R-9312-3/00)'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
+  updated_at = NOW();
+
+-- Source: entities/persons/suassuna.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Suassuna
+-- Generated: 2025-12-20
+-- ============================================================
+-- "Eu venho de longe, venho de Itabuna... Jogo Capoeira, meu nome é Suassuna..."
+-- Co-founder of Cordão de Ouro; Creator of Miudinho
+-- ============================================================
+-- BIRTH DATE: July 4, 1938 per velhosmestres.com (most reliable).
+-- Some sources say July 3, 1938 - a one-day discrepancy likely due
+-- to time zone or transcription. Using July 4 per Velhos Mestres.
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  -- Identity
+  name,
+  apelido,
+  title,
+  portrait,
+  public_links,
+  -- Capoeira-specific
+  style,
+  style_notes_en,
+  style_notes_pt,
+  -- Life dates
+  birth_year,
+  birth_year_precision,
+  birth_place,
+  death_year,
+  death_year_precision,
+  death_place,
+  -- Extended content
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt,
+  -- Researcher notes
+  notes_en,
+  notes_pt
+) VALUES (
+  -- Identity
+  'Reinaldo Ramos Suassuna',
+  'Suassuna',
+  'mestre'::genealogy.title,
+  NULL,
+  ARRAY['https://velhosmestres.com/en/featured-23', 'https://www.lalaue.com/learn-capoeira/mestre-suassuna', 'https://capoeira.online/history/mestres/mestre-suassuna/']::text[],
+  -- Capoeira-specific
+  'regional'::genealogy.style,
+  E'Suassuna trained primarily in Capoeira Regional, studying under Mestre Bimba and Mestre Canjiquinha who both recognized his work and awarded him the title of Mestre. His style was heavily influenced by these two masters. He is the creator of the Jogo do Miudinho (Miudinho Game), developed over fifteen years (from the late 1970s through the 1990s), which he describes as a rescued and modernized form of older capoeira - "a closed angola game played up, down, and inside." The Miudinho is characterized by close, intricate movements with players staying near each other, contrasting with the distant, broader styles that had become common. He created a specific berimbau toque with three parts: one for movement sequences, one for swing/style accents, and one to signal when players need to restart at the berimbau foot. The "Geração Miudinho" (Miudinho Generation) of students became known for their rich, plastic movements.',
+  E'Suassuna treinou principalmente em Capoeira Regional, estudando sob Mestre Bimba e Mestre Canjiquinha que ambos reconheceram seu trabalho e lhe concederam o título de Mestre. Seu estilo foi fortemente influenciado por esses dois mestres. Ele é o criador do Jogo do Miudinho, desenvolvido ao longo de quinze anos (do final dos anos 1970 até os anos 1990), que ele descreve como uma forma resgatada e modernizada de capoeira mais antiga - "um jogo de angola fechado jogado em cima, em baixo e por dentro." O Miudinho é caracterizado por movimentos próximos e intrincados com os jogadores permanecendo perto um do outro, contrastando com os estilos distantes e amplos que haviam se tornado comuns. Ele criou um toque de berimbau específico com três partes: uma para sequências de movimento, uma para acentos de swing/estilo, e uma para sinalizar quando os jogadores precisam recomeçar ao pé do berimbau. A "Geração Miudinho" de alunos se tornou conhecida por seus movimentos ricos e plásticos.',
+  -- Life dates
+  1938,
+  'exact'::genealogy.date_precision,
+  'Ilhéus, Bahia, Brazil',
+  NULL,
+  NULL,
+  NULL,
+  -- Extended content (bio_en)
+  E'Reinaldo Ramos Suassuna was born on July 4, 1938, in Ilhéus, Bahia, and raised in nearby Itabuna. As a child, he suffered from a muscular condition in his legs, and his doctor recommended physical activity other than soccer to help with rehabilitation. This medical advice would set him on the path to becoming one of the most influential capoeiristas of the modern era.
+
+In the beginning of the 1950s, around 1957-1958, Suassuna discovered capoeira and began training in Itabuna''s street rodas under Mestre Maneca (a student of Mestre Bimba and Zoião). He also trained with Mestres Sururú, Bigode de Arame, Tonho Rale, and Maneca Brandão. Suassuna himself admits that initially he did not like capoeira at all - he had difficulty learning the ginga and lacked rhythm to sing - but with time he began to enjoy the art so much that he started taking his training seriously.
+
+To expand his knowledge, Suassuna frequently traveled from Itabuna to Salvador, where he visited the most famous capoeira terreiros in Bahia. There he encountered the legendary mestres who would become his references: Bimba, Canjiquinha, Pastinha, Waldemar, and Caiçara. Among these, Bimba and Canjiquinha had the greatest influence on his development and would eventually both recognize his work and award him his diploma as Mestre. Mestre João Grande (João Batestaca) also became an important influence, particularly on the development of what would become Suassuna''s signature Miudinho game - a closed angola game played close.
+
+By the early 1960s, Suassuna had gained recognition for his skill and began receiving invitations to perform capoeira in other Brazilian states and abroad.
+
+In 1965, with the encouragement of friends, Suassuna left Bahia for São Paulo with the dream of opening an academy and succeeding in life with capoeira. The beginning was difficult - he was far from friends, worked various jobs, and faced financial hardship. After much struggle, people from his hometown of Itabuna introduced him to Zé de Freitas''s academy in São Paulo. It was there that he met another Bahian capoeirista: Mestre Brasília, a student of Mestre Canjiquinha.
+
+On September 1, 1967, Suassuna and Brasília together founded the Associação de Capoeira Cordão de Ouro in Vila Mariana, São Paulo. The name "Cordão de Ouro" (Golden Cord) was inspired by a popular song on the radio at the time, as well as being the nickname of the legendary capoeirista Besouro Mangangá. In an innovative arrangement, the academy taught both styles: Suassuna taught Capoeira Regional while Brasília taught Capoeira Angola within the same space. Suassuna followed the methodology of ACRESI (Academia Regional de Itabúna), which later became ACRESP.
+
+After a short period, around 1969, Brasília decided to establish his own group (São Bento Grande, later Ginga Brasília), leaving Suassuna to lead Cordão de Ouro independently. Despite their paths diverging, the two remained friends.
+
+Under Suassuna''s leadership, Cordão de Ouro became the first capoeira academy in São Paulo and quickly grew into one of the most prominent capoeira groups in the world. The group produced a generation of influential masters including Lobão, Esdras Filho, Tarzan, Belisco, Almir das Areias, and many others. By the 1990s, the "Geração Miudinho" - students like Boca Rica, Habibs, Mintirinha, Kibe, Denis, Saroba, and others - continued enriching the tradition with their own innovations.
+
+In 1972, Mestre Bimba visited São Paulo and formally recognized Suassuna''s work, presenting him with a certificate. This recognition from the founder of Capoeira Regional was a remarkable honor.
+
+In 1974, Suassuna organized the first Capoeira Festival of São Paulo State - a milestone in the institutionalization of capoeira in the region.
+
+In 1975, Suassuna recorded his first LP, "Capoeira Cordão de Ouro," with musician Dirceu. The album featured twelve tracks including classic songs like "Capoeira de São Salvador," "São Bento Grande," and "Quando eu morre, disse Besouro." He would go on to record four compact discs in total.
+
+In September 1986, Suassuna participated as a chorus member in the landmark recording session with Mestres Waldemar and Canjiquinha at Boca do Rio, Salvador. This 34-track album, documented by Mestre Itapoan, preserved traditional Bahian capoeira music, with Suassuna joining Mestres Itapoan, Ezequiel, and Geni in the chorus.
+
+Suassuna was a pioneer in taking capoeira international. In 1981, he introduced capoeira to Israel. In 1984, he participated in a major capoeira event at Circo Voador in Rio de Janeiro. Through the 1980s, the internationalization of Cordão de Ouro accelerated as students from Bahia were sent abroad to promote capoeira around the world.
+
+In 1997, Suassuna organized the first "O Capoeirando" event in Ubatuba, São Paulo, in partnership with Mestres Gato and Peixinho. The event later moved to Ilhéus, Bahia. Each January, O Capoeirando brings together capoeiristas from Brazil and around the world for a week of classes, discussions with renowned mestres, and rodas on one of the most beautiful coastlines in southern Bahia.
+
+During a period when Suassuna was concerned about the direction capoeira was taking - with players moving too far apart and the game becoming increasingly aggressive and broad - he began to reminisce about the capoeira he played at the end of the 1950s. He created a training system with sequences of movements and set a style rich in close, intricate play. After more than fifteen years of development, it became the Jogo do Miudinho. In his words: "People think it''s a new capoeira, and it''s nothing like that. I simply rescued an older capoeira, modernized the manner of playing it, changed the sequences... the name miudinho arose because I was observing that capoeiristas were playing very distant from each other and in our time we played very close; thus, I said to people, ''I want the game more minute, closer, play very tiny.''"
+
+Today, Suassuna lives on a farm known as "Sítio do Vovô" in a district of São Paulo. Cordão de Ouro has expanded to five continents and remains one of the oldest, largest, and most influential capoeira organizations in the world. As Mestre Decânio once described him: "The apostle of Mestre Bimba in São Paulo."',
+  -- bio_pt
+  E'Reinaldo Ramos Suassuna nasceu em 4 de julho de 1938, em Ilhéus, Bahia, e foi criado na vizinha Itabuna. Quando criança, sofria de uma condição muscular nas pernas, e seu médico recomendou atividade física diferente do futebol para ajudar na reabilitação. Este conselho médico o colocaria no caminho para se tornar um dos capoeiristas mais influentes da era moderna.
+
+No início dos anos 1950, por volta de 1957-1958, Suassuna descobriu a capoeira e começou a treinar nas rodas de rua de Itabuna com Mestre Maneca (aluno de Mestre Bimba e Zoião). Ele também treinou com Mestres Sururú, Bigode de Arame, Tonho Rale e Maneca Brandão. O próprio Suassuna admite que inicialmente não gostava de capoeira - tinha dificuldade em aprender a ginga e não tinha ritmo para cantar - mas com o tempo começou a gostar tanto da arte que passou a levar seu treinamento a sério.
+
+Para expandir seu conhecimento, Suassuna frequentemente viajava de Itabuna a Salvador, onde visitava os mais famosos terreiros de capoeira da Bahia. Lá ele encontrou os mestres lendários que se tornariam suas referências: Bimba, Canjiquinha, Pastinha, Waldemar e Caiçara. Entre estes, Bimba e Canjiquinha tiveram a maior influência em seu desenvolvimento e eventualmente ambos reconheceram seu trabalho e lhe concederam o diploma de Mestre. Mestre João Grande (João Batestaca) também se tornou uma influência importante, particularmente no desenvolvimento do que viria a ser o jogo Miudinho característico de Suassuna - um jogo de angola fechado jogado de perto.
+
+No início dos anos 1960, Suassuna havia ganhado reconhecimento por sua habilidade e começou a receber convites para apresentar capoeira em outros estados brasileiros e no exterior.
+
+Em 1965, com o incentivo de amigos, Suassuna deixou a Bahia rumo a São Paulo com o sonho de abrir uma academia e ter sucesso na vida com a capoeira. O início foi difícil - estava longe dos amigos, trabalhava em vários empregos e enfrentava dificuldades financeiras. Após muita luta, pessoas de sua cidade natal de Itabuna o apresentaram à academia de Zé de Freitas em São Paulo. Foi lá que ele conheceu outro capoeirista baiano: Mestre Brasília, aluno de Mestre Canjiquinha.
+
+Em 1° de setembro de 1967, Suassuna e Brasília juntos fundaram a Associação de Capoeira Cordão de Ouro em Vila Mariana, São Paulo. O nome "Cordão de Ouro" foi inspirado por uma música popular no rádio na época, além de ser o apelido do lendário capoeirista Besouro Mangangá. Em um arranjo inovador, a academia ensinava ambos os estilos: Suassuna ensinava Capoeira Regional enquanto Brasília ensinava Capoeira Angola no mesmo espaço. Suassuna seguia a metodologia da ACRESI (Academia Regional de Itabúna), que depois se tornou ACRESP.
+
+Após um curto período, por volta de 1969, Brasília decidiu estabelecer seu próprio grupo (São Bento Grande, depois Ginga Brasília), deixando Suassuna para liderar o Cordão de Ouro independentemente. Apesar de seus caminhos divergirem, os dois permaneceram amigos.
+
+Sob a liderança de Suassuna, o Cordão de Ouro se tornou a primeira academia de capoeira em São Paulo e rapidamente cresceu para se tornar um dos grupos de capoeira mais proeminentes do mundo. O grupo produziu uma geração de mestres influentes incluindo Lobão, Esdras Filho, Tarzan, Belisco, Almir das Areias e muitos outros. Nos anos 1990, a "Geração Miudinho" - alunos como Boca Rica, Habibs, Mintirinha, Kibe, Denis, Saroba e outros - continuaram enriquecendo a tradição com suas próprias inovações.
+
+Em 1972, Mestre Bimba visitou São Paulo e reconheceu formalmente o trabalho de Suassuna, apresentando-lhe um certificado. Este reconhecimento do fundador da Capoeira Regional foi uma honra notável.
+
+Em 1974, Suassuna organizou o primeiro Festival de Capoeira do Estado de São Paulo - um marco na institucionalização da capoeira na região.
+
+Em 1975, Suassuna gravou seu primeiro LP, "Capoeira Cordão de Ouro," com o músico Dirceu. O álbum apresentou doze faixas incluindo músicas clássicas como "Capoeira de São Salvador," "São Bento Grande" e "Quando eu morre, disse Besouro." Ele gravaria quatro CDs no total.
+
+Em setembro de 1986, Suassuna participou como membro do coro na gravação histórica com Mestres Waldemar e Canjiquinha em Boca do Rio, Salvador. Este álbum de 34 faixas, documentado por Mestre Itapoan, preservou a música tradicional de capoeira baiana, com Suassuna juntando-se aos Mestres Itapoan, Ezequiel e Geni no coro.
+
+Suassuna foi pioneiro em levar a capoeira internacionalmente. Em 1981, ele introduziu a capoeira em Israel. Em 1984, participou de um grande evento de capoeira no Circo Voador no Rio de Janeiro. Durante os anos 1980, a internacionalização do Cordão de Ouro acelerou à medida que alunos da Bahia eram enviados ao exterior para promover a capoeira pelo mundo.
+
+Em 1997, Suassuna organizou o primeiro evento "O Capoeirando" em Ubatuba, São Paulo, em parceria com Mestres Gato e Peixinho. O evento depois se mudou para Ilhéus, Bahia. A cada janeiro, O Capoeirando reúne capoeiristas do Brasil e do mundo para uma semana de aulas, discussões com mestres renomados e rodas em um dos litorais mais bonitos do sul da Bahia.
+
+Durante um período em que Suassuna estava preocupado com a direção que a capoeira estava tomando - com jogadores se afastando muito e o jogo se tornando cada vez mais agressivo e amplo - ele começou a relembrar a capoeira que jogava no final dos anos 1950. Ele criou um sistema de treinamento com sequências de movimentos e estabeleceu um estilo rico em jogo próximo e intrincado. Após mais de quinze anos de desenvolvimento, tornou-se o Jogo do Miudinho. Em suas palavras: "As pessoas pensam que é uma capoeira nova, e não é nada disso. Eu simplesmente resgatei uma capoeira mais antiga, modernizei a maneira de jogá-la, mudei as sequências... o nome miudinho surgiu porque eu estava observando que os capoeiristas jogavam muito distantes uns dos outros e no nosso tempo jogávamos muito próximos; então, eu disse às pessoas, ''Eu quero o jogo mais miúdo, mais próximo, joguem bem pequenininho.''"
+
+Hoje, Suassuna vive em um sítio conhecido como "Sítio do Vovô" em um distrito de São Paulo. O Cordão de Ouro se expandiu para cinco continentes e continua sendo uma das organizações de capoeira mais antigas, maiores e influentes do mundo. Como Mestre Decânio uma vez o descreveu: "O apóstolo de Mestre Bimba em São Paulo."',
+  -- achievements_en
+  E'1957-1958: Began capoeira training in Itabuna under Mestre Maneca, Sururú, Bigode de Arame, Tonho Rale, Maneca Brandão
+1965: Migrated to São Paulo; became a pioneer of capoeira in the state
+1967 (September 1): Co-founded Associação de Capoeira Cordão de Ouro with Mestre Brasília in Vila Mariana, São Paulo
+1972: Received recognition certificate from Mestre Bimba during his São Paulo visit
+1974: Organized the first Capoeira Festival of São Paulo State
+1975: Recorded first LP "Capoeira Cordão de Ouro" with musician Dirceu (12 tracks)
+1981: Introduced capoeira to Israel
+1984: Participated in major capoeira event at Circo Voador, Rio de Janeiro
+1986 (September): Participated as chorus member in landmark recording with Mestres Waldemar and Canjiquinha at Boca do Rio, Salvador
+1990s: Developed and codified the Jogo do Miudinho (Miudinho Game) after 15+ years of work
+1997: Organized first "O Capoeirando" event in Ubatuba, later moved to Ilhéus
+Created the Miudinho toque for berimbau
+Recorded four compact discs total
+Directed the Show Group of Cordão de Ouro
+Trained generations of mestres including Lobão, Esdras Filho, Tarzan, Belisco, Almir das Areias, Caio, and the "Geração Miudinho"
+Gave mestre title to Mestre Madeira (alongside João Pequeno and Canjiquinha)
+Expanded Cordão de Ouro to five continents',
+  -- achievements_pt
+  E'1957-1958: Iniciou treinamento de capoeira em Itabuna com Mestre Maneca, Sururú, Bigode de Arame, Tonho Rale, Maneca Brandão
+1965: Migrou para São Paulo; tornou-se pioneiro da capoeira no estado
+1967 (1° de setembro): Co-fundou Associação de Capoeira Cordão de Ouro com Mestre Brasília em Vila Mariana, São Paulo
+1972: Recebeu certificado de reconhecimento de Mestre Bimba durante sua visita a São Paulo
+1974: Organizou o primeiro Festival de Capoeira do Estado de São Paulo
+1975: Gravou primeiro LP "Capoeira Cordão de Ouro" com o músico Dirceu (12 faixas)
+1981: Introduziu a capoeira em Israel
+1984: Participou de grande evento de capoeira no Circo Voador, Rio de Janeiro
+1986 (setembro): Participou como membro do coro em gravação histórica com Mestres Waldemar e Canjiquinha em Boca do Rio, Salvador
+Anos 1990: Desenvolveu e codificou o Jogo do Miudinho após 15+ anos de trabalho
+1997: Organizou o primeiro evento "O Capoeirando" em Ubatuba, depois transferido para Ilhéus
+Criou o toque Miudinho para berimbau
+Gravou quatro CDs no total
+Dirigiu o Grupo de Espetáculos do Cordão de Ouro
+Treinou gerações de mestres incluindo Lobão, Esdras Filho, Tarzan, Belisco, Almir das Areias, Caio e a "Geração Miudinho"
+Conferiu título de mestre a Mestre Madeira (junto com João Pequeno e Canjiquinha)
+Expandiu o Cordão de Ouro para cinco continentes',
+  -- notes_en
+  E'BIRTH DATE: July 4, 1938 per velhosmestres.com (most reliable source). Some sources say July 3, 1938 - a one-day discrepancy. One isolated source claims 1942 - this appears to be an error as the 1938 date is confirmed by multiple Tier 1 sources.
+
+BIRTHPLACE: Ilhéus, Bahia; raised in Itabuna.
+
+NAME VARIATIONS: Reinaldo Ramos Suassuna (consistent across all sources).
+
+TEACHERS:
+- Mestre Maneca (Itabuna, ~1957-1958) - student of Mestre Bimba and Zoião
+- Mestre Sururú (Itabuna, 1950s)
+- Mestre Bigode de Arame (Itabuna, 1950s) - also spelled "Arame"
+- Mestre Tonho Rale (Itabuna, 1950s)
+- Mestre Maneca Brandão (Itabuna, 1950s)
+- Influenced by: Bimba, Canjiquinha, Pastinha, Waldemar, Caiçara
+- João Grande (João Batestaca) influenced the Miudinho development
+
+TITLE CONFERRAL:
+- 1972: Mestre Bimba visited São Paulo and awarded Suassuna a certificate (some sources say 1975)
+- Canjiquinha also recognized Suassuna as mestre (date unknown)
+
+CORDÃO DE OURO FOUNDING:
+- September 1, 1967 in Vila Mariana, São Paulo
+- Co-founder: Mestre Brasília (Antônio Cardoso Andrade)
+- Name from radio song and Besouro Cordão de Ouro
+- Innovative model: Suassuna taught Regional, Brasília taught Angola
+- Brasília departed ~1969 to found São Bento Grande
+
+1986 RECORDING SESSION:
+- September 22, 1986 (documented by Itapoan)
+- Location: Boca do Rio, Salvador
+- Lead singers: Waldemar and Canjiquinha
+- Chorus: Itapoan, Suassuna, Ezequiel, Geni
+- 34 tracks preserving traditional Bahian capoeira music
+
+MIUDINHO DEVELOPMENT:
+- Developed over 15+ years (late 1970s through 1990s)
+- Based on older, close-playing capoeira he practiced in late 1950s
+- Three-part berimbau toque: (1) movement sequences, (2) swing/accents, (3) restart signal
+- "Geração Miudinho" students known for rich, plastic movements
+
+O CAPOEIRANDO EVENT:
+- Started 1997 in Ubatuba with Mestres Gato and Peixinho
+- 1999-2002: held in Ilhéus (some sources say 1994-1997 in Ubatuba then moved)
+- Annual January event continues
+
+DISCOGRAPHY:
+- 1975: "Capoeira Cordão de Ouro" (LP with Dirceu, 12 tracks)
+- Recorded 4 CDs total
+
+STUDENTS (NOTABLE):
+- Lobão (Everaldo Bispo de Souza), Esdras Filho, Tarzan, Belisco, Almir das Areias, Caio
+- "Geração Miudinho": Boca Rica, Habibs, Mintirinha, Kibe, Denis, Saroba, Coruja, Chicote, Chiclete, Kino, Pintado, Lú Pimenta, Barata, Esquilo, Romualdo
+- Luís Medicina, Miguel, Aberrê, Risadinha, Tihane, Biriba, Dal, Zé Carlos, Quebrinha, Flávio Tucano, Marcelo "Caveirinha," Sarará, Urubu Malandro, Zé Antônio, Ponciano, Canguru, Espirro-Mirim, Tião, Xavier, Sampaio
+
+CURRENT RESIDENCE: Sítio do Vovô (Grandfather''s Farm), district of São Paulo
+
+QUOTE (Mestre Decânio): "The apostle of Mestre Bimba in São Paulo"',
+  -- notes_pt
+  E'DATA DE NASCIMENTO: 4 de julho de 1938 conforme velhosmestres.com (fonte mais confiável). Algumas fontes dizem 3 de julho de 1938 - discrepância de um dia. Uma fonte isolada afirma 1942 - isto parece ser um erro pois a data de 1938 é confirmada por múltiplas fontes Tier 1.
+
+LOCAL DE NASCIMENTO: Ilhéus, Bahia; criado em Itabuna.
+
+VARIAÇÕES DE NOME: Reinaldo Ramos Suassuna (consistente em todas as fontes).
+
+PROFESSORES:
+- Mestre Maneca (Itabuna, ~1957-1958) - aluno de Mestre Bimba e Zoião
+- Mestre Sururú (Itabuna, anos 1950)
+- Mestre Bigode de Arame (Itabuna, anos 1950) - também escrito "Arame"
+- Mestre Tonho Rale (Itabuna, anos 1950)
+- Mestre Maneca Brandão (Itabuna, anos 1950)
+- Influenciado por: Bimba, Canjiquinha, Pastinha, Waldemar, Caiçara
+- João Grande (João Batestaca) influenciou o desenvolvimento do Miudinho
+
+CONCESSÃO DE TÍTULO:
+- 1972: Mestre Bimba visitou São Paulo e concedeu certificado a Suassuna (algumas fontes dizem 1975)
+- Canjiquinha também reconheceu Suassuna como mestre (data desconhecida)
+
+FUNDAÇÃO DO CORDÃO DE OURO:
+- 1° de setembro de 1967 em Vila Mariana, São Paulo
+- Co-fundador: Mestre Brasília (Antônio Cardoso Andrade)
+- Nome de música do rádio e Besouro Cordão de Ouro
+- Modelo inovador: Suassuna ensinava Regional, Brasília ensinava Angola
+- Brasília saiu ~1969 para fundar São Bento Grande
+
+GRAVAÇÃO DE 1986:
+- 22 de setembro de 1986 (documentado por Itapoan)
+- Local: Boca do Rio, Salvador
+- Cantadores: Waldemar e Canjiquinha
+- Coro: Itapoan, Suassuna, Ezequiel, Geni
+- 34 faixas preservando música tradicional de capoeira baiana
+
+DESENVOLVIMENTO DO MIUDINHO:
+- Desenvolvido ao longo de 15+ anos (final dos anos 1970 até anos 1990)
+- Baseado em capoeira antiga de jogo próximo que praticava no final dos anos 1950
+- Toque de berimbau em três partes: (1) sequências de movimento, (2) swing/acentos, (3) sinal de recomeço
+- Alunos da "Geração Miudinho" conhecidos por movimentos ricos e plásticos
+
+EVENTO O CAPOEIRANDO:
+- Iniciou 1997 em Ubatuba com Mestres Gato e Peixinho
+- 1999-2002: realizado em Ilhéus (algumas fontes dizem 1994-1997 em Ubatuba depois mudou)
+- Evento anual em janeiro continua
+
+DISCOGRAFIA:
+- 1975: "Capoeira Cordão de Ouro" (LP com Dirceu, 12 faixas)
+- Gravou 4 CDs no total
+
+ALUNOS (NOTÁVEIS):
+- Lobão (Everaldo Bispo de Souza), Esdras Filho, Tarzan, Belisco, Almir das Areias, Caio
+- "Geração Miudinho": Boca Rica, Habibs, Mintirinha, Kibe, Denis, Saroba, Coruja, Chicote, Chiclete, Kino, Pintado, Lú Pimenta, Barata, Esquilo, Romualdo
+- Luís Medicina, Miguel, Aberrê, Risadinha, Tihane, Biriba, Dal, Zé Carlos, Quebrinha, Flávio Tucano, Marcelo "Caveirinha," Sarará, Urubu Malandro, Zé Antônio, Ponciano, Canguru, Espirro-Mirim, Tião, Xavier, Sampaio
+
+RESIDÊNCIA ATUAL: Sítio do Vovô, distrito de São Paulo
+
+CITAÇÃO (Mestre Decânio): "O apóstolo de Mestre Bimba em São Paulo"'
 )
 ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
@@ -2429,9 +5956,814 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   achievements_en = EXCLUDED.achievements_en, achievements_pt = EXCLUDED.achievements_pt,
   notes_en = EXCLUDED.notes_en, notes_pt = EXCLUDED.notes_pt, updated_at = NOW();
 
+-- Source: entities/persons/vermelho-27.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Vermelho 27
+-- Generated: 2025-12-20
+-- ============================================================
+-- BIRTH DATE: March 9, 1936 per multiple consistent sources
+-- DEATH DATE: May 18, 1996 per multiple consistent sources
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  -- Identity
+  name,
+  apelido,
+  title,
+  portrait,
+  public_links,
+  -- Capoeira-specific
+  style,
+  style_notes_en,
+  style_notes_pt,
+  -- Life dates
+  birth_year,
+  birth_year_precision,
+  birth_place,
+  death_year,
+  death_year_precision,
+  death_place,
+  -- Extended content (bilingual)
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt,
+  -- Researcher notes
+  notes_en,
+  notes_pt
+) VALUES (
+  -- Identity
+  'José Carlos Andrade Bittencourt',
+  'Vermelho 27',
+  'mestre'::genealogy.title,
+  NULL,
+  ARRAY['https://capoeirawiki.org/wiki/Mestre_Vermelho_27', 'https://www.lalaue.com/learn-capoeira/mestre-vermelho-27/', 'https://capoeirabaiana.net/dicionario-da-regional/mestre-vermelho-27/']::text[],
+  -- Capoeira-specific
+  'regional'::genealogy.style,
+  E'Characterized by a technical, fast, and efficient game, full of mandinga. Trained directly with Mestre Bimba and remained faithful to the pure Capoeira Regional teachings throughout his life. Even in his final moments, hospitalized and receiving serum, he was documented making notes about berimbau technique in a small notebook.',
+  E'Caracterizado por um jogo técnico, rápido e eficiente, cheio de mandinga. Treinou diretamente com Mestre Bimba e permaneceu fiel aos ensinamentos puros da Capoeira Regional durante toda sua vida. Mesmo em seus momentos finais, hospitalizado e recebendo soro, foi documentado fazendo anotações sobre técnica de berimbau em um pequeno caderno.',
+  -- Life dates
+  1936,
+  'exact'::genealogy.date_precision,
+  'Brazil',
+  1996,
+  'exact'::genealogy.date_precision,
+  'Salvador, Bahia, Brazil',
+  -- bio_en
+  E'José Carlos Andrade Bittencourt, known as Mestre Vermelho 27, was born on March 9, 1936. He first encountered Mestre Bimba in 1952, drawn to the Centro de Cultura Física Regional by the reputation of its legendary founder. The following year, in 1953, he formally began training under Bimba at the academy on Terreiro de Jesus.
+
+The nickname "Vermelho" (Red) came from his distinctive reddish skin complexion. As another student named Vermelho already trained under Mestre Pastinha, he added "27" to distinguish himself—a number that was his lucky charm at roulette and coincidentally his car''s license plate. Over time he became known simply as "Vermelho de Mestre Bimba" due to his profound connection to his teacher.
+
+Bimba himself recognized Vermelho 27''s extraordinary dedication, famously declaring him "Maluco por Capoeira" (Crazy about Capoeira). He was counted among Bimba''s ten best students and graduated in 1956.
+
+Beyond capoeira, Vermelho 27 worked at PETROBRÁS'' Landulfo Alves Refinery in Bahia. This stable employment would prove crucial—it gave him the financial foundation to undertake what he called "a very difficult mission" in preserving Mestre Bimba''s academy.
+
+When Mestre Bimba decided to relocate to Goiânia in 1973, disillusioned by broken promises and lack of governmental support in Bahia, the future of his historic academy at Terreiro de Jesus hung in the balance. Bimba initially attempted to sell the space to his students, but most could not afford it. Ultimately, he entrusted the academy to Vermelho 27, telling him: "Vermelho, you are the only one who can keep this place because you are ''crazy about capoeira.''"
+
+In 1972, Bimba held his final graduation ceremony at the Centro de Cultura Física Regional—an event the press called "A Formatura do Adeus" (The Farewell Graduation). Vermelho 27 served as the orator for this historic occasion. He also organized a farewell celebration for his mestre at the PETROBRÁS refinery in Madre de Deus (Mataripe) in 1973.
+
+Following Mestre Bimba''s death in February 1974, Vermelho 27 assumed full responsibility for the academy. In 1975, to honor his teacher''s memory, he renamed it the Associação de Capoeira Mestre Bimba (ACMB). He was not alone in this mission—he formed alliances with Mestre Boa Gente, Ferro Velho (Mestre Durval), Vermelho Boxel, Mestre Bahia, and Mestre Bando to keep the academy running.
+
+Several mestres gathered together after Bimba''s death with a shared purpose: to discuss Capoeira Regional and remain as close as possible to the work their teacher had left behind. Vermelho 27 continued teaching at Terreiro de Jesus until the early 1980s, when the school briefly passed to Mestre Almiro before being transferred to Mestre Bamba (Rubens Costa Silva), who leads it today.
+
+Vermelho 27 also served as patron of the Grupo de Capoeira Porto da Barra, founded in 1993 by his student Mestre Cabeludo (Antonio Sergio Pinho Freire de Carvalho).
+
+In his later years, Vermelho 27 battled skin cancer. He never stopped teaching or thinking about capoeira. On his deathbed, he made a final request to his disciple, Mestre Cabeludo: "Do not let Capoeira Regional stop. Write my book and keep talking about Mestre Bimba."
+
+Mestre Vermelho 27 died on May 18, 1996, due to respiratory failure. In a fitting tribute to his lifelong devotion, a berimbau was placed on his remains at his funeral.
+
+His legacy endures through the Associação de Capoeira Mestre Bimba at Rua Francisco Muniz Barreto #1 (formerly Rua das Laranjeiras) in the Terreiro de Jesus—the oldest space in the world where capoeira is continuously taught, preserved by the man whom Bimba trusted with his life''s work.',
+  -- bio_pt
+  E'José Carlos Andrade Bittencourt, conhecido como Mestre Vermelho 27, nasceu em 9 de março de 1936. Ele encontrou Mestre Bimba pela primeira vez em 1952, atraído ao Centro de Cultura Física Regional pela reputação de seu lendário fundador. No ano seguinte, em 1953, começou formalmente a treinar sob Bimba na academia no Terreiro de Jesus.
+
+O apelido "Vermelho" veio de sua distintiva tez avermelhada. Como outro aluno chamado Vermelho já treinava sob Mestre Pastinha, ele adicionou "27" para se distinguir—um número que era seu amuleto da sorte na roleta e coincidentemente a placa de seu carro. Com o tempo ficou conhecido simplesmente como "Vermelho de Mestre Bimba" devido à sua profunda conexão com seu professor.
+
+O próprio Bimba reconheceu a extraordinária dedicação de Vermelho 27, declarando-o famosamente "Maluco por Capoeira." Ele foi contado entre os dez melhores alunos de Bimba e se formou em 1956.
+
+Além da capoeira, Vermelho 27 trabalhou na Refinaria Landulfo Alves da PETROBRÁS na Bahia. Este emprego estável se provaria crucial—deu-lhe a base financeira para empreender o que ele chamou de "uma missão muito difícil" na preservação da academia de Mestre Bimba.
+
+Quando Mestre Bimba decidiu se mudar para Goiânia em 1973, desiludido com promessas quebradas e falta de apoio governamental na Bahia, o futuro de sua histórica academia no Terreiro de Jesus estava em jogo. Bimba inicialmente tentou vender o espaço para seus alunos, mas a maioria não tinha condições. Por fim, confiou a academia a Vermelho 27, dizendo-lhe: "Vermelho, você é o único que pode manter este lugar porque você é ''maluco por capoeira.''"
+
+Em 1972, Bimba realizou sua última cerimônia de formatura no Centro de Cultura Física Regional—um evento que a imprensa chamou de "A Formatura do Adeus." Vermelho 27 serviu como orador nesta ocasião histórica. Ele também organizou uma celebração de despedida para seu mestre na refinaria da PETROBRÁS em Madre de Deus (Mataripe) em 1973.
+
+Após a morte de Mestre Bimba em fevereiro de 1974, Vermelho 27 assumiu total responsabilidade pela academia. Em 1975, para honrar a memória de seu professor, renomeou-a para Associação de Capoeira Mestre Bimba (ACMB). Ele não estava sozinho nesta missão—formou alianças com Mestre Boa Gente, Ferro Velho (Mestre Durval), Vermelho Boxel, Mestre Bahia e Mestre Bando para manter a academia funcionando.
+
+Vários mestres se reuniram após a morte de Bimba com um propósito compartilhado: discutir a Capoeira Regional e permanecer o mais próximo possível do trabalho que seu professor havia deixado. Vermelho 27 continuou ensinando no Terreiro de Jesus até o início dos anos 1980, quando a escola passou brevemente para Mestre Almiro antes de ser transferida para Mestre Bamba (Rubens Costa Silva), que a lidera hoje.
+
+Vermelho 27 também serviu como patrono do Grupo de Capoeira Porto da Barra, fundado em 1993 por seu aluno Mestre Cabeludo (Antonio Sergio Pinho Freire de Carvalho).
+
+Em seus últimos anos, Vermelho 27 lutou contra o câncer de pele. Ele nunca parou de ensinar ou pensar em capoeira. Em seu leito de morte, fez um último pedido a seu discípulo, Mestre Cabeludo: "Não deixe a Capoeira Regional parar. Escreva meu livro e continue falando sobre Mestre Bimba."
+
+Mestre Vermelho 27 morreu em 18 de maio de 1996, devido a insuficiência respiratória. Em uma homenagem adequada à sua devoção vitalícia, um berimbau foi colocado sobre seus restos mortais em seu funeral.
+
+Seu legado perdura através da Associação de Capoeira Mestre Bimba na Rua Francisco Muniz Barreto #1 (anteriormente Rua das Laranjeiras) no Terreiro de Jesus—o espaço mais antigo do mundo onde a capoeira é continuamente ensinada, preservado pelo homem em quem Bimba confiou o trabalho de sua vida.',
+  -- achievements_en
+  E'One of Mestre Bimba''s ten best students; Orator at "Formatura do Adeus" (Farewell Graduation, 1972); Preserved Mestre Bimba''s historic academy at Terreiro de Jesus (1973-1980s); Founded Associação de Capoeira Mestre Bimba (1975); Ensured continuity of Capoeira Regional in Salvador after Bimba''s departure; Patron of Grupo de Capoeira Porto da Barra; Graduated under Mestre Bimba (1956)',
+  -- achievements_pt
+  E'Um dos dez melhores alunos de Mestre Bimba; Orador na "Formatura do Adeus" (1972); Preservou a histórica academia de Mestre Bimba no Terreiro de Jesus (1973-1980s); Fundou a Associação de Capoeira Mestre Bimba (1975); Garantiu a continuidade da Capoeira Regional em Salvador após a partida de Bimba; Patrono do Grupo de Capoeira Porto da Barra; Formado por Mestre Bimba (1956)',
+  -- notes_en
+  E'BIRTH DATE: March 9, 1936 - consistent across multiple sources (CapoeiraWiki, Lalaue, UNICAR München)
+
+DEATH DATE: May 18, 1996 - consistent across multiple sources; respiratory failure
+
+DEATH CIRCUMSTANCES: Battled skin cancer for years before passing from respiratory complications. Even on his deathbed, hospitalized and receiving serum, he made notes about berimbau technique. A berimbau was placed on his remains.
+
+APELIDO ORIGIN: "Vermelho" from reddish skin complexion; "27" added to distinguish from Vermelho (student of Pastinha). 27 was his lucky roulette number AND his car license plate.
+
+TEACHERS:
+- Mestre Bimba (1953-1974, primary teacher at CCFR)
+
+STUDENTS:
+- Mestre Bamba (Rubens Costa Silva) - began 1977; his primary student who succeeded him
+- Mestre Cabeludo (Antonio Sergio Pinho Freire de Carvalho) - born Oct 18, 1968; founded Porto da Barra 1993
+- Mestre Boa Gente (Vivaldo Conceição Rodrigues) - trained with Vermelho 27; founded own association 1981
+
+COLLABORATORS (post-Bimba preservation effort):
+- Ferro Velho (Mestre Durval)
+- Vermelho Boxel
+- Mestre Bahia
+- Mestre Bando
+- Mestre Boa Gente
+
+TIMELINE:
+- 1952: First met Mestre Bimba
+- 1953: Began formal training at CCFR
+- 1956: Graduated
+- 1972: Orator at "Formatura do Adeus" (Bimba''s final graduation)
+- 1973: Organized farewell at PETROBRÁS refinery; Bimba leaves for Goiânia
+- 1974: Bimba dies (Feb 5); Vermelho 27 assumes academy leadership
+- 1975: Renamed academy to Associação de Capoeira Mestre Bimba (ACMB)
+- Early 1980s: Academy transitions to Mestre Almiro, then Mestre Bamba
+- 1996: Died May 18
+
+ACADEMY ADDRESS:
+Rua Francisco Muniz Barreto #1 (formerly Rua das Laranjeiras), Terreiro de Jesus, Pelourinho, Salvador
+
+1982 O GLOBO ARTICLE: Listed Vermelho 27 among prominent Regional mestres in Salvador alongside Vinte e Nove, Medicina, Banduê, Capazans
+
+FINAL WORDS: To Mestre Cabeludo: "Do not let Capoeira Regional stop. Write my book and keep talking about Mestre Bimba."',
+  -- notes_pt
+  E'DATA DE NASCIMENTO: 9 de março de 1936 - consistente em múltiplas fontes (CapoeiraWiki, Lalaue, UNICAR München)
+
+DATA DE MORTE: 18 de maio de 1996 - consistente em múltiplas fontes; insuficiência respiratória
+
+CIRCUNSTÂNCIAS DA MORTE: Lutou contra câncer de pele por anos antes de falecer por complicações respiratórias. Mesmo em seu leito de morte, hospitalizado e recebendo soro, fazia anotações sobre técnica de berimbau. Um berimbau foi colocado sobre seus restos mortais.
+
+ORIGEM DO APELIDO: "Vermelho" da tez avermelhada; "27" adicionado para distinguir de Vermelho (aluno de Pastinha). 27 era seu número da sorte na roleta E a placa de seu carro.
+
+PROFESSORES:
+- Mestre Bimba (1953-1974, professor principal no CCFR)
+
+ALUNOS:
+- Mestre Bamba (Rubens Costa Silva) - começou 1977; seu aluno principal que o sucedeu
+- Mestre Cabeludo (Antonio Sergio Pinho Freire de Carvalho) - nascido 18 out 1968; fundou Porto da Barra 1993
+- Mestre Boa Gente (Vivaldo Conceição Rodrigues) - treinou com Vermelho 27; fundou própria associação 1981
+
+COLABORADORES (esforço de preservação pós-Bimba):
+- Ferro Velho (Mestre Durval)
+- Vermelho Boxel
+- Mestre Bahia
+- Mestre Bando
+- Mestre Boa Gente
+
+CRONOLOGIA:
+- 1952: Primeiro encontro com Mestre Bimba
+- 1953: Começou treinamento formal no CCFR
+- 1956: Formado
+- 1972: Orador na "Formatura do Adeus" (última formatura de Bimba)
+- 1973: Organizou despedida na refinaria PETROBRÁS; Bimba vai para Goiânia
+- 1974: Bimba morre (5 fev); Vermelho 27 assume liderança da academia
+- 1975: Renomeou academia para Associação de Capoeira Mestre Bimba (ACMB)
+- Início dos anos 1980: Academia transita para Mestre Almiro, depois Mestre Bamba
+- 1996: Morreu 18 maio
+
+ENDEREÇO DA ACADEMIA:
+Rua Francisco Muniz Barreto #1 (anteriormente Rua das Laranjeiras), Terreiro de Jesus, Pelourinho, Salvador
+
+ARTIGO O GLOBO 1982: Listou Vermelho 27 entre os mestres proeminentes da Regional em Salvador junto com Vinte e Nove, Medicina, Banduê, Capazans
+
+ÚLTIMAS PALAVRAS: Para Mestre Cabeludo: "Não deixe a Capoeira Regional parar. Escreva meu livro e continue falando sobre Mestre Bimba."'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
+  updated_at = NOW();
+
+-- Source: entities/persons/zeppelin.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Zeppelin
+-- Generated: 2025-12-20
+-- ============================================================
+-- Pre-Pastinha era capoeira Angola practitioner from Salvador.
+-- Key informant for Edison Carneiro's 1937 "Negros Bantus" research.
+-- Participated in the historic capoeira demonstration at the
+-- II Congresso Afro-Brasileiro on January 14, 1937.
+-- ============================================================
+--
+-- IDENTITY:
+-- - Full Name: Unknown
+-- - Apelido: Zeppelin (also spelled "Zepelim" in Portuguese)
+-- - Title: NULL (no formal title system existed in his era)
+--
+-- BIRTH YEAR ESTIMATION (1890, decade precision):
+-- - Active adult participating in II Congresso Afro-Brasileiro in 1937
+-- - Named as informant for Edison Carneiro's research (required
+--   maturity and standing in the community)
+-- - Contemporary of Samuel Querido de Deus (b.~1880) and Barbosa (b.~1900)
+-- - If born ~1890, would be 47 in 1937 - consistent with active
+--   participation and recognition as informant
+-- - Estimated birth 1880-1900, using 1890 as midpoint
+--
+-- DEATH:
+-- - Unknown; no death date recorded in sources
+--
+-- KEY HISTORICAL ROLE:
+-- - 1937: Participated in capoeira Angola demonstration at II
+--   Congresso Afro-Brasileiro, Club de Regatas Itapagipe, Salvador
+-- - 1937: Featured in Edison Carneiro's "Negros Bantus" as informant
+--   on capoeira de Angola, listed alongside Querido de Deus and Barbosa
+-- - Listed on Mapa da Capoeira alongside Ambrósio, Barroso, Neném,
+--   Zei, Damião and other pre-Pastinha era practitioners
+--
+-- SOURCES:
+-- - Velhos Mestres (velhosmestres.com/br/destaques-38)
+-- - Estado da Bahia newspaper (January 1937)
+-- - Edison Carneiro, "Negros Bantus" (1937)
+-- - Capoeira History (capoeirahistory.com)
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  -- Identity
+  name,
+  apelido,
+  title,
+  portrait,
+  public_links,
+  -- Capoeira-specific
+  style,
+  style_notes_en,
+  style_notes_pt,
+  -- Life dates
+  birth_year,
+  birth_year_precision,
+  birth_place,
+  death_year,
+  death_year_precision,
+  death_place,
+  -- Extended content (bilingual)
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt,
+  -- Researcher notes (bilingual)
+  notes_en,
+  notes_pt
+) VALUES (
+  -- Identity
+  NULL,
+  'Zeppelin',
+  NULL,
+  NULL,
+  ARRAY['https://velhosmestres.com/br/destaques-38']::text[],
+  -- Capoeira-specific
+  'angola'::genealogy.style,
+  E'Pre-modern era capoeira Angola practitioner from Salvador. Active in the 1930s alongside the generation that included Querido de Deus, Barbosa, Onça Preta, and Juvenal. His prominence is indicated by Edison Carneiro''s inclusion of him as an informant on capoeira de Angola in "Negros Bantus" (1937), where his name appears immediately after Querido de Deus and Barbosa.',
+  E'Praticante de capoeira Angola da era pré-moderna de Salvador. Ativo na década de 1930 ao lado da geração que incluía Querido de Deus, Barbosa, Onça Preta e Juvenal. Sua proeminência é indicada pela inclusão por Edison Carneiro como informante sobre capoeira de Angola em "Negros Bantus" (1937), onde seu nome aparece imediatamente após Querido de Deus e Barbosa.',
+  -- Life dates
+  1890,
+  'decade'::genealogy.date_precision,
+  'Salvador, Bahia, Brazil',
+  NULL,
+  NULL,
+  NULL,
+  -- Extended content (bio_en)
+  E'Zeppelin was one of the capoeiristas who participated in the historic demonstration of capoeira de Angola at the II Congresso Afro-Brasileiro held in Salvador on January 14, 1937. This landmark event, organized by folklorist Edison Carneiro and writer Aydano de Couto Ferraz, brought together intellectuals, researchers, and practitioners of Afro-Brazilian culture for what became a pivotal moment in the documentation and legitimization of capoeira.
+
+The demonstration took place at the basketball court of Club de Regatas Itapagipe in the Ribeira neighborhood. Samuel "Querido de Deus," considered by his peers as the best capoeirista in Bahia, directed the exhibition. The newspaper Estado da Bahia described the participants in the "vadiação" as including Barbosa, Onça Preta, Juvenal, Zeppelin, Bugaia, Fernandes, Eutíquio, Neném, Zei, Ambrósio, Barroso, Arthur Mattos, Raphael, Edgar, Damião, and other practitioners of "the great art of Mangangá."
+
+Zeppelin''s significance extends beyond his participation in this single event. Edison Carneiro included him as one of the key informants on capoeira de Angola in his groundbreaking book "Negros Bantus" (1937), which contains the first in-depth scholarly study of capoeira. In the preface, Carneiro acknowledged the "most efficient assistance" he received from "Samuel ''Querido de Deus,'' Barbosa and Zeppelin, regarding capoeira de Angola." That Zeppelin''s name appears alongside these two giants of early capoeira suggests he held considerable standing in the community of practitioners.
+
+The II Congresso Afro-Brasileiro marked a turning point in how Brazilian intellectuals and the government viewed capoeira. Following the demonstrations by Querido de Deus, Zeppelin, and their companions, ethnographer Edison Carneiro and novelist Jorge Amado advocated for the creation of a federation of capoeiristas. This advocacy helped shift capoeira''s image from a criminalized street practice to a recognized cultural tradition worthy of preservation and study.
+
+Little else is known about Zeppelin''s personal life. His apelido (nickname), which evokes the famous German airships of the era, suggests he may have acquired the name during the 1920s-1930s when zeppelins captured the public imagination. His real name, occupation, teachers, and the details of his life before and after 1937 remain undocumented.
+
+What is certain is that Zeppelin belonged to the generation of angoleiros who practiced capoeira before the formal academy system emerged—before Pastinha''s Centro Esportivo de Capoeira Angola (1941) and even before Bimba''s Regional systematization gained widespread acceptance. These were the capoeiristas who learned in the streets, at dock areas, during festivals, and in the informal rodas that characterized pre-institutional capoeira.',
+  -- bio_pt
+  E'Zeppelin foi um dos capoeiristas que participou da histórica demonstração de capoeira de Angola no II Congresso Afro-Brasileiro realizado em Salvador em 14 de janeiro de 1937. Este evento marcante, organizado pelo folclorista Edison Carneiro e pelo escritor Aydano de Couto Ferraz, reuniu intelectuais, pesquisadores e praticantes da cultura afro-brasileira no que se tornou um momento fundamental na documentação e legitimação da capoeira.
+
+A demonstração ocorreu na quadra de basquete do Club de Regatas Itapagipe no bairro da Ribeira. Samuel "Querido de Deus," considerado por seus pares como o melhor capoeirista da Bahia, dirigiu a exibição. O jornal Estado da Bahia descreveu os participantes da "vadiação" incluindo Barbosa, Onça Preta, Juvenal, Zeppelin, Bugaia, Fernandes, Eutíquio, Neném, Zei, Ambrósio, Barroso, Arthur Mattos, Raphael, Edgar, Damião e outros praticantes da "grande arte de Mangangá."
+
+A importância de Zeppelin vai além de sua participação neste único evento. Edison Carneiro o incluiu como um dos principais informantes sobre capoeira de Angola em seu livro pioneiro "Negros Bantus" (1937), que contém o primeiro estudo acadêmico aprofundado sobre capoeira. No prefácio, Carneiro reconheceu a "mais eficiente assistência" que recebeu de "Samuel ''Querido de Deus,'' Barbosa e Zeppelin, sobre a capoeira de Angola." O fato de o nome de Zeppelin aparecer ao lado destes dois gigantes da capoeira antiga sugere que ele tinha considerável prestígio na comunidade de praticantes.
+
+O II Congresso Afro-Brasileiro marcou uma virada na forma como intelectuais brasileiros e o governo viam a capoeira. Após as demonstrações de Querido de Deus, Zeppelin e seus companheiros, o etnógrafo Edison Carneiro e o romancista Jorge Amado advogaram pela criação de uma federação de capoeiristas. Esta advocacia ajudou a mudar a imagem da capoeira de uma prática de rua criminalizada para uma tradição cultural reconhecida digna de preservação e estudo.
+
+Pouco mais se sabe sobre a vida pessoal de Zeppelin. Seu apelido, que evoca os famosos dirigíveis alemães da época, sugere que ele pode ter adquirido o nome durante os anos 1920-1930 quando os zepelins capturavam a imaginação pública. Seu nome verdadeiro, ocupação, mestres e os detalhes de sua vida antes e depois de 1937 permanecem não documentados.
+
+O que é certo é que Zeppelin pertencia à geração de angoleiros que praticavam capoeira antes do surgimento do sistema formal de academias—antes do Centro Esportivo de Capoeira Angola de Pastinha (1941) e até mesmo antes da sistematização Regional de Bimba ganhar ampla aceitação. Estes eram os capoeiristas que aprenderam nas ruas, em áreas portuárias, durante festivais e nas rodas informais que caracterizavam a capoeira pré-institucional.',
+  -- Achievements
+  E'Participated in capoeira de Angola demonstration at II Congresso Afro-Brasileiro (January 14, 1937)
+Featured as informant on capoeira de Angola in Edison Carneiro''s "Negros Bantus" (1937)
+Listed alongside Samuel Querido de Deus and Barbosa as key contributor to Carneiro''s capoeira research
+Part of the historic group that helped legitimize capoeira through academic documentation',
+  E'Participou da demonstração de capoeira de Angola no II Congresso Afro-Brasileiro (14 de janeiro de 1937)
+Destacado como informante sobre capoeira de Angola em "Negros Bantus" de Edison Carneiro (1937)
+Listado ao lado de Samuel Querido de Deus e Barbosa como contribuidor-chave para a pesquisa de Carneiro sobre capoeira
+Parte do grupo histórico que ajudou a legitimar a capoeira através da documentação acadêmica',
+  -- notes_en
+  E'BIRTH YEAR ESTIMATION (1890, decade precision):
+- Active adult participating in II Congresso Afro-Brasileiro demonstration in 1937
+- Named as informant for Edison Carneiro''s "Negros Bantus" (1937), requiring maturity and standing in the community
+- Contemporary of Samuel Querido de Deus (b.~1880, died ~1947) and Barbosa (b.~1900)
+- If born ~1890, would be 47 in 1937 - consistent with active participation and recognition
+- Estimated birth 1880-1900, using 1890 as midpoint
+
+DEATH: Unknown. No death date recorded in any sources consulted.
+
+FULL NAME: Unknown. All sources refer only to "Zeppelin" or "Zepelim" (Portuguese spelling).
+
+APELIDO ORIGIN: The name "Zeppelin" likely derives from the famous German airships that captivated public imagination in the 1920s-1930s. The Graf Zeppelin made a highly publicized visit to Brazil in 1930, which may have inspired the nickname.
+
+SPELLING VARIATIONS:
+- "Zeppelin" - English/German spelling
+- "Zepelim" - Portuguese spelling (used in Estado da Bahia newspaper and some sources)
+
+TITLE: No formal title recorded. The modern mestre/contra-mestre system did not exist in his era. He was a practicing capoeirista (vadiador) but there is no evidence he ran his own roda or had formal students.
+
+CONTEMPORARIES AT 1937 CONGRESS:
+The following participated alongside Zeppelin in the II Congresso Afro-Brasileiro demonstration:
+- Samuel Querido de Deus (director of the exhibition)
+- Barbosa (also informant for Carneiro)
+- Onça Preta
+- Juvenal
+- Bugaia
+- Fernandes
+- Eutíquio
+- Neném
+- Zei
+- Ambrósio
+- Barroso
+- Arthur Mattos
+- Raphael
+- Edgar
+- Damião
+
+CARNEIRO ACKNOWLEDGMENT:
+Edison Carneiro wrote in "Negros Bantus": "the most efficient assistance [...] from Samuel ''Querido de Deus,'' Barbosa and Zeppelin, regarding capoeira de Angola."
+This indicates Zeppelin was among the top three capoeira informants for this seminal research.
+
+SOURCES:
+- Velhos Mestres (velhosmestres.com/br/destaques-38) - primary source
+- Estado da Bahia newspaper (January 1937) - contemporary account
+- Edison Carneiro, "Negros Bantus" (1937) - acknowledgments
+- Capoeira History (capoeirahistory.com) - context',
+  -- notes_pt
+  E'ESTIMATIVA DE ANO DE NASCIMENTO (1890, precisão de década):
+- Adulto ativo participando da demonstração no II Congresso Afro-Brasileiro em 1937
+- Citado como informante para "Negros Bantus" de Edison Carneiro (1937), exigindo maturidade e prestígio na comunidade
+- Contemporâneo de Samuel Querido de Deus (n.~1880, m.~1947) e Barbosa (n.~1900)
+- Se nascido ~1890, teria 47 anos em 1937 - consistente com participação ativa e reconhecimento
+- Nascimento estimado 1880-1900, usando 1890 como ponto médio
+
+MORTE: Desconhecida. Nenhuma data de morte registrada nas fontes consultadas.
+
+NOME COMPLETO: Desconhecido. Todas as fontes referem-se apenas a "Zeppelin" ou "Zepelim."
+
+ORIGEM DO APELIDO: O nome "Zeppelin" provavelmente deriva dos famosos dirigíveis alemães que cativaram a imaginação pública nos anos 1920-1930. O Graf Zeppelin fez uma visita altamente divulgada ao Brasil em 1930, o que pode ter inspirado o apelido.
+
+VARIAÇÕES DE GRAFIA:
+- "Zeppelin" - grafia em inglês/alemão
+- "Zepelim" - grafia em português (usada no jornal Estado da Bahia e algumas fontes)
+
+TÍTULO: Nenhum título formal registrado. O sistema moderno de mestre/contra-mestre não existia em sua era. Era um capoeirista praticante (vadiador) mas não há evidência de que mantinha sua própria roda ou tinha alunos formais.
+
+CONTEMPORÂNEOS NO CONGRESSO DE 1937:
+Os seguintes participaram ao lado de Zeppelin na demonstração do II Congresso Afro-Brasileiro:
+- Samuel Querido de Deus (diretor da exibição)
+- Barbosa (também informante de Carneiro)
+- Onça Preta
+- Juvenal
+- Bugaia
+- Fernandes
+- Eutíquio
+- Neném
+- Zei
+- Ambrósio
+- Barroso
+- Arthur Mattos
+- Raphael
+- Edgar
+- Damião
+
+RECONHECIMENTO DE CARNEIRO:
+Edison Carneiro escreveu em "Negros Bantus": "a mais eficiente assistência [...] de Samuel ''Querido de Deus,'' Barbosa e Zeppelin, sobre a capoeira de Angola."
+Isto indica que Zeppelin estava entre os três principais informantes de capoeira para esta pesquisa seminal.
+
+FONTES:
+- Velhos Mestres (velhosmestres.com/br/destaques-38) - fonte principal
+- Jornal Estado da Bahia (janeiro de 1937) - relato contemporâneo
+- Edison Carneiro, "Negros Bantus" (1937) - agradecimentos
+- Capoeira History (capoeirahistory.com) - contexto'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name, title = EXCLUDED.title, portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links, style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en, style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year, birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place, death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision, death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en, bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en, achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en, notes_pt = EXCLUDED.notes_pt, updated_at = NOW();
+
+-- Source: entities/persons/zuma.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Zuma
+-- Generated: 2025-12-20
+-- ============================================================
+-- BIRTH: November 25, 1898 (verified via André Luis Lacé Lopes)
+-- DEATH: August 18, 1965 (Jornal do Brasil obituary notice)
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  -- Identity
+  name,
+  apelido,
+  title,
+  portrait,
+  public_links,
+  -- Capoeira-specific
+  style,
+  style_notes_en,
+  style_notes_pt,
+  -- Life dates
+  birth_year,
+  birth_year_precision,
+  birth_place,
+  death_year,
+  death_year_precision,
+  death_place,
+  -- Extended content (bilingual)
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt,
+  -- Researcher notes
+  notes_en,
+  notes_pt
+) VALUES (
+  -- Identity
+  'Anníbal Zumalacaraguhy de Menck Burlamaqui',
+  'Zuma',
+  NULL,  -- No formal capoeira title; intellectual advocate
+  NULL,  -- No public domain portrait found
+  ARRAY[
+    'https://capoeirahistory.com/mestre/master-zuma-1898-1965/',
+    'https://en.wikipedia.org/wiki/Anibal_Burlamaqui',
+    'https://archive.org/details/anibal-burlamaqui-a-ginastica-nacional-capoeiragem-metodizada-e-regrada'
+  ]::text[],
+  -- Capoeira-specific
+  NULL,  -- Capoeira carioca was distinct from Angola/Regional
+  E'Zuma developed a sport-oriented "ginástica nacional" (national gymnastics)—a combat-focused capoeira variant stripped of music and ritual. His 1928 manual prescribed boxing-like rules for ring competition: three-minute rounds with two-minute rest periods, circular playing field, referee-based point system, boxing shorts and ankle boots. He advocated an upright "noble" guard posture rather than the crouched ginga. He claimed to have invented three kicks: queixada (kick to the chin), passo de cegonha (stork step—defender grabs attacker''s raised leg while sweeping standing leg), and espada (sword kick). His techniques emphasized pentear/peneirar (combing/sifting—confusing opponents through constant movement), continuous weight shifting between feet and hands, and hand-ground contact for support during leg sweeps.',
+  E'Zuma desenvolveu uma "ginástica nacional" orientada ao esporte—uma variante de capoeira focada em combate, despojada de música e ritual. Seu manual de 1928 prescrevia regras similares ao boxe para competição de ringue: rounds de três minutos com períodos de descanso de dois minutos, campo de jogo circular, sistema de pontuação por árbitro, shorts de boxe e botas até o tornozelo. Ele defendia uma postura de guarda "nobre" ereta ao invés da ginga agachada. Alegou ter inventado três chutes: queixada (chute no queixo), passo de cegonha (defensor agarra a perna levantada do atacante enquanto varre a perna de apoio), e espada (chute espada). Suas técnicas enfatizavam pentear/peneirar (confundir oponentes através de movimento constante), transferência contínua de peso entre pés e mãos, e contato mão-chão para apoio durante rasteiras.',
+  -- Life dates
+  1898,
+  'exact'::genealogy.date_precision,
+  'Rio de Janeiro, Brazil',
+  1965,
+  'exact'::genealogy.date_precision,
+  'Rio de Janeiro, Brazil',
+  -- bio_en
+  E'Anníbal Zumalacaraguhy de Menck Burlamaqui was born on November 25, 1898. His unusual middle name "Zumalacaraguhy"—from which his apelido "Zuma" derived—is of Basque origin, a surname meaning "willow valley." Since the age of ten, Anníbal had practiced Swedish gymnastics, weightlifting, and horizontal bar training. At eighteen he learned Greco-Roman wrestling, and later trained boxing "with fair constancy." Newspaper references from April 1920 describe him as "capoeira and boxeur."
+
+Burlamaqui worked as a customs enforcement officer (guarda da polícia aduaneira), eventually rising to tax auditor at the Receita Federal (Brazilian revenue service). He lived in the Copacabana neighborhood of Rio de Janeiro.
+
+In 1928, Zuma published "Gymnástica Nacional (capoeiragem) methodisada e regrada" (National Gymnastics [Capoeiragem] Methodized and Regulated)—the first written methodology for capoeira. The booklet was inspired by the capoeira of Lapa neighborhood and by the earlier booklet "Gymnastica Brazileira" (1904). His goal was clear: to remove the stigma from capoeiragem and legitimize it as Brazil''s national sport, capable of producing strong, brave citizens.
+
+Dr. Mário Santos, a lawyer who wrote the manual''s preface, posed as Zuma''s opponent in twenty photographs illustrating the techniques. In the preface, Santos argued: "Why would capoeiragem, in Brazil, escape the evolutionary march of its sister forms? Why should we not create rules and regenerate capoeiragem?" He proclaimed capoeiragem superior to boxing, Roman wrestling, and Japanese fighting because it united the requirements of all these disciplines "plus intelligence and vivacity."
+
+The manual catalogued 31 movements including: guarda, rasteira, rabo de arraia, corta capim, cabeçada, facão, banda de frente, banda amarrada, banda jogada, banda forçada, rapa, bahu, tesoura, baiana, dourado, queixada, passo de cegonha, encruzilhada, escorrão, pentear ou peneirar, tombo de ladeira ou calco, arrastão, tranco, chincha, xulipa, me esquece, vôo do morcego, espada, and suicídio. Zuma asserted that three kicks were his own inventions: queixada, passo de cegonha, and espada.
+
+Drawing from boxing and football, Zuma prescribed the diameter of the circular playing field, starting positions, round duration (three minutes, with two-minute rest), and victory criteria: incapacitating the opponent, or a referee-counted point system based on falls caused.
+
+Beyond capoeira, Burlamaqui pursued literary interests. On March 8, 1930, he joined the Cenáculo Fluminense de História e Letras (Rio de Janeiro''s State Society of History and Letters), a Niterói-based literary society, occupying chair number 33. In the 1950s he served on the directorial board''s committee on writing and peer review, and was elected president of the society twice. The Cenáculo hosted poetry readings and music recitals, and sponsored publications by its members.
+
+In 1939, the Cenáculo published Burlamaqui''s book of erotic poetry, "O meu delírio: poêma do instinto" (My delirium: a poem of instinct). The book received a mixed review in the Jornal do Brasil (April 14, 1939) and a scathing review from critic Álvaro Lins in Correio da Manhã (November 16, 1940). He also published a second poetry collection titled "Babel de Emoções."
+
+In 1933, through Zuma''s intervention, the Departamento de Luta Brasileira (Capoeiragem) of the Federação Carioca de Boxe was founded on November 5—an early step in the institutionalization of capoeira as a regulated sport. Three years later, on November 4, 1936, the Departamento de Luta Brasileira of the Federação Paulista de Pugilismo followed in São Paulo.
+
+That same year, 1936, Mestre Bimba issued his famous challenge to fighters of any martial art style. The matches were fought under Zuma''s boxing-like rules. Bimba faced four opponents—Henrique Bahia, Vítor Benedito Lopes, Américo Ciência, and fellow capoeirista José Custódio "Zé I" dos Santos—and won all matches, earning the nickname "Três Pancadas" (Three Hits).
+
+Mestre Bimba is documented to have studied the methods of several Rio de Janeiro capoeira teachers including Sinhozinho, Mário Aleixo, and Zuma, who mixed capoeira with martial arts like judo, boxing, Greco-Roman wrestling, and Portuguese stick-fighting. Zuma''s codification influenced others who sought to transform capoeira into a socially acceptable sport.
+
+The 1930s saw Bahian capoeiristas reaching out to Zuma. According to Dr. Lamartine Pereira da Costa (Admiral and physical education professor who met Zuma in his final years), Baianos sought Zuma out in the 1930s, recognizing his contribution to their cause.
+
+Zuma''s work had direct influence on Federal Decree 3,199/41, enacted by President Getúlio Vargas on April 14, 1941, which established the bases of sport organization throughout Brazil and created the National Sports Council. Under this framework, the National Department of Brazilian Wrestling (Capoeiragem) was placed under the Brazilian Boxing Federation.
+
+Anníbal Burlamaqui died on August 18, 1965, at age 67. The Jornal do Brasil published a notice where Mrs. Burlamaqui and family expressed gratitude for condolences received. His legacy as the "Patron of Sporting Capoeira" (Patrono da Capoeira Desportiva) endures—he was among the educated Brazilians who fought to destigmatize capoeira and promote it as a national sport.',
+  -- bio_pt
+  E'Anníbal Zumalacaraguhy de Menck Burlamaqui nasceu em 25 de novembro de 1898. Seu incomum nome do meio "Zumalacaraguhy"—do qual derivou seu apelido "Zuma"—é de origem basca, um sobrenome que significa "vale de salgueiros." Desde os dez anos, Anníbal praticava ginástica sueca, musculação e treinamento em barras horizontais. Aos dezoito anos aprendeu luta greco-romana, e depois treinou boxe "com justa constância." Referências em jornais de abril de 1920 o descrevem como "capoeira e boxeur."
+
+Burlamaqui trabalhou como guarda da polícia aduaneira, eventualmente ascendendo a auditor fiscal na Receita Federal. Morava no bairro de Copacabana no Rio de Janeiro.
+
+Em 1928, Zuma publicou "Gymnástica Nacional (capoeiragem) methodisada e regrada"—a primeira metodologia escrita para capoeira. O livreto foi inspirado pela capoeira do bairro da Lapa e pelo livreto anterior "Gymnastica Brazileira" (1904). Seu objetivo era claro: remover o estigma da capoeiragem e legitimá-la como esporte nacional do Brasil, capaz de produzir cidadãos fortes e corajosos.
+
+Dr. Mário Santos, um advogado que escreveu o prefácio do manual, posou como oponente de Zuma em vinte fotografias ilustrando as técnicas. No prefácio, Santos argumentou: "Por que a capoeiragem, no Brasil, escaparia à marcha evolutiva de suas formas irmãs? Por que não deveríamos criar regras e regenerar a capoeiragem?" Ele proclamou a capoeiragem superior ao boxe, luta romana e luta japonesa porque unia os requisitos de todas essas disciplinas "além de inteligência e vivacidade."
+
+O manual catalogou 31 movimentos incluindo: guarda, rasteira, rabo de arraia, corta capim, cabeçada, facão, banda de frente, banda amarrada, banda jogada, banda forçada, rapa, bahu, tesoura, baiana, dourado, queixada, passo de cegonha, encruzilhada, escorrão, pentear ou peneirar, tombo de ladeira ou calco, arrastão, tranco, chincha, xulipa, me esquece, vôo do morcego, espada e suicídio. Zuma afirmou que três chutes eram suas próprias invenções: queixada, passo de cegonha e espada.
+
+Inspirando-se no boxe e futebol, Zuma prescreveu o diâmetro do campo de jogo circular, posições iniciais, duração dos rounds (três minutos, com dois minutos de descanso), e critérios de vitória: incapacitar o oponente, ou sistema de pontuação por árbitro baseado em quedas causadas.
+
+Além da capoeira, Burlamaqui cultivou interesses literários. Em 8 de março de 1930, ingressou no Cenáculo Fluminense de História e Letras, uma sociedade literária baseada em Niterói, ocupando a cadeira número 33. Nos anos 1950 serviu no conselho diretor no comitê de redação e parecer, e foi eleito presidente da sociedade duas vezes. O Cenáculo promovia leituras de poesia e recitais musicais, e patrocinava publicações de seus membros.
+
+Em 1939, o Cenáculo publicou o livro de poesia erótica de Burlamaqui, "O meu delírio: poêma do instinto." O livro recebeu uma crítica mista no Jornal do Brasil (14 de abril de 1939) e uma crítica severa do crítico Álvaro Lins no Correio da Manhã (16 de novembro de 1940). Ele também publicou uma segunda coleção de poesia intitulada "Babel de Emoções."
+
+Em 1933, através da intervenção de Zuma, o Departamento de Luta Brasileira (Capoeiragem) da Federação Carioca de Boxe foi fundado em 5 de novembro—um passo inicial na institucionalização da capoeira como esporte regulamentado. Três anos depois, em 4 de novembro de 1936, o Departamento de Luta Brasileira da Federação Paulista de Pugilismo foi criado em São Paulo.
+
+Nesse mesmo ano, 1936, Mestre Bimba lançou seu famoso desafio a lutadores de qualquer estilo de arte marcial. As lutas foram disputadas sob as regras similares ao boxe de Zuma. Bimba enfrentou quatro oponentes—Henrique Bahia, Vítor Benedito Lopes, Américo Ciência e o capoeirista José Custódio "Zé I" dos Santos—e venceu todas as lutas, ganhando o apelido "Três Pancadas."
+
+Mestre Bimba está documentado como tendo estudado os métodos de vários professores de capoeira do Rio de Janeiro incluindo Sinhozinho, Mário Aleixo e Zuma, que misturavam capoeira com artes marciais como judô, boxe, luta greco-romana e jogo do pau português. A codificação de Zuma influenciou outros que buscavam transformar a capoeira em um esporte socialmente aceitável.
+
+Os anos 1930 viram capoeiristas baianos procurando Zuma. Segundo Dr. Lamartine Pereira da Costa (Almirante e professor de educação física que conheceu Zuma em seus últimos anos), baianos procuraram Zuma nos anos 1930, reconhecendo sua contribuição à causa deles.
+
+O trabalho de Zuma teve influência direta no Decreto Federal 3.199/41, promulgado pelo Presidente Getúlio Vargas em 14 de abril de 1941, que estabeleceu as bases da organização esportiva em todo o Brasil e criou o Conselho Nacional de Desportos. Sob esta estrutura, o Departamento Nacional de Luta Brasileira (Capoeiragem) foi colocado sob a Confederação Brasileira de Pugilismo.
+
+Anníbal Burlamaqui morreu em 18 de agosto de 1965, aos 67 anos. O Jornal do Brasil publicou uma nota onde a Sra. Burlamaqui e família expressaram gratidão pelas condolências recebidas. Seu legado como "Patrono da Capoeira Desportiva" perdura—ele estava entre os brasileiros educados que lutaram para destigmatizar a capoeira e promovê-la como esporte nacional.',
+  -- achievements_en
+  E'Published first capoeira manual "Gymnástica Nacional (capoeiragem) methodisada e regrada" (1928); Created boxing-like competition rules used in Mestre Bimba''s 1936 challenge matches; Founded Departamento de Luta Brasileira (Capoeiragem) of Federação Carioca de Boxe (November 5, 1933); Influenced Federal Decree 3,199/41 creating National Department of Brazilian Wrestling; Twice-elected president of Cenáculo Fluminense de História e Letras; Published poetry collections including "O meu delírio: poêma do instinto" (1939) and "Babel de Emoções"; Known as "Patrono da Capoeira Desportiva" (Patron of Sporting Capoeira)',
+  -- achievements_pt
+  E'Publicou primeiro manual de capoeira "Gymnástica Nacional (capoeiragem) methodisada e regrada" (1928); Criou regras de competição similares ao boxe usadas nas lutas de desafio de Mestre Bimba em 1936; Fundou Departamento de Luta Brasileira (Capoeiragem) da Federação Carioca de Boxe (5 de novembro de 1933); Influenciou o Decreto Federal 3.199/41 criando Departamento Nacional de Luta Brasileira; Duas vezes eleito presidente do Cenáculo Fluminense de História e Letras; Publicou coleções de poesia incluindo "O meu delírio: poêma do instinto" (1939) e "Babel de Emoções"; Conhecido como "Patrono da Capoeira Desportiva"',
+  -- notes_en
+  E'BIRTH DATE (November 25, 1898):
+Verified via André Luis Lacé Lopes personal communication (June 19, 2020) cited in capoeirahistory.com.
+
+DEATH DATE (August 18, 1965):
+Jornal do Brasil published obituary notice with family gratitude for condolences received.
+
+FULL NAME:
+Anníbal Zumalacaraguhy de Menck Burlamaqui. "Zumalacaraguhy" is Basque (meaning "willow valley")—origin of nickname "Zuma."
+
+OCCUPATION:
+- Guarda da polícia aduaneira (customs enforcement officer)
+- Rose to tax auditor at Receita Federal
+- Resided in Copacabana, Rio de Janeiro
+
+LITERARY CAREER:
+- Cenáculo Fluminense de História e Letras (joined March 8, 1930, Chair 33)
+- President of society twice (1950s)
+- "O meu delírio: poêma do instinto" (1939) - erotic poetry
+- "Babel de Emoções" - second poetry collection
+- Reviews: Jornal do Brasil (mixed, April 14, 1939); Correio da Manhã (scathing, Álvaro Lins, November 16, 1940)
+
+CAPOEIRA MANUAL (1928):
+Title: "Gymnástica Nacional (capoeiragem) methodisada e regrada"
+Preface by: Dr. Mário Santos (lawyer, posed in 20 photographs)
+Inspiration: Capoeira of Lapa; "Gymnastica Brazileira" (1904)
+31 movements catalogued (see style_notes)
+3 claimed inventions: queixada, passo de cegonha, espada
+
+TRAINING BACKGROUND:
+- Swedish gymnastics, weightlifting, horizontal bars (age 10+)
+- Greco-Roman wrestling (age 18)
+- Boxing "with fair constancy"
+- Newspaper (April 1920) describes him as "capoeira and boxeur"
+- May have trained at Gymnástico Português where Mario Aleixo taught (1920)
+
+INSTITUTIONAL LEGACY:
+- Departamento de Luta Brasileira, Federação Carioca de Boxe (Nov 5, 1933)
+- Departamento de Luta Brasileira, Federação Paulista de Pugilismo (Nov 4, 1936)
+- Influenced Federal Decree 3,199/41 (April 14, 1941)
+
+CONNECTION TO BIMBA''S 1936 CHALLENGES:
+Bimba''s challenge matches were fought under Zuma''s boxing-like rules.
+Opponents: Henrique Bahia, Vítor Benedito Lopes, Américo Ciência, José Custódio "Zé I" dos Santos
+Bimba won all four, earning nickname "Três Pancadas" (Three Hits).
+
+BIMBA''S STUDY OF ZUMA''S METHODS:
+Documented that Bimba studied methods of Sinhozinho, Mario Aleixo, and Zuma.
+
+CONTEMPORARIES:
+- Raul Pederneiras (journalist/cartoonist, capoeira advocate)
+- Mário Santos (lawyer, manual collaborator)
+- Mario Aleixo (capoeira teacher, 1920s exhibitions)
+- Mestre Sinhozinho (fellow Rio capoeira intellectual)
+
+FAMILY:
+- Wife: Mrs. Burlamaqui (published gratitude notice in Jornal do Brasil, Aug 18, 1965)
+- Family historian: Ulysses Petronio Burlamaqui (personal communication June 19, 2020)
+
+NO FORMAL CAPOEIRA TITLE:
+Zuma was an intellectual advocate and practitioner, not a mestre in the traditional lineage sense. He is sometimes called "Mestre Zuma" honorifically but held no formal capoeira title.
+
+STYLE CLASSIFICATION:
+NULL - his "ginástica nacional" was distinct from Angola/Regional, a sport-focused variant without music/ritual.',
+  -- notes_pt
+  E'DATA DE NASCIMENTO (25 de novembro de 1898):
+Verificado via comunicação pessoal de André Luis Lacé Lopes (19 de junho de 2020) citada em capoeirahistory.com.
+
+DATA DE MORTE (18 de agosto de 1965):
+Jornal do Brasil publicou nota de obituário com agradecimento da família pelas condolências recebidas.
+
+NOME COMPLETO:
+Anníbal Zumalacaraguhy de Menck Burlamaqui. "Zumalacaraguhy" é basco (significando "vale de salgueiros")—origem do apelido "Zuma."
+
+OCUPAÇÃO:
+- Guarda da polícia aduaneira
+- Ascendeu a auditor fiscal na Receita Federal
+- Residia em Copacabana, Rio de Janeiro
+
+CARREIRA LITERÁRIA:
+- Cenáculo Fluminense de História e Letras (ingressou em 8 de março de 1930, Cadeira 33)
+- Presidente da sociedade duas vezes (anos 1950)
+- "O meu delírio: poêma do instinto" (1939) - poesia erótica
+- "Babel de Emoções" - segunda coleção de poesia
+- Críticas: Jornal do Brasil (mista, 14 de abril de 1939); Correio da Manhã (severa, Álvaro Lins, 16 de novembro de 1940)
+
+MANUAL DE CAPOEIRA (1928):
+Título: "Gymnástica Nacional (capoeiragem) methodisada e regrada"
+Prefácio por: Dr. Mário Santos (advogado, posou em 20 fotografias)
+Inspiração: Capoeira da Lapa; "Gymnastica Brazileira" (1904)
+31 movimentos catalogados (ver style_notes)
+3 invenções alegadas: queixada, passo de cegonha, espada
+
+FORMAÇÃO EM TREINAMENTO:
+- Ginástica sueca, musculação, barras horizontais (idade 10+)
+- Luta greco-romana (idade 18)
+- Boxe "com justa constância"
+- Jornal (abril 1920) o descreve como "capoeira e boxeur"
+- Pode ter treinado no Gymnástico Português onde Mario Aleixo ensinava (1920)
+
+LEGADO INSTITUCIONAL:
+- Departamento de Luta Brasileira, Federação Carioca de Boxe (5 nov 1933)
+- Departamento de Luta Brasileira, Federação Paulista de Pugilismo (4 nov 1936)
+- Influenciou Decreto Federal 3.199/41 (14 de abril de 1941)
+
+CONEXÃO COM DESAFIOS DE BIMBA EM 1936:
+As lutas de desafio de Bimba foram disputadas sob as regras similares ao boxe de Zuma.
+Oponentes: Henrique Bahia, Vítor Benedito Lopes, Américo Ciência, José Custódio "Zé I" dos Santos
+Bimba venceu todas as quatro, ganhando o apelido "Três Pancadas."
+
+ESTUDO DE BIMBA DOS MÉTODOS DE ZUMA:
+Documentado que Bimba estudou métodos de Sinhozinho, Mario Aleixo e Zuma.
+
+CONTEMPORÂNEOS:
+- Raul Pederneiras (jornalista/cartunista, defensor da capoeira)
+- Mário Santos (advogado, colaborador do manual)
+- Mario Aleixo (professor de capoeira, exibições dos anos 1920)
+- Mestre Sinhozinho (colega intelectual da capoeira carioca)
+
+FAMÍLIA:
+- Esposa: Sra. Burlamaqui (publicou nota de agradecimento no Jornal do Brasil, 18 ago 1965)
+- Historiador da família: Ulysses Petronio Burlamaqui (comunicação pessoal 19 de junho de 2020)
+
+SEM TÍTULO FORMAL DE CAPOEIRA:
+Zuma era um defensor intelectual e praticante, não um mestre no sentido de linhagem tradicional. Às vezes é chamado de "Mestre Zuma" honorificamente mas não detinha título formal de capoeira.
+
+CLASSIFICAÇÃO DE ESTILO:
+NULL - sua "ginástica nacional" era distinta de Angola/Regional, uma variante focada em esporte sem música/ritual.'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
+  updated_at = NOW();
+
 -- ============================================================
 -- PHASE 2: UPSERT STATEMENTS
 -- ============================================================
+
+-- Source: statements/persons/acordeon.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Acordeon
+-- Generated: 2025-12-20
+-- ============================================================
+-- Contains all relationships where Acordeon is the SUBJECT.
+-- Relationships where Acordeon is the OBJECT go in the
+-- object's statement file (e.g., suelly.sql would have
+-- "Suelly student_of Acordeon").
+-- ============================================================
+
+-- Acordeon student_of Bimba (primary teacher 1958+)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1958-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Multiple sources: Velhos Mestres, Lalaue, Ajitu Capoeira, Prabook',
+  'Primary teacher relationship. Acordeon entered Mestre Bimba''s academy in 1958 and became one of only ten mestres certified by Bimba. He was considered one of the best disciples of Mestre Bimba.',
+  'Relação de mestre principal. Acordeon entrou na academia de Mestre Bimba em 1958 e se tornou um dos apenas dez mestres certificados por Bimba. Foi considerado um dos melhores discípulos de Mestre Bimba.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Acordeon' AND o.apelido = 'Bimba'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Acordeon received_title_from Bimba (mestre, early 1960s)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'received_title_from'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1960-01-01'::date, 'approximate'::genealogy.date_precision,
+  NULL, NULL,
+  '{"title_grant": {"title": "mestre"}}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Multiple sources: Lalaue, USAdojo, Mesa Capoeira - "one of ten mestres certified by Mestre Bimba"',
+  'Acordeon is one of only ten mestres certified by Mestre Bimba, Patron of Capoeira. Exact date unknown but likely early 1960s based on opening his first academy in 1959.',
+  'Acordeon é um dos apenas dez mestres certificados por Mestre Bimba, Patrono da Capoeira. Data exata desconhecida mas provavelmente início dos anos 1960 baseado na abertura de sua primeira academia em 1959.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Acordeon' AND o.apelido = 'Bimba'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Acordeon associated_with Cobra Mansa (photographed together 1990)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1990-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": {"en": "Photographed together in 1990, documented on Velhos Mestres. Both are major figures in the global capoeira community though from different lineages (Bimba vs Pastinha).", "pt": "Fotografados juntos em 1990, documentado no Velhos Mestres. Ambos são figuras importantes na comunidade global de capoeira embora de linhagens diferentes (Bimba vs Pastinha)."}}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Velhos Mestres (velhosmestres.com/br/destaques-76)',
+  'Both are leading figures in the global capoeira community representing different lineages. Photographed together in 1990.',
+  'Ambos são figuras líderes na comunidade global de capoeira representando diferentes linhagens. Fotografados juntos em 1990.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Acordeon' AND o.apelido = 'Cobra Mansa'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (objects not yet in dataset)
+-- ============================================================
+
+-- PERSON-TO-PERSON (pending - need to import these persons):
+-- Acordeon associated_with Mestre Onça/Ayrton Neves Moura (co-founded K-poeira 1968)
+-- Acordeon associated_with Mestre Rã/Cassio Martinho (co-founded UCA)
+-- Acordeon associated_with Mestra Suelly/Suellen Einarsen (wife; student since 1982; promoted to mestra 2000)
+-- Acordeon associated_with Mestre Suassuna (collaborated on 1985 Smithsonian album)
+-- Acordeon associated_with Dennis Broughton (student; California Brazil Camp founder; collaborated on 1985 album)
+-- Acordeon associated_with Mestre Recruta/Chris Montiel (student; promoted to mestre 2016)
+-- Acordeon associated_with Mestre Besouro (UCA) (student; promoted to mestre 2022)
+-- Acordeon associated_with Mestre Avestruz (student since 1981)
+-- Acordeon associated_with Mestre Mata Mosquito/Silver Cruz (student; recently promoted)
+
+-- PERSON-TO-GROUP (pending - need to import these groups):
+-- Acordeon founded Grupo Folclórico da Bahia (1964/1966)
+-- Acordeon co_founded K-poeira São Paulo (1968) with Mestre Onça
+-- Acordeon co_founded United Capoeira Association (UCA) with Mestre Rã
+-- Acordeon founded Capoeira Arts Foundation, Berkeley
+-- Acordeon co_founded Capoeira Arts Café, Berkeley (1998) with Mestre Rã
+-- Acordeon founded Projeto Kirimurê (social program)
+-- Acordeon co_founded IBEC (Brazilian Institute for the Study of Capoeira)
+-- Acordeon member_of ABCP (Brazilian Association of Capoeira Teachers)
+-- Acordeon founded World Capoeira Association
+-- Acordeon leads Corpo Santo (musical group)
 
 -- Source: statements/persons/albertino-da-hora.sql (NEW)
 -- ============================================================
@@ -2555,6 +6887,64 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Angélica Endiabrada associated_with Adelaide Presepeira - needs import first
 -- Angélica Endiabrada associated_with Idalina - needs import first
 
+-- Source: statements/persons/bigode-de-seda.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Bigode de Seda
+-- Generated: 2025-12-15
+-- Updated: 2025-12-20 (added Pastinha 1967 connection, updated apelido)
+-- ============================================================
+-- Contains all relationships where Bigode de Seda is the SUBJECT.
+-- ============================================================
+
+-- Bigode de Seda co_founded Gengibirra
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'co_founded'::genealogy.predicate,
+  'group'::genealogy.entity_type, o.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Noronha manuscripts (O ABC da Capoeira Angola, 1993); Velhos Mestres; Pastinha interview 1967',
+  'One of 22 founding mestres of the Centro Nacional de Capoeira de Origem Angola at Ladeira de Pedra, Gengibirra.',
+  'Um dos 22 mestres fundadores do Centro Nacional de Capoeira de Origem Angola na Ladeira de Pedra, Gengibirra.'
+FROM genealogy.person_profiles s, genealogy.group_profiles o
+WHERE s.apelido = 'Bigode de Seda' AND o.name = 'Gengibirra'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Bigode de Seda associated_with Pastinha (contemporary recognition)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1941-02-23'::date, 'exact'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "fellow_capoeirista"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Pastinha interview Revista Realidade 1967; velhosmestres.com/en/pastinha-1967',
+  'Bigode de Seda was present at Gengibirra when Pastinha was introduced to the roda in 1941. Pastinha later remembered him among the legendary capoeiristas of the past in his 1967 interview.',
+  'Bigode de Seda estava presente no Gengibirra quando Pastinha foi apresentado à roda em 1941. Pastinha mais tarde o lembrou entre os lendários capoeiristas do passado em sua entrevista de 1967.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Bigode de Seda' AND o.apelido = 'Pastinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (no additional relationships documented)
+-- ============================================================
+-- No teacher-student relationships documented for Bigode de Seda.
+-- No students documented.
+-- ============================================================
+
 -- Source: statements/persons/boca-rica.sql (NEW)
 -- ============================================================
 -- STATEMENTS FOR: Boca Rica
@@ -2633,6 +7023,502 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Boca Rica associated_with João Pequeno (photographed together 1960s) - João Pequeno pending import
 -- Boca Rica associated_with Curió (photographed together, Velha Guarda events) - Curió done, can add later
 -- Boca Rica associated_with Olavo (photographed together 1960s) - Olavo pending import
+
+-- Source: statements/persons/bola-sete.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Bola Sete
+-- Generated: 2025-12-20
+-- ============================================================
+-- Contains all relationships where Bola Sete is the SUBJECT.
+--
+-- RELATIONSHIPS:
+-- 1. Bola Sete student_of Pastinha (1969-1981, graduated 1979)
+-- 2. Bola Sete trained_under Pessoa Bababá (1968-1969)
+-- 3. Bola Sete received_title_from Pastinha (1979) - diploma received
+-- 4. Bola Sete founded Centro de Cultura da Capoeira Tradicional Bahia (1980) - PENDING: group not in dataset
+-- 5. Bola Sete leads Centro de Cultura da Capoeira Tradicional Bahia - PENDING: group not in dataset
+-- 6. Bola Sete member_of ABCA - PENDING: ABCA not in dataset
+-- ============================================================
+
+-- Bola Sete student_of Pastinha
+-- Primary teacher-student relationship at CECA (1969-1981)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1969-01-01'::date, 'year'::genealogy.date_precision,
+  '1981-11-13'::date, 'exact'::genealogy.date_precision,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'Capoeira Connection interview (2011), Portal Capoeira interview',
+  E'Bola Sete entered CECA in 1969 after approximately one year of training with Pessoa Bababá. He served as "Fiscal de Campo" (Field Supervisor) and remained a student for 13 years until Pastinha''s death in November 1981. Received diploma in 1979.',
+  E'Bola Sete ingressou no CECA em 1969 após aproximadamente um ano de treinamento com Pessoa Bababá. Serviu como "Fiscal de Campo" e permaneceu aluno por 13 anos até a morte de Pastinha em novembro de 1981. Recebeu diploma em 1979.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Bola Sete' AND o.apelido = 'Pastinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Bola Sete received_title_from Pastinha
+-- Graduated by Pastinha in 1979
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'received_title_from'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1979-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"title_grant": {"title": "mestre"}}'::jsonb, 'verified'::genealogy.confidence,
+  'Capoeira Connection interview (2011), Portal Capoeira interview',
+  E'Bola Sete received his diploma from Mestre Pastinha in 1979, after 10 years of dedicated study at CECA. Pastinha famously told him during a chamada: "Zé Luiz… you have a twin soul to mine!"',
+  E'Bola Sete recebeu seu diploma de Mestre Pastinha em 1979, após 10 anos de estudo dedicado no CECA. Pastinha famosamente lhe disse durante uma chamada: "Zé Luiz… você tem uma alma gêmea à minha!"'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Bola Sete' AND o.apelido = 'Pastinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Bola Sete trained_under Pessoa Bababá
+-- First formal training before entering CECA (1968-1969)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1968-01-01'::date, 'year'::genealogy.date_precision,
+  '1969-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'Capoeira Connection interview (2011), Portal Capoeira interview',
+  E'Bola Sete''s first formal training in capoeira was under Pessoa Bababá, a merchant marine sailor and disciple of Mestre Pastinha. Training took place in a small, poorly-lit basement space in Salvador, for approximately one year before Bola Sete entered Pastinha''s CECA in 1969. Pessoa Bababá was described as "muito forte e valente" (very strong and brave) and taught "the old game the old way."',
+  E'O primeiro treinamento formal de Bola Sete em capoeira foi sob Pessoa Bababá, um marinheiro da Marinha Mercante e discípulo de Mestre Pastinha. O treinamento aconteceu em um pequeno espaço mal iluminado no porão em Salvador, por aproximadamente um ano antes de Bola Sete entrar no CECA de Pastinha em 1969. Pessoa Bababá era descrito como "muito forte e valente" e ensinava "o jogo antigo da maneira antiga."'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Bola Sete' AND o.apelido = 'Pessoa Bababá'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- Bola Sete founded Centro de Cultura da Capoeira Tradicional Bahia (1980)
+--   - Group needs import first
+--
+-- Bola Sete leads Centro de Cultura da Capoeira Tradicional Bahia (current)
+--   - Group needs import first
+--
+-- Bola Sete member_of Associação Brasileira de Capoeira Angola (ABCA)
+--   - ABCA needs import first
+--   - He is President of the Council of Mestres
+--   - Consider: leads ABCA_Council_of_Mestres or specific predicate
+-- ============================================================
+
+-- Source: statements/persons/brasilia.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Brasília
+-- Generated: 2025-12-20
+-- ============================================================
+-- Contains all relationships where Brasília is the SUBJECT.
+-- ============================================================
+
+-- Brasília student_of Canjiquinha
+-- Primary teacher from 1961; trained for 6 years before moving to São Paulo
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1961-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com, portalcapoeira.com',
+  E'Brasília began training under Canjiquinha at age 19 in 1961 after being captivated by a festival performance. Trained for 6 years performing throughout Bahia before moving to São Paulo in 1965. Canjiquinha was the primary and formative influence on his capoeira.',
+  E'Brasília começou a treinar com Canjiquinha aos 19 anos em 1961, após ficar cativado por uma apresentação em festival. Treinou por 6 anos se apresentando por toda a Bahia antes de se mudar para São Paulo em 1965. Canjiquinha foi a influência principal e formativa em sua capoeira.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Brasília' AND o.apelido = 'Canjiquinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+
+-- Brasília co_founded Cordão de Ouro - GROUP NOT YET IN DATASET
+-- Founded September 1, 1967 in Vila Mariana, São Paulo with Mestre Suassuna
+-- Needs: Cordão de Ouro group to be imported first
+
+-- Brasília departed_from Cordão de Ouro - GROUP NOT YET IN DATASET
+-- Departed ~1968-1969 to found his own group
+-- Departure type: neutral/blessed (remained friends with Suassuna)
+-- Needs: Cordão de Ouro group to be imported first
+
+-- Brasília founded São Bento Grande (Ginga Brasília) - GROUP NOT YET IN DATASET
+-- Founded 1969; later renamed to Escola de Capoeira Ginga Brasília
+-- Needs: São Bento Grande / Ginga Brasília group to be imported first
+
+-- Brasília leads São Bento Grande (Ginga Brasília) - GROUP NOT YET IN DATASET
+-- Current leader of the group he founded
+-- Needs: São Bento Grande / Ginga Brasília group to be imported first
+
+-- ============================================================
+-- ASSOCIATIONS WITH OTHER MESTRES (documented connections)
+-- These are not student_of relationships but significant associations
+-- ============================================================
+
+-- Brasília associated_with Suassuna - PERSON NOT YET IN DATASET
+-- Co-founder of Cordão de Ouro; "remained friends, partnership and friendship evident today"
+-- Needs: Suassuna to be imported first
+
+-- Brasília trained_under Bimba - PERSON EXISTS but this is association, not training
+-- "Lived/trained with" per sources; received certificate from Bimba in 1970s
+-- This was exposure/association, not formal student relationship
+
+-- Brasília associated_with Waldemar - PERSON EXISTS
+-- "Lived/trained with" per sources; association documented
+-- Could generate if we want to track this association
+
+-- Brasília associated_with João Pequeno - PERSON EXISTS
+-- "Lived/trained with" per sources; association documented
+
+-- Brasília associated_with João Grande - PERSON EXISTS
+-- "Lived/trained with" per sources; association documented
+
+-- Brasília associated_with Zé de Freitas - PERSON NOT YET IN DATASET
+-- Met Suassuna at Zé de Freitas's academy in São Paulo
+-- Needs: Zé de Freitas to be imported first
+
+-- ============================================================
+-- GROUP MEMBERSHIP: Grupo dos Nove
+-- ============================================================
+-- Brasília member_of Grupo dos Nove - GROUP NOT DEFINED
+-- Was one of the "Group of Nine" Bahian capoeiristas who pioneered capoeira in São Paulo 1960s
+-- Received certificate from Mestre Bimba recognizing them as precursors
+-- Note: "Grupo dos Nove" may be an informal designation rather than a formal group
+
+-- ============================================================
+-- ORGANIZATIONAL ROLES
+-- ============================================================
+-- Brasília regional_coordinator_of Federação de Capoeira do Estado de São Paulo
+-- Vice-President of the Federation
+-- Note: Federation is not a capoeira group in our schema, may not import as group
+
+-- Brasília member_of Conselho Superior de Mestres de São Paulo
+-- Member of Honor Board
+-- Note: Council is not a capoeira group in our schema, may not import as group
+
+-- ============================================================
+-- TITLE GRANTS (potential future statements)
+-- ============================================================
+-- Brasília received recognition from Bimba - needs clarification on what type
+-- The "certificate as precursors" is recognition rather than title grant
+-- This was given to Grupo dos Nove collectively, not individual title
+
+-- ============================================================
+-- END OF STATEMENTS FOR BRASÍLIA
+-- ============================================================
+
+-- Source: statements/persons/camafeu-de-oxossi.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Camafeu de Oxóssi
+-- Generated: 2025-12-20
+-- ============================================================
+-- Contains all relationships where Camafeu de Oxóssi is the SUBJECT.
+--
+-- NOTE: Camafeu de Oxóssi was not formally a student of any mestre.
+-- Sources indicate he learned capoeira and berimbau from the "velhos
+-- mestres" in the streets of Salvador. He is described as self-taught
+-- through lived experience.
+--
+-- His primary documented capoeira connections are as a contemporary
+-- and associate who played alongside other mestres.
+-- ============================================================
+
+-- Camafeu de Oxóssi associated_with Pastinha (CECA companion, Dakar 1966 delegation)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  '1994-03-26'::date, 'exact'::genealogy.date_precision,
+  '{"association_context": "Played berimbau with Pastinha at CECA; member of 1966 Dakar delegation"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'https://velhosmestres.com/en/featured-15',
+  E'Camafeu played berimbau and pandeiro with Pastinha at CECA in Pelourinho. At the 1966 Dakar festival, while Pastinha was too frail to perform, Camafeu played berimbau while other capoeiristas demonstrated.',
+  E'Camafeu tocava berimbau e pandeiro com Pastinha no CECA no Pelourinho. No festival de Dacar em 1966, enquanto Pastinha estava fraco demais para se apresentar, Camafeu tocou berimbau enquanto outros capoeiristas demonstravam.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Camafeu de Oxóssi' AND o.apelido = 'Pastinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Camafeu de Oxóssi associated_with João Grande (Dakar 1966 delegation)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1966-04-01'::date, 'month'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Fellow members of 1966 Dakar delegation"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'https://velhosmestres.com/en/pastinha-1966',
+  E'Both traveled as part of the Brazilian delegation to the First World Festival of Black Arts in Dakar, Senegal, April 1966.',
+  E'Ambos viajaram como parte da delegação brasileira ao Primeiro Festival Mundial de Artes Negras em Dacar, Senegal, abril de 1966.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Camafeu de Oxóssi' AND o.apelido = 'João Grande'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Camafeu de Oxóssi associated_with Gato Preto (Dakar 1966 delegation, berimbau rivalry)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1966-04-01'::date, 'month'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Fellow members of 1966 Dakar delegation; rival berimbau masters"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'https://velhosmestres.com/en/pastinha-1966',
+  E'Both traveled to Dakar 1966. Both were renowned berimbau players - Waldeloir Rego named Gato as the greatest, while Dorival Caymmi praised Camafeu as unsurpassed.',
+  E'Ambos viajaram a Dacar 1966. Ambos eram renomados tocadores de berimbau - Waldeloir Rego nomeou Gato como o maior, enquanto Dorival Caymmi elogiou Camafeu como insuperável.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Camafeu de Oxóssi' AND o.apelido = 'Gato Preto'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Camafeu de Oxóssi associated_with Gildo Alfinete (Dakar 1966 delegation)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1966-04-01'::date, 'month'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Fellow members of 1966 Dakar delegation"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'https://velhosmestres.com/en/pastinha-1966',
+  E'Both traveled as part of the Brazilian delegation to the First World Festival of Black Arts in Dakar, Senegal, April 1966.',
+  E'Ambos viajaram como parte da delegação brasileira ao Primeiro Festival Mundial de Artes Negras em Dacar, Senegal, abril de 1966.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Camafeu de Oxóssi' AND o.apelido = 'Gildo Alfinete'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Camafeu de Oxóssi associated_with Roberto Satanás (Dakar 1966 delegation)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1966-04-01'::date, 'month'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Fellow members of 1966 Dakar delegation"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'https://velhosmestres.com/en/pastinha-1966',
+  E'Both traveled as part of the Brazilian delegation to the First World Festival of Black Arts in Dakar, Senegal, April 1966. At the festival, Camafeu played berimbau while Roberto Satanás performed.',
+  E'Ambos viajaram como parte da delegação brasileira ao Primeiro Festival Mundial de Artes Negras em Dacar, Senegal, abril de 1966. No festival, Camafeu tocou berimbau enquanto Roberto Satanás se apresentava.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Camafeu de Oxóssi' AND o.apelido = 'Roberto Satanás'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- None identified - primary associations are with Dakar 1966
+-- delegation members who exist in the dataset (Pastinha, João
+-- Grande, Gato Preto, Gildo Alfinete, Roberto Satanás).
+--
+-- Note: One source mentions Camafeu "formou capoeiristas famosos
+-- como Manoel Olímpio, popular Mestre Índio" (trained famous
+-- capoeiristas like Mestre Índio). However, other sources indicate
+-- Mestre Índio was trained by Mestre Pelé da Bomba. This claim
+-- needs further investigation before creating a teacher-student
+-- relationship.
+-- ============================================================
+
+-- Source: statements/persons/camisa-roxa.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Camisa Roxa
+-- Generated: 2025-12-20
+-- ============================================================
+-- Contains all relationships where Camisa Roxa is the SUBJECT.
+-- ============================================================
+
+-- Camisa Roxa student_of Bimba (primary teacher)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1963-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com, abadarodos.wordpress.com, capoeira-connection.com',
+  E'Entered Mestre Bimba''s academy in Salvador in 1962 or 1963. Considered the best student by his Mestre. Graduated as aluno formado.',
+  E'Entrou na academia de Mestre Bimba em Salvador em 1962 ou 1963. Considerado o melhor aluno por seu Mestre. Formou-se como aluno formado.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Camisa Roxa' AND o.apelido = 'Bimba'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Camisa Roxa trained_under Pastinha (roda participation)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1963-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb, 'likely'::genealogy.confidence,
+  'abadarodos.wordpress.com, velhosmestres.com',
+  E'Enjoyed playing in the traditional rodas at Mestre Pastinha''s academy. Part of his effort to bridge Regional and Angola styles.',
+  E'Gostava de jogar nas rodas tradicionais da academia de Mestre Pastinha. Parte de seu esforço para unir os estilos Regional e Angola.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Camisa Roxa' AND o.apelido = 'Pastinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Camisa Roxa trained_under Waldemar (roda participation)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1963-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb, 'likely'::genealogy.confidence,
+  'abadarodos.wordpress.com, velhosmestres.com, capoeiradobrasil.com.br',
+  E'Played in the rodas of Mestres Waldemar and Traíra on Rua Pero Vaz in Liberdade, Salvador. Highly respected for his posture and knowledge of capoeira fundamentals.',
+  E'Jogava nas rodas dos Mestres Waldemar e Traíra na Rua Pero Vaz, na Liberdade, Salvador. Muito respeitado por sua postura e conhecimento dos fundamentos da capoeira.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Camisa Roxa' AND o.apelido = 'Waldemar'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Camisa Roxa trained_under Traíra (roda participation)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1963-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb, 'likely'::genealogy.confidence,
+  'abadarodos.wordpress.com, velhosmestres.com, capoeiradobrasil.com.br',
+  E'Played in the rodas of Mestres Waldemar and Traíra on Rua Pero Vaz in Liberdade, Salvador. Highly respected for his posture and knowledge of capoeira fundamentals.',
+  E'Jogava nas rodas dos Mestres Waldemar e Traíra na Rua Pero Vaz, na Liberdade, Salvador. Muito respeitado por sua postura e conhecimento dos fundamentos da capoeira.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Camisa Roxa' AND s.apelido_context IS NULL AND o.apelido = 'Traíra'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Camisa Roxa associated_with João Grande (photographed together)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL, NULL, NULL,
+  '{"association_context": "photographed together, fellow mestres"}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com',
+  E'Photographed together at capoeira events. Both are major figures in capoeira history.',
+  E'Fotografados juntos em eventos de capoeira. Ambos são figuras importantes na história da capoeira.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Camisa Roxa' AND o.apelido = 'João Grande'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- Camisa Roxa family_of Camisa (José Tadeu) - brother, needs import first
+-- Camisa Roxa family_of Ermival - brother, needs import
+-- Camisa Roxa family_of Pedrinho - brother, needs import
+-- Camisa Roxa associated_with Mestre Moraes - 1992 Spring Encounter, Moraes is in dataset
+-- Camisa Roxa associated_with Mestre Santana - 1992 Spring Encounter, needs import
+-- Camisa Roxa associated_with Domingos Campos - co-led Brasil Tropical, needs import
+-- Camisa Roxa received_title_from Abadá-Capoeira - Grão-Mestre 1989, group needs import
+-- Camisa Roxa leads Abadá-Capoeira (Europe) - group needs import
+-- Camisa Roxa founded Brasil Tropical - group needs import
+-- Camisa Roxa co_founded Olodum Maré - group needs import
+
+-- Source: statements/persons/campanhao.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Campanhão
+-- Generated: 2025-12-20
+-- ============================================================
+-- Contains all relationships where Campanhão is the SUBJECT.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
+
+-- Campanhão trained_under Prata Preta
+-- Note: Source states Campanhão born "around 1900" but for a meaningful
+-- training relationship with Prata Preta (deported Dec 1904), he was likely
+-- born earlier (early-to-mid 1890s), making him a teenager when Prata Preta
+-- was still active.
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, 'unknown'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{}'::jsonb,
+  'uncertain'::genealogy.confidence,
+  'Os Malandros de Mestre Touro lineage (malandros-touro.com)',
+  E'Per Os Malandros lineage: Prata Preta → Campanhão. Source states Campanhão born "around 1900" but for a meaningful training relationship with Prata Preta (deported Dec 1904), he was likely born earlier (early-to-mid 1890s), making him a teenager when Prata Preta was still active. Single source; no corroboration found.',
+  E'Conforme linhagem Os Malandros: Prata Preta → Campanhão. A fonte indica nascimento "por volta de 1900", mas para uma relação de treinamento significativa com Prata Preta (deportado dez. 1904), ele provavelmente nasceu antes (início/meados dos anos 1890), tornando-o adolescente quando Prata Preta ainda estava ativo. Fonte única; nenhuma corroboração encontrada.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Campanhão' AND o.apelido = 'Prata Preta'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Source: statements/persons/chicao.sql (NEW)
 -- ============================================================
@@ -3037,6 +7923,199 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Mestre Augusto Januário student_of Curió - not yet imported
 -- Mestre Marcelo Angola student_of Curió (began August 1985) - not yet imported
 
+-- Source: statements/persons/decanio.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Decânio
+-- Generated: 2025-12-20
+-- ============================================================
+-- Contains all relationships where Decânio is the SUBJECT.
+-- ============================================================
+
+-- Decânio student_of Bimba (1938-1974)
+-- Primary teacher-student relationship spanning 36 years
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1938-01-01'::date, 'year'::genealogy.date_precision,
+  '1974-02-05'::date, 'exact'::genealogy.date_precision,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'Portal Capoeira, Capoeira Connection, velhosmestres.com',
+  'Decânio began training with Bimba in 1938 at age 16 while studying medicine. He kept this secret from his family initially. Bimba adopted him "like a son" from the first day. The relationship lasted 36 years until Bimba''s death on February 5, 1974.',
+  'Decânio começou a treinar com Bimba em 1938 aos 16 anos enquanto estudava medicina. Ele manteve isso em segredo de sua família inicialmente. Bimba o adotou "como filho" desde o primeiro dia. O relacionamento durou 36 anos até a morte de Bimba em 5 de fevereiro de 1974.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Decânio' AND o.apelido = 'Bimba'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Decânio received_title_from Bimba (white handkerchief / mestre)
+-- One of only four students to receive the highest graduation
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'received_title_from'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  NULL, NULL,
+  '{"title_grant": {"title": "mestre", "symbol": "lenço branco (white handkerchief)"}}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Capoeira Connection, Bimba entity SQL, multiple sources',
+  'One of only four students formally graduated to mestre level (white handkerchief) by Mestre Bimba during his lifetime. The others were Jair Moura, Miranda, and Edinho (the latter two now deceased).',
+  'Um dos apenas quatro alunos formalmente graduados ao nível de mestre (lenço branco) por Mestre Bimba durante sua vida. Os outros foram Jair Moura, Miranda e Edinho (os dois últimos já falecidos).'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Decânio' AND o.apelido = 'Bimba'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Decânio associated_with João Pequeno (neighbor and friend)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  '2011-02-01'::date, 'exact'::genealogy.date_precision,
+  '{"association_context": "Neighbors and close friends in Paripe, Salvador. Decânio served on CEDANZE Council of Honor (2003)."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Portal Capoeira, CEDANZE website',
+  'Decânio lived near João Pequeno in the Paripe neighborhood of Salvador (Subúrbio Ferroviário). They were close friends. When CEDANZE was formalized in 2003, Decânio served on its Council of Honor.',
+  'Decânio morava perto de João Pequeno no bairro de Paripe em Salvador (Subúrbio Ferroviário). Eram amigos próximos. Quando o CEDANZE foi formalizado em 2003, Decânio serviu em seu Conselho de Honra.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Decânio' AND o.apelido = 'João Pequeno'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Decânio associated_with Jair Moura (fellow white handkerchief recipient, training companion)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1958-01-01'::date, 'year'::genealogy.date_precision,
+  '2011-02-01'::date, 'exact'::genealogy.date_precision,
+  '{"association_context": "Fellow students of Mestre Bimba; both received lenço branco (white handkerchief); training companions at Bimba''s academy."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Bimba entity SQL, Jair Moura entity SQL, multiple sources',
+  'Both Decânio and Jair Moura were among the only four students to receive the lenço branco from Mestre Bimba. They were training companions at Bimba''s academy. Association ended at Decânio''s death on February 1, 2011.',
+  'Tanto Decânio quanto Jair Moura estavam entre os únicos quatro alunos a receber o lenço branco de Mestre Bimba. Eram companheiros de treino na academia de Bimba. A associação terminou com a morte de Decânio em 1º de fevereiro de 2011.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Decânio' AND o.apelido = 'Jair Moura'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- Decânio associated_with Sisnando (Cisnando Lima) - co-pillars of Capoeira Regional
+--   -> Sisnando pending import in persons-backlog.md
+-- Decânio associated_with Miranda - fellow white handkerchief recipient
+--   -> Miranda pending import in persons-backlog.md
+-- Decânio associated_with Edinho - fellow white handkerchief recipient
+--   -> Edinho pending import in persons-backlog.md
+-- Decânio associated_with Tiburcinho - brought Tiburcinho to Bimba
+--   -> Tiburcinho pending import in persons-backlog.md
+-- Decânio associated_with Mestre Jean Pangolin - mentee relationship
+--   -> Mestre Jean Pangolin NOT in backlog (contemporary figure, may not need import)
+
+-- Source: statements/persons/ezequiel.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Ezequiel
+-- Generated: 2025-12-20
+-- ============================================================
+-- Contains all relationships where Ezequiel is the SUBJECT.
+-- ============================================================
+
+-- Ezequiel student_of Bimba
+-- Primary teacher at Centro de Cultura Física e Luta Regional
+-- Graduated with lenço azul (blue handkerchief)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1964-01-01'::date, 'year'::genealogy.date_precision,
+  '1972-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com/br/destaques-16; lalaue.com; capoeiranews.com.br',
+  'Introduced to Bimba by Mestre Saci in the mid-1960s. Graduated with lenço azul alongside Mestre Galo. Training ended when Bimba left for Goiânia in 1972.',
+  'Apresentado a Bimba por Mestre Saci em meados dos anos 1960. Formou-se com lenço azul junto com Mestre Galo. Treinamento terminou quando Bimba partiu para Goiânia em 1972.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Ezequiel' AND o.apelido = 'Bimba'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Ezequiel associated_with Vermelho 27
+-- Collaborated to maintain Bimba's academy after 1972
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1972-01-01'::date, 'year'::genealogy.date_precision,
+  NULL::date, NULL::genealogy.date_precision,
+  '{"association_context": "Co-maintained Mestre Bimba''s academy at Terreiro de Jesus after Bimba left for Goiânia"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com/br/destaques-16; lalaue.com',
+  'Vermelho 27 purchased Bimba''s academy in 1972, and Ezequiel was chosen to help run the work there. Collaborated until at least the mid-1970s.',
+  'Vermelho 27 comprou a academia de Bimba em 1972, e Ezequiel foi escolhido para ajudar a gerenciar o trabalho lá. Colaboraram pelo menos até meados dos anos 1970.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Ezequiel' AND o.apelido = 'Vermelho 27'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+
+-- Ezequiel trained_under Saci
+-- Mestre Saci (Josevaldo Lima de Jesus) introduced Ezequiel to Capoeira Regional
+-- at Quartel dos Dendezeiros, then brought him to Bimba's academy
+-- NEEDS: Mestre Saci import
+
+-- Ezequiel associated_with Galo
+-- Luciano Figueiredo (Mestre Galo) - graduated lenço azul together
+-- Training companions at Bimba's academy
+-- NEEDS: Mestre Galo import
+
+-- ============================================================
+-- PERSON-TO-GROUP RELATIONSHIPS
+-- ============================================================
+
+-- Ezequiel co_founded Grupo Luanda
+-- Founded 1964 with Mestre Franklin
+-- NEEDS: Grupo Luanda import
+
+-- Ezequiel member_of Olodum/Olodumaré
+-- Folkloric groups he participated in
+-- NEEDS: Olodum/Olodumaré import (evaluate if capoeira-relevant)
+
+-- ============================================================
+-- NOTE ON STUDENTS
+-- ============================================================
+-- Student relationships flow FROM student TO teacher, so:
+-- - Jelon Vieira student_of Ezequiel → goes in jelon-vieira.sql
+-- - Omar student_of Ezequiel → goes in omar.sql
+-- - Franklin student_of Ezequiel → goes in franklin.sql
+
 -- Source: statements/persons/fernando-rodrigues-perez.sql (NEW)
 -- ============================================================
 -- STATEMENTS FOR: Fernando Rodrigues Perez
@@ -3390,6 +8469,201 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- was known in the capoeira community. However, no direct training relationship
 -- is documented - this is a cultural/commemorative connection, not a lineage relationship.
 
+-- Source: statements/persons/jair-moura.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Jair Moura
+-- Generated: 2025-12-20
+-- ============================================================
+-- Contains all relationships where Jair Moura is the SUBJECT.
+-- ============================================================
+
+-- Jair Moura student_of Bimba (late 1950s-1974)
+-- Primary teacher-student relationship
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1958-01-01'::date, 'year'::genealogy.date_precision,
+  '1974-02-05'::date, 'exact'::genealogy.date_precision,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'CapoeiraWiki, Correio 24 Horas obituary, Mestre Nenel testimony',
+  'Jair Moura began training with Mestre Bimba in the late 1950s. According to Mestre Nenel: "He was a student of my father since the 1950s." The relationship lasted until Bimba''s death on February 5, 1974. Nenel described him as "one of the guys most well-regarded by my father."',
+  'Jair Moura começou a treinar com Mestre Bimba no final dos anos 1950. Segundo Mestre Nenel: "Ele era aluno de meu pai desde a década de 1950." A relação durou até a morte de Bimba em 5 de fevereiro de 1974. Nenel o descreveu como "um dos caras mais bem considerados pelo meu pai."'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Jair Moura' AND o.apelido = 'Bimba'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Jair Moura received_title_from Bimba (white handkerchief / mestre)
+-- The LAST of only four students to receive the highest graduation
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'received_title_from'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  NULL, NULL,
+  '{"title_grant": {"title": "mestre", "symbol": "lenço branco (white handkerchief)"}}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Mestre Nenel testimony (Correio 24 Horas), CapoeiraWiki, multiple obituary sources',
+  'One of only four students formally graduated to mestre level (white handkerchief) by Mestre Bimba during his lifetime. According to Mestre Nenel (Bimba''s son): "He was the last capoeirista to receive the Lenço Branco from my father." The others were Decânio, Miranda, and Edinho (the latter two deceased before Bimba).',
+  'Um dos apenas quatro alunos formalmente graduados ao nível de mestre (lenço branco) por Mestre Bimba durante sua vida. Segundo Mestre Nenel (filho de Bimba): "Ele foi o último capoeirista a receber o Lenço Branco de meu pai." Os outros foram Decânio, Miranda e Edinho (os dois últimos falecidos antes de Bimba).'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Jair Moura' AND o.apelido = 'Bimba'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Jair Moura associated_with Decânio (fellow white handkerchief recipient, training companion)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1958-01-01'::date, 'year'::genealogy.date_precision,
+  '2011-02-01'::date, 'exact'::genealogy.date_precision,
+  '{"association_context": "Fellow students of Mestre Bimba; both received lenço branco (white handkerchief); training companions at Bimba''s academy."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Bimba entity SQL, Decânio entity SQL, multiple sources',
+  'Both Jair Moura and Decânio were among the only four students to receive the lenço branco from Mestre Bimba. They were training companions at Bimba''s academy and fellow recipients of this highest honor. Decânio''s notes list Jair Moura as a "fellow white handkerchief recipient, training companion."',
+  'Tanto Jair Moura quanto Decânio estavam entre os únicos quatro alunos a receber o lenço branco de Mestre Bimba. Eram companheiros de treino na academia de Bimba e colegas recipientes dessa maior honra. As notas de Decânio listam Jair Moura como "colega recipiente do lenço branco, companheiro de treino."'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Jair Moura' AND o.apelido = 'Decânio'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Jair Moura associated_with Totonho de Maré (documented in "Dança de Guerra" 1968)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1968-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Filmmaker documenting master; Jair Moura directed ''Dança de Guerra'' (1968) featuring Totonho de Maré; also photographed together."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com/en/featured-12, CapoeiraWiki',
+  'Jair Moura directed "Dança de Guerra" (1968) featuring Mestre Totonho de Maré. A photograph from 1968 shows Jair Moura and Mestre Maré together. Jair Moura also conducted an interview with Totonho de Maré (audio preserved at velhosmestres.com). In 1970, he wrote about Tiburcinho for A Tarde newspaper.',
+  'Jair Moura dirigiu "Dança de Guerra" (1968) com Mestre Totonho de Maré. Uma fotografia de 1968 mostra Jair Moura e Mestre Maré juntos. Jair Moura também conduziu uma entrevista com Totonho de Maré (áudio preservado em velhosmestres.com). Em 1970, escreveu sobre Tiburcinho para o jornal A Tarde.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Jair Moura' AND o.apelido = 'Totonho de Maré'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Jair Moura associated_with Noronha (documented in "Dança de Guerra" 1968)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1968-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Filmmaker documenting master; Jair Moura directed ''Dança de Guerra'' (1968) featuring Noronha in a vadiação with Totonho de Maré."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com/en/featured-12, CapoeiraWiki',
+  'Jair Moura directed "Dança de Guerra" (1968) which included a brief vadiação between Mestres Noronha and Maré. The Instituto Jair Moura (founded by Frede Abreu) later proposed the "Centenário do Mestre Noronha" based on Noronha''s birth date from his death certificate.',
+  'Jair Moura dirigiu "Dança de Guerra" (1968) que incluiu uma breve vadiação entre Mestres Noronha e Maré. O Instituto Jair Moura (fundado por Frede Abreu) posteriormente propôs o "Centenário do Mestre Noronha" baseado na data de nascimento de Noronha em sua certidão de óbito.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Jair Moura' AND o.apelido = 'Noronha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Jair Moura associated_with João Grande (documented in "Dança de Guerra" 1968)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1968-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Filmmaker documenting master; Jair Moura directed ''Dança de Guerra'' (1968) featuring João Grande."}'::jsonb,
+  'likely'::genealogy.confidence,
+  'SecultBA note, CapoeiraWiki (some sources list João Grande in the documentary)',
+  'Jair Moura directed "Dança de Guerra" (1968). Some sources (including SecultBA official note) list João Grande among the masters featured, alongside Bimba and João Pequeno.',
+  'Jair Moura dirigiu "Dança de Guerra" (1968). Algumas fontes (incluindo nota oficial da SecultBA) listam João Grande entre os mestres apresentados, junto com Bimba e João Pequeno.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Jair Moura' AND o.apelido = 'João Grande'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Jair Moura associated_with João Pequeno (documented in "Dança de Guerra" 1968)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1968-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Filmmaker documenting master; Jair Moura directed ''Dança de Guerra'' (1968) featuring João Pequeno."}'::jsonb,
+  'likely'::genealogy.confidence,
+  'SecultBA note, CapoeiraWiki (some sources list João Pequeno in the documentary)',
+  'Jair Moura directed "Dança de Guerra" (1968). Some sources (including SecultBA official note) list João Pequeno among the masters featured, alongside Bimba and João Grande.',
+  'Jair Moura dirigiu "Dança de Guerra" (1968). Algumas fontes (incluindo nota oficial da SecultBA) listam João Pequeno entre os mestres apresentados, junto com Bimba e João Grande.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Jair Moura' AND o.apelido = 'João Pequeno'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Jair Moura associated_with Itapoan (co-presenter at 1980 First Regional Capoeira Seminar)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1980-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Co-presenters at the 1980 First Regional Capoeira Seminar in Salvador, organized alongside Carlos Sena, Albano Marinho, and Ordep Serra."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com/en/cobrinha-1980',
+  'Jair Moura and Itapoan were both presenters at the 1980 First Regional Capoeira Seminar in Salvador, which brought together main Bahian masters of different lineages and styles.',
+  'Jair Moura e Itapoan foram ambos apresentadores no Primeiro Seminário Regional de Capoeira de 1980 em Salvador, que reuniu os principais mestres baianos de diferentes linhagens e estilos.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Jair Moura' AND o.apelido = 'Itapoan'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- Jair Moura associated_with Tiburcinho - filmed in "Dança de Guerra" (1968); wrote A Tarde article 1970
+--   -> Tiburcinho pending import in persons-backlog.md
+-- Jair Moura associated_with Nenel - Nenel provided testimony about Jair Moura
+--   -> Nenel pending import in persons-backlog.md
+-- Jair Moura associated_with Miranda - fellow white handkerchief recipient
+--   -> Miranda pending import in persons-backlog.md
+-- Jair Moura associated_with Edinho - fellow white handkerchief recipient
+--   -> Edinho pending import in persons-backlog.md
+-- Jair Moura associated_with Carlos Senna - co-presenter at 1980 First Regional Capoeira Seminar
+--   -> Carlos Senna pending import in persons-backlog.md
+-- Jair Moura associated_with Frede Abreu (Frederico José de Abreu) - close friend and fellow researcher
+--   -> Frede Abreu added to backlog (historian, may need import as researcher type)
+-- Jair Moura associated_with Glauber Rocha - friendship
+--   -> Glauber Rocha NOT capoeira figure - do not import
+
 -- Source: statements/persons/juvenil.sql (NEW)
 -- ============================================================
 -- STATEMENTS FOR: Juvenil
@@ -3612,6 +8886,42 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Maria dos Anjos associated_with Maria Doze Homens - Both were contemporary valentonas in 1920s-1930s Salvador
 --   (Maria Doze Homens exists in dataset but relationship is contextual/contemporary, not direct training/mentorship)
 
+-- Source: statements/persons/maria-homem.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Maria Homem
+-- Generated: 2025-12-20
+-- ============================================================
+-- Contains all relationships where Maria Homem is the SUBJECT.
+-- ============================================================
+
+-- Maria Homem associated_with Júlia Fogareira (fellow female capoeirista)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1902-01-01'::date, 'decade'::genealogy.date_precision,
+  '1911-12-31'::date, 'decade'::genealogy.date_precision,
+  '{"association_context": "Fellow legendary female capoeiristas; both named by Pastinha among angoleiros de briga"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'O Globo 1976; velhosmestres.com/br/pastinha-1976; velhosmestres.com/en/pastinha-1969-3',
+  'Both were the only two women listed by Mestre Pastinha in his 1976 O Globo interview and his 1988 book among legendary fighters. They practiced capoeira during the same 1902-1911 era in Salvador.',
+  'Ambas foram as únicas duas mulheres listadas por Mestre Pastinha em sua entrevista ao O Globo de 1976 e em seu livro de 1988 entre lutadores lendários. Praticaram capoeira durante a mesma era 1902-1911 em Salvador.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Maria Homem' AND o.apelido = 'Júlia Fogareira'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- Maria Homem associated_with Palmeirona - needs import first
+-- Maria Homem associated_with Maria Pernambucana - needs import first
+-- Maria Homem trained_under [unknown masters] - no specific masters named
+
 -- Source: statements/persons/maria-izabel.sql (NEW)
 -- ============================================================
 -- STATEMENTS FOR: Maria Izabel
@@ -3641,6 +8951,159 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 --
 -- However, without documented connection, no statements are created.
 -- Her value is as a representative figure, not for specific lineage.
+
+-- Source: statements/persons/nenel.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Nenel
+-- Generated: 2025-12-20
+-- ============================================================
+-- Contains all relationships where Nenel is the SUBJECT.
+-- ============================================================
+
+-- Nenel student_of Bimba (his father and mestre)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1966-01-01'::date, 'year'::genealogy.date_precision,
+  '1974-02-05'::date, 'exact'::genealogy.date_precision,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'https://fundacaomestrebimba.org.br/mestre-nenel/',
+  E'Primary teacher. Nenel began formal capoeira training at age 6 in 1966, graduating with blue scarf in June 1967. Training continued until Bimba''s death in February 1974. Nenel was both son and student of Mestre Bimba.',
+  E'Professor principal. Nenel começou treinamento formal de capoeira aos 6 anos em 1966, formando-se com lenço azul em junho de 1967. O treinamento continuou até a morte de Bimba em fevereiro de 1974. Nenel foi tanto filho quanto aluno de Mestre Bimba.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Nenel' AND o.apelido = 'Bimba'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Nenel family_of Bimba (son)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'family_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1960-09-26'::date, 'exact'::genealogy.date_precision,
+  NULL, NULL,
+  '{"relationship_type": "son"}'::jsonb, 'verified'::genealogy.confidence,
+  'https://fundacaomestrebimba.org.br/mestre-nenel/',
+  E'Biological son. Nenel is the son of Mestre Bimba and Berenice da Conceição Nascimento. He continues his father''s legacy as guardian of authentic Capoeira Regional.',
+  E'Filho biológico. Nenel é filho de Mestre Bimba e Berenice da Conceição Nascimento. Ele continua o legado de seu pai como guardião da autêntica Capoeira Regional.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Nenel' AND o.apelido = 'Bimba'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- Nenel founded Filhos de Bimba Escola de Capoeira (1986) - group needs import first
+-- Nenel leads Fundação Mestre Bimba - group needs import first
+-- Nenel associated_with Mestra Preguiça (partner) - person needs import first
+-- Nenel associated_with Formiga (brother, trained together June 1967) - person needs import first
+
+-- Source: statements/persons/nenem-itabuna.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Neném (Itabuna)
+-- Generated: 2025-12-20
+-- ============================================================
+-- Contains all relationships where Neném (Itabuna) is the SUBJECT.
+--
+-- NOTE: Neném is a Layer Zero figure - an African-born capoeirista
+-- at the root of the Itabuna lineage. He has no documented teachers.
+-- His primary student was Paizinho (Teodoro Ramos).
+-- ============================================================
+
+-- ============================================================
+-- NO ACTIVE STATEMENTS
+-- ============================================================
+-- Neném has no documented teachers (Layer Zero).
+-- As the subject, he would only have:
+-- - student_of relationships (none documented - he is the root)
+-- - founded/leads relationships (no formal group documented)
+-- - associated_with relationships (none documented)
+--
+-- Relationships where Neném is the OBJECT go in the student's file:
+-- - Paizinho student_of Neném → will go in paizinho.sql when imported
+-- ============================================================
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- No pending statements where Neném is the subject.
+--
+-- When Paizinho is imported, his statements file should include:
+-- - Paizinho (Teodoro Ramos) student_of Neném (Itabuna)
+--   Started: unknown (likely late 1800s/early 1900s)
+--   Ended: unknown (Neném's death not documented)
+--   Location: Itabuna, Bahia
+--   Confidence: verified (documented in multiple sources via Artur Emídio's testimony)
+--   Source: velhosmestres.com/en/featured-69, capoeirahistory.com/mestre/master-paulo-gomes/
+-- ============================================================
+
+-- ============================================================
+-- NOTE ON POSSIBLE ASSOCIATION
+-- ============================================================
+-- If Neném (Itabuna) is the same person as Neném (1937 Congress),
+-- he would have associated_with relationships with the other
+-- Congress participants: Querido de Deus, Barbosa, Zeppelin, etc.
+-- However, this identification is UNCERTAIN and should not be
+-- assumed without further evidence.
+-- ============================================================
+
+-- Source: statements/persons/paizinho.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Paizinho (Teodoro Ramos)
+-- Generated: 2025-12-20
+-- ============================================================
+-- Contains all relationships where Paizinho is the SUBJECT.
+-- Relationships where Paizinho is the OBJECT belong in the
+-- subject's file (e.g., artur-emidio.sql for Artur's student_of).
+-- ============================================================
+
+-- Paizinho student_of Neném (Itabuna)
+-- Primary teacher; African-born capoeirista who taught in Itabuna
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,  -- Started unknown
+  NULL, NULL,  -- Ended unknown
+  '{}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com/en/featured-69; capoeirahistory.com/mestre/master-artur-emidio-1930-2011/',
+  E'Paizinho was a disciple of Mestre Neném, described as "an African" or "of African origin." The training likely took place in Itabuna in the late 1800s/early 1900s, during the criminalization period. Neném represents the Layer Zero anchor of this southern Bahia lineage.',
+  E'Paizinho foi discípulo de Mestre Neném, descrito como "um africano" ou "de origem africana." O treinamento provavelmente ocorreu em Itabuna no final de 1800/início de 1900, durante o período de criminalização. Neném representa a âncora da Camada Zero desta linhagem do sul da Bahia.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Paizinho' AND COALESCE(s.apelido_context, '') = ''
+  AND o.apelido = 'Neném' AND COALESCE(o.apelido_context, '') = 'Itabuna'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- NOTE: The following relationship has the OBJECT in the dataset:
+-- Artur Emídio student_of Paizinho
+-- This statement belongs in artur-emidio.sql (subject's file).
+-- Verified that artur-emidio.sql exists and contains this relationship.
+-- ============================================================
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- None - all known relationships have objects in dataset:
+-- - Neném (Itabuna) - EXISTS (nenem-itabuna.sql)
+-- - Artur Emídio - EXISTS (artur-emidio.sql) - relationship in his file
+-- ============================================================
 
 -- Source: statements/persons/pequena.sql (NEW)
 -- ============================================================
@@ -3679,6 +9142,50 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- ============================================================
 -- Curió family_of Pequena - to add to curio.sql (parent relationship)
 -- Malvadeza family_of Pequena - in malvadeza.sql (spouse relationship)
+
+-- Source: statements/persons/pessoa-bababa.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Pessoa Bababá
+-- Generated: 2025-12-20
+-- ============================================================
+-- Contains all relationships where Pessoa Bababá is the SUBJECT.
+--
+-- RELATIONSHIPS:
+-- 1. Pessoa Bababá student_of Pastinha (timing unknown)
+--
+-- INVERSE RELATIONSHIPS (documented in other files):
+-- - Bola Sete trained_under Pessoa Bababá (1968-1969) → in bola-sete.sql
+-- ============================================================
+
+-- Pessoa Bababá student_of Pastinha
+-- Training at CECA, timing unknown but before 1968
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'Mestre Bola Sete interviews (Capoeira Connection 2011, Portal Capoeira); "Mestres e capoeiras famosos da Bahia" (Pedro Abib, EDUFBA)',
+  E'Pessoa Bababá was documented as a disciple of Mestre Pastinha. The exact timing of his training at CECA is unknown, but he must have completed sufficient training to be teaching by 1968 when he instructed Bola Sete. He is listed among Pastinha''s Additional Named Students (as "Pessoa Bá-Bá-Bá") in Pastinha documentation.',
+  E'Pessoa Bababá foi documentado como discípulo de Mestre Pastinha. O período exato de seu treinamento no CECA é desconhecido, mas ele deve ter completado treinamento suficiente para estar ensinando em 1968 quando instruiu Bola Sete. Ele está listado entre os Alunos Adicionais de Pastinha (como "Pessoa Bá-Bá-Bá") na documentação de Pastinha.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Pessoa Bababá' AND o.apelido = 'Pastinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- INVERSE RELATIONSHIP (to be added to bola-sete.sql)
+-- ============================================================
+-- The relationship "Bola Sete trained_under Pessoa Bababá" should
+-- be added to bola-sete.sql since Bola Sete is the subject.
+-- This is documented below for reference but will be added to
+-- the correct file.
+-- ============================================================
 
 -- Source: statements/persons/piroca.sql (NEW)
 -- ============================================================
@@ -3735,6 +9242,128 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- ============================================================
 -- None identified - Guruxinha (victim) is not a capoeirista to import
 
+-- Source: statements/persons/roberto-satanas.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Roberto Satanás
+-- Generated: 2025-12-20
+-- ============================================================
+-- Contains all relationships where Roberto Satanás is the SUBJECT.
+-- ============================================================
+
+-- Roberto Satanás student_of Pastinha (CECA, 1960-1966)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1960-09-20'::date, 'exact'::genealogy.date_precision,
+  '1966-04-24'::date, 'month'::genealogy.date_precision,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com/en/featured-63',
+  'Admitted to CECA September 20, 1960; received diploma March 31, 1963; left capoeira after Dakar trip (April 1966)',
+  'Admitido no CECA em 20 de setembro de 1960; recebeu diploma em 31 de março de 1963; deixou a capoeira após a viagem a Dacar (abril de 1966)'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Roberto Satanás' AND o.apelido = 'Pastinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Roberto Satanás received_title_from Pastinha (diploma 1963)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'received_title_from'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1963-03-31'::date, 'exact'::genealogy.date_precision,
+  NULL, NULL,
+  '{"title_grant": {"title": "diploma"}}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com/en/featured-63',
+  'Received diploma (graduation certificate) from Mestre Pastinha on March 31, 1963',
+  'Recebeu diploma (certificado de graduação) de Mestre Pastinha em 31 de março de 1963'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Roberto Satanás' AND o.apelido = 'Pastinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Roberto Satanás associated_with João Grande (Dakar 1966 delegation)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1960-09-20'::date, 'year'::genealogy.date_precision,
+  '1966-04-24'::date, 'month'::genealogy.date_precision,
+  '{"association_context": "Fellow students at CECA; both traveled to Dakar 1966"}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com/en/pastinha-1966',
+  'Fellow students of Mestre Pastinha at CECA; both part of the delegation to Dakar 1966',
+  'Colegas alunos de Mestre Pastinha no CECA; ambos parte da delegação a Dacar 1966'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Roberto Satanás' AND o.apelido = 'João Grande'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Roberto Satanás associated_with Gildo Alfinete (Dakar 1966 delegation, helped carry Pastinha)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1960-09-20'::date, 'year'::genealogy.date_precision,
+  '1966-04-24'::date, 'month'::genealogy.date_precision,
+  '{"association_context": "Fellow students at CECA; both traveled to Dakar 1966; together helped Pastinha climb stairs at Piedade passport office"}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com/en/pastinha-1966',
+  'Fellow students; together helped Pastinha climb stairs at Piedade to get his passport before Dakar trip',
+  'Colegas alunos; juntos ajudaram Pastinha a subir as escadas na Piedade para obter seu passaporte antes da viagem a Dacar'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Roberto Satanás' AND o.apelido = 'Gildo Alfinete'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Roberto Satanás associated_with Gato Preto (Dakar 1966 delegation)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1966-04-16'::date, 'exact'::genealogy.date_precision,
+  '1966-04-24'::date, 'month'::genealogy.date_precision,
+  '{"association_context": "Both traveled to Dakar 1966; performed together at the festival"}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com/en/pastinha-1966',
+  'Both part of the delegation to Dakar 1966; performed at the festival while Pastinha sat in the shadow',
+  'Ambos parte da delegação a Dacar 1966; se apresentaram no festival enquanto Pastinha ficava à sombra'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Roberto Satanás' AND o.apelido = 'Gato Preto'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- Roberto Satanás associated_with Camafeu de Oxóssi - needs import first
+--   (Dakar 1966 delegation; Camafeu played berimbau while Roberto performed)
+-- Roberto Satanás associated_with Waldomiro Malvadeza - needs import first
+--   (Fellow singer on 1969 LP "Capoeira Angola" recorded at Teatro Castro Alves)
+-- Roberto Satanás associated_with Toinho - needs import first
+--   (Participated together in 1964 Belo Horizonte trip)
+-- ============================================================
+-- NOTE: CECA group entity not yet in dataset - when imported, add:
+-- Roberto Satanás member_of CECA (1960-1966)
+-- ============================================================
+
 -- Source: statements/persons/rosa-palmeirao.sql (NEW)
 -- ============================================================
 -- STATEMENTS FOR: Rosa Palmeirão
@@ -3774,6 +9403,333 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Rosa Palmeirão associated_with Pedro Mineiro - Pedro Mineiro in backlog (pending)
 -- Note: Pedro Mineiro exists in persons-backlog.md from Antônio Corró import
 -- Once imported, uncomment the statement above
+
+-- Source: statements/persons/silvestre.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Silvestre
+-- Generated: 2025-12-20
+-- ============================================================
+-- Contains all relationships where Silvestre is the SUBJECT.
+-- Teachers: Waldemar, Caiçara, Pastinha, Bimba (all in dataset)
+-- ============================================================
+
+-- Silvestre student_of Waldemar (primary teacher, late 1950s)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1955-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'matumbecapoeira.com/mestres/, velhosmestres.com',
+  'Primary teacher; learned capoeira in the second half of the 1950s with Waldemar da Liberdade',
+  'Professor principal; aprendeu capoeira na segunda metade dos anos 1950 com Waldemar da Liberdade'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Silvestre' AND s.apelido_context IS NULL
+  AND o.apelido = 'Waldemar' AND o.apelido_context IS NULL
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Silvestre student_of Caiçara (primary teacher, late 1950s; became contra-mestre)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1955-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"became_contramestre": true}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com/br/destaques-39, matumbecapoeira.com/mestres/',
+  'Primary teacher; learned capoeira in the second half of the 1950s with Mestre Caiçara; rose to contra-mestre with authority to sign diplomas',
+  'Professor principal; aprendeu capoeira na segunda metade dos anos 1950 com Mestre Caiçara; subiu a contra-mestre com autoridade para assinar diplomas'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Silvestre' AND s.apelido_context IS NULL
+  AND o.apelido = 'Caiçara' AND o.apelido_context IS NULL
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Silvestre trained_under Pastinha (frequented CECA regularly)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1955-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{}'::jsonb, 'likely'::genealogy.confidence,
+  'matumbecapoeira.com/mestres/, grupogingarte.no.comunidades.net',
+  'Frequented CECA (Pastinha''s academy) regularly during his Salvador years; nature of training relationship unclear',
+  'Frequentou o CECA (academia de Pastinha) regularmente durante seus anos em Salvador; natureza da relação de treinamento incerta'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Silvestre' AND s.apelido_context IS NULL
+  AND o.apelido = 'Pastinha' AND o.apelido_context IS NULL
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Silvestre trained_under Bimba (trained with him, extent unclear)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1955-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{}'::jsonb, 'likely'::genealogy.confidence,
+  'matumbecapoeira.com/mestres/, grupoliberdadecapoeira.com.br',
+  'Trained some classes with Mestre Bimba; extent of training unclear',
+  'Treinou algumas aulas com Mestre Bimba; extensão do treinamento incerta'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Silvestre' AND s.apelido_context IS NULL
+  AND o.apelido = 'Bimba' AND o.apelido_context IS NULL
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- Silvestre teaches_at Grupo de Capoeira Vera Cruz - GROUP NOT IN DATASET; add to groups-backlog
+-- Silvestre co_founded Federação Paulista de Capoeira - GROUP NOT IN DATASET; add to groups-backlog
+-- Silvestre graduated_mestre Mestre Gato de Silvestre (Julival do Espírito Santo) - PERSON NOT IN DATASET; add to persons-backlog
+-- Silvestre signed_diploma Fernandinho - already in dataset (Fernando Olímpio Paes Filho, 1948-2001), but relationship type not standard
+
+-- Source: statements/persons/suassuna.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Suassuna
+-- Generated: 2025-12-20
+-- ============================================================
+-- Contains all relationships where Suassuna is the SUBJECT.
+-- ============================================================
+
+-- Suassuna trained_under Bimba (1950s-1960s in Salvador terreiros)
+-- Note: Using trained_under rather than student_of since Suassuna
+-- visited Bimba's terreiro in Salvador periodically, not as a formal
+-- ongoing student. Bimba later recognized him as mestre (1972).
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1958-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com, lalaue.com, capoeira.online',
+  'Suassuna visited Bimba''s terreiro in Salvador during trips from Itabuna to expand his knowledge. Bimba became a primary reference for his work and later recognized him as mestre in 1972.',
+  'Suassuna visitou o terreiro de Bimba em Salvador durante viagens de Itabuna para expandir seu conhecimento. Bimba tornou-se referência primária para seu trabalho e depois o reconheceu como mestre em 1972.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Suassuna' AND o.apelido = 'Bimba'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Suassuna trained_under Canjiquinha (1950s-1960s in Salvador terreiros)
+-- Note: Using trained_under since Suassuna visited Canjiquinha's terreiro
+-- in Salvador periodically. Canjiquinha later recognized him as mestre.
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1958-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com, lalaue.com, capoeira.online',
+  'Suassuna visited Canjiquinha''s terreiro in Salvador during trips from Itabuna. Canjiquinha influenced his entire artistic career and later recognized him as mestre.',
+  'Suassuna visitou o terreiro de Canjiquinha em Salvador durante viagens de Itabuna. Canjiquinha influenciou toda sua carreira artística e depois o reconheceu como mestre.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Suassuna' AND o.apelido = 'Canjiquinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Suassuna influenced_by Pastinha (1950s-1960s in Salvador terreiros)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'influenced_by'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1958-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'lalaue.com, capoeira.online, portalcapoeira.com',
+  'Suassuna visited Pastinha''s terreiro in Salvador as part of his efforts to learn from the most famous mestres of Bahia.',
+  'Suassuna visitou o terreiro de Pastinha em Salvador como parte de seus esforços para aprender com os mestres mais famosos da Bahia.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Suassuna' AND o.apelido = 'Pastinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Suassuna influenced_by Waldemar (1950s-1960s in Salvador terreiros)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'influenced_by'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1958-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'lalaue.com, capoeira.online, portalcapoeira.com',
+  'Suassuna visited Waldemar''s terreiro in Salvador as part of his efforts to learn from the most famous mestres of Bahia.',
+  'Suassuna visitou o terreiro de Waldemar em Salvador como parte de seus esforços para aprender com os mestres mais famosos da Bahia.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Suassuna' AND o.apelido = 'Waldemar'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Suassuna influenced_by Caiçara (1950s-1960s in Salvador terreiros)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'influenced_by'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1958-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'lalaue.com, capoeira.online, portalcapoeira.com',
+  'Suassuna visited Caiçara''s terreiro in Salvador as part of his efforts to learn from the most famous mestres of Bahia.',
+  'Suassuna visitou o terreiro de Caiçara em Salvador como parte de seus esforços para aprender com os mestres mais famosos da Bahia.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Suassuna' AND o.apelido = 'Caiçara'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Suassuna influenced_by João Grande (development of Miudinho)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'influenced_by'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1958-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'portalcapoeira.com',
+  'João Grande (João Batestaca), disciple of Pastinha, influenced the development of Suassuna''s famous Miudinho game - a closed angola game played close.',
+  'João Grande (João Batestaca), discípulo de Pastinha, influenciou o desenvolvimento do famoso jogo Miudinho de Suassuna - um jogo de angola fechado jogado de perto.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Suassuna' AND o.apelido = 'João Grande'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Suassuna received_title_from Bimba (1972)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'received_title_from'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1972-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"title_grant": {"title": "mestre"}}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com, portalcapoeira.com',
+  'In 1972, Mestre Bimba visited Suassuna in São Paulo and awarded him a certificate recognizing his work and his status as mestre. Some sources say 1975.',
+  'Em 1972, Mestre Bimba visitou Suassuna em São Paulo e lhe concedeu um certificado reconhecendo seu trabalho e seu status como mestre. Algumas fontes dizem 1975.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Suassuna' AND o.apelido = 'Bimba'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Suassuna received_title_from Canjiquinha (date unknown)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'received_title_from'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  NULL, NULL,
+  '{"title_grant": {"title": "mestre"}}'::jsonb, 'verified'::genealogy.confidence,
+  'lalaue.com, capoeira.online, portalcapoeira.com',
+  'Canjiquinha recognized Suassuna''s work and awarded him the title of mestre. Exact date unknown.',
+  'Canjiquinha reconheceu o trabalho de Suassuna e lhe concedeu o título de mestre. Data exata desconhecida.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Suassuna' AND o.apelido = 'Canjiquinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Suassuna associated_with Brasília (co-founders of Cordão de Ouro, lifelong friends)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1965-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "co-founders of Cordão de Ouro; met at Zé de Freitas academy in São Paulo 1965"}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com, lalaue.com, brasilia.md',
+  'Suassuna and Brasília met at Zé de Freitas''s academy in São Paulo (1965). They co-founded Cordão de Ouro on September 1, 1967. Though Brasília departed in 1969 to found São Bento Grande, they remain lifelong friends.',
+  'Suassuna e Brasília se conheceram na academia de Zé de Freitas em São Paulo (1965). Eles co-fundaram o Cordão de Ouro em 1° de setembro de 1967. Embora Brasília tenha saído em 1969 para fundar o São Bento Grande, eles permanecem amigos por toda a vida.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Suassuna' AND o.apelido = 'Brasília'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- Suassuna student_of Maneca (primary teacher in Itabuna ~1957-1958)
+--   Mestre Maneca was student of Bimba and Zoião; taught Suassuna in Itabuna
+--   --> Add Mestre Maneca to backlog
+-- Suassuna trained_under Sururú (Itabuna, 1950s)
+--   --> Add Mestre Sururú to backlog
+-- Suassuna trained_under Bigode de Arame (Itabuna, 1950s)
+--   --> Add Mestre Bigode de Arame to backlog
+-- Suassuna trained_under Tonho Rale (Itabuna, 1950s)
+--   --> Add Mestre Tonho Rale to backlog
+-- Suassuna trained_under Maneca Brandão (Itabuna, 1950s)
+--   --> Add Mestre Maneca Brandão to backlog
+-- Suassuna founded Cordão de Ouro (1967)
+--   --> Cordão de Ouro is in groups-backlog
+-- Suassuna co_founded Cordão de Ouro (1967)
+--   --> Cordão de Ouro is in groups-backlog
+-- ============================================================
+
+-- ============================================================
+-- STUDENTS (OBJECTS - Suassuna as teacher, statements go in STUDENT files)
+-- These are noted for reference but statements belong in student files:
+-- ============================================================
+-- Lobão student_of Suassuna --> goes in lobao.sql
+-- Esdras Filho student_of Suassuna --> goes in esdras-filho.sql
+-- Tarzan student_of Suassuna --> goes in tarzan.sql
+-- Belisco student_of Suassuna --> goes in belisco.sql
+-- Almir das Areias student_of Suassuna --> goes in almir-das-areias.sql
+-- Mestre Madeira received_title_from Suassuna --> already in madeira.sql
+-- (Many others in Miudinho Generation)
+-- ============================================================
 
 -- Source: statements/persons/valdomiro-malvadeza.sql (NEW)
 -- ============================================================
@@ -3907,6 +9863,1074 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- ============================================================
 -- Valdomiro associated_with Roberto Satanás - 1969 LP recording (Roberto Satanás pending import)
 -- Valdomiro associated_with Raimundo Pequeno/Natividade - 1969 LP recording (pending import)
+
+-- Source: statements/persons/vermelho-27.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Vermelho 27
+-- Generated: 2025-12-20
+-- ============================================================
+-- Contains all relationships where Vermelho 27 is the SUBJECT.
+-- ============================================================
+
+-- Vermelho 27 student_of Bimba
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1953-01-01'::date, 'year'::genealogy.date_precision,
+  '1974-02-05'::date, 'exact'::genealogy.date_precision,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'CapoeiraWiki, Lalaue, UNICAR München',
+  E'Met Bimba in 1952; began formal training in 1953 at CCFR. Graduated 1956. One of Bimba''s ten best students. Bimba called him "Maluco por Capoeira" (Crazy about Capoeira). Ended with Bimba''s death in 1974.',
+  E'Conheceu Bimba em 1952; começou treinamento formal em 1953 no CCFR. Formado 1956. Um dos dez melhores alunos de Bimba. Bimba o chamou de "Maluco por Capoeira." Terminou com a morte de Bimba em 1974.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Vermelho 27' AND o.apelido = 'Bimba'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+
+-- Vermelho 27 associated_with Ferro Velho (Mestre Durval) - needs import first
+-- Context: Post-Bimba preservation effort; collaborated to keep academy running 1974+
+
+-- Vermelho 27 associated_with Vermelho Boxel - needs import first
+-- Context: Post-Bimba preservation effort; collaborated to keep academy running 1974+
+
+-- Vermelho 27 associated_with Mestre Bahia - needs import first
+-- Context: Post-Bimba preservation effort; collaborated to keep academy running 1974+
+
+-- Vermelho 27 associated_with Mestre Bando - needs import first
+-- Context: Post-Bimba preservation effort; collaborated to keep academy running 1974+
+
+-- Vermelho 27 associated_with Mestre Boa Gente - needs import first
+-- Context: Post-Bimba preservation effort; collaborated to keep academy running 1974+
+
+-- ============================================================
+-- INVERSE RELATIONSHIPS (where Vermelho 27 is OBJECT)
+-- These statements belong in the SUBJECT's file, not here.
+-- Documented for cross-reference:
+-- ============================================================
+
+-- Mestre Bamba student_of Vermelho 27 - belongs in bamba.sql
+-- Mestre Cabeludo student_of Vermelho 27 - belongs in cabeludo.sql
+-- Mestre Boa Gente trained_under Vermelho 27 - belongs in boa-gente.sql
+
+-- Source: statements/persons/zeppelin.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Zeppelin
+-- Generated: 2025-12-20
+-- ============================================================
+-- Contains all relationships where Zeppelin is the SUBJECT.
+--
+-- Zeppelin is documented as a participant in the II Congresso
+-- Afro-Brasileiro (1937) and as an informant for Edison Carneiro's
+-- research. However, no formal teacher-student relationships are
+-- documented for him.
+--
+-- EXISTING RELATIONSHIPS:
+-- - associated_with Querido de Deus (contemporary, co-informant for Carneiro)
+-- - associated_with Barbosa (contemporary, co-informant for Carneiro)
+-- - associated_with Onça Preta (contemporary, 1937 Congress participant)
+--
+-- PENDING RELATIONSHIPS (objects not yet in dataset):
+-- - associated_with Juvenal (1937 Congress participant) - needs import
+-- - associated_with Bugaia (1937 Congress participant) - needs import
+-- - associated_with Fernandes (1937 Congress participant) - needs import
+-- - associated_with Eutíquio (1937 Congress participant) - needs import
+-- - associated_with Neném (1937 Congress participant) - needs import
+-- - associated_with Zei (1937 Congress participant) - needs import
+-- - associated_with Arthur Mattos (1937 Congress participant) - needs import
+-- - associated_with Raphael (1937 Congress participant) - needs import
+-- - associated_with Edgar (1937 Congress participant) - needs import
+-- ============================================================
+
+-- Zeppelin associated_with Querido de Deus (co-informant for Edison Carneiro's research, 1937 Congress participant)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1937-01-14'::date, 'exact'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Co-informants for Edison Carneiro''s capoeira research in ''Negros Bantus'' (1937); both participated in II Congresso Afro-Brasileiro capoeira demonstration"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Edison Carneiro, "Negros Bantus" (1937); velhosmestres.com/br/destaques-38',
+  E'Both named as key informants on capoeira de Angola in Edison Carneiro''s acknowledgments. Participated together in the historic capoeira demonstration at II Congresso Afro-Brasileiro (January 14, 1937) at Club de Regatas Itapagipe.',
+  E'Ambos citados como informantes-chave sobre capoeira de Angola nos agradecimentos de Edison Carneiro. Participaram juntos da histórica demonstração de capoeira no II Congresso Afro-Brasileiro (14 de janeiro de 1937) no Club de Regatas Itapagipe.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Zeppelin' AND COALESCE(s.apelido_context, '') = ''
+  AND o.apelido = 'Querido de Deus' AND COALESCE(o.apelido_context, '') = ''
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Zeppelin associated_with Barbosa (co-informant for Edison Carneiro's research, 1937 Congress participant)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1937-01-14'::date, 'exact'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Co-informants for Edison Carneiro''s capoeira research in ''Negros Bantus'' (1937); both participated in II Congresso Afro-Brasileiro capoeira demonstration"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Edison Carneiro, "Negros Bantus" (1937); velhosmestres.com/br/destaques-38',
+  E'Both named as key informants on capoeira de Angola in Edison Carneiro''s acknowledgments. Participated together in the historic capoeira demonstration at II Congresso Afro-Brasileiro (January 14, 1937) at Club de Regatas Itapagipe.',
+  E'Ambos citados como informantes-chave sobre capoeira de Angola nos agradecimentos de Edison Carneiro. Participaram juntos da histórica demonstração de capoeira no II Congresso Afro-Brasileiro (14 de janeiro de 1937) no Club de Regatas Itapagipe.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Zeppelin' AND COALESCE(s.apelido_context, '') = ''
+  AND o.apelido = 'Barbosa' AND o.apelido_context = 'Cachoeira/Largo Dois de Julho'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Zeppelin associated_with Onça Preta (1937 Congress participant)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1937-01-14'::date, 'exact'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Fellow participants in II Congresso Afro-Brasileiro capoeira de Angola demonstration (1937)"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Estado da Bahia newspaper (January 1937); velhosmestres.com/br/destaques-38',
+  E'Both participated in the capoeira de Angola demonstration at II Congresso Afro-Brasileiro (January 14, 1937) at Club de Regatas Itapagipe, directed by Samuel Querido de Deus.',
+  E'Ambos participaram da demonstração de capoeira de Angola no II Congresso Afro-Brasileiro (14 de janeiro de 1937) no Club de Regatas Itapagipe, dirigida por Samuel Querido de Deus.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Zeppelin' AND COALESCE(s.apelido_context, '') = ''
+  AND o.apelido = 'Onça Preta' AND COALESCE(o.apelido_context, '') = ''
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (objects not yet in dataset)
+-- ============================================================
+-- The following contemporaries from the 1937 Congress are not yet
+-- imported. When they are added, create associated_with statements:
+--
+-- Zeppelin associated_with Juvenal - 1937 Congress participant
+-- Zeppelin associated_with Bugaia - 1937 Congress participant
+-- Zeppelin associated_with Fernandes - 1937 Congress participant
+-- Zeppelin associated_with Eutíquio - 1937 Congress participant
+-- Zeppelin associated_with Neném - 1937 Congress participant; distinct from Neném (Noronha's father)
+-- Zeppelin associated_with Zei - 1937 Congress participant
+-- Zeppelin associated_with Arthur Mattos - 1937 Congress participant
+-- Zeppelin associated_with Raphael - 1937 Congress participant
+-- Zeppelin associated_with Edgar - 1937 Congress participant; may be same as "Edgard" in some sources
+--
+-- Note: Ambrósio, Barroso, and Damião are in the backlog but not yet imported
+-- ============================================================
+
+-- Source: statements/persons/zuma.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Zuma
+-- Generated: 2025-12-20
+-- ============================================================
+-- Contains all relationships where Zuma is the SUBJECT.
+-- ============================================================
+
+-- Zuma associated_with Bimba (Bimba studied Zuma's methods; Bimba's 1936 challenges used Zuma's rules)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1930-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Bimba studied Zuma''s methods alongside Sinhozinho and Mario Aleixo; Bimba''s 1936 challenge matches were fought under Zuma''s boxing-like competition rules"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'capoeirahistory.com; en.wikipedia.org/wiki/Manuel_dos_Reis_Machado',
+  'Documented that Bimba studied methods of Sinhozinho, Mario Aleixo, and Zuma. Bimba''s famous 1936 challenges against Henrique Bahia, Vítor Benedito Lopes, Américo Ciência, and José Custódio "Zé I" dos Santos were conducted under Zuma''s 1928 ruleset.',
+  'Documentado que Bimba estudou métodos de Sinhozinho, Mario Aleixo e Zuma. Os famosos desafios de Bimba em 1936 contra Henrique Bahia, Vítor Benedito Lopes, Américo Ciência e José Custódio "Zé I" dos Santos foram conduzidos sob as regras de 1928 de Zuma.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Zuma' AND o.apelido = 'Bimba'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Zuma associated_with Sinhozinho (fellow Rio de Janeiro capoeira intellectuals, both developed sport-focused capoeira)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Fellow Rio de Janeiro capoeira intellectuals who developed sport-focused variants; both worked to legitimize capoeira as national gymnastics"}'::jsonb,
+  'likely'::genealogy.confidence,
+  'capoeirahistory.com; lalaue.com',
+  'Both Zuma and Sinhozinho were part of the 1920s-1930s movement of white, middle-class Rio de Janeiro intellectuals seeking to destigmatize capoeira. Both developed combat-focused approaches stripped of music and ritual. Bimba is documented studying methods of both. Whether they directly collaborated is not documented.',
+  'Tanto Zuma quanto Sinhozinho faziam parte do movimento dos anos 1920-1930 de intelectuais brancos de classe média do Rio de Janeiro buscando destigmatizar a capoeira. Ambos desenvolveram abordagens focadas em combate sem música e ritual. Bimba está documentado estudando métodos de ambos. Se colaboraram diretamente não está documentado.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Zuma' AND o.apelido = 'Sinhozinho'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- Zuma associated_with Mario Aleixo - Both part of 1920s Rio capoeira intellectual movement; Mario Aleixo taught at Gymnástico Português from 1920; Zuma may have trained there
+-- Zuma associated_with Raul Pederneiras - Fellow capoeira advocate; journalist/cartoonist who wrote two-column article praising Zuma's manual in Jornal do Brasil
+-- Zuma associated_with Mário Santos - Lawyer who wrote preface to 1928 manual and posed for 20 photographs as Zuma's opponent
+
+-- Source: statements/persons/artur-emidio.sql (CHANGED)
+-- ============================================================
+-- STATEMENTS FOR: Artur Emídio
+-- Generated: 2025-12-15
+-- ============================================================
+-- Contains all relationships where Artur Emídio is the SUBJECT.
+-- ============================================================
+
+-- Artur Emídio founded Grupo Artur Emídio (1955)
+-- NOTE: Group not yet in dataset - will be added when group is imported
+-- INSERT INTO genealogy.statements ...
+
+-- ============================================================
+-- TEACHER RELATIONSHIPS
+-- ============================================================
+
+-- Artur Emídio student_of Paizinho (Teodoro Ramos) - 1937-1945
+-- Primary mestre who taught him from age 7 until Paizinho's death
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1937-01-01'::date, 'year'::genealogy.date_precision,
+  '1945-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com/en/featured-69; capoeirahistory.com/mestre/master-artur-emidio-1930-2011/',
+  E'Artur Emídio began training with Mestre Paizinho (Teodoro Ramos) in 1937 at age seven. Paizinho would wake him at 6 AM daily for practice. Training occurred "in the street, on the pavement" and "on hilltops, in alleyways, at night and always hidden" due to capoeira''s criminalization. Relationship ended with Paizinho''s death from meningitis in 1945, when 15-year-old Artur took over his master''s academy.',
+  E'Artur Emídio começou a treinar com Mestre Paizinho (Teodoro Ramos) em 1937 aos sete anos. Paizinho o acordava às 6 da manhã diariamente para treinar. O treinamento ocorria "na rua, no passeio" e "no alto dos morros, nos becos, à noite e sempre escondidos" devido à criminalização da capoeira. A relação terminou com a morte de Paizinho por meningite em 1945, quando Artur de 15 anos assumiu a academia de seu mestre.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Artur Emídio' AND o.apelido = 'Paizinho'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- - Artur Emídio trained_under [Gracie Academy] - ~1953-1955
+--   Brief training after defeat to Rudolf Hermanny
+--   Not a formal student_of relationship
+--
+-- GROUP RELATIONSHIPS:
+-- - Artur Emídio founded "Grupo Artur Emídio" / "Academia de Capoeira Artur Emídio"
+--   Founded 1955 in Rio de Janeiro, Rua Manuel Fontenele, Bonsucesso
+--   Group not yet in dataset
+-- ============================================================
+
+-- Artur Emídio associated_with Bimba (met at 1967 symposium)
+-- Using association_context to describe the documented connection
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1967-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Met at 1967 capoeira symposium at Campos dos Afonsos, Rio de Janeiro. Artur Emídio later described their relationship as \"somewhat conflictual.\" Photo of them together exists from this event."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com/en/featured-69; nossa-tribo.com/mestre-artur-emidio/',
+  'Documented meeting at 1967 symposium. Not a teacher-student relationship. Artur''s academy was described as based on "the systematized method of Mestre Bimba" but this was learned through his own lineage (Paizinho), not directly from Bimba.',
+  'Encontro documentado no simpósio de 1967. Não era uma relação professor-aluno. A academia de Artur era descrita como baseada no "método sistematizado de Mestre Bimba" mas isso foi aprendido através de sua própria linhagem (Paizinho), não diretamente de Bimba.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Artur Emídio' AND o.apelido = 'Bimba'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- NOTE: Statements where Artur Emídio is the OBJECT
+-- (students learning FROM him) go in each student's file:
+--
+-- These exist in LEOPOLDINA.SQL (already imported):
+-- - Leopoldina student_of Artur Emídio (~1954-1955)
+--
+-- These will be added when students are imported:
+-- - Djalma Bandeira student_of Artur Emídio (first student)
+-- - Paulo Gomes student_of Artur Emídio (1962)
+-- - Celso do Engenho da Rainha student_of Artur Emídio
+-- - Mendonça student_of Artur Emídio
+-- - Vilela student_of Artur Emídio
+-- - Vilmar student_of Artur Emídio
+-- - Roberval Serejo student_of Artur Emídio
+-- - Genaro student_of Artur Emídio (1955)
+-- ============================================================
+
+-- Source: statements/persons/bigodinho.sql (CHANGED)
+-- ============================================================
+-- STATEMENTS FOR: Bigodinho
+-- Generated: 2025-12-15
+-- ============================================================
+-- Contains all relationships where Bigodinho is the SUBJECT.
+-- ============================================================
+
+-- Bigodinho student_of Waldemar (Primary teacher, 1950-1970)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1950-01-01'::date, 'year'::genealogy.date_precision,
+  '1970-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'https://velhosmestres.com/en/featured-11',
+  E'Bigodinho began training with Mestre Waldemar at the Barracão in Liberdade in 1950 when he moved to Salvador. He frequented the Barracão for over 25 years, becoming one of the most respected capoeiristas there. Left capoeira in 1970 due to repression.',
+  E'Bigodinho começou a treinar com Mestre Waldemar no Barracão na Liberdade em 1950 quando se mudou para Salvador. Frequentou o Barracão por mais de 25 anos, tornando-se um dos capoeiristas mais respeitados ali. Deixou a capoeira em 1970 devido à repressão.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Bigodinho' AND o.apelido = 'Waldemar'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Bigodinho trained_under Auvelino (Berimbau instruction, 1950)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1950-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"instruction_type": "berimbau"}'::jsonb, 'likely'::genealogy.confidence,
+  'https://www.lalaue.com/learn-capoeira/mestre-bigodinho/',
+  E'Auvelino, described as a "legendary berimbau master," taught Bigodinho the berimbau when he arrived in Salvador in 1950. This instruction was foundational to Bigodinho''s later fame as a berimbau player and singer.',
+  E'Auvelino, descrito como um "lendário mestre de berimbau," ensinou berimbau a Bigodinho quando ele chegou em Salvador em 1950. Esta instrução foi fundamental para a fama posterior de Bigodinho como tocador de berimbau e cantor.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Bigodinho' AND o.apelido = 'Auvelino' AND o.apelido_context = 'Salvador'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Bigodinho associated_with Boca Rica
+-- Recorded CD "Capoeira Angola" together (2000/2002)
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '2000-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Recorded CD ''Capoeira Angola'' together (2000/2002); both from the old guard of Pastinha/Waldemar generation"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com; lalaue.com',
+  E'Recorded CD "Capoeira Angola" together around 2000-2002. Both were elder mestres from the old guard of the Pastinha/Waldemar generation, representing the Angola tradition''s continuity.',
+  E'Gravaram juntos o CD "Capoeira Angola" por volta de 2000-2002. Ambos eram mestres da velha guarda da geração Pastinha/Waldemar, representando a continuidade da tradição Angola.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Bigodinho' AND o.apelido = 'Boca Rica'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+
+-- Bigodinho associated_with Traíra
+-- Both frequented Waldemar's Barracão together for years (1950s-1960s).
+-- Traíra IS in the database (traira.sql exists), but statement should go in traira.sql
+-- since we document from younger/newer to older/established, and Traíra started at
+-- Waldemar's Barracão in 1947, before Bigodinho arrived in 1950.
+
+-- Bigodinho associated_with Zacarias Boa Morte
+-- Both frequented Waldemar's Barracão together. Zacarias was Waldemar's first student (1942).
+-- Zacarias Boa Morte is NOT in the database - in persons backlog as pending.
+
+-- Bigodinho associated_with Lua Rasta
+-- Close friend who encouraged Bigodinho's return to capoeira in 1997, organized 2007 tribute.
+-- Lua Rasta is NOT in the database - needs to be added to persons backlog.
+
+-- Bigodinho founded Grupo Resistência
+-- Founded/coordinated this group in Lapinha, Salvador in the 1960s.
+-- Grupo Resistência is in groups backlog (pending import).
+
+-- Bigodinho member_of Viva Bahia (Grupo Folclórico)
+-- Participated in this folkloric group coordinated by Emília Biancardi.
+-- Viva Bahia is in groups backlog (pending import).
+
+-- Source: statements/persons/crispim.sql (CHANGED)
+-- ============================================================
+-- STATEMENTS FOR: Crispim
+-- Generated: 2025-12-18
+-- ============================================================
+-- Contains all relationships where Crispim is the SUBJECT.
+-- ============================================================
+
+-- Crispim student_of Bimba (his father and teacher)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  '1974-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'cdosergipe.wixsite.com; capoeiraceaca.wordpress.com; portalcapoeira.com',
+  E'Primary teacher. Crispim was Bimba''s eldest son and trained under him from childhood. Ended with Bimba''s death in 1974.',
+  E'Professor principal. Crispim era o filho mais velho de Bimba e treinou com ele desde a infância. Terminou com a morte de Bimba em 1974.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Crispim' AND s.apelido_context IS NULL
+  AND o.apelido = 'Bimba' AND o.apelido_context IS NULL
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Crispim family_of Bimba (son)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'family_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  NULL, NULL,
+  '{"relationship_type": "son"}'::jsonb, 'verified'::genealogy.confidence,
+  'cdosergipe.wixsite.com; portalcapoeira.com; madrugacapoeira.webnode.page',
+  E'Eldest son of Mestre Bimba with Maria dos Anjos (first partner).',
+  E'Filho mais velho de Mestre Bimba com Maria dos Anjos (primeira companheira).'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Crispim' AND s.apelido_context IS NULL
+  AND o.apelido = 'Bimba' AND o.apelido_context IS NULL
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Crispim associated_with Atenilo (inner circle companions)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  NULL, NULL,
+  '{"association_context": "Both named as part of Bimba''s inner circle of trusted companions. Training contemporaries at Centro de Cultura Física Regional."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'recantodasletras.com.br; Itapoan''s writings',
+  E'Both were part of Bimba''s inner circle of trusted companions alongside Brás Amansa Brabo. Contemporaries at Bimba''s academy.',
+  E'Ambos faziam parte do círculo íntimo de companheiros de confiança de Bimba junto com Brás Amansa Brabo. Contemporâneos na academia de Bimba.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Crispim' AND s.apelido_context IS NULL
+  AND o.apelido = 'Atenilo' AND o.apelido_context IS NULL
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Crispim associated_with Brás Amansa Brabo (inner circle companions)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  NULL, NULL,
+  '{"association_context": "Both named as part of Bimba''s inner circle of trusted companions. Training contemporaries at Centro de Cultura Física Regional."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'recantodasletras.com.br; Itapoan''s writings',
+  E'Both were part of Bimba''s inner circle of trusted companions alongside Atenilo. Contemporaries at Bimba''s academy.',
+  E'Ambos faziam parte do círculo íntimo de companheiros de confiança de Bimba junto com Atenilo. Contemporâneos na academia de Bimba.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Crispim' AND s.apelido_context IS NULL
+  AND o.apelido = 'Bras Amansa Brabo' AND o.apelido_context IS NULL
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Crispim associated_with Waldemar (Vadiação film participants)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1954-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Both participated in the pioneering 1954 film Vadiação, documenting Salvador capoeira masters."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'capoeiraceaca.wordpress.com; sementedojogodeangoladf.wordpress.com',
+  E'Both appeared in "Vadiação" (1954) by Alexandre Robatto Filho.',
+  E'Ambos apareceram em "Vadiação" (1954) de Alexandre Robatto Filho.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Crispim' AND s.apelido_context IS NULL
+  AND o.apelido = 'Waldemar' AND o.apelido_context IS NULL
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Crispim associated_with Traíra (Vadiação film participants)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1954-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Both participated in the pioneering 1954 film Vadiação, documenting Salvador capoeira masters."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'capoeiraceaca.wordpress.com; sementedojogodeangoladf.wordpress.com',
+  E'Both appeared in "Vadiação" (1954) by Alexandre Robatto Filho.',
+  E'Ambos apareceram em "Vadiação" (1954) de Alexandre Robatto Filho.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Crispim' AND s.apelido_context IS NULL
+  AND o.apelido = 'Traíra' AND o.apelido_context IS NULL
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Crispim associated_with Caiçara (Vadiação film participants)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1954-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Both participated in the pioneering 1954 film Vadiação, documenting Salvador capoeira masters."}'::jsonb,
+  'verified'::genealogy.confidence,
+  'capoeiraceaca.wordpress.com; sementedojogodeangoladf.wordpress.com',
+  E'Both appeared in "Vadiação" (1954) by Alexandre Robatto Filho.',
+  E'Ambos apareceram em "Vadiação" (1954) de Alexandre Robatto Filho.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Crispim' AND s.apelido_context IS NULL
+  AND o.apelido = 'Caiçara' AND o.apelido_context IS NULL
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Crispim associated_with Bugalho
+-- Both participated in film Vadiação (1954)
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1954-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Both participated in the pioneering 1954 film Vadiação, documenting Salvador capoeira masters"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'capoeiraceaca.wordpress.com; sementedojogodeangoladf.wordpress.com',
+  E'Both appeared in "Vadiação" (1954) by Alexandre Robatto Filho, a pioneering documentary of Salvador capoeira masters.',
+  E'Ambos apareceram em "Vadiação" (1954) de Alexandre Robatto Filho, um documentário pioneiro dos mestres de capoeira de Salvador.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Crispim' AND s.apelido_context IS NULL
+  AND o.apelido = 'Bugalho' AND o.apelido_context IS NULL
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- Crispim associated_with Curió - Both in Vadiação (1954); Curió not yet imported
+-- Crispim associated_with Nagé - Both in Vadiação (1954); Nagé not yet imported (distinct from Nagé Pedrito victim)
+-- Crispim associated_with Zacarias Boa Morte - Both in Vadiação (1954); needs import
+-- Crispim associated_with Rosendo - Both in Vadiação (1954); needs import
+
+-- Source: statements/persons/gato-preto.sql (CHANGED)
+-- ============================================================
+-- STATEMENTS FOR: Gato Preto
+-- Generated: 2025-12-15
+-- ============================================================
+-- Contains all relationships where Gato Preto is the SUBJECT.
+-- Per ownership rule: statements go in file named after SUBJECT.
+-- ============================================================
+
+-- ------------------------------------------------------------
+-- Gato Preto student_of Cobrinha Verde
+-- Primary mentor from age 17 in Salvador (1947)
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1947-01-01'::date, 'year'::genealogy.date_precision,
+  '1983-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com; CapoeiraWiki; multiple sources',
+  'At seventeen (1947), Gato Preto moved to Salvador and became a disciple of Mestre Cobrinha Verde, also from Santo Amaro. This was his primary mentor relationship. Later served as contra-mestre de bateria at Cobrinha Verde''s academy (1952-1954). Relationship continued until Cobrinha Verde''s death in 1983.',
+  'Aos dezessete anos (1947), Gato Preto mudou-se para Salvador e tornou-se discípulo de Mestre Cobrinha Verde, também de Santo Amaro. Esta foi sua principal relação de mentoria. Depois serviu como contra-mestre de bateria na academia de Cobrinha Verde (1952-1954). O relacionamento continuou até a morte de Cobrinha Verde em 1983.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Gato Preto' AND o.apelido = 'Cobrinha Verde'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Gato Preto trained_under Waldemar
+-- Trained under Waldemar da Paixão; frequented his barracão
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1950-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'CapoeiraWiki; velhosmestres.com; Capoeira Online',
+  'Gato Preto trained under Mestre Waldemar da Paixão. The 1962 LP "Capoeira" was recorded at Waldemar''s barracão. Waldemar described him as "a good fellow" and noted his father Eutíquio was "a good capoeira master."',
+  'Gato Preto treinou com Mestre Waldemar da Paixão. O LP "Capoeira" de 1962 foi gravado no barracão de Waldemar. Waldemar o descreveu como "um bom sujeito" e observou que seu pai Eutíquio era "um bom mestre de capoeira."'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Gato Preto' AND o.apelido = 'Waldemar'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Gato Preto trained_under Pastinha
+-- Served as contra-mestre de bateria (1950-1951)
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1950-01-01'::date, 'year'::genealogy.date_precision,
+  '1951-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com; CapoeiraWiki',
+  'Gato Preto served as contra-mestre de bateria (assistant master of the percussion ensemble) at Mestre Pastinha''s academy from 1950-1951. Later accompanied Pastinha to Dakar in 1966 as part of the Brazilian delegation.',
+  'Gato Preto serviu como contra-mestre de bateria na academia de Mestre Pastinha de 1950-1951. Depois acompanhou Pastinha a Dacar em 1966 como parte da delegação brasileira.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Gato Preto' AND o.apelido = 'Pastinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Gato Preto associated_with Traíra
+-- Recorded LP "Capoeira" together (1962)
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1962-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Recorded LP ''Capoeira'' together (1962) at Waldemar''s barracão with Cobrinha Verde; contemporaries in Salvador Angola capoeira scene"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com/br/gato-1962; multiple sources',
+  'Recorded historic LP "Capoeira" (1962) together with Traíra and Cobrinha Verde at Mestre Waldemar''s barracão. Photos taken at Rampa do Mercado Modelo. Both were prominent angoleiros in Salvador.',
+  'Gravaram juntos o histórico LP "Capoeira" (1962) com Traíra e Cobrinha Verde no barracão de Mestre Waldemar. Fotos tiradas na Rampa do Mercado Modelo. Ambos eram angoleiros proeminentes em Salvador.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Gato Preto' AND o.apelido = 'Traíra'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Gato Preto associated_with Bimba
+-- Contemporaries in Salvador; compared to legendary masters
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1955-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Contemporaries in Salvador capoeira scene; 1976 article described Gato Preto as comparable to legendary masters Bimba, Pastinha, Cobrinha Verde, and Besouro"}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Correio Braziliense 1976; velhosmestres.com',
+  'Contemporaries in Salvador. A 1976 newspaper article described Gato Preto as comparable to legendary masters Bimba, Pastinha, Cobrinha Verde, and Besouro.',
+  'Contemporâneos em Salvador. Um artigo de jornal de 1976 descreveu Gato Preto como comparável aos lendários mestres Bimba, Pastinha, Cobrinha Verde e Besouro.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Gato Preto' AND o.apelido = 'Bimba'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Gato Preto associated_with Besouro Mangangá
+-- Connected through uncle João Catarino (Besouro's student)
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  NULL, NULL,
+  '{"association_context": "Connected through lineage: Gato Preto''s uncle João Catarino was a student of Besouro Mangangá; both from Santo Amaro da Purificação"}'::jsonb,
+  'likely'::genealogy.confidence,
+  'CapoeiraWiki; velhosmestres.com',
+  'Gato Preto''s uncle João Catarino was a student of Besouro Mangangá. Both Besouro and Gato Preto were from Santo Amaro da Purificação. Through his uncle, Gato Preto inherited some of Besouro''s teachings.',
+  'O tio de Gato Preto, João Catarino, era aluno de Besouro Mangangá. Tanto Besouro quanto Gato Preto eram de Santo Amaro da Purificação. Através de seu tio, Gato Preto herdou alguns dos ensinamentos de Besouro.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Gato Preto' AND o.apelido = 'Besouro Mangangá'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Gato Preto associated_with Canjiquinha
+-- 1970 Berimbau de Ouro competition rivals
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1970-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Competitors at 1970 Berimbau de Ouro competition; both prominent berimbau masters of their era"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com; CapoeiraWiki',
+  E'Both competed in the 1970 Berimbau de Ouro competition in Salvador. Both were renowned berimbau masters of their generation, representing different lineages of the Angola tradition.',
+  E'Ambos competiram no concurso Berimbau de Ouro de 1970 em Salvador. Ambos eram renomados mestres de berimbau de sua geração, representando diferentes linhagens da tradição Angola.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Gato Preto' AND o.apelido = 'Canjiquinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Gato Preto associated_with Vermelho 27
+-- 1970 Berimbau de Ouro competition rivals
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1970-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Competitors at 1970 Berimbau de Ouro competition"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com; CapoeiraWiki',
+  E'Both competed in the 1970 Berimbau de Ouro competition in Salvador. Vermelho 27 was a student of Bimba while Gato Preto came from the Angola lineage.',
+  E'Ambos competiram no concurso Berimbau de Ouro de 1970 em Salvador. Vermelho 27 era aluno de Bimba enquanto Gato Preto vinha da linhagem Angola.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Gato Preto' AND o.apelido = 'Vermelho 27'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+
+-- PERSON RELATIONSHIPS - TEACHERS (not in dataset)
+
+-- Gato Preto student_of Eutíquio Lúcio Góes (father) - PENDING
+-- His father taught him from age 8 (1938) until the powerful cabeçada incident
+-- Object 'Eutíquio Lúcio Góes' needs import - add to backlog? Historical figure, not mestre
+
+-- Gato Preto trained_under João Catarino (uncle) - PENDING
+-- Uncle, student of Besouro Mangangá, continued teaching after father stopped
+-- Object 'João Catarino' needs import - add to backlog
+
+-- Gato Preto trained_under Léo (Mestre Léo from São Braz) - PENDING
+-- Trained with Léo in São Braz from 1942
+-- Object 'Léo' needs import - add to backlog
+
+-- PERSON RELATIONSHIPS - STUDENTS (not in dataset)
+
+-- Note: Student relationships go in the STUDENT's file per ownership rule.
+-- These students need to be imported and their files should contain:
+-- - Mestre Mau (Marcelino) student_of Gato Preto
+-- - Mestre Boa Gente student_of Gato Preto
+-- - Contramestre Pinguim student_of Gato Preto
+-- - Mestre Zeca (son) student_of Gato Preto
+-- - Mestre Gato II (Sinésio, son) student_of Gato Preto
+-- - Mestre Zé Baiano trained_under Gato Preto (from 1984)
+
+-- PERSON RELATIONSHIPS - ASSOCIATES (Dakar 1966 delegation - covered from other sides)
+-- Note: The following Dakar 1966 relationships are already defined in other files:
+-- - Roberto Satanás associated_with Gato Preto (in roberto-satanas.sql)
+-- - Camafeu de Oxossi associated_with Gato Preto (in camafeu-de-oxossi.sql)
+-- - Gildo Alfinete associated_with Gato Preto (in gildo-alfinete.sql)
+-- - João Grande associated_with Gato Preto (in joao-grande.sql)
+
+-- GROUP RELATIONSHIPS (not in dataset)
+
+-- Gato Preto founded Academia de Capoeira Baiana - PENDING
+-- Founded his own academy in 1955
+-- Group needs import
+
+-- Gato Preto teaches_at CECA - PENDING
+-- Served as contra-mestre de bateria at Pastinha's academy (1950-1951)
+-- Group 'CECA' needs import - see groups-backlog.md
+
+-- Gato Preto teaches_at Centro Esportivo de Capoeira Angola Dois de Julho - PENDING
+-- Served as contra-mestre de bateria at Cobrinha Verde's academy (1952-1954)
+-- Group needs import - see groups-backlog.md
+
+-- Source: statements/persons/marrom.sql (CHANGED)
+-- ============================================================
+-- STATEMENTS FOR: Marrom (Rio de Janeiro)
+-- Generated: 2025-12-15
+-- ============================================================
+-- Contains all relationships where Marrom is the SUBJECT.
+-- Note: Uses apelido_context 'Rio de Janeiro' to distinguish from São Paulo Marrom.
+-- ============================================================
+
+-- Marrom trained_under Gato Preto (old guard collaboration, 1990s+)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1990-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'https://capoeirahistory.com/master-marrom/, https://velhosmestres.com/en/gato-2000-5',
+  'Part of Marrom''s research with old guard mestres in 1990s; recorded CDs together (2001); Gato Preto visited Marrom''s 5th Children''s Encounter (Nov 2000)',
+  'Parte da pesquisa de Marrom com mestres da velha guarda nos anos 1990; gravaram CDs juntos (2001); Gato Preto visitou o 5º Encontro Infantil de Marrom (nov 2000)'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Marrom' AND s.apelido_context = 'Rio de Janeiro' AND o.apelido = 'Gato Preto'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Marrom trained_under João Grande (old guard collaboration, 1990s+)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1990-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'https://www.helloasso.com/associations/association-oya/collectes/mestre-marrom-contra-mestre-tatiana-en-france',
+  'Studied with João Grande as part of old guard research; João Grande listed among major Angola influences',
+  'Estudou com João Grande como parte de pesquisa com velha guarda; João Grande listado entre principais influências Angola'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Marrom' AND s.apelido_context = 'Rio de Janeiro' AND o.apelido = 'João Grande'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Marrom trained_under João Pequeno (lineage claim per Mestre Ferradura)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1990-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb, 'likely'::genealogy.confidence,
+  'https://oberlincapoeiraangola.wordpress.com/meet-the-hosts/',
+  'Mestre Ferradura describes Marrom as "a disciple of Mestre João Pequeno de Pastinha"; exact nature of training unclear but places Marrom in Pastinha lineage',
+  'Mestre Ferradura descreve Marrom como "um discípulo de Mestre João Pequeno de Pastinha"; natureza exata do treinamento incerta mas coloca Marrom na linhagem de Pastinha'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Marrom' AND s.apelido_context = 'Rio de Janeiro' AND o.apelido = 'João Pequeno'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Marrom trained_under Bigodinho (old guard collaboration, 1990s+)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1990-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'https://capoeirahistory.com/master-marrom/',
+  E'Part of Marrom''s research and collaboration with old guard mestres in 1990s; recorded CDs together. Bigodinho was one of the elder mestres Marrom sought out to preserve traditional knowledge.',
+  E'Parte da pesquisa e colaboração de Marrom com mestres da velha guarda nos anos 1990; gravaram CDs juntos. Bigodinho era um dos mestres mais velhos que Marrom procurou para preservar conhecimentos tradicionais.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Marrom' AND s.apelido_context = 'Rio de Janeiro' AND o.apelido = 'Bigodinho'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Marrom trained_under Boca Rica (old guard collaboration, 1990s+)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1990-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'https://capoeirahistory.com/master-marrom/',
+  E'Part of Marrom''s research and collaboration with old guard mestres in 1990s; recorded CDs together. Boca Rica was one of the elder mestres Marrom sought out to preserve traditional knowledge.',
+  E'Parte da pesquisa e colaboração de Marrom com mestres da velha guarda nos anos 1990; gravaram CDs juntos. Boca Rica era um dos mestres mais velhos que Marrom procurou para preservar conhecimentos tradicionais.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Marrom' AND s.apelido_context = 'Rio de Janeiro' AND o.apelido = 'Boca Rica'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+
+-- Marrom trained_under Canela - NEEDS IMPORT: Mestre Canela (Rio de Janeiro, Engenho Novo)
+--   First formal teacher in Rio after 1976; Regional style training
+
+-- Marrom trained_under Peixinho - NEEDS IMPORT: Mestre Peixinho (Senzala, Rio de Janeiro)
+--   Trained with Peixinho da Senzala, earned red rope (Regional)
+
+-- Marrom influenced_by Nô - NEEDS IMPORT: Mestre Nô (Norival Moreira de Oliveira)
+--   Bahian mestre who inspired Marrom's turn to capoeira Angola
+
+-- Marrom influenced_by Angolinha - NEEDS IMPORT: Mestre Angolinha (Isak Ignácio, Rio de Janeiro)
+--   Rio Angola reference; Marrom had him as major influence in 1990s
+
+-- Marrom trained_under Felipe - NEEDS IMPORT: Mestre Felipe (Santo Amaro)
+--   Part of old guard collaboration; recorded CDs together
+
+-- Marrom trained_under Brandão - NEEDS IMPORT: Mestre Brandão
+--   Part of old guard collaboration; recorded CDs together
+
+-- Marrom founded Ngoma Capoeira Angola (2018) - NEEDS GROUP IMPORT
+--   Renamed from "Marrom Capoeira & Alunos" (1990)
+--   Located at Morro da Babilônia, Leme, Rio de Janeiro
+
+-- Marrom associated_with "Vadiando Entre Amigos" movement - NEEDS GROUP/MOVEMENT IMPORT
+--   Co-precursor with Mestres Formiga and Camaleão (1990s-2000s)
+
+-- Source: statements/persons/pedro-porreta.sql (CHANGED)
+-- ============================================================
+-- STATEMENTS FOR: Pedro Porreta
+-- Generated: 2025-12-17
+-- ============================================================
+-- This file contains all relationships where Pedro Porreta is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
+
+-- Pedro Porreta associated_with Chico Tres Pedacos (both defended by Cosme de Farias)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1920-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"association_context": "Both were notorious capoeiristas in Salvador defended by Cosme de Farias during the 1920s-1930s"}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Revista Capoeirando; Sankofa USP article on Cosme de Farias',
+  'Both were well-known valentões in Salvador who were defended by the legendary rábula Cosme de Farias during legal proceedings in the 1920s-1930s',
+  'Ambos eram valentões conhecidos em Salvador que foram defendidos pelo lendário rábula Cosme de Farias durante processos judiciais nos anos 1920-1930'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Pedro Porreta' AND o.apelido = 'Chico Três Pedaços'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- NOTE: Other Cosme de Farias clients (Bastião, Samuel, Nozinho, Duquinha, Escalvino)
+-- share historical context but connections are via shared lawyer, captured in bios/notes.
+-- Each links to Pedro Porreta from their own file; no M:N cross-references needed.
+-- ============================================================
+
+-- ------------------------------------------------------------
+-- Pedro Porreta family_of Piroca (brothers)
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'family_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  NULL, NULL,
+  '{"relationship_type": "brother"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Espeto Capoeira; Portal Capoeira; Mestres e capoeiras famosos da Bahia',
+  E'Pedro Porreta (Pedro Mineiro) and Piroca (Pedro de Alcântara) were brothers. Both were notorious valentões in Salvador during the 1920s. Sources describe Piroca as "the brother of the dreaded" (irmão do temido) Pedro Porreta.',
+  E'Pedro Porreta (Pedro Mineiro) e Piroca (Pedro de Alcântara) eram irmãos. Ambos eram valentões notórios em Salvador durante os anos 1920. Fontes descrevem Piroca como "o irmão do temido" Pedro Porreta.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Pedro Porreta' AND o.apelido = 'Piroca'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (objects not yet in dataset)
+-- ============================================================
+-- Note: Chicão associated_with Pedro Porreta exists in chicao.sql (lines 9-32)
 
 -- Source: statements/persons/pintor.sql (CHANGED)
 -- ============================================================
@@ -4113,5 +11137,261 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Pintor trained_under Medicina - not yet imported
 -- Pintor trained_under Papo de Santo Amaro - not yet imported
 -- Pintor founded Grupo Bantus Capoeira - group not yet imported
+
+-- Source: statements/persons/quinzinho.sql (CHANGED)
+-- ============================================================
+-- STATEMENTS FOR: Quinzinho
+-- Migrated: 2025-12-11
+-- Updated: 2025-12-20 - Added trained_under Campanhão relationship
+-- ============================================================
+-- This file contains all relationships where Quinzinho is the subject.
+-- Each statement uses ON CONFLICT DO NOTHING for idempotency.
+-- ============================================================
+
+-- Quinzinho trained_under Campanhão
+-- Per Os Malandros de Mestre Touro lineage documentation
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, 'unknown'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{}'::jsonb,
+  'uncertain'::genealogy.confidence,
+  'Os Malandros de Mestre Touro lineage (malandros-touro.com)',
+  E'Per Os Malandros lineage: Campanhão → Quinzinho. Quinzinho (b. ~1925) would have trained under Campanhão (b. around 1900, likely earlier) in the 1940s. Single source; no corroboration found in other capoeira historical sources.',
+  E'Conforme linhagem Os Malandros: Campanhão → Quinzinho. Quinzinho (n. ~1925) teria treinado com Campanhão (n. por volta de 1900, provavelmente antes) nos anos 1940. Fonte única; nenhuma corroboração encontrada em outras fontes históricas de capoeira.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Quinzinho' AND o.apelido = 'Campanhão'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, 'unknown'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"association_context": "Both part of the premodern Rio capoeira/malandro generation that transmitted capoeira to the modern era; described together as the best-known figures of this lineage"}'::jsonb,
+  'likely'::genealogy.confidence,
+  'capoeirahistory.com: "Madame Satã (1900–76) and Quinzinho (the teacher of Leopoldina) are the best known of this generation"',
+  'Both were part of the premodern Rio malandro generation. Sete Coroas died in 1923, when Quinzinho would have been a child (~4 years old), so they were not direct peers, but are grouped together as representing the old carioca capoeira tradition.',
+  'Ambos faziam parte da geração pré-moderna de malandros do Rio. Sete Coroas morreu em 1923, quando Quinzinho seria uma criança (~4 anos), então não eram pares diretos, mas são agrupados como representantes da antiga tradição de capoeira carioca.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Quinzinho' AND o.apelido = 'Sete Coroas'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, 'unknown'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"association_context": "Both were part of the premodern Rio capoeira generation that bridged old malandro traditions to modern capoeira; documented as the best-known figures who transmitted something to the next generation"}'::jsonb,
+  'likely'::genealogy.confidence,
+  'capoeirahistory.com: "Madame Satã (1900–76) and Quinzinho (the teacher of Leopoldina) are the best known of this generation, which still managed to transmit something to modern capoeira"',
+  'Quinzinho (b. ~1927) was younger than Madame Satã (b. 1900) by about 27 years, but both were active in Rio''s malandro world during the late 1940s-early 1950s. They represent the bridge between old carioca capoeira and modern traditions.',
+  'Quinzinho (n. ~1927) era mais novo que Madame Satã (n. 1900) por cerca de 27 anos, mas ambos estavam ativos no mundo malandro do Rio no final dos anos 1940 e início dos 1950. Representam a ponte entre a velha capoeira carioca e as tradições modernas.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Quinzinho' AND o.apelido = 'Madame Satã'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Source: statements/persons/traira.sql (CHANGED)
+-- ============================================================
+-- STATEMENTS FOR: Traíra
+-- Generated: 2025-12-15
+-- ============================================================
+-- Contains all relationships where Traíra is the SUBJECT.
+-- Per ownership rule: statements go in file named after SUBJECT.
+-- ============================================================
+
+-- ------------------------------------------------------------
+-- Traíra student_of Waldemar
+-- Started ~1947 at Escola de Capoeira Angola, Liberdade, Salvador
+-- Primary formal teacher - Traíra managed Waldemar's roda
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1947-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com; CapoeiraWiki; multiple sources',
+  'Traíra began formal training with Waldemar in 1947. He became so trusted that he managed Waldemar''s roda: "The late Traíra is who managed the roda. I''d arrive, give orders, then have beer" (Waldemar). Training continued until Traíra''s death ~1975.',
+  'Traíra começou o treinamento formal com Waldemar em 1947. Tornou-se tão confiável que administrava a roda de Waldemar: "O finado Traíra é que tomava conta da roda. Eu chegava, dava as ordens e ia tomar cerveja" (Waldemar). Treinamento continuou até a morte de Traíra ~1975.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Traíra' AND o.apelido = 'Waldemar'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Traíra associated_with Cobrinha Verde
+-- Recorded LP together (1962); contemporaries at Market Ramp rodas
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1962-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Recorded LP ''Capoeira da Bahia'' together (1962); photographed together at Market Ramp roda; contemporaries in Bahian capoeira Angola scene"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com/en/cobrinha-1962; multiple sources',
+  'Recorded LP "Capoeira da Bahia" together with Cobrinha Verde and Gato Preto (1962). Both appear in LP booklet photos at Market Ramp roda. Both were prominent angoleiros in Salvador''s mid-century capoeira scene.',
+  'Gravaram juntos o LP "Capoeira da Bahia" com Cobrinha Verde e Gato Preto (1962). Ambos aparecem nas fotos do encarte na roda da Rampa do Mercado. Ambos eram angoleiros proeminentes na cena da capoeira de Salvador em meados do século.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Traíra' AND o.apelido = 'Cobrinha Verde'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Traíra associated_with Bimba
+-- Both appeared in film "Vadiação" (1954)
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1954-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Both appeared in pioneering film ''Vadiação'' (1954) by Alexandre Robatto Filho; contemporaries in Salvador capoeira scene"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Multiple sources; film documentation',
+  'Both appeared in the pioneering capoeira film "Vadiação" (1954) by Alexandre Robatto Filho. Though Bimba taught Regional and Traíra practiced Angola under Waldemar, they were contemporaries in Salvador''s capoeira scene.',
+  'Ambos apareceram no pioneiro filme de capoeira "Vadiação" (1954) de Alexandre Robatto Filho. Embora Bimba ensinasse Regional e Traíra praticasse Angola com Waldemar, eram contemporâneos na cena da capoeira de Salvador.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Traíra' AND o.apelido = 'Bimba'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Traíra associated_with Pastinha
+-- Jorge Amado compared them as the two most elegant players
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1945-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Contemporaries; Jorge Amado wrote (1945) that only Pastinha could match Traíra in beauty of movements and agility"}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Jorge Amado, Bahia de Todos os Santos (1945)',
+  'Jorge Amado wrote in 1945: "only Pastinha can compete with him [Traíra] in the beauty of movements, in agility, in the quickness of strikes." Both were leading Angola practitioners in Salvador, though no direct training relationship is documented.',
+  'Jorge Amado escreveu em 1945: "só mesmo Pastinha pode competir com ele [Traíra] na beleza dos movimentos, na agilidade, na rigidez dos golpes." Ambos eram importantes praticantes de Angola em Salvador, embora nenhuma relação direta de treinamento seja documentada.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Traíra' AND o.apelido = 'Pastinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Traíra trained_under Juvêncio
+-- First capoeira encounters ~1938 in São Félix rodas
+-- Informal training before formal study with Waldemar
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1938-01-01'::date, 'year'::genealogy.date_precision,
+  '1947-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb, 'likely'::genealogy.confidence,
+  'Velhos Mestres; Capoeira Connection (Ananias interview); CapoeiraWiki',
+  'Traíra''s first exposure to capoeira was in the rodas of Mestre Juvêncio in São Félix, around 1938. Mestre Ananias encountered Traíra at these gatherings on the docks during festivals. Informal training before his formal study with Waldemar beginning in 1947.',
+  'O primeiro contato de Traíra com a capoeira foi nas rodas de Mestre Juvêncio em São Félix, por volta de 1938. Mestre Ananias encontrou Traíra nesses encontros nas docas durante as festas. Treinamento informal antes de seu estudo formal com Waldemar começando em 1947.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Traíra'
+  AND o.apelido = 'Juvêncio' AND o.apelido_context = 'São Félix'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Traíra associated_with Gato Preto
+-- Recorded LP "Capoeira" together (1962); contemporaries in Salvador
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1962-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Recorded LP ''Capoeira'' together (1962) at Waldemar''s barracão with Cobrinha Verde; photographed together at Market Ramp roda"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com/br/gato-1962; multiple sources',
+  E'Recorded historic LP "Capoeira" (1962) together with Gato Preto and Cobrinha Verde at Mestre Waldemar''s barracão. Photos taken at Rampa do Mercado Modelo. Both were prominent angoleiros in Salvador.',
+  E'Gravaram juntos o histórico LP "Capoeira" (1962) com Gato Preto e Cobrinha Verde no barracão de Mestre Waldemar. Fotos tiradas na Rampa do Mercado Modelo. Ambos eram angoleiros proeminentes em Salvador.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Traíra' AND o.apelido = 'Gato Preto'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+
+-- GROUP RELATIONSHIPS
+-- Traíra member_of Roda de São Félix - PENDING
+-- Participated in Juvêncio's dock rodas (~1938) before formal training with Waldemar
+-- Group 'Roda de São Félix (Juvêncio)' needs import first - see groups-backlog.md
+
+-- PERSON RELATIONSHIPS
+-- Traíra trained_under Severo do Pelourinho - PENDING
+-- Mentioned by Traíra as another teacher
+-- Little is known about Severo do Pelourinho
+-- Object 'Severo do Pelourinho' needs import first - see persons-backlog.md
+
+-- Note: Barba Branca's student_of Traíra relationship should be in barba-branca.sql
+-- when that person is imported (per ownership rule: statement goes in subject's file)
 
 COMMIT;
