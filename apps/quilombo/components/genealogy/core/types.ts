@@ -166,13 +166,16 @@ export interface ForceGraph3DWrapperProps {
   /** Fixed height (auto-sizes if not provided) */
   height?: number;
 
-  /** Simulation cooldown ticks */
+  /** Simulation warmup ticks (pre-compute before rendering to reduce initial chaos) */
+  warmupTicks?: number;
+
+  /** Simulation cooldown ticks (stop simulation after this many rendered frames) */
   cooldownTicks?: number;
 
-  /** Simulation alpha decay rate */
+  /** Simulation alpha decay rate (higher = faster settling) */
   d3AlphaDecay?: number;
 
-  /** Simulation velocity decay rate */
+  /** Simulation velocity decay rate (higher = more friction = calmer motion) */
   d3VelocityDecay?: number;
 
   /** Show link directional particles */

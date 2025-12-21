@@ -11,3 +11,5 @@ export {
   isTitleAtOrAboveLevel,
   getTitleLevelLabel,
 } from './titleFilter';
+
+export { isPresumedDeceased, shouldIncludePersonNode, type PersonFilterConfig } from './personFilter';

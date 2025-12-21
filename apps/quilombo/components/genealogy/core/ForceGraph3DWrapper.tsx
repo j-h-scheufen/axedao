@@ -48,6 +48,7 @@ export function ForceGraph3DWrapper({
   backgroundColor = '#1a1a2e',
   width,
   height,
+  warmupTicks = 0,
   cooldownTicks = 100,
   d3AlphaDecay = 0.02,
   d3VelocityDecay = 0.3,
@@ -425,7 +426,8 @@ export function ForceGraph3DWrapper({
         // Interaction
         onNodeClick={handleNodeClick}
         onBackgroundClick={handleBackgroundClick}
-        // Layout
+        // Layout / Simulation
+        warmupTicks={warmupTicks}
         cooldownTicks={cooldownTicks}
         d3AlphaDecay={d3AlphaDecay}
         d3VelocityDecay={d3VelocityDecay}

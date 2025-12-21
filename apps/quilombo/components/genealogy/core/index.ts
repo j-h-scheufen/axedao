@@ -15,7 +15,6 @@ export {
   createTemporalLayout,
   // Constants
   BIRTH_YEAR_OFFSET,
-  DEFAULT_LINK_FORCE_STRENGTH,
   ERA_CONFIG,
   // Computation functions (deprecated - use createTemporalLayout)
   computeNodeTargetRadius,

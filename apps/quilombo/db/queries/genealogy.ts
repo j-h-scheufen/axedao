@@ -8,7 +8,7 @@
 
 import { and, eq, gt, inArray, isNull, or, sql, type SQLWrapper } from 'drizzle-orm';
 
-import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
+import { PRESUMED_DECEASED_AGE_THRESHOLD, QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import { db } from '@/db';
 import * as schema from '@/db/schema';
 import {
@@ -88,12 +88,12 @@ export async function searchPersonProfiles(options: {
     filters.push(sql`${personProfiles.title} = ${title}`);
   }
 
-  // Exclude historical persons (born 100+ years ago) unless includeHistorical is true
+  // Exclude historical persons (born PRESUMED_DECEASED_AGE_THRESHOLD+ years ago) unless includeHistorical is true
   // claimableOnly also implies !includeHistorical
   if (!includeHistorical || claimableOnly) {
     filters.push(isNull(personProfiles.deathYear));
     const currentYear = new Date().getFullYear();
-    const historicalThreshold = currentYear - 100;
+    const historicalThreshold = currentYear - PRESUMED_DECEASED_AGE_THRESHOLD;
     filters.push(or(isNull(personProfiles.birthYear), gt(personProfiles.birthYear, historicalThreshold)));
   } else if (!includeDeceased) {
     // Only filter deceased if not already filtered by historical exclusion

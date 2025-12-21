@@ -137,6 +137,13 @@ export const entityTypes = [ENTITY_TYPE.PERSON, ENTITY_TYPE.GROUP] as const;
 // Date precision for historical data with uncertainty
 export const datePrecisions = ['exact', 'month', 'year', 'decade', 'approximate', 'unknown'] as const;
 
+/**
+ * Age threshold for presuming a person is deceased/historical.
+ * Persons born more than this many years ago are considered historical figures.
+ * Used by both DB queries and client-side filtering.
+ */
+export const PRESUMED_DECEASED_AGE_THRESHOLD = 100;
+
 // Confidence levels for statement verification (object as source of truth)
 export const ConfidenceLevel = {
   VERIFIED: 'verified',
