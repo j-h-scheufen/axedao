@@ -1,7 +1,7 @@
 'use client';
 
 import { Button, Card, CardBody, Checkbox, CheckboxGroup, Divider, Switch, Tooltip } from '@heroui/react';
-import { useAtom, useAtomValue } from 'jotai';
+import { useAtom, useAtomValue, useSetAtom } from 'jotai';
 
 import type { EntityType, Predicate } from '@/db/schema/genealogy';
 import { currentUserProfileIdAtom } from '@/hooks/state/currentUser';
@@ -11,6 +11,8 @@ import {
   graphFiltersAtom,
   graphSettingsAtom,
   graphViewModeAtom,
+  recenterCallbackAtom,
+  selectedNodeIdAtom,
   showYourselfAtom,
   viewConfigAtom,
 } from '@/components/genealogy/state';
@@ -22,6 +24,8 @@ interface GraphControlsProps {
   stats: GraphStats | undefined;
   /** Loading state */
   isLoading: boolean;
+  /** IDs of nodes currently in the filtered graph (for "Find Me" visibility) */
+  nodeIds?: ReadonlySet<string>;
 }
 
 /** Labels for node type checkboxes */
@@ -37,18 +41,35 @@ const PREDICATE_GROUP_REQUIRED_TYPES: Record<string, EntityType[]> = {
   'Group → Group': ['group'],
 };
 
-export function GraphControls({ stats, isLoading }: GraphControlsProps) {
+export function GraphControls({ stats, isLoading, nodeIds }: GraphControlsProps) {
   // Jotai state
   const viewMode = useAtomValue(graphViewModeAtom);
   const viewConfig = useAtomValue(viewConfigAtom);
   const [filters, setFilters] = useAtom(graphFiltersAtom);
   const [settings, setSettings] = useAtom(graphSettingsAtom);
+  const setSelectedNodeId = useSetAtom(selectedNodeIdAtom);
 
   // "Show Yourself" feature state
   const [showYourself, setShowYourself] = useAtom(showYourselfAtom);
   const userProfileId = useAtomValue(currentUserProfileIdAtom);
   const hasGenealogyProfile = !!userProfileId;
   const isStudentAncestryView = viewMode === 'student-ancestry';
+
+  // "Find Me" feature - check if user's profile is in the current graph
+  const isUserInGraph = hasGenealogyProfile && nodeIds?.has(userProfileId);
+
+  // Re-Center callback from graph component
+  const recenterCallback = useAtomValue(recenterCallbackAtom);
+
+  const handleFindMe = () => {
+    if (userProfileId) {
+      setSelectedNodeId(userProfileId);
+    }
+  };
+
+  const handleRecenter = () => {
+    recenterCallback?.();
+  };
 
   // Get predicate groups filtered to this view's allowed predicates
   const viewPredicateGroups = getFilteredPredicateGroups(viewConfig);
@@ -228,7 +249,31 @@ export function GraphControls({ stats, isLoading }: GraphControlsProps) {
 
         <Divider />
 
-        {/* Reset Button */}
+        {/* Camera and Filter Controls */}
+        <Button
+          variant="flat"
+          size="sm"
+          onPress={handleRecenter}
+          isDisabled={isLoading || !recenterCallback}
+          className="w-full"
+        >
+          Re-Center
+        </Button>
+
+        {/* Find Me Button - shown when user's profile is in the current graph */}
+        {isUserInGraph && (
+          <Button
+            variant="flat"
+            color="primary"
+            size="sm"
+            onPress={handleFindMe}
+            isDisabled={isLoading}
+            className="w-full"
+          >
+            Find Me
+          </Button>
+        )}
+
         <Button variant="bordered" size="sm" onPress={handleReset} isDisabled={isLoading} className="w-full">
           Reset Filters
         </Button>

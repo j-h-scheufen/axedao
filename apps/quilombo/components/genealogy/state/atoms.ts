@@ -46,6 +46,12 @@ export const needsRefocusAtom = atom<boolean>(false);
 export const refocusCallbackAtom = atom<(() => void) | null>(null);
 
 /**
+ * Holds the recenter callback function set by the graph component.
+ * When called, it will zoom to fit the entire graph in view.
+ */
+export const recenterCallbackAtom = atom<(() => void) | null>(null);
+
+/**
  * Graph settings - independent of view configuration.
  */
 export interface GraphSettings {

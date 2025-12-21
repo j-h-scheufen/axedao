@@ -104,8 +104,8 @@ export default function GenealogyPage() {
 
   // Compute filtered nodes and stats for display in GraphControls
   // This mirrors the filtering logic in GenealogyGraph
-  const { filteredNodes, filteredStats } = useMemo(() => {
-    if (!graphData) return { filteredNodes: [], filteredStats: undefined };
+  const { filteredNodes, filteredNodeIds, filteredStats } = useMemo(() => {
+    if (!graphData) return { filteredNodes: [], filteredNodeIds: new Set<string>(), filteredStats: undefined };
 
     const nodeTypeSet = new Set(filters.nodeTypes);
     const predicateSet = new Set(filters.predicates);
@@ -123,6 +123,7 @@ export default function GenealogyPage() {
 
     return {
       filteredNodes: nodes,
+      filteredNodeIds: nodeIds,
       filteredStats: {
         totalNodes: nodes.length,
         totalLinks: links.length,
@@ -247,7 +248,7 @@ export default function GenealogyPage() {
       <div className="relative flex min-h-0 flex-1">
         {/* Left panel - Filters */}
         <div className="w-64 shrink-0 overflow-hidden border-r border-default-200">
-          <GraphControls stats={filteredStats} isLoading={isGraphLoading} />
+          <GraphControls stats={filteredStats} isLoading={isGraphLoading} nodeIds={filteredNodeIds} />
         </div>
 
         {/* Center - Graph */}
