@@ -189,6 +189,13 @@ export interface ForceGraph3DWrapperProps {
    * Use this to customize per-predicate strength/distance without replacing the force.
    */
   linkForceConfig?: LinkForceConfig;
+
+  /**
+   * Scale factor for node sizes.
+   * Use values > 1 for larger touch targets on mobile (e.g., 1.5 = 50% larger).
+   * Default: 1.0
+   */
+  nodeScale?: number;
 }
 
 /**

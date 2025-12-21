@@ -7,11 +7,18 @@
  * Specialized graph views should use this as their foundation.
  */
 
-import { useSetAtom } from 'jotai';
+import { useAtomValue, useSetAtom } from 'jotai';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ForceGraph3D, { type ForceGraphMethods } from 'react-force-graph-3d';
 
-import { needsRefocusAtom, recenterCallbackAtom, refocusCallbackAtom } from '@/components/genealogy/state';
+import { useResponsiveLayout } from '@/hooks/useResponsiveLayout';
+
+import {
+  mobileDrawerOpenAtom,
+  needsRefocusAtom,
+  recenterCallbackAtom,
+  refocusCallbackAtom,
+} from '@/components/genealogy/state';
 
 import { createDefaultNodeObject } from './nodeRenderers';
 import { getLinkColor } from './linkRenderers';
@@ -31,6 +38,18 @@ import type { ForceGraph3DWrapperProps, ForceLink, ForceNode } from './types';
  */
 /** Opacity multiplier for dimmed links (when highlighting lineage) */
 const DIMMED_LINK_OPACITY = 0.1;
+
+/**
+ * Camera lookAt offsets for mobile drawer modes.
+ *
+ * Hybrid approach:
+ * - Predictive: Applied immediately on node focus based on screen layout
+ * - Reactive: Removed when drawer closes to re-center the node
+ */
+/** Y-offset for bottom drawer (mobile portrait). Negative = node appears higher. */
+const BOTTOM_DRAWER_Y_OFFSET = -100;
+/** X-offset for right drawer (mobile landscape). Negative = node appears more to the right. */
+const RIGHT_DRAWER_X_OFFSET = -100;
 
 export function ForceGraph3DWrapper({
   graphData,
@@ -55,6 +74,7 @@ export function ForceGraph3DWrapper({
   showLinkArrows = true,
   initialCameraPosition,
   linkForceConfig,
+  nodeScale = 1.0,
 }: ForceGraph3DWrapperProps) {
   const graphRef = useRef<ForceGraphMethods<ForceNode, ForceLink> | undefined>(undefined);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -63,38 +83,77 @@ export function ForceGraph3DWrapper({
   const isClickFocusRef = useRef(false);
   const isFocusingRef = useRef(false); // True while camera is animating to a node
   const focusEndTimeRef = useRef(0); // Timestamp when last focus animation ended
-  const [dimensions, setDimensions] = useState({ width: width || 800, height: height || 600 });
+  // Start with null dimensions - don't render graph until we have accurate measurements
+  // This prevents the graph from initializing with wrong dimensions (e.g., 800px default on 390px mobile)
+  const [dimensions, setDimensions] = useState<{ width: number; height: number } | null>(
+    width && height ? { width, height } : null
+  );
 
-  // Jotai setters for refocus/recenter state
+  // Jotai state for refocus/recenter
   const setNeedsRefocus = useSetAtom(needsRefocusAtom);
   const setRefocusCallback = useSetAtom(refocusCallbackAtom);
   const setRecenterCallback = useSetAtom(recenterCallbackAtom);
+
+  // Predictive: detect drawer placement based on screen layout
+  const { isMobile, isPortrait, isLandscape } = useResponsiveLayout();
+  const willUseBottomDrawer = isMobile && isPortrait;
+  const willUseRightDrawerOnMobile = isMobile && isLandscape;
+
+  // Reactive: track actual drawer state (for re-centering on close)
+  const isMobileDrawerOpen = useAtomValue(mobileDrawerOpenAtom);
+
+  // Camera offset: predictive approach - apply offset immediately based on layout
+  const cameraOffset = useMemo(() => {
+    if (willUseBottomDrawer) {
+      return { y: BOTTOM_DRAWER_Y_OFFSET };
+    }
+    if (willUseRightDrawerOnMobile) {
+      return { x: RIGHT_DRAWER_X_OFFSET };
+    }
+    return {};
+  }, [willUseBottomDrawer, willUseRightDrawerOnMobile]);
 
   // Camera controls
   const { zoomToFit, focusOnNode, getCameraPosition } = useGraphCamera(
     graphRef as React.RefObject<ForceGraphMethods<ForceNode, ForceLink> | undefined>
   );
 
-  // Handle container resize
+  // Handle container resize using ResizeObserver for reliable measurements
+  // This catches layout changes (flex settling, orientation changes) not just window resize
   useEffect(() => {
     if (width && height) {
       setDimensions({ width, height });
       return;
     }
 
+    const container = containerRef.current;
+    if (!container) return;
+
     const updateDimensions = () => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        setDimensions({
-          width: rect.width || 800,
-          height: rect.height || 600,
+      const rect = container.getBoundingClientRect();
+      const newWidth = Math.floor(rect.width);
+      const newHeight = Math.floor(rect.height);
+
+      // Only update if we have valid dimensions
+      if (newWidth > 0 && newHeight > 0) {
+        setDimensions((prev) => {
+          // Only update if dimensions actually changed to avoid unnecessary re-renders
+          if (!prev || prev.width !== newWidth || prev.height !== newHeight) {
+            return { width: newWidth, height: newHeight };
+          }
+          return prev;
         });
       }
     };
 
-    updateDimensions();
-    window.addEventListener('resize', updateDimensions);
-    return () => window.removeEventListener('resize', updateDimensions);
+    // Initial measurement after a frame to ensure layout is settled
+    requestAnimationFrame(updateDimensions);
+
+    // Use ResizeObserver for responsive updates
+    const resizeObserver = new ResizeObserver(updateDimensions);
+    resizeObserver.observe(container);
+
+    return () => resizeObserver.disconnect();
   }, [width, height]);
 
   // Apply custom forces (collision, radial, etc.)
@@ -209,7 +268,7 @@ export function ForceGraph3DWrapper({
       isFocusingRef.current = true;
       setNeedsRefocus(false);
 
-      focusOnNode(node, 300, 1500);
+      focusOnNode(node, 300, 1500, cameraOffset);
       onNodeClick?.(node);
 
       // Clear focusing flag after animation completes
@@ -218,7 +277,7 @@ export function ForceGraph3DWrapper({
         focusEndTimeRef.current = Date.now();
       }, 1600);
     },
-    [focusOnNode, onNodeClick, setNeedsRefocus]
+    [focusOnNode, onNodeClick, setNeedsRefocus, cameraOffset]
   );
 
   // Handle background click
@@ -261,7 +320,7 @@ export function ForceGraph3DWrapper({
     if (node) {
       isFocusingRef.current = true;
       setNeedsRefocus(false);
-      focusOnNode(node, 300, 1500);
+      focusOnNode(node, 300, 1500, cameraOffset);
 
       // Clear focusing flag after animation completes
       setTimeout(() => {
@@ -271,7 +330,7 @@ export function ForceGraph3DWrapper({
     }
 
     prevSelectedNodeIdRef.current = validSelectedNodeId;
-  }, [validSelectedNodeId, focusOnSelection, graphData.nodes, focusOnNode, setNeedsRefocus]);
+  }, [validSelectedNodeId, focusOnSelection, graphData.nodes, focusOnNode, setNeedsRefocus, cameraOffset]);
 
   // Default node renderer
   const defaultNodeThreeObject = useCallback(
@@ -284,9 +343,9 @@ export function ForceGraph3DWrapper({
         return nodeRenderer(node, isSelected);
       }
 
-      return createDefaultNodeObject(node, isSelected, { isDimmed });
+      return createDefaultNodeObject(node, isSelected, { isDimmed, scale: nodeScale });
     },
-    [validSelectedNodeId, nodeRenderer, highlightedNodeIds]
+    [validSelectedNodeId, nodeRenderer, highlightedNodeIds, nodeScale]
   );
 
   // Link color resolver - includes opacity via rgba when highlighting is active
@@ -329,20 +388,58 @@ export function ForceGraph3DWrapper({
     if (node) {
       isFocusingRef.current = true;
       setNeedsRefocus(false);
-      focusOnNode(node, 300, 1500);
+      focusOnNode(node, 300, 1500, cameraOffset);
 
       setTimeout(() => {
         isFocusingRef.current = false;
         focusEndTimeRef.current = Date.now(); // Record when animation ended
       }, 1600);
     }
-  }, [validSelectedNodeId, graphData.nodes, focusOnNode, setNeedsRefocus]);
+  }, [validSelectedNodeId, graphData.nodes, focusOnNode, setNeedsRefocus, cameraOffset]);
 
   // Register the refocus callback in global state for NodeDetailsPanel to use
   useEffect(() => {
     setRefocusCallback(() => refocusOnSelectedNode);
     return () => setRefocusCallback(null);
   }, [refocusOnSelectedNode, setRefocusCallback]);
+
+  // Re-center node when mobile drawer closes (reactive approach for close only)
+  // Opening is handled predictively via cameraOffset in focus calls
+  const prevDrawerOpenRef = useRef(isMobileDrawerOpen);
+  const lastSelectedNodeIdRef = useRef<string | null>(null);
+
+  // Track the last selected node (so we can re-center it after deselection)
+  useEffect(() => {
+    if (validSelectedNodeId) {
+      lastSelectedNodeIdRef.current = validSelectedNodeId;
+    }
+  }, [validSelectedNodeId]);
+
+  useEffect(() => {
+    const wasOpen = prevDrawerOpenRef.current;
+    const isNowOpen = isMobileDrawerOpen;
+    prevDrawerOpenRef.current = isNowOpen;
+
+    // Only act on drawer CLOSE (was open, now closed)
+    if (!(wasOpen && !isNowOpen)) return;
+
+    // Use current selection, or fall back to last selected node (may have been deselected on close)
+    const nodeIdToCenter = validSelectedNodeId || lastSelectedNodeIdRef.current;
+    if (!nodeIdToCenter) return;
+
+    const node = graphData.nodes.find((n) => n.id === nodeIdToCenter);
+    if (!node) return;
+
+    // Re-center node (no offset since drawer is closed)
+    isFocusingRef.current = true;
+    setNeedsRefocus(false);
+    focusOnNode(node, 300, 800, {}); // No offset - center the node
+
+    setTimeout(() => {
+      isFocusingRef.current = false;
+      focusEndTimeRef.current = Date.now();
+    }, 900);
+  }, [isMobileDrawerOpen, validSelectedNodeId, graphData.nodes, focusOnNode, setNeedsRefocus]);
 
   // Recenter callback - returns camera to initial position and zooms to fit
   const recenterGraph = useCallback(() => {
@@ -431,41 +528,43 @@ export function ForceGraph3DWrapper({
   }, [validSelectedNodeId, graphData.nodes, getCameraPosition, setNeedsRefocus]);
 
   return (
-    <div ref={containerRef} className="h-full w-full" style={{ minHeight: 400 }}>
-      <ForceGraph3D
-        ref={graphRef}
-        graphData={graphData}
-        width={dimensions.width}
-        height={dimensions.height}
-        // Node configuration
-        nodeId="id"
-        nodeLabel={(node: ForceNode) => `${node.name} (${node.type})`}
-        nodeThreeObject={defaultNodeThreeObject}
-        nodeThreeObjectExtend={false}
-        // Link configuration
-        linkVisibility={linkVisibilityResolver}
-        linkColor={linkColorResolver}
-        linkWidth={1.5}
-        linkOpacity={0.6}
-        linkDirectionalArrowLength={showLinkArrows ? 3 : 0}
-        linkDirectionalArrowRelPos={1}
-        linkDirectionalParticles={showLinkParticles ? 1 : 0}
-        linkDirectionalParticleWidth={2}
-        linkDirectionalParticleSpeed={0.005}
-        // Interaction
-        onNodeClick={handleNodeClick}
-        onBackgroundClick={handleBackgroundClick}
-        // Layout / Simulation
-        warmupTicks={warmupTicks}
-        cooldownTicks={cooldownTicks}
-        d3AlphaDecay={d3AlphaDecay}
-        d3VelocityDecay={d3VelocityDecay}
-        // Performance
-        enableNavigationControls
-        showNavInfo={false}
-        // Background
-        backgroundColor={backgroundColor}
-      />
+    <div ref={containerRef} className="h-full w-full" style={{ minHeight: 400, backgroundColor }}>
+      {dimensions && (
+        <ForceGraph3D
+          ref={graphRef}
+          graphData={graphData}
+          width={dimensions.width}
+          height={dimensions.height}
+          // Node configuration
+          nodeId="id"
+          nodeLabel={(node: ForceNode) => `${node.name} (${node.type})`}
+          nodeThreeObject={defaultNodeThreeObject}
+          nodeThreeObjectExtend={false}
+          // Link configuration
+          linkVisibility={linkVisibilityResolver}
+          linkColor={linkColorResolver}
+          linkWidth={1.5}
+          linkOpacity={0.6}
+          linkDirectionalArrowLength={showLinkArrows ? 3 : 0}
+          linkDirectionalArrowRelPos={1}
+          linkDirectionalParticles={showLinkParticles ? 1 : 0}
+          linkDirectionalParticleWidth={2}
+          linkDirectionalParticleSpeed={0.005}
+          // Interaction
+          onNodeClick={handleNodeClick}
+          onBackgroundClick={handleBackgroundClick}
+          // Layout / Simulation
+          warmupTicks={warmupTicks}
+          cooldownTicks={cooldownTicks}
+          d3AlphaDecay={d3AlphaDecay}
+          d3VelocityDecay={d3VelocityDecay}
+          // Performance
+          enableNavigationControls
+          showNavInfo={false}
+          // Background
+          backgroundColor={backgroundColor}
+        />
+      )}
     </div>
   );
 }

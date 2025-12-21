@@ -115,6 +115,8 @@ export interface DefaultNodeOptions {
   labelFontSize?: number;
   /** Whether the node should be dimmed (for lineage highlighting) */
   isDimmed?: boolean;
+  /** Scale factor for node size (default: 1.0, use > 1 for larger touch targets) */
+  scale?: number;
 }
 
 /**
@@ -125,10 +127,11 @@ export function createDefaultNodeObject(
   isSelected: boolean,
   options: DefaultNodeOptions = {}
 ): THREE.Group {
-  const { showLabel = true, labelFontSize = 14, isDimmed = false } = options;
+  const { showLabel = true, labelFontSize = 14, isDimmed = false, scale = 1.0 } = options;
 
   const color = getNodeColor(node);
-  const sphereRadius = options.sphereRadius ?? (node.type === 'group' ? 6 : 4);
+  const baseRadius = options.sphereRadius ?? (node.type === 'group' ? 6 : 4);
+  const sphereRadius = baseRadius * scale;
   const hasTemporalData = node.hasTemporalData !== false; // Default to true if undefined
 
   // Create a group to hold sphere and label

@@ -45,6 +45,8 @@ interface NodeDetailsPanelProps {
   isLoading: boolean;
   onClose: () => void;
   onNodeSelect: (entityType: string, entityId: string) => void;
+  /** When true, renders without Card wrapper (used inside DetailsDrawer) */
+  isInDrawer?: boolean;
 }
 
 /**
@@ -454,12 +456,21 @@ function getNodeDisplayName(node: GraphNode): string {
   return node.name;
 }
 
-export function NodeDetailsPanel({ node, details, allNodes, isLoading, onClose, onNodeSelect }: NodeDetailsPanelProps) {
+export function NodeDetailsPanel({
+  node,
+  details,
+  allNodes,
+  isLoading,
+  onClose,
+  onNodeSelect,
+  isInDrawer = false,
+}: NodeDetailsPanelProps) {
   const [isFullDetailsOpen, setIsFullDetailsOpen] = useState(false);
   const needsRefocus = useAtomValue(needsRefocusAtom);
   const refocusCallback = useAtomValue(refocusCallbackAtom);
 
-  if (!node) {
+  // Empty state - only shown when not in drawer (drawer handles its own visibility)
+  if (!node && !isInDrawer) {
     return (
       <Card className="h-full">
         <CardBody className="flex items-center justify-center">
@@ -469,6 +480,99 @@ export function NodeDetailsPanel({ node, details, allNodes, isLoading, onClose, 
     );
   }
 
+  // When in drawer and no node, return null (drawer handles visibility)
+  if (!node) {
+    return null;
+  }
+
+  // Content that's shared between Card and Drawer modes
+  const panelContent = (
+    <>
+      {isLoading ? (
+        <div className="flex items-center justify-center py-8">
+          <Spinner size="lg" />
+        </div>
+      ) : details ? (
+        <>
+          {details.type === 'person' ? (
+            <PersonCard data={details.data as PersonDetails} />
+          ) : (
+            <GroupCard data={details.data as GroupDetails} />
+          )}
+
+          {/* Full Details Button - replaces divider */}
+          <Button
+            size="md"
+            variant="flat"
+            color="secondary"
+            startContent={<FileText className="h-4 w-4" />}
+            onPress={() => setIsFullDetailsOpen(true)}
+            className="w-full"
+          >
+            Full Details
+          </Button>
+
+          {/* Relationships */}
+          <div className="space-y-4">
+            <div>
+              <h4 className="mb-2 text-small font-semibold">Outgoing ({details.relationships.outgoing.length})</h4>
+              <RelationshipsList
+                relationships={details.relationships.outgoing}
+                direction="outgoing"
+                allNodes={allNodes}
+                onNodeSelect={onNodeSelect}
+              />
+            </div>
+
+            <div>
+              <h4 className="mb-2 text-small font-semibold">Incoming ({details.relationships.incoming.length})</h4>
+              <RelationshipsList
+                relationships={details.relationships.incoming}
+                direction="incoming"
+                allNodes={allNodes}
+                onNodeSelect={onNodeSelect}
+              />
+            </div>
+          </div>
+        </>
+      ) : (
+        <div className="space-y-2">
+          <p className="text-small">Type: {node.type}</p>
+          {node.type === 'person' && (
+            <>
+              {(node.metadata as PersonMetadata).title && (
+                <p className="text-small">Title: {(node.metadata as PersonMetadata).title}</p>
+              )}
+              {(node.metadata as PersonMetadata).style && (
+                <p className="text-small">Style: {(node.metadata as PersonMetadata).style}</p>
+              )}
+            </>
+          )}
+          {node.type === 'group' && (node.metadata as GroupMetadata).style && (
+            <p className="text-small">Style: {(node.metadata as GroupMetadata).style}</p>
+          )}
+        </div>
+      )}
+    </>
+  );
+
+  // When in drawer mode, return just the content (drawer provides wrapper)
+  if (isInDrawer) {
+    return (
+      <>
+        <div className="flex flex-col gap-4 p-4">{panelContent}</div>
+        <FullDetailsModal
+          isOpen={isFullDetailsOpen}
+          onClose={() => setIsFullDetailsOpen(false)}
+          entityType={node.type as 'person' | 'group'}
+          entityId={node.id}
+          entityName={node.name}
+        />
+      </>
+    );
+  }
+
+  // Desktop mode: Card wrapper with header
   return (
     <>
       <Card>
@@ -494,76 +598,9 @@ export function NodeDetailsPanel({ node, details, allNodes, isLoading, onClose, 
             <span className="text-lg">&times;</span>
           </Button>
         </CardHeader>
-        <CardBody className="gap-4">
-          {isLoading ? (
-            <div className="flex items-center justify-center py-8">
-              <Spinner size="lg" />
-            </div>
-          ) : details ? (
-            <>
-              {details.type === 'person' ? (
-                <PersonCard data={details.data as PersonDetails} />
-              ) : (
-                <GroupCard data={details.data as GroupDetails} />
-              )}
-
-              {/* Full Details Button - replaces divider */}
-              <Button
-                size="md"
-                variant="flat"
-                color="secondary"
-                startContent={<FileText className="h-4 w-4" />}
-                onPress={() => setIsFullDetailsOpen(true)}
-                className="w-full"
-              >
-                Full Details
-              </Button>
-
-              {/* Relationships */}
-              <div className="space-y-4">
-                <div>
-                  <h4 className="mb-2 text-small font-semibold">Outgoing ({details.relationships.outgoing.length})</h4>
-                  <RelationshipsList
-                    relationships={details.relationships.outgoing}
-                    direction="outgoing"
-                    allNodes={allNodes}
-                    onNodeSelect={onNodeSelect}
-                  />
-                </div>
-
-                <div>
-                  <h4 className="mb-2 text-small font-semibold">Incoming ({details.relationships.incoming.length})</h4>
-                  <RelationshipsList
-                    relationships={details.relationships.incoming}
-                    direction="incoming"
-                    allNodes={allNodes}
-                    onNodeSelect={onNodeSelect}
-                  />
-                </div>
-              </div>
-            </>
-          ) : (
-            <div className="space-y-2">
-              <p className="text-small">Type: {node.type}</p>
-              {node.type === 'person' && (
-                <>
-                  {(node.metadata as PersonMetadata).title && (
-                    <p className="text-small">Title: {(node.metadata as PersonMetadata).title}</p>
-                  )}
-                  {(node.metadata as PersonMetadata).style && (
-                    <p className="text-small">Style: {(node.metadata as PersonMetadata).style}</p>
-                  )}
-                </>
-              )}
-              {node.type === 'group' && (node.metadata as GroupMetadata).style && (
-                <p className="text-small">Style: {(node.metadata as GroupMetadata).style}</p>
-              )}
-            </div>
-          )}
-        </CardBody>
+        <CardBody className="gap-4">{panelContent}</CardBody>
       </Card>
 
-      {/* Full Details Modal */}
       <FullDetailsModal
         isOpen={isFullDetailsOpen}
         onClose={() => setIsFullDetailsOpen(false)}

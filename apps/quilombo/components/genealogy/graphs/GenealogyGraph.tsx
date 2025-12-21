@@ -75,6 +75,8 @@ interface GenealogyGraphProps {
   width?: number;
   /** Fixed height (auto-sizes if not provided) */
   height?: number;
+  /** Scale factor for node sizes (use > 1 for larger touch targets on mobile) */
+  nodeScale?: number;
 }
 
 /**
@@ -415,6 +417,7 @@ export function GenealogyGraph({
   onBackgroundClick,
   width,
   height,
+  nodeScale,
 }: GenealogyGraphProps) {
   // Jotai state
   const viewMode = useAtomValue(graphViewModeAtom);
@@ -611,6 +614,7 @@ export function GenealogyGraph({
       autoFitPadding={autoFitPadding}
       width={width}
       height={height}
+      nodeScale={nodeScale}
       autoFitOnLoad
       showLinkParticles={settings.showAnimations}
       showLinkArrows

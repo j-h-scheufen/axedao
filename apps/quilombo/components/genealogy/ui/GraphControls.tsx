@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Card, CardBody, Checkbox, CheckboxGroup, Divider, Switch, Tooltip } from '@heroui/react';
+import { Accordion, AccordionItem, Button, Checkbox, CheckboxGroup, Divider, Switch, Tooltip } from '@heroui/react';
 import { useAtom, useAtomValue, useSetAtom } from 'jotai';
 
 import type { EntityType, Predicate } from '@/db/schema/genealogy';
@@ -26,6 +26,8 @@ interface GraphControlsProps {
   isLoading: boolean;
   /** IDs of nodes currently in the filtered graph (for "Find Me" visibility) */
   nodeIds?: ReadonlySet<string>;
+  /** Optional callback when an action that should close the drawer is triggered (e.g., Find Me) */
+  onClose?: () => void;
 }
 
 /** Labels for node type checkboxes */
@@ -41,7 +43,7 @@ const PREDICATE_GROUP_REQUIRED_TYPES: Record<string, EntityType[]> = {
   'Group → Group': ['group'],
 };
 
-export function GraphControls({ stats, isLoading, nodeIds }: GraphControlsProps) {
+export function GraphControls({ stats, isLoading, nodeIds, onClose }: GraphControlsProps) {
   // Jotai state
   const viewMode = useAtomValue(graphViewModeAtom);
   const viewConfig = useAtomValue(viewConfigAtom);
@@ -64,11 +66,13 @@ export function GraphControls({ stats, isLoading, nodeIds }: GraphControlsProps)
   const handleFindMe = () => {
     if (userProfileId) {
       setSelectedNodeId(userProfileId);
+      onClose?.(); // Close drawer on mobile so user can see the selected node
     }
   };
 
   const handleRecenter = () => {
     recenterCallback?.();
+    onClose?.(); // Close drawer on mobile so user can see the graph
   };
 
   // Get predicate groups filtered to this view's allowed predicates
@@ -134,9 +138,13 @@ export function GraphControls({ stats, isLoading, nodeIds }: GraphControlsProps)
   // Check if there are predicates available (based on filtered groups, not view config)
   const hasPredicates = visiblePredicates.length > 0;
 
+  // Get accordion keys for predicate groups
+  const predicateGroupKeys = Object.keys(predicateGroups);
+
   return (
-    <Card className="h-full overflow-auto">
-      <CardBody className="gap-4">
+    <div className="flex h-full flex-col">
+      {/* Scrollable content area */}
+      <div className="flex-1 overflow-y-auto p-3">
         {/* Stats */}
         {stats && (
           <div className="space-y-1">
@@ -152,7 +160,7 @@ export function GraphControls({ stats, isLoading, nodeIds }: GraphControlsProps)
 
         {hasMultipleNodeTypes && (
           <>
-            <Divider />
+            <Divider className="my-3" />
 
             {/* Node Types */}
             <div className="space-y-2">
@@ -175,9 +183,9 @@ export function GraphControls({ stats, isLoading, nodeIds }: GraphControlsProps)
 
         {hasPredicates && (
           <>
-            <Divider />
+            <Divider className="my-3" />
 
-            {/* Relationship Types */}
+            {/* Relationship Types - Accordion */}
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <h3 className="text-small font-semibold">Relationships</h3>
@@ -197,24 +205,37 @@ export function GraphControls({ stats, isLoading, nodeIds }: GraphControlsProps)
                 onValueChange={handlePredicatesChange}
                 size="sm"
                 isDisabled={isLoading}
-                className="max-h-80 overflow-y-auto"
               >
-                {Object.entries(predicateGroups).map(([groupName, groupPredicates]) => (
-                  <div key={groupName} className="mb-3">
-                    <p className="mb-1 text-tiny font-medium text-default-500">{groupName}</p>
-                    {groupPredicates.map((predicate) => (
-                      <Checkbox key={predicate} value={predicate} className="block py-0.5">
-                        {PREDICATE_LABELS[predicate]}
-                      </Checkbox>
-                    ))}
-                  </div>
-                ))}
+                <Accordion
+                  selectionMode="single"
+                  defaultExpandedKeys={predicateGroupKeys.length > 0 ? [predicateGroupKeys[0]] : []}
+                  isCompact
+                  className="-mx-2"
+                >
+                  {Object.entries(predicateGroups).map(([groupName, groupPredicates]) => (
+                    <AccordionItem
+                      key={groupName}
+                      aria-label={groupName}
+                      title={<span className="text-tiny font-medium">{groupName}</span>}
+                      classNames={{
+                        content: 'pt-0 pb-2',
+                        trigger: 'py-2',
+                      }}
+                    >
+                      {groupPredicates.map((predicate) => (
+                        <Checkbox key={predicate} value={predicate} className="block py-0.5">
+                          {PREDICATE_LABELS[predicate]}
+                        </Checkbox>
+                      ))}
+                    </AccordionItem>
+                  ))}
+                </Accordion>
               </CheckboxGroup>
             </div>
           </>
         )}
 
-        <Divider />
+        <Divider className="my-3" />
 
         {/* Graph Settings */}
         <div className="space-y-2">
@@ -246,10 +267,10 @@ export function GraphControls({ stats, isLoading, nodeIds }: GraphControlsProps)
             </Tooltip>
           )}
         </div>
+      </div>
 
-        <Divider />
-
-        {/* Camera and Filter Controls */}
+      {/* Fixed buttons area - never scrolls */}
+      <div className="shrink-0 space-y-2 border-t border-default-200 p-3">
         <Button
           variant="flat"
           size="sm"
@@ -277,8 +298,8 @@ export function GraphControls({ stats, isLoading, nodeIds }: GraphControlsProps)
         <Button variant="bordered" size="sm" onPress={handleReset} isDisabled={isLoading} className="w-full">
           Reset Filters
         </Button>
-      </CardBody>
-    </Card>
+      </div>
+    </div>
   );
 }
 
