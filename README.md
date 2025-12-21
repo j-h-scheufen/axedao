@@ -11,7 +11,9 @@
 
 **Building a decentralized autonomous organization for the global Capoeira community**
 
-Axé DAO combines blockchain technology with community governance to create a transparent, inclusive platform for Capoeira practitioners worldwide. This monorepo contains the smart contracts, DApp, and supporting infrastructure for the Axé DAO ecosystem.
+`Axé DAO` is about activating the `techies` that are already present in global Capoeira and coordinating the building of common tools and infrastructure for the community.
+
+Our tech stack combines blockchain technology with community governance to create a transparent, inclusive platform for Capoeira practitioners worldwide. This monorepo contains the smart contracts, DApp, and supporting infrastructure for the Axé DAO ecosystem.
 
 ## 🌍 Project Overview
 
