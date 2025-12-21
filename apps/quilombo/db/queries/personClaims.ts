@@ -6,26 +6,29 @@
 
 import { and, eq } from 'drizzle-orm';
 
-import { personClaimStatuses, personClaimStatusReasons } from '@/config/constants';
+import { personClaimStatuses, personClaimStatusReasons, PRESUMED_DECEASED_AGE_THRESHOLD } from '@/config/constants';
 import type { PersonClaimStatusReason } from '@/types/model';
 import * as schema from '@/db/schema';
 import { personProfiles, type SelectPersonProfile } from '@/db/schema/genealogy';
 import { db } from '@/db';
 import { NotFoundError } from '@/utils/errors';
 
-/** Threshold for presuming a person is deceased (100 years from current year) */
-const PRESUMED_DECEASED_AGE = 100;
-
 /**
  * Checks if a person is presumed deceased based on birth year.
- * Historical figures with birth years > 100 years ago are presumed deceased
- * even if we don't have a recorded death year.
+ * Historical figures with birth years > PRESUMED_DECEASED_AGE_THRESHOLD years ago
+ * are presumed deceased even if we don't have a recorded death year.
+ *
+ * Use this to identify historical figures in the genealogy graph.
+ *
+ * @param birthYear - Person's birth year (null if unknown)
+ * @param deathYear - Person's death year (null if still alive or unknown)
+ * @returns true if the person has a death year or is PRESUMED_DECEASED_AGE_THRESHOLD+ years old
  */
-function isPresumedDeceased(birthYear: number | null, deathYear: number | null): boolean {
+export function isPresumedDeceased(birthYear: number | null, deathYear: number | null): boolean {
   if (deathYear !== null) return true;
   if (birthYear === null) return false;
   const currentYear = new Date().getFullYear();
-  return birthYear <= currentYear - PRESUMED_DECEASED_AGE;
+  return birthYear <= currentYear - PRESUMED_DECEASED_AGE_THRESHOLD;
 }
 
 /**

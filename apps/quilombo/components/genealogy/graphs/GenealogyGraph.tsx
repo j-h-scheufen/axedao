@@ -22,17 +22,11 @@ import {
   STUDENT_ANCESTRY_GRAVITY_ONLY_PREDICATES,
   STUDENT_ANCESTRY_VISIBLE_PREDICATES,
 } from '@/components/genealogy/config';
-import {
-  ancestryMinTitleLevelAtom,
-  graphFiltersAtom,
-  graphSettingsAtom,
-  graphViewModeAtom,
-  showYourselfAtom,
-} from '@/components/genealogy/state';
+import { graphFiltersAtom, graphSettingsAtom, graphViewModeAtom, showYourselfAtom } from '@/components/genealogy/state';
 import type { GraphData, GraphNode, PersonMetadata } from '@/components/genealogy/types';
 import { currentUserProfileIdAtom } from '@/hooks/state/currentUser';
 import { useUserAncestry } from '@/hooks/useGenealogyData';
-import { isTitleAtOrAboveLevel } from '@/utils';
+import { shouldIncludePersonNode } from '@/utils/genealogy';
 import {
   ForceGraph3DWrapper,
   type CameraPosition,
@@ -42,11 +36,20 @@ import {
   type ForceNode,
   type LinkForceConfig,
   type TemporalLayout,
-  type TemporalLayoutConfig,
 } from '@/components/genealogy/core';
 import {
+  ANCESTRY_COLLISION_RADIUS,
+  ANCESTRY_LINK_STRENGTH,
+  ANCESTRY_MIN_TITLE_LEVEL,
+  GENERAL_COLLISION_RADIUS,
+  GENERAL_LINK_STRENGTH,
+  GENERAL_MIN_TITLE_LEVEL,
+  GENERAL_VIEW_LAYOUT_CONFIG,
+  SIMULATION_CONFIG,
+  STUDENT_ANCESTRY_LAYOUT_CONFIG,
+} from './constants';
+import {
   BIRTH_YEAR_OFFSET,
-  DEFAULT_LINK_FORCE_STRENGTH,
   ERA_CONFIG,
   createLinkStrengthResolver,
   createTemporalLayout,
@@ -85,38 +88,6 @@ interface TemporalForceNode extends ForceNode {
 interface ProcessedGraphData extends Omit<ForceGraphData, 'nodes'> {
   nodes: TemporalForceNode[];
 }
-
-// ============================================================================
-// CONFIGURATION
-// ============================================================================
-
-const NODE_COLLISION_RADIUS = 12;
-
-/** Link force strength by predicate - used by both views */
-const GENERAL_LINK_STRENGTH: Record<string, number> = {
-  ...DEFAULT_LINK_FORCE_STRENGTH,
-  member_of: 0.3,
-  co_founded: 0.2,
-};
-
-/**
- * Temporal layout config for the General view (3D spherical).
- * Uses default spacing - adjust as needed for optimal 3D distribution.
- */
-const GENERAL_VIEW_LAYOUT_CONFIG: Partial<TemporalLayoutConfig> = {
-  modernDecadeRadius: 40,
-  contemporaryDecadeRadius: 90,
-  linkDistance: 45,
-};
-
-/**
- * Temporal layout config for Student Ancestry view (flat radial).
- * Uses default spacing - adjust as needed for flat timeline visualization.
- */
-const STUDENT_ANCESTRY_LAYOUT_CONFIG: Partial<TemporalLayoutConfig> = {
-  // Uses defaults - can customize here if needed
-  // Example: contemporaryDecadeRadius: 100, // larger spacing for more groups
-};
 
 // ============================================================================
 // DATA PROCESSING
@@ -257,7 +228,7 @@ const SLAVERY_ERA_CONFIG = {
   discOpacity: 0.18,
   abolitionRingColor: 0xc9a227,
   abolitionRingOpacity: 0.85,
-  abolitionLabel: '1888 · Abolição',
+  abolitionLabel: 'Abolição (1888)',
   labelColor: 'rgba(201, 162, 39, 0.95)',
 } as const;
 
@@ -369,14 +340,8 @@ function createSlaveryEraObject(layout: TemporalLayout): THREE.Group {
   ring.renderOrder = 100;
   group.add(ring);
 
-  // Abolition label
-  const label = createTextSprite(
-    SLAVERY_ERA_CONFIG.abolitionLabel,
-    -(abolitionRadius + 18),
-    SLAVERY_ERA_CONFIG.labelColor,
-    0
-  );
-  label.position.set(-(abolitionRadius + 18), 0, 0);
+  // Abolition label - positioned on right side like other era labels
+  const label = createTextSprite(SLAVERY_ERA_CONFIG.abolitionLabel, abolitionRadius, SLAVERY_ERA_CONFIG.labelColor);
   label.renderOrder = 1001;
   group.add(label);
 
@@ -456,11 +421,13 @@ export function GenealogyGraph({
   const filters = useAtomValue(graphFiltersAtom);
   const settings = useAtomValue(graphSettingsAtom);
 
-  // "Show Yourself" feature state
-  const showYourself = useAtomValue(showYourselfAtom);
-  const minTitleLevel = useAtomValue(ancestryMinTitleLevelAtom);
-  const userProfileId = useAtomValue(currentUserProfileIdAtom);
+  // View mode and title level filtering
   const isStudentAncestryView = viewMode === 'student-ancestry';
+  const minTitleLevel = isStudentAncestryView ? ANCESTRY_MIN_TITLE_LEVEL : GENERAL_MIN_TITLE_LEVEL;
+
+  // "Show Yourself" feature state (ancestry view only)
+  const showYourself = useAtomValue(showYourselfAtom);
+  const userProfileId = useAtomValue(currentUserProfileIdAtom);
 
   // Fetch user's ancestry when "Show Yourself" is enabled
   const { data: ancestryData } = useUserAncestry(userProfileId, {
@@ -483,27 +450,24 @@ export function GenealogyGraph({
     // Filter nodes by type
     let filteredNodes = data.nodes.filter((node) => nodeTypeSet.has(node.type));
 
-    // In student-ancestry view, additionally filter by title level
-    // Only show persons at or above the minimum title level (e.g., contra-mestre and above)
-    // Historical figures (null title) are included to preserve lineage continuity
-    // The logged-in user's node is always included regardless of their title
-    if (isStudentAncestryView) {
-      filteredNodes = filteredNodes.filter((node) => {
-        // Always include the user's own node
-        if (userProfileId && node.id === userProfileId) {
-          return true;
-        }
-
-        // For persons, apply title level filtering
-        if (node.type === 'person') {
-          const title = (node.metadata as PersonMetadata).title;
-          // Include historical figures (null title) and those meeting the level threshold
-          return title === null || isTitleAtOrAboveLevel(title, minTitleLevel);
-        }
-
+    // Apply person filtering based on view mode:
+    // - Both views: include persons meeting the title level threshold
+    // - Both views: include historical/deceased figures to preserve lineage continuity
+    // - Both views: always include the current user's node (if viewing their ancestry)
+    filteredNodes = filteredNodes.filter((node) => {
+      // Groups pass through (no person filtering)
+      if (node.type !== 'person') {
         return true;
+      }
+
+      // Apply person filtering using centralized logic
+      const meta = node.metadata as PersonMetadata;
+      return shouldIncludePersonNode(node.id, meta.title, meta.birthYear, meta.deathYear, {
+        minTitleLevel,
+        includeHistorical: true,
+        currentUserProfileId: userProfileId,
       });
-    }
+    });
 
     const filteredNodeIds = new Set(filteredNodes.map((n) => n.id));
 
@@ -535,7 +499,7 @@ export function GenealogyGraph({
         groupCount: filteredNodes.filter((n) => n.type === 'group').length,
       },
     };
-  }, [data, filters, isStudentAncestryView, userProfileId, minTitleLevel]);
+  }, [data, filters, minTitleLevel, userProfileId]);
 
   // Process filtered data based on view mode (applies view-specific transformations)
   const graphData = useMemo((): ProcessedGraphData => {
@@ -547,10 +511,9 @@ export function GenealogyGraph({
 
   // Create forces based on view mode
   const forces = useMemo((): ForceConfig[] => {
-    const collideForce = forceCollide3d(NODE_COLLISION_RADIUS);
-
     if (viewMode === 'student-ancestry') {
-      // Hard radial constraint + plane constraint for flat layout
+      // Flat ancestry view: larger collision radius, hard radial + plane constraint
+      const collideForce = forceCollide3d(ANCESTRY_COLLISION_RADIUS);
       const radialForce = studentAncestryLayout.createRadialForce({
         strength: 1.0,
         constrainToPlane: true,
@@ -562,7 +525,8 @@ export function GenealogyGraph({
       ];
     }
 
-    // General view: soft radial constraint, full 3D
+    // General view: standard collision radius, soft radial constraint, full 3D
+    const collideForce = forceCollide3d(GENERAL_COLLISION_RADIUS);
     const radialForce = generalLayout.createRadialForce({
       strength: 1.0,
       constrainToPlane: false,
@@ -579,7 +543,7 @@ export function GenealogyGraph({
     const strength =
       viewMode === 'general'
         ? createLinkStrengthResolver(GENERAL_LINK_STRENGTH)
-        : createLinkStrengthResolver(DEFAULT_LINK_FORCE_STRENGTH);
+        : createLinkStrengthResolver(ANCESTRY_LINK_STRENGTH);
 
     return { strength, distance: currentLayout.config.linkDistance };
   }, [viewMode, currentLayout]);
@@ -647,9 +611,10 @@ export function GenealogyGraph({
       autoFitDelay={800}
       showLinkParticles={settings.showAnimations}
       showLinkArrows
-      d3AlphaDecay={0.01}
-      d3VelocityDecay={0.2}
-      cooldownTicks={200}
+      warmupTicks={SIMULATION_CONFIG.warmupTicks}
+      cooldownTicks={SIMULATION_CONFIG.cooldownTicks}
+      d3AlphaDecay={SIMULATION_CONFIG.d3AlphaDecay}
+      d3VelocityDecay={SIMULATION_CONFIG.d3VelocityDecay}
     />
   );
 }
