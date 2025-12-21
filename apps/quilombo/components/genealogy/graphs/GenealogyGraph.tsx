@@ -570,6 +570,9 @@ export function GenealogyGraph({
     return undefined; // Auto-fit for general view
   }, [viewMode]);
 
+  // Zoom-to-fit padding - ancestry view needs less padding (closer zoom)
+  const autoFitPadding = viewMode === 'student-ancestry' ? 13 : 50;
+
   // Compute highlighted node IDs for "Highlight Your Lineage" feature
   // When enabled, user's node + ancestors are highlighted, others are dimmed
   // Title-level filtering is already applied at the view level (filteredData)
@@ -605,10 +608,10 @@ export function GenealogyGraph({
       linkForceConfig={linkForceConfig}
       customSceneObjects={customSceneObjects}
       initialCameraPosition={initialCameraPosition}
+      autoFitPadding={autoFitPadding}
       width={width}
       height={height}
       autoFitOnLoad
-      autoFitDelay={800}
       showLinkParticles={settings.showAnimations}
       showLinkArrows
       warmupTicks={SIMULATION_CONFIG.warmupTicks}

@@ -151,9 +151,6 @@ export interface ForceGraph3DWrapperProps {
   /** Whether to auto-fit graph on load */
   autoFitOnLoad?: boolean;
 
-  /** Auto-fit delay in ms */
-  autoFitDelay?: number;
-
   /** Auto-fit padding */
   autoFitPadding?: number;
 

@@ -11,7 +11,7 @@ import { useSetAtom } from 'jotai';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ForceGraph3D, { type ForceGraphMethods } from 'react-force-graph-3d';
 
-import { needsRefocusAtom, refocusCallbackAtom } from '@/components/genealogy/state';
+import { needsRefocusAtom, recenterCallbackAtom, refocusCallbackAtom } from '@/components/genealogy/state';
 
 import { createDefaultNodeObject } from './nodeRenderers';
 import { getLinkColor } from './linkRenderers';
@@ -43,7 +43,6 @@ export function ForceGraph3DWrapper({
   forces,
   customSceneObjects,
   autoFitOnLoad = true,
-  autoFitDelay = 800,
   autoFitPadding = 50,
   backgroundColor = '#1a1a2e',
   width,
@@ -66,9 +65,10 @@ export function ForceGraph3DWrapper({
   const focusEndTimeRef = useRef(0); // Timestamp when last focus animation ended
   const [dimensions, setDimensions] = useState({ width: width || 800, height: height || 600 });
 
-  // Jotai setters for refocus state
+  // Jotai setters for refocus/recenter state
   const setNeedsRefocus = useSetAtom(needsRefocusAtom);
   const setRefocusCallback = useSetAtom(refocusCallbackAtom);
+  const setRecenterCallback = useSetAtom(recenterCallbackAtom);
 
   // Camera controls
   const { zoomToFit, focusOnNode, getCameraPosition } = useGraphCamera(
@@ -130,27 +130,34 @@ export function ForceGraph3DWrapper({
     graphRef.current.d3ReheatSimulation();
   }, [linkForceConfig]);
 
-  // Set initial camera position
-  useEffect(() => {
-    if (!graphRef.current || !initialCameraPosition) return;
+  // Track if this is the initial mount (vs. a view change)
+  const isInitialMountRef = useRef(true);
+  const prevInitialCameraPositionRef = useRef(initialCameraPosition);
 
-    const camera = graphRef.current.camera();
-    if (camera) {
-      camera.position.set(initialCameraPosition.x, initialCameraPosition.y, initialCameraPosition.z);
-      camera.lookAt(0, 0, 0);
+  // Set initial camera position and trigger zoom-to-fit on mount or view change
+  // initialCameraPosition changes when viewMode changes, so we use it to detect view switches
+  useEffect(() => {
+    if (!graphRef.current) return;
+
+    const isViewChange = !isInitialMountRef.current && prevInitialCameraPositionRef.current !== initialCameraPosition;
+
+    // Set camera position if provided
+    if (initialCameraPosition) {
+      const camera = graphRef.current.camera();
+      if (camera) {
+        camera.position.set(initialCameraPosition.x, initialCameraPosition.y, initialCameraPosition.z);
+        camera.lookAt(0, 0, 0);
+      }
     }
-  }, [initialCameraPosition]);
 
-  // Auto-fit on load
-  useEffect(() => {
-    if (!autoFitOnLoad) return;
-
-    const timer = setTimeout(() => {
+    // Zoom to fit on initial mount or view change
+    if ((isInitialMountRef.current && autoFitOnLoad) || isViewChange) {
       zoomToFit(1000, autoFitPadding);
-    }, autoFitDelay);
+      isInitialMountRef.current = false;
+    }
 
-    return () => clearTimeout(timer);
-  }, [autoFitOnLoad, autoFitDelay, autoFitPadding, zoomToFit]);
+    prevInitialCameraPositionRef.current = initialCameraPosition;
+  }, [initialCameraPosition, autoFitOnLoad, autoFitPadding, zoomToFit]);
 
   // Add custom scene objects
   useEffect(() => {
@@ -336,6 +343,28 @@ export function ForceGraph3DWrapper({
     setRefocusCallback(() => refocusOnSelectedNode);
     return () => setRefocusCallback(null);
   }, [refocusOnSelectedNode, setRefocusCallback]);
+
+  // Recenter callback - returns camera to initial position and zooms to fit
+  const recenterGraph = useCallback(() => {
+    if (!graphRef.current) return;
+
+    // Immediately set camera to initial position (same as initial view setup)
+    const targetPosition = initialCameraPosition ?? { x: 0, y: 0, z: 500 };
+    const camera = graphRef.current.camera();
+    if (camera) {
+      camera.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
+      camera.lookAt(0, 0, 0);
+    }
+
+    // Then animate zoom to fit from that position
+    zoomToFit(1000, autoFitPadding);
+  }, [zoomToFit, autoFitPadding, initialCameraPosition]);
+
+  // Register the recenter callback in global state for GraphControls to use
+  useEffect(() => {
+    setRecenterCallback(() => recenterGraph);
+    return () => setRecenterCallback(null);
+  }, [recenterGraph, setRecenterCallback]);
 
   // Detect camera movement when a node is selected (user dragged/rotated the view)
   // We poll the camera position periodically to detect if it has moved away from the node

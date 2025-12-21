@@ -7,6 +7,7 @@ export {
   graphSettingsAtom,
   graphViewModeAtom,
   needsRefocusAtom,
+  recenterCallbackAtom,
   refocusCallbackAtom,
   selectedNodeIdAtom,
   showYourselfAtom,
