@@ -1,8 +1,7 @@
 'use client';
 
-import { Button, Popover, PopoverContent, PopoverTrigger, Select, SelectItem } from '@heroui/react';
+import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Select, SelectItem } from '@heroui/react';
 import { Layers } from 'lucide-react';
-import { useState } from 'react';
 
 import { type GraphViewMode, GRAPH_VIEW_OPTIONS } from '@/components/genealogy/config';
 
@@ -20,21 +19,14 @@ interface ViewModeMenuProps {
 /**
  * View mode selector for the genealogy graph.
  * - Desktop: Full select dropdown
- * - Mobile (isCompact): Icon button with popover menu
+ * - Mobile (isCompact): Icon button with dropdown menu
  */
 export function ViewModeMenu({ value, onChange, isCompact = false, isDisabled = false }: ViewModeMenuProps) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleSelect = (newValue: GraphViewMode) => {
-    onChange(newValue);
-    setIsOpen(false);
-  };
-
-  // Compact mode: icon button with popover
+  // Compact mode: icon button with dropdown menu
   if (isCompact) {
     return (
-      <Popover isOpen={isOpen} onOpenChange={setIsOpen} placement="bottom-end">
-        <PopoverTrigger>
+      <Dropdown placement="bottom-end">
+        <DropdownTrigger>
           <Button
             isIconOnly
             variant="bordered"
@@ -45,24 +37,21 @@ export function ViewModeMenu({ value, onChange, isCompact = false, isDisabled = 
           >
             <Layers className="h-4 w-4" />
           </Button>
-        </PopoverTrigger>
-        <PopoverContent className="w-56 p-1">
-          <div className="flex flex-col gap-0.5">
-            {GRAPH_VIEW_OPTIONS.map((view) => (
-              <Button
-                key={view.key}
-                variant={value === view.key ? 'flat' : 'light'}
-                color={value === view.key ? 'primary' : 'default'}
-                size="sm"
-                className="justify-start"
-                onPress={() => handleSelect(view.key)}
-              >
-                {view.label}
-              </Button>
-            ))}
-          </div>
-        </PopoverContent>
-      </Popover>
+        </DropdownTrigger>
+        <DropdownMenu
+          aria-label="View mode selection"
+          selectionMode="single"
+          selectedKeys={new Set([value])}
+          onSelectionChange={(keys) => {
+            const selected = Array.from(keys)[0] as GraphViewMode;
+            if (selected) onChange(selected);
+          }}
+        >
+          {GRAPH_VIEW_OPTIONS.map((view) => (
+            <DropdownItem key={view.key}>{view.label}</DropdownItem>
+          ))}
+        </DropdownMenu>
+      </Dropdown>
     );
   }
 
