@@ -75,6 +75,25 @@ export function GraphControls({ stats, isLoading, nodeIds, onClose }: GraphContr
     onClose?.(); // Close drawer on mobile so user can see the graph
   };
 
+  // Handle "Highlight Your Lineage" toggle - ensure lineage predicates are enabled when activated
+  const handleShowYourselfChange = (enabled: boolean) => {
+    setShowYourself(enabled);
+
+    // When enabling, ensure both lineage predicates are active to show the full ancestry tree
+    if (enabled) {
+      const lineagePredicates: Predicate[] = ['student_of', 'trained_under'];
+      const currentPredicates = new Set(filters.predicates);
+      const missingPredicates = lineagePredicates.filter((p) => !currentPredicates.has(p));
+
+      if (missingPredicates.length > 0) {
+        setFilters({
+          ...filters,
+          predicates: [...filters.predicates, ...missingPredicates],
+        });
+      }
+    }
+  };
+
   // Get predicate groups filtered to this view's allowed predicates
   const viewPredicateGroups = getFilteredPredicateGroups(viewConfig);
 
@@ -258,7 +277,7 @@ export function GraphControls({ stats, isLoading, nodeIds, onClose }: GraphContr
                 <Switch
                   size="sm"
                   isSelected={showYourself}
-                  onValueChange={setShowYourself}
+                  onValueChange={handleShowYourselfChange}
                   isDisabled={isLoading || !hasGenealogyProfile}
                 >
                   Highlight Your Lineage

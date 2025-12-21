@@ -7,7 +7,7 @@ import { useCallback } from 'react';
 import ImageUpload from '@/components/forms/ImageUpload';
 import { titles } from '@/config/constants';
 import { currentUserAtom, currentUserAvatarAtom } from '@/hooks/state/currentUser';
-import { useUpdateAvatarMutation } from '@/query/currentUser';
+import { useUpdateAvatarMutation, useUpdateCurrentUserMutation } from '@/query/currentUser';
 
 import { useOnboarding } from '../contexts/OnboardingContext';
 import { WizardNavigationFooter } from '../shared/WizardNavigationFooter';
@@ -28,6 +28,7 @@ export function BasicProfileStep() {
   const { mode, draftProfile, isSubmitting, error } = state;
   const { data: user } = useAtomValue(currentUserAtom);
   const avatar = useAtomValue(currentUserAvatarAtom);
+  const updateUserMutation = useUpdateCurrentUserMutation();
 
   // Initialize draft from user data if not already set
   // Default to 'iniciante' only for new users (title is undefined, not null)
@@ -63,25 +64,19 @@ export function BasicProfileStep() {
     setError(null);
 
     try {
-      // Auto-save profile to DB
-      const response = await fetch('/api/profile', {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          title,
-          nickname: nickname || null,
-        }),
+      // Auto-save profile to DB using mutation (ensures cache invalidation)
+      await updateUserMutation.mutateAsync({
+        title,
+        nickname: nickname || null,
       });
-
-      if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.error || 'Failed to save profile');
-      }
 
       // Proceed to genealogy explainer (claim check happens there if user chooses to publish)
       goToStep('genealogy-explainer');
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to save profile');
+      const errorMessage =
+        (err as { response?: { data?: { error?: string } } })?.response?.data?.error ||
+        (err instanceof Error ? err.message : 'Failed to save profile');
+      setError(errorMessage);
     } finally {
       setSubmitting(false);
     }

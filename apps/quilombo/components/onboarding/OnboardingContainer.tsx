@@ -1,7 +1,7 @@
 'use client';
 
 import { Modal, ModalBody, ModalContent, ModalHeader, useDisclosure } from '@heroui/react';
-import { useEffect, type ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
 
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
@@ -26,6 +26,7 @@ interface OnboardingContainerProps {
 export function OnboardingContainer({ isOpen, title, children, showProgress = true }: OnboardingContainerProps) {
   const isMobile = useMediaQuery('(max-width: 768px)');
   const { isOpen: modalIsOpen, onOpen, onClose: modalOnClose } = useDisclosure();
+  const contentRef = useRef<HTMLDivElement>(null);
 
   // Sync external isOpen with internal modal state
   useEffect(() => {
@@ -35,6 +36,14 @@ export function OnboardingContainer({ isOpen, title, children, showProgress = tr
       modalOnClose();
     }
   }, [isOpen, onOpen, modalOnClose]);
+
+  // Scroll content to top when step changes (title changes on each step)
+  // biome-ignore lint/correctness/useExhaustiveDependencies: title is intentionally used to trigger scroll on step change
+  useEffect(() => {
+    if (contentRef.current) {
+      contentRef.current.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }, [title]);
 
   // Mobile: Full-screen layout
   if (isMobile) {
@@ -53,7 +62,9 @@ export function OnboardingContainer({ isOpen, title, children, showProgress = tr
         </div>
 
         {/* Content - extra bottom padding for fixed navigation footer */}
-        <div className="flex-1 overflow-y-auto px-2 sm:px-4 py-4 pb-24">{children}</div>
+        <div ref={contentRef} className="flex-1 overflow-y-auto px-2 sm:px-4 py-4 pb-24">
+          {children}
+        </div>
       </div>
     );
   }
