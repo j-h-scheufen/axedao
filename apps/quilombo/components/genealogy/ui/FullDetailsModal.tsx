@@ -529,7 +529,7 @@ export function FullDetailsModal({ isOpen, onClose, entityType, entityId, entity
 
   // Build the report title based on entity type and profile data
   const reportTitle = useMemo(() => {
-    const prefix = language === 'pt' ? 'Relatório de Genealogia da Capoeira para' : 'Capoeira Genealogy Report for';
+    const prefix = language === 'pt' ? 'Perfil de' : 'Profile of';
 
     if (!profile) return `${prefix} ${entityName}`;
 

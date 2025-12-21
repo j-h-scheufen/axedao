@@ -574,7 +574,7 @@ export function GenealogyGraph({
   }, [viewMode]);
 
   // Zoom-to-fit padding - ancestry view needs less padding (closer zoom)
-  const autoFitPadding = viewMode === 'student-ancestry' ? 13 : 50;
+  const autoFitPadding = viewMode === 'student-ancestry' ? 10 : 35;
 
   // Compute highlighted node IDs for "Highlight Your Lineage" feature
   // When enabled, user's node + ancestors are highlighted, others are dimmed

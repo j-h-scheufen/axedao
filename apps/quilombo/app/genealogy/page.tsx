@@ -5,7 +5,7 @@ import { useAtom } from 'jotai';
 import { Info } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { parseAsBoolean, parseAsString, useQueryStates } from 'nuqs';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 
 import { type GraphViewMode, getViewConfig } from '@/components/genealogy/config';
 import {
@@ -57,9 +57,8 @@ export default function GenealogyPage() {
     showYourself: parseAsBoolean.withDefault(false),
   });
 
-  // Track if initial URL state has been applied (use state, not ref, to trigger re-render)
+  // Track if initial URL state has been applied
   const initializedRef = useRef(false);
-  const [isInitialized, setIsInitialized] = useState(false);
 
   // Jotai state
   const [graphView, setGraphView] = useAtom(graphViewModeAtom);
@@ -92,11 +91,28 @@ export default function GenealogyPage() {
     if (queryParams.node) {
       setSelectedNodeId(queryParams.node);
     }
-
-    // Mark initialization complete after a brief delay to let state settle
-    // This prevents the graph from rendering with stale state
-    setTimeout(() => setIsInitialized(true), 50);
   }, [queryParams, graphView, setGraphView, setFilters, setShowYourself, setSelectedNodeId]);
+
+  // Verify atom state matches URL params before considering initialization complete
+  // This prevents rendering the graph with stale/default atom values
+  const isInitialized = useMemo(() => {
+    const targetView = (queryParams.view as GraphViewMode) || 'general';
+    const targetConfig = getViewConfig(targetView);
+
+    // Check if view mode matches
+    if (graphView !== targetView) return false;
+
+    // Check if filters match the expected configuration for this view
+    // Compare nodeTypes (order doesn't matter, just contents)
+    const expectedNodeTypes = new Set(targetConfig.allowedNodeTypes);
+    const actualNodeTypes = new Set(filters.nodeTypes);
+    if (expectedNodeTypes.size !== actualNodeTypes.size) return false;
+    for (const t of expectedNodeTypes) {
+      if (!actualNodeTypes.has(t)) return false;
+    }
+
+    return true;
+  }, [queryParams.view, graphView, filters.nodeTypes]);
 
   // Sync showYourself atom changes to URL (after initial load)
   useEffect(() => {
