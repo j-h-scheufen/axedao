@@ -11,7 +11,6 @@ import {
   ModalContent,
   ModalHeader,
   Spinner,
-  Switch,
 } from '@heroui/react';
 import { ExternalLink, FileText } from 'lucide-react';
 import { useMemo, useState } from 'react';
@@ -19,8 +18,7 @@ import { useMemo, useState } from 'react';
 import { useResponsiveLayout } from '@/hooks/useResponsiveLayout';
 
 import type { GroupFullProfile, NameHistoryEntry, PersonFullProfile } from '@/components/genealogy/types';
-
-type Language = 'en' | 'pt';
+import { type Language, LanguageSwitch } from './LanguageSwitch';
 
 /**
  * Field labels in English and Portuguese.
@@ -565,20 +563,7 @@ export function FullDetailsModal({ isOpen, onClose, entityType, entityId, entity
               <FileText className="h-5 w-5 text-default-500" />
               <span>{reportTitle}</span>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="text-base" title="English">
-                🇬🇧
-              </span>
-              <Switch
-                size="sm"
-                isSelected={language === 'pt'}
-                onValueChange={(selected) => setLanguage(selected ? 'pt' : 'en')}
-                aria-label="Toggle language"
-              />
-              <span className="text-base" title="Português">
-                🇧🇷
-              </span>
-            </div>
+            <LanguageSwitch language={language} onLanguageChange={setLanguage} />
           </div>
         </ModalHeader>
         <ModalBody>

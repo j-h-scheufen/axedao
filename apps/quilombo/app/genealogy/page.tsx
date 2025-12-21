@@ -1,7 +1,8 @@
 'use client';
 
-import { Chip, Link, Spinner } from '@heroui/react';
+import { Button, Chip, Link, Spinner, useDisclosure } from '@heroui/react';
 import { useAtom } from 'jotai';
+import { Info } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { parseAsBoolean, parseAsString, useQueryStates } from 'nuqs';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -18,6 +19,7 @@ import {
   ControlsDrawer,
   ControlsSidebar,
   DetailsDrawer,
+  GenealogyInfoModal,
   GraphLegend,
   NodeSearch,
   ViewModeMenu,
@@ -44,6 +46,9 @@ export default function GenealogyPage() {
   // Responsive layout
   const { isMobile, isDesktop } = useResponsiveLayout();
   const showSidebar = isDesktop; // Sidebar on desktop, drawer on mobile/tablet
+
+  // Info modal
+  const { isOpen: isInfoModalOpen, onOpen: onInfoModalOpen, onClose: onInfoModalClose } = useDisclosure();
 
   // URL query params for deep linking
   const [queryParams, setQueryParams] = useQueryStates({
@@ -215,13 +220,25 @@ export default function GenealogyPage() {
       <div className="border-b border-default-200 px-4 py-3">
         <div className={`flex items-center gap-4 ${isMobile ? 'flex-col' : 'justify-between'}`}>
           {/* Title section */}
-          <div className={`${isMobile ? 'w-full text-center' : 'shrink-0'}`}>
-            <h1 className="text-xl font-bold">Capoeira Genealogy</h1>
-            {!isMobile && (
-              <p className="text-small text-default-500">
-                Explore the lineages and relationships of the capoeira community
-              </p>
-            )}
+          <div className={`flex items-center gap-2 ${isMobile ? 'w-full justify-center' : 'shrink-0'}`}>
+            <div className={isMobile ? 'text-center' : ''}>
+              <h1 className="text-xl font-bold">Capoeira Genealogy</h1>
+              {!isMobile && (
+                <p className="text-small text-default-500">
+                  Explore the lineages and relationships of the capoeira community
+                </p>
+              )}
+            </div>
+            <Button
+              isIconOnly
+              variant="light"
+              size="sm"
+              onPress={onInfoModalOpen}
+              aria-label="About this project"
+              className="text-primary"
+            >
+              <Info className="h-5 w-5" />
+            </Button>
           </div>
 
           {/* Beta badge - hidden on mobile */}
@@ -307,6 +324,9 @@ export default function GenealogyPage() {
           />
         </div>
       </div>
+
+      {/* Info Modal */}
+      <GenealogyInfoModal isOpen={isInfoModalOpen} onClose={onInfoModalClose} />
     </div>
   );
 }
