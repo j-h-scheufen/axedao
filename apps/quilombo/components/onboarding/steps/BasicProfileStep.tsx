@@ -65,9 +65,11 @@ export function BasicProfileStep() {
 
     try {
       // Auto-save profile to DB using mutation (ensures cache invalidation)
+      // nickname is already validated as non-empty above
       await updateUserMutation.mutateAsync({
         title,
-        nickname: nickname || null,
+        nickname,
+        links: user?.links ?? [],
       });
 
       // Proceed to genealogy explainer (claim check happens there if user chooses to publish)

@@ -322,6 +322,105 @@ export interface RadialForceConfig {
 }
 
 /**
+ * Configuration for the 2D radial constraint force.
+ */
+export interface RadialForceConfig2D {
+  /**
+   * Strength of the radial constraint (0-1).
+   * - 1.0: Hard constraint, nodes fixed to exact radius
+   * - 0.95: Soft constraint, allows slight movement
+   */
+  strength: number;
+  /**
+   * Only apply radial force to nodes with temporal data.
+   * If false, nodes without temporal data will be pushed to unknownYear radius.
+   */
+  onlyTemporalNodes: boolean;
+  /**
+   * Minimum radius from center.
+   */
+  minRadius?: number;
+}
+
+/**
+ * Extended node type for 2D radial force (x, y only).
+ */
+export interface TemporalForceNode2D {
+  id: string;
+  x?: number;
+  y?: number;
+  vx?: number;
+  vy?: number;
+  /** Target radius for this node based on birth/founding year */
+  targetRadius?: number;
+  /** Whether this node has temporal data */
+  hasTemporalData?: boolean;
+}
+
+/**
+ * Create a 2D radial constraint force that pulls/pushes nodes toward their target radius.
+ * Uses x, y coordinates (not x, z like the 3D constrained mode).
+ *
+ * @param config - Configuration for the 2D radial force
+ * @returns D3 force function compatible with d3-force (2D)
+ */
+export function createRadialForce2D(config: RadialForceConfig2D) {
+  const { strength, onlyTemporalNodes, minRadius = MIN_RADIUS } = config;
+
+  // biome-ignore lint/suspicious/noExplicitAny: custom d3-force implementation
+  const force: any = (alpha: number) => {
+    const nodes = force.nodes || [];
+    for (const node of nodes) {
+      // Skip nodes without temporal data if configured
+      if (onlyTemporalNodes && !node.hasTemporalData) {
+        continue;
+      }
+
+      const targetRadius = node.targetRadius ?? minRadius;
+
+      // Use 2D XY distance
+      const currentRadius = Math.sqrt(node.x * node.x + node.y * node.y);
+
+      if (currentRadius < 0.001) {
+        // Node at center - place at target radius with random angle
+        const theta = Math.random() * Math.PI * 2;
+        node.x = targetRadius * Math.cos(theta);
+        node.y = targetRadius * Math.sin(theta);
+        return;
+      }
+
+      if (strength >= 1.0) {
+        // Hard constraint: fix to exact radius
+        const scale = targetRadius / currentRadius;
+        node.x *= scale;
+        node.y *= scale;
+
+        // Remove radial velocity component
+        const vRadial = (node.vx * node.x + node.vy * node.y) / currentRadius;
+        const normalX = node.x / currentRadius;
+        const normalY = node.y / currentRadius;
+        node.vx -= vRadial * normalX;
+        node.vy -= vRadial * normalY;
+      } else {
+        // Soft constraint: apply force toward target radius
+        const radiusDiff = targetRadius - currentRadius;
+        const forceStrength = radiusDiff * strength * alpha;
+
+        node.vx += (forceStrength * node.x) / currentRadius;
+        node.vy += (forceStrength * node.y) / currentRadius;
+      }
+    }
+  };
+
+  force.initialize = (nodes: TemporalForceNode2D[]) => {
+    force.nodes = nodes;
+  };
+  force.nodes = [] as TemporalForceNode2D[];
+
+  return force;
+}
+
+/**
  * Create a radial constraint force that pulls/pushes nodes toward their target radius.
  *
  * @param config - Configuration for the radial force
@@ -462,8 +561,15 @@ export interface TemporalLayout {
 
   /**
    * Create a radial constraint force that pulls/pushes nodes toward their target radius.
+   * For 3D graphs (uses x, z plane when constrained).
    */
   createRadialForce: (forceConfig: RadialForceConfig) => ReturnType<typeof createRadialForce>;
+
+  /**
+   * Create a 2D radial constraint force that pulls/pushes nodes toward their target radius.
+   * For 2D graphs (uses x, y plane).
+   */
+  createRadialForce2D: (forceConfig: RadialForceConfig2D) => ReturnType<typeof createRadialForce2D>;
 }
 
 /**
@@ -661,12 +767,72 @@ export function createTemporalLayout(config: Partial<TemporalLayoutConfig> = {})
     return force;
   }
 
+  /**
+   * Config-bound version of createRadialForce2D.
+   */
+  function createRadialForce2DBound(forceConfig: RadialForceConfig2D) {
+    const { strength, onlyTemporalNodes, minRadius: configMinRadius = minRadius } = forceConfig;
+
+    // biome-ignore lint/suspicious/noExplicitAny: custom d3-force implementation
+    const force: any = (alpha: number) => {
+      const nodes = force.nodes || [];
+      for (const node of nodes) {
+        // Skip nodes without temporal data if configured
+        if (onlyTemporalNodes && !node.hasTemporalData) {
+          continue;
+        }
+
+        const targetRadius = node.targetRadius ?? configMinRadius;
+
+        // Use 2D XY distance
+        const currentRadius = Math.sqrt(node.x * node.x + node.y * node.y);
+
+        if (currentRadius < 0.001) {
+          // Node at center - place at target radius with random angle
+          const theta = Math.random() * Math.PI * 2;
+          node.x = targetRadius * Math.cos(theta);
+          node.y = targetRadius * Math.sin(theta);
+          return;
+        }
+
+        if (strength >= 1.0) {
+          // Hard constraint: fix to exact radius
+          const scale = targetRadius / currentRadius;
+          node.x *= scale;
+          node.y *= scale;
+
+          // Remove radial velocity component
+          const vRadial = (node.vx * node.x + node.vy * node.y) / currentRadius;
+          const normalX = node.x / currentRadius;
+          const normalY = node.y / currentRadius;
+          node.vx -= vRadial * normalX;
+          node.vy -= vRadial * normalY;
+        } else {
+          // Soft constraint: apply force toward target radius
+          const radiusDiff = targetRadius - currentRadius;
+          const forceStrength = radiusDiff * strength * alpha;
+
+          node.vx += (forceStrength * node.x) / currentRadius;
+          node.vy += (forceStrength * node.y) / currentRadius;
+        }
+      }
+    };
+
+    force.initialize = (nodes: TemporalForceNode2D[]) => {
+      force.nodes = nodes;
+    };
+    force.nodes = [] as TemporalForceNode2D[];
+
+    return force;
+  }
+
   return {
     config: resolvedConfig,
     computeRadialDistanceForYear: computeRadialDistanceForYearBound,
     computeRadialDistanceForEntityYear: computeRadialDistanceForEntityYearBound,
     computeNodeTargetRadius: computeNodeTargetRadiusBound,
     createRadialForce: createRadialForceBound,
+    createRadialForce2D: createRadialForce2DBound,
   };
 }
 
