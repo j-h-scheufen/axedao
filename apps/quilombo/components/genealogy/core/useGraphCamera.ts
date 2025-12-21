@@ -6,6 +6,7 @@
 
 import { useCallback } from 'react';
 import type { ForceGraphMethods } from 'react-force-graph-3d';
+import { Vector3 } from 'three';
 
 import type { CameraPosition, ForceLink, ForceNode } from './types';
 
@@ -43,9 +44,11 @@ export function useGraphCamera(graphRef: React.RefObject<GraphRef>) {
    * @param node The node to focus on
    * @param distance Distance from camera to node
    * @param transitionMs Animation duration
-   * @param lookAtOffset Optional offset for lookAt point to shift node position on screen
+   * @param lookAtOffset Optional offset for lookAt point in SCREEN space to shift node position on screen
    *   - x: negative = node appears more to the right (for right-side drawer)
    *   - y: negative = node appears higher (for bottom drawer)
+   *   Uses a two-step approach: first centers the node, then applies the offset based on
+   *   the camera's actual orientation after the focus animation completes.
    */
   const focusOnNode = useCallback(
     (
@@ -81,13 +84,52 @@ export function useGraphCamera(graphRef: React.RefObject<GraphRef>) {
         newPos = { x: node.x, y: node.y, z: node.z + distance };
       }
 
-      // LookAt point - optionally offset to shift node position on screen
-      const lookAt = {
-        x: node.x + (lookAtOffset.x ?? 0),
-        y: node.y + (lookAtOffset.y ?? 0),
-        z: node.z,
-      };
-      graphRef.current.cameraPosition(newPos, lookAt, transitionMs);
+      const offsetX = lookAtOffset.x ?? 0;
+      const offsetY = lookAtOffset.y ?? 0;
+      const hasOffset = offsetX !== 0 || offsetY !== 0;
+
+      // Capture node position for use in setTimeout closure (TypeScript narrowing doesn't persist)
+      const nodePos: CameraPosition = { x: node.x, y: node.y, z: node.z };
+
+      // Step 1: Focus on node (center it)
+      graphRef.current.cameraPosition(newPos, nodePos, transitionMs);
+
+      // Step 2: After focus animation completes, apply the offset based on actual camera orientation
+      if (hasOffset) {
+        setTimeout(() => {
+          if (!graphRef.current) return;
+
+          // Get the camera's actual position and orientation after focus
+          const camera = graphRef.current.camera();
+          if (!camera) return;
+
+          // Use the camera's actual up vector (screen vertical in world space)
+          const upVec = camera.up.clone().normalize();
+
+          // View direction from camera to node
+          const viewDir = new Vector3(
+            nodePos.x - camera.position.x,
+            nodePos.y - camera.position.y,
+            nodePos.z - camera.position.z
+          ).normalize();
+
+          // Right vector: perpendicular to view and up
+          const rightVec = new Vector3().crossVectors(viewDir, upVec).normalize();
+
+          // Recalculate up to ensure orthogonality
+          const correctedUp = new Vector3().crossVectors(rightVec, viewDir).normalize();
+
+          // Apply offset in screen space (transformed to world space)
+          const offsetLookAt: CameraPosition = {
+            x: nodePos.x + rightVec.x * offsetX + correctedUp.x * offsetY,
+            y: nodePos.y + rightVec.y * offsetX + correctedUp.y * offsetY,
+            z: nodePos.z + rightVec.z * offsetX + correctedUp.z * offsetY,
+          };
+
+          // Quick transition to apply offset
+          graphRef.current.cameraPosition(camera.position, offsetLookAt, 300);
+        }, transitionMs + 50); // Wait for first animation to complete
+      }
     },
     [graphRef, getCameraPosition]
   );

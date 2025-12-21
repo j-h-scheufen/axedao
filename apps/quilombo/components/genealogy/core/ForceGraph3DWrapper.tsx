@@ -159,35 +159,54 @@ export function ForceGraph3DWrapper({
   // Apply custom forces (collision, radial, etc.)
   // Note: We skip the 'link' force here because react-force-graph-3d manages its own link force.
   // Replacing it causes "node not found" errors. Use linkForceConfig to customize it instead.
+  // We include `dimensions` in deps to ensure forces are applied after graph mounts
+  // (graph only mounts when dimensions becomes non-null)
+  // biome-ignore lint/correctness/useExhaustiveDependencies: dimensions triggers re-run when graph mounts
   useEffect(() => {
     if (!graphRef.current || !forces || forces.length === 0) return;
 
-    for (const forceConfig of forces) {
-      // Skip link force - let react-force-graph-3d manage it internally
-      if (forceConfig.name === 'link') continue;
-      graphRef.current.d3Force(forceConfig.name, forceConfig.force);
-    }
+    // Use requestAnimationFrame to ensure graph's internal simulation is initialized
+    const frameId = requestAnimationFrame(() => {
+      if (!graphRef.current) return;
 
-    graphRef.current.d3ReheatSimulation();
-  }, [forces]);
+      for (const forceConfig of forces) {
+        // Skip link force - let react-force-graph-3d manage it internally
+        if (forceConfig.name === 'link') continue;
+        graphRef.current.d3Force(forceConfig.name, forceConfig.force);
+      }
+
+      graphRef.current.d3ReheatSimulation();
+    });
+
+    return () => cancelAnimationFrame(frameId);
+  }, [forces, dimensions]);
 
   // Configure the library's built-in link force with custom strength/distance resolvers
   // This allows per-predicate configuration (e.g., student_of links stronger than member_of)
+  // We include `dimensions` in deps to ensure config is applied after graph mounts
+  // biome-ignore lint/correctness/useExhaustiveDependencies: dimensions triggers re-run when graph mounts
   useEffect(() => {
     if (!graphRef.current || !linkForceConfig) return;
 
-    const linkForce = graphRef.current.d3Force('link');
-    if (!linkForce) return;
+    // Use requestAnimationFrame to ensure graph's internal simulation is initialized
+    const frameId = requestAnimationFrame(() => {
+      if (!graphRef.current) return;
 
-    if (linkForceConfig.strength !== undefined) {
-      linkForce.strength(linkForceConfig.strength);
-    }
-    if (linkForceConfig.distance !== undefined) {
-      linkForce.distance(linkForceConfig.distance);
-    }
+      const linkForce = graphRef.current.d3Force('link');
+      if (!linkForce) return;
 
-    graphRef.current.d3ReheatSimulation();
-  }, [linkForceConfig]);
+      if (linkForceConfig.strength !== undefined) {
+        linkForce.strength(linkForceConfig.strength);
+      }
+      if (linkForceConfig.distance !== undefined) {
+        linkForce.distance(linkForceConfig.distance);
+      }
+
+      graphRef.current.d3ReheatSimulation();
+    });
+
+    return () => cancelAnimationFrame(frameId);
+  }, [linkForceConfig, dimensions]);
 
   // Track if this is the initial mount (vs. a view change)
   const isInitialMountRef = useRef(true);
@@ -195,6 +214,8 @@ export function ForceGraph3DWrapper({
 
   // Set initial camera position and trigger zoom-to-fit on mount or view change
   // initialCameraPosition changes when viewMode changes, so we use it to detect view switches
+  // We include `dimensions` in deps to ensure this runs after graph mounts
+  // biome-ignore lint/correctness/useExhaustiveDependencies: dimensions triggers re-run when graph mounts
   useEffect(() => {
     if (!graphRef.current) return;
 
@@ -216,9 +237,11 @@ export function ForceGraph3DWrapper({
     }
 
     prevInitialCameraPositionRef.current = initialCameraPosition;
-  }, [initialCameraPosition, autoFitOnLoad, autoFitPadding, zoomToFit]);
+  }, [initialCameraPosition, autoFitOnLoad, autoFitPadding, zoomToFit, dimensions]);
 
-  // Add custom scene objects
+  // Add custom scene objects (e.g., era rings in student ancestry view)
+  // We include `dimensions` in deps to ensure objects are added after graph mounts
+  // biome-ignore lint/correctness/useExhaustiveDependencies: dimensions triggers re-run when graph mounts
   useEffect(() => {
     if (!graphRef.current || !customSceneObjects || customSceneObjects.length === 0) return;
 
@@ -258,7 +281,7 @@ export function ForceGraph3DWrapper({
       }
       addedObjectIdsRef.current.clear();
     };
-  }, [customSceneObjects]);
+  }, [customSceneObjects, dimensions]);
 
   // Handle node click with camera focus
   const handleNodeClick = useCallback(
