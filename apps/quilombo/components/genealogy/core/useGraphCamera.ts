@@ -40,9 +40,20 @@ export function useGraphCamera(graphRef: React.RefObject<GraphRef>) {
 
   /**
    * Focus camera on a specific node, maintaining current viewing angle.
+   * @param node The node to focus on
+   * @param distance Distance from camera to node
+   * @param transitionMs Animation duration
+   * @param lookAtOffset Optional offset for lookAt point to shift node position on screen
+   *   - x: negative = node appears more to the right (for right-side drawer)
+   *   - y: negative = node appears higher (for bottom drawer)
    */
   const focusOnNode = useCallback(
-    (node: ForceNode, distance: number = 300, transitionMs: number = 1500) => {
+    (
+      node: ForceNode,
+      distance: number = 300,
+      transitionMs: number = 1500,
+      lookAtOffset: { x?: number; y?: number } = {}
+    ) => {
       if (!graphRef.current) return;
       if (node.x === undefined || node.y === undefined || node.z === undefined) return;
 
@@ -70,7 +81,13 @@ export function useGraphCamera(graphRef: React.RefObject<GraphRef>) {
         newPos = { x: node.x, y: node.y, z: node.z + distance };
       }
 
-      graphRef.current.cameraPosition(newPos, { x: node.x, y: node.y, z: node.z }, transitionMs);
+      // LookAt point - optionally offset to shift node position on screen
+      const lookAt = {
+        x: node.x + (lookAtOffset.x ?? 0),
+        y: node.y + (lookAtOffset.y ?? 0),
+        z: node.z,
+      };
+      graphRef.current.cameraPosition(newPos, lookAt, transitionMs);
     },
     [graphRef, getCameraPosition]
   );

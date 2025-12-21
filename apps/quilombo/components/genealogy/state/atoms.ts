@@ -76,3 +76,13 @@ export const graphSettingsAtom = atom<GraphSettings>({
  * Only applicable in 'student-ancestry' view mode.
  */
 export const showYourselfAtom = atom<boolean>(false);
+
+// ============================================================================
+// Details Drawer State - for camera offset when drawer covers graph
+// ============================================================================
+
+/**
+ * Whether the details drawer is open on mobile (portrait or landscape).
+ * Used by the graph to re-center the node when the drawer closes.
+ */
+export const mobileDrawerOpenAtom = atom<boolean>(false);

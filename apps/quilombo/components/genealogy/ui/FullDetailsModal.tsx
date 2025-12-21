@@ -16,6 +16,8 @@ import {
 import { ExternalLink, FileText } from 'lucide-react';
 import { useMemo, useState } from 'react';
 
+import { useResponsiveLayout } from '@/hooks/useResponsiveLayout';
+
 import type { GroupFullProfile, NameHistoryEntry, PersonFullProfile } from '@/components/genealogy/types';
 
 type Language = 'en' | 'pt';
@@ -498,6 +500,7 @@ export function FullDetailsModal({ isOpen, onClose, entityType, entityId, entity
   const [profile, setProfile] = useState<PersonFullProfile | GroupFullProfile | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { useFullScreenModals } = useResponsiveLayout();
 
   // Fetch profile when modal opens
   useMemo(() => {
@@ -548,10 +551,10 @@ export function FullDetailsModal({ isOpen, onClose, entityType, entityId, entity
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      size="3xl"
+      size={useFullScreenModals ? 'full' : '3xl'}
       scrollBehavior="inside"
       classNames={{
-        base: 'max-h-[90vh]',
+        base: useFullScreenModals ? '' : 'max-h-[90vh]',
         body: 'py-6',
       }}
     >

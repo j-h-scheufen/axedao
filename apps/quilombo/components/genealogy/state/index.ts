@@ -6,6 +6,7 @@ export {
   graphFiltersAtom,
   graphSettingsAtom,
   graphViewModeAtom,
+  mobileDrawerOpenAtom,
   needsRefocusAtom,
   recenterCallbackAtom,
   refocusCallbackAtom,

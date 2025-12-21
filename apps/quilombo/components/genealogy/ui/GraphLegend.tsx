@@ -1,10 +1,12 @@
 'use client';
 
-import { Card, CardBody } from '@heroui/react';
+import { Button, Card, CardBody } from '@heroui/react';
 import { useAtomValue } from 'jotai';
-import { useMemo } from 'react';
+import { ChevronDown, Info } from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
 
 import type { EntityType } from '@/db/schema/genealogy';
+import { useResponsiveLayout } from '@/hooks/useResponsiveLayout';
 
 import type { LegendCategory } from '@/components/genealogy/config';
 import { graphFiltersAtom, viewConfigAtom } from '@/components/genealogy/state';
@@ -37,6 +39,15 @@ function LegendSection({ category }: { category: LegendCategory }) {
 }
 
 export function GraphLegend() {
+  // Responsive layout - collapsed by default on mobile
+  const { isMobile } = useResponsiveLayout();
+  const [isExpanded, setIsExpanded] = useState(!isMobile);
+
+  // Sync expanded state when screen size changes
+  useEffect(() => {
+    setIsExpanded(!isMobile);
+  }, [isMobile]);
+
   // Jotai state
   const viewConfig = useAtomValue(viewConfigAtom);
   const filters = useAtomValue(graphFiltersAtom);
@@ -74,10 +85,38 @@ export function GraphLegend() {
     return null;
   }
 
+  // Collapsed state - just show a small button
+  if (!isExpanded) {
+    return (
+      <Button
+        isIconOnly
+        size="sm"
+        variant="flat"
+        className="absolute bottom-4 left-4 z-10 bg-background/80 backdrop-blur-sm"
+        onPress={() => setIsExpanded(true)}
+        aria-label="Show legend"
+      >
+        <Info className="h-4 w-4" />
+      </Button>
+    );
+  }
+
   return (
-    <Card className="absolute bottom-4 left-4 z-10 max-w-xs">
+    <Card className="absolute bottom-4 left-4 z-10 max-w-xs bg-background/90 backdrop-blur-sm">
       <CardBody className="gap-3 p-3">
-        <h3 className="text-small font-semibold">Legend</h3>
+        <div className="flex items-center justify-between">
+          <h3 className="text-small font-semibold">Legend</h3>
+          <Button
+            isIconOnly
+            size="sm"
+            variant="light"
+            onPress={() => setIsExpanded(false)}
+            aria-label="Collapse legend"
+            className="-mr-1"
+          >
+            <ChevronDown className="h-4 w-4" />
+          </Button>
+        </div>
 
         {visibleCategories.map((category) => (
           <LegendSection key={category.category} category={category} />

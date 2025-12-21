@@ -1,12 +1,12 @@
 'use client';
 
-import { Chip, Link, Select, SelectItem, Spinner } from '@heroui/react';
+import { Chip, Link, Spinner } from '@heroui/react';
 import { useAtom } from 'jotai';
 import dynamic from 'next/dynamic';
 import { parseAsBoolean, parseAsString, useQueryStates } from 'nuqs';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
-import { type GraphViewMode, GRAPH_VIEW_OPTIONS, getViewConfig } from '@/components/genealogy/config';
+import { type GraphViewMode, getViewConfig } from '@/components/genealogy/config';
 import {
   graphFiltersAtom,
   graphViewModeAtom,
@@ -14,9 +14,17 @@ import {
   showYourselfAtom,
 } from '@/components/genealogy/state';
 import type { GraphNode } from '@/components/genealogy/types';
-import { GraphControls, GraphLegend, NodeDetailsPanel, NodeSearch } from '@/components/genealogy/ui';
+import {
+  ControlsDrawer,
+  ControlsSidebar,
+  DetailsDrawer,
+  GraphLegend,
+  NodeSearch,
+  ViewModeMenu,
+} from '@/components/genealogy/ui';
 
 import { useGenealogyGraph, useNodeDetails } from '@/hooks/useGenealogyData';
+import { useResponsiveLayout } from '@/hooks/useResponsiveLayout';
 
 // Dynamically import the 3D graph component (requires WebGL, client-side only)
 // Single component instance - view mode changes don't cause remount
@@ -33,6 +41,10 @@ const GenealogyGraph = dynamic(
 );
 
 export default function GenealogyPage() {
+  // Responsive layout
+  const { isMobile, isDesktop } = useResponsiveLayout();
+  const showSidebar = isDesktop; // Sidebar on desktop, drawer on mobile/tablet
+
   // URL query params for deep linking
   const [queryParams, setQueryParams] = useQueryStates({
     view: parseAsString.withDefault('general'),
@@ -199,60 +211,62 @@ export default function GenealogyPage() {
 
   return (
     <div className="flex h-[calc(100vh-4rem)] flex-col">
-      {/* Header */}
+      {/* Header - responsive layout */}
       <div className="border-b border-default-200 px-4 py-3">
-        <div className="flex items-center justify-between gap-4">
-          <div className="shrink-0">
+        <div className={`flex items-center gap-4 ${isMobile ? 'flex-col' : 'justify-between'}`}>
+          {/* Title section */}
+          <div className={`${isMobile ? 'w-full text-center' : 'shrink-0'}`}>
             <h1 className="text-xl font-bold">Capoeira Genealogy</h1>
-            <p className="text-small text-default-500">
-              Explore the lineages and relationships of the capoeira community
-            </p>
+            {!isMobile && (
+              <p className="text-small text-default-500">
+                Explore the lineages and relationships of the capoeira community
+              </p>
+            )}
           </div>
-          <div className="flex shrink-0 items-center gap-3 self-center rounded-xl border border-warning-200 px-3 py-1.5 text-small text-default-500">
-            <Chip size="sm" color="warning" variant="flat">
-              BETA
-            </Chip>
-            <span>
-              Under active development. Interested?{' '}
-              <Link href="mailto:support@quilombo.net" size="sm" underline="hover">
-                Get in touch
-              </Link>
-            </span>
-          </div>
-          <div className="flex-1 flex justify-center">
+
+          {/* Beta badge - hidden on mobile */}
+          {!isMobile && (
+            <div className="flex shrink-0 items-center gap-3 self-center rounded-xl border border-warning-200 px-3 py-1.5 text-small text-default-500">
+              <Chip size="sm" color="warning" variant="flat">
+                BETA
+              </Chip>
+              <span>
+                Under active development. Interested?{' '}
+                <Link href="mailto:support@quilombo.net" size="sm" underline="hover">
+                  Get in touch
+                </Link>
+              </span>
+            </div>
+          )}
+
+          {/* Search and View selector - responsive */}
+          <div className={`flex items-center gap-2 ${isMobile ? 'w-full' : 'flex-1 justify-end'}`}>
             <NodeSearch
               nodes={filteredNodes}
               selectedNodeId={selectedNodeId}
               onNodeSelect={handleSearchSelect}
               isLoading={isGraphLoading}
               isDisabled={!graphData}
+              className={isMobile ? 'flex-1' : 'w-80'}
             />
-          </div>
-          <div className="w-72 shrink-0">
-            <Select
-              label="Graph View"
-              selectedKeys={[graphView]}
-              onChange={(e) => handleGraphViewChange(e.target.value)}
-              size="sm"
-              variant="bordered"
-            >
-              {GRAPH_VIEW_OPTIONS.map((view) => (
-                <SelectItem key={view.key}>{view.label}</SelectItem>
-              ))}
-            </Select>
+            <ViewModeMenu
+              value={graphView}
+              onChange={handleGraphViewChange}
+              isCompact={isMobile}
+              isDisabled={!graphData}
+            />
           </div>
         </div>
       </div>
 
-      {/* Main content */}
-      <div className="relative flex min-h-0 flex-1">
-        {/* Left panel - Filters */}
-        <div className="w-64 shrink-0 overflow-hidden border-r border-default-200">
-          <GraphControls stats={filteredStats} isLoading={isGraphLoading} nodeIds={filteredNodeIds} />
-        </div>
+      {/* Main content - flex layout with optional sidebar */}
+      <div className="flex min-h-0 flex-1">
+        {/* Desktop: Sidebar that pushes content */}
+        {showSidebar && <ControlsSidebar stats={filteredStats} isLoading={isGraphLoading} nodeIds={filteredNodeIds} />}
 
-        {/* Center - Graph */}
-        <div className="relative min-w-0 flex-1 bg-default-50">
+        {/* Graph container */}
+        <div className="relative flex-1 bg-default-50">
+          {/* Graph area */}
           {graphError ? (
             <div className="flex h-full items-center justify-center">
               <div className="text-center">
@@ -271,15 +285,19 @@ export default function GenealogyPage() {
                 selectedNodeId={selectedNodeId}
                 onNodeClick={handleNodeClick}
                 onBackgroundClick={handleBackgroundClick}
+                nodeScale={isMobile ? 1.5 : 1.0}
               />
               <GraphLegend />
             </div>
           ) : null}
-        </div>
 
-        {/* Right panel - Details */}
-        <div className="h-full w-80 shrink-0 overflow-y-auto border-l border-default-200">
-          <NodeDetailsPanel
+          {/* Mobile/Tablet: Overlay drawer */}
+          {!showSidebar && (
+            <ControlsDrawer stats={filteredStats} isLoading={isGraphLoading} nodeIds={filteredNodeIds} />
+          )}
+
+          {/* Details Drawer - right/bottom overlay based on device */}
+          <DetailsDrawer
             node={selectedNode}
             details={nodeDetails || null}
             allNodes={graphData?.nodes || []}
