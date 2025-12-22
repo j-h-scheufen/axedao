@@ -127,6 +127,30 @@ WHERE s.apelido = 'Traíra'
   AND o.apelido = 'Juvêncio' AND o.apelido_context = 'São Félix'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- ------------------------------------------------------------
+-- Traíra associated_with Gato Preto
+-- Recorded LP "Capoeira" together (1962); contemporaries in Salvador
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1962-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Recorded LP ''Capoeira'' together (1962) at Waldemar''s barracão with Cobrinha Verde; photographed together at Market Ramp roda"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com/br/gato-1962; multiple sources',
+  E'Recorded historic LP "Capoeira" (1962) together with Gato Preto and Cobrinha Verde at Mestre Waldemar''s barracão. Photos taken at Rampa do Mercado Modelo. Both were prominent angoleiros in Salvador.',
+  E'Gravaram juntos o histórico LP "Capoeira" (1962) com Gato Preto e Cobrinha Verde no barracão de Mestre Waldemar. Fotos tiradas na Rampa do Mercado Modelo. Ambos eram angoleiros proeminentes em Salvador.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Traíra' AND o.apelido = 'Gato Preto'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
@@ -141,10 +165,6 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Mentioned by Traíra as another teacher
 -- Little is known about Severo do Pelourinho
 -- Object 'Severo do Pelourinho' needs import first - see persons-backlog.md
-
--- Traíra associated_with Gato Preto - PENDING
--- Recorded LP together (1962)
--- Object 'Gato Preto' needs import first - see persons-backlog.md
 
 -- Note: Barba Branca's student_of Traíra relationship should be in barba-branca.sql
 -- when that person is imported (per ownership rule: statement goes in subject's file)

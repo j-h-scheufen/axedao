@@ -149,6 +149,22 @@ Collect this information for statements and discovered entities:
 
 As you research, you will discover persons and other groups. Track them:
 
+#### CRITICAL: Check Existing Reports BEFORE Web Searches
+
+**When you encounter a person or group name during research, DO NOT immediately perform web searches.** First check our existing documentation:
+
+1. **For person names encountered:**
+   - Glob `docs/genealogy/person-reports/*.md` for name variations
+   - If found: Read the existing report for basic information, relationships, sources already gathered
+   - Only perform web searches for: new leads not covered in existing report, verification of disputed facts, or filling gaps
+
+2. **For group names encountered:**
+   - Glob `docs/genealogy/group-reports/*.md` for name variations
+   - If found: Read the existing report for basic information, founding details, key figures
+   - Only perform web searches for: new details not in existing report
+
+**Why this matters:** Existing reports contain research already performed - re-fetching the same web sources wastes time and resources. Use what we have, then search for NEW information only.
+
 #### Discovered Persons
 Create a list of persons mentioned (founders, leaders, teachers, notable members):
 ```

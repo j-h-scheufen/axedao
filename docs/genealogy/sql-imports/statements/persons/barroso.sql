@@ -1,0 +1,30 @@
+-- ============================================================
+-- STATEMENTS FOR: Barroso
+-- Generated: 2025-12-21
+-- ============================================================
+-- Contains all relationships where Barroso is the SUBJECT.
+-- ============================================================
+
+-- ============================================================
+-- NO STATEMENTS CURRENTLY
+-- ============================================================
+--
+-- Barroso participated in the 1937 II Congresso Afro-Brasileiro
+-- demonstration alongside 15+ other capoeiristas. This event
+-- participation is documented in his bio and notes, NOT as
+-- individual associated_with relationships (which would create
+-- massive redundancy - N*(N-1)/2 relationships for N attendees).
+--
+-- The associated_with predicate should be reserved for meaningful
+-- personal connections: training partners, rivals, collaborators,
+-- etc. - not mere event co-attendance.
+--
+-- If/when we model events as entities, we could create:
+--   Barroso participated_in "1937 II Congresso Afro-Brasileiro"
+--
+-- CONTEMPORARIES AT 1937 CONGRESS (documented in bio, not as statements):
+-- - Samuel Querido de Deus (director)
+-- - Barbosa, Onça Preta, Juvenal, Zeppelin, Bugaia, Fernandes,
+--   Eutíquio, Neném, Zei, Ambrósio, Arthur Mattos, Raphael, Edgar, Damião
+--
+-- ============================================================

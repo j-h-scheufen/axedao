@@ -237,6 +237,22 @@ When inconsistent: re-read context, determine which event the date belongs to, u
 
 As you research, track discovered entities for later import.
 
+### CRITICAL: Check Existing Reports BEFORE Web Searches
+
+**When you encounter a person or group name during research, DO NOT immediately perform web searches.** First check our existing documentation:
+
+1. **For person names encountered:**
+   - Glob `docs/genealogy/person-reports/*.md` for name variations
+   - If found: Read the existing report for basic information, relationships, sources already gathered
+   - Only perform web searches for: new leads not covered in existing report, verification of disputed facts, or filling gaps
+
+2. **For group names encountered:**
+   - Glob `docs/genealogy/group-reports/*.md` for name variations
+   - If found: Read the existing report for basic information, founding details, key figures
+   - Only perform web searches for: new details not in existing report
+
+**Why this matters:** Existing reports contain research already performed - re-fetching the same web sources wastes time and resources. Use what we have, then search for NEW information only.
+
 **CRITICAL: Add EVERY capoeira person/group name you encounter to this table.** This includes names in:
 - Historic photos ("photo shows X with A, B, C, D...")
 - Quotes listing contemporaries ("the notable capoeiristas were...")
@@ -399,8 +415,13 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 ```
 
 **Important:**
-- Only generate statements for entities that already exist in dataset
-- **PENDING RELATIONSHIPS:** Add comment section at end of statement file for relationships where object doesn't exist yet
+- **ALWAYS CHECK if relationship objects exist** in the dataset before deciding on pending vs actual SQL
+  - Check `docs/genealogy/sql-imports/entities/persons/[apelido].sql` for persons
+  - Check `docs/genealogy/sql-imports/entities/groups/[name].sql` for groups
+  - Check `docs/genealogy/import-backlog/persons-done.md` for recently imported persons
+- **If object EXISTS: Generate actual SQL statement** - do NOT leave as comment
+- **If object does NOT exist: Add to PENDING RELATIONSHIPS** comment section AND add to backlog
+- Include ALL meaningful relationships: teachers, students, fellow students, opponents, collaborators
 - Use `NULL` for unknown values, not empty strings
 - COALESCE in ON CONFLICT is required (handles NULL started_at)
 

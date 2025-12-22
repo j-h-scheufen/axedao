@@ -37,8 +37,34 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Each links to Pedro Porreta from their own file; no M:N cross-references needed.
 -- ============================================================
 
+-- ------------------------------------------------------------
+-- Pedro Porreta family_of Piroca (brothers)
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'family_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  NULL, NULL,
+  '{"relationship_type": "brother"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Espeto Capoeira; Portal Capoeira; Mestres e capoeiras famosos da Bahia',
+  E'Pedro Porreta (Pedro Mineiro) and Piroca (Pedro de Alcântara) were brothers. Both were notorious valentões in Salvador during the 1920s. Sources describe Piroca as "the brother of the dreaded" (irmão do temido) Pedro Porreta.',
+  E'Pedro Porreta (Pedro Mineiro) e Piroca (Pedro de Alcântara) eram irmãos. Ambos eram valentões notórios em Salvador durante os anos 1920. Fontes descrevem Piroca como "o irmão do temido" Pedro Porreta.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Pedro Porreta' AND o.apelido = 'Piroca'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING RELATIONSHIPS (objects not yet in dataset)
 -- ============================================================
--- Pedro Porreta associated_with Piroca (Pedro de Alcântara) - brother, needs import first
--- Pedro Porreta associated_with Chicão (Francisca Albino dos Santos) - adversary who defeated and killed him, needs import first
+-- Note: Chicão associated_with Pedro Porreta exists in chicao.sql (lines 9-32)

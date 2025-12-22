@@ -66,6 +66,46 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Marrom' AND s.apelido_context = 'Rio de Janeiro' AND o.apelido = 'João Pequeno'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- Marrom trained_under Bigodinho (old guard collaboration, 1990s+)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1990-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'https://capoeirahistory.com/master-marrom/',
+  E'Part of Marrom''s research and collaboration with old guard mestres in 1990s; recorded CDs together. Bigodinho was one of the elder mestres Marrom sought out to preserve traditional knowledge.',
+  E'Parte da pesquisa e colaboração de Marrom com mestres da velha guarda nos anos 1990; gravaram CDs juntos. Bigodinho era um dos mestres mais velhos que Marrom procurou para preservar conhecimentos tradicionais.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Marrom' AND s.apelido_context = 'Rio de Janeiro' AND o.apelido = 'Bigodinho'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Marrom trained_under Boca Rica (old guard collaboration, 1990s+)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1990-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'https://capoeirahistory.com/master-marrom/',
+  E'Part of Marrom''s research and collaboration with old guard mestres in 1990s; recorded CDs together. Boca Rica was one of the elder mestres Marrom sought out to preserve traditional knowledge.',
+  E'Parte da pesquisa e colaboração de Marrom com mestres da velha guarda nos anos 1990; gravaram CDs juntos. Boca Rica era um dos mestres mais velhos que Marrom procurou para preservar conhecimentos tradicionais.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Marrom' AND s.apelido_context = 'Rio de Janeiro' AND o.apelido = 'Boca Rica'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
@@ -81,12 +121,6 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 
 -- Marrom influenced_by Angolinha - NEEDS IMPORT: Mestre Angolinha (Isak Ignácio, Rio de Janeiro)
 --   Rio Angola reference; Marrom had him as major influence in 1990s
-
--- Marrom trained_under Bigodinho - NEEDS IMPORT: Mestre Bigodinho (Reinaldo Santana)
---   Part of old guard collaboration; recorded CDs together
-
--- Marrom trained_under Boca Rica - NEEDS IMPORT: Mestre Boca Rica (Manoel Silva)
---   Part of old guard collaboration; recorded CDs together
 
 -- Marrom trained_under Felipe - NEEDS IMPORT: Mestre Felipe (Santo Amaro)
 --   Part of old guard collaboration; recorded CDs together

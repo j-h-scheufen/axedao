@@ -1,0 +1,47 @@
+-- ============================================================
+-- STATEMENTS FOR: Neném (Itabuna)
+-- Generated: 2025-12-20
+-- ============================================================
+-- Contains all relationships where Neném (Itabuna) is the SUBJECT.
+--
+-- NOTE: Neném is a Layer Zero figure - an African-born capoeirista
+-- at the root of the Itabuna lineage. He has no documented teachers.
+-- His primary student was Paizinho (Teodoro Ramos).
+-- ============================================================
+
+-- ============================================================
+-- NO ACTIVE STATEMENTS
+-- ============================================================
+-- Neném has no documented teachers (Layer Zero).
+-- As the subject, he would only have:
+-- - student_of relationships (none documented - he is the root)
+-- - founded/leads relationships (no formal group documented)
+-- - associated_with relationships (none documented)
+--
+-- Relationships where Neném is the OBJECT go in the student's file:
+-- - Paizinho student_of Neném → will go in paizinho.sql when imported
+-- ============================================================
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- No pending statements where Neném is the subject.
+--
+-- When Paizinho is imported, his statements file should include:
+-- - Paizinho (Teodoro Ramos) student_of Neném (Itabuna)
+--   Started: unknown (likely late 1800s/early 1900s)
+--   Ended: unknown (Neném's death not documented)
+--   Location: Itabuna, Bahia
+--   Confidence: verified (documented in multiple sources via Artur Emídio's testimony)
+--   Source: velhosmestres.com/en/featured-69, capoeirahistory.com/mestre/master-paulo-gomes/
+-- ============================================================
+
+-- ============================================================
+-- NOTE ON POSSIBLE ASSOCIATION
+-- ============================================================
+-- If Neném (Itabuna) is the same person as Neném (1937 Congress),
+-- he would have associated_with relationships with the other
+-- Congress participants: Querido de Deus, Barbosa, Zeppelin, etc.
+-- However, this identification is UNCERTAIN and should not be
+-- assumed without further evidence.
+-- ============================================================

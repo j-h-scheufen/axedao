@@ -10,16 +10,34 @@
 -- INSERT INTO genealogy.statements ...
 
 -- ============================================================
+-- TEACHER RELATIONSHIPS
+-- ============================================================
+
+-- Artur Emídio student_of Paizinho (Teodoro Ramos) - 1937-1945
+-- Primary mestre who taught him from age 7 until Paizinho's death
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1937-01-01'::date, 'year'::genealogy.date_precision,
+  '1945-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com/en/featured-69; capoeirahistory.com/mestre/master-artur-emidio-1930-2011/',
+  E'Artur Emídio began training with Mestre Paizinho (Teodoro Ramos) in 1937 at age seven. Paizinho would wake him at 6 AM daily for practice. Training occurred "in the street, on the pavement" and "on hilltops, in alleyways, at night and always hidden" due to capoeira''s criminalization. Relationship ended with Paizinho''s death from meningitis in 1945, when 15-year-old Artur took over his master''s academy.',
+  E'Artur Emídio começou a treinar com Mestre Paizinho (Teodoro Ramos) em 1937 aos sete anos. Paizinho o acordava às 6 da manhã diariamente para treinar. O treinamento ocorria "na rua, no passeio" e "no alto dos morros, nos becos, à noite e sempre escondidos" devido à criminalização da capoeira. A relação terminou com a morte de Paizinho por meningite em 1945, quando Artur de 15 anos assumiu a academia de seu mestre.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Artur Emídio' AND o.apelido = 'Paizinho'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
--- The following relationships require the object entities to be
--- imported first:
---
--- TEACHER RELATIONSHIPS:
--- - Artur Emídio student_of Paizinho (Teodoro Ramos) - ~1937-1945
---   Primary mestre who taught him from age 7 until death
---   Paizinho not yet in dataset - needs import
---
 -- - Artur Emídio trained_under [Gracie Academy] - ~1953-1955
 --   Brief training after defeat to Rudolf Hermanny
 --   Not a formal student_of relationship
@@ -28,11 +46,6 @@
 -- - Artur Emídio founded "Grupo Artur Emídio" / "Academia de Capoeira Artur Emídio"
 --   Founded 1955 in Rio de Janeiro, Rua Manuel Fontenele, Bonsucesso
 --   Group not yet in dataset
---
--- ASSOCIATED_WITH (contemporaries):
--- - Artur Emídio associated_with Bimba (met at 1967 symposium; "somewhat conflictual relationship")
---   Bimba exists in dataset - but this is NOT a student_of relationship
---
 -- ============================================================
 
 -- Artur Emídio associated_with Bimba (met at 1967 symposium)
