@@ -103,7 +103,9 @@ Praticante profundamente tradicional de Angola. Fortemente oposto à Capoeira Re
 
 ## Students / Alunos
 
-No specific students documented. Stopped teaching capoeira when he moved to São Paulo in 1985.
+- **Mestre Inauá** (Inauá Mendes) - Trained in Ilha do Governador, Rio de Janeiro (1960s-1970s); maintained Onça Preta's lineage by training Mestres King Kong and Cláudio São Bento
+
+Note: Stopped teaching capoeira when he moved to São Paulo in 1985.
 
 ## Connections / Conexões
 

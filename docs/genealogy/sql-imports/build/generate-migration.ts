@@ -211,6 +211,79 @@ function generateMigrationSql(plan: MigrationPlan): string {
   lines.push('BEGIN;');
   lines.push('');
 
+  // Phase 0: Handle deleted files FIRST - generate DELETE statements
+  // This must happen BEFORE entity/statement upserts to handle renames properly
+  if (plan.deletedFiles.length > 0) {
+    lines.push('-- ============================================================');
+    lines.push('-- PHASE 0: DELETE REMOVED ENTITIES AND STATEMENTS');
+    lines.push('-- ============================================================');
+    lines.push('-- These files were removed from the source directory.');
+    lines.push('-- Deleting corresponding records from the database FIRST');
+    lines.push('-- to properly handle renames (old apelido → new apelido).');
+    lines.push('-- ============================================================');
+    lines.push('');
+
+    // Helper to convert filename to apelido with proper Portuguese capitalization
+    const fileNameToApelido = (fileName: string): string => {
+      const lowercaseWords = ['de', 'da', 'do', 'das', 'dos', 'e'];
+      return fileName
+        .split('-')
+        .map((word, index) => {
+          if (index > 0 && lowercaseWords.includes(word.toLowerCase())) {
+            return word.toLowerCase();
+          }
+          return word.charAt(0).toUpperCase() + word.slice(1);
+        })
+        .join(' ');
+    };
+
+    // Separate entity and statement deletions
+    const deletedEntities = plan.deletedFiles.filter((f) => f.startsWith('entities/'));
+    const deletedStatements = plan.deletedFiles.filter((f) => f.startsWith('statements/'));
+
+    // For deleted statement files, delete statements by the subject
+    for (const filePath of deletedStatements) {
+      const match = filePath.match(/statements\/(persons|groups)\/(.+)\.sql$/);
+      if (match) {
+        const entityType = match[1] === 'persons' ? 'person' : 'group';
+        const fileName = match[2];
+        const apelido = fileNameToApelido(fileName);
+
+        lines.push(`-- Deleting statements for removed file: ${filePath}`);
+        lines.push(`-- Subject apelido derived from filename: "${apelido}"`);
+        lines.push(`DELETE FROM genealogy.statements`);
+        lines.push(`WHERE subject_type = '${entityType}'::genealogy.entity_type`);
+        lines.push(`  AND subject_id IN (`);
+        if (entityType === 'person') {
+          lines.push(`    SELECT id FROM genealogy.person_profiles WHERE apelido = '${apelido}'`);
+        } else {
+          lines.push(`    SELECT id FROM genealogy.group_profiles WHERE name = '${apelido}'`);
+        }
+        lines.push(`  );`);
+        lines.push('');
+      }
+    }
+
+    // For deleted entity files, delete the entity itself
+    for (const filePath of deletedEntities) {
+      const match = filePath.match(/entities\/(persons|groups)\/(.+)\.sql$/);
+      if (match) {
+        const entityType = match[1] === 'persons' ? 'person' : 'group';
+        const fileName = match[2];
+        const apelido = fileNameToApelido(fileName);
+
+        lines.push(`-- Deleting entity for removed file: ${filePath}`);
+        lines.push(`-- Apelido derived from filename: "${apelido}"`);
+        if (entityType === 'person') {
+          lines.push(`DELETE FROM genealogy.person_profiles WHERE apelido = '${apelido}';`);
+        } else {
+          lines.push(`DELETE FROM genealogy.group_profiles WHERE name = '${apelido}';`);
+        }
+        lines.push('');
+      }
+    }
+  }
+
   // Phase 1: Upsert entities (new + changed)
   if (totalEntities > 0) {
     lines.push('-- ============================================================');
@@ -248,18 +321,6 @@ function generateMigrationSql(plan: MigrationPlan): string {
       lines.push(content.trim());
       lines.push('');
     }
-  }
-
-  // Phase 3: Handle deleted files (warning only - manual deletion required)
-  if (plan.deletedFiles.length > 0) {
-    lines.push('-- ============================================================');
-    lines.push('-- WARNING: DELETED FILES DETECTED');
-    lines.push('-- These files were removed but data cleanup requires manual review');
-    lines.push('-- ============================================================');
-    for (const f of plan.deletedFiles) {
-      lines.push(`-- DELETED: ${f}`);
-    }
-    lines.push('');
   }
 
   lines.push('COMMIT;');

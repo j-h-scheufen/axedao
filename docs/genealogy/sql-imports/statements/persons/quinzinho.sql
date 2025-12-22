@@ -1,10 +1,37 @@
 -- ============================================================
 -- STATEMENTS FOR: Quinzinho
 -- Migrated: 2025-12-11
+-- Updated: 2025-12-20 - Added trained_under Campanhão relationship
 -- ============================================================
 -- This file contains all relationships where Quinzinho is the subject.
 -- Each statement uses ON CONFLICT DO NOTHING for idempotency.
 -- ============================================================
+
+-- Quinzinho trained_under Campanhão
+-- Per Os Malandros de Mestre Touro lineage documentation
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, 'unknown'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{}'::jsonb,
+  'uncertain'::genealogy.confidence,
+  'Os Malandros de Mestre Touro lineage (malandros-touro.com)',
+  E'Per Os Malandros lineage: Campanhão → Quinzinho. Quinzinho (b. ~1925) would have trained under Campanhão (b. around 1900, likely earlier) in the 1940s. Single source; no corroboration found in other capoeira historical sources.',
+  E'Conforme linhagem Os Malandros: Campanhão → Quinzinho. Quinzinho (n. ~1925) teria treinado com Campanhão (n. por volta de 1900, provavelmente antes) nos anos 1940. Fonte única; nenhuma corroboração encontrada em outras fontes históricas de capoeira.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Quinzinho' AND o.apelido = 'Campanhão'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 INSERT INTO genealogy.statements (
   subject_type, subject_id,

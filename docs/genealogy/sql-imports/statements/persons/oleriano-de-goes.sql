@@ -1,0 +1,17 @@
+-- ============================================================
+-- STATEMENTS FOR: Oleriano de Góes
+-- Generated: 2025-12-22
+-- ============================================================
+-- Contains all relationships where Oleriano de Góes is the SUBJECT.
+-- Per ownership rule: statements go in file named after SUBJECT.
+-- ============================================================
+
+-- ============================================================
+-- NOTE: Family relationships follow the pattern where the YOUNGER
+-- person is the subject (like student_of). So:
+-- - Eutíquio family_of Oleriano (son) goes in eutiquio.sql
+-- - Gato Preto family_of Oleriano (grandson) goes in gato-preto.sql
+--
+-- The student_of relationship (Eutíquio student_of Oleriano)
+-- also goes in eutiquio.sql per the ownership rule.
+-- ============================================================
