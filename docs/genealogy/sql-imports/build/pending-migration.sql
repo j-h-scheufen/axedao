@@ -1,11 +1,11 @@
 -- ============================================================
 -- GENEALOGY DATA MIGRATION
--- Generated: 2025-12-20T14:43:17.344Z
+-- Generated: 2025-12-22T00:46:23.215Z
 -- ============================================================
 --
--- New entity files: 38
+-- New entity files: 48
 -- Changed entity files: 0
--- New statement files: 38
+-- New statement files: 48
 -- Changed statement files: 9
 -- Deleted files: 2
 -- Unchanged files: 303
@@ -365,6 +365,517 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   achievements_en = EXCLUDED.achievements_en, achievements_pt = EXCLUDED.achievements_pt,
   notes_en = EXCLUDED.notes_en, notes_pt = EXCLUDED.notes_pt, updated_at = NOW();
 
+-- Source: entities/persons/ambrosio.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Ambrósio
+-- Generated: 2025-12-21
+-- ============================================================
+-- Pre-Pastinha era capoeira Angola practitioner from Salvador.
+-- Participated in the historic capoeira demonstration at the
+-- II Congresso Afro-Brasileiro on January 14, 1937.
+-- Listed among those who developed Capoeira Angola before
+-- Pastinha's formal leadership.
+-- ============================================================
+--
+-- IDENTITY:
+-- - Full Name: Unknown
+-- - Apelido: Ambrósio
+-- - Title: NULL (no formal title system existed in his era)
+--
+-- BIRTH YEAR ESTIMATION (1890, decade precision):
+-- - Active adult participating in II Congresso Afro-Brasileiro in 1937
+-- - Listed among practitioners who "developed Capoeira Angola" before
+--   Pastinha's era, suggesting established adult practitioner
+-- - Contemporary of Samuel Querido de Deus (b.~1880), Barbosa (b.~1900),
+--   Zeppelin (b.~1890)
+-- - If born ~1890, would be 47 in 1937 - consistent with active
+--   participation in public demonstration
+-- - Estimated birth 1880-1900, using 1890 as midpoint
+--
+-- DEATH:
+-- - Unknown; no death date recorded in sources
+--
+-- KEY HISTORICAL ROLE:
+-- - 1937: Participated in capoeira Angola demonstration at II
+--   Congresso Afro-Brasileiro, Club de Regatas Itapagipe, Salvador
+-- - Listed on Mapa da Capoeira as one of those who developed
+--   Capoeira Angola alongside Samuel Querido de Deus, Barbosa,
+--   Onça Preta, Juvenal, Zeppelin, Neném, Zei, Barroso, Damião
+--
+-- SOURCES:
+-- - Velhos Mestres (velhosmestres.com/br/destaques-38)
+-- - Mapa da Capoeira (mapadacapoeira.com.br/descricaopontos.aspx?fk_ponto=14)
+-- - Estado da Bahia newspaper (January 1937)
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  -- Identity
+  name,
+  apelido,
+  title,
+  portrait,
+  public_links,
+  -- Capoeira-specific
+  style,
+  style_notes_en,
+  style_notes_pt,
+  -- Life dates
+  birth_year,
+  birth_year_precision,
+  birth_place,
+  death_year,
+  death_year_precision,
+  death_place,
+  -- Extended content (bilingual)
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt,
+  -- Researcher notes (bilingual)
+  notes_en,
+  notes_pt
+) VALUES (
+  -- Identity
+  NULL,
+  'Ambrósio',
+  NULL,
+  NULL,
+  ARRAY['https://velhosmestres.com/br/destaques-38', 'https://www.mapadacapoeira.com.br/descricaopontos.aspx?fk_ponto=14']::text[],
+  -- Capoeira-specific
+  'angola'::genealogy.style,
+  E'Pre-modern era capoeira Angola practitioner from Salvador. Active in the 1930s alongside the generation that included Querido de Deus, Barbosa, Onça Preta, Zeppelin, and Juvenal. His participation in the 1937 II Congresso Afro-Brasileiro demonstration indicates he was recognized among the established practitioners of the era.',
+  E'Praticante de capoeira Angola da era pré-moderna de Salvador. Ativo na década de 1930 ao lado da geração que incluía Querido de Deus, Barbosa, Onça Preta, Zeppelin e Juvenal. Sua participação na demonstração do II Congresso Afro-Brasileiro de 1937 indica que era reconhecido entre os praticantes estabelecidos da época.',
+  -- Life dates
+  1890,
+  'decade'::genealogy.date_precision,
+  'Salvador, Bahia, Brazil',
+  NULL,
+  NULL,
+  NULL,
+  -- Extended content (bio_en)
+  E'Ambrósio was one of the capoeiristas who participated in the historic demonstration of capoeira de Angola at the II Congresso Afro-Brasileiro (Second Afro-Brazilian Congress) held in Salvador on January 14, 1937. This landmark event, organized by folklorist Edison Carneiro and writer Aydano de Couto Ferraz, brought together intellectuals, researchers, and practitioners of Afro-Brazilian culture for what became a pivotal moment in the documentation and legitimization of capoeira.
+
+The demonstration took place at the basketball court of Club de Regatas Itapagipe in the Ribeira neighborhood of Salvador. The newspaper Estado da Bahia announced that the "vadiação" (capoeira session) would be directed by Samuel Querido de Deus, who was "considered by his peers as the best capoeirista of Bahia." Ambrósio appeared among the listed participants alongside Barbosa, Onça Preta, Juvenal, Zeppelin, Bugaia, Fernandes, Eutíquio, Neném, Zei, Barroso, Arthur Mattos, Raphael, Edgar, Damião, and other practitioners of "the great art of Mangangá."
+
+The II Congresso Afro-Brasileiro marked a turning point for capoeira''s public perception. Following the demonstrations, ethnographer Edison Carneiro and novelist Jorge Amado advocated for the creation of a federation of capoeiristas—an advocacy that helped shift capoeira''s image from a criminalized street practice to a recognized cultural tradition worthy of preservation and study.
+
+Ambrósio belongs to the generation of angoleiros who developed Capoeira Angola before Mestre Pastinha''s formal leadership. The Mapa da Capoeira records that "Capoeira Angola was already being developed by Samuel Querido de Deus, Barbosa, Onça Preta, Juvenal, Zepelim, Neném, Zei, Ambrósio, Barroso, Damião and others" before Pastinha received the berimbau from Amorzinho, Antonio Maré, and Aberrê at the Gengibirra in 1941.
+
+Little else is known about Ambrósio''s personal life. His real name, occupation, teachers, and the details of his life before and after 1937 remain undocumented. What is certain is that he belonged to the cohort of capoeiristas who practiced before the formal academy system emerged—the generation that learned in the streets, at dock areas, during festivals, and in the informal rodas that characterized pre-institutional capoeira in Bahia.',
+  -- bio_pt
+  E'Ambrósio foi um dos capoeiristas que participou da histórica demonstração de capoeira de Angola no II Congresso Afro-Brasileiro realizado em Salvador em 14 de janeiro de 1937. Este evento marcante, organizado pelo folclorista Edison Carneiro e pelo escritor Aydano de Couto Ferraz, reuniu intelectuais, pesquisadores e praticantes da cultura afro-brasileira no que se tornou um momento fundamental na documentação e legitimação da capoeira.
+
+A demonstração ocorreu na quadra de basquete do Club de Regatas Itapagipe no bairro da Ribeira em Salvador. O jornal Estado da Bahia anunciou que a "vadiação" seria dirigida por Samuel Querido de Deus, que era "considerado por seus pares como o melhor capoeirista da Bahia." Ambrósio apareceu entre os participantes listados ao lado de Barbosa, Onça Preta, Juvenal, Zeppelin, Bugaia, Fernandes, Eutíquio, Neném, Zei, Barroso, Arthur Mattos, Raphael, Edgar, Damião e outros praticantes da "grande arte de Mangangá."
+
+O II Congresso Afro-Brasileiro marcou uma virada na percepção pública da capoeira. Após as demonstrações, o etnógrafo Edison Carneiro e o romancista Jorge Amado advogaram pela criação de uma federação de capoeiristas—uma advocacia que ajudou a mudar a imagem da capoeira de uma prática de rua criminalizada para uma tradição cultural reconhecida digna de preservação e estudo.
+
+Ambrósio pertence à geração de angoleiros que desenvolveu a Capoeira Angola antes da liderança formal de Mestre Pastinha. O Mapa da Capoeira registra que "A Capoeira Angola já vinha sendo desenvolvida por Samuel Querido de Deus, Barbosa, Onça Preta, Juvenal, Zepelim, Neném, Zei, Ambrósio, Barroso, Damião e outros" antes de Pastinha receber o berimbau de Amorzinho, Antonio Maré e Aberrê na Gengibirra em 1941.
+
+Pouco mais se sabe sobre a vida pessoal de Ambrósio. Seu nome verdadeiro, ocupação, mestres e os detalhes de sua vida antes e depois de 1937 permanecem não documentados. O que é certo é que ele pertencia ao grupo de capoeiristas que praticavam antes do surgimento do sistema formal de academias—a geração que aprendeu nas ruas, em áreas portuárias, durante festivais e nas rodas informais que caracterizavam a capoeira pré-institucional na Bahia.',
+  -- Achievements
+  E'Participated in capoeira de Angola demonstration at II Congresso Afro-Brasileiro (January 14, 1937)
+Part of the generation that developed Capoeira Angola before Pastinha''s formal leadership (pre-1941)
+Listed among established practitioners in historical documentation by Edison Carneiro',
+  E'Participou da demonstração de capoeira de Angola no II Congresso Afro-Brasileiro (14 de janeiro de 1937)
+Parte da geração que desenvolveu a Capoeira Angola antes da liderança formal de Pastinha (antes de 1941)
+Listado entre os praticantes estabelecidos na documentação histórica de Edison Carneiro',
+  -- notes_en
+  E'BIRTH YEAR ESTIMATION (1890, decade precision):
+- Active adult participating in II Congresso Afro-Brasileiro demonstration in 1937
+- Listed among those who "developed Capoeira Angola" before Pastinha''s leadership (pre-1941), suggesting established adult practitioner by mid-1930s
+- Contemporary of Samuel Querido de Deus (b.~1880), Barbosa (b.~1900), Zeppelin (b.~1890)
+- If born ~1890, would be 47 in 1937 - consistent with active participation and community standing
+- Estimated birth 1880-1900, using 1890 as midpoint
+
+DEATH: Unknown. No death date recorded in any sources consulted.
+
+FULL NAME: Unknown. All sources refer only to "Ambrósio."
+
+TITLE: No formal title recorded. The modern mestre/contra-mestre system did not exist in his era. He was a practicing capoeirista (vadiador) but there is no evidence he ran his own roda or had formal students.
+
+CONTEMPORARIES AT 1937 CONGRESS:
+The following participated alongside Ambrósio in the II Congresso Afro-Brasileiro demonstration:
+- Samuel Querido de Deus (director of the exhibition)
+- Barbosa (informant for Carneiro)
+- Onça Preta
+- Juvenal
+- Zeppelin (informant for Carneiro)
+- Bugaia
+- Fernandes
+- Eutíquio
+- Neném
+- Zei
+- Barroso
+- Arthur Mattos
+- Raphael
+- Edgar
+- Damião
+
+MAPA DA CAPOEIRA REFERENCE:
+The official Centro Esportivo de Capoeira Angola de Mestre Pastinha registry lists Ambrósio among those who developed Capoeira Angola before Pastinha assumed leadership in 1941.
+
+SOURCES:
+- Velhos Mestres (velhosmestres.com/br/destaques-38) - primary source
+- Mapa da Capoeira (mapadacapoeira.com.br) - CECA history
+- Estado da Bahia newspaper (January 1937) - contemporary account',
+  -- notes_pt
+  E'ESTIMATIVA DE ANO DE NASCIMENTO (1890, precisão de década):
+- Adulto ativo participando da demonstração no II Congresso Afro-Brasileiro em 1937
+- Listado entre os que "desenvolveram a Capoeira Angola" antes da liderança de Pastinha (antes de 1941), sugerindo praticante adulto estabelecido em meados dos anos 1930
+- Contemporâneo de Samuel Querido de Deus (n.~1880), Barbosa (n.~1900), Zeppelin (n.~1890)
+- Se nascido ~1890, teria 47 anos em 1937 - consistente com participação ativa e prestígio na comunidade
+- Nascimento estimado 1880-1900, usando 1890 como ponto médio
+
+MORTE: Desconhecida. Nenhuma data de morte registrada nas fontes consultadas.
+
+NOME COMPLETO: Desconhecido. Todas as fontes referem-se apenas a "Ambrósio."
+
+TÍTULO: Nenhum título formal registrado. O sistema moderno de mestre/contra-mestre não existia em sua era. Era um capoeirista praticante (vadiador) mas não há evidência de que mantinha sua própria roda ou tinha alunos formais.
+
+CONTEMPORÂNEOS NO CONGRESSO DE 1937:
+Os seguintes participaram ao lado de Ambrósio na demonstração do II Congresso Afro-Brasileiro:
+- Samuel Querido de Deus (diretor da exibição)
+- Barbosa (informante de Carneiro)
+- Onça Preta
+- Juvenal
+- Zeppelin (informante de Carneiro)
+- Bugaia
+- Fernandes
+- Eutíquio
+- Neném
+- Zei
+- Barroso
+- Arthur Mattos
+- Raphael
+- Edgar
+- Damião
+
+REFERÊNCIA DO MAPA DA CAPOEIRA:
+O registro oficial do Centro Esportivo de Capoeira Angola de Mestre Pastinha lista Ambrósio entre os que desenvolveram a Capoeira Angola antes de Pastinha assumir a liderança em 1941.
+
+FONTES:
+- Velhos Mestres (velhosmestres.com/br/destaques-38) - fonte principal
+- Mapa da Capoeira (mapadacapoeira.com.br) - história do CECA
+- Jornal Estado da Bahia (janeiro de 1937) - relato contemporâneo'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name, title = EXCLUDED.title, portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links, style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en, style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year, birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place, death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision, death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en, bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en, achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en, notes_pt = EXCLUDED.notes_pt, updated_at = NOW();
+
+-- Source: entities/persons/ananias.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Ananias
+-- Generated: 2025-12-21
+-- ============================================================
+-- Known as the "Father of São Paulo Capoeira"
+-- Founder of Roda da Praça da República (1953)
+-- ============================================================
+-- BIRTH DATE: October 4, 1924 (confirmed by Wikipedia PT)
+-- Some sources say "December 1924" - likely confusion with birth
+-- month vs registration date. Using October 4 per Wikipedia.
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  -- Identity
+  name,
+  apelido,
+  title,
+  portrait,
+  public_links,
+  -- Capoeira-specific
+  style,
+  style_notes_en,
+  style_notes_pt,
+  -- Life dates
+  birth_year,
+  birth_year_precision,
+  birth_place,
+  death_year,
+  death_year_precision,
+  death_place,
+  -- Extended content
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt,
+  -- Researcher notes
+  notes_en,
+  notes_pt
+) VALUES (
+  -- Identity
+  'Ananias Ferreira',
+  'Ananias',
+  'mestre'::genealogy.title,
+  NULL, -- No freely licensed portrait available
+  ARRAY[
+    'https://velhosmestres.com/en/featured-8',
+    'https://capoeira-connection.com/capoeira/2011/10/interview-with-mestre-ananias/',
+    'https://capoeira.online/history/mestres/mestre-ananias/',
+    'https://palitocapoeira.com.br/capoeira/mestre-ananias/'
+  ]::text[],
+  -- Capoeira-specific
+  'angola'::genealogy.style,
+  E'Ananias embodied the traditional Bahian capoeira angola. He emphasized the complete integration of capoeira, samba de roda, and Candomblé as interconnected expressions of Afro-Brazilian culture. His game was characterized by the old-school style learned in the informal rodas of the Recôncavo, where "no one gave classes... everyone got together and played." He rejected what he saw as the deterioration of modern capoeira, lamenting that contemporary practice was "all slow" and lacked respect for capoeira angola, which "should be low and high, a lively game." As a priest of Candomblé (Ogã), he integrated spiritual practice with his teaching.',
+  E'Ananias personificava a capoeira angola tradicional baiana. Enfatizava a integração completa da capoeira, samba de roda e Candomblé como expressões interconectadas da cultura afro-brasileira. Seu jogo era caracterizado pelo estilo da velha guarda aprendido nas rodas informais do Recôncavo, onde "ninguém dava aulas... todo mundo se juntava e jogava." Ele rejeitava o que via como deterioração da capoeira moderna, lamentando que a prática contemporânea era "tudo devagar" e faltava respeito pela capoeira angola, que "devia ser baixa e alta, um jogo animado." Como sacerdote de Candomblé (Ogã), integrava a prática espiritual ao seu ensino.',
+  -- Life dates
+  1924,
+  'exact'::genealogy.date_precision,
+  'São Félix, Bahia, Brazil',
+  2016,
+  'exact'::genealogy.date_precision,
+  'Bela Vista, São Paulo, Brazil',
+  -- bio_en
+  E'Ananias Ferreira was born on October 4, 1924, in São Félix, Bahia—a town in the Recôncavo Baiano region that lives and breathes the African force in Brazilian soil, offering capoeira, samba, and Candomblé as foundational pillars of culture. Son of samba player João Ferreira de Souza and Joventina dos Santos Ferreira, young Ananias grew up immersed in Afro-Brazilian traditions.
+
+In 1938, at age fourteen, he began learning capoeira in the rodas organized by Mestre Juvêncio, a dock worker who held informal gatherings on the docks of São Félix during the festivals of Igreja de São Deus Menino and Senhor São Félix. As Ananias later recalled: "Juvêncio was the mestre. He was a dock worker who did capoeira on the docks of São Félix... Nobody taught classes, but the real master was Juvêncio, everyone got together and played."
+
+These rodas gathered remarkable practitioners: João de Zazá, the brothers Toy and Roxinho, the brothers Alvelino and Santos from Muritiba, Caial, Café, and Estevão—a factory guard at the "Letialvi" cigar factory whom Ananias remembered as having "capoeira perversa" (vicious capoeira). A young Traíra from nearby Cachoeira also attended these gatherings. At age fourteen, Ananias said, "you start to feel capoeira in your blood."
+
+In 1942, Ananias moved to Salvador and settled in the Liberdade neighborhood. From 1942 to 1946, he trained with Mestre Canjiquinha in the space of Mestre Pastinha, playing in Pastinha''s bateria during street rodas alongside Mestre Gato Preto. From 1946 to 1953, he trained with Mestre Waldemar at the legendary Barracão in Liberdade''s Corta-Braço area. During this period, he trained alongside the great names: Pastinha, Nagé, Onça Preta, Noronha, Dorival (Waldemar''s brother), Traíra, Cobrinha Verde, Bugalho, Zacaria, Bom Cabelo, and Mucungê. Waldemar eventually gave him the position of contra-mestre de bateria after rigorous testing by the mestres.
+
+In 1953, everything changed. Theater producers Wilson and Sérgio Maia came to Corta-Braço seeking capoeiristas for the São Paulo theater scene. Ananias, along with Evaristo Martins Vieira, Jonas Ferreira dos Santos, and Adão Felix Reis, traveled to "the land of drizzle" (a terra da garoa—São Paulo). Upon arriving, Ananias founded the Associação de Capoeira Angola Senhor do Bonfim and established the legendary Sunday roda at Praça da República—a tradition that would endure for over sixty years.
+
+In São Paulo, Ananias collaborated with theatrical giants including playwright Plínio Marcos and poet Solano Trindade. In 1960, he appeared in the first production of "O Pagador de Promessas" at Teatro Brasileiro de Comédia (TBC), directed by Flávio Rangel. The play''s 1962 film adaptation by Anselmo Duarte won the Palme d''Or at Cannes. Ananias contributed to the film''s soundtrack. He continued in theater, appearing in "Balbina de Iansã" (1970) and "Jesus Homem" (1980), both written by Plínio Marcos.
+
+Throughout his life, Ananias served as an Ogã—a ceremonial leader in Candomblé de Angola. He saw capoeira, samba de roda, and Candomblé as inseparable expressions of African heritage in Brazil. He learned samba from his father and old Bahian musicians in candomblé temples and samba rodas.
+
+In 1979, Ananias appeared on Mestre Joel''s LP alongside Dadinho and João Bráz. At age 80 in 2004, he recorded his first capoeira CD, "Original Ao Vivo," with his disciples. In 2007, at 83, he released a samba de roda CD with Grupo Garoa do Recôncavo—a group formed by his disciples that presented the traditional hard samba of the Recôncavo Baiano. In 2009, he was featured in the documentary "Cantador de Chula."
+
+The Praça da República became an institution. For over fifty years, every Sunday, capoeiristas from all styles—Angola, Regional, Contemporânea—gathered at his roda. Mestres Suassuna, Camisa, Moraes, and countless others passed through. In the early 1990s, disciples who had formed in this roda created the Casa Mestre Ananias—Centro Paulistano de Capoeira e Tradições Baianas, located on Rua Conselheiro Ramalho in the Bixiga neighborhood. Contramestre Rafael trained directly under him, and Rodrigo Minhoca, who spent from 1995 until Ananias''s death learning from him, now leads the Casa.
+
+In a 2005 interview, at age 81, Ananias reflected on what capoeira requires: "Be dedicated in order to learn everything in capoeira, from the instruments to the game." He lamented modern practice: contemporary capoeira was "all slow" and lacked respect for capoeira angola, which "should be low and high, a lively game." He admired practitioners like Nagé, Onça Preta, Maré, Traíra, Bom Cabelo, Zacarias, and Caiçara—the latter described as "devilishly good."
+
+Mestre Ananias died on July 21, 2016, in Bela Vista, São Paulo, at age 91. His velório was held at Casa Mestre Ananias, and he was buried at Cemitério Carmosina in Itaquera. He is remembered as the father of São Paulo capoeira—a guardian of authentic Bahian traditions who brought the full breadth of Afro-Brazilian culture from the Recôncavo to the metropolis.',
+  -- bio_pt
+  E'Ananias Ferreira nasceu em 4 de outubro de 1924, em São Félix, Bahia—uma cidade no Recôncavo Baiano que vive e respira a força africana em solo brasileiro, oferecendo capoeira, samba e Candomblé como pilares fundamentais da cultura. Filho do sambista João Ferreira de Souza e de Joventina dos Santos Ferreira, o jovem Ananias cresceu imerso nas tradições afro-brasileiras.
+
+Em 1938, aos quatorze anos, começou a aprender capoeira nas rodas organizadas por Mestre Juvêncio, um estivador que realizava encontros informais nas docas de São Félix durante as festas da Igreja de São Deus Menino e Senhor São Félix. Como Ananias recordou mais tarde: "Juvêncio era o mestre. Ele era estivador e fazia capoeira na beira do cais de São Félix... Ninguém ensinava, mas o mestre mesmo era o Juvêncio, todo mundo se reunia e pronto."
+
+Essas rodas reuniam praticantes notáveis: João de Zazá, os irmãos Toy e Roxinho, os irmãos Alvelino e Santos de Muritiba, Caial, Café, e Estevão—um vigia da fábrica de charutos "Letialvi" que Ananias lembrava como tendo "capoeira perversa." Um jovem Traíra de Cachoeira também frequentava esses encontros. Aos quatorze anos, disse Ananias, "você começa a sentir a capoeira no sangue."
+
+Em 1942, Ananias mudou-se para Salvador e estabeleceu-se no bairro da Liberdade. De 1942 a 1946, treinou com Mestre Canjiquinha no espaço de Mestre Pastinha, tocando na bateria de Pastinha durante rodas de rua ao lado de Mestre Gato Preto. De 1946 a 1953, treinou com Mestre Waldemar no lendário Barracão na área do Corta-Braço da Liberdade. Durante esse período, treinou ao lado dos grandes nomes: Pastinha, Nagé, Onça Preta, Noronha, Dorival (irmão de Waldemar), Traíra, Cobrinha Verde, Bugalho, Zacaria, Bom Cabelo e Mucungê. Waldemar eventualmente lhe deu a posição de contra-mestre de bateria após testes rigorosos pelos mestres.
+
+Em 1953, tudo mudou. Os produtores de teatro Wilson e Sérgio Maia vieram ao Corta-Braço buscando capoeiristas para a cena teatral paulistana. Ananias, junto com Evaristo Martins Vieira, Jonas Ferreira dos Santos e Adão Felix Reis, viajou para "a terra da garoa" (São Paulo). Ao chegar, Ananias fundou a Associação de Capoeira Angola Senhor do Bonfim e estabeleceu a lendária roda de domingo na Praça da República—uma tradição que perduraria por mais de sessenta anos.
+
+Em São Paulo, Ananias colaborou com gigantes do teatro, incluindo o dramaturgo Plínio Marcos e o poeta Solano Trindade. Em 1960, apareceu na primeira produção de "O Pagador de Promessas" no Teatro Brasileiro de Comédia (TBC), dirigida por Flávio Rangel. A adaptação cinematográfica de 1962 por Anselmo Duarte ganhou a Palma de Ouro em Cannes. Ananias contribuiu para a trilha sonora do filme. Continuou no teatro, aparecendo em "Balbina de Iansã" (1970) e "Jesus Homem" (1980), ambas escritas por Plínio Marcos.
+
+Ao longo de sua vida, Ananias serviu como Ogã—um líder cerimonial no Candomblé de Angola. Ele via capoeira, samba de roda e Candomblé como expressões inseparáveis da herança africana no Brasil. Aprendeu samba com seu pai e velhos músicos baianos em terreiros de candomblé e rodas de samba.
+
+Em 1979, Ananias apareceu no LP de Mestre Joel ao lado de Dadinho e João Bráz. Aos 80 anos em 2004, gravou seu primeiro CD de capoeira, "Original Ao Vivo," com seus discípulos. Em 2007, aos 83, lançou um CD de samba de roda com o Grupo Garoa do Recôncavo—um grupo formado por seus discípulos que apresentava o samba de roda tradicional do Recôncavo Baiano. Em 2009, foi destaque no documentário "Cantador de Chula."
+
+A Praça da República tornou-se uma instituição. Por mais de cinquenta anos, todo domingo, capoeiristas de todos os estilos—Angola, Regional, Contemporânea—se reuniam em sua roda. Mestres Suassuna, Camisa, Moraes e incontáveis outros passaram por lá. No início dos anos 1990, discípulos formados nessa roda criaram a Casa Mestre Ananias—Centro Paulistano de Capoeira e Tradições Baianas, localizada na Rua Conselheiro Ramalho, no bairro do Bixiga. Contramestre Rafael treinou diretamente com ele, e Rodrigo Minhoca, que passou de 1995 até a morte de Ananias aprendendo com ele, agora lidera a Casa.
+
+Em uma entrevista de 2005, aos 81 anos, Ananias refletiu sobre o que a capoeira exige: "Seja dedicado para aprender tudo na capoeira, dos instrumentos ao jogo." Ele lamentava a prática moderna: a capoeira contemporânea era "tudo devagar" e faltava respeito pela capoeira angola, que "devia ser baixa e alta, um jogo animado." Admirava praticantes como Nagé, Onça Preta, Maré, Traíra, Bom Cabelo, Zacarias e Caiçara—este último descrito como "diabólico."
+
+Mestre Ananias faleceu em 21 de julho de 2016, em Bela Vista, São Paulo, aos 91 anos. Seu velório foi realizado na Casa Mestre Ananias, e foi sepultado no Cemitério Carmosina em Itaquera. É lembrado como o pai da capoeira paulistana—um guardião das tradições baianas autênticas que trouxe toda a amplitude da cultura afro-brasileira do Recôncavo para a metrópole.',
+  -- achievements_en
+  E'1953: Founded Associação de Capoeira Angola Senhor do Bonfim in São Paulo
+1953: Established the legendary Sunday roda at Praça da República, maintained for 60+ years
+1960: Appeared in first production of "O Pagador de Promessas" at TBC (later Palme d''Or winner film)
+1970: Appeared in "Balbina de Iansã" by Plínio Marcos
+1979: Recorded with Mestre Joel''s LP
+1980: Appeared in "Jesus Homem" by Plínio Marcos
+2004: First capoeira CD "Original Ao Vivo" at age 80
+2007: Samba de Roda CD with Grupo Garoa do Recôncavo at age 83
+2009: Featured in documentary "Cantador de Chula"
+Pioneer of capoeira in São Paulo - considered the "father" of São Paulo capoeira
+Preserved and transmitted traditional Recôncavo samba de roda in São Paulo',
+  -- achievements_pt
+  E'1953: Fundou a Associação de Capoeira Angola Senhor do Bonfim em São Paulo
+1953: Estabeleceu a lendária roda de domingo na Praça da República, mantida por mais de 60 anos
+1960: Apareceu na primeira produção de "O Pagador de Promessas" no TBC (depois filme vencedor da Palma de Ouro)
+1970: Apareceu em "Balbina de Iansã" de Plínio Marcos
+1979: Gravou no LP de Mestre Joel
+1980: Apareceu em "Jesus Homem" de Plínio Marcos
+2004: Primeiro CD de capoeira "Original Ao Vivo" aos 80 anos
+2007: CD de Samba de Roda com Grupo Garoa do Recôncavo aos 83 anos
+2009: Destaque no documentário "Cantador de Chula"
+Pioneiro da capoeira em São Paulo - considerado o "pai" da capoeira paulistana
+Preservou e transmitiu o samba de roda tradicional do Recôncavo em São Paulo',
+  -- notes_en
+  E'BIRTH DATE DISCREPANCY:
+- Wikipedia PT: October 4, 1924 (São Félix, 4 de outubro de 1924)
+- velhosmestres.com: December 1924
+- wiki.urucungo.com.br: December 1, 1924
+Using October 4, 1924 per Wikipedia PT as most specific source.
+
+DEATH DATE: July 21, 2016 (confirmed by Wikipedia PT, IPHAN notice, velhosmestres.com)
+
+PARENTS:
+- Father: João Ferreira de Souza (samba player)
+- Mother: Joventina dos Santos Ferreira
+
+TEACHERS (chronological):
+- Mestre Juvêncio (1938+, São Félix dock rodas)
+- Mestre Canjiquinha (1942-1946, at Pastinha''s space in Liberdade)
+- Mestre Waldemar (1946-1953, Barracão de Waldemar, Liberdade)
+
+TRAINING COMPANIONS (São Félix):
+- João de Zazá
+- Brothers Toy and Roxinho
+- Brothers Alvelino and Santos (Muritiba)
+- Caial
+- Estevão (factory guard, "capoeira perversa")
+- Traíra (Cachoeira)
+- Café (Cachoeira)
+
+TRAINING COMPANIONS (Salvador):
+- Pastinha
+- Nagé
+- Onça Preta
+- Noronha
+- Dorival (Waldemar''s brother)
+- Traíra
+- Cobrinha Verde
+- Bugalho
+- Zacaria
+- Bom Cabelo
+- Mucungê
+- Gato Preto
+
+TITLE FROM WALDEMAR: Received contra-mestre de bateria after rigorous testing by the mestres.
+
+DIPLOMA FROM CANJIQUINHA: Ananias said he "got his diploma" from Canjiquinha, though "at that time, there wasn''t this business of diplomas."
+
+MOVE TO SÃO PAULO (1953):
+- Recruited by producers Wilson and Sérgio Maia for theater
+- Traveled with Evaristo Martins Vieira, Jonas Ferreira dos Santos, Adão Felix Reis
+- Founded Associação de Capoeira Angola Senhor do Bonfim upon arrival
+
+MEDIA APPEARANCES:
+- 1960: "O Pagador de Promessas" (TBC production, Flávio Rangel director)
+- 1962: Film "O Pagador de Promessas" (contributed to soundtrack)
+- 1970: "Balbina de Iansã" (Plínio Marcos)
+- 1979: Mestre Joel''s LP (with Dadinho, João Bráz)
+- 1980: "Jesus Homem" (Plínio Marcos)
+- 2004: CD "Original Ao Vivo" (age 80)
+- 2007: CD "Samba de Roda" with Grupo Garoa do Recôncavo (age 83)
+- 2009: Documentary "Cantador de Chula"
+
+CANDOMBLÉ: Served as Ogã (ceremonial leader) in Candomblé de Angola
+
+RODA DA PRAÇA DA REPÚBLICA: Famous capoeiristas who passed through include Suassuna, Camisa, Moraes, and many others from all styles
+
+STUDENTS/DISCIPLES:
+- Contramestre Rafael (trained directly)
+- Rodrigo Minhoca/Mestre Minhoca (1995-2016, now leads Casa Mestre Ananias)
+
+CASA MESTRE ANANIAS:
+- 1990s: Founded by disciples from Praça da República roda
+- 1997-2000: Started in São Judas neighborhood
+- 2007: Reopened in Bela Vista/Bixiga neighborhood
+- Address: Rua Conselheiro Ramalho, 939/945, Bela Vista, São Paulo
+
+FUNERAL (July 21, 2016):
+- Velório at Casa Mestre Ananias (8:00-14:00)
+- Burial at Cemitério Carmosina, Itaquera',
+  -- notes_pt
+  E'DISCREPÂNCIA NA DATA DE NASCIMENTO:
+- Wikipedia PT: 4 de outubro de 1924 (São Félix)
+- velhosmestres.com: dezembro de 1924
+- wiki.urucungo.com.br: 1 de dezembro de 1924
+Usando 4 de outubro de 1924 conforme Wikipedia PT como fonte mais específica.
+
+DATA DE MORTE: 21 de julho de 2016 (confirmado por Wikipedia PT, nota do IPHAN, velhosmestres.com)
+
+PAIS:
+- Pai: João Ferreira de Souza (sambista)
+- Mãe: Joventina dos Santos Ferreira
+
+MESTRES (cronológico):
+- Mestre Juvêncio (1938+, rodas nas docas de São Félix)
+- Mestre Canjiquinha (1942-1946, no espaço de Pastinha na Liberdade)
+- Mestre Waldemar (1946-1953, Barracão de Waldemar, Liberdade)
+
+COMPANHEIROS DE TREINO (São Félix):
+- João de Zazá
+- Irmãos Toy e Roxinho
+- Irmãos Alvelino e Santos (Muritiba)
+- Caial
+- Estevão (vigia de fábrica, "capoeira perversa")
+- Traíra (Cachoeira)
+- Café (Cachoeira)
+
+COMPANHEIROS DE TREINO (Salvador):
+- Pastinha
+- Nagé
+- Onça Preta
+- Noronha
+- Dorival (irmão de Waldemar)
+- Traíra
+- Cobrinha Verde
+- Bugalho
+- Zacaria
+- Bom Cabelo
+- Mucungê
+- Gato Preto
+
+TÍTULO DE WALDEMAR: Recebeu contra-mestre de bateria após testes rigorosos pelos mestres.
+
+DIPLOMA DE CANJIQUINHA: Ananias disse que "tirou seu diploma" com Canjiquinha, embora "naquele tempo, não tinha esse negócio de diploma."
+
+MUDANÇA PARA SÃO PAULO (1953):
+- Recrutado pelos produtores Wilson e Sérgio Maia para teatro
+- Viajou com Evaristo Martins Vieira, Jonas Ferreira dos Santos, Adão Felix Reis
+- Fundou Associação de Capoeira Angola Senhor do Bonfim ao chegar
+
+APARIÇÕES NA MÍDIA:
+- 1960: "O Pagador de Promessas" (produção TBC, diretor Flávio Rangel)
+- 1962: Filme "O Pagador de Promessas" (contribuiu para trilha sonora)
+- 1970: "Balbina de Iansã" (Plínio Marcos)
+- 1979: LP de Mestre Joel (com Dadinho, João Bráz)
+- 1980: "Jesus Homem" (Plínio Marcos)
+- 2004: CD "Original Ao Vivo" (80 anos)
+- 2007: CD "Samba de Roda" com Grupo Garoa do Recôncavo (83 anos)
+- 2009: Documentário "Cantador de Chula"
+
+CANDOMBLÉ: Serviu como Ogã (líder cerimonial) no Candomblé de Angola
+
+RODA DA PRAÇA DA REPÚBLICA: Capoeiristas famosos que passaram incluem Suassuna, Camisa, Moraes e muitos outros de todos os estilos
+
+ALUNOS/DISCÍPULOS:
+- Contramestre Rafael (treinou diretamente)
+- Rodrigo Minhoca/Mestre Minhoca (1995-2016, agora lidera Casa Mestre Ananias)
+
+CASA MESTRE ANANIAS:
+- Anos 1990: Fundada por discípulos da roda da Praça da República
+- 1997-2000: Começou no bairro São Judas
+- 2007: Reaberta no bairro Bela Vista/Bixiga
+- Endereço: Rua Conselheiro Ramalho, 939/945, Bela Vista, São Paulo
+
+FUNERAL (21 de julho de 2016):
+- Velório na Casa Mestre Ananias (8:00-14:00)
+- Sepultamento no Cemitério Carmosina, Itaquera'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
+  updated_at = NOW();
+
 -- Source: entities/persons/angelica-endiabrada.sql (NEW)
 -- ============================================================
 -- GENEALOGY PERSON: Angélica Endiabrada
@@ -450,6 +961,218 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_en = EXCLUDED.notes_en,
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
+
+-- Source: entities/persons/barroso.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Barroso
+-- Generated: 2025-12-21
+-- ============================================================
+-- Pre-Pastinha era capoeira Angola practitioner from Salvador.
+-- Participated in the historic capoeira demonstration at the
+-- II Congresso Afro-Brasileiro on January 14, 1937.
+-- Listed among those who developed Capoeira Angola before
+-- Pastinha's formal leadership.
+-- ============================================================
+--
+-- IDENTITY:
+-- - Full Name: Unknown
+-- - Apelido: Barroso
+-- - Title: NULL (no formal title system existed in his era)
+--
+-- BIRTH YEAR ESTIMATION (1890, decade precision):
+-- - Active adult participating in II Congresso Afro-Brasileiro in 1937
+-- - Listed among practitioners who "developed Capoeira Angola" before
+--   Pastinha's era, suggesting established adult practitioner
+-- - Contemporary of Samuel Querido de Deus (b.~1880), Barbosa (b.~1900),
+--   Ambrósio (b.~1890), Zeppelin (b.~1890)
+-- - If born ~1890, would be 47 in 1937 - consistent with active
+--   participation in public demonstration
+-- - Estimated birth 1880-1900, using 1890 as midpoint
+--
+-- DEATH:
+-- - Unknown; no death date recorded in sources
+--
+-- KEY HISTORICAL ROLE:
+-- - 1937: Participated in capoeira Angola demonstration at II
+--   Congresso Afro-Brasileiro, Club de Regatas Itapagipe, Salvador
+-- - Listed on Mapa da Capoeira as one of those who developed
+--   Capoeira Angola alongside Samuel Querido de Deus, Barbosa,
+--   Onça Preta, Juvenal, Zeppelin, Neném, Zei, Ambrósio, Damião
+--
+-- SOURCES:
+-- - Velhos Mestres (velhosmestres.com/br/destaques-38)
+-- - Mapa da Capoeira (mapadacapoeira.com.br/descricaopontos.aspx?fk_ponto=14)
+-- - Estado da Bahia newspaper (January 1937)
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  -- Identity
+  name,
+  apelido,
+  title,
+  portrait,
+  public_links,
+  -- Capoeira-specific
+  style,
+  style_notes_en,
+  style_notes_pt,
+  -- Life dates
+  birth_year,
+  birth_year_precision,
+  birth_place,
+  death_year,
+  death_year_precision,
+  death_place,
+  -- Extended content (bilingual)
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt,
+  -- Researcher notes (bilingual)
+  notes_en,
+  notes_pt
+) VALUES (
+  -- Identity
+  NULL,
+  'Barroso',
+  NULL,
+  NULL,
+  ARRAY['https://velhosmestres.com/br/destaques-38', 'https://www.mapadacapoeira.com.br/descricaopontos.aspx?fk_ponto=14']::text[],
+  -- Capoeira-specific
+  'angola'::genealogy.style,
+  E'Pre-modern era capoeira Angola practitioner from Salvador. Active in the 1930s alongside the generation that included Querido de Deus, Barbosa, Onça Preta, Ambrósio, Zeppelin, and Juvenal. His participation in the 1937 II Congresso Afro-Brasileiro demonstration indicates he was recognized among the established practitioners of the era.',
+  E'Praticante de capoeira Angola da era pré-moderna de Salvador. Ativo na década de 1930 ao lado da geração que incluía Querido de Deus, Barbosa, Onça Preta, Ambrósio, Zeppelin e Juvenal. Sua participação na demonstração do II Congresso Afro-Brasileiro de 1937 indica que era reconhecido entre os praticantes estabelecidos da época.',
+  -- Life dates
+  1890,
+  'decade'::genealogy.date_precision,
+  'Salvador, Bahia, Brazil',
+  NULL,
+  NULL,
+  NULL,
+  -- Extended content (bio_en)
+  E'Barroso was one of the capoeiristas who participated in the historic demonstration of capoeira de Angola at the II Congresso Afro-Brasileiro (Second Afro-Brazilian Congress) held in Salvador on January 14, 1937. This landmark event, organized by folklorist Edison Carneiro and writer Aydano de Couto Ferraz, brought together intellectuals, researchers, and practitioners of Afro-Brazilian culture for what became a pivotal moment in the documentation and legitimization of capoeira.
+
+The demonstration took place at the basketball court of Club de Regatas Itapagipe in the Ribeira neighborhood of Salvador at 9:30 in the morning. The newspaper Estado da Bahia announced that the "vadiação" (capoeira session) would be directed by Samuel Querido de Deus, who was "considered by his peers as the best capoeirista of Bahia." The press described the demonstration as showcasing the "luta fetichista dos negros bantus da Bahia" (fetishistic fight of the Bantu blacks of Bahia).
+
+Barroso appeared among the listed participants alongside Barbosa, Onça Preta, Juvenal, Zeppelin, Bugaia, Fernandes, Eutíquio, Neném, Zei, Ambrósio, Arthur Mattos, Raphael, Edgar, Damião, and other practitioners of "the great art of Mangangá." This gathering of capoeiristas was photographed by Edison Carneiro, preserving a visual record of this historic moment.
+
+The II Congresso Afro-Brasileiro marked a turning point for capoeira''s public perception. Following the demonstrations, ethnographer Edison Carneiro and novelist Jorge Amado advocated for the creation of a federation of capoeiristas—an advocacy that helped shift capoeira''s image from a criminalized street practice to a recognized cultural tradition worthy of preservation and study.
+
+Barroso belongs to the generation of angoleiros who developed Capoeira Angola before Mestre Pastinha''s formal leadership. The Mapa da Capoeira records that "Capoeira Angola was already being developed by Samuel Querido de Deus, Barbosa, Onça Preta, Juvenal, Zepelim, Neném, Zei, Ambrósio, Barroso, Damião and others" before Pastinha received the berimbau from Amorzinho, Antonio Maré, and Aberrê at the Gengibirra in 1941.
+
+Little else is known about Barroso''s personal life. His real name, occupation, teachers, and the details of his life before and after 1937 remain undocumented. What is certain is that he belonged to the cohort of capoeiristas who practiced before the formal academy system emerged—the generation that learned in the streets, at dock areas, during festivals, and in the informal rodas that characterized pre-institutional capoeira in Bahia.',
+  -- bio_pt
+  E'Barroso foi um dos capoeiristas que participou da histórica demonstração de capoeira de Angola no II Congresso Afro-Brasileiro realizado em Salvador em 14 de janeiro de 1937. Este evento marcante, organizado pelo folclorista Edison Carneiro e pelo escritor Aydano de Couto Ferraz, reuniu intelectuais, pesquisadores e praticantes da cultura afro-brasileira no que se tornou um momento fundamental na documentação e legitimação da capoeira.
+
+A demonstração ocorreu na quadra de basquete do Club de Regatas Itapagipe no bairro da Ribeira em Salvador às 9:30 da manhã. O jornal Estado da Bahia anunciou que a "vadiação" seria dirigida por Samuel Querido de Deus, que era "considerado por seus pares como o melhor capoeirista da Bahia." A imprensa descreveu a demonstração como mostrando a "luta fetichista dos negros bantus da Bahia."
+
+Barroso apareceu entre os participantes listados ao lado de Barbosa, Onça Preta, Juvenal, Zeppelin, Bugaia, Fernandes, Eutíquio, Neném, Zei, Ambrósio, Arthur Mattos, Raphael, Edgar, Damião e outros praticantes da "grande arte de Mangangá." Este encontro de capoeiristas foi fotografado por Edison Carneiro, preservando um registro visual deste momento histórico.
+
+O II Congresso Afro-Brasileiro marcou uma virada na percepção pública da capoeira. Após as demonstrações, o etnógrafo Edison Carneiro e o romancista Jorge Amado advogaram pela criação de uma federação de capoeiristas—uma advocacia que ajudou a mudar a imagem da capoeira de uma prática de rua criminalizada para uma tradição cultural reconhecida digna de preservação e estudo.
+
+Barroso pertence à geração de angoleiros que desenvolveu a Capoeira Angola antes da liderança formal de Mestre Pastinha. O Mapa da Capoeira registra que "A Capoeira Angola já vinha sendo desenvolvida por Samuel Querido de Deus, Barbosa, Onça Preta, Juvenal, Zepelim, Neném, Zei, Ambrósio, Barroso, Damião e outros" antes de Pastinha receber o berimbau de Amorzinho, Antonio Maré e Aberrê na Gengibirra em 1941.
+
+Pouco mais se sabe sobre a vida pessoal de Barroso. Seu nome verdadeiro, ocupação, mestres e os detalhes de sua vida antes e depois de 1937 permanecem não documentados. O que é certo é que ele pertencia ao grupo de capoeiristas que praticavam antes do surgimento do sistema formal de academias—a geração que aprendeu nas ruas, em áreas portuárias, durante festivais e nas rodas informais que caracterizavam a capoeira pré-institucional na Bahia.',
+  -- Achievements
+  E'Participated in capoeira de Angola demonstration at II Congresso Afro-Brasileiro (January 14, 1937)
+Part of the generation that developed Capoeira Angola before Pastinha''s formal leadership (pre-1941)
+Listed among established practitioners in historical documentation by Edison Carneiro',
+  E'Participou da demonstração de capoeira de Angola no II Congresso Afro-Brasileiro (14 de janeiro de 1937)
+Parte da geração que desenvolveu a Capoeira Angola antes da liderança formal de Pastinha (antes de 1941)
+Listado entre os praticantes estabelecidos na documentação histórica de Edison Carneiro',
+  -- notes_en
+  E'BIRTH YEAR ESTIMATION (1890, decade precision):
+- Active adult participating in II Congresso Afro-Brasileiro demonstration in 1937
+- Listed among those who "developed Capoeira Angola" before Pastinha''s leadership (pre-1941), suggesting established adult practitioner by mid-1930s
+- Contemporary of Samuel Querido de Deus (b.~1880), Barbosa (b.~1900), Ambrósio (b.~1890), Zeppelin (b.~1890)
+- If born ~1890, would be 47 in 1937 - consistent with active participation and community standing
+- Estimated birth 1880-1900, using 1890 as midpoint
+
+DEATH: Unknown. No death date recorded in any sources consulted.
+
+FULL NAME: Unknown. All sources refer only to "Barroso."
+
+APELIDO NOTE: The name "Barroso" could refer to a place of origin (São Francisco de Assis de Barroso, Portugal; or Barroso region in Minas Gerais/Bahia), a physical characteristic (muddy/clay-like complexion), or a family surname. Without additional documentation, the specific origin of the apelido cannot be determined.
+
+TITLE: No formal title recorded. The modern mestre/contra-mestre system did not exist in his era. He was a practicing capoeirista (vadiador) but there is no evidence he ran his own roda or had formal students.
+
+CONTEMPORARIES AT 1937 CONGRESS:
+The following participated alongside Barroso in the II Congresso Afro-Brasileiro demonstration:
+- Samuel Querido de Deus (director of the exhibition)
+- Barbosa (informant for Carneiro)
+- Onça Preta
+- Juvenal
+- Zeppelin (informant for Carneiro)
+- Bugaia
+- Fernandes
+- Eutíquio
+- Neném
+- Zei
+- Ambrósio
+- Arthur Mattos
+- Raphael
+- Edgar
+- Damião
+
+MAPA DA CAPOEIRA REFERENCE:
+The official Centro Esportivo de Capoeira Angola de Mestre Pastinha registry lists Barroso among those who developed Capoeira Angola before Pastinha assumed leadership in 1941.
+
+SOURCES:
+- Velhos Mestres (velhosmestres.com/br/destaques-38) - primary source
+- Mapa da Capoeira (mapadacapoeira.com.br) - CECA history
+- Estado da Bahia newspaper (January 1937) - contemporary account',
+  -- notes_pt
+  E'ESTIMATIVA DE ANO DE NASCIMENTO (1890, precisão de década):
+- Adulto ativo participando da demonstração no II Congresso Afro-Brasileiro em 1937
+- Listado entre os que "desenvolveram a Capoeira Angola" antes da liderança de Pastinha (antes de 1941), sugerindo praticante adulto estabelecido em meados dos anos 1930
+- Contemporâneo de Samuel Querido de Deus (n.~1880), Barbosa (n.~1900), Ambrósio (n.~1890), Zeppelin (n.~1890)
+- Se nascido ~1890, teria 47 anos em 1937 - consistente com participação ativa e prestígio na comunidade
+- Nascimento estimado 1880-1900, usando 1890 como ponto médio
+
+MORTE: Desconhecida. Nenhuma data de morte registrada nas fontes consultadas.
+
+NOME COMPLETO: Desconhecido. Todas as fontes referem-se apenas a "Barroso."
+
+NOTA SOBRE O APELIDO: O nome "Barroso" pode referir-se a um local de origem (São Francisco de Assis de Barroso, Portugal; ou região de Barroso em Minas Gerais/Bahia), uma característica física (tez barrenta/argilosa), ou um sobrenome de família. Sem documentação adicional, a origem específica do apelido não pode ser determinada.
+
+TÍTULO: Nenhum título formal registrado. O sistema moderno de mestre/contra-mestre não existia em sua era. Era um capoeirista praticante (vadiador) mas não há evidência de que mantinha sua própria roda ou tinha alunos formais.
+
+CONTEMPORÂNEOS NO CONGRESSO DE 1937:
+Os seguintes participaram ao lado de Barroso na demonstração do II Congresso Afro-Brasileiro:
+- Samuel Querido de Deus (diretor da exibição)
+- Barbosa (informante de Carneiro)
+- Onça Preta
+- Juvenal
+- Zeppelin (informante de Carneiro)
+- Bugaia
+- Fernandes
+- Eutíquio
+- Neném
+- Zei
+- Ambrósio
+- Arthur Mattos
+- Raphael
+- Edgar
+- Damião
+
+REFERÊNCIA DO MAPA DA CAPOEIRA:
+O registro oficial do Centro Esportivo de Capoeira Angola de Mestre Pastinha lista Barroso entre os que desenvolveram a Capoeira Angola antes de Pastinha assumir a liderança em 1941.
+
+FONTES:
+- Velhos Mestres (velhosmestres.com/br/destaques-38) - fonte principal
+- Mapa da Capoeira (mapadacapoeira.com.br) - história do CECA
+- Jornal Estado da Bahia (janeiro de 1937) - relato contemporâneo'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name, title = EXCLUDED.title, portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links, style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en, style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year, birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place, death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision, death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en, bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en, achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en, notes_pt = EXCLUDED.notes_pt, updated_at = NOW();
 
 -- Source: entities/persons/bigode-de-seda.sql (NEW)
 -- ============================================================
@@ -2455,6 +3178,53 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
+-- Source: entities/persons/eutiquio.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Eutíquio
+-- Generated: 2025-12-22
+-- ============================================================
+-- BIRTH YEAR ESTIMATION (1900, decade):
+-- Gato Preto was born 1930 and started learning from his father at age 8 (1938).
+-- Assuming Eutíquio was between 25-40 years old when teaching an 8-year-old,
+-- this places his birth between 1898-1913. Given that he died in 1954 and was
+-- described as "a good capoeira master" (implying mature practitioner), and that
+-- his own father/grandfather was African (Oleriano de Góes), a birth year around
+-- 1900 (±10 years) is reasonable. Using decade precision.
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  name, apelido, title, portrait, public_links,
+  style, style_notes_en, style_notes_pt,
+  birth_year, birth_year_precision, birth_place,
+  death_year, death_year_precision, death_place,
+  bio_en, bio_pt, achievements_en, achievements_pt,
+  notes_en, notes_pt
+) VALUES (
+  'Eutíquio Lúcio Góes', 'Eutíquio', NULL, NULL,
+  ARRAY['https://velhosmestres.com/br/gatopreto', 'https://velhosmestres.com/en/gatopreto']::text[],
+  'angola'::genealogy.style,
+  NULL,
+  NULL,
+  1900, 'decade'::genealogy.date_precision, 'Santo Amaro da Purificação, Bahia, Brazil',
+  1954, 'year'::genealogy.date_precision, NULL,
+  E'Eutíquio Lúcio Góes, known as Seu Eutíquio, was a capoeirista from Santo Amaro da Purificação in the Recôncavo Baiano—the heartland of traditional Bahian capoeira. He represented a direct link to Africa: he learned capoeira from his own father, the African Oleriano de Góes, making him part of the first Brazilian-born generation in a family lineage that traced directly back to the continent.\n\nSeu Eutíquio was the father and first teacher of Mestre Gato Preto (José Gabriel Góes), one of the most celebrated Angola mestres of the 20th century. Beginning in 1938, when young José Gabriel was just eight years old, Eutíquio initiated rigorous training in a small enclosed room of their home on Rua do Pilar. His teaching method was intense: he would attack the boy with a maculelê stick or machete, forcing him to learn defense through necessity. When José Gabriel made mistakes, his father would strike his wrists to correct him.\n\nThis brutal but effective pedagogy continued for approximately four years. Around 1942, when José Gabriel was about twelve, the training came to an abrupt end. During a session, the young student landed such a powerful cabeçada (headbutt) that his father fell to the ground. Upon rising, Eutíquio chased his son while threatening him: "Come here, boy!" After this incident, he stopped teaching his son—perhaps recognizing that the student had surpassed a threshold, or perhaps wounded in his pride. The boy''s uncle João Catarino, himself a student of the legendary Besouro Mangangá, continued his education afterward.\n\nMestre Waldemar da Paixão, speaking in 1987, remembered Seu Eutíquio: "His father was called Seu Eutíquio, he''s deceased, he was a good capoeira master." The description as "a good capoeira master" from a mestre of Waldemar''s stature speaks to Eutíquio''s standing in the Santo Amaro capoeira community.\n\nEutíquio died in 1954. His legacy lives on through his son Gato Preto, who would go on to represent Brazil at the I Festival Mundial das Artes Negras in Dakar (1966), win the Berimbau de Ouro (1970), and pass the tradition to his own sons Gato II and Mestre Zeca. Through this unbroken line—from the African Oleriano de Góes to Eutíquio to Gato Preto to his grandchildren—the family represents one of the most documented multi-generational capoeira lineages.',
+  E'Eutíquio Lúcio Góes, conhecido como Seu Eutíquio, era um capoeirista de Santo Amaro da Purificação no Recôncavo Baiano—o coração da capoeira tradicional baiana. Ele representava uma ligação direta com a África: aprendeu capoeira com seu próprio pai, o africano Oleriano de Góes, tornando-se parte da primeira geração nascida no Brasil em uma linhagem familiar que traçava diretamente ao continente.\n\nSeu Eutíquio foi o pai e primeiro mestre de Mestre Gato Preto (José Gabriel Góes), um dos mais celebrados mestres de Angola do século XX. A partir de 1938, quando o jovem José Gabriel tinha apenas oito anos, Eutíquio iniciou um treinamento rigoroso em um pequeno quarto fechado da casa deles na Rua do Pilar. Seu método de ensino era intenso: ele atacava o menino com um bastão de maculelê ou facão, forçando-o a aprender defesa pela necessidade. Quando José Gabriel errava, seu pai batia em seus pulsos para corrigi-lo.\n\nEssa pedagogia brutal mas eficaz continuou por aproximadamente quatro anos. Por volta de 1942, quando José Gabriel tinha cerca de doze anos, o treinamento chegou a um fim abrupto. Durante uma sessão, o jovem aluno deu uma cabeçada tão forte que seu pai caiu no chão. Ao se levantar, Eutíquio perseguiu seu filho enquanto o ameaçava: "Vem cá, menino!" Após esse incidente, ele parou de ensinar seu filho—talvez reconhecendo que o aluno havia ultrapassado um limiar, ou talvez ferido em seu orgulho. O tio do menino, João Catarino, que era aluno do lendário Besouro Mangangá, continuou sua educação depois.\n\nMestre Waldemar da Paixão, falando em 1987, lembrou de Seu Eutíquio: "O pai dele chamava Seu Eutíquio, é morto, era um bom mestre de capoeira." A descrição como "um bom mestre de capoeira" por um mestre do calibre de Waldemar fala da reputação de Eutíquio na comunidade de capoeira de Santo Amaro.\n\nEutíquio morreu em 1954. Seu legado vive através de seu filho Gato Preto, que viria a representar o Brasil no I Festival Mundial das Artes Negras em Dacar (1966), ganhar o Berimbau de Ouro (1970), e passar a tradição para seus próprios filhos Gato II e Mestre Zeca. Através dessa linha ininterrupta—do africano Oleriano de Góes a Eutíquio, a Gato Preto e seus netos—a família representa uma das linhagens de capoeira multigeracionais mais documentadas.',
+  NULL,
+  NULL,
+  E'BIRTH YEAR ESTIMATION (1900, decade):\nGato Preto was born 1930 and started learning from his father at age 8 (1938). Assuming Eutíquio was between 25-40 years old when teaching an 8-year-old, this places his birth between 1898-1913. Using 1900 with decade precision.\n\nNAME DISCREPANCY:\n- "Eutíquio Lúcio Góes" - velhosmestres.com, capoeira.online, lalaue.com (MAJORITY)\n- "Eutíquio Lúcio Chagas" - some sources (nossa-tribo.com, lalaue.com alternate)\nUsed "Góes" as primary since his son is "José Gabriel Góes" and the family surname is consistently Góes.\n\nTEACHERS:\n- Oleriano de Góes (grandfather, African; taught him capoeira; mentioned in USP Núcleo de Artes Afro-Brasileiras article)\n\nSTUDENTS:\n- Mestre Gato Preto (José Gabriel Góes, son; began 1938 age 8, ended ~1942 after cabeçada incident)\n\nTRAINING METHOD:\n- Trained in small enclosed room at family home on Rua do Pilar, Santo Amaro\n- Used maculelê stick or machete to force defensive learning\n- Would strike wrists to correct errors\n- Training ended when son delivered powerful cabeçada that knocked him down\n\nFAMILY:\n- Father/Grandfather: Oleriano de Góes (African, capoeirista)\n- Son: José Gabriel Góes (Mestre Gato Preto)\n- Brother: João Catarino (student of Besouro Mangangá)\n- Grandson: Sinésio Souza Góes (Mestre Gato II)\n- Grandson: José Souza Góes (Mestre Zeca/Gato III)\n\nQUOTE ABOUT EUTÍQUIO:\n- Mestre Waldemar (1987): "O pai dele chamava Seu Eutíquio, é morto, era um bom mestre de capoeira."',
+  E'ESTIMATIVA DO ANO DE NASCIMENTO (1900, década):\nGato Preto nasceu em 1930 e começou a aprender com seu pai aos 8 anos (1938). Assumindo que Eutíquio tinha entre 25-40 anos quando ensinava uma criança de 8 anos, isso coloca seu nascimento entre 1898-1913. Usando 1900 com precisão de década.\n\nDISCREPÂNCIA DE NOME:\n- "Eutíquio Lúcio Góes" - velhosmestres.com, capoeira.online, lalaue.com (MAIORIA)\n- "Eutíquio Lúcio Chagas" - algumas fontes (nossa-tribo.com, lalaue.com alternativo)\nUsado "Góes" como principal já que seu filho é "José Gabriel Góes" e o sobrenome da família é consistentemente Góes.\n\nMESTRES:\n- Oleriano de Góes (avô, africano; ensinou-lhe capoeira; mencionado no artigo do Núcleo de Artes Afro-Brasileiras da USP)\n\nALUNOS:\n- Mestre Gato Preto (José Gabriel Góes, filho; começou 1938 aos 8 anos, terminou ~1942 após incidente da cabeçada)\n\nMÉTODO DE TREINAMENTO:\n- Treinava em pequeno quarto fechado na casa da família na Rua do Pilar, Santo Amaro\n- Usava bastão de maculelê ou facão para forçar aprendizado defensivo\n- Batia nos pulsos para corrigir erros\n- Treinamento terminou quando filho deu cabeçada poderosa que o derrubou\n\nFAMÍLIA:\n- Pai/Avô: Oleriano de Góes (africano, capoeirista)\n- Filho: José Gabriel Góes (Mestre Gato Preto)\n- Irmão: João Catarino (aluno de Besouro Mangangá)\n- Neto: Sinésio Souza Góes (Mestre Gato II)\n- Neto: José Souza Góes (Mestre Zeca/Gato III)\n\nCITAÇÃO SOBRE EUTÍQUIO:\n- Mestre Waldemar (1987): "O pai dele chamava Seu Eutíquio, é morto, era um bom mestre de capoeira."'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name, title = EXCLUDED.title, portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links, style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en, style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year, birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place, death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision, death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en, bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en, achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en, notes_pt = EXCLUDED.notes_pt, updated_at = NOW();
+
 -- Source: entities/persons/ezequiel.sql (NEW)
 -- ============================================================
 -- GENEALOGY PERSON: Ezequiel
@@ -3173,6 +3943,54 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
+-- Source: entities/persons/inaua.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Inauá
+-- Generated: 2025-12-22
+-- ============================================================
+-- BIRTH YEAR ESTIMATION (1940, decade):
+-- - Teacher Onça Preta (born 1909) moved to Rio in 1959
+-- - If Inauá trained under Onça Preta in 1960s as young adult (age 20-30),
+--   birth year would be ~1930-1945
+-- - Student King Kong born 1950s; if trained under Inauá in 1970s,
+--   Inauá would need to be established adult (25-40), suggesting birth ~1935-1950
+-- - Midpoint estimate: ~1940
+-- Mestre Inauá is listed "em memória" (in memory), confirming deceased.
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  name, apelido, title, portrait, public_links,
+  style, style_notes_en, style_notes_pt,
+  birth_year, birth_year_precision, birth_place,
+  death_year, death_year_precision, death_place,
+  bio_en, bio_pt, achievements_en, achievements_pt,
+  notes_en, notes_pt
+) VALUES (
+  'Inauá Mendes', 'Inauá', 'mestre'::genealogy.title, NULL,
+  ARRAY['https://ikiogato.comunidades.net/geracao-nago2', 'https://velhosmestres.com/br/destaques-34']::text[],
+  'angola'::genealogy.style,
+  E'Trained in the Bahian Angola tradition of Mestre Onça Preta. Part of the lineage that brought authentic capoeira angola from Salvador to Rio de Janeiro.',
+  E'Treinado na tradição Angola baiana de Mestre Onça Preta. Parte da linhagem que trouxe a capoeira angola autêntica de Salvador para o Rio de Janeiro.',
+  1940, 'decade'::genealogy.date_precision, 'Rio de Janeiro, Brazil',
+  NULL, NULL, NULL,
+  E'Mestre Inauá Mendes was a pivotal figure in the transmission of Bahian capoeira angola to Rio de Janeiro. He was the direct student of Mestre Onça Preta (Cícero Navarro, 1909-2006), one of the legendary angoleiros who survived the brutal Pedrito persecution in 1920s Salvador and later helped establish capoeira in Rio de Janeiro.\n\nOnça Preta moved to Rio de Janeiro in 1959 and worked for many years as a servente (orderly) at the Hospital de Puericultura. He lived on Ilha do Governador, an island in Guanabara Bay, where he trained Inauá in the traditional Angola style he had learned from the old masters of Salvador - Samuel Querido de Deus, Pastinha, Aberrê, and others.\n\nThrough his dedication to the art, Inauá maintained Onça Preta''s lineage by training the next generation, most notably Mestre King Kong (Nelson Luís do Carmo) and Mestre Cláudio São Bento. Mestre King Kong would go on to practice at the legendary Quinta da Boa Vista roda - described as a place "where only those who knew how to play and had courage could enter" - and later founded Grupo Capoeirarte.\n\nInauá''s lineage continues today through Associação Cultural de Capoeira Geração Nagô, founded November 30, 2013 in the Jacarezinho favela of Rio de Janeiro by Mestre Baia (Thiago da Silva Costa), who was the first student of Mestre King Kong to receive the mestre title. The organization carries forward the Angola-influenced contemporary style, emphasizing discipline, respect, friendship, cooperation and faith.\n\nMestre Inauá is remembered "em memória" (in memory) by his lineage, confirming his passing. His exact dates of birth and death remain undocumented, but his legacy lives on through the practitioners who continue to honor the lineage from Onça Preta through him to the present day.',
+  E'Mestre Inauá Mendes foi uma figura fundamental na transmissão da capoeira angola baiana para o Rio de Janeiro. Foi aluno direto de Mestre Onça Preta (Cícero Navarro, 1909-2006), um dos lendários angoleiros que sobreviveu à brutal perseguição de Pedrito nos anos 1920 em Salvador e depois ajudou a estabelecer a capoeira no Rio de Janeiro.\n\nOnça Preta mudou-se para o Rio de Janeiro em 1959 e trabalhou por muitos anos como servente no Hospital de Puericultura. Morava na Ilha do Governador, uma ilha na Baía de Guanabara, onde treinou Inauá no estilo tradicional de Angola que havia aprendido com os velhos mestres de Salvador - Samuel Querido de Deus, Pastinha, Aberrê e outros.\n\nAtravés de sua dedicação à arte, Inauá manteve a linhagem de Onça Preta formando a próxima geração, notadamente Mestre King Kong (Nelson Luís do Carmo) e Mestre Cláudio São Bento. Mestre King Kong viria a jogar na lendária roda da Quinta da Boa Vista - descrita como um lugar "onde só entrava quem sabia e tinha coragem" - e mais tarde fundou o Grupo Capoeirarte.\n\nA linhagem de Inauá continua hoje através da Associação Cultural de Capoeira Geração Nagô, fundada em 30 de novembro de 2013 na favela do Jacarezinho, Rio de Janeiro, por Mestre Baia (Thiago da Silva Costa), que foi o primeiro aluno de Mestre King Kong a receber o título de mestre. A organização leva adiante o estilo contemporâneo com influência angola, enfatizando disciplina, respeito, amizade, cooperação e fé.\n\nMestre Inauá é lembrado "em memória" por sua linhagem, confirmando seu falecimento. Suas datas exatas de nascimento e morte permanecem não documentadas, mas seu legado vive através dos praticantes que continuam a honrar a linhagem de Onça Preta através dele até os dias de hoje.',
+  E'Key link in Onça Preta lineage in Rio de Janeiro; trained Mestres King Kong and Cláudio São Bento; legacy continues through Grupo Capoeirarte and Geração Nagô.',
+  E'Elo fundamental na linhagem de Onça Preta no Rio de Janeiro; formou Mestres King Kong e Cláudio São Bento; legado continua através do Grupo Capoeirarte e Geração Nagô.',
+  E'BIRTH YEAR ESTIMATION (1940, decade):\n- Teacher Onça Preta (born 1909) moved to Rio in 1959\n- If Inauá trained under Onça Preta in 1960s as young adult (age 20-30), birth year ~1930-1945\n- Student King Kong born 1950s; if trained under Inauá in 1970s, Inauá would need to be established adult (25-40), suggesting birth ~1935-1950\n- Midpoint estimate: ~1940\n\nDEATH YEAR UNKNOWN:\nListed as "em memória" by Geração Nagô, confirming deceased status.\n\nNAME:\nSurname "Mendes" confirmed by Geração Nagô genealogy listing. Full name may be longer but not documented.\n\nTEACHERS:\n- Mestre Onça Preta (Cícero Navarro) - trained in Ilha do Governador, Rio de Janeiro (1960s-1970s)\n\nSTUDENTS:\n- Mestre King Kong (Nelson Luís do Carmo) - born 1950s, president of Grupo Capoeirarte\n- Mestre Cláudio São Bento - details unknown\n\nLOCATION:\nIlha do Governador, Rio de Janeiro - same area where Onça Preta lived while working at Hospital de Puericultura.\n\nRODA ASSOCIATIONS:\nHis student King Kong participated in the famous Quinta da Boa Vista street roda.',
+  E'ESTIMATIVA ANO DE NASCIMENTO (1940, década):\n- Mestre Onça Preta (nascido em 1909) mudou-se para o Rio em 1959\n- Se Inauá treinou com Onça Preta nos anos 1960 como jovem adulto (20-30 anos), nascimento ~1930-1945\n- Aluno King Kong nascido nos anos 1950; se treinou com Inauá nos anos 1970, Inauá precisaria ser adulto estabelecido (25-40), sugerindo nascimento ~1935-1950\n- Estimativa média: ~1940\n\nANO DE FALECIMENTO DESCONHECIDO:\nListado como "em memória" pela Geração Nagô, confirmando falecimento.\n\nNOME:\nSobrenome "Mendes" confirmado pela listagem genealógica da Geração Nagô. Nome completo pode ser mais longo, mas não documentado.\n\nMESTRES:\n- Mestre Onça Preta (Cícero Navarro) - treinou na Ilha do Governador, Rio de Janeiro (décadas de 1960-1970)\n\nALUNOS:\n- Mestre King Kong (Nelson Luís do Carmo) - nascido anos 1950, presidente do Grupo Capoeirarte\n- Mestre Cláudio São Bento - detalhes desconhecidos\n\nLOCALIZAÇÃO:\nIlha do Governador, Rio de Janeiro - mesma área onde Onça Preta morava enquanto trabalhava no Hospital de Puericultura.\n\nASSOCIAÇÕES DE RODA:\nSeu aluno King Kong participava da famosa roda de rua da Quinta da Boa Vista.'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name, title = EXCLUDED.title, portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links, style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en, style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year, birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place, death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision, death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en, bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en, achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en, notes_pt = EXCLUDED.notes_pt, updated_at = NOW();
+
 -- Source: entities/persons/jair-moura.sql (NEW)
 -- ============================================================
 -- GENEALOGY PERSON: Jair Moura
@@ -3431,6 +4249,77 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
 
+-- Source: entities/persons/joao-catarino.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: João Catarino
+-- Generated: 2025-12-22
+-- ============================================================
+-- BIRTH YEAR ESTIMATION (1900, decade):
+-- João Catarino was the brother of Eutíquio (born ~1900) and was a
+-- student of Besouro Mangangá (who died July 8, 1924). For him to have
+-- learned from Besouro as a youth or young adult, he would need to
+-- have been born no later than ~1910 (to be at least 14 when Besouro
+-- died). As Eutíquio's brother and father was Oleriano de Góes
+-- (African, born ~1870), João Catarino likely born ~1900 ±10 years.
+-- Using decade precision.
+--
+-- DEATH YEAR: Unknown exact date. Died of hemorrhage/stroke ("derrame,
+-- que a turma chamava de congestão"). Must have died before 1947 when
+-- Gato Preto (age 17) moved to Salvador and began training with
+-- Cobrinha Verde, suggesting João Catarino was no longer alive.
+--
+-- RELATIONSHIP CLARIFICATION:
+-- Described as "tio" (uncle) of Gato Preto. Since Eutíquio is confirmed
+-- as Gato Preto's father, João Catarino was Eutíquio's brother.
+-- Both were sons of Oleriano de Góes (African patriarch).
+--
+-- LINEAGE SIGNIFICANCE:
+-- João Catarino represents a key link between Besouro Mangangá and
+-- Mestre Gato Preto's lineage. Through him:
+-- Besouro → João Catarino → Mestre Léo → Mestre Messias
+-- Besouro → João Catarino → Gato Preto
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  name, apelido, title, portrait, public_links,
+  style, style_notes_en, style_notes_pt,
+  birth_year, birth_year_precision, birth_place,
+  death_year, death_year_precision, death_place,
+  bio_en, bio_pt, achievements_en, achievements_pt,
+  notes_en, notes_pt
+) VALUES (
+  NULL,
+  'João Catarino',
+  NULL,
+  NULL,
+  ARRAY['https://velhosmestres.com/br/gatopreto', 'https://velhosmestres.com/br/gato-1999-4']::text[],
+  'angola'::genealogy.style,
+  'Pre-codification era. Practiced traditional Bahian capoeira before the Angola/Regional split. Trained under Besouro Mangangá in Santo Amaro da Purificação.',
+  'Era pré-codificação. Praticava a capoeira tradicional baiana antes da divisão Angola/Regional. Treinou com Besouro Mangangá em Santo Amaro da Purificação.',
+  1900,
+  'decade'::genealogy.date_precision,
+  'Santo Amaro da Purificação, Bahia, Brazil',
+  NULL,
+  NULL,
+  NULL,
+  E'João Catarino was a capoeirista from Santo Amaro da Purificação in the Recôncavo Baiano. He was the brother of Eutíquio Lúcio Góes and uncle of Mestre Gato Preto (José Gabriel Góes), making him part of the Góes family capoeira lineage that traces back to the African Oleriano de Góes.\n\nJoão Catarino was a student of the legendary Besouro Mangangá, one of the most celebrated capoeira figures in history. Learning from Besouro before his death in 1924, João Catarino acquired the art from the same generation that had inherited it directly from African masters like Tio Alípio.\n\nWhen Gato Preto''s father Eutíquio stopped teaching his son around 1942—after the young boy delivered a powerful cabeçada that knocked Eutíquio to the ground—it was João Catarino who continued the boy''s education. As Gato Preto himself testified: "Depois veio meu tio, João Catarino, aluno de Besouro, até que ele morreu de derrame, que a turma chamava de congestão" (Then came my uncle, João Catarino, a student of Besouro, until he died of a stroke, which people called congestion).\n\nJoão Catarino also taught Mestre Léo from São Braz, who in turn taught Mestre Messias beginning in 1942. This establishes an important lineage: Besouro → João Catarino → Mestre Léo → Mestre Messias. Mestre Messias was formed as a mestre at age 20 in 1947 by Mestre Léo.\n\nJoão Catarino died of a hemorrhage (stroke) at an unknown date, though before 1947 when Gato Preto moved to Salvador and began training with Mestre Cobrinha Verde. His significance lies in being one of the few documented students of Besouro Mangangá, alongside Cobrinha Verde, and in transmitting Besouro''s teachings to both the Góes family lineage and to Mestre Léo''s lineage.',
+  E'João Catarino foi um capoeirista de Santo Amaro da Purificação no Recôncavo Baiano. Era irmão de Eutíquio Lúcio Góes e tio de Mestre Gato Preto (José Gabriel Góes), fazendo parte da linhagem de capoeira da família Góes que remonta ao africano Oleriano de Góes.\n\nJoão Catarino foi aluno do lendário Besouro Mangangá, uma das figuras mais celebradas da história da capoeira. Aprendendo com Besouro antes de sua morte em 1924, João Catarino adquiriu a arte da mesma geração que a havia herdado diretamente de mestres africanos como Tio Alípio.\n\nQuando o pai de Gato Preto, Eutíquio, parou de ensinar seu filho por volta de 1942—depois que o jovem deu uma cabeçada poderosa que derrubou Eutíquio—foi João Catarino quem continuou a educação do menino. Como o próprio Gato Preto testemunhou: "Depois veio meu tio, João Catarino, aluno de Besouro, até que ele morreu de derrame, que a turma chamava de congestão".\n\nJoão Catarino também ensinou Mestre Léo de São Braz, que por sua vez ensinou Mestre Messias a partir de 1942. Isso estabelece uma linhagem importante: Besouro → João Catarino → Mestre Léo → Mestre Messias. Mestre Messias foi formado como mestre aos 20 anos em 1947 por Mestre Léo.\n\nJoão Catarino morreu de hemorragia (derrame) em data desconhecida, porém antes de 1947 quando Gato Preto mudou-se para Salvador e começou a treinar com Mestre Cobrinha Verde. Sua importância reside em ser um dos poucos alunos documentados de Besouro Mangangá, ao lado de Cobrinha Verde, e em transmitir os ensinamentos de Besouro tanto para a linhagem da família Góes quanto para a linhagem de Mestre Léo.',
+  NULL,
+  NULL,
+  E'BIRTH YEAR ESTIMATION (1900, decade):\nJoão Catarino was the brother of Eutíquio (born ~1900) and was a student of Besouro Mangangá (who died July 8, 1924). For him to have learned from Besouro as a youth or young adult, he would need to have been born no later than ~1910 (to be at least 14 when Besouro died). As Eutíquio''s brother and son of Oleriano de Góes (African, born ~1870), João Catarino was likely born ~1900 ±10 years. Using decade precision.\n\nDEATH:\nDied of hemorrhage/stroke ("derrame, que a turma chamava de congestão"). Date unknown, but before 1947 when Gato Preto moved to Salvador. Gato Preto''s testimony: "Depois veio meu tio, João Catarino, aluno de Besouro, até que ele morreu de derrame."\n\nTEACHERS:\n- Besouro Mangangá (learned before Besouro''s death in 1924)\n\nSTUDENTS:\n- Mestre Gato Preto (José Gabriel Góes, nephew; taught from ~1942 after Eutíquio stopped)\n- Mestre Léo (São Braz; taught before 1942 when Léo began teaching Messias)\n\nFAMILY:\n- Father: Oleriano de Góes (African, capoeirista)\n- Brother: Eutíquio Lúcio Góes (capoeirista)\n- Nephew: Mestre Gato Preto (José Gabriel Góes)\n- Great-nephew: Mestre Gato II (Sinésio Souza Góes)\n- Great-nephew: Mestre Zeca (José Souza Góes)\n\nLINEAGE SIGNIFICANCE:\nJoão Catarino is one of the few documented students of Besouro Mangangá (alongside Cobrinha Verde and Siri de Mangue). Through him, Besouro''s teachings passed to:\n1. Mestre Gato Preto → Gato II, Zeca, and many others\n2. Mestre Léo → Mestre Messias (formed 1947)\n\nQUOTE (Gato Preto):\n"Depois veio meu tio, João Catarino, aluno de Besouro, até que ele morreu de derrame, que a turma chamava de congestão."',
+  E'ESTIMATIVA DO ANO DE NASCIMENTO (1900, década):\nJoão Catarino era irmão de Eutíquio (nascido ~1900) e foi aluno de Besouro Mangangá (que morreu em 8 de julho de 1924). Para ter aprendido com Besouro como jovem ou adulto jovem, ele precisaria ter nascido no máximo ~1910 (para ter pelo menos 14 anos quando Besouro morreu). Como irmão de Eutíquio e filho de Oleriano de Góes (africano, nascido ~1870), João Catarino provavelmente nasceu ~1900 ±10 anos. Usando precisão de década.\n\nMORTE:\nMorreu de hemorragia (derrame, "que a turma chamava de congestão"). Data desconhecida, mas antes de 1947 quando Gato Preto mudou-se para Salvador. Depoimento de Gato Preto: "Depois veio meu tio, João Catarino, aluno de Besouro, até que ele morreu de derrame."\n\nMESTRES:\n- Besouro Mangangá (aprendeu antes da morte de Besouro em 1924)\n\nALUNOS:\n- Mestre Gato Preto (José Gabriel Góes, sobrinho; ensinou a partir de ~1942 depois que Eutíquio parou)\n- Mestre Léo (São Braz; ensinou antes de 1942 quando Léo começou a ensinar Messias)\n\nFAMÍLIA:\n- Pai: Oleriano de Góes (africano, capoeirista)\n- Irmão: Eutíquio Lúcio Góes (capoeirista)\n- Sobrinho: Mestre Gato Preto (José Gabriel Góes)\n- Sobrinho-neto: Mestre Gato II (Sinésio Souza Góes)\n- Sobrinho-neto: Mestre Zeca (José Souza Góes)\n\nSIGNIFICÂNCIA DA LINHAGEM:\nJoão Catarino é um dos poucos alunos documentados de Besouro Mangangá (ao lado de Cobrinha Verde e Siri de Mangue). Através dele, os ensinamentos de Besouro passaram para:\n1. Mestre Gato Preto → Gato II, Zeca e muitos outros\n2. Mestre Léo → Mestre Messias (formado 1947)\n\nCITAÇÃO (Gato Preto):\n"Depois veio meu tio, João Catarino, aluno de Besouro, até que ele morreu de derrame, que a turma chamava de congestão."'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name, title = EXCLUDED.title, portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links, style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en, style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year, birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place, death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision, death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en, bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en, achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en, notes_pt = EXCLUDED.notes_pt, updated_at = NOW();
+
 -- Source: entities/persons/juvenil.sql (NEW)
 -- ============================================================
 -- GENEALOGY PERSON: Juvenil
@@ -3567,6 +4456,75 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_en = EXCLUDED.notes_en,
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
+
+-- Source: entities/persons/leo-sao-braz.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Léo (São Braz)
+-- Generated: 2025-12-22
+-- ============================================================
+-- BIRTH YEAR ESTIMATION (1910, decade):
+-- Mestre Léo was a student of João Catarino (born ~1900, died before 1947)
+-- and was teaching in São Braz by 1942 when both Gato Preto (age 12) and
+-- Messias (age 15) began training under him. He formed Messias as mestre
+-- in 1947, suggesting he was an established teacher by that time. As a
+-- student of João Catarino's generation, and an active teacher by 1942,
+-- he was likely born ~1910 ±10 years. Using decade precision.
+--
+-- APELIDO_CONTEXT: 'São Braz' - to distinguish from other "Léo" apelidos
+-- in the database (there are multiple mestres named Léo in capoeira history)
+--
+-- LINEAGE SIGNIFICANCE:
+-- Léo represents a key transmission point between Besouro's legacy and
+-- multiple important lineages:
+-- Besouro → João Catarino → Léo → Gato Preto (parallel to Catarino → Gato Preto)
+-- Besouro → João Catarino → Léo → Mestre Messias
+--
+-- TEACHING CONTEXT:
+-- Led an informal capoeira group in São Braz that met on Saturdays and
+-- Sundays during the early 1940s. Group members included Messias, Zinho,
+-- Genesio, Lao, Tomazinho, Jaime, Chumbinho, and later Gato Preto.
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  name, apelido, apelido_context, title, portrait, public_links,
+  style, style_notes_en, style_notes_pt,
+  birth_year, birth_year_precision, birth_place,
+  death_year, death_year_precision, death_place,
+  bio_en, bio_pt, achievements_en, achievements_pt,
+  notes_en, notes_pt
+) VALUES (
+  NULL,
+  'Léo',
+  'São Braz',
+  'mestre'::genealogy.title,
+  NULL,
+  ARRAY['https://velhosmestres.com/br/destaques-45', 'https://velhosmestres.com/br/gatopreto', 'https://velhosmestres.com/br/gato-1999-4']::text[],
+  'angola'::genealogy.style,
+  'Pre-codification era. Practiced traditional Bahian capoeira in the Recôncavo region before the Angola/Regional split was formalized. Trained under João Catarino, who learned directly from Besouro Mangangá.',
+  'Era pré-codificação. Praticava a capoeira tradicional baiana na região do Recôncavo antes da divisão Angola/Regional ser formalizada. Treinou com João Catarino, que aprendeu diretamente de Besouro Mangangá.',
+  1910,
+  'decade'::genealogy.date_precision,
+  'São Braz, Santo Amaro da Purificação, Bahia, Brazil',
+  NULL,
+  NULL,
+  NULL,
+  E'Mestre Léo was a capoeirista from São Braz, a district of Santo Amaro da Purificação in the Recôncavo Baiano. He was a student of João Catarino, who in turn was a direct student of the legendary Besouro Mangangá. This places Léo within one of the most significant lineages in capoeira history—just two generations removed from Besouro himself.\n\nBy the early 1940s, Léo had established himself as a teacher in São Braz, leading an informal capoeira group that met on Saturdays and Sundays. As Mestre Gato Preto later recalled: "E Léo era o mestre" (And Léo was the mestre). This group of young capoeiristas included approximately eight youths, aged 15-16, among them Messias, Zinho, Genesio, Lao, Tomazinho, Jaime, and Chumbinho.\n\nIn 1942, Léo''s influence expanded when José Gabriel Góes (the future Mestre Gato Preto) arrived in São Braz at age 12, having already received foundational training from his father Eutíquio and uncle João Catarino. Gato Preto joined the weekend training sessions, and by then people already said he had nothing left to learn. That same year, Manoel Messias Pereira, then 15 years old, began his formal training under Léo.\n\nMestre Léo proved to be an effective teacher who could develop mastery in his students. In 1947, he graduated Messias as a mestre at just 20 years of age—a remarkable accomplishment that demonstrated both Messias''s skill and Léo''s ability to transmit the art. Messias would go on to become a highly respected figure, living to 91 years old (1927-2019) and receiving the title of Grão Mestre in 2011.\n\nGato Preto''s testimony reveals that Léo was held in high regard: "um mestre que não podia deixar de ser homenageado" (a mestre who could not be left unhonored). Though detailed biographical information about Léo himself is sparse, his legacy is undeniable. Through his students—particularly Gato Preto and Messias—he ensured that Besouro''s lineage would continue through multiple branches, reaching practitioners around the world.\n\nLéo''s teaching in São Braz represents an important moment in capoeira history: the informal, weekend gatherings in small towns that preserved and transmitted the art during the 1930s and 1940s, before the era of formal academies that would come later. His work in this "arraial" (hamlet), as Gato Preto described it, helped maintain the traditions of the Recôncavo during a critical period.',
+  E'Mestre Léo foi um capoeirista de São Braz, um distrito de Santo Amaro da Purificação no Recôncavo Baiano. Era aluno de João Catarino, que por sua vez foi aluno direto do lendário Besouro Mangangá. Isso coloca Léo em uma das linhagens mais significativas da história da capoeira—a apenas duas gerações de Besouro.\n\nNo início dos anos 1940, Léo havia se estabelecido como mestre em São Braz, liderando um grupo informal de capoeira que se reunia aos sábados e domingos. Como Mestre Gato Preto recordou mais tarde: "E Léo era o mestre". Este grupo de jovens capoeiristas incluía aproximadamente oito rapazes, de 15-16 anos, entre eles Messias, Zinho, Genesio, Lao, Tomazinho, Jaime e Chumbinho.\n\nEm 1942, a influência de Léo se expandiu quando José Gabriel Góes (o futuro Mestre Gato Preto) chegou a São Braz aos 12 anos, já tendo recebido treinamento fundamental de seu pai Eutíquio e tio João Catarino. Gato Preto se juntou às sessões de treino de fim de semana, e naquela altura as pessoas já diziam que ele não tinha mais nada a aprender. No mesmo ano, Manoel Messias Pereira, então com 15 anos, começou seu treinamento formal com Léo.\n\nMestre Léo provou ser um professor eficaz que podia desenvolver maestria em seus alunos. Em 1947, ele formou Messias como mestre com apenas 20 anos—uma conquista notável que demonstrou tanto a habilidade de Messias quanto a capacidade de Léo de transmitir a arte. Messias viria a se tornar uma figura altamente respeitada, vivendo até 91 anos (1927-2019) e recebendo o título de Grão Mestre em 2011.\n\nO testemunho de Gato Preto revela que Léo era muito estimado: "um mestre que não podia deixar de ser homenageado". Embora informações biográficas detalhadas sobre o próprio Léo sejam escassas, seu legado é inegável. Através de seus alunos—particularmente Gato Preto e Messias—ele garantiu que a linhagem de Besouro continuasse por múltiplos ramos, alcançando praticantes ao redor do mundo.\n\nO ensino de Léo em São Braz representa um momento importante na história da capoeira: as reuniões informais de fim de semana em pequenas cidades que preservavam e transmitiam a arte durante os anos 1930 e 1940, antes da era das academias formais que viria depois. Seu trabalho neste "arraial", como Gato Preto o descreveu, ajudou a manter as tradições do Recôncavo durante um período crítico.',
+  NULL,
+  NULL,
+  E'BIRTH YEAR ESTIMATION (1910, decade):\nMestre Léo was a student of João Catarino (born ~1900, died before 1947) and was teaching in São Braz by 1942. He formed Messias as mestre in 1947, suggesting he was an established teacher by then. Estimated ~1910 ±10 years.\n\nTEACHERS:\n- João Catarino (student of Besouro Mangangá; taught Léo before 1942)\n\nSTUDENTS:\n- Mestre Gato Preto (José Gabriel Góes, from 1942; also nephew of João Catarino)\n- Mestre Messias (Manoel Messias Pereira, from 1942; formed mestre 1947)\n- Zinho, Genesio, Lao, Tomazinho, Jaime, Chumbinho (São Braz training group)\n\nTEACHING LOCATION:\nSão Braz, Santo Amaro da Purificação, Bahia - described by Gato Preto as "uma cidadezinha" (small town) that "na época era um arraial" (at the time was a hamlet).\n\nTRAINING GROUP:\nMet on Saturdays and Sundays. Members were approximately 15-16 years old. Quote from Gato Preto (1999): "Tinha aquele grupo: era eu, Messias, Zinho, Genesio, Lao, Tomazinho, Jaime, Chumbinho... Então tinha aquele grupo de rapazes que era tudo de 16, 15-16 anos. E a gente se reunia aos sábados e domingos pra fazer essa capoeira. E Léo era o mestre."\n\nLINEAGE SIGNIFICANCE:\nLéo represents a key link in the Besouro lineage:\n1. Besouro → João Catarino → Léo → Gato Preto\n2. Besouro → João Catarino → Léo → Mestre Messias (formed 1947)\n\nKEY QUOTE (Gato Preto):\n"um mestre que não podia deixar de ser homenageado, que é Mestre Leó"',
+  E'ESTIMATIVA DO ANO DE NASCIMENTO (1910, década):\nMestre Léo foi aluno de João Catarino (nascido ~1900, morreu antes de 1947) e estava ensinando em São Braz em 1942. Formou Messias como mestre em 1947, sugerindo que era um mestre estabelecido naquela época. Estimado ~1910 ±10 anos.\n\nMESTRES:\n- João Catarino (aluno de Besouro Mangangá; ensinou Léo antes de 1942)\n\nALUNOS:\n- Mestre Gato Preto (José Gabriel Góes, a partir de 1942; também sobrinho de João Catarino)\n- Mestre Messias (Manoel Messias Pereira, a partir de 1942; formado mestre 1947)\n- Zinho, Genesio, Lao, Tomazinho, Jaime, Chumbinho (grupo de treino de São Braz)\n\nLOCAL DE ENSINO:\nSão Braz, Santo Amaro da Purificação, Bahia - descrito por Gato Preto como "uma cidadezinha" que "na época era um arraial".\n\nGRUPO DE TREINO:\nReuniam-se aos sábados e domingos. Os membros tinham aproximadamente 15-16 anos. Citação de Gato Preto (1999): "Tinha aquele grupo: era eu, Messias, Zinho, Genesio, Lao, Tomazinho, Jaime, Chumbinho... Então tinha aquele grupo de rapazes que era tudo de 16, 15-16 anos. E a gente se reunia aos sábados e domingos pra fazer essa capoeira. E Léo era o mestre."\n\nSIGNIFICÂNCIA DA LINHAGEM:\nLéo representa um elo-chave na linhagem de Besouro:\n1. Besouro → João Catarino → Léo → Gato Preto\n2. Besouro → João Catarino → Léo → Mestre Messias (formado 1947)\n\nCITAÇÃO-CHAVE (Gato Preto):\n"um mestre que não podia deixar de ser homenageado, que é Mestre Leó"'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name, title = EXCLUDED.title, portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links, style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en, style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year, birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place, death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision, death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en, bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en, achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en, notes_pt = EXCLUDED.notes_pt, updated_at = NOW();
 
 -- Source: entities/persons/malvadeza.sql (NEW)
 -- ============================================================
@@ -3977,6 +4935,300 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_en = EXCLUDED.notes_en,
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
+
+-- Source: entities/persons/mario-aleixo.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Mário Aleixo
+-- Generated: 2025-12-22
+-- ============================================================
+-- BIRTH YEAR ESTIMATION (~1885, decade):
+-- If teaching jiu-jitsu professionally in 1913, he was likely 25-35 years old,
+-- suggesting birth between 1878-1888. If already "consolidated in capoeira"
+-- before 1913, he was likely mature. Middle estimate: ~1885.
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  -- Identity
+  name,
+  apelido,
+  title,
+  portrait,
+  public_links,
+  -- Capoeira-specific
+  style,
+  style_notes_en,
+  style_notes_pt,
+  -- Life dates
+  birth_year,
+  birth_year_precision,
+  birth_place,
+  death_year,
+  death_year_precision,
+  death_place,
+  -- Extended content (bilingual)
+  bio_en,
+  bio_pt,
+  achievements_en,
+  achievements_pt,
+  -- Researcher notes
+  notes_en,
+  notes_pt
+) VALUES (
+  -- Identity
+  'Mário Aleixo',
+  'Mário Aleixo',
+  NULL,  -- Never formally titled as mestre; referred to as "professor"
+  NULL,  -- No portrait found
+  ARRAY[
+    'https://capoeirahistory.com/mestre/master-sinhozinho-1891-1962/',
+    'https://simonbjj.com/mario-aleixo'
+  ]::text[],
+  -- Capoeira-specific
+  NULL,  -- Capoeira carioca variant, not Angola/Regional
+  E'Mário Aleixo developed a hybrid fighting system he called "capo-jitsu"—combining capoeira with jiu-jitsu, boxing, and fencing techniques. His approach was sport-oriented, stripping away music and ritual in favor of combat effectiveness. He taught capoeiragem as "ginástica nacional" (national gymnastics), emphasizing standing and ground techniques. His method was influenced by Raphael Lóthus''s systematized capoeiragem. After losses to jiu-jitsu practitioners in ring matches where fighters wore kimonos, his capo-jitsu project declined.',
+  E'Mário Aleixo desenvolveu um sistema híbrido de luta que chamava de "capo-jitsu"—combinando capoeira com jiu-jitsu, boxe e técnicas de esgrima. Sua abordagem era orientada ao esporte, eliminando música e ritual em favor da eficácia no combate. Ensinava capoeiragem como "ginástica nacional", enfatizando técnicas de pé e de solo. Seu método foi influenciado pela capoeiragem sistematizada de Raphael Lóthus. Após derrotas para praticantes de jiu-jitsu em lutas de ringue onde os lutadores usavam quimono, seu projeto de capo-jitsu entrou em declínio.',
+  -- Life dates
+  1885,
+  'decade'::genealogy.date_precision,
+  'Rio de Janeiro, Brazil',
+  NULL,  -- Death date unknown
+  NULL,
+  NULL,
+  -- bio_en
+  E'Mário Aleixo was a pioneering Brazilian martial artist who became one of the first fighters to integrate multiple combat disciplines decades before mixed martial arts was formalized. A triathlete, gymnastics instructor, and accomplished fencer, Aleixo possessed exceptional athleticism for his era.
+
+Aleixo first established himself in capoeira, learning the methods systematized by Raphael Lóthus—the largely forgotten figure who opened Brazil''s first capoeira course, the Escola de Ginástica Nacional (National Gymnastics School), in 1916 together with Aleixo himself. Unlike most capoeiristas of his generation, Aleixo was a physical educator who approached capoeira as sport rather than street survival.
+
+In an era when Japanese martial arts were gaining attention in Brazil, Aleixo seized an opportunity to learn jiu-jitsu from Sada Miyako, a Japanese instructor who had arrived in Rio de Janeiro in 1908 aboard a Brazilian Navy vessel. Though the exact date of their meeting is unknown, Aleixo himself confirmed learning "the gentle art" from Miyako.
+
+In 1913, Aleixo began teaching jiu-jitsu at the Centro Sportivo do Engenho Velho in northern Rio de Janeiro, becoming the first Brazilian to teach jiu-jitsu professionally in the country—a distinction predating the Gracie family''s involvement by over a decade. It should be noted that Miyako''s jiu-jitsu lineage bore no relation to what would later become Gracie Jiu-Jitsu.
+
+On September 8, 1914, Aleixo relocated to the prestigious Club de Regatas Boqueirão do Passeio to teach fencing and jiu-jitsu. In 1915, his achievements earned him an invitation to teach martial arts to the Guarda Civil (Civil Guard) of Rio de Janeiro, where he instructed 15 police officers. That same year, Aleixo had already taught jiu-jitsu and capoeiragem to Rio''s civil police.
+
+In 1916, Aleixo invited Agenor Sampaio—the future Mestre Sinhozinho—to teach Greco-Roman wrestling at the União dos Empregados do Comércio (Trade Union of Retail Employees) in central Rio. This collaboration placed two of Rio de Janeiro''s most important early capoeira figures in the same institutional space.
+
+By 1920, Aleixo and the journalist Raul Pederneiras opened a capoeiragem school in one of the classrooms of the Club Gymnástico Português (Portuguese Gymnastics Club). The Sorocabano newspaper Cruzeiro do Sul reported on their intention: "Dr. Raul Pederneiras and professor Mario Aleixo intend to found in Rio a school for teaching a genuinely Brazilian sport: capoeiragem." Pederneiras, who had previously taught jiu-jitsu and capoeiragem to the Rio civil police, was a fervent intellectual advocate for capoeira as a national identity element.
+
+On March 13, 1920, the newspaper O Jornal documented a sports festival where Aleixo and Sinhozinho performed. The program included: "Personal defence and attack—teacher Mário Aleixo versus Ernesto Goétte" and "Brazilian gymnastics (Capoeiragem)—teacher Agenor Sampaio versus Lincoln Coimbra." Presentations were directed by "teachers Mário Aleixo, Gustavo Senna and Agenor Sampaio."
+
+Aleixo''s approach of blending capoeira with jiu-jitsu—which he called "capo-jitsu"—made him a uniquely innovative athlete, demonstrating capacity for adaptation according to each opponent. He combined standing capoeira techniques with jiu-jitsu ground work, creating perhaps the first truly hybrid Brazilian fighting system.
+
+However, Aleixo''s capo-jitsu project faced a decisive setback. In the early 1930s, he confronted George Gracie in a Vale Tudo match at the Theatro Republica in Rio de Janeiro. The fight was predominantly contested on the ground, where Gracie dominated. Aleixo lost, reportedly by armlock in the second round. The defeat came in a context where capoeiristas were forced to wear kimonos—unfamiliar garments that nullified much of their standing advantage.
+
+The loss to the Gracies had broader implications. Aleixo''s defeat, combined with losses by his students and other capoeiristas to jiu-jitsu practitioners, helped solidify Gracie Jiu-Jitsu''s reputation as an effective self-defense system. The capo-jitsu experiment was effectively abandoned.
+
+Mestre Bimba is documented to have studied the methods of several Rio de Janeiro capoeira teachers, including Mário Aleixo, Sinhozinho, and Zuma, who mixed capoeira with martial arts like judo, boxing, Greco-Roman wrestling, and Portuguese stick-fighting. Though the exact nature and timing of this influence remains unclear, Aleixo''s hybrid approach may have contributed to the evolution of Capoeira Regional.
+
+Despite his notable achievements—first Brazilian jiu-jitsu teacher, pioneering hybrid martial artist, collaborator on one of Brazil''s earliest formal capoeira schools—Mário Aleixo faded into historical obscurity after his defeat to the Gracies. His exact date of death remains unknown.',
+  -- bio_pt
+  E'Mário Aleixo foi um pioneiro das artes marciais brasileiras que se tornou um dos primeiros lutadores a integrar múltiplas disciplinas de combate décadas antes da formalização do MMA. Triatleta, professor de ginástica e esgrimista consumado, Aleixo possuía um atleticismo excepcional para sua época.
+
+Aleixo primeiro se consolidou na capoeira, aprendendo os métodos sistematizados por Raphael Lóthus—a figura amplamente esquecida que abriu o primeiro curso de capoeira do Brasil, a Escola de Ginástica Nacional, em 1916 juntamente com o próprio Aleixo. Diferente da maioria dos capoeiristas de sua geração, Aleixo era um educador físico que abordava a capoeira como esporte ao invés de sobrevivência de rua.
+
+Em uma era quando as artes marciais japonesas estavam ganhando atenção no Brasil, Aleixo aproveitou a oportunidade de aprender jiu-jitsu com Sada Miyako, um instrutor japonês que havia chegado ao Rio de Janeiro em 1908 a bordo de um navio da Marinha Brasileira. Embora a data exata do encontro seja desconhecida, o próprio Aleixo confirmou ter aprendido "a arte suave" com Miyako.
+
+Em 1913, Aleixo começou a ensinar jiu-jitsu no Centro Sportivo do Engenho Velho no norte do Rio de Janeiro, tornando-se o primeiro brasileiro a ensinar jiu-jitsu profissionalmente no país—uma distinção que precedeu o envolvimento da família Gracie em mais de uma década. Deve-se notar que a linhagem de jiu-jitsu de Miyako não tinha relação com o que mais tarde se tornaria o Jiu-Jitsu Gracie.
+
+Em 8 de setembro de 1914, Aleixo se transferiu para o prestigioso Club de Regatas Boqueirão do Passeio para ensinar esgrima e jiu-jitsu. Em 1915, suas realizações lhe renderam um convite para ensinar artes marciais à Guarda Civil do Rio de Janeiro, onde instruiu 15 policiais. Nesse mesmo ano, Aleixo já havia ensinado jiu-jitsu e capoeiragem à polícia civil do Rio.
+
+Em 1916, Aleixo convidou Agenor Sampaio—o futuro Mestre Sinhozinho—para ensinar luta greco-romana na União dos Empregados do Comércio no centro do Rio. Essa colaboração colocou duas das mais importantes figuras pioneiras da capoeira carioca no mesmo espaço institucional.
+
+Em 1920, Aleixo e o jornalista Raul Pederneiras abriram uma escola de capoeiragem em uma das salas do Club Gymnástico Português. O jornal sorocabano Cruzeiro do Sul noticiou sua intenção: "O dr. Raul Pederneiras e o professor Mario Aleixo pretendem fundar no Rio uma escola para o ensino de um desporto genuinamente brasileiro: a capoeiragem." Pederneiras, que já havia ensinado jiu-jitsu e capoeiragem à polícia civil do Rio, era um fervoroso defensor intelectual da capoeira como elemento de identidade nacional.
+
+Em 13 de março de 1920, o jornal O Jornal documentou um festival esportivo onde Aleixo e Sinhozinho se apresentaram. O programa incluía: "Defesa e ataque pessoal—professor Mário Aleixo versus Ernesto Goétte" e "Ginástica brasileira (Capoeiragem)—professor Agenor Sampaio versus Lincoln Coimbra." As apresentações foram dirigidas pelos "professores Mário Aleixo, Gustavo Senna e Agenor Sampaio."
+
+A abordagem de Aleixo de mesclar capoeira com jiu-jitsu—que ele chamava de "capo-jitsu"—fez dele um atleta singularmente inovador, demonstrando capacidade de adaptação de acordo com cada oponente. Ele combinou técnicas de capoeira em pé com trabalho de solo do jiu-jitsu, criando talvez o primeiro sistema de luta brasileiro verdadeiramente híbrido.
+
+No entanto, o projeto de capo-jitsu de Aleixo enfrentou um revés decisivo. No início dos anos 1930, ele enfrentou George Gracie em uma luta de Vale Tudo no Theatro Republica no Rio de Janeiro. A luta foi predominantemente disputada no chão, onde Gracie dominou. Aleixo perdeu, supostamente por chave de braço no segundo round. A derrota veio em um contexto onde capoeiristas eram forçados a usar quimonos—vestimentas desconhecidas que anulavam muito de sua vantagem em pé.
+
+A derrota para os Gracies teve implicações mais amplas. A derrota de Aleixo, combinada com as derrotas de seus alunos e outros capoeiristas para praticantes de jiu-jitsu, ajudou a solidificar a reputação do Jiu-Jitsu Gracie como um sistema eficaz de defesa pessoal. O experimento do capo-jitsu foi efetivamente abandonado.
+
+Mestre Bimba está documentado como tendo estudado os métodos de vários professores de capoeira do Rio de Janeiro, incluindo Mário Aleixo, Sinhozinho e Zuma, que misturavam capoeira com artes marciais como judô, boxe, luta greco-romana e jogo do pau português. Embora a natureza exata e o momento dessa influência permaneçam incertos, a abordagem híbrida de Aleixo pode ter contribuído para a evolução da Capoeira Regional.
+
+Apesar de suas notáveis realizações—primeiro professor brasileiro de jiu-jitsu, artista marcial híbrido pioneiro, colaborador em uma das primeiras escolas formais de capoeira do Brasil—Mário Aleixo caiu na obscuridade histórica após sua derrota para os Gracies. Sua data exata de morte permanece desconhecida.',
+  -- achievements_en
+  E'First Brazilian to teach jiu-jitsu professionally (1913, Centro Sportivo do Engenho Velho); Co-founded first capoeira course (Escola de Ginástica Nacional, 1916) with Raphael Lóthus; Opened capoeiragem school at Club Gymnástico Português with Raul Pederneiras (1920); Taught martial arts to Guarda Civil of Rio de Janeiro (1915, 15 students); Taught jiu-jitsu and capoeiragem to Rio civil police; Pioneered "capo-jitsu" hybrid fighting system combining capoeira with jiu-jitsu; Collaborated with Sinhozinho on capoeiragem exhibitions (1920); Invited Sinhozinho to teach at União dos Empregados do Comércio (1916); Influenced Mestre Bimba''s development of Capoeira Regional',
+  -- achievements_pt
+  E'Primeiro brasileiro a ensinar jiu-jitsu profissionalmente (1913, Centro Sportivo do Engenho Velho); Co-fundou primeiro curso de capoeira (Escola de Ginástica Nacional, 1916) com Raphael Lóthus; Abriu escola de capoeiragem no Club Gymnástico Português com Raul Pederneiras (1920); Ensinou artes marciais à Guarda Civil do Rio de Janeiro (1915, 15 alunos); Ensinou jiu-jitsu e capoeiragem à polícia civil do Rio; Pioneiro do sistema híbrido de luta "capo-jitsu" combinando capoeira com jiu-jitsu; Colaborou com Sinhozinho em exibições de capoeiragem (1920); Convidou Sinhozinho para ensinar na União dos Empregados do Comércio (1916); Influenciou o desenvolvimento da Capoeira Regional de Mestre Bimba',
+  -- notes_en
+  E'BIRTH YEAR ESTIMATION (1885, decade):
+If teaching jiu-jitsu professionally in 1913, likely 25-35 years old at the time.
+If "consolidated in capoeira" before learning jiu-jitsu from Miyako, adds more years.
+Estimate: ~1885 (range: 1878-1890).
+
+DEATH YEAR:
+Unknown. After his defeat to George Gracie in the early 1930s, Aleixo faded from historical record. No obituary or death notice found.
+
+NAME:
+Full name appears to be simply "Mário Aleixo." No middle name or surname found in sources.
+
+TITLE:
+Referred to as "professor" in newspaper accounts. Never held formal capoeira mestre title.
+
+TEACHERS:
+- Raphael Lóthus (capoeiragem methodology)
+- Sada Miyako (jiu-jitsu)
+- Fencing instructor(s) unknown
+
+STUDENTS/COLLABORATORS:
+- Sinhozinho worked with him on 1920 exhibitions
+- 15 Guarda Civil officers (1915)
+- Rio civil police officers
+
+TEACHING LOCATIONS:
+- Centro Sportivo do Engenho Velho (1913): jiu-jitsu
+- Club de Regatas Boqueirão do Passeio (Sept 8, 1914): fencing, jiu-jitsu
+- União dos Empregados do Comércio (1916): collaborated with Sinhozinho
+- Club Gymnástico Português (1920): capoeiragem school with Raul Pederneiras
+- Academy in northern Rio (1920): taught capoeira and jiu-jitsu
+
+MEDIA APPEARANCES:
+- March 13, 1920: O Jornal sports festival, "Personal defence and attack" vs Ernesto Goétte
+
+GEORGE GRACIE FIGHT (early 1930s):
+Lost Vale Tudo match at Theatro Republica, Rio de Janeiro.
+Result: Armlock, second round (per simonbjj.com).
+Note: Some chronological inconsistencies exist in sources.
+
+INFLUENCE ON BIMBA:
+Multiple sources document that Bimba studied methods of Sinhozinho, Mário Aleixo, and Zuma.
+
+CAPO-JITSU PROJECT:
+His hybrid system combining capoeira with jiu-jitsu. Defeated in ring matches where fighters wore kimonos. Project abandoned after losses to Gracie family practitioners.
+
+RAPHAEL LÓTHUS CONNECTION:
+Co-founded Escola de Ginástica Nacional (1916). Lóthus was later forgotten due to humble origins and violent death (homicide followed by suicide).
+
+NOTE ON SADA MIYAKO:
+Miyako (birth name Saku Miura) arrived Rio de Janeiro December 16, 1908 on Brazilian Navy ship Benjamin Constant. Taught at Navy until 1912. Famous for losing to capoeirista Cyriaco on May 1, 1909.',
+  -- notes_pt
+  E'ESTIMATIVA DE ANO DE NASCIMENTO (1885, década):
+Se ensinava jiu-jitsu profissionalmente em 1913, provavelmente tinha 25-35 anos na época.
+Se "consolidado na capoeira" antes de aprender jiu-jitsu com Miyako, adiciona mais anos.
+Estimativa: ~1885 (faixa: 1878-1890).
+
+ANO DE MORTE:
+Desconhecido. Após sua derrota para George Gracie no início dos anos 1930, Aleixo desapareceu do registro histórico. Nenhum obituário ou nota de falecimento encontrada.
+
+NOME:
+Nome completo parece ser simplesmente "Mário Aleixo." Nenhum nome do meio ou sobrenome encontrado nas fontes.
+
+TÍTULO:
+Referido como "professor" em relatos de jornais. Nunca deteve título formal de mestre de capoeira.
+
+PROFESSORES:
+- Raphael Lóthus (metodologia de capoeiragem)
+- Sada Miyako (jiu-jitsu)
+- Instrutor(es) de esgrima desconhecido(s)
+
+ALUNOS/COLABORADORES:
+- Sinhozinho trabalhou com ele nas exibições de 1920
+- 15 oficiais da Guarda Civil (1915)
+- Oficiais da polícia civil do Rio
+
+LOCAIS DE ENSINO:
+- Centro Sportivo do Engenho Velho (1913): jiu-jitsu
+- Club de Regatas Boqueirão do Passeio (8 set 1914): esgrima, jiu-jitsu
+- União dos Empregados do Comércio (1916): colaborou com Sinhozinho
+- Club Gymnástico Português (1920): escola de capoeiragem com Raul Pederneiras
+- Academia no norte do Rio (1920): ensinou capoeira e jiu-jitsu
+
+APARIÇÕES NA MÍDIA:
+- 13 de março de 1920: festival esportivo O Jornal, "Defesa e ataque pessoal" vs Ernesto Goétte
+
+LUTA GEORGE GRACIE (início dos anos 1930):
+Perdeu luta de Vale Tudo no Theatro Republica, Rio de Janeiro.
+Resultado: Chave de braço, segundo round (segundo simonbjj.com).
+Nota: Existem algumas inconsistências cronológicas nas fontes.
+
+INFLUÊNCIA EM BIMBA:
+Múltiplas fontes documentam que Bimba estudou métodos de Sinhozinho, Mário Aleixo e Zuma.
+
+PROJETO CAPO-JITSU:
+Seu sistema híbrido combinando capoeira com jiu-jitsu. Derrotado em lutas de ringue onde lutadores usavam quimono. Projeto abandonado após derrotas para praticantes da família Gracie.
+
+CONEXÃO COM RAPHAEL LÓTHUS:
+Co-fundou Escola de Ginástica Nacional (1916). Lóthus foi posteriormente esquecido devido a origens humildes e morte violenta (homicídio seguido de suicídio).
+
+NOTA SOBRE SADA MIYAKO:
+Miyako (nome de nascimento Saku Miura) chegou ao Rio de Janeiro em 16 de dezembro de 1908 no navio da Marinha Brasileira Benjamin Constant. Ensinou na Marinha até 1912. Famoso por perder para o capoeirista Cyriaco em 1º de maio de 1909.'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name,
+  title = EXCLUDED.title,
+  portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links,
+  style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en,
+  style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year,
+  birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place,
+  death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision,
+  death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en,
+  bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en,
+  achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en,
+  notes_pt = EXCLUDED.notes_pt,
+  updated_at = NOW();
+
+-- Source: entities/persons/menino-gordo-da-curva-grande.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Menino Gordo da Curva Grande
+-- Generated: 2025-12-21
+-- ============================================================
+-- BIRTH YEAR ESTIMATION (~1900, decade precision):
+-- Teaching Gaguinho Preto (b. 1934) from age 4 (~1938) requires being
+-- a mature adult (25-50 years old) → born ~1888-1913.
+-- Active at Roça do Lobo roda in 1953 with João Grande witnesses,
+-- still physically capable → likely not older than 65 → born ~1888+.
+-- Compromise estimate: ~1900, giving him age ~38 when teaching
+-- Gaguinho Preto (1938) and ~53 at Roça do Lobo (1953).
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  name, apelido, apelido_context, title, portrait, public_links,
+  style, style_notes_en, style_notes_pt,
+  birth_year, birth_year_precision, birth_place,
+  death_year, death_year_precision, death_place,
+  bio_en, bio_pt, achievements_en, achievements_pt,
+  notes_en, notes_pt
+) VALUES (
+  NULL,
+  'Menino Gordo',
+  'Curva Grande',
+  NULL,
+  NULL,
+  ARRAY['https://velhosmestres.com/br/destaques-39', 'https://velhosmestres.com/en/featured-39']::text[],
+  'angola'::genealogy.style,
+  NULL,
+  NULL,
+  1900,
+  'decade'::genealogy.date_precision,
+  'Salvador, Bahia, Brazil',
+  NULL,
+  NULL,
+  NULL,
+  E'Menino Gordo da Curva Grande was an early twentieth-century capoeirista from Salvador, Bahia, who taught in the Curva Grande neighborhood of the city''s Centro Histórico. His apelido ("Fat Boy" or "Chubby Kid") was a common nickname in Brazilian culture.\n\nHe is documented as one of three teachers who instructed young Gaguinho Preto (Everaldo Arcanjo de Assis, 1934-2002) starting when the child was just four years old, around 1938. According to velhosmestres.com, Gaguinho Preto "learned with Menino Gordo da Curva Grande, with Roque and Victor H.U., passing by Pastinha''s CECA and Zeca do Uruguai." The neighborhood of Curva Grande, part of Salvador''s historic center, had established capoeira activity since at least 1917, when Mestre Noronha documented a roda there.\n\nIn 1953, when the young João Grande arrived in Salvador at age twenty and witnessed his first proper capoeira roda at Roça do Lobo (near the bridge connecting Tororó to Garcia), Menino Gordo was among the important personalities present. Also at that historic gathering were João Pequeno, Mestre Barbosa, Cobrinha Verde, Tiburcinho, and Manoel Carregador. It was this encounter that would eventually lead João Grande to Mestre Pastinha''s academy and his destiny as one of the principal heirs of the Angola tradition.\n\nMenino Gordo was closely associated with Mestre Gigante, and sources note they were often confused with each other because they "looked very similar" and were "parceiros" (partners/companions). This suggests they were contemporaries who played and perhaps taught together in Salvador''s capoeira circles.\n\nNothing is known of Menino Gordo''s full name, his teachers, or when he died. Like many early mestres who operated outside the formal academy structure, his legacy survives primarily through the oral testimony of those he taught and played alongside.',
+  E'Menino Gordo da Curva Grande foi um capoeirista do início do século XX de Salvador, Bahia, que ensinava no bairro da Curva Grande, no Centro Histórico da cidade. Seu apelido ("Menino Gordo") era um nome comum na cultura brasileira.\n\nEle é documentado como um dos três professores que ensinaram o jovem Gaguinho Preto (Everaldo Arcanjo de Assis, 1934-2002) começando quando a criança tinha apenas quatro anos, por volta de 1938. Segundo velhosmestres.com, Gaguinho Preto "aprendeu com Menino Gordo da Curva Grande, com o Roque e o Victor H.U., passando pelo CECA de Seu Pastinha e o Zeca do Uruguai." O bairro da Curva Grande, parte do centro histórico de Salvador, tinha atividade de capoeira estabelecida desde pelo menos 1917, quando Mestre Noronha documentou uma roda lá.\n\nEm 1953, quando o jovem João Grande chegou em Salvador aos vinte anos e testemunhou sua primeira roda de capoeira na Roça do Lobo (perto da ponte que liga o Tororó ao Garcia), Menino Gordo estava entre as personalidades importantes presentes. Também naquele encontro histórico estavam João Pequeno, Mestre Barbosa, Cobrinha Verde, Tiburcinho e Manoel Carregador. Foi este encontro que eventualmente levaria João Grande à academia de Mestre Pastinha e seu destino como um dos principais herdeiros da tradição Angola.\n\nMenino Gordo era intimamente associado com Mestre Gigante, e fontes notam que eram frequentemente confundidos um com o outro porque "eram muito parecidos" e eram "parceiros". Isso sugere que eram contemporâneos que jogavam e talvez ensinassem juntos nos círculos de capoeira de Salvador.\n\nNada se sabe sobre o nome completo de Menino Gordo, seus mestres, ou quando morreu. Como muitos mestres antigos que operavam fora da estrutura formal de academia, seu legado sobrevive principalmente através do testemunho oral daqueles que ele ensinou e com quem jogou.',
+  NULL,
+  NULL,
+  E'BIRTH YEAR ESTIMATION (~1900, decade):\nTeaching Gaguinho Preto (b. 1934) from age 4 (~1938) requires being a mature adult (25-50 years old). Active at Roça do Lobo roda in 1953 requires physical capability. Estimate ~1900 gives age ~38 in 1938 and ~53 in 1953.\n\nNAME VARIATIONS:\n- "Menino Gordo da Curva Grande" - Full form with neighborhood identifier\n- "Menino Gordo" - Short form used in most sources\n- "Gordo" - Abbreviated in velhosmestres.com account of 1953 roda\n\nTEACHERS:\n- Unknown\n\nSTUDENTS:\n- Gaguinho Preto (Everaldo Arcanjo de Assis, 1934-2002) - taught from age 4 (~1938) in Curva Grande neighborhood alongside Roque and Vitor Agaú\n\nRODA LOCATION:\n- Curva Grande neighborhood, Centro Histórico, Salvador, Bahia (teaching location ~1938)\n- Roça do Lobo, near bridge connecting Tororó to Garcia, Salvador (attended 1953 roda)\n\nASSOCIATES:\n- Mestre Gigante - "parceiro" (partner/companion); they were often confused because they "looked very similar"\n- João Pequeno - present together at 1953 Roça do Lobo roda\n- Mestre Barbosa - present together at 1953 Roça do Lobo roda\n- Cobrinha Verde - present together at 1953 Roça do Lobo roda\n- Tiburcinho - present together at 1953 Roça do Lobo roda\n- Manoel Carregador - present together at 1953 Roça do Lobo roda\n\nCO-TEACHERS AT CURVA GRANDE:\n- Roque (Curva Grande) - taught Gaguinho Preto alongside Menino Gordo; NOT the same as Mestre Roque Mendes dos Santos (b. 1938 Rio)\n- Vitor Agaú (Victor H.U.) - taught Gaguinho Preto alongside Menino Gordo\n\nDISTINCTION FROM OTHER "MENINO GORDO":\nUsing apelido_context "Curva Grande" to distinguish from any other capoeirista with this common apelido. The backlog previously listed this person separately from another "Menino Gordo" at João Grande 1953 roda, but research indicates they are likely the SAME PERSON.',
+  E'ESTIMATIVA DE ANO DE NASCIMENTO (~1900, década):\nEnsinar Gaguinho Preto (n. 1934) a partir dos 4 anos (~1938) requer ser adulto maduro (25-50 anos). Ativo na roda da Roça do Lobo em 1953 requer capacidade física. Estimativa ~1900 dá idade ~38 em 1938 e ~53 em 1953.\n\nVARIAÇÕES DE NOME:\n- "Menino Gordo da Curva Grande" - Forma completa com identificador de bairro\n- "Menino Gordo" - Forma curta usada na maioria das fontes\n- "Gordo" - Abreviado no relato de velhosmestres.com sobre a roda de 1953\n\nMESTRES:\n- Desconhecido\n\nALUNOS:\n- Gaguinho Preto (Everaldo Arcanjo de Assis, 1934-2002) - ensinou desde os 4 anos (~1938) no bairro Curva Grande junto com Roque e Vitor Agaú\n\nLOCAL DE RODA:\n- Bairro Curva Grande, Centro Histórico, Salvador, Bahia (local de ensino ~1938)\n- Roça do Lobo, perto da ponte ligando Tororó ao Garcia, Salvador (participou da roda de 1953)\n\nASSOCIADOS:\n- Mestre Gigante - "parceiro"; eram frequentemente confundidos porque "eram muito parecidos"\n- João Pequeno - presentes juntos na roda da Roça do Lobo de 1953\n- Mestre Barbosa - presentes juntos na roda da Roça do Lobo de 1953\n- Cobrinha Verde - presentes juntos na roda da Roça do Lobo de 1953\n- Tiburcinho - presentes juntos na roda da Roça do Lobo de 1953\n- Manoel Carregador - presentes juntos na roda da Roça do Lobo de 1953\n\nCO-PROFESSORES NA CURVA GRANDE:\n- Roque (Curva Grande) - ensinou Gaguinho Preto junto com Menino Gordo; NÃO é o mesmo que Mestre Roque Mendes dos Santos (n. 1938 Rio)\n- Vitor Agaú (Victor H.U.) - ensinou Gaguinho Preto junto com Menino Gordo\n\nDISTINÇÃO DE OUTRO "MENINO GORDO":\nUsando apelido_context "Curva Grande" para distinguir de qualquer outro capoeirista com este apelido comum. O backlog anteriormente listava esta pessoa separadamente de outro "Menino Gordo" na roda de João Grande 1953, mas a pesquisa indica que são provavelmente a MESMA PESSOA.'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name, title = EXCLUDED.title, portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links, style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en, style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year, birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place, death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision, death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en, bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en, achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en, notes_pt = EXCLUDED.notes_pt, updated_at = NOW();
 
 -- Source: entities/persons/nenel.sql (NEW)
 -- ============================================================
@@ -4485,6 +5737,83 @@ ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL D
   notes_en = EXCLUDED.notes_en,
   notes_pt = EXCLUDED.notes_pt,
   updated_at = NOW();
+
+-- Source: entities/persons/oleriano-de-goes.sql (NEW)
+-- ============================================================
+-- GENEALOGY PERSON: Oleriano de Góes
+-- Generated: 2025-12-22
+-- ============================================================
+-- HISTORICAL CONTEXT:
+-- Oleriano de Góes represents one of the earliest documented African
+-- ancestors in Brazilian capoeira genealogy. He is the patriarch of the
+-- Góes family capoeira lineage, teaching the art to his son Eutíquio,
+-- who passed it to his son Gato Preto.
+--
+-- RELATIONSHIP CLARIFICATION:
+-- Gato Preto himself stated: "Aprendi capoeira com meu pai, que aprendeu
+-- com meu avô" (I learned from my father, who learned from my grandfather).
+-- This confirms: Oleriano = Eutíquio's FATHER (and Gato Preto's grandfather).
+-- The USP source phrase "seu avô" was from Gato Preto's perspective.
+--
+-- BIRTH YEAR ESTIMATION (1870, decade):
+-- Brazil abolished slavery on May 13, 1888 (Lei Áurea). As an African who
+-- taught capoeira to his son Eutíquio (born ~1900), Oleriano would have
+-- been approximately 25-35 years older, born ~1865-1875. Using 1870 with
+-- decade precision. If brought to Brazil as a slave before abolition, he
+-- could have arrived as a child or young adult. The USP article states
+-- this heritage dates "from the 1800s."
+--
+-- DEATH YEAR: Unknown. No documentation found.
+--
+-- NAME:
+-- Only known as "Oleriano de Góes" in all sources. "de Góes" may be a
+-- surname adopted after emancipation or from former owners.
+--
+-- SOURCE VERIFICATION:
+-- Primary: Gato Preto's own testimony (velhosmestres.com): "Aprendi
+-- capoeira com meu pai, que aprendeu com meu avô."
+-- Secondary: USP Núcleo de Artes Afro-Brasileiras article.
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  name, apelido, title, portrait, public_links,
+  style, style_notes_en, style_notes_pt,
+  birth_year, birth_year_precision, birth_place,
+  death_year, death_year_precision, death_place,
+  bio_en, bio_pt, achievements_en, achievements_pt,
+  notes_en, notes_pt
+) VALUES (
+  'Oleriano de Góes',
+  'Oleriano de Góes',
+  NULL,
+  NULL,
+  ARRAY['https://sites.usp.br/nucleoartesafrobrasileiras/mestres/']::text[],
+  'angola'::genealogy.style,
+  NULL,
+  NULL,
+  1870,
+  'decade'::genealogy.date_precision,
+  'Africa (unknown region)',
+  NULL,
+  NULL,
+  NULL,
+  E'Oleriano de Góes was an African who represents one of the earliest documented ancestors in Brazilian capoeira genealogy. He is the patriarch of the Góes family capoeira lineage from Santo Amaro da Purificação in the Recôncavo Baiano—the heartland of traditional Bahian capoeira.\n\nWhat little we know of Oleriano comes from oral tradition preserved through his descendants. Mestre Gato Preto himself testified: "Aprendi capoeira com meu pai, que aprendeu com meu avô" (I learned capoeira from my father, who learned from my grandfather). This confirms that Oleriano taught capoeira to his son Eutíquio Lúcio Góes, who in turn passed the art to his son, the celebrated Mestre Gato Preto (José Gabriel Góes). This family heritage, as the USP source states, "came from the 1800s"—placing Oleriano firmly in the slavery era of Brazilian history.\n\nBrazil was the last nation in the Western Hemisphere to abolish slavery, doing so on May 13, 1888, with the Lei Áurea (Golden Law). Santo Amaro was one of the major sugar-producing regions of the Recôncavo Baiano, with an ecclesiastical census from 1724 showing that 69% of its population was enslaved. The region saw multiple slave revolts in the early 19th century, including the 1816 uprising where several sugar mills were set on fire. It was in this environment of African resistance and cultural preservation that Oleriano practiced and transmitted capoeira.\n\nOleriano''s significance lies not in documented deeds—which are lost to history—but in what he represents: the direct African transmission of capoeira. Through him, the Góes family maintains one of the most documented multi-generational capoeira lineages: from Oleriano (African) to Eutíquio (first Brazilian-born generation) to Gato Preto to Gato Preto''s sons Mestre Gato II and Mestre Zeca. When Brazilian capoeiristas traveled to Dakar, Senegal, in 1966 for the I Festival Mundial das Artes Negras, a local African musician reportedly told them: "Capoeira is in Brasil, your capoeira angola is in Brasil. Our people took it there and now you are showing it here." Through Oleriano, we can trace exactly how that transmission occurred.',
+  E'Oleriano de Góes foi um africano que representa um dos ancestrais documentados mais antigos na genealogia da capoeira brasileira. Ele é o patriarca da linhagem de capoeira da família Góes de Santo Amaro da Purificação no Recôncavo Baiano—o coração da capoeira tradicional baiana.\n\nO pouco que sabemos de Oleriano vem da tradição oral preservada através de seus descendentes. O próprio Mestre Gato Preto testemunhou: "Aprendi capoeira com meu pai, que aprendeu com meu avô" (Aprendi capoeira com meu pai, que aprendeu com meu avô). Isto confirma que Oleriano ensinou capoeira ao seu filho Eutíquio Lúcio Góes, que por sua vez passou a arte ao seu filho, o celebrado Mestre Gato Preto (José Gabriel Góes). Esta herança familiar, como afirma a fonte da USP, "veio desde os anos 1800"—colocando Oleriano firmemente na era da escravidão na história brasileira.\n\nO Brasil foi a última nação no Hemisfério Ocidental a abolir a escravidão, fazendo-o em 13 de maio de 1888, com a Lei Áurea. Santo Amaro era uma das principais regiões produtoras de açúcar do Recôncavo Baiano, com um censo eclesiástico de 1724 mostrando que 69% de sua população era escravizada. A região viu múltiplas revoltas de escravos no início do século XIX, incluindo o levante de 1816 onde vários engenhos de açúcar foram incendiados. Foi neste ambiente de resistência africana e preservação cultural que Oleriano praticou e transmitiu a capoeira.\n\nA importância de Oleriano não reside em feitos documentados—que se perderam na história—mas no que ele representa: a transmissão africana direta da capoeira. Através dele, a família Góes mantém uma das linhagens de capoeira multigeracionais mais documentadas: de Oleriano (africano) a Eutíquio (primeira geração nascida no Brasil) a Gato Preto aos filhos de Gato Preto, Mestre Gato II e Mestre Zeca. Quando os capoeiristas brasileiros viajaram a Dacar, Senegal, em 1966 para o I Festival Mundial das Artes Negras, um músico africano local teria dito a eles: "A capoeira está no Brasil, sua capoeira angola está no Brasil. Nosso povo a levou para lá e agora vocês estão mostrando aqui." Através de Oleriano, podemos traçar exatamente como essa transmissão ocorreu.',
+  NULL,
+  NULL,
+  E'BIRTH YEAR ESTIMATION (1870, decade):\nBrazil abolished slavery in 1888. As an African who taught his son Eutíquio (born ~1900) capoeira, Oleriano would have been approximately 25-35 years older, born ~1865-1875. Using 1870 with decade precision. If brought to Brazil as a slave before abolition, he could have arrived as a child or young adult.\n\nSOURCE CONFLICT - RELATIONSHIP:\nThe USP Núcleo de Artes Afro-Brasileiras source states: "Eutíquio, que aprendeu com seu avô, o africano Oleriano de Góes" which grammatically could mean Eutíquio learned from his grandfather. The USP source also frames Oleriano with early 1800s context (slave revolts, "herança vinda desde os anos 1800"), suggesting they interpreted him as Eutíquio''s grandfather from the early 19th century.\n\nHowever, Gato Preto''s own direct testimony is unambiguous: "Aprendi capoeira com meu pai, que aprendeu com meu avô" (I learned from my father, who learned from my grandfather). From Gato Preto''s perspective: "meu pai" = Eutíquio, "meu avô" = Oleriano. This confirms Oleriano was Eutíquio''s FATHER, not grandfather.\n\nWe prioritize Gato Preto''s direct testimony over the USP source''s interpretation because: (1) it is first-person testimony from a direct descendant, and (2) the timeline makes more sense—an African grandfather teaching in the early 1900s would be 70-85+ years old, whereas a father would be a more realistic age for active capoeira transmission.\n\nNAME:\n"Oleriano de Góes" is the only known form. "de Góes" may be a surname adopted post-emancipation or from former slaveholders.\n\nFAMILY:\n- Son: Eutíquio Lúcio Góes (learned capoeira from Oleriano)\n- Grandson: Mestre Gato Preto (José Gabriel Góes) (1930-2002)\n- Great-grandsons: Mestre Gato II (Sinésio Souza Góes), Mestre Zeca (José Souza Góes)\n\nSTUDENTS:\n- Eutíquio Lúcio Góes (son; continued family lineage)\n\nHISTORICAL CONTEXT:\n- Santo Amaro 1724 census: 39 sugar mills, 69% enslaved population\n- 1816: Slave revolt with sugar mills set on fire in Santo Amaro\n- 1888: Abolition of slavery in Brazil (Lei Áurea)\n- Santo Amaro considered birthplace of Besouro Mangangá and center of Recôncavo capoeira',
+  E'ESTIMATIVA DO ANO DE NASCIMENTO (1870, década):\nO Brasil aboliu a escravidão em 1888. Como africano que ensinou capoeira ao seu filho Eutíquio (nascido ~1900), Oleriano teria aproximadamente 25-35 anos mais velho, nascido ~1865-1875. Usando 1870 com precisão de década. Se trazido ao Brasil como escravo antes da abolição, poderia ter chegado como criança ou jovem adulto.\n\nCONFLITO DE FONTES - RELAÇÃO:\nA fonte USP Núcleo de Artes Afro-Brasileiras afirma: "Eutíquio, que aprendeu com seu avô, o africano Oleriano de Góes", o que gramaticalmente poderia significar que Eutíquio aprendeu com seu avô. A fonte USP também enquadra Oleriano com contexto do início dos anos 1800 (revoltas de escravos, "herança vinda desde os anos 1800"), sugerindo que o interpretaram como avô de Eutíquio do início do século XIX.\n\nNo entanto, o próprio depoimento direto de Gato Preto é inequívoco: "Aprendi capoeira com meu pai, que aprendeu com meu avô" (I learned from my father, who learned from my grandfather). Da perspectiva de Gato Preto: "meu pai" = Eutíquio, "meu avô" = Oleriano. Isto confirma que Oleriano era o PAI de Eutíquio, não avô.\n\nPriorizamos o depoimento direto de Gato Preto sobre a interpretação da fonte USP porque: (1) é testemunho em primeira pessoa de um descendente direto, e (2) a linha do tempo faz mais sentido—um avô africano ensinando no início dos anos 1900 teria 70-85+ anos, enquanto um pai teria uma idade mais realista para transmissão ativa de capoeira.\n\nNOME:\n"Oleriano de Góes" é a única forma conhecida. "de Góes" pode ser sobrenome adotado após a emancipação ou de antigos senhores de escravos.\n\nFAMÍLIA:\n- Filho: Eutíquio Lúcio Góes (aprendeu capoeira com Oleriano)\n- Neto: Mestre Gato Preto (José Gabriel Góes) (1930-2002)\n- Bisnetos: Mestre Gato II (Sinésio Souza Góes), Mestre Zeca (José Souza Góes)\n\nALUNOS:\n- Eutíquio Lúcio Góes (filho; continuou linhagem familiar)\n\nCONTEXTO HISTÓRICO:\n- Censo de Santo Amaro 1724: 39 engenhos, 69% população escravizada\n- 1816: Revolta de escravos com engenhos incendiados em Santo Amaro\n- 1888: Abolição da escravidão no Brasil (Lei Áurea)\n- Santo Amaro considerado berço de Besouro Mangangá e centro da capoeira do Recôncavo'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name, title = EXCLUDED.title, portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links, style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en, style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year, birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place, death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision, death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en, bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en, achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en, notes_pt = EXCLUDED.notes_pt, updated_at = NOW();
 
 -- Source: entities/persons/paizinho.sql (NEW)
 -- ============================================================
@@ -6823,6 +8152,193 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 --   → Belongs in roberto-satanas.sql when created
 -- ============================================================
 
+-- Source: statements/persons/ambrosio.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Ambrósio
+-- Generated: 2025-12-21
+-- ============================================================
+-- Contains all relationships where Ambrósio is the SUBJECT.
+-- ============================================================
+
+-- ============================================================
+-- NO STATEMENTS CURRENTLY
+-- ============================================================
+--
+-- Ambrósio participated in the 1937 II Congresso Afro-Brasileiro
+-- demonstration alongside 15+ other capoeiristas. This event
+-- participation is documented in his bio and notes, NOT as
+-- individual associated_with relationships (which would create
+-- massive redundancy - N*(N-1)/2 relationships for N attendees).
+--
+-- The associated_with predicate should be reserved for meaningful
+-- personal connections: training partners, rivals, collaborators,
+-- etc. - not mere event co-attendance.
+--
+-- If/when we model events as entities, we could create:
+--   Ambrósio participated_in "1937 II Congresso Afro-Brasileiro"
+--
+-- CONTEMPORARIES AT 1937 CONGRESS (documented in bio, not as statements):
+-- - Samuel Querido de Deus (director)
+-- - Barbosa, Onça Preta, Juvenal, Zeppelin, Bugaia, Fernandes,
+--   Eutíquio, Neném, Zei, Barroso, Arthur Mattos, Raphael, Edgar, Damião
+--
+-- ============================================================
+
+-- Source: statements/persons/ananias.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Ananias
+-- Generated: 2025-12-21
+-- ============================================================
+-- Contains all relationships where Ananias is the SUBJECT.
+-- ============================================================
+
+-- Ananias student_of Juvêncio (1938+, São Félix dock rodas)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1938-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'Capoeira Connection interview 2011',
+  E'First capoeira teacher in informal dock rodas during religious festivals in São Félix. "Juvêncio was the mestre. He was a dock worker who did capoeira on the docks of São Félix... Nobody taught classes, but the real master was Juvêncio, everyone got together and played."',
+  E'Primeiro professor de capoeira nas rodas informais nas docas durante festas religiosas em São Félix. "Juvêncio era o mestre. Ele era estivador e fazia capoeira na beira do cais de São Félix... Ninguém ensinava, mas o mestre mesmo era o Juvêncio, todo mundo se reunia e pronto."'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Ananias' AND s.apelido_context IS NULL
+  AND o.apelido = 'Juvêncio' AND o.apelido_context = 'São Félix'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Ananias trained_under Canjiquinha (1942-1946, Pastinha's space)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1942-01-01'::date, 'year'::genealogy.date_precision,
+  '1946-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'Capoeira Connection interview 2011; velhosmestres.com',
+  E'Trained with Canjiquinha in Pastinha''s space in Liberdade. Played in Pastinha''s bateria during street rodas alongside Gato Preto. Ananias said he "got his diploma" from Canjiquinha, though "at that time, there wasn''t this business of diplomas."',
+  E'Treinou com Canjiquinha no espaço de Pastinha na Liberdade. Tocou na bateria de Pastinha durante rodas de rua ao lado de Gato Preto. Ananias disse que "tirou seu diploma" com Canjiquinha, embora "naquele tempo, não tinha esse negócio de diploma."'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Ananias' AND s.apelido_context IS NULL
+  AND o.apelido = 'Canjiquinha' AND o.apelido_context IS NULL
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Ananias student_of Waldemar (1946-1953, primary teacher)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1946-01-01'::date, 'year'::genealogy.date_precision,
+  '1953-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com; Capoeira Connection interview 2011',
+  E'Primary teacher at Barracão de Waldemar in Liberdade. Received position of contra-mestre de bateria from Waldemar after rigorous testing by the mestres.',
+  E'Professor principal no Barracão de Waldemar na Liberdade. Recebeu posição de contra-mestre de bateria de Waldemar após testes rigorosos pelos mestres.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Ananias' AND s.apelido_context IS NULL
+  AND o.apelido = 'Waldemar' AND o.apelido_context IS NULL
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Ananias associated_with Traíra (training companions at São Félix and Salvador)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1938-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"association_context": "training_companions"}'::jsonb, 'verified'::genealogy.confidence,
+  'Capoeira Connection interview 2011; Traíra report',
+  E'Training companions from São Félix dock rodas (~1938) and later at Waldemar''s Barracão in Salvador (1947+). Both learned from Juvêncio in São Félix and trained under Waldemar.',
+  E'Companheiros de treino das rodas das docas de São Félix (~1938) e depois no Barracão de Waldemar em Salvador (1947+). Ambos aprenderam com Juvêncio em São Félix e treinaram com Waldemar.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Ananias' AND s.apelido_context IS NULL
+  AND o.apelido = 'Traíra' AND o.apelido_context IS NULL
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Ananias associated_with Pastinha (played in his bateria, trained in his space)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1942-01-01'::date, 'year'::genealogy.date_precision,
+  '1953-01-01'::date, 'year'::genealogy.date_precision,
+  '{"association_context": "roda_participant"}'::jsonb, 'verified'::genealogy.confidence,
+  'Capoeira Connection interview 2011; velhosmestres.com',
+  E'Played in Pastinha''s bateria during street rodas in early 1940s while training with Canjiquinha. Listed among training companions at Waldemar''s barracão.',
+  E'Tocou na bateria de Pastinha durante rodas de rua no início dos anos 1940 enquanto treinava com Canjiquinha. Listado entre companheiros de treino no barracão de Waldemar.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Ananias' AND s.apelido_context IS NULL
+  AND o.apelido = 'Pastinha' AND o.apelido_context IS NULL
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Ananias received_title_from Waldemar (contra-mestre de bateria)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'received_title_from'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1950-01-01'::date, 'approximate'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"title_grant": {"title": "contra-mestre de bateria"}}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com',
+  E'Received position of contra-mestre de bateria from Waldemar after rigorous testing by the mestres. Date approximate (sometime between 1946-1953 training period).',
+  E'Recebeu posição de contra-mestre de bateria de Waldemar após testes rigorosos pelos mestres. Data aproximada (em algum momento entre 1946-1953, período de treinamento).'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Ananias' AND s.apelido_context IS NULL
+  AND o.apelido = 'Waldemar' AND o.apelido_context IS NULL
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- NOTE: Ananias cultural_pioneer_of São Paulo cannot be expressed as a statement
+-- because 'region' is not a valid entity_type (only 'person' and 'group' are valid).
+-- This pioneering role is documented in person_profiles.achievements_en/pt and notes_en/pt instead.
+-- Context: Considered the "father" of São Paulo capoeira. Founded Associação de Capoeira Angola
+-- Senhor do Bonfim (1953) and established the legendary Sunday roda at Praça da República.
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (objects not yet in dataset)
+-- ============================================================
+-- Ananias associated_with Gato Preto - played together in Pastinha's bateria (needs Gato Preto import)
+-- Ananias associated_with Nagé - training companion at Waldemar's (needs Nagé import)
+-- Ananias associated_with Onça Preta - training companion at Waldemar's (needs Onça Preta import - may be different from Rio Onça Preta)
+-- Ananias associated_with Noronha - training companion at Waldemar's (needs Noronha import)
+-- Ananias associated_with Cobrinha Verde - training companion at Waldemar's (needs Cobrinha Verde import)
+-- Ananias associated_with Zacaria - training companion at Waldemar's (needs Zacaria import)
+-- Ananias associated_with Mucungê - training companion at Waldemar's (needs Mucungê import)
+-- Ananias founded Associação de Capoeira Angola Senhor do Bonfim (needs group import)
+-- Ananias founded Roda da Praça da República (needs group/roda import)
+-- Ananias teaches_at Casa Mestre Ananias (needs group import)
+-- ============================================================
+
 -- Source: statements/persons/angelica-endiabrada.sql (NEW)
 -- ============================================================
 -- STATEMENTS FOR: Angélica Endiabrada
@@ -6886,6 +8402,38 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Angélica Endiabrada associated_with Menininha - needs import first
 -- Angélica Endiabrada associated_with Adelaide Presepeira - needs import first
 -- Angélica Endiabrada associated_with Idalina - needs import first
+
+-- Source: statements/persons/barroso.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Barroso
+-- Generated: 2025-12-21
+-- ============================================================
+-- Contains all relationships where Barroso is the SUBJECT.
+-- ============================================================
+
+-- ============================================================
+-- NO STATEMENTS CURRENTLY
+-- ============================================================
+--
+-- Barroso participated in the 1937 II Congresso Afro-Brasileiro
+-- demonstration alongside 15+ other capoeiristas. This event
+-- participation is documented in his bio and notes, NOT as
+-- individual associated_with relationships (which would create
+-- massive redundancy - N*(N-1)/2 relationships for N attendees).
+--
+-- The associated_with predicate should be reserved for meaningful
+-- personal connections: training partners, rivals, collaborators,
+-- etc. - not mere event co-attendance.
+--
+-- If/when we model events as entities, we could create:
+--   Barroso participated_in "1937 II Congresso Afro-Brasileiro"
+--
+-- CONTEMPORARIES AT 1937 CONGRESS (documented in bio, not as statements):
+-- - Samuel Querido de Deus (director)
+-- - Barbosa, Onça Preta, Juvenal, Zeppelin, Bugaia, Fernandes,
+--   Eutíquio, Neném, Zei, Ambrósio, Arthur Mattos, Raphael, Edgar, Damião
+--
+-- ============================================================
 
 -- Source: statements/persons/bigode-de-seda.sql (NEW)
 -- ============================================================
@@ -7804,25 +9352,10 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- FAMILY RELATIONSHIPS
 -- ============================================================
 
--- Curió family_of Curió Velho (grandchild relationship)
-INSERT INTO genealogy.statements (
-  subject_type, subject_id, predicate, object_type, object_id,
-  started_at, started_at_precision, ended_at, ended_at_precision,
-  properties, confidence, source, notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'family_of'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  NULL, NULL,
-  NULL, NULL,
-  '{"relationship_type": "grandchild"}'::jsonb, 'verified'::genealogy.confidence,
-  'https://velhosmestres.com/en/featured-25',
-  E'Mestre Curió is the grandson of Pedro Virício (Curió Velho). He inherited both his apelido "Curió" and his distinctive style of capoeira from his grandfather.',
-  E'Mestre Curió é neto de Pedro Virício (Curió Velho). Ele herdou tanto seu apelido "Curió" quanto seu estilo distintivo de capoeira de seu avô.'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Curió' AND o.apelido = 'Curió Velho'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+-- NOTE: Curió family_of Curió Velho (grandchild) relationship removed.
+-- The grandfather lineage is already established through:
+--   Curió -> Malvadeza (child) -> Curió Velho (child)
+-- Direct grandchild relationship is redundant and can be inferred from the chain.
 
 -- Curió family_of Malvadeza (child relationship)
 INSERT INTO genealogy.statements (
@@ -8029,6 +9562,94 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 --   -> Tiburcinho pending import in persons-backlog.md
 -- Decânio associated_with Mestre Jean Pangolin - mentee relationship
 --   -> Mestre Jean Pangolin NOT in backlog (contemporary figure, may not need import)
+
+-- Source: statements/persons/eutiquio.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Eutíquio
+-- Generated: 2025-12-22
+-- ============================================================
+-- Contains all relationships where Eutíquio is the SUBJECT.
+-- Per ownership rule: statements go in file named after SUBJECT.
+-- ============================================================
+
+-- Eutíquio student_of Oleriano de Góes (father, African)
+-- Eutíquio learned capoeira from his father, the African Oleriano de Góes.
+-- Gato Preto's own testimony confirms: "Aprendi capoeira com meu pai, que aprendeu
+-- com meu avô" (I learned from my father [Eutíquio], who learned from my
+-- grandfather [Oleriano]). This makes Oleriano = Eutíquio's father.
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  NULL, NULL,
+  '{}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Gato Preto testimony (velhosmestres.com); USP Núcleo de Artes Afro-Brasileiras',
+  'Eutíquio learned capoeira from his father, the African Oleriano de Góes, in Santo Amaro da Purificação. This represents direct African transmission of capoeira. Gato Preto confirmed: "Aprendi capoeira com meu pai, que aprendeu com meu avô."',
+  'Eutíquio aprendeu capoeira com seu pai, o africano Oleriano de Góes, em Santo Amaro da Purificação. Isto representa a transmissão africana direta da capoeira. Gato Preto confirmou: "Aprendi capoeira com meu pai, que aprendeu com meu avô."'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Eutíquio' AND o.apelido = 'Oleriano de Góes'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Eutíquio family_of Oleriano de Góes (son)
+-- Eutíquio was the son of Oleriano de Góes.
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'family_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  NULL, NULL,
+  '{"relationship_type": "son"}'::jsonb,
+  'likely'::genealogy.confidence,
+  'Gato Preto testimony (velhosmestres.com); USP Núcleo de Artes Afro-Brasileiras',
+  'Eutíquio was the son of the African Oleriano de Góes. Gato Preto confirmed: "Aprendi capoeira com meu pai, que aprendeu com meu avô" (I learned from my father [Eutíquio], who learned from my grandfather [Oleriano]).',
+  'Eutíquio era filho do africano Oleriano de Góes. Gato Preto confirmou: "Aprendi capoeira com meu pai, que aprendeu com meu avô" (Aprendi com meu pai [Eutíquio], que aprendeu com meu avô [Oleriano]).'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Eutíquio' AND o.apelido = 'Oleriano de Góes'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- NOTE: Gato Preto family_of Eutíquio (son) goes in gato-preto.sql
+-- per the ownership rule (subject's file).
+-- ============================================================
+
+-- Eutíquio family_of João Catarino (brother)
+-- João Catarino was Eutíquio's brother.
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'family_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  NULL, NULL,
+  '{"relationship_type": "brother"}'::jsonb,
+  'likely'::genealogy.confidence,
+  'velhosmestres.com; capoeira.online; capoeirawiki.org',
+  'Eutíquio and João Catarino were brothers, both sons of the African Oleriano de Góes. After Eutíquio stopped teaching his son Gato Preto around 1942, João Catarino continued the boy''s education. João Catarino was a student of Besouro Mangangá.',
+  'Eutíquio e João Catarino eram irmãos, ambos filhos do africano Oleriano de Góes. Depois que Eutíquio parou de ensinar seu filho Gato Preto por volta de 1942, João Catarino continuou a educação do menino. João Catarino era aluno de Besouro Mangangá.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Eutíquio' AND o.apelido = 'João Catarino'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- (No pending relationships - all objects now in dataset)
 
 -- Source: statements/persons/ezequiel.sql (NEW)
 -- ============================================================
@@ -8469,6 +10090,43 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- was known in the capoeira community. However, no direct training relationship
 -- is documented - this is a cultural/commemorative connection, not a lineage relationship.
 
+-- Source: statements/persons/inaua.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Inauá
+-- Generated: 2025-12-22
+-- ============================================================
+-- Contains all relationships where Inauá is the SUBJECT.
+-- ============================================================
+
+-- Inauá student_of Onça Preta
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  NULL, NULL,
+  '{}'::jsonb, 'likely'::genealogy.confidence,
+  'velhosmestres.com/br/destaques-34; ipcb-rj.com.br',
+  E'Trained under Onça Preta in Ilha do Governador, Rio de Janeiro, after Onça Preta moved from Salvador in 1959. Onça Preta lived on Ilha do Governador while working at Hospital de Puericultura.',
+  E'Treinou com Onça Preta na Ilha do Governador, Rio de Janeiro, após Onça Preta se mudar de Salvador em 1959. Onça Preta morava na Ilha do Governador enquanto trabalhava no Hospital de Puericultura.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Inauá' AND o.apelido = 'Onça Preta'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- The following relationships have subjects that need to be imported first.
+-- These will be in the OBJECT's statement files when those entities are created:
+--
+-- King Kong student_of Inauá - King Kong needs import first (backlog)
+-- Cláudio São Bento student_of Inauá - Cláudio São Bento needs import first (backlog)
+
 -- Source: statements/persons/jair-moura.sql (NEW)
 -- ============================================================
 -- STATEMENTS FOR: Jair Moura
@@ -8664,6 +10322,97 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Jair Moura associated_with Glauber Rocha - friendship
 --   -> Glauber Rocha NOT capoeira figure - do not import
 
+-- Source: statements/persons/joao-catarino.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: João Catarino
+-- Generated: 2025-12-22
+-- ============================================================
+-- Contains all relationships where João Catarino is the SUBJECT.
+-- Per ownership rule: statements go in file named after SUBJECT.
+-- ============================================================
+
+-- João Catarino student_of Besouro Mangangá
+-- Learned capoeira from the legendary Besouro before his death in 1924.
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  '1924-07-08'::date, 'exact'::genealogy.date_precision,
+  '{}'::jsonb,
+  'likely'::genealogy.confidence,
+  'velhosmestres.com; capoeira.online; capoeirawiki.org',
+  'João Catarino was a student of Besouro Mangangá, learning from him in Santo Amaro da Purificação before Besouro''s death on July 8, 1924. Gato Preto confirmed: "meu tio, João Catarino, aluno de Besouro" (my uncle, João Catarino, a student of Besouro). This makes João Catarino one of the few documented students of Besouro alongside Cobrinha Verde and Siri de Mangue.',
+  'João Catarino foi aluno de Besouro Mangangá, aprendendo com ele em Santo Amaro da Purificação antes da morte de Besouro em 8 de julho de 1924. Gato Preto confirmou: "meu tio, João Catarino, aluno de Besouro". Isso torna João Catarino um dos poucos alunos documentados de Besouro ao lado de Cobrinha Verde e Siri de Mangue.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'João Catarino' AND o.apelido = 'Besouro Mangangá'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- João Catarino family_of Eutíquio (brother)
+-- João Catarino was the brother of Eutíquio Lúcio Góes.
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'family_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  NULL, NULL,
+  '{"relationship_type": "brother"}'::jsonb,
+  'likely'::genealogy.confidence,
+  'velhosmestres.com; capoeira.online; capoeirawiki.org',
+  'João Catarino was the brother of Eutíquio Lúcio Góes. As Gato Preto''s "tio" (uncle) on his father''s side, João Catarino and Eutíquio shared the same father, the African Oleriano de Góes. Both were part of the Góes family capoeira lineage from Santo Amaro da Purificação.',
+  'João Catarino era irmão de Eutíquio Lúcio Góes. Como "tio" de Gato Preto pelo lado paterno, João Catarino e Eutíquio tinham o mesmo pai, o africano Oleriano de Góes. Ambos faziam parte da linhagem de capoeira da família Góes de Santo Amaro da Purificação.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'João Catarino' AND o.apelido = 'Eutíquio'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- João Catarino family_of Oleriano de Góes (son)
+-- João Catarino was the son of Oleriano de Góes (African patriarch).
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'family_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  NULL, NULL,
+  '{"relationship_type": "son"}'::jsonb,
+  'likely'::genealogy.confidence,
+  'velhosmestres.com; inferred from family structure',
+  'João Catarino was the son of the African Oleriano de Góes. As the brother of Eutíquio (who was confirmed as Oleriano''s son), João Catarino was also a son of Oleriano. This represents the first Brazilian-born generation in the Góes family capoeira lineage.',
+  'João Catarino era filho do africano Oleriano de Góes. Como irmão de Eutíquio (que foi confirmado como filho de Oleriano), João Catarino também era filho de Oleriano. Isto representa a primeira geração nascida no Brasil na linhagem de capoeira da família Góes.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'João Catarino' AND o.apelido = 'Oleriano de Góes'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- NOTE: The following relationships have João Catarino as OBJECT,
+-- so they go in the SUBJECT's file per the ownership rule:
+--
+-- - Gato Preto student_of João Catarino → goes in gato-preto.sql
+-- - Gato Preto family_of João Catarino (nephew) → goes in gato-preto.sql
+-- - Mestre Léo student_of João Catarino → goes in leo.sql (pending)
+-- ============================================================
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+
+-- No pending relationships for João Catarino.
+-- All known objects (Besouro, Eutíquio, Oleriano) are in dataset.
+
 -- Source: statements/persons/juvenil.sql (NEW)
 -- ============================================================
 -- STATEMENTS FOR: Juvenil
@@ -8694,6 +10443,53 @@ SELECT
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Juvenil' AND o.apelido = 'Leopoldina'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Source: statements/persons/leo-sao-braz.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Léo (São Braz)
+-- Generated: 2025-12-22
+-- ============================================================
+-- Contains all relationships where Léo is the SUBJECT.
+-- Uses apelido_context='São Braz' for Léo to distinguish from other Léos.
+-- ============================================================
+
+-- Léo student_of João Catarino
+-- João Catarino SQL EXISTS: joao-catarino.sql
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL, NULL, NULL,
+  '{}'::jsonb, 'likely'::genealogy.confidence,
+  'https://velhosmestres.com/br/destaques-45',
+  'Léo learned from João Catarino, who was a student of Besouro Mangangá. The velhosmestres.com profile of Mestre Messias states that Mestre Léo was "aluno de João Catarino, quem foi aluno de Besouro" (student of João Catarino, who was a student of Besouro).',
+  'Léo aprendeu com João Catarino, que foi aluno de Besouro Mangangá. O perfil do velhosmestres.com de Mestre Messias afirma que Mestre Léo era "aluno de João Catarino, quem foi aluno de Besouro".'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Léo' AND s.apelido_context = 'São Braz'
+  AND o.apelido = 'João Catarino'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- NOTE: Additional relationships exist but the subjects are
+-- Gato Preto and Messias, so statements go in THEIR files.
+--
+-- Gato Preto trained_under Léo (from 1942)
+--   → Goes in gato-preto.sql statements file
+--
+-- Messias student_of Léo (from 1942, formed mestre 1947)
+--   → Goes in messias.sql statements file (needs import first)
+-- ============================================================
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- None - João Catarino is the only object where Léo is subject
+-- ============================================================
 
 -- Source: statements/persons/malvadeza.sql (NEW)
 -- ============================================================
@@ -8952,6 +10748,185 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- However, without documented connection, no statements are created.
 -- Her value is as a representative figure, not for specific lineage.
 
+-- Source: statements/persons/mario-aleixo.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Mário Aleixo
+-- Generated: 2025-12-22
+-- ============================================================
+-- Contains all relationships where Mário Aleixo is the SUBJECT.
+-- ============================================================
+
+-- Mário Aleixo trained_under Sada Miyako (jiu-jitsu, before 1913)
+-- NOTE: Sada Miyako is not in genealogy dataset - not a capoeirista
+-- This relationship is documented in notes_en/notes_pt but cannot be
+-- expressed as a statement until decision is made on non-capoeira figures
+
+-- Mário Aleixo associated_with Sinhozinho (collaborated on 1920 exhibitions)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1916-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "collaborated on capoeiragem exhibitions and teaching"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'O Jornal (March 13, 1920); capoeirahistory.com',
+  'In 1916, Aleixo invited Sinhozinho to teach Greco-Roman wrestling at União dos Empregados do Comércio. By 1920, both participated in sports festival exhibitions documented in O Jornal.',
+  'Em 1916, Aleixo convidou Sinhozinho para ensinar luta greco-romana na União dos Empregados do Comércio. Em 1920, ambos participaram de exibições de festival esportivo documentadas em O Jornal.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Mário Aleixo' AND o.apelido = 'Sinhozinho'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Mário Aleixo influenced Zuma (through ginástica nacional methodology)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1920-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "contemporaries in Rio capoeira carioca movement"}'::jsonb,
+  'likely'::genealogy.confidence,
+  'capoeirahistory.com; Zuma manual (1928)',
+  'Both were part of the "ginástica nacional" movement in Rio de Janeiro. Aleixo taught at Gymnástico Português from 1920, where Zuma may have trained. Both influenced Bimba''s development of Regional.',
+  'Ambos faziam parte do movimento de "ginástica nacional" no Rio de Janeiro. Aleixo ensinava no Gymnástico Português a partir de 1920, onde Zuma pode ter treinado. Ambos influenciaram o desenvolvimento da Regional de Bimba.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Mário Aleixo' AND o.apelido = 'Zuma'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- Mário Aleixo trained_under Raphael Lóthus - needs import first
+--   (co-founded Escola de Ginástica Nacional 1916; learned capoeiragem methodology)
+--
+-- Mário Aleixo associated_with Raul Pederneiras - needs import first
+--   (opened capoeiragem school together at Club Gymnástico Português, 1920)
+--
+-- Mário Aleixo associated_with Gustavo Senna - needs import first
+--   (directed 1920 sports festival exhibitions together)
+--
+-- Mário Aleixo lost_to George Gracie - George Gracie not in dataset (jiu-jitsu)
+--   (Vale Tudo match, early 1930s, Theatro Republica, lost by armlock)
+
+-- Source: statements/persons/menino-gordo-da-curva-grande.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Menino Gordo da Curva Grande
+-- Generated: 2025-12-21
+-- ============================================================
+-- Contains all relationships where Menino Gordo da Curva Grande is the SUBJECT.
+-- Note: Gaguinho Preto's student_of relationship goes in gaguinho-preto.sql
+-- ============================================================
+
+-- Menino Gordo associated_with Vitor Agaú (co-teachers in Curva Grande)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1938-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Co-teachers of Gaguinho Preto in Curva Grande neighborhood"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com/br/destaques-39',
+  'Taught Gaguinho Preto together with Vitor Agaú and Roque in Curva Grande from ~1938',
+  'Ensinou Gaguinho Preto junto com Vitor Agaú e Roque na Curva Grande a partir de ~1938'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Menino Gordo' AND s.apelido_context = 'Curva Grande'
+  AND o.apelido = 'Vitor Agaú'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Menino Gordo associated_with João Pequeno (Roça do Lobo 1953)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1953-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Present together at Roça do Lobo roda witnessed by João Grande"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com/br/destaques-38',
+  'Both present at the 1953 Roça do Lobo roda that João Grande witnessed upon arriving in Salvador',
+  'Ambos presentes na roda da Roça do Lobo de 1953 que João Grande testemunhou ao chegar em Salvador'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Menino Gordo' AND s.apelido_context = 'Curva Grande'
+  AND o.apelido = 'João Pequeno'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Menino Gordo associated_with Barbosa (Roça do Lobo 1953)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1953-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Present together at Roça do Lobo roda witnessed by João Grande"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com/br/destaques-38',
+  'Both present at the 1953 Roça do Lobo roda that João Grande witnessed',
+  'Ambos presentes na roda da Roça do Lobo de 1953 que João Grande testemunhou'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Menino Gordo' AND s.apelido_context = 'Curva Grande'
+  AND o.apelido = 'Barbosa'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Menino Gordo associated_with Cobrinha Verde (Roça do Lobo 1953)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1953-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Present together at Roça do Lobo roda witnessed by João Grande"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com/br/destaques-38',
+  'Both present at the 1953 Roça do Lobo roda that João Grande witnessed',
+  'Ambos presentes na roda da Roça do Lobo de 1953 que João Grande testemunhou'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Menino Gordo' AND s.apelido_context = 'Curva Grande'
+  AND o.apelido = 'Cobrinha Verde'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- Menino Gordo associated_with Roque (Curva Grande) - needs import first (DISTINCT from Mestre Roque Mendes dos Santos)
+-- Menino Gordo associated_with Mestre Gigante - needs import first (often confused because looked similar, "parceiros")
+-- Menino Gordo associated_with Tiburcinho - needs import first (present at 1953 Roça do Lobo roda)
+-- Menino Gordo associated_with Manoel Carregador - needs import first (present at 1953 Roça do Lobo roda)
+--
+-- Note: Gaguinho Preto's student_of relationship will go in gaguinho-preto.sql when imported:
+-- Gaguinho Preto student_of Menino Gordo (Curva Grande) - from age 4 (~1938)
+-- ============================================================
+
 -- Source: statements/persons/nenel.sql (NEW)
 -- ============================================================
 -- STATEMENTS FOR: Nenel
@@ -9055,6 +11030,25 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Congress participants: Querido de Deus, Barbosa, Zeppelin, etc.
 -- However, this identification is UNCERTAIN and should not be
 -- assumed without further evidence.
+-- ============================================================
+
+-- Source: statements/persons/oleriano-de-goes.sql (NEW)
+-- ============================================================
+-- STATEMENTS FOR: Oleriano de Góes
+-- Generated: 2025-12-22
+-- ============================================================
+-- Contains all relationships where Oleriano de Góes is the SUBJECT.
+-- Per ownership rule: statements go in file named after SUBJECT.
+-- ============================================================
+
+-- ============================================================
+-- NOTE: Family relationships follow the pattern where the YOUNGER
+-- person is the subject (like student_of). So:
+-- - Eutíquio family_of Oleriano (son) goes in eutiquio.sql
+-- - Gato Preto family_of Oleriano (grandson) goes in gato-preto.sql
+--
+-- The student_of relationship (Eutíquio student_of Oleriano)
+-- also goes in eutiquio.sql per the ownership rule.
 -- ============================================================
 
 -- Source: statements/persons/paizinho.sql (NEW)
@@ -9925,32 +11919,23 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- ============================================================
 -- STATEMENTS FOR: Zeppelin
 -- Generated: 2025-12-20
+-- Updated: 2025-12-21 (removed redundant Congress co-attendance relationships)
 -- ============================================================
 -- Contains all relationships where Zeppelin is the SUBJECT.
 --
--- Zeppelin is documented as a participant in the II Congresso
--- Afro-Brasileiro (1937) and as an informant for Edison Carneiro's
--- research. However, no formal teacher-student relationships are
--- documented for him.
+-- Zeppelin was one of three key informants for Edison Carneiro's
+-- capoeira research in "Negros Bantus" (1937), alongside Querido
+-- de Deus and Barbosa. This co-informant relationship is meaningful
+-- and documented below.
 --
--- EXISTING RELATIONSHIPS:
--- - associated_with Querido de Deus (contemporary, co-informant for Carneiro)
--- - associated_with Barbosa (contemporary, co-informant for Carneiro)
--- - associated_with Onça Preta (contemporary, 1937 Congress participant)
---
--- PENDING RELATIONSHIPS (objects not yet in dataset):
--- - associated_with Juvenal (1937 Congress participant) - needs import
--- - associated_with Bugaia (1937 Congress participant) - needs import
--- - associated_with Fernandes (1937 Congress participant) - needs import
--- - associated_with Eutíquio (1937 Congress participant) - needs import
--- - associated_with Neném (1937 Congress participant) - needs import
--- - associated_with Zei (1937 Congress participant) - needs import
--- - associated_with Arthur Mattos (1937 Congress participant) - needs import
--- - associated_with Raphael (1937 Congress participant) - needs import
--- - associated_with Edgar (1937 Congress participant) - needs import
+-- Event co-attendance (1937 Congress) is NOT modeled as statements
+-- to avoid N*(N-1)/2 redundant relationships. Congress participation
+-- is documented in bio/notes instead.
 -- ============================================================
 
--- Zeppelin associated_with Querido de Deus (co-informant for Edison Carneiro's research, 1937 Congress participant)
+-- Zeppelin associated_with Querido de Deus (co-informant for Edison Carneiro's research)
+-- This is a MEANINGFUL collaboration - they worked together as primary
+-- informants for Carneiro's groundbreaking capoeira documentation.
 INSERT INTO genealogy.statements (
   subject_type, subject_id, predicate, object_type, object_id,
   started_at, started_at_precision, ended_at, ended_at_precision,
@@ -9960,19 +11945,21 @@ SELECT
   'person'::genealogy.entity_type, s.id,
   'associated_with'::genealogy.predicate,
   'person'::genealogy.entity_type, o.id,
-  '1937-01-14'::date, 'exact'::genealogy.date_precision,
+  '1937-01-01'::date, 'year'::genealogy.date_precision,
   NULL, NULL,
-  '{"association_context": "Co-informants for Edison Carneiro''s capoeira research in ''Negros Bantus'' (1937); both participated in II Congresso Afro-Brasileiro capoeira demonstration"}'::jsonb,
+  '{"association_context": "Co-informants for Edison Carneiro''s capoeira research in ''Negros Bantus'' (1937)"}'::jsonb,
   'verified'::genealogy.confidence,
-  'Edison Carneiro, "Negros Bantus" (1937); velhosmestres.com/br/destaques-38',
-  E'Both named as key informants on capoeira de Angola in Edison Carneiro''s acknowledgments. Participated together in the historic capoeira demonstration at II Congresso Afro-Brasileiro (January 14, 1937) at Club de Regatas Itapagipe.',
-  E'Ambos citados como informantes-chave sobre capoeira de Angola nos agradecimentos de Edison Carneiro. Participaram juntos da histórica demonstração de capoeira no II Congresso Afro-Brasileiro (14 de janeiro de 1937) no Club de Regatas Itapagipe.'
+  'Edison Carneiro, "Negros Bantus" (1937) preface acknowledgments',
+  E'Edison Carneiro acknowledged receiving "the most efficient assistance" from "Samuel ''Querido de Deus,'' Barbosa and Zeppelin, regarding capoeira de Angola." This places Zeppelin among the top three capoeira informants for this seminal research.',
+  E'Edison Carneiro reconheceu ter recebido "a mais eficiente assistência" de "Samuel ''Querido de Deus,'' Barbosa e Zeppelin, sobre a capoeira de Angola." Isto coloca Zeppelin entre os três principais informantes de capoeira para esta pesquisa seminal.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Zeppelin' AND COALESCE(s.apelido_context, '') = ''
   AND o.apelido = 'Querido de Deus' AND COALESCE(o.apelido_context, '') = ''
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Zeppelin associated_with Barbosa (co-informant for Edison Carneiro's research, 1937 Congress participant)
+-- Zeppelin associated_with Barbosa (co-informant for Edison Carneiro's research)
+-- This is a MEANINGFUL collaboration - they worked together as primary
+-- informants for Carneiro's groundbreaking capoeira documentation.
 INSERT INTO genealogy.statements (
   subject_type, subject_id, predicate, object_type, object_id,
   started_at, started_at_precision, ended_at, ended_at_precision,
@@ -9982,57 +11969,29 @@ SELECT
   'person'::genealogy.entity_type, s.id,
   'associated_with'::genealogy.predicate,
   'person'::genealogy.entity_type, o.id,
-  '1937-01-14'::date, 'exact'::genealogy.date_precision,
+  '1937-01-01'::date, 'year'::genealogy.date_precision,
   NULL, NULL,
-  '{"association_context": "Co-informants for Edison Carneiro''s capoeira research in ''Negros Bantus'' (1937); both participated in II Congresso Afro-Brasileiro capoeira demonstration"}'::jsonb,
+  '{"association_context": "Co-informants for Edison Carneiro''s capoeira research in ''Negros Bantus'' (1937)"}'::jsonb,
   'verified'::genealogy.confidence,
-  'Edison Carneiro, "Negros Bantus" (1937); velhosmestres.com/br/destaques-38',
-  E'Both named as key informants on capoeira de Angola in Edison Carneiro''s acknowledgments. Participated together in the historic capoeira demonstration at II Congresso Afro-Brasileiro (January 14, 1937) at Club de Regatas Itapagipe.',
-  E'Ambos citados como informantes-chave sobre capoeira de Angola nos agradecimentos de Edison Carneiro. Participaram juntos da histórica demonstração de capoeira no II Congresso Afro-Brasileiro (14 de janeiro de 1937) no Club de Regatas Itapagipe.'
+  'Edison Carneiro, "Negros Bantus" (1937) preface acknowledgments',
+  E'Edison Carneiro acknowledged receiving "the most efficient assistance" from "Samuel ''Querido de Deus,'' Barbosa and Zeppelin, regarding capoeira de Angola." This places Zeppelin and Barbosa among the top three capoeira informants for this seminal research.',
+  E'Edison Carneiro reconheceu ter recebido "a mais eficiente assistência" de "Samuel ''Querido de Deus,'' Barbosa e Zeppelin, sobre a capoeira de Angola." Isto coloca Zeppelin e Barbosa entre os três principais informantes de capoeira para esta pesquisa seminal.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Zeppelin' AND COALESCE(s.apelido_context, '') = ''
   AND o.apelido = 'Barbosa' AND o.apelido_context = 'Cachoeira/Largo Dois de Julho'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Zeppelin associated_with Onça Preta (1937 Congress participant)
-INSERT INTO genealogy.statements (
-  subject_type, subject_id, predicate, object_type, object_id,
-  started_at, started_at_precision, ended_at, ended_at_precision,
-  properties, confidence, source, notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1937-01-14'::date, 'exact'::genealogy.date_precision,
-  NULL, NULL,
-  '{"association_context": "Fellow participants in II Congresso Afro-Brasileiro capoeira de Angola demonstration (1937)"}'::jsonb,
-  'verified'::genealogy.confidence,
-  'Estado da Bahia newspaper (January 1937); velhosmestres.com/br/destaques-38',
-  E'Both participated in the capoeira de Angola demonstration at II Congresso Afro-Brasileiro (January 14, 1937) at Club de Regatas Itapagipe, directed by Samuel Querido de Deus.',
-  E'Ambos participaram da demonstração de capoeira de Angola no II Congresso Afro-Brasileiro (14 de janeiro de 1937) no Club de Regatas Itapagipe, dirigida por Samuel Querido de Deus.'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Zeppelin' AND COALESCE(s.apelido_context, '') = ''
-  AND o.apelido = 'Onça Preta' AND COALESCE(o.apelido_context, '') = ''
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
 -- ============================================================
--- PENDING RELATIONSHIPS (objects not yet in dataset)
+-- NOT MODELED AS STATEMENTS (event co-attendance only):
 -- ============================================================
--- The following contemporaries from the 1937 Congress are not yet
--- imported. When they are added, create associated_with statements:
+-- The following relationships are NOT created because they represent
+-- mere event co-attendance at the 1937 Congress, not meaningful
+-- personal connections:
 --
--- Zeppelin associated_with Juvenal - 1937 Congress participant
--- Zeppelin associated_with Bugaia - 1937 Congress participant
--- Zeppelin associated_with Fernandes - 1937 Congress participant
--- Zeppelin associated_with Eutíquio - 1937 Congress participant
--- Zeppelin associated_with Neném - 1937 Congress participant; distinct from Neném (Noronha's father)
--- Zeppelin associated_with Zei - 1937 Congress participant
--- Zeppelin associated_with Arthur Mattos - 1937 Congress participant
--- Zeppelin associated_with Raphael - 1937 Congress participant
--- Zeppelin associated_with Edgar - 1937 Congress participant; may be same as "Edgard" in some sources
+-- - Zeppelin with Onça Preta, Juvenal, Bugaia, Fernandes, Eutíquio,
+--   Neném, Zei, Ambrósio, Barroso, Arthur Mattos, Raphael, Edgar, Damião
 --
--- Note: Ambrósio, Barroso, and Damião are in the backlog but not yet imported
+-- These contemporaries are documented in Zeppelin's bio and notes.
 -- ============================================================
 
 -- Source: statements/persons/zuma.sql (NEW)
@@ -10672,23 +12631,133 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Gato Preto' AND o.apelido = 'Vermelho 27'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- ------------------------------------------------------------
+-- Gato Preto student_of Eutíquio
+-- First teacher (father); trained 1938-1942 until cabeçada incident
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1938-01-01'::date, 'year'::genealogy.date_precision,
+  '1942-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com; capoeira.online; capoeira-connection.com',
+  E'Gato Preto began learning capoeira at age 8 (1938) from his father Eutíquio Lúcio Góes in Santo Amaro da Purificação. Training took place in a small enclosed room where his father would attack with a maculelê stick or machete. Around age 12 (1942), after Gato Preto delivered a powerful cabeçada that knocked his father down, Eutíquio stopped teaching him. Eutíquio himself had learned from his father, the African Oleriano de Góes.',
+  E'Gato Preto começou a aprender capoeira aos 8 anos (1938) com seu pai Eutíquio Lúcio Góes em Santo Amaro da Purificação. O treinamento acontecia em um pequeno quarto fechado onde seu pai atacava com bastão de maculelê ou facão. Por volta dos 12 anos (1942), depois que Gato Preto deu uma cabeçada poderosa que derrubou seu pai, Eutíquio parou de ensiná-lo. O próprio Eutíquio havia aprendido com seu pai, o africano Oleriano de Góes.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Gato Preto' AND o.apelido = 'Eutíquio'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Gato Preto family_of Eutíquio (son)
+-- José Gabriel Góes was the son of Eutíquio Lúcio Góes
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'family_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  NULL, NULL,
+  '{"relationship_type": "son"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com; capoeira.online; USP Núcleo de Artes Afro-Brasileiras',
+  'José Gabriel Góes (Gato Preto) was the son of Eutíquio Lúcio Góes. He stated: "Aprendi capoeira com meu pai" (I learned capoeira from my father). He began training with his father at age 8 in Santo Amaro da Purificação.',
+  'José Gabriel Góes (Gato Preto) era filho de Eutíquio Lúcio Góes. Ele afirmou: "Aprendi capoeira com meu pai" (Aprendi capoeira com meu pai). Começou a treinar com seu pai aos 8 anos em Santo Amaro da Purificação.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Gato Preto' AND o.apelido = 'Eutíquio'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- NOTE: Gato Preto family_of Oleriano de Góes (grandson) relationship removed.
+-- The grandfather lineage is already established through:
+--   Gato Preto -> Eutíquio (son) -> Oleriano de Góes (son)
+-- Direct grandson relationship is redundant and can be inferred from the chain.
+
+-- ------------------------------------------------------------
+-- Gato Preto trained_under João Catarino (uncle)
+-- Uncle, student of Besouro Mangangá, continued teaching after father stopped
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1942-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com; capoeira.online; capoeira-connection.com',
+  E'After Gato Preto''s father Eutíquio stopped teaching him around 1942 (following the cabeçada incident), his uncle João Catarino continued his education. João Catarino was a student of Besouro Mangangá. Gato Preto testified: "Depois veio meu tio, João Catarino, aluno de Besouro, até que ele morreu de derrame, que a turma chamava de congestão" (Then came my uncle, João Catarino, a student of Besouro, until he died of a stroke).',
+  E'Depois que o pai de Gato Preto, Eutíquio, parou de ensiná-lo por volta de 1942 (após o incidente da cabeçada), seu tio João Catarino continuou sua educação. João Catarino era aluno de Besouro Mangangá. Gato Preto testemunhou: "Depois veio meu tio, João Catarino, aluno de Besouro, até que ele morreu de derrame, que a turma chamava de congestão".'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Gato Preto' AND o.apelido = 'João Catarino'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Gato Preto family_of João Catarino (nephew)
+-- José Gabriel Góes was the nephew of João Catarino
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'family_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  NULL, NULL,
+  '{"relationship_type": "nephew"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'velhosmestres.com; capoeira.online; capoeira-connection.com',
+  'José Gabriel Góes (Gato Preto) was the nephew of João Catarino. He referred to him as "meu tio" (my uncle). João Catarino was the brother of Eutíquio (Gato Preto''s father), both sons of the African Oleriano de Góes.',
+  'José Gabriel Góes (Gato Preto) era sobrinho de João Catarino. Ele se referia a ele como "meu tio". João Catarino era irmão de Eutíquio (pai de Gato Preto), ambos filhos do africano Oleriano de Góes.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Gato Preto' AND o.apelido = 'João Catarino'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Gato Preto trained_under Léo (São Braz)
+-- Trained in São Braz from 1942 as part of weekend training group
+-- NOTE: Léo entity uses apelido_context='São Braz' to distinguish from other Léos
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1942-01-01'::date, 'year'::genealogy.date_precision,
+  '1947-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com/br/gatopreto; velhosmestres.com/br/gato-1999-4',
+  E'In 1942, at around age 12, Gato Preto moved to São Braz where he began studying with Mestre Léo. Léo led a weekend capoeira group that included Messias, Zinho, Genesio, Lao, Tomazinho, Jaime, and Chumbinho. As Gato Preto recalled: "E Léo era o mestre." By then, people already said Gato Preto had nothing left to learn. In 1947, at seventeen, Gato Preto moved to Salvador to train with Cobrinha Verde.',
+  E'Em 1942, com cerca de 12 anos, Gato Preto mudou-se para São Braz onde começou a estudar com Mestre Léo. Léo liderava um grupo de capoeira de fim de semana que incluía Messias, Zinho, Genesio, Lao, Tomazinho, Jaime e Chumbinho. Como Gato Preto recordou: "E Léo era o mestre." A essa altura, as pessoas já diziam que Gato Preto não tinha mais nada a aprender. Em 1947, aos dezessete anos, Gato Preto mudou-se para Salvador para treinar com Cobrinha Verde.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Gato Preto' AND o.apelido = 'Léo' AND o.apelido_context = 'São Braz'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
-
--- PERSON RELATIONSHIPS - TEACHERS (not in dataset)
-
--- Gato Preto student_of Eutíquio Lúcio Góes (father) - PENDING
--- His father taught him from age 8 (1938) until the powerful cabeçada incident
--- Object 'Eutíquio Lúcio Góes' needs import - add to backlog? Historical figure, not mestre
-
--- Gato Preto trained_under João Catarino (uncle) - PENDING
--- Uncle, student of Besouro Mangangá, continued teaching after father stopped
--- Object 'João Catarino' needs import - add to backlog
-
--- Gato Preto trained_under Léo (Mestre Léo from São Braz) - PENDING
--- Trained with Léo in São Braz from 1942
--- Object 'Léo' needs import - add to backlog
 
 -- PERSON RELATIONSHIPS - STUDENTS (not in dataset)
 

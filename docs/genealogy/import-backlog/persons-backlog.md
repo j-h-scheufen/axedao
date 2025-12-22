@@ -21,8 +21,6 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 |---------|-----------|-------|-----------------|--------|--------|-------|
 | Deputy Santana | - | Deputy | Manduca da Praia import | pending | ? | Portuguese deputy, famous opponent of Manduca; street fighter but unclear if capoeirista |
 | Jorge Marinha | - | - | Manduca da Praia import | pending | ? | Possibly chief of Marinha gang (Guaiamú); no additional info found in research - may refer to Marinha parish rather than a person |
-| Valdevino | - | - | Jovino dos Coelhos import | pending | yes | Recife capoeirista; arrested alongside Jovino dos Coelhos and João de Totó during police campaigns |
-| Professor Sarapó | Christoph | Professor | Madeira import | pending | yes | Student of Mestre Madeira; leads Grupo Siri de Mangue branches in Vienna and Linz, Austria; 18+ years experience |
 | Camisa | - | - | Sete Coroas import | pending | ? | Companion of Sete Coroas; described as "terrible"; died before 1923 - unclear if capoeirista |
 | Benedito (Rio) | - | - | Sete Coroas import | pending | ? | Companion of Sete Coroas; described as "terrible"; died before 1923 - unclear if capoeirista |
 | Valdemar Santana | - | - | Quinzinho import | pending | ? | Famous fighter who brought Artur Emídio to Rio; not primarily a capoeirista but connected to capoeira history |
@@ -33,6 +31,8 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Firmina | - | - | Idalina import | pending | ? | Companion of Idalina; defended by Idalina in 1917 incident; unclear if capoeirista |
 | Massú | - | - | Salomé import | pending | ? | Listed among legendary female capoeiristas of Bahia; needs investigation |
 | Catu | - | - | Salomé import | pending | ? | Listed among legendary female capoeiristas of Bahia; needs investigation |
+| Valdevino | - | - | Jovino dos Coelhos import | pending | yes | Recife capoeirista; arrested alongside Jovino dos Coelhos and João de Totó during police campaigns |
+| Professor Sarapó | Christoph | Professor | Madeira import | pending | yes | Student of Mestre Madeira; leads Grupo Siri de Mangue branches in Vienna and Linz, Austria; 18+ years experience |
 | Preguiça (Filhos de Bimba) | - | Mestra | Nenel import | pending | yes | First woman to receive white scarf (mestra) in Capoeira Regional; training at Filhos de Bimba since 1995; consecrated 2010; partner of Mestre Nenel; working with Projeto Capoerê since 1994; DISTINCT from Mestre Preguiça (Walmir Oliveira) of Grupo Senzala; use apelido_context to distinguish |
 | Mãe Alice | Alice Maria da Cruz | - | Nenel import | pending | ? | Ialorixá of Nordeste de Amaralina; raised Mestre Nenel; worked at Bimba's academy; founded Oiá Padê da Riméia terreiro (1962); organized Candomblé presentations for Bimba's parties; uncertain if capoeirista |
 | Moise Sucuiba | - | Mestre | Nenel import | pending | ? | Mestre; Nenel taught at his academy 1984-1986; needs investigation |
@@ -51,13 +51,13 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Edinho | - | Mestre | Mestre Bimba import | pending | yes | One of only four students formally graduated to mestre by Bimba (white handkerchief); deceased |
 | Almiro | - | Mestre | Mestre Bimba import | pending | yes | Brief supervisor of Terreiro de Jesus school after Vermelho 27 |
 | Bamba | Rubens Costa Silva | Mestre | Vermelho 27 import | pending | yes | Student of Vermelho 27 (began 1977); current leader of Associação de Capoeira Mestre Bimba at Terreiro de Jesus; born 1965; met Vermelho 27 through Vermelho Boxel |
-| Mário Aleixo | - | - | Zuma import | pending | yes | 1920s Rio de Janeiro capoeira teacher; opened capoeiragem school at Gymnástico Português with Raul Pederneiras (1920); taught "ginástica nacional"; influenced Bimba's methods alongside Zuma and Sinhozinho |
+| Mário Aleixo | - | - | Zuma import | done | yes | 1920s Rio de Janeiro capoeira teacher; opened capoeiragem school at Gymnástico Português with Raul Pederneiras (1920); taught "ginástica nacional"; influenced Bimba's methods alongside Zuma and Sinhozinho - SQL generated |
 | Raul Pederneiras | - | - | Zuma import | pending | ? | Journalist/cartoonist; capoeira advocate; wrote two-column article praising Zuma's manual in Jornal do Brasil; opened capoeiragem school with Mário Aleixo (1920); published "silhouettes" depicting capoeira movements (1921, 1926); NOT primarily a capoeirista—mainly intellectual advocate |
 | Formiga | Demerval dos Santos Machado | - | Mestre Bimba import | pending | yes | Son of Mestre Bimba; graduated alongside Nenel in June 1967 |
 | Henrique Bahia | - | - | Mestre Bimba import | pending | yes | One of Bimba's 1936 challenge opponents; defeated by Bimba |
 | Vítor Benedito Lopes | - | - | Mestre Bimba import | pending | yes | One of Bimba's 1936 challenge opponents; defeated by Bimba |
 | José Custódio dos Santos | - | - | Mestre Bimba import | pending | yes | "Zé I"; fellow capoeirista; one of Bimba's 1936 challenge opponents; defeated 15-2 |
-| Tiburcinho | - | Mestre | Mestre Bimba import | pending | yes | Brought to Bimba by Decânio; helped Bimba remember songs and maculelê choreographies |
+| Tiburcinho | - | Mestre | Mestre Bimba import | pending | yes | Brought to Bimba by Decânio; helped Bimba remember songs and maculelê choreographies; also present at 1953 Roça do Lobo roda witnessed by João Grande alongside Menino Gordo, João Pequeno, Barbosa, Cobrinha Verde |
 | Lúcio Barra Preta | - | - | Mestre Bimba import | pending | ? | Police chief who allegedly ambushed Bimba after 1936 match; lost money on bets; unclear if capoeirista |
 | Vinte e Nove | - | Mestre | Brás Amansa Brabo import | pending | yes | Direct disciple of Mestre Bimba; listed in 1982 O Globo article as prominent Regional mestre in Salvador |
 | Medicina | - | Mestre | Brás Amansa Brabo import | pending | yes | Direct disciple of Mestre Bimba; listed in 1982 O Globo article as prominent Regional mestre in Salvador |
@@ -71,15 +71,15 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Zacarias Boa Morte | - | Mestre | Waldemar import | pending | yes | Student of Waldemar from 1942 (his first student); founded Escola Zacarias Boa Morte (1999); died Nov 3, 2000; photographed by Pierre Verger (1948) |
 | José Cabelo Bom | - | - | Waldemar import | pending | yes | Primary student of Waldemar; mentioned as continuing his tradition alongside Zacarias Boa Morte |
 | Olavo | - | - | Waldemar import | pending | yes | Student of Waldemar from 1958 |
-| Ambrósio | - | - | Mapa da Capoeira | pending | yes | Pre-Pastinha era practitioner; developed Capoeira Angola alongside Samuel Querido de Deus, Barbosa, Onça Preta, Juvenal, Zepelin, Neném, Zei, Barroso, Damião |
-| Barroso | - | - | Mapa da Capoeira | pending | yes | Pre-Pastinha era practitioner; developed Capoeira Angola alongside Samuel Querido de Deus; DISTINCT from Barbosa |
+| Ambrósio | - | - | Mapa da Capoeira | done | yes | Pre-Pastinha era practitioner; participated in 1937 II Congresso Afro-Brasileiro demonstration - SQL generated |
+| Barroso | - | - | Mapa da Capoeira | done | yes | Pre-Pastinha era practitioner; developed Capoeira Angola alongside Samuel Querido de Deus - SQL generated |
 | Gaguinho Preto | Everaldo Arcanjo de Assis | - | Vitor Agaú import | pending | yes | Student of Vitor Agaú, Menino Gordo, and Roque in Curva Grande (1934-2002); also trained at CECA and with Zeca do Uruguai |
-| Menino Gordo da Curva Grande | - | - | Vitor Agaú import | pending | yes | Teacher of Gaguinho Preto alongside Roque and Vitor Agaú in Curva Grande neighborhood |
+| Menino Gordo da Curva Grande | - | - | Vitor Agaú import | done | yes | Teacher of Gaguinho Preto alongside Roque and Vitor Agaú in Curva Grande neighborhood; present at 1953 Roça do Lobo roda witnessed by João Grande; uses apelido_context 'Curva Grande' - SQL generated |
 | Zeca do Uruguai | - | Mestre | Vitor Agaú import | pending | yes | Teacher of Gaguinho Preto; first cousin of Gato Preto; cousin of Cobrinha Verde; from Santo Amaro; students include Pierrô and Nilton |
 | Juvelino | - | - | Gasolina import | pending | yes | Capoeirista killed during Pedrito persecution (1920s); listed by Onça Preta among the fallen |
 | Severo do Pelourinho | - | - | Traira import | pending | yes | Mestre from Pelourinho district of Salvador; additional teacher of Traira; timing unknown |
 | Barba Branca | Gilberto Reis Ferreira dos Santos Filho | Mestre | Traira import | pending | yes | Student of Traira (~1970-1971); later studied with Joao Pequeno 15 years; mestre 1991; founder of GCAC; (1957-2021) |
-| Ananias | - | Mestre | Traira import | pending | yes | Born Dec 1924 in Sao Felix; began capoeira 1938 in Juvencio's rodas; encountered Traira there around 1938 |
+| Ananias | Ananias Ferreira | Mestre | Traira import | done | yes | Born Oct 4, 1924 in São Félix; died July 21, 2016 in São Paulo; pioneer of capoeira angola in São Paulo; founder of Roda da Praça da República - SQL generated |
 | Marco Buscapé | - | ? | Roque import | pending | ? | Son of Zé Bedeu (Roque's uncle); mentioned in capoeuropa.org; DISTINCT from Mário Buscapé (son of José Bidel); needs verification |
 | Sandrinha | Sandra Eugênia Feitosa | Mestra | Roque import | pending | yes | Student of Roque; possibly first female capoeira mestra in Brazil (1970s); taught at Grupo Bantus de Capoeira |
 | Poeira | - | Mestre | Roque import | pending | yes | Student of Roque; lineage continues through Cebu Torpedo Capoeira (Mestre Poeira → Mestre Cabeça → Mestre Torpedo) |
@@ -99,8 +99,8 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Pinguim | Luiz Antonio Nascimento Cardoso | Contra-mestre | Gato Preto import | pending | yes | Student of Gato Preto; received contramestre title 2001 at Terreiro do Bogum; founder of Guerreiros de Senzala at USP; artistic director of Núcleo de Artes Afro-Brasileiras at USP |
 | Zeca (Gato Preto) | José Souza Góes | Mestre | Gato Preto import | pending | yes | Son of Gato Preto (Gatinho/Gato III); 1956-2024; co-founded Capoeira 3 Amigos (1974); co-founded Filhos de Oxalá; advocated traditional Angola games; use apelido_context to distinguish |
 | Gato II | Sinésio Souza Góes | Mestre | Gato Preto import | pending | yes | Son of Gato Preto; born Sept 7, 1950; performed with father in Brasília (1969) |
-| Léo (São Braz) | - | Mestre | Gato Preto import | pending | yes | Mestre from São Braz; taught Gato Preto from 1942; use apelido_context to distinguish |
-| João Catarino | - | - | Gato Preto import | pending | yes | Uncle of Gato Preto; student of Besouro Mangangá; continued teaching Gato Preto after his father stopped |
+| Léo (São Braz) | - | Mestre | Multiple (Gato Preto, João Catarino imports) | done | yes | Mestre from São Braz; student of João Catarino; taught Gato Preto from 1942 and Mestre Messias from 1942 (formed 1947); uses apelido_context='São Braz' - SQL generated |
+| João Catarino | - | - | Gato Preto import | done | yes | Uncle of Gato Preto; brother of Eutíquio; student of Besouro Mangangá; teacher of Gato Preto and Mestre Léo - SQL generated |
 | Mário Bom Cabrito | Mário Rodrigues Ferreira do Rosário | Mestre | Multiple | pending | DUPLICATE | DUPLICATE of "Bom Cabrito" at line 241 - merge into that entry; Student of Gato Preto; appears in 1963 photographs at Mirante do Calabar; played berimbau |
 | Espinho Remoso | - | - | Gato Preto import | pending | yes | Taught at Gato Preto's academies in the 1970s (Rua do Báu, Boca do Rio) |
 | Zé Baiano | - | Mestre | Gato Preto import | pending | yes | Trained with Gato Preto from 1984; wrote "With him I perfected my knowledge of Capoeira Angola" |
@@ -124,7 +124,7 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Valmir | Valmir Santos Damasceno | Mestre | Moraes import | pending | yes | Student of GCAP from 1982; contramestre 1992; left GCAP 1994; mestre 2003; leads FICA-Salvador |
 | Jurandir Nascimento | Jurandir Nascimento | Mestre | Moraes import | pending | yes | Pioneer of GCAP; founded N'GOLO Angola group in Minas Gerais 1990; co-founded FICA 1995/1996 with Cobra Mansa and Valmir; ICAF president; born in Rio de Janeiro (some sources say Minas Gerais); started capoeira 1970; DISTINCT from Jurandir (Bimba 1949) and Jurandir Santos (João Grande's son) |
 | Jelon Vieira | - | Mestre | João Grande import | pending | yes | NEA Heritage Fellow; invited João Grande to tour USA in 1989; introduced capoeira to New York in 1970s with Viva Bahia |
-| Menino Gordo | - | Mestre | João Grande import | pending | yes | Present at first roda João Grande witnessed in Salvador 1953; mentioned alongside João Pequeno, Barbosa, Cobrinha Verde |
+| Menino Gordo | - | Mestre | João Grande import | done | yes | SAME PERSON as "Menino Gordo da Curva Grande" - research confirms they are one person; present at 1953 Roça do Lobo roda; SQL generated under apelido_context 'Curva Grande' |
 | Jurandir Santos | Jurandir Souza dos Santos | Mestre | João Grande import | pending | yes | Son and student of Mestre João Grande; trained from early childhood; listed on CapoeiraHub; DISTINCT from Jurandir (Bimba 1949) and Jurandir Nascimento (GCAP) |
 | Marquinho | - | Mestre | João Grande import | pending | yes | Began training with João Grande in 2000; listed on CapoeiraHub lineage |
 | Josias da Silva | - | - | Cobra Mansa import | pending | ? | First capoeira teacher of Cobra Mansa (1973) in Duque de Caxias; unclear if mestre or street capoeirista |
@@ -244,7 +244,8 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Cutica | - | - | gen.campodemandinga.com.br lineage | pending | yes | Student of Zeca; teacher of Mestre Nô; appears in Campo de Mandinga genealogy alongside Pierrô and Nilton |
 | Olegário | - | - | gen.campodemandinga.com.br lineage | pending | yes | Teacher of Gato Preto; appears in Campo de Mandinga genealogy |
 | Rafael Flores | - | - | gen.campodemandinga.com.br lineage | pending | yes | Teacher of Mestre Peixinho (Senzala founder); appears in Campo de Mandinga genealogy alongside Mestre Gato |
-| Eutíquio | Eutíquio Lúcio Góes | - | Gato Preto import | pending | yes | Father of Gato Preto; taught him capoeira from age 8 (1938) in Santo Amaro da Purificação; stopped teaching after powerful cabeçada incident; mentioned in Gato Preto statements as pending import |
+| Eutíquio | Eutíquio Lúcio Góes | - | Gato Preto import | done | yes | Father of Gato Preto; taught him capoeira from age 8 (1938) in Santo Amaro da Purificação; stopped teaching after powerful cabeçada incident - SQL generated |
+| Oleriano de Góes | Oleriano de Góes | - | Eutíquio import | done | yes | African; FATHER of Eutíquio (confirmed by Gato Preto's testimony: "meu avô"); taught Eutíquio capoeira; represents direct African lineage to Gato Preto family - SQL generated |
 | Bulgário | - | - | Américo Ciência import | pending | yes | Mestre at Liberdade/Gengibirra roda (pre-1941); contemporary of Américo Ciência; NOT among 22 Gengibirra founders |
 | Domingos Magalhães | - | - | Américo Ciência import | pending | yes | Mestre at Liberdade/Gengibirra roda (pre-1941); contemporary of Américo Ciência; NOT among 22 Gengibirra founders |
 | Eulâmpio | - | - | Américo Ciência import | pending | yes | Mestre at Liberdade/Gengibirra roda (pre-1941); contemporary of Américo Ciência; NOT among 22 Gengibirra founders |
@@ -268,7 +269,7 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Bobó | - | Mestre | Curió import | pending | yes | 1988 Velha Guarda participant in Florianópolis with Curió, João Pequeno, Nó, Boa Gente |
 | Nó | - | Mestre | Curió import | pending | yes | 1988 Velha Guarda participant in Florianópolis with Curió, João Pequeno, Bobó, Boa Gente |
 | Boa Gente | - | Mestre | Curió import | pending | yes | 1988 Velha Guarda participant in Florianópolis with Curió, João Pequeno, Bobó, Nó; also trained Mestre Pintor |
-| Gigante | - | Mestre | Curió import | pending | yes | 1980 First Regional Capoeira Seminar participant with Curió, Cobrinha Verde, João Grande; student of Waldemar |
+| Gigante | - | Mestre | Multiple (Curió, Menino Gordo imports) | pending | yes | Student of Waldemar; Menino Gordo's "parceiro" (partner/companion); they "looked very similar" and were often confused; Salvador capoeirista active 1940s-1950s; 1980 First Regional Capoeira Seminar participant with Curió, Cobrinha Verde, João Grande |
 | Raimundo Natividade | Raimundo da Virgem Natividade | - | Albertino da Hora import | pending | yes | Musician and companion of Mestre Pastinha; documented in O Cruzeiro 1963 alongside João Grande, Albertino da Hora, Manuel de Carvalho |
 | Manuel de Carvalho | - | - | Albertino da Hora import | pending | yes | Musician and companion of Mestre Pastinha; documented in O Cruzeiro 1963 alongside João Grande, Albertino da Hora, Raimundo Natividade |
 | Toinho | - | - | Albertino da Hora import | pending | yes | Companion of Mestre Pastinha; participated in 1964 Belo Horizonte trip with Pastinha, Gildo Alfinete, Roberto Satanás, João Grande, Albertino da Hora |
@@ -317,3 +318,33 @@ This backlog tracks capoeira persons pending import. Non-capoeira entities shoul
 | Raphael (1937 Congress) | - | - | Zeppelin import | pending | yes | Pre-Pastinha era practitioner; participated in II Congresso Afro-Brasileiro capoeira demonstration (January 14, 1937); DISTINCT from Raphael Logam Bonezinho (Nestor Capoeira student); use apelido_context '1937 Congress' |
 | Polu | - | - | Zeppelin import | pending | yes | Pre-Pastinha era practitioner; participated in II Congresso Afro-Brasileiro (1937); listed in capoeirahistory.com among Edison Carneiro/Jorge Amado federation advocacy participants |
 | Ricardo (1937 Congress) | - | - | Zeppelin import | pending | yes | Pre-Pastinha era practitioner; participated in II Congresso Afro-Brasileiro (1937); listed in capoeirahistory.com; DISTINCT from Ricardo de Ilha de Maré; use apelido_context '1937 Congress' |
+| João de Zazá | - | - | Ananias import | pending | yes | São Félix dock roda participant (~1938+); trained with Juvêncio; contemporary of Ananias, Traíra |
+| Toy | - | - | Ananias import | pending | yes | São Félix dock roda participant (~1938+); brother of Roxinho; trained with Juvêncio |
+| Roxinho | - | - | Ananias import | pending | yes | São Félix dock roda participant (~1938+); brother of Toy; trained with Juvêncio |
+| Alvelino | - | - | Ananias import | pending | yes | São Félix dock roda participant (~1938+); brother of Santos; from Muritiba; trained with Juvêncio |
+| Santos (Muritiba) | - | - | Ananias import | pending | yes | São Félix dock roda participant (~1938+); brother of Alvelino; from Muritiba; trained with Juvêncio; use apelido_context 'Muritiba' to distinguish |
+| Caial | - | - | Ananias import | pending | yes | São Félix dock roda participant (~1938+); trained with Juvêncio; contemporary of Ananias, Traíra |
+| Café (São Félix) | - | - | Ananias import | pending | yes | São Félix dock roda participant (~1938+); from Cachoeira; trained with Juvêncio; use apelido_context 'São Félix' to distinguish |
+| Estevão (Letialvi) | - | - | Ananias import | pending | yes | São Félix dock roda participant (~1938+); factory guard at "Letialvi" cigar factory; described by Ananias as having "capoeira perversa" (vicious capoeira); trained with Juvêncio; use apelido_context 'Letialvi' to distinguish |
+| Evaristo | Evaristo Martins Vieira | - | Ananias import | pending | yes | Traveled with Ananias from Salvador to São Paulo (1953) for theater work; recruited by producers Wilson and Sérgio Maia; trained at Waldemar's Barracão |
+| Jonas | Jonas Ferreira dos Santos | - | Ananias import | pending | yes | Traveled with Ananias from Salvador to São Paulo (1953) for theater work; recruited by producers Wilson and Sérgio Maia; trained at Waldemar's Barracão |
+| Adão Felix | Adão Felix Reis | - | Ananias import | pending | yes | Traveled with Ananias from Salvador to São Paulo (1953) for theater work; recruited by producers Wilson and Sérgio Maia; trained at Waldemar's Barracão |
+| Zei | - | - | Ambrósio import | pending | yes | Pre-Pastinha era practitioner; participated in II Congresso Afro-Brasileiro capoeira demonstration (January 14, 1937); developed Capoeira Angola alongside Samuel Querido de Deus, Barbosa, Ambrósio |
+| Edgar (1937 Congress) | - | - | Ambrósio import | pending | yes | Pre-Pastinha era practitioner; participated in II Congresso Afro-Brasileiro capoeira demonstration (January 14, 1937); use apelido_context '1937 Congress' |
+| Roque (Curva Grande) | - | - | Menino Gordo da Curva Grande import | pending | yes | Co-teacher of Gaguinho Preto alongside Menino Gordo and Vitor Agaú in Curva Grande (~1938); DISTINCT from Mestre Roque Mendes dos Santos (b. 1938 Rio) who couldn't have taught in 1938; use apelido_context 'Curva Grande' |
+| Gigante | - | Mestre | Menino Gordo da Curva Grande import | DUPLICATE | - | DUPLICATE of entry at line 272 - merged into that entry |
+| Manoel Carregador | - | - | Menino Gordo da Curva Grande import | pending | yes | Present at 1953 Roça do Lobo roda witnessed by João Grande alongside Menino Gordo, João Pequeno, Barbosa, Cobrinha Verde, Tiburcinho |
+| Messias | Manoel Messias Pereira | Mestre | Multiple (João Catarino, Léo (São Braz) imports) | pending | yes | Born Aug 6, 1927 São Braz, Santo Amaro; died Feb 9, 2019; student of Mestre Léo from 1942 (age 15); formed mestre at age 20 in 1947; Besouro → João Catarino → Léo → Messias lineage; received Grão Mestre title 2011; Ralph Waddey recorded his prayer (reza) in 1978 |
+| Zinho | - | - | Léo (São Braz) import | pending | ? | Member of Mestre Léo's São Braz weekend training group (~1942); contemporary of Gato Preto and Messias; aged 15-16 at the time |
+| Genesio | - | - | Léo (São Braz) import | pending | ? | Member of Mestre Léo's São Braz weekend training group (~1942); contemporary of Gato Preto and Messias; aged 15-16 at the time |
+| Lao | - | - | Léo (São Braz) import | pending | ? | Member of Mestre Léo's São Braz weekend training group (~1942); contemporary of Gato Preto and Messias; aged 15-16 at the time |
+| Tomazinho | - | - | Léo (São Braz) import | pending | ? | Member of Mestre Léo's São Braz weekend training group (~1942); contemporary of Gato Preto and Messias; aged 15-16 at the time |
+| Jaime | - | - | Léo (São Braz) import | pending | ? | Member of Mestre Léo's São Braz weekend training group (~1942); contemporary of Gato Preto and Messias; aged 15-16 at the time |
+| Chumbinho | - | - | Léo (São Braz) import | pending | ? | Member of Mestre Léo's São Braz weekend training group (~1942); contemporary of Gato Preto and Messias; aged 15-16 at the time |
+| Raphael Lóthus | - | - | Mário Aleixo import | pending | yes | Co-founded Escola de Ginástica Nacional (1916) with Mário Aleixo; systematized capoeiragem methodology; physical educator; taught Swedish gymnastics at Colégio Brasil in Niterói (1917); likely learned capoeira from maltas remnants; died by homicide followed by suicide; largely forgotten figure |
+| Gustavo Senna | - | - | Mário Aleixo import | pending | ? | Directed 1920 sports festival exhibitions together with Mário Aleixo and Sinhozinho; directed boxing match at same event; described as "champion"; needs investigation to determine capoeira involvement |
+| Inauá | Inauá Mendes | mestre | Onça Preta import | done | yes | Student of Onça Preta in Ilha do Governador, Rio de Janeiro; maintained Onça Preta's lineage by training Mestres King Kong and Cláudio São Bento - SQL generated |
+| King Kong | Nelson Luís do Carmo | Grão Mestre | Inauá import | pending | yes | Born 1950s; student of Mestre Inauá Mendes; practiced at Quinta da Boa Vista roda; president of Grupo Capoeirarte; currently blind but in good health; trained Mestre Baia (founder of Geração Nagô); ikiogato.comunidades.net source |
+| Cláudio São Bento | - | mestre | Inauá import | pending | yes | Student of Mestre Inauá in Rio de Janeiro; part of Onça Preta → Inauá lineage; velhosmestres.com source |
+| Baia | Thiago da Silva Costa | Mestre | Inauá import | pending | yes | Student of Mestre King Kong (first to receive mestre from him); founder and president of Associação Cultural de Capoeira Geração Nagô (Nov 30, 2013); based in Jacarezinho favela, Rio de Janeiro; affiliated with Grupo Roda Viva (Mestre Bom Fim) |
+| Empadinha | - | Mestrando | Inauá import | pending | yes | Coordinator of Geração Nagô; created Projeto Maitá do Amanhã in Piabetá, Magé; King Kong lineage |

@@ -125,25 +125,10 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- FAMILY RELATIONSHIPS
 -- ============================================================
 
--- Curió family_of Curió Velho (grandchild relationship)
-INSERT INTO genealogy.statements (
-  subject_type, subject_id, predicate, object_type, object_id,
-  started_at, started_at_precision, ended_at, ended_at_precision,
-  properties, confidence, source, notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'family_of'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  NULL, NULL,
-  NULL, NULL,
-  '{"relationship_type": "grandchild"}'::jsonb, 'verified'::genealogy.confidence,
-  'https://velhosmestres.com/en/featured-25',
-  E'Mestre Curió is the grandson of Pedro Virício (Curió Velho). He inherited both his apelido "Curió" and his distinctive style of capoeira from his grandfather.',
-  E'Mestre Curió é neto de Pedro Virício (Curió Velho). Ele herdou tanto seu apelido "Curió" quanto seu estilo distintivo de capoeira de seu avô.'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Curió' AND o.apelido = 'Curió Velho'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+-- NOTE: Curió family_of Curió Velho (grandchild) relationship removed.
+-- The grandfather lineage is already established through:
+--   Curió -> Malvadeza (child) -> Curió Velho (child)
+-- Direct grandchild relationship is redundant and can be inferred from the chain.
 
 -- Curió family_of Malvadeza (child relationship)
 INSERT INTO genealogy.statements (
