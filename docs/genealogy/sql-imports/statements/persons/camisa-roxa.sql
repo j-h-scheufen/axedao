@@ -105,11 +105,16 @@ WHERE s.apelido = 'Camisa Roxa' AND o.apelido = 'João Grande'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================
+-- FAMILY RELATIONSHIPS
+-- ============================================================
+-- Note: family_of relationships for the Carneiro brothers are defined
+-- in their respective files (ermival.sql, pedrinho-carneiro.sql, camisa.sql)
+-- pointing TO Camisa Roxa as the eldest brother and family patriarch.
+-- This avoids redundant bi-directional relationships.
+
+-- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
--- Camisa Roxa family_of Camisa (José Tadeu) - brother, needs import first
--- Camisa Roxa family_of Ermival - brother, needs import
--- Camisa Roxa family_of Pedrinho - brother, needs import
 -- Camisa Roxa associated_with Mestre Moraes - 1992 Spring Encounter, Moraes is in dataset
 -- Camisa Roxa associated_with Mestre Santana - 1992 Spring Encounter, needs import
 -- Camisa Roxa associated_with Domingos Campos - co-led Brasil Tropical, needs import

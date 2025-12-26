@@ -48,27 +48,6 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Jair Moura' AND o.apelido = 'Bimba'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Jair Moura associated_with Decânio (fellow white handkerchief recipient, training companion)
-INSERT INTO genealogy.statements (
-  subject_type, subject_id, predicate, object_type, object_id,
-  started_at, started_at_precision, ended_at, ended_at_precision,
-  properties, confidence, source, notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1958-01-01'::date, 'year'::genealogy.date_precision,
-  '2011-02-01'::date, 'exact'::genealogy.date_precision,
-  '{"association_context": "Fellow students of Mestre Bimba; both received lenço branco (white handkerchief); training companions at Bimba''s academy."}'::jsonb,
-  'verified'::genealogy.confidence,
-  'Bimba entity SQL, Decânio entity SQL, multiple sources',
-  'Both Jair Moura and Decânio were among the only four students to receive the lenço branco from Mestre Bimba. They were training companions at Bimba''s academy and fellow recipients of this highest honor. Decânio''s notes list Jair Moura as a "fellow white handkerchief recipient, training companion."',
-  'Tanto Jair Moura quanto Decânio estavam entre os únicos quatro alunos a receber o lenço branco de Mestre Bimba. Eram companheiros de treino na academia de Bimba e colegas recipientes dessa maior honra. As notas de Decânio listam Jair Moura como "colega recipiente do lenço branco, companheiro de treino."'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Jair Moura' AND o.apelido = 'Decânio'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
 -- Jair Moura associated_with Totonho de Maré (documented in "Dança de Guerra" 1968)
 INSERT INTO genealogy.statements (
   subject_type, subject_id, predicate, object_type, object_id,
@@ -165,7 +144,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   '1980-01-01'::date, 'year'::genealogy.date_precision,
   NULL, NULL,
-  '{"association_context": "Co-presenters at the 1980 First Regional Capoeira Seminar in Salvador, organized alongside Carlos Sena, Albano Marinho, and Ordep Serra."}'::jsonb,
+  '{"association_context": "Co-presenters at the 1980 First Regional Capoeira Seminar in Salvador, organized alongside Carlos Senna, Albano Marinho, and Ordep Serra."}'::jsonb,
   'verified'::genealogy.confidence,
   'velhosmestres.com/en/cobrinha-1980',
   'Jair Moura and Itapoan were both presenters at the 1980 First Regional Capoeira Seminar in Salvador, which brought together main Bahian masters of different lineages and styles.',
@@ -181,12 +160,8 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 --   -> Tiburcinho pending import in persons-backlog.md
 -- Jair Moura associated_with Nenel - Nenel provided testimony about Jair Moura
 --   -> Nenel pending import in persons-backlog.md
--- Jair Moura associated_with Miranda - fellow white handkerchief recipient
---   -> Miranda pending import in persons-backlog.md
--- Jair Moura associated_with Edinho - fellow white handkerchief recipient
---   -> Edinho pending import in persons-backlog.md
 -- Jair Moura associated_with Carlos Senna - co-presenter at 1980 First Regional Capoeira Seminar
---   -> Carlos Senna pending import in persons-backlog.md
+--   -> Carlos Senna now imported (done)
 -- Jair Moura associated_with Frede Abreu (Frederico José de Abreu) - close friend and fellow researcher
 --   -> Frede Abreu added to backlog (historian, may need import as researcher type)
 -- Jair Moura associated_with Glauber Rocha - friendship

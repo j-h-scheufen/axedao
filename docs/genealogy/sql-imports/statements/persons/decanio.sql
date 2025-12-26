@@ -69,36 +69,11 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Decânio' AND o.apelido = 'João Pequeno'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Decânio associated_with Jair Moura (fellow white handkerchief recipient, training companion)
-INSERT INTO genealogy.statements (
-  subject_type, subject_id, predicate, object_type, object_id,
-  started_at, started_at_precision, ended_at, ended_at_precision,
-  properties, confidence, source, notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'associated_with'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1958-01-01'::date, 'year'::genealogy.date_precision,
-  '2011-02-01'::date, 'exact'::genealogy.date_precision,
-  '{"association_context": "Fellow students of Mestre Bimba; both received lenço branco (white handkerchief); training companions at Bimba''s academy."}'::jsonb,
-  'verified'::genealogy.confidence,
-  'Bimba entity SQL, Jair Moura entity SQL, multiple sources',
-  'Both Decânio and Jair Moura were among the only four students to receive the lenço branco from Mestre Bimba. They were training companions at Bimba''s academy. Association ended at Decânio''s death on February 1, 2011.',
-  'Tanto Decânio quanto Jair Moura estavam entre os únicos quatro alunos a receber o lenço branco de Mestre Bimba. Eram companheiros de treino na academia de Bimba. A associação terminou com a morte de Decânio em 1º de fevereiro de 2011.'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Decânio' AND o.apelido = 'Jair Moura'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
 -- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
 -- Decânio associated_with Sisnando (Cisnando Lima) - co-pillars of Capoeira Regional
---   -> Sisnando pending import in persons-backlog.md
--- Decânio associated_with Miranda - fellow white handkerchief recipient
---   -> Miranda pending import in persons-backlog.md
--- Decânio associated_with Edinho - fellow white handkerchief recipient
---   -> Edinho pending import in persons-backlog.md
+--   -> Cisnando now imported (done)
 -- Decânio associated_with Tiburcinho - brought Tiburcinho to Bimba
 --   -> Tiburcinho pending import in persons-backlog.md
 -- Decânio associated_with Mestre Jean Pangolin - mentee relationship

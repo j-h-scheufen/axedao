@@ -151,8 +151,17 @@ Bimba only formally graduated four students to mestre level during his lifetime:
 - **Father:** Luiz Cândido Machado (batuque champion)
 - **Mother:** Maria Martinha do Bonfim
 - **Son:** Mestre Nenel (Manoel Nascimento Machado) - born 1960; president of Fundação Mestre Bimba
-- **Son:** Formiga (Demerval dos Santos Machado)
-- **Partner:** Berenice da Conceição Nascimento (mother of Nenel)
+- **Son:** Formiga (Demerval dos Santos Machado) - with Dona Nair
+- **Daughter:** Marinalva Nascimento Machado (Rosa Rubra) - still practices capoeira with Nenel
+
+### Partners / Companheiras
+- **Dona Anita** - First wife (church marriage at Igreja de Santana, Rio Vermelho)
+- **Berenice da Conceição Nascimento** - Mother of Nenel (biological)
+- **Dona Nair** - Mother of Formiga
+- **Mãe Alice (Alice Maria da Cruz)** - Later wife; Ialorixá/sacerdotisa of Terreiro Oiá Padê da Riméia at Alto da Santa Cruz, Nordeste de Amaralina; raised Nenel; worked at CCFR; the terreiro became a spiritual reference point for Capoeira Regional
+
+### The Terreiro Connection / A Conexão com o Terreiro
+Bimba's connection to Candomblé was deep. At fourteen, he joined the Candomblé do Senhor Vidal (Ketu nation) and became an ogã. Though he later dedicated himself exclusively to capoeira, he never stopped fulfilling his obligations to Xangô. His later wife Mãe Alice led the Terreiro Oiá Padê da Riméia—described by Muniz Sodré as "uma casinha azul-anil" (a blue-indigo little house) in the Recôncavo style. Bimba brought students (Galo, Itapoan, Russo, Bolão, Xaréu) to the terreiro to receive spiritual "passes" and prayers, reconnecting them with Afro-Bahian rituals from which formal education had separated many of them. This represents an important but often overlooked spiritual dimension of Capoeira Regional's transmission.
 
 ### Contemporaries and Rivals
 - **Mestre Pastinha** - Founder of modern Capoeira Angola; complex relationship (publicly respectful but some reported tensions)
