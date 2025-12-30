@@ -1,0 +1,40 @@
+-- ============================================================
+-- GENEALOGY PERSON: Euclides Paes
+-- Generated: 2025-12-29
+-- ============================================================
+-- BIRTH YEAR ESTIMATION (~1940, decade precision):
+-- If he was teaching Zé Maria in 1966 (when Zé Maria was 18), Euclides Paes
+-- was likely 25-40 years old at that time, suggesting birth around 1926-1941.
+-- Using 1940 with decade precision as a conservative estimate, consistent
+-- with the similar estimate for Paulinho Salmon who taught alongside him.
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  name, apelido, title, portrait, public_links,
+  style, style_notes_en, style_notes_pt,
+  birth_year, birth_year_precision, birth_place,
+  death_year, death_year_precision, death_place,
+  bio_en, bio_pt, achievements_en, achievements_pt,
+  notes_en, notes_pt
+) VALUES (
+  'Euclides Paes', 'Euclides Paes', 'mestre'::genealogy.title, NULL,
+  ARRAY['https://centrodomundo.org/mestre-zé-maría']::text[],
+  NULL, NULL, NULL,
+  1940, 'decade'::genealogy.date_precision, 'Rio de Janeiro, Brazil',
+  NULL, NULL, NULL,
+  E'Euclides Paes, known by the apelido "Índio", was a Rio de Janeiro capoeira mestre active in the 1960s. He taught alongside Mestre Paulo Salmon (Paulinho Salmon) at the Grupo Capoeira da Guanabara, where they trained a new generation of capoeiristas in the Tijuca neighborhood.\n\nIn 1966, Euclides Paes and Paulinho Salmon took on José Maria da Silva (later known as Mestre Zé Maria) as a student. Together, the two mestres transmitted what was described as the famous secret of the "Pulo do Gato" (Cat''s Leap)—a technique whose exact nature remains undisclosed but whose name suggests acrobatic agility and feline quickness. Zé Maria trained intensively under them and in 1967 graduated as an instructor of the Grupo Capoeira da Guanabara.\n\nWhen Euclides Paes and Paulinho Salmon discontinued their training activities for work-related reasons, they authorized Zé Maria to continue teaching in their place—a gesture that demonstrates the confidence they placed in their student and the informal succession patterns common in that era of capoeira transmission. Zé Maria went on to found the Grupo de Capoeira do Império da Tijuca on December 20, 1967, becoming the pioneer of capoeira teaching in the Tijuca neighborhood.\n\nThe lineage of Euclides Paes extends through Zé Maria to Ecuador, where Zé Maria founded the first capoeira group in 1993. In May 2013, Zé Maria''s student Henry Vizcarra (Mestre Carvão) and Marco Herrera (Mestre Perninha) received their mestre cords from both Zé Maria and Paulinho Salmon, continuing the lineage that traces back to Euclides Paes''s teachings in 1960s Rio de Janeiro.',
+  E'Euclides Paes, conhecido pelo apelido "Índio", foi um mestre de capoeira do Rio de Janeiro ativo nos anos 1960. Ele ensinava junto com Mestre Paulo Salmon (Paulinho Salmon) no Grupo Capoeira da Guanabara, onde treinaram uma nova geração de capoeiristas no bairro de Tijuca.\n\nEm 1966, Euclides Paes e Paulinho Salmon receberam José Maria da Silva (mais tarde conhecido como Mestre Zé Maria) como aluno. Juntos, os dois mestres transmitiram o que foi descrito como o famoso segredo do "Pulo do Gato"—uma técnica cuja natureza exata permanece em sigilo, mas cujo nome sugere agilidade acrobática e rapidez felina. Zé Maria treinou intensivamente sob sua orientação e em 1967 se formou como instrutor do Grupo Capoeira da Guanabara.\n\nQuando Euclides Paes e Paulinho Salmon descontinuaram suas atividades de treinamento por motivos de trabalho, autorizaram Zé Maria a continuar ensinando em seu lugar—um gesto que demonstra a confiança que depositavam em seu aluno e os padrões informais de sucessão comuns naquela era de transmissão da capoeira. Zé Maria fundou então o Grupo de Capoeira do Império da Tijuca em 20 de dezembro de 1967, tornando-se o pioneiro do ensino de capoeira no bairro de Tijuca.\n\nA linhagem de Euclides Paes se estende através de Zé Maria até o Equador, onde Zé Maria fundou o primeiro grupo de capoeira em 1993. Em maio de 2013, os alunos de Zé Maria, Henry Vizcarra (Mestre Carvão) e Marco Herrera (Mestre Perninha), receberam suas cordas de mestre de Zé Maria e Paulinho Salmon, continuando a linhagem que remonta aos ensinamentos de Euclides Paes no Rio de Janeiro dos anos 1960.',
+  NULL, NULL,
+  E'BIRTH YEAR ESTIMATION (1940, decade):\nIf teaching Zé Maria in 1966 (when Zé Maria was 18), Euclides Paes was likely 25-40 years old, suggesting birth ~1926-1941. Using 1940 with decade precision as conservative estimate.\n\nAPELIDO:\nKnown as "Índio" according to Centro do Mundo lineage documentation.\n\nLINEAGE CLAIM (UNVERIFIED):\nCentro do Mundo website claims both Paulinho Salmon and Euclides Paes were students of Mário Santos (Mário Buscapé). However, this is NOT corroborated by Capoeira History or other Tier 1 sources. The documented students of Mário Buscapé are Zé Grande, Deraldo, and Irineu dos Santos. This claimed lineage requires further verification.\n\n"PULO DO GATO" TECHNIQUE:\nBoth Euclides Paes and Paulinho Salmon are credited with teaching this "famous secret" technique to Zé Maria. The nature of the technique is not described in available sources, but the name ("Cat''s Leap") suggests acrobatic agility and quick, feline movements.\n\nGRUPO CAPOEIRA DA GUANABARA:\nEuclides Paes was associated with this group in the 1960s alongside Paulinho Salmon. Zé Maria graduated there as an instructor in 1967. The group''s documentation is sparse; it appears distinct from the later Capoeira Guanabara founded by Mestre DiMola in 1998.\n\nLIMITED DOCUMENTATION:\nVery limited independent biographical information available for Euclides Paes. Primary source is Centro do Mundo website documenting Zé Maria''s lineage.',
+  E'ESTIMATIVA DO ANO DE NASCIMENTO (1940, década):\nSe ensinava Zé Maria em 1966 (quando Zé Maria tinha 18 anos), Euclides Paes provavelmente tinha 25-40 anos, sugerindo nascimento ~1926-1941. Usando 1940 com precisão de década como estimativa conservadora.\n\nAPELIDO:\nConhecido como "Índio" segundo documentação de linhagem do Centro do Mundo.\n\nAFIRMAÇÃO DE LINHAGEM (NÃO VERIFICADA):\nO site Centro do Mundo afirma que tanto Paulinho Salmon quanto Euclides Paes eram alunos de Mário Santos (Mário Buscapé). No entanto, isso NÃO é corroborado pelo Capoeira History ou outras fontes de Tier 1. Os alunos documentados de Mário Buscapé são Zé Grande, Deraldo e Irineu dos Santos. Esta linhagem alegada requer verificação adicional.\n\nTÉCNICA "PULO DO GATO":\nTanto Euclides Paes quanto Paulinho Salmon são creditados por ensinar esta técnica de "famoso segredo" a Zé Maria. A natureza da técnica não é descrita nas fontes disponíveis, mas o nome sugere agilidade acrobática e movimentos rápidos e felinos.\n\nGRUPO CAPOEIRA DA GUANABARA:\nEuclides Paes era associado a este grupo nos anos 1960 junto com Paulinho Salmon. Zé Maria se formou lá como instrutor em 1967. A documentação do grupo é escassa; parece ser distinto do posterior Capoeira Guanabara fundado por Mestre DiMola em 1998.\n\nDOCUMENTAÇÃO LIMITADA:\nInformação biográfica independente muito limitada disponível para Euclides Paes. Fonte primária é o site Centro do Mundo documentando a linhagem de Zé Maria.'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name, title = EXCLUDED.title, portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links, style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en, style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year, birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place, death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision, death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en, bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en, achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en, notes_pt = EXCLUDED.notes_pt, updated_at = NOW();

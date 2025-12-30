@@ -32,7 +32,7 @@ For more than 25 years, Bigodinho frequented Mestre Waldemar's Barracão—a tim
 
 By 1960, Bigodinho had become a professor of Capoeira Angola and established Grupo Resistência in the Lapinha neighborhood of Salvador. This was a crucial period marked by intense police repression of capoeira rodas. Despite the hostile environment, he persevered in teaching and preserving the tradition.
 
-In 1968, Bigodinho was recognized as a mestre. He also participated in the Grupo Folclórico "Viva Bahia," coordinated by ethnomusicologist Emília Biancardi, which played an important role in spreading capoeira throughout Brazil and the world during a time when the art still faced social stigma.
+In 1968, Bigodinho was recognized as a mestre. He also participated in the Grupo Folclórico "Viva Bahia", coordinated by ethnomusicologist Emília Biancardi, which played an important role in spreading capoeira throughout Brazil and the world during a time when the art still faced social stigma.
 
 The repression and discrimination of the era eventually took their toll. In the early 1970s, Bigodinho stepped away from capoeira, remaining absent from the community for nearly three decades. Then, in 1997, encouraged by his friend Mestre Lua Rasta, he returned to active participation in the capoeira world.
 
@@ -162,7 +162,14 @@ No named students documented in available sources. Bigodinho taught through Grup
 - **Auvelino** - Berimbau master who taught Bigodinho. Very little information available. Needs investigation.
 - **Lua Rasta** - Close friend and organizer of 2007 tribute. Not in database.
 - **Named students** - Sources do not document specific students of Bigodinho.
-- **"Gigante" alias** - persons-backlog.md mentions "also known as Bigodinho" for Gigante. Need to verify if this refers to same person or different person.
+
+## Identity Clarification / Esclarecimento de Identidade
+
+**NOT the same as Mestre Gigante (Francisco de Assis, 1920-2016):**
+
+Mestre Gigante (Francisco de Assis) was a separate person who trained under Cobrinha Verde, Pastinha, and Bimba. He was known by different names in different contexts: "Bigodinho" in Angola circles, "Gigante" in Regional, and "Pequenininho" by older acquaintances.
+
+This Bigodinho (Reinaldo Santana, 1933-2011) is a distinct person who trained under Mestre Waldemar and Auvelino. They were contemporaries in Salvador's capoeira scene but are different individuals with different lineages.
 
 ## Sources / Fontes
 
