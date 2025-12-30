@@ -1,0 +1,15 @@
+-- ============================================================
+-- STATEMENTS FOR: Besouro Gago
+-- Generated: 2025-12-27
+-- ============================================================
+-- Contains all relationships where Besouro Gago is the SUBJECT.
+--
+-- NOTE: The only documented relationship (teacher of Waldemar) has
+-- Besouro Gago as the OBJECT, not the subject. Per the ownership
+-- rule, that statement is in waldemar.sql with 'disputed' confidence.
+-- ============================================================
+
+-- No statements where Besouro Gago is the subject.
+--
+-- The disputed "Waldemar student_of Besouro Gago" relationship is
+-- documented in waldemar.sql with confidence = 'disputed'.

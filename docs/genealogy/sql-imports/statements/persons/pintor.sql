@@ -194,11 +194,65 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- INSERT INTO genealogy.statements ...
 -- WHERE s.apelido = 'Pintor' AND o.name = 'Grupo Bantus Capoeira'
 
+-- Pintor trained_under Bom Cabrito (Bahia training period)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL, NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'https://taylorsbantus.wordpress.com/gbc-masters-teachers/mestre-pintor/',
+  E'As a teenager, Pintor traveled to Bahia and trained under Bom Cabrito among other mestres. Bom Cabrito was a student of Cobrinha Verde and Gato Preto.',
+  E'Na adolescência, Pintor viajou para a Bahia e treinou com Bom Cabrito entre outros mestres. Bom Cabrito era aluno de Cobrinha Verde e Gato Preto.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Pintor' AND o.apelido = 'Bom Cabrito'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Pintor trained_under Medicina (Bahia training period)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL, NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'https://taylorsbantus.wordpress.com/gbc-masters-teachers/mestre-pintor/',
+  E'As a teenager, Pintor traveled to Bahia and trained under Medicina among other mestres. Medicina was a Regional/mixed style mestre who founded Grupo Kilombolas.',
+  E'Na adolescência, Pintor viajou para a Bahia e treinou com Medicina entre outros mestres. Medicina era um mestre de estilo Regional/misto que fundou o Grupo Kilombolas.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Pintor' AND o.apelido = 'Medicina'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Pintor trained_under Boa Gente (Bahia training period)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL, NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'https://taylorsbantus.wordpress.com/gbc-masters-teachers/mestre-pintor/',
+  E'As a teenager, Pintor traveled to Bahia and trained under Boa Gente among other mestres. Boa Gente was the MMA champion of Bahia (1974), known for blending capoeira with martial arts.',
+  E'Na adolescência, Pintor viajou para a Bahia e treinou com Boa Gente entre outros mestres. Boa Gente era campeão de MMA da Bahia (1974), conhecido por mesclar capoeira com artes marciais.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Pintor' AND o.apelido = 'Boa Gente'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
--- Pintor trained_under Boa Gente - not yet imported
--- Pintor trained_under Bom Cabrito (Mário Bom Cabrito) - not yet imported
--- Pintor trained_under Medicina - not yet imported
 -- Pintor trained_under Papo de Santo Amaro - not yet imported
 -- Pintor founded Grupo Bantus Capoeira - group not yet imported

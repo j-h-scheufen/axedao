@@ -1,0 +1,20 @@
+-- ============================================================
+-- STATEMENTS FOR: Emerito
+-- Generated: 2025-12-29
+-- ============================================================
+-- Contains all relationships where Emerito is the SUBJECT.
+-- ============================================================
+
+-- NOTE: No relationships where Emerito is the SUBJECT have been documented.
+--
+-- Emerito is known only from Jelon Vieira's testimony. No information exists
+-- about who taught Emerito, what groups he was associated with, or other
+-- students besides Jelon. His entire family practiced capoeira, suggesting
+-- multi-generational transmission, but no specific family members are named.
+--
+-- RELATIONSHIP WHERE EMERITO IS OBJECT (goes in Jelon's file):
+-- Jelon Vieira student_of Emerito (~1963) - Jelon's first capoeira contact
+--
+-- ============================================================
+-- NO STATEMENTS TO GENERATE - All known relationships have Emerito as OBJECT
+-- ============================================================

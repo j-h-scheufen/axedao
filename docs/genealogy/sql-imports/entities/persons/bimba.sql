@@ -54,6 +54,8 @@ At twelve years old, in 1911, Bimba began learning capoeira from Bentinho, an Af
 
 Parallel to his capoeira training, young Bimba learned batuque from his father, who was a local champion of this combat sport involving defensive positioning and powerful leg sweeps. These techniques would later become foundational to Capoeira Regional.
 
+Bimba''s connection to Candomblé was also deep. At fourteen, he joined the Candomblé do Senhor Vidal (Ketu nation) and became an ogã. Though he later dedicated himself exclusively to capoeira, he never stopped fulfilling his obligations to Xangô. His later wife Mãe Alice (Alice Maria da Cruz) led the Terreiro Oiá Padê da Riméia at Alto da Santa Cruz, Nordeste de Amaralina—described by Muniz Sodré as "uma casinha azul-anil" (a blue-indigo little house) in the Recôncavo style. Bimba brought students to the terreiro to receive spiritual "passes" and prayers, reconnecting them with Afro-Bahian rituals from which formal education had separated many of them. This represents an important but often overlooked spiritual dimension of Capoeira Regional''s transmission.
+
 By eighteen, Bimba had concluded that capoeira had lost its martial efficacy, reduced to "nine movements" and becoming merely folkloric. He began restoring movements from old capoeira, adding batuque techniques, and inventing new movements. He removed two moves (encruzilhada, deslocamento) and added approximately fifteen new kicks.
 
 To support himself, Bimba worked as a coal miner, carpenter, warehouse worker, longshoreman, and horse coach conductor—all physically demanding occupations that kept him strong. He reportedly could carry 120 kg as a dock worker.
@@ -91,6 +93,8 @@ His famous declaration: "I didn''t do capoeira for myself... I did it for the wo
 Aos doze anos, em 1911, Bimba começou a aprender capoeira com Bentinho, um capitão de navegação nascido na África da Companhia Baiana de Navegação. O treinamento acontecia no Clube União em Apuros na Estrada das Boiadas, no bairro da Liberdade em Salvador—uma área predominantemente negra. O aprendizado durou quatro anos. Bimba mais tarde descreveu o estilo de Bentinho como "capoeira de Angola" ou "capoeira antiga."
 
 Paralelamente ao treinamento de capoeira, o jovem Bimba aprendeu batuque com seu pai, que era campeão local deste esporte de combate envolvendo posicionamento defensivo e poderosas rasteiras. Essas técnicas mais tarde se tornariam fundamentais para a Capoeira Regional.
+
+A conexão de Bimba com o Candomblé também era profunda. Aos catorze anos, ele ingressou no Candomblé do Senhor Vidal (nação Ketu) e tornou-se ogã. Embora mais tarde tenha se dedicado exclusivamente à capoeira, nunca deixou de cumprir suas obrigações com Xangô. Sua esposa posterior Mãe Alice (Alice Maria da Cruz) liderava o Terreiro Oiá Padê da Riméia no Alto da Santa Cruz, Nordeste de Amaralina—descrito por Muniz Sodré como "uma casinha azul-anil" no estilo do Recôncavo. Bimba levava alunos ao terreiro para receber "passes" espirituais e rezas, reconectando-os com rituais afro-baianos dos quais a educação formal havia separado muitos deles. Isto representa uma dimensão espiritual importante, mas frequentemente negligenciada, da transmissão da Capoeira Regional.
 
 Aos dezoito anos, Bimba havia concluído que a capoeira tinha perdido sua eficácia marcial, reduzida a "nove movimentos" e tornando-se meramente folclórica. Ele começou a restaurar movimentos da capoeira antiga, adicionar técnicas de batuque e inventar novos movimentos. Removeu dois golpes (encruzilhada, deslocamento) e adicionou aproximadamente quinze novos chutes.
 
@@ -170,9 +174,21 @@ NOTABLE STUDENTS (incomplete list):
 FAMILY:
 - Father: Luiz Cândido Machado (batuque champion)
 - Mother: Maria Martinha do Bonfim
-- Son: Nenel (Manoel Nascimento Machado) - born 1960
-- Son: Formiga (Demerval dos Santos Machado)
-- Partner: Berenice da Conceição Nascimento (mother of Nenel)
+- Son: Nenel (Manoel Nascimento Machado) - born 1960, with Berenice
+- Son: Formiga (Demerval dos Santos Machado) - with Dona Nair
+- Daughter: Marinalva Nascimento Machado (Rosa Rubra) - still practices capoeira
+
+PARTNERS:
+- Dona Anita - First wife (church marriage at Igreja de Santana, Rio Vermelho)
+- Berenice da Conceição Nascimento - Mother of Nenel (biological)
+- Dona Nair - Mother of Formiga
+- Mãe Alice (Alice Maria da Cruz) - Later wife; Ialorixá of Terreiro Oiá Padê da Riméia at Alto da Santa Cruz; raised Nenel; worked at CCFR
+
+CANDOMBLÉ/TERREIRO CONNECTION:
+- Age 14: Joined Candomblé do Senhor Vidal (Ketu nation), became ogã
+- Terreiro Oiá Padê da Riméia (Mãe Alice''s): Alto da Santa Cruz, Nordeste de Amaralina
+- Bimba brought students (Galo, Itapoan, Russo, Bolão, Xaréu) to receive spiritual "passes" and prayers
+- Source: Hélio Campos (Mestre Xaréu), Muniz Sodré (2002), Enciclopédia Itaú Cultural
 
 RIVALRIES:
 - Relationship with Mestre Pastinha was complex; they respected each other publicly but Atenilo and Itapoan report Bimba sometimes instructed students to hit Pastinha''s students in shared rodas.',
@@ -219,9 +235,21 @@ OPONENTES DO DESAFIO DE 1936:
 FAMÍLIA:
 - Pai: Luiz Cândido Machado (campeão de batuque)
 - Mãe: Maria Martinha do Bonfim
-- Filho: Nenel (Manoel Nascimento Machado) - nascido 1960
-- Filho: Formiga (Demerval dos Santos Machado)
-- Companheira: Berenice da Conceição Nascimento (mãe de Nenel)
+- Filho: Nenel (Manoel Nascimento Machado) - nascido 1960, com Berenice
+- Filho: Formiga (Demerval dos Santos Machado) - com Dona Nair
+- Filha: Marinalva Nascimento Machado (Rosa Rubra) - ainda pratica capoeira
+
+COMPANHEIRAS:
+- Dona Anita - Primeira esposa (casamento na Igreja de Santana, Rio Vermelho)
+- Berenice da Conceição Nascimento - Mãe de Nenel (biológica)
+- Dona Nair - Mãe de Formiga
+- Mãe Alice (Alice Maria da Cruz) - Esposa posterior; Ialorixá do Terreiro Oiá Padê da Riméia no Alto da Santa Cruz; criou Nenel; trabalhou no CCFR
+
+CONEXÃO CANDOMBLÉ/TERREIRO:
+- Aos 14 anos: Ingressou no Candomblé do Senhor Vidal (nação Ketu), tornou-se ogã
+- Terreiro Oiá Padê da Riméia (de Mãe Alice): Alto da Santa Cruz, Nordeste de Amaralina
+- Bimba levava alunos (Galo, Itapoan, Russo, Bolão, Xaréu) para receber "passes" espirituais e rezas
+- Fonte: Hélio Campos (Mestre Xaréu), Muniz Sodré (2002), Enciclopédia Itaú Cultural
 
 RIVALIDADES:
 - Relacionamento com Mestre Pastinha era complexo; eles se respeitavam publicamente mas Atenilo e Itapoan relatam que Bimba às vezes instruía alunos a bater nos alunos de Pastinha em rodas compartilhadas.'

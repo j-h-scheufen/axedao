@@ -49,14 +49,31 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Ezequiel' AND o.apelido = 'Vermelho 27'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- ============================================================
--- PENDING RELATIONSHIPS (object not yet in dataset)
--- ============================================================
-
 -- Ezequiel trained_under Saci
 -- Mestre Saci (Josevaldo Lima de Jesus) introduced Ezequiel to Capoeira Regional
 -- at Quartel dos Dendezeiros, then brought him to Bimba's academy
--- NEEDS: Mestre Saci import
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1964-01-01'::date, 'year'::genealogy.date_precision,
+  '1965-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com/br/destaques-16; capoeira-muenchen.de',
+  E'Saci was Ezequiel''s first formal capoeira teacher. They met through the Military Police; Saci trained him at Quartel dos Dendezeiros (Itapagipe) before bringing him to Mestre Bimba''s academy.',
+  E'Saci foi o primeiro professor formal de capoeira de Ezequiel. Eles se conheceram através da Polícia Militar; Saci o treinou no Quartel dos Dendezeiros (Itapagipe) antes de levá-lo à academia de Mestre Bimba.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Ezequiel' AND o.apelido = 'Saci'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
 
 -- Ezequiel associated_with Galo
 -- Luciano Figueiredo (Mestre Galo) - graduated lenço azul together

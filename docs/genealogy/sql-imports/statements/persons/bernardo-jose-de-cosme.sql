@@ -1,0 +1,43 @@
+-- ============================================================
+-- STATEMENTS FOR: Bernardo José de Cosme
+-- Generated: 2025-12-26
+-- ============================================================
+-- Contains all relationships where Bernardo José de Cosme is the SUBJECT.
+-- NOTE: As a teacher, most relationships have Bernardo as OBJECT.
+-- Those statements belong in the student's file (tiburcinho.sql).
+-- ============================================================
+
+-- No statements where Bernardo José de Cosme is the SUBJECT.
+-- His teacher(s) are unknown - he represents Layer Zero of the batuque tradition.
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- Note: The following contemporaries are NOT imported because:
+-- 1. They are batuqueiros (not capoeiristas) without documented
+--    teaching connections to the capoeira lineage
+-- 2. They only appear in Tiburcinho's listing without additional
+--    biographical information
+-- 3. Importing them would require individual research to determine
+--    if they have relevance to capoeira genealogy
+--
+-- Contemporary batuqueiros (listed by Tiburcinho, NOT for import):
+-- - Lúcio Grande de Nazaré das Farinhas
+-- - Manuel João
+-- - Pedro Gustavo de Britto
+-- - Liberato
+-- - Gregório Tapera
+-- - Pedro Correia
+-- - Francisco Chiquetada
+-- - Joaquim Grosso
+-- - Zeca de Sinhá Purcina
+-- - Leocádia Silva de Maria Arcanja (female)
+-- - Euclides Lemos (Caco)
+-- - Teotônio
+-- - Antônio Frederico
+-- - Eusébio de Tapuiquara
+--
+-- These individuals are documented in Bernardo's notes_en/notes_pt fields
+-- for historical completeness but are not added to the import backlog
+-- unless future research connects them to capoeira lineage.
+-- ============================================================

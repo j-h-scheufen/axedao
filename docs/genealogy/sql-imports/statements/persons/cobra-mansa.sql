@@ -93,13 +93,54 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cobra Mansa' AND o.apelido = 'João Grande'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- Cobra Mansa trained_under Josias da Silva (1973)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1973-01-01'::date, 'year'::genealogy.date_precision,
+  '1974-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Multiple sources: Wikipedia, capoeira.online, lalaue.com, acaz.site',
+  'First capoeira teacher. Cobra Mansa began learning capoeira in 1973 at age 13 in Duque de Caxias with Josias da Silva and Raimundo. In 1974, he became student of Moraes.',
+  'Primeiro professor de capoeira. Cobra Mansa começou a aprender capoeira em 1973 aos 13 anos em Duque de Caxias com Josias da Silva e Raimundo. Em 1974, tornou-se aluno de Moraes.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Cobra Mansa' AND o.apelido = 'Josias'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Cobra Mansa trained_under Raimundo (1973)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1973-01-01'::date, 'year'::genealogy.date_precision,
+  '1974-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Multiple sources: Wikipedia, capoeira.online, lalaue.com, acaz.site',
+  'Early teacher alongside Josias da Silva. Cobra Mansa began learning capoeira in 1973 at age 13 in Duque de Caxias with Josias da Silva and Raimundo. In 1974, he became student of Moraes.',
+  'Professor inicial junto com Josias da Silva. Cobra Mansa começou a aprender capoeira em 1973 aos 13 anos em Duque de Caxias com Josias da Silva e Raimundo. Em 1974, tornou-se aluno de Moraes.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Cobra Mansa' AND o.apelido = 'Raimundo' AND o.apelido_context = 'Duque de Caxias'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING RELATIONSHIPS (objects not yet in dataset)
 -- ============================================================
--- Cobra Mansa trained_under Josias da Silva (1973) - needs import
--- Cobra Mansa trained_under Raimundo (1973) - needs import
--- Cobra Mansa associated_with Rogerio Russo (co-founded Caxias Street Roda) - needs import
--- Cobra Mansa associated_with Peixinho de Caxias (co-founded Caxias Street Roda) - needs import
+-- Cobra Mansa associated_with Russo (Jonas Rabelo - Mestre Russo de Caxias) - co-founded Caxias Street Roda - needs import
+-- Cobra Mansa associated_with Peixe (Itamar da Silva Barbosa - Mestre Peixe de Caxias) - co-founded Caxias Street Roda - needs import
+-- NOTE: English sources incorrectly use "Rogerio Russo" (real name: Jonas Rabelo) and "Peixinho" (actual apelido: Peixe)
 -- Cobra Mansa co_founded GCAP (1980/1981) - group not yet imported
 -- Cobra Mansa founded FICA (1995/1996) - group not yet imported
 -- Cobra Mansa founded Kilombo Tenondé (2004) - group not yet imported

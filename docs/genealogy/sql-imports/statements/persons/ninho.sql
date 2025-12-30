@@ -1,0 +1,51 @@
+-- ============================================================
+-- STATEMENTS FOR: Ninho (Ribeira)
+-- Generated: 2025-12-27
+-- ============================================================
+-- Contains all relationships where Ninho (Ribeira) is the SUBJECT.
+--
+-- NOTE: Ninho is a Layer Zero figure with minimal documentation.
+-- No teachers are documented. Students include Nilton and Cutica (both now imported).
+-- Per ownership rule, student_of statements are in the STUDENT's file.
+-- ============================================================
+
+-- ============================================================
+-- ACTIVE STATEMENTS
+-- ============================================================
+-- No active statements can be generated yet because:
+-- - Ninho's teachers are unknown
+-- - Nilton and Cutica are his students (statements go in THEIR files)
+-- - Group affiliations are unknown
+
+-- ============================================================
+-- COMPLETED STUDENT RELATIONSHIPS (now in respective files)
+-- ============================================================
+-- Per ownership rule, these statements are in the STUDENT's file:
+--
+-- In nilton.sql - DONE:
+--   Nilton student_of Ninho (Ribeira)
+--   source: velhosmestres.com
+--   notes: First teacher; rodas at Praça Argolo
+--
+-- In cutica.sql - DONE:
+--   Cutica trained_under Ninho (Ribeira)
+--   source: velhosmestres.com
+--   notes: First teacher of Cutica via rodas at Argolo Square
+--
+-- ============================================================
+-- ASSOCIATED_WITH RELATIONSHIPS
+-- ============================================================
+-- Per ownership rule, associated_with goes in the file of the
+-- "younger/newer" entity. Since Ninho was elder, these statements
+-- would go in the files of:
+--
+-- In pierro.sql (when created):
+--   Pierrô associated_with Ninho (Ribeira)
+--   properties: {"association_context": "Lower City capoeira network contemporaries"}
+--   confidence: likely
+--
+-- In zeca-do-uruguai.sql (when created):
+--   Zeca do Uruguai associated_with Ninho (Ribeira)
+--   properties: {"association_context": "Lower City capoeira network contemporaries"}
+--   confidence: likely
+-- ============================================================

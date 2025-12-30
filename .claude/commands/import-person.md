@@ -243,6 +243,7 @@ As you research, track discovered entities for later import.
 
 1. **For person names encountered:**
    - Glob `docs/genealogy/person-reports/*.md` for name variations
+   - Check `docs/genealogy/import-backlog/persons-done.md` for already-imported persons (may use different apelido than you expect—check full names too)
    - If found: Read the existing report for basic information, relationships, sources already gathered
    - Only perform web searches for: new leads not covered in existing report, verification of disputed facts, or filling gaps
 
@@ -263,38 +264,126 @@ If it's a capoeira-related name, it goes in this table. Decide `Import? = yes/?/
 
 ### Discovered Entities Table
 
-| Type | Apelido/Name | Full Name | Title | Relationship | In Dataset? | Import? | Notes |
-|------|--------------|-----------|-------|--------------|-------------|---------|-------|
-| person | João Grande | João Oliveira dos Santos | mestre | teacher of subject | check | yes | |
+| Type | Apelido/Name | Full Name | Title/Role | Relationship | In Dataset? | Import? | Notes |
+|------|--------------|-----------|------------|--------------|-------------|---------|-------|
+| person | João Grande | João Oliveira dos Santos | Mestre | teacher of subject | check | yes | |
 | person | Manuel Cardoso | - | - | slave owner | no | **no** | Not capoeirista |
 | group | GCAP | - | - | led by subject | check | yes | |
 | group | Santa Luzia Party | - | - | gang led by subject | no | **no** | Street gang |
+| spiritual | Mãe Stella de Oxóssi | Maria Stella de Azevedo Santos | Ialorixá | spiritual influence | no | **?** | Candomblé; partnership with [Mestre Name] at Ilê Axé Opô Afonjá |
+| terreiro | Ilê Axé Opô Afonjá | - | Terreiro | spiritual location | no | **?** | Candomblé terreiro; hosted capoeira training |
 
 **In Dataset?**: `yes`/`no`/`check` (ask if unsure)
-**Import?**: `yes` (capoeira entity), `no` (not capoeira—do not add to backlog), `?` (needs investigation)
+**Import?**:
+- `yes` - Capoeira entity, should be imported
+- `no` - Not capoeira AND not spiritually connected (slave owners, politicians, etc.)—do not add to backlog
+- `?` - Needs investigation OR **spiritual/religious influence** to be tracked for future import
 
-### Proto-Group Detection (CRITICAL)
+### Spiritual/Religious Influence Tracking (CRITICAL)
 
-When researching a person's history, watch for mentions of **informal gatherings** that may qualify as proto-groups:
+Capoeira has deep connections to Afro-Brazilian spirituality. Track ALL religious figures, terreiros, and spiritual organizations encountered:
 
-**Detection triggers:**
-- Regular rodas at specific locations (docks, churches, street corners, markets)
-- Festival gatherings with recurring capoeira activity
-- Informal training spaces without formal academy structure
-- Named leaders of informal groups ("Juvencio held rodas on the docks")
+**What to capture:**
+- **Candomblé figures**: Ialorixás (Mães de Santo), Babalorixás (Pais de Santo), Ogãs, Ekédis
+- **Umbanda figures**: Leaders, mediums with documented capoeira connections
+- **Terreiros**: Candomblé/Umbanda houses where capoeira was practiced or that had partnerships with mestres
+- **Other spiritual**: Catholic saints with capoeira devotions (e.g., Nossa Senhora da Conceição), syncretic practices
+
+**How to track:**
+1. Use Type = `spiritual` for religious figures, `terreiro` for sacred spaces
+2. Mark Import? = `?` (these need data model evaluation)
+3. In Notes, include:
+   - Religion/tradition (Candomblé Ketu, Umbanda, etc.)
+   - **Which mestre they were associated with** (critical for relationship)
+   - Nature of connection (partnership, initiation, spiritual advisor, terreiro host)
+
+**Examples from existing imports:**
+- Mãe Alice (Bimba's later wife, Ialorixá) - brought spiritual dimension to Regional
+- Mãe Stella de Oxóssi - partnership with Barba Branca at Ilê Axé Opô Afonjá
+- Terreiro Ilê Axé Opô Afonjá - hosted GCAC youth training programs
+
+**Why this matters:** The genealogy database may expand to include spiritual lineages and their influence on capoeira transmission. Tracking now ensures we don't lose this information.
+
+### Regular Roda & Event Detection (CRITICAL)
+
+When researching a person's history, watch for mentions of **regular gatherings, recurring rodas, and established events** that should be tracked as groups. These represent important social institutions where capoeira was transmitted and where practitioners from different backgrounds came together.
+
+#### Types to Detect
+
+**1. Regular Street Rodas (Weekly/Monthly)**
+- Sunday rodas at specific locations
+- Weekly gatherings in public spaces (praças, markets, docks)
+- Named leaders or organizers
+- Long-running traditions (years/decades)
+
+**2. Seasonal/Festival Rodas**
+- Church festival rodas (often October-November in Rio)
+- Carnival-related gatherings
+- Annual celebrations with recurring capoeira presence
+
+**3. Open Rodas (Cross-Group Meeting Grounds)**
+- Neutral spaces where practitioners from different groups/lineages played together
+- "Historic" or "legendary" rodas mentioned across multiple sources
+- Rodas known for attracting visiting mestres
+
+**4. Informal Training Spaces**
+- Backyard training before formal academies
+- Named leaders of informal groups
 - Phrases like "no one gave classes... everyone got together and played"
 
-**Examples of proto-groups:**
-- `Roda de São Felix (Juvencio)` - dock rodas during church festivals
-- `Roda da Gengibirra` - street corner gatherings in Liberdade
-- `Roda da Rampa do Mercado` - market ramp gatherings
+#### Detection Triggers
 
-**When detected:**
-1. Add to groups-backlog with `Proto-group:` prefix in Notes
-2. Include: location, leader (if known), era, nature of gatherings, source quote
-3. Format: `| Roda de [Location] ([Leader]) | Angola | [Person] import | pending | Proto-group: [description] |`
+Watch for these phrases and patterns:
+- "Every Sunday at [location]..."
+- "The roda at [place] was famous for..."
+- "Mestres from all over came to play at..."
+- "For [X] years, capoeiristas gathered at..."
+- "One of the most traditional rodas in [city]..."
+- "Registered as Cultural Heritage / Patrimônio Cultural"
+- "The legendary roda of..."
+- Named locations with regular capoeira activity (Praça da República, Largo da Penha, Caxias, etc.)
 
-**These informal gatherings are historically significant** - they represent the organic transmission of capoeira before formal academies existed.
+#### Examples
+
+| Name | Type | Description |
+|------|------|-------------|
+| Roda de Caxias | Regular (weekly) | Oldest roda in Rio; co-founded 1970s by Cobra Mansa, Rogerio Russo, Peixinho; continues to present day |
+| Roda da Penha | Seasonal (festival) | October-November at Nossa Senhora da Penha church; led by Touro/Dentinho; Intangible Cultural Heritage |
+| Roda da Praça da República | Regular (Sunday) | Founded 1953 by Ananias; 60+ years; mestres from all styles passed through |
+| Roda da Central | Seasonal (Carnival) | 24-hour roda during Carnival at Central Station (1950s-1983) |
+| Roda de São Félix | Seasonal (festival) | Dock rodas during church festivals; led by Juvêncio (~1930s-40s) |
+
+#### When Detected - ADD TO GROUPS BACKLOG
+
+1. **Add to `groups-backlog.md`** with appropriate prefix in Notes:
+   - `Regular roda:` for weekly/monthly gatherings
+   - `Seasonal roda:` for festival/annual events
+   - `Open roda:` for cross-group meeting grounds
+   - `Proto-group:` for informal pre-academy gatherings
+
+2. **Include in Notes:**
+   - Location (specific address/landmark if known)
+   - Schedule (Sunday, October-November, during Carnival, etc.)
+   - Leader(s) or organizer(s)
+   - Era/duration (1970s-present, 1950s-1983, etc.)
+   - Significance (why notable - oldest, largest, cross-group, heritage status)
+   - Cultural heritage status if applicable (IPHAN, municipal, state)
+
+3. **Format:**
+```
+| Roda de [Location] | Mixed | [Person] import | pending | [Type]: [Schedule] at [Location]; [leaders]; [era]; [significance]; [heritage status if any] |
+```
+
+#### Why This Matters
+
+Regular rodas and events are **social institutions** that:
+- Provided neutral ground for practitioners across lineages to meet and play
+- Transmitted capoeira culture outside formal academy structures
+- Created shared community identity across groups
+- Often have official cultural heritage recognition
+- Represent living traditions that continue today
+
+**These are as important to document as formal groups.** A roda like Roda de Caxias or Roda da Penha may have more historical significance than many formal academies.
 
 ---
 
@@ -447,9 +536,14 @@ You MUST perform ALL of these file operations:
    - Follow template in `docs/genealogy/person-reports/README.md`
    - **Must be bilingual (EN/PT)** - see `adama.md` as reference
 4. **Update backlogs:**
+   - **BEFORE adding any person:** Check `docs/genealogy/import-backlog/persons-done.md`—persons may be listed under a different apelido than expected (e.g., "Aníbal Burlamaqui" is already imported as "Zuma")
    - Add `Import? = yes` or `?` persons to `docs/genealogy/import-backlog/persons-backlog.md`
    - Add `Import? = yes` or `?` groups to `docs/genealogy/import-backlog/groups-backlog.md`
+   - Add `Import? = ?` spiritual figures/terreiros to `docs/genealogy/import-backlog/spiritual-backlog.md`
+     - Format: `| Name | Role | Tradition | Connected To (Mestre) | Status | Notes |`
+     - Example: `| Mãe Stella de Oxóssi | Ialorixá | Candomblé Ketu | Barba Branca | pending | Partnership at Ilê Axé Opô Afonjá 1993-2019 |`
    - **Do NOT add `Import? = no` entities**
+   - **Do NOT add persons already in `persons-done.md`**
 
 **Failure to write all required files is a critical error.**
 

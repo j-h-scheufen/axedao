@@ -63,7 +63,7 @@ For more than 25 years, Bigodinho frequented Mestre Waldemar''s Barracão—a ti
 
 By 1960, Bigodinho had become a professor of Capoeira Angola and established Grupo Resistência in the Lapinha neighborhood of Salvador. This was a crucial period marked by intense police repression of capoeira rodas. Despite the hostile environment, he persevered in teaching and preserving the tradition.
 
-In 1968, Bigodinho was recognized as a mestre. He also participated in the Grupo Folclórico "Viva Bahia," coordinated by ethnomusicologist Emília Biancardi, which played an important role in spreading capoeira throughout Brazil and the world during a time when the art still faced social stigma.
+In 1968, Bigodinho was recognized as a mestre. He also participated in the Grupo Folclórico "Viva Bahia", coordinated by ethnomusicologist Emília Biancardi, which played an important role in spreading capoeira throughout Brazil and the world during a time when the art still faced social stigma.
 
 The repression and discrimination of the era eventually took their toll. In the early 1970s, Bigodinho stepped away from capoeira, remaining absent from the community for nearly three decades. Then, in 1997, encouraged by his friend Mestre Lua Rasta, he returned to active participation in the capoeira world.
 
@@ -129,7 +129,7 @@ Using Conceição de Feira as most detailed sources specify this, noting Acupe a
 
 DEATH LOCATION: Santa Casa de Misericórdia de Santo Amaro - same hospital where Besouro Mangangá died (1924).
 
-ALIASES: Also known as "Gigante" per persons-backlog.md (need verification)
+IDENTITY NOTE: NOT the same as Mestre Gigante (Francisco de Assis, 1920-2016). Gigante was called "Bigodinho" in Angola circles, but is a different person who trained under Cobrinha Verde, Pastinha, and Bimba.
 
 PRIMARY TEACHER: Mestre Waldemar Rodrigues da Paixão
 - Training period: 1950-1970 (20 years documented attendance)
@@ -193,7 +193,7 @@ Usando Conceição de Feira pois as fontes mais detalhadas especificam isto, not
 
 LOCAL DA MORTE: Santa Casa de Misericórdia de Santo Amaro - mesmo hospital onde Besouro Mangangá morreu (1924).
 
-APELIDOS: Também conhecido como "Gigante" conforme persons-backlog.md (precisa verificação)
+NOTA DE IDENTIDADE: NÃO é a mesma pessoa que Mestre Gigante (Francisco de Assis, 1920-2016). Gigante era chamado "Bigodinho" em círculos de Angola, mas é uma pessoa diferente que treinou com Cobrinha Verde, Pastinha e Bimba.
 
 MESTRE PRINCIPAL: Mestre Waldemar Rodrigues da Paixão
 - Período de treinamento: 1950-1970 (20 anos de frequência documentada)
