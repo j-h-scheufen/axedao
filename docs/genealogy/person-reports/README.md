@@ -153,7 +153,7 @@ Each person file should follow this **bilingual structure** (English and Brazili
 
 For Layer Zero figures, information is often incomplete or contested:
 
-- **Dates:** Use "c". for circa, "fl". for floruit (flourished), "?" for unknown
+- **Dates:** Use "c." for circa, "fl." for floruit (flourished), "?" for unknown
 - **Names:** Note alternate spellings and names
 - **Relationships:** Distinguish between documented and oral tradition
 - **Confidence:** Note when sources disagree
