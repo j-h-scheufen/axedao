@@ -196,6 +196,13 @@ export interface ForceGraph3DWrapperProps {
    * Default: 1.0
    */
   nodeScale?: number;
+
+  /**
+   * Maximum visible radius for the graph (excluding outlier nodes like year 2200 band).
+   * Used to compute appropriate camera distance for recenter.
+   * When not provided, falls back to a default camera distance.
+   */
+  maxVisibleRadius?: number;
 }
 
 /**

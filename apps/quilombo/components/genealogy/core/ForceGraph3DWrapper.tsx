@@ -75,6 +75,7 @@ export function ForceGraph3DWrapper({
   initialCameraPosition,
   linkForceConfig,
   nodeScale = 1.0,
+  maxVisibleRadius,
 }: ForceGraph3DWrapperProps) {
   const graphRef = useRef<ForceGraphMethods<ForceNode, ForceLink> | undefined>(undefined);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -464,21 +465,35 @@ export function ForceGraph3DWrapper({
     }, 900);
   }, [isMobileDrawerOpen, validSelectedNodeId, graphData.nodes, focusOnNode, setNeedsRefocus]);
 
-  // Recenter callback - returns camera to initial position and zooms to fit
+  // Recenter callback - returns camera to initial position looking at origin
+  // We avoid zoomToFit() because it includes all nodes in bounding box calculation,
+  // including outliers at year 2200 band which causes excessive zoom out
   const recenterGraph = useCallback(() => {
     if (!graphRef.current) return;
 
-    // Immediately set camera to initial position (same as initial view setup)
-    const targetPosition = initialCameraPosition ?? { x: 0, y: 0, z: 500 };
+    // Compute camera distance based on max visible radius
+    let cameraDistance: number;
+    if (maxVisibleRadius) {
+      // Camera distance calculation for typical 75° FOV:
+      // distance = radius / tan(FOV/2) ≈ radius * 1.3
+      // Add small multiplier (1.15) for minimal padding around the visible area
+      cameraDistance = maxVisibleRadius * 1.3 * 1.15;
+    } else {
+      // Fallback to provided initial position or default
+      cameraDistance = initialCameraPosition?.z ?? 500;
+    }
+
+    // Set camera position looking at origin
+    const targetPosition = { x: 0, y: 0, z: cameraDistance };
     const camera = graphRef.current.camera();
     if (camera) {
       camera.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
       camera.lookAt(0, 0, 0);
     }
 
-    // Then animate zoom to fit from that position
-    zoomToFit(1000, autoFitPadding);
-  }, [zoomToFit, autoFitPadding, initialCameraPosition]);
+    // Animate the camera smoothly to the target position
+    graphRef.current.cameraPosition(targetPosition, { x: 0, y: 0, z: 0 }, 1000);
+  }, [initialCameraPosition, maxVisibleRadius]);
 
   // Register the recenter callback in global state for GraphControls to use
   useEffect(() => {

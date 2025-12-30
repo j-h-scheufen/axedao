@@ -378,13 +378,28 @@ export function ForceGraph2DWrapper({
     }, 900);
   }, [isMobileDrawerOpen, validSelectedNodeId, graphData.nodes, focusOnNode, setNeedsRefocus]);
 
-  // Recenter callback
+  // Recenter callback - centers at origin with computed zoom level
+  // We avoid zoomToFit() because it centers on the bounding box of all nodes,
+  // not on the origin where the era rings are centered
   const recenterGraph = useCallback(() => {
-    if (!graphRef.current) return;
+    if (!graphRef.current || !dimensions) return;
 
+    // Center at origin (where era rings are centered)
     graphRef.current.centerAt(0, 0, 500);
-    zoomToFit(1000, autoFitPadding);
-  }, [zoomToFit, autoFitPadding]);
+
+    // Compute zoom to fit the max visible radius (excluding outlier nodes)
+    if (eraRingsLayout) {
+      const maxRadius = eraRingsLayout.getMaxVisibleRadius();
+      const containerSize = Math.min(dimensions.width, dimensions.height);
+      // Compute zoom: fit maxRadius in half the container (with padding)
+      // Multiply by 1.2 to zoom slightly closer than the exact fit
+      const targetZoom = ((containerSize / 2 - autoFitPadding) / maxRadius) * 1.2;
+      graphRef.current.zoom(targetZoom, 1000);
+    } else {
+      // Fallback: use zoomToFit if no layout available
+      zoomToFit(1000, autoFitPadding);
+    }
+  }, [zoomToFit, autoFitPadding, dimensions, eraRingsLayout]);
 
   // Register recenter callback
   useEffect(() => {

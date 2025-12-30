@@ -24,7 +24,7 @@ export const GENERAL_MIN_TITLE_LEVEL = 3; // professor and above
 // ============================================================================
 
 /** Node collision radius for general 3D view */
-export const GENERAL_COLLISION_RADIUS = 20;
+export const GENERAL_COLLISION_RADIUS = 25;
 
 /** Node collision radius for flat ancestry view - larger to spread nodes within bands */
 export const ANCESTRY_COLLISION_RADIUS = 25;
@@ -116,7 +116,7 @@ export const STUDENT_ANCESTRY_LAYOUT_CONFIG: Partial<TemporalLayoutConfig> = {
   bandRadiusEarlyDocumentation: 45, // 1800-1849: moderate
   bandRadiusRisingDocumentation: 60, // 1850-1874: rising activity
   bandRadiusAbolitionEra: 135, // 1875-1899: golden age, most space
-  bandRadiusModernDecade: 50,
+  bandRadiusModernDecade: 60,
   bandRadiusContemporaryDecade: 80,
   linkDistance: 75,
   // Unknown dates at current year - in ancestry view, this is typically just the current user

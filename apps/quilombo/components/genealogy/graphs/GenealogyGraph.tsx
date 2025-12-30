@@ -273,6 +273,9 @@ export function GenealogyGraph({
   const generalLayout = useMemo(() => createTemporalLayout(GENERAL_VIEW_LAYOUT_CONFIG), []);
   const studentAncestryLayout = useMemo(() => createTemporalLayout(STUDENT_ANCESTRY_LAYOUT_CONFIG), []);
 
+  // Pre-compute max visible radius for 3D view (stable value for recenter)
+  const generalMaxVisibleRadius = useMemo(() => generalLayout.getMaxVisibleRadius(), [generalLayout]);
+
   // Apply user filters to the raw data first
   // Empty arrays mean "show none" - filters are always explicit
   const filteredData = useMemo((): GraphData => {
@@ -448,6 +451,7 @@ export function GenealogyGraph({
       onBackgroundClick={onBackgroundClick}
       forces={forces3D}
       linkForceConfig={linkForceConfig3D}
+      maxVisibleRadius={generalMaxVisibleRadius}
       autoFitPadding={autoFitPadding3D}
       width={width}
       height={height}

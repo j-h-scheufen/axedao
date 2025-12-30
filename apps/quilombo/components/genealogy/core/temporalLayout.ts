@@ -566,6 +566,13 @@ export interface TemporalLayout {
   computeNodeTargetRadius: (node: GraphNode) => number;
 
   /**
+   * Get the maximum visible radius for nodes with known dates.
+   * Uses the current year as the outer bound, ignoring the unknownYear band (e.g., 2200).
+   * Useful for camera positioning to avoid zooming out to include outlier nodes.
+   */
+  getMaxVisibleRadius: () => number;
+
+  /**
    * Create a radial constraint force that pulls/pushes nodes toward their target radius.
    * For 3D graphs (uses x, z plane when constrained).
    */
@@ -681,6 +688,17 @@ export function createTemporalLayout(config: Partial<TemporalLayoutConfig> = {})
   function computeNodeTargetRadiusBound(node: GraphNode): number {
     const year = getNodeYear(node);
     return computeRadialDistanceForEntityYearBound(year);
+  }
+
+  /**
+   * Get the maximum visible radius for nodes with known dates.
+   * Uses the current year + a buffer decade as the outer bound.
+   * This excludes the unknownYear band (e.g., 2200) to prevent camera from zooming too far out.
+   */
+  function getMaxVisibleRadiusBound(): number {
+    // Use current year + 10 years as a reasonable outer bound for visible data
+    const maxVisibleYear = new Date().getFullYear() + 10;
+    return computeRadialDistanceForYearBound(maxVisibleYear);
   }
 
   /**
@@ -838,6 +856,7 @@ export function createTemporalLayout(config: Partial<TemporalLayoutConfig> = {})
     computeRadialDistanceForYear: computeRadialDistanceForYearBound,
     computeRadialDistanceForEntityYear: computeRadialDistanceForEntityYearBound,
     computeNodeTargetRadius: computeNodeTargetRadiusBound,
+    getMaxVisibleRadius: getMaxVisibleRadiusBound,
     createRadialForce: createRadialForceBound,
     createRadialForce2D: createRadialForce2DBound,
   };
