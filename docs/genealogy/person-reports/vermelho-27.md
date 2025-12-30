@@ -46,7 +46,7 @@ Vermelho 27 also served as patron of the Grupo de Capoeira Porto da Barra, found
 
 In his later years, Vermelho 27 battled skin cancer. He never stopped teaching or thinking about capoeira. Even on his deathbed, hospitalized and receiving serum, with difficulties speaking, he was documented making notes about berimbau technique in a small notebook.
 
-He made a final request to his disciple, Mestre Cabeludo: "Do not let Capoeira Regional stop. Write my book and keep talking about Mestre Bimba."
+He made a final request to his disciple, Mestre Cabeludo: "Do not let Capoeira Regional stop. Write my book and keep talking about Mestre Bimba".
 
 Mestre Vermelho 27 died on May 18, 1996, due to respiratory failure. In a fitting tribute to his lifelong devotion, a berimbau was placed on his remains at his funeral.
 
@@ -58,13 +58,13 @@ José Carlos Andrade Bittencourt, conhecido como Mestre Vermelho 27, nasceu em 9
 
 O apelido "Vermelho" veio de sua distintiva tez avermelhada. Como outro aluno chamado Vermelho já treinava sob Mestre Pastinha, ele adicionou "27" para se distinguir—um número que era seu amuleto da sorte na roleta e coincidentemente a placa de seu carro. Com o tempo ficou conhecido simplesmente como "Vermelho de Mestre Bimba" devido à sua profunda conexão com seu professor.
 
-O próprio Bimba reconheceu a extraordinária dedicação de Vermelho 27, declarando-o famosamente "Maluco por Capoeira." Ele foi contado entre os dez melhores alunos de Bimba e se formou em 1956. Seu jogo era caracterizado como técnico, rápido e eficiente, cheio de mandinga.
+O próprio Bimba reconheceu a extraordinária dedicação de Vermelho 27, declarando-o famosamente "Maluco por Capoeira". Ele foi contado entre os dez melhores alunos de Bimba e se formou em 1956. Seu jogo era caracterizado como técnico, rápido e eficiente, cheio de mandinga.
 
 Além da capoeira, Vermelho 27 trabalhou na Refinaria Landulfo Alves da PETROBRÁS na Bahia. Este emprego estável se provaria crucial—deu-lhe a base financeira para empreender o que ele chamou de "uma missão muito difícil" na preservação da academia de Mestre Bimba.
 
 Quando Mestre Bimba decidiu se mudar para Goiânia em 1973, desiludido com promessas quebradas e falta de apoio governamental na Bahia, o futuro de sua histórica academia no Terreiro de Jesus estava em jogo. Bimba inicialmente tentou vender o espaço para seus alunos, mas a maioria não tinha condições. Por fim, confiou a academia a Vermelho 27, dizendo-lhe: "Vermelho, você é o único que pode manter este lugar porque você é 'maluco por capoeira.'"
 
-Em 1972, Bimba realizou sua última cerimônia de formatura no Centro de Cultura Física Regional—um evento que a imprensa chamou de "A Formatura do Adeus." Vermelho 27 serviu como orador nesta ocasião histórica. Ele também organizou uma celebração de despedida para seu mestre na refinaria da PETROBRÁS em Madre de Deus (Mataripe) em 1973.
+Em 1972, Bimba realizou sua última cerimônia de formatura no Centro de Cultura Física Regional—um evento que a imprensa chamou de "A Formatura do Adeus". Vermelho 27 serviu como orador nesta ocasião histórica. Ele também organizou uma celebração de despedida para seu mestre na refinaria da PETROBRÁS em Madre de Deus (Mataripe) em 1973.
 
 Após a morte de Mestre Bimba em fevereiro de 1974, Vermelho 27 assumiu total responsabilidade pela academia. Em 1975, para honrar a memória de seu professor, renomeou-a para Associação de Capoeira Mestre Bimba (ACMB). Ele não estava sozinho nesta missão—formou alianças com Mestre Boa Gente, Ferro Velho (Mestre Durval), Vermelho Boxel, Mestre Bahia e Mestre Bando para manter a academia funcionando.
 
@@ -74,7 +74,7 @@ Vermelho 27 também serviu como patrono do Grupo de Capoeira Porto da Barra, fun
 
 Em seus últimos anos, Vermelho 27 lutou contra o câncer de pele. Ele nunca parou de ensinar ou pensar em capoeira. Mesmo em seu leito de morte, hospitalizado e recebendo soro, com dificuldades para falar, foi documentado fazendo anotações sobre técnica de berimbau em um pequeno caderno.
 
-Fez um último pedido a seu discípulo, Mestre Cabeludo: "Não deixe a Capoeira Regional parar. Escreva meu livro e continue falando sobre Mestre Bimba."
+Fez um último pedido a seu discípulo, Mestre Cabeludo: "Não deixe a Capoeira Regional parar. Escreva meu livro e continue falando sobre Mestre Bimba".
 
 Mestre Vermelho 27 morreu em 18 de maio de 1996, devido a insuficiência respiratória. Em uma homenagem adequada à sua devoção vitalícia, um berimbau foi colocado sobre seus restos mortais em seu funeral.
 
@@ -175,12 +175,12 @@ He also became known as "Vermelho de Mestre Bimba" due to his profound connectio
 ## Notes / Notas
 
 ### English
-Vermelho 27's final moments exemplify his devotion to capoeira. Even hospitalized and receiving serum, with difficulties speaking, he made notes about berimbau technique in a small notebook. His last words to Mestre Cabeludo became a mission statement for his students: "Do not let Capoeira Regional stop. Write my book and keep talking about Mestre Bimba."
+Vermelho 27's final moments exemplify his devotion to capoeira. Even hospitalized and receiving serum, with difficulties speaking, he made notes about berimbau technique in a small notebook. His last words to Mestre Cabeludo became a mission statement for his students: "Do not let Capoeira Regional stop. Write my book and keep talking about Mestre Bimba".
 
 The academy at Terreiro de Jesus (Rua Francisco Muniz Barreto #1, formerly Rua das Laranjeiras) is considered the oldest space in the world where capoeira is continuously taught. Vermelho 27's preservation of this historic site ensured the physical continuity of Mestre Bimba's legacy.
 
 ### Português
-Os momentos finais de Vermelho 27 exemplificam sua devoção à capoeira. Mesmo hospitalizado e recebendo soro, com dificuldades para falar, fazia anotações sobre técnica de berimbau em um pequeno caderno. Suas últimas palavras para Mestre Cabeludo se tornaram uma declaração de missão para seus alunos: "Não deixe a Capoeira Regional parar. Escreva meu livro e continue falando sobre Mestre Bimba."
+Os momentos finais de Vermelho 27 exemplificam sua devoção à capoeira. Mesmo hospitalizado e recebendo soro, com dificuldades para falar, fazia anotações sobre técnica de berimbau em um pequeno caderno. Suas últimas palavras para Mestre Cabeludo se tornaram uma declaração de missão para seus alunos: "Não deixe a Capoeira Regional parar. Escreva meu livro e continue falando sobre Mestre Bimba".
 
 A academia no Terreiro de Jesus (Rua Francisco Muniz Barreto #1, anteriormente Rua das Laranjeiras) é considerada o espaço mais antigo do mundo onde a capoeira é continuamente ensinada. A preservação deste local histórico por Vermelho 27 garantiu a continuidade física do legado de Mestre Bimba.
 

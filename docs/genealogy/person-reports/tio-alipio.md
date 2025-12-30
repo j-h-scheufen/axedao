@@ -33,7 +33,7 @@ His mother came from Africa on a slave ship (tumbeiro) that departed from the Po
 
 Beyond his skill as a capoeirista, Alípio was a Babalaô—a diviner and spiritual priest in the Yoruba/Candomblé tradition. This dual role as martial arts teacher and spiritual leader was characteristic of African capoeira masters in this era, who transmitted both fighting techniques and religious practices as an integrated cultural system.
 
-Following the Lei Áurea (Golden Law) that abolished slavery in May 1888, Alípio moved to Trapiche de Baixo—described in multiple sources as "the poorest neighborhood of Santo Amaro." There he continued to practice and teach capoeira, though the art remained criminalized under the 1890 Penal Code.
+Following the Lei Áurea (Golden Law) that abolished slavery in May 1888, Alípio moved to Trapiche de Baixo—described in multiple sources as "the poorest neighborhood of Santo Amaro". There he continued to practice and teach capoeira, though the art remained criminalized under the 1890 Penal Code.
 
 His most famous student was the young Manoel Henrique Pereira, later known as Besouro Mangangá. Besouro came to study under Alípio around 1908, when he moved to Trapiche de Baixo at about thirteen years old. The old African taught him in the sugarcane fields around the plantation:
 
@@ -46,13 +46,13 @@ The significance of Tio Alípio extends beyond his own life. He represents the d
 
 ### Português
 
-Tio Alípio foi um africano que foi trazido para o Brasil acorrentado para trabalhar no Engenho Pantaleão em Santo Amaro da Purificação, Bahia. Segundo Mestre Cobrinha Verde, entrevistado por pesquisadores documentando o projeto Velhos Mestres, ele era "o mestre mais famoso dentro de Santo Amaro."
+Tio Alípio foi um africano que foi trazido para o Brasil acorrentado para trabalhar no Engenho Pantaleão em Santo Amaro da Purificação, Bahia. Segundo Mestre Cobrinha Verde, entrevistado por pesquisadores documentando o projeto Velhos Mestres, ele era "o mestre mais famoso dentro de Santo Amaro".
 
-Sua mãe veio da África em um navio negreiro (tumbeiro) que partiu do Porto de São Jorge da Mina no Daomé (atual Benin). O próprio Alípio foi escravizado ainda jovem por uma família rica ("escravo de gente de posse ainda moço jovem"). No Engenho Pantaleão, ele suportou os sofrimentos da escravidão—"crescido no sofrimento da escravidão, onde passou por maus tratos até vir a abolição."
+Sua mãe veio da África em um navio negreiro (tumbeiro) que partiu do Porto de São Jorge da Mina no Daomé (atual Benin). O próprio Alípio foi escravizado ainda jovem por uma família rica ("escravo de gente de posse ainda moço jovem"). No Engenho Pantaleão, ele suportou os sofrimentos da escravidão—"crescido no sofrimento da escravidão, onde passou por maus tratos até vir a abolição".
 
 Além de sua habilidade como capoeirista, Alípio era um Babalaô—um adivinho e sacerdote espiritual na tradição Yorubá/Candomblé. Esse duplo papel de professor de artes marciais e líder espiritual era característico dos mestres de capoeira africanos nesta era, que transmitiam tanto técnicas de luta quanto práticas religiosas como um sistema cultural integrado.
 
-Após a Lei Áurea abolir a escravidão em maio de 1888, Alípio se mudou para Trapiche de Baixo—descrito em múltiplas fontes como "o bairro mais pobre de Santo Amaro." Lá ele continuou a praticar e ensinar capoeira, embora a arte permanecesse criminalizada pelo Código Penal de 1890.
+Após a Lei Áurea abolir a escravidão em maio de 1888, Alípio se mudou para Trapiche de Baixo—descrito em múltiplas fontes como "o bairro mais pobre de Santo Amaro". Lá ele continuou a praticar e ensinar capoeira, embora a arte permanecesse criminalizada pelo Código Penal de 1890.
 
 Seu aluno mais famoso foi o jovem Manoel Henrique Pereira, mais tarde conhecido como Besouro Mangangá. Besouro veio estudar com Alípio por volta de 1908, quando se mudou para Trapiche de Baixo com cerca de treze anos. O velho africano lhe ensinou nos canaviais ao redor da fazenda:
 
@@ -66,11 +66,11 @@ A importância de Tio Alípio se estende além de sua própria vida. Ele represe
 
 ### English
 
-**Geographic note:** The sources describe his mother as coming from "Porto de São Jorge da Mina, do Daomé." São Jorge da Mina (Elmina Castle) is actually in present-day Ghana, while Dahomey is present-day Benin—these were distinct but connected slave-trading regions. Slaves from the Dahomey kingdom were sometimes processed through the Elmina trading post. His actual African ethnic origin remains uncertain.
+**Geographic note:** The sources describe his mother as coming from "Porto de São Jorge da Mina, do Daomé". São Jorge da Mina (Elmina Castle) is actually in present-day Ghana, while Dahomey is present-day Benin—these were distinct but connected slave-trading regions. Slaves from the Dahomey kingdom were sometimes processed through the Elmina trading post. His actual African ethnic origin remains uncertain.
 
 ### Português
 
-**Nota geográfica:** As fontes descrevem sua mãe como vinda do "Porto de São Jorge da Mina, do Daomé." São Jorge da Mina (Castelo de Elmina) fica na verdade no atual Gana, enquanto Daomé é o atual Benin—eram regiões distintas mas conectadas no comércio de escravos. Escravos do reino do Daomé eram às vezes processados pelo posto comercial de Elmina. Sua origem étnica africana real permanece incerta.
+**Nota geográfica:** As fontes descrevem sua mãe como vinda do "Porto de São Jorge da Mina, do Daomé". São Jorge da Mina (Castelo de Elmina) fica na verdade no atual Gana, enquanto Daomé é o atual Benin—eram regiões distintas mas conectadas no comércio de escravos. Escravos do reino do Daomé eram às vezes processados pelo posto comercial de Elmina. Sua origem étnica africana real permanece incerta.
 
 ## Student
 

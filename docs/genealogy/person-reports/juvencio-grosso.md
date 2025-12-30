@@ -25,7 +25,7 @@
 
 Juvêncio Grosso was a capoeirista from Santo Amaro da Purificação in the Recôncavo Baiano, active during the early 20th century. He is known only from Mestre Cobrinha Verde's testimony listing the many mestres from whom he learned capoeira in Santo Amaro.
 
-Cobrinha Verde stated: "I learned from many mestres in Santo Amaro. I will give their names one by one: Maitá (who even had a samba song named after him), Licurí, Joité, Dendê, Gasolina, Siri de Mangue, Doze Homens, Esperidião, Juvêncio Grosso, Espinho Remoso, Neco Canário Pardo."
+Cobrinha Verde stated: "I learned from many mestres in Santo Amaro. I will give their names one by one: Maitá (who even had a samba song named after him), Licurí, Joité, Dendê, Gasolina, Siri de Mangue, Doze Homens, Esperidião, Juvêncio Grosso, Espinho Remoso, Neco Canário Pardo".
 
 Beyond this mention, no further biographical information has been found about Juvêncio Grosso. His presence in this list of Santo Amaro mestres places him among the generation contemporary with the legendary Besouro Mangangá.
 
@@ -33,7 +33,7 @@ Beyond this mention, no further biographical information has been found about Ju
 
 Juvêncio Grosso era um capoeirista de Santo Amaro da Purificação no Recôncavo Baiano, ativo durante o início do século XX. Ele é conhecido apenas pelo testemunho de Mestre Cobrinha Verde listando os muitos mestres com quem aprendeu capoeira em Santo Amaro.
 
-Cobrinha Verde declarou: "Aprendi com muitos mestres em Santo Amaro. Vou dar seus nomes um por um: Maitá (que até tinha um samba com nome dele), Licurí, Joité, Dendê, Gasolina, Siri de Mangue, Doze Homens, Esperidião, Juvêncio Grosso, Espinho Remoso, Neco Canário Pardo."
+Cobrinha Verde declarou: "Aprendi com muitos mestres em Santo Amaro. Vou dar seus nomes um por um: Maitá (que até tinha um samba com nome dele), Licurí, Joité, Dendê, Gasolina, Siri de Mangue, Doze Homens, Esperidião, Juvêncio Grosso, Espinho Remoso, Neco Canário Pardo".
 
 Além desta menção, nenhuma outra informação biográfica foi encontrada sobre Juvêncio Grosso. Sua presença nesta lista de mestres de Santo Amaro o coloca entre a geração contemporânea do lendário Besouro Mangangá.
 

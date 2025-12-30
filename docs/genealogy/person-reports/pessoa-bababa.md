@@ -95,9 +95,9 @@ A conexão marítima não era incomum para capoeiristas desta época. As áreas 
 
 ## Key Quotes
 
-> "...a sailor with the merchant navy and student of Mestre Pastinha... a very strong and brave guy." — Mestre Bola Sete
+> "...a sailor with the merchant navy and student of Mestre Pastinha... a very strong and brave guy". — Mestre Bola Sete
 
-> "Pessoa Bababá... a traditional capoeirista, who began teaching in a basement of a building, in a small place with little illumination." — Mestre Bola Sete, Capoeira Connection interview
+> "Pessoa Bababá... a traditional capoeirista, who began teaching in a basement of a building, in a small place with little illumination". — Mestre Bola Sete, Capoeira Connection interview
 
 ---
 
@@ -148,7 +148,7 @@ Pessoa Bababá was teaching Bola Sete (born 1950) in 1968. As an experienced mer
 - "Pessoa Bá-Bá-Bá" - appears in Pastinha report under Additional Named Students
 
 ### Training Location
-Small, poorly-lit basement space in Salvador. Exact address unknown. Described as informal teaching environment emphasizing "the old game the old way."
+Small, poorly-lit basement space in Salvador. Exact address unknown. Described as informal teaching environment emphasizing "the old game the old way".
 
 ### Death Status
 Unknown. No death date documented in available sources.

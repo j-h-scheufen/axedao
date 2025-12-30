@@ -37,9 +37,9 @@ Shortly after joining Pastinha's academy, João was promoted to treinel (trainer
 
 In 1966, João Pequeno represented Brazil at the Premier Festival des Arts Nègres in Dakar, Senegal, alongside Pastinha, João Grande, Gato Preto, Roberto Satanás, Gildo Alfinete, and Camafeu de Oxossi—a landmark moment in capoeira's international recognition.
 
-When Pastinha grew blind in his later years, João Pequeno and João Grande ran the academy. Pastinha entrusted his legacy to them, saying in 1970: "They will be the great capoeiras of the future and for this I worked and fought with them and for them. They will be true masters, not improvised teachers."
+When Pastinha grew blind in his later years, João Pequeno and João Grande ran the academy. Pastinha entrusted his legacy to them, saying in 1970: "They will be the great capoeiras of the future and for this I worked and fought with them and for them. They will be true masters, not improvised teachers".
 
-After Pastinha's death on November 13, 1981, and the closing of the original CECA at Pelourinho, João Pequeno persevered through these difficult years. On May 2, 1982, he re-founded the Centro Esportivo de Capoeira Angola at Forte Santo Antônio Além do Carmo—a 17th-century military fortress he transformed into a cultural center. Pastinha had told him: "Only the body dies, the spirit lives forever. João, you take care of this."
+After Pastinha's death on November 13, 1981, and the closing of the original CECA at Pelourinho, João Pequeno persevered through these difficult years. On May 2, 1982, he re-founded the Centro Esportivo de Capoeira Angola at Forte Santo Antônio Além do Carmo—a 17th-century military fortress he transformed into a cultural center. Pastinha had told him: "Only the body dies, the spirit lives forever. João, you take care of this".
 
 For nearly three decades, the Forte became a pilgrimage site for capoeiristas worldwide seeking to learn from the source. Into his 90s, João Pequeno continued teaching, embodying Pastinha's vision of capoeira as a path of self-knowledge and cultural preservation.
 
@@ -53,13 +53,13 @@ Passou seus primeiros anos na Bahia rural. Em 1933, quando tinha quinze anos, um
 
 Aos 25 anos, com permissão dos pais, João mudou-se para Salvador em janeiro de 1943. Trabalhando como pedreiro e condutor de bonde, reencontrou a capoeira através de um homem chamado Barbosa, um estivador que o levou à roda de Mestre Cobrinha Verde no bairro do Chame-Chame. Um dia, um homem chamado Vicente Ferreira Pastinha veio anunciando que queria organizar a capoeira de Salvador, convidando todos para o Bigode, uma antiga fábrica de sabão. João foi—e sua vida mudou para sempre.
 
-Pouco depois de ingressar na academia de Pastinha, João foi promovido a treinel (instrutor) por volta de 1945. Pastinha o apelidou de "Cobra Mansa," embora ficasse conhecido como João Pequeno para distingui-lo do mais alto João Grande. Junto com João Grande, tornou-se um dos "dois alunos mais preparados" de Pastinha—os principais herdeiros da tradição Angola.
+Pouco depois de ingressar na academia de Pastinha, João foi promovido a treinel (instrutor) por volta de 1945. Pastinha o apelidou de "Cobra Mansa", embora ficasse conhecido como João Pequeno para distingui-lo do mais alto João Grande. Junto com João Grande, tornou-se um dos "dois alunos mais preparados" de Pastinha—os principais herdeiros da tradição Angola.
 
 Em 1966, João Pequeno representou o Brasil no Premier Festival des Arts Nègres em Dakar, Senegal, ao lado de Pastinha, João Grande, Gato Preto, Roberto Satanás, Gildo Alfinete e Camafeu de Oxossi—um momento marcante no reconhecimento internacional da capoeira.
 
-Quando Pastinha ficou cego em seus últimos anos, João Pequeno e João Grande dirigiam a academia. Pastinha confiou-lhes seu legado, dizendo em 1970: "Eles serão os grandes capoeiras do futuro e para isso trabalhei e lutei com eles e por eles. Serão mestres mesmo, não professores de improviso."
+Quando Pastinha ficou cego em seus últimos anos, João Pequeno e João Grande dirigiam a academia. Pastinha confiou-lhes seu legado, dizendo em 1970: "Eles serão os grandes capoeiras do futuro e para isso trabalhei e lutei com eles e por eles. Serão mestres mesmo, não professores de improviso".
 
-Após a morte de Pastinha em 13 de novembro de 1981, e o fechamento do CECA original no Pelourinho, João Pequeno perseverou nesses anos difíceis. Em 2 de maio de 1982, refundou o Centro Esportivo de Capoeira Angola no Forte Santo Antônio Além do Carmo—uma fortaleza militar do século XVII que transformou em centro cultural. Pastinha havia lhe dito: "Só o corpo morre, o espírito vive para sempre. João, você cuida disso."
+Após a morte de Pastinha em 13 de novembro de 1981, e o fechamento do CECA original no Pelourinho, João Pequeno perseverou nesses anos difíceis. Em 2 de maio de 1982, refundou o Centro Esportivo de Capoeira Angola no Forte Santo Antônio Além do Carmo—uma fortaleza militar do século XVII que transformou em centro cultural. Pastinha havia lhe dito: "Só o corpo morre, o espírito vive para sempre. João, você cuida disso".
 
 Por quase três décadas, o Forte tornou-se local de peregrinação para capoeiristas do mundo todo que buscavam aprender da fonte. Aos 90 anos, João Pequeno continuava ensinando, incorporando a visão de Pastinha da capoeira como caminho de autoconhecimento e preservação cultural.
 

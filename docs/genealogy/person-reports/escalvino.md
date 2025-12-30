@@ -30,19 +30,19 @@ Escalvino was noted among the protected capoeiristas of his era—practitioners 
 
 The "terror brothers" designation indicates that Escalvino and Duquinha together were particularly feared in Salvador's underworld. Whether this reputation came from political enforcement, street fighting, or a combination of both, their joint notoriety was significant enough to earn them a shared chapter in the historical record.
 
-Escalvino was defended in court by Major Cosme de Farias, the legendary "rábula" (self-taught lawyer) who defended over 30,000 people including capoeiristas, thieves, prostitutes, gamblers, and the poor. Farias was known for his emotional appeals rather than strict legal arguments, portraying his clients as "defenseless people trusting in justice's righteousness."
+Escalvino was defended in court by Major Cosme de Farias, the legendary "rábula" (self-taught lawyer) who defended over 30,000 people including capoeiristas, thieves, prostitutes, gamblers, and the poor. Farias was known for his emotional appeals rather than strict legal arguments, portraying his clients as "defenseless people trusting in justice's righteousness".
 
 His inclusion with a dedicated (shared) chapter in "Mestres e capoeiras famosos da Bahia" indicates that his story was considered significant enough to preserve for future generations.
 
 ### Português
 
-Luís Escalvino, também conhecido simplesmente como Escalvino (às vezes escrito Scalvino), foi um capoeirista ativo em Salvador, Bahia, durante as décadas de 1920 e 1930. Ele é apresentado em "Mestres e capoeiras famosos da Bahia" junto com Duquinha, compartilhando o subtítulo "Os irmãos terror." Esse emparelhamento sugere que eram irmãos biológicos ou associados tão próximos que operavam como uma dupla temível nas ruas de Salvador.
+Luís Escalvino, também conhecido simplesmente como Escalvino (às vezes escrito Scalvino), foi um capoeirista ativo em Salvador, Bahia, durante as décadas de 1920 e 1930. Ele é apresentado em "Mestres e capoeiras famosos da Bahia" junto com Duquinha, compartilhando o subtítulo "Os irmãos terror". Esse emparelhamento sugere que eram irmãos biológicos ou associados tão próximos que operavam como uma dupla temível nas ruas de Salvador.
 
 Escalvino foi notado entre os capoeiristas protegidos de sua era—praticantes que tinham padrinhos influentes na sociedade de Salvador. Esta rede de proteção era comum durante a Primeira República, quando os capoeiristas frequentemente serviam como capangas (jagunços políticos) para políticos poderosos e em troca recebiam um grau de proteção contra processos.
 
 A designação "irmãos terror" indica que Escalvino e Duquinha juntos eram particularmente temidos no submundo de Salvador. Se essa reputação veio da aplicação política, brigas de rua, ou uma combinação de ambos, sua notoriedade conjunta foi significativa o suficiente para lhes render um capítulo compartilhado no registro histórico.
 
-Escalvino foi defendido em tribunal pelo Major Cosme de Farias, o lendário "rábula" (advogado autodidata) que defendeu mais de 30.000 pessoas incluindo capoeiristas, ladrões, prostitutas, jogadores e pobres. Farias era conhecido por seus apelos emocionais ao invés de argumentos legais estritos, retratando seus clientes como "pessoas indefesas confiando na retidão da justiça."
+Escalvino foi defendido em tribunal pelo Major Cosme de Farias, o lendário "rábula" (advogado autodidata) que defendeu mais de 30.000 pessoas incluindo capoeiristas, ladrões, prostitutas, jogadores e pobres. Farias era conhecido por seus apelos emocionais ao invés de argumentos legais estritos, retratando seus clientes como "pessoas indefesas confiando na retidão da justiça".
 
 Sua inclusão com um capítulo dedicado (compartilhado) em "Mestres e capoeiras famosos da Bahia" indica que sua história foi considerada significativa o suficiente para ser preservada para as gerações futuras.
 

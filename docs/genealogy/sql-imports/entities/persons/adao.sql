@@ -48,11 +48,11 @@ INSERT INTO genealogy.person_profiles (
   'unknown'::genealogy.date_precision,
   NULL,
   -- Extended content (English)
-  E'The very first name in capoeira''s documented history. Adão was a pardo (mixed-race) enslaved mulatto owned by Manoel Cardoso Fontes in Rio de Janeiro. Purchased young, he was initially described as "robust, hardworking, and very obedient," serving household tasks. His owner rented him out as a construction worker and carrier, making him a valuable source of income.
+  E'The very first name in capoeira''s documented history. Adão was a pardo (mixed-race) enslaved mulatto owned by Manoel Cardoso Fontes in Rio de Janeiro. Purchased young, he was initially described as "robust, hardworking, and very obedient", serving household tasks. His owner rented him out as a construction worker and carrier, making him a valuable source of income.
 
-But over time, the once-timid slave who had always lived at home "became more outgoing, independent, and began to arrive home late." He had found the capoeiras - groups of practitioners gathering in the city''s margins.
+But over time, the once-timid slave who had always lived at home "became more outgoing, independent, and began to arrive home late". He had found the capoeiras - groups of practitioners gathering in the city''s margins.
 
-On a fateful day, a fight broke out between capoeiras. One was killed. Adão was arrested "along with other troublemakers who practiced capoeira." Under colonial law, "the gravest of crimes was the practice of capoeiragem." Though the investigation cleared him of the murder, his identity as a capoeira was confirmed. The sentence: 500 lashes and two years of forced labor in public works.
+On a fateful day, a fight broke out between capoeiras. One was killed. Adão was arrested "along with other troublemakers who practiced capoeira". Under colonial law, "the gravest of crimes was the practice of capoeiragem". Though the investigation cleared him of the murder, his identity as a capoeira was confirmed. The sentence: 500 lashes and two years of forced labor in public works.
 
 After months at the pillory and in labor, his owner petitioned the king "in the name of the Passion of Christ" to pardon the remaining sentence, pleading poverty and dependence on his slave''s earnings. He promised Adão would never again associate with the capoeiras. On April 25, 1789, the Tribunal approved the mercy petition - creating the first documented record of the word "capoeira" to describe a practitioner.
 

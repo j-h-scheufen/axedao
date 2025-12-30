@@ -28,7 +28,7 @@ Lúcio Pequeno appears in history as one of the 22 founding mestres of the Centr
 
 This information comes from the manuscripts of Mestre Noronha (Daniel Coutinho, 1909-1977), one of the most important primary sources documenting early 20th century capoeira in Salvador. In his handwritten notebooks, completed in 1976 and published posthumously in 1993, Noronha listed all 22 founding mestres of Gengibirra. Lúcio Pequeno's name appears immediately after Cândido Pequeno "Argolinha de Ouro" (Golden Little Ring), the "champion of capoeira in the State of Bahia" who was Noronha's own teacher from 1917.
 
-Lúcio and Cândido share the surname "Pequeno," but no source confirms any family relationship between them. In Salvador's capoeira world of the early 1900s, surnames were not always hereditary - they could reflect nicknames, physical characteristics, or adopted names. The shared surname may be coincidental.
+Lúcio and Cândido share the surname "Pequeno", but no source confirms any family relationship between them. In Salvador's capoeira world of the early 1900s, surnames were not always hereditary - they could reflect nicknames, physical characteristics, or adopted names. The shared surname may be coincidental.
 
 What is certain is that Lúcio Pequeno was part of the founding generation that sought to organize and legitimize capoeira angola at a time when the practice was still criminalized in Brazil. The Gengibirra center adopted green and yellow - the colors of the Brazilian flag - as its official colors, wore them on their clothes, and established clear combat rules. The capoeirista who was "dragged by a rasteira in a demonstration or a rabo de arraia or a joelhada or a balão boca de calças or a escoramento de coxa" was considered defeated.
 
@@ -44,7 +44,7 @@ Lúcio Pequeno aparece na história como um dos 22 mestres fundadores do Centro 
 
 Esta informação vem dos manuscritos de Mestre Noronha (Daniel Coutinho, 1909-1977), uma das mais importantes fontes primárias documentando a capoeira do início do século XX em Salvador. Em seus cadernos manuscritos, completados em 1976 e publicados postumamente em 1993, Noronha listou todos os 22 mestres fundadores do Gengibirra. O nome de Lúcio Pequeno aparece imediatamente após Cândido Pequeno "Argolinha de Ouro", o "campeão da capoeira do Estado da Bahia" que foi o próprio mestre de Noronha a partir de 1917.
 
-Lúcio e Cândido compartilham o sobrenome "Pequeno," mas nenhuma fonte confirma qualquer relação familiar entre eles. No mundo da capoeira de Salvador do início de 1900, os sobrenomes nem sempre eram hereditários - podiam refletir apelidos, características físicas ou nomes adotados. O sobrenome compartilhado pode ser coincidência.
+Lúcio e Cândido compartilham o sobrenome "Pequeno", mas nenhuma fonte confirma qualquer relação familiar entre eles. No mundo da capoeira de Salvador do início de 1900, os sobrenomes nem sempre eram hereditários - podiam refletir apelidos, características físicas ou nomes adotados. O sobrenome compartilhado pode ser coincidência.
 
 O que é certo é que Lúcio Pequeno fez parte da geração fundadora que buscou organizar e legitimar a capoeira angola numa época em que a prática ainda era criminalizada no Brasil. O centro do Gengibirra adotou o verde e amarelo - as cores da bandeira brasileira - como suas cores oficiais, vestiam-nas em suas roupas e estabeleceram regras de combate claras. O capoeirista que fosse "arrastado por uma rasteira em demonstração ou um rabo de arraia ou uma joelhada ou um balão boca de calças ou um escoramento de coxa" era considerado derrotado.
 
@@ -132,7 +132,7 @@ Lúcio Pequeno co-founded the Centro Nacional de Capoeira de Origem Angola at La
 
 ### Shared Surname with Cândido Pequeno / Sobrenome Compartilhado com Cândido Pequeno
 
-The backlog entry noted "possible brother/relative of Cândido Pequeno (shared surname)." After extensive research:
+The backlog entry noted "possible brother/relative of Cândido Pequeno (shared surname)". After extensive research:
 
 1. **No source confirms any family relationship** between Lúcio Pequeno and Cândido Pequeno
 2. In early 20th century Salvador, surnames often reflected nicknames, physical characteristics, or adopted names - not hereditary family lineage

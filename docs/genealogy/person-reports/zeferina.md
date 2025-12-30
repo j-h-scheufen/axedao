@@ -42,7 +42,7 @@ Zeferina de tal foi uma capoeirista e valentona de Salvador, Bahia, documentada 
 
 O conflito entre Zeferina e Idalina tinha raiz na competição pelo ponto de prostituição no Distrito da Sé, uma área notória na Baixa dos Sapateiros de Salvador que era lar de capadócios, valentes e das mulheres incorrigíveis que desafiavam a ordem social.
 
-Em 24 de abril de 1920, o Jornal de Notícias relatou o confronto: "Foi presa mais uma vez ZEFERINA DE TAL, por brigar com sua companheira Idalina Maria do Sacramento." O jornal descreveu como "encontraram-se as desafetas e foram ao duelo a murro e pontapé."
+Em 24 de abril de 1920, o Jornal de Notícias relatou o confronto: "Foi presa mais uma vez ZEFERINA DE TAL, por brigar com sua companheira Idalina Maria do Sacramento". O jornal descreveu como "encontraram-se as desafetas e foram ao duelo a murro e pontapé".
 
 Ambas as mulheres tinham extensos registros policiais, acusadas múltiplas vezes de "capoeiragem" - a prática da capoeira, que era criminalizada pelo Código Penal de 1890. O uso de técnicas de luta as identificava como praticantes da arte, embora a linha entre capoeiristas e lutadoras de rua em geral fosse frequentemente nebulosa nos registros policiais da época.
 
@@ -98,7 +98,7 @@ None documented / Nenhum documentado.
 **Source:** Jornal de Notícias
 
 **Report:**
-"Foi presa mais uma vez ZEFERINA DE TAL, por brigar com sua companheira Idalina Maria do Sacramento, encontraram-se as desafetas e foram ao duelo a murro e pontapé."
+"Foi presa mais uma vez ZEFERINA DE TAL, por brigar com sua companheira Idalina Maria do Sacramento, encontraram-se as desafetas e foram ao duelo a murro e pontapé".
 
 (Zeferina so-and-so was arrested once again for fighting with her companion Idalina Maria do Sacramento; the rivals met and went to a duel with punches and kicks.)
 

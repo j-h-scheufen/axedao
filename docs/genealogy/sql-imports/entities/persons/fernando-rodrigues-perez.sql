@@ -55,7 +55,7 @@ INSERT INTO genealogy.person_profiles (
   -- bio_en
   E'Fernando Rodrigues Perez was a student of Mestre Bimba who trained in Capoeira Regional in Bahia. He represented Bimba''s academy in the historic 1949 capoeira challenge at Estádio Carioca in Rio de Janeiro.
 
-In February 1949, Mestre Sinhozinho, the leading figure of capoeira carioca in Rio de Janeiro, challenged Mestre Bimba''s Capoeira Regional school. Bimba''s group, which was touring São Paulo at the time, had been claiming superiority and was eager for real fighting ("pra valer") rather than just exhibition matches. As the newspaper A Noite announced on April 1, 1949: "Capoeira Challenge - Sinhozinho of the Federal District against Master Bimba from Bahia."
+In February 1949, Mestre Sinhozinho, the leading figure of capoeira carioca in Rio de Janeiro, challenged Mestre Bimba''s Capoeira Regional school. Bimba''s group, which was touring São Paulo at the time, had been claiming superiority and was eager for real fighting ("pra valer") rather than just exhibition matches. As the newspaper A Noite announced on April 1, 1949: "Capoeira Challenge - Sinhozinho of the Federal District against Master Bimba from Bahia".
 
 The event was organized by the Federação Metropolitana de Pugilismo (Metropolitan Federation of Pugilism) and held over two days at the Estádio Carioca on Avenida Passos in downtown Rio. It included not only the inter-capoeira matches but also a team of catch wrestlers who had similarly challenged Bimba''s academy.
 
@@ -69,11 +69,11 @@ Little else is known about Perez''s life before or after this challenge. His par
   -- bio_pt
   E'Fernando Rodrigues Perez foi um aluno de Mestre Bimba que treinou Capoeira Regional na Bahia. Ele representou a academia de Bimba no histórico desafio de capoeira de 1949 no Estádio Carioca no Rio de Janeiro.
 
-Em fevereiro de 1949, Mestre Sinhozinho, a principal figura da capoeira carioca no Rio de Janeiro, desafiou a escola de Capoeira Regional de Mestre Bimba. O grupo de Bimba, que estava em turnê por São Paulo na época, vinha reivindicando superioridade e estava ansioso por lutas reais ("pra valer") em vez de apenas exibições. Como anunciou o jornal A Noite em 1 de abril de 1949: "Desafio de Capoeira - Sinhozinho do Distrito Federal contra Mestre Bimba da Bahia."
+Em fevereiro de 1949, Mestre Sinhozinho, a principal figura da capoeira carioca no Rio de Janeiro, desafiou a escola de Capoeira Regional de Mestre Bimba. O grupo de Bimba, que estava em turnê por São Paulo na época, vinha reivindicando superioridade e estava ansioso por lutas reais ("pra valer") em vez de apenas exibições. Como anunciou o jornal A Noite em 1 de abril de 1949: "Desafio de Capoeira - Sinhozinho do Distrito Federal contra Mestre Bimba da Bahia".
 
 O evento foi organizado pela Federação Metropolitana de Pugilismo e realizado em dois dias no Estádio Carioca na Avenida Passos, no centro do Rio. Incluiu não apenas as lutas inter-capoeira, mas também uma equipe de lutadores de catch que havia similarmente desafiado a academia de Bimba.
 
-Em 7 de abril de 1949, Perez enfrentou Rudolf Hermanny, um aluno de 17 anos de Sinhozinho que mais tarde se tornaria campeão brasileiro e pan-americano de judô. O jornal Globo Esportivo naquele dia anunciou: "Hoje no Estádio Carioca - o capoeira carioca Hermanny (capoeira de Sinhozinho) em confronto como Perez (capoeira de Mestre Bimba)."
+Em 7 de abril de 1949, Perez enfrentou Rudolf Hermanny, um aluno de 17 anos de Sinhozinho que mais tarde se tornaria campeão brasileiro e pan-americano de judô. O jornal Globo Esportivo naquele dia anunciou: "Hoje no Estádio Carioca - o capoeira carioca Hermanny (capoeira de Sinhozinho) em confronto como Perez (capoeira de Mestre Bimba)".
 
 A luta foi breve e decisiva. Hermanny dominou o combate, derrotando Perez em apenas dois minutos. Um chute de Hermanny lesionou o braço de Perez, encerrando a luta. Isso veio depois que o colega aluno de Bimba, Jurandir, havia perdido para Cirandinha em 2 de abril, significando que ambos os representantes de Bimba foram derrotados.
 
@@ -89,7 +89,7 @@ Pouco mais se sabe sobre a vida de Perez antes ou depois deste desafio. Sua part
 
 DEATH: Unknown. No records found.
 
-NAME: Full name "Fernando Rodrigues Perez" appears in nossa-tribo.com. Most sources refer to him simply as "Perez."
+NAME: Full name "Fernando Rodrigues Perez" appears in nossa-tribo.com. Most sources refer to him simply as "Perez".
 
 1949 CHALLENGE:
 - Date: April 7, 1949 (second day of the two-day event)
@@ -118,7 +118,7 @@ HISTORICAL SIGNIFICANCE:
 
 MORTE: Desconhecida. Nenhum registro encontrado.
 
-NOME: Nome completo "Fernando Rodrigues Perez" aparece em nossa-tribo.com. A maioria das fontes o refere simplesmente como "Perez."
+NOME: Nome completo "Fernando Rodrigues Perez" aparece em nossa-tribo.com. A maioria das fontes o refere simplesmente como "Perez".
 
 DESAFIO DE 1949:
 - Data: 7 de abril de 1949 (segundo dia do evento de dois dias)

@@ -3,47 +3,47 @@
   "commit": null,
   "files": {
     "entities/persons/aberre-de-santo-amaro.sql": {
-      "checksum": "a9b3aba39c8e3388a4f968e8a3155c49",
+      "checksum": "7b587043a4291cec0bbd4b067a9b4099",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/aberre.sql": {
-      "checksum": "078cdbbd4143529302800e58970584e0",
+      "checksum": "7bf05ac74e2920b77e32df692ee2b399",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/acordeon.sql": {
-      "checksum": "3fe1f92917b83e837bd06a3ce220aacd",
+      "checksum": "d65cefd41e2b4aef6e7b9a288ac3bd93",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/adama.sql": {
-      "checksum": "e18515c44d79ebbbe9aee903d5055171",
+      "checksum": "40090fc8009e535c71d4fae38281a92b",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/adao.sql": {
-      "checksum": "83705900ffb21023293b26b1673e27e2",
+      "checksum": "7857f4f087480de46a2c4d943d36fb72",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/adilson-camisa-preta.sql": {
-      "checksum": "24b9f39ebb461bdb2b038975e070475f",
+      "checksum": "9522a0b4d7c25935a192b41491474f76",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/albertino-da-hora.sql": {
-      "checksum": "016a9337edf1315465668e2fac1d7525",
+      "checksum": "4a981eb5168c773ee8a4491a7b232f00",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/aleixo-acougueiro.sql": {
-      "checksum": "10c2adf99a60998c655aaabc1ab5da0a",
+      "checksum": "24b0c6f5132ed3114ebad3e0463e8638",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/alemaozinho.sql": {
-      "checksum": "7cc2d681648b76ba5d4e275ce1043285",
+      "checksum": "8c4ccfe07a7d46f24ad23badef4bdc91",
       "category": "entity",
       "entityType": "person"
     },
@@ -53,47 +53,47 @@
       "entityType": "person"
     },
     "entities/persons/ambrosio.sql": {
-      "checksum": "fd0f872dfab2ecdea13800c1bac6d82a",
+      "checksum": "7cbccd428acbba338848cd083b92cf06",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/americano.sql": {
-      "checksum": "9fb8da75a1f568800760891c3faabe10",
+      "checksum": "c5428a6baeb28a5c2ee72e54d394ddda",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/americo-ciencia.sql": {
-      "checksum": "ab0557293087bb8a32149c93d9b1601e",
+      "checksum": "75bf9ddcf3993b99c2a9acffdcdee226",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/amorzinho.sql": {
-      "checksum": "cf8bfcd6ed1ee3fc04c6b6be50c66583",
+      "checksum": "0bde1377d3156805a5107b8924c140b9",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/ananias.sql": {
-      "checksum": "3a518e84f49a254d6b70a8b92cdb2382",
+      "checksum": "9065c4dd386c7e5c12fd7648bda1c521",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/andre-jansen.sql": {
-      "checksum": "b6a0f309eee9f46ba509523534d0ecc9",
+      "checksum": "0a5969f39e1ef3a8819fe589c53e5a42",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/angelica-endiabrada.sql": {
-      "checksum": "8415d9c8b55cef3b698fde50969902dc",
+      "checksum": "c048c04c6b1b750e7ac9f8f1d7d58edc",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/antonio-boca-de-porco.sql": {
-      "checksum": "b45329ed8a5cf1f7334e91140281cb88",
+      "checksum": "407e290be1f0e64562d5f60a201e52d4",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/antonio-cabeceiro.sql": {
-      "checksum": "72928473374eaa878b0ee242f110c8f2",
+      "checksum": "b3779805b156fb2e4248169aed1e814c",
       "category": "entity",
       "entityType": "person"
     },
@@ -103,7 +103,7 @@
       "entityType": "person"
     },
     "entities/persons/antonio-de-noronha.sql": {
-      "checksum": "f18e59947712457b6f5329f6ecfc53c9",
+      "checksum": "14a158fecebb6267c98a4467834d3d59",
       "category": "entity",
       "entityType": "person"
     },
@@ -118,32 +118,32 @@
       "entityType": "person"
     },
     "entities/persons/arraia.sql": {
-      "checksum": "cc894437a873b5422d6db60ce91b6a5f",
+      "checksum": "d9d4ad797666f3d48a7086c9e9e66359",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/artur-emidio.sql": {
-      "checksum": "06f059a5f4b06e8841f065f4e374cbb8",
+      "checksum": "aaa6c96e95ab2a16fcc846d26bd51817",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/atenilo.sql": {
-      "checksum": "d310be2992ef9b11e1a1e59ff6087c04",
+      "checksum": "ec605e8881f003def0ebde44c4298b44",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/auvelino.sql": {
-      "checksum": "ea69de8dc5a510f0517a67c28be94580",
+      "checksum": "f469167210f48008b9689fa4a593e500",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/baleado.sql": {
-      "checksum": "2caa79417d735b5d8e42584208e30e22",
+      "checksum": "33a8d7d1e182b793ca2c8736a7b489dc",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/bamba.sql": {
-      "checksum": "c6ca4651eb11c7e7bebd384c475ba1e8",
+      "checksum": "a9130d90940ff28076befefcfb461e11",
       "category": "entity",
       "entityType": "person"
     },
@@ -163,107 +163,107 @@
       "entityType": "person"
     },
     "entities/persons/barbosa.sql": {
-      "checksum": "488c0e9eaad2340376faa7fa26826afc",
+      "checksum": "d6cc023c2f97f513f67b24103e7ca3ba",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/barboza.sql": {
-      "checksum": "94e9accd6c206066d31a15edffcce2d5",
+      "checksum": "7f430c42bfa1e20d5700a3d665912522",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/barroso.sql": {
-      "checksum": "9a45e9acd85a341577de2e622bb683bf",
+      "checksum": "8db2d1192f6625cb58a7c947c9e5a811",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/bastiao.sql": {
-      "checksum": "713bb4288ff338f4df1650484f56f814",
+      "checksum": "1cf2a874d396cd4c4de804d18433ad84",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/bene-do-correio.sql": {
-      "checksum": "2395ea0bb2c2cdc8a4bc9d1825b20689",
+      "checksum": "1f2bc9634334ede69f5a7dbdb7262356",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/benedito.sql": {
-      "checksum": "83c6722d246d2d37b5d53f26615b7421",
+      "checksum": "b0bab8e6b7f9eefaf05d13061ca1dad5",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/bentevi.sql": {
-      "checksum": "adda0b6bf73700d4f6930f408471dfa9",
+      "checksum": "17710ff280a790e895c58a968671a078",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/bentinho.sql": {
-      "checksum": "ee8a9a79b22fac34aab2583d3c031e6d",
+      "checksum": "715a27d1599e03b1f26212db0c53b993",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/bernardo-jose-de-cosme.sql": {
-      "checksum": "444d6444f1b9cce8be0a01ab013be72b",
+      "checksum": "8f4b873a6e7974d51db0266a7aa7e2fa",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/besourinho.sql": {
-      "checksum": "250db0a54501624474aea6a542c0cbd8",
+      "checksum": "4eccbd997e408a0b891496724a5831aa",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/besouro-gago.sql": {
-      "checksum": "a2f72801f7854fd9ccdbca880b0c2f64",
+      "checksum": "499da1bb1921bca79f343ba5e1634654",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/besouro-manganga.sql": {
-      "checksum": "61782f91bcbae5ffe5f022d22323281b",
+      "checksum": "a38e956bedb6438e549651c5dd2c1a83",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/bigode-de-seda.sql": {
-      "checksum": "c892a793ff595342fb009953f06c9bb6",
+      "checksum": "3ce459aecd02b70656e1a14ee69d2661",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/bigodinho.sql": {
-      "checksum": "99201518aac5844a2ba0a1a9c885263a",
+      "checksum": "496a3c9a5b637f2765f96c73c9a5792e",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/bimba.sql": {
-      "checksum": "d5324368266f6a40cc517c9d4143140d",
+      "checksum": "bc7a6a9125fe8daddc1b331426028845",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/boa-gente.sql": {
-      "checksum": "92c0e92f0e6199681f3850b6e5dc4e5c",
+      "checksum": "5c7ab9eb9dd45dc880e8d490c28ebd12",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/bobo.sql": {
-      "checksum": "476e64b7e466db9561a79c4a31b78cc5",
+      "checksum": "c39c895b76668f4a0f3ec95c0bec2eef",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/boca-de-siri.sql": {
-      "checksum": "d3cec45a9b25e5e42aff5f70fe35e0ea",
+      "checksum": "fea597415ed322b7486a37a8325816a7",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/boca-rica.sql": {
-      "checksum": "11652ddd96a2b8e022ff3c6e3f074247",
+      "checksum": "9acbfbc39f16f779ac0e79df90f56bcb",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/bola-sete.sql": {
-      "checksum": "28a1c225657345bd58d678c4b89b04aa",
+      "checksum": "e2473af673539a146add6f7c5231d3fd",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/bom-cabrito.sql": {
-      "checksum": "df908555610e7ea92d49b38a923022c0",
+      "checksum": "51c983682b27b483954cfcd2005561f9",
       "category": "entity",
       "entityType": "person"
     },
@@ -273,7 +273,7 @@
       "entityType": "person"
     },
     "entities/persons/braga.sql": {
-      "checksum": "9e58514e9def0c8bb7dc89232b73ae72",
+      "checksum": "473572c19a9863f4f02a19cef48f1330",
       "category": "entity",
       "entityType": "person"
     },
@@ -283,87 +283,87 @@
       "entityType": "person"
     },
     "entities/persons/brasilia.sql": {
-      "checksum": "8fe200d3fe5a224dae93eed1e6fb49c6",
+      "checksum": "35e5eb22046b370ff1c1f9c0b8696a1a",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/bugalho.sql": {
-      "checksum": "dd321471188fa0816451b267f0b30ab2",
+      "checksum": "31ce6bf5e8e314932d7b13e3e2191462",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/cabelo-bom.sql": {
-      "checksum": "4397e3c3a2f8df3af7fd025625552343",
+      "checksum": "3ad3c9a9aeaad223075feff45dcd320e",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/cafune.sql": {
-      "checksum": "d2ce9ff18f59315f3a704140a0bc7320",
+      "checksum": "941c8a9373fe0066c12b5083d7d4e266",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/caicara.sql": {
-      "checksum": "cd159a245ef8169a62a64e3c9fc83444",
+      "checksum": "62588e3cb77f2b64d882e381d82c189d",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/camafeu-de-oxossi.sql": {
-      "checksum": "78d9d2314858152cb826c744c3e88ad7",
+      "checksum": "a4a9ed262cda8821b31bc117441759c1",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/camisa-roxa.sql": {
-      "checksum": "458a62f52ed2bd574039e013a6ae4ad6",
+      "checksum": "2c51121f4d122f85f5554d3dc0fb887d",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/camisa.sql": {
-      "checksum": "92c887accc515717418e51e907994218",
+      "checksum": "f3df80a4a6ac421c05785fd65a11768b",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/campanhao.sql": {
-      "checksum": "a34769f417cfc833fae76aef9e2b8754",
+      "checksum": "28de52821c2471d56075fe440baf7d3b",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/candido-pequeno.sql": {
-      "checksum": "03c89d7dff6ded430f3eb6b8d6e5dc30",
+      "checksum": "b5d9d8c268bf66947a48c70193c9947d",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/canela.sql": {
-      "checksum": "aefc94d0873cfe4df4df220fa28287ea",
+      "checksum": "e8373aa8c5716df06fcb666bd735991f",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/canjiquinha.sql": {
-      "checksum": "0530308b6e1ce0441b9becd246f7b448",
+      "checksum": "c4b6b47473261444ab9fd306f0907bfd",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/capazans.sql": {
-      "checksum": "4093c76d6e94b5d8cad71329588d092d",
+      "checksum": "63e7c443003d2b40526d706dac17157c",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/carlos-senna.sql": {
-      "checksum": "218de5dfc67ec49db627821dac2aa6cb",
+      "checksum": "76a6ceea9ae29ae2c94f8538c08f9cc3",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/celso-do-engenho.sql": {
-      "checksum": "f4220ad340201a7cd20acc6f78af7b14",
+      "checksum": "c00a4fb59ea3e6eb8a5aba50712f36e2",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/celso-pepe.sql": {
-      "checksum": "fbf71ce131db83e7840a43f3018d3589",
+      "checksum": "a041fb5a52218c9f3dd9739470410afc",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/cesar-maneta.sql": {
-      "checksum": "30d30ebc51e5866778bf3988b7465728",
+      "checksum": "c00d97ebd2f17281ff63b6b8b3df6972",
       "category": "entity",
       "entityType": "person"
     },
@@ -373,7 +373,7 @@
       "entityType": "person"
     },
     "entities/persons/chico-me-da.sql": {
-      "checksum": "978cee7aec2c144b4b802257a9a9f186",
+      "checksum": "72ff43595092bfdc4966afe51fe5262b",
       "category": "entity",
       "entityType": "person"
     },
@@ -383,7 +383,7 @@
       "entityType": "person"
     },
     "entities/persons/chico-tres-pedacos.sql": {
-      "checksum": "dc4feea585a96b1374db240d77a7828e",
+      "checksum": "a29a408738496293cf0df3abbe2ea7c2",
       "category": "entity",
       "entityType": "person"
     },
@@ -393,12 +393,12 @@
       "entityType": "person"
     },
     "entities/persons/cirandinha.sql": {
-      "checksum": "7b35c62ba4d0b0f9fdfab0b4e26c5fc4",
+      "checksum": "5ccd4de226df64cd6ce4a1d6adb98b83",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/cisnando.sql": {
-      "checksum": "b70851c1f926ed5111f59a3338cb6df3",
+      "checksum": "9a7d438e8721e1892e5e35eb2dfd6bdc",
       "category": "entity",
       "entityType": "person"
     },
@@ -408,7 +408,7 @@
       "entityType": "person"
     },
     "entities/persons/cobrinha-verde.sql": {
-      "checksum": "0ea00a90b228c298c12583ba48bc2907",
+      "checksum": "f265eff75994aedae0f408f70d5ac900",
       "category": "entity",
       "entityType": "person"
     },
@@ -418,12 +418,12 @@
       "entityType": "person"
     },
     "entities/persons/creoni.sql": {
-      "checksum": "cd15fa3fc57bb57bf8a5d895fc4a1600",
+      "checksum": "0188e7fa6a9de79f806dfbd12ed22fda",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/crispim.sql": {
-      "checksum": "dcd8a184bb21fa0aaef1a3085f1c6b4a",
+      "checksum": "5dfea06569c905b88a37e26b7b1025e6",
       "category": "entity",
       "entityType": "person"
     },
@@ -433,7 +433,7 @@
       "entityType": "person"
     },
     "entities/persons/curio.sql": {
-      "checksum": "f191dde5bf26a32cf7563f3191476a5a",
+      "checksum": "7795a54046aed778fcf47a87a6c654a3",
       "category": "entity",
       "entityType": "person"
     },
@@ -443,17 +443,17 @@
       "entityType": "person"
     },
     "entities/persons/cyriaco.sql": {
-      "checksum": "c1033684d9f5cc2e75d394b8a64ae332",
+      "checksum": "0cc28f5981497410f1fc31e62da4b5a5",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/damiao.sql": {
-      "checksum": "8ce9bb2b9af814c54a78c9afc5419aa8",
+      "checksum": "5d3907b20106e371dbf7cf114e55929f",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/danadinho.sql": {
-      "checksum": "1b32305dd11a4ededb0044a64aa46744",
+      "checksum": "67a5f19ded2cdf74f1b58301b2365f3e",
       "category": "entity",
       "entityType": "person"
     },
@@ -463,7 +463,7 @@
       "entityType": "person"
     },
     "entities/persons/decanio.sql": {
-      "checksum": "a192b2c125c1dd078f1af752e55fb4d2",
+      "checksum": "09561e4ffbbf7834172545bff7f23005",
       "category": "entity",
       "entityType": "person"
     },
@@ -473,42 +473,42 @@
       "entityType": "person"
     },
     "entities/persons/djalma-bandeira.sql": {
-      "checksum": "f44447ebf2f199d6f75f025a6cbded20",
+      "checksum": "d4222f7d0e46a96557a7855a3d7b7340",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/dois-de-ouro.sql": {
-      "checksum": "669321459cadf1f5dab87eb5780c2e6e",
+      "checksum": "674cdfd9d9cccfacf8c26d1131a64ada",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/doze-homens.sql": {
-      "checksum": "ccefc7a963abcfe4262b5004936ce6a8",
+      "checksum": "803636751341516d6ad08bb821f28af2",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/duquinha.sql": {
-      "checksum": "5875a1fb2fa86190d7a22659f8ec44de",
+      "checksum": "dc3eb3600f3168a782839714f7d7353c",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/edgar.sql": {
-      "checksum": "3ea9301136290b50e54ba4091fa67996",
+      "checksum": "87c387e20666e0c539777d02bb1d38a7",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/edinho.sql": {
-      "checksum": "b67bffc0df10d28304456507299502cb",
+      "checksum": "4a7af3b21f2c05e8626f790ef9a77dfc",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/eleuterio-de-souza.sql": {
-      "checksum": "16ff0a93f18310bee617dbf22287aa19",
+      "checksum": "3fd8a8c7733060d2185bc170a05d28d7",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/emerito.sql": {
-      "checksum": "30abf2f8febfcd60436c93f841dc69a3",
+      "checksum": "950ecd5f9f47774ee0365ac027818eed",
       "category": "entity",
       "entityType": "person"
     },
@@ -518,7 +518,7 @@
       "entityType": "person"
     },
     "entities/persons/escalvino.sql": {
-      "checksum": "6162c068e61dc05ef636ee1b111c0137",
+      "checksum": "bd95d1cd4df4fca018b0c0166d8c9416",
       "category": "entity",
       "entityType": "person"
     },
@@ -528,27 +528,27 @@
       "entityType": "person"
     },
     "entities/persons/eutiquio.sql": {
-      "checksum": "7b1a25bbe8600629d0aa99f33723ce7a",
+      "checksum": "0d06365ad8070f299b54507296b00b8a",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/ezequiel.sql": {
-      "checksum": "4be2fb30c323a2d860cabc9af7d2a78e",
+      "checksum": "01ecee8c7ce9a07179ba9396b3dbb4ca",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/fernando-rodrigues-perez.sql": {
-      "checksum": "95cd3592ff2a31d09c9b5e99c325fc66",
+      "checksum": "f64fca1a034f4c6d6ce6827d0497fbee",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/finado-manteiga.sql": {
-      "checksum": "5c92d36e358aefff7eeca4796237c85a",
+      "checksum": "8904aff739dcbef50267b6ec3a7d88e4",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/formiga.sql": {
-      "checksum": "3a7603770778815683a4875d43d04efb",
+      "checksum": "08978207db6441761e0594d251149ee7",
       "category": "entity",
       "entityType": "person"
     },
@@ -558,7 +558,7 @@
       "entityType": "person"
     },
     "entities/persons/forro.sql": {
-      "checksum": "789040aca6e36fc8e461a21f278657b3",
+      "checksum": "b18e53dbda25eee8651ce5f073cc6708",
       "category": "entity",
       "entityType": "person"
     },
@@ -573,17 +573,17 @@
       "entityType": "person"
     },
     "entities/persons/galo.sql": {
-      "checksum": "61efd15fe793355a3dd3b31d74c90c0f",
+      "checksum": "0c00b7b96cb4a11750c4720d9edd1bed",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/gasolina.sql": {
-      "checksum": "d9d49074417efe3b25a363c3f933129e",
+      "checksum": "d2ba1d86e5f4444b295f9aaf74fd8088",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/gato-preto.sql": {
-      "checksum": "9f5515f6a517de6b3d396789542bee1f",
+      "checksum": "0e57ee80849a2fe882ade610de6af05b",
       "category": "entity",
       "entityType": "person"
     },
@@ -593,22 +593,22 @@
       "entityType": "person"
     },
     "entities/persons/gato-silvestre.sql": {
-      "checksum": "3a5b3876314088d84fb08a316842121a",
+      "checksum": "3e3f79468e4559992cc7b89fc374fd54",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/gege.sql": {
-      "checksum": "f3294ab27ff817847632ca362f733222",
+      "checksum": "1923f40775a99b0e1eccfaa4c12ff994",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/genaro.sql": {
-      "checksum": "7e7ec52207f777d5cf87185c48aa64a7",
+      "checksum": "3243b9d6eeb231f3f92f7504d8be3770",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/geraldo-chapeleiro.sql": {
-      "checksum": "5a95f8d93855dcbc00330eb8d2fe4a12",
+      "checksum": "ab65fdbc0cbcd5ae6fe6098de45aaeaa",
       "category": "entity",
       "entityType": "person"
     },
@@ -618,17 +618,17 @@
       "entityType": "person"
     },
     "entities/persons/gigante.sql": {
-      "checksum": "94c158aec096360f41cba9c238cf3fb6",
+      "checksum": "bb312a6cc117ee3ca6f228b6dd580969",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/gilberto-flores.sql": {
-      "checksum": "cc4ca362fde1cb22778f3ca9334592e1",
+      "checksum": "ceee662c521cffe9850bb86bfe4c5ea4",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/gildo-alfinete.sql": {
-      "checksum": "98e415568bd77a92686f85df829547f5",
+      "checksum": "fbfddb308b871bcef3cc54a8ee58c5ab",
       "category": "entity",
       "entityType": "person"
     },
@@ -638,12 +638,12 @@
       "entityType": "person"
     },
     "entities/persons/gladson.sql": {
-      "checksum": "ef6e29ce1fd9653e7d1963cded330732",
+      "checksum": "56c66115f5b26efe3e97da92b9ae4f09",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/henrique-bahia.sql": {
-      "checksum": "7a5752f3111f138118dfd860e9d83902",
+      "checksum": "376d8f23056db4b492173563468d20f9",
       "category": "entity",
       "entityType": "person"
     },
@@ -653,12 +653,12 @@
       "entityType": "person"
     },
     "entities/persons/idalina.sql": {
-      "checksum": "6d02f6702113110cb6c4e56ea1e4de81",
+      "checksum": "87657f1960fa9a7f730613e1ebccb720",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/imagem-do-cao.sql": {
-      "checksum": "460b2629f0ad9c265b9bc66e5203e557",
+      "checksum": "30f4d8f72772d847dfb5441a7767d0f7",
       "category": "entity",
       "entityType": "person"
     },
@@ -668,77 +668,77 @@
       "entityType": "person"
     },
     "entities/persons/inimigo-sem-tripa.sql": {
-      "checksum": "c64e83dcc961cded82dc1a1b209c9868",
+      "checksum": "7efe9e0d3c6defc312c4eb4520a94eea",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/isidio.sql": {
-      "checksum": "bad9973b03383703d0299aa889f3f316",
+      "checksum": "3d3ec340c3488613a1a3b6a8c0b61c2d",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/itapoan.sql": {
-      "checksum": "fb6a7d2e76273c0e43db2e3daadb63c3",
+      "checksum": "8e4ec4a54e81a357c6a44aa4c7493f1a",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/jaco.sql": {
-      "checksum": "955f63c8e90e5b922d0c699f1273a7f9",
+      "checksum": "fa6c311145c9d3a4417035905d61e79c",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/jair-moura.sql": {
-      "checksum": "2bce774d3cf6c769447b7ad82527a72c",
+      "checksum": "119d48ec5b39aaf522173260281884c9",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/janja.sql": {
-      "checksum": "4ed5f576635bfd4fcacd87d9b3f3c29a",
+      "checksum": "9f2cfe786fab6bee00a76b9e85ea445a",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/jelon-vieira.sql": {
-      "checksum": "0ffdcbb5da0a896408ca342d4157a497",
+      "checksum": "e11fe13aa2854392022fc3f6e1ed139e",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/joao-catarino.sql": {
-      "checksum": "ba9dab7fcc516cde6752c9d134005f67",
+      "checksum": "82dd8fb0670c6417d83cc7733a65f7c2",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/joao-de-toto.sql": {
-      "checksum": "332e549c2069febbe8d236c8329d210d",
+      "checksum": "6ac1b1a0c9445cc21d93ddd2d26edbff",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/joao-grande.sql": {
-      "checksum": "f94db3b45e5279f75132702386d56da3",
+      "checksum": "741814a88ae9811078038241f03db4aa",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/joao-lagalhe.sql": {
-      "checksum": "acc78c5f551ea17559901392aca5e286",
+      "checksum": "9da384fadf7c9ea994c00192bc60f363",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/joao-pequeno.sql": {
-      "checksum": "ab813d865744e17032a06857a9d9c470",
+      "checksum": "e2b18a5832714506f16029ecb4d76051",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/joao-sabe-tudo.sql": {
-      "checksum": "4302e1072b63217154af6fa9026e4841",
+      "checksum": "757a45de2dad463b86a17c92ed87cf20",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/joel-lourenco.sql": {
-      "checksum": "7e23b554a1d47b3b0f991d9ec60da3b8",
+      "checksum": "e6363061a680a64645ccdfd691c530b1",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/jose-bidel.sql": {
-      "checksum": "a41048f2e5a57ddf64f633a445b2198d",
+      "checksum": "c212b9cc946895b0373cfcee715d54f4",
       "category": "entity",
       "entityType": "person"
     },
@@ -748,22 +748,22 @@
       "entityType": "person"
     },
     "entities/persons/jovino-dos-coelhos.sql": {
-      "checksum": "2ba73692a3446846c865f9633eebfc40",
+      "checksum": "401ae40a9f3743d148a3f92c886885d3",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/julia-fogareira.sql": {
-      "checksum": "3e5752f0d025065e6a2db41569449a9c",
+      "checksum": "53d8ec3aed4746746d04aec621d6c961",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/julio-franca.sql": {
-      "checksum": "9f73c6118a3efc0d2bbd26ac17c359a1",
+      "checksum": "083665e7176dafa46bad9dd0ed367a3b",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/jurandir-bimba-1949.sql": {
-      "checksum": "c291a3fc30bb6465ec5c34005062237f",
+      "checksum": "b1dc85341144d3321c3746149ec9131b",
       "category": "entity",
       "entityType": "person"
     },
@@ -778,97 +778,97 @@
       "entityType": "person"
     },
     "entities/persons/juvenal-engraxate.sql": {
-      "checksum": "0e58acb4dfba570ea1cb960b0e317850",
+      "checksum": "543f3d5078f1cb950ff4ee8ca43ee184",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/juvencio.sql": {
-      "checksum": "7d68276f211e2fd7e36d34c3779eb040",
+      "checksum": "64465d8cdaabf62a5b41180edca171dd",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/juvenil.sql": {
-      "checksum": "a3588af4d5416ef875662a5753e0138e",
+      "checksum": "145ee13f4863e5b1ce07871150212680",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/leandro-bonaparte.sql": {
-      "checksum": "ed8de81ddd3a7f677e4649103ae3d043",
+      "checksum": "8913962ccf710eed8847a33625aefcb3",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/leao-do-norte.sql": {
-      "checksum": "aee4e8eb18728bcdbe699088c97720e9",
+      "checksum": "eed4bf9c594a20d253e0b23b10f0f475",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/leo-sao-braz.sql": {
-      "checksum": "92e8ffef22667c51fa5e9b4efea3540c",
+      "checksum": "c76ba3195446163d116b99315e6d7108",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/leopoldina.sql": {
-      "checksum": "58441af9240be6c45685415d3c5f75e5",
+      "checksum": "989100b6425d3639b6fe285bc5d9387b",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/levi-caxias.sql": {
-      "checksum": "e0cd358d72fe7f4e245472fd640f3641",
+      "checksum": "9f5e766f4f1e30ddb7e8eb52c71e9e29",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/livino.sql": {
-      "checksum": "50ff2edbabf2546be6de878936c97a04",
+      "checksum": "1e5373c7e1b0b057d131f5ebb59cb4b3",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/lucio-pequeno.sql": {
-      "checksum": "1c5910e95c7c5155f172744163377e70",
+      "checksum": "5b1a920f1ffd680f5cfb0dec1beebe37",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/luiz-candido-machado.sql": {
-      "checksum": "27d2e77a0069ac7ad1c308f51fb1b2d2",
+      "checksum": "b998782055a6d2933bf5610498de6bb5",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/madame-sata.sql": {
-      "checksum": "00aadb55ef96b2572bfad26e32097a09",
+      "checksum": "609f63105a095dc1a72a2ce8de8d2524",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/madeira.sql": {
-      "checksum": "68e214aa420f506d6b4d888643e60368",
+      "checksum": "45df014157f28ec514ad1c1854e997b7",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/major-vidigal.sql": {
-      "checksum": "c0c9b19a34acf223830caae3f99d7538",
+      "checksum": "d5e80e19e7a92367361fc0d53facccb5",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/malvadeza.sql": {
-      "checksum": "4fa7b6986c6562fa256ff0c3f2f7f746",
+      "checksum": "ffed8a30844e5410ebfc0774b9014248",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/mamede.sql": {
-      "checksum": "3c29bec1fe5b7e9feb7f28f1030f7861",
+      "checksum": "4e35444e233224ddad1a3769ffedceed",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/manduca-da-praia.sql": {
-      "checksum": "674ce22919edea7c92ff824d95e031e6",
+      "checksum": "f4b8e17a172f8683e79f2e75060d0ec6",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/maneca-brandao.sql": {
-      "checksum": "6c5bb41a10c4fda1e82e08ac6284a63a",
+      "checksum": "e9fa18518bd82d82b73ad85718ef1e52",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/manezinho-camisa-preta.sql": {
-      "checksum": "2ad1b61265c32e8ff40cc64babf8289a",
+      "checksum": "152a7b4daa0a704d21eefc99076f6a0d",
       "category": "entity",
       "entityType": "person"
     },
@@ -878,7 +878,7 @@
       "entityType": "person"
     },
     "entities/persons/maozinha.sql": {
-      "checksum": "2fb07bf32c5d51b1d3f911bbf17620d2",
+      "checksum": "61c76ff12d5fcbcd4dab250f2ef231d4",
       "category": "entity",
       "entityType": "person"
     },
@@ -888,67 +888,67 @@
       "entityType": "person"
     },
     "entities/persons/marco-aurelio.sql": {
-      "checksum": "8c44a4d1f57ec8481cf732b62946d9dc",
+      "checksum": "82ee23e4a323670e54d33c6332a852e3",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/maria-dos-anjos.sql": {
-      "checksum": "1ff3f85e7358f92211418af037afae6f",
+      "checksum": "92fb659244d3fcf765c62a9c8c5898c4",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/maria-doze-homens.sql": {
-      "checksum": "194ee6b9be99f9570d88769a8b1836f2",
+      "checksum": "6c63d1dc0b2433851a3a784a4cdbc307",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/maria-homem.sql": {
-      "checksum": "ab04ee57a6865620ffd93dba7d7df481",
+      "checksum": "582452a226af805996342634a3f77bce",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/maria-izabel.sql": {
-      "checksum": "493a0568374c6ce7ddfbc5374a365873",
+      "checksum": "4172c9ca529e765be04516029b9cd527",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/mario-aleixo.sql": {
-      "checksum": "c77af2f2999d3d5c393843d2952e02a7",
+      "checksum": "48e9371bdb5ae6f07540e8426266faa5",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/mario-buscape.sql": {
-      "checksum": "0ea1b89f7292c9374751ffe14cbb369a",
+      "checksum": "8a950125dfd59fe55a1e6d79607baa0f",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/marrom.sql": {
-      "checksum": "aabca160dff3051bde90d7b7d3ead3de",
+      "checksum": "048d0ebdd7eb37eb7d8901a3e1253f3f",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/medicina.sql": {
-      "checksum": "1e0aec36cb119371c3e5fdeefe134709",
+      "checksum": "f44647913be206b1c7356e565b153cae",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/menino-gordo-da-curva-grande.sql": {
-      "checksum": "bee17f47ba9e9c690b384964389b8a20",
+      "checksum": "ff9ada93fc4d8f183d668556d404ae15",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/miguel-camisa-preta.sql": {
-      "checksum": "4fd958bf27ac9c222c34d005a0c00687",
+      "checksum": "2366396dbd2ad7ea5ffc1aa568dd1fe7",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/miranda.sql": {
-      "checksum": "c18f64c603c8052be91fdd02852932c6",
+      "checksum": "20c295b72681feffb00bea362d5b40b2",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/moraes.sql": {
-      "checksum": "9cfe945f678053c0884c023e15f27881",
+      "checksum": "185fbf5382ec27169a74301604598a59",
       "category": "entity",
       "entityType": "person"
     },
@@ -958,27 +958,27 @@
       "entityType": "person"
     },
     "entities/persons/mucunge.sql": {
-      "checksum": "a00ffb7233e0720ac07683359f42e1d6",
+      "checksum": "fcad57265ba3c068eeeb1bbe31abf0fe",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/nage-pedrito-victim.sql": {
-      "checksum": "d0cabe1c324b9b23d117e83a6cdf035d",
+      "checksum": "d853cd1aa2df2e119315965537ef756a",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/nage.sql": {
-      "checksum": "da53fb9e628ac320a549d6fced1bef5b",
+      "checksum": "a8ab9d5581a664d2d4a2089a61dbb533",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/nascimento-grande.sql": {
-      "checksum": "979b1dcde353a7dfad623ae8c903aded",
+      "checksum": "c4969a0b765af6c2b1b333a0902a00c6",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/neco-canario-pardo.sql": {
-      "checksum": "e866211b1f7e46f9ab01b5894c89fcac",
+      "checksum": "eef28393c803b104dc2e54a3df3c0f88",
       "category": "entity",
       "entityType": "person"
     },
@@ -988,27 +988,27 @@
       "entityType": "person"
     },
     "entities/persons/nenel.sql": {
-      "checksum": "b96a962215b4f521aa5f62408366a7a8",
+      "checksum": "9a56769da06c241533ae484da8cf0ad4",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/nenem-itabuna.sql": {
-      "checksum": "9a80fb23333fa8ea35daf9065daf8262",
+      "checksum": "caa4426294f583b6da21d46fc1ba8ab6",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/nestor-capoeira.sql": {
-      "checksum": "a7099fa278f483e5dc241f7fd432c126",
+      "checksum": "14c3cfb9dc42dafa7e346d904dc926bc",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/nicolau-do-poco.sql": {
-      "checksum": "530fff6a532d4678421df75a58cfd0cc",
+      "checksum": "79c8ece87b0457a314d4b89b3ae29a77",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/nilton.sql": {
-      "checksum": "4909715783e088781ac9fb368123e821",
+      "checksum": "0141dbe1fc4bdeb3db6a0bb81d22682d",
       "category": "entity",
       "entityType": "person"
     },
@@ -1018,32 +1018,32 @@
       "entityType": "person"
     },
     "entities/persons/no.sql": {
-      "checksum": "3bedf16d9538ddc48d362255ac3ae3d3",
+      "checksum": "80ba9a717629e070f954d8bbcca24869",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/noca-de-jaco.sql": {
-      "checksum": "ca36ed24a3a8c6dc653fad2f3b2a5ac4",
+      "checksum": "e281b6e378abf760fd77dd648c6cb65b",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/noronha.sql": {
-      "checksum": "56bd39eb0ed4407e052b23c272b9552b",
+      "checksum": "47249c289fef49acfb98e5caac36b639",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/nozinho-da-cocheira.sql": {
-      "checksum": "ddcb04f0e0513ca698cf24d2e83a13c6",
+      "checksum": "7ad4dc4dc53481d800dd3326ca1f90f4",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/olegario-itaparica.sql": {
-      "checksum": "9c185e48fcf5490931b43f20d094c33a",
+      "checksum": "203e9b114658981c0d3c76a0e7e6287b",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/oleriano-de-goes.sql": {
-      "checksum": "15e578720edb26dfa29a7ef91499e333",
+      "checksum": "007f0f89f6f2d3e96030e542aabcfe25",
       "category": "entity",
       "entityType": "person"
     },
@@ -1053,32 +1053,32 @@
       "entityType": "person"
     },
     "entities/persons/omar.sql": {
-      "checksum": "5c5d265061704333163a09dfc6d59980",
+      "checksum": "90c5b19ae67e0ac0a293abca51b53d62",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/onca-preta.sql": {
-      "checksum": "ca135237e1c77d34170920154e4a6593",
+      "checksum": "bbca46d6145b9f850e44d78b81e33a13",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/onca-sp.sql": {
-      "checksum": "d9dfcd7a4b658423ee1745b1cbcc2b4d",
+      "checksum": "17b6fa496718b7e8ba9cdfb3ab9e068f",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/onca-tigre.sql": {
-      "checksum": "2e95e6dd86e0a24d382aaef0163edc24",
+      "checksum": "8a6e7a981109c7dbb3f60ceb0286b93d",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/paizinho.sql": {
-      "checksum": "4ea01072a51539e6f790314485113a4d",
+      "checksum": "0c3d51cc05cff72fed7a4479554d0c62",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/pajeu.sql": {
-      "checksum": "0bcd13d00c13b91d432ee273e14874bb",
+      "checksum": "4d0a289cdddd17b044030bfd9b01dffc",
       "category": "entity",
       "entityType": "person"
     },
@@ -1088,12 +1088,12 @@
       "entityType": "person"
     },
     "entities/persons/parana.sql": {
-      "checksum": "e05afaeb7c74681c4afb6b16f201f4be",
+      "checksum": "d72b8d48646f07965397afae2bf78bc5",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/pastinha.sql": {
-      "checksum": "7bf090ddf36c767dc2b582c364a722f7",
+      "checksum": "855d10a08a499b335550c3abd5ca368b",
       "category": "entity",
       "entityType": "person"
     },
@@ -1103,52 +1103,52 @@
       "entityType": "person"
     },
     "entities/persons/paulinho-salmon.sql": {
-      "checksum": "8be5691d389abc19630db09d0d9e6e96",
+      "checksum": "72303741f6af324a483eec887e3310fc",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/paulo-barroquinha.sql": {
-      "checksum": "cded90a10ef6d772543075a261654a4f",
+      "checksum": "9cf79ae6add589244b64705a757ae09f",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/paulo-cesar-de-moura.sql": {
-      "checksum": "16eff0d23787f31721b90baf8454603f",
+      "checksum": "f144fe9ddb1c133213c8073a17f6628f",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/paulo-flores.sql": {
-      "checksum": "23b26a12161cff5b9647ad387e924792",
+      "checksum": "3417b8db1c369e896e8334e7cd5579c4",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/paulo-gomes.sql": {
-      "checksum": "a5ef6800a0de106926d1d71309684a01",
+      "checksum": "ed641b816d7a2d1ba81289c61fc52767",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/paulo-siqueira.sql": {
-      "checksum": "c2ae84d9fbb7a633dcb75f8ebaa5cfe0",
+      "checksum": "89ce5f77548d2f483b1c818c5a042ff9",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/pedrinho-carneiro.sql": {
-      "checksum": "0dd7e923e5a5e9591846d2c265397603",
+      "checksum": "5eb416f961eb84c3300fcc0633ddff49",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/pedro-cobra.sql": {
-      "checksum": "d93f70246e99be2ffd4414de4ce6ec96",
+      "checksum": "e3b9da256d469191f2724ca778aa6780",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/pedro-porreta.sql": {
-      "checksum": "e119c6325d5f037c35d2cf1b6315aa8f",
+      "checksum": "b19a74bed22563d881eb8549c296cba3",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/peixinho.sql": {
-      "checksum": "fec147f485e7960ea42653f1b4193a10",
+      "checksum": "b30896c2ebdfa5231654f4a33bc9e8d3",
       "category": "entity",
       "entityType": "person"
     },
@@ -1163,7 +1163,7 @@
       "entityType": "person"
     },
     "entities/persons/pessoa-bababa.sql": {
-      "checksum": "a6bcfe6d3d230a2820ca84ba23fb2751",
+      "checksum": "cf5d83b4013ab5266cc9b1c9b5cd0eae",
       "category": "entity",
       "entityType": "person"
     },
@@ -1173,12 +1173,12 @@
       "entityType": "person"
     },
     "entities/persons/pinta-preta-da-lapa.sql": {
-      "checksum": "149acdd3f997f21e96a696072329ce40",
+      "checksum": "f632b45f18c44b07e4fc86d458449fd3",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/pintor.sql": {
-      "checksum": "746de1d2326b9ccd97b16ee702e61048",
+      "checksum": "16a8381390ee00d72fbf91b7f7e51b2c",
       "category": "entity",
       "entityType": "person"
     },
@@ -1188,32 +1188,32 @@
       "entityType": "person"
     },
     "entities/persons/piroca.sql": {
-      "checksum": "d20c51dfda0b1f2da2aeab04644f977e",
+      "checksum": "a0221a2bff77000b956068fab70ad856",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/placido-de-abreu.sql": {
-      "checksum": "4157da76b09fd501b3002bdee03f3da3",
+      "checksum": "93b7574eb05cb7c34e3d2f47809cdc49",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/polaco.sql": {
-      "checksum": "60338c309337a651c8f8d03074243b4c",
+      "checksum": "7836c9b0d84fb11fb5d918303f6a4efd",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/poloca.sql": {
-      "checksum": "398fba1c2f92f43384b21004c9909481",
+      "checksum": "e6442f9aff17f3e2223dfe78ed995dc2",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/popo-maculele.sql": {
-      "checksum": "3ac9fe8477e831b935e932913bd0cd70",
+      "checksum": "8b8e6869ee55486c0b82784e7ca4c393",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/prata-preta.sql": {
-      "checksum": "888ec3201190b7678c831db53c10559a",
+      "checksum": "e0a3f141e970ea34d73403a8bad980bc",
       "category": "entity",
       "entityType": "person"
     },
@@ -1223,22 +1223,22 @@
       "entityType": "person"
     },
     "entities/persons/quebra-coco.sql": {
-      "checksum": "490e19684c2dfe7eec18eb1840da3fb7",
+      "checksum": "206beaa82ba42675872414de6aab12d2",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/querido-de-deus.sql": {
-      "checksum": "248f133c158a8de7eaee737d53b06067",
+      "checksum": "cde36e1c0d40c4eaaba6f7341295c0b1",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/quinzinho.sql": {
-      "checksum": "c80a93364ac266d576fe362699e48eb8",
+      "checksum": "f8168a7c215296630d3c5a2a134d6ad8",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/rafael-flores.sql": {
-      "checksum": "0eb2fac3dbeade07d5bcd2e852d9fa9f",
+      "checksum": "aa7e3b650194e57b5f9344ba52ceec11",
       "category": "entity",
       "entityType": "person"
     },
@@ -1248,47 +1248,47 @@
       "entityType": "person"
     },
     "entities/persons/ricardo-de-ilha-de-mare.sql": {
-      "checksum": "0e67ea5dd9aa9a22a19e1643efacdd19",
+      "checksum": "d5406faab1e79a18ca123cd887870c51",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/roberto-satanas.sql": {
-      "checksum": "d45111bfc81eb64e13b8417ffb39486f",
+      "checksum": "0d25d3376d1d4a8a804e4d02e0553736",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/rogerio.sql": {
-      "checksum": "ca19263544683d18019274beed2eaa2a",
+      "checksum": "8460bf5e27519eaf3f58dee060674364",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/roque.sql": {
-      "checksum": "ceafeaf04ef12b8de54a97e7b3b24d38",
+      "checksum": "1a406123b9d58e282a4d601486d19541",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/rosa-palmeirao.sql": {
-      "checksum": "70a2ad529b11f0fe0feb2eee3e4f2911",
+      "checksum": "0f59f1eef22a34953151ecba21033559",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/rudolf-hermanny.sql": {
-      "checksum": "b140099d358dc71bf2c657145b6e77c2",
+      "checksum": "3c08ae0f9f9394f0ab65f2d78dbf47b2",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/saci.sql": {
-      "checksum": "8648b6a9e9f85840c9a4f39f0700eda4",
+      "checksum": "2e294d438206265c4a22796a7bd81041",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/salome.sql": {
-      "checksum": "71bee91176de31e1936d42824781a312",
+      "checksum": "2ecdb3849f9f8558c7b3e70a2982f513",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/samuel-da-calcada.sql": {
-      "checksum": "1643e413a41e967ea321521c3a4a7a9d",
+      "checksum": "fb8c12ce9b51dfd2cbc6ef9587666c8e",
       "category": "entity",
       "entityType": "person"
     },
@@ -1298,12 +1298,12 @@
       "entityType": "person"
     },
     "entities/persons/sete-coroas.sql": {
-      "checksum": "1ae8e99e4dcae86044076605ebd010c2",
+      "checksum": "03fdc64eec46632d59386491ecf5341a",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/sete-mortes.sql": {
-      "checksum": "0df6d83fc98ec3f4a827b3a56f4424f0",
+      "checksum": "4473d3fad3d46171aafef7c4b6d31f86",
       "category": "entity",
       "entityType": "person"
     },
@@ -1313,72 +1313,72 @@
       "entityType": "person"
     },
     "entities/persons/severo-do-pelourinho.sql": {
-      "checksum": "9374aa2b1eb1a6950ef95aec27453550",
+      "checksum": "72e7d04c4a44fa6d591789c2a08b84f0",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/silvestre.sql": {
-      "checksum": "330eea15f0063e7d95b5b75bb133156d",
+      "checksum": "bc1725c2eb9672fe053fb7dd4af81d0c",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/sinhozinho.sql": {
-      "checksum": "161473aa0576f3fc9dfe458f3fc41b62",
+      "checksum": "0010a812b91a8f5467790f3c6dee18c6",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/siri-de-mangue.sql": {
-      "checksum": "62b68f280be349268227a628176f3ca3",
+      "checksum": "40262cd5c1f7458e80d3360f130b930c",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/suassuna.sql": {
-      "checksum": "250724bbc8cea70ae2bc57a627435d20",
+      "checksum": "0e4b505b33e2c5eea24c22ff71393025",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/talabi.sql": {
-      "checksum": "d81e3eb3edda5e34f4b8d46e3f6886a9",
+      "checksum": "78e3629d2603c86acb8661add72a5715",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/tibirici-da-folha-grossa.sql": {
-      "checksum": "976423908ac982e716f576e6b12c737d",
+      "checksum": "c02025d44087242c47f6a2a2181d9b71",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/tiburcinho.sql": {
-      "checksum": "c3c58c5bcdb0a45b9c5ac9e1efa0e08a",
+      "checksum": "ce5b11e02077c388e9603d84391f15d9",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/tio-alipio.sql": {
-      "checksum": "425d76b3ba81adcd281338ed16d58fb9",
+      "checksum": "1732d126890cb394b2c98a0ab3a62f67",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/tio-pascoal.sql": {
-      "checksum": "e268f0f51b1edb91d4e4cab456e24340",
+      "checksum": "06c8418c521c19385002a6d226cb8a83",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/totonho-de-mare.sql": {
-      "checksum": "772b37e6666b840467b4fb5ffb7bafcb",
+      "checksum": "52aacc7418c4566fb8954a768143f7aa",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/touro.sql": {
-      "checksum": "9cd7a5c4f1ebcd582de8e652477a0279",
+      "checksum": "5b79cb9eb9ac662e1ec0d9ddd4d5615f",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/traira.sql": {
-      "checksum": "1359f55f07f1eab918cbd334a9eed437",
+      "checksum": "23c85901807e2eb3d0185c4603e27821",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/valdemar-santana.sql": {
-      "checksum": "008b4532b84239c0b08813cd68c22b73",
+      "checksum": "8774992df60a8e7c9427e931bb270454",
       "category": "entity",
       "entityType": "person"
     },
@@ -1388,27 +1388,27 @@
       "entityType": "person"
     },
     "entities/persons/valdomiro-malvadeza.sql": {
-      "checksum": "6a91e72539e32edcad8edbb95ebd2c16",
+      "checksum": "1edfaab3a52ccddee10945b1acf9bb1d",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/valmir.sql": {
-      "checksum": "1867b6b828004885dd766fdbfe254b53",
+      "checksum": "84a043fa0b92cf86250c40df34a7a944",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/valter-pepe.sql": {
-      "checksum": "eb9e3a6077d495d7a3598a98698e56a6",
+      "checksum": "3405f93028936ee17bf9aff5a0596c18",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/vermelho-27.sql": {
-      "checksum": "0ab91a6ac87fbaf48f92a53d5c3150d9",
+      "checksum": "6e793e59e27f824c1b4232da14ed0792",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/vilmar.sql": {
-      "checksum": "2fd405ce2096219f381b8cf92d36571c",
+      "checksum": "8836982ed5b9a830f402627a3a08478e",
       "category": "entity",
       "entityType": "person"
     },
@@ -1418,7 +1418,7 @@
       "entityType": "person"
     },
     "entities/persons/vitor-agau.sql": {
-      "checksum": "c53a8f06da55fd6d8f6494d700f1b42e",
+      "checksum": "c7debff92753541b56d1c251d5c6a28d",
       "category": "entity",
       "entityType": "person"
     },
@@ -1428,17 +1428,17 @@
       "entityType": "person"
     },
     "entities/persons/vitorino-braco-torto.sql": {
-      "checksum": "07065e2d2638dd4064c55869f7ae878a",
+      "checksum": "53dfef7a70dbe318a702af9b48c50211",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/waldemar.sql": {
-      "checksum": "fb9e1c512fa1ba89f9ac8a181a42fdf6",
+      "checksum": "e022f3b92a5cf04386886486f3e7a2ac",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/zacarias-boa-morte.sql": {
-      "checksum": "35f75cc27fdf0a8523b1fbac351d322e",
+      "checksum": "62635499d9d9b64470af72cabd01c72a",
       "category": "entity",
       "entityType": "person"
     },
@@ -1448,47 +1448,47 @@
       "entityType": "person"
     },
     "entities/persons/ze-bom-pe.sql": {
-      "checksum": "21725e34653af9c9911a669718d72bc5",
+      "checksum": "c4046200d9742d6c381f43904ce167d4",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/ze-carlos.sql": {
-      "checksum": "0eb0c9ba05077ea18155591641b0fe8f",
+      "checksum": "e19b94ba14821b091200826ad5a287fc",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/ze-do-saco.sql": {
-      "checksum": "9a843b6966272092e5640f97502390c0",
+      "checksum": "0028af12e2d9091921e4b46d565095f6",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/ze-do-u.sql": {
-      "checksum": "808259a1627dd5737f82df7bd476a1c4",
+      "checksum": "7bf303d717b3a0fd335e3a5fa27ce41f",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/ze-i.sql": {
-      "checksum": "7b4665102b0e812af9ecb672a9c09212",
+      "checksum": "e033fee631538aeeb48ce6a3841e46b3",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/ze-maria.sql": {
-      "checksum": "65dfee1a094baef22d56474a0705bb0b",
+      "checksum": "a5d2830a91979700d32426a44e8e9d72",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/zeca-do-uruguai.sql": {
-      "checksum": "0755871d910dec313086e3521dacf4d7",
+      "checksum": "dc2b38efa8a7cc4f97101c509235a6eb",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/zeca-floriano.sql": {
-      "checksum": "9f2f5228f5a8966c783e14d6f6004634",
+      "checksum": "4dde4dfe39962747ba1bfe0fae2bbf1e",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/zeferina.sql": {
-      "checksum": "ec8cc6cc635144c7619cdc0eda3436d3",
+      "checksum": "5e1e3b3072b17d0a1a3768ab08a34fe6",
       "category": "entity",
       "entityType": "person"
     },
@@ -1498,17 +1498,17 @@
       "entityType": "person"
     },
     "entities/persons/zeppelin.sql": {
-      "checksum": "1cc3354ea99f9ede695407a7483e5506",
+      "checksum": "a49d1ec3c4bae4fb950c0f793d6a917d",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/zoiao.sql": {
-      "checksum": "a2939eaa13ba7cadef2d250300aaa1f5",
+      "checksum": "421c086432607d8cb7f853b4fc6aaf54",
       "category": "entity",
       "entityType": "person"
     },
     "entities/persons/zuma.sql": {
-      "checksum": "eac2ec21d035cb458846945561a577fd",
+      "checksum": "868a18065725d2cbe609d026e055484d",
       "category": "entity",
       "entityType": "person"
     },
@@ -1533,17 +1533,17 @@
       "entityType": "person"
     },
     "statements/persons/aberre.sql": {
-      "checksum": "23d88813ccbee9018fe2c56d26abee21",
+      "checksum": "1a8b6f77259e1bc3824567b9f2b83661",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/acordeon.sql": {
-      "checksum": "fc6395010145d6decff2e9cedd16d7aa",
+      "checksum": "522780446b331d0fe9556b227f3dd025",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/adama.sql": {
-      "checksum": "4f43d90a1f786feff1723ef5c97f5303",
+      "checksum": "d1330ddbbce39c04fbd65fa749dcd8b1",
       "category": "statement",
       "entityType": "person"
     },
@@ -1558,12 +1558,12 @@
       "entityType": "person"
     },
     "statements/persons/aleixo-acougueiro.sql": {
-      "checksum": "f55719540d6d6a679745b8c42b5cd5c0",
+      "checksum": "e7d1b5a8d17e31d932231d8699f56a61",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/alemaozinho.sql": {
-      "checksum": "c6655b19e46a84d91ec0fb970645adde",
+      "checksum": "2ea8849e9e2f8e590d81db1c85a9ba8c",
       "category": "statement",
       "entityType": "person"
     },
@@ -1578,7 +1578,7 @@
       "entityType": "person"
     },
     "statements/persons/americano.sql": {
-      "checksum": "40d455a28c4709e3ad38ebbc7fdf0991",
+      "checksum": "126819026990c9095fa092a69a41e781",
       "category": "statement",
       "entityType": "person"
     },
@@ -1588,12 +1588,12 @@
       "entityType": "person"
     },
     "statements/persons/amorzinho.sql": {
-      "checksum": "8e65fafd1cd6ce1319d7185dce9b29ed",
+      "checksum": "23ba5f9ef152ab5153697ad45dbcdcb3",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/ananias.sql": {
-      "checksum": "5dcb942bf5f5593bc63d642a0cea37e5",
+      "checksum": "5d12e34faca3c2289273a7241031bc33",
       "category": "statement",
       "entityType": "person"
     },
@@ -1603,7 +1603,7 @@
       "entityType": "person"
     },
     "statements/persons/angelica-endiabrada.sql": {
-      "checksum": "d92ffb8adf067a2aeba57767cb2ceeb8",
+      "checksum": "46e11ddc305a1775495b8edafb232173",
       "category": "statement",
       "entityType": "person"
     },
@@ -1613,7 +1613,7 @@
       "entityType": "person"
     },
     "statements/persons/antonio-cabeceiro.sql": {
-      "checksum": "a266382481c0df213fcdb490f166c1be",
+      "checksum": "dd17a9c884375fb4f954aca40b383921",
       "category": "statement",
       "entityType": "person"
     },
@@ -1633,7 +1633,7 @@
       "entityType": "person"
     },
     "statements/persons/antonio-padroeiro.sql": {
-      "checksum": "b29c8b6c3994f91b5572e7ccaadf2c5c",
+      "checksum": "9eb0aaa2c9bc61e36ef3c4e18b8fa7fc",
       "category": "statement",
       "entityType": "person"
     },
@@ -1643,12 +1643,12 @@
       "entityType": "person"
     },
     "statements/persons/artur-emidio.sql": {
-      "checksum": "5685a50f2c3b209e3859950c636cbf01",
+      "checksum": "dcd1de6634e06e4cd034d8cc491e84a8",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/atenilo.sql": {
-      "checksum": "eda20c9da461529b3dcd952299162fa0",
+      "checksum": "713c47119321cc9c56308954e6aabe37",
       "category": "statement",
       "entityType": "person"
     },
@@ -1668,12 +1668,12 @@
       "entityType": "person"
     },
     "statements/persons/bandue.sql": {
-      "checksum": "61d047c25d050c56421312063106d28c",
+      "checksum": "40792a80840dbe4d871acb8d2cd6551a",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/barba-branca.sql": {
-      "checksum": "62e0ff63256453c64f25207a82d12200",
+      "checksum": "b4cc89a2f065ff9d231626d8b78807c5",
       "category": "statement",
       "entityType": "person"
     },
@@ -1688,7 +1688,7 @@
       "entityType": "person"
     },
     "statements/persons/barboza.sql": {
-      "checksum": "14c03140ac8826b31da5b8136a41c0e5",
+      "checksum": "e7d389670baab1ed86baa2ffe390b606",
       "category": "statement",
       "entityType": "person"
     },
@@ -1708,7 +1708,7 @@
       "entityType": "person"
     },
     "statements/persons/bentevi.sql": {
-      "checksum": "d0d5410888e85b24628094c8a6d16dd5",
+      "checksum": "29b1a731c760554ba50b6a6b88ae8734",
       "category": "statement",
       "entityType": "person"
     },
@@ -1728,7 +1728,7 @@
       "entityType": "person"
     },
     "statements/persons/besouro-manganga.sql": {
-      "checksum": "f229392987d990f5da023353fd0855a5",
+      "checksum": "c98880bbb702e9ff1e2f82103a04a2e7",
       "category": "statement",
       "entityType": "person"
     },
@@ -1738,12 +1738,12 @@
       "entityType": "person"
     },
     "statements/persons/bigodinho.sql": {
-      "checksum": "fdd5d154b5dea1ce2c8b82baab916a1f",
+      "checksum": "1d3fd96f8342210b207d349e645641ac",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/bimba.sql": {
-      "checksum": "f048ecc40292b8ccd5a0a6910489f718",
+      "checksum": "e3269e455b4d4df8938492266be82c2f",
       "category": "statement",
       "entityType": "person"
     },
@@ -1758,22 +1758,22 @@
       "entityType": "person"
     },
     "statements/persons/boca-de-siri.sql": {
-      "checksum": "0ccb86f9f340ef1801141073389627e7",
+      "checksum": "4d2b1d4cab6337cdeaaf5900d502b444",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/boca-rica.sql": {
-      "checksum": "590798c32a8190f3b975e0fd597decb9",
+      "checksum": "fa74d6e703ecf8482ee27c49132afa9a",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/bola-sete.sql": {
-      "checksum": "e8dc492340d075aabab75e3cc96c9686",
+      "checksum": "7789afd716700846b1b4a8ac93d7a793",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/bom-cabrito.sql": {
-      "checksum": "62fd0e5ae470e98a056d07c6b6ca876b",
+      "checksum": "b08a14b85e932e038095c2839c4673d6",
       "category": "statement",
       "entityType": "person"
     },
@@ -1783,12 +1783,12 @@
       "entityType": "person"
     },
     "statements/persons/braga.sql": {
-      "checksum": "8ab962ea41965c3244b3b5eca5c6eadf",
+      "checksum": "6e6028a176a7f339ff5efaf3fc6c7f36",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/bras-amansa-brabo.sql": {
-      "checksum": "cda29eca3d1c63123b19e2cc782d01af",
+      "checksum": "62bb5339265fae846c71d592cb90a2bb",
       "category": "statement",
       "entityType": "person"
     },
@@ -1798,12 +1798,12 @@
       "entityType": "person"
     },
     "statements/persons/bugalho.sql": {
-      "checksum": "c6fac4c83181a1daa01e515d467ac9f8",
+      "checksum": "ebfdde63e8e2e29c2a9ca689776d06b2",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/cabelo-bom.sql": {
-      "checksum": "a7aa833aa6362b1ca879d74323311e01",
+      "checksum": "5d32150deaffcc72d2bee80058a00536",
       "category": "statement",
       "entityType": "person"
     },
@@ -1813,7 +1813,7 @@
       "entityType": "person"
     },
     "statements/persons/caicara.sql": {
-      "checksum": "013623d860d55e99ce118540cf10b20c",
+      "checksum": "3b48bb772c655a5a7d2d864a91dbefa8",
       "category": "statement",
       "entityType": "person"
     },
@@ -1838,7 +1838,7 @@
       "entityType": "person"
     },
     "statements/persons/candido-pequeno.sql": {
-      "checksum": "f3fb45eced53b889e0f673a1132c1dec",
+      "checksum": "2aa49cc86cc94f631bcf9ad669293bc8",
       "category": "statement",
       "entityType": "person"
     },
@@ -1848,22 +1848,22 @@
       "entityType": "person"
     },
     "statements/persons/canjiquinha.sql": {
-      "checksum": "a42a287b9bed941caa563bb2a9f4eb67",
+      "checksum": "3e04dba3a79176f70a55ec0538301aac",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/capazans.sql": {
-      "checksum": "a1f72593d2accd0fa6b47bca7a6335fe",
+      "checksum": "9e50c22cd705d7bfb7d1ebf82a9ddcee",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/carlos-senna.sql": {
-      "checksum": "7cca460f1796574d9cabf4efddf67631",
+      "checksum": "6d1bb97834c6fee52521f709cd319ba3",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/celso-do-engenho.sql": {
-      "checksum": "c1d25bc78edab2d31a5353a89ab61116",
+      "checksum": "9682839b3ebcbea30f6f9c7d50b31a1c",
       "category": "statement",
       "entityType": "person"
     },
@@ -1873,7 +1873,7 @@
       "entityType": "person"
     },
     "statements/persons/cesar-maneta.sql": {
-      "checksum": "9488e829c7ea2d84d8a602f259e28335",
+      "checksum": "22f412d2e5121719781eb0b31aaf6fa2",
       "category": "statement",
       "entityType": "person"
     },
@@ -1883,7 +1883,7 @@
       "entityType": "person"
     },
     "statements/persons/chico-me-da.sql": {
-      "checksum": "152fe7bdc70ef5628ca0c9901dc3c00b",
+      "checksum": "d63dd3bbed0a856fa4b5dbf8731bd49b",
       "category": "statement",
       "entityType": "person"
     },
@@ -1893,7 +1893,7 @@
       "entityType": "person"
     },
     "statements/persons/chico-tres-pedacos.sql": {
-      "checksum": "45043908675edebc7b7f910beb17c29f",
+      "checksum": "e4fa08a5c7542b03ca84815dcdc17355",
       "category": "statement",
       "entityType": "person"
     },
@@ -1908,7 +1908,7 @@
       "entityType": "person"
     },
     "statements/persons/cisnando.sql": {
-      "checksum": "6124b15adead11e4db0247a2b8a15ede",
+      "checksum": "fd18a87729feea009db4f40db71700a5",
       "category": "statement",
       "entityType": "person"
     },
@@ -1918,22 +1918,22 @@
       "entityType": "person"
     },
     "statements/persons/cobrinha-verde.sql": {
-      "checksum": "8e4cb9b1eee45eaeaba265e52435358c",
+      "checksum": "e013983144b0c835cf16e51f5e77ff61",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/corre-hoje.sql": {
-      "checksum": "21088995fabb879dc8b6471febf1a58c",
+      "checksum": "120e0ee4fc4ed8b1637a9df35d50c6ae",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/creoni.sql": {
-      "checksum": "eaca53fe4755ad3ec468567bf8891aad",
+      "checksum": "c7ca120842c17d25e7aaddeecd803952",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/crispim.sql": {
-      "checksum": "4c2ffbc3497edd04f94407974eb12854",
+      "checksum": "fc4fb2a7156538ba77f3c93a28c287f8",
       "category": "statement",
       "entityType": "person"
     },
@@ -1943,7 +1943,7 @@
       "entityType": "person"
     },
     "statements/persons/curio.sql": {
-      "checksum": "99c7a479514a6aea9194873d3ec05314",
+      "checksum": "3cedb3edd74cae2f956b32af44b3abe9",
       "category": "statement",
       "entityType": "person"
     },
@@ -1968,17 +1968,17 @@
       "entityType": "person"
     },
     "statements/persons/decanio.sql": {
-      "checksum": "91d95a86558638d08d5a87efae89fb0f",
+      "checksum": "24ade313dbab286171cf62214942799a",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/dende-sfc.sql": {
-      "checksum": "b2af42ed6ea15784e0798480a7a1e17d",
+      "checksum": "d632ca52c7b2c6e7e495e23943af901d",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/djalma-bandeira.sql": {
-      "checksum": "6902930cfdf2622b518830b1372ebf89",
+      "checksum": "f8cac4bbafe5a728389458aea4b366e8",
       "category": "statement",
       "entityType": "person"
     },
@@ -1988,7 +1988,7 @@
       "entityType": "person"
     },
     "statements/persons/doze-homens.sql": {
-      "checksum": "c657d41c4b3889f87f130bc5068f6ea9",
+      "checksum": "6e22641d459e87434ebf37abef160a76",
       "category": "statement",
       "entityType": "person"
     },
@@ -1998,7 +1998,7 @@
       "entityType": "person"
     },
     "statements/persons/edgar.sql": {
-      "checksum": "21de5e86d37d31bddc4a8401bf8514c8",
+      "checksum": "79f39bba3bdaf8d2d2de35bc5d480000",
       "category": "statement",
       "entityType": "person"
     },
@@ -2008,7 +2008,7 @@
       "entityType": "person"
     },
     "statements/persons/eleuterio-de-souza.sql": {
-      "checksum": "170d2fe20a863cf1590708b0e1931e7f",
+      "checksum": "f0283dc819fc1ba0059ec7f8271c23bf",
       "category": "statement",
       "entityType": "person"
     },
@@ -2028,12 +2028,12 @@
       "entityType": "person"
     },
     "statements/persons/euclides-paes.sql": {
-      "checksum": "b789fdcfcb62f6d6b4cf18f47a1664d6",
+      "checksum": "4d711ddb6b04baa665bcb6b7a1374edd",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/eutiquio.sql": {
-      "checksum": "9def2a94bd78261b449f9fda4458cd1e",
+      "checksum": "7e9f970112548ab9bd0c20a9d2e1404f",
       "category": "statement",
       "entityType": "person"
     },
@@ -2043,7 +2043,7 @@
       "entityType": "person"
     },
     "statements/persons/fernando-rodrigues-perez.sql": {
-      "checksum": "40316c0b72d08243edad716ddb54d498",
+      "checksum": "01b89013055c2cc533f888d9cb9decb8",
       "category": "statement",
       "entityType": "person"
     },
@@ -2058,7 +2058,7 @@
       "entityType": "person"
     },
     "statements/persons/formigao.sql": {
-      "checksum": "0a1b2028af91a6909304988e3ce934a0",
+      "checksum": "fe24f8266932c7e6c71e2f8340c8692b",
       "category": "statement",
       "entityType": "person"
     },
@@ -2088,7 +2088,7 @@
       "entityType": "person"
     },
     "statements/persons/gato-preto.sql": {
-      "checksum": "a3edff954faeff29b3ba8209894463ac",
+      "checksum": "24bef9a934301fb2d031282e28e60999",
       "category": "statement",
       "entityType": "person"
     },
@@ -2113,7 +2113,7 @@
       "entityType": "person"
     },
     "statements/persons/geraldo-chapeleiro.sql": {
-      "checksum": "1dfffc3581ce84a4a04a3f1a9f7700be",
+      "checksum": "3bbba6699809575bc507ec8a9292dff2",
       "category": "statement",
       "entityType": "person"
     },
@@ -2123,7 +2123,7 @@
       "entityType": "person"
     },
     "statements/persons/gigante.sql": {
-      "checksum": "83f7b51f342879b7c6acb668feeb3ba1",
+      "checksum": "346f31882779cfec31f077086f135232",
       "category": "statement",
       "entityType": "person"
     },
@@ -2173,7 +2173,7 @@
       "entityType": "person"
     },
     "statements/persons/inimigo-sem-tripa.sql": {
-      "checksum": "74fd7f4b9fecc1c4eb365f8e9b4ca51e",
+      "checksum": "35345d463d1176cd93460d412101fab1",
       "category": "statement",
       "entityType": "person"
     },
@@ -2188,12 +2188,12 @@
       "entityType": "person"
     },
     "statements/persons/jaco.sql": {
-      "checksum": "d9e192dd851309f4c070ac04b1f73ddc",
+      "checksum": "23da875ce4f72cbec8c1a756954c2419",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/jair-moura.sql": {
-      "checksum": "7a83edc0ddafe873e8df22d529212a97",
+      "checksum": "8ad934c2ec541fef4e5d1e2b042772f1",
       "category": "statement",
       "entityType": "person"
     },
@@ -2213,27 +2213,27 @@
       "entityType": "person"
     },
     "statements/persons/joao-de-toto.sql": {
-      "checksum": "892569daca5da2b343131043392ff31d",
+      "checksum": "9986d032d2905198889ba9d29170bab5",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/joao-grande.sql": {
-      "checksum": "7078dea2183c8612364d8a0545885976",
+      "checksum": "c2069e7d29af4f8c9ba2575c36c9c384",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/joao-lagalhe.sql": {
-      "checksum": "d3b850ac822034e734e3c080784d20a3",
+      "checksum": "a73ddbe857e2d1532e28faffec1915f5",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/joao-pequeno.sql": {
-      "checksum": "ef79c707b70e05f8edb193e80df86046",
+      "checksum": "450fc3f973ef0c2ba75507569ab9461e",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/joao-sabe-tudo.sql": {
-      "checksum": "d4772fb7a5e538a428fcb37726f956da",
+      "checksum": "e9edd2993e2c82c0c487397d816d122a",
       "category": "statement",
       "entityType": "person"
     },
@@ -2253,12 +2253,12 @@
       "entityType": "person"
     },
     "statements/persons/jovino-dos-coelhos.sql": {
-      "checksum": "3b9dc53d744c6b9fc89a6b69ba2a67ac",
+      "checksum": "ea4c84de535b69a165063e464a8bb926",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/julia-fogareira.sql": {
-      "checksum": "cfe8d989670163d33860b8b458bff2d4",
+      "checksum": "32f806b6c056a6e8015685166bf0fdb9",
       "category": "statement",
       "entityType": "person"
     },
@@ -2283,12 +2283,12 @@
       "entityType": "person"
     },
     "statements/persons/juvenal-engraxate.sql": {
-      "checksum": "0fb7139a8403af273fc53a88043a54fd",
+      "checksum": "7aa034d91604a520a7bf17957f9c3b75",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/juvencio.sql": {
-      "checksum": "e85df575c6c9f1418c40abcf7f036ceb",
+      "checksum": "15b826e8a92b3aecafc5d198aa6726e4",
       "category": "statement",
       "entityType": "person"
     },
@@ -2308,7 +2308,7 @@
       "entityType": "person"
     },
     "statements/persons/leopoldina.sql": {
-      "checksum": "9babd9dd560b2a2c3929d0fbe53894b0",
+      "checksum": "5cc2a9e14a6fc5cea3b620a1c4e073c4",
       "category": "statement",
       "entityType": "person"
     },
@@ -2318,7 +2318,7 @@
       "entityType": "person"
     },
     "statements/persons/livino.sql": {
-      "checksum": "c36a3cde2e718b5c0932b02f0ef8851f",
+      "checksum": "920c6d933b32da2370c0ab56c2d92223",
       "category": "statement",
       "entityType": "person"
     },
@@ -2333,32 +2333,32 @@
       "entityType": "person"
     },
     "statements/persons/madame-sata.sql": {
-      "checksum": "2aa5e221365df5122cc34179e21bafbd",
+      "checksum": "1d8c9e37be640a3e37457a2b40da0f7e",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/madeira.sql": {
-      "checksum": "fc0078be351a5d074fb092e05477c713",
+      "checksum": "6112f8036270a7314b34268085e08af9",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/malvadeza.sql": {
-      "checksum": "649b0360d690002caf54d78262a59f50",
+      "checksum": "2c681599494cd2d0e368a2a023e8464c",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/mamede.sql": {
-      "checksum": "0efaf0cd78ab3eeeec0ff992c63d5aea",
+      "checksum": "8db389f66d671ad61dc6c14f4663cd86",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/maneca-brandao.sql": {
-      "checksum": "76c8da764e95cf964ecac1170a96ebfd",
+      "checksum": "864cd14a752422d5d11dbf206c33b988",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/manezinho-camisa-preta.sql": {
-      "checksum": "bbaed47e41b51575d8e2d750e0abfd2d",
+      "checksum": "d4a2f8f05bdc8001bb1012f4e847178b",
       "category": "statement",
       "entityType": "person"
     },
@@ -2378,12 +2378,12 @@
       "entityType": "person"
     },
     "statements/persons/marco-aurelio.sql": {
-      "checksum": "21c1f33a7a48aa20fd29ad8bbf6b3cc8",
+      "checksum": "91e118362894762781b6b7b6399ce3ad",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/maria-dos-anjos.sql": {
-      "checksum": "94d38d80bc178d3f8f117a0521783a70",
+      "checksum": "1134d9e78323e10bf4ef4cb42d1d3a0e",
       "category": "statement",
       "entityType": "person"
     },
@@ -2408,7 +2408,7 @@
       "entityType": "person"
     },
     "statements/persons/mario-buscape.sql": {
-      "checksum": "050af9ad3d750b5cccbac705572e060f",
+      "checksum": "ca7b88dd84e25453f2c95ca226212e76",
       "category": "statement",
       "entityType": "person"
     },
@@ -2428,7 +2428,7 @@
       "entityType": "person"
     },
     "statements/persons/miguel-camisa-preta.sql": {
-      "checksum": "0eca8460c8091a33cec1f70a2b1283f5",
+      "checksum": "b6125f6f3593a8277fdb5150ea4c3a38",
       "category": "statement",
       "entityType": "person"
     },
@@ -2438,7 +2438,7 @@
       "entityType": "person"
     },
     "statements/persons/moraes.sql": {
-      "checksum": "276c120001224aa0194ea55b2faa9156",
+      "checksum": "398d924c6930cf2f372818713552663d",
       "category": "statement",
       "entityType": "person"
     },
@@ -2463,12 +2463,12 @@
       "entityType": "person"
     },
     "statements/persons/nascimento-grande.sql": {
-      "checksum": "5783c92752e4dac0d9cd3c384bd6b826",
+      "checksum": "4372923ce83347ac107c47b81a9c5876",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/neco-canario-pardo.sql": {
-      "checksum": "ad82b22557e5129dca5e4ab2278ca900",
+      "checksum": "19f415cc8122007df9e4c665c1226de6",
       "category": "statement",
       "entityType": "person"
     },
@@ -2493,7 +2493,7 @@
       "entityType": "person"
     },
     "statements/persons/nicolau-do-poco.sql": {
-      "checksum": "d75e9195e10f3151159097c91b671816",
+      "checksum": "514214eac92a4e35588d0849d34dd29b",
       "category": "statement",
       "entityType": "person"
     },
@@ -2513,12 +2513,12 @@
       "entityType": "person"
     },
     "statements/persons/noca-de-jaco.sql": {
-      "checksum": "c4009f7e0e727269c48d7b982e66d0bf",
+      "checksum": "bbcec5aea720e1333c70496d5430fac8",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/noronha.sql": {
-      "checksum": "4b4dfc82e3ec3ce078810d3043a51130",
+      "checksum": "38dc2fd7552cd37b3ab27d586a4ab6bb",
       "category": "statement",
       "entityType": "person"
     },
@@ -2548,7 +2548,7 @@
       "entityType": "person"
     },
     "statements/persons/onca-preta.sql": {
-      "checksum": "d22cf1669304082268118c2a48f3583d",
+      "checksum": "125ca4fcd7d9dee771f944db246ca19b",
       "category": "statement",
       "entityType": "person"
     },
@@ -2558,12 +2558,12 @@
       "entityType": "person"
     },
     "statements/persons/onca-tigre.sql": {
-      "checksum": "e77f2ced6075fba38fbc5717da557148",
+      "checksum": "825b801f81893e7f8a2e1031597708db",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/paizinho.sql": {
-      "checksum": "c45aeea27ee941a49916c405c874d318",
+      "checksum": "1833020050541b175e9e1935df7bfb32",
       "category": "statement",
       "entityType": "person"
     },
@@ -2578,12 +2578,12 @@
       "entityType": "person"
     },
     "statements/persons/parana.sql": {
-      "checksum": "3b6ae146f644d16f66ed2dbddbe54b28",
+      "checksum": "80deeae3a7bb48b27ef59680b0ccf0bd",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/pastinha.sql": {
-      "checksum": "c48227ef28ce72ae8e3dd6a796779697",
+      "checksum": "10ddc5519c40d2058605ad0d5b430714",
       "category": "statement",
       "entityType": "person"
     },
@@ -2598,7 +2598,7 @@
       "entityType": "person"
     },
     "statements/persons/paulo-barroquinha.sql": {
-      "checksum": "bb022783932d79f737a5b9693aa54a78",
+      "checksum": "24da7ff8cc5b5b47701f9be8b8152f21",
       "category": "statement",
       "entityType": "person"
     },
@@ -2618,7 +2618,7 @@
       "entityType": "person"
     },
     "statements/persons/paulo-siqueira.sql": {
-      "checksum": "0d656a33296f2cffaeb43637d88b954f",
+      "checksum": "21bd3ec9d42a6fab1021c12c0abf7b65",
       "category": "statement",
       "entityType": "person"
     },
@@ -2628,7 +2628,7 @@
       "entityType": "person"
     },
     "statements/persons/pedro-cobra.sql": {
-      "checksum": "20e98697fe998732265c50add81ebb1f",
+      "checksum": "ffedfe939aca8f802b59a87692cf9b1d",
       "category": "statement",
       "entityType": "person"
     },
@@ -2663,12 +2663,12 @@
       "entityType": "person"
     },
     "statements/persons/pinta-preta-da-lapa.sql": {
-      "checksum": "46343def2c932564826a0764b4f871ff",
+      "checksum": "c3ec626061ba0e79c6e64cf0ace9aae7",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/pintor.sql": {
-      "checksum": "4aa4de254bf8ef67475b9ec0f43e57fa",
+      "checksum": "20fb2b929b9c9e38e2f3ac1470d33979",
       "category": "statement",
       "entityType": "person"
     },
@@ -2683,17 +2683,17 @@
       "entityType": "person"
     },
     "statements/persons/placido-de-abreu.sql": {
-      "checksum": "6af09b3c712cc0b184fe03652e586d2d",
+      "checksum": "414bd436cd826f28e5113711d699665f",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/polaco.sql": {
-      "checksum": "6ac3a01ebd4a290a18cc68ce8232edd3",
+      "checksum": "7cbc217f370c0b088d5cdf02d0c9ac7d",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/poloca.sql": {
-      "checksum": "878843efba80c9f2f716007eb3d92e76",
+      "checksum": "9e0c11f45a2638cefed46e7344e86772",
       "category": "statement",
       "entityType": "person"
     },
@@ -2708,12 +2708,12 @@
       "entityType": "person"
     },
     "statements/persons/quebra-coco.sql": {
-      "checksum": "ff64331fd8b7b403d54bba1945dfb49c",
+      "checksum": "98aa11fa15e0080aba53aa626ddcc4b3",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/querido-de-deus.sql": {
-      "checksum": "83e2e7b60a814bca26517ec4d8a4f7c3",
+      "checksum": "15e16a4e7b27a47d8fd0291e97ec5bad",
       "category": "statement",
       "entityType": "person"
     },
@@ -2733,7 +2733,7 @@
       "entityType": "person"
     },
     "statements/persons/ricardo-de-ilha-de-mare.sql": {
-      "checksum": "cdcab19ed4f945599054be43650ee85f",
+      "checksum": "898b8cdb4bc54cda41ab7f0e3d97d07c",
       "category": "statement",
       "entityType": "person"
     },
@@ -2743,7 +2743,7 @@
       "entityType": "person"
     },
     "statements/persons/rogerio.sql": {
-      "checksum": "d545ad6103457787b72f660bf467110c",
+      "checksum": "4a35c67e761711e215882573a760f9ee",
       "category": "statement",
       "entityType": "person"
     },
@@ -2808,7 +2808,7 @@
       "entityType": "person"
     },
     "statements/persons/siri-de-mangue.sql": {
-      "checksum": "0fd39690079c22281a4ac04b6916f604",
+      "checksum": "2685dcbca7f291c4422aa8906d4c1022",
       "category": "statement",
       "entityType": "person"
     },
@@ -2823,7 +2823,7 @@
       "entityType": "person"
     },
     "statements/persons/tibirici-da-folha-grossa.sql": {
-      "checksum": "3afb8a3c605de6d8c20cfe83f52ef988",
+      "checksum": "9ea9a3942bcaeb6b6143a4795416083d",
       "category": "statement",
       "entityType": "person"
     },
@@ -2843,7 +2843,7 @@
       "entityType": "person"
     },
     "statements/persons/totonho-de-mare.sql": {
-      "checksum": "23cbf3fc6cf4d2eb008c090a064b958d",
+      "checksum": "1cf59f828ff09ccc01cb790857b78317",
       "category": "statement",
       "entityType": "person"
     },
@@ -2853,12 +2853,12 @@
       "entityType": "person"
     },
     "statements/persons/traira.sql": {
-      "checksum": "ec6054a20fdd5d12efdaf83e3e7f777e",
+      "checksum": "f76febd361ab6204b9e885f371025776",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/valdemar-santana.sql": {
-      "checksum": "8c501d6ac8fe8933306af13548fda8d4",
+      "checksum": "4caf7748a6ed8ef2eb800a397aaa8aa8",
       "category": "statement",
       "entityType": "person"
     },
@@ -2868,7 +2868,7 @@
       "entityType": "person"
     },
     "statements/persons/valdomiro-malvadeza.sql": {
-      "checksum": "bee615f29d50a30e88337f7f51f330a6",
+      "checksum": "d7808987f3d704a3973c58ad36100302",
       "category": "statement",
       "entityType": "person"
     },
@@ -2883,7 +2883,7 @@
       "entityType": "person"
     },
     "statements/persons/vermelho-27.sql": {
-      "checksum": "2c881822ead56f62b1aa46599b69561c",
+      "checksum": "2cd6e0eb025b25c89a71088c2dae3cd1",
       "category": "statement",
       "entityType": "person"
     },
@@ -2898,7 +2898,7 @@
       "entityType": "person"
     },
     "statements/persons/vitor-agau.sql": {
-      "checksum": "b2b489e125cde75d426bd76250228ee7",
+      "checksum": "ce399b8c3499fd37bd53148aed9ab398",
       "category": "statement",
       "entityType": "person"
     },
@@ -2913,12 +2913,12 @@
       "entityType": "person"
     },
     "statements/persons/waldemar.sql": {
-      "checksum": "12dfacb9bbe0e6710556ca9fef1d0dd8",
+      "checksum": "60ca5d11b70dcc907dd719e00b8822d3",
       "category": "statement",
       "entityType": "person"
     },
     "statements/persons/zacarias-boa-morte.sql": {
-      "checksum": "ff941e4ab53da4379ccfcc4de13e2cd2",
+      "checksum": "22687d381baabac28780445f3bb1e8f8",
       "category": "statement",
       "entityType": "person"
     },
@@ -2953,7 +2953,7 @@
       "entityType": "person"
     },
     "statements/persons/ze-maria.sql": {
-      "checksum": "981fdde20deac4600ea5990aaabdd5a9",
+      "checksum": "5936336b0510436c733f5e740b642c76",
       "category": "statement",
       "entityType": "person"
     },
@@ -2973,7 +2973,7 @@
       "entityType": "person"
     },
     "statements/persons/zeppelin.sql": {
-      "checksum": "39c36b270ffd7467c677de16e5b0b5dc",
+      "checksum": "ace4cefbad9bc2df61ab44c3a53ce010",
       "category": "statement",
       "entityType": "person"
     },

@@ -25,7 +25,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   NULL, 'unknown'::genealogy.date_precision,
   NULL, NULL,
-  '{"association_context": "Both were valentões of Recife carnival. Valdemar de Oliveira notes that young men from good families liked to go with Nicolau do Poço or Nascimento Grande to break up pastoral plays for enjoyment."}'::jsonb,
+  '{"association_context": "Both were valentões of Recife carnival. Valdemar de Oliveira notes that young men from good families liked to go with Nicolau do Poço or Nascimento Grande to break up pastoral plays for enjoyment".}'::jsonb,
   'verified'::genealogy.confidence,
   'Valdemar de Oliveira, "Frevo, Capoeira e Passo" (1942)',
   'Nicolau do Poço and Nascimento Grande were both prominent figures in Recife''s nightlife and street culture. Young men of good families sought their company to break up pastoral plays.',

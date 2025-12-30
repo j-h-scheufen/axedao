@@ -24,11 +24,11 @@
 
 ### English
 
-Juvenil is known from a single but vivid anecdote in Mestre Leopoldina's testimony to Nestor Capoeira, recorded for the 2005 documentary "Mestre Leopoldina, a Fina Flor da Malandragem."
+Juvenil is known from a single but vivid anecdote in Mestre Leopoldina's testimony to Nestor Capoeira, recorded for the 2005 documentary "Mestre Leopoldina, a Fina Flor da Malandragem".
 
 Around 1951 or 1952, after Leopoldina had been training with Quinzinho for three or four months on Morro da Favela, the two encountered someone who could also play capoeira. This man was called Juvenil. He greeted them and invited the young Leopoldina to spar.
 
-According to Leopoldina: "He took off his hat, vest, tie, and stood naked from the waist up, and we started to play. But as soon as we started playing, he gave me a kick that grazed me on the head."
+According to Leopoldina: "He took off his hat, vest, tie, and stood naked from the waist up, and we started to play. But as soon as we started playing, he gave me a kick that grazed me on the head".
 
 Quinzinho, who was armed with a pistol hidden under a handkerchief, immediately stood up and pointed the gun at Juvenil's face. "Don't do that! Don't do that, or he'll become a coward!" he warned.
 
@@ -38,11 +38,11 @@ Nothing else is known about Juvenil—not his full name, his background, who tau
 
 ### Português
 
-Juvenil é conhecido por uma única, porém vívida, anedota no depoimento de Mestre Leopoldina a Nestor Capoeira, gravado para o documentário de 2005 "Mestre Leopoldina, a Fina Flor da Malandragem."
+Juvenil é conhecido por uma única, porém vívida, anedota no depoimento de Mestre Leopoldina a Nestor Capoeira, gravado para o documentário de 2005 "Mestre Leopoldina, a Fina Flor da Malandragem".
 
 Por volta de 1951 ou 1952, depois que Leopoldina vinha treinando com Quinzinho por três ou quatro meses no Morro da Favela, os dois encontraram alguém que também sabia jogar capoeira. Esse homem se chamava Juvenil. Ele os cumprimentou e convidou o jovem Leopoldina para jogar.
 
-Segundo Leopoldina: "Ele tirou o chapéu, colete, gravata, e ficou nu da cintura para cima, e a gente começou a jogar. Mas assim que começamos a jogar, ele me deu um chute que raspou na minha cabeça."
+Segundo Leopoldina: "Ele tirou o chapéu, colete, gravata, e ficou nu da cintura para cima, e a gente começou a jogar. Mas assim que começamos a jogar, ele me deu um chute que raspou na minha cabeça".
 
 Quinzinho, que estava armado com uma pistola escondida sob um lenço, levantou-se imediatamente e apontou a arma na cara de Juvenil. "Não faz isso! Não faz isso, senão ele vai ficar covarde!" alertou.
 
@@ -73,7 +73,7 @@ Juvenil encountered Leopoldina (b. 1933) around 1951-1952 when Leopoldina was 18
 
 ### Single Source / Fonte Única
 
-The only documentation for Juvenil is Mestre Leopoldina's testimony to Nestor Capoeira, included in the 2005 documentary "Mestre Leopoldina, a Fina Flor da Malandragem." No other sources mention him.
+The only documentation for Juvenil is Mestre Leopoldina's testimony to Nestor Capoeira, included in the 2005 documentary "Mestre Leopoldina, a Fina Flor da Malandragem". No other sources mention him.
 
 ### Context / Contexto
 

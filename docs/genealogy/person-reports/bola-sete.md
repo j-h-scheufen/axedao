@@ -35,7 +35,7 @@ In 1980, shortly before Pastinha's death, Bola Sete founded his own academy: the
 
 Mestre Bola Sete is a prolific author. His first book, "A Capoeira Angola na Bahia" (Capoeira Angola in Bahia), was published by Pallas in 1997, with subsequent editions through 2006. His second book, "Histórias e Estórias da Capoeiragem" (Stories and Tales of Capoeiragem), published in 2006, seeks to preserve the history of capoeira and the names of capoeiristas who might otherwise be forgotten, such as Pessoa Bababá, Bobó, and Valdomiro Malvadeza. He also wrote "Capoeira Angola do iniciante ao mestre" and recorded an audio CD titled "Aqui só Angola" at his academy with his students.
 
-In October 2006, Mestres Bola Sete and Gildo Alfinete gave a lecture at the ABCA in Salvador, where Bola Sete observed that in Pastinha's academy, each student had a different, unique style of playing; today many angoleiros are all playing the same way. He emphasizes that "humility was the greatest lesson I learned in those 37 years of Capoeira Angola."
+In October 2006, Mestres Bola Sete and Gildo Alfinete gave a lecture at the ABCA in Salvador, where Bola Sete observed that in Pastinha's academy, each student had a different, unique style of playing; today many angoleiros are all playing the same way. He emphasizes that "humility was the greatest lesson I learned in those 37 years of Capoeira Angola".
 
 Today, Mestre Bola Sete holds the esteemed position of President of the Council of Mestres of the Associação Brasileira de Capoeira Angola (ABCA). He was listed among the qualified candidates for the "Prêmio Viva Meu Mestre" in 2010, awarded by IPHAN.
 
@@ -53,7 +53,7 @@ Em 1980, pouco antes da morte de Pastinha, Bola Sete fundou sua própria academi
 
 Mestre Bola Sete é um autor prolífico. Seu primeiro livro, "A Capoeira Angola na Bahia", foi publicado pela Pallas em 1997, com edições subsequentes até 2006. Seu segundo livro, "Histórias e Estórias da Capoeiragem", publicado em 2006, busca preservar a história da capoeira e os nomes de capoeiristas que poderiam ser esquecidos, como Pessoa Bababá, Bobó e Valdomiro Malvadeza. Ele também escreveu "Capoeira Angola do iniciante ao mestre" e gravou um CD de áudio intitulado "Aqui só Angola" em sua academia com seus alunos.
 
-Em outubro de 2006, os Mestres Bola Sete e Gildo Alfinete deram uma palestra na ABCA em Salvador, onde Bola Sete observou que na academia de Pastinha, cada aluno tinha um estilo diferente e único de jogar; hoje muitos angoleiros estão todos jogando da mesma maneira. Ele enfatiza que "a humildade foi a maior lição que aprendi nesses 37 anos de Capoeira Angola."
+Em outubro de 2006, os Mestres Bola Sete e Gildo Alfinete deram uma palestra na ABCA em Salvador, onde Bola Sete observou que na academia de Pastinha, cada aluno tinha um estilo diferente e único de jogar; hoje muitos angoleiros estão todos jogando da mesma maneira. Ele enfatiza que "a humildade foi a maior lição que aprendi nesses 37 anos de Capoeira Angola".
 
 Hoje, Mestre Bola Sete ocupa a estimada posição de Presidente do Conselho de Mestres da Associação Brasileira de Capoeira Angola (ABCA). Ele foi listado entre os habilitados para o "Prêmio Viva Meu Mestre" em 2010, concedido pelo IPHAN.
 
@@ -118,17 +118,17 @@ Hoje, Mestre Bola Sete ocupa a estimada posição de Presidente do Conselho de M
 
 > "Zé Luiz… you have a twin soul to mine!" — Mestre Pastinha, during a chamada with Bola Sete
 
-> "Humility was the greatest lesson I learned in those 37 years of Capoeira Angola." — Mestre Bola Sete
+> "Humility was the greatest lesson I learned in those 37 years of Capoeira Angola". — Mestre Bola Sete
 
-> "The capoeira practiced today is not authentic, because it is done just to impress people with its acrobatic and aggressive flips." — Mestre Bola Sete
+> "The capoeira practiced today is not authentic, because it is done just to impress people with its acrobatic and aggressive flips". — Mestre Bola Sete
 
-> "Defense, not attack, remains capoeira's primary fundamental principle." — Mestre Bola Sete
+> "Defense, not attack, remains capoeira's primary fundamental principle". — Mestre Bola Sete
 
 ---
 
 ## Apelido Origin
 
-"Bola Sete" (Seven Ball) - He received this nickname because he trained entirely dressed in black, like the solid balls in billiards. Per Portal Capoeira interview: "Bola Sete recebeu esse nome por treinar todo vestido de preto."
+"Bola Sete" (Seven Ball) - He received this nickname because he trained entirely dressed in black, like the solid balls in billiards. Per Portal Capoeira interview: "Bola Sete recebeu esse nome por treinar todo vestido de preto".
 
 ---
 

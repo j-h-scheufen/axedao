@@ -20,8 +20,8 @@ SELECT
   '1974-02-05'::date, 'exact'::genealogy.date_precision,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'CapoeiraWiki, Correio 24 Horas obituary, Mestre Nenel testimony',
-  'Jair Moura began training with Mestre Bimba in the late 1950s. According to Mestre Nenel: "He was a student of my father since the 1950s." The relationship lasted until Bimba''s death on February 5, 1974. Nenel described him as "one of the guys most well-regarded by my father."',
-  'Jair Moura começou a treinar com Mestre Bimba no final dos anos 1950. Segundo Mestre Nenel: "Ele era aluno de meu pai desde a década de 1950." A relação durou até a morte de Bimba em 5 de fevereiro de 1974. Nenel o descreveu como "um dos caras mais bem considerados pelo meu pai."'
+  'Jair Moura began training with Mestre Bimba in the late 1950s. According to Mestre Nenel: "He was a student of my father since the 1950s". The relationship lasted until Bimba''s death on February 5, 1974. Nenel described him as "one of the guys most well-regarded by my father".',
+  'Jair Moura começou a treinar com Mestre Bimba no final dos anos 1950. Segundo Mestre Nenel: "Ele era aluno de meu pai desde a década de 1950". A relação durou até a morte de Bimba em 5 de fevereiro de 1974. Nenel o descreveu como "um dos caras mais bem considerados pelo meu pai".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Jair Moura' AND o.apelido = 'Bimba'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
@@ -42,8 +42,8 @@ SELECT
   '{"title_grant": {"title": "mestre", "symbol": "lenço branco (white handkerchief)"}}'::jsonb,
   'verified'::genealogy.confidence,
   'Mestre Nenel testimony (Correio 24 Horas), CapoeiraWiki, multiple obituary sources',
-  'One of only four students formally graduated to mestre level (white handkerchief) by Mestre Bimba during his lifetime. According to Mestre Nenel (Bimba''s son): "He was the last capoeirista to receive the Lenço Branco from my father." The others were Decânio, Miranda, and Edinho (the latter two deceased before Bimba).',
-  'Um dos apenas quatro alunos formalmente graduados ao nível de mestre (lenço branco) por Mestre Bimba durante sua vida. Segundo Mestre Nenel (filho de Bimba): "Ele foi o último capoeirista a receber o Lenço Branco de meu pai." Os outros foram Decânio, Miranda e Edinho (os dois últimos falecidos antes de Bimba).'
+  'One of only four students formally graduated to mestre level (white handkerchief) by Mestre Bimba during his lifetime. According to Mestre Nenel (Bimba''s son): "He was the last capoeirista to receive the Lenço Branco from my father". The others were Decânio, Miranda, and Edinho (the latter two deceased before Bimba).',
+  'Um dos apenas quatro alunos formalmente graduados ao nível de mestre (lenço branco) por Mestre Bimba durante sua vida. Segundo Mestre Nenel (filho de Bimba): "Ele foi o último capoeirista a receber o Lenço Branco de meu pai". Os outros foram Decânio, Miranda e Edinho (os dois últimos falecidos antes de Bimba).'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Jair Moura' AND o.apelido = 'Bimba'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
@@ -60,7 +60,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   '1968-01-01'::date, 'year'::genealogy.date_precision,
   NULL, NULL,
-  '{"association_context": "Filmmaker documenting master; Jair Moura directed ''Dança de Guerra'' (1968) featuring Totonho de Maré; also photographed together."}'::jsonb,
+  '{"association_context": "Filmmaker documenting master; Jair Moura directed ''Dança de Guerra'' (1968) featuring Totonho de Maré; also photographed together".}'::jsonb,
   'verified'::genealogy.confidence,
   'velhosmestres.com/en/featured-12, CapoeiraWiki',
   'Jair Moura directed "Dança de Guerra" (1968) featuring Mestre Totonho de Maré. A photograph from 1968 shows Jair Moura and Mestre Maré together. Jair Moura also conducted an interview with Totonho de Maré (audio preserved at velhosmestres.com). In 1970, he wrote about Tiburcinho for A Tarde newspaper.',
@@ -81,7 +81,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   '1968-01-01'::date, 'year'::genealogy.date_precision,
   NULL, NULL,
-  '{"association_context": "Filmmaker documenting master; Jair Moura directed ''Dança de Guerra'' (1968) featuring Noronha in a vadiação with Totonho de Maré."}'::jsonb,
+  '{"association_context": "Filmmaker documenting master; Jair Moura directed ''Dança de Guerra'' (1968) featuring Noronha in a vadiação with Totonho de Maré".}'::jsonb,
   'verified'::genealogy.confidence,
   'velhosmestres.com/en/featured-12, CapoeiraWiki',
   'Jair Moura directed "Dança de Guerra" (1968) which included a brief vadiação between Mestres Noronha and Maré. The Instituto Jair Moura (founded by Frede Abreu) later proposed the "Centenário do Mestre Noronha" based on Noronha''s birth date from his death certificate.',
@@ -102,7 +102,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   '1968-01-01'::date, 'year'::genealogy.date_precision,
   NULL, NULL,
-  '{"association_context": "Filmmaker documenting master; Jair Moura directed ''Dança de Guerra'' (1968) featuring João Grande."}'::jsonb,
+  '{"association_context": "Filmmaker documenting master; Jair Moura directed ''Dança de Guerra'' (1968) featuring João Grande".}'::jsonb,
   'likely'::genealogy.confidence,
   'SecultBA note, CapoeiraWiki (some sources list João Grande in the documentary)',
   'Jair Moura directed "Dança de Guerra" (1968). Some sources (including SecultBA official note) list João Grande among the masters featured, alongside Bimba and João Pequeno.',
@@ -123,7 +123,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   '1968-01-01'::date, 'year'::genealogy.date_precision,
   NULL, NULL,
-  '{"association_context": "Filmmaker documenting master; Jair Moura directed ''Dança de Guerra'' (1968) featuring João Pequeno."}'::jsonb,
+  '{"association_context": "Filmmaker documenting master; Jair Moura directed ''Dança de Guerra'' (1968) featuring João Pequeno".}'::jsonb,
   'likely'::genealogy.confidence,
   'SecultBA note, CapoeiraWiki (some sources list João Pequeno in the documentary)',
   'Jair Moura directed "Dança de Guerra" (1968). Some sources (including SecultBA official note) list João Pequeno among the masters featured, alongside Bimba and João Grande.',
@@ -144,7 +144,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   '1980-01-01'::date, 'year'::genealogy.date_precision,
   NULL, NULL,
-  '{"association_context": "Co-presenters at the 1980 First Regional Capoeira Seminar in Salvador, organized alongside Carlos Senna, Albano Marinho, and Ordep Serra."}'::jsonb,
+  '{"association_context": "Co-presenters at the 1980 First Regional Capoeira Seminar in Salvador, organized alongside Carlos Senna, Albano Marinho, and Ordep Serra".}'::jsonb,
   'verified'::genealogy.confidence,
   'velhosmestres.com/en/cobrinha-1980',
   'Jair Moura and Itapoan were both presenters at the 1980 First Regional Capoeira Seminar in Salvador, which brought together main Bahian masters of different lineages and styles.',

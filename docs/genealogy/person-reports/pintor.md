@@ -32,7 +32,7 @@ After years of learning from these masters, Pintor settled on the teaching and p
 
 In 1989, Mestre João Pequeno graduated Pintor as Mestre during a ceremony with Grupo Macaco at the Escola de Educação Física in Belo Horizonte. A few years later, he received additional recognition as a Mestre of Capoeira Angola specifically.
 
-On February 2, 1991, Mestre Pintor founded Grupo Bantus Capoeira (GBC) in Belo Horizonte with the objective of strengthening and transmitting Brazilian cultural manifestations. The name "Bantus" honors the Bantu peoples of Africa—the "-ntu" suffix meaning "human" and the "Ba-" prefix indicating plurality, together signifying "the people." This name acknowledges the African roots of capoeira and Brazilian culture.
+On February 2, 1991, Mestre Pintor founded Grupo Bantus Capoeira (GBC) in Belo Horizonte with the objective of strengthening and transmitting Brazilian cultural manifestations. The name "Bantus" honors the Bantu peoples of Africa—the "-ntu" suffix meaning "human" and the "Ba-" prefix indicating plurality, together signifying "the people". This name acknowledges the African roots of capoeira and Brazilian culture.
 
 Under his leadership, Grupo Bantus has expanded far beyond Minas Gerais. Today the organization has schools throughout Belo Horizonte and the state, as well as international branches in Japan, Australia, Malaysia, Singapore, Thailand, Indonesia, and Israel. Mestre Pintor travels worldwide to share his knowledge, having taught across Brazil, South America, Australia, Asia, Europe, and the Middle East over his 40+ years of practice.
 
@@ -50,7 +50,7 @@ Após anos aprendendo com esses mestres, Pintor estabeleceu-se no ensino e prát
 
 Em 1989, Mestre João Pequeno graduou Pintor como Mestre durante uma cerimônia com o Grupo Macaco na Escola de Educação Física em Belo Horizonte. Alguns anos depois, recebeu reconhecimento adicional como Mestre de Capoeira Angola especificamente.
 
-Em 2 de fevereiro de 1991, Mestre Pintor fundou o Grupo Bantus Capoeira (GBC) em Belo Horizonte com o objetivo de fortalecer e transmitir as manifestações culturais brasileiras. O nome "Bantus" homenageia os povos Bantu da África—o sufixo "-ntu" significando "humano" e o prefixo "Ba-" indicando pluralidade, juntos significando "o povo." Este nome reconhece as raízes africanas da capoeira e da cultura brasileira.
+Em 2 de fevereiro de 1991, Mestre Pintor fundou o Grupo Bantus Capoeira (GBC) em Belo Horizonte com o objetivo de fortalecer e transmitir as manifestações culturais brasileiras. O nome "Bantus" homenageia os povos Bantu da África—o sufixo "-ntu" significando "humano" e o prefixo "Ba-" indicando pluralidade, juntos significando "o povo". Este nome reconhece as raízes africanas da capoeira e da cultura brasileira.
 
 Sob sua liderança, o Grupo Bantus expandiu muito além de Minas Gerais. Hoje a organização tem escolas em toda Belo Horizonte e no estado, bem como filiais internacionais no Japão, Austrália, Malásia, Singapura, Tailândia, Indonésia e Israel. Mestre Pintor viaja pelo mundo para compartilhar seu conhecimento, tendo ensinado pelo Brasil, América do Sul, Austrália, Ásia, Europa e Oriente Médio ao longo de seus mais de 40 anos de prática.
 
@@ -96,7 +96,7 @@ Embora tenha sido treinado principalmente em Capoeira Angola sob Mestre João Pe
 ### Training in Bahia (as teenager) / Treinamento na Bahia (na adolescência)
 - **Mestre Atenilo** - One of Bimba's oldest students (45 years). / Um dos alunos mais antigos de Bimba (45 anos).
 - **Mestre Waldemar** - Iconic Angola mestre of Liberdade neighborhood. / Icônico mestre de Angola do bairro da Liberdade.
-- **Mestre Canjiquinha** - "The Joy of Capoeira." / "A Alegria da Capoeira."
+- **Mestre Canjiquinha** - "The Joy of Capoeira". / "A Alegria da Capoeira".
 - **Mestre Curió** - Disciple of Pastinha. / Discípulo de Pastinha.
 - **Mestre Caiçara** - Known for bengala (cane) fighting style. / Conhecido pelo estilo de luta com bengala.
 - **Mestre Gigante (Bigodinho)** - Student of Waldemar. / Aluno de Waldemar.

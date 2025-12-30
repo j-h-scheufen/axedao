@@ -31,7 +31,7 @@ Seu Eutíquio was the father and first teacher of Mestre Gato Preto (José Gabri
 
 This brutal but effective pedagogy continued for approximately four years. Around 1942, when José Gabriel was about twelve, the training came to an abrupt end. During a session, the young student landed such a powerful cabeçada (headbutt) that his father fell to the ground. Upon rising, Eutíquio chased his son while threatening him: "Come here, boy!" After this incident, he stopped teaching his son—perhaps recognizing that the student had surpassed a threshold, or perhaps wounded in his pride. The boy's uncle João Catarino, himself a student of the legendary Besouro Mangangá, continued his education afterward.
 
-Mestre Waldemar da Paixão, speaking in 1987, remembered Seu Eutíquio: "His father was called Seu Eutíquio, he's deceased, he was a good capoeira master." The description as "a good capoeira master" from a mestre of Waldemar's stature speaks to Eutíquio's standing in the Santo Amaro capoeira community.
+Mestre Waldemar da Paixão, speaking in 1987, remembered Seu Eutíquio: "His father was called Seu Eutíquio, he's deceased, he was a good capoeira master". The description as "a good capoeira master" from a mestre of Waldemar's stature speaks to Eutíquio's standing in the Santo Amaro capoeira community.
 
 Eutíquio died in 1954. His legacy lives on through his son Gato Preto, who would go on to represent Brazil at the I Festival Mundial das Artes Negras in Dakar (1966), win the Berimbau de Ouro (1970), and pass the tradition to his own sons Gato II and Mestre Zeca. Through this unbroken line—from the African Oleriano de Góes to Eutíquio to Gato Preto to his grandchildren—the family represents one of the most documented multi-generational capoeira lineages.
 
@@ -43,7 +43,7 @@ Seu Eutíquio foi o pai e primeiro mestre de Mestre Gato Preto (José Gabriel G�
 
 Essa pedagogia brutal mas eficaz continuou por aproximadamente quatro anos. Por volta de 1942, quando José Gabriel tinha cerca de doze anos, o treinamento chegou a um fim abrupto. Durante uma sessão, o jovem aluno deu uma cabeçada tão forte que seu pai caiu no chão. Ao se levantar, Eutíquio perseguiu seu filho enquanto o ameaçava: "Vem cá, menino!" Após esse incidente, ele parou de ensinar seu filho—talvez reconhecendo que o aluno havia ultrapassado um limiar, ou talvez ferido em seu orgulho. O tio do menino, João Catarino, que era aluno do lendário Besouro Mangangá, continuou sua educação depois.
 
-Mestre Waldemar da Paixão, falando em 1987, lembrou de Seu Eutíquio: "O pai dele chamava Seu Eutíquio, é morto, era um bom mestre de capoeira." A descrição como "um bom mestre de capoeira" por um mestre do calibre de Waldemar fala da reputação de Eutíquio na comunidade de capoeira de Santo Amaro.
+Mestre Waldemar da Paixão, falando em 1987, lembrou de Seu Eutíquio: "O pai dele chamava Seu Eutíquio, é morto, era um bom mestre de capoeira". A descrição como "um bom mestre de capoeira" por um mestre do calibre de Waldemar fala da reputação de Eutíquio na comunidade de capoeira de Santo Amaro.
 
 Eutíquio morreu em 1954. Seu legado vive através de seu filho Gato Preto, que viria a representar o Brasil no I Festival Mundial das Artes Negras em Dacar (1966), ganhar o Berimbau de Ouro (1970), e passar a tradição para seus próprios filhos Gato II e Mestre Zeca. Através dessa linha ininterrupta—do africano Oleriano de Góes a Eutíquio, a Gato Preto e seus netos—a família representa uma das linhagens de capoeira multigeracionais mais documentadas.
 
@@ -92,7 +92,7 @@ The training ended when the young José Gabriel delivered a powerful cabeçada t
 
 **Historical Context:** Santo Amaro da Purificação was a major center for capoeira in the Recôncavo Baiano, producing notable figures including Besouro Mangangá and Cobrinha Verde.
 
-**Quote about Eutíquio:** Mestre Waldemar (1987): "O pai dele chamava Seu Eutíquio, é morto, era um bom mestre de capoeira." ("His father was called Seu Eutíquio, he's deceased, he was a good capoeira master.")
+**Quote about Eutíquio:** Mestre Waldemar (1987): "O pai dele chamava Seu Eutíquio, é morto, era um bom mestre de capoeira". ("His father was called Seu Eutíquio, he's deceased, he was a good capoeira master".)
 
 ### Português
 
@@ -104,7 +104,7 @@ The training ended when the young José Gabriel delivered a powerful cabeçada t
 
 **Contexto Histórico:** Santo Amaro da Purificação era um centro importante de capoeira no Recôncavo Baiano, produzindo figuras notáveis incluindo Besouro Mangangá e Cobrinha Verde.
 
-**Citação sobre Eutíquio:** Mestre Waldemar (1987): "O pai dele chamava Seu Eutíquio, é morto, era um bom mestre de capoeira."
+**Citação sobre Eutíquio:** Mestre Waldemar (1987): "O pai dele chamava Seu Eutíquio, é morto, era um bom mestre de capoeira".
 
 ## Sources / Fontes
 

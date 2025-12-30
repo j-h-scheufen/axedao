@@ -34,19 +34,19 @@ On May 1, 1909, Cyriaco stepped into the ring at the Pavilhão Internacional of 
 
 The public practice of capoeira was outlawed by the Republican Criminal Code of 1890, making Cyriaco's very presence a legal risk. But the medical school students of the National Academy of Medicine—emboldened by nationalist fervor—had informally "adopted" him, urging him to defend what they considered a Brazilian combat art. After insistent requests, the law was relaxed.
 
-Cyriaco declared: "I am quite confident in my skills. If I have a shot, I will not disappoint you."
+Cyriaco declared: "I am quite confident in my skills. If I have a shot, I will not disappoint you".
 
-He was forced to wear the traditional jiu-jitsu uniform (gi), intended to make the Afro-Brazilian fighter appear "respectable." But inside the ring, Cyriaco fought his way. Using capoeira's characteristic ginga to keep Miyako off-balance, he evaded a morote gari (double-leg takedown) attempt. Then he struck: a devastating rabo de arraia (stingray tail kick) connected with Miyako's head and knocked him down. The Japanese fighter rose but was immediately hit with the same kick a second time and knocked unconscious.
+He was forced to wear the traditional jiu-jitsu uniform (gi), intended to make the Afro-Brazilian fighter appear "respectable". But inside the ring, Cyriaco fought his way. Using capoeira's characteristic ginga to keep Miyako off-balance, he evaded a morote gari (double-leg takedown) attempt. Then he struck: a devastating rabo de arraia (stingray tail kick) connected with Miyako's head and knocked him down. The Japanese fighter rose but was immediately hit with the same kick a second time and knocked unconscious.
 
 The match lasted mere seconds. The audience erupted. They carried Cyriaco on their shoulders through the streets crying: "Asia kneels to Brazil!"
 
 ### Aftermath and Legacy
 
-The magazine O Malho ran a headline on May 15, 1909: "Jiu-jitsu versus Capoeira: Cyríaco, the hero." The newspaper A Notícia compared him to Santos Dumont and called him a world champion. Despite capoeira being prohibited, Cyriaco gave demonstrations at the Medical School of Rio de Janeiro.
+The magazine O Malho ran a headline on May 15, 1909: "Jiu-jitsu versus Capoeira: Cyríaco, the hero". The newspaper A Notícia compared him to Santos Dumont and called him a world champion. Despite capoeira being prohibited, Cyriaco gave demonstrations at the Medical School of Rio de Janeiro.
 
 Watching Cyriaco's victory inspired young Agenor Moreira Sampaio (later Mestre Sinhozinho) to seek out capoeira training on the hill of Santo Antônio.
 
-Three years after his triumph, on May 18, 1912, Cyriaco died at age 38 from a cardiac lesion. The Correio da Manhã announced: "Cyriaco, campeão da capoeiragem nacional, falleceu hontem."
+Three years after his triumph, on May 18, 1912, Cyriaco died at age 38 from a cardiac lesion. The Correio da Manhã announced: "Cyriaco, campeão da capoeiragem nacional, falleceu hontem".
 
 Today, a community library in Campos dos Goytacazes bears his name: Biblioteca Comunitária Francisco da Silva Cyríaco.
 

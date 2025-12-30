@@ -47,7 +47,7 @@ As an author, Itapoan has produced the most significant body of work documenting
 
 He also founded and edited the Revista Negaça, an informative bulletin of Ginga that reached at least four volumes. The first edition was launched on November 13, 1992, celebrating 20 years of Ginga.
 
-In 1966, Itapoan composed "A Palma de Bimba," a corrido celebrating his master''s teaching methods—particularly his insistence on correct clapping rhythm: "A palma estava errada / Bimba parou outra vez / Bate essas palmas direito / A palma de Bimba é um dois três."
+In 1966, Itapoan composed "A Palma de Bimba", a corrido celebrating his master''s teaching methods—particularly his insistence on correct clapping rhythm: "A palma estava errada / Bimba parou outra vez / Bate essas palmas direito / A palma de Bimba é um dois três".
 
 Itapoan possesses an archive of more than 30,000 documents related to capoeira—likely the largest private collection in existence.
 
@@ -77,7 +77,7 @@ Como autor, Itapoan produziu o mais significativo corpo de trabalho documentando
 
 Também fundou e editou a Revista Negaça, um boletim informativo da Ginga que alcançou pelo menos quatro volumes. A primeira edição foi lançada em 13 de novembro de 1992, celebrando 20 anos da Ginga.
 
-Em 1966, Itapoan compôs "A Palma de Bimba," um corrido celebrando os métodos de ensino de seu mestre—particularmente sua insistência no ritmo correto das palmas: "A palma estava errada / Bimba parou outra vez / Bate essas palmas direito / A palma de Bimba é um dois três."
+Em 1966, Itapoan compôs "A Palma de Bimba", um corrido celebrando os métodos de ensino de seu mestre—particularmente sua insistência no ritmo correto das palmas: "A palma estava errada / Bimba parou outra vez / Bate essas palmas direito / A palma de Bimba é um dois três".
 
 Itapoan possui um arquivo de mais de 30.000 documentos relacionados à capoeira—provavelmente a maior coleção privada existente.
 

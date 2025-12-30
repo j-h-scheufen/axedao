@@ -29,11 +29,11 @@ João's fame spread across Brazil alongside other notorious valentões like Pira
 
 He lived to challenge "O Capoeira" (Nascimento Grande), constantly summoning him to scheduled fights at specific times and places. Yet curiously, despite this ongoing rivalry, they were friends who organized festas (parties) together at Hotel Sobrado Grande, located on Rua Camboa do Carmo in the Santo Antônio neighborhood of Recife.
 
-Their most famous confrontation occurred one Sunday morning near the bridge at Largo da Paz. The two rivals encountered each other unexpectedly, and there was no time for discussion—the fight began immediately. João Sabe Tudo drew his peixeira (a traditional Brazilian fighting knife), while Nascimento Grande wielded his famous 15-kilogram cane called "a volta."
+Their most famous confrontation occurred one Sunday morning near the bridge at Largo da Paz. The two rivals encountered each other unexpectedly, and there was no time for discussion—the fight began immediately. João Sabe Tudo drew his peixeira (a traditional Brazilian fighting knife), while Nascimento Grande wielded his famous 15-kilogram cane called "a volta".
 
-The two fighters, with advances, retreats, and feints, descended Rua Imperial with a crowd following. They reached Praça Sérgio Loreto, advanced further, and arrived at the Matriz de São José, where they entered the Igreja do Carmo. Inside the church, a vicar intervened, demanding they cease fighting in "the house of God." Respecting the priest's words, they accepted a draw, shook hands, and never fought again.
+The two fighters, with advances, retreats, and feints, descended Rua Imperial with a crowd following. They reached Praça Sérgio Loreto, advanced further, and arrived at the Matriz de São José, where they entered the Igreja do Carmo. Inside the church, a vicar intervened, demanding they cease fighting in "the house of God". Respecting the priest's words, they accepted a draw, shook hands, and never fought again.
 
-Another account describes an even more violent scheduled battle in front of the Church of Carmo, where stick fighting continued for hours. The two fighters resembled "fighting roosters." When the fight ended, Nascimento Grande placed João Sabe Tudo on his back and carried him to the hospital, bathed in blood.
+Another account describes an even more violent scheduled battle in front of the Church of Carmo, where stick fighting continued for hours. The two fighters resembled "fighting roosters". When the fight ended, Nascimento Grande placed João Sabe Tudo on his back and carried him to the hospital, bathed in blood.
 
 Despite these brutal confrontations, their friendship endured. They continued to host parties together, embodying the complex honor code of Recife's valentão culture—men who could be mortal enemies in combat yet brothers in celebration.
 
@@ -45,11 +45,11 @@ A fama de João se espalhou pelo Brasil ao lado de outros notórios valentões c
 
 Ele vivia a desafiar "O Capoeira" (Nascimento Grande), constantemente convocando-o para brigas com local e hora marcada. Porém, curiosamente, apesar desta rivalidade contínua, eram amigos que promoviam festas juntos no Hotel Sobrado Grande, localizado na Rua Camboa do Carmo no bairro de Santo Antônio, Recife.
 
-Seu confronto mais famoso ocorreu num domingo de manhã perto da ponte do Largo da Paz. Os dois rivais se encontraram inesperadamente, e não houve tempo para discussões—a briga começou imediatamente. João Sabe Tudo sacou sua peixeira (faca de luta tradicional brasileira), enquanto Nascimento Grande empunhava sua famosa bengala de 15 quilos chamada "a volta."
+Seu confronto mais famoso ocorreu num domingo de manhã perto da ponte do Largo da Paz. Os dois rivais se encontraram inesperadamente, e não houve tempo para discussões—a briga começou imediatamente. João Sabe Tudo sacou sua peixeira (faca de luta tradicional brasileira), enquanto Nascimento Grande empunhava sua famosa bengala de 15 quilos chamada "a volta".
 
-Os dois lutadores, em avanços, recuos e negaças, desceram a Rua Imperial com uma multidão acompanhando. Atingiram a Praça Sérgio Loreto, avançaram mais e chegaram à Matriz de São José, onde entraram na Igreja do Carmo. Dentro da igreja, um vigário interveio, exigindo que parassem de lutar na "casa de Deus." Respeitando as palavras do padre, aceitaram um empate, apertaram as mãos e nunca mais lutaram.
+Os dois lutadores, em avanços, recuos e negaças, desceram a Rua Imperial com uma multidão acompanhando. Atingiram a Praça Sérgio Loreto, avançaram mais e chegaram à Matriz de São José, onde entraram na Igreja do Carmo. Dentro da igreja, um vigário interveio, exigindo que parassem de lutar na "casa de Deus". Respeitando as palavras do padre, aceitaram um empate, apertaram as mãos e nunca mais lutaram.
 
-Outro relato descreve uma batalha ainda mais violenta marcada em frente à Igreja do Carmo, onde a luta de bengala continuou por horas. Os dois lutadores pareciam "galos de briga." Quando a luta terminou, Nascimento Grande colocou João Sabe Tudo nas costas e o levou ao hospital, banhado em sangue.
+Outro relato descreve uma batalha ainda mais violenta marcada em frente à Igreja do Carmo, onde a luta de bengala continuou por horas. Os dois lutadores pareciam "galos de briga". Quando a luta terminou, Nascimento Grande colocou João Sabe Tudo nas costas e o levou ao hospital, banhado em sangue.
 
 Apesar destes confrontos brutais, sua amizade perdurou. Continuaram a dar festas juntos, incorporando o complexo código de honra da cultura dos valentões do Recife—homens que podiam ser inimigos mortais em combate, mas irmãos na celebração.
 
@@ -69,7 +69,7 @@ João Sabe Tudo was part of Recife's valentão culture during the late 19th and 
 
 **Estimated: c. 1850 (decade precision)**
 
-João Sabe Tudo was a contemporary and rival of Nascimento Grande (1842-1936). To be an effective rival and "one of the most feared fighters of Recife," he would need to be in his physical prime during the late 19th century. If their famous fights occurred during the 1880s-1900s (Nascimento's prime), João would likely be born around 1840-1860. A birth year of c. 1850 makes him roughly 8 years younger than Nascimento, placing him at ages 30-50 during the prime rivalry period.
+João Sabe Tudo was a contemporary and rival of Nascimento Grande (1842-1936). To be an effective rival and "one of the most feared fighters of Recife", he would need to be in his physical prime during the late 19th century. If their famous fights occurred during the 1880s-1900s (Nascimento's prime), João would likely be born around 1840-1860. A birth year of c. 1850 makes him roughly 8 years younger than Nascimento, placing him at ages 30-50 during the prime rivalry period.
 
 ### Death Date
 

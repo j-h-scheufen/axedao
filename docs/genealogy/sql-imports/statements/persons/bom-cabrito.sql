@@ -44,8 +44,8 @@ SELECT
   NULL, NULL,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'https://velhosmestres.com/en/featured-57',
-  E'Primary teacher. Bom Cabrito trained with Gato Preto in the 1950s-1960s. By 1963, he was documented at Gato Preto''s academy at Mirante do Calabar. Gato Preto noted in 1970 that Bom Cabrito "already teaches capoeira there in Faísca."',
-  E'Mestre principal. Bom Cabrito treinou com Gato Preto nos anos 1950-1960. Em 1963, foi documentado na academia de Gato Preto no Mirante do Calabar. Gato Preto observou em 1970 que Bom Cabrito "já ensina capoeira lá no Faísca."'
+  E'Primary teacher. Bom Cabrito trained with Gato Preto in the 1950s-1960s. By 1963, he was documented at Gato Preto''s academy at Mirante do Calabar. Gato Preto noted in 1970 that Bom Cabrito "already teaches capoeira there in Faísca".',
+  E'Mestre principal. Bom Cabrito treinou com Gato Preto nos anos 1950-1960. Em 1963, foi documentado na academia de Gato Preto no Mirante do Calabar. Gato Preto observou em 1970 que Bom Cabrito "já ensina capoeira lá no Faísca".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Bom Cabrito' AND o.apelido = 'Gato Preto'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

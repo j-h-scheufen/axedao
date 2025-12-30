@@ -48,23 +48,23 @@ INSERT INTO genealogy.person_profiles (
   'unknown'::genealogy.date_precision,
   NULL,  -- Death place unknown
   -- bio_en
-  E'Quebra Coco - "The Coconut Breaker" - was one of the "perigosos capoeiras" (dangerous capoeiristas) of mid-19th century Rio de Janeiro. His name survives in two of the earliest written sources on capoeira: Plácido de Abreu''s 1886 work "Os Capoeiras" and Melo Morais Filho''s 1888 "Festas e Tradições Populares do Brasil."
+  E'Quebra Coco - "The Coconut Breaker" - was one of the "perigosos capoeiras" (dangerous capoeiristas) of mid-19th century Rio de Janeiro. His name survives in two of the earliest written sources on capoeira: Plácido de Abreu''s 1886 work "Os Capoeiras" and Melo Morais Filho''s 1888 "Festas e Tradições Populares do Brasil".
 
-Both sources list Quebra Coco among the most feared street fighters of the 1850s, alongside Mamede, Aleixo Açougueiro, Pedro Cobra, and Bentevi. According to these accounts, the legendary Manduca da Praia "attended the full-time school of roguery and bravery on the streets of Rio de Janeiro during the era of dangerous capoeiras such as Mamede, Aleixo Açougueiro, Pedro Cobra, Bem-te-vi, and Quebra Coco."
+Both sources list Quebra Coco among the most feared street fighters of the 1850s, alongside Mamede, Aleixo Açougueiro, Pedro Cobra, and Bentevi. According to these accounts, the legendary Manduca da Praia "attended the full-time school of roguery and bravery on the streets of Rio de Janeiro during the era of dangerous capoeiras such as Mamede, Aleixo Açougueiro, Pedro Cobra, Bem-te-vi, and Quebra Coco".
 
-His apelido - "Quebra Coco" - translates literally to "Coconut Breaker." In Brazilian Portuguese, "coco" is common slang for head (like the English "noggin" or "coconut"). In 19th century capoeira carioca, headbutts (cabeçadas) were the primary fighting technique - so important that they had different names for different variations. Police records from the era document headbutts as the capoeiras'' signature move. The name "Quebra Coco" strongly suggests someone renowned for the power of his headbutts - a man who could "break coconuts" (heads) with his cabeçadas.
+His apelido - "Quebra Coco" - translates literally to "Coconut Breaker". In Brazilian Portuguese, "coco" is common slang for head (like the English "noggin" or "coconut"). In 19th century capoeira carioca, headbutts (cabeçadas) were the primary fighting technique - so important that they had different names for different variations. Police records from the era document headbutts as the capoeiras'' signature move. The name "Quebra Coco" strongly suggests someone renowned for the power of his headbutts - a man who could "break coconuts" (heads) with his cabeçadas.
 
-This was an era before berimbau and music defined the practice. Capoeira carioca was a street fighting system where practitioners excelled "in the use of the razor and dagger; in the handling of the Petrópolis - a long hardwood club, inseparable companion of the tough guys of the time - in the cunning of the sweep and trip; and with the punch, headbutt and rabo-de-arraia."
+This was an era before berimbau and music defined the practice. Capoeira carioca was a street fighting system where practitioners excelled "in the use of the razor and dagger; in the handling of the Petrópolis - a long hardwood club, inseparable companion of the tough guys of the time - in the cunning of the sweep and trip; and with the punch, headbutt and rabo-de-arraia".
 
 No individual exploits of Quebra Coco survive. We do not know if he belonged to the Nagoas or Guaiamums, the two great rival maltas that divided Rio de Janeiro. He exists now only as a name on a list of dangerous men in the earliest capoeira literature.',
   -- bio_pt
   E'Quebra Coco - "O Quebrador de Coco" - foi um dos "perigosos capoeiras" do Rio de Janeiro em meados do século XIX. Seu nome sobrevive em duas das fontes escritas mais antigas sobre capoeira: a obra de 1886 de Plácido de Abreu "Os Capoeiras" e "Festas e Tradições Populares do Brasil" de 1888 de Melo Morais Filho.
 
-Ambas as fontes listam Quebra Coco entre os mais temidos lutadores de rua da década de 1850, ao lado de Mamede, Aleixo Açougueiro, Pedro Cobra e Bentevi. Segundo estes relatos, o lendário Manduca da Praia "cursou a escola de horário integral da malandragem e da valentia das ruas do Rio de Janeiro na época de perigosos capoeiras como Mamede, Aleixo Açougueiro, Pedro Cobra, Bem-te-vi e Quebra Coco."
+Ambas as fontes listam Quebra Coco entre os mais temidos lutadores de rua da década de 1850, ao lado de Mamede, Aleixo Açougueiro, Pedro Cobra e Bentevi. Segundo estes relatos, o lendário Manduca da Praia "cursou a escola de horário integral da malandragem e da valentia das ruas do Rio de Janeiro na época de perigosos capoeiras como Mamede, Aleixo Açougueiro, Pedro Cobra, Bem-te-vi e Quebra Coco".
 
-Seu apelido - "Quebra Coco" - traduz-se literalmente como "Quebrador de Coco." Em português brasileiro, "coco" é gíria comum para cabeça. Na capoeira carioca do século XIX, as cabeçadas eram a principal técnica de luta - tão importantes que tinham nomes diferentes para variações diferentes. Registros policiais da época documentam cabeçadas como o golpe característico dos capoeiras. O nome "Quebra Coco" sugere fortemente alguém conhecido pelo poder de suas cabeçadas - um homem que podia "quebrar cocos" (cabeças) com suas cabeçadas.
+Seu apelido - "Quebra Coco" - traduz-se literalmente como "Quebrador de Coco". Em português brasileiro, "coco" é gíria comum para cabeça. Na capoeira carioca do século XIX, as cabeçadas eram a principal técnica de luta - tão importantes que tinham nomes diferentes para variações diferentes. Registros policiais da época documentam cabeçadas como o golpe característico dos capoeiras. O nome "Quebra Coco" sugere fortemente alguém conhecido pelo poder de suas cabeçadas - um homem que podia "quebrar cocos" (cabeças) com suas cabeçadas.
 
-Esta era uma era antes que o berimbau e a música definissem a prática. A capoeira carioca era um sistema de luta de rua onde os praticantes se destacavam "no uso da navalha e do punhal; no manejo do Petrópolis - um comprido porrete de madeira-de-lei, companheiro inseparável dos valentões da época - na malícia da banda e da rasteira; e no soco, cabeçada e rabo-de-arraia."
+Esta era uma era antes que o berimbau e a música definissem a prática. A capoeira carioca era um sistema de luta de rua onde os praticantes se destacavam "no uso da navalha e do punhal; no manejo do Petrópolis - um comprido porrete de madeira-de-lei, companheiro inseparável dos valentões da época - na malícia da banda e da rasteira; e no soco, cabeçada e rabo-de-arraia".
 
 Nenhuma façanha individual de Quebra Coco sobrevive. Não sabemos se ele pertencia aos Nagoas ou Guaiamuns, as duas grandes maltas rivais que dividiam o Rio de Janeiro. Ele existe agora apenas como um nome em uma lista de homens perigosos na literatura mais antiga sobre capoeira.',
   -- achievements_en
@@ -74,7 +74,7 @@ Nenhuma façanha individual de Quebra Coco sobrevive. Não sabemos se ele perten
   -- Researcher notes (English)
   E'BIRTH YEAR ESTIMATION (1820, decade precision): Documented as a "perigoso capoeira" active around 1850 in Rio de Janeiro. If he was an established, feared capoeirista at that time, he was likely 25-40 years old, placing birth in the 1810s-1830s range. Using 1820 as midpoint.
 
-NAME: "Quebra Coco" means "Coconut Breaker." Full legal name unknown.
+NAME: "Quebra Coco" means "Coconut Breaker". Full legal name unknown.
 
 APELIDO: "Coco" is Brazilian slang for head. Headbutts (cabeçadas) were the primary technique of 19th century capoeira carioca. The name strongly suggests expertise in headbutts.
 
@@ -93,7 +93,7 @@ RELATIONSHIPS:
   -- Researcher notes (Portuguese)
   E'ESTIMATIVA DO ANO DE NASCIMENTO (1820, precisão de década): Documentado como um "perigoso capoeira" ativo por volta de 1850 no Rio de Janeiro. Se ele era um capoeirista estabelecido e temido naquela época, provavelmente tinha 25-40 anos, colocando o nascimento no intervalo de 1810-1830. Usando 1820 como ponto médio.
 
-NOME: "Quebra Coco" significa "Quebrador de Coco." Nome legal completo desconhecido.
+NOME: "Quebra Coco" significa "Quebrador de Coco". Nome legal completo desconhecido.
 
 APELIDO: "Coco" é gíria brasileira para cabeça. Cabeçadas eram a principal técnica da capoeira carioca do século XIX. O nome sugere fortemente expertise em cabeçadas.
 

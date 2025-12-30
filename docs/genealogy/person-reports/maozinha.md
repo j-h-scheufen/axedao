@@ -25,17 +25,17 @@
 
 ### English
 
-Mãozinha was a capoeirista in early 20th century Salvador who was killed during the brutal persecution led by Police Chief Pedro de Azevedo Gordilho, known as "Pedrito." This persecution, which began in 1920 when Pedrito assumed command of the Bahian police cavalry, represented one of the darkest periods in capoeira history.
+Mãozinha was a capoeirista in early 20th century Salvador who was killed during the brutal persecution led by Police Chief Pedro de Azevedo Gordilho, known as "Pedrito". This persecution, which began in 1920 when Pedrito assumed command of the Bahian police cavalry, represented one of the darkest periods in capoeira history.
 
-Mestre Onça Preta, who witnessed this era as a boy, recalled Mãozinha among the fallen in a 1972 O Dia newspaper interview: "Besourinho, Doze Homens, Mãozinha, Antônio Galindéu, Geraldo Chapeleiro, Finado Manteiga, Nagé, Paulo César de Moura, Gasolinha, Juvelino and many others." According to Onça Preta, Pedrito's cavalry squad "conducted a real massacre among the old capoeira masters, not in open combat. Generally he assassinated them after capture, with the body appearing days later thrown in the woods, the back opened by knife cuts."
+Mestre Onça Preta, who witnessed this era as a boy, recalled Mãozinha among the fallen in a 1972 O Dia newspaper interview: "Besourinho, Doze Homens, Mãozinha, Antônio Galindéu, Geraldo Chapeleiro, Finado Manteiga, Nagé, Paulo César de Moura, Gasolinha, Juvelino and many others". According to Onça Preta, Pedrito's cavalry squad "conducted a real massacre among the old capoeira masters, not in open combat. Generally he assassinated them after capture, with the body appearing days later thrown in the woods, the back opened by knife cuts".
 
 The apelido "Mãozinha" (meaning "little hand" in Portuguese) was typical of the era when capoeiristas used nicknames to protect their identities, as the practice of capoeira was criminalized under the 1890 Penal Code. No further biographical details about Mãozinha survive beyond this single reference in Onça Preta's testimony, making him one of the many anonymous victims of state violence against Afro-Brazilian culture and resistance.
 
 ### Português
 
-Mãozinha foi um capoeirista do início do século XX em Salvador que foi morto durante a perseguição brutal liderada pelo Chefe de Polícia Pedro de Azevedo Gordilho, conhecido como "Pedrito." Esta perseguição, que começou em 1920 quando Pedrito assumiu o comando da cavalaria da polícia baiana, representou um dos períodos mais sombrios da história da capoeira.
+Mãozinha foi um capoeirista do início do século XX em Salvador que foi morto durante a perseguição brutal liderada pelo Chefe de Polícia Pedro de Azevedo Gordilho, conhecido como "Pedrito". Esta perseguição, que começou em 1920 quando Pedrito assumiu o comando da cavalaria da polícia baiana, representou um dos períodos mais sombrios da história da capoeira.
 
-Mestre Onça Preta, que testemunhou essa era quando menino, recordou Mãozinha entre os que tombaram em uma entrevista ao jornal O Dia em 1972: "Besourinho, Doze Homens, Mãozinha, Antônio Galindéu, Geraldo Chapeleiro, Finado Manteiga, Nagé, Paulo César de Moura, Gasolinha, Juvelino e muitos outros." Segundo Onça Preta, o esquadrão de cavalaria de Pedrito "empreendeu verdadeiro massacre entre os velhos mestres do jogo, não em combate aberto. Em geral os assassinava após a captura, aparecendo o corpo dias depois atirado ao mato, as costas abertas de facadas."
+Mestre Onça Preta, que testemunhou essa era quando menino, recordou Mãozinha entre os que tombaram em uma entrevista ao jornal O Dia em 1972: "Besourinho, Doze Homens, Mãozinha, Antônio Galindéu, Geraldo Chapeleiro, Finado Manteiga, Nagé, Paulo César de Moura, Gasolinha, Juvelino e muitos outros". Segundo Onça Preta, o esquadrão de cavalaria de Pedrito "empreendeu verdadeiro massacre entre os velhos mestres do jogo, não em combate aberto. Em geral os assassinava após a captura, aparecendo o corpo dias depois atirado ao mato, as costas abertas de facadas".
 
 O apelido "Mãozinha" (diminutivo de "mão") era típico da época em que capoeiristas usavam apelidos para proteger suas identidades, já que a prática da capoeira era criminalizada pelo Código Penal de 1890. Nenhum outro detalhe biográfico sobre Mãozinha sobrevive além desta única referência no testemunho de Onça Preta, tornando-o uma das muitas vítimas anônimas da violência estatal contra a cultura e resistência afro-brasileira.
 
@@ -43,15 +43,15 @@ O apelido "Mãozinha" (diminutivo de "mão") era típico da época em que capoei
 
 ### The Pedrito Persecution / A Perseguição de Pedrito
 
-Pedro de Azevedo Gordilho (June 19, 1885 - April 1, 1955), known as "Pedrito," was the Chief of Police of Salvador who became infamous for his violent persecution of capoeiristas, practitioners of candomblé, and Afro-Brazilian culture in general during the 1920s.
+Pedro de Azevedo Gordilho (June 19, 1885 - April 1, 1955), known as "Pedrito", was the Chief of Police of Salvador who became infamous for his violent persecution of capoeiristas, practitioners of candomblé, and Afro-Brazilian culture in general during the 1920s.
 
 Under Pedrito's command, the police cavalry conducted systematic raids on rodas (capoeira circles), samba gatherings, and candomblé terreiros. The capoeiristas developed a warning system: a lookout would play the "toque de cavalaria" (cavalry rhythm) on the berimbau when police approached, giving practitioners time to flee. This rhythm became folklore, immortalized in songs like "Toca o pandeiro / Sacuda o caxixi / Anda depressa / Que Pedrito vem aí" (Play the pandeiro / Shake the caxixi / Hurry up / Pedrito is coming).
 
 Pedrito's persecution was eventually curtailed by Governor Juracy Magalhães, who invited Mestre Bimba to register his academy with the Secretariat of Education and Culture, marking the beginning of capoeira's path toward legalization.
 
-Pedro de Azevedo Gordilho (19 de junho de 1885 - 1 de abril de 1955), conhecido como "Pedrito," foi o Chefe de Polícia de Salvador que se tornou infame por sua violenta perseguição aos capoeiristas, praticantes de candomblé e à cultura afro-brasileira em geral durante a década de 1920.
+Pedro de Azevedo Gordilho (19 de junho de 1885 - 1 de abril de 1955), conhecido como "Pedrito", foi o Chefe de Polícia de Salvador que se tornou infame por sua violenta perseguição aos capoeiristas, praticantes de candomblé e à cultura afro-brasileira em geral durante a década de 1920.
 
-Sob o comando de Pedrito, a cavalaria policial conduzia batidas sistemáticas em rodas de capoeira, reuniões de samba e terreiros de candomblé. Os capoeiristas desenvolveram um sistema de alerta: um vigia tocava o "toque de cavalaria" no berimbau quando a polícia se aproximava, dando tempo para os praticantes fugirem. Este ritmo se tornou folclore, imortalizado em canções como "Toca o pandeiro / Sacuda o caxixi / Anda depressa / Que Pedrito vem aí."
+Sob o comando de Pedrito, a cavalaria policial conduzia batidas sistemáticas em rodas de capoeira, reuniões de samba e terreiros de candomblé. Os capoeiristas desenvolveram um sistema de alerta: um vigia tocava o "toque de cavalaria" no berimbau quando a polícia se aproximava, dando tempo para os praticantes fugirem. Este ritmo se tornou folclore, imortalizado em canções como "Toca o pandeiro / Sacuda o caxixi / Anda depressa / Que Pedrito vem aí".
 
 A perseguição de Pedrito foi eventualmente contida pelo Governador Juracy Magalhães, que convidou Mestre Bimba a registrar sua academia na Secretaria de Educação e Cultura, marcando o início do caminho da capoeira em direção à legalização.
 

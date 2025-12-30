@@ -30,9 +30,9 @@ In the history of Salvador's Lower City, Mestre Zeca do Uruguai stands as a quie
 
 Zeca came from Santo Amaro da Purificação, the same town that produced Besouro, Cobrinha Verde, and Gato Preto. He was first cousin to Gato Preto (born 1930) and also cousin to Cobrinha Verde (born 1912), placing him within the tight network of Santo Amaro capoeiristas who shaped the art in the early to mid-twentieth century. At some point, he relocated to Salvador and established himself in the Uruguai neighborhood of the Lower City (Cidade Baixa).
 
-Those who knew him remember a short man with a big moustache, characterized by his cunning, truthfulness, and confident manner. He worked as a docker—one of the many stevedores and port workers who formed the backbone of capoeira practice in Salvador's waterfront neighborhoods. As Mestre Canjiquinha recalled: "He was dark, a bookie and had a big moustache." Mestre Nô described him as "a short guy known for: cunningness, truthfulness, the way of handling himself."
+Those who knew him remember a short man with a big moustache, characterized by his cunning, truthfulness, and confident manner. He worked as a docker—one of the many stevedores and port workers who formed the backbone of capoeira practice in Salvador's waterfront neighborhoods. As Mestre Canjiquinha recalled: "He was dark, a bookie and had a big moustache". Mestre Nô described him as "a short guy known for: cunningness, truthfulness, the way of handling himself".
 
-Zeca taught in a space next to his house in the Uruguai neighborhood, where students trained for street rodas. His instructional approach emphasized the berimbau's authority. Canjiquinha, who learned berimbau from him, remembered: "He showed me how to play, taught me rhythms and lots of songs... that the berimbau reigns the capoeira roda." This philosophy—that the capoeirista must play according to the rhythm imposed and obey the berimbau's calls and warnings—became foundational to the Lower City style.
+Zeca taught in a space next to his house in the Uruguai neighborhood, where students trained for street rodas. His instructional approach emphasized the berimbau's authority. Canjiquinha, who learned berimbau from him, remembered: "He showed me how to play, taught me rhythms and lots of songs... that the berimbau reigns the capoeira roda". This philosophy—that the capoeirista must play according to the rhythm imposed and obey the berimbau's calls and warnings—became foundational to the Lower City style.
 
 His primary disciples were Pierrô and Nilton, who in turn organized and commanded many capoeira angola rodas in the streets of the Lower City alongside Zeca himself. The brothers Nilton (born October 16, 1937) and Cutica (Nelson Moraes Paes, 1941-1970) lived in nearby Massaranduba and would carry their berimbaus the short walk—not even a kilometer—to train under Zeca and Pierrô in Uruguai.
 
@@ -50,9 +50,9 @@ Na história da Cidade Baixa de Salvador, Mestre Zeca do Uruguai se destaca como
 
 Zeca veio de Santo Amaro da Purificação, a mesma cidade que produziu Besouro, Cobrinha Verde e Gato Preto. Era primo carnal de Gato Preto (nascido em 1930) e também primo de Cobrinha Verde (nascido em 1912), colocando-o dentro da rede fechada de capoeiristas de Santo Amaro que moldaram a arte no início a meados do século XX. Em algum momento, ele se mudou para Salvador e se estabeleceu no bairro do Uruguai na Cidade Baixa.
 
-Aqueles que o conheceram lembram de um homem baixo com um grande bigode, caracterizado por sua malícia, sinceridade e maneira confiante. Trabalhava como estivador—um dos muitos trabalhadores do porto que formavam a espinha dorsal da prática da capoeira nos bairros à beira-mar de Salvador. Como Mestre Canjiquinha lembrou: "Ele era moreno, bicheiro e tinha um bigodão." Mestre Nô o descreveu como "um baixinho conhecido pela: malícia, sinceridade, a maneira de se portar."
+Aqueles que o conheceram lembram de um homem baixo com um grande bigode, caracterizado por sua malícia, sinceridade e maneira confiante. Trabalhava como estivador—um dos muitos trabalhadores do porto que formavam a espinha dorsal da prática da capoeira nos bairros à beira-mar de Salvador. Como Mestre Canjiquinha lembrou: "Ele era moreno, bicheiro e tinha um bigodão". Mestre Nô o descreveu como "um baixinho conhecido pela: malícia, sinceridade, a maneira de se portar".
 
-Zeca ensinava em um espaço ao lado de sua casa no bairro do Uruguai, onde os alunos treinavam para as rodas de rua. Sua abordagem instrucional enfatizava a autoridade do berimbau. Canjiquinha, que aprendeu berimbau com ele, lembrava: "Ele me mostrou como tocar, me ensinou ritmos e muitas cantigas... que o berimbau manda na roda de capoeira." Esta filosofia—de que o capoeirista deve jogar conforme o ritmo imposto e obedecer aos chamados e avisos do berimbau—tornou-se fundamental para o estilo da Cidade Baixa.
+Zeca ensinava em um espaço ao lado de sua casa no bairro do Uruguai, onde os alunos treinavam para as rodas de rua. Sua abordagem instrucional enfatizava a autoridade do berimbau. Canjiquinha, que aprendeu berimbau com ele, lembrava: "Ele me mostrou como tocar, me ensinou ritmos e muitas cantigas... que o berimbau manda na roda de capoeira". Esta filosofia—de que o capoeirista deve jogar conforme o ritmo imposto e obedecer aos chamados e avisos do berimbau—tornou-se fundamental para o estilo da Cidade Baixa.
 
 Seus principais discípulos foram Pierrô e Nilton, que por sua vez organizavam e comandavam muitas rodas de capoeira angola nas ruas da Cidade Baixa ao lado do próprio Zeca. Os irmãos Nilton (nascido em 16 de outubro de 1937) e Cutica (Nelson Moraes Paes, 1941-1970) moravam na vizinha Massaranduba e carregavam seus berimbaus na curta caminhada—nem um quilômetro—para treinar com Zeca e Pierrô no Uruguai.
 
@@ -68,11 +68,11 @@ A data de falecimento de Zeca do Uruguai é desconhecida, mas seu legado persist
 
 ### English
 
-Zeca do Uruguai was known primarily as a berimbau master who emphasized rhythm, song, and obedience to the berimbau's commands. He taught that "the berimbau reigns the capoeira roda; the capoeirista must play according to the rhythm imposed and obey the berimbau's calls and warnings." His teaching approach focused on street roda preparation and traditional capoeira angola of the Lower City.
+Zeca do Uruguai was known primarily as a berimbau master who emphasized rhythm, song, and obedience to the berimbau's commands. He taught that "the berimbau reigns the capoeira roda; the capoeirista must play according to the rhythm imposed and obey the berimbau's calls and warnings". His teaching approach focused on street roda preparation and traditional capoeira angola of the Lower City.
 
 ### Português
 
-Zeca do Uruguai era conhecido principalmente como um mestre de berimbau que enfatizava ritmo, canto e obediência aos comandos do berimbau. Ele ensinava que "o berimbau manda na roda de capoeira; o capoeirista deve jogar conforme o ritmo imposto e obedecer aos chamados e avisos do berimbau." Sua abordagem de ensino focava na preparação para rodas de rua e na capoeira angola tradicional da Cidade Baixa.
+Zeca do Uruguai era conhecido principalmente como um mestre de berimbau que enfatizava ritmo, canto e obediência aos comandos do berimbau. Ele ensinava que "o berimbau manda na roda de capoeira; o capoeirista deve jogar conforme o ritmo imposto e obedecer aos chamados e avisos do berimbau". Sua abordagem de ensino focava na preparação para rodas de rua e na capoeira angola tradicional da Cidade Baixa.
 
 ## Teachers / Mestres
 
@@ -123,7 +123,7 @@ Zeca do Uruguai era conhecido principalmente como um mestre de berimbau que enfa
 
 ### English
 
-**Full Name:** Unknown. "Zeca" is a common Brazilian nickname for "José."
+**Full Name:** Unknown. "Zeca" is a common Brazilian nickname for "José".
 
 **Physical Description:**
 - "Dark, a bookie and had a big moustache" - Mestre Canjiquinha
@@ -142,7 +142,7 @@ Zeca do Uruguai era conhecido principalmente como um mestre de berimbau que enfa
 
 ### Português
 
-**Nome Completo:** Desconhecido. "Zeca" é um apelido brasileiro comum para "José."
+**Nome Completo:** Desconhecido. "Zeca" é um apelido brasileiro comum para "José".
 
 **Descrição Física:**
 - "Moreno, bicheiro e tinha um bigodão" - Mestre Canjiquinha

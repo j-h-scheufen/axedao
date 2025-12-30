@@ -83,7 +83,7 @@ Little is known about this individual beyond his role as Mestre Caiçara's teach
 
 **What We Know:**
 
-In 1938, a 14-year-old Antônio Conceição Moraes (later Mestre Caiçara) began learning capoeira from "Mestre Aberrê de Santo Amaro." According to multiple sources, this teacher's full name was Antônio Rufino dos Santos. Aberrê taught Caiçara "the secrets and mysteries of capoeiragem" (the practice of capoeira).
+In 1938, a 14-year-old Antônio Conceição Moraes (later Mestre Caiçara) began learning capoeira from "Mestre Aberrê de Santo Amaro". According to multiple sources, this teacher's full name was Antônio Rufino dos Santos. Aberrê taught Caiçara "the secrets and mysteries of capoeiragem" (the practice of capoeira).
 
 The bengala (walking cane) that became Mestre Caiçara's trademark was given to him by his Mestre Aberrê before the mestre's death. According to Caiçara, his master also carried a bengala—both for practical use and as a sign of elegance. In the hands of a capoeirista, such a cane could become a deadly weapon.
 
@@ -103,7 +103,7 @@ Pouco se sabe sobre este indivíduo além de seu papel como professor de Mestre 
 
 **O Que Sabemos:**
 
-Em 1938, Antônio Conceição Moraes, de 14 anos (mais tarde Mestre Caiçara), começou a aprender capoeira com "Mestre Aberrê de Santo Amaro." Segundo múltiplas fontes, o nome completo deste professor era Antônio Rufino dos Santos. Aberrê ensinou a Caiçara "os segredos e mistérios da capoeiragem."
+Em 1938, Antônio Conceição Moraes, de 14 anos (mais tarde Mestre Caiçara), começou a aprender capoeira com "Mestre Aberrê de Santo Amaro". Segundo múltiplas fontes, o nome completo deste professor era Antônio Rufino dos Santos. Aberrê ensinou a Caiçara "os segredos e mistérios da capoeiragem".
 
 A bengala que se tornou marca registrada de Mestre Caiçara foi dada a ele por seu Mestre Aberrê antes da morte do mestre. Segundo Caiçara, seu mestre também carregava uma bengala—tanto para uso prático quanto como sinal de elegância. Nas mãos de um capoeirista, tal bengala poderia se tornar uma arma mortal.
 
@@ -144,9 +144,9 @@ Se Aberrê de Santo Amaro estava ensinando em 1938, provavelmente nasceu entre a
 
 As noted by researchers at [IPCB-RJ](http://ipcb-rj.com.br/?p=617):
 
-> "Se a existência de dois Aberrês for verdade, a história da capoeira angola baiana precisará ser reescrita no futuro, pois seu legado é tão importante quanto de qualquer outro Mestre."
+> "Se a existência de dois Aberrês for verdade, a história da capoeira angola baiana precisará ser reescrita no futuro, pois seu legado é tão importante quanto de qualquer outro Mestre".
 
-("If the existence of two Aberrês is true, the history of Bahian capoeira angola will need to be rewritten in the future, as his legacy is as important as any other Mestre.")
+("If the existence of two Aberrês is true, the history of Bahian capoeira angola will need to be rewritten in the future, as his legacy is as important as any other Mestre".)
 
 This question affects how we understand the lineages flowing from Aberrê through Canjiquinha and Caiçara—two of the most influential figures in spreading Capoeira Angola throughout Brazil.
 

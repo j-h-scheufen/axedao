@@ -53,15 +53,15 @@ Beyond teaching capoeira, Acordeon helped co-found the Mission District''s Carni
 
 In 1981, Acordeon published "Capoeira: A Brazilian Art Form: History, Philosophy, and Practice" through North Atlantic Books—the first capoeira book ever written in English. This groundbreaking work introduced countless English speakers to the art form and remains influential today.
 
-In 1985, he recorded "The Music of Capoeira: Mestre Acordeon" for Smithsonian Folkways Records (catalog FW04332), featuring tracks like "Saudação aos Mestres" and "Homage to Mestre Bimba: Corridos de Capoeira Regional." The album featured collaborations with Mestre Suassuna and Dennis Broughton.
+In 1985, he recorded "The Music of Capoeira: Mestre Acordeon" for Smithsonian Folkways Records (catalog FW04332), featuring tracks like "Saudação aos Mestres" and "Homage to Mestre Bimba: Corridos de Capoeira Regional". The album featured collaborations with Mestre Suassuna and Dennis Broughton.
 
-In 1994, Acordeon became the first "artist" to receive the Tinker Visiting Professorship at the University of Wisconsin-Madison—a significant recognition of capoeira as an academic discipline. The following year, he collaborated with master drummer CK Ladzepko on "Warriors at the Edge of the Rain Forest."
+In 1994, Acordeon became the first "artist" to receive the Tinker Visiting Professorship at the University of Wisconsin-Madison—a significant recognition of capoeira as an academic discipline. The following year, he collaborated with master drummer CK Ladzepko on "Warriors at the Edge of the Rain Forest".
 
 In 1998, Acordeon co-founded the Capoeira Arts Café in downtown Berkeley, California, with Mestre Rã (Cassio Martinho). Together they established the United Capoeira Association (UCA), an organization born from their shared philosophical ideals while preserving their individual identities. The UCA grew to include schools across the United States, Ciudad Juarez in Mexico, and academies in Brazil.
 
 Acordeon also founded the Capoeira Arts Foundation in Berkeley, a 501(c)(3) nonprofit that sponsors the UCA and Projeto Kirimurê—a social program for at-risk children in the Itapoã neighborhood of Salvador, Bahia. The project has been supported since 2005, serving a community where many families live on approximately $8.75 per day.
 
-In 2008, recognizing thirty years of continuous work on the West Coast, the City of Berkeley proclaimed October 18 as "Mestre Acordeon Day."
+In 2008, recognizing thirty years of continuous work on the West Coast, the City of Berkeley proclaimed October 18 as "Mestre Acordeon Day".
 
 At age 70, on Labor Day 2013, Acordeon, his wife Suellen Einarsen (Mestra Suelly—the first American woman to earn the mestre title, in 2000), and nine disciples embarked on an extraordinary journey: a 6,500-mile bicycle ride from Berkeley to Salvador, Brazil. The purpose was to raise funds and awareness for Projeto Kirimurê while documenting capoeira''s development in the Americas.
 
@@ -70,7 +70,7 @@ In 2019, Acordeon retired from the Capoeira Arts Foundation and relocated to Alb
 His son, Alexandre "Sanfona" Almeida, serves as president of Instituto Mestre Acordeon, continuing the family''s capoeira legacy.',
   E'Ubirajara Guimarães Almeida, conhecido como Mestre Acordeon (refletindo seus talentos musicais), nasceu em 30 de agosto de 1943, em Salvador, Bahia, Brasil.
 
-Em 1958, aos quinze anos, Acordeon iniciou sua jornada na capoeira quando entrou na academia do lendário Mestre Bimba. Seu caminho na capoeira o levou a fazer sua marca com o que ele descreve como "o envolvimento total de corpo e alma, ARTE-LUTA." Destacou-se nos aspectos atléticos e competitivos da capoeira enquanto desenvolvia habilidades musicais excepcionais.
+Em 1958, aos quinze anos, Acordeon iniciou sua jornada na capoeira quando entrou na academia do lendário Mestre Bimba. Seu caminho na capoeira o levou a fazer sua marca com o que ele descreve como "o envolvimento total de corpo e alma, ARTE-LUTA". Destacou-se nos aspectos atléticos e competitivos da capoeira enquanto desenvolvia habilidades musicais excepcionais.
 
 Em 1959, apenas um ano após começar, Acordeon abriu sua primeira academia em sua residência na Boa Vista de Brotas, Salvador. Rapidamente atraiu alunos buscando uma abordagem diferente—uma que exigia condicionamento físico rigoroso combinado com valores artísticos e música.
 
@@ -86,15 +86,15 @@ Além de ensinar capoeira, Acordeon ajudou a co-fundar a celebração do Carnava
 
 Em 1981, Acordeon publicou "Capoeira: A Brazilian Art Form: History, Philosophy, and Practice" pela North Atlantic Books—o primeiro livro de capoeira escrito em inglês. Esta obra pioneira introduziu inúmeros falantes de inglês à arte e permanece influente até hoje.
 
-Em 1985, gravou "The Music of Capoeira: Mestre Acordeon" para a Smithsonian Folkways Records (catálogo FW04332), com faixas como "Saudação aos Mestres" e "Homenagem a Mestre Bimba: Corridos de Capoeira Regional." O álbum contou com colaborações de Mestre Suassuna e Dennis Broughton.
+Em 1985, gravou "The Music of Capoeira: Mestre Acordeon" para a Smithsonian Folkways Records (catálogo FW04332), com faixas como "Saudação aos Mestres" e "Homenagem a Mestre Bimba: Corridos de Capoeira Regional". O álbum contou com colaborações de Mestre Suassuna e Dennis Broughton.
 
-Em 1994, Acordeon tornou-se o primeiro "artista" a receber a Cátedra Visitante Tinker na Universidade de Wisconsin-Madison—um reconhecimento significativo da capoeira como disciplina acadêmica. No ano seguinte, colaborou com o mestre percussionista CK Ladzepko em "Warriors at the Edge of the Rain Forest."
+Em 1994, Acordeon tornou-se o primeiro "artista" a receber a Cátedra Visitante Tinker na Universidade de Wisconsin-Madison—um reconhecimento significativo da capoeira como disciplina acadêmica. No ano seguinte, colaborou com o mestre percussionista CK Ladzepko em "Warriors at the Edge of the Rain Forest".
 
 Em 1998, Acordeon co-fundou o Capoeira Arts Café no centro de Berkeley, Califórnia, com Mestre Rã (Cassio Martinho). Juntos estabeleceram a United Capoeira Association (UCA), uma organização nascida de seus ideais filosóficos compartilhados enquanto preservava suas identidades individuais. A UCA cresceu para incluir escolas nos Estados Unidos, Ciudad Juarez no México e academias no Brasil.
 
 Acordeon também fundou a Capoeira Arts Foundation em Berkeley, uma organização sem fins lucrativos 501(c)(3) que patrocina a UCA e o Projeto Kirimurê—um programa social para crianças em risco no bairro de Itapoã em Salvador, Bahia. O projeto é apoiado desde 2005, servindo uma comunidade onde muitas famílias vivem com aproximadamente R$35 por dia.
 
-Em 2008, reconhecendo trinta anos de trabalho contínuo na Costa Oeste, a Cidade de Berkeley proclamou 18 de outubro como "Dia do Mestre Acordeon."
+Em 2008, reconhecendo trinta anos de trabalho contínuo na Costa Oeste, a Cidade de Berkeley proclamou 18 de outubro como "Dia do Mestre Acordeon".
 
 Aos 70 anos, no Labor Day de 2013, Acordeon, sua esposa Suellen Einarsen (Mestra Suelly—a primeira mulher americana a ganhar o título de mestra, em 2000) e nove discípulos embarcaram em uma jornada extraordinária: uma viagem de bicicleta de 10.000 km de Berkeley a Salvador, Brasil. O objetivo era arrecadar fundos e conscientização para o Projeto Kirimurê enquanto documentavam o desenvolvimento da capoeira nas Américas.
 

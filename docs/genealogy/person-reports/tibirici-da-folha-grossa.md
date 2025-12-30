@@ -3,8 +3,8 @@
 **SQL Import:** `docs/genealogy/sql-imports/entities/persons/tibirici-da-folha-grossa.sql`
 
 **Significance / Significância:**
-- EN: Legendary capoeirista listed by Mestre Pastinha in 1967 among the deceased practitioners of "pure Capoeira de Angola."
-- PT: Capoeirista lendário listado por Mestre Pastinha em 1967 entre os praticantes falecidos de "capoeira de Angola pura."
+- EN: Legendary capoeirista listed by Mestre Pastinha in 1967 among the deceased practitioners of "pure Capoeira de Angola".
+- PT: Capoeirista lendário listado por Mestre Pastinha em 1967 entre os praticantes falecidos de "capoeira de Angola pura".
 
 **Profile Type:** `historical_capoeirista`
 
@@ -26,9 +26,9 @@
 
 Tibiriçá da Folha Grossa was a legendary capoeirista of Salvador, Bahia, active during the late 19th or early 20th century. He is known exclusively from Mestre Pastinha's 1967 interview with Roberto Freire for Revista Realidade, where Pastinha recalled the great capoeiristas of the past.
 
-In that interview, conducted when Pastinha was 78 years old and nearly blind, the father of Capoeira Angola listed fifteen deceased practitioners who had practiced "the pure Capoeira de Angola as I and these boys there do until today." Tibiriçá da Folha Grossa was among them, alongside other colorfully-named figures such as Bigode de Seda (Silk Mustache), Américo Ciência, Bugalho, Amorzinho (Little Love), Zé Bom Pé (Joe Good Foot), Chico Três Pedaços (Chico Three Pieces), Doze Homens (Twelve Men), Inimigo Sem Tripa (Enemy Without Guts), Vitorino Braço Torto (Vitorino Crooked Arm), Zé do U, Zé do Saco (Joe of the Sack), Bené do Correio (Bené of the Post Office), Sete Mortes (Seven Deaths), and Chico Me Dá (Give-Me Chico). Pastinha also mentioned two women among these legendary practitioners: Júlia Fogareira and Maria Homem.
+In that interview, conducted when Pastinha was 78 years old and nearly blind, the father of Capoeira Angola listed fifteen deceased practitioners who had practiced "the pure Capoeira de Angola as I and these boys there do until today". Tibiriçá da Folha Grossa was among them, alongside other colorfully-named figures such as Bigode de Seda (Silk Mustache), Américo Ciência, Bugalho, Amorzinho (Little Love), Zé Bom Pé (Joe Good Foot), Chico Três Pedaços (Chico Three Pieces), Doze Homens (Twelve Men), Inimigo Sem Tripa (Enemy Without Guts), Vitorino Braço Torto (Vitorino Crooked Arm), Zé do U, Zé do Saco (Joe of the Sack), Bené do Correio (Bené of the Post Office), Sete Mortes (Seven Deaths), and Chico Me Dá (Give-Me Chico). Pastinha also mentioned two women among these legendary practitioners: Júlia Fogareira and Maria Homem.
 
-Pastinha remarked of these figures: "Digo a gente, lembrando os grandes capoeiristas do passado. Já estão mortos. Cada nome destes é uma história" (We speak, remembering the great capoeiristas of the past. They are already dead. Each of these names is a story). He emphasized that their nicknames revealed their character and fighting style: "From the nicknames alone you can know who they were, how they fought."
+Pastinha remarked of these figures: "Digo a gente, lembrando os grandes capoeiristas do passado. Já estão mortos. Cada nome destes é uma história" (We speak, remembering the great capoeiristas of the past. They are already dead. Each of these names is a story). He emphasized that their nicknames revealed their character and fighting style: "From the nicknames alone you can know who they were, how they fought".
 
 The name "Tibiriçá" is of Tupi indigenous origin, historically associated with Chief Tibiriçá (died 1562), a Tupiniquim leader. Writer Eduardo Bueno, citing Teodoro Sampaio, interprets it as "vigilante da terra" (guardian of the land) or "sentinela da serra" (sentinel of the mountain range) in Tupi. This indigenous name on a capoeirista reflects the Afro-Indigenous cultural mixing characteristic of Bahian popular culture.
 
@@ -40,9 +40,9 @@ No further biographical details have survived - no teachers, students, specific 
 
 Tibiriçá da Folha Grossa foi um lendário capoeirista de Salvador, Bahia, ativo durante o final do século XIX ou início do século XX. Ele é conhecido exclusivamente pela entrevista de Mestre Pastinha de 1967 com Roberto Freire para a Revista Realidade, na qual Pastinha recordou os grandes capoeiristas do passado.
 
-Nessa entrevista, conduzida quando Pastinha tinha 78 anos e estava quase cego, o pai da Capoeira Angola listou quinze praticantes falecidos que haviam praticado "a pura capoeira de Angola como eu e esses rapazes aí fazem até hoje." Tibiriçá da Folha Grossa estava entre eles, ao lado de outras figuras de nomes coloridos como Bigode de Seda, Américo Ciência, Bugalho, Amorzinho, Zé Bom Pé, Chico Três Pedaços, Doze Homens, Inimigo Sem Tripa, Vitorino Braço Torto, Zé do U, Zé do Saco, Bené do Correio, Sete Mortes e Chico Me Dá. Pastinha também mencionou duas mulheres entre esses praticantes lendários: Júlia Fogareira e Maria Homem.
+Nessa entrevista, conduzida quando Pastinha tinha 78 anos e estava quase cego, o pai da Capoeira Angola listou quinze praticantes falecidos que haviam praticado "a pura capoeira de Angola como eu e esses rapazes aí fazem até hoje". Tibiriçá da Folha Grossa estava entre eles, ao lado de outras figuras de nomes coloridos como Bigode de Seda, Américo Ciência, Bugalho, Amorzinho, Zé Bom Pé, Chico Três Pedaços, Doze Homens, Inimigo Sem Tripa, Vitorino Braço Torto, Zé do U, Zé do Saco, Bené do Correio, Sete Mortes e Chico Me Dá. Pastinha também mencionou duas mulheres entre esses praticantes lendários: Júlia Fogareira e Maria Homem.
 
-Pastinha comentou sobre essas figuras: "Digo a gente, lembrando os grandes capoeiristas do passado. Já estão mortos. Cada nome destes é uma história." Ele enfatizou que seus apelidos revelavam seu caráter e estilo de luta: "Só pelo apelido você conhece quem eles eram, como lutavam."
+Pastinha comentou sobre essas figuras: "Digo a gente, lembrando os grandes capoeiristas do passado. Já estão mortos. Cada nome destes é uma história". Ele enfatizou que seus apelidos revelavam seu caráter e estilo de luta: "Só pelo apelido você conhece quem eles eram, como lutavam".
 
 O nome "Tibiriçá" é de origem indígena Tupi, historicamente associado ao Cacique Tibiriçá (falecido em 1562), um líder Tupiniquim. O escritor Eduardo Bueno, citando Teodoro Sampaio, interpreta-o como "vigilante da terra" ou "sentinela da serra" em Tupi. Este nome indígena em um capoeirista reflete a mestiçagem cultural afro-indígena característica da cultura popular baiana.
 
@@ -54,21 +54,21 @@ Nenhum detalhe biográfico adicional sobreviveu - nenhum mestre, aluno, incident
 
 ### English
 
-No specific achievements documented. Recognized by Mestre Pastinha as one of the legendary practitioners of "pure Capoeira de Angola."
+No specific achievements documented. Recognized by Mestre Pastinha as one of the legendary practitioners of "pure Capoeira de Angola".
 
 ### Português
 
-Nenhuma conquista específica documentada. Reconhecido por Mestre Pastinha como um dos praticantes lendários de "capoeira de Angola pura."
+Nenhuma conquista específica documentada. Reconhecido por Mestre Pastinha como um dos praticantes lendários de "capoeira de Angola pura".
 
 ## Style Notes / Notas de Estilo
 
 ### English
 
-Traditional capoeira de Angola. Mestre Pastinha explicitly identified Tibiriçá da Folha Grossa as a practitioner of "pure Capoeira de Angola" alongside other legendary angoleiros of the pre-Bimba/Pastinha era. Pastinha remarked that the nicknames alone revealed "who they were, how they fought."
+Traditional capoeira de Angola. Mestre Pastinha explicitly identified Tibiriçá da Folha Grossa as a practitioner of "pure Capoeira de Angola" alongside other legendary angoleiros of the pre-Bimba/Pastinha era. Pastinha remarked that the nicknames alone revealed "who they were, how they fought".
 
 ### Português
 
-Capoeira de Angola tradicional. Mestre Pastinha identificou explicitamente Tibiriçá da Folha Grossa como praticante de "capoeira de Angola pura" ao lado de outros angoleiros lendários da era pré-Bimba/Pastinha. Pastinha observou que os apelidos por si só revelavam "quem eles eram, como lutavam."
+Capoeira de Angola tradicional. Mestre Pastinha identificou explicitamente Tibiriçá da Folha Grossa como praticante de "capoeira de Angola pura" ao lado de outros angoleiros lendários da era pré-Bimba/Pastinha. Pastinha observou que os apelidos por si só revelavam "quem eles eram, como lutavam".
 
 ## Teachers / Mestres
 

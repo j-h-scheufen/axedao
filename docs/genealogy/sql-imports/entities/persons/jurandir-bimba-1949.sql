@@ -60,7 +60,7 @@ In February 1949, Mestre Sinhozinho, the leading figure of capoeira carioca in R
 
 The event was organized by the Federação Metropolitana de Pugilismo (Metropolitan Federation of Pugilism) and held over two days at the Estádio Carioca on Avenida Passos in downtown Rio. It included not only the inter-capoeira matches but also a team of catch wrestlers who had similarly challenged Bimba''s academy.
 
-On April 2, 1949, Jurandir faced Luiz "Cirandinha" Pereira Aguiar, Sinhozinho''s student and a heavyweight weightlifter described as "Brazilian capoeira champion." The fight ended quickly: Cirandinha knocked Jurandir out in the first round with a devastating body kick. Jurandir claimed the blow was a foul, but witnesses and the ring doctor ruled otherwise, and the result stood.
+On April 2, 1949, Jurandir faced Luiz "Cirandinha" Pereira Aguiar, Sinhozinho''s student and a heavyweight weightlifter described as "Brazilian capoeira champion". The fight ended quickly: Cirandinha knocked Jurandir out in the first round with a devastating body kick. Jurandir claimed the blow was a foul, but witnesses and the ring doctor ruled otherwise, and the result stood.
 
 The same event saw another of Bimba''s students, Fernando Rodrigues Perez, lose to Rudolf Hermanny (only 17 years old) in just two minutes, with Perez''s arm injured by a kick. The defeats were significant enough that Bimba reportedly studied movements from Sinhozinho''s fighters afterward to incorporate into his own style.
 
@@ -72,7 +72,7 @@ Em fevereiro de 1949, Mestre Sinhozinho, a principal figura da capoeira carioca 
 
 O evento foi organizado pela Federação Metropolitana de Pugilismo e realizado em dois dias no Estádio Carioca na Avenida Passos, no centro do Rio. Incluiu não apenas as lutas inter-capoeira, mas também uma equipe de lutadores de catch que havia similarmente desafiado a academia de Bimba.
 
-Em 2 de abril de 1949, Jurandir enfrentou Luiz "Cirandinha" Pereira Aguiar, aluno de Sinhozinho e halterofilista peso-pesado descrito como "campeão brasileiro de capoeira." A luta terminou rapidamente: Cirandinha nocauteou Jurandir no primeiro round com um devastador chute no corpo. Jurandir alegou que o golpe foi falta, mas testemunhas e o médico do ringue decidiram de forma contrária, e o resultado foi mantido.
+Em 2 de abril de 1949, Jurandir enfrentou Luiz "Cirandinha" Pereira Aguiar, aluno de Sinhozinho e halterofilista peso-pesado descrito como "campeão brasileiro de capoeira". A luta terminou rapidamente: Cirandinha nocauteou Jurandir no primeiro round com um devastador chute no corpo. Jurandir alegou que o golpe foi falta, mas testemunhas e o médico do ringue decidiram de forma contrária, e o resultado foi mantido.
 
 O mesmo evento viu outro aluno de Bimba, Fernando Rodrigues Perez, perder para Rudolf Hermanny (apenas 17 anos) em apenas dois minutos, com o braço de Perez lesionado por um chute. As derrotas foram significativas o suficiente para que Bimba supostamente estudasse movimentos dos lutadores de Sinhozinho depois para incorporar em seu próprio estilo.
 
@@ -92,7 +92,7 @@ DISTINCT FROM OTHER JURANDIRS:
 - NOT Mestre Jurandir Nascimento (GCAP pioneer, FICA co-founder, born in Rio de Janeiro, started capoeira 1970)
 - NOT Mestre Jurandir Santos (Jurandir Souza dos Santos, son of Mestre João Grande)
 
-CROSS-TRAINING: Sources note he "also practiced judo," indicating the cross-training response to challenges from other martial arts that was becoming common among Bimba''s fighters.
+CROSS-TRAINING: Sources note he "also practiced judo", indicating the cross-training response to challenges from other martial arts that was becoming common among Bimba''s fighters.
 
 1949 CHALLENGE:
 - Opponent: Luiz "Cirandinha" Pereira Aguiar (Sinhozinho''s student)
@@ -116,7 +116,7 @@ DISTINTO DE OUTROS JURANDIRS:
 - NÃO É Mestre Jurandir Nascimento (pioneiro do GCAP, co-fundador da FICA, nascido no Rio de Janeiro, começou capoeira 1970)
 - NÃO É Mestre Jurandir Santos (Jurandir Souza dos Santos, filho de Mestre João Grande)
 
-TREINAMENTO CRUZADO: Fontes notam que ele "também praticava judô," indicando a resposta de treinamento cruzado a desafios de outras artes marciais que estava se tornando comum entre os lutadores de Bimba.
+TREINAMENTO CRUZADO: Fontes notam que ele "também praticava judô", indicando a resposta de treinamento cruzado a desafios de outras artes marciais que estava se tornando comum entre os lutadores de Bimba.
 
 DESAFIO DE 1949:
 - Oponente: Luiz "Cirandinha" Pereira Aguiar (aluno de Sinhozinho)

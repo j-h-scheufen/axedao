@@ -30,11 +30,11 @@ In February 1936, Américo Ciência fought Henrique Bahia in an exhibition match
 
 Later in 1936, Américo Ciência faced Mestre Bimba in the famous challenge series at Odeon Park where Bimba tested his Capoeira Regional against all comers. Bimba defeated four opponents that night - Henrique Bahia, Vítor Benedito Lopes, Américo Ciência, and José Custódio "Zé I" dos Santos - earning the nickname "Três Pancadas" (Three Hits) for his devastating efficiency. The fights were fought under boxing-like rules innovated by fellow capoeirista Aníbal Burlamaqui.
 
-Américo Ciência was part of the informal capoeira angola gathering at the Gengibirra/Liberdade neighborhood in Salvador, where the best capoeiristas of Bahia convened on Sundays. This group included mestres such as Antônio, Maré, Daniel, Livino Diogo, Alemão, Bulgário, Barbosa, Domingos Magalhães, Eulâmpio, and Butique. The civil guard Amorzinho presided over this "academia." In 1941, Mestre Pastinha assumed leadership of this group, which he later formalized as the Centro Esportivo de Capoeira Angola (CECA).
+Américo Ciência was part of the informal capoeira angola gathering at the Gengibirra/Liberdade neighborhood in Salvador, where the best capoeiristas of Bahia convened on Sundays. This group included mestres such as Antônio, Maré, Daniel, Livino Diogo, Alemão, Bulgário, Barbosa, Domingos Magalhães, Eulâmpio, and Butique. The civil guard Amorzinho presided over this "academia". In 1941, Mestre Pastinha assumed leadership of this group, which he later formalized as the Centro Esportivo de Capoeira Angola (CECA).
 
 Notably, while Américo Ciência participated in the Liberdade roda, he was **not** among the 22 founding mestres of the Centro Nacional de Capoeira de Origem Angola (Gengibirra) as listed in Mestre Noronha's manuscripts. This suggests he was a regular participant but not an organizational founder.
 
-In 1967, Mestre Pastinha listed Américo Ciência among the deceased practitioners of "pure Capoeira de Angola," alongside Bigode de Seda, Bugalho, Amorzinho, Zé Bom Pé, Chico Três Pedaços, Tibirici da Folha Grossa, Doze Homens, Inimigo Sem Tripa, Zé do U, Vitorino Braço Torto, Zé do Saco, Bené do Correio, Sete Mortes, Chico Me Dá, Júlia Fogareira, and Maria Homem. Pastinha remarked of these figures: "They are already dead. Each of them has history" - and noted that their apelidos themselves revealed "who they were, how they fought."
+In 1967, Mestre Pastinha listed Américo Ciência among the deceased practitioners of "pure Capoeira de Angola", alongside Bigode de Seda, Bugalho, Amorzinho, Zé Bom Pé, Chico Três Pedaços, Tibirici da Folha Grossa, Doze Homens, Inimigo Sem Tripa, Zé do U, Vitorino Braço Torto, Zé do Saco, Bené do Correio, Sete Mortes, Chico Me Dá, Júlia Fogareira, and Maria Homem. Pastinha remarked of these figures: "They are already dead. Each of them has history" - and noted that their apelidos themselves revealed "who they were, how they fought".
 
 ### Português
 
@@ -44,21 +44,21 @@ Em fevereiro de 1936, Américo Ciência lutou contra Henrique Bahia em uma luta 
 
 Mais tarde em 1936, Américo Ciência enfrentou Mestre Bimba na famosa série de desafios no Odeon Park, onde Bimba testou sua Capoeira Regional contra todos os desafiantes. Bimba derrotou quatro oponentes naquela noite - Henrique Bahia, Vítor Benedito Lopes, Américo Ciência e José Custódio "Zé I" dos Santos - ganhando o apelido de "Três Pancadas" por sua eficiência devastadora. As lutas foram realizadas sob regras de boxe inovadas pelo capoeirista Aníbal Burlamaqui.
 
-Américo Ciência fazia parte da reunião informal de capoeira angola no bairro do Gengibirra/Liberdade em Salvador, onde os melhores capoeiristas da Bahia se reuniam aos domingos. Este grupo incluía mestres como Antônio, Maré, Daniel, Livino Diogo, Alemão, Bulgário, Barbosa, Domingos Magalhães, Eulâmpio e Butique. O guarda civil Amorzinho presidia esta "academia." Em 1941, Mestre Pastinha assumiu a liderança deste grupo, que mais tarde formalizou como o Centro Esportivo de Capoeira Angola (CECA).
+Américo Ciência fazia parte da reunião informal de capoeira angola no bairro do Gengibirra/Liberdade em Salvador, onde os melhores capoeiristas da Bahia se reuniam aos domingos. Este grupo incluía mestres como Antônio, Maré, Daniel, Livino Diogo, Alemão, Bulgário, Barbosa, Domingos Magalhães, Eulâmpio e Butique. O guarda civil Amorzinho presidia esta "academia". Em 1941, Mestre Pastinha assumiu a liderança deste grupo, que mais tarde formalizou como o Centro Esportivo de Capoeira Angola (CECA).
 
 Notavelmente, embora Américo Ciência participasse da roda da Liberdade, ele **não** estava entre os 22 mestres fundadores do Centro Nacional de Capoeira de Origem Angola (Gengibirra) conforme listados nos manuscritos de Mestre Noronha. Isso sugere que ele era um participante regular mas não um fundador organizacional.
 
-Em 1967, Mestre Pastinha listou Américo Ciência entre os praticantes falecidos de "capoeira de Angola pura," junto com Bigode de Seda, Bugalho, Amorzinho, Zé Bom Pé, Chico Três Pedaços, Tibirici da Folha Grossa, Doze Homens, Inimigo Sem Tripa, Zé do U, Vitorino Braço Torto, Zé do Saco, Bené do Correio, Sete Mortes, Chico Me Dá, Júlia Fogareira e Maria Homem. Pastinha comentou sobre essas figuras: "Já morreram. Cada um deles tem história" - e observou que seus apelidos revelavam "quem eles eram, como lutavam."
+Em 1967, Mestre Pastinha listou Américo Ciência entre os praticantes falecidos de "capoeira de Angola pura", junto com Bigode de Seda, Bugalho, Amorzinho, Zé Bom Pé, Chico Três Pedaços, Tibirici da Folha Grossa, Doze Homens, Inimigo Sem Tripa, Zé do U, Vitorino Braço Torto, Zé do Saco, Bené do Correio, Sete Mortes, Chico Me Dá, Júlia Fogareira e Maria Homem. Pastinha comentou sobre essas figuras: "Já morreram. Cada um deles tem história" - e observou que seus apelidos revelavam "quem eles eram, como lutavam".
 
 ## Style Notes / Notas de Estilo
 
 ### English
 
-Traditional capoeira de Angola. Pastinha explicitly identified Américo Ciência as a practitioner of "pure Capoeira de Angola," distinguishing him from the modernized Regional style. His ability to fight Henrique Bahia to a draw and face Bimba in a challenge match demonstrates his competence as a martial artist. As an "angoleiro de briga," he represented the fighting tradition of capoeira angola before its formalization into academies.
+Traditional capoeira de Angola. Pastinha explicitly identified Américo Ciência as a practitioner of "pure Capoeira de Angola", distinguishing him from the modernized Regional style. His ability to fight Henrique Bahia to a draw and face Bimba in a challenge match demonstrates his competence as a martial artist. As an "angoleiro de briga", he represented the fighting tradition of capoeira angola before its formalization into academies.
 
 ### Português
 
-Capoeira de Angola tradicional. Pastinha explicitamente identificou Américo Ciência como praticante de "capoeira de Angola pura," distinguindo-o do estilo Regional modernizado. Sua capacidade de lutar com Henrique Bahia até um empate e enfrentar Bimba em uma luta de desafio demonstra sua competência como artista marcial. Como "angoleiro de briga," ele representava a tradição de luta da capoeira angola antes de sua formalização em academias.
+Capoeira de Angola tradicional. Pastinha explicitamente identificou Américo Ciência como praticante de "capoeira de Angola pura", distinguindo-o do estilo Regional modernizado. Sua capacidade de lutar com Henrique Bahia até um empate e enfrentar Bimba em uma luta de desafio demonstra sua competência como artista marcial. Como "angoleiro de briga", ele representava a tradição de luta da capoeira angola antes de sua formalização em academias.
 
 ## Teachers / Mestres
 
@@ -146,7 +146,7 @@ The "Ciência" spelling (with accent) is used in Portuguese sources discussing P
 While Américo Ciência participated in the Liberdade roda documented in the A Tarde 1969 article, he is **not** listed among the 22 founding mestres of the Centro Nacional de Capoeira de Origem Angola (Gengibirra) in Mestre Noronha's manuscripts. This suggests different levels of involvement: the 22 founders were organizational leaders, while others like Américo Ciência were regular participants in the rodas.
 
 ### The Apelido "Ciência"
-"Ciência" means "science" or "knowledge" in Portuguese. Pastinha noted that the apelidos of these old angoleiros revealed "who they were, how they fought." The name may suggest a methodical, intelligent fighting style - though this is speculation.
+"Ciência" means "science" or "knowledge" in Portuguese. Pastinha noted that the apelidos of these old angoleiros revealed "who they were, how they fought". The name may suggest a methodical, intelligent fighting style - though this is speculation.
 
 ## Sources / Fontes
 

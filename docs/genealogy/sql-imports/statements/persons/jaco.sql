@@ -21,7 +21,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   '1870-01-01'::date, 'year'::genealogy.date_precision,
   '1870-12-31'::date, 'year'::genealogy.date_precision,
-  '{"association_context": "Both were victims in the 1870 vendetta cycle documented by Plácido de Abreu. Jacó was killed at Paula Matos/Riachuelo shortly after Pinta Preta''s death on Jan 7, 1870, as part of ongoing reprisals between capoeira maltas."}'::jsonb,
+  '{"association_context": "Both were victims in the 1870 vendetta cycle documented by Plácido de Abreu. Jacó was killed at Paula Matos/Riachuelo shortly after Pinta Preta''s death on Jan 7, 1870, as part of ongoing reprisals between capoeira maltas".}'::jsonb,
   'verified'::genealogy.confidence,
   'Plácido de Abreu, "Os Capoeiras" (1886)',
   'Part of documented vendetta sequence: Pinta Preta → Jacó → Alemãozinho → César-Maneta. The nature of their relationship (allies, rivals, or otherwise) is unknown.',

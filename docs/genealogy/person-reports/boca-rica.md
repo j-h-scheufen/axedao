@@ -27,15 +27,15 @@ Manoel Silva was born on November 26, 1936, in Maragogipe, in the Recôncavo Bai
 
 In 1952, the young Manoel began training at the Centro Esportivo de Capoeira Angola (CECA), Mestre Pastinha's legendary academy at Praça do Pelourinho n° 19. It was Pastinha himself who gave him the apelido "Boca Rica"—because of the gold teeth that lined the entire upper row of his mouth, a mark of status in that era. The name stuck, and it would become known across five continents.
 
-Beyond CECA, Boca Rica frequented the famous barracão of Mestre Waldemar at the Passeio de Aguinelo in the Liberdade neighborhood, and other rodas throughout Salvador. He absorbed knowledge wherever he found it, seeking out accomplished mestres and different traditions. In interviews, he described Pastinha as "a philosopher" and "my second father," explaining that Pastinha taught systematically—instructing students on rhythms, their names, and applications.
+Beyond CECA, Boca Rica frequented the famous barracão of Mestre Waldemar at the Passeio de Aguinelo in the Liberdade neighborhood, and other rodas throughout Salvador. He absorbed knowledge wherever he found it, seeking out accomplished mestres and different traditions. In interviews, he described Pastinha as "a philosopher" and "my second father", explaining that Pastinha taught systematically—instructing students on rhythms, their names, and applications.
 
-Boca Rica accompanied Pastinha until the master's final days. After Pastinha went blind, Boca Rica would bring his students to perform at the academy in Pelourinho. Pastinha reportedly still played "by touch" despite his blindness. Boca Rica committed himself to spreading Pastinha's legacy, telling his mestre: "wherever I go, your name is being spread."
+Boca Rica accompanied Pastinha until the master's final days. After Pastinha went blind, Boca Rica would bring his students to perform at the academy in Pelourinho. Pastinha reportedly still played "by touch" despite his blindness. Boca Rica committed himself to spreading Pastinha's legacy, telling his mestre: "wherever I go, your name is being spread".
 
 In 1970, Boca Rica founded the Escola de Capoeira Angola da Bahia (ECAB) at the Forte de Santo Antônio Além do Carmo in Salvador—the historic fort that today serves as the Forte da Capoeira cultural center. The school continues to operate daily. His organization reports 10 mestres, 5 contra-mestres, 5 professors, and approximately 50 students trained, with operations in Bahia, Goiás, and internationally in England.
 
 Capoeira carried Boca Rica across the world. He has traveled to more than 50 countries and visited all Brazilian states except Piauí and southern Maranhão. Among his most remarkable experiences: performing for Queen Elizabeth II and the Princess of Denmark, receiving the "Notório Saber" title from D. Pedro II College of Salvador, and being awarded the Thomé de Souza Medal by Salvador's City Council in 2018.
 
-As a recording artist, Boca Rica has released over 14 albums dedicated to capoeira. In 2000, he recorded a collaborative CD "Capoeira Angola" with Mestre Bigodinho—37 songs capturing the samba-de-roda tradition. His voice has become unmistakable in songs like "Mandei caiar meu sobrado," "Maranhão," and "Sambalelê bateu na porta."
+As a recording artist, Boca Rica has released over 14 albums dedicated to capoeira. In 2000, he recorded a collaborative CD "Capoeira Angola" with Mestre Bigodinho—37 songs capturing the samba-de-roda tradition. His voice has become unmistakable in songs like "Mandei caiar meu sobrado", "Maranhão", and "Sambalelê bateu na porta".
 
 At 88 years old, Boca Rica remains active in capoeira rodas, still singing and enchanting audiences. His message to younger generations: "não deixem essa capoeira morrer"—don't let this capoeira die.
 
@@ -45,17 +45,17 @@ Manoel Silva nasceu em 26 de novembro de 1936, em Maragogipe, na região do Rec�
 
 Em 1952, o jovem Manoel começou a treinar no Centro Esportivo de Capoeira Angola (CECA), a lendária academia de Mestre Pastinha na Praça do Pelourinho n° 19. Foi o próprio Pastinha quem lhe deu o apelido "Boca Rica"—por causa dos dentes de ouro que ocupavam toda a parte superior de sua boca, uma marca de status naquela época.
 
-Além do CECA, Boca Rica frequentava o famoso barracão de Mestre Waldemar no Passeio de Aguinelo no bairro da Liberdade, e outras rodas por toda Salvador. Em entrevistas, descreveu Pastinha como "um filósofo" e "meu segundo pai," explicando que Pastinha ensinava sistematicamente.
+Além do CECA, Boca Rica frequentava o famoso barracão de Mestre Waldemar no Passeio de Aguinelo no bairro da Liberdade, e outras rodas por toda Salvador. Em entrevistas, descreveu Pastinha como "um filósofo" e "meu segundo pai", explicando que Pastinha ensinava sistematicamente.
 
-Boca Rica acompanhou Pastinha até os últimos dias do mestre. Depois que Pastinha ficou cego, Boca Rica levava seus alunos para se apresentar na academia no Pelourinho. Comprometeu-se a espalhar o legado de Pastinha, dizendo ao seu mestre: "por onde eu for, seu nome está sendo espalhado."
+Boca Rica acompanhou Pastinha até os últimos dias do mestre. Depois que Pastinha ficou cego, Boca Rica levava seus alunos para se apresentar na academia no Pelourinho. Comprometeu-se a espalhar o legado de Pastinha, dizendo ao seu mestre: "por onde eu for, seu nome está sendo espalhado".
 
 Em 1970, Boca Rica fundou a Escola de Capoeira Angola da Bahia (ECAB) no Forte de Santo Antônio Além do Carmo em Salvador. A escola continua a funcionar diariamente, com 10 mestres, 5 contra-mestres, 5 professores e aproximadamente 50 alunos formados, operando na Bahia, Goiás e na Inglaterra.
 
 A capoeira levou Boca Rica pelo mundo. Viajou para mais de 50 países e visitou todos os estados brasileiros exceto Piauí e sul do Maranhão. Apresentou-se para a Rainha Elizabeth II e a Princesa da Dinamarca, recebeu o título de "Notório Saber" do Colégio D. Pedro II de Salvador, e foi agraciado com a Medalha Thomé de Souza pela Câmara Municipal de Salvador em 2018.
 
-Como artista de gravação, Boca Rica lançou mais de 14 álbuns. Em 2000, gravou um CD colaborativo "Capoeira Angola" com Mestre Bigodinho—37 canções. Sua voz tornou-se inconfundível em cantigas como "Mandei caiar meu sobrado," "Maranhão," e "Sambalelê bateu na porta."
+Como artista de gravação, Boca Rica lançou mais de 14 álbuns. Em 2000, gravou um CD colaborativo "Capoeira Angola" com Mestre Bigodinho—37 canções. Sua voz tornou-se inconfundível em cantigas como "Mandei caiar meu sobrado", "Maranhão", e "Sambalelê bateu na porta".
 
-Aos 88 anos, Boca Rica permanece ativo nas rodas de capoeira. Sua mensagem: "não deixem essa capoeira morrer."
+Aos 88 anos, Boca Rica permanece ativo nas rodas de capoeira. Sua mensagem: "não deixem essa capoeira morrer".
 
 ---
 

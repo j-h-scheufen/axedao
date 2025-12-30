@@ -25,19 +25,19 @@
 
 ### English
 
-Luiz Pereira de Aguiar, known by the apelidos "Luiz Ciranda" or "Cirandinha," was a heavyweight capoeirista and weightlifter who trained under Mestre Sinhozinho in Rio de Janeiro during the 1940s and 1950s. Described as a "Brazilian capoeira champion," he represented the combat-focused capoeira carioca style in some of the most significant inter-style challenges of the mid-twentieth century.
+Luiz Pereira de Aguiar, known by the apelidos "Luiz Ciranda" or "Cirandinha", was a heavyweight capoeirista and weightlifter who trained under Mestre Sinhozinho in Rio de Janeiro during the 1940s and 1950s. Described as a "Brazilian capoeira champion", he represented the combat-focused capoeira carioca style in some of the most significant inter-style challenges of the mid-twentieth century.
 
 Cirandinha trained at Sinhozinho's academies in Ipanema and the city center, where practitioners trained in weightlifting, gymnastics, boxing, capoeira, and other disciplines. His training was supplemented by judoka Augusto Cordeiro, who served as Sinhozinho's combat consultant. This cross-training produced a formidable fighter who combined capoeira kicks with wrestling techniques.
 
-His first documented competition came in April 1949, when Sinhozinho challenged Mestre Bimba's Capoeira Regional school to a formal fighting event. The newspaper A Noite announced the "Capoeira Challenge - Sinhozinho of the Federal District against Master Bimba from Bahia." The event was organized by the Metropolitan Federation of Pugilism (Federacao Metropolitana de Pugilismo) and held over two days at the Estadio Carioca on Avenida Passos in downtown Rio. In the first match on April 2, 1949, Cirandinha faced Bimba's student Jurandir, who also practiced judo. Cirandinha knocked him out in the first round with a devastating body kick. Jurandir claimed it was a low blow, but witnesses and the ring doctor ruled otherwise, and the result stood. The victory demonstrated the effectiveness of Sinhozinho's combat approach against the Bahian style.
+His first documented competition came in April 1949, when Sinhozinho challenged Mestre Bimba's Capoeira Regional school to a formal fighting event. The newspaper A Noite announced the "Capoeira Challenge - Sinhozinho of the Federal District against Master Bimba from Bahia". The event was organized by the Metropolitan Federation of Pugilism (Federacao Metropolitana de Pugilismo) and held over two days at the Estadio Carioca on Avenida Passos in downtown Rio. In the first match on April 2, 1949, Cirandinha faced Bimba's student Jurandir, who also practiced judo. Cirandinha knocked him out in the first round with a devastating body kick. Jurandir claimed it was a low blow, but witnesses and the ring doctor ruled otherwise, and the result stood. The victory demonstrated the effectiveness of Sinhozinho's combat approach against the Bahian style.
 
 Four years later, Cirandinha represented Sinhozinho again in a challenge against the Gracie family. On March 17, 1953, a vale tudo charity event was held at the Vasco da Gama stadium, with proceeds going to drought relief victims in Brazil's northeastern region. Carlson Gracie, weighing approximately 67 kilograms, had issued an open challenge to fighters across the country. Cirandinha, at 100 kilograms, accepted - a 33-kilogram weight advantage.
 
-The fight against Carlson Gracie revealed both Cirandinha's strengths and limitations. In the early moments, he dominated with strikes and kicks, including a hip throw and heavy hooks that nearly finished Gracie. However, as the fight progressed, Cirandinha's conditioning failed him. Carlson survived the initial onslaught, pulled him into guard, and worked to a dominant position on the ground. From the mount, Carlson threw punches and elbows until Cirandinha's corner threw in the towel to protect their fighter. The newspaper O Popular called both winners (Carlson and Hermanny, who fought Guanair Gomes) "impressive," while O Cruzeiro magazine proclaimed: "brave men's blood soaked a concrete square in the Vasco stadium."
+The fight against Carlson Gracie revealed both Cirandinha's strengths and limitations. In the early moments, he dominated with strikes and kicks, including a hip throw and heavy hooks that nearly finished Gracie. However, as the fight progressed, Cirandinha's conditioning failed him. Carlson survived the initial onslaught, pulled him into guard, and worked to a dominant position on the ground. From the mount, Carlson threw punches and elbows until Cirandinha's corner threw in the towel to protect their fighter. The newspaper O Popular called both winners (Carlson and Hermanny, who fought Guanair Gomes) "impressive", while O Cruzeiro magazine proclaimed: "brave men's blood soaked a concrete square in the Vasco stadium".
 
 In the same event, Cirandinha's training partner Rudolf Hermanny fought to a draw with Guanair Gomes after one hour and ten minutes, looking fresher than his opponent at the end. This was considered a moral victory for Sinhozinho's school.
 
-Cirandinha's name comes from "ciranda," a traditional Brazilian circle dance. The diminutive "-inha" suggests either youth or affection, though the origin of his nickname remains undocumented.
+Cirandinha's name comes from "ciranda", a traditional Brazilian circle dance. The diminutive "-inha" suggests either youth or affection, though the origin of his nickname remains undocumented.
 
 ### Portugues
 
@@ -121,7 +121,7 @@ No documented students found.
 
 ## Name Etymology / Etimologia do Nome
 
-The apelido "Cirandinha" derives from "ciranda," a traditional Brazilian circle dance that originated in Portugal and became popular in northeastern Brazil, particularly Pernambuco. The ciranda is characterized by participants joining hands in a circle, dancing and singing together. The diminutive "-inha" (meaning "little") suggests either affection or youth when the nickname was given.
+The apelido "Cirandinha" derives from "ciranda", a traditional Brazilian circle dance that originated in Portugal and became popular in northeastern Brazil, particularly Pernambuco. The ciranda is characterized by participants joining hands in a circle, dancing and singing together. The diminutive "-inha" (meaning "little") suggests either affection or youth when the nickname was given.
 
 ## Sources / Fontes
 

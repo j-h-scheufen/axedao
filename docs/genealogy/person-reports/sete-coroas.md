@@ -26,17 +26,17 @@ Sete Coroas was born in Bahia but made his name in the favelas and bohemian unde
 
 **Origin of His Name:** His apelido came from an audacious act in 1920. During a gala funeral for a wealthy citizen, the anonymous favela dweller robbed the procession, stealing everything he could carry—including the seven elaborate flower crowns (coroas) that adorned the coffin. The quantity and quality of the objects stolen earned him a nickname that would soon be known throughout the entire city.
 
-**Rise to Fame:** What followed were years of "audacious robberies" that elevated him from police records to newspaper headlines, theatrical performances, and popular songs. The composer Sinhô (José Barbosa da Silva) wrote a samba in his honor in 1921—reportedly the first Brazilian song to explicitly celebrate a "bandido." The press, which had done much to build his fame, began to worry about the precedent. According to historian Rômulo Costa Mattos of PUC-Rio, Sete Coroas was "the most famous 'criminal' of the First Republic."
+**Rise to Fame:** What followed were years of "audacious robberies" that elevated him from police records to newspaper headlines, theatrical performances, and popular songs. The composer Sinhô (José Barbosa da Silva) wrote a samba in his honor in 1921—reportedly the first Brazilian song to explicitly celebrate a "bandido". The press, which had done much to build his fame, began to worry about the precedent. According to historian Rômulo Costa Mattos of PUC-Rio, Sete Coroas was "the most famous 'criminal' of the First Republic".
 
-**The Master of Malandragem:** Sete Coroas was more than a thief. According to Madame Satã, speaking in a 1971 interview with O Pasquim: "The greatest malandro of Rio de Janeiro that I knew from 1907 until today was the one who taught me to be a malandro and met me when I was 9 years old, the late Sete Coroas." This places their meeting around 1909, when Satã was a child newly arrived in Rio.
+**The Master of Malandragem:** Sete Coroas was more than a thief. According to Madame Satã, speaking in a 1971 interview with O Pasquim: "The greatest malandro of Rio de Janeiro that I knew from 1907 until today was the one who taught me to be a malandro and met me when I was 9 years old, the late Sete Coroas". This places their meeting around 1909, when Satã was a child newly arrived in Rio.
 
 Sete Coroas was a cafetão (pimp) in the Lapa district and a master in what Satã called "the fine art of malandragem": the game, the razor, the smooth talk, the leg sweep, and the bravado. He transmitted the combat techniques that combined capoeira movements with razor fighting—the characteristic style of Rio's street warriors. According to sources documenting his time at the Dois Rios Correctional Colony on Ilha Grande, Sete Coroas was recognized as a capoeira practitioner among the prisoners.
 
-**Companions and Death:** His companions included Camisa and Benedito—described by José da Barra, a morro leader, as "terrible" and actually worse than Sete Coroas himself: "Sete Coroas was not the worst. He was the one who gained the most fame. Terrible were his two companions who died: Camisa and Benedito." All three died during this era. In 1923, when Sete Coroas died, he left Madame Satã as his successor in Lapa and Saúde.
+**Companions and Death:** His companions included Camisa and Benedito—described by José da Barra, a morro leader, as "terrible" and actually worse than Sete Coroas himself: "Sete Coroas was not the worst. He was the one who gained the most fame. Terrible were his two companions who died: Camisa and Benedito". All three died during this era. In 1923, when Sete Coroas died, he left Madame Satã as his successor in Lapa and Saúde.
 
 **Legacy:** Sete Coroas achieved something rare: immortalization in popular memory. Beyond the sambas, he was elevated to the realm of Afro-Brazilian religion, becoming an Exu (spirit entity) whose ritual songs are still sung. The black, favela-dwelling outlaw who defied the rich, the police, and the state became a figure of worship.
 
-Regarding his Bahian origin, Madame Satã's prison memoirs at Ilha Grande confirm: "Sete Coroas (who was from Bahia)." This makes him a bridge between the Bahian capoeira traditions and Rio's malandro culture.
+Regarding his Bahian origin, Madame Satã's prison memoirs at Ilha Grande confirm: "Sete Coroas (who was from Bahia)". This makes him a bridge between the Bahian capoeira traditions and Rio's malandro culture.
 
 ### Português
 
@@ -44,31 +44,31 @@ Sete Coroas nasceu na Bahia, mas fez seu nome nas favelas e no submundo boêmio 
 
 **Origem do Nome:** Nascido no Barroso, uma localidade do Morro da Favela no Rio de Janeiro (atual Morro da Providência), Sete Coroas ganhou este apelido após assaltar o funeral de uma pessoa rica em 1920, levando tudo que podia, incluindo as coroas de flores. A quantidade e qualidade dos objetos roubados lhe renderam um apelido que logo seria conhecido por toda a cidade.
 
-**Ascensão à Fama:** O que se seguiu foram anos de "assaltos audaciosos" que o elevaram dos registros policiais às manchetes de jornais, espetáculos teatrais e canções populares. O compositor Sinhô (José Barbosa da Silva) fez um samba em sua homenagem em 1921—supostamente a primeira música brasileira a celebrar explicitamente um "bandido". A imprensa, que muito contribuíra para sua fama, começou a se preocupar com o precedente. Segundo o historiador Rômulo Costa Mattos da PUC-Rio, Sete Coroas era "o 'criminoso' mais famoso da Primeira República."
+**Ascensão à Fama:** O que se seguiu foram anos de "assaltos audaciosos" que o elevaram dos registros policiais às manchetes de jornais, espetáculos teatrais e canções populares. O compositor Sinhô (José Barbosa da Silva) fez um samba em sua homenagem em 1921—supostamente a primeira música brasileira a celebrar explicitamente um "bandido". A imprensa, que muito contribuíra para sua fama, começou a se preocupar com o precedente. Segundo o historiador Rômulo Costa Mattos da PUC-Rio, Sete Coroas era "o 'criminoso' mais famoso da Primeira República".
 
 **O Mestre da Malandragem:** Sete Coroas era mais do que um ladrão. Segundo Madame Satã, em entrevista ao Pasquim em 1971:
 
-> "O maior malandro do Rio de Janeiro que eu conheci de 1907 até a época de hoje foi o que me ensinou a ser malandro e me conheceu com 9 anos de idade, foi o falecido Sete Coroas."
+> "O maior malandro do Rio de Janeiro que eu conheci de 1907 até a época de hoje foi o que me ensinou a ser malandro e me conheceu com 9 anos de idade, foi o falecido Sete Coroas".
 
 Isso situa o encontro deles por volta de 1909, quando Satã era uma criança recém-chegada ao Rio.
 
 Sete Coroas era cafetão no bairro da Lapa e mestre no que Satã chamava de "a fina arte da malandragem":
 
-> "Sete Coroas foi o mestre na fina arte da malandragem: o jogo, a navalha, o papo, a rasteira, a valentia."
+> "Sete Coroas foi o mestre na fina arte da malandragem: o jogo, a navalha, o papo, a rasteira, a valentia".
 
 Ele transmitiu as técnicas de combate que combinavam movimentos de capoeira com luta de navalha—o estilo característico dos guerreiros de rua do Rio. De acordo com fontes que documentam seu tempo na Colônia Correcional de Dois Rios na Ilha Grande, Sete Coroas era reconhecido como praticante de capoeira entre os prisioneiros.
 
 **Companheiros e Morte:** Seus companheiros incluíam Camisa e Benedito—descritos por José da Barra, um líder do morro, como "terríveis" e na verdade piores que o próprio Sete Coroas:
 
-> "Sete Coroas não era o pior. Foi o que ganhou mais fama. (...) Terríveis eram os seus dois companheiros que morreram: o Camisa e o Benedito."
+> "Sete Coroas não era o pior. Foi o que ganhou mais fama. (...) Terríveis eram os seus dois companheiros que morreram: o Camisa e o Benedito".
 
 Todos os três morreram nessa época. Em 1923, quando Sete Coroas morreu, deixou Madame Satã como seu sucessor na Lapa e na Saúde:
 
-> "Quando morreu, em 1923, Sete Coroas deixou João no seu lugar."
+> "Quando morreu, em 1923, Sete Coroas deixou João no seu lugar".
 
 **Legado:** Sete Coroas alcançou algo raro: a imortalização na memória popular. Além dos sambas, foi elevado ao reino da religião afro-brasileira, tornando-se um Exu (entidade espiritual) cujas canções rituais ainda são cantadas:
 
-> "O marginal, preto e favelado, que enfrentou os ricos, a polícia e o Estado, ainda seria elevado à potência divina. Sete Coroas se imortalizou sendo cultuado na umbanda como uma das falanges de Exu."
+> "O marginal, preto e favelado, que enfrentou os ricos, a polícia e o Estado, ainda seria elevado à potência divina. Sete Coroas se imortalizou sendo cultuado na umbanda como uma das falanges de Exu".
 
 Quanto à sua origem baiana, as memórias de prisão de Madame Satã na Ilha Grande confirmam: "Sete Coroas (que era da Bahia)". Isso o torna uma ponte entre as tradições de capoeira baiana e a cultura malandra carioca.
 
@@ -84,7 +84,7 @@ This "carioca capoeira" of the malandros was distinct from the developing tradit
 
 Sete Coroas representa a geração de malandros que preservou a capoeira no Rio de Janeiro após sua criminalização em 1890. Enquanto a capoeira formal era proibida, as técnicas de luta sobreviveram através de lutadores de rua que combinavam movimentos de capoeira com combate de navalha.
 
-> "Muitos malandros usavam técnicas de capoeira em brigas de rua. Sete Coroas era um malandro famoso, supostamente um dos professores de Satã."
+> "Muitos malandros usavam técnicas de capoeira em brigas de rua. Sete Coroas era um malandro famoso, supostamente um dos professores de Satã".
 
 Esta "capoeira carioca" dos malandros era distinta das tradições em desenvolvimento em Salvador. Como uma fonte observa, a pragmática capoeira carioca das maltas do século XIX declinou, enquanto a capoeira baiana—"com um fio terra ligado à religião"—sobreviveu e eventualmente se tornou dominante.
 

@@ -24,13 +24,13 @@
 
 ### English
 
-Maria Homem was one of the most formidable female capoeiristas of early twentieth-century Bahia, whose legendary feats against police officers became part of Salvador's oral tradition. Her apelido, "Maria the Man," speaks to the reputation she earned in a male-dominated world through sheer fighting ability.
+Maria Homem was one of the most formidable female capoeiristas of early twentieth-century Bahia, whose legendary feats against police officers became part of Salvador's oral tradition. Her apelido, "Maria the Man", speaks to the reputation she earned in a male-dominated world through sheer fighting ability.
 
 The primary account of Maria Homem comes from Mestre Pastinha in a 1969 interview with Diário Popular. She frequented a "birosca" (small bar) at Largo do Pelourinho, where she liked to "tomar uns tragos" (have some drinks). Her reputation was such that "até o delegado tinha mêdo"—even the police delegate feared her—and "não havia polícia que a prendesse" (no police could arrest her).
 
 Pastinha recounted a specific confrontation: An "outsider corporal" (cabo forasteiro) tried to prove himself by arresting the intoxicated Maria Homem. The local officers, knowing her reputation, refused to obey his order. Undeterred, the corporal attempted the arrest himself. According to Pastinha, "ele voou uns seis metros" (he flew six meters) and his companions fled. The stubborn corporal returned with reinforcements, only to suffer the same fate—witnesses across the Pelourinho slope saw "soldado avoando" (soldiers flying) down the hillside.
 
-Maria Homem was active during what Pastinha described as a golden era for women in capoeira. Between 1902 and 1911, Salvador witnessed "an exhibition of real mestras of capoeira Angola, who were as agile and able as the men." These women adapted their restrictive clothing to practice: they tore their floor-length skirts on the sides, connecting front and back with a string at the waist to create improvised pants—"enough to play capoeira with any guy," as Pastinha noted.
+Maria Homem was active during what Pastinha described as a golden era for women in capoeira. Between 1902 and 1911, Salvador witnessed "an exhibition of real mestras of capoeira Angola, who were as agile and able as the men". These women adapted their restrictive clothing to practice: they tore their floor-length skirts on the sides, connecting front and back with a string at the waist to create improvised pants—"enough to play capoeira with any guy", as Pastinha noted.
 
 In his 1988 book *Capoeira Angola*, Pastinha named only two female capoeiristas when honoring the practitioners of his era: "Júlia Fogareiro e Maria Homem" (p. 18). In 1976, when O Globo interviewed him about the generation of "angoleiros de briga" (fighting angoleiros) who came before him, Maria Homem appeared alongside legendary names: Bigode de Seda, Bugalho, Américo Ciência, Besouro, Tibiriçá, Amorzinho, Três Pedaços, Doze Homens, Inimigos Sem Tripa, Zé do U, Sete Mortes, Chico Me Dá, and Júlia Fogareira. That Maria Homem was one of only two women in this roster speaks to her exceptional skill.
 
@@ -40,17 +40,17 @@ Maria Homem is sometimes confused with other legendary female capoeiristas, part
 
 ### Português
 
-Maria Homem foi uma das mais formidáveis capoeiristas do início do século XX na Bahia, cujos feitos lendários contra policiais tornaram-se parte da tradição oral de Salvador. Seu apelido, "Maria Homem," fala da reputação que ela conquistou em um mundo dominado por homens através de pura habilidade de luta.
+Maria Homem foi uma das mais formidáveis capoeiristas do início do século XX na Bahia, cujos feitos lendários contra policiais tornaram-se parte da tradição oral de Salvador. Seu apelido, "Maria Homem", fala da reputação que ela conquistou em um mundo dominado por homens através de pura habilidade de luta.
 
-O principal relato sobre Maria Homem vem de Mestre Pastinha em uma entrevista de 1969 ao Diário Popular. Ela frequentava uma "birosca" no Largo do Pelourinho, onde gostava de "tomar uns tragos." Sua reputação era tal que "até o delegado tinha mêdo" e "não havia polícia que a prendesse."
+O principal relato sobre Maria Homem vem de Mestre Pastinha em uma entrevista de 1969 ao Diário Popular. Ela frequentava uma "birosca" no Largo do Pelourinho, onde gostava de "tomar uns tragos". Sua reputação era tal que "até o delegado tinha mêdo" e "não havia polícia que a prendesse".
 
 Pastinha contou um confronto específico: Um "cabo forasteiro" tentou se provar prendendo a embriagada Maria Homem. Os policiais locais, conhecendo sua reputação, recusaram obedecer à sua ordem. Sem se intimidar, o cabo tentou a prisão ele mesmo. Segundo Pastinha, "ele voou uns seis metros" e seus companheiros fugiram. O teimoso cabo voltou com reforço, apenas para sofrer o mesmo destino—testemunhas por toda a ladeira do Pelourinho viram "soldado avoando" pela encosta.
 
-Maria Homem estava ativa durante o que Pastinha descreveu como uma era dourada para mulheres na capoeira. Entre 1902 e 1911, Salvador testemunhou "uma exibição de verdadeiras mestras de capoeira Angola, tão ágeis e hábeis quanto os homens." Essas mulheres adaptaram suas roupas restritivas para praticar: rasgavam suas saias que arrastavam no chão nos lados, conectando frente e trás com uma prezilha na cintura para criar calções improvisados—"suficiente para jogar capoeira com qualquer homem," como Pastinha observou.
+Maria Homem estava ativa durante o que Pastinha descreveu como uma era dourada para mulheres na capoeira. Entre 1902 e 1911, Salvador testemunhou "uma exibição de verdadeiras mestras de capoeira Angola, tão ágeis e hábeis quanto os homens". Essas mulheres adaptaram suas roupas restritivas para praticar: rasgavam suas saias que arrastavam no chão nos lados, conectando frente e trás com uma prezilha na cintura para criar calções improvisados—"suficiente para jogar capoeira com qualquer homem", como Pastinha observou.
 
 Em seu livro de 1988 *Capoeira Angola*, Pastinha nomeou apenas duas mulheres capoeiristas ao homenagear os praticantes de sua era: "Júlia Fogareiro e Maria Homem" (p. 18). Em 1976, quando O Globo o entrevistou sobre a geração de "angoleiros de briga" que vieram antes dele, Maria Homem apareceu ao lado de nomes lendários: Bigode de Seda, Bugalho, Américo Ciência, Besouro, Tibiriçá, Amorzinho, Três Pedaços, Doze Homens, Inimigos Sem Tripa, Zé do U, Sete Mortes, Chico Me Dá e Júlia Fogareira. Que Maria Homem foi uma das únicas duas mulheres nesta lista fala de sua habilidade excepcional.
 
-Pastinha lamentava que mulheres do calibre de Maria Homem não existiam mais: "É pena que não haja mais mulheres de tal estofo, pois a mulher deve também compartilhar da defesa de seu lar."
+Pastinha lamentava que mulheres do calibre de Maria Homem não existiam mais: "É pena que não haja mais mulheres de tal estofo, pois a mulher deve também compartilhar da defesa de seu lar".
 
 Maria Homem às vezes é confundida com outras lendárias capoeiristas, particularmente Maria Doze Homens, mas as fontes as distinguem como figuras separadas. Sua história representa a frequentemente esquecida história das mulheres na capoeira antiga, que quebraram barreiras de gênero em uma prática dominada por homens.
 
@@ -97,7 +97,7 @@ Maria Homem is often confused with other legendary female figures in capoeira. T
 | **Maria do Camboatá** | Subject of famous capoeira song | Different person; separate profile exists |
 | **Maria Felipa de Oliveira** | 19th century independence fighter from Itaparica | Different era; 1783-1873 |
 
-Papoeira.com explicitly states: "Dona Maria de Camboatá is not to be confused with Maria Doze Homens, Maria Homem, or Maria Felipa de Olivera."
+Papoeira.com explicitly states: "Dona Maria de Camboatá is not to be confused with Maria Doze Homens, Maria Homem, or Maria Felipa de Olivera".
 
 ## Researcher Notes / Notas de Pesquisa
 

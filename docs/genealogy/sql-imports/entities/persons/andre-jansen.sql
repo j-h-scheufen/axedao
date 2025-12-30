@@ -53,7 +53,7 @@ INSERT INTO genealogy.person_profiles (
   NULL,
   NULL,
   -- bio_en
-  E'André Jansen was the foremost fighter of Mestre Sinhozinho''s first generation of students. A goalkeeper for Botafogo Football Club, he simultaneously held the title of champion of capoeiragem in Rio de Janeiro (campeão carioca de capoeiragem). The Rio press considered him "the absolute master of Brazilian fighting" (mestre absoluto da luta brasileira) and "the best capoeira of his time in Brazil."
+  E'André Jansen was the foremost fighter of Mestre Sinhozinho''s first generation of students. A goalkeeper for Botafogo Football Club, he simultaneously held the title of champion of capoeiragem in Rio de Janeiro (campeão carioca de capoeiragem). The Rio press considered him "the absolute master of Brazilian fighting" (mestre absoluto da luta brasileira) and "the best capoeira of his time in Brazil".
 
 Jansen traveled throughout Brazil during the 1940s demonstrating the effectiveness of his martial art. His reputation was such that he became one of the most recognized names in Brazilian combat sports of that era.
 
@@ -63,7 +63,7 @@ This Salvador event represented a significant moment in capoeira history: the en
 
 Jansen was among the prominent students who trained at Sinhozinho''s academies in Ipanema, alongside names like Rudolf Hermanny (judo champion and World Cup football coach), Luiz "Cirandinha" Pereira Aguiar (weightlifter and capoeira champion), Antonio Carlos "Tom" Jobim (legendary Bossa Nova musician), and Olympic Committee president Sylvio de Magalhães Padilha.',
   -- bio_pt
-  E'André Jansen foi o principal lutador da primeira geração de alunos de Mestre Sinhozinho. Goleiro do Botafogo Football Club, ele simultaneamente detinha o título de campeão carioca de capoeiragem. A imprensa carioca o considerava "o mestre absoluto da luta brasileira" e "o melhor capoeira de sua época no Brasil."
+  E'André Jansen foi o principal lutador da primeira geração de alunos de Mestre Sinhozinho. Goleiro do Botafogo Football Club, ele simultaneamente detinha o título de campeão carioca de capoeiragem. A imprensa carioca o considerava "o mestre absoluto da luta brasileira" e "o melhor capoeira de sua época no Brasil".
 
 Jansen viajou pelo Brasil durante a década de 1940 demonstrando a eficácia de sua arte marcial. Sua reputação era tal que ele se tornou um dos nomes mais reconhecidos nos esportes de combate brasileiros daquela época.
 
@@ -83,7 +83,7 @@ DEATH YEAR: Unknown. No death date found in any source.
 
 BOTAFOGO CONNECTION: Multiple sources confirm he was a goalkeeper for Botafogo Football Club. However, he does not appear in the documented roster of famous Botafogo goalkeepers from 1930-1940 (Roberto Gomes Pedrosa, Germano, Aymoré Moreira). This could indicate he was a reserve goalkeeper, played briefly, or that the "Botafogo" reference is to a different period or role.
 
-FIRST GENERATION: Sources explicitly state André Jansen was "the highlight of this first generation" trained by Sinhozinho. This distinguishes him from Rudolf Hermanny, who was "the highlight of the last generation."
+FIRST GENERATION: Sources explicitly state André Jansen was "the highlight of this first generation" trained by Sinhozinho. This distinguishes him from Rudolf Hermanny, who was "the highlight of the last generation".
 
 1935 SALVADOR EVENT: The October 30, 1935 event at Parque Boa Vista is significant as it brought together Rio''s capoeira carioca tradition (via Jansen) with Salvador''s emerging Regional style (via Bimba''s exhibition). Jansen''s opponent Ricardo Nibbon was a jiu-jitsu practitioner, not a capoeirista.
 
@@ -101,7 +101,7 @@ ANO DE MORTE: Desconhecido. Nenhuma data de morte encontrada em qualquer fonte.
 
 CONEXÃO COM BOTAFOGO: Múltiplas fontes confirmam que ele era goleiro do Botafogo Football Club. No entanto, ele não aparece na lista documentada de goleiros famosos do Botafogo de 1930-1940 (Roberto Gomes Pedrosa, Germano, Aymoré Moreira). Isso pode indicar que era goleiro reserva, jogou brevemente, ou que a referência "Botafogo" é de um período ou função diferente.
 
-PRIMEIRA GERAÇÃO: Fontes afirmam explicitamente que André Jansen era "o destaque desta primeira geração" treinada por Sinhozinho. Isso o distingue de Rudolf Hermanny, que era "o destaque da última geração."
+PRIMEIRA GERAÇÃO: Fontes afirmam explicitamente que André Jansen era "o destaque desta primeira geração" treinada por Sinhozinho. Isso o distingue de Rudolf Hermanny, que era "o destaque da última geração".
 
 EVENTO DE SALVADOR 1935: O evento de 30 de outubro de 1935 no Parque Boa Vista é significativo pois reuniu a tradição da capoeira carioca do Rio (via Jansen) com o estilo Regional emergente de Salvador (via exibição de Bimba). O oponente de Jansen, Ricardo Nibbon, era praticante de jiu-jitsu, não capoeirista.
 

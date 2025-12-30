@@ -96,8 +96,8 @@ SELECT
   '{"association_context": "Contemporaries; Jorge Amado wrote (1945) that only Pastinha could match Traíra in beauty of movements and agility"}'::jsonb,
   'likely'::genealogy.confidence,
   'Jorge Amado, Bahia de Todos os Santos (1945)',
-  'Jorge Amado wrote in 1945: "only Pastinha can compete with him [Traíra] in the beauty of movements, in agility, in the quickness of strikes." Both were leading Angola practitioners in Salvador, though no direct training relationship is documented.',
-  'Jorge Amado escreveu em 1945: "só mesmo Pastinha pode competir com ele [Traíra] na beleza dos movimentos, na agilidade, na rigidez dos golpes." Ambos eram importantes praticantes de Angola em Salvador, embora nenhuma relação direta de treinamento seja documentada.'
+  'Jorge Amado wrote in 1945: "only Pastinha can compete with him [Traíra] in the beauty of movements, in agility, in the quickness of strikes". Both were leading Angola practitioners in Salvador, though no direct training relationship is documented.',
+  'Jorge Amado escreveu em 1945: "só mesmo Pastinha pode competir com ele [Traíra] na beleza dos movimentos, na agilidade, na rigidez dos golpes". Ambos eram importantes praticantes de Angola em Salvador, embora nenhuma relação direta de treinamento seja documentada.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Traíra' AND o.apelido = 'Pastinha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

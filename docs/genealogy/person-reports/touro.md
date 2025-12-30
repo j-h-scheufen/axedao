@@ -32,13 +32,13 @@ In 1964, at just fourteen years old, Touro took over Grupo de Capoeira Cativeiro
 
 Early in his career, Touro worked various jobs including market worker and stevedore (DTM) for three years after military service. It was on the docks that he met Banzo Africano, who introduced him to Tele Catch (television wrestling). Actor José de Arimatéia spotted him and opened doors to television.
 
-Touro developed a successful parallel career as an actor in Brazilian television, appearing in Os Trapalhões, Chico City, Praça da Alegria, and telenovelas such as Escalada, Memória de Amor, Cambalacho, and Escrava Isaura. In 1980, he appeared in the film "O Incrível Monstro Trapalhão."
+Touro developed a successful parallel career as an actor in Brazilian television, appearing in Os Trapalhões, Chico City, Praça da Alegria, and telenovelas such as Escalada, Memória de Amor, Cambalacho, and Escrava Isaura. In 1980, he appeared in the film "O Incrível Monstro Trapalhão".
 
 Throughout his career, Touro taught capoeira across Rio de Janeiro: Penha, Vista Alegre, Irajá, Parada de Lucas, Cordovil, Vigário Geral, Catete, Bonsucesso, Honório Gurgel, and Praça Tiradentes. His brother, Mestre Dentinho (1952-2011), was also a renowned capoeirista. Together they competed as part of the "unbeatable" Guanabara team that won the 1st Brazilian Capoeira Championship in 1973, and co-led the famous Roda da Penha, registered as Intangible Cultural Heritage.
 
 Touro entered politics through councilman Carlos de Carvalho, working as a legislative assistant at the Municipal Chamber of Rio de Janeiro. His capoeira work extended internationally to the USA (San Diego, Los Angeles, Dallas, Oakland, Detroit) and Spain (Castellón, Valencia). His student Mestre Preto Velho (Dennis Newsome) founded Os Malandros de Mestre Touro in San Diego to propagate the tradition internationally.
 
-On October 30, 2021, the "Homens de Fibra" monument was inaugurated at Largo da Penha honoring Mestres Touro and Dentinho as "giant figures of Rio de Janeiro's capoeira."
+On October 30, 2021, the "Homens de Fibra" monument was inaugurated at Largo da Penha honoring Mestres Touro and Dentinho as "giant figures of Rio de Janeiro's capoeira".
 
 ### Português
 
@@ -50,13 +50,13 @@ Em 1964, com apenas quatorze anos, Touro assumiu o Grupo de Capoeira Cativeiro d
 
 No início de sua carreira, Touro trabalhou em vários empregos incluindo carregador de mercado e estivador (DTM) por três anos após o serviço militar. Foi nas docas que conheceu Banzo Africano, que o introduziu ao Tele Catch (luta livre televisiva). O ator José de Arimatéia o descobriu e abriu portas para a televisão.
 
-Touro desenvolveu uma carreira paralela de sucesso como ator na televisão brasileira, aparecendo em Os Trapalhões, Chico City, Praça da Alegria e telenovelas como Escalada, Memória de Amor, Cambalacho e Escrava Isaura. Em 1980, apareceu no filme "O Incrível Monstro Trapalhão."
+Touro desenvolveu uma carreira paralela de sucesso como ator na televisão brasileira, aparecendo em Os Trapalhões, Chico City, Praça da Alegria e telenovelas como Escalada, Memória de Amor, Cambalacho e Escrava Isaura. Em 1980, apareceu no filme "O Incrível Monstro Trapalhão".
 
 Ao longo de sua carreira, Touro ensinou capoeira por todo o Rio de Janeiro: Penha, Vista Alegre, Irajá, Parada de Lucas, Cordovil, Vigário Geral, Catete, Bonsucesso, Honório Gurgel e Praça Tiradentes. Seu irmão, Mestre Dentinho (1952-2011), também foi um capoeirista renomado. Juntos competiram como parte do "invencível" time Guanabara que venceu o 1º Campeonato Brasileiro de Capoeira em 1973, e co-lideraram a famosa Roda da Penha, registrada como Patrimônio Cultural Imaterial.
 
 Touro entrou na política através do vereador Carlos de Carvalho, trabalhando como assessor legislativo na Câmara Municipal do Rio de Janeiro. Seu trabalho com a capoeira se estendeu internacionalmente aos EUA (San Diego, Los Angeles, Dallas, Oakland, Detroit) e Espanha (Castellón, Valencia). Seu aluno Mestre Preto Velho (Dennis Newsome) fundou Os Malandros de Mestre Touro em San Diego para propagar a tradição internacionalmente.
 
-Em 30 de outubro de 2021, o monumento "Homens de Fibra" foi inaugurado no Largo da Penha homenageando os Mestres Touro e Dentinho como "figuras gigantes da capoeira carioca."
+Em 30 de outubro de 2021, o monumento "Homens de Fibra" foi inaugurado no Largo da Penha homenageando os Mestres Touro e Dentinho como "figuras gigantes da capoeira carioca".
 
 ## Achievements / Conquistas
 
@@ -88,11 +88,11 @@ Em 30 de outubro de 2021, o monumento "Homens de Fibra" foi inaugurado no Largo 
 
 ### English
 
-Mestre Touro practices and preserves "Capoeira Angola de São Bento Grande" - an aggressive form of Capoeira Angola that developed in Rio de Janeiro. This style represents the authentic carioca tradition descending from the Leopoldina lineage. As Grande-Mestre Touro describes it, capoeira is a "game of dexterity, agility, flexibility and creativity." The style combines the malandro tradition of Rio's street capoeira with the musical and ritualistic elements brought from Bahia, creating a uniquely carioca approach.
+Mestre Touro practices and preserves "Capoeira Angola de São Bento Grande" - an aggressive form of Capoeira Angola that developed in Rio de Janeiro. This style represents the authentic carioca tradition descending from the Leopoldina lineage. As Grande-Mestre Touro describes it, capoeira is a "game of dexterity, agility, flexibility and creativity". The style combines the malandro tradition of Rio's street capoeira with the musical and ritualistic elements brought from Bahia, creating a uniquely carioca approach.
 
 ### Português
 
-Mestre Touro pratica e preserva a "Capoeira Angola de São Bento Grande" - uma forma agressiva de Capoeira Angola que se desenvolveu no Rio de Janeiro. Este estilo representa a autêntica tradição carioca descendente da linhagem de Leopoldina. Como Grande-Mestre Touro descreve, a capoeira é um "jogo de destreza, agilidade, flexibilidade e criatividade." O estilo combina a tradição malandra da capoeira de rua do Rio com os elementos musicais e ritualísticos trazidos da Bahia, criando uma abordagem exclusivamente carioca.
+Mestre Touro pratica e preserva a "Capoeira Angola de São Bento Grande" - uma forma agressiva de Capoeira Angola que se desenvolveu no Rio de Janeiro. Este estilo representa a autêntica tradição carioca descendente da linhagem de Leopoldina. Como Grande-Mestre Touro descreve, a capoeira é um "jogo de destreza, agilidade, flexibilidade e criatividade". O estilo combina a tradição malandra da capoeira de rua do Rio com os elementos musicais e ritualísticos trazidos da Bahia, criando uma abordagem exclusivamente carioca.
 
 ## Teachers / Mestres
 

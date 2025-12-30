@@ -62,7 +62,7 @@ Em 14 de julho de 1974, Mestre Gladson estava entre os fundadores da Federação
 
 Também ocupou cargos como Diretor da FUPE (Federação Universitária Paulista de Esportes) e CBDU (Confederação Brasileira de Desporto Universitário), e serviu como Consultor do INDESP e membro do Conselho de Mestres da Confederação Brasileira de Capoeira.
 
-Mestre Gladson é formado em Educação Física pela Escola Superior de Educação Física de São Caetano. Publicou dois livros: "Capoeira do Engenho à Universidade" (primeira edição 1995) e "Capoeira: Um Instrumento Psicomotor para a Cidadania", este último em coautoria com Contra Mestre Vinícius Heine. Ambas as obras são reconhecidas pela comunidade da capoeira e utilizadas pela Secretaria de Educação do Estado de São Paulo no Programa "Sala de Leitura."
+Mestre Gladson é formado em Educação Física pela Escola Superior de Educação Física de São Caetano. Publicou dois livros: "Capoeira do Engenho à Universidade" (primeira edição 1995) e "Capoeira: Um Instrumento Psicomotor para a Cidadania", este último em coautoria com Contra Mestre Vinícius Heine. Ambas as obras são reconhecidas pela comunidade da capoeira e utilizadas pela Secretaria de Educação do Estado de São Paulo no Programa "Sala de Leitura".
 
 Sua escola de capoeira, Projete Liberdade Capoeira, foi fundada em 1968. A escola trabalha para preservar e promover a capoeira em seus aspectos históricos, culturais, sociais e educacionais, com presença no Brasil, Argentina (Rosário), Peru (Cusco) e Espanha.
 

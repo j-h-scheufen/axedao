@@ -69,7 +69,7 @@ Today, Rogério lives in Düsseldorf and teaches regularly in Frankfurt, Kassel,
 
 In 2004, Rogério conferred the mestre title upon his co-founder Índio—twelve years after they had established ACAD together. This titling confirmed the lineage continuation through Rogério''s teaching.
 
-Rogério is recognized as "one of the most important representatives of Capoeira Angola in Brazil and in Europe." His work has helped establish the foundations for Capoeira Angola''s presence in German-speaking countries, inspiring subsequent generations of practitioners.',
+Rogério is recognized as "one of the most important representatives of Capoeira Angola in Brazil and in Europe". His work has helped establish the foundations for Capoeira Angola''s presence in German-speaking countries, inspiring subsequent generations of practitioners.',
   -- Extended content (bio_pt)
   E'Rogério Soares Peixoto nasceu em 1954 no Rio de Janeiro, Brasil. Começou sua jornada na capoeira em 1972, aos dezoito anos, em sua cidade natal.
 
@@ -87,7 +87,7 @@ Hoje, Rogério vive em Düsseldorf e ensina regularmente em Frankfurt, Kassel, H
 
 Em 2004, Rogério conferiu o título de mestre ao seu co-fundador Índio—doze anos após terem estabelecido a ACAD juntos. Esta titulação confirmou a continuação da linhagem através do ensino de Rogério.
 
-Rogério é reconhecido como "um dos mais importantes representantes da Capoeira Angola no Brasil e na Europa." Seu trabalho ajudou a estabelecer as bases para a presença da Capoeira Angola nos países de língua alemã, inspirando gerações subsequentes de praticantes.',
+Rogério é reconhecido como "um dos mais importantes representantes da Capoeira Angola no Brasil e na Europa". Seu trabalho ajudou a estabelecer as bases para a presença da Capoeira Angola nos países de língua alemã, inspirando gerações subsequentes de praticantes.',
   -- Achievements
   E'- Co-founded Associação de Capoeira Angola Dobrada (ACAD) in 1992 - one of the first Capoeira Angola organizations in Europe
 - Founded the first Capoeira Angola school in Belo Horizonte, Minas Gerais (1989)

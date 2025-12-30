@@ -19,9 +19,9 @@
 | Era | Active around 1850 |
 | Gang Affiliation | Chief of Santa Luzia party, Nagoa federation |
 
-**Birth year estimation:** Active around 1850 with a "graying pointed beard" and described as having started his career "young at Lavadinho." If he had a graying beard (suggesting 40s-50s) in 1850 and started young, birth decade estimated as 1820s. This places him in early adulthood during the peak of malta activity in Rio de Janeiro. Recorded with `decade` precision in database (not exact year).
+**Birth year estimation:** Active around 1850 with a "graying pointed beard" and described as having started his career "young at Lavadinho". If he had a graying beard (suggesting 40s-50s) in 1850 and started young, birth decade estimated as 1820s. This places him in early adulthood during the peak of malta activity in Rio de Janeiro. Recorded with `decade` precision in database (not exact year).
 
-**Estimativa do ano de nascimento:** Ativo por volta de 1850 com uma "barba grisalha pontuda" e descrito como tendo começado sua carreira "jovem no Lavadinho." Se tinha barba grisalha (sugerindo 40-50 anos) em 1850 e começou jovem, década de nascimento estimada como 1820. Isso o coloca no início da idade adulta durante o auge da atividade das maltas no Rio de Janeiro. Registrado com precisão de `década` no banco de dados (não ano exato).
+**Estimativa do ano de nascimento:** Ativo por volta de 1850 com uma "barba grisalha pontuda" e descrito como tendo começado sua carreira "jovem no Lavadinho". Se tinha barba grisalha (sugerindo 40-50 anos) em 1850 e começou jovem, década de nascimento estimada como 1820. Isso o coloca no início da idade adulta durante o auge da atividade das maltas no Rio de Janeiro. Registrado com precisão de `década` no banco de dados (não ano exato).
 
 ## Biography
 
@@ -33,7 +33,7 @@ He was described as "pardo claro" - a light-skinned mulatto - tall and powerfull
 
 He earned a living from his fish counter in the São José parish marketplace, where he was known for holding court and sharing stories of his exploits. He supplemented this income with bodyguard work for politicians, building connections that would prove invaluable.
 
-According to Plácido de Abreu's 1886 book "Os Capoeiras," Manduca was chief of the Santa Luzia party within the Nagoa federation - one of the two great rival factions that divided Rio de Janeiro (the Nagoas wore white; their rivals the Guaiamú wore red).
+According to Plácido de Abreu's 1886 book "Os Capoeiras", Manduca was chief of the Santa Luzia party within the Nagoa federation - one of the two great rival factions that divided Rio de Janeiro (the Nagoas wore white; their rivals the Guaiamú wore red).
 
 He started his career young at Lavadinho, making his name in the brutal sport of running with bulls. His weapons included the knife, razor blade, the "petrópolis" (a long hardwood cudgel), and his ever-present cane. His capoeira techniques were comprehensive: the banda and rasteira (sweeps), punches, headbutts, and the devastating rabo de arraia (stingray tail kick).
 

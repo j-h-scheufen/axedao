@@ -30,7 +30,7 @@ Some sources mention "Sebastião de Souza" as one of the capoeiristas who worked
 
 Bastião is consistently listed alongside other famous capoeiristas of his era who were defended by Cosme de Farias, including Pedro Porreta, Chico Três Pedaços, Samuel da Calçada, Nozinho da Cocheira, Duquinha, and Escalvino. This group represents an important chapter in the history of capoeira in Bahia, when the practice was still criminalized and practitioners often found themselves in conflict with the law.
 
-Unlike some of his contemporaries, Bastião does not have a dedicated chapter in "Mestres e capoeiras famosos da Bahia," suggesting that less detailed historical documentation exists about him individually compared to figures like Pedro Porreta or Nozinho da Cocheira.
+Unlike some of his contemporaries, Bastião does not have a dedicated chapter in "Mestres e capoeiras famosos da Bahia", suggesting that less detailed historical documentation exists about him individually compared to figures like Pedro Porreta or Nozinho da Cocheira.
 
 ### Português
 
@@ -40,7 +40,7 @@ Algumas fontes mencionam "Sebastião de Souza" como um dos capoeiristas que trab
 
 Bastião é consistentemente listado junto com outros capoeiristas famosos de sua era que foram defendidos por Cosme de Farias, incluindo Pedro Porreta, Chico Três Pedaços, Samuel da Calçada, Nozinho da Cocheira, Duquinha e Escalvino. Este grupo representa um capítulo importante na história da capoeira na Bahia, quando a prática ainda era criminalizada e os praticantes frequentemente se encontravam em conflito com a lei.
 
-Diferente de alguns de seus contemporâneos, Bastião não tem um capítulo dedicado em "Mestres e capoeiras famosos da Bahia," sugerindo que existe menos documentação histórica detalhada sobre ele individualmente comparado a figuras como Pedro Porreta ou Nozinho da Cocheira.
+Diferente de alguns de seus contemporâneos, Bastião não tem um capítulo dedicado em "Mestres e capoeiras famosos da Bahia", sugerindo que existe menos documentação histórica detalhada sobre ele individualmente comparado a figuras como Pedro Porreta ou Nozinho da Cocheira.
 
 ## Achievements / Conquistas
 

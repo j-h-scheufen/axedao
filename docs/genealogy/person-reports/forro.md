@@ -35,7 +35,7 @@ In Germany, Mestre Forró has become an active figure in cultural education. He 
 
 Beyond Hannover, Forró teaches children's capoeira classes at Forum Brasil in Berlin, where he works with students ages 3-11. He also travels throughout Europe conducting workshops, sharing his knowledge of capoeira Angola, Afro-Brazilian percussion, and popular dances like forró and samba de roda.
 
-Together with his wife Sigga Glitz, a trained musician from northern Germany who has devoted herself to Brazilian culture, Forró co-leads "Batucajé"—a musical project that takes audiences on a journey through Brazilian rhythms. His full apelido, "Forró Àlágbè," reflects both the northeastern Brazilian dance/music tradition and the Yoruba term "àlágbè" (drummer/master of sacred drums), acknowledging his dual expertise in capoeira and percussion.
+Together with his wife Sigga Glitz, a trained musician from northern Germany who has devoted herself to Brazilian culture, Forró co-leads "Batucajé"—a musical project that takes audiences on a journey through Brazilian rhythms. His full apelido, "Forró Àlágbè", reflects both the northeastern Brazilian dance/music tradition and the Yoruba term "àlágbè" (drummer/master of sacred drums), acknowledging his dual expertise in capoeira and percussion.
 
 Today, Mestre Forró continues to bridge Afro-Brazilian traditions and German cultural education, using capoeira as a tool for anti-racist education and cultural preservation.
 
@@ -51,7 +51,7 @@ Na Alemanha, Mestre Forró tornou-se uma figura ativa na educação cultural. El
 
 Além de Hannover, Forró ensina aulas de capoeira para crianças no Forum Brasil em Berlim, onde trabalha com alunos de 3 a 11 anos. Ele também viaja por toda a Europa conduzindo oficinas, compartilhando seu conhecimento de capoeira Angola, percussão afro-brasileira e danças populares como forró e samba de roda.
 
-Junto com sua esposa Sigga Glitz, uma musicista treinada do norte da Alemanha que se dedicou à cultura brasileira, Forró co-lidera "Batucajé"—um projeto musical que leva o público a uma jornada pelos ritmos brasileiros. Seu apelido completo, "Forró Àlágbè," reflete tanto a tradição de dança/música do nordeste brasileiro quanto o termo iorubá "àlágbè" (tocador de tambor/mestre de tambores sagrados), reconhecendo sua dupla expertise em capoeira e percussão.
+Junto com sua esposa Sigga Glitz, uma musicista treinada do norte da Alemanha que se dedicou à cultura brasileira, Forró co-lidera "Batucajé"—um projeto musical que leva o público a uma jornada pelos ritmos brasileiros. Seu apelido completo, "Forró Àlágbè", reflete tanto a tradição de dança/música do nordeste brasileiro quanto o termo iorubá "àlágbè" (tocador de tambor/mestre de tambores sagrados), reconhecendo sua dupla expertise em capoeira e percussão.
 
 Hoje, Mestre Forró continua a construir pontes entre as tradições afro-brasileiras e a educação cultural alemã, usando a capoeira como ferramenta para educação antirracista e preservação cultural.
 

@@ -34,9 +34,9 @@ When Salmon and Euclides Paes discontinued their training activities for work-re
 
 In the twenty-first century, Paulinho Salmon emerged as a voice for capoeira heritage preservation. He became a member of a committee of capoeira mestres in Rio de Janeiro that works with IPHAN (Instituto do Patrimônio Histórico e Artístico Nacional) to discuss safeguarding measures for capoeira as cultural heritage. When interviewed by Agência Brasil in November 2014, ahead of UNESCO's recognition of the Roda de Capoeira as Intangible Cultural Heritage of Humanity, Salmon articulated the depth of capoeira's significance:
 
-> "A capoeira não é só um jogo, a capoeira é muito mais do que isso, a história da capoeira se confunde com a própria história do país, já foi utilizada até em guerra, como a do Paraguai."
+> "A capoeira não é só um jogo, a capoeira é muito mais do que isso, a história da capoeira se confunde com a própria história do país, já foi utilizada até em guerra, como a do Paraguai".
 
-("Capoeira is not just a game—capoeira is much more than that. The history of capoeira is intertwined with the history of Brazil itself. It was even used in warfare, such as the Paraguayan War.")
+("Capoeira is not just a game—capoeira is much more than that. The history of capoeira is intertwined with the history of Brazil itself. It was even used in warfare, such as the Paraguayan War".)
 
 The requests and recommendations of the mestres' committee—including Salmon's input—were incorporated into the UNESCO candidacy dossier. Their proposals included making capoeira a mandatory school subject and establishing knowledge-exchange meetings among practitioners.
 
@@ -54,7 +54,7 @@ Quando Salmon e Euclides Paes descontinuaram suas atividades de treinamento por 
 
 No século XXI, Paulinho Salmon emergiu como uma voz pela preservação do patrimônio da capoeira. Tornou-se membro de um comitê de mestres de capoeira no Rio de Janeiro que trabalha com o IPHAN (Instituto do Patrimônio Histórico e Artístico Nacional) para discutir medidas de salvaguarda da capoeira como patrimônio cultural. Quando entrevistado pela Agência Brasil em novembro de 2014, antes do reconhecimento da Roda de Capoeira pela UNESCO como Patrimônio Cultural Imaterial da Humanidade, Salmon articulou a profundidade do significado da capoeira:
 
-> "A capoeira não é só um jogo, a capoeira é muito mais do que isso, a história da capoeira se confunde com a própria história do país, já foi utilizada até em guerra, como a do Paraguai."
+> "A capoeira não é só um jogo, a capoeira é muito mais do que isso, a história da capoeira se confunde com a própria história do país, já foi utilizada até em guerra, como a do Paraguai".
 
 Os pedidos e recomendações do comitê de mestres—incluindo a contribuição de Salmon—foram incorporados ao dossiê de candidatura à UNESCO. Suas propostas incluíam tornar a capoeira disciplina obrigatória nas escolas e estabelecer encontros de troca de conhecimento entre praticantes.
 

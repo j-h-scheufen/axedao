@@ -79,7 +79,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   '1975-12-28'::date, 'exact'::genealogy.date_precision,
   NULL, NULL,
-  '{"association_context": "Met during December 1975 trip to Salvador with Moraes, Braga, Neco, Zé Carlos, Tete, and Amalha. Pastinha remembered Moraes as ''Pedrinho''. Group remained for January Bonfim festival."}'::jsonb,
+  '{"association_context": "Met during December 1975 trip to Salvador with Moraes, Braga, Neco, Zé Carlos, Tete, and Amalha. Pastinha remembered Moraes as ''Pedrinho''. Group remained for January Bonfim festival".}'::jsonb,
   'verified'::genealogy.confidence,
   'Africa Bantu Genève',
   'Met Mestre Pastinha during trip to Salvador in December 1975.',

@@ -52,11 +52,11 @@ INSERT INTO genealogy.person_profiles (
 
 Batuque was a combat game of predominantly Angolan origins that flourished in Bahia before becoming extinct in the early 20th century. The game was fought in circles, with one player defending a central position while attackers attempted to knock them down using sweeping techniques, hip strikes, and powerful leg movements. Edison Carneiro documented that batuque was played to berimbau, tambourine, scraper, and singing—sharing musical elements with capoeira. Techniques included rapa, baú, banda lisa, and encruzilhada.
 
-By the time his son Manoel dos Reis Machado (Mestre Bimba) was born in 1899, Luiz Cândido was already celebrated at street festivals (festas de largo) as a "great batuqueiro" and a "champion of batuque." His reputation was such that he was known throughout Salvador''s black community.
+By the time his son Manoel dos Reis Machado (Mestre Bimba) was born in 1899, Luiz Cândido was already celebrated at street festivals (festas de largo) as a "great batuqueiro" and a "champion of batuque". His reputation was such that he was known throughout Salvador''s black community.
 
 Luiz Cândido taught batuque to his son Bimba. The young Bimba learned from his father and also observed his mother Maria Martinha do Bonfim, who was respected among batuqueiros and was said to be "boa de perna" (good with her legs).
 
-In an interview documented by Waldeloir Rego in his 1968 book "Capoeira Angola: Ensaio Sócio-Etnográfico," Bimba himself stated that he drew upon batuque techniques when creating Capoeira Regional. When asked about his influences, Bimba replied (in Portuguese): "se valeu de golpes de Batuque, como Banda armada, Banda fechada, Encruzilhada, Rapa, Cruz de carreira e Baú" (that he made use of batuque strikes, such as Banda armada, Banda fechada, Encruzilhada, Rapa, Cruz de carreira and Baú). This provides direct evidence that Bimba consciously incorporated techniques from the batuque tradition his father had taught him.
+In an interview documented by Waldeloir Rego in his 1968 book "Capoeira Angola: Ensaio Sócio-Etnográfico", Bimba himself stated that he drew upon batuque techniques when creating Capoeira Regional. When asked about his influences, Bimba replied (in Portuguese): "se valeu de golpes de Batuque, como Banda armada, Banda fechada, Encruzilhada, Rapa, Cruz de carreira e Baú" (that he made use of batuque strikes, such as Banda armada, Banda fechada, Encruzilhada, Rapa, Cruz de carreira and Baú). This provides direct evidence that Bimba consciously incorporated techniques from the batuque tradition his father had taught him.
 
 Nestor Capoeira, in his writings on capoeira history, further argues that many of the rasteiras (leg sweeps) that distinguish Regional from Angola likely derive from batuque.
 
@@ -66,11 +66,11 @@ Little else is documented about Luiz Cândido''s life. The date of his death is 
 
 O batuque era um jogo de combate de origem predominantemente angolana que floresceu na Bahia antes de se extinguir no início do século XX. O jogo era lutado em círculos, com um jogador defendendo uma posição central enquanto atacantes tentavam derrubá-lo usando técnicas de rasteira, golpes de quadril e movimentos poderosos de pernas. Edison Carneiro documentou que o batuque era jogado ao som de berimbau, pandeiro, reco-reco e canto—compartilhando elementos musicais com a capoeira. As técnicas incluíam rapa, baú, banda lisa e encruzilhada.
 
-Quando seu filho Manoel dos Reis Machado (Mestre Bimba) nasceu em 1899, Luiz Cândido já era celebrado nas festas de largo como um "grande batuqueiro" e "campeão de batuque." Sua reputação era tal que ele era conhecido em toda a comunidade negra de Salvador.
+Quando seu filho Manoel dos Reis Machado (Mestre Bimba) nasceu em 1899, Luiz Cândido já era celebrado nas festas de largo como um "grande batuqueiro" e "campeão de batuque". Sua reputação era tal que ele era conhecido em toda a comunidade negra de Salvador.
 
-Luiz Cândido ensinou batuque ao seu filho Bimba. O jovem Bimba aprendeu com seu pai e também observou sua mãe Maria Martinha do Bonfim, que era respeitada entre os batuqueiros e era considerada "boa de perna."
+Luiz Cândido ensinou batuque ao seu filho Bimba. O jovem Bimba aprendeu com seu pai e também observou sua mãe Maria Martinha do Bonfim, que era respeitada entre os batuqueiros e era considerada "boa de perna".
 
-Em uma entrevista documentada por Waldeloir Rego em seu livro de 1968 "Capoeira Angola: Ensaio Sócio-Etnográfico," o próprio Bimba afirmou que utilizou técnicas de batuque ao criar a Capoeira Regional. Quando perguntado sobre suas influências, Bimba respondeu: "se valeu de golpes de Batuque, como Banda armada, Banda fechada, Encruzilhada, Rapa, Cruz de carreira e Baú." Isso fornece evidência direta de que Bimba conscientemente incorporou técnicas da tradição de batuque que seu pai lhe ensinou.
+Em uma entrevista documentada por Waldeloir Rego em seu livro de 1968 "Capoeira Angola: Ensaio Sócio-Etnográfico", o próprio Bimba afirmou que utilizou técnicas de batuque ao criar a Capoeira Regional. Quando perguntado sobre suas influências, Bimba respondeu: "se valeu de golpes de Batuque, como Banda armada, Banda fechada, Encruzilhada, Rapa, Cruz de carreira e Baú". Isso fornece evidência direta de que Bimba conscientemente incorporou técnicas da tradição de batuque que seu pai lhe ensinou.
 
 Nestor Capoeira, em seus escritos sobre a história da capoeira, argumenta ainda que muitas das rasteiras que distinguem a Regional da Angola provavelmente derivam do batuque.
 
@@ -90,7 +90,7 @@ BIRTHPLACE CONFLICT:
 One source (martialnet.it) states he was a "caboclo de Feira de Santana" (person of mixed heritage from Feira de Santana). This conflicts with the "descendente de banto" description. Both may be accurate if "caboclo" refers to cultural/geographic identity rather than strictly racial. Using Feira de Santana as birthplace per available sources.
 
 NAME VARIANT:
-One source (madrugacapoeira.webnode.page) gives his name as "Luiz Cândido Xavier" instead of "Machado." This appears to be an error; all other sources use "Machado."
+One source (madrugacapoeira.webnode.page) gives his name as "Luiz Cândido Xavier" instead of "Machado". This appears to be an error; all other sources use "Machado".
 
 DEATH:
 Unknown. No records of his death have been found.
@@ -108,13 +108,13 @@ The backlog notes two predicates:
 Nenhuma data de nascimento documentada. Filho Mestre Bimba nasceu em 23 de novembro de 1899. Se Luiz tinha 30-45 anos quando Bimba nasceu, ele nasceu aproximadamente entre 1854-1869. Usando 1860 como estimativa do ponto médio.
 
 STATUS DE ESCRAVIZADO:
-Uma fonte (Acorda Cultura / Fundação Cultural Palmares) o descreve explicitamente como "ex-escravizado, descendente de banto." A escravidão foi abolida no Brasil em 1888.
+Uma fonte (Acorda Cultura / Fundação Cultural Palmares) o descreve explicitamente como "ex-escravizado, descendente de banto". A escravidão foi abolida no Brasil em 1888.
 
 CONFLITO DE LOCAL DE NASCIMENTO:
-Uma fonte (martialnet.it) afirma que ele era um "caboclo de Feira de Santana." Isso conflita com a descrição de "descendente de banto." Ambos podem estar corretos se "caboclo" se refere à identidade cultural/geográfica em vez de estritamente racial. Usando Feira de Santana como local de nascimento conforme fontes disponíveis.
+Uma fonte (martialnet.it) afirma que ele era um "caboclo de Feira de Santana". Isso conflita com a descrição de "descendente de banto". Ambos podem estar corretos se "caboclo" se refere à identidade cultural/geográfica em vez de estritamente racial. Usando Feira de Santana como local de nascimento conforme fontes disponíveis.
 
 VARIANTE DO NOME:
-Uma fonte (madrugacapoeira.webnode.page) dá seu nome como "Luiz Cândido Xavier" em vez de "Machado." Isso parece ser um erro; todas as outras fontes usam "Machado."
+Uma fonte (madrugacapoeira.webnode.page) dá seu nome como "Luiz Cândido Xavier" em vez de "Machado". Isso parece ser um erro; todas as outras fontes usam "Machado".
 
 MORTE:
 Desconhecida. Nenhum registro de sua morte foi encontrado.

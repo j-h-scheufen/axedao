@@ -46,7 +46,7 @@ Later, Santana became an instructor at Brazil's national police academy in Bras�
 
 Despite his injuries, Santana continued teaching from his Brasília academy. In 1980, he identified a young talent from Manaus named Casemiro Nascimento Martins (who would become known as Rei Zulu). Santana was so impressed that he arranged a match with Rickson Gracie, continuing the rivalry that had started 25 years earlier into the next generation.
 
-In Bahia, Santana trained Mestre Boa Gente at his vale-tudo academy. Boa Gente, already skilled in Capoeira Angola under Mestre Gato Preto, became MMA champion of Bahia in 1974 after training with "Leopardo Negro." Santana also trained Mestre Bom Cabrito in karate, hapkido, and vale-tudo in 1968. In 1969, in Manaus, he met Mestre Pombo de Ouro, who would come to consider Santana "his other Mestre."
+In Bahia, Santana trained Mestre Boa Gente at his vale-tudo academy. Boa Gente, already skilled in Capoeira Angola under Mestre Gato Preto, became MMA champion of Bahia in 1974 after training with "Leopardo Negro". Santana also trained Mestre Bom Cabrito in karate, hapkido, and vale-tudo in 1968. In 1969, in Manaus, he met Mestre Pombo de Ouro, who would come to consider Santana "his other Mestre".
 
 Santana returned to Bahia in his final years and died in August 1984 from a stroke at the Hospital Espanhol in Salvador. He was 54 years old.
 
@@ -62,7 +62,7 @@ Buscando maiores oportunidades, Santana mudou-se para o Rio de Janeiro, onde por
 
 Em janeiro de 1955, Santana foi expulso da Academia Gracie após lutar contra Rene Bastos sob o promotor Karol Nowina—trabalhando para um rival. O rompimento com Hélio Gracie levou a uma das lutas mais significativas na história das artes marciais brasileiras.
 
-Em 24 de maio de 1955, Santana enfrentou seu ex-mestre Hélio Gracie em uma luta de vale-tudo que duraria mais de três horas e quarenta minutos. Hélio tinha 42 anos e pesava 68 kg; Santana tinha 26 anos e pesava 77 kg. A luta foi travada de quimono sem limite de tempo. Santana dominou com ground and pound, vencendo por nocaute com um chute de futebol na cabeça. A violência daquela luta levou à proibição do vale-tudo no Rio de Janeiro e gerou manchetes em todos os jornais da cidade. Santana ficou conhecido como "Leopardo Negro"—caracterizado como o "primeiro herói negro do esporte brasileiro."
+Em 24 de maio de 1955, Santana enfrentou seu ex-mestre Hélio Gracie em uma luta de vale-tudo que duraria mais de três horas e quarenta minutos. Hélio tinha 42 anos e pesava 68 kg; Santana tinha 26 anos e pesava 77 kg. A luta foi travada de quimono sem limite de tempo. Santana dominou com ground and pound, vencendo por nocaute com um chute de futebol na cabeça. A violência daquela luta levou à proibição do vale-tudo no Rio de Janeiro e gerou manchetes em todos os jornais da cidade. Santana ficou conhecido como "Leopardo Negro"—caracterizado como o "primeiro herói negro do esporte brasileiro".
 
 Após a expulsão da Gracie, Santana treinou na academia de Haroldo Brito em Ipanema e com George Gracie. Enfrentou Carlson Gracie seis vezes entre 1955-1970, com Carlson vencendo duas e quatro terminando em empate. Em 1959, enfrentou duas vezes o lendário judoca japonês Masahiko Kimura em Salvador—perdendo a primeira luta por chave de braço, mas conseguindo um empate de 40 minutos na revanche de vale-tudo, uma conquista considerada notável dada a reputação de Kimura.
 
@@ -74,7 +74,7 @@ Posteriormente, Santana tornou-se instrutor na academia da polícia nacional do 
 
 Apesar de suas lesões, Santana continuou ensinando em sua academia de Brasília. Em 1980, identificou um jovem talento de Manaus chamado Casemiro Nascimento Martins (que se tornaria conhecido como Rei Zulu). Santana ficou tão impressionado que arranjou uma luta com Rickson Gracie, continuando a rivalidade que havia começado 25 anos antes para a próxima geração.
 
-Na Bahia, Santana treinou Mestre Boa Gente em sua academia de vale-tudo. Boa Gente, já habilidoso em Capoeira Angola sob Mestre Gato Preto, tornou-se campeão de MMA da Bahia em 1974 após treinar com o "Leopardo Negro." Santana também treinou Mestre Bom Cabrito em karatê, hapkido e vale-tudo em 1968. Em 1969, em Manaus, conheceu Mestre Pombo de Ouro, que viria a considerar Santana "seu outro Mestre."
+Na Bahia, Santana treinou Mestre Boa Gente em sua academia de vale-tudo. Boa Gente, já habilidoso em Capoeira Angola sob Mestre Gato Preto, tornou-se campeão de MMA da Bahia em 1974 após treinar com o "Leopardo Negro". Santana também treinou Mestre Bom Cabrito em karatê, hapkido e vale-tudo em 1968. Em 1969, em Manaus, conheceu Mestre Pombo de Ouro, que viria a considerar Santana "seu outro Mestre".
 
 Santana retornou à Bahia em seus últimos anos e morreu em agosto de 1984 de um AVC no Hospital Espanhol em Salvador. Tinha 54 anos.
 

@@ -34,7 +34,7 @@ Nilton and Cutica introduced young Norival to the elder masters of the Lower Cit
 
 On special occasions, even greater mestres would appear. Mestre Traíra, Mestre Waldemar, and others from the Liberdade neighborhood would organize incredible rodas—twenty masters showing up to sing, play berimbau, play pandeiro, and vadiar. Young Norival was always present at these rodas, watching and learning, but not yet entering the circle. These rodas were reserved only for mestres.
 
-The consecration came around 1963, at the festa (festival) of Ribeira in Salvador. During a roda led by Mestre Waldemar, Mestre Nilton told Norival to "buy the game." Until then, Norival was unknown to the great mestres of capoeira. That day, he played and demonstrated his worth before Mestre Waldemar, Mestre Traíra, Mestre Cobrinha Verde, Mestre Canjiquinha, and other excellent capoeiristas. He was consecrated as a capoeirista.
+The consecration came around 1963, at the festa (festival) of Ribeira in Salvador. During a roda led by Mestre Waldemar, Mestre Nilton told Norival to "buy the game". Until then, Norival was unknown to the great mestres of capoeira. That day, he played and demonstrated his worth before Mestre Waldemar, Mestre Traíra, Mestre Cobrinha Verde, Mestre Canjiquinha, and other excellent capoeiristas. He was consecrated as a capoeirista.
 
 On September 18, 1964, at age nineteen, Norival received his diploma—his formal certification to teach—from Nilton and Cutica. That November, he founded his first academy: Academia de Capoeira Angola Retintos. Five years later, in 1969, he created the Academia de Capoeira Angola Orixás da Bahia. In 1971, he married Sônia Maria Borges de Oliveira, with whom he had four children.
 
@@ -110,7 +110,7 @@ Mestre Nô é um angoleiro tradicionalista que enfatiza a autoridade do berimbau
 
 ## Teachers / Mestres
 
-- **Olegário** (grandfather) - First teacher on Itaparica Island from age 4 (1949). Not a formal mestre, but "opened the door to the world of capoeira." / Primeiro professor na Ilha de Itaparica aos 4 anos (1949). Não era mestre formal, mas "abriu a porta para o mundo da capoeira."
+- **Olegário** (grandfather) - First teacher on Itaparica Island from age 4 (1949). Not a formal mestre, but "opened the door to the world of capoeira". / Primeiro professor na Ilha de Itaparica aos 4 anos (1949). Não era mestre formal, mas "abriu a porta para o mundo da capoeira".
 - **Nilton** (Nilton Moraes Paes) - Primary teacher from 1952 in Massaranduba; jointly awarded diploma on Sept 18, 1964. / Professor principal desde 1952 em Massaranduba; concedeu diploma conjuntamente em 18 de setembro de 1964.
 - **Cutica** (Nelson Moraes Paes) - Primary teacher from 1952 in Massaranduba; jointly awarded diploma on Sept 18, 1964. / Professor principal desde 1952 em Massaranduba; concedeu diploma conjuntamente em 18 de setembro de 1964.
 - **Pierrô** - Teacher in Salvador; student of Zeca do Uruguai. / Professor em Salvador; aluno de Zeca do Uruguai.

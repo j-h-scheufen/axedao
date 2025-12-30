@@ -1,6 +1,6 @@
 # Ganga Zumba (c. 1630-1678)
 
-**Significance:** First king of Quilombo dos Palmares, title meaning "priest of the spiritual defense of the community."
+**Significance:** First king of Quilombo dos Palmares, title meaning "priest of the spiritual defense of the community".
 
 **Profile Type:** `resistance_leader`
 

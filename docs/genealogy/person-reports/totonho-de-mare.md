@@ -3,8 +3,8 @@
 **SQL Import:** `docs/genealogy/sql-imports/persons/totonho-de-mare.sql`
 
 **Significance / Significância:**
-- EN: Contemporary of Bimba and Pastinha; one of the four "owners and proprietors" of Gengibirra; co-founded CECA in 1941; praised by Edison Carneiro as one of "the best capoeiristas from Bahia."
-- PT: Contemporâneo de Bimba e Pastinha; um dos quatro "donos e proprietários" da Gengibirra; co-fundou o CECA em 1941; elogiado por Edison Carneiro como um dos "melhores capoeiristas da Bahia."
+- EN: Contemporary of Bimba and Pastinha; one of the four "owners and proprietors" of Gengibirra; co-founded CECA in 1941; praised by Edison Carneiro as one of "the best capoeiristas from Bahia".
+- PT: Contemporâneo de Bimba e Pastinha; um dos quatro "donos e proprietários" da Gengibirra; co-fundou o CECA em 1941; elogiado por Edison Carneiro como um dos "melhores capoeiristas da Bahia".
 
 **Profile Type:** `early_mestre`
 
@@ -32,7 +32,7 @@ Totonho de Maré claimed to have learned capoeira by himself, observing older pr
 
 For many years he "reigned" on Ilha de Maré, which gave him his nickname. He worked as a wagoner, grocery store operator, and docker to support himself while teaching capoeira informally in different neighborhoods of Salvador. Unlike many contemporaries, he never founded an academy, preferring to teach at street parties and public gatherings.
 
-In 1936, Samuel de Souza ("Querido de Deus") publicly stated that the Bahian championship title "deservedly belongs to Maré" over Bimba. That same year, Edison Carneiro praised him alongside Samuel Querido de Deus as "the best capoeiristas from Bahia." Carneiro later referenced him in "Negros Bantus" (1937) as both a capoeirista and docker.
+In 1936, Samuel de Souza ("Querido de Deus") publicly stated that the Bahian championship title "deservedly belongs to Maré" over Bimba. That same year, Edison Carneiro praised him alongside Samuel Querido de Deus as "the best capoeiristas from Bahia". Carneiro later referenced him in "Negros Bantus" (1937) as both a capoeirista and docker.
 
 Mestre Noronha recognized Totonho de Maré as one of the four "donos e proprietários" (owners and proprietors) of Gengibirra—the first centro of Capoeira Angola—alongside himself, Amorzinho, and Livino. In 1941, this group participated in founding CECA (Centro Esportivo de Capoeira Angola), handing leadership of their Gengibirra centro at Ladeira da Pedra to Mestre Pastinha.
 
@@ -40,7 +40,7 @@ In the 1930s, Totonho de Maré was part of the Sunday training gatherings at Mat
 
 In 1968, at age 74, Totonho de Maré appeared in the documentary "Dança de Guerra" directed by Jair Moura, demonstrating vadiação with Mestre Noronha—preserving footage of his playing style for future generations.
 
-In his final interviews before his death, he expressed concern about the evolution of capoeira: "Capoeira de Angola is beautiful, but today it's falsified...it used to be only for the love of the art." He praised Mestre Bimba as "a great mestre who fought a lot for the valorization of capoeira."
+In his final interviews before his death, he expressed concern about the evolution of capoeira: "Capoeira de Angola is beautiful, but today it's falsified...it used to be only for the love of the art". He praised Mestre Bimba as "a great mestre who fought a lot for the valorization of capoeira".
 
 Totonho de Maré died on October 18, 1974, at 80 years old. He is frequently honored in modern capoeira rodas through verses that reflect his elevated status within the tradition. He coined the expression "galanteria da capoeira" to describe the nobility and elegance of the old Bahian capoeiristas.
 
@@ -52,7 +52,7 @@ Totonho de Maré afirmou ter aprendido capoeira sozinho, observando praticantes 
 
 Por muitos anos ele "reinou" na Ilha de Maré, o que lhe deu seu apelido. Trabalhou como carroceiro, comerciante de mercearia e estivador para se sustentar enquanto ensinava capoeira informalmente em diferentes bairros de Salvador. Diferente de muitos contemporâneos, nunca fundou uma academia, preferindo ensinar em festas de rua e reuniões públicas.
 
-Em 1936, Samuel de Souza ("Querido de Deus") declarou publicamente que o título de campeão baiano "pertence merecidamente a Maré" sobre Bimba. Nesse mesmo ano, Edison Carneiro o elogiou junto com Samuel Querido de Deus como "os melhores capoeiristas da Bahia." Carneiro depois o referenciou em "Negros Bantus" (1937) como capoeirista e estivador.
+Em 1936, Samuel de Souza ("Querido de Deus") declarou publicamente que o título de campeão baiano "pertence merecidamente a Maré" sobre Bimba. Nesse mesmo ano, Edison Carneiro o elogiou junto com Samuel Querido de Deus como "os melhores capoeiristas da Bahia". Carneiro depois o referenciou em "Negros Bantus" (1937) como capoeirista e estivador.
 
 Mestre Noronha reconheceu Totonho de Maré como um dos quatro "donos e proprietários" da Gengibirra—o primeiro centro de Capoeira Angola—junto com ele mesmo, Amorzinho e Livino. Em 1941, esse grupo participou da fundação do CECA (Centro Esportivo de Capoeira Angola), passando a liderança de seu centro Gengibirra na Ladeira da Pedra para Mestre Pastinha.
 
@@ -60,7 +60,7 @@ Nos anos 1930, Totonho de Maré fazia parte dos encontros de treino de domingo n
 
 Em 1968, aos 74 anos, Totonho de Maré apareceu no documentário "Dança de Guerra" dirigido por Jair Moura, demonstrando vadiação com Mestre Noronha—preservando filmagens de seu estilo de jogo para futuras gerações.
 
-Em suas entrevistas finais antes de sua morte, ele expressou preocupação com a evolução da capoeira: "Capoeira de Angola é bonita, mas hoje está falsificada...antes era só pelo amor à arte." Ele elogiou Mestre Bimba como "um grande mestre que lutou muito pela valorização da capoeira."
+Em suas entrevistas finais antes de sua morte, ele expressou preocupação com a evolução da capoeira: "Capoeira de Angola é bonita, mas hoje está falsificada...antes era só pelo amor à arte". Ele elogiou Mestre Bimba como "um grande mestre que lutou muito pela valorização da capoeira".
 
 Totonho de Maré morreu em 18 de outubro de 1974, aos 80 anos. Ele é frequentemente homenageado nas rodas de capoeira modernas através de versos que refletem seu status elevado dentro da tradição. Ele cunhou a expressão "galanteria da capoeira" para descrever a nobreza e elegância dos antigos capoeiristas baianos.
 
@@ -143,8 +143,8 @@ The backlog entry "Antônio Maré" from capoeirahistory.com refers to this same 
 
 ## Notable Quotes / Citações Notáveis
 
-- "Capoeira de Angola is beautiful, but today it's falsified...it used to be only for the love of the art."
-- On Mestre Bimba: "He was a great mestre who fought a lot for the valorization of capoeira."
+- "Capoeira de Angola is beautiful, but today it's falsified...it used to be only for the love of the art".
+- On Mestre Bimba: "He was a great mestre who fought a lot for the valorization of capoeira".
 
 ## Sources / Fontes
 

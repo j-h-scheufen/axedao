@@ -21,7 +21,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   NULL, 'unknown'::genealogy.date_precision,
   '1911-01-01'::date, 'year'::genealogy.date_precision,
-  '{"association_context": "Great friends in Rio capoeira/malandro world. Both enemies of police officer Elpídio Ribeiro da Rocha. Leão do Norte killed by Elpídio ~1911; Miguel swore vengeance and confronted Elpídio multiple times before being killed himself in 1912."}'::jsonb,
+  '{"association_context": "Great friends in Rio capoeira/malandro world. Both enemies of police officer Elpídio Ribeiro da Rocha. Leão do Norte killed by Elpídio ~1911; Miguel swore vengeance and confronted Elpídio multiple times before being killed himself in 1912".}'::jsonb,
   'verified'::genealogy.confidence,
   'A Gazeta de Notícias, A Noite (July 12, 1912); capoeirahistory.com/black-shirt/',
   'Close friendship; Miguel swore to avenge Leão do Norte''s death at Elpídio''s hands',

@@ -19,8 +19,8 @@ SELECT
   NULL, NULL,
   '{}'::jsonb, 'likely'::genealogy.confidence,
   'O Globo (Feb 16, 1982) archived at velhosmestres.com/br/cobrinha-1982-3',
-  'Listed in 1982 O Globo article as one of the Regional mestres who were "almost all direct disciples of the legendary Bimba." Training dates unknown.',
-  'Listado no artigo do O Globo de 1982 como um dos mestres Regional que eram "quase todos discípulos diretos do lendário Bimba." Datas de treinamento desconhecidas.'
+  'Listed in 1982 O Globo article as one of the Regional mestres who were "almost all direct disciples of the legendary Bimba". Training dates unknown.',
+  'Listado no artigo do O Globo de 1982 como um dos mestres Regional que eram "quase todos discípulos diretos do lendário Bimba". Datas de treinamento desconhecidas.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Banduê' AND o.apelido = 'Bimba'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

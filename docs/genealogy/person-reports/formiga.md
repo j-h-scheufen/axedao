@@ -34,7 +34,7 @@ Beyond his skill as a capoeirista, Formiga worked as an electrician (eletricitá
 
 Formiga was instrumental in establishing the Fundação Mestre Bimba (FUMEB), serving as one of its founding mentors alongside his brother Nenel. He represented the family at official ceremonies honoring his father, including when Bimba received the Tomé de Souza Medal from the Salvador City Council. On June 12, 1996, when the Federal University of Bahia posthumously awarded Bimba the title of Doutor Honoris Causa, Formiga co-wrote the speech with capoeira researcher Frede Abreu and represented the family at the ceremony.
 
-Reflecting on his father's final years in Goiânia, Formiga famously stated: "Meu pai morreu de banzo (tristeza), por não ver a capoeira respeitada"—"My father died of banzo (sadness), for not seeing capoeira respected." Banzo is a term of African origin describing a profound homesickness and despair, particularly associated with enslaved Africans. His use of this word captured both the depth of Bimba's suffering and the historical memory that runs through capoeira.
+Reflecting on his father's final years in Goiânia, Formiga famously stated: "Meu pai morreu de banzo (tristeza), por não ver a capoeira respeitada"—"My father died of banzo (sadness), for not seeing capoeira respected". Banzo is a term of African origin describing a profound homesickness and despair, particularly associated with enslaved Africans. His use of this word captured both the depth of Bimba's suffering and the historical memory that runs through capoeira.
 
 Mestre Formiga passed away in 2003, leaving behind a legacy as one of the direct links to Mestre Bimba's authentic Capoeira Regional methodology.
 
@@ -42,7 +42,7 @@ Mestre Formiga passed away in 2003, leaving behind a legacy as one of the direct
 
 Demerval dos Santos Machado, conhecido como Mestre Formiga, foi filho de Mestre Bimba, o lendário criador da Capoeira Regional, e Dona Nair. Ele foi um dos únicos três dos treze filhos de Bimba (sete homens e seis mulheres) a alcançar o nível máximo de mestre na Capoeira Regional—os outros sendo seu meio-irmão Mestre Nenel e seu irmão Mestre Luís.
 
-Quando criança, Formiga treinava no Centro de Cultura Física Regional de seu pai em Salvador. Em junho de 1967, formou-se formalmente junto com seu meio-irmão Nenel, ambos recebendo sua formação das mãos de seu pai. Mestre Bimba exigia famosamente que todos os alunos provassem que estavam trabalhando ou mostrassem seus boletins escolares antes de treinar—uma disciplina que Formiga mais tarde recordou: "Para treinar com meu pai era preciso provar que estava trabalhando ou mostrar o boletim do colégio."
+Quando criança, Formiga treinava no Centro de Cultura Física Regional de seu pai em Salvador. Em junho de 1967, formou-se formalmente junto com seu meio-irmão Nenel, ambos recebendo sua formação das mãos de seu pai. Mestre Bimba exigia famosamente que todos os alunos provassem que estavam trabalhando ou mostrassem seus boletins escolares antes de treinar—uma disciplina que Formiga mais tarde recordou: "Para treinar com meu pai era preciso provar que estava trabalhando ou mostrar o boletim do colégio".
 
 Em 1973, a família Machado mudou-se para Goiânia, Goiás, seguindo falsas promessas de oportunidade de um ex-aluno. Quando a saúde de Bimba começou a declinar, os adolescentes Formiga e Nenel assumiram para continuar as aulas de seu pai em seu lugar. Em 5 de fevereiro de 1974, Mestre Bimba morreu de um AVC no Hospital das Clínicas de Goiânia. No funeral, os irmãos adolescentes Formiga e Nenel jogaram capoeira como uma homenagem final ao pai—um momento marcante que marcou sua transição de alunos para guardiões de seu legado.
 
@@ -50,7 +50,7 @@ Além de sua habilidade como capoeirista, Formiga trabalhava como eletricitário
 
 Formiga foi fundamental na criação da Fundação Mestre Bimba (FUMEB), servindo como um de seus mentores fundadores ao lado de seu irmão Nenel. Representou a família em cerimônias oficiais de homenagem a seu pai, incluindo quando Bimba recebeu a Medalha Tomé de Souza da Câmara Municipal de Salvador. Em 12 de junho de 1996, quando a Universidade Federal da Bahia postumamente concedeu a Bimba o título de Doutor Honoris Causa, Formiga escreveu o discurso em conjunto com o pesquisador de capoeira Frede Abreu e representou a família na cerimônia.
 
-Refletindo sobre os últimos anos de seu pai em Goiânia, Formiga declarou famosamente: "Meu pai morreu de banzo (tristeza), por não ver a capoeira respeitada." Banzo é um termo de origem africana que descreve uma profunda saudade e desespero, particularmente associado aos africanos escravizados. Seu uso desta palavra capturou tanto a profundidade do sofrimento de Bimba quanto a memória histórica que percorre a capoeira.
+Refletindo sobre os últimos anos de seu pai em Goiânia, Formiga declarou famosamente: "Meu pai morreu de banzo (tristeza), por não ver a capoeira respeitada". Banzo é um termo de origem africana que descreve uma profunda saudade e desespero, particularmente associado aos africanos escravizados. Seu uso desta palavra capturou tanto a profundidade do sofrimento de Bimba quanto a memória histórica que percorre a capoeira.
 
 Mestre Formiga faleceu em 2003, deixando um legado como um dos elos diretos com a metodologia autêntica da Capoeira Regional de Mestre Bimba.
 
@@ -165,7 +165,7 @@ Formiga's dual identity as both a capoeira mestre and a working-class union orga
 ### Português
 "Formiga" significa "ant" em inglês—a origem deste apelido não está documentada.
 
-Sua citação famosa captura tanto o sofrimento de seu pai quanto a memória histórica da capoeira: "Meu pai morreu de banzo (tristeza), por não ver a capoeira respeitada." A palavra "banzo" é de origem africana, originalmente descrevendo a profunda melancolia e desespero experimentados pelos africanos escravizados arrancados de sua terra natal.
+Sua citação famosa captura tanto o sofrimento de seu pai quanto a memória histórica da capoeira: "Meu pai morreu de banzo (tristeza), por não ver a capoeira respeitada". A palavra "banzo" é de origem africana, originalmente descrevendo a profunda melancolia e desespero experimentados pelos africanos escravizados arrancados de sua terra natal.
 
 A dupla identidade de Formiga como mestre de capoeira e sindicalista da classe trabalhadora reflete as raízes profundas da arte nas comunidades trabalhadoras afro-brasileiras.
 

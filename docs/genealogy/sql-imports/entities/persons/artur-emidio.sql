@@ -9,7 +9,7 @@
 -- STYLE: Regional - Trained in systematized Bahian capoeira from
 -- Mestre Paizinho (Teodoro Ramos), who was a student of Mestre
 -- Neném (African origin). Artur Emídio's teaching was described
--- as based on "the systematized method of Mestre Bimba," though
+-- as based on "the systematized method of Mestre Bimba", though
 -- he was not a direct student of Bimba.
 --
 -- LINEAGE: Neném (African) → Paizinho (Teodoro Ramos) → Artur Emídio
@@ -82,19 +82,19 @@ In 1954, Artur traveled to Rio de Janeiro to fight Hélio Gracie in a match that
 
 In Rio, Artur established his school above the Rio Novo pharmacy at Avenida dos Democraticos 1313, where he also worked as a masseur - famously treating Miss Brazil contestant Martha Rocha in 1954. He then founded the Academia de Capoeira Artur Emídio on Rua Manuel Fontenele, near Higienópolis in the Bonsucesso neighborhood - one of the first formal capoeira academies in the city.
 
-The most celebrated fight of his ring career came on April 13, 1957 (some sources say April 10), against Robson Gracie at Maracanãzinho. Artur had declared he would "do with Robson what Waldemar did with Hélio," showing confidence in capoeira''s effectiveness. The Diário Carioca reported that Artur was "brought to the ground at the very beginning" and subjected to "strangling from behind." The fight lasted only four minutes before Robson''s submission victory.
+The most celebrated fight of his ring career came on April 13, 1957 (some sources say April 10), against Robson Gracie at Maracanãzinho. Artur had declared he would "do with Robson what Waldemar did with Hélio", showing confidence in capoeira''s effectiveness. The Diário Carioca reported that Artur was "brought to the ground at the very beginning" and subjected to "strangling from behind". The fight lasted only four minutes before Robson''s submission victory.
 
-After this defeat, friends encouraged him to focus on teaching. His first student was Djalma Bandeira, who became a travel companion with whom Artur refined his skills. The Sunday roda at his academy became legendary - a meeting point where mestres from all over Brazil congregated. As Mestre Paulão recalled: "Masters from all over Brazil came to the roda of Artur Emídio... here the suburbs, the northern and the southern zones congregated, it was an eclectic capoeira." Excellent berimbau players like Mestres Paraná and Mucungê joined his orchestra.
+After this defeat, friends encouraged him to focus on teaching. His first student was Djalma Bandeira, who became a travel companion with whom Artur refined his skills. The Sunday roda at his academy became legendary - a meeting point where mestres from all over Brazil congregated. As Mestre Paulão recalled: "Masters from all over Brazil came to the roda of Artur Emídio... here the suburbs, the northern and the southern zones congregated, it was an eclectic capoeira". Excellent berimbau players like Mestres Paraná and Mucungê joined his orchestra.
 
-With his student Djalma Bandeira, Artur performed in the folkloric show "Skindô." The cultural entrepreneur Abraham Medina engaged them for a show featuring the romantic singer Nelson Gonçalves that toured New York, Paris, Acapulco, and Buenos Aires. Artur Emídio is likely the first capoeirista to perform abroad, pioneering capoeira in the United States, France, Uruguay, and Argentina during the 1950s and early 1960s. Other famous shows included "Capital Samba" and the musical "Arco-Íris," featuring artists like Joãozinho da Goméia, Ary Barroso, and Mestre Paraná.
+With his student Djalma Bandeira, Artur performed in the folkloric show "Skindô". The cultural entrepreneur Abraham Medina engaged them for a show featuring the romantic singer Nelson Gonçalves that toured New York, Paris, Acapulco, and Buenos Aires. Artur Emídio is likely the first capoeirista to perform abroad, pioneering capoeira in the United States, France, Uruguay, and Argentina during the 1950s and early 1960s. Other famous shows included "Capital Samba" and the musical "Arco-Íris", featuring artists like Joãozinho da Goméia, Ary Barroso, and Mestre Paraná.
 
-From the 1960s onward, Artur abandoned the ring and dedicated himself exclusively to capoeira. He gave displays throughout Rio, judged competitions including the famous Berimbau de Ouro, and became involved with the Cariocan Federation of Pugilism, which began institutionalizing capoeira. In 1987, he participated in an event with Bahian old masters at Circo Voador in Rio. In 1967, he and Mestre Bimba were photographed together at a capoeira symposium at Campos dos Afonsos in Rio - Artur later spoke of their "somewhat conflictual relationship."
+From the 1960s onward, Artur abandoned the ring and dedicated himself exclusively to capoeira. He gave displays throughout Rio, judged competitions including the famous Berimbau de Ouro, and became involved with the Cariocan Federation of Pugilism, which began institutionalizing capoeira. In 1987, he participated in an event with Bahian old masters at Circo Voador in Rio. In 1967, he and Mestre Bimba were photographed together at a capoeira symposium at Campos dos Afonsos in Rio - Artur later spoke of their "somewhat conflictual relationship".
 
 He trained many students who became important masters: Leopoldina (from ~1954), Djalma Bandeira, Paulo Gomes, Mendonça, Celso do Engenho da Rainha, Vilela, Vilmar, and Roberval Serejo. Mestre Paulo Gomes, also from Itabuna, later founded ABRACAP (Capoeira Association of Brazil) in 1985 and advised São Paulo Governor Mário Covas on capoeira legislation.
 
 Artur Emídio was part of a generation born in the 1930s that formed the core of contemporary Rio de Janeiro capoeira, alongside Leopoldina, Mário Buscapé, Djalma Bandeira, Roque, Paulo Gomes, and Celso do Engenho. There is consensus that four lineages were the main influences on Contemporary Capoeira in Rio: Artur Emídio, Paraná, Mário Buscapé, and Roque.
 
-An arthrosis in his left knee eventually prevented him from continuing to play and teach. He died on the afternoon of May 3, 2011, in Rio de Janeiro, at age 81. Portal Capoeira''s death notice declared: "Rio de Janeiro''s capoeira lost its greatest personality." The old guard of capoeira, in Rio and Bahia, knew that Artur was one of the greatest talents of all time. As his contemporaries said: "He did for capoeira what, to this day, all of us together still have not done."
+An arthrosis in his left knee eventually prevented him from continuing to play and teach. He died on the afternoon of May 3, 2011, in Rio de Janeiro, at age 81. Portal Capoeira''s death notice declared: "Rio de Janeiro''s capoeira lost its greatest personality". The old guard of capoeira, in Rio and Bahia, knew that Artur was one of the greatest talents of all time. As his contemporaries said: "He did for capoeira what, to this day, all of us together still have not done".
 
 A documentary film "From the Ring to the Stage" about his life, directed by Roberto Pereira and Ricardo Pereira, began recording in 2018 and was completed in 2023. Masters Genaro (1934-2022) and Polaco (1949-2021) provided testimonies before their deaths.',
   -- Extended content (Portuguese)
@@ -110,19 +110,19 @@ Em 1954, Artur viajou ao Rio de Janeiro para lutar contra Hélio Gracie em uma l
 
 No Rio, Artur estabeleceu sua escola acima da farmácia Rio Novo na Avenida dos Democraticos 1313, onde também trabalhava como massagista - atendendo famosamente a candidata a Miss Brasil Martha Rocha em 1954. Em seguida, fundou a Academia de Capoeira Artur Emídio na Rua Manuel Fontenele, perto de Higienópolis no bairro de Bonsucesso - uma das primeiras academias formais de capoeira da cidade.
 
-A luta mais célebre de sua carreira nos ringues foi em 13 de abril de 1957 (algumas fontes dizem 10 de abril), contra Robson Gracie no Maracanãzinho. Artur havia declarado que faria "com Robson o que Waldemar fez com Hélio," demonstrando confiança na eficácia da capoeira. O Diário Carioca relatou que Artur foi "levado ao chão logo no início" e submetido a "estrangulamento por trás." A luta durou apenas quatro minutos antes da vitória por finalização de Robson.
+A luta mais célebre de sua carreira nos ringues foi em 13 de abril de 1957 (algumas fontes dizem 10 de abril), contra Robson Gracie no Maracanãzinho. Artur havia declarado que faria "com Robson o que Waldemar fez com Hélio", demonstrando confiança na eficácia da capoeira. O Diário Carioca relatou que Artur foi "levado ao chão logo no início" e submetido a "estrangulamento por trás". A luta durou apenas quatro minutos antes da vitória por finalização de Robson.
 
-Após essa derrota, amigos o encorajaram a se concentrar no ensino. Seu primeiro aluno foi Djalma Bandeira, que se tornou um companheiro de viagem com quem Artur aprimorou suas habilidades. A roda de domingo em sua academia tornou-se lendária - um ponto de encontro onde mestres de todo o Brasil se reuniam. Como Mestre Paulão lembrou: "Mestres de todo o Brasil vinham à roda de Artur Emídio... aqui se congregavam os subúrbios, as zonas norte e sul, era uma capoeira eclética." Excelentes tocadores de berimbau como Mestres Paraná e Mucungê participavam de sua orquestra.
+Após essa derrota, amigos o encorajaram a se concentrar no ensino. Seu primeiro aluno foi Djalma Bandeira, que se tornou um companheiro de viagem com quem Artur aprimorou suas habilidades. A roda de domingo em sua academia tornou-se lendária - um ponto de encontro onde mestres de todo o Brasil se reuniam. Como Mestre Paulão lembrou: "Mestres de todo o Brasil vinham à roda de Artur Emídio... aqui se congregavam os subúrbios, as zonas norte e sul, era uma capoeira eclética". Excelentes tocadores de berimbau como Mestres Paraná e Mucungê participavam de sua orquestra.
 
-Com seu aluno Djalma Bandeira, Artur se apresentou no show folclórico "Skindô." O empresário cultural Abraham Medina os contratou para um show com o cantor romântico Nelson Gonçalves que excursionou por Nova York, Paris, Acapulco e Buenos Aires. Artur Emídio é provavelmente o primeiro capoeirista a se apresentar no exterior, sendo pioneiro da capoeira nos Estados Unidos, França, Uruguai e Argentina durante os anos 1950 e início dos 1960. Outros shows famosos incluíram "Capital Samba" e o musical "Arco-Íris," com artistas como Joãozinho da Goméia, Ary Barroso e Mestre Paraná.
+Com seu aluno Djalma Bandeira, Artur se apresentou no show folclórico "Skindô". O empresário cultural Abraham Medina os contratou para um show com o cantor romântico Nelson Gonçalves que excursionou por Nova York, Paris, Acapulco e Buenos Aires. Artur Emídio é provavelmente o primeiro capoeirista a se apresentar no exterior, sendo pioneiro da capoeira nos Estados Unidos, França, Uruguai e Argentina durante os anos 1950 e início dos 1960. Outros shows famosos incluíram "Capital Samba" e o musical "Arco-Íris", com artistas como Joãozinho da Goméia, Ary Barroso e Mestre Paraná.
 
-A partir dos anos 1960, Artur abandonou os ringues e se dedicou exclusivamente à capoeira. Fazia apresentações por todo o Rio, atuava como juiz em competições incluindo o famoso Berimbau de Ouro, e envolveu-se com a Federação Carioca de Pugilismo, que começou a institucionalizar a capoeira. Em 1987, participou de um evento com velhos mestres baianos no Circo Voador, no Rio. Em 1967, ele e Mestre Bimba foram fotografados juntos em um simpósio de capoeira em Campos dos Afonsos, no Rio - Artur depois falou de seu "relacionamento um tanto conflituoso."
+A partir dos anos 1960, Artur abandonou os ringues e se dedicou exclusivamente à capoeira. Fazia apresentações por todo o Rio, atuava como juiz em competições incluindo o famoso Berimbau de Ouro, e envolveu-se com a Federação Carioca de Pugilismo, que começou a institucionalizar a capoeira. Em 1987, participou de um evento com velhos mestres baianos no Circo Voador, no Rio. Em 1967, ele e Mestre Bimba foram fotografados juntos em um simpósio de capoeira em Campos dos Afonsos, no Rio - Artur depois falou de seu "relacionamento um tanto conflituoso".
 
 Treinou muitos alunos que se tornaram mestres importantes: Leopoldina (a partir de ~1954), Djalma Bandeira, Paulo Gomes, Mendonça, Celso do Engenho da Rainha, Vilela, Vilmar e Roberval Serejo. Mestre Paulo Gomes, também de Itabuna, posteriormente fundou a ABRACAP (Associação de Capoeira do Brasil) em 1985 e assessorou o Governador de São Paulo Mário Covas em legislação sobre capoeira.
 
 Artur Emídio fazia parte de uma geração nascida nos anos 1930 que formou o núcleo da capoeira contemporânea do Rio de Janeiro, ao lado de Leopoldina, Mário Buscapé, Djalma Bandeira, Roque, Paulo Gomes e Celso do Engenho. Há consenso de que quatro linhagens foram as principais influências na Capoeira Contemporânea do Rio: Artur Emídio, Paraná, Mário Buscapé e Roque.
 
-Uma artrose no joelho esquerdo eventualmente o impossibilitou de continuar jogando e ensinando. Faleceu na tarde de 3 de maio de 2011, no Rio de Janeiro, aos 81 anos. A nota de falecimento do Portal Capoeira declarou: "A capoeira do Rio de Janeiro perdeu sua maior personalidade." A velha guarda da capoeira, no Rio e na Bahia, sabia que Artur era um dos maiores talentos de todos os tempos. Como disseram seus contemporâneos: "Ele fez pela capoeira o que, até hoje, todos nós juntos ainda não fizemos."
+Uma artrose no joelho esquerdo eventualmente o impossibilitou de continuar jogando e ensinando. Faleceu na tarde de 3 de maio de 2011, no Rio de Janeiro, aos 81 anos. A nota de falecimento do Portal Capoeira declarou: "A capoeira do Rio de Janeiro perdeu sua maior personalidade". A velha guarda da capoeira, no Rio e na Bahia, sabia que Artur era um dos maiores talentos de todos os tempos. Como disseram seus contemporâneos: "Ele fez pela capoeira o que, até hoje, todos nós juntos ainda não fizemos".
 
 Um documentário "Do Ringue ao Palco" sobre sua vida, dirigido por Roberto Pereira e Ricardo Pereira, começou a ser gravado em 2018 e foi concluído em 2023. Os Mestres Genaro (1934-2022) e Polaco (1949-2021) deram depoimentos antes de suas mortes.',
   -- Achievements (English)
@@ -131,7 +131,7 @@ Um documentário "Do Ringue ao Palco" sobre sua vida, dirigido por Roberto Perei
 - Vale-tudo fighter defending capoeira''s reputation in the rings against Rudolf Hermanny, Hélio Gracie, and Robson Gracie
 - Judge at Berimbau de Ouro competition
 - Sunday rodas at Academia Artur Emídio were crucial meeting points for the development of Contemporary Capoeira
-- Featured performer in folkloric shows "Skindô," "Capital Samba," and musical "Arco-Íris"
+- Featured performer in folkloric shows "Skindô", "Capital Samba", and musical "Arco-Íris"
 - One of "four main lineages" of contemporary Rio de Janeiro capoeira
 - Subject of documentary "From the Ring to the Stage" (2023)
 - Took over Mestre Paizinho''s academy at age 15 (1945)',
@@ -141,12 +141,12 @@ Um documentário "Do Ringue ao Palco" sobre sua vida, dirigido por Roberto Perei
 - Lutador de vale-tudo defendendo a reputação da capoeira nos ringues contra Rudolf Hermanny, Hélio Gracie e Robson Gracie
 - Juiz no Berimbau de Ouro
 - Rodas de domingo na Academia Artur Emídio foram pontos de encontro cruciais para o desenvolvimento da Capoeira Contemporânea
-- Artista em destaque nos shows folclóricos "Skindô," "Capital Samba," e no musical "Arco-Íris"
+- Artista em destaque nos shows folclóricos "Skindô", "Capital Samba", e no musical "Arco-Íris"
 - Uma das "quatro principais linhagens" da capoeira contemporânea do Rio de Janeiro
 - Tema do documentário "Do Ringue ao Palco" (2023)
 - Assumiu a academia de Mestre Paizinho aos 15 anos (1945)',
   -- Researcher notes (English)
-  E'BIRTH DATE: March 31, 1930 - Confirmed by velhosmestres.com ("31st of March 1930"). Capoeirahistory.com lists only "1930."
+  E'BIRTH DATE: March 31, 1930 - Confirmed by velhosmestres.com ("31st of March 1930"). Capoeirahistory.com lists only "1930".
 
 DEATH DATE: May 3, 2011 - Confirmed by velhosmestres.com and Portal Capoeira obituary.
 
@@ -158,7 +158,7 @@ TEACHER LINEAGE: Neném (African) → Paizinho (Teodoro Ramos) → Artur Emídio
 
 PAIZINHO''S DEATH: Two conflicting stories exist - (1) meningitis (Artur''s account) vs (2) fell trying to fly with palm leaves from a coconut tree (folk legend).
 
-RELATIONSHIP WITH BIMBA: Artur Emídio described having a "somewhat conflictual relationship" with Mestre Bimba. They met at the 1967 capoeira symposium in Campos dos Afonsos, Rio. Artur''s academy is described as based on "the systematized method of Mestre Bimba," but this was learned through Paizinho''s lineage, not directly from Bimba.
+RELATIONSHIP WITH BIMBA: Artur Emídio described having a "somewhat conflictual relationship" with Mestre Bimba. They met at the 1967 capoeira symposium in Campos dos Afonsos, Rio. Artur''s academy is described as based on "the systematized method of Mestre Bimba", but this was learned through Paizinho''s lineage, not directly from Bimba.
 
 LEOPOLDINA TIMELINE: Velhosmestres.com states Leopoldina became Artur''s student in 1955. Raridadesdacapoeira says ~1954. The Leopoldina profile already exists and should have a statement added.
 
@@ -183,7 +183,7 @@ SOURCES CONSULTED:
 - sites.google.com/view/raridadesdacapoeira/mestre-leopoldina
 - nossa-tribo.com/mestre-artur-emidio/',
   -- Researcher notes (Portuguese)
-  E'DATA DE NASCIMENTO: 31 de março de 1930 - Confirmado por velhosmestres.com ("31 de março de 1930"). Capoeirahistory.com lista apenas "1930."
+  E'DATA DE NASCIMENTO: 31 de março de 1930 - Confirmado por velhosmestres.com ("31 de março de 1930"). Capoeirahistory.com lista apenas "1930".
 
 DATA DE FALECIMENTO: 3 de maio de 2011 - Confirmado por velhosmestres.com e obituário do Portal Capoeira.
 
@@ -195,7 +195,7 @@ LINHAGEM DE MESTRE: Neném (Africano) → Paizinho (Teodoro Ramos) → Artur Em�
 
 MORTE DE PAIZINHO: Duas histórias conflitantes existem - (1) meningite (relato de Artur) vs (2) caiu tentando voar com folhas de palmeira de um coqueiro (lenda popular).
 
-RELACIONAMENTO COM BIMBA: Artur Emídio descreveu ter um "relacionamento um tanto conflituoso" com Mestre Bimba. Eles se encontraram no simpósio de capoeira de 1967 em Campos dos Afonsos, Rio. A academia de Artur é descrita como baseada no "método sistematizado de Mestre Bimba," mas isso foi aprendido através da linhagem de Paizinho, não diretamente de Bimba.
+RELACIONAMENTO COM BIMBA: Artur Emídio descreveu ter um "relacionamento um tanto conflituoso" com Mestre Bimba. Eles se encontraram no simpósio de capoeira de 1967 em Campos dos Afonsos, Rio. A academia de Artur é descrita como baseada no "método sistematizado de Mestre Bimba", mas isso foi aprendido através da linhagem de Paizinho, não diretamente de Bimba.
 
 CRONOLOGIA DE LEOPOLDINA: Velhosmestres.com afirma que Leopoldina se tornou aluno de Artur em 1955. Raridadesdacapoeira diz ~1954. O perfil de Leopoldina já existe e deve ter uma declaração adicionada.
 

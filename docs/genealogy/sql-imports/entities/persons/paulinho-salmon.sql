@@ -22,7 +22,7 @@ INSERT INTO genealogy.person_profiles (
   ARRAY['https://agenciabrasil.ebc.com.br/cultura/noticia/2014-11/capoeira-de-roda-sera-reconhecida-como-patrimonio-cultural-da-humanidade', 'https://capoeirahistory.com/mestre/master-mario-buscape-1934-2021/']::text[],
   NULL::genealogy.style,
   E'Associated with the Grupo Capoeira da Guanabara in Rio de Janeiro (1960s). Together with Mestre Euclides Paes, known for teaching the "Pulo do Gato" (Cat''s Leap) technique. Represents a Rio de Janeiro Regional-influenced lineage that contributed to the spread of capoeira in Tijuca and beyond.',
-  E'Associado ao Grupo Capoeira da Guanabara no Rio de Janeiro (anos 1960). Junto com Mestre Euclides Paes, conhecido por ensinar a técnica do "Pulo do Gato." Representa uma linhagem carioca de influência Regional que contribuiu para a difusão da capoeira em Tijuca e além.',
+  E'Associado ao Grupo Capoeira da Guanabara no Rio de Janeiro (anos 1960). Junto com Mestre Euclides Paes, conhecido por ensinar a técnica do "Pulo do Gato". Representa uma linhagem carioca de influência Regional que contribuiu para a difusão da capoeira em Tijuca e além.',
   1940, 'decade'::genealogy.date_precision, 'Rio de Janeiro, Brazil',
   NULL, NULL::genealogy.date_precision, NULL,
   E'Paulinho Salmon is a veteran capoeira mestre from Rio de Janeiro with more than fifty years dedicated to the art of capoeiragem. His journey in capoeira spans from the formative years of the 1960s through to his role as a guardian of capoeira heritage in the twenty-first century.
@@ -31,7 +31,7 @@ In 1966, Paulinho Salmon, together with Mestre Euclides Paes, trained José Mari
 
 When Salmon and Euclides Paes discontinued their training activities for work-related reasons, they authorized Zé Maria to continue teaching in their place—a gesture that demonstrates the confidence they placed in their student and the informal succession patterns common in that era of capoeira transmission.
 
-In the twenty-first century, Paulinho Salmon emerged as a voice for capoeira heritage preservation. He became a member of a committee of capoeira mestres in Rio de Janeiro that works with IPHAN (Instituto do Patrimônio Histórico e Artístico Nacional) to discuss safeguarding measures for capoeira as cultural heritage. When interviewed by Agência Brasil in November 2014, ahead of UNESCO''s recognition of the Roda de Capoeira as Intangible Cultural Heritage of Humanity, Salmon articulated the depth of capoeira''s significance: "Capoeira is not just a game—capoeira is much more than that. The history of capoeira is intertwined with the history of Brazil itself. It was even used in warfare, such as the Paraguayan War."
+In the twenty-first century, Paulinho Salmon emerged as a voice for capoeira heritage preservation. He became a member of a committee of capoeira mestres in Rio de Janeiro that works with IPHAN (Instituto do Patrimônio Histórico e Artístico Nacional) to discuss safeguarding measures for capoeira as cultural heritage. When interviewed by Agência Brasil in November 2014, ahead of UNESCO''s recognition of the Roda de Capoeira as Intangible Cultural Heritage of Humanity, Salmon articulated the depth of capoeira''s significance: "Capoeira is not just a game—capoeira is much more than that. The history of capoeira is intertwined with the history of Brazil itself. It was even used in warfare, such as the Paraguayan War".
 
 The requests and recommendations of the mestres'' committee—including Salmon''s input—were incorporated into the UNESCO candidacy dossier. Their proposals included making capoeira a mandatory school subject and establishing knowledge-exchange meetings among practitioners.
 
@@ -44,7 +44,7 @@ Em 1966, Paulinho Salmon, junto com Mestre Euclides Paes, treinou José Maria da
 
 Quando Salmon e Euclides Paes descontinuaram suas atividades de treinamento por motivos de trabalho, autorizaram Zé Maria a continuar ensinando em seu lugar—um gesto que demonstra a confiança que depositavam em seu aluno e os padrões informais de sucessão comuns naquela era de transmissão da capoeira.
 
-No século XXI, Paulinho Salmon emergiu como uma voz pela preservação do patrimônio da capoeira. Tornou-se membro de um comitê de mestres de capoeira no Rio de Janeiro que trabalha com o IPHAN (Instituto do Patrimônio Histórico e Artístico Nacional) para discutir medidas de salvaguarda da capoeira como patrimônio cultural. Quando entrevistado pela Agência Brasil em novembro de 2014, antes do reconhecimento da Roda de Capoeira pela UNESCO como Patrimônio Cultural Imaterial da Humanidade, Salmon articulou a profundidade do significado da capoeira: "A capoeira não é só um jogo, a capoeira é muito mais do que isso, a história da capoeira se confunde com a própria história do país, já foi utilizada até em guerra, como a do Paraguai."
+No século XXI, Paulinho Salmon emergiu como uma voz pela preservação do patrimônio da capoeira. Tornou-se membro de um comitê de mestres de capoeira no Rio de Janeiro que trabalha com o IPHAN (Instituto do Patrimônio Histórico e Artístico Nacional) para discutir medidas de salvaguarda da capoeira como patrimônio cultural. Quando entrevistado pela Agência Brasil em novembro de 2014, antes do reconhecimento da Roda de Capoeira pela UNESCO como Patrimônio Cultural Imaterial da Humanidade, Salmon articulou a profundidade do significado da capoeira: "A capoeira não é só um jogo, a capoeira é muito mais do que isso, a história da capoeira se confunde com a própria história do país, já foi utilizada até em guerra, como a do Paraguai".
 
 Os pedidos e recomendações do comitê de mestres—incluindo a contribuição de Salmon—foram incorporados ao dossiê de candidatura à UNESCO. Suas propostas incluíam tornar a capoeira disciplina obrigatória nas escolas e estabelecer encontros de troca de conhecimento entre praticantes.
 
@@ -81,7 +81,7 @@ ECUADOR CEREMONY:
 In May 2013, traveled to Ecuador with Mestre Zé Maria to award mestre cords to Henry Vizcarra (Carvão) and Marco Herrera (Perninha) at the Centro do Mundo annual festival.
 
 QUOTE (2014):
-"A capoeira não é só um jogo, a capoeira é muito mais do que isso, a história da capoeira se confunde com a própria história do país, já foi utilizada até em guerra, como a do Paraguai."',
+"A capoeira não é só um jogo, a capoeira é muito mais do que isso, a história da capoeira se confunde com a própria história do país, já foi utilizada até em guerra, como a do Paraguai".',
   E'ESTIMATIVA DO ANO DE NASCIMENTO (1940, década):
 Em 2014, a Agência Brasil o descreveu como tendo "mais de 50 anos" como praticante/professor de capoeira. Se 50+ anos até 2014, ele começou por volta de 1964 ou antes. Se estava ensinando Zé Maria em 1966 (quando Zé Maria tinha 18 anos), Salmon provavelmente tinha pelo menos 20-25 anos, sugerindo nascimento por volta de 1940-1946. Usando 1940 com precisão de década como estimativa conservadora.
 
@@ -110,7 +110,7 @@ CERIMÔNIA NO EQUADOR:
 Em maio de 2013, viajou ao Equador com Mestre Zé Maria para conceder cordas de mestre a Henry Vizcarra (Carvão) e Marco Herrera (Perninha) no festival anual do Centro do Mundo.
 
 CITAÇÃO (2014):
-"A capoeira não é só um jogo, a capoeira é muito mais do que isso, a história da capoeira se confunde com a própria história do país, já foi utilizada até em guerra, como a do Paraguai."'
+"A capoeira não é só um jogo, a capoeira é muito mais do que isso, a história da capoeira se confunde com a própria história do país, já foi utilizada até em guerra, como a do Paraguai".'
 )
 ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name, title = EXCLUDED.title, portrait = EXCLUDED.portrait,

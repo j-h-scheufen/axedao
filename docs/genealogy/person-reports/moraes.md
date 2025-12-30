@@ -40,7 +40,7 @@ GCAP became one of the most recognized Capoeira Angola organizations in the worl
 
 Parallel to his capoeira work, Moraes pursued extensive formal education: a degree in Vernacular Letters with English (1991), a Master's degree in Social History, and a Doctorate in Culture and Society, all from universities in Bahia. He worked as a teacher of English and Portuguese at public schools.
 
-In 2004, his album "Brincando na Roda," released by Smithsonian Folkways Recordings, received a Grammy Award nomination—the first and only capoeira recording to achieve this honor.
+In 2004, his album "Brincando na Roda", released by Smithsonian Folkways Recordings, received a Grammy Award nomination—the first and only capoeira recording to achieve this honor.
 
 Today, GCAP maintains schools in Salvador, Ceará, Rio Grande do Sul, São Paulo, and Japan. Mestre Moraes has trained over twenty students who became mestres themselves.
 

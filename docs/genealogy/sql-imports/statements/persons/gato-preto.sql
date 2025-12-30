@@ -46,8 +46,8 @@ SELECT
   NULL, NULL,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'CapoeiraWiki; velhosmestres.com; Capoeira Online',
-  'Gato Preto trained under Mestre Waldemar da Paixão. The 1962 LP "Capoeira" was recorded at Waldemar''s barracão. Waldemar described him as "a good fellow" and noted his father Eutíquio was "a good capoeira master."',
-  'Gato Preto treinou com Mestre Waldemar da Paixão. O LP "Capoeira" de 1962 foi gravado no barracão de Waldemar. Waldemar o descreveu como "um bom sujeito" e observou que seu pai Eutíquio era "um bom mestre de capoeira."'
+  'Gato Preto trained under Mestre Waldemar da Paixão. The 1962 LP "Capoeira" was recorded at Waldemar''s barracão. Waldemar described him as "a good fellow" and noted his father Eutíquio was "a good capoeira master".',
+  'Gato Preto treinou com Mestre Waldemar da Paixão. O LP "Capoeira" de 1962 foi gravado no barracão de Waldemar. Waldemar o descreveu como "um bom sujeito" e observou que seu pai Eutíquio era "um bom mestre de capoeira".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Gato Preto' AND o.apelido = 'Waldemar'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
@@ -313,8 +313,8 @@ SELECT
   '1947-01-01'::date, 'year'::genealogy.date_precision,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'velhosmestres.com/br/gatopreto; velhosmestres.com/br/gato-1999-4',
-  E'In 1942, at around age 12, Gato Preto moved to São Braz where he began studying with Mestre Léo. Léo led a weekend capoeira group that included Messias, Zinho, Genesio, Lao, Tomazinho, Jaime, and Chumbinho. As Gato Preto recalled: "E Léo era o mestre." By then, people already said Gato Preto had nothing left to learn. In 1947, at seventeen, Gato Preto moved to Salvador to train with Cobrinha Verde.',
-  E'Em 1942, com cerca de 12 anos, Gato Preto mudou-se para São Braz onde começou a estudar com Mestre Léo. Léo liderava um grupo de capoeira de fim de semana que incluía Messias, Zinho, Genesio, Lao, Tomazinho, Jaime e Chumbinho. Como Gato Preto recordou: "E Léo era o mestre." A essa altura, as pessoas já diziam que Gato Preto não tinha mais nada a aprender. Em 1947, aos dezessete anos, Gato Preto mudou-se para Salvador para treinar com Cobrinha Verde.'
+  E'In 1942, at around age 12, Gato Preto moved to São Braz where he began studying with Mestre Léo. Léo led a weekend capoeira group that included Messias, Zinho, Genesio, Lao, Tomazinho, Jaime, and Chumbinho. As Gato Preto recalled: "E Léo era o mestre". By then, people already said Gato Preto had nothing left to learn. In 1947, at seventeen, Gato Preto moved to Salvador to train with Cobrinha Verde.',
+  E'Em 1942, com cerca de 12 anos, Gato Preto mudou-se para São Braz onde começou a estudar com Mestre Léo. Léo liderava um grupo de capoeira de fim de semana que incluía Messias, Zinho, Genesio, Lao, Tomazinho, Jaime e Chumbinho. Como Gato Preto recordou: "E Léo era o mestre". A essa altura, as pessoas já diziam que Gato Preto não tinha mais nada a aprender. Em 1947, aos dezessete anos, Gato Preto mudou-se para Salvador para treinar com Cobrinha Verde.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Gato Preto' AND o.apelido = 'Léo' AND o.apelido_context = 'São Braz'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

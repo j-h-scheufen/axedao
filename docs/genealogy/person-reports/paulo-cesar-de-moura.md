@@ -25,21 +25,21 @@
 
 ### English
 
-Paulo César de Moura was a capoeirista in early 20th century Salvador who was killed during the brutal persecution led by Police Chief Pedro de Azevedo Gordilho, known as "Pedrito." This persecution, which began in 1920 when Pedrito assumed command of the Bahian police cavalry, represented one of the darkest periods in capoeira history.
+Paulo César de Moura was a capoeirista in early 20th century Salvador who was killed during the brutal persecution led by Police Chief Pedro de Azevedo Gordilho, known as "Pedrito". This persecution, which began in 1920 when Pedrito assumed command of the Bahian police cavalry, represented one of the darkest periods in capoeira history.
 
 Unlike most persecution victims who are remembered only by apelidos (nicknames), Paulo César de Moura is recorded with what appears to be his full name, suggesting he may have been of higher social standing or that his identity was particularly memorable to those who survived the era.
 
-Mestre Onça Preta, who witnessed this era as a boy, recalled Paulo César de Moura among the fallen in a 1972 O Dia newspaper interview: "Besourinho, Doze Homens, Mãozinha, Antônio Galindéu, Geraldo Chapeleiro, Finado Manteiga, Nagé, Paulo César de Moura, Gasolinha, Juvelino and many others." According to Onça Preta, Pedrito's cavalry squad "conducted a real massacre among the old capoeira masters, not in open combat. Generally he assassinated them after capture, with the body appearing days later thrown in the woods, the back opened by knife cuts."
+Mestre Onça Preta, who witnessed this era as a boy, recalled Paulo César de Moura among the fallen in a 1972 O Dia newspaper interview: "Besourinho, Doze Homens, Mãozinha, Antônio Galindéu, Geraldo Chapeleiro, Finado Manteiga, Nagé, Paulo César de Moura, Gasolinha, Juvelino and many others". According to Onça Preta, Pedrito's cavalry squad "conducted a real massacre among the old capoeira masters, not in open combat. Generally he assassinated them after capture, with the body appearing days later thrown in the woods, the back opened by knife cuts".
 
 No further biographical details about Paulo César de Moura survive beyond this single reference in Onça Preta's testimony, making him one of the many victims of state violence against Afro-Brazilian culture and resistance.
 
 ### Português
 
-Paulo César de Moura foi um capoeirista do início do século XX em Salvador que foi morto durante a perseguição brutal liderada pelo Chefe de Polícia Pedro de Azevedo Gordilho, conhecido como "Pedrito." Esta perseguição, que começou em 1920 quando Pedrito assumiu o comando da cavalaria da polícia baiana, representou um dos períodos mais sombrios da história da capoeira.
+Paulo César de Moura foi um capoeirista do início do século XX em Salvador que foi morto durante a perseguição brutal liderada pelo Chefe de Polícia Pedro de Azevedo Gordilho, conhecido como "Pedrito". Esta perseguição, que começou em 1920 quando Pedrito assumiu o comando da cavalaria da polícia baiana, representou um dos períodos mais sombrios da história da capoeira.
 
 Ao contrário da maioria das vítimas da perseguição que são lembradas apenas por apelidos, Paulo César de Moura é registrado com o que parece ser seu nome completo, sugerindo que ele pode ter sido de posição social mais elevada ou que sua identidade era particularmente memorável para aqueles que sobreviveram à era.
 
-Mestre Onça Preta, que testemunhou essa era quando menino, recordou Paulo César de Moura entre os que tombaram em uma entrevista ao jornal O Dia em 1972: "Besourinho, Doze Homens, Mãozinha, Antônio Galindéu, Geraldo Chapeleiro, Finado Manteiga, Nagé, Paulo César de Moura, Gasolinha, Juvelino e muitos outros." Segundo Onça Preta, o esquadrão de cavalaria de Pedrito "empreendeu verdadeiro massacre entre os velhos mestres do jogo, não em combate aberto. Em geral os assassinava após a captura, aparecendo o corpo dias depois atirado ao mato, as costas abertas de facadas."
+Mestre Onça Preta, que testemunhou essa era quando menino, recordou Paulo César de Moura entre os que tombaram em uma entrevista ao jornal O Dia em 1972: "Besourinho, Doze Homens, Mãozinha, Antônio Galindéu, Geraldo Chapeleiro, Finado Manteiga, Nagé, Paulo César de Moura, Gasolinha, Juvelino e muitos outros". Segundo Onça Preta, o esquadrão de cavalaria de Pedrito "empreendeu verdadeiro massacre entre os velhos mestres do jogo, não em combate aberto. Em geral os assassinava após a captura, aparecendo o corpo dias depois atirado ao mato, as costas abertas de facadas".
 
 Nenhum outro detalhe biográfico sobre Paulo César de Moura sobrevive além desta única referência no testemunho de Onça Preta, tornando-o uma das muitas vítimas da violência estatal contra a cultura e resistência afro-brasileira.
 

@@ -85,7 +85,7 @@ SELECT
   'group'::genealogy.entity_type, g.id,
   '1916-01-01'::date, 'approximate'::genealogy.date_precision,
   '1924-07-08'::date, 'exact'::genealogy.date_precision,
-  '{"membership_context": "Began training with cousin Besouro at age 4 (1912/1916). Part of the Trapiche de Baixo community until Besouro''s death in 1924."}'::jsonb,
+  '{"membership_context": "Began training with cousin Besouro at age 4 (1912/1916). Part of the Trapiche de Baixo community until Besouro''s death in 1924".}'::jsonb,
   'verified'::genealogy.confidence,
   'Velhos Mestres; Nossa Tribo; Cobrinha Verde interviews',
   'Began training with his cousin Besouro Mangangá at Trapiche de Baixo around age 4 (1912-1916). Cobrinha Verde was the youngest member of the community, trained until Besouro''s death in 1924.',
@@ -160,8 +160,8 @@ SELECT
   '{"discipline": "mandinga"}'::jsonb,
   'verified'::genealogy.confidence,
   'Marcelino dos Santos, "Capoeira e Mandingas: Cobrinha Verde" (1991); Cobrinha Verde interview',
-  'Pascoal taught Cobrinha Verde spiritual practices (mandinga): 65 prayers, patuá creation, corpo fechado. He was not a capoeira teacher but a mandingueiro who transmitted African-Brazilian mystical traditions. Cobrinha said: "The person who gave me this amulet was an African who, to this day, when I speak of him, my eyes fill with tears. He was called Uncle Pascoal."',
-  'Pascoal ensinou a Cobrinha Verde práticas espirituais (mandinga): 65 orações, criação de patuá, corpo fechado. Ele não era professor de capoeira, mas um mandingueiro que transmitiu tradições místicas afro-brasileiras. Cobrinha disse: "A pessoa que me deu este amuleto foi um africano que, até hoje, quando falo dele, meus olhos se enchem de lágrimas. Ele se chamava Tio Pascoal."'
+  'Pascoal taught Cobrinha Verde spiritual practices (mandinga): 65 prayers, patuá creation, corpo fechado. He was not a capoeira teacher but a mandingueiro who transmitted African-Brazilian mystical traditions. Cobrinha said: "The person who gave me this amulet was an African who, to this day, when I speak of him, my eyes fill with tears. He was called Uncle Pascoal".',
+  'Pascoal ensinou a Cobrinha Verde práticas espirituais (mandinga): 65 orações, criação de patuá, corpo fechado. Ele não era professor de capoeira, mas um mandingueiro que transmitiu tradições místicas afro-brasileiras. Cobrinha disse: "A pessoa que me deu este amuleto foi um africano que, até hoje, quando falo dele, meus olhos se enchem de lágrimas. Ele se chamava Tio Pascoal".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Tio Pascoal'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

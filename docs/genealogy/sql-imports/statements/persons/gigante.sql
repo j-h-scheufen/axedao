@@ -75,8 +75,8 @@ SELECT
   '{}'::jsonb,
   'verified'::genealogy.confidence,
   'velhosmestres.com/en/featured-7 - "changed parties going to mestre Bimba''s academy"',
-  'After training in Angola tradition with Cobrinha Verde and Pastinha, Gigante "changed parties" (mudou de partido) and went to train at Mestre Bimba''s Regional academy. Bimba considered him "the best berimbau player in Bahia."',
-  'Após treinar na tradição Angola com Cobrinha Verde e Pastinha, Gigante "mudou de partido" e foi treinar na academia Regional de Mestre Bimba. Bimba o considerava "o melhor tocador de berimbau da Bahia."'
+  'After training in Angola tradition with Cobrinha Verde and Pastinha, Gigante "changed parties" (mudou de partido) and went to train at Mestre Bimba''s Regional academy. Bimba considered him "the best berimbau player in Bahia".',
+  'Após treinar na tradição Angola com Cobrinha Verde e Pastinha, Gigante "mudou de partido" e foi treinar na academia Regional de Mestre Bimba. Bimba o considerava "o melhor tocador de berimbau da Bahia".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Gigante' AND o.apelido = 'Bimba'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
@@ -100,8 +100,8 @@ SELECT
   '{"association_context": "Parceiros (partners/companions) in Salvador capoeira scene; often confused because they looked very similar"}'::jsonb,
   'verified'::genealogy.confidence,
   'velhosmestres.com/br/destaques-7 - "was Menino Gordo''s buddy (often mistaken with him as he looked alike)"',
-  'Gigante and Menino Gordo da Curva Grande were "parceiros" (partners) in the Salvador capoeira scene. Sources note they were often confused because they "looked very similar."',
-  'Gigante e Menino Gordo da Curva Grande eram "parceiros" na cena de capoeira de Salvador. Fontes notam que eram frequentemente confundidos porque "eram muito parecidos."'
+  'Gigante and Menino Gordo da Curva Grande were "parceiros" (partners) in the Salvador capoeira scene. Sources note they were often confused because they "looked very similar".',
+  'Gigante e Menino Gordo da Curva Grande eram "parceiros" na cena de capoeira de Salvador. Fontes notam que eram frequentemente confundidos porque "eram muito parecidos".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Gigante' AND o.apelido = 'Menino Gordo da Curva Grande'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

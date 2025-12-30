@@ -48,7 +48,7 @@ INSERT INTO genealogy.person_profiles (
   'unknown'::genealogy.date_precision,
   'Santo Amaro da Purificação, Bahia, Brazil', -- Presumed; he was living there after abolition
   -- bio_en
-  E'Tio Alípio was an African man who was brought to Brazil in chains to work at the Engenho Pantaleão sugar mill in Santo Amaro da Purificação, Bahia. According to historical accounts preserved by Mestre Cobrinha Verde, he was "the most famous master in Santo Amaro."
+  E'Tio Alípio was an African man who was brought to Brazil in chains to work at the Engenho Pantaleão sugar mill in Santo Amaro da Purificação, Bahia. According to historical accounts preserved by Mestre Cobrinha Verde, he was "the most famous master in Santo Amaro".
 
 His mother came from Africa on a slave ship that departed from the Port of São Jorge da Mina in Dahomey (present-day Benin). Alípio was enslaved while still young by a wealthy family. At the plantation, he endured the sufferings of slavery until abolition in 1888.
 
@@ -62,7 +62,7 @@ The significance of Tio Alípio extends beyond his own life. He represents the d
 
 Note: Some sources claim Alípio was "sentenced to death" for teaching capoeira. This has not been verified in any primary sources and may be a later embellishment. What is documented is that during this period, capoeira practitioners faced severe legal penalties including imprisonment and internal exile.',
   -- bio_pt
-  E'Tio Alípio foi um africano que foi trazido para o Brasil acorrentado para trabalhar no Engenho Pantaleão em Santo Amaro da Purificação, Bahia. Segundo relatos históricos preservados por Mestre Cobrinha Verde, ele era "o mestre mais famoso dentro de Santo Amaro."
+  E'Tio Alípio foi um africano que foi trazido para o Brasil acorrentado para trabalhar no Engenho Pantaleão em Santo Amaro da Purificação, Bahia. Segundo relatos históricos preservados por Mestre Cobrinha Verde, ele era "o mestre mais famoso dentro de Santo Amaro".
 
 Sua mãe veio da África em um navio negreiro que partiu do Porto de São Jorge da Mina no Daomé (atual Benin). Alípio foi escravizado ainda jovem por uma família rica. Na fazenda, ele suportou os sofrimentos da escravidão até a abolição em 1888.
 

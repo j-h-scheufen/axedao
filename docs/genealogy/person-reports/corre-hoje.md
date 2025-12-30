@@ -44,11 +44,11 @@ Nenhum detalhe biográfico sobre Corre Hoje—incluindo seu nome verdadeiro, dat
 Two conflicting narratives exist about how Corre Hoje died:
 
 1. **Shot by Nascimento Grande** (Educando com Ginga source):
-   > "O primeiro, mesmo ajudado por sete capangas, foi abatido por Nascimento com um tiro de pistola."
+   > "O primeiro, mesmo ajudado por sete capangas, foi abatido por Nascimento com um tiro de pistola".
    > (The first, even aided by seven henchmen, was struck down by Nascimento with a pistol shot.)
 
 2. **Stray bullet** (Mestre Brizola source):
-   > "Corre Hoje foi ajudado por sete homens na tentativa de liquidar Nascimento Grande e no final, encontrou a morte, atingido por uma bala perdida."
+   > "Corre Hoje foi ajudado por sete homens na tentativa de liquidar Nascimento Grande e no final, encontrou a morte, atingido por uma bala perdida".
    > (Corre Hoje was helped by seven men in an attempt to kill Nascimento Grande and ultimately found death, struck by a stray bullet.)
 
 Both accounts agree on:

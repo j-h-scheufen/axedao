@@ -66,11 +66,11 @@ He is known primarily through the testimony of his most famous student: Mestre J
 
 The encounter between Emerito and Jelon came by chance on a Saturday afternoon around 1963. The ten-year-old Jelon was on his way to get a haircut when he heard the sound of a berimbau coming from the end of the Engenho Velho de Brotas bus line. Drawn by the music, he found a crowd of people gathered around a capoeira roda led by Mestre Emerito. Jelon watched for hours, enchanted by what he saw: two men leaping and executing leg sweeps while the crowd responded to the chorus that Emerito was singing.
 
-After the roda ended, the young Jelon approached Emerito and said he wanted to learn "those kicks and jumps." Emerito laughed and explained that what Jelon had witnessed was Capoeira de Angola, then invited him to come to his house where he taught.
+After the roda ended, the young Jelon approached Emerito and said he wanted to learn "those kicks and jumps". Emerito laughed and explained that what Jelon had witnessed was Capoeira de Angola, then invited him to come to his house where he taught.
 
 When Jelon told his mother he wanted to learn capoeira, she refused, saying the art had a very bad reputation and was practiced by bad people. From that day forward, Jelon decided to train in secret. He went to Emerito''s house, where he was impressed to find that the entire family practiced. However, training there was risky because Emerito''s house was very close to Jelon''s own home, increasing the chance of discovery.
 
-Jelon eventually transitioned to training with Mestre Bobô, whom he would later consider his "true mestre." But it was Emerito who first introduced him to capoeira and planted the seed that would grow into a lifetime''s dedication to the art.
+Jelon eventually transitioned to training with Mestre Bobô, whom he would later consider his "true mestre". But it was Emerito who first introduced him to capoeira and planted the seed that would grow into a lifetime''s dedication to the art.
 
 Emerito represents the countless unnamed teachers of capoeira who passed the art to the next generation during a time when it still carried significant social stigma. Through family practice and neighborhood rodas, teachers like Emerito kept the Angola tradition alive in Salvador during the mid-20th century.',
   -- bio_pt
@@ -80,11 +80,11 @@ Ele é conhecido principalmente através do testemunho de seu aluno mais famoso:
 
 O encontro entre Emerito e Jelon aconteceu por acaso em uma tarde de sábado por volta de 1963. O menino de dez anos estava a caminho de cortar o cabelo quando ouviu o som de um berimbau vindo do final da linha de ônibus do Engenho Velho de Brotas. Atraído pela música, encontrou uma multidão reunida em torno de uma roda de capoeira liderada por Mestre Emerito. Jelon assistiu por horas, encantado pelo que via: dois homens saltando e executando rasteiras enquanto a multidão respondia ao coro que Emerito cantava.
 
-Depois que a roda terminou, o jovem Jelon se aproximou de Emerito e disse que queria aprender "aquelas pernadas e saltos." Emerito riu e explicou que o que Jelon havia presenciado era Capoeira de Angola, depois o convidou para ir à sua casa onde ele ensinava.
+Depois que a roda terminou, o jovem Jelon se aproximou de Emerito e disse que queria aprender "aquelas pernadas e saltos". Emerito riu e explicou que o que Jelon havia presenciado era Capoeira de Angola, depois o convidou para ir à sua casa onde ele ensinava.
 
 Quando Jelon contou à sua mãe que queria aprender capoeira, ela recusou, dizendo que a arte tinha uma reputação muito ruim e era praticada por pessoas más. A partir daquele dia, Jelon decidiu treinar em segredo. Ele foi à casa de Emerito, onde ficou impressionado ao descobrir que toda a família praticava. No entanto, treinar lá era arriscado porque a casa de Emerito ficava muito perto da casa de Jelon, aumentando a chance de ser descoberto.
 
-Jelon eventualmente passou a treinar com Mestre Bobô, a quem mais tarde consideraria seu "verdadeiro mestre." Mas foi Emerito quem primeiro o introduziu à capoeira e plantou a semente que cresceria em uma dedicação de toda a vida à arte.
+Jelon eventualmente passou a treinar com Mestre Bobô, a quem mais tarde consideraria seu "verdadeiro mestre". Mas foi Emerito quem primeiro o introduziu à capoeira e plantou a semente que cresceria em uma dedicação de toda a vida à arte.
 
 Emerito representa os incontáveis professores anônimos de capoeira que passaram a arte para a próxima geração durante um tempo em que ela ainda carregava significativo estigma social. Através da prática familiar e das rodas de bairro, professores como Emerito mantiveram a tradição Angola viva em Salvador durante meados do século XX.',
   -- achievements_en

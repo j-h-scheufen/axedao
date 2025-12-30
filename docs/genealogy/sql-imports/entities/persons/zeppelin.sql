@@ -87,9 +87,9 @@ INSERT INTO genealogy.person_profiles (
   -- Extended content (bio_en)
   E'Zeppelin was one of the capoeiristas who participated in the historic demonstration of capoeira de Angola at the II Congresso Afro-Brasileiro held in Salvador on January 14, 1937. This landmark event, organized by folklorist Edison Carneiro and writer Aydano de Couto Ferraz, brought together intellectuals, researchers, and practitioners of Afro-Brazilian culture for what became a pivotal moment in the documentation and legitimization of capoeira.
 
-The demonstration took place at the basketball court of Club de Regatas Itapagipe in the Ribeira neighborhood. Samuel "Querido de Deus," considered by his peers as the best capoeirista in Bahia, directed the exhibition. The newspaper Estado da Bahia described the participants in the "vadiação" as including Barbosa, Onça Preta, Juvenal, Zeppelin, Bugaia, Fernandes, Eutíquio, Neném, Zei, Ambrósio, Barroso, Arthur Mattos, Raphael, Edgar, Damião, and other practitioners of "the great art of Mangangá."
+The demonstration took place at the basketball court of Club de Regatas Itapagipe in the Ribeira neighborhood. Samuel "Querido de Deus", considered by his peers as the best capoeirista in Bahia, directed the exhibition. The newspaper Estado da Bahia described the participants in the "vadiação" as including Barbosa, Onça Preta, Juvenal, Zeppelin, Bugaia, Fernandes, Eutíquio, Neném, Zei, Ambrósio, Barroso, Arthur Mattos, Raphael, Edgar, Damião, and other practitioners of "the great art of Mangangá".
 
-Zeppelin''s significance extends beyond his participation in this single event. Edison Carneiro included him as one of the key informants on capoeira de Angola in his groundbreaking book "Negros Bantus" (1937), which contains the first in-depth scholarly study of capoeira. In the preface, Carneiro acknowledged the "most efficient assistance" he received from "Samuel ''Querido de Deus,'' Barbosa and Zeppelin, regarding capoeira de Angola." That Zeppelin''s name appears alongside these two giants of early capoeira suggests he held considerable standing in the community of practitioners.
+Zeppelin''s significance extends beyond his participation in this single event. Edison Carneiro included him as one of the key informants on capoeira de Angola in his groundbreaking book "Negros Bantus" (1937), which contains the first in-depth scholarly study of capoeira. In the preface, Carneiro acknowledged the "most efficient assistance" he received from "Samuel ''Querido de Deus,'' Barbosa and Zeppelin, regarding capoeira de Angola". That Zeppelin''s name appears alongside these two giants of early capoeira suggests he held considerable standing in the community of practitioners.
 
 The II Congresso Afro-Brasileiro marked a turning point in how Brazilian intellectuals and the government viewed capoeira. Following the demonstrations by Querido de Deus, Zeppelin, and their companions, ethnographer Edison Carneiro and novelist Jorge Amado advocated for the creation of a federation of capoeiristas. This advocacy helped shift capoeira''s image from a criminalized street practice to a recognized cultural tradition worthy of preservation and study.
 
@@ -99,9 +99,9 @@ What is certain is that Zeppelin belonged to the generation of angoleiros who pr
   -- bio_pt
   E'Zeppelin foi um dos capoeiristas que participou da histórica demonstração de capoeira de Angola no II Congresso Afro-Brasileiro realizado em Salvador em 14 de janeiro de 1937. Este evento marcante, organizado pelo folclorista Edison Carneiro e pelo escritor Aydano de Couto Ferraz, reuniu intelectuais, pesquisadores e praticantes da cultura afro-brasileira no que se tornou um momento fundamental na documentação e legitimação da capoeira.
 
-A demonstração ocorreu na quadra de basquete do Club de Regatas Itapagipe no bairro da Ribeira. Samuel "Querido de Deus," considerado por seus pares como o melhor capoeirista da Bahia, dirigiu a exibição. O jornal Estado da Bahia descreveu os participantes da "vadiação" incluindo Barbosa, Onça Preta, Juvenal, Zeppelin, Bugaia, Fernandes, Eutíquio, Neném, Zei, Ambrósio, Barroso, Arthur Mattos, Raphael, Edgar, Damião e outros praticantes da "grande arte de Mangangá."
+A demonstração ocorreu na quadra de basquete do Club de Regatas Itapagipe no bairro da Ribeira. Samuel "Querido de Deus", considerado por seus pares como o melhor capoeirista da Bahia, dirigiu a exibição. O jornal Estado da Bahia descreveu os participantes da "vadiação" incluindo Barbosa, Onça Preta, Juvenal, Zeppelin, Bugaia, Fernandes, Eutíquio, Neném, Zei, Ambrósio, Barroso, Arthur Mattos, Raphael, Edgar, Damião e outros praticantes da "grande arte de Mangangá".
 
-A importância de Zeppelin vai além de sua participação neste único evento. Edison Carneiro o incluiu como um dos principais informantes sobre capoeira de Angola em seu livro pioneiro "Negros Bantus" (1937), que contém o primeiro estudo acadêmico aprofundado sobre capoeira. No prefácio, Carneiro reconheceu a "mais eficiente assistência" que recebeu de "Samuel ''Querido de Deus,'' Barbosa e Zeppelin, sobre a capoeira de Angola." O fato de o nome de Zeppelin aparecer ao lado destes dois gigantes da capoeira antiga sugere que ele tinha considerável prestígio na comunidade de praticantes.
+A importância de Zeppelin vai além de sua participação neste único evento. Edison Carneiro o incluiu como um dos principais informantes sobre capoeira de Angola em seu livro pioneiro "Negros Bantus" (1937), que contém o primeiro estudo acadêmico aprofundado sobre capoeira. No prefácio, Carneiro reconheceu a "mais eficiente assistência" que recebeu de "Samuel ''Querido de Deus,'' Barbosa e Zeppelin, sobre a capoeira de Angola". O fato de o nome de Zeppelin aparecer ao lado destes dois gigantes da capoeira antiga sugere que ele tinha considerável prestígio na comunidade de praticantes.
 
 O II Congresso Afro-Brasileiro marcou uma virada na forma como intelectuais brasileiros e o governo viam a capoeira. Após as demonstrações de Querido de Deus, Zeppelin e seus companheiros, o etnógrafo Edison Carneiro e o romancista Jorge Amado advogaram pela criação de uma federação de capoeiristas. Esta advocacia ajudou a mudar a imagem da capoeira de uma prática de rua criminalizada para uma tradição cultural reconhecida digna de preservação e estudo.
 
@@ -156,7 +156,7 @@ The following participated alongside Zeppelin in the II Congresso Afro-Brasileir
 - Damião
 
 CARNEIRO ACKNOWLEDGMENT:
-Edison Carneiro wrote in "Negros Bantus": "the most efficient assistance [...] from Samuel ''Querido de Deus,'' Barbosa and Zeppelin, regarding capoeira de Angola."
+Edison Carneiro wrote in "Negros Bantus": "the most efficient assistance [...] from Samuel ''Querido de Deus,'' Barbosa and Zeppelin, regarding capoeira de Angola".
 This indicates Zeppelin was among the top three capoeira informants for this seminal research.
 
 SOURCES:
@@ -174,7 +174,7 @@ SOURCES:
 
 MORTE: Desconhecida. Nenhuma data de morte registrada nas fontes consultadas.
 
-NOME COMPLETO: Desconhecido. Todas as fontes referem-se apenas a "Zeppelin" ou "Zepelim."
+NOME COMPLETO: Desconhecido. Todas as fontes referem-se apenas a "Zeppelin" ou "Zepelim".
 
 ORIGEM DO APELIDO: O nome "Zeppelin" provavelmente deriva dos famosos dirigíveis alemães que cativaram a imaginação pública nos anos 1920-1930. O Graf Zeppelin fez uma visita altamente divulgada ao Brasil em 1930, o que pode ter inspirado o apelido.
 
@@ -203,7 +203,7 @@ Os seguintes participaram ao lado de Zeppelin na demonstração do II Congresso 
 - Damião
 
 RECONHECIMENTO DE CARNEIRO:
-Edison Carneiro escreveu em "Negros Bantus": "a mais eficiente assistência [...] de Samuel ''Querido de Deus,'' Barbosa e Zeppelin, sobre a capoeira de Angola."
+Edison Carneiro escreveu em "Negros Bantus": "a mais eficiente assistência [...] de Samuel ''Querido de Deus,'' Barbosa e Zeppelin, sobre a capoeira de Angola".
 Isto indica que Zeppelin estava entre os três principais informantes de capoeira para esta pesquisa seminal.
 
 FONTES:

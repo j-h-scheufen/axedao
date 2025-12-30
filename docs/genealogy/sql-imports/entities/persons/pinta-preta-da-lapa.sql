@@ -56,9 +56,9 @@ The wounding was taken as a grave insult. The following day, Manuel Maria Trinda
 
 In a remarkable display of malandra cunning, Trindade and his companions whistled for the police, posed as victims of the Nagoas, and even helped with arrests of some Glória capoeiras. The next day, another man—João Maria da Silva Seabra, known as "Dr. Cereja"—was arrested for carrying a knife and boasting that he had wounded Pinta Preta. He was tried by jury and acquitted.
 
-Two years later, in 1872, the chief of police was still investigating Pinta Preta''s murderers, describing him in official records as a "member of the National Guard" and "chief of the capoeiras of Glória."
+Two years later, in 1872, the chief of police was still investigating Pinta Preta''s murderers, describing him in official records as a "member of the National Guard" and "chief of the capoeiras of Glória".
 
-Pinta Preta''s death triggered a cycle of vendetta killings documented by Plácido de Abreu in "Os Capoeiras" (1886): after Pinta Preta came the death of the "Caboclo Jacó" at Paula Matos, then the "Alemãozinho" near the Teatro Lírico do Campo, then César-Maneta on Praia do Peixe, and onward. As Abreu wrote, "these reprisals have continued until today."
+Pinta Preta''s death triggered a cycle of vendetta killings documented by Plácido de Abreu in "Os Capoeiras" (1886): after Pinta Preta came the death of the "Caboclo Jacó" at Paula Matos, then the "Alemãozinho" near the Teatro Lírico do Campo, then César-Maneta on Praia do Peixe, and onward. As Abreu wrote, "these reprisals have continued until today".
 
 His murder occurred on the eve of the return of Brazilian troops from the Paraguayan War (1864-1870), and historians suggest this timing was significant: the return of capoeiras who had been recruited for the war triggered a bloody struggle for positions with those who had stayed behind.',
   -- bio_pt
@@ -70,9 +70,9 @@ O ferimento foi tomado como uma grave ofensa. No dia seguinte, Manuel Maria Trin
 
 Em uma notável demonstração de astúcia malandra, Trindade e seus companheiros apitaram para a polícia, se passaram por vítimas dos Nagoas, e até ajudaram nas prisões de alguns capoeiras da Glória. No dia seguinte, outro homem—João Maria da Silva Seabra, conhecido como "Dr. Cereja"—foi preso por portar uma faca e se gabar de ter ferido Pinta Preta. Foi julgado pelo júri e absolvido.
 
-Dois anos depois, em 1872, o chefe de polícia ainda investigava os assassinos de Pinta Preta, descrevendo-o nos registros oficiais como "membro da Guarda Nacional" e "chefe dos capoeiras da Glória."
+Dois anos depois, em 1872, o chefe de polícia ainda investigava os assassinos de Pinta Preta, descrevendo-o nos registros oficiais como "membro da Guarda Nacional" e "chefe dos capoeiras da Glória".
 
-A morte de Pinta Preta desencadeou um ciclo de mortes por vingança documentado por Plácido de Abreu em "Os Capoeiras" (1886): depois de Pinta Preta veio a morte do "Caboclo Jacó" em Paula Matos, depois o "Alemãozinho" perto do Teatro Lírico do Campo, depois César-Maneta na Praia do Peixe, e assim por diante. Como Abreu escreveu, "essas represálias continuaram até hoje."
+A morte de Pinta Preta desencadeou um ciclo de mortes por vingança documentado por Plácido de Abreu em "Os Capoeiras" (1886): depois de Pinta Preta veio a morte do "Caboclo Jacó" em Paula Matos, depois o "Alemãozinho" perto do Teatro Lírico do Campo, depois César-Maneta na Praia do Peixe, e assim por diante. Como Abreu escreveu, "essas represálias continuaram até hoje".
 
 Seu assassinato ocorreu às vésperas do retorno das tropas brasileiras da Guerra do Paraguai (1864-1870), e historiadores sugerem que esse momento foi significativo: o retorno de capoeiras que haviam sido recrutados para a guerra desencadeou uma luta sangrenta por posições com aqueles que haviam ficado.',
   -- achievements_en

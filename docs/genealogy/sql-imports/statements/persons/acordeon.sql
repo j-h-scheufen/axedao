@@ -62,7 +62,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   '1990-01-01'::date, 'year'::genealogy.date_precision,
   NULL, NULL,
-  '{"association_context": {"en": "Photographed together in 1990, documented on Velhos Mestres. Both are major figures in the global capoeira community though from different lineages (Bimba vs Pastinha).", "pt": "Fotografados juntos em 1990, documentado no Velhos Mestres. Ambos são figuras importantes na comunidade global de capoeira embora de linhagens diferentes (Bimba vs Pastinha)."}}'::jsonb,
+  '{"association_context": {"en": "Photographed together in 1990, documented on Velhos Mestres. Both are major figures in the global capoeira community though from different lineages (Bimba vs Pastinha)"., "pt": "Fotografados juntos em 1990, documentado no Velhos Mestres. Ambos são figuras importantes na comunidade global de capoeira embora de linhagens diferentes (Bimba vs Pastinha)".}}'::jsonb,
   'verified'::genealogy.confidence,
   'Velhos Mestres (velhosmestres.com/br/destaques-76)',
   'Both are leading figures in the global capoeira community representing different lineages. Photographed together in 1990.',

@@ -24,13 +24,13 @@
 
 ### English
 
-Albertino da Hora, also known by the nickname "Moreno," was a student of Mestre Pastinha at the Centro Esportivo de Capoeira Angola (CECA) in the Pelourinho district of Salvador, Bahia. He was part of the generation of capoeiristas who trained at CECA during its golden era in the 1950s-1960s, alongside mestres such as João Grande, João Pequeno, Gildo Alfinete, Valdomiro, and Curió.
+Albertino da Hora, also known by the nickname "Moreno", was a student of Mestre Pastinha at the Centro Esportivo de Capoeira Angola (CECA) in the Pelourinho district of Salvador, Bahia. He was part of the generation of capoeiristas who trained at CECA during its golden era in the 1950s-1960s, alongside mestres such as João Grande, João Pequeno, Gildo Alfinete, Valdomiro, and Curió.
 
-In May 1963, Albertino was featured in a major photo essay on Capoeira Angola published in O Cruzeiro magazine. The article, written by Accoly Netto with photographs by Jean Solari, captured Mestre Pastinha "reliving on the stone streets of Salvador the incredible feats of African capoeiristas," assisted by his musicians and companions including João Oliveira dos Santos (João Grande), Raimundo da Virgem Natividade, Manuel de Carvalho, and Albertino da Hora. Multiple photographs show Albertino playing capoeira with Mestre Pastinha in the streets and at the Igreja de São Bárbara.
+In May 1963, Albertino was featured in a major photo essay on Capoeira Angola published in O Cruzeiro magazine. The article, written by Accoly Netto with photographs by Jean Solari, captured Mestre Pastinha "reliving on the stone streets of Salvador the incredible feats of African capoeiristas", assisted by his musicians and companions including João Oliveira dos Santos (João Grande), Raimundo da Virgem Natividade, Manuel de Carvalho, and Albertino da Hora. Multiple photographs show Albertino playing capoeira with Mestre Pastinha in the streets and at the Igreja de São Bárbara.
 
-In September 1964, Albertino traveled with Mestre Pastinha's group to Belo Horizonte for the International Folklore Congress. According to Mestre Gildo Alfinete's account, the delegation included "Mestre Pastinha, eu (Gildo Alfinete), Roberto Satanás, João Grande, Albertino da Hora e Toinho." The group performed at the Ginásio da Minas Tênis Clube on September 19-21, raising funds for the construction of the Universidade Católica de Minas Gerais. Photographs from this trip show Albertino (captioned as "Moreno") playing capoeira with João Grande while Pastinha, Toinho, Roberto Satanás, and Gildo Alfinete provided the bateria.
+In September 1964, Albertino traveled with Mestre Pastinha's group to Belo Horizonte for the International Folklore Congress. According to Mestre Gildo Alfinete's account, the delegation included "Mestre Pastinha, eu (Gildo Alfinete), Roberto Satanás, João Grande, Albertino da Hora e Toinho". The group performed at the Ginásio da Minas Tênis Clube on September 19-21, raising funds for the construction of the Universidade Católica de Minas Gerais. Photographs from this trip show Albertino (captioned as "Moreno") playing capoeira with João Grande while Pastinha, Toinho, Roberto Satanás, and Gildo Alfinete provided the bateria.
 
-Mestre Gato Preto, in his 1999 interview, recalled the composition of the bateria at Pastinha's rodas: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria." This places Albertino among the core musicians who accompanied the rodas at CECA during this era.
+Mestre Gato Preto, in his 1999 interview, recalled the composition of the bateria at Pastinha's rodas: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria". This places Albertino among the core musicians who accompanied the rodas at CECA during this era.
 
 Notably, Albertino was not among the capoeiristas who traveled to Dakar, Senegal for the First International Festival of Black Arts in April 1966. That delegation consisted of Pastinha, João Grande, Gato Preto, Gildo Alfinete, Roberto Satanás, and Camafeu de Oxossi.
 
@@ -38,13 +38,13 @@ Beyond these documented appearances, little is known about Albertino da Hora's l
 
 ### Português
 
-Albertino da Hora, também conhecido pelo apelido "Moreno," foi aluno de Mestre Pastinha no Centro Esportivo de Capoeira Angola (CECA) no bairro do Pelourinho em Salvador, Bahia. Ele fez parte da geração de capoeiristas que treinaram no CECA durante sua era dourada nas décadas de 1950-1960, junto com mestres como João Grande, João Pequeno, Gildo Alfinete, Valdomiro e Curió.
+Albertino da Hora, também conhecido pelo apelido "Moreno", foi aluno de Mestre Pastinha no Centro Esportivo de Capoeira Angola (CECA) no bairro do Pelourinho em Salvador, Bahia. Ele fez parte da geração de capoeiristas que treinaram no CECA durante sua era dourada nas décadas de 1950-1960, junto com mestres como João Grande, João Pequeno, Gildo Alfinete, Valdomiro e Curió.
 
-Em maio de 1963, Albertino foi destaque em uma grande reportagem fotográfica sobre Capoeira Angola publicada na revista O Cruzeiro. O artigo, escrito por Accoly Netto com fotografias de Jean Solari, capturou Mestre Pastinha "revivendo nas ruas empedradas de Salvador as proezas incríveis dos capoeiristas africanos," assistido por seus músicos e comparsas incluindo João Oliveira dos Santos (João Grande), Raimundo da Virgem Natividade, Manuel de Carvalho e Albertino da Hora. Múltiplas fotografias mostram Albertino jogando capoeira com Mestre Pastinha nas ruas e na Igreja de São Bárbara.
+Em maio de 1963, Albertino foi destaque em uma grande reportagem fotográfica sobre Capoeira Angola publicada na revista O Cruzeiro. O artigo, escrito por Accoly Netto com fotografias de Jean Solari, capturou Mestre Pastinha "revivendo nas ruas empedradas de Salvador as proezas incríveis dos capoeiristas africanos", assistido por seus músicos e comparsas incluindo João Oliveira dos Santos (João Grande), Raimundo da Virgem Natividade, Manuel de Carvalho e Albertino da Hora. Múltiplas fotografias mostram Albertino jogando capoeira com Mestre Pastinha nas ruas e na Igreja de São Bárbara.
 
-Em setembro de 1964, Albertino viajou com o grupo de Mestre Pastinha para Belo Horizonte para o Congresso Internacional de Folclore. Segundo o relato de Mestre Gildo Alfinete, a delegação incluía "Mestre Pastinha, eu (Gildo Alfinete), Roberto Satanás, João Grande, Albertino da Hora e Toinho." O grupo se apresentou no Ginásio da Minas Tênis Clube de 19 a 21 de setembro, arrecadando fundos para a construção da Universidade Católica de Minas Gerais. Fotografias desta viagem mostram Albertino (legendado como "Moreno") jogando capoeira com João Grande enquanto Pastinha, Toinho, Roberto Satanás e Gildo Alfinete faziam a bateria.
+Em setembro de 1964, Albertino viajou com o grupo de Mestre Pastinha para Belo Horizonte para o Congresso Internacional de Folclore. Segundo o relato de Mestre Gildo Alfinete, a delegação incluía "Mestre Pastinha, eu (Gildo Alfinete), Roberto Satanás, João Grande, Albertino da Hora e Toinho". O grupo se apresentou no Ginásio da Minas Tênis Clube de 19 a 21 de setembro, arrecadando fundos para a construção da Universidade Católica de Minas Gerais. Fotografias desta viagem mostram Albertino (legendado como "Moreno") jogando capoeira com João Grande enquanto Pastinha, Toinho, Roberto Satanás e Gildo Alfinete faziam a bateria.
 
-Mestre Gato Preto, em sua entrevista de 1999, recordou a composição da bateria nas rodas de Pastinha: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria." Isto coloca Albertino entre os músicos principais que acompanhavam as rodas no CECA durante essa época.
+Mestre Gato Preto, em sua entrevista de 1999, recordou a composição da bateria nas rodas de Pastinha: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria". Isto coloca Albertino entre os músicos principais que acompanhavam as rodas no CECA durante essa época.
 
 Notavelmente, Albertino não estava entre os capoeiristas que viajaram para Dakar, Senegal para o Primeiro Festival Internacional de Artes Negras em abril de 1966. Aquela delegação consistia de Pastinha, João Grande, Gato Preto, Gildo Alfinete, Roberto Satanás e Camafeu de Oxossi.
 
@@ -102,7 +102,7 @@ None documented / Nenhum documentado
 
 ## Critical Note on Nickname / Nota Crítica sobre o Apelido
 
-**IMPORTANT:** Albertino da Hora was also known as "Moreno." The velhosmestres.com 1964 photo captions him as "Moreno (Albertino da Hora)."
+**IMPORTANT:** Albertino da Hora was also known as "Moreno". The velhosmestres.com 1964 photo captions him as "Moreno (Albertino da Hora)".
 
 This Albertino/Moreno is **DISTINCT** from:
 - **The "Moreno" who was a student of Mestre Cobrinha Verde** - separate person, already in database with `apelido_context='Cobrinha Verde student'`
@@ -110,7 +110,7 @@ This Albertino/Moreno is **DISTINCT** from:
 
 "Moreno" (meaning brown-skinned, dark-haired) was an extremely common nickname in Brazilian capoeira, often given based on physical appearance. There were multiple people called "Moreno" in Salvador's capoeira scene.
 
-**IMPORTANTE:** Albertino da Hora também era conhecido como "Moreno." As legendas das fotos de velhosmestres.com de 1964 o identificam como "Moreno (Albertino da Hora)."
+**IMPORTANTE:** Albertino da Hora também era conhecido como "Moreno". As legendas das fotos de velhosmestres.com de 1964 o identificam como "Moreno (Albertino da Hora)".
 
 Este Albertino/Moreno é **DISTINTO** de:
 - **O "Moreno" que foi aluno de Mestre Cobrinha Verde** - pessoa separada, já no banco de dados com `apelido_context='Cobrinha Verde student'`

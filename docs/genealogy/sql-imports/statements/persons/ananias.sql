@@ -19,8 +19,8 @@ SELECT
   NULL, 'unknown'::genealogy.date_precision,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'Capoeira Connection interview 2011',
-  E'First capoeira teacher in informal dock rodas during religious festivals in São Félix. "Juvêncio was the mestre. He was a dock worker who did capoeira on the docks of São Félix... Nobody taught classes, but the real master was Juvêncio, everyone got together and played."',
-  E'Primeiro professor de capoeira nas rodas informais nas docas durante festas religiosas em São Félix. "Juvêncio era o mestre. Ele era estivador e fazia capoeira na beira do cais de São Félix... Ninguém ensinava, mas o mestre mesmo era o Juvêncio, todo mundo se reunia e pronto."'
+  E'First capoeira teacher in informal dock rodas during religious festivals in São Félix. "Juvêncio was the mestre. He was a dock worker who did capoeira on the docks of São Félix... Nobody taught classes, but the real master was Juvêncio, everyone got together and played".',
+  E'Primeiro professor de capoeira nas rodas informais nas docas durante festas religiosas em São Félix. "Juvêncio era o mestre. Ele era estivador e fazia capoeira na beira do cais de São Félix... Ninguém ensinava, mas o mestre mesmo era o Juvêncio, todo mundo se reunia e pronto".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Ananias' AND s.apelido_context IS NULL
   AND o.apelido = 'Juvêncio' AND o.apelido_context = 'São Félix'
@@ -40,8 +40,8 @@ SELECT
   '1946-01-01'::date, 'year'::genealogy.date_precision,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'Capoeira Connection interview 2011; velhosmestres.com',
-  E'Trained with Canjiquinha in Pastinha''s space in Liberdade. Played in Pastinha''s bateria during street rodas alongside Gato Preto. Ananias said he "got his diploma" from Canjiquinha, though "at that time, there wasn''t this business of diplomas."',
-  E'Treinou com Canjiquinha no espaço de Pastinha na Liberdade. Tocou na bateria de Pastinha durante rodas de rua ao lado de Gato Preto. Ananias disse que "tirou seu diploma" com Canjiquinha, embora "naquele tempo, não tinha esse negócio de diploma."'
+  E'Trained with Canjiquinha in Pastinha''s space in Liberdade. Played in Pastinha''s bateria during street rodas alongside Gato Preto. Ananias said he "got his diploma" from Canjiquinha, though "at that time, there wasn''t this business of diplomas".',
+  E'Treinou com Canjiquinha no espaço de Pastinha na Liberdade. Tocou na bateria de Pastinha durante rodas de rua ao lado de Gato Preto. Ananias disse que "tirou seu diploma" com Canjiquinha, embora "naquele tempo, não tinha esse negócio de diploma".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Ananias' AND s.apelido_context IS NULL
   AND o.apelido = 'Canjiquinha' AND o.apelido_context IS NULL

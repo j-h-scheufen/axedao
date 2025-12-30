@@ -59,7 +59,7 @@ INSERT INTO genealogy.person_profiles (
 
 In 1950, at age seventeen, Bigodinho moved to Cabula in Salvador. There he encountered the legendary berimbau master Auvelino, who taught him the secrets of the instrument that would make him famous. That same year, he began learning capoeira with Mestre Waldemar Rodrigues da Paixão at the famous Barracão on Estrada da Liberdade.
 
-For more than 25 years, Bigodinho frequented Mestre Waldemar''s Barracão—a time when, according to him, "boys and women did not play." At the Barracão he mingled with famous capoeiristas including Traíra, Zacarias Boa Morte, and many others. He became one of the most respected practitioners there, absorbing the traditional Angola style that Waldemar taught informally under his straw-roofed shed.
+For more than 25 years, Bigodinho frequented Mestre Waldemar''s Barracão—a time when, according to him, "boys and women did not play". At the Barracão he mingled with famous capoeiristas including Traíra, Zacarias Boa Morte, and many others. He became one of the most respected practitioners there, absorbing the traditional Angola style that Waldemar taught informally under his straw-roofed shed.
 
 By 1960, Bigodinho had become a professor of Capoeira Angola and established Grupo Resistência in the Lapinha neighborhood of Salvador. This was a crucial period marked by intense police repression of capoeira rodas. Despite the hostile environment, he persevered in teaching and preserving the tradition.
 
@@ -75,13 +75,13 @@ Researcher Frede Abreu noted that Mestre Bigodinho had great importance in the r
 
 On April 5, 2011, Mestre Bigodinho died at the Santa Casa de Misericórdia de Santo Amaro—the same hospital where the legendary Besouro Mangangá had died in 1924. He was 77 years old. He is remembered as one of the greatest representatives of popular culture in Bahia, a guardian of the old traditions who bridged the era of repression to the modern capoeira revival.
 
-As he once said about capoeira: "It is like a pharmacy: you have pain in your leg, in your muscle... so you do some capoeira jumping with the guys, when you come back you''ll be fine." And on its nature: "Capoeira is personal defense and each person defends themselves as they can in the moment of necessity. Capoeira is not about bravery."',
+As he once said about capoeira: "It is like a pharmacy: you have pain in your leg, in your muscle... so you do some capoeira jumping with the guys, when you come back you''ll be fine". And on its nature: "Capoeira is personal defense and each person defends themselves as they can in the moment of necessity. Capoeira is not about bravery".',
   -- bio_pt
   E'Reinaldo Santana, conhecido como Mestre Bigodinho, nasceu em 13 de setembro de 1933 em Conceição de Feira, Bahia. Cresceu em Acupe, distrito de Santo Amaro no Recôncavo Baiano, imerso nas ricas tradições culturais da região—um ambiente onde capoeira, samba-de-roda e candomblé se entrelaçavam na vida cotidiana.
 
 Em 1950, aos dezessete anos, Bigodinho se mudou para o Cabula em Salvador. Lá conheceu o lendário mestre de berimbau Auvelino, que lhe ensinou os segredos do instrumento que o tornaria famoso. No mesmo ano, começou a aprender capoeira com Mestre Waldemar Rodrigues da Paixão no famoso Barracão na Estrada da Liberdade.
 
-Por mais de 25 anos, Bigodinho frequentou o Barracão de Mestre Waldemar—uma época em que, segundo ele, "meninos e mulheres não jogavam." No Barracão conviveu com famosos capoeiristas como Traíra, Zacarias Boa Morte e muitos outros. Tornou-se um dos praticantes mais respeitados ali, absorvendo o estilo tradicional de Angola que Waldemar ensinava informalmente sob seu telhado de palha.
+Por mais de 25 anos, Bigodinho frequentou o Barracão de Mestre Waldemar—uma época em que, segundo ele, "meninos e mulheres não jogavam". No Barracão conviveu com famosos capoeiristas como Traíra, Zacarias Boa Morte e muitos outros. Tornou-se um dos praticantes mais respeitados ali, absorvendo o estilo tradicional de Angola que Waldemar ensinava informalmente sob seu telhado de palha.
 
 Por volta de 1960, Bigodinho já era professor de Capoeira Angola e estabeleceu o Grupo Resistência no bairro da Lapinha em Salvador. Foi um período crucial marcado pela intensa repressão policial às rodas de capoeira. Apesar do ambiente hostil, ele perseverou no ensino e na preservação da tradição.
 
@@ -97,7 +97,7 @@ O pesquisador Frede Abreu observou que Mestre Bigodinho teve grande importância
 
 Em 5 de abril de 2011, Mestre Bigodinho morreu na Santa Casa de Misericórdia de Santo Amaro—o mesmo hospital onde o lendário Besouro Mangangá havia morrido em 1924. Tinha 77 anos. É lembrado como um dos maiores representantes da cultura popular da Bahia, um guardião das antigas tradições que fez a ponte entre a era de repressão e o renascimento moderno da capoeira.
 
-Como ele uma vez disse sobre capoeira: "É como uma farmácia: você tem dor na perna, no músculo... então você faz uns pulos de capoeira com os caras, quando voltar vai estar bem." E sobre sua natureza: "Capoeira é defesa pessoal e cada pessoa se defende como pode no momento de necessidade. Capoeira não é sobre valentia."',
+Como ele uma vez disse sobre capoeira: "É como uma farmácia: você tem dor na perna, no músculo... então você faz uns pulos de capoeira com os caras, quando voltar vai estar bem". E sobre sua natureza: "Capoeira é defesa pessoal e cada pessoa se defende como pode no momento de necessidade. Capoeira não é sobre valentia".',
   -- achievements_en
   E'Frequented Mestre Waldemar''s legendary Barracão for over 25 years (1950-1970s)
 Founded and coordinated Grupo Resistência in Lapinha, Salvador (1960s)
@@ -171,8 +171,8 @@ HIATUS: 1970-1997 (27 years) - left due to repression and discrimination
 RETURN: 1997, encouraged by Mestre Lua Rasta
 
 QUOTES:
-1. "[Capoeira] is like a pharmacy: you have pain in your leg, in your muscle...so you do some capoeira jumping with the guys, when you come back you''ll be fine."
-2. "Capoeira is personal defense and each person defends themselves as they can in the moment of necessity. Capoeira is not about bravery."
+1. "[Capoeira] is like a pharmacy: you have pain in your leg, in your muscle...so you do some capoeira jumping with the guys, when you come back you''ll be fine".
+2. "Capoeira is personal defense and each person defends themselves as they can in the moment of necessity. Capoeira is not about bravery".
 3. "Capoeira não se faz, se joga" (Capoeira is not made, it is played) - title of Portal Capoeira article
 
 ASSOCIATIONS TO IMPORT:
@@ -235,8 +235,8 @@ HIATO: 1970-1997 (27 anos) - saiu devido à repressão e discriminação
 RETORNO: 1997, incentivado por Mestre Lua Rasta
 
 CITAÇÕES:
-1. "[Capoeira] é como uma farmácia: você tem dor na perna, no músculo... então você faz uns pulos de capoeira com os caras, quando voltar vai estar bem."
-2. "Capoeira é defesa pessoal e cada pessoa se defende como pode no momento de necessidade. Capoeira não é sobre valentia."
+1. "[Capoeira] é como uma farmácia: você tem dor na perna, no músculo... então você faz uns pulos de capoeira com os caras, quando voltar vai estar bem".
+2. "Capoeira é defesa pessoal e cada pessoa se defende como pode no momento de necessidade. Capoeira não é sobre valentia".
 3. "Capoeira não se faz, se joga" - título do artigo do Portal Capoeira
 
 ASSOCIAÇÕES PARA IMPORTAR:

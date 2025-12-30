@@ -60,7 +60,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   NULL, NULL,
   '2011-02-01'::date, 'exact'::genealogy.date_precision,
-  '{"association_context": "Neighbors and close friends in Paripe, Salvador. Decânio served on CEDANZE Council of Honor (2003)."}'::jsonb,
+  '{"association_context": "Neighbors and close friends in Paripe, Salvador. Decânio served on CEDANZE Council of Honor (2003)".}'::jsonb,
   'verified'::genealogy.confidence,
   'Portal Capoeira, CEDANZE website',
   'Decânio lived near João Pequeno in the Paripe neighborhood of Salvador (Subúrbio Ferroviário). They were close friends. When CEDANZE was formalized in 2003, Decânio served on its Council of Honor.',

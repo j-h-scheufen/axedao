@@ -349,7 +349,6 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 - `member_of` - Member of the group
 - `teaches_at` - Teaches at the group
 - `regional_coordinator_of` - Coordinates a region
-- `cultural_pioneer_of` - First to bring capoeira to region/country
 - `departed_from` - Left the group (see properties.departure_type)
 
 ### predicates (group-to-group)

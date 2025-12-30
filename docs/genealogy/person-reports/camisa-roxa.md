@@ -29,13 +29,13 @@ Edvaldo Carneiro e Silva, known as Grão-Mestre Camisa Roxa, was born on January
 
 At ten years old in 1954, Camisa Roxa began playing capoeira recreationally on the farm. He had no idea that nineteen years later he would be a professional capoeirista and the first to carry his art outside of Brazil.
 
-In the 1960s, Camisa Roxa moved to Salvador to complete his high school education. In 1962 or 1963, he entered Mestre Bimba's academy. An apt and hardworking pupil, he eventually gained recognition as Bimba's best student. His distinctive purple shirt, regularly worn to rodas in Bahia, earned him the nickname "Camisa Roxa."
+In the 1960s, Camisa Roxa moved to Salvador to complete his high school education. In 1962 or 1963, he entered Mestre Bimba's academy. An apt and hardworking pupil, he eventually gained recognition as Bimba's best student. His distinctive purple shirt, regularly worn to rodas in Bahia, earned him the nickname "Camisa Roxa".
 
-Beyond his Regional training, Camisa Roxa sought out other capoeiristas. He played in the traditional rodas at Mestre Pastinha's academy and at the rodas of Mestres Waldemar and Traíra on Rua Pero Vaz in Liberdade. His ability to bridge Regional and Angola styles earned him great respect. As one source noted, "Camisa Roxa pensava na Capoeira como um todo, reunindo Regional e Angola."
+Beyond his Regional training, Camisa Roxa sought out other capoeiristas. He played in the traditional rodas at Mestre Pastinha's academy and at the rodas of Mestres Waldemar and Traíra on Rua Pero Vaz in Liberdade. His ability to bridge Regional and Angola styles earned him great respect. As one source noted, "Camisa Roxa pensava na Capoeira como um todo, reunindo Regional e Angola".
 
 When he was 21, his father died, and Camisa Roxa became the family patriarch. He took responsibility for educating his brothers and sisters. Three of his brothers—Ermival, Pedrinho, and José Tadeu (later known as Mestre Camisa)—followed him to Mestre Bimba's academy, all becoming graduated students (*alunos formados*).
 
-In 1972, inspired by spreading capoeira, Camisa Roxa helped form Olodum Maré, a folkloric dance company that toured Brazil. In 1973, the group embarked for Europe under the name "Brasil Tropical." According to Matthias Röhrig Assunção, "Important for the diffusion of capoeira in Europe during the 1970s was Brazil Tropical, a company headed by the dancer and choreographer Domingos Campos and M. Camisa Roxa. Camisa Roxa, a student of M. Bimba, was at the time considered to be one of the best Regional players of Brazil."
+In 1972, inspired by spreading capoeira, Camisa Roxa helped form Olodum Maré, a folkloric dance company that toured Brazil. In 1973, the group embarked for Europe under the name "Brasil Tropical". According to Matthias Röhrig Assunção, "Important for the diffusion of capoeira in Europe during the 1970s was Brazil Tropical, a company headed by the dancer and choreographer Domingos Campos and M. Camisa Roxa. Camisa Roxa, a student of M. Bimba, was at the time considered to be one of the best Regional players of Brazil".
 
 In 1974, the Brasil Tropical show was transmitted worldwide during the World Cup opening. From 1975 onwards, Camisa Roxa gave demonstrations in martial arts academies across Europe. In 1979, he established headquarters in Munich, Germany, and later in Salzburg, Austria (1985-86).
 
@@ -53,11 +53,11 @@ Aos dez anos, em 1954, Camisa Roxa começou a jogar capoeira de forma recreativa
 
 Na década de 1960, Camisa Roxa mudou-se para Salvador para completar seus estudos secundários. Em 1962 ou 1963, ingressou na academia de Mestre Bimba. Aluno apto e trabalhador, eventualmente ganhou reconhecimento como o melhor aluno de Bimba. Sua distintiva camisa roxa, usada regularmente nas rodas da Bahia, lhe rendeu o apelido.
 
-Além de seu treinamento em Regional, Camisa Roxa procurou outros capoeiristas. Jogava nas rodas tradicionais da academia de Mestre Pastinha e nas rodas dos Mestres Waldemar e Traíra na Rua Pero Vaz, na Liberdade. Sua capacidade de unir os estilos Regional e Angola lhe rendeu grande respeito. Como nota uma fonte, "Camisa Roxa pensava na Capoeira como um todo, reunindo Regional e Angola."
+Além de seu treinamento em Regional, Camisa Roxa procurou outros capoeiristas. Jogava nas rodas tradicionais da academia de Mestre Pastinha e nas rodas dos Mestres Waldemar e Traíra na Rua Pero Vaz, na Liberdade. Sua capacidade de unir os estilos Regional e Angola lhe rendeu grande respeito. Como nota uma fonte, "Camisa Roxa pensava na Capoeira como um todo, reunindo Regional e Angola".
 
 Quando tinha 21 anos, seu pai faleceu, e Camisa Roxa tornou-se o patriarca da família. Assumiu a responsabilidade de educar seus irmãos. Três de seus irmãos—Ermival, Pedrinho e José Tadeu (mais tarde conhecido como Mestre Camisa)—seguiram-no até a academia de Mestre Bimba, todos tornando-se alunos formados.
 
-Em 1972, inspirado em difundir a capoeira, Camisa Roxa ajudou a formar o Olodum Maré, uma companhia de dança folclórica que percorreu o Brasil. Em 1973, o grupo embarcou para a Europa sob o nome "Brasil Tropical." Segundo Matthias Röhrig Assunção, "Importante para a difusão da capoeira na Europa durante os anos 1970 foi o Brasil Tropical, uma companhia liderada pelo dançarino e coreógrafo Domingos Campos e M. Camisa Roxa. Camisa Roxa, um aluno de M. Bimba, era na época considerado um dos melhores jogadores de Regional do Brasil."
+Em 1972, inspirado em difundir a capoeira, Camisa Roxa ajudou a formar o Olodum Maré, uma companhia de dança folclórica que percorreu o Brasil. Em 1973, o grupo embarcou para a Europa sob o nome "Brasil Tropical". Segundo Matthias Röhrig Assunção, "Importante para a difusão da capoeira na Europa durante os anos 1970 foi o Brasil Tropical, uma companhia liderada pelo dançarino e coreógrafo Domingos Campos e M. Camisa Roxa. Camisa Roxa, um aluno de M. Bimba, era na época considerado um dos melhores jogadores de Regional do Brasil".
 
 Em 1974, o show do Brasil Tropical foi transmitido mundialmente durante a abertura da Copa do Mundo. A partir de 1975, Camisa Roxa fez demonstrações em academias de artes marciais pela Europa. Em 1979, estabeleceu sede em Munique, Alemanha, e depois em Salzburg, Áustria (1985-86).
 
@@ -100,10 +100,10 @@ Grão-Mestre Camisa Roxa faleceu em 18 de abril de 2013 em Salvador, Bahia. Embo
 ## Style Notes / Notas de Estilo
 
 ### English
-Grão-Mestre Camisa Roxa was one of the finest Regional players of his time—Matthias Röhrig Assunção described him as "one of the best Regional players of Brazil." However, he thought of capoeira holistically, integrating Regional and Angola. He played in Mestre Pastinha's academy and in the rodas of Mestres Waldemar and Traíra on Rua Pero Vaz, where he was highly respected for his posture and deep knowledge of capoeira fundamentals. This cross-stylistic appreciation was unusual for his era and reflected his understanding of capoeira as a unified tradition.
+Grão-Mestre Camisa Roxa was one of the finest Regional players of his time—Matthias Röhrig Assunção described him as "one of the best Regional players of Brazil". However, he thought of capoeira holistically, integrating Regional and Angola. He played in Mestre Pastinha's academy and in the rodas of Mestres Waldemar and Traíra on Rua Pero Vaz, where he was highly respected for his posture and deep knowledge of capoeira fundamentals. This cross-stylistic appreciation was unusual for his era and reflected his understanding of capoeira as a unified tradition.
 
 ### Português
-Grão-Mestre Camisa Roxa foi um dos melhores jogadores de Regional de sua época—Matthias Röhrig Assunção o descreveu como "um dos melhores jogadores de Regional do Brasil." No entanto, ele pensava na capoeira de forma holística, integrando Regional e Angola. Jogava na academia de Mestre Pastinha e nas rodas dos Mestres Waldemar e Traíra na Rua Pero Vaz, onde era muito respeitado por sua postura e profundo conhecimento dos fundamentos da capoeira. Esta apreciação entre estilos era incomum para sua época e refletia sua compreensão da capoeira como uma tradição unificada.
+Grão-Mestre Camisa Roxa foi um dos melhores jogadores de Regional de sua época—Matthias Röhrig Assunção o descreveu como "um dos melhores jogadores de Regional do Brasil". No entanto, ele pensava na capoeira de forma holística, integrando Regional e Angola. Jogava na academia de Mestre Pastinha e nas rodas dos Mestres Waldemar e Traíra na Rua Pero Vaz, onde era muito respeitado por sua postura e profundo conhecimento dos fundamentos da capoeira. Esta apreciação entre estilos era incomum para sua época e refletia sua compreensão da capoeira como uma tradição unificada.
 
 ## Teachers / Mestres
 
@@ -166,7 +166,7 @@ Grão-Mestre Camisa Roxa foi um dos melhores jogadores de Regional de sua época
 
 ## Death Circumstances / Circunstâncias da Morte
 
-According to Portal Capoeira, Grão-Mestre Camisa Roxa "suffered a fall from a roof, resulting in his death." He died in Salvador, Bahia, on April 18, 2013, after spending his last years in Austria coordinating Abadá-Capoeira in Europe.
+According to Portal Capoeira, Grão-Mestre Camisa Roxa "suffered a fall from a roof, resulting in his death". He died in Salvador, Bahia, on April 18, 2013, after spending his last years in Austria coordinating Abadá-Capoeira in Europe.
 
 ## Apelido Origin / Origem do Apelido
 

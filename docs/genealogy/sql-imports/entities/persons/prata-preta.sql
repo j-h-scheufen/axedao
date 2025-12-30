@@ -56,7 +56,7 @@ Prata Preta commanded these barricades at Praça da Harmonia, organizing over 2,
 
 The trenches of Saúde were the last to fall. On November 16, 1904, before the final assault by Army and Navy forces, Prata Preta was captured in a police ambush. According to newspaper accounts, his arrest required five men from the police and army to subdue him. Even during capture, he was accused of killing an Army soldier and wounding two policemen. When brought to the Central Police Station, he was found carrying two revolvers, a knife, and a jackknife, his body marked with sword bruises.
 
-On December 25, 1904, Prata Preta was deported aboard the ship Itaipava with hundreds of other prisoners to the distant federal territory of Acre—Brazil''s "tropical Siberia." The deportees were held in the ship''s hold under deplorable conditions, many dying during the voyage. They were abandoned in the Amazon without shelter or means of sustenance.
+On December 25, 1904, Prata Preta was deported aboard the ship Itaipava with hundreds of other prisoners to the distant federal territory of Acre—Brazil''s "tropical Siberia". The deportees were held in the ship''s hold under deplorable conditions, many dying during the voyage. They were abandoned in the Amazon without shelter or means of sustenance.
 
 Nothing certain is known of Prata Preta''s fate after deportation. Some newspaper references from 1907 and 1909 suggest he may have returned to Rio de Janeiro, but this remains unconfirmed. His voice was silenced, making it easier for later narratives to construct allegories about him—some portraying him as a heroic opponent of elite oppression, others as something else entirely.
 
@@ -84,7 +84,7 @@ Em 2004, no centenário da Revolta da Vacina, moradores do bairro da Saúde fund
 
 DEATH: Unknown. After deportation to Acre on December 25, 1904 aboard the ship Itaipava, nothing certain is known of his fate. Some newspaper references from 1907 and 1909 suggest possible return to Rio de Janeiro, but this remains unconfirmed.
 
-NAME: Full name confirmed as Horácio José da Silva. Nickname "Prata Preta" means "Black Silver."
+NAME: Full name confirmed as Horácio José da Silva. Nickname "Prata Preta" means "Black Silver".
 
 PHYSICAL DESCRIPTION: "um homem de 30 anos presumíveis, alto, de compleição robusta, completamente imberbe" (a man of approximately 30 years, tall, robust build, completely beardless)
 

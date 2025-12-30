@@ -43,8 +43,8 @@ SELECT
   '{"association_context": "Fellow students of Waldemar, jointly designated as tradition continuers"}'::jsonb,
   'verified'::genealogy.confidence,
   'velhosmestres.com/br/waldemar-1989-2; velhosmestres.com/en/featured-44',
-  'Both students of Waldemar at Barracão. Waldemar pointed to them as "the capoeiristas of the future who will continue his tradition."',
-  'Ambos alunos de Waldemar no Barracão. Waldemar os apontou como "os capoeiristas do futuro que continuarão sua tradição."'
+  'Both students of Waldemar at Barracão. Waldemar pointed to them as "the capoeiristas of the future who will continue his tradition".',
+  'Ambos alunos de Waldemar no Barracão. Waldemar os apontou como "os capoeiristas do futuro que continuarão sua tradição".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cabelo Bom' AND o.apelido = 'Zacarias Boa Morte'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
@@ -87,8 +87,8 @@ SELECT
   '{"association_context": "Played together at Waldemar rodas and Conceição da Praia"}'::jsonb,
   'verified'::genealogy.confidence,
   'capoeira-connection.com/capoeira/2011/10/interview-with-mestre-joao-grande/',
-  'João Grande described playing against Cabelo Bom at Conceição da Praia on December 8th: "I gave him a meia lua and he gave me a meia lua and I retreated and then gave him a cabeçada and he lightly gave a knee strike to my jaw." João Grande listed Cabelo Bom among the elite at Waldemar''s: "There were only snakes, experts."',
-  'João Grande descreveu jogar contra Cabelo Bom na Conceição da Praia em 8 de dezembro: "Eu dei uma meia lua nele e ele me deu uma meia lua e eu recuei e então dei uma cabeçada nele e ele suavemente me deu uma joelhada no queixo." João Grande listou Cabelo Bom entre a elite de Waldemar: "Ali só tinha cobra, perito."'
+  'João Grande described playing against Cabelo Bom at Conceição da Praia on December 8th: "I gave him a meia lua and he gave me a meia lua and I retreated and then gave him a cabeçada and he lightly gave a knee strike to my jaw". João Grande listed Cabelo Bom among the elite at Waldemar''s: "There were only snakes, experts".',
+  'João Grande descreveu jogar contra Cabelo Bom na Conceição da Praia em 8 de dezembro: "Eu dei uma meia lua nele e ele me deu uma meia lua e eu recuei e então dei uma cabeçada nele e ele suavemente me deu uma joelhada no queixo". João Grande listou Cabelo Bom entre a elite de Waldemar: "Ali só tinha cobra, perito".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cabelo Bom' AND o.apelido = 'João Grande'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

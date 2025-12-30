@@ -56,9 +56,9 @@ Leopoldina trabalhou no Cais do Porto nas docas e integrou o Resistência, um gr
 
 Naquele mesmo ano, 1961, aos vinte e oito anos, desfilou pela primeira vez com a escola de samba Mangueira no Carnaval. Mangueira foi a primeira escola de samba a incluir capoeira em seus desfiles, dando grande visibilidade à arte. Leopoldina organizou sessenta capoeiristas para fazer demonstrações na ala V.C. Entende da Mangueira. Manteve essa parceria até cerca de 1974.
 
-Nestor Capoeira conheceu Leopoldina em 1965 e foi iniciado na capoeira por ele. Nestor mais tarde se tornaria um proeminente autor e realizador do documentário de 2005 "Mestre Leopoldina - A Fina Flor da Malandragem," dirigido por Rose La Creta.
+Nestor Capoeira conheceu Leopoldina em 1965 e foi iniciado na capoeira por ele. Nestor mais tarde se tornaria um proeminente autor e realizador do documentário de 2005 "Mestre Leopoldina - A Fina Flor da Malandragem", dirigido por Rose La Creta.
 
-Leopoldina ensinou capoeira na Atlética, o departamento de esportes da UFRJ (Universidade Federal do Rio de Janeiro). Através da capoeira, viajou internacionalmente para Suíça, Itália, Amsterdã, Alemanha e Senegal. Além da capoeira, Leopoldina apresentou seus alunos à cultura popular brasileira: samba, candomblé e umbanda. Tornou-se associado à entidade espiritual Zé Pelintra da Umbanda. Sua famosa frase, "A capoeira é a maçonaria da malandragem," capturava sua visão de mundo.
+Leopoldina ensinou capoeira na Atlética, o departamento de esportes da UFRJ (Universidade Federal do Rio de Janeiro). Através da capoeira, viajou internacionalmente para Suíça, Itália, Amsterdã, Alemanha e Senegal. Além da capoeira, Leopoldina apresentou seus alunos à cultura popular brasileira: samba, candomblé e umbanda. Tornou-se associado à entidade espiritual Zé Pelintra da Umbanda. Sua famosa frase, "A capoeira é a maçonaria da malandragem", capturava sua visão de mundo.
 
 Em 2005, quando tinha mais de setenta anos, permanecia em excelente condição física, jogando em ritmo acelerado com quatro ou mais jovens capoeiristas. Era um dos mestres mais conhecidos de seu tempo, ao lado dos Mestres João Pequeno e João Grande. Faleceu em 17 de outubro de 2007, em São José dos Campos.
 
@@ -87,12 +87,12 @@ Em 2005, quando tinha mais de setenta anos, permanecia em excelente condição f
 ## Style Notes / Notas de Estilo
 
 ### English
-Leopoldina's game was frequently described as quick, unpredictable, and full of mandinga. He synthesized two distinct traditions: the tiririca of carioca street fighters (learned from Quinzinho) and the Bahian capoeira with berimbau (learned from Artur Emídio). Later, around 1963, he was influenced by angoleiros at suburban Rio backyard rodas, which Artur Emídio noted was making Leopoldina "very slow."
+Leopoldina's game was frequently described as quick, unpredictable, and full of mandinga. He synthesized two distinct traditions: the tiririca of carioca street fighters (learned from Quinzinho) and the Bahian capoeira with berimbau (learned from Artur Emídio). Later, around 1963, he was influenced by angoleiros at suburban Rio backyard rodas, which Artur Emídio noted was making Leopoldina "very slow".
 
 This unique fusion made him respected by both Angoleiros and Regionalistas. He was renowned for his mastery of the berimbau and his musical compositions. His teaching emphasized kindness - he would not allow older students to hit beginners.
 
 ### Português
-O jogo de Leopoldina era frequentemente descrito como rápido, imprevisível e cheio de mandinga. Ele sintetizou duas tradições distintas: a tiririca dos lutadores de rua cariocas (aprendida com Quinzinho) e a capoeira baiana com berimbau (aprendida com Artur Emídio). Mais tarde, por volta de 1963, foi influenciado por angoleiros nas rodas de quintal do subúrbio do Rio, o que Artur Emídio notou estar deixando Leopoldina "muito lento."
+O jogo de Leopoldina era frequentemente descrito como rápido, imprevisível e cheio de mandinga. Ele sintetizou duas tradições distintas: a tiririca dos lutadores de rua cariocas (aprendida com Quinzinho) e a capoeira baiana com berimbau (aprendida com Artur Emídio). Mais tarde, por volta de 1963, foi influenciado por angoleiros nas rodas de quintal do subúrbio do Rio, o que Artur Emídio notou estar deixando Leopoldina "muito lento".
 
 Essa fusão única o tornou respeitado tanto por Angoleiros quanto por Regionalistas. Era renomado por sua maestria no berimbau e suas composições musicais. Seu ensino enfatizava a gentileza - não permitia que alunos mais velhos batessem nos iniciantes.
 
@@ -133,7 +133,7 @@ Leopoldina represents the rare premodern Rio lineage extending back through:
 | Field | Primary | Alternative | Notes |
 |-------|---------|-------------|-------|
 | Birth date | February 12, 1933 | December 2, 1933 | Feb 12 corroborated by multiple sources; Capoeira Fandom lists Dec 2 |
-| Training start with Quinzinho | 1951 | 1950 | Some sources say "around 1950," others specifically 1951 when he left SAM at age 18 |
+| Training start with Quinzinho | 1951 | 1950 | Some sources say "around 1950", others specifically 1951 when he left SAM at age 18 |
 | Quinzinho's death | ~1954 | Unknown | Estimated based on Leopoldina starting with Artur Emídio "around 1954" |
 
 ## Documentary / Documentário

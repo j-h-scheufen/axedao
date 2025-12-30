@@ -122,10 +122,10 @@ GCAP FOUNDING DISCREPANCY:
 Sources say Poloca was "part of GCAP since its founding" but GCAP was founded Oct 5, 1980 in Rio and moved to Salvador in 1982. Other sources specify he started training in 1983. Most likely he joined GCAP Salvador shortly after its establishment in Bahia, not the original Rio founding.
 
 CONTRAMESTRE TO MESTRE:
-Poloca held the rank of contramestre when he joined Nzinga in 1995. Current sources (2018+) refer to him as "Mestre Poloca." The exact date of his mestre title is not documented.
+Poloca held the rank of contramestre when he joined Nzinga in 1995. Current sources (2018+) refer to him as "Mestre Poloca". The exact date of his mestre title is not documented.
 
 SURNAME COINCIDENCE:
-Paulo Barreto (Poloca) and Paula Barreto (Paulinha) share the surname "Barreto." No source explicitly states they are siblings or otherwise related. They may simply share a common surname.
+Paulo Barreto (Poloca) and Paula Barreto (Paulinha) share the surname "Barreto". No source explicitly states they are siblings or otherwise related. They may simply share a common surname.
 
 EMPLOYMENT:
 CapoeiraHub states he is "staff at Federal University of Bahia" but does not specify his role. Given his background as geographer and art educator, he may work in an academic or administrative capacity.
@@ -145,10 +145,10 @@ DISCREPÂNCIA SOBRE FUNDAÇÃO DO GCAP:
 Fontes dizem que Poloca fazia "parte do GCAP desde sua fundação" mas o GCAP foi fundado em 5 de outubro de 1980 no Rio e mudou para Salvador em 1982. Outras fontes especificam que começou a treinar em 1983. Provavelmente ele se juntou ao GCAP Salvador logo após seu estabelecimento na Bahia, não na fundação original no Rio.
 
 CONTRAMESTRE PARA MESTRE:
-Poloca tinha o grau de contramestre quando se juntou ao Nzinga em 1995. Fontes atuais (2018+) referem-se a ele como "Mestre Poloca." A data exata de seu título de mestre não está documentada.
+Poloca tinha o grau de contramestre quando se juntou ao Nzinga em 1995. Fontes atuais (2018+) referem-se a ele como "Mestre Poloca". A data exata de seu título de mestre não está documentada.
 
 COINCIDÊNCIA DE SOBRENOME:
-Paulo Barreto (Poloca) e Paula Barreto (Paulinha) compartilham o sobrenome "Barreto." Nenhuma fonte afirma explicitamente que são irmãos ou de outra forma relacionados. Podem simplesmente compartilhar um sobrenome comum.
+Paulo Barreto (Poloca) e Paula Barreto (Paulinha) compartilham o sobrenome "Barreto". Nenhuma fonte afirma explicitamente que são irmãos ou de outra forma relacionados. Podem simplesmente compartilhar um sobrenome comum.
 
 EMPREGO:
 CapoeiraHub afirma que é "funcionário da Universidade Federal da Bahia" mas não especifica seu cargo. Dado seu histórico como geógrafo e arte-educador, pode trabalhar em capacidade acadêmica ou administrativa.

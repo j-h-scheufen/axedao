@@ -24,7 +24,7 @@ INSERT INTO genealogy.person_profiles (
     'https://portalcapoeira.com/capoeira/cidadania/onca-tigre-cidadao-honorario-de-brasilia/'
   ]::text[],
   'regional'::genealogy.style,
-  E'Trained directly under Mestre Bimba in Salvador, becoming part of Bimba''s first graduating class. Described as Bimba''s "most illustrious student." Received his apelido "Onça Tigre" from Mestre Bimba. Founded an academy of Capoeira Regional Baiana at the CPOR (Centro de Preparação de Oficiais da Reserva) in Bahia under Bimba''s supervision, where he served as monitor. Preserved and transmitted the complete methodology of Luta Regional Baiana as he learned it directly from Mestre Bimba.',
+  E'Trained directly under Mestre Bimba in Salvador, becoming part of Bimba''s first graduating class. Described as Bimba''s "most illustrious student". Received his apelido "Onça Tigre" from Mestre Bimba. Founded an academy of Capoeira Regional Baiana at the CPOR (Centro de Preparação de Oficiais da Reserva) in Bahia under Bimba''s supervision, where he served as monitor. Preserved and transmitted the complete methodology of Luta Regional Baiana as he learned it directly from Mestre Bimba.',
   E'Treinou diretamente com Mestre Bimba em Salvador, tornando-se parte da primeira turma de formatura de Bimba. Descrito como o "aluno mais ilustre" de Bimba. Recebeu seu apelido "Onça Tigre" de Mestre Bimba. Fundou uma academia de Capoeira Regional Baiana no CPOR (Centro de Preparação de Oficiais da Reserva) na Bahia sob supervisão de Bimba, onde atuou como monitor. Preservou e transmitiu a metodologia completa da Luta Regional Baiana como aprendeu diretamente de Mestre Bimba.',
   1919,
   'exact'::genealogy.date_precision,
@@ -61,7 +61,7 @@ Today, a public plaza at the Brasília Zoo bears his name: "Praça Mestre Onça 
 
 Após completar seus estudos secundários (Ginásio) em Mossoró, Milton viajou ao Recife para o curso pré-médico. Em Fortaleza, conquistou faixa preta de Jiu-Jitsu—uma credencial que inicialmente se mostraria um obstáculo quando buscou estudar capoeira. Quando finalmente chegou à Bahia para completar seus estudos médico-dentários, procurou o lendário Mestre Bimba. Inicialmente, Bimba recusou-se a aceitá-lo como aluno, desconfiado do histórico de jiu-jitsu do jovem.
 
-Após alguma insistência, Bimba cedeu, e Milton iniciou o que se tornaria um aprendizado transformador. Ele se mostrou tão apto que as fontes o descrevem como "o aluno mais ilustre do grande Mestre." Na primeira turma de formatura de Bimba, ele recebeu o apelido "Onça Tigre", um nome refletindo o caráter feroz de seu jogo.
+Após alguma insistência, Bimba cedeu, e Milton iniciou o que se tornaria um aprendizado transformador. Ele se mostrou tão apto que as fontes o descrevem como "o aluno mais ilustre do grande Mestre". Na primeira turma de formatura de Bimba, ele recebeu o apelido "Onça Tigre", um nome refletindo o caráter feroz de seu jogo.
 
 As conquistas profissionais de Onça Tigre foram notáveis. Formou-se Cirurgião Dentista na Bahia. Posteriormente, obteve Mestrado em Saúde Pública pela Escola Nacional de Saúde Pública do Rio de Janeiro, e conquistou diploma de Direito em Brasília, registrando-se na OAB-DF (#1891). Também se registrou como jornalista (APISP #4386) em São Paulo.
 
@@ -124,7 +124,7 @@ MEDIA APPEARANCES:
 - 2003: "Encontro dos Mestres Deo e Onça Tigre"
 
 MIGRATION TO BRASÍLIA:
-1964 move to Taguatinga explicitly linked to "unrest caused by the new dictatorial regime and constant persecution."
+1964 move to Taguatinga explicitly linked to "unrest caused by the new dictatorial regime and constant persecution".
 
 PROFESSIONAL CREDENTIALS:
 - Cirurgião Dentista (Bahia)
@@ -179,7 +179,7 @@ APARIÇÕES NA MÍDIA:
 - 2003: "Encontro dos Mestres Deo e Onça Tigre"
 
 MIGRAÇÃO PARA BRASÍLIA:
-Mudança para Taguatinga em 1964 explicitamente ligada à "agitação causada pelo novo regime ditatorial e perseguições constantes."
+Mudança para Taguatinga em 1964 explicitamente ligada à "agitação causada pelo novo regime ditatorial e perseguições constantes".
 
 CREDENCIAIS PROFISSIONAIS:
 - Cirurgião Dentista (Bahia)

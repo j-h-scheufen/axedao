@@ -52,9 +52,9 @@ INSERT INTO genealogy.person_profiles (
 
 His apelido came from an audacious act in 1920. During a gala funeral for a wealthy citizen, the anonymous favela dweller robbed the procession, stealing everything he could carry—including the seven elaborate flower crowns (coroas) that adorned the coffin. The quantity and quality of the objects stolen earned him a nickname that would soon be known throughout the entire city.
 
-What followed were years of "audacious robberies" that elevated him from police records to newspaper headlines, theatrical performances, and popular songs. The composer Sinhô (José Barbosa da Silva) wrote a samba in his honor in 1921—reportedly the first Brazilian song to explicitly celebrate a "bandido." The press, which had done much to build his fame, began to worry about the precedent.
+What followed were years of "audacious robberies" that elevated him from police records to newspaper headlines, theatrical performances, and popular songs. The composer Sinhô (José Barbosa da Silva) wrote a samba in his honor in 1921—reportedly the first Brazilian song to explicitly celebrate a "bandido". The press, which had done much to build his fame, began to worry about the precedent.
 
-But Sete Coroas was more than a thief. According to Madame Satã, speaking in 1971, he was "the greatest malandro of Rio de Janeiro that I knew from 1907 until today." Satã continued: "The one who taught me to be a malandro and met me when I was 9 years old was the late Sete Coroas." This places their meeting around 1909, when Satã was a child newly arrived in Rio.
+But Sete Coroas was more than a thief. According to Madame Satã, speaking in 1971, he was "the greatest malandro of Rio de Janeiro that I knew from 1907 until today". Satã continued: "The one who taught me to be a malandro and met me when I was 9 years old was the late Sete Coroas". This places their meeting around 1909, when Satã was a child newly arrived in Rio.
 
 Sete Coroas was a cafetão (pimp) in the Lapa district and a master in what Satã called "the fine art of malandragem": the game, the navalha (razor), the papo (smooth talk), the rasteira (leg sweep), and the valentia (courage/bravado). He transmitted the combat techniques that combined capoeira movements with razor fighting—the characteristic style of Rio''s street warriors. According to sources that document his time at the Dois Rios Correctional Colony on Ilha Grande, Sete Coroas was recognized as a capoeira practitioner among the prisoners.
 
@@ -68,7 +68,7 @@ Seu apelido veio de um ato audacioso em 1920. Durante um funeral de gala de um c
 
 O que se seguiu foram anos de "assaltos audaciosos" que o elevaram dos registros policiais às manchetes de jornais, espetáculos teatrais e canções populares. O compositor Sinhô (José Barbosa da Silva) fez um samba em sua homenagem em 1921—supostamente a primeira música brasileira a celebrar explicitamente um "bandido". A imprensa, que muito contribuíra para sua fama, começou a se preocupar com o precedente.
 
-Mas Sete Coroas era mais do que um ladrão. Segundo Madame Satã, falando em 1971, ele era "o maior malandro do Rio de Janeiro que eu conheci de 1907 até os dias de hoje." Satã continuou: "O que me ensinou a ser malandro e me conheceu com 9 anos de idade foi o falecido Sete Coroas." Isso situa o encontro deles por volta de 1909, quando Satã era uma criança recém-chegada ao Rio.
+Mas Sete Coroas era mais do que um ladrão. Segundo Madame Satã, falando em 1971, ele era "o maior malandro do Rio de Janeiro que eu conheci de 1907 até os dias de hoje". Satã continuou: "O que me ensinou a ser malandro e me conheceu com 9 anos de idade foi o falecido Sete Coroas". Isso situa o encontro deles por volta de 1909, quando Satã era uma criança recém-chegada ao Rio.
 
 Sete Coroas era cafetão no bairro da Lapa e mestre no que Satã chamava de "a fina arte da malandragem": o jogo, a navalha, o papo, a rasteira e a valentia. Ele transmitiu as técnicas de combate que combinavam movimentos de capoeira com luta de navalha—o estilo característico dos guerreiros de rua do Rio. De acordo com fontes que documentam seu tempo na Colônia Correcional de Dois Rios na Ilha Grande, Sete Coroas era reconhecido como praticante de capoeira entre os prisioneiros.
 
@@ -80,7 +80,7 @@ Sete Coroas alcançou algo raro: a imortalização na memória popular. Além do
   -- achievements_pt
   'Tema do samba de Sinhô de 1921 (supostamente a primeira música brasileira sobre um "bandido"); professor de Madame Satã; elevado à categoria de Exu na religião afro-brasileira; pesquisado pelo historiador Rômulo Costa Mattos como "o criminoso mais famoso da Primeira República"',
   -- Researcher notes (English)
-  E'BIRTH YEAR ESTIMATION (1885, decade precision): Madame Satã (b. 1900) said in 1971 interview that Sete Coroas "met me when I was 9 years old" (~1909) and was "the greatest malandro I knew from 1907." Already established malandro by 1907, suggesting he was at least in his 20s. Famous 1920 funeral robbery shows him at peak of his criminal career. Died 1923. If 35-40 at death, birth = ~1883-1888. Using 1885 as midpoint.
+  E'BIRTH YEAR ESTIMATION (1885, decade precision): Madame Satã (b. 1900) said in 1971 interview that Sete Coroas "met me when I was 9 years old" (~1909) and was "the greatest malandro I knew from 1907". Already established malandro by 1907, suggesting he was at least in his 20s. Famous 1920 funeral robbery shows him at peak of his criminal career. Died 1923. If 35-40 at death, birth = ~1883-1888. Using 1885 as midpoint.
 
 DEATH: 1923 (confirmed by Madame Satã interview to O Pasquim 1971; multiple sources agree)
 
@@ -98,7 +98,7 @@ IMPRISONMENT: Served time at Dois Rios Correctional Colony, Ilha Grande, where h
 
 RELIGIOUS STATUS: Elevated to Exu entity in Afro-Brazilian religion (umbanda).',
   -- Researcher notes (Portuguese)
-  E'ESTIMATIVA DO ANO DE NASCIMENTO (1885, precisão de década): Madame Satã (n. 1900) disse em entrevista de 1971 que Sete Coroas "me conheceu com 9 anos de idade" (~1909) e era "o maior malandro que conheci desde 1907." Já era malandro estabelecido em 1907, sugerindo que tinha pelo menos 20 e poucos anos. O famoso roubo do funeral de 1920 mostra-o no auge de sua carreira criminosa. Morreu em 1923. Se tinha 35-40 anos na morte, nascimento = ~1883-1888. Usando 1885 como ponto médio.
+  E'ESTIMATIVA DO ANO DE NASCIMENTO (1885, precisão de década): Madame Satã (n. 1900) disse em entrevista de 1971 que Sete Coroas "me conheceu com 9 anos de idade" (~1909) e era "o maior malandro que conheci desde 1907". Já era malandro estabelecido em 1907, sugerindo que tinha pelo menos 20 e poucos anos. O famoso roubo do funeral de 1920 mostra-o no auge de sua carreira criminosa. Morreu em 1923. Se tinha 35-40 anos na morte, nascimento = ~1883-1888. Usando 1885 como ponto médio.
 
 MORTE: 1923 (confirmado pela entrevista de Madame Satã ao Pasquim em 1971; múltiplas fontes concordam)
 

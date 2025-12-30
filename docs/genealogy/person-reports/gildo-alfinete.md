@@ -32,27 +32,27 @@ From the beginning, Gildo distinguished himself not only as a player but as a do
 
 In April 1966, Gildo experienced the crowning achievement of his early career: he traveled with Mestre Pastinha to Dakar, Senegal, for the First World Festival of Black Arts (Festival Mondial des Arts Nègres). The Brazilian delegation included six capoeiristas: Pastinha, João Grande, Gato Preto, Gildo Alfinete, Roberto Satanás, and Camafeu de Oxossi. The group departed on April 16 and performed at the Friendship Stadium (later renamed Stadium Demba Diop) before approximately 10,000 spectators.
 
-By this time, Pastinha was suffering from thrombosis that had damaged his vision—João Grande recalled that "the day Mestre Pastinha went to get the passport... he couldn't climb the stairs anymore." At the Dakar performances, Pastinha sat in the shade and played atabaque while his students demonstrated Capoeira Angola to the world. Gildo played capoeira alongside João Grande while Camafeu de Oxossi played berimbau. Throughout the journey, Gildo documented their experiences, creating a precious archive of the trip.
+By this time, Pastinha was suffering from thrombosis that had damaged his vision—João Grande recalled that "the day Mestre Pastinha went to get the passport... he couldn't climb the stairs anymore". At the Dakar performances, Pastinha sat in the shade and played atabaque while his students demonstrated Capoeira Angola to the world. Gildo played capoeira alongside João Grande while Camafeu de Oxossi played berimbau. Throughout the journey, Gildo documented their experiences, creating a precious archive of the trip.
 
-At the festival, young Senegalese boys showed movements similar to capoeira. When asked if it was capoeira, they replied: "Capoeira is in Brasil... Our people took it there and now you are showing it here." This encounter moved the Brazilian delegation deeply.
+At the festival, young Senegalese boys showed movements similar to capoeira. When asked if it was capoeira, they replied: "Capoeira is in Brasil... Our people took it there and now you are showing it here". This encounter moved the Brazilian delegation deeply.
 
 After Pastinha's death in 1981, Gildo transformed into an ambassador of Capoeira Angola. Though he never directed his own academy, he dedicated more than 40 years to teaching in Salvador. He gave lectures on capoeira history, often displaying photographs from his personal archive. On October 25, 2006, at the Associação Brasileira de Capoeira Angola (ABCA) in Salvador, he gave a notable lecture alongside Mestre Bola Sete.
 
 During that 2006 lecture, Gildo addressed misconceptions about Pastinha:
-- He explained that Pastinha carried an umbrella "wherever he went, rain or shine, to be used as a weapon in the case of an emergency."
+- He explained that Pastinha carried an umbrella "wherever he went, rain or shine, to be used as a weapon in the case of an emergency".
 - He refuted claims that Pastinha did not play berimbau or sing—confirming that the mestre did both.
 - He clarified that Pastinha had recruited Canjiquinha and made him a contra-mestre, contrary to claims that Pastinha learned from Canjiquinha.
-- He described how Pastinha taught his students "one by one, with the others watching."
+- He described how Pastinha taught his students "one by one, with the others watching".
 
 Gildo helped refound the ABCA on July 18, 1993, giving institutional structure to a tradition that had been passed hand to hand. He also financially supported projects aimed at providing young people access to Pastinha's teachings.
 
 Mestre Gildo Alfinete died on October 12, 2015, in Salvador at age 75.
 
-After his passing, his family discovered a treasure: more than 3,000 photographs and a handwritten notebook containing Pastinha's teachings. These materials had been accumulated over 52 years, since he received his diploma in 1963. His brother, Mestre Genésio "Meio-Quilo," compiled this archive into the book "Capoeira Angola Mundo Afora - Uma Jornada com o Mestre Pastinha," published in 2020. The book launch took place at the ABCA headquarters on Rua Gregório de Mattos 86 in Pelourinho, with rodas through the historic center of Salvador in homage.
+After his passing, his family discovered a treasure: more than 3,000 photographs and a handwritten notebook containing Pastinha's teachings. These materials had been accumulated over 52 years, since he received his diploma in 1963. His brother, Mestre Genésio "Meio-Quilo", compiled this archive into the book "Capoeira Angola Mundo Afora - Uma Jornada com o Mestre Pastinha", published in 2020. The book launch took place at the ABCA headquarters on Rua Gregório de Mattos 86 in Pelourinho, with rodas through the historic center of Salvador in homage.
 
 ### Português
 
-Gildo Lemos Couto nasceu em 16 de janeiro de 1940, no bairro do Tororó em Salvador, Bahia. Magro na juventude, ganhou o apelido "Alfinete." Aprender capoeira tornou-se sua forma de enfrentar aqueles que o provocavam por sua constituição franzina.
+Gildo Lemos Couto nasceu em 16 de janeiro de 1940, no bairro do Tororó em Salvador, Bahia. Magro na juventude, ganhou o apelido "Alfinete". Aprender capoeira tornou-se sua forma de enfrentar aqueles que o provocavam por sua constituição franzina.
 
 Em 1959, aos 19 anos, Gildo começou a treinar no Centro Esportivo de Capoeira Angola (CECA) de Mestre Pastinha no Pelourinho 19. Treinou diligentemente por quatro anos e, em 1963, recebeu seu diploma de capoeirista diretamente de Mestre Pastinha, colocando-o entre os discípulos mais próximos do mestre.
 
@@ -60,23 +60,23 @@ Desde o início, Gildo se distinguiu não apenas como jogador, mas como document
 
 Em abril de 1966, Gildo viveu a conquista máxima de sua carreira inicial: viajou com Mestre Pastinha para Dakar, Senegal, para o Primeiro Festival Mundial de Artes Negras (Festival Mondial des Arts Nègres). A delegação brasileira incluía seis capoeiristas: Pastinha, João Grande, Gato Preto, Gildo Alfinete, Roberto Satanás e Camafeu de Oxossi. O grupo partiu em 16 de abril e se apresentou no Estádio da Amizade (posteriormente renomeado Estádio Demba Diop) diante de aproximadamente 10.000 espectadores.
 
-Nessa época, Pastinha sofria de trombose que havia danificado sua visão—João Grande recordou que "no dia em que Mestre Pastinha foi pegar o passaporte... ele não conseguia mais subir as escadas." Nas apresentações em Dakar, Pastinha sentou na sombra e tocou atabaque enquanto seus alunos demonstravam Capoeira Angola ao mundo. Gildo jogou capoeira ao lado de João Grande enquanto Camafeu de Oxossi tocava berimbau. Durante toda a viagem, Gildo documentou suas experiências, criando um arquivo precioso da viagem.
+Nessa época, Pastinha sofria de trombose que havia danificado sua visão—João Grande recordou que "no dia em que Mestre Pastinha foi pegar o passaporte... ele não conseguia mais subir as escadas". Nas apresentações em Dakar, Pastinha sentou na sombra e tocou atabaque enquanto seus alunos demonstravam Capoeira Angola ao mundo. Gildo jogou capoeira ao lado de João Grande enquanto Camafeu de Oxossi tocava berimbau. Durante toda a viagem, Gildo documentou suas experiências, criando um arquivo precioso da viagem.
 
-No festival, jovens senegaleses mostraram movimentos similares à capoeira. Quando perguntados se era capoeira, responderam: "Capoeira é no Brasil... Nosso povo levou para lá e agora vocês estão mostrando aqui." Esse encontro comoveu profundamente a delegação brasileira.
+No festival, jovens senegaleses mostraram movimentos similares à capoeira. Quando perguntados se era capoeira, responderam: "Capoeira é no Brasil... Nosso povo levou para lá e agora vocês estão mostrando aqui". Esse encontro comoveu profundamente a delegação brasileira.
 
 Após a morte de Pastinha em 1981, Gildo se transformou em um embaixador da Capoeira Angola. Embora nunca tenha dirigido sua própria academia, dedicou mais de 40 anos ao ensino em Salvador. Deu palestras sobre história da capoeira, frequentemente exibindo fotografias de seu arquivo pessoal. Em 25 de outubro de 2006, na Associação Brasileira de Capoeira Angola (ABCA) em Salvador, ministrou uma palestra notável ao lado de Mestre Bola Sete.
 
 Durante aquela palestra de 2006, Gildo abordou equívocos sobre Pastinha:
-- Explicou que Pastinha carregava um guarda-chuva "onde quer que fosse, chovesse ou fizesse sol, para ser usado como arma em caso de emergência."
+- Explicou que Pastinha carregava um guarda-chuva "onde quer que fosse, chovesse ou fizesse sol, para ser usado como arma em caso de emergência".
 - Refutou afirmações de que Pastinha não tocava berimbau ou cantava—confirmando que o mestre fazia ambos.
 - Esclareceu que Pastinha havia recrutado Canjiquinha e o tornado contra-mestre, contrariando afirmações de que Pastinha aprendeu com Canjiquinha.
-- Descreveu como Pastinha ensinava seus alunos "um por um, com os outros assistindo."
+- Descreveu como Pastinha ensinava seus alunos "um por um, com os outros assistindo".
 
 Gildo ajudou a refundar a ABCA em 18 de julho de 1993, dando estrutura institucional a uma tradição que havia sido passada de mão em mão. Também apoiou financeiramente projetos destinados a proporcionar aos jovens acesso aos ensinamentos de Pastinha.
 
 Mestre Gildo Alfinete faleceu em 12 de outubro de 2015, em Salvador, aos 75 anos.
 
-Após seu falecimento, sua família descobriu um tesouro: mais de 3.000 fotografias e um caderno manuscrito contendo os ensinamentos de Pastinha. Esses materiais haviam sido acumulados ao longo de 52 anos, desde que recebeu seu diploma em 1963. Seu irmão, Mestre Genésio "Meio-Quilo," compilou este arquivo no livro "Capoeira Angola Mundo Afora - Uma Jornada com o Mestre Pastinha," publicado em 2020. O lançamento do livro ocorreu na sede da ABCA na Rua Gregório de Mattos 86 no Pelourinho, com rodas pelo centro histórico de Salvador em homenagem.
+Após seu falecimento, sua família descobriu um tesouro: mais de 3.000 fotografias e um caderno manuscrito contendo os ensinamentos de Pastinha. Esses materiais haviam sido acumulados ao longo de 52 anos, desde que recebeu seu diploma em 1963. Seu irmão, Mestre Genésio "Meio-Quilo", compilou este arquivo no livro "Capoeira Angola Mundo Afora - Uma Jornada com o Mestre Pastinha", publicado em 2020. O lançamento do livro ocorreu na sede da ABCA na Rua Gregório de Mattos 86 no Pelourinho, com rodas pelo centro histórico de Salvador em homenagem.
 
 ## Achievements / Conquistas
 

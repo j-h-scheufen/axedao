@@ -32,13 +32,13 @@ Mucungê became legendary for his mastery of the berimbau. Mestre Roque, one of 
 
 On July 21, 1960, Mucungê co-founded Grupo Filhos de Angola in Rio de Janeiro together with Roque, Onça Preta, Dois de Ouro, Baleado, and Imagem do Cão. This group of Bahian angoleiros created a cultural movement that pioneered capoeira teaching in Rio's favelas, particularly in the Zona Sul.
 
-In 1963, Mestre Paraná invited Mucungê to participate in recording his landmark album "Capoeira: Mestre Paraná," released on CBS Masterworks. According to André Luiz Lacé Lopes, Mucungê was one of two Bahian capoeiristas invited alongside Santo Amaro (though Mestre Gegê recalled the second musician as Onça Preta).
+In 1963, Mestre Paraná invited Mucungê to participate in recording his landmark album "Capoeira: Mestre Paraná", released on CBS Masterworks. According to André Luiz Lacé Lopes, Mucungê was one of two Bahian capoeiristas invited alongside Santo Amaro (though Mestre Gegê recalled the second musician as Onça Preta).
 
 Mucungê was one of the "bambas"—the tough guys—who defined the legendary Roda da Central, the spontaneous capoeira circle that formed during Carnival between the samba parade route on Avenida Presidente Vargas and Central Station. This roda ran continuously for four days and nights until 1983. Mestre Roque remembered: "Na Central? Era Inglês, Mucungê, Onça Preta, Baleado, Vavá Moleque, Reginaldo, quem mais? É... Seu Menezes, Lamartine, Paraná..."
 
 Throughout the 1980s and 1990s, Mucungê remained active in Rio's capoeira community. In 1984, he participated in Mestre Camisa's event at Circo Voador alongside mestres João Pequeno and Zacarias Boa Morte. In 1987, he attended a gathering of elderly mestres from Bahia in Rio. Photographs from 1997 show him at events in Morro da Babilônia (Leme) with Mestres Dorado and Garça, and at Mestre Poraquê's event playing berimbau with Mestres Mendonça and Leopoldina.
 
-Mucungê died on March 8, 1998, from respiratory failure while residing in Queimados, Rio de Janeiro. His death certificate, cited in the academic article "A Roda da Central," confirms these details. The documentary film "Roda da Central" preserves the oral testimony of masters who remembered Mucungê as one of the key protagonists of that undocumented annual street tradition.
+Mucungê died on March 8, 1998, from respiratory failure while residing in Queimados, Rio de Janeiro. His death certificate, cited in the academic article "A Roda da Central", confirms these details. The documentary film "Roda da Central" preserves the oral testimony of masters who remembered Mucungê as one of the key protagonists of that undocumented annual street tradition.
 
 Mucungê is referenced in traditional capoeira songs, including a ladainha honoring Mestre Bimba that mentions "Ensinando a Mucungê" (teaching Mucungê), indicating his recognition within the broader capoeira community.
 
@@ -52,13 +52,13 @@ Mucungê tornou-se lendário por sua maestria no berimbau. Mestre Roque, uma das
 
 Em 21 de julho de 1960, Mucungê co-fundou o Grupo Filhos de Angola no Rio de Janeiro junto com Roque, Onça Preta, Dois de Ouro, Baleado e Imagem do Cão. Este grupo de angoleiros baianos criou um movimento cultural que foi pioneiro no ensino de capoeira nas favelas do Rio, particularmente na Zona Sul.
 
-Em 1963, Mestre Paraná convidou Mucungê para participar da gravação de seu álbum marcante "Capoeira: Mestre Paraná," lançado pela CBS Masterworks. Segundo André Luiz Lacé Lopes, Mucungê foi um dos dois capoeiristas baianos convidados ao lado de Santo Amaro (embora Mestre Gegê lembrasse do segundo músico como Onça Preta).
+Em 1963, Mestre Paraná convidou Mucungê para participar da gravação de seu álbum marcante "Capoeira: Mestre Paraná", lançado pela CBS Masterworks. Segundo André Luiz Lacé Lopes, Mucungê foi um dos dois capoeiristas baianos convidados ao lado de Santo Amaro (embora Mestre Gegê lembrasse do segundo músico como Onça Preta).
 
 Mucungê foi um dos "bambas"—os valentões—que definiram a lendária Roda da Central, a roda de capoeira espontânea que se formava durante o Carnaval entre o percurso do desfile de samba na Avenida Presidente Vargas e a Estação Central. Esta roda funcionava continuamente por quatro dias e noites até 1983. Mestre Roque lembrava: "Na Central? Era Inglês, Mucungê, Onça Preta, Baleado, Vavá Moleque, Reginaldo, quem mais? É... Seu Menezes, Lamartine, Paraná..."
 
 Ao longo das décadas de 1980 e 1990, Mucungê permaneceu ativo na comunidade de capoeira do Rio. Em 1984, participou do evento de Mestre Camisa no Circo Voador ao lado dos mestres João Pequeno e Zacarias Boa Morte. Em 1987, participou de um encontro de mestres idosos da Bahia no Rio. Fotografias de 1997 o mostram em eventos no Morro da Babilônia (Leme) com os Mestres Dorado e Garça, e no evento de Mestre Poraquê tocando berimbau com os Mestres Mendonça e Leopoldina.
 
-Mucungê faleceu em 8 de março de 1998, por insuficiência respiratória, enquanto residia em Queimados, Rio de Janeiro. Sua certidão de óbito, citada no artigo acadêmico "A Roda da Central," confirma esses detalhes. O documentário "Roda da Central" preserva o testemunho oral de mestres que lembravam Mucungê como um dos protagonistas principais daquela tradição de rua anual não documentada.
+Mucungê faleceu em 8 de março de 1998, por insuficiência respiratória, enquanto residia em Queimados, Rio de Janeiro. Sua certidão de óbito, citada no artigo acadêmico "A Roda da Central", confirma esses detalhes. O documentário "Roda da Central" preserva o testemunho oral de mestres que lembravam Mucungê como um dos protagonistas principais daquela tradição de rua anual não documentada.
 
 Mucungê é referenciado em canções tradicionais de capoeira, incluindo uma ladainha em homenagem a Mestre Bimba que menciona "Ensinando a Mucungê" (ensinando a Mucungê), indicando seu reconhecimento dentro da comunidade mais ampla de capoeira.
 

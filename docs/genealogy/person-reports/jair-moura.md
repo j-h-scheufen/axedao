@@ -27,9 +27,9 @@
 
 Jair Fernandes Moura was born on August 27, 1936, in Salvador, Bahia. He would become one of the most important figures in the preservation and documentation of capoeira history—a pioneer whose meticulous research and documentation set the standard for all who followed.
 
-In the late 1950s, young Jair Moura joined Mestre Bimba's academy, beginning a relationship that would define both his practice and his life's work. According to Mestre Nenel, Bimba's son: "He was a student of my father since the 1950s and was the last capoeirista to receive the Lenço Branco from my father."
+In the late 1950s, young Jair Moura joined Mestre Bimba's academy, beginning a relationship that would define both his practice and his life's work. According to Mestre Nenel, Bimba's son: "He was a student of my father since the 1950s and was the last capoeirista to receive the Lenço Branco from my father".
 
-Nenel further emphasized Jair Moura's significance: "Mestre Jair was perhaps the guy who started this preservation of the history of Capoeira. He was always an observant guy and very honest. He was one of the guys most well-regarded by my father. I considered him like an older brother."
+Nenel further emphasized Jair Moura's significance: "Mestre Jair was perhaps the guy who started this preservation of the history of Capoeira. He was always an observant guy and very honest. He was one of the guys most well-regarded by my father. I considered him like an older brother".
 
 Mestre Bimba formally graduated only four students to the level of mestre (white handkerchief) during his lifetime: Decânio, Jair Moura, Miranda, and Edinho. Of these, Jair Moura was reportedly the last to receive this distinction. This was the highest honor in Capoeira Regional—the lenço branco (white handkerchief) symbolized the silk handkerchiefs that primitive capoeiristas wore around their necks to protect themselves from razor cuts.
 
@@ -37,7 +37,7 @@ In 1968, Jair Moura directed the documentary "Dança de Guerra" (Dance of War), 
 
 Jair Moura lived in Rio de Janeiro during the 1980s, where he conducted extensive research on the history of capoeira in that city. He returned to Salvador in the 1990s. In both cities, he published numerous articles in newspapers and magazines, becoming a recognized voice on capoeira's historical development.
 
-Among his most celebrated works are "Mestre Bimba: Uma Vida Consagrada à Capoeiragem" (later editions titled "Uma Vida Dedicada à Capoeiragem"), a definitive book bringing together archives, stories, and anecdotes about the creator of Capoeira Regional. He also authored "A Capoeiragem no Rio de Janeiro Através dos Séculos," which documents the history and development of capoeira in Rio de Janeiro from colonial times through various evolutionary phases.
+Among his most celebrated works are "Mestre Bimba: Uma Vida Consagrada à Capoeiragem" (later editions titled "Uma Vida Dedicada à Capoeiragem"), a definitive book bringing together archives, stories, and anecdotes about the creator of Capoeira Regional. He also authored "A Capoeiragem no Rio de Janeiro Através dos Séculos", which documents the history and development of capoeira in Rio de Janeiro from colonial times through various evolutionary phases.
 
 Jair Moura also worked at the Instituto Geográfico e Histórico da Bahia (IGHB), where he served as editor, director, writer, and essayist. He owned an extensive personal library with substantial material on Capoeira Regional, and was also a skilled photographer who documented Mestre Bimba and other capoeiristas from Bahia and Rio de Janeiro.
 
@@ -49,9 +49,9 @@ On August 19, 2020, Mestre Jair Moura died at 84 years old in Salvador, a victim
 
 Jair Fernandes Moura nasceu em 27 de agosto de 1936, em Salvador, Bahia. Ele se tornaria uma das figuras mais importantes na preservação e documentação da história da capoeira—um pioneiro cuja pesquisa meticulosa e documentação estabeleceram o padrão para todos que o seguiram.
 
-No final dos anos 1950, o jovem Jair Moura ingressou na academia de Mestre Bimba, iniciando uma relação que definiria tanto sua prática quanto o trabalho de sua vida. Segundo Mestre Nenel, filho de Bimba: "Ele era aluno de meu pai desde a década de 1950 e foi o último capoeirista a receber o Lenço Branco de meu pai."
+No final dos anos 1950, o jovem Jair Moura ingressou na academia de Mestre Bimba, iniciando uma relação que definiria tanto sua prática quanto o trabalho de sua vida. Segundo Mestre Nenel, filho de Bimba: "Ele era aluno de meu pai desde a década de 1950 e foi o último capoeirista a receber o Lenço Branco de meu pai".
 
-Nenel enfatizou ainda a importância de Jair Moura: "Mestre Jair foi, talvez, o cara que iniciou essa preservação do histórico da Capoeira. Ele sempre foi um cara observador e muito íntegro. Foi um dos caras mais bem considerados pelo meu pai. Eu considerava ele como um irmão mais velho."
+Nenel enfatizou ainda a importância de Jair Moura: "Mestre Jair foi, talvez, o cara que iniciou essa preservação do histórico da Capoeira. Ele sempre foi um cara observador e muito íntegro. Foi um dos caras mais bem considerados pelo meu pai. Eu considerava ele como um irmão mais velho".
 
 Mestre Bimba formalmente graduou apenas quatro alunos ao nível de mestre (lenço branco) durante sua vida: Decânio, Jair Moura, Miranda e Edinho. Destes, Jair Moura foi supostamente o último a receber essa distinção. Esta era a maior honra na Capoeira Regional—o lenço branco simbolizava os lenços de seda que os capoeiristas primitivos usavam no pescoço para se proteger de cortes de navalha.
 
@@ -59,7 +59,7 @@ Em 1968, Jair Moura dirigiu o documentário "Dança de Guerra", um filme histór
 
 Jair Moura viveu no Rio de Janeiro durante a década de 1980, onde conduziu extensa pesquisa sobre a história da capoeira naquela cidade. Retornou a Salvador nos anos 1990. Em ambas as cidades, publicou numerosos artigos em jornais e revistas, tornando-se uma voz reconhecida sobre o desenvolvimento histórico da capoeira.
 
-Entre suas obras mais celebradas estão "Mestre Bimba: Uma Vida Consagrada à Capoeiragem" (edições posteriores intituladas "Uma Vida Dedicada à Capoeiragem"), um livro definitivo reunindo arquivos, histórias e anedotas sobre o criador da Capoeira Regional. Também escreveu "A Capoeiragem no Rio de Janeiro Através dos Séculos," que documenta a história e desenvolvimento da capoeira no Rio de Janeiro desde os tempos coloniais através de várias fases evolutivas.
+Entre suas obras mais celebradas estão "Mestre Bimba: Uma Vida Consagrada à Capoeiragem" (edições posteriores intituladas "Uma Vida Dedicada à Capoeiragem"), um livro definitivo reunindo arquivos, histórias e anedotas sobre o criador da Capoeira Regional. Também escreveu "A Capoeiragem no Rio de Janeiro Através dos Séculos", que documenta a história e desenvolvimento da capoeira no Rio de Janeiro desde os tempos coloniais através de várias fases evolutivas.
 
 Jair Moura também trabalhou no Instituto Geográfico e Histórico da Bahia (IGHB), onde atuou como editor, diretor, escritor e ensaísta. Possuía uma extensa biblioteca pessoal com farto material sobre Capoeira Regional, e também era um fotógrafo habilidoso que documentou Mestre Bimba e outros capoeiristas da Bahia e do Rio de Janeiro.
 

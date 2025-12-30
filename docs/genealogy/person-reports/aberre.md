@@ -31,7 +31,7 @@ Antônio Raimundo Argolo was born on August 6, 1895, in Salvador—the same year
 
 By 1910, the teenage Aberrê was already practicing capoeira in the Baixada do Matatu Preto in the Matatu neighborhood. He trained among a formidable generation: Onça Preta, Geraldo Chapeleiro, Totonho de Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha, and Barbosa. Sources disagree on his primary teacher—some attribute his training to Mestre Pastinha, others to Mestre Antônio de Noronha, and some suggest both.
 
-In 1935, Aberrê began teaching a 10-year-old named Washington Bruno da Silva—who would become Mestre Canjiquinha, "the joy of capoeira." He also trained Mestre Caiçara (though some accounts attribute Caiçara to a different "Aberrê de Santo Amaro"). Aberrê emphasized practical street defense: negativa, queda de rim, and how to fall safely. When asked why, he explained simply: if someone pushes you in the street, you need to know how to land.
+In 1935, Aberrê began teaching a 10-year-old named Washington Bruno da Silva—who would become Mestre Canjiquinha, "the joy of capoeira". He also trained Mestre Caiçara (though some accounts attribute Caiçara to a different "Aberrê de Santo Amaro"). Aberrê emphasized practical street defense: negativa, queda de rim, and how to fall safely. When asked why, he explained simply: if someone pushes you in the street, you need to know how to land.
 
 In 1936, Aberrê proved himself in Salvador's fighting circuit. On March 25, he challenged Mestre Bimba at Parque Odeon. On May 16, he faced Onça Preta (Cícero Navarro). These challenges demonstrated his standing among the great mestres of his era.
 
@@ -39,7 +39,7 @@ By 1939, he was working as a mason at Santa Casa de Misericórdia da Bahia, livi
 
 Then came 1941—the year Aberrê changed capoeira history. With several mestres dead and the tradition in danger of fragmenting, Aberrê convinced his former teacher (or student—accounts conflict) Pastinha to return to capoeira after a 30-year absence. According to Mestre Noronha's manuscripts, Aberrê exercised leadership among the capoeiristas and, along with Amorzinho and Totonho de Maré, had helped create the Angolan capoeira center at Conceição da Praia—the embryo of the legendary Gengibirra roda.
 
-On February 23, 1941, Aberrê invited Pastinha to a Sunday roda at Ladeira de Gengibirra in the Liberdade neighborhood. Aberrê was already famous at these gatherings. When Pastinha arrived, Amorzinho—a civil guard who led the roda—offered him the berimbau: "I have been waiting a long time to give you this capoeira for you to master." With Aberrê, Amorzinho, and Antonio Maré passing him the instrument, Pastinha became the leader of Capoeira Angola. Without Aberrê's intervention, the "pastiniana" lineage might never have existed.
+On February 23, 1941, Aberrê invited Pastinha to a Sunday roda at Ladeira de Gengibirra in the Liberdade neighborhood. Aberrê was already famous at these gatherings. When Pastinha arrived, Amorzinho—a civil guard who led the roda—offered him the berimbau: "I have been waiting a long time to give you this capoeira for you to master". With Aberrê, Amorzinho, and Antonio Maré passing him the instrument, Pastinha became the leader of Capoeira Angola. Without Aberrê's intervention, the "pastiniana" lineage might never have existed.
 
 In September 1942, at a lively roda in Lower City where the Estrela de Salomão (Star of Solomon) was drawn, Aberrê was dominating his adversary when suddenly, without anyone expecting it, he collapsed. According to Mestre Canjiquinha, Aberrê had eaten beans with fat that morning, sang capoeira songs, then fell ill during a student's game, collapsing during cartwheels. Mestre Onça Preta confirmed: it was a heart attack.
 
@@ -61,7 +61,7 @@ Em 1939, trabalhava como pedreiro na Santa Casa de Misericórdia da Bahia, moran
 
 Então veio 1941—o ano em que Aberrê mudou a história da capoeira. Com vários mestres mortos e a tradição em perigo de fragmentar-se, Aberrê convenceu seu antigo professor (ou aluno—os relatos conflitam) Pastinha a retornar à capoeira após uma ausência de 30 anos. Segundo os manuscritos de Mestre Noronha, Aberrê exercia liderança entre os capoeiristas e, junto com Amorzinho e Totonho de Maré, havia ajudado a criar o centro de capoeira angolana na Conceição da Praia—o embrião da lendária roda de Gengibirra.
 
-Em 23 de fevereiro de 1941, Aberrê convidou Pastinha para uma roda de domingo na Ladeira de Gengibirra no bairro da Liberdade. Aberrê já era famoso nessas reuniões. Quando Pastinha chegou, Amorzinho—um guarda civil que liderava a roda—ofereceu-lhe o berimbau: "Há muito tempo espero para lhe dar esta capoeira para você comandar." Com Aberrê, Amorzinho e Antonio Maré passando-lhe o instrumento, Pastinha tornou-se o líder da Capoeira Angola. Sem a intervenção de Aberrê, a linhagem "pastiniana" talvez nunca tivesse existido.
+Em 23 de fevereiro de 1941, Aberrê convidou Pastinha para uma roda de domingo na Ladeira de Gengibirra no bairro da Liberdade. Aberrê já era famoso nessas reuniões. Quando Pastinha chegou, Amorzinho—um guarda civil que liderava a roda—ofereceu-lhe o berimbau: "Há muito tempo espero para lhe dar esta capoeira para você comandar". Com Aberrê, Amorzinho e Antonio Maré passando-lhe o instrumento, Pastinha tornou-se o líder da Capoeira Angola. Sem a intervenção de Aberrê, a linhagem "pastiniana" talvez nunca tivesse existido.
 
 Em setembro de 1942, em uma animada roda na Cidade Baixa onde estava desenhada a Estrela de Salomão, Aberrê dominava seu adversário quando subitamente, sem ninguém esperar, ele desabou. Segundo Mestre Canjiquinha, Aberrê havia comido feijão com gordura naquela manhã, cantou músicas de capoeira, depois passou mal durante o jogo de um aluno, desabando durante as rodas (aú). Mestre Onça Preta confirmou: foi um ataque cardíaco.
 
@@ -134,7 +134,7 @@ There is significant academic and oral debate about whether there were two diffe
 
 1. **Antônio Raimundo Argolo** (b. August 6, 1895, Salvador) - Son of Ângelo Argolo and Maria R. de Argolo. This is the documented Aberrê who invited Pastinha to Gengibirra and died in September 1942.
 
-2. **Antônio Rufino dos Santos** (Santo Amaro) - Known as "Aberrê de Santo Amaro" or "M Aberré de Santo Amaro." Some sources identify this as Mestre Caiçara's teacher.
+2. **Antônio Rufino dos Santos** (Santo Amaro) - Known as "Aberrê de Santo Amaro" or "M Aberré de Santo Amaro". Some sources identify this as Mestre Caiçara's teacher.
 
 **Evidence for two individuals:**
 - Both Canjiquinha and Caiçara denied connection to Pastinha's lineage
@@ -148,7 +148,7 @@ Há debate acadêmico e oral significativo sobre se existiram dois capoeiristas 
 
 1. **Antônio Raimundo Argolo** (n. 6 de agosto de 1895, Salvador) - Filho de Ângelo Argolo e Maria R. de Argolo. Este é o Aberrê documentado que convidou Pastinha para Gengibirra e morreu em setembro de 1942.
 
-2. **Antônio Rufino dos Santos** (Santo Amaro) - Conhecido como "Aberrê de Santo Amaro" ou "M Aberré de Santo Amaro." Algumas fontes identificam este como o professor de Mestre Caiçara.
+2. **Antônio Rufino dos Santos** (Santo Amaro) - Conhecido como "Aberrê de Santo Amaro" ou "M Aberré de Santo Amaro". Algumas fontes identificam este como o professor de Mestre Caiçara.
 
 **Evidências para dois indivíduos:**
 - Tanto Canjiquinha quanto Caiçara negaram conexão com a linhagem de Pastinha

@@ -19,8 +19,8 @@ SELECT
   '1981-11-13'::date, 'exact'::genealogy.date_precision,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'velhosmestres.com, bocarica.wordpress.com, capoeira-connection.com interview',
-  'Direct student of Mestre Pastinha at CECA from 1952 until Pastinha''s death in 1981. Boca Rica described Pastinha as "a philosopher" and "my second father." Accompanied Pastinha until his final days and continued to spread his legacy.',
-  'Aluno direto de Mestre Pastinha no CECA de 1952 até a morte de Pastinha em 1981. Boca Rica descreveu Pastinha como "um filósofo" e "meu segundo pai." Acompanhou Pastinha até seus últimos dias e continuou a espalhar seu legado.'
+  'Direct student of Mestre Pastinha at CECA from 1952 until Pastinha''s death in 1981. Boca Rica described Pastinha as "a philosopher" and "my second father". Accompanied Pastinha until his final days and continued to spread his legacy.',
+  'Aluno direto de Mestre Pastinha no CECA de 1952 até a morte de Pastinha em 1981. Boca Rica descreveu Pastinha como "um filósofo" e "meu segundo pai". Acompanhou Pastinha até seus últimos dias e continuou a espalhar seu legado.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Boca Rica' AND o.apelido = 'Pastinha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
