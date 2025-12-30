@@ -9,6 +9,8 @@ import { useCallback, useEffect, useMemo, useRef } from 'react';
 
 import { type GraphViewMode, getViewConfig } from '@/components/genealogy/config';
 import {
+  type GenealogyLanguage,
+  genealogyLanguageAtom,
   graphFiltersAtom,
   graphViewModeAtom,
   selectedNodeIdAtom,
@@ -55,6 +57,8 @@ export default function GenealogyPage() {
     view: parseAsString.withDefault('general'),
     node: parseAsString,
     showYourself: parseAsBoolean.withDefault(false),
+    about: parseAsBoolean, // Open info modal when true
+    lang: parseAsString, // Set language: 'en' or 'pt'
   });
 
   // Track if initial URL state has been applied
@@ -65,6 +69,7 @@ export default function GenealogyPage() {
   const [filters, setFilters] = useAtom(graphFiltersAtom);
   const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
   const [showYourself, setShowYourself] = useAtom(showYourselfAtom);
+  const [, setLanguage] = useAtom(genealogyLanguageAtom);
 
   // Initialize state from URL params on mount
   useEffect(() => {
@@ -91,7 +96,26 @@ export default function GenealogyPage() {
     if (queryParams.node) {
       setSelectedNodeId(queryParams.node);
     }
-  }, [queryParams, graphView, setGraphView, setFilters, setShowYourself, setSelectedNodeId]);
+
+    // Apply language from URL param
+    if (queryParams.lang === 'en' || queryParams.lang === 'pt') {
+      setLanguage(queryParams.lang as GenealogyLanguage);
+    }
+
+    // Open info modal if about=true in URL
+    if (queryParams.about) {
+      onInfoModalOpen();
+    }
+  }, [
+    queryParams,
+    graphView,
+    setGraphView,
+    setFilters,
+    setShowYourself,
+    setSelectedNodeId,
+    setLanguage,
+    onInfoModalOpen,
+  ]);
 
   // Track when initial URL-to-atom sync is complete
   // This only checks that the view mode matches - user filter changes should not affect this
