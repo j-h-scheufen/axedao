@@ -106,8 +106,10 @@ export const ERA_CONFIG = {
   modernEndYear: 1979,
   // Contemporary era starts at 1980 (larger spacing for group explosion)
   contemporaryStartYear: 1980,
-  // Unknown birth years go to this pseudo-decade (beyond current timeline)
-  unknownYear: 2030,
+  // Unknown birth years go to this pseudo-year (far beyond current timeline)
+  // Placed at 2200 to push these nodes ~3x farther out than actual 2020s data,
+  // preventing them from blocking the view of the main genealogy timeline
+  unknownYear: 2200,
 } as const;
 
 // ============================================================================

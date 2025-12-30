@@ -5,7 +5,8 @@
  */
 
 import type { GraphNode, GroupMetadata, PersonMetadata } from '@/components/genealogy/types';
-import { NODE_COLORS } from '@/components/genealogy/types';
+import { NODE_COLORS, NODE_COLORS_BY_TITLE_LEVEL } from '@/components/genealogy/types';
+import { getTitleLevel } from '@/utils/genealogy/titleFilter';
 import type { ForceNode2D } from './types2d';
 
 /** Visual indicator opacity for nodes without known dates */
@@ -22,12 +23,18 @@ const GROUP_RADIUS = 6;
 
 /**
  * Get node color based on type and style/title.
+ * For persons, uses level-based lookup to handle both masculine and feminine title variants.
  */
 export function getNodeColor(node: GraphNode): string {
   if (node.type === 'person') {
     const metadata = node.metadata as PersonMetadata;
-    const title = metadata.title as keyof (typeof NODE_COLORS)['person'] | undefined;
-    return title && NODE_COLORS.person[title] ? NODE_COLORS.person[title] : NODE_COLORS.person.default;
+    const level = getTitleLevel(metadata.title);
+    // Use level-based color (handles mestra/mestre, contra-mestra/contra-mestre, etc.)
+    if (level !== null) {
+      return NODE_COLORS_BY_TITLE_LEVEL[level] ?? NODE_COLORS.person.default;
+    }
+    // No title or unknown title - use default (bronze for historical figures)
+    return NODE_COLORS.person.default;
   }
 
   if (node.type === 'group') {

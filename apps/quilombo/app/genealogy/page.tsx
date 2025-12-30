@@ -93,26 +93,14 @@ export default function GenealogyPage() {
     }
   }, [queryParams, graphView, setGraphView, setFilters, setShowYourself, setSelectedNodeId]);
 
-  // Verify atom state matches URL params before considering initialization complete
-  // This prevents rendering the graph with stale/default atom values
+  // Track when initial URL-to-atom sync is complete
+  // This only checks that the view mode matches - user filter changes should not affect this
   const isInitialized = useMemo(() => {
     const targetView = (queryParams.view as GraphViewMode) || 'general';
-    const targetConfig = getViewConfig(targetView);
 
-    // Check if view mode matches
-    if (graphView !== targetView) return false;
-
-    // Check if filters match the expected configuration for this view
-    // Compare nodeTypes (order doesn't matter, just contents)
-    const expectedNodeTypes = new Set(targetConfig.allowedNodeTypes);
-    const actualNodeTypes = new Set(filters.nodeTypes);
-    if (expectedNodeTypes.size !== actualNodeTypes.size) return false;
-    for (const t of expectedNodeTypes) {
-      if (!actualNodeTypes.has(t)) return false;
-    }
-
-    return true;
-  }, [queryParams.view, graphView, filters.nodeTypes]);
+    // Only verify the view mode matches - user filter changes are valid after initialization
+    return graphView === targetView;
+  }, [queryParams.view, graphView]);
 
   // Sync showYourself atom changes to URL (after initial load)
   useEffect(() => {
