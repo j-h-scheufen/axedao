@@ -26,7 +26,7 @@
 
 Manoel dos Reis Machado was born on November 23, 1899, in the Bairro do Engenho Velho neighborhood of Salvador, Bahia—the youngest of 25 siblings. His parents were Luiz Cândido Machado, a champion of batuque, and Maria Martinha do Bonfim. The nickname "Bimba" came from a bet between his mother and the midwife about his sex; when he was born male, the midwife remarked on his "bimba" (Bahian slang for male genitalia), and the name stuck for life.
 
-At twelve years old, in 1911, Bimba began learning capoeira from Bentinho, an African-born captain of the Companhia Baiana de Navegação. Training took place at the Clube União em Apuros on the Estrada das Boiadas in Salvador's Liberdade neighborhood. The apprenticeship lasted four years. Bimba later described Bentinho's style as "capoeira de Angola" or "capoeira antiga."
+At twelve years old, in 1911, Bimba began learning capoeira from Bentinho, an African-born captain of the Companhia Baiana de Navegação. Training took place at the Clube União em Apuros on the Estrada das Boiadas in Salvador's Liberdade neighborhood. The apprenticeship lasted four years. Bimba later described Bentinho's style as "capoeira de Angola" or "capoeira antiga".
 
 Parallel to his capoeira training, young Bimba learned batuque from his father, who was a local champion of this combat sport involving defensive positioning and powerful leg sweeps. These techniques would later become foundational to Capoeira Regional.
 
@@ -50,7 +50,7 @@ Bimba formally graduated only four students to mestre level during his lifetime:
 
 In 1973, disappointed by lack of government support in Bahia, Bimba moved to Goiânia. On February 5, 1974, he died from a stroke. His remains were transferred to Salvador on July 20, 1978.
 
-His famous declaration: "I didn't do capoeira for myself... I did it for the world."
+His famous declaration: "I didn't do capoeira for myself... I did it for the world".
 
 ### Português
 
@@ -60,7 +60,7 @@ Aos doze anos, em 1911, Bimba começou a aprender capoeira com Bentinho, um capi
 
 Paralelamente, o jovem Bimba aprendeu batuque com seu pai, que era campeão local deste esporte de combate. Essas técnicas mais tarde se tornariam fundamentais para a Capoeira Regional.
 
-Aos dezoito anos, Bimba havia concluído que a capoeira tinha perdido sua eficácia marcial, reduzida a "nove movimentos." Ele começou a restaurar movimentos da capoeira antiga, adicionar técnicas de batuque e inventar novos movimentos.
+Aos dezoito anos, Bimba havia concluído que a capoeira tinha perdido sua eficácia marcial, reduzida a "nove movimentos". Ele começou a restaurar movimentos da capoeira antiga, adicionar técnicas de batuque e inventar novos movimentos.
 
 Em 1928, uma demonstração no palácio do Governador Juracy Magalhães ajudou a convencer as autoridades do valor cultural da capoeira, contribuindo para o fim de sua proibição em 1930.
 
@@ -68,7 +68,7 @@ Em 1932, Bimba fundou a primeira academia oficial de capoeira do Brasil: o Centr
 
 Bimba criou inovações revolucionárias de ensino: oito "sequências" predefinidas; "cintura desprezada"; sistema formal de graduação; e a bateria charanga.
 
-Em 1936, Bimba lançou um famoso desafio e venceu todos os quatro oponentes, ganhando o apelido "Três Pancadas."
+Em 1936, Bimba lançou um famoso desafio e venceu todos os quatro oponentes, ganhando o apelido "Três Pancadas".
 
 Em 23 de julho de 1953, o Presidente Getúlio Vargas declarou: "A capoeira é o único esporte verdadeiramente brasileiro!"
 
@@ -76,7 +76,7 @@ Bimba graduou formalmente apenas quatro alunos a mestre: Angelo Augusto Decânio
 
 Em 1973, mudou-se para Goiânia. Em 5 de fevereiro de 1974, morreu de um AVC. Seus restos mortais foram transferidos para Salvador em 20 de julho de 1978.
 
-Sua famosa declaração: "Eu não fiz capoeira para mim... Fiz para o mundo."
+Sua famosa declaração: "Eu não fiz capoeira para mim... Fiz para o mundo".
 
 ## Achievements / Conquistas
 
@@ -108,7 +108,7 @@ Sua famosa declaração: "Eu não fiz capoeira para mim... Fiz para o mundo."
 Creator and founder of Capoeira Regional (Luta Regional Baiana). Synthesized traditional capoeira from his teacher Bentinho with batuque techniques from his father, adding elements of his own invention. Created the first systematic teaching method for capoeira including the "sequências de ensino" (teaching sequences), "cintura desprezada" (grappling sequences), and the charanga bateria (one berimbau, two pandeiros). Developed eight distinct berimbau rhythms and established two song forms: Quadras (4-verse compositions) and Corridos (call-and-response patterns).
 
 ### Português
-Criador e fundador da Capoeira Regional (Luta Regional Baiana). Sintetizou a capoeira tradicional de seu mestre Bentinho com técnicas de batuque de seu pai, adicionando elementos de sua própria invenção. Criou o primeiro método de ensino sistemático para capoeira incluindo as "sequências de ensino," "cintura desprezada" (sequências de agarramento) e a bateria charanga (um berimbau, dois pandeiros). Desenvolveu oito ritmos distintos de berimbau e estabeleceu duas formas de canto: Quadras (composições de 4 versos) e Corridos (padrões de chamada e resposta).
+Criador e fundador da Capoeira Regional (Luta Regional Baiana). Sintetizou a capoeira tradicional de seu mestre Bentinho com técnicas de batuque de seu pai, adicionando elementos de sua própria invenção. Criou o primeiro método de ensino sistemático para capoeira incluindo as "sequências de ensino", "cintura desprezada" (sequências de agarramento) e a bateria charanga (um berimbau, dois pandeiros). Desenvolveu oito ritmos distintos de berimbau e estabeleceu duas formas de canto: Quadras (composições de 4 versos) e Corridos (padrões de chamada e resposta).
 
 ## Teachers / Mestres
 

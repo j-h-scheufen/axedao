@@ -153,7 +153,7 @@ Each person file should follow this **bilingual structure** (English and Brazili
 
 For Layer Zero figures, information is often incomplete or contested:
 
-- **Dates:** Use "c." for circa, "fl." for floruit (flourished), "?" for unknown
+- **Dates:** Use "c". for circa, "fl". for floruit (flourished), "?" for unknown
 - **Names:** Note alternate spellings and names
 - **Relationships:** Distinguish between documented and oral tradition
 - **Confidence:** Note when sources disagree
@@ -165,7 +165,7 @@ For Layer Zero figures, information is often incomplete or contested:
 Many Layer Zero figures have **symbolic** rather than documented connections to capoeira:
 
 - **Zumbi dos Palmares:** No evidence he practiced capoeira, but spiritually foundational
-- **Queen Nzinga:** Origin of the word "ginga," but not a capoeirista
+- **Queen Nzinga:** Origin of the word "ginga", but not a capoeirista
 - **Besouro Mangangá:** Documented capoeirista with many embellished legends
 
 When documenting, clearly distinguish:

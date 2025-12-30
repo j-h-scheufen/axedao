@@ -41,8 +41,8 @@ SELECT
   '{"association_context": "Trained at Waldemar barracão roda"}'::jsonb,
   'verified'::genealogy.confidence,
   'capoeira-connection.com/capoeira/2011/10/interview-with-mestre-joao-grande/',
-  E'Cabeceiro was one of the formidable capoeiristas at Waldemar''s roda in Liberdade, Salvador. João Grande recalled: "Antônio Cabeceiro was as wicked as anything." He bought the game from João Grande and threw him into the street during a meia lua de costas (~1953-1954).',
-  E'Cabeceiro era um dos capoeiristas formidáveis na roda de Waldemar na Liberdade, Salvador. João Grande lembrou: "Antônio Cabeceiro era malvado demais." Ele comprou o jogo de João Grande e o jogou na rua durante uma meia lua de costas (~1953-1954).'
+  E'Cabeceiro was one of the formidable capoeiristas at Waldemar''s roda in Liberdade, Salvador. João Grande recalled: "Antônio Cabeceiro was as wicked as anything". He bought the game from João Grande and threw him into the street during a meia lua de costas (~1953-1954).',
+  E'Cabeceiro era um dos capoeiristas formidáveis na roda de Waldemar na Liberdade, Salvador. João Grande lembrou: "Antônio Cabeceiro era malvado demais". Ele comprou o jogo de João Grande e o jogou na rua durante uma meia lua de costas (~1953-1954).'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Antônio Cabeceiro' AND o.apelido = 'Waldemar'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

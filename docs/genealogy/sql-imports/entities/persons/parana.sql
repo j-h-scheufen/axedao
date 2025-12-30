@@ -69,7 +69,7 @@ INSERT INTO genealogy.person_profiles (
 
 In February 1945, Paraná moved to Rio de Janeiro with his wife Maura Bastos (1920-1989) shortly after leaving the Brazilian Navy, where he had trained in boxing and completed his military service. In June 1945, he was hired by IPASE (Instituto de Pensões e Assistência aos Servidores do Estado) as a specialized craftsman, a position he held until his death.
 
-Paraná lived in the Bonsucesso neighborhood in Rio''s northern zone and began teaching capoeira in his backyard during the 1950s. His wife Maura, known affectionately as "Tia Maura," played a fundamental role in receiving and caring for the many young students who came to train. In 1950, according to Mestre Polaco, he founded the Conjunto Folclórico de Capoeira São Bento Pequeno on Rua Miguel Burnier. The group later evolved into the foundation from which Grupo Muzenza traces its entire formation.
+Paraná lived in the Bonsucesso neighborhood in Rio''s northern zone and began teaching capoeira in his backyard during the 1950s. His wife Maura, known affectionately as "Tia Maura", played a fundamental role in receiving and caring for the many young students who came to train. In 1950, according to Mestre Polaco, he founded the Conjunto Folclórico de Capoeira São Bento Pequeno on Rua Miguel Burnier. The group later evolved into the foundation from which Grupo Muzenza traces its entire formation.
 
 In the capoeira universe, Paraná became known primarily as an excellent berimbau player. A carpenter by profession and training, he carefully manufactured his own berimbaus using coated strings and varnished wood. His meticulous attention to tuning is documented in musicological analysis of his recordings—he maintained fixed pitches across the viola (Db4-Eb4), médio (B3-Db4), and gunga (Ab3-Bb3) for instrumental tracks, unifying to Ab3-Bb3 for vocal tracks to match the song''s key.
 
@@ -77,13 +77,13 @@ The Grupo São Bento Pequeno presented itself at various types of shows, dissemi
 
 Paraná collaborated extensively with the pioneering Black dancer Mercedes Baptista, participating in shows and festivals including the IV Festival Folclórico do Distrito Federal in August 1966, where the Teatro Nacional de Brasília was also inaugurated. In 1969, he traveled to Lisbon with Mercedes Batista''s dance group.
 
-His great ability as a musician allowed him to record, in 1963, a single record with four tracks for CBS, called "Capoeira – Mestre Paraná." The EP 45 featured tracks entitled "São Bento Grande," "São Bento Pequeno," "Angola," and "Avise a meu Mano." According to Mestre Gegê, Onça Preta played pandeiro on this recording, and Mestre Mucungê also participated. Musicologist André Luiz Lacé Lopez notes that Paraná invited Bahian musicians Mucungê and Santo Amaro to participate.
+His great ability as a musician allowed him to record, in 1963, a single record with four tracks for CBS, called "Capoeira – Mestre Paraná". The EP 45 featured tracks entitled "São Bento Grande", "São Bento Pequeno", "Angola", and "Avise a meu Mano". According to Mestre Gegê, Onça Preta played pandeiro on this recording, and Mestre Mucungê also participated. Musicologist André Luiz Lacé Lopez notes that Paraná invited Bahian musicians Mucungê and Santo Amaro to participate.
 
 Paraná was the first capoeirista to play berimbau at the Orquestra Sinfônica do Teatro Municipal do Rio de Janeiro and reportedly the only capoeira master to hold a Musicians'' Guild card for the berimbau. His musical influence extended to the next generation—Mestre Genaro learned to play berimbau directly from him and later created a song called "Paranaê" incorporating the name of his music teacher.
 
 He frequently directed the percussion section during Artur Emídio''s Sunday rodas, and his Sunday rodas became legendary meeting points. At these gatherings, notable artists including Maria Bethânia, Caetano Veloso, Jards Macalé, Mestres Mintirinha and Genaro, and music producer Nelson Motta appeared.
 
-There is consensus among Rio de Janeiro capoeira historians that four lineages were the main influences in the formation of Contemporary Capoeira in the city: Artur Emídio, Paraná, Mário Buscapé, and Roque. As Mestre Levi stated, these four "started to work in closed spaces of academies, introduced uniforms, organisation, etc. From these four the majority of capoeira masters here in Rio de Janeiro derived."
+There is consensus among Rio de Janeiro capoeira historians that four lineages were the main influences in the formation of Contemporary Capoeira in the city: Artur Emídio, Paraná, Mário Buscapé, and Roque. As Mestre Levi stated, these four "started to work in closed spaces of academies, introduced uniforms, organisation, etc. From these four the majority of capoeira masters here in Rio de Janeiro derived".
 
 Mestre Paraná died on March 7, 1972, at age 49, victim of a cardiac arrest at his IPASE workplace where he worked as a carpenter. He was buried in the Cemitério do Murundu in Realengo. His ability and talent playing berimbau is always highlighted by masters who had the opportunity to meet him.',
   -- Extended content (Portuguese)
@@ -91,7 +91,7 @@ Mestre Paraná died on March 7, 1972, at age 49, victim of a cardiac arrest at h
 
 Em fevereiro de 1945, Paraná mudou-se para o Rio de Janeiro com sua esposa Maura Bastos (1920-1989) logo após deixar a Marinha do Brasil, onde havia treinado boxe e completado seu serviço militar. Em junho de 1945, foi admitido no IPASE (Instituto de Pensões e Assistência aos Servidores do Estado) como artífice especializado, cargo que ocupou até sua morte.
 
-Paraná morou no bairro de Bonsucesso, na zona norte do Rio, e começou a ensinar capoeira em seu quintal durante os anos 1950. Sua esposa Maura, conhecida carinhosamente como "Tia Maura," desempenhou papel fundamental no acolhimento e cuidado dos muitos jovens alunos que vinham treinar. Em 1950, segundo Mestre Polaco, fundou o Conjunto Folclórico de Capoeira São Bento Pequeno na Rua Miguel Burnier. O grupo posteriormente evoluiu para a base da qual o Grupo Muzenza traça toda a sua formação.
+Paraná morou no bairro de Bonsucesso, na zona norte do Rio, e começou a ensinar capoeira em seu quintal durante os anos 1950. Sua esposa Maura, conhecida carinhosamente como "Tia Maura", desempenhou papel fundamental no acolhimento e cuidado dos muitos jovens alunos que vinham treinar. Em 1950, segundo Mestre Polaco, fundou o Conjunto Folclórico de Capoeira São Bento Pequeno na Rua Miguel Burnier. O grupo posteriormente evoluiu para a base da qual o Grupo Muzenza traça toda a sua formação.
 
 No universo da capoeira, Paraná ficou conhecido principalmente como excelente tocador de berimbau. Carpinteiro de profissão e formação, fabricava cuidadosamente seus próprios berimbaus usando cordas revestidas e madeira envernizada. Sua atenção meticulosa à afinação está documentada em análises musicológicas de suas gravações—ele mantinha alturas fixas na viola (Ré♭4-Mi♭4), médio (Si3-Ré♭4) e gunga (Lá♭3-Si♭3) para faixas instrumentais, unificando para Lá♭3-Si♭3 nas faixas vocais para combinar com a tonalidade da canção.
 
@@ -99,13 +99,13 @@ O Grupo São Bento Pequeno apresentou-se em vários tipos de shows, disseminando
 
 Paraná colaborou extensivamente com a pioneira bailarina negra Mercedes Baptista, participando de shows e festivais incluindo o IV Festival Folclórico do Distrito Federal em agosto de 1966, onde o Teatro Nacional de Brasília também foi inaugurado. Em 1969, viajou a Lisboa com o grupo de dança de Mercedes Batista.
 
-Sua grande habilidade como músico permitiu-lhe gravar, em 1963, um disco single com quatro faixas pela CBS, chamado "Capoeira – Mestre Paraná." O EP 45 apresentava as faixas "São Bento Grande," "São Bento Pequeno," "Angola" e "Avise a meu Mano." Segundo Mestre Gegê, Onça Preta tocou pandeiro nesta gravação, e Mestre Mucungê também participou. O musicólogo André Luiz Lacé Lopez nota que Paraná convidou os músicos baianos Mucungê e Santo Amaro para participar.
+Sua grande habilidade como músico permitiu-lhe gravar, em 1963, um disco single com quatro faixas pela CBS, chamado "Capoeira – Mestre Paraná". O EP 45 apresentava as faixas "São Bento Grande", "São Bento Pequeno", "Angola" e "Avise a meu Mano". Segundo Mestre Gegê, Onça Preta tocou pandeiro nesta gravação, e Mestre Mucungê também participou. O musicólogo André Luiz Lacé Lopez nota que Paraná convidou os músicos baianos Mucungê e Santo Amaro para participar.
 
 Paraná foi o primeiro capoeirista a tocar berimbau na Orquestra Sinfônica do Teatro Municipal do Rio de Janeiro e supostamente o único mestre de capoeira a possuir carteira do Sindicato dos Músicos para o berimbau. Sua influência musical estendeu-se à geração seguinte—Mestre Genaro aprendeu a tocar berimbau diretamente com ele e depois criou uma canção chamada "Paranaê" incorporando o nome de seu mestre de música.
 
 Ele frequentemente dirigia a seção de percussão durante as rodas de domingo de Artur Emídio, e suas rodas de domingo tornaram-se lendários pontos de encontro. Nesses encontros, apareciam artistas notáveis incluindo Maria Bethânia, Caetano Veloso, Jards Macalé, Mestres Mintirinha e Genaro, e o produtor musical Nelson Motta.
 
-Há consenso entre os historiadores da capoeira carioca de que quatro linhagens foram as principais influências na formação da Capoeira Contemporânea na cidade: Artur Emídio, Paraná, Mário Buscapé e Roque. Como Mestre Levi afirmou, esses quatro "começaram a trabalhar em espaços fechados de academias, introduziram uniformes, organização, etc. Desses quatro derivou a maioria dos mestres de capoeira aqui no Rio de Janeiro."
+Há consenso entre os historiadores da capoeira carioca de que quatro linhagens foram as principais influências na formação da Capoeira Contemporânea na cidade: Artur Emídio, Paraná, Mário Buscapé e Roque. Como Mestre Levi afirmou, esses quatro "começaram a trabalhar em espaços fechados de academias, introduziram uniformes, organização, etc. Desses quatro derivou a maioria dos mestres de capoeira aqui no Rio de Janeiro".
 
 Mestre Paraná faleceu em 7 de março de 1972, aos 49 anos, vítima de colapso cardíaco em seu local de trabalho no IPASE, onde trabalhava como carpinteiro. Foi sepultado no Cemitério do Murundu em Realengo. Sua habilidade e talento tocando berimbau é sempre destacado pelos mestres que tiveram a oportunidade de conhecê-lo.',
   -- Achievements (English)
@@ -167,7 +167,7 @@ KNOWN STUDENTS:
 MUSICAL RECORDING (1963):
 - Label: CBS
 - Format: EP 45 (single with four tracks)
-- Tracks: "São Bento Grande," "São Bento Pequeno," "Angola," "Avise a meu Mano"
+- Tracks: "São Bento Grande", "São Bento Pequeno", "Angola", "Avise a meu Mano"
 - Collaborators: Onça Preta (pandeiro), Mucungê (per Mestre Gegê and musicologist André Luiz Lacé Lopez)
 - Alternative collaborator claimed: Santo Amaro (per André Luiz Lacé Lopez)
 
@@ -225,7 +225,7 @@ ALUNOS CONHECIDOS:
 GRAVAÇÃO MUSICAL (1963):
 - Gravadora: CBS
 - Formato: EP 45 (single com quatro faixas)
-- Faixas: "São Bento Grande," "São Bento Pequeno," "Angola," "Avise a meu Mano"
+- Faixas: "São Bento Grande", "São Bento Pequeno", "Angola", "Avise a meu Mano"
 - Colaboradores: Onça Preta (pandeiro), Mucungê (per Mestre Gegê e musicólogo André Luiz Lacé Lopez)
 - Colaborador alternativo alegado: Santo Amaro (per André Luiz Lacé Lopez)
 

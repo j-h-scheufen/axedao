@@ -52,9 +52,9 @@ INSERT INTO genealogy.person_profiles (
 
 What makes Bentinho significant to capoeira history is a single, crucial fact: he was the first teacher of Manoel dos Reis Machado, who would become Mestre Bimba, the founder of Capoeira Regional and one of the most transformative figures in capoeira''s history.
 
-Around 1911, when young Bimba was twelve years old, he began learning capoeira from Bentinho at the Estrada das Boiadas in Salvador''s Liberdade neighborhood—a predominantly Black area formed by freed people after abolition in 1888. The training took place at a location known as "Clube União em Apuros." The apprenticeship lasted approximately four years.
+Around 1911, when young Bimba was twelve years old, he began learning capoeira from Bentinho at the Estrada das Boiadas in Salvador''s Liberdade neighborhood—a predominantly Black area formed by freed people after abolition in 1888. The training took place at a location known as "Clube União em Apuros". The apprenticeship lasted approximately four years.
 
-According to Bimba''s own account in a 1936 interview with the newspaper A Tarde: "I adapted various blows from what is called capoeira de Angola, the style practiced by my mestre, the African Bentinho."
+According to Bimba''s own account in a 1936 interview with the newspaper A Tarde: "I adapted various blows from what is called capoeira de Angola, the style practiced by my mestre, the African Bentinho".
 
 The training methods were harsh by later standards. Bimba himself recalled: "Mestre Bimba costumava recordar um golpe formidável aplicado por Bentinho, que o acertara na cabeça, provocando um desmaio até o dia seguinte" (Mestre Bimba used to recall a formidable blow applied by Bentinho that struck his head, causing him to faint until the next day). The rodas at Estrada das Boiadas were described as "bravio" (fierce) with intense berimbau rhythms.
 
@@ -70,11 +70,11 @@ As an African-born capoeirista active in the early 1900s, Bentinho represents a 
 
 O que torna Bentinho significativo para a história da capoeira é um único fato crucial: ele foi o primeiro professor de Manoel dos Reis Machado, que se tornaria Mestre Bimba, o fundador da Capoeira Regional e uma das figuras mais transformadoras da história da capoeira.
 
-Por volta de 1911, quando o jovem Bimba tinha doze anos, começou a aprender capoeira com Bentinho na Estrada das Boiadas, no bairro da Liberdade em Salvador—uma área predominantemente negra formada por pessoas libertas após a abolição em 1888. O treinamento acontecia em um local conhecido como "Clube União em Apuros." O aprendizado durou aproximadamente quatro anos.
+Por volta de 1911, quando o jovem Bimba tinha doze anos, começou a aprender capoeira com Bentinho na Estrada das Boiadas, no bairro da Liberdade em Salvador—uma área predominantemente negra formada por pessoas libertas após a abolição em 1888. O treinamento acontecia em um local conhecido como "Clube União em Apuros". O aprendizado durou aproximadamente quatro anos.
 
-Segundo o próprio relato de Bimba em uma entrevista de 1936 ao jornal A Tarde: "Eu adaptei vários golpes do que se chama capoeira de Angola, o estilo praticado pelo meu mestre, o africano Bentinho."
+Segundo o próprio relato de Bimba em uma entrevista de 1936 ao jornal A Tarde: "Eu adaptei vários golpes do que se chama capoeira de Angola, o estilo praticado pelo meu mestre, o africano Bentinho".
 
-Os métodos de treinamento eram duros para os padrões posteriores. O próprio Bimba recordava: "Mestre Bimba costumava recordar um golpe formidável aplicado por Bentinho, que o acertara na cabeça, provocando um desmaio até o dia seguinte." As rodas na Estrada das Boiadas eram descritas como "bravio" (ferozes) com ritmos intensos de berimbau.
+Os métodos de treinamento eram duros para os padrões posteriores. O próprio Bimba recordava: "Mestre Bimba costumava recordar um golpe formidável aplicado por Bentinho, que o acertara na cabeça, provocando um desmaio até o dia seguinte". As rodas na Estrada das Boiadas eram descritas como "bravio" (ferozes) com ritmos intensos de berimbau.
 
 Os movimentos que Bentinho ensinava incluíam o vocabulário fundamental da capoeira: meia lua de frente, meia lua de compasso, meia lua armada, aú, cabeçada, chibata, rasteira, raspa, tesoura fechada, balão, leque, calcanheira, encruzilhada e deslocamento.
 

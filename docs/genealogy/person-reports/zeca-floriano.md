@@ -34,7 +34,7 @@ But Zeca also carried his father's legacy in a more clandestine art. Marshal Flo
 
 In 1908, when young Agenor Moreira Sampaio's family moved to Rio de Janeiro, they found themselves neighbors with the president's son. Agenor—who would become Mestre Sinhozinho—trained with Zeca for several years, learning pernada and the local capoeira carioca tradition. This transmission occurred just before Sinhozinho witnessed the legendary Cyriaco-Sada Miyako fight in May 1909, which would inspire him to systematize his own approach.
 
-Beyond fighting, Zeca founded and directed the "Pavilhão Floriano" or "Circo Floriano," touring Rio de Janeiro, São Paulo, Pernambuco, and Paraíba. He established several athletic institutions: the "Escola Atlética Modelo José Floriano Peixoto" (1915), the "Esporte Clube S. Cristóvão," and a "Escola de Cultura Física" in Recife (1933). In 1939, he was appointed Chief Instructor of Physical Education for Rio's Security Directorate, a position he held until at least 1955.
+Beyond fighting, Zeca founded and directed the "Pavilhão Floriano" or "Circo Floriano", touring Rio de Janeiro, São Paulo, Pernambuco, and Paraíba. He established several athletic institutions: the "Escola Atlética Modelo José Floriano Peixoto" (1915), the "Esporte Clube S. Cristóvão", and a "Escola de Cultura Física" in Recife (1933). In 1939, he was appointed Chief Instructor of Physical Education for Rio's Security Directorate, a position he held until at least 1955.
 
 In March 1911, he performed a heroic rescue, saving approximately 80 people from a shipwreck in Salvador, Bahia. His boxing career recorded 7 wins, 1 loss, and 4 draws, with his last documented fight on January 20, 1933 against João Baldi at Circo Nerino in Recife.
 

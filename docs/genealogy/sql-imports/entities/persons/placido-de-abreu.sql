@@ -50,21 +50,21 @@ INSERT INTO genealogy.person_profiles (
   -- bio_en
   E'Plácido de Abreu Morais was born in Portugal in 1857 and immigrated to Brazil as a teenager during the 1870s, like many Portuguese seeking economic opportunity in the New World. After arriving in Rio de Janeiro, he found work as a clerk (caixeiro) and later as a typographer in a printing house that published newspapers and small literary works.
 
-Like many young immigrants of his time, Abreu was drawn into the street culture of the city and participated in capoeira rodas, becoming what sources describe as an "amateur capoeirista." In January 1872, during intense police repression led by Ludgero Gonçalves da Silva, he was arrested for investigation regarding a homicide—though the outcome of this case is not recorded.
+Like many young immigrants of his time, Abreu was drawn into the street culture of the city and participated in capoeira rodas, becoming what sources describe as an "amateur capoeirista". In January 1872, during intense police repression led by Ludgero Gonçalves da Silva, he was arrested for investigation regarding a homicide—though the outcome of this case is not recorded.
 
-His contemporary Coelho Neto described him as "a poet, playwright and journalist" and a colleague of noted republican figures Lopes Trovão and Pardal Mallet at the combative newspaper O Combate. Another contemporary described him as "a mix of capoeira fighter, republican activist and writer."
+His contemporary Coelho Neto described him as "a poet, playwright and journalist" and a colleague of noted republican figures Lopes Trovão and Pardal Mallet at the combative newspaper O Combate. Another contemporary described him as "a mix of capoeira fighter, republican activist and writer".
 
 Abreu transitioned from street fighting to literary pursuits, learning typography and writing novels, theatrical pieces, and poetry. His most significant work, Os Capoeiras, was published in 1886 by Tipografia José Alves Editor in Rio de Janeiro. It is considered the first book dedicated entirely to capoeira. The work is divided into two parts: the first is a semi-ethnographic study that functions as a sociological essay on the capoeira scene, and the second is a fictional novella set in the capoeira underworld.
 
-In his introduction, titled "Two Words," Abreu wrote: "When I started this book, my aim was to describe the atrocities committed by capoeiras since ancient times. It is a difficult task to study capoeiragem, from its primitive times, because its origin is not well known."
+In his introduction, titled "Two Words", Abreu wrote: "When I started this book, my aim was to describe the atrocities committed by capoeiras since ancient times. It is a difficult task to study capoeiragem, from its primitive times, because its origin is not well known".
 
 The book documented the two great rival maltas (gangs) of Rio de Janeiro: the Guaiamús (whose color was red) and the Nagôas (whose color was white). He recorded that the Guaiamú were centered at São Francisco church under the famous chief Leandro Bonaparte, with secondary locations at Santa Rita, Ouro Preto, Marinha, and São Domingos de Gusmão. They trained on Livramento hill at a site called Mango Tree. The Nagôas were centered at Santa Lucia church under the leadership of Manduca da Praia, with secondary locations at São José, Lapa, Santa Ana, Moura, and Bolinha de Prata. They trained at Russell beach and Pinto hill.
 
-Abreu documented how both groups operated hierarchically with chiefs, assistants, "policemen," and rank-and-file soldiers. Training progressed from bare-hand exercises to wooden weapons to live blades, with sessions often becoming bloody. He recorded several murders, including Jorge-Marinha''s killing of a Nagoa member at Rua dos Ourives and subsequent retaliatory deaths of Pinta Preta da Lapa, Jacó, and Alemãozinho.
+Abreu documented how both groups operated hierarchically with chiefs, assistants, "policemen", and rank-and-file soldiers. Training progressed from bare-hand exercises to wooden weapons to live blades, with sessions often becoming bloody. He recorded several murders, including Jorge-Marinha''s killing of a Nagoa member at Rua dos Ourives and subsequent retaliatory deaths of Pinta Preta da Lapa, Jacó, and Alemãozinho.
 
 He also provided an extensive glossary of capoeira slang: distorcer (to disguise), tungar (to wound), lamparina (a slap), chifrada (headbutt), jangada (police jail), and palácio de cristal (detention house).
 
-Notably, Abreu rejected the oral tradition of African origins: "In Africa we do not know capoeiragem, but only some headbutts." He similarly dismissed Indigenous attribution, noting that native peoples lacked the specific attack and defense techniques capoeiras employed. This position is now understood to be incorrect.
+Notably, Abreu rejected the oral tradition of African origins: "In Africa we do not know capoeiragem, but only some headbutts". He similarly dismissed Indigenous attribution, noting that native peoples lacked the specific attack and defense techniques capoeiras employed. This position is now understood to be incorrect.
 
 Although Abreu had practiced capoeira in his youth, he later denounced it in his writings as a practice associated with criminality and urban violence. His complex relationship with capoeira reflects broader tensions within Brazilian society during the transition from Empire to Republic.
 
@@ -80,13 +80,13 @@ Though he died in obscurity at approximately 37 years of age, Abreu''s work has 
   -- bio_pt
   E'Plácido de Abreu Morais nasceu em Portugal em 1857 e imigrou para o Brasil ainda adolescente durante a década de 1870, como muitos portugueses em busca de oportunidades econômicas no Novo Mundo. Após chegar ao Rio de Janeiro, encontrou trabalho como caixeiro e depois como tipógrafo em uma casa impressora que publicava jornais e pequenas obras literárias.
 
-Como muitos jovens imigrantes de seu tempo, Abreu foi atraído pela cultura de rua da cidade e participou de rodas de capoeira, tornando-se o que as fontes descrevem como um "capoeirista amador." Em janeiro de 1872, durante intensa repressão policial liderada por Ludgero Gonçalves da Silva, foi preso para investigação sobre um homicídio—embora o resultado deste caso não esteja registrado.
+Como muitos jovens imigrantes de seu tempo, Abreu foi atraído pela cultura de rua da cidade e participou de rodas de capoeira, tornando-se o que as fontes descrevem como um "capoeirista amador". Em janeiro de 1872, durante intensa repressão policial liderada por Ludgero Gonçalves da Silva, foi preso para investigação sobre um homicídio—embora o resultado deste caso não esteja registrado.
 
-Seu contemporâneo Coelho Neto o descreveu como "poeta, dramaturgo e jornalista" e colega de figuras republicanas notáveis como Lopes Trovão e Pardal Mallet no combativo jornal O Combate. Outro contemporâneo o descreveu como "uma mistura de capoeira, ativista republicano e escritor."
+Seu contemporâneo Coelho Neto o descreveu como "poeta, dramaturgo e jornalista" e colega de figuras republicanas notáveis como Lopes Trovão e Pardal Mallet no combativo jornal O Combate. Outro contemporâneo o descreveu como "uma mistura de capoeira, ativista republicano e escritor".
 
 Abreu fez a transição das lutas de rua para atividades literárias, aprendendo tipografia e escrevendo romances, peças teatrais e poesia. Sua obra mais significativa, Os Capoeiras, foi publicada em 1886 pela Tipografia José Alves Editor no Rio de Janeiro. É considerado o primeiro livro dedicado inteiramente à capoeira. A obra é dividida em duas partes: a primeira é um estudo semi-etnográfico que funciona como ensaio sociológico sobre a cena da capoeira, e a segunda é uma novela ficcional ambientada no submundo da capoeira.
 
-Em sua introdução, intitulada "Duas Palavras," Abreu escreveu: "Quando comecei este livro, meu objetivo era descrever as atrocidades cometidas pelos capoeiras desde os tempos antigos. É uma tarefa difícil estudar a capoeiragem, desde seus tempos primitivos, porque sua origem não é bem conhecida."
+Em sua introdução, intitulada "Duas Palavras", Abreu escreveu: "Quando comecei este livro, meu objetivo era descrever as atrocidades cometidas pelos capoeiras desde os tempos antigos. É uma tarefa difícil estudar a capoeiragem, desde seus tempos primitivos, porque sua origem não é bem conhecida".
 
 O livro documentou as duas grandes maltas (gangues) rivais do Rio de Janeiro: os Guaiamús (cuja cor era vermelha) e os Nagôas (cuja cor era branca). Ele registrou que os Guaiamú estavam centrados na igreja de São Francisco sob o famoso chefe Leandro Bonaparte, com locais secundários em Santa Rita, Ouro Preto, Marinha e São Domingos de Gusmão. Treinavam no morro do Livramento em um local chamado Mangueira. Os Nagôas estavam centrados na igreja de Santa Lucia sob a liderança de Manduca da Praia, com locais secundários em São José, Lapa, Santa Ana, Moura e Bolinha de Prata. Treinavam na praia do Russell e no morro do Pinto.
 
@@ -94,7 +94,7 @@ Abreu documentou como ambos os grupos operavam hierarquicamente com chefes, assi
 
 Ele também forneceu um extenso glossário de gírias da capoeira: distorcer (disfarçar), tungar (ferir), lamparina (um tapa), chifrada (cabeçada), jangada (cadeia da polícia) e palácio de cristal (casa de detenção).
 
-Notavelmente, Abreu rejeitou a tradição oral das origens africanas: "Na África não conhecemos a capoeiragem, mas apenas algumas cabeçadas." Ele similarmente descartou a atribuição indígena, notando que os povos nativos não possuíam as técnicas específicas de ataque e defesa que os capoeiras empregavam. Esta posição é agora entendida como incorreta.
+Notavelmente, Abreu rejeitou a tradição oral das origens africanas: "Na África não conhecemos a capoeiragem, mas apenas algumas cabeçadas". Ele similarmente descartou a atribuição indígena, notando que os povos nativos não possuíam as técnicas específicas de ataque e defesa que os capoeiras empregavam. Esta posição é agora entendida como incorreta.
 
 Embora Abreu tenha praticado capoeira em sua juventude, mais tarde a denunciou em seus escritos como uma prática associada à criminalidade e violência urbana. Sua relação complexa com a capoeira reflete tensões mais amplas na sociedade brasileira durante a transição do Império para a República.
 

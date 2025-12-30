@@ -54,7 +54,7 @@ O ensino de Bobô se estendeu além de Salvador. Em Santo Amaro da Purificação
 
 Em 1989, Bobô gravou um LP com seu ex-aluno Jelon Vieira, ao lado dos lendários mestres João Grande e João Pequeno. O álbum "Capoeira: Afro-Brazilian Art Form" capturou as vozes desses quatro mestres juntos—uma documentação histórica da tradição Angola.
 
-Ele acreditava profundamente nos valores da capoeira além do dinheiro. "Na capoeira não se ganha dinheiro, mas se ganha amizade", ele dizia. E: "Mestre é aquele que olha para a condição dos outros."
+Ele acreditava profundamente nos valores da capoeira além do dinheiro. "Na capoeira não se ganha dinheiro, mas se ganha amizade", ele dizia. E: "Mestre é aquele que olha para a condição dos outros".
 
 Casado e com cinco filhos que criou sozinho após recusar oportunidades no exterior que o teriam separado de sua família, Bobô permaneceu dedicado aos seus alunos e à sua comunidade até que uma doença prolongada o confinasse durante seus três anos finais. Faleceu em 8 de julho de 1994 em Salvador, deixando para trás uma linhagem de mestres que continuam sua tradição Angola.',
   E'- Founded Academia de Capoeira Angola Cinco Estrelas (December 26, 1962)

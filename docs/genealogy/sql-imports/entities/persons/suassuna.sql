@@ -45,8 +45,8 @@ INSERT INTO genealogy.person_profiles (
   ARRAY['https://velhosmestres.com/en/featured-23', 'https://www.lalaue.com/learn-capoeira/mestre-suassuna', 'https://capoeira.online/history/mestres/mestre-suassuna/']::text[],
   -- Capoeira-specific
   'regional'::genealogy.style,
-  E'Suassuna trained primarily in Capoeira Regional, studying under Mestre Bimba and Mestre Canjiquinha who both recognized his work and awarded him the title of Mestre. His style was heavily influenced by these two masters. He is the creator of the Jogo do Miudinho (Miudinho Game), developed over fifteen years (from the late 1970s through the 1990s), which he describes as a rescued and modernized form of older capoeira - "a closed angola game played up, down, and inside." The Miudinho is characterized by close, intricate movements with players staying near each other, contrasting with the distant, broader styles that had become common. He created a specific berimbau toque with three parts: one for movement sequences, one for swing/style accents, and one to signal when players need to restart at the berimbau foot. The "Geração Miudinho" (Miudinho Generation) of students became known for their rich, plastic movements.',
-  E'Suassuna treinou principalmente em Capoeira Regional, estudando sob Mestre Bimba e Mestre Canjiquinha que ambos reconheceram seu trabalho e lhe concederam o título de Mestre. Seu estilo foi fortemente influenciado por esses dois mestres. Ele é o criador do Jogo do Miudinho, desenvolvido ao longo de quinze anos (do final dos anos 1970 até os anos 1990), que ele descreve como uma forma resgatada e modernizada de capoeira mais antiga - "um jogo de angola fechado jogado em cima, em baixo e por dentro." O Miudinho é caracterizado por movimentos próximos e intrincados com os jogadores permanecendo perto um do outro, contrastando com os estilos distantes e amplos que haviam se tornado comuns. Ele criou um toque de berimbau específico com três partes: uma para sequências de movimento, uma para acentos de swing/estilo, e uma para sinalizar quando os jogadores precisam recomeçar ao pé do berimbau. A "Geração Miudinho" de alunos se tornou conhecida por seus movimentos ricos e plásticos.',
+  E'Suassuna trained primarily in Capoeira Regional, studying under Mestre Bimba and Mestre Canjiquinha who both recognized his work and awarded him the title of Mestre. His style was heavily influenced by these two masters. He is the creator of the Jogo do Miudinho (Miudinho Game), developed over fifteen years (from the late 1970s through the 1990s), which he describes as a rescued and modernized form of older capoeira - "a closed angola game played up, down, and inside". The Miudinho is characterized by close, intricate movements with players staying near each other, contrasting with the distant, broader styles that had become common. He created a specific berimbau toque with three parts: one for movement sequences, one for swing/style accents, and one to signal when players need to restart at the berimbau foot. The "Geração Miudinho" (Miudinho Generation) of students became known for their rich, plastic movements.',
+  E'Suassuna treinou principalmente em Capoeira Regional, estudando sob Mestre Bimba e Mestre Canjiquinha que ambos reconheceram seu trabalho e lhe concederam o título de Mestre. Seu estilo foi fortemente influenciado por esses dois mestres. Ele é o criador do Jogo do Miudinho, desenvolvido ao longo de quinze anos (do final dos anos 1970 até os anos 1990), que ele descreve como uma forma resgatada e modernizada de capoeira mais antiga - "um jogo de angola fechado jogado em cima, em baixo e por dentro". O Miudinho é caracterizado por movimentos próximos e intrincados com os jogadores permanecendo perto um do outro, contrastando com os estilos distantes e amplos que haviam se tornado comuns. Ele criou um toque de berimbau específico com três partes: uma para sequências de movimento, uma para acentos de swing/estilo, e uma para sinalizar quando os jogadores precisam recomeçar ao pé do berimbau. A "Geração Miudinho" de alunos se tornou conhecida por seus movimentos ricos e plásticos.',
   -- Life dates
   1938,
   'exact'::genealogy.date_precision,
@@ -75,7 +75,7 @@ In 1972, Mestre Bimba visited São Paulo and formally recognized Suassuna''s wor
 
 In 1974, Suassuna organized the first Capoeira Festival of São Paulo State - a milestone in the institutionalization of capoeira in the region.
 
-In 1975, Suassuna recorded his first LP, "Capoeira Cordão de Ouro," with musician Dirceu. The album featured twelve tracks including classic songs like "Capoeira de São Salvador," "São Bento Grande," and "Quando eu morre, disse Besouro." He would go on to record four compact discs in total.
+In 1975, Suassuna recorded his first LP, "Capoeira Cordão de Ouro", with musician Dirceu. The album featured twelve tracks including classic songs like "Capoeira de São Salvador", "São Bento Grande", and "Quando eu morre, disse Besouro". He would go on to record four compact discs in total.
 
 In September 1986, Suassuna participated as a chorus member in the landmark recording session with Mestres Waldemar and Canjiquinha at Boca do Rio, Salvador. This 34-track album, documented by Mestre Itapoan, preserved traditional Bahian capoeira music, with Suassuna joining Mestres Itapoan, Ezequiel, and Geni in the chorus.
 
@@ -85,7 +85,7 @@ In 1997, Suassuna organized the first "O Capoeirando" event in Ubatuba, São Pau
 
 During a period when Suassuna was concerned about the direction capoeira was taking - with players moving too far apart and the game becoming increasingly aggressive and broad - he began to reminisce about the capoeira he played at the end of the 1950s. He created a training system with sequences of movements and set a style rich in close, intricate play. After more than fifteen years of development, it became the Jogo do Miudinho. In his words: "People think it''s a new capoeira, and it''s nothing like that. I simply rescued an older capoeira, modernized the manner of playing it, changed the sequences... the name miudinho arose because I was observing that capoeiristas were playing very distant from each other and in our time we played very close; thus, I said to people, ''I want the game more minute, closer, play very tiny.''"
 
-Today, Suassuna lives on a farm known as "Sítio do Vovô" in a district of São Paulo. Cordão de Ouro has expanded to five continents and remains one of the oldest, largest, and most influential capoeira organizations in the world. As Mestre Decânio once described him: "The apostle of Mestre Bimba in São Paulo."',
+Today, Suassuna lives on a farm known as "Sítio do Vovô" in a district of São Paulo. Cordão de Ouro has expanded to five continents and remains one of the oldest, largest, and most influential capoeira organizations in the world. As Mestre Decânio once described him: "The apostle of Mestre Bimba in São Paulo".',
   -- bio_pt
   E'Reinaldo Ramos Suassuna nasceu em 4 de julho de 1938, em Ilhéus, Bahia, e foi criado na vizinha Itabuna. Quando criança, sofria de uma condição muscular nas pernas, e seu médico recomendou atividade física diferente do futebol para ajudar na reabilitação. Este conselho médico o colocaria no caminho para se tornar um dos capoeiristas mais influentes da era moderna.
 
@@ -107,7 +107,7 @@ Em 1972, Mestre Bimba visitou São Paulo e reconheceu formalmente o trabalho de 
 
 Em 1974, Suassuna organizou o primeiro Festival de Capoeira do Estado de São Paulo - um marco na institucionalização da capoeira na região.
 
-Em 1975, Suassuna gravou seu primeiro LP, "Capoeira Cordão de Ouro," com o músico Dirceu. O álbum apresentou doze faixas incluindo músicas clássicas como "Capoeira de São Salvador," "São Bento Grande" e "Quando eu morre, disse Besouro." Ele gravaria quatro CDs no total.
+Em 1975, Suassuna gravou seu primeiro LP, "Capoeira Cordão de Ouro", com o músico Dirceu. O álbum apresentou doze faixas incluindo músicas clássicas como "Capoeira de São Salvador", "São Bento Grande" e "Quando eu morre, disse Besouro". Ele gravaria quatro CDs no total.
 
 Em setembro de 1986, Suassuna participou como membro do coro na gravação histórica com Mestres Waldemar e Canjiquinha em Boca do Rio, Salvador. Este álbum de 34 faixas, documentado por Mestre Itapoan, preservou a música tradicional de capoeira baiana, com Suassuna juntando-se aos Mestres Itapoan, Ezequiel e Geni no coro.
 
@@ -117,7 +117,7 @@ Em 1997, Suassuna organizou o primeiro evento "O Capoeirando" em Ubatuba, São P
 
 Durante um período em que Suassuna estava preocupado com a direção que a capoeira estava tomando - com jogadores se afastando muito e o jogo se tornando cada vez mais agressivo e amplo - ele começou a relembrar a capoeira que jogava no final dos anos 1950. Ele criou um sistema de treinamento com sequências de movimentos e estabeleceu um estilo rico em jogo próximo e intrincado. Após mais de quinze anos de desenvolvimento, tornou-se o Jogo do Miudinho. Em suas palavras: "As pessoas pensam que é uma capoeira nova, e não é nada disso. Eu simplesmente resgatei uma capoeira mais antiga, modernizei a maneira de jogá-la, mudei as sequências... o nome miudinho surgiu porque eu estava observando que os capoeiristas jogavam muito distantes uns dos outros e no nosso tempo jogávamos muito próximos; então, eu disse às pessoas, ''Eu quero o jogo mais miúdo, mais próximo, joguem bem pequenininho.''"
 
-Hoje, Suassuna vive em um sítio conhecido como "Sítio do Vovô" em um distrito de São Paulo. O Cordão de Ouro se expandiu para cinco continentes e continua sendo uma das organizações de capoeira mais antigas, maiores e influentes do mundo. Como Mestre Decânio uma vez o descreveu: "O apóstolo de Mestre Bimba em São Paulo."',
+Hoje, Suassuna vive em um sítio conhecido como "Sítio do Vovô" em um distrito de São Paulo. O Cordão de Ouro se expandiu para cinco continentes e continua sendo uma das organizações de capoeira mais antigas, maiores e influentes do mundo. Como Mestre Decânio uma vez o descreveu: "O apóstolo de Mestre Bimba em São Paulo".',
   -- achievements_en
   E'1957-1958: Began capoeira training in Itabuna under Mestre Maneca, Sururú, Bigode de Arame, Tonho Rale, Maneca Brandão
 1965: Migrated to São Paulo; became a pioneer of capoeira in the state
@@ -206,7 +206,7 @@ DISCOGRAPHY:
 STUDENTS (NOTABLE):
 - Lobão (Everaldo Bispo de Souza), Esdras Filho, Tarzan, Belisco, Almir das Areias, Caio
 - "Geração Miudinho": Boca Rica, Habibs, Mintirinha, Kibe, Denis, Saroba, Coruja, Chicote, Chiclete, Kino, Pintado, Lú Pimenta, Barata, Esquilo, Romualdo
-- Luís Medicina, Miguel, Aberrê, Risadinha, Tihane, Biriba, Dal, Zé Carlos, Quebrinha, Flávio Tucano, Marcelo "Caveirinha," Sarará, Urubu Malandro, Zé Antônio, Ponciano, Canguru, Espirro-Mirim, Tião, Xavier, Sampaio
+- Luís Medicina, Miguel, Aberrê, Risadinha, Tihane, Biriba, Dal, Zé Carlos, Quebrinha, Flávio Tucano, Marcelo "Caveirinha", Sarará, Urubu Malandro, Zé Antônio, Ponciano, Canguru, Espirro-Mirim, Tião, Xavier, Sampaio
 
 CURRENT RESIDENCE: Sítio do Vovô (Grandfather''s Farm), district of São Paulo
 
@@ -263,7 +263,7 @@ DISCOGRAFIA:
 ALUNOS (NOTÁVEIS):
 - Lobão (Everaldo Bispo de Souza), Esdras Filho, Tarzan, Belisco, Almir das Areias, Caio
 - "Geração Miudinho": Boca Rica, Habibs, Mintirinha, Kibe, Denis, Saroba, Coruja, Chicote, Chiclete, Kino, Pintado, Lú Pimenta, Barata, Esquilo, Romualdo
-- Luís Medicina, Miguel, Aberrê, Risadinha, Tihane, Biriba, Dal, Zé Carlos, Quebrinha, Flávio Tucano, Marcelo "Caveirinha," Sarará, Urubu Malandro, Zé Antônio, Ponciano, Canguru, Espirro-Mirim, Tião, Xavier, Sampaio
+- Luís Medicina, Miguel, Aberrê, Risadinha, Tihane, Biriba, Dal, Zé Carlos, Quebrinha, Flávio Tucano, Marcelo "Caveirinha", Sarará, Urubu Malandro, Zé Antônio, Ponciano, Canguru, Espirro-Mirim, Tião, Xavier, Sampaio
 
 RESIDÊNCIA ATUAL: Sítio do Vovô, distrito de São Paulo
 

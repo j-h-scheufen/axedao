@@ -32,9 +32,9 @@ The origin of her powerful nickname is disputed in oral tradition:
 
 2. **The police confrontation**: Some say she defeated (or even killed) twelve police officers in a single confrontation - a feat that would have made her a legend in an era of brutal persecution.
 
-3. **Training lineage (disputed)**: According to testimony recorded by Bira Almeida from Mestre Atenilo, in early 20th century Salvador there were two women who loved batuque and samba - Salomé and Maria dos Anjos - who were students of a male capoeirista named "Doze Homens." Some have speculated that "Maria Doze Homens" was a title indicating "Maria [student of] Doze Homens" - however, Maria Salomé and Maria dos Anjos appear to be separate individuals from Maria Doze Homens (Maria Felipe de Oliveira).
+3. **Training lineage (disputed)**: According to testimony recorded by Bira Almeida from Mestre Atenilo, in early 20th century Salvador there were two women who loved batuque and samba - Salomé and Maria dos Anjos - who were students of a male capoeirista named "Doze Homens". Some have speculated that "Maria Doze Homens" was a title indicating "Maria [student of] Doze Homens" - however, Maria Salomé and Maria dos Anjos appear to be separate individuals from Maria Doze Homens (Maria Felipe de Oliveira).
 
-4. **Companion of Besouro**: Some sources list her among Besouro Mangangá's Sunday training circle alongside Paulo Barroquinha, Canário Pardo, and Siri de Mangue, describing them as "capoeira resistance fighters who trained together."
+4. **Companion of Besouro**: Some sources list her among Besouro Mangangá's Sunday training circle alongside Paulo Barroquinha, Canário Pardo, and Siri de Mangue, describing them as "capoeira resistance fighters who trained together".
 
 She frequented the historic Cais Dourado (Mercado do Ouro) area of Salvador - a gathering place for capoeiristas and malandros. She shared "corpulence and bravery" with Maria Felipa de Oliveira, another legendary Bahian fighter, leading some to speculate (without confirmation) that they may have been the same person.
 
@@ -56,9 +56,9 @@ A origem de seu poderoso apelido é disputada na tradição oral:
 
 2. **O confronto policial**: Alguns dizem que ela derrotou (ou até matou) doze policiais em um único confronto - um feito que a teria tornado uma lenda em uma era de perseguição brutal.
 
-3. **Linhagem de treinamento (disputada)**: Segundo testemunho registrado por Bira Almeida de Mestre Atenilo, no início do século XX em Salvador havia duas mulheres que amavam batuque e samba - Salomé e Maria dos Anjos - que eram alunas de um capoeirista homem chamado "Doze Homens." Alguns especularam que "Maria Doze Homens" era um título indicando "Maria [aluna de] Doze Homens" - no entanto, Maria Salomé e Maria dos Anjos parecem ser indivíduos separados de Maria Doze Homens (Maria Felipe de Oliveira).
+3. **Linhagem de treinamento (disputada)**: Segundo testemunho registrado por Bira Almeida de Mestre Atenilo, no início do século XX em Salvador havia duas mulheres que amavam batuque e samba - Salomé e Maria dos Anjos - que eram alunas de um capoeirista homem chamado "Doze Homens". Alguns especularam que "Maria Doze Homens" era um título indicando "Maria [aluna de] Doze Homens" - no entanto, Maria Salomé e Maria dos Anjos parecem ser indivíduos separados de Maria Doze Homens (Maria Felipe de Oliveira).
 
-4. **Companheira de Besouro**: Algumas fontes a listam entre o círculo de treino dominical de Besouro Mangangá junto com Paulo Barroquinha, Canário Pardo e Siri de Mangue, descrevendo-os como "lutadores de resistência da capoeira que treinavam juntos."
+4. **Companheira de Besouro**: Algumas fontes a listam entre o círculo de treino dominical de Besouro Mangangá junto com Paulo Barroquinha, Canário Pardo e Siri de Mangue, descrevendo-os como "lutadores de resistência da capoeira que treinavam juntos".
 
 Ela frequentava a histórica área do Cais Dourado (Mercado do Ouro) de Salvador - um ponto de encontro para capoeiristas e malandros. Ela compartilhava "corpulência e valentia" com Maria Felipa de Oliveira, outra lendária lutadora baiana, levando alguns a especular (sem confirmação) que poderiam ser a mesma pessoa.
 
@@ -123,7 +123,7 @@ None documented.
 Several identity confusions exist in the historical record:
 
 1. **Maria Doze Homens vs Maria dos Anjos / Maria Salomé**: These are three separate individuals. Maria dos Anjos and Maria Salomé were students of the male capoeirista Mestre Doze Homens; Maria Doze Homens (Maria Felipe de Oliveira) is a separate person whose nickname has a different origin.
-2. **Maria Doze Homens vs Maria Felipa de Oliveira (independence fighter)**: Despite the similar names, unlikely the same person - Maria Felipa (the independence fighter) was active in 1822. However, note that the Raridades da Capoeira source identifies Maria Doze Homens' full name as "Maria Felipe de Oliveira."
+2. **Maria Doze Homens vs Maria Felipa de Oliveira (independence fighter)**: Despite the similar names, unlikely the same person - Maria Felipa (the independence fighter) was active in 1822. However, note that the Raridades da Capoeira source identifies Maria Doze Homens' full name as "Maria Felipe de Oliveira".
 3. **Maria Doze Homens vs Maria Homem**: Different person - Maria Homem was a 1940s homosexual fighter who frequented Cais Dourado
 
 ## Literary Connection / Conexão Literária

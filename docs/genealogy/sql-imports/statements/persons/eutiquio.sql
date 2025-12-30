@@ -25,8 +25,8 @@ SELECT
   '{}'::jsonb,
   'likely'::genealogy.confidence,
   'Gato Preto testimony (velhosmestres.com); USP Núcleo de Artes Afro-Brasileiras',
-  'Eutíquio learned capoeira from his father, the African Oleriano de Góes, in Santo Amaro da Purificação. This represents direct African transmission of capoeira. Gato Preto confirmed: "Aprendi capoeira com meu pai, que aprendeu com meu avô."',
-  'Eutíquio aprendeu capoeira com seu pai, o africano Oleriano de Góes, em Santo Amaro da Purificação. Isto representa a transmissão africana direta da capoeira. Gato Preto confirmou: "Aprendi capoeira com meu pai, que aprendeu com meu avô."'
+  'Eutíquio learned capoeira from his father, the African Oleriano de Góes, in Santo Amaro da Purificação. This represents direct African transmission of capoeira. Gato Preto confirmed: "Aprendi capoeira com meu pai, que aprendeu com meu avô".',
+  'Eutíquio aprendeu capoeira com seu pai, o africano Oleriano de Góes, em Santo Amaro da Purificação. Isto representa a transmissão africana direta da capoeira. Gato Preto confirmou: "Aprendi capoeira com meu pai, que aprendeu com meu avô".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Eutíquio' AND o.apelido = 'Oleriano de Góes'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

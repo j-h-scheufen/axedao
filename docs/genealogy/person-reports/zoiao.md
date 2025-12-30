@@ -38,7 +38,7 @@ In 1999, Zoião published "Arte da Capoeira (História e Filosofia)" through Gr�
 
 Adyjolvã Anunciação Couto, conhecido como Mestre Zoião, foi aluno de Mestre Bimba e uma figura importante na transmissão da Capoeira Regional para o sul da Bahia.
 
-Zoião treinou no Centro de Cultura Física Regional de Mestre Bimba em Salvador, onde se tornou colega de turma de Maneca Brandão—outro formado que desempenharia um papel crucial na difusão da Capoeira Regional além da capital. Como todos os alunos de Bimba, Zoião estava sujeito à lendária disciplina do mestre. Em seu livro "Arte da Capoeira (História e Filosofia)", ele relembrou: "Ai de quem comparecesse na aula de uniforme sujo."
+Zoião treinou no Centro de Cultura Física Regional de Mestre Bimba em Salvador, onde se tornou colega de turma de Maneca Brandão—outro formado que desempenharia um papel crucial na difusão da Capoeira Regional além da capital. Como todos os alunos de Bimba, Zoião estava sujeito à lendária disciplina do mestre. Em seu livro "Arte da Capoeira (História e Filosofia)", ele relembrou: "Ai de quem comparecesse na aula de uniforme sujo".
 
 Quando Major Carlos Dória fundou a Academia Cultura Física e Capoeira Major Dória em Itabuna em 1958—a primeira escola formal de capoeira da cidade—Maneca Brandão foi recrutado como instrutor principal. Zoião, seu colega de turma da academia de Bimba, às vezes ajudava nos treinamentos. Esta parceria trouxe a metodologia de Bimba para o sul da Bahia, e foi nesta academia que o jovem Reinaldo Ramos Suassuna (posteriormente Mestre Suassuna, co-fundador do Cordão de Ouro) recebeu sua formação inicial.
 
@@ -115,10 +115,10 @@ Maneca Brandão's estimated birth is ~1925. Zoião was likely of similar age. He
 ## Notes / Notas
 
 ### English
-The clarification that Zoião was Maneca Brandão's CLASSMATE (not teacher) is important for accurate lineage. Previous references incorrectly stated Zoião taught Maneca Brandão. The CDO Sergipe source explicitly states: "Na academia Major Dória quem ministrava as aulas era Maneca Brandão, aluno do Mestre Bimba, e seu companheiro de turma Zoião o ajudava nos treinamentos às vezes." This confirms both were students of Bimba at the same level, with Maneca as the primary instructor at Major Dória's academy and Zoião as an occasional assistant.
+The clarification that Zoião was Maneca Brandão's CLASSMATE (not teacher) is important for accurate lineage. Previous references incorrectly stated Zoião taught Maneca Brandão. The CDO Sergipe source explicitly states: "Na academia Major Dória quem ministrava as aulas era Maneca Brandão, aluno do Mestre Bimba, e seu companheiro de turma Zoião o ajudava nos treinamentos às vezes". This confirms both were students of Bimba at the same level, with Maneca as the primary instructor at Major Dória's academy and Zoião as an occasional assistant.
 
 ### Português
-O esclarecimento de que Zoião era COLEGA DE TURMA de Maneca Brandão (não professor) é importante para a linhagem precisa. Referências anteriores afirmavam incorretamente que Zoião ensinou Maneca Brandão. A fonte CDO Sergipe afirma explicitamente: "Na academia Major Dória quem ministrava as aulas era Maneca Brandão, aluno do Mestre Bimba, e seu companheiro de turma Zoião o ajudava nos treinamentos às vezes." Isso confirma que ambos eram alunos de Bimba no mesmo nível, com Maneca como instrutor principal na academia do Major Dória e Zoião como assistente ocasional.
+O esclarecimento de que Zoião era COLEGA DE TURMA de Maneca Brandão (não professor) é importante para a linhagem precisa. Referências anteriores afirmavam incorretamente que Zoião ensinou Maneca Brandão. A fonte CDO Sergipe afirma explicitamente: "Na academia Major Dória quem ministrava as aulas era Maneca Brandão, aluno do Mestre Bimba, e seu companheiro de turma Zoião o ajudava nos treinamentos às vezes". Isso confirma que ambos eram alunos de Bimba no mesmo nível, com Maneca como instrutor principal na academia do Major Dória e Zoião como assistente ocasional.
 
 ## Sources / Fontes
 

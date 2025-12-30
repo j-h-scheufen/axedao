@@ -34,9 +34,9 @@ Police records from the era document headbutts as the capoeiras' signature move.
 
 ### English
 
-Quebra Coco - "The Coconut Breaker" - was one of the "perigosos capoeiras" (dangerous capoeiristas) of mid-19th century Rio de Janeiro. His name survives in two of the earliest written sources on capoeira: Plácido de Abreu's 1886 work "Os Capoeiras" and Melo Morais Filho's 1888 "Festas e Tradições Populares do Brasil."
+Quebra Coco - "The Coconut Breaker" - was one of the "perigosos capoeiras" (dangerous capoeiristas) of mid-19th century Rio de Janeiro. His name survives in two of the earliest written sources on capoeira: Plácido de Abreu's 1886 work "Os Capoeiras" and Melo Morais Filho's 1888 "Festas e Tradições Populares do Brasil".
 
-Both sources list Quebra Coco among the most feared street fighters of the 1850s, alongside Mamede, Aleixo Açougueiro, Pedro Cobra, and Bentevi. According to these accounts, the legendary Manduca da Praia "attended the full-time school of roguery and bravery on the streets of Rio de Janeiro during the era of dangerous capoeiras such as Mamede, Aleixo Açougueiro, Pedro Cobra, Bem-te-vi, and Quebra Coco."
+Both sources list Quebra Coco among the most feared street fighters of the 1850s, alongside Mamede, Aleixo Açougueiro, Pedro Cobra, and Bentevi. According to these accounts, the legendary Manduca da Praia "attended the full-time school of roguery and bravery on the streets of Rio de Janeiro during the era of dangerous capoeiras such as Mamede, Aleixo Açougueiro, Pedro Cobra, Bem-te-vi, and Quebra Coco".
 
 No individual exploits of Quebra Coco survive. He exists now only as a name on a list of dangerous men - but his name tells a story. In an era when headbutts could be lethal, someone known as "The Coconut Breaker" commanded fear.
 

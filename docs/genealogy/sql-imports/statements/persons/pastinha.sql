@@ -24,8 +24,8 @@ SELECT
   '{"training_location": "Rua das Laranjeiras, n° 26, Pelourinho, Salvador"}'::jsonb,
   'verified'::genealogy.confidence,
   'velhosmestres.com/br/pastinha-1899; Pastinha interviews 1964, 1967; papoeira.com',
-  'Pastinha learned capoeira from Benedito, an African man from Angola, at age 10 after being bullied. Trained for three years at Benedito''s house. Pastinha spoke of him with "the purest gratitude."',
-  'Pastinha aprendeu capoeira com Benedito, um africano de Angola, aos 10 anos após ser intimidado. Treinou por três anos na casa de Benedito. Pastinha falava dele com "a mais pura gratidão."'
+  'Pastinha learned capoeira from Benedito, an African man from Angola, at age 10 after being bullied. Trained for three years at Benedito''s house. Pastinha spoke of him with "the purest gratitude".',
+  'Pastinha aprendeu capoeira com Benedito, um africano de Angola, aos 10 anos após ser intimidado. Treinou por três anos na casa de Benedito. Pastinha falava dele com "a mais pura gratidão".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Pastinha' AND o.apelido = 'Benedito'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

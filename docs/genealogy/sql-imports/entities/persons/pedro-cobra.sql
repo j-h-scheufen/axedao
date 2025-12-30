@@ -48,23 +48,23 @@ INSERT INTO genealogy.person_profiles (
   'unknown'::genealogy.date_precision,
   NULL,  -- Death place unknown
   -- bio_en
-  E'Pedro Cobra - "Pedro the Snake" - was one of the "perigosos capoeiras" (dangerous capoeiristas) of mid-19th century Rio de Janeiro. His name survives in two of the earliest written sources on capoeira: Plácido de Abreu''s 1886 work "Os Capoeiras" and Melo Morais Filho''s 1888 "Festas e Tradições Populares do Brasil."
+  E'Pedro Cobra - "Pedro the Snake" - was one of the "perigosos capoeiras" (dangerous capoeiristas) of mid-19th century Rio de Janeiro. His name survives in two of the earliest written sources on capoeira: Plácido de Abreu''s 1886 work "Os Capoeiras" and Melo Morais Filho''s 1888 "Festas e Tradições Populares do Brasil".
 
-Both sources list Pedro Cobra among the most feared street fighters of the 1850s, alongside Mamede, Aleixo Açougueiro, Bentevi, and Quebra Coco. According to these accounts, the legendary Manduca da Praia "attended the full-time school of roguery and bravery on the streets of Rio de Janeiro during the era of dangerous capoeiras such as Mamede, Aleixo Açougueiro, Pedro Cobra, Bem-te-vi, and Quebra Coco."
+Both sources list Pedro Cobra among the most feared street fighters of the 1850s, alongside Mamede, Aleixo Açougueiro, Bentevi, and Quebra Coco. According to these accounts, the legendary Manduca da Praia "attended the full-time school of roguery and bravery on the streets of Rio de Janeiro during the era of dangerous capoeiras such as Mamede, Aleixo Açougueiro, Pedro Cobra, Bem-te-vi, and Quebra Coco".
 
 His apelido - "Cobra" (snake) - speaks to the fighting culture of the era. Animal nicknames were common among capoeiristas and malandros, often reflecting fighting characteristics: speed, cunning, or unpredictability. The snake imagery suggests someone who could strike without warning, perhaps skilled in the deceptive movements and sudden attacks that characterized capoeira.
 
-This was an era before berimbau and music defined the practice. Capoeira carioca was a street fighting system where practitioners excelled "in the use of the razor and dagger; in the handling of the Petrópolis - a long hardwood club, inseparable companion of the tough guys of the time - in the cunning of the sweep and trip; and with the punch, headbutt and rabo-de-arraia."
+This was an era before berimbau and music defined the practice. Capoeira carioca was a street fighting system where practitioners excelled "in the use of the razor and dagger; in the handling of the Petrópolis - a long hardwood club, inseparable companion of the tough guys of the time - in the cunning of the sweep and trip; and with the punch, headbutt and rabo-de-arraia".
 
 No individual exploits of Pedro Cobra survive. We do not know if he belonged to the Nagoas or Guaiamums, the two great rival maltas that divided Rio de Janeiro. He exists now only as a name on a list of dangerous men in the earliest capoeira literature.',
   -- bio_pt
   E'Pedro Cobra foi um dos "perigosos capoeiras" do Rio de Janeiro em meados do século XIX. Seu nome sobrevive em duas das fontes escritas mais antigas sobre capoeira: a obra de 1886 de Plácido de Abreu "Os Capoeiras" e "Festas e Tradições Populares do Brasil" de 1888 de Melo Morais Filho.
 
-Ambas as fontes listam Pedro Cobra entre os mais temidos lutadores de rua da década de 1850, ao lado de Mamede, Aleixo Açougueiro, Bentevi e Quebra Coco. Segundo estes relatos, o lendário Manduca da Praia "cursou a escola de horário integral da malandragem e da valentia das ruas do Rio de Janeiro na época de perigosos capoeiras como Mamede, Aleixo Açougueiro, Pedro Cobra, Bem-te-vi e Quebra Coco."
+Ambas as fontes listam Pedro Cobra entre os mais temidos lutadores de rua da década de 1850, ao lado de Mamede, Aleixo Açougueiro, Bentevi e Quebra Coco. Segundo estes relatos, o lendário Manduca da Praia "cursou a escola de horário integral da malandragem e da valentia das ruas do Rio de Janeiro na época de perigosos capoeiras como Mamede, Aleixo Açougueiro, Pedro Cobra, Bem-te-vi e Quebra Coco".
 
 Seu apelido - "Cobra" - fala da cultura de luta da época. Apelidos de animais eram comuns entre capoeiristas e malandros, frequentemente refletindo características de luta: velocidade, astúcia ou imprevisibilidade. A imagética da cobra sugere alguém que poderia atacar sem aviso, talvez habilidoso nos movimentos enganosos e ataques repentinos que caracterizavam a capoeira.
 
-Esta era uma era antes que o berimbau e a música definissem a prática. A capoeira carioca era um sistema de luta de rua onde os praticantes se destacavam "no uso da navalha e do punhal; no manejo do Petrópolis - um comprido porrete de madeira-de-lei, companheiro inseparável dos valentões da época - na malícia da banda e da rasteira; e no soco, cabeçada e rabo-de-arraia."
+Esta era uma era antes que o berimbau e a música definissem a prática. A capoeira carioca era um sistema de luta de rua onde os praticantes se destacavam "no uso da navalha e do punhal; no manejo do Petrópolis - um comprido porrete de madeira-de-lei, companheiro inseparável dos valentões da época - na malícia da banda e da rasteira; e no soco, cabeçada e rabo-de-arraia".
 
 Nenhuma façanha individual de Pedro Cobra sobrevive. Não sabemos se ele pertencia aos Nagoas ou Guaiamuns, as duas grandes maltas rivais que dividiam o Rio de Janeiro. Ele existe agora apenas como um nome em uma lista de homens perigosos na literatura mais antiga sobre capoeira.',
   -- achievements_en

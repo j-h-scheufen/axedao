@@ -55,8 +55,8 @@ SELECT
   '1995-01-01'::date, 'decade'::genealogy.date_precision,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'https://capoeirahistory.com/mestre/master-paulo-siqueira-1955/',
-  E'Paulo Siqueira began training under Mestre Adilson "Camisa Preta" around 1972 at Mestre Roque''s academy on Morro do Pavao. Adilson was his primary teacher and "had great influence in the life of Paulo Siqueira, as capoeirista and person." Adilson was Paulo''s only mestre until Adilson''s death in the 1990s.',
-  E'Paulo Siqueira comecou a treinar sob Mestre Adilson "Camisa Preta" por volta de 1972 na academia de Mestre Roque no Morro do Pavao. Adilson foi seu professor principal e "teve grande influencia na vida de Paulo Siqueira, como capoeirista e pessoa." Adilson foi o unico mestre de Paulo ate a morte de Adilson nos anos 1990.'
+  E'Paulo Siqueira began training under Mestre Adilson "Camisa Preta" around 1972 at Mestre Roque''s academy on Morro do Pavao. Adilson was his primary teacher and "had great influence in the life of Paulo Siqueira, as capoeirista and person". Adilson was Paulo''s only mestre until Adilson''s death in the 1990s.',
+  E'Paulo Siqueira comecou a treinar sob Mestre Adilson "Camisa Preta" por volta de 1972 na academia de Mestre Roque no Morro do Pavao. Adilson foi seu professor principal e "teve grande influencia na vida de Paulo Siqueira, como capoeirista e pessoa". Adilson foi o unico mestre de Paulo ate a morte de Adilson nos anos 1990.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Paulo Siqueira' AND o.apelido = 'Adilson Camisa Preta'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
@@ -78,8 +78,8 @@ SELECT
   NULL::date, NULL::genealogy.date_precision,
   '{"title_grant": {"title": "mestre"}}'::jsonb, 'verified'::genealogy.confidence,
   'https://capoeirahistory.com/mestre/master-paulo-siqueira-1955/',
-  E'Paulo Siqueira received the mestre title from Mestre Adilson "Camisa Preta." Exact date unknown, but occurred before Adilson''s death in the 1990s.',
-  E'Paulo Siqueira recebeu o titulo de mestre de Mestre Adilson "Camisa Preta." Data exata desconhecida, mas ocorreu antes da morte de Adilson nos anos 1990.'
+  E'Paulo Siqueira received the mestre title from Mestre Adilson "Camisa Preta". Exact date unknown, but occurred before Adilson''s death in the 1990s.',
+  E'Paulo Siqueira recebeu o titulo de mestre de Mestre Adilson "Camisa Preta". Data exata desconhecida, mas ocorreu antes da morte de Adilson nos anos 1990.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Paulo Siqueira' AND o.apelido = 'Adilson Camisa Preta'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

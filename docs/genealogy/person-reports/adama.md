@@ -30,11 +30,11 @@
 
 Adama was one of the feared valentões (tough guys) of Recife during the First Republic era, and a skilled capoeirista. According to Oscar Mello, the crime reporter and author of "Recife Sangrento" (1937), Adama handled the knife with surprising agility and was a specialist in the rasteira, one of capoeira's signature leg sweep techniques.
 
-Beyond his fighting reputation, Adama was deeply connected to Recife's Afro-Brazilian cultural traditions. He loved carnival and served as the founder and director of Maracatu "Oriente Pequeno," a carnival group that commanded respect from other organizations due to his fame as a valentão.
+Beyond his fighting reputation, Adama was deeply connected to Recife's Afro-Brazilian cultural traditions. He loved carnival and served as the founder and director of Maracatu "Oriente Pequeno", a carnival group that commanded respect from other organizations due to his fame as a valentão.
 
 Adama was part of a broader network of capoeiristas who dominated Recife's streets in the late 19th and early 20th centuries. These valentões simultaneously provoked horror, respect, and fascination among the population. Many served as bodyguards for politicians during elections and walked openly armed through the streets of Santo Antônio, São José, and Afogados.
 
-In 1907, Adama was involved in disturbances on a train returning from a religious festival, alongside Eleutério de Souza and Formigão—fellow valentões of the era. The following year, 1908, proved to be the last for his Maracatu "Oriente Pequeno," as the group entered into conflict first with Maracatu "Centro Grande" and then with Club "Lenhadores."
+In 1907, Adama was involved in disturbances on a train returning from a religious festival, alongside Eleutério de Souza and Formigão—fellow valentões of the era. The following year, 1908, proved to be the last for his Maracatu "Oriente Pequeno", as the group entered into conflict first with Maracatu "Centro Grande" and then with Club "Lenhadores".
 
 His illiteracy is documented in the "Livro de Entrada e Saída de Presos" (Book of Entry and Exit of Prisoners), an indication that he spent time in detention—a common fate for capoeiristas during the period of criminalization.
 
@@ -44,13 +44,13 @@ Among Recife's legendary valentões—Jovino dos Coelhos, Nicolau do Poço, Joã
 
 Adama foi um dos temidos valentões do Recife durante a era da Primeira República, e um habilidoso capoeirista. Segundo Oscar Mello, o repórter policial e autor de "Recife Sangrento" (1937), Adama manejava a faca com surpreendente agilidade e era especialista na rasteira, uma das técnicas mais características da capoeira.
 
-Além de sua reputação como lutador, Adama estava profundamente conectado às tradições culturais afro-brasileiras do Recife. Amava o carnaval e serviu como fundador e diretor do Maracatu "Oriente Pequeno," um grupo carnavalesco que impunha respeito a outras organizações devido à sua fama como valentão.
+Além de sua reputação como lutador, Adama estava profundamente conectado às tradições culturais afro-brasileiras do Recife. Amava o carnaval e serviu como fundador e diretor do Maracatu "Oriente Pequeno", um grupo carnavalesco que impunha respeito a outras organizações devido à sua fama como valentão.
 
 Adama fazia parte de uma rede mais ampla de capoeiristas que dominavam as ruas do Recife no final do século XIX e início do século XX. Esses valentões provocavam simultaneamente horror, respeito e fascinação entre a população. Muitos serviam como guarda-costas de políticos durante eleições e andavam abertamente armados pelas ruas de Santo Antônio, São José e Afogados.
 
-Em 1907, Adama se envolveu em distúrbios em um trem que retornava de uma festividade religiosa, ao lado de Eleutério de Souza e Formigão—valentões contemporâneos. O ano seguinte, 1908, provou ser o último para seu Maracatu "Oriente Pequeno," quando o grupo entrou em conflito primeiro com o Maracatu "Centro Grande" e depois com o Club "Lenhadores."
+Em 1907, Adama se envolveu em distúrbios em um trem que retornava de uma festividade religiosa, ao lado de Eleutério de Souza e Formigão—valentões contemporâneos. O ano seguinte, 1908, provou ser o último para seu Maracatu "Oriente Pequeno", quando o grupo entrou em conflito primeiro com o Maracatu "Centro Grande" e depois com o Club "Lenhadores".
 
-Seu analfabetismo está documentado no "Livro de Entrada e Saída de Presos," indicação de que passou tempo em detenção—destino comum para capoeiristas durante o período de criminalização.
+Seu analfabetismo está documentado no "Livro de Entrada e Saída de Presos", indicação de que passou tempo em detenção—destino comum para capoeiristas durante o período de criminalização.
 
 Entre os lendários valentões do Recife—Jovino dos Coelhos, Nicolau do Poço, João de Totó, e o poderoso Nascimento Grande—Adama mantinha seu lugar como um dos "dois maiores valentões" da cidade.
 
@@ -133,7 +133,7 @@ Adama's illiteracy is documented in the "Livro de Entrada e Saída de Presos" (B
 The claim that Adama and Nascimento Grande were the "two greatest valentões of Recife" comes from the original person report but the specific source attribution is unclear. Oscar Mello's "Recife Sangrento" documents Adama's skills but the direct comparison may be from secondary interpretations.
 
 ### Português
-O analfabetismo de Adama está documentado no "Livro de Entrada e Saída de Presos," indicando tempo passado em detenção. Isso era comum para capoeiristas durante o período de criminalização (1890-1937).
+O analfabetismo de Adama está documentado no "Livro de Entrada e Saída de Presos", indicando tempo passado em detenção. Isso era comum para capoeiristas durante o período de criminalização (1890-1937).
 
 A afirmação de que Adama e Nascimento Grande eram os "dois maiores valentões do Recife" vem do relatório original da pessoa, mas a atribuição específica da fonte não está clara. O "Recife Sangrento" de Oscar Mello documenta as habilidades de Adama, mas a comparação direta pode ser de interpretações secundárias.
 

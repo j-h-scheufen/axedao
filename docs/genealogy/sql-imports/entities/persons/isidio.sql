@@ -60,7 +60,7 @@ INSERT INTO genealogy.person_profiles (
   -- bio_en
   E'Isídio was an "old disciple" (discípulo velho) based at the Church of Nosso Senhor do Bonfim in Salvador, Bahia. He is known solely through the testimony of Mestre Cobrinha Verde, who identified him as the source of materials used to create his legendary protective patuá.
 
-According to Cobrinha Verde''s account, the African mandingueiro Tio Pascoal instructed the young Rafael Alves França (later Cobrinha Verde) to seek out Isídio at Bonfim Church. Cobrinha recounted: "So old Pascoal told me that there was an old disciple named Isídio (he is dead today) in Bonfim Church, who could get me the material to make an amulet."
+According to Cobrinha Verde''s account, the African mandingueiro Tio Pascoal instructed the young Rafael Alves França (later Cobrinha Verde) to seek out Isídio at Bonfim Church. Cobrinha recounted: "So old Pascoal told me that there was an old disciple named Isídio (he is dead today) in Bonfim Church, who could get me the material to make an amulet".
 
 The young Cobrinha traveled to Salvador and obtained the necessary materials from Isídio. He then brought these items back to Tio Pascoal in Santo Amaro da Purificação, who assembled them into the completed patuá with specific instructions for its use. This amulet became central to Cobrinha Verde''s legend—it was said to be alive, jumping when placed on a clean plate, and protected him through three years of violence in the Bahian sertão as a member of Colonel Horácio de Matos'' band.
 
@@ -72,7 +72,7 @@ Nothing more is known of Isídio''s life, training, or other activities. He repr
   -- bio_pt
   E'Isídio foi um "discípulo velho" baseado na Igreja de Nosso Senhor do Bonfim em Salvador, Bahia. Ele é conhecido exclusivamente através do testemunho de Mestre Cobrinha Verde, que o identificou como a fonte dos materiais usados para criar seu lendário patuá protetor.
 
-Segundo o relato de Cobrinha Verde, o mandingueiro africano Tio Pascoal instruiu o jovem Rafael Alves França (mais tarde Cobrinha Verde) a procurar Isídio na Igreja do Bonfim. Cobrinha contou: "Então o velho Pascoal me disse que havia um discípulo velho de nome Isídio (está morto hoje) na Igreja do Bonfim, que poderia me conseguir o material para fazer um amuleto."
+Segundo o relato de Cobrinha Verde, o mandingueiro africano Tio Pascoal instruiu o jovem Rafael Alves França (mais tarde Cobrinha Verde) a procurar Isídio na Igreja do Bonfim. Cobrinha contou: "Então o velho Pascoal me disse que havia um discípulo velho de nome Isídio (está morto hoje) na Igreja do Bonfim, que poderia me conseguir o material para fazer um amuleto".
 
 O jovem Cobrinha viajou a Salvador e obteve os materiais necessários de Isídio. Ele então trouxe esses itens de volta para Tio Pascoal em Santo Amaro da Purificação, que os montou no patuá completo com instruções específicas para seu uso. Este amuleto tornou-se central na lenda de Cobrinha Verde—dizia-se que era vivo, pulando quando colocado em um prato limpo, e o protegeu através de três anos de violência no sertão baiano como membro do bando do Coronel Horácio de Matos.
 

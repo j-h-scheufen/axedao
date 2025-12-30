@@ -30,21 +30,21 @@ When Onça Preta was still a boy on the streets of Salvador, one name already pa
 
 Samuel Francisco Barreto de Souza earned the nickname "Querido de Deus" (Beloved of God). He was a fisherman by trade, operating his own saveiro from the Port of Bahia, crossing the seas to southern waters and returning to sell his catch at the Mercado Modelo. Jorge Amado described him in 1944 as a tall, muscular man with an "indefinite color" shaped by years at sea - his complexion defied categorization, showing traces perhaps of indigenous or Italian blood mixed with African heritage, all weathered by sun and salt wind into something uniquely his own. His curly hair had begun turning white by then, marking over sixty winters of life.
 
-There was no better capoeira player at the festivals of Nossa Senhora da Conceição da Praia in the first week of December than Querido de Deus. These annual celebrations at the basilica in Salvador's Cidade Baixa drew capoeiristas from across Bahia to demonstrate their skill. Samuel dominated these gatherings year after year, defeating all challengers with a game that combined patience and devastating precision. "Whoever he plays - it could be a 20-year-old guy, it could be the most agile or most technical guy in the world - Samuel Querido de Deus shows that he is still the Capoeira king of Bahia," wrote one chronicler. "Even his students stare wide-eyed with amazement at his rabo-de-arraia, because no one has ever seen such elegance."
+There was no better capoeira player at the festivals of Nossa Senhora da Conceição da Praia in the first week of December than Querido de Deus. These annual celebrations at the basilica in Salvador's Cidade Baixa drew capoeiristas from across Bahia to demonstrate their skill. Samuel dominated these gatherings year after year, defeating all challengers with a game that combined patience and devastating precision. "Whoever he plays - it could be a 20-year-old guy, it could be the most agile or most technical guy in the world - Samuel Querido de Deus shows that he is still the Capoeira king of Bahia", wrote one chronicler. "Even his students stare wide-eyed with amazement at his rabo-de-arraia, because no one has ever seen such elegance".
 
-In 1936, the Bahian press covered a public challenge between Samuel and Mestre Bimba, then a rising figure promoting his Luta Regional Baiana. The newspapers O Imparcial and Diário da Bahia reported the dispute over who held the true title of "maximum capoeira master" in the state. Bimba's response was measured: "Regarding Mr. Samuel de Souza, it is completely up to him to arrange a fight or a demonstration, so that the people who know us so well are not deceived." Whether they ever faced each other directly remains unrecorded.
+In 1936, the Bahian press covered a public challenge between Samuel and Mestre Bimba, then a rising figure promoting his Luta Regional Baiana. The newspapers O Imparcial and Diário da Bahia reported the dispute over who held the true title of "maximum capoeira master" in the state. Bimba's response was measured: "Regarding Mr. Samuel de Souza, it is completely up to him to arrange a fight or a demonstration, so that the people who know us so well are not deceived". Whether they ever faced each other directly remains unrecorded.
 
-The following year, 1937, brought Samuel into the intellectual spotlight. Edison Carneiro, the folklorist and researcher, included him as a key informant on Capoeira Angola in his book "Negros Bantus." Carneiro would later declare Samuel "the best capoeirista we've ever seen." On January 14, 1937, Samuel led a Capoeira Angola exhibition at the II Afro-Brazilian Congress in Salvador, demonstrating the traditional art before intellectuals, researchers, and dignitaries. He played his famous game against Onça Preta before luminaries like Edison Carneiro and Jorge Amado.
+The following year, 1937, brought Samuel into the intellectual spotlight. Edison Carneiro, the folklorist and researcher, included him as a key informant on Capoeira Angola in his book "Negros Bantus". Carneiro would later declare Samuel "the best capoeirista we've ever seen". On January 14, 1937, Samuel led a Capoeira Angola exhibition at the II Afro-Brazilian Congress in Salvador, demonstrating the traditional art before intellectuals, researchers, and dignitaries. He played his famous game against Onça Preta before luminaries like Edison Carneiro and Jorge Amado.
 
-Samuel's legacy extends into literature. Jorge Amado featured him in "Capitães de Areia" (1937), where he appears as "Querido de Deus" - a capoeirista friend of the gang who taught the art to some of its members. The character was drawn directly from the real Samuel. Amado returned to him in "Bahia de Todos os Santos" (1945), painting a vivid portrait calling him "the king of capoeira in Bahia de Todos os Santos."
+Samuel's legacy extends into literature. Jorge Amado featured him in "Capitães de Areia" (1937), where he appears as "Querido de Deus" - a capoeirista friend of the gang who taught the art to some of its members. The character was drawn directly from the real Samuel. Amado returned to him in "Bahia de Todos os Santos" (1945), painting a vivid portrait calling him "the king of capoeira in Bahia de Todos os Santos".
 
-On September 18, 1938, American anthropologist Ruth Landes, accompanied by Edison Carneiro, witnessed a roda in Itapagipe. Her photographs - now archived at the Smithsonian Institution - captured Samuel in action against Onça Preta. In her book "The City of Women" (1947), Landes described him as "the champion Beloved of God, with the Christian name of Samuel. He was tall, mulatto, middle-aged, muscular, a fisherman by profession."
+On September 18, 1938, American anthropologist Ruth Landes, accompanied by Edison Carneiro, witnessed a roda in Itapagipe. Her photographs - now archived at the Smithsonian Institution - captured Samuel in action against Onça Preta. In her book "The City of Women" (1947), Landes described him as "the champion Beloved of God, with the Christian name of Samuel. He was tall, mulatto, middle-aged, muscular, a fisherman by profession".
 
 His fame crossed borders. North Americans paid dearly to see him fight, and Brazilian cinematographers filmed his exhibitions. Yet Samuel showed characteristic generosity - when poor Brazilian filmmakers approached him, he not only declined payment but invited them to lunch, though he had demanded large fees from wealthy foreign spectators.
 
-Mestre Waldemar, reflecting in 1989, offered a more critical assessment: "Samuel Querido de Deus was good but was also a sopeiro. Just in the game. He would wait for you to jump to give you a headbutt. When you wanted to attack him back, he didn't want to play anymore. He was a crocodile." This patience - the ability to draw opponents into attack and then deliver devastating counters - was perhaps the secret of his dominance.
+Mestre Waldemar, reflecting in 1989, offered a more critical assessment: "Samuel Querido de Deus was good but was also a sopeiro. Just in the game. He would wait for you to jump to give you a headbutt. When you wanted to attack him back, he didn't want to play anymore. He was a crocodile". This patience - the ability to draw opponents into attack and then deliver devastating counters - was perhaps the secret of his dominance.
 
-Samuel trained at least one formal student who carried his legacy forward: Juvenal Hermenegildo da Cruz, known as "Juvenal Engraxate." Samuel formally granted Juvenal the title of mestre. "This title was given to me by Samuel Querido-de-Deus," Juvenal later recounted. "Samuel liked my qualities and saw my future." Juvenal described his teacher as "uma onça" (a jaguar) and proclaimed that "Querido-de-Deus never lost a fight!"
+Samuel trained at least one formal student who carried his legacy forward: Juvenal Hermenegildo da Cruz, known as "Juvenal Engraxate". Samuel formally granted Juvenal the title of mestre. "This title was given to me by Samuel Querido-de-Deus", Juvenal later recounted. "Samuel liked my qualities and saw my future". Juvenal described his teacher as "uma onça" (a jaguar) and proclaimed that "Querido-de-Deus never lost a fight!"
 
 Despite not founding an academy or leaving behind many formal disciples, Samuel's influence remained profound. He stands alongside Aberrê, Antônio Maré, Besouro, Bimba, and Pastinha as one of the first generation of modern capoeira mestres - the group born in the late 19th century who transformed a persecuted street practice into a recognized art form.
 
@@ -56,21 +56,21 @@ Quando Onça Preta ainda era um menino nas ruas de Salvador, um nome já passava
 
 Samuel Francisco Barreto de Souza ganhou o apelido de "Querido de Deus" (Amado por Deus). Era pescador de profissão, operando seu próprio saveiro no Porto da Bahia, cruzando os mares para as águas do sul e retornando para vender seu pescado no Mercado Modelo. Jorge Amado o descreveu em 1944 como um homem alto e musculoso com uma "cor indefinida" moldada por anos no mar - sua tez desafiava categorização, mostrando traços talvez de sangue indígena ou italiano misturado com herança africana, tudo curtido pelo sol e vento salgado em algo unicamente seu. Seu cabelo crespo já começava a embranquecer nessa época, marcando mais de sessenta invernos de vida.
 
-Não havia melhor jogador de capoeira nas festas de Nossa Senhora da Conceição da Praia na primeira semana de dezembro do que Querido de Deus. Essas celebrações anuais na basílica na Cidade Baixa de Salvador atraíam capoeiristas de toda a Bahia para demonstrar sua habilidade. Samuel dominava esses encontros ano após ano, derrotando todos os desafiantes com um jogo que combinava paciência e precisão devastadora. "Quem quer que jogue com ele - pode ser um rapaz de 20 anos, pode ser o cara mais ágil ou mais técnico do mundo - Samuel Querido de Deus mostra que ainda é o Rei da Capoeira da Bahia," escreveu um cronista. "Até seus alunos ficam de olhos arregalados de espanto com seu rabo-de-arraia, porque ninguém jamais viu tamanha elegância."
+Não havia melhor jogador de capoeira nas festas de Nossa Senhora da Conceição da Praia na primeira semana de dezembro do que Querido de Deus. Essas celebrações anuais na basílica na Cidade Baixa de Salvador atraíam capoeiristas de toda a Bahia para demonstrar sua habilidade. Samuel dominava esses encontros ano após ano, derrotando todos os desafiantes com um jogo que combinava paciência e precisão devastadora. "Quem quer que jogue com ele - pode ser um rapaz de 20 anos, pode ser o cara mais ágil ou mais técnico do mundo - Samuel Querido de Deus mostra que ainda é o Rei da Capoeira da Bahia", escreveu um cronista. "Até seus alunos ficam de olhos arregalados de espanto com seu rabo-de-arraia, porque ninguém jamais viu tamanha elegância".
 
-Em 1936, a imprensa baiana cobriu um desafio público entre Samuel e Mestre Bimba, então uma figura ascendente promovendo sua Luta Regional Baiana. Os jornais O Imparcial e Diário da Bahia noticiaram a disputa sobre quem detinha o verdadeiro título de "mestre máximo da capoeira" no estado. A resposta de Bimba foi comedida: "Com respeito ao Sr. Samuel de Souza, cabe inteiramente a ele arranjar uma luta ou uma demonstração, para que o povo que nos conhece tão bem não seja enganado." Se eles algum dia se enfrentaram diretamente permanece sem registro.
+Em 1936, a imprensa baiana cobriu um desafio público entre Samuel e Mestre Bimba, então uma figura ascendente promovendo sua Luta Regional Baiana. Os jornais O Imparcial e Diário da Bahia noticiaram a disputa sobre quem detinha o verdadeiro título de "mestre máximo da capoeira" no estado. A resposta de Bimba foi comedida: "Com respeito ao Sr. Samuel de Souza, cabe inteiramente a ele arranjar uma luta ou uma demonstração, para que o povo que nos conhece tão bem não seja enganado". Se eles algum dia se enfrentaram diretamente permanece sem registro.
 
-O ano seguinte, 1937, trouxe Samuel aos holofotes intelectuais. Edison Carneiro, o folclorista e pesquisador, o incluiu como informante-chave sobre Capoeira Angola em seu livro "Negros Bantus." Carneiro mais tarde declararia Samuel "o melhor capoeirista que já vimos." Em 14 de janeiro de 1937, Samuel liderou uma exibição de Capoeira Angola no II Congresso Afro-Brasileiro em Salvador, demonstrando a arte tradicional perante intelectuais, pesquisadores e dignitários. Ele jogou seu famoso jogo contra Onça Preta diante de luminares como Edison Carneiro e Jorge Amado.
+O ano seguinte, 1937, trouxe Samuel aos holofotes intelectuais. Edison Carneiro, o folclorista e pesquisador, o incluiu como informante-chave sobre Capoeira Angola em seu livro "Negros Bantus". Carneiro mais tarde declararia Samuel "o melhor capoeirista que já vimos". Em 14 de janeiro de 1937, Samuel liderou uma exibição de Capoeira Angola no II Congresso Afro-Brasileiro em Salvador, demonstrando a arte tradicional perante intelectuais, pesquisadores e dignitários. Ele jogou seu famoso jogo contra Onça Preta diante de luminares como Edison Carneiro e Jorge Amado.
 
-O legado de Samuel se estende à literatura. Jorge Amado o apresentou em "Capitães de Areia" (1937), onde ele aparece como "Querido de Deus" - um capoeirista amigo do bando que ensinou a arte a alguns de seus membros. O personagem foi tirado diretamente do Samuel real. Amado voltou a ele em "Bahia de Todos os Santos" (1945), pintando um retrato vívido chamando-o de "o rei da capoeira da Bahia de Todos os Santos."
+O legado de Samuel se estende à literatura. Jorge Amado o apresentou em "Capitães de Areia" (1937), onde ele aparece como "Querido de Deus" - um capoeirista amigo do bando que ensinou a arte a alguns de seus membros. O personagem foi tirado diretamente do Samuel real. Amado voltou a ele em "Bahia de Todos os Santos" (1945), pintando um retrato vívido chamando-o de "o rei da capoeira da Bahia de Todos os Santos".
 
-Em 18 de setembro de 1938, a antropóloga americana Ruth Landes, acompanhada de Edison Carneiro, testemunhou uma roda em Itapagipe. Suas fotografias - agora arquivadas na Smithsonian Institution - capturaram Samuel em ação contra Onça Preta. Em seu livro "The City of Women" (1947), Landes o descreveu como "o campeão Querido de Deus, com o nome cristão de Samuel. Era alto, mulato, de meia-idade, musculoso, pescador de profissão."
+Em 18 de setembro de 1938, a antropóloga americana Ruth Landes, acompanhada de Edison Carneiro, testemunhou uma roda em Itapagipe. Suas fotografias - agora arquivadas na Smithsonian Institution - capturaram Samuel em ação contra Onça Preta. Em seu livro "The City of Women" (1947), Landes o descreveu como "o campeão Querido de Deus, com o nome cristão de Samuel. Era alto, mulato, de meia-idade, musculoso, pescador de profissão".
 
 Sua fama atravessou fronteiras. Norte-americanos pagavam caro para vê-lo lutar, e cinegrafistas brasileiros filmaram suas exibições. Ainda assim, Samuel mostrava uma generosidade característica - quando cineastas brasileiros pobres o abordaram, ele não só recusou pagamento como os convidou para almoçar, embora tivesse exigido grandes honorários de espectadores estrangeiros ricos.
 
-Mestre Waldemar, refletindo em 1989, ofereceu uma avaliação mais crítica: "Samuel Querido de Deus era bom mas era sopeiro também. Só de jogo. Ficava esperando você pular pra ele dar uma cabeçada. Quando você queria forrar ele não queria mais jogar. Era crocodilo." Essa paciência - a capacidade de atrair oponentes para o ataque e então desferir contra-ataques devastadores - era talvez o segredo de sua dominância.
+Mestre Waldemar, refletindo em 1989, ofereceu uma avaliação mais crítica: "Samuel Querido de Deus era bom mas era sopeiro também. Só de jogo. Ficava esperando você pular pra ele dar uma cabeçada. Quando você queria forrar ele não queria mais jogar. Era crocodilo". Essa paciência - a capacidade de atrair oponentes para o ataque e então desferir contra-ataques devastadores - era talvez o segredo de sua dominância.
 
-Samuel treinou pelo menos um aluno formal que levou seu legado adiante: Juvenal Hermenegildo da Cruz, conhecido como "Juvenal Engraxate." Samuel formalmente concedeu a Juvenal o título de mestre. "Este título me foi dado por Samuel Querido-de-Deus," Juvenal mais tarde contou. "Samuel gostava das minhas qualidades e via meu futuro." Juvenal descrevia seu professor como "uma onça" e proclamava que "Querido-de-Deus nunca perdeu uma luta!"
+Samuel treinou pelo menos um aluno formal que levou seu legado adiante: Juvenal Hermenegildo da Cruz, conhecido como "Juvenal Engraxate". Samuel formalmente concedeu a Juvenal o título de mestre. "Este título me foi dado por Samuel Querido-de-Deus", Juvenal mais tarde contou. "Samuel gostava das minhas qualidades e via meu futuro". Juvenal descrevia seu professor como "uma onça" e proclamava que "Querido-de-Deus nunca perdeu uma luta!"
 
 Apesar de não ter fundado uma academia ou deixado muitos discípulos formais, a influência de Samuel permaneceu profunda. Ele está ao lado de Aberrê, Antônio Maré, Besouro, Bimba e Pastinha como um dos mestres da primeira geração da capoeira moderna - o grupo nascido no final do século XIX que transformou uma prática de rua perseguida em uma forma de arte reconhecida.
 
@@ -142,12 +142,12 @@ No formal teachers documented. Samuel appears to have been self-taught or learne
 ### English
 **Estimated birth year: c. 1880 (decade precision)**
 
-Jorge Amado wrote in "Bahia de Todos os Santos" (1944) that old sailors indicated "over sixty winters have passed since Samuel was born." This places his birth in the early 1880s. Using 1880 as the midpoint estimate with decade precision.
+Jorge Amado wrote in "Bahia de Todos os Santos" (1944) that old sailors indicated "over sixty winters have passed since Samuel was born". This places his birth in the early 1880s. Using 1880 as the midpoint estimate with decade precision.
 
 ### Português
 **Ano de nascimento estimado: c. 1880 (precisão de década)**
 
-Jorge Amado escreveu em "Bahia de Todos os Santos" (1944) que velhos marinheiros indicavam que "mais de sessenta invernos se passaram desde que Samuel nasceu." Isso coloca seu nascimento no início da década de 1880. Usando 1880 como estimativa do ponto médio com precisão de década.
+Jorge Amado escreveu em "Bahia de Todos os Santos" (1944) que velhos marinheiros indicavam que "mais de sessenta invernos se passaram desde que Samuel nasceu". Isso coloca seu nascimento no início da década de 1880. Usando 1880 como estimativa do ponto médio com precisão de década.
 
 ## Death Year Estimation / Estimativa do Ano de Morte
 
@@ -172,28 +172,28 @@ Jorge Amado escreveu em "Bahia de Todos os Santos" (1944) que velhos marinheiros
 ## Physical Description / Descrição Física
 
 ### English
-Tall, muscular man with an indefinite skin color shaped by years at sea. Jorge Amado described his complexion as defying categorization - possibly showing traces of indigenous or Italian blood mixed with African heritage, weathered by sun and salt wind. By the 1940s, his curly hair had begun turning white. Ruth Landes described him as "tall, mulatto, middle-aged, muscular."
+Tall, muscular man with an indefinite skin color shaped by years at sea. Jorge Amado described his complexion as defying categorization - possibly showing traces of indigenous or Italian blood mixed with African heritage, weathered by sun and salt wind. By the 1940s, his curly hair had begun turning white. Ruth Landes described him as "tall, mulatto, middle-aged, muscular".
 
 ### Português
-Homem alto e musculoso com uma cor de pele indefinida moldada por anos no mar. Jorge Amado descreveu sua tez como desafiando categorização - possivelmente mostrando traços de sangue indígena ou italiano misturado com herança africana, curtido pelo sol e vento salgado. Nos anos 1940, seu cabelo crespo já começava a embranquecer. Ruth Landes o descreveu como "alto, mulato, de meia-idade, musculoso."
+Homem alto e musculoso com uma cor de pele indefinida moldada por anos no mar. Jorge Amado descreveu sua tez como desafiando categorização - possivelmente mostrando traços de sangue indígena ou italiano misturado com herança africana, curtido pelo sol e vento salgado. Nos anos 1940, seu cabelo crespo já começava a embranquecer. Ruth Landes o descreveu como "alto, mulato, de meia-idade, musculoso".
 
 ## Key Quotes / Citações
 
 **Edison Carneiro on Samuel:**
-> "O melhor capoeirista que já vimos."
-> "The best capoeirista we've ever seen."
+> "O melhor capoeirista que já vimos".
+> "The best capoeirista we've ever seen".
 
 **Jorge Amado on Samuel:**
-> "O Rei da Capoeira da Bahia de Todos os Santos."
-> "The king of capoeira of Bahia de Todos os Santos."
+> "O Rei da Capoeira da Bahia de Todos os Santos".
+> "The king of capoeira of Bahia de Todos os Santos".
 
 **Mestre Waldemar on Samuel's fighting style (1989):**
-> "Samuel Querido de Deus era bom mas era sopeiro também. Só de jogo. Ficava esperando você pular pra ele dar uma cabeçada. Quando você queria forrar ele não queria mais jogar. Era crocodilo."
-> "Samuel Querido de Deus was good but was also a sopeiro. Just in the game. He would wait for you to jump to give you a headbutt. When you wanted to attack him back, he didn't want to play anymore. He was a crocodile."
+> "Samuel Querido de Deus era bom mas era sopeiro também. Só de jogo. Ficava esperando você pular pra ele dar uma cabeçada. Quando você queria forrar ele não queria mais jogar. Era crocodilo".
+> "Samuel Querido de Deus was good but was also a sopeiro. Just in the game. He would wait for you to jump to give you a headbutt. When you wanted to attack him back, he didn't want to play anymore. He was a crocodile".
 
 **Mestre Juvenal on receiving his title:**
-> "Esse título me foi dado por Samuel Querido-de-Deus. Samuel gostava das minhas qualidades e via meu futuro."
-> "This title was given to me by Samuel Querido-de-Deus. Samuel liked my qualities and saw my future."
+> "Esse título me foi dado por Samuel Querido-de-Deus. Samuel gostava das minhas qualidades e via meu futuro".
+> "This title was given to me by Samuel Querido-de-Deus. Samuel liked my qualities and saw my future".
 
 **Mestre Juvenal on Samuel:**
 > "Samuel era uma onça! Querido-de-Deus nunca perdeu uma luta!"

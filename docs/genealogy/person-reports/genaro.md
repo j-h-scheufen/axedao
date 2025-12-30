@@ -41,7 +41,7 @@ Genaro toured internationally with a capoeira group, traveling to Portugal, Mexi
 
 Genaro was considered one of the great guardians of the history of capoeira in Rio de Janeiro, alongside Mestre Polaco (1949-2021). Both gave testimonies for the documentary "From the Ring to the Stage" about Mestre Artur Emídio before their deaths. The filmmakers expressed regret that they didn't have the resources to finalize the documentary before the departure of these old masters.
 
-Genaro died on February 28, 2022, on a Carnival day and one day before the anniversary of the city of Rio de Janeiro. Professor Marcelo Cardoso da Costa, a doctoral candidate in Social Memory at UNIRIO, noted: "The Master departed on a Carnival day and one day before the anniversary of the city of Rio de Janeiro. Landmark dates of Cariocan memory and culture." Citing Amadou Hampâté Bâ: "In Africa, each elder who dies is a library that burns."
+Genaro died on February 28, 2022, on a Carnival day and one day before the anniversary of the city of Rio de Janeiro. Professor Marcelo Cardoso da Costa, a doctoral candidate in Social Memory at UNIRIO, noted: "The Master departed on a Carnival day and one day before the anniversary of the city of Rio de Janeiro. Landmark dates of Cariocan memory and culture". Citing Amadou Hampâté Bâ: "In Africa, each elder who dies is a library that burns".
 
 ### Português
 
@@ -61,7 +61,7 @@ Genaro excursionou internacionalmente com um grupo de capoeira, viajando para Po
 
 Genaro era considerado um dos grandes guardiões da história da capoeira no Rio de Janeiro, ao lado de Mestre Polaco (1949-2021). Ambos deram depoimentos para o documentário "Do Ringue ao Palco" sobre Mestre Artur Emídio antes de suas mortes. Os cineastas expressaram pesar por não terem tido recursos para finalizar o documentário antes da partida desses velhos mestres.
 
-Genaro faleceu em 28 de fevereiro de 2022, em um dia de Carnaval e um dia antes do aniversário da cidade do Rio de Janeiro. O Professor Marcelo Cardoso da Costa, doutorando em Memória Social pela UNIRIO, observou: "O Mestre se foi num dia de carnaval e em um dia antes do aniversário da cidade do Rio de Janeiro. Datas marcantes da memória e da cultura carioca." Citando Amadou Hampâté Bâ: "Na África, cada ancião que morre é uma biblioteca que se queima."
+Genaro faleceu em 28 de fevereiro de 2022, em um dia de Carnaval e um dia antes do aniversário da cidade do Rio de Janeiro. O Professor Marcelo Cardoso da Costa, doutorando em Memória Social pela UNIRIO, observou: "O Mestre se foi num dia de carnaval e em um dia antes do aniversário da cidade do Rio de Janeiro. Datas marcantes da memória e da cultura carioca". Citando Amadou Hampâté Bâ: "Na África, cada ancião que morre é uma biblioteca que se queima".
 
 ## Achievements / Conquistas
 

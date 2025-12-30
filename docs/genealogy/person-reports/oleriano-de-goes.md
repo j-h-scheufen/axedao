@@ -31,7 +31,7 @@ What little we know of Oleriano comes from oral tradition preserved through his 
 
 Brazil was the last nation in the Western Hemisphere to abolish slavery, doing so on May 13, 1888, with the Lei Áurea (Golden Law). Santo Amaro was one of the major sugar-producing regions of the Recôncavo Baiano, with an ecclesiastical census from 1724 showing that 69% of its population was enslaved. The region saw multiple slave revolts in the early 19th century, including the 1816 uprising where several sugar mills were set on fire. It was in this environment of African resistance and cultural preservation that Oleriano practiced and transmitted capoeira.
 
-Oleriano's significance lies not in documented deeds—which are lost to history—but in what he represents: the direct African transmission of capoeira. Through him, the Góes family maintains one of the most documented multi-generational capoeira lineages: from Oleriano (African) to Eutíquio (first Brazilian-born generation) to Gato Preto to Gato Preto's sons Mestre Gato II and Mestre Zeca. When Brazilian capoeiristas traveled to Dakar, Senegal, in 1966 for the I Festival Mundial das Artes Negras, a local African musician reportedly told them: "Capoeira is in Brasil, your capoeira angola is in Brasil. Our people took it there and now you are showing it here." Through Oleriano, we can trace exactly how that transmission occurred.
+Oleriano's significance lies not in documented deeds—which are lost to history—but in what he represents: the direct African transmission of capoeira. Through him, the Góes family maintains one of the most documented multi-generational capoeira lineages: from Oleriano (African) to Eutíquio (first Brazilian-born generation) to Gato Preto to Gato Preto's sons Mestre Gato II and Mestre Zeca. When Brazilian capoeiristas traveled to Dakar, Senegal, in 1966 for the I Festival Mundial das Artes Negras, a local African musician reportedly told them: "Capoeira is in Brasil, your capoeira angola is in Brasil. Our people took it there and now you are showing it here". Through Oleriano, we can trace exactly how that transmission occurred.
 
 ### Português
 
@@ -41,7 +41,7 @@ O pouco que sabemos de Oleriano vem da tradição oral preservada através de se
 
 O Brasil foi a última nação no Hemisfério Ocidental a abolir a escravidão, fazendo-o em 13 de maio de 1888, com a Lei Áurea. Santo Amaro era uma das principais regiões produtoras de açúcar do Recôncavo Baiano, com um censo eclesiástico de 1724 mostrando que 69% de sua população era escravizada. A região viu múltiplas revoltas de escravos no início do século XIX, incluindo o levante de 1816 onde vários engenhos de açúcar foram incendiados. Foi neste ambiente de resistência africana e preservação cultural que Oleriano praticou e transmitiu a capoeira.
 
-A importância de Oleriano não reside em feitos documentados—que se perderam na história—mas no que ele representa: a transmissão africana direta da capoeira. Através dele, a família Góes mantém uma das linhagens de capoeira multigeracionais mais documentadas: de Oleriano (africano) a Eutíquio (primeira geração nascida no Brasil) a Gato Preto aos filhos de Gato Preto, Mestre Gato II e Mestre Zeca. Quando os capoeiristas brasileiros viajaram a Dacar, Senegal, em 1966 para o I Festival Mundial das Artes Negras, um músico africano local teria dito a eles: "A capoeira está no Brasil, sua capoeira angola está no Brasil. Nosso povo a levou para lá e agora vocês estão mostrando aqui." Através de Oleriano, podemos traçar exatamente como essa transmissão ocorreu.
+A importância de Oleriano não reside em feitos documentados—que se perderam na história—mas no que ele representa: a transmissão africana direta da capoeira. Através dele, a família Góes mantém uma das linhagens de capoeira multigeracionais mais documentadas: de Oleriano (africano) a Eutíquio (primeira geração nascida no Brasil) a Gato Preto aos filhos de Gato Preto, Mestre Gato II e Mestre Zeca. Quando os capoeiristas brasileiros viajaram a Dacar, Senegal, em 1966 para o I Festival Mundial das Artes Negras, um músico africano local teria dito a eles: "A capoeira está no Brasil, sua capoeira angola está no Brasil. Nosso povo a levou para lá e agora vocês estão mostrando aqui". Através de Oleriano, podemos traçar exatamente como essa transmissão ocorreu.
 
 ## Teachers / Mestres
 
@@ -89,7 +89,7 @@ Santo Amaro da Purificação is considered a major center for capoeira in the Re
 
 ### English
 
-**Birth Year Estimation:** Brazil abolished slavery in 1888. As an African who taught his son Eutíquio (born ~1900) capoeira, Oleriano would have been approximately 25-35 years older, born ~1865-1875. Using 1870 with decade precision. If brought to Brazil as a slave before abolition, he could have arrived as a child or young adult. USP source states heritage dates "from the 1800s."
+**Birth Year Estimation:** Brazil abolished slavery in 1888. As an African who taught his son Eutíquio (born ~1900) capoeira, Oleriano would have been approximately 25-35 years older, born ~1865-1875. Using 1870 with decade precision. If brought to Brazil as a slave before abolition, he could have arrived as a child or young adult. USP source states heritage dates "from the 1800s".
 
 **Source Conflict - Relationship:** The USP Núcleo de Artes Afro-Brasileiras source states: "Eutíquio, que aprendeu com seu avô, o africano Oleriano de Góes" which grammatically could mean Eutíquio learned from his grandfather. The USP source also frames Oleriano with early 1800s context (slave revolts of 1816, "herança vinda desde os anos 1800"), suggesting they interpreted him as Eutíquio's grandfather from the early 19th century.
 
@@ -99,11 +99,11 @@ However, Gato Preto's own direct testimony is unambiguous: **"Aprendi capoeira c
 
 **Name:** "Oleriano de Góes" is the only known form. "de Góes" may be a surname adopted post-emancipation or from former slaveholders.
 
-**Key Quote about the Lineage:** Gato Preto himself stated: "Aprendi capoeira com meu pai, que aprendeu com meu avô. É a legítima Angola que ensino agora a meu filho Gato II e aos meus alunos." (I learned capoeira from my father, who learned from my grandfather. It is the legitimate Angola that I now teach to my son Gato II and my students.)
+**Key Quote about the Lineage:** Gato Preto himself stated: "Aprendi capoeira com meu pai, que aprendeu com meu avô. É a legítima Angola que ensino agora a meu filho Gato II e aos meus alunos". (I learned capoeira from my father, who learned from my grandfather. It is the legitimate Angola that I now teach to my son Gato II and my students.)
 
 ### Português
 
-**Estimativa do Ano de Nascimento:** O Brasil aboliu a escravidão em 1888. Como africano que ensinou capoeira ao seu filho Eutíquio (nascido ~1900), Oleriano teria aproximadamente 25-35 anos mais velho, nascido ~1865-1875. Usando 1870 com precisão de década. Se trazido ao Brasil como escravo antes da abolição, poderia ter chegado como criança ou jovem adulto. Fonte USP afirma que a herança data "desde os anos 1800."
+**Estimativa do Ano de Nascimento:** O Brasil aboliu a escravidão em 1888. Como africano que ensinou capoeira ao seu filho Eutíquio (nascido ~1900), Oleriano teria aproximadamente 25-35 anos mais velho, nascido ~1865-1875. Usando 1870 com precisão de década. Se trazido ao Brasil como escravo antes da abolição, poderia ter chegado como criança ou jovem adulto. Fonte USP afirma que a herança data "desde os anos 1800".
 
 **Conflito de Fontes - Relação:** A fonte USP Núcleo de Artes Afro-Brasileiras afirma: "Eutíquio, que aprendeu com seu avô, o africano Oleriano de Góes", o que gramaticalmente poderia significar que Eutíquio aprendeu com seu avô. A fonte USP também enquadra Oleriano com contexto do início dos anos 1800 (revoltas de escravos de 1816, "herança vinda desde os anos 1800"), sugerindo que o interpretaram como avô de Eutíquio do início do século XIX.
 
@@ -113,7 +113,7 @@ No entanto, o próprio depoimento direto de Gato Preto é inequívoco: **"Aprend
 
 **Nome:** "Oleriano de Góes" é a única forma conhecida. "de Góes" pode ser sobrenome adotado após a emancipação ou de antigos senhores de escravos.
 
-**Citação-chave sobre a Linhagem:** O próprio Gato Preto afirmou: "Aprendi capoeira com meu pai, que aprendeu com meu avô. É a legítima Angola que ensino agora a meu filho Gato II e aos meus alunos." (Aprendi capoeira com meu pai, que aprendeu com meu avô. É a legítima Angola que ensino agora a meu filho Gato II e aos meus alunos.)
+**Citação-chave sobre a Linhagem:** O próprio Gato Preto afirmou: "Aprendi capoeira com meu pai, que aprendeu com meu avô. É a legítima Angola que ensino agora a meu filho Gato II e aos meus alunos". (Aprendi capoeira com meu pai, que aprendeu com meu avô. É a legítima Angola que ensino agora a meu filho Gato II e aos meus alunos.)
 
 ## Sources / Fontes
 

@@ -19,8 +19,8 @@ SELECT
   NULL, NULL,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'https://capoeiradabahia.portalcapoeira.com/dr-jos-qcisnandoq-lima-a-pedra-fundamental-da-regional/',
-  E'Cisnando found Bimba in the Curuzú neighborhood of Liberdade while studying medicine. Though initially refused because capoeira was "for Black people," Cisnando endured Bimba''s gravata test (three minutes in a neck lock) and was accepted. More than a student, Cisnando became a collaborator who contributed academic methodology to Bimba''s system.',
-  E'Cisnando encontrou Bimba no bairro do Curuzú, na Liberdade, enquanto estudava medicina. Embora inicialmente recusado porque capoeira era "para gente preta," Cisnando suportou o teste da gravata de Bimba (três minutos em uma chave de pescoço) e foi aceito. Mais que um aluno, Cisnando tornou-se um colaborador que contribuiu com metodologia acadêmica para o sistema de Bimba.'
+  E'Cisnando found Bimba in the Curuzú neighborhood of Liberdade while studying medicine. Though initially refused because capoeira was "for Black people", Cisnando endured Bimba''s gravata test (three minutes in a neck lock) and was accepted. More than a student, Cisnando became a collaborator who contributed academic methodology to Bimba''s system.',
+  E'Cisnando encontrou Bimba no bairro do Curuzú, na Liberdade, enquanto estudava medicina. Embora inicialmente recusado porque capoeira era "para gente preta", Cisnando suportou o teste da gravata de Bimba (três minutos em uma chave de pescoço) e foi aceito. Mais que um aluno, Cisnando tornou-se um colaborador que contribuiu com metodologia acadêmica para o sistema de Bimba.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cisnando' AND o.apelido = 'Bimba'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

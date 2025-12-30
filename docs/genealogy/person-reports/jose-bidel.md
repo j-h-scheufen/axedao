@@ -134,7 +134,7 @@ Besouro Mangangá (legendary influence, died 1924)
 José Bidel had a son born in 1934 (Mário Buscapé). If he was in his 30s when his son was born, birth estimate is ~1900-1910. He was old enough to have trained with Besouro's companions (Siri de Mangue, Canário Pardo) who were active in the 1920s. Using 1900 as midpoint with decade precision.
 
 ### Lineage Discrepancy
-One web source (Capoeira Rotterdam) states "Besouro → Dendê → José Bidel → Mário Buscapé," suggesting Dendê taught José Bidel. However, Mário Buscapé's own testimony (primary source) states Dendê was his uncle and José Bidel was his father, with both being brothers who trained together with Besouro's companions. Both taught Mário. The relationship "Dendê → José Bidel" as teacher-student is UNCONFIRMED. More likely: both brothers learned from the same circle (Siri de Mangue, Canário Pardo) and both taught Mário.
+One web source (Capoeira Rotterdam) states "Besouro → Dendê → José Bidel → Mário Buscapé", suggesting Dendê taught José Bidel. However, Mário Buscapé's own testimony (primary source) states Dendê was his uncle and José Bidel was his father, with both being brothers who trained together with Besouro's companions. Both taught Mário. The relationship "Dendê → José Bidel" as teacher-student is UNCONFIRMED. More likely: both brothers learned from the same circle (Siri de Mangue, Canário Pardo) and both taught Mário.
 
 ### Besouro Connection
 According to Mário Buscapé, Besouro visited their house, but this must have been before Mário was born (pre-1924). José Bidel and Dendê were not direct students of Besouro but rather associated with his companions after his death.

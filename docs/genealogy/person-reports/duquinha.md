@@ -34,7 +34,7 @@ Duquinha was defended in court by Major Cosme de Farias, the legendary "rábula"
 
 ### Português
 
-Duquinha foi um capoeirista ativo em Salvador, Bahia, durante as décadas de 1920 e 1930. Ele é apresentado em "Mestres e capoeiras famosos da Bahia" junto com Escalvino (Luís Escalvino), compartilhando o subtítulo "Os irmãos terror." Esse emparelhamento sugere que eram irmãos biológicos ou associados tão próximos que operavam como uma dupla temível nas ruas de Salvador.
+Duquinha foi um capoeirista ativo em Salvador, Bahia, durante as décadas de 1920 e 1930. Ele é apresentado em "Mestres e capoeiras famosos da Bahia" junto com Escalvino (Luís Escalvino), compartilhando o subtítulo "Os irmãos terror". Esse emparelhamento sugere que eram irmãos biológicos ou associados tão próximos que operavam como uma dupla temível nas ruas de Salvador.
 
 Duquinha estava entre os capoeiristas que trabalhavam como capangas (jagunços políticos) para políticos baianos durante a Primeira República. Esses executores forneciam a força durante disputas eleitorais e serviam aos interesses de poderosas figuras políticas. As fontes o listam junto com outros capangas políticos incluindo Inocêncio Sete Mortes, Estevinho, Samuel da Calçada, Sebastião de Souza e Pedro Mineiro.
 

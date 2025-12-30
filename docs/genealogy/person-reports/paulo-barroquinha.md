@@ -25,17 +25,17 @@
 
 ### English
 
-Paulo Barroquinha was one of the capoeiristas who formed the legendary circle around Besouro Mangangá in Santo Amaro da Purificação during the early 20th century. According to José Brigido Dorneles Antunes, who knew Besouro personally and reported to historian Antonio Liberac Cardoso Simões Pires, Paulo Barroquinha was among Besouro's closest companions: "His companions were: Paulo Barroquinha, Boca de Siri, Doze Homens, Noca de Jacó and Canário Pardo. They all lived in the area of Trapiche de Baixo."
+Paulo Barroquinha was one of the capoeiristas who formed the legendary circle around Besouro Mangangá in Santo Amaro da Purificação during the early 20th century. According to José Brigido Dorneles Antunes, who knew Besouro personally and reported to historian Antonio Liberac Cardoso Simões Pires, Paulo Barroquinha was among Besouro's closest companions: "His companions were: Paulo Barroquinha, Boca de Siri, Doze Homens, Noca de Jacó and Canário Pardo. They all lived in the area of Trapiche de Baixo".
 
 Trapiche de Baixo was the poorest neighborhood of Santo Amaro, a place where African cultural traditions persisted despite the 1890 penal code that criminalized both capoeira and Candomblé. It was here, in the shadow of the sugar mills and along the banks of the Subaé River, that a community of capoeiristas trained together, played together, and protected each other.
 
-According to Professor Leiteiro, these companions "were with him in the memorable capoeira rodas that hypnotized anybody that would go by." Multiple sources describe this group as "a gang of capoeira resistance fighters who trained together on Sundays and could always be relied upon to back one another up." Besouro's circle also included Siri de Mangue and Maria Doze Homens—a rare female capoeirista whose name suggests she had the strength of twelve men.
+According to Professor Leiteiro, these companions "were with him in the memorable capoeira rodas that hypnotized anybody that would go by". Multiple sources describe this group as "a gang of capoeira resistance fighters who trained together on Sundays and could always be relied upon to back one another up". Besouro's circle also included Siri de Mangue and Maria Doze Homens—a rare female capoeirista whose name suggests she had the strength of twelve men.
 
 Nothing else is recorded about Paulo Barroquinha's life—not his trade, not his family, not his fate after Besouro's assassination in 1924. Like many capoeiristas of the pre-modern era, he exists in history primarily through his association with a legendary figure, a name in a list of companions who together represented an underground tradition of resistance and cultural preservation.
 
 ### Salvador Connection (1930s) - Likely the Same Person
 
-A capoeirista named "Pedro Paulo Barroquinha" appears in Mestre Canjiquinha's testimony about the Sunday training sessions at Matatu Preto in Salvador during the 1930s. Canjiquinha recalled: "On Sundays, all those capoeiristas would come—Onça Preta, Geraldo Chapeleiro, Totonho Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha, the late Barboza, and this citizen called Antonio Raimundo, nicknamed by all Aberrê."
+A capoeirista named "Pedro Paulo Barroquinha" appears in Mestre Canjiquinha's testimony about the Sunday training sessions at Matatu Preto in Salvador during the 1930s. Canjiquinha recalled: "On Sundays, all those capoeiristas would come—Onça Preta, Geraldo Chapeleiro, Totonho Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha, the late Barboza, and this citizen called Antonio Raimundo, nicknamed by all Aberrê".
 
 **Assessment: These are likely the same person.** Supporting evidence:
 1. **Name pattern**: "Pedro Paulo" is a common Brazilian compound name; "Paulo" alone could be a shortened form or everyday usage
@@ -47,17 +47,17 @@ If the same person, this means Paulo Barroquinha trained alongside Mestre Aberr�
 
 ### Português
 
-Paulo Barroquinha foi um dos capoeiristas que formaram o lendário círculo em torno de Besouro Mangangá em Santo Amaro da Purificação no início do século XX. Segundo José Brigido Dorneles Antunes, que conheceu Besouro pessoalmente e relatou ao historiador Antonio Liberac Cardoso Simões Pires, Paulo Barroquinha estava entre os companheiros mais próximos de Besouro: "Seus companheiros eram: Paulo Barroquinha, Boca de Siri, Doze Homens, Noca de Jacó e Canário Pardo. Todos moravam na área do Trapiche de Baixo."
+Paulo Barroquinha foi um dos capoeiristas que formaram o lendário círculo em torno de Besouro Mangangá em Santo Amaro da Purificação no início do século XX. Segundo José Brigido Dorneles Antunes, que conheceu Besouro pessoalmente e relatou ao historiador Antonio Liberac Cardoso Simões Pires, Paulo Barroquinha estava entre os companheiros mais próximos de Besouro: "Seus companheiros eram: Paulo Barroquinha, Boca de Siri, Doze Homens, Noca de Jacó e Canário Pardo. Todos moravam na área do Trapiche de Baixo".
 
 Trapiche de Baixo era o bairro mais pobre de Santo Amaro, um lugar onde as tradições culturais africanas persistiam apesar do código penal de 1890 que criminalizava tanto a capoeira quanto o Candomblé. Era ali, à sombra dos engenhos de açúcar e às margens do Rio Subaé, que uma comunidade de capoeiristas treinava juntos, jogava juntos e se protegiam mutuamente.
 
-Segundo o Professor Leiteiro, esses companheiros "eram com ele nas memoráveis rodas de capoeira que hipnotizavam quem quer que passasse." Múltiplas fontes descrevem esse grupo como "uma gangue de lutadores de resistência da capoeira que treinavam juntos aos domingos e sempre podiam contar uns com os outros." O círculo de Besouro também incluía Siri de Mangue e Maria Doze Homens—uma rara capoeirista mulher cujo nome sugere que ela tinha a força de doze homens.
+Segundo o Professor Leiteiro, esses companheiros "eram com ele nas memoráveis rodas de capoeira que hipnotizavam quem quer que passasse". Múltiplas fontes descrevem esse grupo como "uma gangue de lutadores de resistência da capoeira que treinavam juntos aos domingos e sempre podiam contar uns com os outros". O círculo de Besouro também incluía Siri de Mangue e Maria Doze Homens—uma rara capoeirista mulher cujo nome sugere que ela tinha a força de doze homens.
 
 Nada mais foi registrado sobre a vida de Paulo Barroquinha—nem seu ofício, nem sua família, nem seu destino após o assassinato de Besouro em 1924. Como muitos capoeiristas da era pré-moderna, ele existe na história principalmente através de sua associação com uma figura lendária, um nome em uma lista de companheiros que juntos representavam uma tradição clandestina de resistência e preservação cultural.
 
 ### Conexão com Salvador (anos 1930) - Provavelmente a Mesma Pessoa
 
-Um capoeirista chamado "Pedro Paulo Barroquinha" aparece no testemunho de Mestre Canjiquinha sobre as sessões de treino de domingo no Matatu Preto em Salvador durante os anos 1930. Canjiquinha lembrou: "Aos domingos, vinham todos aqueles capoeiristas—Onça Preta, Geraldo Chapeleiro, Totonho Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha, o finado Barboza e esse cidadão chamado Antonio Raimundo, apelidado por todos Aberrê."
+Um capoeirista chamado "Pedro Paulo Barroquinha" aparece no testemunho de Mestre Canjiquinha sobre as sessões de treino de domingo no Matatu Preto em Salvador durante os anos 1930. Canjiquinha lembrou: "Aos domingos, vinham todos aqueles capoeiristas—Onça Preta, Geraldo Chapeleiro, Totonho Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha, o finado Barboza e esse cidadão chamado Antonio Raimundo, apelidado por todos Aberrê".
 
 **Avaliação: Estes são provavelmente a mesma pessoa.** Evidências de apoio:
 1. **Padrão de nome**: "Pedro Paulo" é um nome composto brasileiro comum; "Paulo" sozinho pode ser uma forma abreviada ou uso cotidiano

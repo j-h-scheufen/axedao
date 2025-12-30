@@ -69,7 +69,7 @@ Mestre Bola Sete is a prolific author. His first book, "A Capoeira Angola na Bah
 
 In October 2006, Mestres Bola Sete and Gildo Alfinete gave a lecture at the Associação Brasileira de Capoeira Angola (ABCA) in Salvador. During this lecture, Bola Sete observed that today some people say capoeira angola is non-contact, when in the old days the games were really rough. He noted that in Pastinha''s academy, each of the students had a different, unique style of playing; today many angoleiros are all playing the same way. He called capoeira Brazilian since it arose on Brazilian soil, although its roots are African. He also explained that the term "angola" did not arise in the 1930s to differentiate traditional capoeira from Bimba''s style—the term "capoeira de angola" appears in manuscripts from 1920 and earlier, and referred to the fact that practitioners were mainly Africans from the Angolan region.
 
-Mestre Bola Sete emphasizes that "humility was the greatest lesson I learned in those 37 years of Capoeira Angola." He criticizes modern practice: "The capoeira practiced today is not authentic, because it is done just to impress people with its acrobatic and aggressive flips." For him, "defense, not attack" remains capoeira''s primary fundamental principle.
+Mestre Bola Sete emphasizes that "humility was the greatest lesson I learned in those 37 years of Capoeira Angola". He criticizes modern practice: "The capoeira practiced today is not authentic, because it is done just to impress people with its acrobatic and aggressive flips". For him, "defense, not attack" remains capoeira''s primary fundamental principle.
 
 Today, Mestre Bola Sete holds the esteemed position of President of the Council of Mestres of the Associação Brasileira de Capoeira Angola (ABCA), founded in 1987. Through his continuous efforts in teaching, writing, and advocacy, he has played a pivotal role in safeguarding and disseminating the cultural significance of traditional Capoeira Angola to future generations. He was listed among the habilitados (qualified candidates) for the "Prêmio Viva Meu Mestre" (Live My Master Award) in 2010, awarded by Brazil''s Institute of National Historical and Artistic Heritage (IPHAN).',
   -- bio_pt
@@ -87,7 +87,7 @@ Mestre Bola Sete é um autor prolífico. Seu primeiro livro, "A Capoeira Angola 
 
 Em outubro de 2006, os Mestres Bola Sete e Gildo Alfinete deram uma palestra na Associação Brasileira de Capoeira Angola (ABCA) em Salvador. Durante esta palestra, Bola Sete observou que hoje algumas pessoas dizem que a capoeira angola é sem contato, quando antigamente os jogos eram realmente duros. Ele notou que na academia de Pastinha, cada um dos alunos tinha um estilo diferente e único de jogar; hoje muitos angoleiros estão todos jogando da mesma maneira. Ele chamou a capoeira de brasileira já que surgiu em solo brasileiro, embora suas raízes sejam africanas. Ele também explicou que o termo "angola" não surgiu nos anos 1930 para diferenciar a capoeira tradicional do estilo de Bimba—o termo "capoeira de angola" aparece em manuscritos de 1920 e anteriores, e se referia ao fato de que os praticantes eram principalmente africanos da região angolana.
 
-Mestre Bola Sete enfatiza que "a humildade foi a maior lição que aprendi nesses 37 anos de Capoeira Angola." Ele critica a prática moderna: "A capoeira praticada hoje não é autêntica, porque é feita apenas para impressionar as pessoas com suas piruetas acrobáticas e agressivas." Para ele, "defesa, não ataque" permanece o princípio fundamental primário da capoeira.
+Mestre Bola Sete enfatiza que "a humildade foi a maior lição que aprendi nesses 37 anos de Capoeira Angola". Ele critica a prática moderna: "A capoeira praticada hoje não é autêntica, porque é feita apenas para impressionar as pessoas com suas piruetas acrobáticas e agressivas". Para ele, "defesa, não ataque" permanece o princípio fundamental primário da capoeira.
 
 Hoje, Mestre Bola Sete ocupa a estimada posição de Presidente do Conselho de Mestres da Associação Brasileira de Capoeira Angola (ABCA), fundada em 1987. Através de seus esforços contínuos no ensino, escrita e advocacia, ele desempenhou um papel fundamental na salvaguarda e disseminação do significado cultural da tradicional Capoeira Angola para as gerações futuras. Ele foi listado entre os habilitados para o "Prêmio Viva Meu Mestre" em 2010, concedido pelo Instituto do Patrimônio Histórico e Artístico Nacional (IPHAN).',
   -- achievements_en
@@ -111,7 +111,7 @@ Autor: "Capoeira Angola do iniciante ao mestre"
 Gravou CD "Aqui só Angola"
 Habilitado para o Prêmio Viva Meu Mestre (IPHAN, 2010)',
   -- notes_en
-  E'APELIDO ORIGIN: "Bola Sete" (Seven Ball) - received because he trained entirely dressed in black, like the solid balls in billiards. Per Portal Capoeira interview: "Bola Sete recebeu esse nome por treinar todo vestido de preto."
+  E'APELIDO ORIGIN: "Bola Sete" (Seven Ball) - received because he trained entirely dressed in black, like the solid balls in billiards. Per Portal Capoeira interview: "Bola Sete recebeu esse nome por treinar todo vestido de preto".
 
 NAME VARIATIONS: Some sources spell first name as "Osé" (likely a typographical error for "José").
 
@@ -122,7 +122,7 @@ TEACHERS:
 ROLE AT CECA: "Fiscal de Campo" (Field Supervisor) from 1969
 
 TRAINING LOCATION WITH PESSOA BABABÁ:
-"A small, poorly-lit space in the basement of a building" in Salvador. Pessoa Bababá taught "the old game the old way: low light, small room, full attention."
+"A small, poorly-lit space in the basement of a building" in Salvador. Pessoa Bababá taught "the old game the old way: low light, small room, full attention".
 
 ABCA ROLE: President of Council of Mestres. ABCA founded 1987 by mestres João Pequeno de Pastinha, Paulo dos Anjos, Waldemar da Paixão, Boca Rica, Ferreirinha de Santo Amaro, Nô, René, Curió, Papo Amarelo, Calazans.
 
@@ -158,7 +158,7 @@ CAPOEIRISTAS DOCUMENTED IN HIS BOOKS (mentioned as otherwise forgotten):
 - Bobó
 - Valdomiro Malvadeza',
   -- notes_pt
-  E'ORIGEM DO APELIDO: "Bola Sete" - recebeu porque treinava todo vestido de preto, como as bolas sólidas no bilhar. Conforme entrevista no Portal Capoeira: "Bola Sete recebeu esse nome por treinar todo vestido de preto."
+  E'ORIGEM DO APELIDO: "Bola Sete" - recebeu porque treinava todo vestido de preto, como as bolas sólidas no bilhar. Conforme entrevista no Portal Capoeira: "Bola Sete recebeu esse nome por treinar todo vestido de preto".
 
 VARIAÇÕES DE NOME: Algumas fontes grafam o primeiro nome como "Osé" (provavelmente erro tipográfico para "José").
 
@@ -169,7 +169,7 @@ MESTRES:
 FUNÇÃO NO CECA: "Fiscal de Campo" a partir de 1969
 
 LOCAL DE TREINAMENTO COM PESSOA BABABÁ:
-"Um pequeno espaço mal iluminado no porão de um prédio" em Salvador. Pessoa Bababá ensinava "o jogo antigo da maneira antiga: pouca luz, sala pequena, atenção total."
+"Um pequeno espaço mal iluminado no porão de um prédio" em Salvador. Pessoa Bababá ensinava "o jogo antigo da maneira antiga: pouca luz, sala pequena, atenção total".
 
 FUNÇÃO NA ABCA: Presidente do Conselho de Mestres. ABCA fundada em 1987 pelos mestres João Pequeno de Pastinha, Paulo dos Anjos, Waldemar da Paixão, Boca Rica, Ferreirinha de Santo Amaro, Nô, René, Curió, Papo Amarelo, Calazans.
 

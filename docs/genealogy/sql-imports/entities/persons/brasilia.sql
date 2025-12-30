@@ -71,7 +71,7 @@ Throughout his career, Brasília trained over 50,000 students through his academ
 
 Despite taking different paths, Brasília and Suassuna remain friends, their partnership and friendship evident to this day. In 2010, Brasília celebrated 50 years in capoeira with a milestone event titled "50 ANOS SEM TIRAR A MÃO DO CHÃO" (50 Years Without Taking Hand Off the Ground) - reflecting his lifelong dedication to the art.
 
-Brasília views capoeira holistically: "Capoeira is not just sport, it is a Brazilian cultural manifestation with very broad content: we have rhythm, poetry, music, choreography, defense, attack, spectacle, struggle and sport." This vision has guided his teaching for over six decades.',
+Brasília views capoeira holistically: "Capoeira is not just sport, it is a Brazilian cultural manifestation with very broad content: we have rhythm, poetry, music, choreography, defense, attack, spectacle, struggle and sport". This vision has guided his teaching for over six decades.',
   -- bio_pt
   E'Antônio Cardoso Andrade nasceu em 29 de maio de 1942, em Alagoinhas, Bahia, em uma família humilde. Quando criança, mudou-se para Pedrão aos 6 anos, depois para Salvador aos 13 anos, onde sua vida seria transformada pela capoeira. Antes de descobrir sua vocação, trabalhou em vários ofícios: carregador de água, vendedor de pão, carregador de bagagem, sapateiro, funileiro, mecânico, pedreiro e pintor. Criado por mãe solteira, enfrentou preconceito social, mas desenvolveu resiliência que o serviria ao longo de sua vida.
 
@@ -93,7 +93,7 @@ Ao longo de sua carreira, Brasília treinou mais de 50.000 alunos através de su
 
 Apesar de terem tomado caminhos diferentes, Brasília e Suassuna permanecem amigos, sua parceria e amizade evidente até hoje. Em 2010, Brasília celebrou 50 anos na capoeira com um evento marcante intitulado "50 ANOS SEM TIRAR A MÃO DO CHÃO" - refletindo sua dedicação vitalícia à arte.
 
-Brasília vê a capoeira de forma holística: "A capoeira não é só esporte, é uma manifestação cultural brasileira com conteúdo muito amplo: temos ritmo, poesia, música, coreografia, defesa, ataque, espetáculo, luta e esporte." Essa visão guiou seu ensino por mais de seis décadas.',
+Brasília vê a capoeira de forma holística: "A capoeira não é só esporte, é uma manifestação cultural brasileira com conteúdo muito amplo: temos ritmo, poesia, música, coreografia, defesa, ataque, espetáculo, luta e esporte". Essa visão guiou seu ensino por mais de seis décadas.',
   -- achievements_en
   E'1961: Began training under Mestre Canjiquinha at age 19
 1965: Migrated to São Paulo; pioneer of capoeira in the state

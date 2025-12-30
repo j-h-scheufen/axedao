@@ -51,8 +51,8 @@ SELECT
   '{"association_context": "Paraná frequently played berimbau at Artur Emídio''s Sunday rodas and directed the percussion section"}'::jsonb,
   'verified'::genealogy.confidence,
   'capoeirahistory.com, velhosmestres.com',
-  E'Paraná was a regular collaborator at Artur Emídio''s legendary Sunday rodas in Bonsucesso. According to Mestre Leopoldina, "it was Mestre Paraná who played the berimbau at Artur''s academy." Paraná also participated in the show "Arco-Íris" featuring Mestre Artur Emídio.',
-  E'Paraná era um colaborador regular nas lendárias rodas de domingo de Artur Emídio em Bonsucesso. Segundo Mestre Leopoldina, "era Mestre Paraná quem tocava o berimbau na academia de Artur." Paraná também participou do show "Arco-Íris" com Mestre Artur Emídio.'
+  E'Paraná was a regular collaborator at Artur Emídio''s legendary Sunday rodas in Bonsucesso. According to Mestre Leopoldina, "it was Mestre Paraná who played the berimbau at Artur''s academy". Paraná also participated in the show "Arco-Íris" featuring Mestre Artur Emídio.',
+  E'Paraná era um colaborador regular nas lendárias rodas de domingo de Artur Emídio em Bonsucesso. Segundo Mestre Leopoldina, "era Mestre Paraná quem tocava o berimbau na academia de Artur". Paraná também participou do show "Arco-Íris" com Mestre Artur Emídio.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Paraná' AND o.apelido = 'Artur Emídio'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

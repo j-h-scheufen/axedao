@@ -41,8 +41,8 @@ SELECT
   NULL, NULL,
   '{"title_grant": {"title": "mestre"}}'::jsonb, 'likely'::genealogy.confidence,
   'https://www.siridemangue.com/grupo-sir%C3%AD-de-mangue/',
-  E'Sources state Madeira "received the honors of a master by João Pequeno, Canjiquinha, and Suassuna." Exact date unknown.',
-  E'Fontes afirmam que Madeira "recebeu as honras de mestre de João Pequeno, Canjiquinha e Suassuna." Data exata desconhecida.'
+  E'Sources state Madeira "received the honors of a master by João Pequeno, Canjiquinha, and Suassuna". Exact date unknown.',
+  E'Fontes afirmam que Madeira "recebeu as honras de mestre de João Pequeno, Canjiquinha e Suassuna". Data exata desconhecida.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Madeira' AND o.apelido = 'João Pequeno'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
@@ -61,8 +61,8 @@ SELECT
   NULL, NULL,
   '{"title_grant": {"title": "mestre"}}'::jsonb, 'likely'::genealogy.confidence,
   'https://www.siridemangue.com/grupo-sir%C3%AD-de-mangue/',
-  E'Sources state Madeira "received the honors of a master by João Pequeno, Canjiquinha, and Suassuna." Canjiquinha died Nov 8, 1994, so title was received before then.',
-  E'Fontes afirmam que Madeira "recebeu as honras de mestre de João Pequeno, Canjiquinha e Suassuna." Canjiquinha morreu em 8 de novembro de 1994, então o título foi recebido antes disso.'
+  E'Sources state Madeira "received the honors of a master by João Pequeno, Canjiquinha, and Suassuna". Canjiquinha died Nov 8, 1994, so title was received before then.',
+  E'Fontes afirmam que Madeira "recebeu as honras de mestre de João Pequeno, Canjiquinha e Suassuna". Canjiquinha morreu em 8 de novembro de 1994, então o título foi recebido antes disso.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Madeira' AND o.apelido = 'Canjiquinha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
@@ -89,8 +89,8 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 --   NULL, NULL,
 --   '{"title_grant": {"title": "mestre"}}'::jsonb, 'likely'::genealogy.confidence,
 --   'https://www.siridemangue.com/grupo-sir%C3%AD-de-mangue/',
---   E'Sources state Madeira "received the honors of a master by João Pequeno, Canjiquinha, and Suassuna."',
---   E'Fontes afirmam que Madeira "recebeu as honras de mestre de João Pequeno, Canjiquinha e Suassuna."'
+--   E'Sources state Madeira "received the honors of a master by João Pequeno, Canjiquinha, and Suassuna".',
+--   E'Fontes afirmam que Madeira "recebeu as honras de mestre de João Pequeno, Canjiquinha e Suassuna".'
 -- FROM genealogy.person_profiles s, genealogy.person_profiles o
 -- WHERE s.apelido = 'Madeira' AND o.apelido = 'Suassuna';
 

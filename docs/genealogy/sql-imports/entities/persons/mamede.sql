@@ -50,7 +50,7 @@ INSERT INTO genealogy.person_profiles (
   -- bio_en
   E'Mamede was one of the "perigosos capoeiras" (dangerous capoeiristas) of mid-19th century Rio de Janeiro. His name survives in the historical record as one of several notorious street fighters who defined the violent capoeira culture of the 1850s.
 
-What little we know of Mamede comes from accounts of his contemporary, the legendary Manduca da Praia. According to multiple sources drawing on Plácido de Abreu''s 1886 work "Os Capoeiras," Manduca "attended the full-time school of roguery and bravery on the streets of Rio de Janeiro during the era of dangerous capoeiras such as Mamede, Aleixo Açougueiro, Pedro Cobra, Bentevi, and Quebra Coco."
+What little we know of Mamede comes from accounts of his contemporary, the legendary Manduca da Praia. According to multiple sources drawing on Plácido de Abreu''s 1886 work "Os Capoeiras", Manduca "attended the full-time school of roguery and bravery on the streets of Rio de Janeiro during the era of dangerous capoeiras such as Mamede, Aleixo Açougueiro, Pedro Cobra, Bentevi, and Quebra Coco".
 
 The fact that Mamede is named among this select group tells us something: he was feared. In an era when capoeira was the domain of the maltas - the street gangs that divided Rio de Janeiro between the Nagoas and Guaiamums - to earn such a reputation required exceptional fighting ability. These were not merely skilled practitioners; they were "terríveis capoeiristas" (terrible capoeiristas), men whose very names carried weight on the streets.
 
@@ -60,7 +60,7 @@ No individual exploits of Mamede survive. We do not know if he belonged to the N
   -- bio_pt
   E'Mamede foi um dos "perigosos capoeiras" do Rio de Janeiro em meados do século XIX. Seu nome sobrevive no registro histórico como um de vários notórios lutadores de rua que definiram a violenta cultura da capoeira na década de 1850.
 
-O pouco que sabemos de Mamede vem de relatos sobre seu contemporâneo, o lendário Manduca da Praia. Segundo múltiplas fontes baseadas na obra de 1886 de Plácido de Abreu "Os Capoeiras", Manduca "cursou a escola de horário integral da malandragem e da valentia das ruas do Rio de Janeiro na época de perigosos capoeiras como Mamede, Aleixo Açougueiro, Pedro Cobra, Bentevi e Quebra Coco."
+O pouco que sabemos de Mamede vem de relatos sobre seu contemporâneo, o lendário Manduca da Praia. Segundo múltiplas fontes baseadas na obra de 1886 de Plácido de Abreu "Os Capoeiras", Manduca "cursou a escola de horário integral da malandragem e da valentia das ruas do Rio de Janeiro na época de perigosos capoeiras como Mamede, Aleixo Açougueiro, Pedro Cobra, Bentevi e Quebra Coco".
 
 O fato de Mamede ser nomeado entre este seleto grupo nos diz algo: ele era temido. Em uma era quando a capoeira era domínio das maltas - as gangues de rua que dividiam o Rio de Janeiro entre os Nagoas e Guaiamuns - conquistar tal reputação exigia habilidade de luta excepcional. Estes não eram meramente praticantes habilidosos; eram "terríveis capoeiristas", homens cujos próprios nomes carregavam peso nas ruas.
 

@@ -30,8 +30,8 @@ INSERT INTO genealogy.person_profiles (
     'https://clinicadecapoeira2010.wordpress.com/historico/'
   ]::text[],
   'regional'::genealogy.style,
-  E'Mestre Onça was a certified student of Mestre Bimba who brought Capoeira Regional from Bahia to São Paulo. He emphasized the sportification of capoeira while respecting its roots, advocating that "capoeira needs to evolve as a sport and not as folklore." His approach focused on the fundamentals of Capoeira Regional as taught by Mestre Bimba, which he transmitted to students like Mestre Gladson at the K-Poeira academy.',
-  E'Mestre Onça foi aluno certificado de Mestre Bimba que trouxe a Capoeira Regional da Bahia para São Paulo. Ele enfatizava a esportivização da capoeira respeitando suas raízes, defendendo que "a capoeira precisa evoluir como esporte e não como folclore." Sua abordagem focava nos fundamentos da Capoeira Regional conforme ensinados por Mestre Bimba, que ele transmitiu a alunos como Mestre Gladson na academia K-Poeira.',
+  E'Mestre Onça was a certified student of Mestre Bimba who brought Capoeira Regional from Bahia to São Paulo. He emphasized the sportification of capoeira while respecting its roots, advocating that "capoeira needs to evolve as a sport and not as folklore". His approach focused on the fundamentals of Capoeira Regional as taught by Mestre Bimba, which he transmitted to students like Mestre Gladson at the K-Poeira academy.',
+  E'Mestre Onça foi aluno certificado de Mestre Bimba que trouxe a Capoeira Regional da Bahia para São Paulo. Ele enfatizava a esportivização da capoeira respeitando suas raízes, defendendo que "a capoeira precisa evoluir como esporte e não como folclore". Sua abordagem focava nos fundamentos da Capoeira Regional conforme ensinados por Mestre Bimba, que ele transmitiu a alunos como Mestre Gladson na academia K-Poeira.',
   1935,
   'year'::genealogy.date_precision,
   'Bahia, Brazil',
@@ -48,7 +48,7 @@ In 1971, Onça organized a significant tribute to Mestre Bimba in São Paulo. At
 
 Preoccupied with the legitimization of capoeira, Onça became the main organizer of the Federação Paulista de Capoeira (São Paulo Capoeira Federation), which was founded on July 14, 1974—the first capoeira federation in the world. He served as its first president. The eight founding associations were: K''Poeira, São Bento Pequeno, São Bento Grande, Cordão de Ouro, Quilombo dos Palmares, Vera Cruz, Ilha de Itapuã, and the academy led by Mestre Zé de Freitas.
 
-In 1975, the Federation organized the "First Brazilian Championship" of capoeira, establishing competitive capoeira with formal rules and regulations. Onça supported this institutionalization, stating in a 1984 interview with Jornal Auxiliar: "Capoeira needs to evolve as a sport and not as folklore, respecting its roots."
+In 1975, the Federation organized the "First Brazilian Championship" of capoeira, establishing competitive capoeira with formal rules and regulations. Onça supported this institutionalization, stating in a 1984 interview with Jornal Auxiliar: "Capoeira needs to evolve as a sport and not as folklore, respecting its roots".
 
 Onça participated in the 2nd edition of the Clínica de Capoeira at CEPEUSP (Centro de Práticas Esportivas da Universidade de São Paulo) from October 6-8, 1989, alongside legendary mestres including João Grande and João Pequeno. He conducted a workshop on "Capoeira Regional: Ritmo e Tradição" (Regional Capoeira: Rhythm and Tradition) with Mestre Ezequiel.
 
@@ -63,7 +63,7 @@ Em 1971, Onça organizou uma significativa homenagem a Mestre Bimba em São Paul
 
 Preocupado com a legitimação da capoeira, Onça foi o principal articulador da Federação Paulista de Capoeira, fundada em 14 de julho de 1974—a primeira federação de capoeira do mundo. Ele foi seu primeiro presidente. As oito associações fundadoras foram: K''Poeira, São Bento Pequeno, São Bento Grande, Cordão de Ouro, Quilombo dos Palmares, Vera Cruz, Ilha de Itapuã e a academia do Mestre Zé de Freitas.
 
-Em 1975, a Federação organizou o "Primeiro Campeonato Brasileiro" de capoeira, estabelecendo a capoeira competitiva com regras e regulamentos formais. Onça apoiou essa institucionalização, declarando em entrevista de 1984 ao Jornal Auxiliar: "A capoeira precisa evoluir como esporte e não como folclore, obviamente respeitando suas raízes."
+Em 1975, a Federação organizou o "Primeiro Campeonato Brasileiro" de capoeira, estabelecendo a capoeira competitiva com regras e regulamentos formais. Onça apoiou essa institucionalização, declarando em entrevista de 1984 ao Jornal Auxiliar: "A capoeira precisa evoluir como esporte e não como folclore, obviamente respeitando suas raízes".
 
 Onça participou da 2ª edição da Clínica de Capoeira do CEPEUSP (Centro de Práticas Esportivas da Universidade de São Paulo) de 6 a 8 de outubro de 1989, ao lado de mestres lendários como João Grande e João Pequeno. Conduziu uma oficina sobre "Capoeira Regional: Ritmo e Tradição" com Mestre Ezequiel.
 

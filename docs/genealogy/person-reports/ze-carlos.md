@@ -110,7 +110,7 @@ Purista da Capoeira Angola na linhagem de Pastinha, treinado por Mestre Moraes. 
 
 ## Students / Alunos
 
-- Specific named students not documented. Classes supported by "most experienced students." / Alunos específicos não documentados. Aulas apoiadas pelos "alunos mais experientes."
+- Specific named students not documented. Classes supported by "most experienced students". / Alunos específicos não documentados. Aulas apoiadas pelos "alunos mais experientes".
 
 ## Connections / Conexões
 

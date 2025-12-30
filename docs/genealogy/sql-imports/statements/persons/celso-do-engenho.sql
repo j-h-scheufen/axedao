@@ -29,8 +29,8 @@ SELECT
   NULL, NULL,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'capoeirahistory.com/masters-in-rio-de-janeiro/, pt.wikipedia.org/wiki/Mestre_Celso',
-  E'Celso trained at Artur Emídio''s academy in Bonsucesso alongside Leopoldina and Djalma Bandeira. He stated: "The first time I saw a capoeira roda was at Arthur Emídio''s academy in Praça Mauá, in 1959." A historic photo from the academy shows Celso standing with other students and mestres.',
-  E'Celso treinou na academia de Artur Emídio em Bonsucesso junto com Leopoldina e Djalma Bandeira. Ele afirmou: "A primeira vez que eu vi uma roda de capoeira foi na academia de Arthur Emídio na Praça Mauá, em 1959." Uma foto histórica da academia mostra Celso em pé com outros alunos e mestres.'
+  E'Celso trained at Artur Emídio''s academy in Bonsucesso alongside Leopoldina and Djalma Bandeira. He stated: "The first time I saw a capoeira roda was at Arthur Emídio''s academy in Praça Mauá, in 1959". A historic photo from the academy shows Celso standing with other students and mestres.',
+  E'Celso treinou na academia de Artur Emídio em Bonsucesso junto com Leopoldina e Djalma Bandeira. Ele afirmou: "A primeira vez que eu vi uma roda de capoeira foi na academia de Arthur Emídio na Praça Mauá, em 1959". Uma foto histórica da academia mostra Celso em pé com outros alunos e mestres.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Celso do Engenho' AND o.apelido = 'Artur Emídio'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

@@ -168,8 +168,8 @@ SELECT
   '{"leadership_role": "dono_proprietario", "additional_role": "roda_leader", "context": "Amorzinho was the roda leader and used his position as civil guard to protect the practitioners from police harassment. His death in 1943 triggered the dispersal of mestres and eventual full transfer to Pastinha."}'::jsonb,
   'verified'::genealogy.confidence,
   'Mestre Noronha manuscripts via velhosmestres.com; Portal Capoeira; Pastinha accounts',
-  'One of four "donos e proprietários" AND the primary roda leader. His profession as civil guard provided crucial protection from police. Pastinha called him "the owner of that capoeira." His death in 1943 triggered CECA''s dispersal.',
-  'Um dos quatro "donos e proprietários" E o líder principal de roda. Sua profissão como guarda civil fornecia proteção crucial contra a polícia. Pastinha o chamou de "o dono daquela capoeira." Sua morte em 1943 desencadeou a dispersão do CECA.'
+  'One of four "donos e proprietários" AND the primary roda leader. His profession as civil guard provided crucial protection from police. Pastinha called him "the owner of that capoeira". His death in 1943 triggered CECA''s dispersal.',
+  'Um dos quatro "donos e proprietários" E o líder principal de roda. Sua profissão como guarda civil fornecia proteção crucial contra a polícia. Pastinha o chamou de "o dono daquela capoeira". Sua morte em 1943 desencadeou a dispersão do CECA.'
 FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Amorzinho' AND g.name = 'Gengibirra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

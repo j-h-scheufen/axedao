@@ -52,13 +52,13 @@ INSERT INTO genealogy.person_profiles (
 
 In the 1920s, Amorzinho was among the 22 founding mestres who established the Centro Nacional de Capoeira de Origem Angola at Ladeira de Pedra in the Gengibirra area of the Liberdade neighborhood—the first organized center for Capoeira Angola in the state of Bahia. More than just a founding mestre, he was one of four "donos e proprietários" (owners and proprietors) of Gengibirra, alongside Mestre Noronha, his brother Livino, and Totonho de Maré.
 
-Amorzinho served as the roda leader at Gengibirra, where the best capoeiristas of Salvador gathered on Sundays. Mestre Noronha remembered him as skilled in "cabeceiro" (head techniques), though he noted that Amorzinho "liked the branca" (white rum/cachaça). Despite this, he was described as one of "the greatest mestres of Bahia."
+Amorzinho served as the roda leader at Gengibirra, where the best capoeiristas of Salvador gathered on Sundays. Mestre Noronha remembered him as skilled in "cabeceiro" (head techniques), though he noted that Amorzinho "liked the branca" (white rum/cachaça). Despite this, he was described as one of "the greatest mestres of Bahia".
 
-The pivotal moment in Amorzinho''s legacy came on February 23, 1941, when Raimundo Aberrê brought Mestre Pastinha to witness the Sunday roda at Gengibirra. According to Pastinha''s own account: "When I arrived there, I looked for the capoeira owner, who was Amorzinho, who was a civil guard. He called Amorzinho, Amorzinho in the grip of my hand went and handed over capoeira for me to take care of." Amorzinho reportedly said: "I have been waiting a long time to give you this capoeira for you to master."
+The pivotal moment in Amorzinho''s legacy came on February 23, 1941, when Raimundo Aberrê brought Mestre Pastinha to witness the Sunday roda at Gengibirra. According to Pastinha''s own account: "When I arrived there, I looked for the capoeira owner, who was Amorzinho, who was a civil guard. He called Amorzinho, Amorzinho in the grip of my hand went and handed over capoeira for me to take care of". Amorzinho reportedly said: "I have been waiting a long time to give you this capoeira for you to master".
 
-However, Mestre Noronha''s manuscripts offer a different chronology, suggesting that the formal transfer of leadership occurred only after Amorzinho''s death. Noronha wrote: "Because of the death of Amorzinho, the guard, we handed over the Centre to Mestre Pastinha to take care."
+However, Mestre Noronha''s manuscripts offer a different chronology, suggesting that the formal transfer of leadership occurred only after Amorzinho''s death. Noronha wrote: "Because of the death of Amorzinho, the guard, we handed over the Centre to Mestre Pastinha to take care".
 
-Amorzinho died in 1943, shortly after Aberrê passed away in September 1942. His death had a profound impact on the nascent Capoeira Angola organization. According to sources, "with Amorzinho''s death, CECA was abandoned by all the Masters." The center would only fully recover and "gain momentum" (engrenaria) in 1955.
+Amorzinho died in 1943, shortly after Aberrê passed away in September 1942. His death had a profound impact on the nascent Capoeira Angola organization. According to sources, "with Amorzinho''s death, CECA was abandoned by all the Masters". The center would only fully recover and "gain momentum" (engrenaria) in 1955.
 
 The legacy of Amorzinho lives on through his role in establishing the organizational foundation that Mestre Pastinha would later develop into the Centro Esportivo de Capoeira Angola (CECA). His position as a civil guard who used his authority to protect rather than persecute capoeiristas represents a crucial transition in capoeira''s history from an outlawed practice to an organized cultural tradition.',
   -- bio_pt
@@ -66,13 +66,13 @@ The legacy of Amorzinho lives on through his role in establishing the organizati
 
 Na década de 1920, Amorzinho estava entre os 22 mestres fundadores que estabeleceram o Centro Nacional de Capoeira de Origem Angola na Ladeira de Pedra, na área do Gengibirra, no bairro da Liberdade—o primeiro centro organizado de Capoeira Angola no estado da Bahia. Mais do que um mestre fundador, ele era um dos quatro "donos e proprietários" do Gengibirra, ao lado de Mestre Noronha, seu irmão Livino e Totonho de Maré.
 
-Amorzinho servia como líder de roda no Gengibirra, onde os melhores capoeiristas de Salvador se reuniam aos domingos. Mestre Noronha o lembrava como habilidoso em "cabeceiro" (técnicas de cabeça), embora tenha notado que Amorzinho "gostava da branquinha" (cachaça). Apesar disso, era descrito como um dos "maiores mestres da Bahia."
+Amorzinho servia como líder de roda no Gengibirra, onde os melhores capoeiristas de Salvador se reuniam aos domingos. Mestre Noronha o lembrava como habilidoso em "cabeceiro" (técnicas de cabeça), embora tenha notado que Amorzinho "gostava da branquinha" (cachaça). Apesar disso, era descrito como um dos "maiores mestres da Bahia".
 
-O momento crucial no legado de Amorzinho veio em 23 de fevereiro de 1941, quando Raimundo Aberrê trouxe Mestre Pastinha para assistir à roda de domingo no Gengibirra. Segundo o próprio relato de Pastinha: "Quando eu cheguei lá, ele procurou o dono da capoeira, que era o Amorzinho, que era um guarda civil. Chamou o Amorzinho, o Amorzinho no aperto da minha mão foi e entregou a capoeira pra eu tomar conta." Amorzinho teria dito: "Há muito tempo espero para lhe dar esta capoeira para você comandar."
+O momento crucial no legado de Amorzinho veio em 23 de fevereiro de 1941, quando Raimundo Aberrê trouxe Mestre Pastinha para assistir à roda de domingo no Gengibirra. Segundo o próprio relato de Pastinha: "Quando eu cheguei lá, ele procurou o dono da capoeira, que era o Amorzinho, que era um guarda civil. Chamou o Amorzinho, o Amorzinho no aperto da minha mão foi e entregou a capoeira pra eu tomar conta". Amorzinho teria dito: "Há muito tempo espero para lhe dar esta capoeira para você comandar".
 
-No entanto, os manuscritos de Mestre Noronha oferecem uma cronologia diferente, sugerindo que a transferência formal de liderança ocorreu apenas após a morte de Amorzinho. Noronha escreveu: "Por causa da morte de Amorzinho, o guarda, nós entregamos o Centro a Mestre Pastinha para cuidar."
+No entanto, os manuscritos de Mestre Noronha oferecem uma cronologia diferente, sugerindo que a transferência formal de liderança ocorreu apenas após a morte de Amorzinho. Noronha escreveu: "Por causa da morte de Amorzinho, o guarda, nós entregamos o Centro a Mestre Pastinha para cuidar".
 
-Amorzinho morreu em 1943, pouco depois de Aberrê falecer em setembro de 1942. Sua morte teve um impacto profundo na nascente organização de Capoeira Angola. Segundo as fontes, "com o falecimento de Amorzinho, o CECA foi abandonado por todos os Mestres." O centro só se recuperaria totalmente e "engrenaria" de vez em 1955.
+Amorzinho morreu em 1943, pouco depois de Aberrê falecer em setembro de 1942. Sua morte teve um impacto profundo na nascente organização de Capoeira Angola. Segundo as fontes, "com o falecimento de Amorzinho, o CECA foi abandonado por todos os Mestres". O centro só se recuperaria totalmente e "engrenaria" de vez em 1955.
 
 O legado de Amorzinho vive através de seu papel em estabelecer a fundação organizacional que Mestre Pastinha posteriormente desenvolveria no Centro Esportivo de Capoeira Angola (CECA). Sua posição como guarda civil que usou sua autoridade para proteger em vez de perseguir capoeiristas representa uma transição crucial na história da capoeira de uma prática proibida para uma tradição cultural organizada.',
   -- achievements_en
@@ -96,7 +96,7 @@ DEATH: 1943 per Portal Capoeira article. Died shortly after Aberrê (September 1
 
 NAME VARIANTS: Amorzinho (primary), Amouzinho (alternate spelling). "Amorzinho" means "little love" in Portuguese.
 
-CHARACTER NOTE: Mestre Noronha described him as skilled in "cabeceiro" (headwork) but noted he "gostava da branquinha" (liked white rum/cachaça). Despite this, he was called one of "the greatest mestres of Bahia."
+CHARACTER NOTE: Mestre Noronha described him as skilled in "cabeceiro" (headwork) but noted he "gostava da branquinha" (liked white rum/cachaça). Despite this, he was called one of "the greatest mestres of Bahia".
 
 CHRONOLOGY CONFLICT: Two versions exist for the transfer of leadership to Pastinha:
 1. Pastinha''s account: Amorzinho handed him leadership at the roda on Feb 23, 1941
@@ -115,7 +115,7 @@ MORTE: 1943 per artigo do Portal Capoeira. Morreu pouco depois de Aberrê (setem
 
 VARIANTES DE NOME: Amorzinho (principal), Amouzinho (grafia alternativa). "Amorzinho" significa "pequeno amor" em português.
 
-NOTA DE CARÁTER: Mestre Noronha o descreveu como habilidoso em "cabeceiro" mas notou que ele "gostava da branquinha" (cachaça). Apesar disso, era chamado de um dos "maiores mestres da Bahia."
+NOTA DE CARÁTER: Mestre Noronha o descreveu como habilidoso em "cabeceiro" mas notou que ele "gostava da branquinha" (cachaça). Apesar disso, era chamado de um dos "maiores mestres da Bahia".
 
 CONFLITO CRONOLÓGICO: Duas versões existem para a transferência de liderança para Pastinha:
 1. Relato de Pastinha: Amorzinho lhe passou a liderança na roda em 23 de fevereiro de 1941

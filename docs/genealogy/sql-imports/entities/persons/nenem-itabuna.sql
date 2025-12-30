@@ -82,7 +82,7 @@ INSERT INTO genealogy.person_profiles (
   -- Extended content (English)
   E'Mestre Neném was an African-born capoeirista who taught in Itabuna, in the southern Bahia region of Brazil. He represents one of the most significant yet obscure figures in capoeira genealogy—a Layer Zero practitioner who anchors an entire lineage that would eventually transform capoeira in Rio de Janeiro and beyond.
 
-Almost nothing is known about Neném except through the testimony of his descendants in the art. He is described simply as "an African" or "of African origin," indicating he was born on the African continent and brought to Brazil, likely during the final decades of the transatlantic slave trade or as a child of enslaved parents.
+Almost nothing is known about Neném except through the testimony of his descendants in the art. He is described simply as "an African" or "of African origin", indicating he was born on the African continent and brought to Brazil, likely during the final decades of the transatlantic slave trade or as a child of enslaved parents.
 
 What we know comes primarily from Mestre Artur Emídio (1930-2011), who learned capoeira from Mestre Paizinho (Teodoro Ramos), who was in turn a direct disciple of Neném. In Artur Emídio''s recounting: "The practice of Capoeira was prohibited. They trained on top of hills, in alleyways, at night and always hidden. Many were the times that my Master was arrested. But the next day the bail was paid, and he would leave. And at night, he would return to teach Capoeira, practiced for love!"
 
@@ -100,7 +100,7 @@ Neném''s legacy thus extends from the African continent through the persecution
   -- Extended content (Portuguese)
   E'Mestre Neném foi um capoeirista nascido na África que ensinava em Itabuna, na região sul da Bahia. Ele representa uma das figuras mais significativas, porém obscuras, na genealogia da capoeira—um praticante da Camada Zero que ancora toda uma linhagem que eventualmente transformaria a capoeira no Rio de Janeiro e além.
 
-Quase nada se sabe sobre Neném exceto através do testemunho de seus descendentes na arte. Ele é descrito simplesmente como "um africano" ou "de origem africana," indicando que nasceu no continente africano e foi trazido ao Brasil, provavelmente durante as décadas finais do tráfico transatlântico de escravos ou como filho de pais escravizados.
+Quase nada se sabe sobre Neném exceto através do testemunho de seus descendentes na arte. Ele é descrito simplesmente como "um africano" ou "de origem africana", indicando que nasceu no continente africano e foi trazido ao Brasil, provavelmente durante as décadas finais do tráfico transatlântico de escravos ou como filho de pais escravizados.
 
 O que sabemos vem principalmente de Mestre Artur Emídio (1930-2011), que aprendeu capoeira com Mestre Paizinho (Teodoro Ramos), que por sua vez era discípulo direto de Neném. No relato de Artur Emídio: "A prática da Capoeira era proibida. Treinavam no alto dos morros, nos becos, à noite e sempre escondidos. Muitas foram as vezes que meu Mestre foi preso. Mas no dia seguinte a fiança era paga, e ele saía. E à noite, voltava a ensinar Capoeira, praticada por amor!"
 

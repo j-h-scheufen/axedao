@@ -34,7 +34,7 @@ Together with Noronha, Livino also co-founded and managed the Centro de Capoeira
 
 When Mestre Pastinha was invited to assume leadership of the Gengibirra roda in 1941 (following Amorzinho's death), Livino was among the mestres who formally handed over the center. Pastinha himself listed "Livino Diogo" among the founders who helped establish what would become the Centro Esportivo de Capoeira Angola (CECA).
 
-Livino is commemorated in traditional capoeira angola corridos (songs), with verses honoring him alongside other legendary mestres: "Na Bahia que eu vi o mestre Livino..." (In Bahia I saw Mestre Livino...). He was older than some of his contemporaries—Mestre Barba Branca noted that "there were mestres older than Pastinha, such as Totonho de Maré and Livino Diogo."
+Livino is commemorated in traditional capoeira angola corridos (songs), with verses honoring him alongside other legendary mestres: "Na Bahia que eu vi o mestre Livino..." (In Bahia I saw Mestre Livino...). He was older than some of his contemporaries—Mestre Barba Branca noted that "there were mestres older than Pastinha, such as Totonho de Maré and Livino Diogo".
 
 ### Português
 
@@ -46,7 +46,7 @@ Junto com Noronha, Livino também co-fundou e gerenciou o Centro de Capoeira Ang
 
 Quando Mestre Pastinha foi convidado a assumir a liderança da roda do Gengibirra em 1941 (após a morte de Amorzinho), Livino estava entre os mestres que formalmente entregaram o centro. O próprio Pastinha listou "Livino Diogo" entre os fundadores que ajudaram a estabelecer o que se tornaria o Centro Esportivo de Capoeira Angola (CECA).
 
-Livino é comemorado nos corridos tradicionais de capoeira angola, com versos que o homenageiam ao lado de outros mestres lendários: "Na Bahia que eu vi o mestre Livino..." Ele era mais velho que alguns de seus contemporâneos—Mestre Barba Branca observou que "havia mestres mais velhos que Pastinha, como Totonho de Maré e Livino Diogo."
+Livino é comemorado nos corridos tradicionais de capoeira angola, com versos que o homenageiam ao lado de outros mestres lendários: "Na Bahia que eu vi o mestre Livino..." Ele era mais velho que alguns de seus contemporâneos—Mestre Barba Branca observou que "havia mestres mais velhos que Pastinha, como Totonho de Maré e Livino Diogo".
 
 ## Achievements / Conquistas
 
@@ -119,7 +119,7 @@ This song honors historical mestres from Bahia's capoeira angola tradition, plac
 Some sources list "Livino Diogo" separately among historical "bambas da capoeiragem" (tough guys of capoeira), but the velhosmestres.com source clarifies that Livino Boca da Barra (Noronha's brother) and the founding mestre named in Gengibirra/CECA contexts are the same person. "Diogo" is likely a surname or patronymic.
 
 **AGE DISCREPANCY:**
-Mestre Barba Branca stated that "there were mestres older than Pastinha, such as Totonho de Maré and Livino Diogo." However, if Livino was Noronha's brother (Noronha b. 1909) and older than Pastinha (b. 1889), there would be at least a 20-year age gap between brothers. This may indicate:
+Mestre Barba Branca stated that "there were mestres older than Pastinha, such as Totonho de Maré and Livino Diogo". However, if Livino was Noronha's brother (Noronha b. 1909) and older than Pastinha (b. 1889), there would be at least a 20-year age gap between brothers. This may indicate:
 1. The statement referred to experience/seniority rather than chronological age
 2. "Brother" may be used figuratively (capoeira brotherhood)
 3. Source confusion between different individuals

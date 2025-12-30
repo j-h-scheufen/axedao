@@ -139,12 +139,12 @@ Algum tempo depois desse confronto, Pedro Porreta foi assassinado, e Chicão foi
 ## Historiographic Significance / Significância Historiográfica
 
 ### English
-Paula Juliana Foltran's 2019 doctoral thesis at University of Brasília, later published as the book "Mulheres Incorrigíveis: Histórias de Valentia, Desordem e Capoeiragem na Bahia" (2021), includes a chapter titled "Chicão, a última dos tempos dos valentes: a masculinização da valentia e da desordem na historiografia da Capoeira."
+Paula Juliana Foltran's 2019 doctoral thesis at University of Brasília, later published as the book "Mulheres Incorrigíveis: Histórias de Valentia, Desordem e Capoeiragem na Bahia" (2021), includes a chapter titled "Chicão, a última dos tempos dos valentes: a masculinização da valentia e da desordem na historiografia da Capoeira".
 
 This chapter examines how capoeira historiography has traditionally "masculinized" bravery and disorder, effectively erasing women like Chicão from the historical record. Foltran's work uses primary sources from the Arquivo Público do Estado da Bahia to recover the stories of "mulheres negras" (Black women) who were active participants in capoeira culture in Salvador between 1900-1920.
 
 ### Português
-A tese de doutorado de Paula Juliana Foltran de 2019 na Universidade de Brasília, posteriormente publicada como livro "Mulheres Incorrigíveis: Histórias de Valentia, Desordem e Capoeiragem na Bahia" (2021), inclui um capítulo intitulado "Chicão, a última dos tempos dos valentes: a masculinização da valentia e da desordem na historiografia da Capoeira."
+A tese de doutorado de Paula Juliana Foltran de 2019 na Universidade de Brasília, posteriormente publicada como livro "Mulheres Incorrigíveis: Histórias de Valentia, Desordem e Capoeiragem na Bahia" (2021), inclui um capítulo intitulado "Chicão, a última dos tempos dos valentes: a masculinização da valentia e da desordem na historiografia da Capoeira".
 
 Este capítulo examina como a historiografia da capoeira tradicionalmente "masculinizou" a valentia e a desordem, efetivamente apagando mulheres como Chicão do registro histórico. O trabalho de Foltran usa fontes primárias do Arquivo Público do Estado da Bahia para recuperar as histórias de mulheres negras que eram participantes ativas na cultura da capoeira em Salvador entre 1900-1920.
 

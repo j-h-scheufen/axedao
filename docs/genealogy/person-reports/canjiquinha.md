@@ -37,23 +37,23 @@ On May 22, 1952, Canjiquinha officially registered his group: Associação de Ca
 
 In 1959, Canjiquinha traveled to Rio de Janeiro and Porto Alegre with Pastinha's group. The following year, American researcher Janice Marie Smith recorded him - one of the earliest audio documentations of his voice and music.
 
-In 1962, Canjiquinha's image reached international audiences through two landmark films: "O Pagador de Promessas" (The Given Word) by Anselmo Duarte - which won the Palme d'Or at Cannes - and "Barravento" by Glauber Rocha. He appeared in more films over the years: "Operação Tumulto," "Capitães de Areia," "Senhor dos Navegantes," and "A Moça Daquela Hora."
+In 1962, Canjiquinha's image reached international audiences through two landmark films: "O Pagador de Promessas" (The Given Word) by Anselmo Duarte - which won the Palme d'Or at Cannes - and "Barravento" by Glauber Rocha. He appeared in more films over the years: "Operação Tumulto", "Capitães de Areia", "Senhor dos Navegantes", and "A Moça Daquela Hora".
 
 From the 1960s, when capoeira became better known in Brazil, Canjiquinha's academy became a primary training center. In 1963, he taught at the Naval Base. In 1970, he participated in the "Berimbau de Ouro" event. In 1981, the Federação Paulista de Capoeira, with support from Mestre Brasília, created the Troféu Mestre Canjiquinha to honor him.
 
-In September 1986, Canjiquinha recorded a landmark LP with Mestre Waldemar at Boca do Rio studio in Salvador. The liner notes, written by Mestre Itapoan, describe Waldemar as the greatest singer of the rodas da Bahia and Canjiquinha as representing "the mischievous and mocking way of making capoeira a serious instrument." The album featured 34 tracks with a chorus including Mestres Itapoan, Suassuna, Ezequiel, and Geni.
+In September 1986, Canjiquinha recorded a landmark LP with Mestre Waldemar at Boca do Rio studio in Salvador. The liner notes, written by Mestre Itapoan, describe Waldemar as the greatest singer of the rodas da Bahia and Canjiquinha as representing "the mischievous and mocking way of making capoeira a serious instrument". The album featured 34 tracks with a chorus including Mestres Itapoan, Suassuna, Ezequiel, and Geni.
 
-In 1988, Canjiquinha wrote his book "A Alegria da Capoeira," published in 1989. That same year, he founded the Academia de Canjiquinha e Seus Amigos in the Colina do Mar neighborhood - his final academy.
+In 1988, Canjiquinha wrote his book "A Alegria da Capoeira", published in 1989. That same year, he founded the Academia de Canjiquinha e Seus Amigos in the Colina do Mar neighborhood - his final academy.
 
 Throughout his life, Canjiquinha innovated. He is credited with creating the toques Muzenza, Samango, Samba de Angola, and Banguela de Angola. Mestre Geni confirmed these as Canjiquinha's creations. He claimed to be the first to integrate maculelê into capoeira demonstrations.
 
 On November 8, 1994, Mestre Canjiquinha died in Salvador. Despite his cultural significance, he died in poverty - a fate shared by many great mestres of his generation.
 
-He left behind a vision: "Capoeira has no creed, no color, no flag - it belongs to the people, it will travel the world."
+He left behind a vision: "Capoeira has no creed, no color, no flag - it belongs to the people, it will travel the world".
 
 ### Português
 
-Washington Bruno da Silva nasceu em 25 de setembro de 1925, na Rua Maciel de Baixo n° 6 em Salvador, filho do alfaiate José Bruno da Silva e da lavadeira Amália Maria da Conceição. Ele cresceu para se tornar um dos capoeiristas mais influentes do século XX, conhecido em todo o Brasil como "A Alegria da Capoeira."
+Washington Bruno da Silva nasceu em 25 de setembro de 1925, na Rua Maciel de Baixo n° 6 em Salvador, filho do alfaiate José Bruno da Silva e da lavadeira Amália Maria da Conceição. Ele cresceu para se tornar um dos capoeiristas mais influentes do século XX, conhecido em todo o Brasil como "A Alegria da Capoeira".
 
 Em 1935, com apenas 10 anos, Washington começou a aprender capoeira com Mestre Raimundo Aberrê na Baixa do Tubo no Matatu Pequeno. Por sete anos (1935-1942), ele absorveu a arte de um dos grandes mestres pré-codificação. O menino que veio para Aberrê só conhecia um samba - "Canjiquinha Quente" de Roberto Martin (1937) - e era tudo que ele conseguia cantar. Seus amigos lhe deram o apelido que o seguiria para sempre.
 
@@ -65,19 +65,19 @@ Em 22 de maio de 1952, Canjiquinha registrou oficialmente seu grupo: Associaçã
 
 Em 1959, Canjiquinha viajou para Rio de Janeiro e Porto Alegre com o grupo de Pastinha. No ano seguinte, a pesquisadora americana Janice Marie Smith o gravou - uma das primeiras documentações em áudio de sua voz e música.
 
-Em 1962, a imagem de Canjiquinha alcançou audiências internacionais através de dois filmes marcantes: "O Pagador de Promessas" de Anselmo Duarte - que ganhou a Palma de Ouro em Cannes - e "Barravento" de Glauber Rocha. Ele apareceu em mais filmes ao longo dos anos: "Operação Tumulto," "Capitães de Areia," "Senhor dos Navegantes," e "A Moça Daquela Hora."
+Em 1962, a imagem de Canjiquinha alcançou audiências internacionais através de dois filmes marcantes: "O Pagador de Promessas" de Anselmo Duarte - que ganhou a Palma de Ouro em Cannes - e "Barravento" de Glauber Rocha. Ele apareceu em mais filmes ao longo dos anos: "Operação Tumulto", "Capitães de Areia", "Senhor dos Navegantes", e "A Moça Daquela Hora".
 
-A partir dos anos 1960, quando a capoeira se tornou mais conhecida no Brasil, a academia de Canjiquinha se tornou um centro de treinamento primário. Em 1963, ele ensinou na Base Naval. Em 1970, participou do evento "Berimbau de Ouro." Em 1981, a Federação Paulista de Capoeira, com apoio de Mestre Brasília, criou o Troféu Mestre Canjiquinha para homenageá-lo.
+A partir dos anos 1960, quando a capoeira se tornou mais conhecida no Brasil, a academia de Canjiquinha se tornou um centro de treinamento primário. Em 1963, ele ensinou na Base Naval. Em 1970, participou do evento "Berimbau de Ouro". Em 1981, a Federação Paulista de Capoeira, com apoio de Mestre Brasília, criou o Troféu Mestre Canjiquinha para homenageá-lo.
 
-Em setembro de 1986, Canjiquinha gravou um LP marcante com Mestre Waldemar no estúdio Boca do Rio em Salvador. As notas do encarte, escritas por Mestre Itapoan, descrevem Waldemar como o maior cantor das rodas da Bahia e Canjiquinha como representando "o jeito malicioso e zombeteiro de fazer da capoeira um instrumento sério." O álbum apresentou 34 faixas com um coro incluindo Mestres Itapoan, Suassuna, Ezequiel e Geni.
+Em setembro de 1986, Canjiquinha gravou um LP marcante com Mestre Waldemar no estúdio Boca do Rio em Salvador. As notas do encarte, escritas por Mestre Itapoan, descrevem Waldemar como o maior cantor das rodas da Bahia e Canjiquinha como representando "o jeito malicioso e zombeteiro de fazer da capoeira um instrumento sério". O álbum apresentou 34 faixas com um coro incluindo Mestres Itapoan, Suassuna, Ezequiel e Geni.
 
-Em 1988, Canjiquinha escreveu seu livro "A Alegria da Capoeira," publicado em 1989. No mesmo ano, fundou a Academia de Canjiquinha e Seus Amigos no bairro de Colina do Mar - sua última academia.
+Em 1988, Canjiquinha escreveu seu livro "A Alegria da Capoeira", publicado em 1989. No mesmo ano, fundou a Academia de Canjiquinha e Seus Amigos no bairro de Colina do Mar - sua última academia.
 
 Ao longo de sua vida, Canjiquinha inovou. Ele é creditado pela criação dos toques Muzenza, Samango, Samba de Angola e Banguela de Angola. Mestre Geni confirmou estas como criações de Canjiquinha. Ele afirmava ser o primeiro a integrar o maculelê em demonstrações de capoeira.
 
 Em 8 de novembro de 1994, Mestre Canjiquinha morreu em Salvador. Apesar de sua importância cultural, ele morreu na pobreza - um destino compartilhado por muitos grandes mestres de sua geração.
 
-Ele deixou uma visão: "A capoeira não tem credo, não tem cor, não tem bandeira - ela pertence ao povo, ela vai correr o mundo."
+Ele deixou uma visão: "A capoeira não tem credo, não tem cor, não tem bandeira - ela pertence ao povo, ela vai correr o mundo".
 
 ## Achievements / Conquistas
 

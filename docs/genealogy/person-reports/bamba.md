@@ -24,7 +24,7 @@
 
 ### English
 
-Rubens Costa Silva, known as Mestre Bamba or affectionately "Rubinho," was born on September 4, 1964, in Salvador, Bahia. At the age of 12, while helping his mother run a restaurant in the historic center, young Rubens witnessed capoeira classes being taught by Mestre Gato da Bahia in the Pelourinho. This encounter sparked his passion for the art.
+Rubens Costa Silva, known as Mestre Bamba or affectionately "Rubinho", was born on September 4, 1964, in Salvador, Bahia. At the age of 12, while helping his mother run a restaurant in the historic center, young Rubens witnessed capoeira classes being taught by Mestre Gato da Bahia in the Pelourinho. This encounter sparked his passion for the art.
 
 His entry into capoeira came through the streets. Participating in various rodas at the Terreiro de Jesus, he met Mestre Vermelho Boxel (Cecílio de Jesus Calheiros), whom Bamba considers his first mestre. This encounter in 1977 proved fateful. Vermelho Boxel introduced the young aspirant to the Associação de Capoeira Mestre Bimba, where Vermelho 27—Vermelho Boxel's own teacher—still held court as the custodian of Mestre Bimba's legacy.
 
@@ -34,7 +34,7 @@ Bamba's journey from student to leader was gradual but steady. He trained for ye
 
 Today, Mestre Bamba serves as President of the Associação de Capoeira Mestre Bimba, continuing the succession that runs from Mestre Bimba through Vermelho 27 (with a brief period under Mestre Almiro in the mid-1980s). He teaches at Rua das Laranjeiras in the Pelourinho, where demonstrations occur almost every night featuring traditional Regional, various toques of the berimbaus, contemporary rodas, and sometimes maculelê.
 
-His philosophy reflects profound humility: "I am not the owner of Regional Capoeira; I had several masters, and I will always respect my Mestre Vermelho 27. I preserve the history of Capoeira Regional and practice it until the day I die. The Capoeira Regional was passed on to me by Mestre Vermelho 27." He emphasizes that he respects all other styles of capoeira and refuses to criticize other expressions of the art.
+His philosophy reflects profound humility: "I am not the owner of Regional Capoeira; I had several masters, and I will always respect my Mestre Vermelho 27. I preserve the history of Capoeira Regional and practice it until the day I die. The Capoeira Regional was passed on to me by Mestre Vermelho 27". He emphasizes that he respects all other styles of capoeira and refuses to criticize other expressions of the art.
 
 Under his leadership, the ACMB has grown into an international organization with branches in Japan, Belgium, the United States, Great Britain, Australia, Russia, Canada, and Poland. Mestre Bamba dedicates considerable time to traveling throughout Europe and beyond to teach. The organization has produced numerous mestres including Orelha, Nelsinho, Marinheiro, Zambi, Cabeludo, Traíra, and others—some of whom later founded their own organizations, notably the União Internacional de Capoeira Regional (UNICAR) in 2003.
 
@@ -42,7 +42,7 @@ Mestre Bamba's training grounds at the Terreiro de Jesus represent the oldest ph
 
 ### Português
 
-Rubens Costa Silva, conhecido como Mestre Bamba ou carinhosamente "Rubinho," nasceu em 4 de setembro de 1964, em Salvador, Bahia. Aos 12 anos, enquanto ajudava sua mãe a administrar um restaurante no centro histórico, o jovem Rubens presenciou aulas de capoeira ministradas por Mestre Gato da Bahia no Pelourinho. Este encontro despertou sua paixão pela arte.
+Rubens Costa Silva, conhecido como Mestre Bamba ou carinhosamente "Rubinho", nasceu em 4 de setembro de 1964, em Salvador, Bahia. Aos 12 anos, enquanto ajudava sua mãe a administrar um restaurante no centro histórico, o jovem Rubens presenciou aulas de capoeira ministradas por Mestre Gato da Bahia no Pelourinho. Este encontro despertou sua paixão pela arte.
 
 Sua entrada na capoeira veio pelas ruas. Participando de várias rodas no Terreiro de Jesus, ele conheceu Mestre Vermelho Boxel (Cecílio de Jesus Calheiros), a quem Bamba considera seu primeiro mestre. Este encontro em 1977 provou ser decisivo. Vermelho Boxel apresentou o jovem aspirante à Associação de Capoeira Mestre Bimba, onde Vermelho 27—o próprio professor de Vermelho Boxel—ainda reinava como guardião do legado de Mestre Bimba.
 
@@ -52,7 +52,7 @@ A jornada de Bamba de aluno a líder foi gradual mas constante. Ele treinou por 
 
 Hoje, Mestre Bamba serve como Presidente da Associação de Capoeira Mestre Bimba, continuando a sucessão que vai de Mestre Bimba através de Vermelho 27 (com um breve período sob Mestre Almiro em meados dos anos 1980). Ele ensina na Rua das Laranjeiras no Pelourinho, onde demonstrações ocorrem quase todas as noites apresentando Regional tradicional, vários toques de berimbaus, rodas contemporâneas e às vezes maculelê.
 
-Sua filosofia reflete profunda humildade: "Eu não sou o dono da Capoeira Regional; eu tive vários mestres, e sempre respeitarei meu Mestre Vermelho 27. Eu preservo a história da Capoeira Regional e a pratico até o dia em que morrer. A Capoeira Regional foi passada para mim pelo Mestre Vermelho 27." Ele enfatiza que respeita todos os outros estilos de capoeira e se recusa a criticar outras expressões da arte.
+Sua filosofia reflete profunda humildade: "Eu não sou o dono da Capoeira Regional; eu tive vários mestres, e sempre respeitarei meu Mestre Vermelho 27. Eu preservo a história da Capoeira Regional e a pratico até o dia em que morrer. A Capoeira Regional foi passada para mim pelo Mestre Vermelho 27". Ele enfatiza que respeita todos os outros estilos de capoeira e se recusa a criticar outras expressões da arte.
 
 Sob sua liderança, a ACMB cresceu para uma organização internacional com filiais no Japão, Bélgica, Estados Unidos, Grã-Bretanha, Austrália, Rússia, Canadá e Polônia. Mestre Bamba dedica tempo considerável viajando pela Europa e além para ensinar. A organização produziu numerosos mestres incluindo Orelha, Nelsinho, Marinheiro, Zambi, Cabeludo, Traíra e outros—alguns dos quais mais tarde fundaram suas próprias organizações, notadamente a União Internacional de Capoeira Regional (UNICAR) em 2003.
 

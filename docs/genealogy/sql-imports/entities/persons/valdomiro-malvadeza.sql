@@ -4,7 +4,7 @@
 -- ============================================================
 -- Student of Mestre Pastinha at CECA (Centro Esportivo de
 -- Capoeira Angola). Singer on the historic 1969 LP "Capoeira
--- Angola - Mestre Pastinha e sua academia."
+-- Angola - Mestre Pastinha e sua academia".
 --
 -- DISTINCT FROM: José Martins dos Santos "Malvadeza" (Curió's
 -- father), who is a separate person already imported with
@@ -15,7 +15,7 @@
 --
 -- BATERIA PARTICIPATION:
 -- Per Mestre Gato Preto's 1999 interview: "Na roda, João
--- Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria."
+-- Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria".
 --
 -- 1969 LP RECORDING:
 -- "Capoeira Angola - Mestre Pastinha e sua academia" (Philips
@@ -70,19 +70,19 @@ His voice is preserved on one of the most important recordings in capoeira histo
 
 Unlike some of his contemporaries, Valdomiro was not among the delegation that traveled to Dakar, Senegal for the First International Festival of Black Arts in April 1966.
 
-Valdomiro remained active in Salvador''s capoeira community for decades. In 1999, according to a chronicle published in Portal Capoeira, the author had "the honor of playing capoeira in 1999 with Mestre Valdomiro Malvadeza (disciple of Mestre Pastinha) at Cruzeiro, Pelourinho/Bahia." The Cruzeiro do São Francisco is the historic location where CECA was originally located (Largo do Cruzeiro de São Francisco), suggesting Valdomiro continued to practice at or near the birthplace of formal Capoeira Angola instruction.
+Valdomiro remained active in Salvador''s capoeira community for decades. In 1999, according to a chronicle published in Portal Capoeira, the author had "the honor of playing capoeira in 1999 with Mestre Valdomiro Malvadeza (disciple of Mestre Pastinha) at Cruzeiro, Pelourinho/Bahia". The Cruzeiro do São Francisco is the historic location where CECA was originally located (Largo do Cruzeiro de São Francisco), suggesting Valdomiro continued to practice at or near the birthplace of formal Capoeira Angola instruction.
 
 ',
   -- bio_pt
   E'Valdomiro Malvadeza (também grafado Waldomiro) foi aluno de Mestre Pastinha no Centro Esportivo de Capoeira Angola (CECA) no bairro do Pelourinho em Salvador, Bahia. Ele fez parte da geração de angoleiros que treinaram no CECA durante sua era dourada nas décadas de 1950-1960, junto com mestres como João Grande, João Pequeno, Gildo Alfinete, Albertino da Hora, Curió e Gato Preto.
 
-Valdomiro era reconhecido por suas habilidades tanto como tocador de bateria quanto como cantador. Mestre Gato Preto, em uma entrevista de 1999, recordou a composição da bateria nas rodas de Pastinha: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria." Isto coloca Valdomiro entre os músicos principais que acompanhavam as rodas no CECA.
+Valdomiro era reconhecido por suas habilidades tanto como tocador de bateria quanto como cantador. Mestre Gato Preto, em uma entrevista de 1999, recordou a composição da bateria nas rodas de Pastinha: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria". Isto coloca Valdomiro entre os músicos principais que acompanhavam as rodas no CECA.
 
 Sua voz está preservada em uma das gravações mais importantes da história da capoeira: o LP de 1969 "Capoeira Angola - Mestre Pastinha e sua academia" (Philips R 765.097 L). Gravado ao vivo no Teatro Castro Alves em Salvador, o álbum apresentou canto de Mestre Pastinha, Waldomiro Malvadeza e Roberto Satanás. As notas de capa foram escritas pelo renomado romancista Jorge Amado, J.B. Colmenero e pelo próprio Mestre Pastinha. O álbum incluiu ladainhas tradicionais e cantos de capoeira, com a bateria composta por dois berimbaus, dois pandeiros, agogô e reco-reco.
 
 Diferente de alguns de seus contemporâneos, Valdomiro não estava entre a delegação que viajou para Dakar, Senegal para o Primeiro Festival Internacional de Artes Negras em abril de 1966.
 
-Valdomiro permaneceu ativo na comunidade de capoeira de Salvador por décadas. Em 1999, segundo uma crônica publicada no Portal Capoeira, o autor teve "a honra de jogar capoeira em 1999 com o Mestre Valdomiro Malvadeza (discípulo de Mestre Pastinha) no Cruzeiro, Pelourinho/Bahia." O Cruzeiro do São Francisco é a localização histórica onde o CECA estava originalmente localizado (Largo do Cruzeiro de São Francisco), sugerindo que Valdomiro continuou a praticar no ou próximo ao local de nascimento do ensino formal de Capoeira Angola.
+Valdomiro permaneceu ativo na comunidade de capoeira de Salvador por décadas. Em 1999, segundo uma crônica publicada no Portal Capoeira, o autor teve "a honra de jogar capoeira em 1999 com o Mestre Valdomiro Malvadeza (discípulo de Mestre Pastinha) no Cruzeiro, Pelourinho/Bahia". O Cruzeiro do São Francisco é a localização histórica onde o CECA estava originalmente localizado (Largo do Cruzeiro de São Francisco), sugerindo que Valdomiro continuou a praticar no ou próximo ao local de nascimento do ensino formal de Capoeira Angola.
 
 ',
   -- achievements_en

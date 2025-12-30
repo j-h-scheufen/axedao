@@ -57,7 +57,7 @@ At age eight, Mário began learning capoeira in improvised rodas in his family''
 
 In the early 1950s, seeking better opportunities, Mário traveled to Rio de Janeiro with an aunt. He settled in the poor neighborhood of Jacarezinho and found work laying panels and covers on the railroad. Later, he worked for many years at the Cavan company, which manufactured lamp posts.
 
-At Cavan, Mário met Irineu dos Santos and began teaching him the fundamentals of capoeira. Through Irineu, he quickly won other followers, including Irineu''s brothers Zé Grande and Deraldo—all from the dos Santos family, also from Bahia but not related to Mário. On January 6, 1953, they founded the capoeira group Bonfim, also known as "Capoeiras do Bonfim."
+At Cavan, Mário met Irineu dos Santos and began teaching him the fundamentals of capoeira. Through Irineu, he quickly won other followers, including Irineu''s brothers Zé Grande and Deraldo—all from the dos Santos family, also from Bahia but not related to Mário. On January 6, 1953, they founded the capoeira group Bonfim, also known as "Capoeiras do Bonfim".
 
 The group initially occupied a small space in São Cristóvão but soon outgrew it due to the large number of students. They moved the academy to Olaria, where they trained many accomplished capoeiristas. Zé Grande stood out as their best disciple. The Bonfim group, led by Mário Buscapé, became famous in Rio de Janeiro for training high-level competitors who often won the competitions that began being organized in the city from the mid-1960s.
 
@@ -65,7 +65,7 @@ During this period, Mário frequented the roda of Mestre Artur Emídio, one of t
 
 In 1969, Mário returned to Bahia, and his students Zé Grande and Deraldo took over leadership of the Bonfim group in Rio. The group continued to flourish under their direction. It was only many years later, in 1994, that students of Bonfim brought the master back to Rio de Janeiro.
 
-There is consensus among capoeira historians that four lineages were the main influences in the formation of Contemporary Capoeira in Rio de Janeiro: those of Artur Emídio, Paraná, Mário Buscapé, and Roque. As M. Levi stated, these four "started to work in closed spaces of academies, introduced uniforms, organisation, etc. From these four the majority of capoeira masters here in Rio de Janeiro derived."
+There is consensus among capoeira historians that four lineages were the main influences in the formation of Contemporary Capoeira in Rio de Janeiro: those of Artur Emídio, Paraná, Mário Buscapé, and Roque. As M. Levi stated, these four "started to work in closed spaces of academies, introduced uniforms, organisation, etc. From these four the majority of capoeira masters here in Rio de Janeiro derived".
 
 Mário Buscapé also participated in the folkloric group Capoeiras do Bonfim, which performed shows and exhibitions in Rio. Mestre Roque, another of the four founding lineages, joined this folkloric group.
 
@@ -73,7 +73,7 @@ In 2016, Mário published his memoir, "A saga de uma lenda viva" (The Saga of a 
 
 At the time of a 2017 ceremony honoring his 83rd birthday in São Francisco do Conde, he was recognized as "the father of Capoeira in São Francisco do Conde" and the 13th "cordão de ouro" (gold cord) in Brazil—one of the highest honors in the capoeira community.
 
-Mário Buscapé passed away on August 19, 2021, in his native São Francisco do Conde, Bahia. As one practitioner declared at his 2017 celebration: "Mestre Mário is the root of everything."',
+Mário Buscapé passed away on August 19, 2021, in his native São Francisco do Conde, Bahia. As one practitioner declared at his 2017 celebration: "Mestre Mário is the root of everything".',
   -- bio_pt
   E'Mário dos Santos, conhecido como Mário Buscapé, nasceu em 17 de julho de 1934, em um vilarejo próximo a São Francisco do Conde, no Recôncavo Baiano. Sua mãe, Maria dos Anjos dos Santos, era marisqueira, e seu pai, José Bidel dos Santos, era catador de caranguejos. Tanto seu pai quanto seu tio Dendê praticavam capoeira e se associavam com famosos capoeiristas do Recôncavo—Siri de Mangue, Canário Pardo e Besouro de Santo Amaro. Segundo Mário, Besouro até visitou sua casa, embora isso tenha sido antes de Mário nascer, pois Besouro foi morto em 1924.
 
@@ -81,7 +81,7 @@ Aos oito anos, Mário começou a aprender capoeira em rodas improvisadas no quin
 
 No início dos anos 1950, buscando melhores oportunidades, Mário viajou para o Rio de Janeiro com uma tia. Estabeleceu-se no bairro pobre de Jacarezinho e encontrou trabalho colocando placas e coberturas na ferrovia. Depois, trabalhou por muitos anos na empresa Cavan, que fabricava postes de luz.
 
-Na Cavan, Mário conheceu Irineu dos Santos e começou a ensinar-lhe os fundamentos da capoeira. Através de Irineu, rapidamente conquistou outros seguidores, incluindo os irmãos de Irineu, Zé Grande e Deraldo—todos da família dos Santos, também da Bahia, mas sem parentesco com Mário. Em 6 de janeiro de 1953, fundaram o grupo de capoeira Bonfim, também conhecido como "Capoeiras do Bonfim."
+Na Cavan, Mário conheceu Irineu dos Santos e começou a ensinar-lhe os fundamentos da capoeira. Através de Irineu, rapidamente conquistou outros seguidores, incluindo os irmãos de Irineu, Zé Grande e Deraldo—todos da família dos Santos, também da Bahia, mas sem parentesco com Mário. Em 6 de janeiro de 1953, fundaram o grupo de capoeira Bonfim, também conhecido como "Capoeiras do Bonfim".
 
 O grupo inicialmente ocupava um pequeno espaço em São Cristóvão, mas logo ficou pequeno devido ao grande número de alunos. Mudaram a academia para Olaria, onde treinaram muitos capoeiristas talentosos. Zé Grande destacou-se como o melhor discípulo. O grupo Bonfim, liderado por Mário Buscapé, tornou-se famoso no Rio de Janeiro por formar competidores de alto nível que frequentemente venciam as competições que começaram a ser organizadas na cidade a partir de meados dos anos 1960.
 
@@ -89,15 +89,15 @@ Durante este período, Mário frequentava a roda de Mestre Artur Emídio, uma da
 
 Em 1969, Mário retornou à Bahia, e seus alunos Zé Grande e Deraldo assumiram a liderança do grupo Bonfim no Rio. O grupo continuou a prosperar sob sua direção. Foi apenas muitos anos depois, em 1994, que alunos do Bonfim trouxeram o mestre de volta ao Rio de Janeiro.
 
-Há consenso entre os historiadores da capoeira de que quatro linhagens foram as principais influências na formação da Capoeira Contemporânea no Rio de Janeiro: as de Artur Emídio, Paraná, Mário Buscapé e Roque. Como M. Levi afirmou, esses quatro "começaram a trabalhar em espaços fechados de academias, introduziram uniformes, organização, etc. Desses quatro derivou a maioria dos mestres de capoeira aqui no Rio de Janeiro."
+Há consenso entre os historiadores da capoeira de que quatro linhagens foram as principais influências na formação da Capoeira Contemporânea no Rio de Janeiro: as de Artur Emídio, Paraná, Mário Buscapé e Roque. Como M. Levi afirmou, esses quatro "começaram a trabalhar em espaços fechados de academias, introduziram uniformes, organização, etc. Desses quatro derivou a maioria dos mestres de capoeira aqui no Rio de Janeiro".
 
 Mário Buscapé também participou do grupo folclórico Capoeiras do Bonfim, que realizava shows e apresentações no Rio. Mestre Roque, outra das quatro linhagens fundadoras, integrou este grupo folclórico.
 
-Em 2016, Mário publicou suas memórias, "A saga de uma lenda viva," editado por Paulinho Salmon e publicado pela Azougue no Rio de Janeiro.
+Em 2016, Mário publicou suas memórias, "A saga de uma lenda viva", editado por Paulinho Salmon e publicado pela Azougue no Rio de Janeiro.
 
 Na época de uma cerimônia em 2017 homenageando seus 83 anos em São Francisco do Conde, ele foi reconhecido como "o pai da Capoeira em São Francisco do Conde" e o 13º "cordão de ouro" no Brasil—uma das mais altas honrarias na comunidade da capoeira.
 
-Mário Buscapé faleceu em 19 de agosto de 2021, em sua cidade natal, São Francisco do Conde, Bahia. Como um praticante declarou em sua celebração de 2017: "Mestre Mário é a raiz de tudo."',
+Mário Buscapé faleceu em 19 de agosto de 2021, em sua cidade natal, São Francisco do Conde, Bahia. Como um praticante declarou em sua celebração de 2017: "Mestre Mário é a raiz de tudo".',
   -- achievements_en
   'Founder of Grupo Bonfim (January 6, 1953); One of four founding lineages of contemporary capoeira in Rio de Janeiro; 13th "cordão de ouro" in Brazil; Pioneer who brought Bahian capoeira to Rio de Janeiro; Author of "A saga de uma lenda viva" (2016); Recognized as "the father of Capoeira in São Francisco do Conde"',
   -- achievements_pt

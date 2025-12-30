@@ -28,23 +28,23 @@ Salomé was a valentona - a tough, fearless woman - who practiced capoeira and s
 
 According to Mestre Atenilo (Altenísio dos Santos, 1916-1986), one of Mestre Bimba's oldest students, Salomé "cantava no samba e jogava capoeira" - she sang in samba and played capoeira. When asked about her, Atenilo became animated: "você encostava ela passava a rasteira e te botava de pernas pro ar" - if you touched her, she would sweep your legs and put you on your back. She would enter the Batuque and knock opponents down "duas três vezes" - two or three times. "Era valente!" he declared - she was brave!
 
-Salomé, along with her companion Maria dos Anjos, was a student of the capoeirista known as Doze Homens. Both women were known for their passion for batuque (a form of combat/dance) and samba. When Bira Almeida questioned Atenilo about the women's identities, suggesting they might not have been "real women," Atenilo indignantly responded: "c'était des femmes, des vraies!" - they were women, real women!
+Salomé, along with her companion Maria dos Anjos, was a student of the capoeirista known as Doze Homens. Both women were known for their passion for batuque (a form of combat/dance) and samba. When Bira Almeida questioned Atenilo about the women's identities, suggesting they might not have been "real women", Atenilo indignantly responded: "c'était des femmes, des vraies!" - they were women, real women!
 
 This was a time when capoeira was still criminalized and the presence of women in the rodas was exceptional. Yet Salomé carved out her space through undeniable skill, becoming one of the legendary valentonas of Bahia alongside figures like Chicão, Angélica Endiabrada, and Rosa Palmeirão.
 
-Salomé's legacy endures through the corrido "Adão, Adão" - a traditional call-and-response song still sung in rodas worldwide. The song asks "Ôi cadê Salomé, Adão?" (Where is Salomé, Adam?) with the response "Salomé foi passear" (Salomé went for a walk) or "foi para Ilha de Maré" (went to Maré Island). This song appeared on Mestre Pastinha's 1969 LP "Capoeira Angola, Mestre Pastinha e sua Academia," ensuring that her name continues to echo through capoeira circles more than a century after her prime.
+Salomé's legacy endures through the corrido "Adão, Adão" - a traditional call-and-response song still sung in rodas worldwide. The song asks "Ôi cadê Salomé, Adão?" (Where is Salomé, Adam?) with the response "Salomé foi passear" (Salomé went for a walk) or "foi para Ilha de Maré" (went to Maré Island). This song appeared on Mestre Pastinha's 1969 LP "Capoeira Angola, Mestre Pastinha e sua Academia", ensuring that her name continues to echo through capoeira circles more than a century after her prime.
 
 ### Português
 
 Salomé era uma valentona - uma mulher durona e destemida - que praticava capoeira e samba em Salvador, Bahia, durante os anos 1920 e 1930. Suas habilidades lhe garantiram um lugar na história da capoeira como uma das primeiras praticantes femininas documentadas.
 
-Segundo Mestre Atenilo (Altenísio dos Santos, 1916-1986), um dos alunos mais antigos de Mestre Bimba, Salomé "cantava no samba e jogava capoeira." Quando perguntado sobre ela, Atenilo se animou: "você encostava ela passava a rasteira e te botava de pernas pro ar." Ela entrava no Batuque e derrubava os oponentes "duas três vezes." "Era valente!" declarou ele.
+Segundo Mestre Atenilo (Altenísio dos Santos, 1916-1986), um dos alunos mais antigos de Mestre Bimba, Salomé "cantava no samba e jogava capoeira". Quando perguntado sobre ela, Atenilo se animou: "você encostava ela passava a rasteira e te botava de pernas pro ar". Ela entrava no Batuque e derrubava os oponentes "duas três vezes". "Era valente!" declarou ele.
 
-Salomé, junto com sua companheira Maria dos Anjos, foi aluna do capoeirista conhecido como Doze Homens. Ambas as mulheres eram conhecidas por sua paixão pelo batuque (uma forma de combate/dança) e samba. Quando Bira Almeida questionou Atenilo sobre as identidades das mulheres, sugerindo que talvez não fossem "mulheres de verdade," Atenilo respondeu indignado: "eram mulheres, de verdade!"
+Salomé, junto com sua companheira Maria dos Anjos, foi aluna do capoeirista conhecido como Doze Homens. Ambas as mulheres eram conhecidas por sua paixão pelo batuque (uma forma de combate/dança) e samba. Quando Bira Almeida questionou Atenilo sobre as identidades das mulheres, sugerindo que talvez não fossem "mulheres de verdade", Atenilo respondeu indignado: "eram mulheres, de verdade!"
 
 Esta era uma época em que a capoeira ainda era criminalizada e a presença de mulheres nas rodas era excepcional. Ainda assim, Salomé conquistou seu espaço através de habilidade inegável, tornando-se uma das lendárias valentonas da Bahia ao lado de figuras como Chicão, Angélica Endiabrada e Rosa Palmeirão.
 
-O legado de Salomé perdura através do corrido "Adão, Adão" - uma cantiga tradicional de chamada e resposta ainda cantada em rodas pelo mundo. A canção pergunta "Ôi cadê Salomé, Adão?" com a resposta "Salomé foi passear" ou "foi para Ilha de Maré." Esta canção apareceu no LP de 1969 de Mestre Pastinha "Capoeira Angola, Mestre Pastinha e sua Academia," garantindo que seu nome continue ecoando nos círculos de capoeira mais de um século após seu auge.
+O legado de Salomé perdura através do corrido "Adão, Adão" - uma cantiga tradicional de chamada e resposta ainda cantada em rodas pelo mundo. A canção pergunta "Ôi cadê Salomé, Adão?" com a resposta "Salomé foi passear" ou "foi para Ilha de Maré". Esta canção apareceu no LP de 1969 de Mestre Pastinha "Capoeira Angola, Mestre Pastinha e sua Academia", garantindo que seu nome continue ecoando nos círculos de capoeira mais de um século após seu auge.
 
 ## Achievements / Conquistas
 
@@ -70,7 +70,7 @@ Capoeira da era pré-moderna; praticava antes das distinções de estilo (Angola
 
 - **Doze Homens** - Per Mestre Atenilo testimony to Bira Almeida (1920s)
 
-**CORRECTION:** The original version of this file stated Salomé was a "student of Maria Doze Homens" - this is **incorrect**. According to Mestre Atenilo's testimony (the primary source), Salomé and Maria dos Anjos were students of the **male** capoeirista "Doze Homens" - NOT the female "Maria Doze Homens." These are distinct people.
+**CORRECTION:** The original version of this file stated Salomé was a "student of Maria Doze Homens" - this is **incorrect**. According to Mestre Atenilo's testimony (the primary source), Salomé and Maria dos Anjos were students of the **male** capoeirista "Doze Homens" - NOT the female "Maria Doze Homens". These are distinct people.
 
 ## Students / Alunos
 
@@ -124,14 +124,14 @@ Salomé is immortalized in the traditional corrido "Adão, Adão" (Adam, Adam), 
 
 (Adam, Adam / Oh where is Salomé, Adam / Salomé went for a walk / Went to Maré Island)
 
-This song appears on Mestre Pastinha's 1969 LP "Capoeira Angola, Mestre Pastinha e sua Academia," recorded live at Teatro Castro Alves in Salvador.
+This song appears on Mestre Pastinha's 1969 LP "Capoeira Angola, Mestre Pastinha e sua Academia", recorded live at Teatro Castro Alves in Salvador.
 
 ### Português
-Salomé é imortalizada no corrido tradicional "Adão, Adão," uma cantiga de chamada e resposta ainda cantada em rodas de capoeira pelo mundo:
+Salomé é imortalizada no corrido tradicional "Adão, Adão", uma cantiga de chamada e resposta ainda cantada em rodas de capoeira pelo mundo:
 
 "Adão, Adão / Ôi cadê Salomé, Adão / Salomé foi passear / Foi para Ilha de Maré"
 
-Esta canção aparece no LP de 1969 de Mestre Pastinha "Capoeira Angola, Mestre Pastinha e sua Academia," gravado ao vivo no Teatro Castro Alves em Salvador.
+Esta canção aparece no LP de 1969 de Mestre Pastinha "Capoeira Angola, Mestre Pastinha e sua Academia", gravado ao vivo no Teatro Castro Alves em Salvador.
 
 ## Name Variants / Variantes de Nome
 

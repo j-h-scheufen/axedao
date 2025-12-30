@@ -25,21 +25,21 @@
 
 ### English
 
-Finado Manteiga was a capoeirista in early 20th century Salvador who was killed during the brutal persecution led by Police Chief Pedro de Azevedo Gordilho, known as "Pedrito." This persecution, which began in 1920 when Pedrito assumed command of the Bahian police cavalry, represented one of the darkest periods in capoeira history.
+Finado Manteiga was a capoeirista in early 20th century Salvador who was killed during the brutal persecution led by Police Chief Pedro de Azevedo Gordilho, known as "Pedrito". This persecution, which began in 1920 when Pedrito assumed command of the Bahian police cavalry, represented one of the darkest periods in capoeira history.
 
 The prefix "Finado" (meaning "deceased" in Portuguese) was likely added posthumously by Onça Preta when recalling the fallen. His apelido during life was probably simply "Manteiga" (meaning "butter"). The use of nicknames was typical of the era when capoeiristas protected their identities, as the practice of capoeira was criminalized under the 1890 Penal Code.
 
-Mestre Onça Preta, who witnessed this era as a boy, recalled Finado Manteiga among the fallen in a 1972 O Dia newspaper interview: "Besourinho, Doze Homens, Mãozinha, Antônio Galindéu, Geraldo Chapeleiro, Finado Manteiga, Nagé, Paulo César de Moura, Gasolinha, Juvelino and many others." According to Onça Preta, Pedrito's cavalry squad "conducted a real massacre among the old capoeira masters, not in open combat. Generally he assassinated them after capture, with the body appearing days later thrown in the woods, the back opened by knife cuts."
+Mestre Onça Preta, who witnessed this era as a boy, recalled Finado Manteiga among the fallen in a 1972 O Dia newspaper interview: "Besourinho, Doze Homens, Mãozinha, Antônio Galindéu, Geraldo Chapeleiro, Finado Manteiga, Nagé, Paulo César de Moura, Gasolinha, Juvelino and many others". According to Onça Preta, Pedrito's cavalry squad "conducted a real massacre among the old capoeira masters, not in open combat. Generally he assassinated them after capture, with the body appearing days later thrown in the woods, the back opened by knife cuts".
 
 No further biographical details about Finado Manteiga survive beyond this single reference in Onça Preta's testimony, making him one of the many anonymous victims of state violence against Afro-Brazilian culture and resistance.
 
 ### Português
 
-Finado Manteiga foi um capoeirista do início do século XX em Salvador que foi morto durante a perseguição brutal liderada pelo Chefe de Polícia Pedro de Azevedo Gordilho, conhecido como "Pedrito." Esta perseguição, que começou em 1920 quando Pedrito assumiu o comando da cavalaria da polícia baiana, representou um dos períodos mais sombrios da história da capoeira.
+Finado Manteiga foi um capoeirista do início do século XX em Salvador que foi morto durante a perseguição brutal liderada pelo Chefe de Polícia Pedro de Azevedo Gordilho, conhecido como "Pedrito". Esta perseguição, que começou em 1920 quando Pedrito assumiu o comando da cavalaria da polícia baiana, representou um dos períodos mais sombrios da história da capoeira.
 
-O prefixo "Finado" (significando "falecido" em português) foi provavelmente adicionado postumamente por Onça Preta ao recordar os que tombaram. Seu apelido em vida era provavelmente simplesmente "Manteiga." O uso de apelidos era típico da época em que capoeiristas protegiam suas identidades, já que a prática da capoeira era criminalizada pelo Código Penal de 1890.
+O prefixo "Finado" (significando "falecido" em português) foi provavelmente adicionado postumamente por Onça Preta ao recordar os que tombaram. Seu apelido em vida era provavelmente simplesmente "Manteiga". O uso de apelidos era típico da época em que capoeiristas protegiam suas identidades, já que a prática da capoeira era criminalizada pelo Código Penal de 1890.
 
-Mestre Onça Preta, que testemunhou essa era quando menino, recordou Finado Manteiga entre os que tombaram em uma entrevista ao jornal O Dia em 1972: "Besourinho, Doze Homens, Mãozinha, Antônio Galindéu, Geraldo Chapeleiro, Finado Manteiga, Nagé, Paulo César de Moura, Gasolinha, Juvelino e muitos outros." Segundo Onça Preta, o esquadrão de cavalaria de Pedrito "empreendeu verdadeiro massacre entre os velhos mestres do jogo, não em combate aberto. Em geral os assassinava após a captura, aparecendo o corpo dias depois atirado ao mato, as costas abertas de facadas."
+Mestre Onça Preta, que testemunhou essa era quando menino, recordou Finado Manteiga entre os que tombaram em uma entrevista ao jornal O Dia em 1972: "Besourinho, Doze Homens, Mãozinha, Antônio Galindéu, Geraldo Chapeleiro, Finado Manteiga, Nagé, Paulo César de Moura, Gasolinha, Juvelino e muitos outros". Segundo Onça Preta, o esquadrão de cavalaria de Pedrito "empreendeu verdadeiro massacre entre os velhos mestres do jogo, não em combate aberto. Em geral os assassinava após a captura, aparecendo o corpo dias depois atirado ao mato, as costas abertas de facadas".
 
 Nenhum outro detalhe biográfico sobre Finado Manteiga sobrevive além desta única referência no testemunho de Onça Preta, tornando-o uma das muitas vítimas anônimas da violência estatal contra a cultura e resistência afro-brasileira.
 
@@ -103,7 +103,7 @@ No teachers, students, or group affiliations are documented. Only known through 
 Finado Manteiga é conhecido apenas através de uma única fonte: o testemunho de Onça Preta de 1972 publicado no jornal O Dia e reproduzido em velhosmestres.com.
 
 **NOTA SOBRE O APELIDO:**
-"Finado" = "falecido" em português. Este prefixo foi provavelmente adicionado postumamente por Onça Preta ao recordar os que tombaram. Apelido original provavelmente apenas "Manteiga." Origens do apelido são desconhecidas.
+"Finado" = "falecido" em português. Este prefixo foi provavelmente adicionado postumamente por Onça Preta ao recordar os que tombaram. Apelido original provavelmente apenas "Manteiga". Origens do apelido são desconhecidas.
 
 **ESTIMATIVA ANO DE NASCIMENTO (1890, década):**
 Se morto como capoeirista adulto ativo nos anos 1920 (idade estimada 25-45), faixa de nascimento seria 1875-1900. Usando 1890 como ponto médio.

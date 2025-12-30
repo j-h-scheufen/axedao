@@ -71,7 +71,7 @@ In November 1954, Nagé appeared in the pioneering documentary "Vadiação" dire
 
 In 1958, Nagé died after being stabbed in Góes Calmon, Bahia. He was defending himself in a capoeira fight against five men—the very fate Waldemar had foretold. The conflict originated from a dispute over a pandeiro and berimbau. He fought capoeira until the very end, dying as he had lived.
 
-Thousands of people attended his funeral. Despite his renown, Nagé''s story was rarely told for decades. As Frede Abreu wrote: "Nagé, de propósito ou sem querer, entrou no rol dos malditos da capoeira" (Nagé, purposely or unwittingly, entered the list of the "damned" of capoeira). His association with street disorder and fatal violence led to his marginalization from official capoeira history, even as he represented what Abreu called "a history of resistance of the oppressed."
+Thousands of people attended his funeral. Despite his renown, Nagé''s story was rarely told for decades. As Frede Abreu wrote: "Nagé, de propósito ou sem querer, entrou no rol dos malditos da capoeira" (Nagé, purposely or unwittingly, entered the list of the "damned" of capoeira). His association with street disorder and fatal violence led to his marginalization from official capoeira history, even as he represented what Abreu called "a history of resistance of the oppressed".
 
 In 2017, four years after his own death, Frede Abreu''s book "Nagé, o Homem Que Lutou Capoeira Até Morrer" (Nagé, the Man Who Fought Capoeira Until Death) was published posthumously by Editora Barabô, edited by his daughter Elza Abreu. The 132-page book, featuring unpublished photographs and historical research, finally gave Nagé the scholarly attention his life deserved.
 
@@ -79,9 +79,9 @@ Nagé left behind a daughter named Marileide.',
   -- bio_pt
   E'José Anastácio de Santana, conhecido como Nagé, nasceu por volta de 1923 em Coqueiros de Paraguaçu e viveu em Nagé—ambas localidades no distrito de Maragogipe, no Recôncavo Baiano. A vila onde morava deu-lhe seu apelido, seguindo uma tradição onde capoeiristas eram frequentemente nomeados pelo local de origem.
 
-Nagé era um dos valentes negros da Bahia, famoso por todas as terras do Recôncavo e em todas as praças e ruas de Salvador. Por muitos anos foi temido e respeitado pelos melhores capoeiristas. Nenhum campeão ou líder teve tantos admiradores. O escritor Jorge Amado imortalizou-o no romance de 1964 "Os Pastores da Noite", chamando-o de "um assombro de valentia." O crítico de arte Wilson da Rocha descreveu-o como "um herói popular."
+Nagé era um dos valentes negros da Bahia, famoso por todas as terras do Recôncavo e em todas as praças e ruas de Salvador. Por muitos anos foi temido e respeitado pelos melhores capoeiristas. Nenhum campeão ou líder teve tantos admiradores. O escritor Jorge Amado imortalizou-o no romance de 1964 "Os Pastores da Noite", chamando-o de "um assombro de valentia". O crítico de arte Wilson da Rocha descreveu-o como "um herói popular".
 
-Nos anos 1940, Nagé fazia parte da cena no lendário Barracão de Mestre Waldemar em Corta Braço (depois Liberdade), Salvador. Segundo a entrevista de Waldemar de 1989: "Outros foram José Cabelo Bom, um preto por nome Nagé—que juntaram cinco homens pra matar ele." Esta menção casual da conspiração que eventualmente tiraria a vida de Nagé fala de quão entrelaçadas violência e sobrevivência estavam no mundo da capoeira daquela era.
+Nos anos 1940, Nagé fazia parte da cena no lendário Barracão de Mestre Waldemar em Corta Braço (depois Liberdade), Salvador. Segundo a entrevista de Waldemar de 1989: "Outros foram José Cabelo Bom, um preto por nome Nagé—que juntaram cinco homens pra matar ele". Esta menção casual da conspiração que eventualmente tiraria a vida de Nagé fala de quão entrelaçadas violência e sobrevivência estavam no mundo da capoeira daquela era.
 
 Nagé foi documentado por múltiplos fotógrafos e cineastas. Ele possivelmente aparece nas fotografias de Pierre Verger de 1948 em Corta Braço. Em 24 de julho de 1954, foi retratado em fotografias publicadas na revista Manchete pelo fotógrafo Salomão Scliar. No mesmo ano, Marcel Gautherot provavelmente também o fotografou.
 
@@ -89,7 +89,7 @@ Em novembro de 1954, Nagé apareceu no documentário pioneiro "Vadiação" dirig
 
 Em 1958, Nagé morreu após ser esfaqueado em Góes Calmon, Bahia. Ele estava se defendendo numa luta de capoeira contra cinco homens—o destino que Waldemar havia profetizado. O conflito originou-se de uma disputa por um pandeiro e um berimbau. Lutou capoeira até o fim, morrendo como havia vivido.
 
-Milhares de pessoas compareceram ao seu funeral. Apesar de sua fama, a história de Nagé foi raramente contada por décadas. Como escreveu Frede Abreu: "Nagé, de propósito ou sem querer, entrou no rol dos malditos da capoeira." Sua associação com desordem de rua e violência fatal levou à sua marginalização da história oficial da capoeira, mesmo representando o que Abreu chamou de "uma história de resistência dos oprimidos."
+Milhares de pessoas compareceram ao seu funeral. Apesar de sua fama, a história de Nagé foi raramente contada por décadas. Como escreveu Frede Abreu: "Nagé, de propósito ou sem querer, entrou no rol dos malditos da capoeira". Sua associação com desordem de rua e violência fatal levou à sua marginalização da história oficial da capoeira, mesmo representando o que Abreu chamou de "uma história de resistência dos oprimidos".
 
 Em 2017, quatro anos após sua própria morte, o livro de Frede Abreu "Nagé, o Homem Que Lutou Capoeira Até Morrer" foi publicado postumamente pela Editora Barabô, editado por sua filha Elza Abreu. O livro de 132 páginas, com fotografias inéditas e pesquisa histórica, finalmente deu a Nagé a atenção acadêmica que sua vida merecia.
 
@@ -136,7 +136,7 @@ SCHOLARLY WORKS:
 - 2017: Frede Abreu, "Nagé, o Homem Que Lutou Capoeira Até Morrer" (Editora Barabô, 132 pages) - posthumous publication edited by Elza Abreu
 
 WHY FORGOTTEN:
-Frede Abreu wrote: "Nagé, de propósito ou sem querer, entrou no rol dos malditos da capoeira" (Nagé entered the list of the "damned" of capoeira). His association with street violence and fatal confrontation led to marginalization from official capoeira history, despite representing "a history of resistance of the oppressed."',
+Frede Abreu wrote: "Nagé, de propósito ou sem querer, entrou no rol dos malditos da capoeira" (Nagé entered the list of the "damned" of capoeira). His association with street violence and fatal confrontation led to marginalization from official capoeira history, despite representing "a history of resistance of the oppressed".',
   -- notes_pt
   E'ESTIMATIVA ANO DE NASCIMENTO (1923, ano):
 Velhos Mestres afirma "1923?" com ponto de interrogação. Morreu em 1958, então teria ~35 anos ao morrer. Sua reputação estabelecida nos anos 1940-50 torna isso plausível.
@@ -175,7 +175,7 @@ OBRAS ACADÊMICAS:
 - 2017: Frede Abreu, "Nagé, o Homem Que Lutou Capoeira Até Morrer" (Editora Barabô, 132 páginas) - publicação póstuma editada por Elza Abreu
 
 POR QUE ESQUECIDO:
-Frede Abreu escreveu: "Nagé, de propósito ou sem querer, entrou no rol dos malditos da capoeira." Sua associação com violência de rua e confronto fatal levou à marginalização da história oficial da capoeira, apesar de representar "uma história de resistência dos oprimidos."'
+Frede Abreu escreveu: "Nagé, de propósito ou sem querer, entrou no rol dos malditos da capoeira". Sua associação com violência de rua e confronto fatal levou à marginalização da história oficial da capoeira, apesar de representar "uma história de resistência dos oprimidos".'
 )
 ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,

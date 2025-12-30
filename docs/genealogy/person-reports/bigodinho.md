@@ -28,7 +28,7 @@ Reinaldo Santana, known as Mestre Bigodinho, was born on September 13, 1933, in 
 
 In 1950, at age seventeen, Bigodinho moved to Cabula in Salvador. There he encountered the legendary berimbau master Auvelino, who taught him the secrets of the instrument that would make him famous. That same year, he began learning capoeira with Mestre Waldemar Rodrigues da Paixão at the famous Barracão on Estrada da Liberdade.
 
-For more than 25 years, Bigodinho frequented Mestre Waldemar's Barracão—a time when, according to him, "boys and women did not play." At the Barracão he mingled with famous capoeiristas including Traíra, Zacarias Boa Morte, and many others. He became one of the most respected practitioners there, absorbing the traditional Angola style that Waldemar taught informally under his straw-roofed shed.
+For more than 25 years, Bigodinho frequented Mestre Waldemar's Barracão—a time when, according to him, "boys and women did not play". At the Barracão he mingled with famous capoeiristas including Traíra, Zacarias Boa Morte, and many others. He became one of the most respected practitioners there, absorbing the traditional Angola style that Waldemar taught informally under his straw-roofed shed.
 
 By 1960, Bigodinho had become a professor of Capoeira Angola and established Grupo Resistência in the Lapinha neighborhood of Salvador. This was a crucial period marked by intense police repression of capoeira rodas. Despite the hostile environment, he persevered in teaching and preserving the tradition.
 
@@ -50,7 +50,7 @@ Reinaldo Santana, conhecido como Mestre Bigodinho, nasceu em 13 de setembro de 1
 
 Em 1950, aos dezessete anos, Bigodinho se mudou para o Cabula em Salvador. Lá conheceu o lendário mestre de berimbau Auvelino, que lhe ensinou os segredos do instrumento que o tornaria famoso. No mesmo ano, começou a aprender capoeira com Mestre Waldemar Rodrigues da Paixão no famoso Barracão na Estrada da Liberdade.
 
-Por mais de 25 anos, Bigodinho frequentou o Barracão de Mestre Waldemar—uma época em que, segundo ele, "meninos e mulheres não jogavam." No Barracão conviveu com famosos capoeiristas como Traíra, Zacarias Boa Morte e muitos outros. Tornou-se um dos praticantes mais respeitados ali, absorvendo o estilo tradicional de Angola que Waldemar ensinava informalmente sob seu telhado de palha.
+Por mais de 25 anos, Bigodinho frequentou o Barracão de Mestre Waldemar—uma época em que, segundo ele, "meninos e mulheres não jogavam". No Barracão conviveu com famosos capoeiristas como Traíra, Zacarias Boa Morte e muitos outros. Tornou-se um dos praticantes mais respeitados ali, absorvendo o estilo tradicional de Angola que Waldemar ensinava informalmente sob seu telhado de palha.
 
 Por volta de 1960, Bigodinho já era professor de Capoeira Angola e estabeleceu o Grupo Resistência no bairro da Lapinha em Salvador. Foi um período crucial marcado pela intensa repressão policial às rodas de capoeira. Apesar do ambiente hostil, ele perseverou no ensino e na preservação da tradição.
 
@@ -127,11 +127,11 @@ No named students documented in available sources. Bigodinho taught through Grup
 
 ## Quotes / Citações
 
-> "[Capoeira] is like a pharmacy: you have pain in your leg, in your muscle... so you do some capoeira jumping with the guys, when you come back you'll be fine."
+> "[Capoeira] is like a pharmacy: you have pain in your leg, in your muscle... so you do some capoeira jumping with the guys, when you come back you'll be fine".
 
-> "Capoeira is personal defense and each person defends themselves as they can in the moment of necessity. Capoeira is not about bravery."
+> "Capoeira is personal defense and each person defends themselves as they can in the moment of necessity. Capoeira is not about bravery".
 
-> "Capoeira não se faz, se joga." (Capoeira is not made, it is played.)
+> "Capoeira não se faz, se joga". (Capoeira is not made, it is played.)
 
 ## Timeline / Cronologia
 

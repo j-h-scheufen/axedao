@@ -39,8 +39,8 @@ SELECT
   '2011-12-09'::date, 'exact'::genealogy.date_precision,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'https://velhosmestres.com/br/destaques-60; https://capoeira.fandom.com/wiki/Mestre_Barba_Branca',
-  'Welcomed at CECA after ~6 years without a master. Meeting João Pequeno was transformative - "opening my mind to the great philosophy of capoeira angola." Studied 13 years until recognized as mestre 1994. João Pequeno died Dec 9, 2011.',
-  'Acolhido no CECA após ~6 anos sem mestre. Conhecer João Pequeno foi transformador - "abrir minha mente para a grande filosofia da capoeira angola." Estudou 13 anos até ser reconhecido como mestre 1994. João Pequeno morreu 9 dez 2011.'
+  'Welcomed at CECA after ~6 years without a master. Meeting João Pequeno was transformative - "opening my mind to the great philosophy of capoeira angola". Studied 13 years until recognized as mestre 1994. João Pequeno died Dec 9, 2011.',
+  'Acolhido no CECA após ~6 anos sem mestre. Conhecer João Pequeno foi transformador - "abrir minha mente para a grande filosofia da capoeira angola". Estudou 13 anos até ser reconhecido como mestre 1994. João Pequeno morreu 9 dez 2011.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Barba Branca' AND o.apelido = 'João Pequeno'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

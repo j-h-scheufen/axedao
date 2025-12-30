@@ -24,9 +24,9 @@
 
 ### English
 
-Boca de Siri was a capoeirista from Santo Amaro da Purificação who trained alongside the legendary Besouro Mangangá in the early 20th century. His name, meaning "Crab's Mouth," was also later adopted as the name of a capoeira technique - a takedown where the practitioner grabs the cuffs of both legs of the opponent's pants.
+Boca de Siri was a capoeirista from Santo Amaro da Purificação who trained alongside the legendary Besouro Mangangá in the early 20th century. His name, meaning "Crab's Mouth", was also later adopted as the name of a capoeira technique - a takedown where the practitioner grabs the cuffs of both legs of the opponent's pants.
 
-According to Professor Leiteiro, Boca de Siri was among the companions of Besouro alongside Paulo Barroquinha, Noca de Jacó, Doze Homens, and Canário Pardo. All were residents of Trapiche de Baixo - described as "the poorest neighborhood of Santo Amaro" - and "were his companions in the memorable capoeira rodas that hypnotized anybody who would go by."
+According to Professor Leiteiro, Boca de Siri was among the companions of Besouro alongside Paulo Barroquinha, Noca de Jacó, Doze Homens, and Canário Pardo. All were residents of Trapiche de Baixo - described as "the poorest neighborhood of Santo Amaro" - and "were his companions in the memorable capoeira rodas that hypnotized anybody who would go by".
 
 These Sunday gatherings in Trapiche de Baixo and at folk parties were where the young Besouro first made a name for himself. The group formed what some sources call a "gang of capoeira resistance fighters" who trained together during an era when capoeira was still criminalized under the 1890 penal code.
 
@@ -34,9 +34,9 @@ Nothing else is recorded about Boca de Siri - not his full name, his fate, or hi
 
 ### Português
 
-Boca de Siri foi um capoeirista de Santo Amaro da Purificação que treinou ao lado do lendário Besouro Mangangá no início do século XX. Seu nome, que significa "Boca de Siri," também foi posteriormente adotado como nome de uma técnica de capoeira - uma queda onde o praticante agarra as barras das duas pernas da calça do oponente.
+Boca de Siri foi um capoeirista de Santo Amaro da Purificação que treinou ao lado do lendário Besouro Mangangá no início do século XX. Seu nome, que significa "Boca de Siri", também foi posteriormente adotado como nome de uma técnica de capoeira - uma queda onde o praticante agarra as barras das duas pernas da calça do oponente.
 
-Segundo o Professor Leiteiro, Boca de Siri estava entre os companheiros de Besouro junto com Paulo Barroquinha, Noca de Jacó, Doze Homens e Canário Pardo. Todos eram moradores do Trapiche de Baixo - descrito como "o bairro mais pobre de Santo Amaro" - e "eram seus companheiros nas memoráveis rodas de capoeira que hipnotizavam qualquer um que passasse."
+Segundo o Professor Leiteiro, Boca de Siri estava entre os companheiros de Besouro junto com Paulo Barroquinha, Noca de Jacó, Doze Homens e Canário Pardo. Todos eram moradores do Trapiche de Baixo - descrito como "o bairro mais pobre de Santo Amaro" - e "eram seus companheiros nas memoráveis rodas de capoeira que hipnotizavam qualquer um que passasse".
 
 Esses encontros de domingo no Trapiche de Baixo e nas festas populares eram onde o jovem Besouro começou a fazer seu nome. O grupo formava o que algumas fontes chamam de "gangue de lutadores de resistência da capoeira" que treinavam juntos durante uma era em que a capoeira ainda era criminalizada pelo código penal de 1890.
 

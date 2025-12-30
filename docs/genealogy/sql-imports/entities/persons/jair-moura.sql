@@ -55,9 +55,9 @@ INSERT INTO genealogy.person_profiles (
   -- bio_en
   E'Jair Fernandes Moura was born on August 27, 1936, in Salvador, Bahia. He would become one of the most important figures in the preservation and documentation of capoeira history—a pioneer whose meticulous research and documentation set the standard for all who followed.
 
-In the late 1950s, young Jair Moura joined Mestre Bimba''s academy, beginning a relationship that would define both his practice and his life''s work. According to Mestre Nenel, Bimba''s son: "He was a student of my father since the 1950s and was the last capoeirista to receive the Lenço Branco from my father."
+In the late 1950s, young Jair Moura joined Mestre Bimba''s academy, beginning a relationship that would define both his practice and his life''s work. According to Mestre Nenel, Bimba''s son: "He was a student of my father since the 1950s and was the last capoeirista to receive the Lenço Branco from my father".
 
-Nenel further emphasized Jair Moura''s significance: "Mestre Jair was perhaps the guy who started this preservation of the history of Capoeira. He was always an observant guy and very honest. He was one of the guys most well-regarded by my father. I considered him like an older brother."
+Nenel further emphasized Jair Moura''s significance: "Mestre Jair was perhaps the guy who started this preservation of the history of Capoeira. He was always an observant guy and very honest. He was one of the guys most well-regarded by my father. I considered him like an older brother".
 
 Mestre Bimba formally graduated only four students to the level of mestre (white handkerchief) during his lifetime: Decânio, Jair Moura, Miranda, and Edinho. Of these, Jair Moura was reportedly the last to receive this distinction. This was the highest honor in Capoeira Regional—the lenço branco (white handkerchief) symbolized the silk handkerchiefs that primitive capoeiristas wore around their necks to protect themselves from razor cuts.
 
@@ -67,7 +67,7 @@ Jair Moura lived in Rio de Janeiro during the 1980s, where he conducted extensiv
 
 In 1970, he published an article titled "Tiburcio e o Batuque" in the newspaper A Tarde, documenting Mestre Tiburcinho''s life and knowledge of batuque, a precursor fighting form to capoeira. This exemplified his commitment to capturing the testimonies of old masters before their knowledge was lost.
 
-Among his most celebrated works are "Mestre Bimba: Uma Vida Consagrada à Capoeiragem" (later editions titled "Uma Vida Dedicada à Capoeiragem"), a definitive book bringing together archives, stories, and anecdotes about the creator of Capoeira Regional. He also authored "A Capoeiragem no Rio de Janeiro Através dos Séculos," which documents the history and development of capoeira in Rio de Janeiro from colonial times through various evolutionary phases.
+Among his most celebrated works are "Mestre Bimba: Uma Vida Consagrada à Capoeiragem" (later editions titled "Uma Vida Dedicada à Capoeiragem"), a definitive book bringing together archives, stories, and anecdotes about the creator of Capoeira Regional. He also authored "A Capoeiragem no Rio de Janeiro Através dos Séculos", which documents the history and development of capoeira in Rio de Janeiro from colonial times through various evolutionary phases.
 
 In 1980, Jair Moura participated as a presenter at the First Regional Capoeira Seminar, organized in Salvador alongside other prominent figures including Carlos Sena, Albano Marinho, Itapoan, and Ordep Serra. This seminar brought together the main Bahian masters of different lineages and styles.
 
@@ -81,13 +81,13 @@ Jair Moura was also friends with the famous Brazilian filmmaker Glauber Rocha. T
 
 On August 19, 2020, Mestre Jair Moura died at 84 years old in Salvador, a victim of COVID-19. He was hospitalized at Hospital Santa Izabel. He is survived by two sons, Jacir Moura and Moacir Moura.
 
-The Bahia State Culture Department (SecultBA) issued an official note recognizing "the immense contribution of Jair Moura to the preservation of the history of capoeira and the achievements of significant masters," noting that "his legacy remains and stimulates other generations of researchers, masters and intellectuals."',
+The Bahia State Culture Department (SecultBA) issued an official note recognizing "the immense contribution of Jair Moura to the preservation of the history of capoeira and the achievements of significant masters", noting that "his legacy remains and stimulates other generations of researchers, masters and intellectuals".',
   -- bio_pt
   E'Jair Fernandes Moura nasceu em 27 de agosto de 1936, em Salvador, Bahia. Ele se tornaria uma das figuras mais importantes na preservação e documentação da história da capoeira—um pioneiro cuja pesquisa meticulosa e documentação estabeleceram o padrão para todos que o seguiram.
 
-No final dos anos 1950, o jovem Jair Moura ingressou na academia de Mestre Bimba, iniciando uma relação que definiria tanto sua prática quanto o trabalho de sua vida. Segundo Mestre Nenel, filho de Bimba: "Ele era aluno de meu pai desde a década de 1950 e foi o último capoeirista a receber o Lenço Branco de meu pai."
+No final dos anos 1950, o jovem Jair Moura ingressou na academia de Mestre Bimba, iniciando uma relação que definiria tanto sua prática quanto o trabalho de sua vida. Segundo Mestre Nenel, filho de Bimba: "Ele era aluno de meu pai desde a década de 1950 e foi o último capoeirista a receber o Lenço Branco de meu pai".
 
-Nenel enfatizou ainda a importância de Jair Moura: "Mestre Jair foi, talvez, o cara que iniciou essa preservação do histórico da Capoeira. Ele sempre foi um cara observador e muito íntegro. Foi um dos caras mais bem considerados pelo meu pai. Eu considerava ele como um irmão mais velho."
+Nenel enfatizou ainda a importância de Jair Moura: "Mestre Jair foi, talvez, o cara que iniciou essa preservação do histórico da Capoeira. Ele sempre foi um cara observador e muito íntegro. Foi um dos caras mais bem considerados pelo meu pai. Eu considerava ele como um irmão mais velho".
 
 Mestre Bimba formalmente graduou apenas quatro alunos ao nível de mestre (lenço branco) durante sua vida: Decânio, Jair Moura, Miranda e Edinho. Destes, Jair Moura foi supostamente o último a receber essa distinção. Esta era a maior honra na Capoeira Regional—o lenço branco simbolizava os lenços de seda que os capoeiristas primitivos usavam no pescoço para se proteger de cortes de navalha.
 
@@ -97,7 +97,7 @@ Jair Moura viveu no Rio de Janeiro durante a década de 1980, onde conduziu exte
 
 Em 1970, publicou um artigo intitulado "Tiburcio e o Batuque" no jornal A Tarde, documentando a vida de Mestre Tiburcinho e seu conhecimento do batuque, uma forma de luta precursora da capoeira. Isso exemplificou seu compromisso em capturar os testemunhos de velhos mestres antes que seu conhecimento se perdesse.
 
-Entre suas obras mais celebradas estão "Mestre Bimba: Uma Vida Consagrada à Capoeiragem" (edições posteriores intituladas "Uma Vida Dedicada à Capoeiragem"), um livro definitivo reunindo arquivos, histórias e anedotas sobre o criador da Capoeira Regional. Também escreveu "A Capoeiragem no Rio de Janeiro Através dos Séculos," que documenta a história e desenvolvimento da capoeira no Rio de Janeiro desde os tempos coloniais através de várias fases evolutivas.
+Entre suas obras mais celebradas estão "Mestre Bimba: Uma Vida Consagrada à Capoeiragem" (edições posteriores intituladas "Uma Vida Dedicada à Capoeiragem"), um livro definitivo reunindo arquivos, histórias e anedotas sobre o criador da Capoeira Regional. Também escreveu "A Capoeiragem no Rio de Janeiro Através dos Séculos", que documenta a história e desenvolvimento da capoeira no Rio de Janeiro desde os tempos coloniais através de várias fases evolutivas.
 
 Em 1980, Jair Moura participou como apresentador no Primeiro Seminário Regional de Capoeira, organizado em Salvador junto com outras figuras proeminentes incluindo Carlos Sena, Albano Marinho, Itapoan e Ordep Serra. Este seminário reuniu os principais mestres baianos de diferentes linhagens e estilos.
 
@@ -111,7 +111,7 @@ Jair Moura também era amigo do famoso cineasta brasileiro Glauber Rocha. Eles s
 
 Em 19 de agosto de 2020, Mestre Jair Moura faleceu aos 84 anos em Salvador, vítima de COVID-19. Estava hospitalizado no Hospital Santa Izabel. Deixou dois filhos, Jacir Moura e Moacir Moura.
 
-A Secretaria de Cultura do Estado da Bahia (SecultBA) emitiu nota oficial reconhecendo "a imensa contribuição de Jair Moura para a preservação da história da capoeira e das conquistas de mestres significativos," observando que "seu legado permanece e estimula outras gerações de pesquisadores, mestres e intelectuais."',
+A Secretaria de Cultura do Estado da Bahia (SecultBA) emitiu nota oficial reconhecendo "a imensa contribuição de Jair Moura para a preservação da história da capoeira e das conquistas de mestres significativos", observando que "seu legado permanece e estimula outras gerações de pesquisadores, mestres e intelectuais".',
   -- achievements_en
   E'One of only four students formally graduated to mestre (white handkerchief / lenço branco) by Mestre Bimba—and the LAST to receive this honor; Directed the documentary "Dança de Guerra" (1968), featuring Mestres Bimba, Tiburcinho, Totonho de Maré, and Noronha; Author of "Mestre Bimba: Uma Vida Consagrada à Capoeiragem"; Author of "A Capoeiragem no Rio de Janeiro Através dos Séculos"; Pioneer in capoeira history research and documentation; Member and contributor at Instituto Geográfico e Histórico da Bahia (IGHB); Presenter at the 1980 First Regional Capoeira Seminar; Instituto Jair Moura established in his honor by Frede Abreu (40,000+ item archive); Photographer documenting masters from Bahia and Rio de Janeiro; Recognized by SecultBA for immense contribution to capoeira history preservation',
   -- achievements_pt
@@ -172,8 +172,8 @@ Collection: 40,000+ titles including books, newspaper clippings, magazines, CDs,
 At Mandinga NGO space in Salvador, the collection was available for consultation.
 
 QUOTE FROM MESTRE NENEL:
-"Ele era aluno de meu pai desde a década de 1950 e foi o último capoeirista a receber o Lenço Branco de meu pai."
-"Mestre Jair foi, talvez, o cara que iniciou essa preservação do histórico da Capoeira. Ele sempre foi um cara observador e muito íntegro. Foi um dos caras mais bem considerados pelo meu pai. Eu considerava ele como um irmão mais velho."',
+"Ele era aluno de meu pai desde a década de 1950 e foi o último capoeirista a receber o Lenço Branco de meu pai".
+"Mestre Jair foi, talvez, o cara que iniciou essa preservação do histórico da Capoeira. Ele sempre foi um cara observador e muito íntegro. Foi um dos caras mais bem considerados pelo meu pai. Eu considerava ele como um irmão mais velho".',
   -- notes_pt
   E'DATA DE NASCIMENTO (1936-08-27, exata):
 27 de agosto de 1936 - confirmado pela CapoeiraWiki, fontes obituárias (Correio 24 Horas, OffNews) e nota oficial da SecultBA.
@@ -230,8 +230,8 @@ Acervo: 40.000+ títulos incluindo livros, recortes de jornal, revistas, CDs, fo
 No espaço da ONG Mandinga em Salvador, a coleção estava disponível para consulta.
 
 CITAÇÃO DE MESTRE NENEL:
-"Ele era aluno de meu pai desde a década de 1950 e foi o último capoeirista a receber o Lenço Branco de meu pai."
-"Mestre Jair foi, talvez, o cara que iniciou essa preservação do histórico da Capoeira. Ele sempre foi um cara observador e muito íntegro. Foi um dos caras mais bem considerados pelo meu pai. Eu considerava ele como um irmão mais velho."'
+"Ele era aluno de meu pai desde a década de 1950 e foi o último capoeirista a receber o Lenço Branco de meu pai".
+"Mestre Jair foi, talvez, o cara que iniciou essa preservação do histórico da Capoeira. Ele sempre foi um cara observador e muito íntegro. Foi um dos caras mais bem considerados pelo meu pai. Eu considerava ele como um irmão mais velho".'
 )
 ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,

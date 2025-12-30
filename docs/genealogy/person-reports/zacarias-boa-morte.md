@@ -31,7 +31,7 @@
 
 ### English
 
-Zacarias Boa Morte was Mestre Waldemar's first documented student, beginning his training in 1942 at the legendary Barracão in Corta Braço (later Liberdade), Salvador. "Zacarias foi meu aluno de 1942", Waldemar confirmed in a 1987 interview. Waldemar pointed to Zacarias and José Cabelo Bom as "capoeiristas of the future who will continue his tradition."
+Zacarias Boa Morte was Mestre Waldemar's first documented student, beginning his training in 1942 at the legendary Barracão in Corta Braço (later Liberdade), Salvador. "Zacarias foi meu aluno de 1942", Waldemar confirmed in a 1987 interview. Waldemar pointed to Zacarias and José Cabelo Bom as "capoeiristas of the future who will continue his tradition".
 
 Beyond the roda, Zacarias worked as a civil guard (guarda civil). According to Mestre Pelé, Zacarias "looked after" (tomava conta) the rodas in Liberdade on Sunday afternoons—a role that combined his professional authority with his standing in the capoeira community.
 
@@ -39,7 +39,7 @@ On April 11, 1948, photographer Pierre Verger documented a roda at Agnelo's bar 
 
 In November 1954, Zacarias appeared in "Vadiação", the pioneering documentary by Alexandre Robatto Filho, considered a landmark of Brazilian cinema's engagement with capoeira. The 8-minute film featured a roda in Salvador with mestres Bimba and Waldemar, Traíra, Nagé, Curió, Crispim, and Rosendo. Zacarias served as a berimbau player in the bateria, alongside Traíra on pandeiro.
 
-The following year, French anthropologist Simone Dreyfus-Roche came to Salvador on the recommendation of Pierre Verger. On October 31, 1955, she recorded capoeira at Waldemar's Barracão for what would become the LP "Brésil Vol. 2 - Bahia." Zacarias was among the mestres featured on the cover photograph and in the recordings, which won the 1956 Liotard Prize and are now housed in the Musée de l'Homme.
+The following year, French anthropologist Simone Dreyfus-Roche came to Salvador on the recommendation of Pierre Verger. On October 31, 1955, she recorded capoeira at Waldemar's Barracão for what would become the LP "Brésil Vol. 2 - Bahia". Zacarias was among the mestres featured on the cover photograph and in the recordings, which won the 1956 Liotard Prize and are now housed in the Musée de l'Homme.
 
 In the Pero Vaz neighborhood, Zacarias ran a gafieira (dance hall) that, alongside Waldemar's Barracão, served as one of two special spaces where capoeira matches and weekend entertainment occurred. Joaquim Fiuza, who was a young man in that era, remembered going to both places—to dance and drink at Zacarias's Gafieira, and to watch the "incredible capoeira presentations" at Waldemar's Barracão.
 
@@ -47,11 +47,11 @@ Zacarias remained active in the capoeira community for decades. In 1984, he part
 
 On May 19, 1999, Zacarias founded Escola Zacarias Boa Morte at Avenida Peixe, Nº 153 in Pero Vaz, Salvador—finally institutionalizing his teaching after nearly six decades of practice. He died just 18 months later, on November 3, 2000, two days before his 77th birthday.
 
-"Zacarias is the most beautiful thing there is, humble, good to talk to", Mestre Barba Branca said. "He deserves to be seen playing, on the toes of his feet, the old style." Mestre Pelé sang at his burial, continuing the tradition of honoring departed mestres.
+"Zacarias is the most beautiful thing there is, humble, good to talk to", Mestre Barba Branca said. "He deserves to be seen playing, on the toes of his feet, the old style". Mestre Pelé sang at his burial, continuing the tradition of honoring departed mestres.
 
 ### Português
 
-Zacarias Boa Morte foi o primeiro aluno documentado de Mestre Waldemar, iniciando seu treinamento em 1942 no lendário Barracão em Corta Braço (depois Liberdade), Salvador. "Zacarias foi meu aluno de 1942", Waldemar confirmou em entrevista de 1987. Waldemar apontou Zacarias e José Cabelo Bom como "capoeiristas do futuro que continuarão sua tradição."
+Zacarias Boa Morte foi o primeiro aluno documentado de Mestre Waldemar, iniciando seu treinamento em 1942 no lendário Barracão em Corta Braço (depois Liberdade), Salvador. "Zacarias foi meu aluno de 1942", Waldemar confirmou em entrevista de 1987. Waldemar apontou Zacarias e José Cabelo Bom como "capoeiristas do futuro que continuarão sua tradição".
 
 Além da roda, Zacarias trabalhava como guarda civil. Segundo Mestre Pelé, Zacarias "tomava conta" das rodas da Liberdade nas tardes de domingo—um papel que combinava sua autoridade profissional com sua posição na comunidade da capoeira.
 
@@ -59,7 +59,7 @@ Em 11 de abril de 1948, o fotógrafo Pierre Verger documentou uma roda no bar de
 
 Em novembro de 1954, Zacarias apareceu em "Vadiação", o documentário pioneiro de Alexandre Robatto Filho, considerado um marco do cinema brasileiro no registro da capoeira. O filme de 8 minutos apresentou uma roda em Salvador com os mestres Bimba e Waldemar, Traíra, Nagé, Curió, Crispim e Rosendo. Zacarias serviu como tocador de berimbau na bateria, ao lado de Traíra no pandeiro.
 
-No ano seguinte, a antropóloga francesa Simone Dreyfus-Roche veio a Salvador por recomendação de Pierre Verger. Em 31 de outubro de 1955, ela gravou capoeira no Barracão de Waldemar para o que se tornaria o LP "Brésil Vol. 2 - Bahia." Zacarias estava entre os mestres na foto da capa e nas gravações, que ganharam o Prêmio Liotard de 1956 e estão hoje no Musée de l'Homme.
+No ano seguinte, a antropóloga francesa Simone Dreyfus-Roche veio a Salvador por recomendação de Pierre Verger. Em 31 de outubro de 1955, ela gravou capoeira no Barracão de Waldemar para o que se tornaria o LP "Brésil Vol. 2 - Bahia". Zacarias estava entre os mestres na foto da capa e nas gravações, que ganharam o Prêmio Liotard de 1956 e estão hoje no Musée de l'Homme.
 
 No bairro de Pero Vaz, Zacarias mantinha uma gafieira (salão de dança) que, junto com o Barracão de Waldemar, servia como um dos dois espaços especiais onde aconteciam jogos de capoeira e entretenimento de fim de semana. Joaquim Fiuza, que era jovem naquela época, lembrava de ir aos dois lugares—para dançar e beber na Gafieira de Zacarias, e para assistir às "incríveis apresentações de capoeira" no Barracão de Waldemar.
 
@@ -67,7 +67,7 @@ Zacarias permaneceu ativo na comunidade da capoeira por décadas. Em 1984, parti
 
 Em 19 de maio de 1999, Zacarias fundou a Escola Zacarias Boa Morte na Avenida Peixe, Nº 153 em Pero Vaz, Salvador—finalmente institucionalizando seu ensino após quase seis décadas de prática. Faleceu apenas 18 meses depois, em 3 de novembro de 2000, dois dias antes de completar 77 anos.
 
-"Zacarias é a coisa mais bonita que existe, humilde, bom de conversa", disse Mestre Barba Branca. "Ele merece ser visto jogando, na ponta dos pés, o estilo antigo." Mestre Pelé cantou em seu enterro, continuando a tradição de honrar mestres falecidos.
+"Zacarias é a coisa mais bonita que existe, humilde, bom de conversa", disse Mestre Barba Branca. "Ele merece ser visto jogando, na ponta dos pés, o estilo antigo". Mestre Pelé cantou em seu enterro, continuando a tradição de honrar mestres falecidos.
 
 ---
 

@@ -92,7 +92,7 @@ João Catarino is one of the few documented students of Besouro Mangangá (along
 
 **Relationship to Eutíquio:** João Catarino was Eutíquio's brother. Since Gato Preto referred to him as "meu tio" (my uncle) and Eutíquio was Gato Preto's father, João Catarino and Eutíquio shared the same father—the African Oleriano de Góes.
 
-**Key Quote:** Gato Preto: "Depois veio meu tio, João Catarino, aluno de Besouro, até que ele morreu de derrame, que a turma chamava de congestão."
+**Key Quote:** Gato Preto: "Depois veio meu tio, João Catarino, aluno de Besouro, até que ele morreu de derrame, que a turma chamava de congestão".
 
 ### Português
 
@@ -102,7 +102,7 @@ João Catarino is one of the few documented students of Besouro Mangangá (along
 
 **Relação com Eutíquio:** João Catarino era irmão de Eutíquio. Como Gato Preto se referia a ele como "meu tio" e Eutíquio era o pai de Gato Preto, João Catarino e Eutíquio tinham o mesmo pai—o africano Oleriano de Góes.
 
-**Citação-chave:** Gato Preto: "Depois veio meu tio, João Catarino, aluno de Besouro, até que ele morreu de derrame, que a turma chamava de congestão."
+**Citação-chave:** Gato Preto: "Depois veio meu tio, João Catarino, aluno de Besouro, até que ele morreu de derrame, que a turma chamava de congestão".
 
 ## Sources / Fontes
 

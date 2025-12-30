@@ -142,7 +142,7 @@ CURRENT STATUS:
 - Active cordas vermelhas (2024): Paulo Flores, Claudio Danadinho, Gato, Gil Velho, Garrincha, Sorriso, Itamar, Toni Vargas, Ramos, Elias, Amendoim, Beto, Feijão, Samara, Arruda, Azeite
 
 DISCREPANCY - GILBERTO FLORES vs GIL VELHO:
-Some sources (capoeirailhagrande.wordpress.com) erroneously state Gilberto Flores "received the capoeira name Gil Velho."
+Some sources (capoeirailhagrande.wordpress.com) erroneously state Gilberto Flores "received the capoeira name Gil Velho".
 This is INCORRECT. Multiple authoritative sources confirm:
 - Gil Velho is Gato''s brother (Fernando Albuquerque''s brother)
 - Both "Mestre Gilberto Flores" and "Mestre Gil Velho" are listed separately as founding mestres
@@ -191,7 +191,7 @@ SITUAÇÃO ATUAL:
 - Cordas vermelhas ativos (2024): Paulo Flores, Claudio Danadinho, Gato, Gil Velho, Garrincha, Sorriso, Itamar, Toni Vargas, Ramos, Elias, Amendoim, Beto, Feijão, Samara, Arruda, Azeite
 
 DISCREPÂNCIA - GILBERTO FLORES vs GIL VELHO:
-Algumas fontes (capoeirailhagrande.wordpress.com) erroneamente afirmam que Gilberto Flores "recebeu o apelido de capoeira Gil Velho."
+Algumas fontes (capoeirailhagrande.wordpress.com) erroneamente afirmam que Gilberto Flores "recebeu o apelido de capoeira Gil Velho".
 Isso está INCORRETO. Múltiplas fontes autoritativas confirmam:
 - Gil Velho é irmão de Gato (irmão de Fernando Albuquerque)
 - Ambos "Mestre Gilberto Flores" e "Mestre Gil Velho" são listados separadamente como mestres fundadores

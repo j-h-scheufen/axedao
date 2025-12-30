@@ -48,13 +48,13 @@ INSERT INTO genealogy.person_profiles (
   'year'::genealogy.date_precision,
   'Salvador, Bahia, Brazil',
   -- bio_en
-  E'Rafael Alves França was born on October 24, 1912, in Santo Amaro da Purificação—a town in the Recôncavo Baiano that he called "the birthplace of Bahian capoeira." His parents were João Alves França and Maria Narcisa Bispo.
+  E'Rafael Alves França was born on October 24, 1912, in Santo Amaro da Purificação—a town in the Recôncavo Baiano that he called "the birthplace of Bahian capoeira". His parents were João Alves França and Maria Narcisa Bispo.
 
-His connection to capoeira began through blood: his aunt Maria Haifa was the mother of Besouro Mangangá. Besouro was raised by Cobrinha''s mother, making them effectively brothers as well as cousins. At four years old, in 1916, Rafael began learning capoeira from Besouro. His cousin gave him the nickname "Cobrinha Verde" (little green snake) because of his exceptional speed and agility. According to Cobrinha: "It was Besouro himself, my mestre, who gave me my nickname because I was very quick."
+His connection to capoeira began through blood: his aunt Maria Haifa was the mother of Besouro Mangangá. Besouro was raised by Cobrinha''s mother, making them effectively brothers as well as cousins. At four years old, in 1916, Rafael began learning capoeira from Besouro. His cousin gave him the nickname "Cobrinha Verde" (little green snake) because of his exceptional speed and agility. According to Cobrinha: "It was Besouro himself, my mestre, who gave me my nickname because I was very quick".
 
 Beyond Besouro, he learned from many other mestres in Santo Amaro: Maitá, Licurí, Joité, Dendê, Gasolina, Siri de Mangue, Doze Homens, Esperidião, Juvêncio Grosso, Espinho Remoso, and Neco Canário Pardo. Neco taught him the machete, while a woman named Tonha Rolo do Mar taught him the razor technique.
 
-His mystical education came from an African named Tio Pascoal, a neighbor of his grandmother. From Pascoal he learned the mandingas of the patuá, prayers, and corpo fechado (closed body protection). Cobrinha claimed to possess a patuá with magical powers: "It was alive and would jump when left on a virgin plate."
+His mystical education came from an African named Tio Pascoal, a neighbor of his grandmother. From Pascoal he learned the mandingas of the patuá, prayers, and corpo fechado (closed body protection). Cobrinha claimed to possess a patuá with magical powers: "It was alive and would jump when left on a virgin plate".
 
 At seventeen, in 1929, Cobrinha joined the band of Colonel Horácio de Matos in the Lençóis region of the Bahian sertão. He earned 10 mil-réis per day to fight with police. He spent three years and six months with the band. One midnight, he dreamed his father''s spirit asked him to leave; he woke and fled while everyone slept.
 
@@ -68,17 +68,17 @@ Cobrinha Verde was one of the only capoeiristas who knew the "Santa Maria" game�
 
 In 1962, he recorded an LP "Capoeira da Bahia" with Mestre Traíra and Mestre Gato Preto, now considered a masterpiece and one of the earliest musical documents of capoeira.
 
-Cobrinha Verde never charged money to teach capoeira—he worked as a pedreiro (stonemason). This fulfilled a deathbed promise to Besouro: "On his deathbed, Besouro told me that I was the only one to whom he was giving his spirit to teach capoeira."
+Cobrinha Verde never charged money to teach capoeira—he worked as a pedreiro (stonemason). This fulfilled a deathbed promise to Besouro: "On his deathbed, Besouro told me that I was the only one to whom he was giving his spirit to teach capoeira".
 
 By 1982, he was the last surviving "old master" in Bahia. He died in 1983, leaving a legacy that bridges the legendary era of Besouro to the documented lineage that continues today.',
   -- bio_pt
-  E'Rafael Alves França nasceu em 24 de outubro de 1912, em Santo Amaro da Purificação—cidade do Recôncavo Baiano que ele chamava de "o berço da capoeira baiana." Seus pais eram João Alves França e Maria Narcisa Bispo.
+  E'Rafael Alves França nasceu em 24 de outubro de 1912, em Santo Amaro da Purificação—cidade do Recôncavo Baiano que ele chamava de "o berço da capoeira baiana". Seus pais eram João Alves França e Maria Narcisa Bispo.
 
-Sua conexão com a capoeira começou pelo sangue: sua tia Maria Haifa era mãe de Besouro Mangangá. Besouro foi criado pela mãe de Cobrinha, tornando-os efetivamente irmãos além de primos. Com quatro anos, em 1916, Rafael começou a aprender capoeira com Besouro. Seu primo deu-lhe o apelido "Cobrinha Verde" por causa de sua excepcional velocidade e agilidade. Segundo Cobrinha: "Foi o próprio Besouro, meu mestre, quem me deu meu apelido porque eu era muito rápido."
+Sua conexão com a capoeira começou pelo sangue: sua tia Maria Haifa era mãe de Besouro Mangangá. Besouro foi criado pela mãe de Cobrinha, tornando-os efetivamente irmãos além de primos. Com quatro anos, em 1916, Rafael começou a aprender capoeira com Besouro. Seu primo deu-lhe o apelido "Cobrinha Verde" por causa de sua excepcional velocidade e agilidade. Segundo Cobrinha: "Foi o próprio Besouro, meu mestre, quem me deu meu apelido porque eu era muito rápido".
 
 Além de Besouro, aprendeu com muitos outros mestres em Santo Amaro: Maitá, Licurí, Joité, Dendê, Gasolina, Siri de Mangue, Doze Homens, Esperidião, Juvêncio Grosso, Espinho Remoso e Neco Canário Pardo. Neco ensinou-lhe o facão, enquanto uma mulher chamada Tonha Rolo do Mar ensinou-lhe a técnica da navalha.
 
-Sua educação mística veio de um africano chamado Tio Pascoal, vizinho de sua avó. De Pascoal ele aprendeu as mandingas do patuá, orações e corpo fechado. Cobrinha afirmava possuir um patuá com poderes mágicos: "Era vivo e pulava quando deixado em um prato virgem."
+Sua educação mística veio de um africano chamado Tio Pascoal, vizinho de sua avó. De Pascoal ele aprendeu as mandingas do patuá, orações e corpo fechado. Cobrinha afirmava possuir um patuá com poderes mágicos: "Era vivo e pulava quando deixado em um prato virgem".
 
 Aos dezessete anos, em 1929, Cobrinha juntou-se ao bando do Coronel Horácio de Matos na região de Lençóis do sertão baiano. Ganhava 10 mil-réis por dia para lutar com a polícia. Passou três anos e seis meses com o bando. Uma meia-noite, sonhou que o espírito de seu pai pedia que partisse; acordou e fugiu enquanto todos dormiam.
 
@@ -92,7 +92,7 @@ Cobrinha Verde era um dos únicos capoeiristas que conhecia o jogo "Santa Maria"
 
 Em 1962, gravou o LP "Capoeira da Bahia" com Mestre Traíra e Mestre Gato Preto, hoje considerado uma obra-prima e um dos primeiros documentos musicais da capoeira.
 
-Cobrinha Verde nunca cobrou dinheiro para ensinar capoeira—trabalhava como pedreiro. Isso cumpria uma promessa de leito de morte a Besouro: "Em seu leito de morte, Besouro me disse que eu era o único a quem ele estava dando seu espírito para ensinar capoeira."
+Cobrinha Verde nunca cobrou dinheiro para ensinar capoeira—trabalhava como pedreiro. Isso cumpria uma promessa de leito de morte a Besouro: "Em seu leito de morte, Besouro me disse que eu era o único a quem ele estava dando seu espírito para ensinar capoeira".
 
 Em 1982, era o último "mestre velho" sobrevivente na Bahia. Morreu em 1983, deixando um legado que conecta a era lendária de Besouro à linhagem documentada que continua hoje.',
   -- achievements_en

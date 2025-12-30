@@ -33,7 +33,7 @@ Tio Pascoal was an African mandingueiro who lived in Santo Amaro da Purificaçã
 
 A bachelor by all accounts, Pascoal was not a capoeirista but a keeper of African-Brazilian spiritual traditions. He specialized in mandinga—the mystical practices that capoeiristas believed could protect them from harm. In the culture of the time, a truly prepared capoeirista needed both fighting skill and spiritual protection; Pascoal provided the latter.
 
-When the young Rafael Alves França (later Cobrinha Verde) would visit his grandmother, he came into contact with the old African across the river. Recognizing something in the boy, Pascoal told him: "You're a brave boy, and I'm going to give you something. Only God could deceive you."
+When the young Rafael Alves França (later Cobrinha Verde) would visit his grandmother, he came into contact with the old African across the river. Recognizing something in the boy, Pascoal told him: "You're a brave boy, and I'm going to give you something. Only God could deceive you".
 
 What Pascoal transmitted was profound. He placed **sixty-five prayers** in Cobrinha Verde's head—including:
 - Pai Nosso Positivo
@@ -45,11 +45,11 @@ He also taught him how to prepare prayers dedicated to Santa Inês, Santo André
 
 Most significantly, Pascoal created a **patuá** for Cobrinha Verde—a protective amulet that would become central to his legend. According to Cobrinha:
 
-> "The person who gave me this amulet was an African who, to this day, when I speak of him, my eyes fill with tears. He was called Uncle Pascoal."
+> "The person who gave me this amulet was an African who, to this day, when I speak of him, my eyes fill with tears. He was called Uncle Pascoal".
 
-The old African told the boy about obtaining the materials for the patuá from Isídio, an old disciple at Bonfim Church. When Cobrinha returned with the materials, Pascoal prepared the amulet and instructed him: "Look, you have to use it like this, like this, like this." The patuá was said to be alive—**it would jump when placed on a clean plate**.
+The old African told the boy about obtaining the materials for the patuá from Isídio, an old disciple at Bonfim Church. When Cobrinha returned with the materials, Pascoal prepared the amulet and instructed him: "Look, you have to use it like this, like this, like this". The patuá was said to be alive—**it would jump when placed on a clean plate**.
 
-Cobrinha carried this amulet when he joined Colonel Horácio de Matos' band at age seventeen in 1929. "It freed me from many things," he said. The patuá protected him through three years of violence in the Bahian sertão, from which he was the **sole survivor of his 85-man battalion**.
+Cobrinha carried this amulet when he joined Colonel Horácio de Matos' band at age seventeen in 1929. "It freed me from many things", he said. The patuá protected him through three years of violence in the Bahian sertão, from which he was the **sole survivor of his 85-man battalion**.
 
 Just as Tio Alípio transmitted spiritual and martial knowledge to Besouro Mangangá, Tio Pascoal passed African-Brazilian mystical traditions to Cobrinha Verde. Both men represent the African spiritual practitioners who existed alongside the capoeira masters, providing the religious foundation that capoeiristas believed made them invincible.
 
@@ -61,7 +61,7 @@ Tio Pascoal foi um mandingueiro africano que vivia em Santo Amaro da Purificaç�
 
 Solteiro por todas as descrições, Pascoal não era capoeirista, mas um guardião das tradições espirituais afro-brasileiras. Ele era especialista em mandinga—as práticas místicas que os capoeiristas acreditavam poder protegê-los de danos. Na cultura da época, um capoeirista verdadeiramente preparado precisava tanto de habilidade de luta quanto de proteção espiritual; Pascoal fornecia esta última.
 
-Quando o jovem Rafael Alves França (mais tarde Cobrinha Verde) visitava sua avó, ele entrava em contato com o velho africano do outro lado do rio. Reconhecendo algo no menino, Pascoal disse-lhe: "Você é um menino valente, e eu vou lhe dar uma coisa. Só Deus poderia enganá-lo."
+Quando o jovem Rafael Alves França (mais tarde Cobrinha Verde) visitava sua avó, ele entrava em contato com o velho africano do outro lado do rio. Reconhecendo algo no menino, Pascoal disse-lhe: "Você é um menino valente, e eu vou lhe dar uma coisa. Só Deus poderia enganá-lo".
 
 O que Pascoal transmitiu foi profundo. Ele colocou **sessenta e cinco orações** na cabeça de Cobrinha Verde—incluindo:
 - Pai Nosso Positivo
@@ -73,11 +73,11 @@ Ele também ensinou-lhe como preparar orações dedicadas a Santa Inês, Santo A
 
 Mais significativamente, Pascoal criou um **patuá** para Cobrinha Verde—um amuleto protetor que se tornaria central em sua lenda. Segundo Cobrinha:
 
-> "A pessoa que me deu este amuleto foi um africano que, até hoje, quando falo dele, meus olhos se enchem de lágrimas. Ele se chamava Tio Pascoal."
+> "A pessoa que me deu este amuleto foi um africano que, até hoje, quando falo dele, meus olhos se enchem de lágrimas. Ele se chamava Tio Pascoal".
 
-O velho africano disse ao menino sobre obter os materiais para o patuá de Isídio, um velho discípulo na Igreja do Bonfim. Quando Cobrinha voltou com os materiais, Pascoal preparou o amuleto e instruiu-o: "Olha, você tem que usar assim, assim, assim." Dizia-se que o patuá era vivo—**ele pulava quando colocado em um prato limpo**.
+O velho africano disse ao menino sobre obter os materiais para o patuá de Isídio, um velho discípulo na Igreja do Bonfim. Quando Cobrinha voltou com os materiais, Pascoal preparou o amuleto e instruiu-o: "Olha, você tem que usar assim, assim, assim". Dizia-se que o patuá era vivo—**ele pulava quando colocado em um prato limpo**.
 
-Cobrinha carregou este amuleto quando se juntou ao bando do Coronel Horácio de Matos aos dezessete anos em 1929. "Me livrou de muitas coisas," ele disse. O patuá o protegeu através de três anos de violência no sertão baiano, dos quais ele foi o **único sobrevivente de seu batalhão de 85 homens**.
+Cobrinha carregou este amuleto quando se juntou ao bando do Coronel Horácio de Matos aos dezessete anos em 1929. "Me livrou de muitas coisas", ele disse. O patuá o protegeu através de três anos de violência no sertão baiano, dos quais ele foi o **único sobrevivente de seu batalhão de 85 homens**.
 
 Assim como Tio Alípio transmitiu conhecimento espiritual e marcial a Besouro Mangangá, Tio Pascoal passou tradições místicas afro-brasileiras para Cobrinha Verde. Ambos os homens representam os praticantes espirituais africanos que existiam ao lado dos mestres de capoeira, fornecendo a base religiosa que os capoeiristas acreditavam torná-los invencíveis.
 

@@ -25,11 +25,11 @@
 
 Manezinho Camisa Preta was a legendary valentão (fighter/tough guy) from Rio de Janeiro whose reputation led him to challenge Nascimento Grande, the most feared capoeirista of Pernambuco.
 
-**The Challenge:** His fame as a fighter attracted him to seek out Nascimento Grande, just as other renowned valentões did from across Brazil. Along with Pirajé from Pará and Pajeú from the Pernambuco sertão, Manezinho's name appears in the roster of legendary Brazilian fighters who sought to test themselves against "O Capoeira."
+**The Challenge:** His fame as a fighter attracted him to seek out Nascimento Grande, just as other renowned valentões did from across Brazil. Along with Pirajé from Pará and Pajeú from the Pernambuco sertão, Manezinho's name appears in the roster of legendary Brazilian fighters who sought to test themselves against "O Capoeira".
 
 **The Battle at Largo da Carioca:** According to multiple sources, during a trip to Rio de Janeiro, Nascimento Grande killed Manezinho Camisa Preta in an epic battle at Largo da Carioca—a famous public square in central Rio that served as a gathering place and site of historical capoeira confrontations. The Largo da Carioca featured a major public water fountain (built 1723, demolished 1925) and was a known location for capoeira activity throughout the 19th century.
 
-The fight was so intense it was described as transforming the plaza into "the Peloponnese," a reference to the ancient Greek peninsula famous for warfare, particularly the battles of Sparta. This literary flourish emphasizes the legendary scale and intensity of their confrontation.
+The fight was so intense it was described as transforming the plaza into "the Peloponnese", a reference to the ancient Greek peninsula famous for warfare, particularly the battles of Sparta. This literary flourish emphasizes the legendary scale and intensity of their confrontation.
 
 **His Nickname:** "Manezinho" is a diminutive form of Mané (Manuel), and "Camisa Preta" (Black Shirt) was likely a distinctive element of his appearance or fighting style. The nickname suggests he may have been known for wearing a black shirt, which could have been a signature aspect of his valentão persona.
 
@@ -39,7 +39,7 @@ The fight was so intense it was described as transforming the plaza into "the Pe
 
 Manezinho Camisa Preta foi um lendário valentão do Rio de Janeiro cuja reputação o levou a desafiar Nascimento Grande, o capoeirista mais temido de Pernambuco.
 
-**O Desafio:** Sua fama como lutador o atraiu a procurar Nascimento Grande, assim como outros valentões renomados fizeram de todo o Brasil. Junto com Pirajé do Pará e Pajeú do sertão pernambucano, o nome de Manezinho aparece na lista de lendários lutadores brasileiros que buscaram se testar contra "O Capoeira."
+**O Desafio:** Sua fama como lutador o atraiu a procurar Nascimento Grande, assim como outros valentões renomados fizeram de todo o Brasil. Junto com Pirajé do Pará e Pajeú do sertão pernambucano, o nome de Manezinho aparece na lista de lendários lutadores brasileiros que buscaram se testar contra "O Capoeira".
 
 **A Batalha no Largo da Carioca:** Segundo múltiplas fontes, durante uma viagem ao Rio de Janeiro, Nascimento Grande matou Manezinho Camisa Preta em uma batalha épica no Largo da Carioca—uma famosa praça pública no centro do Rio que servia como ponto de encontro e local de confrontos históricos de capoeira. O Largo da Carioca apresentava uma grande fonte de água pública (construída em 1723, demolida em 1925) e era um local conhecido para atividade de capoeira durante todo o século XIX.
 
@@ -73,7 +73,7 @@ The choice of this location for the legendary battle between Manezinho Camisa Pr
 
 ## Legacy
 
-Manezinho Camisa Preta's challenge and death at the hands of Nascimento Grande became part of the legendary narratives surrounding "O Capoeira." His story exemplifies the culture of valentões in late 19th/early 20th century Brazil—fighters who traveled to challenge the most famous capoeiristas to build or defend their reputations.
+Manezinho Camisa Preta's challenge and death at the hands of Nascimento Grande became part of the legendary narratives surrounding "O Capoeira". His story exemplifies the culture of valentões in late 19th/early 20th century Brazil—fighters who traveled to challenge the most famous capoeiristas to build or defend their reputations.
 
 The dramatic description of their battle transforming the Largo da Carioca into "the Peloponnese" has ensured his place in capoeira lore, even though specific details of his life and fighting career remain unknown.
 

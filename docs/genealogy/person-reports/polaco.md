@@ -34,7 +34,7 @@ Also in 1972, Polaco was asked to assume responsibility for the Grupo Capoeira S
 
 Throughout his life, Polaco assembled an important collection of historical photographs documenting Rio de Janeiro capoeira history. This archive, known as the "Acervo Mestre Polaco", preserves images of Mestre Paraná at rodas, meetings of Paraná's students including Mintirinha and others at the Terra academy, and iconic photos of Paraná with musicians and artists including Maria Bethânia.
 
-In his final years, Polaco was recognized alongside Mestre Genaro (1934-2022) as one of the two great "guardians of the history of capoeira in Rio de Janeiro." Both gave testimonies for the documentary "From the Ring to the Stage" (Do Ringue aos Palcos), a film about Mestre Artur Emídio de Oliveira. Polaco clarified historical details in his testimony, including the fact that Artur Emídio never worked at a pharmacy but rather lived in a room at the back of one.
+In his final years, Polaco was recognized alongside Mestre Genaro (1934-2022) as one of the two great "guardians of the history of capoeira in Rio de Janeiro". Both gave testimonies for the documentary "From the Ring to the Stage" (Do Ringue aos Palcos), a film about Mestre Artur Emídio de Oliveira. Polaco clarified historical details in his testimony, including the fact that Artur Emídio never worked at a pharmacy but rather lived in a room at the back of one.
 
 Tragically, the filmmakers were unable to secure resources to finalize the documentary before the passing of these old masters. Mestre Polaco died on April 10, 2021, preceded by his testimonial contribution but not by the completion of the film. Mestre Genaro followed him on February 28, 2022.
 
@@ -50,7 +50,7 @@ Também em 1972, Polaco foi convidado a assumir a responsabilidade pelo Grupo Ca
 
 Ao longo de sua vida, Polaco reuniu uma importante coleção de fotografias históricas documentando a história da capoeira carioca. Este arquivo, conhecido como "Acervo Mestre Polaco", preserva imagens de Mestre Paraná nas rodas, encontros dos alunos de Paraná incluindo Mintirinha e outros na academia Terra, e fotos icônicas de Paraná com músicos e artistas incluindo Maria Bethânia.
 
-Em seus últimos anos, Polaco foi reconhecido ao lado de Mestre Genaro (1934-2022) como um dos dois grandes "guardiões da história da capoeira no Rio de Janeiro." Ambos deram depoimentos para o documentário "Do Ringue aos Palcos", um filme sobre Mestre Artur Emídio de Oliveira. Polaco esclareceu detalhes históricos em seu depoimento, incluindo o fato de que Artur Emídio nunca trabalhou em uma farmácia, mas sim morava em um quarto nos fundos de uma.
+Em seus últimos anos, Polaco foi reconhecido ao lado de Mestre Genaro (1934-2022) como um dos dois grandes "guardiões da história da capoeira no Rio de Janeiro". Ambos deram depoimentos para o documentário "Do Ringue aos Palcos", um filme sobre Mestre Artur Emídio de Oliveira. Polaco esclareceu detalhes históricos em seu depoimento, incluindo o fato de que Artur Emídio nunca trabalhou em uma farmácia, mas sim morava em um quarto nos fundos de uma.
 
 Tragicamente, os cineastas não conseguiram obter recursos para finalizar o documentário antes da partida desses velhos mestres. Mestre Polaco faleceu em 10 de abril de 2021, tendo precedido a conclusão do filme mas deixando sua contribuição testimonial. Mestre Genaro o seguiu em 28 de fevereiro de 2022.
 

@@ -21,7 +21,7 @@ The original backlog had two separate entries:
 - [CDO Sergipe](https://cdosergipe.wixsite.com/cdosergipe/mestre-suassuna): "Na academia Major Dória que ministrava as aulas era o Maneca Brandão, aluno do Mestre Bimba"
 - Multiple sources list "Mestre Maneca Brandão" alongside Sururú and Bigode de Arame as street roda participants
 
-**Zoião Correction:** The original entry incorrectly stated Maneca was "student of Bimba and Zoião." Research reveals Zoião was Maneca's CLASSMATE (companheiro de turma) at Bimba's academy, not his teacher. Zoião sometimes helped with training sessions.
+**Zoião Correction:** The original entry incorrectly stated Maneca was "student of Bimba and Zoião". Research reveals Zoião was Maneca's CLASSMATE (companheiro de turma) at Bimba's academy, not his teacher. Zoião sometimes helped with training sessions.
 
 ## Basic Information / Informações Básicas
 
@@ -64,15 +64,15 @@ Mestre Maneca Brandão foi uma figura pioneira em trazer a Capoeira Regional par
 
 Brandão viajou para Salvador onde treinou diretamente com Mestre Bimba, o fundador da Capoeira Regional, no Centro de Cultura Física Regional de Bimba. Lá foi colega de turma de Zoião, outro importante discípulo de Bimba que mais tarde o ajudaria em Itabuna.
 
-Em 1958, Major Carlos Dória fundou a "Academia Cultura Física e Capoeira Major Dória" em Itabuna—a primeira escola formal de capoeira da cidade. Dória recrutou Maneca Brandão para servir como instrutor principal. Segundo os registros históricos do Cordão de Ouro: "Na academia Major Dória que ministrava as aulas era o Maneca Brandão, aluno do Mestre Bimba, e seu companheiro de turma Zoião o ajudava nos treinamentos às vezes."
+Em 1958, Major Carlos Dória fundou a "Academia Cultura Física e Capoeira Major Dória" em Itabuna—a primeira escola formal de capoeira da cidade. Dória recrutou Maneca Brandão para servir como instrutor principal. Segundo os registros históricos do Cordão de Ouro: "Na academia Major Dória que ministrava as aulas era o Maneca Brandão, aluno do Mestre Bimba, e seu companheiro de turma Zoião o ajudava nos treinamentos às vezes".
 
 Esta academia representou um ponto de virada para a capoeira no sul da Bahia. Antes de sua fundação, a capoeira em Itabuna existia apenas em rodas de rua informais, praticada por comunidades marginalizadas. O estabelecimento de uma academia formal permitiu que praticantes de diferentes classes sociais participassem, incluindo o jovem Reinaldo Ramos Suassuna (mais tarde conhecido como Mestre Suassuna).
 
 Brandão também participava das rodas de rua ao lado de outros capoeiristas proeminentes de Itabuna, incluindo Mestres Sururú e Bigode de Arame. Essas reuniões informais foram onde o jovem Suassuna conheceu a capoeira pela primeira vez por volta de 1957-1958, antes de eventualmente treinar formalmente na academia do Major Dória.
 
-Além de seu ensino, Brandão documentou suas experiências no livro "O Canto da Iúna – A Saga de um Capoeira", publicado em Itabuna. O livro inclui sua explicação sobre a Iúna—a ave mítica que inspirou o famoso ritmo de berimbau de Mestre Bimba—descrevendo-a como o "símbolo da sagacidade e da matreirice."
+Além de seu ensino, Brandão documentou suas experiências no livro "O Canto da Iúna – A Saga de um Capoeira", publicado em Itabuna. O livro inclui sua explicação sobre a Iúna—a ave mítica que inspirou o famoso ritmo de berimbau de Mestre Bimba—descrevendo-a como o "símbolo da sagacidade e da matreirice".
 
-A historiadora Cláudia Viana, em seu livro de 2006 "Capoeira: de luta de negro a exercício de branco no cenário grapiúna", explicitamente honra o papel de Brandão: "Bimba, Maneca Brandão, Suassuna, são vários nomes que não podem ser esquecidos." Sua pesquisa demonstra como o sul da Bahia, não apenas Salvador e o Recôncavo, foi crucial para o desenvolvimento da capoeira no estado.
+A historiadora Cláudia Viana, em seu livro de 2006 "Capoeira: de luta de negro a exercício de branco no cenário grapiúna", explicitamente honra o papel de Brandão: "Bimba, Maneca Brandão, Suassuna, são vários nomes que não podem ser esquecidos". Sua pesquisa demonstra como o sul da Bahia, não apenas Salvador e o Recôncavo, foi crucial para o desenvolvimento da capoeira no estado.
 
 O legado de Maneca Brandão vive através de seu aluno mais famoso, Mestre Suassuna, que co-fundaria o Cordão de Ouro e se tornaria um dos capoeiristas mais influentes da história—espalhando a tradição Regional de Bimba para cinco continentes.
 
@@ -114,7 +114,7 @@ Treinou diretamente com Mestre Bimba em Salvador. Trouxe a tradição da Capoeir
 
 ## Classmates / Colegas de Turma
 
-- **Zoião** - Classmate at Bimba's academy; sometimes helped with training at Major Dória's academy. Author of "Arte da Capoeira." / Colega de turma na academia de Bimba; às vezes ajudava nos treinamentos na academia do Major Dória. Autor de "Arte da Capoeira."
+- **Zoião** - Classmate at Bimba's academy; sometimes helped with training at Major Dória's academy. Author of "Arte da Capoeira". / Colega de turma na academia de Bimba; às vezes ajudava nos treinamentos na academia do Major Dória. Autor de "Arte da Capoeira".
 
 ## Students / Alunos
 

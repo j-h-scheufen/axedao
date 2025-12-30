@@ -21,7 +21,7 @@ SELECT
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'https://centrodomundo.org/mestre-zé-maría',
   'Trained under Paulo Salmon in Tijuca, Rio de Janeiro (1966). Salmon and Euclides Paes taught Zé Maria the famous "Pulo do Gato" technique. When both mestres discontinued training for work reasons, they authorized Zé Maria to continue teaching in their place.',
-  'Treinou sob Paulo Salmon em Tijuca, Rio de Janeiro (1966). Salmon e Euclides Paes ensinaram a Zé Maria a famosa técnica do "Pulo do Gato." Quando ambos os mestres descontinuaram o treinamento por motivos de trabalho, autorizaram Zé Maria a continuar ensinando em seu lugar.'
+  'Treinou sob Paulo Salmon em Tijuca, Rio de Janeiro (1966). Salmon e Euclides Paes ensinaram a Zé Maria a famosa técnica do "Pulo do Gato". Quando ambos os mestres descontinuaram o treinamento por motivos de trabalho, autorizaram Zé Maria a continuar ensinando em seu lugar.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Zé Maria' AND o.apelido = 'Paulinho Salmon'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
@@ -41,7 +41,7 @@ SELECT
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'https://centrodomundo.org/mestre-zé-maría',
   'Trained under Euclides Paes in Tijuca, Rio de Janeiro (1966). Euclides Paes and Paulinho Salmon taught Zé Maria the famous "Pulo do Gato" technique. When both mestres discontinued training for work reasons, they authorized Zé Maria to continue teaching in their place.',
-  'Treinou sob Euclides Paes em Tijuca, Rio de Janeiro (1966). Euclides Paes e Paulinho Salmon ensinaram a Zé Maria a famosa técnica do "Pulo do Gato." Quando ambos os mestres descontinuaram o treinamento por motivos de trabalho, autorizaram Zé Maria a continuar ensinando em seu lugar.'
+  'Treinou sob Euclides Paes em Tijuca, Rio de Janeiro (1966). Euclides Paes e Paulinho Salmon ensinaram a Zé Maria a famosa técnica do "Pulo do Gato". Quando ambos os mestres descontinuaram o treinamento por motivos de trabalho, autorizaram Zé Maria a continuar ensinando em seu lugar.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Zé Maria' AND o.apelido = 'Euclides Paes'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

@@ -21,8 +21,8 @@ SELECT
   '1911-12-31'::date, 'decade'::genealogy.date_precision,
   '{}'::jsonb, 'likely'::genealogy.confidence,
   'velhosmestres.com/en/pastinha-1969-3',
-  'Pastinha testified in 1969 (A Tarde) that between 1902-1911, women including Júlia Fogareira "learned the art not only with Mestre Pastinha but also with other masters of the time." Pastinha was born 1889, so he was 13-22 during this period - already teaching while young.',
-  'Pastinha testemunhou em 1969 (A Tarde) que entre 1902-1911, mulheres incluindo Júlia Fogareira "aprenderam a arte não só com Mestre Pastinha mas também com outros mestres da época." Pastinha nasceu em 1889, então tinha 13-22 anos durante esse período - já ensinando enquanto jovem.'
+  'Pastinha testified in 1969 (A Tarde) that between 1902-1911, women including Júlia Fogareira "learned the art not only with Mestre Pastinha but also with other masters of the time". Pastinha was born 1889, so he was 13-22 during this period - already teaching while young.',
+  'Pastinha testemunhou em 1969 (A Tarde) que entre 1902-1911, mulheres incluindo Júlia Fogareira "aprenderam a arte não só com Mestre Pastinha mas também com outros mestres da época". Pastinha nasceu em 1889, então tinha 13-22 anos durante esse período - já ensinando enquanto jovem.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Júlia Fogareira' AND o.apelido = 'Pastinha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

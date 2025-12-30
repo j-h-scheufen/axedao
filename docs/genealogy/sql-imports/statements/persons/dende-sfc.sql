@@ -6,7 +6,7 @@
 -- ============================================================
 
 -- Dendê (SFC) trained_under Siri de Mangue
--- Per Mário Buscapé's testimony: "His father and his uncle Dendê practised capoeira and met up with famous capoeiras of the Recôncavo like Siri de Mangue, Canário Pardo and Besouro from Santo Amaro."
+-- Per Mário Buscapé's testimony: "His father and his uncle Dendê practised capoeira and met up with famous capoeiras of the Recôncavo like Siri de Mangue, Canário Pardo and Besouro from Santo Amaro".
 INSERT INTO genealogy.statements (
   subject_type, subject_id, predicate, object_type, object_id,
   started_at, started_at_precision, ended_at, ended_at_precision,

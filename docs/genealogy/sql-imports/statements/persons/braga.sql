@@ -84,8 +84,8 @@ SELECT
   '{"association_context": "Met Pastinha during visits to Salvador with Moraes group"}'::jsonb,
   'verified'::genealogy.confidence,
   'africabantu.wordpress.com/notas/',
-  'Braga traveled to Salvador with Moraes and colleagues in December 1975, meeting Mestre Pastinha who remembered Moraes as "Pedrinho." Braga presented a berimbau to Pastinha as a gift. Made another visit in December 1979.',
-  'Braga viajou a Salvador com Moraes e colegas em dezembro de 1975, encontrando Mestre Pastinha que lembrou de Moraes como "Pedrinho." Braga presenteou Pastinha com um berimbau. Fez outra visita em dezembro de 1979.'
+  'Braga traveled to Salvador with Moraes and colleagues in December 1975, meeting Mestre Pastinha who remembered Moraes as "Pedrinho". Braga presented a berimbau to Pastinha as a gift. Made another visit in December 1979.',
+  'Braga viajou a Salvador com Moraes e colegas em dezembro de 1975, encontrando Mestre Pastinha que lembrou de Moraes como "Pedrinho". Braga presenteou Pastinha com um berimbau. Fez outra visita em dezembro de 1979.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Braga' AND o.apelido = 'Pastinha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

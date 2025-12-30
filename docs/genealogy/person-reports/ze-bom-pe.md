@@ -26,9 +26,9 @@
 
 Zé Bom Pé was a capoeirista of Salvador, Bahia, active during the early-to-mid 20th century. His name appears in one of the most important primary sources in capoeira history: Mestre Pastinha's 1967 interview with Revista Realidade magazine.
 
-In February 1967, the 78-year-old Pastinha—nearly blind but still teaching at his academy in Pelourinho—spoke with journalist Roberto Freire about the great capoeiristas of the past. Pastinha listed Zé Bom Pé among 17 deceased practitioners of "pure Capoeira de Angola," alongside Bigode de Seda, Américo Ciência, Bugalho, Amorzinho, Chico Três Pedaços, Tibirici da Folha Grossa, Doze Homens, Inimigo Sem Tripa, Zé do U, Vitorino Braço Torto, Zé do Saco, Bené do Correio, Sete Mortes, Chico Me Dá, and two women: Júlia Fogareira and Maria Homem.
+In February 1967, the 78-year-old Pastinha—nearly blind but still teaching at his academy in Pelourinho—spoke with journalist Roberto Freire about the great capoeiristas of the past. Pastinha listed Zé Bom Pé among 17 deceased practitioners of "pure Capoeira de Angola", alongside Bigode de Seda, Américo Ciência, Bugalho, Amorzinho, Chico Três Pedaços, Tibirici da Folha Grossa, Doze Homens, Inimigo Sem Tripa, Zé do U, Vitorino Braço Torto, Zé do Saco, Bené do Correio, Sete Mortes, Chico Me Dá, and two women: Júlia Fogareira and Maria Homem.
 
-Pastinha remarked of these figures: "They are already dead. Each of them has history." He observed that their apelidos revealed "who they were, how they fought"—suggesting these nicknames encoded information about their fighting styles, personalities, or physical characteristics.
+Pastinha remarked of these figures: "They are already dead. Each of them has history". He observed that their apelidos revealed "who they were, how they fought"—suggesting these nicknames encoded information about their fighting styles, personalities, or physical characteristics.
 
 Beyond this mention, no other documentation of Zé Bom Pé has been found. He represents one of the many capoeiristas whose contributions to the art have been largely lost to history, remembered only through the oral testimony of those who knew them.
 
@@ -36,9 +36,9 @@ Beyond this mention, no other documentation of Zé Bom Pé has been found. He re
 
 Zé Bom Pé foi um capoeirista de Salvador, Bahia, ativo durante o início e meados do século XX. Seu nome aparece em uma das mais importantes fontes primárias da história da capoeira: a entrevista de Mestre Pastinha à Revista Realidade em 1967.
 
-Em fevereiro de 1967, Pastinha, então com 78 anos—quase cego mas ainda ensinando em sua academia no Pelourinho—conversou com o jornalista Roberto Freire sobre os grandes capoeiristas do passado. Pastinha listou Zé Bom Pé entre 17 praticantes falecidos de "capoeira de Angola pura," ao lado de Bigode de Seda, Américo Ciência, Bugalho, Amorzinho, Chico Três Pedaços, Tibirici da Folha Grossa, Doze Homens, Inimigo Sem Tripa, Zé do U, Vitorino Braço Torto, Zé do Saco, Bené do Correio, Sete Mortes, Chico Me Dá, e duas mulheres: Júlia Fogareira e Maria Homem.
+Em fevereiro de 1967, Pastinha, então com 78 anos—quase cego mas ainda ensinando em sua academia no Pelourinho—conversou com o jornalista Roberto Freire sobre os grandes capoeiristas do passado. Pastinha listou Zé Bom Pé entre 17 praticantes falecidos de "capoeira de Angola pura", ao lado de Bigode de Seda, Américo Ciência, Bugalho, Amorzinho, Chico Três Pedaços, Tibirici da Folha Grossa, Doze Homens, Inimigo Sem Tripa, Zé do U, Vitorino Braço Torto, Zé do Saco, Bené do Correio, Sete Mortes, Chico Me Dá, e duas mulheres: Júlia Fogareira e Maria Homem.
 
-Pastinha comentou sobre essas figuras: "Já morreram. Cada um deles tem história." Ele observou que seus apelidos revelavam "quem eles eram, como lutavam"—sugerindo que esses apelidos codificavam informações sobre seus estilos de luta, personalidades ou características físicas.
+Pastinha comentou sobre essas figuras: "Já morreram. Cada um deles tem história". Ele observou que seus apelidos revelavam "quem eles eram, como lutavam"—sugerindo que esses apelidos codificavam informações sobre seus estilos de luta, personalidades ou características físicas.
 
 Além dessa menção, nenhuma outra documentação sobre Zé Bom Pé foi encontrada. Ele representa um dos muitos capoeiristas cujas contribuições para a arte foram amplamente perdidas na história, lembrados apenas através do testemunho oral daqueles que os conheceram.
 
@@ -46,11 +46,11 @@ Além dessa menção, nenhuma outra documentação sobre Zé Bom Pé foi encontr
 
 ### English
 
-Traditional capoeira de Angola. Pastinha explicitly listed Zé Bom Pé among the deceased practitioners of "pure Capoeira de Angola," distinguishing these figures from the modernized Regional style. The apelido "Bom Pé" (Good Foot) may suggest strong kicking ability or skilled footwork, though this is speculation based on Pastinha's comment that the nicknames revealed "how they fought."
+Traditional capoeira de Angola. Pastinha explicitly listed Zé Bom Pé among the deceased practitioners of "pure Capoeira de Angola", distinguishing these figures from the modernized Regional style. The apelido "Bom Pé" (Good Foot) may suggest strong kicking ability or skilled footwork, though this is speculation based on Pastinha's comment that the nicknames revealed "how they fought".
 
 ### Português
 
-Capoeira de Angola tradicional. Pastinha listou explicitamente Zé Bom Pé entre os praticantes falecidos de "capoeira de Angola pura," distinguindo essas figuras do estilo Regional modernizado. O apelido "Bom Pé" pode sugerir forte habilidade de chute ou jogo de pés habilidoso, embora isso seja especulação baseada no comentário de Pastinha de que os apelidos revelavam "como lutavam."
+Capoeira de Angola tradicional. Pastinha listou explicitamente Zé Bom Pé entre os praticantes falecidos de "capoeira de Angola pura", distinguindo essas figuras do estilo Regional modernizado. O apelido "Bom Pé" pode sugerir forte habilidade de chute ou jogo de pés habilidoso, embora isso seja especulação baseada no comentário de Pastinha de que os apelidos revelavam "como lutavam".
 
 ## Teachers / Mestres
 
@@ -102,7 +102,7 @@ Fellow practitioners on Pastinha's list of deceased "pure Capoeira de Angola" pr
 ## Research Notes
 
 ### Birth Year Estimation (1900, decade precision)
-Listed by Pastinha in 1967 as already deceased among practitioners of "pure Capoeira de Angola." The other figures on this list were active in the early-to-mid 20th century (Américo Ciência fought Bimba in 1936; Amorzinho led Gengibirra until 1943), suggesting Zé Bom Pé was likely born around 1880-1910.
+Listed by Pastinha in 1967 as already deceased among practitioners of "pure Capoeira de Angola". The other figures on this list were active in the early-to-mid 20th century (Américo Ciência fought Bimba in 1936; Amorzinho led Gengibirra until 1943), suggesting Zé Bom Pé was likely born around 1880-1910.
 
 ### Death Year Estimation (1960, decade precision)
 Confirmed dead by Pastinha's 1967 interview. As a contemporary of the other angoleiros on the list (most active 1900s-1940s), likely died in the 1950s-1960s.

@@ -41,9 +41,9 @@ On September 8, 1914, Aleixo relocated to the prestigious Club de Regatas Boquei
 
 In 1916, Aleixo invited Agenor Sampaio—the future Mestre Sinhozinho—to teach Greco-Roman wrestling at the União dos Empregados do Comércio (Trade Union of Retail Employees) in central Rio. This collaboration placed two of Rio de Janeiro's most important early capoeira figures in the same institutional space.
 
-By 1920, Aleixo and the journalist Raul Pederneiras opened a capoeiragem school in one of the classrooms of the Club Gymnástico Português. The Sorocabano newspaper Cruzeiro do Sul reported: "Dr. Raul Pederneiras and professor Mario Aleixo intend to found in Rio a school for teaching a genuinely Brazilian sport: capoeiragem."
+By 1920, Aleixo and the journalist Raul Pederneiras opened a capoeiragem school in one of the classrooms of the Club Gymnástico Português. The Sorocabano newspaper Cruzeiro do Sul reported: "Dr. Raul Pederneiras and professor Mario Aleixo intend to found in Rio a school for teaching a genuinely Brazilian sport: capoeiragem".
 
-On March 13, 1920, the newspaper O Jornal documented a sports festival featuring: "Personal defence and attack—teacher Mário Aleixo versus Ernesto Goétte" and "Brazilian gymnastics (Capoeiragem)—teacher Agenor Sampaio versus Lincoln Coimbra." Presentations were directed by "teachers Mário Aleixo, Gustavo Senna and Agenor Sampaio."
+On March 13, 1920, the newspaper O Jornal documented a sports festival featuring: "Personal defence and attack—teacher Mário Aleixo versus Ernesto Goétte" and "Brazilian gymnastics (Capoeiragem)—teacher Agenor Sampaio versus Lincoln Coimbra". Presentations were directed by "teachers Mário Aleixo, Gustavo Senna and Agenor Sampaio".
 
 Aleixo's approach of blending capoeira with jiu-jitsu—which he called "capo-jitsu"—made him a uniquely innovative athlete. He combined standing capoeira techniques with jiu-jitsu ground work, creating perhaps the first truly hybrid Brazilian fighting system.
 
@@ -65,9 +65,9 @@ Em 8 de setembro de 1914, Aleixo se transferiu para o prestigioso Club de Regata
 
 Em 1916, Aleixo convidou Agenor Sampaio—o futuro Mestre Sinhozinho—para ensinar luta greco-romana na União dos Empregados do Comércio no centro do Rio. Essa colaboração colocou duas das mais importantes figuras pioneiras da capoeira carioca no mesmo espaço institucional.
 
-Em 1920, Aleixo e o jornalista Raul Pederneiras abriram uma escola de capoeiragem em uma das salas do Club Gymnástico Português. O jornal sorocabano Cruzeiro do Sul noticiou: "O dr. Raul Pederneiras e o professor Mario Aleixo pretendem fundar no Rio uma escola para o ensino de um desporto genuinamente brasileiro: a capoeiragem."
+Em 1920, Aleixo e o jornalista Raul Pederneiras abriram uma escola de capoeiragem em uma das salas do Club Gymnástico Português. O jornal sorocabano Cruzeiro do Sul noticiou: "O dr. Raul Pederneiras e o professor Mario Aleixo pretendem fundar no Rio uma escola para o ensino de um desporto genuinamente brasileiro: a capoeiragem".
 
-Em 13 de março de 1920, o jornal O Jornal documentou um festival esportivo apresentando: "Defesa e ataque pessoal—professor Mário Aleixo versus Ernesto Goétte" e "Ginástica brasileira (Capoeiragem)—professor Agenor Sampaio versus Lincoln Coimbra." As apresentações foram dirigidas pelos "professores Mário Aleixo, Gustavo Senna e Agenor Sampaio."
+Em 13 de março de 1920, o jornal O Jornal documentou um festival esportivo apresentando: "Defesa e ataque pessoal—professor Mário Aleixo versus Ernesto Goétte" e "Ginástica brasileira (Capoeiragem)—professor Agenor Sampaio versus Lincoln Coimbra". As apresentações foram dirigidas pelos "professores Mário Aleixo, Gustavo Senna e Agenor Sampaio".
 
 A abordagem de Aleixo de mesclar capoeira com jiu-jitsu—que ele chamava de "capo-jitsu"—fez dele um atleta singularmente inovador. Ele combinou técnicas de capoeira em pé com trabalho de solo do jiu-jitsu, criando talvez o primeiro sistema de luta brasileiro verdadeiramente híbrido.
 
