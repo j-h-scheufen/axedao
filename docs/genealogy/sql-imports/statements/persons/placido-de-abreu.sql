@@ -24,8 +24,8 @@ SELECT
   mp.id,
   '{
     "association_context": {
-      "en": "Plácido de Abreu documented Manduca da Praia extensively in Os Capoeiras (1886) as the chief of the Santa Lucia party (Nagôas). As an amateur capoeirista in Rio during the 1870s-1880s, Abreu had insider knowledge of the malta world and documented Manduca''s exploits and leadership".,
-      "pt": "Plácido de Abreu documentou Manduca da Praia extensivamente em Os Capoeiras (1886) como o chefe do partido de Santa Lucia (Nagôas). Como capoeirista amador no Rio durante as décadas de 1870-1880, Abreu tinha conhecimento interno do mundo das maltas e documentou as façanhas e liderança de Manduca".
+      "en": "Plácido de Abreu documented Manduca da Praia extensively in Os Capoeiras (1886) as the chief of the Santa Lucia party (Nagôas). As an amateur capoeirista in Rio during the 1870s-1880s, Abreu had insider knowledge of the malta world and documented Manduca''s exploits and leadership.",
+      "pt": "Plácido de Abreu documentou Manduca da Praia extensivamente em Os Capoeiras (1886) como o chefe do partido de Santa Lucia (Nagôas). Como capoeirista amador no Rio durante as décadas de 1870-1880, Abreu tinha conhecimento interno do mundo das maltas e documentou as façanhas e liderança de Manduca."
     }
   }'::jsonb,
   'verified'::genealogy.confidence,

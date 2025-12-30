@@ -43,7 +43,7 @@ SELECT
   'group'::genealogy.entity_type, g.id,
   '1930-01-01'::date, 'decade'::genealogy.date_precision,
   NULL, 'unknown'::genealogy.date_precision,
-  '{"membership_context": "Regular participant in Sunday training sessions at Matatu Preto in the 1930s".}'::jsonb,
+  '{"membership_context": "Regular participant in Sunday training sessions at Matatu Preto in the 1930s."}'::jsonb,
   'verified'::genealogy.confidence,
   'Mestre Canjiquinha testimony (1989); velhosmestres.com',
   'Regular at the Matatu Preto Sunday training sessions in Salvador during the 1930s, alongside Aberrê, Onça Preta, Totonho de Maré, and others.',

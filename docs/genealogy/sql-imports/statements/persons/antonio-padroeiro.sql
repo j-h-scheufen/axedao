@@ -17,7 +17,7 @@ SELECT
   'person', ap.id,
   'associated_with',
   'person', ng.id,
-  '{"association_context": {"en": "Dangerous adversary who attempted to kill Nascimento Grande. After being disarmed in their confrontation, Padroeiro was beaten to death. One of only two enemies explicitly named as Nascimento Grande''s most dangerous challengers (alongside Corre Hoje)"., "pt": "Adversário perigoso que tentou matar Nascimento Grande. Depois de ser desarmado em seu confronto, Padroeiro foi espancado até a morte. Um dos únicos dois inimigos explicitamente nomeados como os desafiantes mais perigosos de Nascimento Grande (junto com Corre Hoje)".}}'::jsonb,
+  '{"association_context": {"en": "Dangerous adversary who attempted to kill Nascimento Grande. After being disarmed in their confrontation, Padroeiro was beaten to death. One of only two enemies explicitly named as Nascimento Grande''s most dangerous challengers (alongside Corre Hoje).", "pt": "Adversário perigoso que tentou matar Nascimento Grande. Depois de ser desarmado em seu confronto, Padroeiro foi espancado até a morte. Um dos únicos dois inimigos explicitamente nomeados como os desafiantes mais perigosos de Nascimento Grande (junto com Corre Hoje)."}}'::jsonb,
   'likely'::genealogy.confidence,
   'Educando com Ginga: Nascimento Grande biography'
 FROM genealogy.person_profiles ap, genealogy.person_profiles ng

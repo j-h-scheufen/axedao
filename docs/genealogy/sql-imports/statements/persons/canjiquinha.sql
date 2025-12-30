@@ -57,7 +57,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   '1986-09-16'::date, 'exact'::genealogy.date_precision,
   NULL, NULL,
-  '{"association_context": {"en": "Recorded landmark LP together at Boca do Rio studio, Salvador. Both described as heirs of capoeira roots from Siri de Mangue and Aberrê"., "pt": "Gravaram LP marcante juntos no estúdio Boca do Rio, Salvador. Ambos descritos como herdeiros das raízes da capoeira de Siri de Mangue e Aberrê".}}'::jsonb,
+  '{"association_context": {"en": "Recorded landmark LP together at Boca do Rio studio, Salvador. Both described as heirs of capoeira roots from Siri de Mangue and Aberrê.", "pt": "Gravaram LP marcante juntos no estúdio Boca do Rio, Salvador. Ambos descritos como herdeiros das raízes da capoeira de Siri de Mangue e Aberrê."}}'::jsonb,
   'verified'::genealogy.confidence,
   'velhosmestres.com/en/waldemar-1986, Discogs',
   'Canjiquinha and Waldemar recorded a 34-track LP on September 16, 1986 at Boca do Rio studio in Salvador. Liner notes by Mestre Itapoan described them as "heirs of the roots" from masters Siri de Mangue and Aberrê. Chorus included Mestres Itapoan, Suassuna, Ezequiel, and Geni.',

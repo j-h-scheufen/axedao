@@ -17,7 +17,7 @@ SELECT
   'person', ch.id,
   'associated_with',
   'person', ng.id,
-  '{"association_context": {"en": "Enemy of Nascimento Grande. Organized an attack with seven men to kill him but was killed in the attempt. Sources conflict on whether he was shot by Nascimento Grande in self-defense or struck by a stray bullet intended for Nascimento"., "pt": "Inimigo de Nascimento Grande. Organizou um ataque com sete homens para matá-lo mas foi morto na tentativa. Fontes conflitam se foi baleado por Nascimento Grande em legítima defesa ou atingido por uma bala perdida destinada a Nascimento".}}'::jsonb,
+  '{"association_context": {"en": "Enemy of Nascimento Grande. Organized an attack with seven men to kill him but was killed in the attempt. Sources conflict on whether he was shot by Nascimento Grande in self-defense or struck by a stray bullet intended for Nascimento.", "pt": "Inimigo de Nascimento Grande. Organizou um ataque com sete homens para matá-lo mas foi morto na tentativa. Fontes conflitam se foi baleado por Nascimento Grande em legítima defesa ou atingido por uma bala perdida destinada a Nascimento."}}'::jsonb,
   'likely'::genealogy.confidence,
   'Educando com Ginga (https://educando-com-ginga.webnode.page/), Mestre Brizola (https://mestrebrizola.webnode.com.br/)'
 FROM genealogy.person_profiles ch, genealogy.person_profiles ng

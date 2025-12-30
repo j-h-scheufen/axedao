@@ -21,7 +21,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   '1910-01-01'::date, 'approximate'::genealogy.date_precision,
   '1924-07-08'::date, 'exact'::genealogy.date_precision,
-  '{"association_context": "Training companions in Santo Amaro; part of Besouro''s circle that met on Sundays and holidays to play capoeira. Some sources also describe Siri as a student of Besouro".}'::jsonb,
+  '{"association_context": "Training companions in Santo Amaro; part of Besouro''s circle that met on Sundays and holidays to play capoeira. Some sources also describe Siri as a student of Besouro."}'::jsonb,
   'likely'::genealogy.confidence,
   'Papoeira.com, Capoeira Fandom Wiki, multiple sources describe them as training companions',
   'Part of Besouro''s circle of capoeiristas in Santo Amaro that included Paulo Barroquinha, Canário Pardo, and Maria Doze Homens. Described as "a gang of capoeira resistance fighters".',

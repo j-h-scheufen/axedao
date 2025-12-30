@@ -25,7 +25,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   NULL, 'unknown'::genealogy.date_precision,
   '1909-07-05'::date, 'exact'::genealogy.date_precision,
-  '{"association_context": "Both were valentões of Recife carnival, mentioned together as the most feared capoeiristas. Of all the valentões—Jovino dos Coelhos, Nicolau do Poço, João de Totó—Nascimento Grande was the most feared".}'::jsonb,
+  '{"association_context": "Both were valentões of Recife carnival, mentioned together as the most feared capoeiristas. Of all the valentões—Jovino dos Coelhos, Nicolau do Poço, João de Totó—Nascimento Grande was the most feared."}'::jsonb,
   'verified'::genealogy.confidence,
   'Valdemar de Oliveira, "Frevo, Capoeira e Passo" (1942); Oscar Mello, "Recife Sangrento" (1937)',
   'Both were prominent valentões of Recife carnival who performed in front of carnival bands. Ended with Jovino''s death on July 5, 1909.',

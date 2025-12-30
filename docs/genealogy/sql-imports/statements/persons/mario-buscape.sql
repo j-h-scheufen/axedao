@@ -80,7 +80,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   '1953-01-01'::date, 'decade'::genealogy.date_precision,
   NULL, NULL,
-  '{"association_context": "Mário frequented Artur Emídio''s roda in Rio de Janeiro during the 1950s. Witnesses say Mário was impressed by Artur''s speed and elevated his own game. Both are among the four founding lineages of contemporary capoeira in Rio".}'::jsonb,
+  '{"association_context": "Mário frequented Artur Emídio''s roda in Rio de Janeiro during the 1950s. Witnesses say Mário was impressed by Artur''s speed and elevated his own game. Both are among the four founding lineages of contemporary capoeira in Rio."}'::jsonb,
   'verified'::genealogy.confidence,
   'capoeirahistory.com/mestre/master-mario-buscape-1934-2021/',
   'Fellow founding lineage of contemporary capoeira in Rio de Janeiro. Mário frequented Artur Emídio''s roda in the 1950s and was impressed by his speed.',

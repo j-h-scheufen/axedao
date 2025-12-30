@@ -62,7 +62,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   '1920-01-01'::date, 'decade'::genealogy.date_precision,
   '1924-01-01'::date, 'year'::genealogy.date_precision,
-  '{"association_context": "Dendê trained with Besouro''s companions and according to Mário Buscapé, Besouro visited their family home. Part of the Recôncavo capoeira circle".}'::jsonb,
+  '{"association_context": "Dendê trained with Besouro''s companions and according to Mário Buscapé, Besouro visited their family home. Part of the Recôncavo capoeira circle."}'::jsonb,
   'likely'::genealogy.confidence,
   'capoeirahistory.com/mestre/master-mario-buscape-1934-2021/',
   'Besouro Mangangá visited Dendê''s family home (before Mário was born). Dendê was part of the capoeira circle in the Recôncavo that included Besouro and his companions. Ended with Besouro''s death in 1924.',
