@@ -94,7 +94,6 @@ export const PREDICATE_GROUPS: Record<string, Predicate[]> = {
     'regional_coordinator_of',
     'member_of',
     'teaches_at',
-    'cultural_pioneer_of',
     'associated_with',
     'departed_from',
   ],
@@ -161,7 +160,6 @@ export const GENERAL_VIEW_CONFIG: GraphViewConfig = {
     'regional_coordinator_of',
     'member_of',
     'teaches_at',
-    'cultural_pioneer_of',
     'associated_with',
     'departed_from',
     // Group-to-Group

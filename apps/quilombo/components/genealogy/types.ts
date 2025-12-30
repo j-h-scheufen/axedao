@@ -256,7 +256,6 @@ export const LINK_COLORS = {
   // Person-to-Group: Membership & Affiliation
   member_of: '#FF922B', // Orange
   teaches_at: '#F76707', // Dark orange
-  cultural_pioneer_of: '#FA5252', // Red
   associated_with: '#E64980', // Pink-red
   departed_from: '#7950F2', // Violet
   // Group-to-Group: Hierarchical
@@ -291,7 +290,6 @@ export const PREDICATE_LABELS: Record<Predicate, string> = {
   regional_coordinator_of: 'Regional coordinator of',
   member_of: 'Member of',
   teaches_at: 'Teaches at',
-  cultural_pioneer_of: 'Cultural pioneer of',
   associated_with: 'Associated with',
   departed_from: 'Departed from',
   // Group-to-Group
@@ -322,7 +320,6 @@ export const PREDICATE_LABELS_INVERSE: Record<Predicate, string> = {
   regional_coordinator_of: 'Regional coordinator',
   member_of: 'Member',
   teaches_at: 'Teacher',
-  cultural_pioneer_of: 'Cultural pioneer',
   associated_with: 'Associated with',
   departed_from: 'Departed by',
   // Group-to-Group

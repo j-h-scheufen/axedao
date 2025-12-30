@@ -19,7 +19,7 @@ const PERSON_TO_PERSON_PREDICATES: Predicate[] = ['student_of', 'trained_under',
 const PERSON_TO_GROUP_PREDICATES: Predicate[] = ['member_of', 'associated_with', 'departed_from'];
 
 // Leadership predicates are managed from the Group side
-// const LEADERSHIP_PREDICATES: Predicate[] = ['teaches_at', 'founded', 'co_founded', 'leads', 'regional_coordinator_of', 'cultural_pioneer_of'];
+// const LEADERSHIP_PREDICATES: Predicate[] = ['teaches_at', 'founded', 'co_founded', 'leads', 'regional_coordinator_of'];
 
 type FormValues = {
   objectType: EntityType;
