@@ -2,14 +2,16 @@
 
 import { Switch } from '@heroui/react';
 
-/** Supported languages for bilingual content. */
-export type Language = 'en' | 'pt';
+import type { GenealogyLanguage } from '@/components/genealogy/state';
+
+// Re-export for backwards compatibility
+export type Language = GenealogyLanguage;
 
 interface LanguageSwitchProps {
   /** Current language */
-  language: Language;
+  language: GenealogyLanguage;
   /** Callback when language changes */
-  onLanguageChange: (lang: Language) => void;
+  onLanguageChange: (lang: GenealogyLanguage) => void;
   /** Optional className for the container */
   className?: string;
 }

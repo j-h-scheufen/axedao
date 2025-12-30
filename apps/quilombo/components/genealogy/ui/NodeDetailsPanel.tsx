@@ -16,7 +16,7 @@ import { useAtomValue } from 'jotai';
 import { ArrowLeft, ArrowRight, FileText } from 'lucide-react';
 import { useState } from 'react';
 
-import { needsRefocusAtom, refocusCallbackAtom } from '@/components/genealogy/state';
+import { genealogyLanguageAtom, needsRefocusAtom, refocusCallbackAtom } from '@/components/genealogy/state';
 
 import { FullDetailsModal } from './FullDetailsModal';
 
@@ -161,9 +161,12 @@ function getDeathYearLabel(birthYear: number | null | undefined): string {
 }
 
 function PersonCard({ data }: { data: PersonDetails | undefined }) {
+  const language = useAtomValue(genealogyLanguageAtom);
+
   if (!data) {
     return <p className="text-small text-default-400">No person data available</p>;
   }
+
   // Build display name with title prefix if available
   const baseName = data.apelido || data.name || 'Unknown';
   const displayName =
@@ -178,7 +181,7 @@ function PersonCard({ data }: { data: PersonDetails | undefined }) {
   return (
     <div className="space-y-3">
       <div className="flex items-start gap-3">
-        <Avatar src={data.avatar || undefined} name={baseName} size="lg" className="shrink-0" />
+        <Avatar src={data.portrait || undefined} name={baseName} size="lg" className="shrink-0" />
         <div className="min-w-0 flex-1">
           <h3 className="text-lg font-bold">{displayName}</h3>
           {data.name && data.name !== data.apelido && <p className="text-small text-default-500">{data.name}</p>}
@@ -194,30 +197,24 @@ function PersonCard({ data }: { data: PersonDetails | undefined }) {
 
       {lifespan && (
         <div>
-          <p className="text-tiny font-semibold text-default-500">Lifespan</p>
+          <p className="text-tiny font-semibold text-default-500">{language === 'pt' ? 'Vida' : 'Lifespan'}</p>
           <p className="text-small">{lifespan}</p>
         </div>
       )}
 
       {(data.birthPlace || data.deathPlace) && (
         <div>
-          <p className="text-tiny font-semibold text-default-500">Places</p>
-          {data.birthPlace && <p className="text-small">Born: {data.birthPlace}</p>}
-          {data.deathPlace && <p className="text-small">Died: {data.deathPlace}</p>}
-        </div>
-      )}
-
-      {data.bio && (
-        <div>
-          <p className="text-tiny font-semibold text-default-500">Biography</p>
-          <p className="text-small">{data.bio}</p>
-        </div>
-      )}
-
-      {data.achievements && (
-        <div>
-          <p className="text-tiny font-semibold text-default-500">Achievements</p>
-          <p className="text-small">{data.achievements}</p>
+          <p className="text-tiny font-semibold text-default-500">{language === 'pt' ? 'Lugares' : 'Places'}</p>
+          {data.birthPlace && (
+            <p className="text-small">
+              {language === 'pt' ? 'Nascimento' : 'Born'}: {data.birthPlace}
+            </p>
+          )}
+          {data.deathPlace && (
+            <p className="text-small">
+              {language === 'pt' ? 'Falecimento' : 'Died'}: {data.deathPlace}
+            </p>
+          )}
         </div>
       )}
     </div>
@@ -225,15 +222,18 @@ function PersonCard({ data }: { data: PersonDetails | undefined }) {
 }
 
 function GroupCard({ data }: { data: GroupDetails | undefined }) {
+  const language = useAtomValue(genealogyLanguageAtom);
+
   if (!data) {
     return <p className="text-small text-default-400">No group data available</p>;
   }
+
   return (
     <div className="space-y-3">
       <div className="flex items-start gap-3">
         <Avatar src={data.logo || undefined} name="G" size="lg" className="shrink-0" radius="sm" />
         <div className="min-w-0 flex-1">
-          <h3 className="text-lg font-bold">Group</h3>
+          <h3 className="text-lg font-bold">{data.name || 'Group'}</h3>
           <div className="mt-1 flex flex-wrap gap-1">
             {data.style && (
               <Chip size="sm" variant="flat" color="secondary">
@@ -241,7 +241,7 @@ function GroupCard({ data }: { data: GroupDetails | undefined }) {
               </Chip>
             )}
             <Chip size="sm" variant="flat" color={data.isActive ? 'success' : 'default'}>
-              {data.isActive ? 'Active' : 'Inactive'}
+              {data.isActive ? (language === 'pt' ? 'Ativo' : 'Active') : language === 'pt' ? 'Inativo' : 'Inactive'}
             </Chip>
           </div>
         </div>
@@ -249,32 +249,20 @@ function GroupCard({ data }: { data: GroupDetails | undefined }) {
 
       {data.nameAliases && data.nameAliases.length > 0 && (
         <div>
-          <p className="text-tiny font-semibold text-default-500">Also Known As</p>
+          <p className="text-tiny font-semibold text-default-500">
+            {language === 'pt' ? 'Também Conhecido Como' : 'Also Known As'}
+          </p>
           <p className="text-small">{data.nameAliases.join(', ')}</p>
         </div>
       )}
 
       {data.foundedYear && (
         <div>
-          <p className="text-tiny font-semibold text-default-500">Founded</p>
+          <p className="text-tiny font-semibold text-default-500">{language === 'pt' ? 'Fundação' : 'Founded'}</p>
           <p className="text-small">
             {formatYear(data.foundedYear, data.foundedYearPrecision)}
-            {data.foundedLocation && ` in ${data.foundedLocation}`}
+            {data.foundedLocation && ` ${language === 'pt' ? 'em' : 'in'} ${data.foundedLocation}`}
           </p>
-        </div>
-      )}
-
-      {data.description && (
-        <div>
-          <p className="text-tiny font-semibold text-default-500">Description</p>
-          <p className="text-small">{data.description}</p>
-        </div>
-      )}
-
-      {data.philosophy && (
-        <div>
-          <p className="text-tiny font-semibold text-default-500">Philosophy</p>
-          <p className="text-small">{data.philosophy}</p>
         </div>
       )}
     </div>

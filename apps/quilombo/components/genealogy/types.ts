@@ -105,22 +105,29 @@ export interface PersonDetails {
   deathYear?: number | null;
   deathYearPrecision?: string | null;
   deathPlace?: string | null;
-  avatar?: string | null;
-  bio?: string | null;
-  achievements?: string | null;
+  portrait?: string | null;
+  // Bilingual fields - UI should select based on language preference
+  bioEn?: string | null;
+  bioPt?: string | null;
+  achievementsEn?: string | null;
+  achievementsPt?: string | null;
 }
 
 export interface GroupDetails {
   id: string;
-  description?: string | null;
+  name?: string | null;
   style?: string | null;
   foundedYear?: number | null;
   foundedYearPrecision?: string | null;
   foundedLocation?: string | null;
-  philosophy?: string | null;
   logo?: string | null;
   isActive?: boolean | null;
   nameAliases?: string[] | null;
+  // Bilingual fields - UI should select based on language preference
+  descriptionEn?: string | null;
+  descriptionPt?: string | null;
+  philosophyEn?: string | null;
+  philosophyPt?: string | null;
 }
 
 export interface StatementDetail {

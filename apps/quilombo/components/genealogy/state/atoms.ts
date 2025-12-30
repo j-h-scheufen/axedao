@@ -10,6 +10,19 @@ import { atom } from 'jotai';
 import { type GraphViewMode, GENERAL_VIEW_CONFIG, getViewConfig } from '@/components/genealogy/config';
 import type { GraphFilters } from '@/components/genealogy/types';
 
+// ============================================================================
+// Language Setting - for bilingual content display
+// ============================================================================
+
+/** Supported languages for bilingual genealogy content. */
+export type GenealogyLanguage = 'en' | 'pt';
+
+/**
+ * Current language for displaying bilingual content (bios, descriptions, etc.).
+ * Default to English.
+ */
+export const genealogyLanguageAtom = atom<GenealogyLanguage>('en');
+
 /**
  * Current graph view mode.
  */

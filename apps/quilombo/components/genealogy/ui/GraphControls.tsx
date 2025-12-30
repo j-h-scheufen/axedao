@@ -9,6 +9,7 @@ import { useUserAncestry } from '@/hooks/useGenealogyData';
 
 import { getFilteredPredicateGroups } from '@/components/genealogy/config';
 import {
+  genealogyLanguageAtom,
   graphFiltersAtom,
   graphSettingsAtom,
   graphViewModeAtom,
@@ -50,6 +51,7 @@ export function GraphControls({ stats, isLoading, nodeIds, onClose }: GraphContr
   const viewConfig = useAtomValue(viewConfigAtom);
   const [filters, setFilters] = useAtom(graphFiltersAtom);
   const [settings, setSettings] = useAtom(graphSettingsAtom);
+  const [language, setLanguage] = useAtom(genealogyLanguageAtom);
   const setSelectedNodeId = useSetAtom(selectedNodeIdAtom);
 
   // "Show Yourself" feature state
@@ -264,8 +266,28 @@ export function GraphControls({ stats, isLoading, nodeIds, onClose }: GraphContr
         <Divider className="my-3" />
 
         {/* Graph Settings */}
-        <div className="space-y-2">
+        <div className="space-y-3">
           <h3 className="text-small font-semibold">Settings</h3>
+
+          {/* Language Toggle */}
+          <div className="flex items-center justify-between">
+            <span className="text-small">Language</span>
+            <div className="flex items-center gap-2">
+              <span className="text-base" title="English">
+                🇬🇧
+              </span>
+              <Switch
+                size="sm"
+                isSelected={language === 'pt'}
+                onValueChange={(selected) => setLanguage(selected ? 'pt' : 'en')}
+                aria-label="Toggle language between English and Portuguese"
+              />
+              <span className="text-base" title="Português">
+                🇧🇷
+              </span>
+            </div>
+          </div>
+
           <Switch
             size="sm"
             isSelected={settings.showAnimations}

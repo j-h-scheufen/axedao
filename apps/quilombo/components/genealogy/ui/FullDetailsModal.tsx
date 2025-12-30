@@ -12,18 +12,20 @@ import {
   ModalHeader,
   Spinner,
 } from '@heroui/react';
+import { useAtom } from 'jotai';
 import { ExternalLink, FileText } from 'lucide-react';
 import { useMemo, useState } from 'react';
 
 import { useResponsiveLayout } from '@/hooks/useResponsiveLayout';
 
+import { type GenealogyLanguage, genealogyLanguageAtom } from '@/components/genealogy/state';
 import type { GroupFullProfile, NameHistoryEntry, PersonFullProfile } from '@/components/genealogy/types';
-import { type Language, LanguageSwitch } from './LanguageSwitch';
+import { LanguageSwitch } from './LanguageSwitch';
 
 /**
  * Field labels in English and Portuguese.
  */
-const FIELD_LABELS: Record<string, Record<Language, string>> = {
+const FIELD_LABELS: Record<string, Record<GenealogyLanguage, string>> = {
   // Person fields
   name: { en: 'Full Name', pt: 'Nome Completo' },
   apelido: { en: 'Apelido (Nickname)', pt: 'Apelido' },
@@ -57,7 +59,7 @@ const FIELD_LABELS: Record<string, Record<Language, string>> = {
 /**
  * Get the label for a field in the current language.
  */
-function getLabel(field: string, lang: Language): string {
+function getLabel(field: string, lang: GenealogyLanguage): string {
   return FIELD_LABELS[field]?.[lang] || field;
 }
 
@@ -96,9 +98,9 @@ function formatDate(dateStr: string | null | undefined): string {
 /**
  * Format legal structure for display.
  */
-function formatLegalStructure(structure: string | null | undefined, lang: Language): string {
+function formatLegalStructure(structure: string | null | undefined, lang: GenealogyLanguage): string {
   if (!structure) return '';
-  const labels: Record<string, Record<Language, string>> = {
+  const labels: Record<string, Record<GenealogyLanguage, string>> = {
     nonprofit: { en: 'Non-profit Organization', pt: 'Organização Sem Fins Lucrativos' },
     informal: { en: 'Informal Association', pt: 'Associação Informal' },
     company: { en: 'Company', pt: 'Empresa' },
@@ -127,7 +129,7 @@ function FieldDisplay({ label, children, className = '' }: FieldDisplayProps) {
 
 interface PersonFullDetailsProps {
   profile: PersonFullProfile;
-  lang: Language;
+  lang: GenealogyLanguage;
 }
 
 /**
@@ -290,7 +292,7 @@ function PersonFullDetails({ profile, lang }: PersonFullDetailsProps) {
 
 interface GroupFullDetailsProps {
   profile: GroupFullProfile;
-  lang: Language;
+  lang: GenealogyLanguage;
 }
 
 /**
@@ -491,10 +493,10 @@ interface FullDetailsModalProps {
 
 /**
  * Modal for displaying the full genealogy record of a person or group.
- * Includes a language toggle for bilingual content.
+ * Includes a language toggle for bilingual content that syncs with global state.
  */
 export function FullDetailsModal({ isOpen, onClose, entityType, entityId, entityName }: FullDetailsModalProps) {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useAtom(genealogyLanguageAtom);
   const [profile, setProfile] = useState<PersonFullProfile | GroupFullProfile | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

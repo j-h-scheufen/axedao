@@ -1,10 +1,11 @@
 'use client';
 
 import { Button, Divider, Link, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from '@heroui/react';
+import { useAtom } from 'jotai';
 import { BookOpen, GitBranch, ShieldCheck, Users } from 'lucide-react';
-import { useState } from 'react';
 
-import { type Language, LanguageSwitch } from './LanguageSwitch';
+import { genealogyLanguageAtom } from '@/components/genealogy/state';
+import { LanguageSwitch } from './LanguageSwitch';
 
 interface GenealogyInfoModalProps {
   isOpen: boolean;
@@ -105,10 +106,10 @@ const CONTENT = {
 /**
  * Modal explaining the Capoeira Genealogy project - its purpose, methodology, and how users can claim profiles.
  * Designed to address skepticism from established capoeiristas and explain the community-driven approach.
- * Supports bilingual content (English/Portuguese) with a language toggle.
+ * Supports bilingual content (English/Portuguese) with a language toggle that syncs with global state.
  */
 export function GenealogyInfoModal({ isOpen, onClose }: GenealogyInfoModalProps) {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useAtom(genealogyLanguageAtom);
 
   const t = CONTENT;
 

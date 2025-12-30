@@ -3,6 +3,7 @@
  */
 
 export {
+  genealogyLanguageAtom,
   graphFiltersAtom,
   graphSettingsAtom,
   graphViewModeAtom,
@@ -15,4 +16,4 @@ export {
   viewConfigAtom,
 } from './atoms';
 
-export type { GraphSettings } from './atoms';
+export type { GenealogyLanguage, GraphSettings } from './atoms';
