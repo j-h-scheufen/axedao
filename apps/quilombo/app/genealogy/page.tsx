@@ -59,6 +59,7 @@ export default function GenealogyPage() {
     showYourself: parseAsBoolean.withDefault(false),
     about: parseAsBoolean, // Open info modal when true
     lang: parseAsString, // Set language: 'en' or 'pt'
+    type: parseAsString, // Filter by node type: 'person' or 'group'
   });
 
   // Track if initial URL state has been applied
@@ -77,15 +78,22 @@ export default function GenealogyPage() {
     initializedRef.current = true;
 
     // Apply view mode from URL
-    if (queryParams.view && queryParams.view !== graphView) {
-      const viewMode = queryParams.view as GraphViewMode;
-      const newConfig = getViewConfig(viewMode);
+    const viewMode = (queryParams.view as GraphViewMode) || 'general';
+    const newConfig = getViewConfig(viewMode);
+
+    if (viewMode !== graphView) {
       setGraphView(viewMode);
-      setFilters({
-        nodeTypes: [...newConfig.allowedNodeTypes],
-        predicates: [...newConfig.allowedPredicates],
-      });
     }
+
+    // Apply type filter if specified (filter nodeTypes to single type)
+    const typeFilter = queryParams.type as 'person' | 'group' | null;
+    const allowedNodeTypes =
+      typeFilter && newConfig.allowedNodeTypes.includes(typeFilter) ? [typeFilter] : [...newConfig.allowedNodeTypes];
+
+    setFilters({
+      nodeTypes: allowedNodeTypes,
+      predicates: [...newConfig.allowedPredicates],
+    });
 
     // Apply showYourself from URL (only in student-ancestry view)
     if (queryParams.showYourself && queryParams.view === 'student-ancestry') {

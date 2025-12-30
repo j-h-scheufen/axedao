@@ -10,6 +10,7 @@ import { rateLimit, getClientIp } from '@/utils/rate-limit';
  *     summary: Get public platform statistics
  *     description: |
  *       Returns aggregated public statistics about the platform.
+ *       Statistics are split into genealogy (capoeira lineage data) and platform (app usage) sections.
  *       No authentication required. Rate limited to 10 requests per minute per IP.
  *     tags:
  *       - Public
@@ -21,15 +22,32 @@ import { rateLimit, getClientIp } from '@/utils/rate-limit';
  *             schema:
  *               type: object
  *               properties:
- *                 activeUsers:
- *                   type: number
- *                   description: Number of active users
- *                 totalGroups:
- *                   type: number
- *                   description: Total number of groups
- *                 upcomingEvents:
- *                   type: number
- *                   description: Number of upcoming events
+ *                 genealogy:
+ *                   type: object
+ *                   description: Capoeira genealogy statistics
+ *                   properties:
+ *                     groups:
+ *                       type: number
+ *                       description: Number of group profiles in the genealogy
+ *                     persons:
+ *                       type: number
+ *                       description: Number of person profiles in the genealogy
+ *                 platform:
+ *                   type: object
+ *                   description: Platform usage statistics
+ *                   properties:
+ *                     users:
+ *                       type: number
+ *                       description: Number of active users
+ *                     managedGroups:
+ *                       type: number
+ *                       description: Number of groups with at least one admin
+ *                     upcomingEvents:
+ *                       type: number
+ *                       description: Number of upcoming events
+ *                     groupLocations:
+ *                       type: number
+ *                       description: Number of registered group locations
  *       429:
  *         description: Too many requests - rate limit exceeded
  *         content:

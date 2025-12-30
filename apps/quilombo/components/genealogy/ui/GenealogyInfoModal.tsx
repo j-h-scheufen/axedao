@@ -75,8 +75,8 @@ const CONTENT = {
         mestre: {
           label: { en: 'For a mestre or historical figure:', pt: 'Para um mestre ou figura histórica:' },
           text: {
-            en: 'Family members or senior students with legitimate interest can apply to manage the profile, preserving the legacy of those who came before.',
-            pt: 'Familiares ou alunos seniores com interesse legítimo podem solicitar o gerenciamento do perfil, preservando o legado daqueles que vieram antes.',
+            en: 'Family members, senior students, anyone with legitimate interest can apply to manage the profile to preserve their legacy appropriately.',
+            pt: 'Familiares, alunos seniores ou qualquer pessoa com interesse legítimo pode solicitar a gestão do perfil para preservar seu legado de forma apropriada.',
           },
         },
         groups: {
