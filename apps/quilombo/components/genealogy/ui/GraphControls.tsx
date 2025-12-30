@@ -5,6 +5,7 @@ import { useAtom, useAtomValue, useSetAtom } from 'jotai';
 
 import type { EntityType, Predicate } from '@/db/schema/genealogy';
 import { currentUserProfileIdAtom } from '@/hooks/state/currentUser';
+import { useUserAncestry } from '@/hooks/useGenealogyData';
 
 import { getFilteredPredicateGroups } from '@/components/genealogy/config';
 import {
@@ -56,6 +57,12 @@ export function GraphControls({ stats, isLoading, nodeIds, onClose }: GraphContr
   const userProfileId = useAtomValue(currentUserProfileIdAtom);
   const hasGenealogyProfile = !!userProfileId;
   const isStudentAncestryView = viewMode === 'student-ancestry';
+
+  // Fetch user's ancestry to check if they have any lineage relations
+  const { data: ancestryData } = useUserAncestry(userProfileId, {
+    enabled: isStudentAncestryView && hasGenealogyProfile,
+  });
+  const hasLineageRelations = (ancestryData?.ancestorIds?.length ?? 0) > 0;
 
   // "Find Me" feature - check if user's profile is in the current graph
   const isUserInGraph = hasGenealogyProfile && nodeIds?.has(userProfileId);
@@ -269,8 +276,14 @@ export function GraphControls({ stats, isLoading, nodeIds, onClose }: GraphContr
           </Switch>
           {isStudentAncestryView && (
             <Tooltip
-              content="Link your account to a genealogy profile to see yourself on the graph"
-              isDisabled={hasGenealogyProfile}
+              content={
+                !hasGenealogyProfile
+                  ? 'Link your account to a genealogy profile to see yourself on the graph'
+                  : !hasLineageRelations
+                    ? 'No lineage relations found for your profile'
+                    : ''
+              }
+              isDisabled={hasGenealogyProfile && hasLineageRelations}
               placement="bottom"
             >
               <div className="w-fit">
@@ -278,7 +291,7 @@ export function GraphControls({ stats, isLoading, nodeIds, onClose }: GraphContr
                   size="sm"
                   isSelected={showYourself}
                   onValueChange={handleShowYourselfChange}
-                  isDisabled={isLoading || !hasGenealogyProfile}
+                  isDisabled={isLoading || !hasGenealogyProfile || !hasLineageRelations}
                 >
                   Highlight Your Lineage
                 </Switch>

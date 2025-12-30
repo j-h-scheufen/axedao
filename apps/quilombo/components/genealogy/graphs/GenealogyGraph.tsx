@@ -53,7 +53,6 @@ import {
 } from './constants';
 import {
   BIRTH_YEAR_OFFSET,
-  ERA_CONFIG,
   createLinkStrengthResolver,
   createTemporalLayout,
   getEraBand,
@@ -141,7 +140,7 @@ function computeFlatRadialPosition2D(
   nodeIndex: number,
   bandNodeCounts: Map<number, number>
 ): { x: number; y: number } {
-  const effectiveYear = birthYear !== null ? birthYear + BIRTH_YEAR_OFFSET : ERA_CONFIG.unknownYear;
+  const effectiveYear = birthYear !== null ? birthYear + BIRTH_YEAR_OFFSET : layout.config.unknownYear;
   const radius = layout.computeRadialDistanceForEntityYear(birthYear);
   const band = getEraBand(effectiveYear);
 
@@ -211,7 +210,7 @@ function processForStudentAncestryView2D(layout: TemporalLayout, data: GraphData
 
   const processedNodes: TemporalForceNode2D[] = personNodes.map((node, index) => {
     const year = getNodeYear(node);
-    const targetRadius = layout.computeRadialDistanceForYear(year ?? ERA_CONFIG.unknownYear);
+    const targetRadius = layout.computeRadialDistanceForYear(year ?? layout.config.unknownYear);
     const pos = computeFlatRadialPosition2D(layout, year, index, bandNodeCounts);
 
     return {
@@ -430,6 +429,7 @@ export function GenealogyGraph({
         nodeScale={nodeScale}
         autoFitOnLoad
         showLinkArrows
+        showLinkParticles={settings.showAnimations}
         warmupTicks={SIMULATION_CONFIG.warmupTicks}
         cooldownTicks={SIMULATION_CONFIG.cooldownTicks}
         d3AlphaDecay={SIMULATION_CONFIG.d3AlphaDecay}

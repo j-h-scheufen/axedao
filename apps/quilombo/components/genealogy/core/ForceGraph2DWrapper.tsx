@@ -71,6 +71,7 @@ export function ForceGraph2DWrapper({
   d3AlphaDecay = 0.02,
   d3VelocityDecay = 0.3,
   showLinkArrows = true,
+  showLinkParticles = false,
   linkForceConfig,
   nodeScale = 1.0,
 }: ForceGraph2DWrapperProps) {
@@ -451,6 +452,8 @@ export function ForceGraph2DWrapper({
           linkWidth={1.5}
           linkDirectionalArrowLength={showLinkArrows ? 4 : 0}
           linkDirectionalArrowRelPos={1}
+          linkDirectionalParticles={showLinkParticles ? 1 : 0}
+          linkDirectionalParticleSpeed={0.005}
           // Interaction
           onNodeClick={handleNodeClick}
           onBackgroundClick={handleBackgroundClick}

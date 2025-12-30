@@ -47,6 +47,9 @@ export interface TemporalLayoutConfig {
 
   /** Default distance for link force - how far apart linked nodes want to be */
   linkDistance: number;
+
+  /** Year to use for nodes without birth/founding date (default: 2200 for general, current year for ancestry) */
+  unknownYear: number;
 }
 
 /**
@@ -69,6 +72,8 @@ export const DEFAULT_TEMPORAL_LAYOUT_CONFIG: TemporalLayoutConfig = {
   bandRadiusModernDecade: 35,
   bandRadiusContemporaryDecade: 75,
   linkDistance: 40,
+  // Unknown dates go far out by default (general view)
+  unknownYear: 2200,
 };
 
 // Convenience constants derived from default config (for backward compatibility)
@@ -106,10 +111,6 @@ export const ERA_CONFIG = {
   modernEndYear: 1979,
   // Contemporary era starts at 1980 (larger spacing for group explosion)
   contemporaryStartYear: 1980,
-  // Unknown birth years go to this pseudo-year (far beyond current timeline)
-  // Placed at 2200 to push these nodes ~3x farther out than actual 2020s data,
-  // preventing them from blocking the view of the main genealogy timeline
-  unknownYear: 2200,
 } as const;
 
 // ============================================================================
@@ -238,11 +239,14 @@ export function computeRadialDistanceForYear(year: number): number {
  * Applies BIRTH_YEAR_OFFSET to position nodes at their "active capoeira years"
  * rather than birth year (capoeiristas typically started training around age 10-15).
  *
+ * Note: Uses DEFAULT_TEMPORAL_LAYOUT_CONFIG.unknownYear for null years.
+ * For view-specific unknownYear, use the layout factory's computeRadialDistanceForEntityYear instead.
+ *
  * @param year - Birth year (for persons) or founding year (for groups), or null if unknown
  * @returns Radial distance from center
  */
 export function computeRadialDistanceForEntityYear(year: number | null): number {
-  const effectiveYear = year !== null ? year + BIRTH_YEAR_OFFSET : ERA_CONFIG.unknownYear;
+  const effectiveYear = year !== null ? year + BIRTH_YEAR_OFFSET : DEFAULT_TEMPORAL_LAYOUT_CONFIG.unknownYear;
   return computeRadialDistanceForYear(effectiveYear);
 }
 
@@ -609,6 +613,7 @@ export function createTemporalLayout(config: Partial<TemporalLayoutConfig> = {})
     bandRadiusAbolitionEra: bandRadiusGoldenAge,
     bandRadiusModernDecade,
     bandRadiusContemporaryDecade,
+    unknownYear,
   } = resolvedConfig;
 
   // Build foundation radii array from config
@@ -666,7 +671,7 @@ export function createTemporalLayout(config: Partial<TemporalLayoutConfig> = {})
    * Config-bound version of computeRadialDistanceForEntityYear.
    */
   function computeRadialDistanceForEntityYearBound(year: number | null): number {
-    const effectiveYear = year !== null ? year + BIRTH_YEAR_OFFSET : ERA_CONFIG.unknownYear;
+    const effectiveYear = year !== null ? year + BIRTH_YEAR_OFFSET : unknownYear;
     return computeRadialDistanceForYearBound(effectiveYear);
   }
 

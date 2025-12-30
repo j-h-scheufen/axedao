@@ -50,6 +50,8 @@ export interface GraphViewConfig {
     showNodeShapes: boolean;
     /** Node shapes to display (if showNodeShapes is true) */
     nodeShapes?: { label: string; symbol: string }[];
+    /** Whether to show dynamic relationship colors based on filter selection */
+    showDynamicRelationships?: boolean;
   };
 }
 
@@ -138,22 +140,12 @@ const GENERAL_PERSON_TITLE_LEGEND = createPersonTitleLegend(GENERAL_MIN_TITLE_LE
 /** Person title legend for ancestry view (contra-mestre and above) */
 const ANCESTRY_PERSON_TITLE_LEGEND = createPersonTitleLegend(ANCESTRY_MIN_TITLE_LEVEL);
 
-const GROUP_STYLE_LEGEND: LegendCategory = {
-  category: 'Group Styles',
-  items: [
-    { label: 'Angola', color: NODE_COLORS.group.angola },
-    { label: 'Regional', color: NODE_COLORS.group.regional },
-    { label: 'Contemporânea', color: NODE_COLORS.group.contemporanea },
-    { label: 'Mixed', color: NODE_COLORS.group.mixed },
-  ],
-};
-
 const LINEAGE_LINK_LEGEND: LegendCategory = {
   category: 'Lineage Links',
   items: [
     { label: PREDICATE_LABELS.student_of, color: LINK_COLORS.student_of },
     { label: PREDICATE_LABELS.trained_under, color: LINK_COLORS.trained_under },
-    { label: PREDICATE_LABELS.influenced_by, color: LINK_COLORS.influenced_by },
+    // Note: influenced_by is gravity-only (affects layout but not rendered as visible links)
   ],
 };
 
@@ -192,12 +184,9 @@ export const GENERAL_VIEW_CONFIG: GraphViewConfig = {
     'cooperates_with',
   ],
   legend: {
-    nodeCategories: [GENERAL_PERSON_TITLE_LEGEND, GROUP_STYLE_LEGEND],
-    showNodeShapes: true,
-    nodeShapes: [
-      { label: 'Person', symbol: '●' },
-      { label: 'Group', symbol: '⬡' },
-    ],
+    nodeCategories: [GENERAL_PERSON_TITLE_LEGEND],
+    showNodeShapes: false,
+    showDynamicRelationships: true,
   },
 };
 

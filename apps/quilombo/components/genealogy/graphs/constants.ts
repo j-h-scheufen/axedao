@@ -24,10 +24,10 @@ export const GENERAL_MIN_TITLE_LEVEL = 3; // professor and above
 // ============================================================================
 
 /** Node collision radius for general 3D view */
-export const GENERAL_COLLISION_RADIUS = 12;
+export const GENERAL_COLLISION_RADIUS = 20;
 
 /** Node collision radius for flat ancestry view - larger to spread nodes within bands */
-export const ANCESTRY_COLLISION_RADIUS = 18;
+export const ANCESTRY_COLLISION_RADIUS = 25;
 
 // ============================================================================
 // LINK FORCE STRENGTH
@@ -50,6 +50,9 @@ export const GENERAL_LINK_STRENGTH: Record<string, number> = {
   ...DEFAULT_LINK_FORCE_STRENGTH,
   member_of: 0.3,
   co_founded: 0.2,
+  family_of: 0.3,
+  received_title_from: 0.2,
+  baptized_by: 0.2,
 };
 
 /** Link force strength by predicate - student ancestry view */
@@ -101,6 +104,7 @@ export const GENERAL_VIEW_LAYOUT_CONFIG: Partial<TemporalLayoutConfig> = {
  * - Larger era bands for golden age (1850-1899 split into two bands)
  * - Larger link distance to spread connected nodes
  * - Slightly larger modern decade spacing
+ * - Unknown dates placed at current year (typically just the current user)
  *
  * With these settings (4 foundation bands):
  * - Foundation ends at: 15 + 35 + 55 + 65 + 75 = 245
@@ -110,9 +114,11 @@ export const GENERAL_VIEW_LAYOUT_CONFIG: Partial<TemporalLayoutConfig> = {
 export const STUDENT_ANCESTRY_LAYOUT_CONFIG: Partial<TemporalLayoutConfig> = {
   bandRadiusEarlyHistory: 35, // Pre-1800: small (sparse)
   bandRadiusEarlyDocumentation: 45, // 1800-1849: moderate
-  bandRadiusRisingDocumentation: 55, // 1850-1874: rising activity
-  bandRadiusAbolitionEra: 80, // 1875-1899: golden age, most space
-  bandRadiusModernDecade: 40,
+  bandRadiusRisingDocumentation: 60, // 1850-1874: rising activity
+  bandRadiusAbolitionEra: 135, // 1875-1899: golden age, most space
+  bandRadiusModernDecade: 50,
   bandRadiusContemporaryDecade: 80,
   linkDistance: 75,
+  // Unknown dates at current year - in ancestry view, this is typically just the current user
+  unknownYear: new Date().getFullYear(),
 };

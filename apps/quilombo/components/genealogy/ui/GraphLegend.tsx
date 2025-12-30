@@ -5,11 +5,12 @@ import { useAtomValue } from 'jotai';
 import { ChevronDown, Info } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 
-import type { EntityType } from '@/db/schema/genealogy';
+import type { EntityType, Predicate } from '@/db/schema/genealogy';
 import { useResponsiveLayout } from '@/hooks/useResponsiveLayout';
 
 import type { LegendCategory } from '@/components/genealogy/config';
 import { graphFiltersAtom, viewConfigAtom } from '@/components/genealogy/state';
+import { LINK_COLORS, PREDICATE_LABELS } from '@/components/genealogy/types';
 
 /** Maps legend category names to the node type they require */
 const LEGEND_CATEGORY_REQUIRED_TYPE: Record<string, EntityType> = {
@@ -52,7 +53,7 @@ export function GraphLegend() {
   const viewConfig = useAtomValue(viewConfigAtom);
   const filters = useAtomValue(graphFiltersAtom);
 
-  const { nodeCategories, showNodeShapes, nodeShapes } = viewConfig.legend;
+  const { nodeCategories, showNodeShapes, nodeShapes, showDynamicRelationships } = viewConfig.legend;
 
   // Filter legend categories based on selected node types
   const visibleCategories = useMemo(() => {
@@ -80,8 +81,25 @@ export function GraphLegend() {
     });
   }, [showNodeShapes, nodeShapes, filters.nodeTypes]);
 
-  // Don't render if no categories visible
-  if (visibleCategories.length === 0 && visibleNodeShapes.length === 0) {
+  // Generate dynamic relationship legend items based on selected predicates
+  const dynamicRelationshipsCategory = useMemo((): LegendCategory | null => {
+    if (!showDynamicRelationships || filters.predicates.length === 0) return null;
+
+    const items = filters.predicates.map((predicate: Predicate) => ({
+      label: PREDICATE_LABELS[predicate],
+      color: LINK_COLORS[predicate] ?? LINK_COLORS.default,
+    }));
+
+    return {
+      category: 'Relationships',
+      items,
+    };
+  }, [showDynamicRelationships, filters.predicates]);
+
+  // Don't render if nothing to show
+  const hasContent =
+    visibleCategories.length > 0 || visibleNodeShapes.length > 0 || dynamicRelationshipsCategory !== null;
+  if (!hasContent) {
     return null;
   }
 
@@ -121,6 +139,8 @@ export function GraphLegend() {
         {visibleCategories.map((category) => (
           <LegendSection key={category.category} category={category} />
         ))}
+
+        {dynamicRelationshipsCategory && <LegendSection category={dynamicRelationshipsCategory} />}
 
         {showNodeShapes && visibleNodeShapes.length > 0 && (
           <div>

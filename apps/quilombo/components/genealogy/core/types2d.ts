@@ -170,6 +170,9 @@ export interface ForceGraph2DWrapperProps {
   /** Show link directional arrows */
   showLinkArrows?: boolean;
 
+  /** Show link directional particles (animated flow on links) */
+  showLinkParticles?: boolean;
+
   /** Configuration for the library's built-in link force */
   linkForceConfig?: LinkForceConfig2D;
 
