@@ -57,7 +57,7 @@ SELECT
   'group'::genealogy.entity_type, g.id,
   '1910-01-01'::date, 'approximate'::genealogy.date_precision,
   '1924-07-08'::date, 'exact'::genealogy.date_precision,
-  '{"membership_context": "Training companion at Trapiche de Baixo. Part of Besouro''s circle that met on Sundays and holidays".}'::jsonb,
+  '{"membership_context": "Training companion at Trapiche de Baixo. Part of Besouro''s circle that met on Sundays and holidays."}'::jsonb,
   'verified'::genealogy.confidence,
   'José Brigido Dorneles Antunes (via Antonio Liberac); Velhos Mestres; Professor Leiteiro',
   'One of Besouro''s companions at Trapiche de Baixo alongside Paulo Barroquinha, Boca de Siri, Noca de Jacó, and Doze Homens. They were a gang of capoeira resistance fighters who trained together on Sundays.',

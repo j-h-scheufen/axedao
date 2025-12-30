@@ -41,7 +41,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   '1938-01-01'::date, 'year'::genealogy.date_precision,
   NULL, NULL,
-  '{"association_context": {"en": "Both were university-educated students of Bimba who formed the two intellectual pillars of Capoeira Regional. Both contributed academic methodology and institutional legitimacy to the art"., "pt": "Ambos eram alunos universitários de Bimba que formaram os dois pilares intelectuais da Capoeira Regional. Ambos contribuíram com metodologia acadêmica e legitimidade institucional para a arte".}}'::jsonb,
+  '{"association_context": {"en": "Both were university-educated students of Bimba who formed the two intellectual pillars of Capoeira Regional. Both contributed academic methodology and institutional legitimacy to the art.", "pt": "Ambos eram alunos universitários de Bimba que formaram os dois pilares intelectuais da Capoeira Regional. Ambos contribuíram com metodologia acadêmica e legitimidade institucional para a arte."}}'::jsonb,
   'verified'::genealogy.confidence,
   'https://portalcapoeira.com/capoeira-da-bahia/dr-jose-qcisnandoq-lima-a-pedra-fundamental-da-regional/',
   E'Cisnando (Initial Phase, 1930-1937) and Decânio (Consolidation Phase, from 1938) formed the two intellectual "pillars" upon which Bimba built Capoeira Regional. Both were university-educated professionals (medicine) who gave the art academic structure and social legitimacy.',

@@ -21,7 +21,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   '1850-01-01'::date, 'decade'::genealogy.date_precision,
   NULL, 'unknown'::genealogy.date_precision,
-  '{"association_context": "Both were active capoeiristas in Rio de Janeiro around 1850. Mamede is documented as one of the dangerous capoeiras of Manduca''s era in Plácido de Abreu''s Os Capoeiras (1886)".}'::jsonb,
+  '{"association_context": "Both were active capoeiristas in Rio de Janeiro around 1850. Mamede is documented as one of the dangerous capoeiras of Manduca''s era in Plácido de Abreu''s Os Capoeiras (1886)."}'::jsonb,
   'likely'::genealogy.confidence,
   'Plácido de Abreu, "Os Capoeiras" (1886); Multiple secondary sources discussing Manduca da Praia',
   'Both operated in the violent street culture of the maltas in mid-19th century Rio. Exact nature of interaction unknown.',

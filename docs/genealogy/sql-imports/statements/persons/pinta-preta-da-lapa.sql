@@ -21,7 +21,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   '1860-01-01'::date, 'decade'::genealogy.date_precision,
   '1870-01-07'::date, 'exact'::genealogy.date_precision,
-  '{"association_context": "Both were prominent capoeiristas in Rio de Janeiro during the 1860s-1870s. Manduca da Praia was chief of the Santa Luzia party (Nagoas), while Pinta Preta was chief of the Glória capoeiras (also Nagoas). Both documented in Plácido de Abreu''s Os Capoeiras (1886)".}'::jsonb,
+  '{"association_context": "Both were prominent capoeiristas in Rio de Janeiro during the 1860s-1870s. Manduca da Praia was chief of the Santa Luzia party (Nagoas), while Pinta Preta was chief of the Glória capoeiras (also Nagoas). Both documented in Plácido de Abreu''s Os Capoeiras (1886)."}'::jsonb,
   'likely'::genealogy.confidence,
   'Plácido de Abreu, "Os Capoeiras" (1886); Carlos Eugênio Líbano Soares, "A Negregada Instituição" (1999)',
   'Both operated as gang chiefs in the capoeira maltas of Rio de Janeiro. Exact nature of interaction unknown - possibly allies within the Nagoas federation.',

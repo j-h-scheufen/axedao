@@ -93,7 +93,7 @@ SELECT
   'group'::genealogy.entity_type, g.id,
   '1930-01-01'::date, 'decade'::genealogy.date_precision,
   NULL, 'unknown'::genealogy.date_precision,
-  '{"membership_context": "Regular participant in Sunday training sessions at Matatu Preto in the 1930s".}'::jsonb,
+  '{"membership_context": "Regular participant in Sunday training sessions at Matatu Preto in the 1930s."}'::jsonb,
   'verified'::genealogy.confidence,
   'Mestre Canjiquinha testimony (1989); velhosmestres.com/br/destaques-2',
   'Part of the Matatu Preto Sunday training group in Salvador during the 1930s, alongside Aberrê, Geraldo Chapeleiro, Totonho de Maré, and others. Per O Cruzeiro (1948), was a student of Aberrê.',

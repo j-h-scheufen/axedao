@@ -43,7 +43,7 @@ SELECT
   'group'::genealogy.entity_type, g.id,
   '1930-01-01'::date, 'decade'::genealogy.date_precision,
   '1942-09-01'::date, 'month'::genealogy.date_precision,
-  '{"membership_context": "Central figure at the Sunday training sessions at Matatu Preto in the 1930s. Led the sessions and taught young Canjiquinha here".}'::jsonb,
+  '{"membership_context": "Central figure at the Sunday training sessions at Matatu Preto in the 1930s. Led the sessions and taught young Canjiquinha here."}'::jsonb,
   'verified'::genealogy.confidence,
   'Mestre Canjiquinha testimony (1989); velhosmestres.com/br/destaques-2',
   'Led the Matatu Preto Sunday training sessions in Salvador during the 1930s. Taught Canjiquinha here starting in 1935.',

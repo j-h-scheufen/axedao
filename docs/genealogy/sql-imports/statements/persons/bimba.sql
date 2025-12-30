@@ -71,7 +71,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   '1911-01-01'::date, 'decade'::genealogy.date_precision,
   '1924-07-08'::date, 'exact'::genealogy.date_precision,
-  '{"association_context": "Contemporaries in Bahian capoeira scene; Besouro died in 1924 before Bimba founded his academy. Connected through shared networks including Cobrinha Verde".}'::jsonb,
+  '{"association_context": "Contemporaries in Bahian capoeira scene; Besouro died in 1924 before Bimba founded his academy. Connected through shared networks including Cobrinha Verde."}'::jsonb,
   'likely'::genealogy.confidence,
   'Historical context; both were active in Bahian capoeira scene in 1910s-1920s',
   'Besouro and Bimba were contemporaries in the Bahian capoeira scene. Besouro died in 1924, before Bimba founded his academy in 1932.',
