@@ -12,22 +12,72 @@
  */
 
 import type { GraphNode, GroupMetadata, PersonMetadata } from '@/components/genealogy/types';
+import { DEFAULT_LINK_FORCE_STRENGTH } from '../graphs/constants';
 
 // ============================================================================
 // CONFIGURATION
 // ============================================================================
 
-/** Minimum radius from center (prevents nodes at exact center) */
-export const MIN_RADIUS = 20;
+/**
+ * Configuration for temporal layout sizing.
+ * Controls the radial distances for different eras in the graph.
+ *
+ * Foundation eras have individual radii to allow fine-tuned spacing
+ * based on data density in each historical period.
+ */
+export interface TemporalLayoutConfig {
+  /** Minimum radius from center (prevents nodes at exact center) */
+  minRadius: number;
 
-/** Radius increment per era band (foundation eras) */
-export const ERA_BAND_RADIUS = 50;
+  // Foundation era band radii (pre-1900)
+  /** Radius for band 0: Pre-1800 (sparse early history) */
+  bandRadiusEarlyHistory: number;
+  /** Radius for band 1: 1800-1849 (early documentation period) */
+  bandRadiusEarlyDocumentation: number;
+  /** Radius for band 2: 1850-1874 (rising documentation) */
+  bandRadiusRisingDocumentation: number;
+  /** Radius for band 3: 1875-1899 (golden age - foundational mestres) */
+  bandRadiusAbolitionEra: number;
 
-/** Additional radius per decade in modern era (1900-1979) */
-export const MODERN_DECADE_RADIUS = 30;
+  // Modern/contemporary era radii
+  /** Additional radius per decade in modern era (1900-1979) */
+  bandRadiusModernDecade: number;
+  /** Additional radius per decade in contemporary era (1980+) */
+  bandRadiusContemporaryDecade: number;
 
-/** Additional radius per decade in contemporary era (1980+) - larger to accommodate group explosion */
-export const CONTEMPORARY_DECADE_RADIUS = 75;
+  /** Default distance for link force - how far apart linked nodes want to be */
+  linkDistance: number;
+
+  /** Year to use for nodes without birth/founding date (default: 2200 for general, current year for ancestry) */
+  unknownYear: number;
+}
+
+/**
+ * Default temporal layout configuration.
+ * Suitable for general-purpose genealogy visualization.
+ *
+ * With 4 foundation bands:
+ * - Foundation ends at: 15 + 30 + 50 + 55 + 60 = 210
+ * - Modern decades (1900-1979) add 8 * 35 = 280 → total at 1980: ~490
+ * - Contemporary decades add 75 each
+ */
+export const DEFAULT_TEMPORAL_LAYOUT_CONFIG: TemporalLayoutConfig = {
+  minRadius: 15,
+  // Foundation era band radii (smaller for sparse, larger for dense)
+  bandRadiusEarlyHistory: 30, // Pre-1800: sparse, small
+  bandRadiusEarlyDocumentation: 40, // 1800-1849: moderate
+  bandRadiusRisingDocumentation: 55, // 1850-1874: increasing density
+  bandRadiusAbolitionEra: 60, // 1875-1899: golden age, more space
+  // Modern/contemporary
+  bandRadiusModernDecade: 35,
+  bandRadiusContemporaryDecade: 75,
+  linkDistance: 40,
+  // Unknown dates go far out by default (general view)
+  unknownYear: 2200,
+};
+
+// Convenience constants derived from default config (for backward compatibility)
+const MIN_RADIUS = DEFAULT_TEMPORAL_LAYOUT_CONFIG.minRadius;
 
 /**
  * Years to add to birth year for positioning.
@@ -38,39 +88,30 @@ export const BIRTH_YEAR_OFFSET = 10;
 
 /**
  * Era configuration for the radial layout.
- * Foundation eras use 50-year bands; modern era uses decades.
+ * Foundation eras use variable bands; modern era uses decades.
+ *
+ * Structure:
+ * - Pre-1800: Band 0 (sparse early history)
+ * - 1800-1849: Band 1 (early documentation period)
+ * - 1850-1874: Band 2 (rising documentation)
+ * - 1875-1899: Band 3 (golden age - Pastinha, Bimba, foundational mestres)
+ * - 1900+: Decade bands (modern era)
  */
 export const ERA_CONFIG = {
-  // Foundation eras - inner shells (sparse historical data)
+  // Foundation eras - inner shells with variable band sizes
   foundation: [
     { label: 'Pre-1800', startYear: -Infinity, endYear: 1799, band: 0 },
     { label: '1800-1849', startYear: 1800, endYear: 1849, band: 1 },
-    { label: '1850-1899', startYear: 1850, endYear: 1899, band: 2 },
+    { label: '1850-1874', startYear: 1850, endYear: 1874, band: 2 },
+    { label: '1875-1899', startYear: 1875, endYear: 1899, band: 3 },
   ],
-  // Modern era starts at band 3 (year 1900), ends at 1979
-  modernStartBand: 3,
+  // Modern era starts at band 4 (year 1900), ends at 1979
+  modernStartBand: 4,
   modernStartYear: 1900,
   modernEndYear: 1979,
   // Contemporary era starts at 1980 (larger spacing for group explosion)
   contemporaryStartYear: 1980,
-  // Unknown birth years go to this pseudo-decade (beyond current timeline)
-  unknownYear: 2030,
 } as const;
-
-/**
- * Default link force strength by predicate type.
- * Can be overridden per-graph by passing custom values.
- */
-export const DEFAULT_LINK_FORCE_STRENGTH: Record<string, number> = {
-  student_of: 0.6,
-  trained_under: 0.4,
-  associated_with: 0.025,
-  influenced_by: 0.02,
-  default: 0,
-};
-
-/** Default distance for link force - how far apart linked nodes want to be */
-export const DEFAULT_LINK_DISTANCE = 35;
 
 // ============================================================================
 // ERA BAND COMPUTATION
@@ -78,10 +119,10 @@ export const DEFAULT_LINK_DISTANCE = 35;
 
 /**
  * Get the era band index for a given year.
- * Foundation eras (pre-1900) use 50-year bands; modern/contemporary eras use decades.
+ * Foundation eras (pre-1900) use variable bands; modern/contemporary eras use decades.
  *
  * @param year - Calendar year to get band for
- * @returns Band index (0 = pre-1800, 1 = 1800-1849, 2 = 1850-1899, 3-10 = 1900s-1970s, 11+ = 1980s+)
+ * @returns Band index (0 = pre-1800, 1 = 1800-1849, 2 = 1850-1874, 3 = 1875-1899, 4-11 = 1900s-1970s, 12+ = 1980s+)
  */
 export function getEraBand(year: number): number {
   // Check foundation eras first
@@ -101,11 +142,49 @@ export function getEraBand(year: number): number {
 // ============================================================================
 
 /**
+ * Array of foundation band radii in order (band 0, 1, 2, 3).
+ * Used by computeRadialDistanceForYear with default config.
+ */
+const DEFAULT_FOUNDATION_RADII = [
+  DEFAULT_TEMPORAL_LAYOUT_CONFIG.bandRadiusEarlyHistory,
+  DEFAULT_TEMPORAL_LAYOUT_CONFIG.bandRadiusEarlyDocumentation,
+  DEFAULT_TEMPORAL_LAYOUT_CONFIG.bandRadiusRisingDocumentation,
+  DEFAULT_TEMPORAL_LAYOUT_CONFIG.bandRadiusAbolitionEra,
+];
+
+/**
+ * Compute cumulative radius at the start of a foundation band.
+ *
+ * @param bandIndex - Foundation band index (0-3)
+ * @param foundationRadii - Array of individual band radii
+ * @param minRadius - Minimum radius from center
+ * @returns Cumulative radius at the start of the band
+ */
+function getFoundationBandStartRadius(bandIndex: number, foundationRadii: number[], minRadius: number): number {
+  let radius = minRadius;
+  for (let i = 0; i < bandIndex && i < foundationRadii.length; i++) {
+    radius += foundationRadii[i];
+  }
+  return radius;
+}
+
+/**
+ * Compute total radius of all foundation bands.
+ *
+ * @param foundationRadii - Array of individual band radii
+ * @param minRadius - Minimum radius from center
+ * @returns Total radius at the end of foundation eras (start of modern era)
+ */
+function getTotalFoundationRadius(foundationRadii: number[], minRadius: number): number {
+  return foundationRadii.reduce((sum, r) => sum + r, minRadius);
+}
+
+/**
  * Compute the radial distance for a given calendar year (no offset applied).
  * Used for drawing era rings at their actual decade positions.
  *
  * Uses continuous proportional placement within each era band:
- * - Foundation eras (pre-1900): Proportional within 50-year bands
+ * - Foundation eras (pre-1900): Proportional within individual band radii
  * - Modern era (1900-1979): Proportional within 10-year decades
  * - Contemporary era (1980+): Larger spacing per decade
  *
@@ -113,11 +192,13 @@ export function getEraBand(year: number): number {
  * @returns Radial distance from center
  */
 export function computeRadialDistanceForYear(year: number): number {
+  const { bandRadiusModernDecade, bandRadiusContemporaryDecade } = DEFAULT_TEMPORAL_LAYOUT_CONFIG;
+
   // Foundation eras (pre-1900)
   for (const era of ERA_CONFIG.foundation) {
     if (year >= era.startYear && year <= era.endYear) {
-      const bandStartRadius = MIN_RADIUS + era.band * ERA_BAND_RADIUS;
-      const bandEndRadius = MIN_RADIUS + (era.band + 1) * ERA_BAND_RADIUS;
+      const bandStartRadius = getFoundationBandStartRadius(era.band, DEFAULT_FOUNDATION_RADII, MIN_RADIUS);
+      const bandEndRadius = bandStartRadius + DEFAULT_FOUNDATION_RADII[era.band];
 
       // Handle Pre-1800 era (infinite start)
       if (era.startYear === -Infinity) {
@@ -134,22 +215,22 @@ export function computeRadialDistanceForYear(year: number): number {
   }
 
   // Calculate base radius at end of foundation eras
-  const foundationRadius = MIN_RADIUS + ERA_CONFIG.modernStartBand * ERA_BAND_RADIUS;
+  const foundationRadius = getTotalFoundationRadius(DEFAULT_FOUNDATION_RADII, MIN_RADIUS);
 
   // Contemporary era (1980+) - larger spacing per decade
   if (year >= ERA_CONFIG.contemporaryStartYear) {
     // Modern era spans 8 decades (1900-1979)
     const modernDecades = (ERA_CONFIG.contemporaryStartYear - ERA_CONFIG.modernStartYear) / 10;
-    const modernRadius = foundationRadius + modernDecades * MODERN_DECADE_RADIUS;
+    const modernRadius = foundationRadius + modernDecades * bandRadiusModernDecade;
 
     // Add contemporary era spacing
     const decadesSince1980 = (year - ERA_CONFIG.contemporaryStartYear) / 10;
-    return modernRadius + decadesSince1980 * CONTEMPORARY_DECADE_RADIUS;
+    return modernRadius + decadesSince1980 * bandRadiusContemporaryDecade;
   }
 
   // Modern era (1900-1979) - proportional within decades
   const decadesSince1900 = (year - ERA_CONFIG.modernStartYear) / 10;
-  return foundationRadius + decadesSince1900 * MODERN_DECADE_RADIUS;
+  return foundationRadius + decadesSince1900 * bandRadiusModernDecade;
 }
 
 /**
@@ -158,11 +239,14 @@ export function computeRadialDistanceForYear(year: number): number {
  * Applies BIRTH_YEAR_OFFSET to position nodes at their "active capoeira years"
  * rather than birth year (capoeiristas typically started training around age 10-15).
  *
+ * Note: Uses DEFAULT_TEMPORAL_LAYOUT_CONFIG.unknownYear for null years.
+ * For view-specific unknownYear, use the layout factory's computeRadialDistanceForEntityYear instead.
+ *
  * @param year - Birth year (for persons) or founding year (for groups), or null if unknown
  * @returns Radial distance from center
  */
 export function computeRadialDistanceForEntityYear(year: number | null): number {
-  const effectiveYear = year !== null ? year + BIRTH_YEAR_OFFSET : ERA_CONFIG.unknownYear;
+  const effectiveYear = year !== null ? year + BIRTH_YEAR_OFFSET : DEFAULT_TEMPORAL_LAYOUT_CONFIG.unknownYear;
   return computeRadialDistanceForYear(effectiveYear);
 }
 
@@ -241,6 +325,105 @@ export interface RadialForceConfig {
    * If false, nodes without temporal data will be pushed to unknownYear radius.
    */
   onlyTemporalNodes: boolean;
+}
+
+/**
+ * Configuration for the 2D radial constraint force.
+ */
+export interface RadialForceConfig2D {
+  /**
+   * Strength of the radial constraint (0-1).
+   * - 1.0: Hard constraint, nodes fixed to exact radius
+   * - 0.95: Soft constraint, allows slight movement
+   */
+  strength: number;
+  /**
+   * Only apply radial force to nodes with temporal data.
+   * If false, nodes without temporal data will be pushed to unknownYear radius.
+   */
+  onlyTemporalNodes: boolean;
+  /**
+   * Minimum radius from center.
+   */
+  minRadius?: number;
+}
+
+/**
+ * Extended node type for 2D radial force (x, y only).
+ */
+export interface TemporalForceNode2D {
+  id: string;
+  x?: number;
+  y?: number;
+  vx?: number;
+  vy?: number;
+  /** Target radius for this node based on birth/founding year */
+  targetRadius?: number;
+  /** Whether this node has temporal data */
+  hasTemporalData?: boolean;
+}
+
+/**
+ * Create a 2D radial constraint force that pulls/pushes nodes toward their target radius.
+ * Uses x, y coordinates (not x, z like the 3D constrained mode).
+ *
+ * @param config - Configuration for the 2D radial force
+ * @returns D3 force function compatible with d3-force (2D)
+ */
+export function createRadialForce2D(config: RadialForceConfig2D) {
+  const { strength, onlyTemporalNodes, minRadius = MIN_RADIUS } = config;
+
+  // biome-ignore lint/suspicious/noExplicitAny: custom d3-force implementation
+  const force: any = (alpha: number) => {
+    const nodes = force.nodes || [];
+    for (const node of nodes) {
+      // Skip nodes without temporal data if configured
+      if (onlyTemporalNodes && !node.hasTemporalData) {
+        continue;
+      }
+
+      const targetRadius = node.targetRadius ?? minRadius;
+
+      // Use 2D XY distance
+      const currentRadius = Math.sqrt(node.x * node.x + node.y * node.y);
+
+      if (currentRadius < 0.001) {
+        // Node at center - place at target radius with random angle
+        const theta = Math.random() * Math.PI * 2;
+        node.x = targetRadius * Math.cos(theta);
+        node.y = targetRadius * Math.sin(theta);
+        return;
+      }
+
+      if (strength >= 1.0) {
+        // Hard constraint: fix to exact radius
+        const scale = targetRadius / currentRadius;
+        node.x *= scale;
+        node.y *= scale;
+
+        // Remove radial velocity component
+        const vRadial = (node.vx * node.x + node.vy * node.y) / currentRadius;
+        const normalX = node.x / currentRadius;
+        const normalY = node.y / currentRadius;
+        node.vx -= vRadial * normalX;
+        node.vy -= vRadial * normalY;
+      } else {
+        // Soft constraint: apply force toward target radius
+        const radiusDiff = targetRadius - currentRadius;
+        const forceStrength = radiusDiff * strength * alpha;
+
+        node.vx += (forceStrength * node.x) / currentRadius;
+        node.vy += (forceStrength * node.y) / currentRadius;
+      }
+    }
+  };
+
+  force.initialize = (nodes: TemporalForceNode2D[]) => {
+    force.nodes = nodes;
+  };
+  force.nodes = [] as TemporalForceNode2D[];
+
+  return force;
 }
 
 /**
@@ -350,6 +533,332 @@ export function createLinkStrengthResolver(
   return (link) => {
     const linkType = link.type as string;
     return strengthByType[linkType] ?? strengthByType.default ?? 0;
+  };
+}
+
+// ============================================================================
+// TEMPORAL LAYOUT FACTORY
+// ============================================================================
+
+/**
+ * Return type for createTemporalLayout factory.
+ * Contains all config-dependent functions bound to the provided configuration.
+ */
+export interface TemporalLayout {
+  /** The resolved configuration */
+  config: TemporalLayoutConfig;
+
+  /**
+   * Compute the radial distance for a given calendar year (no offset applied).
+   * Used for drawing era rings at their actual decade positions.
+   */
+  computeRadialDistanceForYear: (year: number) => number;
+
+  /**
+   * Compute the radial distance for a given birth/founding year.
+   * Applies BIRTH_YEAR_OFFSET to position nodes at their "active capoeira years".
+   */
+  computeRadialDistanceForEntityYear: (year: number | null) => number;
+
+  /**
+   * Compute target radius for a node based on its temporal data.
+   */
+  computeNodeTargetRadius: (node: GraphNode) => number;
+
+  /**
+   * Get the maximum visible radius for nodes with known dates.
+   * Uses the current year as the outer bound, ignoring the unknownYear band (e.g., 2200).
+   * Useful for camera positioning to avoid zooming out to include outlier nodes.
+   */
+  getMaxVisibleRadius: () => number;
+
+  /**
+   * Create a radial constraint force that pulls/pushes nodes toward their target radius.
+   * For 3D graphs (uses x, z plane when constrained).
+   */
+  createRadialForce: (forceConfig: RadialForceConfig) => ReturnType<typeof createRadialForce>;
+
+  /**
+   * Create a 2D radial constraint force that pulls/pushes nodes toward their target radius.
+   * For 2D graphs (uses x, y plane).
+   */
+  createRadialForce2D: (forceConfig: RadialForceConfig2D) => ReturnType<typeof createRadialForce2D>;
+}
+
+/**
+ * Create a temporal layout instance with custom configuration.
+ *
+ * Use this factory to create config-bound layout functions for different graph views.
+ * Each view can have its own sizing optimized for its data density and visual requirements.
+ *
+ * @param config - Partial configuration (defaults are merged for missing values)
+ * @returns Object with all layout functions bound to the configuration
+ *
+ * @example
+ * ```typescript
+ * // Create a layout with larger contemporary spacing
+ * const layout = createTemporalLayout({
+ *   contemporaryDecadeRadius: 100,
+ * });
+ *
+ * // Use the bound functions
+ * const radius = layout.computeRadialDistanceForYear(1990);
+ * const nodeRadius = layout.computeNodeTargetRadius(node);
+ * ```
+ */
+export function createTemporalLayout(config: Partial<TemporalLayoutConfig> = {}): TemporalLayout {
+  const resolvedConfig: TemporalLayoutConfig = {
+    ...DEFAULT_TEMPORAL_LAYOUT_CONFIG,
+    ...config,
+  };
+
+  const {
+    minRadius,
+    bandRadiusEarlyHistory,
+    bandRadiusEarlyDocumentation,
+    bandRadiusRisingDocumentation,
+    bandRadiusAbolitionEra: bandRadiusGoldenAge,
+    bandRadiusModernDecade,
+    bandRadiusContemporaryDecade,
+    unknownYear,
+  } = resolvedConfig;
+
+  // Build foundation radii array from config
+  const foundationRadii = [
+    bandRadiusEarlyHistory,
+    bandRadiusEarlyDocumentation,
+    bandRadiusRisingDocumentation,
+    bandRadiusGoldenAge,
+  ];
+
+  /**
+   * Config-bound version of computeRadialDistanceForYear.
+   */
+  function computeRadialDistanceForYearBound(year: number): number {
+    // Foundation eras (pre-1900)
+    for (const era of ERA_CONFIG.foundation) {
+      if (year >= era.startYear && year <= era.endYear) {
+        const bandStartRadius = getFoundationBandStartRadius(era.band, foundationRadii, minRadius);
+        const bandEndRadius = bandStartRadius + foundationRadii[era.band];
+
+        // Handle Pre-1800 era (infinite start)
+        if (era.startYear === -Infinity) {
+          const eraStart = 1700;
+          const eraEnd = era.endYear;
+          const proportion = Math.max(0, Math.min(1, (year - eraStart) / (eraEnd - eraStart)));
+          return bandStartRadius + proportion * (bandEndRadius - bandStartRadius);
+        }
+
+        // Normal foundation era - proportional placement
+        const proportion = (year - era.startYear) / (era.endYear - era.startYear);
+        return bandStartRadius + proportion * (bandEndRadius - bandStartRadius);
+      }
+    }
+
+    // Calculate base radius at end of foundation eras
+    const foundationRadius = getTotalFoundationRadius(foundationRadii, minRadius);
+
+    // Contemporary era (1980+) - larger spacing per decade
+    if (year >= ERA_CONFIG.contemporaryStartYear) {
+      // Modern era spans 8 decades (1900-1979)
+      const modernDecades = (ERA_CONFIG.contemporaryStartYear - ERA_CONFIG.modernStartYear) / 10;
+      const modernRadius = foundationRadius + modernDecades * bandRadiusModernDecade;
+
+      // Add contemporary era spacing
+      const decadesSince1980 = (year - ERA_CONFIG.contemporaryStartYear) / 10;
+      return modernRadius + decadesSince1980 * bandRadiusContemporaryDecade;
+    }
+
+    // Modern era (1900-1979) - proportional within decades
+    const decadesSince1900 = (year - ERA_CONFIG.modernStartYear) / 10;
+    return foundationRadius + decadesSince1900 * bandRadiusModernDecade;
+  }
+
+  /**
+   * Config-bound version of computeRadialDistanceForEntityYear.
+   */
+  function computeRadialDistanceForEntityYearBound(year: number | null): number {
+    const effectiveYear = year !== null ? year + BIRTH_YEAR_OFFSET : unknownYear;
+    return computeRadialDistanceForYearBound(effectiveYear);
+  }
+
+  /**
+   * Config-bound version of computeNodeTargetRadius.
+   */
+  function computeNodeTargetRadiusBound(node: GraphNode): number {
+    const year = getNodeYear(node);
+    return computeRadialDistanceForEntityYearBound(year);
+  }
+
+  /**
+   * Get the maximum visible radius for nodes with known dates.
+   * Uses the current year + a buffer decade as the outer bound.
+   * This excludes the unknownYear band (e.g., 2200) to prevent camera from zooming too far out.
+   */
+  function getMaxVisibleRadiusBound(): number {
+    // Use current year + 10 years as a reasonable outer bound for visible data
+    const maxVisibleYear = new Date().getFullYear() + 10;
+    return computeRadialDistanceForYearBound(maxVisibleYear);
+  }
+
+  /**
+   * Config-bound version of createRadialForce.
+   */
+  function createRadialForceBound(forceConfig: RadialForceConfig) {
+    const { strength, constrainToPlane, onlyTemporalNodes } = forceConfig;
+
+    // biome-ignore lint/suspicious/noExplicitAny: custom d3-force implementation
+    const force: any = (alpha: number) => {
+      const nodes = force.nodes || [];
+      for (const node of nodes) {
+        // Skip nodes without temporal data if configured
+        if (onlyTemporalNodes && !node.hasTemporalData) {
+          continue;
+        }
+
+        // Constrain to y=0 plane if configured
+        if (constrainToPlane) {
+          node.y = 0;
+          node.vy = 0;
+        }
+
+        const targetRadius = node.targetRadius ?? minRadius;
+
+        // For 2D (plane) layout, use XZ distance
+        // For 3D layout, use full XYZ distance
+        const currentRadius = constrainToPlane
+          ? Math.sqrt(node.x * node.x + node.z * node.z)
+          : Math.sqrt(node.x * node.x + node.y * node.y + node.z * node.z);
+
+        if (currentRadius < 0.001) {
+          // Node at center - place at target radius with random angle
+          const theta = Math.random() * Math.PI * 2;
+          if (constrainToPlane) {
+            node.x = targetRadius * Math.cos(theta);
+            node.z = targetRadius * Math.sin(theta);
+          } else {
+            const phi = Math.random() * Math.PI;
+            node.x = targetRadius * Math.sin(phi) * Math.cos(theta);
+            node.y = targetRadius * Math.cos(phi);
+            node.z = targetRadius * Math.sin(phi) * Math.sin(theta);
+          }
+          return;
+        }
+
+        if (strength >= 1.0) {
+          // Hard constraint: fix to exact radius
+          const scale = targetRadius / currentRadius;
+          node.x *= scale;
+          if (!constrainToPlane) {
+            node.y *= scale;
+          }
+          node.z *= scale;
+
+          // Remove radial velocity component
+          if (constrainToPlane) {
+            const vRadial = (node.vx * node.x + node.vz * node.z) / currentRadius;
+            const normalX = node.x / currentRadius;
+            const normalZ = node.z / currentRadius;
+            node.vx -= vRadial * normalX;
+            node.vz -= vRadial * normalZ;
+          } else {
+            const vRadial = (node.vx * node.x + node.vy * node.y + node.vz * node.z) / currentRadius;
+            node.vx -= (vRadial * node.x) / currentRadius;
+            node.vy -= (vRadial * node.y) / currentRadius;
+            node.vz -= (vRadial * node.z) / currentRadius;
+          }
+        } else {
+          // Soft constraint: apply force toward target radius
+          const radiusDiff = targetRadius - currentRadius;
+          const forceStrength = radiusDiff * strength * alpha;
+
+          if (constrainToPlane) {
+            node.vx += (forceStrength * node.x) / currentRadius;
+            node.vz += (forceStrength * node.z) / currentRadius;
+          } else {
+            node.vx += (forceStrength * node.x) / currentRadius;
+            node.vy += (forceStrength * node.y) / currentRadius;
+            node.vz += (forceStrength * node.z) / currentRadius;
+          }
+        }
+      }
+    };
+
+    force.initialize = (nodes: TemporalForceNode[]) => {
+      force.nodes = nodes;
+    };
+    force.nodes = [] as TemporalForceNode[];
+
+    return force;
+  }
+
+  /**
+   * Config-bound version of createRadialForce2D.
+   */
+  function createRadialForce2DBound(forceConfig: RadialForceConfig2D) {
+    const { strength, onlyTemporalNodes, minRadius: configMinRadius = minRadius } = forceConfig;
+
+    // biome-ignore lint/suspicious/noExplicitAny: custom d3-force implementation
+    const force: any = (alpha: number) => {
+      const nodes = force.nodes || [];
+      for (const node of nodes) {
+        // Skip nodes without temporal data if configured
+        if (onlyTemporalNodes && !node.hasTemporalData) {
+          continue;
+        }
+
+        const targetRadius = node.targetRadius ?? configMinRadius;
+
+        // Use 2D XY distance
+        const currentRadius = Math.sqrt(node.x * node.x + node.y * node.y);
+
+        if (currentRadius < 0.001) {
+          // Node at center - place at target radius with random angle
+          const theta = Math.random() * Math.PI * 2;
+          node.x = targetRadius * Math.cos(theta);
+          node.y = targetRadius * Math.sin(theta);
+          return;
+        }
+
+        if (strength >= 1.0) {
+          // Hard constraint: fix to exact radius
+          const scale = targetRadius / currentRadius;
+          node.x *= scale;
+          node.y *= scale;
+
+          // Remove radial velocity component
+          const vRadial = (node.vx * node.x + node.vy * node.y) / currentRadius;
+          const normalX = node.x / currentRadius;
+          const normalY = node.y / currentRadius;
+          node.vx -= vRadial * normalX;
+          node.vy -= vRadial * normalY;
+        } else {
+          // Soft constraint: apply force toward target radius
+          const radiusDiff = targetRadius - currentRadius;
+          const forceStrength = radiusDiff * strength * alpha;
+
+          node.vx += (forceStrength * node.x) / currentRadius;
+          node.vy += (forceStrength * node.y) / currentRadius;
+        }
+      }
+    };
+
+    force.initialize = (nodes: TemporalForceNode2D[]) => {
+      force.nodes = nodes;
+    };
+    force.nodes = [] as TemporalForceNode2D[];
+
+    return force;
+  }
+
+  return {
+    config: resolvedConfig,
+    computeRadialDistanceForYear: computeRadialDistanceForYearBound,
+    computeRadialDistanceForEntityYear: computeRadialDistanceForEntityYearBound,
+    computeNodeTargetRadius: computeNodeTargetRadiusBound,
+    getMaxVisibleRadius: getMaxVisibleRadiusBound,
+    createRadialForce: createRadialForceBound,
+    createRadialForce2D: createRadialForce2DBound,
   };
 }
 

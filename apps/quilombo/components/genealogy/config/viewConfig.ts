@@ -6,8 +6,10 @@
  */
 
 import type { EntityType, Predicate } from '@/db/schema/genealogy';
+import { TITLE_LEVEL_OPTIONS } from '@/utils/genealogy/titleFilter';
 
-import { NODE_COLORS, LINK_COLORS, PREDICATE_LABELS } from '@/components/genealogy/types';
+import { NODE_COLORS, NODE_COLORS_BY_TITLE_LEVEL, LINK_COLORS, PREDICATE_LABELS } from '@/components/genealogy/types';
+import { ANCESTRY_MIN_TITLE_LEVEL, GENERAL_MIN_TITLE_LEVEL } from '@/components/genealogy/graphs/constants';
 
 // ============================================================================
 // TYPES
@@ -48,6 +50,8 @@ export interface GraphViewConfig {
     showNodeShapes: boolean;
     /** Node shapes to display (if showNodeShapes is true) */
     nodeShapes?: { label: string; symbol: string }[];
+    /** Whether to show dynamic relationship colors based on filter selection */
+    showDynamicRelationships?: boolean;
   };
 }
 
@@ -94,7 +98,6 @@ export const PREDICATE_GROUPS: Record<string, Predicate[]> = {
     'regional_coordinator_of',
     'member_of',
     'teaches_at',
-    'cultural_pioneer_of',
     'associated_with',
     'departed_from',
   ],
@@ -105,35 +108,44 @@ export const PREDICATE_GROUPS: Record<string, Predicate[]> = {
 // LEGEND DATA
 // ============================================================================
 
-const PERSON_TITLE_LEGEND: LegendCategory = {
-  category: 'Person Titles',
-  items: [
-    { label: 'Mestre', color: NODE_COLORS.person.mestre },
-    { label: 'Contra-Mestre', color: NODE_COLORS.person['contra-mestre'] },
-    { label: 'Professor', color: NODE_COLORS.person.professor },
-    { label: 'Instrutor', color: NODE_COLORS.person.instrutor },
-    { label: 'Graduado', color: NODE_COLORS.person.graduado },
-    { label: 'Aluno', color: NODE_COLORS.person.aluno },
-    { label: 'Historical', color: NODE_COLORS.person.default },
-  ],
-};
+/**
+ * Generate person title legend items based on the minimum title level for a view.
+ * Uses level-based colors from NODE_COLORS_BY_TITLE_LEVEL for consistency with node rendering.
+ *
+ * @param minLevel - Minimum title level shown in the view (0 = mestre, 1 = contra-mestre, etc.)
+ * @returns LegendCategory with filtered title items
+ */
+function createPersonTitleLegend(minLevel: number): LegendCategory {
+  // Filter to only levels that are shown in this view (level <= minLevel means higher or equal rank)
+  const visibleLevels = TITLE_LEVEL_OPTIONS.filter((opt) => opt.level <= minLevel);
 
-const GROUP_STYLE_LEGEND: LegendCategory = {
-  category: 'Group Styles',
-  items: [
-    { label: 'Angola', color: NODE_COLORS.group.angola },
-    { label: 'Regional', color: NODE_COLORS.group.regional },
-    { label: 'Contemporânea', color: NODE_COLORS.group.contemporanea },
-    { label: 'Mixed', color: NODE_COLORS.group.mixed },
-  ],
-};
+  const items: LegendItem[] = visibleLevels.map((opt) => ({
+    // Use the first part of the label (e.g., "Mestre" from "Mestre/Mestra")
+    label: opt.label.split('/')[0],
+    color: NODE_COLORS_BY_TITLE_LEVEL[opt.level] ?? NODE_COLORS.person.default,
+  }));
+
+  // Always add "Historical" for figures without titles
+  items.push({ label: 'Historical', color: NODE_COLORS.person.default });
+
+  return {
+    category: 'Person Titles',
+    items,
+  };
+}
+
+/** Person title legend for general view (professor and above) */
+const GENERAL_PERSON_TITLE_LEGEND = createPersonTitleLegend(GENERAL_MIN_TITLE_LEVEL);
+
+/** Person title legend for ancestry view (contra-mestre and above) */
+const ANCESTRY_PERSON_TITLE_LEGEND = createPersonTitleLegend(ANCESTRY_MIN_TITLE_LEVEL);
 
 const LINEAGE_LINK_LEGEND: LegendCategory = {
   category: 'Lineage Links',
   items: [
     { label: PREDICATE_LABELS.student_of, color: LINK_COLORS.student_of },
     { label: PREDICATE_LABELS.trained_under, color: LINK_COLORS.trained_under },
-    { label: PREDICATE_LABELS.influenced_by, color: LINK_COLORS.influenced_by },
+    // Note: influenced_by is gravity-only (affects layout but not rendered as visible links)
   ],
 };
 
@@ -161,7 +173,6 @@ export const GENERAL_VIEW_CONFIG: GraphViewConfig = {
     'regional_coordinator_of',
     'member_of',
     'teaches_at',
-    'cultural_pioneer_of',
     'associated_with',
     'departed_from',
     // Group-to-Group
@@ -173,12 +184,9 @@ export const GENERAL_VIEW_CONFIG: GraphViewConfig = {
     'cooperates_with',
   ],
   legend: {
-    nodeCategories: [PERSON_TITLE_LEGEND, GROUP_STYLE_LEGEND],
-    showNodeShapes: true,
-    nodeShapes: [
-      { label: 'Person', symbol: '●' },
-      { label: 'Group', symbol: '⬡' },
-    ],
+    nodeCategories: [GENERAL_PERSON_TITLE_LEGEND],
+    showNodeShapes: false,
+    showDynamicRelationships: true,
   },
 };
 
@@ -190,7 +198,7 @@ export const STUDENT_ANCESTRY_VIEW_CONFIG: GraphViewConfig = {
   // Only visible predicates shown in filter menu (gravity-only predicates are handled by the graph component)
   allowedPredicates: [...STUDENT_ANCESTRY_VISIBLE_PREDICATES] as Predicate[],
   legend: {
-    nodeCategories: [PERSON_TITLE_LEGEND, LINEAGE_LINK_LEGEND],
+    nodeCategories: [ANCESTRY_PERSON_TITLE_LEGEND, LINEAGE_LINK_LEGEND],
     showNodeShapes: false,
   },
 };

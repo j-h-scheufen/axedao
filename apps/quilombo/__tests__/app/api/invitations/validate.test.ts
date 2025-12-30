@@ -65,7 +65,7 @@ describe('POST /api/invitations/validate', () => {
     (dbModule.findValidInvitation as typeof mockDb.findValidInvitation) = mockDb.findValidInvitation;
     (dbModule as any).db = mockDb.db;
 
-    const routeModule = await import('@/app/api/invitations/validate/route');
+    const routeModule = await import('@/app/api/public/invitations/validate/route');
     POST = routeModule.POST;
   });
 

@@ -10,6 +10,19 @@ import { atom } from 'jotai';
 import { type GraphViewMode, GENERAL_VIEW_CONFIG, getViewConfig } from '@/components/genealogy/config';
 import type { GraphFilters } from '@/components/genealogy/types';
 
+// ============================================================================
+// Language Setting - for bilingual content display
+// ============================================================================
+
+/** Supported languages for bilingual genealogy content. */
+export type GenealogyLanguage = 'en' | 'pt';
+
+/**
+ * Current language for displaying bilingual content (bios, descriptions, etc.).
+ * Default to English.
+ */
+export const genealogyLanguageAtom = atom<GenealogyLanguage>('en');
+
 /**
  * Current graph view mode.
  */
@@ -46,6 +59,12 @@ export const needsRefocusAtom = atom<boolean>(false);
 export const refocusCallbackAtom = atom<(() => void) | null>(null);
 
 /**
+ * Holds the recenter callback function set by the graph component.
+ * When called, it will zoom to fit the entire graph in view.
+ */
+export const recenterCallbackAtom = atom<(() => void) | null>(null);
+
+/**
  * Graph settings - independent of view configuration.
  */
 export interface GraphSettings {
@@ -59,3 +78,24 @@ export interface GraphSettings {
 export const graphSettingsAtom = atom<GraphSettings>({
   showAnimations: false,
 });
+
+// ============================================================================
+// "Show Yourself" Feature - Display user's node with filtered ancestors
+// ============================================================================
+
+/**
+ * Whether to show the current user's node on the graph.
+ * When enabled, displays user's person profile + filtered ancestors.
+ * Only applicable in 'student-ancestry' view mode.
+ */
+export const showYourselfAtom = atom<boolean>(false);
+
+// ============================================================================
+// Details Drawer State - for camera offset when drawer covers graph
+// ============================================================================
+
+/**
+ * Whether the details drawer is open on mobile (portrait or landscape).
+ * Used by the graph to re-center the node when the drawer closes.
+ */
+export const mobileDrawerOpenAtom = atom<boolean>(false);

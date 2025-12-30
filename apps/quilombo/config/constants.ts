@@ -8,6 +8,7 @@ export const titles = [
   'contra-mestre',
   'mestranda',
   'mestrando',
+  'treinel',
   'professora',
   'professor',
   'instrutora',
@@ -22,7 +23,6 @@ export const titles = [
   'estagiando',
   'monitora',
   'monitor',
-  'treinel',
   'aluna',
   'aluno',
   'iniciante',
@@ -137,6 +137,13 @@ export const entityTypes = [ENTITY_TYPE.PERSON, ENTITY_TYPE.GROUP] as const;
 // Date precision for historical data with uncertainty
 export const datePrecisions = ['exact', 'month', 'year', 'decade', 'approximate', 'unknown'] as const;
 
+/**
+ * Age threshold for presuming a person is deceased/historical.
+ * Persons born more than this many years ago are considered historical figures.
+ * Used by both DB queries and client-side filtering.
+ */
+export const PRESUMED_DECEASED_AGE_THRESHOLD = 100;
+
 // Confidence levels for statement verification (object as source of truth)
 export const ConfidenceLevel = {
   VERIFIED: 'verified',
@@ -169,7 +176,7 @@ export const legalStructures = [
   'mixed',
 ] as const;
 
-// Relationship predicates (19 total)
+// Relationship predicates (18 total)
 // Direction convention: predicates flow from "younger/newer" to "older/established"
 // (student → mestre, child → parent, new group → predecessor)
 //
@@ -177,7 +184,7 @@ export const legalStructures = [
 // Person-to-Person: Recognition (2)
 // Person-to-Person: Family (1)
 // Person-to-Group: Founding & Leadership (4)
-// Person-to-Group: Membership & Affiliation (5)
+// Person-to-Group: Membership & Affiliation (4)
 // Group-to-Group: Hierarchical (1)
 // Group-to-Group: Evolution (3)
 // Group-to-Group: Affiliation (2)
@@ -196,10 +203,9 @@ export const predicates = [
   'co_founded',
   'leads',
   'regional_coordinator_of',
-  // Person-to-Group: Membership & Affiliation (5)
+  // Person-to-Group: Membership & Affiliation (4)
   'member_of',
   'teaches_at',
-  'cultural_pioneer_of',
   'associated_with',
   'departed_from',
   // Group-to-Group: Hierarchical (1)

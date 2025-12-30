@@ -256,7 +256,7 @@ export type StatementProperties = {
   // Bilingual: { en: "Both trained in Salvador during 1920s", pt: "Ambos treinaram em Salvador nos anos 1920" }
   association_context?: BilingualText;
 
-  // For cultural_pioneer_of
+  // For regional_coordinator_of and other location-specific predicates
   region?: string;
   country?: string;
 

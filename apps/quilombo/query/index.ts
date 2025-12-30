@@ -14,6 +14,7 @@ export * as event from './event';
 export * as admin from './admin';
 export * as invitation from './invitation';
 export * as auth from './auth';
+export * as stats from './stats';
 
 export type SearchParams = { pageSize?: number; offset?: number };
 export type GroupAndLocationParams = { groupId: string; locationId: string };

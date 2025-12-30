@@ -105,22 +105,29 @@ export interface PersonDetails {
   deathYear?: number | null;
   deathYearPrecision?: string | null;
   deathPlace?: string | null;
-  avatar?: string | null;
-  bio?: string | null;
-  achievements?: string | null;
+  portrait?: string | null;
+  // Bilingual fields - UI should select based on language preference
+  bioEn?: string | null;
+  bioPt?: string | null;
+  achievementsEn?: string | null;
+  achievementsPt?: string | null;
 }
 
 export interface GroupDetails {
   id: string;
-  description?: string | null;
+  name?: string | null;
   style?: string | null;
   foundedYear?: number | null;
   foundedYearPrecision?: string | null;
   foundedLocation?: string | null;
-  philosophy?: string | null;
   logo?: string | null;
   isActive?: boolean | null;
   nameAliases?: string[] | null;
+  // Bilingual fields - UI should select based on language preference
+  descriptionEn?: string | null;
+  descriptionPt?: string | null;
+  philosophyEn?: string | null;
+  philosophyPt?: string | null;
 }
 
 export interface StatementDetail {
@@ -236,6 +243,28 @@ export const NODE_COLORS = {
 } as const;
 
 /**
+ * Color mapping by title level (normalized across masculine/feminine variants).
+ * Uses getTitleLevel() from titleFilter.ts to normalize titles to levels.
+ *
+ * Levels: 0=mestre/a, 1=contra-mestre/a, 2=mestrando/a/treinel, 3=professor/a,
+ *         4=instrutor/a, 5=graduado/a, 6-11=lower ranks
+ */
+export const NODE_COLORS_BY_TITLE_LEVEL: Record<number, string> = {
+  0: '#FFD700', // Gold - Mestre/Mestra
+  1: '#C0C0C0', // Silver - Contra-Mestre/Contra-Mestra
+  2: '#E6C200', // Dark Gold - Mestrando/Mestranda/Treinel
+  3: '#4DABF7', // Blue - Professor/Professora
+  4: '#51CF66', // Green - Instrutor/Instrutora
+  5: '#868E96', // Gray - Graduado/Graduada
+  6: '#74C0FC', // Light Blue - Formado/Formada
+  7: '#69DB7C', // Light Green - Estagiario/Estagiaria
+  8: '#8CE99A', // Lighter Green - Estagiando/Estagianda
+  9: '#A9E34B', // Lime - Monitor/Monitora
+  10: '#ADB5BD', // Light Gray - Aluno/Aluna
+  11: '#CED4DA', // Lighter Gray - Iniciante
+};
+
+/**
  * Visual styling configuration for links.
  */
 export const LINK_COLORS = {
@@ -256,7 +285,6 @@ export const LINK_COLORS = {
   // Person-to-Group: Membership & Affiliation
   member_of: '#FF922B', // Orange
   teaches_at: '#F76707', // Dark orange
-  cultural_pioneer_of: '#FA5252', // Red
   associated_with: '#E64980', // Pink-red
   departed_from: '#7950F2', // Violet
   // Group-to-Group: Hierarchical
@@ -291,7 +319,6 @@ export const PREDICATE_LABELS: Record<Predicate, string> = {
   regional_coordinator_of: 'Regional coordinator of',
   member_of: 'Member of',
   teaches_at: 'Teaches at',
-  cultural_pioneer_of: 'Cultural pioneer of',
   associated_with: 'Associated with',
   departed_from: 'Departed from',
   // Group-to-Group
@@ -322,7 +349,6 @@ export const PREDICATE_LABELS_INVERSE: Record<Predicate, string> = {
   regional_coordinator_of: 'Regional coordinator',
   member_of: 'Member',
   teaches_at: 'Teacher',
-  cultural_pioneer_of: 'Cultural pioneer',
   associated_with: 'Associated with',
   departed_from: 'Departed by',
   // Group-to-Group

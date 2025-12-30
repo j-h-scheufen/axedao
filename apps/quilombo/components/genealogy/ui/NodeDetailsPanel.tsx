@@ -16,7 +16,7 @@ import { useAtomValue } from 'jotai';
 import { ArrowLeft, ArrowRight, FileText } from 'lucide-react';
 import { useState } from 'react';
 
-import { needsRefocusAtom, refocusCallbackAtom } from '@/components/genealogy/state';
+import { genealogyLanguageAtom, needsRefocusAtom, refocusCallbackAtom } from '@/components/genealogy/state';
 
 import { FullDetailsModal } from './FullDetailsModal';
 
@@ -45,6 +45,85 @@ interface NodeDetailsPanelProps {
   isLoading: boolean;
   onClose: () => void;
   onNodeSelect: (entityType: string, entityId: string) => void;
+  /** When true, renders without Card wrapper (used inside DetailsDrawer) */
+  isInDrawer?: boolean;
+}
+
+/**
+ * Format a key string for display (e.g., "time_and_place" -> "Time And Place").
+ */
+function formatKey(key: string): string {
+  return key.replace(/[-_]/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+/**
+ * Recursively render a value as indented text.
+ * Handles primitives, arrays, and nested objects.
+ */
+function FormattedValue({ value, depth = 0 }: { value: unknown; depth?: number }) {
+  const indent = depth > 0 ? 'ml-3' : '';
+
+  // Null/undefined
+  if (value === null || value === undefined) {
+    return <span className="text-default-400 italic">none</span>;
+  }
+
+  // Primitives
+  if (typeof value !== 'object') {
+    return <span>{String(value)}</span>;
+  }
+
+  // Arrays
+  if (Array.isArray(value)) {
+    if (value.length === 0) {
+      return <span className="text-default-400 italic">empty</span>;
+    }
+    // For arrays of primitives, join with commas
+    if (value.every((item) => typeof item !== 'object' || item === null)) {
+      return <span>{value.join(', ')}</span>;
+    }
+    // For arrays of objects, render each on its own line
+    return (
+      <div className={indent}>
+        {value.map((item, index) => (
+          // biome-ignore lint/suspicious/noArrayIndexKey: generic rendering of unknown data without stable IDs
+          <div key={index} className="mt-1">
+            <FormattedValue value={item} depth={depth + 1} />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  // Objects
+  const entries = Object.entries(value);
+  if (entries.length === 0) {
+    return <span className="text-default-400 italic">empty</span>;
+  }
+
+  return (
+    <div className={indent}>
+      {entries.map(([key, val]) => {
+        const isNestedObject = val !== null && typeof val === 'object' && !Array.isArray(val);
+        const isNestedArray = Array.isArray(val) && val.some((item) => typeof item === 'object' && item !== null);
+
+        return (
+          <div key={key} className="mt-1 first:mt-0">
+            <span className="font-medium">{formatKey(key)}</span>
+            {isNestedObject || isNestedArray ? (
+              <>
+                :<FormattedValue value={val} depth={depth + 1} />
+              </>
+            ) : (
+              <>
+                : <FormattedValue value={val} depth={depth + 1} />
+              </>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 
 function formatYear(year: number | null | undefined, precision?: string | null): string {
@@ -82,9 +161,12 @@ function getDeathYearLabel(birthYear: number | null | undefined): string {
 }
 
 function PersonCard({ data }: { data: PersonDetails | undefined }) {
+  const language = useAtomValue(genealogyLanguageAtom);
+
   if (!data) {
     return <p className="text-small text-default-400">No person data available</p>;
   }
+
   // Build display name with title prefix if available
   const baseName = data.apelido || data.name || 'Unknown';
   const displayName =
@@ -99,7 +181,7 @@ function PersonCard({ data }: { data: PersonDetails | undefined }) {
   return (
     <div className="space-y-3">
       <div className="flex items-start gap-3">
-        <Avatar src={data.avatar || undefined} name={baseName} size="lg" className="shrink-0" />
+        <Avatar src={data.portrait || undefined} name={baseName} size="lg" className="shrink-0" />
         <div className="min-w-0 flex-1">
           <h3 className="text-lg font-bold">{displayName}</h3>
           {data.name && data.name !== data.apelido && <p className="text-small text-default-500">{data.name}</p>}
@@ -115,30 +197,24 @@ function PersonCard({ data }: { data: PersonDetails | undefined }) {
 
       {lifespan && (
         <div>
-          <p className="text-tiny font-semibold text-default-500">Lifespan</p>
+          <p className="text-tiny font-semibold text-default-500">{language === 'pt' ? 'Vida' : 'Lifespan'}</p>
           <p className="text-small">{lifespan}</p>
         </div>
       )}
 
       {(data.birthPlace || data.deathPlace) && (
         <div>
-          <p className="text-tiny font-semibold text-default-500">Places</p>
-          {data.birthPlace && <p className="text-small">Born: {data.birthPlace}</p>}
-          {data.deathPlace && <p className="text-small">Died: {data.deathPlace}</p>}
-        </div>
-      )}
-
-      {data.bio && (
-        <div>
-          <p className="text-tiny font-semibold text-default-500">Biography</p>
-          <p className="text-small">{data.bio}</p>
-        </div>
-      )}
-
-      {data.achievements && (
-        <div>
-          <p className="text-tiny font-semibold text-default-500">Achievements</p>
-          <p className="text-small">{data.achievements}</p>
+          <p className="text-tiny font-semibold text-default-500">{language === 'pt' ? 'Lugares' : 'Places'}</p>
+          {data.birthPlace && (
+            <p className="text-small">
+              {language === 'pt' ? 'Nascimento' : 'Born'}: {data.birthPlace}
+            </p>
+          )}
+          {data.deathPlace && (
+            <p className="text-small">
+              {language === 'pt' ? 'Falecimento' : 'Died'}: {data.deathPlace}
+            </p>
+          )}
         </div>
       )}
     </div>
@@ -146,15 +222,18 @@ function PersonCard({ data }: { data: PersonDetails | undefined }) {
 }
 
 function GroupCard({ data }: { data: GroupDetails | undefined }) {
+  const language = useAtomValue(genealogyLanguageAtom);
+
   if (!data) {
     return <p className="text-small text-default-400">No group data available</p>;
   }
+
   return (
     <div className="space-y-3">
       <div className="flex items-start gap-3">
         <Avatar src={data.logo || undefined} name="G" size="lg" className="shrink-0" radius="sm" />
         <div className="min-w-0 flex-1">
-          <h3 className="text-lg font-bold">Group</h3>
+          <h3 className="text-lg font-bold">{data.name || 'Group'}</h3>
           <div className="mt-1 flex flex-wrap gap-1">
             {data.style && (
               <Chip size="sm" variant="flat" color="secondary">
@@ -162,7 +241,7 @@ function GroupCard({ data }: { data: GroupDetails | undefined }) {
               </Chip>
             )}
             <Chip size="sm" variant="flat" color={data.isActive ? 'success' : 'default'}>
-              {data.isActive ? 'Active' : 'Inactive'}
+              {data.isActive ? (language === 'pt' ? 'Ativo' : 'Active') : language === 'pt' ? 'Inativo' : 'Inactive'}
             </Chip>
           </div>
         </div>
@@ -170,32 +249,20 @@ function GroupCard({ data }: { data: GroupDetails | undefined }) {
 
       {data.nameAliases && data.nameAliases.length > 0 && (
         <div>
-          <p className="text-tiny font-semibold text-default-500">Also Known As</p>
+          <p className="text-tiny font-semibold text-default-500">
+            {language === 'pt' ? 'Também Conhecido Como' : 'Also Known As'}
+          </p>
           <p className="text-small">{data.nameAliases.join(', ')}</p>
         </div>
       )}
 
       {data.foundedYear && (
         <div>
-          <p className="text-tiny font-semibold text-default-500">Founded</p>
+          <p className="text-tiny font-semibold text-default-500">{language === 'pt' ? 'Fundação' : 'Founded'}</p>
           <p className="text-small">
             {formatYear(data.foundedYear, data.foundedYearPrecision)}
-            {data.foundedLocation && ` in ${data.foundedLocation}`}
+            {data.foundedLocation && ` ${language === 'pt' ? 'em' : 'in'} ${data.foundedLocation}`}
           </p>
-        </div>
-      )}
-
-      {data.description && (
-        <div>
-          <p className="text-tiny font-semibold text-default-500">Description</p>
-          <p className="text-small">{data.description}</p>
-        </div>
-      )}
-
-      {data.philosophy && (
-        <div>
-          <p className="text-tiny font-semibold text-default-500">Philosophy</p>
-          <p className="text-small">{data.philosophy}</p>
         </div>
       )}
     </div>
@@ -250,12 +317,8 @@ function RelationshipMetadata({ rel }: { rel: StatementDetail }) {
       {rel.properties && Object.keys(rel.properties).length > 0 && (
         <div>
           <p className="text-tiny font-semibold text-default-500">Additional Info</p>
-          <div className="space-y-1">
-            {Object.entries(rel.properties).map(([key, value]) => (
-              <p key={key} className="text-default-600">
-                <span className="font-medium capitalize">{key.replace(/_/g, ' ')}</span>: {String(value)}
-              </p>
-            ))}
+          <div className="text-default-600">
+            <FormattedValue value={rel.properties} />
           </div>
         </div>
       )}
@@ -381,12 +444,21 @@ function getNodeDisplayName(node: GraphNode): string {
   return node.name;
 }
 
-export function NodeDetailsPanel({ node, details, allNodes, isLoading, onClose, onNodeSelect }: NodeDetailsPanelProps) {
+export function NodeDetailsPanel({
+  node,
+  details,
+  allNodes,
+  isLoading,
+  onClose,
+  onNodeSelect,
+  isInDrawer = false,
+}: NodeDetailsPanelProps) {
   const [isFullDetailsOpen, setIsFullDetailsOpen] = useState(false);
   const needsRefocus = useAtomValue(needsRefocusAtom);
   const refocusCallback = useAtomValue(refocusCallbackAtom);
 
-  if (!node) {
+  // Empty state - only shown when not in drawer (drawer handles its own visibility)
+  if (!node && !isInDrawer) {
     return (
       <Card className="h-full">
         <CardBody className="flex items-center justify-center">
@@ -396,6 +468,99 @@ export function NodeDetailsPanel({ node, details, allNodes, isLoading, onClose, 
     );
   }
 
+  // When in drawer and no node, return null (drawer handles visibility)
+  if (!node) {
+    return null;
+  }
+
+  // Content that's shared between Card and Drawer modes
+  const panelContent = (
+    <>
+      {isLoading ? (
+        <div className="flex items-center justify-center py-8">
+          <Spinner size="lg" />
+        </div>
+      ) : details ? (
+        <>
+          {details.type === 'person' ? (
+            <PersonCard data={details.data as PersonDetails} />
+          ) : (
+            <GroupCard data={details.data as GroupDetails} />
+          )}
+
+          {/* Full Details Button - replaces divider */}
+          <Button
+            size="md"
+            variant="flat"
+            color="secondary"
+            startContent={<FileText className="h-4 w-4" />}
+            onPress={() => setIsFullDetailsOpen(true)}
+            className="w-full"
+          >
+            Full Details
+          </Button>
+
+          {/* Relationships */}
+          <div className="space-y-4">
+            <div>
+              <h4 className="mb-2 text-small font-semibold">Outgoing ({details.relationships.outgoing.length})</h4>
+              <RelationshipsList
+                relationships={details.relationships.outgoing}
+                direction="outgoing"
+                allNodes={allNodes}
+                onNodeSelect={onNodeSelect}
+              />
+            </div>
+
+            <div>
+              <h4 className="mb-2 text-small font-semibold">Incoming ({details.relationships.incoming.length})</h4>
+              <RelationshipsList
+                relationships={details.relationships.incoming}
+                direction="incoming"
+                allNodes={allNodes}
+                onNodeSelect={onNodeSelect}
+              />
+            </div>
+          </div>
+        </>
+      ) : (
+        <div className="space-y-2">
+          <p className="text-small">Type: {node.type}</p>
+          {node.type === 'person' && (
+            <>
+              {(node.metadata as PersonMetadata).title && (
+                <p className="text-small">Title: {(node.metadata as PersonMetadata).title}</p>
+              )}
+              {(node.metadata as PersonMetadata).style && (
+                <p className="text-small">Style: {(node.metadata as PersonMetadata).style}</p>
+              )}
+            </>
+          )}
+          {node.type === 'group' && (node.metadata as GroupMetadata).style && (
+            <p className="text-small">Style: {(node.metadata as GroupMetadata).style}</p>
+          )}
+        </div>
+      )}
+    </>
+  );
+
+  // When in drawer mode, return just the content (drawer provides wrapper)
+  if (isInDrawer) {
+    return (
+      <>
+        <div className="flex flex-col gap-4 p-4">{panelContent}</div>
+        <FullDetailsModal
+          isOpen={isFullDetailsOpen}
+          onClose={() => setIsFullDetailsOpen(false)}
+          entityType={node.type as 'person' | 'group'}
+          entityId={node.id}
+          entityName={node.name}
+        />
+      </>
+    );
+  }
+
+  // Desktop mode: Card wrapper with header
   return (
     <>
       <Card>
@@ -421,76 +586,9 @@ export function NodeDetailsPanel({ node, details, allNodes, isLoading, onClose, 
             <span className="text-lg">&times;</span>
           </Button>
         </CardHeader>
-        <CardBody className="gap-4">
-          {isLoading ? (
-            <div className="flex items-center justify-center py-8">
-              <Spinner size="lg" />
-            </div>
-          ) : details ? (
-            <>
-              {details.type === 'person' ? (
-                <PersonCard data={details.data as PersonDetails} />
-              ) : (
-                <GroupCard data={details.data as GroupDetails} />
-              )}
-
-              {/* Full Details Button - replaces divider */}
-              <Button
-                size="md"
-                variant="flat"
-                color="secondary"
-                startContent={<FileText className="h-4 w-4" />}
-                onPress={() => setIsFullDetailsOpen(true)}
-                className="w-full"
-              >
-                Full Details
-              </Button>
-
-              {/* Relationships */}
-              <div className="space-y-4">
-                <div>
-                  <h4 className="mb-2 text-small font-semibold">Outgoing ({details.relationships.outgoing.length})</h4>
-                  <RelationshipsList
-                    relationships={details.relationships.outgoing}
-                    direction="outgoing"
-                    allNodes={allNodes}
-                    onNodeSelect={onNodeSelect}
-                  />
-                </div>
-
-                <div>
-                  <h4 className="mb-2 text-small font-semibold">Incoming ({details.relationships.incoming.length})</h4>
-                  <RelationshipsList
-                    relationships={details.relationships.incoming}
-                    direction="incoming"
-                    allNodes={allNodes}
-                    onNodeSelect={onNodeSelect}
-                  />
-                </div>
-              </div>
-            </>
-          ) : (
-            <div className="space-y-2">
-              <p className="text-small">Type: {node.type}</p>
-              {node.type === 'person' && (
-                <>
-                  {(node.metadata as PersonMetadata).title && (
-                    <p className="text-small">Title: {(node.metadata as PersonMetadata).title}</p>
-                  )}
-                  {(node.metadata as PersonMetadata).style && (
-                    <p className="text-small">Style: {(node.metadata as PersonMetadata).style}</p>
-                  )}
-                </>
-              )}
-              {node.type === 'group' && (node.metadata as GroupMetadata).style && (
-                <p className="text-small">Style: {(node.metadata as GroupMetadata).style}</p>
-              )}
-            </div>
-          )}
-        </CardBody>
+        <CardBody className="gap-4">{panelContent}</CardBody>
       </Card>
 
-      {/* Full Details Modal */}
       <FullDetailsModal
         isOpen={isFullDetailsOpen}
         onClose={() => setIsFullDetailsOpen(false)}
