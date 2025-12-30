@@ -13,7 +13,7 @@
 | Role | Organizer of Guarda Negra |
 
 **Biography:**
-José do Patrocínio was the spokesman for the Guarda Negra and introduced the capoeiras to the abolitionist cause. He circulated well in the complex world of capoeira maltas in Rio. He wrote manifestos in the pages of "A Cidade do Rio," his newspaper, and the first Guarda Negra meetings were held in the newspaper's editorial office.
+José do Patrocínio was the spokesman for the Guarda Negra and introduced the capoeiras to the abolitionist cause. He circulated well in the complex world of capoeira maltas in Rio. He wrote manifestos in the pages of "A Cidade do Rio", his newspaper, and the first Guarda Negra meetings were held in the newspaper's editorial office.
 
 **Note:** While Patrocínio organized the Guarda Negra, he was not himself a capoeirista.
 

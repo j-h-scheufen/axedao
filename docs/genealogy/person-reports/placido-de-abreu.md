@@ -26,17 +26,17 @@
 
 Plácido de Abreu Morais was born in Portugal in 1857 and immigrated to Brazil as a teenager during the 1870s, like many Portuguese seeking economic opportunity in the New World. After arriving in Rio de Janeiro, he found work as a clerk (caixeiro) and later as a typographer in a printing house that published newspapers and small literary works.
 
-Like many young immigrants of his time, Abreu was drawn into the street culture of the city and participated in capoeira rodas, becoming what sources describe as an "amateur capoeirista." In January 1872, during intense police repression led by Ludgero Gonçalves da Silva, he was arrested for investigation regarding a homicide—though the outcome of this case is not recorded.
+Like many young immigrants of his time, Abreu was drawn into the street culture of the city and participated in capoeira rodas, becoming what sources describe as an "amateur capoeirista". In January 1872, during intense police repression led by Ludgero Gonçalves da Silva, he was arrested for investigation regarding a homicide—though the outcome of this case is not recorded.
 
-His contemporary Coelho Neto described him as "a poet, playwright and journalist" and a colleague of noted republican figures Lopes Trovão and Pardal Mallet at the combative newspaper O Combate. Another contemporary described him as "a mix of capoeira fighter, republican activist and writer."
+His contemporary Coelho Neto described him as "a poet, playwright and journalist" and a colleague of noted republican figures Lopes Trovão and Pardal Mallet at the combative newspaper O Combate. Another contemporary described him as "a mix of capoeira fighter, republican activist and writer".
 
 ### Português
 
 Plácido de Abreu Morais nasceu em Portugal em 1857 e imigrou para o Brasil ainda adolescente durante a década de 1870, como muitos portugueses em busca de oportunidades econômicas no Novo Mundo. Após chegar ao Rio de Janeiro, encontrou trabalho como caixeiro e depois como tipógrafo em uma casa impressora que publicava jornais e pequenas obras literárias.
 
-Como muitos jovens imigrantes de seu tempo, Abreu foi atraído pela cultura de rua da cidade e participou de rodas de capoeira, tornando-se o que as fontes descrevem como um "capoeirista amador." Em janeiro de 1872, durante intensa repressão policial liderada por Ludgero Gonçalves da Silva, foi preso para investigação sobre um homicídio—embora o resultado deste caso não esteja registrado.
+Como muitos jovens imigrantes de seu tempo, Abreu foi atraído pela cultura de rua da cidade e participou de rodas de capoeira, tornando-se o que as fontes descrevem como um "capoeirista amador". Em janeiro de 1872, durante intensa repressão policial liderada por Ludgero Gonçalves da Silva, foi preso para investigação sobre um homicídio—embora o resultado deste caso não esteja registrado.
 
-Seu contemporâneo Coelho Neto o descreveu como "poeta, dramaturgo e jornalista" e colega de figuras republicanas notáveis como Lopes Trovão e Pardal Mallet no combativo jornal O Combate. Outro contemporâneo o descreveu como "uma mistura de capoeira, ativista republicano e escritor."
+Seu contemporâneo Coelho Neto o descreveu como "poeta, dramaturgo e jornalista" e colega de figuras republicanas notáveis como Lopes Trovão e Pardal Mallet no combativo jornal O Combate. Outro contemporâneo o descreveu como "uma mistura de capoeira, ativista republicano e escritor".
 
 ## Literary Works
 
@@ -49,7 +49,7 @@ His most significant work, published by Tipografia José Alves Editor in Rio de 
 1. **First part**: A semi-ethnographic study functioning as a sociological essay on the capoeira scene in late-Imperial Rio
 2. **Second part**: A fictional novella set in the capoeira underworld
 
-In his introduction titled "Two Words," Abreu wrote: "When I started this book, my aim was to describe the atrocities committed by capoeiras since ancient times. It is a difficult task to study capoeiragem, from its primitive times, because its origin is not well known."
+In his introduction titled "Two Words", Abreu wrote: "When I started this book, my aim was to describe the atrocities committed by capoeiras since ancient times. It is a difficult task to study capoeiragem, from its primitive times, because its origin is not well known".
 
 #### Português
 
@@ -58,7 +58,7 @@ Sua obra mais significativa, publicada pela Tipografia José Alves Editor no Rio
 1. **Primeira parte**: Um estudo semi-etnográfico que funciona como ensaio sociológico sobre a cena da capoeira no Rio imperial tardio
 2. **Segunda parte**: Uma novela ficcional ambientada no submundo da capoeira
 
-Em sua introdução intitulada "Duas Palavras," Abreu escreveu: "Quando comecei este livro, meu objetivo era descrever as atrocidades cometidas pelos capoeiras desde os tempos antigos. É uma tarefa difícil estudar a capoeiragem, desde seus tempos primitivos, porque sua origem não é bem conhecida."
+Em sua introdução intitulada "Duas Palavras", Abreu escreveu: "Quando comecei este livro, meu objetivo era descrever as atrocidades cometidas pelos capoeiras desde os tempos antigos. É uma tarefa difícil estudar a capoeiragem, desde seus tempos primitivos, porque sua origem não é bem conhecida".
 
 ### Content and Documentation
 
@@ -76,7 +76,7 @@ The book documented the two great rival maltas (gangs) of Rio de Janeiro:
 - Secondary locations: São José, Lapa, Santa Ana, Moura, Bolinha de Prata
 - Training sites: Russell beach and Pinto hill
 
-Abreu documented how both groups operated hierarchically with chiefs, assistants, "policemen," and rank-and-file soldiers. Training progressed from bare-hand exercises to wooden weapons to live blades, with sessions often becoming bloody.
+Abreu documented how both groups operated hierarchically with chiefs, assistants, "policemen", and rank-and-file soldiers. Training progressed from bare-hand exercises to wooden weapons to live blades, with sessions often becoming bloody.
 
 #### Português
 
@@ -112,13 +112,13 @@ His second book, now considered lost. / Seu segundo livro, agora considerado per
 
 ### English
 
-Abreu rejected the oral tradition of African origins: "In Africa we do not know capoeiragem, but only some headbutts." He similarly dismissed Indigenous attribution, noting that native peoples lacked the specific attack and defense techniques capoeiras employed. This position is now understood to be incorrect.
+Abreu rejected the oral tradition of African origins: "In Africa we do not know capoeiragem, but only some headbutts". He similarly dismissed Indigenous attribution, noting that native peoples lacked the specific attack and defense techniques capoeiras employed. This position is now understood to be incorrect.
 
 Although Abreu had practiced capoeira in his youth, he later denounced it in his writings as a practice associated with criminality and urban violence. His complex relationship with capoeira reflects broader tensions within Brazilian society during the transition from Empire to Republic.
 
 ### Português
 
-Abreu rejeitou a tradição oral das origens africanas: "Na África não conhecemos a capoeiragem, mas apenas algumas cabeçadas." Ele similarmente descartou a atribuição indígena, notando que os povos nativos não possuíam as técnicas específicas de ataque e defesa que os capoeiras empregavam. Esta posição é agora entendida como incorreta.
+Abreu rejeitou a tradição oral das origens africanas: "Na África não conhecemos a capoeiragem, mas apenas algumas cabeçadas". Ele similarmente descartou a atribuição indígena, notando que os povos nativos não possuíam as técnicas específicas de ataque e defesa que os capoeiras empregavam. Esta posição é agora entendida como incorreta.
 
 Embora Abreu tenha praticado capoeira em sua juventude, mais tarde a denunciou em seus escritos como uma prática associada à criminalidade e violência urbana. Sua relação complexa com a capoeira reflete tensões mais amplas na sociedade brasileira durante a transição do Império para a República.
 

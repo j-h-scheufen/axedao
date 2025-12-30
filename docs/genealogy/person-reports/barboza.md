@@ -3,8 +3,8 @@
 **SQL Import:** `docs/genealogy/sql-imports/persons/barboza.sql`
 
 **Significance / Significância:**
-- EN: Historical capoeirista from Salvador's Matatu Preto training group (1930s); documented in Mestre Canjiquinha's testimony as "finado Barboza."
-- PT: Capoeirista histórico do grupo de treino do Matatu Preto em Salvador (anos 1930); documentado no testemunho de Mestre Canjiquinha como "finado Barboza."
+- EN: Historical capoeirista from Salvador's Matatu Preto training group (1930s); documented in Mestre Canjiquinha's testimony as "finado Barboza".
+- PT: Capoeirista histórico do grupo de treino do Matatu Preto em Salvador (anos 1930); documentado no testemunho de Mestre Canjiquinha como "finado Barboza".
 
 **Profile Type:** `historical_capoeirista`
 
@@ -26,7 +26,7 @@
 
 Barboza was a capoeirista who practiced in Salvador, Bahia, during the 1930s. He was part of the legendary Sunday training gatherings at Matatu Preto—a lowland area in the Matatu neighborhood where capoeiristas would meet in an open square (terreiro) to train and play.
 
-According to Mestre Canjiquinha's 1989 testimony about the Matatu Preto group: "On Sundays, all those capoeiristas would come—Onça Preta, Geraldo Chapeleiro, Totonho Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha, the late Barboza, and this citizen called Antonio Raimundo, nicknamed by all Aberrê."
+According to Mestre Canjiquinha's 1989 testimony about the Matatu Preto group: "On Sundays, all those capoeiristas would come—Onça Preta, Geraldo Chapeleiro, Totonho Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha, the late Barboza, and this citizen called Antonio Raimundo, nicknamed by all Aberrê".
 
 The reference to "finado Barboza" (the late Barboza) indicates he had already passed away by 1989 when Canjiquinha recorded this testimony. This is the only known documentation of Barboza—no records survive of his full name, his trade, his teachers, or the circumstances of his death.
 
@@ -38,7 +38,7 @@ Like many capoeiristas of the pre-modern era, Barboza exists in history primaril
 
 Barboza foi um capoeirista que praticava em Salvador, Bahia, durante os anos 1930. Ele fazia parte dos lendários encontros de treino de domingo no Matatu Preto—uma baixada no bairro do Matatu onde os capoeiristas se reuniam em um terreiro para treinar e jogar.
 
-Segundo o testemunho de Mestre Canjiquinha de 1989 sobre o grupo do Matatu Preto: "Aos domingos, vinham todos aqueles capoeiristas—Onça Preta, Geraldo Chapeleiro, Totonho Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha, o finado Barboza e esse cidadão chamado Antonio Raimundo, apelidado por todos Aberrê."
+Segundo o testemunho de Mestre Canjiquinha de 1989 sobre o grupo do Matatu Preto: "Aos domingos, vinham todos aqueles capoeiristas—Onça Preta, Geraldo Chapeleiro, Totonho Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha, o finado Barboza e esse cidadão chamado Antonio Raimundo, apelidado por todos Aberrê".
 
 A referência a "finado Barboza" indica que ele já havia falecido em 1989 quando Canjiquinha gravou este testemunho. Esta é a única documentação conhecida de Barboza—não sobrevivem registros de seu nome completo, seu ofício, seus professores ou as circunstâncias de sua morte.
 

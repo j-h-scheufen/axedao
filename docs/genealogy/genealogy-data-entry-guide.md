@@ -41,7 +41,6 @@
 | `regional_coordinator_of` | Coordinates a region for international group | `region?, country?` |
 | `member_of` | Formal membership (implies training) | - |
 | `teaches_at` | Active instructor at the group | - |
-| `cultural_pioneer_of` | First to bring capoeira to region/country | `region?, country?, context?` |
 | `associated_with` | Loose/informal affiliation | `association_type: supporter|patron|informal_affiliate|friend|honorary` |
 | `departed_from` | Left group | `departure_type: neutral|blessed|contentious|expelled` |
 
@@ -559,10 +558,10 @@ Founder → founded → NewGroup
 ### Pattern 4: International Pioneer
 
 ```
-Pioneer → cultural_pioneer_of → Group
-  properties: { region: 'Europe', country: 'Germany' }
+Pioneer → founded → Group (in new country)
 Pioneer → teaches_at → Group
 Pioneer → member_of → Group
+Note: Pioneer status captured in person_profiles.achievements_en/_pt fields
 ```
 
 ### Pattern 5: Leadership Succession

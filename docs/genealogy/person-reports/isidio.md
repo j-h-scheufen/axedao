@@ -31,7 +31,7 @@ Isídio was an "old disciple" (discípulo velho) based at the Church of Nosso Se
 
 According to Cobrinha Verde's account, preserved in the 1991 book "Capoeira e Mandingas: Cobrinha Verde" by Marcelino dos Santos (Mestre Mau), the African mandingueiro Tio Pascoal instructed the young Rafael Alves França (later Cobrinha Verde) to seek out Isídio at Bonfim Church:
 
-> "So old Pascoal told me that there was an old disciple named Isídio (he is dead today) in Bonfim Church, who could get me the material to make an amulet."
+> "So old Pascoal told me that there was an old disciple named Isídio (he is dead today) in Bonfim Church, who could get me the material to make an amulet".
 
 The young Cobrinha traveled to Salvador and obtained the necessary materials from Isídio. He then brought these items back to Tio Pascoal in Santo Amaro da Purificação, who assembled them into the completed patuá with specific instructions for its use. This amulet became central to Cobrinha Verde's legend—it was said to be alive, jumping when placed on a clean plate, and protected him through three years of violence in the Bahian sertão as a member of Colonel Horácio de Matos' band, from which he was the sole survivor of an 85-man battalion.
 
@@ -47,7 +47,7 @@ Isídio foi um "discípulo velho" baseado na Igreja de Nosso Senhor do Bonfim em
 
 Segundo o relato de Cobrinha Verde, preservado no livro de 1991 "Capoeira e Mandingas: Cobrinha Verde" por Marcelino dos Santos (Mestre Mau), o mandingueiro africano Tio Pascoal instruiu o jovem Rafael Alves França (mais tarde Cobrinha Verde) a procurar Isídio na Igreja do Bonfim:
 
-> "Então o velho Pascoal me disse que havia um discípulo velho de nome Isídio (está morto hoje) na Igreja do Bonfim, que poderia me conseguir o material para fazer um amuleto."
+> "Então o velho Pascoal me disse que havia um discípulo velho de nome Isídio (está morto hoje) na Igreja do Bonfim, que poderia me conseguir o material para fazer um amuleto".
 
 O jovem Cobrinha viajou a Salvador e obteve os materiais necessários de Isídio. Ele então trouxe esses itens de volta para Tio Pascoal em Santo Amaro da Purificação, que os montou no patuá completo com instruções específicas para seu uso. Este amuleto tornou-se central na lenda de Cobrinha Verde—dizia-se que era vivo, pulando quando colocado em um prato limpo, e o protegeu através de três anos de violência no sertão baiano como membro do bando do Coronel Horácio de Matos, dos quais foi o único sobrevivente de um batalhão de 85 homens.
 

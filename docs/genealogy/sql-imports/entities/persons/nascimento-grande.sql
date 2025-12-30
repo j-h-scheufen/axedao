@@ -52,7 +52,7 @@ INSERT INTO genealogy.person_profiles (
 
 He worked as a stevedore at the Port of Recife, where his immense strength was legendary—he could carry two 60-kilo sacks simultaneously. He always wore a large sloped hat, carried a rubber cape, and wielded a famous 15-kilogram cane he called "a volta" (the return).
 
-Despite his fearsome reputation, contemporaries described him as gentle, courteous, and well-educated with "a Bruce Lee-like gaze"—calm but alert. He was "extremely honest—even his enemies recognized this"—and would "cry like melted butter at the most ordinary things in life."
+Despite his fearsome reputation, contemporaries described him as gentle, courteous, and well-educated with "a Bruce Lee-like gaze"—calm but alert. He was "extremely honest—even his enemies recognized this"—and would "cry like melted butter at the most ordinary things in life".
 
 He was believed to possess "corpo fechado" (closed body), protected by an amulet containing a "Santo Lenço" (Holy Cloth). He attended church regularly and consulted with a Pai de Santo. The press granted him the title "Herói Popular" because he only ever fought in self-defense. He never lost a fight and never refused one.
 
@@ -60,15 +60,15 @@ His fame attracted challengers from across Brazil. During a trip to Rio de Janei
 
 Nascimento Grande was part of Recife''s carnival capoeira tradition. The capoeiristas who performed in front of military bands using ginga and kicks eventually transformed these into the "passo"—the dance of frevo. His legacy extends beyond capoeira to Pernambuco''s most famous cultural expression.
 
-He was celebrated by Brazil''s intellectual elite: Gilberto Freyre, José Lins do Rego, Câmara Cascudo, and Gilberto Amado all knew him personally. When he died at 94 in 1936, Gilberto Freyre petitioned the government for an official tribute. The cordel poet João Martins de Ataíde immortalized him: "Nascimento aged / His hair turned white / But his wrinkled face / Never took a blow."
+He was celebrated by Brazil''s intellectual elite: Gilberto Freyre, José Lins do Rego, Câmara Cascudo, and Gilberto Amado all knew him personally. When he died at 94 in 1936, Gilberto Freyre petitioned the government for an official tribute. The cordel poet João Martins de Ataíde immortalized him: "Nascimento aged / His hair turned white / But his wrinkled face / Never took a blow".
 
-As one source concluded: "Hercules is a myth; Nascimento Grande truly existed."',
+As one source concluded: "Hercules is a myth; Nascimento Grande truly existed".',
   -- bio_pt
   E'José Nascimento da Silva foi o capoeirista mais temido da história de Pernambuco, conhecido simplesmente como "O Capoeira" em seu tempo. Seu nome "Nascimento Grande" veio de seu tamanho imponente: 2 metros de altura e 120-130 quilogramas.
 
 Trabalhava como estivador no Porto do Recife, onde sua imensa força era lendária—podia carregar dois sacos de 60 quilos simultaneamente. Sempre usava um grande chapéu inclinado, carregava uma capa de borracha, e empunhava uma famosa bengala de 15 quilos que chamava de "a volta".
 
-Apesar de sua temível reputação, contemporâneos o descreviam como gentil, cortês e bem-educado com "um olhar à la Bruce Lee"—calmo mas alerta. Era "extremamente honesto—até seus inimigos reconheciam isso"—e "chorava como manteiga derretida pelas coisas mais ordinárias da vida."
+Apesar de sua temível reputação, contemporâneos o descreviam como gentil, cortês e bem-educado com "um olhar à la Bruce Lee"—calmo mas alerta. Era "extremamente honesto—até seus inimigos reconheciam isso"—e "chorava como manteiga derretida pelas coisas mais ordinárias da vida".
 
 Acreditava-se que possuía "corpo fechado", protegido por um amuleto contendo um "Santo Lenço". Frequentava a igreja regularmente e consultava um Pai de Santo. A imprensa concedeu-lhe o título de "Herói Popular" porque só lutava em legítima defesa. Nunca perdeu uma luta e nunca recusou uma.
 
@@ -76,9 +76,9 @@ Sua fama atraía desafiantes de todo o Brasil. Durante uma viagem ao Rio de Jane
 
 Nascimento Grande fazia parte da tradição carnavalesca de capoeira do Recife. Os capoeiristas que se apresentavam na frente das bandas militares usando ginga e chutes eventualmente transformaram estes no "passo"—a dança do frevo. Seu legado se estende além da capoeira para a expressão cultural mais famosa de Pernambuco.
 
-Foi celebrado pela elite intelectual brasileira: Gilberto Freyre, José Lins do Rego, Câmara Cascudo e Gilberto Amado o conheciam pessoalmente. Quando morreu aos 94 anos em 1936, Gilberto Freyre peticionou ao governo por uma homenagem oficial. O poeta de cordel João Martins de Ataíde o imortalizou: "Nascimento envelheceu / Seus cabelos branquearam / Mas seu rosto enrugado / Nunca levou um golpe."
+Foi celebrado pela elite intelectual brasileira: Gilberto Freyre, José Lins do Rego, Câmara Cascudo e Gilberto Amado o conheciam pessoalmente. Quando morreu aos 94 anos em 1936, Gilberto Freyre peticionou ao governo por uma homenagem oficial. O poeta de cordel João Martins de Ataíde o imortalizou: "Nascimento envelheceu / Seus cabelos branquearam / Mas seu rosto enrugado / Nunca levou um golpe".
 
-Como concluiu uma fonte: "Hércules é um mito; Nascimento Grande realmente existiu."',
+Como concluiu uma fonte: "Hércules é um mito; Nascimento Grande realmente existiu".',
   -- achievements_en
   'Granted title "Herói Popular" by Recife press; Never lost a fight; Killed Manezinho Camisa Preta at Largo da Carioca; Celebrated by Gilberto Freyre, Câmara Cascudo, José Lins do Rego; Immortalized in cordel poetry; His fighting style influenced frevo dance',
   -- achievements_pt

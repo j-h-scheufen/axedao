@@ -20,19 +20,19 @@
 
 ### English
 
-Siri de Mangue was a saveirista—a boatman who worked the traditional sailing vessels that transported agricultural goods along the Rio Subaé and other waterways of the Recôncavo Baiano. The rivers of the Recôncavo carried agricultural production from the Cachoeira and Maragogipe regions to Salvador, and the men who guided these boats lived by the rhythm of the tides. Many of them were capoeiristas, and among them, Siri de Mangue was said to be "one of the most renowned in the art of capoeiragem."
+Siri de Mangue was a saveirista—a boatman who worked the traditional sailing vessels that transported agricultural goods along the Rio Subaé and other waterways of the Recôncavo Baiano. The rivers of the Recôncavo carried agricultural production from the Cachoeira and Maragogipe regions to Salvador, and the men who guided these boats lived by the rhythm of the tides. Many of them were capoeiristas, and among them, Siri de Mangue was said to be "one of the most renowned in the art of capoeiragem".
 
 His apelido—"mangrove crab"—was suggestive of his profession. Like the siri crab that thrives in the brackish waters where rivers meet the sea, he navigated the liminal spaces between land and water, city and countryside. No one knew his real name.
 
-Siri de Mangue belonged to the circle of capoeiristas around Besouro Mangangá in Santo Amaro da Purificação. Sources describe them as training companions who met on Sundays and holidays to play capoeira. Paulo Barroquinha, Canário Pardo, and Maria Doze Homens were also part of this group—described as "a gang of capoeira resistance fighters who trained together on Sundays and could always be relied upon to back one another up."
+Siri de Mangue belonged to the circle of capoeiristas around Besouro Mangangá in Santo Amaro da Purificação. Sources describe them as training companions who met on Sundays and holidays to play capoeira. Paulo Barroquinha, Canário Pardo, and Maria Doze Homens were also part of this group—described as "a gang of capoeira resistance fighters who trained together on Sundays and could always be relied upon to back one another up".
 
 Some sources describe Siri de Mangue as both a training companion and a student of Besouro. After Besouro's death in 1924, Siri de Mangue was one of those who continued his legacy.
 
-**Teaching Legacy:** Siri de Mangue's significance lies primarily in his role as a teacher to the next generation. Mestre Cobrinha Verde learned from him along with many other Santo Amaro mestres. More crucially, Mestre Waldemar da Paixão explicitly named Siri as one of his teachers: "My name is Waldemar Rodrigues da Paixão, I was born in 1916, I learned Capoeira from Siri de Mangue, Canário Pardo, Calabi de Periperi... I took 4 years learning, in [19]40 I was teaching on Pero Vaz."
+**Teaching Legacy:** Siri de Mangue's significance lies primarily in his role as a teacher to the next generation. Mestre Cobrinha Verde learned from him along with many other Santo Amaro mestres. More crucially, Mestre Waldemar da Paixão explicitly named Siri as one of his teachers: "My name is Waldemar Rodrigues da Paixão, I was born in 1916, I learned Capoeira from Siri de Mangue, Canário Pardo, Calabi de Periperi... I took 4 years learning, in [19]40 I was teaching on Pero Vaz".
 
 This places Siri de Mangue as a critical link in the capoeira lineage—a bridge between the legendary era of Besouro and the documented traditions that Waldemar would preserve at his famous Barracão.
 
-**In Capoeira Music:** The traditional ladainha "Abre os olhos Siri de Mangue" celebrates his memory. According to Biribá: "It is said that Siri de Mangue was a boatman who went up and down the river, inside the boats, transporting goods. Little is known about Siri, but he is recognized as one of the great masters of capoeira."
+**In Capoeira Music:** The traditional ladainha "Abre os olhos Siri de Mangue" celebrates his memory. According to Biribá: "It is said that Siri de Mangue was a boatman who went up and down the river, inside the boats, transporting goods. Little is known about Siri, but he is recognized as one of the great masters of capoeira".
 
 ### Português
 
@@ -40,17 +40,17 @@ Siri de Mangue era um saveirista—um barqueiro que trabalhava nos veleiros trad
 
 Seu apelido—"caranguejo do mangue"—era sugestivo de sua profissão. Como o siri que vive nas águas salobras onde os rios encontram o mar, ele navegava os espaços liminares entre terra e água, cidade e campo.
 
-Siri de Mangue pertencia ao círculo de capoeiristas em torno de Besouro Mangangá em Santo Amaro da Purificação. Múltiplas fontes os descrevem como companheiros de treino que se encontravam aos domingos e feriados para jogar capoeira. Paulo Barroquinha, Canário Pardo e Maria Doze Homens também faziam parte desse grupo—descrito como "uma gangue de lutadores de resistência da capoeira que treinavam juntos aos domingos e sempre podiam contar uns com os outros."
+Siri de Mangue pertencia ao círculo de capoeiristas em torno de Besouro Mangangá em Santo Amaro da Purificação. Múltiplas fontes os descrevem como companheiros de treino que se encontravam aos domingos e feriados para jogar capoeira. Paulo Barroquinha, Canário Pardo e Maria Doze Homens também faziam parte desse grupo—descrito como "uma gangue de lutadores de resistência da capoeira que treinavam juntos aos domingos e sempre podiam contar uns com os outros".
 
 Algumas fontes descrevem Siri de Mangue tanto como companheiro de treino quanto como aluno de Besouro. Após a morte de Besouro em 1924, Siri de Mangue foi um dos que continuaram seu legado.
 
 **Legado como Professor:** O que torna Siri de Mangue especialmente significativo é seu papel como professor. Mestre Cobrinha Verde aprendeu com ele junto com os outros grandes capoeiristas de Santo Amaro. Cobrinha Verde também bebeu da sabedoria de Maitá, Licurí, Joité, Dendê, Gasolina, Siri de Mangue, Doze Homens, Espiridião, Juvêncio Grosso, Espinho Remoso, Neco, Canário Pardo e Tonha.
 
-Mais crucialmente, ele foi um dos professores de Mestre Waldemar da Paixão, que declarou claramente: "Meu nome é Waldemar Rodrigues da Paixão, nasci em 1916, aprendi Capoeira com Siri de Mangue, Canário Pardo, Calabi de Periperi... Levei 4 anos aprendendo, em 40 estava ensinando na Pero Vaz."
+Mais crucialmente, ele foi um dos professores de Mestre Waldemar da Paixão, que declarou claramente: "Meu nome é Waldemar Rodrigues da Paixão, nasci em 1916, aprendi Capoeira com Siri de Mangue, Canário Pardo, Calabi de Periperi... Levei 4 anos aprendendo, em 40 estava ensinando na Pero Vaz".
 
 Isso coloca Siri de Mangue como um elo crítico na linhagem da capoeira—uma ponte entre a era lendária de Besouro e as tradições documentadas que Waldemar preservaria em seu famoso Barracão.
 
-**Na Música de Capoeira:** A tradicional ladainha "Abre os olhos Siri de Mangue" celebra sua memória. Segundo Biribá: "Dizem que Siri de Mangue era um barqueiro que subia e descia o rio, dentro dos barcos, transportando mercadorias. Pouco se sabe sobre Siri, mas ele é reconhecido como um dos grandes mestres da capoeira."
+**Na Música de Capoeira:** A tradicional ladainha "Abre os olhos Siri de Mangue" celebra sua memória. Segundo Biribá: "Dizem que Siri de Mangue era um barqueiro que subia e descia o rio, dentro dos barcos, transportando mercadorias. Pouco se sabe sobre Siri, mas ele é reconhecido como um dos grandes mestres da capoeira".
 
 ## The Ladainha
 

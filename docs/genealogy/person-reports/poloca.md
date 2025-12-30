@@ -139,11 +139,11 @@ Sources say Poloca was "part of GCAP since its founding" but GCAP was founded Oc
 
 ### Surname Coincidence
 
-Paulo Barreto (Poloca) and Paula Barreto (Paulinha) share the surname "Barreto." No source explicitly states they are siblings or otherwise related. They may simply share a common surname.
+Paulo Barreto (Poloca) and Paula Barreto (Paulinha) share the surname "Barreto". No source explicitly states they are siblings or otherwise related. They may simply share a common surname.
 
 ### Mestre Title Date
 
-The exact date when Poloca received the title of Mestre is not documented. He held the rank of contramestre when joining Nzinga in 1995, but current sources (2018+) refer to him as "Mestre Poloca."
+The exact date when Poloca received the title of Mestre is not documented. He held the rank of contramestre when joining Nzinga in 1995, but current sources (2018+) refer to him as "Mestre Poloca".
 
 ---
 

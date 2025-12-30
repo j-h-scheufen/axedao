@@ -67,7 +67,7 @@ Janja completed her Master''s degree and Doctorate in Education from the Univers
 
 In September 2004, Janja received the honorary title of "Paulistana Citizen" from the São Paulo City Council for her outstanding work in preserving and fighting for the values of the country''s black community. In 2013, she was awarded the title of "Bahian Citizen" from the Salvador City Council.
 
-Janja leads the Rede Angoleira de Mulheres (RAM - Network of Angoleira Women), coordinating projects for affirmative action supporting Black students'' entrance into university. She helped organize events such as the VI Congresso Badauê of Women Capoeiristas and established an international conference for women angoleiras in Atlanta, USA. She also co-publishes the magazine "Toques d''Angola."
+Janja leads the Rede Angoleira de Mulheres (RAM - Network of Angoleira Women), coordinating projects for affirmative action supporting Black students'' entrance into university. She helped organize events such as the VI Congresso Badauê of Women Capoeiristas and established an international conference for women angoleiras in Atlanta, USA. She also co-publishes the magazine "Toques d''Angola".
 
 The internationalization of Grupo Nzinga began in 2005, with the opening of centers in Marburg (Germany) and Mexico City. As of 2020, on its 25th anniversary, Nzinga operated in five Brazilian cities (São Paulo, Salvador, Brasília, Rio de Janeiro, and others) and twelve international cities including Maputo (Mozambique), London (England), Tokyo (Japan), and Atlanta (USA). The group continues its mission of fighting racism and gender discrimination, publishing manifestos against machismo in capoeira communities.',
   -- Extended content (bio_pt)
@@ -85,7 +85,7 @@ Janja completou seu Mestrado e Doutorado em Educação pela Universidade de São
 
 Em setembro de 2004, Janja recebeu o título honorífico de "Cidadã Paulistana" da Câmara Municipal de São Paulo por seu destacado trabalho na preservação e luta pelos valores da comunidade negra do país. Em 2013, foi agraciada com o título de "Cidadã Baiana" pela Câmara Municipal de Salvador.
 
-Janja lidera a Rede Angoleira de Mulheres (RAM), coordenando projetos de ação afirmativa apoiando a entrada de estudantes negros na universidade. Ajudou a organizar eventos como o VI Congresso Badauê de Mulheres Capoeiristas e estabeleceu uma conferência internacional para mulheres angoleiras em Atlanta, EUA. Também co-publica a revista "Toques d''Angola."
+Janja lidera a Rede Angoleira de Mulheres (RAM), coordenando projetos de ação afirmativa apoiando a entrada de estudantes negros na universidade. Ajudou a organizar eventos como o VI Congresso Badauê de Mulheres Capoeiristas e estabeleceu uma conferência internacional para mulheres angoleiras em Atlanta, EUA. Também co-publica a revista "Toques d''Angola".
 
 A internacionalização do Grupo Nzinga começou em 2005, com a abertura de centros em Marburg (Alemanha) e Cidade do México. Em 2020, em seu 25º aniversário, o Nzinga operava em cinco cidades brasileiras (São Paulo, Salvador, Brasília, Rio de Janeiro e outras) e doze cidades internacionais incluindo Maputo (Moçambique), Londres (Inglaterra), Tóquio (Japão) e Atlanta (EUA). O grupo continua sua missão de combater o racismo e a discriminação de gênero, publicando manifestos contra o machismo nas comunidades de capoeira.',
   -- Achievements (achievements_en)
@@ -157,7 +157,7 @@ NAME DISAMBIGUATION:
 - DISTINCT from "Escola de Capoeira Angola Nzinga" (Germany) founded 1985 by Mestre Paulo Siqueira
 - Both named after Queen Nzinga but completely separate organizations with different lineages
 
-PHOTOGRAPH: Library of Congress has photograph (2008) by André Cypriano showing "Capoeira with Master Janja at the Instituto Nzinga de Estudos da Capoeira Angola e Tradições Educativas Banto, in the quilombola community of Alto da Sereia, Salvador."
+PHOTOGRAPH: Library of Congress has photograph (2008) by André Cypriano showing "Capoeira with Master Janja at the Instituto Nzinga de Estudos da Capoeira Angola e Tradições Educativas Banto, in the quilombola community of Alto da Sereia, Salvador".
 
 MAGAZINE CLARIFICATION:
 - Some sources mention "Real D''Angola" magazine - appears to be error
@@ -199,7 +199,7 @@ DESAMBIGUAÇÃO DE NOME:
 - DISTINTA da "Escola de Capoeira Angola Nzinga" (Alemanha) fundada em 1985 por Mestre Paulo Siqueira
 - Ambas nomeadas em homenagem à Rainha Nzinga mas organizações completamente separadas com linhagens diferentes
 
-FOTOGRAFIA: Library of Congress tem fotografia (2008) de André Cypriano mostrando "Capoeira com Mestra Janja no Instituto Nzinga de Estudos da Capoeira Angola e Tradições Educativas Banto, na comunidade quilombola de Alto da Sereia, Salvador."
+FOTOGRAFIA: Library of Congress tem fotografia (2008) de André Cypriano mostrando "Capoeira com Mestra Janja no Instituto Nzinga de Estudos da Capoeira Angola e Tradições Educativas Banto, na comunidade quilombola de Alto da Sereia, Salvador".
 
 ESCLARECIMENTO SOBRE REVISTA:
 - Algumas fontes mencionam revista "Real D''Angola" - parece ser erro

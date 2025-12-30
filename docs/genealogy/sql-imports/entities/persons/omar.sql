@@ -65,7 +65,7 @@ This would be one of Ezequiel''s final acts as a teacher. He died in March 1997,
 
 Today, Grupo de Capoeira União operates across multiple countries including Switzerland, Germany, Italy, and Brazil. The organization is registered with IPHAN as both a Ponto de Cultura and Ponto de Memória, with headquarters on Itaparica Island in Bahia. In Switzerland alone, academies operate in Baden (headquarters), Aarau, Chur, Lucerne, Schaffhausen, St. Gallen, Winterthur, Wetzikon, and Zofingen.
 
-Mestre Omar continues to lead the organization and teach at the Baden academy. He has expanded his work beyond the roda, giving courses and workshops at public schools and participating in community projects including "Gewalt macht Schule" (Violence Goes to School) conferences in Muttenz, "Welt in Basel," and the charitable initiative "Ajuda Brasil Crianças."
+Mestre Omar continues to lead the organization and teach at the Baden academy. He has expanded his work beyond the roda, giving courses and workshops at public schools and participating in community projects including "Gewalt macht Schule" (Violence Goes to School) conferences in Muttenz, "Welt in Basel", and the charitable initiative "Ajuda Brasil Crianças".
 
 After more than 40 years in capoeira, Mestre Omar maintains that he continues learning. He supports his students, professors, and mestrandos, nurturing the next generation of the Bimba-Ezequiel lineage in Europe.',
   -- bio_pt
@@ -83,7 +83,7 @@ Este seria um dos últimos atos de Ezequiel como professor. Ele faleceu em març
 
 Hoje, o Grupo de Capoeira União opera em vários países, incluindo Suíça, Alemanha, Itália e Brasil. A organização está registrada no IPHAN como Ponto de Cultura e Ponto de Memória, com sede na Ilha de Itaparica na Bahia. Somente na Suíça, academias funcionam em Baden (sede), Aarau, Chur, Lucerna, Schaffhausen, St. Gallen, Winterthur, Wetzikon e Zofingen.
 
-Mestre Omar continua liderando a organização e ensinando na academia de Baden. Ele expandiu seu trabalho além da roda, dando cursos e oficinas em escolas públicas e participando de projetos comunitários, incluindo conferências "Gewalt macht Schule" (Violência nas Escolas) em Muttenz, "Welt in Basel" e a iniciativa beneficente "Ajuda Brasil Crianças."
+Mestre Omar continua liderando a organização e ensinando na academia de Baden. Ele expandiu seu trabalho além da roda, dando cursos e oficinas em escolas públicas e participando de projetos comunitários, incluindo conferências "Gewalt macht Schule" (Violência nas Escolas) em Muttenz, "Welt in Basel" e a iniciativa beneficente "Ajuda Brasil Crianças".
 
 Após mais de 40 anos na capoeira, Mestre Omar afirma que continua aprendendo. Ele apoia seus alunos, professores e mestrandos, nutrindo a próxima geração da linhagem Bimba-Ezequiel na Europa.',
   -- achievements_en

@@ -103,8 +103,8 @@ SELECT
   NULL, NULL, NULL, NULL,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'https://taylorsbantus.wordpress.com/gbc-masters-teachers/mestre-pintor/',
-  E'As a teenager, Pintor traveled to Bahia and trained under Canjiquinha among other mestres. Canjiquinha was known as "The Joy of Capoeira."',
-  E'Na adolescência, Pintor viajou para a Bahia e treinou com Canjiquinha entre outros mestres. Canjiquinha era conhecido como "A Alegria da Capoeira."'
+  E'As a teenager, Pintor traveled to Bahia and trained under Canjiquinha among other mestres. Canjiquinha was known as "The Joy of Capoeira".',
+  E'Na adolescência, Pintor viajou para a Bahia e treinou com Canjiquinha entre outros mestres. Canjiquinha era conhecido como "A Alegria da Capoeira".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Pintor' AND o.apelido = 'Canjiquinha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

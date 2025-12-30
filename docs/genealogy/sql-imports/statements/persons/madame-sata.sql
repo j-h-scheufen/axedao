@@ -23,7 +23,7 @@ SELECT
   '1923-01-01'::date, 'year'::genealogy.date_precision,
   '{}'::jsonb,
   'verified'::genealogy.confidence,
-  'Madame Satã interview, O Pasquim 1971: "The greatest malandro of Rio de Janeiro that I knew from 1907 until today was the one who taught me to be a malandro and met me when I was 9 years old, the late Sete Coroas."',
+  'Madame Satã interview, O Pasquim 1971: "The greatest malandro of Rio de Janeiro that I knew from 1907 until today was the one who taught me to be a malandro and met me when I was 9 years old, the late Sete Coroas".',
   'Primary teacher-student relationship. Sete Coroas taught Madame Satã "the fine art of malandragem": capoeira, navalha fighting, smooth talk, rasteira, and bravado. When Sete Coroas died in 1923, he left Satã as his successor in Lapa and Saúde.',
   'Relação primária professor-aluno. Sete Coroas ensinou a Madame Satã "a fina arte da malandragem": capoeira, luta de navalha, papo, rasteira e valentia. Quando Sete Coroas morreu em 1923, deixou Satã como seu sucessor na Lapa e na Saúde.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o

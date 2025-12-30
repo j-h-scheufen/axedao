@@ -25,7 +25,7 @@
 -- PERSON RELATIONSHIPS
 -- Juvêncio associated_with Ananias - Ananias learned in his rodas (1938+). Needs Ananias import first.
 -- Juvêncio associated_with João de Zazá - Participated in São Félix rodas. Needs import first (unknown person).
--- Juvêncio associated_with Estevão - Cigar factory guard, "capoeira perversa." Needs import first (unknown person).
+-- Juvêncio associated_with Estevão - Cigar factory guard, "capoeira perversa". Needs import first (unknown person).
 -- Juvêncio associated_with Caial - Participated in São Félix rodas. Needs import first (unknown person).
 -- Juvêncio associated_with Café - From Cachoeira, participated in São Félix rodas. Needs import first (unknown person).
 -- Juvêncio associated_with Toy - Brother, participated in São Félix rodas. Needs import first (unknown person).

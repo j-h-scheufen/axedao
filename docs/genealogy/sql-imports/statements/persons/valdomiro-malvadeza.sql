@@ -50,8 +50,8 @@ SELECT
   NULL, NULL,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'https://capoeira-connection.com/capoeira/2011/10/interview-with-mestre-gato-preto/',
-  E'Valdomiro was a member of CECA (Centro Esportivo de Capoeira Angola) in Salvador, serving as part of the bateria. Mestre Gato Preto confirmed: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria."',
-  E'Valdomiro era membro do CECA (Centro Esportivo de Capoeira Angola) em Salvador, servindo como parte da bateria. Mestre Gato Preto confirmou: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria."'
+  E'Valdomiro was a member of CECA (Centro Esportivo de Capoeira Angola) in Salvador, serving as part of the bateria. Mestre Gato Preto confirmed: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria".',
+  E'Valdomiro era membro do CECA (Centro Esportivo de Capoeira Angola) em Salvador, servindo como parte da bateria. Mestre Gato Preto confirmou: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria".'
 FROM genealogy.person_profiles s, genealogy.group_profiles g
 WHERE s.apelido = 'Valdomiro Malvadeza' AND s.apelido_context = 'CECA student'
   AND g.name = 'CECA'
@@ -75,8 +75,8 @@ SELECT
   NULL, NULL,
   '{"association_context": "bateria_companions"}'::jsonb, 'verified'::genealogy.confidence,
   'https://capoeira-connection.com/capoeira/2011/10/interview-with-mestre-gato-preto/',
-  E'Valdomiro and João Pequeno played together in the bateria at Mestre Pastinha''s rodas at CECA. Per Gato Preto: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria."',
-  E'Valdomiro e João Pequeno tocavam juntos na bateria nas rodas de Mestre Pastinha no CECA. Conforme Gato Preto: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria."'
+  E'Valdomiro and João Pequeno played together in the bateria at Mestre Pastinha''s rodas at CECA. Per Gato Preto: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria".',
+  E'Valdomiro e João Pequeno tocavam juntos na bateria nas rodas de Mestre Pastinha no CECA. Conforme Gato Preto: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Valdomiro Malvadeza' AND s.apelido_context = 'CECA student'
   AND o.apelido = 'João Pequeno'
@@ -96,8 +96,8 @@ SELECT
   NULL, NULL,
   '{"association_context": "bateria_companions"}'::jsonb, 'verified'::genealogy.confidence,
   'https://capoeira-connection.com/capoeira/2011/10/interview-with-mestre-gato-preto/',
-  E'Valdomiro and Gato Preto played together in the bateria at Mestre Pastinha''s rodas at CECA. Per Gato Preto: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria."',
-  E'Valdomiro e Gato Preto tocavam juntos na bateria nas rodas de Mestre Pastinha no CECA. Conforme Gato Preto: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria."'
+  E'Valdomiro and Gato Preto played together in the bateria at Mestre Pastinha''s rodas at CECA. Per Gato Preto: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria".',
+  E'Valdomiro e Gato Preto tocavam juntos na bateria nas rodas de Mestre Pastinha no CECA. Conforme Gato Preto: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Valdomiro Malvadeza' AND s.apelido_context = 'CECA student'
   AND o.apelido = 'Gato Preto'
@@ -117,8 +117,8 @@ SELECT
   NULL, NULL,
   '{"association_context": "bateria_companions"}'::jsonb, 'verified'::genealogy.confidence,
   'https://capoeira-connection.com/capoeira/2011/10/interview-with-mestre-gato-preto/',
-  E'Valdomiro and Albertino da Hora (also known as "Moreno") played together in the bateria at Mestre Pastinha''s rodas at CECA. Per Gato Preto: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria."',
-  E'Valdomiro e Albertino da Hora (também conhecido como "Moreno") tocavam juntos na bateria nas rodas de Mestre Pastinha no CECA. Conforme Gato Preto: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria."'
+  E'Valdomiro and Albertino da Hora (also known as "Moreno") played together in the bateria at Mestre Pastinha''s rodas at CECA. Per Gato Preto: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria".',
+  E'Valdomiro e Albertino da Hora (também conhecido como "Moreno") tocavam juntos na bateria nas rodas de Mestre Pastinha no CECA. Conforme Gato Preto: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Valdomiro Malvadeza' AND s.apelido_context = 'CECA student'
   AND o.apelido = 'Albertino da Hora'

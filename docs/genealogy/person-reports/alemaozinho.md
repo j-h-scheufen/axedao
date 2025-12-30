@@ -27,25 +27,25 @@
 
 Alemãozinho (Portuguese for "Little German") was a capoeirista in Rio de Janeiro who became another victim in the violent cycle of vendetta killings that swept through the capoeira maltas in 1870.
 
-Plácido de Abreu documented his death in "Os Capoeiras" (1886), placing it in a sequence of reprisals: "After this, followed the death of the caboclo Jacó, in the celebration at Paula Matos, (being murdered in the street of Riachuelo); after this came the death of the Alemãozinho [Small German], next to the old Lyrical Theatre do Campo, by the famous César-Maneta that, shortly after was also murdered on the Peixe Beach, by João-Lagalhé."
+Plácido de Abreu documented his death in "Os Capoeiras" (1886), placing it in a sequence of reprisals: "After this, followed the death of the caboclo Jacó, in the celebration at Paula Matos, (being murdered in the street of Riachuelo); after this came the death of the Alemãozinho [Small German], next to the old Lyrical Theatre do Campo, by the famous César-Maneta that, shortly after was also murdered on the Peixe Beach, by João-Lagalhé".
 
 His nickname "Alemãozinho" suggests German ancestry or characteristics—perhaps blond hair, light skin, or an accent—that distinguished him from the primarily Afro-Brazilian and mixed-race population of the capoeira maltas. The presence of European immigrants and their descendants in the Rio capoeira scene was well-documented by the late 19th century; the practice had spread beyond its African origins to incorporate Portuguese, Irish, German, and other immigrants who found themselves in the marginalized urban underclass.
 
 The "old Lyrical Theatre do Campo" referenced by Abreu was the Teatro Lírico, one of several theaters in the Campo de Santana area of central Rio de Janeiro. This was a public, prominent location—suggesting Alemãozinho's death was either a brazen public assassination or the result of a confrontation that escalated fatally.
 
-His killer, the "famous César-Maneta," was evidently a notable figure in the capoeira world—famous enough that Abreu names him specifically. César-Maneta would himself soon fall victim to the same cycle of violence, killed on Praia do Peixe (Fish Beach) by João-Lagalhé.
+His killer, the "famous César-Maneta", was evidently a notable figure in the capoeira world—famous enough that Abreu names him specifically. César-Maneta would himself soon fall victim to the same cycle of violence, killed on Praia do Peixe (Fish Beach) by João-Lagalhé.
 
 ### Português
 
 Alemãozinho foi um capoeirista no Rio de Janeiro que se tornou mais uma vítima no violento ciclo de mortes por vingança que varreu as maltas de capoeira em 1870.
 
-Plácido de Abreu documentou sua morte em "Os Capoeiras" (1886), colocando-a em uma sequência de represálias: "Após isso, seguiu-se a morte do caboclo Jacó, na festa de Paula Matos, (sendo assassinado na rua do Riachuelo); depois disso veio a morte do Alemãozinho, perto do velho Teatro Lírico do Campo, pelo famoso César-Maneta que, pouco depois também foi assassinado na Praia do Peixe, por João-Lagalhé."
+Plácido de Abreu documentou sua morte em "Os Capoeiras" (1886), colocando-a em uma sequência de represálias: "Após isso, seguiu-se a morte do caboclo Jacó, na festa de Paula Matos, (sendo assassinado na rua do Riachuelo); depois disso veio a morte do Alemãozinho, perto do velho Teatro Lírico do Campo, pelo famoso César-Maneta que, pouco depois também foi assassinado na Praia do Peixe, por João-Lagalhé".
 
 Seu apelido "Alemãozinho" sugere ascendência ou características alemãs—talvez cabelo louro, pele clara, ou um sotaque—que o distinguia da população principalmente afro-brasileira e mestiça das maltas de capoeira. A presença de imigrantes europeus e seus descendentes na cena de capoeira do Rio era bem documentada no final do século XIX; a prática havia se espalhado além de suas origens africanas para incorporar portugueses, irlandeses, alemães e outros imigrantes que se encontravam na classe baixa urbana marginalizada.
 
 O "velho Teatro Lírico do Campo" referenciado por Abreu era o Teatro Lírico, um dos vários teatros na área do Campo de Santana no centro do Rio de Janeiro. Este era um local público e proeminente—sugerindo que a morte de Alemãozinho foi ou um assassinato público descarado ou o resultado de um confronto que escalou fatalmente.
 
-Seu assassino, o "famoso César-Maneta," era evidentemente uma figura notável no mundo da capoeira—famoso o suficiente para que Abreu o nomeie especificamente. César-Maneta ele próprio logo cairia vítima do mesmo ciclo de violência, morto na Praia do Peixe por João-Lagalhé.
+Seu assassino, o "famoso César-Maneta", era evidentemente uma figura notável no mundo da capoeira—famoso o suficiente para que Abreu o nomeie especificamente. César-Maneta ele próprio logo cairia vítima do mesmo ciclo de violência, morto na Praia do Peixe por João-Lagalhé.
 
 ## The Vendetta Cycle / O Ciclo de Vingança
 

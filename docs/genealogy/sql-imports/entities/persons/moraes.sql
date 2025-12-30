@@ -76,7 +76,7 @@ Parallel to his capoeira work, Moraes pursued extensive formal education. He obt
 
 In 2004, his album "Brincando na Roda" (Playing in the Roda), recorded with GCAP and released by Smithsonian Folkways Recordings, received a Grammy Award nomination in the Best Traditional World Music Album category. This was the first and only capoeira recording to be nominated for a Grammy.
 
-Moraes is a strong advocate for "capoeira without prejudice," speaking against discriminatory practices within capoeira, including the use of pejorative nicknames that he argues perpetuate slavery''s legacy. He has presented at TEDx Pelourinho on bullying and prejudice in capoeira.
+Moraes is a strong advocate for "capoeira without prejudice", speaking against discriminatory practices within capoeira, including the use of pejorative nicknames that he argues perpetuate slavery''s legacy. He has presented at TEDx Pelourinho on bullying and prejudice in capoeira.
 
 Today, GCAP maintains its headquarters in Salvador with schools in Ceará, Rio Grande do Sul, São Paulo, and Japan. Mestre Moraes continues to direct GCAP as a cultural outreach project, having trained over twenty students who became mestres themselves, including Cobra Mansa, Janja, Paulinha, Poloca, Valmir, and Jurandir—many of whom went on to found their own organizations spreading Capoeira Angola worldwide.',
   -- Extended content (bio_pt)
@@ -102,7 +102,7 @@ Paralelamente ao seu trabalho com capoeira, Moraes buscou extensa educação for
 
 Em 2004, seu álbum "Brincando na Roda", gravado com o GCAP e lançado pela Smithsonian Folkways Recordings, recebeu uma indicação ao Grammy Award na categoria Melhor Álbum de Música Tradicional do Mundo. Esta foi a primeira e única gravação de capoeira a ser indicada ao Grammy.
 
-Moraes é um forte defensor da "capoeira sem preconceito," falando contra práticas discriminatórias dentro da capoeira, incluindo o uso de apelidos pejorativos que ele argumenta perpetuam o legado da escravidão. Apresentou-se no TEDx Pelourinho sobre bullying e preconceito na capoeira.
+Moraes é um forte defensor da "capoeira sem preconceito", falando contra práticas discriminatórias dentro da capoeira, incluindo o uso de apelidos pejorativos que ele argumenta perpetuam o legado da escravidão. Apresentou-se no TEDx Pelourinho sobre bullying e preconceito na capoeira.
 
 Hoje, o GCAP mantém sua sede em Salvador com escolas no Ceará, Rio Grande do Sul, São Paulo e Japão. Mestre Moraes continua dirigindo o GCAP como um projeto de extensão cultural, tendo formado mais de vinte alunos que se tornaram mestres, incluindo Cobra Mansa, Janja, Paulinha, Poloca, Valmir e Jurandir—muitos dos quais fundaram suas próprias organizações espalhando a Capoeira Angola pelo mundo.',
   -- Achievements

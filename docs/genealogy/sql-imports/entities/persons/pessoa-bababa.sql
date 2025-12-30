@@ -107,7 +107,7 @@ STUDENTS:
 - Mestre Bola Sete (José Luiz Oliveira Cruz, 1968-1969, approximately one year)
 
 TRAINING LOCATION:
-Small, poorly-lit basement space in Salvador. Exact address unknown. Described as informal teaching environment emphasizing "the old game the old way."
+Small, poorly-lit basement space in Salvador. Exact address unknown. Described as informal teaching environment emphasizing "the old game the old way".
 
 OCCUPATION:
 Merchant marine sailor (Marinha Mercante). Worked on ships traveling Brazil''s coast.
@@ -139,7 +139,7 @@ ALUNOS:
 - Mestre Bola Sete (José Luiz Oliveira Cruz, 1968-1969, aproximadamente um ano)
 
 LOCAL DE TREINAMENTO:
-Pequeno espaço mal iluminado em porão em Salvador. Endereço exato desconhecido. Descrito como ambiente de ensino informal enfatizando "o jogo antigo da maneira antiga."
+Pequeno espaço mal iluminado em porão em Salvador. Endereço exato desconhecido. Descrito como ambiente de ensino informal enfatizando "o jogo antigo da maneira antiga".
 
 OCUPAÇÃO:
 Marinheiro da Marinha Mercante. Trabalhava em navios que viajavam pela costa do Brasil.

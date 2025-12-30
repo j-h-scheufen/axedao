@@ -54,9 +54,9 @@ INSERT INTO genealogy.person_profiles (
   -- bio_en
   E'Angelo Augusto Decânio Filho was born on February 12, 1923, in Salvador, Bahia, the son of Dr. Ângelo Augusto Decânio and Georgina de Barros Decânio. He would become one of the most significant figures in the preservation and documentation of Capoeira Regional.
 
-In 1938, while studying medicine at university, the sixteen-year-old Decânio met Mestre Bimba and joined his academy—a fact he initially kept secret from his family. From that first day, Bimba adopted him "like a son," beginning a relationship that would span 36 years until the master''s death in 1974.
+In 1938, while studying medicine at university, the sixteen-year-old Decânio met Mestre Bimba and joined his academy—a fact he initially kept secret from his family. From that first day, Bimba adopted him "like a son", beginning a relationship that would span 36 years until the master''s death in 1974.
 
-During those decades, Decânio became far more than a student. He provided Bimba with "filial attention, medical care, advisory on academy administration, study of new techniques and counter-techniques, and establishment of norms and rules for improved teaching of the art." As a result of this intimate collaboration, Decânio had the privilege of being "the sole keeper of the Master''s secrets and tricks."
+During those decades, Decânio became far more than a student. He provided Bimba with "filial attention, medical care, advisory on academy administration, study of new techniques and counter-techniques, and establishment of norms and rules for improved teaching of the art". As a result of this intimate collaboration, Decânio had the privilege of being "the sole keeper of the Master''s secrets and tricks".
 
 Together with Sisnando Lima—another university-educated student who had trained in judo under Mitsuyo Maeda—Decânio formed one of the two pillars upon which Bimba built Capoeira Regional during its crucial Initial Phase (1930-1937) and Consolidation Phase (1938-1966). These academics helped transform capoeira from a street practice into a respectable institution, implementing structured academy operations with uniforms, training schedules, events, baptisms, exhibition rodas, and specialization courses.
 
@@ -64,25 +64,25 @@ Bimba formally graduated only four students to the level of mestre (white handke
 
 In 1969, when Bimba was invited to participate in the I Simpósio Brasileiro de Capoeira at Galeão Air Base in Rio de Janeiro—an event aimed at formulating sporting rules for capoeira—he sent Decânio as his official representative rather than attending himself.
 
-As a physician and intellectual, Decânio formulated the theory of "Transe Capoeirano" (Capoeira Trance), described as "a physical-psychological state that the capoeirista reaches during the game, due to stimuli from the musicality, the rhythm of the atabaques and agogôs, and the atmosphere provided by the ritual of the capoeira roda." He published this theory in "Transe Capoeirano, um estudo sobre a estrutura do ser humano e modificações de estados de consciência durante a prática da capoeira" (Salvador, 2002). His work drew comparisons between the trance state in capoeira and that experienced in Candomblé ceremonies.
+As a physician and intellectual, Decânio formulated the theory of "Transe Capoeirano" (Capoeira Trance), described as "a physical-psychological state that the capoeirista reaches during the game, due to stimuli from the musicality, the rhythm of the atabaques and agogôs, and the atmosphere provided by the ritual of the capoeira roda". He published this theory in "Transe Capoeirano, um estudo sobre a estrutura do ser humano e modificações de estados de consciência durante a prática da capoeira" (Salvador, 2002). His work drew comparisons between the trance state in capoeira and that experienced in Candomblé ceremonies.
 
-Decânio authored several books on capoeira, compiled in the self-published Coleção São Salomão: "A Herança de Mestre Bimba" (1996, 2nd edition revised with dialectal glossary 1997), "Manuscritos e Desenhos de Pastinha," "A Herança de Pastinha," and "Falando em Capoeira." His work was cited by Mestre Damião as "the true Bible of Capoeira."
+Decânio authored several books on capoeira, compiled in the self-published Coleção São Salomão: "A Herança de Mestre Bimba" (1996, 2nd edition revised with dialectal glossary 1997), "Manuscritos e Desenhos de Pastinha", "A Herança de Pastinha", and "Falando em Capoeira". His work was cited by Mestre Damião as "the true Bible of Capoeira".
 
-Notably, despite being Bimba''s closest disciple, Decânio showed profound respect for Mestre Pastinha and Capoeira Angola. In "A Herança de Mestre Bimba," he exalted Pastinha, the master of Capoeira Angola. He was also responsible for publishing Pastinha''s manuscripts, preserving essential documents for the Angola tradition.
+Notably, despite being Bimba''s closest disciple, Decânio showed profound respect for Mestre Pastinha and Capoeira Angola. In "A Herança de Mestre Bimba", he exalted Pastinha, the master of Capoeira Angola. He was also responsible for publishing Pastinha''s manuscripts, preserving essential documents for the Angola tradition.
 
-In his later years, Decânio lived at Sítio Vivendas Yemanjá in the Praia de Tubarão neighborhood of Paripe, in Salvador''s Subúrbio Ferroviário, where he remained a welcoming figure for capoeiristas who sought his knowledge. He was close neighbors and friends with Mestre João Pequeno. When CEDANZE (the academy continuing João Pequeno''s work) was formalized in 2003, Decânio served on its Council of Honor as one of the "advisors of highest expression of Capoeira in Bahia."
+In his later years, Decânio lived at Sítio Vivendas Yemanjá in the Praia de Tubarão neighborhood of Paripe, in Salvador''s Subúrbio Ferroviário, where he remained a welcoming figure for capoeiristas who sought his knowledge. He was close neighbors and friends with Mestre João Pequeno. When CEDANZE (the academy continuing João Pequeno''s work) was formalized in 2003, Decânio served on its Council of Honor as one of the "advisors of highest expression of Capoeira in Bahia".
 
-He held various titles in medicine, academic career, judo, and Candomblé. He also created the website "Capoeira da Bahia," which was later migrated to Portal Capoeira after his death.
+He held various titles in medicine, academic career, judo, and Candomblé. He also created the website "Capoeira da Bahia", which was later migrated to Portal Capoeira after his death.
 
-On Wednesday, February 1, 2011—the eve of the Festa de Yemanjá—Mestre Decânio passed away, just days before his 88th birthday. Described as "the greatest authority in the world on Mestre Bimba''s Capoeira Regional," he left behind an immense legacy of documentation, research, and philosophical contribution to capoeira.
+On Wednesday, February 1, 2011—the eve of the Festa de Yemanjá—Mestre Decânio passed away, just days before his 88th birthday. Described as "the greatest authority in the world on Mestre Bimba''s Capoeira Regional", he left behind an immense legacy of documentation, research, and philosophical contribution to capoeira.
 
-As he wrote: "A capoeira na sua origem é uma só... Cada mestre cria um estilo próprio." (Capoeira at its origin is one... Each master creates his own style.)',
+As he wrote: "A capoeira na sua origem é uma só... Cada mestre cria um estilo próprio". (Capoeira at its origin is one... Each master creates his own style.)',
   -- bio_pt
   E'Angelo Augusto Decânio Filho nasceu em 12 de fevereiro de 1923, em Salvador, Bahia, filho do Dr. Ângelo Augusto Decânio e Georgina de Barros Decânio. Ele se tornaria uma das figuras mais significativas na preservação e documentação da Capoeira Regional.
 
 Em 1938, enquanto estudava medicina na universidade, o jovem Decânio de dezesseis anos conheceu Mestre Bimba e se juntou à sua academia—um fato que inicialmente manteve em segredo de sua família. Desde o primeiro dia, Bimba o adotou "como filho", iniciando um relacionamento que duraria 36 anos até a morte do mestre em 1974.
 
-Durante essas décadas, Decânio tornou-se muito mais que um aluno. Ele oferecia a Bimba "atenção filial, cuidados médicos, assessoria na administração da academia, estudo de novos golpes e contragolpes, e estabelecimento de normas e regras para o aperfeiçoamento do ensino da luta." Como resultado dessa colaboração íntima, Decânio teve o privilégio de ser "o único guardião dos segredos e truques do Mestre."
+Durante essas décadas, Decânio tornou-se muito mais que um aluno. Ele oferecia a Bimba "atenção filial, cuidados médicos, assessoria na administração da academia, estudo de novos golpes e contragolpes, e estabelecimento de normas e regras para o aperfeiçoamento do ensino da luta". Como resultado dessa colaboração íntima, Decânio teve o privilégio de ser "o único guardião dos segredos e truques do Mestre".
 
 Juntamente com Sisnando Lima—outro aluno universitário que havia treinado judô com Mitsuyo Maeda—Decânio formou um dos dois pilares sobre os quais Bimba construiu a Capoeira Regional durante suas fases cruciais: Fase Inicial (1930-1937) e Fase de Consolidação (1938-1966). Esses acadêmicos ajudaram a transformar a capoeira de uma prática de rua em uma instituição respeitável, implementando operações estruturadas de academia com uniformes, horários de treino, eventos, batizados, rodas de exibição e cursos de especialização.
 
@@ -90,19 +90,19 @@ Bimba graduou formalmente apenas quatro alunos ao nível de mestre (lenço branc
 
 Em 1969, quando Bimba foi convidado para participar do I Simpósio Brasileiro de Capoeira na Base Aérea do Galeão, no Rio de Janeiro—um evento que visava formular regras esportivas para a capoeira—ele enviou Decânio como seu representante oficial ao invés de comparecer pessoalmente.
 
-Como médico e intelectual, Decânio formulou a teoria do "Transe Capoeirano", descrita como "um estado físico-psíquico que o capoeirista atinge durante o jogo, devido aos estímulos da musicalidade, do ritmo dos atabaques e agogôs, e da atmosfera proporcionada pelo ritual da roda de capoeira." Publicou essa teoria em "Transe Capoeirano, um estudo sobre a estrutura do ser humano e modificações de estados de consciência durante a prática da capoeira" (Salvador, 2002). Seu trabalho traçou comparações entre o estado de transe na capoeira e aquele vivenciado nas cerimônias de Candomblé.
+Como médico e intelectual, Decânio formulou a teoria do "Transe Capoeirano", descrita como "um estado físico-psíquico que o capoeirista atinge durante o jogo, devido aos estímulos da musicalidade, do ritmo dos atabaques e agogôs, e da atmosfera proporcionada pelo ritual da roda de capoeira". Publicou essa teoria em "Transe Capoeirano, um estudo sobre a estrutura do ser humano e modificações de estados de consciência durante a prática da capoeira" (Salvador, 2002). Seu trabalho traçou comparações entre o estado de transe na capoeira e aquele vivenciado nas cerimônias de Candomblé.
 
-Decânio escreveu vários livros sobre capoeira, compilados na Coleção São Salomão, publicada por ele mesmo: "A Herança de Mestre Bimba" (1996, 2ª edição revisada com glossário dialetal 1997), "Manuscritos e Desenhos de Pastinha," "A Herança de Pastinha," e "Falando em Capoeira." Sua obra foi citada por Mestre Damião como "a verdadeira Bíblia da Capoeira."
+Decânio escreveu vários livros sobre capoeira, compilados na Coleção São Salomão, publicada por ele mesmo: "A Herança de Mestre Bimba" (1996, 2ª edição revisada com glossário dialetal 1997), "Manuscritos e Desenhos de Pastinha", "A Herança de Pastinha", e "Falando em Capoeira". Sua obra foi citada por Mestre Damião como "a verdadeira Bíblia da Capoeira".
 
-Notavelmente, apesar de ser o discípulo mais próximo de Bimba, Decânio demonstrou profundo respeito por Mestre Pastinha e pela Capoeira Angola. Em "A Herança de Mestre Bimba," ele exalta Pastinha, o mestre da Capoeira Angola. Ele também foi responsável pela publicação dos manuscritos de Pastinha, preservando documentos essenciais para a tradição Angola.
+Notavelmente, apesar de ser o discípulo mais próximo de Bimba, Decânio demonstrou profundo respeito por Mestre Pastinha e pela Capoeira Angola. Em "A Herança de Mestre Bimba", ele exalta Pastinha, o mestre da Capoeira Angola. Ele também foi responsável pela publicação dos manuscritos de Pastinha, preservando documentos essenciais para a tradição Angola.
 
-Em seus últimos anos, Decânio viveu no Sítio Vivendas Yemanjá no bairro da Praia de Tubarão em Paripe, no Subúrbio Ferroviário de Salvador, onde permaneceu uma figura acolhedora para capoeiristas que buscavam seu conhecimento. Era vizinho próximo e amigo de Mestre João Pequeno. Quando o CEDANZE (a academia que continua o trabalho de João Pequeno) foi formalizado em 2003, Decânio serviu em seu Conselho de Honra como um dos "conselheiros de maior expressão da Capoeira na Bahia."
+Em seus últimos anos, Decânio viveu no Sítio Vivendas Yemanjá no bairro da Praia de Tubarão em Paripe, no Subúrbio Ferroviário de Salvador, onde permaneceu uma figura acolhedora para capoeiristas que buscavam seu conhecimento. Era vizinho próximo e amigo de Mestre João Pequeno. Quando o CEDANZE (a academia que continua o trabalho de João Pequeno) foi formalizado em 2003, Decânio serviu em seu Conselho de Honra como um dos "conselheiros de maior expressão da Capoeira na Bahia".
 
 Ele possuía vários títulos em medicina, carreira acadêmica, judô e Candomblé. Também criou o site "Capoeira da Bahia", que foi posteriormente migrado para o Portal Capoeira após sua morte.
 
-Na quarta-feira, 1º de fevereiro de 2011—véspera da Festa de Yemanjá—Mestre Decânio faleceu, apenas dias antes de seu 88º aniversário. Descrito como "a maior autoridade no mundo sobre a Capoeira Regional de Mestre Bimba," ele deixou um imenso legado de documentação, pesquisa e contribuição filosófica para a capoeira.
+Na quarta-feira, 1º de fevereiro de 2011—véspera da Festa de Yemanjá—Mestre Decânio faleceu, apenas dias antes de seu 88º aniversário. Descrito como "a maior autoridade no mundo sobre a Capoeira Regional de Mestre Bimba", ele deixou um imenso legado de documentação, pesquisa e contribuição filosófica para a capoeira.
 
-Como ele escreveu: "A capoeira na sua origem é uma só... Cada mestre cria um estilo próprio."',
+Como ele escreveu: "A capoeira na sua origem é uma só... Cada mestre cria um estilo próprio".',
   -- achievements_en
   E'One of only four students formally graduated to mestre (white handkerchief) by Mestre Bimba; Medical doctor who provided healthcare and institutional guidance to Bimba''s academy; Co-pillar (with Sisnando) in founding Capoeira Regional; Official representative of Mestre Bimba at 1969 I Simpósio Brasileiro de Capoeira; Formulated the theory of "Transe Capoeirano" (Capoeira Trance); Author of Coleção São Salomão book series; Published Mestre Pastinha''s manuscripts; Considered "the greatest authority in the world on Mestre Bimba''s Capoeira Regional"; Council of Honor member at CEDANZE (João Pequeno academy); Created "Capoeira da Bahia" website (now preserved at Portal Capoeira)',
   -- achievements_pt
@@ -112,7 +112,7 @@ Como ele escreveu: "A capoeira na sua origem é uma só... Cada mestre cria um e
 February 12, 1923 - confirmed by velhosmestres.com birthday registry and Portal Capoeira article by Mestre Jean Pangolin.
 
 DEATH DATE (2011-02-01, exact):
-February 1, 2011 - confirmed by memorial article (mastermarciomendes.wordpress.com, Feb 8, 2012) which states "Last Wednesday, February 1 2011, Master Decânio passed away." Some sources incorrectly state 2012 due to confusion with memorial publication date.
+February 1, 2011 - confirmed by memorial article (mastermarciomendes.wordpress.com, Feb 8, 2012) which states "Last Wednesday, February 1 2011, Master Decânio passed away". Some sources incorrectly state 2012 due to confusion with memorial publication date.
 
 PARENTS:
 - Father: Dr. Ângelo Augusto Decânio (medical doctor)
@@ -174,7 +174,7 @@ COUNCIL POSITIONS:
 12 de fevereiro de 1923 - confirmado pelo registro de aniversários do velhosmestres.com e artigo do Portal Capoeira por Mestre Jean Pangolin.
 
 DATA DE FALECIMENTO (2011-02-01, exata):
-1º de fevereiro de 2011 - confirmado por artigo memorial (mastermarciomendes.wordpress.com, 8 de fev de 2012) que afirma "Na última quarta-feira, 1º de fevereiro de 2011, Mestre Decânio faleceu." Algumas fontes incorretamente indicam 2012 devido à confusão com a data de publicação do memorial.
+1º de fevereiro de 2011 - confirmado por artigo memorial (mastermarciomendes.wordpress.com, 8 de fev de 2012) que afirma "Na última quarta-feira, 1º de fevereiro de 2011, Mestre Decânio faleceu". Algumas fontes incorretamente indicam 2012 devido à confusão com a data de publicação do memorial.
 
 PAIS:
 - Pai: Dr. Ângelo Augusto Decânio (médico)

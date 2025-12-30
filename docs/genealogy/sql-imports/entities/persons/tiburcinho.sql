@@ -42,12 +42,12 @@ In 1968, Tiburcinho participated in the documentary film "Dança de Guerra" dire
 
 Jorge Amado immortalized Tiburcinho in his 1969 novel "Tenda dos Milagres", listing him among the great capoeira masters who "demonstrated valor and competence at the School" alongside Querido-de-Deus, Chico da Barra, and Vicente Pastinha.
 
-When interviewed by Jair Moura in February 1970, Tiburcinho was 86 years old and living with his nephew Amaro Bonfim de Santana in Madragoa. Despite his advanced age, Moura noted that "the old Tibúrcio maintained faith in his blessed manuscada, protecting against illnesses like asthma and neuralgias." His death date is unknown, but he outlived Mestre Bimba (who died in 1974).
+When interviewed by Jair Moura in February 1970, Tiburcinho was 86 years old and living with his nephew Amaro Bonfim de Santana in Madragoa. Despite his advanced age, Moura noted that "the old Tibúrcio maintained faith in his blessed manuscada, protecting against illnesses like asthma and neuralgias". His death date is unknown, but he outlived Mestre Bimba (who died in 1974).
 
 Tiburcinho lamented how batuque had been "criminosamente esquecido por todos" (criminally forgotten by everyone) and worked throughout his life to preserve these dying traditions of Afro-Brazilian culture.',
   E'Tibúrcio José de Santana, conhecido como Tiburcinho ou Tibúrcio de Jaguaripe, nasceu por volta de 1884 em Jaguaripe, Bahia, filho de Francisco José de Santana e Marciana Maria de Araújo. Ele é um dos últimos grandes mestres do batuque, uma forma de combate afro-brasileira semelhante à capoeira, onde os lutadores usavam as pernas para desequilibrar os oponentes.
 
-Tiburcinho aprendeu batuque com Mestre Bernardo José de Cosme, que ele descreveu como "mestre da arte na sua região". Como ele lembrou ao historiador Jair Moura em 1970, o batuque era "um jogo cuja competição era formada por dois contendores, tendo o ponto fundamental de defesa os órgãos sexuais, devido à violência dos golpes destinado ao desequilíbrio de cada um dos lutadores."
+Tiburcinho aprendeu batuque com Mestre Bernardo José de Cosme, que ele descreveu como "mestre da arte na sua região". Como ele lembrou ao historiador Jair Moura em 1970, o batuque era "um jogo cuja competição era formada por dois contendores, tendo o ponto fundamental de defesa os órgãos sexuais, devido à violência dos golpes destinado ao desequilíbrio de cada um dos lutadores".
 
 Depois de se mudar para Salvador como muitos trabalhadores da época, Tiburcinho aprendeu capoeira no Mercado Popular, treinando com os capoeiristas locais. Tornou-se reconhecido nos círculos de capoeira de Salvador por sua habilidade excepcional e começou a frequentar a academia de Mestre Pastinha, onde era frequentemente visto.
 
@@ -59,7 +59,7 @@ Em 1968, Tiburcinho participou do documentário "Dança de Guerra" dirigido por 
 
 Jorge Amado imortalizou Tiburcinho em seu romance de 1969 "Tenda dos Milagres", listando-o entre os grandes mestres de capoeira que "demonstraram valor e competência na Escola" ao lado de Querido-de-Deus, Chico da Barra e Vicente Pastinha.
 
-Quando entrevistado por Jair Moura em fevereiro de 1970, Tiburcinho tinha 86 anos e morava com seu sobrinho Amaro Bonfim de Santana em Madragoa. Apesar de sua idade avançada, Moura observou que "o velho Tibúrcio mantinha fé em sua benzida manuscada, protegendo contra doenças como asma e neuralgias." Sua data de falecimento é desconhecida, mas ele sobreviveu a Mestre Bimba (que morreu em 1974).
+Quando entrevistado por Jair Moura em fevereiro de 1970, Tiburcinho tinha 86 anos e morava com seu sobrinho Amaro Bonfim de Santana em Madragoa. Apesar de sua idade avançada, Moura observou que "o velho Tibúrcio mantinha fé em sua benzida manuscada, protegendo contra doenças como asma e neuralgias". Sua data de falecimento é desconhecida, mas ele sobreviveu a Mestre Bimba (que morreu em 1974).
 
 Tiburcinho lamentava como o batuque tinha sido "criminosamente esquecido por todos" e trabalhou ao longo de sua vida para preservar essas tradições moribundas da cultura afro-brasileira.',
   E'Contributed to reviving maculelê choreography for Mestre Bimba (1950s); helped preserve traditional capoeira songs; one of the last masters of batuque; appeared in documentary "Dança de Guerra" (1968); immortalized in Jorge Amado''s novel "Tenda dos Milagres" (1969).',

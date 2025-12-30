@@ -28,7 +28,7 @@ Eziquiel Martins Marinho, known as Mestre Ezequiel or affectionately as "Zica" b
 
 Before dedicating himself fully to capoeira, Ezequiel served as a military police officer in Salvador. It was through this profession, in the mid-1960s, that he met Mestre Saci (Josevaldo Lima de Jesus), one of the great disciples of Mestre Bimba. Saci introduced Ezequiel to Capoeira Regional, training him at the Quartel dos Dendezeiros, the Military Police barracks in the Itapagipe neighborhood. Saci then brought him to Mestre Bimba's Centro de Cultura Física e Luta Regional.
 
-At Bimba's academy, Ezequiel found his calling. He graduated with the lenço azul (blue handkerchief), the mark of a formado in Capoeira Regional, alongside Luciano Figueiredo (Mestre Galo). His encounter with Mestre Bimba transformed what had been merely "a dream of being a famous capoeirista" into "an unconditional passion for this genuinely Brazilian art."
+At Bimba's academy, Ezequiel found his calling. He graduated with the lenço azul (blue handkerchief), the mark of a formado in Capoeira Regional, alongside Luciano Figueiredo (Mestre Galo). His encounter with Mestre Bimba transformed what had been merely "a dream of being a famous capoeirista" into "an unconditional passion for this genuinely Brazilian art".
 
 In 1964, while still training at Bimba's academy, Ezequiel began teaching his friends who noticed his new physical agility. As their numbers grew, he founded Grupo Luanda with his student Mestre Franklin. The group was formally registered as Grupo Folclórico Luanda in 1974. The name "Luanda"—the capital of Angola—honored the ports from which enslaved Africans said their last goodbyes to their homeland, while also meaning "the junction of the moon and the earth" in Yoruba.
 
@@ -42,7 +42,7 @@ Ezequiel's approach to capoeira emphasized discipline and respect. He was deeply
 
 Among his students, the most famous is Mestre Jelon Vieira, who trained under him in Salvador before moving to New York in 1975, becoming one of the first to introduce capoeira to the United States. Mestre Omar da Conceição, born in 1957, began training with Ezequiel at age 12 at the Escola de Capoeira Mestre Bimba. On August 30, 1996, Ezequiel traveled to Baden, Switzerland, to inaugurate Mestre Omar's Academia de Capoeira União and personally elevated Omar to mestre status.
 
-Mestre Ezequiel died on March 26, 1997, at age 55, suffering a heart attack despite being in excellent physical condition and at the height of his capoeira mastery. As the obituary in Capoeira Paris noted, his heart was "fatigued by the many emotions lived through countless rodas." His death left "um vazio nas rodas da terra" (a void in the circles of the earth). Many mestres have since dedicated songs in his memory.
+Mestre Ezequiel died on March 26, 1997, at age 55, suffering a heart attack despite being in excellent physical condition and at the height of his capoeira mastery. As the obituary in Capoeira Paris noted, his heart was "fatigued by the many emotions lived through countless rodas". His death left "um vazio nas rodas da terra" (a void in the circles of the earth). Many mestres have since dedicated songs in his memory.
 
 His legacy continues through Grupo Luanda, which today operates in Brazil, Switzerland, France, Germany, Hawaii, and across the Americas, pursuing his foundational concept of "educação com base na capoeira" (education based on capoeira).
 
@@ -52,23 +52,23 @@ Eziquiel Martins Marinho, conhecido como Mestre Ezequiel ou carinhosamente como 
 
 Antes de se dedicar inteiramente à capoeira, Ezequiel serviu como policial militar em Salvador. Foi através desta profissão, em meados dos anos 1960, que conheceu Mestre Saci (Josevaldo Lima de Jesus), um dos grandes discípulos de Mestre Bimba. Saci apresentou Ezequiel à Capoeira Regional, treinando-o no Quartel dos Dendezeiros, o quartel da Polícia Militar no bairro de Itapagipe. Saci então o levou ao Centro de Cultura Física e Luta Regional de Mestre Bimba.
 
-Na academia de Bimba, Ezequiel encontrou sua vocação. Formou-se com o lenço azul, a marca de um formado na Capoeira Regional, ao lado de Luciano Figueiredo (Mestre Galo). Seu encontro com Mestre Bimba transformou o que tinha sido apenas "um sonho de ser um capoeirista famoso" em "uma paixão incondicional por esta arte genuinamente brasileira."
+Na academia de Bimba, Ezequiel encontrou sua vocação. Formou-se com o lenço azul, a marca de um formado na Capoeira Regional, ao lado de Luciano Figueiredo (Mestre Galo). Seu encontro com Mestre Bimba transformou o que tinha sido apenas "um sonho de ser um capoeirista famoso" em "uma paixão incondicional por esta arte genuinamente brasileira".
 
 Em 1964, ainda treinando na academia de Bimba, Ezequiel começou a ensinar seus amigos que notaram sua nova agilidade física. Conforme o número crescia, fundou o Grupo Luanda com seu aluno Mestre Franklin. O grupo foi formalmente registrado como Grupo Folclórico Luanda em 1974. O nome "Luanda"—a capital de Angola—homenageava os portos de onde os africanos escravizados deram seus últimos adeuses à sua terra natal, significando também "a junção da lua e da terra" em iorubá.
 
 Quando Mestre Bimba deixou Salvador para Goiânia em 1972, desiludido com a falta de apoio governamental, Ezequiel foi escolhido junto com Mestre Vermelho 27 para manter a histórica academia no Terreiro de Jesus. Por vários anos após a morte de Bimba em 1974, Ezequiel continuou ensinando na escola no Pelourinho e no Forte de Santo Antônio (hoje Forte da Capoeira).
 
-Ezequiel tornou-se um dos mais renomados cantores, músicos e compositores da capoeira. Aqueles que o conheceram diziam que ele "cantava com emoção." Sua voz distintiva e estilo único de cantar fizeram dele, junto com Mestre Itapoan, um dos mais responsáveis por espalhar a filosofia de Mestre Bimba pelo mundo da capoeira. Em 1989, gravou o álbum "Capoeira, Arte e Ofício" com 16 faixas, hoje considerado uma relíquia. Também gravou "Programa Nacional de Capoeira Volume 2" no mesmo ano.
+Ezequiel tornou-se um dos mais renomados cantores, músicos e compositores da capoeira. Aqueles que o conheceram diziam que ele "cantava com emoção". Sua voz distintiva e estilo único de cantar fizeram dele, junto com Mestre Itapoan, um dos mais responsáveis por espalhar a filosofia de Mestre Bimba pelo mundo da capoeira. Em 1989, gravou o álbum "Capoeira, Arte e Ofício" com 16 faixas, hoje considerado uma relíquia. Também gravou "Programa Nacional de Capoeira Volume 2" no mesmo ano.
 
-Suas conquistas competitivas foram igualmente impressionantes. Ezequiel foi bicampeão Brasileiro de Capoeira em 1976 e 1977, e recebeu um troféu de "melhor ginga" em 1976. Participou dos grupos folclóricos Olodum e Olodumaré, representando a Bahia e o Brasil em festivais internacionais em Salta (Argentina) e Quito (Equador), ganhando medalhas de ouro e os prestigiosos prêmios "Humanaua de Oro."
+Suas conquistas competitivas foram igualmente impressionantes. Ezequiel foi bicampeão Brasileiro de Capoeira em 1976 e 1977, e recebeu um troféu de "melhor ginga" em 1976. Participou dos grupos folclóricos Olodum e Olodumaré, representando a Bahia e o Brasil em festivais internacionais em Salta (Argentina) e Quito (Equador), ganhando medalhas de ouro e os prestigiosos prêmios "Humanaua de Oro".
 
-A abordagem de Ezequiel à capoeira enfatizava disciplina e respeito. Ele estava profundamente preocupado com a violência nas rodas, acreditando que conflitos internos entre grupos eram destrutivos para a arte. Alertava que capoeiristas inexperientes poderiam danificar os princípios fundamentais da capoeira. Sua filosofia: "O respeito nas rodas faz o aluno disciplinar-se em relação aos outros."
+A abordagem de Ezequiel à capoeira enfatizava disciplina e respeito. Ele estava profundamente preocupado com a violência nas rodas, acreditando que conflitos internos entre grupos eram destrutivos para a arte. Alertava que capoeiristas inexperientes poderiam danificar os princípios fundamentais da capoeira. Sua filosofia: "O respeito nas rodas faz o aluno disciplinar-se em relação aos outros".
 
 Entre seus alunos, o mais famoso é Mestre Jelon Vieira, que treinou sob sua orientação em Salvador antes de se mudar para Nova York em 1975, tornando-se um dos primeiros a introduzir a capoeira nos Estados Unidos. Mestre Omar da Conceição, nascido em 1957, começou a treinar com Ezequiel aos 12 anos na Escola de Capoeira Mestre Bimba. Em 30 de agosto de 1996, Ezequiel viajou para Baden, Suíça, para inaugurar a Academia de Capoeira União de Mestre Omar e pessoalmente elevou Omar ao status de mestre.
 
-Mestre Ezequiel morreu em 26 de março de 1997, aos 55 anos, sofrendo um ataque cardíaco apesar de estar em excelente condição física e no auge de sua maestria na capoeira. Como observou o obituário na Capoeira Paris, seu coração estava "fatigado pelas muitas emoções vividas em incontáveis rodas." Sua morte deixou "um vazio nas rodas da terra." Muitos mestres desde então dedicaram canções em sua memória.
+Mestre Ezequiel morreu em 26 de março de 1997, aos 55 anos, sofrendo um ataque cardíaco apesar de estar em excelente condição física e no auge de sua maestria na capoeira. Como observou o obituário na Capoeira Paris, seu coração estava "fatigado pelas muitas emoções vividas em incontáveis rodas". Sua morte deixou "um vazio nas rodas da terra". Muitos mestres desde então dedicaram canções em sua memória.
 
-Seu legado continua através do Grupo Luanda, que hoje opera no Brasil, Suíça, França, Alemanha, Havaí e nas Américas, perseguindo seu conceito fundamental de "educação com base na capoeira."
+Seu legado continua através do Grupo Luanda, que hoje opera no Brasil, Suíça, França, Alemanha, Havaí e nas Américas, perseguindo seu conceito fundamental de "educação com base na capoeira".
 
 ## Achievements / Conquistas
 
@@ -106,13 +106,13 @@ Seu legado continua através do Grupo Luanda, que hoje opera no Brasil, Suíça,
 
 ### English
 
-Faithful disciple of Mestre Bimba who dedicated his life to preserving and spreading the Regional style. Known for his exceptional singing voice, mandinga-filled game, and mastery of the berimbau. Recorded albums that became relics of capoeira music. His approach combined technical excellence with the philosophy that "respect in the rodas ensures the student disciplines themselves toward others."
+Faithful disciple of Mestre Bimba who dedicated his life to preserving and spreading the Regional style. Known for his exceptional singing voice, mandinga-filled game, and mastery of the berimbau. Recorded albums that became relics of capoeira music. His approach combined technical excellence with the philosophy that "respect in the rodas ensures the student disciplines themselves toward others".
 
 Those who saw him play described him as having great mandinga and grace in his movements. He was particularly renowned as a vocalist—one of capoeira's greatest singers—and his albums remain essential listening for students of Capoeira Regional.
 
 ### Português
 
-Discípulo fiel de Mestre Bimba que dedicou sua vida a preservar e difundir o estilo Regional. Conhecido por sua voz excepcional, jogo cheio de mandinga e maestria no berimbau. Gravou álbuns que se tornaram relíquias da música de capoeira. Sua abordagem combinava excelência técnica com a filosofia de que "o respeito nas rodas faz o aluno disciplinar-se em relação aos outros."
+Discípulo fiel de Mestre Bimba que dedicou sua vida a preservar e difundir o estilo Regional. Conhecido por sua voz excepcional, jogo cheio de mandinga e maestria no berimbau. Gravou álbuns que se tornaram relíquias da música de capoeira. Sua abordagem combinava excelência técnica com a filosofia de que "o respeito nas rodas faz o aluno disciplinar-se em relação aos outros".
 
 Aqueles que o viram jogar o descreviam como tendo grande mandinga e graça em seus movimentos. Era particularmente renomado como cantor—um dos maiores cantores da capoeira—e seus álbuns permanecem audição essencial para estudantes da Capoeira Regional.
 

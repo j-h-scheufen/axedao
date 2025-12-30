@@ -4,7 +4,7 @@
 -- ============================================================
 -- BIRTH YEAR ESTIMATION (~1948, decade precision):
 -- The Correio Braziliense (2011) states he "arrived in Brasília in 1961
--- at age 13, coming from Petrópolis." If 13 in 1961, born ~1948.
+-- at age 13, coming from Petrópolis". If 13 in 1961, born ~1948.
 -- Sources refer to him as "o paraibano" (the Paraíban), indicating
 -- birth in Paraíba state before family moved to Petrópolis/Brasília.
 -- ============================================================

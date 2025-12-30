@@ -22,7 +22,7 @@
 
 João de Totó was one of the famous capoeiras whose names are preserved in the history of Recife's carnival. He was among the valentões (tough guys) who performed in front of the rival carnival bands in late 19th and early 20th century Pernambuco.
 
-According to Valdemar de Oliveira's 1942 work "Frevo, Capoeira e Passo," João de Totó was one of the capoeiristas targeted by police crackdowns in the early 1900s. The police campaign against the capoeiras sent Valdevino, João de Totó, and Jovino dos Coelhos to detention, others to Fernando de Noronha (the notorious prison island off the coast of Pernambuco), and others directly to the morgue.
+According to Valdemar de Oliveira's 1942 work "Frevo, Capoeira e Passo", João de Totó was one of the capoeiristas targeted by police crackdowns in the early 1900s. The police campaign against the capoeiras sent Valdevino, João de Totó, and Jovino dos Coelhos to detention, others to Fernando de Noronha (the notorious prison island off the coast of Pernambuco), and others directly to the morgue.
 
 João de Totó was part of the capoeira maltas that organized around the rival military bands during carnival season. The bands of "Quarto" (4th Artillery Battalion) and "Espanha" (National Guard) paraded through Recife protected by the agility, bravery, clubs, and knives of capoeiras like him. These capoeiristas performed ginga and kicks that were eventually transformed into the "passo"—the foundational dance of frevo.
 
@@ -34,7 +34,7 @@ Of all the valentões of Recife carnival—Jovino dos Coelhos, Nicolau do Poço,
 
 João de Totó foi um dos famosos capoeiras cujos nomes estão preservados na história do carnaval do Recife. Estava entre os valentões que se apresentavam na frente das bandas rivais de carnaval no final do século XIX e início do século XX em Pernambuco.
 
-De acordo com a obra de Valdemar de Oliveira de 1942 "Frevo, Capoeira e Passo," João de Totó foi um dos capoeiristas alvos da repressão policial no início dos anos 1900. A campanha policial contra os capoeiras mandou Valdevino, João de Totó e Jovino dos Coelhos para a detenção, outros para Fernando de Noronha (a notória ilha-prisão na costa de Pernambuco), e outros diretamente para o necrotério.
+De acordo com a obra de Valdemar de Oliveira de 1942 "Frevo, Capoeira e Passo", João de Totó foi um dos capoeiristas alvos da repressão policial no início dos anos 1900. A campanha policial contra os capoeiras mandou Valdevino, João de Totó e Jovino dos Coelhos para a detenção, outros para Fernando de Noronha (a notória ilha-prisão na costa de Pernambuco), e outros diretamente para o necrotério.
 
 João de Totó fazia parte das maltas de capoeira que se organizavam em torno das bandas militares rivais durante a temporada de carnaval. As bandas do "Quarto" (4º Batalhão de Artilharia) e "Espanha" (Guarda Nacional) desfilavam pelo Recife protegidas pela agilidade, bravura, cacetes e facas de capoeiristas como ele. Esses capoeiristas executavam ginga e chutes que eventualmente foram transformados no "passo"—a dança fundamental do frevo.
 
@@ -46,11 +46,11 @@ De todos os valentões do carnaval do Recife—Jovino dos Coelhos, Nicolau do Po
 
 ### English
 
-João de Totó was part of the "Brabos e Valentões" culture that directly contributed to the creation of frevo—now recognized as UNESCO Intangible Cultural Heritage. The ginga and kicks performed by capoeiristas like him in front of carnival bands were transformed into the "passo," the foundational dance of frevo.
+João de Totó was part of the "Brabos e Valentões" culture that directly contributed to the creation of frevo—now recognized as UNESCO Intangible Cultural Heritage. The ginga and kicks performed by capoeiristas like him in front of carnival bands were transformed into the "passo", the foundational dance of frevo.
 
 ### Português
 
-João de Totó fazia parte da cultura dos "Brabos e Valentões" que contribuiu diretamente para a criação do frevo—hoje reconhecido como Patrimônio Cultural Imaterial da UNESCO. A ginga e os chutes executados por capoeiristas como ele na frente das bandas de carnaval foram transformados no "passo," a dança fundamental do frevo.
+João de Totó fazia parte da cultura dos "Brabos e Valentões" que contribuiu diretamente para a criação do frevo—hoje reconhecido como Patrimônio Cultural Imaterial da UNESCO. A ginga e os chutes executados por capoeiristas como ele na frente das bandas de carnaval foram transformados no "passo", a dança fundamental do frevo.
 
 ## Discovered Entities / Entidades Descobertas
 

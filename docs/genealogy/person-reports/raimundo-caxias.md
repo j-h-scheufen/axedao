@@ -100,7 +100,7 @@ Nenhuma informação específica de estilo está documentada. Dada sua associaç
 
 ### English
 
-**FULL NAME UNKNOWN:** Despite extensive research, Raimundo's full name has not been documented in available sources. He is referred to only as "Raimundo" or "Mestre Raimundo."
+**FULL NAME UNKNOWN:** Despite extensive research, Raimundo's full name has not been documented in available sources. He is referred to only as "Raimundo" or "Mestre Raimundo".
 
 **DISAMBIGUATION:** Uses `apelido_context = 'Duque de Caxias'` in the database to distinguish from:
 - Itapoan (Raimundo César Alves de Almeida) - student of Mestre Bimba, author
@@ -116,7 +116,7 @@ Most likely explanation: Raimundo was initially a training peer who later formal
 
 ### Português
 
-**NOME COMPLETO DESCONHECIDO:** Apesar de pesquisa extensiva, o nome completo de Raimundo não foi documentado nas fontes disponíveis. Ele é referido apenas como "Raimundo" ou "Mestre Raimundo."
+**NOME COMPLETO DESCONHECIDO:** Apesar de pesquisa extensiva, o nome completo de Raimundo não foi documentado nas fontes disponíveis. Ele é referido apenas como "Raimundo" ou "Mestre Raimundo".
 
 **DESAMBIGUAÇÃO:** Usa `apelido_context = 'Duque de Caxias'` no banco de dados para distinguir de:
 - Itapoan (Raimundo César Alves de Almeida) - aluno de Mestre Bimba, autor

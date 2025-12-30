@@ -30,7 +30,7 @@ Oswaldo Lisboa dos Santos, known as Mestre Paraná, was born on September 25, 19
 
 In February 1945, Paraná moved to Rio de Janeiro with his wife Maura Bastos (1920-1989) shortly after leaving the Brazilian Navy, where he had trained in boxing and completed his military service. In June 1945, he was hired by IPASE (Instituto de Pensões e Assistência aos Servidores do Estado) as a specialized craftsman, a position he held until his death.
 
-Paraná lived in the Bonsucesso neighborhood in Rio's northern zone and began teaching capoeira in his backyard during the 1950s. His wife Maura, known affectionately as "Tia Maura," played a fundamental role in receiving and caring for the many young students who came to train. In 1950, he founded the Conjunto Folclórico de Capoeira São Bento Pequeno on Rua Miguel Burnier. The group later evolved into the foundation from which Grupo Muzenza traces its entire formation.
+Paraná lived in the Bonsucesso neighborhood in Rio's northern zone and began teaching capoeira in his backyard during the 1950s. His wife Maura, known affectionately as "Tia Maura", played a fundamental role in receiving and caring for the many young students who came to train. In 1950, he founded the Conjunto Folclórico de Capoeira São Bento Pequeno on Rua Miguel Burnier. The group later evolved into the foundation from which Grupo Muzenza traces its entire formation.
 
 In the capoeira universe, Paraná became known primarily as an excellent berimbau player. A carpenter by profession, he carefully manufactured his own berimbaus using coated strings and varnished wood. His meticulous attention to tuning is documented in musicological analysis of his recordings—he maintained fixed pitches across the viola (Db4-Eb4), médio (B3-Db4), and gunga (Ab3-Bb3) for instrumental tracks.
 
@@ -38,7 +38,7 @@ The Grupo São Bento Pequeno presented itself at various types of shows, dissemi
 
 Paraná collaborated extensively with the pioneering Black dancer Mercedes Baptista, participating in shows and festivals including the IV Festival Folclórico do Distrito Federal in August 1966, where the Teatro Nacional de Brasília was also inaugurated. In 1969, he traveled to Lisbon with Mercedes Batista's dance group.
 
-His great ability as a musician allowed him to record, in 1963, a single record with four tracks for CBS, called "Capoeira – Mestre Paraná." According to Mestre Gegê, Onça Preta played pandeiro on this recording, and Mestre Mucungê also participated.
+His great ability as a musician allowed him to record, in 1963, a single record with four tracks for CBS, called "Capoeira – Mestre Paraná". According to Mestre Gegê, Onça Preta played pandeiro on this recording, and Mestre Mucungê also participated.
 
 Paraná was the first capoeirista to play berimbau at the Orquestra Sinfônica do Teatro Municipal do Rio de Janeiro and reportedly the only capoeira master to hold a Musicians' Guild card for the berimbau. His musical influence extended to the next generation—Mestre Genaro learned to play berimbau directly from him.
 
@@ -54,7 +54,7 @@ Oswaldo Lisboa dos Santos, conhecido como Mestre Paraná, nasceu em 25 de setemb
 
 Em fevereiro de 1945, Paraná mudou-se para o Rio de Janeiro com sua esposa Maura Bastos (1920-1989) logo após deixar a Marinha do Brasil, onde havia treinado boxe e completado seu serviço militar. Em junho de 1945, foi admitido no IPASE (Instituto de Pensões e Assistência aos Servidores do Estado) como artífice especializado, cargo que ocupou até sua morte.
 
-Paraná morou no bairro de Bonsucesso, na zona norte do Rio, e começou a ensinar capoeira em seu quintal durante os anos 1950. Sua esposa Maura, conhecida carinhosamente como "Tia Maura," desempenhou papel fundamental no acolhimento e cuidado dos muitos jovens alunos que vinham treinar. Em 1950, fundou o Conjunto Folclórico de Capoeira São Bento Pequeno na Rua Miguel Burnier. O grupo posteriormente evoluiu para a base da qual o Grupo Muzenza traça toda a sua formação.
+Paraná morou no bairro de Bonsucesso, na zona norte do Rio, e começou a ensinar capoeira em seu quintal durante os anos 1950. Sua esposa Maura, conhecida carinhosamente como "Tia Maura", desempenhou papel fundamental no acolhimento e cuidado dos muitos jovens alunos que vinham treinar. Em 1950, fundou o Conjunto Folclórico de Capoeira São Bento Pequeno na Rua Miguel Burnier. O grupo posteriormente evoluiu para a base da qual o Grupo Muzenza traça toda a sua formação.
 
 No universo da capoeira, Paraná ficou conhecido principalmente como excelente tocador de berimbau. Carpinteiro de profissão, fabricava cuidadosamente seus próprios berimbaus usando cordas revestidas e madeira envernizada. Sua atenção meticulosa à afinação está documentada em análises musicológicas de suas gravações—ele mantinha alturas fixas na viola, médio e gunga para faixas instrumentais.
 
@@ -62,7 +62,7 @@ O Grupo São Bento Pequeno apresentou-se em vários tipos de shows, disseminando
 
 Paraná colaborou extensivamente com a pioneira bailarina negra Mercedes Baptista, participando de shows e festivais incluindo o IV Festival Folclórico do Distrito Federal em agosto de 1966, onde o Teatro Nacional de Brasília também foi inaugurado. Em 1969, viajou a Lisboa com o grupo de dança de Mercedes Batista.
 
-Sua grande habilidade como músico permitiu-lhe gravar, em 1963, um disco single com quatro faixas pela CBS, chamado "Capoeira – Mestre Paraná." Segundo Mestre Gegê, Onça Preta tocou pandeiro nesta gravação, e Mestre Mucungê também participou.
+Sua grande habilidade como músico permitiu-lhe gravar, em 1963, um disco single com quatro faixas pela CBS, chamado "Capoeira – Mestre Paraná". Segundo Mestre Gegê, Onça Preta tocou pandeiro nesta gravação, e Mestre Mucungê também participou.
 
 Paraná foi o primeiro capoeirista a tocar berimbau na Orquestra Sinfônica do Teatro Municipal do Rio de Janeiro e supostamente o único mestre de capoeira a possuir carteira do Sindicato dos Músicos para o berimbau. Sua influência musical estendeu-se à geração seguinte—Mestre Genaro aprendeu a tocar berimbau diretamente com ele.
 
@@ -116,7 +116,7 @@ Paraná era reconhecido principalmente como mestre de berimbau e não por um est
 
 - **Mestre Polaco** (José Roberto Rocha) - began 1956 / começou em 1956
   - EN: Paraná gave him the nickname "Polaco" (Polish). Studied under Paraná until the master's death in 1972.
-  - PT: Paraná deu-lhe o apelido "Polaco." Estudou com Paraná até a morte do mestre em 1972.
+  - PT: Paraná deu-lhe o apelido "Polaco". Estudou com Paraná até a morte do mestre em 1972.
 
 - **Mestre Genaro** - learned berimbau / aprendeu berimbau
   - EN: Met Paraná around 1955 in Rio; learned to play berimbau from him. Created a song called "Paranaê" incorporating his teacher's name.
@@ -131,8 +131,8 @@ Paraná era reconhecido principalmente como mestre de berimbau e não por um est
 ### Rio de Janeiro Contemporaries / Contemporâneos do Rio de Janeiro
 
 - **Artur Emídio** - Musical collaborator / Colaborador musical
-  - EN: Paraná frequently played berimbau at Artur Emídio's Sunday rodas and directed the percussion section. Participated together in the show "Arco-Íris."
-  - PT: Paraná frequentemente tocava berimbau nas rodas de domingo de Artur Emídio e dirigia a seção de percussão. Participaram juntos no show "Arco-Íris."
+  - EN: Paraná frequently played berimbau at Artur Emídio's Sunday rodas and directed the percussion section. Participated together in the show "Arco-Íris".
+  - PT: Paraná frequentemente tocava berimbau nas rodas de domingo de Artur Emídio e dirigia a seção de percussão. Participaram juntos no show "Arco-Íris".
 
 - **Onça Preta** (Cícero Navarro) - Musical collaborator / Colaborador musical
   - EN: Played pandeiro on Paraná's 1963 CBS LP recording.

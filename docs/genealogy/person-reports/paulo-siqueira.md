@@ -28,9 +28,9 @@
 
 Paulo Siqueira was born on May 6, 1955, in Rio de Janeiro, growing up between the North Zone neighborhoods of Bonsucesso, Ramos, Olaria, and Penha, and the South Zone areas of Flamengo and Botafogo. His first encounter with capoeira came during carnival festivities when he observed practitioners warming up for a parade at a Portela samba school gathering in Candelária.
 
-Around 1972, encouraged by his friend Rubens—a fireman and capoeirista from the Cantagalo favela—Paulo began training at Mestre Roque's academy on Morro do Pavão in Copacabana. At that time, Mestre Roque was already planning to hand over the academy to his most advanced student, Adilson "Camisa Preta." Paulo trained primarily under Adilson, with Roque providing overall guidance. Adilson became his sole mestre and would have "great influence in the life of Paulo Siqueira, as capoeirista and person."
+Around 1972, encouraged by his friend Rubens—a fireman and capoeirista from the Cantagalo favela—Paulo began training at Mestre Roque's academy on Morro do Pavão in Copacabana. At that time, Mestre Roque was already planning to hand over the academy to his most advanced student, Adilson "Camisa Preta". Paulo trained primarily under Adilson, with Roque providing overall guidance. Adilson became his sole mestre and would have "great influence in the life of Paulo Siqueira, as capoeirista and person".
 
-Alongside his capoeira training, Paulo pursued a performance career. He received a classical dance scholarship from the renowned choreographer Mercedes Baptista, who emphasized versatility for capoeiristas seeking professional performance work. He performed in theater productions and concert halls, including the "Bahia Saravá" show and events at the Intercontinental Hotel. In Rio's performance circles, he became known simply as "Siqueira."
+Alongside his capoeira training, Paulo pursued a performance career. He received a classical dance scholarship from the renowned choreographer Mercedes Baptista, who emphasized versatility for capoeiristas seeking professional performance work. He performed in theater productions and concert halls, including the "Bahia Saravá" show and events at the Intercontinental Hotel. In Rio's performance circles, he became known simply as "Siqueira".
 
 After years of dedicated training, Adilson graduated Paulo Siqueira as a mestre—a recognition Paulo received from his teacher before Adilson's death in the 1990s.
 
@@ -44,9 +44,9 @@ Mestre Paulo Siqueira was one of the first to bring capoeira to Europe and make 
 
 Paulo Siqueira nasceu em 6 de maio de 1955 no Rio de Janeiro, crescendo entre os bairros da Zona Norte de Bonsucesso, Ramos, Olaria e Penha, e as áreas da Zona Sul de Flamengo e Botafogo. Seu primeiro encontro com a capoeira aconteceu durante as festividades de carnaval, quando observou praticantes se aquecendo para um desfile em uma reunião da escola de samba Portela na Candelária.
 
-Por volta de 1972, incentivado por seu amigo Rubens—um bombeiro e capoeirista da favela do Cantagalo—Paulo começou a treinar na academia de Mestre Roque no Morro do Pavão em Copacabana. Naquela época, Mestre Roque já planejava passar a academia para seu aluno mais avançado, Adilson "Camisa Preta." Paulo treinou principalmente sob Adilson, com Roque fornecendo orientação geral. Adilson se tornou seu único mestre e teria "grande influência na vida de Paulo Siqueira, como capoeirista e pessoa."
+Por volta de 1972, incentivado por seu amigo Rubens—um bombeiro e capoeirista da favela do Cantagalo—Paulo começou a treinar na academia de Mestre Roque no Morro do Pavão em Copacabana. Naquela época, Mestre Roque já planejava passar a academia para seu aluno mais avançado, Adilson "Camisa Preta". Paulo treinou principalmente sob Adilson, com Roque fornecendo orientação geral. Adilson se tornou seu único mestre e teria "grande influência na vida de Paulo Siqueira, como capoeirista e pessoa".
 
-Paralelamente ao seu treinamento de capoeira, Paulo seguiu uma carreira de performance. Ele recebeu uma bolsa de dança clássica da renomada coreógrafa Mercedes Baptista, que enfatizava versatilidade para capoeiristas que buscavam trabalho profissional de performance. Ele se apresentou em produções teatrais e casas de shows, incluindo o espetáculo "Bahia Saravá" e eventos no Hotel Intercontinental. Nos círculos de performance do Rio, ele ficou conhecido simplesmente como "Siqueira."
+Paralelamente ao seu treinamento de capoeira, Paulo seguiu uma carreira de performance. Ele recebeu uma bolsa de dança clássica da renomada coreógrafa Mercedes Baptista, que enfatizava versatilidade para capoeiristas que buscavam trabalho profissional de performance. Ele se apresentou em produções teatrais e casas de shows, incluindo o espetáculo "Bahia Saravá" e eventos no Hotel Intercontinental. Nos círculos de performance do Rio, ele ficou conhecido simplesmente como "Siqueira".
 
 Após anos de treinamento dedicado, Adilson graduou Paulo Siqueira como mestre—um reconhecimento que Paulo recebeu de seu professor antes da morte de Adilson nos anos 1990.
 
@@ -81,10 +81,10 @@ Mestre Paulo Siqueira foi um dos primeiros a trazer a capoeira para a Europa e t
 ## Style Notes / Notas de Estilo
 
 ### English
-Paulo Siqueira practices and teaches Capoeira Angola in the lineage of Mestre Roque, through his primary teacher Mestre Adilson "Camisa Preta." His style comes from the "line of São Bento" tradition brought from Bahia to Rio de Janeiro by Mestre Roque, which was described as faster than other Angola styles.
+Paulo Siqueira practices and teaches Capoeira Angola in the lineage of Mestre Roque, through his primary teacher Mestre Adilson "Camisa Preta". His style comes from the "line of São Bento" tradition brought from Bahia to Rio de Janeiro by Mestre Roque, which was described as faster than other Angola styles.
 
 ### Português
-Paulo Siqueira pratica e ensina Capoeira Angola na linhagem de Mestre Roque, através de seu professor principal Mestre Adilson "Camisa Preta." Seu estilo vem da tradição da "linha de São Bento" trazida da Bahia para o Rio de Janeiro por Mestre Roque, que era descrita como mais rápida que outros estilos de Angola.
+Paulo Siqueira pratica e ensina Capoeira Angola na linhagem de Mestre Roque, através de seu professor principal Mestre Adilson "Camisa Preta". Seu estilo vem da tradição da "linha de São Bento" trazida da Bahia para o Rio de Janeiro por Mestre Roque, que era descrita como mais rápida que outros estilos de Angola.
 
 ## Teachers / Mestres
 

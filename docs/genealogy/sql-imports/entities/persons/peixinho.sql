@@ -69,7 +69,7 @@ In 1964, Peixinho moved to Rio de Janeiro where he began practicing capoeira und
 
 In 1966, during a demonstration at a German Club, the group officially adopted the name "Grupo Senzala"—a reference to the slave quarters where enslaved Africans were held, connecting their art to Brazil''s history of resistance. The following year, Peixinho began teaching and the group entered the prestigious Berimbau de Ouro tournament. To everyone''s surprise, they won—and repeated the victory in 1968 and 1969, permanently claiming the trophy and establishing Senzala''s reputation nationwide.
 
-Peixinho and Itamar recognized an opportunity. Seeing the success of their collective work, they decided to rent a space in Travessa Angrense in Copacabana. In 1974, Peixinho opened his famous academy there—a space that would become legendary in capoeira history. For 22 years, the Travessa Angrense served as the headquarters of Centro Cultural Senzala, where "many bambas passed through and were trained." It was there that Mestre Elias first discovered Senzala in 1976, immediately beginning training under Mestres Peixinho and Itamar. Elias would go on to receive his corda vermelha in 1990 and spearhead capoeira''s expansion in France.
+Peixinho and Itamar recognized an opportunity. Seeing the success of their collective work, they decided to rent a space in Travessa Angrense in Copacabana. In 1974, Peixinho opened his famous academy there—a space that would become legendary in capoeira history. For 22 years, the Travessa Angrense served as the headquarters of Centro Cultural Senzala, where "many bambas passed through and were trained". It was there that Mestre Elias first discovered Senzala in 1976, immediately beginning training under Mestres Peixinho and Itamar. Elias would go on to receive his corda vermelha in 1990 and spearhead capoeira''s expansion in France.
 
 That same year, 1974, Peixinho was formally recognized as Mestre—the highest title in capoeira.
 
@@ -85,7 +85,7 @@ Peixinho was also renowned as an exceptional instrument maker. He crafted berimb
 
 As a composer, Peixinho authored the song "Princesa Isabel", adding to capoeira''s musical corpus.
 
-Mestre Acordeon described Peixinho as possessing "exemplary simplicity", noting that he "refined his art to speak little, an energy quiet but always present." Despite his exceptional technique and speed—he was known for his ability to anticipate his opponent''s moves—Peixinho avoided violence and made no enemies.
+Mestre Acordeon described Peixinho as possessing "exemplary simplicity", noting that he "refined his art to speak little, an energy quiet but always present". Despite his exceptional technique and speed—he was known for his ability to anticipate his opponent''s moves—Peixinho avoided violence and made no enemies.
 
 In his final years, Peixinho fought a long battle against cancer. He passed away in the early morning of May 16, 2011, in Rio de Janeiro. The news of his death sent shockwaves through the capoeira world, separating master from student, friend from friend, brother from brother.
 
@@ -97,7 +97,7 @@ Em 1964, Peixinho mudou-se para o Rio de Janeiro onde começou a praticar capoei
 
 Em 1966, durante uma apresentação em um Clube Alemão, o grupo oficialmente adotou o nome "Grupo Senzala"—uma referência às senzalas onde africanos escravizados eram mantidos, conectando sua arte à história de resistência do Brasil. No ano seguinte, Peixinho começou a ensinar e o grupo entrou no prestigioso torneio Berimbau de Ouro. Para surpresa de todos, eles venceram—e repetiram a vitória em 1968 e 1969, conquistando permanentemente o troféu e estabelecendo a reputação da Senzala nacionalmente.
 
-Peixinho e Itamar reconheceram uma oportunidade. Vendo o sucesso de seu trabalho coletivo, decidiram alugar um espaço na Travessa Angrense em Copacabana. Em 1974, Peixinho abriu sua famosa academia lá—um espaço que se tornaria lendário na história da capoeira. Por 22 anos, a Travessa Angrense serviu como sede do Centro Cultural Senzala, onde "muitos bambas passaram e foram treinados." Foi lá que Mestre Elias descobriu a Senzala pela primeira vez em 1976, começando imediatamente a treinar com os Mestres Peixinho e Itamar. Elias receberia sua corda vermelha em 1990 e lideraria a expansão da capoeira na França.
+Peixinho e Itamar reconheceram uma oportunidade. Vendo o sucesso de seu trabalho coletivo, decidiram alugar um espaço na Travessa Angrense em Copacabana. Em 1974, Peixinho abriu sua famosa academia lá—um espaço que se tornaria lendário na história da capoeira. Por 22 anos, a Travessa Angrense serviu como sede do Centro Cultural Senzala, onde "muitos bambas passaram e foram treinados". Foi lá que Mestre Elias descobriu a Senzala pela primeira vez em 1976, começando imediatamente a treinar com os Mestres Peixinho e Itamar. Elias receberia sua corda vermelha em 1990 e lideraria a expansão da capoeira na França.
 
 Nesse mesmo ano, 1974, Peixinho foi formalmente reconhecido como Mestre—o mais alto título na capoeira.
 
@@ -113,7 +113,7 @@ Peixinho também era renomado como excepcional construtor de instrumentos. Fabri
 
 Como compositor, Peixinho foi autor da canção "Princesa Isabel", adicionando ao corpus musical da capoeira.
 
-Mestre Acordeon descreveu Peixinho como possuidor de "simplicidade exemplar", notando que ele "refinou sua arte para falar pouco, uma energia quieta mas sempre presente." Apesar de sua técnica excepcional e velocidade—era conhecido por sua capacidade de antecipar os movimentos do oponente—Peixinho evitava violência e não fez inimigos.
+Mestre Acordeon descreveu Peixinho como possuidor de "simplicidade exemplar", notando que ele "refinou sua arte para falar pouco, uma energia quieta mas sempre presente". Apesar de sua técnica excepcional e velocidade—era conhecido por sua capacidade de antecipar os movimentos do oponente—Peixinho evitava violência e não fez inimigos.
 
 Em seus últimos anos, Peixinho lutou uma longa batalha contra o câncer. Faleceu na madrugada de 16 de maio de 2011, no Rio de Janeiro. A notícia de sua morte causou ondas de choque pelo mundo da capoeira, separando mestre de aluno, amigo de amigo, irmão de irmão.
 
@@ -213,7 +213,7 @@ ACADEMIC CAREER:
 - Taught at UERJ (1979-1983)
 
 CHARACTER DESCRIPTION (per Mestre Acordeon):
-"Exemplary simplicity and refined his art to speak little, an energy quiet but always present."
+"Exemplary simplicity and refined his art to speak little, an energy quiet but always present".
 Known for exceptional technique, speed, and ability to anticipate moves.
 Avoided violence; made no enemies.
 
@@ -284,7 +284,7 @@ CARREIRA ACADÊMICA:
 - Ensinou na UERJ (1979-1983)
 
 DESCRIÇÃO DE CARÁTER (conforme Mestre Acordeon):
-"Simplicidade exemplar e refinou sua arte para falar pouco, uma energia quieta mas sempre presente."
+"Simplicidade exemplar e refinou sua arte para falar pouco, uma energia quieta mas sempre presente".
 Conhecido por técnica excepcional, velocidade e capacidade de antecipar movimentos.
 Evitava violência; não fez inimigos.
 

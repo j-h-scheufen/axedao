@@ -24,8 +24,8 @@ SELECT
   '1981-11-13'::date, 'exact'::genealogy.date_precision,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'Wikipedia; CECA official; Portal Capoeira; multiple sources',
-  'João Pequeno joined Pastinha''s academy ~1943-1945, was promoted to treinel shortly after. Pastinha named him one of "the two most learned students" alongside João Grande. In 1970, Pastinha prophesied: "They will be the great capoeiras of the future." Relationship ended with Pastinha''s death Nov 13, 1981.',
-  'João Pequeno ingressou na academia de Pastinha ~1943-1945, foi promovido a treinel pouco depois. Pastinha o nomeou um dos "dois alunos mais preparados" junto com João Grande. Em 1970, Pastinha profetizou: "Eles serão os grandes capoeiras do futuro." Relação terminou com a morte de Pastinha em 13/11/1981.'
+  'João Pequeno joined Pastinha''s academy ~1943-1945, was promoted to treinel shortly after. Pastinha named him one of "the two most learned students" alongside João Grande. In 1970, Pastinha prophesied: "They will be the great capoeiras of the future". Relationship ended with Pastinha''s death Nov 13, 1981.',
+  'João Pequeno ingressou na academia de Pastinha ~1943-1945, foi promovido a treinel pouco depois. Pastinha o nomeou um dos "dois alunos mais preparados" junto com João Grande. Em 1970, Pastinha profetizou: "Eles serão os grandes capoeiras do futuro". Relação terminou com a morte de Pastinha em 13/11/1981.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'João Pequeno' AND o.apelido = 'Pastinha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
@@ -73,8 +73,8 @@ SELECT
   '{"relationship_type": "first_cousin_once_removed", "through": "father"}'::jsonb,
   'verified'::genealogy.confidence,
   'CECA official; Wikipedia; Portal Capoeira',
-  'Besouro Mangangá was João Pequeno''s father''s cousin. João Pequeno himself stated: "Besouro Preto, de Santo Amaro was my father''s (Maximiano Pereira dos Santos) cousin."',
-  'Besouro Mangangá era primo do pai de João Pequeno. O próprio João Pequeno afirmou: "Besouro Preto, de Santo Amaro era primo do meu pai (Maximiano Pereira dos Santos)."'
+  'Besouro Mangangá was João Pequeno''s father''s cousin. João Pequeno himself stated: "Besouro Preto, de Santo Amaro was my father''s (Maximiano Pereira dos Santos) cousin".',
+  'Besouro Mangangá era primo do pai de João Pequeno. O próprio João Pequeno afirmou: "Besouro Preto, de Santo Amaro era primo do meu pai (Maximiano Pereira dos Santos)".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'João Pequeno' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
@@ -97,8 +97,8 @@ SELECT
   '1945-01-01'::date, 'year'::genealogy.date_precision,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'CECA official; Velhos Mestres; Capoeira Connection',
-  'João Pequeno''s capoeira learning "did not begin in an academy but with the carrier Barbosa from Largo Dois de Julho, who would take me to train and there was always a capoeira roda." Barbosa initiated João into capoeira and later took him to Cobrinha Verde''s roda in Chame-Chame.',
-  'O aprendizado de capoeira de João Pequeno "não iniciou em academia e sim com o carregador Barbosa, do Largo Dois de Julho, que me levava pra treinar e sempre tinha roda de capoeira." Barbosa iniciou João na capoeira e depois o levou para a roda de Cobrinha Verde no Chame-Chame.'
+  'João Pequeno''s capoeira learning "did not begin in an academy but with the carrier Barbosa from Largo Dois de Julho, who would take me to train and there was always a capoeira roda". Barbosa initiated João into capoeira and later took him to Cobrinha Verde''s roda in Chame-Chame.',
+  'O aprendizado de capoeira de João Pequeno "não iniciou em academia e sim com o carregador Barbosa, do Largo Dois de Julho, que me levava pra treinar e sempre tinha roda de capoeira". Barbosa iniciou João na capoeira e depois o levou para a roda de Cobrinha Verde no Chame-Chame.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'João Pequeno'
   AND o.apelido = 'Barbosa' AND o.apelido_context = 'Cachoeira/Largo Dois de Julho'
@@ -132,7 +132,7 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- ============================================================
 -- PENDING RELATIONSHIPS (objects not yet in dataset)
 -- ============================================================
--- João Pequeno associated_with João Grande - Fellow student of Pastinha, together they were the "two most learned students." Needs import first.
+-- João Pequeno associated_with João Grande - Fellow student of Pastinha, together they were the "two most learned students". Needs import first.
 -- João Pequeno associated_with Gato Preto - Traveled together to Dakar 1966. Needs import first (in backlog).
 -- João Pequeno associated_with Roberto Satanás - Traveled together to Dakar 1966. Needs import first (in backlog).
 -- João Pequeno associated_with Gildo Alfinete - Traveled together to Dakar 1966. Needs import first (in backlog).

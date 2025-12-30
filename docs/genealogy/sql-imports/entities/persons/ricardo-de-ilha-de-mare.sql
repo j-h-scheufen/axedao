@@ -52,11 +52,11 @@ INSERT INTO genealogy.person_profiles (
 
 Ilha de Maré, where both Ricardo and Waldemar were born, was home to a strong capoeira tradition. The island produced several notable capoeiristas, including Mestre Totonho de Maré (born 1894), who was one of the co-founders of Gengibirra, the first centro of Capoeira Angola. This suggests that Ilha de Maré maintained an active capoeira community throughout the late 19th and early 20th centuries, with local mestres like Ricardo preserving and transmitting the art to younger generations on the island.
 
-In his 1989 interview with Mestre Luiz Renato, Waldemar explicitly identified his four teachers: "I had four mestres: Siri de Mangue, one; Canário Pardo, two; Talavi, three, and Ricardo from Ilha de Maré, four." Waldemar emphasized that he "asked these men to teach me so I could become professional," indicating that he sought out Ricardo deliberately for instruction.
+In his 1989 interview with Mestre Luiz Renato, Waldemar explicitly identified his four teachers: "I had four mestres: Siri de Mangue, one; Canário Pardo, two; Talavi, three, and Ricardo from Ilha de Maré, four". Waldemar emphasized that he "asked these men to teach me so I could become professional", indicating that he sought out Ricardo deliberately for instruction.
 
 Waldemar was born on Ilha de Maré in 1916 and began learning capoeira in 1936 at age 20. By that time, Ricardo was likely an established practitioner on the island, possibly one of the elder capoeiristas who maintained the tradition there. While some of Waldemar''s other teachers (Siri de Mangue, Canário Pardo, Talabi) were based in Santo Amaro, Periperi, and other mainland locations, Ricardo represented the island tradition that Waldemar grew up with.
 
-Waldemar later stated about his teachers: "All of them were good and I learned from each one. So I need to give the credits to them all." This acknowledgment speaks to Ricardo''s significance as a teacher, even though his name is far less documented than those of Waldemar''s other instructors.
+Waldemar later stated about his teachers: "All of them were good and I learned from each one. So I need to give the credits to them all". This acknowledgment speaks to Ricardo''s significance as a teacher, even though his name is far less documented than those of Waldemar''s other instructors.
 
 After completing his training around 1940, Waldemar moved to Salvador and began teaching in the Corta-Braço slum (later known as Liberdade), where his famous barracão would become one of the most important meeting points for Bahian capoeiristas. Through Waldemar''s students and lineage, the teachings of Ricardo de Ilha de Maré continue to influence capoeira to this day.
 
@@ -66,11 +66,11 @@ The island of Ilha de Maré is remembered in capoeira tradition through songs an
 
 A Ilha de Maré, onde tanto Ricardo quanto Waldemar nasceram, abrigava uma forte tradição de capoeira. A ilha produziu vários capoeiristas notáveis, incluindo Mestre Totonho de Maré (nascido em 1894), que foi um dos co-fundadores da Gengibirra, o primeiro centro de Capoeira Angola. Isso sugere que a Ilha de Maré manteve uma comunidade ativa de capoeira ao longo do final do século XIX e início do século XX, com mestres locais como Ricardo preservando e transmitindo a arte para as gerações mais jovens na ilha.
 
-Em sua entrevista de 1989 com Mestre Luiz Renato, Waldemar explicitamente identificou seus quatro professores: "Eu tive quatro mestres: Siri de Mangue, um; Canário Pardo, dois; Talavi, três, e Ricardo da Ilha de Maré, quatro." Waldemar enfatizou que "pedi a esses homens para me ensinar para que eu pudesse me tornar profissional," indicando que ele procurou Ricardo deliberadamente para instrução.
+Em sua entrevista de 1989 com Mestre Luiz Renato, Waldemar explicitamente identificou seus quatro professores: "Eu tive quatro mestres: Siri de Mangue, um; Canário Pardo, dois; Talavi, três, e Ricardo da Ilha de Maré, quatro". Waldemar enfatizou que "pedi a esses homens para me ensinar para que eu pudesse me tornar profissional", indicando que ele procurou Ricardo deliberadamente para instrução.
 
 Waldemar nasceu na Ilha de Maré em 1916 e começou a aprender capoeira em 1936 aos 20 anos. Naquela época, Ricardo provavelmente era um praticante estabelecido na ilha, possivelmente um dos capoeiristas mais velhos que mantinham a tradição lá. Enquanto alguns dos outros professores de Waldemar (Siri de Mangue, Canário Pardo, Talabi) eram baseados em Santo Amaro, Periperi e outros locais do continente, Ricardo representava a tradição da ilha com a qual Waldemar cresceu.
 
-Waldemar declarou mais tarde sobre seus professores: "Todos eram bons e aprendi com cada um. Então preciso dar os créditos a todos eles." Este reconhecimento fala da significância de Ricardo como professor, mesmo que seu nome seja muito menos documentado do que os dos outros instrutores de Waldemar.
+Waldemar declarou mais tarde sobre seus professores: "Todos eram bons e aprendi com cada um. Então preciso dar os créditos a todos eles". Este reconhecimento fala da significância de Ricardo como professor, mesmo que seu nome seja muito menos documentado do que os dos outros instrutores de Waldemar.
 
 Após completar seu treinamento por volta de 1940, Waldemar mudou-se para Salvador e começou a ensinar na favela do Corta-Braço (mais tarde conhecida como Liberdade), onde seu famoso barracão se tornaria um dos pontos de encontro mais importantes para os capoeiristas baianos. Através dos alunos e linhagem de Waldemar, os ensinamentos de Ricardo de Ilha de Maré continuam a influenciar a capoeira até hoje.
 
@@ -94,9 +94,9 @@ FULL NAME: Unknown. He is known only as "Ricardo from Ilha de Maré" or "Ricardo
 
 LOCATION: Ilha de Maré is an island in the Bay of All Saints (Baía de Todos os Santos) near Salvador. It produced multiple notable capoeiristas including Totonho de Maré (born 1894) and Mestre Waldemar (born 1916).
 
-SOURCE: Primary source is Mestre Waldemar''s 1989 interview where he stated: "I had four mestres: Siri de Mangue, one; Canário Pardo, two; Talavi, three, and Ricardo from Ilha de Maré, four."
+SOURCE: Primary source is Mestre Waldemar''s 1989 interview where he stated: "I had four mestres: Siri de Mangue, one; Canário Pardo, two; Talavi, three, and Ricardo from Ilha de Maré, four".
 
-WALDEMAR''S QUOTE: "I asked these men to teach me so I could become professional."
+WALDEMAR''S QUOTE: "I asked these men to teach me so I could become professional".
 
 TEACHING PERIOD: Taught Waldemar from approximately 1936-1940 (Waldemar started learning in 1936 at age 20 and began teaching in 1940).
 
@@ -112,9 +112,9 @@ NOME COMPLETO: Desconhecido. Ele é conhecido apenas como "Ricardo da Ilha de Ma
 
 LOCAL: Ilha de Maré é uma ilha na Baía de Todos os Santos perto de Salvador. Produziu múltiplos capoeiristas notáveis incluindo Totonho de Maré (nascido em 1894) e Mestre Waldemar (nascido em 1916).
 
-FONTE: Fonte primária é a entrevista de Mestre Waldemar de 1989 onde ele declarou: "Eu tive quatro mestres: Siri de Mangue, um; Canário Pardo, dois; Talavi, três, e Ricardo da Ilha de Maré, quatro."
+FONTE: Fonte primária é a entrevista de Mestre Waldemar de 1989 onde ele declarou: "Eu tive quatro mestres: Siri de Mangue, um; Canário Pardo, dois; Talavi, três, e Ricardo da Ilha de Maré, quatro".
 
-CITAÇÃO DE WALDEMAR: "Pedi a esses homens para me ensinar para que eu pudesse me tornar profissional."
+CITAÇÃO DE WALDEMAR: "Pedi a esses homens para me ensinar para que eu pudesse me tornar profissional".
 
 PERÍODO DE ENSINO: Ensinou Waldemar de aproximadamente 1936-1940 (Waldemar começou a aprender em 1936 aos 20 anos e começou a ensinar em 1940).
 

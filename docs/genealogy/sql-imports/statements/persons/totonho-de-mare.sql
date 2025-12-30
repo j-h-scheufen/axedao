@@ -92,8 +92,8 @@ SELECT
   '{"association_context": "Edison Carneiro named them together as the two aces of capoeira in Bahia: the fisherman Samuel Querido de Deus and the docker Maré."}'::jsonb,
   'verified'::genealogy.confidence,
   'Edison Carneiro, Negros Bantus (1937); velhosmestres.com',
-  'Edison Carneiro declared in 1936-1937 that "the aces of capoeira in Bahia were the fisherman Samuel Querido de Deus and the docker Maré." Both were first-generation mestres active in Salvador in the 1930s.',
-  'Edison Carneiro declarou em 1936-1937 que "os ases da capoeira na Bahia eram o pescador Samuel Querido de Deus e o estivador Maré." Ambos eram mestres da primeira geração ativos em Salvador nos anos 1930.'
+  'Edison Carneiro declared in 1936-1937 that "the aces of capoeira in Bahia were the fisherman Samuel Querido de Deus and the docker Maré". Both were first-generation mestres active in Salvador in the 1930s.',
+  'Edison Carneiro declarou em 1936-1937 que "os ases da capoeira na Bahia eram o pescador Samuel Querido de Deus e o estivador Maré". Ambos eram mestres da primeira geração ativos em Salvador nos anos 1930.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Totonho de Maré' AND o.apelido = 'Querido de Deus'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

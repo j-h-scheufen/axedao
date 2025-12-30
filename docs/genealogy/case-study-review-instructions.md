@@ -109,7 +109,6 @@
 |-----------|-------------|
 | `member_of` | General formal membership (implies training) |
 | `teaches_at` | Active instructor at group (with title/rank as property) |
-| `cultural_pioneer_of` | First to bring capoeira to region/country for this group |
 | `associated_with` | Loose/informal affiliation. Use `association_type` property |
 | `graduated_from` | Completed training/batizado at group (no longer member) |
 | `departed_from` | Left group. Use `departure_type` property: neutral, blessed, contentious, expelled |

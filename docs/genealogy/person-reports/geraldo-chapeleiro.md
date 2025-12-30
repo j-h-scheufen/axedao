@@ -28,7 +28,7 @@ Geraldo Chapeleiro was one of the founding mestres of the Centro de Capoeira Ang
 
 He was part of an illustrious group of 22 founding mestres that included Mestre Noronha, Livino, Maré, Amorzinho, Juvenal Engraxate, Onça Preta, Cândido Pequeno, and others. The colors of the center were green and yellow, the colors of the Brazilian flag, and they established clear combat rules for their capoeira Angola practice.
 
-Geraldo Chapeleiro was also a regular participant in the Sunday rodas at Matatu Preto in the Matatu neighborhood. According to Mestre Canjiquinha's testimony from 1935, he was among the capoeiristas who gathered there: "There, on Sundays, all these capoeiristas would come - Onça Preta, Geraldo Chapeleiro, Totonho Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha, the late Barboza, and this citizen called Antonio Raimundo, nicknamed by everyone Aberrê."
+Geraldo Chapeleiro was also a regular participant in the Sunday rodas at Matatu Preto in the Matatu neighborhood. According to Mestre Canjiquinha's testimony from 1935, he was among the capoeiristas who gathered there: "There, on Sundays, all these capoeiristas would come - Onça Preta, Geraldo Chapeleiro, Totonho Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha, the late Barboza, and this citizen called Antonio Raimundo, nicknamed by everyone Aberrê".
 
 In 1941, along with the other surviving founding mestres, Geraldo Chapeleiro participated in handing over their Centro Nacional de Capoeira de Origem Angola to Mestre Pastinha, who would go on to elevate the center to prominence. This transfer occurred after the death of Amorzinho, who had been the guard and a key leader of the group.
 
@@ -40,7 +40,7 @@ Geraldo Chapeleiro foi um dos mestres fundadores do Centro de Capoeira Angola na
 
 Ele fez parte de um ilustre grupo de 22 mestres fundadores que incluía Mestre Noronha, Livino, Maré, Amorzinho, Juvenal Engraxate, Onça Preta, Cândido Pequeno e outros. As cores do centro eram verde e amarelo, as cores da bandeira brasileira, e eles estabeleceram regras claras de combate para a prática da capoeira Angola.
 
-Geraldo Chapeleiro também era participante assíduo das rodas de domingo no Matatu Preto, no bairro do Matatu. De acordo com o depoimento de Mestre Canjiquinha de 1935, ele estava entre os capoeiristas que se reuniam lá: "Lá, aos domingos, vinham todos esses capoeiristas - Onça Preta, Geraldo Chapeleiro, Totonho Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha, finado Barboza, e esse cidadão chamado Antônio Raimundo, apelidado por todos de Aberrê."
+Geraldo Chapeleiro também era participante assíduo das rodas de domingo no Matatu Preto, no bairro do Matatu. De acordo com o depoimento de Mestre Canjiquinha de 1935, ele estava entre os capoeiristas que se reuniam lá: "Lá, aos domingos, vinham todos esses capoeiristas - Onça Preta, Geraldo Chapeleiro, Totonho Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha, finado Barboza, e esse cidadão chamado Antônio Raimundo, apelidado por todos de Aberrê".
 
 Em 1941, junto com os outros mestres fundadores sobreviventes, Geraldo Chapeleiro participou da entrega do Centro Nacional de Capoeira de Origem Angola para Mestre Pastinha, que elevaria o centro à proeminência. Esta transferência ocorreu após a morte de Amorzinho, que era o guarda e um líder chave do grupo.
 

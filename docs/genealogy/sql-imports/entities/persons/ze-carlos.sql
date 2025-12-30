@@ -150,7 +150,7 @@ CCARJ:
 - United groups: Flor da Gente, África Bantu, N''Golo
 - Grupo N''Golo left CCARJ early 2002
 
-STUDENTS: Specific named students not documented. Classes supported by "most experienced students."',
+STUDENTS: Specific named students not documented. Classes supported by "most experienced students".',
   E'ESTIMATIVA DO ANO DE NASCIMENTO (1955, década):
 Os colegas Neco (nascido em 24 de abril de 1955) e Braga (nascido em 13 de junho de 1957) receberam títulos de mestre junto com Zé Carlos em 16 de dezembro de 1978. Zé Carlos começou a treinar em 1973. Assumindo que tinha 18-20 anos quando começou (típico para treinamento sério), o ano de nascimento seria ~1953-1955. Usando precisão de década, estimado 1955 para alinhar com o ano de nascimento documentado de Neco.
 
@@ -186,7 +186,7 @@ CCARJ:
 - Grupos unidos: Flor da Gente, África Bantu, N''Golo
 - Grupo N''Golo deixou o CCARJ no início de 2002
 
-ALUNOS: Alunos específicos não documentados. Aulas apoiadas pelos "alunos mais experientes."'
+ALUNOS: Alunos específicos não documentados. Aulas apoiadas pelos "alunos mais experientes".'
 )
 ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name, title = EXCLUDED.title, portrait = EXCLUDED.portrait,

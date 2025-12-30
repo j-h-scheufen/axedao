@@ -50,7 +50,7 @@ SELECT
   'verified'::genealogy.confidence,
   'Mestre Atenilo testimony in "Atenilo, o relâmpago da Capoeira Regional" (1988) by Mestre Itapoan',
   'Companions who trained together under Doze Homens. Mestre Atenilo knew them both personally and described them as "mulheres de valor" (women of character).',
-  'Companheiras que treinaram juntas com Doze Homens. Mestre Atenilo as conheceu pessoalmente e as descreveu como "mulheres de valor."'
+  'Companheiras que treinaram juntas com Doze Homens. Mestre Atenilo as conheceu pessoalmente e as descreveu como "mulheres de valor".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Maria dos Anjos' AND o.apelido = 'Salomé'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

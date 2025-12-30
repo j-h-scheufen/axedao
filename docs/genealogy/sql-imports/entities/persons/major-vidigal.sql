@@ -54,15 +54,15 @@ Born December 1, 1745, in Angra dos Reis, Vidigal rose through military ranks fr
 
 In this role, he became an implacable persecutor of candomblés, samba gatherings, and especially capoeiristas—"for whom he reserved special treatment, a kind of beatings and torture that he called ''Ceia dos Camarões''" (Shrimp Supper). The name came from the results of the lashing sessions: victims'' skin turned so pink they evoked the image of cooked shrimp.
 
-Yet the irony was not lost on his contemporaries. His detractors described him as "a skillful capoeira, with cold blood and agility beyond all proof, respected by the most fearsome thugs of his time. He played marvelously with the stick, knife, punch, and razor, and in head and foot blows he was unsurpassed."
+Yet the irony was not lost on his contemporaries. His detractors described him as "a skillful capoeira, with cold blood and agility beyond all proof, respected by the most fearsome thugs of his time. He played marvelously with the stick, knife, punch, and razor, and in head and foot blows he was unsurpassed".
 
 His terrifying reputation gave rise to a Portuguese expression: "lá vem o Vidigal" (here comes Vidigal), meaning something terrible was approaching.
 
-In June 1828, German and Irish mercenary soldiers revolted. The imperial forces were overwhelmed. In this crisis, tradition holds that Vidigal called upon the very capoeiras he had persecuted. Slaveowners released their enslaved capoeiristas to form militias. An eyewitness recorded: "Even when stationed and armed with rifles, the rebels couldn''t withstand the fists, stones, and sticks. They fell in the streets and public squares, either wounded or dead."
+In June 1828, German and Irish mercenary soldiers revolted. The imperial forces were overwhelmed. In this crisis, tradition holds that Vidigal called upon the very capoeiras he had persecuted. Slaveowners released their enslaved capoeiristas to form militias. An eyewitness recorded: "Even when stationed and armed with rifles, the rebels couldn''t withstand the fists, stones, and sticks. They fell in the streets and public squares, either wounded or dead".
 
 Within three days the revolt was crushed—thanks largely to the capoeiras. Historian Carlos Eugênio Líbano Soares argues this was the single most important event in establishing capoeira''s dominance over Rio''s streets.
 
-He was immortalized in Manuel Antônio de Almeida''s 1854 novel "Memórias de um Sargento de Milícias." In 1820, Benedictine monks granted him land at the foot of Morro Dois Irmãos. He died there on July 10, 1843, at age 98. The area is now the Vidigal neighborhood of Rio de Janeiro.
+He was immortalized in Manuel Antônio de Almeida''s 1854 novel "Memórias de um Sargento de Milícias". In 1820, Benedictine monks granted him land at the foot of Morro Dois Irmãos. He died there on July 10, 1843, at age 98. The area is now the Vidigal neighborhood of Rio de Janeiro.
 
 Who taught Vidigal capoeira remains unknown—the lineage trail ends with him.',
   -- bio_pt
@@ -72,11 +72,11 @@ Nascido em 1º de dezembro de 1745, em Angra dos Reis, Vidigal subiu nas patente
 
 Neste papel, tornou-se um implacável perseguidor de candomblés, rodas de samba e especialmente capoeiristas—"para quem reservava tratamento especial, um tipo de surras e torturas que chamava de ''Ceia dos Camarões''". O nome vinha do resultado das sessões de açoite: a pele das vítimas ficava tão rosa que evocava a imagem de camarões cozidos.
 
-No entanto, a ironia não passou despercebida por seus contemporâneos. Seus detratores o descreviam como "um hábil capoeira, de sangue frio e agilidade além de toda prova, respeitado pelos mais temíveis valentões de seu tempo. Jogava maravilhosamente com pau, faca, soco e navalha, e em golpes de cabeça e pé era insuperável."
+No entanto, a ironia não passou despercebida por seus contemporâneos. Seus detratores o descreviam como "um hábil capoeira, de sangue frio e agilidade além de toda prova, respeitado pelos mais temíveis valentões de seu tempo. Jogava maravilhosamente com pau, faca, soco e navalha, e em golpes de cabeça e pé era insuperável".
 
 Sua aterrorizante reputação deu origem a uma expressão portuguesa: "lá vem o Vidigal", significando que algo terrível se aproximava.
 
-Em junho de 1828, soldados mercenários alemães e irlandeses se revoltaram. As forças imperiais foram dominadas. Nesta crise, a tradição conta que Vidigal convocou os próprios capoeiras que havia perseguido. Senhores de escravos liberaram seus capoeiristas escravizados para formar milícias. Uma testemunha ocular registrou: "Mesmo estacionados e armados com rifles, os rebeldes não conseguiam resistir aos punhos, pedras e paus. Caíam nas ruas e praças públicas, feridos ou mortos."
+Em junho de 1828, soldados mercenários alemães e irlandeses se revoltaram. As forças imperiais foram dominadas. Nesta crise, a tradição conta que Vidigal convocou os próprios capoeiras que havia perseguido. Senhores de escravos liberaram seus capoeiristas escravizados para formar milícias. Uma testemunha ocular registrou: "Mesmo estacionados e armados com rifles, os rebeldes não conseguiam resistir aos punhos, pedras e paus. Caíam nas ruas e praças públicas, feridos ou mortos".
 
 Em três dias a revolta foi esmagada—graças em grande parte aos capoeiras. O historiador Carlos Eugênio Líbano Soares argumenta que este foi o evento mais importante para estabelecer a dominância da capoeira nas ruas do Rio.
 
@@ -92,7 +92,7 @@ Quem ensinou capoeira a Vidigal permanece desconhecido—a trilha da linhagem te
 
 DEATH DATE: July 10, 1843 - exact date documented. Died at age 98.
 
-PARADOX: The most feared persecutor of capoeiristas in early 19th-century Rio de Janeiro was himself a documented master of capoeira. His detractors described him as "a skillful capoeira, with cold blood and agility beyond all proof."
+PARADOX: The most feared persecutor of capoeiristas in early 19th-century Rio de Janeiro was himself a documented master of capoeira. His detractors described him as "a skillful capoeira, with cold blood and agility beyond all proof".
 
 TEACHER: Unknown. The lineage trail ends with him—we do not know who taught Vidigal capoeira.
 
@@ -102,7 +102,7 @@ MERCENARY REVOLT (1828): When German and Irish mercenary soldiers revolted, Vidi
 
 DATA DE MORTE: 10 de julho de 1843 - data exata documentada. Morreu aos 98 anos.
 
-PARADOXO: O perseguidor mais temido dos capoeiristas no Rio de Janeiro do início do século XIX era ele próprio um mestre documentado de capoeira. Seus detratores o descreviam como "um hábil capoeira, de sangue frio e agilidade além de toda prova."
+PARADOXO: O perseguidor mais temido dos capoeiristas no Rio de Janeiro do início do século XIX era ele próprio um mestre documentado de capoeira. Seus detratores o descreviam como "um hábil capoeira, de sangue frio e agilidade além de toda prova".
 
 PROFESSOR: Desconhecido. A trilha de linhagem termina com ele—não sabemos quem ensinou capoeira a Vidigal.
 

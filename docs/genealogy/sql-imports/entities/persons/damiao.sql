@@ -30,17 +30,17 @@ INSERT INTO genealogy.person_profiles (
   NULL,
   NULL,
   -- bio_en
-  E'Esdras Magalhães dos Santos, known as Mestre Damião or "Tenente Esdras," was a pioneering figure who helped bring Capoeira Regional from Bahia to southeastern Brazil. Born in Laranjeiras, Sergipe, he was the son of a teacher mother and a Protestant pastor father. At age six, his family moved to Itabuna, Bahia, where he was raised.
+  E'Esdras Magalhães dos Santos, known as Mestre Damião or "Tenente Esdras", was a pioneering figure who helped bring Capoeira Regional from Bahia to southeastern Brazil. Born in Laranjeiras, Sergipe, he was the son of a teacher mother and a Protestant pastor father. At age six, his family moved to Itabuna, Bahia, where he was raised.
 
 Around 1945, at the age of 16-17, young Esdras traveled to Salvador to pursue his education. There he discovered Mestre Bimba''s academy and began training in Capoeira Regional Baiana near the end of 1945. He graduated as "formado" in 1947, receiving both a medal and diploma directly from Mestre Bimba.
 
 Damião''s professional life was multifaceted. He became a Lieutenant (Tenente) in the Brazilian Air Force (Força Aérea Brasileira), a licensed lawyer, and a dedicated writer on capoeira history. He married Maria Fernandes from the Italian colony of Guaratinguetá.
 
-In 1949, Damião organized the historic first trip of Mestre Bimba and eight of his best students to São Paulo for capoeira demonstrations at the Pacaembu gymnasium. These exhibitions, which later extended to Rio de Janeiro, planted the seeds for Capoeira Regional''s success in southeastern Brazil. The event was covered by newspapers including Folha de Sorocaba, which noted that Bimba''s system contained "forty-five techniques, of which twenty-two are deadly."
+In 1949, Damião organized the historic first trip of Mestre Bimba and eight of his best students to São Paulo for capoeira demonstrations at the Pacaembu gymnasium. These exhibitions, which later extended to Rio de Janeiro, planted the seeds for Capoeira Regional''s success in southeastern Brazil. The event was covered by newspapers including Folha de Sorocaba, which noted that Bimba''s system contained "forty-five techniques, of which twenty-two are deadly".
 
 In 1950, Damião returned to São Paulo to take a specialist sergeant course at Campo de Marte with the Aeronáutica. During this period (September 1950 to May 1951), he taught capoeira to approximately fifty students at Kid Jofre''s academy—becoming very probably the first person to formally teach Capoeira Regional in a São Paulo academy.
 
-Damião arrived in São José dos Campos in 1968. On May 16, 1971, he co-founded the Associação Desportiva e Cultural Capoeira Besouro Mangangá, the first capoeira academy in Vale do Paraíba, together with his son Esdras Filho (Mestre Esdras) and Everaldo Bispo de Souza (Mestre Lobão). The name "Besouro Mangangá" was chosen by Mestre Esdras after consulting both his father and Mestre Suassuna, chosen because Besouro Mangangá was also known as "Besouro Cordão de Ouro."
+Damião arrived in São José dos Campos in 1968. On May 16, 1971, he co-founded the Associação Desportiva e Cultural Capoeira Besouro Mangangá, the first capoeira academy in Vale do Paraíba, together with his son Esdras Filho (Mestre Esdras) and Everaldo Bispo de Souza (Mestre Lobão). The name "Besouro Mangangá" was chosen by Mestre Esdras after consulting both his father and Mestre Suassuna, chosen because Besouro Mangangá was also known as "Besouro Cordão de Ouro".
 
 Damião documented nine essential life lessons learned from Mestre Bimba during their time together in São Paulo. These included:
 1. Always maintain "maldade no corpo" (vigilance in one''s body)—even in unexpected places
@@ -53,7 +53,7 @@ Damião documented nine essential life lessons learned from Mestre Bimba during 
 8. Proper attire: loose pants, leather shoes, shirt, sport jacket, tie, and silk handkerchief
 9. The straight razor (navalha) could be carried in special circumstances
 
-Damião recounted Bimba''s famous beach story illustrating how a capoeirista used cleverness against a larger aggressor, concluding with Bimba''s declaration: "Capoeira isn''t a martial art for the ring. It''s a street fight."
+Damião recounted Bimba''s famous beach story illustrating how a capoeirista used cleverness against a larger aggressor, concluding with Bimba''s declaration: "Capoeira isn''t a martial art for the ring. It''s a street fight".
 
 As a historian and writer, Damião made crucial contributions to preserving capoeira''s history. In 1996, he published "Conversando sobre a Capoeira..." (Talking About Capoeira), printed by Jac Gráfica e Editora Ltda. in São José dos Campos. In this work, he divided the history of Capoeira Regional into three phases: the Initial or Creation phase (1930-1937), the Consolidation phase (1938-1966), and the Propagation phase (1967-1973). He also wrote "A Verdadeira história da criação da luta regional Bahiana do Mestre Bimba" (The True History of the Creation of Mestre Bimba''s Bahian Regional Fight), published in 2002.
 
@@ -61,17 +61,17 @@ According to Damião, it was around 1930 that Bimba met a medical student from C
 
 Mestre Damião is now deceased. His legacy lives on through the Associação Besouro Mangangá, which after over 50 years continues to develop capoeira in São José dos Campos, São Luiz do Paraitinga, Caçapava, and internationally in Portugal, Sweden, and Japan.',
   -- bio_pt
-  E'Esdras Magalhães dos Santos, conhecido como Mestre Damião ou "Tenente Esdras," foi uma figura pioneira que ajudou a trazer a Capoeira Regional da Bahia para o sudeste do Brasil. Nascido em Laranjeiras, Sergipe, era filho de uma mãe professora e um pai pastor protestante. Aos seis anos, sua família mudou-se para Itabuna, Bahia, onde foi criado.
+  E'Esdras Magalhães dos Santos, conhecido como Mestre Damião ou "Tenente Esdras", foi uma figura pioneira que ajudou a trazer a Capoeira Regional da Bahia para o sudeste do Brasil. Nascido em Laranjeiras, Sergipe, era filho de uma mãe professora e um pai pastor protestante. Aos seis anos, sua família mudou-se para Itabuna, Bahia, onde foi criado.
 
 Por volta de 1945, aos 16-17 anos, o jovem Esdras viajou para Salvador para continuar sua educação. Lá descobriu a academia do Mestre Bimba e começou a treinar Capoeira Regional Baiana no final de 1945. Formou-se em 1947, recebendo medalha e diploma diretamente do Mestre Bimba.
 
 A vida profissional de Damião foi multifacetada. Tornou-se Tenente da Força Aérea Brasileira, advogado licenciado e dedicado escritor sobre a história da capoeira. Casou-se com Maria Fernandes, da colônia italiana de Guaratinguetá.
 
-Em 1949, Damião organizou a histórica primeira viagem do Mestre Bimba e oito de seus melhores alunos a São Paulo para demonstrações de capoeira no ginásio do Pacaembu. Essas exibições, que depois se estenderam ao Rio de Janeiro, plantaram as sementes para o sucesso da Capoeira Regional no sudeste do Brasil. O evento foi coberto por jornais incluindo a Folha de Sorocaba, que notou que o sistema de Bimba continha "quarenta e cinco golpes, dos quais vinte e dois são mortais."
+Em 1949, Damião organizou a histórica primeira viagem do Mestre Bimba e oito de seus melhores alunos a São Paulo para demonstrações de capoeira no ginásio do Pacaembu. Essas exibições, que depois se estenderam ao Rio de Janeiro, plantaram as sementes para o sucesso da Capoeira Regional no sudeste do Brasil. O evento foi coberto por jornais incluindo a Folha de Sorocaba, que notou que o sistema de Bimba continha "quarenta e cinco golpes, dos quais vinte e dois são mortais".
 
 Em 1950, Damião retornou a São Paulo para fazer um curso de sargentos especialistas no Campo de Marte com a Aeronáutica. Durante este período (setembro de 1950 a maio de 1951), ele ensinou capoeira para aproximadamente cinquenta alunos na academia de Kid Jofre—tornando-se muito provavelmente a primeira pessoa a ensinar formalmente Capoeira Regional em uma academia de São Paulo.
 
-Damião chegou a São José dos Campos em 1968. Em 16 de maio de 1971, co-fundou a Associação Desportiva e Cultural Capoeira Besouro Mangangá, a primeira academia de capoeira do Vale do Paraíba, junto com seu filho Esdras Filho (Mestre Esdras) e Everaldo Bispo de Souza (Mestre Lobão). O nome "Besouro Mangangá" foi escolhido por Mestre Esdras após consultar tanto seu pai quanto Mestre Suassuna, escolhido porque Besouro Mangangá também era conhecido como "Besouro Cordão de Ouro."
+Damião chegou a São José dos Campos em 1968. Em 16 de maio de 1971, co-fundou a Associação Desportiva e Cultural Capoeira Besouro Mangangá, a primeira academia de capoeira do Vale do Paraíba, junto com seu filho Esdras Filho (Mestre Esdras) e Everaldo Bispo de Souza (Mestre Lobão). O nome "Besouro Mangangá" foi escolhido por Mestre Esdras após consultar tanto seu pai quanto Mestre Suassuna, escolhido porque Besouro Mangangá também era conhecido como "Besouro Cordão de Ouro".
 
 Damião documentou nove lições de vida essenciais aprendidas com Mestre Bimba durante seu tempo juntos em São Paulo. Estas incluíam:
 1. Sempre manter "maldade no corpo" (vigilância no corpo)—mesmo em lugares inesperados
@@ -84,7 +84,7 @@ Damião documentou nove lições de vida essenciais aprendidas com Mestre Bimba 
 8. Vestimenta adequada: calças largas, sapatos de couro, camisa, paletó esportivo, gravata e lenço de seda
 9. A navalha poderia ser carregada em circunstâncias especiais
 
-Damião relatou a famosa história de praia de Bimba ilustrando como um capoeirista usou astúcia contra um agressor maior, concluindo com a declaração de Bimba: "Capoeira não é arte marcial de ringue. É luta de rua."
+Damião relatou a famosa história de praia de Bimba ilustrando como um capoeirista usou astúcia contra um agressor maior, concluindo com a declaração de Bimba: "Capoeira não é arte marcial de ringue. É luta de rua".
 
 Como historiador e escritor, Damião fez contribuições cruciais para preservar a história da capoeira. Em 1996, publicou "Conversando sobre a Capoeira...", impresso pela Jac Gráfica e Editora Ltda. em São José dos Campos. Nesta obra, dividiu a história da Capoeira Regional em três fases: a fase Inicial ou de Criação (1930-1937), a fase de Consolidação (1938-1966) e a fase de Propagação (1967-1973). Também escreveu "A Verdadeira história da criação da luta regional Bahiana do Mestre Bimba", publicado em 2002.
 

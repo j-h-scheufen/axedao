@@ -3,8 +3,8 @@
 **SQL Import:** `docs/genealogy/sql-imports/entities/persons/suassuna.sql`
 
 **Significance / Significância:**
-- EN: Co-founder of Cordão de Ouro (1967); creator of the Jogo do Miudinho; organized first Capoeira Festival of São Paulo State (1974); pioneer of capoeira in São Paulo; recognized as mestre by both Bimba and Canjiquinha; described by Mestre Decânio as "the apostle of Mestre Bimba in São Paulo."
-- PT: Co-fundador do Cordão de Ouro (1967); criador do Jogo do Miudinho; organizou o primeiro Festival de Capoeira do Estado de São Paulo (1974); pioneiro da capoeira em São Paulo; reconhecido como mestre por Bimba e Canjiquinha; descrito por Mestre Decânio como "o apóstolo de Mestre Bimba em São Paulo."
+- EN: Co-founder of Cordão de Ouro (1967); creator of the Jogo do Miudinho; organized first Capoeira Festival of São Paulo State (1974); pioneer of capoeira in São Paulo; recognized as mestre by both Bimba and Canjiquinha; described by Mestre Decânio as "the apostle of Mestre Bimba in São Paulo".
+- PT: Co-fundador do Cordão de Ouro (1967); criador do Jogo do Miudinho; organizou o primeiro Festival de Capoeira do Estado de São Paulo (1974); pioneiro da capoeira em São Paulo; reconhecido como mestre por Bimba e Canjiquinha; descrito por Mestre Decânio como "o apóstolo de Mestre Bimba em São Paulo".
 
 **Profile Type:** `mestre`
 
@@ -53,7 +53,7 @@ Suassuna was a pioneer in taking capoeira international. In 1981, he introduced 
 
 In 1997, Suassuna organized the first "O Capoeirando" event in Ubatuba, São Paulo, in partnership with Mestres Gato and Peixinho. The event later moved to Ilhéus, Bahia, and continues annually each January.
 
-During a period when Suassuna was concerned about the direction capoeira was taking - with players moving too far apart and the game becoming increasingly aggressive - he began to reminisce about the close-playing capoeira of his youth. After more than fifteen years of development, he codified the Jogo do Miudinho. In his words: "People think it's a new capoeira, and it's nothing like that. I simply rescued an older capoeira, modernized the manner of playing it... the name miudinho arose because I was observing that capoeiristas were playing very distant from each other and in our time we played very close."
+During a period when Suassuna was concerned about the direction capoeira was taking - with players moving too far apart and the game becoming increasingly aggressive - he began to reminisce about the close-playing capoeira of his youth. After more than fifteen years of development, he codified the Jogo do Miudinho. In his words: "People think it's a new capoeira, and it's nothing like that. I simply rescued an older capoeira, modernized the manner of playing it... the name miudinho arose because I was observing that capoeiristas were playing very distant from each other and in our time we played very close".
 
 Today, Suassuna lives on a farm known as "Sítio do Vovô" (Grandfather's Farm) in São Paulo. Cordão de Ouro has expanded to five continents and remains one of the oldest, largest, and most influential capoeira organizations in the world.
 
@@ -87,7 +87,7 @@ Suassuna foi pioneiro em levar a capoeira internacionalmente. Em 1981, ele intro
 
 Em 1997, Suassuna organizou o primeiro evento "O Capoeirando" em Ubatuba, São Paulo, em parceria com Mestres Gato e Peixinho. O evento depois se mudou para Ilhéus, Bahia, e continua anualmente a cada janeiro.
 
-Durante um período em que Suassuna estava preocupado com a direção que a capoeira estava tomando - com jogadores se afastando muito e o jogo se tornando cada vez mais agressivo - ele começou a relembrar a capoeira de jogo próximo de sua juventude. Após mais de quinze anos de desenvolvimento, ele codificou o Jogo do Miudinho. Em suas palavras: "As pessoas pensam que é uma capoeira nova, e não é nada disso. Eu simplesmente resgatei uma capoeira mais antiga, modernizei a maneira de jogá-la... o nome miudinho surgiu porque eu estava observando que os capoeiristas jogavam muito distantes uns dos outros e no nosso tempo jogávamos muito próximos."
+Durante um período em que Suassuna estava preocupado com a direção que a capoeira estava tomando - com jogadores se afastando muito e o jogo se tornando cada vez mais agressivo - ele começou a relembrar a capoeira de jogo próximo de sua juventude. Após mais de quinze anos de desenvolvimento, ele codificou o Jogo do Miudinho. Em suas palavras: "As pessoas pensam que é uma capoeira nova, e não é nada disso. Eu simplesmente resgatei uma capoeira mais antiga, modernizei a maneira de jogá-la... o nome miudinho surgiu porque eu estava observando que os capoeiristas jogavam muito distantes uns dos outros e no nosso tempo jogávamos muito próximos".
 
 Hoje, Suassuna vive em um sítio conhecido como "Sítio do Vovô" em São Paulo. O Cordão de Ouro se expandiu para cinco continentes e continua sendo uma das organizações de capoeira mais antigas, maiores e influentes do mundo.
 
@@ -135,13 +135,13 @@ Hoje, Suassuna vive em um sítio conhecido como "Sítio do Vovô" em São Paulo.
 
 ### English
 
-Suassuna trained primarily in Capoeira Regional, studying under Mestre Bimba and Mestre Canjiquinha. His style was heavily influenced by these two masters. He is the creator of the Jogo do Miudinho, developed over fifteen years (from the late 1970s through the 1990s), which he describes as a rescued and modernized form of older capoeira - "a closed angola game played up, down, and inside."
+Suassuna trained primarily in Capoeira Regional, studying under Mestre Bimba and Mestre Canjiquinha. His style was heavily influenced by these two masters. He is the creator of the Jogo do Miudinho, developed over fifteen years (from the late 1970s through the 1990s), which he describes as a rescued and modernized form of older capoeira - "a closed angola game played up, down, and inside".
 
 The Miudinho is characterized by close, intricate movements with players staying near each other, contrasting with the distant, broader styles that had become common. Suassuna created a specific berimbau toque with three parts: one for movement sequences, one for swing/style accents, and one to signal when players need to restart at the berimbau foot. The "Geração Miudinho" (Miudinho Generation) of students became known for their rich, plastic movements.
 
 ### Português
 
-Suassuna treinou principalmente em Capoeira Regional, estudando sob Mestre Bimba e Mestre Canjiquinha. Seu estilo foi fortemente influenciado por esses dois mestres. Ele é o criador do Jogo do Miudinho, desenvolvido ao longo de quinze anos (do final dos anos 1970 até os anos 1990), que ele descreve como uma forma resgatada e modernizada de capoeira mais antiga - "um jogo de angola fechado jogado em cima, em baixo e por dentro."
+Suassuna treinou principalmente em Capoeira Regional, estudando sob Mestre Bimba e Mestre Canjiquinha. Seu estilo foi fortemente influenciado por esses dois mestres. Ele é o criador do Jogo do Miudinho, desenvolvido ao longo de quinze anos (do final dos anos 1970 até os anos 1990), que ele descreve como uma forma resgatada e modernizada de capoeira mais antiga - "um jogo de angola fechado jogado em cima, em baixo e por dentro".
 
 O Miudinho é caracterizado por movimentos próximos e intrincados com os jogadores permanecendo perto um do outro, contrastando com os estilos distantes e amplos que haviam se tornado comuns. Ele criou um toque de berimbau específico com três partes: uma para sequências de movimento, uma para acentos de swing/estilo, e uma para sinalizar quando os jogadores precisam recomeçar ao pé do berimbau. A "Geração Miudinho" de alunos se tornou conhecida por seus movimentos ricos e plásticos.
 

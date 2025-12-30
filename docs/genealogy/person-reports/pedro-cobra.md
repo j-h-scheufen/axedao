@@ -24,9 +24,9 @@
 
 ### English
 
-Pedro Cobra - "Pedro the Snake" - was one of the "perigosos capoeiras" (dangerous capoeiristas) of mid-19th century Rio de Janeiro. His name survives in two of the earliest written sources on capoeira: Plácido de Abreu's 1886 work "Os Capoeiras" and Melo Morais Filho's 1888 "Festas e Tradições Populares do Brasil."
+Pedro Cobra - "Pedro the Snake" - was one of the "perigosos capoeiras" (dangerous capoeiristas) of mid-19th century Rio de Janeiro. His name survives in two of the earliest written sources on capoeira: Plácido de Abreu's 1886 work "Os Capoeiras" and Melo Morais Filho's 1888 "Festas e Tradições Populares do Brasil".
 
-Both sources list Pedro Cobra among the most feared street fighters of the 1850s, alongside Mamede, Aleixo Açougueiro, Bentevi, and Quebra Coco. According to these accounts, the legendary Manduca da Praia "attended the full-time school of roguery and bravery on the streets of Rio de Janeiro during the era of dangerous capoeiras such as Mamede, Aleixo Açougueiro, Pedro Cobra, Bem-te-vi, and Quebra Coco."
+Both sources list Pedro Cobra among the most feared street fighters of the 1850s, alongside Mamede, Aleixo Açougueiro, Bentevi, and Quebra Coco. According to these accounts, the legendary Manduca da Praia "attended the full-time school of roguery and bravery on the streets of Rio de Janeiro during the era of dangerous capoeiras such as Mamede, Aleixo Açougueiro, Pedro Cobra, Bem-te-vi, and Quebra Coco".
 
 His apelido - "Cobra" (snake) - speaks to the fighting culture of the era. Animal nicknames were common among capoeiristas and malandros, often reflecting fighting characteristics: speed, cunning, or unpredictability. The snake imagery suggests someone who could strike without warning, perhaps skilled in the deceptive movements and sudden attacks that characterized capoeira.
 

@@ -28,11 +28,11 @@ Dois de Ouro was a Bahian angoleiro whose name remains synonymous with street ca
 
 He was part of the wave of Bahian capoeiristas who migrated to Rio de Janeiro in the 1950s. On July 21, 1960, together with fellow Bahian angoleiros Mucungê, Baleado, Onça Preta, Imagem do Cão, and Roque, he co-founded Grupo Filhos de Angola in Rio de Janeiro. This group became pioneers in teaching capoeira in the city, participating in tournaments like the Berimbau de Ouro (1967) and folkloric exhibitions such as "Uma Noite na Bahia" (A Night in Bahia).
 
-Despite his time in Rio, Dois de Ouro maintained strong ties to Salvador, where he continued to participate in the rodas de rua (street rodas) at festas de largo and at the Mercado Modelo. Tonho Matéria, the famous singer and mestre, recalls playing with him "quando garoto" (as a boy) in the street rodas that formed during largo festivals: "Lá estava a figura marcante do Mestre Dois de Ouro, um capoeirista desconfiado, rápido e mandingueiro."
+Despite his time in Rio, Dois de Ouro maintained strong ties to Salvador, where he continued to participate in the rodas de rua (street rodas) at festas de largo and at the Mercado Modelo. Tonho Matéria, the famous singer and mestre, recalls playing with him "quando garoto" (as a boy) in the street rodas that formed during largo festivals: "Lá estava a figura marcante do Mestre Dois de Ouro, um capoeirista desconfiado, rápido e mandingueiro".
 
-He was remembered alongside legendary figures including Caicara, Eziquiel, Canjiquinha, Paulo dos Anjos, Desente, and Bom Cabrito. In the book "Mestres e capoeiras famosos da Bahia," a chapter is dedicated to him: "Dois de Ouro: O capoeira de rua" (The street capoeirista).
+He was remembered alongside legendary figures including Caicara, Eziquiel, Canjiquinha, Paulo dos Anjos, Desente, and Bom Cabrito. In the book "Mestres e capoeiras famosos da Bahia", a chapter is dedicated to him: "Dois de Ouro: O capoeira de rua" (The street capoeirista).
 
-He passed away in November 2001 in Salvador, leaving behind students who preserve his memory. Mestre Bira de Oxóssi, who describes Dois de Ouro as his "mestre na angola," learned from him the fundamentals of what Dois de Ouro called "capoeira angoregional de rua." Contramestre Sergio Ferreira, originally from Belo Horizonte, also trained with him and learned the art of making berimbaus from his hands.
+He passed away in November 2001 in Salvador, leaving behind students who preserve his memory. Mestre Bira de Oxóssi, who describes Dois de Ouro as his "mestre na angola", learned from him the fundamentals of what Dois de Ouro called "capoeira angoregional de rua". Contramestre Sergio Ferreira, originally from Belo Horizonte, also trained with him and learned the art of making berimbaus from his hands.
 
 As Dois de Ouro himself often said: "A capoeira foi um dom que Deus me deu" (Capoeira was a gift that God gave me).
 
@@ -40,15 +40,15 @@ As Dois de Ouro himself often said: "A capoeira foi um dom que Deus me deu" (Cap
 
 Dois de Ouro foi um angoleiro baiano cujo nome permanece sinônimo de capoeira de rua em Salvador. Membro da Associação Brasileira de Capoeira Angola em Salvador, era reconhecido por sua precisão, velocidade e jogo mandingueiro - descrito por aqueles que o viram como "um capoeirista desconfiado, rápido e mandingueiro" que executava rasteiras de um jeito especial e memorável.
 
-Fez parte da onda de capoeiristas baianos que migraram para o Rio de Janeiro nos anos 1950. Em 21 de julho de 1960, junto com outros angoleiros baianos Mucungê, Baleado, Onça Preta, Imagem do Cão e Roque, co-fundou o Grupo Filhos de Angola no Rio de Janeiro. Este grupo tornou-se pioneiro no ensino de capoeira na cidade, participando de torneios como o Berimbau de Ouro (1967) e apresentações folclóricas como "Uma Noite na Bahia."
+Fez parte da onda de capoeiristas baianos que migraram para o Rio de Janeiro nos anos 1950. Em 21 de julho de 1960, junto com outros angoleiros baianos Mucungê, Baleado, Onça Preta, Imagem do Cão e Roque, co-fundou o Grupo Filhos de Angola no Rio de Janeiro. Este grupo tornou-se pioneiro no ensino de capoeira na cidade, participando de torneios como o Berimbau de Ouro (1967) e apresentações folclóricas como "Uma Noite na Bahia".
 
-Apesar de seu tempo no Rio, Dois de Ouro manteve fortes laços com Salvador, onde continuou a participar das rodas de rua nas festas de largo e no Mercado Modelo. Tonho Matéria, o famoso cantor e mestre, lembra de ter jogado com ele "quando garoto" nas rodas de rua que se formavam durante as festas de largo: "Lá estava a figura marcante do Mestre Dois de Ouro, um capoeirista desconfiado, rápido e mandingueiro."
+Apesar de seu tempo no Rio, Dois de Ouro manteve fortes laços com Salvador, onde continuou a participar das rodas de rua nas festas de largo e no Mercado Modelo. Tonho Matéria, o famoso cantor e mestre, lembra de ter jogado com ele "quando garoto" nas rodas de rua que se formavam durante as festas de largo: "Lá estava a figura marcante do Mestre Dois de Ouro, um capoeirista desconfiado, rápido e mandingueiro".
 
-Era lembrado ao lado de figuras lendárias incluindo Caicara, Eziquiel, Canjiquinha, Paulo dos Anjos, Desente e Bom Cabrito. No livro "Mestres e capoeiras famosos da Bahia," um capítulo é dedicado a ele: "Dois de Ouro: O capoeira de rua."
+Era lembrado ao lado de figuras lendárias incluindo Caicara, Eziquiel, Canjiquinha, Paulo dos Anjos, Desente e Bom Cabrito. No livro "Mestres e capoeiras famosos da Bahia", um capítulo é dedicado a ele: "Dois de Ouro: O capoeira de rua".
 
-Faleceu em novembro de 2001 em Salvador, deixando alunos que preservam sua memória. Mestre Bira de Oxóssi, que descreve Dois de Ouro como seu "mestre na angola," aprendeu com ele os fundamentos do que Dois de Ouro chamava de "capoeira angoregional de rua." Contramestre Sergio Ferreira, natural de Belo Horizonte, também treinou com ele e aprendeu a arte de fazer berimbaus de suas mãos.
+Faleceu em novembro de 2001 em Salvador, deixando alunos que preservam sua memória. Mestre Bira de Oxóssi, que descreve Dois de Ouro como seu "mestre na angola", aprendeu com ele os fundamentos do que Dois de Ouro chamava de "capoeira angoregional de rua". Contramestre Sergio Ferreira, natural de Belo Horizonte, também treinou com ele e aprendeu a arte de fazer berimbaus de suas mãos.
 
-Como Dois de Ouro costumava dizer: "A capoeira foi um dom que Deus me deu."
+Como Dois de Ouro costumava dizer: "A capoeira foi um dom que Deus me deu".
 
 ## Achievements / Conquistas
 
@@ -74,7 +74,7 @@ Como Dois de Ouro costumava dizer: "A capoeira foi um dom que Deus me deu."
 Dois de Ouro defined his style as "capoeira angoregional de rua" (street angoregional capoeira) - a blend that combined Angola traditions with the speed and technique of street capoeira. He was known for his distinctive rasteiras (leg sweeps) - witnesses said he gave them "de um jeito tão especial e tão dele" (in such a special way that was so uniquely his). He was described as fast, suspicious/wary (desconfiado), and full of mandinga.
 
 ### Português
-Dois de Ouro definia seu estilo como "capoeira angoregional de rua" - uma mistura que combinava tradições da Angola com a velocidade e técnica da capoeira de rua. Era conhecido por suas rasteiras distintas - testemunhas diziam que ele dava "de um jeito tão especial e tão dele." Era descrito como rápido, desconfiado e cheio de mandinga.
+Dois de Ouro definia seu estilo como "capoeira angoregional de rua" - uma mistura que combinava tradições da Angola com a velocidade e técnica da capoeira de rua. Era conhecido por suas rasteiras distintas - testemunhas diziam que ele dava "de um jeito tão especial e tão dele". Era descrito como rápido, desconfiado e cheio de mandinga.
 
 ## Teachers / Mestres
 
@@ -102,16 +102,16 @@ Sem mestres documentados. Seu treinamento parece ter sido através de participa�
 
 ## Key Quotes / Citações
 
-> "A capoeira foi um dom que Deus me deu."
-> "Capoeira was a gift that God gave me."
+> "A capoeira foi um dom que Deus me deu".
+> "Capoeira was a gift that God gave me".
 — Dois de Ouro
 
-> "Eu tive o prazer de jogar capoeira quando garoto nas rodas de rua que eram montadas nas festas de largo e lá estava a figura marcante do Mestre Dois de Ouro, um capoeirista desconfiado, rápido e mandingueiro."
-> "I had the pleasure of playing capoeira as a boy in the street rodas that were set up at the largo festivals and there was the striking figure of Mestre Dois de Ouro, a suspicious, fast, and cunning capoeirista."
+> "Eu tive o prazer de jogar capoeira quando garoto nas rodas de rua que eram montadas nas festas de largo e lá estava a figura marcante do Mestre Dois de Ouro, um capoeirista desconfiado, rápido e mandingueiro".
+> "I had the pleasure of playing capoeira as a boy in the street rodas that were set up at the largo festivals and there was the striking figure of Mestre Dois de Ouro, a suspicious, fast, and cunning capoeirista".
 — Tonho Matéria (March 2009)
 
-> "Capoeirista marcante, mandingueiro, amigo, parceiro e fiel. Meu mestre na angola... me ensinou os fundamentos da capoeira angoregional de rua, como definia seu estilo."
-> "A striking capoeirista, full of mandinga, a friend, partner and faithful. My master in angola... he taught me the fundamentals of capoeira angoregional de rua, as he defined his style."
+> "Capoeirista marcante, mandingueiro, amigo, parceiro e fiel. Meu mestre na angola... me ensinou os fundamentos da capoeira angoregional de rua, como definia seu estilo".
+> "A striking capoeirista, full of mandinga, a friend, partner and faithful. My master in angola... he taught me the fundamentals of capoeira angoregional de rua, as he defined his style".
 — Mestre Bira de Oxóssi (March 2010)
 
 ## Timeline / Cronologia

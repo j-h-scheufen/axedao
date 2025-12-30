@@ -28,17 +28,17 @@ Silvestre Vitório Ferreira, known in Bahia as Ferreirinha and later as Mestre S
 
 In Salvador during the 1960s, he was known as Ferreirinha. As a contra-mestre under Mestre Caiçara, he held the authority to sign diplomas for other students—a significant responsibility in the traditional capoeira hierarchy. Among those whose diplomas he signed was Fernandinho (Fernando Olímpio Paes Filho), who later built his reputation in Rio de Janeiro.
 
-Silvestre was one of the members of the group that Mestre Caiçara took to São Paulo to record the LP "Academia de Capoeira de Angola São Jorge dos Irmãos Unidos do Mestre Caiçara," though the personnel on that recording remain incompletely documented.
+Silvestre was one of the members of the group that Mestre Caiçara took to São Paulo to record the LP "Academia de Capoeira de Angola São Jorge dos Irmãos Unidos do Mestre Caiçara", though the personnel on that recording remain incompletely documented.
 
 In 1966, Silvestre brought his capoeira to São Paulo, part of the wave of Bahian mestres who migrated to the industrial capital during that era. He founded the Grupo de Capoeira Vera Cruz (later formalized as Associação de Capoeira Vera Cruz in 1981) and taught for many years at Praça da Árvore in the Jabaquara district.
 
-In 1972, he was one of the founding mestres of the Federação Paulista de Capoeira, the state capoeira federation. This was a pivotal year—capoeira was officially recognized as a sport in Brazil, and the federation represented capoeira's push for legitimacy as "Brazilian martial art."
+In 1972, he was one of the founding mestres of the Federação Paulista de Capoeira, the state capoeira federation. This was a pivotal year—capoeira was officially recognized as a sport in Brazil, and the federation represented capoeira's push for legitimacy as "Brazilian martial art".
 
 Silvestre trained a generation of capoeiristas who spread the art to new regions. His most notable student was Julival do Espírito Santo (Mestre Gato de Silvestre), born 1952 in Goiás, who became the 1971 São Paulo State Capoeira Champion through Vera Cruz. At the end of the 1970s, Silvestre traveled to Manaus to participate in the I Encontro de Capoeira da Amazônia (First Amazon Capoeira Meeting), where he awarded Mestre Gato his mestre diploma through the Associação de Capoeira Vera Cruz.
 
 Mestre Gato subsequently became the pioneer of capoeira in the Amazon region, founding the first academy in Amazonas called "Zumbí dos Palmares" in February 1972 and spreading capoeira to Bolivia, Colombia, and Panama.
 
-Silvestre's testimony is a crucial source for understanding the Antônio de Noronha lineage. Along with Mestre Caiçara, he provided the lineage claim that places Mestre Antônio de Noronha at the top of the chain that runs through Aberrê to Canjiquinha. The Grupo Gingarte website cites this testimony directly: "Mestre Aberrê is the second mestre in my lineage, above him comes Mestre Antônio de Noronha—this affirmation came from Mestre Caiçara and Mestre Silvestre."
+Silvestre's testimony is a crucial source for understanding the Antônio de Noronha lineage. Along with Mestre Caiçara, he provided the lineage claim that places Mestre Antônio de Noronha at the top of the chain that runs through Aberrê to Canjiquinha. The Grupo Gingarte website cites this testimony directly: "Mestre Aberrê is the second mestre in my lineage, above him comes Mestre Antônio de Noronha—this affirmation came from Mestre Caiçara and Mestre Silvestre".
 
 ### Português
 
@@ -46,17 +46,17 @@ Silvestre Vitório Ferreira, conhecido na Bahia como Ferreirinha e depois como M
 
 Em Salvador durante a década de 1960, era conhecido como Ferreirinha. Como contra-mestre de Mestre Caiçara, tinha a autoridade de assinar diplomas para outros alunos—uma responsabilidade significativa na hierarquia tradicional da capoeira. Entre aqueles cujos diplomas ele assinou estava Fernandinho (Fernando Olímpio Paes Filho), que mais tarde construiu sua reputação no Rio de Janeiro.
 
-Silvestre foi um dos membros do grupo que Mestre Caiçara levou a São Paulo para gravar o LP "Academia de Capoeira de Angola São Jorge dos Irmãos Unidos do Mestre Caiçara," embora os participantes dessa gravação permaneçam incompletamente documentados.
+Silvestre foi um dos membros do grupo que Mestre Caiçara levou a São Paulo para gravar o LP "Academia de Capoeira de Angola São Jorge dos Irmãos Unidos do Mestre Caiçara", embora os participantes dessa gravação permaneçam incompletamente documentados.
 
 Em 1966, Silvestre trouxe sua capoeira para São Paulo, parte da onda de mestres baianos que migraram para a capital industrial durante essa época. Fundou o Grupo de Capoeira Vera Cruz (formalizado mais tarde como Associação de Capoeira Vera Cruz em 1981) e ensinou por muitos anos na Praça da Árvore no bairro do Jabaquara.
 
-Em 1972, foi um dos mestres fundadores da Federação Paulista de Capoeira, a federação estadual de capoeira. Este foi um ano decisivo—a capoeira foi oficialmente reconhecida como esporte no Brasil, e a federação representou o impulso da capoeira por legitimidade como "arte marcial brasileira."
+Em 1972, foi um dos mestres fundadores da Federação Paulista de Capoeira, a federação estadual de capoeira. Este foi um ano decisivo—a capoeira foi oficialmente reconhecida como esporte no Brasil, e a federação representou o impulso da capoeira por legitimidade como "arte marcial brasileira".
 
 Silvestre treinou uma geração de capoeiristas que espalharam a arte para novas regiões. Seu aluno mais notável foi Julival do Espírito Santo (Mestre Gato de Silvestre), nascido em 1952 em Goiás, que se tornou Campeão Paulista de Capoeira de 1971 pela Vera Cruz. No final da década de 1970, Silvestre viajou a Manaus para participar do I Encontro de Capoeira da Amazônia, onde concedeu a Mestre Gato seu diploma de mestre pela Associação de Capoeira Vera Cruz.
 
 Mestre Gato posteriormente se tornou o pioneiro da capoeira na região amazônica, fundando a primeira academia no Amazonas chamada "Zumbí dos Palmares" em fevereiro de 1972 e espalhando a capoeira para Bolívia, Colômbia e Panamá.
 
-O testemunho de Silvestre é uma fonte crucial para entender a linhagem de Antônio de Noronha. Junto com Mestre Caiçara, ele forneceu a reivindicação de linhagem que coloca Mestre Antônio de Noronha no topo da cadeia que passa por Aberrê até Canjiquinha. O site do Grupo Gingarte cita este testemunho diretamente: "Mestre Aberrê é o segundo mestre da minha linhagem, acima dele vem Mestre Antônio de Noronha—esta afirmação veio de Mestre Caiçara e Mestre Silvestre."
+O testemunho de Silvestre é uma fonte crucial para entender a linhagem de Antônio de Noronha. Junto com Mestre Caiçara, ele forneceu a reivindicação de linhagem que coloca Mestre Antônio de Noronha no topo da cadeia que passa por Aberrê até Canjiquinha. O site do Grupo Gingarte cita este testemunho diretamente: "Mestre Aberrê é o segundo mestre da minha linhagem, acima dele vem Mestre Antônio de Noronha—esta afirmação veio de Mestre Caiçara e Mestre Silvestre".
 
 ## Achievements / Conquistas
 

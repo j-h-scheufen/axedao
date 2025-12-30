@@ -43,7 +43,7 @@ Moreno foi listado como companheiro de treino de João Pequeno (nascido em 1917)
 
 Moreno was a student of Mestre Cobrinha Verde, the legendary cousin of Besouro Mangangá. He is listed alongside João Grande, João Pequeno, Gigante (Bigodinho), and Eulampio as one of Cobrinha Verde's students in Portuguese Wikipedia and capoeira.online sources.
 
-A "Moreno" is also documented playing in the bateria at the famous Itapuã rodas during the 1950s-1960s. In Mestre Gato Preto's 1999 interview, he recalled: "In the roda, João Pequeno, Moreno, Albertino, Valdomiro, and I made up the bateria." This may or may not be the same person as the Cobrinha Verde student, given how common the nickname was.
+A "Moreno" is also documented playing in the bateria at the famous Itapuã rodas during the 1950s-1960s. In Mestre Gato Preto's 1999 interview, he recalled: "In the roda, João Pequeno, Moreno, Albertino, Valdomiro, and I made up the bateria". This may or may not be the same person as the Cobrinha Verde student, given how common the nickname was.
 
 Beyond these references, virtually nothing is documented about Moreno's life. His full name, birth and death dates, and whether he achieved any formal title all remain unknown.
 
@@ -51,7 +51,7 @@ Beyond these references, virtually nothing is documented about Moreno's life. Hi
 
 Moreno foi aluno de Mestre Cobrinha Verde, o lendário primo de Besouro Mangangá. Ele é listado junto com João Grande, João Pequeno, Gigante (Bigodinho) e Eulampio como um dos alunos de Cobrinha Verde na Wikipédia em português e nas fontes do capoeira.online.
 
-Um "Moreno" também está documentado tocando na bateria nas famosas rodas de Itapuã durante as décadas de 1950-1960. Na entrevista de Mestre Gato Preto de 1999, ele lembrou: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria." Este pode ou não ser a mesma pessoa que o aluno de Cobrinha Verde, dado quão comum era o apelido.
+Um "Moreno" também está documentado tocando na bateria nas famosas rodas de Itapuã durante as décadas de 1950-1960. Na entrevista de Mestre Gato Preto de 1999, ele lembrou: "Na roda, João Pequeno, Moreno, Albertino, Valdomiro e eu fazíamos a bateria". Este pode ou não ser a mesma pessoa que o aluno de Cobrinha Verde, dado quão comum era o apelido.
 
 Além destas referências, praticamente nada está documentado sobre a vida de Moreno. Seu nome completo, datas de nascimento e morte, e se ele alcançou algum título formal, tudo permanece desconhecido.
 

@@ -63,7 +63,7 @@ INSERT INTO genealogy.person_profiles (
   -- bio_en
   E'Auvelino was a berimbau master active in Salvador in the mid-20th century. He is remembered primarily for teaching Bigodinho (Reinaldo Santana) the art of the berimbau when the young man arrived in Salvador in 1950.
 
-Sources describe Auvelino as a "legendary berimbau master" who welcomed Bigodinho and taught him "the secrets of the art of this instrument." This instruction proved foundational—Bigodinho would become renowned for his berimbau playing and singing throughout his career.
+Sources describe Auvelino as a "legendary berimbau master" who welcomed Bigodinho and taught him "the secrets of the art of this instrument". This instruction proved foundational—Bigodinho would become renowned for his berimbau playing and singing throughout his career.
 
 Beyond this connection to Bigodinho, virtually nothing is documented about Auvelino''s life. We do not know his full name, where he came from, who taught him, or whether he had other notable students. The designation "mestre" appears in some sources but it is unclear whether this was a formal capoeira title or simply recognition of his berimbau expertise.
 
@@ -71,7 +71,7 @@ Auvelino represents the many skilled practitioners and craftsmen who transmitted
   -- bio_pt
   E'Auvelino era um mestre de berimbau ativo em Salvador em meados do século XX. É lembrado principalmente por ensinar Bigodinho (Reinaldo Santana) a arte do berimbau quando o jovem chegou em Salvador em 1950.
 
-As fontes descrevem Auvelino como um "lendário mestre de berimbau" que acolheu Bigodinho e lhe ensinou "os segredos da arte deste instrumento." Essa instrução provou ser fundamental—Bigodinho se tornaria renomado por seu toque de berimbau e canto ao longo de sua carreira.
+As fontes descrevem Auvelino como um "lendário mestre de berimbau" que acolheu Bigodinho e lhe ensinou "os segredos da arte deste instrumento". Essa instrução provou ser fundamental—Bigodinho se tornaria renomado por seu toque de berimbau e canto ao longo de sua carreira.
 
 Além dessa conexão com Bigodinho, praticamente nada está documentado sobre a vida de Auvelino. Não sabemos seu nome completo, de onde veio, quem o ensinou, ou se teve outros alunos notáveis. A designação "mestre" aparece em algumas fontes, mas não está claro se era um título formal de capoeira ou simplesmente reconhecimento de sua expertise com o berimbau.
 

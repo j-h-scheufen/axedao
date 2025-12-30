@@ -6,7 +6,7 @@
 --
 -- NOTE: No documented relationships found. Chico Me Dá is known only
 -- from Mestre Pastinha's 1967 interview where he was listed among
--- deceased practitioners of "pure Capoeira de Angola." No teachers,
+-- deceased practitioners of "pure Capoeira de Angola". No teachers,
 -- students, group affiliations, or specific incidents are documented.
 -- ============================================================
 

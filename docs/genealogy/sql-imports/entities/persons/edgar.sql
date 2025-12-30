@@ -55,17 +55,17 @@ INSERT INTO genealogy.person_profiles (
   -- bio_en
   E'Edgar is known only through a brief mention in Madame Satã''s prison memoirs. Although Madame Satã did not consider himself a capoeira practitioner, in his memoirs he mentions some "capoeira rogues" (malandros capoeiras) who were imprisoned in Dois Rios alongside him, including Sete Coroas (who was from Bahia), Edgar, and Americano.
 
-The Dois Rios Correctional Colony (Colônia Correcional de Dois Rios) on Ilha Grande was established in 1894 to imprison "drunkards, beggars, prostitutes, capoeiras, and vagrants." The colony became notorious for its harsh conditions—poor food, disease, torture, and forced labor—earning it the nickname "Ilha da Maldição" (Isle of Damnation).
+The Dois Rios Correctional Colony (Colônia Correcional de Dois Rios) on Ilha Grande was established in 1894 to imprison "drunkards, beggars, prostitutes, capoeiras, and vagrants". The colony became notorious for its harsh conditions—poor food, disease, torture, and forced labor—earning it the nickname "Ilha da Maldição" (Isle of Damnation).
 
-Among the prisoners, fighting techniques related to capoeira survived but were often called "tiririca" rather than capoeira. According to Seu Júlio, another long-term prisoner who arrived in 1958, older prisoners knew the fighting moves and passed them to younger inmates, but "avoided calling it capoeira." This reflects the continued stigmatization of capoeira even in prison settings.
+Among the prisoners, fighting techniques related to capoeira survived but were often called "tiririca" rather than capoeira. According to Seu Júlio, another long-term prisoner who arrived in 1958, older prisoners knew the fighting moves and passed them to younger inmates, but "avoided calling it capoeira". This reflects the continued stigmatization of capoeira even in prison settings.
 
 Nothing else is known about Edgar—not his full name, origin, the nature of his crimes, or his fate after imprisonment.',
   -- bio_pt
   E'Edgar é conhecido apenas através de uma breve menção nas memórias de prisão de Madame Satã. Embora Madame Satã não se considerasse praticante de capoeira, em suas memórias ele menciona alguns "malandros capoeiras" que estavam presos em Dois Rios junto com ele, incluindo Sete Coroas (que era da Bahia), Edgar e Americano.
 
-A Colônia Correcional de Dois Rios na Ilha Grande foi estabelecida em 1894 para prender "ébrios, mendigos, prostitutas, capoeiras e vadios." A colônia tornou-se notória por suas condições severas—má alimentação, doenças, tortura e trabalho forçado—ganhando o apelido de "Ilha da Maldição."
+A Colônia Correcional de Dois Rios na Ilha Grande foi estabelecida em 1894 para prender "ébrios, mendigos, prostitutas, capoeiras e vadios". A colônia tornou-se notória por suas condições severas—má alimentação, doenças, tortura e trabalho forçado—ganhando o apelido de "Ilha da Maldição".
 
-Entre os prisioneiros, as técnicas de luta relacionadas à capoeira sobreviveram, mas eram frequentemente chamadas de "tiririca" em vez de capoeira. Segundo Seu Júlio, outro prisioneiro de longa data que chegou em 1958, os presos mais velhos conheciam os golpes de luta e os passavam para os mais jovens, mas "evitavam chamar de capoeira." Isso reflete a contínua estigmatização da capoeira mesmo em ambientes prisionais.
+Entre os prisioneiros, as técnicas de luta relacionadas à capoeira sobreviveram, mas eram frequentemente chamadas de "tiririca" em vez de capoeira. Segundo Seu Júlio, outro prisioneiro de longa data que chegou em 1958, os presos mais velhos conheciam os golpes de luta e os passavam para os mais jovens, mas "evitavam chamar de capoeira". Isso reflete a contínua estigmatização da capoeira mesmo em ambientes prisionais.
 
 Nada mais se sabe sobre Edgar—nem seu nome completo, origem, a natureza de seus crimes, ou seu destino após a prisão.',
   -- achievements_en
@@ -84,7 +84,7 @@ APELIDO_CONTEXT: Using "Dois Rios" to distinguish from potential other capoeiris
 TIME PERIOD: Early 20th century (likely 1900s-1940s based on the prison''s operation and Madame Satã''s presence there).
 
 SOURCES:
-- Paezzo, Sylvan. "Memórias de Madame Satã." Rio de Janeiro: Lidador, 1972.
+- Paezzo, Sylvan. "Memórias de Madame Satã". Rio de Janeiro: Lidador, 1972.
 - Capoeira History: "The imprisonment of capoeiras on Ilha Grande"',
   -- Researcher notes (Portuguese)
   E'DOCUMENTAÇÃO MÍNIMA: Edgar é mencionado apenas uma vez nas memórias de Madame Satã (publicadas em 1972 por Sylvan Paezzo) como um dos "malandros capoeiras" presos em Dois Rios junto com Sete Coroas e Americano.
@@ -98,7 +98,7 @@ APELIDO_CONTEXT: Usando "Dois Rios" para distinguir de outros potenciais capoeir
 PERÍODO: Início do século XX (provavelmente 1900-1940 com base na operação da prisão e na presença de Madame Satã lá).
 
 FONTES:
-- Paezzo, Sylvan. "Memórias de Madame Satã." Rio de Janeiro: Lidador, 1972.
+- Paezzo, Sylvan. "Memórias de Madame Satã". Rio de Janeiro: Lidador, 1972.
 - Capoeira History: "The imprisonment of capoeiras on Ilha Grande"'
 )
 ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET

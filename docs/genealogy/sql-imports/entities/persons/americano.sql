@@ -56,7 +56,7 @@ INSERT INTO genealogy.person_profiles (
   -- bio_en
   E'Americano is known primarily through a brief mention in Madame Satã''s prison memoirs. Although Madame Satã did not consider himself a capoeira practitioner, in his memoirs he mentions some "capoeira rogues" (malandros capoeiras) who were imprisoned in Dois Rios alongside him, including Sete Coroas (who was from Bahia), Edgar, and Americano.
 
-The Dois Rios Correctional Colony (Colônia Correcional de Dois Rios) on Ilha Grande was established in 1894 to imprison "drunkards, beggars, prostitutes, capoeiras, and vagrants." The colony became notorious for its harsh conditions, earning it the nickname "Ilha da Maldição" (Isle of Damnation).
+The Dois Rios Correctional Colony (Colônia Correcional de Dois Rios) on Ilha Grande was established in 1894 to imprison "drunkards, beggars, prostitutes, capoeiras, and vagrants". The colony became notorious for its harsh conditions, earning it the nickname "Ilha da Maldição" (Isle of Damnation).
 
 A potentially significant connection exists: Mestre Celso Carvalho do Nascimento (born 1939), a respected capoeira mestre from Rio de Janeiro, mentioned in an interview that he had a cousin nicknamed "Americano" who was imprisoned at the Colony and knew how to do tiririca. According to Mestre Celso, tiririca involved playing on the ground, throwing leg kicks at someone standing up to make them fall, and delivering headbutts. Practitioners at Ilha Grande avoided calling it capoeira.
 
@@ -66,7 +66,7 @@ Nothing else is known about Americano—not his full name, origin, the nature of
   -- bio_pt
   E'Americano é conhecido principalmente através de uma breve menção nas memórias de prisão de Madame Satã. Embora Madame Satã não se considerasse praticante de capoeira, em suas memórias ele menciona alguns "malandros capoeiras" que estavam presos em Dois Rios junto com ele, incluindo Sete Coroas (que era da Bahia), Edgar e Americano.
 
-A Colônia Correcional de Dois Rios na Ilha Grande foi estabelecida em 1894 para prender "ébrios, mendigos, prostitutas, capoeiras e vadios." A colônia tornou-se notória por suas condições severas, ganhando o apelido de "Ilha da Maldição."
+A Colônia Correcional de Dois Rios na Ilha Grande foi estabelecida em 1894 para prender "ébrios, mendigos, prostitutas, capoeiras e vadios". A colônia tornou-se notória por suas condições severas, ganhando o apelido de "Ilha da Maldição".
 
 Uma conexão potencialmente significativa existe: Mestre Celso Carvalho do Nascimento (nascido em 1939), um respeitado mestre de capoeira do Rio de Janeiro, mencionou em uma entrevista que tinha um primo apelidado de "Americano" que foi preso na Colônia e sabia fazer tiririca. Segundo Mestre Celso, a tiririca envolvia jogar no chão, dar chutes nas pernas de alguém em pé para derrubá-lo e dar cabeçadas. Os praticantes na Ilha Grande evitavam chamar de capoeira.
 
@@ -91,9 +91,9 @@ APELIDO_CONTEXT: Using "Dois Rios" to distinguish from potential other capoeiris
 TIME PERIOD: Early 20th century (likely 1900s-1940s based on the prison''s operation and Madame Satã''s presence there).
 
 SOURCES:
-- Paezzo, Sylvan. "Memórias de Madame Satã." Rio de Janeiro: Lidador, 1972.
+- Paezzo, Sylvan. "Memórias de Madame Satã". Rio de Janeiro: Lidador, 1972.
 - Capoeira History: "The imprisonment of capoeiras on Ilha Grande"
-- Gabriel da Silva Vidal Cid. "A capoeira no Rio de Janeiro (1910-1950): narrativas de mestre Celso." Revista Morpheus, 2003.',
+- Gabriel da Silva Vidal Cid. "A capoeira no Rio de Janeiro (1910-1950): narrativas de mestre Celso". Revista Morpheus, 2003.',
   -- Researcher notes (Portuguese)
   E'DOCUMENTAÇÃO MÍNIMA: Americano é mencionado nas memórias de Madame Satã (publicadas em 1972 por Sylvan Paezzo) como um dos "malandros capoeiras" presos em Dois Rios junto com Sete Coroas e Edgar.
 
@@ -108,9 +108,9 @@ APELIDO_CONTEXT: Usando "Dois Rios" para distinguir de outros potenciais capoeir
 PERÍODO: Início do século XX (provavelmente 1900-1940 com base na operação da prisão e na presença de Madame Satã lá).
 
 FONTES:
-- Paezzo, Sylvan. "Memórias de Madame Satã." Rio de Janeiro: Lidador, 1972.
+- Paezzo, Sylvan. "Memórias de Madame Satã". Rio de Janeiro: Lidador, 1972.
 - Capoeira History: "The imprisonment of capoeiras on Ilha Grande"
-- Gabriel da Silva Vidal Cid. "A capoeira no Rio de Janeiro (1910-1950): narrativas de mestre Celso." Revista Morpheus, 2003.'
+- Gabriel da Silva Vidal Cid. "A capoeira no Rio de Janeiro (1910-1950): narrativas de mestre Celso". Revista Morpheus, 2003.'
 )
 ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,

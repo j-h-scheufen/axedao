@@ -7,10 +7,10 @@
 -- SOURCES:
 -- - velhosmestres.com/en/featured-37 (Traíra profile): States in
 --   1947 timeline "Later told that had also learned from Severo
---   do Pelourinho."
+--   do Pelourinho".
 -- - nossa-tribo.com/mestre-traira: "His dedication to mastering
 --   this art led him to expand his knowledge under the guidance
---   of Severo do Pelourinho."
+--   of Severo do Pelourinho".
 -- - capoeirawiki.org/wiki/Mestre_Traíra: "would later cite Severo
 --   do Pelourinho as another important influence"
 --

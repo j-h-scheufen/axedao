@@ -33,13 +33,13 @@ In 1971, Nestor became a pioneer of capoeira in Europe, traveling alone at age t
 
 Beyond teaching, Nestor pursued an academic career. He earned an engineering degree from the Federal University of Rio de Janeiro (UFRJ) in 1969. Later, he obtained a Master's degree from ECO-UFRJ in 1995, a PhD in Communication and Culture in 2001, and completed post-doctoral work at PUC-São Paulo.
 
-In 1976, Nestor starred in the Brazilian adventure film "Cordão de Ouro," directed by Antônio Carlos da Fontoura. The film featured several notable capoeira mestres, including Mestre Leopoldina who played berimbau and sang, and Mestre Camisa who appeared in black body paint.
+In 1976, Nestor starred in the Brazilian adventure film "Cordão de Ouro", directed by Antônio Carlos da Fontoura. The film featured several notable capoeira mestres, including Mestre Leopoldina who played berimbau and sang, and Mestre Camisa who appeared in black body paint.
 
 In 1990, after over two decades with Grupo Senzala, Nestor left to establish his own school, the Escola Nestor Capoeira. He began teaching at the Planetário da Gávea in Rio de Janeiro in 1992, with daily classes from 7 PM to 10 PM. In 2002, the school moved to the Galpão das Artes Urbanas.
 
 His teaching philosophy was distinctive: students who didn't want to pursue graduation didn't need any. Those who didn't want to wear uniforms didn't have to. This freedom reflected his broader philosophy about capoeira as a personal journey rather than a hierarchical institution.
 
-Nestor Capoeira authored ten books on capoeira, translated into multiple languages with over 120,000 copies sold worldwide. His works include the "Trilogia do Jogador" (Player's Trilogy): "Capoeira: Pequeno Manual do Jogador" (1981), "Galo Já Cantou" (1985), and "Capoeira: Os Fundamentos da Malícia" (1992). His English-language works - "The Little Capoeira Book," "Capoeira: Roots of the Dance-Fight-Game," and "A Street-Smart Song: Capoeira Philosophy and Inner Life" - became essential reading for capoeiristas worldwide.
+Nestor Capoeira authored ten books on capoeira, translated into multiple languages with over 120,000 copies sold worldwide. His works include the "Trilogia do Jogador" (Player's Trilogy): "Capoeira: Pequeno Manual do Jogador" (1981), "Galo Já Cantou" (1985), and "Capoeira: Os Fundamentos da Malícia" (1992). His English-language works - "The Little Capoeira Book", "Capoeira: Roots of the Dance-Fight-Game", and "A Street-Smart Song: Capoeira Philosophy and Inner Life" - became essential reading for capoeiristas worldwide.
 
 Nestor Capoeira died on March 29, 2025, in Rio de Janeiro, at the age of seventy-nine.
 
@@ -47,19 +47,19 @@ Nestor Capoeira died on March 29, 2025, in Rio de Janeiro, at the age of seventy
 
 Nestor Sezefredo dos Passos Neto nasceu em 29 de setembro de 1946, em Belo Horizonte, Brasil. Aos dezenove anos, em 1965, começou a aprender capoeira com Mestre Leopoldina, o lendário mestre do Rio de Janeiro conhecido por sua síntese das tradições da tiririca carioca e da capoeira baiana.
 
-Em 1968, Nestor entrou no Grupo Senzala no Rio de Janeiro, um dos grupos de capoeira mais influentes da época. Lá treinou com Mestre Preguiça (Walmir Oliveira) e começou a ensinar como contramestre sob a supervisão de Mestre Gato (Fernando C. de Albuquerque) na Universidade Federal do Rio de Janeiro. Em 1969, com apenas vinte e três anos, alcançou a "corda vermelha," o mais alto grau no Senzala.
+Em 1968, Nestor entrou no Grupo Senzala no Rio de Janeiro, um dos grupos de capoeira mais influentes da época. Lá treinou com Mestre Preguiça (Walmir Oliveira) e começou a ensinar como contramestre sob a supervisão de Mestre Gato (Fernando C. de Albuquerque) na Universidade Federal do Rio de Janeiro. Em 1969, com apenas vinte e três anos, alcançou a "corda vermelha", o mais alto grau no Senzala.
 
 Em 1971, Nestor tornou-se pioneiro da capoeira na Europa, viajando sozinho aos vinte e cinco anos para ensinar na London School of Contemporary Dance. Isso o tornou provavelmente o primeiro mestre brasileiro a ensinar capoeira regularmente na Europa. Passou três anos em turnê por cidades europeias, espalhando o conhecimento da arte pelo continente. Continuou viajando e ensinando internacionalmente entre 1971 e 1996.
 
 Além de ensinar, Nestor seguiu carreira acadêmica. Formou-se em engenharia pela Universidade Federal do Rio de Janeiro (UFRJ) em 1969. Posteriormente, obteve mestrado pela ECO-UFRJ em 1995, doutorado em Comunicação e Cultura em 2001, e completou pós-doutorado na PUC-São Paulo.
 
-Em 1976, Nestor estrelou o filme brasileiro de aventura "Cordão de Ouro," dirigido por Antônio Carlos da Fontoura. O filme contou com vários mestres de capoeira notáveis, incluindo Mestre Leopoldina que tocou berimbau e cantou, e Mestre Camisa que apareceu pintado de preto.
+Em 1976, Nestor estrelou o filme brasileiro de aventura "Cordão de Ouro", dirigido por Antônio Carlos da Fontoura. O filme contou com vários mestres de capoeira notáveis, incluindo Mestre Leopoldina que tocou berimbau e cantou, e Mestre Camisa que apareceu pintado de preto.
 
 Em 1990, após mais de duas décadas no Grupo Senzala, Nestor saiu para estabelecer sua própria escola, a Escola Nestor Capoeira. Começou a ensinar no Planetário da Gávea no Rio de Janeiro em 1992, com aulas diárias das 19h às 22h. Em 2002, a escola mudou-se para o Galpão das Artes Urbanas.
 
 Sua filosofia de ensino era distintiva: alunos que não quisessem buscar graduação não precisavam. Aqueles que não quisessem usar uniforme não tinham obrigação. Essa liberdade refletia sua filosofia mais ampla sobre a capoeira como uma jornada pessoal em vez de uma instituição hierárquica.
 
-Nestor Capoeira escreveu dez livros sobre capoeira, traduzidos para múltiplos idiomas com mais de 120.000 cópias vendidas mundialmente. Suas obras incluem a "Trilogia do Jogador": "Capoeira: Pequeno Manual do Jogador" (1981), "Galo Já Cantou" (1985) e "Capoeira: Os Fundamentos da Malícia" (1992). Suas obras em inglês - "The Little Capoeira Book," "Capoeira: Roots of the Dance-Fight-Game" e "A Street-Smart Song: Capoeira Philosophy and Inner Life" - tornaram-se leitura essencial para capoeiristas do mundo todo.
+Nestor Capoeira escreveu dez livros sobre capoeira, traduzidos para múltiplos idiomas com mais de 120.000 cópias vendidas mundialmente. Suas obras incluem a "Trilogia do Jogador": "Capoeira: Pequeno Manual do Jogador" (1981), "Galo Já Cantou" (1985) e "Capoeira: Os Fundamentos da Malícia" (1992). Suas obras em inglês - "The Little Capoeira Book", "Capoeira: Roots of the Dance-Fight-Game" e "A Street-Smart Song: Capoeira Philosophy and Inner Life" - tornaram-se leitura essencial para capoeiristas do mundo todo.
 
 Nestor Capoeira faleceu em 29 de março de 2025, no Rio de Janeiro, aos setenta e nove anos.
 
@@ -90,10 +90,10 @@ Nestor Capoeira faleceu em 29 de março de 2025, no Rio de Janeiro, aos setenta 
 ## Style Notes / Notas de Estilo
 
 ### English
-Nestor Capoeira developed his game within Grupo Senzala, one of the pioneering groups that created the "Senzala style" - a synthesis of Angola and Regional that became influential throughout Brazil. His teaching philosophy at Escola Nestor Capoeira emphasized freedom: students could choose whether to pursue graduation or wear uniforms. He described his approach as "Capoeira Contemporânea," combining traditional elements with modern pedagogical methods. His academic background in communication informed his analytical approach to capoeira's philosophy and history.
+Nestor Capoeira developed his game within Grupo Senzala, one of the pioneering groups that created the "Senzala style" - a synthesis of Angola and Regional that became influential throughout Brazil. His teaching philosophy at Escola Nestor Capoeira emphasized freedom: students could choose whether to pursue graduation or wear uniforms. He described his approach as "Capoeira Contemporânea", combining traditional elements with modern pedagogical methods. His academic background in communication informed his analytical approach to capoeira's philosophy and history.
 
 ### Português
-Nestor Capoeira desenvolveu seu jogo dentro do Grupo Senzala, um dos grupos pioneiros que criaram o "estilo Senzala" - uma síntese de Angola e Regional que se tornou influente em todo o Brasil. Sua filosofia de ensino na Escola Nestor Capoeira enfatizava a liberdade: os alunos podiam escolher se queriam buscar graduação ou usar uniformes. Ele descreveu sua abordagem como "Capoeira Contemporânea," combinando elementos tradicionais com métodos pedagógicos modernos. Sua formação acadêmica em comunicação informou sua abordagem analítica da filosofia e história da capoeira.
+Nestor Capoeira desenvolveu seu jogo dentro do Grupo Senzala, um dos grupos pioneiros que criaram o "estilo Senzala" - uma síntese de Angola e Regional que se tornou influente em todo o Brasil. Sua filosofia de ensino na Escola Nestor Capoeira enfatizava a liberdade: os alunos podiam escolher se queriam buscar graduação ou usar uniformes. Ele descreveu sua abordagem como "Capoeira Contemporânea", combinando elementos tradicionais com métodos pedagógicos modernos. Sua formação acadêmica em comunicação informou sua abordagem analítica da filosofia e história da capoeira.
 
 ## Teachers / Mestres
 

@@ -52,17 +52,17 @@ O compartilhamento de apelidos era comum na capoeira. Este Nagé mais velho, mor
 
 ### English
 
-Nagé was a capoeirista in early 20th century Salvador who was killed during the brutal persecution led by Police Chief Pedro de Azevedo Gordilho, known as "Pedrito." This persecution, which began in 1920 when Pedrito assumed command of the Bahian police cavalry, represented one of the darkest periods in capoeira history.
+Nagé was a capoeirista in early 20th century Salvador who was killed during the brutal persecution led by Police Chief Pedro de Azevedo Gordilho, known as "Pedrito". This persecution, which began in 1920 when Pedrito assumed command of the Bahian police cavalry, represented one of the darkest periods in capoeira history.
 
-Mestre Onça Preta, who witnessed this era as a boy, recalled this Nagé among the fallen in a 1972 O Dia newspaper interview: "Besourinho, Doze Homens, Mãozinha, Antônio Galindéu, Geraldo Chapeleiro, Finado Manteiga, Nagé, Paulo César de Moura, Gasolinha, Juvelino and many others." According to Onça Preta, Pedrito's cavalry squad "conducted a real massacre among the old capoeira masters, not in open combat. Generally he assassinated them after capture, with the body appearing days later thrown in the woods, the back opened by knife cuts."
+Mestre Onça Preta, who witnessed this era as a boy, recalled this Nagé among the fallen in a 1972 O Dia newspaper interview: "Besourinho, Doze Homens, Mãozinha, Antônio Galindéu, Geraldo Chapeleiro, Finado Manteiga, Nagé, Paulo César de Moura, Gasolinha, Juvelino and many others". According to Onça Preta, Pedrito's cavalry squad "conducted a real massacre among the old capoeira masters, not in open combat. Generally he assassinated them after capture, with the body appearing days later thrown in the woods, the back opened by knife cuts".
 
 No further biographical details about this Nagé survive beyond this single reference in Onça Preta's testimony, making him one of the many anonymous victims of state violence against Afro-Brazilian culture and resistance.
 
 ### Português
 
-Nagé foi um capoeirista do início do século XX em Salvador que foi morto durante a perseguição brutal liderada pelo Chefe de Polícia Pedro de Azevedo Gordilho, conhecido como "Pedrito." Esta perseguição, que começou em 1920 quando Pedrito assumiu o comando da cavalaria da polícia baiana, representou um dos períodos mais sombrios da história da capoeira.
+Nagé foi um capoeirista do início do século XX em Salvador que foi morto durante a perseguição brutal liderada pelo Chefe de Polícia Pedro de Azevedo Gordilho, conhecido como "Pedrito". Esta perseguição, que começou em 1920 quando Pedrito assumiu o comando da cavalaria da polícia baiana, representou um dos períodos mais sombrios da história da capoeira.
 
-Mestre Onça Preta, que testemunhou essa era quando menino, recordou este Nagé entre os que tombaram em uma entrevista ao jornal O Dia em 1972: "Besourinho, Doze Homens, Mãozinha, Antônio Galindéu, Geraldo Chapeleiro, Finado Manteiga, Nagé, Paulo César de Moura, Gasolinha, Juvelino e muitos outros." Segundo Onça Preta, o esquadrão de cavalaria de Pedrito "empreendeu verdadeiro massacre entre os velhos mestres do jogo, não em combate aberto. Em geral os assassinava após a captura, aparecendo o corpo dias depois atirado ao mato, as costas abertas de facadas."
+Mestre Onça Preta, que testemunhou essa era quando menino, recordou este Nagé entre os que tombaram em uma entrevista ao jornal O Dia em 1972: "Besourinho, Doze Homens, Mãozinha, Antônio Galindéu, Geraldo Chapeleiro, Finado Manteiga, Nagé, Paulo César de Moura, Gasolinha, Juvelino e muitos outros". Segundo Onça Preta, o esquadrão de cavalaria de Pedrito "empreendeu verdadeiro massacre entre os velhos mestres do jogo, não em combate aberto. Em geral os assassinava após a captura, aparecendo o corpo dias depois atirado ao mato, as costas abertas de facadas".
 
 Nenhum outro detalhe biográfico sobre este Nagé sobrevive além desta única referência no testemunho de Onça Preta, tornando-o uma das muitas vítimas anônimas da violência estatal contra a cultura e resistência afro-brasileira.
 

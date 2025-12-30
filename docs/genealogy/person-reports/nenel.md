@@ -48,7 +48,7 @@ Today, Mestre Nenel resides in Salvador with his partner, Mestra Preguiça—the
 
 By 2022—marking the school's 36th anniversary—Filhos de Bimba had expanded to schools in six Brazilian states and international locations including England, Belgium, Italy, Canada, Croatia, Germany, and Lebanon. In the United States, there are branches in Fort Worth (Texas), the Bay Area (California), Atlanta (Georgia), and Detroit (Michigan).
 
-In an interview, Nenel reflected on his relationship with his father: "At the same time that he was a father, he was a mestre too... Though he is physically absent, he continues being my mestre."
+In an interview, Nenel reflected on his relationship with his father: "At the same time that he was a father, he was a mestre too... Though he is physically absent, he continues being my mestre".
 
 ### Português
 
@@ -76,7 +76,7 @@ Hoje, Mestre Nenel reside em Salvador com sua companheira, Mestra Preguiça—a 
 
 Em 2022—marcando o 36º aniversário da escola—a Filhos de Bimba expandiu para escolas em seis estados brasileiros e locais internacionais incluindo Inglaterra, Bélgica, Itália, Canadá, Croácia, Alemanha e Líbano. Nos Estados Unidos, há filiais em Fort Worth (Texas), Bay Area (Califórnia), Atlanta (Geórgia) e Detroit (Michigan).
 
-Em uma entrevista, Nenel refletiu sobre seu relacionamento com seu pai: "Ao mesmo tempo que ele era um pai, ele era um mestre também... Embora ele esteja fisicamente ausente, ele continua sendo meu mestre."
+Em uma entrevista, Nenel refletiu sobre seu relacionamento com seu pai: "Ao mesmo tempo que ele era um pai, ele era um mestre também... Embora ele esteja fisicamente ausente, ele continua sendo meu mestre".
 
 ## Achievements / Conquistas
 

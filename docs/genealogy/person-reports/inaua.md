@@ -64,7 +64,7 @@ Mestre Inauá é lembrado "em memória" por sua linhagem, confirmando seu faleci
 Trained in the Bahian Angola tradition of Mestre Onça Preta. Part of the lineage that brought authentic capoeira angola from Salvador to Rio de Janeiro. His lineage today (through Geração Nagô) describes itself as contemporary but rooted in Angola: "we play whatever the berimbau plays" (jogamos o que o berimbau tocar).
 
 ### Português
-Treinado na tradição Angola baiana de Mestre Onça Preta. Parte da linhagem que trouxe a capoeira angola autêntica de Salvador para o Rio de Janeiro. Sua linhagem hoje (através da Geração Nagô) se descreve como contemporânea mas enraizada na Angola: "jogamos o que o berimbau tocar."
+Treinado na tradição Angola baiana de Mestre Onça Preta. Parte da linhagem que trouxe a capoeira angola autêntica de Salvador para o Rio de Janeiro. Sua linhagem hoje (através da Geração Nagô) se descreve como contemporânea mas enraizada na Angola: "jogamos o que o berimbau tocar".
 
 ## Teachers / Mestres
 

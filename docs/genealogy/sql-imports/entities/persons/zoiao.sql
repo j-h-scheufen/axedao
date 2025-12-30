@@ -70,7 +70,7 @@ Through his role as Bimba''s student, his assistance in establishing capoeira in
   -- bio_pt
   E'Adyjolvã Anunciação Couto, conhecido como Mestre Zoião, foi aluno de Mestre Bimba e uma figura importante na transmissão da Capoeira Regional para o sul da Bahia.
 
-Zoião treinou no Centro de Cultura Física Regional de Mestre Bimba em Salvador, onde se tornou colega de turma de Maneca Brandão—outro formado que desempenharia um papel crucial na difusão da Capoeira Regional além da capital. Como todos os alunos de Bimba, Zoião estava sujeito à lendária disciplina do mestre. Em seu livro "Arte da Capoeira (História e Filosofia)", ele relembrou: "Ai de quem comparecesse na aula de uniforme sujo."
+Zoião treinou no Centro de Cultura Física Regional de Mestre Bimba em Salvador, onde se tornou colega de turma de Maneca Brandão—outro formado que desempenharia um papel crucial na difusão da Capoeira Regional além da capital. Como todos os alunos de Bimba, Zoião estava sujeito à lendária disciplina do mestre. Em seu livro "Arte da Capoeira (História e Filosofia)", ele relembrou: "Ai de quem comparecesse na aula de uniforme sujo".
 
 Quando Major Carlos Dória fundou a Academia Cultura Física e Capoeira Major Dória em Itabuna em 1958—a primeira escola formal de capoeira da cidade—Maneca Brandão foi recrutado como instrutor principal. Zoião, seu colega de turma da academia de Bimba, às vezes ajudava nos treinamentos. Esta parceria trouxe a metodologia de Bimba para o sul da Bahia, e foi nesta academia que o jovem Reinaldo Ramos Suassuna (posteriormente Mestre Suassuna, co-fundador do Cordão de Ouro) recebeu sua formação inicial.
 

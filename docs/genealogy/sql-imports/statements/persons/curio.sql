@@ -25,8 +25,8 @@ SELECT
   NULL, NULL,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'https://velhosmestres.com/en/featured-25',
-  E'On April 10, 1968, Curió formally joined Mestre Pastinha''s CECA (Centro Esportivo de Capoeira Angola) in Pelourinho. He absorbed not only technique but the philosophical foundations of Capoeira Angola. He describes himself as "a faithful custodian of capoeira angola''s immaterial knowledge."',
-  E'Em 10 de abril de 1968, Curió ingressou formalmente no CECA (Centro Esportivo de Capoeira Angola) de Mestre Pastinha no Pelourinho. Ele absorveu não apenas técnica, mas os fundamentos filosóficos da Capoeira Angola. Ele se descreve como "um fiel guardião do conhecimento imaterial da capoeira angola."'
+  E'On April 10, 1968, Curió formally joined Mestre Pastinha''s CECA (Centro Esportivo de Capoeira Angola) in Pelourinho. He absorbed not only technique but the philosophical foundations of Capoeira Angola. He describes himself as "a faithful custodian of capoeira angola''s immaterial knowledge".',
+  E'Em 10 de abril de 1968, Curió ingressou formalmente no CECA (Centro Esportivo de Capoeira Angola) de Mestre Pastinha no Pelourinho. Ele absorveu não apenas técnica, mas os fundamentos filosóficos da Capoeira Angola. Ele se descreve como "um fiel guardião do conhecimento imaterial da capoeira angola".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Curió' AND o.apelido = 'Pastinha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

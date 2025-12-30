@@ -46,8 +46,8 @@ INSERT INTO genealogy.person_profiles (
   ARRAY['https://www.siridemangue.com/grupo-sir%C3%AD-de-mangue/', 'https://siridemangue.twoday.net/']::text[],
   -- Capoeira-specific
   'mixed'::genealogy.style,
-  E'Mestre Madeira developed his own approach he calls "Estilo Novo" (New Style), which he initially intended to teach only to his ten children before expanding to a wider student body. His style combines traditional Capoeira Angola elements from Mestre Waldemar''s lineage with additional disciplines including Maculelê and his own self-defense system called "Siri do Brasil." He also incorporates Samba do Sirí into his teaching.',
-  E'Mestre Madeira desenvolveu sua própria abordagem que ele chama de "Estilo Novo," que inicialmente pretendia ensinar apenas a seus dez filhos antes de expandir para um grupo maior de alunos. Seu estilo combina elementos tradicionais de Capoeira Angola da linhagem de Mestre Waldemar com disciplinas adicionais incluindo Maculelê e seu próprio sistema de autodefesa chamado "Siri do Brasil." Ele também incorpora Samba do Sirí em seu ensino.',
+  E'Mestre Madeira developed his own approach he calls "Estilo Novo" (New Style), which he initially intended to teach only to his ten children before expanding to a wider student body. His style combines traditional Capoeira Angola elements from Mestre Waldemar''s lineage with additional disciplines including Maculelê and his own self-defense system called "Siri do Brasil". He also incorporates Samba do Sirí into his teaching.',
+  E'Mestre Madeira desenvolveu sua própria abordagem que ele chama de "Estilo Novo", que inicialmente pretendia ensinar apenas a seus dez filhos antes de expandir para um grupo maior de alunos. Seu estilo combina elementos tradicionais de Capoeira Angola da linhagem de Mestre Waldemar com disciplinas adicionais incluindo Maculelê e seu próprio sistema de autodefesa chamado "Siri do Brasil". Ele também incorpora Samba do Sirí em seu ensino.',
   -- Life dates
   1950,
   'decade'::genealogy.date_precision,
@@ -58,9 +58,9 @@ INSERT INTO genealogy.person_profiles (
   -- bio_en
   E'Mestre Madeira is a contemporary capoeira mestre from São Luís, Maranhão, who has been teaching capoeira since 1974. His journey in martial arts began at age thirteen when he met his first karate teacher—an encounter that ignited a lifelong dedication to combat disciplines. Martial arts, he has said, never let him go.
 
-After more than thirty-five years of practice and teaching, Madeira became the first Capoeira master to return to his home district in São Luís. The meetings with Mestre Waldemar were particularly formative for him. Waldemar (1916-1990), the legendary Bahian mestre known as "O Herói da Liberdade," represented the purest lineage of Capoeira Angola—a direct connection to the historical mestre Siri de Mangue, the saveirista who had been a training companion of the legendary Besouro Mangangá.
+After more than thirty-five years of practice and teaching, Madeira became the first Capoeira master to return to his home district in São Luís. The meetings with Mestre Waldemar were particularly formative for him. Waldemar (1916-1990), the legendary Bahian mestre known as "O Herói da Liberdade", represented the purest lineage of Capoeira Angola—a direct connection to the historical mestre Siri de Mangue, the saveirista who had been a training companion of the legendary Besouro Mangangá.
 
-In honor of Mestre Waldemar and his favorite teacher Siri de Mangue, Madeira named his group "Siri de Mangue." He also received the honors of a mestre from three legendary figures: João Pequeno (one of Pastinha''s two principal heirs), Canjiquinha ("A Alegria da Capoeira"), and Suassuna (co-founder of Cordão de Ouro).
+In honor of Mestre Waldemar and his favorite teacher Siri de Mangue, Madeira named his group "Siri de Mangue". He also received the honors of a mestre from three legendary figures: João Pequeno (one of Pastinha''s two principal heirs), Canjiquinha ("A Alegria da Capoeira"), and Suassuna (co-founder of Cordão de Ouro).
 
 Initially, Madeira wanted only to teach the art of his "Estilo Novo" (New Style) to his ten children. But the teaching expanded, and Grupo Siri de Mangue grew beyond family. The group now practices and teaches Capoeira, Maculelê, Siri do Brasil (Madeira''s self-defense system), and Samba do Sirí.
 
@@ -70,15 +70,15 @@ Madeira remains based in São Luís, Maranhão, where he continues to teach. His
   -- bio_pt
   E'Mestre Madeira é um mestre de capoeira contemporâneo de São Luís, Maranhão, que ensina capoeira desde 1974. Sua jornada nas artes marciais começou aos treze anos quando conheceu seu primeiro professor de karatê—um encontro que despertou uma dedicação vitalícia às disciplinas de combate. As artes marciais, como ele disse, nunca mais o deixaram.
 
-Após mais de trinta e cinco anos de prática e ensino, Madeira tornou-se o primeiro mestre de Capoeira a retornar ao seu bairro de origem em São Luís. Os encontros com Mestre Waldemar foram particularmente formativos para ele. Waldemar (1916-1990), o lendário mestre baiano conhecido como "O Herói da Liberdade," representava a mais pura linhagem de Capoeira Angola—uma conexão direta com o mestre histórico Siri de Mangue, o saveirista que havia sido companheiro de treino do lendário Besouro Mangangá.
+Após mais de trinta e cinco anos de prática e ensino, Madeira tornou-se o primeiro mestre de Capoeira a retornar ao seu bairro de origem em São Luís. Os encontros com Mestre Waldemar foram particularmente formativos para ele. Waldemar (1916-1990), o lendário mestre baiano conhecido como "O Herói da Liberdade", representava a mais pura linhagem de Capoeira Angola—uma conexão direta com o mestre histórico Siri de Mangue, o saveirista que havia sido companheiro de treino do lendário Besouro Mangangá.
 
-Em homenagem a Mestre Waldemar e seu mestre favorito Siri de Mangue, Madeira nomeou seu grupo "Siri de Mangue." Ele também recebeu as honras de mestre de três figuras lendárias: João Pequeno (um dos dois principais herdeiros de Pastinha), Canjiquinha ("A Alegria da Capoeira") e Suassuna (co-fundador do Cordão de Ouro).
+Em homenagem a Mestre Waldemar e seu mestre favorito Siri de Mangue, Madeira nomeou seu grupo "Siri de Mangue". Ele também recebeu as honras de mestre de três figuras lendárias: João Pequeno (um dos dois principais herdeiros de Pastinha), Canjiquinha ("A Alegria da Capoeira") e Suassuna (co-fundador do Cordão de Ouro).
 
 Inicialmente, Madeira queria apenas ensinar a arte de seu "Estilo Novo" para seus dez filhos. Mas o ensino se expandiu, e o Grupo Siri de Mangue cresceu além da família. O grupo agora pratica e ensina Capoeira, Maculelê, Siri do Brasil (sistema de autodefesa de Madeira) e Samba do Sirí.
 
 De São Luís, a influência de Madeira se espalhou internacionalmente. O Grupo Siri de Mangue agora tem presença no Brasil, Áustria, Tanzânia, Colômbia e Noruega. Na Áustria, Professor Sarapó estabeleceu filiais em Viena e Linz, construindo uma base europeia para os ensinamentos de Madeira. Um documentário sobre Mestre Madeira está atualmente em produção.
 
-Madeira continua baseado em São Luís, Maranhão, onde continua a ensinar. Sua filosofia pessoal é capturada em seu ditado: "Capoeira é minha vida, berimbau é minha voz."',
+Madeira continua baseado em São Luís, Maranhão, onde continua a ensinar. Sua filosofia pessoal é capturada em seu ditado: "Capoeira é minha vida, berimbau é minha voz".',
   -- achievements_en
   E'Founded Grupo Siri de Mangue in São Luís, Maranhão
 Teaching capoeira since 1974 (50+ years)
@@ -102,7 +102,7 @@ Criou a metodologia "Estilo Novo"
 Desenvolveu o sistema de autodefesa "Siri do Brasil"
 Documentário atualmente em produção sobre sua vida e trabalho',
   -- notes_en
-  E'FULL NAME: Unknown from available sources. Only referred to as "Mestre Madeira."
+  E'FULL NAME: Unknown from available sources. Only referred to as "Mestre Madeira".
 
 BIRTH YEAR ESTIMATION: Started martial arts (karate) at age 13. Teaching capoeira since 1974. If he was in his early 20s when he began teaching, birth year would be ~1950-1955. Using decade precision with 1950 as estimate.
 
@@ -125,7 +125,7 @@ STYLE: Described as "Estilo Novo" (New Style) - not pure Angola or Regional
 
 SOURCES: siridemangue.com, tips.at article, various Austrian capoeira sources. Limited Portuguese-language documentation found.',
   -- notes_pt
-  E'NOME COMPLETO: Desconhecido nas fontes disponíveis. Referido apenas como "Mestre Madeira."
+  E'NOME COMPLETO: Desconhecido nas fontes disponíveis. Referido apenas como "Mestre Madeira".
 
 ESTIMATIVA DO ANO DE NASCIMENTO: Começou artes marciais (karatê) aos 13 anos. Ensinando capoeira desde 1974. Se ele estava na casa dos 20 anos quando começou a ensinar, o ano de nascimento seria ~1950-1955. Usando precisão de década com 1950 como estimativa.
 
@@ -135,7 +135,7 @@ HISTÓRICO DE TREINAMENTO:
 - Nomeou o grupo em homenagem ao mestre favorito de Waldemar (Siri de Mangue histórico)
 - Recebeu título/honras de mestre de João Pequeno, Canjiquinha e Suassuna
 
-RELAÇÃO COM WALDEMAR: A natureza da relação de Madeira com Waldemar é descrita como "encontros" (Treffen) que "particularmente o influenciaram." Isso sugere que ele NÃO foi aluno formal direto, mas foi influenciado através de encontros/oficinas. Waldemar morreu em 1990, então qualquer contato ocorreu antes disso. Usando "influenced_by" ao invés de "student_of" para esta relação.
+RELAÇÃO COM WALDEMAR: A natureza da relação de Madeira com Waldemar é descrita como "encontros" (Treffen) que "particularmente o influenciaram". Isso sugere que ele NÃO foi aluno formal direto, mas foi influenciado através de encontros/oficinas. Waldemar morreu em 1990, então qualquer contato ocorreu antes disso. Usando "influenced_by" ao invés de "student_of" para esta relação.
 
 GRUPO SIRI DE MANGUE:
 - Fundado em São Luís, Maranhão (ano exato desconhecido)

@@ -13,7 +13,7 @@
 | Role | Queen of Ndongo (1624-1663) and Matamba (1631-1663) |
 
 **Biography:**
-Queen Nzinga was a paramount ruler of the Ambundu Kingdoms in present-day northern Angola. Known as "Rainha Ginga," she led a 40-year resistance against Portuguese colonial occupation and the slave trade. She received military and political training as a child and demonstrated exceptional diplomatic skills. She formed alliances with Imbangala warriors and personally led troops into battle using guerrilla warfare tactics.
+Queen Nzinga was a paramount ruler of the Ambundu Kingdoms in present-day northern Angola. Known as "Rainha Ginga", she led a 40-year resistance against Portuguese colonial occupation and the slave trade. She received military and political training as a child and demonstrated exceptional diplomatic skills. She formed alliances with Imbangala warriors and personally led troops into battle using guerrilla warfare tactics.
 
 **Connection to Capoeira:**
 - The term "ginga" (the fundamental swaying movement of capoeira) derives from her name

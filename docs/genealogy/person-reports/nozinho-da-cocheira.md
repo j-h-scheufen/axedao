@@ -28,17 +28,17 @@ Nozinho da Cocheira was a capoeirista active in Salvador, Bahia, during the 1920
 
 Unlike some of his contemporaries who were known primarily as political capangas (henchmen) or street fighters, Nozinho da Cocheira's epithet emphasizes his identity as a worker who also happened to be brave—suggesting a more positive characterization that combined capoeira skill with honest labor.
 
-Nozinho was defended in court by Major Cosme de Farias, the legendary "rábula" (self-taught lawyer) who defended over 30,000 people including capoeiristas, thieves, prostitutes, gamblers, and the poor. Farias was known for his emotional appeals rather than strict legal arguments, portraying his clients as "defenseless people trusting in justice's righteousness."
+Nozinho was defended in court by Major Cosme de Farias, the legendary "rábula" (self-taught lawyer) who defended over 30,000 people including capoeiristas, thieves, prostitutes, gamblers, and the poor. Farias was known for his emotional appeals rather than strict legal arguments, portraying his clients as "defenseless people trusting in justice's righteousness".
 
 His dedicated chapter in "Mestres e capoeiras famosos da Bahia" indicates that the historians who documented Salvador's capoeira heritage considered his story significant enough to preserve. The "valente trabalhador" subtitle suggests a man who earned respect through both his physical prowess and his dedication to work.
 
 ### Português
 
-Nozinho da Cocheira foi um capoeirista ativo em Salvador, Bahia, durante as décadas de 1920 e 1930. Ele é apresentado em "Mestres e capoeiras famosos da Bahia" com o subtítulo "Valente trabalhador," que o distingue entre seus contemporâneos como alguém conhecido tanto por sua coragem quanto por sua ética de trabalho.
+Nozinho da Cocheira foi um capoeirista ativo em Salvador, Bahia, durante as décadas de 1920 e 1930. Ele é apresentado em "Mestres e capoeiras famosos da Bahia" com o subtítulo "Valente trabalhador", que o distingue entre seus contemporâneos como alguém conhecido tanto por sua coragem quanto por sua ética de trabalho.
 
 Diferente de alguns de seus contemporâneos que eram conhecidos principalmente como capangas políticos ou brigadores de rua, o epíteto de Nozinho da Cocheira enfatiza sua identidade como um trabalhador que também era corajoso—sugerindo uma caracterização mais positiva que combinava habilidade na capoeira com trabalho honesto.
 
-Nozinho foi defendido em tribunal pelo Major Cosme de Farias, o lendário "rábula" (advogado autodidata) que defendeu mais de 30.000 pessoas incluindo capoeiristas, ladrões, prostitutas, jogadores e pobres. Farias era conhecido por seus apelos emocionais ao invés de argumentos legais estritos, retratando seus clientes como "pessoas indefesas confiando na retidão da justiça."
+Nozinho foi defendido em tribunal pelo Major Cosme de Farias, o lendário "rábula" (advogado autodidata) que defendeu mais de 30.000 pessoas incluindo capoeiristas, ladrões, prostitutas, jogadores e pobres. Farias era conhecido por seus apelos emocionais ao invés de argumentos legais estritos, retratando seus clientes como "pessoas indefesas confiando na retidão da justiça".
 
 Seu capítulo dedicado em "Mestres e capoeiras famosos da Bahia" indica que os historiadores que documentaram o patrimônio capoeirista de Salvador consideraram sua história significativa o suficiente para ser preservada. O subtítulo "valente trabalhador" sugere um homem que ganhou respeito tanto por sua destreza física quanto por sua dedicação ao trabalho.
 

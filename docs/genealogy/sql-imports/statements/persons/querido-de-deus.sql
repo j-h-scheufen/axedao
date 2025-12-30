@@ -72,8 +72,8 @@ SELECT
   '{"association_context": "Public challenge between the two masters in 1936 over the title of maximum capoeira master of Bahia. Reported in O Imparcial (March 12) and Diário da Bahia (March 13). Bimba''s measured response suggested arranging a fight ''so people are not deceived.'' No record of actual fight occurring. Represented opposing poles of Bahian capoeira: Samuel''s traditional Angola vs Bimba''s modernizing Regional."}'::jsonb,
   'verified'::genealogy.confidence,
   'O Imparcial (March 12, 1936); Diário da Bahia (March 13, 1936); velhosmestres.com',
-  'Public challenge over the title of "maximum capoeira master" of Bahia. Bimba responded that Samuel should arrange a fight "so people are not deceived." No record of the fight occurring.',
-  'Desafio público pelo título de "mestre máximo da capoeira" da Bahia. Bimba respondeu que Samuel deveria arranjar uma luta "para que o povo não seja enganado." Sem registro de luta acontecendo.'
+  'Public challenge over the title of "maximum capoeira master" of Bahia. Bimba responded that Samuel should arrange a fight "so people are not deceived". No record of the fight occurring.',
+  'Desafio público pelo título de "mestre máximo da capoeira" da Bahia. Bimba respondeu que Samuel deveria arranjar uma luta "para que o povo não seja enganado". Sem registro de luta acontecendo.'
 FROM genealogy.person_profiles q, genealogy.person_profiles b
 WHERE q.apelido = 'Querido de Deus' AND b.apelido = 'Bimba'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

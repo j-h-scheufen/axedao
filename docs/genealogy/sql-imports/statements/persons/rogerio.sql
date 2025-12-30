@@ -5,20 +5,6 @@
 -- Contains all relationships where Rogério is the SUBJECT.
 -- ============================================================
 
--- ============================================================
--- CLEANUP: Remove obsolete statement from production
--- The self-referential cultural_pioneer_of statement was semantically incorrect
--- and has been removed from this file. This DELETE removes it from the database.
--- ============================================================
-DELETE FROM genealogy.statements
-WHERE subject_type = 'person'::genealogy.entity_type
-  AND predicate = 'cultural_pioneer_of'::genealogy.predicate
-  AND subject_id = object_id  -- Self-referential statement
-  AND subject_id IN (
-    SELECT id FROM genealogy.person_profiles
-    WHERE apelido = 'Rogério' AND COALESCE(apelido_context, '') = ''
-  );
-
 -- Rogério received_title_from Moraes (1989)
 INSERT INTO genealogy.statements (
   subject_type, subject_id, predicate, object_type, object_id,

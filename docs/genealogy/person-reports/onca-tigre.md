@@ -54,7 +54,7 @@ Milton Freire de Carvalho, conhecido como Mestre Onça Tigre, nasceu em 7 de fev
 
 Após completar seus estudos secundários (Ginásio) em Mossoró, Milton viajou ao Recife para o curso pré-médico. Em Fortaleza, conquistou faixa preta de Jiu-Jitsu—uma credencial que inicialmente se mostraria um obstáculo quando buscou estudar capoeira. Quando finalmente chegou à Bahia para completar seus estudos médico-dentários, procurou o lendário Mestre Bimba. Inicialmente, Bimba recusou-se a aceitá-lo como aluno, desconfiado do histórico de jiu-jitsu do jovem.
 
-Após alguma insistência, Bimba cedeu, e Milton iniciou o que se tornaria um aprendizado transformador. Ele se mostrou tão apto que as fontes o descrevem como "o aluno mais ilustre do grande Mestre." Na primeira turma de formatura de Bimba, ele recebeu o apelido "Onça Tigre", um nome refletindo o caráter feroz de seu jogo.
+Após alguma insistência, Bimba cedeu, e Milton iniciou o que se tornaria um aprendizado transformador. Ele se mostrou tão apto que as fontes o descrevem como "o aluno mais ilustre do grande Mestre". Na primeira turma de formatura de Bimba, ele recebeu o apelido "Onça Tigre", um nome refletindo o caráter feroz de seu jogo.
 
 As conquistas profissionais de Onça Tigre foram notáveis. Formou-se Cirurgião Dentista na Bahia. Posteriormente, obteve Mestrado em Saúde Pública pela Escola Nacional de Saúde Pública do Rio de Janeiro, e conquistou diploma de Direito em Brasília, registrando-se na OAB-DF (#1891). Também se registrou como jornalista (APISP #4386) em São Paulo.
 
@@ -110,7 +110,7 @@ Hoje, uma praça pública no Zoológico de Brasília leva seu nome: "Praça Mest
 
 ### English
 
-Trained directly under Mestre Bimba in Salvador, becoming part of Bimba's first graduating class. Described as Bimba's "most illustrious student." Received his apelido "Onça Tigre" from Mestre Bimba. Founded an academy of Capoeira Regional Baiana at the CPOR (Centro de Preparação de Oficiais da Reserva) in Bahia under Bimba's supervision, where he served as monitor. Preserved and transmitted the complete methodology of Luta Regional Baiana as he learned it directly from Mestre Bimba. His jiu-jitsu background (black belt earned in Fortaleza) may have influenced his approach, though Bimba was initially reluctant to accept him as a student because of it.
+Trained directly under Mestre Bimba in Salvador, becoming part of Bimba's first graduating class. Described as Bimba's "most illustrious student". Received his apelido "Onça Tigre" from Mestre Bimba. Founded an academy of Capoeira Regional Baiana at the CPOR (Centro de Preparação de Oficiais da Reserva) in Bahia under Bimba's supervision, where he served as monitor. Preserved and transmitted the complete methodology of Luta Regional Baiana as he learned it directly from Mestre Bimba. His jiu-jitsu background (black belt earned in Fortaleza) may have influenced his approach, though Bimba was initially reluctant to accept him as a student because of it.
 
 ### Português
 

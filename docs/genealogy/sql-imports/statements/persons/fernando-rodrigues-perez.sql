@@ -26,8 +26,8 @@ SELECT
   '{}'::jsonb,
   'verified'::genealogy.confidence,
   'https://nossa-tribo.com/mestre-sinhozinho/; Globo Esportivo April 7, 1949',
-  'Fernando Rodrigues Perez trained at Mestre Bimba''s academy and represented it in the 1949 challenge against Sinhozinho''s school. The Globo Esportivo newspaper identified him as "capoeira de Mestre Bimba."',
-  'Fernando Rodrigues Perez treinou na academia de Mestre Bimba e a representou no desafio de 1949 contra a escola de Sinhozinho. O jornal Globo Esportivo o identificou como "capoeira de Mestre Bimba."'
+  'Fernando Rodrigues Perez trained at Mestre Bimba''s academy and represented it in the 1949 challenge against Sinhozinho''s school. The Globo Esportivo newspaper identified him as "capoeira de Mestre Bimba".',
+  'Fernando Rodrigues Perez treinou na academia de Mestre Bimba e a representou no desafio de 1949 contra a escola de Sinhozinho. O jornal Globo Esportivo o identificou como "capoeira de Mestre Bimba".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Perez' AND s.apelido_context IS NULL
   AND o.apelido = 'Bimba'

@@ -33,11 +33,11 @@
 
 The original archival document, first identified by researcher Nireu Cavalcanti (2004), provides detailed context:
 
-Adão was a slave of Manoel Cardoso Fontes, purchased while still young. He was described as "a robust type, hardworking and very obedient to his master," serving in household tasks. Manoel decided to exploit him by renting him out to third parties as a construction worker, carrier, or other manual labor, making Adão a good source of income.
+Adão was a slave of Manoel Cardoso Fontes, purchased while still young. He was described as "a robust type, hardworking and very obedient to his master", serving in household tasks. Manoel decided to exploit him by renting him out to third parties as a construction worker, carrier, or other manual labor, making Adão a good source of income.
 
-Over time, the timid slave who had always lived at home "became more outgoing, independent and began to arrive home late." He had been associating with capoeira groups in the city's margins.
+Over time, the timid slave who had always lived at home "became more outgoing, independent and began to arrive home late". He had been associating with capoeira groups in the city's margins.
 
-On a day when a fight occurred between capoeiras and one was murdered, Adão was arrested "along with other troublemakers who practiced capoeira." These were very serious crimes under the laws of the kingdom: the practice of capoeira, resulting in death.
+On a day when a fight occurred between capoeiras and one was murdered, Adão was arrested "along with other troublemakers who practiced capoeira". These were very serious crimes under the laws of the kingdom: the practice of capoeira, resulting in death.
 
 During the trial it was established that Adão was innocent of the murder, but his status as a capoeira was confirmed. He was sentenced to 500 lashes and two years in public works.
 

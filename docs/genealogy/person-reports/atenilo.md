@@ -28,7 +28,7 @@ Altenisio dos Santos, known in the rodas as "Relampago" (Lightning) and popularl
 
 When Atenilo first started training with Bimba, it was not yet Capoeira Regional - it was Angola. He was present at the pivotal meeting at Bogum, at the end of the Engenho Velho da Federacao bus line, where Bimba decided to transform Capoeira de Angola into Regional. He witnessed firsthand the transition that would reshape Brazilian martial arts history.
 
-His nickname "Relampago" (Lightning) was given jokingly. Far from being the fastest player, Atenilo was known for his slow, deliberate, almost naive style of playing. One observer noted he "never modified his slow, sluggish, ingenuous way of practicing capoeira." This contrast between name and nature became his trademark.
+His nickname "Relampago" (Lightning) was given jokingly. Far from being the fastest player, Atenilo was known for his slow, deliberate, almost naive style of playing. One observer noted he "never modified his slow, sluggish, ingenuous way of practicing capoeira". This contrast between name and nature became his trademark.
 
 Within Bimba's academy, Atenilo found his specialty at the pandeiro, becoming an integral part of the charanga - Bimba's signature musical ensemble consisting of one berimbau and two pandeiros. He is immortalized in capoeira song: "Atenilo no pandeiro, Gigante no berimbau, Grande Mestre Bimba, Homem genial" (Atenilo on pandeiro, Gigante on berimbau, Grand Mestre Bimba, Brilliant man).
 
@@ -38,7 +38,7 @@ Atenilo provided invaluable testimony about early capoeira history. He recounted
 
 His oral histories became the foundation for Mestre Itapoan's book "Atenilo, o Relampago da Capoeira Regional" (Atenilo, the Lightning of Capoeira Regional), published in 1988 by the Nucleo de Recursos Didaticos da UFBA. This work preserved crucial testimony about the transition from Angola to Regional, about Besouro Manganga's era, and about female capoeiristas like Maria Salome.
 
-Some sources claim Atenilo was the brother of Neco Canario Pardo and used the nickname "Cordao de Ouro." However, this claim is chronologically problematic: Neco Canario Pardo was born around 1880, placing nearly forty years between them. The name "Cordao de Ouro" is more commonly attributed to Besouro Manganga himself. The truth of this family connection remains unverified.
+Some sources claim Atenilo was the brother of Neco Canario Pardo and used the nickname "Cordao de Ouro". However, this claim is chronologically problematic: Neco Canario Pardo was born around 1880, placing nearly forty years between them. The name "Cordao de Ouro" is more commonly attributed to Besouro Manganga himself. The truth of this family connection remains unverified.
 
 Atenilo died in 1986, one of the last direct links to the founding generation of Capoeira Regional. His testimony ensures that the voices and experiences of those who witnessed capoeira's transformation from street practice to recognized cultural art form are not lost to history.
 
@@ -48,17 +48,17 @@ Altenisio dos Santos, conhecido nas rodas como "Relampago" e popularmente chamad
 
 Quando Atenilo comecou a treinar com Bimba, ainda nao era Capoeira Regional - era Angola. Ele estava presente na reuniao decisiva no Bogum, no final da linha de onibus do Engenho Velho da Federacao, onde Bimba decidiu transformar a Capoeira de Angola em Regional. Testemunhou em primeira mao a transicao que reformularia a historia das artes marciais brasileiras.
 
-Seu apelido "Relampago" foi dado de brincadeira. Longe de ser o jogador mais rapido, Atenilo era conhecido por seu estilo de jogar lento, deliberado, quase ingenuo. Um observador notou que ele "jamais modificou seu estilo tardo, lerdo, ingenuo de praticar a capoeira." Esse contraste entre nome e natureza tornou-se sua marca registrada.
+Seu apelido "Relampago" foi dado de brincadeira. Longe de ser o jogador mais rapido, Atenilo era conhecido por seu estilo de jogar lento, deliberado, quase ingenuo. Um observador notou que ele "jamais modificou seu estilo tardo, lerdo, ingenuo de praticar a capoeira". Esse contraste entre nome e natureza tornou-se sua marca registrada.
 
-Na academia de Bimba, Atenilo encontrou sua especialidade no pandeiro, tornando-se parte integral da charanga - o conjunto musical caracteristico de Bimba, consistindo em um berimbau e dois pandeiros. Ele e imortalizado em cancao de capoeira: "Atenilo no pandeiro, Gigante no berimbau, Grande Mestre Bimba, Homem genial."
+Na academia de Bimba, Atenilo encontrou sua especialidade no pandeiro, tornando-se parte integral da charanga - o conjunto musical caracteristico de Bimba, consistindo em um berimbau e dois pandeiros. Ele e imortalizado em cancao de capoeira: "Atenilo no pandeiro, Gigante no berimbau, Grande Mestre Bimba, Homem genial".
 
 Bimba considerava Atenilo como um filho. Ele se tornou um dos companheiros mais confiaveis de Bimba, ao lado de figuras como Bras "Amansa Brabo" e Crispim, o filho mais velho de Bimba. Segundo Atenilo e Mestre Itapoan, Bimba as vezes instruia seus alunos a bater e machucar os alunos de Pastinha nas rodas compartilhadas - uma revelacao que adiciona nuance a narrativa de respeito mutuo entre as duas escolas.
 
 Atenilo forneceu testemunho inestimavel sobre a historia inicial da capoeira. Ele relatou que Pastinha queria que Bimba desse aulas em sua academia todo domingo e que Bimba ia ao Sangradouro para ensinar na escola de Pastinha nos feriados. Tambem descreveu como Waldemar, Pastinha, Aberre e Gigante costumavam jogar juntos no Bogum antes da Regional ser formalizada.
 
-Suas historias orais se tornaram a base do livro de Mestre Itapoan "Atenilo, o Relampago da Capoeira Regional," publicado em 1988 pelo Nucleo de Recursos Didaticos da UFBA. Esta obra preservou testemunhos cruciais sobre a transicao de Angola para Regional, sobre a era de Besouro Manganga, e sobre capoeiristas mulheres como Maria Salome.
+Suas historias orais se tornaram a base do livro de Mestre Itapoan "Atenilo, o Relampago da Capoeira Regional", publicado em 1988 pelo Nucleo de Recursos Didaticos da UFBA. Esta obra preservou testemunhos cruciais sobre a transicao de Angola para Regional, sobre a era de Besouro Manganga, e sobre capoeiristas mulheres como Maria Salome.
 
-Algumas fontes afirmam que Atenilo era irmao de Neco Canario Pardo e usava o apelido "Cordao de Ouro." Contudo, essa afirmacao e cronologicamente problematica: Neco Canario Pardo nasceu por volta de 1880, colocando quase quarenta anos entre eles. O nome "Cordao de Ouro" e mais comumente atribuido ao proprio Besouro Manganga. A veracidade dessa conexao familiar permanece nao verificada.
+Algumas fontes afirmam que Atenilo era irmao de Neco Canario Pardo e usava o apelido "Cordao de Ouro". Contudo, essa afirmacao e cronologicamente problematica: Neco Canario Pardo nasceu por volta de 1880, colocando quase quarenta anos entre eles. O nome "Cordao de Ouro" e mais comumente atribuido ao proprio Besouro Manganga. A veracidade dessa conexao familiar permanece nao verificada.
 
 Atenilo morreu em 1986, um dos ultimos elos diretos com a geracao fundadora da Capoeira Regional. Seu testemunho garante que as vozes e experiencias daqueles que testemunharam a transformacao da capoeira de pratica de rua para arte cultural reconhecida nao se percam na historia.
 
@@ -124,7 +124,7 @@ Originalmente treinado em Angola antes de Bimba formalizar a Regional. Tornou-se
 ## Brother Relationship Investigation / Investigacao da Relacao de Irmao
 
 ### English
-Some sources claim Atenilo was brother to Neco Canario Pardo and used the nickname "Cordao de Ouro." This claim is chronologically problematic:
+Some sources claim Atenilo was brother to Neco Canario Pardo and used the nickname "Cordao de Ouro". This claim is chronologically problematic:
 
 - Neco Canario Pardo was a companion of Besouro Manganga (born 1895, died 1924) at Trapiche de Baixo
 - Neco Canario Pardo taught Cobrinha Verde (born 1912) machete technique starting around 1916
@@ -140,7 +140,7 @@ Some sources claim Atenilo was brother to Neco Canario Pardo and used the nickna
 The name "Cordao de Ouro" is more reliably attributed to Besouro Manganga himself (confirmed by Mestre Waldemar).
 
 ### Portugues
-Algumas fontes afirmam que Atenilo era irmao de Neco Canario Pardo e usava o apelido "Cordao de Ouro." Esta afirmacao e cronologicamente problematica:
+Algumas fontes afirmam que Atenilo era irmao de Neco Canario Pardo e usava o apelido "Cordao de Ouro". Esta afirmacao e cronologicamente problematica:
 
 - Neco Canario Pardo era companheiro de Besouro Manganga (nascido 1895, morto 1924) no Trapiche de Baixo
 - Neco Canario Pardo ensinou tecnica de facão a Cobrinha Verde (nascido 1912) a partir de ~1916
@@ -164,7 +164,7 @@ Atenilo witnessed the founding meeting of Capoeira Regional at Bogum, at the end
 According to Atenilo, Pastinha wanted Bimba to give lessons at his academy every Sunday, and Bimba would go to Sangradouro to teach at Pastinha's school on holidays. However, Atenilo and Itapoan also reported that Bimba sometimes instructed his students to hit and injure Pastinha's students in shared rodas.
 
 ### On Early Training
-When asked if Bimba was already teaching Capoeira Regional when Atenilo started, he clarified: "No, it was Angola at that time."
+When asked if Bimba was already teaching Capoeira Regional when Atenilo started, he clarified: "No, it was Angola at that time".
 
 ### On Female Capoeiristas
 Atenilo provided testimony about Salome, describing her as someone who "sang in samba and played capoeira" and was considered a valentona (bold, daring woman) of the 1920s-30s.

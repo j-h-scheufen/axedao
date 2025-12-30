@@ -49,9 +49,9 @@ After teaching for twelve years in Pavão/Pavãozinho, Roque gave classes at Pra
 
 Roque formed numerous mestres who continue his lineage: Adilson (Camisa Preta), Sandrinha, Poeira, Paulo Siqueira, Derli, Lapinha, Cosme, and many others. Mestra Sandrinha, who began training with him as a ten-year-old girl in Pavãozinho in the 1970s, is recognized as possibly the first female capoeira mestra in Brazil. Mestre Paulo Siqueira went on to establish the Escola de Capoeira Nzinga in Germany in 1985, becoming a pioneer of capoeira in Europe.
 
-Roque is considered one of the four founding lineages of contemporary capoeira in Rio de Janeiro, alongside Artur Emídio, Paraná, and Mário Buscapé. As M. Levi stated, these four "started to work in closed spaces of academies, introduced uniforms, organisation, etc. From these four the majority of capoeira masters here in Rio de Janeiro derived."
+Roque is considered one of the four founding lineages of contemporary capoeira in Rio de Janeiro, alongside Artur Emídio, Paraná, and Mário Buscapé. As M. Levi stated, these four "started to work in closed spaces of academies, introduced uniforms, organisation, etc. From these four the majority of capoeira masters here in Rio de Janeiro derived".
 
-As of 2018, Roque was still alive, giving interviews and testimonies for cultural preservation projects like the MIS RJ series "Memória da Capoeira."
+As of 2018, Roque was still alive, giving interviews and testimonies for cultural preservation projects like the MIS RJ series "Memória da Capoeira".
 
 ### Português
 
@@ -65,13 +65,13 @@ Roque alistou-se na Marinha e chegou ao Rio de Janeiro em 1956. Após deixar o s
 
 Em 21 de julho de 1960, junto com outros angoleiros baianos Mucungê, Dois de Ouro, Baleado, Onça Preta e Imagem do Cão, Roque co-fundou o Grupo Filhos de Angola—tornando-se um pioneiro no ensino de capoeira nas favelas da Zona Sul do Rio. Sua academia no Morro do Pavãozinho atendia principalmente os moradores pobres dos morros do Pavão e Cantagalo, embora alguns surfistas também treinassem lá.
 
-Seu grupo participou de torneios e competições que ajudaram a disseminar a capoeira, incluindo o Berimbau de Ouro (1967). Filhos de Angola realizou apresentações folclóricas como "Uma Noite na Bahia," inspirada nas festas de santos padroeiros em Salvador. Roque também integrou o grupo folclórico Capoeiras do Bonfim de Mário Buscapé e tocou berimbau na montagem carioca de "O Pagador de Promessas" de Dias Gomes.
+Seu grupo participou de torneios e competições que ajudaram a disseminar a capoeira, incluindo o Berimbau de Ouro (1967). Filhos de Angola realizou apresentações folclóricas como "Uma Noite na Bahia", inspirada nas festas de santos padroeiros em Salvador. Roque também integrou o grupo folclórico Capoeiras do Bonfim de Mário Buscapé e tocou berimbau na montagem carioca de "O Pagador de Promessas" de Dias Gomes.
 
 Após ensinar por doze anos no Pavão/Pavãozinho, Roque deu aulas na Praia do Pinto, Praça Mauá, Jacarepaguá, na Refinaria da Petrobras em Caxias e em São João de Meriti. Sua última academia localizava-se em Vilar do Teles.
 
 Roque formou numerosos mestres que continuam sua linhagem: Adilson (Camisa Preta), Sandrinha, Poeira, Paulo Siqueira, Derli, Lapinha, Cosme, e muitos outros. Mestra Sandrinha, que começou a treinar com ele ainda menina de dez anos no Pavãozinho nos anos 1970, é reconhecida como possivelmente a primeira mestra de capoeira do Brasil. Mestre Paulo Siqueira foi fundar a Escola de Capoeira Nzinga na Alemanha em 1985, tornando-se um pioneiro da capoeira na Europa.
 
-Roque é considerado uma das quatro linhagens fundadoras da capoeira contemporânea no Rio de Janeiro, ao lado de Artur Emídio, Paraná e Mário Buscapé. Como M. Levi afirmou, esses quatro "começaram a trabalhar em espaços fechados de academias, introduziram uniformes, organização, etc. Desses quatro derivou a maioria dos mestres de capoeira aqui no Rio de Janeiro."
+Roque é considerado uma das quatro linhagens fundadoras da capoeira contemporânea no Rio de Janeiro, ao lado de Artur Emídio, Paraná e Mário Buscapé. Como M. Levi afirmou, esses quatro "começaram a trabalhar em espaços fechados de academias, introduziram uniformes, organização, etc. Desses quatro derivou a maioria dos mestres de capoeira aqui no Rio de Janeiro".
 
 Até 2018, Roque ainda estava vivo, dando entrevistas e depoimentos para projetos de preservação cultural como a série "Memória da Capoeira" do MIS RJ.
 
@@ -100,10 +100,10 @@ Até 2018, Roque ainda estava vivo, dando entrevistas e depoimentos para projeto
 ## Style Notes / Notas de Estilo
 
 ### English
-From an angoleiro tradition, Roque insists his capoeira and that of his masters is from the "line of São Bento," which he describes as faster than other Angola styles. This style was different from the capoeira of the Senzala group that dominated Rio's Zona Sul, and also different from the other Bahian masters who established schools in Bonsucesso (Paraná, Artur Emídio, Mário Buscapé). Despite his Angola roots, he had contact with students of Mestre Bimba such as Vermelho 27 and was among the first teachers to introduce graduation belts in his academy.
+From an angoleiro tradition, Roque insists his capoeira and that of his masters is from the "line of São Bento", which he describes as faster than other Angola styles. This style was different from the capoeira of the Senzala group that dominated Rio's Zona Sul, and also different from the other Bahian masters who established schools in Bonsucesso (Paraná, Artur Emídio, Mário Buscapé). Despite his Angola roots, he had contact with students of Mestre Bimba such as Vermelho 27 and was among the first teachers to introduce graduation belts in his academy.
 
 ### Português
-De tradição angoleira, Roque insiste que sua capoeira e a de seus mestres é da "linha de São Bento," que ele descreve como mais rápida que outros estilos de Angola. Este estilo era diferente da capoeira do grupo Senzala que dominava a Zona Sul do Rio, e também diferente dos outros mestres baianos que estabeleceram escolas em Bonsucesso (Paraná, Artur Emídio, Mário Buscapé). Apesar de suas raízes na Angola, teve contato com alunos de Mestre Bimba como Vermelho 27 e foi um dos primeiros professores a introduzir graduações em sua academia.
+De tradição angoleira, Roque insiste que sua capoeira e a de seus mestres é da "linha de São Bento", que ele descreve como mais rápida que outros estilos de Angola. Este estilo era diferente da capoeira do grupo Senzala que dominava a Zona Sul do Rio, e também diferente dos outros mestres baianos que estabeleceram escolas em Bonsucesso (Paraná, Artur Emídio, Mário Buscapé). Apesar de suas raízes na Angola, teve contato com alunos de Mestre Bimba como Vermelho 27 e foi um dos primeiros professores a introduzir graduações em sua academia.
 
 ## Teachers / Mestres
 

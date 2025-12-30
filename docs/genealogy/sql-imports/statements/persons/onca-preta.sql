@@ -48,8 +48,8 @@ SELECT
   '{}'::jsonb,
   'likely'::genealogy.confidence,
   'Onça Preta testimony, velhosmestres.com/br/destaques-34',
-  E'Onça Preta (b. 1909) stated he trained under multiple mestres as a boy: "Still a boy, I jumped with Samuel, with Pastinha, Besourinho, Vitor Agaú, Gasolina, Aberrê... I had not one, but many mestres." Learning was through public rodas rather than formal apprenticeship.',
-  E'Onça Preta (n. 1909) afirmou que treinou com múltiplos mestres quando menino: "Garoto ainda, pulei com Samuel, com Pastinha, Besourinho, Vitor Agaú, Gasolina, Aberrê... Não tive um, mas muitos mestres." O aprendizado era através de rodas públicas em vez de aprendizado formal.'
+  E'Onça Preta (b. 1909) stated he trained under multiple mestres as a boy: "Still a boy, I jumped with Samuel, with Pastinha, Besourinho, Vitor Agaú, Gasolina, Aberrê... I had not one, but many mestres". Learning was through public rodas rather than formal apprenticeship.',
+  E'Onça Preta (n. 1909) afirmou que treinou com múltiplos mestres quando menino: "Garoto ainda, pulei com Samuel, com Pastinha, Besourinho, Vitor Agaú, Gasolina, Aberrê... Não tive um, mas muitos mestres". O aprendizado era através de rodas públicas em vez de aprendizado formal.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Onça Preta' AND o.apelido = 'Pastinha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
@@ -193,8 +193,8 @@ SELECT
   '{}'::jsonb,
   'likely'::genealogy.confidence,
   'Onça Preta testimony, velhosmestres.com/br/destaques-34; O Dia newspaper 1972',
-  E'Onça Preta (b. 1909) stated: "Still a boy, I jumped with Samuel, with Pastinha, Besourinho, Vitor Agaú, Gasolina, Aberrê... I had not one, but many mestres." Training was through public rodas rather than formal apprenticeship.',
-  E'Onça Preta (n. 1909) afirmou: "Garoto ainda, pulei com Samuel, com Pastinha, Besourinho, Vitor Agaú, Gasolina, Aberrê... Não tive um, mas muitos mestres." O treino era através de rodas públicas em vez de aprendizado formal.'
+  E'Onça Preta (b. 1909) stated: "Still a boy, I jumped with Samuel, with Pastinha, Besourinho, Vitor Agaú, Gasolina, Aberrê... I had not one, but many mestres". Training was through public rodas rather than formal apprenticeship.',
+  E'Onça Preta (n. 1909) afirmou: "Garoto ainda, pulei com Samuel, com Pastinha, Besourinho, Vitor Agaú, Gasolina, Aberrê... Não tive um, mas muitos mestres". O treino era através de rodas públicas em vez de aprendizado formal.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Onça Preta' AND o.apelido = 'Vitor Agaú'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

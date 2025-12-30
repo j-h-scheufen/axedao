@@ -20,8 +20,8 @@ SELECT
   '1974-02-05'::date, 'exact'::genealogy.date_precision,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'CapoeiraWiki, Correio 24 Horas obituary, Mestre Nenel testimony',
-  'Jair Moura began training with Mestre Bimba in the late 1950s. According to Mestre Nenel: "He was a student of my father since the 1950s." The relationship lasted until Bimba''s death on February 5, 1974. Nenel described him as "one of the guys most well-regarded by my father."',
-  'Jair Moura começou a treinar com Mestre Bimba no final dos anos 1950. Segundo Mestre Nenel: "Ele era aluno de meu pai desde a década de 1950." A relação durou até a morte de Bimba em 5 de fevereiro de 1974. Nenel o descreveu como "um dos caras mais bem considerados pelo meu pai."'
+  'Jair Moura began training with Mestre Bimba in the late 1950s. According to Mestre Nenel: "He was a student of my father since the 1950s". The relationship lasted until Bimba''s death on February 5, 1974. Nenel described him as "one of the guys most well-regarded by my father".',
+  'Jair Moura começou a treinar com Mestre Bimba no final dos anos 1950. Segundo Mestre Nenel: "Ele era aluno de meu pai desde a década de 1950". A relação durou até a morte de Bimba em 5 de fevereiro de 1974. Nenel o descreveu como "um dos caras mais bem considerados pelo meu pai".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Jair Moura' AND o.apelido = 'Bimba'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
@@ -42,8 +42,8 @@ SELECT
   '{"title_grant": {"title": "mestre", "symbol": "lenço branco (white handkerchief)"}}'::jsonb,
   'verified'::genealogy.confidence,
   'Mestre Nenel testimony (Correio 24 Horas), CapoeiraWiki, multiple obituary sources',
-  'One of only four students formally graduated to mestre level (white handkerchief) by Mestre Bimba during his lifetime. According to Mestre Nenel (Bimba''s son): "He was the last capoeirista to receive the Lenço Branco from my father." The others were Decânio, Miranda, and Edinho (the latter two deceased before Bimba).',
-  'Um dos apenas quatro alunos formalmente graduados ao nível de mestre (lenço branco) por Mestre Bimba durante sua vida. Segundo Mestre Nenel (filho de Bimba): "Ele foi o último capoeirista a receber o Lenço Branco de meu pai." Os outros foram Decânio, Miranda e Edinho (os dois últimos falecidos antes de Bimba).'
+  'One of only four students formally graduated to mestre level (white handkerchief) by Mestre Bimba during his lifetime. According to Mestre Nenel (Bimba''s son): "He was the last capoeirista to receive the Lenço Branco from my father". The others were Decânio, Miranda, and Edinho (the latter two deceased before Bimba).',
+  'Um dos apenas quatro alunos formalmente graduados ao nível de mestre (lenço branco) por Mestre Bimba durante sua vida. Segundo Mestre Nenel (filho de Bimba): "Ele foi o último capoeirista a receber o Lenço Branco de meu pai". Os outros foram Decânio, Miranda e Edinho (os dois últimos falecidos antes de Bimba).'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Jair Moura' AND o.apelido = 'Bimba'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

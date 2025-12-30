@@ -108,7 +108,7 @@ Besouro Mangangá (died 1924)
 
 **Teaching Location:** São Braz, Santo Amaro da Purificação, Bahia - described by Gato Preto as "uma cidadezinha" (small town) that "na época era um arraial" (at the time was a hamlet).
 
-**Training Group:** Met on Saturdays and Sundays. Members were approximately 15-16 years old. Quote from Gato Preto (1999): "Tinha aquele grupo: era eu, Messias, Zinho, Genesio, Lao, Tomazinho, Jaime, Chumbinho... Então tinha aquele grupo de rapazes que era tudo de 16, 15-16 anos. E a gente se reunia aos sábados e domingos pra fazer essa capoeira. E Léo era o mestre."
+**Training Group:** Met on Saturdays and Sundays. Members were approximately 15-16 years old. Quote from Gato Preto (1999): "Tinha aquele grupo: era eu, Messias, Zinho, Genesio, Lao, Tomazinho, Jaime, Chumbinho... Então tinha aquele grupo de rapazes que era tudo de 16, 15-16 anos. E a gente se reunia aos sábados e domingos pra fazer essa capoeira. E Léo era o mestre".
 
 **Key Quote (Gato Preto):** "um mestre que não podia deixar de ser homenageado, que é Mestre Leó"
 
@@ -118,7 +118,7 @@ Besouro Mangangá (died 1924)
 
 **Local de Ensino:** São Braz, Santo Amaro da Purificação, Bahia - descrito por Gato Preto como "uma cidadezinha" que "na época era um arraial".
 
-**Grupo de Treino:** Reuniam-se aos sábados e domingos. Os membros tinham aproximadamente 15-16 anos. Citação de Gato Preto (1999): "Tinha aquele grupo: era eu, Messias, Zinho, Genesio, Lao, Tomazinho, Jaime, Chumbinho... Então tinha aquele grupo de rapazes que era tudo de 16, 15-16 anos. E a gente se reunia aos sábados e domingos pra fazer essa capoeira. E Léo era o mestre."
+**Grupo de Treino:** Reuniam-se aos sábados e domingos. Os membros tinham aproximadamente 15-16 anos. Citação de Gato Preto (1999): "Tinha aquele grupo: era eu, Messias, Zinho, Genesio, Lao, Tomazinho, Jaime, Chumbinho... Então tinha aquele grupo de rapazes que era tudo de 16, 15-16 anos. E a gente se reunia aos sábados e domingos pra fazer essa capoeira. E Léo era o mestre".
 
 **Citação-chave (Gato Preto):** "um mestre que não podia deixar de ser homenageado, que é Mestre Leó"
 

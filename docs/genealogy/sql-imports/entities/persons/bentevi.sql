@@ -48,23 +48,23 @@ INSERT INTO genealogy.person_profiles (
   'unknown'::genealogy.date_precision,
   NULL,  -- Death place unknown
   -- bio_en
-  E'Bentevi - also written as "Bem-te-vi" - was one of the "perigosos capoeiras" (dangerous capoeiristas) of mid-19th century Rio de Janeiro. His name survives in two of the earliest written sources on capoeira: Plácido de Abreu''s 1886 work "Os Capoeiras" and Melo Morais Filho''s 1888 "Festas e Tradições Populares do Brasil."
+  E'Bentevi - also written as "Bem-te-vi" - was one of the "perigosos capoeiras" (dangerous capoeiristas) of mid-19th century Rio de Janeiro. His name survives in two of the earliest written sources on capoeira: Plácido de Abreu''s 1886 work "Os Capoeiras" and Melo Morais Filho''s 1888 "Festas e Tradições Populares do Brasil".
 
-Both sources list Bentevi among the most feared street fighters of the 1850s, alongside Mamede, Aleixo Açougueiro, Pedro Cobra, and Quebra Coco. According to these accounts, the legendary Manduca da Praia "attended the full-time school of roguery and bravery on the streets of Rio de Janeiro during the era of dangerous capoeiras such as Mamede, Aleixo Açougueiro, Pedro Cobra, Bem-te-vi, and Quebra Coco."
+Both sources list Bentevi among the most feared street fighters of the 1850s, alongside Mamede, Aleixo Açougueiro, Pedro Cobra, and Quebra Coco. According to these accounts, the legendary Manduca da Praia "attended the full-time school of roguery and bravery on the streets of Rio de Janeiro during the era of dangerous capoeiras such as Mamede, Aleixo Açougueiro, Pedro Cobra, Bem-te-vi, and Quebra Coco".
 
 His apelido comes from the bem-te-vi bird (Pitangus sulphuratus), one of the most common and recognizable birds in Brazil. The name literally translates to "I saw you well" - mimicking the bird''s distinctive call. The bem-te-vi is known for its bold yellow breast and aggressive territorial behavior, fearlessly attacking much larger birds that enter its territory. Whether Bentevi earned this name for his bold appearance, his loud presence, or his fearless fighting style is unknown.
 
-This was an era before berimbau and music defined the practice. Capoeira carioca was a street fighting system where practitioners excelled "in the use of the razor and dagger; in the handling of the Petrópolis - a long hardwood club, inseparable companion of the tough guys of the time - in the cunning of the sweep and trip; and with the punch, headbutt and rabo-de-arraia."
+This was an era before berimbau and music defined the practice. Capoeira carioca was a street fighting system where practitioners excelled "in the use of the razor and dagger; in the handling of the Petrópolis - a long hardwood club, inseparable companion of the tough guys of the time - in the cunning of the sweep and trip; and with the punch, headbutt and rabo-de-arraia".
 
 No individual exploits of Bentevi survive. We do not know if he belonged to the Nagoas or Guaiamums, the two great rival maltas that divided Rio de Janeiro. He exists now only as a name on a list of dangerous men in the earliest capoeira literature - but the bem-te-vi bird continues to sing throughout Brazil, carrying his memory in its name.',
   -- bio_pt
   E'Bentevi - também escrito como "Bem-te-vi" - foi um dos "perigosos capoeiras" do Rio de Janeiro em meados do século XIX. Seu nome sobrevive em duas das fontes escritas mais antigas sobre capoeira: a obra de 1886 de Plácido de Abreu "Os Capoeiras" e "Festas e Tradições Populares do Brasil" de 1888 de Melo Morais Filho.
 
-Ambas as fontes listam Bentevi entre os mais temidos lutadores de rua da década de 1850, ao lado de Mamede, Aleixo Açougueiro, Pedro Cobra e Quebra Coco. Segundo estes relatos, o lendário Manduca da Praia "cursou a escola de horário integral da malandragem e da valentia das ruas do Rio de Janeiro na época de perigosos capoeiras como Mamede, Aleixo Açougueiro, Pedro Cobra, Bem-te-vi e Quebra Coco."
+Ambas as fontes listam Bentevi entre os mais temidos lutadores de rua da década de 1850, ao lado de Mamede, Aleixo Açougueiro, Pedro Cobra e Quebra Coco. Segundo estes relatos, o lendário Manduca da Praia "cursou a escola de horário integral da malandragem e da valentia das ruas do Rio de Janeiro na época de perigosos capoeiras como Mamede, Aleixo Açougueiro, Pedro Cobra, Bem-te-vi e Quebra Coco".
 
 Seu apelido vem do pássaro bem-te-vi (Pitangus sulphuratus), uma das aves mais comuns e reconhecíveis do Brasil. O nome literalmente significa "eu te vi bem" - imitando o canto distintivo do pássaro. O bem-te-vi é conhecido por seu peito amarelo marcante e comportamento territorial agressivo, atacando corajosamente pássaros muito maiores que entram em seu território. Se Bentevi ganhou este nome por sua aparência ousada, sua presença barulhenta, ou seu estilo de luta destemido é desconhecido.
 
-Esta era uma era antes que o berimbau e a música definissem a prática. A capoeira carioca era um sistema de luta de rua onde os praticantes se destacavam "no uso da navalha e do punhal; no manejo do Petrópolis - um comprido porrete de madeira-de-lei, companheiro inseparável dos valentões da época - na malícia da banda e da rasteira; e no soco, cabeçada e rabo-de-arraia."
+Esta era uma era antes que o berimbau e a música definissem a prática. A capoeira carioca era um sistema de luta de rua onde os praticantes se destacavam "no uso da navalha e do punhal; no manejo do Petrópolis - um comprido porrete de madeira-de-lei, companheiro inseparável dos valentões da época - na malícia da banda e da rasteira; e no soco, cabeçada e rabo-de-arraia".
 
 Nenhuma façanha individual de Bentevi sobrevive. Não sabemos se ele pertencia aos Nagoas ou Guaiamuns, as duas grandes maltas rivais que dividiam o Rio de Janeiro. Ele existe agora apenas como um nome em uma lista de homens perigosos na literatura mais antiga sobre capoeira - mas o pássaro bem-te-vi continua a cantar por todo o Brasil, carregando sua memória em seu nome.',
   -- achievements_en
@@ -76,7 +76,7 @@ Nenhuma façanha individual de Bentevi sobrevive. Não sabemos se ele pertencia 
 
 NAME SPELLING: Appears as both "Bentevi" and "Bem-te-vi" in sources. Both spellings refer to the same person and the same bird.
 
-APELIDO: Named after the bem-te-vi bird (Pitangus sulphuratus), known for aggressive territorial behavior and its distinctive "bem-te-vi" call meaning "I saw you well."
+APELIDO: Named after the bem-te-vi bird (Pitangus sulphuratus), known for aggressive territorial behavior and its distinctive "bem-te-vi" call meaning "I saw you well".
 
 DEATH: Unknown. No records of his death or later life have been found.
 
@@ -95,7 +95,7 @@ PENDING RELATIONSHIPS:
 
 GRAFIA DO NOME: Aparece como "Bentevi" e "Bem-te-vi" nas fontes. Ambas as grafias referem-se à mesma pessoa e ao mesmo pássaro.
 
-APELIDO: Nomeado em homenagem ao pássaro bem-te-vi (Pitangus sulphuratus), conhecido pelo comportamento territorial agressivo e seu canto distintivo "bem-te-vi" significando "eu te vi bem."
+APELIDO: Nomeado em homenagem ao pássaro bem-te-vi (Pitangus sulphuratus), conhecido pelo comportamento territorial agressivo e seu canto distintivo "bem-te-vi" significando "eu te vi bem".
 
 MORTE: Desconhecida. Nenhum registro de sua morte ou vida posterior foi encontrado.
 

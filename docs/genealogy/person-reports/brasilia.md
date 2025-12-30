@@ -44,7 +44,7 @@ Throughout his career, Brasília trained over 50,000 students through his academ
 
 Despite taking different paths, Brasília and Suassuna remain friends, their partnership and friendship evident to this day. In 2010, Brasília celebrated 50 years in capoeira with a milestone event titled "50 ANOS SEM TIRAR A MÃO DO CHÃO" (50 Years Without Taking Hand Off the Ground)—reflecting his lifelong dedication to the art.
 
-Brasília views capoeira holistically: "Capoeira is not just sport, it is a Brazilian cultural manifestation with very broad content: we have rhythm, poetry, music, choreography, defense, attack, spectacle, struggle and sport." This vision has guided his teaching for over six decades.
+Brasília views capoeira holistically: "Capoeira is not just sport, it is a Brazilian cultural manifestation with very broad content: we have rhythm, poetry, music, choreography, defense, attack, spectacle, struggle and sport". This vision has guided his teaching for over six decades.
 
 ### Português
 
@@ -68,7 +68,7 @@ Ao longo de sua carreira, Brasília treinou mais de 50.000 alunos através de su
 
 Apesar de terem tomado caminhos diferentes, Brasília e Suassuna permanecem amigos, sua parceria e amizade evidente até hoje. Em 2010, Brasília celebrou 50 anos na capoeira com um evento marcante intitulado "50 ANOS SEM TIRAR A MÃO DO CHÃO"—refletindo sua dedicação vitalícia à arte.
 
-Brasília vê a capoeira de forma holística: "A capoeira não é só esporte, é uma manifestação cultural brasileira com conteúdo muito amplo: temos ritmo, poesia, música, coreografia, defesa, ataque, espetáculo, luta e esporte." Essa visão guiou seu ensino por mais de seis décadas.
+Brasília vê a capoeira de forma holística: "A capoeira não é só esporte, é uma manifestação cultural brasileira com conteúdo muito amplo: temos ritmo, poesia, música, coreografia, defesa, ataque, espetáculo, luta e esporte". Essa visão guiou seu ensino por mais de seis décadas.
 
 ## Achievements / Conquistas
 

@@ -28,7 +28,7 @@ Mestre Miranda is one of the most historically significant yet least documented 
 
 The four mestres formally graduated by Bimba were: Angelo Augusto Decânio Filho (Mestre Decânio), Jair Moura, Miranda, and Edinho. According to Mestre Edinho himself, these were "os únicos a receberem o título de Mestre da Regional Baiana pelas próprias mãos de Mestre Bimba" (the only ones to receive the title of Master of Regional Baiana directly from Mestre Bimba's own hands).
 
-The white handkerchief represented the pinnacle of achievement in Capoeira Regional. As noted by Mestre Itapoan in a lecture about Bimba: "Bimba only awarded four of these white handkerchiefs during his lifetime: one to Angelo Augusto Decânio Filho, one to Jair Moura, and the other two to people who have since died." Those two deceased recipients were Miranda and Edinho.
+The white handkerchief represented the pinnacle of achievement in Capoeira Regional. As noted by Mestre Itapoan in a lecture about Bimba: "Bimba only awarded four of these white handkerchiefs during his lifetime: one to Angelo Augusto Decânio Filho, one to Jair Moura, and the other two to people who have since died". Those two deceased recipients were Miranda and Edinho.
 
 Miranda trained at Bimba's Centro de Cultura Física e Luta Regional in Salvador, Bahia, though the exact dates of his training period are not documented in available sources. The limited records about Miranda stand in contrast to the substantial documentation about his fellow white handkerchief recipients Decânio and Jair Moura, both of whom went on to become prolific authors and historians of capoeira.
 
@@ -40,9 +40,9 @@ Miranda's death occurred before Mestre Bimba's own death in 1974, though the exa
 
 Mestre Miranda é uma das figuras mais historicamente significativas, porém menos documentadas, da história da Capoeira Regional. Ele foi um dos apenas quatro alunos a receber o lenço branco diretamente de Mestre Bimba durante a vida do fundador—a maior honra no sistema de graduação de Bimba.
 
-Os quatro mestres formalmente graduados por Bimba foram: Angelo Augusto Decânio Filho (Mestre Decânio), Jair Moura, Miranda e Edinho. Segundo o próprio Mestre Edinho, estes foram "os únicos a receberem o título de Mestre da Regional Baiana pelas próprias mãos de Mestre Bimba."
+Os quatro mestres formalmente graduados por Bimba foram: Angelo Augusto Decânio Filho (Mestre Decânio), Jair Moura, Miranda e Edinho. Segundo o próprio Mestre Edinho, estes foram "os únicos a receberem o título de Mestre da Regional Baiana pelas próprias mãos de Mestre Bimba".
 
-O lenço branco representava o ápice da conquista na Capoeira Regional. Como observou Mestre Itapoan em uma palestra sobre Bimba: "Bimba concedeu apenas quatro desses lenços brancos durante sua vida: um para Angelo Augusto Decânio Filho, um para Jair Moura, e os outros dois para pessoas que já faleceram." Esses dois destinatários falecidos eram Miranda e Edinho.
+O lenço branco representava o ápice da conquista na Capoeira Regional. Como observou Mestre Itapoan em uma palestra sobre Bimba: "Bimba concedeu apenas quatro desses lenços brancos durante sua vida: um para Angelo Augusto Decânio Filho, um para Jair Moura, e os outros dois para pessoas que já faleceram". Esses dois destinatários falecidos eram Miranda e Edinho.
 
 Miranda treinou no Centro de Cultura Física e Luta Regional de Bimba em Salvador, Bahia, embora as datas exatas de seu período de treinamento não estejam documentadas nas fontes disponíveis. Os registros limitados sobre Miranda contrastam com a documentação substancial sobre seus colegas que receberam o lenço branco, Decânio e Jair Moura, ambos que se tornaram autores prolíficos e historiadores da capoeira.
 

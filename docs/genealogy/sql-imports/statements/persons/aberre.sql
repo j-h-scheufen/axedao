@@ -239,8 +239,8 @@ SELECT
   '{}'::jsonb,
   'likely'::genealogy.confidence,
   'velhosmestres.com/en/featured-2; esquiva.wordpress.com; testimony of Mestre Caiçara and Mestre Silvestre',
-  'Aberrê learned capoeira from Mestre Antônio de Noronha around 1910-1912 in Salvador. Some sources also mention Pastinha as a teacher during this period. Testimony from Mestre Caiçara and Mestre Silvestre confirms the lineage: "Mestre Aberrê is the second mestre in my lineage, above him comes Mestre Antônio de Noronha."',
-  'Aberrê aprendeu capoeira com Mestre Antônio de Noronha por volta de 1910-1912 em Salvador. Algumas fontes também mencionam Pastinha como professor durante este período. Testemunho de Mestre Caiçara e Mestre Silvestre confirma a linhagem: "Mestre Aberrê é o segundo mestre da minha linhagem, acima dele vem Mestre Antônio de Noronha."'
+  'Aberrê learned capoeira from Mestre Antônio de Noronha around 1910-1912 in Salvador. Some sources also mention Pastinha as a teacher during this period. Testimony from Mestre Caiçara and Mestre Silvestre confirms the lineage: "Mestre Aberrê is the second mestre in my lineage, above him comes Mestre Antônio de Noronha".',
+  'Aberrê aprendeu capoeira com Mestre Antônio de Noronha por volta de 1910-1912 em Salvador. Algumas fontes também mencionam Pastinha como professor durante este período. Testemunho de Mestre Caiçara e Mestre Silvestre confirma a linhagem: "Mestre Aberrê é o segundo mestre da minha linhagem, acima dele vem Mestre Antônio de Noronha".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Aberrê' AND o.apelido = 'Antônio de Noronha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

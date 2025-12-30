@@ -29,7 +29,7 @@
 
 Juvêncio was a working-class capoeirista from the Recôncavo Baiano who combined his professional trades with informal capoeira instruction. He worked as both a ferreiro (blacksmith) at Fazenda São Pedro in Mata de São João and as an estivador (dock worker) in São Félix—two of the traditional occupations that spread capoeira through Bahia's coastal and agricultural regions.
 
-In São Félix, a town on the banks of the Paraguaçu River adjacent to Cachoeira, Juvêncio organized rodas on the docks during religious festivals, particularly the celebrations of Igreja de São Deus Menino and Senhor São Félix. According to Mestre Ananias, who began learning in these rodas in 1938: "Juvêncio was the mestre. He was a dock worker who did capoeira on the docks of São Félix... Nobody taught classes, but the real master was Juvêncio, everyone got together and played."
+In São Félix, a town on the banks of the Paraguaçu River adjacent to Cachoeira, Juvêncio organized rodas on the docks during religious festivals, particularly the celebrations of Igreja de São Deus Menino and Senhor São Félix. According to Mestre Ananias, who began learning in these rodas in 1938: "Juvêncio was the mestre. He was a dock worker who did capoeira on the docks of São Félix... Nobody taught classes, but the real master was Juvêncio, everyone got together and played".
 
 This description captures the informal, communal nature of capoeira transmission in the Recôncavo before the era of formal academies. The roda at São Félix gathered practitioners including João de Zazá, brothers Toy and Roxinho, brothers Alvelino and Santos from Muritiba, Caial, and Estevão—a factory guard at the "Letialvi" cigar factory whom Ananias remembered as having "capoeira perversa" (vicious capoeira). Traíra from Cachoeira and Café also participated in these gatherings.
 
@@ -43,9 +43,9 @@ The fact that Juvêncio worked in multiple locations—Mata de São João (60km 
 
 Juvêncio era um capoeirista da classe trabalhadora do Recôncavo Baiano que combinava seus ofícios profissionais com o ensino informal de capoeira. Trabalhava tanto como ferreiro na Fazenda São Pedro em Mata de São João quanto como estivador em São Félix—duas das ocupações tradicionais que espalharam a capoeira pelas regiões costeiras e agrícolas da Bahia.
 
-Em São Félix, cidade às margens do Rio Paraguaçu, adjacente a Cachoeira, Juvêncio organizava rodas nas docas durante festas religiosas, particularmente as celebrações da Igreja de São Deus Menino e Senhor São Félix. Segundo Mestre Ananias, que começou a aprender nessas rodas em 1938: "Juvêncio era o mestre. Ele era estivador e fazia capoeira na beira do cais de São Félix... Ninguém ensinava, mas o mestre mesmo era o Juvêncio, todo mundo se reunia e pronto."
+Em São Félix, cidade às margens do Rio Paraguaçu, adjacente a Cachoeira, Juvêncio organizava rodas nas docas durante festas religiosas, particularmente as celebrações da Igreja de São Deus Menino e Senhor São Félix. Segundo Mestre Ananias, que começou a aprender nessas rodas em 1938: "Juvêncio era o mestre. Ele era estivador e fazia capoeira na beira do cais de São Félix... Ninguém ensinava, mas o mestre mesmo era o Juvêncio, todo mundo se reunia e pronto".
 
-Esta descrição captura a natureza informal e comunitária da transmissão da capoeira no Recôncavo antes da era das academias formais. A roda em São Félix reunia praticantes incluindo João de Zazá, os irmãos Toy e Roxinho, os irmãos Alvelino e Santos de Muritiba, Caial, e Estevão—um vigia da fábrica de charutos "Letialvi" que Ananias lembrava como tendo "capoeira perversa." Traíra de Cachoeira e Café também participavam desses encontros.
+Esta descrição captura a natureza informal e comunitária da transmissão da capoeira no Recôncavo antes da era das academias formais. A roda em São Félix reunia praticantes incluindo João de Zazá, os irmãos Toy e Roxinho, os irmãos Alvelino e Santos de Muritiba, Caial, e Estevão—um vigia da fábrica de charutos "Letialvi" que Ananias lembrava como tendo "capoeira perversa". Traíra de Cachoeira e Café também participavam desses encontros.
 
 Na Fazenda São Pedro em Mata de São João, Juvêncio trabalhava como ferreiro e apresentou o jovem João Pequeno à capoeira durante a década (1933-1943) que João Pequeno passou trabalhando na plantação de cana-de-açúcar como chamador de boi. Este foi o primeiro contato de João Pequeno com a arte que definiria sua carreira de 79 anos de ensino.
 
@@ -72,10 +72,10 @@ O fato de Juvêncio trabalhar em múltiplos locais—Mata de São João (60km ao
 ## Style Notes / Notas de Estilo
 
 ### English
-Pre-codification era. Practiced traditional Bahian capoeira before the formal Angola/Regional split. His informal roda style—gathering practitioners during festivals without formal classes—represents the authentic communal transmission of capoeira. As Ananias recalled: "Nobody taught classes, but the real master was Juvêncio, everyone got together and played."
+Pre-codification era. Practiced traditional Bahian capoeira before the formal Angola/Regional split. His informal roda style—gathering practitioners during festivals without formal classes—represents the authentic communal transmission of capoeira. As Ananias recalled: "Nobody taught classes, but the real master was Juvêncio, everyone got together and played".
 
 ### Português
-Era pré-codificação. Praticava a capoeira tradicional baiana antes da divisão formal Angola/Regional. Seu estilo de roda informal—reunindo praticantes durante festas sem aulas formais—representa a transmissão comunitária autêntica da capoeira. Como Ananias lembrou: "Ninguém ensinava, mas o mestre mesmo era o Juvêncio, todo mundo se reunia e pronto."
+Era pré-codificação. Praticava a capoeira tradicional baiana antes da divisão formal Angola/Regional. Seu estilo de roda informal—reunindo praticantes durante festas sem aulas formais—representa a transmissão comunitária autêntica da capoeira. Como Ananias lembrou: "Ninguém ensinava, mas o mestre mesmo era o Juvêncio, todo mundo se reunia e pronto".
 
 ## Relationships / Relacionamentos
 

@@ -81,8 +81,8 @@ SELECT
   NULL, NULL,
   '{"instruction_type": "berimbau"}'::jsonb, 'verified'::genealogy.confidence,
   'velhosmestres.com/en/featured-39',
-  'Canjiquinha learned berimbau from Zeca do Uruguai. He recalled: "He showed me how to play, taught me rhythms and lots of songs... that the berimbau reigns the capoeira roda." This was berimbau instruction specifically, not primary capoeira training (which was under Aberrê).',
-  'Canjiquinha aprendeu berimbau com Zeca do Uruguai. Ele lembrava: "Ele me mostrou como tocar, me ensinou ritmos e muitas cantigas... que o berimbau manda na roda de capoeira." Esta foi instrução de berimbau especificamente, não treinamento principal de capoeira (que foi com Aberrê).'
+  'Canjiquinha learned berimbau from Zeca do Uruguai. He recalled: "He showed me how to play, taught me rhythms and lots of songs... that the berimbau reigns the capoeira roda". This was berimbau instruction specifically, not primary capoeira training (which was under Aberrê).',
+  'Canjiquinha aprendeu berimbau com Zeca do Uruguai. Ele lembrava: "Ele me mostrou como tocar, me ensinou ritmos e muitas cantigas... que o berimbau manda na roda de capoeira". Esta foi instrução de berimbau especificamente, não treinamento principal de capoeira (que foi com Aberrê).'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Canjiquinha' AND o.apelido = 'Zeca do Uruguai'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

@@ -71,7 +71,7 @@ Pre-codification carioca capoeira. Described as "um capoeira valente das ruas" (
 
 ### Português
 
-Capoeira carioca pré-codificação. Descrito como "um capoeira valente das ruas." Parte da geração de capoeiristas de rua do Rio de Janeiro que praticavam apesar da criminalização de 1890.
+Capoeira carioca pré-codificação. Descrito como "um capoeira valente das ruas". Parte da geração de capoeiristas de rua do Rio de Janeiro que praticavam apesar da criminalização de 1890.
 
 ## Teachers / Mestres
 

@@ -85,7 +85,7 @@ O que aconteceu com Júlio após a morte de seu pai em maio de 1983 não está d
 
 FULL NAME: Only "Júlio" is mentioned in the primary source. "Júlio França" is derived from his father''s surname (Rafael Alves França). His actual registered name may differ.
 
-TITLE: No formal capoeira title documented. The 1982 article calls him a "great capoeirista" but does not use "mestre."
+TITLE: No formal capoeira title documented. The 1982 article calls him a "great capoeirista" but does not use "mestre".
 
 DEATH: Unknown. No sources document his fate after 1983.
 
@@ -103,7 +103,7 @@ PENDING INFORMATION:
 
 NOME COMPLETO: Apenas "Júlio" é mencionado na fonte primária. "Júlio França" é derivado do sobrenome de seu pai (Rafael Alves França). Seu nome registrado real pode ser diferente.
 
-TÍTULO: Nenhum título formal de capoeira documentado. O artigo de 1982 o chama de "grande capoeirista" mas não usa "mestre."
+TÍTULO: Nenhum título formal de capoeira documentado. O artigo de 1982 o chama de "grande capoeirista" mas não usa "mestre".
 
 MORTE: Desconhecida. Nenhuma fonte documenta seu destino após 1983.
 

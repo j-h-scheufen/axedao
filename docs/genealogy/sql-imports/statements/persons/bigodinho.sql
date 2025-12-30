@@ -39,8 +39,8 @@ SELECT
   NULL, NULL,
   '{"instruction_type": "berimbau"}'::jsonb, 'likely'::genealogy.confidence,
   'https://www.lalaue.com/learn-capoeira/mestre-bigodinho/',
-  E'Auvelino, described as a "legendary berimbau master," taught Bigodinho the berimbau when he arrived in Salvador in 1950. This instruction was foundational to Bigodinho''s later fame as a berimbau player and singer.',
-  E'Auvelino, descrito como um "lendário mestre de berimbau," ensinou berimbau a Bigodinho quando ele chegou em Salvador em 1950. Esta instrução foi fundamental para a fama posterior de Bigodinho como tocador de berimbau e cantor.'
+  E'Auvelino, described as a "legendary berimbau master", taught Bigodinho the berimbau when he arrived in Salvador in 1950. This instruction was foundational to Bigodinho''s later fame as a berimbau player and singer.',
+  E'Auvelino, descrito como um "lendário mestre de berimbau", ensinou berimbau a Bigodinho quando ele chegou em Salvador em 1950. Esta instrução foi fundamental para a fama posterior de Bigodinho como tocador de berimbau e cantor.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Bigodinho' AND o.apelido = 'Auvelino' AND o.apelido_context = 'Salvador'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

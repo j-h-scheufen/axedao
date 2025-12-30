@@ -35,7 +35,7 @@ In February 1949, Mestre Sinhozinho, the leading figure of capoeira carioca in R
 
 The event was organized by the Federação Metropolitana de Pugilismo (Metropolitan Federation of Pugilism) and held over two days at the Estádio Carioca on Avenida Passos in downtown Rio. It included not only the inter-capoeira matches but also a team of catch wrestlers who had similarly challenged Bimba's academy.
 
-On April 2, 1949, Jurandir faced Luiz "Cirandinha" Pereira Aguiar, Sinhozinho's student and a heavyweight weightlifter described as "Brazilian capoeira champion." The fight ended quickly: Cirandinha knocked Jurandir out in the first round with a devastating body kick. Jurandir claimed the blow was a foul, but witnesses and the ring doctor ruled otherwise, and the result stood.
+On April 2, 1949, Jurandir faced Luiz "Cirandinha" Pereira Aguiar, Sinhozinho's student and a heavyweight weightlifter described as "Brazilian capoeira champion". The fight ended quickly: Cirandinha knocked Jurandir out in the first round with a devastating body kick. Jurandir claimed the blow was a foul, but witnesses and the ring doctor ruled otherwise, and the result stood.
 
 The same event saw another of Bimba's students, Fernando Rodrigues Perez, lose to Rudolf Hermanny (only 17 years old) in just two minutes, with Perez's arm injured by a kick. The defeats were significant enough that Bimba reportedly studied movements from Sinhozinho's fighters afterward to incorporate into his own style.
 
@@ -49,7 +49,7 @@ Em fevereiro de 1949, Mestre Sinhozinho, a principal figura da capoeira carioca 
 
 O evento foi organizado pela Federação Metropolitana de Pugilismo e realizado em dois dias no Estádio Carioca na Avenida Passos, no centro do Rio. Incluiu não apenas as lutas inter-capoeira, mas também uma equipe de lutadores de catch que havia similarmente desafiado a academia de Bimba.
 
-Em 2 de abril de 1949, Jurandir enfrentou Luiz "Cirandinha" Pereira Aguiar, aluno de Sinhozinho e halterofilista peso-pesado descrito como "campeão brasileiro de capoeira." A luta terminou rapidamente: Cirandinha nocauteou Jurandir no primeiro round com um devastador chute no corpo. Jurandir alegou que o golpe foi falta, mas testemunhas e o médico do ringue decidiram de forma contrária, e o resultado foi mantido.
+Em 2 de abril de 1949, Jurandir enfrentou Luiz "Cirandinha" Pereira Aguiar, aluno de Sinhozinho e halterofilista peso-pesado descrito como "campeão brasileiro de capoeira". A luta terminou rapidamente: Cirandinha nocauteou Jurandir no primeiro round com um devastador chute no corpo. Jurandir alegou que o golpe foi falta, mas testemunhas e o médico do ringue decidiram de forma contrária, e o resultado foi mantido.
 
 O mesmo evento viu outro aluno de Bimba, Fernando Rodrigues Perez, perder para Rudolf Hermanny (apenas 17 anos) em apenas dois minutos, com o braço de Perez lesionado por um chute. As derrotas foram significativas o suficiente para que Bimba supostamente estudasse movimentos dos lutadores de Sinhozinho depois para incorporar em seu próprio estilo.
 
@@ -152,4 +152,4 @@ This profile documents Jurandir (Bimba 1949), who is **distinct from**:
 - No information about life before or after 1949
 - No photographs found
 
-**Cross-training note:** Sources mention Jurandir "also practiced judo," indicating the cross-training response to inter-style challenges that was becoming common among Bimba's fighters in the 1940s.
+**Cross-training note:** Sources mention Jurandir "also practiced judo", indicating the cross-training response to inter-style challenges that was becoming common among Bimba's fighters in the 1940s.

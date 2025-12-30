@@ -27,11 +27,11 @@
 
 Djalma Bandeira Lima was born in 1934 in Sergipe and spent the greater part of his life in the neighborhood of Olaria, in the northern suburbs of Rio de Janeiro. By profession, he was a tailor.
 
-He learned capoeira from Mestre Artur Emídio de Oliveira, becoming his very first student and building what writer André Lacé Lopes described as a partnership akin to "Don Quixote and Sancho Panza." This close professional and personal relationship would define much of his capoeira career.
+He learned capoeira from Mestre Artur Emídio de Oliveira, becoming his very first student and building what writer André Lacé Lopes described as a partnership akin to "Don Quixote and Sancho Panza". This close professional and personal relationship would define much of his capoeira career.
 
 A lover of martial arts, Djalma studied jiu-jitsu with the Gracie family in Copacabana, karate at the Kobucana academy on Largo da Carioca, and became an expert practitioner of Portuguese stick fighting (jogo do pau). This passion for combat sports led him to work as a professional fighter during the 1950s, though without much success. In one fight against Angelito Cruz, Djalma lost after his opponent applied a footlock. According to his student Mestre Vilmar, he eventually quit fighting to devote himself entirely to capoeira.
 
-His dedication resulted in a famous partnership with Artur Emídio. The two traveled together performing in shows on Brazilian popular culture, with both responsible for the capoeira aspect. Working with producers Abraão Medina and Carlos Machado, they performed throughout Brazil and internationally - in Buenos Aires, Acapulco, New York, Paris, cities in the Iberian Peninsula, and many other locations. Famous shows included "Capital Samba," "Skindô," and the musical "Arco-Íris," which featured artists such as Joãozinho da Goméia, Ary Barroso, and Mestre Paraná.
+His dedication resulted in a famous partnership with Artur Emídio. The two traveled together performing in shows on Brazilian popular culture, with both responsible for the capoeira aspect. Working with producers Abraão Medina and Carlos Machado, they performed throughout Brazil and internationally - in Buenos Aires, Acapulco, New York, Paris, cities in the Iberian Peninsula, and many other locations. Famous shows included "Capital Samba", "Skindô", and the musical "Arco-Íris", which featured artists such as Joãozinho da Goméia, Ary Barroso, and Mestre Paraná.
 
 In 1961, Djalma Bandeira and Artur Emídio participated in the official introduction of capoeira into the Brazilian Navy. Working with Lieutenant Lamartine Pereira da Costa, the duo assisted in teaching a course on the "methodology of teaching capoeira" to 208 officers and enlisted men at the Navy Sports Centre.
 
@@ -39,17 +39,17 @@ Despite his journey being marked by his partnership with Artur Emídio, Djalma e
 
 In 1975, he was appointed referee adviser to the Capoeira Directorate of the Brazilian Federation of Pugilism, participating in the early stages of regulating capoeira practice in Rio de Janeiro.
 
-Those who knew him described Djalma as "frank and sincere, almost rude, a good character, a good friend." He died in 1988, at approximately 54 years of age.
+Those who knew him described Djalma as "frank and sincere, almost rude, a good character, a good friend". He died in 1988, at approximately 54 years of age.
 
 ### Português
 
 Djalma Bandeira Lima nasceu em 1934 em Sergipe e passou a maior parte de sua vida no bairro de Olaria, nos subúrbios norte do Rio de Janeiro. De profissão, era alfaiate.
 
-Aprendeu capoeira com Mestre Artur Emídio de Oliveira, tornando-se seu primeiro aluno e construindo o que o escritor André Lacé Lopes descreveu como uma parceria semelhante a "Dom Quixote e Sancho Pança." Essa relação profissional e pessoal próxima definiria grande parte de sua carreira na capoeira.
+Aprendeu capoeira com Mestre Artur Emídio de Oliveira, tornando-se seu primeiro aluno e construindo o que o escritor André Lacé Lopes descreveu como uma parceria semelhante a "Dom Quixote e Sancho Pança". Essa relação profissional e pessoal próxima definiria grande parte de sua carreira na capoeira.
 
 Amante das artes marciais, Djalma estudou jiu-jitsu com a família Gracie em Copacabana, karatê na academia Kobucana no Largo da Carioca e tornou-se praticante especialista do jogo do pau português. Essa paixão por esportes de combate o levou a trabalhar como lutador profissional durante os anos 1950, embora sem muito sucesso. Em uma luta contra Angelito Cruz, Djalma perdeu após seu oponente aplicar uma chave de pé. Segundo seu aluno Mestre Vilmar, ele eventualmente abandonou as lutas para se dedicar inteiramente à capoeira.
 
-Sua dedicação resultou em uma famosa parceria com Artur Emídio. Os dois viajavam juntos se apresentando em shows sobre cultura popular brasileira, ambos responsáveis pelo aspecto de capoeira. Trabalhando com os produtores Abraão Medina e Carlos Machado, se apresentaram por todo o Brasil e internacionalmente - em Buenos Aires, Acapulco, Nova York, Paris, cidades da Península Ibérica e muitos outros locais. Shows famosos incluíram "Capital Samba," "Skindô" e o musical "Arco-Íris," com artistas como Joãozinho da Goméia, Ary Barroso e Mestre Paraná.
+Sua dedicação resultou em uma famosa parceria com Artur Emídio. Os dois viajavam juntos se apresentando em shows sobre cultura popular brasileira, ambos responsáveis pelo aspecto de capoeira. Trabalhando com os produtores Abraão Medina e Carlos Machado, se apresentaram por todo o Brasil e internacionalmente - em Buenos Aires, Acapulco, Nova York, Paris, cidades da Península Ibérica e muitos outros locais. Shows famosos incluíram "Capital Samba", "Skindô" e o musical "Arco-Íris", com artistas como Joãozinho da Goméia, Ary Barroso e Mestre Paraná.
 
 Em 1961, Djalma Bandeira e Artur Emídio participaram da introdução oficial da capoeira na Marinha do Brasil. Trabalhando com o Tenente Lamartine Pereira da Costa, a dupla auxiliou no ensino de um curso sobre a "metodologia de ensino de capoeira" para 208 oficiais e praças no Centro de Esportes da Marinha.
 
@@ -57,7 +57,7 @@ Apesar de sua trajetória ser marcada pela parceria com Artur Emídio, Djalma se
 
 Em 1975, foi nomeado conselheiro de arbitragem da Diretoria de Capoeira da Confederação Brasileira de Pugilismo, participando dos estágios iniciais da regulamentação da prática de capoeira no Rio de Janeiro.
 
-Aqueles que o conheciam descreviam Djalma como "franco e sincero, quase rude, de bom caráter, um bom amigo." Ele faleceu em 1988, com aproximadamente 54 anos de idade.
+Aqueles que o conheciam descreviam Djalma como "franco e sincero, quase rude, de bom caráter, um bom amigo". Ele faleceu em 1988, com aproximadamente 54 anos de idade.
 
 ## Achievements / Conquistas
 
@@ -69,7 +69,7 @@ Aqueles que o conheciam descreviam Djalma como "franco e sincero, quase rude, de
 - Founder of Grupo de Capoeira Djalma Bandeira at IAPC Residential Complex, Olaria
 - Appointed referee adviser to Capoeira Directorate of Brazilian Federation of Pugilism (1975)
 - Taught children free of charge in the northern suburbs of Rio de Janeiro
-- Featured performer in folklore shows "Capital Samba," "Skindô," and musical "Arco-Íris"
+- Featured performer in folklore shows "Capital Samba", "Skindô", and musical "Arco-Íris"
 - Part of founding generation of contemporary capoeira in Rio de Janeiro
 - Expert in Portuguese stick fighting (jogo do pau)
 
@@ -81,7 +81,7 @@ Aqueles que o conheciam descreviam Djalma como "franco e sincero, quase rude, de
 - Fundador do Grupo de Capoeira Djalma Bandeira no Conjunto Residencial do IAPC, Olaria
 - Nomeado conselheiro de arbitragem da Diretoria de Capoeira da Confederação Brasileira de Pugilismo (1975)
 - Ensinou crianças gratuitamente nos subúrbios norte do Rio de Janeiro
-- Artista em destaque nos shows folclóricos "Capital Samba," "Skindô" e musical "Arco-Íris"
+- Artista em destaque nos shows folclóricos "Capital Samba", "Skindô" e musical "Arco-Íris"
 - Parte da geração fundadora da capoeira contemporânea no Rio de Janeiro
 - Especialista em jogo do pau português
 

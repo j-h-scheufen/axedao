@@ -29,7 +29,7 @@ Pajéu's name appears in the historical record primarily through his ill-fated c
 
 ### The Confrontation
 
-The encounter became legendary for its swiftness and humiliation. Pajéu attacked Nascimento Grande with a peixeira (a type of knife used by sertanejos). According to multiple accounts, Nascimento Grande disarmed him in approximately two seconds—"tomou-lhe a peixeira em dois segundos."
+The encounter became legendary for its swiftness and humiliation. Pajéu attacked Nascimento Grande with a peixeira (a type of knife used by sertanejos). According to multiple accounts, Nascimento Grande disarmed him in approximately two seconds—"tomou-lhe a peixeira em dois segundos".
 
 What followed was not merely a beating but a theatrical demonstration of dominance: Nascimento Grande forced Pajéu to wear women's clothing and parade through the streets of Old Recife. The public humiliation was particularly severe because the prostitutes of Recife—who loved Nascimento Grande and despised Pajéu for his treatment of women—applauded and laughed at his disgrace.
 
@@ -45,7 +45,7 @@ Pajéu foi um valentão que veio do sertão pernambucano para Recife no final do
 
 O nome de Pajéu aparece no registro histórico principalmente através de seu desafio malogrado a Nascimento Grande. Como outros lutadores famosos de todo o Brasil—Pirajé do Pará, Manezinho Camisa Preta do Rio de Janeiro e João Sabe Tudo—Pajéu foi atraído a se testar contra o mais temido capoeirista de Pernambuco.
 
-O encontro tornou-se lendário por sua rapidez e humilhação. Pajéu atacou Nascimento Grande com uma peixeira (um tipo de faca usada pelos sertanejos). Segundo múltiplos relatos, Nascimento Grande o desarmou em aproximadamente dois segundos—"tomou-lhe a peixeira em dois segundos." O que se seguiu não foi meramente uma surra, mas uma demonstração teatral de dominância: Nascimento Grande obrigou Pajéu a vestir roupas de mulher e desfilar pelas ruas do Recife Velho.
+O encontro tornou-se lendário por sua rapidez e humilhação. Pajéu atacou Nascimento Grande com uma peixeira (um tipo de faca usada pelos sertanejos). Segundo múltiplos relatos, Nascimento Grande o desarmou em aproximadamente dois segundos—"tomou-lhe a peixeira em dois segundos". O que se seguiu não foi meramente uma surra, mas uma demonstração teatral de dominância: Nascimento Grande obrigou Pajéu a vestir roupas de mulher e desfilar pelas ruas do Recife Velho.
 
 A humilhação pública foi particularmente severa porque as prostitutas do Recife—que amavam Nascimento Grande e desprezavam Pajéu por seu tratamento das mulheres—aplaudiram e riram de sua desgraça. O incidente tornou-se parte da lenda de Nascimento Grande: um homem que não apenas derrotava seus desafiantes, mas o fazia de maneiras que reforçavam códigos sociais, punindo aqueles que abusavam de mulheres ou falsamente reivindicavam habilidade marcial.
 

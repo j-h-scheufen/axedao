@@ -50,9 +50,9 @@ INSERT INTO genealogy.person_profiles (
   -- bio_en
   E'Neco Canário Pardo was a capoeirista of Santo Amaro da Purificação who specialized in machete fighting. He was part of the legendary circle of capoeiristas at Trapiche de Baixo—Santo Amaro''s poorest neighborhood—who trained and played alongside the famous Besouro Mangangá in the early 20th century.
 
-According to Professor Leiteiro, Neco Canário Pardo was among the companions of Besouro alongside Paulo Barroquinha, Boca de Siri, Noca de Jacó, and Doze Homens. All were residents of Trapiche de Baixo and "were his companions in the memorable capoeira rodas that hypnotized anybody who would go by."
+According to Professor Leiteiro, Neco Canário Pardo was among the companions of Besouro alongside Paulo Barroquinha, Boca de Siri, Noca de Jacó, and Doze Homens. All were residents of Trapiche de Baixo and "were his companions in the memorable capoeira rodas that hypnotized anybody who would go by".
 
-His significance extends through his students. Mestre Cobrinha Verde, Besouro''s cousin and the bridge between the legendary era and documented lineage, explicitly named Neco Canário Pardo as his machete teacher: "Neco Canário Pardo was my machete teacher." This specialized knowledge in blade combat complemented Cobrinha''s capoeira training under Besouro.
+His significance extends through his students. Mestre Cobrinha Verde, Besouro''s cousin and the bridge between the legendary era and documented lineage, explicitly named Neco Canário Pardo as his machete teacher: "Neco Canário Pardo was my machete teacher". This specialized knowledge in blade combat complemented Cobrinha''s capoeira training under Besouro.
 
 Neco Canário Pardo also taught Mestre Waldemar da Paixão (1916-1990), who would become one of the most influential capoeira Angola mestres of his generation. Waldemar stated: "I learned Capoeira from Siri de Mangue, Canário Pardo, Calabi de Periperi..." This places Neco Canário Pardo as a critical lineage figure connecting the era of Besouro to the modern academy structure that emerged in Salvador.
 
@@ -62,9 +62,9 @@ Unlike his student Cobrinha Verde who went on to teach publicly and leave detail
   -- bio_pt
   E'Neco Canário Pardo foi um capoeirista de Santo Amaro da Purificação especializado em luta com facão. Fazia parte do lendário círculo de capoeiristas do Trapiche de Baixo—o bairro mais pobre de Santo Amaro—que treinavam e jogavam ao lado do famoso Besouro Mangangá no início do século XX.
 
-Segundo o Professor Leiteiro, Neco Canário Pardo estava entre os companheiros de Besouro junto com Paulo Barroquinha, Boca de Siri, Noca de Jacó e Doze Homens. Todos eram moradores do Trapiche de Baixo e "eram seus companheiros nas memoráveis rodas de capoeira que hipnotizavam qualquer um que passasse."
+Segundo o Professor Leiteiro, Neco Canário Pardo estava entre os companheiros de Besouro junto com Paulo Barroquinha, Boca de Siri, Noca de Jacó e Doze Homens. Todos eram moradores do Trapiche de Baixo e "eram seus companheiros nas memoráveis rodas de capoeira que hipnotizavam qualquer um que passasse".
 
-Sua importância se estende através de seus alunos. Mestre Cobrinha Verde, primo de Besouro e ponte entre a era lendária e a linhagem documentada, explicitamente nomeou Neco Canário Pardo como seu mestre de facão: "Neco Canário Pardo foi meu mestre de facão." Este conhecimento especializado em combate com lâminas complementava o treinamento de capoeira de Cobrinha sob Besouro.
+Sua importância se estende através de seus alunos. Mestre Cobrinha Verde, primo de Besouro e ponte entre a era lendária e a linhagem documentada, explicitamente nomeou Neco Canário Pardo como seu mestre de facão: "Neco Canário Pardo foi meu mestre de facão". Este conhecimento especializado em combate com lâminas complementava o treinamento de capoeira de Cobrinha sob Besouro.
 
 Neco Canário Pardo também ensinou Mestre Waldemar da Paixão (1916-1990), que se tornaria um dos mestres de capoeira Angola mais influentes de sua geração. Waldemar declarou: "Aprendi Capoeira com Siri de Mangue, Canário Pardo, Calabi de Periperi..." Isso coloca Neco Canário Pardo como uma figura crucial de linhagem conectando a era de Besouro à estrutura moderna de academias que surgiu em Salvador.
 
@@ -82,7 +82,7 @@ DEATH DATE: Unknown.
 
 NAME VARIATION: Some sources list "Neco" and "Canário Pardo" as separate individuals, while Cobrinha Verde''s direct testimony treats "Neco Canário Pardo" as a single person. We follow Cobrinha''s testimony as the primary source.
 
-BROTHER: According to some sources, Mestre Atenilo ("Relâmpago da Regional") was his brother and may have been known as "Cordão de Ouro." However, Mestre Waldemar attributed the name Cordão de Ouro to Besouro himself. This remains disputed.
+BROTHER: According to some sources, Mestre Atenilo ("Relâmpago da Regional") was his brother and may have been known as "Cordão de Ouro". However, Mestre Waldemar attributed the name Cordão de Ouro to Besouro himself. This remains disputed.
 
 LOCATION: Active in Trapiche de Baixo, described as the poorest neighborhood of Santo Amaro da Purificação.
 
@@ -98,7 +98,7 @@ DATA DE MORTE: Desconhecida.
 
 VARIAÇÃO DE NOME: Algumas fontes listam "Neco" e "Canário Pardo" como indivíduos separados, enquanto o testemunho direto de Cobrinha Verde trata "Neco Canário Pardo" como uma única pessoa. Seguimos o testemunho de Cobrinha como fonte primária.
 
-IRMÃO: Segundo algumas fontes, Mestre Atenilo ("Relâmpago da Regional") era seu irmão e pode ter sido conhecido como "Cordão de Ouro." No entanto, Mestre Waldemar atribuiu o nome Cordão de Ouro ao próprio Besouro. Isto permanece disputado.
+IRMÃO: Segundo algumas fontes, Mestre Atenilo ("Relâmpago da Regional") era seu irmão e pode ter sido conhecido como "Cordão de Ouro". No entanto, Mestre Waldemar atribuiu o nome Cordão de Ouro ao próprio Besouro. Isto permanece disputado.
 
 LOCAL: Ativo no Trapiche de Baixo, descrito como o bairro mais pobre de Santo Amaro da Purificação.
 

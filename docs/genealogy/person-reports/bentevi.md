@@ -33,9 +33,9 @@ Whether the capoeirista earned this name for his bold appearance, loud presence,
 
 ### English
 
-Bentevi - also written as "Bem-te-vi" - was one of the "perigosos capoeiras" (dangerous capoeiristas) of mid-19th century Rio de Janeiro. His name survives in two of the earliest written sources on capoeira: Plácido de Abreu's 1886 work "Os Capoeiras" and Melo Morais Filho's 1888 "Festas e Tradições Populares do Brasil."
+Bentevi - also written as "Bem-te-vi" - was one of the "perigosos capoeiras" (dangerous capoeiristas) of mid-19th century Rio de Janeiro. His name survives in two of the earliest written sources on capoeira: Plácido de Abreu's 1886 work "Os Capoeiras" and Melo Morais Filho's 1888 "Festas e Tradições Populares do Brasil".
 
-Both sources list Bentevi among the most feared street fighters of the 1850s, alongside Mamede, Aleixo Açougueiro, Pedro Cobra, and Quebra Coco. According to these accounts, the legendary Manduca da Praia "attended the full-time school of roguery and bravery on the streets of Rio de Janeiro during the era of dangerous capoeiras such as Mamede, Aleixo Açougueiro, Pedro Cobra, Bem-te-vi, and Quebra Coco."
+Both sources list Bentevi among the most feared street fighters of the 1850s, alongside Mamede, Aleixo Açougueiro, Pedro Cobra, and Quebra Coco. According to these accounts, the legendary Manduca da Praia "attended the full-time school of roguery and bravery on the streets of Rio de Janeiro during the era of dangerous capoeiras such as Mamede, Aleixo Açougueiro, Pedro Cobra, Bem-te-vi, and Quebra Coco".
 
 No individual exploits of Bentevi survive. He exists now only as a name on a list of dangerous men - but the bem-te-vi bird continues to sing throughout Brazil, carrying his memory in its name.
 

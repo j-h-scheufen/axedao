@@ -26,7 +26,7 @@
 
 Bernardo José de Cosme was a mestre of batuque in the Recôncavo region of Bahia, based in and around Jaguaripe. He was described by his student Tiburcinho as "mestre da arte na sua região" (master of the art in his region), indicating his recognized status as the leading practitioner of batuque in that area during the late 19th century.
 
-According to Velhos Mestres, Bernardo was "a respected figure in Jaguaripe for his spirited nature and as a fighter among the best of that era." He was associated with batuque presentations at religious festivals in the Jaguaripe region, where these Afro-Brazilian combat traditions were displayed during church celebrations.
+According to Velhos Mestres, Bernardo was "a respected figure in Jaguaripe for his spirited nature and as a fighter among the best of that era". He was associated with batuque presentations at religious festivals in the Jaguaripe region, where these Afro-Brazilian combat traditions were displayed during church celebrations.
 
 Batuque was a leg-based combat form similar to capoeira, practiced in municipalities including Jaguaripe, Nazaré, Cachoeira, Santo Amaro, and Salvador. As Tiburcinho explained in his 1970 interview with Jair Moura, batuque was "um jogo cuja competição era formada por dois contendores, tendo o ponto fundamental de defesa os órgãos sexuais, devido à violência dos golpes" (a game whose competition was formed by two contenders, with the fundamental point of defense being the sexual organs, due to the violence of the blows). The practice included techniques such as "coxa lisa acompanhada" (accompanied smooth thigh), "cruzo de carreiro" (cross of the cart driver), "banda amarrada" (tied sweep), and "baú" (trunk—a destabilizing strike).
 
@@ -38,9 +38,9 @@ Jaguaripe had a significant enslaved population during Bernardo's era—725 ensl
 
 Bernardo José de Cosme foi um mestre de batuque na região do Recôncavo baiano, baseado em Jaguaripe e arredores. Ele foi descrito por seu aluno Tiburcinho como "mestre da arte na sua região", indicando seu status reconhecido como o principal praticante de batuque naquela área durante o final do século XIX.
 
-Segundo o Velhos Mestres, Bernardo era "uma figura respeitada em Jaguaripe pelo seu espírito arrojado e como lutador entre os melhores daquela época." Ele estava associado a apresentações de batuque nas festas religiosas da região de Jaguaripe, onde essas tradições de combate afro-brasileiras eram exibidas durante as celebrações das igrejas.
+Segundo o Velhos Mestres, Bernardo era "uma figura respeitada em Jaguaripe pelo seu espírito arrojado e como lutador entre os melhores daquela época". Ele estava associado a apresentações de batuque nas festas religiosas da região de Jaguaripe, onde essas tradições de combate afro-brasileiras eram exibidas durante as celebrações das igrejas.
 
-O batuque era uma forma de combate baseada em golpes de perna, semelhante à capoeira, praticada em municípios como Jaguaripe, Nazaré, Cachoeira, Santo Amaro e Salvador. Como Tiburcinho explicou em sua entrevista de 1970 com Jair Moura, o batuque era "um jogo cuja competição era formada por dois contendores, tendo o ponto fundamental de defesa os órgãos sexuais, devido à violência dos golpes destinado ao desequilíbrio de cada um dos lutadores." A prática incluía técnicas como "coxa lisa acompanhada", "cruzo de carreiro", "banda amarrada" e "baú" (golpe desestabilizador).
+O batuque era uma forma de combate baseada em golpes de perna, semelhante à capoeira, praticada em municípios como Jaguaripe, Nazaré, Cachoeira, Santo Amaro e Salvador. Como Tiburcinho explicou em sua entrevista de 1970 com Jair Moura, o batuque era "um jogo cuja competição era formada por dois contendores, tendo o ponto fundamental de defesa os órgãos sexuais, devido à violência dos golpes destinado ao desequilíbrio de cada um dos lutadores". A prática incluía técnicas como "coxa lisa acompanhada", "cruzo de carreiro", "banda amarrada" e "baú" (golpe desestabilizador).
 
 O principal aluno documentado de Bernardo foi Tibúrcio José de Santana (Tiburcinho), que depois se mudou para Salvador e se tornou crucial na preservação de cantigas tradicionais e da coreografia do maculelê para Mestre Bimba. Através de Tiburcinho, o legado de Bernardo se conecta à tradição maior da capoeira.
 
@@ -63,7 +63,7 @@ Jaguaripe tinha uma população escravizada significativa durante a época de Be
 ## Style Notes / Notas de Estilo
 
 ### English
-Bernardo practiced batuque, not capoeira. Batuque was a leg-based combat form where practitioners defended the genital region and inner thighs against powerful strikes aimed at unbalancing the opponent. The techniques included "coxa lisa acompanhada", "cruzo de carreiro", "banda amarrada", and "baú." Competitions were held at religious festivals in Jaguaripe and Nazaré, accompanied by pandeiro and tambaque (war drum).
+Bernardo practiced batuque, not capoeira. Batuque was a leg-based combat form where practitioners defended the genital region and inner thighs against powerful strikes aimed at unbalancing the opponent. The techniques included "coxa lisa acompanhada", "cruzo de carreiro", "banda amarrada", and "baú". Competitions were held at religious festivals in Jaguaripe and Nazaré, accompanied by pandeiro and tambaque (war drum).
 
 Batuque was later incorporated into Capoeira Regional by Mestre Bimba, whose father was a famous batuqueiro. The art has since been absorbed into capoeira and no longer exists as a separate tradition.
 

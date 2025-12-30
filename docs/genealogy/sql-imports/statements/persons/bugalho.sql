@@ -40,8 +40,8 @@ SELECT
   NULL, NULL,
   '{"association_context": "recognized as legendary pure Angola capoeirista"}'::jsonb, 'verified'::genealogy.confidence,
   'velhosmestres.com/en/pastinha-1967, pastinha.md',
-  E'In 1967, Mestre Pastinha listed Bugalho among deceased practitioners of "pure Capoeira de Angola." This establishes Bugalho was recognized by Pastinha as a legendary figure in traditional capoeira.',
-  E'Em 1967, Mestre Pastinha listou Bugalho entre os praticantes falecidos da "pura Capoeira de Angola." Isso estabelece que Bugalho era reconhecido por Pastinha como figura lendária na capoeira tradicional.'
+  E'In 1967, Mestre Pastinha listed Bugalho among deceased practitioners of "pure Capoeira de Angola". This establishes Bugalho was recognized by Pastinha as a legendary figure in traditional capoeira.',
+  E'Em 1967, Mestre Pastinha listou Bugalho entre os praticantes falecidos da "pura Capoeira de Angola". Isso estabelece que Bugalho era reconhecido por Pastinha como figura lendária na capoeira tradicional.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Bugalho' AND o.apelido = 'Pastinha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
