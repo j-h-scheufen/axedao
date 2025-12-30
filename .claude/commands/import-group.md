@@ -169,9 +169,10 @@ As you research, you will discover persons and other groups. Track them:
 Create a list of persons mentioned (founders, leaders, teachers, notable members):
 ```
 ## Discovered Persons (for later import)
-| Apelido | Full Name | Title | Relationship to Group | Already in Dataset? |
-|---------|-----------|-------|----------------------|---------------------|
-| Camisa | José Tadeu Carneiro Cardoso | mestre | founded group | check |
+| Type | Apelido | Full Name | Title/Role | Relationship to Group | Already in Dataset? | Import? |
+|------|---------|-----------|------------|----------------------|---------------------|---------|
+| person | Camisa | José Tadeu Carneiro Cardoso | Mestre | founded group | check | yes |
+| spiritual | Mãe Stella | Maria Stella de Azevedo Santos | Ialorixá | terreiro partnership | no | ? |
 ```
 
 Mark "Already in Dataset?" as:
@@ -179,14 +180,38 @@ Mark "Already in Dataset?" as:
 - `no` - needs future import
 - `check` - **ask me** if you're unsure
 
+Mark "Import?" as:
+- `yes` - Capoeira entity, should be imported
+- `no` - Not capoeira AND not spiritually connected—do not add to backlog
+- `?` - Needs investigation OR **spiritual/religious influence** to track
+
 #### Discovered Groups
 Create a list of related groups mentioned:
 ```
 ## Discovered Groups (for later import)
-| Name | Style | Relationship to Subject | Already in Dataset? |
-|------|-------|-------------------------|---------------------|
-| Grupo Senzala | mixed | parent group (split_from) | check |
+| Type | Name | Style | Relationship to Subject | Already in Dataset? | Import? |
+|------|------|-------|-------------------------|---------------------|---------|
+| group | Grupo Senzala | mixed | parent group (split_from) | check | yes |
+| terreiro | Ilê Axé Opô Afonjá | - | spiritual partnership | no | ? |
 ```
+
+#### Spiritual/Religious Influence Tracking
+
+Track ALL religious figures and sacred spaces connected to the group:
+
+**What to capture:**
+- **Candomblé/Umbanda figures**: Ialorixás, Babalorixás, Ogãs with documented group connections
+- **Terreiros**: Sacred spaces where the group trained, held events, or had formal partnerships
+- **Spiritual advisors**: Religious figures who blessed, advised, or initiated group leaders
+
+**How to track:**
+1. Use Type = `spiritual` for religious figures, `terreiro` for sacred spaces
+2. Mark Import? = `?` (these need data model evaluation)
+3. In Notes/Relationship column, include:
+   - Religion/tradition (Candomblé Ketu, Umbanda, etc.)
+   - Nature of connection (partnership, blessing, terreiro host, spiritual advisor)
+
+**Why this matters:** Many capoeira groups have deep spiritual roots (e.g., Bimba's connection to Terreiro Oiá Padê, GCAC's partnership with Ilê Axé Opô Afonjá). Tracking ensures this cultural context is preserved.
 
 ---
 
@@ -560,9 +585,13 @@ After completing research and generating the report, you MUST perform these file
    - Reference the SQL import file path
    - If file already exists, UPDATE it with new research (preserve existing content, add new findings)
 
-4. **Update persons backlog**: If any persons were discovered with status `no`, append them to `docs/genealogy/import-backlog/persons-backlog.md`
+4. **Update persons backlog**: If any persons were discovered with Import? = `yes` or `?`, append them to `docs/genealogy/import-backlog/persons-backlog.md`
 
-5. **Update groups backlog**: If any groups were discovered with status `no`, append them to `docs/genealogy/import-backlog/groups-backlog.md`
+5. **Update groups backlog**: If any groups were discovered with Import? = `yes` or `?`, append them to `docs/genealogy/import-backlog/groups-backlog.md`
+
+6. **Update spiritual backlog**: If any spiritual figures or terreiros were discovered (Type = `spiritual` or `terreiro`), append them to `docs/genealogy/import-backlog/spiritual-backlog.md`
+   - Format: `| Name | Role | Tradition | Connected To (Group/Mestre) | Status | Notes |`
+   - Example: `| Ilê Axé Opô Afonjá | Terreiro | Candomblé Ketu | GCAC / Barba Branca | pending | Youth capoeira program 1993-2021 |`
 
 **Failure to write the SQL files AND the group report file is a critical error. ALL must be saved to disk.**
 

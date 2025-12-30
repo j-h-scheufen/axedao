@@ -1,0 +1,29 @@
+-- ============================================================
+-- STATEMENTS FOR: Popó do Maculelê
+-- Generated: 2025-12-29
+-- ============================================================
+-- Contains all relationships where Popó do Maculelê is the SUBJECT.
+-- NOTE: Popó has no documented formal teacher-student relationships
+-- where he was the student of a capoeira mestre. His teachers were
+-- maculelê masters from the formerly enslaved Malê community who
+-- are not in our capoeira genealogy database.
+-- ============================================================
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- No pending statements with Popó as subject.
+--
+-- NOTE: The relationship "Gato (Senzala) influenced_by Popó" belongs
+-- in gato-senzala.sql (where Gato is the SUBJECT). This file only
+-- contains statements where Popó is the SUBJECT.
+--
+-- DESCENDANTS (not formal capoeira lineage):
+-- - Zezinho (son) - needs import for maculelê lineage tracking
+-- - Vivi de Popó (grandson) - needs import for maculelê lineage tracking
+-- - Mestre Tampinha (great-great-grandson) - needs import
+--
+-- GROUP FOUNDED:
+-- - Conjunto de Maculelê de Santo Amaro (1943) - group needs import
+--
+-- ============================================================

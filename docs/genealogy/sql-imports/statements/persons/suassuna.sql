@@ -190,20 +190,36 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Suassuna' AND o.apelido = 'Brasília'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- Suassuna student_of Maneca Brandão (primary teacher in Itabuna ~1957-1958)
+-- NOTE: "Maneca" and "Maneca Brandão" are THE SAME PERSON - consolidated entry
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1957-01-01'::date, 'year'::genealogy.date_precision,
+  '1958-12-31'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'https://velhosmestres.com/en/featured-23, https://cdosergipe.wixsite.com/cdosergipe/mestre-suassuna',
+  'Primary teacher in Itabuna (~1957-1958). Maneca Brandão was a student of Mestre Bimba and classmate of Zoião. He taught at Major Dória''s academy and in street rodas. Suassuna first encountered capoeira through Maneca in street rodas before training formally at the academy.',
+  'Professor principal em Itabuna (~1957-1958). Maneca Brandão era aluno de Mestre Bimba e colega de turma de Zoião. Ele ensinava na academia do Major Dória e nas rodas de rua. Suassuna conheceu a capoeira através de Maneca nas rodas de rua antes de treinar formalmente na academia.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Suassuna' AND o.apelido = 'Maneca Brandão'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
--- Suassuna student_of Maneca (primary teacher in Itabuna ~1957-1958)
---   Mestre Maneca was student of Bimba and Zoião; taught Suassuna in Itabuna
---   --> Add Mestre Maneca to backlog
 -- Suassuna trained_under Sururú (Itabuna, 1950s)
 --   --> Add Mestre Sururú to backlog
 -- Suassuna trained_under Bigode de Arame (Itabuna, 1950s)
 --   --> Add Mestre Bigode de Arame to backlog
 -- Suassuna trained_under Tonho Rale (Itabuna, 1950s)
 --   --> Add Mestre Tonho Rale to backlog
--- Suassuna trained_under Maneca Brandão (Itabuna, 1950s)
---   --> Add Mestre Maneca Brandão to backlog
 -- Suassuna founded Cordão de Ouro (1967)
 --   --> Cordão de Ouro is in groups-backlog
 -- Suassuna co_founded Cordão de Ouro (1967)

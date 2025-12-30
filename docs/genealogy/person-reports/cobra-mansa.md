@@ -26,7 +26,7 @@
 
 Cinézio Feliciano Peçanha was born on May 19, 1960, in Duque de Caxias, a city near Rio de Janeiro. His childhood was marked by struggle—he worked as a street performer doing acrobatic tricks to survive. As a circus street vendor at Circo Picolino, he developed the physical skills that would later define his capoeira.
 
-In 1973, at thirteen years old, he began learning capoeira in his neighborhood with Josias da Silva and Raimundo. He played in the Duque de Caxias street rodas and co-founded the Caxias Street Roda with Rogerio Russo and Peixinho de Caxias—a roda that continues to this day.
+In 1973, at thirteen years old, he began learning capoeira in his neighborhood with Josias da Silva and Raimundo. He played in the Duque de Caxias street rodas and co-founded the Caxias Street Roda with Mestre Russo (Jonas Rabelo) and Mestre Peixe (Itamar da Silva Barbosa)—a roda that continues to this day as the Roda Livre de Caxias.
 
 In 1974, everything changed. Cobra Mansa witnessed Mestre Moraes play in the Roda of Central Brazil and was so captivated that he became his student. This relationship would define his trajectory. He followed Moraes when the mestre went to Belo Horizonte, where Cobra Mansa worked as a police officer for two years (1979-1981).
 
@@ -50,7 +50,7 @@ In 2023, Cobra Mansa officially joined Mukânda Capoeira Angola, a collective fo
 
 Cinézio Feliciano Peçanha nasceu em 19 de maio de 1960, em Duque de Caxias, cidade próxima ao Rio de Janeiro. Sua infância foi marcada pela luta—trabalhava como artista de rua fazendo truques acrobáticos para sobreviver. Como vendedor ambulante no Circo Picolino, desenvolveu as habilidades físicas que mais tarde definiriam sua capoeira.
 
-Em 1973, aos treze anos, começou a aprender capoeira em seu bairro com Josias da Silva e Raimundo. Jogava nas rodas de rua de Duque de Caxias e co-fundou a Roda de Caxias com Rogerio Russo e Peixinho de Caxias—uma roda que continua até hoje.
+Em 1973, aos treze anos, começou a aprender capoeira em seu bairro com Josias da Silva e Raimundo. Jogava nas rodas de rua de Duque de Caxias e co-fundou a Roda de Caxias com Mestre Russo (Jonas Rabelo) e Mestre Peixe (Itamar da Silva Barbosa)—uma roda que continua até hoje como Roda Livre de Caxias.
 
 Em 1974, tudo mudou. Cobra Mansa viu Mestre Moraes jogar na Roda do Central do Brasil e ficou tão cativado que se tornou seu aluno. Essa relação definiria sua trajetória. Ele seguiu Moraes quando o mestre foi para Belo Horizonte, onde Cobra Mansa trabalhou como policial por dois anos (1979-1981).
 
@@ -148,9 +148,9 @@ FICA-trained mestres and key students:
 - **Mestre Jurandir Nascimento** - Co-founded FICA 1995/1996; president of ICAF
 - **Mestre Valmir** (Valmir Santos Damasceno) - Co-founded FICA 1995/1996; leads FICA-Salvador
 
-### Co-founders of Caxias Street Roda
-- **Rogerio Russo** - Co-founded Roda de Caxias
-- **Peixinho de Caxias** - Co-founded Roda de Caxias
+### Co-founders of Roda Livre de Caxias
+- **Russo (Jonas Rabelo)** - Mestre Russo de Caxias; "zelador" (caretaker) of the roda; trained under Mestre Barbosa 1972-1976
+- **Peixe (Itamar da Silva Barbosa)** - Mestre Peixe de Caxias (1959-2025); trained under Mestre Barbosa from ~1972; co-founded Grupo Cosmos and GUCA
 
 ### Academic Collaborators
 - **Prof. Matthias Röhrig Assunção** (University of Essex) - Principal Investigator on Angolan roots project; co-director of "Jogo de Corpo" documentary

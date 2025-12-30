@@ -5,6 +5,20 @@
 -- Contains all relationships where Rogério is the SUBJECT.
 -- ============================================================
 
+-- ============================================================
+-- CLEANUP: Remove obsolete statement from production
+-- The self-referential cultural_pioneer_of statement was semantically incorrect
+-- and has been removed from this file. This DELETE removes it from the database.
+-- ============================================================
+DELETE FROM genealogy.statements
+WHERE subject_type = 'person'::genealogy.entity_type
+  AND predicate = 'cultural_pioneer_of'::genealogy.predicate
+  AND subject_id = object_id  -- Self-referential statement
+  AND subject_id IN (
+    SELECT id FROM genealogy.person_profiles
+    WHERE apelido = 'Rogério' AND COALESCE(apelido_context, '') = ''
+  );
+
 -- Rogério received_title_from Moraes (1989)
 INSERT INTO genealogy.statements (
   subject_type, subject_id, predicate, object_type, object_id,
@@ -92,28 +106,6 @@ SELECT
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Rogério' AND COALESCE(s.apelido_context, '') = ''
   AND o.apelido = 'Cobra Mansa' AND COALESCE(o.apelido_context, '') = ''
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
--- Rogério cultural_pioneer_of Germany (1990)
--- Note: One of the first to bring Capoeira Angola to Germany
-INSERT INTO genealogy.statements (
-  subject_type, subject_id, predicate, object_type, object_id,
-  started_at, started_at_precision, ended_at, ended_at_precision,
-  properties, confidence, source, notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'cultural_pioneer_of'::genealogy.predicate,
-  'person'::genealogy.entity_type, s.id, -- Self-referential for country pioneering
-  '1990-05-01'::date, 'month'::genealogy.date_precision,
-  NULL, NULL,
-  '{"country": "Germany", "context": "One of the first to bring Capoeira Angola to Germany. Arrived May 1990, founded ACAD 1992 in Kassel."}'::jsonb,
-  'verified'::genealogy.confidence,
-  'https://casadobrada.wordpress.com/mestre-rogerio-en/',
-  E'Pioneer of Capoeira Angola in Germany. Arrived May 1990, founded ACAD in Kassel 1992—one of the first Capoeira Angola organizations in Europe.',
-  E'Pioneiro da Capoeira Angola na Alemanha. Chegou em maio de 1990, fundou a ACAD em Kassel em 1992—uma das primeiras organizações de Capoeira Angola na Europa.'
-FROM genealogy.person_profiles s
-WHERE s.apelido = 'Rogério' AND COALESCE(s.apelido_context, '') = ''
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================

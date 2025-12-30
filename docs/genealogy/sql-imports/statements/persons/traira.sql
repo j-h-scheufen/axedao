@@ -151,6 +151,29 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Traíra' AND o.apelido = 'Gato Preto'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- ------------------------------------------------------------
+-- Traíra trained_under Severo do Pelourinho
+-- Mentioned by Traíra as another teacher; timing unknown
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  NULL, NULL,
+  '{}'::jsonb, 'unverified'::genealogy.confidence,
+  'velhosmestres.com/en/featured-37 (Traíra profile)',
+  'Traíra "later told that had also learned from Severo do Pelourinho" according to velhosmestres.com. No other details documented - neither timing, location, nor nature of training. Severo is a Layer Zero figure known only from this single indirect reference.',
+  'Traíra "mais tarde disse que também aprendeu com Severo do Pelourinho" segundo velhosmestres.com. Nenhum outro detalhe documentado - nem momento, local, nem natureza do treinamento. Severo é uma figura de Camada Zero conhecida apenas por esta única referência indireta.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Traíra' AND o.apelido = 'Severo do Pelourinho'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
@@ -159,12 +182,6 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Traíra member_of Roda de São Félix - PENDING
 -- Participated in Juvêncio's dock rodas (~1938) before formal training with Waldemar
 -- Group 'Roda de São Félix (Juvêncio)' needs import first - see groups-backlog.md
-
--- PERSON RELATIONSHIPS
--- Traíra trained_under Severo do Pelourinho - PENDING
--- Mentioned by Traíra as another teacher
--- Little is known about Severo do Pelourinho
--- Object 'Severo do Pelourinho' needs import first - see persons-backlog.md
 
 -- Note: Barba Branca's student_of Traíra relationship should be in barba-branca.sql
 -- when that person is imported (per ownership rule: statement goes in subject's file)

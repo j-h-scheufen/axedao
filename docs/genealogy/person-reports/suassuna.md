@@ -45,7 +45,7 @@ In 1972, Mestre Bimba visited São Paulo and formally recognized Suassuna's work
 
 In 1974, Suassuna organized the first Capoeira Festival of São Paulo State - a milestone in the institutionalization of capoeira in the region.
 
-In 1975, Suassuna recorded his first LP, "Capoeira Cordão de Ouro," with musician Dirceu, featuring twelve tracks of classic capoeira songs.
+In 1975, Suassuna recorded his first LP, "Capoeira Cordão de Ouro", with musician Dirceu, featuring twelve tracks of classic capoeira songs.
 
 In September 1986, Suassuna participated as a chorus member in the landmark recording session with Mestres Waldemar and Canjiquinha at Boca do Rio, Salvador. This 34-track album, documented by Mestre Itapoan, preserved traditional Bahian capoeira music.
 
@@ -79,7 +79,7 @@ Em 1972, Mestre Bimba visitou São Paulo e reconheceu formalmente o trabalho de 
 
 Em 1974, Suassuna organizou o primeiro Festival de Capoeira do Estado de São Paulo - um marco na institucionalização da capoeira na região.
 
-Em 1975, Suassuna gravou seu primeiro LP, "Capoeira Cordão de Ouro," com o músico Dirceu, apresentando doze faixas de músicas clássicas de capoeira.
+Em 1975, Suassuna gravou seu primeiro LP, "Capoeira Cordão de Ouro", com o músico Dirceu, apresentando doze faixas de músicas clássicas de capoeira.
 
 Em setembro de 1986, Suassuna participou como membro do coro na gravação histórica com Mestres Waldemar e Canjiquinha em Boca do Rio, Salvador. Este álbum de 34 faixas, documentado por Mestre Itapoan, preservou a música tradicional de capoeira baiana.
 
@@ -147,11 +147,10 @@ O Miudinho é caracterizado por movimentos próximos e intrincados com os jogado
 
 ## Teachers / Mestres
 
-- **Mestre Maneca** - Primary teacher in Itabuna (~1957-1958); student of Mestre Bimba and Zoião
-- **Mestre Sururú** - Itabuna, 1950s street rodas
+- **Mestre Maneca Brandão** - Primary teacher in Itabuna (~1957-1958); student of Mestre Bimba (classmate of Zoião); son of Ubaldino (former Itabuna mayor); white; instructor at Major Dória's academy (1958); author of "O Canto da Iúna – A Saga de um Capoeira". NOTE: The original report listed "Mestre Maneca" and "Mestre Maneca Brandão" as two separate people - they are the same person.
+- **Mestre Sururú** - Itabuna, 1950s street rodas; recruited young Suassuna by bicycle
 - **Mestre Bigode de Arame** - Itabuna, 1950s street rodas
 - **Mestre Tonho Rale** - Itabuna, 1950s street rodas
-- **Mestre Maneca Brandão** - Itabuna, 1950s street rodas
 - **Mestre Bimba (Manuel dos Reis Machado)** - Visited terreiro in Salvador; primary influence; recognized Suassuna as mestre (1972)
 - **Mestre Canjiquinha (Washington Bruno da Silva)** - Visited terreiro in Salvador; influenced artistic career; recognized Suassuna as mestre
 - **Mestre Pastinha (Vicente Ferreira Pastinha)** - Visited terreiro in Salvador
@@ -168,7 +167,7 @@ O Miudinho é caracterizado por movimentos próximos e intrincados com os jogado
 - **Mestre Belisco** - 1970s
 - **Mestre Almir das Areias** - 1970s
 - **Mestre Caio** - 1970s
-- **Luís Medicina, Miguel, Aberrê, Risadinha, Tihane, Biriba, Dal, Zé Carlos, Quebrinha, Flávio Tucano, Marcelo "Caveirinha," Sarará, Urubu Malandro, Zé Antônio, Ponciano, Canguru, Espirro-Mirim, Tião, Xavier, Sampaio**
+- **Luís Medicina, Miguel, Aberrê, Risadinha, Tihane, Biriba, Dal, Zé Carlos, Quebrinha, Flávio Tucano, Marcelo "Caveirinha", Sarará, Urubu Malandro, Zé Antônio, Ponciano, Canguru, Espirro-Mirim, Tião, Xavier, Sampaio**
 
 ### Geração Miudinho (1990s)
 - **Boca Rica, Habibs, Mintirinha, Kibe, Denis, Saroba, Coruja, Chicote, Chiclete, Kino, Pintado, Lú Pimenta, Barata, Esquilo, Romualdo** - Known for rich, plastic movements
@@ -192,7 +191,7 @@ O Miudinho é caracterizado por movimentos próximos e intrincados com os jogado
 
 | Year / Ano | Album / Álbum | Notes / Notas |
 |------------|---------------|---------------|
-| 1975 | Capoeira Cordão de Ouro | LP with Dirceu; 12 tracks including "Capoeira de São Salvador," "São Bento Grande," "Quando eu morre, disse Besouro" |
+| 1975 | Capoeira Cordão de Ouro | LP with Dirceu; 12 tracks including "Capoeira de São Salvador", "São Bento Grande", "Quando eu morre, disse Besouro" |
 | Various | Capoeirando 2004 | Event recording |
 | Various | As 21 Melhores | Compilation |
 | Various | Volume 4 | |

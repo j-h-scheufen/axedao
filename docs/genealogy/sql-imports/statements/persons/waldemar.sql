@@ -102,6 +102,44 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Waldemar' AND o.apelido = 'Ricardo de Ilha de Maré'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- ============================================================
+-- DISPUTED: Besouro Gago as fifth teacher
+-- ============================================================
+-- Source: Grupo Liberdade Capoeira website lists Besouro Gago
+-- as one of Waldemar's teachers alongside the four confirmed ones.
+--
+-- CONTRADICTION: Waldemar's own 1989 interview explicitly states
+-- "I had FOUR mestres" and names only the four above. He did NOT
+-- mention Besouro Gago.
+--
+-- This statement is preserved with 'disputed' confidence to ensure
+-- the claim is queryable and not lost, while clearly marking that
+-- it contradicts primary source testimony.
+-- ============================================================
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1936-01-01'::date, 'year'::genealogy.date_precision,
+  '1940-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb,
+  'disputed'::genealogy.confidence,
+  'Grupo Liberdade Capoeira website (grupoliberdadecapoeira.com.br/linhagem-mestres/)',
+  'DISPUTED: Listed by Grupo Liberdade Capoeira as a fifth teacher, but this CONTRADICTS Waldemar''s own 1989 interview where he explicitly stated "I had four mestres" and named only Siri de Mangue, Canário Pardo, Talavi, and Ricardo. Besouro Gago ("the Stutterer") is distinct from Besouro Mangangá.',
+  'CONTESTADO: Listado pelo Grupo Liberdade Capoeira como quinto professor, mas isso CONTRADIZ a própria entrevista de Waldemar de 1989 onde ele declarou explicitamente "Tive quatro mestres" e nomeou apenas Siri de Mangue, Canário Pardo, Talavi e Ricardo. Besouro Gago ("o Gago") é distinto de Besouro Mangangá.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Waldemar' AND o.apelido = 'Besouro Gago' AND o.apelido_context = 'Periperi'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
   predicate,
